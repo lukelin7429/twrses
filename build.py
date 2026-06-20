@@ -12,6 +12,15 @@ ROOT = os.path.dirname(os.path.abspath(__file__))
 CRAWL = json.load(open(os.path.join(ROOT, "data", "crawl.json"), encoding="utf-8"))
 BY_PATH = {p["path"]: p for p in CRAWL}
 
+# ----------------------------------------------------------------------
+# BASE: URL prefix for internal links.
+#   ""         → custom domain (www.twrses.org), absolute paths from root
+#   "/twrses"  → GitHub project page lukelin7429.github.io/twrses/
+# Switch to "" and rebuild when DNS points twrses.org at GitHub Pages.
+# ----------------------------------------------------------------------
+BASE = "/twrses"
+ROOT_URL = f"https://lukelin7429.github.io{BASE}" if BASE else "https://www.twrses.org"
+
 SITE = {
     "name": "彰化縣人師教育協會",
     "name_en": "My Culture Connect",
@@ -154,6 +163,9 @@ def write(path, content):
     rel = path.strip("/")
     out = os.path.join(ROOT, rel, "index.html") if rel else os.path.join(ROOT, "index.html")
     os.makedirs(os.path.dirname(out), exist_ok=True)
+    if BASE:
+        # prefix every internal absolute link/asset (external http/mailto/# untouched)
+        content = content.replace('href="/', f'href="{BASE}/').replace('src="/', f'src="{BASE}/')
     open(out, "w", encoding="utf-8").write(content)
     return out
 
@@ -716,16 +728,20 @@ def build_news():
 
 # ==================================================================
 def build_static():
-    # CNAME, favicon, .nojekyll, robots
-    open(os.path.join(ROOT, "CNAME"), "w").write("www.twrses.org\n")
+    # CNAME (only for custom-domain build), favicon, .nojekyll, robots
+    cname_path = os.path.join(ROOT, "CNAME")
+    if BASE:
+        if os.path.exists(cname_path): os.remove(cname_path)
+    else:
+        open(cname_path, "w").write("www.twrses.org\n")
     open(os.path.join(ROOT, ".nojekyll"), "w").write("")
-    open(os.path.join(ROOT, "robots.txt"), "w").write("User-agent: *\nAllow: /\nSitemap: https://www.twrses.org/sitemap.txt\n")
+    open(os.path.join(ROOT, "robots.txt"), "w").write(f"User-agent: *\nAllow: /\nSitemap: {ROOT_URL}/sitemap.txt\n")
     fav = '''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="#0e6b60"/><text x="32" y="44" font-size="38" text-anchor="middle" fill="#fff" font-family="PingFang TC, sans-serif" font-weight="700">師</text></svg>'''
     os.makedirs(os.path.join(ROOT, "assets", "img"), exist_ok=True)
     open(os.path.join(ROOT, "assets", "img", "favicon.svg"), "w").write(fav)
 
 def build_sitemap(paths):
-    lines = [f"https://www.twrses.org{p}" for p in paths]
+    lines = [f"{ROOT_URL}{p}" for p in paths]
     open(os.path.join(ROOT, "sitemap.txt"), "w").write("\n".join(lines) + "\n")
 
 def main():
