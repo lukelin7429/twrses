@@ -89,7 +89,7 @@ def header(active):
     return f'''<header class="site-header">
   <div class="wrap nav">
     <a class="brand" href="/">
-      <img class="mark-logo" src="/assets/img/logo-badge.png" alt="人師教育協會標誌" width="58" height="35">
+      <img class="mark-logo" src="/assets/img/logo-badge.svg" alt="人師教育協會標誌" width="36" height="38">
       <span>{SITE["name"]}<small>My Culture Connect</small></span>
     </a>
     <button class="nav-toggle" aria-label="選單" aria-expanded="false"><span></span><span></span><span></span></button>
@@ -146,7 +146,7 @@ def layout(path, title, desc, body, active):
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..600;1,9..144,400..500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/css/style.css">
 <link rel="stylesheet" href="/assets/css/motion.css">
-<link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/assets/img/logo-badge.svg" type="image/svg+xml">
 <meta property="og:title" content="{html.escape(full_title)}">
 <meta property="og:description" content="{html.escape(desc)}">
 <meta property="og:type" content="website">
@@ -875,9 +875,6 @@ def build_static():
         open(cname_path, "w").write("www.twrses.org\n")
     open(os.path.join(ROOT, ".nojekyll"), "w").write("")
     open(os.path.join(ROOT, "robots.txt"), "w").write(f"User-agent: *\nAllow: /\nSitemap: {ROOT_URL}/sitemap.txt\n")
-    fav = '''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="#0e6b60"/><text x="32" y="44" font-size="38" text-anchor="middle" fill="#fff" font-family="PingFang TC, sans-serif" font-weight="700">師</text></svg>'''
-    os.makedirs(os.path.join(ROOT, "assets", "img"), exist_ok=True)
-    open(os.path.join(ROOT, "assets", "img", "favicon.svg"), "w").write(fav)
 
 def build_sitemap(paths):
     lines = [f"{ROOT_URL}{p}" for p in paths]
