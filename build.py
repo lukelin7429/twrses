@@ -11,6 +11,8 @@ import json, os, html, re, shutil
 ROOT = os.path.dirname(os.path.abspath(__file__))
 CRAWL = json.load(open(os.path.join(ROOT, "data", "crawl.json"), encoding="utf-8"))
 BY_PATH = {p["path"]: p for p in CRAWL}
+_ed = os.path.join(ROOT, "data", "everyday.json")
+EVERYDAY = json.load(open(_ed, encoding="utf-8")) if os.path.exists(_ed) else {}
 
 # ----------------------------------------------------------------------
 # BASE: URL prefix for internal links.
@@ -675,9 +677,41 @@ def _bold_kw(passage, vocab):
                      r'<span class="kw">\1</span>', out, flags=re.I)
     return out
 
+QUIZ_FALLBACK = ["apple","water","school","friend","study","teacher","pencil","window"]
+def render_quiz(book, u):
+    pool=[]; seen=set()
+    for v in u.get("vocab",[]) + u.get("advanced",[]):
+        w=v["w"]
+        if w.lower() in seen: continue
+        seen.add(w.lower()); pool.append((w, v.get("zh","")))
+    for w in QUIZ_FALLBACK:
+        if len(pool)>=4: break
+        if w.lower() not in seen: pool.append((w,"")); seen.add(w.lower())
+    n=len(pool)
+    tgt=sorted(set([0, n//2, n-1]))[:3]
+    L="ABCD"; qs=[]
+    for qi, ti in enumerate(tgt):
+        cw, czh = pool[ti]
+        distr=[]; j=ti+1
+        while len(distr)<3 and j<ti+1+n:
+            w=pool[j % n][0]
+            if w.lower()!=cw.lower() and w not in distr: distr.append(w)
+            j+=1
+        pos=(u["unit"]+qi) % 4
+        opts=[None]*4; opts[pos]=(cw,True); di=0
+        for k in range(4):
+            if opts[k] is None: opts[k]=(distr[di],False); di+=1
+        btns="".join(
+            f'<button class="quiz-opt"{" data-correct=\"1\"" if c else ""}><span class="ql">{L[k]}</span>{html.escape(w)}</button>'
+            for k,(w,c) in enumerate(opts))
+        prompt = f'「{html.escape(czh)}」是哪一個英文字？' if czh else f'Which one is “{html.escape(cw)}”?'
+        qs.append(f'<div class="quiz"><p class="q">{qi+1}. {prompt}</p><div class="quiz-opts">{btns}</div></div>')
+    return '<p class="sub-head">小測驗 Quick Check</p>' + "".join(qs)
+
 def render_unit(book, u, photo, audio):
     """u: dict(unit,title,passage,vocab,translation,advanced). audio: dict(read,teach,eng)."""
     uid = f"b{book:02d}u{u['unit']:02d}"
+    quiz_html = render_quiz(book, u)
     passage_html = _bold_kw(u["passage"], u["vocab"])
     vocab_html = "".join(
         f'<span class="vchip"><b>{html.escape(v["w"])}</b><span class="pos">({v["pos"]})</span><span class="zh">{html.escape(v["zh"])}</span>'
@@ -719,47 +753,46 @@ def render_unit(book, u, photo, audio):
     <p class="sub-head">進階學習 Go Further</p>
     <div class="adv-list">{adv_html}</div>
     {teach_html}
+    {quiz_html}
   </div>
 </div>'''
 
-def build_everyday_demo():
-    u1 = {"unit":1,"title":"Brushing Your Teeth",
-        "passage":"Tom is brushing his teeth. He brushes his teeth every morning. He brushes his teeth every day to keep them clean and healthy.",
-        "vocab":[{"w":"brush","pos":"v.","zh":"刷"},{"w":"keep","pos":"v.","zh":"保持"},{"w":"healthy","pos":"adj.","zh":"健康的"}],
-        "translation":"湯姆正在刷牙。他每天早上刷牙。他每天刷牙，以保持牙齒的清潔與健康。",
-        "advanced":[
-            {"w":"toothbrush","pos":"n.","zh":"牙刷","eg":"There are several toothbrushes in the cup on the shelf.","eg_zh":"架上的杯子裡有好幾把牙刷。"},
-            {"w":"toothpaste","pos":"n.","zh":"牙膏","eg":"Mary is squeezing some toothpaste onto her toothbrush.","eg_zh":"瑪麗正將一些牙膏擠到她的牙刷上。"},
-            {"w":"cavity","pos":"n.","zh":"蛀牙","eg":"Brushing your teeth can help to prevent cavities.","eg_zh":"刷牙有助於預防蛀牙。"},
-            {"w":"dentist","pos":"n.","zh":"牙醫","eg":"I hate going to the dentist.","eg_zh":"我很討厭去看牙醫。"},
-            {"w":"tap","pos":"n.","zh":"水龍頭","eg":"The toothpaste is on the sink next to the tap.","eg_zh":"牙膏在洗手槽的水龍頭旁邊。"},
-        ]}
-    audio = {"read":"Everyday_Book01_Unit01.mp3","teach":"Everyday_Book01_Unit01_Teaching.mp3","eng":"Everyday_Book01_Unit01_Eng_Teaching.mp3"}
-    unit_html = render_unit(1, u1, "/assets/img/booklets/everyday-b01-u01.jpg", audio)
-    quiz = '''<div class="unit"><div class="unit-head"><span class="no">?</span><h3>小測驗 Quick Check</h3></div>
-<div class="unit-body">
-  <div class="quiz"><p class="q">1. 「刷牙」用哪一個動詞？</p><div class="quiz-opts">
-    <button class="quiz-opt" data-correct="1">brush</button><button class="quiz-opt">keep</button>
-    <button class="quiz-opt">cavity</button><button class="quiz-opt">tap</button></div></div>
-  <div class="quiz"><p class="q">2. 哪一個字是「牙膏」？</p><div class="quiz-opts">
-    <button class="quiz-opt">toothbrush</button><button class="quiz-opt" data-correct="1">toothpaste</button>
-    <button class="quiz-opt">dentist</button><button class="quiz-opt">tap</button></div></div>
-  <div class="quiz"><p class="q">3. I hate going to the ___.（看牙醫）</p><div class="quiz-opts">
-    <button class="quiz-opt">tap</button><button class="quiz-opt">cavity</button>
-    <button class="quiz-opt" data-correct="1">dentist</button><button class="quiz-opt">toothbrush</button></div></div>
-</div></div>'''
+EVERYDAY_META = {
+    "1":("Book 1","校園與日常生活","🦷"), "2":("Book 2","生活情境","🏠"),
+    "3":("Book 3","社區與外出","🏙️"), "4":("Book 4","自然與健康","🌿"),
+    "5":("Book 5","興趣與活動","🎨"), "6":("Book 6","世界與未來","🌏"),
+}
+_CN_NUM = "零一二三四五六"
+
+def build_everyday_hub():
+    cards=[]
+    for b in ["1","2","3","4","5","6"]:
+        title, sub, ico = EVERYDAY_META[b]
+        units = EVERYDAY.get(b)
+        if units:
+            cards.append(f'<a class="card card-link" href="/resources/booklets/everyday/book{b}/"><span class="ico">{ico}</span><h3>{title}</h3><p>{sub}　·　共 {len(units)} 課</p></a>')
+        else:
+            cards.append(f'<div class="card" style="opacity:.5"><span class="ico">{ico}</span><h3>{title}</h3><p>{sub}　·　製作中</p></div>')
     body = f'''
-{page_hero("基礎英語 · Book 1", "Everyday Topics — 第一冊", "每課一個生活主題：看圖、讀短文、聽真人朗讀、學生字與進階用法，最後做個小測驗。本頁為 Unit 1 示範。")}
-<section class="section">
-  <div class="wrap" style="max-width:920px">
-    {unit_html}
-    {quiz}
-    <p class="muted rvl" style="margin-top:1.5rem">＊這是 <strong>Unit 1</strong> 的示範。Book 1 共 15 課，全部完成後會在這一頁依序排列。</p>
-  </div>
-</section>
+{page_hero("基礎英語 · Everyday Topics", "從生活，開始學英語", "六冊主題式英語教材：看圖、讀短文、聽真人朗讀、學生字與進階用法，再做個小測驗。")}
+<section class="section"><div class="wrap"><div class="grid cols-3 stagger">{''.join(cards)}</div></div></section>
 '''
-    write("/resources/booklets/everyday/book1/", layout("/resources/booklets/everyday/book1/",
-        "基礎英語 Book 1", "人師閱讀教材·基礎英語第一冊：看圖讀短文、真人朗讀、生字與進階學習、小測驗。", body, "resources"))
+    write("/resources/booklets/everyday/", layout("/resources/booklets/everyday/", "基礎英語",
+        "人師閱讀教材·基礎英語（Everyday Topics）六冊主題式英語自學：短文、真人朗讀、生字與進階學習、小測驗。", body, "resources"))
+
+def build_everyday_book(b):
+    units = sorted(EVERYDAY.get(str(b), []), key=lambda u: u["unit"])
+    units_html = "".join(render_unit(b, u, u.get("photo"), u.get("audio") or {}) for u in units)
+    cn = _CN_NUM[b] if b < len(_CN_NUM) else str(b)
+    body = f'''
+{page_hero(f"基礎英語 · Book {b}", f"Everyday Topics — 第{cn}冊", "每課：看圖 → 讀短文（真人朗讀）→ 生字與進階學習 → 小測驗。")}
+<section class="section"><div class="wrap" style="max-width:940px">
+{units_html}
+<p class="muted rvl" style="margin-top:1rem">＊本冊共 {len(units)} 課。</p>
+</div></section>
+'''
+    write(f"/resources/booklets/everyday/book{b}/", layout(f"/resources/booklets/everyday/book{b}/",
+        f"基礎英語 Book {b}", f"人師閱讀教材·基礎英語第{cn}冊，{len(units)} 課互動閱讀（短文／真人朗讀／生字／進階學習／小測驗）。", body, "resources"))
 
 def build_resources_hub():
     hub_page("/resources/", "resources", "英語學習資源",
@@ -1012,10 +1045,13 @@ def main():
     build_rural_index(); build_academy(); build_practicum(); build_guidelines()
     paths += ["/rural-schools/","/rural-schools/academy/","/rural-schools/practicum/","/rural-schools/guidelines/"]
     build_resources_hub(); paths.append("/resources/")
-    build_everyday_demo(); paths.append("/resources/booklets/everyday/book1/")
     build_booklets(); paths.append("/resources/booklets/")
     for path, title, lead, cp in BOOKLET_LEAVES:
+        if path == "/resources/booklets/everyday/": continue  # built as interactive hub below
         leaf_prose(path, "resources", "人師閱讀教材", title, lead, _clean_paras(cp) or ["內容整理中。"]); paths.append(path)
+    build_everyday_hub(); paths.append("/resources/booklets/everyday/")
+    for b in sorted(int(k) for k in EVERYDAY):
+        build_everyday_book(b); paths.append(f"/resources/booklets/everyday/book{b}/")
     build_videos_hub(); paths.append("/resources/videos/")
     for path, title, lead, cp in VIDEO_LEAVES:
         leaf_videos(path, "resources", "英語學習影片", title, lead, cp); paths.append(path)
