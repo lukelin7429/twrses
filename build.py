@@ -15,6 +15,8 @@ _ed = os.path.join(ROOT, "data", "everyday.json")
 EVERYDAY = json.load(open(_ed, encoding="utf-8")) if os.path.exists(_ed) else {}
 _bd = os.path.join(ROOT, "data", "basic.json")
 BASIC = json.load(open(_bd, encoding="utf-8")) if os.path.exists(_bd) else {}
+_id = os.path.join(ROOT, "data", "intermediate.json")
+INTERMEDIATE = json.load(open(_id, encoding="utf-8")) if os.path.exists(_id) else {}
 
 # ----------------------------------------------------------------------
 # BASE: URL prefix for internal links.
@@ -763,9 +765,11 @@ def render_unit(book, u, photo, audio):
 
 BASIC_AUDIO_REL = "https://github.com/lukelin7429/twrses/releases/download/basic-audio"
 BASIC_PDF_REL = "https://github.com/lukelin7429/twrses/releases/download/basic-pdf"
+INTER_AUDIO_REL = "https://github.com/lukelin7429/twrses/releases/download/intermediate-audio"
+INTER_PDF_REL = "https://github.com/lukelin7429/twrses/releases/download/intermediate-pdf"
 
-def render_basic_unit(book, u):
-    uid = f"basic-b{book:02d}u{u['unit']:02d}"
+def render_basic_unit(book, u, level="basic", audio_rel=BASIC_AUDIO_REL, pdf_rel=BASIC_PDF_REL):
+    uid = f"{level}-b{book:02d}u{u['unit']:02d}"
     audio = u.get("audio") or {}
     title = html.escape(u["title"])
     photos = u.get("photos") or []
@@ -774,7 +778,7 @@ def render_basic_unit(book, u):
     paras_html = "".join(
         f'<p class="rd-para"><button class="spk" data-say="{html.escape(p)}" aria-label="朗讀">🔊</button><span>{html.escape(p)}</span></p>'
         for p in u.get("paras", []))
-    read_audio = f'<audio controls preload="none" src="{BASIC_AUDIO_REL}/{audio["read"]}"></audio>' if audio.get("read") else ""
+    read_audio = f'<audio controls preload="none" src="{audio_rel}/{audio["read"]}"></audio>' if audio.get("read") else ""
     full_say = " ".join(u.get("paras", []))
     vocab_html = "".join(
         f'<span class="vchip"><b>{html.escape(v["w"])}</b><span class="pos">({v["pos"]})</span><span class="zh">{html.escape(v["zh"])}</span>'
@@ -791,10 +795,10 @@ def render_basic_unit(book, u):
     teach_html = ""
     if audio.get("teach") or audio.get("eng"):
         rows=""
-        if audio.get("teach"): rows+=f'<div class="ta">📖 課文教學（中文講解）<audio controls preload="none" src="{BASIC_AUDIO_REL}/{audio["teach"]}"></audio></div>'
-        if audio.get("eng"): rows+=f'<div class="ta">🗣️ 全英教學<audio controls preload="none" src="{BASIC_AUDIO_REL}/{audio["eng"]}"></audio></div>'
+        if audio.get("teach"): rows+=f'<div class="ta">📖 課文教學（中文講解）<audio controls preload="none" src="{audio_rel}/{audio["teach"]}"></audio></div>'
+        if audio.get("eng"): rows+=f'<div class="ta">🗣️ 全英教學<audio controls preload="none" src="{audio_rel}/{audio["eng"]}"></audio></div>'
         teach_html=f'<p class="sub-head">完整教學音檔</p><div class="teach-audio">{rows}</div>'
-    pdf_link = f'<a class="unit-dl" href="{BASIC_PDF_REL}/{u["pdf"]}" target="_blank" rel="noopener">⬇ PDF</a>' if u.get("pdf") else ""
+    pdf_link = f'<a class="unit-dl" href="{pdf_rel}/{u["pdf"]}" target="_blank" rel="noopener">⬇ PDF</a>' if u.get("pdf") else ""
     tr_block = (f'<button class="tr-toggle" data-target="{uid}-tr">顯示中文翻譯</button><div class="tr-box" id="{uid}-tr">{tr}</div>') if tr else ""
     qa_section = (f'<p class="sub-head">閱讀理解 Questions</p><div class="qa-list">{qa_html}</div>') if qa_html else ""
     vocab_section = (f'<p class="sub-head">生字及片語 Words &amp; Phrases</p><div class="vocab-grid">{vocab_html}</div>') if vocab_html else ""
@@ -841,6 +845,33 @@ def build_basic_book(b):
 '''
     write(f"/resources/booklets/basic/book{b}/", layout(f"/resources/booklets/basic/book{b}/",
         f"初級閱讀 Book {b}", f"人師閱讀教材·初級閱讀第{b}冊，{len(units)} 課互動閱讀。", body, "resources"))
+
+def build_inter_hub():
+    done = sorted(int(k) for k in INTERMEDIATE)
+    cards=[]
+    for b in done:
+        units=INTERMEDIATE[str(b)]
+        cards.append(f'<a class="card card-link" href="/resources/booklets/intermediate/book{b}/"><span class="ico">📗</span><h3>Book {b}</h3><p>共 {len(units)} 課</p></a>')
+    body = f'''
+{page_hero("中級閱讀 · Intermediate Reading", "讀進一步的文章", "更深入的閱讀練習：讀文章、聽真人朗讀、想想閱讀理解問題、學生字片語，再做個小測驗。")}
+<section class="section"><div class="wrap"><div class="grid cols-3 stagger">{''.join(cards)}</div>
+<p class="muted rvl" style="margin-top:1.5rem">＊Book 5 以後內容整理中。</p></div></section>
+'''
+    write("/resources/booklets/intermediate/", layout("/resources/booklets/intermediate/", "中級閱讀",
+        "人師閱讀教材·中級閱讀（Intermediate Reading）：長文閱讀、真人朗讀、閱讀理解問答、生字片語、小測驗。", body, "resources"))
+
+def build_inter_book(b):
+    units = sorted(INTERMEDIATE.get(str(b), []), key=lambda u: u["unit"])
+    units_html = "".join(render_basic_unit(b, u, level="inter", audio_rel=INTER_AUDIO_REL, pdf_rel=INTER_PDF_REL) for u in units)
+    body = f'''
+{page_hero(f"中級閱讀 · Book {b}", f"Intermediate Reading — 第{_CN_NUM[b] if b < len(_CN_NUM) else b}冊", "每課：看圖 → 讀文章（真人朗讀）→ 閱讀理解 → 生字片語 → 小測驗。")}
+<section class="section"><div class="wrap" style="max-width:940px">
+{units_html}
+<p class="muted rvl" style="margin-top:1rem">＊本冊共 {len(units)} 課。</p>
+</div></section>
+'''
+    write(f"/resources/booklets/intermediate/book{b}/", layout(f"/resources/booklets/intermediate/book{b}/",
+        f"中級閱讀 Book {b}", f"人師閱讀教材·中級閱讀第{b}冊，{len(units)} 課互動閱讀。", body, "resources"))
 
 EVERYDAY_META = {
     "1":("Book 1","校園與日常生活","🦷"), "2":("Book 2","生活情境","🏠"),
@@ -1131,7 +1162,7 @@ def main():
     paths += ["/rural-schools/","/rural-schools/academy/","/rural-schools/practicum/","/rural-schools/guidelines/"]
     build_resources_hub(); paths.append("/resources/")
     build_booklets(); paths.append("/resources/booklets/")
-    _interactive = {"/resources/booklets/everyday/", "/resources/booklets/basic/"}
+    _interactive = {"/resources/booklets/everyday/", "/resources/booklets/basic/", "/resources/booklets/intermediate/"}
     for path, title, lead, cp in BOOKLET_LEAVES:
         if path in _interactive: continue  # built as interactive hubs below
         leaf_prose(path, "resources", "人師閱讀教材", title, lead, _clean_paras(cp) or ["內容整理中。"]); paths.append(path)
@@ -1142,6 +1173,10 @@ def main():
         build_basic_hub(); paths.append("/resources/booklets/basic/")
         for b in sorted(int(k) for k in BASIC):
             build_basic_book(b); paths.append(f"/resources/booklets/basic/book{b}/")
+    if INTERMEDIATE:
+        build_inter_hub(); paths.append("/resources/booklets/intermediate/")
+        for b in sorted(int(k) for k in INTERMEDIATE):
+            build_inter_book(b); paths.append(f"/resources/booklets/intermediate/book{b}/")
     build_videos_hub(); paths.append("/resources/videos/")
     for path, title, lead, cp in VIDEO_LEAVES:
         leaf_videos(path, "resources", "英語學習影片", title, lead, cp); paths.append(path)
