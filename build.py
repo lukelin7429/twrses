@@ -498,9 +498,26 @@ def build_rural_index():
     write("/rural-schools/", layout("/rural-schools/", "偏鄉英語教育", "人師教育協會推廣偏鄉英語教育：人師英語學院、Practicum 線上課程與上課須知。", body, "rural"))
 
 def build_academy():
-    teachers = ["Michael Dishnow（共同創辦人暨資深教師）", "Shannon Braden", "Bridget Hoarty",
-                "Quentin Gooch", "Xiahna Evans", "Lisa Dinning", "Angela Miley", "Eric Berman", "Emily Hogle"]
-    tcards = "\n".join(f'<span class="pill">{html.escape(t)}</span>' for t in teachers)
+    teachers = [
+        ("bridget", "Bridget Hoarty", "Boston, MA"),
+        ("shannon", "Shannon Braden", "Los Angeles, CA"),
+        ("jessica", "Jessica Hartkopf", "Minneapolis, MN"),
+        ("douglas", "Douglas Benner", "Albuquerque, NM"),
+        ("dom", "Dom Jones", "Orange County, CA"),
+        ("lily", "Lily Chen", "Boston, MA"),
+        ("melissa", "Melissa Pini", "Detroit, MI"),
+        ("melanie", "Melanie Rohena", "Denver, CO"),
+        ("jennafer", "Jennafer Duerden", "Savona, Italy"),
+        ("emily", "Emily Hogle", "United States"),
+        ("quentin", "Quentin Gooch", "United States"),
+        ("xiahna", "Xiahna Evans", "United States"),
+        ("lisa", "Lisa Dinning", "United States"),
+        ("eric", "Eric Berman", "United States"),
+        ("angela", "Angela Miley", "United States"),
+    ]
+    tcards = "\n".join(
+        f'''<div class="person"><div class="ph"><img loading="lazy" src="/assets/img/teachers/{slug}.jpg" alt="{html.escape(name)}"></div><b>{html.escape(name)}</b><small>{html.escape(loc)}</small></div>'''
+        for slug, name, loc in teachers)
     body = f'''
 {page_hero("人師英語學院", "和外師一起，快樂學英文", "為了照顧偏鄉學習資源不足的孩子，本會於 2021 年起推出人師英語學院，提供優質的線上英語學習環境，歡迎大家報名上課。")}
 <section class="section">
@@ -508,13 +525,12 @@ def build_academy():
     <div class="rvl prose">
       <h2 class="sweep">報名資訊</h2>
       <ul>
-        <li><strong>師資來源</strong>：取得美國 International TEFL Academy 認證的英語老師，皆為來自英美等國家的母語人士。</li>
+        <li><strong>師資來源</strong>：認證過的英語老師。</li>
         <li><strong>費用</strong>：免費。</li>
         <li><strong>報名資格</strong>：各級學校學生。</li>
-        <li><strong>報名方式</strong>：加入林吉祥老師 Skype ID <strong>lukelin7429</strong>，並註明學校、年級、中英文姓名。</li>
-        <li><strong>上課平台</strong>：Skype / Google Meet。</li>
+        <li><strong>報名方式</strong>：寫信至 <a href="mailto:{SITE['email']}">{SITE['email']}</a>，並註明學校、年級、中英文姓名。</li>
+        <li><strong>上課平台</strong>：Google Meet。</li>
       </ul>
-      <p><a class="btn btn-primary" href="/rural-schools/practicum/">查看常見問答 →</a></p>
     </div>
     <div class="rvl d2">{donate_block()}</div>
   </div>
@@ -522,12 +538,12 @@ def build_academy():
 <section class="section band">
   <div class="wrap">
     <p class="eyebrow rvl">師資群</p>
-    <h2 class="rvl d1">來自英美的母語外師</h2>
-    <div class="pills rvl d2" style="margin-top:1.2rem;gap:.7rem">{tcards}</div>
+    <h2 class="rvl d1">我們的外師團隊</h2>
+    <div class="team-grid stagger" style="margin-top:2rem">{tcards}</div>
   </div>
 </section>
 '''
-    write("/rural-schools/academy/", layout("/rural-schools/academy/", "人師英語學院", "人師英語學院 2021 年起提供免費線上英語課程，ITA 認證英美母語外師，各級學校學生可報名。", body, "rural"))
+    write("/rural-schools/academy/", layout("/rural-schools/academy/", "人師英語學院", "人師英語學院 2021 年起提供免費線上英語課程，認證過的英語老師授課，各級學校學生可報名。", body, "rural"))
 
 def build_practicum():
     faqs_ita = [
