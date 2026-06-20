@@ -42,7 +42,10 @@ SITE = {
 # -------------------- navigation tree (clean URLs) --------------------
 NAV = [
     {"label": "首頁", "href": "/", "key": "home"},
-    {"label": "認識人師", "href": "/about/", "key": "about"},
+    {"label": "認識人師", "href": "/about/", "key": "about", "children": [
+        {"label": "協會介紹", "href": "/about/"},
+        {"label": "創辦人林吉祥", "href": "/about/founder/"},
+    ]},
     {"label": "偏鄉英語教育", "href": "/rural-schools/", "key": "rural", "children": [
         {"label": "人師英語學院", "href": "/rural-schools/academy/"},
         {"label": "Practicum 線上課程", "href": "/rural-schools/practicum/"},
@@ -304,6 +307,10 @@ def build_about():
 <section class="section">
   <div class="wrap grid cols-2" style="gap:3rem;align-items:start">
     <div class="rvl prose">
+      <div class="brand-emblem" style="margin-bottom:1.6rem">
+        <img src="/assets/img/logo.png" alt="人師教育協會標誌">
+        <div><strong style="font-family:var(--serif);font-size:1.25rem;color:var(--ink)">人師教育協會</strong><br><span class="muted" style="font-size:.9rem">My Culture Connect · 自民國 98 年</span></div>
+      </div>
       <p class="eyebrow">宗旨</p>
       <h2 class="sweep">培養志工老師，<br>提昇教育文化</h2>
       <p class="muted">人師教育協會的組成份子有校長、老師、家長和關心教育的熱心人士。為了提供更多教育資源給下一代，大家有錢出錢、有力出力，製作免費學習教材與教學影片，近期更協助多所學校製作雙語資源網站，積極引進國外資源與彰化縣的學校交流。</p>
@@ -325,11 +332,36 @@ def build_about():
 </section>
 
 <section class="section">
-  <div class="wrap grid cols-2" style="gap:3rem;align-items:center">
+  <div class="wrap split">
     <div class="rvl">
       <p class="eyebrow">創辦人</p>
       <h2 class="sweep">林吉祥老師</h2>
-      <p class="muted">自民國 98 年協會草創至今，創辦人林吉祥老師長年義務投入偏鄉英語教育，曾獲<strong>教育部教育奉獻獎</strong>，並獲自由時報、中國時報、人間福報及美國地方報紙報導。相關專題包括 2014 萬合國小、圳寮國小網界博覽會專題，以及英文版《One Man's Dream: Luke Lin》。</p>
+      <p class="muted">33 歲那年，他辭去人人欣羨的穩定工作，回到家鄉投入偏鄉英語教育。自民國 98 年創立人師教育協會至今，長年義務奉獻，並於 2014 年榮獲教育部<strong>教育奉獻獎</strong>，獲總統與教育部長親自表揚。</p>
+      <p class="pullquote">「我的夢想，就是讓偏鄉孩子不用花大錢，也能學好英文。」<small>—— 創辦人 林吉祥</small></p>
+      <a class="btn btn-primary" href="/about/founder/">閱讀創辦人完整事蹟 →</a>
+    </div>
+    <div class="split-media rvl d2">
+      <figure class="figure"><img src="/assets/img/founder/portrait.jpg" alt="創辦人林吉祥老師" loading="lazy"></figure>
+    </div>
+  </div>
+</section>
+
+<section class="section band">
+  <div class="wrap">
+    <p class="eyebrow rvl">歷屆理事長</p>
+    <h2 class="rvl d1">一棒接一棒的傳承</h2>
+    <figure class="figure rvl d2" style="margin-top:1.5rem;max-width:920px">
+      <img src="/assets/img/chairmen.jpg" alt="人師教育協會歷屆理事長：林吉祥、游人印、蔡國裕">
+      <figcaption>歷屆理事長：林吉祥（第 1–2 屆）、游人印（第 3、6 屆）、蔡國裕（第 4–5 屆）</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap grid cols-2" style="gap:3rem;align-items:center">
+    <div class="rvl">
+      <p class="eyebrow">聯絡我們</p>
+      <h2 class="sweep">歡迎與人師聯絡</h2>
       <p class="muted">若您有任何問題，歡迎聯絡協會總幹事林吉祥老師。</p>
       <div class="pills" style="margin-top:1rem">
         <span class="pill">📧 <a href="mailto:{SITE['email']}">{SITE['email']}</a></span>
@@ -342,6 +374,115 @@ def build_about():
 </section>
 '''
     write("/about/", layout("/about/", "認識人師", "人師教育協會成立於民國98年，宗旨、五大任務、國內外合作單位與創辦人林吉祥介紹。", body, "about"))
+
+def build_founder():
+    def vcard(vid, title):
+        return f'''<a class="vcard" href="https://www.youtube.com/watch?v={vid}" target="_blank" rel="noopener">
+  <span class="vthumb"><img loading="lazy" src="https://i.ytimg.com/vi/{vid}/hqdefault.jpg" alt="{html.escape(title)}"></span>
+  <span class="vmeta"><span class="vt">{html.escape(title)}</span></span>
+</a>'''
+    videos = "\n".join([
+        vcard("phk3Atsq1rU", "教育奉獻獎 表揚紀錄"),
+        vcard("vS22rkgGnRU", "至內政部受獎"),
+        vcard("BC1hJTjvcag", "創辦人介紹人師教育協會"),
+    ])
+    media = [
+        ("教育部教育奉獻獎 · 得獎名錄", "https://excellentteacher.moe.edu.tw/2014/teacher1_11.htm", "教育部"),
+        ("辭鐵飯碗，義教偏鄉童英文", "https://news.ltn.com.tw/news/local/paper/512930", "自由時報"),
+        ("林吉祥獲全國教育奉獻獎", "https://tw.news.yahoo.com/%E6%9E%97%E5%90%89%E7%A5%A5%E7%8D%B2%E5%85%A8%E5%9C%8B%E6%95%99%E8%82%B2%E5%A5%89%E7%8D%BB%E7%8D%8E-220124748.html", "中國時報"),
+        ("助偏鄉學童學英文 義教十二年", "https://www.merit-times.com.tw/NewsPage2.aspx?unid=336535", "人間福報"),
+    ]
+    mcards = "\n".join(
+        f'''<a class="card card-link" href="{url}" target="_blank" rel="noopener">
+  <span class="tag">{src}</span>
+  <h3 style="margin-top:.6rem;font-size:1.12rem">{html.escape(title)}</h3>
+  <p>閱讀報導 ↗</p>
+</a>''' for title, url, src in media)
+    timeline = [
+        ("民國 98 年（2009）", "創立彰化縣人師教育協會，從竹塘鄉的教會開始義教偏鄉孩子英文。"),
+        ("自掏腰包，逐年深耕", "組團隊、自拍教學短片、架設網站、購置設備，免費提供偏鄉學校英語教育資源。"),
+        ("民國 103 年（2014）", "榮獲教育部「教育奉獻獎」，於師鐸獎暨資深優良教師表揚大會受獎，獲馬英九總統與吳思華部長親自表揚。"),
+        ("持續至今", "拍攝數百支生活英語影片免費供自學，並引進國外資源、視訊教學，與彰化縣逾百所學校交流。"),
+    ]
+    tl = "\n".join(f'<li><span class="yr">{html.escape(y)}</span><br><span class="tx">{html.escape(t)}</span></li>' for y, t in timeline)
+    body = f'''
+<section class="hero">
+  <div class="hero-bg"><span class="orb a"></span><span class="orb b"></span></div>
+  <div class="wrap split">
+    <div>
+      <p class="eyebrow rvl"><a href="/about/" style="color:inherit">認識人師</a> · 創辦人</p>
+      <h1 class="rvl d1">林吉祥老師</h1>
+      <p class="lead rvl d2">人師教育協會創辦人、總幹事。2014 年教育部教育奉獻獎得主。33 歲辭去穩定工作，回鄉義務推廣偏鄉英語教育至今。</p>
+      <div class="pills rvl d3" style="margin-top:1.2rem">
+        <span class="pill">🏆 教育奉獻獎</span>
+        <span class="pill">📚 義教偏鄉英語</span>
+        <span class="pill">🌏 引進國際資源</span>
+      </div>
+    </div>
+    <div class="split-media rvl d2">
+      <div class="portrait"><img src="/assets/img/founder/portrait.jpg" alt="創辦人林吉祥老師"></div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap split rev">
+    <div class="split-media rvl">
+      <figure class="figure"><img src="/assets/img/founder/news-clip.jpg" alt="聯合報報導：辭鐵飯碗 義教偏鄉童英文 12 年"><figcaption>聯合報報導（民國 103 年）：辭鐵飯碗，義教偏鄉童英文十二年</figcaption></figure>
+    </div>
+    <div class="rvl d2 prose">
+      <p class="eyebrow">他的故事</p>
+      <h2 class="sweep">「離的路，就是最簡單的路」</h2>
+      <p>三十三歲那年，林吉祥老師辭去人人欣羨的穩定工作，從竹塘鄉的教會開始，為偏鄉的孩子開設免費英語班。他常說，自己一年只有幾萬元預算，不足的就自己補貼——「能以一己之力服務他人，我比以前更快樂。」</p>
+      <p>他組織志工團隊、自拍教學短片、架設網站、購置器材，推廣偏鄉學校的英語教育；更引進國外資源，讓學生透過視訊和外國老師面對面練習口說。「網路是唯一克服城鄉差距的方法，」他說，「要讓彰化的孩子也能走向國際。」</p>
+      <p class="pullquote">「我的夢想，就是讓偏鄉孩子不用花大錢，也能學好英文。」</p>
+    </div>
+  </div>
+</section>
+
+<section class="section band">
+  <div class="wrap">
+    <div class="split">
+      <div class="rvl">
+        <p class="eyebrow">里程碑</p>
+        <h2>一條義無反顧的路</h2>
+        <ul class="timeline">{tl}</ul>
+      </div>
+      <div class="rvl d2">
+        <p class="eyebrow">2014 教育奉獻獎</p>
+        <div class="award-photos">
+          <figure class="figure"><img src="/assets/img/founder/award-ma.jpg" alt="林吉祥獲教育奉獻獎與馬英九總統合影"><figcaption>與馬英九總統合影</figcaption></figure>
+          <figure class="figure"><img src="/assets/img/founder/award-wu.jpg" alt="林吉祥自教育部長吳思華手中接受教育奉獻獎"><figcaption>教育部長吳思華頒獎</figcaption></figure>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <p class="eyebrow rvl">媒體報導</p>
+    <h2 class="rvl d1">各界的報導與肯定</h2>
+    <div class="grid cols-4 stagger" style="margin-top:1.8rem">{mcards}</div>
+  </div>
+</section>
+
+<section class="section band-brand">
+  <div class="wrap">
+    <p class="eyebrow rvl">影音紀錄</p>
+    <h2 class="rvl d1" style="margin-bottom:1.8rem">親自聽他說</h2>
+    <div class="video-grid stagger">{videos}</div>
+  </div>
+</section>
+
+<section class="section tight center">
+  <div class="wrap rvl">
+    <a class="btn btn-ghost" href="/about/">← 回認識人師</a>
+  </div>
+</section>
+'''
+    write("/about/founder/", layout("/about/founder/", "創辦人林吉祥",
+        "人師教育協會創辦人林吉祥老師：辭去穩定工作義教偏鄉英語，2014 年教育部教育奉獻獎得主，完整事蹟、媒體報導與影音。", body, "about"))
 
 def build_rural_index():
     body = f'''
@@ -749,6 +890,7 @@ def main():
     build_static()
     build_home(); paths.append("/")
     build_about(); paths.append("/about/")
+    build_founder(); paths.append("/about/founder/")
     build_rural_index(); build_academy(); build_practicum(); build_guidelines()
     paths += ["/rural-schools/","/rural-schools/academy/","/rural-schools/practicum/","/rural-schools/guidelines/"]
     build_resources_hub(); paths.append("/resources/")
