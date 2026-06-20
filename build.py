@@ -27,10 +27,10 @@ SITE = {
     "domain": "www.twrses.org",
     "founded": "民國 98 年（2009）",
     "slogan_en": "Learn from yesterday, live for today, and hope for tomorrow.",
-    "email": "lukelin7429@gmail.com",
+    "email": "luke@mycultureconnect.org",
     "email2": "luke@mycultureconnect.org",
     "line": "luke7429",
-    "addr": "彰化縣北斗鎮文苑路一段 136 號（人師北斗攝影棚）",
+    "addr": "彰化縣北斗鎮文苑路一段 136 號",
     "fb": "https://www.facebook.com/renshiacademy/",
     "yt": "https://www.youtube.com/channel/UC04mOhuUodVHGVX6xMSg0MQ/playlists",
     "mcc": "https://www.mycultureconnect.org/",
@@ -89,7 +89,7 @@ def header(active):
     return f'''<header class="site-header">
   <div class="wrap nav">
     <a class="brand" href="/">
-      <span class="mark">師</span>
+      <img class="mark-logo" src="/assets/img/logo-badge.png" alt="人師教育協會標誌" width="58" height="35">
       <span>{SITE["name"]}<small>My Culture Connect</small></span>
     </a>
     <button class="nav-toggle" aria-label="選單" aria-expanded="false"><span></span><span></span><span></span></button>
@@ -304,13 +304,15 @@ def build_about():
     body = f'''
 {page_hero("認識人師", "以教育，連結世界的善意", "本會成立於民國 98 年 1 月 1 日，為依法設立、非以營利為目的之社會團體，以培養學識與品德兼具之志工老師，以及提昇彰化地區教育與文化水準為宗旨。")}
 
+<section class="section tight">
+  <div class="wrap rvl">
+    <figure class="figure" style="margin:0"><img src="/assets/img/about-banner.jpg" alt="人師夢想為偉人，我為夢想而努力；利用有限的資源，創造無限的機會"></figure>
+  </div>
+</section>
+
 <section class="section">
   <div class="wrap grid cols-2" style="gap:3rem;align-items:start">
     <div class="rvl prose">
-      <div class="brand-emblem" style="margin-bottom:1.6rem">
-        <img src="/assets/img/logo.png" alt="人師教育協會標誌">
-        <div><strong style="font-family:var(--serif);font-size:1.25rem;color:var(--ink)">人師教育協會</strong><br><span class="muted" style="font-size:.9rem">My Culture Connect · 自民國 98 年</span></div>
-      </div>
       <p class="eyebrow">宗旨</p>
       <h2 class="sweep">培養志工老師，<br>提昇教育文化</h2>
       <p class="muted">人師教育協會的組成份子有校長、老師、家長和關心教育的熱心人士。為了提供更多教育資源給下一代，大家有錢出錢、有力出力，製作免費學習教材與教學影片，近期更協助多所學校製作雙語資源網站，積極引進國外資源與彰化縣的學校交流。</p>
@@ -336,7 +338,7 @@ def build_about():
     <div class="rvl">
       <p class="eyebrow">創辦人</p>
       <h2 class="sweep">林吉祥老師</h2>
-      <p class="muted">33 歲那年，他辭去人人欣羨的穩定工作，回到家鄉投入偏鄉英語教育。自民國 98 年創立人師教育協會至今，長年義務奉獻，並於 2014 年榮獲教育部<strong>教育奉獻獎</strong>，獲總統與教育部長親自表揚。</p>
+      <p class="muted">自民國 91 年起，林吉祥老師在竹塘鄉利用明航寺的場地開辦免費的英語課程，嘉惠南彰化的孩子；並於民國 98 年正式成立人師教育協會。長年義務奉獻，2014 年榮獲教育部<strong>教育奉獻獎</strong>，獲總統與教育部長親自表揚。</p>
       <p class="pullquote">「我的夢想，就是讓偏鄉孩子不用花大錢，也能學好英文。」<small>—— 創辦人 林吉祥</small></p>
       <a class="btn btn-primary" href="/about/founder/">閱讀創辦人完整事蹟 →</a>
     </div>
@@ -399,8 +401,8 @@ def build_founder():
   <p>閱讀報導 ↗</p>
 </a>''' for title, url, src in media)
     timeline = [
-        ("民國 98 年（2009）", "創立彰化縣人師教育協會，從竹塘鄉的教會開始義教偏鄉孩子英文。"),
-        ("自掏腰包，逐年深耕", "組團隊、自拍教學短片、架設網站、購置設備，免費提供偏鄉學校英語教育資源。"),
+        ("民國 91 年（2002）", "自竹塘鄉起步——利用明航寺的場地，開辦免費的英語課程，嘉惠南彰化的孩子。"),
+        ("民國 98 年（2009）", "正式立案成立彰化縣人師教育協會，匯聚校長、老師、家長與熱心人士的力量。"),
         ("民國 103 年（2014）", "榮獲教育部「教育奉獻獎」，於師鐸獎暨資深優良教師表揚大會受獎，獲馬英九總統與吳思華部長親自表揚。"),
         ("持續至今", "拍攝數百支生活英語影片免費供自學，並引進國外資源、視訊教學，與彰化縣逾百所學校交流。"),
     ]
@@ -412,7 +414,7 @@ def build_founder():
     <div>
       <p class="eyebrow rvl"><a href="/about/" style="color:inherit">認識人師</a> · 創辦人</p>
       <h1 class="rvl d1">林吉祥老師</h1>
-      <p class="lead rvl d2">人師教育協會創辦人、總幹事。2014 年教育部教育奉獻獎得主。33 歲辭去穩定工作，回鄉義務推廣偏鄉英語教育至今。</p>
+      <p class="lead rvl d2">人師教育協會創辦人、總幹事。2014 年教育部教育奉獻獎得主。自民國 91 年起義務推廣偏鄉英語教育，嘉惠南彰化的孩子至今。</p>
       <div class="pills rvl d3" style="margin-top:1.2rem">
         <span class="pill">🏆 教育奉獻獎</span>
         <span class="pill">📚 義教偏鄉英語</span>
@@ -421,21 +423,6 @@ def build_founder():
     </div>
     <div class="split-media rvl d2">
       <div class="portrait"><img src="/assets/img/founder/portrait.jpg" alt="創辦人林吉祥老師"></div>
-    </div>
-  </div>
-</section>
-
-<section class="section">
-  <div class="wrap split rev">
-    <div class="split-media rvl">
-      <figure class="figure"><img src="/assets/img/founder/news-clip.jpg" alt="聯合報報導：辭鐵飯碗 義教偏鄉童英文 12 年"><figcaption>聯合報報導（民國 103 年）：辭鐵飯碗，義教偏鄉童英文十二年</figcaption></figure>
-    </div>
-    <div class="rvl d2 prose">
-      <p class="eyebrow">他的故事</p>
-      <h2 class="sweep">「離的路，就是最簡單的路」</h2>
-      <p>三十三歲那年，林吉祥老師辭去人人欣羨的穩定工作，從竹塘鄉的教會開始，為偏鄉的孩子開設免費英語班。他常說，自己一年只有幾萬元預算，不足的就自己補貼——「能以一己之力服務他人，我比以前更快樂。」</p>
-      <p>他組織志工團隊、自拍教學短片、架設網站、購置器材，推廣偏鄉學校的英語教育；更引進國外資源，讓學生透過視訊和外國老師面對面練習口說。「網路是唯一克服城鄉差距的方法，」他說，「要讓彰化的孩子也能走向國際。」</p>
-      <p class="pullquote">「我的夢想，就是讓偏鄉孩子不用花大錢，也能學好英文。」</p>
     </div>
   </div>
 </section>
@@ -475,6 +462,16 @@ def build_founder():
   </div>
 </section>
 
+<section class="section">
+  <div class="wrap prose rvl" style="max-width:78ch">
+    <p class="eyebrow">他的故事</p>
+    <h2 class="sweep">為偏鄉，點一盞英語的燈</h2>
+    <p>自民國 91 年起，林吉祥老師在竹塘鄉利用明航寺的場地，開辦免費的英語課程，嘉惠南彰化的孩子。他常說，自己一年只有幾萬元預算，不足的就自己補貼——「能以一己之力服務他人，我比以前更快樂。」</p>
+    <p>他組織志工團隊、自拍教學短片、架設網站、購置器材，推廣偏鄉學校的英語教育；更引進國外資源，讓學生透過視訊和外國老師面對面練習口說。「網路是唯一克服城鄉差距的方法，」他說，「要讓彰化的孩子也能走向國際。」</p>
+    <p class="pullquote">「我的夢想，就是讓偏鄉孩子不用花大錢，也能學好英文。」</p>
+  </div>
+</section>
+
 <section class="section tight center">
   <div class="wrap rvl">
     <a class="btn btn-ghost" href="/about/">← 回認識人師</a>
@@ -482,7 +479,7 @@ def build_founder():
 </section>
 '''
     write("/about/founder/", layout("/about/founder/", "創辦人林吉祥",
-        "人師教育協會創辦人林吉祥老師：辭去穩定工作義教偏鄉英語，2014 年教育部教育奉獻獎得主，完整事蹟、媒體報導與影音。", body, "about"))
+        "人師教育協會創辦人林吉祥老師：自民國91年起義教偏鄉英語、嘉惠南彰化孩子，2014 年教育部教育奉獻獎得主，完整事蹟、媒體報導與影音。", body, "about"))
 
 def build_rural_index():
     body = f'''
@@ -756,6 +753,7 @@ def _clean_paras(crawl_path):
     out = []
     for t in txt:
         if t in skip or t in menu: continue
+        t = t.replace("lukelin7429@gmail.com", SITE["email"])  # unify contact email
         out.append(t)
     return out
 

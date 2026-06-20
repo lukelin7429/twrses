@@ -98,6 +98,8 @@ p  { margin: 0 0 1.1em; }
   color:#fff; display:grid; place-items:center; font-weight:700; font-size:1.15rem; box-shadow: var(--shadow-sm);
   font-family: var(--zh);
 }
+.brand .mark-logo { height: 38px; width: auto; flex: none; display: block; }
+@media (max-width: 480px){ .brand .mark-logo { height: 32px; } .brand small { display:none; } }
 .brand small { display:block; font-family: var(--sans); font-weight:600; font-size:.62rem; letter-spacing:.18em; text-transform:uppercase; color: var(--gold-dk); }
 
 .menu { display: flex; align-items: center; gap: .25rem; list-style: none; margin:0; padding:0; }
