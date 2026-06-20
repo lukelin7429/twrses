@@ -19,6 +19,8 @@ _id = os.path.join(ROOT, "data", "intermediate.json")
 INTERMEDIATE = json.load(open(_id, encoding="utf-8")) if os.path.exists(_id) else {}
 _ad = os.path.join(ROOT, "data", "advanced.json")
 ADVANCED = json.load(open(_ad, encoding="utf-8")) if os.path.exists(_ad) else {}
+_cd = os.path.join(ROOT, "data", "conversation.json")
+CONVERSATION = json.load(open(_cd, encoding="utf-8")) if os.path.exists(_cd) else {}
 
 # ----------------------------------------------------------------------
 # BASE: URL prefix for internal links.
@@ -771,8 +773,25 @@ INTER_AUDIO_REL = "https://github.com/lukelin7429/twrses/releases/download/inter
 INTER_PDF_REL = "https://github.com/lukelin7429/twrses/releases/download/intermediate-pdf"
 ADV_AUDIO_REL = "https://github.com/lukelin7429/twrses/releases/download/advanced-audio"
 ADV_PDF_REL = "https://github.com/lukelin7429/twrses/releases/download/advanced-pdf"
+CONV_AUDIO_REL = "https://github.com/lukelin7429/twrses/releases/download/conversation-audio"
+CONV_PDF_REL = "https://github.com/lukelin7429/twrses/releases/download/conversation-pdf"
 
-def render_basic_unit(book, u, level="basic", audio_rel=BASIC_AUDIO_REL, pdf_rel=BASIC_PDF_REL):
+def render_conv_unit(book, u):
+    """Conversation unit: render dialogue turns as speaker bubbles, reuse the rest."""
+    turns = u.get("dialogue", [])
+    speakers = []
+    for t in turns:
+        if t["speaker"] not in speakers: speakers.append(t["speaker"])
+    rows = ""
+    for t in turns:
+        side = "A" if (speakers.index(t["speaker"]) % 2 == 0) else "B"
+        rows += (f'<div class="turn turn-{side}"><span class="who">{html.escape(t["speaker"])}</span>'
+                 f'<p class="said"><button class="spk" data-say="{html.escape(t["line"])}" aria-label="唸這句">🔊</button>'
+                 f'<span>{html.escape(t["line"])}</span></p></div>')
+    dialogue_html = f'<div class="dialogue">{rows}</div>'
+    return render_basic_unit(book, u, level="conv", audio_rel=CONV_AUDIO_REL, pdf_rel=CONV_PDF_REL, body_html=dialogue_html)
+
+def render_basic_unit(book, u, level="basic", audio_rel=BASIC_AUDIO_REL, pdf_rel=BASIC_PDF_REL, body_html=None):
     uid = f"{level}-b{book:02d}u{u['unit']:02d}"
     audio = u.get("audio") or {}
     title = html.escape(u["title"])
@@ -811,7 +830,7 @@ def render_basic_unit(book, u, level="basic", audio_rel=BASIC_AUDIO_REL, pdf_rel
   <div class="unit-head"><span class="no">{u['unit']}</span><h3>Unit {u['unit']}: {title}</h3>{pdf_link}</div>
   <div class="unit-body">
     {photos_html}
-    <div class="passage-block">{paras_html}</div>
+    {body_html if body_html is not None else f'<div class="passage-block">{paras_html}</div>'}
     <div class="audio-row"><button class="spk lg" data-say="{html.escape(full_say)}" aria-label="朗讀全文">🔊</button><span class="muted" style="font-size:.9rem">課文朗讀（真人）</span>{read_audio}</div>
     {tr_block}
     {qa_section}
@@ -900,6 +919,30 @@ def build_adv_book(b):
 '''
     write(f"/resources/booklets/advanced/book{b}/", layout(f"/resources/booklets/advanced/book{b}/",
         f"高級閱讀 Book {b}", f"人師閱讀教材·高級閱讀第{b}冊，{len(units)} 課互動閱讀。", body, "resources"))
+
+def build_conv_hub():
+    cards=[f'<a class="card card-link" href="/resources/booklets/conversation/book{b}/"><span class="ico">💬</span><h3>Book {b}</h3><p>共 {len(CONVERSATION[str(b)])} 課</p></a>'
+           for b in sorted(int(k) for k in CONVERSATION)]
+    body = f'''
+{page_hero("實用英語會話 · Practical Conversation", "開口說，最實用", "貼近生活的英語對話：聽真人朗讀、跟著逐句練習、學生字片語，再做個小測驗。")}
+<section class="section"><div class="wrap"><div class="grid cols-3 stagger">{''.join(cards)}</div>
+<p class="muted rvl" style="margin-top:1.5rem">＊Book 5 以後內容整理中。</p></div></section>
+'''
+    write("/resources/booklets/conversation/", layout("/resources/booklets/conversation/", "實用英語會話",
+        "人師閱讀教材·實用英語會話（Practical Conversation）：生活對話、真人朗讀、生字片語、小測驗。", body, "resources"))
+
+def build_conv_book(b):
+    units = sorted(CONVERSATION.get(str(b), []), key=lambda u: u["unit"])
+    units_html = "".join(render_conv_unit(b, u) for u in units)
+    body = f'''
+{page_hero(f"實用英語會話 · Book {b}", f"Practical Conversation — 第{_CN_NUM[b] if b < len(_CN_NUM) else b}冊", "每課：看圖 → 讀對話（真人朗讀）→ 閱讀理解 → 生字片語 → 小測驗。")}
+<section class="section"><div class="wrap" style="max-width:940px">
+{units_html}
+<p class="muted rvl" style="margin-top:1rem">＊本冊共 {len(units)} 課。</p>
+</div></section>
+'''
+    write(f"/resources/booklets/conversation/book{b}/", layout(f"/resources/booklets/conversation/book{b}/",
+        f"實用英語會話 Book {b}", f"人師閱讀教材·實用英語會話第{b}冊，{len(units)} 課互動對話。", body, "resources"))
 
 EVERYDAY_META = {
     "1":("Book 1","校園與日常生活","🦷"), "2":("Book 2","生活情境","🏠"),
@@ -1190,7 +1233,7 @@ def main():
     paths += ["/rural-schools/","/rural-schools/academy/","/rural-schools/practicum/","/rural-schools/guidelines/"]
     build_resources_hub(); paths.append("/resources/")
     build_booklets(); paths.append("/resources/booklets/")
-    _interactive = {"/resources/booklets/everyday/", "/resources/booklets/basic/", "/resources/booklets/intermediate/", "/resources/booklets/advanced/"}
+    _interactive = {"/resources/booklets/everyday/", "/resources/booklets/basic/", "/resources/booklets/intermediate/", "/resources/booklets/advanced/", "/resources/booklets/conversation/"}
     for path, title, lead, cp in BOOKLET_LEAVES:
         if path in _interactive: continue  # built as interactive hubs below
         leaf_prose(path, "resources", "人師閱讀教材", title, lead, _clean_paras(cp) or ["內容整理中。"]); paths.append(path)
@@ -1209,6 +1252,10 @@ def main():
         build_adv_hub(); paths.append("/resources/booklets/advanced/")
         for b in sorted(int(k) for k in ADVANCED):
             build_adv_book(b); paths.append(f"/resources/booklets/advanced/book{b}/")
+    if CONVERSATION:
+        build_conv_hub(); paths.append("/resources/booklets/conversation/")
+        for b in sorted(int(k) for k in CONVERSATION):
+            build_conv_book(b); paths.append(f"/resources/booklets/conversation/book{b}/")
     build_videos_hub(); paths.append("/resources/videos/")
     for path, title, lead, cp in VIDEO_LEAVES:
         leaf_videos(path, "resources", "英語學習影片", title, lead, cp); paths.append(path)

@@ -341,6 +341,20 @@ p  { margin: 0 0 1.1em; }
 .vocab-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(215px,1fr)); gap:.6rem; }
 .vocab-grid .vchip { justify-content:flex-start; }
 
+/* ---------- conversation / dialogue ---------- */
+.dialogue { display:flex; flex-direction:column; gap:.7rem; margin-bottom:1.2rem; }
+.turn { display:flex; flex-direction:column; max-width:88%; }
+.turn .who { font-family:var(--zh); font-weight:700; font-size:.84rem; margin:0 .4rem .22rem; }
+.turn .said { display:flex; gap:.5rem; align-items:flex-start; margin:0; padding:.7rem 1rem; border-radius:16px; font-size:1.12rem; line-height:1.7; color:var(--ink); }
+.turn .said .spk { margin-top:.15rem; }
+.turn-A { align-self:flex-start; }
+.turn-A .who { color:var(--brand-dk); }
+.turn-A .said { background:var(--brand-lt); border-bottom-left-radius:5px; }
+.turn-B { align-self:flex-end; align-items:flex-end; }
+.turn-B .who { color:var(--gold-dk); text-align:right; }
+.turn-B .said { background:var(--cream); border-bottom-right-radius:5px; }
+@media (max-width:560px){ .turn{ max-width:97%; } }
+
 /* ---------- team / teachers ---------- */
 .team-grid { display:grid; grid-template-columns: repeat(auto-fill, minmax(146px,1fr)); gap: 1.8rem 1rem; }
 .person { text-align:center; }
