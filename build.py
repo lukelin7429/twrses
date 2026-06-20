@@ -795,37 +795,52 @@ def render_basic_unit(book, u):
         if audio.get("eng"): rows+=f'<div class="ta">🗣️ 全英教學<audio controls preload="none" src="{BASIC_AUDIO_REL}/{audio["eng"]}"></audio></div>'
         teach_html=f'<p class="sub-head">完整教學音檔</p><div class="teach-audio">{rows}</div>'
     pdf_link = f'<a class="unit-dl" href="{BASIC_PDF_REL}/{u["pdf"]}" target="_blank" rel="noopener">⬇ PDF</a>' if u.get("pdf") else ""
-    quiz_html = render_quiz(book, u)
+    tr_block = (f'<button class="tr-toggle" data-target="{uid}-tr">顯示中文翻譯</button><div class="tr-box" id="{uid}-tr">{tr}</div>') if tr else ""
+    qa_section = (f'<p class="sub-head">閱讀理解 Questions</p><div class="qa-list">{qa_html}</div>') if qa_html else ""
+    vocab_section = (f'<p class="sub-head">生字及片語 Words &amp; Phrases</p><div class="vocab-grid">{vocab_html}</div>') if vocab_html else ""
+    quiz_html = render_quiz(book, u) if len([v for v in u.get("vocab", []) if v.get("zh")]) >= 4 else ""
     return f'''<div class="unit" id="{uid}">
   <div class="unit-head"><span class="no">{u['unit']}</span><h3>Unit {u['unit']}: {title}</h3>{pdf_link}</div>
   <div class="unit-body">
     {photos_html}
     <div class="passage-block">{paras_html}</div>
     <div class="audio-row"><button class="spk lg" data-say="{html.escape(full_say)}" aria-label="朗讀全文">🔊</button><span class="muted" style="font-size:.9rem">課文朗讀（真人）</span>{read_audio}</div>
-    <button class="tr-toggle" data-target="{uid}-tr">顯示中文翻譯</button>
-    <div class="tr-box" id="{uid}-tr">{tr}</div>
-    <p class="sub-head">閱讀理解 Questions</p>
-    <div class="qa-list">{qa_html}</div>
-    <p class="sub-head">生字及片語 Words &amp; Phrases</p>
-    <div class="vocab-grid">{vocab_html}</div>
+    {tr_block}
+    {qa_section}
+    {vocab_section}
     {teach_html}
     {quiz_html}
   </div>
 </div>'''
 
-def build_basic_sample():
-    units = sorted(BASIC.get("1", []), key=lambda u: u["unit"])
-    u1 = next((u for u in units if u["unit"] == 1), None)
-    if not u1: return
+def build_basic_hub():
+    cards=[]
+    for b in range(1,7):
+        units=BASIC.get(str(b))
+        if units:
+            cards.append(f'<a class="card card-link" href="/resources/booklets/basic/book{b}/"><span class="ico">📘</span><h3>Book {b}</h3><p>共 {len(units)} 課</p></a>')
+        else:
+            cards.append(f'<div class="card" style="opacity:.5"><span class="ico">📘</span><h3>Book {b}</h3><p>製作中</p></div>')
     body = f'''
-{page_hero("初級閱讀 · Basic Reading", "讀懂一篇文章", "進階的閱讀練習：讀文章、聽真人朗讀、想想閱讀理解問題，再學生字。本頁為 Book 1 Unit 1 的版型示範。")}
+{page_hero("初級閱讀 · Basic Reading", "讀懂一篇文章", "進階的閱讀練習：讀文章、聽真人朗讀、想想閱讀理解問題、學生字片語，再做個小測驗。")}
+<section class="section"><div class="wrap"><div class="grid cols-3 stagger">{''.join(cards)}</div>
+<p class="muted rvl" style="margin-top:1.5rem">＊Book 7–14 內容整理中。</p></div></section>
+'''
+    write("/resources/booklets/basic/", layout("/resources/booklets/basic/", "初級閱讀",
+        "人師閱讀教材·初級閱讀（Basic Reading）：長文閱讀、真人朗讀、閱讀理解問答、生字片語、小測驗。", body, "resources"))
+
+def build_basic_book(b):
+    units = sorted(BASIC.get(str(b), []), key=lambda u: u["unit"])
+    units_html = "".join(render_basic_unit(b, u) for u in units)
+    body = f'''
+{page_hero(f"初級閱讀 · Book {b}", f"Basic Reading — 第{_CN_NUM[b] if b < len(_CN_NUM) else b}冊", "每課：看圖 → 讀文章（真人朗讀）→ 閱讀理解 → 生字片語 → 小測驗。")}
 <section class="section"><div class="wrap" style="max-width:940px">
-{render_basic_unit(1, u1)}
-<p class="muted rvl" style="margin-top:1rem">＊這是<strong>新版型示範</strong>（初級閱讀 Book 1 Unit 1）。版型確認後，Book 1–6 共約 60 課會依此產出。</p>
+{units_html}
+<p class="muted rvl" style="margin-top:1rem">＊本冊共 {len(units)} 課。</p>
 </div></section>
 '''
-    write("/resources/booklets/basic/book1/", layout("/resources/booklets/basic/book1/",
-        "初級閱讀 Book 1（示範）", "人師閱讀教材·初級閱讀：長文閱讀、真人朗讀、閱讀理解問答、生字片語、小測驗。", body, "resources"))
+    write(f"/resources/booklets/basic/book{b}/", layout(f"/resources/booklets/basic/book{b}/",
+        f"初級閱讀 Book {b}", f"人師閱讀教材·初級閱讀第{b}冊，{len(units)} 課互動閱讀。", body, "resources"))
 
 EVERYDAY_META = {
     "1":("Book 1","校園與日常生活","🦷"), "2":("Book 2","生活情境","🏠"),
@@ -1116,14 +1131,17 @@ def main():
     paths += ["/rural-schools/","/rural-schools/academy/","/rural-schools/practicum/","/rural-schools/guidelines/"]
     build_resources_hub(); paths.append("/resources/")
     build_booklets(); paths.append("/resources/booklets/")
+    _interactive = {"/resources/booklets/everyday/", "/resources/booklets/basic/"}
     for path, title, lead, cp in BOOKLET_LEAVES:
-        if path == "/resources/booklets/everyday/": continue  # built as interactive hub below
+        if path in _interactive: continue  # built as interactive hubs below
         leaf_prose(path, "resources", "人師閱讀教材", title, lead, _clean_paras(cp) or ["內容整理中。"]); paths.append(path)
     build_everyday_hub(); paths.append("/resources/booklets/everyday/")
     for b in sorted(int(k) for k in EVERYDAY):
         build_everyday_book(b); paths.append(f"/resources/booklets/everyday/book{b}/")
     if BASIC:
-        build_basic_sample(); paths.append("/resources/booklets/basic/book1/")
+        build_basic_hub(); paths.append("/resources/booklets/basic/")
+        for b in sorted(int(k) for k in BASIC):
+            build_basic_book(b); paths.append(f"/resources/booklets/basic/book{b}/")
     build_videos_hub(); paths.append("/resources/videos/")
     for path, title, lead, cp in VIDEO_LEAVES:
         leaf_videos(path, "resources", "英語學習影片", title, lead, cp); paths.append(path)
