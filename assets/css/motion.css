@@ -1,0 +1,45 @@
+/* =========================================================
+   Motion layer — scroll reveal + ambient float
+   Respects prefers-reduced-motion
+   ========================================================= */
+
+.rvl { opacity: 0; transform: translateY(26px); transition: opacity .7s cubic-bezier(.2,.6,.2,1), transform .7s cubic-bezier(.2,.6,.2,1); will-change: opacity, transform; }
+.rvl.in { opacity: 1; transform: none; }
+.rvl.d1 { transition-delay: .08s; }
+.rvl.d2 { transition-delay: .16s; }
+.rvl.d3 { transition-delay: .24s; }
+.rvl.d4 { transition-delay: .32s; }
+
+/* stagger children */
+.stagger > * { opacity:0; transform: translateY(22px); transition: opacity .6s, transform .6s; }
+.stagger.in > * { opacity:1; transform:none; }
+.stagger.in > *:nth-child(1){ transition-delay:.05s }
+.stagger.in > *:nth-child(2){ transition-delay:.12s }
+.stagger.in > *:nth-child(3){ transition-delay:.19s }
+.stagger.in > *:nth-child(4){ transition-delay:.26s }
+.stagger.in > *:nth-child(5){ transition-delay:.33s }
+.stagger.in > *:nth-child(6){ transition-delay:.40s }
+.stagger.in > *:nth-child(7){ transition-delay:.47s }
+.stagger.in > *:nth-child(8){ transition-delay:.54s }
+
+/* ambient orb drift */
+@keyframes drift1 { 0%,100%{ transform: translate(0,0) scale(1);} 50%{ transform: translate(-30px,24px) scale(1.06);} }
+@keyframes drift2 { 0%,100%{ transform: translate(0,0) scale(1);} 50%{ transform: translate(26px,-22px) scale(1.08);} }
+@keyframes drift3 { 0%,100%{ transform: translate(0,0);} 50%{ transform: translate(18px,18px);} }
+.orb.a { animation: drift1 16s ease-in-out infinite; }
+.orb.b { animation: drift2 19s ease-in-out infinite; }
+.orb.c { animation: drift3 13s ease-in-out infinite; }
+
+/* underline sweep on links-in-prose headings */
+.sweep { background-image: linear-gradient(var(--gold), var(--gold)); background-repeat:no-repeat; background-position: 0 100%; background-size: 0% 3px; transition: background-size .5s; }
+.sweep.in { background-size: 100% 3px; }
+
+/* count-up cards subtle pop */
+.pop { transition: transform .3s; }
+.pop:hover { transform: translateY(-4px); }
+
+@media (prefers-reduced-motion: reduce) {
+  .rvl, .stagger > *, .sweep { transition: none !important; opacity:1 !important; transform:none !important; background-size:100% 3px; }
+  .orb { animation: none !important; }
+  html { scroll-behavior: auto; }
+}
