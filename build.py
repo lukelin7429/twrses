@@ -21,6 +21,8 @@ _ad = os.path.join(ROOT, "data", "advanced.json")
 ADVANCED = json.load(open(_ad, encoding="utf-8")) if os.path.exists(_ad) else {}
 _cd = os.path.join(ROOT, "data", "conversation.json")
 CONVERSATION = json.load(open(_cd, encoding="utf-8")) if os.path.exists(_cd) else {}
+_dd = os.path.join(ROOT, "data", "description.json")
+DESCRIPTION = json.load(open(_dd, encoding="utf-8")) if os.path.exists(_dd) else {}
 
 # ----------------------------------------------------------------------
 # BASE: URL prefix for internal links.
@@ -775,6 +777,8 @@ ADV_AUDIO_REL = "https://github.com/lukelin7429/twrses/releases/download/advance
 ADV_PDF_REL = "https://github.com/lukelin7429/twrses/releases/download/advanced-pdf"
 CONV_AUDIO_REL = "https://github.com/lukelin7429/twrses/releases/download/conversation-audio"
 CONV_PDF_REL = "https://github.com/lukelin7429/twrses/releases/download/conversation-pdf"
+DESC_AUDIO_REL = "https://github.com/lukelin7429/twrses/releases/download/description-audio"
+DESC_PDF_REL = "https://github.com/lukelin7429/twrses/releases/download/description-pdf"
 
 def render_conv_unit(book, u):
     """Conversation unit: render dialogue turns as speaker bubbles, reuse the rest."""
@@ -943,6 +947,30 @@ def build_conv_book(b):
 '''
     write(f"/resources/booklets/conversation/book{b}/", layout(f"/resources/booklets/conversation/book{b}/",
         f"實用英語會話 Book {b}", f"人師閱讀教材·實用英語會話第{b}冊，{len(units)} 課互動對話。", body, "resources"))
+
+def build_desc_hub():
+    cards=[f'<a class="card card-link" href="/resources/booklets/description/book{b}/"><span class="ico">🖼️</span><h3>Book {b}</h3><p>共 {len(DESCRIPTION[str(b)])} 課</p></a>'
+           for b in sorted(int(k) for k in DESCRIPTION)]
+    body = f'''
+{page_hero("看圖描述 · Picture Description", "看著圖，說出來", "看圖學描述：看圖片、讀描述短文、聽真人朗讀、學生字片語，再做個小測驗。")}
+<section class="section"><div class="wrap"><div class="grid cols-3 stagger">{''.join(cards)}</div>
+<p class="muted rvl" style="margin-top:1.5rem">＊Book 5 以後內容整理中。</p></div></section>
+'''
+    write("/resources/booklets/description/", layout("/resources/booklets/description/", "看圖描述",
+        "人師閱讀教材·看圖描述（Picture Description）：看圖學描述、真人朗讀、生字片語、小測驗。", body, "resources"))
+
+def build_desc_book(b):
+    units = sorted(DESCRIPTION.get(str(b), []), key=lambda u: u["unit"])
+    units_html = "".join(render_basic_unit(b, u, level="desc", audio_rel=DESC_AUDIO_REL, pdf_rel=DESC_PDF_REL) for u in units)
+    body = f'''
+{page_hero(f"看圖描述 · Book {b}", f"Picture Description — 第{_CN_NUM[b] if b < len(_CN_NUM) else b}冊", "每課：看圖 → 讀描述（真人朗讀）→ 閱讀理解 → 生字片語 → 小測驗。")}
+<section class="section"><div class="wrap" style="max-width:940px">
+{units_html}
+<p class="muted rvl" style="margin-top:1rem">＊本冊共 {len(units)} 課。</p>
+</div></section>
+'''
+    write(f"/resources/booklets/description/book{b}/", layout(f"/resources/booklets/description/book{b}/",
+        f"看圖描述 Book {b}", f"人師閱讀教材·看圖描述第{b}冊，{len(units)} 課互動學習。", body, "resources"))
 
 EVERYDAY_META = {
     "1":("Book 1","校園與日常生活","🦷"), "2":("Book 2","生活情境","🏠"),
@@ -1233,7 +1261,7 @@ def main():
     paths += ["/rural-schools/","/rural-schools/academy/","/rural-schools/practicum/","/rural-schools/guidelines/"]
     build_resources_hub(); paths.append("/resources/")
     build_booklets(); paths.append("/resources/booklets/")
-    _interactive = {"/resources/booklets/everyday/", "/resources/booklets/basic/", "/resources/booklets/intermediate/", "/resources/booklets/advanced/", "/resources/booklets/conversation/"}
+    _interactive = {"/resources/booklets/everyday/", "/resources/booklets/basic/", "/resources/booklets/intermediate/", "/resources/booklets/advanced/", "/resources/booklets/conversation/", "/resources/booklets/description/"}
     for path, title, lead, cp in BOOKLET_LEAVES:
         if path in _interactive: continue  # built as interactive hubs below
         leaf_prose(path, "resources", "人師閱讀教材", title, lead, _clean_paras(cp) or ["內容整理中。"]); paths.append(path)
@@ -1256,6 +1284,10 @@ def main():
         build_conv_hub(); paths.append("/resources/booklets/conversation/")
         for b in sorted(int(k) for k in CONVERSATION):
             build_conv_book(b); paths.append(f"/resources/booklets/conversation/book{b}/")
+    if DESCRIPTION:
+        build_desc_hub(); paths.append("/resources/booklets/description/")
+        for b in sorted(int(k) for k in DESCRIPTION):
+            build_desc_book(b); paths.append(f"/resources/booklets/description/book{b}/")
     build_videos_hub(); paths.append("/resources/videos/")
     for path, title, lead, cp in VIDEO_LEAVES:
         leaf_videos(path, "resources", "英語學習影片", title, lead, cp); paths.append(path)
