@@ -281,6 +281,8 @@ p  { margin: 0 0 1.1em; }
 .unit-head { display:flex; align-items:center; gap:1rem; padding:1.3rem 1.6rem; background: linear-gradient(120deg, var(--brand-dk), var(--brand)); color:#fff; }
 .unit-head .no { flex:none; width:46px; height:46px; border-radius:12px; background:rgba(255,255,255,.16); display:grid; place-items:center; font-family:var(--serif); font-weight:600; font-size:1.2rem; }
 .unit-head h3 { color:#fff; margin:0; font-size:1.4rem; }
+.unit-dl { margin-left:auto; flex:none; background:rgba(255,255,255,.18); color:#fff; border-radius:999px; padding:.4rem .9rem; font-size:.85rem; font-weight:700; font-family:var(--zh); white-space:nowrap; transition:background .2s; }
+.unit-dl:hover { background:rgba(255,255,255,.32); color:#fff; }
 .unit-body { padding: clamp(1.3rem,3vw,2rem); }
 .unit-grid { display:grid; grid-template-columns: 300px 1fr; gap:1.8rem; align-items:start; }
 @media (max-width:720px){ .unit-grid{ grid-template-columns:1fr; } }

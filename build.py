@@ -666,6 +666,7 @@ def leaf_prose(path, key, eyebrow, title, lead, paragraphs):
     write(path, layout(path, title, lead or title, body, key))
 
 AUDIO_REL = "https://github.com/lukelin7429/twrses/releases/download/audio-everyday"
+PDF_REL = "https://github.com/lukelin7429/twrses/releases/download/everyday-pdf"
 
 def _zh_tidy(s):
     return re.sub(r'(?<=[一-鿿])\s+(?=[一-鿿])', '', s).strip()
@@ -733,8 +734,9 @@ def render_unit(book, u, photo, audio):
             rows += f'<div class="ta">🗣️ 全英教學<audio controls preload="none" src="{AUDIO_REL}/{audio["eng"]}"></audio></div>'
         teach_html = f'<p class="sub-head">完整教學音檔</p><div class="teach-audio">{rows}</div>'
     read_audio = f'<audio controls preload="none" src="{AUDIO_REL}/{audio["read"]}"></audio>' if audio.get("read") else ""
+    pdf_link = f'<a class="unit-dl" href="{PDF_REL}/{u["pdf"]}" target="_blank" rel="noopener">⬇ PDF</a>' if u.get("pdf") else ""
     return f'''<div class="unit" id="{uid}">
-  <div class="unit-head"><span class="no">{u['unit']}</span><h3>Unit {u['unit']}: {html.escape(u['title'])}</h3></div>
+  <div class="unit-head"><span class="no">{u['unit']}</span><h3>Unit {u['unit']}: {html.escape(u['title'])}</h3>{pdf_link}</div>
   <div class="unit-body">
     <div class="unit-grid">
       {photo_html}
