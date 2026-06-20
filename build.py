@@ -17,6 +17,8 @@ _bd = os.path.join(ROOT, "data", "basic.json")
 BASIC = json.load(open(_bd, encoding="utf-8")) if os.path.exists(_bd) else {}
 _id = os.path.join(ROOT, "data", "intermediate.json")
 INTERMEDIATE = json.load(open(_id, encoding="utf-8")) if os.path.exists(_id) else {}
+_ad = os.path.join(ROOT, "data", "advanced.json")
+ADVANCED = json.load(open(_ad, encoding="utf-8")) if os.path.exists(_ad) else {}
 
 # ----------------------------------------------------------------------
 # BASE: URL prefix for internal links.
@@ -767,6 +769,8 @@ BASIC_AUDIO_REL = "https://github.com/lukelin7429/twrses/releases/download/basic
 BASIC_PDF_REL = "https://github.com/lukelin7429/twrses/releases/download/basic-pdf"
 INTER_AUDIO_REL = "https://github.com/lukelin7429/twrses/releases/download/intermediate-audio"
 INTER_PDF_REL = "https://github.com/lukelin7429/twrses/releases/download/intermediate-pdf"
+ADV_AUDIO_REL = "https://github.com/lukelin7429/twrses/releases/download/advanced-audio"
+ADV_PDF_REL = "https://github.com/lukelin7429/twrses/releases/download/advanced-pdf"
 
 def render_basic_unit(book, u, level="basic", audio_rel=BASIC_AUDIO_REL, pdf_rel=BASIC_PDF_REL):
     uid = f"{level}-b{book:02d}u{u['unit']:02d}"
@@ -872,6 +876,30 @@ def build_inter_book(b):
 '''
     write(f"/resources/booklets/intermediate/book{b}/", layout(f"/resources/booklets/intermediate/book{b}/",
         f"中級閱讀 Book {b}", f"人師閱讀教材·中級閱讀第{b}冊，{len(units)} 課互動閱讀。", body, "resources"))
+
+def build_adv_hub():
+    cards=[f'<a class="card card-link" href="/resources/booklets/advanced/book{b}/"><span class="ico">📕</span><h3>Book {b}</h3><p>共 {len(ADVANCED[str(b)])} 課</p></a>'
+           for b in sorted(int(k) for k in ADVANCED)]
+    body = f'''
+{page_hero("高級閱讀 · Advanced Reading", "挑戰更長的文章", "進階讀者的閱讀練習：讀較長的文章、聽真人朗讀、學進階生字片語，再做個小測驗。")}
+<section class="section"><div class="wrap"><div class="grid cols-3 stagger">{''.join(cards)}</div>
+<p class="muted rvl" style="margin-top:1.5rem">＊Book 5 以後內容整理中。</p></div></section>
+'''
+    write("/resources/booklets/advanced/", layout("/resources/booklets/advanced/", "高級閱讀",
+        "人師閱讀教材·高級閱讀（Advanced Reading）：長文閱讀、真人朗讀、生字片語、小測驗。", body, "resources"))
+
+def build_adv_book(b):
+    units = sorted(ADVANCED.get(str(b), []), key=lambda u: u["unit"])
+    units_html = "".join(render_basic_unit(b, u, level="adv", audio_rel=ADV_AUDIO_REL, pdf_rel=ADV_PDF_REL) for u in units)
+    body = f'''
+{page_hero(f"高級閱讀 · Book {b}", f"Advanced Reading — 第{_CN_NUM[b] if b < len(_CN_NUM) else b}冊", "每課：看圖 → 讀文章（真人朗讀）→ 生字片語 → 小測驗。")}
+<section class="section"><div class="wrap" style="max-width:940px">
+{units_html}
+<p class="muted rvl" style="margin-top:1rem">＊本冊共 {len(units)} 課。</p>
+</div></section>
+'''
+    write(f"/resources/booklets/advanced/book{b}/", layout(f"/resources/booklets/advanced/book{b}/",
+        f"高級閱讀 Book {b}", f"人師閱讀教材·高級閱讀第{b}冊，{len(units)} 課互動閱讀。", body, "resources"))
 
 EVERYDAY_META = {
     "1":("Book 1","校園與日常生活","🦷"), "2":("Book 2","生活情境","🏠"),
@@ -1162,7 +1190,7 @@ def main():
     paths += ["/rural-schools/","/rural-schools/academy/","/rural-schools/practicum/","/rural-schools/guidelines/"]
     build_resources_hub(); paths.append("/resources/")
     build_booklets(); paths.append("/resources/booklets/")
-    _interactive = {"/resources/booklets/everyday/", "/resources/booklets/basic/", "/resources/booklets/intermediate/"}
+    _interactive = {"/resources/booklets/everyday/", "/resources/booklets/basic/", "/resources/booklets/intermediate/", "/resources/booklets/advanced/"}
     for path, title, lead, cp in BOOKLET_LEAVES:
         if path in _interactive: continue  # built as interactive hubs below
         leaf_prose(path, "resources", "人師閱讀教材", title, lead, _clean_paras(cp) or ["內容整理中。"]); paths.append(path)
@@ -1177,6 +1205,10 @@ def main():
         build_inter_hub(); paths.append("/resources/booklets/intermediate/")
         for b in sorted(int(k) for k in INTERMEDIATE):
             build_inter_book(b); paths.append(f"/resources/booklets/intermediate/book{b}/")
+    if ADVANCED:
+        build_adv_hub(); paths.append("/resources/booklets/advanced/")
+        for b in sorted(int(k) for k in ADVANCED):
+            build_adv_book(b); paths.append(f"/resources/booklets/advanced/book{b}/")
     build_videos_hub(); paths.append("/resources/videos/")
     for path, title, lead, cp in VIDEO_LEAVES:
         leaf_videos(path, "resources", "英語學習影片", title, lead, cp); paths.append(path)
