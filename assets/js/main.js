@@ -39,6 +39,42 @@
     });
   });
 
+  /* speak (Web Speech) for 🔊 buttons */
+  var enVoice = null;
+  function pickVoice() {
+    var vs = window.speechSynthesis ? speechSynthesis.getVoices() : [];
+    enVoice = vs.find(function (v) { return /en[-_]US/i.test(v.lang) && /female|samantha|google/i.test(v.name); })
+           || vs.find(function (v) { return /^en/i.test(v.lang); }) || null;
+  }
+  if (window.speechSynthesis) {
+    pickVoice();
+    speechSynthesis.onvoiceschanged = pickVoice;
+  }
+  window.say = function (text, btn) {
+    if (!window.speechSynthesis) return;
+    speechSynthesis.cancel();
+    var u = new SpeechSynthesisUtterance(text);
+    u.lang = 'en-US'; u.rate = 0.92; if (enVoice) u.voice = enVoice;
+    speechSynthesis.speak(u);
+    if (btn) { btn.classList.add('on'); u.onend = function () { btn.classList.remove('on'); }; }
+  };
+  document.addEventListener('click', function (e) {
+    var b = e.target.closest('[data-say]');
+    if (b) { e.preventDefault(); window.say(b.getAttribute('data-say'), b); }
+    var t = e.target.closest('.tr-toggle');
+    if (t) {
+      var box = document.getElementById(t.getAttribute('data-target'));
+      if (box) { box.classList.toggle('show'); t.textContent = box.classList.contains('show') ? '隱藏中文翻譯' : '顯示中文翻譯'; }
+    }
+    var q = e.target.closest('.quiz-opt');
+    if (q && !q.parentElement.classList.contains('done')) {
+      var correct = q.getAttribute('data-correct') === '1';
+      q.parentElement.classList.add('done');
+      q.classList.add(correct ? 'right' : 'wrong');
+      if (!correct) { var r = q.parentElement.querySelector('[data-correct="1"]'); if (r) r.classList.add('right'); }
+    }
+  });
+
   /* header shadow on scroll */
   var header = document.querySelector('.site-header');
   if (header) {

@@ -21,6 +21,15 @@ BY_PATH = {p["path"]: p for p in CRAWL}
 BASE = "/twrses"
 ROOT_URL = f"https://lukelin7429.github.io{BASE}" if BASE else "https://www.twrses.org"
 
+import hashlib
+def _asset_ver():
+    h = hashlib.md5()
+    for rel in ("assets/css/style.css", "assets/css/motion.css", "assets/js/main.js"):
+        p = os.path.join(ROOT, rel)
+        if os.path.exists(p): h.update(open(p, "rb").read())
+    return h.hexdigest()[:8]
+ASSET_V = _asset_ver()
+
 SITE = {
     "name": "彰化縣人師教育協會",
     "name_en": "My Culture Connect",
@@ -144,8 +153,8 @@ def layout(path, title, desc, body, active):
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..600;1,9..144,400..500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/css/style.css">
-<link rel="stylesheet" href="/assets/css/motion.css">
+<link rel="stylesheet" href="/assets/css/style.css?v={ASSET_V}">
+<link rel="stylesheet" href="/assets/css/motion.css?v={ASSET_V}">
 <link rel="icon" href="/assets/img/logo-badge.svg" type="image/svg+xml">
 <meta property="og:title" content="{html.escape(full_title)}">
 <meta property="og:description" content="{html.escape(desc)}">
@@ -157,7 +166,7 @@ def layout(path, title, desc, body, active):
 {body}
 </main>
 {footer()}
-<script src="/assets/js/main.js"></script>
+<script src="/assets/js/main.js?v={ASSET_V}"></script>
 </body>
 </html>'''
 
@@ -654,6 +663,104 @@ def leaf_prose(path, key, eyebrow, title, lead, paragraphs):
 '''
     write(path, layout(path, title, lead or title, body, key))
 
+AUDIO_REL = "https://github.com/lukelin7429/twrses/releases/download/audio-everyday"
+
+def _zh_tidy(s):
+    return re.sub(r'(?<=[一-鿿])\s+(?=[一-鿿])', '', s).strip()
+
+def _bold_kw(passage, vocab):
+    out = passage
+    for v in vocab:
+        out = re.sub(r'\b(' + re.escape(v["w"]) + r'\w*)\b',
+                     r'<span class="kw">\1</span>', out, flags=re.I)
+    return out
+
+def render_unit(book, u, photo, audio):
+    """u: dict(unit,title,passage,vocab,translation,advanced). audio: dict(read,teach,eng)."""
+    uid = f"b{book:02d}u{u['unit']:02d}"
+    passage_html = _bold_kw(u["passage"], u["vocab"])
+    vocab_html = "".join(
+        f'<span class="vchip"><b>{html.escape(v["w"])}</b><span class="pos">({v["pos"]})</span><span class="zh">{html.escape(v["zh"])}</span>'
+        f'<button class="spk" data-say="{html.escape(v["w"])}" aria-label="唸 {html.escape(v["w"])}">🔊</button></span>'
+        for v in u["vocab"])
+    adv_html = "".join(
+        f'''<div class="adv-item"><div class="top"><b>{html.escape(a["w"])}</b><span class="pos">({a["pos"]})</span><span class="zh">{html.escape(a["zh"])}</span>
+        <button class="spk" data-say="{html.escape(a["w"])}" aria-label="唸單字">🔊</button></div>
+        <p class="eg"><button class="spk" data-say="{html.escape(a["eg"])}" aria-label="唸例句">🔊</button><span>{html.escape(a["eg"])}</span></p>
+        <p class="eg-zh">{html.escape(_zh_tidy(a["eg_zh"]))}</p></div>''' for a in u["advanced"])
+    tr = html.escape(_zh_tidy(u["translation"]))
+    photo_html = f'<div class="unit-photo"><img loading="lazy" src="{photo}" alt="{html.escape(u["title"])}"></div>' if photo else ""
+    teach_html = ""
+    if audio.get("teach") or audio.get("eng"):
+        rows = ""
+        if audio.get("teach"):
+            rows += f'<div class="ta">📖 課文教學（中文講解）<audio controls preload="none" src="{AUDIO_REL}/{audio["teach"]}"></audio></div>'
+        if audio.get("eng"):
+            rows += f'<div class="ta">🗣️ 全英教學<audio controls preload="none" src="{AUDIO_REL}/{audio["eng"]}"></audio></div>'
+        teach_html = f'<p class="sub-head">完整教學音檔</p><div class="teach-audio">{rows}</div>'
+    read_audio = f'<audio controls preload="none" src="{AUDIO_REL}/{audio["read"]}"></audio>' if audio.get("read") else ""
+    return f'''<div class="unit" id="{uid}">
+  <div class="unit-head"><span class="no">{u['unit']}</span><h3>Unit {u['unit']}: {html.escape(u['title'])}</h3></div>
+  <div class="unit-body">
+    <div class="unit-grid">
+      {photo_html}
+      <div>
+        <p class="passage">{passage_html}</p>
+        <div class="audio-row">
+          <button class="spk lg" data-say="{html.escape(u['passage'])}" aria-label="朗讀課文">🔊</button>
+          <span class="muted" style="font-size:.9rem">課文朗讀（真人）</span>{read_audio}
+        </div>
+        <button class="tr-toggle" data-target="{uid}-tr">顯示中文翻譯</button>
+        <div class="tr-box" id="{uid}-tr">{tr}</div>
+      </div>
+    </div>
+    <p class="sub-head">生字 Key Words</p>
+    <div class="vocab-row">{vocab_html}</div>
+    <p class="sub-head">進階學習 Go Further</p>
+    <div class="adv-list">{adv_html}</div>
+    {teach_html}
+  </div>
+</div>'''
+
+def build_everyday_demo():
+    u1 = {"unit":1,"title":"Brushing Your Teeth",
+        "passage":"Tom is brushing his teeth. He brushes his teeth every morning. He brushes his teeth every day to keep them clean and healthy.",
+        "vocab":[{"w":"brush","pos":"v.","zh":"刷"},{"w":"keep","pos":"v.","zh":"保持"},{"w":"healthy","pos":"adj.","zh":"健康的"}],
+        "translation":"湯姆正在刷牙。他每天早上刷牙。他每天刷牙，以保持牙齒的清潔與健康。",
+        "advanced":[
+            {"w":"toothbrush","pos":"n.","zh":"牙刷","eg":"There are several toothbrushes in the cup on the shelf.","eg_zh":"架上的杯子裡有好幾把牙刷。"},
+            {"w":"toothpaste","pos":"n.","zh":"牙膏","eg":"Mary is squeezing some toothpaste onto her toothbrush.","eg_zh":"瑪麗正將一些牙膏擠到她的牙刷上。"},
+            {"w":"cavity","pos":"n.","zh":"蛀牙","eg":"Brushing your teeth can help to prevent cavities.","eg_zh":"刷牙有助於預防蛀牙。"},
+            {"w":"dentist","pos":"n.","zh":"牙醫","eg":"I hate going to the dentist.","eg_zh":"我很討厭去看牙醫。"},
+            {"w":"tap","pos":"n.","zh":"水龍頭","eg":"The toothpaste is on the sink next to the tap.","eg_zh":"牙膏在洗手槽的水龍頭旁邊。"},
+        ]}
+    audio = {"read":"Everyday_Book01_Unit01.mp3","teach":"Everyday_Book01_Unit01_Teaching.mp3","eng":"Everyday_Book01_Unit01_Eng_Teaching.mp3"}
+    unit_html = render_unit(1, u1, "/assets/img/booklets/everyday-b01-u01.jpg", audio)
+    quiz = '''<div class="unit"><div class="unit-head"><span class="no">?</span><h3>小測驗 Quick Check</h3></div>
+<div class="unit-body">
+  <div class="quiz"><p class="q">1. 「刷牙」用哪一個動詞？</p><div class="quiz-opts">
+    <button class="quiz-opt" data-correct="1">brush</button><button class="quiz-opt">keep</button>
+    <button class="quiz-opt">cavity</button><button class="quiz-opt">tap</button></div></div>
+  <div class="quiz"><p class="q">2. 哪一個字是「牙膏」？</p><div class="quiz-opts">
+    <button class="quiz-opt">toothbrush</button><button class="quiz-opt" data-correct="1">toothpaste</button>
+    <button class="quiz-opt">dentist</button><button class="quiz-opt">tap</button></div></div>
+  <div class="quiz"><p class="q">3. I hate going to the ___.（看牙醫）</p><div class="quiz-opts">
+    <button class="quiz-opt">tap</button><button class="quiz-opt">cavity</button>
+    <button class="quiz-opt" data-correct="1">dentist</button><button class="quiz-opt">toothbrush</button></div></div>
+</div></div>'''
+    body = f'''
+{page_hero("基礎英語 · Book 1", "Everyday Topics — 第一冊", "每課一個生活主題：看圖、讀短文、聽真人朗讀、學生字與進階用法，最後做個小測驗。本頁為 Unit 1 示範。")}
+<section class="section">
+  <div class="wrap" style="max-width:920px">
+    {unit_html}
+    {quiz}
+    <p class="muted rvl" style="margin-top:1.5rem">＊這是 <strong>Unit 1</strong> 的示範。Book 1 共 15 課，全部完成後會在這一頁依序排列。</p>
+  </div>
+</section>
+'''
+    write("/resources/booklets/everyday/book1/", layout("/resources/booklets/everyday/book1/",
+        "基礎英語 Book 1", "人師閱讀教材·基礎英語第一冊：看圖讀短文、真人朗讀、生字與進階學習、小測驗。", body, "resources"))
+
 def build_resources_hub():
     hub_page("/resources/", "resources", "英語學習資源",
         "免費自學，永不停止", "Never stop learning, because life never stops teaching. — 閱讀教材、影片教室、英語課程與期刊，全部免費開放。",
@@ -905,6 +1012,7 @@ def main():
     build_rural_index(); build_academy(); build_practicum(); build_guidelines()
     paths += ["/rural-schools/","/rural-schools/academy/","/rural-schools/practicum/","/rural-schools/guidelines/"]
     build_resources_hub(); paths.append("/resources/")
+    build_everyday_demo(); paths.append("/resources/booklets/everyday/book1/")
     build_booklets(); paths.append("/resources/booklets/")
     for path, title, lead, cp in BOOKLET_LEAVES:
         leaf_prose(path, "resources", "人師閱讀教材", title, lead, _clean_paras(cp) or ["內容整理中。"]); paths.append(path)

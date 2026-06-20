@@ -276,6 +276,52 @@ p  { margin: 0 0 1.1em; }
 .brand-emblem { display:flex; align-items:center; gap:1.2rem; }
 .brand-emblem img { width:96px; height:auto; flex:none; }
 
+/* ---------- reading unit (基礎英語) ---------- */
+.unit { background:#fff; border:1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow-sm); overflow:hidden; margin-bottom:2rem; }
+.unit-head { display:flex; align-items:center; gap:1rem; padding:1.3rem 1.6rem; background: linear-gradient(120deg, var(--brand-dk), var(--brand)); color:#fff; }
+.unit-head .no { flex:none; width:46px; height:46px; border-radius:12px; background:rgba(255,255,255,.16); display:grid; place-items:center; font-family:var(--serif); font-weight:600; font-size:1.2rem; }
+.unit-head h3 { color:#fff; margin:0; font-size:1.4rem; }
+.unit-body { padding: clamp(1.3rem,3vw,2rem); }
+.unit-grid { display:grid; grid-template-columns: 300px 1fr; gap:1.8rem; align-items:start; }
+@media (max-width:720px){ .unit-grid{ grid-template-columns:1fr; } }
+.unit-photo { border-radius:14px; overflow:hidden; border:1px solid var(--line); box-shadow:var(--shadow-sm); }
+.unit-photo img { width:100%; display:block; }
+.passage { font-size:1.3rem; line-height:1.9; color:var(--ink); margin:0 0 1rem; }
+.passage .kw { font-weight:700; color:var(--brand-dk); background:linear-gradient(transparent 62%, var(--gold-lt,#f6e3b8) 62%); padding:0 .05em; }
+.spk { display:inline-flex; align-items:center; justify-content:center; cursor:pointer; border:0; background:var(--brand-lt); color:var(--brand-dk); width:30px; height:30px; border-radius:50%; font-size:.95rem; vertical-align:middle; transition:background .2s, transform .2s; flex:none; }
+.spk:hover { background:var(--brand); color:#fff; transform:scale(1.1); }
+.spk.lg { width:38px; height:38px; font-size:1.1rem; }
+.audio-row { display:flex; align-items:center; gap:.8rem; flex-wrap:wrap; margin:.4rem 0 1.2rem; }
+.audio-row audio { height:38px; }
+.tr-toggle { background:none; border:1px dashed var(--cream-dk); color:var(--ink-soft); border-radius:999px; padding:.4rem 1rem; cursor:pointer; font-family:var(--zh); font-weight:600; font-size:.9rem; }
+.tr-toggle:hover { border-color:var(--brand); color:var(--brand-dk); }
+.tr-box { margin-top:.7rem; padding:1rem 1.2rem; background:var(--cream); border-radius:12px; color:var(--ink-soft); display:none; }
+.tr-box.show { display:block; }
+.vocab-row { display:flex; flex-wrap:wrap; gap:.7rem; margin-top:.3rem; }
+.vchip { display:inline-flex; align-items:center; gap:.5rem; background:var(--cream); border:1px solid var(--line); border-radius:12px; padding:.5rem .9rem; }
+.vchip b { color:var(--ink); } .vchip .pos { color:var(--gold-dk); font-size:.82rem; } .vchip .zh { color:var(--ink-soft); font-family:var(--zh); }
+.adv-list { display:grid; gap:.9rem; margin-top:.5rem; }
+.adv-item { border:1px solid var(--line); border-radius:12px; padding:1rem 1.2rem; }
+.adv-item .top { display:flex; align-items:center; gap:.6rem; flex-wrap:wrap; }
+.adv-item .top b { font-size:1.08rem; color:var(--brand-dk); } .adv-item .top .pos{ color:var(--gold-dk); font-size:.82rem; } .adv-item .top .zh{ color:var(--ink-soft); font-family:var(--zh); }
+.adv-item .eg { margin:.5rem 0 0; display:flex; align-items:flex-start; gap:.5rem; }
+.adv-item .eg span { font-size:1.02rem; }
+.adv-item .eg-zh { color:var(--ink-soft); font-family:var(--zh); font-size:.92rem; margin:.25rem 0 0; }
+.sub-head { font-family:var(--sans); font-weight:700; font-size:.8rem; letter-spacing:.14em; text-transform:uppercase; color:var(--gold-dk); margin:1.6rem 0 .6rem; }
+.teach-audio { display:grid; gap:.6rem; margin-top:.4rem; }
+.teach-audio .ta { display:flex; align-items:center; gap:.7rem; flex-wrap:wrap; font-family:var(--zh); font-size:.92rem; color:var(--ink-soft); }
+.teach-audio audio { height:34px; }
+
+.quiz { border:1px solid var(--line); border-radius:12px; padding:1.1rem 1.3rem; margin-top:.8rem; }
+.quiz .q { font-family:var(--zh); font-weight:600; margin-bottom:.7rem; }
+.quiz-opts { display:grid; gap:.5rem; }
+.quiz-opt { text-align:left; background:#fff; border:1px solid var(--line); border-radius:10px; padding:.6rem .9rem; cursor:pointer; font-size:1rem; transition:all .15s; }
+.quiz-opt:hover { border-color:var(--brand); }
+.quiz-opts.done .quiz-opt { cursor:default; }
+.quiz-opt.right { background:#e6f4ea; border-color:#3f9e63; color:#1f6b3e; font-weight:600; }
+.quiz-opt.wrong { background:#fbeaea; border-color:#cf6b5e; color:#a23a2c; }
+.spk.on { background:var(--sunset); color:#fff; }
+
 /* ---------- team / teachers ---------- */
 .team-grid { display:grid; grid-template-columns: repeat(auto-fill, minmax(146px,1fr)); gap: 1.8rem 1rem; }
 .person { text-align:center; }
