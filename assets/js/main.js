@@ -64,7 +64,11 @@
     var t = e.target.closest('.tr-toggle');
     if (t) {
       var box = document.getElementById(t.getAttribute('data-target'));
-      if (box) { box.classList.toggle('show'); t.textContent = box.classList.contains('show') ? '隱藏中文翻譯' : '顯示中文翻譯'; }
+      if (box) {
+        box.classList.toggle('show');
+        var open = box.classList.contains('show');
+        t.textContent = open ? (t.getAttribute('data-hide') || '隱藏中文翻譯') : (t.getAttribute('data-show') || '顯示中文翻譯');
+      }
     }
     var q = e.target.closest('.quiz-opt');
     if (q && !q.parentElement.classList.contains('done')) {

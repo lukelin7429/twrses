@@ -13,6 +13,8 @@ CRAWL = json.load(open(os.path.join(ROOT, "data", "crawl.json"), encoding="utf-8
 BY_PATH = {p["path"]: p for p in CRAWL}
 _ed = os.path.join(ROOT, "data", "everyday.json")
 EVERYDAY = json.load(open(_ed, encoding="utf-8")) if os.path.exists(_ed) else {}
+_bd = os.path.join(ROOT, "data", "basic.json")
+BASIC = json.load(open(_bd, encoding="utf-8")) if os.path.exists(_bd) else {}
 
 # ----------------------------------------------------------------------
 # BASE: URL prefix for internal links.
@@ -759,6 +761,72 @@ def render_unit(book, u, photo, audio):
   </div>
 </div>'''
 
+BASIC_AUDIO_REL = "https://github.com/lukelin7429/twrses/releases/download/basic-audio"
+BASIC_PDF_REL = "https://github.com/lukelin7429/twrses/releases/download/basic-pdf"
+
+def render_basic_unit(book, u):
+    uid = f"basic-b{book:02d}u{u['unit']:02d}"
+    audio = u.get("audio") or {}
+    title = html.escape(u["title"])
+    photos = u.get("photos") or []
+    photos_html = ('<div class="rd-photos">' + "".join(
+        f'<img loading="lazy" src="{p}" alt="{title}">' for p in photos) + '</div>') if photos else ""
+    paras_html = "".join(
+        f'<p class="rd-para"><button class="spk" data-say="{html.escape(p)}" aria-label="朗讀">🔊</button><span>{html.escape(p)}</span></p>'
+        for p in u.get("paras", []))
+    read_audio = f'<audio controls preload="none" src="{BASIC_AUDIO_REL}/{audio["read"]}"></audio>' if audio.get("read") else ""
+    full_say = " ".join(u.get("paras", []))
+    vocab_html = "".join(
+        f'<span class="vchip"><b>{html.escape(v["w"])}</b><span class="pos">({v["pos"]})</span><span class="zh">{html.escape(v["zh"])}</span>'
+        f'<button class="spk" data-say="{html.escape(v["w"])}" aria-label="唸">🔊</button></span>'
+        for v in u.get("vocab", []) if v.get("zh"))
+    qs = u.get("questions", []); ans = u.get("answers", [])
+    qa_html = ""
+    for i, q in enumerate(qs):
+        a = ans[i] if i < len(ans) else ""
+        aid = f"{uid}-a{i}"
+        ans_block = (f'<button class="tr-toggle" data-target="{aid}" data-show="看參考答案" data-hide="隱藏參考答案">看參考答案</button><div class="tr-box" id="{aid}">{html.escape(a)}</div>') if a else ""
+        qa_html += f'''<div class="qa"><p class="q"><button class="spk" data-say="{html.escape(q)}" aria-label="唸題目">🔊</button><span>{html.escape(q)}</span></p>{ans_block}</div>'''
+    tr = html.escape(re.sub(r'(?<=[一-鿿])\s+(?=[一-鿿])','', u.get("translation","")))
+    teach_html = ""
+    if audio.get("teach") or audio.get("eng"):
+        rows=""
+        if audio.get("teach"): rows+=f'<div class="ta">📖 課文教學（中文講解）<audio controls preload="none" src="{BASIC_AUDIO_REL}/{audio["teach"]}"></audio></div>'
+        if audio.get("eng"): rows+=f'<div class="ta">🗣️ 全英教學<audio controls preload="none" src="{BASIC_AUDIO_REL}/{audio["eng"]}"></audio></div>'
+        teach_html=f'<p class="sub-head">完整教學音檔</p><div class="teach-audio">{rows}</div>'
+    pdf_link = f'<a class="unit-dl" href="{BASIC_PDF_REL}/{u["pdf"]}" target="_blank" rel="noopener">⬇ PDF</a>' if u.get("pdf") else ""
+    quiz_html = render_quiz(book, u)
+    return f'''<div class="unit" id="{uid}">
+  <div class="unit-head"><span class="no">{u['unit']}</span><h3>Unit {u['unit']}: {title}</h3>{pdf_link}</div>
+  <div class="unit-body">
+    {photos_html}
+    <div class="passage-block">{paras_html}</div>
+    <div class="audio-row"><button class="spk lg" data-say="{html.escape(full_say)}" aria-label="朗讀全文">🔊</button><span class="muted" style="font-size:.9rem">課文朗讀（真人）</span>{read_audio}</div>
+    <button class="tr-toggle" data-target="{uid}-tr">顯示中文翻譯</button>
+    <div class="tr-box" id="{uid}-tr">{tr}</div>
+    <p class="sub-head">閱讀理解 Questions</p>
+    <div class="qa-list">{qa_html}</div>
+    <p class="sub-head">生字及片語 Words &amp; Phrases</p>
+    <div class="vocab-grid">{vocab_html}</div>
+    {teach_html}
+    {quiz_html}
+  </div>
+</div>'''
+
+def build_basic_sample():
+    units = sorted(BASIC.get("1", []), key=lambda u: u["unit"])
+    u1 = next((u for u in units if u["unit"] == 1), None)
+    if not u1: return
+    body = f'''
+{page_hero("初級閱讀 · Basic Reading", "讀懂一篇文章", "進階的閱讀練習：讀文章、聽真人朗讀、想想閱讀理解問題，再學生字。本頁為 Book 1 Unit 1 的版型示範。")}
+<section class="section"><div class="wrap" style="max-width:940px">
+{render_basic_unit(1, u1)}
+<p class="muted rvl" style="margin-top:1rem">＊這是<strong>新版型示範</strong>（初級閱讀 Book 1 Unit 1）。版型確認後，Book 1–6 共約 60 課會依此產出。</p>
+</div></section>
+'''
+    write("/resources/booklets/basic/book1/", layout("/resources/booklets/basic/book1/",
+        "初級閱讀 Book 1（示範）", "人師閱讀教材·初級閱讀：長文閱讀、真人朗讀、閱讀理解問答、生字片語、小測驗。", body, "resources"))
+
 EVERYDAY_META = {
     "1":("Book 1","校園與日常生活","🦷"), "2":("Book 2","生活情境","🏠"),
     "3":("Book 3","社區與外出","🏙️"), "4":("Book 4","自然與健康","🌿"),
@@ -1054,6 +1122,8 @@ def main():
     build_everyday_hub(); paths.append("/resources/booklets/everyday/")
     for b in sorted(int(k) for k in EVERYDAY):
         build_everyday_book(b); paths.append(f"/resources/booklets/everyday/book{b}/")
+    if BASIC:
+        build_basic_sample(); paths.append("/resources/booklets/basic/book1/")
     build_videos_hub(); paths.append("/resources/videos/")
     for path, title, lead, cp in VIDEO_LEAVES:
         leaf_videos(path, "resources", "英語學習影片", title, lead, cp); paths.append(path)

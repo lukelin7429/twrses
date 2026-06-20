@@ -328,6 +328,19 @@ p  { margin: 0 0 1.1em; }
 .quiz-opt.wrong { background:#fbeaea; border-color:#cf6b5e; color:#a23a2c; }
 .spk.on { background:var(--sunset); color:#fff; }
 
+/* ---------- basic reading unit ---------- */
+.rd-photos { display:flex; gap:1rem; flex-wrap:wrap; margin-bottom:1.4rem; }
+.rd-photos img { flex:1 1 240px; min-width:0; max-height:280px; object-fit:cover; border-radius:14px; border:1px solid var(--line); box-shadow:var(--shadow-sm); }
+.passage-block { margin-bottom:1rem; }
+.rd-para { display:flex; gap:.6rem; align-items:flex-start; font-size:1.16rem; line-height:1.95; margin:0 0 .9rem; color:var(--ink); }
+.rd-para .spk { margin-top:.3rem; }
+.qa-list { display:grid; gap:.7rem; }
+.qa { border:1px solid var(--line); border-radius:12px; padding:.9rem 1.2rem; }
+.qa .q { display:flex; gap:.5rem; align-items:flex-start; font-weight:600; font-family:var(--zh); margin:0 0 .6rem; }
+.qa .tr-toggle { margin:0; }
+.vocab-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(215px,1fr)); gap:.6rem; }
+.vocab-grid .vchip { justify-content:flex-start; }
+
 /* ---------- team / teachers ---------- */
 .team-grid { display:grid; grid-template-columns: repeat(auto-fill, minmax(146px,1fr)); gap: 1.8rem 1rem; }
 .person { text-align:center; }
