@@ -69,6 +69,7 @@ NAV = [
     ]},
     {"label": "偏鄉英語教育", "href": "/rural-schools/", "key": "rural", "children": [
         {"label": "人師英語學院", "href": "/rural-schools/academy/"},
+        {"label": "報名上課", "href": "/rural-schools/register/"},
         {"label": "Practicum 線上課程", "href": "/rural-schools/practicum/"},
         {"label": "上課須知", "href": "/rural-schools/guidelines/"},
     ]},
@@ -313,7 +314,7 @@ def build_home():
         <span class="pill"><b>免費</b> 一對一 / 小班</span>
         <span class="pill">英美<b>母語</b>外師</span>
       </div>
-      <p style="margin-top:1.5rem"><a class="btn btn-primary" href="/rural-schools/academy/">免費報名上課 →</a></p>
+      <p style="margin-top:1.5rem"><a class="btn btn-primary" href="/rural-schools/register/">免費報名上課 →</a></p>
     </div>
   </div>
 </section>
@@ -567,6 +568,48 @@ def build_founder():
     write("/about/founder/", layout("/about/founder/", "創辦人林吉祥",
         "人師教育協會創辦人林吉祥老師：自民國91年起義教偏鄉英語、嘉惠南彰化孩子，2014 年教育部教育奉獻獎得主，完整事蹟、媒體報導與影音。", body, "about"))
 
+MCC_FORMS = "https://lukelin7429.github.io/mcc-forms"
+def build_register():
+    classes = [
+        ("Teacher Shannon · A 班", "週日 09:00–09:50", "國一至高三 · Grade 7–12", "shannon-a/"),
+        ("Teacher Shannon · B 班", "週日 10:15–11:05", "國小五年級至國三 · Grade 5–9", "shannon-b/"),
+        ("Teacher Bridget 小班", "週三 20:00–20:45", "國小一至四年級 · Grade 1–4", "bridget/"),
+        ("Teacher Dom 小班", "週六 10:00–11:00", "國小六年級至高三 · Grade 6–12", "dom/"),
+    ]
+    tutoring = [
+        ("一對一英語上課 1-on-1", "彈性時間", "學生與成人自學者皆可報名", "tutoring/"),
+        ("紐約中文學校 學生報名", "免費家教媒合", "一至九年級", "ny-chinese-school/"),
+    ]
+    def card(title, sched, grade, folder):
+        return f'''<a class="card card-link" href="{MCC_FORMS}/{folder}" target="_blank" rel="noopener">
+  <h3 style="font-size:1.2rem">{html.escape(title)}</h3>
+  <div class="pills" style="margin:.2rem 0 .7rem"><span class="pill">🗓 {html.escape(sched)}</span></div>
+  <p>{html.escape(grade)}</p>
+  <p style="margin-top:1rem;color:var(--brand-dk)"><strong>前往報名 →</strong></p>
+</a>'''
+    cls_html = "".join(card(*c) for c in classes)
+    tut_html = "".join(card(*t) for t in tutoring)
+    body = f'''
+{page_hero("報名上課", "選一個適合你的課程", "人師英語學院的線上課程全部免費，學費由協會負擔。挑選下方適合的班別或一對一媒合，點進去填寫報名表即可。")}
+<section class="section">
+  <div class="wrap">
+    <p class="eyebrow rvl">小班課程</p>
+    <h2 class="rvl d1">固定時段的外師小班</h2>
+    <div class="grid cols-2 stagger" style="margin-top:1.6rem">{cls_html}</div>
+  </div>
+</section>
+<section class="section band">
+  <div class="wrap">
+    <p class="eyebrow rvl">一對一 · 家教媒合</p>
+    <h2 class="rvl d1">彈性時間的一對一</h2>
+    <div class="grid cols-2 stagger" style="margin-top:1.6rem">{tut_html}</div>
+    <p class="muted rvl" style="margin-top:1.6rem;font-size:.92rem">＊報名後若有媒合上，會再透過 Line 或 email 通知上課方式。有任何問題歡迎聯絡林吉祥老師：<a href="mailto:{SITE['email']}">{SITE['email']}</a>。</p>
+  </div>
+</section>
+'''
+    write("/rural-schools/register/", layout("/rural-schools/register/", "報名上課",
+        "人師英語學院免費線上課程報名：外師小班（Shannon／Bridget／Dom）與一對一英語媒合。", body, "rural"))
+
 def build_rural_index():
     body = f'''
 {page_hero("偏鄉英語教育", "讓資源，跨越城鄉的距離", "遠在偏鄉的孩子們因為學習資源不足，缺乏外語學習環境。本協會自民國 98 年創立以來，長期致力於推廣偏鄉英語教育，擴展學生的國際視野。")}
@@ -617,6 +660,7 @@ def build_academy():
         <li><strong>報名方式</strong>：寫信至 <a href="mailto:{SITE['email']}">{SITE['email']}</a>，並註明學校、年級、中英文姓名。</li>
         <li><strong>上課平台</strong>：Google Meet。</li>
       </ul>
+      <p><a class="btn btn-primary" href="/rural-schools/register/">前往線上報名 →</a></p>
     </div>
     <div class="rvl d2">{donate_block()}</div>
   </div>
@@ -1322,8 +1366,8 @@ def main():
     build_home(); paths.append("/")
     build_about(); paths.append("/about/")
     build_founder(); paths.append("/about/founder/")
-    build_rural_index(); build_academy(); build_practicum(); build_guidelines()
-    paths += ["/rural-schools/","/rural-schools/academy/","/rural-schools/practicum/","/rural-schools/guidelines/"]
+    build_rural_index(); build_academy(); build_register(); build_practicum(); build_guidelines()
+    paths += ["/rural-schools/","/rural-schools/academy/","/rural-schools/register/","/rural-schools/practicum/","/rural-schools/guidelines/"]
     build_resources_hub(); paths.append("/resources/")
     build_booklets(); paths.append("/resources/booklets/")
     _interactive = {"/resources/booklets/everyday/", "/resources/booklets/basic/", "/resources/booklets/intermediate/", "/resources/booklets/advanced/", "/resources/booklets/conversation/", "/resources/booklets/description/"}
