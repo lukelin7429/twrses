@@ -304,10 +304,10 @@ def build_home():
 
 <section class="section band">
   <div class="wrap split">
-    <div class="split-media rvl"><figure class="figure"><img loading="lazy" src="/assets/img/home/free-class.jpg" alt="在英語蔓延時，許一個吉祥的夢"></figure></div>
+    <div class="split-media rvl"><figure class="figure"><img loading="lazy" src="/assets/img/home/free-class.jpg" alt="免費線上英語課程"></figure></div>
     <div class="rvl d2">
       <p class="eyebrow">免費線上英語課程</p>
-      <h2 class="sweep">在英語蔓延時，<br>許一個吉祥的夢</h2>
+      <h2 class="sweep">和外師面對面，<br>免費學英文</h2>
       <p class="muted">我們邀請英美外師線上授課，<strong>學費由人師教育協會全額負擔</strong>，各級學校學生都能報名。讓偏鄉的孩子，也能與世界對話。</p>
       <div class="pills" style="margin-top:1.1rem">
         <span class="pill"><b>免費</b> 一對一 / 小班</span>
@@ -543,12 +543,18 @@ def build_founder():
 </section>
 
 <section class="section">
-  <div class="wrap prose rvl" style="max-width:78ch">
-    <p class="eyebrow">他的故事</p>
-    <h2 class="sweep">為偏鄉，點一盞英語的燈</h2>
-    <p>自民國 91 年起，林吉祥老師在竹塘鄉利用明航寺的場地，開辦免費的英語課程，嘉惠南彰化的孩子。他常說：「能以一己之力服務他人，我比以前更快樂。」</p>
-    <p>他組織志工團隊、自拍教學短片、架設網站、購置器材，推廣偏鄉學校的英語教育；更引進國外資源，讓學生透過視訊和外國老師面對面練習口說。「網路是唯一克服城鄉差距的方法，」他說，「要讓彰化的孩子也能走向國際。」</p>
-    <p class="pullquote">「我的夢想，就是讓偏鄉孩子不用花大錢，也能學好英文。」</p>
+  <div class="wrap split">
+    <div class="split-media rvl">
+      <figure class="figure"><img loading="lazy" src="/assets/img/founder/blackboard.jpg" alt="愛在英語蔓延時，許一個吉祥的夢">
+      <figcaption>黑板上的心願：「愛在英語蔓延時，許一個吉祥的夢」</figcaption></figure>
+    </div>
+    <div class="rvl d2 prose">
+      <p class="eyebrow">他的故事</p>
+      <h2 class="sweep">為偏鄉，點一盞英語的燈</h2>
+      <p>自民國 91 年起，林吉祥老師在竹塘鄉利用明航寺的場地，開辦免費的英語課程，嘉惠南彰化的孩子。他常說：「能以一己之力服務他人，我比以前更快樂。」</p>
+      <p>他組織志工團隊、自拍教學短片、架設網站、購置器材，推廣偏鄉學校的英語教育；更引進國外資源，讓學生透過視訊和外國老師面對面練習口說。</p>
+      <p class="pullquote">「我的夢想，就是讓偏鄉孩子不用花大錢，也能學好英文。」</p>
+    </div>
   </div>
 </section>
 
