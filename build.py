@@ -233,17 +233,52 @@ def donate_block():
 #  IDENTITY PAGES (hand-authored)
 # ==================================================================
 def build_home():
+    timeline = [
+        ("tl-origin.jpg", "民國 91 年 · 2002", "從竹塘明航寺起步",
+         "在竹塘的明航寺，為偏鄉的孩子開辦免費英語課程——非常感謝師父慈悲借用場地，讓孩子有了學習的角落。", False),
+        ("tl-contest.jpg", "近 20 年", "全縣英文單字比賽",
+         "在當地舉辦全縣性的英文單字比賽，年年舉行，直到 2020 年因疫情才停辦，前後將近二十年。", False),
+        ("cert.jpg", "民國 98 年 · 2009", "正式成立協會",
+         "在義務教學逾六年之後，為了服務更多孩子，我們正式立案成立「彰化縣人師教育協會」。", True),
+        ("tl-media.jpg", "持續至今", "數位教材與教學影片",
+         "投入大量心力製作免費學習教材與教學影片：設計網站、剪輯影片，並邀請外師參與錄音，讓資源能傳得更遠。", False),
+        ("tl-intl.jpg", "2010 年起", "國際合作與志工交流",
+         "2010、2012 年接待國際組織 Up with People；民國 100 年（2011）起在全縣各校提供國外英語視訊教學；麥克爺爺、Dom Jones 等國際友人也到校與學生互動。", False),
+        ("tl-online.jpg", "線上轉型", "線上課程與師資實習",
+         "邀請外國老師線上授課，學費由協會全額負擔；並與美國的學院合作引進實習老師，造就許多一對一與外師上課的機會。", False),
+        ("tl-pd.jpg", "持續推廣", "推廣與教育合作",
+         "持續推廣「人師英語學院」，並與彰化縣教育處合作辦理教師增能研習，把學習的機會帶給更多師生。", False),
+    ]
+    tl_html = ""
+    for i, (img, year, h, desc, cert) in enumerate(timeline):
+        media = (f'<div class="tl-media tl-cert"><img loading="lazy" src="/assets/img/home/{img}" alt="{html.escape(h)}"></div>'
+                 if cert else f'<div class="tl-media"><img loading="lazy" src="/assets/img/home/{img}" alt="{html.escape(h)}"></div>')
+        tl_html += f'''<div class="tl-item rvl">{media}<div class="tl-text"><span class="tl-year">{year}</span><h3>{h}</h3><p>{desc}</p></div></div>'''
+
+    slides = [
+        ("slide-1.jpg","與外師面對面交流"), ("slide-2.jpg","國外英語視訊教學"),
+        ("slide-3.jpg","Enactus 英語課程"), ("slide-4.jpg","教師增能研習"),
+        ("slide-5.jpg","推廣人師英語學院"), ("slide-6.jpg","教學影片製作"),
+        ("slide-7.jpg","國際夥伴交流"), ("slide-8.jpg","外師到校互動"),
+        ("slide-9.jpg","各界的肯定"),
+    ]
+    slides_html = "".join(
+        f'<figure class="car-slide"><img loading="lazy" src="/assets/img/home/{s}" alt="{html.escape(c)}"><figcaption>{c}</figcaption></figure>'
+        for s, c in slides)
+    dots_html = "".join(f'<button class="car-dot{" on" if i==0 else ""}" data-i="{i}" aria-label="第 {i+1} 張"></button>' for i in range(len(slides)))
+
     body = f'''
-<section class="hero">
-  <div class="hero-bg"><span class="orb a"></span><span class="orb b"></span><span class="orb c"></span></div>
-  <div class="wrap">
-    <p class="eyebrow rvl">彰化縣人師教育協會 · My Culture Connect</p>
+<section class="hero-photo">
+  <div class="hero-img"><img src="/assets/img/home/banner.jpg" alt="人師教育協會" fetchpriority="high"></div>
+  <div class="hero-scrim"></div>
+  <div class="wrap hero-photo-content">
+    <p class="eyebrow light rvl">彰化縣人師教育協會 · My Culture Connect</p>
     <h1 class="rvl d1">讓偏鄉的孩子，<br>也能與世界一起學習。</h1>
-    <p class="lead rvl d2">本協會由校長、老師、家長與關心教育的熱心人士組成。大家有錢出錢、有力出力，製作免費的學習教材與教學影片，並引進國外資源與彰化縣的學校交流，協助多所學校建立雙語資源網站。</p>
-    <p class="slogan-en rvl d3" style="margin-top:1.2rem">{SITE["slogan_en"]}</p>
+    <p class="lead rvl d2">自民國 91 年起義務深耕、民國 98 年正式成立——我們製作免費學習教材與教學影片，並引進國外資源與彰化的孩子交流。</p>
+    <p class="slogan-en rvl d3" style="margin-top:1rem;color:#ffe9c7">{SITE["slogan_en"]}</p>
     <div class="hero-cta rvl d3">
-      <a class="btn btn-primary" href="/rural-schools/academy/">免費線上英語課程</a>
-      <a class="btn btn-ghost" href="/about/">認識人師</a>
+      <a class="btn btn-gold" href="/rural-schools/academy/">免費線上英語課程</a>
+      <a class="btn btn-ghost" style="border-color:#fff;color:#fff" href="/about/">認識人師</a>
     </div>
   </div>
 </section>
@@ -251,18 +286,34 @@ def build_home():
 <section class="section band">
   <div class="wrap">
     <div class="grid cols-3 stagger">
-      <a class="card card-link" href="/rural-schools/">
-        <span class="ico">🌱</span><h3>偏鄉英語教育</h3>
-        <p>自民國 98 年起長期深耕，邀請各國英語老師透過線上教學為偏鄉學生授課。</p>
-      </a>
-      <a class="card card-link" href="/resources/">
-        <span class="ico">📚</span><h3>免費學習資源</h3>
-        <p>閱讀教材、影片教室、英語課程與期刊——數百部教學影片，免費開放自學。</p>
-      </a>
-      <a class="card card-link" href="/media/">
-        <span class="ico">🎬</span><h3>人師影音專區</h3>
-        <p>麥克爺爺放眼看台灣、國際交流、英語新聞與人物專訪，從生活學英文。</p>
-      </a>
+      <a class="card card-link" href="/rural-schools/"><span class="ico">🌱</span><h3>偏鄉英語教育</h3><p>邀請各國英語老師透過線上教學，為偏鄉學生免費授課。</p></a>
+      <a class="card card-link" href="/resources/"><span class="ico">📚</span><h3>免費學習資源</h3><p>閱讀教材、影片教室、英語課程與期刊——免費開放自學。</p></a>
+      <a class="card card-link" href="/media/"><span class="ico">🎬</span><h3>人師影音專區</h3><p>麥克爺爺、國際交流、英語新聞與人物專訪，從生活學英文。</p></a>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <p class="eyebrow rvl">我們的故事</p>
+    <h2 class="rvl d1 sweep">從一間教室，到與世界連線</h2>
+    <p class="lead rvl d2" style="max-width:60ch">人師教育協會正式成立於民國 98 年（2009 年）。在成立之前，我們已經持續多年免費教偏鄉的孩子英文；為了服務更多人，才決定成立這個非營利組織。以下是我們一路走來的足跡。</p>
+    <div class="timeline-v" style="margin-top:2.5rem">{tl_html}</div>
+  </div>
+</section>
+
+<section class="section band">
+  <div class="wrap split">
+    <div class="split-media rvl"><figure class="figure"><img loading="lazy" src="/assets/img/home/free-class.jpg" alt="在英語蔓延時，許一個吉祥的夢"></figure></div>
+    <div class="rvl d2">
+      <p class="eyebrow">免費線上英語課程</p>
+      <h2 class="sweep">在英語蔓延時，<br>許一個吉祥的夢</h2>
+      <p class="muted">我們邀請英美外師線上授課，<strong>學費由人師教育協會全額負擔</strong>，各級學校學生都能報名。讓偏鄉的孩子，也能與世界對話。</p>
+      <div class="pills" style="margin-top:1.1rem">
+        <span class="pill"><b>免費</b> 一對一 / 小班</span>
+        <span class="pill">英美<b>母語</b>外師</span>
+      </div>
+      <p style="margin-top:1.5rem"><a class="btn btn-primary" href="/rural-schools/academy/">免費報名上課 →</a></p>
     </div>
   </div>
 </section>
@@ -273,14 +324,22 @@ def build_home():
       <p class="eyebrow">我們在做的事</p>
       <h2 class="sweep">與美國 ITA 合作，<br>外師線上一對一</h2>
       <p class="muted">從民國 109 年 4 月起，我們與美國芝加哥的國際英語教師認證機構（International TEFL Academy）合作，邀請各國英語老師透過線上教學為學生授課，讓無數學生受惠；同時也開放台灣及全世界的英語老師線上觀課，提升教學技巧。</p>
-      <div class="pills" style="margin-top:1.2rem">
-        <span class="pill"><b>免費</b> 一對一 / 小班</span>
-        <span class="pill">英美<b>母語</b>外師</span>
-        <span class="pill">各級學校<b>學生</b>適用</span>
-      </div>
-      <p style="margin-top:1.5rem"><a class="btn btn-gold" href="/rural-schools/practicum/">如何報名上課 →</a></p>
+      <p style="margin-top:1.4rem"><a class="btn btn-gold" href="/rural-schools/practicum/">如何報名上課 →</a></p>
     </div>
     <div class="rvl d2">{donate_block()}</div>
+  </div>
+</section>
+
+<section class="section band">
+  <div class="wrap">
+    <p class="eyebrow rvl">影像紀錄</p>
+    <h2 class="rvl d1">人師的足跡</h2>
+    <div class="carousel rvl d2" data-carousel style="margin-top:1.6rem">
+      <div class="car-viewport"><div class="car-track">{slides_html}</div></div>
+      <button class="car-arrow car-prev" aria-label="上一張">‹</button>
+      <button class="car-arrow car-next" aria-label="下一張">›</button>
+      <div class="car-dots">{dots_html}</div>
+    </div>
   </div>
 </section>
 
@@ -296,7 +355,7 @@ def build_home():
   </div>
 </section>
 '''
-    write("/", layout("/", "", "彰化縣人師教育協會（My Culture Connect）— 長期推廣偏鄉英語教育，提供免費線上外師課程與英語學習資源。", body, "home"))
+    write("/", layout("/", "", "彰化縣人師教育協會（My Culture Connect）— 自民國91年義務深耕、98年成立，推廣偏鄉英語教育，提供免費線上外師課程與英語學習資源。", body, "home"))
 
 def build_about():
     partners = [
