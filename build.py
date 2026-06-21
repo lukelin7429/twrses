@@ -11,6 +11,8 @@ import json, os, html, re, shutil
 ROOT = os.path.dirname(os.path.abspath(__file__))
 CRAWL = json.load(open(os.path.join(ROOT, "data", "crawl.json"), encoding="utf-8"))
 BY_PATH = {p["path"]: p for p in CRAWL}
+_vm = os.path.join(ROOT, "data", "video_meta.json")
+VIDEO_META = json.load(open(_vm, encoding="utf-8")) if os.path.exists(_vm) else {}
 _ed = os.path.join(ROOT, "data", "everyday.json")
 EVERYDAY = json.load(open(_ed, encoding="utf-8")) if os.path.exists(_ed) else {}
 _bd = os.path.join(ROOT, "data", "basic.json")
@@ -209,16 +211,46 @@ def page_hero(eyebrow, title, lead, brand=False):
   </div>
 </section>'''
 
+_CN_WEEKDAY = None
+def _fmt_dur(sec):
+    """seconds -> M:SS or H:MM:SS"""
+    try:
+        sec = int(sec)
+    except (ValueError, TypeError):
+        return ""
+    if sec <= 0:
+        return ""
+    h, rem = divmod(sec, 3600)
+    m, s = divmod(rem, 60)
+    return f"{h}:{m:02d}:{s:02d}" if h else f"{m}:{s:02d}"
+
+def _fmt_date(d):
+    """YYYYMMDD -> YYYY · MM/DD"""
+    if d and len(d) == 8 and d.isdigit():
+        return f"{d[0:4]} · {int(d[4:6])}/{int(d[6:8])}"
+    return ""
+
+def live_ids(ids):
+    """Drop videos that yt-dlp could not reach (private/deleted)."""
+    return [v for v in ids if not VIDEO_META.get(v, {}).get("dead")]
+
 def video_grid(ids, limit=None):
+    ids = live_ids(ids)
     if limit:
         ids = ids[:limit]
     cards = []
     for v in ids:
+        meta = VIDEO_META.get(v, {})
         thumb = f"https://i.ytimg.com/vi/{v}/hqdefault.jpg"
         url = f"https://www.youtube.com/watch?v={v}"
-        cards.append(f'''<a class="vcard" href="{url}" target="_blank" rel="noopener" data-yt="{v}">
-  <span class="vthumb"><img loading="lazy" src="{thumb}" alt="影片縮圖"></span>
-  <span class="vmeta"><span class="vt">▶ 觀看影片</span></span>
+        title = html.escape(meta.get("title") or "觀看影片")
+        dur = _fmt_dur(meta.get("duration"))
+        date = _fmt_date(meta.get("date"))
+        dur_badge = f'<span class="vdur">{dur}</span>' if dur else ""
+        date_html = f'<span class="vdate">{date}</span>' if date else ""
+        cards.append(f'''<a class="vcard" href="{url}" data-yt="{v}" title="{title}">
+  <span class="vthumb"><img loading="lazy" src="{thumb}" alt="{title}">{dur_badge}</span>
+  <span class="vmeta"><span class="vt">{title}</span>{date_html}</span>
 </a>''')
     return '<div class="video-grid stagger">\n' + "\n".join(cards) + "\n</div>"
 
@@ -1300,12 +1332,76 @@ def build_media_hub():
         ])
 
 MEDIA_LEAVES = [
-    ("/media/grandpa-mike/", "media", "麥克爺爺放眼看台灣", "麥克爺爺用英語帶你看台灣的人情風土。", "/RS-videos/eyes"),
     ("/media/exchange/", "media", "國際交流影片", "與各國師生的交流剪影。", "/RS-videos/exchange-videos"),
     ("/media/enactus/", "media", "Enactus 英語課程", "與杜魯門大學 Enactus 合作的英語課程。", "/RS-videos/Enactus-Truman"),
     ("/media/talks/", "media", "人師教育廣場", "教育講座與分享。", "/RS-videos/speeches"),
     ("/media/interviews/", "media", "人物專訪影片", "教育者與貴賓的人物專訪。", "/RS-videos/interviews"),
 ]
+
+def _mike_card(v, ep=None):
+    """One Grandpa Mike video card: episode chip + clean location title."""
+    meta = VIDEO_META.get(v, {})
+    raw = meta.get("title") or "觀看影片"
+    # strip the recurring English series prefix to surface the location
+    loc = re.sub(r"^\s*Through the Eyes of Grandpa Mike\s*", "", raw)
+    loc = re.sub(r"^第\s*\d+\s*集\s*", "", loc).strip() or raw
+    loc = html.escape(loc)
+    thumb = f"https://i.ytimg.com/vi/{v}/hqdefault.jpg"
+    url = f"https://www.youtube.com/watch?v={v}"
+    dur = _fmt_dur(meta.get("duration"))
+    date = _fmt_date(meta.get("date"))
+    dur_badge = f'<span class="vdur">{dur}</span>' if dur else ""
+    ep_chip = f'<span class="vep">第 {ep} 集</span>' if ep else '<span class="vep vep-sp">特別篇</span>'
+    sub = '<span class="vsub">Through the Eyes of Grandpa Mike</span>'
+    date_html = f'<span class="vdate">{date}</span>' if date else ""
+    return f'''<a class="vcard mikecard" href="{url}" data-yt="{v}" title="{html.escape(raw)}">
+  <span class="vthumb">{ep_chip}<img loading="lazy" src="{thumb}" alt="{loc}">{dur_badge}</span>
+  <span class="vmeta"><span class="vt">{loc}</span>{sub}{date_html}</span>
+</a>'''
+
+def build_grandpa_mike():
+    path = "/media/grandpa-mike/"
+    ids = live_ids(BY_PATH.get("/RS-videos/eyes", {}).get("youtube", []))
+    episodes, specials = [], []
+    for v in ids:
+        title = VIDEO_META.get(v, {}).get("title") or ""
+        m = re.search(r"第\s*(\d+)\s*集", title)
+        if m:
+            episodes.append((int(m.group(1)), v))
+        else:
+            specials.append(v)
+    episodes.sort(key=lambda t: t[0])
+    ep_cards = "\n".join(_mike_card(v, ep) for ep, v in episodes)
+    sp_cards = "\n".join(_mike_card(v) for v in specials)
+    total = len(episodes) + len(specials)
+
+    intro = '''<div class="mike-intro rvl">
+      <p>麥克爺爺（Grandpa Mike）是一位來自美國的退休教育工作者，曾任學校輔導老師與校長。
+      他學中文、愛台灣，疫情前多次自費飛來，走進彰化與各地的校園，用最溫暖的英語陪孩子認識自己的家鄉。</p>
+      <p>《Through the Eyes of Grandpa Mike》是他一集一集走訪台灣學校與景點的紀錄——
+      從東溪、彰興到澎湖、佛光山，用外國爺爺的眼睛，帶孩子重新看見台灣的人情與風土，也順道練出真實的英語語感。</p>
+      <p class="mike-honor">謹以這個系列，懷念並感謝麥克爺爺。<span>He taught English, but more importantly, he taught love, respect, and the power of doing good.</span></p>
+    </div>'''
+
+    sp_block = (f'''<p class="eyebrow rvl" style="margin-top:2.6rem">特別篇 · {len(specials)} 部</p>
+    <div class="video-grid stagger">{sp_cards}</div>''' if specials else "")
+
+    body = f'''
+{page_hero("人師影音專區", "麥克爺爺放眼看台灣", "用一位外國爺爺的眼睛，一集一集走訪台灣的校園與風土。")}
+<section class="section">
+  <div class="wrap">
+    {intro}
+    <div class="flex rvl" style="justify-content:space-between;align-items:center;margin:1.8rem 0 1.4rem">
+      <div class="pills"><span class="pill"><b>{total}</b> 部影片</span><span class="pill">{len(episodes)} 集正篇</span></div>
+      <a class="muted" href="{SITE['yt']}" target="_blank" rel="noopener">前往 YouTube 頻道 →</a>
+    </div>
+    <div class="video-grid stagger">{ep_cards}</div>
+    {sp_block}
+  </div>
+</section>
+'''
+    write(path, layout(path, "麥克爺爺放眼看台灣",
+        "麥克爺爺用英語帶你一集一集走訪台灣的校園與風土，認識家鄉、練出真實語感。", body, "media"))
 
 def build_news_videos():
     # combine 3 sub-series
@@ -1411,6 +1507,7 @@ def main():
     build_grandfather(); paths.append("/resources/grandfather/")
     build_periodicals(); paths.append("/resources/periodicals/")
     build_media_hub(); paths.append("/media/")
+    build_grandpa_mike(); paths.append("/media/grandpa-mike/")
     for path, key, title, lead, cp in MEDIA_LEAVES:
         leaf_videos(path, key, "人師影音專區", title, lead, cp); paths.append(path)
     build_news_videos(); paths.append("/media/news-videos/")

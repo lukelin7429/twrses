@@ -32,12 +32,54 @@
     revealEls.forEach(function (el) { el.classList.add('in'); });
   }
 
-  /* lazy-load youtube thumbs already handled by loading="lazy"; click-to-play inline */
-  document.querySelectorAll('[data-yt]').forEach(function (card) {
-    card.addEventListener('click', function (ev) {
-      // allow normal link open in new tab; only intercept plain left-click without modifier
+  /* click-to-play: open the video in an on-page lightbox — never pop out to YouTube */
+  (function () {
+    var box = null, frame = null;
+    function ensure() {
+      if (box) return;
+      box = document.createElement('div');
+      box.className = 'yt-lightbox';
+      box.setAttribute('aria-hidden', 'true');
+      box.innerHTML =
+        '<div class="yt-backdrop"></div>' +
+        '<div class="yt-stage">' +
+          '<button class="yt-close" aria-label="關閉影片">×</button>' +
+          '<div class="yt-frame"></div>' +
+        '</div>';
+      document.body.appendChild(box);
+      frame = box.querySelector('.yt-frame');
+      box.querySelector('.yt-backdrop').addEventListener('click', close);
+      box.querySelector('.yt-close').addEventListener('click', close);
+    }
+    function open(id, title) {
+      ensure();
+      frame.innerHTML =
+        '<iframe src="https://www.youtube.com/embed/' + id +
+        '?autoplay=1&rel=0&modestbranding=1&playsinline=1" title="' +
+        (title || '影片').replace(/"/g, '&quot;') + '" ' +
+        'allow="autoplay; encrypted-media; picture-in-picture; fullscreen" ' +
+        'allowfullscreen></iframe>';
+      box.classList.add('on');
+      box.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+    function close() {
+      if (!box) return;
+      box.classList.remove('on');
+      box.setAttribute('aria-hidden', 'true');
+      frame.innerHTML = '';        // unmount iframe → stops playback
+      document.body.style.overflow = '';
+    }
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && box && box.classList.contains('on')) close();
     });
-  });
+    document.querySelectorAll('[data-yt]').forEach(function (card) {
+      card.addEventListener('click', function (ev) {
+        ev.preventDefault();       // hard-block any navigation to YouTube
+        open(card.getAttribute('data-yt'), card.getAttribute('title'));
+      });
+    });
+  })();
 
   /* speak (Web Speech) for 🔊 buttons */
   var enVoice = null;
