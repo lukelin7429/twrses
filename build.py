@@ -28,12 +28,12 @@ DESCRIPTION = json.load(open(_dd, encoding="utf-8")) if os.path.exists(_dd) else
 
 # ----------------------------------------------------------------------
 # BASE: URL prefix for internal links.
-#   ""         → custom domain (www.twrses.org), absolute paths from root
+#   ""         → custom domain (twrses.org), absolute paths from root
 #   "/twrses"  → GitHub project page lukelin7429.github.io/twrses/
 # Switch to "" and rebuild when DNS points twrses.org at GitHub Pages.
 # ----------------------------------------------------------------------
-BASE = "/twrses"
-ROOT_URL = f"https://lukelin7429.github.io{BASE}" if BASE else "https://www.twrses.org"
+BASE = ""
+ROOT_URL = f"https://lukelin7429.github.io{BASE}" if BASE else "https://twrses.org"
 
 import hashlib
 def _asset_ver():
@@ -47,7 +47,7 @@ ASSET_V = _asset_ver()
 SITE = {
     "name": "彰化縣人師教育協會",
     "name_en": "My Culture Connect",
-    "domain": "www.twrses.org",
+    "domain": "twrses.org",
     "founded": "民國 98 年（2009）",
     "slogan_en": "Learn from yesterday, live for today, and hope for tomorrow.",
     "email": "luke@mycultureconnect.org",
@@ -1912,7 +1912,7 @@ def build_static():
     if BASE:
         if os.path.exists(cname_path): os.remove(cname_path)
     else:
-        open(cname_path, "w").write("www.twrses.org\n")
+        open(cname_path, "w").write("twrses.org\n")
     open(os.path.join(ROOT, ".nojekyll"), "w").write("")
     open(os.path.join(ROOT, "robots.txt"), "w").write(f"User-agent: *\nAllow: /\nSitemap: {ROOT_URL}/sitemap.txt\n")
 
