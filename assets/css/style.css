@@ -359,9 +359,10 @@ p  { margin: 0 0 1.1em; }
 .af-char { display:flex; flex-direction:column; gap:.15rem; padding:.9rem 1.1rem; background:#fff; border:1px solid var(--line); border-radius:12px; box-shadow:var(--shadow-sm); }
 .af-char-n { font-family:var(--serif); font-weight:600; color:var(--brand-dk); font-size:1.08rem; }
 .af-char-d { color:var(--ink-soft); font-size:.95rem; line-height:1.6; }
-/* 各章朗讀：緊湊多欄的就地播放列；播放中那段橫跨整列展開 */
-.af-lectures { display:grid; grid-template-columns:repeat(auto-fill, minmax(220px, 1fr)); gap:.7rem; align-items:start; }
-.af-lectures .lecture.playing { grid-column:1 / -1; }
+/* 各章朗讀：緊湊多欄的就地播放列；播放中那段橫跨整列展開
+   ⚠️用 .lectures.af-lectures 提高特異度，蓋過後面定義的 .lectures{display:flex} */
+.lectures.af-lectures { display:grid; grid-template-columns:repeat(auto-fill, minmax(230px, 1fr)); gap:.7rem; align-items:start; }
+.lectures.af-lectures .lecture.playing { grid-column:1 / -1; }
 
 /* inline 語音講解播放器（不蓋講義） */
 .lectures { display:flex; flex-direction:column; gap:.7rem; }
