@@ -69,6 +69,7 @@ NAV = [
     {"label": "認識人師", "href": "/about/", "key": "about", "children": [
         {"label": "協會介紹", "href": "/about/"},
         {"label": "創辦人林吉祥", "href": "/about/founder/"},
+        {"label": "國際夥伴", "href": "/partners/"},
     ]},
     {"label": "偏鄉英語教育", "href": "/rural-schools/", "key": "rural", "children": [
         {"label": "人師英語學院", "href": "/rural-schools/academy/"},
@@ -1829,12 +1830,132 @@ def build_sitemap(paths):
     lines = [f"{ROOT_URL}{p}" for p in paths]
     open(os.path.join(ROOT, "sitemap.txt"), "w").write("\n".join(lines) + "\n")
 
+TB = "https://taiwan-bilingual.org"   # 圖片與夥伴詳介沿用台灣雙語資源網（同為人師建置）
+
+PARTNERS = [
+    {"accent": ("#0e6b60", "#d8ece8", "#0a4f47"),
+     "img": TB + "/edward-huang/photos/edward-portrait.jpg", "alt": "Edward Huang 黃雋翔",
+     "tag": "聯合國青年氣候", "name": "Edward Huang 黃雋翔",
+     "role": "LCOY Taiwan 國際大使 · UNFCCC YOUNGO",
+     "zh": "UCLA 碩士、UNFCCC 官方青年組織 YOUNGO 成員。Edward 為臺灣學生（小學到大學）開啟聯合國氣候峰會、SDGs 教學與跨國專題學習；其 Youth Network 取得 2026 LCOY Taiwan 主辦權。",
+     "meta": ["🇺🇳 UNFCCC YOUNGO", "🌍 LCOY Taiwan", "🎓 UCLA"],
+     "go": (TB + "/edward-huang/", "查看完整介紹 →", True)},
+    {"accent": ("#b97e16", "#f6e6c4", "#7a5310"),
+     "img": TB + "/dom-jones/images/dom-jones.png", "alt": "Dom Jones 多姆・瓊斯",
+     "tag": "倡議 · 善意", "name": "Dom Jones 多姆・瓊斯",
+     "role": "聯合國 SDG 大使 · 人師倡議委員會",
+     "zh": "來自加州的社會運動者、教育家與媒體人，主持《The Dom Jones Show》、曾登上 CBS《The Amazing Race》。Dom 帶來以「英語教育、全球連結、善意與愛」為三大主軸的校園巡迴集會。",
+     "meta": ["🌏 UN SDG", "📺 PBTV", "🏆 Amazing Race S34"],
+     "go": ("/media/dom-jones/", "看 Dom 的校園巡訪 →", False)},
+    {"accent": ("#d2643c", "#f7e0d4", "#9e3f22"),
+     "img": TB + "/partners/leon-la-couvee/photos/leon-portrait.jpg", "alt": "Leon E. La Couvée",
+     "tag": "作家 · 講者", "name": "Leon E. La Couvée",
+     "role": "作家 · TEDxYouth 講者 · 雙語教師",
+     "zh": "加拿大出生、選擇定居臺灣的作家、講者與教師，畢生關注人的自由與圓滿。著有《Grandfather Is Dead／落日餘暉》與《Grandfather Is Going to Die》，並有每週專欄、播客與 TEDxYouth 演講；人師將其第一本書製作成三十集雙語影片。",
+     "meta": ["📚 兩本著作", "🎙️ 播客", "🎤 TEDxYouth"],
+     "go": ("/resources/grandfather/", "看《落日餘暉》影片 →", False)},
+]
+
+PARTNER_ORGS = [
+    {"img": TB + "/partners/una-oc/img/una-oc-sdg.jpg",
+     "name": "美國聯合國協會橙縣分會 UNA-OC",
+     "zh": "美國聯合國協會橙縣分會，推動 SDGs 與全球公民意識；透過擔任其政府事務大使的夥伴 Dom Jones 與本協會結緣。",
+     "go": TB + "/partners/una-oc/"},
+    {"img": "https://i.ytimg.com/vi/nHXZsvoPG7c/hqdefault.jpg",
+     "name": "DLSU-D 與崇實高工締結姊妹校",
+     "zh": "人師在菲律賓的拉薩爾夥伴與彰化員林崇實高工締結姊妹校：簽約儀式、書法交流與在地報導，收錄於 5 支影片。",
+     "go": TB + "/partners/dlsu-d/"},
+    {"img": TB + "/partners/chinese-culture-connection/img/gala.png",
+     "name": "華夏文化協會（波士頓）",
+     "zh": "大波士頓四十年的非營利組織、人師的姊妹組織，理念相通、董事相連，推動雙語雙文化教育與跨文化理解。",
+     "go": TB + "/partners/chinese-culture-connection/"},
+    {"img": "https://i.ytimg.com/vi/Y45jz0N6Zk0/hqdefault.jpg",
+     "name": "Books for Taiwan：把英文書帶回家",
+     "zh": "自 2012 年起，Amy Lin 的志工收集美國圖書館的英文書，捐贈臺灣的學校、圖書館與監獄，收錄於 14 支影片。",
+     "go": TB + "/partners/books-for-taiwan/"},
+    {"img": "https://i.ytimg.com/vi/Q7E2vrl2uRQ/hqdefault.jpg",
+     "name": "紐約 CCC 中文學校來到彰化",
+     "zh": "自 2022 年起的長期夥伴，紐約 Albany 的學生輔導臺灣孩子英文並來彰化教學交流，收錄於 27 支影片。",
+     "go": TB + "/partners/ccc-chinese-school/"},
+    {"img": TB + "/partners/nmu/img/nmu-principal-group.jpg",
+     "name": "NMU 師資生來到彰化",
+     "zh": "2026 年 5 月，David Boe 教授帶領 NMU 師資生來彰化進行 TESOL 實習，於溪州與陽明國中協同教學，收錄於師資生親錄的見證短片。",
+     "go": TB + "/partners/nmu/"},
+    {"img": "https://i.ytimg.com/vi/qn33x2o0Vr4/hqdefault.jpg",
+     "name": "UTRGV 來到臺灣",
+     "zh": "本計畫最早的國際合作之一，21 位 UTRGV 師資生在彰化教學的歷程，收錄於 22 支見證短片。",
+     "go": TB + "/partners/utrgv/"},
+]
+
+def build_partners():
+    pcards = []
+    for p in PARTNERS:
+        a, soft, deep = p["accent"]
+        href, label, ext = p["go"]
+        tgt = ' target="_blank" rel="noopener"' if ext else ''
+        meta = "".join(f"<span>{html.escape(m)}</span>" for m in p["meta"])
+        pcards.append(f'''<article class="partner rvl" style="--pc:{a};--pc-soft:{soft};--pc-deep:{deep}">
+  <div class="partner-photo"><img loading="lazy" src="{p['img']}" alt="{html.escape(p['alt'])}"></div>
+  <div class="partner-body">
+    <span class="partner-tag">{html.escape(p['tag'])}</span>
+    <h2>{html.escape(p['name'])}</h2>
+    <p class="role">{html.escape(p['role'])}</p>
+    <p class="zh">{html.escape(p['zh'])}</p>
+    <div class="partner-meta">{meta}</div>
+    <a class="partner-go" href="{href}"{tgt}>{html.escape(label)}</a>
+  </div>
+</article>''')
+    # 懷念：麥克爺爺
+    mike = f'''<article class="partner memoriam rvl">
+  <div class="partner-photo"><img loading="lazy" src="{TB}/partners/grandpa-mike/photos/mike-portrait.jpg" alt="Grandpa Mike"></div>
+  <div class="partner-body">
+    <span class="partner-tag mem">🕯️ 懷念 In Loving Memory</span>
+    <h2>Grandpa Mike 麥克爺爺</h2>
+    <p class="role">Michael Dishnow · 1943 – 2025 · 臺灣孩子的美國爺爺</p>
+    <p class="zh">十多年來，他一次又一次飛來台灣，陪孩子學英語、也愛著他們。他留下 32 支造訪校園的影片，與一堂比語言更大的課。</p>
+    <a class="partner-go" href="/media/grandpa-mike/">走進紀念頁 →</a>
+  </div>
+</article>'''
+    orgs = []
+    for o in PARTNER_ORGS:
+        orgs.append(f'''<a class="progcard rvl" href="{o['go']}" target="_blank" rel="noopener">
+  <div class="progcard-thumb"><img loading="lazy" src="{o['img']}" alt="{html.escape(o['name'])}"></div>
+  <div class="progcard-body">
+    <h3>{html.escape(o['name'])}</h3>
+    <p>{html.escape(o['zh'])}</p>
+    <span class="go">了解這個夥伴 →</span>
+  </div>
+</a>''')
+    more = '''<div class="progcard progcard-more rvl">
+  <div class="progcard-body">
+    <h3>更多夥伴持續加入</h3>
+    <p>本協會持續邀請能為臺灣學生帶來真實國際舞台的國際教育者與倡議者加入。</p>
+  </div>
+</div>'''
+    body = f'''
+{page_hero("國際夥伴", "把世界帶進教室的人", "國際級的夥伴，為臺灣學生帶來真實的世界舞台，以及來自每天都在使用英語的人的「活的英文」。")}
+<section class="section"><div class="wrap">
+  {"".join(pcards)}
+  {mike}
+</div></section>
+<section class="section band"><div class="wrap">
+  <div class="section-head rvl"><p class="eyebrow">合作的學校與組織</p><h2>並肩同行的夥伴</h2></div>
+  <div class="progcard-grid">
+    {"".join(orgs)}
+    {more}
+  </div>
+</div></section>
+'''
+    write("/partners/", layout("/partners/", "國際夥伴",
+        "把世界帶進臺灣教室的國際夥伴——Edward Huang、Dom Jones、Leon La Couvée、麥克爺爺，以及並肩同行的學校與組織。", body, "about"))
+
 def main():
     paths = []
     build_static()
     build_home(); paths.append("/")
     build_about(); paths.append("/about/")
     build_founder(); paths.append("/about/founder/")
+    build_partners(); paths.append("/partners/")
     build_rural_index(); build_academy(); build_register(); build_practicum(); build_guidelines()
     paths += ["/rural-schools/","/rural-schools/academy/","/rural-schools/register/","/rural-schools/practicum/","/rural-schools/guidelines/"]
     build_resources_hub(); paths.append("/resources/")
