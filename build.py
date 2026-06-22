@@ -1707,14 +1707,6 @@ def build_exchange_hub():
     dom_cnt = len(DOM["videos"])
     mike_thumb = f"https://i.ytimg.com/vi/{_mike_first_id()}/hqdefault.jpg"
     dom_thumb = f"https://i.ytimg.com/vi/{DOM['videos'][0]['id']}/hqdefault.jpg"
-    # 其餘國際交流剪影（沿用舊 exchange-videos，扣掉已排除者）
-    other_ids = live_ids(BY_PATH.get("/RS-videos/exchange-videos", {}).get("youtube", []))
-    other = (f'''<section class="section band"><div class="wrap">
-      <p class="eyebrow rvl">更多交流剪影</p>
-      <h2 class="rvl d1">其他國際交流紀錄</h2>
-      <p class="muted rvl d2" style="max-width:60ch">音樂交流、海外青年、視訊連線與特別報導——更多把世界帶進彰化教室的時刻。</p>
-      {video_grid(other_ids)}
-    </div></section>''' if other_ids else "")
     body = f'''
 {page_hero("學校訪問 · School Tour", "把世界帶進彰化的教室",
            "十多年來，一位又一位難得的訪客把活的英語、國際連結與善意帶進彰化的校園——先是麥克爺爺，如今是 Dom Jones。")}
@@ -1750,7 +1742,6 @@ def build_exchange_hub():
     </a>
   </div>
 </div></section>
-{other}
 '''
     write("/media/exchange/", layout("/media/exchange/", "國際交流 · 學校訪問",
         "麥克爺爺與 Dom Jones 把活的英語、國際連結與善意帶進彰化的校園。", body, "media"))
