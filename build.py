@@ -794,7 +794,6 @@ def build_practicum():
     <h2 class="rvl d1" style="margin-bottom:.3rem">Council on International Educational Exchange（Maine）</h2>
     <p class="muted rvl d2" style="margin-bottom:1.4rem">小班線上課程，至少兩人一起上課。</p>
     <div class="rvl d2">{faq_block(faqs_ciee)}</div>
-    <p class="rvl" style="margin-top:2rem"><a class="btn btn-primary" href="mailto:{SITE['email2']}">寫信報名上課</a></p>
   </div>
 </section>
 '''
