@@ -321,11 +321,11 @@ def build_home():
 
 <section class="section band">
   <div class="wrap">
-    <div class="grid cols-3 stagger">
-      <a class="card card-link" href="/rural-schools/"><span class="ico">🌱</span><h3>偏鄉英語教育</h3><p>邀請各國英語老師透過線上教學，為偏鄉學生免費授課。</p></a>
-      <a class="card card-link" href="/resources/"><span class="ico">📚</span><h3>免費學習資源</h3><p>閱讀與經典、打好基礎、聽說與會話、生活英語——免費開放自學。</p></a>
-      <a class="card card-link" href="/media/"><span class="ico">🎬</span><h3>人師影音專區</h3><p>國際交流、英語新聞、教育廣場與人物專訪，從生活看見英語。</p></a>
-    </div>
+    {fcard_grid([
+      ("/rural-schools/", "🌱", "偏鄉英語教育", "邀請各國英語老師透過線上教學，為偏鄉學生免費授課。"),
+      ("/resources/", "📚", "免費學習資源", "閱讀與經典、打好基礎、聽說與會話、生活英語——免費開放自學。"),
+      ("/media/", "🎬", "人師影音專區", "國際交流、英語新聞、教育廣場與人物專訪，從生活看見英語。"),
+    ])}
   </div>
 </section>
 
