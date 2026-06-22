@@ -1227,7 +1227,7 @@ def _load_series(name):
     return json.load(open(p, encoding="utf-8")) if os.path.exists(p) else None
 
 VIDEO_SERIES = {}
-for _s in ("evision", "sentences", "analysis", "gept-basic", "gept-intermediate", "onemin", "enactus-ps", "enactus-business", "news-oneminute", "news-changhua", "news-special"):
+for _s in ("evision", "sentences", "analysis", "gept-basic", "gept-intermediate", "onemin", "enactus-ps", "enactus-business", "news-oneminute", "news-changhua", "news-special", "grandfather"):
     _d = _load_series(_s)
     if _d:
         VIDEO_SERIES[_d["path"]] = _d
@@ -1405,38 +1405,8 @@ def _clean_paras(crawl_path):
     return out
 
 def build_grandfather():
-    paras = _clean_paras("/E-resources/grandfather落日餘暉")
-    # parse "第N章" + en + zh pattern
-    chapters = []
-    i = 0
-    intro = []
-    while i < len(paras):
-        m = re.match(r"第(\d+)章", paras[i])
-        if m:
-            n = m.group(1); en = ""; zh = ""
-            if i+1 < len(paras): en = paras[i+1]
-            if i+2 < len(paras) and not re.match(r"第\d+章", paras[i+2]) and paras[i+2] not in ("更多英語學習資源",):
-                zh = paras[i+2]; i += 3
-            else:
-                i += 2
-            chapters.append((n, en, zh))
-        else:
-            if paras[i] not in ("更多英語學習資源",):
-                intro.append(paras[i])
-            i += 1
-    rows = "\n".join(
-        f'<div class="row rvl"><span class="n">{n}</span><span><span class="en">{html.escape(en)}</span>　<span class="zh">{html.escape(zh)}</span></span></div>'
-        for n, en, zh in chapters)
-    introhtml = "".join(f"<p>{html.escape(x)}</p>" for x in intro[:3])
-    body = f'''
-{page_hero("Grandfather · 落日餘暉", "三十章人生智慧", "作者 Leon E. La Couvée 的中英對照人生隨筆。欲了解更多，請參考作者網站《Don't Be A Wage Slave》。")}
-<section class="section"><div class="wrap">
-  <div class="prose wide rvl" style="margin-bottom:2rem">{introhtml}</div>
-  <p class="eyebrow rvl">Contents 目錄</p>
-  <div class="toc">{rows}</div>
-</div></section>
-'''
-    write("/resources/grandfather/", layout("/resources/grandfather/", "Grandfather 落日餘暉", "Leon La Couvée《落日餘暉》三十章中英對照人生智慧。", body, "resources"))
+    # 只呈現影片（30 章英語朗讀），不複製內文
+    build_series(VIDEO_SERIES["/resources/grandfather/"])
 
 def build_periodicals():
     items = [x for x in _clean_paras("/E-resources/periodicals") if x != "更多英語學習資源"]
