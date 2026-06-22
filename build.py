@@ -1227,7 +1227,7 @@ def _load_series(name):
     return json.load(open(p, encoding="utf-8")) if os.path.exists(p) else None
 
 VIDEO_SERIES = {}
-for _s in ("evision", "sentences", "analysis", "gept-basic", "gept-intermediate", "onemin", "enactus-ps", "enactus-business", "news-oneminute", "news-changhua", "news-special", "grandfather", "phonics"):
+for _s in ("evision", "sentences", "analysis", "gept-basic", "gept-intermediate", "onemin", "enactus-ps", "enactus-business", "news-oneminute", "news-changhua", "news-special", "grandfather", "phonics", "interviews"):
     _d = _load_series(_s)
     if _d:
         VIDEO_SERIES[_d["path"]] = _d
@@ -1627,6 +1627,8 @@ def main():
     build_media_hub(); paths.append("/media/")
     build_grandpa_mike(); paths.append("/media/grandpa-mike/")
     for path, key, title, lead, cp in MEDIA_LEAVES:
+        if path in VIDEO_SERIES:
+            build_series(VIDEO_SERIES[path]); paths.append(path); continue
         leaf_videos(path, key, "人師影音專區", title, lead, cp); paths.append(path)
     build_news_videos(); paths.append("/media/news-videos/")
     build_news(); paths.append("/news/")
