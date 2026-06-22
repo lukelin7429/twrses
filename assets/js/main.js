@@ -19,17 +19,25 @@
     });
   }
 
-  /* scroll reveal */
-  var revealEls = document.querySelectorAll('.rvl, .stagger, .sweep');
-  if ('IntersectionObserver' in window && revealEls.length) {
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) {
-        if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
-      });
-    }, { threshold: 0.14, rootMargin: '0px 0px -8% 0px' });
-    revealEls.forEach(function (el) { io.observe(el); });
-  } else {
-    revealEls.forEach(function (el) { el.classList.add('in'); });
+  /* scroll reveal — getBoundingClientRect 版（不用 IntersectionObserver）
+     原本用 IO + threshold 0.14：比視窗高 ~7 倍的元素（如 100 張卡的網格）露出面積永遠到不了 14%，
+     導致整批內容卡在 opacity:0 → 整頁空白。改用 gBCR：元素上緣進入視窗就揭示，與高度無關。 */
+  var revealEls = [].slice.call(document.querySelectorAll('.rvl, .stagger, .sweep'));
+  if (revealEls.length) {
+    var revealScan = function () {
+      var vh = window.innerHeight || document.documentElement.clientHeight;
+      for (var i = revealEls.length - 1; i >= 0; i--) {
+        var r = revealEls[i].getBoundingClientRect();
+        if (r.top < vh * 0.92 && r.bottom > 0) {   // 上緣進入視窗下 92% 且未完全捲離 → 揭示
+          revealEls[i].classList.add('in');
+          revealEls.splice(i, 1);
+        }
+      }
+    };
+    revealScan();
+    window.addEventListener('scroll', revealScan, { passive: true });
+    window.addEventListener('resize', revealScan, { passive: true });
+    window.addEventListener('load', revealScan);
   }
 
   /* click-to-play: open the video in an on-page lightbox — never pop out to YouTube */
