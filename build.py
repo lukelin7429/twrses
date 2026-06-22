@@ -1293,6 +1293,8 @@ CLASS_LEAVES = [
 # ---- 基礎文法（資料驅動精修頁，data/grammar.json）----
 _gj = os.path.join(ROOT, "data", "grammar.json")
 GRAMMAR = json.load(open(_gj, encoding="utf-8")) if os.path.exists(_gj) else None
+_afj = os.path.join(ROOT, "data", "animal-farm.json")
+ANIMAL_FARM = json.load(open(_afj, encoding="utf-8")) if os.path.exists(_afj) else None
 
 _EN_SPAN = re.compile(r"[A-Za-z][A-Za-z0-9 ,.'’?!():;/+\-]*")
 def _say_en(line):
@@ -1356,6 +1358,71 @@ def build_grammar():
 '''
     write("/resources/classes/grammar/", layout("/resources/classes/grammar/", "基礎文法",
           "人師英語課程·基礎文法：句子的形成、詞類、常用句型、時態與各類句型的影音講解與完整講義。", body, "resources"))
+
+def build_animalfarm():
+    d = ANIMAL_FARM
+    m = d["meta"]
+    info = f'''<div class="af-book rvl">
+  <div class="af-meta">
+    <div><span class="af-k">作者</span><span class="af-v">{html.escape(m["author"])}</span></div>
+    <div><span class="af-k">出版</span><span class="af-v">{m["pub"]}</span></div>
+    <div><span class="af-k">文類</span><span class="af-v">{html.escape(m["type"])}</span></div>
+    <div><span class="af-k">文體</span><span class="af-v">{html.escape(m["genre"])}</span></div>
+  </div>
+  <p class="af-bg">{html.escape(m["background"])}</p>
+</div>'''
+    quotes = "".join(
+        f'<figure class="af-quote rvl"><blockquote>“{html.escape(q[0])}”</blockquote><figcaption>{html.escape(q[1])}</figcaption></figure>'
+        for q in d["quotes"])
+    plot = "".join(f"<p>{html.escape(p)}</p>" for p in m["plot"])
+    chs = []
+    for c in d["chapters"]:
+        n = c["n"]
+        summ = "".join(f"<li>{html.escape(s)}</li>" for s in c["summary"])
+        cards = []
+        for i, v in enumerate(c["videos"], 1):
+            thumb = f"https://i.ytimg.com/vi/{v}/hqdefault.jpg"
+            url = f"https://www.youtube.com/watch?v={v}"
+            cards.append(f'''<a class="vcard ep-card" href="{url}" data-yt="{v}" title="動物農莊 第{n}章 {n}-{i}">
+  <span class="vthumb"><img loading="lazy" src="{thumb}" alt="Animal Farm {n}-{i}"><span class="vep">{n}-{i}</span></span>
+  <span class="vmeta"><span class="ep-topic">Part {i}</span></span>
+</a>''')
+        grid = '<div class="video-grid stagger ep-grid">' + "".join(cards) + '</div>'
+        chs.append(f'''<section class="af-ch rvl">
+  <div class="af-ch-head"><span class="af-ch-n">{n}</span><div><h3>第 {n} 章</h3><ul class="af-sum">{summ}</ul></div></div>
+  {grid}
+</section>''')
+
+    def char_block(label, items):
+        rows = "".join(
+            f'<div class="af-char rvl"><span class="af-char-n">{html.escape(nm)}</span><span class="af-char-d">{html.escape(desc)}</span></div>'
+            for nm, desc in items)
+        return f'<p class="eyebrow rvl" style="margin-top:2rem">{label}角色</p><div class="af-chars">{rows}</div>'
+    chars = char_block("動物", d["characters"]["動物"]) + char_block("人類", d["characters"]["人類"])
+
+    body = f'''
+{page_hero("人師英語課程", d["title"], "George Orwell 經典政治寓言的英語逐章朗讀與研讀——含書籍背景、章節摘要與角色寓意對照。")}
+<section class="section"><div class="wrap">
+  {info}
+  <div class="af-quotes">{quotes}</div>
+  <p class="eyebrow rvl" style="margin-top:2.4rem">故事概要</p>
+  <div class="prose wide rvl">{plot}</div>
+</div></section>
+<section class="section band"><div class="wrap">
+  <p class="eyebrow rvl">逐章朗讀 · 65 段影片</p>
+  <h2 class="rvl d1 sweep">十章，跟著朗讀讀完整本書</h2>
+  <p class="lead rvl d2" style="max-width:60ch;margin-bottom:1.5rem">每章分成數段短片，點影片即可在本頁觀看。</p>
+  {''.join(chs)}
+</div></section>
+<section class="section"><div class="wrap">
+  <p class="eyebrow rvl">Characters 角色寓意</p>
+  <h2 class="rvl d1 sweep">每個角色，都是一段歷史</h2>
+  <p class="lead rvl d2" style="max-width:62ch;margin-bottom:.5rem">《動物農莊》是一則政治諷喻——書中角色一一對應蘇聯歷史中的人物或群體。</p>
+  {chars}
+</div></section>
+'''
+    write("/resources/classes/animal-farm/", layout("/resources/classes/animal-farm/", "動物農莊 Animal Farm",
+          "George Orwell《動物農莊》英語逐章朗讀與研讀：書籍背景、十章摘要、65 段影片與角色寓意對照。", body, "resources"))
 
 def build_booklets():
     hub_page("/resources/booklets/", "resources", "人師閱讀教材",
@@ -1616,6 +1683,8 @@ def main():
     for path, title, lead, cp in CLASS_LEAVES:
         if path == "/resources/classes/grammar/" and GRAMMAR:
             build_grammar(); paths.append(path); continue
+        if path == "/resources/classes/animal-farm/" and ANIMAL_FARM:
+            build_animalfarm(); paths.append(path); continue
         ids = BY_PATH.get(cp, {}).get("youtube", [])
         if ids:
             leaf_videos(path, "resources", "人師英語課程", title, lead, cp)
