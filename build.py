@@ -304,11 +304,10 @@ def build_home():
     dots_html = "".join(f'<button class="car-dot{" on" if i==0 else ""}" data-i="{i}" aria-label="第 {i+1} 張"></button>' for i in range(len(slides)))
 
     body = f'''
-<section class="hero-photo">
-  <div class="hero-img"><img src="/assets/img/home/banner.jpg" alt="人師教育協會" fetchpriority="high"></div>
-  <div class="hero-scrim"></div>
-  <div class="wrap hero-photo-content">
-    <p class="eyebrow light rvl">彰化縣人師教育協會 · My Culture Connect</p>
+<section class="hero hero-home">
+  <div class="hero-bg"><span class="orb a"></span><span class="orb b"></span><span class="orb c"></span></div>
+  <div class="wrap">
+    <p class="eyebrow rvl">彰化縣人師教育協會 · My Culture Connect</p>
     <h1 class="rvl d1">讓偏鄉的孩子，<br>也能與世界一起學習。</h1>
     <p class="lead rvl d2">自民國 91 年起義務深耕、民國 98 年正式成立——我們製作免費學習教材與教學影片，並引進國外資源與彰化的孩子交流。</p>
     <p class="slogan-en rvl d3" style="margin-top:1rem;color:#ffe9c7">{SITE["slogan_en"]}</p>
