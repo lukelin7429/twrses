@@ -1222,6 +1222,41 @@ VIDEO_LEAVES = [
     ("/resources/videos/short/", "英語學習短片", "精選英語學習短片。", "/E-resources/E-videos/short-videos"),
 ]
 
+# ---- 彰化 E 視界英語教室（真影片分集精修頁，data/evision.json）----
+_ej = os.path.join(ROOT, "data", "evision.json")
+EVISION = json.load(open(_ej, encoding="utf-8")) if os.path.exists(_ej) else None
+
+def build_evision():
+    eps = EVISION["episodes"]
+    cards = []
+    for e in eps:
+        v = e["id"]
+        thumb = f"https://i.ytimg.com/vi/{v}/hqdefault.jpg"
+        url = f"https://www.youtube.com/watch?v={v}"
+        dur = e.get("dur") or _fmt_dur(VIDEO_META.get(v, {}).get("duration"))
+        date = _fmt_date(e.get("date") or VIDEO_META.get(v, {}).get("date"))
+        title = html.escape(f'{EVISION["title"]} {e["ep"]} ({e["topic"]})')
+        dur_badge = f'<span class="vdur">{dur}</span>' if dur else ""
+        date_html = f'<span class="vdate">{date}</span>' if date else ""
+        cards.append(f'''<a class="vcard ep-card" href="{url}" data-yt="{v}" title="{title}">
+  <span class="vthumb"><img loading="lazy" src="{thumb}" alt="{html.escape(e["topic"])}">{dur_badge}<span class="vep">EP{e["ep"]}</span></span>
+  <span class="vmeta"><span class="ep-topic">{html.escape(e["topic"])}</span><span class="ep-zh">{html.escape(e["zh"])}</span>{date_html}</span>
+</a>''')
+    grid = '<div class="video-grid stagger">\n' + "\n".join(cards) + "\n</div>"
+    body = f'''
+{page_hero("英語學習影片", EVISION["title"], "校園情境英語短劇 · 全 6 集 · 點影片即可在本頁觀看。")}
+<section class="section"><div class="wrap">
+  <div class="flex rvl" style="justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;margin-bottom:1.4rem">
+    <div class="pills"><span class="pill"><b>6</b> 集</span><span class="pill">2013 在地製作</span></div>
+    <a class="muted" href="{SITE['yt']}" target="_blank" rel="noopener">前往 YouTube 頻道 →</a>
+  </div>
+  <p class="lead rvl" style="max-width:68ch;margin-bottom:2rem">{EVISION["intro"]}</p>
+  {grid}
+</div></section>
+'''
+    write("/resources/videos/e-vision/", layout("/resources/videos/e-vision/", EVISION["title"],
+          "彰化 E 視界英語教室：人師與彰化在地團隊製作的校園情境英語短劇，6 集免費線上觀看。", body, "resources"))
+
 def build_classes_hub():
     children = [
         ("/resources/classes/grammar/", "📐", "基礎文法", "從詞性到時態，打好文法地基。"),
@@ -1590,6 +1625,8 @@ def main():
             build_desc_book(b); paths.append(f"/resources/booklets/description/book{b}/")
     build_videos_hub(); paths.append("/resources/videos/")
     for path, title, lead, cp in VIDEO_LEAVES:
+        if path == "/resources/videos/e-vision/" and EVISION:
+            build_evision(); paths.append(path); continue
         leaf_videos(path, "resources", "英語學習影片", title, lead, cp); paths.append(path)
     build_classes_hub(); paths.append("/resources/classes/")
     for path, title, lead, cp in CLASS_LEAVES:
