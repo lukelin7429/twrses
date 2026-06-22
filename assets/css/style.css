@@ -216,7 +216,11 @@ p  { margin: 0 0 1.1em; }
 
 /* ---------- feature cards (large, dimensional) ---------- */
 .feature-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.7rem; }
-@media (max-width:880px){ .feature-grid{ grid-template-columns:1fr; max-width:440px; margin-inline:auto; } }
+.feature-grid.fg-2 { grid-template-columns:repeat(2,1fr); max-width:780px; margin-inline:auto; }
+@media (max-width:880px){
+  .feature-grid{ grid-template-columns:1fr; max-width:440px; margin-inline:auto; }
+  .feature-grid.fg-2{ grid-template-columns:1fr; max-width:440px; }
+}
 
 .fcard{
   --accent: var(--brand);

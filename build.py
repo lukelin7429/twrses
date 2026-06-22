@@ -838,12 +838,18 @@ def build_guidelines():
 #  RESOURCES + MEDIA hubs and leaves
 # ==================================================================
 def hub_page(path, key, eyebrow, title, lead, children):
+    accents = ["var(--brand)", "var(--sunset)", "var(--gold-dk)"]
     cards = "\n".join(
-        f'<a class="card card-link" href="{href}"><span class="ico">{ico}</span><h3>{html.escape(lbl)}</h3><p>{html.escape(blurb)}</p></a>'
-        for href, ico, lbl, blurb in children)
+        f'<a class="fcard" style="--accent:{accents[i % len(accents)]}" href="{href}">'
+        f'<span class="fcard-ico">{ico}</span>'
+        f'<h3>{html.escape(lbl)}</h3><p>{html.escape(blurb)}</p>'
+        f'<span class="fcard-go">了解更多 <i>→</i></span></a>'
+        for i, (href, ico, lbl, blurb) in enumerate(children))
+    # 卡片少時用 2×2，避免 3+1 落單；其餘維持三欄。
+    colcls = "fg-2" if len(children) in (2, 4) else ""
     body = f'''
 {page_hero(eyebrow, title, lead)}
-<section class="section"><div class="wrap"><div class="grid cols-3 stagger">{cards}</div></div></section>
+<section class="section"><div class="wrap"><div class="feature-grid {colcls} stagger">{cards}</div></div></section>
 '''
     write(path, layout(path, title, lead, body, key))
 
@@ -1305,25 +1311,32 @@ for _s in ("evision", "sentences", "analysis", "gept-basic", "gept-intermediate"
     if _d:
         VIDEO_SERIES[_d["path"]] = _d
 
-def build_series(data):
-    badge = data.get("badge", "EP")
-    cards = []
-    for e in data["episodes"]:
-        v = e["id"]
-        thumb = f"https://i.ytimg.com/vi/{v}/hqdefault.jpg"
-        url = f"https://www.youtube.com/watch?v={v}"
-        dur = e.get("dur") or _fmt_dur(VIDEO_META.get(v, {}).get("duration"))
-        date = _fmt_date(e.get("date") or VIDEO_META.get(v, {}).get("date"))
-        title = html.escape(f'{data["title"]}：{e["topic"]}')
-        dur_badge = f'<span class="vdur">{dur}</span>' if dur else ""
-        date_html = f'<span class="vdate">{date}</span>' if date else ""
-        zh_html = f'<span class="ep-zh">{html.escape(e["zh"])}</span>' if e.get("zh") else ""
-        cards.append(f'''<a class="vcard ep-card" href="{url}" data-yt="{v}" title="{title}">
+def _ep_card(data, e, badge):
+    """One ordered episode card (thumbnail + EP badge + topic + zh + date)."""
+    v = e["id"]
+    thumb = f"https://i.ytimg.com/vi/{v}/hqdefault.jpg"
+    url = f"https://www.youtube.com/watch?v={v}"
+    dur = e.get("dur") or _fmt_dur(VIDEO_META.get(v, {}).get("duration"))
+    date = _fmt_date(e.get("date") or VIDEO_META.get(v, {}).get("date"))
+    title = html.escape(f'{data["title"]}：{e["topic"]}')
+    dur_badge = f'<span class="vdur">{dur}</span>' if dur else ""
+    date_html = f'<span class="vdate">{date}</span>' if date else ""
+    zh_html = f'<span class="ep-zh">{html.escape(e["zh"])}</span>' if e.get("zh") else ""
+    return f'''<a class="vcard ep-card" href="{url}" data-yt="{v}" title="{title}">
   <span class="vthumb"><img loading="lazy" src="{thumb}" alt="{html.escape(e["topic"])}">{dur_badge}<span class="vep">{badge}{e["ep"]}</span></span>
   <span class="vmeta"><span class="ep-topic">{html.escape(e["topic"])}</span>{zh_html}{date_html}</span>
-</a>''')
+</a>'''
+
+def _ep_grid(data):
+    """Episode grid rendered in episode order (sorted by ep number)."""
+    badge = data.get("badge", "EP")
+    eps = sorted(data["episodes"], key=lambda e: e.get("ep", 0))
+    cards = [_ep_card(data, e, badge) for e in eps]
+    return '<div class="video-grid stagger ep-grid">\n' + "\n".join(cards) + "\n</div>"
+
+def build_series(data):
     pills = "".join(f'<span class="pill">{p}</span>' for p in data.get("pills", []))
-    grid = '<div class="video-grid stagger ep-grid">\n' + "\n".join(cards) + "\n</div>"
+    grid = _ep_grid(data)
     body = f'''
 {page_hero(data.get("eyebrow", "英語學習影片"), data["title"], data.get("lead", ""))}
 <section class="section"><div class="wrap">
@@ -1615,10 +1628,46 @@ def build_media_hub():
 
 MEDIA_LEAVES = [
     ("/media/exchange/", "media", "國際交流", "與各國師生的交流剪影。", "/RS-videos/exchange-videos"),
-    ("/media/enactus/", "media", "Enactus 英語課程", "與杜魯門大學 Enactus 合作的英語課程。", "/RS-videos/Enactus-Truman"),
     ("/media/talks/", "media", "人師教育廣場", "教育講座與分享。", "/RS-videos/speeches"),
     ("/media/interviews/", "media", "人物專訪", "教育者與貴賓的人物專訪。", "/RS-videos/interviews"),
 ]
+
+def build_enactus_hub():
+    """/media/enactus/ — 兩大類分開、各自依集數排序，而非把 20 部影片混在一起亂排。"""
+    cats = [
+        ("/media/enactus/public-speaking/", "🎤", "公眾演說 Public Speaking",
+         "從演說入門、肢體語言到克服怯場——用英語上台演說的技巧。"),
+        ("/media/enactus/business/", "💼", "商業英文 Business English",
+         "從台美商業習慣、定價品牌到創業提案——用英語談生意的核心概念。"),
+    ]
+    secs = []
+    for i, (cpath, ico, cname, cblurb) in enumerate(cats):
+        data = VIDEO_SERIES.get(cpath)
+        if not data:
+            continue
+        band = " band" if i % 2 else ""
+        grid = _ep_grid(data)
+        count = len(data["episodes"])
+        secs.append(f'''<section class="section{band}" id="cat{i+1}">
+  <div class="wrap">
+    <div class="flex rvl" style="justify-content:space-between;align-items:flex-end;gap:1rem;flex-wrap:wrap;margin-bottom:1.4rem">
+      <div>
+        <h2 style="margin:0 0 .35rem"><span aria-hidden="true">{ico}</span> {html.escape(cname)}</h2>
+        <p class="muted" style="margin:0;max-width:60ch">{html.escape(cblurb)}</p>
+      </div>
+      <div class="pills"><span class="pill"><b>{count}</b> 課</span><a class="pill" href="{cpath}">完整介紹 →</a></div>
+    </div>
+    {grid}
+  </div>
+</section>''')
+    body = f'''
+{page_hero("人師影音專區", "Enactus 英語課程",
+  "與美國杜魯門大學（Truman State University）Enactus 團隊合作的「ConnectTaiwan」英語課程——分為「公眾演說」與「商業英文」兩大系列，各 10 課，依集數循序排列。點影片即可在本頁觀看。")}
+{''.join(secs)}
+'''
+    write("/media/enactus/", layout("/media/enactus/", "Enactus 英語課程",
+        "杜魯門大學 Enactus 團隊製作的英語課程：公眾演說與商業英文各 10 課，依集數排列，免費線上觀看。",
+        body, "media"))
 
 def _mike_card(v, ep=None):
     """One Grandpa Mike video card: episode chip + clean location title."""
@@ -2101,6 +2150,7 @@ def main():
     build_grandfather(); paths.append("/resources/grandfather/")
     build_periodicals(); paths.append("/resources/periodicals/")
     build_media_hub(); paths.append("/media/")
+    build_enactus_hub(); paths.append("/media/enactus/")
     build_grandpa_mike(); paths.append("/media/grandpa-mike/")
     build_exchange_hub(); paths.append("/media/exchange/")
     build_dom_jones(); paths.append("/media/dom-jones/")
