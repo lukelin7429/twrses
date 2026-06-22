@@ -186,7 +186,7 @@ p  { margin: 0 0 1.1em; }
 .car-viewport { overflow:hidden; border-radius:var(--radius); }
 .car-track { display:flex; transition:transform .5s cubic-bezier(.4,0,.2,1); }
 .car-slide { flex:0 0 100%; margin:0; position:relative; }
-.car-slide img { width:100%; height:clamp(280px,52vw,520px); object-fit:cover; display:block; }
+.car-slide img { width:100%; height:clamp(280px,52vw,520px); object-fit:cover; object-position:center 22%; display:block; }
 .car-slide figcaption { position:absolute; left:0; right:0; bottom:0; padding:1.4rem 1.4rem .9rem; color:#fff; font-family:var(--zh); font-weight:600; font-size:1.05rem; background:linear-gradient(0deg, rgba(16,40,40,.8), transparent); }
 .car-arrow { position:absolute; top:calc(50% - 24px); width:48px; height:48px; border-radius:50%; border:0; background:rgba(255,255,255,.9); color:var(--ink); font-size:1.6rem; line-height:1; cursor:pointer; box-shadow:var(--shadow-sm); display:grid; place-items:center; transition:background .2s, transform .2s; z-index:3; }
 .car-arrow:hover { background:#fff; transform:scale(1.08); }

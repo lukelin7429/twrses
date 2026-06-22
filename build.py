@@ -359,7 +359,7 @@ def build_home():
       <p class="eyebrow">我們在做的事</p>
       <h2 class="sweep">與美國 ITA 合作，<br>外師線上一對一</h2>
       <p class="muted">從民國 109 年 4 月起，我們與美國芝加哥的國際英語教師認證機構（International TEFL Academy）合作，邀請各國英語老師透過線上教學為學生授課，讓無數學生受惠；同時也開放台灣及全世界的英語老師線上觀課，提升教學技巧。</p>
-      <p style="margin-top:1.4rem"><a class="btn btn-gold" href="/rural-schools/practicum/">如何報名上課 →</a></p>
+      <p style="margin-top:1.4rem"><a class="btn btn-gold" href="/rural-schools/register/">如何報名上課 →</a></p>
     </div>
     <div class="rvl d2">{donate_block()}</div>
   </div>
