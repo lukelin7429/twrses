@@ -2142,6 +2142,10 @@ def main():
     build_partners(); paths.append("/partners/")
     for _slug, _spec in PARTNER_DETAILS.items():
         build_partner_detail(_spec); paths.append(f"/partners/{_slug}/")
+    # Edward Huang 為手寫的旗艦合作頁（自包 index + 4 子頁，非 json 產生），手動列入 sitemap
+    paths += ["/partners/edward-huang/", "/partners/edward-huang/lcoy-taiwan/",
+              "/partners/edward-huang/program/", "/partners/edward-huang/esg/",
+              "/partners/edward-huang/youth-network/"]
     build_rural_index(); build_academy(); build_register(); build_practicum(); build_guidelines()
     paths += ["/rural-schools/","/rural-schools/academy/","/rural-schools/register/","/rural-schools/practicum/","/rural-schools/guidelines/"]
     build_resources_hub(); paths.append("/resources/")
