@@ -1640,6 +1640,39 @@ def build_grandpa_mike():
     sp_block = (f'''<p class="eyebrow rvl" style="margin-top:2.6rem">特別篇 · {len(specials)} 部</p>
     <div class="video-grid stagger">{sp_cards}</div>''' if specials else "")
 
+    # PeoPo 媒體報導：王惠美縣長為麥克爺爺慶生（彰興國中五年情緣）。寫進原始碼，rebuild 不再被蓋掉。
+    report = '''<section class="section band">
+  <div class="wrap">
+    <p class="eyebrow rvl">媒體報導 · In the News</p>
+    <h2 class="rvl d1">國際志工麥克爺爺與彰化有約</h2>
+    <p class="lead rvl d2">深耕學子英語教育——記麥克爺爺與彰化的五年情緣。</p>
+    <article class="news-report rvl d2">
+      <div class="news-meta">
+        <span class="tag">PeoPo 公民新聞</span>
+        <span class="muted">2019.11.07　·　記者林明佑 報導</span>
+      </div>
+      <div class="prose wide">
+        <p>由<strong>彰化縣英語資源中心</strong>與<strong>彰化縣人師教育協會</strong>合作推動的「國際視訊英語教學實施計畫」，邀請連續參與五年、人稱「麥克爺爺」的 Michael Dishnow 來台。11 月 7 日下午，彰化縣長王惠美與麥克爺爺一同走訪<strong>彰興國中</strong>，與學生暢談中西飲食文化，並透過線上票選找出學生最愛的彰化美食。</p>
+        <p>當天適逢麥克爺爺 76 歲生日，學校特別準備了中西式蛋糕與傳統壽桃，邀請 11 月份的壽星一同慶生，現場洋溢著溫馨歡樂的氣氛。</p>
+      </div>
+      <blockquote class="news-quote">
+        「麥克爺爺長期關心我們的孩子，每次來台灣都造訪許多學校；五年來透過彰化縣國際視訊英語教學實施計畫，不僅給孩子很多的體會，也讓孩子在英文方面有很大的進步。」
+        <cite>— 彰化縣長 王惠美</cite>
+      </blockquote>
+      <div class="prose wide">
+        <p>麥克爺爺累計走訪超過 150 所學校、服務 750 位以上的學生，透過視訊互動給予孩子溫暖與鼓勵，也為孩子打開英語溝通能力、國際視野與跨文化素養的一扇窗。</p>
+      </div>
+      <div class="news-photos stagger">
+        <figure class="figure"><img loading="lazy" src="peopo-1.jpg" alt="麥克爺爺與彰興國中師生大合照" width="1024" height="579"><figcaption>麥克爺爺與彰興國中師生大合影</figcaption></figure>
+        <figure class="figure"><img loading="lazy" src="peopo-2.jpg" alt="師生為麥克爺爺準備生日蛋糕與壽桃" width="1024" height="579"><figcaption>76 歲生日，中西式蛋糕與傳統壽桃同慶</figcaption></figure>
+        <figure class="figure"><img loading="lazy" src="peopo-3.jpg" alt="彰化縣長王惠美與麥克爺爺和學生座談" width="1024" height="579"><figcaption>縣長媽媽、彰化囝仔與美國阿公 Grandpa Mike 同席</figcaption></figure>
+        <figure class="figure"><img loading="lazy" src="peopo-4.jpg" alt="麥克爺爺品嚐彰化在地美食" width="1024" height="579"><figcaption>麥克爺爺品嚐學生票選的彰化在地美食</figcaption></figure>
+      </div>
+      <a class="report-link" href="https://www.peopo.org/news/430163" target="_blank" rel="noopener">閱讀 PeoPo 原始報導 →</a>
+    </article>
+  </div>
+</section>'''
+
     body = f'''
 {page_hero("人師影音專區", "麥克爺爺放眼看台灣", "用一位外國爺爺的眼睛，一集一集走訪台灣的校園與風土。")}
 <section class="section">
@@ -1652,6 +1685,7 @@ def build_grandpa_mike():
     {sp_block}
   </div>
 </section>
+{report}
 '''
     write(path, layout(path, "麥克爺爺放眼看台灣",
         "麥克爺爺用英語帶你一集一集走訪台灣的校園與風土，認識家鄉、練出真實語感。", body, "media"))

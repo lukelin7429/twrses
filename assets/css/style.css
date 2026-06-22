@@ -636,3 +636,23 @@ p  { margin: 0 0 1.1em; }
   .mike-feature-grid{grid-template-columns:1fr 1fr}
   .mike-feature-grid .vcard:first-child{grid-column:1 / -1}
 }
+
+/* ── 麥克爺爺：PeoPo 媒體報導區塊 ── */
+.news-report{max-width:880px;margin:1.6rem auto 0;background:var(--white);
+  border:1px solid var(--line);border-radius:var(--radius);
+  padding:clamp(1.4rem,3vw,2.4rem);box-shadow:var(--shadow-sm)}
+.news-report .news-meta{display:flex;gap:.8rem;align-items:center;flex-wrap:wrap;margin-bottom:1.1rem}
+.news-report .prose p{margin:0 0 1rem}
+.news-quote{margin:1.4rem 0;padding:1.1rem 1.3rem;border-left:4px solid var(--gold);
+  background:var(--cream);border-radius:0 var(--radius-sm) var(--radius-sm) 0;
+  font-family:var(--serif);font-size:1.08rem;line-height:1.7;color:var(--ink)}
+.news-quote cite{display:block;margin-top:.6rem;font-style:normal;font-weight:700;
+  font-family:var(--sans);color:var(--brand-dk)}
+.news-photos{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:1.4rem 0}
+.news-photos .figure{margin:0}
+.news-photos .figure img{width:100%;height:auto;border-radius:var(--radius-sm);display:block;box-shadow:var(--shadow-sm)}
+.news-photos figcaption{margin-top:.5rem;font-size:.9rem;color:var(--ink-soft);font-family:var(--zh)}
+.report-link{display:inline-block;margin-top:.6rem;font-weight:700;color:var(--brand);
+  text-decoration:none;border-bottom:2px solid transparent;transition:border-color .2s}
+.report-link:hover{border-color:var(--brand)}
+@media(max-width:560px){.news-photos{grid-template-columns:1fr}}
