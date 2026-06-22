@@ -1265,13 +1265,7 @@ def build_classes_hub():
     children = [
         ("/resources/classes/grammar/", "📐", "基礎文法", "從詞性到時態，打好文法地基。"),
         ("/resources/classes/sentence-analysis/", "🔍", "英語句型分析（舊）", "經典句型逐句拆解。"),
-        ("/resources/classes/root/", "🌳", "字根研究", "用字根字首，記住成千上萬單字。"),
-        ("/resources/classes/structure/", "🏗️", "文章結構分析", "看懂段落與文章的組織邏輯。"),
-        ("/resources/classes/voa/", "📻", "VOA 美國之音課程", "用 VOA 慢速英語練聽力。"),
-        ("/resources/classes/aesop/", "🦊", "伊索寓言", "從寓言故事學英語與智慧。"),
-        ("/resources/classes/wisdom/", "💡", "智慧話語", "每日一句，累積英語與見識。"),
         ("/resources/classes/animal-farm/", "🐖", "動物農莊", "經典名著《Animal Farm》導讀。"),
-        ("/resources/classes/stories/", "📕", "英文故事", "精選英文故事，輕鬆閱讀。"),
     ]
     hub_page("/resources/classes/", "resources", "人師英語課程",
         "有系統地，把英語學起來", "文法、字根、文章結構與經典名著——循序漸進的英語課程。", children)
@@ -1279,13 +1273,7 @@ def build_classes_hub():
 CLASS_LEAVES = [
     ("/resources/classes/grammar/", "基礎文法", "從詞性到時態，打好文法地基。", "/E-resources/E-classes/grammar"),
     ("/resources/classes/sentence-analysis/", "英語句型分析（舊）", "經典句型逐句拆解。", "/E-resources/E-classes/sentence-analysis2"),
-    ("/resources/classes/root/", "字根研究", "用字根字首，記住成千上萬單字。", "/E-resources/E-classes/root"),
-    ("/resources/classes/structure/", "文章結構分析", "看懂段落與文章的組織邏輯。", "/E-resources/E-classes/structure"),
-    ("/resources/classes/voa/", "VOA 美國之音課程", "用 VOA 慢速英語練聽力。", "/E-resources/E-classes/voa美國之音課程"),
-    ("/resources/classes/aesop/", "伊索寓言", "從寓言故事學英語與智慧。", "/E-resources/E-classes/aesops-fable"),
-    ("/resources/classes/wisdom/", "智慧話語", "每日一句，累積英語與見識。", "/E-resources/E-classes/words-of-wisdom"),
     ("/resources/classes/animal-farm/", "動物農莊", "經典名著《Animal Farm》導讀。", "/E-resources/E-classes/animal-farm"),
-    ("/resources/classes/stories/", "英文故事", "精選英文故事，輕鬆閱讀。", "/E-resources/E-classes/stories"),
 ]
 
 # ---- 基礎文法（資料驅動精修頁，data/grammar.json）----
