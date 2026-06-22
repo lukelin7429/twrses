@@ -1833,50 +1833,268 @@ def build_exchange_hub():
     write("/media/exchange/", layout("/media/exchange/", "國際交流 · 學校訪問",
         "麥克爺爺與 Dom Jones 把活的英語、國際連結與善意帶進彰化的校園。", body, "media"))
 
+DOM_STYLE = '''
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  .d-page{ --indigo:#0a1f5c; --indigo-2:#15307f; --indigo-soft:#eaedf6; --amber:#d4791a; --gold:#d4a017; }
+  /* hero */
+  .d-hero{background:linear-gradient(135deg,var(--indigo) 0%,#15307f 58%,#1c3f9c 100%);color:#fff;position:relative;overflow:hidden;padding:54px 0 56px;}
+  .d-hero::before{content:"";position:absolute;top:-120px;right:-100px;width:440px;height:440px;background:radial-gradient(circle,rgba(255,210,120,.18) 0%,transparent 70%);animation:dheroOrb1 17s ease-in-out infinite;}
+  .d-hero::after{content:"";position:absolute;bottom:-150px;left:-70px;width:360px;height:360px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.09) 0%,transparent 70%);pointer-events:none;z-index:0;animation:dheroOrb2 21s ease-in-out infinite;}
+  @keyframes dheroOrb1{0%,100%{transform:translate(0,0);}50%{transform:translate(-28px,24px);}}
+  @keyframes dheroOrb2{0%,100%{transform:translate(0,0);}50%{transform:translate(34px,-20px);}}
+  .d-hero-grid{display:grid;grid-template-columns:1fr;gap:34px;align-items:center;position:relative;z-index:1;}
+  @media(min-width:860px){.d-hero-grid{grid-template-columns:1.2fr 320px;gap:48px;}}
+  .d-badge,.d-hero h1,.d-hero .zh,.d-hero .role-en,.d-hero .role-zh{opacity:0;transform:translateY(16px);animation:dheroUp .7s cubic-bezier(.2,.7,.2,1) forwards;}
+  .d-badge{animation-delay:.05s;}
+  .d-hero h1{animation-delay:.18s;}
+  .d-hero .zh{animation-delay:.26s;}
+  .d-hero .role-en{animation-delay:.36s;}
+  .d-hero .role-zh{animation-delay:.44s;}
+  @keyframes dheroUp{to{opacity:1;transform:none;}}
+  @media(prefers-reduced-motion:reduce){.d-hero::before,.d-hero::after{animation:none;}.d-badge,.d-hero h1,.d-hero .zh,.d-hero .role-en,.d-hero .role-zh{opacity:1;transform:none;animation:none;}}
+  .d-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,210,120,.16);color:#ffd27a;padding:7px 15px;border-radius:999px;font-size:13.5px;font-weight:700;letter-spacing:.03em;margin-bottom:16px;}
+  .d-hero h1{font-family:'Playfair Display','PingFang TC','Apple LiGothic Medium',serif;font-size:clamp(40px,6vw,60px);font-weight:700;line-height:1.02;color:#fff;margin:0;}
+  .d-hero .zh{font-size:24px;font-weight:500;color:#dfe4f3;margin-top:6px;}
+  .d-hero .role-en{margin-top:18px;font-size:18px;color:#cdd6ef;}
+  .d-hero .role-zh{margin-top:4px;font-size:16.5px;color:#aebadf;line-height:1.7;}
+  .d-portrait{position:relative;border-radius:18px;overflow:hidden;box-shadow:0 28px 70px -22px rgba(0,0,0,.55);background:var(--indigo);margin:0;}
+  .d-portrait img{width:100%;display:block;object-fit:cover;object-position:top;aspect-ratio:4/5;}
+  .d-portrait .ring{position:absolute;right:14px;bottom:14px;width:46px;height:46px;border-radius:50%;background:rgba(10,31,92,.85);display:flex;align-items:center;justify-content:center;font-size:22px;border:1px solid rgba(255,255,255,.25);}
+
+  .d-wrap{max-width:1080px;margin:0 auto;padding:0 22px;}
+  .d-sec{padding:58px 0;}
+  .d-sec.alt{background:#fafbfd;border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+  .d-label{font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--amber);margin-bottom:8px;}
+  .d-h2{font-family:'Playfair Display','PingFang TC','Apple LiGothic Medium',serif;font-size:clamp(26px,3.6vw,34px);font-weight:700;color:var(--indigo);line-height:1.18;margin:0;}
+  .d-h2-en{font-size:17px;color:var(--ink-soft);font-weight:500;margin-top:4px;}
+
+  .d-bi{display:grid;grid-template-columns:1fr;gap:22px;margin-top:26px;}
+  @media(min-width:820px){.d-bi{grid-template-columns:1fr 1fr;}}
+  .d-card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:28px 30px;box-shadow:var(--shadow-sm);}
+  .d-card .tag{display:inline-block;font-size:12.5px;font-weight:700;letter-spacing:.05em;color:var(--indigo);background:var(--indigo-soft);padding:4px 12px;border-radius:999px;margin-bottom:14px;}
+  .d-card p{font-size:17px;line-height:1.85;color:#33424f;margin-bottom:12px;}
+  .d-card p:last-child{margin-bottom:0;}
+  .d-card strong{color:var(--indigo);font-weight:700;}
+  .d-quote{margin-top:14px;padding:16px 20px;border-left:4px solid var(--amber);background:#fdf5ec;border-radius:0 10px 10px 0;font-style:italic;color:#5a4527;line-height:1.75;font-size:16px;}
+
+  .d-sdgs{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:14px;margin-top:24px;}
+  .d-sdg{border-radius:14px;padding:18px 16px;color:#fff;text-align:center;}
+  .d-sdg .n{font-family:'Playfair Display',serif;font-size:26px;font-weight:800;line-height:1;}
+  .d-sdg .en{font-size:14.5px;font-weight:700;margin-top:6px;}
+  .d-sdg .zh{font-size:13.5px;opacity:.92;margin-top:2px;}
+  .sdg-1{background:#e5243b;} .sdg-3{background:#4c9f38;} .sdg-4{background:#c5192d;}
+  .sdg-5{background:#ff3a21;} .sdg-10{background:#dd1367;} .sdg-16{background:#00689d;} .sdg-17{background:#19486a;}
+
+  .d-roles{display:grid;grid-template-columns:1fr;gap:14px;margin-top:24px;}
+  @media(min-width:620px){.d-roles{grid-template-columns:1fr 1fr;}}
+  @media(min-width:960px){.d-roles{grid-template-columns:1fr 1fr 1fr;}}
+  .d-role{display:flex;gap:14px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px 20px;transition:border-color .15s,box-shadow .15s;}
+  .d-role:hover{border-color:var(--amber);box-shadow:var(--shadow-sm);}
+  .d-role .ic{font-size:26px;flex:0 0 auto;}
+  .d-role h4{font-size:16px;color:var(--ink);font-weight:700;line-height:1.3;margin:0;}
+  .d-role p{font-size:14px;color:var(--ink-soft);line-height:1.55;margin-top:4px;}
+
+  .d-awards{display:grid;grid-template-columns:1fr;gap:16px;margin-top:24px;}
+  @media(min-width:680px){.d-awards{grid-template-columns:1fr 1fr 1fr;}}
+  .d-award{background:#fff;border:1px solid var(--line);border-top:5px solid var(--gold);border-radius:14px;padding:24px;text-align:center;}
+  .d-award .t{font-size:34px;}
+  .d-award h4{font-size:17px;color:var(--indigo);margin:8px 0 6px;line-height:1.3;}
+  .d-award p{font-size:14.5px;color:var(--ink-soft);line-height:1.6;}
+
+  .d-feature{position:relative;margin:24px 0 6px;border-radius:16px;overflow:hidden;box-shadow:0 18px 40px -18px rgba(10,31,92,.3);background:var(--indigo);}
+  .d-feature img{width:100%;display:block;aspect-ratio:16/9;object-fit:cover;}
+  .d-feature figcaption{position:absolute;left:0;right:0;bottom:0;padding:18px 22px;background:linear-gradient(to top,rgba(10,31,92,.92),rgba(10,31,92,.4) 60%,transparent);color:#fff;font-size:16px;}
+  .d-feature figcaption strong{display:block;font-size:18px;font-weight:700;margin-bottom:3px;}
+  .d-vcount{margin-top:20px;font-size:15px;color:var(--ink-soft);}
+  .d-vcount b{color:var(--indigo);}
+  .d-vgrid{display:grid;grid-template-columns:1fr;gap:18px;margin-top:12px;}
+  @media(min-width:560px){.d-vgrid{grid-template-columns:1fr 1fr;}}
+  @media(min-width:920px){.d-vgrid{grid-template-columns:1fr 1fr 1fr;}}
+  .d-vcard{background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:var(--shadow-sm);transition:transform .18s,box-shadow .18s;}
+  .d-vcard:hover{transform:translateY(-3px);box-shadow:var(--shadow);}
+  .d-vthumb{position:relative;aspect-ratio:16/9;background:#0a1f5c;cursor:pointer;overflow:hidden;}
+  .d-vthumb img{width:100%;height:100%;object-fit:cover;display:block;}
+  .d-vthumb .pl{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:30px;color:#fff;background:rgba(10,31,92,.30);transition:background .18s;}
+  .d-vthumb:hover .pl{background:rgba(10,31,92,.14);}
+  .d-vmeta{padding:14px 16px 16px;}
+  .d-vmeta h4{font-size:16.5px;font-weight:700;color:var(--ink);margin:0;}
+  .d-vmeta .sub{font-size:13.5px;color:var(--ink-soft);margin-top:3px;}
+
+  .d-contact{background:var(--indigo);color:#fff;border-radius:18px;padding:34px 36px;text-align:center;}
+  .d-contact h3{font-family:'Playfair Display','PingFang TC','Apple LiGothic Medium',serif;font-size:25px;margin:0 0 8px;color:#fff;}
+  .d-contact p{font-size:16.5px;color:#cdd6ef;line-height:1.75;max-width:620px;margin:0 auto 20px;}
+  .d-contact .links{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;}
+  .d-contact .links a{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);color:#fff;font-weight:600;font-size:15px;padding:11px 20px;border-radius:999px;}
+  .d-contact .links a.gold{background:var(--gold);border-color:var(--gold);color:var(--indigo);}
+  .d-contact .links a:hover{background:rgba(255,255,255,.22);}
+  .d-contact .links a.gold:hover{filter:brightness(.95);}
+</style>'''
+
 def build_dom_jones():
-    pl = DOM["playlist"]
+    # 校園巡迴影片牆（伺服器端產生；點縮圖＝twrses 站內當頁播放，data-yt，絕不彈出 YouTube）
     cards = []
     for v in DOM["videos"]:
         vid = v["id"]; school = html.escape(v["school"])
-        sub = html.escape(v.get("topic") or v.get("date") or "")
-        thumb = f"https://i.ytimg.com/vi/{vid}/hqdefault.jpg"
-        url = f"https://www.youtube.com/watch?v={vid}"
-        sub_html = f'<span class="vdate">{sub}</span>' if sub else ""
-        cards.append(f'''<a class="vcard" href="{url}" data-yt="{vid}" title="{school}">
-  <span class="vthumb"><img loading="lazy" src="{thumb}" alt="{school}"></span>
-  <span class="vmeta"><span class="vt">{school}</span>{sub_html}</span>
-</a>''')
-    grid = '<div class="video-grid stagger">\n' + "\n".join(cards) + "\n</div>"
-    pillars = '''<div class="dom-pillars stagger">
-      <div class="dpill rvl"><span class="dp-ico">📚</span><h3>英語教育</h3><p>用真實、活潑的英語，讓孩子敢聽、敢說，把課本變成真的對話。</p></div>
-      <div class="dpill rvl d1"><span class="dp-ico">🌏</span><h3>國際連結</h3><p>把世界帶進教室，分享各國故事與全球議題，打開孩子的視野。</p></div>
-      <div class="dpill rvl d2"><span class="dp-ico">💛</span><h3>善的力量</h3><p>每一場演講都帶著一個訊息：善良與行動，每個孩子都能傳遞下去。</p></div>
-    </div>'''
-    body = f'''
-{page_hero("學校訪問 · Dom Jones", "Dom Jones 走進彰化的教室",
-           "真實的英語、全球的故事，以及一個每位學生都能帶著走的訊息。")}
-<section class="section"><div class="wrap prose wide rvl">
-  <p>Dom Jones 是聯合國永續發展目標（SDG）大使、人師教育協會倡議委員會主席。他走進一所又一所學校，用一場場校園演講，把活的英語、國際連結與善的力量帶給彰化的孩子。每一次到訪，都由學生協力產出一支校園新聞影片。</p>
-</div></section>
-<section class="section band"><div class="wrap">
-  <div class="section-head rvl"><p class="eyebrow">他帶給每場集會的</p><h2>三件事</h2></div>
-  {pillars}
-</div></section>
-<section class="section"><div class="wrap">
-  <p class="eyebrow rvl">校園巡迴演講播放清單</p>
-  <h2 class="rvl d1" style="margin-bottom:1.2rem">School Assembly Tour</h2>
-  <div class="playlist-frame rvl d1"><iframe src="https://www.youtube.com/embed/videoseries?list={pl}" title="Dom Jones 校園巡迴演講播放清單" loading="lazy" allow="encrypted-media" allowfullscreen></iframe></div>
-</div></section>
-<section class="section"><div class="wrap">
-  <div class="flex rvl" style="justify-content:space-between;align-items:center;margin-bottom:1.4rem">
-    <div><p class="eyebrow">每一所學校，每一次到訪</p><h2 style="margin:.2rem 0 0">Every Campus, Every Visit</h2></div>
-    <div class="pills"><span class="pill"><b>{len(DOM["videos"])}</b> 所學校</span></div>
+        extra = v.get("date") or v.get("topic") or ""
+        sub = "校園新聞 · School news" + (f" · {html.escape(extra)}" if extra else "")
+        thumb = f"https://i.ytimg.com/vi/{vid}/mqdefault.jpg"
+        cards.append(f'''<article class="d-vcard">
+  <div class="d-vthumb" data-yt="{vid}" title="{school}"><img loading="lazy" src="{thumb}" alt="{school}"><span class="pl">▶</span></div>
+  <div class="d-vmeta"><h4>{school}</h4><div class="sub">{sub}</div></div>
+</article>''')
+    vgrid = "\n".join(cards)
+    n = len(DOM["videos"])
+
+    body = f'''{DOM_STYLE}
+<div class="d-page">
+
+<header class="d-hero">
+  <div class="d-wrap d-hero-grid">
+    <div>
+      <span class="d-badge">🌏 人師教育協會 × 全台校園巡迴</span>
+      <h1>Dom Jones</h1>
+      <div class="zh">多姆・瓊斯</div>
+      <p class="role-en">Chairwoman of the Advocacy Board, My Culture Connect · UN SDG Ambassador</p>
+      <p class="role-zh">人師教育協會 倡議委員會主席 · 聯合國永續發展目標(SDGs)推廣大使</p>
+    </div>
+    <figure class="d-portrait">
+      <img src="{TB}/dom-jones/images/dom-jones.png" alt="Dom Jones 多姆・瓊斯">
+      <div class="ring">🌐</div>
+    </figure>
   </div>
-  {grid}
-</div></section>
-'''
-    write("/media/dom-jones/", layout("/media/dom-jones/", "Dom Jones 走進彰化的教室",
-        "聯合國 SDG 大使 Dom Jones 走訪彰化校園，留下一支支學生協作的校園新聞影片。", body, "media"))
+</header>
+
+<section class="d-sec">
+  <div class="d-wrap">
+    <p class="d-label">Mission · 使命</p>
+    <h2 class="d-h2">Why is Dom in Taiwan?</h2>
+    <p class="d-h2-en">為什麼 Dom 在台灣?</p>
+    <div class="d-bi">
+      <div class="d-card">
+        <span class="tag">English</span>
+        <p>Dom Jones is an internationally recognized social advocate, educator and media personality from California. She has chosen to become a <strong>full-time resident of Taiwan</strong>, committed to serving youth, schools and communities through cultural exchange and global education.</p>
+        <p>Since <strong>December 2025</strong>, Dom has partnered with My Culture Connect to launch a <strong>nationwide school assembly tour</strong> across Taiwan — sharing global citizenship, empathy, English motivation and the UN Sustainable Development Goals.</p>
+        <div class="d-quote">"Growing up without the love every child deserves, Dom made a vow to become the love she did not receive. Her life mission is to give kindness, unity and hope — especially to young people who need to know their voice and dreams matter."<br>— Dom Jones</div>
+      </div>
+      <div class="d-card">
+        <span class="tag">中文</span>
+        <p>Dom Jones 是美國加州國際知名的社會運動者、教育家與媒體人。目前她選擇<strong>長期定居台灣</strong>,全職投入服務台灣的青少年、學校與社區。</p>
+        <p>自 <strong>2025 年 12 月</strong>起,Dom 與人師教育協會合作,展開<strong>全台灣巡迴學校集會計畫</strong>,走進各中小學,以英語分享全球公民精神、同理心教育與聯合國永續發展目標(SDGs)。</p>
+        <div class="d-quote">「我立誓要成為自己未曾獲得的那份愛。我的使命,是將善意、團結與希望帶給每一位年輕人——讓他們知道,自己的聲音和夢想同樣重要。」<br>— Dom Jones</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="d-sec alt">
+  <div class="d-wrap">
+    <p class="d-label">Her Story · 她的故事</p>
+    <h2 class="d-h2">From Compton to the World Stage</h2>
+    <p class="d-h2-en">從康普頓到全世界</p>
+    <div class="d-bi">
+      <div class="d-card">
+        <span class="tag">English</span>
+        <p>Dom Jones was born in the challenging streets of Compton, California, raised by a mother of thirteen children. Growing up in poverty and homelessness, she refused to be defined by her circumstances — pursuing higher education in the humanities, communication studies and women's studies.</p>
+        <p>With nearly <strong>20 years</strong> in fitness, yoga and wellness advocacy, she understands the deep link between physical and emotional health. She even learned <strong>Vietnamese and Tagalog</strong> to amplify diverse American communities.</p>
+        <p>In 2022, Dom appeared on CBS's <strong>The Amazing Race (Season 34)</strong>, bringing empathy and cross-cultural understanding to a global audience. During the 2024 U.S. elections, over <strong>100,000 citizens</strong> voted to have her represent them.</p>
+        <p>Today, she has chosen Taiwan as her home — turning an extraordinary life journey into a gift for every student she meets.</p>
+      </div>
+      <div class="d-card">
+        <span class="tag">中文</span>
+        <p>Dom Jones 出生於美國加州康普頓(Compton)貧困的街頭,是十三個孩子的母親撫養長大的孩子。她在貧困與無家可歸的困境中成長,卻憑藉對教育的堅定信念,修讀了人文學、傳播學與女性研究。</p>
+        <p>近 <strong>20 年</strong>的健身、瑜伽與身心靈倡導經驗,讓她深刻理解健康對每個人的意義。她更學習了<strong>越南語與塔加洛語</strong>,以傳遞美國多元族群的聲音。</p>
+        <p>2022 年,她登上 CBS《<strong>The Amazing Race</strong>》第 34 季,向全球觀眾展現跨文化的理解與同理心。在 2024 年美國大選期間,逾 <strong>10 萬名</strong>公民投票支持她出任民意代表。</p>
+        <p>如今,她選擇在台灣紮根,將這段不凡的生命旅程,化為給每一位台灣孩子的禮物。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="d-sec">
+  <div class="d-wrap">
+    <p class="d-label">United Nations SDGs · 聯合國永續發展目標</p>
+    <h2 class="d-h2">The SDGs Dom brings to every classroom</h2>
+    <p class="d-h2-en">Dom 帶來的 SDGs 訊息 — 全球目標,從在地行動與個人選擇開始。</p>
+    <div class="d-sdgs">
+      <div class="d-sdg sdg-1"><div class="n">1</div><div class="en">No Poverty</div><div class="zh">消除貧窮</div></div>
+      <div class="d-sdg sdg-3"><div class="n">3</div><div class="en">Good Health</div><div class="zh">健康與福祉</div></div>
+      <div class="d-sdg sdg-4"><div class="n">4</div><div class="en">Quality Education</div><div class="zh">優質教育</div></div>
+      <div class="d-sdg sdg-5"><div class="n">5</div><div class="en">Gender Equality</div><div class="zh">性別平等</div></div>
+      <div class="d-sdg sdg-10"><div class="n">10</div><div class="en">Reduced Inequalities</div><div class="zh">減少不平等</div></div>
+      <div class="d-sdg sdg-16"><div class="n">16</div><div class="en">Peace &amp; Justice</div><div class="zh">和平正義</div></div>
+      <div class="d-sdg sdg-17"><div class="n">17</div><div class="en">Partnerships</div><div class="zh">全球夥伴</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="d-sec alt">
+  <div class="d-wrap">
+    <p class="d-label">Roles &amp; Achievements · 身份與成就</p>
+    <h2 class="d-h2">Who is Dom Jones?</h2>
+    <p class="d-h2-en">Dom 的多元身份</p>
+    <div class="d-roles">
+      <div class="d-role"><span class="ic">🌏</span><div><h4>Chairwoman, MCC Advocacy Board</h4><p>人師教育協會 倡議委員會主席 · 全台巡迴學校集會計畫</p></div></div>
+      <div class="d-role"><span class="ic">🇺🇳</span><div><h4>UN Government Affairs Ambassador</h4><p>聯合國協會 政府事務大使 · Orange County Chapter</p></div></div>
+      <div class="d-role"><span class="ic">📺</span><div><h4>Host · The Dom Jones Show</h4><p>Pho Bolsa TV(PBTV)主持人 · 跨國傳播至越南,數百萬觀眾</p></div></div>
+      <div class="d-role"><span class="ic">🏆</span><div><h4>CBS The Amazing Race S34</h4><p>第 34 季參賽者 · 推廣同理心與跨文化理解</p></div></div>
+      <div class="d-role"><span class="ic">💪</span><div><h4>CEO · Propel Cycle</h4><p>南加州頂級室內單車工作室 · 近 20 年健身資歷</p></div></div>
+      <div class="d-role"><span class="ic">👧</span><div><h4>Co-Founder · DemocraShe</h4><p>501(c)(3) 非營利 · 賦能女孩相信自身潛能</p></div></div>
+      <div class="d-role"><span class="ic">💚</span><div><h4>Co-Founder · You Matter</h4><p>青少年社交情感學習(SEL)計畫</p></div></div>
+      <div class="d-role"><span class="ic">🎓</span><div><h4>Special Needs Educator</h4><p>特殊教育教師 · 社區倡議者 · 公眾人物</p></div></div>
+      <div class="d-role"><span class="ic">✈️</span><div><h4>Travel Vlogger · Storyteller</h4><p>旅遊部落客 · 文化說故事者 · 用影像連結世界</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="d-sec">
+  <div class="d-wrap">
+    <p class="d-label">Awards · 榮譽</p>
+    <h2 class="d-h2">Recognition &amp; Awards</h2>
+    <p class="d-h2-en">榮譽與肯定</p>
+    <div class="d-awards">
+      <div class="d-award"><div class="t">🌟</div><h4>2024 Young Leader of America</h4><p>美國聯合國國家執行委員會頒發<br>UN National Executive Council of the USA</p></div>
+      <div class="d-award"><div class="t">🏅</div><h4>2023 Woman of the Year — Entrepreneurship</h4><p>希望之城與爾灣商會頒發<br>City of Hope &amp; Irvine Chamber of Commerce</p></div>
+      <div class="d-award"><div class="t">🕊️</div><h4>Government Affairs Ambassador</h4><p>橙縣政府事務大使<br>Orange County, California</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="d-sec alt">
+  <div class="d-wrap">
+    <p class="d-label">School Assembly Tour · 校園巡迴</p>
+    <h2 class="d-h2">Dom's school visits, school by school</h2>
+    <p class="d-h2-en">每一場巡迴都是全校英語集會,由各校學生記者拍成校園新聞。點縮圖原地播放。</p>
+
+    <figure class="d-feature">
+      <img src="{TB}/dom-jones/images/yushin-group.jpg" alt="Dom Jones with students of Yuxin Elementary">
+      <figcaption><strong>With the students of Yuxin Elementary 育新國小</strong>One of the many campuses on Dom's Taiwan tour</figcaption>
+    </figure>
+
+    <p class="d-vcount"><b>{n}</b> school visits filmed by students · 由學生記者拍攝的 {n} 場校園巡迴新聞</p>
+    <div class="d-vgrid">
+{vgrid}
+    </div>
+  </div>
+</section>
+
+<section class="d-sec">
+  <div class="d-wrap">
+    <div class="d-contact">
+      <h3>Invite Dom to your school · 邀請 Dom 到您的學校</h3>
+      <p>Schools are warmly welcome to contact My Culture Connect to schedule a school assembly visit with Dom Jones. ｜歡迎各校與人師教育協會聯繫,安排 Dom Jones 的校園集會。</p>
+      <div class="links">
+        <a class="gold" href="mailto:luke@mycultureconnect.org">✉️ luke@mycultureconnect.org</a>
+        <a href="https://www.mycultureconnect.org" target="_blank" rel="noopener">🌐 mycultureconnect.org</a>
+        <span style="background:#06C755;border-color:#06C755;color:#fff;font-weight:700;font-size:15px;padding:11px 20px;border-radius:999px;">💬 LINE: luke7429</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+</div>'''
+    write("/media/dom-jones/", layout("/media/dom-jones/", "Dom Jones 多姆・瓊斯 · 聯合國 SDG 大使",
+        "Dom Jones 多姆・瓊斯——國際知名社會運動者、教育家與媒體人,人師教育協會倡議委員會主席,聯合國永續發展目標推廣大使,以及她走進全台校園的雙語巡迴。", body, "media"))
 
 def series_cover_cards(subs):
     """封面式大卡：用該系列代表影片縮圖當封面（subs = [(path, title, blurb)]）。"""
