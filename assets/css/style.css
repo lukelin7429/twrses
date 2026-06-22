@@ -364,6 +364,28 @@ p  { margin: 0 0 1.1em; }
 .lectures.af-lectures { display:grid; grid-template-columns:repeat(auto-fill, minmax(230px, 1fr)); gap:.7rem; align-items:start; }
 .lectures.af-lectures .lecture.playing { grid-column:1 / -1; }
 
+/* ---------- 英語期刊 ---------- */
+.peri-series { margin-top: 2.4rem; }
+.peri-series:first-child { margin-top: .5rem; }
+.peri-grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(180px, 1fr)); gap:1.5rem; }
+.peri-card { background:#fff; border:1px solid var(--line); border-radius:14px; overflow:hidden; box-shadow:var(--shadow-sm); transition:transform .25s, box-shadow .25s; display:flex; flex-direction:column; }
+.peri-card:hover { transform:translateY(-5px); box-shadow:var(--shadow); }
+.peri-cover { position:relative; display:block; aspect-ratio:1280/1808; background:var(--cream); overflow:hidden; }
+.peri-cover img { width:100%; height:100%; object-fit:cover; object-position:top; transition:transform .4s; }
+.peri-card:hover .peri-cover img { transform:scale(1.04); }
+.peri-pdf-badge { position:absolute; top:.5rem; right:.5rem; background:var(--gold-dk); color:#fff; font-family:var(--sans); font-weight:700; font-size:.7rem; letter-spacing:.08em; padding:.18rem .5rem; border-radius:6px; box-shadow:0 3px 10px rgba(0,0,0,.25); }
+.peri-body { padding:.85rem 1rem 1rem; display:flex; flex-direction:column; gap:.5rem; flex:1; }
+.peri-body h4 { margin:0; font-family:var(--zh); font-weight:600; color:var(--ink); font-size:1rem; }
+.peri-dl { font-family:var(--sans); font-weight:700; font-size:.85rem; color:var(--brand-dk); display:inline-flex; align-items:center; gap:.3em; }
+.peri-dl::before { content:"📄"; }
+.peri-dl:hover { color:var(--gold-dk); }
+.peri-vids { margin-top:auto; }
+.peri-vids > summary { cursor:pointer; font-size:.82rem; color:var(--ink-soft); list-style:none; padding-top:.3rem; border-top:1px dashed var(--cream-dk); }
+.peri-vids > summary::-webkit-details-marker { display:none; }
+.peri-vids > summary:hover { color:var(--brand-dk); }
+.peri-vids[open] > summary { margin-bottom:.7rem; }
+.peri-vids .video-grid { grid-template-columns:1fr; gap:.7rem; }
+
 /* inline 語音講解播放器（不蓋講義） */
 .lectures { display:flex; flex-direction:column; gap:.7rem; }
 .lecture { border:1px solid var(--line); border-radius:14px; overflow:hidden; background:var(--cream); transition:border-color .2s; }

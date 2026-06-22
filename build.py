@@ -1477,20 +1477,53 @@ def build_grandfather():
     # 只呈現影片（30 章英語朗讀），不複製內文
     build_series(VIDEO_SERIES["/resources/grandfather/"])
 
+_pj = os.path.join(ROOT, "data", "periodicals.json")
+PERIODICALS = json.load(open(_pj, encoding="utf-8")) if os.path.exists(_pj) else None
+PERI_REL = "https://github.com/lukelin7429/twrses/releases/download/periodicals-pdf"
+
+def peri_readings(ids):
+    """每期文章朗讀（音檔）→ 就地小播放器，不用全幅燈箱。標籤去掉期號前綴。"""
+    items = []
+    for v in ids:
+        raw = VIDEO_META.get(v, {}).get("title") or "文章朗讀"
+        lab = re.sub(r"^[\wＨ]*\d{4}-[A-Za-z]{3}\s*", "", raw) or raw
+        items.append(f'''<div class="lecture">
+  <button class="lec-btn" data-ytin="{v}" aria-label="播放 {html.escape(lab)}">
+    <span class="lec-play" aria-hidden="true">▶</span>
+    <span class="lec-meta"><span class="lec-t">{html.escape(lab)}</span><span class="lec-sub">🔊 語音朗讀</span></span>
+  </button>
+  <div class="lec-stage"></div>
+</div>''')
+    return '<div class="lectures">' + "".join(items) + '</div>'
+
 def build_periodicals():
-    items = [x for x in _clean_paras("/E-resources/periodicals") if x != "更多英語學習資源"]
-    lis = "\n".join(f'<li><span>{html.escape(x)}</span></li>' for x in items)
+    secs = []
+    for s in PERIODICALS["series"]:
+        cards = []
+        for it in s["issues"]:
+            a = it["asset"]; pdf = f"{PERI_REL}/{a}.pdf"; cover = f"/assets/img/periodicals/{a}.jpg"
+            vids = live_ids(it.get("videos", []))
+            vid_html = (f'<details class="peri-vids"><summary>🔊 {len(vids)} 段文章朗讀</summary>'
+                        f'{peri_readings(vids)}</details>') if vids else ""
+            cards.append(f'''<div class="peri-card rvl">
+  <a class="peri-cover" href="{pdf}" target="_blank" rel="noopener"><img loading="lazy" src="{cover}" alt="{it["date"]}">
+    <span class="peri-pdf-badge">PDF</span></a>
+  <div class="peri-body">
+    <h4>{it["date"]}</h4>
+    <a class="peri-dl" href="{pdf}" target="_blank" rel="noopener">下載 PDF · {it["pages"]} 頁</a>
+    {vid_html}
+  </div>
+</div>''')
+        secs.append(f'''<div class="peri-series">
+  <p class="eyebrow rvl">{html.escape(s["title"])} · {s["count"]} 期</p>
+  <p class="muted rvl" style="margin:.2rem 0 1.2rem">{html.escape(s["blurb"])}</p>
+  <div class="peri-grid stagger">{''.join(cards)}</div>
+</div>''')
     body = f'''
-{page_hero("英語期刊", "翻閱，協會多年的耕耘", "明航心鄉土情、明航雙語學園與全民英語期刊（2006–2009）典藏。")}
-<section class="section"><div class="wrap">
-  <ul class="linklist rvl" style="--col:1">{lis}</ul>
-  <p class="muted rvl" style="margin-top:1.5rem;font-size:.92rem">＊各期刊原檔以 Google Drive 保存，遷站後將逐期接上連結。</p>
-</div></section>
+{page_hero("英語期刊", "翻閱，協會多年的耕耘", "明航心・鄉土情、明航雙語學園與全民英語期刊（2006–2009）典藏——每期可線上下載 PDF，並附當期相關影片。")}
+<section class="section"><div class="wrap">{''.join(secs)}</div></section>
 '''
-    # linklist expects <a>; convert li>span to plain list style
-    body = body.replace('<ul class="linklist rvl" style="--col:1">',
-                        '<ul class="linklist rvl">').replace("<li><span>", '<li><a href="#" onclick="return false">').replace("</span></li>", "</a></li>")
-    write("/resources/periodicals/", layout("/resources/periodicals/", "英語期刊", "明航心鄉土情、明航雙語學園、全民英語期刊典藏（2006–2009）。", body, "resources"))
+    write("/resources/periodicals/", layout("/resources/periodicals/", "英語期刊", "明航心鄉土情、明航雙語學園、全民英語期刊典藏（2006–2009），每期可下載 PDF。", body, "resources"))
 
 # media hub + leaves
 def build_media_hub():
