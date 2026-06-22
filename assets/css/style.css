@@ -341,7 +341,7 @@ p  { margin: 0 0 1.1em; }
 .pill b { color: var(--brand-dk); }
 
 /* ---------- video grid ---------- */
-.video-grid { display:grid; grid-template-columns: repeat(auto-fill, minmax(272px,1fr)); gap: 1.4rem; }
+.video-grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(272px,1fr)); gap: 1.4rem; }
 .vcard { display:flex; flex-direction:column; background:#fff; border:1px solid var(--line); border-radius: 16px; overflow:hidden; box-shadow: var(--shadow-sm); transition: transform .22s, box-shadow .22s; }
 .vcard:hover { transform: translateY(-5px); box-shadow: var(--shadow); }
 .vthumb { position:relative; aspect-ratio:16/9; background: var(--cream); display:block; overflow:hidden; }
