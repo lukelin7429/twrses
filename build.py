@@ -1537,19 +1537,40 @@ def build_grandpa_mike():
     write(path, layout(path, "麥克爺爺放眼看台灣",
         "麥克爺爺用英語帶你一集一集走訪台灣的校園與風土，認識家鄉、練出真實語感。", body, "media"))
 
+def _news_num(title):
+    m = re.search(r"(?:News|NEWS|Report|Minute)\D{0,3}(\d+)", title or "")
+    return int(m.group(1)) if m else 9999
+
 def build_news_videos():
-    # combine 3 sub-series
+    # 3 子系列：英文名（卡片大字）、中文名、爬取路徑
     series = [
-        ("一分鐘英語新聞影片", "/RS-videos/E-news/CIEN-One-Min"),
-        ("彰化英語新聞影片", "/RS-videos/E-news/CIEN-news"),
-        ("英語特別報導影片", "/RS-videos/E-news/CIEN-special"),
+        ("One-Minute News", "一分鐘英語新聞", "/RS-videos/E-news/CIEN-One-Min"),
+        ("Changhua English News", "彰化英語新聞", "/RS-videos/E-news/CIEN-news"),
+        ("Special Report", "英語特別報導", "/RS-videos/E-news/CIEN-special"),
     ]
     secs = []
-    for label, cp in series:
-        ids = BY_PATH.get(cp, {}).get("youtube", [])
-        secs.append(f'<p class="eyebrow rvl" style="margin-top:2rem">{label} · {len(ids)} 部</p>' + (video_grid(ids) if ids else ""))
+    for en, zh, cp in series:
+        ids = live_ids(BY_PATH.get(cp, {}).get("youtube", []))
+        ids = sorted(ids, key=lambda v: _news_num(VIDEO_META.get(v, {}).get("title")))
+        cards = []
+        for v in ids:
+            meta = VIDEO_META.get(v, {})
+            n = _news_num(meta.get("title"))
+            badge = str(n) if n != 9999 else "·"
+            thumb = f"https://i.ytimg.com/vi/{v}/hqdefault.jpg"
+            url = f"https://www.youtube.com/watch?v={v}"
+            dur = _fmt_dur(meta.get("duration"))
+            date = _fmt_date(meta.get("date"))
+            dur_badge = f'<span class="vdur">{dur}</span>' if dur else ""
+            date_html = f'<span class="vdate">{date}</span>' if date else ""
+            cards.append(f'''<a class="vcard ep-card" href="{url}" data-yt="{v}" title="{html.escape(meta.get("title") or en)}">
+  <span class="vthumb"><img loading="lazy" src="{thumb}" alt="{html.escape(en)} {badge}">{dur_badge}<span class="vep">{badge}</span></span>
+  <span class="vmeta"><span class="ep-topic">{html.escape(en)}</span><span class="ep-zh">{zh}　第 {n} 集</span>{date_html}</span>
+</a>''')
+        grid = '<div class="video-grid stagger ep-grid">\n' + "\n".join(cards) + "\n</div>"
+        secs.append(f'<p class="eyebrow rvl" style="margin-top:2.4rem">{zh} · {en} · {len(ids)} 部</p>{grid}')
     body = f'''
-{page_hero("人師英語新聞", "用新聞，練出真實語感", "一分鐘英語新聞、彰化英語新聞與特別報導——學生與外師合作製作的英語新聞影片。")}
+{page_hero("人師英語新聞", "用新聞，練出真實語感", "一分鐘英語新聞、彰化英語新聞與特別報導——學生與外師合作製作的英語新聞影片。點影片即可在本頁觀看。")}
 <section class="section"><div class="wrap">{''.join(secs)}</div></section>
 '''
     write("/media/news-videos/", layout("/media/news-videos/", "人師英語新聞", "一分鐘英語新聞、彰化英語新聞與特別報導影片。", body, "media"))
