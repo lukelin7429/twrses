@@ -58,6 +58,7 @@ SITE = {
     "yt": "https://www.youtube.com/channel/UC04mOhuUodVHGVX6xMSg0MQ/playlists",
     "mcc": "https://www.mycultureconnect.org/",
     "hub": "https://changhua-bilingual.org",
+    "taiwan_hub": "https://taiwan-bilingual.org",
     "bank_name": "彰化縣人師教育協會",
     "bank_acct": "第一銀行北斗分行 464-10-011163",
 }
@@ -372,6 +373,32 @@ def build_home():
       <button class="car-arrow car-prev" aria-label="上一張">‹</button>
       <button class="car-arrow car-next" aria-label="下一張">›</button>
       <div class="car-dots">{dots_html}</div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <p class="eyebrow rvl">人師建置的雙語平台</p>
+    <h2 class="rvl d1 sweep">我們為彰化與全臺灣，<br>打造雙語學習資源網</h2>
+    <p class="lead rvl d2" style="max-width:62ch">除了線上外師課程，人師教育協會也親手規劃並建置雙語學習資源平台，把單字、影片、課程與教學資源免費公開給師生使用。點選下方卡片，前往我們建置的網站。</p>
+    <div class="grid cols-2 stagger hub-grid" style="margin-top:2.2rem">
+      <a class="hubcard rvl" href="{SITE['taiwan_hub']}" target="_blank" rel="noopener">
+        <span class="hubcard-cover hc-taiwan"><span class="hubcard-emoji">🇹🇼</span><span class="hubcard-region">全臺灣</span></span>
+        <span class="hubcard-body">
+          <h3>臺灣雙語資源網</h3>
+          <p>面向全臺師生的雙語學習資源平台——看、說、學、教、玩五大分類，影片、單字與互動遊戲一應俱全。</p>
+          <span class="hubcard-cta">前往網站 →</span>
+        </span>
+      </a>
+      <a class="hubcard rvl d1" href="{SITE['hub']}" target="_blank" rel="noopener">
+        <span class="hubcard-cover hc-changhua"><span class="hubcard-emoji">🏫</span><span class="hubcard-region">彰化縣</span></span>
+        <span class="hubcard-body">
+          <h3>彰化雙語資源網</h3>
+          <p>彰化縣各校的雙語學習中心——每日單字、課室英語、各校特色課程與最新消息，與在地校園緊密連結。</p>
+          <span class="hubcard-cta">前往網站 →</span>
+        </span>
+      </a>
     </div>
   </div>
 </section>

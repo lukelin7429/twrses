@@ -210,6 +210,40 @@ p  { margin: 0 0 1.1em; }
 .card-link { display:block; color: inherit; }
 .card-link:hover { color: inherit; }
 
+/* ---------- hub showcase cards ---------- */
+.hubcard {
+  display:flex; flex-direction:column; overflow:hidden; color:inherit;
+  background:#fff; border:1px solid var(--line); border-radius: var(--radius);
+  box-shadow: var(--shadow-sm); transition: transform .3s, box-shadow .3s, border-color .3s;
+}
+.hubcard:hover { transform: translateY(-8px); box-shadow: var(--shadow); border-color: var(--cream-dk); color:inherit; }
+.hubcard-cover {
+  position:relative; display:flex; flex-direction:column; align-items:center; justify-content:center;
+  gap:.5rem; min-height:150px; padding:1.8rem 1rem; overflow:hidden; isolation:isolate;
+}
+.hubcard-cover::after {
+  content:""; position:absolute; inset:0; z-index:-1;
+  background:
+    radial-gradient(120px 120px at 78% 22%, rgba(255,255,255,.22), transparent 70%),
+    radial-gradient(160px 160px at 18% 88%, rgba(255,255,255,.12), transparent 70%);
+}
+.hc-taiwan   { background: linear-gradient(135deg, var(--gold), var(--gold-dk)); }
+.hc-changhua { background: linear-gradient(135deg, var(--brand), var(--brand-dk)); }
+.hubcard-emoji { font-size:2.7rem; line-height:1; filter: drop-shadow(0 2px 6px rgba(0,0,0,.18)); transition: transform .35s; }
+.hubcard:hover .hubcard-emoji { transform: scale(1.12) rotate(-4deg); }
+.hubcard-region {
+  font-family: var(--sans); font-weight:700; font-size:.72rem; letter-spacing:.18em;
+  color:#fff; background:rgba(0,0,0,.18); padding:.28em .9em; border-radius:999px;
+}
+.hubcard-body { padding:1.5rem 1.6rem 1.7rem; display:flex; flex-direction:column; flex:1; }
+.hubcard-body h3 { margin:0 0 .5rem; color:var(--brand-dk); }
+.hubcard-body p { color:var(--ink-soft); font-size:.98rem; margin:0 0 1.1rem; }
+.hubcard-cta {
+  margin-top:auto; font-family:var(--sans); font-weight:700; font-size:.95rem; color:var(--gold-dk);
+  display:inline-flex; align-items:center; gap:.1em; transition: gap .25s, color .25s;
+}
+.hubcard:hover .hubcard-cta { gap:.5em; color:var(--brand-dk); }
+
 .band { background: var(--cream); }
 .band-brand { background: linear-gradient(160deg, var(--brand-dk), var(--brand)); color: #f3efe6; }
 .band-brand h1,.band-brand h2,.band-brand h3 { color:#fff; }
