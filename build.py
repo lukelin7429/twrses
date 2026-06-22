@@ -673,10 +673,33 @@ def build_rural_index():
 {page_hero("偏鄉英語教育", "讓資源，跨越城鄉的距離", "遠在偏鄉的孩子們因為學習資源不足，缺乏外語學習環境。本協會自民國 98 年創立以來，長期致力於推廣偏鄉英語教育，擴展學生的國際視野。")}
 <section class="section">
   <div class="wrap">
-    <div class="grid cols-3 stagger">
-      <a class="card card-link" href="/rural-schools/academy/"><span class="ico">🎓</span><h3>人師英語學院</h3><p>2021 年起推出，ITA 認證的英美母語外師線上授課，免費開放各級學校學生報名。</p></a>
-      <a class="card card-link" href="/rural-schools/practicum/"><span class="ico">💻</span><h3>Practicum 線上課程</h3><p>與 ITA、CIEE 合作的一對一與小班英語課程，常見問答與報名方式一次說明。</p></a>
-      <a class="card card-link" href="/rural-schools/guidelines/"><span class="ico">📋</span><h3>上課須知</h3><p>中英對照的課堂守則，幫助學生做好準備、尊重老師、把握每一堂課。</p></a>
+    <div class="rvl" style="text-align:center;max-width:680px;margin:0 auto 2.8rem">
+      <p class="eyebrow">三個入口</p>
+      <h2 style="font-size:clamp(1.7rem,3.2vw,2.3rem)">從這裡開始，認識我們的免費課程</h2>
+      <p class="muted" style="font-size:1.08rem">無論是線上學院、實習老師的一對一課程，或是上課前的準備，點進下方任一張卡片，就能深入了解。</p>
+    </div>
+    <div class="feature-grid stagger">
+      <a class="fcard" style="--accent:var(--brand)" href="/rural-schools/academy/">
+        <span class="fcard-ico">🎓</span>
+        <span class="fcard-kicker">免費線上課程</span>
+        <h3>人師英語學院</h3>
+        <p>2021 年起推出，ITA 認證的英美母語外師線上授課，免費開放各級學校學生報名。</p>
+        <span class="fcard-go">了解更多 <i>→</i></span>
+      </a>
+      <a class="fcard" style="--accent:var(--sunset)" href="/rural-schools/practicum/">
+        <span class="fcard-ico">💻</span>
+        <span class="fcard-kicker">一對一 · 小班</span>
+        <h3>Practicum 線上課程</h3>
+        <p>與 ITA、CIEE 合作的一對一與小班英語課程，常見問答與報名方式一次說明。</p>
+        <span class="fcard-go">了解更多 <i>→</i></span>
+      </a>
+      <a class="fcard" style="--accent:var(--gold-dk)" href="/rural-schools/guidelines/">
+        <span class="fcard-ico">📋</span>
+        <span class="fcard-kicker">課堂守則</span>
+        <h3>上課須知</h3>
+        <p>中英對照的課堂守則，幫助學生做好準備、尊重老師、把握每一堂課。</p>
+        <span class="fcard-go">了解更多 <i>→</i></span>
+      </a>
     </div>
     <div style="margin-top:3rem">{donate_block()}</div>
   </div>
@@ -1839,7 +1862,7 @@ PARTNERS = [
      "role": "LCOY Taiwan 國際大使 · UNFCCC YOUNGO",
      "zh": "UCLA 碩士、UNFCCC 官方青年組織 YOUNGO 成員。Edward 為臺灣學生（小學到大學）開啟聯合國氣候峰會、SDGs 教學與跨國專題學習；其 Youth Network 取得 2026 LCOY Taiwan 主辦權。",
      "meta": ["🇺🇳 UNFCCC YOUNGO", "🌍 LCOY Taiwan", "🎓 UCLA"],
-     "go": (TB + "/edward-huang/", "查看完整介紹 →", True)},
+     "go": ("/partners/edward-huang/", "查看完整介紹 →", False)},
     {"accent": ("#b97e16", "#f6e6c4", "#7a5310"),
      "img": TB + "/dom-jones/images/dom-jones.png", "alt": "Dom Jones 多姆・瓊斯",
      "tag": "倡議 · 善意", "name": "Dom Jones 多姆・瓊斯",
@@ -1860,31 +1883,31 @@ PARTNER_ORGS = [
     {"img": TB + "/partners/una-oc/img/una-oc-sdg.jpg",
      "name": "美國聯合國協會橙縣分會 UNA-OC",
      "zh": "美國聯合國協會橙縣分會，推動 SDGs 與全球公民意識；透過擔任其政府事務大使的夥伴 Dom Jones 與本協會結緣。",
-     "go": TB + "/partners/una-oc/"},
+     "go": "/partners/una-oc/"},
     {"img": "https://i.ytimg.com/vi/nHXZsvoPG7c/hqdefault.jpg",
      "name": "DLSU-D 與崇實高工締結姊妹校",
      "zh": "人師在菲律賓的拉薩爾夥伴與彰化員林崇實高工締結姊妹校：簽約儀式、書法交流與在地報導，收錄於 5 支影片。",
-     "go": TB + "/partners/dlsu-d/"},
+     "go": "/partners/dlsu-d/"},
     {"img": TB + "/partners/chinese-culture-connection/img/gala.png",
      "name": "華夏文化協會（波士頓）",
      "zh": "大波士頓四十年的非營利組織、人師的姊妹組織，理念相通、董事相連，推動雙語雙文化教育與跨文化理解。",
-     "go": TB + "/partners/chinese-culture-connection/"},
+     "go": "/partners/chinese-culture-connection/"},
     {"img": "https://i.ytimg.com/vi/Y45jz0N6Zk0/hqdefault.jpg",
      "name": "Books for Taiwan：把英文書帶回家",
      "zh": "自 2012 年起，Amy Lin 的志工收集美國圖書館的英文書，捐贈臺灣的學校、圖書館與監獄，收錄於 14 支影片。",
-     "go": TB + "/partners/books-for-taiwan/"},
+     "go": "/partners/books-for-taiwan/"},
     {"img": "https://i.ytimg.com/vi/Q7E2vrl2uRQ/hqdefault.jpg",
      "name": "紐約 CCC 中文學校來到彰化",
      "zh": "自 2022 年起的長期夥伴，紐約 Albany 的學生輔導臺灣孩子英文並來彰化教學交流，收錄於 27 支影片。",
-     "go": TB + "/partners/ccc-chinese-school/"},
+     "go": "/partners/ccc-chinese-school/"},
     {"img": TB + "/partners/nmu/img/nmu-principal-group.jpg",
      "name": "NMU 師資生來到彰化",
      "zh": "2026 年 5 月，David Boe 教授帶領 NMU 師資生來彰化進行 TESOL 實習，於溪州與陽明國中協同教學，收錄於師資生親錄的見證短片。",
-     "go": TB + "/partners/nmu/"},
+     "go": "/partners/nmu/"},
     {"img": "https://i.ytimg.com/vi/qn33x2o0Vr4/hqdefault.jpg",
      "name": "UTRGV 來到臺灣",
      "zh": "本計畫最早的國際合作之一，21 位 UTRGV 師資生在彰化教學的歷程，收錄於 22 支見證短片。",
-     "go": TB + "/partners/utrgv/"},
+     "go": "/partners/utrgv/"},
 ]
 
 def build_partners():
@@ -1949,6 +1972,62 @@ def build_partners():
     write("/partners/", layout("/partners/", "國際夥伴",
         "把世界帶進臺灣教室的國際夥伴——Edward Huang、Dom Jones、Leon La Couvée、麥克爺爺，以及並肩同行的學校與組織。", body, "about"))
 
+PARTNER_DETAILS = {}
+_pdir = os.path.join(ROOT, "data", "partners")
+if os.path.isdir(_pdir):
+    for _fn in sorted(os.listdir(_pdir)):
+        if _fn.endswith(".json"):
+            _d = json.load(open(os.path.join(_pdir, _fn), encoding="utf-8"))
+            PARTNER_DETAILS[_d["slug"]] = _d
+
+def build_partner_detail(d):
+    slug = d["slug"]
+    stats = "".join(f'<span class="pstat">{html.escape(s)}</span>' for s in d.get("stats", []))
+    stats_html = f'<div class="pstats rvl">{stats}</div>' if stats else ""
+    intro_ps = "".join(f'<p>{html.escape(p)}</p>' for p in d.get("intro", []) if p.strip())
+    intro_html = f'<div class="prose wide rvl">{intro_ps}</div>' if intro_ps else ""
+    photos = d.get("photos", [])
+    photo_html = ""
+    if photos:
+        figs = "".join(
+            f'<figure class="figure"><img loading="lazy" src="{ph}" alt="{html.escape(d["name"])}"></figure>'
+            for ph in photos)
+        photo_html = f'<div class="pgallery stagger">{figs}</div>'
+    sec_html = ""
+    for s in d.get("sections", []):
+        ps = "".join(f'<p>{html.escape(x)}</p>' for x in s.get("paras", []) if x.strip())
+        head = html.escape(s.get("heading", ""))
+        if head or ps:
+            sec_html += f'<div class="psection rvl"><h2>{head}</h2><div class="prose wide">{ps}</div></div>'
+    vids = d.get("videos", [])
+    vid_html = ""
+    if vids:
+        cards = []
+        for v in vids:
+            vid = v["id"]
+            nm = html.escape(v.get("name") or "") or "觀看影片"
+            role = html.escape(v.get("role") or "")
+            sub = f'<span class="vdate">{role}</span>' if role else ""
+            cards.append(f'''<a class="vcard" href="https://www.youtube.com/watch?v={vid}" data-yt="{vid}" title="{nm}">
+  <span class="vthumb"><img loading="lazy" src="https://i.ytimg.com/vi/{vid}/hqdefault.jpg" alt="{nm}"></span>
+  <span class="vmeta"><span class="vt">{nm}</span>{sub}</span>
+</a>''')
+        vid_html = (f'<div class="psection rvl"><h2>相關影片 · 共 {len(vids)} 支</h2>'
+                    f'<div class="video-grid stagger">{"".join(cards)}</div></div>')
+    body = f'''
+{page_hero(d.get("eyebrow", "國際夥伴"), d["name"], d.get("subtitle", ""))}
+<section class="section"><div class="wrap">
+  {stats_html}
+  {intro_html}
+  {photo_html}
+  {sec_html}
+  {vid_html}
+  <p style="margin-top:2.6rem"><a class="btn btn-ghost" href="/partners/">← 回國際夥伴</a></p>
+</div></section>
+'''
+    meta = (d.get("subtitle") or (d.get("intro") or [""])[0])[:120]
+    write(f"/partners/{slug}/", layout(f"/partners/{slug}/", d["name"], meta, body, "about"))
+
 def main():
     paths = []
     build_static()
@@ -1956,6 +2035,8 @@ def main():
     build_about(); paths.append("/about/")
     build_founder(); paths.append("/about/founder/")
     build_partners(); paths.append("/partners/")
+    for _slug, _spec in PARTNER_DETAILS.items():
+        build_partner_detail(_spec); paths.append(f"/partners/{_slug}/")
     build_rural_index(); build_academy(); build_register(); build_practicum(); build_guidelines()
     paths += ["/rural-schools/","/rural-schools/academy/","/rural-schools/register/","/rural-schools/practicum/","/rural-schools/guidelines/"]
     build_resources_hub(); paths.append("/resources/")
