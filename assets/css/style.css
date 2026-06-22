@@ -195,6 +195,13 @@ p  { margin: 0 0 1.1em; }
 .car-dot { width:9px; height:9px; border-radius:50%; border:0; background:var(--cream-dk); cursor:pointer; padding:0; transition:background .2s, transform .2s; }
 .car-dot.on { background:var(--brand); transform:scale(1.25); }
 
+/* event posters (portrait, side by side) */
+.poster-pair { display:grid; grid-template-columns:repeat(2,1fr); gap:1.6rem; max-width:720px; }
+.poster { margin:0; }
+.poster img { width:100%; height:auto; display:block; border-radius:var(--radius); box-shadow:var(--shadow); border:1px solid var(--line); }
+.poster figcaption { margin-top:.7rem; font-family:var(--zh); font-weight:600; font-size:.95rem; color:var(--ink-soft); text-align:center; }
+@media (max-width:560px){ .poster-pair { grid-template-columns:1fr; max-width:360px; margin-inline:auto; } }
+
 /* ---------- generic grids & cards ---------- */
 .grid { display:grid; gap: var(--gap); }
 .cols-2 { grid-template-columns: repeat(2,1fr); }

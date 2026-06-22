@@ -2067,6 +2067,34 @@ def build_partner_detail(d):
             f'<figure class="figure"><img loading="lazy" src="{ph}" alt="{html.escape(d["name"])}"></figure>'
             for ph in photos)
         photo_html = f'<div class="pgallery stagger">{figs}</div>'
+    # 活動海報（直式，並排）
+    posters = d.get("posters", [])
+    poster_html = ""
+    if posters:
+        figs = "".join(
+            f'<figure class="poster"><img loading="lazy" src="{p["img"]}" alt="{html.escape(p.get("caption",""))}">'
+            f'<figcaption>{html.escape(p.get("caption",""))}</figcaption></figure>'
+            for p in posters)
+        poster_html = f'<div class="psection rvl"><h2>活動海報</h2><div class="poster-pair stagger">{figs}</div></div>'
+    # 照片輪播（沿用全站 [data-carousel] 元件）
+    carousel = d.get("carousel", [])
+    carousel_html = ""
+    if carousel:
+        slides = "".join(
+            f'<figure class="car-slide"><img loading="lazy" src="{c["img"]}" alt="{html.escape(c.get("caption",""))}">'
+            + (f'<figcaption>{html.escape(c["caption"])}</figcaption>' if c.get("caption") else "")
+            + '</figure>'
+            for c in carousel)
+        dots = "".join(
+            f'<button class="car-dot{" on" if i==0 else ""}" data-i="{i}" aria-label="第 {i+1} 張"></button>'
+            for i in range(len(carousel)))
+        carousel_html = f'''<div class="psection rvl"><h2>影像紀錄</h2>
+  <div class="carousel" data-carousel>
+    <div class="car-viewport"><div class="car-track">{slides}</div></div>
+    <button class="car-arrow car-prev" aria-label="上一張">‹</button>
+    <button class="car-arrow car-next" aria-label="下一張">›</button>
+    <div class="car-dots">{dots}</div>
+  </div></div>'''
     sec_html = ""
     for s in d.get("sections", []):
         ps = "".join(f'<p>{html.escape(x)}</p>' for x in s.get("paras", []) if x.strip())
@@ -2094,8 +2122,10 @@ def build_partner_detail(d):
   {stats_html}
   {intro_html}
   {website_html}
+  {poster_html}
   {photo_html}
   {sec_html}
+  {carousel_html}
   {vid_html}
   <p style="margin-top:2.6rem"><a class="btn btn-ghost" href="/partners/">← 回國際夥伴</a></p>
 </div></section>
