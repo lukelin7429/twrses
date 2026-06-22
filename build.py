@@ -1947,6 +1947,10 @@ PARTNERS = [
 ]
 
 PARTNER_ORGS = [
+    {"img": "https://i.ytimg.com/vi/M8_UUKhYuJ0/hqdefault.jpg",
+     "name": "Up with People 人人至上",
+     "zh": "1965 年創立於美國丹佛的國際青年組織。每年兩團、來自約 20 國的青年以半年走讀世界；2010、2012 兩度造訪彰化，住進南彰化的寄宿家庭，並在明道大學與二林圖書館成功演出，收錄於 3 支影片。",
+     "go": "/partners/up-with-people/"},
     {"img": TB + "/partners/una-oc/img/una-oc-sdg.jpg",
      "name": "美國聯合國協會橙縣分會 UNA-OC",
      "zh": "美國聯合國協會橙縣分會，推動 SDGs 與全球公民意識；透過擔任其政府事務大使的夥伴 Dom Jones 與本協會結緣。",
@@ -2053,6 +2057,9 @@ def build_partner_detail(d):
     stats_html = f'<div class="pstats rvl">{stats}</div>' if stats else ""
     intro_ps = "".join(f'<p>{html.escape(p)}</p>' for p in d.get("intro", []) if p.strip())
     intro_html = f'<div class="prose wide rvl">{intro_ps}</div>' if intro_ps else ""
+    website = d.get("website")
+    website_html = (f'<p class="rvl" style="margin:.4rem 0 2rem">'
+                    f'<a class="btn btn-primary" href="{website}" target="_blank" rel="noopener">造訪官方網站 →</a></p>') if website else ""
     photos = d.get("photos", [])
     photo_html = ""
     if photos:
@@ -2086,6 +2093,7 @@ def build_partner_detail(d):
 <section class="section"><div class="wrap">
   {stats_html}
   {intro_html}
+  {website_html}
   {photo_html}
   {sec_html}
   {vid_html}
