@@ -77,19 +77,17 @@ NAV = [
         {"label": "上課須知", "href": "/rural-schools/guidelines/"},
     ]},
     {"label": "英語學習資源", "href": "/resources/", "key": "resources", "children": [
-        {"label": "人師閱讀教材", "href": "/resources/booklets/"},
-        {"label": "英語學習影片", "href": "/resources/videos/"},
-        {"label": "人師英語課程", "href": "/resources/classes/"},
-        {"label": "Grandfather 落日餘暉", "href": "/resources/grandfather/"},
-        {"label": "英語期刊", "href": "/resources/periodicals/"},
+        {"label": "閱讀與經典", "href": "/resources/reading/"},
+        {"label": "打好基礎", "href": "/resources/basics/"},
+        {"label": "聽說與會話", "href": "/resources/speaking/"},
+        {"label": "生活英語", "href": "/resources/life/"},
     ]},
     {"label": "人師影音專區", "href": "/media/", "key": "media", "children": [
-        {"label": "麥克爺爺放眼看台灣", "href": "/media/grandpa-mike/"},
-        {"label": "國際交流影片", "href": "/media/exchange/"},
+        {"label": "國際交流", "href": "/media/exchange/"},
         {"label": "人師英語新聞", "href": "/media/news-videos/"},
         {"label": "Enactus 英語課程", "href": "/media/enactus/"},
         {"label": "人師教育廣場", "href": "/media/talks/"},
-        {"label": "人物專訪影片", "href": "/media/interviews/"},
+        {"label": "人物專訪", "href": "/media/interviews/"},
     ]},
 ]
 
@@ -319,8 +317,8 @@ def build_home():
   <div class="wrap">
     <div class="grid cols-3 stagger">
       <a class="card card-link" href="/rural-schools/"><span class="ico">🌱</span><h3>偏鄉英語教育</h3><p>邀請各國英語老師透過線上教學，為偏鄉學生免費授課。</p></a>
-      <a class="card card-link" href="/resources/"><span class="ico">📚</span><h3>免費學習資源</h3><p>閱讀教材、影片教室、英語課程與期刊——免費開放自學。</p></a>
-      <a class="card card-link" href="/media/"><span class="ico">🎬</span><h3>人師影音專區</h3><p>麥克爺爺、國際交流、英語新聞與人物專訪，從生活學英文。</p></a>
+      <a class="card card-link" href="/resources/"><span class="ico">📚</span><h3>免費學習資源</h3><p>閱讀與經典、打好基礎、聽說與會話、生活英語——免費開放自學。</p></a>
+      <a class="card card-link" href="/media/"><span class="ico">🎬</span><h3>人師影音專區</h3><p>國際交流、英語新聞、教育廣場與人物專訪，從生活看見英語。</p></a>
     </div>
   </div>
 </section>
@@ -1176,33 +1174,75 @@ def build_everyday_book(b):
 
 def build_resources_hub():
     hub_page("/resources/", "resources", "英語學習資源",
-        "免費自學，永不停止", "Never stop learning, because life never stops teaching. — 閱讀教材、影片教室、英語課程與期刊，全部免費開放。",
+        "免費自學，永不停止", "Never stop learning, because life never stops teaching. — 依學習目的分類，閱讀、基礎、聽說、生活英語，全部免費開放。",
         [
-            ("/resources/booklets/", "📖", "人師閱讀教材", "基礎到高級閱讀、實用會話與看圖描述，循序漸進。"),
-            ("/resources/videos/", "🎞️", "英語學習影片", "口說訓練、自然發音、句型分析、時事與俚語等主題影片。"),
-            ("/resources/classes/", "🧑‍🏫", "人師英語課程", "文法、字根、文章結構、伊索寓言與經典名著導讀。"),
-            ("/resources/grandfather/", "🌅", "Grandfather 落日餘暉", "Leon La Couvée 三十章人生智慧，中英對照。"),
-            ("/resources/periodicals/", "📰", "英語期刊", "明航心鄉土情、明航雙語學園與全民英語期刊典藏。"),
-            ("/media/", "🎬", "人師影音專區", "麥克爺爺、國際交流、英語新聞與人物專訪。"),
+            ("/resources/reading/", "📖", "閱讀與經典", "閱讀教材、經典名著《動物農莊》、落日餘暉與英語期刊。"),
+            ("/resources/basics/", "📐", "打好基礎", "自然發音、造句、文法與句型分析，把地基打穩。"),
+            ("/resources/speaking/", "🗣️", "聽說與會話", "GEPT 口說、一分鐘英語與校園情境會話，開口說英語。"),
+            ("/resources/life/", "🌱", "生活英語", "俚語、時事、在地英語節目與學習短片，輕鬆學。"),
         ])
 
-def build_videos_hub():
-    children = [
-        ("/resources/videos/travel/", "🗽", "一分鐘英語-美國篇", "跟著鏡頭遊覽美國，一分鐘學一個英語主題。"),
-        ("/resources/videos/gept-basic/", "🗣️", "初級口說訓練", "GEPT 初級口說題型練習。"),
-        ("/resources/videos/gept-intermediate/", "🎙️", "中級口說訓練", "GEPT 中級口說題型練習。"),
-        ("/resources/videos/phonics/", "🔤", "自然發音", "從發音規則打好英語基礎。"),
-        ("/resources/videos/sentences/", "✍️", "基礎英語造句篇", "從零開始學會造句。"),
-        ("/resources/videos/one-min/", "⏱️", "一分鐘英語教室", "每天一分鐘，輕鬆學英語。"),
-        ("/resources/videos/analysis/", "🧩", "英語句型分析（新）", "拆解句子結構，看懂長難句。"),
-        ("/resources/videos/current-events/", "🗞️", "看時事學英文", "從新聞時事學習實用英語。"),
-        ("/resources/videos/e-vision/", "📺", "彰化 E 視界英語教室", "在地製作的英語教學節目。"),
-        ("/resources/videos/cien-school/", "🏫", "CIEN 校園英語", "校園情境的英語會話。"),
-        ("/resources/videos/slang/", "💬", "一分鐘俚語", "道地英語俚語輕鬆學。"),
-        ("/resources/videos/short/", "🎬", "英語學習短片", "精選英語學習短片。"),
-    ]
-    hub_page("/resources/videos/", "resources", "英語學習影片",
-        "把教室，搬到螢幕上", "數百部教學影片，依主題分類，免費開放自學。", children)
+def redirect(from_path, to_path, title="頁面已搬移"):
+    """寫一個 meta-refresh 轉址頁，避免舊網址 404。"""
+    body = f'''<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8">
+<meta http-equiv="refresh" content="0; url={BASE}{to_path}">
+<link rel="canonical" href="{BASE}{to_path}">
+<meta name="robots" content="noindex">
+<title>{title}</title></head>
+<body style="font-family:system-ui;padding:3rem;text-align:center">
+<p>此頁已搬移，若未自動跳轉請點 <a href="{BASE}{to_path}">這裡</a>。</p>
+</body></html>'''
+    fp = os.path.join(ROOT, from_path.strip("/"), "index.html")
+    os.makedirs(os.path.dirname(fp), exist_ok=True)
+    with open(fp, "w", encoding="utf-8") as f:
+        f.write(body)
+
+# 依「學習目的」分類的四個資源 hub（各頁仍沿用既有 leaf 網址）
+def build_reading_hub():
+    hub_page("/resources/reading/", "resources", "閱讀與經典",
+        "讀進去，世界就打開了", "從基礎讀物到經典名著——循序漸進的中英對照閱讀。",
+        [
+            ("/resources/booklets/everyday/", "☀️", "基礎英語", "最基礎的日常英語主題。"),
+            ("/resources/booklets/basic/", "🌱", "初級閱讀", "適合剛起步的讀者。"),
+            ("/resources/booklets/intermediate/", "🌿", "中級閱讀", "進一步擴充字彙與句型。"),
+            ("/resources/booklets/advanced/", "🌳", "高級閱讀", "挑戰較長篇的英語文章。"),
+            ("/resources/booklets/conversation/", "💬", "實用英語會話", "日常生活的實用對話。"),
+            ("/resources/booklets/description/", "🖼️", "看圖描述", "看圖學描述，練口說與寫作。"),
+            ("/resources/classes/animal-farm/", "🐖", "動物農莊", "經典名著《Animal Farm》導讀。"),
+            ("/resources/grandfather/", "🌅", "Grandfather 落日餘暉", "Leon La Couvée 三十章人生智慧，中英對照。"),
+            ("/resources/periodicals/", "📰", "英語期刊", "明航心鄉土情、明航雙語學園與全民英語期刊典藏。"),
+        ])
+
+def build_basics_hub():
+    hub_page("/resources/basics/", "resources", "打好基礎",
+        "地基穩了，才走得遠", "自然發音、造句、文法與句型分析——把英語的地基打穩。",
+        [
+            ("/resources/videos/phonics/", "🔤", "自然發音", "從發音規則打好英語基礎。"),
+            ("/resources/videos/sentences/", "✍️", "基礎英語造句篇", "從零開始學會造句。"),
+            ("/resources/classes/grammar/", "📐", "基礎文法", "從詞性到時態，打好文法地基。"),
+            ("/resources/videos/analysis/", "🧩", "英語句型分析", "拆解句子結構，看懂長難句（含經典版）。"),
+        ])
+
+def build_speaking_hub():
+    hub_page("/resources/speaking/", "resources", "聽說與會話",
+        "開口，是學會的開始", "GEPT 口說、一分鐘英語與校園情境會話——練聽力、敢開口。",
+        [
+            ("/resources/videos/gept-basic/", "🗣️", "初級口說訓練", "GEPT 初級口說題型練習。"),
+            ("/resources/videos/gept-intermediate/", "🎙️", "中級口說訓練", "GEPT 中級口說題型練習。"),
+            ("/resources/videos/one-min/", "⏱️", "一分鐘英語教室", "每天一分鐘，輕鬆學英語。"),
+            ("/resources/videos/travel/", "🗽", "一分鐘英語-美國篇", "跟著鏡頭遊覽美國，一分鐘學一個英語主題。"),
+            ("/resources/videos/cien-school/", "🏫", "CIEN 校園英語", "校園情境的英語會話。"),
+        ])
+
+def build_life_hub():
+    hub_page("/resources/life/", "resources", "生活英語",
+        "英語，就在生活裡", "俚語、時事、在地英語節目與學習短片——把英語融進日常。",
+        [
+            ("/resources/videos/slang/", "💬", "一分鐘俚語", "道地英語俚語輕鬆學。"),
+            ("/resources/videos/current-events/", "🗞️", "看時事學英文", "從新聞時事學習實用英語。"),
+            ("/resources/videos/e-vision/", "📺", "彰化 E 視界英語教室", "在地製作的英語教學節目。"),
+            ("/resources/videos/short/", "🎬", "英語學習短片", "精選英語學習短片。"),
+        ])
 
 VIDEO_LEAVES = [
     ("/resources/videos/travel/", "一分鐘英語-美國篇", "跟著鏡頭遊覽美國，一分鐘學一個英語主題。", "/E-resources/E-videos/travel"),
@@ -1272,7 +1312,7 @@ def build_classes_hub():
 
 CLASS_LEAVES = [
     ("/resources/classes/grammar/", "基礎文法", "從詞性到時態，打好文法地基。", "/E-resources/E-classes/grammar"),
-    ("/resources/classes/sentence-analysis/", "英語句型分析（舊）", "經典句型逐句拆解。", "/E-resources/E-classes/sentence-analysis2"),
+    ("/resources/classes/sentence-analysis/", "英語句型分析（經典版）", "經典句型逐句拆解，與新版句型分析互補。", "/E-resources/E-classes/sentence-analysis2"),
     ("/resources/classes/animal-farm/", "動物農莊", "經典名著《Animal Farm》導讀。", "/E-resources/E-classes/animal-farm"),
 ]
 
@@ -1529,21 +1569,20 @@ def build_periodicals():
 # media hub + leaves
 def build_media_hub():
     hub_page("/media/", "media", "人師影音專區",
-        "從生活，看見英語", "麥克爺爺放眼看台灣、國際交流、英語新聞與人物專訪——上百部影片，從真實生活學英文。",
+        "從生活，看見英語", "國際交流、英語新聞、教育廣場與人物專訪——協會的節目與紀實，從真實生活看見英語。",
         [
-            ("/media/grandpa-mike/", "👴", "麥克爺爺放眼看台灣", "麥克爺爺用英語帶你看台灣的人情風土。"),
-            ("/media/exchange/", "🌏", "國際交流影片", "與各國師生的交流剪影。"),
+            ("/media/exchange/", "🌏", "國際交流", "各國師生交流剪影，以及典範麥克爺爺放眼看台灣。"),
             ("/media/news-videos/", "📰", "人師英語新聞", "一分鐘新聞、彰化英語新聞與特別報導。"),
             ("/media/enactus/", "🤝", "Enactus 英語課程", "與杜魯門大學 Enactus 合作的英語課程。"),
             ("/media/talks/", "🎤", "人師教育廣場", "教育講座與分享。"),
-            ("/media/interviews/", "🎙️", "人物專訪影片", "教育者與貴賓的人物專訪。"),
+            ("/media/interviews/", "🎙️", "人物專訪", "教育者與貴賓的人物專訪。"),
         ])
 
 MEDIA_LEAVES = [
-    ("/media/exchange/", "media", "國際交流影片", "與各國師生的交流剪影。", "/RS-videos/exchange-videos"),
+    ("/media/exchange/", "media", "國際交流", "與各國師生的交流剪影。", "/RS-videos/exchange-videos"),
     ("/media/enactus/", "media", "Enactus 英語課程", "與杜魯門大學 Enactus 合作的英語課程。", "/RS-videos/Enactus-Truman"),
     ("/media/talks/", "media", "人師教育廣場", "教育講座與分享。", "/RS-videos/speeches"),
-    ("/media/interviews/", "media", "人物專訪影片", "教育者與貴賓的人物專訪。", "/RS-videos/interviews"),
+    ("/media/interviews/", "media", "人物專訪", "教育者與貴賓的人物專訪。", "/RS-videos/interviews"),
 ]
 
 def _mike_card(v, ep=None):
@@ -1661,7 +1700,11 @@ def main():
     build_rural_index(); build_academy(); build_register(); build_practicum(); build_guidelines()
     paths += ["/rural-schools/","/rural-schools/academy/","/rural-schools/register/","/rural-schools/practicum/","/rural-schools/guidelines/"]
     build_resources_hub(); paths.append("/resources/")
-    build_booklets(); paths.append("/resources/booklets/")
+    build_reading_hub(); paths.append("/resources/reading/")
+    build_basics_hub(); paths.append("/resources/basics/")
+    build_speaking_hub(); paths.append("/resources/speaking/")
+    build_life_hub(); paths.append("/resources/life/")
+    redirect("/resources/booklets/", "/resources/reading/"); paths.append("/resources/booklets/")
     _interactive = {"/resources/booklets/everyday/", "/resources/booklets/basic/", "/resources/booklets/intermediate/", "/resources/booklets/advanced/", "/resources/booklets/conversation/", "/resources/booklets/description/"}
     for path, title, lead, cp in BOOKLET_LEAVES:
         if path in _interactive: continue  # built as interactive hubs below
@@ -1689,12 +1732,12 @@ def main():
         build_desc_hub(); paths.append("/resources/booklets/description/")
         for b in sorted(int(k) for k in DESCRIPTION):
             build_desc_book(b); paths.append(f"/resources/booklets/description/book{b}/")
-    build_videos_hub(); paths.append("/resources/videos/")
+    redirect("/resources/videos/", "/resources/"); paths.append("/resources/videos/")
     for path, title, lead, cp in VIDEO_LEAVES:
         if path in VIDEO_SERIES:
             build_series(VIDEO_SERIES[path]); paths.append(path); continue
         leaf_videos(path, "resources", "英語學習影片", title, lead, cp); paths.append(path)
-    build_classes_hub(); paths.append("/resources/classes/")
+    redirect("/resources/classes/", "/resources/"); paths.append("/resources/classes/")
     for path, title, lead, cp in CLASS_LEAVES:
         if path == "/resources/classes/grammar/" and GRAMMAR:
             build_grammar(); paths.append(path); continue
@@ -1713,7 +1756,13 @@ def main():
     for path, key, title, lead, cp in MEDIA_LEAVES:
         if path in VIDEO_SERIES:
             build_series(VIDEO_SERIES[path]); paths.append(path); continue
-        leaf_videos(path, key, "人師影音專區", title, lead, cp); paths.append(path)
+        extra = ""
+        if path == "/media/exchange/":
+            extra = ('<a class="card card-link rvl" href="/media/grandpa-mike/" '
+                     'style="display:flex;gap:1rem;align-items:center;margin-bottom:1.8rem">'
+                     '<span class="ico">👴</span><span><h3 style="margin:0">典範人物：麥克爺爺放眼看台灣</h3>'
+                     '<p style="margin:.3rem 0 0">麥克爺爺用英語帶你看台灣的人情風土——人師最珍視的國際交流典範。</p></span></a>')
+        leaf_videos(path, key, "人師影音專區", title, lead, cp, extra_intro=extra); paths.append(path)
     build_news_videos(); paths.append("/media/news-videos/")
     # 任何已註冊但尚未由各 leaves 迴圈建出的影片系列頁（如 Enactus 子頁）
     for _sp, _sd in VIDEO_SERIES.items():
