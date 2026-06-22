@@ -826,7 +826,6 @@ def leaf_videos(path, key, eyebrow, title, lead, crawl_path, extra_intro=""):
   <div class="wrap">
     <div class="flex rvl" style="justify-content:space-between;margin-bottom:1.6rem">
       <div class="pills">{count}</div>
-      <a class="muted" href="{SITE['yt']}" target="_blank" rel="noopener">前往 YouTube 頻道 →</a>
     </div>
     {extra_intro}
     {grid}
@@ -1256,7 +1255,6 @@ def build_series(data):
 <section class="section"><div class="wrap">
   <div class="flex rvl" style="justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;margin-bottom:1.4rem">
     <div class="pills">{pills}</div>
-    <a class="muted" href="{SITE['yt']}" target="_blank" rel="noopener">前往 YouTube 頻道 →</a>
   </div>
   <p class="lead rvl" style="max-width:68ch;margin-bottom:2rem">{data["intro"]}</p>
   {grid}
@@ -1350,7 +1348,6 @@ def build_grammar():
 <section class="section"><div class="wrap">
   <div class="flex rvl" style="justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap">
     <div class="pills"><span class="pill"><b>{len(secs)}</b> 單元</span><span class="pill"><b>{nvids}</b> 段講解影片</span></div>
-    <a class="muted" href="{SITE['yt']}" target="_blank" rel="noopener">前往 YouTube 頻道 →</a>
   </div>
   <nav class="lesson-jump rvl">{nav}</nav>
 </div></section>
@@ -1530,7 +1527,6 @@ def build_grandpa_mike():
     {intro}
     <div class="flex rvl" style="justify-content:space-between;align-items:center;margin:1.8rem 0 1.4rem">
       <div class="pills"><span class="pill"><b>{total}</b> 部影片</span><span class="pill">{len(episodes)} 集正篇</span></div>
-      <a class="muted" href="{SITE['yt']}" target="_blank" rel="noopener">前往 YouTube 頻道 →</a>
     </div>
     <div class="video-grid stagger">{ep_cards}</div>
     {sp_block}
