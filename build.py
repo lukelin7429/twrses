@@ -837,19 +837,30 @@ def build_guidelines():
 # ==================================================================
 #  RESOURCES + MEDIA hubs and leaves
 # ==================================================================
+FCARD_ACCENTS = ["var(--brand)", "var(--sunset)", "var(--gold-dk)"]
+
+def fcard(href, ico, title, blurb, accent, cta="了解更多", soon=False):
+    """單張立體 feature 卡；soon=True 或無 href 時渲染為灰階「製作中」卡。"""
+    inner = f'<span class="fcard-ico">{ico}</span><h3>{html.escape(title)}</h3><p>{html.escape(blurb)}</p>'
+    if soon or not href:
+        return f'<div class="fcard fcard-soon" style="--accent:{accent}">{inner}</div>'
+    return (f'<a class="fcard" style="--accent:{accent}" href="{href}">{inner}'
+            f'<span class="fcard-go">{cta} <i>→</i></span></a>')
+
+def fcard_grid(items, cta="了解更多"):
+    """items：(href, ico, title, blurb[, soon]) 的序列。卡片少時用 2×2 避免落單。"""
+    cells = []
+    for i, it in enumerate(items):
+        href, ico, title, blurb = it[0], it[1], it[2], it[3]
+        soon = it[4] if len(it) > 4 else False
+        cells.append(fcard(href, ico, title, blurb, FCARD_ACCENTS[i % len(FCARD_ACCENTS)], cta, soon))
+    colcls = "fg-2" if len(items) in (2, 4) else ""
+    return f'<div class="feature-grid {colcls} stagger">{"".join(cells)}</div>'
+
 def hub_page(path, key, eyebrow, title, lead, children):
-    accents = ["var(--brand)", "var(--sunset)", "var(--gold-dk)"]
-    cards = "\n".join(
-        f'<a class="fcard" style="--accent:{accents[i % len(accents)]}" href="{href}">'
-        f'<span class="fcard-ico">{ico}</span>'
-        f'<h3>{html.escape(lbl)}</h3><p>{html.escape(blurb)}</p>'
-        f'<span class="fcard-go">了解更多 <i>→</i></span></a>'
-        for i, (href, ico, lbl, blurb) in enumerate(children))
-    # 卡片少時用 2×2，避免 3+1 落單；其餘維持三欄。
-    colcls = "fg-2" if len(children) in (2, 4) else ""
     body = f'''
 {page_hero(eyebrow, title, lead)}
-<section class="section"><div class="wrap"><div class="feature-grid {colcls} stagger">{cards}</div></div></section>
+<section class="section"><div class="wrap">{fcard_grid(children)}</div></section>
 '''
     write(path, layout(path, title, lead, body, key))
 
@@ -1049,16 +1060,16 @@ def render_basic_unit(book, u, level="basic", audio_rel=BASIC_AUDIO_REL, pdf_rel
 </div>'''
 
 def build_basic_hub():
-    cards=[]
+    items=[]
     for b in range(1,7):
         units=BASIC.get(str(b))
         if units:
-            cards.append(f'<a class="card card-link" href="/resources/booklets/basic/book{b}/"><span class="ico">📘</span><h3>Book {b}</h3><p>共 {len(units)} 課</p></a>')
+            items.append((f"/resources/booklets/basic/book{b}/", "📘", f"Book {b}", f"共 {len(units)} 課"))
         else:
-            cards.append(f'<div class="card" style="opacity:.5"><span class="ico">📘</span><h3>Book {b}</h3><p>製作中</p></div>')
+            items.append((None, "📘", f"Book {b}", "製作中", True))
     body = f'''
 {page_hero("初級閱讀 · Basic Reading", "讀懂一篇文章", "進階的閱讀練習：讀文章、聽真人朗讀、想想閱讀理解問題、學生字片語，再做個小測驗。")}
-<section class="section"><div class="wrap"><div class="grid cols-3 stagger">{''.join(cards)}</div>
+<section class="section"><div class="wrap">{fcard_grid(items, cta="開始閱讀")}
 <p class="muted rvl" style="margin-top:1.5rem">＊Book 7–14 內容整理中。</p></div></section>
 '''
     write("/resources/booklets/basic/", layout("/resources/booklets/basic/", "初級閱讀",
@@ -1079,13 +1090,11 @@ def build_basic_book(b):
 
 def build_inter_hub():
     done = sorted(int(k) for k in INTERMEDIATE)
-    cards=[]
-    for b in done:
-        units=INTERMEDIATE[str(b)]
-        cards.append(f'<a class="card card-link" href="/resources/booklets/intermediate/book{b}/"><span class="ico">📗</span><h3>Book {b}</h3><p>共 {len(units)} 課</p></a>')
+    items=[(f"/resources/booklets/intermediate/book{b}/", "📗", f"Book {b}", f"共 {len(INTERMEDIATE[str(b)])} 課")
+           for b in done]
     body = f'''
 {page_hero("中級閱讀 · Intermediate Reading", "讀進一步的文章", "更深入的閱讀練習：讀文章、聽真人朗讀、想想閱讀理解問題、學生字片語，再做個小測驗。")}
-<section class="section"><div class="wrap"><div class="grid cols-3 stagger">{''.join(cards)}</div>
+<section class="section"><div class="wrap">{fcard_grid(items, cta="開始閱讀")}
 <p class="muted rvl" style="margin-top:1.5rem">＊Book 5 以後內容整理中。</p></div></section>
 '''
     write("/resources/booklets/intermediate/", layout("/resources/booklets/intermediate/", "中級閱讀",
@@ -1105,11 +1114,11 @@ def build_inter_book(b):
         f"中級閱讀 Book {b}", f"人師閱讀教材·中級閱讀第{b}冊，{len(units)} 課互動閱讀。", body, "resources"))
 
 def build_adv_hub():
-    cards=[f'<a class="card card-link" href="/resources/booklets/advanced/book{b}/"><span class="ico">📕</span><h3>Book {b}</h3><p>共 {len(ADVANCED[str(b)])} 課</p></a>'
+    items=[(f"/resources/booklets/advanced/book{b}/", "📕", f"Book {b}", f"共 {len(ADVANCED[str(b)])} 課")
            for b in sorted(int(k) for k in ADVANCED)]
     body = f'''
 {page_hero("高級閱讀 · Advanced Reading", "挑戰更長的文章", "進階讀者的閱讀練習：讀較長的文章、聽真人朗讀、學進階生字片語，再做個小測驗。")}
-<section class="section"><div class="wrap"><div class="grid cols-3 stagger">{''.join(cards)}</div>
+<section class="section"><div class="wrap">{fcard_grid(items, cta="開始閱讀")}
 <p class="muted rvl" style="margin-top:1.5rem">＊Book 5 以後內容整理中。</p></div></section>
 '''
     write("/resources/booklets/advanced/", layout("/resources/booklets/advanced/", "高級閱讀",
@@ -1129,11 +1138,11 @@ def build_adv_book(b):
         f"高級閱讀 Book {b}", f"人師閱讀教材·高級閱讀第{b}冊，{len(units)} 課互動閱讀。", body, "resources"))
 
 def build_conv_hub():
-    cards=[f'<a class="card card-link" href="/resources/booklets/conversation/book{b}/"><span class="ico">💬</span><h3>Book {b}</h3><p>共 {len(CONVERSATION[str(b)])} 課</p></a>'
+    items=[(f"/resources/booklets/conversation/book{b}/", "💬", f"Book {b}", f"共 {len(CONVERSATION[str(b)])} 課")
            for b in sorted(int(k) for k in CONVERSATION)]
     body = f'''
 {page_hero("實用英語會話 · Practical Conversation", "開口說，最實用", "貼近生活的英語對話：聽真人朗讀、跟著逐句練習、學生字片語，再做個小測驗。")}
-<section class="section"><div class="wrap"><div class="grid cols-3 stagger">{''.join(cards)}</div>
+<section class="section"><div class="wrap">{fcard_grid(items, cta="開始練習")}
 <p class="muted rvl" style="margin-top:1.5rem">＊Book 5 以後內容整理中。</p></div></section>
 '''
     write("/resources/booklets/conversation/", layout("/resources/booklets/conversation/", "實用英語會話",
@@ -1153,11 +1162,11 @@ def build_conv_book(b):
         f"實用英語會話 Book {b}", f"人師閱讀教材·實用英語會話第{b}冊，{len(units)} 課互動對話。", body, "resources"))
 
 def build_desc_hub():
-    cards=[f'<a class="card card-link" href="/resources/booklets/description/book{b}/"><span class="ico">🖼️</span><h3>Book {b}</h3><p>共 {len(DESCRIPTION[str(b)])} 課</p></a>'
+    items=[(f"/resources/booklets/description/book{b}/", "🖼️", f"Book {b}", f"共 {len(DESCRIPTION[str(b)])} 課")
            for b in sorted(int(k) for k in DESCRIPTION)]
     body = f'''
 {page_hero("看圖描述 · Picture Description", "看著圖，說出來", "看圖學描述：看圖片、讀描述短文、聽真人朗讀、學生字片語，再做個小測驗。")}
-<section class="section"><div class="wrap"><div class="grid cols-3 stagger">{''.join(cards)}</div>
+<section class="section"><div class="wrap">{fcard_grid(items, cta="開始學習")}
 <p class="muted rvl" style="margin-top:1.5rem">＊Book 5 以後內容整理中。</p></div></section>
 '''
     write("/resources/booklets/description/", layout("/resources/booklets/description/", "看圖描述",
@@ -1184,17 +1193,17 @@ EVERYDAY_META = {
 _CN_NUM = "零一二三四五六"
 
 def build_everyday_hub():
-    cards=[]
+    items=[]
     for b in ["1","2","3","4","5","6"]:
         title, sub, ico = EVERYDAY_META[b]
         units = EVERYDAY.get(b)
         if units:
-            cards.append(f'<a class="card card-link" href="/resources/booklets/everyday/book{b}/"><span class="ico">{ico}</span><h3>{title}</h3><p>{sub}　·　共 {len(units)} 課</p></a>')
+            items.append((f"/resources/booklets/everyday/book{b}/", ico, title, f"{sub}　·　共 {len(units)} 課"))
         else:
-            cards.append(f'<div class="card" style="opacity:.5"><span class="ico">{ico}</span><h3>{title}</h3><p>{sub}　·　製作中</p></div>')
+            items.append((None, ico, title, f"{sub}　·　製作中", True))
     body = f'''
 {page_hero("基礎英語 · Everyday Topics", "從生活，開始學英語", "六冊主題式英語教材：看圖、讀短文、聽真人朗讀、學生字與進階用法，再做個小測驗。")}
-<section class="section"><div class="wrap"><div class="grid cols-3 stagger">{''.join(cards)}</div></div></section>
+<section class="section"><div class="wrap">{fcard_grid(items, cta="開始閱讀")}</div></section>
 '''
     write("/resources/booklets/everyday/", layout("/resources/booklets/everyday/", "基礎英語",
         "人師閱讀教材·基礎英語（Everyday Topics）六冊主題式英語自學：短文、真人朗讀、生字與進階學習、小測驗。", body, "resources"))
