@@ -1537,18 +1537,32 @@ def build_grandpa_mike():
     write(path, layout(path, "麥克爺爺放眼看台灣",
         "麥克爺爺用英語帶你一集一集走訪台灣的校園與風土，認識家鄉、練出真實語感。", body, "media"))
 
+def series_cover_cards(subs):
+    """封面式大卡：用該系列代表影片縮圖當封面（subs = [(path, title, blurb)]）。"""
+    cards = []
+    for path, title, blurb in subs:
+        d = VIDEO_SERIES.get(path, {})
+        eps = d.get("episodes", [])
+        cover = eps[0]["id"] if eps else ""
+        thumb = f"https://i.ytimg.com/vi/{cover}/hqdefault.jpg"
+        cards.append(f'''<a class="hubseries rvl" href="{path}">
+  <span class="hubseries-cover"><img loading="lazy" src="{thumb}" alt="{html.escape(title)}"></span>
+  <span class="hubseries-body"><h3>{html.escape(title)}</h3><p>{html.escape(blurb)}</p><span class="hubseries-meta"><b>{len(eps)}</b> 集 · 觀看 →</span></span>
+</a>''')
+    return '<div class="grid cols-3 stagger hubseries-grid">' + "\n".join(cards) + '</div>'
+
 def build_news_videos():
-    # 索引（hub）：三個子系列各自獨立成頁（由 VIDEO_SERIES 的 news-* 建出）
-    children = [
-        ("/media/news-videos/one-minute/", "📰", "一分鐘英語新聞",
-         f"一分鐘掌握一則英語新聞，共 {len(VIDEO_SERIES.get('/media/news-videos/one-minute/',{}).get('episodes',[]))} 集。"),
-        ("/media/news-videos/changhua/", "🎬", "彰化英語新聞",
-         f"彰化在地的英語新聞播報，共 {len(VIDEO_SERIES.get('/media/news-videos/changhua/',{}).get('episodes',[]))} 集。"),
-        ("/media/news-videos/special-report/", "🎤", "英語特別報導",
-         f"深入主題的英語特別報導，共 {len(VIDEO_SERIES.get('/media/news-videos/special-report/',{}).get('episodes',[]))} 集。"),
+    # 索引（hub）：三個子系列各自獨立成頁，封面式大卡
+    subs = [
+        ("/media/news-videos/one-minute/", "一分鐘英語新聞", "一分鐘掌握一則英語新聞，由學生與外師合作播報。"),
+        ("/media/news-videos/changhua/", "彰化英語新聞", "彰化在地的英語新聞播報，用熟悉的題材練語感。"),
+        ("/media/news-videos/special-report/", "英語特別報導", "深入主題的英語特別報導，篇幅更完整。"),
     ]
-    hub_page("/media/news-videos/", "media", "人師英語新聞", "用新聞，練出真實語感",
-             "由學生與外師合作製作的英語新聞影片，分為三個系列——點選下方系列即可觀看。", children)
+    body = f'''
+{page_hero("人師英語新聞", "用新聞，練出真實語感", "由學生與外師合作製作的英語新聞影片，分為三個系列——點選下方系列即可觀看。")}
+<section class="section"><div class="wrap">{series_cover_cards(subs)}</div></section>
+'''
+    write("/media/news-videos/", layout("/media/news-videos/", "人師英語新聞", "一分鐘英語新聞、彰化英語新聞與特別報導影片。", body, "media"))
 
 def build_news():
     paras = _clean_paras("/news")

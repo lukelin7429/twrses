@@ -283,6 +283,22 @@ p  { margin: 0 0 1.1em; }
 .ep-card .ep-zh { font-family:var(--zh); font-size:.98rem; color:var(--ink-soft); margin-top:.1rem; }
 .ep-card .vdate { font-size:.84rem; }
 .ep-card .vep { font-size:.84rem; padding:.22rem .62rem; }
+
+/* 影片系列入口：封面式大卡 */
+.hubseries-grid { gap: 1.9rem; margin-top: .5rem; }
+.hubseries { display:flex; flex-direction:column; overflow:hidden; color:inherit; background:#fff; border:1px solid var(--line); border-radius:18px; box-shadow:var(--shadow-sm); transition:transform .28s, box-shadow .28s, border-color .28s; }
+.hubseries:hover { transform:translateY(-8px); box-shadow:var(--shadow); border-color:var(--cream-dk); color:inherit; }
+.hubseries-cover { position:relative; aspect-ratio:16/9; overflow:hidden; background:var(--cream); }
+.hubseries-cover img { width:100%; height:100%; object-fit:cover; transition:transform .45s; }
+.hubseries:hover .hubseries-cover img { transform:scale(1.06); }
+.hubseries-cover::after { content:"▶"; position:absolute; inset:0; margin:auto; width:62px; height:62px; display:grid; place-items:center; background:rgba(14,107,96,.92); color:#fff; border-radius:50%; font-size:1.35rem; line-height:1; padding-left:5px; box-shadow:0 10px 26px rgba(0,0,0,.32); opacity:0; transform:scale(.82); transition:opacity .25s, transform .25s, background .25s; }
+.hubseries:hover .hubseries-cover::after { opacity:1; transform:scale(1); background:var(--sunset); }
+.hubseries-body { padding:1.5rem 1.6rem 1.7rem; display:flex; flex-direction:column; flex:1; }
+.hubseries-body h3 { margin:0 0 .45rem; color:var(--brand-dk); font-size:1.4rem; }
+.hubseries-body p { margin:0 0 1.1rem; color:var(--ink-soft); font-size:1.02rem; line-height:1.6; }
+.hubseries-meta { margin-top:auto; font-family:var(--sans); font-weight:700; font-size:1rem; color:var(--gold-dk); transition:color .2s; }
+.hubseries-meta b { color:var(--brand-dk); font-size:1.15rem; }
+.hubseries:hover .hubseries-meta { color:var(--brand-dk); }
 /* Grandpa Mike intro */
 .mike-intro { max-width: 820px; }
 .mike-intro p { font-size:1.08rem; line-height:1.85; color:var(--ink-soft); margin:0 0 1rem; }
