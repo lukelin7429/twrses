@@ -1242,7 +1242,7 @@ def build_evision():
   <span class="vthumb"><img loading="lazy" src="{thumb}" alt="{html.escape(e["topic"])}">{dur_badge}<span class="vep">EP{e["ep"]}</span></span>
   <span class="vmeta"><span class="ep-topic">{html.escape(e["topic"])}</span><span class="ep-zh">{html.escape(e["zh"])}</span>{date_html}</span>
 </a>''')
-    grid = '<div class="video-grid stagger">\n' + "\n".join(cards) + "\n</div>"
+    grid = '<div class="video-grid stagger ep-grid">\n' + "\n".join(cards) + "\n</div>"
     body = f'''
 {page_hero("英語學習影片", EVISION["title"], "校園情境英語短劇 · 全 6 集 · 點影片即可在本頁觀看。")}
 <section class="section"><div class="wrap">
