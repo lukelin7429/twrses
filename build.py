@@ -2317,8 +2317,15 @@ def build_partner_detail(d):
     for s in d.get("sections", []):
         ps = "".join(f'<p>{html.escape(x)}</p>' for x in s.get("paras", []) if x.strip())
         head = html.escape(s.get("heading", ""))
-        if head or ps:
-            sec_html += f'<div class="psection rvl"><h2>{head}</h2><div class="prose wide">{ps}</div></div>'
+        lk = s.get("link") or {}
+        link_html = ""
+        if lk.get("href"):
+            tgt = ' target="_blank" rel="noopener"' if str(lk["href"]).startswith("http") else ""
+            link_html = (f'<p style="margin:.3rem 0 .2rem">'
+                         f'<a class="btn btn-primary" href="{lk["href"]}"{tgt}>'
+                         f'{html.escape(lk.get("label", "閱讀完整報導 →"))}</a></p>')
+        if head or ps or link_html:
+            sec_html += f'<div class="psection rvl"><h2>{head}</h2><div class="prose wide">{ps}{link_html}</div></div>'
     vids = d.get("videos", [])
     vid_html = ""
     if vids:
