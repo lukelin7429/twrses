@@ -1227,7 +1227,7 @@ def _load_series(name):
     return json.load(open(p, encoding="utf-8")) if os.path.exists(p) else None
 
 VIDEO_SERIES = {}
-for _s in ("evision", "sentences", "analysis", "gept-basic", "gept-intermediate", "onemin"):
+for _s in ("evision", "sentences", "analysis", "gept-basic", "gept-intermediate", "onemin", "enactus-ps"):
     _d = _load_series(_s)
     if _d:
         VIDEO_SERIES[_d["path"]] = _d
@@ -1261,7 +1261,7 @@ def build_series(data):
   {grid}
 </div></section>
 '''
-    write(data["path"], layout(data["path"], data["title"], data.get("meta_desc", data["intro"][:120]), body, "resources"))
+    write(data["path"], layout(data["path"], data["title"], data.get("meta_desc", data["intro"][:120]), body, data.get("active", "resources")))
 
 def build_classes_hub():
     children = [
@@ -1650,6 +1650,10 @@ def main():
         leaf_videos(path, key, "人師影音專區", title, lead, cp); paths.append(path)
     build_news_videos(); paths.append("/media/news-videos/")
     build_news(); paths.append("/news/")
+    # 任何已註冊但尚未由各 leaves 迴圈建出的影片系列頁（如 Enactus 子頁）
+    for _sp, _sd in VIDEO_SERIES.items():
+        if _sp not in paths:
+            build_series(_sd); paths.append(_sp)
     build_sitemap(paths)
     print(f"✅ 建置完成，共 {len(paths)} 頁")
     for p in paths: print("  ", p)
