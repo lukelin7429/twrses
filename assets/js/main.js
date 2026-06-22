@@ -22,7 +22,19 @@
   /* scroll reveal — getBoundingClientRect 版（不用 IntersectionObserver）
      原本用 IO + threshold 0.14：比視窗高 ~7 倍的元素（如 100 張卡的網格）露出面積永遠到不了 14%，
      導致整批內容卡在 opacity:0 → 整頁空白。改用 gBCR：元素上緣進入視窗就揭示，與高度無關。 */
-  var revealEls = [].slice.call(document.querySelectorAll('.rvl, .stagger, .sweep'));
+  /* 全站自動揭示：對每個區段的內容區塊加 .ar，讓捲動時都有淡入動感（跳過 hero 與已手動標記者） */
+  [].forEach.call(document.querySelectorAll('main section > .wrap > *'), function (el) {
+    if (el.closest('.hero')) return;
+    if (el.classList.contains('rvl') || el.classList.contains('stagger') ||
+        el.classList.contains('ar') || el.classList.contains('sweep')) return;
+    var p = el.parentNode;
+    p.__arN = (p.__arN || 0);
+    el.style.transitionDelay = (Math.min(p.__arN, 5) * 0.07) + 's';
+    p.__arN++;
+    el.classList.add('ar');
+  });
+
+  var revealEls = [].slice.call(document.querySelectorAll('.rvl, .stagger, .sweep, .ar'));
   if (revealEls.length) {
     var revealScan = function () {
       var vh = window.innerHeight || document.documentElement.clientHeight;

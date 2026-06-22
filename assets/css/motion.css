@@ -39,7 +39,37 @@
 .pop:hover { transform: translateY(-4px); }
 
 @media (prefers-reduced-motion: reduce) {
-  .rvl, .stagger > *, .sweep { transition: none !important; opacity:1 !important; transform:none !important; background-size:100% 3px; }
+  .rvl, .stagger > *, .sweep, .ar { transition: none !important; opacity:1 !important; transform:none !important; background-size:100% 3px; }
   .orb { animation: none !important; }
   html { scroll-behavior: auto; }
 }
+
+/* ===== 全站動感升級 ===== */
+/* 自動捲動揭示：JS 對每個區塊內容加 .ar */
+.ar { opacity:0; transform: translateY(22px); transition: opacity .7s cubic-bezier(.2,.6,.2,1), transform .7s cubic-bezier(.2,.6,.2,1); will-change: opacity, transform; }
+.ar.in { opacity:1; transform:none; }
+
+/* hover 微互動：卡片頂部色條掃入 */
+.card, .hubcard { position: relative; overflow: hidden; }
+.card::before, .hubcard::before { content:""; position:absolute; top:0; left:0; height:4px; width:100%;
+  background: linear-gradient(90deg, var(--brand), var(--gold)); transform: scaleX(0); transform-origin:left; transition: transform .4s ease; }
+.card:hover::before, .hubcard:hover::before { transform: scaleX(1); }
+
+/* 影片卡：抬升＋縮圖放大 */
+.vcard { transition: transform .25s, box-shadow .25s; }
+.vcard:hover { transform: translateY(-5px); box-shadow: var(--shadow); }
+.vcard .vthumb { overflow: hidden; }
+.vcard .vthumb img { transition: transform .55s cubic-bezier(.2,.8,.2,1); }
+.vcard:hover .vthumb img { transform: scale(1.07); }
+.vcard.playing:hover { transform: none; }
+.vcard.playing .vthumb img { transform: none; }
+
+/* 人物卡 / 圖片：hover 放大 */
+.pcard .pc-img { transition: transform .55s cubic-bezier(.2,.8,.2,1); }
+.pcard:hover .pc-img { transform: scale(1.06); }
+.figure { overflow: hidden; }
+.figure img { transition: transform .5s cubic-bezier(.2,.8,.2,1); }
+.figure:hover img { transform: scale(1.05); }
+
+/* 區段標題底線掃入（捲到才畫） */
+.section-head h2 { position: relative; }
