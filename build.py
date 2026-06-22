@@ -1249,6 +1249,57 @@ CLASS_LEAVES = [
     ("/resources/classes/stories/", "英文故事", "精選英文故事，輕鬆閱讀。", "/E-resources/E-classes/stories"),
 ]
 
+# ---- 基礎文法（資料驅動精修頁，data/grammar.json）----
+_gj = os.path.join(ROOT, "data", "grammar.json")
+GRAMMAR = json.load(open(_gj, encoding="utf-8")) if os.path.exists(_gj) else None
+
+_EN_SPAN = re.compile(r"[A-Za-z][A-Za-z0-9 ,.'’?!():;/+\-]*")
+def _say_en(line):
+    """從課文行抽出可朗讀的英文句子；無則回傳空字串。"""
+    spans = [m.strip(" /") for m in _EN_SPAN.findall(line)]
+    good = [s for s in spans if re.search(r"[a-z]", s) and " " in s.strip() and len(s) >= 8]
+    txt = " ".join(good).strip()
+    return txt if len(txt) >= 8 else ""
+
+def _gnote(line):
+    s = line.strip()
+    is_sub = bool(re.match(r"^[一二三四五六七八九十]、", s)) or (len(s) <= 24 and (s.endswith("：") or s.endswith(":")))
+    say = _say_en(line)
+    btn = f'<button class="spk" data-say="{html.escape(say)}" aria-label="唸這句">🔊</button>' if say else ""
+    cls = "gl gsub" if is_sub else "gl"
+    return f'<p class="{cls}">{btn}<span>{html.escape(line)}</span></p>'
+
+def build_grammar():
+    secs = GRAMMAR["sections"]
+    nav = "".join(f'<a href="#g{i+1}">{i+1}. {html.escape(s["title"])}</a>' for i, s in enumerate(secs))
+    nvids = sum(len(s["videos"]) for s in secs)
+    blocks = []
+    for i, s in enumerate(secs):
+        band = " band" if i % 2 else ""
+        notes = "\n".join(_gnote(l) for l in s["notes"])
+        blocks.append(f'''<section class="section{band}" id="g{i+1}">
+  <div class="wrap">
+    <div class="lesson rvl">
+      <div class="lesson-head"><span class="lesson-no">{i+1}</span><h2>{html.escape(s["title"])}</h2></div>
+      <div class="lesson-videos">{video_grid(s["videos"])}</div>
+      <div class="gnotes">{notes}</div>
+    </div>
+  </div>
+</section>''')
+    body = f'''
+{page_hero("人師英語課程", "基礎文法", "從句子的形成到感嘆句——15 段影音講解，搭配完整文法講義。點影片即可在本頁播放。")}
+<section class="section"><div class="wrap">
+  <div class="flex rvl" style="justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap">
+    <div class="pills"><span class="pill"><b>{len(secs)}</b> 單元</span><span class="pill"><b>{nvids}</b> 段講解影片</span></div>
+    <a class="muted" href="{SITE['yt']}" target="_blank" rel="noopener">前往 YouTube 頻道 →</a>
+  </div>
+  <nav class="lesson-jump rvl">{nav}</nav>
+</div></section>
+{"".join(blocks)}
+'''
+    write("/resources/classes/grammar/", layout("/resources/classes/grammar/", "基礎文法",
+          "人師英語課程·基礎文法：句子的形成、詞類、常用句型、時態與各類句型的影音講解與完整講義。", body, "resources"))
+
 def build_booklets():
     hub_page("/resources/booklets/", "resources", "人師閱讀教材",
         "從一個字，讀到一篇文章", "依程度分級的閱讀與會話教材，適合自學與課堂使用。",
@@ -1525,6 +1576,8 @@ def main():
         leaf_videos(path, "resources", "英語學習影片", title, lead, cp); paths.append(path)
     build_classes_hub(); paths.append("/resources/classes/")
     for path, title, lead, cp in CLASS_LEAVES:
+        if path == "/resources/classes/grammar/" and GRAMMAR:
+            build_grammar(); paths.append(path); continue
         ids = BY_PATH.get(cp, {}).get("youtube", [])
         if ids:
             leaf_videos(path, "resources", "人師英語課程", title, lead, cp)
