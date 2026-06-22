@@ -91,7 +91,6 @@ NAV = [
         {"label": "人師教育廣場", "href": "/media/talks/"},
         {"label": "人物專訪影片", "href": "/media/interviews/"},
     ]},
-    {"label": "最新消息", "href": "/news/", "key": "news"},
 ]
 
 def nav_html(active):
@@ -137,7 +136,6 @@ def footer():
         <li><a href="/rural-schools/">偏鄉英語教育</a></li>
         <li><a href="/resources/">英語學習資源</a></li>
         <li><a href="/media/">人師影音專區</a></li>
-        <li><a href="/news/">最新消息</a></li>
       </ul>
     </div>
     <div>
@@ -1651,27 +1649,6 @@ def build_news_videos():
 '''
     write("/media/news-videos/", layout("/media/news-videos/", "人師英語新聞", "一分鐘英語新聞、彰化英語新聞與特別報導影片。", body, "media"))
 
-def build_news():
-    paras = _clean_paras("/news")
-    # drop the repeated mission/donate boilerplate that also lives elsewhere
-    boiler = {"捐款帳戶","匯款日期、姓名與地址","至 林吉祥",SITE["email"],
-              "誠摯邀請您透過不定額捐款或每年1,200元，來提升偏鄉學生的英語能力，讓孩子也能在線上跟外師一起快樂學習。",
-              "戶名：彰化縣人師教育協會","帳號：第一銀行北斗分行 464-10-011163",
-              "我們收到匯款後會儘速寄收據給您，煩請提供",
-              "遠在偏鄉的孩子們因為學習資源不足，缺乏外語學習環境。本協會自民國98年創立以來，長期致力於推廣偏鄉英語教育，擴展學生的國際視野。",
-              "從109年4月起，我們與美國芝加哥的國際英語教師認證機構(International TEFL Academy)合作，邀請各國英語老師透過線上教學為學生授課，讓無數學生受惠。同時我們也開放給台灣及全世界的英語老師線上觀課，提升英語老師的教學技巧。"}
-    paras = [p for p in paras if p not in boiler]
-    ids = BY_PATH.get("/news", {}).get("youtube", [])
-    phtml = "\n".join(f"<p>{html.escape(p)}</p>" for p in paras)
-    vg = ('<p class="eyebrow rvl" style="margin-top:2rem">相關活動影片</p>' + video_grid(ids, limit=12)) if ids else ""
-    body = f'''
-{page_hero("最新消息", "協會的近況與活動", "")}
-<section class="section"><div class="wrap prose wide rvl">{phtml}</div>
-  <div class="wrap">{vg}</div>
-</section>
-'''
-    write("/news/", layout("/news/", "最新消息", "人師教育協會最新消息、活動與得獎名單。", body, "news"))
-
 # ==================================================================
 def build_static():
     # CNAME (only for custom-domain build), favicon, .nojekyll, robots
@@ -1750,7 +1727,6 @@ def main():
             build_series(VIDEO_SERIES[path]); paths.append(path); continue
         leaf_videos(path, key, "人師影音專區", title, lead, cp); paths.append(path)
     build_news_videos(); paths.append("/media/news-videos/")
-    build_news(); paths.append("/news/")
     # 任何已註冊但尚未由各 leaves 迴圈建出的影片系列頁（如 Enactus 子頁）
     for _sp, _sd in VIDEO_SERIES.items():
         if _sp not in paths:
