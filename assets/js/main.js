@@ -57,6 +57,43 @@
     card.classList.add('playing');
   });
 
+  /* 期刊就地翻頁閱讀器 */
+  (function () {
+    var reader = document.getElementById('periReader');
+    if (!reader) return;
+    var img = reader.querySelector('.pr-img'),
+        curEl = reader.querySelector('.pr-cur'),
+        totEl = reader.querySelector('.pr-total');
+    var base = '', total = 1, cur = 1;
+    function show(n) { if (n < 1) n = total; if (n > total) n = 1; cur = n; img.src = base + n + '.jpg'; curEl.textContent = n; }
+    document.addEventListener('click', function (e) {
+      var cover = e.target.closest('.peri-cover[data-read]');
+      if (cover) {
+        e.preventDefault();
+        base = cover.getAttribute('data-read'); total = +cover.getAttribute('data-pages');
+        reader.querySelector('.pr-title').textContent = cover.getAttribute('data-title');
+        reader.querySelector('.pr-dl').href = cover.getAttribute('data-pdf');
+        totEl.textContent = total;
+        var card = cover.closest('.peri-card');
+        card.parentNode.insertBefore(reader, card.nextSibling);   // 全寬列插在該卡之後
+        reader.hidden = false; show(1);
+        reader.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        return;
+      }
+      var b = e.target.closest('.pr-prev, .pr-next, .pr-close');
+      if (b) {
+        if (b.classList.contains('pr-close')) { reader.hidden = true; img.src = ''; }
+        else show(cur + (b.classList.contains('pr-next') ? 1 : -1));
+      }
+    });
+    document.addEventListener('keydown', function (e) {
+      if (reader.hidden) return;
+      if (e.key === 'ArrowLeft') show(cur - 1);
+      else if (e.key === 'ArrowRight') show(cur + 1);
+      else if (e.key === 'Escape') { reader.hidden = true; img.src = ''; }
+    });
+  })();
+
   /* speak (Web Speech) for 🔊 buttons */
   var enVoice = null;
   function pickVoice() {

@@ -1480,6 +1480,7 @@ def build_grandfather():
 _pj = os.path.join(ROOT, "data", "periodicals.json")
 PERIODICALS = json.load(open(_pj, encoding="utf-8")) if os.path.exists(_pj) else None
 PERI_REL = "https://github.com/lukelin7429/twrses/releases/download/periodicals-pdf"
+PERI_PAGES = "https://github.com/lukelin7429/twrses/releases/download/periodicals-pages"
 
 def peri_readings(ids):
     """每期文章朗讀（音檔）→ 就地小播放器，不用全幅燈箱。標籤去掉期號前綴。"""
@@ -1502,26 +1503,40 @@ def build_periodicals():
         cards = []
         for it in s["issues"]:
             a = it["asset"]; pdf = f"{PERI_REL}/{a}.pdf"; cover = f"/assets/img/periodicals/{a}.jpg"
+            pages = it["pages"]
             vids = live_ids(it.get("videos", []))
             vid_html = (f'<details class="peri-vids"><summary>🔊 {len(vids)} 段文章朗讀</summary>'
                         f'{peri_readings(vids)}</details>') if vids else ""
+            title = html.escape(f'{s["title"]}　{it["date"]}')
             cards.append(f'''<div class="peri-card rvl">
-  <a class="peri-cover" href="{pdf}" target="_blank" rel="noopener"><img loading="lazy" src="{cover}" alt="{it["date"]}">
-    <span class="peri-pdf-badge">PDF</span></a>
+  <a class="peri-cover" href="{pdf}" data-read="{PERI_PAGES}/{a}-" data-pages="{pages}" data-title="{title}" data-pdf="{pdf}"><img loading="lazy" src="{cover}" alt="{it["date"]}">
+    <span class="peri-pdf-badge">{pages} 頁</span><span class="peri-read-hint">📖 翻閱</span></a>
   <div class="peri-body">
     <h4>{it["date"]}</h4>
-    <a class="peri-dl" href="{pdf}" target="_blank" rel="noopener">下載 PDF · {it["pages"]} 頁</a>
+    <a class="peri-dl" href="{pdf}" target="_blank" rel="noopener">下載 PDF</a>
     {vid_html}
   </div>
 </div>''')
+        # 共用閱讀器（每系列一個，就地全寬展開）
         secs.append(f'''<div class="peri-series">
   <p class="eyebrow rvl">{html.escape(s["title"])} · {s["count"]} 期</p>
   <p class="muted rvl" style="margin:.2rem 0 1.2rem">{html.escape(s["blurb"])}</p>
   <div class="peri-grid stagger">{''.join(cards)}</div>
 </div>''')
+    reader = '''<div class="peri-reader" id="periReader" hidden>
+  <div class="pr-bar"><span class="pr-title"></span>
+    <span class="pr-actions"><a class="pr-dl" target="_blank" rel="noopener">下載 PDF</a>
+    <button class="pr-close" aria-label="關閉閱讀">×</button></span></div>
+  <div class="pr-stage">
+    <button class="pr-prev" aria-label="上一頁">‹</button>
+    <img class="pr-img" alt="期刊內頁">
+    <button class="pr-next" aria-label="下一頁">›</button>
+  </div>
+  <div class="pr-foot">第 <span class="pr-cur">1</span> / <span class="pr-total">1</span> 頁　·　← → 翻頁</div>
+</div>'''
     body = f'''
-{page_hero("英語期刊", "翻閱，協會多年的耕耘", "明航心・鄉土情、明航雙語學園與全民英語期刊（2006–2009）典藏——每期可線上下載 PDF，並附當期相關影片。")}
-<section class="section"><div class="wrap">{''.join(secs)}</div></section>
+{page_hero("英語期刊", "翻閱，協會多年的耕耘", "明航心・鄉土情、明航雙語學園與全民英語期刊（2006–2009）典藏——點封面可線上翻頁閱讀，也可下載 PDF，並附當期文章朗讀。")}
+<section class="section"><div class="wrap">{''.join(secs)}{reader}</div></section>
 '''
     write("/resources/periodicals/", layout("/resources/periodicals/", "英語期刊", "明航心鄉土情、明航雙語學園、全民英語期刊典藏（2006–2009），每期可下載 PDF。", body, "resources"))
 
