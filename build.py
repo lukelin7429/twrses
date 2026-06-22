@@ -1227,7 +1227,7 @@ def _load_series(name):
     return json.load(open(p, encoding="utf-8")) if os.path.exists(p) else None
 
 VIDEO_SERIES = {}
-for _s in ("evision", "sentences", "analysis", "gept-basic", "gept-intermediate"):
+for _s in ("evision", "sentences", "analysis", "gept-basic", "gept-intermediate", "onemin"):
     _d = _load_series(_s)
     if _d:
         VIDEO_SERIES[_d["path"]] = _d
