@@ -1379,15 +1379,17 @@ def build_animalfarm():
     for c in d["chapters"]:
         n = c["n"]
         summ = "".join(f"<li>{html.escape(s)}</li>" for s in c["summary"])
-        cards = []
+        # 朗讀錄音 → 就地小播放器（不用全幅燈箱）
+        players = []
         for i, v in enumerate(c["videos"], 1):
-            thumb = f"https://i.ytimg.com/vi/{v}/hqdefault.jpg"
-            url = f"https://www.youtube.com/watch?v={v}"
-            cards.append(f'''<a class="vcard ep-card" href="{url}" data-yt="{v}" title="動物農莊 第{n}章 {n}-{i}">
-  <span class="vthumb"><img loading="lazy" src="{thumb}" alt="Animal Farm {n}-{i}"><span class="vep">{n}-{i}</span></span>
-  <span class="vmeta"><span class="ep-topic">Part {i}</span></span>
-</a>''')
-        grid = '<div class="video-grid stagger ep-grid">' + "".join(cards) + '</div>'
+            players.append(f'''<div class="lecture">
+  <button class="lec-btn" data-ytin="{v}" aria-label="播放 第{n}章 第{i}段朗讀">
+    <span class="lec-play" aria-hidden="true">▶</span>
+    <span class="lec-meta"><span class="lec-t">第 {i} 段</span><span class="lec-sub">🎧 語音朗讀</span></span>
+  </button>
+  <div class="lec-stage"></div>
+</div>''')
+        grid = '<div class="lectures af-lectures">' + "".join(players) + '</div>'
         chs.append(f'''<section class="af-ch rvl">
   <div class="af-ch-head"><span class="af-ch-n">{n}</span><div><h3>第 {n} 章</h3><ul class="af-sum">{summ}</ul></div></div>
   {grid}
