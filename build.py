@@ -1577,7 +1577,7 @@ def build_media_hub():
     hub_page("/media/", "media", "人師影音專區",
         "從生活，看見英語", "國際交流、英語新聞、教育廣場與人物專訪——協會的節目與紀實，從真實生活看見英語。",
         [
-            ("/media/exchange/", "🌏", "國際交流", "各國師生交流剪影，以及典範麥克爺爺放眼看台灣。"),
+            ("/media/exchange/", "🌏", "國際交流", "學校訪問——麥克爺爺與 Dom Jones 把世界帶進彰化的教室。"),
             ("/media/news-videos/", "📰", "人師英語新聞", "一分鐘新聞、彰化英語新聞與特別報導。"),
             ("/media/enactus/", "🤝", "Enactus 英語課程", "與杜魯門大學 Enactus 合作的英語課程。"),
             ("/media/talks/", "🎤", "人師教育廣場", "教育講座與分享。"),
@@ -1690,30 +1690,115 @@ def build_grandpa_mike():
     write(path, layout(path, "麥克爺爺放眼看台灣",
         "麥克爺爺用英語帶你一集一集走訪台灣的校園與風土，認識家鄉、練出真實語感。", body, "media"))
 
-def mike_feature():
-    """國際交流頁頂端的麥克爺爺典範大區塊（比小卡片更醒目）。"""
+def _mike_first_id():
     ids = live_ids(BY_PATH.get("/RS-videos/eyes", {}).get("youtube", []))
-    eps = []
+    best = None
     for v in ids:
-        t = VIDEO_META.get(v, {}).get("title") or ""
-        m = re.search(r"第\s*(\d+)\s*集", t)
-        if m:
-            eps.append((int(m.group(1)), v))
-    eps.sort()
-    teaser = eps[:3]
-    cards = ("\n".join(_mike_card(v, ep) for ep, v in teaser)
-             if teaser else "\n".join(_mike_card(v) for v in ids[:3]))
-    total = len(ids)
-    return f'''<div class="mike-feature rvl">
-  <div class="mike-feature-text">
-    <p class="eyebrow">典範人物 · A Model of Doing Good</p>
-    <h2>麥克爺爺放眼看台灣</h2>
-    <p>麥克爺爺（Grandpa Mike）是人師最珍視的國際交流典範——來自美國的退休校長，學中文、愛台灣，疫情前多次自費飛來，走進彰化與各地校園，用最溫暖的英語陪孩子認識自己的家鄉。</p>
-    <p class="mike-feature-honor">He taught English, but more importantly, he taught love, respect, and the power of doing good.</p>
-    <a class="btn btn-gold" href="/media/grandpa-mike/">看完整系列 · 共 {total} 部影片 →</a>
+        m = re.search(r"第\s*(\d+)\s*集", VIDEO_META.get(v, {}).get("title") or "")
+        if m and (best is None or int(m.group(1)) < best[0]):
+            best = (int(m.group(1)), v)
+    return best[1] if best else (ids[0] if ids else "")
+
+DOM = json.load(open(os.path.join(ROOT, "data", "dom-jones.json"), encoding="utf-8"))
+
+def build_exchange_hub():
+    """國際交流＝學校訪問：兩個人物卡（麥克爺爺＋Dom Jones），仿英文站 school-tour 模式。"""
+    mike_cnt = len(live_ids(BY_PATH.get("/RS-videos/eyes", {}).get("youtube", [])))
+    dom_cnt = len(DOM["videos"])
+    mike_thumb = f"https://i.ytimg.com/vi/{_mike_first_id()}/hqdefault.jpg"
+    dom_thumb = f"https://i.ytimg.com/vi/{DOM['videos'][0]['id']}/hqdefault.jpg"
+    # 其餘國際交流剪影（沿用舊 exchange-videos，扣掉已排除者）
+    other_ids = live_ids(BY_PATH.get("/RS-videos/exchange-videos", {}).get("youtube", []))
+    other = (f'''<section class="section band"><div class="wrap">
+      <p class="eyebrow rvl">更多交流剪影</p>
+      <h2 class="rvl d1">其他國際交流紀錄</h2>
+      <p class="muted rvl d2" style="max-width:60ch">音樂交流、海外青年、視訊連線與特別報導——更多把世界帶進彰化教室的時刻。</p>
+      {video_grid(other_ids)}
+    </div></section>''' if other_ids else "")
+    body = f'''
+{page_hero("學校訪問 · School Tour", "把世界帶進彰化的教室",
+           "十多年來，一位又一位難得的訪客把活的英語、國際連結與善意帶進彰化的校園——先是麥克爺爺，如今是 Dom Jones。")}
+<section class="section"><div class="wrap">
+  <div class="tour-tl rvl">
+    <span class="tnode"><small>起點</small><b>麥克爺爺</b></span>
+    <span class="tarrow">→</span>
+    <span class="tnode"><small>現今</small><b>Dom Jones</b></span>
   </div>
-  <div class="video-grid mike-feature-grid">{cards}</div>
-</div>'''
+  <div class="section-head rvl" style="margin-top:2.4rem">
+    <p class="eyebrow">兩個篇章，一個使命</p>
+    <h2>走進這段故事</h2>
+    <p class="muted">英語、國際連結與善的力量——先由麥克爺爺承載，如今交棒給 Dom Jones。</p>
+  </div>
+  <div class="pcards">
+    <a class="pcard rvl" href="/media/grandpa-mike/">
+      <span class="pc-img" style="background-image:url('{mike_thumb}')"></span>
+      <span class="pc-body">
+        <span class="pc-tag">起點 · 永遠懷念</span>
+        <h3>麥克爺爺 Grandpa Mike</h3>
+        <p>來自美國的退休校長，五度自費來台、十年的愛。他的紀念、現場照片與完整「放眼看台灣」影片系列，還有縣長為他慶生的媒體報導。</p>
+        <span class="pc-go">進入 · 共 {mike_cnt} 部影片 →</span>
+      </span>
+    </a>
+    <a class="pcard rvl d1" href="/media/dom-jones/">
+      <span class="pc-img" style="background-image:url('{dom_thumb}')"></span>
+      <span class="pc-body">
+        <span class="pc-tag">現今</span>
+        <h3>Dom Jones</h3>
+        <p>聯合國永續發展目標（SDG）大使、人師倡議委員會主席，正進行全國校園巡迴演講——每一站都留下校園新聞影片。</p>
+        <span class="pc-go">進入 · 共 {dom_cnt} 所學校 →</span>
+      </span>
+    </a>
+  </div>
+</div></section>
+{other}
+'''
+    write("/media/exchange/", layout("/media/exchange/", "國際交流 · 學校訪問",
+        "麥克爺爺與 Dom Jones 把活的英語、國際連結與善意帶進彰化的校園。", body, "media"))
+
+def build_dom_jones():
+    pl = DOM["playlist"]
+    cards = []
+    for v in DOM["videos"]:
+        vid = v["id"]; school = html.escape(v["school"])
+        sub = html.escape(v.get("topic") or v.get("date") or "")
+        thumb = f"https://i.ytimg.com/vi/{vid}/hqdefault.jpg"
+        url = f"https://www.youtube.com/watch?v={vid}"
+        sub_html = f'<span class="vdate">{sub}</span>' if sub else ""
+        cards.append(f'''<a class="vcard" href="{url}" data-yt="{vid}" title="{school}">
+  <span class="vthumb"><img loading="lazy" src="{thumb}" alt="{school}"></span>
+  <span class="vmeta"><span class="vt">{school}</span>{sub_html}</span>
+</a>''')
+    grid = '<div class="video-grid stagger">\n' + "\n".join(cards) + "\n</div>"
+    pillars = '''<div class="dom-pillars stagger">
+      <div class="dpill rvl"><span class="dp-ico">📚</span><h3>英語教育</h3><p>用真實、活潑的英語，讓孩子敢聽、敢說，把課本變成真的對話。</p></div>
+      <div class="dpill rvl d1"><span class="dp-ico">🌏</span><h3>國際連結</h3><p>把世界帶進教室，分享各國故事與全球議題，打開孩子的視野。</p></div>
+      <div class="dpill rvl d2"><span class="dp-ico">💛</span><h3>善的力量</h3><p>每一場演講都帶著一個訊息：善良與行動，每個孩子都能傳遞下去。</p></div>
+    </div>'''
+    body = f'''
+{page_hero("學校訪問 · Dom Jones", "Dom Jones 走進彰化的教室",
+           "真實的英語、全球的故事，以及一個每位學生都能帶著走的訊息。")}
+<section class="section"><div class="wrap prose wide rvl">
+  <p>Dom Jones 是聯合國永續發展目標（SDG）大使、人師教育協會倡議委員會主席。他走進一所又一所學校，用一場場校園演講，把活的英語、國際連結與善的力量帶給彰化的孩子。每一次到訪，都由學生協力產出一支校園新聞影片。</p>
+</div></section>
+<section class="section band"><div class="wrap">
+  <div class="section-head rvl"><p class="eyebrow">他帶給每場集會的</p><h2>三件事</h2></div>
+  {pillars}
+</div></section>
+<section class="section"><div class="wrap">
+  <p class="eyebrow rvl">校園巡迴演講播放清單</p>
+  <h2 class="rvl d1" style="margin-bottom:1.2rem">School Assembly Tour</h2>
+  <div class="playlist-frame rvl d1"><iframe src="https://www.youtube.com/embed/videoseries?list={pl}" title="Dom Jones 校園巡迴演講播放清單" loading="lazy" allow="encrypted-media" allowfullscreen></iframe></div>
+</div></section>
+<section class="section"><div class="wrap">
+  <div class="flex rvl" style="justify-content:space-between;align-items:center;margin-bottom:1.4rem">
+    <div><p class="eyebrow">每一所學校，每一次到訪</p><h2 style="margin:.2rem 0 0">Every Campus, Every Visit</h2></div>
+    <div class="pills"><span class="pill"><b>{len(DOM["videos"])}</b> 所學校</span></div>
+  </div>
+  {grid}
+</div></section>
+'''
+    write("/media/dom-jones/", layout("/media/dom-jones/", "Dom Jones 走進彰化的教室",
+        "聯合國 SDG 大使 Dom Jones 走訪彰化校園，留下一支支學生協作的校園新聞影片。", body, "media"))
 
 def series_cover_cards(subs):
     """封面式大卡：用該系列代表影片縮圖當封面（subs = [(path, title, blurb)]）。"""
@@ -1819,11 +1904,13 @@ def main():
     build_periodicals(); paths.append("/resources/periodicals/")
     build_media_hub(); paths.append("/media/")
     build_grandpa_mike(); paths.append("/media/grandpa-mike/")
+    build_exchange_hub(); paths.append("/media/exchange/")
+    build_dom_jones(); paths.append("/media/dom-jones/")
     for path, key, title, lead, cp in MEDIA_LEAVES:
+        if path == "/media/exchange/": continue  # 改為學校訪問雙人物 hub，見 build_exchange_hub
         if path in VIDEO_SERIES:
             build_series(VIDEO_SERIES[path]); paths.append(path); continue
-        extra = mike_feature() if path == "/media/exchange/" else ""
-        leaf_videos(path, key, "人師影音專區", title, lead, cp, extra_intro=extra); paths.append(path)
+        leaf_videos(path, key, "人師影音專區", title, lead, cp); paths.append(path)
     build_news_videos(); paths.append("/media/news-videos/")
     # 任何已註冊但尚未由各 leaves 迴圈建出的影片系列頁（如 Enactus 子頁）
     for _sp, _sd in VIDEO_SERIES.items():
