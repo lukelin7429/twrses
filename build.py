@@ -1269,6 +1269,23 @@ def _gnote(line):
     cls = "gl gsub" if is_sub else "gl"
     return f'<p class="{cls}">{btn}<span>{html.escape(line)}</span></p>'
 
+def grammar_player(ids):
+    """就地語音講解播放器（非燈箱）——這些講解影片只有聲音，點了在原地展開小播放器，講義不被遮住。"""
+    items = []
+    for v in live_ids(ids):
+        meta = VIDEO_META.get(v, {})
+        title = html.escape(meta.get("title") or "語音講解")
+        dur = _fmt_dur(meta.get("duration"))
+        sub = "🎧 語音講解" + (f" · {dur}" if dur else "")
+        items.append(f'''<div class="lecture">
+  <button class="lec-btn" data-ytin="{v}" aria-label="播放講解：{title}">
+    <span class="lec-play" aria-hidden="true">▶</span>
+    <span class="lec-meta"><span class="lec-t">{title}</span><span class="lec-sub">{sub}</span></span>
+  </button>
+  <div class="lec-stage"></div>
+</div>''')
+    return '<div class="lectures">' + "\n".join(items) + '</div>'
+
 def build_grammar():
     secs = GRAMMAR["sections"]
     nav = "".join(f'<a href="#g{i+1}">{i+1}. {html.escape(s["title"])}</a>' for i, s in enumerate(secs))
@@ -1281,7 +1298,7 @@ def build_grammar():
   <div class="wrap">
     <div class="lesson rvl">
       <div class="lesson-head"><span class="lesson-no">{i+1}</span><h2>{html.escape(s["title"])}</h2></div>
-      <div class="lesson-videos">{video_grid(s["videos"])}</div>
+      <div class="lesson-videos">{grammar_player(s["videos"])}</div>
       <div class="gnotes">{notes}</div>
     </div>
   </div>

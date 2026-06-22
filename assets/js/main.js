@@ -112,6 +112,28 @@
         t.textContent = open ? (t.getAttribute('data-hide') || '隱藏中文翻譯') : (t.getAttribute('data-show') || '顯示中文翻譯');
       }
     }
+    var lec = e.target.closest('.lec-btn');
+    if (lec) {
+      e.preventDefault();
+      var wrap = lec.closest('.lecture');
+      var stage = wrap.querySelector('.lec-stage');
+      var icon = lec.querySelector('.lec-play');
+      if (wrap.classList.contains('playing')) {        // toggle off → stop
+        stage.innerHTML = ''; wrap.classList.remove('playing'); if (icon) icon.textContent = '▶';
+      } else {
+        document.querySelectorAll('.lecture.playing').forEach(function (o) {  // only one at a time
+          o.querySelector('.lec-stage').innerHTML = ''; o.classList.remove('playing');
+          var oi = o.querySelector('.lec-play'); if (oi) oi.textContent = '▶';
+        });
+        var id = lec.getAttribute('data-ytin');
+        var tEl = lec.querySelector('.lec-t');
+        var ttl = (tEl ? tEl.textContent : '講解').replace(/"/g, '&quot;');
+        stage.innerHTML = '<iframe src="https://www.youtube.com/embed/' + id +
+          '?autoplay=1&rel=0&modestbranding=1&playsinline=1" title="' + ttl +
+          '" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>';
+        wrap.classList.add('playing'); if (icon) icon.textContent = '❚❚';
+      }
+    }
     var q = e.target.closest('.quiz-opt');
     if (q && !q.parentElement.classList.contains('done')) {
       var correct = q.getAttribute('data-correct') === '1';

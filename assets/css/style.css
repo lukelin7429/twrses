@@ -309,6 +309,21 @@ p  { margin: 0 0 1.1em; }
 .lesson-no { flex:none; width:44px; height:44px; border-radius:50%; display:grid; place-items:center; font-family:var(--sans); font-weight:800; font-size:1.15rem; color:#fff; background:linear-gradient(135deg, var(--brand), var(--brand-dk)); box-shadow:var(--shadow-sm); }
 .lesson-head h2 { margin:0; color:var(--brand-dk); }
 .lesson-videos { margin-bottom:1.5rem; }
+/* inline 語音講解播放器（不蓋講義） */
+.lectures { display:flex; flex-direction:column; gap:.7rem; }
+.lecture { border:1px solid var(--line); border-radius:14px; overflow:hidden; background:var(--cream); transition:border-color .2s; }
+.lecture.playing { border-color:var(--brand); }
+.lec-btn { display:flex; align-items:center; gap:.9rem; width:100%; padding:.8rem 1rem; background:none; border:0; cursor:pointer; text-align:left; font-family:var(--zh); transition:background .2s; }
+.lec-btn:hover { background:var(--brand-lt); }
+.lec-play { flex:none; width:38px; height:38px; border-radius:50%; display:grid; place-items:center; background:var(--brand); color:#fff; font-size:.85rem; line-height:1; transition:transform .2s, background .2s; }
+.lecture.playing .lec-play { background:var(--gold-dk); }
+.lec-btn:hover .lec-play { transform:scale(1.08); }
+.lec-meta { display:flex; flex-direction:column; gap:.15rem; min-width:0; }
+.lec-t { font-weight:600; color:var(--ink); font-size:1rem; }
+.lec-sub { font-size:.82rem; color:var(--ink-soft); }
+.lec-stage { display:none; }
+.lecture.playing .lec-stage { display:block; padding:0 1rem 1rem; }
+.lec-stage iframe { width:100%; max-width:440px; aspect-ratio:16/9; border:0; border-radius:10px; background:#000; display:block; }
 .gnotes { border-top:1px dashed var(--cream-dk); padding-top:1.3rem; }
 .gnotes .gl { display:flex; gap:.55rem; align-items:flex-start; margin:.32rem 0; color:var(--ink-soft); font-size:1rem; line-height:1.65; }
 .gnotes .gl > span { flex:1; }
