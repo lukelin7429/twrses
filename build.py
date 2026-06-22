@@ -1222,40 +1222,47 @@ VIDEO_LEAVES = [
     ("/resources/videos/short/", "英語學習短片", "精選英語學習短片。", "/E-resources/E-videos/short-videos"),
 ]
 
-# ---- 彰化 E 視界英語教室（真影片分集精修頁，data/evision.json）----
-_ej = os.path.join(ROOT, "data", "evision.json")
-EVISION = json.load(open(_ej, encoding="utf-8")) if os.path.exists(_ej) else None
+# ---- 真影片分集系列頁（資料驅動，data/<series>.json）----
+def _load_series(name):
+    p = os.path.join(ROOT, "data", f"{name}.json")
+    return json.load(open(p, encoding="utf-8")) if os.path.exists(p) else None
 
-def build_evision():
-    eps = EVISION["episodes"]
+VIDEO_SERIES = {}
+for _s in ("evision", "sentences"):
+    _d = _load_series(_s)
+    if _d:
+        VIDEO_SERIES[_d["path"]] = _d
+
+def build_series(data):
+    badge = data.get("badge", "EP")
     cards = []
-    for e in eps:
+    for e in data["episodes"]:
         v = e["id"]
         thumb = f"https://i.ytimg.com/vi/{v}/hqdefault.jpg"
         url = f"https://www.youtube.com/watch?v={v}"
         dur = e.get("dur") or _fmt_dur(VIDEO_META.get(v, {}).get("duration"))
         date = _fmt_date(e.get("date") or VIDEO_META.get(v, {}).get("date"))
-        title = html.escape(f'{EVISION["title"]} {e["ep"]} ({e["topic"]})')
+        title = html.escape(f'{data["title"]}：{e["topic"]}')
         dur_badge = f'<span class="vdur">{dur}</span>' if dur else ""
         date_html = f'<span class="vdate">{date}</span>' if date else ""
         cards.append(f'''<a class="vcard ep-card" href="{url}" data-yt="{v}" title="{title}">
-  <span class="vthumb"><img loading="lazy" src="{thumb}" alt="{html.escape(e["topic"])}">{dur_badge}<span class="vep">EP{e["ep"]}</span></span>
+  <span class="vthumb"><img loading="lazy" src="{thumb}" alt="{html.escape(e["topic"])}">{dur_badge}<span class="vep">{badge}{e["ep"]}</span></span>
   <span class="vmeta"><span class="ep-topic">{html.escape(e["topic"])}</span><span class="ep-zh">{html.escape(e["zh"])}</span>{date_html}</span>
 </a>''')
+    pills = "".join(f'<span class="pill">{p}</span>' for p in data.get("pills", []))
     grid = '<div class="video-grid stagger ep-grid">\n' + "\n".join(cards) + "\n</div>"
     body = f'''
-{page_hero("英語學習影片", EVISION["title"], "校園情境英語短劇 · 全 6 集 · 點影片即可在本頁觀看。")}
+{page_hero(data.get("eyebrow", "英語學習影片"), data["title"], data.get("lead", ""))}
 <section class="section"><div class="wrap">
   <div class="flex rvl" style="justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;margin-bottom:1.4rem">
-    <div class="pills"><span class="pill"><b>6</b> 集</span><span class="pill">2013 在地製作</span></div>
+    <div class="pills">{pills}</div>
     <a class="muted" href="{SITE['yt']}" target="_blank" rel="noopener">前往 YouTube 頻道 →</a>
   </div>
-  <p class="lead rvl" style="max-width:68ch;margin-bottom:2rem">{EVISION["intro"]}</p>
+  <p class="lead rvl" style="max-width:68ch;margin-bottom:2rem">{data["intro"]}</p>
   {grid}
 </div></section>
 '''
-    write("/resources/videos/e-vision/", layout("/resources/videos/e-vision/", EVISION["title"],
-          "彰化 E 視界英語教室：人師與彰化在地團隊製作的校園情境英語短劇，6 集免費線上觀看。", body, "resources"))
+    write(data["path"], layout(data["path"], data["title"], data.get("meta_desc", data["intro"][:120]), body, "resources"))
 
 def build_classes_hub():
     children = [
@@ -1625,8 +1632,8 @@ def main():
             build_desc_book(b); paths.append(f"/resources/booklets/description/book{b}/")
     build_videos_hub(); paths.append("/resources/videos/")
     for path, title, lead, cp in VIDEO_LEAVES:
-        if path == "/resources/videos/e-vision/" and EVISION:
-            build_evision(); paths.append(path); continue
+        if path in VIDEO_SERIES:
+            build_series(VIDEO_SERIES[path]); paths.append(path); continue
         leaf_videos(path, "resources", "英語學習影片", title, lead, cp); paths.append(path)
     build_classes_hub(); paths.append("/resources/classes/")
     for path, title, lead, cp in CLASS_LEAVES:
