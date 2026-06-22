@@ -683,7 +683,7 @@ def build_rural_index():
         <span class="fcard-ico">🎓</span>
         <span class="fcard-kicker">免費線上課程</span>
         <h3>人師英語學院</h3>
-        <p>2021 年起推出，ITA 認證的英美母語外師線上授課，免費開放各級學校學生報名。</p>
+        <p>ITA 認證的英美母語外師線上授課，免費開放各級學校學生報名。</p>
         <span class="fcard-go">了解更多 <i>→</i></span>
       </a>
       <a class="fcard" style="--accent:var(--sunset)" href="/rural-schools/practicum/">
@@ -729,16 +729,15 @@ def build_academy():
         f'''<div class="person"><div class="ph"><img loading="lazy" src="/assets/img/teachers/{slug}.jpg" alt="{html.escape(name)}"></div><b>{html.escape(name)}</b><small>{html.escape(loc)}</small></div>'''
         for slug, name, loc in teachers)
     body = f'''
-{page_hero("人師英語學院", "和外師一起，快樂學英文", "為了照顧偏鄉學習資源不足的孩子，本會於 2021 年起推出人師英語學院，提供優質的線上英語學習環境，歡迎大家報名上課。")}
+{page_hero("人師英語學院", "和外師一起，快樂學英文", "人師教育協會長年投入偏鄉免費英語教育，「人師英語學院」延續這份初心，由認證外師線上授課，為孩子打造優質的英語學習環境，歡迎大家報名上課。")}
 <section class="section">
   <div class="wrap grid cols-2" style="gap:3rem;align-items:start">
     <div class="rvl prose">
-      <h2 class="sweep">報名資訊</h2>
+      <h2 class="sweep">課程資訊</h2>
       <ul>
         <li><strong>師資來源</strong>：認證過的英語老師。</li>
         <li><strong>費用</strong>：免費。</li>
         <li><strong>報名資格</strong>：各級學校學生。</li>
-        <li><strong>報名方式</strong>：寫信至 <a href="mailto:{SITE['email']}">{SITE['email']}</a>，並註明學校、年級、中英文姓名。</li>
         <li><strong>上課平台</strong>：Google Meet。</li>
       </ul>
       <p><a class="btn btn-primary" href="/rural-schools/register/">前往線上報名 →</a></p>
@@ -754,7 +753,7 @@ def build_academy():
   </div>
 </section>
 '''
-    write("/rural-schools/academy/", layout("/rural-schools/academy/", "人師英語學院", "人師英語學院 2021 年起提供免費線上英語課程，認證過的英語老師授課，各級學校學生可報名。", body, "rural"))
+    write("/rural-schools/academy/", layout("/rural-schools/academy/", "人師英語學院", "人師英語學院提供免費線上英語課程，認證過的英語老師授課，各級學校學生可報名。", body, "rural"))
 
 def build_practicum():
     faqs_ita = [
