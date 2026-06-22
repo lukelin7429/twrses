@@ -1227,7 +1227,7 @@ def _load_series(name):
     return json.load(open(p, encoding="utf-8")) if os.path.exists(p) else None
 
 VIDEO_SERIES = {}
-for _s in ("evision", "sentences", "analysis", "gept-basic", "gept-intermediate", "onemin", "enactus-ps", "enactus-business"):
+for _s in ("evision", "sentences", "analysis", "gept-basic", "gept-intermediate", "onemin", "enactus-ps", "enactus-business", "news-oneminute", "news-changhua", "news-special"):
     _d = _load_series(_s)
     if _d:
         VIDEO_SERIES[_d["path"]] = _d
@@ -1537,43 +1537,18 @@ def build_grandpa_mike():
     write(path, layout(path, "麥克爺爺放眼看台灣",
         "麥克爺爺用英語帶你一集一集走訪台灣的校園與風土，認識家鄉、練出真實語感。", body, "media"))
 
-def _news_num(title):
-    m = re.search(r"(?:News|NEWS|Report|Minute)\D{0,3}(\d+)", title or "")
-    return int(m.group(1)) if m else 9999
-
 def build_news_videos():
-    # 3 子系列：英文名（卡片大字）、中文名、爬取路徑
-    series = [
-        ("One-Minute News", "一分鐘英語新聞", "/RS-videos/E-news/CIEN-One-Min"),
-        ("Changhua English News", "彰化英語新聞", "/RS-videos/E-news/CIEN-news"),
-        ("Special Report", "英語特別報導", "/RS-videos/E-news/CIEN-special"),
+    # 索引（hub）：三個子系列各自獨立成頁（由 VIDEO_SERIES 的 news-* 建出）
+    children = [
+        ("/media/news-videos/one-minute/", "📰", "一分鐘英語新聞",
+         f"一分鐘掌握一則英語新聞，共 {len(VIDEO_SERIES.get('/media/news-videos/one-minute/',{}).get('episodes',[]))} 集。"),
+        ("/media/news-videos/changhua/", "🎬", "彰化英語新聞",
+         f"彰化在地的英語新聞播報，共 {len(VIDEO_SERIES.get('/media/news-videos/changhua/',{}).get('episodes',[]))} 集。"),
+        ("/media/news-videos/special-report/", "🎤", "英語特別報導",
+         f"深入主題的英語特別報導，共 {len(VIDEO_SERIES.get('/media/news-videos/special-report/',{}).get('episodes',[]))} 集。"),
     ]
-    secs = []
-    for en, zh, cp in series:
-        ids = live_ids(BY_PATH.get(cp, {}).get("youtube", []))
-        ids = sorted(ids, key=lambda v: _news_num(VIDEO_META.get(v, {}).get("title")))
-        cards = []
-        for v in ids:
-            meta = VIDEO_META.get(v, {})
-            n = _news_num(meta.get("title"))
-            badge = str(n) if n != 9999 else "·"
-            thumb = f"https://i.ytimg.com/vi/{v}/hqdefault.jpg"
-            url = f"https://www.youtube.com/watch?v={v}"
-            dur = _fmt_dur(meta.get("duration"))
-            date = _fmt_date(meta.get("date"))
-            dur_badge = f'<span class="vdur">{dur}</span>' if dur else ""
-            date_html = f'<span class="vdate">{date}</span>' if date else ""
-            cards.append(f'''<a class="vcard ep-card" href="{url}" data-yt="{v}" title="{html.escape(meta.get("title") or en)}">
-  <span class="vthumb"><img loading="lazy" src="{thumb}" alt="{html.escape(en)} {badge}">{dur_badge}<span class="vep">{badge}</span></span>
-  <span class="vmeta"><span class="ep-topic">{html.escape(en)}</span><span class="ep-zh">{zh}　第 {n} 集</span>{date_html}</span>
-</a>''')
-        grid = '<div class="video-grid stagger ep-grid">\n' + "\n".join(cards) + "\n</div>"
-        secs.append(f'<p class="eyebrow rvl" style="margin-top:2.4rem">{zh} · {en} · {len(ids)} 部</p>{grid}')
-    body = f'''
-{page_hero("人師英語新聞", "用新聞，練出真實語感", "一分鐘英語新聞、彰化英語新聞與特別報導——學生與外師合作製作的英語新聞影片。點影片即可在本頁觀看。")}
-<section class="section"><div class="wrap">{''.join(secs)}</div></section>
-'''
-    write("/media/news-videos/", layout("/media/news-videos/", "人師英語新聞", "一分鐘英語新聞、彰化英語新聞與特別報導影片。", body, "media"))
+    hub_page("/media/news-videos/", "media", "人師英語新聞", "用新聞，練出真實語感",
+             "由學生與外師合作製作的英語新聞影片，分為三個系列——點選下方系列即可觀看。", children)
 
 def build_news():
     paras = _clean_paras("/news")
