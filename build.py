@@ -1227,7 +1227,7 @@ def _load_series(name):
     return json.load(open(p, encoding="utf-8")) if os.path.exists(p) else None
 
 VIDEO_SERIES = {}
-for _s in ("evision", "sentences"):
+for _s in ("evision", "sentences", "analysis"):
     _d = _load_series(_s)
     if _d:
         VIDEO_SERIES[_d["path"]] = _d
@@ -1244,9 +1244,10 @@ def build_series(data):
         title = html.escape(f'{data["title"]}：{e["topic"]}')
         dur_badge = f'<span class="vdur">{dur}</span>' if dur else ""
         date_html = f'<span class="vdate">{date}</span>' if date else ""
+        zh_html = f'<span class="ep-zh">{html.escape(e["zh"])}</span>' if e.get("zh") else ""
         cards.append(f'''<a class="vcard ep-card" href="{url}" data-yt="{v}" title="{title}">
   <span class="vthumb"><img loading="lazy" src="{thumb}" alt="{html.escape(e["topic"])}">{dur_badge}<span class="vep">{badge}{e["ep"]}</span></span>
-  <span class="vmeta"><span class="ep-topic">{html.escape(e["topic"])}</span><span class="ep-zh">{html.escape(e["zh"])}</span>{date_html}</span>
+  <span class="vmeta"><span class="ep-topic">{html.escape(e["topic"])}</span>{zh_html}{date_html}</span>
 </a>''')
     pills = "".join(f'<span class="pill">{p}</span>' for p in data.get("pills", []))
     grid = '<div class="video-grid stagger ep-grid">\n' + "\n".join(cards) + "\n</div>"
