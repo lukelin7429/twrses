@@ -227,9 +227,15 @@ def _fmt_date(d):
         return f"{d[0:4]} · {int(d[4:6])}/{int(d[6:8])}"
     return ""
 
+# 「Mandarin for Everyday Use」教中文的影片——英語學習站不收，全站過濾。
+EXCLUDE_VIDEO_IDS = frozenset({
+    "3OWJxwFjeU8", "4MJAWqGEVU4", "7uYlesFDIwk", "BU9mjzQirOg",
+    "ISjvaoVxr-8", "NDoHnfSQX4k", "P3B71arFNtA", "ZU0DiSf3mVg",
+})
+
 def live_ids(ids):
-    """Drop videos that yt-dlp could not reach (private/deleted)."""
-    return [v for v in ids if not VIDEO_META.get(v, {}).get("dead")]
+    """Drop videos that yt-dlp could not reach (private/deleted) or are excluded."""
+    return [v for v in ids if v not in EXCLUDE_VIDEO_IDS and not VIDEO_META.get(v, {}).get("dead")]
 
 def video_grid(ids, limit=None):
     ids = live_ids(ids)
@@ -813,7 +819,7 @@ def hub_page(path, key, eyebrow, title, lead, children):
     write(path, layout(path, title, lead, body, key))
 
 def leaf_videos(path, key, eyebrow, title, lead, crawl_path, extra_intro=""):
-    ids = BY_PATH.get(crawl_path, {}).get("youtube", [])
+    ids = live_ids(BY_PATH.get(crawl_path, {}).get("youtube", []))
     grid = video_grid(ids) if ids else '<p class="muted">影片整理中，敬請期待。</p>'
     count = f'<span class="pill"><b>{len(ids)}</b> 部影片</span>' if ids else ""
     body = f'''
@@ -1649,6 +1655,31 @@ def build_grandpa_mike():
     write(path, layout(path, "麥克爺爺放眼看台灣",
         "麥克爺爺用英語帶你一集一集走訪台灣的校園與風土，認識家鄉、練出真實語感。", body, "media"))
 
+def mike_feature():
+    """國際交流頁頂端的麥克爺爺典範大區塊（比小卡片更醒目）。"""
+    ids = live_ids(BY_PATH.get("/RS-videos/eyes", {}).get("youtube", []))
+    eps = []
+    for v in ids:
+        t = VIDEO_META.get(v, {}).get("title") or ""
+        m = re.search(r"第\s*(\d+)\s*集", t)
+        if m:
+            eps.append((int(m.group(1)), v))
+    eps.sort()
+    teaser = eps[:3]
+    cards = ("\n".join(_mike_card(v, ep) for ep, v in teaser)
+             if teaser else "\n".join(_mike_card(v) for v in ids[:3]))
+    total = len(ids)
+    return f'''<div class="mike-feature rvl">
+  <div class="mike-feature-text">
+    <p class="eyebrow">典範人物 · A Model of Doing Good</p>
+    <h2>麥克爺爺放眼看台灣</h2>
+    <p>麥克爺爺（Grandpa Mike）是人師最珍視的國際交流典範——來自美國的退休校長，學中文、愛台灣，疫情前多次自費飛來，走進彰化與各地校園，用最溫暖的英語陪孩子認識自己的家鄉。</p>
+    <p class="mike-feature-honor">He taught English, but more importantly, he taught love, respect, and the power of doing good.</p>
+    <a class="btn btn-gold" href="/media/grandpa-mike/">看完整系列 · 共 {total} 部影片 →</a>
+  </div>
+  <div class="video-grid mike-feature-grid">{cards}</div>
+</div>'''
+
 def series_cover_cards(subs):
     """封面式大卡：用該系列代表影片縮圖當封面（subs = [(path, title, blurb)]）。"""
     cards = []
@@ -1756,12 +1787,7 @@ def main():
     for path, key, title, lead, cp in MEDIA_LEAVES:
         if path in VIDEO_SERIES:
             build_series(VIDEO_SERIES[path]); paths.append(path); continue
-        extra = ""
-        if path == "/media/exchange/":
-            extra = ('<a class="card card-link rvl" href="/media/grandpa-mike/" '
-                     'style="display:flex;gap:1rem;align-items:center;margin-bottom:1.8rem">'
-                     '<span class="ico">👴</span><span><h3 style="margin:0">典範人物：麥克爺爺放眼看台灣</h3>'
-                     '<p style="margin:.3rem 0 0">麥克爺爺用英語帶你看台灣的人情風土——人師最珍視的國際交流典範。</p></span></a>')
+        extra = mike_feature() if path == "/media/exchange/" else ""
         leaf_videos(path, key, "人師影音專區", title, lead, cp, extra_intro=extra); paths.append(path)
     build_news_videos(); paths.append("/media/news-videos/")
     # 任何已註冊但尚未由各 leaves 迴圈建出的影片系列頁（如 Enactus 子頁）
