@@ -140,7 +140,7 @@ def footer():
       <h4>連結</h4>
       <ul class="foot-list">
         <li><a href="{SITE["fb"]}" target="_blank" rel="noopener">人師粉絲專頁</a></li>
-        <li><a href="{SITE["yt"]}" target="_blank" rel="noopener">人師影音頻道</a></li>
+        <li><a href="{SITE["taiwan_hub"]}" target="_blank" rel="noopener">台灣雙語資源網</a></li>
         <li><a href="{SITE["mcc"]}" target="_blank" rel="noopener">My Culture Connect</a></li>
         <li><a href="{SITE["hub"]}" target="_blank" rel="noopener">彰化雙語資源網</a></li>
         <li><a href="mailto:{SITE["email"]}">{SITE["email"]}</a></li>
@@ -408,11 +408,7 @@ def build_home():
   <div class="wrap center">
     <p class="eyebrow rvl">加入我們</p>
     <h2 class="rvl d1">竭誠歡迎關懷教育的有心人士<br>加入人師的行列</h2>
-    <p class="lead rvl d2" style="margin:1rem auto 2rem;max-width:48ch">一起共創教育活力，把英語帶來的新視野、新世界，分享給每一個孩子。</p>
-    <div class="hero-cta rvl d3" style="justify-content:center">
-      <a class="btn btn-gold" href="mailto:{SITE['email']}">聯絡人師</a>
-      <a class="btn btn-ghost" style="border-color:#fff;color:#fff" href="{SITE['hub']}" target="_blank" rel="noopener">彰化雙語資源網</a>
-    </div>
+    <p class="lead rvl d2" style="margin:1rem auto 0;max-width:48ch">一起共創教育活力，把英語帶來的新視野、新世界，分享給每一個孩子。</p>
   </div>
 </section>
 '''
