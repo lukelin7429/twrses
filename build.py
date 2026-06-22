@@ -796,6 +796,17 @@ def build_practicum():
     <div class="rvl d2">{faq_block(faqs_ciee)}</div>
   </div>
 </section>
+<section class="section">
+  <div class="wrap" style="max-width:640px;text-align:center">
+    <p class="eyebrow rvl">還有問題？</p>
+    <h2 class="rvl d1" style="margin-bottom:.5rem">找不到你的答案？</h2>
+    <p class="muted rvl d2" style="margin-bottom:1.5rem">歡迎直接聯絡林吉祥老師，我們很樂意為你說明上課方式。</p>
+    <div class="pills rvl d2" style="justify-content:center">
+      <span class="pill">📧 <a href="mailto:{SITE['email']}">{SITE['email']}</a></span>
+      <span class="pill">💬 Line：{SITE['line']}</span>
+    </div>
+  </div>
+</section>
 '''
     write("/rural-schools/practicum/", layout("/rural-schools/practicum/", "Practicum 線上課程", "免費一對一（ITA）與小班（CIEE）英語課程的常見問答與報名方式。", body, "rural"))
 
