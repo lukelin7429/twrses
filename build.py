@@ -1699,6 +1699,53 @@ def _mike_card(v, ep=None):
   <span class="vmeta"><span class="vt">{loc}</span>{sub}{date_html}</span>
 </a>'''
 
+def _mike_card_2019(item):
+    """One 2019-tour card: clean Chinese location title + duration, inline-play (data-yt)."""
+    v = item["id"]
+    zh = html.escape(item.get("zh", "觀看影片"))
+    dur = item.get("dur", "")
+    kind = item.get("kind", "school")
+    thumb = f"https://i.ytimg.com/vi/{v}/hqdefault.jpg"
+    url = f"https://www.youtube.com/watch?v={v}"
+    dur_badge = f'<span class="vdur">{dur}</span>' if dur else ""
+    chip = {
+        "travel": '<span class="vep vep-sp">在地走訪</span>',
+        "thanks": '<span class="vep vep-sp">特別篇</span>',
+    }.get(kind, '<span class="vep">2019</span>')
+    sub = '<span class="vsub">2019 全縣校園巡迴</span>'
+    return f'''<a class="vcard mikecard" href="{url}" data-yt="{v}" title="{zh}">
+  <span class="vthumb">{chip}<img loading="lazy" src="{thumb}" alt="{zh}">{dur_badge}</span>
+  <span class="vmeta"><span class="vt">{zh}</span>{sub}<span class="vdate">2019</span></span>
+</a>'''
+
+def _mike_tour_2019_block():
+    """The 2019 county-wide tour section (data/grandpa-mike-2019.json), or '' if absent."""
+    p = os.path.join(ROOT, "data", "grandpa-mike-2019.json")
+    if not os.path.exists(p):
+        return ""
+    d = json.load(open(p, encoding="utf-8"))
+    thanks = d.get("thanks", [])
+    schools = d.get("schools", [])
+    travels = d.get("travels", [])
+    if not (schools or travels or thanks):
+        return ""
+    thanks_cards = "\n".join(_mike_card_2019(x) for x in thanks)
+    school_cards = "\n".join(_mike_card_2019(x) for x in schools)
+    travel_cards = "\n".join(_mike_card_2019(x) for x in travels)
+    thanks_html = (f'''<p class="eyebrow rvl" style="margin-top:1.8rem">他親口的感謝 · A Thank-You</p>
+    <div class="video-grid stagger">{thanks_cards}</div>''' if thanks else "")
+    travel_html = (f'''<p class="eyebrow rvl" style="margin-top:2.4rem">在地走訪 · {len(travels)} 部</p>
+    <div class="video-grid stagger">{travel_cards}</div>''' if travels else "")
+    return f'''<div class="mike-tour-2019">
+    <p class="eyebrow rvl" style="margin-top:3rem">2019 全縣校園巡迴 · The 2019 Tour</p>
+    <h2 class="rvl d1">走遍彰化，一所接著一所</h2>
+    <p class="lead rvl d2">2019 年，麥克爺爺走遍彰化大小校園，一所接著一所地走訪。以下是那趟巡迴的 {len(schools) + len(travels)} 支短片，以及他對人師教育協會夥伴最後一段親口的感謝。</p>
+    {thanks_html}
+    <p class="eyebrow rvl" style="margin-top:2.4rem">校園巡迴 · {len(schools)} 所學校</p>
+    <div class="video-grid stagger">{school_cards}</div>
+    {travel_html}
+  </div>'''
+
 def build_grandpa_mike():
     path = "/media/grandpa-mike/"
     ids = live_ids(BY_PATH.get("/RS-videos/eyes", {}).get("youtube", []))
@@ -1726,6 +1773,8 @@ def build_grandpa_mike():
 
     sp_block = (f'''<p class="eyebrow rvl" style="margin-top:2.6rem">特別篇 · {len(specials)} 部</p>
     <div class="video-grid stagger">{sp_cards}</div>''' if specials else "")
+
+    tour_block = _mike_tour_2019_block()
 
     # PeoPo 媒體報導：王惠美縣長為麥克爺爺慶生（彰興國中五年情緣）。寫進原始碼，rebuild 不再被蓋掉。
     report = '''<section class="section band">
@@ -1770,6 +1819,7 @@ def build_grandpa_mike():
     </div>
     <div class="video-grid stagger">{ep_cards}</div>
     {sp_block}
+    {tour_block}
   </div>
 </section>
 {report}
