@@ -1979,6 +1979,11 @@ DOM_STYLE = '''
   .d-contact .links a.gold{background:var(--gold);border-color:var(--gold);color:var(--indigo);}
   .d-contact .links a:hover{background:rgba(255,255,255,.22);}
   .d-contact .links a.gold:hover{filter:brightness(.95);}
+  .d-padlet{max-width:920px;margin:26px auto 0;border-radius:18px;overflow:hidden;background:#fff;border:1px solid var(--line);box-shadow:0 14px 40px -18px rgba(10,31,92,.28);}
+  .d-padlet iframe{width:100%;height:680px;display:block;border:0;}
+  @media(max-width:680px){.d-padlet iframe{height:560px;}}
+  .d-padlet-credit{text-align:center;margin-top:12px;font-size:13px;color:var(--ink-soft);}
+  .d-padlet-credit a{color:var(--amber);font-weight:600;text-decoration:none;}
 </style>'''
 
 def build_dom_jones():
@@ -2129,6 +2134,21 @@ def build_dom_jones():
 </section>
 
 <section class="d-sec">
+  <div class="d-wrap">
+    <p class="d-label">Our English Journey Map · 英語旅程地圖</p>
+    <h2 class="d-h2">A living wall of feedback from every school</h2>
+    <p class="d-h2-en">每一所 Dom 拜訪過的學校,都在這面牆上留下他們的英語故事、照片與心得。歡迎師生持續貼上回饋與鼓勵的話。</p>
+    <div class="d-padlet">
+      <iframe src="https://padlet.com/embed/owp5252c3wtbylnt"
+              allow="camera;clipboard-write;encrypted-media;geolocation;microphone"
+              title="Teacher Dom's School Tour — Our English Journey Map"
+              loading="lazy"></iframe>
+    </div>
+    <p class="d-padlet-credit">made with <a href="https://padlet.com/bdes11308/teacher-dom-s-school-tour-our-english-journey-map-owp5252c3wtbylnt" target="_blank" rel="noopener">Padlet ↗</a></p>
+  </div>
+</section>
+
+<section class="d-sec alt">
   <div class="d-wrap">
     <div class="d-contact">
       <h3>Invite Dom to your school · 邀請 Dom 到您的學校</h3>
