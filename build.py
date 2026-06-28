@@ -168,6 +168,7 @@ def layout(path, title, desc, body, active):
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..600;1,9..144,400..500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/css/style.css?v={ASSET_V}">
 <link rel="stylesheet" href="/assets/css/motion.css?v={ASSET_V}">
+<link rel="stylesheet" href="/assets/css/search.css?v={ASSET_V}">
 <link rel="icon" href="/assets/img/logo-badge.svg" type="image/svg+xml">
 <meta property="og:title" content="{html.escape(full_title)}">
 <meta property="og:description" content="{html.escape(desc)}">
@@ -180,6 +181,7 @@ def layout(path, title, desc, body, active):
 </main>
 {footer()}
 <script src="/assets/js/main.js?v={ASSET_V}"></script>
+<script defer src="/assets/js/search.js?v={ASSET_V}"></script>
 </body>
 </html>'''
 
