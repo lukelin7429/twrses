@@ -73,3 +73,43 @@
 
 /* 區段標題底線掃入（捲到才畫） */
 .section-head h2 { position: relative; }
+
+/* ====================================================================
+   SIGNATURE COLOURFUL CARD EFFECTS  (Luke's house style — see memory
+   reference_signature_card_motion_style). Adds per-card hue, a corner
+   colour-circle that grows on hover, and an accent-coloured glow + lift.
+   No left-bar (this is a video-heavy site). .fcard already uses ::after,
+   so it gets glow+lift but keeps its own corner element.
+   ==================================================================== */
+.vcard,.ep-card,.card,.peri-card,.mikecard,.d-vcard,.hubcard,.fcard{
+  position:relative;
+  transition:transform .28s cubic-bezier(.2,.7,.2,1),box-shadow .28s ease,border-color .28s ease;
+}
+:where(.vcard,.ep-card,.card,.peri-card,.mikecard,.d-vcard,.hubcard,.fcard):nth-child(6n+1){--accent:#b8431c;}
+:where(.vcard,.ep-card,.card,.peri-card,.mikecard,.d-vcard,.hubcard,.fcard):nth-child(6n+2){--accent:#0c8599;}
+:where(.vcard,.ep-card,.card,.peri-card,.mikecard,.d-vcard,.hubcard,.fcard):nth-child(6n+3){--accent:#7048e8;}
+:where(.vcard,.ep-card,.card,.peri-card,.mikecard,.d-vcard,.hubcard,.fcard):nth-child(6n+4){--accent:#2f9e44;}
+:where(.vcard,.ep-card,.card,.peri-card,.mikecard,.d-vcard,.hubcard,.fcard):nth-child(6n+5){--accent:#d6336c;}
+:where(.vcard,.ep-card,.card,.peri-card,.mikecard,.d-vcard,.hubcard,.fcard):nth-child(6n+6){--accent:#e8590c;}
+/* corner colour-circle (NOT on .fcard — it already uses ::after) */
+.vcard::after,.ep-card::after,.card::after,.peri-card::after,.mikecard::after,.d-vcard::after,.hubcard::after{
+  content:"";position:absolute;right:-55px;top:-55px;width:150px;height:150px;border-radius:50%;
+  background:radial-gradient(circle at 32% 32%,var(--accent,#b8431c),transparent 70%);
+  opacity:.07;pointer-events:none;z-index:0;
+  transition:opacity .35s ease,transform .6s cubic-bezier(.22,.61,.36,1);
+}
+.vcard:hover::after,.ep-card:hover::after,.card:hover::after,.peri-card:hover::after,
+.mikecard:hover::after,.d-vcard:hover::after,.hubcard:hover::after{opacity:.18;transform:scale(1.35);}
+/* hover: lift + accent-COLOURED glow */
+.vcard:hover,.ep-card:hover,.card:hover,.peri-card:hover,.mikecard:hover,
+.d-vcard:hover,.hubcard:hover,.fcard:hover{
+  transform:translateY(-8px);border-color:var(--accent);
+  box-shadow:0 26px 52px -18px var(--accent,rgba(20,24,31,.4)),0 8px 18px rgba(20,24,31,.08);
+}
+@media (prefers-reduced-motion:reduce){
+  .vcard,.ep-card,.card,.peri-card,.mikecard,.d-vcard,.hubcard,.fcard{transition:none;}
+  .vcard:hover,.ep-card:hover,.card:hover,.peri-card:hover,.mikecard:hover,
+  .d-vcard:hover,.hubcard:hover,.fcard:hover{transform:none;}
+  .vcard:hover::after,.ep-card:hover::after,.card:hover::after,.peri-card:hover::after,
+  .mikecard:hover::after,.d-vcard:hover::after,.hubcard:hover::after{transform:none;}
+}
