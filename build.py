@@ -1102,7 +1102,7 @@ def build_inter_hub():
     body = f'''
 {page_hero("中級閱讀 · Intermediate Reading", "讀進一步的文章", "更深入的閱讀練習：讀文章、聽真人朗讀、想想閱讀理解問題、學生字片語，再做個小測驗。")}
 <section class="section"><div class="wrap">{fcard_grid(items, cta="開始閱讀")}
-<p class="muted rvl" style="margin-top:1.5rem">＊Book 7 以後內容整理中。</p></div></section>
+</div></section>
 '''
     write("/resources/booklets/intermediate/", layout("/resources/booklets/intermediate/", "中級閱讀",
         "人師閱讀教材·中級閱讀（Intermediate Reading）：長文閱讀、真人朗讀、閱讀理解問答、生字片語、小測驗。", body, "resources"))
