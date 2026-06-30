@@ -1072,10 +1072,11 @@ def build_basic_hub():
         else:
             items.append((None, "📘", f"Book {b}", "製作中", True))
     next_start = (max(done) + 1) if done else 1
+    pending_note = f'<p class="muted rvl" style="margin-top:1.5rem">＊Book {next_start}–14 內容整理中。</p>' if next_start <= 14 else ""
     body = f'''
 {page_hero("初級閱讀 · Basic Reading", "讀懂一篇文章", "進階的閱讀練習：讀文章、聽真人朗讀、想想閱讀理解問題、學生字片語，再做個小測驗。")}
 <section class="section"><div class="wrap">{fcard_grid(items, cta="開始閱讀")}
-<p class="muted rvl" style="margin-top:1.5rem">＊Book {next_start}–14 內容整理中。</p></div></section>
+{pending_note}</div></section>
 '''
     write("/resources/booklets/basic/", layout("/resources/booklets/basic/", "初級閱讀",
         "人師閱讀教材·初級閱讀（Basic Reading）：長文閱讀、真人朗讀、閱讀理解問答、生字片語、小測驗。", body, "resources"))
