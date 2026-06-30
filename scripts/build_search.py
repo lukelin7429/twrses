@@ -11,6 +11,8 @@ SKIP_DIRS = {'.git', 'assets', 'scripts', 'node_modules', 'vendor', '_site',
 
 CSS_LINK = '<link rel="stylesheet" href="/assets/css/search.css">'
 JS_TAG   = '<script defer src="/assets/js/search.js"></script>'
+CSS_RE    = re.compile(r'<link\b[^>]+href=["\']/assets/css/search\.css(?:\?[^"\']*)?["\'][^>]*>', re.I)
+JS_RE     = re.compile(r'<script\b[^>]+src=["\']/assets/js/search\.js(?:\?[^"\']*)?["\'][^>]*></script>', re.I)
 
 TAG_RE    = re.compile(r'<[^>]+>')
 SCRIPT_RE = re.compile(r'<(script|style|svg)\b.*?</\1>', re.S | re.I)
@@ -89,9 +91,9 @@ injected = 0
 for full in walk_html():
     raw = open(full, encoding='utf-8').read()
     new = raw
-    if CSS_LINK not in new and '</head>' in new:
+    if not CSS_RE.search(new) and '</head>' in new:
         new = new.replace('</head>', '  ' + CSS_LINK + '\n</head>', 1)
-    if JS_TAG not in new and '</body>' in new:
+    if not JS_RE.search(new) and '</body>' in new:
         new = new.replace('</body>', '  ' + JS_TAG + '\n</body>', 1)
     if new != raw:
         open(full, 'w', encoding='utf-8').write(new)

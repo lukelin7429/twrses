@@ -962,6 +962,7 @@ def render_unit(book, u, photo, audio):
         teach_html = f'<p class="sub-head">完整教學音檔</p><div class="teach-audio">{rows}</div>'
     read_audio = f'<audio controls preload="none" src="{AUDIO_REL}/{audio["read"]}"></audio>' if audio.get("read") else ""
     pdf_link = f'<a class="unit-dl" href="{PDF_REL}/{u["pdf"]}" target="_blank" rel="noopener">⬇ PDF</a>' if u.get("pdf") else ""
+    audio_label = "課文朗讀（真人）" if audio.get("read") else "課文朗讀"
     return f'''<div class="unit" id="{uid}">
   <div class="unit-head"><span class="no">{u['unit']}</span><h3>Unit {u['unit']}: {html.escape(u['title'])}</h3>{pdf_link}</div>
   <div class="unit-body">
@@ -1047,12 +1048,13 @@ def render_basic_unit(book, u, level="basic", audio_rel=BASIC_AUDIO_REL, pdf_rel
     qa_section = (f'<p class="sub-head">閱讀理解 Questions</p><div class="qa-list">{qa_html}</div>') if qa_html else ""
     vocab_section = (f'<p class="sub-head">生字及片語 Words &amp; Phrases</p><div class="vocab-grid">{vocab_html}</div>') if vocab_html else ""
     quiz_html = render_quiz(book, u) if len([v for v in u.get("vocab", []) if v.get("zh")]) >= 4 else ""
+    audio_label = "課文朗讀（真人）" if audio.get("read") else "課文朗讀"
     return f'''<div class="unit" id="{uid}">
   <div class="unit-head"><span class="no">{u['unit']}</span><h3>Unit {u['unit']}: {title}</h3>{pdf_link}</div>
   <div class="unit-body">
     {photos_html}
     {body_html if body_html is not None else f'<div class="passage-block">{paras_html}</div>'}
-    <div class="audio-row"><button class="spk lg" data-say="{html.escape(full_say)}" aria-label="朗讀全文">🔊</button><span class="muted" style="font-size:.9rem">課文朗讀（真人）</span>{read_audio}</div>
+    <div class="audio-row"><button class="spk lg" data-say="{html.escape(full_say)}" aria-label="朗讀全文">🔊</button><span class="muted" style="font-size:.9rem">{audio_label}</span>{read_audio}</div>
     {tr_block}
     {qa_section}
     {vocab_section}
@@ -1063,16 +1065,18 @@ def render_basic_unit(book, u, level="basic", audio_rel=BASIC_AUDIO_REL, pdf_rel
 
 def build_basic_hub():
     items=[]
-    for b in range(1,7):
+    done = sorted(int(k) for k in BASIC)
+    for b in done:
         units=BASIC.get(str(b))
         if units:
             items.append((f"/resources/booklets/basic/book{b}/", "📘", f"Book {b}", f"共 {len(units)} 課"))
         else:
             items.append((None, "📘", f"Book {b}", "製作中", True))
+    next_start = (max(done) + 1) if done else 1
     body = f'''
 {page_hero("初級閱讀 · Basic Reading", "讀懂一篇文章", "進階的閱讀練習：讀文章、聽真人朗讀、想想閱讀理解問題、學生字片語，再做個小測驗。")}
 <section class="section"><div class="wrap">{fcard_grid(items, cta="開始閱讀")}
-<p class="muted rvl" style="margin-top:1.5rem">＊Book 7–14 內容整理中。</p></div></section>
+<p class="muted rvl" style="margin-top:1.5rem">＊Book {next_start}–14 內容整理中。</p></div></section>
 '''
     write("/resources/booklets/basic/", layout("/resources/booklets/basic/", "初級閱讀",
         "人師閱讀教材·初級閱讀（Basic Reading）：長文閱讀、真人朗讀、閱讀理解問答、生字片語、小測驗。", body, "resources"))
