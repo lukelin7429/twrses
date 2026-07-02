@@ -200,4 +200,27 @@
     window.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
   }
+
+  /* sticky unit-nav: highlight the unit currently in view and keep its chip in the track */
+  var unav = document.querySelector('.unit-nav');
+  if (unav) {
+    var navTrack = unav.querySelector('.unit-nav-track');
+    var navLinks = [].slice.call(unav.querySelectorAll('.unit-nav-link'));
+    var navTargets = navLinks.map(function (a) { return document.getElementById(a.getAttribute('href').slice(1)); });
+    var navLast = -1;
+    var syncNav = function () {
+      var offset = unav.getBoundingClientRect().bottom + 8;
+      var idx = 0;
+      for (var k = 0; k < navTargets.length; k++) {
+        if (navTargets[k] && navTargets[k].getBoundingClientRect().top <= offset) idx = k;
+      }
+      if (idx === navLast) return;
+      navLast = idx;
+      navLinks.forEach(function (a, j) { a.classList.toggle('active', j === idx); });
+      var cur = navLinks[idx];
+      if (navTrack && cur) navTrack.scrollTo({ left: cur.offsetLeft - navTrack.clientWidth / 2 + cur.offsetWidth / 2, behavior: 'smooth' });
+    };
+    window.addEventListener('scroll', syncNav, { passive: true });
+    syncNav();
+  }
 })();

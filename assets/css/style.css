@@ -697,6 +697,18 @@ p  { margin: 0 0 1.1em; }
 /* per-paragraph Chinese translation, revealed by its own toggle button so students get help without over-relying on it */
 .rd-trwrap { margin:0 0 1.15rem 2.4rem; }
 .rd-trwrap .tr-box { border-left:3px solid var(--gold); font-family:var(--zh); }
+/* sticky per-unit jump nav on booklet pages (sits directly under the sticky site header) */
+.unit-nav { position:sticky; top:76px; z-index:90; background:var(--cream); border-bottom:1px solid var(--line); }
+.unit-nav .wrap { display:flex; align-items:center; gap:.7rem; padding:.5rem 0; }
+.unit-nav-label { flex:none; font-family:var(--zh); font-weight:700; font-size:.85rem; color:var(--ink-soft); }
+.unit-nav-track { display:flex; gap:.4rem; overflow-x:auto; scrollbar-width:thin; padding-bottom:2px; -webkit-overflow-scrolling:touch; }
+.unit-nav-link { flex:none; display:inline-flex; align-items:center; gap:.4rem; white-space:nowrap; font-size:.88rem; padding:.3rem .7rem; border-radius:999px; border:1px solid var(--line); background:#fff; color:var(--ink); transition:background .2s, border-color .2s, color .2s; }
+.unit-nav-link b { color:var(--brand-dk); font-weight:700; }
+.unit-nav-link:hover { border-color:var(--brand); color:var(--brand-dk); }
+.unit-nav-link.active { background:var(--brand); border-color:var(--brand); color:#fff; }
+.unit-nav-link.active b { color:#fff; }
+.unit-nav ~ section .unit { scroll-margin-top:140px; }
+@media (max-width:640px){ .unit-nav-label { display:none; } .unit-nav ~ section .unit { scroll-margin-top:126px; } }
 .qa-list { display:grid; gap:.7rem; }
 .qa { border:1px solid var(--line); border-radius:12px; padding:.9rem 1.2rem; }
 .qa .q { display:flex; gap:.5rem; align-items:flex-start; font-weight:600; font-family:var(--zh); margin:0 0 .6rem; }

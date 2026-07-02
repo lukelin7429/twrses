@@ -936,6 +936,22 @@ def render_quiz(book, u):
         qs.append(f'<div class="quiz"><p class="q">{qi+1}. {prompt}</p><div class="quiz-opts">{btns}</div></div>')
     return '<p class="sub-head">小測驗 Quick Check</p>' + "".join(qs)
 
+def render_comprehension_quiz(u):
+    """English reading-comprehension MCQs from u['quiz'] = [{q, options[4], correct}].
+    Correct answer is rebalanced across A/B/C/D by global question index."""
+    L = "ABCD"; qs = []
+    for qi, item in enumerate(u.get("quiz", [])):
+        g = (u["unit"] - 1) * 3 + qi
+        target = (g * 3) % 4                 # balanced, non-sequential ABCD spread
+        opts = list(item["options"]); c = item["correct"]
+        opts.insert(target, opts.pop(c))     # move correct option into target slot
+        btns = ""
+        for k, o in enumerate(opts):
+            dc = ' data-correct="1"' if k == target else ''
+            btns += f'<button class="quiz-opt"{dc}><span class="ql">{L[k]}</span>{html.escape(o)}</button>'
+        qs.append(f'<div class="quiz"><p class="q">{qi+1}. {html.escape(item["q"])}</p><div class="quiz-opts">{btns}</div></div>')
+    return '<p class="sub-head">小測驗 Quick Check</p>' + "".join(qs)
+
 def render_unit(book, u, photo, audio):
     """u: dict(unit,title,passage,vocab,translation,advanced). audio: dict(read,teach,eng)."""
     uid = f"b{book:02d}u{u['unit']:02d}"
@@ -1019,15 +1035,38 @@ def render_basic_unit(book, u, level="basic", audio_rel=BASIC_AUDIO_REL, pdf_rel
     photos = u.get("photos") or []
     photos_html = ('<div class="rd-photos">' + "".join(
         f'<img loading="lazy" src="{p}" alt="{title}">' for p in photos) + '</div>') if photos else ""
-    paras_html = "".join(
-        f'<p class="rd-para"><button class="spk" data-say="{html.escape(p)}" aria-label="朗讀">🔊</button><span>{html.escape(p)}</span></p>'
-        for p in u.get("paras", []))
+    _paras_zh = u.get("paras_zh")
+    _tidy = lambda s: re.sub(r'(?<=[一-鿿])\s+(?=[一-鿿])', '', s)
+    _para_parts = []
+    for _i, p in enumerate(u.get("paras", [])):
+        _para_parts.append(
+            f'<p class="rd-para"><button class="spk" data-say="{html.escape(p)}" aria-label="朗讀">🔊</button><span>{html.escape(p)}</span></p>')
+        if _paras_zh and _i < len(_paras_zh):
+            _tid = f"{uid}-tr{_i+1}"
+            _para_parts.append(
+                f'<div class="rd-trwrap"><button class="tr-toggle" data-target="{_tid}" data-show="看中文翻譯" data-hide="隱藏翻譯">看中文翻譯</button>'
+                f'<div class="tr-box" id="{_tid}">{html.escape(_tidy(_paras_zh[_i]))}</div></div>')
+    paras_html = "".join(_para_parts)
     read_audio = f'<audio controls preload="none" src="{audio_rel}/{audio["read"]}"></audio>' if audio.get("read") else ""
     full_say = " ".join(u.get("paras", []))
-    vocab_html = "".join(
-        f'<span class="vchip"><b>{html.escape(v["w"])}</b><span class="pos">({v["pos"]})</span><span class="zh">{html.escape(v["zh"])}</span>'
-        f'<button class="spk" data-say="{html.escape(v["w"])}" aria-label="唸">🔊</button></span>'
-        for v in u.get("vocab", []) if v.get("zh"))
+    _has_ex = any(v.get("ex") for v in u.get("vocab", []))
+    if _has_ex:
+        def _pos(p): return p if p.startswith("(") else f"({p})"
+        def _plain(s): return re.sub(r"<[^>]+>", "", s)
+        vocab_html = "".join(
+            f'<span class="vchip ex"><span class="vtop"><b>{html.escape(v["w"])}</b>'
+            f'<span class="pos">{html.escape(_pos(v["pos"]))}</span><span class="zh">{html.escape(v["zh"])}</span>'
+            f'<button class="spk" data-say="{html.escape(v["w"])}" aria-label="唸單字">🔊</button></span>'
+            f'<span class="veg"><button class="spk" data-say="{html.escape(_plain(v["ex"]))}" aria-label="唸例句">🔊</button>'
+            f'<span class="egtext"><span class="en">{v["ex"]}</span><span class="egzh">{html.escape(v["exzh"])}</span></span></span></span>'
+            for v in u.get("vocab", []) if v.get("zh"))
+        vgrid_class = "vocab-grid ex"
+    else:
+        vocab_html = "".join(
+            f'<span class="vchip"><b>{html.escape(v["w"])}</b><span class="pos">({v["pos"]})</span><span class="zh">{html.escape(v["zh"])}</span>'
+            f'<button class="spk" data-say="{html.escape(v["w"])}" aria-label="唸">🔊</button></span>'
+            for v in u.get("vocab", []) if v.get("zh"))
+        vgrid_class = "vocab-grid"
     qs = u.get("questions", []); ans = u.get("answers", [])
     qa_html = ""
     for i, q in enumerate(qs):
@@ -1043,10 +1082,13 @@ def render_basic_unit(book, u, level="basic", audio_rel=BASIC_AUDIO_REL, pdf_rel
         if audio.get("eng"): rows+=f'<div class="ta">🗣️ 全英教學<audio controls preload="none" src="{audio_rel}/{audio["eng"]}"></audio></div>'
         teach_html=f'<p class="sub-head">完整教學音檔</p><div class="teach-audio">{rows}</div>'
     pdf_link = f'<a class="unit-dl" href="{pdf_rel}/{u["pdf"]}" target="_blank" rel="noopener">⬇ PDF</a>' if u.get("pdf") else ""
-    tr_block = (f'<button class="tr-toggle" data-target="{uid}-tr">顯示中文翻譯</button><div class="tr-box" id="{uid}-tr">{tr}</div>') if tr else ""
+    tr_block = (f'<button class="tr-toggle" data-target="{uid}-tr">顯示中文翻譯</button><div class="tr-box" id="{uid}-tr">{tr}</div>') if (tr and not _paras_zh) else ""
     qa_section = (f'<p class="sub-head">閱讀理解 Questions</p><div class="qa-list">{qa_html}</div>') if qa_html else ""
-    vocab_section = (f'<p class="sub-head">生字及片語 Words &amp; Phrases</p><div class="vocab-grid">{vocab_html}</div>') if vocab_html else ""
-    quiz_html = render_quiz(book, u) if len([v for v in u.get("vocab", []) if v.get("zh")]) >= 4 else ""
+    vocab_section = (f'<p class="sub-head">生字及片語 Words &amp; Phrases</p><div class="{vgrid_class}">{vocab_html}</div>') if vocab_html else ""
+    if u.get("quiz"):
+        quiz_html = render_comprehension_quiz(u)
+    else:
+        quiz_html = render_quiz(book, u) if len([v for v in u.get("vocab", []) if v.get("zh")]) >= 4 else ""
     audio_label = "課文朗讀（真人）" if audio.get("read") else "課文朗讀"
     return f'''<div class="unit" id="{uid}">
   <div class="unit-head"><span class="no">{u['unit']}</span><h3>Unit {u['unit']}: {title}</h3>{pdf_link}</div>
@@ -1079,12 +1121,25 @@ def build_basic_hub():
     write("/resources/booklets/basic/", layout("/resources/booklets/basic/", "初級閱讀",
         "人師閱讀教材·初級閱讀（Basic Reading）：長文閱讀、真人朗讀、閱讀理解問答、生字片語、小測驗。", body, "resources"))
 
+def _unit_nav(units, level="basic", book=0):
+    """Sticky jump-nav: one chip per unit, links to that unit's anchor."""
+    if len(units) < 2:
+        return ""
+    chips = "".join(
+        f'<a class="unit-nav-link" href="#{level}-b{book:02d}u{u["unit"]:02d}">'
+        f'<b>{u["unit"]}</b><span>{html.escape(u["title"])}</span></a>'
+        for u in units)
+    return (f'<nav class="unit-nav" aria-label="單元導覽"><div class="wrap">'
+            f'<span class="unit-nav-label">跳到單元</span>'
+            f'<div class="unit-nav-track">{chips}</div></div></nav>')
+
 def build_basic_book(b):
     units = sorted(BASIC.get(str(b), []), key=lambda u: u["unit"])
     units_html = "".join(render_basic_unit(b, u) for u in units)
     reading_step = "讀文章（真人朗讀）" if any((u.get("audio") or {}).get("read") for u in units) else "讀文章"
     body = f'''
 {page_hero(f"初級閱讀 · Book {b}", f"Basic Reading — 第{_CN_NUM[b] if b < len(_CN_NUM) else b}冊", f"每課：看圖 → {reading_step} → 閱讀理解 → 生字片語 → 小測驗。")}
+{_unit_nav(units, "basic", b)}
 <section class="section"><div class="wrap" style="max-width:940px">
 {units_html}
 <p class="muted rvl" style="margin-top:1rem">＊本冊共 {len(units)} 課。</p>
