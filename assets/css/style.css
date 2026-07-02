@@ -700,6 +700,17 @@ p  { margin: 0 0 1.1em; }
 .qa .tr-toggle { margin:0; }
 .vocab-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(215px,1fr)); gap:.6rem; }
 .vocab-grid .vchip { justify-content:flex-start; }
+/* vocab chips with example sentences (.ex) — richer card layout, scoped so plain .vchip is unaffected */
+.vocab-grid.ex { grid-template-columns:repeat(auto-fill,minmax(320px,1fr)); gap:.7rem; }
+.vchip.ex { flex-direction:column; align-items:stretch; gap:.5rem; padding:.75rem .95rem; }
+.vchip.ex .vtop { display:flex; align-items:center; gap:.5rem; }
+.vchip.ex .vtop b { font-size:1.05rem; }
+.vchip.ex .vtop .spk { margin-left:auto; }
+.vchip.ex .veg { display:flex; align-items:flex-start; gap:.5rem; padding-top:.5rem; border-top:1px dashed var(--line); }
+.vchip.ex .veg .egtext { display:flex; flex-direction:column; gap:.2rem; }
+.vchip.ex .veg .en { font-size:.92rem; line-height:1.55; color:var(--ink); }
+.vchip.ex .veg .en b { color:var(--brand-dk); font-weight:700; }
+.vchip.ex .veg .egzh { font-family:var(--zh); font-size:.85rem; line-height:1.5; color:var(--ink-soft); }
 
 /* ---------- conversation / dialogue ---------- */
 .dialogue { display:flex; flex-direction:column; gap:.7rem; margin-bottom:1.2rem; }
