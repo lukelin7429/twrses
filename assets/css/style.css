@@ -692,10 +692,11 @@ p  { margin: 0 0 1.1em; }
 .rd-photos { display:flex; gap:1rem; flex-wrap:wrap; margin-bottom:1.4rem; }
 .rd-photos img { flex:1 1 240px; min-width:0; max-height:280px; object-fit:cover; border-radius:14px; border:1px solid var(--line); box-shadow:var(--shadow-sm); }
 .passage-block { margin-bottom:1rem; }
-.rd-para { display:flex; gap:.6rem; align-items:flex-start; font-size:1.16rem; line-height:1.95; margin:0 0 .3rem; color:var(--ink); }
+.rd-para { display:flex; gap:.6rem; align-items:flex-start; font-size:1.16rem; line-height:1.95; margin:0 0 .4rem; color:var(--ink); }
 .rd-para .spk { margin-top:.3rem; }
-/* per-paragraph Chinese translation shown inline under each English paragraph */
-.rd-tr { font-family:var(--zh); font-size:1rem; line-height:1.9; color:var(--ink-soft); margin:0 0 1.1rem 2.4rem; padding:.15rem 0 .15rem 1rem; border-left:3px solid var(--gold); }
+/* per-paragraph Chinese translation, revealed by its own toggle button so students get help without over-relying on it */
+.rd-trwrap { margin:0 0 1.15rem 2.4rem; }
+.rd-trwrap .tr-box { border-left:3px solid var(--gold); font-family:var(--zh); }
 .qa-list { display:grid; gap:.7rem; }
 .qa { border:1px solid var(--line); border-radius:12px; padding:.9rem 1.2rem; }
 .qa .q { display:flex; gap:.5rem; align-items:flex-start; font-weight:600; font-family:var(--zh); margin:0 0 .6rem; }
