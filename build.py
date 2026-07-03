@@ -520,7 +520,7 @@ def build_about():
 
 def build_founder():
     def vcard(vid, title):
-        return f'''<a class="vcard" href="https://www.youtube.com/watch?v={vid}" target="_blank" rel="noopener">
+        return f'''<a class="vcard" href="https://www.youtube.com/watch?v={vid}" data-yt="{vid}" title="{html.escape(title)}">
   <span class="vthumb"><img loading="lazy" src="https://i.ytimg.com/vi/{vid}/hqdefault.jpg" alt="{html.escape(title)}"></span>
   <span class="vmeta"><span class="vt">{html.escape(title)}</span></span>
 </a>'''
