@@ -1249,6 +1249,7 @@ def build_desc_book(b):
     units_html = "".join(render_basic_unit(b, u, level="desc", audio_rel=DESC_AUDIO_REL, pdf_rel=DESC_PDF_REL) for u in units)
     body = f'''
 {page_hero(f"看圖描述 · Book {b}", f"Picture Description — 第{_CN_NUM[b] if b < len(_CN_NUM) else b}冊", "每課：看圖 → 讀描述（真人朗讀）→ 閱讀理解 → 生字片語 → 小測驗。")}
+{_unit_nav(units, "desc", b)}
 <section class="section"><div class="wrap" style="max-width:940px">
 {units_html}
 <p class="muted rvl" style="margin-top:1rem">＊本冊共 {len(units)} 課。</p>
