@@ -1014,17 +1014,26 @@ DESC_AUDIO_REL = "https://github.com/lukelin7429/twrses/releases/download/descri
 DESC_PDF_REL = "https://github.com/lukelin7429/twrses/releases/download/description-pdf"
 
 def render_conv_unit(book, u):
-    """Conversation unit: render dialogue turns as speaker bubbles, reuse the rest."""
+    """Conversation unit: render dialogue turns as speaker bubbles, each with an
+    optional per-line translation toggle (paras_zh mirrors dialogue 1:1)."""
     turns = u.get("dialogue", [])
+    paras_zh = u.get("paras_zh")
+    uid = f"conv-b{book:02d}u{u['unit']:02d}"
     speakers = []
     for t in turns:
         if t["speaker"] not in speakers: speakers.append(t["speaker"])
     rows = ""
-    for t in turns:
+    for i, t in enumerate(turns):
         side = "A" if (speakers.index(t["speaker"]) % 2 == 0) else "B"
+        tr_html = ""
+        if paras_zh and i < len(paras_zh):
+            tid = f"{uid}-tr{i+1}"
+            tr_html = (f'<div class="turn-trwrap"><button class="tr-toggle" data-target="{tid}" '
+                       f'data-show="看中文翻譯" data-hide="隱藏翻譯">看中文翻譯</button>'
+                       f'<div class="tr-box" id="{tid}">{html.escape(paras_zh[i])}</div></div>')
         rows += (f'<div class="turn turn-{side}"><span class="who">{html.escape(t["speaker"])}</span>'
                  f'<p class="said"><button class="spk" data-say="{html.escape(t["line"])}" aria-label="唸這句">🔊</button>'
-                 f'<span>{html.escape(t["line"])}</span></p></div>')
+                 f'<span>{html.escape(t["line"])}</span></p>{tr_html}</div>')
     dialogue_html = f'<div class="dialogue">{rows}</div>'
     return render_basic_unit(book, u, level="conv", audio_rel=CONV_AUDIO_REL, pdf_rel=CONV_PDF_REL, body_html=dialogue_html)
 
@@ -1215,6 +1224,7 @@ def build_conv_book(b):
     units_html = "".join(render_conv_unit(b, u) for u in units)
     body = f'''
 {page_hero(f"實用英語會話 · Book {b}", f"Practical Conversation — 第{_CN_NUM[b] if b < len(_CN_NUM) else b}冊", "每課：看圖 → 讀對話（真人朗讀）→ 閱讀理解 → 生字片語 → 小測驗。")}
+{_unit_nav(units, "conv", b)}
 <section class="section"><div class="wrap" style="max-width:940px">
 {units_html}
 <p class="muted rvl" style="margin-top:1rem">＊本冊共 {len(units)} 課。</p>
