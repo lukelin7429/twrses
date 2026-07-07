@@ -2311,8 +2311,9 @@ def build_dom_jones_slides():
             f"{d['title']} · 簡報範本", f"Dom Jones 校園巡迴通用簡報範本：{d['title']}，可滑動瀏覽。", body, "media"))
 
     # ---- library index ----
-    def card(slug, title, count, sub):
-        return f'''<a class="deck-card rvl" href="/media/dom-jones/slides/{slug}/">
+    def card(slug, title, count, sub, anchor_id=None):
+        id_attr = f' id="{anchor_id}"' if anchor_id else ""
+        return f'''<a class="deck-card rvl" href="/media/dom-jones/slides/{slug}/"{id_attr}>
   <span class="deck-cover"><img loading="lazy" src="{_deck_cover(slug)}" alt="{html.escape(title)}"></span>
   <span class="deck-body"><h4>{html.escape(title)}</h4><span class="sub">{html.escape(sub)}</span><span class="cnt">{count} 頁 →</span></span>
 </a>'''
@@ -2329,14 +2330,15 @@ def build_dom_jones_slides():
             groups.append(seen_groups[g])
         seen_groups[g]["decks"].append(d)
 
-    school_sections = []
-    for g in reversed(groups):  # newest visit first
-        gid = next(d["group"] for d in g["decks"])
-        cards = "\n".join(card(d["slug"], d["title"], d["count"], f"{d['school']} · {d['date']}") for d in g["decks"])
-        school_sections.append(f'''<div class="deck-lib-group" id="deck-{g["decks"][0]["group"]}">
-  <h3>{g["school"]} · {g["date"]}</h3>
-  <div class="grid cols-3 stagger">{cards}</div>
-</div>''')
+    # flatten into one continuous grid (newest visit first) instead of one grid per
+    # school — a school with a single deck used to sit alone in its own row, wasting
+    # space. Each card still carries its own school+date, so grouping isn't lost.
+    school_cards = []
+    for g in reversed(groups):
+        for i, d in enumerate(g["decks"]):
+            anchor = f"deck-{d['group']}" if i == 0 else None
+            school_cards.append(card(d["slug"], d["title"], d["count"], f"{d['school']} · {d['date']}", anchor))
+    school_cards_html = "\n".join(school_cards)
 
     template_cards = "\n".join(card(d["slug"], d["title"], d["count"], "通用範本 · Reusable Template") for d in DOM_SLIDES["templates"])
 
@@ -2350,8 +2352,10 @@ def build_dom_jones_slides():
     <div class="grid cols-3 stagger">{ls_card}</div>
   </div>
 
-  <h2 class="d-h2" style="margin-top:2rem">校園簡報 · School Visit Decks</h2>
-  {"".join(school_sections)}
+  <div class="deck-lib-group">
+    <h3>校園簡報 · School Visit Decks</h3>
+    <div class="grid cols-3 stagger">{school_cards_html}</div>
+  </div>
 
   <div class="deck-lib-group">
     <h3>通用範本 · Reusable SDG Templates</h3>
