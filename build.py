@@ -38,7 +38,7 @@ ROOT_URL = f"https://lukelin7429.github.io{BASE}" if BASE else "https://twrses.o
 import hashlib
 def _asset_ver():
     h = hashlib.md5()
-    for rel in ("assets/css/style.css", "assets/css/motion.css", "assets/js/main.js"):
+    for rel in ("assets/css/style.css", "assets/css/motion.css", "assets/js/main.js", "assets/js/deck.js"):
         p = os.path.join(ROOT, rel)
         if os.path.exists(p): h.update(open(p, "rb").read())
     return h.hexdigest()[:8]
@@ -1910,6 +1910,10 @@ def _mike_first_id():
     return best[1] if best else (ids[0] if ids else "")
 
 DOM = json.load(open(os.path.join(ROOT, "data", "dom-jones.json"), encoding="utf-8"))
+DOM_SLIDES = json.load(open(os.path.join(ROOT, "data", "dom-jones-slides.json"), encoding="utf-8"))
+DOM_SLIDE_GROUPS = {}  # school name (zh) -> set of group tokens, for cross-linking from the video grid
+for _d in DOM_SLIDES["schools"]:
+    DOM_SLIDE_GROUPS.setdefault(_d["school"], set()).add(_d["group"])
 
 def build_exchange_hub():
     """國際交流＝學校訪問：兩個人物卡（麥克爺爺＋Dom Jones），仿英文站 school-tour 模式。"""
@@ -1975,6 +1979,11 @@ DOM_STYLE = '''
   .d-hero .role-en{animation-delay:.36s;}
   .d-hero .role-zh{animation-delay:.44s;}
   @keyframes dheroUp{to{opacity:1;transform:none;}}
+  .d-vslides{display:inline-block;margin-top:8px;font-size:13px;font-weight:700;color:var(--gold-dk);}
+  .d-vslides:hover{color:var(--sunset);}
+  .d-slides-cta{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;background:var(--cream);border-radius:16px;padding:20px 26px;margin-bottom:22px;}
+  .d-slides-cta p{margin:0;color:var(--ink-soft);font-size:15px;}
+  .d-slides-cta a.btn-gold{white-space:nowrap;}
   @media(prefers-reduced-motion:reduce){.d-hero::before,.d-hero::after{animation:none;}.d-badge,.d-hero h1,.d-hero .zh,.d-hero .role-en,.d-hero .role-zh{opacity:1;transform:none;animation:none;}}
   .d-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,210,120,.16);color:#ffd27a;padding:7px 15px;border-radius:999px;font-size:13.5px;font-weight:700;letter-spacing:.03em;margin-bottom:16px;}
   .d-hero h1{font-family:'Playfair Display','PingFang TC','Apple LiGothic Medium',serif;font-size:clamp(40px,6vw,60px);font-weight:700;line-height:1.02;color:#fff;margin:0;}
@@ -2067,9 +2076,12 @@ def build_dom_jones():
         extra = v.get("date") or v.get("topic") or ""
         sub = "校園新聞 · School news" + (f" · {html.escape(extra)}" if extra else "")
         thumb = f"https://i.ytimg.com/vi/{vid}/mqdefault.jpg"
+        groups = sorted(DOM_SLIDE_GROUPS.get(v["school"], []))
+        slides_link = (f'<a class="d-vslides" href="/media/dom-jones/slides/#deck-{groups[0]}">📑 看該場簡報</a>'
+                        if groups else "")
         cards.append(f'''<article class="d-vcard">
   <div class="d-vthumb" data-yt="{vid}" title="{school}"><img loading="lazy" src="{thumb}" alt="{school}"><span class="pl">▶</span></div>
-  <div class="d-vmeta"><h4>{school}</h4><div class="sub">{sub}</div></div>
+  <div class="d-vmeta"><h4>{school}</h4><div class="sub">{sub}</div>{slides_link}</div>
 </article>''')
     vgrid = "\n".join(cards)
     n = len(DOM["videos"])
@@ -2199,6 +2211,11 @@ def build_dom_jones():
       <figcaption><strong>With the students of Yuxin Elementary 育新國小</strong>One of the many campuses on Dom's Taiwan tour</figcaption>
     </figure>
 
+    <div class="d-slides-cta">
+      <p>每場集會實際使用的雙語簡報，也整理成可滑動瀏覽的簡報庫——歡迎老師下載教學重點、未來訪校也直接沿用格式。</p>
+      <a class="btn btn-gold" href="/media/dom-jones/slides/">📑 查看簡報庫 View Slide Library →</a>
+    </div>
+
     <p class="d-vcount"><b>{n}</b> school visits filmed by students · 由學生記者拍攝的 {n} 場校園巡迴新聞</p>
     <div class="d-vgrid">
 {vgrid}
@@ -2238,6 +2255,113 @@ def build_dom_jones():
 </div>'''
     write("/media/dom-jones/", layout("/media/dom-jones/", "Dom Jones 多姆・瓊斯 · 聯合國 SDG 大使",
         "Dom Jones 多姆・瓊斯——國際知名社會運動者、教育家與媒體人,人師教育協會倡議委員會主席,聯合國永續發展目標推廣大使,以及她走進全台校園的雙語巡迴。", body, "media"))
+
+# ---------------- Dom Jones · 簡報庫（reusable slide-deck viewer） ----------------
+def _deck_cover(slug):
+    return f"/media/dom-jones/slides/{slug}/01.jpg"
+
+def _deck_viewer_body(slug, title, count, subtitle, back_href):
+    imgs = "\n".join(
+        f'<div class="deck-slide"><img src="/media/dom-jones/slides/{slug}/{i:02d}.jpg" '
+        f'alt="{html.escape(title)} — 第 {i} 頁" loading="{"eager" if i == 1 else "lazy"}"></div>'
+        for i in range(1, count + 1)
+    )
+    sub_html = f'<div class="sub">{html.escape(subtitle)}</div>' if subtitle else ""
+    return f'''
+<div class="deck-page">
+  <div class="deck">
+    <div class="deck-top">
+      <a class="deck-back" href="{back_href}">← 簡報庫 Slide Library</a>
+      <div class="deck-heading"><h1>{html.escape(title)}</h1>{sub_html}</div>
+      <div class="deck-pos-wrap"><b class="deck-pos">1</b> / {count}</div>
+    </div>
+    <div class="deck-stage">
+      <div class="deck-track">
+{imgs}
+      </div>
+      <button class="deck-arrow prev" aria-label="上一頁 Previous">‹</button>
+      <button class="deck-arrow next" aria-label="下一頁 Next">›</button>
+    </div>
+    <div class="deck-progress"><div class="bar"></div></div>
+    <p class="deck-hint">👉 向右滑動看下一頁 · 方向鍵 ← → 也可切換 · Swipe or use arrow keys to navigate</p>
+  </div>
+</div>
+<script src="/assets/js/deck.js?v={ASSET_V}"></script>'''
+
+def build_dom_jones_slides():
+    back = "/media/dom-jones/slides/"
+
+    # life story deck
+    ls = DOM_SLIDES["life_story"]
+    body = _deck_viewer_body(ls["slug"], ls["title"], ls["count"], ls["title_zh"], back)
+    write(f"/media/dom-jones/slides/{ls['slug']}/", layout(f"/media/dom-jones/slides/{ls['slug']}/",
+        f"{ls['title']} · 簡報", "Dom Jones 的生命故事簡報，可滑動瀏覽。", body, "media"))
+
+    # per-school decks
+    for d in DOM_SLIDES["schools"]:
+        subtitle = f"{d['school']} · {d['date']}"
+        body = _deck_viewer_body(d["slug"], d["title"], d["count"], subtitle, back)
+        write(f"/media/dom-jones/slides/{d['slug']}/", layout(f"/media/dom-jones/slides/{d['slug']}/",
+            f"{d['title']} · {d['school']} 簡報", f"Dom Jones 到{d['school']}（{d['date']}）的雙語簡報，可滑動瀏覽。", body, "media"))
+
+    # generic templates
+    for d in DOM_SLIDES["templates"]:
+        body = _deck_viewer_body(d["slug"], d["title"], d["count"], "通用範本 · Reusable Template", back)
+        write(f"/media/dom-jones/slides/{d['slug']}/", layout(f"/media/dom-jones/slides/{d['slug']}/",
+            f"{d['title']} · 簡報範本", f"Dom Jones 校園巡迴通用簡報範本：{d['title']}，可滑動瀏覽。", body, "media"))
+
+    # ---- library index ----
+    def card(slug, title, count, sub):
+        return f'''<a class="deck-card rvl" href="/media/dom-jones/slides/{slug}/">
+  <span class="deck-cover"><img loading="lazy" src="{_deck_cover(slug)}" alt="{html.escape(title)}"></span>
+  <span class="deck-body"><h4>{html.escape(title)}</h4><span class="sub">{html.escape(sub)}</span><span class="cnt">{count} 頁 →</span></span>
+</a>'''
+
+    ls_card = card(ls["slug"], ls["title"], ls["count"], ls["title_zh"])
+
+    # group school decks by (group, school, date) preserving date-desc order already in JSON
+    groups = []
+    seen_groups = {}
+    for d in DOM_SLIDES["schools"]:
+        g = d["group"]
+        if g not in seen_groups:
+            seen_groups[g] = {"school": d["school"], "date": d["date"], "decks": []}
+            groups.append(seen_groups[g])
+        seen_groups[g]["decks"].append(d)
+
+    school_sections = []
+    for g in reversed(groups):  # newest visit first
+        gid = next(d["group"] for d in g["decks"])
+        cards = "\n".join(card(d["slug"], d["title"], d["count"], f"{d['school']} · {d['date']}") for d in g["decks"])
+        school_sections.append(f'''<div class="deck-lib-group" id="deck-{g["decks"][0]["group"]}">
+  <h3>{g["school"]} · {g["date"]}</h3>
+  <div class="grid cols-3 stagger">{cards}</div>
+</div>''')
+
+    template_cards = "\n".join(card(d["slug"], d["title"], d["count"], "通用範本 · Reusable Template") for d in DOM_SLIDES["templates"])
+
+    body = f'''
+{page_hero("Dom Jones · 簡報庫", "每一場集會的簡報，滑一下就能重看",
+           "Dom 到每所學校實際使用的雙語簡報，整理成可左右滑動瀏覽的簡報庫——手機用手指滑，電腦用方向鍵或點兩側都可以切換。未來訪問新學校時，也直接沿用同一套格式。")}
+<section class="section"><div class="wrap">
+
+  <div class="deck-lib-group">
+    <h3>Dom 的故事 · Her Own Story</h3>
+    <div class="grid cols-3 stagger">{ls_card}</div>
+  </div>
+
+  <h2 class="d-h2" style="margin-top:2rem">校園簡報 · School Visit Decks</h2>
+  {"".join(school_sections)}
+
+  <div class="deck-lib-group">
+    <h3>通用範本 · Reusable SDG Templates</h3>
+    <div class="grid cols-3 stagger">{template_cards}</div>
+  </div>
+
+</div></section>
+'''
+    write("/media/dom-jones/slides/", layout("/media/dom-jones/slides/", "Dom Jones 簡報庫 · 可滑動瀏覽",
+        "Dom Jones 校園巡迴使用的雙語簡報庫，按學校與日期整理，可左右滑動瀏覽每一頁。", body, "media"))
 
 def series_cover_cards(subs):
     """封面式大卡：用該系列代表影片縮圖當封面（subs = [(path, title, blurb)]）。"""
@@ -2573,6 +2697,11 @@ def main():
     build_grandpa_mike(); paths.append("/media/grandpa-mike/")
     build_exchange_hub(); paths.append("/media/exchange/")
     build_dom_jones(); paths.append("/media/dom-jones/")
+    build_dom_jones_slides()
+    paths.append("/media/dom-jones/slides/")
+    paths.append(f"/media/dom-jones/slides/{DOM_SLIDES['life_story']['slug']}/")
+    for _d in DOM_SLIDES["schools"]: paths.append(f"/media/dom-jones/slides/{_d['slug']}/")
+    for _d in DOM_SLIDES["templates"]: paths.append(f"/media/dom-jones/slides/{_d['slug']}/")
     for path, key, title, lead, cp in MEDIA_LEAVES:
         if path == "/media/exchange/": continue  # 改為學校訪問雙人物 hub，見 build_exchange_hub
         if path in VIDEO_SERIES:
