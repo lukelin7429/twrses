@@ -2403,6 +2403,8 @@ def build_news_videos():
 STAFF_SKILLS = [
     ("/staff-training/git-github/", "🔧", "Git 與 GitHub 運作知識",
      "commit、push、branch、PR 是什麼？看得懂 AI 助手在問什麼。24 題小考。"),
+    ("/staff-training/claude-agent/", "🤖", "認識 Claude 代理人",
+     "Agent、agentic loop、human-in-the-loop 是什麼？為什麼它會停下來問你。20 題小考。"),
 ]
 
 def build_staff_training_hub():
@@ -2479,11 +2481,12 @@ GIT_QUIZ = [
      ["先把網路關掉，隔離電腦", "先把舊的 branch 全部刪掉", "先請 AI commit 一次，留下一個可以回頭的檢查點", "什麼都不用做，直接讓它試"], "C", "改壞怎麼救"),
 ]
 
-def _gqz_render():
+def _gqz_render(terms, quiz):
+    """terms: [(name, desc)]; quiz: [(question, [4 options], correct_letter, category)]."""
     L = "ABCD"
-    terms_html = "".join(f'<li><strong>{html.escape(t)}</strong> — {html.escape(d)}</li>' for t, d in GIT_TERMS)
+    terms_html = "".join(f'<li><strong>{html.escape(t)}</strong> — {html.escape(d)}</li>' for t, d in terms)
     cats, blocks = [], []
-    for qi, (q, opts, correct, cat) in enumerate(GIT_QUIZ, 1):
+    for qi, (q, opts, correct, cat) in enumerate(quiz, 1):
         if cat not in cats:
             cats.append(cat)
             blocks.append(f'<p class="gqz-cat">{html.escape(cat)}</p>')
@@ -2499,58 +2502,11 @@ def _gqz_render():
     quiz_html = "".join(blocks)
     return terms_html, quiz_html
 
-def build_staff_git_github():
-    terms_html, quiz_html = _gqz_render()
-    body = f'''
-<style>
-.gqz-cat{{font-weight:800;font-size:.78rem;letter-spacing:.06em;color:#fff;background:var(--brand);
-  display:inline-block;padding:.35rem .8rem;border-radius:999px;margin:2rem 0 .9rem}}
-.gqz-cat:first-child{{margin-top:0}}
-.gqz-q{{background:#fff;border:1px solid var(--line);border-radius:var(--radius-sm);padding:1.4rem 1.5rem;
-  margin-bottom:1rem;box-shadow:var(--shadow-sm)}}
-.gqz-n{{font-weight:800;font-size:.78rem;letter-spacing:.06em;color:var(--brand-dk);margin:0 0 .5rem}}
-.gqz-t{{font-weight:700;font-size:1.05rem;color:var(--ink);margin:0 0 .9rem;line-height:1.5}}
-.gqz-opts{{display:flex;flex-direction:column;gap:.55rem}}
-.gqz-opt{{display:flex;align-items:center;gap:.75rem;padding:.7rem .9rem;border:1.5px solid var(--line);
-  border-radius:10px;cursor:pointer;font-size:.96rem;color:var(--ink-soft);transition:border-color .15s,background .15s}}
-.gqz-opt:hover{{border-color:var(--brand);background:var(--brand-lt)}}
-.gqz-opt input{{accent-color:var(--brand);width:17px;height:17px;flex:none}}
-.gqz-l{{flex:none;width:26px;height:26px;border-radius:8px;background:var(--cream);border:1px solid var(--line);
-  color:var(--ink);font-weight:800;font-size:.82rem;display:grid;place-items:center}}
-.gqz-q.answered .gqz-opt{{cursor:default}}
-.gqz-q.answered .gqz-opt:hover{{background:none}}
-.gqz-opt.is-correct{{border-color:#3f9e63;background:#e6f4ea;color:#1f6b3e;font-weight:700}}
-.gqz-opt.is-correct .gqz-l{{background:#3f9e63;color:#fff;border-color:#3f9e63}}
-.gqz-opt.is-wrong{{border-color:#cf6b5e;background:#fbeaea;color:#a23a2c;font-weight:700}}
-.gqz-opt.is-wrong .gqz-l{{background:#cf6b5e;color:#fff;border-color:#cf6b5e}}
-.gqz-actions{{display:flex;align-items:center;gap:1.1rem;flex-wrap:wrap;margin:1.8rem 0 .5rem}}
-.gqz-score{{font-weight:700;font-size:1.1rem;color:var(--ink);display:none;align-items:center;gap:.6rem}}
-.gqz-score.show{{display:inline-flex}}
-.gqz-score .badge{{display:inline-flex;align-items:center;justify-content:center;padding:.4rem 1rem;
-  border-radius:999px;background:var(--brand);color:#fff;font-size:.95rem}}
-</style>
-{page_hero("內部訓練 · Git 與 GitHub", "Git 與 GitHub 運作知識",
-    "給協會工作夥伴的入門說明：當 Claude Code 或 AI 助手問你要不要 commit、開 branch 時，這裡告訴你那是什麼意思。")}
-<section class="section tight" style="padding-bottom:0"><div class="wrap">
-<a class="btn btn-ghost" href="/staff-training/">← 回內部訓練專區</a>
-</div></section>
-<section class="section"><div class="wrap prose wide rvl">
-<p>每一個 AI 寫程式工具背後都建立在 Git 這套版本控制系統之上，詞彙自然會出現在對話裡。看懂下面這幾個詞，AI 在問什麼你就聽得懂。</p>
-<ul>{terms_html}</ul>
-</div></section>
-<section class="section tight"><div class="wrap">
-<p class="eyebrow rvl">原始出處</p>
-<h2 class="rvl" style="margin-bottom:1.2rem">這份整理參考的教學影片</h2>
-<div style="max-width:420px">
-<a class="vcard rvl" href="https://www.youtube.com/watch?v=atqcAb7MFAM" data-yt="atqcAb7MFAM" title="給非技術人員的 Github 教學，Vibe Coding 必學的基礎技能">
-  <span class="vthumb"><img loading="lazy" src="https://i.ytimg.com/vi/atqcAb7MFAM/hqdefault.jpg" alt="給非技術人員的 Github 教學，Vibe Coding 必學的基礎技能"></span>
-  <span class="vmeta"><span class="vt">給非技術人員的 Github 教學，Vibe Coding 必學的基礎技能</span><span class="vdate">Gary Chen（@garytalksstuff）</span></span>
-</a>
-</div>
-</div></section>
-<section class="section tight"><div class="wrap">
+def gqz_quiz_section(n_questions, quiz_html):
+    """Batch-submit quiz UI: form + actions + scoring script. Shared by every staff-training skill page."""
+    return f'''<section class="section tight"><div class="wrap">
 <p class="eyebrow rvl">小考 · Quick Check</p>
-<h2 class="rvl" style="margin-bottom:1.6rem">24 題，檢查自己懂了沒</h2>
+<h2 class="rvl" style="margin-bottom:1.6rem">{n_questions} 題，檢查自己懂了沒</h2>
 <form id="gqzForm">
 {quiz_html}
 <div class="gqz-actions">
@@ -2569,10 +2525,11 @@ def build_staff_git_github():
   var scoreWrap = document.getElementById('gqzScore');
   var badge = document.getElementById('gqzBadge');
   var msg = document.getElementById('gqzMsg');
+  var total = questions.length;
   var MESSAGES = [
-    {{ min: 22, text: '滿分等級——你已經聽得懂 AI 在講什麼了！' }},
-    {{ min: 17, text: '很不錯，只剩幾題再看一次上面的說明就好。' }},
-    {{ min: 12, text: '一半以上答對，建議把錯的地方再讀一遍。' }},
+    {{ min: Math.ceil(total * 0.92), text: '滿分等級——你已經聽得懂 AI 在講什麼了！' }},
+    {{ min: Math.ceil(total * 0.7),  text: '很不錯，只剩幾題再看一次上面的說明就好。' }},
+    {{ min: Math.ceil(total * 0.5),  text: '一半以上答對，建議把錯的地方再讀一遍。' }},
     {{ min: 0,  text: '沒關係，這些詞第一次看本來就會亂——建議整份再讀一次。' }}
   ];
   form.addEventListener('submit', function (e) {{
@@ -2592,7 +2549,7 @@ def build_staff_git_github():
       if (checked.value === correct) score++;
     }});
     if (!allAnswered) {{ alert('請先回答完所有題目再檢查喔。'); return; }}
-    badge.textContent = score + ' / ' + questions.length;
+    badge.textContent = score + ' / ' + total;
     var m = MESSAGES.find(function (x) {{ return score >= x.min; }});
     msg.textContent = m.text;
     scoreWrap.classList.add('show');
@@ -2610,14 +2567,113 @@ def build_staff_git_github():
     window.scrollTo({{ top: 0, behavior: 'smooth' }});
   }});
 }})();
-</script>
+</script>'''
+
+def build_staff_git_github():
+    terms_html, quiz_html = _gqz_render(GIT_TERMS, GIT_QUIZ)
+    body = f'''
+{page_hero("內部訓練 · Git 與 GitHub", "Git 與 GitHub 運作知識",
+    "給協會工作夥伴的入門說明：當 Claude Code 或 AI 助手問你要不要 commit、開 branch 時，這裡告訴你那是什麼意思。")}
+<section class="section tight" style="padding-bottom:0"><div class="wrap">
+<a class="btn btn-ghost" href="/staff-training/">← 回內部訓練專區</a>
+</div></section>
+<section class="section"><div class="wrap prose wide rvl">
+<p>每一個 AI 寫程式工具背後都建立在 Git 這套版本控制系統之上，詞彙自然會出現在對話裡。看懂下面這幾個詞，AI 在問什麼你就聽得懂。</p>
+<ul>{terms_html}</ul>
+</div></section>
+<section class="section tight"><div class="wrap">
+<p class="eyebrow rvl">原始出處</p>
+<h2 class="rvl" style="margin-bottom:1.2rem">這份整理參考的教學影片</h2>
+<div style="max-width:420px">
+<a class="vcard rvl" href="https://www.youtube.com/watch?v=atqcAb7MFAM" data-yt="atqcAb7MFAM" title="給非技術人員的 Github 教學，Vibe Coding 必學的基礎技能">
+  <span class="vthumb"><img loading="lazy" src="https://i.ytimg.com/vi/atqcAb7MFAM/hqdefault.jpg" alt="給非技術人員的 Github 教學，Vibe Coding 必學的基礎技能"></span>
+  <span class="vmeta"><span class="vt">給非技術人員的 Github 教學，Vibe Coding 必學的基礎技能</span><span class="vdate">Gary Chen（@garytalksstuff）</span></span>
+</a>
+</div>
+</div></section>
+{gqz_quiz_section(len(GIT_QUIZ), quiz_html)}
 '''
     write("/staff-training/git-github/", layout("/staff-training/git-github/", "Git 與 GitHub 運作知識",
         "Git、GitHub、commit、push、branch、PR 術語說明，附 24 題小考。", body, "staff-training", noindex=True))
 
+CLAUDE_TERMS = [
+    ("Agent（代理人）", "不只回答問題，還能實際執行動作的 AI——讀寫檔案、跑指令、上網查資料。"),
+    ("Claude Code", "在你的電腦裡運作的 AI 代理人，能幫你讀寫程式、操作 Git、完成多步驟任務。"),
+    ("Tool use（工具使用）", "代理人透過「工具」去做具體的事，而不是憑空生成一段文字答案。"),
+    ("Agentic loop（代理人迴圈）", "規劃 → 執行 → 觀察結果 → 修正 → 再繼續，直到任務完成。"),
+    ("Human-in-the-loop（人在迴圈中）", "風險較高或不可逆的步驟，代理人會先問過你才做。"),
+    ("Context window（上下文窗口）", "代理人一次能記得、參考的對話與資料量是有限的。"),
+    ("Prompt（指令）", "你給代理人的任務描述，說得越清楚，結果越接近你要的。"),
+    ("Subagent（子代理人）", "把大任務拆成幾個小任務，派不同代理人平行處理。"),
+    ("Permission（權限確認）", "代理人執行有風險的動作前，會停下來讓你確認。"),
+    ("Checkpoint（檢查點）", "靠 Git commit 留下的存檔點，讓代理人放手嘗試也還是安全——見另一張技能卡。"),
+]
+
+# (question, [option_A, option_B, option_C, option_D], correct_letter, category)
+CLAUDE_QUIZ = [
+    ("AI「代理人」（agent）和一般聊天機器人最大的不同是？",
+     ["代理人的回答比較短", "只能用英文", "代理人不只能回答問題，還能實際去執行動作，例如讀寫檔案、執行指令", "不用網路就能運作"], "C", "什麼是 AI 代理人"),
+    ("Claude Code 屬於哪一種工具？",
+     ["能實際讀寫檔案、執行指令、幫你完成任務的 AI 代理人", "純粹的翻譯軟體", "只能看、不能動手做事的搜尋引擎", "一種防毒軟體"], "A", "什麼是 AI 代理人"),
+    ("為什麼代理人需要「工具」（tools）才能做事？",
+     ["因為工具比較好看", "因為工具是免費的", "純粹是行銷術語，沒有實際作用", "因為代理人本身只會產生文字，要透過工具才能真的去讀檔案、跑指令、上網查資料"], "D", "什麼是 AI 代理人"),
+    ("下列何者「不是」Claude Code 這類代理人常見的工具？",
+     ["讀取／編輯檔案", "讀心術，猜你心裡想的需求", "執行終端機指令", "瀏覽網頁蒐集資料"], "B", "什麼是 AI 代理人"),
+    ("代理人完成一個任務時，最常見的運作方式是？",
+     ["規劃 → 執行 → 觀察結果 → 視情況修正 → 再繼續，直到完成", "一次就把整個答案生出來，不會再檢查", "完全隨機亂猜", "每次都要重新開機才能動作"], "A", "Claude Code 怎麼運作"),
+    ("「agentic loop」（代理人迴圈）中，「觀察結果」這一步在做什麼？",
+     ["忽略剛剛做的事，直接繼續下一步", "把電腦關機", "換一台電腦重做", "看看剛剛執行的動作有沒有成功、結果對不對，再決定下一步"], "D", "Claude Code 怎麼運作"),
+    ("如果代理人執行一個指令後發現錯誤（例如程式跑不動），它通常會？",
+     ["直接放棄，什麼都不做", "根據錯誤訊息調整做法，再試一次", "假裝沒發生過", "立刻刪除整個專案"], "B", "Claude Code 怎麼運作"),
+    ("為什麼代理人可以處理「多步驟」的複雜任務，而不只是回答單一問題？",
+     ["因為它背的答案比較多", "因為它打字速度比較快", "因為它會把任務拆成一步一步，邊做邊檢查，直到完成", "因為它有特別的網路頻寬"], "C", "Claude Code 怎麼運作"),
+    ("為什麼 Claude Code 有時候會停下來問你「要不要繼續」？",
+     ["它當機了", "它想聊天", "網路太慢", "遇到比較有風險或不可逆的動作（例如 commit、刪除檔案），會先確認過你才做"], "D", "為什麼它會問你"),
+    ("「human-in-the-loop」（人在迴圈中）的意思最接近？",
+     ["完全不用人參與，代理人自己決定一切", "重要或有風險的步驟，會先讓人確認，而不是代理人自己默默做主", "人要一直盯著螢幕打字", "每個步驟都要重開機"], "B", "為什麼它會問你"),
+    ("下列哪一種操作，代理人比較可能會先問你再做？",
+     ["讀取一個檔案的內容", "顯示目前的檔案清單", "把變更 push 到 GitHub、公開上線", "檢查拼字錯誤"], "C", "為什麼它會問你"),
+    ("代理人會主動請你確認風險較高的動作，這對非技術背景的使用者來說代表？",
+     ["代表就算不懂技術細節，重要決定還是掌握在你手上", "代表這個工具很難用", "代表你一定要先學會寫程式", "代表這個功能是收費限定"], "A", "為什麼它會問你"),
+    ("給代理人的指令（prompt）越清楚，通常代表？",
+     ["代理人的回答速度會變慢", "代理人做出來的結果越接近你要的", "完全沒有影響", "代理人會拒絕執行"], "B", "指令與情境"),
+    ("「context window」（上下文窗口）大致是指？",
+     ["電腦螢幕的大小", "網路頻寬速度", "代理人一次能記得、參考的對話與資料量是有限的", "檔案總數量"], "C", "指令與情境"),
+    ("當任務很大、很複雜時，為什麼有時候會用「多個代理人平行處理」？",
+     ["把大任務拆成幾個獨立的小任務，讓不同代理人同時進行，比較有效率", "純粹好玩", "這樣比較浪費資源，沒有實際好處", "因為單一代理人不能開兩次"], "A", "指令與情境"),
+    ("如果代理人一直誤解你的需求，比較有效的做法是？",
+     ["直接放棄，不用了", "罵它", "換一台電腦重新開始", "把指令說得更具體、補充目標和限制條件"], "D", "指令與情境"),
+    ("為什麼讓代理人自己嘗試、修正錯誤是相對安全的？",
+     ["因為代理人不會犯錯", "因為代理人做的事都不會被記錄", "因為有 commit 檢查點，出錯了可以退回到前一個能用的版本", "因為網路會自動備份一切"], "C", "安全使用代理人"),
+    ("在請代理人做風險較高的大改動之前，比較保險的做法是？",
+     ["先請它 commit 一次，留下可以回頭的檢查點", "先把電腦關機", "先刪除舊的檔案", "什麼都不用準備"], "A", "安全使用代理人"),
+    ("身為非技術背景的使用者，善用代理人的關鍵心態是？",
+     ["完全不用管它在做什麼，全部交給它", "一定要先學會寫程式才能用", "代理人的建議永遠不用檢查", "給清楚的目標與限制、對風險較高的步驟保持確認，其餘交給代理人處理細節"], "D", "安全使用代理人"),
+    ("「代理人」（agent）和「Git／GitHub」這兩堂課的關聯是？",
+     ["完全無關，兩者是獨立主題", "代理人在幫你做事時，背後常常就是透過 Git 在存檔、上傳，這就是為什麼它會問 commit、push", "Git 是代理人的品牌名稱", "GitHub 是用來訓練代理人的網站"], "B", "安全使用代理人"),
+]
+
+def build_staff_claude_agent():
+    terms_html, quiz_html = _gqz_render(CLAUDE_TERMS, CLAUDE_QUIZ)
+    body = f'''
+{page_hero("內部訓練 · 認識 Claude 代理人", "認識 Claude 代理人",
+    "給協會工作夥伴的入門說明：Claude Code 不只是聊天機器人，而是會實際動手做事的「代理人」——這裡說明它怎麼運作、為什麼要停下來問你。")}
+<section class="section tight" style="padding-bottom:0"><div class="wrap">
+<a class="btn btn-ghost" href="/staff-training/">← 回內部訓練專區</a>
+</div></section>
+<section class="section"><div class="wrap prose wide rvl">
+<p>「代理人」（agent）跟一般聊天機器人不一樣：它不只回答問題，還會實際去讀檔案、寫程式、執行指令，一步一步把任務做完。看懂下面這幾個詞，你就懂代理人在做什麼、為什麼它會停下來問你。</p>
+<ul>{terms_html}</ul>
+</div></section>
+{gqz_quiz_section(len(CLAUDE_QUIZ), quiz_html)}
+'''
+    write("/staff-training/claude-agent/", layout("/staff-training/claude-agent/", "認識 Claude 代理人",
+        "Agent、agentic loop、human-in-the-loop 術語說明，附 20 題小考。", body, "staff-training", noindex=True))
+
 def build_staff_training():
     build_staff_training_hub()
     build_staff_git_github()
+    build_staff_claude_agent()
 
 # ==================================================================
 def build_static():

@@ -731,6 +731,34 @@ p  { margin: 0 0 1.1em; }
 .quiz-opt.wrong { background:#fbeaea; border-color:#cf6b5e; color:#a23a2c; }
 .spk.on { background:var(--sunset); color:#fff; }
 
+/* internal staff-training quiz widget (batch-submit + score, distinct
+   from the site-wide .quiz-opt click-to-reveal component above) */
+.gqz-cat { font-weight:800; font-size:.78rem; letter-spacing:.06em; color:#fff; background:var(--brand);
+  display:inline-block; padding:.35rem .8rem; border-radius:999px; margin:2rem 0 .9rem; }
+.gqz-cat:first-child { margin-top:0; }
+.gqz-q { background:#fff; border:1px solid var(--line); border-radius:var(--radius-sm); padding:1.4rem 1.5rem;
+  margin-bottom:1rem; box-shadow:var(--shadow-sm); }
+.gqz-n { font-weight:800; font-size:.78rem; letter-spacing:.06em; color:var(--brand-dk); margin:0 0 .5rem; }
+.gqz-t { font-weight:700; font-size:1.05rem; color:var(--ink); margin:0 0 .9rem; line-height:1.5; }
+.gqz-opts { display:flex; flex-direction:column; gap:.55rem; }
+.gqz-opt { display:flex; align-items:center; gap:.75rem; padding:.7rem .9rem; border:1.5px solid var(--line);
+  border-radius:10px; cursor:pointer; font-size:.96rem; color:var(--ink-soft); transition:border-color .15s,background .15s; }
+.gqz-opt:hover { border-color:var(--brand); background:var(--brand-lt); }
+.gqz-opt input { accent-color:var(--brand); width:17px; height:17px; flex:none; }
+.gqz-l { flex:none; width:26px; height:26px; border-radius:8px; background:var(--cream); border:1px solid var(--line);
+  color:var(--ink); font-weight:800; font-size:.82rem; display:grid; place-items:center; }
+.gqz-q.answered .gqz-opt { cursor:default; }
+.gqz-q.answered .gqz-opt:hover { background:none; }
+.gqz-opt.is-correct { border-color:#3f9e63; background:#e6f4ea; color:#1f6b3e; font-weight:700; }
+.gqz-opt.is-correct .gqz-l { background:#3f9e63; color:#fff; border-color:#3f9e63; }
+.gqz-opt.is-wrong { border-color:#cf6b5e; background:#fbeaea; color:#a23a2c; font-weight:700; }
+.gqz-opt.is-wrong .gqz-l { background:#cf6b5e; color:#fff; border-color:#cf6b5e; }
+.gqz-actions { display:flex; align-items:center; gap:1.1rem; flex-wrap:wrap; margin:1.8rem 0 .5rem; }
+.gqz-score { font-weight:700; font-size:1.1rem; color:var(--ink); display:none; align-items:center; gap:.6rem; }
+.gqz-score.show { display:inline-flex; }
+.gqz-score .badge { display:inline-flex; align-items:center; justify-content:center; padding:.4rem 1rem;
+  border-radius:999px; background:var(--brand); color:#fff; font-size:.95rem; }
+
 /* ---------- basic reading unit ---------- */
 .rd-photos { display:flex; gap:1rem; flex-wrap:wrap; margin-bottom:1.4rem; }
 /* source photos are low-res (~400-500px wide); cap display width near native size

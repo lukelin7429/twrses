@@ -9,9 +9,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..600;1,9..144,400..500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/css/style.css?v=1366b769">
-<link rel="stylesheet" href="/assets/css/motion.css?v=1366b769">
-<link rel="stylesheet" href="/assets/css/search.css?v=1366b769">
+<link rel="stylesheet" href="/assets/css/style.css?v=b4a08548">
+<link rel="stylesheet" href="/assets/css/motion.css?v=b4a08548">
+<link rel="stylesheet" href="/assets/css/search.css?v=b4a08548">
 <link rel="icon" href="/assets/img/logo-badge.svg" type="image/svg+xml">
 <meta property="og:title" content="Git 與 GitHub 運作知識｜彰化縣人師教育協會">
 <meta property="og:description" content="Git、GitHub、commit、push、branch、PR 術語說明，附 24 題小考。">
@@ -65,33 +65,6 @@
 </header>
 <main>
 
-<style>
-.gqz-cat{font-weight:800;font-size:.78rem;letter-spacing:.06em;color:#fff;background:var(--brand);
-  display:inline-block;padding:.35rem .8rem;border-radius:999px;margin:2rem 0 .9rem}
-.gqz-cat:first-child{margin-top:0}
-.gqz-q{background:#fff;border:1px solid var(--line);border-radius:var(--radius-sm);padding:1.4rem 1.5rem;
-  margin-bottom:1rem;box-shadow:var(--shadow-sm)}
-.gqz-n{font-weight:800;font-size:.78rem;letter-spacing:.06em;color:var(--brand-dk);margin:0 0 .5rem}
-.gqz-t{font-weight:700;font-size:1.05rem;color:var(--ink);margin:0 0 .9rem;line-height:1.5}
-.gqz-opts{display:flex;flex-direction:column;gap:.55rem}
-.gqz-opt{display:flex;align-items:center;gap:.75rem;padding:.7rem .9rem;border:1.5px solid var(--line);
-  border-radius:10px;cursor:pointer;font-size:.96rem;color:var(--ink-soft);transition:border-color .15s,background .15s}
-.gqz-opt:hover{border-color:var(--brand);background:var(--brand-lt)}
-.gqz-opt input{accent-color:var(--brand);width:17px;height:17px;flex:none}
-.gqz-l{flex:none;width:26px;height:26px;border-radius:8px;background:var(--cream);border:1px solid var(--line);
-  color:var(--ink);font-weight:800;font-size:.82rem;display:grid;place-items:center}
-.gqz-q.answered .gqz-opt{cursor:default}
-.gqz-q.answered .gqz-opt:hover{background:none}
-.gqz-opt.is-correct{border-color:#3f9e63;background:#e6f4ea;color:#1f6b3e;font-weight:700}
-.gqz-opt.is-correct .gqz-l{background:#3f9e63;color:#fff;border-color:#3f9e63}
-.gqz-opt.is-wrong{border-color:#cf6b5e;background:#fbeaea;color:#a23a2c;font-weight:700}
-.gqz-opt.is-wrong .gqz-l{background:#cf6b5e;color:#fff;border-color:#cf6b5e}
-.gqz-actions{display:flex;align-items:center;gap:1.1rem;flex-wrap:wrap;margin:1.8rem 0 .5rem}
-.gqz-score{font-weight:700;font-size:1.1rem;color:var(--ink);display:none;align-items:center;gap:.6rem}
-.gqz-score.show{display:inline-flex}
-.gqz-score .badge{display:inline-flex;align-items:center;justify-content:center;padding:.4rem 1rem;
-  border-radius:999px;background:var(--brand);color:#fff;font-size:.95rem}
-</style>
 <section class="hero">
   <div class="hero-bg"><span class="orb a"></span><span class="orb b"></span><span class="orb c"></span></div>
   <div class="wrap">
@@ -234,10 +207,11 @@
   var scoreWrap = document.getElementById('gqzScore');
   var badge = document.getElementById('gqzBadge');
   var msg = document.getElementById('gqzMsg');
+  var total = questions.length;
   var MESSAGES = [
-    { min: 22, text: '滿分等級——你已經聽得懂 AI 在講什麼了！' },
-    { min: 17, text: '很不錯，只剩幾題再看一次上面的說明就好。' },
-    { min: 12, text: '一半以上答對，建議把錯的地方再讀一遍。' },
+    { min: Math.ceil(total * 0.92), text: '滿分等級——你已經聽得懂 AI 在講什麼了！' },
+    { min: Math.ceil(total * 0.7),  text: '很不錯，只剩幾題再看一次上面的說明就好。' },
+    { min: Math.ceil(total * 0.5),  text: '一半以上答對，建議把錯的地方再讀一遍。' },
     { min: 0,  text: '沒關係，這些詞第一次看本來就會亂——建議整份再讀一次。' }
   ];
   form.addEventListener('submit', function (e) {
@@ -257,7 +231,7 @@
       if (checked.value === correct) score++;
     });
     if (!allAnswered) { alert('請先回答完所有題目再檢查喔。'); return; }
-    badge.textContent = score + ' / ' + questions.length;
+    badge.textContent = score + ' / ' + total;
     var m = MESSAGES.find(function (x) { return score >= x.min; });
     msg.textContent = m.text;
     scoreWrap.classList.add('show');
@@ -310,7 +284,7 @@
     <span>Rebuilt with care · GitHub Pages</span>
   </div>
 </footer>
-<script src="/assets/js/main.js?v=1366b769"></script>
-<script defer src="/assets/js/search.js?v=1366b769"></script>
+<script src="/assets/js/main.js?v=b4a08548"></script>
+<script defer src="/assets/js/search.js?v=b4a08548"></script>
 </body>
 </html>

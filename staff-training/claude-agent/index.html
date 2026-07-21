@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>認識 Claude 代理人｜彰化縣人師教育協會</title>
+<meta name="description" content="Agent、agentic loop、human-in-the-loop 術語說明，附 20 題小考。">
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..600;1,9..144,400..500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style.css?v=b4a08548">
+<link rel="stylesheet" href="/assets/css/motion.css?v=b4a08548">
+<link rel="stylesheet" href="/assets/css/search.css?v=b4a08548">
+<link rel="icon" href="/assets/img/logo-badge.svg" type="image/svg+xml">
+<meta property="og:title" content="認識 Claude 代理人｜彰化縣人師教育協會">
+<meta property="og:description" content="Agent、agentic loop、human-in-the-loop 術語說明，附 20 題小考。">
+<meta property="og:type" content="website">
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap nav">
+    <a class="brand" href="/">
+      <img class="mark-logo" src="/assets/img/logo-badge.svg" alt="人師教育協會標誌" width="36" height="38">
+      <span>彰化縣人師教育協會<small>My Culture Connect</small></span>
+    </a>
+    <button class="nav-toggle" aria-label="選單" aria-expanded="false"><span></span><span></span><span></span></button>
+    <ul class="menu">
+<li><a href="/">首頁</a>
+</li>
+<li class="has-sub"><a href="/about/">認識人師</a>
+<ul class="submenu">
+<li><a href="/about/">協會介紹</a></li>
+<li><a href="/about/founder/">創辦人林吉祥</a></li>
+<li><a href="/partners/">國際夥伴</a></li>
+</ul>
+</li>
+<li class="has-sub"><a href="/rural-schools/">偏鄉英語教育</a>
+<ul class="submenu">
+<li><a href="/rural-schools/academy/">人師英語學院</a></li>
+<li><a href="/rural-schools/register/">報名上課</a></li>
+<li><a href="/rural-schools/practicum/">Practicum 線上課程</a></li>
+<li><a href="/rural-schools/guidelines/">上課須知</a></li>
+</ul>
+</li>
+<li class="has-sub"><a href="/resources/">英語學習資源</a>
+<ul class="submenu">
+<li><a href="/resources/reading/">閱讀與經典</a></li>
+<li><a href="/resources/basics/">打好基礎</a></li>
+<li><a href="/resources/speaking/">聽說與會話</a></li>
+<li><a href="/resources/life/">生活英語</a></li>
+</ul>
+</li>
+<li class="has-sub"><a href="/media/">人師影音專區</a>
+<ul class="submenu">
+<li><a href="/media/exchange/">國際交流</a></li>
+<li><a href="/media/news-videos/">人師英語新聞</a></li>
+<li><a href="/media/enactus/">Enactus 英語課程</a></li>
+<li><a href="/media/talks/">人師教育廣場</a></li>
+<li><a href="/media/interviews/">人物專訪</a></li>
+</ul>
+</li>
+</ul>
+  </div>
+</header>
+<main>
+
+<section class="hero">
+  <div class="hero-bg"><span class="orb a"></span><span class="orb b"></span><span class="orb c"></span></div>
+  <div class="wrap">
+    <p class="eyebrow rvl">內部訓練 · 認識 Claude 代理人</p>
+    <h1 class="rvl d1">認識 Claude 代理人</h1>
+    <p class="lead rvl d2">給協會工作夥伴的入門說明：Claude Code 不只是聊天機器人，而是會實際動手做事的「代理人」——這裡說明它怎麼運作、為什麼要停下來問你。</p>
+  </div>
+</section>
+<section class="section tight" style="padding-bottom:0"><div class="wrap">
+<a class="btn btn-ghost" href="/staff-training/">← 回內部訓練專區</a>
+</div></section>
+<section class="section"><div class="wrap prose wide rvl">
+<p>「代理人」（agent）跟一般聊天機器人不一樣：它不只回答問題，還會實際去讀檔案、寫程式、執行指令，一步一步把任務做完。看懂下面這幾個詞，你就懂代理人在做什麼、為什麼它會停下來問你。</p>
+<ul><li><strong>Agent（代理人）</strong> — 不只回答問題，還能實際執行動作的 AI——讀寫檔案、跑指令、上網查資料。</li><li><strong>Claude Code</strong> — 在你的電腦裡運作的 AI 代理人，能幫你讀寫程式、操作 Git、完成多步驟任務。</li><li><strong>Tool use（工具使用）</strong> — 代理人透過「工具」去做具體的事，而不是憑空生成一段文字答案。</li><li><strong>Agentic loop（代理人迴圈）</strong> — 規劃 → 執行 → 觀察結果 → 修正 → 再繼續，直到任務完成。</li><li><strong>Human-in-the-loop（人在迴圈中）</strong> — 風險較高或不可逆的步驟，代理人會先問過你才做。</li><li><strong>Context window（上下文窗口）</strong> — 代理人一次能記得、參考的對話與資料量是有限的。</li><li><strong>Prompt（指令）</strong> — 你給代理人的任務描述，說得越清楚，結果越接近你要的。</li><li><strong>Subagent（子代理人）</strong> — 把大任務拆成幾個小任務，派不同代理人平行處理。</li><li><strong>Permission（權限確認）</strong> — 代理人執行有風險的動作前，會停下來讓你確認。</li><li><strong>Checkpoint（檢查點）</strong> — 靠 Git commit 留下的存檔點，讓代理人放手嘗試也還是安全——見另一張技能卡。</li></ul>
+</div></section>
+<section class="section tight"><div class="wrap">
+<p class="eyebrow rvl">小考 · Quick Check</p>
+<h2 class="rvl" style="margin-bottom:1.6rem">20 題，檢查自己懂了沒</h2>
+<form id="gqzForm">
+<p class="gqz-cat">什麼是 AI 代理人</p><div class="gqz-q" data-correct="C">
+  <p class="gqz-n">第 1 題</p>
+  <p class="gqz-t">AI「代理人」（agent）和一般聊天機器人最大的不同是？</p>
+  <div class="gqz-opts"><label class="gqz-opt"><input type="radio" name="gq1" value="A"><span class="gqz-l">A</span><span>代理人的回答比較短</span></label><label class="gqz-opt"><input type="radio" name="gq1" value="B"><span class="gqz-l">B</span><span>只能用英文</span></label><label class="gqz-opt"><input type="radio" name="gq1" value="C"><span class="gqz-l">C</span><span>代理人不只能回答問題，還能實際去執行動作，例如讀寫檔案、執行指令</span></label><label class="gqz-opt"><input type="radio" name="gq1" value="D"><span class="gqz-l">D</span><span>不用網路就能運作</span></label></div>
+</div><div class="gqz-q" data-correct="A">
+  <p class="gqz-n">第 2 題</p>
+  <p class="gqz-t">Claude Code 屬於哪一種工具？</p>
+  <div class="gqz-opts"><label class="gqz-opt"><input type="radio" name="gq2" value="A"><span class="gqz-l">A</span><span>能實際讀寫檔案、執行指令、幫你完成任務的 AI 代理人</span></label><label class="gqz-opt"><input type="radio" name="gq2" value="B"><span class="gqz-l">B</span><span>純粹的翻譯軟體</span></label><label class="gqz-opt"><input type="radio" name="gq2" value="C"><span class="gqz-l">C</span><span>只能看、不能動手做事的搜尋引擎</span></label><label class="gqz-opt"><input type="radio" name="gq2" value="D"><span class="gqz-l">D</span><span>一種防毒軟體</span></label></div>
+</div><div class="gqz-q" data-correct="D">
+  <p class="gqz-n">第 3 題</p>
+  <p class="gqz-t">為什麼代理人需要「工具」（tools）才能做事？</p>
+  <div class="gqz-opts"><label class="gqz-opt"><input type="radio" name="gq3" value="A"><span class="gqz-l">A</span><span>因為工具比較好看</span></label><label class="gqz-opt"><input type="radio" name="gq3" value="B"><span class="gqz-l">B</span><span>因為工具是免費的</span></label><label class="gqz-opt"><input type="radio" name="gq3" value="C"><span class="gqz-l">C</span><span>純粹是行銷術語，沒有實際作用</span></label><label class="gqz-opt"><input type="radio" name="gq3" value="D"><span class="gqz-l">D</span><span>因為代理人本身只會產生文字，要透過工具才能真的去讀檔案、跑指令、上網查資料</span></label></div>
+</div><div class="gqz-q" data-correct="B">
+  <p class="gqz-n">第 4 題</p>
+  <p class="gqz-t">下列何者「不是」Claude Code 這類代理人常見的工具？</p>
+  <div class="gqz-opts"><label class="gqz-opt"><input type="radio" name="gq4" value="A"><span class="gqz-l">A</span><span>讀取／編輯檔案</span></label><label class="gqz-opt"><input type="radio" name="gq4" value="B"><span class="gqz-l">B</span><span>讀心術，猜你心裡想的需求</span></label><label class="gqz-opt"><input type="radio" name="gq4" value="C"><span class="gqz-l">C</span><span>執行終端機指令</span></label><label class="gqz-opt"><input type="radio" name="gq4" value="D"><span class="gqz-l">D</span><span>瀏覽網頁蒐集資料</span></label></div>
+</div><p class="gqz-cat">Claude Code 怎麼運作</p><div class="gqz-q" data-correct="A">
+  <p class="gqz-n">第 5 題</p>
+  <p class="gqz-t">代理人完成一個任務時，最常見的運作方式是？</p>
+  <div class="gqz-opts"><label class="gqz-opt"><input type="radio" name="gq5" value="A"><span class="gqz-l">A</span><span>規劃 → 執行 → 觀察結果 → 視情況修正 → 再繼續，直到完成</span></label><label class="gqz-opt"><input type="radio" name="gq5" value="B"><span class="gqz-l">B</span><span>一次就把整個答案生出來，不會再檢查</span></label><label class="gqz-opt"><input type="radio" name="gq5" value="C"><span class="gqz-l">C</span><span>完全隨機亂猜</span></label><label class="gqz-opt"><input type="radio" name="gq5" value="D"><span class="gqz-l">D</span><span>每次都要重新開機才能動作</span></label></div>
+</div><div class="gqz-q" data-correct="D">
+  <p class="gqz-n">第 6 題</p>
+  <p class="gqz-t">「agentic loop」（代理人迴圈）中，「觀察結果」這一步在做什麼？</p>
+  <div class="gqz-opts"><label class="gqz-opt"><input type="radio" name="gq6" value="A"><span class="gqz-l">A</span><span>忽略剛剛做的事，直接繼續下一步</span></label><label class="gqz-opt"><input type="radio" name="gq6" value="B"><span class="gqz-l">B</span><span>把電腦關機</span></label><label class="gqz-opt"><input type="radio" name="gq6" value="C"><span class="gqz-l">C</span><span>換一台電腦重做</span></label><label class="gqz-opt"><input type="radio" name="gq6" value="D"><span class="gqz-l">D</span><span>看看剛剛執行的動作有沒有成功、結果對不對，再決定下一步</span></label></div>
+</div><div class="gqz-q" data-correct="B">
+  <p class="gqz-n">第 7 題</p>
+  <p class="gqz-t">如果代理人執行一個指令後發現錯誤（例如程式跑不動），它通常會？</p>
+  <div class="gqz-opts"><label class="gqz-opt"><input type="radio" name="gq7" value="A"><span class="gqz-l">A</span><span>直接放棄，什麼都不做</span></label><label class="gqz-opt"><input type="radio" name="gq7" value="B"><span class="gqz-l">B</span><span>根據錯誤訊息調整做法，再試一次</span></label><label class="gqz-opt"><input type="radio" name="gq7" value="C"><span class="gqz-l">C</span><span>假裝沒發生過</span></label><label class="gqz-opt"><input type="radio" name="gq7" value="D"><span class="gqz-l">D</span><span>立刻刪除整個專案</span></label></div>
+</div><div class="gqz-q" data-correct="C">
+  <p class="gqz-n">第 8 題</p>
+  <p class="gqz-t">為什麼代理人可以處理「多步驟」的複雜任務，而不只是回答單一問題？</p>
+  <div class="gqz-opts"><label class="gqz-opt"><input type="radio" name="gq8" value="A"><span class="gqz-l">A</span><span>因為它背的答案比較多</span></label><label class="gqz-opt"><input type="radio" name="gq8" value="B"><span class="gqz-l">B</span><span>因為它打字速度比較快</span></label><label class="gqz-opt"><input type="radio" name="gq8" value="C"><span class="gqz-l">C</span><span>因為它會把任務拆成一步一步，邊做邊檢查，直到完成</span></label><label class="gqz-opt"><input type="radio" name="gq8" value="D"><span class="gqz-l">D</span><span>因為它有特別的網路頻寬</span></label></div>
+</div><p class="gqz-cat">為什麼它會問你</p><div class="gqz-q" data-correct="D">
+  <p class="gqz-n">第 9 題</p>
+  <p class="gqz-t">為什麼 Claude Code 有時候會停下來問你「要不要繼續」？</p>
+  <div class="gqz-opts"><label class="gqz-opt"><input type="radio" name="gq9" value="A"><span class="gqz-l">A</span><span>它當機了</span></label><label class="gqz-opt"><input type="radio" name="gq9" value="B"><span class="gqz-l">B</span><span>它想聊天</span></label><label class="gqz-opt"><input type="radio" name="gq9" value="C"><span class="gqz-l">C</span><span>網路太慢</span></label><label class="gqz-opt"><input type="radio" name="gq9" value="D"><span class="gqz-l">D</span><span>遇到比較有風險或不可逆的動作（例如 commit、刪除檔案），會先確認過你才做</span></label></div>
+</div><div class="gqz-q" data-correct="B">
+  <p class="gqz-n">第 10 題</p>
+  <p class="gqz-t">「human-in-the-loop」（人在迴圈中）的意思最接近？</p>
+  <div class="gqz-opts"><label class="gqz-opt"><input type="radio" name="gq10" value="A"><span class="gqz-l">A</span><span>完全不用人參與，代理人自己決定一切</span></label><label class="gqz-opt"><input type="radio" name="gq10" value="B"><span class="gqz-l">B</span><span>重要或有風險的步驟，會先讓人確認，而不是代理人自己默默做主</span></label><label class="gqz-opt"><input type="radio" name="gq10" value="C"><span class="gqz-l">C</span><span>人要一直盯著螢幕打字</span></label><label class="gqz-opt"><input type="radio" name="gq10" value="D"><span class="gqz-l">D</span><span>每個步驟都要重開機</span></label></div>
+</div><div class="gqz-q" data-correct="C">
+  <p class="gqz-n">第 11 題</p>
+  <p class="gqz-t">下列哪一種操作，代理人比較可能會先問你再做？</p>
+  <div class="gqz-opts"><label class="gqz-opt"><input type="radio" name="gq11" value="A"><span class="gqz-l">A</span><span>讀取一個檔案的內容</span></label><label class="gqz-opt"><input type="radio" name="gq11" value="B"><span class="gqz-l">B</span><span>顯示目前的檔案清單</span></label><label class="gqz-opt"><input type="radio" name="gq11" value="C"><span class="gqz-l">C</span><span>把變更 push 到 GitHub、公開上線</span></label><label class="gqz-opt"><input type="radio" name="gq11" value="D"><span class="gqz-l">D</span><span>檢查拼字錯誤</span></label></div>
+</div><div class="gqz-q" data-correct="A">
+  <p class="gqz-n">第 12 題</p>
+  <p class="gqz-t">代理人會主動請你確認風險較高的動作，這對非技術背景的使用者來說代表？</p>
+  <div class="gqz-opts"><label class="gqz-opt"><input type="radio" name="gq12" value="A"><span class="gqz-l">A</span><span>代表就算不懂技術細節，重要決定還是掌握在你手上</span></label><label class="gqz-opt"><input type="radio" name="gq12" value="B"><span class="gqz-l">B</span><span>代表這個工具很難用</span></label><label class="gqz-opt"><input type="radio" name="gq12" value="C"><span class="gqz-l">C</span><span>代表你一定要先學會寫程式</span></label><label class="gqz-opt"><input type="radio" name="gq12" value="D"><span class="gqz-l">D</span><span>代表這個功能是收費限定</span></label></div>
+</div><p class="gqz-cat">指令與情境</p><div class="gqz-q" data-correct="B">
+  <p class="gqz-n">第 13 題</p>
+  <p class="gqz-t">給代理人的指令（prompt）越清楚，通常代表？</p>
+  <div class="gqz-opts"><label class="gqz-opt"><input type="radio" name="gq13" value="A"><span class="gqz-l">A</span><span>代理人的回答速度會變慢</span></label><label class="gqz-opt"><input type="radio" name="gq13" value="B"><span class="gqz-l">B</span><span>代理人做出來的結果越接近你要的</span></label><label class="gqz-opt"><input type="radio" name="gq13" value="C"><span class="gqz-l">C</span><span>完全沒有影響</span></label><label class="gqz-opt"><input type="radio" name="gq13" value="D"><span class="gqz-l">D</span><span>代理人會拒絕執行</span></label></div>
+</div><div class="gqz-q" data-correct="C">
+  <p class="gqz-n">第 14 題</p>
+  <p class="gqz-t">「context window」（上下文窗口）大致是指？</p>
+  <div class="gqz-opts"><label class="gqz-opt"><input type="radio" name="gq14" value="A"><span class="gqz-l">A</span><span>電腦螢幕的大小</span></label><label class="gqz-opt"><input type="radio" name="gq14" value="B"><span class="gqz-l">B</span><span>網路頻寬速度</span></label><label class="gqz-opt"><input type="radio" name="gq14" value="C"><span class="gqz-l">C</span><span>代理人一次能記得、參考的對話與資料量是有限的</span></label><label class="gqz-opt"><input type="radio" name="gq14" value="D"><span class="gqz-l">D</span><span>檔案總數量</span></label></div>
+</div><div class="gqz-q" data-correct="A">
+  <p class="gqz-n">第 15 題</p>
+  <p class="gqz-t">當任務很大、很複雜時，為什麼有時候會用「多個代理人平行處理」？</p>
+  <div class="gqz-opts"><label class="gqz-opt"><input type="radio" name="gq15" value="A"><span class="gqz-l">A</span><span>把大任務拆成幾個獨立的小任務，讓不同代理人同時進行，比較有效率</span></label><label class="gqz-opt"><input type="radio" name="gq15" value="B"><span class="gqz-l">B</span><span>純粹好玩</span></label><label class="gqz-opt"><input type="radio" name="gq15" value="C"><span class="gqz-l">C</span><span>這樣比較浪費資源，沒有實際好處</span></label><label class="gqz-opt"><input type="radio" name="gq15" value="D"><span class="gqz-l">D</span><span>因為單一代理人不能開兩次</span></label></div>
+</div><div class="gqz-q" data-correct="D">
+  <p class="gqz-n">第 16 題</p>
+  <p class="gqz-t">如果代理人一直誤解你的需求，比較有效的做法是？</p>
+  <div class="gqz-opts"><label class="gqz-opt"><input type="radio" name="gq16" value="A"><span class="gqz-l">A</span><span>直接放棄，不用了</span></label><label class="gqz-opt"><input type="radio" name="gq16" value="B"><span class="gqz-l">B</span><span>罵它</span></label><label class="gqz-opt"><input type="radio" name="gq16" value="C"><span class="gqz-l">C</span><span>換一台電腦重新開始</span></label><label class="gqz-opt"><input type="radio" name="gq16" value="D"><span class="gqz-l">D</span><span>把指令說得更具體、補充目標和限制條件</span></label></div>
+</div><p class="gqz-cat">安全使用代理人</p><div class="gqz-q" data-correct="C">
+  <p class="gqz-n">第 17 題</p>
+  <p class="gqz-t">為什麼讓代理人自己嘗試、修正錯誤是相對安全的？</p>
+  <div class="gqz-opts"><label class="gqz-opt"><input type="radio" name="gq17" value="A"><span class="gqz-l">A</span><span>因為代理人不會犯錯</span></label><label class="gqz-opt"><input type="radio" name="gq17" value="B"><span class="gqz-l">B</span><span>因為代理人做的事都不會被記錄</span></label><label class="gqz-opt"><input type="radio" name="gq17" value="C"><span class="gqz-l">C</span><span>因為有 commit 檢查點，出錯了可以退回到前一個能用的版本</span></label><label class="gqz-opt"><input type="radio" name="gq17" value="D"><span class="gqz-l">D</span><span>因為網路會自動備份一切</span></label></div>
+</div><div class="gqz-q" data-correct="A">
+  <p class="gqz-n">第 18 題</p>
+  <p class="gqz-t">在請代理人做風險較高的大改動之前，比較保險的做法是？</p>
+  <div class="gqz-opts"><label class="gqz-opt"><input type="radio" name="gq18" value="A"><span class="gqz-l">A</span><span>先請它 commit 一次，留下可以回頭的檢查點</span></label><label class="gqz-opt"><input type="radio" name="gq18" value="B"><span class="gqz-l">B</span><span>先把電腦關機</span></label><label class="gqz-opt"><input type="radio" name="gq18" value="C"><span class="gqz-l">C</span><span>先刪除舊的檔案</span></label><label class="gqz-opt"><input type="radio" name="gq18" value="D"><span class="gqz-l">D</span><span>什麼都不用準備</span></label></div>
+</div><div class="gqz-q" data-correct="D">
+  <p class="gqz-n">第 19 題</p>
+  <p class="gqz-t">身為非技術背景的使用者，善用代理人的關鍵心態是？</p>
+  <div class="gqz-opts"><label class="gqz-opt"><input type="radio" name="gq19" value="A"><span class="gqz-l">A</span><span>完全不用管它在做什麼，全部交給它</span></label><label class="gqz-opt"><input type="radio" name="gq19" value="B"><span class="gqz-l">B</span><span>一定要先學會寫程式才能用</span></label><label class="gqz-opt"><input type="radio" name="gq19" value="C"><span class="gqz-l">C</span><span>代理人的建議永遠不用檢查</span></label><label class="gqz-opt"><input type="radio" name="gq19" value="D"><span class="gqz-l">D</span><span>給清楚的目標與限制、對風險較高的步驟保持確認，其餘交給代理人處理細節</span></label></div>
+</div><div class="gqz-q" data-correct="B">
+  <p class="gqz-n">第 20 題</p>
+  <p class="gqz-t">「代理人」（agent）和「Git／GitHub」這兩堂課的關聯是？</p>
+  <div class="gqz-opts"><label class="gqz-opt"><input type="radio" name="gq20" value="A"><span class="gqz-l">A</span><span>完全無關，兩者是獨立主題</span></label><label class="gqz-opt"><input type="radio" name="gq20" value="B"><span class="gqz-l">B</span><span>代理人在幫你做事時，背後常常就是透過 Git 在存檔、上傳，這就是為什麼它會問 commit、push</span></label><label class="gqz-opt"><input type="radio" name="gq20" value="C"><span class="gqz-l">C</span><span>Git 是代理人的品牌名稱</span></label><label class="gqz-opt"><input type="radio" name="gq20" value="D"><span class="gqz-l">D</span><span>GitHub 是用來訓練代理人的網站</span></label></div>
+</div>
+<div class="gqz-actions">
+  <button type="submit" class="btn btn-primary">檢查我的答案</button>
+  <button type="button" id="gqzReset" class="btn btn-ghost">重新作答</button>
+  <span id="gqzScore" class="gqz-score"><span class="badge" id="gqzBadge"></span><span id="gqzMsg"></span></span>
+</div>
+</form>
+<p style="margin-top:2rem"><a class="btn btn-ghost" href="/staff-training/">← 回內部訓練專區</a></p>
+</div></section>
+<script>
+(function () {
+  var form = document.getElementById('gqzForm');
+  if (!form) return;
+  var questions = [].slice.call(form.querySelectorAll('.gqz-q'));
+  var scoreWrap = document.getElementById('gqzScore');
+  var badge = document.getElementById('gqzBadge');
+  var msg = document.getElementById('gqzMsg');
+  var total = questions.length;
+  var MESSAGES = [
+    { min: Math.ceil(total * 0.92), text: '滿分等級——你已經聽得懂 AI 在講什麼了！' },
+    { min: Math.ceil(total * 0.7),  text: '很不錯，只剩幾題再看一次上面的說明就好。' },
+    { min: Math.ceil(total * 0.5),  text: '一半以上答對，建議把錯的地方再讀一遍。' },
+    { min: 0,  text: '沒關係，這些詞第一次看本來就會亂——建議整份再讀一次。' }
+  ];
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var score = 0, allAnswered = true;
+    questions.forEach(function (q) {
+      var correct = q.getAttribute('data-correct');
+      var checked = q.querySelector('input:checked');
+      if (!checked) { allAnswered = false; return; }
+      q.classList.add('answered');
+      [].slice.call(q.querySelectorAll('.gqz-opt')).forEach(function (opt) {
+        var input = opt.querySelector('input');
+        opt.classList.remove('is-correct', 'is-wrong');
+        if (input.value === correct) opt.classList.add('is-correct');
+        else if (input === checked) opt.classList.add('is-wrong');
+      });
+      if (checked.value === correct) score++;
+    });
+    if (!allAnswered) { alert('請先回答完所有題目再檢查喔。'); return; }
+    badge.textContent = score + ' / ' + total;
+    var m = MESSAGES.find(function (x) { return score >= x.min; });
+    msg.textContent = m.text;
+    scoreWrap.classList.add('show');
+    scoreWrap.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  });
+  document.getElementById('gqzReset').addEventListener('click', function () {
+    form.reset();
+    questions.forEach(function (q) {
+      q.classList.remove('answered');
+      [].slice.call(q.querySelectorAll('.gqz-opt')).forEach(function (opt) {
+        opt.classList.remove('is-correct', 'is-wrong');
+      });
+    });
+    scoreWrap.classList.remove('show');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+})();
+</script>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap foot-grid">
+    <div>
+      <div class="foot-brand">彰化縣人師教育協會</div>
+      <p style="max-width:42ch;color:#9fb6af;font-size:.95rem">自民國 98 年（2009）成立，依法設立、非以營利為目的之社會團體，長年推廣偏鄉英語教育、製作免費學習資源。</p>
+      <p style="font-size:.92rem;color:#9fb6af">彰化縣北斗鎮文苑路一段 136 號</p>
+    </div>
+    <div>
+      <h4>探索</h4>
+      <ul class="foot-list">
+        <li><a href="/about/">認識人師</a></li>
+        <li><a href="/rural-schools/">偏鄉英語教育</a></li>
+        <li><a href="/resources/">英語學習資源</a></li>
+        <li><a href="/media/">人師影音專區</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>連結</h4>
+      <ul class="foot-list">
+        <li><a href="https://www.facebook.com/renshiacademy/" target="_blank" rel="noopener">人師粉絲專頁</a></li>
+        <li><a href="https://taiwan-bilingual.org" target="_blank" rel="noopener">台灣雙語資源網</a></li>
+        <li><a href="https://www.mycultureconnect.org/" target="_blank" rel="noopener">My Culture Connect</a></li>
+        <li><a href="https://changhua-bilingual.org" target="_blank" rel="noopener">彰化雙語資源網</a></li>
+        <li><a href="mailto:luke@mycultureconnect.org">luke@mycultureconnect.org</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bottom">
+    <span>© 2009–2026 彰化縣人師教育協會　·　Learn from yesterday, live for today, and hope for tomorrow.</span>
+    <span>Rebuilt with care · GitHub Pages</span>
+  </div>
+</footer>
+<script src="/assets/js/main.js?v=b4a08548"></script>
+<script defer src="/assets/js/search.js?v=b4a08548"></script>
+</body>
+</html>
