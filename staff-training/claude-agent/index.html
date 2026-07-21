@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>認識 Claude 代理人｜彰化縣人師教育協會</title>
-<meta name="description" content="Agent、Claude 5 模型家族、Project、Routines、Cowork、MCP 等術語說明，附兩回合共 36 題小考。">
+<meta name="description" content="Agent、Claude 5 模型家族、Project、Routines、Cowork、MCP、Workflow 等術語說明，附三回合共 52 題小考。">
 <meta name="robots" content="noindex, nofollow">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,7 +14,7 @@
 <link rel="stylesheet" href="/assets/css/search.css?v=c0751b52">
 <link rel="icon" href="/assets/img/logo-badge.svg" type="image/svg+xml">
 <meta property="og:title" content="認識 Claude 代理人｜彰化縣人師教育協會">
-<meta property="og:description" content="Agent、Claude 5 模型家族、Project、Routines、Cowork、MCP 等術語說明，附兩回合共 36 題小考。">
+<meta property="og:description" content="Agent、Claude 5 模型家族、Project、Routines、Cowork、MCP、Workflow 等術語說明，附三回合共 52 題小考。">
 <meta property="og:type" content="website">
 </head>
 <body>
@@ -76,14 +76,16 @@
 <section class="section tight" style="padding-bottom:0"><div class="wrap">
 <a class="btn btn-ghost" href="/staff-training/">← 回內部訓練專區</a>
 </div></section>
-<section class="section"><div class="wrap prose wide rvl">
+<nav class="unit-nav" aria-label="回合導覽"><div class="wrap"><span class="unit-nav-label">跳到回合</span><div class="unit-nav-track"><a class="unit-nav-link" href="#round1"><b>1</b><span>基礎</span></a><a class="unit-nav-link" href="#round2"><b>2</b><span>產品與代理人術語</span></a><a class="unit-nav-link" href="#round3"><b>3</b><span>工作流程與工具</span></a></div></div></nav>
+
+<section class="section" id="round1" style="scroll-margin-top:140px"><div class="wrap prose wide rvl">
 <p class="eyebrow">第一回合 · 基礎</p>
 <p>「代理人」（agent）跟一般聊天機器人不一樣：它不只回答問題，還會實際去讀檔案、寫程式、執行指令，一步一步把任務做完。看懂下面這幾個詞，你就懂代理人在做什麼、為什麼它會停下來問你。</p>
 <ul><li><strong>Agent（代理人）</strong> — 不只回答問題，還能實際執行動作的 AI——讀寫檔案、跑指令、上網查資料。</li><li><strong>Claude Code</strong> — 在你的電腦裡運作的 AI 代理人，能幫你讀寫程式、操作 Git、完成多步驟任務。</li><li><strong>Tool use（工具使用）</strong> — 代理人透過「工具」去做具體的事，而不是憑空生成一段文字答案。</li><li><strong>Agentic loop（代理人迴圈）</strong> — 規劃 → 執行 → 觀察結果 → 修正 → 再繼續，直到任務完成。</li><li><strong>Human-in-the-loop（人在迴圈中）</strong> — 風險較高或不可逆的步驟，代理人會先問過你才做。</li><li><strong>Context window（上下文窗口）</strong> — 代理人一次能記得、參考的對話與資料量是有限的。</li><li><strong>Prompt（指令）</strong> — 你給代理人的任務描述，說得越清楚，結果越接近你要的。</li><li><strong>Subagent（子代理人）</strong> — 把大任務拆成幾個小任務，派不同代理人平行處理。</li><li><strong>Permission（權限確認）</strong> — 代理人執行有風險的動作前，會停下來讓你確認。</li><li><strong>Checkpoint（檢查點）</strong> — 靠 Git commit 留下的存檔點，讓代理人放手嘗試也還是安全——見另一張技能卡。</li></ul>
 </div></section>
 <section class="section tight"><div class="wrap">
 <p class="eyebrow rvl">小考 · Quick Check</p>
-<h2 class="rvl" style="margin-bottom:1.6rem">第一回合：20 題基礎題</h2>
+<h2 class="rvl" style="margin-bottom:1.6rem">第一回合：20 題</h2>
 
 <form id="gqzForm1">
 <p class="gqz-cat">什麼是 AI 代理人</p><div class="gqz-q" data-correct="C">
@@ -251,15 +253,14 @@
   });
 })();
 </script>
-<section class="section"><div class="wrap prose wide rvl">
+<section class="section" id="round2" style="scroll-margin-top:140px"><div class="wrap prose wide rvl">
 <p class="eyebrow">第二回合 · 進階</p>
-<h2 style="margin-bottom:.6rem">更深一層：Claude 產品與代理人術語</h2>
 <p>第一回合是入門，這裡開始才是真正在用 Claude 的人會遇到的詞——模型家族、Project、Routines、Cowork、MCP、Hooks、Subagent 這些。答錯會直接告訴你為什麼。</p>
 <ul><li><strong>Claude 5 家族</strong> — 目前的模型陣容：Fable 5、Opus 4.8、Sonnet 5、Haiku 4.5，各自有對應的模型 ID（如 claude-sonnet-5）。</li><li><strong>Fast mode</strong> — 把模型換成 Opus、並用更快速的輸出方式，不是換成比較小的模型。</li><li><strong>Project（專案）</strong> — 把相關對話、參考檔案、自訂指令收在同一個空間，讓 Claude 每次都沿用一致的背景脈絡。</li><li><strong>Routines</strong> — 可以照排程（例如每天早上）自動執行的雲端代理人任務。</li><li><strong>Cowork</strong> — 給組織／團隊使用的協作模式，可依角色安裝外掛、串接常用工具一起完成工作。</li><li><strong>Artifacts</strong> — 把程式碼、網頁、圖表等內容渲染成可互動的獨立畫面，跟聊天文字分開顯示。</li><li><strong>MCP（Model Context Protocol）</strong> — 讓 Claude 能連接外部工具與資料來源（例如信箱、雲端硬碟、資料庫）的標準協定。</li><li><strong>Hooks</strong> — 在代理人執行的特定時機（例如每次工具呼叫前後）自動跑一段指令，用來客製化或把關它的行為。</li><li><strong>Slash commands</strong> — 用「/」開頭、快速觸發特定功能或流程的捷徑指令，例如 /help。</li><li><strong>Skill</strong> — 一包預先寫好的指示與流程，代理人遇到符合的任務時載入、照裡面的步驟做事。</li><li><strong>Subagent（子代理人）</strong> — 由主代理人派出去處理子任務的獨立代理人，做完把結果交回來，藉此平行工作、也不塞滿主對話的上下文。</li><li><strong>Worktree isolation</strong> — 讓平行執行的多個代理人各自在獨立的 git worktree 裡工作，避免互相覆寫同一批檔案。</li><li><strong>Extended thinking</strong> — 讓 Claude 在給出最終答案前，先花更多步驟做內部推理，適合複雜任務。</li><li><strong>Prompt caching</strong> — 把常重複的長內容（如系統指令、大段參考資料）快取起來，之後請求能更快、更省成本。</li></ul>
 </div></section>
 <section class="section tight"><div class="wrap">
 <p class="eyebrow rvl">小考 · Quick Check</p>
-<h2 class="rvl" style="margin-bottom:.4rem">第二回合：16 題進階題</h2>
+<h2 class="rvl" style="margin-bottom:.4rem">第二回合：16 題</h2>
 <p class="muted rvl" style="margin:-.6rem 0 1.4rem">答錯的題目送出後會直接顯示說明，幫你搞懂差在哪。</p>
 <form id="gqzForm2">
 <p class="gqz-cat">Claude 5 模型家族</p><div class="gqz-q" data-correct="C">
@@ -393,6 +394,161 @@
     scoreWrap.scrollIntoView({ behavior: 'smooth', block: 'center' });
   });
   document.getElementById('gqzReset2').addEventListener('click', function () {
+    form.reset();
+    questions.forEach(function (q) {
+      q.classList.remove('answered');
+      [].slice.call(q.querySelectorAll('.gqz-opt')).forEach(function (opt) {
+        opt.classList.remove('is-correct', 'is-wrong');
+      });
+      var explain = q.querySelector('.gqz-explain');
+      if (explain) explain.hidden = true;
+    });
+    scoreWrap.classList.remove('show');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+})();
+</script>
+<section class="section" id="round3" style="scroll-margin-top:140px"><div class="wrap prose wide rvl">
+<p class="eyebrow">第三回合 · 更進階</p>
+<p>這一回合講實際運作機制：任務怎麼平行處理、怎麼排程重複執行、Claude 怎麼記住你的偏好、遇到有風險的任務又是怎麼先讓你確認過再動手。</p>
+<ul><li><strong>pipeline()</strong> — 讓每個項目各自往下一階段走，不用等其他項目做完同一階段，通常比逐階段等待更快。</li><li><strong>parallel() / barrier</strong> — 同時執行多個任務，並等它們「全部做完」才繼續下一步——適合先彙整、去重所有結果再做下一步。</li><li><strong>Phase（階段）</strong> — 把一連串代理人呼叫依進度分組顯示的標籤，方便使用者看懂目前跑到哪。</li><li><strong>Routines</strong> — 排定時間自動執行的雲端代理人任務，概念上類似工程師熟悉的 Cron 排程。</li><li><strong>背景任務（background task）</strong> — 讓耗時的動作在背景執行，使用者可以先做別的事，等它完成再回來查看結果。</li><li><strong>記憶系統（Memory）</strong> — 讓 Claude 記住使用者的偏好、專案脈絡、溝通上該注意的地方，下次對話自動帶入。</li><li><strong>Plan mode（規畫模式）</strong> — 先把要執行的步驟列出來給使用者確認過，才真的動手做，適合複雜或有風險的任務。</li></ul>
+</div></section>
+<section class="section tight"><div class="wrap">
+<p class="eyebrow rvl">小考 · Quick Check</p>
+<h2 class="rvl" style="margin-bottom:.4rem">第三回合：16 題</h2>
+<p class="muted rvl" style="margin:-.6rem 0 1.4rem">答錯的題目送出後會直接顯示說明，幫你搞懂差在哪。</p>
+<form id="gqzForm3">
+<p class="gqz-cat">工作流程編排</p><div class="gqz-q" data-correct="C">
+  <p class="gqz-n">第 1 題</p>
+  <p class="gqz-t">「pipeline()」和「parallel()」這兩種工作流程編排方式，最大的差別是？</p>
+  <div class="gqz-opts"><label class="gqz-opt"><input type="radio" name="gq1" value="A"><span class="gqz-l">A</span><span>兩者完全一樣，只是名字不同</span></label><label class="gqz-opt"><input type="radio" name="gq1" value="B"><span class="gqz-l">B</span><span>pipeline 只能處理一個項目，parallel 可以處理很多個</span></label><label class="gqz-opt"><input type="radio" name="gq1" value="C"><span class="gqz-l">C</span><span>pipeline 讓每個項目各自走過所有階段、不用互相等待；parallel 是同時執行多個任務，並等全部做完才繼續</span></label><label class="gqz-opt"><input type="radio" name="gq1" value="D"><span class="gqz-l">D</span><span>parallel 比較慢，pipeline 比較快，永遠是這樣</span></label></div>
+  <div class="gqz-explain" hidden>pipeline 讓每個項目各自往下一階段走、不用等其他項目做完同一階段，通常比每個階段都設等待點更快；parallel／barrier 則是同時執行、並等全部完成才繼續下一步。</div>
+</div><div class="gqz-q" data-correct="A">
+  <p class="gqz-n">第 2 題</p>
+  <p class="gqz-t">在工作流程裡，什麼情況比較適合用「barrier」（等待所有結果到齊再繼續）？</p>
+  <div class="gqz-opts"><label class="gqz-opt"><input type="radio" name="gq2" value="A"><span class="gqz-l">A</span><span>例如要先把所有分頭找到的結果去重、彙整完，才能進行下一步耗費資源的動作</span></label><label class="gqz-opt"><input type="radio" name="gq2" value="B"><span class="gqz-l">B</span><span>每次都要用，沒有例外</span></label><label class="gqz-opt"><input type="radio" name="gq2" value="C"><span class="gqz-l">C</span><span>從來不需要用</span></label><label class="gqz-opt"><input type="radio" name="gq2" value="D"><span class="gqz-l">D</span><span>只有代理人數量少於 2 個時才用</span></label></div>
+  <div class="gqz-explain" hidden>barrier（等待所有結果到齊）適合在需要先彙整、去重全部結果再進行下一步昂貴動作的情境，其餘時候用 pipeline 通常更有效率。</div>
+</div><div class="gqz-q" data-correct="D">
+  <p class="gqz-n">第 3 題</p>
+  <p class="gqz-t">「phase（階段）」在工作流程畫面上的作用是？</p>
+  <div class="gqz-opts"><label class="gqz-opt"><input type="radio" name="gq3" value="A"><span class="gqz-l">A</span><span>是用來加密資料的機制</span></label><label class="gqz-opt"><input type="radio" name="gq3" value="B"><span class="gqz-l">B</span><span>決定要花多少錢</span></label><label class="gqz-opt"><input type="radio" name="gq3" value="C"><span class="gqz-l">C</span><span>跟畫面顯示完全無關，只是內部變數名稱</span></label><label class="gqz-opt"><input type="radio" name="gq3" value="D"><span class="gqz-l">D</span><span>把一連串代理人呼叫依進度分組顯示，方便使用者看懂目前做到哪</span></label></div>
+  <div class="gqz-explain" hidden>phase 只是畫面上的進度分組標籤，方便使用者看懂目前跑到哪個階段，不影響底層邏輯。</div>
+</div><div class="gqz-q" data-correct="B">
+  <p class="gqz-n">第 4 題</p>
+  <p class="gqz-t">為什麼工作流程通常「預設用 pipeline，而不是每次都用 barrier（parallel）」？</p>
+  <div class="gqz-opts"><label class="gqz-opt"><input type="radio" name="gq4" value="A"><span class="gqz-l">A</span><span>Barrier 比較便宜</span></label><label class="gqz-opt"><input type="radio" name="gq4" value="B"><span class="gqz-l">B</span><span>因為 barrier 會讓所有項目卡在同一個階段等待，即使有些項目其實不需要等，浪費等待時間</span></label><label class="gqz-opt"><input type="radio" name="gq4" value="C"><span class="gqz-l">C</span><span>Pipeline 才有畫面顯示</span></label><label class="gqz-opt"><input type="radio" name="gq4" value="D"><span class="gqz-l">D</span><span>兩者其實沒有效能差異</span></label></div>
+  <div class="gqz-explain" hidden>如果每個階段都設等待點（barrier），跑得快的項目也要陪跑得慢的項目一起等，浪費了原本可以提早進行下一步的時間，所以預設用 pipeline。</div>
+</div><p class="gqz-cat">排程與背景任務</p><div class="gqz-q" data-correct="A">
+  <p class="gqz-n">第 5 題</p>
+  <p class="gqz-t">「Routines」和一般工程師講的「Cron」排程，關係最接近的說法是？</p>
+  <div class="gqz-opts"><label class="gqz-opt"><input type="radio" name="gq5" value="A"><span class="gqz-l">A</span><span>Routines 是排定時間自動執行的雲端代理人任務，概念上類似 Cron（依時間表排程執行）</span></label><label class="gqz-opt"><input type="radio" name="gq5" value="B"><span class="gqz-l">B</span><span>兩者完全無關</span></label><label class="gqz-opt"><input type="radio" name="gq5" value="C"><span class="gqz-l">C</span><span>Cron 只能設定一次性任務，Routines 可以永久執行不會停</span></label><label class="gqz-opt"><input type="radio" name="gq5" value="D"><span class="gqz-l">D</span><span>Routines 是 Cron 的競爭對手，功能完全相反</span></label></div>
+  <div class="gqz-explain" hidden>Routines 概念上就是「排定時間自動執行的代理人任務」，跟工程師熟悉的 Cron 排程邏輯類似，只是換成給一般使用者用的介面。</div>
+</div><div class="gqz-q" data-correct="D">
+  <p class="gqz-n">第 6 題</p>
+  <p class="gqz-t">「背景任務」（background task）的好處主要是？</p>
+  <div class="gqz-opts"><label class="gqz-opt"><input type="radio" name="gq6" value="A"><span class="gqz-l">A</span><span>讓程式自動消失，不留任何紀錄</span></label><label class="gqz-opt"><input type="radio" name="gq6" value="B"><span class="gqz-l">B</span><span>純粹是為了省電</span></label><label class="gqz-opt"><input type="radio" name="gq6" value="C"><span class="gqz-l">C</span><span>讓所有工作都變成免費</span></label><label class="gqz-opt"><input type="radio" name="gq6" value="D"><span class="gqz-l">D</span><span>讓耗時的動作在背景執行，你可以先處理別的事，等它完成後再回來查看結果</span></label></div>
+  <div class="gqz-explain" hidden>背景任務讓耗時的動作不卡住你，你可以先做別的事，等它做完再回來查看結果，是它最主要的價值。</div>
+</div><div class="gqz-q" data-correct="B">
+  <p class="gqz-n">第 7 題</p>
+  <p class="gqz-t">如果你啟動一個背景任務後又想查看它目前執行到哪，比較適合的作法是？</p>
+  <div class="gqz-opts"><label class="gqz-opt"><input type="radio" name="gq7" value="A"><span class="gqz-l">A</span><span>什麼都不用做，結果自動用簡訊通知你</span></label><label class="gqz-opt"><input type="radio" name="gq7" value="B"><span class="gqz-l">B</span><span>查詢該任務目前的輸出或狀態，而不是每隔幾秒鐘就重複催促</span></label><label class="gqz-opt"><input type="radio" name="gq7" value="C"><span class="gqz-l">C</span><span>一定要一直盯著螢幕，否則任務會消失</span></label><label class="gqz-opt"><input type="radio" name="gq7" value="D"><span class="gqz-l">D</span><span>只能等它完全結束後才能查看任何資訊</span></label></div>
+  <div class="gqz-explain" hidden>查詢任務目前的狀態或輸出，是了解進度的正確做法；不斷催促或干擾反而沒有幫助。</div>
+</div><div class="gqz-q" data-correct="C">
+  <p class="gqz-n">第 8 題</p>
+  <p class="gqz-t">排程一個 Routine 之前，比較重要的考量是？</p>
+  <div class="gqz-opts"><label class="gqz-opt"><input type="radio" name="gq8" value="A"><span class="gqz-l">A</span><span>排程時間要精準到毫秒等級才有意義</span></label><label class="gqz-opt"><input type="radio" name="gq8" value="B"><span class="gqz-l">B</span><span>Routine 只能設定在半夜執行</span></label><label class="gqz-opt"><input type="radio" name="gq8" value="C"><span class="gqz-l">C</span><span>想清楚多久跑一次、每次要做什麼，避免排太頻繁造成不必要的重複工作</span></label><label class="gqz-opt"><input type="radio" name="gq8" value="D"><span class="gqz-l">D</span><span>完全不需要考慮頻率，愈頻繁愈好</span></label></div>
+  <div class="gqz-explain" hidden>排程太頻繁會造成不必要的重複工作與資源浪費，先想清楚合理的執行頻率比較重要。</div>
+</div><p class="gqz-cat">記憶系統</p><div class="gqz-q" data-correct="D">
+  <p class="gqz-n">第 9 題</p>
+  <p class="gqz-t">Claude 的「記憶系統」主要用途是？</p>
+  <div class="gqz-opts"><label class="gqz-opt"><input type="radio" name="gq9" value="A"><span class="gqz-l">A</span><span>儲存使用者的密碼</span></label><label class="gqz-opt"><input type="radio" name="gq9" value="B"><span class="gqz-l">B</span><span>只是用來記錄對話字數</span></label><label class="gqz-opt"><input type="radio" name="gq9" value="C"><span class="gqz-l">C</span><span>跟使用體驗完全無關</span></label><label class="gqz-opt"><input type="radio" name="gq9" value="D"><span class="gqz-l">D</span><span>讓 Claude 記住使用者的偏好、專案脈絡、溝通上該注意的地方，下次對話自動帶入</span></label></div>
+  <div class="gqz-explain" hidden>記憶系統的核心價值就是讓 Claude 記住使用者的偏好、專案脈絡與溝通上該注意的地方，減少重複解釋。</div>
+</div><div class="gqz-q" data-correct="B">
+  <p class="gqz-n">第 10 題</p>
+  <p class="gqz-t">如果使用者明確糾正 Claude 的某個做法（例如「小考選項一律要有 A/B/C/D」），比較好的處理方式是？</p>
+  <div class="gqz-opts"><label class="gqz-opt"><input type="radio" name="gq10" value="A"><span class="gqz-l">A</span><span>忽略這個回饋，繼續原本的做法</span></label><label class="gqz-opt"><input type="radio" name="gq10" value="B"><span class="gqz-l">B</span><span>把這個回饋記下來，之後同類型任務自動套用，不用使用者每次重講</span></label><label class="gqz-opt"><input type="radio" name="gq10" value="C"><span class="gqz-l">C</span><span>立刻結束對話</span></label><label class="gqz-opt"><input type="radio" name="gq10" value="D"><span class="gqz-l">D</span><span>要求使用者用書面正式提出申請</span></label></div>
+  <div class="gqz-explain" hidden>明確的使用者回饋（尤其是糾正）應該被記下來，讓同類型任務未來自動套用，這樣使用者不用每次重講一次——這一頁的小考格式就是這樣來的。</div>
+</div><div class="gqz-q" data-correct="C">
+  <p class="gqz-n">第 11 題</p>
+  <p class="gqz-t">記憶系統裡的「參考型（reference）」記憶，通常記錄的是？</p>
+  <div class="gqz-opts"><label class="gqz-opt"><input type="radio" name="gq11" value="A"><span class="gqz-l">A</span><span>使用者的心情</span></label><label class="gqz-opt"><input type="radio" name="gq11" value="B"><span class="gqz-l">B</span><span>純粹的天氣資訊</span></label><label class="gqz-opt"><input type="radio" name="gq11" value="C"><span class="gqz-l">C</span><span>外部系統的位置或用途，例如「某類問題可以到哪個工具／文件找答案」</span></label><label class="gqz-opt"><input type="radio" name="gq11" value="D"><span class="gqz-l">D</span><span>跟這個系統完全無關的內容</span></label></div>
+  <div class="gqz-explain" hidden>參考型記憶記的是外部系統在哪裡、做什麼用，方便日後遇到類似問題時知道去哪裡查。</div>
+</div><div class="gqz-q" data-correct="A">
+  <p class="gqz-n">第 12 題</p>
+  <p class="gqz-t">為什麼記憶系統不會把「使用者這次要求的具體任務內容」也存成長期記憶？</p>
+  <div class="gqz-opts"><label class="gqz-opt"><input type="radio" name="gq12" value="A"><span class="gqz-l">A</span><span>因為這類細節通常只跟當下的任務有關，不是能廣泛套用在未來對話的通用資訊</span></label><label class="gqz-opt"><input type="radio" name="gq12" value="B"><span class="gqz-l">B</span><span>因為技術上做不到</span></label><label class="gqz-opt"><input type="radio" name="gq12" value="C"><span class="gqz-l">C</span><span>因為使用者付費才能用</span></label><label class="gqz-opt"><input type="radio" name="gq12" value="D"><span class="gqz-l">D</span><span>因為系統會自動刪除所有資料</span></label></div>
+  <div class="gqz-explain" hidden>只跟當下任務有關的細節（例如這次要改的檔案名稱）通常不會被存成長期記憶，因為它對未來的對話沒有廣泛的參考價值。</div>
+</div><p class="gqz-cat">Plan mode 與風險控管</p><div class="gqz-q" data-correct="B">
+  <p class="gqz-n">第 13 題</p>
+  <p class="gqz-t">「Plan mode（規畫模式）」的用途最接近？</p>
+  <div class="gqz-opts"><label class="gqz-opt"><input type="radio" name="gq13" value="A"><span class="gqz-l">A</span><span>讓 Claude 自動關閉，不再回應</span></label><label class="gqz-opt"><input type="radio" name="gq13" value="B"><span class="gqz-l">B</span><span>先把要執行的步驟列出來給使用者確認過，才真的動手做，適合複雜或有風險的任務</span></label><label class="gqz-opt"><input type="radio" name="gq13" value="C"><span class="gqz-l">C</span><span>只能用來查字典</span></label><label class="gqz-opt"><input type="radio" name="gq13" value="D"><span class="gqz-l">D</span><span>跟任務執行完全無關的裝飾功能</span></label></div>
+  <div class="gqz-explain" hidden>Plan mode 讓 Claude 先把步驟列出來給你確認，你同意之後才真的動手，適合複雜或有風險的任務。</div>
+</div><div class="gqz-q" data-correct="C">
+  <p class="gqz-n">第 14 題</p>
+  <p class="gqz-t">什麼樣的任務，比較適合先用 plan mode 過一遍，再讓代理人動手？</p>
+  <div class="gqz-opts"><label class="gqz-opt"><input type="radio" name="gq14" value="A"><span class="gqz-l">A</span><span>簡單到一步就能完成的小事</span></label><label class="gqz-opt"><input type="radio" name="gq14" value="B"><span class="gqz-l">B</span><span>完全不需要 plan mode，任何任務都應該直接動手</span></label><label class="gqz-opt"><input type="radio" name="gq14" value="C"><span class="gqz-l">C</span><span>涉及多個步驟、有一定風險或不容易回頭的任務</span></label><label class="gqz-opt"><input type="radio" name="gq14" value="D"><span class="gqz-l">D</span><span>只有免費使用者才需要用 plan mode</span></label></div>
+  <div class="gqz-explain" hidden>越是多步驟、有風險或不容易回頭的任務，越適合先過一次 plan mode，讓你有機會在動手前調整方向。</div>
+</div><div class="gqz-q" data-correct="A">
+  <p class="gqz-n">第 15 題</p>
+  <p class="gqz-t">Worktree（在平行代理人情境下）用完之後，比較典型的情況是？</p>
+  <div class="gqz-opts"><label class="gqz-opt"><input type="radio" name="gq15" value="A"><span class="gqz-l">A</span><span>如果沒有留下變更，通常會自動被清理掉，不需要手動整理</span></label><label class="gqz-opt"><input type="radio" name="gq15" value="B"><span class="gqz-l">B</span><span>永遠留在硬碟裡，佔用越來越多空間，沒有清理機制</span></label><label class="gqz-opt"><input type="radio" name="gq15" value="C"><span class="gqz-l">C</span><span>一定要手動刪除，否則整個電腦會當機</span></label><label class="gqz-opt"><input type="radio" name="gq15" value="D"><span class="gqz-l">D</span><span>worktree 建立後就無法刪除</span></label></div>
+  <div class="gqz-explain" hidden>worktree 如果沒有留下實際的變更，通常會在用完後自動被清理，不需要額外手動整理。</div>
+</div><div class="gqz-q" data-correct="D">
+  <p class="gqz-n">第 16 題</p>
+  <p class="gqz-t">這一回合（工作流程與工具）跟前兩回合最主要的連結是？</p>
+  <div class="gqz-opts"><label class="gqz-opt"><input type="radio" name="gq16" value="A"><span class="gqz-l">A</span><span>完全無關，是全新獨立主題</span></label><label class="gqz-opt"><input type="radio" name="gq16" value="B"><span class="gqz-l">B</span><span>只是換個名字重講一樣的內容</span></label><label class="gqz-opt"><input type="radio" name="gq16" value="C"><span class="gqz-l">C</span><span>這回合的內容跟 Git／GitHub 完全沒有任何關聯</span></label><label class="gqz-opt"><input type="radio" name="gq16" value="D"><span class="gqz-l">D</span><span>Workflow、Routines、Memory、Plan mode 這些工具，背後運作的基礎概念（agent、subagent、checkpoint、human-in-the-loop）都是前兩回合學過的東西的延伸應用</span></label></div>
+  <div class="gqz-explain" hidden>這一回合講的 Workflow、Routines、Memory、Plan mode，其實都是建立在前兩回合學過的 agent、subagent、checkpoint、human-in-the-loop 這些基礎概念之上的實際應用。</div>
+</div>
+<div class="gqz-actions">
+  <button type="submit" class="btn btn-primary">檢查我的答案</button>
+  <button type="button" id="gqzReset3" class="btn btn-ghost">重新作答</button>
+  <span id="gqzScore3" class="gqz-score"><span class="badge" id="gqzBadge3"></span><span id="gqzMsg3"></span></span>
+</div>
+</form>
+<p style="margin-top:2rem"><a class="btn btn-ghost" href="/staff-training/">← 回內部訓練專區</a></p>
+</div></section>
+<script>
+(function () {
+  var form = document.getElementById('gqzForm3');
+  if (!form) return;
+  var questions = [].slice.call(form.querySelectorAll('.gqz-q'));
+  var scoreWrap = document.getElementById('gqzScore3');
+  var badge = document.getElementById('gqzBadge3');
+  var msg = document.getElementById('gqzMsg3');
+  var total = questions.length;
+  var MESSAGES = [
+    { min: Math.ceil(total * 0.92), text: '滿分等級——你已經聽得懂 AI 在講什麼了！' },
+    { min: Math.ceil(total * 0.7),  text: '很不錯，只剩幾題再看一次上面的說明就好。' },
+    { min: Math.ceil(total * 0.5),  text: '一半以上答對，建議把錯的地方再讀一遍。' },
+    { min: 0,  text: '沒關係，這些詞第一次看本來就會亂——建議整份再讀一次。' }
+  ];
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var score = 0, allAnswered = true;
+    questions.forEach(function (q) {
+      var correct = q.getAttribute('data-correct');
+      var checked = q.querySelector('input:checked');
+      if (!checked) { allAnswered = false; return; }
+      q.classList.add('answered');
+      var wasWrong = checked.value !== correct;
+      [].slice.call(q.querySelectorAll('.gqz-opt')).forEach(function (opt) {
+        var input = opt.querySelector('input');
+        opt.classList.remove('is-correct', 'is-wrong');
+        if (input.value === correct) opt.classList.add('is-correct');
+        else if (input === checked) opt.classList.add('is-wrong');
+      });
+      var explain = q.querySelector('.gqz-explain');
+      if (explain) explain.hidden = !wasWrong;
+      if (!wasWrong) score++;
+    });
+    if (!allAnswered) { alert('請先回答完所有題目再檢查喔。'); return; }
+    badge.textContent = score + ' / ' + total;
+    var m = MESSAGES.find(function (x) { return score >= x.min; });
+    msg.textContent = m.text;
+    scoreWrap.classList.add('show');
+    scoreWrap.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  });
+  document.getElementById('gqzReset3').addEventListener('click', function () {
     form.reset();
     questions.forEach(function (q) {
       q.classList.remove('answered');

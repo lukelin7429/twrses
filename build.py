@@ -2756,33 +2756,134 @@ CLAUDE_QUIZ_R2 = [
      "Prompt caching 把常重複出現的長內容（像是系統指令或大段參考資料）快取起來，之後的請求可以重複利用，讓回應更快、成本更低。"),
 ]
 
+CLAUDE_TERMS_R3 = [
+    ("pipeline()", "讓每個項目各自往下一階段走，不用等其他項目做完同一階段，通常比逐階段等待更快。"),
+    ("parallel() / barrier", "同時執行多個任務，並等它們「全部做完」才繼續下一步——適合先彙整、去重所有結果再做下一步。"),
+    ("Phase（階段）", "把一連串代理人呼叫依進度分組顯示的標籤，方便使用者看懂目前跑到哪。"),
+    ("Routines", "排定時間自動執行的雲端代理人任務，概念上類似工程師熟悉的 Cron 排程。"),
+    ("背景任務（background task）", "讓耗時的動作在背景執行，使用者可以先做別的事，等它完成再回來查看結果。"),
+    ("記憶系統（Memory）", "讓 Claude 記住使用者的偏好、專案脈絡、溝通上該注意的地方，下次對話自動帶入。"),
+    ("Plan mode（規畫模式）", "先把要執行的步驟列出來給使用者確認過，才真的動手做，適合複雜或有風險的任務。"),
+]
+
+# (question, [option_A, option_B, option_C, option_D], correct_letter, category, explanation)
+CLAUDE_QUIZ_R3 = [
+    ("「pipeline()」和「parallel()」這兩種工作流程編排方式，最大的差別是？",
+     ["兩者完全一樣，只是名字不同", "pipeline 只能處理一個項目，parallel 可以處理很多個",
+      "pipeline 讓每個項目各自走過所有階段、不用互相等待；parallel 是同時執行多個任務，並等全部做完才繼續",
+      "parallel 比較慢，pipeline 比較快，永遠是這樣"],
+     "C", "工作流程編排",
+     "pipeline 讓每個項目各自往下一階段走、不用等其他項目做完同一階段，通常比每個階段都設等待點更快；parallel／barrier 則是同時執行、並等全部完成才繼續下一步。"),
+    ("在工作流程裡，什麼情況比較適合用「barrier」（等待所有結果到齊再繼續）？",
+     ["例如要先把所有分頭找到的結果去重、彙整完，才能進行下一步耗費資源的動作", "每次都要用，沒有例外", "從來不需要用", "只有代理人數量少於 2 個時才用"],
+     "A", "工作流程編排",
+     "barrier（等待所有結果到齊）適合在需要先彙整、去重全部結果再進行下一步昂貴動作的情境，其餘時候用 pipeline 通常更有效率。"),
+    ("「phase（階段）」在工作流程畫面上的作用是？",
+     ["是用來加密資料的機制", "決定要花多少錢", "跟畫面顯示完全無關，只是內部變數名稱", "把一連串代理人呼叫依進度分組顯示，方便使用者看懂目前做到哪"],
+     "D", "工作流程編排",
+     "phase 只是畫面上的進度分組標籤，方便使用者看懂目前跑到哪個階段，不影響底層邏輯。"),
+    ("為什麼工作流程通常「預設用 pipeline，而不是每次都用 barrier（parallel）」？",
+     ["Barrier 比較便宜", "因為 barrier 會讓所有項目卡在同一個階段等待，即使有些項目其實不需要等，浪費等待時間", "Pipeline 才有畫面顯示", "兩者其實沒有效能差異"],
+     "B", "工作流程編排",
+     "如果每個階段都設等待點（barrier），跑得快的項目也要陪跑得慢的項目一起等，浪費了原本可以提早進行下一步的時間，所以預設用 pipeline。"),
+    ("「Routines」和一般工程師講的「Cron」排程，關係最接近的說法是？",
+     ["Routines 是排定時間自動執行的雲端代理人任務，概念上類似 Cron（依時間表排程執行）", "兩者完全無關",
+      "Cron 只能設定一次性任務，Routines 可以永久執行不會停", "Routines 是 Cron 的競爭對手，功能完全相反"],
+     "A", "排程與背景任務",
+     "Routines 概念上就是「排定時間自動執行的代理人任務」，跟工程師熟悉的 Cron 排程邏輯類似，只是換成給一般使用者用的介面。"),
+    ("「背景任務」（background task）的好處主要是？",
+     ["讓程式自動消失，不留任何紀錄", "純粹是為了省電", "讓所有工作都變成免費", "讓耗時的動作在背景執行，你可以先處理別的事，等它完成後再回來查看結果"],
+     "D", "排程與背景任務",
+     "背景任務讓耗時的動作不卡住你，你可以先做別的事，等它做完再回來查看結果，是它最主要的價值。"),
+    ("如果你啟動一個背景任務後又想查看它目前執行到哪，比較適合的作法是？",
+     ["什麼都不用做，結果自動用簡訊通知你", "查詢該任務目前的輸出或狀態，而不是每隔幾秒鐘就重複催促", "一定要一直盯著螢幕，否則任務會消失", "只能等它完全結束後才能查看任何資訊"],
+     "B", "排程與背景任務",
+     "查詢任務目前的狀態或輸出，是了解進度的正確做法；不斷催促或干擾反而沒有幫助。"),
+    ("排程一個 Routine 之前，比較重要的考量是？",
+     ["排程時間要精準到毫秒等級才有意義", "Routine 只能設定在半夜執行", "想清楚多久跑一次、每次要做什麼，避免排太頻繁造成不必要的重複工作", "完全不需要考慮頻率，愈頻繁愈好"],
+     "C", "排程與背景任務",
+     "排程太頻繁會造成不必要的重複工作與資源浪費，先想清楚合理的執行頻率比較重要。"),
+    ("Claude 的「記憶系統」主要用途是？",
+     ["儲存使用者的密碼", "只是用來記錄對話字數", "跟使用體驗完全無關", "讓 Claude 記住使用者的偏好、專案脈絡、溝通上該注意的地方，下次對話自動帶入"],
+     "D", "記憶系統",
+     "記憶系統的核心價值就是讓 Claude 記住使用者的偏好、專案脈絡與溝通上該注意的地方，減少重複解釋。"),
+    ("如果使用者明確糾正 Claude 的某個做法（例如「小考選項一律要有 A/B/C/D」），比較好的處理方式是？",
+     ["忽略這個回饋，繼續原本的做法", "把這個回饋記下來，之後同類型任務自動套用，不用使用者每次重講", "立刻結束對話", "要求使用者用書面正式提出申請"],
+     "B", "記憶系統",
+     "明確的使用者回饋（尤其是糾正）應該被記下來，讓同類型任務未來自動套用，這樣使用者不用每次重講一次——這一頁的小考格式就是這樣來的。"),
+    ("記憶系統裡的「參考型（reference）」記憶，通常記錄的是？",
+     ["使用者的心情", "純粹的天氣資訊", "外部系統的位置或用途，例如「某類問題可以到哪個工具／文件找答案」", "跟這個系統完全無關的內容"],
+     "C", "記憶系統",
+     "參考型記憶記的是外部系統在哪裡、做什麼用，方便日後遇到類似問題時知道去哪裡查。"),
+    ("為什麼記憶系統不會把「使用者這次要求的具體任務內容」也存成長期記憶？",
+     ["因為這類細節通常只跟當下的任務有關，不是能廣泛套用在未來對話的通用資訊", "因為技術上做不到", "因為使用者付費才能用", "因為系統會自動刪除所有資料"],
+     "A", "記憶系統",
+     "只跟當下任務有關的細節（例如這次要改的檔案名稱）通常不會被存成長期記憶，因為它對未來的對話沒有廣泛的參考價值。"),
+    ("「Plan mode（規畫模式）」的用途最接近？",
+     ["讓 Claude 自動關閉，不再回應", "先把要執行的步驟列出來給使用者確認過，才真的動手做，適合複雜或有風險的任務", "只能用來查字典", "跟任務執行完全無關的裝飾功能"],
+     "B", "Plan mode 與風險控管",
+     "Plan mode 讓 Claude 先把步驟列出來給你確認，你同意之後才真的動手，適合複雜或有風險的任務。"),
+    ("什麼樣的任務，比較適合先用 plan mode 過一遍，再讓代理人動手？",
+     ["簡單到一步就能完成的小事", "完全不需要 plan mode，任何任務都應該直接動手", "涉及多個步驟、有一定風險或不容易回頭的任務", "只有免費使用者才需要用 plan mode"],
+     "C", "Plan mode 與風險控管",
+     "越是多步驟、有風險或不容易回頭的任務，越適合先過一次 plan mode，讓你有機會在動手前調整方向。"),
+    ("Worktree（在平行代理人情境下）用完之後，比較典型的情況是？",
+     ["如果沒有留下變更，通常會自動被清理掉，不需要手動整理", "永遠留在硬碟裡，佔用越來越多空間，沒有清理機制", "一定要手動刪除，否則整個電腦會當機", "worktree 建立後就無法刪除"],
+     "A", "Plan mode 與風險控管",
+     "worktree 如果沒有留下實際的變更，通常會在用完後自動被清理，不需要額外手動整理。"),
+    ("這一回合（工作流程與工具）跟前兩回合最主要的連結是？",
+     ["完全無關，是全新獨立主題", "只是換個名字重講一樣的內容", "這回合的內容跟 Git／GitHub 完全沒有任何關聯",
+      "Workflow、Routines、Memory、Plan mode 這些工具，背後運作的基礎概念（agent、subagent、checkpoint、human-in-the-loop）都是前兩回合學過的東西的延伸應用"],
+     "D", "Plan mode 與風險控管",
+     "這一回合講的 Workflow、Routines、Memory、Plan mode，其實都是建立在前兩回合學過的 agent、subagent、checkpoint、human-in-the-loop 這些基礎概念之上的實際應用。"),
+]
+
+CLAUDE_ROUNDS = [
+    {"id": "round1", "label": "第一回合", "title": "基礎", "terms": CLAUDE_TERMS, "quiz": CLAUDE_QUIZ,
+     "eyebrow": "第一回合 · 基礎",
+     "lead": "「代理人」（agent）跟一般聊天機器人不一樣：它不只回答問題，還會實際去讀檔案、寫程式、執行指令，一步一步把任務做完。看懂下面這幾個詞，你就懂代理人在做什麼、為什麼它會停下來問你。",
+     "intro": ""},
+    {"id": "round2", "label": "第二回合", "title": "產品與代理人術語", "terms": CLAUDE_TERMS_R2, "quiz": CLAUDE_QUIZ_R2,
+     "eyebrow": "第二回合 · 進階",
+     "lead": "第一回合是入門，這裡開始才是真正在用 Claude 的人會遇到的詞——模型家族、Project、Routines、Cowork、MCP、Hooks、Subagent 這些。答錯會直接告訴你為什麼。",
+     "intro": "答錯的題目送出後會直接顯示說明，幫你搞懂差在哪。"},
+    {"id": "round3", "label": "第三回合", "title": "工作流程與工具", "terms": CLAUDE_TERMS_R3, "quiz": CLAUDE_QUIZ_R3,
+     "eyebrow": "第三回合 · 更進階",
+     "lead": "這一回合講實際運作機制：任務怎麼平行處理、怎麼排程重複執行、Claude 怎麼記住你的偏好、遇到有風險的任務又是怎麼先讓你確認過再動手。",
+     "intro": "答錯的題目送出後會直接顯示說明，幫你搞懂差在哪。"},
+]
+
 def build_staff_claude_agent():
-    terms_html, quiz_html = _gqz_render(CLAUDE_TERMS, CLAUDE_QUIZ)
-    terms_html_r2, quiz_html_r2 = _gqz_render(CLAUDE_TERMS_R2, CLAUDE_QUIZ_R2)
+    nav_chips = "".join(
+        f'<a class="unit-nav-link" href="#{r["id"]}"><b>{i+1}</b><span>{html.escape(r["title"])}</span></a>'
+        for i, r in enumerate(CLAUDE_ROUNDS))
+    nav_html_ = (f'<nav class="unit-nav" aria-label="回合導覽"><div class="wrap">'
+                 f'<span class="unit-nav-label">跳到回合</span>'
+                 f'<div class="unit-nav-track">{nav_chips}</div></div></nav>')
+
+    round_blocks = []
+    for i, r in enumerate(CLAUDE_ROUNDS, 1):
+        terms_html, quiz_html = _gqz_render(r["terms"], r["quiz"])
+        n = len(r["quiz"])
+        round_blocks.append(f'''
+<section class="section" id="{r["id"]}" style="scroll-margin-top:140px"><div class="wrap prose wide rvl">
+<p class="eyebrow">{r["eyebrow"]}</p>
+<p>{r["lead"]}</p>
+<ul>{terms_html}</ul>
+</div></section>
+{gqz_quiz_section(n, quiz_html, suffix=str(i), heading=f"{r['label']}：{n} 題", intro=r["intro"])}''')
+
     body = f'''
 {page_hero("內部訓練 · 認識 Claude 代理人", "認識 Claude 代理人",
     "給協會工作夥伴的入門說明：Claude Code 不只是聊天機器人，而是會實際動手做事的「代理人」——這裡說明它怎麼運作、為什麼要停下來問你。")}
 <section class="section tight" style="padding-bottom:0"><div class="wrap">
 <a class="btn btn-ghost" href="/staff-training/">← 回內部訓練專區</a>
 </div></section>
-<section class="section"><div class="wrap prose wide rvl">
-<p class="eyebrow">第一回合 · 基礎</p>
-<p>「代理人」（agent）跟一般聊天機器人不一樣：它不只回答問題，還會實際去讀檔案、寫程式、執行指令，一步一步把任務做完。看懂下面這幾個詞，你就懂代理人在做什麼、為什麼它會停下來問你。</p>
-<ul>{terms_html}</ul>
-</div></section>
-{gqz_quiz_section(len(CLAUDE_QUIZ), quiz_html, suffix="1", heading="第一回合：{} 題基礎題".format(len(CLAUDE_QUIZ)))}
-<section class="section"><div class="wrap prose wide rvl">
-<p class="eyebrow">第二回合 · 進階</p>
-<h2 style="margin-bottom:.6rem">更深一層：Claude 產品與代理人術語</h2>
-<p>第一回合是入門，這裡開始才是真正在用 Claude 的人會遇到的詞——模型家族、Project、Routines、Cowork、MCP、Hooks、Subagent 這些。答錯會直接告訴你為什麼。</p>
-<ul>{terms_html_r2}</ul>
-</div></section>
-{gqz_quiz_section(len(CLAUDE_QUIZ_R2), quiz_html_r2, suffix="2",
-    heading="第二回合：{} 題進階題".format(len(CLAUDE_QUIZ_R2)),
-    intro="答錯的題目送出後會直接顯示說明，幫你搞懂差在哪。")}
+{nav_html_}
+{"".join(round_blocks)}
 '''
     write("/staff-training/claude-agent/", layout("/staff-training/claude-agent/", "認識 Claude 代理人",
-        "Agent、Claude 5 模型家族、Project、Routines、Cowork、MCP 等術語說明，附兩回合共 36 題小考。", body, "staff-training", noindex=True))
+        "Agent、Claude 5 模型家族、Project、Routines、Cowork、MCP、Workflow 等術語說明，附三回合共 52 題小考。", body, "staff-training", noindex=True))
 
 def build_staff_training():
     build_staff_training_hub()
