@@ -2405,6 +2405,8 @@ STAFF_SKILLS = [
      "commit、push、branch、PR 是什麼？看得懂 AI 助手在問什麼。24 題小考。"),
     ("/staff-training/claude-agent/", "🤖", "認識 Claude 代理人",
      "Agent、agentic loop、human-in-the-loop 是什麼？為什麼它會停下來問你。20 題小考。"),
+    ("/staff-training/chatgpt-agent/", "💬", "認識 ChatGPT 代理人（Codex）",
+     "Codex 改名了嗎？2026/7 跟 ChatGPT 桌面版怎麼整合的？跟 Claude Code 怎麼對應。16 題小考。"),
 ]
 
 def build_staff_training_hub():
@@ -2885,10 +2887,116 @@ def build_staff_claude_agent():
     write("/staff-training/claude-agent/", layout("/staff-training/claude-agent/", "認識 Claude 代理人",
         "Agent、Claude 5 模型家族、Project、Routines、Cowork、MCP、Workflow 等術語說明，附三回合共 52 題小考。", body, "staff-training", noindex=True))
 
+CHATGPT_TERMS = [
+    ("Codex", "OpenAI 的寫程式代理人。名字沒有消失，2026 年 7 月只是產品結構做了調整。"),
+    ("2026/7/9 整合", "原本獨立的 Codex App，併入新版 ChatGPT 桌面應用程式，變成裡面三個分區之一。"),
+    ("ChatGPT Classic", "原本獨立的 ChatGPT 桌面版，整合後被改名成這個名字，讓位給新版整合 App。"),
+    ("Chat（分區）", "新版桌面 App 的分區之一：一般的 ChatGPT 對話、問答、寫作、日常協助。"),
+    ("Work（分區）", "新版桌面 App 的分區之一：面向企業、跨檔案／應用程式／連接服務的代理人工作流程。"),
+    ("Codex（分區）", "新版桌面 App 的分區之一：開發者導向的任務，例如管理程式庫、審查程式碼、操作終端機。"),
+    ("其他使用管道", "除了桌面 App，Codex 也能透過 CLI（命令列）、IDE 擴充套件、雲端平台、網頁版使用。"),
+    ("跟 Claude Code 的關係", "概念上很接近：都是能實際讀寫程式碼、操作終端機、完成多步驟任務的 AI 代理人，只是分屬 OpenAI 與 Anthropic 兩家公司。"),
+]
+
+# (question, [option_A, option_B, option_C, option_D], correct_letter, category, explanation)
+CHATGPT_QUIZ = [
+    ("「聽說 ChatGPT 的寫程式代理人已經不叫 Codex 了」，這句話正確嗎？",
+     ["正確，已經完全改名，Codex 這個名字已經消失", "這個工具從來沒有叫過 Codex",
+      "不正確，Codex 這個名字沒有變，只是產品結構在 2026 年 7 月有調整", "正確，改名成「ChatGPT Classic」"],
+     "C", "Codex 是什麼",
+     "Codex 這個名字沒有消失，2026 年 7 月只是把它從獨立 App 整合進新版 ChatGPT 桌面應用程式裡，變成其中一個分區。"),
+    ("Codex 最初的定位是？",
+     ["OpenAI 的寫程式代理人，能讀寫程式碼、操作終端機、完成多步驟任務", "OpenAI 的圖片生成工具", "OpenAI 的翻譯工具", "OpenAI 的語音助理"],
+     "A", "Codex 是什麼",
+     "Codex 是 OpenAI 開發、能實際讀寫程式碼、操作終端機、完成多步驟開發任務的 AI 代理人，概念上類似 Claude Code。"),
+    ("2026 年 7 月 9 日那次整合，實際上發生的事是？",
+     ["Codex 被關閉停用", "ChatGPT 被 Codex 取代，改名叫 Codex", "兩個產品完全沒有任何關係上的變化",
+      "Codex 從獨立 App 併入新版 ChatGPT 桌面應用程式，成為裡面的一個分區"],
+     "D", "Codex 是什麼",
+     "2026 年 7 月 9 日，OpenAI 把原本獨立的 Codex App 併入新版 ChatGPT 桌面應用程式，Codex 變成裡面三個分區之一，不再是單獨的 App。"),
+    ("原本獨立的 ChatGPT 桌面版，在這次整合後被改名成？",
+     ["ChatGPT Pro", "ChatGPT Classic", "ChatGPT Lite", "ChatGPT Legacy"],
+     "B", "Codex 是什麼",
+     "原本獨立的 ChatGPT 桌面版被改名成「ChatGPT Classic」，讓位給新的整合版應用程式。"),
+    ("新版 ChatGPT 桌面應用程式裡，分成哪三個分區？",
+     ["Chat、Work、Codex", "Home、Search、Settings", "Free、Plus、Pro", "Draft、Review、Publish"],
+     "A", "2026/7 整合改了什麼",
+     "新版 ChatGPT 桌面應用程式分成 Chat、Work、Codex 三個分區，各自對應不同的使用情境。"),
+    ("三個分區裡，「Work」主要是設計給誰、做什麼用？",
+     ["給開發者寫程式用", "給一般使用者聊天用", "只能用來畫圖", "面向企業、跨檔案／應用程式／連接服務的代理人工作流程"],
+     "D", "2026/7 整合改了什麼",
+     "Work 分區是面向企業使用者，處理跨檔案、跨應用程式、跨連接服務的代理人工作流程。"),
+    ("三個分區裡，「Codex」主要負責哪一類任務？",
+     ["一般日常聊天", "開發者導向的任務，例如管理程式庫、審查程式碼、操作終端機", "訂餐廳", "畫插畫"],
+     "B", "2026/7 整合改了什麼",
+     "Codex 分區專門處理開發者導向的任務，例如管理程式庫、審查程式碼、操作終端機。"),
+    ("「Chat」這個分區對應到的是？",
+     ["專門給企業用的付費功能", "只有開發者才能使用", "一般的 ChatGPT 對話、問答、寫作、日常協助", "專門審查程式碼用的功能"],
+     "C", "2026/7 整合改了什麼",
+     "Chat 分區對應的是一般的 ChatGPT 對話體驗——問答、寫作、日常協助，跟開發無關。"),
+    ("除了新版 ChatGPT 桌面應用程式，Codex 還能透過哪些管道使用？",
+     ["只能透過桌面版，沒有其他管道", "只能透過電話語音使用", "只有企業內部系統才能使用", "CLI（命令列）、IDE 擴充套件、雲端平台、網頁版等多種管道"],
+     "D", "現在怎麼用 Codex",
+     "除了桌面版，Codex 也能透過 CLI（命令列）、IDE 擴充套件、雲端平台、網頁版等多種管道使用，不是只能用桌面 App。"),
+    ("使用者可以怎麼客製化新版 ChatGPT 桌面應用程式？",
+     ["完全無法客製化，介面永遠固定", "可以把 Codex 設成打開 App 時預設看到的畫面，並自訂圖示", "只能修改字體大小", "只能選擇深色或淺色主題，其他都不能改"],
+     "B", "現在怎麼用 Codex",
+     "使用者可以把 Codex 設成打開新版桌面 App 時的預設畫面，也能自訂圖示，讓開發者一開啟就直接進到 Codex。"),
+    ("這次整合的付費限制是？",
+     ["只有企業付費方案才能使用新版", "免費方案完全用不到", "各訂閱方案（包含免費方案）都能使用新版 App", "只有先付費升級才能看到 Codex 分區"],
+     "C", "現在怎麼用 Codex",
+     "這次整合的新版桌面 App，各訂閱方案（包含免費方案）都能使用，不是企業或付費限定功能。"),
+    ("業界普遍怎麼解讀 OpenAI 這次把 Codex 整合進 ChatGPT 桌面版的動作？",
+     ["被普遍認為是針對 Anthropic 的 Claude Code 做出的競爭回應", "純粹是介面美化，沒有策略意義", "跟任何競爭對手都無關", "是因為使用者要求要拿掉 Codex"],
+     "A", "現在怎麼用 Codex",
+     "業界普遍把這次整合解讀為 OpenAI 針對 Anthropic 的 Claude Code 做出的競爭回應。"),
+    ("Codex 跟 Claude Code 在概念上最接近的共同點是？",
+     ["兩者都只能回答問題，不能真的動手做事", "兩者都是能實際讀寫程式碼、操作終端機、完成多步驟任務的 AI 代理人，只是分屬不同公司",
+      "兩者是同一家公司做的兩個品牌", "兩者完全沒有任何相似之處"],
+     "B", "跟 Claude Code 的對應",
+     "Codex 和 Claude Code 概念上很接近——都是能實際讀寫程式碼、操作終端機、完成多步驟任務的 AI 代理人，只是分屬 OpenAI 與 Anthropic 兩家不同公司。"),
+    ("如果同事跟你說「Codex 這個名字已經走入歷史了」，比較正確的回應是？",
+     ["附和對方，說 Codex 真的消失了", "說這個問題跟自己無關",
+      "說明 Codex 這個名字還在，只是現在是新版 ChatGPT 桌面 App 裡的一個分區，不再是完全獨立的 App", "說 Codex 從來沒有存在過"],
+     "C", "跟 Claude Code 的對應",
+     "正確的說法是：Codex 這個名字還在，只是現在是新版 ChatGPT 桌面 App 裡的一個分區，不再是完全獨立的 App——不是被取消或改名。"),
+    ("為什麼在學過 Claude Code 之後，再認識一下 Codex 是有意義的？",
+     ["因為同事在工作中可能會同時聽到「Claude Code」跟「Codex」這兩個名字，搞懂差在哪、又有什麼共通點，比較不會混淆",
+      "因為兩者完全無關，學了也沒用", "因為公司規定一定要用 Codex", "因為 Codex 已經停止服務，只是紀念用"],
+     "A", "跟 Claude Code 的對應",
+     "工作中同事可能會交替提到「Claude Code」和「Codex」這兩個名字，先搞懂兩者的異同，可以避免溝通時搞混。"),
+    ("關於「AI 代理人可以實際動手做事，不只是回答問題」這個概念，Codex 和 Claude Code 的關係是？",
+     ["只有 Claude Code 符合這個定義，Codex 不算", "只有 Codex 符合，Claude Code 不算",
+      "這個概念跟兩者都無關", "兩者都符合這個定義——都是「代理人」，只是背後的公司與細節不同"],
+     "D", "跟 Claude Code 的對應",
+     "「代理人」是指能實際動手做事、不只是回答問題的 AI，Codex 和 Claude Code 都符合這個定義，只是背後公司與產品細節不同。"),
+]
+
+def build_staff_chatgpt_agent():
+    terms_html, quiz_html = _gqz_render(CHATGPT_TERMS, CHATGPT_QUIZ)
+    body = f'''
+{page_hero("內部訓練 · 認識 ChatGPT 代理人", "認識 ChatGPT 代理人（Codex）",
+    "給協會工作夥伴的入門說明：OpenAI 的寫程式代理人還是叫 Codex，只是 2026 年 7 月把它整合進新版 ChatGPT 桌面應用程式了——這裡說明現在的樣子，跟 Claude Code 怎麼對應。")}
+<section class="section tight" style="padding-bottom:0"><div class="wrap">
+<a class="btn btn-ghost" href="/staff-training/">← 回內部訓練專區</a>
+</div></section>
+<section class="section"><div class="wrap prose wide rvl">
+<p>常聽到的說法「Codex 已經改名了」不完全正確：Codex 這個名字還在，只是 2026 年 7 月 9 日起，原本獨立的 Codex App 併入新版 ChatGPT 桌面應用程式，變成 Chat、Work、Codex 三個分區之一，原本的 ChatGPT 桌面版則改名叫「ChatGPT Classic」。看懂下面這幾個詞，下次同事討論到就不會搞混。</p>
+<ul>{terms_html}</ul>
+<p class="muted" style="font-size:.92rem">內容整理自 2026 年 7 月的公開報導，之後產品結構如有再調整，這裡會跟著更新——參考來源：
+<a href="https://en.wikipedia.org/wiki/Codex_(AI_agent)" target="_blank" rel="noopener">Wikipedia: Codex (AI agent)</a>、
+<a href="https://coursiv.io/blog/codex-merged-with-chatgpt-app" target="_blank" rel="noopener">Coursiv: Codex merged with ChatGPT app</a>。</p>
+</div></section>
+{gqz_quiz_section(len(CHATGPT_QUIZ), quiz_html, suffix="", heading=f"{len(CHATGPT_QUIZ)} 題，檢查自己懂了沒", intro="答錯的題目送出後會直接顯示說明，幫你搞懂差在哪。")}
+'''
+    write("/staff-training/chatgpt-agent/", layout("/staff-training/chatgpt-agent/", "認識 ChatGPT 代理人（Codex）",
+        "Codex 是什麼、2026/7 跟 ChatGPT 桌面版整合改了什麼、跟 Claude Code 怎麼對應，附 16 題小考。", body, "staff-training", noindex=True))
+
 def build_staff_training():
     build_staff_training_hub()
     build_staff_git_github()
     build_staff_claude_agent()
+    build_staff_chatgpt_agent()
 
 # ==================================================================
 def build_static():
