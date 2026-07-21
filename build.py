@@ -629,7 +629,7 @@ def build_founder():
     write("/about/founder/", layout("/about/founder/", "創辦人林吉祥",
         "人師教育協會創辦人林吉祥老師：自民國91年起義教偏鄉英語、嘉惠南彰化孩子，2014 年教育部教育奉獻獎得主，完整事蹟、媒體報導與影音。", body, "about"))
 
-MCC_FORMS = "https://lukelin7429.github.io/mcc-forms"
+MCC_FORMS = "/forms"
 def build_register():
     classes = [
         ("Teacher Shannon · A 班", "週日 09:00–09:50", "國一至高三 · Grade 7–12", "shannon-a/"),
@@ -642,7 +642,7 @@ def build_register():
         ("紐約中文學校 學生報名", "免費家教媒合", "一至九年級", "ny-chinese-school/"),
     ]
     def card(title, sched, grade, folder):
-        return f'''<a class="card card-link" href="{MCC_FORMS}/{folder}" target="_blank" rel="noopener">
+        return f'''<a class="card card-link" href="{MCC_FORMS}/{folder}">
   <h3 style="font-size:1.2rem">{html.escape(title)}</h3>
   <div class="pills" style="margin:.2rem 0 .7rem"><span class="pill">🗓 {html.escape(sched)}</span></div>
   <p>{html.escape(grade)}</p>
