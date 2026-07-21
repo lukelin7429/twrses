@@ -7,7 +7,8 @@ import os, re, json, html as _html
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SKIP_DIRS = {'.git', 'assets', 'scripts', 'node_modules', 'vendor', '_site',
-             '_layouts', '_includes', 'apps-script', 'data'}
+             '_layouts', '_includes', 'apps-script', 'data',
+             'staff-training'}  # internal-only pages: never indexed in site search
 
 CSS_LINK = '<link rel="stylesheet" href="/assets/css/search.css">'
 JS_TAG   = '<script defer src="/assets/js/search.js"></script>'

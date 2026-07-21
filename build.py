@@ -154,8 +154,9 @@ def footer():
   </div>
 </footer>'''
 
-def layout(path, title, desc, body, active):
+def layout(path, title, desc, body, active, noindex=False):
     full_title = f"{title}｜{SITE['name']}" if title else SITE["name"]
+    robots_tag = '<meta name="robots" content="noindex, nofollow">\n' if noindex else ''
     return f'''<!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
@@ -163,7 +164,7 @@ def layout(path, title, desc, body, active):
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{full_title}</title>
 <meta name="description" content="{html.escape(desc)}">
-<link rel="preconnect" href="https://fonts.googleapis.com">
+{robots_tag}<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..600;1,9..144,400..500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/css/style.css?v={ASSET_V}">
@@ -2395,6 +2396,217 @@ def build_news_videos():
     write("/media/news-videos/", layout("/media/news-videos/", "人師英語新聞", "一分鐘英語新聞、彰化英語新聞與特別報導影片。", body, "media"))
 
 # ==================================================================
+#  STAFF-TRAINING (internal, hidden) — not in NAV, not in sitemap.txt,
+#  noindex. Entry is a card grid; each card is one skill's knowledge +
+#  quiz. Link is only ever shared directly, never linked from the site.
+# ==================================================================
+STAFF_SKILLS = [
+    ("/staff-training/git-github/", "🔧", "Git 與 GitHub 運作知識",
+     "commit、push、branch、PR 是什麼？看得懂 AI 助手在問什麼。24 題小考。"),
+]
+
+def build_staff_training_hub():
+    body = f'''
+{page_hero("內部訓練 · 非公開", "內部訓練專區",
+    "給協會工作夥伴與志工使用的技能整理，非公開頁面，請勿轉發連結。")}
+<section class="section"><div class="wrap">{fcard_grid(STAFF_SKILLS, cta="開始學習")}</div></section>
+'''
+    write("/staff-training/", layout("/staff-training/", "內部訓練專區",
+        "人師教育協會內部工作夥伴訓練資源，非公開頁面。", body, "staff-training", noindex=True))
+
+GIT_TERMS = [
+    ("Git", "AI 工具底層的存檔與版本歷史系統。"),
+    ("GitHub", "把 Git 的歷史紀錄放上線、隨處可存取的網站——你的網站就住在這。"),
+    ("Commit", "一個檢查點——把剛改的東西存成快照，附一句說明。"),
+    ("Push", "把 commit 的內容上傳到 GitHub，讓網站跟著更新。"),
+    ("Clone", "把一個 GitHub repository 完整複製一份到自己這邊，連歷史都在。"),
+    ("Pull", "把 GitHub 上最新的變更抓下來，更新你手上的版本。"),
+    ("Branch", "一個獨立的草稿版本，可以放心實驗、不影響上線版本。"),
+    ("Worktree", "讓兩個 AI agent 同時在不同資料夾，分別處理不同 branch。"),
+    ("Pull Request（PR）", "請求把某個 branch 的變更合併回上線版本，中間有檢查步驟。"),
+    ("Revert", "退回到之前一個能正常運作的檢查點。"),
+]
+
+# (question, [option_A, option_B, option_C, option_D], correct_letter, category)
+GIT_QUIZ = [
+    ("影片一開始提到，很多沒有寫程式背景、卻迷上用 AI 寫程式的人，最常卡關的地方是？",
+     ["電腦效能不夠", "網路速度太慢", "聽不懂 Claude、Cursor 問的 commit、branch、PR 這些詞", "找不到好用的編輯器"], "C", "暖身"),
+    ("為什麼 AI 寫程式工具的對話裡，常常會冒出 Git 的詞彙？",
+     ["因為這些工具背後都是建立在 Git 這套版本控制系統之上", "因為 Git 是這些公司自己開發的", "純屬巧合，跟工具本身無關", "因為使用者設定錯誤"], "A", "暖身"),
+    ("學會這些 Git 術語之後，最直接的好處是？",
+     ["網站流量會變多", "網域費用會變便宜", "電腦速度會變快", "能更放心讓 AI 幫忙開發，聽得懂它在問什麼"], "D", "暖身"),
+    ("下列哪一個「不是」常見的 AI 寫程式工具？",
+     ["Claude Code", "Photoshop", "Cursor", "Codex"], "B", "暖身"),
+    ("關於 Git，下列描述最正確的是？",
+     ["一套幫你保留每個版本歷史紀錄的存檔系統", "一種社群媒體平台", "一種程式語言", "一種防毒軟體"], "A", "Git 與 GitHub 的差別"),
+    ("關於 GitHub，下列描述最正確的是？",
+     ["Git 的舊版本", "買網域專用的公司", "用來寫程式的編輯器", "把 Git 的歷史紀錄放上線、隨處都能存取的網站"], "D", "Git 與 GitHub 的差別"),
+    ("哪一組比喻最能說明 Git 與 GitHub 的關係？",
+     ["Git 是紅綠燈，GitHub 是馬路", "Git 像「保留版本歷史」的概念，GitHub 像放這些版本的 Google Drive", "Git 是老師，GitHub 是學生", "Git 是硬體，GitHub 是電源線"], "B", "Git 與 GitHub 的差別"),
+    ("下列何者「也」是類似 GitHub 的服務？",
+     ["Instagram", "Netflix", "GitLab", "Notion"], "C", "Git 與 GitHub 的差別"),
+    ("「commit」最準確的意思是？",
+     ["把整個網站砍掉重練", "申請一個新的 GitHub 帳號", "把網站關閉、下架", "把剛剛改的東西存成一個附說明的檢查點"], "D", "Commit 與 Push"),
+    ("「push」的作用是？",
+     ["把網站的顏色改掉", "把 commit 的內容上傳到 GitHub，讓網站跟著更新", "建立一個全新的專案", "把舊的檢查點刪除"], "B", "Commit 與 Push"),
+    ("commit 完、還沒 push 之前，這個檢查點會存放在哪裡？",
+     ["已經在 GitHub 上了", "存在對方的信箱裡", "只存在你自己的電腦，或 AI 的工作空間裡", "根本不會被存下來"], "C", "Commit 與 Push"),
+    ("為什麼常被建議「commit 要勤快一點」？",
+     ["每一個 commit 都是一個能回頭的檢查點，存越勤快越安全", "這樣網站會比較好看", "GitHub 規定每天至少要 commit 一次", "這樣可以省網路流量"], "A", "Commit 與 Push"),
+    ("「clone」的意思是？",
+     ["把網站關掉重開", "把一個 GitHub repository 完整複製一份到自己這邊，連歷史紀錄都在", "幫網站取一個分身網域", "把舊版本刪除"], "B", "Clone、Pull 與 Branch"),
+    ("「pull」的作用是？",
+     ["把你自己的變更整個刪掉", "建立一個新的 GitHub 帳號", "把 GitHub 上最新的變更抓下來，更新你手上的版本", "把網站設成私人"], "C", "Clone、Pull 與 Branch"),
+    ("「branch」最好的理解方式是？",
+     ["一個獨立的草稿版本，可以放心實驗、不影響上線版本", "GitHub 的付費方案名稱", "正式上線、大家都看得到的版本", "一種電腦病毒"], "A", "Clone、Pull 與 Branch"),
+    ("通常正式上線、對外公開的那個版本，習慣叫做？",
+     ["draft", "clone", "push", "main"], "D", "Clone、Pull 與 Branch"),
+    ("「worktree」主要適合用在什麼情境？",
+     ["一個人、單一任務的簡單小專案", "買網域的時候", "讓兩個 AI agent 同時在不同資料夾，分別處理不同 branch，不互相干擾", "關閉網站的時候"], "C", "Worktree 與 Pull Request"),
+    ("Pull Request（PR）的意思最接近？",
+     ["請求把某個 branch 的變更合併回上線版本，中間會先檢查一次", "請求刪除一個 branch", "請求重設 GitHub 密碼", "請求複製別人的 repository"], "A", "Worktree 與 Pull Request"),
+    ("一個人獨立作業時，PR 通常怎麼處理比較實際？",
+     ["一定要請律師先審過", "GitHub 會自動拒絕，無法自己合併", "一定要等三個工作天才能合併", "自己看過確認沒問題，就可以自行合併"], "D", "Worktree 與 Pull Request"),
+    ("「worktree」和單純的「branch」，主要差在哪裡？",
+     ["兩者其實完全一樣，沒有差別", "worktree 能讓你「同時」在不同資料夾操作多個 branch，而不只是切換身分", "worktree 是用來刪除 branch 的功能", "worktree 只是理論概念，實際上用不到"], "B", "Worktree 與 Pull Request"),
+    ("如果 AI 把你的網站或程式改壞了，第一件該想到的事是？",
+     ["commit 歷史還在，可以請 AI 退回到之前能正常運作的版本", "立刻刪除整個 GitHub 帳號重新開始", "沒救了，只能整個重寫", "馬上買一個新網域換掉舊的"], "A", "改壞怎麼救"),
+    ("「revert」最貼切的意思是？",
+     ["上傳一個全新的變更", "建立一個新帳號", "把網站直接關閉", "退回到之前一個能正常運作的檢查點"], "D", "改壞怎麼救"),
+    ("真正有風險、可能會不見的變更，其實是指？",
+     ["已經 commit 過的變更", "還沒 commit 的變更", "已經 push 過的變更", "已經合併完成的 PR"], "B", "改壞怎麼救"),
+    ("在請 AI 嘗試風險較高的操作（例如大改版）之前，比較保險的做法是？",
+     ["先把網路關掉，隔離電腦", "先把舊的 branch 全部刪掉", "先請 AI commit 一次，留下一個可以回頭的檢查點", "什麼都不用做，直接讓它試"], "C", "改壞怎麼救"),
+]
+
+def _gqz_render():
+    L = "ABCD"
+    terms_html = "".join(f'<li><strong>{html.escape(t)}</strong> — {html.escape(d)}</li>' for t, d in GIT_TERMS)
+    cats, blocks = [], []
+    for qi, (q, opts, correct, cat) in enumerate(GIT_QUIZ, 1):
+        if cat not in cats:
+            cats.append(cat)
+            blocks.append(f'<p class="gqz-cat">{html.escape(cat)}</p>')
+        opt_html = "".join(
+            f'<label class="gqz-opt"><input type="radio" name="gq{qi}" value="{L[k]}">'
+            f'<span class="gqz-l">{L[k]}</span><span>{html.escape(o)}</span></label>'
+            for k, o in enumerate(opts))
+        blocks.append(f'''<div class="gqz-q" data-correct="{correct}">
+  <p class="gqz-n">第 {qi} 題</p>
+  <p class="gqz-t">{html.escape(q)}</p>
+  <div class="gqz-opts">{opt_html}</div>
+</div>''')
+    quiz_html = "".join(blocks)
+    return terms_html, quiz_html
+
+def build_staff_git_github():
+    terms_html, quiz_html = _gqz_render()
+    body = f'''
+<style>
+.gqz-cat{{font-weight:800;font-size:.78rem;letter-spacing:.06em;color:#fff;background:var(--brand);
+  display:inline-block;padding:.35rem .8rem;border-radius:999px;margin:2rem 0 .9rem}}
+.gqz-cat:first-child{{margin-top:0}}
+.gqz-q{{background:#fff;border:1px solid var(--line);border-radius:var(--radius-sm);padding:1.4rem 1.5rem;
+  margin-bottom:1rem;box-shadow:var(--shadow-sm)}}
+.gqz-n{{font-weight:800;font-size:.78rem;letter-spacing:.06em;color:var(--brand-dk);margin:0 0 .5rem}}
+.gqz-t{{font-weight:700;font-size:1.05rem;color:var(--ink);margin:0 0 .9rem;line-height:1.5}}
+.gqz-opts{{display:flex;flex-direction:column;gap:.55rem}}
+.gqz-opt{{display:flex;align-items:center;gap:.75rem;padding:.7rem .9rem;border:1.5px solid var(--line);
+  border-radius:10px;cursor:pointer;font-size:.96rem;color:var(--ink-soft);transition:border-color .15s,background .15s}}
+.gqz-opt:hover{{border-color:var(--brand);background:var(--brand-lt)}}
+.gqz-opt input{{accent-color:var(--brand);width:17px;height:17px;flex:none}}
+.gqz-l{{flex:none;width:26px;height:26px;border-radius:8px;background:var(--cream);border:1px solid var(--line);
+  color:var(--ink);font-weight:800;font-size:.82rem;display:grid;place-items:center}}
+.gqz-q.answered .gqz-opt{{cursor:default}}
+.gqz-q.answered .gqz-opt:hover{{background:none}}
+.gqz-opt.is-correct{{border-color:#3f9e63;background:#e6f4ea;color:#1f6b3e;font-weight:700}}
+.gqz-opt.is-correct .gqz-l{{background:#3f9e63;color:#fff;border-color:#3f9e63}}
+.gqz-opt.is-wrong{{border-color:#cf6b5e;background:#fbeaea;color:#a23a2c;font-weight:700}}
+.gqz-opt.is-wrong .gqz-l{{background:#cf6b5e;color:#fff;border-color:#cf6b5e}}
+.gqz-actions{{display:flex;align-items:center;gap:1.1rem;flex-wrap:wrap;margin:1.8rem 0 .5rem}}
+.gqz-score{{font-weight:700;font-size:1.1rem;color:var(--ink);display:none;align-items:center;gap:.6rem}}
+.gqz-score.show{{display:inline-flex}}
+.gqz-score .badge{{display:inline-flex;align-items:center;justify-content:center;padding:.4rem 1rem;
+  border-radius:999px;background:var(--brand);color:#fff;font-size:.95rem}}
+</style>
+{page_hero("內部訓練 · Git 與 GitHub", "Git 與 GitHub 運作知識",
+    "給協會工作夥伴的入門說明：當 Claude Code 或 AI 助手問你要不要 commit、開 branch 時，這裡告訴你那是什麼意思。")}
+<section class="section"><div class="wrap prose wide rvl">
+<p>每一個 AI 寫程式工具背後都建立在 Git 這套版本控制系統之上，詞彙自然會出現在對話裡。看懂下面這幾個詞，AI 在問什麼你就聽得懂。</p>
+<ul>{terms_html}</ul>
+<p class="muted" style="font-size:.92rem">完整圖解版教學（含流程圖、比喻說明）：<a href="https://ai-for-teachers.org/lesson-6.html" target="_blank" rel="noopener">AI4Teachers 第六課</a>。</p>
+</div></section>
+<section class="section tight"><div class="wrap">
+<p class="eyebrow rvl">小考 · Quick Check</p>
+<h2 class="rvl" style="margin-bottom:1.6rem">24 題，檢查自己懂了沒</h2>
+<form id="gqzForm">
+{quiz_html}
+<div class="gqz-actions">
+  <button type="submit" class="btn btn-primary">檢查我的答案</button>
+  <button type="button" id="gqzReset" class="btn btn-ghost">重新作答</button>
+  <span id="gqzScore" class="gqz-score"><span class="badge" id="gqzBadge"></span><span id="gqzMsg"></span></span>
+</div>
+</form>
+</div></section>
+<script>
+(function () {{
+  var form = document.getElementById('gqzForm');
+  if (!form) return;
+  var questions = [].slice.call(form.querySelectorAll('.gqz-q'));
+  var scoreWrap = document.getElementById('gqzScore');
+  var badge = document.getElementById('gqzBadge');
+  var msg = document.getElementById('gqzMsg');
+  var MESSAGES = [
+    {{ min: 22, text: '滿分等級——你已經聽得懂 AI 在講什麼了！' }},
+    {{ min: 17, text: '很不錯，只剩幾題再看一次上面的說明就好。' }},
+    {{ min: 12, text: '一半以上答對，建議把錯的地方再讀一遍。' }},
+    {{ min: 0,  text: '沒關係，這些詞第一次看本來就會亂——建議整份再讀一次。' }}
+  ];
+  form.addEventListener('submit', function (e) {{
+    e.preventDefault();
+    var score = 0, allAnswered = true;
+    questions.forEach(function (q) {{
+      var correct = q.getAttribute('data-correct');
+      var checked = q.querySelector('input:checked');
+      if (!checked) {{ allAnswered = false; return; }}
+      q.classList.add('answered');
+      [].slice.call(q.querySelectorAll('.gqz-opt')).forEach(function (opt) {{
+        var input = opt.querySelector('input');
+        opt.classList.remove('is-correct', 'is-wrong');
+        if (input.value === correct) opt.classList.add('is-correct');
+        else if (input === checked) opt.classList.add('is-wrong');
+      }});
+      if (checked.value === correct) score++;
+    }});
+    if (!allAnswered) {{ alert('請先回答完所有題目再檢查喔。'); return; }}
+    badge.textContent = score + ' / ' + questions.length;
+    var m = MESSAGES.find(function (x) {{ return score >= x.min; }});
+    msg.textContent = m.text;
+    scoreWrap.classList.add('show');
+    scoreWrap.scrollIntoView({{ behavior: 'smooth', block: 'center' }});
+  }});
+  document.getElementById('gqzReset').addEventListener('click', function () {{
+    form.reset();
+    questions.forEach(function (q) {{
+      q.classList.remove('answered');
+      [].slice.call(q.querySelectorAll('.gqz-opt')).forEach(function (opt) {{
+        opt.classList.remove('is-correct', 'is-wrong');
+      }});
+    }});
+    scoreWrap.classList.remove('show');
+    window.scrollTo({{ top: 0, behavior: 'smooth' }});
+  }});
+}})();
+</script>
+'''
+    write("/staff-training/git-github/", layout("/staff-training/git-github/", "Git 與 GitHub 運作知識",
+        "Git、GitHub、commit、push、branch、PR 術語說明，附 24 題小考。", body, "staff-training", noindex=True))
+
+def build_staff_training():
+    build_staff_training_hub()
+    build_staff_git_github()
+
+# ==================================================================
 def build_static():
     # CNAME (only for custom-domain build), favicon, .nojekyll, robots
     cname_path = os.path.join(ROOT, "CNAME")
@@ -2716,6 +2928,8 @@ def main():
     for _sp, _sd in VIDEO_SERIES.items():
         if _sp not in paths:
             build_series(_sd); paths.append(_sp)
+    # 內部訓練專區：刻意不 append 進 paths，不進 sitemap.txt、不進選單。
+    build_staff_training()
     build_sitemap(paths)
     print(f"✅ 建置完成，共 {len(paths)} 頁")
     for p in paths: print("  ", p)
