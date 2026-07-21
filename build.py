@@ -2531,6 +2531,9 @@ def build_staff_git_github():
 </style>
 {page_hero("內部訓練 · Git 與 GitHub", "Git 與 GitHub 運作知識",
     "給協會工作夥伴的入門說明：當 Claude Code 或 AI 助手問你要不要 commit、開 branch 時，這裡告訴你那是什麼意思。")}
+<section class="section tight" style="padding-bottom:0"><div class="wrap">
+<a class="btn btn-ghost" href="/staff-training/">← 回內部訓練專區</a>
+</div></section>
 <section class="section"><div class="wrap prose wide rvl">
 <p>每一個 AI 寫程式工具背後都建立在 Git 這套版本控制系統之上，詞彙自然會出現在對話裡。看懂下面這幾個詞，AI 在問什麼你就聽得懂。</p>
 <ul>{terms_html}</ul>
@@ -2556,6 +2559,7 @@ def build_staff_git_github():
   <span id="gqzScore" class="gqz-score"><span class="badge" id="gqzBadge"></span><span id="gqzMsg"></span></span>
 </div>
 </form>
+<p style="margin-top:2rem"><a class="btn btn-ghost" href="/staff-training/">← 回內部訓練專區</a></p>
 </div></section>
 <script>
 (function () {{
