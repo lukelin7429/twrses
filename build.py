@@ -2534,7 +2534,16 @@ def build_staff_git_github():
 <section class="section"><div class="wrap prose wide rvl">
 <p>每一個 AI 寫程式工具背後都建立在 Git 這套版本控制系統之上，詞彙自然會出現在對話裡。看懂下面這幾個詞，AI 在問什麼你就聽得懂。</p>
 <ul>{terms_html}</ul>
-<p class="muted" style="font-size:.92rem">完整圖解版教學（含流程圖、比喻說明）：<a href="https://ai-for-teachers.org/lesson-6.html" target="_blank" rel="noopener">AI4Teachers 第六課</a>。</p>
+</div></section>
+<section class="section tight"><div class="wrap">
+<p class="eyebrow rvl">原始出處</p>
+<h2 class="rvl" style="margin-bottom:1.2rem">這份整理參考的教學影片</h2>
+<div style="max-width:420px">
+<a class="vcard rvl" href="https://www.youtube.com/watch?v=atqcAb7MFAM" data-yt="atqcAb7MFAM" title="給非技術人員的 Github 教學，Vibe Coding 必學的基礎技能">
+  <span class="vthumb"><img loading="lazy" src="https://i.ytimg.com/vi/atqcAb7MFAM/hqdefault.jpg" alt="給非技術人員的 Github 教學，Vibe Coding 必學的基礎技能"></span>
+  <span class="vmeta"><span class="vt">給非技術人員的 Github 教學，Vibe Coding 必學的基礎技能</span><span class="vdate">Gary Chen（@garytalksstuff）</span></span>
+</a>
+</div>
 </div></section>
 <section class="section tight"><div class="wrap">
 <p class="eyebrow rvl">小考 · Quick Check</p>
