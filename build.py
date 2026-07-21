@@ -2406,7 +2406,7 @@ STAFF_SKILLS = [
     ("/staff-training/claude-agent/", "🤖", "認識 Claude 代理人",
      "Agent、agentic loop、human-in-the-loop 是什麼？為什麼它會停下來問你。20 題小考。"),
     ("/staff-training/chatgpt-agent/", "💬", "認識 ChatGPT 代理人（Codex）",
-     "Codex 改名了嗎？2026/7 跟 ChatGPT 桌面版怎麼整合的？跟 Claude Code 怎麼對應。16 題小考。"),
+     "Codex 改名了嗎？2026/7 跟 ChatGPT 桌面版怎麼整合的？安全機制、Atlas 停用。兩回合共 32 題小考。"),
 ]
 
 def build_staff_training_hub():
@@ -2855,16 +2855,12 @@ CLAUDE_ROUNDS = [
      "intro": "答錯的題目送出後會直接顯示說明，幫你搞懂差在哪。"},
 ]
 
-def build_staff_claude_agent():
-    nav_chips = "".join(
-        f'<a class="unit-nav-link" href="#{r["id"]}"><b>{i+1}</b><span>{html.escape(r["title"])}</span></a>'
-        for i, r in enumerate(CLAUDE_ROUNDS))
-    nav_html_ = (f'<nav class="unit-nav" aria-label="回合導覽"><div class="wrap">'
-                 f'<span class="unit-nav-label">跳到回合</span>'
-                 f'<div class="unit-nav-track">{nav_chips}</div></div></nav>')
-
+def build_rounds_page(path, page_title, hero_eyebrow, hero_lead, rounds, meta_desc):
+    """Renders a staff-training page made of N rounds (prose + quiz each). Adds the
+    sticky '跳到回合' jump-nav automatically once there's more than one round —
+    reuses the site's existing .unit-nav component and scroll-spy JS as-is."""
     round_blocks = []
-    for i, r in enumerate(CLAUDE_ROUNDS, 1):
+    for i, r in enumerate(rounds, 1):
         terms_html, quiz_html = _gqz_render(r["terms"], r["quiz"])
         n = len(r["quiz"])
         round_blocks.append(f'''
@@ -2872,20 +2868,36 @@ def build_staff_claude_agent():
 <p class="eyebrow">{r["eyebrow"]}</p>
 <p>{r["lead"]}</p>
 <ul>{terms_html}</ul>
+{r.get("extra", "")}
 </div></section>
 {gqz_quiz_section(n, quiz_html, suffix=str(i), heading=f"{r['label']}：{n} 題", intro=r["intro"])}''')
 
+    nav_html_ = ""
+    if len(rounds) > 1:
+        nav_chips = "".join(
+            f'<a class="unit-nav-link" href="#{r["id"]}"><b>{i+1}</b><span>{html.escape(r["title"])}</span></a>'
+            for i, r in enumerate(rounds))
+        nav_html_ = (f'<nav class="unit-nav" aria-label="回合導覽"><div class="wrap">'
+                     f'<span class="unit-nav-label">跳到回合</span>'
+                     f'<div class="unit-nav-track">{nav_chips}</div></div></nav>')
+
     body = f'''
-{page_hero("內部訓練 · 認識 Claude 代理人", "認識 Claude 代理人",
-    "給協會工作夥伴的入門說明：Claude Code 不只是聊天機器人，而是會實際動手做事的「代理人」——這裡說明它怎麼運作、為什麼要停下來問你。")}
+{page_hero(hero_eyebrow, page_title, hero_lead)}
 <section class="section tight" style="padding-bottom:0"><div class="wrap">
 <a class="btn btn-ghost" href="/staff-training/">← 回內部訓練專區</a>
 </div></section>
 {nav_html_}
 {"".join(round_blocks)}
 '''
-    write("/staff-training/claude-agent/", layout("/staff-training/claude-agent/", "認識 Claude 代理人",
-        "Agent、Claude 5 模型家族、Project、Routines、Cowork、MCP、Workflow 等術語說明，附三回合共 52 題小考。", body, "staff-training", noindex=True))
+    write(path, layout(path, page_title, meta_desc, body, "staff-training", noindex=True))
+
+def build_staff_claude_agent():
+    build_rounds_page(
+        "/staff-training/claude-agent/", "認識 Claude 代理人",
+        "內部訓練 · 認識 Claude 代理人",
+        "給協會工作夥伴的入門說明：Claude Code 不只是聊天機器人，而是會實際動手做事的「代理人」——這裡說明它怎麼運作、為什麼要停下來問你。",
+        CLAUDE_ROUNDS,
+        "Agent、Claude 5 模型家族、Project、Routines、Cowork、MCP、Workflow 等術語說明，附三回合共 52 題小考。")
 
 CHATGPT_TERMS = [
     ("Codex", "OpenAI 的寫程式代理人。名字沒有消失，2026 年 7 月只是產品結構做了調整。"),
@@ -2972,25 +2984,116 @@ CHATGPT_QUIZ = [
      "「代理人」是指能實際動手做事、不只是回答問題的 AI，Codex 和 Claude Code 都符合這個定義，只是背後公司與產品細節不同。"),
 ]
 
+CHATGPT_TERMS_R2 = [
+    ("Sandbox mode（沙盒模式）", "決定代理人技術上能做什麼——由嚴格到寬鬆是 read-only → workspace-write（預設）→ danger-full-access。"),
+    ("Approval policy（核准政策）", "決定什麼時候要先問過你才能執行，跟 sandbox mode 是互補的兩層安全設計。"),
+    ("read-only", "只能檢查、閱讀檔案，不能編輯或執行指令，除非另外取得核准——適合先討論、不想動到檔案的情境。"),
+    ("workspace-write", "預設模式：能讀取、在工作目錄內編輯與執行例行指令，但碰到目錄外的檔案或需要連網的動作還是會先問過你。"),
+    ("danger-full-access", "把檔案系統與網路限制都拿掉，等於完全不受限制，通常只在環境已隔離的情況下才考慮開啟。"),
+    ("ChatGPT Atlas", "OpenAI 2025 年 10 月推出、內建 ChatGPT 的獨立瀏覽器；已宣布 2026/8/9 停用，功能併入 ChatGPT 桌面版與一個 Chrome 擴充套件。"),
+]
+
+# (question, [option_A, option_B, option_C, option_D], correct_letter, category, explanation)
+CHATGPT_QUIZ_R2 = [
+    ("Codex 的三種 sandbox 模式，由嚴格到寬鬆排列，正確的是？",
+     ["workspace-write → read-only → danger-full-access", "danger-full-access → workspace-write → read-only",
+      "read-only → workspace-write → danger-full-access", "三種模式沒有嚴格程度之分"],
+     "C", "Codex 的安全機制",
+     "三種模式由嚴格到寬鬆依序是 read-only（唯讀）→ workspace-write（工作目錄內可寫，預設模式）→ danger-full-access（完全不受限）。"),
+    ("read-only 模式下，Codex 可以做什麼？",
+     ["可以檢查／閱讀檔案，但不能編輯檔案或執行指令，除非另外取得核准", "可以自由編輯任何檔案", "可以連上網路做任何事", "完全不能讀取任何東西"],
+     "A", "Codex 的安全機制",
+     "read-only 模式下，Codex 可以檢查、閱讀檔案，但不能編輯檔案或執行指令，除非另外取得核准——適合先討論、不想動到檔案的情境。"),
+    ("「workspace-write」是 Codex 的預設模式，它的行為是？",
+     ["完全不受任何限制", "只能讀取，不能寫入任何東西", "每一個動作都要先問過你，包含最基本的讀檔",
+      "可以讀取檔案、在工作目錄內編輯與執行例行指令，但碰到工作目錄外的檔案或需要連網的指令，還是會先問過你"],
+     "D", "Codex 的安全機制",
+     "workspace-write 是預設模式：可以讀取檔案、在工作目錄內編輯與執行例行指令，但碰到工作目錄外的檔案或需要連網的指令，還是會先問過你。"),
+    ("「danger-full-access」這個模式代表？",
+     ["只是介面上的裝飾用詞，沒有實際差異", "把檔案系統與網路的限制都拿掉，等於完全不受限制", "是最安全的模式", "只能在唯讀狀態下使用"],
+     "B", "Codex 的安全機制",
+     "danger-full-access 把檔案系統與網路的限制都拿掉，等於完全不受限制，是三種模式裡最寬鬆、風險也最高的一種。"),
+    ("ChatGPT Atlas 原本是什麼？",
+     ["一套內建 ChatGPT 的獨立瀏覽器，2025 年 10 月推出", "Codex 的舊名字", "ChatGPT 桌面版裡的其中一個分區", "一種程式語言"],
+     "A", "ChatGPT Atlas 走入歷史",
+     "ChatGPT Atlas 是一套內建 ChatGPT 的獨立瀏覽器，2025 年 10 月推出，以 Chromium 為基礎。"),
+    ("ChatGPT Atlas 現在的狀況是？",
+     ["持續正常運作，沒有任何變化", "被改名叫 Codex", "從來沒有真的推出過", "已經被 OpenAI 宣布停止服務（2026 年 8 月 9 日停用），功能移到別的地方"],
+     "D", "ChatGPT Atlas 走入歷史",
+     "OpenAI 已經宣布 Atlas 將於 2026 年 8 月 9 日停用，功能會被整合進 ChatGPT 桌面應用程式和一個 Chrome 擴充套件。"),
+    ("Atlas 停用後，原本的「網頁代理」相關功能被移到哪裡？",
+     ["完全消失，不會保留", "ChatGPT 桌面應用程式，以及一個 Chrome 瀏覽器擴充套件", "只保留在企業付費方案裡", "移到一個全新、獨立的產品，跟 ChatGPT 完全無關"],
+     "B", "ChatGPT Atlas 走入歷史",
+     "Atlas 停用後，原本的網頁代理相關功能會移到 ChatGPT 桌面應用程式，以及一個 Chrome 瀏覽器擴充套件。"),
+    ("如果有人說「Atlas 就是 ChatGPT 桌面版裡的 Work 分區」，這個說法正確嗎？",
+     ["正確，兩者是同一個東西", "正確，因為 Atlas 從來沒有存在過",
+      "不正確，Atlas 原本是獨立的瀏覽器產品，跟桌面版裡的 Work 分區是不同的東西，只是 Atlas 停用後部分功能會移進 ChatGPT", "不正確，因為 Work 分區才是被停用的那個"],
+     "C", "ChatGPT Atlas 走入歷史",
+     "Atlas 原本是獨立的瀏覽器產品，跟桌面版裡的 Work 分區是不同的東西，兩者不能畫等號，只是 Atlas 停用後部分功能會移進 ChatGPT 生態系。"),
+    ("Codex 的「approval policy（核准政策）」和「sandbox mode（沙盒模式）」的差別是？",
+     ["兩者完全一樣", "approval policy 只是行銷用詞，沒有實際功能", "sandbox mode 只在企業版才有",
+      "sandbox mode 決定代理人技術上能做什麼（例如能不能連網、能寫到哪裡）；approval policy 決定什麼時候要先問過你"],
+     "D", "Codex vs Claude Code 安全模式對照",
+     "sandbox mode 決定代理人技術上能做什麼（例如能不能連網、能寫到哪裡）；approval policy 決定什麼時候要先問過你，兩者是互補的兩層設計。"),
+    ("Claude Code 跟 Codex 在安全機制的設計理念上，最接近的共同點是？",
+     ["兩者完全沒有安全機制的概念", "兩者都採用「預設保守、風險較高的動作才需要額外核准或明確開啟」的分層設計",
+      "兩者都要求使用者每個動作都手動確認，沒有例外", "兩者的安全機制設計理念完全相反"],
+     "B", "Codex vs Claude Code 安全模式對照",
+     "Claude Code 和 Codex 在安全機制設計理念上都採用「預設保守、風險較高的動作才需要額外核准或明確開啟」的分層做法，概念上很接近。"),
+    ("為什麼「read-only」／保守模式很適合拿來「先討論、再決定」？",
+     ["因為這個模式速度比較快", "因為這個模式完全不能用", "因為在這個模式下，代理人只能看不能動手改，你可以放心討論方向，不用擔心檔案被意外改動", "因為這個模式只能給付費使用者用"],
+     "C", "Codex vs Claude Code 安全模式對照",
+     "read-only 模式下代理人只能看不能動手改，適合先討論方向、不用擔心檔案被意外改動的情境。"),
+    ("「danger-full-access」這類完全不受限的模式，比較適合什麼情境？",
+     ["通常是在你很清楚要做什麼、且環境本身已經隔離（例如一次性的沙盒環境）的情況下才會考慮開啟", "任何情況都應該優先使用，越自由越好", "給第一次使用代理人的新手用最安全", "這個模式其實根本不存在"],
+     "A", "Codex vs Claude Code 安全模式對照",
+     "danger-full-access 這類完全不受限的模式，通常是在你很清楚要做什麼、且環境本身已經隔離（例如一次性的沙盒環境）的情況下才會考慮開啟，不是預設建議。"),
+    ("同事跟你說「ChatGPT 現在什麼都能自己做，完全不用你確認」，這個說法正確嗎？",
+     ["完全正確，Codex 沒有任何安全機制", "不正確，Codex 預設模式（workspace-write）碰到工作目錄外的檔案或需要連網的動作，還是會先問過你",
+      "正確，因為 danger-full-access 是唯一的模式", "這個問題跟 Codex 完全無關"],
+     "B", "綜合應用",
+     "Codex 的預設模式（workspace-write）碰到工作目錄外的檔案或需要連網的動作，還是會先問過你，並不是什麼都自己做主。"),
+    ("學過 Codex 的 sandbox／approval 機制後，再回頭看 Claude Code「先問過你才做風險較高的動作」，你會發現？",
+     ["兩者的做法完全找不到任何相似之處", "只有 Claude Code 有這種設計，Codex 完全沒有",
+      "這其實是同一類設計理念在不同產品上的實作——先確認、再放手做風險較高的事", "只有 Codex 有這種設計，Claude Code 完全沒有"],
+     "C", "綜合應用",
+     "Codex 的 sandbox／approval 機制，跟 Claude Code「先問過你才做風險較高的動作」其實是同一類設計理念在不同產品上的實作。"),
+    ("「Atlas 停用」這件事跟這堂課學的「代理人」概念有什麼關聯？",
+     ["代理人相關功能（例如網頁瀏覽代理）在不同產品間整合、搬移是很常見的事，代理人生態系持續在演變", "完全無關，只是單純的產品新聞", "代表所有 AI 代理人產品都會被停用", "代表 OpenAI 已經放棄開發代理人技術"],
+     "A", "綜合應用",
+     "代理人相關功能在不同產品間整合、搬移（例如 Atlas 併入 ChatGPT）是很常見的事，說明這整個代理人生態系還在持續演變。"),
+    ("這一回合（Codex 安全機制與產品演變）最重要的收穫是？",
+     ["記住每一個功能的確切停用日期，其他都不重要", "Codex 已經被淘汰，不用再學了", "這堂課的內容以後都不會再變，可以完全不用再更新",
+      "理解 AI 代理人工具背後都有分層的安全設計，且產品名稱與結構會隨時間調整——重點是抓住背後的概念，而不是死背當下的名字"],
+     "D", "綜合應用",
+     "這一回合最重要的收穫，是理解 AI 代理人工具背後都有分層的安全設計，且產品名稱與結構會隨時間調整——重點是抓住背後的概念，而不是死背當下的名字。"),
+]
+
+CHATGPT_ROUNDS = [
+    {"id": "round1", "label": "第一回合", "title": "Codex 是什麼", "terms": CHATGPT_TERMS, "quiz": CHATGPT_QUIZ,
+     "eyebrow": "第一回合 · 基礎",
+     "lead": "常聽到的說法「Codex 已經改名了」不完全正確：Codex 這個名字還在，只是 2026 年 7 月 9 日起，原本獨立的 Codex App 併入新版 ChatGPT 桌面應用程式，變成 Chat、Work、Codex 三個分區之一，原本的 ChatGPT 桌面版則改名叫「ChatGPT Classic」。看懂下面這幾個詞，下次同事討論到就不會搞混。",
+     "intro": "答錯的題目送出後會直接顯示說明，幫你搞懂差在哪。",
+     "extra": '<p class="muted" style="font-size:.92rem">內容整理自 2026 年 7 月的公開報導，之後產品結構如有再調整，這裡會跟著更新——參考來源：'
+              '<a href="https://en.wikipedia.org/wiki/Codex_(AI_agent)" target="_blank" rel="noopener">Wikipedia: Codex (AI agent)</a>、'
+              '<a href="https://coursiv.io/blog/codex-merged-with-chatgpt-app" target="_blank" rel="noopener">Coursiv: Codex merged with ChatGPT app</a>。</p>'},
+    {"id": "round2", "label": "第二回合", "title": "安全機制與 Atlas", "terms": CHATGPT_TERMS_R2, "quiz": CHATGPT_QUIZ_R2,
+     "eyebrow": "第二回合 · 進階",
+     "lead": "第一回合是「Codex 現在叫什麼」，這裡開始講「Codex 實際上怎麼運作」：它的分層安全機制跟 Claude Code 概念上很接近，還有另一個相關的大新聞——ChatGPT Atlas 瀏覽器即將停用。",
+     "intro": "答錯的題目送出後會直接顯示說明，幫你搞懂差在哪。",
+     "extra": '<p class="muted" style="font-size:.92rem">內容整理自 OpenAI 官方文件與 2026 年 7 月的公開報導——參考來源：'
+              '<a href="https://developers.openai.com/codex/agent-approvals-security" target="_blank" rel="noopener">OpenAI: Agent approvals &amp; security</a>、'
+              '<a href="https://developers.openai.com/codex/concepts/sandboxing" target="_blank" rel="noopener">OpenAI: Sandboxing</a>、'
+              '<a href="https://techcrunch.com/2026/07/09/openai-is-shutting-down-atlas-but-its-ai-browser-ambitions-are-still-growing/" target="_blank" rel="noopener">TechCrunch: OpenAI is shutting down Atlas</a>。</p>'},
+]
+
 def build_staff_chatgpt_agent():
-    terms_html, quiz_html = _gqz_render(CHATGPT_TERMS, CHATGPT_QUIZ)
-    body = f'''
-{page_hero("內部訓練 · 認識 ChatGPT 代理人", "認識 ChatGPT 代理人（Codex）",
-    "給協會工作夥伴的入門說明：OpenAI 的寫程式代理人還是叫 Codex，只是 2026 年 7 月把它整合進新版 ChatGPT 桌面應用程式了——這裡說明現在的樣子，跟 Claude Code 怎麼對應。")}
-<section class="section tight" style="padding-bottom:0"><div class="wrap">
-<a class="btn btn-ghost" href="/staff-training/">← 回內部訓練專區</a>
-</div></section>
-<section class="section"><div class="wrap prose wide rvl">
-<p>常聽到的說法「Codex 已經改名了」不完全正確：Codex 這個名字還在，只是 2026 年 7 月 9 日起，原本獨立的 Codex App 併入新版 ChatGPT 桌面應用程式，變成 Chat、Work、Codex 三個分區之一，原本的 ChatGPT 桌面版則改名叫「ChatGPT Classic」。看懂下面這幾個詞，下次同事討論到就不會搞混。</p>
-<ul>{terms_html}</ul>
-<p class="muted" style="font-size:.92rem">內容整理自 2026 年 7 月的公開報導，之後產品結構如有再調整，這裡會跟著更新——參考來源：
-<a href="https://en.wikipedia.org/wiki/Codex_(AI_agent)" target="_blank" rel="noopener">Wikipedia: Codex (AI agent)</a>、
-<a href="https://coursiv.io/blog/codex-merged-with-chatgpt-app" target="_blank" rel="noopener">Coursiv: Codex merged with ChatGPT app</a>。</p>
-</div></section>
-{gqz_quiz_section(len(CHATGPT_QUIZ), quiz_html, suffix="", heading=f"{len(CHATGPT_QUIZ)} 題，檢查自己懂了沒", intro="答錯的題目送出後會直接顯示說明，幫你搞懂差在哪。")}
-'''
-    write("/staff-training/chatgpt-agent/", layout("/staff-training/chatgpt-agent/", "認識 ChatGPT 代理人（Codex）",
-        "Codex 是什麼、2026/7 跟 ChatGPT 桌面版整合改了什麼、跟 Claude Code 怎麼對應，附 16 題小考。", body, "staff-training", noindex=True))
+    build_rounds_page(
+        "/staff-training/chatgpt-agent/", "認識 ChatGPT 代理人（Codex）",
+        "內部訓練 · 認識 ChatGPT 代理人",
+        "給協會工作夥伴的入門說明：OpenAI 的寫程式代理人還是叫 Codex，只是 2026 年 7 月把它整合進新版 ChatGPT 桌面應用程式了——這裡說明現在的樣子，跟 Claude Code 怎麼對應。",
+        CHATGPT_ROUNDS,
+        "Codex 是什麼、安全機制、ChatGPT Atlas 停用、跟 Claude Code 怎麼對應，附兩回合共 32 題小考。")
 
 def build_staff_training():
     build_staff_training_hub()

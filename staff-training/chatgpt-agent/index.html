@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>認識 ChatGPT 代理人（Codex）｜彰化縣人師教育協會</title>
-<meta name="description" content="Codex 是什麼、2026/7 跟 ChatGPT 桌面版整合改了什麼、跟 Claude Code 怎麼對應，附 16 題小考。">
+<meta name="description" content="Codex 是什麼、安全機制、ChatGPT Atlas 停用、跟 Claude Code 怎麼對應，附兩回合共 32 題小考。">
 <meta name="robots" content="noindex, nofollow">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,7 +14,7 @@
 <link rel="stylesheet" href="/assets/css/search.css?v=c0751b52">
 <link rel="icon" href="/assets/img/logo-badge.svg" type="image/svg+xml">
 <meta property="og:title" content="認識 ChatGPT 代理人（Codex）｜彰化縣人師教育協會">
-<meta property="og:description" content="Codex 是什麼、2026/7 跟 ChatGPT 桌面版整合改了什麼、跟 Claude Code 怎麼對應，附 16 題小考。">
+<meta property="og:description" content="Codex 是什麼、安全機制、ChatGPT Atlas 停用、跟 Claude Code 怎麼對應，附兩回合共 32 題小考。">
 <meta property="og:type" content="website">
 </head>
 <body>
@@ -76,18 +76,19 @@
 <section class="section tight" style="padding-bottom:0"><div class="wrap">
 <a class="btn btn-ghost" href="/staff-training/">← 回內部訓練專區</a>
 </div></section>
-<section class="section"><div class="wrap prose wide rvl">
+<nav class="unit-nav" aria-label="回合導覽"><div class="wrap"><span class="unit-nav-label">跳到回合</span><div class="unit-nav-track"><a class="unit-nav-link" href="#round1"><b>1</b><span>Codex 是什麼</span></a><a class="unit-nav-link" href="#round2"><b>2</b><span>安全機制與 Atlas</span></a></div></div></nav>
+
+<section class="section" id="round1" style="scroll-margin-top:140px"><div class="wrap prose wide rvl">
+<p class="eyebrow">第一回合 · 基礎</p>
 <p>常聽到的說法「Codex 已經改名了」不完全正確：Codex 這個名字還在，只是 2026 年 7 月 9 日起，原本獨立的 Codex App 併入新版 ChatGPT 桌面應用程式，變成 Chat、Work、Codex 三個分區之一，原本的 ChatGPT 桌面版則改名叫「ChatGPT Classic」。看懂下面這幾個詞，下次同事討論到就不會搞混。</p>
 <ul><li><strong>Codex</strong> — OpenAI 的寫程式代理人。名字沒有消失，2026 年 7 月只是產品結構做了調整。</li><li><strong>2026/7/9 整合</strong> — 原本獨立的 Codex App，併入新版 ChatGPT 桌面應用程式，變成裡面三個分區之一。</li><li><strong>ChatGPT Classic</strong> — 原本獨立的 ChatGPT 桌面版，整合後被改名成這個名字，讓位給新版整合 App。</li><li><strong>Chat（分區）</strong> — 新版桌面 App 的分區之一：一般的 ChatGPT 對話、問答、寫作、日常協助。</li><li><strong>Work（分區）</strong> — 新版桌面 App 的分區之一：面向企業、跨檔案／應用程式／連接服務的代理人工作流程。</li><li><strong>Codex（分區）</strong> — 新版桌面 App 的分區之一：開發者導向的任務，例如管理程式庫、審查程式碼、操作終端機。</li><li><strong>其他使用管道</strong> — 除了桌面 App，Codex 也能透過 CLI（命令列）、IDE 擴充套件、雲端平台、網頁版使用。</li><li><strong>跟 Claude Code 的關係</strong> — 概念上很接近：都是能實際讀寫程式碼、操作終端機、完成多步驟任務的 AI 代理人，只是分屬 OpenAI 與 Anthropic 兩家公司。</li></ul>
-<p class="muted" style="font-size:.92rem">內容整理自 2026 年 7 月的公開報導，之後產品結構如有再調整，這裡會跟著更新——參考來源：
-<a href="https://en.wikipedia.org/wiki/Codex_(AI_agent)" target="_blank" rel="noopener">Wikipedia: Codex (AI agent)</a>、
-<a href="https://coursiv.io/blog/codex-merged-with-chatgpt-app" target="_blank" rel="noopener">Coursiv: Codex merged with ChatGPT app</a>。</p>
+<p class="muted" style="font-size:.92rem">內容整理自 2026 年 7 月的公開報導，之後產品結構如有再調整，這裡會跟著更新——參考來源：<a href="https://en.wikipedia.org/wiki/Codex_(AI_agent)" target="_blank" rel="noopener">Wikipedia: Codex (AI agent)</a>、<a href="https://coursiv.io/blog/codex-merged-with-chatgpt-app" target="_blank" rel="noopener">Coursiv: Codex merged with ChatGPT app</a>。</p>
 </div></section>
 <section class="section tight"><div class="wrap">
 <p class="eyebrow rvl">小考 · Quick Check</p>
-<h2 class="rvl" style="margin-bottom:.4rem">16 題，檢查自己懂了沒</h2>
+<h2 class="rvl" style="margin-bottom:.4rem">第一回合：16 題</h2>
 <p class="muted rvl" style="margin:-.6rem 0 1.4rem">答錯的題目送出後會直接顯示說明，幫你搞懂差在哪。</p>
-<form id="gqzForm">
+<form id="gqzForm1">
 <p class="gqz-cat">Codex 是什麼</p><div class="gqz-q" data-correct="C">
   <p class="gqz-n">第 1 題</p>
   <p class="gqz-t">「聽說 ChatGPT 的寫程式代理人已經不叫 Codex 了」，這句話正確嗎？</p>
@@ -171,20 +172,20 @@
 </div>
 <div class="gqz-actions">
   <button type="submit" class="btn btn-primary">檢查我的答案</button>
-  <button type="button" id="gqzReset" class="btn btn-ghost">重新作答</button>
-  <span id="gqzScore" class="gqz-score"><span class="badge" id="gqzBadge"></span><span id="gqzMsg"></span></span>
+  <button type="button" id="gqzReset1" class="btn btn-ghost">重新作答</button>
+  <span id="gqzScore1" class="gqz-score"><span class="badge" id="gqzBadge1"></span><span id="gqzMsg1"></span></span>
 </div>
 </form>
 <p style="margin-top:2rem"><a class="btn btn-ghost" href="/staff-training/">← 回內部訓練專區</a></p>
 </div></section>
 <script>
 (function () {
-  var form = document.getElementById('gqzForm');
+  var form = document.getElementById('gqzForm1');
   if (!form) return;
   var questions = [].slice.call(form.querySelectorAll('.gqz-q'));
-  var scoreWrap = document.getElementById('gqzScore');
-  var badge = document.getElementById('gqzBadge');
-  var msg = document.getElementById('gqzMsg');
+  var scoreWrap = document.getElementById('gqzScore1');
+  var badge = document.getElementById('gqzBadge1');
+  var msg = document.getElementById('gqzMsg1');
   var total = questions.length;
   var MESSAGES = [
     { min: Math.ceil(total * 0.92), text: '滿分等級——你已經聽得懂 AI 在講什麼了！' },
@@ -218,7 +219,163 @@
     scoreWrap.classList.add('show');
     scoreWrap.scrollIntoView({ behavior: 'smooth', block: 'center' });
   });
-  document.getElementById('gqzReset').addEventListener('click', function () {
+  document.getElementById('gqzReset1').addEventListener('click', function () {
+    form.reset();
+    questions.forEach(function (q) {
+      q.classList.remove('answered');
+      [].slice.call(q.querySelectorAll('.gqz-opt')).forEach(function (opt) {
+        opt.classList.remove('is-correct', 'is-wrong');
+      });
+      var explain = q.querySelector('.gqz-explain');
+      if (explain) explain.hidden = true;
+    });
+    scoreWrap.classList.remove('show');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+})();
+</script>
+<section class="section" id="round2" style="scroll-margin-top:140px"><div class="wrap prose wide rvl">
+<p class="eyebrow">第二回合 · 進階</p>
+<p>第一回合是「Codex 現在叫什麼」，這裡開始講「Codex 實際上怎麼運作」：它的分層安全機制跟 Claude Code 概念上很接近，還有另一個相關的大新聞——ChatGPT Atlas 瀏覽器即將停用。</p>
+<ul><li><strong>Sandbox mode（沙盒模式）</strong> — 決定代理人技術上能做什麼——由嚴格到寬鬆是 read-only → workspace-write（預設）→ danger-full-access。</li><li><strong>Approval policy（核准政策）</strong> — 決定什麼時候要先問過你才能執行，跟 sandbox mode 是互補的兩層安全設計。</li><li><strong>read-only</strong> — 只能檢查、閱讀檔案，不能編輯或執行指令，除非另外取得核准——適合先討論、不想動到檔案的情境。</li><li><strong>workspace-write</strong> — 預設模式：能讀取、在工作目錄內編輯與執行例行指令，但碰到目錄外的檔案或需要連網的動作還是會先問過你。</li><li><strong>danger-full-access</strong> — 把檔案系統與網路限制都拿掉，等於完全不受限制，通常只在環境已隔離的情況下才考慮開啟。</li><li><strong>ChatGPT Atlas</strong> — OpenAI 2025 年 10 月推出、內建 ChatGPT 的獨立瀏覽器；已宣布 2026/8/9 停用，功能併入 ChatGPT 桌面版與一個 Chrome 擴充套件。</li></ul>
+<p class="muted" style="font-size:.92rem">內容整理自 OpenAI 官方文件與 2026 年 7 月的公開報導——參考來源：<a href="https://developers.openai.com/codex/agent-approvals-security" target="_blank" rel="noopener">OpenAI: Agent approvals &amp; security</a>、<a href="https://developers.openai.com/codex/concepts/sandboxing" target="_blank" rel="noopener">OpenAI: Sandboxing</a>、<a href="https://techcrunch.com/2026/07/09/openai-is-shutting-down-atlas-but-its-ai-browser-ambitions-are-still-growing/" target="_blank" rel="noopener">TechCrunch: OpenAI is shutting down Atlas</a>。</p>
+</div></section>
+<section class="section tight"><div class="wrap">
+<p class="eyebrow rvl">小考 · Quick Check</p>
+<h2 class="rvl" style="margin-bottom:.4rem">第二回合：16 題</h2>
+<p class="muted rvl" style="margin:-.6rem 0 1.4rem">答錯的題目送出後會直接顯示說明，幫你搞懂差在哪。</p>
+<form id="gqzForm2">
+<p class="gqz-cat">Codex 的安全機制</p><div class="gqz-q" data-correct="C">
+  <p class="gqz-n">第 1 題</p>
+  <p class="gqz-t">Codex 的三種 sandbox 模式，由嚴格到寬鬆排列，正確的是？</p>
+  <div class="gqz-opts"><label class="gqz-opt"><input type="radio" name="gq1" value="A"><span class="gqz-l">A</span><span>workspace-write → read-only → danger-full-access</span></label><label class="gqz-opt"><input type="radio" name="gq1" value="B"><span class="gqz-l">B</span><span>danger-full-access → workspace-write → read-only</span></label><label class="gqz-opt"><input type="radio" name="gq1" value="C"><span class="gqz-l">C</span><span>read-only → workspace-write → danger-full-access</span></label><label class="gqz-opt"><input type="radio" name="gq1" value="D"><span class="gqz-l">D</span><span>三種模式沒有嚴格程度之分</span></label></div>
+  <div class="gqz-explain" hidden>三種模式由嚴格到寬鬆依序是 read-only（唯讀）→ workspace-write（工作目錄內可寫，預設模式）→ danger-full-access（完全不受限）。</div>
+</div><div class="gqz-q" data-correct="A">
+  <p class="gqz-n">第 2 題</p>
+  <p class="gqz-t">read-only 模式下，Codex 可以做什麼？</p>
+  <div class="gqz-opts"><label class="gqz-opt"><input type="radio" name="gq2" value="A"><span class="gqz-l">A</span><span>可以檢查／閱讀檔案，但不能編輯檔案或執行指令，除非另外取得核准</span></label><label class="gqz-opt"><input type="radio" name="gq2" value="B"><span class="gqz-l">B</span><span>可以自由編輯任何檔案</span></label><label class="gqz-opt"><input type="radio" name="gq2" value="C"><span class="gqz-l">C</span><span>可以連上網路做任何事</span></label><label class="gqz-opt"><input type="radio" name="gq2" value="D"><span class="gqz-l">D</span><span>完全不能讀取任何東西</span></label></div>
+  <div class="gqz-explain" hidden>read-only 模式下，Codex 可以檢查、閱讀檔案，但不能編輯檔案或執行指令，除非另外取得核准——適合先討論、不想動到檔案的情境。</div>
+</div><div class="gqz-q" data-correct="D">
+  <p class="gqz-n">第 3 題</p>
+  <p class="gqz-t">「workspace-write」是 Codex 的預設模式，它的行為是？</p>
+  <div class="gqz-opts"><label class="gqz-opt"><input type="radio" name="gq3" value="A"><span class="gqz-l">A</span><span>完全不受任何限制</span></label><label class="gqz-opt"><input type="radio" name="gq3" value="B"><span class="gqz-l">B</span><span>只能讀取，不能寫入任何東西</span></label><label class="gqz-opt"><input type="radio" name="gq3" value="C"><span class="gqz-l">C</span><span>每一個動作都要先問過你，包含最基本的讀檔</span></label><label class="gqz-opt"><input type="radio" name="gq3" value="D"><span class="gqz-l">D</span><span>可以讀取檔案、在工作目錄內編輯與執行例行指令，但碰到工作目錄外的檔案或需要連網的指令，還是會先問過你</span></label></div>
+  <div class="gqz-explain" hidden>workspace-write 是預設模式：可以讀取檔案、在工作目錄內編輯與執行例行指令，但碰到工作目錄外的檔案或需要連網的指令，還是會先問過你。</div>
+</div><div class="gqz-q" data-correct="B">
+  <p class="gqz-n">第 4 題</p>
+  <p class="gqz-t">「danger-full-access」這個模式代表？</p>
+  <div class="gqz-opts"><label class="gqz-opt"><input type="radio" name="gq4" value="A"><span class="gqz-l">A</span><span>只是介面上的裝飾用詞，沒有實際差異</span></label><label class="gqz-opt"><input type="radio" name="gq4" value="B"><span class="gqz-l">B</span><span>把檔案系統與網路的限制都拿掉，等於完全不受限制</span></label><label class="gqz-opt"><input type="radio" name="gq4" value="C"><span class="gqz-l">C</span><span>是最安全的模式</span></label><label class="gqz-opt"><input type="radio" name="gq4" value="D"><span class="gqz-l">D</span><span>只能在唯讀狀態下使用</span></label></div>
+  <div class="gqz-explain" hidden>danger-full-access 把檔案系統與網路的限制都拿掉，等於完全不受限制，是三種模式裡最寬鬆、風險也最高的一種。</div>
+</div><p class="gqz-cat">ChatGPT Atlas 走入歷史</p><div class="gqz-q" data-correct="A">
+  <p class="gqz-n">第 5 題</p>
+  <p class="gqz-t">ChatGPT Atlas 原本是什麼？</p>
+  <div class="gqz-opts"><label class="gqz-opt"><input type="radio" name="gq5" value="A"><span class="gqz-l">A</span><span>一套內建 ChatGPT 的獨立瀏覽器，2025 年 10 月推出</span></label><label class="gqz-opt"><input type="radio" name="gq5" value="B"><span class="gqz-l">B</span><span>Codex 的舊名字</span></label><label class="gqz-opt"><input type="radio" name="gq5" value="C"><span class="gqz-l">C</span><span>ChatGPT 桌面版裡的其中一個分區</span></label><label class="gqz-opt"><input type="radio" name="gq5" value="D"><span class="gqz-l">D</span><span>一種程式語言</span></label></div>
+  <div class="gqz-explain" hidden>ChatGPT Atlas 是一套內建 ChatGPT 的獨立瀏覽器，2025 年 10 月推出，以 Chromium 為基礎。</div>
+</div><div class="gqz-q" data-correct="D">
+  <p class="gqz-n">第 6 題</p>
+  <p class="gqz-t">ChatGPT Atlas 現在的狀況是？</p>
+  <div class="gqz-opts"><label class="gqz-opt"><input type="radio" name="gq6" value="A"><span class="gqz-l">A</span><span>持續正常運作，沒有任何變化</span></label><label class="gqz-opt"><input type="radio" name="gq6" value="B"><span class="gqz-l">B</span><span>被改名叫 Codex</span></label><label class="gqz-opt"><input type="radio" name="gq6" value="C"><span class="gqz-l">C</span><span>從來沒有真的推出過</span></label><label class="gqz-opt"><input type="radio" name="gq6" value="D"><span class="gqz-l">D</span><span>已經被 OpenAI 宣布停止服務（2026 年 8 月 9 日停用），功能移到別的地方</span></label></div>
+  <div class="gqz-explain" hidden>OpenAI 已經宣布 Atlas 將於 2026 年 8 月 9 日停用，功能會被整合進 ChatGPT 桌面應用程式和一個 Chrome 擴充套件。</div>
+</div><div class="gqz-q" data-correct="B">
+  <p class="gqz-n">第 7 題</p>
+  <p class="gqz-t">Atlas 停用後，原本的「網頁代理」相關功能被移到哪裡？</p>
+  <div class="gqz-opts"><label class="gqz-opt"><input type="radio" name="gq7" value="A"><span class="gqz-l">A</span><span>完全消失，不會保留</span></label><label class="gqz-opt"><input type="radio" name="gq7" value="B"><span class="gqz-l">B</span><span>ChatGPT 桌面應用程式，以及一個 Chrome 瀏覽器擴充套件</span></label><label class="gqz-opt"><input type="radio" name="gq7" value="C"><span class="gqz-l">C</span><span>只保留在企業付費方案裡</span></label><label class="gqz-opt"><input type="radio" name="gq7" value="D"><span class="gqz-l">D</span><span>移到一個全新、獨立的產品，跟 ChatGPT 完全無關</span></label></div>
+  <div class="gqz-explain" hidden>Atlas 停用後，原本的網頁代理相關功能會移到 ChatGPT 桌面應用程式，以及一個 Chrome 瀏覽器擴充套件。</div>
+</div><div class="gqz-q" data-correct="C">
+  <p class="gqz-n">第 8 題</p>
+  <p class="gqz-t">如果有人說「Atlas 就是 ChatGPT 桌面版裡的 Work 分區」，這個說法正確嗎？</p>
+  <div class="gqz-opts"><label class="gqz-opt"><input type="radio" name="gq8" value="A"><span class="gqz-l">A</span><span>正確，兩者是同一個東西</span></label><label class="gqz-opt"><input type="radio" name="gq8" value="B"><span class="gqz-l">B</span><span>正確，因為 Atlas 從來沒有存在過</span></label><label class="gqz-opt"><input type="radio" name="gq8" value="C"><span class="gqz-l">C</span><span>不正確，Atlas 原本是獨立的瀏覽器產品，跟桌面版裡的 Work 分區是不同的東西，只是 Atlas 停用後部分功能會移進 ChatGPT</span></label><label class="gqz-opt"><input type="radio" name="gq8" value="D"><span class="gqz-l">D</span><span>不正確，因為 Work 分區才是被停用的那個</span></label></div>
+  <div class="gqz-explain" hidden>Atlas 原本是獨立的瀏覽器產品，跟桌面版裡的 Work 分區是不同的東西，兩者不能畫等號，只是 Atlas 停用後部分功能會移進 ChatGPT 生態系。</div>
+</div><p class="gqz-cat">Codex vs Claude Code 安全模式對照</p><div class="gqz-q" data-correct="D">
+  <p class="gqz-n">第 9 題</p>
+  <p class="gqz-t">Codex 的「approval policy（核准政策）」和「sandbox mode（沙盒模式）」的差別是？</p>
+  <div class="gqz-opts"><label class="gqz-opt"><input type="radio" name="gq9" value="A"><span class="gqz-l">A</span><span>兩者完全一樣</span></label><label class="gqz-opt"><input type="radio" name="gq9" value="B"><span class="gqz-l">B</span><span>approval policy 只是行銷用詞，沒有實際功能</span></label><label class="gqz-opt"><input type="radio" name="gq9" value="C"><span class="gqz-l">C</span><span>sandbox mode 只在企業版才有</span></label><label class="gqz-opt"><input type="radio" name="gq9" value="D"><span class="gqz-l">D</span><span>sandbox mode 決定代理人技術上能做什麼（例如能不能連網、能寫到哪裡）；approval policy 決定什麼時候要先問過你</span></label></div>
+  <div class="gqz-explain" hidden>sandbox mode 決定代理人技術上能做什麼（例如能不能連網、能寫到哪裡）；approval policy 決定什麼時候要先問過你，兩者是互補的兩層設計。</div>
+</div><div class="gqz-q" data-correct="B">
+  <p class="gqz-n">第 10 題</p>
+  <p class="gqz-t">Claude Code 跟 Codex 在安全機制的設計理念上，最接近的共同點是？</p>
+  <div class="gqz-opts"><label class="gqz-opt"><input type="radio" name="gq10" value="A"><span class="gqz-l">A</span><span>兩者完全沒有安全機制的概念</span></label><label class="gqz-opt"><input type="radio" name="gq10" value="B"><span class="gqz-l">B</span><span>兩者都採用「預設保守、風險較高的動作才需要額外核准或明確開啟」的分層設計</span></label><label class="gqz-opt"><input type="radio" name="gq10" value="C"><span class="gqz-l">C</span><span>兩者都要求使用者每個動作都手動確認，沒有例外</span></label><label class="gqz-opt"><input type="radio" name="gq10" value="D"><span class="gqz-l">D</span><span>兩者的安全機制設計理念完全相反</span></label></div>
+  <div class="gqz-explain" hidden>Claude Code 和 Codex 在安全機制設計理念上都採用「預設保守、風險較高的動作才需要額外核准或明確開啟」的分層做法，概念上很接近。</div>
+</div><div class="gqz-q" data-correct="C">
+  <p class="gqz-n">第 11 題</p>
+  <p class="gqz-t">為什麼「read-only」／保守模式很適合拿來「先討論、再決定」？</p>
+  <div class="gqz-opts"><label class="gqz-opt"><input type="radio" name="gq11" value="A"><span class="gqz-l">A</span><span>因為這個模式速度比較快</span></label><label class="gqz-opt"><input type="radio" name="gq11" value="B"><span class="gqz-l">B</span><span>因為這個模式完全不能用</span></label><label class="gqz-opt"><input type="radio" name="gq11" value="C"><span class="gqz-l">C</span><span>因為在這個模式下，代理人只能看不能動手改，你可以放心討論方向，不用擔心檔案被意外改動</span></label><label class="gqz-opt"><input type="radio" name="gq11" value="D"><span class="gqz-l">D</span><span>因為這個模式只能給付費使用者用</span></label></div>
+  <div class="gqz-explain" hidden>read-only 模式下代理人只能看不能動手改，適合先討論方向、不用擔心檔案被意外改動的情境。</div>
+</div><div class="gqz-q" data-correct="A">
+  <p class="gqz-n">第 12 題</p>
+  <p class="gqz-t">「danger-full-access」這類完全不受限的模式，比較適合什麼情境？</p>
+  <div class="gqz-opts"><label class="gqz-opt"><input type="radio" name="gq12" value="A"><span class="gqz-l">A</span><span>通常是在你很清楚要做什麼、且環境本身已經隔離（例如一次性的沙盒環境）的情況下才會考慮開啟</span></label><label class="gqz-opt"><input type="radio" name="gq12" value="B"><span class="gqz-l">B</span><span>任何情況都應該優先使用，越自由越好</span></label><label class="gqz-opt"><input type="radio" name="gq12" value="C"><span class="gqz-l">C</span><span>給第一次使用代理人的新手用最安全</span></label><label class="gqz-opt"><input type="radio" name="gq12" value="D"><span class="gqz-l">D</span><span>這個模式其實根本不存在</span></label></div>
+  <div class="gqz-explain" hidden>danger-full-access 這類完全不受限的模式，通常是在你很清楚要做什麼、且環境本身已經隔離（例如一次性的沙盒環境）的情況下才會考慮開啟，不是預設建議。</div>
+</div><p class="gqz-cat">綜合應用</p><div class="gqz-q" data-correct="B">
+  <p class="gqz-n">第 13 題</p>
+  <p class="gqz-t">同事跟你說「ChatGPT 現在什麼都能自己做，完全不用你確認」，這個說法正確嗎？</p>
+  <div class="gqz-opts"><label class="gqz-opt"><input type="radio" name="gq13" value="A"><span class="gqz-l">A</span><span>完全正確，Codex 沒有任何安全機制</span></label><label class="gqz-opt"><input type="radio" name="gq13" value="B"><span class="gqz-l">B</span><span>不正確，Codex 預設模式（workspace-write）碰到工作目錄外的檔案或需要連網的動作，還是會先問過你</span></label><label class="gqz-opt"><input type="radio" name="gq13" value="C"><span class="gqz-l">C</span><span>正確，因為 danger-full-access 是唯一的模式</span></label><label class="gqz-opt"><input type="radio" name="gq13" value="D"><span class="gqz-l">D</span><span>這個問題跟 Codex 完全無關</span></label></div>
+  <div class="gqz-explain" hidden>Codex 的預設模式（workspace-write）碰到工作目錄外的檔案或需要連網的動作，還是會先問過你，並不是什麼都自己做主。</div>
+</div><div class="gqz-q" data-correct="C">
+  <p class="gqz-n">第 14 題</p>
+  <p class="gqz-t">學過 Codex 的 sandbox／approval 機制後，再回頭看 Claude Code「先問過你才做風險較高的動作」，你會發現？</p>
+  <div class="gqz-opts"><label class="gqz-opt"><input type="radio" name="gq14" value="A"><span class="gqz-l">A</span><span>兩者的做法完全找不到任何相似之處</span></label><label class="gqz-opt"><input type="radio" name="gq14" value="B"><span class="gqz-l">B</span><span>只有 Claude Code 有這種設計，Codex 完全沒有</span></label><label class="gqz-opt"><input type="radio" name="gq14" value="C"><span class="gqz-l">C</span><span>這其實是同一類設計理念在不同產品上的實作——先確認、再放手做風險較高的事</span></label><label class="gqz-opt"><input type="radio" name="gq14" value="D"><span class="gqz-l">D</span><span>只有 Codex 有這種設計，Claude Code 完全沒有</span></label></div>
+  <div class="gqz-explain" hidden>Codex 的 sandbox／approval 機制，跟 Claude Code「先問過你才做風險較高的動作」其實是同一類設計理念在不同產品上的實作。</div>
+</div><div class="gqz-q" data-correct="A">
+  <p class="gqz-n">第 15 題</p>
+  <p class="gqz-t">「Atlas 停用」這件事跟這堂課學的「代理人」概念有什麼關聯？</p>
+  <div class="gqz-opts"><label class="gqz-opt"><input type="radio" name="gq15" value="A"><span class="gqz-l">A</span><span>代理人相關功能（例如網頁瀏覽代理）在不同產品間整合、搬移是很常見的事，代理人生態系持續在演變</span></label><label class="gqz-opt"><input type="radio" name="gq15" value="B"><span class="gqz-l">B</span><span>完全無關，只是單純的產品新聞</span></label><label class="gqz-opt"><input type="radio" name="gq15" value="C"><span class="gqz-l">C</span><span>代表所有 AI 代理人產品都會被停用</span></label><label class="gqz-opt"><input type="radio" name="gq15" value="D"><span class="gqz-l">D</span><span>代表 OpenAI 已經放棄開發代理人技術</span></label></div>
+  <div class="gqz-explain" hidden>代理人相關功能在不同產品間整合、搬移（例如 Atlas 併入 ChatGPT）是很常見的事，說明這整個代理人生態系還在持續演變。</div>
+</div><div class="gqz-q" data-correct="D">
+  <p class="gqz-n">第 16 題</p>
+  <p class="gqz-t">這一回合（Codex 安全機制與產品演變）最重要的收穫是？</p>
+  <div class="gqz-opts"><label class="gqz-opt"><input type="radio" name="gq16" value="A"><span class="gqz-l">A</span><span>記住每一個功能的確切停用日期，其他都不重要</span></label><label class="gqz-opt"><input type="radio" name="gq16" value="B"><span class="gqz-l">B</span><span>Codex 已經被淘汰，不用再學了</span></label><label class="gqz-opt"><input type="radio" name="gq16" value="C"><span class="gqz-l">C</span><span>這堂課的內容以後都不會再變，可以完全不用再更新</span></label><label class="gqz-opt"><input type="radio" name="gq16" value="D"><span class="gqz-l">D</span><span>理解 AI 代理人工具背後都有分層的安全設計，且產品名稱與結構會隨時間調整——重點是抓住背後的概念，而不是死背當下的名字</span></label></div>
+  <div class="gqz-explain" hidden>這一回合最重要的收穫，是理解 AI 代理人工具背後都有分層的安全設計，且產品名稱與結構會隨時間調整——重點是抓住背後的概念，而不是死背當下的名字。</div>
+</div>
+<div class="gqz-actions">
+  <button type="submit" class="btn btn-primary">檢查我的答案</button>
+  <button type="button" id="gqzReset2" class="btn btn-ghost">重新作答</button>
+  <span id="gqzScore2" class="gqz-score"><span class="badge" id="gqzBadge2"></span><span id="gqzMsg2"></span></span>
+</div>
+</form>
+<p style="margin-top:2rem"><a class="btn btn-ghost" href="/staff-training/">← 回內部訓練專區</a></p>
+</div></section>
+<script>
+(function () {
+  var form = document.getElementById('gqzForm2');
+  if (!form) return;
+  var questions = [].slice.call(form.querySelectorAll('.gqz-q'));
+  var scoreWrap = document.getElementById('gqzScore2');
+  var badge = document.getElementById('gqzBadge2');
+  var msg = document.getElementById('gqzMsg2');
+  var total = questions.length;
+  var MESSAGES = [
+    { min: Math.ceil(total * 0.92), text: '滿分等級——你已經聽得懂 AI 在講什麼了！' },
+    { min: Math.ceil(total * 0.7),  text: '很不錯，只剩幾題再看一次上面的說明就好。' },
+    { min: Math.ceil(total * 0.5),  text: '一半以上答對，建議把錯的地方再讀一遍。' },
+    { min: 0,  text: '沒關係，這些詞第一次看本來就會亂——建議整份再讀一次。' }
+  ];
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var score = 0, allAnswered = true;
+    questions.forEach(function (q) {
+      var correct = q.getAttribute('data-correct');
+      var checked = q.querySelector('input:checked');
+      if (!checked) { allAnswered = false; return; }
+      q.classList.add('answered');
+      var wasWrong = checked.value !== correct;
+      [].slice.call(q.querySelectorAll('.gqz-opt')).forEach(function (opt) {
+        var input = opt.querySelector('input');
+        opt.classList.remove('is-correct', 'is-wrong');
+        if (input.value === correct) opt.classList.add('is-correct');
+        else if (input === checked) opt.classList.add('is-wrong');
+      });
+      var explain = q.querySelector('.gqz-explain');
+      if (explain) explain.hidden = !wasWrong;
+      if (!wasWrong) score++;
+    });
+    if (!allAnswered) { alert('請先回答完所有題目再檢查喔。'); return; }
+    badge.textContent = score + ' / ' + total;
+    var m = MESSAGES.find(function (x) { return score >= x.min; });
+    msg.textContent = m.text;
+    scoreWrap.classList.add('show');
+    scoreWrap.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  });
+  document.getElementById('gqzReset2').addEventListener('click', function () {
     form.reset();
     questions.forEach(function (q) {
       q.classList.remove('answered');
