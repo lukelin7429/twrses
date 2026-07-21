@@ -753,6 +753,8 @@ p  { margin: 0 0 1.1em; }
 .gqz-opt.is-correct .gqz-l { background:#3f9e63; color:#fff; border-color:#3f9e63; }
 .gqz-opt.is-wrong { border-color:#cf6b5e; background:#fbeaea; color:#a23a2c; font-weight:700; }
 .gqz-opt.is-wrong .gqz-l { background:#cf6b5e; color:#fff; border-color:#cf6b5e; }
+.gqz-explain { margin-top:.8rem; padding:.8rem 1rem; background:var(--cream); border-left:3px solid var(--gold);
+  border-radius:0 8px 8px 0; font-size:.92rem; color:var(--ink-soft); line-height:1.6; }
 .gqz-actions { display:flex; align-items:center; gap:1.1rem; flex-wrap:wrap; margin:1.8rem 0 .5rem; }
 .gqz-score { font-weight:700; font-size:1.1rem; color:var(--ink); display:none; align-items:center; gap:.6rem; }
 .gqz-score.show { display:inline-flex; }

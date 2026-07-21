@@ -9,9 +9,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..600;1,9..144,400..500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/css/style.css?v=b4a08548">
-<link rel="stylesheet" href="/assets/css/motion.css?v=b4a08548">
-<link rel="stylesheet" href="/assets/css/search.css?v=b4a08548">
+<link rel="stylesheet" href="/assets/css/style.css?v=c0751b52">
+<link rel="stylesheet" href="/assets/css/motion.css?v=c0751b52">
+<link rel="stylesheet" href="/assets/css/search.css?v=c0751b52">
 <link rel="icon" href="/assets/img/logo-badge.svg" type="image/svg+xml">
 <meta property="og:title" content="Git 與 GitHub 運作知識｜彰化縣人師教育協會">
 <meta property="og:description" content="Git、GitHub、commit、push、branch、PR 術語說明，附 24 題小考。">
@@ -93,103 +93,128 @@
 <section class="section tight"><div class="wrap">
 <p class="eyebrow rvl">小考 · Quick Check</p>
 <h2 class="rvl" style="margin-bottom:1.6rem">24 題，檢查自己懂了沒</h2>
+
 <form id="gqzForm">
 <p class="gqz-cat">暖身</p><div class="gqz-q" data-correct="C">
   <p class="gqz-n">第 1 題</p>
   <p class="gqz-t">影片一開始提到，很多沒有寫程式背景、卻迷上用 AI 寫程式的人，最常卡關的地方是？</p>
   <div class="gqz-opts"><label class="gqz-opt"><input type="radio" name="gq1" value="A"><span class="gqz-l">A</span><span>電腦效能不夠</span></label><label class="gqz-opt"><input type="radio" name="gq1" value="B"><span class="gqz-l">B</span><span>網路速度太慢</span></label><label class="gqz-opt"><input type="radio" name="gq1" value="C"><span class="gqz-l">C</span><span>聽不懂 Claude、Cursor 問的 commit、branch、PR 這些詞</span></label><label class="gqz-opt"><input type="radio" name="gq1" value="D"><span class="gqz-l">D</span><span>找不到好用的編輯器</span></label></div>
+  
 </div><div class="gqz-q" data-correct="A">
   <p class="gqz-n">第 2 題</p>
   <p class="gqz-t">為什麼 AI 寫程式工具的對話裡，常常會冒出 Git 的詞彙？</p>
   <div class="gqz-opts"><label class="gqz-opt"><input type="radio" name="gq2" value="A"><span class="gqz-l">A</span><span>因為這些工具背後都是建立在 Git 這套版本控制系統之上</span></label><label class="gqz-opt"><input type="radio" name="gq2" value="B"><span class="gqz-l">B</span><span>因為 Git 是這些公司自己開發的</span></label><label class="gqz-opt"><input type="radio" name="gq2" value="C"><span class="gqz-l">C</span><span>純屬巧合，跟工具本身無關</span></label><label class="gqz-opt"><input type="radio" name="gq2" value="D"><span class="gqz-l">D</span><span>因為使用者設定錯誤</span></label></div>
+  
 </div><div class="gqz-q" data-correct="D">
   <p class="gqz-n">第 3 題</p>
   <p class="gqz-t">學會這些 Git 術語之後，最直接的好處是？</p>
   <div class="gqz-opts"><label class="gqz-opt"><input type="radio" name="gq3" value="A"><span class="gqz-l">A</span><span>網站流量會變多</span></label><label class="gqz-opt"><input type="radio" name="gq3" value="B"><span class="gqz-l">B</span><span>網域費用會變便宜</span></label><label class="gqz-opt"><input type="radio" name="gq3" value="C"><span class="gqz-l">C</span><span>電腦速度會變快</span></label><label class="gqz-opt"><input type="radio" name="gq3" value="D"><span class="gqz-l">D</span><span>能更放心讓 AI 幫忙開發，聽得懂它在問什麼</span></label></div>
+  
 </div><div class="gqz-q" data-correct="B">
   <p class="gqz-n">第 4 題</p>
   <p class="gqz-t">下列哪一個「不是」常見的 AI 寫程式工具？</p>
   <div class="gqz-opts"><label class="gqz-opt"><input type="radio" name="gq4" value="A"><span class="gqz-l">A</span><span>Claude Code</span></label><label class="gqz-opt"><input type="radio" name="gq4" value="B"><span class="gqz-l">B</span><span>Photoshop</span></label><label class="gqz-opt"><input type="radio" name="gq4" value="C"><span class="gqz-l">C</span><span>Cursor</span></label><label class="gqz-opt"><input type="radio" name="gq4" value="D"><span class="gqz-l">D</span><span>Codex</span></label></div>
+  
 </div><p class="gqz-cat">Git 與 GitHub 的差別</p><div class="gqz-q" data-correct="A">
   <p class="gqz-n">第 5 題</p>
   <p class="gqz-t">關於 Git，下列描述最正確的是？</p>
   <div class="gqz-opts"><label class="gqz-opt"><input type="radio" name="gq5" value="A"><span class="gqz-l">A</span><span>一套幫你保留每個版本歷史紀錄的存檔系統</span></label><label class="gqz-opt"><input type="radio" name="gq5" value="B"><span class="gqz-l">B</span><span>一種社群媒體平台</span></label><label class="gqz-opt"><input type="radio" name="gq5" value="C"><span class="gqz-l">C</span><span>一種程式語言</span></label><label class="gqz-opt"><input type="radio" name="gq5" value="D"><span class="gqz-l">D</span><span>一種防毒軟體</span></label></div>
+  
 </div><div class="gqz-q" data-correct="D">
   <p class="gqz-n">第 6 題</p>
   <p class="gqz-t">關於 GitHub，下列描述最正確的是？</p>
   <div class="gqz-opts"><label class="gqz-opt"><input type="radio" name="gq6" value="A"><span class="gqz-l">A</span><span>Git 的舊版本</span></label><label class="gqz-opt"><input type="radio" name="gq6" value="B"><span class="gqz-l">B</span><span>買網域專用的公司</span></label><label class="gqz-opt"><input type="radio" name="gq6" value="C"><span class="gqz-l">C</span><span>用來寫程式的編輯器</span></label><label class="gqz-opt"><input type="radio" name="gq6" value="D"><span class="gqz-l">D</span><span>把 Git 的歷史紀錄放上線、隨處都能存取的網站</span></label></div>
+  
 </div><div class="gqz-q" data-correct="B">
   <p class="gqz-n">第 7 題</p>
   <p class="gqz-t">哪一組比喻最能說明 Git 與 GitHub 的關係？</p>
   <div class="gqz-opts"><label class="gqz-opt"><input type="radio" name="gq7" value="A"><span class="gqz-l">A</span><span>Git 是紅綠燈，GitHub 是馬路</span></label><label class="gqz-opt"><input type="radio" name="gq7" value="B"><span class="gqz-l">B</span><span>Git 像「保留版本歷史」的概念，GitHub 像放這些版本的 Google Drive</span></label><label class="gqz-opt"><input type="radio" name="gq7" value="C"><span class="gqz-l">C</span><span>Git 是老師，GitHub 是學生</span></label><label class="gqz-opt"><input type="radio" name="gq7" value="D"><span class="gqz-l">D</span><span>Git 是硬體，GitHub 是電源線</span></label></div>
+  
 </div><div class="gqz-q" data-correct="C">
   <p class="gqz-n">第 8 題</p>
   <p class="gqz-t">下列何者「也」是類似 GitHub 的服務？</p>
   <div class="gqz-opts"><label class="gqz-opt"><input type="radio" name="gq8" value="A"><span class="gqz-l">A</span><span>Instagram</span></label><label class="gqz-opt"><input type="radio" name="gq8" value="B"><span class="gqz-l">B</span><span>Netflix</span></label><label class="gqz-opt"><input type="radio" name="gq8" value="C"><span class="gqz-l">C</span><span>GitLab</span></label><label class="gqz-opt"><input type="radio" name="gq8" value="D"><span class="gqz-l">D</span><span>Notion</span></label></div>
+  
 </div><p class="gqz-cat">Commit 與 Push</p><div class="gqz-q" data-correct="D">
   <p class="gqz-n">第 9 題</p>
   <p class="gqz-t">「commit」最準確的意思是？</p>
   <div class="gqz-opts"><label class="gqz-opt"><input type="radio" name="gq9" value="A"><span class="gqz-l">A</span><span>把整個網站砍掉重練</span></label><label class="gqz-opt"><input type="radio" name="gq9" value="B"><span class="gqz-l">B</span><span>申請一個新的 GitHub 帳號</span></label><label class="gqz-opt"><input type="radio" name="gq9" value="C"><span class="gqz-l">C</span><span>把網站關閉、下架</span></label><label class="gqz-opt"><input type="radio" name="gq9" value="D"><span class="gqz-l">D</span><span>把剛剛改的東西存成一個附說明的檢查點</span></label></div>
+  
 </div><div class="gqz-q" data-correct="B">
   <p class="gqz-n">第 10 題</p>
   <p class="gqz-t">「push」的作用是？</p>
   <div class="gqz-opts"><label class="gqz-opt"><input type="radio" name="gq10" value="A"><span class="gqz-l">A</span><span>把網站的顏色改掉</span></label><label class="gqz-opt"><input type="radio" name="gq10" value="B"><span class="gqz-l">B</span><span>把 commit 的內容上傳到 GitHub，讓網站跟著更新</span></label><label class="gqz-opt"><input type="radio" name="gq10" value="C"><span class="gqz-l">C</span><span>建立一個全新的專案</span></label><label class="gqz-opt"><input type="radio" name="gq10" value="D"><span class="gqz-l">D</span><span>把舊的檢查點刪除</span></label></div>
+  
 </div><div class="gqz-q" data-correct="C">
   <p class="gqz-n">第 11 題</p>
   <p class="gqz-t">commit 完、還沒 push 之前，這個檢查點會存放在哪裡？</p>
   <div class="gqz-opts"><label class="gqz-opt"><input type="radio" name="gq11" value="A"><span class="gqz-l">A</span><span>已經在 GitHub 上了</span></label><label class="gqz-opt"><input type="radio" name="gq11" value="B"><span class="gqz-l">B</span><span>存在對方的信箱裡</span></label><label class="gqz-opt"><input type="radio" name="gq11" value="C"><span class="gqz-l">C</span><span>只存在你自己的電腦，或 AI 的工作空間裡</span></label><label class="gqz-opt"><input type="radio" name="gq11" value="D"><span class="gqz-l">D</span><span>根本不會被存下來</span></label></div>
+  
 </div><div class="gqz-q" data-correct="A">
   <p class="gqz-n">第 12 題</p>
   <p class="gqz-t">為什麼常被建議「commit 要勤快一點」？</p>
   <div class="gqz-opts"><label class="gqz-opt"><input type="radio" name="gq12" value="A"><span class="gqz-l">A</span><span>每一個 commit 都是一個能回頭的檢查點，存越勤快越安全</span></label><label class="gqz-opt"><input type="radio" name="gq12" value="B"><span class="gqz-l">B</span><span>這樣網站會比較好看</span></label><label class="gqz-opt"><input type="radio" name="gq12" value="C"><span class="gqz-l">C</span><span>GitHub 規定每天至少要 commit 一次</span></label><label class="gqz-opt"><input type="radio" name="gq12" value="D"><span class="gqz-l">D</span><span>這樣可以省網路流量</span></label></div>
+  
 </div><p class="gqz-cat">Clone、Pull 與 Branch</p><div class="gqz-q" data-correct="B">
   <p class="gqz-n">第 13 題</p>
   <p class="gqz-t">「clone」的意思是？</p>
   <div class="gqz-opts"><label class="gqz-opt"><input type="radio" name="gq13" value="A"><span class="gqz-l">A</span><span>把網站關掉重開</span></label><label class="gqz-opt"><input type="radio" name="gq13" value="B"><span class="gqz-l">B</span><span>把一個 GitHub repository 完整複製一份到自己這邊，連歷史紀錄都在</span></label><label class="gqz-opt"><input type="radio" name="gq13" value="C"><span class="gqz-l">C</span><span>幫網站取一個分身網域</span></label><label class="gqz-opt"><input type="radio" name="gq13" value="D"><span class="gqz-l">D</span><span>把舊版本刪除</span></label></div>
+  
 </div><div class="gqz-q" data-correct="C">
   <p class="gqz-n">第 14 題</p>
   <p class="gqz-t">「pull」的作用是？</p>
   <div class="gqz-opts"><label class="gqz-opt"><input type="radio" name="gq14" value="A"><span class="gqz-l">A</span><span>把你自己的變更整個刪掉</span></label><label class="gqz-opt"><input type="radio" name="gq14" value="B"><span class="gqz-l">B</span><span>建立一個新的 GitHub 帳號</span></label><label class="gqz-opt"><input type="radio" name="gq14" value="C"><span class="gqz-l">C</span><span>把 GitHub 上最新的變更抓下來，更新你手上的版本</span></label><label class="gqz-opt"><input type="radio" name="gq14" value="D"><span class="gqz-l">D</span><span>把網站設成私人</span></label></div>
+  
 </div><div class="gqz-q" data-correct="A">
   <p class="gqz-n">第 15 題</p>
   <p class="gqz-t">「branch」最好的理解方式是？</p>
   <div class="gqz-opts"><label class="gqz-opt"><input type="radio" name="gq15" value="A"><span class="gqz-l">A</span><span>一個獨立的草稿版本，可以放心實驗、不影響上線版本</span></label><label class="gqz-opt"><input type="radio" name="gq15" value="B"><span class="gqz-l">B</span><span>GitHub 的付費方案名稱</span></label><label class="gqz-opt"><input type="radio" name="gq15" value="C"><span class="gqz-l">C</span><span>正式上線、大家都看得到的版本</span></label><label class="gqz-opt"><input type="radio" name="gq15" value="D"><span class="gqz-l">D</span><span>一種電腦病毒</span></label></div>
+  
 </div><div class="gqz-q" data-correct="D">
   <p class="gqz-n">第 16 題</p>
   <p class="gqz-t">通常正式上線、對外公開的那個版本，習慣叫做？</p>
   <div class="gqz-opts"><label class="gqz-opt"><input type="radio" name="gq16" value="A"><span class="gqz-l">A</span><span>draft</span></label><label class="gqz-opt"><input type="radio" name="gq16" value="B"><span class="gqz-l">B</span><span>clone</span></label><label class="gqz-opt"><input type="radio" name="gq16" value="C"><span class="gqz-l">C</span><span>push</span></label><label class="gqz-opt"><input type="radio" name="gq16" value="D"><span class="gqz-l">D</span><span>main</span></label></div>
+  
 </div><p class="gqz-cat">Worktree 與 Pull Request</p><div class="gqz-q" data-correct="C">
   <p class="gqz-n">第 17 題</p>
   <p class="gqz-t">「worktree」主要適合用在什麼情境？</p>
   <div class="gqz-opts"><label class="gqz-opt"><input type="radio" name="gq17" value="A"><span class="gqz-l">A</span><span>一個人、單一任務的簡單小專案</span></label><label class="gqz-opt"><input type="radio" name="gq17" value="B"><span class="gqz-l">B</span><span>買網域的時候</span></label><label class="gqz-opt"><input type="radio" name="gq17" value="C"><span class="gqz-l">C</span><span>讓兩個 AI agent 同時在不同資料夾，分別處理不同 branch，不互相干擾</span></label><label class="gqz-opt"><input type="radio" name="gq17" value="D"><span class="gqz-l">D</span><span>關閉網站的時候</span></label></div>
+  
 </div><div class="gqz-q" data-correct="A">
   <p class="gqz-n">第 18 題</p>
   <p class="gqz-t">Pull Request（PR）的意思最接近？</p>
   <div class="gqz-opts"><label class="gqz-opt"><input type="radio" name="gq18" value="A"><span class="gqz-l">A</span><span>請求把某個 branch 的變更合併回上線版本，中間會先檢查一次</span></label><label class="gqz-opt"><input type="radio" name="gq18" value="B"><span class="gqz-l">B</span><span>請求刪除一個 branch</span></label><label class="gqz-opt"><input type="radio" name="gq18" value="C"><span class="gqz-l">C</span><span>請求重設 GitHub 密碼</span></label><label class="gqz-opt"><input type="radio" name="gq18" value="D"><span class="gqz-l">D</span><span>請求複製別人的 repository</span></label></div>
+  
 </div><div class="gqz-q" data-correct="D">
   <p class="gqz-n">第 19 題</p>
   <p class="gqz-t">一個人獨立作業時，PR 通常怎麼處理比較實際？</p>
   <div class="gqz-opts"><label class="gqz-opt"><input type="radio" name="gq19" value="A"><span class="gqz-l">A</span><span>一定要請律師先審過</span></label><label class="gqz-opt"><input type="radio" name="gq19" value="B"><span class="gqz-l">B</span><span>GitHub 會自動拒絕，無法自己合併</span></label><label class="gqz-opt"><input type="radio" name="gq19" value="C"><span class="gqz-l">C</span><span>一定要等三個工作天才能合併</span></label><label class="gqz-opt"><input type="radio" name="gq19" value="D"><span class="gqz-l">D</span><span>自己看過確認沒問題，就可以自行合併</span></label></div>
+  
 </div><div class="gqz-q" data-correct="B">
   <p class="gqz-n">第 20 題</p>
   <p class="gqz-t">「worktree」和單純的「branch」，主要差在哪裡？</p>
   <div class="gqz-opts"><label class="gqz-opt"><input type="radio" name="gq20" value="A"><span class="gqz-l">A</span><span>兩者其實完全一樣，沒有差別</span></label><label class="gqz-opt"><input type="radio" name="gq20" value="B"><span class="gqz-l">B</span><span>worktree 能讓你「同時」在不同資料夾操作多個 branch，而不只是切換身分</span></label><label class="gqz-opt"><input type="radio" name="gq20" value="C"><span class="gqz-l">C</span><span>worktree 是用來刪除 branch 的功能</span></label><label class="gqz-opt"><input type="radio" name="gq20" value="D"><span class="gqz-l">D</span><span>worktree 只是理論概念，實際上用不到</span></label></div>
+  
 </div><p class="gqz-cat">改壞怎麼救</p><div class="gqz-q" data-correct="A">
   <p class="gqz-n">第 21 題</p>
   <p class="gqz-t">如果 AI 把你的網站或程式改壞了，第一件該想到的事是？</p>
   <div class="gqz-opts"><label class="gqz-opt"><input type="radio" name="gq21" value="A"><span class="gqz-l">A</span><span>commit 歷史還在，可以請 AI 退回到之前能正常運作的版本</span></label><label class="gqz-opt"><input type="radio" name="gq21" value="B"><span class="gqz-l">B</span><span>立刻刪除整個 GitHub 帳號重新開始</span></label><label class="gqz-opt"><input type="radio" name="gq21" value="C"><span class="gqz-l">C</span><span>沒救了，只能整個重寫</span></label><label class="gqz-opt"><input type="radio" name="gq21" value="D"><span class="gqz-l">D</span><span>馬上買一個新網域換掉舊的</span></label></div>
+  
 </div><div class="gqz-q" data-correct="D">
   <p class="gqz-n">第 22 題</p>
   <p class="gqz-t">「revert」最貼切的意思是？</p>
   <div class="gqz-opts"><label class="gqz-opt"><input type="radio" name="gq22" value="A"><span class="gqz-l">A</span><span>上傳一個全新的變更</span></label><label class="gqz-opt"><input type="radio" name="gq22" value="B"><span class="gqz-l">B</span><span>建立一個新帳號</span></label><label class="gqz-opt"><input type="radio" name="gq22" value="C"><span class="gqz-l">C</span><span>把網站直接關閉</span></label><label class="gqz-opt"><input type="radio" name="gq22" value="D"><span class="gqz-l">D</span><span>退回到之前一個能正常運作的檢查點</span></label></div>
+  
 </div><div class="gqz-q" data-correct="B">
   <p class="gqz-n">第 23 題</p>
   <p class="gqz-t">真正有風險、可能會不見的變更，其實是指？</p>
   <div class="gqz-opts"><label class="gqz-opt"><input type="radio" name="gq23" value="A"><span class="gqz-l">A</span><span>已經 commit 過的變更</span></label><label class="gqz-opt"><input type="radio" name="gq23" value="B"><span class="gqz-l">B</span><span>還沒 commit 的變更</span></label><label class="gqz-opt"><input type="radio" name="gq23" value="C"><span class="gqz-l">C</span><span>已經 push 過的變更</span></label><label class="gqz-opt"><input type="radio" name="gq23" value="D"><span class="gqz-l">D</span><span>已經合併完成的 PR</span></label></div>
+  
 </div><div class="gqz-q" data-correct="C">
   <p class="gqz-n">第 24 題</p>
   <p class="gqz-t">在請 AI 嘗試風險較高的操作（例如大改版）之前，比較保險的做法是？</p>
   <div class="gqz-opts"><label class="gqz-opt"><input type="radio" name="gq24" value="A"><span class="gqz-l">A</span><span>先把網路關掉，隔離電腦</span></label><label class="gqz-opt"><input type="radio" name="gq24" value="B"><span class="gqz-l">B</span><span>先把舊的 branch 全部刪掉</span></label><label class="gqz-opt"><input type="radio" name="gq24" value="C"><span class="gqz-l">C</span><span>先請 AI commit 一次，留下一個可以回頭的檢查點</span></label><label class="gqz-opt"><input type="radio" name="gq24" value="D"><span class="gqz-l">D</span><span>什麼都不用做，直接讓它試</span></label></div>
+  
 </div>
 <div class="gqz-actions">
   <button type="submit" class="btn btn-primary">檢查我的答案</button>
@@ -222,13 +247,16 @@
       var checked = q.querySelector('input:checked');
       if (!checked) { allAnswered = false; return; }
       q.classList.add('answered');
+      var wasWrong = checked.value !== correct;
       [].slice.call(q.querySelectorAll('.gqz-opt')).forEach(function (opt) {
         var input = opt.querySelector('input');
         opt.classList.remove('is-correct', 'is-wrong');
         if (input.value === correct) opt.classList.add('is-correct');
         else if (input === checked) opt.classList.add('is-wrong');
       });
-      if (checked.value === correct) score++;
+      var explain = q.querySelector('.gqz-explain');
+      if (explain) explain.hidden = !wasWrong;
+      if (!wasWrong) score++;
     });
     if (!allAnswered) { alert('請先回答完所有題目再檢查喔。'); return; }
     badge.textContent = score + ' / ' + total;
@@ -244,6 +272,8 @@
       [].slice.call(q.querySelectorAll('.gqz-opt')).forEach(function (opt) {
         opt.classList.remove('is-correct', 'is-wrong');
       });
+      var explain = q.querySelector('.gqz-explain');
+      if (explain) explain.hidden = true;
     });
     scoreWrap.classList.remove('show');
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -284,7 +314,7 @@
     <span>Rebuilt with care · GitHub Pages</span>
   </div>
 </footer>
-<script src="/assets/js/main.js?v=b4a08548"></script>
-<script defer src="/assets/js/search.js?v=b4a08548"></script>
+<script src="/assets/js/main.js?v=c0751b52"></script>
+<script defer src="/assets/js/search.js?v=c0751b52"></script>
 </body>
 </html>

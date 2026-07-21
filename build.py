@@ -2482,11 +2482,15 @@ GIT_QUIZ = [
 ]
 
 def _gqz_render(terms, quiz):
-    """terms: [(name, desc)]; quiz: [(question, [4 options], correct_letter, category)]."""
+    """terms: [(name, desc)];
+    quiz: [(question, [4 options], correct_letter, category)] or
+          [(question, [4 options], correct_letter, category, explanation)]."""
     L = "ABCD"
     terms_html = "".join(f'<li><strong>{html.escape(t)}</strong> — {html.escape(d)}</li>' for t, d in terms)
     cats, blocks = [], []
-    for qi, (q, opts, correct, cat) in enumerate(quiz, 1):
+    for qi, item in enumerate(quiz, 1):
+        q, opts, correct, cat = item[0], item[1], item[2], item[3]
+        explain = item[4] if len(item) > 4 else ""
         if cat not in cats:
             cats.append(cat)
             blocks.append(f'<p class="gqz-cat">{html.escape(cat)}</p>')
@@ -2494,37 +2498,46 @@ def _gqz_render(terms, quiz):
             f'<label class="gqz-opt"><input type="radio" name="gq{qi}" value="{L[k]}">'
             f'<span class="gqz-l">{L[k]}</span><span>{html.escape(o)}</span></label>'
             for k, o in enumerate(opts))
+        explain_html = f'<div class="gqz-explain" hidden>{html.escape(explain)}</div>' if explain else ""
         blocks.append(f'''<div class="gqz-q" data-correct="{correct}">
   <p class="gqz-n">第 {qi} 題</p>
   <p class="gqz-t">{html.escape(q)}</p>
   <div class="gqz-opts">{opt_html}</div>
+  {explain_html}
 </div>''')
     quiz_html = "".join(blocks)
     return terms_html, quiz_html
 
-def gqz_quiz_section(n_questions, quiz_html):
-    """Batch-submit quiz UI: form + actions + scoring script. Shared by every staff-training skill page."""
+def gqz_quiz_section(n_questions, quiz_html, suffix="", heading=None, intro=""):
+    """Batch-submit quiz UI: form + actions + scoring script. `suffix` namespaces the
+    element ids so more than one quiz can live on the same page (e.g. Round 1 / Round 2).
+    Wrong answers reveal a `.gqz-explain` box under that question, if one was supplied."""
+    fid, sid, bid, mid, rid = (f"gqzForm{suffix}", f"gqzScore{suffix}",
+        f"gqzBadge{suffix}", f"gqzMsg{suffix}", f"gqzReset{suffix}")
+    h2 = heading or f"{n_questions} 題，檢查自己懂了沒"
+    intro_html = f'<p class="muted rvl" style="margin:-.6rem 0 1.4rem">{html.escape(intro)}</p>' if intro else ""
     return f'''<section class="section tight"><div class="wrap">
 <p class="eyebrow rvl">小考 · Quick Check</p>
-<h2 class="rvl" style="margin-bottom:1.6rem">{n_questions} 題，檢查自己懂了沒</h2>
-<form id="gqzForm">
+<h2 class="rvl" style="margin-bottom:{".4rem" if intro else "1.6rem"}">{h2}</h2>
+{intro_html}
+<form id="{fid}">
 {quiz_html}
 <div class="gqz-actions">
   <button type="submit" class="btn btn-primary">檢查我的答案</button>
-  <button type="button" id="gqzReset" class="btn btn-ghost">重新作答</button>
-  <span id="gqzScore" class="gqz-score"><span class="badge" id="gqzBadge"></span><span id="gqzMsg"></span></span>
+  <button type="button" id="{rid}" class="btn btn-ghost">重新作答</button>
+  <span id="{sid}" class="gqz-score"><span class="badge" id="{bid}"></span><span id="{mid}"></span></span>
 </div>
 </form>
 <p style="margin-top:2rem"><a class="btn btn-ghost" href="/staff-training/">← 回內部訓練專區</a></p>
 </div></section>
 <script>
 (function () {{
-  var form = document.getElementById('gqzForm');
+  var form = document.getElementById('{fid}');
   if (!form) return;
   var questions = [].slice.call(form.querySelectorAll('.gqz-q'));
-  var scoreWrap = document.getElementById('gqzScore');
-  var badge = document.getElementById('gqzBadge');
-  var msg = document.getElementById('gqzMsg');
+  var scoreWrap = document.getElementById('{sid}');
+  var badge = document.getElementById('{bid}');
+  var msg = document.getElementById('{mid}');
   var total = questions.length;
   var MESSAGES = [
     {{ min: Math.ceil(total * 0.92), text: '滿分等級——你已經聽得懂 AI 在講什麼了！' }},
@@ -2540,13 +2553,16 @@ def gqz_quiz_section(n_questions, quiz_html):
       var checked = q.querySelector('input:checked');
       if (!checked) {{ allAnswered = false; return; }}
       q.classList.add('answered');
+      var wasWrong = checked.value !== correct;
       [].slice.call(q.querySelectorAll('.gqz-opt')).forEach(function (opt) {{
         var input = opt.querySelector('input');
         opt.classList.remove('is-correct', 'is-wrong');
         if (input.value === correct) opt.classList.add('is-correct');
         else if (input === checked) opt.classList.add('is-wrong');
       }});
-      if (checked.value === correct) score++;
+      var explain = q.querySelector('.gqz-explain');
+      if (explain) explain.hidden = !wasWrong;
+      if (!wasWrong) score++;
     }});
     if (!allAnswered) {{ alert('請先回答完所有題目再檢查喔。'); return; }}
     badge.textContent = score + ' / ' + total;
@@ -2555,13 +2571,15 @@ def gqz_quiz_section(n_questions, quiz_html):
     scoreWrap.classList.add('show');
     scoreWrap.scrollIntoView({{ behavior: 'smooth', block: 'center' }});
   }});
-  document.getElementById('gqzReset').addEventListener('click', function () {{
+  document.getElementById('{rid}').addEventListener('click', function () {{
     form.reset();
     questions.forEach(function (q) {{
       q.classList.remove('answered');
       [].slice.call(q.querySelectorAll('.gqz-opt')).forEach(function (opt) {{
         opt.classList.remove('is-correct', 'is-wrong');
       }});
+      var explain = q.querySelector('.gqz-explain');
+      if (explain) explain.hidden = true;
     }});
     scoreWrap.classList.remove('show');
     window.scrollTo({{ top: 0, behavior: 'smooth' }});
@@ -2653,8 +2671,94 @@ CLAUDE_QUIZ = [
      ["完全無關，兩者是獨立主題", "代理人在幫你做事時，背後常常就是透過 Git 在存檔、上傳，這就是為什麼它會問 commit、push", "Git 是代理人的品牌名稱", "GitHub 是用來訓練代理人的網站"], "B", "安全使用代理人"),
 ]
 
+CLAUDE_TERMS_R2 = [
+    ("Claude 5 家族", "目前的模型陣容：Fable 5、Opus 4.8、Sonnet 5、Haiku 4.5，各自有對應的模型 ID（如 claude-sonnet-5）。"),
+    ("Fast mode", "把模型換成 Opus、並用更快速的輸出方式，不是換成比較小的模型。"),
+    ("Project（專案）", "把相關對話、參考檔案、自訂指令收在同一個空間，讓 Claude 每次都沿用一致的背景脈絡。"),
+    ("Routines", "可以照排程（例如每天早上）自動執行的雲端代理人任務。"),
+    ("Cowork", "給組織／團隊使用的協作模式，可依角色安裝外掛、串接常用工具一起完成工作。"),
+    ("Artifacts", "把程式碼、網頁、圖表等內容渲染成可互動的獨立畫面，跟聊天文字分開顯示。"),
+    ("MCP（Model Context Protocol）", "讓 Claude 能連接外部工具與資料來源（例如信箱、雲端硬碟、資料庫）的標準協定。"),
+    ("Hooks", "在代理人執行的特定時機（例如每次工具呼叫前後）自動跑一段指令，用來客製化或把關它的行為。"),
+    ("Slash commands", "用「/」開頭、快速觸發特定功能或流程的捷徑指令，例如 /help。"),
+    ("Skill", "一包預先寫好的指示與流程，代理人遇到符合的任務時載入、照裡面的步驟做事。"),
+    ("Subagent（子代理人）", "由主代理人派出去處理子任務的獨立代理人，做完把結果交回來，藉此平行工作、也不塞滿主對話的上下文。"),
+    ("Worktree isolation", "讓平行執行的多個代理人各自在獨立的 git worktree 裡工作，避免互相覆寫同一批檔案。"),
+    ("Extended thinking", "讓 Claude 在給出最終答案前，先花更多步驟做內部推理，適合複雜任務。"),
+    ("Prompt caching", "把常重複的長內容（如系統指令、大段參考資料）快取起來，之後請求能更快、更省成本。"),
+]
+
+# (question, [option_A, option_B, option_C, option_D], correct_letter, category, explanation)
+CLAUDE_QUIZ_R2 = [
+    ("目前 Claude 5 家族包含哪些模型？",
+     ["GPT-5、Claude 4、Gemini 5", "Sonnet 5、Sonnet 6、Sonnet 7", "Fable 5、Opus 4.8、Sonnet 5、Haiku 4.5", "Claude Code、Claude Desktop、Claude Web"],
+     "C", "Claude 5 模型家族",
+     "目前的 Claude 5 家族是 Fable 5、Opus 4.8、Sonnet 5、Haiku 4.5，各自對應不同的模型 ID（例如 claude-sonnet-5）。"),
+    ("Claude Code 裡的「Fast mode」實際上是怎麼加速的？",
+     ["換成 Opus，並用更快速的輸出方式，而不是降級成較小的模型", "換成 Haiku 4.5，犧牲品質換速度", "關閉所有工具，只回答文字", "切斷網路連線加快回應"],
+     "A", "Claude 5 模型家族",
+     "Fast mode 用的是 Opus 搭配更快速的輸出方式，並不是換成比較小、比較弱的模型。"),
+    ("下列哪一個「不是」目前 Claude 5 家族的模型？",
+     ["Fable 5", "Opus 4.8", "Haiku 4.5", "Nova 5"],
+     "D", "Claude 5 模型家族",
+     "Nova 是別家產品的名稱，不屬於 Claude 5 家族；Claude 5 家族目前是 Fable 5、Opus 4.8、Sonnet 5、Haiku 4.5。"),
+    ("Sonnet 5 的模型 ID 是？",
+     ["sonnet-v5-claude", "claude-sonnet-5", "claude-5-sonnet-pro", "anthropic-sonnet-5"],
+     "B", "Claude 5 模型家族",
+     "Anthropic 的模型 ID 慣例是「claude-名稱-版本」，例如 claude-sonnet-5、claude-opus-4-8。"),
+    ("「Project」（專案）這個功能主要用途是？",
+     ["把相關的對話、參考檔案、自訂指令整理在同一個空間裡，讓 Claude 有一致的背景脈絡", "專門用來寫程式的編輯器", "付費升級方案的名稱", "用來管理團隊成員權限的頁面"],
+     "A", "Claude.ai 產品功能",
+     "Project 把相關對話、知識檔案、自訂指令收在一起，之後在這個 Project 裡的每次對話都能沿用同樣的背景設定，不用每次重講一次。"),
+    ("「Routines」最貼切的說明是？",
+     ["每天固定要做的運動菜單", "Claude Code 裡的鍵盤快捷鍵", "檢查程式碼風格的工具", "可以照排程（例如每天早上）自動執行的雲端代理人任務"],
+     "D", "Claude.ai 產品功能",
+     "Routines 是排定時間、自動重複執行的雲端代理人任務，例如「每天早上幫我整理信箱摘要」。"),
+    ("「Cowork」這個模式主要是設計給誰用、做什麼？",
+     ["給單一使用者寫個人日記用", "給組織／團隊使用，可以安裝符合角色的外掛（plugin）、串接工具，一起用 Claude 完成工作", "專門拿來玩遊戲的模式", "只能用來翻譯文件"],
+     "B", "Claude.ai 產品功能",
+     "Cowork 是給組織與團隊使用的協作模式，可以依角色安裝合適的外掛、連接常用工具，讓團隊一起用 Claude 處理實際工作。"),
+    ("Artifacts（成品／產出面板）這個功能是做什麼用的？",
+     ["用來儲存密碼", "是 Claude 的錯誤紀錄檔", "讓 Claude 把程式碼、網頁、圖表等內容渲染成可互動的獨立畫面，跟對話文字分開顯示", "一種付費方案"],
+     "C", "Claude.ai 產品功能",
+     "Artifacts 把 Claude 產出的程式碼、網頁、圖表等內容獨立渲染成一個可互動的畫面，方便查看與使用，跟聊天訊息分開呈現。"),
+    ("「MCP」（Model Context Protocol）的作用是？",
+     ["一種加密演算法", "是 GitHub 的分支保護規則", "專門用來壓縮圖片的格式", "讓 Claude 能連接外部工具與資料來源（例如 Gmail、Google Drive、資料庫）的標準協定"],
+     "D", "Claude Code 核心機制",
+     "MCP 是一套標準協定，讓 Claude 可以連接並使用外部工具與資料來源，例如信箱、雲端硬碟、資料庫等。"),
+    ("Claude Code 裡的「Hooks」是什麼？",
+     ["釣魚用的道具", "在特定事件發生時（例如每次工具呼叫前後）自動執行的指令，讓你客製化代理人的行為", "一種網站導覽選單", "Claude 用來記住密碼的地方"],
+     "B", "Claude Code 核心機制",
+     "Hooks 讓你在代理人執行的特定時機（例如呼叫工具前後）自動跑一段自訂指令，用來客製化或把關代理人的行為。"),
+    ("Claude Code 的「Slash commands」（例如 /help）是？",
+     ["只能用來罵髒話的指令", "用來刪除檔案的指令", "用「/」開頭、快速觸發特定功能或流程的捷徑指令", "只有付費版才能用的隱藏功能"],
+     "C", "Claude Code 核心機制",
+     "Slash commands 是用「/」開頭的捷徑指令，可以快速觸發特定功能，例如 /help、/fast，或使用者自訂的工作流程。"),
+    ("「Skill」在 Claude 的脈絡裡最準確的說法是？",
+     ["一包預先包裝好的指示，讓 Claude 在特定任務類型上照固定流程執行", "使用者的個人能力測驗結果", "只有工程師才能用的程式語言", "Claude 訂閱方案的名稱"],
+     "A", "Claude Code 核心機制",
+     "Skill 是一包預先寫好的指示與流程，Claude 遇到符合的任務時會載入它、照裡面的步驟做事，而不是每次臨場現想。"),
+    ("「Subagent」（子代理人）跟主要對話的代理人關係是？",
+     ["完全獨立、互不相關的兩個產品", "由主代理人視需要派出的獨立任務執行者，處理完把結果交回來，藉此保護主對話的上下文空間", "Subagent 是用來取代使用者的", "只是行銷用詞，沒有實際功能"],
+     "B", "進階代理人概念",
+     "Subagent 是主代理人派出去處理特定子任務的獨立代理人，做完之後把結果交回來，這樣可以平行處理工作、也不會把主對話的上下文塞滿。"),
+    ("Claude Code 的 Workflow 工具裡，讓多個代理人各自在獨立 git worktree 工作的選項，主要目的是？",
+     ["刪除整個 git 歷史", "把程式碼上傳到公開網路", "讓平行執行的多個代理人各自在獨立的 git worktree 裡工作，避免互相覆寫同一批檔案", "停用所有工具權限"],
+     "C", "進階代理人概念",
+     "當多個代理人需要同時修改檔案又怕互相衝突時，worktree isolation 會讓每個代理人在自己獨立的 git worktree 裡工作，彼此不會互相干擾——跟上一堂課學的 worktree 概念是同一個東西。"),
+    ("「Extended thinking」（延伸思考／推理強度）大致在做什麼？",
+     ["讓 Claude 在回答前花更多內部推理步驟，通常用在比較複雜、需要深度思考的任務", "讓 Claude 打字速度變快", "只是介面上的裝飾動畫", "用來翻譯多國語言"],
+     "A", "進階代理人概念",
+     "Extended thinking／推理強度是讓 Claude 在給出最終答案前，先花更多步驟做內部推理，適合處理比較複雜、需要仔細思考的任務。"),
+    ("「Prompt caching」（提示詞快取）的主要好處是？",
+     ["讓對話紀錄自動被刪除", "防止別人偷看你的對話", "把使用者密碼加密儲存", "把重複用到的長內容（例如系統指令、大段參考資料）快取起來，之後對話能更快、更省成本地重複使用"],
+     "D", "進階代理人概念",
+     "Prompt caching 把常重複出現的長內容（像是系統指令或大段參考資料）快取起來，之後的請求可以重複利用，讓回應更快、成本更低。"),
+]
+
 def build_staff_claude_agent():
     terms_html, quiz_html = _gqz_render(CLAUDE_TERMS, CLAUDE_QUIZ)
+    terms_html_r2, quiz_html_r2 = _gqz_render(CLAUDE_TERMS_R2, CLAUDE_QUIZ_R2)
     body = f'''
 {page_hero("內部訓練 · 認識 Claude 代理人", "認識 Claude 代理人",
     "給協會工作夥伴的入門說明：Claude Code 不只是聊天機器人，而是會實際動手做事的「代理人」——這裡說明它怎麼運作、為什麼要停下來問你。")}
@@ -2662,13 +2766,23 @@ def build_staff_claude_agent():
 <a class="btn btn-ghost" href="/staff-training/">← 回內部訓練專區</a>
 </div></section>
 <section class="section"><div class="wrap prose wide rvl">
+<p class="eyebrow">第一回合 · 基礎</p>
 <p>「代理人」（agent）跟一般聊天機器人不一樣：它不只回答問題，還會實際去讀檔案、寫程式、執行指令，一步一步把任務做完。看懂下面這幾個詞，你就懂代理人在做什麼、為什麼它會停下來問你。</p>
 <ul>{terms_html}</ul>
 </div></section>
-{gqz_quiz_section(len(CLAUDE_QUIZ), quiz_html)}
+{gqz_quiz_section(len(CLAUDE_QUIZ), quiz_html, suffix="1", heading="第一回合：{} 題基礎題".format(len(CLAUDE_QUIZ)))}
+<section class="section"><div class="wrap prose wide rvl">
+<p class="eyebrow">第二回合 · 進階</p>
+<h2 style="margin-bottom:.6rem">更深一層：Claude 產品與代理人術語</h2>
+<p>第一回合是入門，這裡開始才是真正在用 Claude 的人會遇到的詞——模型家族、Project、Routines、Cowork、MCP、Hooks、Subagent 這些。答錯會直接告訴你為什麼。</p>
+<ul>{terms_html_r2}</ul>
+</div></section>
+{gqz_quiz_section(len(CLAUDE_QUIZ_R2), quiz_html_r2, suffix="2",
+    heading="第二回合：{} 題進階題".format(len(CLAUDE_QUIZ_R2)),
+    intro="答錯的題目送出後會直接顯示說明，幫你搞懂差在哪。")}
 '''
     write("/staff-training/claude-agent/", layout("/staff-training/claude-agent/", "認識 Claude 代理人",
-        "Agent、agentic loop、human-in-the-loop 術語說明，附 20 題小考。", body, "staff-training", noindex=True))
+        "Agent、Claude 5 模型家族、Project、Routines、Cowork、MCP 等術語說明，附兩回合共 36 題小考。", body, "staff-training", noindex=True))
 
 def build_staff_training():
     build_staff_training_hub()
