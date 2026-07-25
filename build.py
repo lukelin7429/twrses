@@ -930,9 +930,11 @@ def render_quiz(book, u):
         opts=[None]*4; opts[pos]=(cw,True); di=0
         for k in range(4):
             if opts[k] is None: opts[k]=(distr[di],False); di+=1
-        btns="".join(
-            f'<button class="quiz-opt"{" data-correct=\"1\"" if c else ""}><span class="ql">{L[k]}</span>{html.escape(w)}</button>'
-            for k,(w,c) in enumerate(opts))
+        btn_parts = []
+        for k, (w, c) in enumerate(opts):
+            correct_attr = ' data-correct="1"' if c else ""
+            btn_parts.append(f'<button class="quiz-opt"{correct_attr}><span class="ql">{L[k]}</span>{html.escape(w)}</button>')
+        btns = "".join(btn_parts)
         prompt = f'「{html.escape(czh)}」是哪一個英文字？' if czh else f'Which one is “{html.escape(cw)}”?'
         qs.append(f'<div class="quiz"><p class="q">{qi+1}. {prompt}</p><div class="quiz-opts">{btns}</div></div>')
     return '<p class="sub-head">小測驗 Quick Check</p>' + "".join(qs)
