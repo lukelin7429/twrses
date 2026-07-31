@@ -143,6 +143,27 @@
   .d-feature figcaption strong{display:block;font-size:18px;font-weight:700;margin-bottom:3px;}
   .d-vcount{margin-top:20px;font-size:15px;color:var(--ink-soft);}
   .d-vcount b{color:var(--indigo);}
+
+  /* 影片庫分頁（校園新聞 / 教育之聲）— sticky 切換 */
+  .d-tabs{position:sticky;top:0;z-index:30;display:flex;gap:10px;flex-wrap:nowrap;overflow-x:auto;
+    margin:22px 0 6px;padding:12px 0;background:var(--bg-soft,#f7f8fb);
+    box-shadow:0 1px 0 var(--line);scrollbar-width:none;}
+  .d-tabs::-webkit-scrollbar{display:none;}
+  .d-tab{flex:0 0 auto;display:flex;align-items:center;gap:9px;cursor:pointer;background:#fff;
+    border:1px solid var(--line);border-radius:999px;padding:10px 20px;font:inherit;line-height:1.25;}
+  .d-tab .en{font-size:16px;font-weight:700;color:var(--ink);}
+  .d-tab .zh{font-size:14px;color:var(--ink-soft);}
+  .d-tab .n{font-size:13px;font-weight:700;color:var(--ink-soft);background:var(--bg-soft,#f0f2f7);
+    border-radius:999px;padding:2px 9px;min-width:28px;text-align:center;}
+  .d-tab:hover{border-color:var(--amber);}
+  .d-tab.on{background:var(--indigo);border-color:var(--indigo);}
+  .d-tab.on .en,.d-tab.on .zh{color:#fff;}
+  .d-tab.on .n{background:rgba(255,255,255,.24);color:#fff;}
+  .d-panel{display:none;}
+  .d-panel.on{display:block;}
+  .d-vmore{margin-top:26px;text-align:center;font-size:15px;}
+  .d-vmore a{color:var(--gold-dk);font-weight:700;text-decoration:none;}
+  @media(max-width:560px){.d-tab{padding:9px 15px;} .d-tab .zh{display:none;}}
   .d-vgrid{display:grid;grid-template-columns:1fr;gap:18px;margin-top:12px;}
   @media(min-width:560px){.d-vgrid{grid-template-columns:1fr 1fr;}}
   @media(min-width:920px){.d-vgrid{grid-template-columns:1fr 1fr 1fr;}}
@@ -287,20 +308,112 @@
   <div class="d-wrap">
     <p class="d-label">School Assembly Tour · 校園巡迴</p>
     <h2 class="d-h2">Dom's school visits, school by school</h2>
-    <p class="d-h2-en">每一場巡迴都是全校英語集會,由各校學生記者拍成校園新聞。點縮圖原地播放。</p>
+    <p class="d-h2-en">每一場巡迴都是全校英語集會,由各校學生記者拍成校園新聞;集會之後,Dom 再與該校校長對談。點縮圖原地播放。</p>
 
     <figure class="d-feature">
       <img src="https://taiwan-bilingual.org/dom-jones/images/yushin-group.jpg" alt="Dom Jones with students of Yuxin Elementary">
       <figcaption><strong>With the students of Yuxin Elementary 育新國小</strong>One of the many campuses on Dom's Taiwan tour</figcaption>
     </figure>
 
-    <div class="d-slides-cta">
-      <p>每場集會實際使用的雙語簡報，也整理成可滑動瀏覽的簡報庫——歡迎老師下載教學重點、未來訪校也直接沿用格式。</p>
-      <a class="btn btn-gold" href="/media/dom-jones/slides/">📑 查看簡報庫 View Slide Library →</a>
+    <div class="d-tabs" role="tablist" aria-label="影片分類">
+      <button class="d-tab on" role="tab" aria-selected="true" data-panel="interviews">
+        <span class="en">Voices in Education</span><span class="zh">教育之聲 · 校長專訪</span><span class="n">19</span>
+      </button>
+      <button class="d-tab" role="tab" aria-selected="false" data-panel="news">
+        <span class="en">Campus News</span><span class="zh">校園新聞 · 學生製作</span><span class="n">25</span>
+      </button>
     </div>
 
-    <p class="d-vcount"><b>25</b> school visits filmed by students · 由學生記者拍攝的 25 場校園巡迴新聞</p>
-    <div class="d-vgrid">
+    <div class="d-panel on" id="dpanel-interviews">
+      <p class="d-vcount">每一場晨會之後,Dom 與該校校長對談,問的都是同樣兩個問題:您為什麼走上校長這條路?英語教育與國際教育,對您的孩子又意味著什麼?共 <b>19</b> 位校長。</p>
+      <div class="d-vgrid">
+<article class="d-vcard">
+  <div class="d-vthumb" data-yt="xp_DbyGqnAc" title="育華國小校長專訪"><img loading="lazy" src="https://i.ytimg.com/vi/xp_DbyGqnAc/mqdefault.jpg" alt="育華國小校長專訪"><span class="pl">▶</span></div>
+  <div class="d-vmeta"><h4>育華國小</h4><div class="sub">教育之聲 · Ep19 · 2026.06.02</div></div>
+</article>
+<article class="d-vcard">
+  <div class="d-vthumb" data-yt="01Wonw-UBRU" title="後寮國小校長專訪"><img loading="lazy" src="https://i.ytimg.com/vi/01Wonw-UBRU/mqdefault.jpg" alt="後寮國小校長專訪"><span class="pl">▶</span></div>
+  <div class="d-vmeta"><h4>後寮國小</h4><div class="sub">教育之聲 · Ep18 · 2026.06.02</div></div>
+</article>
+<article class="d-vcard">
+  <div class="d-vthumb" data-yt="zKw0WL7DGu8" title="育德國小校長專訪"><img loading="lazy" src="https://i.ytimg.com/vi/zKw0WL7DGu8/mqdefault.jpg" alt="育德國小校長專訪"><span class="pl">▶</span></div>
+  <div class="d-vmeta"><h4>育德國小</h4><div class="sub">教育之聲 · Ep17 · 2026.05.25</div></div>
+</article>
+<article class="d-vcard">
+  <div class="d-vthumb" data-yt="yuf8GLlfGLs" title="民生國小校長專訪"><img loading="lazy" src="https://i.ytimg.com/vi/yuf8GLlfGLs/mqdefault.jpg" alt="民生國小校長專訪"><span class="pl">▶</span></div>
+  <div class="d-vmeta"><h4>民生國小</h4><div class="sub">教育之聲 · Ep16 · 2026.05.25</div></div>
+</article>
+<article class="d-vcard">
+  <div class="d-vthumb" data-yt="EX9ECX_rOq4" title="湖北國小校長專訪"><img loading="lazy" src="https://i.ytimg.com/vi/EX9ECX_rOq4/mqdefault.jpg" alt="湖北國小校長專訪"><span class="pl">▶</span></div>
+  <div class="d-vmeta"><h4>湖北國小</h4><div class="sub">教育之聲 · Ep15 · 2026.05.19</div></div>
+</article>
+<article class="d-vcard">
+  <div class="d-vthumb" data-yt="_AYlf-4OSl4" title="萬興國小校長專訪"><img loading="lazy" src="https://i.ytimg.com/vi/_AYlf-4OSl4/mqdefault.jpg" alt="萬興國小校長專訪"><span class="pl">▶</span></div>
+  <div class="d-vmeta"><h4>萬興國小</h4><div class="sub">教育之聲 · Ep14 · 2026.05.19</div></div>
+</article>
+<article class="d-vcard">
+  <div class="d-vthumb" data-yt="Y1oyv7UuE7k" title="中和國小校長專訪"><img loading="lazy" src="https://i.ytimg.com/vi/Y1oyv7UuE7k/mqdefault.jpg" alt="中和國小校長專訪"><span class="pl">▶</span></div>
+  <div class="d-vmeta"><h4>中和國小</h4><div class="sub">教育之聲 · Ep13 · 2026.05.12</div></div>
+</article>
+<article class="d-vcard">
+  <div class="d-vthumb" data-yt="W57Ks6--3Tk" title="文昌國小校長專訪"><img loading="lazy" src="https://i.ytimg.com/vi/W57Ks6--3Tk/mqdefault.jpg" alt="文昌國小校長專訪"><span class="pl">▶</span></div>
+  <div class="d-vmeta"><h4>文昌國小</h4><div class="sub">教育之聲 · Ep12 · 2026.05.12</div></div>
+</article>
+<article class="d-vcard">
+  <div class="d-vthumb" data-yt="NW-Ld9NzOsA" title="溪州國小校長專訪"><img loading="lazy" src="https://i.ytimg.com/vi/NW-Ld9NzOsA/mqdefault.jpg" alt="溪州國小校長專訪"><span class="pl">▶</span></div>
+  <div class="d-vmeta"><h4>溪州國小</h4><div class="sub">教育之聲 · Ep11 · 2026.05.05</div></div>
+</article>
+<article class="d-vcard">
+  <div class="d-vthumb" data-yt="AmXnzSQCirc" title="快官國小校長專訪"><img loading="lazy" src="https://i.ytimg.com/vi/AmXnzSQCirc/mqdefault.jpg" alt="快官國小校長專訪"><span class="pl">▶</span></div>
+  <div class="d-vmeta"><h4>快官國小</h4><div class="sub">教育之聲 · Ep10 · 2026.05.05</div></div>
+</article>
+<article class="d-vcard">
+  <div class="d-vthumb" data-yt="_wa-MmwTIWM" title="僑信國小校長專訪"><img loading="lazy" src="https://i.ytimg.com/vi/_wa-MmwTIWM/mqdefault.jpg" alt="僑信國小校長專訪"><span class="pl">▶</span></div>
+  <div class="d-vmeta"><h4>僑信國小</h4><div class="sub">教育之聲 · Ep9 · 2026.04.28</div></div>
+</article>
+<article class="d-vcard">
+  <div class="d-vthumb" data-yt="u9BiSr6LefI" title="仁豐國小校長專訪"><img loading="lazy" src="https://i.ytimg.com/vi/u9BiSr6LefI/mqdefault.jpg" alt="仁豐國小校長專訪"><span class="pl">▶</span></div>
+  <div class="d-vmeta"><h4>仁豐國小</h4><div class="sub">教育之聲 · Ep8 · 2026.04.21</div></div>
+</article>
+<article class="d-vcard">
+  <div class="d-vthumb" data-yt="_SX6aqAFMoY" title="新民國小校長專訪"><img loading="lazy" src="https://i.ytimg.com/vi/_SX6aqAFMoY/mqdefault.jpg" alt="新民國小校長專訪"><span class="pl">▶</span></div>
+  <div class="d-vmeta"><h4>新民國小</h4><div class="sub">教育之聲 · Ep7 · 2026.04.21</div></div>
+</article>
+<article class="d-vcard">
+  <div class="d-vthumb" data-yt="dlZvvwyHbfo" title="明禮國小校長專訪"><img loading="lazy" src="https://i.ytimg.com/vi/dlZvvwyHbfo/mqdefault.jpg" alt="明禮國小校長專訪"><span class="pl">▶</span></div>
+  <div class="d-vmeta"><h4>明禮國小</h4><div class="sub">教育之聲 · Ep6 · 2026.04.14</div></div>
+</article>
+<article class="d-vcard">
+  <div class="d-vthumb" data-yt="V75GdrMV9OQ" title="育新國小校長專訪"><img loading="lazy" src="https://i.ytimg.com/vi/V75GdrMV9OQ/mqdefault.jpg" alt="育新國小校長專訪"><span class="pl">▶</span></div>
+  <div class="d-vmeta"><h4>育新國小</h4><div class="sub">教育之聲 · Ep5 · 2026.04.07</div></div>
+</article>
+<article class="d-vcard">
+  <div class="d-vthumb" data-yt="7om_ARwwK7c" title="福興國中校長專訪"><img loading="lazy" src="https://i.ytimg.com/vi/7om_ARwwK7c/mqdefault.jpg" alt="福興國中校長專訪"><span class="pl">▶</span></div>
+  <div class="d-vmeta"><h4>福興國中</h4><div class="sub">教育之聲 · Ep4 · 2026.04.07</div></div>
+</article>
+<article class="d-vcard">
+  <div class="d-vthumb" data-yt="VSKKtyrP8JI" title="福興國小校長專訪"><img loading="lazy" src="https://i.ytimg.com/vi/VSKKtyrP8JI/mqdefault.jpg" alt="福興國小校長專訪"><span class="pl">▶</span></div>
+  <div class="d-vmeta"><h4>福興國小</h4><div class="sub">教育之聲 · Ep3 · 2026.03.31</div></div>
+</article>
+<article class="d-vcard">
+  <div class="d-vthumb" data-yt="as28NTe49ic" title="德興國小校長專訪"><img loading="lazy" src="https://i.ytimg.com/vi/as28NTe49ic/mqdefault.jpg" alt="德興國小校長專訪"><span class="pl">▶</span></div>
+  <div class="d-vmeta"><h4>德興國小</h4><div class="sub">教育之聲 · Ep2 · 2026.03.31</div></div>
+</article>
+<article class="d-vcard">
+  <div class="d-vthumb" data-yt="LArd9gafybg" title="大城國中校長專訪"><img loading="lazy" src="https://i.ytimg.com/vi/LArd9gafybg/mqdefault.jpg" alt="大城國中校長專訪"><span class="pl">▶</span></div>
+  <div class="d-vmeta"><h4>大城國中</h4><div class="sub">教育之聲 · Ep1 · 2026.03.24</div></div>
+</article>
+      </div>
+      <p class="d-vmore"><a href="https://www.youtube.com/playlist?list=PLXjTAIiEub1Q" target="_blank" rel="noopener">在 YouTube 看完整 19 集 ↗</a></p>
+    </div>
+
+    <div class="d-panel" id="dpanel-news">
+      <div class="d-slides-cta">
+        <p>每場集會實際使用的雙語簡報，也整理成可滑動瀏覽的簡報庫——歡迎老師下載教學重點、未來訪校也直接沿用格式。</p>
+        <a class="btn btn-gold" href="/media/dom-jones/slides/">📑 查看簡報庫 View Slide Library →</a>
+      </div>
+      <p class="d-vcount"><b>25</b> school visits filmed by students · 由學生記者拍攝的 25 場校園巡迴新聞</p>
+      <div class="d-vgrid">
 <article class="d-vcard">
   <div class="d-vthumb" data-yt="-wW0IOjTUT4" title="後寮國小"><img loading="lazy" src="https://i.ytimg.com/vi/-wW0IOjTUT4/mqdefault.jpg" alt="後寮國小"><span class="pl">▶</span></div>
   <div class="d-vmeta"><h4>後寮國小</h4><div class="sub">校園新聞 · School news · 2026.06.02</div><a class="d-vslides" href="/media/dom-jones/slides/#deck-houliao">📑 看該場簡報</a></div>
@@ -401,9 +514,25 @@
   <div class="d-vthumb" data-yt="gcDCu03Io2k" title="陽明國中"><img loading="lazy" src="https://i.ytimg.com/vi/gcDCu03Io2k/mqdefault.jpg" alt="陽明國中"><span class="pl">▶</span></div>
   <div class="d-vmeta"><h4>陽明國中</h4><div class="sub">校園新聞 · School news · 邀請 Dom Jones 蒞校交流</div></div>
 </article>
+      </div>
     </div>
   </div>
 </section>
+
+<script>
+(function(){
+  var bar=document.querySelector('.d-tabs'); if(!bar) return;
+  bar.addEventListener('click',function(e){
+    var t=e.target.closest('.d-tab'); if(!t) return;
+    bar.querySelectorAll('.d-tab').forEach(function(b){
+      var on=b===t; b.classList.toggle('on',on); b.setAttribute('aria-selected',on);
+    });
+    document.querySelectorAll('.d-panel').forEach(function(p){
+      p.classList.toggle('on', p.id==='dpanel-'+t.dataset.panel);
+    });
+  });
+})();
+</script>
 
 <section class="d-sec">
   <div class="d-wrap">

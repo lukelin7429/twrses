@@ -2043,6 +2043,27 @@ DOM_STYLE = '''
   .d-feature figcaption strong{display:block;font-size:18px;font-weight:700;margin-bottom:3px;}
   .d-vcount{margin-top:20px;font-size:15px;color:var(--ink-soft);}
   .d-vcount b{color:var(--indigo);}
+
+  /* 影片庫分頁（校園新聞 / 教育之聲）— sticky 切換 */
+  .d-tabs{position:sticky;top:0;z-index:30;display:flex;gap:10px;flex-wrap:nowrap;overflow-x:auto;
+    margin:22px 0 6px;padding:12px 0;background:var(--bg-soft,#f7f8fb);
+    box-shadow:0 1px 0 var(--line);scrollbar-width:none;}
+  .d-tabs::-webkit-scrollbar{display:none;}
+  .d-tab{flex:0 0 auto;display:flex;align-items:center;gap:9px;cursor:pointer;background:#fff;
+    border:1px solid var(--line);border-radius:999px;padding:10px 20px;font:inherit;line-height:1.25;}
+  .d-tab .en{font-size:16px;font-weight:700;color:var(--ink);}
+  .d-tab .zh{font-size:14px;color:var(--ink-soft);}
+  .d-tab .n{font-size:13px;font-weight:700;color:var(--ink-soft);background:var(--bg-soft,#f0f2f7);
+    border-radius:999px;padding:2px 9px;min-width:28px;text-align:center;}
+  .d-tab:hover{border-color:var(--amber);}
+  .d-tab.on{background:var(--indigo);border-color:var(--indigo);}
+  .d-tab.on .en,.d-tab.on .zh{color:#fff;}
+  .d-tab.on .n{background:rgba(255,255,255,.24);color:#fff;}
+  .d-panel{display:none;}
+  .d-panel.on{display:block;}
+  .d-vmore{margin-top:26px;text-align:center;font-size:15px;}
+  .d-vmore a{color:var(--gold-dk);font-weight:700;text-decoration:none;}
+  @media(max-width:560px){.d-tab{padding:9px 15px;} .d-tab .zh{display:none;}}
   .d-vgrid{display:grid;grid-template-columns:1fr;gap:18px;margin-top:12px;}
   @media(min-width:560px){.d-vgrid{grid-template-columns:1fr 1fr;}}
   @media(min-width:920px){.d-vgrid{grid-template-columns:1fr 1fr 1fr;}}
@@ -2088,6 +2109,19 @@ def build_dom_jones():
 </article>''')
     vgrid = "\n".join(cards)
     n = len(DOM["videos"])
+
+    # 教育之聲 — Dom 在每場晨會之後訪問該校校長（一校一支，不是一整包播放清單）
+    icards = []
+    for v in DOM.get("interviews", []):
+        vid = v["id"]; school = html.escape(v["school"])
+        sub = f'教育之聲 · Ep{v["ep"]}' + (f' · {html.escape(v["date"])}' if v.get("date") else "")
+        icards.append(f'''<article class="d-vcard">
+  <div class="d-vthumb" data-yt="{vid}" title="{school}校長專訪"><img loading="lazy" src="https://i.ytimg.com/vi/{vid}/mqdefault.jpg" alt="{school}校長專訪"><span class="pl">▶</span></div>
+  <div class="d-vmeta"><h4>{school}</h4><div class="sub">{sub}</div></div>
+</article>''')
+    igrid = "\n".join(icards)
+    ni = len(DOM.get("interviews", []))
+    ipl = DOM.get("interviews_playlist", "")
 
     body = f'''{DOM_STYLE}
 <div class="d-page">
@@ -2207,24 +2241,57 @@ def build_dom_jones():
   <div class="d-wrap">
     <p class="d-label">School Assembly Tour · 校園巡迴</p>
     <h2 class="d-h2">Dom's school visits, school by school</h2>
-    <p class="d-h2-en">每一場巡迴都是全校英語集會,由各校學生記者拍成校園新聞。點縮圖原地播放。</p>
+    <p class="d-h2-en">每一場巡迴都是全校英語集會,由各校學生記者拍成校園新聞;集會之後,Dom 再與該校校長對談。點縮圖原地播放。</p>
 
     <figure class="d-feature">
       <img src="{TB}/dom-jones/images/yushin-group.jpg" alt="Dom Jones with students of Yuxin Elementary">
       <figcaption><strong>With the students of Yuxin Elementary 育新國小</strong>One of the many campuses on Dom's Taiwan tour</figcaption>
     </figure>
 
-    <div class="d-slides-cta">
-      <p>每場集會實際使用的雙語簡報，也整理成可滑動瀏覽的簡報庫——歡迎老師下載教學重點、未來訪校也直接沿用格式。</p>
-      <a class="btn btn-gold" href="/media/dom-jones/slides/">📑 查看簡報庫 View Slide Library →</a>
+    <div class="d-tabs" role="tablist" aria-label="影片分類">
+      <button class="d-tab on" role="tab" aria-selected="true" data-panel="interviews">
+        <span class="en">Voices in Education</span><span class="zh">教育之聲 · 校長專訪</span><span class="n">{ni}</span>
+      </button>
+      <button class="d-tab" role="tab" aria-selected="false" data-panel="news">
+        <span class="en">Campus News</span><span class="zh">校園新聞 · 學生製作</span><span class="n">{n}</span>
+      </button>
     </div>
 
-    <p class="d-vcount"><b>{n}</b> school visits filmed by students · 由學生記者拍攝的 {n} 場校園巡迴新聞</p>
-    <div class="d-vgrid">
+    <div class="d-panel on" id="dpanel-interviews">
+      <p class="d-vcount">每一場晨會之後,Dom 與該校校長對談,問的都是同樣兩個問題:您為什麼走上校長這條路?英語教育與國際教育,對您的孩子又意味著什麼?共 <b>{ni}</b> 位校長。</p>
+      <div class="d-vgrid">
+{igrid}
+      </div>
+      <p class="d-vmore"><a href="https://www.youtube.com/playlist?list={ipl}" target="_blank" rel="noopener">在 YouTube 看完整 {ni} 集 ↗</a></p>
+    </div>
+
+    <div class="d-panel" id="dpanel-news">
+      <div class="d-slides-cta">
+        <p>每場集會實際使用的雙語簡報，也整理成可滑動瀏覽的簡報庫——歡迎老師下載教學重點、未來訪校也直接沿用格式。</p>
+        <a class="btn btn-gold" href="/media/dom-jones/slides/">📑 查看簡報庫 View Slide Library →</a>
+      </div>
+      <p class="d-vcount"><b>{n}</b> school visits filmed by students · 由學生記者拍攝的 {n} 場校園巡迴新聞</p>
+      <div class="d-vgrid">
 {vgrid}
+      </div>
     </div>
   </div>
 </section>
+
+<script>
+(function(){{
+  var bar=document.querySelector('.d-tabs'); if(!bar) return;
+  bar.addEventListener('click',function(e){{
+    var t=e.target.closest('.d-tab'); if(!t) return;
+    bar.querySelectorAll('.d-tab').forEach(function(b){{
+      var on=b===t; b.classList.toggle('on',on); b.setAttribute('aria-selected',on);
+    }});
+    document.querySelectorAll('.d-panel').forEach(function(p){{
+      p.classList.toggle('on', p.id==='dpanel-'+t.dataset.panel);
+    }});
+  }});
+}})();
+</script>
 
 <section class="d-sec">
   <div class="d-wrap">
