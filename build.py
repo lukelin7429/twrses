@@ -3212,6 +3212,10 @@ PARTNERS = [
 ]
 
 PARTNER_ORGS = [
+    {"img": "/assets/img/partners/ccc-trip-2026/11.jpg",
+     "name": "2026 紐約首府中文學校來臺紀實",
+     "zh": "2026 年 8 月，六位紐約高中生在彰化服務五天——中和國小英語教學、溪湖高中藍染明信片、田中高中射箭與武術，收錄於 9 支短片與 33 張照片。",
+     "go": "/partners/ccc-trip-2026/"},
     {"img": "https://i.ytimg.com/vi/M8_UUKhYuJ0/hqdefault.jpg",
      "name": "Up with People 人人至上",
      "zh": "1965 年創立於美國丹佛的國際青年組織。每年兩團、來自約 20 國的青年以半年走讀世界；2010、2012 兩度造訪彰化，住進南彰化的寄宿家庭，並在明道大學與二林圖書館成功演出，收錄於 3 支影片。",
@@ -3325,6 +3329,24 @@ def build_partner_detail(d):
     website = d.get("website")
     website_html = (f'<p class="rvl" style="margin:.4rem 0 2rem">'
                     f'<a class="btn btn-primary" href="{website}" target="_blank" rel="noopener">造訪官方網站 →</a></p>') if website else ""
+    # 重點活動橫幅：連往同系列的獨立紀實頁（例如 2026 來臺）
+    ft = d.get("feature")
+    feature_html = ""
+    if ft:
+        badge = (f'<span class="pf-badge">{html.escape(ft["badge"])}</span>'
+                 if ft.get("badge") else "")
+        tag = f'<p class="pf-tag">{html.escape(ft["tag"])}</p>' if ft.get("tag") else ""
+        meta = f'<p class="pf-meta">{html.escape(ft["meta"])}</p>' if ft.get("meta") else ""
+        feature_html = f'''<a class="pfeature rvl" href="{ft["href"]}">
+  <div class="pf-img" style="background-image:url({ft["img"]})"></div>
+  <div class="pf-body">
+    {badge}{tag}
+    <h2>{html.escape(ft["title"])}</h2>
+    <p class="pf-lead">{html.escape(ft.get("lead",""))}</p>
+    {meta}
+    <span class="pf-go">{html.escape(ft.get("cta","看完整紀實 →"))}</span>
+  </div>
+</a>'''
     photos = d.get("photos", [])
     photo_html = ""
     if photos:
@@ -3394,6 +3416,7 @@ def build_partner_detail(d):
   {stats_html}
   {intro_html}
   {website_html}
+  {feature_html}
   {poster_html}
   {photo_html}
   {sec_html}

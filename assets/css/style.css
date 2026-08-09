@@ -971,3 +971,31 @@ p  { margin: 0 0 1.1em; }
 .pgallery { display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:1rem; margin:1.8rem 0; }
 .pgallery .figure { margin:0; }
 .pgallery .figure img { width:100%; height:100%; object-fit:cover; aspect-ratio:4/3; border-radius:var(--radius-sm); }
+
+/* ── 重點活動橫幅（夥伴頁 feature band） ───────────────────────────── */
+.pfeature { display:grid; grid-template-columns:1.05fr .95fr; background:var(--white);
+  border:1px solid var(--line); border-radius:22px; overflow:hidden;
+  text-decoration:none; color:var(--ink); box-shadow:var(--shadow);
+  transition:transform .3s, box-shadow .3s; margin:1.6rem 0 2.4rem; }
+.pfeature:hover { transform:translateY(-6px); box-shadow:0 30px 66px -22px rgba(14,107,96,.45); }
+.pf-img { min-height:330px; background:var(--cream) center/cover; position:relative; }
+.pf-img::after { content:""; position:absolute; inset:0;
+  background:linear-gradient(90deg, rgba(22,48,44,.20), rgba(22,48,44,0) 60%); }
+.pf-body { padding:2.6rem 2.8rem; display:flex; flex-direction:column; justify-content:center; }
+.pf-badge { align-self:flex-start; background:var(--sunset); color:#fff; border-radius:30px;
+  padding:.3rem .95rem; font-family:var(--sans); letter-spacing:.06em;
+  font-size:.78rem; font-weight:700; margin-bottom:1rem; }
+.pf-tag { font-family:var(--sans); letter-spacing:.1em; font-size:.82rem;
+  color:var(--ink-soft); margin:0 0 .5rem; }
+.pfeature h2 { margin:0 0 .45em; font-family:var(--serif); font-size:2rem; line-height:1.2; }
+.pf-lead { color:var(--ink-soft); font-size:1.02rem; line-height:1.9; margin:0 0 .9rem; }
+.pf-meta { font-family:var(--sans); letter-spacing:.04em; font-size:.9rem;
+  color:var(--ink-soft); opacity:.85; margin:0 0 1.2rem; }
+.pf-go { font-family:var(--sans); font-weight:700; color:var(--brand); font-size:1rem; }
+.pfeature:hover .pf-go { color:var(--brand-dk); }
+@media (max-width:860px) {
+  .pfeature { grid-template-columns:1fr; }
+  .pf-img { min-height:200px; aspect-ratio:16/9; }
+  .pf-body { padding:1.8rem 1.5rem; }
+  .pfeature h2 { font-size:1.55rem; }
+}
