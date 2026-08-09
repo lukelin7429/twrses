@@ -3212,10 +3212,6 @@ PARTNERS = [
 ]
 
 PARTNER_ORGS = [
-    {"img": "/assets/img/partners/ccc-trip-2026/11.jpg",
-     "name": "2026 紐約首府中文學校來臺紀實",
-     "zh": "2026 年 8 月，六位紐約高中生在彰化服務五天——中和國小英語教學、溪湖高中藍染明信片、田中高中射箭與武術，收錄於 9 支短片與 33 張照片。",
-     "go": "/partners/ccc-trip-2026/"},
     {"img": "https://i.ytimg.com/vi/M8_UUKhYuJ0/hqdefault.jpg",
      "name": "Up with People 人人至上",
      "zh": "1965 年創立於美國丹佛的國際青年組織。每年兩團、來自約 20 國的青年以半年走讀世界；2010、2012 兩度造訪彰化，住進南彰化的寄宿家庭，並在明道大學與二林圖書館成功演出，收錄於 3 支影片。",
@@ -3238,7 +3234,7 @@ PARTNER_ORGS = [
      "go": "/partners/books-for-taiwan/"},
     {"img": "https://i.ytimg.com/vi/Q7E2vrl2uRQ/hqdefault.jpg",
      "name": "紐約 CCC 中文學校來到彰化",
-     "zh": "自 2022 年起的長期夥伴，紐約 Albany 的學生輔導臺灣孩子英文並來彰化教學交流，收錄於 27 支影片。",
+     "zh": "自 2022 年起的長期夥伴，紐約 Albany 的學生輔導臺灣孩子英文並來彰化教學交流。2024、2025 連續來訪，2026 年 8 月再度來到彰化服務五天。",
      "go": "/partners/ccc-chinese-school/"},
     {"img": TB + "/partners/nmu/img/nmu-principal-group.jpg",
      "name": "NMU 師資生來到彰化",
