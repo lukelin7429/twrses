@@ -237,3 +237,33 @@
     if (!open) btn.scrollIntoView({ block: 'center', behavior: 'smooth' });
   });
 })();
+
+/* 照片燈箱：點縮圖看原圖，← → 切換，ESC／點背景／× 關閉 */
+(function () {
+  var links = [].slice.call(document.querySelectorAll('.pgallery a[data-lb]'));
+  var lb = document.getElementById('lb');
+  if (!links.length || !lb) return;
+  var img = lb.querySelector('.lb-img'), cap = lb.querySelector('.lb-c'), i = 0;
+  function show(n) {
+    i = (n + links.length) % links.length;
+    img.src = links[i].getAttribute('href');
+    img.alt = links[i].querySelector('img').alt || '';
+    cap.textContent = (i + 1) + ' / ' + links.length;
+    lb.removeAttribute('hidden');
+    document.body.style.overflow = 'hidden';
+  }
+  function hide() { lb.setAttribute('hidden', ''); img.src = ''; document.body.style.overflow = ''; }
+  links.forEach(function (a, n) {
+    a.addEventListener('click', function (e) { e.preventDefault(); show(n); });
+  });
+  lb.querySelector('.lb-x').addEventListener('click', hide);
+  lb.querySelector('.lb-p').addEventListener('click', function (e) { e.stopPropagation(); show(i - 1); });
+  lb.querySelector('.lb-n').addEventListener('click', function (e) { e.stopPropagation(); show(i + 1); });
+  lb.addEventListener('click', function (e) { if (e.target === lb || e.target === img) hide(); });
+  document.addEventListener('keydown', function (e) {
+    if (lb.hasAttribute('hidden')) return;
+    if (e.key === 'Escape') hide();
+    if (e.key === 'ArrowLeft') show(i - 1);
+    if (e.key === 'ArrowRight') show(i + 1);
+  });
+})();

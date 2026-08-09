@@ -1010,3 +1010,20 @@ p  { margin: 0 0 1.1em; }
 .essay-toggle { margin-top:.4rem; background:none; border:0; padding:0; cursor:pointer;
   font-family:var(--sans); font-weight:700; font-size:.98rem; color:var(--brand); }
 .essay-toggle:hover { color:var(--brand-dk); }
+
+/* ── 照片燈箱 ──────────────────────────────────────────────── */
+.pgallery a.figure { display:block; cursor:zoom-in; }
+.lb { position:fixed; inset:0; z-index:200; background:rgba(12,20,18,.94);
+  display:flex; align-items:center; justify-content:center; }
+.lb[hidden] { display:none; }
+.lb-img { max-width:92vw; max-height:84vh; border-radius:10px;
+  box-shadow:0 24px 70px rgba(0,0,0,.6); }
+.lb button { position:absolute; background:rgba(255,255,255,.14); color:#fff; border:0;
+  border-radius:50%; cursor:pointer; line-height:1; transition:background .2s; }
+.lb button:hover { background:var(--brand); }
+.lb-x { top:20px; right:22px; width:46px; height:46px; font-size:1.7rem; }
+.lb-p, .lb-n { top:50%; transform:translateY(-50%); width:52px; height:52px; font-size:2.1rem; }
+.lb-p { left:20px; } .lb-n { right:20px; }
+.lb-c { position:absolute; bottom:22px; left:0; right:0; text-align:center;
+  color:#cfd6d3; font-family:var(--sans); letter-spacing:.06em; font-size:.85rem; margin:0; }
+@media (max-width:640px) { .lb-p, .lb-n { width:42px; height:42px; font-size:1.7rem; } }

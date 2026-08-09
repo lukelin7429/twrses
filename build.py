@@ -3366,10 +3366,19 @@ def build_partner_detail(d):
     photos = d.get("photos", [])
     photo_html = ""
     if photos:
+        def _full(p):   # 縮圖 → 原圖（thumb/NN.jpg → NN.jpg）
+            return p.replace("/thumb/", "/") if "/thumb/" in p else p
         figs = "".join(
-            f'<figure class="figure"><img loading="lazy" src="{ph}" alt="{html.escape(d["name"])}"></figure>'
-            for ph in photos)
-        photo_html = f'<div class="pgallery stagger">{figs}</div>'
+            f'<a class="figure" href="{_full(ph)}" data-lb aria-label="放大第 {i} 張">'
+            f'<img loading="lazy" src="{ph}" alt="{html.escape(d["name"])}"></a>'
+            for i, ph in enumerate(photos, 1))
+        photo_html = (f'<div class="pgallery stagger">{figs}</div>'
+                      '<div class="lb" id="lb" hidden>'
+                      '<button class="lb-x" type="button" aria-label="關閉">&times;</button>'
+                      '<button class="lb-p" type="button" aria-label="上一張">&lsaquo;</button>'
+                      '<img class="lb-img" alt="">'
+                      '<button class="lb-n" type="button" aria-label="下一張">&rsaquo;</button>'
+                      '<p class="lb-c"></p></div>')
     # 活動海報（直式，並排）
     posters = d.get("posters", [])
     poster_html = ""
