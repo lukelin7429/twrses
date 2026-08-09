@@ -999,3 +999,14 @@ p  { margin: 0 0 1.1em; }
   .pf-body { padding:1.8rem 1.5rem; }
   .pfeature h2 { font-size:1.55rem; }
 }
+
+/* ── 專文：首段露出，其餘展開 ────────────────────────────────── */
+.essay-wrap h2 { margin-bottom:.2em; }
+.essay-by { font-family:var(--sans); letter-spacing:.04em; font-size:.92rem;
+  color:var(--ink-soft); opacity:.85; margin:0 0 1.6rem; }
+.essay p { font-size:1.05rem; line-height:2.05; margin:0 0 1.25em; color:var(--ink-soft); }
+.essay .essay-lead { font-size:1.16rem; line-height:1.95; color:var(--ink); }
+.essay-rest[hidden] { display:none; }
+.essay-toggle { margin-top:.4rem; background:none; border:0; padding:0; cursor:pointer;
+  font-family:var(--sans); font-weight:700; font-size:.98rem; color:var(--brand); }
+.essay-toggle:hover { color:var(--brand-dk); }

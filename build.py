@@ -3329,6 +3329,22 @@ def build_partner_detail(d):
     website = d.get("website")
     website_html = (f'<p class="rvl" style="margin:.4rem 0 2rem">'
                     f'<a class="btn btn-primary" href="{website}" target="_blank" rel="noopener">造訪官方網站 →</a></p>') if website else ""
+    # 專文：首段先露出，其餘由讀者展開（不替作者添加小標）
+    es = d.get("essay")
+    essay_html = ""
+    if es:
+        rest = "".join(f"<p>{html.escape(p)}</p>" for p in es.get("rest", []))
+        byline = f'<p class="essay-by">{html.escape(es["byline"])}</p>' if es.get("byline") else ""
+        essay_html = f'''<div class="psection rvl essay-wrap">
+  <h2>{html.escape(es["title"])}</h2>
+  {byline}
+  <div class="prose wide essay">
+    <p class="essay-lead">{html.escape(es["lead"])}</p>
+    <div class="essay-rest" id="essayRest" hidden>{rest}</div>
+    <button class="essay-toggle" type="button" id="essayBtn"
+            aria-expanded="false" aria-controls="essayRest">閱讀全文 ↓</button>
+  </div>
+</div>'''
     # 重點活動橫幅：連往同系列的獨立紀實頁（例如 2026 來臺）
     ft = d.get("feature")
     feature_html = ""
@@ -3418,10 +3434,12 @@ def build_partner_detail(d):
   {website_html}
   {feature_html}
   {poster_html}
+  {vid_html if essay_html else ""}
   {photo_html}
+  {essay_html}
   {sec_html}
   {carousel_html}
-  {vid_html}
+  {"" if essay_html else vid_html}
   <p style="margin-top:2.6rem"><a class="btn btn-ghost" href="/partners/">← 回國際夥伴</a></p>
 </div></section>
 '''

@@ -224,3 +224,16 @@
     syncNav();
   }
 })();
+
+/* 專文展開／收合 */
+(function () {
+  var btn = document.getElementById('essayBtn'), rest = document.getElementById('essayRest');
+  if (!btn || !rest) return;
+  btn.addEventListener('click', function () {
+    var open = rest.hasAttribute('hidden');
+    if (open) rest.removeAttribute('hidden'); else rest.setAttribute('hidden', '');
+    btn.setAttribute('aria-expanded', open);
+    btn.textContent = open ? '收合全文 ↑' : '閱讀全文 ↓';
+    if (!open) btn.scrollIntoView({ block: 'center', behavior: 'smooth' });
+  });
+})();
