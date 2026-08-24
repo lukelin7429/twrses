@@ -116,6 +116,7 @@
   var SAY_BASE = 'https://github.com/lukelin7429/twrses/releases/download/booklet-say-audio/';
   var sayManifest = null;
   var sayAudio = null;
+  var humanByText = {};
 
   (function loadSayManifest() {
     var slug = document.body && document.body.getAttribute('data-say-manifest');
@@ -124,6 +125,21 @@
       .then(function (r) { return r.ok ? r.json() : null; })
       .then(function (m) { if (m) sayManifest = m; })
       .catch(function () { /* fallback voice still works */ });
+  })();
+
+  /* A unit's passage is spoken by a human, and that recording sits in the unit's
+     .audio-row. The same passage text is also on the 🔊 beside the paragraph
+     itself, which is NOT in that row — so match on the text rather than on where
+     the button happens to sit, and every button for that passage plays the human
+     reading. */
+  (function indexHumanRecordings() {
+    document.querySelectorAll('.audio-row').forEach(function (row) {
+      var a = row.querySelector('audio[src]');
+      var b = row.querySelector('[data-say]');
+      if (!a || !b) return;
+      var t = (b.getAttribute('data-say') || '').trim();
+      if (t) humanByText[t] = a.getAttribute('src');
+    });
   })();
 
   var enVoice = null;
@@ -152,12 +168,9 @@
     if (window.speechSynthesis) speechSynthesis.cancel();
     document.querySelectorAll('[data-say].on').forEach(function (b) { b.classList.remove('on'); });
 
-    // A 🔊 sitting in an .audio-row belongs to the passage, and the human
-    // recording of that passage is the <audio> right beside it. Play that —
-    // a real reader beats any generated voice, and the file is already here.
-    var row = btn && btn.closest ? btn.closest('.audio-row') : null;
-    var human = row ? row.querySelector('audio[src]') : null;
-    var src = human ? human.getAttribute('src') : null;
+    // Prefer the human reading of this passage wherever the button sits, then a
+    // generated clip, then the device voice.
+    var src = humanByText[text.trim()] || null;
 
     if (!src) {
       var hash = sayManifest && sayManifest[text];
