@@ -152,10 +152,20 @@
     if (window.speechSynthesis) speechSynthesis.cancel();
     document.querySelectorAll('[data-say].on').forEach(function (b) { b.classList.remove('on'); });
 
-    var hash = sayManifest && sayManifest[text];
-    if (!hash) { sayFallback(text, btn); return; }
+    // A 🔊 sitting in an .audio-row belongs to the passage, and the human
+    // recording of that passage is the <audio> right beside it. Play that —
+    // a real reader beats any generated voice, and the file is already here.
+    var row = btn && btn.closest ? btn.closest('.audio-row') : null;
+    var human = row ? row.querySelector('audio[src]') : null;
+    var src = human ? human.getAttribute('src') : null;
 
-    var a = new Audio(SAY_BASE + hash + '.mp3');
+    if (!src) {
+      var hash = sayManifest && sayManifest[text];
+      if (!hash) { sayFallback(text, btn); return; }
+      src = SAY_BASE + hash + '.mp3';
+    }
+
+    var a = new Audio(src);
     sayAudio = a;
     if (btn) btn.classList.add('on');
     var done = false;

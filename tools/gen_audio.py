@@ -24,10 +24,13 @@ VOICE = "en-US-AvaMultilingualNeural"   # chosen 2026-08 after an A/B test.
                                         # Alternatives heard at the same time:
                                         # AndrewMultilingual (m), Jenny, Aria.
 RATE = "-8%"                            # a touch slower than natural, for learners
-MAX_WORDS = 40                          # longer than this is a passage — the human
-                                        # recording covers those, so skip them.
-
+# A 🔊 inside an .audio-row is the passage button, and main.js plays the human
+# recording sitting beside it — so that text needs no clip of its own. Every
+# other phrase does, however long: the paragraph-level buttons on multi-picture
+# units have no human alternative and were silently falling back to the device
+# voice.
 SAY_RX = re.compile(r'data-say="([^"]*)"')
+AUDIO_ROW_RX = re.compile(r'<div class="audio-row".*?</div>', re.S)
 
 
 def phrase_hash(text: str) -> str:
@@ -35,14 +38,24 @@ def phrase_hash(text: str) -> str:
 
 
 def phrases_in(page: pathlib.Path):
-    """Every short data-say phrase on the page, de-duplicated, in document order."""
+    """Every data-say phrase needing a clip, de-duplicated, in document order.
+
+    Excludes the passage buttons that sit next to a human recording — main.js
+    plays that recording instead.
+    """
     src = (page / "index.html").read_text(encoding="utf-8")
+
+    human = set()
+    for row in AUDIO_ROW_RX.findall(src):
+        if "<audio" not in row:
+            continue
+        for raw in SAY_RX.findall(row):
+            human.add(html.unescape(raw).strip())
+
     seen, out = set(), []
     for raw in SAY_RX.findall(src):
         text = html.unescape(raw).strip()
-        if not text or text in seen:
-            continue
-        if len(text.split()) > MAX_WORDS:      # a passage: the human reads it
+        if not text or text in seen or text in human:
             continue
         seen.add(text)
         out.append(text)
