@@ -154,9 +154,12 @@ def footer():
   </div>
 </footer>'''
 
-def layout(path, title, desc, body, active, noindex=False):
+def layout(path, title, desc, body, active, noindex=False, say_manifest=None):
     full_title = f"{title}｜{SITE['name']}" if title else SITE["name"]
     robots_tag = '<meta name="robots" content="noindex, nofollow">\n' if noindex else ''
+    # Pages whose 🔊 buttons have generated clips name their manifest here;
+    # assets/js/main.js loads it and plays a recording instead of the device voice.
+    say_attr = f' data-say-manifest="{say_manifest}"' if say_manifest else ""
     return f'''<!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
@@ -175,7 +178,7 @@ def layout(path, title, desc, body, active, noindex=False):
 <meta property="og:description" content="{html.escape(desc)}">
 <meta property="og:type" content="website">
 </head>
-<body>
+<body{say_attr}>
 {header(active)}
 <main>
 {body}
@@ -1258,8 +1261,13 @@ def build_desc_book(b):
 <p class="muted rvl" style="margin-top:1rem">＊本冊共 {len(units)} 課。</p>
 </div></section>
 '''
+    # Only books whose clips have actually been generated get the attribute —
+    # naming a manifest that does not exist would just 404 on every page load.
+    say_slug = f"description-book{b}"
+    has_clips = os.path.exists(os.path.join(ROOT, "assets/data/say", say_slug + ".json"))
     write(f"/resources/booklets/description/book{b}/", layout(f"/resources/booklets/description/book{b}/",
-        f"看圖描述 Book {b}", f"人師閱讀教材·看圖描述第{b}冊，{len(units)} 課互動學習。", body, "resources"))
+        f"看圖描述 Book {b}", f"人師閱讀教材·看圖描述第{b}冊，{len(units)} 課互動學習。", body, "resources",
+        say_manifest=say_slug if has_clips else None))
 
 EVERYDAY_META = {
     "1":("Book 1","校園與日常生活","🦷"), "2":("Book 2","生活情境","🏠"),
