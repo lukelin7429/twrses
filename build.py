@@ -1303,8 +1303,13 @@ def build_everyday_book(b):
 <p class="muted rvl" style="margin-top:1rem">＊本冊共 {len(units)} 課。</p>
 </div></section>
 '''
+    # Only books whose clips have actually been generated get the attribute —
+    # naming a manifest that does not exist would just 404 on every page load.
+    say_slug = f"everyday-book{b}"
+    has_clips = os.path.exists(os.path.join(ROOT, "assets/data/say", say_slug + ".json"))
     write(f"/resources/booklets/everyday/book{b}/", layout(f"/resources/booklets/everyday/book{b}/",
-        f"基礎英語 Book {b}", f"人師閱讀教材·基礎英語第{cn}冊，{len(units)} 課互動閱讀（短文／真人朗讀／生字／進階學習／小測驗）。", body, "resources"))
+        f"基礎英語 Book {b}", f"人師閱讀教材·基礎英語第{cn}冊，{len(units)} 課互動閱讀（短文／真人朗讀／生字／進階學習／小測驗）。", body, "resources",
+        say_manifest=say_slug if has_clips else None))
 
 def build_resources_hub():
     hub_page("/resources/", "resources", "英語學習資源",

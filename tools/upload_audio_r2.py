@@ -2,11 +2,11 @@
 """Publish generated 🔊 clips to the twrses-say-audio R2 bucket.
 
 audio/ is gitignored — the mp3s are NOT deployed by pushing to main. Every
-manifest in assets/data/say/*.json is scanned and every hash it references is
-pushed to R2 (uploads are idempotent — re-uploading an already-published hash
-just overwrites it with identical bytes, so this never needs an existence
-check). Served publicly from the bucket's r2.dev URL — see PUBLIC_BASE in
-assets/js/main.js.
+manifest in assets/data/say/*.json is scanned and every hash it references
+that isn't already recorded in the local upload cache (.r2_uploaded_cache.txt,
+gitignored — a pure optimization, safe to delete: worst case is a slower
+re-upload of everything, not a correctness issue) gets pushed to R2. Served
+publicly from the bucket's r2.dev URL — see PUBLIC_BASE in assets/js/main.js.
 
 Run this after every `python3 tools/gen_audio.py`.
 
@@ -27,6 +27,7 @@ import sys
 REPO_ROOT = pathlib.Path(__file__).resolve().parent.parent
 AUDIO_DIR = REPO_ROOT / "audio" / "say"
 MANIFEST_DIR = REPO_ROOT / "assets" / "data" / "say"
+CACHE_FILE = REPO_ROOT / "tools" / ".r2_uploaded_cache.txt"
 BUCKET = "twrses-say-audio"
 PUBLIC_BASE = "https://pub-53f20fadeae54598a39a22eb35326575.r2.dev/"
 WRANGLER = pathlib.Path(
@@ -67,26 +68,37 @@ def main():
         data = json.loads(man.read_text(encoding="utf-8"))
         all_hashes |= set(data.values())
 
-    print(f"{len(manifests)} manifests, {len(all_hashes)} unique clips referenced")
+    cached = set(CACHE_FILE.read_text().split()) if CACHE_FILE.exists() else set()
+    todo = sorted(all_hashes - cached)
+
+    print(f"{len(manifests)} manifests, {len(all_hashes)} unique clips referenced, "
+          f"{len(cached)} already uploaded, {len(todo)} to upload")
 
     if DRY_RUN:
-        for h in sorted(all_hashes)[:20]:
+        for h in todo[:20]:
             print(f"  {h}.mp3")
-        if len(all_hashes) > 20:
-            print(f"  … and {len(all_hashes) - 20} more")
+        if len(todo) > 20:
+            print(f"  … and {len(todo) - 20} more")
+        return
+
+    if not todo:
+        print("\nnothing to upload.")
         return
 
     ok, failed = 0, []
-    with concurrent.futures.ThreadPoolExecutor(max_workers=CONCURRENCY) as ex:
-        futures = {ex.submit(upload_one, h): h for h in sorted(all_hashes)}
+    with CACHE_FILE.open("a") as cache_out, \
+         concurrent.futures.ThreadPoolExecutor(max_workers=CONCURRENCY) as ex:
+        futures = {ex.submit(upload_one, h): h for h in todo}
         for i, fut in enumerate(concurrent.futures.as_completed(futures), 1):
             h, success, err = fut.result()
             if success:
                 ok += 1
+                cache_out.write(h + "\n")
+                cache_out.flush()
             else:
                 failed.append((h, err))
-            if i % 50 == 0 or i == len(all_hashes):
-                print(f"  {i}/{len(all_hashes)} uploaded ({len(failed)} failed)")
+            if i % 50 == 0 or i == len(todo):
+                print(f"  {i}/{len(todo)} uploaded ({len(failed)} failed)")
 
     if failed:
         print(f"\n*** {len(failed)} uploads failed:")
@@ -94,7 +106,7 @@ def main():
             print(f"    {h}: {err}")
         sys.exit(1)
 
-    print(f"\nall {ok} clips uploaded. Commit assets/data/say/*.json if it changed.")
+    print(f"\nall {ok} new clips uploaded. Commit assets/data/say/*.json if it changed.")
 
 
 if __name__ == "__main__":
