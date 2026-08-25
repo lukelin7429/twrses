@@ -1246,8 +1246,13 @@ def build_conv_book(b):
 <p class="muted rvl" style="margin-top:1rem">＊本冊共 {len(units)} 課。</p>
 </div></section>
 '''
+    # Only books whose clips have actually been generated get the attribute —
+    # naming a manifest that does not exist would just 404 on every page load.
+    say_slug = f"conversation-book{b}"
+    has_clips = os.path.exists(os.path.join(ROOT, "assets/data/say", say_slug + ".json"))
     write(f"/resources/booklets/conversation/book{b}/", layout(f"/resources/booklets/conversation/book{b}/",
-        f"實用英語會話 Book {b}", f"人師閱讀教材·實用英語會話第{b}冊，{len(units)} 課互動對話。", body, "resources"))
+        f"實用英語會話 Book {b}", f"人師閱讀教材·實用英語會話第{b}冊，{len(units)} 課互動對話。", body, "resources",
+        say_manifest=say_slug if has_clips else None))
 
 def build_desc_hub():
     items=[(f"/resources/booklets/description/book{b}/", "🖼️", f"Book {b}", f"共 {len(DESCRIPTION[str(b)])} 課")
