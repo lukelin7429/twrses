@@ -1137,11 +1137,13 @@ def build_basic_hub():
         "人師閱讀教材·初級閱讀（Basic Reading）：長文閱讀、真人朗讀、閱讀理解問答、生字片語、小測驗。", body, "resources"))
 
 def _unit_nav(units, level="basic", book=0):
-    """Sticky jump-nav: one chip per unit, links to that unit's anchor."""
+    """Sticky jump-nav: one chip per unit, links to that unit's anchor.
+    level="" targets everyday's unprefixed anchor ids (b01u01, not everyday-b01u01)."""
     if len(units) < 2:
         return ""
+    prefix = f"{level}-" if level else ""
     chips = "".join(
-        f'<a class="unit-nav-link" href="#{level}-b{book:02d}u{u["unit"]:02d}">'
+        f'<a class="unit-nav-link" href="#{prefix}b{book:02d}u{u["unit"]:02d}">'
         f'<b>{u["unit"]}</b><span>{html.escape(u["title"])}</span></a>'
         for u in units)
     return (f'<nav class="unit-nav" aria-label="單元導覽"><div class="wrap">'
@@ -1318,6 +1320,7 @@ def build_everyday_book(b):
     cn = _CN_NUM[b] if b < len(_CN_NUM) else str(b)
     body = f'''
 {page_hero(f"基礎英語 · Book {b}", f"Everyday Topics — 第{cn}冊", "每課：看圖 → 讀短文（真人朗讀）→ 生字與進階學習 → 小測驗。")}
+{_unit_nav(units, "", b)}
 <section class="section"><div class="wrap" style="max-width:940px">
 {units_html}
 <p class="muted rvl" style="margin-top:1rem">＊本冊共 {len(units)} 課。</p>
