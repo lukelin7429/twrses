@@ -111,19 +111,11 @@
   <div class="grid2" style="margin-bottom:22px;">
     <div class="field">
       <label for="birth_year">西元出生年份 <span class="en">Year of Birth (CE)</span><span class="req">*</span></label>
-      <select id="birth_year" name="birth_year" required>
-        <option value="" disabled selected>請選擇 Select…</option>
-      </select>
+      <input type="number" id="birth_year" name="birth_year" required inputmode="numeric" autocomplete="off" placeholder="例如：2015">
     </div>
     <div class="field">
       <label for="grade">年級 <span class="en">Grade</span><span class="req">*</span></label>
-      <select id="grade" name="grade" required>
-        <option value="" disabled selected>請選擇 Select…</option>
-        <option value="一年級 Grade 1">一年級 Grade 1</option>
-        <option value="二年級 Grade 2">二年級 Grade 2</option>
-        <option value="三年級 Grade 3">三年級 Grade 3</option>
-        <option value="四年級 Grade 4">四年級 Grade 4</option>
-      </select>
+      <input type="text" id="grade" name="grade" required autocomplete="off" placeholder="例如：五年級 Grade 5">
     </div>
   </div>
 
@@ -185,15 +177,6 @@
     document.getElementById('fill_date').value =
       d.getFullYear() + '-' + pad(d.getMonth() + 1) + '-' + pad(d.getDate());
 
-    // 出生年份選項：涵蓋國小一至四年級（約 6–12 歲，給上下緣彈性）
-    const sel = document.getElementById('birth_year');
-    const thisYear = d.getFullYear();
-    for (let y = thisYear - 6; y >= thisYear - 12; y--) {
-      const o = document.createElement('option');
-      o.value = String(y);
-      o.textContent = String(y);
-      sel.appendChild(o);
-    }
   })();
 
   const form = document.getElementById('regForm');
