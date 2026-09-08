@@ -635,8 +635,8 @@ def build_founder():
 MCC_FORMS = "/forms"
 def build_register():
     classes = [
-        ("Teacher Shannon · A 班", "週日 09:00–09:50", "國一至高三 · Grade 7–12", "shannon-a/"),
-        ("Teacher Shannon · B 班", "週日 10:15–11:05", "國小五年級至國三 · Grade 5–9", "shannon-b/"),
+        ("Teacher Shannon · A 班", "週日 09:00–09:50", "高一至高三 · Grade 10–12", "shannon-a/"),
+        ("Teacher Shannon · B 班", "週日 10:15–11:05", "國一至國三 · Grade 7–9", "shannon-b/"),
         ("Teacher Bridget 小班", "週三 20:00–20:45", "國小一至四年級 · Grade 1–4", "bridget/"),
         ("Teacher Dom 小班", "週六 10:00–11:00", "國小六年級至高三 · Grade 6–12", "dom/"),
     ]
