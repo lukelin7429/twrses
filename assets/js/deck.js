@@ -46,6 +46,9 @@
     var stage = deck.querySelector('.deck-stage');
     stage.addEventListener('click', function (e) {
       if (e.target.closest('.deck-arrow')) return;
+      // HTML slides carry their own controls (quiz options, reveal buttons, the
+      // video facade) — a tap on those must not also flip the slide.
+      if (e.target.closest('.hs-opt, .hs-tf, .hs-revealbtn, .hs-yt')) return;
       var r = stage.getBoundingClientRect();
       var x = e.clientX - r.left;
       if (x < r.width * 0.32) prev();
@@ -89,6 +92,41 @@
       mDown = false;
       var dx = e.clientX - mStartX;
       if (Math.abs(dx) > THRESH) { if (dx > 0) next(); else prev(); }
+    });
+
+    // ---- HTML slides: scale the fixed 1200x675 canvas to fit the stage ----
+    var canvases = Array.prototype.slice.call(deck.querySelectorAll('.hs-canvas'));
+    function rescale() {
+      if (!canvases.length) return;
+      var w = deck.querySelector('.deck-stage').clientWidth;
+      var s = w / 1200;
+      canvases.forEach(function (c) { c.style.setProperty('--hs-scale', s); });
+    }
+    if (canvases.length) {
+      rescale();
+      window.addEventListener('resize', rescale);
+      if (window.ResizeObserver) new ResizeObserver(rescale).observe(deck.querySelector('.deck-stage'));
+    }
+
+    // ---- click-to-reveal: quiz options, true/false rows, reveal buttons ----
+    deck.addEventListener('click', function (e) {
+      var opt = e.target.closest('.hs-opt, .hs-revealbtn');
+      if (opt) {
+        var group = opt.closest('[data-reveal-group]');
+        if (group) group.classList.add('is-revealed');
+        return;
+      }
+      var tf = e.target.closest('.hs-tf');
+      if (tf) { tf.classList.toggle('is-revealed'); return; }
+      var yt = e.target.closest('.hs-yt');
+      if (yt && !yt.querySelector('iframe')) {
+        var f = document.createElement('iframe');
+        f.src = 'https://www.youtube-nocookie.com/embed/' + yt.dataset.yt + '?autoplay=1&rel=0';
+        f.allow = 'autoplay; encrypted-media; fullscreen';
+        f.setAttribute('allowfullscreen', '');
+        yt.innerHTML = '';
+        yt.appendChild(f);
+      }
     });
 
     go(0);
