@@ -640,10 +640,6 @@ def build_register():
         ("Teacher Bridget 小班", "週三 20:00–20:45", "國小一至四年級 · Grade 1–4", "bridget/"),
         ("Teacher Dom 小班", "週六 10:00–11:00", "國小六年級至高三 · Grade 6–12", "dom/"),
     ]
-    tutoring = [
-        ("一對一英語上課 1-on-1", "彈性時間", "學生與成人自學者皆可報名", "tutoring/"),
-        ("紐約中文學校 學生報名", "免費家教媒合", "一至九年級", "ny-chinese-school/"),
-    ]
     def card(title, sched, grade, folder):
         return f'''<a class="card card-link" href="{MCC_FORMS}/{folder}">
   <h3 style="font-size:1.2rem">{html.escape(title)}</h3>
@@ -652,27 +648,19 @@ def build_register():
   <p style="margin-top:1rem;color:var(--brand-dk)"><strong>前往報名 →</strong></p>
 </a>'''
     cls_html = "".join(card(*c) for c in classes)
-    tut_html = "".join(card(*t) for t in tutoring)
     body = f'''
-{page_hero("報名上課", "選一個適合你的課程", "人師英語學院的線上課程全部免費，學費由協會負擔。挑選下方適合的班別或一對一媒合，點進去填寫報名表即可。")}
+{page_hero("報名上課", "選一個適合你的課程", "人師英語學院的線上課程全部免費，學費由協會負擔。挑選下方適合的班別，點進去填寫報名表即可。")}
 <section class="section">
   <div class="wrap">
     <p class="eyebrow rvl">小班課程</p>
     <h2 class="rvl d1">固定時段的外師小班</h2>
     <div class="grid cols-2 stagger" style="margin-top:1.6rem">{cls_html}</div>
-  </div>
-</section>
-<section class="section band">
-  <div class="wrap">
-    <p class="eyebrow rvl">一對一 · 家教媒合</p>
-    <h2 class="rvl d1">彈性時間的一對一</h2>
-    <div class="grid cols-2 stagger" style="margin-top:1.6rem">{tut_html}</div>
-    <p class="muted rvl" style="margin-top:1.6rem;font-size:.92rem">＊報名後若有媒合上，會再透過 Line 或 email 通知上課方式。有任何問題歡迎聯絡林吉祥老師：<a href="mailto:{SITE['email']}">{SITE['email']}</a>。</p>
+    <p class="muted rvl" style="margin-top:1.6rem;font-size:.92rem">＊報名後會再透過 Line 或 email 通知上課方式。有任何問題歡迎聯絡林吉祥老師：<a href="mailto:{SITE['email']}">{SITE['email']}</a>。</p>
   </div>
 </section>
 '''
     write("/rural-schools/register/", layout("/rural-schools/register/", "報名上課",
-        "人師英語學院免費線上課程報名：外師小班（Shannon／Bridget／Dom）與一對一英語媒合。", body, "rural"))
+        "人師英語學院免費線上課程報名：外師小班（Shannon／Bridget／Dom）。", body, "rural"))
 
 def build_rural_index():
     body = f'''
