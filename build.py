@@ -201,14 +201,28 @@ def write(path, content):
     return out
 
 # -------------------- reusable blocks --------------------
-def page_hero(eyebrow, title, lead, brand=False):
+# Teachers who arrive from the English site's library land deep inside these
+# pages and have no way back — every menu here is in Chinese. A back link in the
+# hero gives them one. Bilingual, so a Chinese visitor who never came from there
+# can see what it is and ignore it.
+MCC_LIBRARY = ("https://mycultureconnect.org/library/",
+               "MCC Teaching Library · 英文教材庫")
+
+
+def page_hero(eyebrow, title, lead, brand=False, back=None):
     cls = "hero band-brand" if brand else "hero"
     orbs = '<div class="hero-bg"><span class="orb a"></span><span class="orb b"></span><span class="orb c"></span></div>'
     lead_html = f'<p class="lead rvl d2">{lead}</p>' if lead else ""
     eb = f'<p class="eyebrow rvl">{eyebrow}</p>' if eyebrow else ""
+    back_html = ""
+    if back:
+        href, label = back
+        # Carries its own leading newline so a page without a back link does not
+        # get a blank line where this would have been.
+        back_html = f'\n    <p class="hero-back rvl"><a href="{href}">&larr; {label}</a></p>'
     return f'''<section class="{cls}">
   {orbs}
-  <div class="wrap">
+  <div class="wrap">{back_html}
     {eb}
     <h1 class="rvl d1">{title}</h1>
     {lead_html}
@@ -928,7 +942,7 @@ def render_quiz(book, u):
         btns = "".join(btn_parts)
         prompt = f'「{html.escape(czh)}」是哪一個英文字？' if czh else f'Which one is “{html.escape(cw)}”?'
         qs.append(f'<div class="quiz"><p class="q">{qi+1}. {prompt}</p><div class="quiz-opts">{btns}</div></div>')
-    return '<p class="sub-head">小測驗 Quick Check</p>' + "".join(qs)
+    return '<p class="sub-head">Quick Check · 小測驗</p>' + "".join(qs)
 
 def render_comprehension_quiz(u):
     """English reading-comprehension MCQs from u['quiz'] = [{q, options[4], correct}].
@@ -944,7 +958,7 @@ def render_comprehension_quiz(u):
             dc = ' data-correct="1"' if k == target else ''
             btns += f'<button class="quiz-opt"{dc}><span class="ql">{L[k]}</span>{html.escape(o)}</button>'
         qs.append(f'<div class="quiz"><p class="q">{qi+1}. {html.escape(item["q"])}</p><div class="quiz-opts">{btns}</div></div>')
-    return '<p class="sub-head">小測驗 Quick Check</p>' + "".join(qs)
+    return '<p class="sub-head">Quick Check · 小測驗</p>' + "".join(qs)
 
 def render_unit(book, u, photo, audio):
     """u: dict(unit,title,passage,vocab,translation,advanced). audio: dict(read,teach,eng)."""
@@ -957,8 +971,8 @@ def render_unit(book, u, photo, audio):
         for v in u["vocab"])
     adv_html = "".join(
         f'''<div class="adv-item"><div class="top"><b>{html.escape(a["w"])}</b><span class="pos">({a["pos"]})</span><span class="zh">{html.escape(a["zh"])}</span>
-        <button class="spk" data-say="{html.escape(a["w"])}" aria-label="唸單字">🔊</button></div>
-        <p class="eg"><button class="spk" data-say="{html.escape(a["eg"])}" aria-label="唸例句">🔊</button><span>{html.escape(a["eg"])}</span></p>
+        <button class="spk" data-say="{html.escape(a["w"])}" aria-label="Say this word · 唸單字">🔊</button></div>
+        <p class="eg"><button class="spk" data-say="{html.escape(a["eg"])}" aria-label="Say this example · 唸例句">🔊</button><span>{html.escape(a["eg"])}</span></p>
         <p class="eg-zh">{html.escape(_zh_tidy(a["eg_zh"]))}</p></div>''' for a in u["advanced"])
     tr = html.escape(_zh_tidy(u["translation"]))
     photo_html = f'<div class="unit-photo"><img loading="lazy" src="{photo}" alt="{html.escape(u["title"])}"></div>' if photo else ""
@@ -966,10 +980,10 @@ def render_unit(book, u, photo, audio):
     if audio.get("teach") or audio.get("eng"):
         rows = ""
         if audio.get("teach"):
-            rows += f'<div class="ta">📖 課文教學（中文講解）<audio controls preload="none" src="{AUDIO_REL}/{audio["teach"]}"></audio></div>'
+            rows += f'<div class="ta">📖 Lesson walkthrough in Chinese · 課文教學（中文講解）<audio controls preload="none" src="{AUDIO_REL}/{audio["teach"]}"></audio></div>'
         if audio.get("eng"):
-            rows += f'<div class="ta">🗣️ 全英教學<audio controls preload="none" src="{AUDIO_REL}/{audio["eng"]}"></audio></div>'
-        teach_html = f'<p class="sub-head">完整教學音檔</p><div class="teach-audio">{rows}</div>'
+            rows += f'<div class="ta">🗣️ All-English walkthrough · 全英教學<audio controls preload="none" src="{AUDIO_REL}/{audio["eng"]}"></audio></div>'
+        teach_html = f'<p class="sub-head">Full teaching audio · 完整教學音檔</p><div class="teach-audio">{rows}</div>'
     read_audio = f'<audio controls preload="none" src="{AUDIO_REL}/{audio["read"]}"></audio>' if audio.get("read") else ""
     pdf_link = f'<a class="unit-dl" href="{PDF_REL}/{u["pdf"]}" target="_blank" rel="noopener">⬇ PDF</a>' if u.get("pdf") else ""
     return f'''<div class="unit" id="{uid}">
@@ -980,16 +994,16 @@ def render_unit(book, u, photo, audio):
       <div>
         <p class="passage">{passage_html}</p>
         <div class="audio-row">
-          <button class="spk lg" data-say="{html.escape(u['passage'])}" aria-label="朗讀課文">🔊</button>
-          <span class="muted" style="font-size:.9rem">課文朗讀（真人）</span>{read_audio}
+          <button class="spk lg" data-say="{html.escape(u['passage'])}" aria-label="Read the passage · 朗讀課文">🔊</button>
+          <span class="muted" style="font-size:.9rem">Human recording · 課文朗讀（真人）</span>{read_audio}
         </div>
-        <button class="tr-toggle" data-target="{uid}-tr">顯示中文翻譯</button>
+        <button class="tr-toggle" data-target="{uid}-tr">Show Chinese · 顯示中文翻譯</button>
         <div class="tr-box" id="{uid}-tr">{tr}</div>
       </div>
     </div>
-    <p class="sub-head">生字 Key Words</p>
+    <p class="sub-head">Key Words · 生字</p>
     <div class="vocab-row">{vocab_html}</div>
-    <p class="sub-head">進階學習 Go Further</p>
+    <p class="sub-head">Go Further · 進階學習</p>
     <div class="adv-list">{adv_html}</div>
     {teach_html}
     {quiz_html}
@@ -1023,10 +1037,10 @@ def render_conv_unit(book, u):
         if paras_zh and i < len(paras_zh):
             tid = f"{uid}-tr{i+1}"
             tr_html = (f'<div class="turn-trwrap"><button class="tr-toggle" data-target="{tid}" '
-                       f'data-show="看中文翻譯" data-hide="隱藏翻譯">看中文翻譯</button>'
+                       f'data-show="Show Chinese · 看中文翻譯" data-hide="Hide · 隱藏翻譯">Show Chinese · 看中文翻譯</button>'
                        f'<div class="tr-box" id="{tid}">{html.escape(paras_zh[i])}</div></div>')
         rows += (f'<div class="turn turn-{side}"><span class="who">{html.escape(t["speaker"])}</span>'
-                 f'<p class="said"><button class="spk" data-say="{html.escape(t["line"])}" aria-label="唸這句">🔊</button>'
+                 f'<p class="said"><button class="spk" data-say="{html.escape(t["line"])}" aria-label="Say this line · 唸這句">🔊</button>'
                  f'<span>{html.escape(t["line"])}</span></p>{tr_html}</div>')
     dialogue_html = f'<div class="dialogue">{rows}</div>'
     return render_basic_unit(book, u, level="conv", audio_rel=CONV_AUDIO_REL, pdf_rel=CONV_PDF_REL, body_html=dialogue_html)
@@ -1043,11 +1057,11 @@ def render_basic_unit(book, u, level="basic", audio_rel=BASIC_AUDIO_REL, pdf_rel
     _para_parts = []
     for _i, p in enumerate(u.get("paras", [])):
         _para_parts.append(
-            f'<p class="rd-para"><button class="spk" data-say="{html.escape(p)}" aria-label="朗讀">🔊</button><span>{html.escape(p)}</span></p>')
+            f'<p class="rd-para"><button class="spk" data-say="{html.escape(p)}" aria-label="Read this paragraph · 朗讀">🔊</button><span>{html.escape(p)}</span></p>')
         if _paras_zh and _i < len(_paras_zh):
             _tid = f"{uid}-tr{_i+1}"
             _para_parts.append(
-                f'<div class="rd-trwrap"><button class="tr-toggle" data-target="{_tid}" data-show="看中文翻譯" data-hide="隱藏翻譯">看中文翻譯</button>'
+                f'<div class="rd-trwrap"><button class="tr-toggle" data-target="{_tid}" data-show="Show Chinese · 看中文翻譯" data-hide="Hide · 隱藏翻譯">Show Chinese · 看中文翻譯</button>'
                 f'<div class="tr-box" id="{_tid}">{html.escape(_tidy(_paras_zh[_i]))}</div></div>')
     paras_html = "".join(_para_parts)
     read_audio = f'<audio controls preload="none" src="{audio_rel}/{audio["read"]}"></audio>' if audio.get("read") else ""
@@ -1059,15 +1073,15 @@ def render_basic_unit(book, u, level="basic", audio_rel=BASIC_AUDIO_REL, pdf_rel
         vocab_html = "".join(
             f'<span class="vchip ex"><span class="vtop"><b>{html.escape(v["w"])}</b>'
             f'<span class="pos">{html.escape(_pos(v["pos"]))}</span><span class="zh">{html.escape(v["zh"])}</span>'
-            f'<button class="spk" data-say="{html.escape(v["w"])}" aria-label="唸單字">🔊</button></span>'
-            f'<span class="veg"><button class="spk" data-say="{html.escape(_plain(v["ex"]))}" aria-label="唸例句">🔊</button>'
+            f'<button class="spk" data-say="{html.escape(v["w"])}" aria-label="Say this word · 唸單字">🔊</button></span>'
+            f'<span class="veg"><button class="spk" data-say="{html.escape(_plain(v["ex"]))}" aria-label="Say this example · 唸例句">🔊</button>'
             f'<span class="egtext"><span class="en">{v["ex"]}</span><span class="egzh">{html.escape(v["exzh"])}</span></span></span></span>'
             for v in u.get("vocab", []) if v.get("zh"))
         vgrid_class = "vocab-grid ex"
     else:
         vocab_html = "".join(
             f'<span class="vchip"><b>{html.escape(v["w"])}</b><span class="pos">({v["pos"]})</span><span class="zh">{html.escape(v["zh"])}</span>'
-            f'<button class="spk" data-say="{html.escape(v["w"])}" aria-label="唸">🔊</button></span>'
+            f'<button class="spk" data-say="{html.escape(v["w"])}" aria-label="Say this word · 唸">🔊</button></span>'
             for v in u.get("vocab", []) if v.get("zh"))
         vgrid_class = "vocab-grid"
     qs = u.get("questions", []); ans = u.get("answers", [])
@@ -1075,30 +1089,30 @@ def render_basic_unit(book, u, level="basic", audio_rel=BASIC_AUDIO_REL, pdf_rel
     for i, q in enumerate(qs):
         a = ans[i] if i < len(ans) else ""
         aid = f"{uid}-a{i}"
-        ans_block = (f'<button class="tr-toggle" data-target="{aid}" data-show="看參考答案" data-hide="隱藏參考答案">看參考答案</button><div class="tr-box" id="{aid}">{html.escape(a)}</div>') if a else ""
-        qa_html += f'''<div class="qa"><p class="q"><button class="spk" data-say="{html.escape(q)}" aria-label="唸題目">🔊</button><span>{html.escape(q)}</span></p>{ans_block}</div>'''
+        ans_block = (f'<button class="tr-toggle" data-target="{aid}" data-show="Show answer · 看參考答案" data-hide="Hide · 隱藏參考答案">Show answer · 看參考答案</button><div class="tr-box" id="{aid}">{html.escape(a)}</div>') if a else ""
+        qa_html += f'''<div class="qa"><p class="q"><button class="spk" data-say="{html.escape(q)}" aria-label="Say this question · 唸題目">🔊</button><span>{html.escape(q)}</span></p>{ans_block}</div>'''
     tr = html.escape(re.sub(r'(?<=[一-鿿])\s+(?=[一-鿿])','', u.get("translation","")))
     teach_html = ""
     if audio.get("teach") or audio.get("eng"):
         rows=""
-        if audio.get("teach"): rows+=f'<div class="ta">📖 課文教學（中文講解）<audio controls preload="none" src="{audio_rel}/{audio["teach"]}"></audio></div>'
-        if audio.get("eng"): rows+=f'<div class="ta">🗣️ 全英教學<audio controls preload="none" src="{audio_rel}/{audio["eng"]}"></audio></div>'
-        teach_html=f'<p class="sub-head">完整教學音檔</p><div class="teach-audio">{rows}</div>'
+        if audio.get("teach"): rows+=f'<div class="ta">📖 Lesson walkthrough in Chinese · 課文教學（中文講解）<audio controls preload="none" src="{audio_rel}/{audio["teach"]}"></audio></div>'
+        if audio.get("eng"): rows+=f'<div class="ta">🗣️ All-English walkthrough · 全英教學<audio controls preload="none" src="{audio_rel}/{audio["eng"]}"></audio></div>'
+        teach_html=f'<p class="sub-head">Full teaching audio · 完整教學音檔</p><div class="teach-audio">{rows}</div>'
     pdf_link = f'<a class="unit-dl" href="{pdf_rel}/{u["pdf"]}" target="_blank" rel="noopener">⬇ PDF</a>' if u.get("pdf") else ""
-    tr_block = (f'<button class="tr-toggle" data-target="{uid}-tr">顯示中文翻譯</button><div class="tr-box" id="{uid}-tr">{tr}</div>') if (tr and not _paras_zh) else ""
-    qa_section = (f'<p class="sub-head">閱讀理解 Questions</p><div class="qa-list">{qa_html}</div>') if qa_html else ""
-    vocab_section = (f'<p class="sub-head">生字及片語 Words &amp; Phrases</p><div class="{vgrid_class}">{vocab_html}</div>') if vocab_html else ""
+    tr_block = (f'<button class="tr-toggle" data-target="{uid}-tr">Show Chinese · 顯示中文翻譯</button><div class="tr-box" id="{uid}-tr">{tr}</div>') if (tr and not _paras_zh) else ""
+    qa_section = (f'<p class="sub-head">Questions · 閱讀理解</p><div class="qa-list">{qa_html}</div>') if qa_html else ""
+    vocab_section = (f'<p class="sub-head">Words &amp; Phrases · 生字及片語</p><div class="{vgrid_class}">{vocab_html}</div>') if vocab_html else ""
     if u.get("quiz"):
         quiz_html = render_comprehension_quiz(u)
     else:
         quiz_html = render_quiz(book, u) if len([v for v in u.get("vocab", []) if v.get("zh")]) >= 4 else ""
-    audio_label = "課文朗讀（真人）" if audio.get("read") else "課文朗讀"
+    audio_label = "Human recording · 課文朗讀（真人）" if audio.get("read") else "Read aloud · 課文朗讀"
     return f'''<div class="unit" id="{uid}">
   <div class="unit-head"><span class="no">{u['unit']}</span><h3>Unit {u['unit']}: {title}</h3>{pdf_link}</div>
   <div class="unit-body">
     {photos_html}
     {body_html if body_html is not None else f'<div class="passage-block">{paras_html}</div>'}
-    <div class="audio-row"><button class="spk lg" data-say="{html.escape(full_say)}" aria-label="朗讀全文">🔊</button><span class="muted" style="font-size:.9rem">{audio_label}</span>{read_audio}</div>
+    <div class="audio-row"><button class="spk lg" data-say="{html.escape(full_say)}" aria-label="Read the whole text · 朗讀全文">🔊</button><span class="muted" style="font-size:.9rem">{audio_label}</span>{read_audio}</div>
     {tr_block}
     {qa_section}
     {vocab_section}
@@ -1113,12 +1127,12 @@ def build_basic_hub():
     for b in done:
         units=BASIC.get(str(b))
         if units:
-            items.append((f"/resources/booklets/basic/book{b}/", "📘", f"Book {b}", f"共 {len(units)} 課"))
+            items.append((f"/resources/booklets/basic/book{b}/", "📘", f"Book {b}", f"{len(units)} lessons · 共 {len(units)} 課"))
         else:
-            items.append((None, "📘", f"Book {b}", "製作中", True))
+            items.append((None, "📘", f"Book {b}", "Coming soon · 製作中", True))
     body = f'''
-{page_hero("初級閱讀 · Basic Reading", "讀懂一篇文章", "進階的閱讀練習：讀文章、聽真人朗讀、想想閱讀理解問題、學生字片語，再做個小測驗。")}
-<section class="section"><div class="wrap">{fcard_grid(items, cta="開始閱讀")}
+{page_hero("Basic Reading · 初級閱讀", "讀懂一篇文章", "Read a passage, hear it read by a real voice, answer comprehension questions, study the words, then take a quick quiz.<br><span class='muted'>進階的閱讀練習：讀文章、聽真人朗讀、想想閱讀理解問題、學生字片語，再做個小測驗。</span>", back=MCC_LIBRARY)}
+<section class="section"><div class="wrap">{fcard_grid(items, cta="Start reading · 開始閱讀")}
 </div></section>
 '''
     write("/resources/booklets/basic/", layout("/resources/booklets/basic/", "初級閱讀",
@@ -1134,8 +1148,8 @@ def _unit_nav(units, level="basic", book=0):
         f'<a class="unit-nav-link" href="#{prefix}b{book:02d}u{u["unit"]:02d}">'
         f'<b>{u["unit"]}</b><span>{html.escape(u["title"])}</span></a>'
         for u in units)
-    return (f'<nav class="unit-nav" aria-label="單元導覽"><div class="wrap">'
-            f'<span class="unit-nav-label">跳到單元</span>'
+    return (f'<nav class="unit-nav" aria-label="Jump to unit · 單元導覽"><div class="wrap">'
+            f'<span class="unit-nav-label">Jump to unit · 跳到單元</span>'
             f'<div class="unit-nav-track">{chips}</div></div></nav>')
 
 def build_basic_book(b):
@@ -1143,11 +1157,11 @@ def build_basic_book(b):
     units_html = "".join(render_basic_unit(b, u) for u in units)
     reading_step = "讀文章（真人朗讀）" if any((u.get("audio") or {}).get("read") for u in units) else "讀文章"
     body = f'''
-{page_hero(f"初級閱讀 · Book {b}", f"Basic Reading — 第{_CN_NUM[b] if b < len(_CN_NUM) else b}冊", f"每課：看圖 → {reading_step} → 閱讀理解 → 生字片語 → 小測驗。")}
+{page_hero(f"Basic Reading · Book {b} · 初級閱讀", f"Basic Reading — 第{_CN_NUM[b] if b < len(_CN_NUM) else b}冊", f"Each lesson: picture → read the text (human recording) → comprehension → words &amp; phrases → quick quiz.<br><span class='muted'>每課：看圖 → {reading_step} → 閱讀理解 → 生字片語 → 小測驗。</span>", back=MCC_LIBRARY)}
 {_unit_nav(units, "basic", b)}
 <section class="section"><div class="wrap" style="max-width:940px">
 {units_html}
-<p class="muted rvl" style="margin-top:1rem">＊本冊共 {len(units)} 課。</p>
+<p class="muted rvl" style="margin-top:1rem">＊{len(units)} lessons in this booklet · 本冊共 {len(units)} 課。</p>
 </div></section>
 '''
     # Only books whose clips have actually been generated get the attribute —
@@ -1160,11 +1174,11 @@ def build_basic_book(b):
 
 def build_inter_hub():
     done = sorted(int(k) for k in INTERMEDIATE)
-    items=[(f"/resources/booklets/intermediate/book{b}/", "📗", f"Book {b}", f"共 {len(INTERMEDIATE[str(b)])} 課")
+    items=[(f"/resources/booklets/intermediate/book{b}/", "📗", f"Book {b}", f"{len(INTERMEDIATE[str(b)])} lessons · 共 {len(INTERMEDIATE[str(b)])} 課")
            for b in done]
     body = f'''
-{page_hero("中級閱讀 · Intermediate Reading", "讀進一步的文章", "更深入的閱讀練習：讀文章、聽真人朗讀、想想閱讀理解問題、學生字片語，再做個小測驗。")}
-<section class="section"><div class="wrap">{fcard_grid(items, cta="開始閱讀")}
+{page_hero("Intermediate Reading · 中級閱讀", "讀進一步的文章", "Longer passages that widen vocabulary and sentence patterns, with a human recording and a Chinese translation beside every paragraph.<br><span class='muted'>更深入的閱讀練習：讀文章、聽真人朗讀、想想閱讀理解問題、學生字片語，再做個小測驗。</span>", back=MCC_LIBRARY)}
+<section class="section"><div class="wrap">{fcard_grid(items, cta="Start reading · 開始閱讀")}
 </div></section>
 '''
     write("/resources/booklets/intermediate/", layout("/resources/booklets/intermediate/", "中級閱讀",
@@ -1174,11 +1188,11 @@ def build_inter_book(b):
     units = sorted(INTERMEDIATE.get(str(b), []), key=lambda u: u["unit"])
     units_html = "".join(render_basic_unit(b, u, level="inter", audio_rel=INTER_AUDIO_REL, pdf_rel=INTER_PDF_REL) for u in units)
     body = f'''
-{page_hero(f"中級閱讀 · Book {b}", f"Intermediate Reading — 第{_CN_NUM[b] if b < len(_CN_NUM) else b}冊", "每課：看圖 → 讀文章（真人朗讀）→ 閱讀理解 → 生字片語 → 小測驗。")}
+{page_hero(f"Intermediate Reading · Book {b} · 中級閱讀", f"Intermediate Reading — 第{_CN_NUM[b] if b < len(_CN_NUM) else b}冊", "Each lesson: picture → read the text (human recording) → comprehension → words &amp; phrases → quick quiz.<br><span class='muted'>每課：看圖 → 讀文章（真人朗讀）→ 閱讀理解 → 生字片語 → 小測驗。</span>", back=MCC_LIBRARY)}
 {_unit_nav(units, "inter", b)}
 <section class="section"><div class="wrap" style="max-width:940px">
 {units_html}
-<p class="muted rvl" style="margin-top:1rem">＊本冊共 {len(units)} 課。</p>
+<p class="muted rvl" style="margin-top:1rem">＊{len(units)} lessons in this booklet · 本冊共 {len(units)} 課。</p>
 </div></section>
 '''
     # Only books whose clips have actually been generated get the attribute —
@@ -1190,11 +1204,11 @@ def build_inter_book(b):
         say_manifest=say_slug if has_clips else None))
 
 def build_adv_hub():
-    items=[(f"/resources/booklets/advanced/book{b}/", "📕", f"Book {b}", f"共 {len(ADVANCED[str(b)])} 課")
+    items=[(f"/resources/booklets/advanced/book{b}/", "📕", f"Book {b}", f"{len(ADVANCED[str(b)])} lessons · 共 {len(ADVANCED[str(b)])} 課")
            for b in sorted(int(k) for k in ADVANCED)]
     body = f'''
-{page_hero("高級閱讀 · Advanced Reading", "挑戰更長的文章", "進階讀者的閱讀練習：讀較長的文章、聽真人朗讀、學進階生字片語，再做個小測驗。")}
-<section class="section"><div class="wrap">{fcard_grid(items, cta="開始閱讀")}
+{page_hero("Advanced Reading · 高級閱讀", "挑戰更長的文章", "Full-length articles for readers ready to be challenged — the last step before reading in the wild.<br><span class='muted'>進階讀者的閱讀練習：讀較長的文章、聽真人朗讀、學進階生字片語，再做個小測驗。</span>", back=MCC_LIBRARY)}
+<section class="section"><div class="wrap">{fcard_grid(items, cta="Start reading · 開始閱讀")}
 </div></section>
 '''
     write("/resources/booklets/advanced/", layout("/resources/booklets/advanced/", "高級閱讀",
@@ -1204,11 +1218,11 @@ def build_adv_book(b):
     units = sorted(ADVANCED.get(str(b), []), key=lambda u: u["unit"])
     units_html = "".join(render_basic_unit(b, u, level="adv", audio_rel=ADV_AUDIO_REL, pdf_rel=ADV_PDF_REL) for u in units)
     body = f'''
-{page_hero(f"高級閱讀 · Book {b}", f"Advanced Reading — 第{_CN_NUM[b] if b < len(_CN_NUM) else b}冊", "每課：看圖 → 讀文章（真人朗讀）→ 生字片語 → 小測驗。")}
+{page_hero(f"Advanced Reading · Book {b} · 高級閱讀", f"Advanced Reading — 第{_CN_NUM[b] if b < len(_CN_NUM) else b}冊", "Each lesson: picture → read the text (human recording) → words &amp; phrases → quick quiz.<br><span class='muted'>每課：看圖 → 讀文章（真人朗讀）→ 生字片語 → 小測驗。</span>", back=MCC_LIBRARY)}
 {_unit_nav(units, "adv", b)}
 <section class="section"><div class="wrap" style="max-width:940px">
 {units_html}
-<p class="muted rvl" style="margin-top:1rem">＊本冊共 {len(units)} 課。</p>
+<p class="muted rvl" style="margin-top:1rem">＊{len(units)} lessons in this booklet · 本冊共 {len(units)} 課。</p>
 </div></section>
 '''
     # Only books whose clips have actually been generated get the attribute —
@@ -1220,11 +1234,11 @@ def build_adv_book(b):
         say_manifest=say_slug if has_clips else None))
 
 def build_conv_hub():
-    items=[(f"/resources/booklets/conversation/book{b}/", "💬", f"Book {b}", f"共 {len(CONVERSATION[str(b)])} 課")
+    items=[(f"/resources/booklets/conversation/book{b}/", "💬", f"Book {b}", f"{len(CONVERSATION[str(b)])} lessons · 共 {len(CONVERSATION[str(b)])} 課")
            for b in sorted(int(k) for k in CONVERSATION)]
     body = f'''
-{page_hero("實用英語會話 · Practical Conversation", "開口說，最實用", "貼近生活的英語對話：聽真人朗讀、跟著逐句練習、學生字片語，再做個小測驗。")}
-<section class="section"><div class="wrap">{fcard_grid(items, cta="開始練習")}
+{page_hero("Practical Conversation · 實用英語會話", "開口說，最實用", "Everyday dialogues recorded line by line, so students can shadow a native speaker one turn at a time.<br><span class='muted'>貼近生活的英語對話：聽真人朗讀、跟著逐句練習、學生字片語，再做個小測驗。</span>", back=MCC_LIBRARY)}
+<section class="section"><div class="wrap">{fcard_grid(items, cta="Start practising · 開始練習")}
 <p class="muted rvl" style="margin-top:1.5rem">＊Book 5 以後內容整理中。</p></div></section>
 '''
     write("/resources/booklets/conversation/", layout("/resources/booklets/conversation/", "實用英語會話",
@@ -1234,11 +1248,11 @@ def build_conv_book(b):
     units = sorted(CONVERSATION.get(str(b), []), key=lambda u: u["unit"])
     units_html = "".join(render_conv_unit(b, u) for u in units)
     body = f'''
-{page_hero(f"實用英語會話 · Book {b}", f"Practical Conversation — 第{_CN_NUM[b] if b < len(_CN_NUM) else b}冊", "每課：看圖 → 讀對話（真人朗讀）→ 閱讀理解 → 生字片語 → 小測驗。")}
+{page_hero(f"Practical Conversation · Book {b} · 實用英語會話", f"Practical Conversation — 第{_CN_NUM[b] if b < len(_CN_NUM) else b}冊", "Each lesson: picture → read the dialogue (human recording) → comprehension → words &amp; phrases → quick quiz.<br><span class='muted'>每課：看圖 → 讀對話（真人朗讀）→ 閱讀理解 → 生字片語 → 小測驗。</span>", back=MCC_LIBRARY)}
 {_unit_nav(units, "conv", b)}
 <section class="section"><div class="wrap" style="max-width:940px">
 {units_html}
-<p class="muted rvl" style="margin-top:1rem">＊本冊共 {len(units)} 課。</p>
+<p class="muted rvl" style="margin-top:1rem">＊{len(units)} lessons in this booklet · 本冊共 {len(units)} 課。</p>
 </div></section>
 '''
     # Only books whose clips have actually been generated get the attribute —
@@ -1250,11 +1264,11 @@ def build_conv_book(b):
         say_manifest=say_slug if has_clips else None))
 
 def build_desc_hub():
-    items=[(f"/resources/booklets/description/book{b}/", "🖼️", f"Book {b}", f"共 {len(DESCRIPTION[str(b)])} 課")
+    items=[(f"/resources/booklets/description/book{b}/", "🖼️", f"Book {b}", f"{len(DESCRIPTION[str(b)])} lessons · 共 {len(DESCRIPTION[str(b)])} 課")
            for b in sorted(int(k) for k in DESCRIPTION)]
     body = f'''
-{page_hero("看圖描述 · Picture Description", "看著圖，說出來", "看圖學描述：看圖片、讀描述短文、聽真人朗讀、學生字片語，再做個小測驗。")}
-<section class="section"><div class="wrap">{fcard_grid(items, cta="開始學習")}
+{page_hero("Picture Description · 看圖描述", "看著圖，說出來", "Look at the picture, say what you see — the speaking and writing muscle that exams and real life both ask for.<br><span class='muted'>看圖學描述：看圖片、讀描述短文、聽真人朗讀、學生字片語，再做個小測驗。</span>", back=MCC_LIBRARY)}
+<section class="section"><div class="wrap">{fcard_grid(items, cta="Start learning · 開始學習")}
 <p class="muted rvl" style="margin-top:1.5rem">＊Book 5 以後內容整理中。</p></div></section>
 '''
     write("/resources/booklets/description/", layout("/resources/booklets/description/", "看圖描述",
@@ -1264,11 +1278,11 @@ def build_desc_book(b):
     units = sorted(DESCRIPTION.get(str(b), []), key=lambda u: u["unit"])
     units_html = "".join(render_basic_unit(b, u, level="desc", audio_rel=DESC_AUDIO_REL, pdf_rel=DESC_PDF_REL) for u in units)
     body = f'''
-{page_hero(f"看圖描述 · Book {b}", f"Picture Description — 第{_CN_NUM[b] if b < len(_CN_NUM) else b}冊", "每課：看圖 → 讀描述（真人朗讀）→ 閱讀理解 → 生字片語 → 小測驗。")}
+{page_hero(f"Picture Description · Book {b} · 看圖描述", f"Picture Description — 第{_CN_NUM[b] if b < len(_CN_NUM) else b}冊", "Each lesson: picture → read the description (human recording) → comprehension → words &amp; phrases → quick quiz.<br><span class='muted'>每課：看圖 → 讀描述（真人朗讀）→ 閱讀理解 → 生字片語 → 小測驗。</span>", back=MCC_LIBRARY)}
 {_unit_nav(units, "desc", b)}
 <section class="section"><div class="wrap" style="max-width:940px">
 {units_html}
-<p class="muted rvl" style="margin-top:1rem">＊本冊共 {len(units)} 課。</p>
+<p class="muted rvl" style="margin-top:1rem">＊{len(units)} lessons in this booklet · 本冊共 {len(units)} 課。</p>
 </div></section>
 '''
     # Only books whose clips have actually been generated get the attribute —
@@ -1292,12 +1306,12 @@ def build_everyday_hub():
         title, sub, ico = EVERYDAY_META[b]
         units = EVERYDAY.get(b)
         if units:
-            items.append((f"/resources/booklets/everyday/book{b}/", ico, title, f"{sub}　·　共 {len(units)} 課"))
+            items.append((f"/resources/booklets/everyday/book{b}/", ico, title, f"{sub}　·　{len(units)} lessons · 共 {len(units)} 課"))
         else:
-            items.append((None, ico, title, f"{sub}　·　製作中", True))
+            items.append((None, ico, title, f"{sub}　·　Coming soon · 製作中", True))
     body = f'''
-{page_hero("基礎英語 · Everyday Topics", "從生活，開始學英語", "六冊主題式英語教材：看圖、讀短文、聽真人朗讀、學生字與進階用法，再做個小測驗。")}
-<section class="section"><div class="wrap">{fcard_grid(items, cta="開始閱讀")}</div></section>
+{page_hero("Everyday Topics · 基礎英語", "從生活，開始學英語", "Six thematic booklets covering the most basic everyday topics — where a beginner starts.<br><span class='muted'>六冊主題式英語教材：看圖、讀短文、聽真人朗讀、學生字與進階用法，再做個小測驗。</span>", back=MCC_LIBRARY)}
+<section class="section"><div class="wrap">{fcard_grid(items, cta="Start reading · 開始閱讀")}</div></section>
 '''
     write("/resources/booklets/everyday/", layout("/resources/booklets/everyday/", "基礎英語",
         "人師閱讀教材·基礎英語（Everyday Topics）六冊主題式英語自學：短文、真人朗讀、生字與進階學習、小測驗。", body, "resources"))
@@ -1307,11 +1321,11 @@ def build_everyday_book(b):
     units_html = "".join(render_unit(b, u, u.get("photo"), u.get("audio") or {}) for u in units)
     cn = _CN_NUM[b] if b < len(_CN_NUM) else str(b)
     body = f'''
-{page_hero(f"基礎英語 · Book {b}", f"Everyday Topics — 第{cn}冊", "每課：看圖 → 讀短文（真人朗讀）→ 生字與進階學習 → 小測驗。")}
+{page_hero(f"Everyday Topics · Book {b} · 基礎英語", f"Everyday Topics — 第{cn}冊", "Each lesson: picture → read the short text (human recording) → words &amp; Go Further → quick quiz.<br><span class='muted'>每課：看圖 → 讀短文（真人朗讀）→ 生字與進階學習 → 小測驗。</span>", back=MCC_LIBRARY)}
 {_unit_nav(units, "", b)}
 <section class="section"><div class="wrap" style="max-width:940px">
 {units_html}
-<p class="muted rvl" style="margin-top:1rem">＊本冊共 {len(units)} 課。</p>
+<p class="muted rvl" style="margin-top:1rem">＊{len(units)} lessons in this booklet · 本冊共 {len(units)} 課。</p>
 </div></section>
 '''
     # Only books whose clips have actually been generated get the attribute —
@@ -1491,7 +1505,7 @@ def _gnote(line):
     s = line.strip()
     is_sub = bool(re.match(r"^[一二三四五六七八九十]、", s)) or (len(s) <= 24 and (s.endswith("：") or s.endswith(":")))
     say = _say_en(line)
-    btn = f'<button class="spk" data-say="{html.escape(say)}" aria-label="唸這句">🔊</button>' if say else ""
+    btn = f'<button class="spk" data-say="{html.escape(say)}" aria-label="Say this line · 唸這句">🔊</button>' if say else ""
     cls = "gl gsub" if is_sub else "gl"
     return f'<p class="{cls}">{btn}<span>{html.escape(line)}</span></p>'
 

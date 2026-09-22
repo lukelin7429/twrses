@@ -291,7 +291,10 @@ p  { margin: 0 0 1.1em; }
   margin-top:auto; padding-top:1.5rem;
   display:inline-flex; align-items:center; gap:.45rem;
   font-weight:600; color:var(--accent);
-}
+
+  /* Bilingual call-to-action: without this the Chinese half breaks mid-word
+     (開始閱 / 讀) when the card is narrow. keep-all wraps at the separator. */
+  word-break: keep-all; }
 .fcard-go i{ font-style:normal; transition:transform .3s; }
 .fcard:hover .fcard-go i{ transform:translateX(6px); }
 
@@ -1245,3 +1248,14 @@ p  { margin: 0 0 1.1em; }
 .hs-tflist .hs-head span { font-size:22px; }
 .hs-tflist .hs-tf { padding:6px 18px; }
 .hs-tflist .hs-tfs { gap:7px; }
+
+/* Back link to the English site's library, shown in the hero of the booklet
+   pages. Teachers arriving from mycultureconnect.org land deep inside a
+   Chinese-language site; this is their way back. Quiet by default so it does
+   not compete with the page title. */
+.hero-back { margin: 0 0 .9rem; font-size: .92rem; letter-spacing: .02em; }
+.hero-back a { color: rgba(255,255,255,.82); text-decoration: none;
+  border-bottom: 1px solid rgba(255,255,255,.28); padding-bottom: 2px;
+  transition: color .2s ease, border-color .2s ease; }
+.hero-back a:hover { color: #fff; border-bottom-color: rgba(255,255,255,.7); }
+@media (prefers-reduced-motion: reduce) { .hero-back a { transition: none; } }
