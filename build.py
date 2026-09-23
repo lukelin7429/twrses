@@ -53,6 +53,9 @@ SITE = {
     "email": "luke@mycultureconnect.org",
     "email2": "luke@mycultureconnect.org",
     "line": "luke7429",
+    # 理事長（Practicum／實習媒合窗口）
+    "chair": "游人仰",
+    "chair_email": "kevin@mycultureconnect.org",
     "addr": "彰化縣北斗鎮文苑路一段 136 號",
     "fb": "https://www.facebook.com/renshiacademy/",
     "yt": "https://www.youtube.com/channel/UC04mOhuUodVHGVX6xMSg0MQ/playlists",
@@ -512,8 +515,8 @@ def build_about():
     <p class="eyebrow rvl">歷屆理事長</p>
     <h2 class="rvl d1">一棒接一棒的傳承</h2>
     <figure class="figure rvl d2" style="margin:1.5rem auto 0">
-      <img src="/assets/img/chairmen.jpg" alt="人師教育協會歷屆理事長：林吉祥、游人印、蔡國裕">
-      <figcaption>歷屆理事長：林吉祥（第 1–2 屆）、游人印（第 3、6 屆）、蔡國裕（第 4–5 屆）</figcaption>
+      <img src="/assets/img/chairmen.jpg" alt="人師教育協會歷屆理事長：林吉祥、游人仰、蔡國裕">
+      <figcaption>歷屆理事長：林吉祥（第 1–2 屆）、游人仰（第 3、6 屆）、蔡國裕（第 4–5 屆）</figcaption>
     </figure>
   </div>
 </section>
@@ -669,7 +672,7 @@ def build_register():
     <p class="eyebrow rvl">小班課程</p>
     <h2 class="rvl d1">固定時段的外師小班</h2>
     <div class="grid cols-2 stagger" style="margin-top:1.6rem">{cls_html}</div>
-    <p class="muted rvl" style="margin-top:1.6rem;font-size:.92rem">＊報名後會再透過 Line 或 email 通知上課方式。有任何問題歡迎聯絡林吉祥老師：<a href="mailto:{SITE['email']}">{SITE['email']}</a>。</p>
+    <p class="muted rvl" style="margin-top:1.6rem;font-size:.92rem">＊報名後會再透過 Line 或 email 通知上課方式。有任何問題歡迎聯絡{SITE['chair']}理事長：<a href="mailto:{SITE['chair_email']}">{SITE['chair_email']}</a>。</p>
   </div>
 </section>
 '''
@@ -765,12 +768,12 @@ def build_academy():
 
 def build_practicum():
     faqs_ita = [
-        ("請問如何申請上課？", "請填寫上課報名表，完成後寫信給林吉祥老師告知 email：luke@mycultureconnect.org。"),
+        ("請問如何申請上課？", f"請填寫上課報名表，完成後寫信給{SITE['chair']}理事長告知 email：{SITE['chair_email']}。"),
         ("上一對一英語課程需要繳費嗎？", "跟實習老師上課是完全免費。"),
         ("可以上幾堂課？", "跟 ITA 學院的實習老師上課至少是六節課。"),
         ("一次上課時間多久？", "師生雙方協調好即可，通常一次一小時。"),
-        ("實習老師完成實習後可以繼續申請嗎？", "可以。老師通知課程結束後，可再通知 Luke 老師安排下一位實習老師。"),
-        ("聯絡窗口是哪位老師？", "聯絡窗口是林吉祥老師，可用 Line（ID：luke7429）或 email 聯絡。"),
+        ("實習老師完成實習後可以繼續申請嗎？", f"可以。老師通知課程結束後，可再通知{SITE['chair']}理事長安排下一位實習老師。"),
+        ("聯絡窗口是哪位老師？", f"聯絡窗口是{SITE['chair']}理事長，請來信 {SITE['chair_email']} 聯絡。"),
         ("如果有事如何調課？", "請於上課群組中事先請假並協調調課時間。實習老師有實習截止日期壓力，請盡量不要隨意請假。"),
         ("上課要打開鏡頭嗎？", "是的。使用桌機請安裝 webcam，盡量不要用平板與手機，因為上課中有時需要鍵盤打字。"),
     ]
@@ -808,10 +811,9 @@ def build_practicum():
   <div class="wrap" style="max-width:640px;text-align:center">
     <p class="eyebrow rvl">還有問題？</p>
     <h2 class="rvl d1" style="margin-bottom:.5rem">找不到你的答案？</h2>
-    <p class="muted rvl d2" style="margin-bottom:1.5rem">歡迎直接聯絡林吉祥老師，我們很樂意為你說明上課方式。</p>
+    <p class="muted rvl d2" style="margin-bottom:1.5rem">歡迎直接聯絡{SITE['chair']}理事長，我們很樂意為你說明上課方式。</p>
     <div class="pills rvl d2" style="justify-content:center">
-      <span class="pill">📧 <a href="mailto:{SITE['email']}">{SITE['email']}</a></span>
-      <span class="pill">💬 Line：{SITE['line']}</span>
+      <span class="pill">📧 <a href="mailto:{SITE['chair_email']}">{SITE['chair_email']}</a></span>
     </div>
   </div>
 </section>
