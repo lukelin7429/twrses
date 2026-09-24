@@ -1376,6 +1376,7 @@ def build_reading_hub():
             ("/resources/booklets/description/", "🖼️", "看圖描述", "看圖學描述，練口說與寫作。"),
             ("/resources/classes/animal-farm/", "🐖", "動物農莊", "經典名著《Animal Farm》導讀。"),
             ("/resources/classes/poetry/", "📜", "名詩導讀", "英美經典詩作中英對照與逐節導讀。"),
+            ("/resources/classes/tang-poetry/", "🏮", "唐詩選讀", "唐詩中英對照與逐句導讀：讀懂唐詩，順便學英文。"),
             ("/resources/grandfather/", "🌅", "Grandfather 落日餘暉", "Leon La Couvée 三十章人生智慧，中英對照。"),
             ("/resources/periodicals/", "📰", "英語期刊", "明航心鄉土情、明航雙語學園與全民英語期刊典藏。"),
         ])
@@ -1481,6 +1482,7 @@ def build_classes_hub():
         ("/resources/classes/sentence-analysis/", "🔍", "英語句型分析（舊）", "經典句型逐句拆解。"),
         ("/resources/classes/animal-farm/", "🐖", "動物農莊", "經典名著《Animal Farm》導讀。"),
         ("/resources/classes/poetry/", "📜", "名詩導讀", "英美經典詩作中英對照與逐節導讀。"),
+        ("/resources/classes/tang-poetry/", "🏮", "唐詩選讀", "唐詩中英對照與逐句導讀：讀懂唐詩，順便學英文。"),
     ]
     hub_page("/resources/classes/", "resources", "人師英語課程",
         "有系統地，把英語學起來", "文法、字根、文章結構與經典名著——循序漸進的英語課程。", children)
@@ -1498,6 +1500,8 @@ _afj = os.path.join(ROOT, "data", "animal-farm.json")
 ANIMAL_FARM = json.load(open(_afj, encoding="utf-8")) if os.path.exists(_afj) else None
 _pmj = os.path.join(ROOT, "data", "poems.json")
 POEMS = json.load(open(_pmj, encoding="utf-8")) if os.path.exists(_pmj) else None
+_tsj = os.path.join(ROOT, "data", "tangshi.json")
+TANGSHI = json.load(open(_tsj, encoding="utf-8")) if os.path.exists(_tsj) else None
 
 _EN_SPAN = re.compile(r"[A-Za-z][A-Za-z0-9 ,.'’?!():;/+\-]*")
 def _say_en(line):
@@ -1775,6 +1779,168 @@ def build_poem(pm):
           f'{pm["poet_zh"]}〈{pm["title"]}〉中英對照與逐節導讀：{pm["blurb"]}', body, "resources",
           say_manifest=say_slug if has_clips else None))
     return path
+
+
+# ---- 唐詩選讀（資料驅動，data/tangshi.json）----
+# 跟名詩導讀共用 _pmd／_pm_blocks／_pm_paras 與 .pm-* 版型，但方向相反：主行是中文，
+# 每行兩顆 🔊（中文 zh-TW 語音、英文 en-US 語音，tools/gen_audio.py 依 data-say-lang 選）。
+TANG_BASE = "/resources/classes/tang-poetry/"
+
+def _tp_line(zh, en):
+    say_zh = html.escape(re.sub(r"\s+", " ", zh).strip())
+    say_en = html.escape(re.sub(r"\s+", " ", re.sub(r"[“”]", "", en)).strip())
+    return ('<div class="tp-line">'
+            f'<button class="spk pm-spk" data-say-lang="zh" data-say="{say_zh}" aria-label="唸中文">🔊</button>'
+            f'<span class="tp-zh">{html.escape(zh)}</span>'
+            f'<button class="spk pm-spk tp-spk-en" data-say="{say_en}" aria-label="Say this line · 唸英文">🔊</button>'
+            f'<span class="tp-en">{html.escape(en)}</span></div>')
+
+def _tp_nav(pm):
+    lst = TANGSHI["poems"]
+    i = next(n for n, x in enumerate(lst) if x["slug"] == pm["slug"])
+    prev = lst[i-1] if i > 0 else None
+    nxt = lst[i+1] if i < len(lst)-1 else None
+    def side(p, dirn, label):
+        if not p:
+            return '<span class="pm-nav-x"></span>'
+        arrow = "&larr;" if dirn == "prev" else "&rarr;"
+        return (f'<a class="pm-nav-s pm-nav-{dirn}" href="{TANG_BASE}{p["slug"]}/">'
+                f'<span class="pm-nav-k">{arrow} {label}</span>'
+                f'<span class="pm-nav-t">{html.escape(p["title"])}</span></a>')
+    return (f'<nav class="pm-nav rvl">{side(prev, "prev", "上一首")}'
+            f'<a class="pm-nav-hub" href="{TANG_BASE}">&#9776; 回唐詩選讀</a>'
+            f'{side(nxt, "next", "下一首")}</nav>')
+
+def build_tang_poem(pm):
+    path = f'{TANG_BASE}{pm["slug"]}/'
+    stanzas = "".join(
+        '<div class="pm-stanza">' + "".join(_tp_line(l[0], l[1]) for l in st) + "</div>"
+        for st in pm["stanzas"])
+    words = "".join(
+        f'<tr><td class="pm-w tp-w">{html.escape(w[0])}</td><td>{_pmd(w[1])}</td>'
+        f'<td class="pm-wn">{_pmd(w[2])}</td></tr>' for w in pm["words"])
+    residue = "".join(
+        f'<tr><td class="pm-w tp-w">{html.escape(r[0])}</td><td>{_pmd(r[1])}</td><td class="pm-wn">{_pmd(r[2])}</td></tr>'
+        for r in pm["residue"])
+    teach = "".join(f'<li>{_pmd(x)}</li>' for x in pm["teaching"])
+    rc = pm["reception"]
+    rc_lines = "".join(f'<span class="tp-rc-line">{html.escape(x)}</span>' for x in rc["lines"])
+    meta_rows = (
+        f'<div><span class="af-k">詩人</span><span class="af-v">{html.escape(pm["poet"])} {html.escape(pm["poet_en"])}'
+        f'（{html.escape(pm["life"])}）</span></div>'
+        f'<div><span class="af-k">年代</span><span class="af-v">{html.escape(pm["year"])}</span></div>'
+        f'<div><span class="af-k">詩體</span><span class="af-v">{html.escape(pm["form"])}</span></div>'
+        f'<div><span class="af-k">主題</span><span class="af-v">{html.escape(pm["theme"])}</span></div>')
+
+    body = f'''
+{page_hero("唐詩選讀", pm["title"], html.escape(pm["blurb"]), back=(TANG_BASE, "回唐詩選讀"))}
+<section class="section"><div class="wrap">
+  <div class="pm-meta rvl">{meta_rows}</div>
+</div></section>
+
+<section class="section band"><div class="wrap">
+  <p class="eyebrow rvl">全詩 · 中英對照</p>
+  <h2 class="rvl d1 sweep">{html.escape(pm["title"])} <span class="tp-h2-en">{html.escape(pm["title_en"])}</span></h2>
+  <p class="lead rvl d2" style="max-width:62ch">每行兩個 🔊：前一個唸中文，後一個唸英文。英譯是逐句白話直譯，不押韻、不湊字數，只求把中文的意思說清楚。</p>
+  <div class="pm-poem tp-poem rvl">{stanzas}</div>
+</div></section>
+
+<section class="section"><div class="wrap">
+  <p class="eyebrow rvl">逐句導讀</p>
+  <h2 class="rvl d1 sweep">這首詩在做什麼</h2>
+  <div class="pm-guide">{_pm_blocks(pm["guide"])}</div>
+</div></section>
+
+<section class="section"><div class="wrap">
+  <div class="pm-alert rvl">
+    <p class="pm-alert-k">⚠️ 你可能讀反的地方</p>
+    <p class="pm-alert-lead">背得太熟的詩，最容易讀反——因為你從來沒有停下來看。以下放的不是詮釋，是<strong>詩裡明明寫了、但多數人沒注意到的字句</strong>。</p>
+    <div class="pm-guide">{_pm_blocks(pm["misread"])}</div>
+  </div>
+</div></section>
+
+<section class="section band"><div class="wrap">
+  <div class="pm-alert tp-lost rvl">
+    <p class="pm-alert-k">🔍 英文譯不出來的地方</p>
+    <p class="pm-alert-lead">翻譯是最嚴格的閱讀。中文可以含糊帶過的地方，英文非得做決定——主語是誰、時態是什麼、那個字到底是哪個意思。以下是譯這首詩時<strong>被迫做的取捨</strong>，也是中文最值得停下來看的地方。</p>
+    <div class="pm-guide">{_pm_blocks(pm["lost"])}</div>
+  </div>
+</div></section>
+
+<section class="section"><div class="wrap">
+  <p class="eyebrow rvl">關鍵字詞</p>
+  <h2 class="rvl d1 sweep">這個字為什麼選這個英文</h2>
+  <div class="pm-table-wrap rvl"><table class="pm-table">
+    <thead><tr><th>字詞</th><th>這裡的意思</th><th>英譯與選擇</th></tr></thead>
+    <tbody>{words}</tbody>
+  </table></div>
+</div></section>
+
+<section class="section band"><div class="wrap">
+  <div class="pm-two">
+    <div class="pm-col rvl">
+      <p class="eyebrow">格律</p>
+      <h3>為什麼寫成這個樣子</h3>
+      <div class="prose">{_pm_paras(pm["formnote"])}</div>
+    </div>
+    <div class="pm-col rvl d1">
+      <p class="eyebrow">英語世界怎麼讀它</p>
+      <h3>{html.escape(rc["title_en"])}</h3>
+      <div class="prose">{_pm_paras(rc["intro"])}</div>
+      <div class="tp-rc">{rc_lines}<span class="tp-rc-by">— {html.escape(rc["translator"])}</span></div>
+    </div>
+  </div>
+</div></section>
+
+<section class="section"><div class="wrap">
+  <p class="eyebrow rvl">活在現代中文裡</p>
+  <h2 class="rvl d1 sweep">這首詩留下來的話</h2>
+  <div class="pm-table-wrap rvl"><table class="pm-table">
+    <thead><tr><th>句子</th><th>現在怎麼用</th><th>英文可對應</th></tr></thead>
+    <tbody>{residue}</tbody>
+  </table></div>
+</div></section>
+
+<section class="section band"><div class="wrap">
+  <div class="pm-teach rvl">
+    <p class="pm-alert-k">🍎 給雙語課老師的教學提示</p>
+    <ul class="pm-teach-list">{teach}</ul>
+  </div>
+  {_tp_nav(pm)}
+</div></section>
+'''
+    say_slug = f'tang-poetry-{pm["slug"]}'
+    has_clips = os.path.exists(os.path.join(ROOT, "assets/data/say", say_slug + ".json"))
+    write(path, layout(path, f'{pm["title"]} {pm["title_en"]}',
+          f'{pm["poet"]}〈{pm["title"]}〉中英對照與逐句導讀：{pm["blurb"]}', body, "resources",
+          say_manifest=say_slug if has_clips else None))
+    return path
+
+def build_tang_hub():
+    cards = []
+    for pm in TANGSHI["poems"]:
+        cards.append(
+            f'<a class="pm-card rvl" href="{TANG_BASE}{pm["slug"]}/">'
+            f'<span class="pm-card-lv">{html.escape(pm["level"])}</span>'
+            f'<h3 class="tp-card-h">{html.escape(pm["title"])}</h3>'
+            f'<p class="pm-card-zh">{html.escape(pm["title_en"])}</p>'
+            f'<p class="pm-card-by">{html.escape(pm["poet"])} {html.escape(pm["poet_en"])} · {html.escape(pm["form"])}</p>'
+            f'<p class="pm-card-bl">{html.escape(pm["blurb"])}</p>'
+            f'<span class="fcard-go">讀這首 <i>&rarr;</i></span></a>')
+    body = f'''
+{page_hero(TANGSHI["eyebrow"], TANGSHI["title"], html.escape(TANGSHI["lead"]), back=("/resources/reading/", "回閱讀與經典"))}
+<section class="section"><div class="wrap">
+  <div class="prose wide rvl">{_pm_paras(TANGSHI["intro"])}</div>
+</div></section>
+<section class="section band"><div class="wrap">
+  <p class="eyebrow rvl">詩單</p>
+  <h2 class="rvl d1 sweep">{len(TANGSHI["poems"])} 首，持續增加中</h2>
+  <div class="pm-cards stagger">{"".join(cards)}</div>
+</div></section>
+'''
+    write(TANG_BASE, layout(TANG_BASE, "唐詩選讀 · Tang Poetry",
+          "唐詩中英對照與逐句導讀：讀懂唐詩，順便學英文。每首附「你可能讀反的地方」與「英文譯不出來的地方」。", body, "resources"))
+    return TANG_BASE
 
 def build_poetry_hub():
     cards = []
@@ -3660,6 +3826,9 @@ def main():
     if POEMS:
         paths.append(build_poetry_hub())
         for _pm in POEMS["poems"]: paths.append(build_poem(_pm))
+    if TANGSHI:
+        paths.append(build_tang_hub())
+        for _pm in TANGSHI["poems"]: paths.append(build_tang_poem(_pm))
     build_grandfather(); paths.append("/resources/grandfather/")
     build_periodicals(); paths.append("/resources/periodicals/")
     build_media_hub(); paths.append("/media/")

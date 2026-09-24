@@ -158,7 +158,9 @@
     if (!window.speechSynthesis) { if (btn) btn.classList.remove('on'); return; }
     speechSynthesis.cancel();
     var u = new SpeechSynthesisUtterance(text);
-    u.lang = 'en-US'; u.rate = 0.92; if (enVoice) u.voice = enVoice;
+    var lang = btn && btn.getAttribute('data-say-lang');
+    if (lang === 'zh') { u.lang = 'zh-TW'; u.rate = 0.85; }
+    else { u.lang = 'en-US'; u.rate = 0.92; if (enVoice) u.voice = enVoice; }
     if (btn) { btn.classList.add('on'); u.onend = u.onerror = function () { btn.classList.remove('on'); }; }
     speechSynthesis.speak(u);
   }

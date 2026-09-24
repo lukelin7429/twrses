@@ -31,6 +31,12 @@ VOICE = "en-US-AvaMultilingualNeural"   # chosen 2026-08 after an A/B test.
 # no language switching. Add a prefix here if another such page ever appears.
 VOICE_EN_ONLY = "en-US-AvaNeural"
 EN_ONLY_PAGES = ("resources/classes/poetry",)
+# A button marked data-say-lang="zh" (唐詩選讀的中文原文) is read by the Taiwan
+# Mandarin voice instead, a touch slower again — it is verse.
+VOICE_ZH = "zh-TW-HsiaoChenNeural"
+RATE_ZH = "-15%"
+TAG_RX = re.compile(r'<[^>]*\bdata-say="[^"]*"[^>]*>')
+LANG_RX = re.compile(r'data-say-lang="([^"]*)"')
 RATE = "-8%"                            # a touch slower than natural, for learners
 # A 🔊 inside an .audio-row is the passage button, and main.js plays the human
 # recording sitting beside it — so that text needs no clip of its own. Every
@@ -72,12 +78,14 @@ def phrases_in(page: pathlib.Path):
             human.add(html.unescape(raw).strip())
 
     seen, out = set(), []
-    for raw in SAY_RX.findall(src):
+    for tag in TAG_RX.findall(src):
+        raw = SAY_RX.search(tag).group(1)
         text = html.unescape(raw).strip()
         if not text or text in seen or text in human:
             continue
         seen.add(text)
-        out.append(text)
+        m = LANG_RX.search(tag)
+        out.append((text, m.group(1) if m else "en"))
     return out
 
 
@@ -128,8 +136,9 @@ def main() -> int:
     print(f"{slug}: {len(texts)} phrases · voice {args.voice} · rate {RATE}")
 
     manifest, failed, made, reused = {}, [], 0, 0
-    for i, text in enumerate(texts, 1):
-        h = phrase_hash(text, args.voice)
+    for i, (text, lang) in enumerate(texts, 1):
+        voice, rate = (VOICE_ZH, RATE_ZH) if lang == "zh" else (args.voice, RATE)
+        h = phrase_hash(text, voice)
         manifest[text] = h
         dest = out_dir / f"{h}.mp3"
         if dest.exists():
@@ -137,7 +146,7 @@ def main() -> int:
             continue
         raw = tmp / f"{h}.raw.mp3"
         try:
-            subprocess.run(["edge-tts", "--voice", args.voice, "--rate", RATE,
+            subprocess.run(["edge-tts", "--voice", voice, "--rate", rate,
                             "--text", text, "--write-media", str(raw)],
                            check=True, capture_output=True)
             post(raw, dest)

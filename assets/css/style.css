@@ -1350,3 +1350,24 @@ p  { margin: 0 0 1.1em; }
   .pm-nav-hub { grid-column:1 / -1; order:-1; }
   .pm-nav-t { font-size:1.02rem; }
 }
+
+/* 唐詩選讀：沿用名詩導讀 .pm-*，主行改中文、每行兩顆 🔊 */
+.tp-line { display:grid; grid-template-columns:38px minmax(0,1fr); align-items:start; gap:.15rem .9rem; padding:.55rem .3rem; border-radius:8px; transition:background .15s; }
+.tp-line:hover { background:var(--paper); }
+.tp-line .pm-spk { grid-row:auto; margin-top:.5rem; }
+.tp-line .tp-spk-en { margin-top:.05rem; width:30px; height:30px; font-size:.92rem; opacity:.75; }
+.tp-zh { display:block; font-family:var(--zh); font-size:1.85rem; letter-spacing:.12em; line-height:1.55; color:var(--ink); font-weight:500; }
+.tp-en { display:block; font-family:var(--serif); font-size:1.19rem; line-height:1.6; color:var(--ink-soft); padding-left:1.15em; text-indent:-1.15em; }
+.tp-h2-en { font-family:var(--serif); font-weight:400; font-style:italic; color:var(--ink-soft); font-size:.7em; margin-left:.4em; }
+.tp-lost { border-left-color:var(--brand); background:linear-gradient(170deg,#f7fbfa,#eef6f3); border-color:#d6e8e2; }
+.tp-lost .pm-alert-k { color:var(--brand-dk); }
+.tp-lost .pm-blk { border-color:#d6e8e2; }
+.tp-w { font-family:var(--zh); font-style:normal; font-size:1.3rem; }
+.tp-rc { margin-top:1rem; padding:1rem 1.2rem; background:var(--cream); border-radius:12px; }
+.tp-rc-line { display:block; font-family:var(--serif); font-size:1.19rem; line-height:1.7; color:var(--ink); padding-left:1.15em; text-indent:-1.15em; }
+.tp-rc-by { display:block; margin-top:.6rem; font-family:var(--sans); font-size:.95rem; color:var(--gold-dk); }
+.tp-card-h { font-family:var(--zh) !important; letter-spacing:.06em; }
+@media (max-width:700px) {
+  .tp-line { grid-template-columns:32px minmax(0,1fr); gap:.1rem .6rem; }
+  .tp-zh { font-size:1.5rem; letter-spacing:.08em; }
+}
