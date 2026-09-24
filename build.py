@@ -1377,6 +1377,7 @@ def build_reading_hub():
             ("/resources/classes/animal-farm/", "🐖", "動物農莊", "經典名著《Animal Farm》導讀。"),
             ("/resources/classes/poetry/", "📜", "名詩導讀", "英美經典詩作中英對照與逐節導讀。"),
             ("/resources/classes/tang-poetry/", "🏮", "唐詩選讀", "唐詩中英對照與逐句導讀：讀懂唐詩，順便學英文。"),
+            ("/resources/classes/lunyu/", "📖", "論語選讀", "論語中英對照與逐句導讀，每章附兩家公版英譯。"),
             ("/resources/grandfather/", "🌅", "Grandfather 落日餘暉", "Leon La Couvée 三十章人生智慧，中英對照。"),
             ("/resources/periodicals/", "📰", "英語期刊", "明航心鄉土情、明航雙語學園與全民英語期刊典藏。"),
         ])
@@ -1483,6 +1484,7 @@ def build_classes_hub():
         ("/resources/classes/animal-farm/", "🐖", "動物農莊", "經典名著《Animal Farm》導讀。"),
         ("/resources/classes/poetry/", "📜", "名詩導讀", "英美經典詩作中英對照與逐節導讀。"),
         ("/resources/classes/tang-poetry/", "🏮", "唐詩選讀", "唐詩中英對照與逐句導讀：讀懂唐詩，順便學英文。"),
+        ("/resources/classes/lunyu/", "📖", "論語選讀", "論語中英對照與逐句導讀，每章附兩家公版英譯。"),
     ]
     hub_page("/resources/classes/", "resources", "人師英語課程",
         "有系統地，把英語學起來", "文法、字根、文章結構與經典名著——循序漸進的英語課程。", children)
@@ -1502,6 +1504,8 @@ _pmj = os.path.join(ROOT, "data", "poems.json")
 POEMS = json.load(open(_pmj, encoding="utf-8")) if os.path.exists(_pmj) else None
 _tsj = os.path.join(ROOT, "data", "tangshi.json")
 TANGSHI = json.load(open(_tsj, encoding="utf-8")) if os.path.exists(_tsj) else None
+_lyj = os.path.join(ROOT, "data", "lunyu.json")
+LUNYU = json.load(open(_lyj, encoding="utf-8")) if os.path.exists(_lyj) else None
 
 _EN_SPAN = re.compile(r"[A-Za-z][A-Za-z0-9 ,.'’?!():;/+\-]*")
 def _say_en(line):
@@ -1967,6 +1971,171 @@ def build_tang_hub():
     write(TANG_BASE, layout(TANG_BASE, "唐詩選讀 · Tang Poetry",
           "唐詩中英對照與逐句導讀：讀懂唐詩，順便學英文。每首附「你可能讀反的地方」與「英文譯不出來的地方」。", body, "resources"))
     return TANG_BASE
+
+# ---- 論語選讀（資料驅動，data/lunyu.json）----
+# 沿用唐詩選讀的 .tp-* 版型與 _pmd／_pm_blocks／_pm_paras。與唐詩的差別：
+# 單位是「章」不是「首」，「格律」一節換成「章法」，且對照譯本有兩家（理雅各／萊爾），
+# 兩家常在同一個字上選相反的路——那是這個系列的主要教學價值。
+LUNYU_BASE = "/resources/classes/lunyu/"
+
+def _ly_line(zh, en):
+    say_en = html.escape(re.sub(r"\s+", " ", re.sub(r"[“”]", "", en)).strip())
+    return ('<div class="tp-line">'
+            f'<button class="spk pm-spk" data-say="{say_en}" aria-label="Say this line · 唸這句英文">🔊</button>'
+            f'<span class="tp-zh">{html.escape(zh)}</span>'
+            f'<span class="tp-en">{html.escape(en)}</span></div>')
+
+def _ly_nav(ch):
+    lst = LUNYU["chapters"]
+    i = next(n for n, x in enumerate(lst) if x["slug"] == ch["slug"])
+    prev = lst[i-1] if i > 0 else None
+    nxt = lst[i+1] if i < len(lst)-1 else None
+    def side(c, dirn, label):
+        if not c:
+            return '<span class="pm-nav-x"></span>'
+        arrow = "&larr;" if dirn == "prev" else "&rarr;"
+        return (f'<a class="pm-nav-s pm-nav-{dirn}" href="{LUNYU_BASE}{c["slug"]}/">'
+                f'<span class="pm-nav-k">{arrow} {label}</span>'
+                f'<span class="pm-nav-t">{html.escape(c["title"])}</span></a>')
+    return (f'<nav class="pm-nav rvl">{side(prev, "prev", "上一章")}'
+            f'<a class="pm-nav-hub" href="{LUNYU_BASE}">&#9776; 回論語選讀</a>'
+            f'{side(nxt, "next", "下一章")}</nav>')
+
+def _ly_receptions(rcs):
+    out = []
+    for rc in rcs:
+        lines = "".join(f'<span class="tp-rc-line">{html.escape(x)}</span>' for x in rc["lines"])
+        out.append(f'<div class="tp-rc">{lines}'
+                   f'<span class="tp-rc-by">— {html.escape(rc["translator"])}</span></div>')
+    return "".join(out)
+
+def build_lunyu_chapter(ch):
+    path = f'{LUNYU_BASE}{ch["slug"]}/'
+    lines = "".join(_ly_line(l[0], l[1]) for l in ch["lines"])
+    words = "".join(
+        f'<tr><td class="pm-w tp-w">{html.escape(w[0])}</td><td>{_pmd(w[1])}</td>'
+        f'<td class="pm-wn">{_pmd(w[2])}</td></tr>' for w in ch["words"])
+    residue = "".join(
+        f'<tr><td class="pm-w tp-w">{html.escape(r[0])}</td><td>{_pmd(r[1])}</td>'
+        f'<td class="pm-wn">{_pmd(r[2])}</td></tr>' for r in ch["residue"])
+    teach = "".join(f'<li>{_pmd(x)}</li>' for x in ch["teaching"])
+    meta_rows = (
+        f'<div><span class="af-k">出處</span><span class="af-v">{html.escape(ch["ref"])}</span></div>'
+        f'<div><span class="af-k">說話者</span><span class="af-v">{html.escape(ch["speaker"])} '
+        f'{html.escape(ch["speaker_en"])}（{html.escape(ch["life"])}）</span></div>'
+        f'<div><span class="af-k">主題</span><span class="af-v">{html.escape(ch["theme"])}</span></div>'
+        f'<div><span class="af-k">體例</span><span class="af-v">{html.escape(ch["form"])}</span></div>')
+
+    body = f'''
+{page_hero("論語選讀", ch["title"], html.escape(ch["blurb"]), back=(LUNYU_BASE, "回論語選讀"))}
+<section class="section"><div class="wrap">
+  <div class="pm-meta rvl">{meta_rows}</div>
+</div></section>
+
+<section class="section band"><div class="wrap">
+  <p class="eyebrow rvl">原文 · 中英對照</p>
+  <h2 class="rvl d1 sweep">{html.escape(ch["title"])}</h2>
+  <p class="lead rvl d2" style="max-width:62ch">點任一行的 🔊 可以聽英譯的發音。英譯是逐句白話直譯，不修辭、不湊工整，只求把中文的意思說清楚。</p>
+  <div class="pm-poem tp-poem rvl">{lines}</div>
+</div></section>
+
+<section class="section"><div class="wrap">
+  <p class="eyebrow rvl">逐句導讀</p>
+  <h2 class="rvl d1 sweep">這一章在說什麼</h2>
+  <div class="pm-guide">{_pm_blocks(ch["guide"])}</div>
+</div></section>
+
+<section class="section"><div class="wrap">
+  <div class="pm-alert rvl">
+    <p class="pm-alert-k">⚠️ 你可能讀反的地方</p>
+    <p class="pm-alert-lead">聽了幾十年的句子，最容易讀反——因為你從來沒有停下來看。以下放的不是詮釋，是<strong>原文明明寫了、但多數人沒注意到的字句</strong>。</p>
+    <div class="pm-guide">{_pm_blocks(ch["misread"])}</div>
+  </div>
+</div></section>
+
+<section class="section band"><div class="wrap">
+  <div class="pm-alert tp-lost rvl">
+    <p class="pm-alert-k">🔍 英文譯不出來的地方</p>
+    <p class="pm-alert-lead">翻譯是最嚴格的閱讀。中文可以含糊帶過的地方，英文非得做決定——那個字是哪個意思、主語是誰、語氣有多重。以下是譯這一章時<strong>被迫做的取捨</strong>，也是中文最值得停下來看的地方。</p>
+    <div class="pm-guide">{_pm_blocks(ch["lost"])}</div>
+  </div>
+</div></section>
+
+<section class="section"><div class="wrap">
+  <p class="eyebrow rvl">關鍵字詞</p>
+  <h2 class="rvl d1 sweep">這個字為什麼選這個英文</h2>
+  <div class="pm-table-wrap rvl"><table class="pm-table">
+    <thead><tr><th>字詞</th><th>這裡的意思</th><th>英譯與選擇</th></tr></thead>
+    <tbody>{words}</tbody>
+  </table></div>
+</div></section>
+
+<section class="section band"><div class="wrap">
+  <div class="pm-two">
+    <div class="pm-col rvl">
+      <p class="eyebrow">章法</p>
+      <h3>為什麼寫成這個樣子</h3>
+      <div class="prose">{_pm_paras(ch["structure"])}</div>
+    </div>
+    <div class="pm-col rvl d1">
+      <p class="eyebrow">英語世界怎麼讀它</p>
+      <h3>兩家公版英譯</h3>
+      <div class="prose"><p>理雅各（1893）是英語世界第一個論語全譯本，用詞莊重、常在譯文裡補出解釋；萊爾（1909）反過來，短到幾乎不留餘地。<strong>兩家常在同一個字上選了相反的路——那個岔路口，就是這一章真正難的地方。</strong></p></div>
+      {_ly_receptions(ch["receptions"])}
+    </div>
+  </div>
+</div></section>
+
+<section class="section"><div class="wrap">
+  <p class="eyebrow rvl">活在現代中文裡</p>
+  <h2 class="rvl d1 sweep">這一章留下來的話</h2>
+  <div class="pm-table-wrap rvl"><table class="pm-table">
+    <thead><tr><th>句子</th><th>現在怎麼用</th><th>英文可對應</th></tr></thead>
+    <tbody>{residue}</tbody>
+  </table></div>
+</div></section>
+
+<section class="section band"><div class="wrap">
+  <div class="pm-teach rvl">
+    <p class="pm-alert-k">🍎 給雙語課老師的教學提示</p>
+    <ul class="pm-teach-list">{teach}</ul>
+  </div>
+  {_ly_nav(ch)}
+</div></section>
+'''
+    say_slug = f'lunyu-{ch["slug"]}'
+    has_clips = os.path.exists(os.path.join(ROOT, "assets/data/say", say_slug + ".json"))
+    write(path, layout(path, f'{ch["title"]} · 論語{ch["ref"]}',
+          f'論語{ch["ref"]}中英對照與逐句導讀：{ch["blurb"]}', body, "resources",
+          say_manifest=say_slug if has_clips else None))
+    return path
+
+def build_lunyu_hub():
+    cards = []
+    for ch in LUNYU["chapters"]:
+        cards.append(
+            f'<a class="pm-card rvl" href="{LUNYU_BASE}{ch["slug"]}/">'
+            f'<span class="pm-card-lv">{html.escape(ch["level"])}</span>'
+            f'<h3 class="tp-card-h">{html.escape(ch["title"])}</h3>'
+            f'<p class="pm-card-zh">{html.escape(ch["ref"])}</p>'
+            f'<p class="pm-card-by">{html.escape(ch["speaker"])} · {html.escape(ch["theme"])}</p>'
+            f'<p class="pm-card-bl">{html.escape(ch["blurb"])}</p>'
+            f'<span class="fcard-go">讀這章 <i>&rarr;</i></span></a>')
+    body = f'''
+{page_hero(LUNYU["eyebrow"], LUNYU["title"], html.escape(LUNYU["lead"]), back=("/resources/reading/", "回閱讀與經典"))}
+<section class="section"><div class="wrap">
+  <div class="prose wide rvl">{_pm_paras(LUNYU["intro"])}</div>
+</div></section>
+<section class="section band"><div class="wrap">
+  <p class="eyebrow rvl">章單</p>
+  <h2 class="rvl d1 sweep">{len(LUNYU["chapters"])} 章，持續增加中</h2>
+  <div class="pm-cards stagger">{"".join(cards)}</div>
+</div></section>
+'''
+    write(LUNYU_BASE, layout(LUNYU_BASE, "論語選讀 · The Analects",
+          "論語中英對照與逐句導讀，每章附兩家公版英譯對照、你可能讀反的地方與教學提示。", body, "resources"))
+    return LUNYU_BASE
+
 
 def build_poetry_hub():
     cards = []
@@ -3855,6 +4024,9 @@ def main():
     if TANGSHI:
         paths.append(build_tang_hub())
         for _pm in TANGSHI["poems"]: paths.append(build_tang_poem(_pm))
+    if LUNYU:
+        paths.append(build_lunyu_hub())
+        for _ch in LUNYU["chapters"]: paths.append(build_lunyu_chapter(_ch))
     build_grandfather(); paths.append("/resources/grandfather/")
     build_periodicals(); paths.append("/resources/periodicals/")
     build_media_hub(); paths.append("/media/")
