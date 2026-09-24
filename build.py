@@ -1742,8 +1742,13 @@ def build_poem(pm):
   </div>
 </div></section>
 '''
+    # 🔊 用 Azure 合成語音（tools/gen_audio.py → R2），不是裝置內建語音。
+    # 只有實際產過 clip 的詩才掛 manifest——指向不存在的檔案只會每次載入 404。
+    say_slug = f'poetry-{pm["slug"]}'
+    has_clips = os.path.exists(os.path.join(ROOT, "assets/data/say", say_slug + ".json"))
     write(path, layout(path, f'{pm["title"]} {pm["title_zh"]}',
-          f'{pm["poet_zh"]}〈{pm["title"]}〉中英對照與逐節導讀：{pm["blurb"]}', body, "resources"))
+          f'{pm["poet_zh"]}〈{pm["title"]}〉中英對照與逐節導讀：{pm["blurb"]}', body, "resources",
+          say_manifest=say_slug if has_clips else None))
     return path
 
 def build_poetry_hub():
