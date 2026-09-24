@@ -1388,3 +1388,9 @@ p  { margin: 0 0 1.1em; }
   .tp-toc-g { grid-template-columns:1fr; }
   .tp-sec-h { font-size:1.12rem; }
 }
+
+/* 名詩導讀：外語行不掛 🔊（用英語語音唸只會是錯的），但保留縮排對齊 */
+.pm-line-nosay { display:grid; grid-template-columns:38px minmax(0,1fr); align-items:start; gap:.1rem .9rem; padding:.4rem .3rem; }
+.pm-line-nosay .pm-en { grid-column:2; font-style:italic; color:var(--ink-soft); }
+.pm-line-nosay .pm-zh { grid-column:2; }
+@media (max-width:700px){ .pm-line-nosay { grid-template-columns:32px minmax(0,1fr); gap:.1rem .6rem; } }

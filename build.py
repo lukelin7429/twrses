@@ -1656,6 +1656,12 @@ def _pm_line(en, zh, say_as=None):
     而必定短音的 livz 與 livs 都是 3.480s／同樣大小）。改寫拼法是目前唯一
     可行的辦法——這個端點會拒收 SSML <phoneme>。
     """
+    # say_as 設為空字串＝這一行不掛 🔊（例如夾在英詩裡的外語行，
+    # 用英語語音唸出來只會是錯的）。
+    if say_as == "":
+        return ('<div class="pm-line pm-line-nosay">'
+                f'<span class="pm-en">{html.escape(en)}</span>'
+                f'<span class="pm-zh">{_pmd(zh)}</span></div>')
     say = html.escape(re.sub(r"\s+", " ", re.sub(r"[“”]", "", say_as or en)).strip())
     return ('<div class="pm-line">'
             f'<button class="spk pm-spk" data-say="{say}" aria-label="Say this line · 唸這句">🔊</button>'
