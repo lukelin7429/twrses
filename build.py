@@ -1639,9 +1639,16 @@ def _pmd(t):
     t = re.sub(r"`(.+?)`", r"<code>\1</code>", t)
     return t
 
-def _pm_line(en, zh):
-    """一行詩：🔊 唸這句 + 英文原文 + 中文對照。"""
-    say = html.escape(re.sub(r"\s+", " ", re.sub(r"[“”]", "", en)).strip())
+def _pm_line(en, zh, say_as=None):
+    """一行詩：🔊 唸這句 + 英文原文 + 中文對照。
+
+    say_as 是「發音改寫」：畫面仍顯示 en，但餵給 TTS 的換成 say_as。
+    合成語音會把同形異音字讀錯——Sonnet 18 的 "So long lives this" 是倒裝，
+    lives 是動詞唸 /lɪvz/，Azure 卻讀成名詞 /laɪvz/（實測：原拼法 3.504s，
+    而必定短音的 livz 與 livs 都是 3.480s／同樣大小）。改寫拼法是目前唯一
+    可行的辦法——這個端點會拒收 SSML <phoneme>。
+    """
+    say = html.escape(re.sub(r"\s+", " ", re.sub(r"[“”]", "", say_as or en)).strip())
     return ('<div class="pm-line">'
             f'<button class="spk pm-spk" data-say="{say}" aria-label="Say this line · 唸這句">🔊</button>'
             f'<span class="pm-en">{html.escape(en)}</span>'
@@ -1656,10 +1663,27 @@ def _pm_blocks(items):
 def _pm_paras(items):
     return "".join(f"<p>{_pmd(x)}</p>" for x in items)
 
+def _pm_nav(pm):
+    """頁尾導覽。詩頁很長，只有 hero 的返回連結得捲到最頂才點得到。"""
+    lst = POEMS["poems"]
+    i = next(n for n, x in enumerate(lst) if x["slug"] == pm["slug"])
+    prev = lst[i-1] if i > 0 else None
+    nxt = lst[i+1] if i < len(lst)-1 else None
+    def side(p, dirn, label):
+        if not p:
+            return '<span class="pm-nav-x"></span>'
+        arrow = "&larr;" if dirn == "prev" else "&rarr;"
+        return (f'<a class="pm-nav-s pm-nav-{dirn}" href="{POETRY_BASE}{p["slug"]}/">'
+                f'<span class="pm-nav-k">{arrow} {label}</span>'
+                f'<span class="pm-nav-t">{html.escape(p["title"])}</span></a>')
+    return (f'<nav class="pm-nav rvl">{side(prev, "prev", "上一首")}'
+            f'<a class="pm-nav-hub" href="{POETRY_BASE}">&#9776; 回名詩導讀</a>'
+            f'{side(nxt, "next", "下一首")}</nav>')
+
 def build_poem(pm):
     path = f'{POETRY_BASE}{pm["slug"]}/'
     stanzas = "".join(
-        '<div class="pm-stanza">' + "".join(_pm_line(l[0], l[1]) for l in st) + "</div>"
+        '<div class="pm-stanza">' + "".join(_pm_line(l[0], l[1], l[2] if len(l) > 2 else None) for l in st) + "</div>"
         for st in pm["stanzas"])
     words = "".join(
         f'<tr><td class="pm-w">{html.escape(w[0])}</td><td>{_pmd(w[1])}</td>'
@@ -1740,6 +1764,7 @@ def build_poem(pm):
     <p class="pm-alert-k">🍎 給老師的教學提示</p>
     <ul class="pm-teach-list">{teach}</ul>
   </div>
+  {_pm_nav(pm)}
 </div></section>
 '''
     # 🔊 用 Azure 合成語音（tools/gen_audio.py → R2），不是裝置內建語音。
