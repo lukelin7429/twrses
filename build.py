@@ -1783,16 +1783,15 @@ def build_poem(pm):
 
 # ---- 唐詩選讀（資料驅動，data/tangshi.json）----
 # 跟名詩導讀共用 _pmd／_pm_blocks／_pm_paras 與 .pm-* 版型，但方向相反：主行是中文，
-# 每行兩顆 🔊（中文 zh-TW 語音、英文 en-US 語音，tools/gen_audio.py 依 data-say-lang 選）。
+# 🔊 只唸英譯（tools/gen_audio.py 另支援 data-say-lang="zh"，此處刻意不用）。
 TANG_BASE = "/resources/classes/tang-poetry/"
 
 def _tp_line(zh, en):
-    say_zh = html.escape(re.sub(r"\s+", " ", zh).strip())
     say_en = html.escape(re.sub(r"\s+", " ", re.sub(r"[“”]", "", en)).strip())
+    # 🔊 只唸英譯——中文讀者不需要機器唸中文，站上的喇叭一律是英文發音（2026-09-24 定案）。
     return ('<div class="tp-line">'
-            f'<button class="spk pm-spk" data-say-lang="zh" data-say="{say_zh}" aria-label="唸中文">🔊</button>'
+            f'<button class="spk pm-spk" data-say="{say_en}" aria-label="Say this line · 唸這句英文">🔊</button>'
             f'<span class="tp-zh">{html.escape(zh)}</span>'
-            f'<button class="spk pm-spk tp-spk-en" data-say="{say_en}" aria-label="Say this line · 唸英文">🔊</button>'
             f'<span class="tp-en">{html.escape(en)}</span></div>')
 
 def _tp_nav(pm):
@@ -1841,7 +1840,7 @@ def build_tang_poem(pm):
 <section class="section band"><div class="wrap">
   <p class="eyebrow rvl">全詩 · 中英對照</p>
   <h2 class="rvl d1 sweep">{html.escape(pm["title"])} <span class="tp-h2-en">{html.escape(pm["title_en"])}</span></h2>
-  <p class="lead rvl d2" style="max-width:62ch">每行兩個 🔊：前一個唸中文，後一個唸英文。英譯是逐句白話直譯，不押韻、不湊字數，只求把中文的意思說清楚。</p>
+  <p class="lead rvl d2" style="max-width:62ch">點任一行的 🔊 可以聽英譯的發音。英譯是逐句白話直譯，不押韻、不湊字數，只求把中文的意思說清楚。</p>
   <div class="pm-poem tp-poem rvl">{stanzas}</div>
 </div></section>
 

@@ -1354,8 +1354,8 @@ p  { margin: 0 0 1.1em; }
 /* 唐詩選讀：沿用名詩導讀 .pm-*，主行改中文、每行兩顆 🔊 */
 .tp-line { display:grid; grid-template-columns:38px minmax(0,1fr); align-items:start; gap:.15rem .9rem; padding:.55rem .3rem; border-radius:8px; transition:background .15s; }
 .tp-line:hover { background:var(--paper); }
-.tp-line .pm-spk { grid-row:auto; margin-top:.5rem; }
-.tp-line .tp-spk-en { margin-top:.05rem; width:30px; height:30px; font-size:.92rem; opacity:.75; }
+.tp-line .pm-spk { grid-row:span 2; margin-top:.55rem; }
+.tp-en { grid-column:2; }
 .tp-zh { display:block; font-family:var(--zh); font-size:1.85rem; letter-spacing:.12em; line-height:1.55; color:var(--ink); font-weight:500; }
 .tp-en { display:block; font-family:var(--serif); font-size:1.19rem; line-height:1.6; color:var(--ink-soft); padding-left:1.15em; text-indent:-1.15em; }
 .tp-h2-en { font-family:var(--serif); font-weight:400; font-style:italic; color:var(--ink-soft); font-size:.7em; margin-left:.4em; }
