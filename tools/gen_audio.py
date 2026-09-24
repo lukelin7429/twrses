@@ -41,8 +41,19 @@ SAY_RX = re.compile(r'data-say="([^"]*)"')
 AUDIO_ROW_RX = re.compile(r'<div class="audio-row".*?</div>', re.S)
 
 
-def phrase_hash(text: str) -> str:
-    return hashlib.sha1(text.encode("utf-8")).hexdigest()[:12]
+def phrase_hash(text: str, voice: str = VOICE) -> str:
+    """Clip filename. The voice is part of the identity, not just the text.
+
+    R2 serves these with `Cache-Control: immutable, max-age=1y`, so a file that
+    keeps its name after its audio changes is stuck in every visitor's browser
+    forever — which is exactly what happened when the poetry pages moved off the
+    Multilingual voice: the server had the new clip, listeners kept the old one.
+
+    The default voice hashes text alone, so the ~14k clips generated before this
+    change keep their names and do not need regenerating.
+    """
+    key = text if voice == VOICE else f"{voice}\n{text}"
+    return hashlib.sha1(key.encode("utf-8")).hexdigest()[:12]
 
 
 def phrases_in(page: pathlib.Path):
@@ -118,7 +129,7 @@ def main() -> int:
 
     manifest, failed, made, reused = {}, [], 0, 0
     for i, text in enumerate(texts, 1):
-        h = phrase_hash(text)
+        h = phrase_hash(text, args.voice)
         manifest[text] = h
         dest = out_dir / f"{h}.mp3"
         if dest.exists():
