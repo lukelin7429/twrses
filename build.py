@@ -1810,11 +1810,37 @@ def _tp_nav(pm):
             f'<a class="pm-nav-hub" href="{TANG_BASE}">&#9776; 回唐詩選讀</a>'
             f'{side(nxt, "next", "下一首")}</nav>')
 
+def _tp_stanzas(sts):
+    """詩行分節。短詩的 stanza 是 [[zh,en],...]；長篇（長恨歌、琵琶行）的 stanza 可寫成
+    {"h": "節名", "lines": [[zh,en],...]}，會加上可錨定的節標題與回目錄連結。"""
+    out = []
+    for i, st in enumerate(sts, 1):
+        if isinstance(st, dict):
+            aid = f"sec{i}"
+            out.append(
+                f'<div class="pm-stanza tp-sec" id="{aid}">'
+                f'<p class="tp-sec-h"><span class="tp-sec-n">{i}</span>{html.escape(st["h"])}'
+                f'<a class="tp-sec-top" href="#tp-toc">目錄 &uarr;</a></p>'
+                + "".join(_tp_line(l[0], l[1]) for l in st["lines"]) + "</div>")
+        else:
+            out.append('<div class="pm-stanza">'
+                       + "".join(_tp_line(l[0], l[1]) for l in st) + "</div>")
+    return "".join(out)
+
+def _tp_toc(sts):
+    """長篇才有的分節目錄；短詩回空字串。"""
+    secs = [(i, st["h"]) for i, st in enumerate(sts, 1) if isinstance(st, dict)]
+    if len(secs) < 2:
+        return ""
+    items = "".join(f'<a class="tp-toc-i" href="#sec{i}">'
+                    f'<span class="tp-toc-n">{i}</span>{html.escape(h)}</a>' for i, h in secs)
+    n = sum(len(st["lines"]) if isinstance(st, dict) else len(st) for st in sts)
+    return (f'<div class="tp-toc rvl" id="tp-toc"><p class="tp-toc-k">全詩 {n} 句 · 分 {len(secs)} 節</p>'
+            f'<div class="tp-toc-g">{items}</div></div>')
+
 def build_tang_poem(pm):
     path = f'{TANG_BASE}{pm["slug"]}/'
-    stanzas = "".join(
-        '<div class="pm-stanza">' + "".join(_tp_line(l[0], l[1]) for l in st) + "</div>"
-        for st in pm["stanzas"])
+    stanzas = _tp_stanzas(pm["stanzas"])
     words = "".join(
         f'<tr><td class="pm-w tp-w">{html.escape(w[0])}</td><td>{_pmd(w[1])}</td>'
         f'<td class="pm-wn">{_pmd(w[2])}</td></tr>' for w in pm["words"])
@@ -1841,6 +1867,7 @@ def build_tang_poem(pm):
   <p class="eyebrow rvl">全詩 · 中英對照</p>
   <h2 class="rvl d1 sweep">{html.escape(pm["title"])} <span class="tp-h2-en">{html.escape(pm["title_en"])}</span></h2>
   <p class="lead rvl d2" style="max-width:62ch">點任一行的 🔊 可以聽英譯的發音。英譯是逐句白話直譯，不押韻、不湊字數，只求把中文的意思說清楚。</p>
+  {_tp_toc(pm["stanzas"])}
   <div class="pm-poem tp-poem rvl">{stanzas}</div>
 </div></section>
 

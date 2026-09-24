@@ -18,7 +18,7 @@ phrase keeps its file and a reworded one gets a new name.
 Then publish them:  ./tools/upload_audio.sh
 Requires: edge-tts (pipx install edge-tts), ffmpeg.
 """
-import argparse, hashlib, html, json, pathlib, re, shutil, subprocess, sys
+import argparse, hashlib, html, json, pathlib, re, shutil, subprocess, sys, time
 
 VOICE = "en-US-AvaMultilingualNeural"   # chosen 2026-08 after an A/B test.
                                         # Alternatives heard at the same time:
@@ -38,6 +38,9 @@ RATE_ZH = "-15%"
 TAG_RX = re.compile(r'<[^>]*\bdata-say="[^"]*"[^>]*>')
 LANG_RX = re.compile(r'data-say-lang="([^"]*)"')
 RATE = "-8%"                            # a touch slower than natural, for learners
+RETRIES = 4                             # 密集請求會被 Azure 端點擋下，失敗要退避重試
+BACKOFF = 2.5                           # 第 n 次重試前等 BACKOFF*n 秒
+PACE = 0.25                             # 每產一顆 clip 之間的間隔，別把端點打爆
 # A 🔊 inside an .audio-row is the passage button, and main.js plays the human
 # recording sitting beside it — so that text needs no clip of its own. Every
 # other phrase does, however long: the paragraph-level buttons on multi-picture
@@ -135,6 +138,25 @@ def main() -> int:
         texts = texts[:12]
     print(f"{slug}: {len(texts)} phrases · voice {args.voice} · rate {RATE}")
 
+    def synth(text, voice, rate, h):
+        """一句話一個 clip。Azure 端點在密集請求下會開始拒絕，所以失敗要退避重試——
+        2026-09-24 一口氣跑長恨歌 120 句時，後段連續失敗三十幾句。"""
+        raw = tmp / f"{h}.raw.mp3"
+        dest = out_dir / f"{h}.mp3"
+        for attempt in range(RETRIES):
+            try:
+                subprocess.run(["edge-tts", "--voice", voice, "--rate", rate,
+                                "--text", text, "--write-media", str(raw)],
+                               check=True, capture_output=True)
+                post(raw, dest)
+                raw.unlink(missing_ok=True)
+                return None
+            except subprocess.CalledProcessError as e:
+                err = (e.stderr or b"")[:120]
+                if attempt < RETRIES - 1:
+                    time.sleep(BACKOFF * (attempt + 1))
+        return err
+
     manifest, failed, made, reused = {}, [], 0, 0
     for i, (text, lang) in enumerate(texts, 1):
         voice, rate = (VOICE_ZH, RATE_ZH) if lang == "zh" else (args.voice, RATE)
@@ -144,17 +166,14 @@ def main() -> int:
         if dest.exists():
             reused += 1
             continue
-        raw = tmp / f"{h}.raw.mp3"
-        try:
-            subprocess.run(["edge-tts", "--voice", voice, "--rate", rate,
-                            "--text", text, "--write-media", str(raw)],
-                           check=True, capture_output=True)
-            post(raw, dest)
-            raw.unlink()
+        err = synth(text, voice, rate, h)
+        if err is None:
             made += 1
             print(f"  [{i:>3}/{len(texts)}] {h}  {dest.stat().st_size:>6,}B  {text[:52]}")
-        except subprocess.CalledProcessError as e:
-            failed.append((text, (e.stderr or b"")[:80]))
+            time.sleep(PACE)
+        else:
+            failed.append((text, err))
+            print(f"  [{i:>3}/{len(texts)}] FAILED  {text[:52]}")
 
     man_path.write_text(json.dumps(manifest, ensure_ascii=False, indent=0,
                                    sort_keys=True) + "\n", encoding="utf-8")
@@ -162,6 +181,15 @@ def main() -> int:
 
     total = sum(f.stat().st_size for f in out_dir.glob("*.mp3"))
     print(f"\n{made} new · {reused} already there · {len(manifest)} in the manifest")
+
+    # 清單有、檔案沒有 = 那顆 🔊 會掉回瀏覽器內建語音。這種漏檔以前是靜默的，
+    # 只看上面那行統計看不出來，所以在這裡實際比對並以非零狀態結束。
+    gaps = [t for t, hh in manifest.items() if not (out_dir / f"{hh}.mp3").exists()]
+    if gaps:
+        print(f"\n*** {len(gaps)} phrases still have no mp3 — rerun this command. ***")
+        for t in gaps[:10]:
+            print(f"    - {t[:70]}")
+        return 1
     print(f"{out_dir}: {total/1024/1024:.1f} MB total")
     print(f"\nwrote {man_path} — COMMIT IT. The page looks phrases up here;")
     print("without it every 🔊 falls back to the browser's own voice.")
