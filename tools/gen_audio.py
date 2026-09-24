@@ -23,6 +23,14 @@ import argparse, hashlib, html, json, pathlib, re, shutil, subprocess, sys
 VOICE = "en-US-AvaMultilingualNeural"   # chosen 2026-08 after an A/B test.
                                         # Alternatives heard at the same time:
                                         # AndrewMultilingual (m), Jenny, Aria.
+# The Multilingual voices auto-detect the language of the text, and on archaic or
+# unusual English they guess wrong: "Dare frame thy fearful symmetry?" came out
+# with a non-English pronunciation (3.05s, against 2.59s for the same line with
+# "your" in place of "thy", and 2.47s from the English-only voice). Pages whose
+# text is not modern English therefore use the English-only Ava, same speaker,
+# no language switching. Add a prefix here if another such page ever appears.
+VOICE_EN_ONLY = "en-US-AvaNeural"
+EN_ONLY_PAGES = ("resources/classes/poetry",)
 RATE = "-8%"                            # a touch slower than natural, for learners
 # A 🔊 inside an .audio-row is the passage button, and main.js plays the human
 # recording sitting beside it — so that text needs no clip of its own. Every
@@ -79,7 +87,8 @@ def main() -> int:
     ap.add_argument("--page", required=True,
                     help="booklet directory, e.g. resources/booklets/description/book1")
     ap.add_argument("--out", default="audio/say", help="where the mp3s are written")
-    ap.add_argument("--voice", default=VOICE)
+    ap.add_argument("--voice", default=None,
+                    help="override the voice; otherwise chosen from the page path")
     ap.add_argument("--sample", action="store_true", help="only the first 12, for review")
     args = ap.parse_args()
 
@@ -90,6 +99,11 @@ def main() -> int:
     page = pathlib.Path(args.page)
     if not (page / "index.html").exists():
         sys.exit(f"{page}/index.html not found")
+
+    if args.voice is None:
+        posix = page.as_posix()
+        args.voice = (VOICE_EN_ONLY if any(posix.startswith(p) for p in EN_ONLY_PAGES)
+                      else VOICE)
 
     slug = "-".join(page.parts[-2:])          # description-book1
     out_dir = pathlib.Path(args.out); out_dir.mkdir(parents=True, exist_ok=True)
