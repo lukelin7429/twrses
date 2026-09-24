@@ -1378,6 +1378,7 @@ def build_reading_hub():
             ("/resources/classes/poetry/", "📜", "名詩導讀", "英美經典詩作中英對照與逐節導讀。"),
             ("/resources/classes/tang-poetry/", "🏮", "唐詩選讀", "唐詩中英對照與逐句導讀：讀懂唐詩，順便學英文。"),
             ("/resources/classes/lunyu/", "📖", "論語選讀", "論語中英對照與逐句導讀，每章附兩家公版英譯。"),
+            ("/resources/classes/guwen/", "📜", "古文選讀", "古文名篇全文中英對照與逐段導讀，附章法分析。"),
             ("/resources/grandfather/", "🌅", "Grandfather 落日餘暉", "Leon La Couvée 三十章人生智慧，中英對照。"),
             ("/resources/periodicals/", "📰", "英語期刊", "明航心鄉土情、明航雙語學園與全民英語期刊典藏。"),
         ])
@@ -1485,6 +1486,7 @@ def build_classes_hub():
         ("/resources/classes/poetry/", "📜", "名詩導讀", "英美經典詩作中英對照與逐節導讀。"),
         ("/resources/classes/tang-poetry/", "🏮", "唐詩選讀", "唐詩中英對照與逐句導讀：讀懂唐詩，順便學英文。"),
         ("/resources/classes/lunyu/", "📖", "論語選讀", "論語中英對照與逐句導讀，每章附兩家公版英譯。"),
+        ("/resources/classes/guwen/", "📜", "古文選讀", "古文名篇全文中英對照與逐段導讀，附章法分析。"),
     ]
     hub_page("/resources/classes/", "resources", "人師英語課程",
         "有系統地，把英語學起來", "文法、字根、文章結構與經典名著——循序漸進的英語課程。", children)
@@ -1506,6 +1508,8 @@ _tsj = os.path.join(ROOT, "data", "tangshi.json")
 TANGSHI = json.load(open(_tsj, encoding="utf-8")) if os.path.exists(_tsj) else None
 _lyj = os.path.join(ROOT, "data", "lunyu.json")
 LUNYU = json.load(open(_lyj, encoding="utf-8")) if os.path.exists(_lyj) else None
+_gwj = os.path.join(ROOT, "data", "guwen.json")
+GUWEN = json.load(open(_gwj, encoding="utf-8")) if os.path.exists(_gwj) else None
 
 _EN_SPAN = re.compile(r"[A-Za-z][A-Za-z0-9 ,.'’?!():;/+\-]*")
 def _say_en(line):
@@ -2141,6 +2145,195 @@ def build_lunyu_hub():
     write(LUNYU_BASE, layout(LUNYU_BASE, "論語選讀 · The Analects",
           "論語中英對照與逐句導讀，每章附兩家公版英譯對照、你可能讀反的地方與教學提示。", body, "resources"))
     return LUNYU_BASE
+
+
+# ---- 古文選讀（資料驅動，data/guwen.json）----
+# 與唐詩／論語共用 .tp-* 版型，但單位是「篇」：每篇分段，每段有段題與段旨，
+# 段內仍逐句對照（.tp-line），並自動生成分段目錄（.tp-toc）。
+# 與論語最大的差別：古文多半沒有公版英譯，主譯文是本站自譯，
+# 「英語世界怎麼讀」那一節放的是同一作者其他篇章的公版譯本當旁證。
+GUWEN_BASE = "/resources/classes/guwen/"
+
+def _gw_line(zh, en):
+    say_en = html.escape(re.sub(r"\s+", " ", re.sub(r"[“”]", "", en)).strip())
+    return ('<div class="tp-line">'
+            f'<button class="spk pm-spk" data-say="{say_en}" aria-label="Say this line · 唸這句英文">🔊</button>'
+            f'<span class="tp-zh">{html.escape(zh)}</span>'
+            f'<span class="tp-en">{html.escape(en)}</span></div>')
+
+def _gw_sections(secs):
+    out = []
+    for i, s in enumerate(secs, 1):
+        # 段旨的樣式寫成行內：改 style.css 會讓全站 CSS 版本雜湊變動，
+        # 而 repo 常有平行工作階段在改唐詩，會被迫連他人未完成的頁面一起提交。
+        gist = (f'<p class="gw-gist" style="margin:.1rem 0 .9rem;padding:.55rem .85rem;'
+                f'border-left:3px solid var(--gold);background:var(--cream);'
+                f'border-radius:0 8px 8px 0;font-family:var(--sans);font-size:1.02rem;'
+                f'line-height:1.6;color:var(--ink-soft)">{_pmd(s["gist"])}</p>'
+                ) if s.get("gist") else ""
+        out.append(
+            f'<div class="pm-stanza tp-sec" id="sec{i}">'
+            f'<p class="tp-sec-h"><span class="tp-sec-n">{i}</span>{html.escape(s["h"])}'
+            f'<a class="tp-sec-top" href="#gw-toc">目錄 &uarr;</a></p>'
+            + gist + "".join(_gw_line(l[0], l[1]) for l in s["lines"]) + "</div>")
+    return "".join(out)
+
+def _gw_toc(secs, nchars):
+    items = "".join(f'<a class="tp-toc-i" href="#sec{i}">'
+                    f'<span class="tp-toc-n">{i}</span>{html.escape(s["h"])}</a>'
+                    for i, s in enumerate(secs, 1))
+    return (f'<div class="tp-toc rvl" id="gw-toc"><p class="tp-toc-k">全文 {nchars} 字 · 分 {len(secs)} 段</p>'
+            f'<div class="tp-toc-g">{items}</div></div>')
+
+def _gw_nav(es):
+    lst = GUWEN["essays"]
+    i = next(n for n, x in enumerate(lst) if x["slug"] == es["slug"])
+    prev = lst[i-1] if i > 0 else None
+    nxt = lst[i+1] if i < len(lst)-1 else None
+    def side(e, dirn, label):
+        if not e:
+            return '<span class="pm-nav-x"></span>'
+        arrow = "&larr;" if dirn == "prev" else "&rarr;"
+        return (f'<a class="pm-nav-s pm-nav-{dirn}" href="{GUWEN_BASE}{e["slug"]}/">'
+                f'<span class="pm-nav-k">{arrow} {label}</span>'
+                f'<span class="pm-nav-t">{html.escape(e["title"])}</span></a>')
+    return (f'<nav class="pm-nav rvl">{side(prev, "prev", "上一篇")}'
+            f'<a class="pm-nav-hub" href="{GUWEN_BASE}">&#9776; 回古文選讀</a>'
+            f'{side(nxt, "next", "下一篇")}</nav>')
+
+def build_guwen_essay(es):
+    path = f'{GUWEN_BASE}{es["slug"]}/'
+    nchars = sum(len(re.sub(r"[^一-鿿]", "", l[0]))
+                 for s in es["sections"] for l in s["lines"])
+    words = "".join(
+        f'<tr><td class="pm-w tp-w">{html.escape(w[0])}</td><td>{_pmd(w[1])}</td>'
+        f'<td class="pm-wn">{_pmd(w[2])}</td></tr>' for w in es["words"])
+    residue = "".join(
+        f'<tr><td class="pm-w tp-w">{html.escape(r[0])}</td><td>{_pmd(r[1])}</td>'
+        f'<td class="pm-wn">{_pmd(r[2])}</td></tr>' for r in es["residue"])
+    teach = "".join(f'<li>{_pmd(x)}</li>' for x in es["teaching"])
+    rc = es["reception"]
+    rc_lines = "".join(f'<span class="tp-rc-line">{html.escape(x)}</span>' for x in rc["lines"])
+    meta_rows = (
+        f'<div><span class="af-k">作者</span><span class="af-v">{html.escape(es["author"])} '
+        f'{html.escape(es["author_en"])}（{html.escape(es["life"])}）</span></div>'
+        f'<div><span class="af-k">年代</span><span class="af-v">{html.escape(es["year"])}</span></div>'
+        f'<div><span class="af-k">出處</span><span class="af-v">{html.escape(es["source"])}</span></div>'
+        f'<div><span class="af-k">文體</span><span class="af-v">{html.escape(es["genre"])}</span></div>')
+
+    body = f'''
+{page_hero("古文選讀", es["title"], html.escape(es["blurb"]), back=(GUWEN_BASE, "回古文選讀"))}
+<section class="section"><div class="wrap">
+  <div class="pm-meta rvl">{meta_rows}</div>
+</div></section>
+
+<section class="section band"><div class="wrap">
+  <p class="eyebrow rvl">全文 · 中英對照</p>
+  <h2 class="rvl d1 sweep">{html.escape(es["title"])} <span class="tp-h2-en">{html.escape(es["title_en"])}</span></h2>
+  <p class="lead rvl d2" style="max-width:62ch">點任一行的 🔊 可以聽英譯的發音。{_pmd(es["trans_note"])}</p>
+  {_gw_toc(es["sections"], nchars)}
+  <div class="pm-poem tp-poem rvl">{_gw_sections(es["sections"])}</div>
+</div></section>
+
+<section class="section"><div class="wrap">
+  <p class="eyebrow rvl">逐段導讀</p>
+  <h2 class="rvl d1 sweep">這篇文章在做什麼</h2>
+  <div class="pm-guide">{_pm_blocks(es["guide"])}</div>
+</div></section>
+
+<section class="section"><div class="wrap">
+  <div class="pm-alert rvl">
+    <p class="pm-alert-k">⚠️ 你可能讀反的地方</p>
+    <p class="pm-alert-lead">課本選過的文章最容易讀反——因為你背的是課本的解釋，不是文章本身。以下放的是<strong>原文明明寫了、但多數人沒注意到的字句</strong>。</p>
+    <div class="pm-guide">{_pm_blocks(es["misread"])}</div>
+  </div>
+</div></section>
+
+<section class="section band"><div class="wrap">
+  <div class="pm-alert tp-lost rvl">
+    <p class="pm-alert-k">🔍 英文譯不出來的地方</p>
+    <p class="pm-alert-lead">翻譯是最嚴格的閱讀。中文可以含糊帶過的地方，英文非得做決定。以下是譯這篇文章時<strong>被迫做的取捨</strong>，也是中文最值得停下來看的地方。</p>
+    <div class="pm-guide">{_pm_blocks(es["lost"])}</div>
+  </div>
+</div></section>
+
+<section class="section"><div class="wrap">
+  <p class="eyebrow rvl">關鍵字詞</p>
+  <h2 class="rvl d1 sweep">這個字為什麼選這個英文</h2>
+  <div class="pm-table-wrap rvl"><table class="pm-table">
+    <thead><tr><th>字詞</th><th>這裡的意思</th><th>英譯與選擇</th></tr></thead>
+    <tbody>{words}</tbody>
+  </table></div>
+</div></section>
+
+<section class="section band"><div class="wrap">
+  <div class="pm-two">
+    <div class="pm-col rvl">
+      <p class="eyebrow">章法</p>
+      <h3>這篇文章是怎麼蓋起來的</h3>
+      <div class="prose">{_pm_paras(es["structure"])}</div>
+    </div>
+    <div class="pm-col rvl d1">
+      <p class="eyebrow">英語世界怎麼讀他</p>
+      <h3>{html.escape(rc["title_en"])}</h3>
+      <div class="prose">{_pm_paras(rc["intro"])}</div>
+      <div class="tp-rc">{rc_lines}<span class="tp-rc-by">— {html.escape(rc["translator"])}</span></div>
+    </div>
+  </div>
+</div></section>
+
+<section class="section"><div class="wrap">
+  <p class="eyebrow rvl">活在現代中文裡</p>
+  <h2 class="rvl d1 sweep">這篇文章留下來的話</h2>
+  <div class="pm-table-wrap rvl"><table class="pm-table">
+    <thead><tr><th>句子</th><th>現在怎麼用</th><th>英文可對應</th></tr></thead>
+    <tbody>{residue}</tbody>
+  </table></div>
+</div></section>
+
+<section class="section band"><div class="wrap">
+  <div class="pm-teach rvl">
+    <p class="pm-alert-k">🍎 給雙語課老師的教學提示</p>
+    <ul class="pm-teach-list">{teach}</ul>
+  </div>
+  {_gw_nav(es)}
+</div></section>
+'''
+    say_slug = f'guwen-{es["slug"]}'
+    has_clips = os.path.exists(os.path.join(ROOT, "assets/data/say", say_slug + ".json"))
+    write(path, layout(path, f'{es["title"]} {es["title_en"]}',
+          f'{es["author"]}〈{es["title"]}〉全文中英對照與逐段導讀：{es["blurb"]}', body, "resources",
+          say_manifest=say_slug if has_clips else None))
+    return path
+
+def build_guwen_hub():
+    cards = []
+    for es in GUWEN["essays"]:
+        n = sum(len(re.sub(r"[^一-鿿]", "", l[0]))
+                for s in es["sections"] for l in s["lines"])
+        cards.append(
+            f'<a class="pm-card rvl" href="{GUWEN_BASE}{es["slug"]}/">'
+            f'<span class="pm-card-lv">{html.escape(es["level"])}</span>'
+            f'<h3 class="tp-card-h">{html.escape(es["title"])}</h3>'
+            f'<p class="pm-card-zh">{html.escape(es["title_en"])}</p>'
+            f'<p class="pm-card-by">{html.escape(es["author"])} {html.escape(es["author_en"])} · '
+            f'{html.escape(es["genre"])} · {n} 字</p>'
+            f'<p class="pm-card-bl">{html.escape(es["blurb"])}</p>'
+            f'<span class="fcard-go">讀這篇 <i>&rarr;</i></span></a>')
+    body = f'''
+{page_hero(GUWEN["eyebrow"], GUWEN["title"], html.escape(GUWEN["lead"]), back=("/resources/reading/", "回閱讀與經典"))}
+<section class="section"><div class="wrap">
+  <div class="prose wide rvl">{_pm_paras(GUWEN["intro"])}</div>
+</div></section>
+<section class="section band"><div class="wrap">
+  <p class="eyebrow rvl">篇目</p>
+  <h2 class="rvl d1 sweep">{len(GUWEN["essays"])} 篇，持續增加中</h2>
+  <div class="pm-cards stagger">{"".join(cards)}</div>
+</div></section>
+'''
+    write(GUWEN_BASE, layout(GUWEN_BASE, "古文選讀 · Classical Chinese Prose",
+          "古文名篇全文中英對照與逐段導讀，附章法分析、你可能讀反的地方與教學提示。", body, "resources"))
+    return GUWEN_BASE
 
 
 def build_poetry_hub():
@@ -4033,6 +4226,9 @@ def main():
     if LUNYU:
         paths.append(build_lunyu_hub())
         for _ch in LUNYU["chapters"]: paths.append(build_lunyu_chapter(_ch))
+    if GUWEN:
+        paths.append(build_guwen_hub())
+        for _es in GUWEN["essays"]: paths.append(build_guwen_essay(_es))
     build_grandfather(); paths.append("/resources/grandfather/")
     build_periodicals(); paths.append("/resources/periodicals/")
     build_media_hub(); paths.append("/media/")
