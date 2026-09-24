@@ -1375,6 +1375,7 @@ def build_reading_hub():
             ("/resources/booklets/conversation/", "💬", "實用英語會話", "日常生活的實用對話。"),
             ("/resources/booklets/description/", "🖼️", "看圖描述", "看圖學描述，練口說與寫作。"),
             ("/resources/classes/animal-farm/", "🐖", "動物農莊", "經典名著《Animal Farm》導讀。"),
+            ("/resources/classes/poetry/", "📜", "名詩導讀", "英美經典詩作中英對照與逐節導讀。"),
             ("/resources/grandfather/", "🌅", "Grandfather 落日餘暉", "Leon La Couvée 三十章人生智慧，中英對照。"),
             ("/resources/periodicals/", "📰", "英語期刊", "明航心鄉土情、明航雙語學園與全民英語期刊典藏。"),
         ])
@@ -1479,6 +1480,7 @@ def build_classes_hub():
         ("/resources/classes/grammar/", "📐", "基礎文法", "從詞性到時態，打好文法地基。"),
         ("/resources/classes/sentence-analysis/", "🔍", "英語句型分析（舊）", "經典句型逐句拆解。"),
         ("/resources/classes/animal-farm/", "🐖", "動物農莊", "經典名著《Animal Farm》導讀。"),
+        ("/resources/classes/poetry/", "📜", "名詩導讀", "英美經典詩作中英對照與逐節導讀。"),
     ]
     hub_page("/resources/classes/", "resources", "人師英語課程",
         "有系統地，把英語學起來", "文法、字根、文章結構與經典名著——循序漸進的英語課程。", children)
@@ -1494,6 +1496,8 @@ _gj = os.path.join(ROOT, "data", "grammar.json")
 GRAMMAR = json.load(open(_gj, encoding="utf-8")) if os.path.exists(_gj) else None
 _afj = os.path.join(ROOT, "data", "animal-farm.json")
 ANIMAL_FARM = json.load(open(_afj, encoding="utf-8")) if os.path.exists(_afj) else None
+_pmj = os.path.join(ROOT, "data", "poems.json")
+POEMS = json.load(open(_pmj, encoding="utf-8")) if os.path.exists(_pmj) else None
 
 _EN_SPAN = re.compile(r"[A-Za-z][A-Za-z0-9 ,.'’?!():;/+\-]*")
 def _say_en(line):
@@ -1624,6 +1628,150 @@ def build_animalfarm():
 '''
     write("/resources/classes/animal-farm/", layout("/resources/classes/animal-farm/", "動物農莊 Animal Farm",
           "George Orwell《動物農莊》英語逐章朗讀與研讀：書籍背景、十章摘要、65 段影片與角色寓意對照。", body, "resources"))
+
+# ---- 名詩導讀（資料驅動，data/poems.json）----
+POETRY_BASE = "/resources/classes/poetry/"
+
+def _pmd(t):
+    """導讀文字的輕量標記：先 escape，再把 **粗體** 與 `程式碼` 還原成標籤。"""
+    t = html.escape(t)
+    t = re.sub(r"\*\*(.+?)\*\*", r"<strong>\1</strong>", t)
+    t = re.sub(r"`(.+?)`", r"<code>\1</code>", t)
+    return t
+
+def _pm_line(en, zh):
+    """一行詩：🔊 唸這句 + 英文原文 + 中文對照。"""
+    say = html.escape(re.sub(r"\s+", " ", re.sub(r"[“”]", "", en)).strip())
+    return ('<div class="pm-line">'
+            f'<button class="spk pm-spk" data-say="{say}" aria-label="Say this line · 唸這句">🔊</button>'
+            f'<span class="pm-en">{html.escape(en)}</span>'
+            f'<span class="pm-zh">{_pmd(zh)}</span></div>')
+
+def _pm_blocks(items):
+    return "".join(
+        f'<div class="pm-blk rvl"><h3>{_pmd(it["h"])}</h3>'
+        + "".join(f"<p>{_pmd(x)}</p>" for x in it["p"]) + "</div>"
+        for it in items)
+
+def _pm_paras(items):
+    return "".join(f"<p>{_pmd(x)}</p>" for x in items)
+
+def build_poem(pm):
+    path = f'{POETRY_BASE}{pm["slug"]}/'
+    stanzas = "".join(
+        '<div class="pm-stanza">' + "".join(_pm_line(l[0], l[1]) for l in st) + "</div>"
+        for st in pm["stanzas"])
+    words = "".join(
+        f'<tr><td class="pm-w">{html.escape(w[0])}</td><td>{_pmd(w[1])}</td>'
+        f'<td class="pm-wn">{_pmd(w[2])}</td></tr>' for w in pm["words"])
+    residue = "".join(
+        f'<tr><td class="pm-w">{html.escape(r[0])}</td><td>{_pmd(r[1])}</td></tr>'
+        for r in pm["residue"])
+    teach = "".join(f'<li>{_pmd(x)}</li>' for x in pm["teaching"])
+    meta_rows = (
+        f'<div><span class="af-k">詩人</span><span class="af-v">{html.escape(pm["poet"])} {html.escape(pm["poet_zh"])}'
+        f'（{html.escape(pm["life"])}）</span></div>'
+        f'<div><span class="af-k">年代</span><span class="af-v">{html.escape(pm["year"])}</span></div>'
+        f'<div><span class="af-k">詩體</span><span class="af-v">{html.escape(pm["form"])}</span></div>'
+        f'<div><span class="af-k">主題</span><span class="af-v">{html.escape(pm["theme"])}</span></div>')
+
+    body = f'''
+{page_hero("名詩導讀", pm["title"], html.escape(pm["blurb"]), back=(POETRY_BASE, "回名詩導讀"))}
+<section class="section"><div class="wrap">
+  <div class="pm-meta rvl">{meta_rows}</div>
+</div></section>
+
+<section class="section band"><div class="wrap">
+  <p class="eyebrow rvl">全詩 · 中英對照</p>
+  <h2 class="rvl d1 sweep">先讀原文，再看對照</h2>
+  <p class="lead rvl d2" style="max-width:62ch">點任一行的 🔊 可以聽發音。中文是逐行白話對照，不求詩體，只求看懂。</p>
+  <div class="pm-poem rvl">{stanzas}</div>
+</div></section>
+
+<section class="section"><div class="wrap">
+  <p class="eyebrow rvl">逐節導讀</p>
+  <h2 class="rvl d1 sweep">這首詩在做什麼</h2>
+  <div class="pm-guide">{_pm_blocks(pm["guide"])}</div>
+</div></section>
+
+<section class="section"><div class="wrap">
+  <div class="pm-alert rvl">
+    <p class="pm-alert-k">⚠️ 你可能讀反的地方</p>
+    <p class="pm-alert-lead">文化背景的缺口不會讓你覺得「我看不懂」——它讓你覺得「我看懂了，但好像沒什麼」。以下放的不是詮釋，是<strong>詩裡明明寫了、但多數人沒注意到的字句</strong>。</p>
+    <div class="pm-guide">{_pm_blocks(pm["misread"])}</div>
+  </div>
+</div></section>
+
+<section class="section band"><div class="wrap">
+  <p class="eyebrow rvl">關鍵字詞</p>
+  <h2 class="rvl d1 sweep">認得、但意思不是你以為的那個</h2>
+  <div class="pm-table-wrap rvl"><table class="pm-table">
+    <thead><tr><th>字詞</th><th>這裡的意思</th><th>註</th></tr></thead>
+    <tbody>{words}</tbody>
+  </table></div>
+</div></section>
+
+<section class="section"><div class="wrap">
+  <div class="pm-two">
+    <div class="pm-col rvl">
+      <p class="eyebrow">形式與格律</p>
+      <h3>為什麼寫成這個樣子</h3>
+      <div class="prose">{_pm_paras(pm["formnote"])}</div>
+    </div>
+    <div class="pm-col rvl d1">
+      <p class="eyebrow">文化背景</p>
+      <h3>它預設你已經知道的事</h3>
+      <div class="prose">{_pm_paras(pm["culture"])}</div>
+    </div>
+  </div>
+</div></section>
+
+<section class="section band"><div class="wrap">
+  <p class="eyebrow rvl">活在現代英文裡</p>
+  <h2 class="rvl d1 sweep">這首詩留下來的話</h2>
+  <div class="pm-table-wrap rvl"><table class="pm-table pm-table-2">
+    <thead><tr><th>片語</th><th>現在怎麼用</th></tr></thead>
+    <tbody>{residue}</tbody>
+  </table></div>
+</div></section>
+
+<section class="section"><div class="wrap">
+  <div class="pm-teach rvl">
+    <p class="pm-alert-k">🍎 給老師的教學提示</p>
+    <ul class="pm-teach-list">{teach}</ul>
+  </div>
+</div></section>
+'''
+    write(path, layout(path, f'{pm["title"]} {pm["title_zh"]}',
+          f'{pm["poet_zh"]}〈{pm["title"]}〉中英對照與逐節導讀：{pm["blurb"]}', body, "resources"))
+    return path
+
+def build_poetry_hub():
+    cards = []
+    for pm in POEMS["poems"]:
+        cards.append(
+            f'<a class="pm-card rvl" href="{POETRY_BASE}{pm["slug"]}/">'
+            f'<span class="pm-card-lv">{html.escape(pm["level"])}</span>'
+            f'<h3>{html.escape(pm["title"])}</h3>'
+            f'<p class="pm-card-zh">{html.escape(pm["title_zh"])}</p>'
+            f'<p class="pm-card-by">{html.escape(pm["poet"])} {html.escape(pm["poet_zh"])} · {html.escape(pm["year"])}</p>'
+            f'<p class="pm-card-bl">{html.escape(pm["blurb"])}</p>'
+            f'<span class="fcard-go">讀這首 <i>&rarr;</i></span></a>')
+    body = f'''
+{page_hero(POEMS["eyebrow"], POEMS["title"], html.escape(POEMS["lead"]), back=("/resources/reading/", "回閱讀與經典"))}
+<section class="section"><div class="wrap">
+  <div class="prose wide rvl">{_pm_paras(POEMS["intro"])}</div>
+</div></section>
+<section class="section band"><div class="wrap">
+  <p class="eyebrow rvl">詩單</p>
+  <h2 class="rvl d1 sweep">{len(POEMS["poems"])} 首，持續增加中</h2>
+  <div class="pm-cards stagger">{"".join(cards)}</div>
+</div></section>
+'''
+    write(POETRY_BASE, layout(POETRY_BASE, "名詩導讀",
+          "英美名詩中英對照與逐節導讀：全詩對照、關鍵字詞、格律說明、文化背景與教學提示，並指出每首詩最容易被讀反的地方。",
+          body, "resources"))
+    return POETRY_BASE
 
 def build_booklets():
     hub_page("/resources/booklets/", "resources", "人師閱讀教材",
@@ -3479,6 +3627,9 @@ def main():
         else:
             leaf_prose(path, "resources", "人師英語課程", title, lead, _clean_paras(cp) or ["內容整理中。"])
         paths.append(path)
+    if POEMS:
+        paths.append(build_poetry_hub())
+        for _pm in POEMS["poems"]: paths.append(build_poem(_pm))
     build_grandfather(); paths.append("/resources/grandfather/")
     build_periodicals(); paths.append("/resources/periodicals/")
     build_media_hub(); paths.append("/media/")
