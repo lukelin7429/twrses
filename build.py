@@ -2387,6 +2387,7 @@ def build_zhongyi_lesson(unit, lesson, unit_label):
         "questions": lesson["questions"],
         "answers": lesson["answers"],
         "vocab": lesson["vocab"],
+        "quiz": lesson.get("quiz"),
     }
     reading_html = render_basic_unit(1, unit_dict, level="zhongyi", audio_rel="", pdf_rel="")
     eyebrow = f'TCM Wellness · {unit["title_en"]} · 中醫養生 {unit_label}'
@@ -2401,8 +2402,11 @@ def build_zhongyi_lesson(unit, lesson, unit_label):
 {_zy_nav(lesson["slug"])}
 </div></section>
 '''
+    say_slug = f'zhongyi-{lesson["slug"]}'
+    has_clips = os.path.exists(os.path.join(ROOT, "assets/data/say", say_slug + ".json"))
     write(path, layout(path, f'{lesson["title"]} · TCM Wellness 中醫養生',
-          f'{lesson["blurb_en"]} {lesson["blurb_zh"]}', body, "resources"))
+          f'{lesson["blurb_en"]} {lesson["blurb_zh"]}', body, "resources",
+          say_manifest=say_slug if has_clips else None))
     return path
 
 def build_zhongyi_hub():
