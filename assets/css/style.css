@@ -118,6 +118,10 @@ p  { margin: 0 0 1.1em; }
   opacity:0; visibility:hidden; transform: translateY(8px); transition: all .22s; z-index: 50;
 }
 .has-sub:hover .submenu, .has-sub:focus-within .submenu { opacity:1; visibility:visible; transform: translateY(0); }
+/* 下拉預設 left:0 往右展開，但最後一個選單項已經貼在導覽的右緣，
+   230px 的下拉會超出視窗右側而讓整頁出現水平捲軸（即使沒有 hover，
+   絕對定位的元素仍然計入 scrollWidth）。最後一項改成向左展開。 */
+.menu > li:last-child .submenu { left: auto; right: 0; }
 .submenu a { display:block; padding:.55rem .8rem; border-radius:9px; font-family: var(--zh); font-weight:500; font-size:.95rem; color: var(--ink); }
 .submenu a:hover { background: var(--brand-lt); color: var(--brand-dk); }
 
