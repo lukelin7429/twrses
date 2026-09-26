@@ -1,0 +1,280 @@
+{
+  "title": "中醫養生 · TCM Wellness",
+  "eyebrow": "中醫養生",
+  "lead": "用中文讀懂中醫的道理，也用英文講得出去——中英雙語，中文為主、英文為輔。",
+  "intro": [
+    "這個系列講的是養生的道理，不是養生的撇步。每一課只講透一個概念，寧可講得慢，也不列一堆記不住的要點。",
+    "課程分成幾個大單元，每個單元底下會持續加課——不是七課學完中醫，是七個地基，之後可以一直往上蓋。",
+    "邊界寫在最前面：這裡不辨證、不開方、不談劑量、不談針灸取穴。理論框架講給你聽，真正的診斷與治療，永遠交給合格的中醫師。"
+  ],
+  "units": [
+    {
+      "key": "qi",
+      "title": "氣",
+      "blurb": "不懂氣，後面的陰陽、臟腑、經絡全是散的——而氣也是把中醫講給西方人聽最大的一道坎。",
+      "lessons": [
+        {
+          "slug": "qi-fei-neng-liang",
+          "title": "氣不是 energy",
+          "level": "入門",
+          "blurb": "學中醫的第一步不是背理論，是先放下一個最容易犯的誤譯：氣不是 energy。",
+          "takeaway": "qi 不翻譯，就像 karma、nirvana 一樣保留原詞。",
+          "concept": [
+            {
+              "h": "氣不是能量，是一種在運行中的作用",
+              "p": [
+                "把氣理解成西方物理學的 energy——可以被測量、被儲存、守恆——是學中醫時最常見、也最早該糾正的誤譯。氣不是一種「東西」，而是一種「作用」：身體正在運作這件事本身。",
+                "energy 是十九世紀物理學留下的概念，氣則出自先秦哲學與醫學，兩者的出處差了兩千多年，硬要對齊只會兩邊都講不清楚。"
+              ]
+            },
+            {
+              "h": "為什麼這個誤譯特別要緊",
+              "p": [
+                "把氣翻成 energy，下一個問題幾乎必然是「那可以用儀器測嗎？」——這個問題本身就已經走錯方向了。這就像有人問「涅槃的溫度是幾度」：不是答不出來，是問題的框架從一開始就不對。",
+                "現在西方漢學與中醫教育界的主流做法，是直接保留 `qi` 這個詞，不翻譯——就像 `karma`、`nirvana`、`yoga`、`feng shui` 一樣，用解釋補足，而不是硬找一個英文字頂替。這是推廣中醫該先守住的第一件事。"
+              ]
+            }
+          ],
+          "practice": [
+            {
+              "h": "這一課先記地基，下一課才談生活",
+              "p": [
+                "後面幾課的「五功能」「勞則氣耗」「怎麼養氣」，全部建立在「氣不是 energy」這件事上。順序不能跳過——先把框架放對，後面的道理才推得動。"
+              ]
+            }
+          ],
+          "english": {
+            "cols": [
+              {
+                "h": "開場：不要一開始就講形上學",
+                "quote": "Qi isn't a substance you store — it's closer to the body doing its work. When we say someone's qi is weak, we're not saying a battery ran low; we're saying the body's functions aren't being carried out with full force."
+              },
+              {
+                "h": "回答「這個能測量嗎？」",
+                "quote": "It's not a measurable quantity in the physics sense — it's a way of describing patterns of function. The question \"how much qi is there?\" is a bit like asking how much fitness someone has: real, observable in its effects, but not a substance sitting somewhere."
+              }
+            ],
+            "note": "`fitness` 這個類比很好用——英語母語者接受「fitness 是真的但不是一個物質」，就等於接受了氣的邏輯。"
+          },
+          "vocab": [
+            ["氣", "qi（不翻譯）", "不要寫 `energy`；斜體 *qi* 或正體都可以，全文一致即可。"],
+            ["氣虛", "qi deficiency", "不是 lack of energy——那會把「作用不足」講成「電池沒電」。"],
+            ["辨證論治", "pattern differentiation and treatment", "中醫的核心方法論，不是 diagnosis；後面的課會展開。"]
+          ],
+          "boundary": "如果讀到某個概念覺得「這在講我」，那是掛號給中醫師看看的訊號，不是自己在家對照症狀下判斷。",
+          "teaching": [
+            "教這一課時，先問學生「你聽過 qi 被翻成什麼？」，通常會得到 energy——用這個誤解當反例，比直接給定義有效。",
+            "`fitness` 的類比可以現場示範：問學生「你有多少 fitness？」，他們會發現這個問題本身就很怪，那正是「氣有多少？」同樣怪的地方。",
+            "提醒學生：qi 在英文裡不斜體也可以，但全班筆記要一致，不要一下 qi 一下 chi 一下 energy。"
+          ]
+        },
+        {
+          "slug": "qi-de-wu-gong-neng",
+          "title": "氣做的五件事",
+          "level": "入門",
+          "blurb": "氣虛的人為什麼會累、會冷、會常常感冒？答案不是背症狀清單，是從一個原理往下推。",
+          "takeaway": "五功能倒過來看，就是氣虛的樣子。",
+          "concept": [
+            {
+              "h": "氣的五個功能",
+              "p": [
+                "中醫講氣的功能，標準是五項：<strong>推動</strong>（propulsion／driving）讓血走、讓水液流、讓臟腑動起來；<strong>溫煦</strong>（warming）維持體溫，手腳是暖的；<strong>防禦</strong>（defense，衛氣＝defensive qi）擋住外邪，不容易生病；<strong>固攝</strong>（containment／holding）把該留住的留住，血不亂走、汗不亂流；<strong>氣化</strong>（transformation）把吃進去的變成身體能用的。",
+                "記住這五項，就抓得住「氣虛」為什麼是那些症狀——它們不是任意湊出來的清單，是同一個原理的五個面向。"
+              ]
+            },
+            {
+              "h": "把五項倒過來看，就是氣虛",
+              "p": [
+                "推不動 → 疲倦乏力、懶得講話；溫不了 → 手腳冰冷；防不住 → 動不動感冒；固不住 → 不動也流汗（自汗）；化不了 → 吃了也沒力氣、食慾差。",
+                "這不是列症狀清單，是從一個原理推出來的結果——這正是「養生的道理」跟「養生的撇步」的差別。"
+              ]
+            }
+          ],
+          "practice": [
+            {
+              "h": "先練回推，不急著談怎麼補",
+              "p": [
+                "怎麼補氣是後面兩課的內容。這裡先練一件事：氣虛的每一個症狀，都能回推到五功能裡的哪一項出了問題。這個回推能力，比背五個症狀名稱更有用。"
+              ]
+            }
+          ],
+          "english": {
+            "cols": [
+              {
+                "h": "解釋五個功能",
+                "quote": "In Chinese medicine, qi does five things: it moves things along, keeps you warm, defends you, holds things in place, and turns what you eat into something your body can use."
+              },
+              {
+                "h": "解釋「氣虛」是什麼樣子",
+                "quote": "When qi is weak, none of these five jobs are being done with full force — so you feel tired, you're often cold, you catch colds easily, and sometimes you sweat for no reason at all."
+              }
+            ],
+            "note": null
+          },
+          "vocab": [
+            ["衛氣", "defensive qi", "五功能中的「防禦」。"],
+            ["營氣", "nutritive qi", "跟著血脈運行、滋養全身的氣。"],
+            ["自汗", "spontaneous sweating", "不動也流汗，屬固攝失職——英文沒有一個字直接對應，是解釋出來的複合詞。"]
+          ],
+          "boundary": "五功能是理解症狀的框架，不是自我診斷表——同一個「容易感冒」，原因可能是氣虛，也可能不是，這要由中醫師辨證判斷。",
+          "teaching": [
+            "五功能可以畫成一張手掌圖，五指對應五功能，方便學生記憶與複誦。",
+            "「自汗」是這一課最好教的雙語詞：英文沒有現成的字，spontaneous sweating 是解釋出來的，值得讓學生體會「不是每個中文詞都有現成英文字」。",
+            "可以讓學生兩人一組，一人講中文症狀，另一人回推是五功能裡的哪一項——練的是邏輯，不是記憶。"
+          ]
+        },
+        {
+          "slug": "lao-ze-qi-hao",
+          "title": "勞則氣耗",
+          "level": "入門",
+          "blurb": "《黃帝內經》八個字，講完了氣虛最常見的成因。",
+          "takeaway": "「勞」不只是體力，思慮過度、放不下心也算。",
+          "concept": [
+            {
+              "h": "「勞」不只是體力",
+              "p": [
+                "《黃帝內經·素問·舉痛論》講得很直接：「勞則氣耗。」同一篇還有更重的一句：「百病生於氣也。」",
+                "中醫講的「勞」不只是體力勞動——思慮過度、長期承擔責任、放不下心，中醫都算在裡面，這就是「思傷脾」「勞倦內傷」講的事。"
+              ]
+            },
+            {
+              "h": "氣是消耗品",
+              "p": [
+                "氣是消耗品，持續支出而不回補，就是虛。而氣虛最典型的一組表現，恰好對上上一課推出來的五功能：累到不想講話、做什麼都提不起勁、容易感冒、稍動就出汗。"
+              ]
+            }
+          ],
+          "practice": [
+            {
+              "h": "先練辨認，下一課才談怎麼補",
+              "p": [
+                "如果最近的狀態是「累、不想講話、容易感冒、稍動就出汗」同時出現，那多半不是單一原因，而是氣被持續支出、沒有回補——這是辨認，不是診斷。"
+              ]
+            }
+          ],
+          "english": {
+            "cols": [
+              {
+                "h": "解釋「勞則氣耗」",
+                "quote": "The Yellow Emperor's Inner Classic puts it in four characters: overexertion consumes qi. And \"overexertion\" here isn't only physical labor — it includes carrying too much responsibility, worrying without rest, and never quite letting go."
+              },
+              {
+                "h": "為什麼英文的 overwork 不夠用",
+                "quote": "English tends to split this into \"physical fatigue\" and \"stress\" as if they were two separate things. Chinese medicine treats them as the same drain on the same resource — qi being spent faster than it's replenished."
+              }
+            ],
+            "note": null
+          },
+          "vocab": [
+            ["勞倦內傷", "internal damage from overwork", "不是 fatigue——那只是症狀名，勞倦內傷講的是成因。"],
+            ["思傷脾", "excessive worry injures the spleen", "先埋伏筆：中醫的「脾」不是解剖學的脾臟，臟腑那個單元會展開。"]
+          ],
+          "boundary": "「累、容易感冒、稍動就出汗」同時出現時，值得掛號讓中醫師判斷，不是自己對照這幾個字下結論。",
+          "teaching": [
+            "「勞」很適合做英文選字練習：問學生 tired／exhausted／overworked 三個字哪個最接近，通常會發現英文沒有一個字同時裝下「體力」與「心理負荷過度」，而「勞」有。",
+            "可以順勢問學生：你最近的「勞」是哪一種？體力的、還是放不下心的？——把理論帶回自己的生活。"
+          ]
+        },
+        {
+          "slug": "yang-qi-zhi-dao",
+          "title": "養氣的生活原則",
+          "level": "入門",
+          "blurb": "補氣的大原則其實很簡單，而且不需要吃藥——難的是做到。",
+          "takeaway": "四個原則，其實是同一件事：讓氣的支出小於回補。",
+          "concept": [
+            {
+              "h": "四個原則，一個核心",
+              "p": [
+                "補氣的大原則：少耗（減少思慮與責任負荷）、早睡（子時前，陽氣得養）、食飲有節（別靠冰的與生冷）、勿過汗（大汗傷氣）。",
+                "這四項不是任意湊出來的四點，而是同一件事的四個面向：少耗是減少支出、早睡是增加回補、食飲有節是不讓氣化系統額外耗損、勿過汗是不讓固攝功能被迫多做工——把第二課的五功能表反過來用，就是這四條原則。"
+              ]
+            }
+          ],
+          "practice": [
+            {
+              "h": "從生活裡的一句話看補氣",
+              "p": [
+                "「希望逐步簡化生活，挪出時間打坐與閱讀」——這句話在中醫看來就是最標準的補氣處方：先減少支出，再談回補。補氣的第一步從來不是找一味藥，是先把耗損源頭關小。"
+              ]
+            }
+          ],
+          "english": {
+            "cols": [
+              {
+                "h": "解釋補氣不用吃藥",
+                "quote": "The basic principle for restoring qi has nothing to do with medicine: spend less, sleep earlier, eat and drink with restraint, and don't sweat to excess. It's about closing the leak before you try to refill the tank."
+              },
+              {
+                "h": "為什麼「少耗」排第一",
+                "quote": "You can't out-sleep a life that keeps draining you. Chinese medicine puts reducing the drain before adding the rest — the order matters as much as the items on the list."
+              }
+            ],
+            "note": null
+          },
+          "vocab": [
+            ["子時", "the hour of the rat (11 p.m.–1 a.m.)", "陽氣開始生發的時辰，下個單元「陰陽」會展開。"],
+            ["陽氣", "yang qi", "先埋伏筆，還沒進入陰陽的完整框架前，先知道這個詞存在。"]
+          ],
+          "boundary": "這裡講的是生活原則，不是處方——已經有明顯症狀，請由中醫師辨證論治，不要自己抓方向硬套。",
+          "teaching": [
+            "四個原則可以配一張「收支表」板書：左邊寫「支出」（思慮、熬夜、生冷、大汗），右邊寫「怎麼補」，讓學生自己填。",
+            "可以問學生：這四條裡，你最容易破的是哪一條？——讓理論落回每個人不同的生活習慣。"
+          ]
+        },
+        {
+          "slug": "qi-de-shuangyu-biaoda",
+          "title": "氣的雙語表達",
+          "level": "進階",
+          "blurb": "這系列真正的目標：把「氣」正確地講給西方朋友聽，而不是隨口說成 energy。",
+          "takeaway": "先講「不是物質」，再講五功能，最後才回答「能不能測量」——順序對了，對方才不會卡住。",
+          "concept": [
+            {
+              "h": "術語守住，比喻用對",
+              "p": [
+                "前四課把「氣不是 energy」「五功能」「勞則氣耗」「怎麼養氣」都講清楚了，這一課只做一件事：把這些道理重新組織成一段英文，講給第一次聽到「氣」的西方朋友。",
+                "重點不是翻得漂亮，是<strong>術語守住</strong>——qi 不翻譯，不用 energy 頂替；<strong>比喻用對</strong>——fitness 那個類比能讓「氣」的邏輯被接受，而不是被追問到卡住。"
+              ]
+            }
+          ],
+          "practice": [
+            {
+              "h": "回答的順序，跟內容一樣重要",
+              "p": [
+                "下次有外國朋友問「What's qi?」，照這個順序回答：先講「不是物質，是作用」，再講五功能，最後才回答「能不能測量」。順序顛倒——先被問「能不能測量」就急著回答——對方會一直卡在「能量」的框架裡出不來。"
+              ]
+            }
+          ],
+          "english": {
+            "cols": [
+              {
+                "h": "完整開場（可以直接照講）",
+                "quote": "Qi isn't a substance you store — it's closer to the body doing its work. In Chinese medicine, qi does five things: it moves things along, keeps you warm, defends you, holds things in place, and turns what you eat into something your body can use."
+              },
+              {
+                "h": "收尾：把分寸感講清楚",
+                "quote": "None of this replaces seeing a doctor. Qi is a framework for understanding how the body functions as a whole — not a diagnosis, and not a substitute for one."
+              }
+            ],
+            "note": "最後這句收尾很重要——對西方朋友來說，聽完一套陌生的理論之後，最想知道的是「那你們是不是不看西醫」，先把分寸感講清楚，對話才能繼續下去。"
+          },
+          "vocab": [
+            ["氣", "qi", "全系列的第一個詞，也是最容易被講錯的一個。"],
+            ["氣虛", "qi deficiency", "不是 lack of energy。"],
+            ["衛氣", "defensive qi", ""],
+            ["營氣", "nutritive qi", ""],
+            ["元氣", "source qi / original qi", "先天帶來的本錢。"],
+            ["宗氣", "gathering qi / pectoral qi", "胸中大氣，主呼吸與心搏。"],
+            ["自汗", "spontaneous sweating", "不動也流汗，屬固攝失職。"],
+            ["勞倦內傷", "internal damage from overwork", "不是 fatigue。"],
+            ["辨證論治", "pattern differentiation and treatment", "中醫的核心方法論，不是 diagnosis。"]
+          ],
+          "boundary": "跟西方朋友解釋「氣」的目的是讓對方理解一個文化與理論框架，不是提供醫療建議——真的有健康疑慮，請對方去看合格的醫師（中醫或西醫皆可）。",
+          "teaching": [
+            "讓學生兩人一組練習：一人扮演西方朋友追問「那可以吃藥補氣嗎」，另一人練習用「這是生活原則，不是處方」收尾——這正是這整個單元最後想教會的分寸感。",
+            "可以錄下學生的英文解釋，回放時只挑一件事糾正：有沒有不小心把 qi 說成 energy。這個系列從第一課到最後一課，守的就是這一件事。"
+          ]
+        }
+      ]
+    }
+  ]
+}

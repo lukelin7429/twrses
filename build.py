@@ -1379,6 +1379,7 @@ def build_reading_hub():
             ("/resources/classes/tang-poetry/", "🏮", "唐詩選讀", "唐詩中英對照與逐句導讀：讀懂唐詩，順便學英文。"),
             ("/resources/classes/lunyu/", "📖", "論語選讀", "論語中英對照與逐句導讀，每章附兩家公版英譯。"),
             ("/resources/classes/guwen/", "📜", "古文選讀", "古文名篇全文中英對照與逐段導讀，附章法分析。"),
+            ("/resources/classes/zhongyi/", "☯️", "中醫養生", "中英雙語讀懂中醫養生的道理：從氣開始，一課一個概念。"),
             ("/resources/grandfather/", "🌅", "Grandfather 落日餘暉", "Leon La Couvée 三十章人生智慧，中英對照。"),
             ("/resources/periodicals/", "📰", "英語期刊", "明航心鄉土情、明航雙語學園與全民英語期刊典藏。"),
         ])
@@ -1510,6 +1511,8 @@ _lyj = os.path.join(ROOT, "data", "lunyu.json")
 LUNYU = json.load(open(_lyj, encoding="utf-8")) if os.path.exists(_lyj) else None
 _gwj = os.path.join(ROOT, "data", "guwen.json")
 GUWEN = json.load(open(_gwj, encoding="utf-8")) if os.path.exists(_gwj) else None
+_zyj = os.path.join(ROOT, "data", "zhongyi.json")
+ZHONGYI = json.load(open(_zyj, encoding="utf-8")) if os.path.exists(_zyj) else None
 
 _EN_SPAN = re.compile(r"[A-Za-z][A-Za-z0-9 ,.'’?!():;/+\-]*")
 def _say_en(line):
@@ -2334,6 +2337,147 @@ def build_guwen_hub():
     write(GUWEN_BASE, layout(GUWEN_BASE, "古文選讀 · Classical Chinese Prose",
           "古文名篇全文中英對照與逐段導讀，附章法分析、你可能讀反的地方與教學提示。", body, "resources"))
     return GUWEN_BASE
+
+
+# ---- 中醫養生（資料驅動，data/zhongyi.json）----
+# 跟唐詩／論語／古文不同：不是逐句解經，是概念課。單位是「單元」（氣／陰陽／五行…），
+# 每個單元底下是多課，每課只講透一個概念（不列一堆要點）。上一課/下一課的導覽
+# 是把所有單元的課攤平成一條序列，跟 lunyu/guwen 的「跨篇章直接接下一篇」同一個做法。
+ZHONGYI_BASE = "/resources/classes/zhongyi/"
+ZHONGYI_UNIT_LABELS = ["一", "二", "三", "四", "五", "六", "七", "八", "九", "十"]
+
+def _zy_flat_lessons():
+    out = []
+    for u in ZHONGYI["units"]:
+        for l in u["lessons"]:
+            out.append((u, l))
+    return out
+
+def _zy_nav(slug):
+    flat = _zy_flat_lessons()
+    i = next(n for n, (u, l) in enumerate(flat) if l["slug"] == slug)
+    prev = flat[i - 1] if i > 0 else None
+    nxt = flat[i + 1] if i < len(flat) - 1 else None
+    def side(item, dirn, label):
+        if not item:
+            return '<span class="pm-nav-x"></span>'
+        _, l = item
+        arrow = "&larr;" if dirn == "prev" else "&rarr;"
+        return (f'<a class="pm-nav-s pm-nav-{dirn}" href="{ZHONGYI_BASE}{l["slug"]}/">'
+                f'<span class="pm-nav-k">{arrow} {label}</span>'
+                f'<span class="pm-nav-t">{html.escape(l["title"])}</span></a>')
+    return (f'<nav class="pm-nav rvl">{side(prev, "prev", "上一課")}'
+            f'<a class="pm-nav-hub" href="{ZHONGYI_BASE}">&#9776; 回中醫養生</a>'
+            f'{side(nxt, "next", "下一課")}</nav>')
+
+def _zy_meta(unit, lesson, unit_label):
+    return (f'<div class="pm-meta rvl">'
+            f'<div><span class="af-k">單元</span><span class="af-v">{html.escape(unit_label)}．{html.escape(unit["title"])}</span></div>'
+            f'<div><span class="af-k">程度</span><span class="af-v">{html.escape(lesson["level"])}</span></div>'
+            f'<div><span class="af-k">這課要記住</span><span class="af-v">{_pmd(lesson["takeaway"])}</span></div>'
+            f'</div>')
+
+def _zy_english_block(eng):
+    if not eng:
+        return ""
+    cols = []
+    for i, c in enumerate(eng["cols"]):
+        d = " d1" if i else ""
+        cols.append(f'<div class="pm-col rvl{d}"><h3>{html.escape(c["h"])}</h3>'
+                     f'<div class="prose"><p style="font-style:italic">{html.escape(c["quote"])}</p></div></div>')
+    note = (f'<p class="lead rvl d2" style="max-width:70ch;margin-top:1.2rem">{_pmd(eng["note"])}</p>'
+             if eng.get("note") else "")
+    return (f'<section class="section band"><div class="wrap">'
+            f'<p class="eyebrow rvl">雙語 · 怎麼講給西方朋友聽</p>'
+            f'<h2 class="rvl d1 sweep">英文可以這樣說</h2>'
+            f'<div class="pm-two">{"".join(cols)}</div>{note}'
+            f'</div></section>')
+
+def _zy_vocab_table(rows):
+    if not rows:
+        return ""
+    trs = "".join(
+        f'<tr><td class="pm-w tp-w">{html.escape(r[0])}</td><td>{_pmd(r[1])}</td>'
+        f'<td class="pm-wn">{_pmd(r[2])}</td></tr>' for r in rows)
+    return (f'<section class="section"><div class="wrap">'
+            f'<p class="eyebrow rvl">雙語詞彙表</p>'
+            f'<h2 class="rvl d1 sweep">這個詞為什麼這樣譯</h2>'
+            f'<div class="pm-table-wrap rvl"><table class="pm-table">'
+            f'<thead><tr><th>詞彙</th><th>意思</th><th>英文與注意</th></tr></thead>'
+            f'<tbody>{trs}</tbody></table></div></div></section>')
+
+def build_zhongyi_lesson(unit, lesson, unit_label):
+    path = f'{ZHONGYI_BASE}{lesson["slug"]}/'
+    body = f'''
+{page_hero(f'中醫養生 · 單元{unit_label}：{unit["title"]}', lesson["title"], html.escape(lesson["blurb"]), back=(ZHONGYI_BASE, "回中醫養生"))}
+<section class="section"><div class="wrap">
+  {_zy_meta(unit, lesson, unit_label)}
+</div></section>
+
+<section class="section band"><div class="wrap">
+  <p class="eyebrow rvl">核心概念</p>
+  <h2 class="rvl d1 sweep">這一課在講什麼</h2>
+  <div class="pm-guide">{_pm_blocks(lesson["concept"])}</div>
+</div></section>
+
+<section class="section"><div class="wrap">
+  <p class="eyebrow rvl">生活裡怎麼用</p>
+  <h2 class="rvl d1 sweep">道理落到日常</h2>
+  <div class="pm-guide">{_pm_blocks(lesson["practice"])}</div>
+</div></section>
+
+{_zy_english_block(lesson.get("english"))}
+{_zy_vocab_table(lesson.get("vocab", []))}
+
+<section class="section band"><div class="wrap">
+  <div class="pm-alert rvl">
+    <p class="pm-alert-k">⚠️ 這裡講的是理論框架，不是診斷</p>
+    <p class="pm-alert-lead">我不是中醫師，這個系列不辨證、不開方、不談劑量、不談針灸取穴。{_pmd(lesson["boundary"])}</p>
+  </div>
+</div></section>
+
+<section class="section"><div class="wrap">
+  <div class="pm-teach rvl">
+    <p class="pm-alert-k">🍎 給雙語課老師的教學提示</p>
+    <ul class="pm-teach-list">{"".join(f"<li>{_pmd(x)}</li>" for x in lesson["teaching"])}</ul>
+  </div>
+  {_zy_nav(lesson["slug"])}
+</div></section>
+'''
+    write(path, layout(path, f'{lesson["title"]} · 中醫養生',
+          f'中醫養生單元「{unit["title"]}」：{lesson["blurb"]}', body, "resources"))
+    return path
+
+def build_zhongyi_hub():
+    unit_sections = []
+    for idx, u in enumerate(ZHONGYI["units"]):
+        label = ZHONGYI_UNIT_LABELS[idx] if idx < len(ZHONGYI_UNIT_LABELS) else str(idx + 1)
+        cards = []
+        for l in u["lessons"]:
+            cards.append(
+                f'<a class="pm-card rvl" href="{ZHONGYI_BASE}{l["slug"]}/">'
+                f'<span class="pm-card-lv">{html.escape(l["level"])}</span>'
+                f'<h3 class="tp-card-h">{html.escape(l["title"])}</h3>'
+                f'<p class="pm-card-bl">{html.escape(l["blurb"])}</p>'
+                f'<span class="fcard-go">讀這課 <i>&rarr;</i></span></a>')
+        band = " band" if idx % 2 == 0 else ""
+        unit_sections.append(
+            f'<section class="section{band}"><div class="wrap">'
+            f'<p class="eyebrow rvl">單元{html.escape(label)}</p>'
+            f'<h2 class="rvl d1 sweep">{html.escape(u["title"])}</h2>'
+            f'<p class="lead rvl d2" style="max-width:62ch">{html.escape(u["blurb"])}</p>'
+            f'<div class="pm-cards stagger">{"".join(cards)}</div>'
+            f'</div></section>')
+    body = f'''
+{page_hero(ZHONGYI["eyebrow"], ZHONGYI["title"], html.escape(ZHONGYI["lead"]), back=("/resources/reading/", "回閱讀與經典"))}
+<section class="section"><div class="wrap">
+  <div class="prose wide rvl">{_pm_paras(ZHONGYI["intro"])}</div>
+</div></section>
+{"".join(unit_sections)}
+'''
+    write(ZHONGYI_BASE, layout(ZHONGYI_BASE, ZHONGYI["title"],
+          ZHONGYI["lead"], body, "resources"))
+    return ZHONGYI_BASE
 
 
 def build_poetry_hub():
@@ -4229,6 +4373,12 @@ def main():
     if GUWEN:
         paths.append(build_guwen_hub())
         for _es in GUWEN["essays"]: paths.append(build_guwen_essay(_es))
+    if ZHONGYI:
+        paths.append(build_zhongyi_hub())
+        for _idx, _u in enumerate(ZHONGYI["units"]):
+            _label = ZHONGYI_UNIT_LABELS[_idx] if _idx < len(ZHONGYI_UNIT_LABELS) else str(_idx + 1)
+            for _l in _u["lessons"]:
+                paths.append(build_zhongyi_lesson(_u, _l, _label))
     build_grandfather(); paths.append("/resources/grandfather/")
     build_periodicals(); paths.append("/resources/periodicals/")
     build_media_hub(); paths.append("/media/")
