@@ -2379,7 +2379,7 @@ def build_guwen_essay(es):
         f'<div><span class="af-k">年代</span><span class="af-v">{html.escape(es["year"])}</span></div>'
         f'<div><span class="af-k">出處</span><span class="af-v">{html.escape(es["source"])}</span></div>'
         f'<div><span class="af-k">文體</span><span class="af-v">{html.escape(es["genre"])}</span></div>'
-        + (f'<div><span class="af-k">篇幅</span><span class="af-v">{html.escape(es["extent"])}</span></div>'
+        + (f'<div><span class="af-k">篇幅</span><span class="af-v">{_pmd(es["extent"])}</span></div>'
            if es.get("extent") else ""))
 
     body = f'''
