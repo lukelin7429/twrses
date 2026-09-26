@@ -867,12 +867,14 @@ def fcard_grid(items, cta="了解更多"):
     colcls = "fg-2" if len(items) in (2, 4) else ""
     return f'<div class="feature-grid {colcls} stagger">{"".join(cells)}</div>'
 
-def hub_page(path, key, eyebrow, title, lead, children):
+def hub_page(path, key, eyebrow, title, lead, children, cta="了解更多", desc=None):
+    """lead 不經跳脫，可傳雙語 HTML（英文 + <span class='muted'>中文</span>）。
+    desc 供 <meta description> 用；lead 帶 HTML 時要另外給純文字。"""
     body = f'''
 {page_hero(eyebrow, title, lead)}
-<section class="section"><div class="wrap">{fcard_grid(children)}</div></section>
+<section class="section"><div class="wrap">{fcard_grid(children, cta)}</div></section>
 '''
-    write(path, layout(path, title, lead, body, key))
+    write(path, layout(path, title, desc or lead, body, key))
 
 def leaf_videos(path, key, eyebrow, title, lead, crawl_path, extra_intro=""):
     ids = live_ids(BY_PATH.get(crawl_path, {}).get("youtube", []))
@@ -1365,24 +1367,44 @@ def redirect(from_path, to_path, title="頁面已搬移"):
 
 # 依「學習目的」分類的四個資源 hub（各頁仍沿用既有 leaf 網址）
 def build_reading_hub():
-    hub_page("/resources/reading/", "resources", "閱讀與經典",
-        "讀進去，世界就打開了", "從基礎讀物到經典名著——循序漸進的中英對照閱讀。",
+    # 這一頁要給外籍老師用，所以標題、導言與每一張卡片都是雙語，
+    # 格式與各分冊頁的 hero 一致（英文在前、中文在後）。
+    hub_page("/resources/reading/", "resources", "Reading &amp; Classics · 閱讀與經典",
+        "讀進去，世界就打開了",
+        "From first words to the classics \u2014 graded reading with English and Chinese side by side."
+        "<br><span class='muted'>從基礎讀物到經典名著——循序漸進的中英對照閱讀。</span>",
         [
-            ("/resources/booklets/everyday/", "☀️", "基礎英語", "最基礎的日常英語主題。"),
-            ("/resources/booklets/basic/", "🌱", "初級閱讀", "適合剛起步的讀者。"),
-            ("/resources/booklets/intermediate/", "🌿", "中級閱讀", "進一步擴充字彙與句型。"),
-            ("/resources/booklets/advanced/", "🌳", "高級閱讀", "挑戰較長篇的英語文章。"),
-            ("/resources/booklets/conversation/", "💬", "實用英語會話", "日常生活的實用對話。"),
-            ("/resources/booklets/description/", "🖼️", "看圖描述", "看圖學描述，練口說與寫作。"),
-            ("/resources/classes/animal-farm/", "🐖", "動物農莊", "經典名著《Animal Farm》導讀。"),
-            ("/resources/classes/poetry/", "📜", "名詩導讀", "英美經典詩作中英對照與逐節導讀。"),
-            ("/resources/classes/tang-poetry/", "🏮", "唐詩選讀", "唐詩中英對照與逐句導讀：讀懂唐詩，順便學英文。"),
-            ("/resources/classes/lunyu/", "📖", "論語選讀", "論語中英對照與逐句導讀，每章附兩家公版英譯。"),
-            ("/resources/classes/guwen/", "📜", "古文選讀", "古文名篇全文中英對照與逐段導讀，附章法分析。"),
-            ("/resources/classes/zhongyi/", "☯️", "中醫養生 TCM Wellness", "用英文閱讀讀懂中醫養生的道理：從氣開始，每課附生字與小測驗。"),
-            ("/resources/grandfather/", "🌅", "Grandfather 落日餘暉", "Leon La Couvée 三十章人生智慧，中英對照。"),
-            ("/resources/periodicals/", "📰", "英語期刊", "明航心鄉土情、明航雙語學園與全民英語期刊典藏。"),
-        ])
+            ("/resources/booklets/everyday/", "☀️", "Everyday Topics · 基礎英語",
+             "The most basic everyday themes, in six booklets. 最基礎的日常英語主題，共六冊。"),
+            ("/resources/booklets/basic/", "🌱", "Basic Reading · 初級閱讀",
+             "Short passages for readers just starting out. 適合剛起步的讀者。"),
+            ("/resources/booklets/intermediate/", "🌿", "Intermediate Reading · 中級閱讀",
+             "Longer passages that widen vocabulary and sentence patterns. 進一步擴充字彙與句型。"),
+            ("/resources/booklets/advanced/", "🌳", "Advanced Reading · 高級閱讀",
+             "Full-length articles for readers ready to be challenged. 挑戰較長篇的英語文章。"),
+            ("/resources/booklets/conversation/", "💬", "Practical Conversation · 實用英語會話",
+             "Everyday dialogues, recorded line by line. 日常生活的實用對話，逐句真人朗讀。"),
+            ("/resources/booklets/description/", "🖼️", "Picture Description · 看圖描述",
+             "Look at the picture and say what you see. 看圖學描述，練口說與寫作。"),
+            ("/resources/classes/animal-farm/", "🐖", "Animal Farm · 動物農莊",
+             "A guided reading of Orwell's novel. 經典名著《Animal Farm》導讀。"),
+            ("/resources/classes/poetry/", "📜", "English Poetry · 名詩導讀",
+             "English and American poems with Chinese and stanza-by-stanza notes. 英美經典詩作中英對照與逐節導讀。"),
+            ("/resources/classes/tang-poetry/", "🏮", "Tang Poetry · 唐詩選讀",
+             "Tang poems line by line in English, with notes. 唐詩中英對照與逐句導讀。"),
+            ("/resources/classes/lunyu/", "📖", "The Analects · 論語選讀",
+             "Confucius chapter by chapter, with two public-domain translations beside ours. 論語中英對照，每章附兩家公版英譯。"),
+            ("/resources/classes/guwen/", "📜", "Classical Chinese Prose · 古文選讀",
+             "Complete essays in English and Chinese, with English vocabulary and a reading check. 古文名篇全文中英對照，附英文生字與理解測驗。"),
+            ("/resources/classes/zhongyi/", "☯️", "TCM Wellness · 中醫養生",
+             "Read Chinese medicine in English: vocabulary and a quiz in every lesson. 用英文讀懂中醫養生，每課附生字與小測驗。"),
+            ("/resources/grandfather/", "🌅", "Grandfather · 落日餘暉",
+             "Thirty chapters of life wisdom by Leon La Couvée, in English and Chinese. 三十章人生智慧，中英對照。"),
+            ("/resources/periodicals/", "📰", "Periodicals · 英語期刊",
+             "Archives of MCC's bilingual magazines and the GEPT periodical. 明航心鄉土情、明航雙語學園與全民英語期刊典藏。"),
+        ],
+        cta="Open · 前往",
+        desc="From first words to the classics — graded bilingual reading. 從基礎讀物到經典名著的中英對照閱讀。")
 
 def build_basics_hub():
     hub_page("/resources/basics/", "resources", "打好基礎",

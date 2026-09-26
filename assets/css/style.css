@@ -285,7 +285,7 @@ p  { margin: 0 0 1.1em; }
   letter-spacing:.16em; text-transform:uppercase;
   color:var(--accent); margin-bottom:.6rem;
 }
-.fcard h3{ font-size:1.5rem; margin-bottom:.55rem; }
+.fcard h3{ font-size:1.5rem; margin-bottom:.55rem; word-break:keep-all; }
 .fcard p{ color:var(--ink-soft); font-size:1.02rem; line-height:1.72; margin:0; }
 .fcard-go{
   margin-top:auto; padding-top:1.5rem;
@@ -842,6 +842,10 @@ p  { margin: 0 0 1.1em; }
 .maxw{max-width:62ch}
 .flex{display:flex;gap:1rem;flex-wrap:wrap;align-items:center}
 .muted{color:var(--ink-soft)}
+/* hero 是深綠→金橘的漸層，.muted 的深色在上面幾乎看不見。
+   雙語 hero 的中文那一行就是用 .muted 包的（英文 .lead 是 rgba(255,255,255,.92)），
+   所以在 hero 內把它改成略淡的白，保住層次也看得清楚。 */
+.hero .muted{color:rgba(255,255,255,.78)}
 .tag{display:inline-block;background:var(--brand-lt);color:var(--brand-dk);font-weight:700;font-size:.78rem;padding:.25em .8em;border-radius:999px;font-family:var(--zh)}
 
 /* ── 麥克爺爺：國際交流頁典範大區塊 ── */
