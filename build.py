@@ -1670,8 +1670,12 @@ def _pm_line(en, zh, say_as=None):
                 f'<span class="pm-en">{html.escape(en)}</span>'
                 f'<span class="pm-zh">{_pmd(zh)}</span></div>')
     say = html.escape(re.sub(r"\s+", " ", re.sub(r"[“”]", "", say_as or en)).strip())
+    # 名詩導讀的英文是原作、本來就在上且較大，這裡只把 🔊 從「橫跨兩行」收成
+    # 只對齊英文那一行，讓它明確屬於英文而不是底下的中文翻譯。
     return ('<div class="pm-line">'
-            f'<button class="spk pm-spk" data-say="{say}" aria-label="Say this line · 唸這句">🔊</button>'
+            f'<button class="spk pm-spk" data-say="{say}" '
+            f'aria-label="Say this line in English · 唸這句英文" '
+            f'style="grid-row:auto">🔊</button>'
             f'<span class="pm-en">{html.escape(en)}</span>'
             f'<span class="pm-zh">{_pmd(zh)}</span></div>')
 
@@ -1806,10 +1810,18 @@ TANG_BASE = "/resources/classes/tang-poetry/"
 def _tp_line(zh, en):
     say_en = html.escape(re.sub(r"\s+", " ", re.sub(r"[“”]", "", en)).strip())
     # 🔊 只唸英譯——中文讀者不需要機器唸中文，站上的喇叭一律是英文發音（2026-09-24 定案）。
-    return ('<div class="tp-line">'
-            f'<button class="spk pm-spk" data-say="{say_en}" aria-label="Say this line · 唸這句英文">🔊</button>'
+    # 🔊 掛在英文左邊而不是整行最前面，免得讀者以為它唸的是中文；英文字級拉到與
+    # 中文視覺等重（CJK 約需 1.25 倍於拉丁字母才等高）。樣式寫成行內：.tp-* 是
+    # 三個系列共用的，改 style.css 會動到全站 CSS 版本雜湊。
+    return ('<div class="tp-line" style="grid-template-columns:minmax(0,1fr);gap:.35rem 0">'
             f'<span class="tp-zh">{html.escape(zh)}</span>'
-            f'<span class="tp-en">{html.escape(en)}</span></div>')
+            '<span style="display:flex;align-items:flex-start;gap:.7rem">'
+            f'<button class="spk pm-spk" data-say="{say_en}" '
+            f'aria-label="Say this line in English · 唸這句英文" '
+            f'style="grid-row:auto;margin-top:.25rem">🔊</button>'
+            f'<span class="tp-en" style="font-size:clamp(1.18rem,3.6vw,1.45rem);line-height:1.6;'
+            f'color:var(--ink);padding-left:0;text-indent:0">{html.escape(en)}</span>'
+            '</span></div>')
 
 def _tp_nav(pm):
     lst = TANGSHI["poems"]
@@ -1993,10 +2005,18 @@ LUNYU_BASE = "/resources/classes/lunyu/"
 
 def _ly_line(zh, en):
     say_en = html.escape(re.sub(r"\s+", " ", re.sub(r"[“”]", "", en)).strip())
-    return ('<div class="tp-line">'
-            f'<button class="spk pm-spk" data-say="{say_en}" aria-label="Say this line · 唸這句英文">🔊</button>'
+    # 🔊 掛在英文左邊而不是整行最前面，免得讀者以為它唸的是中文；英文字級拉到與
+    # 中文視覺等重（CJK 約需 1.25 倍於拉丁字母才等高）。樣式寫成行內：.tp-* 是
+    # 三個系列共用的，改 style.css 會動到全站 CSS 版本雜湊。
+    return ('<div class="tp-line" style="grid-template-columns:minmax(0,1fr);gap:.35rem 0">'
             f'<span class="tp-zh">{html.escape(zh)}</span>'
-            f'<span class="tp-en">{html.escape(en)}</span></div>')
+            '<span style="display:flex;align-items:flex-start;gap:.7rem">'
+            f'<button class="spk pm-spk" data-say="{say_en}" '
+            f'aria-label="Say this line in English · 唸這句英文" '
+            f'style="grid-row:auto;margin-top:.25rem">🔊</button>'
+            f'<span class="tp-en" style="font-size:clamp(1.18rem,3.6vw,1.45rem);line-height:1.6;'
+            f'color:var(--ink);padding-left:0;text-indent:0">{html.escape(en)}</span>'
+            '</span></div>')
 
 def _ly_nav(ch):
     lst = LUNYU["chapters"]
