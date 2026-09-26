@@ -1341,14 +1341,23 @@ def build_everyday_book(b):
         say_manifest=say_slug if has_clips else None))
 
 def build_resources_hub():
-    hub_page("/resources/", "resources", "英語學習資源",
-        "免費自學，永不停止", "Never stop learning, because life never stops teaching. — 依學習目的分類，閱讀、基礎、聽說、生活英語，全部免費開放。",
+    hub_page("/resources/", "resources", "Learning Resources · 英語學習資源",
+        "免費自學，永不停止",
+        "Never stop learning, because life never stops teaching. Sorted by what you want to work on \u2014 "
+        "reading, foundations, speaking, and everyday English. All free."
+        "<br><span class='muted'>依學習目的分類：閱讀、基礎、聽說、生活英語，全部免費開放。</span>",
         [
-            ("/resources/reading/", "📖", "閱讀與經典", "閱讀教材、經典名著《動物農莊》、落日餘暉與英語期刊。"),
-            ("/resources/basics/", "📐", "打好基礎", "自然發音、造句、文法與句型分析，把地基打穩。"),
-            ("/resources/speaking/", "🗣️", "聽說與會話", "GEPT 口說、一分鐘英語與校園情境會話，開口說英語。"),
-            ("/resources/life/", "🌱", "生活英語", "俚語、時事、在地英語節目與學習短片，輕鬆學。"),
-        ])
+            ("/resources/reading/", "📖", "Reading & Classics · 閱讀與經典",
+             "Graded readers, Animal Farm, Chinese classics and periodicals. 閱讀教材、經典名著、中文經典選讀與英語期刊。"),
+            ("/resources/basics/", "📐", "Foundations · 打好基礎",
+             "Phonics, sentence building, grammar and sentence analysis. 自然發音、造句、文法與句型分析。"),
+            ("/resources/speaking/", "🗣️", "Listening & Speaking · 聽說與會話",
+             "GEPT speaking practice, one-minute English and campus dialogues. GEPT 口說、一分鐘英語與校園情境會話。"),
+            ("/resources/life/", "🌱", "Everyday English · 生活英語",
+             "Slang, current events, local programs and short lessons. 俚語、時事、在地英語節目與學習短片。"),
+        ],
+        cta="Open · 前往",
+        desc="Never stop learning. Free English resources sorted by purpose. 依學習目的分類的免費英語學習資源。")
 
 def redirect(from_path, to_path, title="頁面已搬移"):
     """寫一個 meta-refresh 轉址頁，避免舊網址 404。"""
@@ -1407,35 +1416,60 @@ def build_reading_hub():
         desc="From first words to the classics — graded bilingual reading. 從基礎讀物到經典名著的中英對照閱讀。")
 
 def build_basics_hub():
-    hub_page("/resources/basics/", "resources", "打好基礎",
-        "地基穩了，才走得遠", "自然發音、造句、文法與句型分析——把英語的地基打穩。",
+    hub_page("/resources/basics/", "resources", "Foundations · 打好基礎",
+        "地基穩了，才走得遠",
+        "Phonics, sentence building, grammar and sentence analysis \u2014 the groundwork English is built on."
+        "<br><span class='muted'>自然發音、造句、文法與句型分析——把英語的地基打穩。</span>",
         [
-            ("/resources/videos/phonics/", "🔤", "自然發音", "從發音規則打好英語基礎。"),
-            ("/resources/videos/sentences/", "✍️", "基礎英語造句篇", "從零開始學會造句。"),
-            ("/resources/classes/grammar/", "📐", "基礎文法", "從詞性到時態，打好文法地基。"),
-            ("/resources/videos/analysis/", "🧩", "英語句型分析", "拆解句子結構，看懂長難句（含經典版）。"),
-        ])
+            ("/resources/videos/phonics/", "🔤", "Phonics · 自然發音",
+             "Build English from the sounds up. 從發音規則打好英語基礎。"),
+            ("/resources/videos/sentences/", "✍️", "Sentence Building · 基礎英語造句篇",
+             "Learn to build a sentence from nothing. 從零開始學會造句。"),
+            ("/resources/classes/grammar/", "📐", "Grammar · 基礎文法",
+             "From parts of speech to tenses. 從詞性到時態，打好文法地基。"),
+            ("/resources/videos/analysis/", "🧩", "Sentence Analysis · 英語句型分析",
+             "Take a sentence apart and see how the long ones work (classic version included). 拆解句子結構，看懂長難句（含經典版）。"),
+        ],
+        cta="Open · 前往",
+        desc="Phonics, sentence building, grammar and sentence analysis. 自然發音、造句、文法與句型分析。")
 
 def build_speaking_hub():
-    hub_page("/resources/speaking/", "resources", "聽說與會話",
-        "開口，是學會的開始", "GEPT 口說、一分鐘英語與校園情境會話——練聽力、敢開口。",
+    hub_page("/resources/speaking/", "resources", "Listening &amp; Speaking · 聽說與會話",
+        "開口，是學會的開始",
+        "GEPT speaking practice, one-minute English and campus dialogues \u2014 train the ear, then dare to speak."
+        "<br><span class='muted'>GEPT 口說、一分鐘英語與校園情境會話——練聽力、敢開口。</span>",
         [
-            ("/resources/videos/gept-basic/", "🗣️", "初級口說訓練", "GEPT 初級口說題型練習。"),
-            ("/resources/videos/gept-intermediate/", "🎙️", "中級口說訓練", "GEPT 中級口說題型練習。"),
-            ("/resources/videos/one-min/", "⏱️", "一分鐘英語教室", "每天一分鐘，輕鬆學英語。"),
-            ("/resources/videos/travel/", "🗽", "一分鐘英語-美國篇", "跟著鏡頭遊覽美國，一分鐘學一個英語主題。"),
-            ("/resources/videos/cien-school/", "🏫", "CIEN 校園英語", "校園情境的英語會話。"),
-        ])
+            ("/resources/videos/gept-basic/", "🗣️", "GEPT Elementary Speaking · 初級口說訓練",
+             "Practice for the GEPT elementary speaking test. GEPT 初級口說題型練習。"),
+            ("/resources/videos/gept-intermediate/", "🎙️", "GEPT Intermediate Speaking · 中級口說訓練",
+             "Practice for the GEPT intermediate speaking test. GEPT 中級口說題型練習。"),
+            ("/resources/videos/one-min/", "⏱️", "One-Minute English · 一分鐘英語教室",
+             "One minute a day, one topic at a time. 每天一分鐘，輕鬆學英語。"),
+            ("/resources/videos/travel/", "🗽", "One-Minute English: USA · 一分鐘英語-美國篇",
+             "Tour the United States and learn a topic a minute. 跟著鏡頭遊覽美國，一分鐘學一個英語主題。"),
+            ("/resources/videos/cien-school/", "🏫", "CIEN Campus English · CIEN 校園英語",
+             "English conversation in campus situations. 校園情境的英語會話。"),
+        ],
+        cta="Open · 前往",
+        desc="GEPT speaking practice, one-minute English and campus dialogues. GEPT 口說、一分鐘英語與校園情境會話。")
 
 def build_life_hub():
-    hub_page("/resources/life/", "resources", "生活英語",
-        "英語，就在生活裡", "俚語、時事、在地英語節目與學習短片——把英語融進日常。",
+    hub_page("/resources/life/", "resources", "Everyday English · 生活英語",
+        "英語，就在生活裡",
+        "Slang, current events, local programs and short lessons \u2014 English worked into daily life."
+        "<br><span class='muted'>俚語、時事、在地英語節目與學習短片——把英語融進日常。</span>",
         [
-            ("/resources/videos/slang/", "💬", "一分鐘俚語", "道地英語俚語輕鬆學。"),
-            ("/resources/videos/current-events/", "🗞️", "看時事學英文", "從新聞時事學習實用英語。"),
-            ("/resources/videos/e-vision/", "📺", "彰化 E 視界英語教室", "在地製作的英語教學節目。"),
-            ("/resources/videos/short/", "🎬", "英語學習短片", "精選英語學習短片。"),
-        ])
+            ("/resources/videos/slang/", "💬", "One-Minute Slang · 一分鐘俚語",
+             "Native English slang, one minute at a time. 道地英語俚語輕鬆學。"),
+            ("/resources/videos/current-events/", "🗞️", "English Through the News · 看時事學英文",
+             "Practical English drawn from current events. 從新聞時事學習實用英語。"),
+            ("/resources/videos/e-vision/", "📺", "Changhua E-Vision English · 彰化 E 視界英語教室",
+             "A locally produced English teaching program. 在地製作的英語教學節目。"),
+            ("/resources/videos/short/", "🎬", "Short Lessons · 英語學習短片",
+             "A selection of short English learning videos. 精選英語學習短片。"),
+        ],
+        cta="Open · 前往",
+        desc="Slang, current events, local programs and short lessons. 俚語、時事、在地英語節目與學習短片。")
 
 VIDEO_LEAVES = [
     ("/resources/videos/travel/", "一分鐘英語-美國篇", "跟著鏡頭遊覽美國，一分鐘學一個英語主題。", "/E-resources/E-videos/travel"),
@@ -1502,6 +1536,8 @@ def build_series(data):
     write(data["path"], layout(data["path"], data["title"], data.get("meta_desc", data["intro"][:120]), body, data.get("active", "resources")))
 
 def build_classes_hub():
+    """⚠ 目前沒有任何地方呼叫這個函式——/resources/classes/ 是轉址殘根。
+    內容留著備查，但改它不會影響線上任何一頁。"""
     children = [
         ("/resources/classes/grammar/", "📐", "基礎文法", "從詞性到時態，打好文法地基。"),
         ("/resources/classes/sentence-analysis/", "🔍", "英語句型分析（舊）", "經典句型逐句拆解。"),
@@ -2599,16 +2635,28 @@ def build_poetry_hub():
     return POETRY_BASE
 
 def build_booklets():
-    hub_page("/resources/booklets/", "resources", "人師閱讀教材",
-        "從一個字，讀到一篇文章", "依程度分級的閱讀與會話教材，適合自學與課堂使用。",
+    # ⚠ /resources/booklets/ 目前是轉址到 /resources/reading/ 的殘根（見檔末 redirect()），
+    # 這裡的內容不會出現在線上；保持雙語只是為了將來若恢復此頁不必再改一次。
+    hub_page("/resources/booklets/", "resources", "MCC Reading Booklets · 人師閱讀教材",
+        "從一個字，讀到一篇文章",
+        "Graded reading and conversation booklets, for self-study or the classroom."
+        "<br><span class='muted'>依程度分級的閱讀與會話教材，適合自學與課堂使用。</span>",
         [
-            ("/resources/booklets/basic/", "🌱", "初級閱讀", "適合剛起步的讀者。"),
-            ("/resources/booklets/intermediate/", "🌿", "中級閱讀", "進一步擴充字彙與句型。"),
-            ("/resources/booklets/advanced/", "🌳", "高級閱讀", "挑戰較長篇的英語文章。"),
-            ("/resources/booklets/conversation/", "💬", "實用英語會話", "日常生活的實用對話。"),
-            ("/resources/booklets/description/", "🖼️", "看圖描述", "看圖學描述，練口說與寫作。"),
-            ("/resources/booklets/everyday/", "☀️", "基礎英語", "最基礎的日常英語主題。"),
-        ])
+            ("/resources/booklets/basic/", "🌱", "Basic Reading · 初級閱讀",
+             "Short passages for readers just starting out. 適合剛起步的讀者。"),
+            ("/resources/booklets/intermediate/", "🌿", "Intermediate Reading · 中級閱讀",
+             "Longer passages that widen vocabulary and sentence patterns. 進一步擴充字彙與句型。"),
+            ("/resources/booklets/advanced/", "🌳", "Advanced Reading · 高級閱讀",
+             "Full-length articles for readers ready to be challenged. 挑戰較長篇的英語文章。"),
+            ("/resources/booklets/conversation/", "💬", "Practical Conversation · 實用英語會話",
+             "Everyday dialogues, recorded line by line. 日常生活的實用對話，逐句真人朗讀。"),
+            ("/resources/booklets/description/", "🖼️", "Picture Description · 看圖描述",
+             "Look at the picture and say what you see. 看圖學描述，練口說與寫作。"),
+            ("/resources/booklets/everyday/", "☀️", "Everyday Topics · 基礎英語",
+             "The most basic everyday themes, in six booklets. 最基礎的日常英語主題，共六冊。"),
+        ],
+        cta="Open · 前往",
+        desc="Graded reading and conversation booklets. 依程度分級的閱讀與會話教材。")
 
 BOOKLET_LEAVES = [
     ("/resources/booklets/basic/", "初級閱讀", "適合剛起步的讀者。", "/E-resources/booklets/basic-reading"),
