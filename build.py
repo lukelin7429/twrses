@@ -1379,7 +1379,7 @@ def build_reading_hub():
             ("/resources/classes/tang-poetry/", "🏮", "唐詩選讀", "唐詩中英對照與逐句導讀：讀懂唐詩，順便學英文。"),
             ("/resources/classes/lunyu/", "📖", "論語選讀", "論語中英對照與逐句導讀，每章附兩家公版英譯。"),
             ("/resources/classes/guwen/", "📜", "古文選讀", "古文名篇全文中英對照與逐段導讀，附章法分析。"),
-            ("/resources/classes/zhongyi/", "☯️", "中醫養生", "中英雙語讀懂中醫養生的道理：從氣開始，一課一個概念。"),
+            ("/resources/classes/zhongyi/", "☯️", "中醫養生 TCM Wellness", "用英文閱讀讀懂中醫養生的道理：從氣開始，每課附生字與小測驗。"),
             ("/resources/grandfather/", "🌅", "Grandfather 落日餘暉", "Leon La Couvée 三十章人生智慧，中英對照。"),
             ("/resources/periodicals/", "📰", "英語期刊", "明航心鄉土情、明航雙語學園與全民英語期刊典藏。"),
         ])
@@ -2340,9 +2340,10 @@ def build_guwen_hub():
 
 
 # ---- 中醫養生（資料驅動，data/zhongyi.json）----
-# 跟唐詩／論語／古文不同：不是逐句解經，是概念課。單位是「單元」（氣／陰陽／五行…），
-# 每個單元底下是多課，每課只講透一個概念（不列一堆要點）。上一課/下一課的導覽
-# 是把所有單元的課攤平成一條序列，跟 lunyu/guwen 的「跨篇章直接接下一篇」同一個做法。
+# 人師的課程是英文為主、中文為輔，教英文才是本業——這個系列跟 lunyu/guwen 那套
+# 「中文原典逐句導讀」完全不同定位，改成套用 basic/intermediate 閱讀教材那套
+# render_basic_unit()：英文 reading 為主文，中文翻譯預設隱藏、點按鈕才顯示，
+# 生字直接從這篇文章裡挑，帶例句；沿用同一顆星星（vocab-grid ex／qa-list／tr-toggle）。
 ZHONGYI_BASE = "/resources/classes/zhongyi/"
 ZHONGYI_UNIT_LABELS = ["一", "二", "三", "四", "五", "六", "七", "八", "九", "十"]
 
@@ -2366,86 +2367,42 @@ def _zy_nav(slug):
         return (f'<a class="pm-nav-s pm-nav-{dirn}" href="{ZHONGYI_BASE}{l["slug"]}/">'
                 f'<span class="pm-nav-k">{arrow} {label}</span>'
                 f'<span class="pm-nav-t">{html.escape(l["title"])}</span></a>')
-    return (f'<nav class="pm-nav rvl">{side(prev, "prev", "上一課")}'
-            f'<a class="pm-nav-hub" href="{ZHONGYI_BASE}">&#9776; 回中醫養生</a>'
-            f'{side(nxt, "next", "下一課")}</nav>')
+    return (f'<nav class="pm-nav rvl">{side(prev, "prev", "上一課 · Previous")}'
+            f'<a class="pm-nav-hub" href="{ZHONGYI_BASE}">&#9776; 回中醫養生 · All Lessons</a>'
+            f'{side(nxt, "next", "下一課 · Next")}</nav>')
 
-def _zy_meta(unit, lesson, unit_label):
-    return (f'<div class="pm-meta rvl">'
-            f'<div><span class="af-k">單元</span><span class="af-v">{html.escape(unit_label)}．{html.escape(unit["title"])}</span></div>'
-            f'<div><span class="af-k">程度</span><span class="af-v">{html.escape(lesson["level"])}</span></div>'
-            f'<div><span class="af-k">這課要記住</span><span class="af-v">{_pmd(lesson["takeaway"])}</span></div>'
-            f'</div>')
-
-def _zy_english_block(eng):
-    if not eng:
-        return ""
-    cols = []
-    for i, c in enumerate(eng["cols"]):
-        d = " d1" if i else ""
-        cols.append(f'<div class="pm-col rvl{d}"><h3>{html.escape(c["h"])}</h3>'
-                     f'<div class="prose"><p style="font-style:italic">{html.escape(c["quote"])}</p></div></div>')
-    note = (f'<p class="lead rvl d2" style="max-width:70ch;margin-top:1.2rem">{_pmd(eng["note"])}</p>'
-             if eng.get("note") else "")
-    return (f'<section class="section band"><div class="wrap">'
-            f'<p class="eyebrow rvl">雙語 · 怎麼講給西方朋友聽</p>'
-            f'<h2 class="rvl d1 sweep">英文可以這樣說</h2>'
-            f'<div class="pm-two">{"".join(cols)}</div>{note}'
-            f'</div></section>')
-
-def _zy_vocab_table(rows):
-    if not rows:
-        return ""
-    trs = "".join(
-        f'<tr><td class="pm-w tp-w">{html.escape(r[0])}</td><td>{_pmd(r[1])}</td>'
-        f'<td class="pm-wn">{_pmd(r[2])}</td></tr>' for r in rows)
-    return (f'<section class="section"><div class="wrap">'
-            f'<p class="eyebrow rvl">雙語詞彙表</p>'
-            f'<h2 class="rvl d1 sweep">這個詞為什麼這樣譯</h2>'
-            f'<div class="pm-table-wrap rvl"><table class="pm-table">'
-            f'<thead><tr><th>詞彙</th><th>意思</th><th>英文與注意</th></tr></thead>'
-            f'<tbody>{trs}</tbody></table></div></div></section>')
+def _zy_boundary(lesson):
+    return (f'<p class="muted rvl" style="margin-top:1.4rem;padding:.9rem 1.1rem;'
+            f'border-left:3px solid var(--gold);background:var(--cream);border-radius:0 10px 10px 0;'
+            f'font-size:.98rem;line-height:1.7">{html.escape(lesson["boundary_en"])}'
+            f'<br><span style="font-family:var(--zh)">{html.escape(lesson["boundary_zh"])}</span></p>')
 
 def build_zhongyi_lesson(unit, lesson, unit_label):
     path = f'{ZHONGYI_BASE}{lesson["slug"]}/'
+    unit_dict = {
+        "unit": lesson["unit"],
+        "title": lesson["title"],
+        "paras": lesson["paras"],
+        "paras_zh": lesson["paras_zh"],
+        "questions": lesson["questions"],
+        "answers": lesson["answers"],
+        "vocab": lesson["vocab"],
+    }
+    reading_html = render_basic_unit(1, unit_dict, level="zhongyi", audio_rel="", pdf_rel="")
+    eyebrow = f'TCM Wellness · {unit["title_en"]} · 中醫養生 {unit_label}'
+    lead = f'{html.escape(lesson["blurb_en"])}<br><span class="muted">{html.escape(lesson["blurb_zh"])}</span>'
     body = f'''
-{page_hero(f'中醫養生 · 單元{unit_label}：{unit["title"]}', lesson["title"], html.escape(lesson["blurb"]), back=(ZHONGYI_BASE, "回中醫養生"))}
+{page_hero(eyebrow, lesson["title"], lead, back=(ZHONGYI_BASE, "回中醫養生 · All Lessons"))}
+<section class="section"><div class="wrap" style="max-width:940px">
+{reading_html}
+{_zy_boundary(lesson)}
+</div></section>
 <section class="section"><div class="wrap">
-  {_zy_meta(unit, lesson, unit_label)}
-</div></section>
-
-<section class="section band"><div class="wrap">
-  <p class="eyebrow rvl">核心概念</p>
-  <h2 class="rvl d1 sweep">這一課在講什麼</h2>
-  <div class="pm-guide">{_pm_blocks(lesson["concept"])}</div>
-</div></section>
-
-<section class="section"><div class="wrap">
-  <p class="eyebrow rvl">生活裡怎麼用</p>
-  <h2 class="rvl d1 sweep">道理落到日常</h2>
-  <div class="pm-guide">{_pm_blocks(lesson["practice"])}</div>
-</div></section>
-
-{_zy_english_block(lesson.get("english"))}
-{_zy_vocab_table(lesson.get("vocab", []))}
-
-<section class="section band"><div class="wrap">
-  <div class="pm-alert rvl">
-    <p class="pm-alert-k">⚠️ 這裡講的是理論框架，不是診斷</p>
-    <p class="pm-alert-lead">我不是中醫師，這個系列不辨證、不開方、不談劑量、不談針灸取穴。{_pmd(lesson["boundary"])}</p>
-  </div>
-</div></section>
-
-<section class="section"><div class="wrap">
-  <div class="pm-teach rvl">
-    <p class="pm-alert-k">🍎 給雙語課老師的教學提示</p>
-    <ul class="pm-teach-list">{"".join(f"<li>{_pmd(x)}</li>" for x in lesson["teaching"])}</ul>
-  </div>
-  {_zy_nav(lesson["slug"])}
+{_zy_nav(lesson["slug"])}
 </div></section>
 '''
-    write(path, layout(path, f'{lesson["title"]} · 中醫養生',
-          f'中醫養生單元「{unit["title"]}」：{lesson["blurb"]}', body, "resources"))
+    write(path, layout(path, f'{lesson["title"]} · TCM Wellness 中醫養生',
+          f'{lesson["blurb_en"]} {lesson["blurb_zh"]}', body, "resources"))
     return path
 
 def build_zhongyi_hub():
@@ -2458,25 +2415,31 @@ def build_zhongyi_hub():
                 f'<a class="pm-card rvl" href="{ZHONGYI_BASE}{l["slug"]}/">'
                 f'<span class="pm-card-lv">{html.escape(l["level"])}</span>'
                 f'<h3 class="tp-card-h">{html.escape(l["title"])}</h3>'
-                f'<p class="pm-card-bl">{html.escape(l["blurb"])}</p>'
-                f'<span class="fcard-go">讀這課 <i>&rarr;</i></span></a>')
+                f'<p class="pm-card-zh">{html.escape(l["title_zh"])}</p>'
+                f'<p class="pm-card-bl">{html.escape(l["blurb_en"])}</p>'
+                f'<span class="fcard-go">Start reading · 開始閱讀 <i>&rarr;</i></span></a>')
         band = " band" if idx % 2 == 0 else ""
         unit_sections.append(
             f'<section class="section{band}"><div class="wrap">'
-            f'<p class="eyebrow rvl">單元{html.escape(label)}</p>'
-            f'<h2 class="rvl d1 sweep">{html.escape(u["title"])}</h2>'
-            f'<p class="lead rvl d2" style="max-width:62ch">{html.escape(u["blurb"])}</p>'
+            f'<p class="eyebrow rvl">Unit {html.escape(label)} · 單元{html.escape(label)}</p>'
+            f'<h2 class="rvl d1 sweep">{html.escape(u["title_en"])} <span class="tp-h2-en">{html.escape(u["title_zh"])}</span></h2>'
+            f'<p class="lead rvl d2" style="max-width:62ch">{html.escape(u["blurb_en"])}<br>'
+            f'<span class="muted">{html.escape(u["blurb_zh"])}</span></p>'
             f'<div class="pm-cards stagger">{"".join(cards)}</div>'
             f'</div></section>')
+    intro_html = "".join(
+        f'<p>{html.escape(p["en"])}<br><span class="muted">{html.escape(p["zh"])}</span></p>'
+        for p in ZHONGYI["intro"])
+    lead = f'{html.escape(ZHONGYI["lead_en"])}<br><span class="muted">{html.escape(ZHONGYI["lead_zh"])}</span>'
     body = f'''
-{page_hero(ZHONGYI["eyebrow"], ZHONGYI["title"], html.escape(ZHONGYI["lead"]), back=("/resources/reading/", "回閱讀與經典"))}
+{page_hero(ZHONGYI["eyebrow"], ZHONGYI["title_en"], lead, back=("/resources/reading/", "回閱讀與經典"))}
 <section class="section"><div class="wrap">
-  <div class="prose wide rvl">{_pm_paras(ZHONGYI["intro"])}</div>
+  <div class="prose wide rvl">{intro_html}</div>
 </div></section>
 {"".join(unit_sections)}
 '''
-    write(ZHONGYI_BASE, layout(ZHONGYI_BASE, ZHONGYI["title"],
-          ZHONGYI["lead"], body, "resources"))
+    write(ZHONGYI_BASE, layout(ZHONGYI_BASE, f'{ZHONGYI["title_en"]} · {ZHONGYI["title_zh"]}',
+          f'{ZHONGYI["lead_en"]} {ZHONGYI["lead_zh"]}', body, "resources"))
     return ZHONGYI_BASE
 
 
