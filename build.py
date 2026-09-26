@@ -2158,11 +2158,24 @@ def build_lunyu_hub():
 GUWEN_BASE = "/resources/classes/guwen/"
 
 def _gw_line(zh, en):
+    """一行中英對照。
+
+    英文是本系列的重點，所以 (1) 🔊 掛在英文左邊而不是整行最前面，免得讀者
+    以為它唸的是中文；(2) 英文字級拉到與中文視覺等重（CJK 約需 1.25 倍於拉丁
+    字母才等高，故 1.85rem ↔ 1.45rem）。
+    樣式一律寫成行內：改 style.css 會讓全站 CSS 版本雜湊變動，而 .tp-* 是
+    名詩導讀／唐詩選讀／論語選讀共用的，動它會波及平行工作階段的頁面。
+    """
     say_en = html.escape(re.sub(r"\s+", " ", re.sub(r"[“”]", "", en)).strip())
-    return ('<div class="tp-line">'
-            f'<button class="spk pm-spk" data-say="{say_en}" aria-label="Say this line · 唸這句英文">🔊</button>'
+    return ('<div class="tp-line" style="grid-template-columns:minmax(0,1fr);gap:.35rem 0">'
             f'<span class="tp-zh">{html.escape(zh)}</span>'
-            f'<span class="tp-en">{html.escape(en)}</span></div>')
+            '<span style="display:flex;align-items:flex-start;gap:.7rem">'
+            f'<button class="spk pm-spk" data-say="{say_en}" '
+            f'aria-label="Say this line in English · 唸這句英文" '
+            f'style="grid-row:auto;margin-top:.25rem">🔊</button>'
+            f'<span class="tp-en" style="font-size:clamp(1.18rem,3.6vw,1.45rem);line-height:1.6;'
+            f'color:var(--ink);padding-left:0;text-indent:0">{html.escape(en)}</span>'
+            '</span></div>')
 
 def _gw_sections(secs):
     out = []
@@ -2181,11 +2194,76 @@ def _gw_sections(secs):
             + gist + "".join(_gw_line(l[0], l[1]) for l in s["lines"]) + "</div>")
     return "".join(out)
 
-def _gw_toc(secs, nchars):
+def _gw_kicker(es):
+    """目錄那一行的開頭：是全文就寫「全文」，是節選就寫「節選」，讓人一眼看得出。"""
+    ex = es.get("extent", "")
+    return "節選 " if ex.startswith("節選") else "全文 "
+
+
+def _gw_envocab(es):
+    """英文生字表。本系列的重點是英文，所以生字取自**英譯本身**（不是古文字義），
+    每個字都附它在本篇出現的那一句，點 🔊 可以聽單字與整句。
+    沿用站上既有的 .adv-item 元件，不必動 style.css。"""
+    items = es.get("envocab") or []
+    if not items:
+        return ""
+    rows = "".join(
+        f'<div class="adv-item">'
+        f'<div class="top"><b>{html.escape(a["w"])}</b>'
+        f'<span class="pos">({html.escape(a["pos"])})</span>'
+        f'<span class="zh">{html.escape(a["zh"])}</span>'
+        f'<button class="spk" data-say="{html.escape(a["w"])}" aria-label="Say this word · 唸單字">🔊</button></div>'
+        f'<p class="eg"><button class="spk" data-say="{html.escape(a["eg"])}" '
+        f'aria-label="Say this sentence · 唸例句">🔊</button><span>{html.escape(a["eg"])}</span></p>'
+        f'<p class="eg-zh">{html.escape(a["eg_zh"])}</p></div>' for a in items)
+    return f'''
+<section class="section"><div class="wrap">
+  <p class="eyebrow rvl">English Vocabulary</p>
+  <h2 class="rvl d1 sweep">英譯裡值得帶走的字 <span class="tp-h2-en">{len(items)} words</span></h2>
+  <p class="lead rvl d2" style="max-width:62ch">這一欄的字全部取自上面的<strong>英譯</strong>，不是古文字義。
+  每個字都附它在本篇出現的那一句——<strong>單字和例句各有一個 🔊，點了都唸英文。</strong></p>
+  <div class="adv-list rvl">{rows}</div>
+</div></section>
+'''
+
+
+def _gw_quiz(es):
+    """英文閱讀理解測驗（點選即揭曉，不必送出、不收資料）。
+    正解位置以篇名雜湊決定起點再逐題錯開，避免整組答案落在同一個字母。"""
+    items = es.get("quiz") or []
+    if not items:
+        return ""
+    L = "ABCD"
+    base = sum(ord(c) for c in es["slug"]) % 4
+    qs = []
+    for qi, item in enumerate(items):
+        target = (base + qi * 3) % 4          # 起點隨篇而異，每題再錯開三格
+        opts = list(item["options"])
+        opts.insert(target, opts.pop(item["correct"]))
+        btns = ""
+        for k, o in enumerate(opts):
+            dc = ' data-correct="1"' if k == target else ""
+            btns += (f'<button class="quiz-opt"{dc}><span class="ql">{L[k]}</span>'
+                     f'{html.escape(o)}</button>')
+        qs.append(f'<div class="quiz"><p class="q" style="font-family:var(--serif);'
+                  f'font-size:1.12rem;font-weight:600">{qi+1}. {html.escape(item["q"])}</p>'
+                  f'<div class="quiz-opts">{btns}</div></div>')
+    return f'''
+<section class="section band"><div class="wrap">
+  <p class="eyebrow rvl">Reading Check</p>
+  <h2 class="rvl d1 sweep">讀懂了嗎 <span class="tp-h2-en">{len(qs)} questions</span></h2>
+  <p class="lead rvl d2" style="max-width:62ch">全部根據上面的<strong>英譯</strong>出題，不考古文字義。
+  <strong>點一下選項就揭曉答案</strong>，不必送出，也不會記錄任何資料。</p>
+  <div class="rvl">{"".join(qs)}</div>
+</div></section>
+'''
+
+
+def _gw_toc(secs, nchars, kicker="全文 "):
     items = "".join(f'<a class="tp-toc-i" href="#sec{i}">'
                     f'<span class="tp-toc-n">{i}</span>{html.escape(s["h"])}</a>'
                     for i, s in enumerate(secs, 1))
-    return (f'<div class="tp-toc rvl" id="gw-toc"><p class="tp-toc-k">全文 {nchars} 字 · 分 {len(secs)} 段</p>'
+    return (f'<div class="tp-toc rvl" id="gw-toc"><p class="tp-toc-k">{kicker}{nchars} 字 · 分 {len(secs)} 段</p>'
             f'<div class="tp-toc-g">{items}</div></div>')
 
 def _gw_nav(es):
@@ -2222,7 +2300,9 @@ def build_guwen_essay(es):
         f'{html.escape(es["author_en"])}（{html.escape(es["life"])}）</span></div>'
         f'<div><span class="af-k">年代</span><span class="af-v">{html.escape(es["year"])}</span></div>'
         f'<div><span class="af-k">出處</span><span class="af-v">{html.escape(es["source"])}</span></div>'
-        f'<div><span class="af-k">文體</span><span class="af-v">{html.escape(es["genre"])}</span></div>')
+        f'<div><span class="af-k">文體</span><span class="af-v">{html.escape(es["genre"])}</span></div>'
+        + (f'<div><span class="af-k">篇幅</span><span class="af-v">{html.escape(es["extent"])}</span></div>'
+           if es.get("extent") else ""))
 
     body = f'''
 {page_hero("古文選讀", es["title"], html.escape(es["blurb"]), back=(GUWEN_BASE, "回古文選讀"))}
@@ -2234,9 +2314,11 @@ def build_guwen_essay(es):
   <p class="eyebrow rvl">全文 · 中英對照</p>
   <h2 class="rvl d1 sweep">{html.escape(es["title"])} <span class="tp-h2-en">{html.escape(es["title_en"])}</span></h2>
   <p class="lead rvl d2" style="max-width:62ch">點任一行的 🔊 可以聽英譯的發音。{_pmd(es["trans_note"])}</p>
-  {_gw_toc(es["sections"], nchars)}
+  {_gw_toc(es["sections"], nchars, _gw_kicker(es))}
   <div class="pm-poem tp-poem rvl">{_gw_sections(es["sections"])}</div>
 </div></section>
+{_gw_envocab(es)}
+{_gw_quiz(es)}
 
 <section class="section"><div class="wrap">
   <p class="eyebrow rvl">逐段導讀</p>
