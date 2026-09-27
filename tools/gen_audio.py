@@ -31,6 +31,21 @@ VOICE = "en-US-AvaMultilingualNeural"   # chosen 2026-08 after an A/B test.
 # no language switching. Add a prefix here if another such page ever appears.
 VOICE_EN_ONLY = "en-US-AvaNeural"
 EN_ONLY_PAGES = ("resources/classes/poetry",)
+# A word on its own gives the Multilingual voice nothing to detect the language
+# from, and it guesses: "pace" came out as Italian PAH-chee (a teacher heard it as
+# "budget", 2026-09-28) and "gripe" as "grippy". On the graded readers every
+# headword is a 🔊 of its own, so there any phrase of up to SHORT_WORDS words goes
+# to the English-only Ava. Sentences keep the Multilingual voice — they carry
+# enough context, and it is the voice chosen for them.
+SHORT_PAGES = ("resources/booklets",)
+SHORT_WORDS = 3
+
+
+def voice_for(text: str, page_voice: str, page_posix: str) -> str:
+    if (page_voice == VOICE and len(text.split()) <= SHORT_WORDS
+            and any(page_posix.startswith(p) for p in SHORT_PAGES)):
+        return VOICE_EN_ONLY
+    return page_voice
 # A button marked data-say-lang="zh" (唐詩選讀的中文原文) is read by the Taiwan
 # Mandarin voice instead, a touch slower again — it is verse.
 VOICE_ZH = "zh-TW-HsiaoChenNeural"
@@ -159,7 +174,8 @@ def main() -> int:
 
     manifest, failed, made, reused = {}, [], 0, 0
     for i, (text, lang) in enumerate(texts, 1):
-        voice, rate = (VOICE_ZH, RATE_ZH) if lang == "zh" else (args.voice, RATE)
+        voice, rate = ((VOICE_ZH, RATE_ZH) if lang == "zh"
+                       else (voice_for(text, args.voice, page.as_posix()), RATE))
         h = phrase_hash(text, voice)
         manifest[text] = h
         dest = out_dir / f"{h}.mp3"
