@@ -4310,6 +4310,24 @@ def build_partner_detail(d):
     website_html = (f'<p class="rvl" style="margin:.4rem 0 2rem">'
                     f'<a class="btn btn-primary" href="{website}" target="_blank" rel="noopener">造訪官方網站 →</a></p>') if website else ""
     # 專文：首段先露出，其餘由讀者展開（不替作者添加小標）
+    # 心得引言：英文原文照錄，下附中譯（明確標示為翻譯）
+    tqs = d.get("testimonials", [])
+    tq_html = ""
+    if tqs:
+        def _tq(t):
+            cls = "tq" + (" tq-parent" if t.get("parent") else "") + (" tq-lead" if t.get("lead") else "")
+            return (f'<figure class="{cls}"><span class="tq-tag">{html.escape(t["tag"])}</span>'
+                    f'<blockquote lang="en">{html.escape(t["en"])}</blockquote>'
+                    f'<p class="tq-zh">{html.escape(t["zh"])}</p>'
+                    f'<figcaption><b>{html.escape(t["name"])}</b>{html.escape(t.get("role",""))}</figcaption></figure>')
+        kids = "".join(_tq(t) for t in tqs if not t.get("parent"))
+        pars = "".join(_tq(t) for t in tqs if t.get("parent"))
+        note = html.escape(d.get("testimonials_note", ""))
+        tq_html = (f'<div class="psection rvl"><h2>他們怎麼說</h2>'
+                   + (f'<p class="tq-note">{note}</p>' if note else "")
+                   + f'<div class="tq-grid">{kids}</div>'
+                   + (f'<div class="tq-parents">{pars}</div>' if pars else "")
+                   + '</div>')
     es = d.get("essay")
     essay_html = ""
     if es:
@@ -4425,6 +4443,7 @@ def build_partner_detail(d):
   {poster_html}
   {vid_html if essay_html else ""}
   {photo_html}
+  {tq_html}
   {essay_html}
   {sec_html}
   {carousel_html}
