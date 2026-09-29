@@ -43,10 +43,14 @@
 ## 天文教育系列（/resources/classes/astronomy/）— 每課一個 3D 模型
 
 - 內容：`data/astronomy.json`（`lessons[]` 一課一筆；`planned[]` 是系列首頁的「製作中」卡）。頁面由 `build.py` 的 `build_astro_hub()` / `build_astro_lesson()` 產生，reading／生字／小測驗沿用 `render_basic_unit()`。
-- 3D 模型：three.js，**原始碼在 `tools/astro/src/`**，打包成 `assets/js/moon-phases.js`（產物，不要手改）：
+- 3D 模型：three.js，**原始碼在 `tools/astro/src/`**，每課一個入口，打包成 `assets/js/<入口>.js`（產物，不要手改）：
+  - `moon-phases.js`（第一課）、`eclipses.js`（第二課）；共用貼圖／著色在 `common.js`
+  - `ephem.js`：Meeus 低精度星曆＋日月食預測（純函式）。改它之後一定要跑 `npm test`，對照 NASA 表確認 2019–2032 年日月食仍全數吻合
   ```
-  cd tools/astro && npm install && npm run build   # three 與 esbuild 版本鎖在 package.json
+  cd tools/astro && npm install && npm run build && npm test   # three 與 esbuild 版本鎖在 package.json
   ```
+- 課程資料的 `lab.kind` 決定用哪個模型（`phases`／`eclipses`）；`types`、`upcoming`、`activities[]` 有就畫、沒有就略過。
+- 第二課的「即將到來的日月食」清單是**瀏覽器當場算的**，永遠不會過期；台灣可見與否以彰化（24.08N, 120.54E）為準。
 - `assets/css/astro.css` 與模型 JS 只載在天文頁（`_astro_head()`，版本號另算，不影響全站快取）。
 - 模型座標約定寫在 `tools/astro/src/moon-phases.js` 檔頭——改之前先讀，北半球「漸盈右邊亮」就是靠它。
 - 🔊 錄音：`python3 tools/gen_audio.py --page resources/classes/astronomy/<slug>` → `./tools/upload_audio.sh`，manifest 命名 `astronomy-<slug>`。

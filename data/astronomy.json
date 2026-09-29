@@ -50,7 +50,8 @@
      }
     ],
     "scale_en": "Not to scale. The Moon is really about 30 Earth-widths away, and the Sun is about 400 times farther than the Moon. The tilt of the Moon's orbit (really about 5°) is drawn larger so you can see it. Turn on True scale to see the real distance.",
-    "scale_zh": "大小與距離未按比例：月亮其實在大約 30 個地球直徑之外，太陽又比月亮遠約 400 倍；月球軌道的傾斜（實際約 5°）也刻意畫大，讓你看得出來。打開「真實比例」可以看到真正的距離。"
+    "scale_zh": "大小與距離未按比例：月亮其實在大約 30 個地球直徑之外，太陽又比月亮遠約 400 倍；月球軌道的傾斜（實際約 5°）也刻意畫大，讓你看得出來。打開「真實比例」可以看到真正的距離。",
+    "kind": "phases"
    },
    "paras": [
     "Nearly a thousand years ago, the Song dynasty poet Su Shi wrote that people have their sorrows and joys, their partings and reunions, just as the Moon is sometimes hidden and sometimes bright, sometimes full and sometimes not. On Mid-Autumn night, families across Taiwan look up at a round, bright Moon. A week later, the same Moon looks like half a coin, and a week after that it seems to vanish from the sky. People have watched this cycle for as long as there have been people. The explanation is surprisingly simple, and it has nothing to do with the Moon itself changing shape.",
@@ -391,15 +392,431 @@
     ],
     "tip_en": "Teaching tip: before each quarter turn, have students predict what they will see. If a head shadow falls on someone's ball, stop and point it out: that is a lunar eclipse.",
     "tip_zh": "教學提示：每轉四分之一圈前，先讓學生預測會看到什麼。如果有人的頭影剛好遮到小球，停下來告訴大家：這就是月食。"
-   }
+   },
+   "card": "phase"
+  },
+  {
+   "n": 2,
+   "slug": "eclipses",
+   "title": "Why Isn't There an Eclipse Every Month?",
+   "title_zh": "為什麼不是每個月都有日食月食？",
+   "level": "入門 · Beginner",
+   "icon": "🌑",
+   "card": "eclipse",
+   "blurb_en": "Solar and lunar eclipses, the Moon's tilted orbit, and eclipse seasons, with a 3D model that runs on real dates.",
+   "blurb_zh": "日食、月食、傾斜的月球軌道與「食季」；3D 模型照真實日期運轉，算得出下一次日月食。",
+   "big_idea_en": "An eclipse needs the Sun, Earth, and the Moon in a nearly perfect line. The Moon's orbit is tilted, so that happens only twice a year, during eclipse seasons.",
+   "big_idea_zh": "日月食需要太陽、地球、月亮幾乎排成一直線。月球軌道是傾斜的，所以這種機會一年只有兩次，叫做「食季」。",
+   "lab": {
+    "kind": "eclipses",
+    "eyebrow": "3D Model · 3D 模型",
+    "title_en": "Real Dates, Real Eclipses",
+    "title_zh": "真實日期，真實的日月食",
+    "how_en": "This model puts the Sun, Earth, and Moon where they really are on any date. Press Play or drag the timeline: at most new and full moons, the shadows miss. The dots on the timeline are real eclipses. Tap one to jump there, or switch to Whole year to see why eclipses come in seasons.",
+    "how_zh": "這個模型會把太陽、地球、月亮放到任何一天它們真正所在的位置。按「播放」或拖動時間軸：大多數新月、滿月時，影子都會錯過。時間軸上的圓點是真實的日月食，點一下就跳過去；切到「全年」視角，看日月食為什麼集中在食季。",
+    "legend": [
+     {
+      "cls": "orbit",
+      "en": "Teal loop: the Moon's orbit (solid above Earth's orbit plane, dashed below)",
+      "zh": "青色圈：月球軌道（實線在黃道面上方，虛線在下方）"
+     },
+     {
+      "cls": "node",
+      "en": "Gold diamonds: the two nodes, where the Moon's orbit crosses Earth's orbit plane",
+      "zh": "金色菱形：交點，月球軌道穿過黃道面的兩個點"
+     },
+     {
+      "cls": "shadow",
+      "en": "Dark cones: the shadows of Earth and the Moon, always pointing away from the Sun",
+      "zh": "深色錐：地球與月亮的影子，永遠指向背對太陽的方向"
+     },
+     {
+      "cls": "season",
+      "en": "Gold bands on the timeline: eclipse seasons",
+      "zh": "時間軸上的金色帶：食季"
+     }
+    ],
+    "scale_en": "In the 3D view, the tilt of the Moon's orbit (really 5.1°) and the sizes of the Sun, Earth, and Moon as seen from each other are all drawn about five times larger, so the shadows look wider and linger about five times longer there. Whether an eclipse happens does not change. The two small views show the real Sun and Moon, and every dot on the timeline is a real eclipse.",
+    "scale_zh": "3D 畫面裡，月球軌道的傾斜（實際 5.1°）以及日、地、月彼此看到的大小，全都放大了約五倍，所以影子看起來比較寬、停留時間也長了約五倍；但「會不會發生食」完全不受影響。右邊兩個小畫面是真實的太陽與月亮，時間軸上的每一個點都是真正的日月食。"
+   },
+   "paras": [
+    "In ancient China, people said that a heavenly dog was eating the Sun. When daylight suddenly faded in the middle of the day, crowds beat drums and banged pots to scare the dog away, and it always seemed to work, because the Sun always came back. Chinese court astronomers took eclipses so seriously that they kept records of them for more than two thousand years. Today we know that no dog is involved. An eclipse happens when the Sun, Earth, and the Moon line up almost perfectly, so that one of them moves into another's shadow.",
+    "A solar eclipse happens when the Moon passes directly between the Sun and Earth and its shadow falls on Earth. This can only happen at new moon, when the Moon is on the Sun's side of Earth. By a lucky coincidence, the Sun is about 400 times wider than the Moon but also about 400 times farther away, so the two look almost exactly the same size in our sky. When the Moon covers the Sun completely, day turns to twilight for a few minutes, and the Sun's glowing outer atmosphere, the corona, appears around the black Moon. The darkest part of the Moon's shadow is never more than about 270 kilometers wide, though, so only people inside that narrow path see a total eclipse. People for thousands of kilometers around it see a partial eclipse, with a bite taken out of the Sun.",
+    "The Moon's orbit is not a perfect circle. If a solar eclipse happens while the Moon is farther from Earth than usual, the Moon looks slightly smaller than the Sun and cannot cover it completely, so a bright ring of sunlight is left around the dark Moon. This is an annular eclipse, from the Latin word for a ring. On June 21, 2020, the path of one crossed Taiwan, and people in Chiayi and Tainan saw a thin \"ring of fire.\" Whatever kind of solar eclipse it is, never look straight at the Sun, not even when most of it is covered. Use certified eclipse glasses, or make a simple pinhole viewer and watch the Sun's image on a sheet of paper.",
+    "A lunar eclipse happens when Earth passes directly between the Sun and the Moon and the Moon moves into Earth's shadow. This can only happen at full moon. Unlike a solar eclipse, a lunar eclipse is visible to everyone on the night side of Earth at the same time, and it is perfectly safe to watch with your bare eyes. During a total lunar eclipse the Moon does not disappear. It turns a dark copper red, because Earth's atmosphere bends a little sunlight into the shadow and filters out most of the blue light, just as it does at sunset. In a sense, the red Moon is lit by all of Earth's sunrises and sunsets at once.",
+    "If the Moon passes between Earth and the Sun every month, why isn't there a solar eclipse every month? The answer is that the Moon's orbit is tilted by about five degrees compared with Earth's path around the Sun. Most months, the new moon passes a little above or below the Sun, and its shadow misses Earth; two weeks later, the full moon passes above or below Earth's shadow. The two paths cross at only two points, called nodes, and an eclipse can happen only when a new or full moon falls close to one of them. That happens during a window of about five weeks, roughly every six months, called an eclipse season. The Sun's path across our sky is even named the ecliptic, because eclipses can happen only when the Moon is near it.",
+    "Every year has at least two solar eclipses somewhere on Earth, and lunar eclipses are about as common. Yet most people see many more lunar eclipses than solar ones. A lunar eclipse can be seen from half the planet, while a total solar eclipse touches only a thin strip, so any one place waits, on average, about 375 years between total solar eclipses. That is why people travel across the world to stand in the Moon's shadow, even for two or three minutes."
+   ],
+   "paras_zh": [
+    "古時候的中國人說，是天上的狗在吃太陽——「天狗食日」。大白天天色忽然暗下來時，人們擂鼓、敲鍋，要把天狗嚇跑；而且好像每次都有效，因為太陽總會回來。中國朝廷的天文官非常看重日食，兩千多年來持續把它們記錄下來。今天我們知道，這件事跟狗一點關係也沒有：當太陽、地球、月亮幾乎排成一直線，其中一個走進另一個的影子裡，就發生了「食」。",
+    "日食，是月亮剛好走到太陽和地球中間，把影子投在地球上。這只可能發生在新月（朔），也就是月亮位在地球朝向太陽那一側的時候。很巧的是，太陽的直徑大約是月亮的 400 倍，但距離也遠了大約 400 倍，所以兩者在天空中看起來幾乎一樣大。當月亮把太陽完全遮住，白天會暗成黃昏般好幾分鐘，太陽發光的外層大氣——日冕——會在黑色的月亮周圍現身。不過月影最黑的核心，寬度從來不超過約 270 公里，只有站在這條狹長路徑裡的人才看得到日全食；方圓幾千公里內的人只看到日偏食，太陽像被咬掉一口。",
+    "月球的軌道不是正圓。如果日食發生時月亮離地球比平常遠，它看起來就比太陽小一點，遮不滿，黑色月亮周圍會留下一圈明亮的陽光——這就是日環食，英文 annular 來自拉丁文的「環」。2020 年 6 月 21 日，就有一次日環食的路徑橫越台灣，嘉義、台南的民眾看到了細細的「火環」。不管是哪一種日食，都絕對不要直視太陽，就算大部分被遮住也一樣。請使用合格的日食觀測眼鏡，或是做一個簡單的針孔投影器，看投在紙上的太陽影像。",
+    "月食，是地球剛好走到太陽和月亮中間，月亮走進地球的影子裡。這只可能發生在滿月（望）。跟日食不同，月食發生時，地球上所有處在夜晚的人都能同時看到，而且用肉眼直接看完全安全。月全食時月亮並不會消失，而是變成暗暗的古銅紅色：因為地球的大氣把一點點陽光折進影子裡，又濾掉大部分的藍光——跟夕陽變紅是同一個道理。某種意義上，那顆紅月亮，是被地球上所有的日出和日落同時照亮的。",
+    "如果月亮每個月都會經過地球和太陽之間，為什麼不是每個月都有日食？答案是：月亮的軌道和地球繞太陽的軌道之間，傾斜了大約五度。大多數月份，新月從太陽的稍上方或稍下方經過，月影落不到地球；兩週後的滿月，也從地球影子的上方或下方通過。兩條軌道只在兩個點相交，稱為「交點」；只有新月或滿月剛好落在交點附近，才會發生日食或月食。這樣的時機大約每六個月出現一次，每次約五週，稱為「食季」。太陽在天空中走的路徑叫做 ecliptic（黃道），名字正是來自 eclipse：因為只有月亮走到這條線附近，才可能發生食。",
+    "地球上每年至少會發生兩次日食，月食也差不多一樣常見。但大多數人看過的月食，遠比日食多。月食時，半個地球都看得到；日全食卻只掃過一條細細的帶子，平均而言，地球上任何一個地點要等大約 375 年，才會再遇到一次日全食。這就是為什麼有人願意飛越大半個地球，只為了站進月亮的影子裡兩三分鐘。"
+   ],
+   "questions": [
+    "Why can a solar eclipse happen only at new moon, and a lunar eclipse only at full moon?",
+    "Why does the Moon turn red during a total lunar eclipse instead of disappearing?",
+    "Why isn't there an eclipse every month?"
+   ],
+   "answers": [
+    "A solar eclipse needs the Moon between the Sun and Earth, which is where the Moon is at new moon. A lunar eclipse needs Earth between the Sun and the Moon, which is where the Moon is at full moon.",
+    "Earth's atmosphere bends some sunlight into the shadow and filters out most of the blue light, so reddish light, like the light of sunrise and sunset, still reaches the Moon.",
+    "The Moon's orbit is tilted about five degrees, so most new and full moons pass above or below the Sun or Earth's shadow. An eclipse happens only when a new or full moon falls near a node, during an eclipse season about every six months."
+   ],
+   "vocab": [
+    {
+     "n": 1,
+     "w": "scare away",
+     "pos": "phr. v.",
+     "zh": "嚇跑",
+     "ex": "The farmer put up a scarecrow to <b>scare</b> the birds <b>away</b>.",
+     "exzh": "農夫立了一個稻草人，把鳥嚇跑。"
+    },
+    {
+     "n": 2,
+     "w": "record",
+     "pos": "n.",
+     "zh": "紀錄",
+     "ex": "She keeps a <b>record</b> of every book she reads.",
+     "exzh": "她把讀過的每一本書都記錄下來。"
+    },
+    {
+     "n": 3,
+     "w": "line up",
+     "pos": "phr. v.",
+     "zh": "排成一直線；對齊",
+     "ex": "Make sure the two holes <b>line up</b> before you put in the screw.",
+     "exzh": "鎖螺絲之前，先確定兩個孔對齊。"
+    },
+    {
+     "n": 4,
+     "w": "coincidence",
+     "pos": "n.",
+     "zh": "巧合",
+     "ex": "What a <b>coincidence</b>! We were born on the same day.",
+     "exzh": "真巧！我們同一天生日。"
+    },
+    {
+     "n": 5,
+     "w": "partial",
+     "pos": "adj.",
+     "zh": "部分的",
+     "ex": "The store gave us a <b>partial</b> refund for the broken lamp.",
+     "exzh": "店家為那盞壞掉的檯燈退了我們部分的錢。"
+    },
+    {
+     "n": 6,
+     "w": "certified",
+     "pos": "adj.",
+     "zh": "經過認證的；合格的",
+     "ex": "Only <b>certified</b> teachers can apply for this job.",
+     "exzh": "只有具備合格證書的老師才能應徵這份工作。"
+    },
+    {
+     "n": 7,
+     "w": "bend",
+     "pos": "v.",
+     "zh": "使彎曲；使（光）偏折",
+     "ex": "A glass of water seems to <b>bend</b> a straw.",
+     "exzh": "一杯水好像能把吸管折彎。"
+    },
+    {
+     "n": 8,
+     "w": "filter out",
+     "pos": "phr. v.",
+     "zh": "濾掉",
+     "ex": "These sunglasses <b>filter out</b> harmful light.",
+     "exzh": "這副太陽眼鏡能濾掉有害的光線。"
+    }
+   ],
+   "quiz": [
+    {
+     "q": "During a solar eclipse, whose shadow falls on what?",
+     "options": [
+      "The Moon's shadow falls on Earth",
+      "Earth's shadow falls on the Moon",
+      "Earth's shadow falls on the Sun",
+      "The Sun's shadow falls on the Moon"
+     ],
+     "correct": 0
+    },
+    {
+     "q": "What makes an annular eclipse different from a total solar eclipse?",
+     "options": [
+      "The Moon is farther away and looks slightly smaller than the Sun",
+      "It happens at full moon instead of new moon",
+      "Earth's shadow is bigger that day",
+      "Clouds cover part of the Sun"
+     ],
+     "correct": 0
+    },
+    {
+     "q": "Which of these is safe to watch with your bare eyes?",
+     "options": [
+      "A total lunar eclipse",
+      "A partial solar eclipse",
+      "An annular solar eclipse",
+      "The Sun when it is 90 percent covered"
+     ],
+     "correct": 0
+    },
+    {
+     "q": "Why is the Moon red during a total lunar eclipse?",
+     "options": [
+      "Earth's air bends reddish sunlight into the shadow",
+      "The Moon's rocks glow red as they cool",
+      "The Sun itself turns red during an eclipse",
+      "Dust on the Moon lights up"
+     ],
+     "correct": 0
+    },
+    {
+     "q": "About how often does an eclipse season come around?",
+     "options": [
+      "Every six months",
+      "Every month",
+      "Every week",
+      "Every ten years"
+     ],
+     "correct": 0
+    }
+   ],
+   "types": [
+    {
+     "key": "solar:total",
+     "en": "Total Solar Eclipse",
+     "zh": "日全食",
+     "safe": false,
+     "when_en": "New moon, near a node",
+     "when_zh": "朔（初一），月亮在交點附近",
+     "where_en": "Only inside the path of totality, at most about 270 km wide",
+     "where_zh": "只在全食帶內，寬度最多約 270 公里",
+     "long_en": "Totality lasts at most about 7½ minutes, usually 2 to 4",
+     "long_zh": "全食最長約 7 分半，通常 2 到 4 分鐘",
+     "safe_en": "Eclipse glasses on, except during the minutes of totality",
+     "safe_zh": "全程戴日食眼鏡，只有全食那幾分鐘可以拿下"
+    },
+    {
+     "key": "solar:annular",
+     "en": "Annular Solar Eclipse",
+     "zh": "日環食",
+     "safe": false,
+     "when_en": "New moon, with the Moon far from Earth",
+     "when_zh": "朔（初一），月亮離地球較遠時",
+     "where_en": "Only inside a narrow path; partial elsewhere",
+     "where_zh": "只在狹長的環食帶內；其他地方是偏食",
+     "long_en": "The ring lasts up to about 12 minutes",
+     "long_zh": "金環最長約 12 分鐘",
+     "safe_en": "Never safe without eclipse glasses",
+     "safe_zh": "任何時刻都必須戴日食眼鏡"
+    },
+    {
+     "key": "solar:partial",
+     "en": "Partial Solar Eclipse",
+     "zh": "日偏食",
+     "safe": false,
+     "when_en": "New moon, near a node",
+     "when_zh": "朔（初一），月亮在交點附近",
+     "where_en": "A wide region, thousands of kilometers across",
+     "where_zh": "範圍很大，可達數千公里",
+     "long_en": "About two to three hours from start to finish",
+     "long_zh": "從開始到結束約兩到三小時",
+     "safe_en": "Never safe without eclipse glasses",
+     "safe_zh": "任何時刻都必須戴日食眼鏡"
+    },
+    {
+     "key": "lunar:total",
+     "en": "Total Lunar Eclipse",
+     "zh": "月全食",
+     "safe": true,
+     "when_en": "Full moon, near a node",
+     "when_zh": "望（十五前後），月亮在交點附近",
+     "where_en": "The whole night side of Earth",
+     "where_zh": "地球上整個夜晚半球",
+     "long_en": "Totality lasts up to about 1 hour 45 minutes",
+     "long_zh": "全食最長約 1 小時 45 分",
+     "safe_en": "Safe to watch with bare eyes",
+     "safe_zh": "肉眼直接看，完全安全"
+    },
+    {
+     "key": "lunar:partial",
+     "en": "Partial Lunar Eclipse",
+     "zh": "月偏食",
+     "safe": true,
+     "when_en": "Full moon, near a node",
+     "when_zh": "望（十五前後），月亮在交點附近",
+     "where_en": "The whole night side of Earth",
+     "where_zh": "地球上整個夜晚半球",
+     "long_en": "The dark bite comes and goes over one to three hours",
+     "long_zh": "黑影從出現到離開約一到三小時",
+     "safe_en": "Safe to watch with bare eyes",
+     "safe_zh": "肉眼直接看，完全安全"
+    },
+    {
+     "key": "lunar:penumbral",
+     "en": "Penumbral Lunar Eclipse",
+     "zh": "半影月食",
+     "safe": true,
+     "when_en": "Full moon, a little farther from a node",
+     "when_zh": "望（十五前後），月亮離交點稍遠",
+     "where_en": "The whole night side of Earth",
+     "where_zh": "地球上整個夜晚半球",
+     "long_en": "A faint shading over a few hours; many people never notice",
+     "long_zh": "只是微微變暗，持續數小時，很多人根本沒發現",
+     "safe_en": "Safe to watch with bare eyes",
+     "safe_zh": "肉眼直接看，完全安全"
+    }
+   ],
+   "upcoming": {
+    "eyebrow": "Coming Eclipses · 即將到來的日月食",
+    "title_en": "Mark your calendar",
+    "title_zh": "記在行事曆上",
+    "lead_en": "This list is calculated by this page the moment you open it, from the real positions of the Sun and Moon, so it never goes out of date. Times are Taiwan time for Changhua in central Taiwan and are accurate to within a few minutes. For official times, check with the Taipei Astronomical Museum.",
+    "lead_zh": "這份清單是打開頁面的那一刻，依太陽與月亮的真實位置當場算出來的，所以永遠不會過期。時間以台灣中部的彰化為準（台灣時間），誤差在幾分鐘內；正式時刻請以臺北市立天文科學教育館公布為準。"
+   },
+   "myths": [
+    {
+     "myth_en": "There is an eclipse every month.",
+     "myth_zh": "每個月都有日食、月食。",
+     "fact_en": "The Moon's orbit is tilted, so most new and full moons miss. Eclipses cluster in two eclipse seasons a year. Press Play in the model and watch the shadows pass above and below.",
+     "fact_zh": "月球軌道是傾斜的，大多數新月和滿月都會錯過。日月食集中在一年兩次的食季。在模型裡按「播放」，看影子一次次從上方或下方擦過。"
+    },
+    {
+     "myth_en": "Everyone on the day side of Earth sees a solar eclipse.",
+     "myth_zh": "只要是白天的地方，都看得到日食。",
+     "fact_en": "Only places inside the Moon's shadow see it. A thin path sees it total, a wide region around it sees it partial, and the rest of the day side sees nothing at all.",
+     "fact_zh": "只有在月影範圍內才看得到：狹長的一條看到全食，周圍一大片看到偏食，其餘白天的地方什麼都看不到。"
+    },
+    {
+     "myth_en": "Food cooked during an eclipse is poisonous, and pregnant women should hide.",
+     "myth_zh": "日食時煮的東西有毒，孕婦要躲起來。",
+     "fact_en": "Nothing about sunlight changes during an eclipse, and no special rays harm food or babies. The only real danger is looking straight at the Sun and hurting your eyes.",
+     "fact_zh": "日食時陽光本身沒有任何改變，也沒有什麼特殊射線會傷害食物或胎兒。真正的危險只有一個：直視太陽會傷眼睛。"
+    },
+    {
+     "myth_en": "Very dark sunglasses are good enough for watching a solar eclipse.",
+     "myth_zh": "戴很黑的太陽眼鏡就能看日食。",
+     "fact_en": "Even dark sunglasses let through thousands of times too much light. Use eclipse glasses that meet the ISO 12312-2 standard, or a pinhole viewer.",
+     "fact_zh": "再黑的太陽眼鏡，透進來的光仍然強了幾千倍。請用符合 ISO 12312-2 標準的日食眼鏡，或針孔投影器。"
+    }
+   ],
+   "tricks": [
+    {
+     "title_en": "Solar at new, lunar at full",
+     "title_zh": "日食在初一，月食在十五",
+     "body_en": "A solar eclipse can only happen at new moon, and a lunar eclipse only at full moon. The Chinese calendar starts every month at the new moon, so a solar eclipse falls on the first day of a lunar month (or the day next to it, if it happens right around midnight), and a lunar eclipse falls around the fifteenth.",
+     "body_zh": "日食一定發生在新月（朔），月食一定發生在滿月（望）。農曆每個月從朔開始，所以日食就在初一（剛好發生在午夜前後時，可能落在相鄰那一天），月食在十五前後。"
+    },
+    {
+     "title_en": "Name the one in the middle",
+     "title_zh": "誰在中間，就是誰的影子",
+     "body_en": "Moon in the middle: the Moon's shadow falls on Earth, and that is a solar eclipse. Earth in the middle: Earth's shadow falls on the Moon, and that is a lunar eclipse.",
+     "body_zh": "月亮在中間，月影落在地球上，是日食；地球在中間，地影落在月亮上，是月食。"
+    },
+    {
+     "title_en": "Eclipses come in pairs",
+     "title_zh": "日月食常常成對出現",
+     "body_en": "An eclipse season lasts about five weeks, so a solar eclipse is often followed or preceded by a lunar eclipse two weeks apart. Look for pairs of dots on the timeline.",
+     "body_zh": "一個食季大約五週，所以日食前後兩週常常跟著一次月食。在時間軸上找找看成對的圓點。"
+    },
+    {
+     "title_en": "Safe or not?",
+     "title_zh": "能不能直接看？",
+     "body_en": "A lunar eclipse is always safe, and you need no equipment. Never look straight at a solar eclipse without certified eclipse glasses. Ordinary sunglasses, however dark, are not enough.",
+     "body_zh": "月食永遠安全，不需要任何裝備。日食沒有合格的日食眼鏡，就絕對不要直視；一般太陽眼鏡再黑都不夠。"
+    }
+   ],
+   "activities": [
+    {
+     "title_en": "Eclipses with a Lamp and a Ball",
+     "title_zh": "燈泡與小球做日食月食",
+     "materials": [
+      {
+       "en": "A lamp with the shade removed (the Sun)",
+       "zh": "一盞拿掉燈罩的檯燈（太陽）"
+      },
+      {
+       "en": "A white foam ball stuck on a pencil (the Moon)",
+       "zh": "插在鉛筆上的白色保麗龍球（月亮）"
+      },
+      {
+       "en": "Your own head (Earth)",
+       "zh": "你自己的頭（地球）"
+      },
+      {
+       "en": "A room you can make dark",
+       "zh": "一間可以關燈的教室"
+      }
+     ],
+     "steps": [
+      {
+       "en": "Set up as in Lesson 1: the lamp is the Sun, the ball is the Moon, and your head is Earth.",
+       "zh": "照第一課布置：檯燈是太陽，小球是月亮，你的頭是地球。"
+      },
+      {
+       "en": "Face the lamp and move the ball until it hides the bulb. Its shadow falls on your face: a solar eclipse. Close one eye; the eye in the darkest part of the shadow sees it total.",
+       "zh": "面向檯燈，移動小球直到它擋住燈泡：球的影子落在你臉上——這是日食。閉上一隻眼，站在影子最黑處的那隻眼看到的就是全食。"
+      },
+      {
+       "en": "Turn around so the lamp is behind you, and move the ball into your head's shadow: a lunar eclipse.",
+       "zh": "轉身背對檯燈，把小球移進你頭的影子裡——這是月食。"
+      },
+      {
+       "en": "Now raise your arm a little, as if the Moon's orbit were tilted, and go around again. The ball passes above the bulb and above your head's shadow: no eclipses this month.",
+       "zh": "現在把手臂抬高一點，像是月球軌道傾斜了，再轉一圈：小球從燈泡上方、也從頭影上方經過——這個月沒有日月食。"
+      },
+      {
+       "en": "For older students: keep your arm tilted toward the same wall of the room and walk slowly in a circle around the lamp. At two places in your walk, the ball lines up with the lamp again: those are the two eclipse seasons.",
+       "zh": "給大一點的學生：手臂一直斜向教室的同一面牆，繞著檯燈慢慢走一圈。走到兩個地方時，小球會再度跟燈泡對齊——那就是一年兩次的食季。"
+      }
+     ],
+     "tip_en": "Teaching tip: step 5 is exactly what the Whole year view of the 3D model shows. Let students walk it first, then open the model.",
+     "tip_zh": "教學提示：第 5 步就是 3D 模型「全年」視角畫的東西。先讓學生親身走一次，再打開模型。"
+    },
+    {
+     "title_en": "Make a Pinhole Viewer",
+     "title_zh": "做一個針孔投影器",
+     "materials": [
+      {
+       "en": "Two sheets of stiff white card",
+       "zh": "兩張較硬的白色卡紙"
+      },
+      {
+       "en": "A piece of aluminum foil",
+       "zh": "一小張鋁箔"
+      },
+      {
+       "en": "Tape and a pin",
+       "zh": "膠帶和一根大頭針"
+      }
+     ],
+     "steps": [
+      {
+       "en": "Cut a square hole about 3 centimeters wide in the middle of one card, and tape the foil over it.",
+       "zh": "在一張卡紙中央剪一個約 3 公分的方洞，用膠帶把鋁箔貼在洞上。"
+      },
+      {
+       "en": "Poke one small, clean hole in the foil with the pin.",
+       "zh": "用大頭針在鋁箔上戳一個乾淨的小洞。"
+      },
+      {
+       "en": "Stand with your back to the Sun. Hold up the foil card so that sunlight passes through the pinhole onto the second card.",
+       "zh": "背對太陽站好，舉起貼鋁箔的那張卡，讓陽光穿過針孔落在另一張卡紙上。"
+      },
+      {
+       "en": "The small bright circle is an image of the Sun. Move the second card farther away to make it bigger. During a partial eclipse, you will see the bite.",
+       "zh": "那個明亮的小圓就是太陽的影像；把第二張卡紙拿遠一點，影像會變大。日偏食時，你會看到它缺了一角。"
+      }
+     ],
+     "tip_en": "Never look at the Sun through the pinhole. No card handy? During a partial eclipse, look at the ground under a leafy tree: the gaps between the leaves act as pinholes and paint hundreds of little crescent Suns.",
+     "tip_zh": "絕對不要透過針孔看太陽。手邊沒有卡紙？日偏食時看看樹蔭底下：葉縫就是天然的針孔，地上會出現幾百個小小的月牙形太陽。"
+    }
+   ]
   }
  ],
  "planned": [
-  {
-   "icon": "🌑",
-   "en": "Solar and Lunar Eclipses",
-   "zh": "日食與月食"
-  },
   {
    "icon": "🌍",
    "en": "Why We Have Seasons",
