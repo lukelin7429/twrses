@@ -318,3 +318,82 @@
 .ecl-max { margin: 0 0 .7rem; font-size: .76rem; color: var(--ink-soft); }
 @media (max-width: 760px) { .ecl-list { grid-template-columns: 1fr; } }
 @media (prefers-reduced-motion: reduce) { .ecl-card { animation: none; } }
+
+/* =========================================================
+   第三課：四季（.se-lab、四個轉折點、二十四節氣）
+   ========================================================= */
+.se-where { display: flex; flex-wrap: wrap; gap: 3px; padding: 3px; border-radius: 14px; background: rgba(255,255,255,.05); border: 1px solid var(--al-line); margin-bottom: .7rem; }
+.se-where button { flex: 1 1 auto; font-family: var(--sans); font-weight: 800; font-size: .7rem; border: 0; background: transparent; color: var(--al-mute); padding: .32rem .55rem; border-radius: 10px; cursor: pointer; transition: background .2s, color .2s; white-space: nowrap; }
+.se-where button[aria-pressed="true"] { background: #22345f; color: #fff; }
+.se-where button:hover { color: #fff; }
+.se-fig { margin: 0 0 .55rem; }
+.se-box { border-radius: 12px; overflow: hidden; border: 1px solid var(--al-line); background: #02040c; line-height: 0; }
+.se-box canvas { width: 100%; height: auto; display: block; }
+.se-fig figcaption { margin-top: .3rem; font-size: .68rem; line-height: 1.4; color: var(--al-mute); text-align: center; }
+.se-readout { margin-top: .3rem; }
+.se-readout dl + .se-place { margin-top: .8rem; }
+.se-place { margin: .8rem 0 .4rem; padding-top: .6rem; border-top: 1px solid var(--al-line); font-size: .78rem; font-weight: 800; letter-spacing: .06em; color: var(--al-sun); }
+.se-readout dd span { display: block; font-family: var(--zh); font-weight: 500; font-size: .74rem; color: var(--al-mute); }
+.se-whatif { margin: 0 0 .6rem; padding: .35rem .7rem; border-radius: 10px; background: rgba(255,122,69,.16); color: #ffb08f; font-size: .78rem; font-weight: 800; }
+.se-whatif[hidden] { display: none; }
+.se-lab .al-sky { overflow: hidden; }
+
+.se-track { height: 40px; }
+.se-mark { position: absolute; top: 2px; transform: translateX(-50%); padding: .05rem .4rem; border-radius: 999px; border: 1px solid rgba(255,211,110,.6); background: rgba(40,28,6,.85); color: var(--al-sun); font-family: var(--zh); font-size: .66rem; font-weight: 700; cursor: pointer; line-height: 1.5; transition: background .2s; }
+.se-mark:hover { background: rgba(255,211,110,.25); }
+.se-track .ec-tick { top: 24px; }
+.se-time-row { margin-top: .2rem; }
+.se-chips { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.se-chips .season-svg { width: 30px; height: 30px; }
+.se-close .al-hint { opacity: .7; }
+
+.al-lab.pol { color: #fff; border-color: rgba(255,255,255,.3); }
+.al-lab.place { color: #ffb4a0; border-color: rgba(255,90,54,.5); }
+.al-lab.sub { color: var(--al-sun); border-color: rgba(255,211,110,.5); }
+.al-lab.aps { color: #bfe6ff; border-color: rgba(159,216,255,.45); font-size: .66rem; }
+.al-lab.ghost b { display: block; text-align: center; font-weight: 800; color: var(--al-sun); }
+
+.al-lg-place i { border-color: #ffc84d; border-style: solid; box-shadow: inset 0 0 0 2px #5a8cff; }
+.al-lg-tropic i { border: 2px dashed #ffd36e; }
+.al-lg-subsolar i { border: 0; background: radial-gradient(circle, #fff6c8 0 30%, rgba(255,211,110,.8) 45%, rgba(255,211,110,0) 70%); }
+.al-lg-axis i { border: 0; width: 3px; height: 20px; margin: 0 7px; border-radius: 2px; background: #fff; }
+
+/* 四個轉折點 */
+.ky-card .ph-ico { background: radial-gradient(circle at 50% 40%, #16264a, #070b17); }
+.ky-nums { display: grid; grid-template-columns: 1fr 1fr; gap: .4rem; margin: 0 0 .7rem; }
+.ky-nums span { padding: .45rem .5rem; border-radius: 10px; background: var(--cream); font-size: .7rem; font-weight: 700; color: var(--ink-soft); text-align: center; line-height: 1.3; }
+.ky-nums b { display: block; font-family: var(--serif); font-size: 1.02rem; color: var(--brand-dk); white-space: nowrap; }
+
+/* 二十四節氣 */
+.st-grid { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: .55rem; margin-top: 1.4rem; }
+.st-chip { --st: var(--brand); display: flex; flex-direction: column; align-items: flex-start; gap: .1rem; padding: .7rem .75rem .65rem; border-radius: 12px; border: 1px solid var(--line); border-top: 4px solid var(--st); background: #fff; cursor: pointer; text-align: left; font-family: var(--sans); transition: transform .2s, box-shadow .2s; box-shadow: var(--shadow-sm); }
+.st-chip:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
+.st-chip.st-key { box-shadow: 0 0 0 2px var(--st) inset, var(--shadow-sm); }
+.st-spring { --st: #4f9a5e; } .st-summer { --st: #d2643c; } .st-autumn { --st: #c9921f; } .st-winter { --st: #4a78b8; }
+.st-zh { font-family: var(--zh); font-weight: 800; font-size: 1.15rem; color: var(--ink); letter-spacing: .06em; }
+.st-en { font-size: .68rem; font-weight: 700; color: var(--ink-soft); line-height: 1.25; min-height: 2.5em; }
+.st-date { font-size: .8rem; font-weight: 800; color: var(--st); font-variant-numeric: tabular-nums; }
+.st-cap { margin-top: .9rem; font-size: .88rem; }
+@media (max-width: 1020px) { .st-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+@media (max-width: 640px) {
+  .st-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .se-chips { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .se-where button { font-size: .66rem; padding: .3rem .4rem; }
+}
+@media (max-width: 1020px) { .se-aside { display: block; } .se-aside .se-fig { max-width: 520px; } }
+.se-strip { display: grid; grid-template-columns: 1.1fr 1fr 1.25fr .9fr; gap: .9rem 1.4rem; padding: 1rem 1.3rem 1.05rem; border-top: 1px solid var(--al-line); background: rgba(8,13,28,.92); }
+.se-cell { min-width: 0; }
+.se-cell dl { margin: 0; display: grid; gap: .45rem; }
+.se-cell dl.se-2col { grid-template-columns: 1fr 1fr; gap: .35rem .8rem; }
+.se-cell dt { font-size: .64rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--al-mute); }
+.se-cell dd { margin: 0; font-size: .86rem; font-weight: 700; color: var(--al-text); font-variant-numeric: tabular-nums; }
+.se-cell dd span { display: block; font-family: var(--zh); font-weight: 500; font-size: .74rem; color: var(--al-mute); }
+.se-cell .se-place { margin: 0 0 .35rem; padding: 0; border: 0; }
+.al-lab.aps b { display: block; text-align: center; font-weight: 700; color: #9fd8ff; font-size: .6rem; }
+@media (max-width: 1020px) { .se-strip { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 560px) { .se-strip { grid-template-columns: 1fr; padding: .9rem .85rem; } }
+@media (max-width: 640px) {
+  .se-lab .al-lab.aps { display: none; }
+  .se-lab:not(.se-close) .al-lab.pol { display: none; }
+  .se-lab .al-lab.ghost { font-size: .62rem; }
+}

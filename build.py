@@ -2624,7 +2624,7 @@ def _astro_cn(n):
 
 def _astro_ver():
     h = hashlib.md5()
-    for rel in ("assets/css/astro.css", "assets/js/moon-phases.js", "assets/js/eclipses.js"):
+    for rel in ("assets/css/astro.css", "assets/js/moon-phases.js", "assets/js/eclipses.js", "assets/js/seasons.js"):
         fp = os.path.join(ROOT, rel)
         if os.path.exists(fp): h.update(open(fp, "rb").read())
     return h.hexdigest()[:8]
@@ -2679,6 +2679,31 @@ def eclipse_svg(key, size=56):
     return (f'<svg class="ecl-svg" viewBox="0 0 52 52" width="{size}" height="{size}" aria-hidden="true">'
             f'<clipPath id="ec{n}"><circle cx="{c}" cy="{c}" r="21"/></clipPath>'
             f'<circle cx="{c}" cy="{c}" r="21" fill="{fill}"/><g clip-path="url(#ec{n})">{shade}</g></svg>')
+
+def season_svg(key, size=56):
+    """四季小圖：陽光從左邊來，地軸依節氣傾向／背向太陽；左緣的亮點就是太陽直射的地方。
+    key：0 春分、1 夏至、2 秋分、3 冬至。"""
+    import math
+    _MOON_SVG_N[0] += 1
+    n = _MOON_SVG_N[0]
+    th = {0: 0.0, 1: -23.4, 2: 0.0, 3: 23.4}[key]
+    c, r = 30, 18
+    t = math.radians(th)
+    ax, ay = math.sin(t), -math.cos(t)          # 地軸（往北）
+    ex, ey = math.cos(t), math.sin(t)           # 赤道方向
+    def seg(lat, col, dash=""):
+        off = r * math.sin(math.radians(lat)); half = r * math.cos(math.radians(lat))
+        px, py = c + ax * off, c + ay * off
+        return (f'<line x1="{px - ex * half:.1f}" y1="{py - ey * half:.1f}" x2="{px + ex * half:.1f}" y2="{py + ey * half:.1f}" '
+                f'stroke="{col}" stroke-width="1.2"{dash}/>')
+    rays = "".join(f'<line x1="2" y1="{y}" x2="9" y2="{y}" stroke="#ffd36e" stroke-width="1.4" stroke-linecap="round"/>' for y in (20, 30, 40))
+    return (f'<svg class="season-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">'
+            f'<defs><clipPath id="sc{n}"><circle cx="{c}" cy="{c}" r="{r}"/></clipPath></defs>{rays}'
+            f'<circle cx="{c}" cy="{c}" r="{r}" fill="#3f86d6"/>'
+            f'<rect x="{c}" y="{c - r}" width="{r}" height="{2 * r}" fill="#0f1f3c" opacity=".78" clip-path="url(#sc{n})"/>'
+            f'<g clip-path="url(#sc{n})">{seg(0, "rgba(255,255,255,.75)")}{seg(23.4, "#ffd36e", ' stroke-dasharray="2 2"')}{seg(-23.4, "#ffd36e", ' stroke-dasharray="2 2"')}</g>'
+            f'<line x1="{c - ax * (r + 7):.1f}" y1="{c - ay * (r + 7):.1f}" x2="{c + ax * (r + 7):.1f}" y2="{c + ay * (r + 7):.1f}" stroke="#fff" stroke-width="1.3"/>'
+            f'<circle cx="{c - r}" cy="{c}" r="2.6" fill="#fff6c8"/></svg>')
 
 def _bi(en, zh, tag="p", cls=""):
     """英文在前、中文在後的雙語段落。"""
@@ -2828,6 +2853,71 @@ def render_eclipse_lab(lesson):
   {_lab_foot(lesson["lab"])}
 </div>'''
 
+def render_season_lab(lesson):
+    """第三課：照真實日期繞太陽的地球（assets/js/seasons.js 綁這裡的 class）。"""
+    tg = _lab_toggles([("tilt", "Axis tilt", "地軸傾斜", True), ("lines", "Latitude lines", "緯線", True),
+                       ("ghosts", "Four key dates", "四個轉折點", True)])
+    keys = "".join(
+        f'<button type="button" class="al-chip se-key" data-key="{k["key"]}">{season_svg(k["key"], 30)}'
+        f'<span class="al-chip-en">{html.escape(k["en"])}</span><span class="al-chip-zh">{html.escape(k["zh"])}</span></button>'
+        for k in lesson["keys"])
+    places = [("changhua", "Changhua", "彰化", True), ("sydney", "Sydney", "雪梨", False),
+              ("singapore", "Singapore", "新加坡", False), ("tromso", "Tromsø", "特羅姆瑟", False)]
+    pl = "".join(f'<button type="button" data-place="{k}" aria-pressed="{"true" if on else "false"}">{en} · {zh}</button>'
+                 for k, en, zh, on in places)
+    return f'''<div class="astro-lab se-lab rvl" data-season-lab>
+  <div class="al-stage">
+    <div class="al-space">
+      <canvas class="al-space-cv" aria-label="3D model of Earth going around the Sun on real dates · 照真實日期繞太陽的地球 3D 模型"></canvas>
+      <div class="al-labels" aria-hidden="true"></div>
+      <div class="ec-view" role="group" aria-label="View · 視角">
+        <button type="button" data-view="orbit" aria-pressed="true">Around the Sun · 繞太陽</button>
+        <button type="button" data-view="close" aria-pressed="false">Close-up · 近看地球</button>
+      </div>
+      <p class="al-hint">Drag to turn · 拖曳旋轉　Scroll or pinch to zoom · 滾輪／雙指縮放</p>
+      <button type="button" class="al-home" title="Reset view · 重設視角" aria-label="Reset view · 重設視角">&#8634;</button>
+      <p class="al-nogl-msg">This 3D model needs WebGL, which this browser does not support. The cards below still explain everything.<br><span class="zh">這個瀏覽器不支援 WebGL，無法顯示 3D 模型；下方的卡片一樣能看懂。</span></p>
+    </div>
+    <aside class="al-sky se-aside">
+      <p class="al-sky-k">From the ground · 從地面看</p>
+      <div class="se-where" role="group" aria-label="Place · 地點">{pl}</div>
+      <figure class="se-fig"><div class="se-box"><canvas class="se-path-cv" aria-label="The Sun's path across the sky · 太陽在天空中的軌跡"></canvas></div><figcaption class="se-path-cap"></figcaption></figure>
+      <figure class="se-fig"><div class="se-box"><canvas class="se-beam-cv" aria-label="How spread out the noon sunlight is · 正午陽光攤開的程度"></canvas></div><figcaption class="se-beam-cap"></figcaption></figure>
+    </aside>
+  </div>
+  <div class="se-strip" aria-live="polite">
+    <div class="se-cell"><p class="ec-date se-date-t"></p><p class="se-whatif" hidden>What if Earth had no tilt? · 假設地軸沒有傾斜</p>
+      <dl><div><dt>Solar term · 節氣</dt><dd class="se-term"></dd></div></dl></div>
+    <div class="se-cell"><dl><div><dt>Season · 季節</dt><dd class="se-season"></dd></div>
+      <div><dt>Noon Sun straight overhead at · 太陽直射</dt><dd class="se-dec"></dd></div></dl></div>
+    <div class="se-cell"><p class="se-place"></p>
+      <dl class="se-2col"><div><dt>Sunrise · 日出</dt><dd data-r="rise"></dd></div><div><dt>Sunset · 日落</dt><dd data-r="set"></dd></div>
+      <div><dt>Daylight · 晝長</dt><dd data-r="len"></dd></div><div><dt>Noon Sun · 正午高度</dt><dd data-r="noon"></dd></div></dl></div>
+    <div class="se-cell"><dl><div><dt>Earth–Sun distance · 地日距離</dt><dd class="se-dist"></dd></div></dl></div>
+  </div>
+  <div class="al-controls">
+    <div class="al-row al-row-main">
+      <button type="button" class="al-play" aria-pressed="false"><span class="al-play-i" aria-hidden="true"></span><span class="al-play-t">Play · 播放</span></button>
+      <div class="al-speed" role="group" aria-label="Speed · 速度">
+        <button type="button" data-speed="0.0416667" aria-pressed="false">1 hour/s · 看自轉</button>
+        <button type="button" data-speed="5" aria-pressed="true">5 days/s · 中</button>
+        <button type="button" data-speed="20" aria-pressed="false">20 days/s · 快</button>
+      </div>
+      <div class="ec-jump"><button type="button" class="ec-now se-now">Today · 今天</button></div>
+    </div>
+    <div class="ec-slider">
+      <span class="ec-slider-k">Date · 日期</span>
+      <input type="range" class="ec-time se-date" min="0" max="8760" step="1" value="0" aria-label="Date · 日期">
+      <div class="ec-track se-track"></div>
+    </div>
+    <label class="ec-slider se-time-row"><span class="ec-slider-k">Time of day, Taiwan time · 一天中的時刻（台灣時間）</span>
+      <input type="range" class="ec-time se-time" min="0" max="1439" step="1" value="720"></label>
+    <div class="al-chips se-chips">{keys}</div>
+    <div class="al-row al-toggles">{tg}</div>
+  </div>
+  {_lab_foot(lesson["lab"])}
+</div>'''
+
 def _astro_nav(slug):
     ls = ASTRO["lessons"]
     i = next(n for n, l in enumerate(ls) if l["slug"] == slug)
@@ -2866,8 +2956,8 @@ def build_astro_lesson(lesson):
     reading_html = render_basic_unit(1, unit_dict, level="astro", audio_rel="", pdf_rel="")
     lab = lesson["lab"]
     kind = lab.get("kind", "phases")
-    lab_html = render_eclipse_lab(lesson) if kind == "eclipses" else render_moon_lab(lesson)
-    js = "eclipses" if kind == "eclipses" else "moon-phases"
+    lab_html = {"eclipses": render_eclipse_lab, "seasons": render_season_lab}.get(kind, render_moon_lab)(lesson)
+    js = {"eclipses": "eclipses", "seasons": "seasons"}.get(kind, "moon-phases")
 
     # 依資料裡有什麼就排什麼段落；band（米色底）交替
     secs = []
@@ -2885,6 +2975,35 @@ def build_astro_lesson(lesson):
         secs.append(("phases", "The Eight Phases · 月相八態", "One cycle, about 29.5 days", "一個循環，約 29.5 天",
                      f'<div class="ph-grid stagger">{phase_cards}</div>',
                      _bi(lesson["phases_note_en"], lesson["phases_note_zh"], cls="lead rvl d2")))
+    if lesson.get("keys"):
+        key_cards = "".join(
+            f'<article class="ph-card ky-card rvl">'
+            f'<div class="ph-ico">{season_svg(k["key"], 64)}</div>'
+            f'<h3>{html.escape(k["en"])}<span class="zh">{html.escape(k["zh"])}</span></h3>'
+            f'<p class="ph-meta"><span>{html.escape(k["date_en"])} · {html.escape(k["date_zh"])}</span>'
+            f'<span>{html.escape(k["over_en"])} · {html.escape(k["over_zh"])}</span></p>'
+            f'<p class="ky-nums"><span><b>{html.escape(k["day"])}</b>Daylight · 晝長</span><span><b>{html.escape(k["noon"])}</b>Noon Sun · 正午高度</span></p>'
+            f'<p class="ph-when">{html.escape(k["note_en"])}<br><span class="zh">{html.escape(k["note_zh"])}</span></p>'
+            f'<button type="button" class="ph-go" data-lab-key="{k["key"]}">See it in 3D · 在模型中看 <i>&uarr;</i></button>'
+            f'</article>'
+            for k in lesson["keys"])
+        secs.append(("keys", "Four Turning Points · 四個轉折點", "Solstices and equinoxes", "二至二分",
+                     f'<div class="ph-grid stagger">{key_cards}</div>',
+                     _bi(lesson["keys_note_en"], lesson["keys_note_zh"], cls="lead rvl d2")))
+    if lesson.get("terms"):
+        tm = lesson["terms"]
+        def _season_of(lon):
+            return ("spring" if lon in (315, 330, 345, 0, 15, 30) else "summer" if 45 <= lon <= 120
+                    else "autumn" if 135 <= lon <= 210 else "winter")
+        chips = "".join(
+            f'<button type="button" class="st-chip st-{_season_of(lon)}{" st-key" if lon % 90 == 0 else ""}" data-term="{lon}">'
+            f'<span class="st-zh">{html.escape(zh)}</span><span class="st-en">{html.escape(en)}</span>'
+            f'<span class="st-date">—</span></button>'
+            for lon, zh, en in tm["list"])
+        secs.append(("terms", html.escape(tm["eyebrow"]), tm["title_en"], tm["title_zh"],
+                     f'<div class="st-grid rvl" data-terms>{chips}</div>'
+                     f'<p class="muted st-cap">Dates from Start of Spring to Major Cold, <span class="st-year"></span>, Taiwan time. The solstices and equinoxes are outlined. · 日期從立春排到大寒（<span class="st-year"></span>，台灣時間）；外框加粗的是二至二分。</p>',
+                     _bi(tm["lead_en"], tm["lead_zh"], cls="lead rvl d2")))
     if lesson.get("types"):
         def _row(k_en, k_zh, en, zh):
             return f'<li><b>{k_en} · {k_zh}</b>{html.escape(en)}<span class="zh">{html.escape(zh)}</span></li>'
@@ -2921,8 +3040,9 @@ def build_astro_lesson(lesson):
         f'<div class="trick rvl"><h3>{html.escape(t["title_en"])}<span class="zh">{html.escape(t["title_zh"])}</span></h3>'
         f'{_bi(t["body_en"], t["body_zh"])}</div>'
         for t in lesson["tricks"])
-    tricks_h = (("Read the Moon at a glance", "一眼看懂月亮") if kind == "phases"
-                else ("Keep eclipses straight", "日月食不搞混"))
+    tricks_h = {"phases": ("Read the Moon at a glance", "一眼看懂月亮"),
+                "eclipses": ("Keep eclipses straight", "日月食不搞混"),
+                "seasons": ("Seasons in a sentence", "一句話記住四季")}[kind]
     secs.append(("tricks", "Remember It · 記憶口訣", tricks_h[0], tricks_h[1], f'<div class="trick-grid">{tricks}</div>', ""))
     acts = lesson.get("activities") or [lesson["activity"]]
     for n, act in enumerate(acts, 1):
@@ -2964,7 +3084,7 @@ def build_astro_hub():
         cards.append(
             f'<a class="pm-card as-card rvl" href="{ASTRO_BASE}{l["slug"]}/">'
             f'<span class="pm-card-lv">Lesson {l["n"]} · 第{_astro_cn(l["n"])}課 · {html.escape(l["level"])}</span>'
-            f'<span class="as-card-ico" aria-hidden="true">{eclipse_svg("solar:total", 56) if l.get("card") == "eclipse" else moon_svg(120, 56)}</span>'
+            f'<span class="as-card-ico" aria-hidden="true">{eclipse_svg("solar:total", 56) if l.get("card") == "eclipse" else season_svg(1, 56) if l.get("card") == "season" else moon_svg(120, 56)}</span>'
             f'<h3 class="tp-card-h">{html.escape(l["title"])}</h3>'
             f'<p class="pm-card-zh">{html.escape(l["title_zh"])}</p>'
             f'<p class="pm-card-bl">{html.escape(l["blurb_en"])}<br><span class="muted">{html.escape(l["blurb_zh"])}</span></p>'

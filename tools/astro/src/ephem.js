@@ -297,3 +297,99 @@ export function nodeDistance(date) {
   const d = Math.abs(((sunPos(date).lon - moonPos(date).node + 540) % 360) - 180);
   return Math.min(d, 180 - d);
 }
+
+// ---- 四季（第三課）：太陽赤緯、均時差、日出日落、節氣 ----
+export const OBLIQUITY = 23.4393;          // 黃赤交角（2026 年前後）
+
+/** 太陽的赤道座標。tiltDeg 可以改（第三課的「假設地軸不傾斜」就是傳 0）。 */
+export function sunEquatorial(date, tiltDeg = OBLIQUITY) {
+  const s = sunPos(date);
+  const T = tOf(date);
+  const e = tiltDeg * DEG, l = s.lon * DEG;
+  const dec = Math.asin(Math.sin(e) * Math.sin(l)) / DEG;
+  const ra = norm360(Math.atan2(Math.cos(e) * Math.sin(l), Math.cos(l)) / DEG);
+  const L0 = norm360(280.46646 + 36000.76983 * T);
+  let eot = L0 - 0.0057183 - ra;                 // 均時差（度）→ 分鐘
+  eot = ((eot + 540) % 360) - 180;
+  return { lon: s.lon, dist: s.dist, dec, ra, eotMin: eot * 4 };
+}
+export { gmst };
+
+/** 從某地看太陽的高度、方位（方位角：北 0°、東 90°、南 180°）。 */
+export function sunAltAz(date, site, tiltDeg = OBLIQUITY) {
+  const q = sunEquatorial(date, tiltDeg);
+  const H = (gmst(date) + site.lon - q.ra) * DEG, ph = site.lat * DEG, d = q.dec * DEG;
+  const alt = Math.asin(Math.sin(ph) * Math.sin(d) + Math.cos(ph) * Math.cos(d) * Math.cos(H));
+  const az = Math.atan2(Math.sin(H), Math.cos(H) * Math.sin(ph) - Math.tan(d) * Math.cos(ph)) / DEG + 180;
+  return { alt: alt / DEG, az: norm360(az) };
+}
+
+/**
+ * 某地某一天（該地標準時間的日期）的日出、日落、晝長、正午太陽高度。
+ * 時間以該地標準時間（小時，0–24）表示；-0.833° 含大氣折射與日面半徑。
+ * 回傳 polar: 'day'（永晝）| 'night'（永夜）| null。
+ */
+export function dayInfo(date, site, tiltDeg = OBLIQUITY) {
+  const tz = site.tz;
+  const loc = new Date(date.getTime() + tz * 3600000);
+  const noonGuess = Date.UTC(loc.getUTCFullYear(), loc.getUTCMonth(), loc.getUTCDate(), 12) - tz * 3600000;
+  const q = sunEquatorial(new Date(noonGuess), tiltDeg);
+  const noon = 12 - q.eotMin / 60 - (site.lon - 15 * tz) / 15;
+  const ph = site.lat * DEG, d = q.dec * DEG;
+  const c = (Math.sin(-0.833 * DEG) - Math.sin(ph) * Math.sin(d)) / (Math.cos(ph) * Math.cos(d));
+  const noonAlt = 90 - Math.abs(site.lat - q.dec);
+  if (c <= -1) return { noon, rise: null, set: null, length: 24, noonAlt, dec: q.dec, polar: 'day' };
+  if (c >= 1) return { noon, rise: null, set: null, length: 0, noonAlt, dec: q.dec, polar: 'night' };
+  const H0 = Math.acos(c) / DEG / 15;
+  return { noon, rise: noon - H0, set: noon + H0, length: 2 * H0, noonAlt, dec: q.dec, polar: null };
+}
+
+/** 太陽視黃經到達 targetLon 的時刻（從 from 往後找）。 */
+export function sunLonTime(targetLon, from) {
+  let t = from.getTime();
+  const d0 = norm360(targetLon - sunPos(from).lon);
+  t += (d0 / 0.98565) * 86400000;
+  for (let k = 0; k < 5; k++) {
+    const d = ((targetLon - sunPos(new Date(t)).lon + 540) % 360) - 180;
+    t += (d / 0.98565) * 86400000;
+  }
+  return new Date(t);
+}
+
+// 二十四節氣：從春分（黃經 0°）起每 15°
+export const SOLAR_TERMS = [
+  ['春分', 'Spring Equinox'], ['清明', 'Clear and Bright'], ['穀雨', 'Grain Rain'],
+  ['立夏', 'Start of Summer'], ['小滿', 'Grain Buds'], ['芒種', 'Grain in Ear'],
+  ['夏至', 'Summer Solstice'], ['小暑', 'Minor Heat'], ['大暑', 'Major Heat'],
+  ['立秋', 'Start of Autumn'], ['處暑', 'End of Heat'], ['白露', 'White Dew'],
+  ['秋分', 'Autumn Equinox'], ['寒露', 'Cold Dew'], ['霜降', "Frost's Descent"],
+  ['立冬', 'Start of Winter'], ['小雪', 'Minor Snow'], ['大雪', 'Major Snow'],
+  ['冬至', 'Winter Solstice'], ['小寒', 'Minor Cold'], ['大寒', 'Major Cold'],
+  ['立春', 'Start of Spring'], ['雨水', 'Rain Water'], ['驚蟄', 'Awakening of Insects'],
+];
+
+/** 某一年（台灣日曆）的 24 個節氣時刻，依日期排序（小寒在最前、冬至在最後）。 */
+export function solarTermsOfYear(year) {
+  const start = new Date(Date.UTC(year, 0, 1) - 8 * 3600000);
+  const out = [];
+  for (let k = 0; k < 24; k++) {
+    const lon = (285 + 15 * k) % 360;
+    const t = sunLonTime(lon, start);
+    out.push({ index: Math.round(lon / 15) % 24, lon, date: t });
+  }
+  return out;
+}
+
+/** 某一年的近日點、遠日點（地日距離最小、最大的日子）。 */
+export function apsidesOfYear(year) {
+  const d = (m, day) => new Date(Date.UTC(year, m, day));
+  const scan = (a, b, sign) => {
+    let best = a.getTime(), bv = Infinity;
+    for (let t = a.getTime(); t <= b.getTime(); t += 3600000 * 6) {
+      const v = sign * sunPos(new Date(t)).dist;
+      if (v < bv) { bv = v; best = t; }
+    }
+    return new Date(best);
+  };
+  return { peri: scan(d(0, 1), d(0, 12), 1), aph: scan(d(6, 1), d(6, 12), -1) };
+}
