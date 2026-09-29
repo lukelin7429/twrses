@@ -40,6 +40,19 @@
 
 ---
 
+## 天文教育系列（/resources/classes/astronomy/）— 每課一個 3D 模型
+
+- 內容：`data/astronomy.json`（`lessons[]` 一課一筆；`planned[]` 是系列首頁的「製作中」卡）。頁面由 `build.py` 的 `build_astro_hub()` / `build_astro_lesson()` 產生，reading／生字／小測驗沿用 `render_basic_unit()`。
+- 3D 模型：three.js，**原始碼在 `tools/astro/src/`**，打包成 `assets/js/moon-phases.js`（產物，不要手改）：
+  ```
+  cd tools/astro && npm install && npm run build   # three 與 esbuild 版本鎖在 package.json
+  ```
+- `assets/css/astro.css` 與模型 JS 只載在天文頁（`_astro_head()`，版本號另算，不影響全站快取）。
+- 模型座標約定寫在 `tools/astro/src/moon-phases.js` 檔頭——改之前先讀，北半球「漸盈右邊亮」就是靠它。
+- 🔊 錄音：`python3 tools/gen_audio.py --page resources/classes/astronomy/<slug>` → `./tools/upload_audio.sh`，manifest 命名 `astronomy-<slug>`。
+
+---
+
 ## Build / Deploy
 ```
 python3 build.py        # BASE=/twrses → 服務於 lukelin7429.github.io/twrses/ 或 www.twrses.org

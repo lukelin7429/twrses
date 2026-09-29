@@ -1,0 +1,13 @@
+{
+  "name": "twrses-astro",
+  "private": true,
+  "description": "天文教育 3D 模型的原始碼與打包設定。產物寫到 assets/js/，npm run build 重新打包。",
+  "type": "module",
+  "scripts": {
+    "build": "esbuild src/moon-phases.js --bundle --minify --format=iife --target=es2019 --legal-comments=eof --outfile=../../assets/js/moon-phases.js"
+  },
+  "devDependencies": {
+    "esbuild": "0.25.10",
+    "three": "0.186.1"
+  }
+}

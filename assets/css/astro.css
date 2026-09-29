@@ -1,0 +1,208 @@
+/* =========================================================
+   天文教育 · Astronomy — 3D 模型與課程頁
+   只載在 /resources/classes/astronomy/ 底下（build.py 的 _astro_head）
+   ========================================================= */
+
+.zh { font-family: var(--zh); }
+.h1-zh { display: block; font-family: var(--zh); font-weight: 600; font-size: .52em; letter-spacing: .04em; margin-top: .45em; color: rgba(255,255,255,.86); }
+
+/* ---------- 一句話看懂 ---------- */
+.big-idea { position: relative; margin: 0 0 clamp(2.4rem, 5vw, 3.6rem); padding: 1.4rem 1.6rem 1.3rem 1.8rem; background: linear-gradient(120deg, #fff 0%, var(--cream) 100%); border: 1px solid var(--line); border-left: 5px solid var(--gold); border-radius: 0 var(--radius) var(--radius) 0; box-shadow: var(--shadow-sm); }
+.big-idea-k { display: block; font-weight: 800; font-size: .78rem; letter-spacing: .18em; text-transform: uppercase; color: var(--gold-dk); margin-bottom: .45rem; }
+.big-idea p { margin: 0; font-family: var(--serif); font-size: clamp(1.15rem, 2vw, 1.42rem); line-height: 1.6; color: var(--ink); }
+.big-idea p .zh { display: inline-block; margin-top: .35rem; font-size: .9em; }
+.al-how { max-width: 70ch; }
+.al-how .zh { font-size: .95em; }
+
+/* ---------- 3D 模型面板 ---------- */
+.astro-lab {
+  --al-bg: #060a16; --al-panel: #0c1428; --al-line: rgba(160,180,230,.16);
+  --al-text: #e8edf7; --al-mute: #9fb0cf; --al-teal: #4fd1c5; --al-sun: #ffd36e;
+  margin-top: 1.6rem; background: radial-gradient(120% 90% at 20% 0%, #13224a 0%, var(--al-bg) 55%); color: var(--al-text);
+  border-radius: 24px; box-shadow: 0 30px 70px -30px rgba(6,12,30,.75), 0 0 0 1px rgba(255,255,255,.04) inset; overflow: hidden;
+}
+.al-stage { display: grid; grid-template-columns: minmax(0, 1fr) 330px; }
+.al-space { position: relative; min-height: 560px; border-right: 1px solid var(--al-line); }
+.al-space-cv { position: absolute; inset: 0; width: 100%; height: 100%; display: block; cursor: grab; touch-action: none; outline: none; }
+.al-space-cv:active { cursor: grabbing; }
+.al-labels { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
+.al-lab { position: absolute; left: 0; top: 0; white-space: nowrap; font-size: .72rem; font-weight: 700; letter-spacing: .04em; padding: .12rem .55rem; border-radius: 999px; background: rgba(6,10,22,.62); color: #dfe7f7; border: 1px solid rgba(255,255,255,.14); transition: opacity .2s; font-family: var(--sans); }
+.al-lab.sun { color: #ffe3a3; border-color: rgba(255,211,110,.4); }
+.al-lab.sun b { display: none; font-weight: 800; margin-left: .35rem; transform: rotate(var(--ang, 0rad)); }
+.al-lab.sun.edge { background: rgba(40,28,6,.8); box-shadow: 0 0 22px 4px rgba(255,200,80,.35); }
+.al-lab.sun.edge b { display: inline-block; }
+.al-lab.moon { color: #fff; }
+.al-hint { position: absolute; left: 1rem; bottom: .7rem; margin: 0; font-size: .74rem; color: var(--al-mute); pointer-events: none; }
+.al-home { position: absolute; right: .8rem; top: .8rem; width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--al-line); background: rgba(12,20,40,.75); color: var(--al-text); font-size: 1.25rem; line-height: 1; cursor: pointer; transition: background .2s, transform .3s; }
+.al-home:hover { background: #1a2a52; transform: rotate(-60deg); }
+.al-nogl-msg { display: none; position: absolute; inset: 0; margin: 0; padding: 2rem; place-content: center; text-align: center; color: var(--al-mute); font-size: 1rem; }
+.al-nogl .al-nogl-msg { display: grid; }
+.al-nogl .al-space-cv, .al-nogl .al-hint, .al-nogl .al-home, .al-nogl .al-sky, .al-nogl .al-controls { display: none; }
+.al-nogl .al-stage { grid-template-columns: 1fr; }
+
+/* 從地球看 */
+.al-sky { padding: 1.1rem 1.1rem 1.2rem; background: linear-gradient(180deg, rgba(12,20,40,.9), rgba(6,10,22,.95)); display: flex; flex-direction: column; }
+.al-sky-k { margin: 0 0 .6rem; font-size: .74rem; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; color: var(--al-sun); }
+.al-sky-view { position: relative; aspect-ratio: 1; border-radius: 16px; overflow: hidden; border: 1px solid var(--al-line); background: #02040c; }
+.al-sky-cv { width: 100%; height: 100%; display: block; }
+.al-sun-dir { position: absolute; left: 50%; top: 50%; width: 0; height: 0; pointer-events: none; }
+.al-sun-dir i { position: absolute; left: 0; top: 0; font-style: normal; font-size: 1.3rem; color: var(--al-sun); text-shadow: 0 0 12px rgba(255,200,80,.9); transform: translate(-50%, -50%) rotate(var(--ang, 0rad)) translateX(clamp(40px, 43cqw, 150px)) rotate(calc(-1 * var(--ang, 0rad))); opacity: 0; transition: opacity .3s; }
+.al-sky-view { container-type: inline-size; }
+.al-sun-dir.dir i { opacity: 1; }
+.al-sun-dir em { position: absolute; left: 0; top: 0; transform: translate(-50%, calc(clamp(40px, 43cqw, 150px) - 50%)); white-space: nowrap; font-style: normal; font-size: .72rem; font-weight: 700; color: var(--al-sun); background: rgba(6,10,22,.7); padding: .1rem .5rem; border-radius: 999px; }
+.al-sun-dir em:empty { display: none; }
+.al-badge { position: absolute; left: .6rem; top: .6rem; margin: 0; padding: .2rem .65rem; white-space: nowrap; border-radius: 999px; font-size: .72rem; font-weight: 800; color: #1b1405; background: var(--al-sun); box-shadow: 0 6px 20px -6px rgba(255,211,110,.8); }
+.al-badge b { font-weight: 700; margin-left: .25rem; }
+.al-hemi-note { margin: .5rem 0 0; font-size: .72rem; color: var(--al-mute); text-align: center; }
+.al-readout { margin-top: .8rem; }
+.al-phase-en { margin: 0; font-family: var(--serif); font-size: 1.55rem; line-height: 1.15; color: #fff; }
+.al-phase-zh { margin: .15rem 0 .7rem; font-family: var(--zh); font-size: 1.2rem; font-weight: 600; color: var(--al-sun); letter-spacing: .06em; }
+.al-readout dl { margin: 0; display: grid; grid-template-columns: 1fr 1fr; gap: .45rem .8rem; }
+.al-readout dl div:nth-child(4), .al-readout dl div:nth-child(5) { grid-column: span 1; }
+.al-readout dt { font-size: .64rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--al-mute); }
+.al-readout dd { margin: 0; font-size: .86rem; font-weight: 700; color: var(--al-text); font-variant-numeric: tabular-nums; }
+.al-when { margin: .8rem 0 0; padding-top: .7rem; border-top: 1px solid var(--al-line); font-size: .86rem; line-height: 1.55; color: var(--al-text); }
+.al-when span { display: block; font-family: var(--zh); color: var(--al-mute); margin-top: .15rem; }
+
+/* 控制列 */
+.al-controls { padding: 1rem 1.2rem 1.1rem; border-top: 1px solid var(--al-line); background: rgba(10,16,34,.9); }
+.al-row { display: flex; flex-wrap: wrap; align-items: center; gap: .6rem; }
+.al-play, .al-today, .al-speed button { font-family: var(--sans); font-weight: 800; cursor: pointer; border-radius: 999px; transition: background .2s, color .2s, transform .2s, box-shadow .2s; }
+.al-play { display: inline-flex; align-items: center; gap: .55rem; padding: .62rem 1.3rem .62rem 1rem; border: 0; background: var(--al-sun); color: #1b1405; font-size: .95rem; box-shadow: 0 10px 26px -12px rgba(255,211,110,.9); }
+.al-play:hover { transform: translateY(-2px); }
+.al-play-i { width: 0; height: 0; border-left: 11px solid currentColor; border-top: 7px solid transparent; border-bottom: 7px solid transparent; }
+.is-playing .al-play-i { width: 11px; height: 13px; border: 0; background: linear-gradient(90deg, currentColor 0 35%, transparent 35% 65%, currentColor 65%); }
+.al-fresh .al-play { animation: alPulse 1.8s ease-in-out infinite; }
+@keyframes alPulse { 0%,100% { box-shadow: 0 0 0 0 rgba(255,211,110,.55); } 50% { box-shadow: 0 0 0 12px rgba(255,211,110,0); } }
+.al-speed { display: inline-flex; padding: 3px; border-radius: 999px; background: rgba(255,255,255,.06); border: 1px solid var(--al-line); }
+.al-speed button { border: 0; background: transparent; color: var(--al-mute); font-size: .8rem; padding: .38rem .8rem; }
+.al-speed button[aria-pressed="true"] { background: #22345f; color: #fff; }
+.al-today { margin-left: auto; border: 1px solid rgba(255,211,110,.45); background: transparent; color: var(--al-sun); font-size: .88rem; padding: .55rem 1rem; }
+.al-today:hover { background: rgba(255,211,110,.12); }
+
+.al-slider { display: block; margin: .9rem 0 .2rem; }
+.al-slider > span { display: block; font-size: .7rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--al-mute); margin-bottom: .2rem; }
+.al-age { -webkit-appearance: none; appearance: none; width: 100%; height: 26px; background: transparent; cursor: pointer; }
+.al-age::-webkit-slider-runnable-track { height: 6px; border-radius: 999px; background: linear-gradient(90deg, var(--al-sun) 0 var(--p, 0%), rgba(255,255,255,.12) var(--p, 0%)); }
+.al-age::-moz-range-track { height: 6px; border-radius: 999px; background: rgba(255,255,255,.12); }
+.al-age::-moz-range-progress { height: 6px; border-radius: 999px; background: var(--al-sun); }
+.al-age::-webkit-slider-thumb { -webkit-appearance: none; width: 22px; height: 22px; margin-top: -8px; border-radius: 50%; background: #fff; border: 3px solid var(--al-sun); box-shadow: 0 0 0 4px rgba(255,211,110,.18); }
+.al-age::-moz-range-thumb { width: 18px; height: 18px; border-radius: 50%; background: #fff; border: 3px solid var(--al-sun); }
+.al-age:focus-visible { outline: 2px solid var(--al-teal); outline-offset: 4px; border-radius: 6px; }
+
+.al-chips { display: grid; grid-template-columns: repeat(8, minmax(0, 1fr)); gap: .4rem; margin: .5rem 0 .9rem; }
+.al-chip { display: flex; flex-direction: column; align-items: center; gap: .2rem; padding: .5rem .2rem .45rem; border-radius: 12px; border: 1px solid var(--al-line); background: rgba(255,255,255,.03); color: var(--al-text); cursor: pointer; font-family: var(--sans); transition: background .2s, border-color .2s, transform .2s; }
+.al-chip:hover { background: rgba(255,255,255,.07); transform: translateY(-2px); }
+.al-chip.on { border-color: var(--al-sun); background: rgba(255,211,110,.1); box-shadow: 0 0 0 1px var(--al-sun) inset; }
+.al-chip-en { font-size: .66rem; font-weight: 700; line-height: 1.15; text-align: center; }
+.al-chip-zh { font-family: var(--zh); font-size: .78rem; color: var(--al-sun); }
+
+.al-toggles { gap: .5rem 1.1rem; }
+.al-tg { display: inline-flex; align-items: center; gap: .5rem; cursor: pointer; font-size: .84rem; font-weight: 700; user-select: none; }
+.al-tg small { display: block; font-family: var(--zh); font-size: .74rem; font-weight: 500; color: var(--al-mute); }
+.al-tg span:last-child { line-height: 1.2; }
+.al-tg input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+.al-sw { position: relative; flex: none; width: 36px; height: 20px; border-radius: 999px; background: rgba(255,255,255,.14); transition: background .2s; }
+.al-sw::after { content: ""; position: absolute; left: 3px; top: 3px; width: 14px; height: 14px; border-radius: 50%; background: #cfd8ea; transition: transform .2s, background .2s; }
+.al-tg input:checked + .al-sw { background: var(--al-teal); }
+.al-tg input:checked + .al-sw::after { transform: translateX(16px); background: #fff; }
+.al-tg input:focus-visible + .al-sw { outline: 2px solid var(--al-sun); outline-offset: 3px; }
+
+.al-foot { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 1.2rem 2rem; padding: 1rem 1.3rem 1.3rem; border-top: 1px solid var(--al-line); font-size: .82rem; line-height: 1.6; color: var(--al-mute); }
+.al-legend { list-style: none; margin: 0; padding: 0; display: grid; gap: .5rem; }
+.al-legend li { display: flex; gap: .7rem; align-items: flex-start; }
+.al-legend i { flex: none; width: 18px; height: 18px; margin-top: .15rem; border-radius: 50%; border: 3px solid; }
+.al-lg-sun i { border-color: var(--al-sun); }
+.al-lg-earth i { border-color: var(--al-teal); }
+.al-lg-both i { border: 0; background: conic-gradient(var(--al-sun) 0 50%, var(--al-teal) 0); }
+.al-lg-both span { color: var(--al-text); font-weight: 700; }
+.al-legend .zh, .al-scale .zh { color: #7f90b0; }
+.al-scale { margin: 0; }
+.al-true .al-scale { color: var(--al-text); }
+
+@media (max-width: 1020px) {
+  .al-stage { grid-template-columns: 1fr; }
+  .al-space { border-right: 0; border-bottom: 1px solid var(--al-line); aspect-ratio: 4 / 3; min-height: 320px; }
+  .al-sky { display: grid; grid-template-columns: minmax(0, 200px) minmax(0, 1fr); grid-template-rows: auto auto 1fr; column-gap: 1.1rem; }
+  .al-sky-k { grid-column: 1 / -1; }
+  .al-sky-view { grid-column: 1; grid-row: 2; }
+  .al-hemi-note { grid-column: 1; grid-row: 3; align-self: start; }
+  .al-readout { grid-column: 2; grid-row: 2 / 4; margin-top: 0; }
+  .al-foot { grid-template-columns: 1fr; }
+}
+@media (max-width: 640px) {
+  .astro-lab { border-radius: 18px; margin-inline: -2vw; }
+  .al-space { aspect-ratio: 1 / 1; min-height: 0; }
+  .al-sky { grid-template-columns: minmax(0, 150px) minmax(0, 1fr); padding: .9rem; }
+  .al-phase-en { font-size: 1.2rem; }
+  .al-badge { left: .35rem; top: .35rem; padding: .1rem .45rem; font-size: .6rem; }
+  .al-phase-zh { font-size: 1rem; margin-bottom: .4rem; }
+  .al-readout dl { grid-template-columns: 1fr; gap: .25rem; }
+  .al-when { font-size: .8rem; }
+  .al-chips { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .al-today { margin-left: 0; }
+  .al-hint { display: none; }
+  .al-controls { padding: .9rem .85rem 1rem; }
+  .al-toggles { gap: .6rem .9rem; }
+}
+
+/* ---------- 月相八態 ---------- */
+.ph-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1.1rem; margin-top: 1.4rem; }
+.ph-card { display: flex; flex-direction: column; background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 1.2rem 1.2rem 1.1rem; box-shadow: var(--shadow-sm); transition: transform .25s, box-shadow .25s, border-color .25s; }
+.ph-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); border-color: var(--gold); }
+.ph-ico { width: 84px; height: 84px; display: grid; place-items: center; border-radius: 18px; background: radial-gradient(circle at 50% 40%, #16264a, #070b17); margin-bottom: .9rem; box-shadow: 0 10px 24px -14px rgba(6,12,30,.9); }
+.ph-card h3 { font-size: 1.2rem; margin: 0 0 .5rem; }
+.ph-card h3 .zh { display: block; font-size: .95rem; font-weight: 600; color: var(--gold-dk); margin-top: .2rem; }
+.ph-meta { display: flex; flex-direction: column; gap: .1rem; font-size: .8rem; font-weight: 700; color: var(--brand-dk); margin: 0 0 .6rem; }
+.ph-when { font-size: .9rem; line-height: 1.6; color: var(--ink-soft); margin: 0 0 .9rem; flex: 1; }
+.ph-when .zh { color: var(--ink-soft); opacity: .85; }
+.ph-go { align-self: flex-start; font-family: var(--sans); font-weight: 800; font-size: .8rem; color: var(--brand-dk); background: var(--brand-lt); border: 0; border-radius: 999px; padding: .42rem .9rem; cursor: pointer; transition: background .2s, color .2s; }
+.ph-go:hover { background: var(--brand); color: #fff; }
+.ph-go i { font-style: normal; }
+
+/* ---------- 迷思 ---------- */
+.myth-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.1rem; margin-top: 1.4rem; }
+.myth { background: #fff; border: 1px solid var(--line); border-radius: 16px; overflow: hidden; box-shadow: var(--shadow-sm); }
+.myth p { margin: 0; padding: 1rem 1.3rem; font-size: .98rem; line-height: 1.65; }
+.myth p b { display: block; font-size: .72rem; letter-spacing: .14em; text-transform: uppercase; margin-bottom: .3rem; }
+.myth p .zh { display: block; margin-top: .3rem; color: var(--ink-soft); font-size: .92rem; }
+.myth-x { background: #fbece6; color: #7a3419; text-decoration-color: rgba(210,100,60,.5); }
+.myth-x b { color: var(--sunset); }
+.myth-v b { color: var(--brand); }
+
+/* ---------- 口訣 ---------- */
+.trick-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.1rem; margin-top: 1.4rem; }
+.trick { position: relative; padding: 1.3rem 1.4rem 1.1rem; border-radius: 16px; background: linear-gradient(150deg, #fff, var(--cream)); border: 1px solid var(--line); }
+.trick::before { content: ""; position: absolute; left: 0; top: 1.3rem; bottom: 1.3rem; width: 4px; border-radius: 0 4px 4px 0; background: linear-gradient(var(--gold), var(--sunset)); }
+.trick h3 { font-size: 1.15rem; margin: 0 0 .6rem; }
+.trick h3 .zh { display: block; font-size: .95rem; color: var(--gold-dk); margin-top: .25rem; }
+.trick p { margin: 0; font-size: .96rem; line-height: 1.7; }
+.trick p .zh { display: inline-block; margin-top: .35rem; }
+
+/* ---------- 課堂活動 ---------- */
+.act { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.7fr); gap: 1.5rem 2.2rem; margin-top: 1rem; }
+.act ul, .act ol { margin: 0; padding-left: 1.2em; }
+.act li { margin: 0 0 .75rem; font-size: .98rem; line-height: 1.6; }
+.act li .zh { display: block; color: var(--ink-soft); font-size: .92rem; }
+.act ol li::marker { font-weight: 800; color: var(--gold-dk); }
+.act-tip { margin: 1.4rem 0 0; padding: 1rem 1.2rem; border-left: 3px solid var(--brand); background: #fff; border-radius: 0 12px 12px 0; font-size: .95rem; line-height: 1.7; }
+.act-tip .zh { color: var(--ink-soft); }
+
+/* ---------- 系列首頁 ---------- */
+.as-card-ico { display: grid; place-items: center; width: 72px; height: 72px; margin: .5rem 0 .8rem; border-radius: 18px; background: radial-gradient(circle at 50% 40%, #16264a, #070b17); font-size: 2rem; }
+.as-soon { opacity: .72; background: rgba(255,255,255,.6); box-shadow: none; }
+.as-soon:hover { transform: none; box-shadow: none; border-color: var(--line); }
+.as-soon .as-card-ico { filter: grayscale(.4); }
+
+@media (max-width: 1020px) { .ph-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 760px) { .myth-grid, .trick-grid, .act { grid-template-columns: 1fr; } }
+@media (max-width: 480px) { .ph-grid { grid-template-columns: 1fr; } .ph-card { flex-direction: row; flex-wrap: wrap; gap: 0 1rem; } .ph-ico { width: 72px; height: 72px; } .ph-card h3 { flex: 1; align-self: center; } .ph-meta, .ph-when { flex-basis: 100%; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .al-fresh .al-play { animation: none; }
+  .al-home:hover, .al-chip:hover, .ph-card:hover { transform: none; }
+}
+
+/* 本系列 h2 的副標是中文，不要套英文副標的斜體 */
+.section .tp-h2-en { font-style: normal; font-family: var(--zh); font-weight: 600; }
+.as-card .as-card-ico { margin-top: 1.5rem; }

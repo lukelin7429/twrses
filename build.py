@@ -157,7 +157,7 @@ def footer():
   </div>
 </footer>'''
 
-def layout(path, title, desc, body, active, noindex=False, say_manifest=None):
+def layout(path, title, desc, body, active, noindex=False, say_manifest=None, extra_head=""):
     full_title = f"{title}｜{SITE['name']}" if title else SITE["name"]
     robots_tag = '<meta name="robots" content="noindex, nofollow">\n' if noindex else ''
     # Pages whose 🔊 buttons have generated clips name their manifest here;
@@ -177,7 +177,7 @@ def layout(path, title, desc, body, active, noindex=False, say_manifest=None):
 <link rel="stylesheet" href="/assets/css/motion.css?v={ASSET_V}">
 <link rel="stylesheet" href="/assets/css/search.css?v={ASSET_V}">
 <link rel="icon" href="/assets/img/logo-badge.svg" type="image/svg+xml">
-<meta property="og:title" content="{html.escape(full_title)}">
+{extra_head}<meta property="og:title" content="{html.escape(full_title)}">
 <meta property="og:description" content="{html.escape(desc)}">
 <meta property="og:type" content="website">
 </head>
@@ -1407,6 +1407,8 @@ def build_reading_hub():
              "Complete essays in English and Chinese, with English vocabulary and a reading check. 古文名篇全文中英對照，附英文生字與理解測驗。"),
             ("/resources/classes/zhongyi/", "☯️", "TCM Wellness · 中醫養生",
              "Read Chinese medicine in English: vocabulary and a quiz in every lesson. 用英文讀懂中醫養生，每課附生字與小測驗。"),
+            ("/resources/classes/astronomy/", "🌙", "Astronomy · 天文教育",
+             "Read about the sky in English, with 3D models you can turn. 用英文讀懂天文，每課附可以親手旋轉的 3D 模型。"),
             ("/resources/grandfather/", "🌅", "Grandfather · 落日餘暉",
              "Thirty chapters of life wisdom by Leon La Couvée, in English and Chinese. 三十章人生智慧，中英對照。"),
             ("/resources/periodicals/", "📰", "Periodicals · 英語期刊",
@@ -1571,6 +1573,8 @@ _gwj = os.path.join(ROOT, "data", "guwen.json")
 GUWEN = json.load(open(_gwj, encoding="utf-8")) if os.path.exists(_gwj) else None
 _zyj = os.path.join(ROOT, "data", "zhongyi.json")
 ZHONGYI = json.load(open(_zyj, encoding="utf-8")) if os.path.exists(_zyj) else None
+_asj = os.path.join(ROOT, "data", "astronomy.json")
+ASTRO = json.load(open(_asj, encoding="utf-8")) if os.path.exists(_asj) else None
 
 _EN_SPAN = re.compile(r"[A-Za-z][A-Za-z0-9 ,.'’?!():;/+\-]*")
 def _say_en(line):
@@ -2605,6 +2609,268 @@ def build_zhongyi_hub():
     write(ZHONGYI_BASE, layout(ZHONGYI_BASE, f'{ZHONGYI["title_en"]} · {ZHONGYI["title_zh"]}',
           f'{ZHONGYI["lead_en"]} {ZHONGYI["lead_zh"]}', body, "resources"))
     return ZHONGYI_BASE
+
+
+# ---- 天文教育（資料驅動，data/astronomy.json）----
+# 跟中醫養生同一套：英文 reading 為主、中文預設收起，生字／閱讀理解／小測驗沿用
+# render_basic_unit()。多出來的是每課一個 3D 模型（three.js，原始碼在
+# tools/astro/src/，`cd tools/astro && npm run build` 打包成 assets/js/moon-phases.js），
+# 以及月相卡、迷思、口訣、課堂實驗幾個科學延伸段落。
+# 3D 模型的 CSS/JS 只載在天文頁，版本號另算，改它們不會讓全站每一頁都跟著變。
+ASTRO_BASE = "/resources/classes/astronomy/"
+
+def _astro_cn(n):
+    return ZHONGYI_UNIT_LABELS[n - 1] if 1 <= n <= len(ZHONGYI_UNIT_LABELS) else str(n)
+
+def _astro_ver():
+    h = hashlib.md5()
+    for rel in ("assets/css/astro.css", "assets/js/moon-phases.js"):
+        fp = os.path.join(ROOT, rel)
+        if os.path.exists(fp): h.update(open(fp, "rb").read())
+    return h.hexdigest()[:8]
+
+def _astro_head(js=True):
+    v = _astro_ver()
+    tag = f'<script defer src="/assets/js/moon-phases.js?v={v}"></script>\n' if js else ""
+    return f'<link rel="stylesheet" href="/assets/css/astro.css?v={v}">\n{tag}'
+
+_MOON_SVG_N = [0]
+def moon_svg(elong, size=52, south=False):
+    """月相小圖（北半球視角：漸盈右邊亮）。elong = 距角（度），0 新月、180 滿月。"""
+    import math
+    _MOON_SVG_N[0] += 1
+    gid = f"mg{_MOON_SVG_N[0]}"
+    r, c = 23, 26
+    e = elong % 360
+    parts = [f'<circle cx="{c}" cy="{c}" r="{r}" fill="#1c2436" stroke="rgba(255,255,255,.22)" stroke-width="1"/>']
+    if abs(e - 180) < 0.5:
+        parts.append(f'<circle cx="{c}" cy="{c}" r="{r}" fill="url(#{gid})"/>')
+    elif 0.5 < e < 359.5:
+        waxing = e < 180
+        a = e if waxing else 360 - e
+        rx = round(r * abs(math.cos(math.radians(a))), 2)
+        sweep = 0 if a < 90 else 1
+        flip = "" if waxing != south else f' transform="translate({2 * c},0) scale(-1,1)"'
+        parts.append(f'<path d="M{c},{c - r} A{r},{r} 0 0 1 {c},{c + r} A{rx},{r} 0 0 {sweep} {c},{c - r}Z" fill="url(#{gid})"{flip}/>')
+    defs = (f'<defs><radialGradient id="{gid}" cx="42%" cy="38%" r="75%">'
+            '<stop offset="0" stop-color="#fffaf0"/><stop offset=".7" stop-color="#efe6cf"/>'
+            '<stop offset="1" stop-color="#d9ceb2"/></radialGradient></defs>')
+    return (f'<svg class="moon-svg" viewBox="0 0 52 52" width="{size}" height="{size}" aria-hidden="true">'
+            f'{defs}{"".join(parts)}</svg>')
+
+def _bi(en, zh, tag="p", cls=""):
+    """英文在前、中文在後的雙語段落。"""
+    c = f' class="{cls}"' if cls else ""
+    return f'<{tag}{c}>{html.escape(en)}<br><span class="muted zh">{html.escape(zh)}</span></{tag}>'
+
+def render_moon_lab(lesson):
+    lab = lesson["lab"]
+    ph = lesson["phases"]
+    phases_json = html.escape(json.dumps(
+        [{k: p[k] for k in ("en", "zh", "when_en", "when_zh")} for p in ph], ensure_ascii=False))
+    chips = "".join(
+        f'<button type="button" class="al-chip" data-i="{i}" aria-label="{html.escape(p["en"])} · {html.escape(p["short_zh"])}">'
+        f'{moon_svg(p["elong"], 30)}<span class="al-chip-en">{html.escape(p["en"])}</span>'
+        f'<span class="al-chip-zh">{html.escape(p["short_zh"])}</span></button>'
+        for i, p in enumerate(ph))
+    legend = "".join(
+        f'<li class="al-lg-{html.escape(l["cls"])}"><i></i><span>{html.escape(l["en"])}'
+        f'<br><span class="zh">{html.escape(l["zh"])}</span></span></li>' for l in lab["legend"])
+    toggles = [
+        ("rings", "Two halves", "兩個半面", True),
+        ("ghosts", "Eight positions", "八個位置", True),
+        ("shadow", "Earth's shadow", "地球的影子", False),
+        ("scale", "True scale", "真實比例", False),
+        ("south", "Southern Hemisphere", "南半球", False),
+    ]
+    tg = "".join(
+        f'<label class="al-tg"><input type="checkbox" data-t="{k}"{" checked" if on else ""}>'
+        f'<span class="al-sw" aria-hidden="true"></span><span>{en}<small>{zh}</small></span></label>'
+        for k, en, zh, on in toggles)
+    return f'''<div class="astro-lab rvl" data-moon-lab data-phases="{phases_json}">
+  <div class="al-stage">
+    <div class="al-space">
+      <canvas class="al-space-cv" aria-label="3D model of the Sun, Earth and Moon · 日地月 3D 模型"></canvas>
+      <div class="al-labels" aria-hidden="true"></div>
+      <p class="al-hint">Drag to turn · 拖曳旋轉　Scroll or pinch to zoom · 滾輪／雙指縮放</p>
+      <button type="button" class="al-home" title="Reset view · 重設視角" aria-label="Reset view · 重設視角">&#8634;</button>
+      <p class="al-nogl-msg">This 3D model needs WebGL, which this browser does not support. The phase cards below still explain everything.<br><span class="zh">這個瀏覽器不支援 WebGL，無法顯示 3D 模型；下方的月相卡片一樣能看懂。</span></p>
+    </div>
+    <aside class="al-sky">
+      <p class="al-sky-k">View from Earth · 從地球看</p>
+      <div class="al-sky-view">
+        <canvas class="al-sky-cv" aria-label="The Moon as seen from Earth · 從地球看到的月亮"></canvas>
+        <span class="al-sun-dir"><i>&#9728;</i><em></em></span>
+        <p class="al-badge" hidden>Today · 今天 <b></b></p>
+      </div>
+      <p class="al-hemi-note">Northern Hemisphere view (Taiwan) · 北半球視角（台灣）</p>
+      <div class="al-readout" aria-live="polite">
+        <p class="al-phase-en"></p>
+        <p class="al-phase-zh"></p>
+        <dl>
+          <div><dt>Moon age · 月齡</dt><dd data-r="age"></dd></div>
+          <div><dt>Lunar date · 農曆</dt><dd data-r="lunar"></dd></div>
+          <div><dt>Lit · 亮面</dt><dd data-r="lit"></dd></div>
+          <div><dt>Rises · 月出（約）</dt><dd data-r="rise"></dd></div>
+          <div><dt>Sets · 月落（約）</dt><dd data-r="set"></dd></div>
+        </dl>
+        <p class="al-when"></p>
+      </div>
+    </aside>
+  </div>
+  <div class="al-controls">
+    <div class="al-row al-row-main">
+      <button type="button" class="al-play" aria-pressed="false"><span class="al-play-i" aria-hidden="true"></span><span class="al-play-t">Play · 播放</span></button>
+      <div class="al-speed" role="group" aria-label="Speed · 速度">
+        <button type="button" data-speed="0.6" aria-pressed="false">Slow 慢</button>
+        <button type="button" data-speed="1.5" aria-pressed="true">Normal 中</button>
+        <button type="button" data-speed="4" aria-pressed="false">Fast 快</button>
+      </div>
+      <button type="button" class="al-today">&#127765; Today's Moon · 今天的月亮</button>
+    </div>
+    <label class="al-slider"><span>Days since new moon · 新月後第幾天</span>
+      <input type="range" class="al-age" min="0" max="29.53" step="0.05" value="0"></label>
+    <div class="al-chips">{chips}</div>
+    <div class="al-row al-toggles">{tg}</div>
+  </div>
+  <div class="al-foot">
+    <ul class="al-legend">{legend}</ul>
+    <p class="al-scale">{html.escape(lab["scale_en"])}<br><span class="zh">{html.escape(lab["scale_zh"])}</span></p>
+  </div>
+</div>'''
+
+def _astro_nav(slug):
+    ls = ASTRO["lessons"]
+    i = next(n for n, l in enumerate(ls) if l["slug"] == slug)
+    def side(l, dirn, label):
+        if not l:
+            return '<span class="pm-nav-x"></span>'
+        arrow = "&larr;" if dirn == "prev" else "&rarr;"
+        return (f'<a class="pm-nav-s pm-nav-{dirn}" href="{ASTRO_BASE}{l["slug"]}/">'
+                f'<span class="pm-nav-k">{arrow} {label}</span>'
+                f'<span class="pm-nav-t">{html.escape(l["title"])}</span></a>')
+    prev = ls[i - 1] if i > 0 else None
+    nxt = ls[i + 1] if i < len(ls) - 1 else None
+    return (f'<nav class="pm-nav rvl">{side(prev, "prev", "上一課 · Previous")}'
+            f'<a class="pm-nav-hub" href="{ASTRO_BASE}">&#9776; 回天文教育 · All Lessons</a>'
+            f'{side(nxt, "next", "下一課 · Next")}</nav>')
+
+def build_astro_lesson(lesson):
+    path = f'{ASTRO_BASE}{lesson["slug"]}/'
+    unit_dict = {k: lesson[k] for k in ("title", "paras", "paras_zh", "questions", "answers", "vocab", "quiz")}
+    unit_dict["unit"] = lesson["n"]
+    reading_html = render_basic_unit(1, unit_dict, level="astro", audio_rel="", pdf_rel="")
+    lab = lesson["lab"]
+
+    phase_cards = "".join(
+        f'<article class="ph-card rvl">'
+        f'<div class="ph-ico">{moon_svg(p["elong"], 64)}</div>'
+        f'<h3>{html.escape(p["en"])}<span class="zh">{html.escape(p["zh"])}</span></h3>'
+        f'<p class="ph-meta"><span>{html.escape(p["age_en"])} · 農曆{html.escape(p["lunar"])}</span>'
+        f'<span>{html.escape(p["rise_en"])} · {html.escape(p["rise_zh"])}</span></p>'
+        f'<p class="ph-when">{html.escape(p["when_en"])}<br><span class="zh">{html.escape(p["when_zh"])}</span></p>'
+        f'<button type="button" class="ph-go" data-lab-phase="{i}">See it in 3D · 在模型中看 <i>&uarr;</i></button>'
+        f'</article>'
+        for i, p in enumerate(lesson["phases"]))
+    myths = "".join(
+        f'<div class="myth rvl"><p class="myth-x"><b>&#10007; Myth · 迷思</b>{html.escape(m["myth_en"])}'
+        f'<span class="zh">{html.escape(m["myth_zh"])}</span></p>'
+        f'<p class="myth-v"><b>&#10003; Fact · 事實</b>{html.escape(m["fact_en"])}'
+        f'<span class="zh">{html.escape(m["fact_zh"])}</span></p></div>'
+        for m in lesson["myths"])
+    tricks = "".join(
+        f'<div class="trick rvl"><h3>{html.escape(t["title_en"])}<span class="zh">{html.escape(t["title_zh"])}</span></h3>'
+        f'{_bi(t["body_en"], t["body_zh"])}</div>'
+        for t in lesson["tricks"])
+    act = lesson["activity"]
+    mats = "".join(f'<li>{html.escape(m["en"])}<span class="zh">{html.escape(m["zh"])}</span></li>' for m in act["materials"])
+    steps = "".join(f'<li>{html.escape(st["en"])}<span class="zh">{html.escape(st["zh"])}</span></li>' for st in act["steps"])
+
+    eyebrow = f'Astronomy · Lesson {lesson["n"]} · 天文教育 第{_astro_cn(lesson["n"])}課'
+    lead = f'{html.escape(lesson["blurb_en"])}<br><span class="muted">{html.escape(lesson["blurb_zh"])}</span>'
+    body = f'''
+{page_hero(eyebrow, f'{html.escape(lesson["title"])}<span class="h1-zh">{html.escape(lesson["title_zh"])}</span>', lead, back=(ASTRO_BASE, "回天文教育 · All Lessons"))}
+<section class="section astro-lab-sec" id="model"><div class="wrap">
+  <div class="big-idea rvl"><span class="big-idea-k">Big idea · 一句話看懂</span>{_bi(lesson["big_idea_en"], lesson["big_idea_zh"])}</div>
+  <p class="eyebrow rvl">{html.escape(lab["eyebrow"])}</p>
+  <h2 class="rvl d1 sweep">{html.escape(lab["title_en"])} <span class="tp-h2-en">{html.escape(lab["title_zh"])}</span></h2>
+  {_bi(lab["how_en"], lab["how_zh"], cls="lead rvl d2 al-how")}
+  {render_moon_lab(lesson)}
+</div></section>
+<section class="section band" id="reading"><div class="wrap" style="max-width:940px">
+  <p class="eyebrow rvl">Reading · 英文閱讀</p>
+  {reading_html}
+</div></section>
+<section class="section" id="phases"><div class="wrap">
+  <p class="eyebrow rvl">The Eight Phases · 月相八態</p>
+  <h2 class="rvl d1 sweep">One cycle, about 29.5 days <span class="tp-h2-en">一個循環，約 29.5 天</span></h2>
+  {_bi(lesson["phases_note_en"], lesson["phases_note_zh"], cls="lead rvl d2")}
+  <div class="ph-grid stagger">{phase_cards}</div>
+</div></section>
+<section class="section band" id="myths"><div class="wrap">
+  <p class="eyebrow rvl">Myth vs. Fact · 常見迷思</p>
+  <h2 class="rvl d1 sweep">Four things people get wrong <span class="tp-h2-en">四個常見的誤會</span></h2>
+  <div class="myth-grid">{myths}</div>
+</div></section>
+<section class="section" id="tricks"><div class="wrap">
+  <p class="eyebrow rvl">Remember It · 記憶口訣</p>
+  <h2 class="rvl d1 sweep">Read the Moon at a glance <span class="tp-h2-en">一眼看懂月亮</span></h2>
+  <div class="trick-grid">{tricks}</div>
+</div></section>
+<section class="section band" id="activity"><div class="wrap">
+  <p class="eyebrow rvl">Classroom Activity · 課堂活動</p>
+  <h2 class="rvl d1 sweep">{html.escape(act["title_en"])} <span class="tp-h2-en">{html.escape(act["title_zh"])}</span></h2>
+  <div class="act rvl">
+    <div class="act-mats"><p class="sub-head">You need · 準備材料</p><ul>{mats}</ul></div>
+    <div class="act-steps"><p class="sub-head">Steps · 步驟</p><ol>{steps}</ol></div>
+  </div>
+  <p class="act-tip rvl">{html.escape(act["tip_en"])}<br><span class="zh">{html.escape(act["tip_zh"])}</span></p>
+</div></section>
+<section class="section"><div class="wrap">
+{_astro_nav(lesson["slug"])}
+</div></section>
+'''
+    say_slug = f'astronomy-{lesson["slug"]}'   # tools/gen_audio.py 以路徑末兩段命名
+    has_clips = os.path.exists(os.path.join(ROOT, "assets/data/say", say_slug + ".json"))
+    write(path, layout(path, f'{lesson["title"]} · {lesson["title_zh"]}',
+          f'{lesson["blurb_en"]} {lesson["blurb_zh"]}', body, "resources",
+          say_manifest=say_slug if has_clips else None, extra_head=_astro_head()))
+    return path
+
+def build_astro_hub():
+    cards = []
+    for l in ASTRO["lessons"]:
+        cards.append(
+            f'<a class="pm-card as-card rvl" href="{ASTRO_BASE}{l["slug"]}/">'
+            f'<span class="pm-card-lv">Lesson {l["n"]} · 第{_astro_cn(l["n"])}課 · {html.escape(l["level"])}</span>'
+            f'<span class="as-card-ico" aria-hidden="true">{moon_svg(120, 56)}</span>'
+            f'<h3 class="tp-card-h">{html.escape(l["title"])}</h3>'
+            f'<p class="pm-card-zh">{html.escape(l["title_zh"])}</p>'
+            f'<p class="pm-card-bl">{html.escape(l["blurb_en"])}<br><span class="muted">{html.escape(l["blurb_zh"])}</span></p>'
+            f'<span class="fcard-go">Start the lesson · 開始上課 <i>&rarr;</i></span></a>')
+    for p in ASTRO.get("planned", []):
+        cards.append(
+            f'<div class="pm-card as-card as-soon rvl">'
+            f'<span class="pm-card-lv">Coming soon · 製作中</span>'
+            f'<span class="as-card-ico" aria-hidden="true">{p["icon"]}</span>'
+            f'<h3 class="tp-card-h">{html.escape(p["en"])}</h3>'
+            f'<p class="pm-card-zh">{html.escape(p["zh"])}</p></div>')
+    intro_html = "".join(_bi(p["en"], p["zh"]) for p in ASTRO["intro"])
+    lead = f'{html.escape(ASTRO["lead_en"])}<br><span class="muted">{html.escape(ASTRO["lead_zh"])}</span>'
+    body = f'''
+{page_hero(ASTRO["eyebrow"], f'{ASTRO["title_en"]} <span class="h1-zh">{ASTRO["title_zh"]}</span>', lead, back=("/resources/reading/", "回閱讀與經典"))}
+<section class="section"><div class="wrap">
+  <div class="prose wide rvl">{intro_html}</div>
+</div></section>
+<section class="section band"><div class="wrap">
+  <p class="eyebrow rvl">Lessons · 課程</p>
+  <h2 class="rvl d1 sweep">{len(ASTRO["lessons"])} lesson{"s" if len(ASTRO["lessons"]) > 1 else ""} so far <span class="tp-h2-en">目前 {len(ASTRO["lessons"])} 課，持續增加中</span></h2>
+  <div class="pm-cards stagger">{"".join(cards)}</div>
+</div></section>
+'''
+    write(ASTRO_BASE, layout(ASTRO_BASE, f'{ASTRO["title_en"]} · {ASTRO["title_zh"]}',
+          f'{ASTRO["lead_en"]} {ASTRO["lead_zh"]}', body, "resources", extra_head=_astro_head(js=False)))
+    return ASTRO_BASE
 
 
 def build_poetry_hub():
@@ -4537,6 +4803,9 @@ def main():
             _label = ZHONGYI_UNIT_LABELS[_idx] if _idx < len(ZHONGYI_UNIT_LABELS) else str(_idx + 1)
             for _l in _u["lessons"]:
                 paths.append(build_zhongyi_lesson(_u, _l, _label))
+    if ASTRO:
+        paths.append(build_astro_hub())
+        for _l in ASTRO["lessons"]: paths.append(build_astro_lesson(_l))
     build_grandfather(); paths.append("/resources/grandfather/")
     build_periodicals(); paths.append("/resources/periodicals/")
     build_media_hub(); paths.append("/media/")
