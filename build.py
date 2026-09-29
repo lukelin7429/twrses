@@ -2624,7 +2624,7 @@ def _astro_cn(n):
 
 def _astro_ver():
     h = hashlib.md5()
-    for rel in ("assets/css/astro.css", "assets/js/moon-phases.js", "assets/js/eclipses.js", "assets/js/seasons.js"):
+    for rel in ("assets/css/astro.css", "assets/js/moon-phases.js", "assets/js/eclipses.js", "assets/js/seasons.js", "assets/js/tides.js"):
         fp = os.path.join(ROOT, rel)
         if os.path.exists(fp): h.update(open(fp, "rb").read())
     return h.hexdigest()[:8]
@@ -2704,6 +2704,17 @@ def season_svg(key, size=56):
             f'<g clip-path="url(#sc{n})">{seg(0, "rgba(255,255,255,.75)")}{seg(23.4, "#ffd36e", ' stroke-dasharray="2 2"')}{seg(-23.4, "#ffd36e", ' stroke-dasharray="2 2"')}</g>'
             f'<line x1="{c - ax * (r + 7):.1f}" y1="{c - ay * (r + 7):.1f}" x2="{c + ax * (r + 7):.1f}" y2="{c + ay * (r + 7):.1f}" stroke="#fff" stroke-width="1.3"/>'
             f'<circle cx="{c - r}" cy="{c}" r="2.6" fill="#fff6c8"/></svg>')
+
+def tide_svg(size=56):
+    """潮汐小圖：地球外面一圈被拉長的海水，右邊是月亮。"""
+    _MOON_SVG_N[0] += 1
+    n = _MOON_SVG_N[0]
+    return (f'<svg class="tide-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">'
+            f'<defs><radialGradient id="td{n}"><stop offset=".6" stop-color="#6fc0ff" stop-opacity=".75"/>'
+            f'<stop offset="1" stop-color="#3a8ee6" stop-opacity=".35"/></radialGradient></defs>'
+            f'<ellipse cx="25" cy="30" rx="21" ry="14.5" fill="url(#td{n})"/>'
+            f'<circle cx="25" cy="30" r="12" fill="#2d6fbf"/><path d="M19 25c3-2 7-1 8 2s-2 5-5 4-5-3-3-6z" fill="#5ea35a"/>'
+            f'<circle cx="54" cy="30" r="4.2" fill="#e9e4d6"/></svg>')
 
 def _bi(en, zh, tag="p", cls=""):
     """英文在前、中文在後的雙語段落。"""
@@ -2918,6 +2929,71 @@ def render_season_lab(lesson):
   {_lab_foot(lesson["lab"])}
 </div>'''
 
+def render_tide_lab(lesson):
+    """第四課：被月亮與太陽拉長的海洋（assets/js/tides.js 綁這裡的 class）。"""
+    tg = _lab_toggles([("sun", "Sun's tide", "太陽的潮汐", True), ("arrows", "Tidal force arrows", "潮汐力箭頭", True),
+                       ("labels", "Labels", "標示", True)])
+    chips = "".join(
+        f'<button type="button" class="al-chip td-phase-go" data-target="{m["target"]}">{moon_svg(m["elong"], 30)}'
+        f'<span class="al-chip-en">{html.escape(m["en"])}</span><span class="al-chip-zh">{html.escape(m["tide_zh"])}</span></button>'
+        for m in lesson["moontides"])
+    return f'''<div class="astro-lab td-lab rvl" data-tide-lab>
+  <div class="al-stage">
+    <div class="al-space">
+      <canvas class="al-space-cv" aria-label="3D model of Earth's oceans stretched by the Moon and Sun · 被月亮與太陽拉長的海洋 3D 模型"></canvas>
+      <div class="al-labels" aria-hidden="true"></div>
+      <p class="al-hint">Drag to turn · 拖曳旋轉　Scroll or pinch to zoom · 滾輪／雙指縮放</p>
+      <button type="button" class="al-home" title="Reset view · 重設視角" aria-label="Reset view · 重設視角">&#8634;</button>
+      <p class="al-nogl-msg">This 3D model needs WebGL, which this browser does not support. The cards below still explain everything.<br><span class="zh">這個瀏覽器不支援 WebGL，無法顯示 3D 模型；下方的卡片一樣能看懂。</span></p>
+    </div>
+    <aside class="al-sky se-aside td-aside">
+      <p class="al-sky-k">Why two bulges? · 為什麼有兩個鼓起？</p>
+      <div class="se-where td-why" role="group" aria-label="Why two bulges · 為什麼有兩個鼓起">
+        <button type="button" data-why="pull" aria-pressed="true">1. Pull · 引力</button>
+        <button type="button" data-why="stretch" aria-pressed="false">2. Stretch · 拉伸</button>
+      </div>
+      <figure class="se-fig"><div class="se-box"><canvas class="td-why-cv" aria-label="Why there are two tidal bulges · 為什麼有兩個潮汐鼓起"></canvas></div><figcaption class="td-why-cap"></figcaption></figure>
+      <p class="al-sky-k td-k2">Idealized tide at Changhua · 彰化的理想化潮汐</p>
+      <div class="se-where td-span" role="group" aria-label="Time span · 時間範圍">
+        <button type="button" data-span="2" aria-pressed="true">2 days · 2 天</button>
+        <button type="button" data-span="30" aria-pressed="false">1 month · 1 個月</button>
+      </div>
+      <figure class="se-fig"><div class="se-box"><canvas class="td-curve-cv" aria-label="Idealized tide curve · 理想化潮汐曲線"></canvas></div>
+        <figcaption>Moon and Sun only. Real tides on the coast come hours later and are shaped by the sea floor, so this is not a tide table. · 只算月亮與太陽；真實海岸的潮汐會晚好幾小時、受海底地形影響，這不是潮汐表。</figcaption></figure>
+    </aside>
+  </div>
+  <div class="se-strip" aria-live="polite">
+    <div class="se-cell"><p class="ec-date td-date"></p>
+      <dl><div><dt>Moon phase · 月相</dt><dd><span class="td-phase"></span> <span class="td-lunar"></span></dd></div></dl></div>
+    <div class="se-cell"><dl><div><dt>Today's tide · 今天的潮</dt><dd><b class="td-kind"></b><span class="td-kind-sub"></span></dd></div>
+      <div><dt>Sun–Moon angle · 日月夾角</dt><dd class="td-angle"></dd></div></dl></div>
+    <div class="se-cell"><dl><div><dt>Tide size · 潮汐大小</dt><dd class="td-size"></dd></div>
+      <div><dt>Moon's distance · 月地距離</dt><dd class="td-dist"></dd></div></dl></div>
+    <div class="se-cell td-safe"><p><b>&#9888; Going to the tidal flats? · 要去潮間帶？</b>Check the official tide forecast from the <a href="https://www.cwa.gov.tw/" target="_blank" rel="noopener">Central Weather Administration</a> first, and leave well before high tide.<span>出發前先查<a href="https://www.cwa.gov.tw/" target="_blank" rel="noopener">中央氣象署</a>的潮汐預報，滿潮前提早離開。</span></p></div>
+  </div>
+  <div class="al-controls">
+    <div class="al-row al-row-main">
+      <button type="button" class="al-play" aria-pressed="false"><span class="al-play-i" aria-hidden="true"></span><span class="al-play-t">Play · 播放</span></button>
+      <div class="al-speed" role="group" aria-label="Speed · 速度">
+        <button type="button" data-speed="0.0416667" aria-pressed="false">1 hour/s · 看自轉</button>
+        <button type="button" data-speed="0.25" aria-pressed="true">6 hours/s · 中</button>
+        <button type="button" data-speed="2" aria-pressed="false">2 days/s · 看月相</button>
+      </div>
+      <div class="ec-jump"><button type="button" class="ec-now td-now">Now · 現在</button></div>
+    </div>
+    <div class="ec-slider">
+      <span class="ec-slider-k">Date · 日期</span>
+      <input type="range" class="ec-time td-time" min="0" max="1080" step="1" value="0" aria-label="Date · 日期">
+      <div class="ec-track se-track td-track"></div>
+    </div>
+    <label class="ec-slider se-time-row"><span class="ec-slider-k">Time of day, Taiwan time · 一天中的時刻（台灣時間）</span>
+      <input type="range" class="ec-time td-tod" min="0" max="1439" step="1" value="720"></label>
+    <div class="al-chips se-chips">{chips}</div>
+    <div class="al-row al-toggles">{tg}</div>
+  </div>
+  {_lab_foot(lesson["lab"])}
+</div>'''
+
 def _astro_nav(slug):
     ls = ASTRO["lessons"]
     i = next(n for n, l in enumerate(ls) if l["slug"] == slug)
@@ -2956,8 +3032,8 @@ def build_astro_lesson(lesson):
     reading_html = render_basic_unit(1, unit_dict, level="astro", audio_rel="", pdf_rel="")
     lab = lesson["lab"]
     kind = lab.get("kind", "phases")
-    lab_html = {"eclipses": render_eclipse_lab, "seasons": render_season_lab}.get(kind, render_moon_lab)(lesson)
-    js = {"eclipses": "eclipses", "seasons": "seasons"}.get(kind, "moon-phases")
+    lab_html = {"eclipses": render_eclipse_lab, "seasons": render_season_lab, "tides": render_tide_lab}.get(kind, render_moon_lab)(lesson)
+    js = {"eclipses": "eclipses", "seasons": "seasons", "tides": "tides"}.get(kind, "moon-phases")
 
     # 依資料裡有什麼就排什麼段落；band（米色底）交替
     secs = []
@@ -3004,6 +3080,26 @@ def build_astro_lesson(lesson):
                      f'<div class="st-grid rvl" data-terms>{chips}</div>'
                      f'<p class="muted st-cap">Dates from Start of Spring to Major Cold, <span class="st-year"></span>, Taiwan time. The solstices and equinoxes are outlined. · 日期從立春排到大寒（<span class="st-year"></span>，台灣時間）；外框加粗的是二至二分。</p>',
                      _bi(tm["lead_en"], tm["lead_zh"], cls="lead rvl d2")))
+    if lesson.get("moontides"):
+        mt_cards = "".join(
+            f'<article class="ph-card mt-card {"mt-spring" if m["spring"] else "mt-neap"} rvl">'
+            f'<div class="ph-ico">{moon_svg(m["elong"], 64)}</div>'
+            f'<h3>{html.escape(m["en"])}<span class="zh">{html.escape(m["zh"])}</span></h3>'
+            f'<p class="mt-tide"><b>{html.escape(m["tide_en"])}</b>{html.escape(m["tide_zh"])}</p>'
+            f'<p class="ph-when">{html.escape(m["why_en"])}<br><span class="zh">{html.escape(m["why_zh"])}</span></p>'
+            f'<button type="button" class="ph-go" data-lab-target="{m["target"]}">See it in 3D · 在模型中看 <i>&uarr;</i></button>'
+            f'</article>'
+            for m in lesson["moontides"])
+        secs.append(("moontides", "Moon Phase and Tide · 月相與潮汐", "Spring tides and neap tides", "大潮與小潮",
+                     f'<div class="ph-grid stagger">{mt_cards}</div>',
+                     _bi(lesson["moontides_note_en"], lesson["moontides_note_zh"], cls="lead rvl d2")))
+    if lesson.get("words"):
+        w_cards = "".join(
+            f'<div class="tw-card rvl"><h3>{html.escape(w["en"])}<span class="zh">{html.escape(w["zh"])}</span></h3>'
+            f'{_bi(w["def_en"], w["def_zh"])}</div>'
+            for w in lesson["words"])
+        secs.append(("words", "Tide Words · 潮汐用語", "Read a tide table in English", "用英文看懂潮汐表",
+                     f'<div class="tw-grid">{w_cards}</div>', ""))
     if lesson.get("types"):
         def _row(k_en, k_zh, en, zh):
             return f'<li><b>{k_en} · {k_zh}</b>{html.escape(en)}<span class="zh">{html.escape(zh)}</span></li>'
@@ -3042,7 +3138,8 @@ def build_astro_lesson(lesson):
         for t in lesson["tricks"])
     tricks_h = {"phases": ("Read the Moon at a glance", "一眼看懂月亮"),
                 "eclipses": ("Keep eclipses straight", "日月食不搞混"),
-                "seasons": ("Seasons in a sentence", "一句話記住四季")}[kind]
+                "seasons": ("Seasons in a sentence", "一句話記住四季"),
+                "tides": ("Tides in a sentence", "一句話記住潮汐")}[kind]
     secs.append(("tricks", "Remember It · 記憶口訣", tricks_h[0], tricks_h[1], f'<div class="trick-grid">{tricks}</div>', ""))
     acts = lesson.get("activities") or [lesson["activity"]]
     for n, act in enumerate(acts, 1):
@@ -3084,7 +3181,7 @@ def build_astro_hub():
         cards.append(
             f'<a class="pm-card as-card rvl" href="{ASTRO_BASE}{l["slug"]}/">'
             f'<span class="pm-card-lv">Lesson {l["n"]} · 第{_astro_cn(l["n"])}課 · {html.escape(l["level"])}</span>'
-            f'<span class="as-card-ico" aria-hidden="true">{eclipse_svg("solar:total", 56) if l.get("card") == "eclipse" else season_svg(1, 56) if l.get("card") == "season" else moon_svg(120, 56)}</span>'
+            f'<span class="as-card-ico" aria-hidden="true">{eclipse_svg("solar:total", 56) if l.get("card") == "eclipse" else season_svg(1, 56) if l.get("card") == "season" else tide_svg(56) if l.get("card") == "tide" else moon_svg(120, 56)}</span>'
             f'<h3 class="tp-card-h">{html.escape(l["title"])}</h3>'
             f'<p class="pm-card-zh">{html.escape(l["title_zh"])}</p>'
             f'<p class="pm-card-bl">{html.escape(l["blurb_en"])}<br><span class="muted">{html.escape(l["blurb_zh"])}</span></p>'

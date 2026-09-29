@@ -397,3 +397,44 @@
   .se-lab:not(.se-close) .al-lab.pol { display: none; }
   .se-lab .al-lab.ghost { font-size: .62rem; }
 }
+
+/* =========================================================
+   第四課：潮汐（.td-lab、月相與潮汐卡、潮汐用語）
+   ========================================================= */
+.td-aside .al-sky-k.td-k2 { margin-top: .5rem; }
+.td-why button, .td-span button { flex: 1 1 0; }
+.td-kind { display: block; font-family: var(--serif); font-size: 1.05rem; font-weight: 600; }
+.td-kind.td-spring { color: var(--al-sun); }
+.td-kind.td-neap { color: #9fd8ff; }
+.td-kind.td-mid { color: var(--al-text); }
+.td-safe p { margin: 0; padding: .65rem .8rem; border-radius: 12px; background: rgba(255,122,69,.12); border: 1px solid rgba(255,122,69,.35); font-size: .8rem; line-height: 1.55; color: var(--al-text); }
+.td-safe b { display: block; color: #ffb08f; margin-bottom: .2rem; }
+.td-safe span { display: block; font-family: var(--zh); color: var(--al-mute); margin-top: .2rem; }
+.td-safe a { color: var(--al-sun); text-decoration: underline; text-underline-offset: 2px; }
+.td-mark.td-spring { color: var(--al-sun); }
+.td-mark.td-neap { color: #9fd8ff; border-color: rgba(159,216,255,.55); background: rgba(10,25,45,.85); }
+
+.al-lab.tide { color: #bfe6ff; border-color: rgba(124,196,255,.55); background: rgba(8,30,60,.75); }
+.al-lab.tide.lo { color: #9fb0cf; border-color: rgba(159,176,207,.35); }
+.al-lg-ocean i { border: 0; border-radius: 50%; background: radial-gradient(circle, #2d6fbf 0 45%, rgba(111,192,255,.7) 46% 100%); transform: scaleX(1.35); }
+.al-lg-arrows i { border: 0; width: 18px; height: 3px; margin-top: .6rem; border-radius: 2px; background: #ffd36e; position: relative; }
+.al-lg-arrows i::after { content: ""; position: absolute; right: -2px; top: -4px; border-left: 7px solid #ffd36e; border-top: 5.5px solid transparent; border-bottom: 5.5px solid transparent; }
+.al-lg-pin i { border: 0; width: 12px; height: 12px; margin: .25rem 3px 0; background: #ff5a36; }
+
+/* 月相與潮汐 */
+.mt-tide { margin: 0 0 .6rem; font-family: var(--zh); font-size: .95rem; font-weight: 700; color: var(--ink-soft); }
+.mt-tide b { display: inline-block; margin-right: .4rem; padding: .1rem .55rem; border-radius: 999px; font-family: var(--sans); font-size: .78rem; }
+.mt-spring .mt-tide b { background: #fbe8c4; color: #7a5310; }
+.mt-neap .mt-tide b { background: #dcecfb; color: #1d4f91; }
+
+/* 潮汐用語 */
+.tw-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; margin-top: 1.4rem; }
+.tw-card { padding: 1.1rem 1.25rem 1rem; border-radius: 16px; background: #fff; border: 1px solid var(--line); border-top: 4px solid #3a8ee6; box-shadow: var(--shadow-sm); }
+.tw-card h3 { font-size: 1.12rem; margin: 0 0 .45rem; }
+.tw-card h3 .zh { margin-left: .45rem; font-size: .95rem; color: #1d4f91; }
+.tw-card p { margin: 0; font-size: .92rem; line-height: 1.6; }
+@media (max-width: 1020px) { .tw-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 560px) { .tw-grid { grid-template-columns: 1fr; } }
+@media (max-width: 640px) { .td-lab .al-lab.tide.lo { display: none; } }
+.td-lab .al-lab.tide { font-size: .64rem; padding: .08rem .45rem; }
+@media (max-width: 640px) { .td-lab .al-lab.place { display: none; } }

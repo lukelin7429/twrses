@@ -393,3 +393,28 @@ export function apsidesOfYear(year) {
   };
   return { peri: scan(d(0, 1), d(0, 12), 1), aph: scan(d(6, 1), d(6, 12), -1) };
 }
+
+// ---- 潮汐（第四課）：平衡潮 ----
+// 潮汐力與距離的三次方成反比。以平均距離的月潮為 1，太陽潮約 0.46。
+export const SUN_TIDE = 0.46;
+const P2 = (x) => (3 * x * x - 1) / 2;
+
+/** 月潮、日潮的相對強度（隨距離變化）以及日月的夾角（度）。 */
+export function tideFactors(date) {
+  const m = moonPos(date), s = sunPos(date);
+  const moon = Math.pow(384400 / m.dist, 3);
+  const sun = SUN_TIDE * Math.pow(AU / s.dist, 3);
+  const c = circumstances(date);
+  return { moon, sun, sep: c.sepSun / DEG };
+}
+
+/**
+ * 某地的「平衡潮」高度（相對值）：只算月亮與太陽的潮汐力，不含海岸與海底地形。
+ * 真實海岸的滿潮會晚好幾個小時、高度也不同——這不是潮汐表。
+ */
+export function equilibriumTide(date, site, withSun = true) {
+  const f = tideFactors(date);
+  const mAlt = topocentric(date, site).moonAlt * DEG;
+  const sAlt = sunAltAz(date, site).alt * DEG;
+  return f.moon * P2(Math.sin(mAlt)) + (withSun ? f.sun * P2(Math.sin(sAlt)) : 0);
+}
