@@ -37,7 +37,7 @@ EN_ONLY_PAGES = ("resources/classes/poetry",)
 # headword is a 🔊 of its own, so there any phrase of up to SHORT_WORDS words goes
 # to the English-only Ava. Sentences keep the Multilingual voice — they carry
 # enough context, and it is the voice chosen for them.
-SHORT_PAGES = ("resources/booklets", "resources/classes/astronomy")
+SHORT_PAGES = ("resources/booklets", "resources/classes/astronomy", "resources/classes/human-body")
 SHORT_WORDS = 3
 
 

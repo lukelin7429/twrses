@@ -1,0 +1,19 @@
+{
+  "name": "twrses-body",
+  "private": true,
+  "description": "人體探索 3D 模型的原始碼與打包設定。npm run model 從 BodyParts3D 產生 assets/models/*.glb；npm run build 打包成 assets/js/。",
+  "type": "module",
+  "scripts": {
+    "model": "node scripts/build-skeleton.mjs",
+    "build": "esbuild src/skeleton.js --bundle --minify --format=iife --target=es2019 --legal-comments=eof --outdir=../../assets/js",
+    "test": "node test/skeleton.test.mjs"
+  },
+  "devDependencies": {
+    "@gltf-transform/core": "4.2.1",
+    "@gltf-transform/extensions": "4.2.1",
+    "@gltf-transform/functions": "4.2.1",
+    "esbuild": "0.25.10",
+    "meshoptimizer": "0.25.0",
+    "three": "0.186.1"
+  }
+}
