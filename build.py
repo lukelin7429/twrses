@@ -3176,23 +3176,31 @@ def build_astro_lesson(lesson):
     return path
 
 def build_astro_hub():
+    # 橫向卡片（左圖示、右文字），桌機兩欄、手機一欄；英文標題用襯線字、正常字距，
+    # 不再沿用 pm-card 那套四欄窄卡（標題會被切成四、五行，等級標籤還會蓋住圖示）。
+    def icon(l):
+        c = l.get("card")
+        return (eclipse_svg("solar:total", 60) if c == "eclipse" else season_svg(1, 60) if c == "season"
+                else tide_svg(60) if c == "tide" else moon_svg(120, 60))
     cards = []
     for l in ASTRO["lessons"]:
         cards.append(
-            f'<a class="pm-card as-card rvl" href="{ASTRO_BASE}{l["slug"]}/">'
-            f'<span class="pm-card-lv">Lesson {l["n"]} · 第{_astro_cn(l["n"])}課 · {html.escape(l["level"])}</span>'
-            f'<span class="as-card-ico" aria-hidden="true">{eclipse_svg("solar:total", 56) if l.get("card") == "eclipse" else season_svg(1, 56) if l.get("card") == "season" else tide_svg(56) if l.get("card") == "tide" else moon_svg(120, 56)}</span>'
-            f'<h3 class="tp-card-h">{html.escape(l["title"])}</h3>'
-            f'<p class="pm-card-zh">{html.escape(l["title_zh"])}</p>'
-            f'<p class="pm-card-bl">{html.escape(l["blurb_en"])}<br><span class="muted">{html.escape(l["blurb_zh"])}</span></p>'
-            f'<span class="fcard-go">Start the lesson · 開始上課 <i>&rarr;</i></span></a>')
+            f'<a class="as-row rvl" href="{ASTRO_BASE}{l["slug"]}/">'
+            f'<span class="as-ico" aria-hidden="true">{icon(l)}</span>'
+            f'<span class="as-body">'
+            f'<span class="as-meta"><b>Lesson {l["n"]} · 第{_astro_cn(l["n"])}課</b><i>{html.escape(l["level"])}</i></span>'
+            f'<h3 class="as-title">{html.escape(l["title"])}</h3>'
+            f'<span class="as-zh">{html.escape(l["title_zh"])}</span>'
+            f'<span class="as-bl">{html.escape(l["blurb_en"])}</span>'
+            f'<span class="as-bl zh">{html.escape(l["blurb_zh"])}</span>'
+            f'<span class="as-go">Start the lesson · 開始上課 <i>&rarr;</i></span>'
+            f'</span></a>')
     for p in ASTRO.get("planned", []):
         cards.append(
-            f'<div class="pm-card as-card as-soon rvl">'
-            f'<span class="pm-card-lv">Coming soon · 製作中</span>'
-            f'<span class="as-card-ico" aria-hidden="true">{p["icon"]}</span>'
-            f'<h3 class="tp-card-h">{html.escape(p["en"])}</h3>'
-            f'<p class="pm-card-zh">{html.escape(p["zh"])}</p></div>')
+            f'<div class="as-row as-soon rvl">'
+            f'<span class="as-ico" aria-hidden="true">{p["icon"]}</span>'
+            f'<span class="as-body"><span class="as-meta"><b>Coming soon · 製作中</b></span>'
+            f'<h3 class="as-title">{html.escape(p["en"])}</h3><span class="as-zh">{html.escape(p["zh"])}</span></span></div>')
     intro_html = "".join(_bi(p["en"], p["zh"]) for p in ASTRO["intro"])
     lead = f'{html.escape(ASTRO["lead_en"])}<br><span class="muted">{html.escape(ASTRO["lead_zh"])}</span>'
     body = f'''
@@ -3203,7 +3211,7 @@ def build_astro_hub():
 <section class="section band"><div class="wrap">
   <p class="eyebrow rvl">Lessons · 課程</p>
   <h2 class="rvl d1 sweep">{len(ASTRO["lessons"])} lesson{"s" if len(ASTRO["lessons"]) > 1 else ""} so far <span class="tp-h2-en">目前 {len(ASTRO["lessons"])} 課，持續增加中</span></h2>
-  <div class="pm-cards stagger">{"".join(cards)}</div>
+  <div class="as-list">{"".join(cards)}</div>
 </div></section>
 '''
     write(ASTRO_BASE, layout(ASTRO_BASE, f'{ASTRO["title_en"]} · {ASTRO["title_zh"]}',
