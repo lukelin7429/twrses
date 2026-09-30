@@ -500,10 +500,17 @@ function initLab(root) {
   }
   new ResizeObserver(resize).observe(spaceWrap);
   resize();
-  if (spaceWrap.clientWidth < 520) {
-    state.labels = false;
-    const t = $('[data-t="labels"]'); if (t) t.checked = false;
-  }
+  // 手機上標籤會擠成一團：使用者還沒碰過開關之前，依畫面寬度自動開關
+  let labelsAuto = true;
+  const labelsTg = $('[data-t="labels"]');
+  if (labelsTg) labelsTg.addEventListener('change', () => { labelsAuto = false; });
+  const autoLabels = () => {
+    if (!labelsAuto) return;
+    state.labels = spaceWrap.clientWidth >= 520;
+    if (labelsTg) labelsTg.checked = state.labels;
+  };
+  new ResizeObserver(autoLabels).observe(spaceWrap);
+  autoLabels();
 
   let visible = false, raf = 0, last = 0;
   function step(dt) {

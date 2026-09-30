@@ -3443,11 +3443,11 @@ def render_heart_lab(lesson):
       </dl>
       <p class="hr-nums-note">Adult-size heart, about 70 mL per beat at rest; a bathtub holds about 150 L. · 以成人安靜時每跳約 70 毫升計算；一缸約 150 公升。</p>
       </div>
-      <div class="hr-col hr-follow">
-      <p class="al-sky-k">Follow one drop · 跟著一滴血</p>
-      <ol class="hr-stops">{stops}</ol>
-      </div>
     </aside>
+  </div>
+  <div class="hr-follow">
+    <p class="al-sky-k">Follow one drop · 跟著一滴血</p>
+    <ol class="hr-stops">{stops}</ol>
   </div>
   <div class="al-controls">
     <div class="al-row al-row-main">

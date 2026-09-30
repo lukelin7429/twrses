@@ -216,8 +216,8 @@ function initLab(root) {
   // ---------------- 血球 ----------------
   const CIRCUITS = [];
   for (let pi = 0; pi < 2; pi++) for (let si = 0; si < 2; si++) CIRCUITS.push(buildCircuit(RT, pi, si));
-  const N = 280;
-  const cells = new InstancedMesh(new SphereGeometry(0.045, 10, 8), new MeshStandardMaterial({ roughness: 0.35 }), N);
+  const N = 600;
+  const cells = new InstancedMesh(new SphereGeometry(0.042, 10, 8), new MeshStandardMaterial({ roughness: 0.35 }), N);
   scene.add(cells);
   const DROPS = [];
   const totalW = CIRCUITS[0].reduce((a, s) => a + s.w, 0);
@@ -335,7 +335,7 @@ function initLab(root) {
     ['lungR', 'Lung · 肺', V(-2.35, 1.95, 0)], ['lungL', 'Lung · 肺', V(2.35, 1.95, 0)],
     ['head', 'Head and arms · 頭與手臂', V(0, 3.35, 0)], ['lower', 'Body and legs · 身體與腿', V(0, -3.4, 0)],
     ['aorta', 'Aorta · 主動脈', V(0.55, 1.8, 0)], ['pa', 'Pulmonary artery · 肺動脈', V(-1.05, 1.7, 0.25)],
-    ['vc', 'Vena cava · 腔靜脈', V(-1.3, -1.2, 0.2)], ['pv', 'Pulmonary veins · 肺靜脈', V(1.45, -0.25, -0.2)],
+    ['vc', 'Vena cava · 腔靜脈', V(-1.25, -1.1, 0.2)], ['pv', 'Pulmonary veins · 肺靜脈', V(1.45, -0.25, -0.2)],
     ['valve', 'Valves · 瓣膜', V(-0.2, 0.05, 0.55)],
   ];
   const XL = extra.map(([k, html, at]) => ({ k, el: lab.add(`hr-lb hr-lb-x hr-lb-${k}`, html), at }));
@@ -347,7 +347,7 @@ function initLab(root) {
     for (const [k, el] of Object.entries(LB)) { el.hidden = !on && state.focus !== k; if (!el.hidden) lab.place(el, CH[k].c.clone().add(OFF[k])); }
     for (const x of XL) { x.el.hidden = !on; if (on) lab.place(x.el, x.at); }
     sideR.hidden = sideL.hidden = !on;
-    if (on) { lab.place(sideR, V(-1.05, -1.35, 0.4)); lab.place(sideL, V(1.1, -1.45, 0.3)); }
+    if (on) { lab.place(sideR, V(-2.1, -1.75, 0)); lab.place(sideL, V(2.1, -1.75, 0)); }
   }
 
   // ---------------- 讀數 ----------------
@@ -470,10 +470,17 @@ function initLab(root) {
   new ResizeObserver(resize).observe(spaceWrap);
   resize();
   camera.position.copy(homePos());
-  if (spaceWrap.clientWidth < 520) {
-    state.labels = false;
-    const t = $('[data-t="labels"]'); if (t) t.checked = false;
-  }
+  // 手機上標籤會擠成一團：使用者還沒碰過開關之前，依畫面寬度自動開關
+  let labelsAuto = true;
+  const labelsTg = $('[data-t="labels"]');
+  if (labelsTg) labelsTg.addEventListener('change', () => { labelsAuto = false; });
+  const autoLabels = () => {
+    if (!labelsAuto) return;
+    state.labels = spaceWrap.clientWidth >= 520;
+    if (labelsTg) labelsTg.checked = state.labels;
+  };
+  new ResizeObserver(autoLabels).observe(spaceWrap);
+  autoLabels();
 
   let visible = false, raf = 0, last = 0;
   function step(dt) {
