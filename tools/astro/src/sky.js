@@ -5,7 +5,7 @@
  * 先換成黃道座標，再把黃經加上歲差（每年約 50″，2026 年約 0.36°），就是當天的位置。
  * 精度約 0.1°，當星圖綽綽有餘；不含自行、章動、光行差。
  */
-import { STARS } from './stars-data.js';
+import { LINES, STARS } from './stars-data.js';
 import { ZODIAC_BOUNDS } from './figures.js';
 import { DEG, gmst, jdOf, moonPos, sunPos } from './ephem.js';
 
@@ -112,4 +112,38 @@ export function riseSet(fn, from, to, h0 = 0) {
     prev = v;
   }
   return { rise, set };
+}
+
+// B−V 色指數 → 星的顏色（藍白到橙紅）
+const BV = [[-0.4, [150, 180, 255]], [0, [205, 218, 255]], [0.4, [240, 242, 255]], [0.65, [255, 244, 230]],
+  [1.0, [255, 218, 170]], [1.4, [255, 190, 125]], [2.0, [255, 160, 95]]];
+export function bvColor(bv) {
+  if (bv <= BV[0][0]) return BV[0][1];
+  for (let k = 1; k < BV.length; k++) {
+    if (bv <= BV[k][0]) {
+      const [b0, c0] = BV[k - 1], [b1, c1] = BV[k], f = (bv - b0) / (b1 - b0);
+      return c0.map((v, i) => v + (c1[i] - v) * f);
+    }
+  }
+  return BV[BV.length - 1][1];
+}
+
+/**
+ * 斗柄方向（第六課）：天權（δ UMa，斗杓與斗柄的交界）→ 搖光（η UMa，斗柄末端）在地平座標裡的方向。
+ * 面向北方時：往右是東、往上是南（朝天頂）、往左是西、往下是北（朝地平線）。
+ * 回傳 k：0 東、1 南、2 西、3 北；alt：搖光的高度。
+ */
+export function handleDir(date, site) {
+  const h = (i) => { const q = starEqOfDate(i, date); return altAz(q.ra, q.dec, date, site); };
+  const a = h(LINES.UMa[0]), b = h(LINES.UMa[6]);
+  const east = ((((a.az - b.az) % 360) + 540) % 360 - 180) * Math.cos(a.alt * DEG), up = a.alt - b.alt;
+  const k = ((Math.round(Math.atan2(up, east) / DEG / 90) % 4) + 4) % 4;
+  return { k, en: ['east', 'south', 'west', 'north'][k], zh: ['東', '南', '西', '北'][k], alt: a.alt };
+}
+
+/** 某個星座（figures.js 的縮寫）有幾顆連線星高於 minAlt 度。 */
+export function starsUp(abbr, date, site, minAlt = 3) {
+  let n = 0;
+  for (const i of new Set(LINES[abbr])) { const q = starEqOfDate(i, date); if (altAz(q.ra, q.dec, date, site).alt > minAlt) n++; }
+  return n;
 }

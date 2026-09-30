@@ -59,6 +59,12 @@ export const NAMED = [
   ['Eta Tau', 'Pleiades', '昴宿'],
 ];
 
+// 第六課另外標名的星（不放進 NAMED，免得第五課的「今晚」清單跟著變）
+export const EXTRA = [
+  ['Alp UMa', 'Dubhe', '天樞'], ['Bet UMa', 'Merak', '天璇'], ['Eta UMa', 'Alkaid', '搖光'],
+  ['Bet UMi', 'Kochab', '帝星'], ['Gam Cas', 'Gamma Cas', '策'], ['Alp1 Cru', 'Acrux', '十字架二'],
+];
+
 // 中國星官（「中國星官」開關）：只畫幾個大家叫得出名字的，對照同一群星在西方屬於哪個星座
 export const ASTERISMS = [
   { zh: '參宿', en: 'Shen (Orion)', lines: [['Alp Ori', 'Gam Ori', 'Bet Ori', 'Kap Ori', 'Alp Ori'], ['Del Ori', 'Eps Ori', 'Zet Ori']] },

@@ -11,7 +11,7 @@
  */
 import { readFileSync, writeFileSync } from 'node:fs';
 import { homedir } from 'node:os';
-import { FIGURES, NAMED, ASTERISMS, TRIANGLES } from '../src/figures.js';
+import { FIGURES, NAMED, EXTRA, ASTERISMS, TRIANGLES } from '../src/figures.js';
 
 const src = process.argv[2] || `${homedir()}/Documents/twrses-bsc5/catalog`;
 const MAG_LIMIT = 5.0;
@@ -38,7 +38,7 @@ for (const line of readFileSync(src, 'latin1').split('\n')) {
 const find = (n) => { const r = byName.get(n); if (!r) throw new Error(`星表裡找不到 ${n}`); return r; };
 
 const need = new Set();
-const allNames = [...FIGURES.flatMap((f) => f.lines.flat()), ...NAMED.map((n) => n[0]),
+const allNames = [...FIGURES.flatMap((f) => f.lines.flat()), ...NAMED.map((n) => n[0]), ...EXTRA.map((n) => n[0]),
   ...ASTERISMS.flatMap((a) => a.lines.flat()), ...TRIANGLES.flatMap((t) => t.stars)];
 for (const n of allNames) need.add(find(n).hr);
 const stars = rows.filter((r) => r.mag <= MAG_LIMIT || need.has(r.hr)).sort((a, b) => a.mag - b.mag);
@@ -54,6 +54,7 @@ export const LINES = ${JSON.stringify(Object.fromEntries(FIGURES.map((f) => [f.a
 export const ASTER_LINES = ${JSON.stringify(ASTERISMS.map((a) => segs(a.lines)))};
 export const NAMED_IDX = ${JSON.stringify(NAMED.map((n) => I(n[0])))};
 export const TRI_IDX = ${JSON.stringify(TRIANGLES.map((t) => t.stars.map(I)))};
+export const EXTRA_IDX = ${JSON.stringify(EXTRA.map((n) => I(n[0])))};
 `;
 writeFileSync(new URL('../src/stars-data.js', import.meta.url), out);
 console.log(`${stars.length} stars (≤ ${MAG_LIMIT} mag + ${[...need].filter((h) => stars.find((s) => s.hr === h).mag > MAG_LIMIT).length} fainter figure stars), ${(out.length / 1024).toFixed(1)} KB`);

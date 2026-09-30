@@ -25,7 +25,7 @@ import * as E from './ephem.js';
 import { ASTERISMS, FIGURES, NAMED, TRIANGLES } from './figures.js';
 import { ASTER_LINES, LINES, NAMED_IDX, STARS, TRI_IDX } from './stars-data.js';
 import {
-  N_STARS, STAR_ECL, allStarsAltAz, altAz, eclToEq, meridianZodiac, moonAltAzOf, precession,
+  N_STARS, STAR_ECL, allStarsAltAz, bvColor, altAz, eclToEq, meridianZodiac, moonAltAzOf, precession,
   riseSet, starEqOfDate, sunAltAzOf, sunConstellation,
 } from './sky.js';
 
@@ -49,19 +49,6 @@ const hhmm = (d) => { const x = tw(d); return `${pad(x.h)}:${pad(x.mi)}`; };
 const FIG = Object.fromEntries(FIGURES.map((f) => [f.abbr, f]));
 const cname = (abbr) => `${FIG[abbr].en} · ${FIG[abbr].zh}`;
 
-// B−V 色指數 → 星的顏色（藍白到橙紅）
-const BV = [[-0.4, [150, 180, 255]], [0, [205, 218, 255]], [0.4, [240, 242, 255]], [0.65, [255, 244, 230]],
-  [1.0, [255, 218, 170]], [1.4, [255, 190, 125]], [2.0, [255, 160, 95]]];
-export function bvColor(bv) {
-  if (bv <= BV[0][0]) return BV[0][1];
-  for (let k = 1; k < BV.length; k++) {
-    if (bv <= BV[k][0]) {
-      const [b0, c0] = BV[k - 1], [b1, c1] = BV[k], f = (bv - b0) / (b1 - b0);
-      return c0.map((v, i) => v + (c1[i] - v) * f);
-    }
-  }
-  return BV[BV.length - 1][1];
-}
 const eclVec = (lon, lat, r) => new Vector3(r * Math.cos(lat * DEG) * Math.cos(lon * DEG), r * Math.sin(lat * DEG), -r * Math.cos(lat * DEG) * Math.sin(lon * DEG));
 const localOf = (lat, lon, r) => new Vector3(r * Math.cos(lat * DEG) * Math.cos(lon * DEG), r * Math.sin(lat * DEG), -r * Math.cos(lat * DEG) * Math.sin(lon * DEG));
 

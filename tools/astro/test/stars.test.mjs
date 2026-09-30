@@ -2,7 +2,7 @@
 import assert from 'node:assert/strict';
 import { STARS, LINES, NAMED_IDX } from '../src/stars-data.js';
 import { NAMED, FIGURES } from '../src/figures.js';
-import { N_STARS, allStarsAltAz, altAz, meridianZodiac, starEqOfDate, sunConstellation, zodiacAt, riseSet } from '../src/sky.js';
+import { N_STARS, allStarsAltAz, altAz, eclToEq, handleDir, meridianZodiac, starEqOfDate, sunConstellation, zodiacAt, riseSet, STAR_ECL } from '../src/sky.js';
 
 const SITE = { lat: 24.08, lon: 120.54 };
 const H = 3600000;
@@ -54,4 +54,28 @@ const diff = ((r1.getTime() + 30 * 24 * H) - r2.getTime()) / 60000;
 console.log(`Betelgeuse rises ${new Date(r1.getTime() + 8 * H).toISOString().slice(11, 16)} on 10/1, ${new Date(r2.getTime() + 8 * H).toISOString().slice(11, 16)} on 10/31 (earlier by ${diff.toFixed(0)} min)`);
 assert.ok(diff > 110 && diff < 125, 'rises about 2 hours earlier a month later');
 console.log('meridian zodiac, 2026-10-01 21:00 Changhua:', meridianZodiac(tw('2026-10-01T21:00'), SITE));
+
+// ---- 第六課：北極星 ----
+// 6. 北極星的高度≈緯度（差不到 0.7°，因為它離天極約 0.63°）
+const pol = idx('Polaris');
+const pq = starEqOfDate(pol, new Date('2026-10-01T00:00Z'));
+assert.ok(Math.abs(90 - pq.dec - 0.63) < 0.05, `Polaris is ${90 - pq.dec}° from the pole`);
+for (const lat of [24.08, 1.35, 69.65, -33.87]) {
+  for (let hr = 0; hr < 24; hr += 3) {
+    const d = new Date(Date.UTC(2026, 9, 1, hr));
+    const a = altAz(pq.ra, pq.dec, d, { lat, lon: 120.54 }).alt;
+    assert.ok(Math.abs(a - lat) < 0.7, `Polaris alt ${a} at lat ${lat}`);
+  }
+}
+// 7. 斗柄四季（彰化晚上八點，每月 15 日）：4 月東、7 月南、10 月西、1 月北
+for (const [m, want] of [[4, 'east'], [7, 'south'], [10, 'west'], [1, 'north']]) {
+  const h = handleDir(tw(`2026-${String(m).padStart(2, '0')}-15T20:00`), SITE);
+  console.log(`handle ${m}/15 20:00: ${h.en} (Alkaid alt ${h.alt.toFixed(0)}°)`);
+  assert.equal(h.en, want, `handle in month ${m}`);
+}
+// 8. 歲差：孔子時代（前 500 年）北極星離天極約 14–15°；2100 年前後最近（不到 0.5°）
+const poleDist = (i, y) => 90 - eclToEq(STAR_ECL[i * 2] + 1.39697 * (y - 2000) / 100, STAR_ECL[i * 2 + 1], 23.439291 - 0.0130042 * (y - 2000) / 100).dec;
+const d500 = poleDist(pol, -500), d2100 = poleDist(pol, 2100);
+console.log(`Polaris from the pole: 500 BC ${d500.toFixed(1)}°, 2026 ${poleDist(pol, 2026).toFixed(2)}°, 2100 ${d2100.toFixed(2)}°`);
+assert.ok(d500 > 13 && d500 < 16 && d2100 < 0.5);
 console.log('stars.test OK');
