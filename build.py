@@ -3374,7 +3374,7 @@ def build_astro_hub():
 # 第一課的骨架是真實解剖資料（BodyParts3D，CC BY 4.0），`npm run model` 產生 assets/models/skeleton.glb。
 # 面板與段落樣式沿用 astro.css，人體專屬的在 body.css；兩者都只載在本系列頁面。
 BODY_BASE = "/resources/classes/human-body/"
-_BODY_JS = {"skeleton": "skeleton", "arm": "arm", "heart": "heart"}   # lab.kind → assets/js/<bundle>.js
+_BODY_JS = {"skeleton": "skeleton", "arm": "arm", "heart": "heart", "lungs": "lungs"}   # lab.kind → assets/js/<bundle>.js
 
 def _body_ver():
     h = hashlib.md5()
@@ -3579,6 +3579,71 @@ def render_heart_lab(lesson):
   {_lab_foot(lab)}
 </div>'''
 
+def render_lungs_lab(lesson):
+    """第四課：真實胸廓＋自繪的肺、橫膈膜、支氣管樹（assets/js/lungs.js 綁這裡的 class）。"""
+    lab = lesson["lab"]
+    rates = [("sleep", "&#128164;", "Asleep", "睡覺", 12), ("rest", "&#129681;", "At rest", "安靜", 16),
+             ("child", "&#129490;", "Child", "孩子", 20), ("run", "&#127939;", "Running", "跑步", 40)]
+    rate_btns = "".join(
+        f'<button type="button" data-rate="{k}" aria-pressed="{"true" if k == "rest" else "false"}"><i aria-hidden="true">{ic}</i>{en}<small>{zh} {n}</small></button>'
+        for k, ic, en, zh, n in rates)
+    tg = _lab_toggles([("labels", "Labels", "標示", True), ("ribs", "Rib cage", "胸廓", True),
+                       ("airways", "Airways", "氣管樹", True), ("heart", "Heart", "心臟", True)])
+    return f'''<div class="astro-lab sk-lab lu-lab rvl" data-lungs-lab data-model="{_model_url()}">
+  <div class="al-stage">
+    <div class="al-space">
+      <canvas class="al-space-cv" aria-label="3D model of the chest: lungs, airways, diaphragm, and ribs · 胸腔 3D 模型：肺、氣管、橫膈膜與肋骨"></canvas>
+      <div class="al-labels" aria-hidden="true"></div>
+      <p class="sk-loading">Loading the chest… · 胸腔載入中…<span class="sk-bar"><i></i></span></p>
+      <p class="al-hint">Drag to turn · 拖曳旋轉　Scroll or pinch to zoom · 滾輪／雙指縮放</p>
+      <button type="button" class="al-home" title="Reset view · 重設視角" aria-label="Reset view · 重設視角">&#8634;</button>
+      <p class="al-nogl-msg">This 3D model needs WebGL, which this browser does not support. The cards below still explain everything.<br><span class="zh">這個瀏覽器不支援 WebGL，無法顯示 3D 模型；下方的卡片一樣能看懂。</span></p>
+    </div>
+    <aside class="al-sky sk-aside hr-aside lu-aside">
+      <div class="hr-col">
+      <p class="al-sky-k">Breathing · 呼吸</p>
+      <p class="hr-rate"><b class="lu-bpm hr-bpm">16</b><span>breaths a minute<small>每分鐘呼吸</small></span><em class="lu-src hr-src"></em></p>
+      <div class="hr-rates" role="group" aria-label="Breathing rate · 呼吸速度">{rate_btns}</div>
+      <p class="lu-phase" data-k=""></p>
+      <p class="lu-phase-t" aria-live="polite"></p>
+      <button type="button" class="lu-hold"><i aria-hidden="true">&#127788;</i><span>Hold to breathe in<small>按住吸氣，放開吐氣</small></span></button>
+      <div class="hr-mbox">
+        <button type="button" class="hr-measure lu-measure"><i aria-hidden="true">&#9201;</i><span>Count my breaths<small>數我的呼吸（30 秒）</small></span></button>
+        <div class="hr-tapbox">
+          <button type="button" class="hr-tap lu-tap" aria-label="Tap each time you breathe in · 每吸一口氣按一次">Tap<small>按</small></button>
+          <p class="hr-tap-count"><b class="hr-tap-n">0</b> breaths · 次<br><b class="hr-tap-s">30</b> s left · 秒</p>
+        </div>
+        <p class="hr-tap-msg" aria-live="polite">Sit still with a hand on your belly. Tap once each time you breathe in.<span class="zh">安靜坐好，一手放在肚子上；每吸一口氣就按一次。</span></p>
+      </div>
+      </div>
+    </aside>
+  </div>
+  <div class="lu-strip">
+    <div class="lu-strip-alv">
+      <p class="al-sky-k">Inside one air sac · 一個肺泡裡</p>
+      <div class="lu-alv-box"><canvas class="lu-alv" aria-label="Oxygen moving from an air sac into the blood, and carbon dioxide moving out · 氧氣從肺泡進入血液、二氧化碳從血液出來"></canvas></div>
+      <p class="lu-alv-cap"><span class="lu-dot lu-o2"></span>Oxygen into the blood · 氧氣進入血液<br><span class="lu-dot lu-co2"></span>Carbon dioxide out · 二氧化碳出來</p>
+    </div>
+    <div class="lu-strip-nums">
+      <dl class="hr-nums">
+        <div><dt>Breaths a day · 每天呼吸</dt><dd class="lu-day"></dd></div>
+        <div><dt>Air a minute · 每分鐘換氣</dt><dd><span class="lu-lmin"></span> L</dd></div>
+        <div><dt>Air a day · 每天換氣</dt><dd><span class="lu-lday"></span> L</dd></div>
+        <div><dt>Oxygen in → out · 氧氣吸進→吐出</dt><dd>21% → 16%</dd></div>
+      </dl>
+      <p class="hr-nums-note">About 0.5 L per quiet breath for an adult; deeper when you exercise. · 以成人安靜時每口約 0.5 公升計算；運動時會更深。</p>
+    </div>
+  </div>
+  <div class="al-controls">
+    <div class="al-row al-row-main">
+      <button type="button" class="al-play" aria-pressed="true"><span class="al-play-i" aria-hidden="true"></span><span class="al-play-t">Pause · 暫停</span></button>
+      <div class="al-row al-toggles">{tg}</div>
+    </div>
+  </div>
+  {_lab_foot(lab)}
+  <p class="sk-credit">{lab["credit_html"]}</p>
+</div>'''
+
 def _body_nav(slug):
     ls = BODY["lessons"]
     i = next(n for n, l in enumerate(ls) if l["slug"] == slug)
@@ -3602,7 +3667,7 @@ def build_body_lesson(lesson):
     reading_html = render_basic_unit(1, unit_dict, level="body", audio_rel="", pdf_rel="")
     lab = lesson["lab"]
     kind = lab["kind"]
-    lab_html = {"skeleton": render_skeleton_lab, "arm": render_arm_lab, "heart": render_heart_lab}[kind](lesson)
+    lab_html = {"skeleton": render_skeleton_lab, "arm": render_arm_lab, "heart": render_heart_lab, "lungs": render_lungs_lab}[kind](lesson)
 
     secs = []
     if lesson.get("jobs"):
@@ -3686,7 +3751,7 @@ def build_body_lesson(lesson):
                      _bi(ms["lead_en"], ms["lead_zh"], cls="lead rvl d2")))
     secs.append(("myths", "Myth vs. Fact · 常見迷思", "Four things people get wrong", "四個常見的誤會", _sci_myths(lesson), ""))
     tricks_h = {"skeleton": ("Bones in a sentence", "一句話記住骨頭"), "arm": ("Muscles in a sentence", "一句話記住肌肉"),
-                "heart": ("The heart in a sentence", "一句話記住心臟")}[kind]
+                "heart": ("The heart in a sentence", "一句話記住心臟"), "lungs": ("Breathing in a sentence", "一句話記住呼吸")}[kind]
     secs.append(("tricks", "Remember It · 記憶口訣", tricks_h[0], tricks_h[1], _sci_tricks(lesson), ""))
     if lesson.get("culture"):
         cu = lesson["culture"]

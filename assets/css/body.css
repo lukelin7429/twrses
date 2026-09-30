@@ -304,3 +304,54 @@ button.bc-row:hover { transform: translateY(-2px); border-color: var(--gold); bo
 .ck-ico i { width: 34px; height: 34px; border-radius: 50%; display: block; }
 .ck-r .ck-ico i { background: radial-gradient(circle at 40% 35%, #a2508f, #5b1c4b); }
 .ck-l .ck-ico i { background: radial-gradient(circle at 40% 35%, #ff7070, #c41e1e); }
+
+/* =========================================================
+   第四課：肺與呼吸（data-lungs-lab）；計數、讀數沿用第三課的 hr-* 樣式
+   ========================================================= */
+.lu-lab { --hr-rich: #3aa6e8; --lu-air: #7ad7ff; }
+.lu-lab .al-space { min-height: 640px; }
+.lu-lab .hr-measure { box-shadow: 0 10px 26px -12px rgba(58,166,232,.9); }
+.lu-lab .hr-tap { background: radial-gradient(circle at 40% 35%, #7ad7ff, #1f78b4); box-shadow: 0 12px 28px -10px rgba(58,166,232,.9); }
+.lu-lab .hr-src, .lu-lab .hr-tap-msg b { color: #9fdcff; }
+.lu-phase { margin: .7rem 0 0; font-family: var(--serif); font-size: 1.35rem; line-height: 1.15; color: #fff; }
+.lu-phase small { display: inline-block; margin-left: .5rem; font-family: var(--zh); font-size: .95rem; font-weight: 600; color: var(--al-mute); }
+.lu-in .lu-phase { color: var(--lu-air); }
+.lu-out .lu-phase { color: #ffc76b; }
+.lu-phase-t { margin: .3rem 0 .6rem; font-size: .8rem; line-height: 1.55; color: var(--al-text); min-height: 4.5em; }
+.lu-phase-t .zh { display: block; color: var(--al-mute); margin-top: .15rem; }
+.lu-hold { display: inline-flex; align-items: center; gap: .55rem; width: 100%; justify-content: center; padding: .7rem 1rem; border-radius: 16px; border: 2px dashed rgba(122,215,255,.55); background: rgba(122,215,255,.06); color: #fff; font-family: var(--sans); font-weight: 800; font-size: .9rem; cursor: pointer; user-select: none; touch-action: none; -webkit-user-select: none; transition: background .2s, border-color .2s, transform .2s; }
+.lu-hold i { font-style: normal; font-size: 1.2rem; }
+.lu-hold span { text-align: left; line-height: 1.2; }
+.lu-hold small { display: block; font-family: var(--zh); font-weight: 600; font-size: .74rem; color: var(--al-mute); }
+.lu-hold.on { border-style: solid; border-color: var(--lu-air); background: rgba(122,215,255,.2); transform: scale(.98); }
+.lu-strip { display: grid; grid-template-columns: minmax(0, 400px) minmax(0, 1fr); gap: 1rem 1.6rem; align-items: start; padding: 1rem 1.2rem 1.1rem; border-top: 1px solid var(--al-line); background: rgba(10,16,34,.6); }
+.lu-strip .al-sky-k { margin: 0 0 .5rem; }
+.lu-strip-nums .hr-nums { margin-top: 1.9rem; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .9rem 1.2rem; }
+.lu-strip-nums .hr-nums dd { font-size: 1.35rem; }
+.lu-alv-box { aspect-ratio: 4 / 3; border-radius: 14px; overflow: hidden; border: 1px solid var(--al-line); background: #060a16; }
+.lu-alv { width: 100%; height: 100%; display: block; }
+.lu-alv-cap { margin: .45rem 0 0; font-size: .72rem; line-height: 1.7; color: var(--al-mute); }
+.lu-dot { display: inline-block; width: 9px; height: 9px; border-radius: 50%; margin-right: .4rem; vertical-align: -1px; }
+.lu-o2 { background: #7ad7ff; }
+.lu-co2 { background: #ffc76b; }
+.lu-lab .al-row-main .al-toggles { margin-left: auto; }
+
+.al-lab.lu-lb { font-size: .7rem; color: #cfe0ff; }
+.al-lab.lu-lb-lung { color: #ffd2dc; border-color: rgba(242,167,184,.55); }
+.al-lab.lu-lb-dia { color: #ffb4a8; border-color: rgba(180,84,74,.8); }
+.al-lab.lu-lb-ht { color: #ffc4c4; border-color: rgba(216,67,74,.6); }
+.al-lab.lu-lb-alv { color: #ffc2d1; }
+.al-lg-dia i { border: 0; background: #b4544a; border-radius: 50% 50% 4px 4px; }
+.al-lg-airin i { border: 0; background: #bfe6ff; }
+.al-lg-airout i { border: 0; background: #ffc76b; }
+.al-lg-tree i { border: 3px solid #f6e7c8; border-radius: 3px; }
+
+@media (max-width: 1020px) {
+  .lu-lab .al-space { aspect-ratio: 1 / 1; min-height: 380px; max-height: 80vh; }
+  .lu-lab .al-row-main .al-toggles { margin-left: 0; }
+}
+@media (max-width: 640px) {
+  .lu-lab .al-space { aspect-ratio: 4 / 5; }
+  .lu-strip { grid-template-columns: 1fr; }
+  .lu-strip-nums .hr-nums { margin-top: 0; }
+}
