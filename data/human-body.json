@@ -15,9 +15,16 @@
     }
   ],
   "planned": [
-    { "icon": "💪", "en": "How Do Muscles Move Your Bones?", "zh": "肌肉怎麼拉動骨頭？" },
-    { "icon": "❤️", "en": "Where Does Your Blood Go?", "zh": "血液在身體裡怎麼流動？" },
-    { "icon": "🫁", "en": "How Does Air Get into Your Blood?", "zh": "空氣怎麼進到血液裡？" }
+    {
+      "icon": "❤️",
+      "en": "Where Does Your Blood Go?",
+      "zh": "血液在身體裡怎麼流動？"
+    },
+    {
+      "icon": "🫁",
+      "en": "How Does Air Get into Your Blood?",
+      "zh": "空氣怎麼進到血液裡？"
+    }
   ],
   "lessons": [
     {
@@ -40,9 +47,21 @@
         "how_en": "Every bone in this model has its real shape, built from scans of a real adult. Drag to turn it and scroll or pinch to zoom. Tap any bone to learn its name, tap a body part to look at it on its own, or tap one of the five jobs to see which bones do it. The slider takes the whole skeleton apart.",
         "how_zh": "模型裡每一塊骨頭都是真實的形狀，來自真人的掃描資料。拖曳可以旋轉、滾輪或雙指可以縮放。點任何一塊骨頭，看它叫什麼名字；點身體部位，單獨看那一區；點五大功能，看哪些骨頭在做這件事。拖動滑桿，可以把整副骨架拆開。",
         "legend": [
-          { "cls": "gold", "en": "Gold glow: the bone you tapped", "zh": "金色發光：你點選的骨頭" },
-          { "cls": "red", "en": "Red (Make blood): bones with red marrow in adults", "zh": "紅色（造血）：成人有紅骨髓的骨頭" },
-          { "cls": "organ", "en": "Soft shapes (Protect): brain, heart, lungs, and spinal cord, drawn simply to show where they sit", "zh": "半透明形狀（保護）：腦、心臟、肺、脊髓，只是示意位置的簡化形狀" }
+          {
+            "cls": "gold",
+            "en": "Gold glow: the bone you tapped",
+            "zh": "金色發光：你點選的骨頭"
+          },
+          {
+            "cls": "red",
+            "en": "Red (Make blood): bones with red marrow in adults",
+            "zh": "紅色（造血）：成人有紅骨髓的骨頭"
+          },
+          {
+            "cls": "organ",
+            "en": "Soft shapes (Protect): brain, heart, lungs, and spinal cord, drawn simply to show where they sit",
+            "zh": "半透明形狀（保護）：腦、心臟、肺、脊髓，只是示意位置的簡化形狀"
+          }
         ],
         "scale_en": "The bones are real: 199 of the 206, in their true shapes and sizes. The data set leaves out the coccyx (tailbone) and the six tiny bones inside the ears. The organs are simple shapes, not real anatomy.",
         "scale_zh": "骨頭是真實的：206 塊中的 199 塊，形狀與大小都是真的；資料裡少了尾骨和耳朵裡的六塊聽小骨。器官只是簡單的示意形狀，不是真實解剖。",
@@ -75,43 +94,266 @@
         "A newborn has around 300 bones and bony parts, and many of them join together as a child grows, leaving about 206 in an adult."
       ],
       "vocab": [
-        { "n": 1, "w": "skeleton", "pos": "n.", "zh": "骨骼；骨架", "ex": "The museum has the <b>skeleton</b> of a whale hanging from the ceiling.", "exzh": "博物館的天花板上掛著一副鯨魚的骨骼。" },
-        { "n": 2, "w": "support", "pos": "v.", "zh": "支撐；支持", "ex": "Four strong legs <b>support</b> the heavy table.", "exzh": "四隻結實的桌腳撐起這張沉重的桌子。" },
-        { "n": 3, "w": "protect", "pos": "v.", "zh": "保護", "ex": "A helmet <b>protects</b> your head when you ride a bike.", "exzh": "騎腳踏車時，安全帽保護你的頭。" },
-        { "n": 4, "w": "vertebra", "pos": "n.", "zh": "椎骨（複數 vertebrae）", "ex": "Each <b>vertebra</b> in your spine has a hole for the spinal cord to pass through.", "exzh": "脊柱裡的每一塊椎骨都有一個洞，讓脊髓穿過。" },
-        { "n": 5, "w": "joint", "pos": "n.", "zh": "關節", "ex": "Your knee is the largest <b>joint</b> in your body.", "exzh": "膝蓋是你身上最大的關節。" },
-        { "n": 6, "w": "marrow", "pos": "n.", "zh": "骨髓", "ex": "Doctors can take a little <b>marrow</b> from a healthy person to help a patient with a blood disease.", "exzh": "醫生可以從健康的人身上取一點骨髓，幫助血液疾病的病人。" },
-        { "n": 7, "w": "mineral", "pos": "n.", "zh": "礦物質", "ex": "Calcium is the <b>mineral</b> that makes bones and teeth hard.", "exzh": "鈣是讓骨頭和牙齒堅硬的礦物質。" },
-        { "n": 8, "w": "replace", "pos": "v.", "zh": "取代；更換", "ex": "We need to <b>replace</b> the old batteries in the flashlight.", "exzh": "我們需要換掉手電筒裡的舊電池。" }
+        {
+          "n": 1,
+          "w": "skeleton",
+          "pos": "n.",
+          "zh": "骨骼；骨架",
+          "ex": "The museum has the <b>skeleton</b> of a whale hanging from the ceiling.",
+          "exzh": "博物館的天花板上掛著一副鯨魚的骨骼。"
+        },
+        {
+          "n": 2,
+          "w": "support",
+          "pos": "v.",
+          "zh": "支撐；支持",
+          "ex": "Four strong legs <b>support</b> the heavy table.",
+          "exzh": "四隻結實的桌腳撐起這張沉重的桌子。"
+        },
+        {
+          "n": 3,
+          "w": "protect",
+          "pos": "v.",
+          "zh": "保護",
+          "ex": "A helmet <b>protects</b> your head when you ride a bike.",
+          "exzh": "騎腳踏車時，安全帽保護你的頭。"
+        },
+        {
+          "n": 4,
+          "w": "vertebra",
+          "pos": "n.",
+          "zh": "椎骨（複數 vertebrae）",
+          "ex": "Each <b>vertebra</b> in your spine has a hole for the spinal cord to pass through.",
+          "exzh": "脊柱裡的每一塊椎骨都有一個洞，讓脊髓穿過。"
+        },
+        {
+          "n": 5,
+          "w": "joint",
+          "pos": "n.",
+          "zh": "關節",
+          "ex": "Your knee is the largest <b>joint</b> in your body.",
+          "exzh": "膝蓋是你身上最大的關節。"
+        },
+        {
+          "n": 6,
+          "w": "marrow",
+          "pos": "n.",
+          "zh": "骨髓",
+          "ex": "Doctors can take a little <b>marrow</b> from a healthy person to help a patient with a blood disease.",
+          "exzh": "醫生可以從健康的人身上取一點骨髓，幫助血液疾病的病人。"
+        },
+        {
+          "n": 7,
+          "w": "mineral",
+          "pos": "n.",
+          "zh": "礦物質",
+          "ex": "Calcium is the <b>mineral</b> that makes bones and teeth hard.",
+          "exzh": "鈣是讓骨頭和牙齒堅硬的礦物質。"
+        },
+        {
+          "n": 8,
+          "w": "replace",
+          "pos": "v.",
+          "zh": "取代；更換",
+          "ex": "We need to <b>replace</b> the old batteries in the flashlight.",
+          "exzh": "我們需要換掉手電筒裡的舊電池。"
+        }
       ],
       "quiz": [
-        { "q": "About how many bones does an adult have?", "options": ["206", "27", "300", "1,000"], "correct": 0 },
-        { "q": "Which bones form a cage around the heart and lungs?", "options": ["The ribs", "The vertebrae", "The hip bones", "The finger bones"], "correct": 0 },
-        { "q": "What does red marrow do?", "options": ["It makes new blood cells", "It makes the skull hard", "It pulls on bones to move them", "It carries messages from the brain"], "correct": 0 },
-        { "q": "What is a joint?", "options": ["A place where two bones meet", "A muscle that bends the arm", "The soft tissue inside a bone", "A bone in the middle of the spine"], "correct": 0 },
-        { "q": "According to the reading, what makes bones grow thicker and stronger?", "options": ["Running, jumping, and playing", "Resting in bed as much as possible", "Living in space for a few months", "Growing older than thirty"], "correct": 0 }
+        {
+          "q": "About how many bones does an adult have?",
+          "options": [
+            "206",
+            "27",
+            "300",
+            "1,000"
+          ],
+          "correct": 0
+        },
+        {
+          "q": "Which bones form a cage around the heart and lungs?",
+          "options": [
+            "The ribs",
+            "The vertebrae",
+            "The hip bones",
+            "The finger bones"
+          ],
+          "correct": 0
+        },
+        {
+          "q": "What does red marrow do?",
+          "options": [
+            "It makes new blood cells",
+            "It makes the skull hard",
+            "It pulls on bones to move them",
+            "It carries messages from the brain"
+          ],
+          "correct": 0
+        },
+        {
+          "q": "What is a joint?",
+          "options": [
+            "A place where two bones meet",
+            "A muscle that bends the arm",
+            "The soft tissue inside a bone",
+            "A bone in the middle of the spine"
+          ],
+          "correct": 0
+        },
+        {
+          "q": "According to the reading, what makes bones grow thicker and stronger?",
+          "options": [
+            "Running, jumping, and playing",
+            "Resting in bed as much as possible",
+            "Living in space for a few months",
+            "Growing older than thirty"
+          ],
+          "correct": 0
+        }
       ],
       "jobs": [
-        { "key": "support", "icon": "🏛️", "en": "Support", "zh": "支撐", "text_en": "The spine, pelvis, and legs carry your weight like the frame of a building.", "text_zh": "脊柱、骨盆和雙腿像建築物的骨架一樣，承受你全身的重量。", "try_en": "Stand up straight, then slowly bend forward. Feel your spine curve like a chain.", "try_zh": "站直，再慢慢向前彎腰，感覺脊柱像一條鏈子一節一節彎下來。" },
-        { "key": "protect", "icon": "🛡️", "en": "Protect", "zh": "保護", "text_en": "The skull guards the brain, the ribs guard the heart and lungs, and the spine guards the spinal cord.", "text_zh": "頭顱骨守護大腦，肋骨守護心臟和肺，脊柱守護脊髓。", "try_en": "Tap your head gently, then your ribs. Both feel hard because bone is right under the skin.", "try_zh": "輕輕敲一敲頭頂，再敲一敲肋骨：都硬硬的，因為皮膚底下就是骨頭。" },
-        { "key": "move", "icon": "🏃", "en": "Move", "zh": "運動", "text_en": "Muscles pull on bones, and joints let them bend, twist, and turn.", "text_zh": "肌肉拉動骨頭，關節讓骨頭能彎、能扭、能轉。", "try_en": "Swing your arm in a circle, then try it with your forearm. Which joint can do it?", "try_zh": "把整隻手臂甩一圈，再只用前臂試試看。哪一個關節做得到？" },
-        { "key": "blood", "icon": "🩸", "en": "Make blood", "zh": "造血", "text_en": "Red marrow inside flat bones makes hundreds of billions of new blood cells every day.", "text_zh": "扁平骨頭裡的紅骨髓，每天製造幾千億個新的血球。", "try_en": "Press on your breastbone. Right behind it, marrow is making blood cells as you read this.", "try_zh": "按一按胸骨：就在它裡面，骨髓正在一邊製造血球，一邊讓你讀這句話。" },
-        { "key": "store", "icon": "🏦", "en": "Store minerals", "zh": "儲存礦物質", "text_en": "Bones are a bank for calcium. When your blood runs low, your bones lend some.", "text_zh": "骨頭是鈣的銀行；血液裡的鈣不夠時，骨頭會借一些出來。", "try_en": "List three foods you ate this week that have calcium.", "try_zh": "列出這個星期你吃過的三種含鈣食物。" }
+        {
+          "key": "support",
+          "icon": "🏛️",
+          "en": "Support",
+          "zh": "支撐",
+          "text_en": "The spine, pelvis, and legs carry your weight like the frame of a building.",
+          "text_zh": "脊柱、骨盆和雙腿像建築物的骨架一樣，承受你全身的重量。",
+          "try_en": "Stand up straight, then slowly bend forward. Feel your spine curve like a chain.",
+          "try_zh": "站直，再慢慢向前彎腰，感覺脊柱像一條鏈子一節一節彎下來。"
+        },
+        {
+          "key": "protect",
+          "icon": "🛡️",
+          "en": "Protect",
+          "zh": "保護",
+          "text_en": "The skull guards the brain, the ribs guard the heart and lungs, and the spine guards the spinal cord.",
+          "text_zh": "頭顱骨守護大腦，肋骨守護心臟和肺，脊柱守護脊髓。",
+          "try_en": "Tap your head gently, then your ribs. Both feel hard because bone is right under the skin.",
+          "try_zh": "輕輕敲一敲頭頂，再敲一敲肋骨：都硬硬的，因為皮膚底下就是骨頭。"
+        },
+        {
+          "key": "move",
+          "icon": "🏃",
+          "en": "Move",
+          "zh": "運動",
+          "text_en": "Muscles pull on bones, and joints let them bend, twist, and turn.",
+          "text_zh": "肌肉拉動骨頭，關節讓骨頭能彎、能扭、能轉。",
+          "try_en": "Swing your arm in a circle, then try it with your forearm. Which joint can do it?",
+          "try_zh": "把整隻手臂甩一圈，再只用前臂試試看。哪一個關節做得到？"
+        },
+        {
+          "key": "blood",
+          "icon": "🩸",
+          "en": "Make blood",
+          "zh": "造血",
+          "text_en": "Red marrow inside flat bones makes hundreds of billions of new blood cells every day.",
+          "text_zh": "扁平骨頭裡的紅骨髓，每天製造幾千億個新的血球。",
+          "try_en": "Press on your breastbone. Right behind it, marrow is making blood cells as you read this.",
+          "try_zh": "按一按胸骨：就在它裡面，骨髓正在一邊製造血球，一邊讓你讀這句話。"
+        },
+        {
+          "key": "store",
+          "icon": "🏦",
+          "en": "Store minerals",
+          "zh": "儲存礦物質",
+          "text_en": "Bones are a bank for calcium. When your blood runs low, your bones lend some.",
+          "text_zh": "骨頭是鈣的銀行；血液裡的鈣不夠時，骨頭會借一些出來。",
+          "try_en": "List three foods you ate this week that have calcium.",
+          "try_zh": "列出這個星期你吃過的三種含鈣食物。"
+        }
       ],
       "jobs_note_en": "Tap “See it in 3D” to light up the bones that do each job.",
       "jobs_note_zh": "點「在模型中看」，3D 骨架就會亮起負責那項工作的骨頭。",
       "counts": [
-        { "region": "skull", "n": 22, "en": "Skull", "zh": "頭顱骨", "note_en": "8 around the brain, 14 in the face", "note_zh": "8 塊包住大腦、14 塊組成臉" },
-        { "region": "", "n": 6, "en": "Ear bones", "zh": "聽小骨", "note_en": "3 in each ear, the smallest in the body (not in the model)", "note_zh": "每耳 3 塊，全身最小（模型中沒有）" },
-        { "region": "skull", "n": 1, "en": "Hyoid", "zh": "舌骨", "note_en": "In the neck, the only bone that touches no other bone", "note_zh": "在脖子，唯一不和其他骨頭相接的骨頭" },
-        { "region": "spine", "n": 26, "en": "Spine", "zh": "脊柱", "note_en": "24 vertebrae, the sacrum, and the coccyx", "note_zh": "24 塊椎骨，加上薦骨與尾骨" },
-        { "region": "chest", "n": 25, "en": "Rib cage", "zh": "胸廓", "note_en": "12 pairs of ribs and the breastbone", "note_zh": "12 對肋骨加上胸骨" },
-        { "region": "shoulder", "n": 4, "en": "Shoulders", "zh": "肩帶", "note_en": "2 collarbones, 2 shoulder blades", "note_zh": "2 塊鎖骨、2 塊肩胛骨" },
-        { "region": "arm", "n": 6, "en": "Arms", "zh": "手臂", "note_en": "Humerus, radius, and ulna on each side", "note_zh": "每邊各有肱骨、橈骨、尺骨" },
-        { "region": "hand", "n": 54, "en": "Hands", "zh": "手", "note_en": "27 in each hand", "note_zh": "每隻手 27 塊" },
-        { "region": "pelvis", "n": 2, "en": "Hip bones", "zh": "髖骨", "note_en": "Each one grows from three bones that join", "note_zh": "每塊都由三塊骨頭長在一起" },
-        { "region": "leg", "n": 8, "en": "Legs", "zh": "腿", "note_en": "Femur, kneecap, tibia, and fibula on each side", "note_zh": "每邊各有股骨、髕骨、脛骨、腓骨" },
-        { "region": "foot", "n": 52, "en": "Feet", "zh": "腳", "note_en": "26 in each foot", "note_zh": "每隻腳 26 塊" }
+        {
+          "region": "skull",
+          "n": 22,
+          "en": "Skull",
+          "zh": "頭顱骨",
+          "note_en": "8 around the brain, 14 in the face",
+          "note_zh": "8 塊包住大腦、14 塊組成臉"
+        },
+        {
+          "region": "",
+          "n": 6,
+          "en": "Ear bones",
+          "zh": "聽小骨",
+          "note_en": "3 in each ear, the smallest in the body (not in the model)",
+          "note_zh": "每耳 3 塊，全身最小（模型中沒有）"
+        },
+        {
+          "region": "skull",
+          "n": 1,
+          "en": "Hyoid",
+          "zh": "舌骨",
+          "note_en": "In the neck, the only bone that touches no other bone",
+          "note_zh": "在脖子，唯一不和其他骨頭相接的骨頭"
+        },
+        {
+          "region": "spine",
+          "n": 26,
+          "en": "Spine",
+          "zh": "脊柱",
+          "note_en": "24 vertebrae, the sacrum, and the coccyx",
+          "note_zh": "24 塊椎骨，加上薦骨與尾骨"
+        },
+        {
+          "region": "chest",
+          "n": 25,
+          "en": "Rib cage",
+          "zh": "胸廓",
+          "note_en": "12 pairs of ribs and the breastbone",
+          "note_zh": "12 對肋骨加上胸骨"
+        },
+        {
+          "region": "shoulder",
+          "n": 4,
+          "en": "Shoulders",
+          "zh": "肩帶",
+          "note_en": "2 collarbones, 2 shoulder blades",
+          "note_zh": "2 塊鎖骨、2 塊肩胛骨"
+        },
+        {
+          "region": "arm",
+          "n": 6,
+          "en": "Arms",
+          "zh": "手臂",
+          "note_en": "Humerus, radius, and ulna on each side",
+          "note_zh": "每邊各有肱骨、橈骨、尺骨"
+        },
+        {
+          "region": "hand",
+          "n": 54,
+          "en": "Hands",
+          "zh": "手",
+          "note_en": "27 in each hand",
+          "note_zh": "每隻手 27 塊"
+        },
+        {
+          "region": "pelvis",
+          "n": 2,
+          "en": "Hip bones",
+          "zh": "髖骨",
+          "note_en": "Each one grows from three bones that join",
+          "note_zh": "每塊都由三塊骨頭長在一起"
+        },
+        {
+          "region": "leg",
+          "n": 8,
+          "en": "Legs",
+          "zh": "腿",
+          "note_en": "Femur, kneecap, tibia, and fibula on each side",
+          "note_zh": "每邊各有股骨、髕骨、脛骨、腓骨"
+        },
+        {
+          "region": "foot",
+          "n": 52,
+          "en": "Feet",
+          "zh": "腳",
+          "note_en": "26 in each foot",
+          "note_zh": "每隻腳 26 塊"
+        }
       ],
       "counts_note_en": "Counts are for a typical adult; some people have an extra small bone or two. Your hands and feet hold 106 bones, more than half of the 206.",
       "counts_note_zh": "以一般成人計算，有些人會多一兩塊小骨頭。雙手和雙腳加起來就有 106 塊，超過全身 206 塊的一半。",
@@ -121,39 +363,118 @@
         "lead_en": "Press the button, and the 3D hand lights up one bone at a time. Follow along on your own hand, pressing each spot as it lights up.",
         "lead_zh": "按下按鈕，3D 模型的手會一塊一塊亮起來。跟著在自己的手上按一按，亮到哪裡就摸到哪裡。",
         "steps": [
-          { "n": "8", "en": "Wrist", "zh": "手腕", "text_en": "Press around the base of your hand. You cannot feel all eight, but you can feel them slide when you bend your wrist.", "text_zh": "按一按手掌根部。八塊摸不全，但彎手腕時可以感覺到它們在滑動。" },
-          { "n": "5", "en": "Palm", "zh": "手掌", "text_en": "Run a finger across the back of your hand. One long bone leads to each finger.", "text_zh": "用一根手指劃過手背：每根手指下面都有一根長長的骨頭。" },
-          { "n": "14", "en": "Fingers", "zh": "手指", "text_en": "Bend each finger and count the parts between the creases. The thumb has two; the others have three.", "text_zh": "彎一彎每根手指，數一數摺痕之間有幾節：拇指兩節，其他手指三節。" }
+          {
+            "n": "8",
+            "en": "Wrist",
+            "zh": "手腕",
+            "text_en": "Press around the base of your hand. You cannot feel all eight, but you can feel them slide when you bend your wrist.",
+            "text_zh": "按一按手掌根部。八塊摸不全，但彎手腕時可以感覺到它們在滑動。"
+          },
+          {
+            "n": "5",
+            "en": "Palm",
+            "zh": "手掌",
+            "text_en": "Run a finger across the back of your hand. One long bone leads to each finger.",
+            "text_zh": "用一根手指劃過手背：每根手指下面都有一根長長的骨頭。"
+          },
+          {
+            "n": "14",
+            "en": "Fingers",
+            "zh": "手指",
+            "text_en": "Bend each finger and count the parts between the creases. The thumb has two; the others have three.",
+            "text_zh": "彎一彎每根手指，數一數摺痕之間有幾節：拇指兩節，其他手指三節。"
+          }
         ],
         "button_en": "Count along in 3D",
         "button_zh": "跟著 3D 模型數"
       },
       "myths": [
-        { "myth_en": "Bones are dead and dry, like sticks.", "myth_zh": "骨頭是死的、乾的，像木棍一樣。", "fact_en": "Living bones have blood vessels and nerves, and cells inside them are always tearing down old bone and building new bone.", "fact_zh": "活的骨頭有血管和神經，裡面的細胞一直在拆掉舊骨頭、蓋新骨頭。" },
-        { "myth_en": "Babies have fewer bones than adults.", "myth_zh": "嬰兒的骨頭比大人少。", "fact_en": "It is the other way around. A newborn has around 300 bones and bony parts, and many join together as the child grows.", "fact_zh": "剛好相反。新生兒大約有 300 塊骨頭和骨質部分，長大的過程中許多會癒合在一起。" },
-        { "myth_en": "Bones are solid all the way through.", "myth_zh": "骨頭從外到內都是實心的。", "fact_en": "Most bones have a hard outer shell and a light, honeycomb-like inside, often with marrow in the spaces. That makes them strong but not too heavy.", "fact_zh": "大多數骨頭外層是堅硬的殼，裡面是像蜂巢一樣輕巧的結構，空隙裡常常有骨髓。這樣既堅固又不會太重。" },
-        { "myth_en": "Once you are grown, your bones stop changing.", "myth_zh": "長大以後，骨頭就不會再改變了。", "fact_en": "Adult bones keep rebuilding themselves all through life. Exercise makes them stronger, and months without using them, as in space or in a cast, makes them weaker.", "fact_zh": "成人的骨頭一輩子都在重建。運動讓它們更強壯；好幾個月不用它們（像在太空，或打石膏的時候）就會變弱。" }
+        {
+          "myth_en": "Bones are dead and dry, like sticks.",
+          "myth_zh": "骨頭是死的、乾的，像木棍一樣。",
+          "fact_en": "Living bones have blood vessels and nerves, and cells inside them are always tearing down old bone and building new bone.",
+          "fact_zh": "活的骨頭有血管和神經，裡面的細胞一直在拆掉舊骨頭、蓋新骨頭。"
+        },
+        {
+          "myth_en": "Babies have fewer bones than adults.",
+          "myth_zh": "嬰兒的骨頭比大人少。",
+          "fact_en": "It is the other way around. A newborn has around 300 bones and bony parts, and many join together as the child grows.",
+          "fact_zh": "剛好相反。新生兒大約有 300 塊骨頭和骨質部分，長大的過程中許多會癒合在一起。"
+        },
+        {
+          "myth_en": "Bones are solid all the way through.",
+          "myth_zh": "骨頭從外到內都是實心的。",
+          "fact_en": "Most bones have a hard outer shell and a light, honeycomb-like inside, often with marrow in the spaces. That makes them strong but not too heavy.",
+          "fact_zh": "大多數骨頭外層是堅硬的殼，裡面是像蜂巢一樣輕巧的結構，空隙裡常常有骨髓。這樣既堅固又不會太重。"
+        },
+        {
+          "myth_en": "Once you are grown, your bones stop changing.",
+          "myth_zh": "長大以後，骨頭就不會再改變了。",
+          "fact_en": "Adult bones keep rebuilding themselves all through life. Exercise makes them stronger, and months without using them, as in space or in a cast, makes them weaker.",
+          "fact_zh": "成人的骨頭一輩子都在重建。運動讓它們更強壯；好幾個月不用它們（像在太空，或打石膏的時候）就會變弱。"
+        }
       ],
       "tricks": [
-        { "title_en": "Breakfast at 7, lunch at 12, dinner at 5", "title_zh": "早餐 7 點、午餐 12 點、晚餐 5 點", "body_en": "That is how many vertebrae you have in each part of your back: 7 in the neck, 12 in the chest, and 5 in the lower back.", "body_zh": "這就是脊柱各段的椎骨數：頸椎 7 塊、胸椎 12 塊、腰椎 5 塊。" },
-        { "title_en": "More than half in your hands and feet", "title_zh": "一半以上在手腳", "body_en": "27 + 27 + 26 + 26 = 106. More than half of your bones are in your hands and feet.", "body_zh": "27 + 27 + 26 + 26 = 106：你全身一半以上的骨頭都在手和腳。" },
-        { "title_en": "The radius is on the thumb side", "title_zh": "橈骨在拇指那一側", "body_en": "Hold your hand out, thumb up. The radius runs to your thumb and the ulna to your little finger. Turn your palm over, and the radius crosses over the ulna.", "body_zh": "把手伸出去、拇指朝上：橈骨通到拇指、尺骨通到小指。把手掌翻過來，橈骨就會交叉跨到尺骨上面。" },
-        { "title_en": "Everyday names for big bones", "title_zh": "大骨頭的俗名", "body_en": "Femur = thighbone, patella = kneecap, clavicle = collarbone, scapula = shoulder blade, sternum = breastbone. Doctors use the first names; everyone else uses the second.", "body_zh": "femur＝thighbone（股骨）、patella＝kneecap（髕骨）、clavicle＝collarbone（鎖骨）、scapula＝shoulder blade（肩胛骨）、sternum＝breastbone（胸骨）。醫生用前面那個名字，一般人用後面那個。" }
+        {
+          "title_en": "Breakfast at 7, lunch at 12, dinner at 5",
+          "title_zh": "早餐 7 點、午餐 12 點、晚餐 5 點",
+          "body_en": "That is how many vertebrae you have in each part of your back: 7 in the neck, 12 in the chest, and 5 in the lower back.",
+          "body_zh": "這就是脊柱各段的椎骨數：頸椎 7 塊、胸椎 12 塊、腰椎 5 塊。"
+        },
+        {
+          "title_en": "More than half in your hands and feet",
+          "title_zh": "一半以上在手腳",
+          "body_en": "27 + 27 + 26 + 26 = 106. More than half of your bones are in your hands and feet.",
+          "body_zh": "27 + 27 + 26 + 26 = 106：你全身一半以上的骨頭都在手和腳。"
+        },
+        {
+          "title_en": "The radius is on the thumb side",
+          "title_zh": "橈骨在拇指那一側",
+          "body_en": "Hold your hand out, thumb up. The radius runs to your thumb and the ulna to your little finger. Turn your palm over, and the radius crosses over the ulna.",
+          "body_zh": "把手伸出去、拇指朝上：橈骨通到拇指、尺骨通到小指。把手掌翻過來，橈骨就會交叉跨到尺骨上面。"
+        },
+        {
+          "title_en": "Everyday names for big bones",
+          "title_zh": "大骨頭的俗名",
+          "body_en": "Femur = thighbone, patella = kneecap, clavicle = collarbone, scapula = shoulder blade, sternum = breastbone. Doctors use the first names; everyone else uses the second.",
+          "body_zh": "femur＝thighbone（股骨）、patella＝kneecap（髕骨）、clavicle＝collarbone（鎖骨）、scapula＝shoulder blade（肩胛骨）、sternum＝breastbone（胸骨）。醫生用前面那個名字，一般人用後面那個。"
+        }
       ],
       "activities": [
         {
           "title_en": "Why Are Bones Shaped Like Tubes?",
           "title_zh": "骨頭為什麼是管子的形狀？",
           "materials": [
-            { "en": "Three sheets of the same printer paper", "zh": "三張一樣的影印紙" },
-            { "en": "Tape", "zh": "膠帶" },
-            { "en": "A stack of light books or notebooks", "zh": "一疊輕的書或筆記本" }
+            {
+              "en": "Three sheets of the same printer paper",
+              "zh": "三張一樣的影印紙"
+            },
+            {
+              "en": "Tape",
+              "zh": "膠帶"
+            },
+            {
+              "en": "A stack of light books or notebooks",
+              "zh": "一疊輕的書或筆記本"
+            }
           ],
           "steps": [
-            { "en": "Fold one sheet into a flat strip, fold one into a square column, and roll one into a round tube. Tape each one so it keeps its shape.", "zh": "一張摺成扁平的長條，一張摺成方柱，一張捲成圓管，各用膠帶固定。" },
-            { "en": "Stand each one on its end and gently place books on top, one at a time.", "zh": "把它們一一立起來，在上面一本一本輕輕放書。" },
-            { "en": "Count how many books each shape holds before it bends.", "zh": "記錄每種形狀在彎掉之前撐得住幾本書。" },
-            { "en": "Ask: the same paper, the same weight. Why does the round tube hold the most? Where in your body are the tube-shaped bones?", "zh": "問問自己：同樣的紙、同樣的重量，為什麼圓管撐得最多？你身上哪些骨頭是管子的形狀？" }
+            {
+              "en": "Fold one sheet into a flat strip, fold one into a square column, and roll one into a round tube. Tape each one so it keeps its shape.",
+              "zh": "一張摺成扁平的長條，一張摺成方柱，一張捲成圓管，各用膠帶固定。"
+            },
+            {
+              "en": "Stand each one on its end and gently place books on top, one at a time.",
+              "zh": "把它們一一立起來，在上面一本一本輕輕放書。"
+            },
+            {
+              "en": "Count how many books each shape holds before it bends.",
+              "zh": "記錄每種形狀在彎掉之前撐得住幾本書。"
+            },
+            {
+              "en": "Ask: the same paper, the same weight. Why does the round tube hold the most? Where in your body are the tube-shaped bones?",
+              "zh": "問問自己：同樣的紙、同樣的重量，為什麼圓管撐得最多？你身上哪些骨頭是管子的形狀？"
+            }
           ],
           "tip_en": "Teaching tip: then turn the 3D model to the legs and arms. The long bones are hollow tubes filled with marrow, strong for their weight like the paper tube.",
           "tip_zh": "教學提示：做完再把 3D 模型轉到手臂和腿。長骨就是裡面裝著骨髓的空心管，跟紙管一樣，用很少的重量換來很大的強度。"
@@ -162,15 +483,36 @@
           "title_en": "The Rubber Chicken Bone",
           "title_zh": "會彎的雞骨頭",
           "materials": [
-            { "en": "A clean chicken drumstick bone (boil it and scrub off the meat)", "zh": "一根洗乾淨的雞腿骨（先煮過，把肉刷掉）" },
-            { "en": "A jar with a lid, and enough white vinegar to cover the bone", "zh": "一個有蓋的罐子，和足夠蓋過骨頭的白醋" },
-            { "en": "A second clean bone to compare", "zh": "另一根洗乾淨的骨頭，用來對照" }
+            {
+              "en": "A clean chicken drumstick bone (boil it and scrub off the meat)",
+              "zh": "一根洗乾淨的雞腿骨（先煮過，把肉刷掉）"
+            },
+            {
+              "en": "A jar with a lid, and enough white vinegar to cover the bone",
+              "zh": "一個有蓋的罐子，和足夠蓋過骨頭的白醋"
+            },
+            {
+              "en": "A second clean bone to compare",
+              "zh": "另一根洗乾淨的骨頭，用來對照"
+            }
           ],
           "steps": [
-            { "en": "Try to bend the bones. They are hard and stiff.", "zh": "試著把骨頭折彎：它們又硬又直。" },
-            { "en": "Put one bone in the jar, cover it with vinegar, and close the lid. Leave the other bone dry.", "zh": "把一根骨頭放進罐子，倒醋蓋過，蓋上蓋子；另一根保持乾燥。" },
-            { "en": "After three days, pour out the vinegar and add fresh vinegar. Wait about three more days.", "zh": "三天後把醋倒掉、換新的醋，再等大約三天。" },
-            { "en": "Rinse the bone and try to bend it again. Compare it with the dry bone. What did the vinegar take away?", "zh": "把骨頭沖乾淨，再試著折彎，和乾燥的那根比一比。醋帶走了什麼？" }
+            {
+              "en": "Try to bend the bones. They are hard and stiff.",
+              "zh": "試著把骨頭折彎：它們又硬又直。"
+            },
+            {
+              "en": "Put one bone in the jar, cover it with vinegar, and close the lid. Leave the other bone dry.",
+              "zh": "把一根骨頭放進罐子，倒醋蓋過，蓋上蓋子；另一根保持乾燥。"
+            },
+            {
+              "en": "After three days, pour out the vinegar and add fresh vinegar. Wait about three more days.",
+              "zh": "三天後把醋倒掉、換新的醋，再等大約三天。"
+            },
+            {
+              "en": "Rinse the bone and try to bend it again. Compare it with the dry bone. What did the vinegar take away?",
+              "zh": "把骨頭沖乾淨，再試著折彎，和乾燥的那根比一比。醋帶走了什麼？"
+            }
           ],
           "tip_en": "Teaching tip: the vinegar dissolves the calcium, leaving the soft, bendy framework behind. Bones need both: calcium for hardness and the framework for toughness. Wash hands after handling raw chicken.",
           "tip_zh": "教學提示：醋溶掉了鈣，留下柔軟、可以彎曲的骨架纖維。骨頭兩樣都需要：鈣讓它堅硬，纖維讓它有韌性、不易斷。碰過生雞肉之後要洗手。"
@@ -186,6 +528,468 @@
       },
       "health_en": "This lesson is for learning about the body. It is not medical advice. If you think you have hurt a bone, tell an adult and see a doctor.",
       "health_zh": "本課是認識身體的教材，不是醫療建議。如果覺得骨頭受傷了，請告訴大人並就醫。"
+    },
+    {
+      "n": 2,
+      "slug": "muscles",
+      "title": "How Do Muscles Move Your Bones?",
+      "title_zh": "肌肉怎麼拉動骨頭？",
+      "level": "入門 · Beginner",
+      "icon": "💪",
+      "card": "muscle",
+      "blurb_en": "Muscles can only pull, never push, so they work in pairs. Lift a 3D arm and watch the biceps and triceps take turns.",
+      "blurb_zh": "肌肉只能拉、不能推，所以總是成對工作；抬起 3D 手臂，看二頭肌和三頭肌輪流用力。",
+      "big_idea_en": "Muscles can only pull. To bend and straighten a joint, two muscles take turns, one on each side.",
+      "big_idea_zh": "肌肉只能拉。要讓關節彎曲又伸直，兩條肌肉在兩側輪流用力。",
+      "lab": {
+        "kind": "arm",
+        "eyebrow": "3D Model · 3D 模型",
+        "title_en": "Biceps and Triceps Take Turns",
+        "title_zh": "二頭肌和三頭肌輪流用力",
+        "how_en": "The bones are the real ones from Lesson 1; the two muscles are drawn to show how they work. Press Lift, Lower slowly, or Push, or drag the slider to bend the elbow yourself. Put something in the hand to see how hard the biceps has to pull, and turn on Lever to see why.",
+        "how_zh": "骨頭是第一課那副真實骨架；兩條肌肉是為了說明原理畫上去的。按「舉起」「慢慢放下」「推出」，或拖動滑桿自己彎手肘。在手上放個東西，看二頭肌要出多少力；打開「槓桿」看看為什麼。",
+        "legend": [
+          {
+            "cls": "red",
+            "en": "Red: a muscle that is pulling (getting shorter)",
+            "zh": "紅色：正在用力收縮（變短）的肌肉"
+          },
+          {
+            "cls": "brake",
+            "en": "Orange: a muscle working while it gets longer, like a brake",
+            "zh": "橘色：一邊用力一邊變長的肌肉，像煞車"
+          },
+          {
+            "cls": "tendon",
+            "en": "White ends: tendons, the tough cords that tie muscle to bone",
+            "zh": "白色兩端：肌腱，把肌肉綁在骨頭上的強韌繩索"
+          },
+          {
+            "cls": "gold",
+            "en": "Gold arrows: the direction each muscle pulls. There are no pushing arrows.",
+            "zh": "金色箭頭：肌肉拉的方向——沒有「推」的箭頭"
+          }
+        ],
+        "scale_en": "The bones are real, from the same BodyParts3D skeleton as Lesson 1. The two muscles are simplified shapes: in a real arm, the biceps starts at two points on the shoulder blade, and the triceps has three heads. The pulling force is a rough estimate for an adult arm.",
+        "scale_zh": "骨頭是真實的，和第一課同一副 BodyParts3D 骨架。兩條肌肉是簡化的形狀：真實的二頭肌從肩胛骨的兩個地方出發，三頭肌則有三個頭。拉力是以成人手臂粗估的數字。",
+        "credit_html": "Bone models: <a href=\"https://dbarchive.biosciencedbc.jp/en/bodyparts3d/download.html\" target=\"_blank\" rel=\"noopener\">BodyParts3D</a>, © The Database Center for Life Science, licensed under <a href=\"https://creativecommons.org/licenses/by/4.0/\" target=\"_blank\" rel=\"noopener\">CC BY 4.0</a>. We selected the bones, simplified the shapes, and turned the model upright; the muscles are our own drawing. · 骨骼模型來源：BodyParts3D（日本生命科學資料庫中心，CC BY 4.0 授權）；本站挑選骨頭、簡化形狀並轉正方向，肌肉為本站自繪示意。"
+      },
+      "paras": [
+        "Make a fist and slowly bend your arm, bringing your hand up toward your shoulder. A bump rises on the front of your upper arm. That bump is your biceps, one of more than 600 muscles in your body. Together, your muscles make up about a third or more of your body weight. Every move you make, from blinking to kicking a ball, happens because a muscle pulls on something.",
+        "A muscle is a bundle of long, thin cells called muscle fibers. When your brain sends a signal down a nerve, the fibers contract, which means they get shorter and fatter. At each end, the muscle turns into a tendon, a tough cord that is tied to a bone. As the muscle shortens, the tendon pulls the bone along with it. But here is the surprising part: a muscle can only pull. It cannot push. When the signal stops, the muscle relaxes, but it does not stretch itself back out.",
+        "So how does your arm straighten again? Muscles work in pairs, one on each side of a joint. When the biceps on the front of your upper arm contracts, it pulls your forearm up and bends the elbow. To straighten the elbow with force, as when you push a door open or do a push-up, the triceps on the back of your upper arm contracts and pulls the other way. While one muscle pulls, its partner relaxes and gets stretched. Your knee works the same way: the big muscles on the front of your thigh straighten it, and the ones on the back bend it.",
+        "Your bones and muscles work like levers, with each joint as the pivot. The biceps is attached to the forearm only about four centimeters from the elbow, but your hand is more than thirty centimeters away. That means the biceps has to pull about eight times harder than the weight in your hand. Holding a three-kilogram dumbbell with your elbow bent at a right angle, your biceps pulls roughly as hard as lifting almost thirty kilograms. Why would the body be built this way? Because a short pull close to the joint moves the hand a long way, and quickly, which is just what you need to throw a ball or wave hello.",
+        "Not all of your muscles move bones. The muscles you control on purpose, like your biceps, are called skeletal muscles. Your heart is made of cardiac muscle, which beats about 100,000 times a day without ever taking a break or waiting for you to think about it. The walls of your stomach, intestines, and blood vessels contain smooth muscle, which squeezes slowly to move food along and to control the flow of blood. You cannot tell these muscles what to do, and they keep working even while you sleep.",
+        "Muscles also do a job you might not expect: they keep you warm. Working muscles produce heat, which is why you get hot when you run, and why you shiver on a cold day. Shivering is thousands of tiny, fast contractions whose only purpose is to make heat. Like bones, muscles respond to how you use them. Regular exercise makes muscle fibers thicker and stronger, while weeks of rest in bed make them smaller. Now try it yourself: rest one hand on your upper arm, then lift a bag and press down on a desk, and feel your two muscles take turns."
+      ],
+      "paras_zh": [
+        "握緊拳頭，慢慢彎起手臂，把手往肩膀的方向抬。上臂前面會鼓起一塊——那就是二頭肌，你全身六百多塊肌肉中的一塊。肌肉加起來大約占體重的三分之一以上。你做的每一個動作，從眨眼到踢球，都是因為有一塊肌肉在拉著某個東西。",
+        "肌肉是一束又長又細的細胞，叫做肌纖維。大腦沿著神經送出訊號時，肌纖維會收縮，也就是變短、變粗。肌肉的兩端各變成一條肌腱——一條綁在骨頭上的強韌繩索。肌肉一縮短，肌腱就把骨頭跟著拉過去。但令人意外的是：肌肉只能拉，不能推。訊號停止時，肌肉會放鬆，但它不會自己伸展回原來的長度。",
+        "那手臂要怎麼再伸直呢？肌肉是成對工作的，關節兩側各一條。上臂前面的二頭肌收縮時，把前臂往上拉，手肘就彎起來。要用力把手肘伸直，例如推開一扇門或做伏地挺身，就換上臂後面的三頭肌收縮，往另一個方向拉。一條肌肉在拉的時候，它的搭檔就放鬆、被拉長。膝蓋也是一樣：大腿前面的大肌肉把膝蓋伸直，後面的肌肉把它彎起來。",
+        "骨頭和肌肉就像槓桿，每個關節就是支點。二頭肌接在前臂上離手肘只有大約四公分的地方，手卻在三十多公分外。這表示二頭肌要出的力，大約是手上重量的八倍。手肘彎成直角拿著一個三公斤的啞鈴時，二頭肌出的力大概等於舉起將近三十公斤。身體為什麼要這樣設計？因為在靠近關節的地方拉一小段，手就能移動很遠、而且很快——丟球、揮手打招呼需要的正是這個。",
+        "不是所有肌肉都拉骨頭。像二頭肌這種你可以自己控制的肌肉，叫做骨骼肌。心臟由心肌構成，一天大約跳十萬下，從不休息，也不用等你想到它。胃、腸和血管的管壁裡有平滑肌，它們慢慢地收縮，把食物往前推送、控制血液的流動。這些肌肉你無法指揮，連睡覺時它們也照樣工作。",
+        "肌肉還有一個你可能想不到的工作：幫你保暖。工作中的肌肉會產生熱，所以你跑步時會變熱，冷天時會發抖——發抖就是成千上萬次又小又快的收縮，唯一的目的就是產生熱。跟骨頭一樣，肌肉會回應你怎麼使用它：規律運動讓肌纖維變粗、變強壯；在床上躺好幾個星期，肌肉就會變小。現在自己試試看：把一隻手放在上臂上，提起書包、再用力按桌面，感覺兩條肌肉輪流用力。"
+      ],
+      "questions": [
+        "Why do muscles have to work in pairs?",
+        "What does a tendon do?",
+        "Why does the biceps have to pull much harder than the weight in your hand?"
+      ],
+      "answers": [
+        "Because a muscle can only pull, never push. One muscle bends the joint, and its partner on the other side pulls it straight again.",
+        "A tendon is a tough cord at the end of a muscle that ties the muscle to a bone, so when the muscle shortens, the tendon pulls the bone.",
+        "The biceps is attached only about four centimeters from the elbow, while the hand is more than thirty centimeters away, so, like a lever, it must pull about eight times harder than the weight."
+      ],
+      "vocab": [
+        {
+          "n": 1,
+          "w": "muscle",
+          "pos": "n.",
+          "zh": "肌肉",
+          "ex": "You use more than forty <b>muscles</b> in your face to smile and frown.",
+          "exzh": "微笑和皺眉時，你用到臉上四十多塊肌肉。"
+        },
+        {
+          "n": 2,
+          "w": "contract",
+          "pos": "v.",
+          "zh": "收縮",
+          "ex": "Your heart <b>contracts</b> to push blood out into your body.",
+          "exzh": "心臟收縮，把血液送到全身。"
+        },
+        {
+          "n": 3,
+          "w": "relax",
+          "pos": "v.",
+          "zh": "放鬆",
+          "ex": "Take a deep breath and let your shoulders <b>relax</b>.",
+          "exzh": "深呼吸，讓肩膀放鬆。"
+        },
+        {
+          "n": 4,
+          "w": "tendon",
+          "pos": "n.",
+          "zh": "肌腱",
+          "ex": "The Achilles <b>tendon</b> connects your calf muscle to your heel.",
+          "exzh": "阿基里斯腱把小腿的肌肉連到腳跟。"
+        },
+        {
+          "n": 5,
+          "w": "fiber",
+          "pos": "n.",
+          "zh": "纖維",
+          "ex": "A single <b>fiber</b> of this rope is thin, but thousands together are very strong.",
+          "exzh": "這條繩子的一根纖維很細，但成千上萬根合在一起就非常結實。"
+        },
+        {
+          "n": 6,
+          "w": "pair",
+          "pos": "n.",
+          "zh": "一對；一雙",
+          "ex": "I need a new <b>pair</b> of running shoes.",
+          "exzh": "我需要一雙新的跑鞋。"
+        },
+        {
+          "n": 7,
+          "w": "lever",
+          "pos": "n.",
+          "zh": "槓桿",
+          "ex": "A seesaw is a <b>lever</b>, and the middle is its pivot.",
+          "exzh": "蹺蹺板是一種槓桿，中間就是它的支點。"
+        },
+        {
+          "n": 8,
+          "w": "shiver",
+          "pos": "v.",
+          "zh": "發抖",
+          "ex": "We <b>shivered</b> at the bus stop in the cold wind.",
+          "exzh": "我們在冷風中的公車站發抖。"
+        }
+      ],
+      "quiz": [
+        {
+          "q": "What can a muscle do?",
+          "options": [
+            "Only pull",
+            "Only push",
+            "Both pull and push",
+            "Neither pull nor push"
+          ],
+          "correct": 0
+        },
+        {
+          "q": "Which muscle bends your elbow?",
+          "options": [
+            "The biceps",
+            "The triceps",
+            "The heart",
+            "The calf muscle"
+          ],
+          "correct": 0
+        },
+        {
+          "q": "What connects a muscle to a bone?",
+          "options": [
+            "A tendon",
+            "A joint",
+            "A nerve",
+            "A blood vessel"
+          ],
+          "correct": 0
+        },
+        {
+          "q": "What kind of muscle is your heart made of?",
+          "options": [
+            "Cardiac muscle",
+            "Skeletal muscle",
+            "Smooth muscle",
+            "It has no muscle"
+          ],
+          "correct": 0
+        },
+        {
+          "q": "According to the reading, why do we shiver when we are cold?",
+          "options": [
+            "Muscles contract quickly to make heat",
+            "Our bones are getting smaller",
+            "Our muscles are too tired to hold still",
+            "The cold air pushes our muscles"
+          ],
+          "correct": 0
+        }
+      ],
+      "pairs": [
+        {
+          "icon": "💪",
+          "a_en": "Biceps",
+          "a_zh": "二頭肌",
+          "b_en": "Triceps",
+          "b_zh": "三頭肌",
+          "joint_en": "Elbow",
+          "joint_zh": "手肘",
+          "text_en": "The biceps on the front bends the elbow; the triceps on the back straightens it.",
+          "text_zh": "前面的二頭肌讓手肘彎曲，後面的三頭肌讓手肘伸直。",
+          "try_en": "Do a slow push-up against a wall and feel the back of your arm work.",
+          "try_zh": "對著牆慢慢做伏地挺身，摸摸上臂後面在用力。",
+          "demo": "push"
+        },
+        {
+          "icon": "🦵",
+          "a_en": "Quadriceps",
+          "a_zh": "股四頭肌",
+          "b_en": "Hamstrings",
+          "b_zh": "大腿後肌群",
+          "joint_en": "Knee",
+          "joint_zh": "膝蓋",
+          "text_en": "The quadriceps on the front of the thigh straightens the knee; the hamstrings on the back bend it.",
+          "text_zh": "大腿前面的股四頭肌把膝蓋伸直，後面的大腿後肌群把它彎起來。",
+          "try_en": "Sit on a chair and straighten one leg. Feel the top of your thigh go hard.",
+          "try_zh": "坐在椅子上把一條腿伸直，摸摸大腿上面變硬了。"
+        },
+        {
+          "icon": "🦶",
+          "a_en": "Shin muscle",
+          "a_zh": "脛前肌",
+          "b_en": "Calf muscle",
+          "b_zh": "小腿肌",
+          "joint_en": "Ankle",
+          "joint_zh": "腳踝",
+          "text_en": "The shin muscle lifts your toes; the calf muscle, pulling on the Achilles tendon, points them down.",
+          "text_zh": "脛前肌把腳尖抬起；小腿肌拉著阿基里斯腱，讓腳尖往下踩。",
+          "try_en": "Stand on your tiptoes, then rock back onto your heels.",
+          "try_zh": "踮起腳尖，再往後站到腳跟上。"
+        },
+        {
+          "icon": "🧍",
+          "a_en": "Belly muscles",
+          "a_zh": "腹肌",
+          "b_en": "Back muscles",
+          "b_zh": "背肌",
+          "joint_en": "Spine",
+          "joint_zh": "脊柱",
+          "text_en": "Belly muscles curl you forward; back muscles straighten you up again.",
+          "text_zh": "腹肌讓你向前捲起身體，背肌再把你拉直。",
+          "try_en": "Do one slow sit-up, then lie on your stomach and lift your chest a little.",
+          "try_zh": "慢慢做一下仰臥起坐，再趴著把胸口微微抬起。"
+        }
+      ],
+      "pairs_note_en": "In every pair, the two muscles sit on opposite sides of a joint. Doctors call them antagonists: partners that pull in opposite directions.",
+      "pairs_note_zh": "每一對肌肉都位在關節的兩側，醫學上叫做拮抗肌：方向相反、互相搭配的搭檔。",
+      "kinds": [
+        {
+          "icon": "🏃",
+          "en": "Skeletal muscle",
+          "zh": "骨骼肌",
+          "where_en": "Attached to bones",
+          "where_zh": "附著在骨頭上",
+          "control_en": "You control it",
+          "control_zh": "可以自己控制",
+          "text_en": "Moves your body, keeps you standing, and makes heat. It gets tired and needs rest.",
+          "text_zh": "讓身體動、讓你站得住，也會產生熱。它會累，需要休息。"
+        },
+        {
+          "icon": "❤️",
+          "en": "Cardiac muscle",
+          "zh": "心肌",
+          "where_en": "Only in the heart",
+          "where_zh": "只在心臟",
+          "control_en": "Works by itself",
+          "control_zh": "自己運作",
+          "text_en": "Beats about 100,000 times a day for your whole life and never takes a break. Lesson 3 follows the blood it pumps.",
+          "text_zh": "一輩子每天跳大約十萬下，從不休息。第三課會跟著它打出的血液走一趟。"
+        },
+        {
+          "icon": "🌀",
+          "en": "Smooth muscle",
+          "zh": "平滑肌",
+          "where_en": "Stomach, intestines, blood vessels",
+          "where_zh": "胃、腸、血管",
+          "control_en": "Works by itself",
+          "control_zh": "自己運作",
+          "text_en": "Squeezes slowly in waves to move food along and to widen or narrow your blood vessels.",
+          "text_zh": "像波浪一樣慢慢收縮，把食物往前推，也讓血管變寬或變窄。"
+        }
+      ],
+      "kinds_note_en": "Only skeletal muscle pulls on bones, and it is the only kind you can move just by deciding to.",
+      "kinds_note_zh": "只有骨骼肌會拉骨頭，也只有它是你「想動就能動」的。",
+      "measure": {
+        "title_en": "Feel your muscles take turns",
+        "title_zh": "感覺肌肉輪流用力",
+        "lead_en": "Rest your left hand on your right upper arm, with your thumb on the front and your fingers on the back. Then try these three moves.",
+        "lead_zh": "把左手放在右上臂上，拇指在前面、其他手指在後面，然後做下面三個動作。",
+        "steps": [
+          {
+            "n": "1",
+            "en": "Lift",
+            "zh": "舉起",
+            "text_en": "Lift a school bag by bending your elbow. The front (biceps) goes hard; the back stays soft.",
+            "text_zh": "彎起手肘提起書包：前面（二頭肌）變硬，後面還是軟的。"
+          },
+          {
+            "n": "2",
+            "en": "Push",
+            "zh": "推",
+            "text_en": "Put your palm on a desk and press straight down. Now the back (triceps) goes hard, and the front goes soft.",
+            "text_zh": "手掌放在桌上用力往下壓：這次換後面（三頭肌）變硬，前面變軟。"
+          },
+          {
+            "n": "3",
+            "en": "Relax",
+            "zh": "放鬆",
+            "text_en": "Let your arm hang loosely. Both muscles are soft, and you can wiggle them from side to side.",
+            "text_zh": "讓手臂自然垂下：兩條肌肉都軟軟的，可以左右晃動它們。"
+          }
+        ],
+        "action": "demo",
+        "action_value": "push",
+        "button_icon": "💪",
+        "button_en": "Lift and push in 3D",
+        "button_zh": "在 3D 模型裡舉起再推出"
+      },
+      "myths": [
+        {
+          "myth_en": "Muscles can push as well as pull.",
+          "myth_zh": "肌肉可以拉，也可以推。",
+          "fact_en": "A muscle can only pull. Every push you make, like pushing a door, is really a muscle pulling on the other side of a joint. In the model, the arrows only ever point toward the middle of a muscle.",
+          "fact_zh": "肌肉只能拉。你做的每一個「推」（像推門），其實都是關節另一側的肌肉在拉。模型裡的箭頭，永遠指向肌肉的中間。"
+        },
+        {
+          "myth_en": "When you lower a heavy bag, your triceps does the work.",
+          "myth_zh": "慢慢放下重物時，是三頭肌在出力。",
+          "fact_en": "Gravity pulls the bag down. Your biceps keeps working and lets itself get longer bit by bit, like a brake. Press Lower slowly in the model and watch it turn orange.",
+          "fact_zh": "把重物往下拉的是重力；二頭肌一直在用力，讓自己一點一點變長，就像煞車。在模型裡按「慢慢放下」，看它變成橘色。"
+        },
+        {
+          "myth_en": "If you stop exercising, your muscles turn into fat.",
+          "myth_zh": "不運動，肌肉就會變成脂肪。",
+          "fact_en": "Muscle and fat are different tissues, and one cannot turn into the other. Unused muscles shrink, and if you eat more than you use, fat can build up, so it can look that way.",
+          "fact_zh": "肌肉和脂肪是兩種不同的組織，不會互相變來變去。不用的肌肉會變小；吃得比用掉的多，脂肪會增加——所以看起來像是變了。"
+        },
+        {
+          "myth_en": "The biceps is the biggest muscle in your body.",
+          "myth_zh": "二頭肌是全身最大的肌肉。",
+          "fact_en": "The biggest is the gluteus maximus, the muscle you sit on. It straightens your hip every time you climb stairs or stand up from a chair.",
+          "fact_zh": "最大的是臀大肌，就是你坐著的那塊肌肉。每次爬樓梯或從椅子上站起來，都是它把髖部伸直。"
+        }
+      ],
+      "tricks": [
+        {
+          "title_en": "Muscles pull, bones move, joints bend",
+          "title_zh": "肌肉拉、骨頭動、關節彎",
+          "body_en": "Three parts, three jobs. If you remember the order, you can explain any move your body makes.",
+          "body_zh": "三個部分、三個工作。記住這個順序，就能解釋身體的任何一個動作。"
+        },
+        {
+          "title_en": "Bi = two, tri = three",
+          "title_zh": "bi 是二、tri 是三",
+          "body_en": "A bicycle has two wheels and a tricycle has three. The biceps starts with two heads and the triceps with three.",
+          "body_zh": "bicycle 兩個輪子、tricycle 三個輪子；biceps 起點有兩個頭，triceps 有三個頭。"
+        },
+        {
+          "title_en": "One pulls, one lets go",
+          "title_zh": "一條拉、一條放",
+          "body_en": "In every pair, one muscle contracts while its partner relaxes. If both pulled hard at once, the joint would lock in place.",
+          "body_zh": "每一對肌肉裡，一條收縮，它的搭檔就放鬆。如果兩條同時用力，關節就會卡住不動。"
+        },
+        {
+          "title_en": "Short pull, long swing",
+          "title_zh": "拉一小段，甩一大段",
+          "body_en": "The biceps shortens only a few centimeters, but the hand swings through a big arc. That trade of force for speed is why you can throw a ball so fast.",
+          "body_zh": "二頭肌只縮短幾公分，手卻劃過一大段弧線。用力氣換速度，所以你才能把球丟得那麼快。"
+        }
+      ],
+      "activities": [
+        {
+          "title_en": "Build a Cardboard Arm with String Muscles",
+          "title_zh": "用紙板和棉線做一隻手臂",
+          "materials": [
+            {
+              "en": "Two strips of stiff cardboard, about 3 × 20 centimeters (upper arm and forearm)",
+              "zh": "兩條硬紙板，約 3 × 20 公分（上臂與前臂）"
+            },
+            {
+              "en": "A brass paper fastener (the elbow)",
+              "zh": "一個雙腳釘（手肘）"
+            },
+            {
+              "en": "Two pieces of string, about 40 centimeters each (the muscles)",
+              "zh": "兩條棉線，各約 40 公分（肌肉）"
+            },
+            {
+              "en": "A hole punch and tape",
+              "zh": "打洞機和膠帶"
+            }
+          ],
+          "steps": [
+            {
+              "en": "Join the two strips at one end with the fastener so they can bend like an elbow.",
+              "zh": "用雙腳釘把兩條紙板的一端接起來，讓它們可以像手肘一樣彎。"
+            },
+            {
+              "en": "Punch a hole in the forearm strip about 3 centimeters from the elbow. Tie one string there and run it along the front of the upper arm. This is the biceps.",
+              "zh": "在前臂紙板離手肘約 3 公分處打一個洞，綁上一條棉線，沿著上臂的前面拉上去——這是二頭肌。"
+            },
+            {
+              "en": "Tape the second string to the short tab of the forearm behind the elbow and run it along the back of the upper arm. This is the triceps.",
+              "zh": "把第二條棉線貼在前臂超出手肘後面的那一小段，沿著上臂的後面拉上去——這是三頭肌。"
+            },
+            {
+              "en": "Hold the upper arm still and pull each string. Then try to push with a string. What happens?",
+              "zh": "固定上臂，分別拉兩條線；再試試看用線「推」。會發生什麼事？"
+            }
+          ],
+          "tip_en": "Teaching tip: a string, like a muscle, goes slack when you try to push with it, so the arm needs one string on each side. Then move the biceps hole farther from the elbow: the pull gets easier, but the hand moves less.",
+          "tip_zh": "教學提示：棉線和肌肉一樣，一推就軟掉，所以手臂兩側各需要一條。接著把二頭肌的洞打在離手肘更遠的地方：拉起來比較省力，但手移動的距離變短了。"
+        },
+        {
+          "title_en": "The Clothespin Squeeze: Do Muscles Get Tired?",
+          "title_zh": "捏曬衣夾：肌肉會累嗎？",
+          "materials": [
+            {
+              "en": "A spring clothespin for each student",
+              "zh": "每人一個有彈簧的曬衣夾"
+            },
+            {
+              "en": "A timer",
+              "zh": "一個計時器"
+            },
+            {
+              "en": "Paper to record the counts",
+              "zh": "記錄次數的紙"
+            }
+          ],
+          "steps": [
+            {
+              "en": "Hold the clothespin between your thumb and index finger. Count how many times you can squeeze it open in 30 seconds.",
+              "zh": "用拇指和食指捏住曬衣夾，數一數 30 秒內能捏開幾次。"
+            },
+            {
+              "en": "Without resting, do it again two more times, and write down each count.",
+              "zh": "不要休息，再連續做兩次，記下每次的次數。"
+            },
+            {
+              "en": "Rest for one minute, then try once more.",
+              "zh": "休息一分鐘，再做一次。"
+            },
+            {
+              "en": "Compare the counts. What happened, and what did the rest do?",
+              "zh": "比較這幾次的次數：發生了什麼事？休息帶來什麼改變？"
+            }
+          ],
+          "tip_en": "Teaching tip: the counts usually drop as the small muscles in the hand tire, and they come back after a rest. That is why skeletal muscles need breaks, while the heart, made of a different kind of muscle, never gets tired this way.",
+          "tip_zh": "教學提示：次數通常會越來越少，因為手上的小肌肉累了；休息之後又會恢復。這就是骨骼肌需要休息的原因——而由另一種肌肉構成的心臟，不會這樣累。"
+        }
+      ],
+      "culture": {
+        "title_en": "A Cramp Is a “Pulled Sinew”",
+        "title_zh": "「抽筋」是抽了哪條筋？",
+        "body_en": "In Chinese, a muscle cramp is 抽筋 (chōujīn), literally “a sinew being pulled.” That is a good description: in a cramp, a muscle contracts on its own and will not relax. Its partner on the other side can help. For a calf cramp, gently pulling your toes toward you uses the shin side to stretch the calf. Another saying, 活動活動筋骨, “move your sinews and bones a little,” means to loosen up and warm up before exercise.",
+        "body_zh": "中文把肌肉痙攣叫「抽筋」，字面上是「一條筋被抽住」。這個說法很傳神：抽筋時，肌肉自己收縮、放不開。這時關節另一側的搭檔可以幫忙——小腿抽筋時，把腳尖輕輕往身體方向拉，就是用前側把小腿肌拉開。另一句「活動活動筋骨」，則是運動前暖身、鬆一鬆的意思。",
+        "link_en": "More Chinese health words in English",
+        "link_zh": "到中醫養生系列看更多"
+      },
+      "health_en": "This lesson is for learning about the body. It is not medical advice. If a muscle hurts badly, swells, or a cramp will not go away, tell an adult and see a doctor.",
+      "health_zh": "本課是認識身體的教材，不是醫療建議。如果肌肉非常痛、腫起來，或抽筋一直不好，請告訴大人並就醫。"
     }
   ]
 }

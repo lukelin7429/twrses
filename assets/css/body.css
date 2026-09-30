@@ -142,3 +142,82 @@ button.bc-row:hover { transform: translateY(-2px); border-color: var(--gold); bo
 
 /* 系列首頁的課程卡：人體系列用暖一點的底色 */
 .hb-ico { background: radial-gradient(circle at 50% 38%, #3a2f4f, #120d1c); }
+
+/* =========================================================
+   第二課：手臂與肌肉（data-arm-lab）
+   ========================================================= */
+.am-lab .al-space { min-height: 600px; }
+.am-aside { gap: .15rem; }
+.am-angle { display: flex; align-items: baseline; gap: .6rem; margin: 0 0 .4rem; }
+.am-deg { font-family: var(--serif); font-size: 2.6rem; line-height: 1; color: #fff; font-variant-numeric: tabular-nums; min-width: 2.6ch; }
+.am-angle span { font-size: .8rem; font-weight: 700; color: var(--al-mute); line-height: 1.2; }
+.am-angle small, .am-m b small, .am-state small, .am-loads small, .am-act small { display: block; font-family: var(--zh); font-weight: 600; }
+.am-muscles { display: grid; gap: .45rem; }
+.am-m { display: grid; grid-template-columns: 14px minmax(0, 1fr) auto; grid-template-rows: auto auto; gap: .15rem .6rem; align-items: center; padding: .55rem .7rem; border-radius: 12px; border: 1px solid var(--al-line); background: rgba(255,255,255,.03); transition: border-color .25s, background .25s; }
+.am-dot { grid-row: span 2; width: 12px; height: 12px; border-radius: 50%; background: #d9a39b; transition: background .25s, box-shadow .25s; }
+.am-m.on .am-dot { background: #e0412f; box-shadow: 0 0 10px 2px rgba(224,65,47,.6); }
+.am-m.on.brake .am-dot { background: #ef8a3c; box-shadow: 0 0 10px 2px rgba(239,138,60,.6); }
+.am-m.on { border-color: rgba(224,65,47,.55); background: rgba(224,65,47,.08); }
+.am-m.on.brake { border-color: rgba(239,138,60,.55); background: rgba(239,138,60,.08); }
+.am-m b { font-size: .9rem; color: #fff; line-height: 1.15; }
+.am-m b small { font-size: .74rem; color: var(--al-mute); }
+.am-state { grid-column: 3; grid-row: 1; font-style: normal; font-size: .74rem; font-weight: 800; color: var(--al-text); text-align: right; line-height: 1.2; }
+.am-state small { font-size: .7rem; color: var(--al-mute); }
+.am-m.on .am-state { color: #ffb4a8; }
+.am-m.on.brake .am-state { color: #ffc792; }
+.am-len { grid-column: 2; grid-row: 2; height: 5px; border-radius: 999px; background: rgba(255,255,255,.08); overflow: hidden; }
+.am-len s { display: block; height: 100%; border-radius: 999px; background: #d9a39b; text-decoration: none; transition: width .1s; }
+.am-m.on .am-len s { background: #e0412f; }
+.am-len-t { grid-column: 3; grid-row: 2; font-size: .72rem; font-weight: 700; color: var(--al-mute); text-align: right; font-variant-numeric: tabular-nums; }
+.am-len-k { margin: .35rem 0 0; font-size: .68rem; line-height: 1.4; color: #7f90b0; }
+.am-say { margin: .55rem 0 0; font-size: .84rem; line-height: 1.55; color: var(--al-text); min-height: 5.2em; }
+.am-say .zh, .am-kg-t .zh { display: block; color: var(--al-mute); margin-top: .15rem; }
+.am-loads { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: .3rem; }
+.am-loads button { display: flex; flex-direction: column; align-items: center; gap: .1rem; padding: .45rem .2rem; border-radius: 12px; border: 1px solid var(--al-line); background: rgba(255,255,255,.03); color: var(--al-text); font-family: var(--sans); font-weight: 800; font-size: .7rem; cursor: pointer; transition: background .2s, border-color .2s; }
+.am-loads button i { font-style: normal; font-size: 1.2rem; }
+.am-loads small { font-size: .66rem; color: var(--al-mute); }
+.am-loads button:hover { background: rgba(255,255,255,.07); }
+.am-loads button[aria-pressed="true"] { border-color: var(--al-sun); background: rgba(255,211,110,.12); box-shadow: 0 0 0 1px var(--al-sun) inset; }
+.am-force { margin-top: .7rem; padding-top: .7rem; border-top: 1px solid var(--al-line); }
+.am-kg-k { margin: 0; font-size: .7rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: var(--al-mute); }
+.am-kg { margin: .1rem 0 .25rem; font-family: var(--serif); font-size: 2rem; line-height: 1.1; color: #ff9a8a; font-variant-numeric: tabular-nums; }
+.am-kg-t { margin: 0; font-size: .8rem; line-height: 1.55; color: var(--al-text); }
+
+.am-acts { display: inline-flex; flex-wrap: wrap; gap: .4rem; }
+.am-act { display: inline-flex; flex-direction: column; align-items: flex-start; padding: .45rem .95rem; border-radius: 14px; border: 1px solid var(--al-line); background: rgba(255,255,255,.04); color: #fff; font-family: var(--sans); cursor: pointer; line-height: 1.15; transition: background .2s, border-color .2s, transform .2s; }
+.am-act b { font-size: .9rem; }
+.am-act small { font-size: .72rem; color: var(--al-mute); }
+.am-act:hover { transform: translateY(-2px); }
+.am-act-lift:hover, .am-act-push:hover { border-color: rgba(224,65,47,.7); background: rgba(224,65,47,.12); }
+.am-act-lower:hover { border-color: rgba(239,138,60,.7); background: rgba(239,138,60,.12); }
+.am-bend::-webkit-slider-runnable-track { background: linear-gradient(90deg, #e0412f 0 var(--p, 0%), rgba(255,255,255,.12) var(--p, 0%)); }
+.am-bend::-moz-range-progress { height: 6px; border-radius: 999px; background: #e0412f; }
+
+.al-lab.am-lb { font-size: .7rem; }
+.al-lab.am-lb-bi, .al-lab.am-lb-tri { color: #ffc4b8; border-color: rgba(224,65,47,.5); }
+.al-lab.am-lb-t { color: #fff; }
+.al-lab.am-lb-j, .al-lab.am-lb-lv { color: #ffe3a3; border-color: rgba(255,211,110,.45); }
+.al-lab.am-lb-ef { color: #ffb4a8; border-color: rgba(255,107,94,.6); }
+.al-lab.am-lb-ld { color: #b9e8ff; border-color: rgba(122,215,255,.6); }
+.al-lg-brake i { border: 0; background: #ef8a3c; }
+.al-lg-tendon i { border: 0; background: linear-gradient(90deg, #f4efe6 0 30%, #e0412f 30% 70%, #f4efe6 70%); border-radius: 4px; }
+
+.am-col + .am-col { margin-top: .5rem; }
+@media (max-width: 1020px) {
+  .am-lab .al-space { aspect-ratio: 5 / 4; min-height: 380px; }
+  .am-lab .am-aside { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); column-gap: 1.3rem; align-items: start; }
+  .am-col + .am-col { margin-top: 0; }
+}
+@media (max-width: 640px) {
+  .am-lab .al-space { aspect-ratio: 1 / 1; min-height: 0; }
+  .am-lab .am-aside { grid-template-columns: 1fr; }
+  .am-col + .am-col { margin-top: .6rem; }
+  .am-acts { width: 100%; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .am-act { padding: .45rem .6rem; }
+}
+
+/* 成對肌肉、三種肌肉 */
+.kd-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.kd-ctl { color: var(--gold-dk); }
+@media (max-width: 1020px) { .kd-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 480px) { .kd-grid, .pr-grid { grid-template-columns: 1fr; } }

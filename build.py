@@ -3257,7 +3257,7 @@ def build_astro_hub():
 # 第一課的骨架是真實解剖資料（BodyParts3D，CC BY 4.0），`npm run model` 產生 assets/models/skeleton.glb。
 # 面板與段落樣式沿用 astro.css，人體專屬的在 body.css；兩者都只載在本系列頁面。
 BODY_BASE = "/resources/classes/human-body/"
-_BODY_JS = {"skeleton": "skeleton"}          # lab.kind → assets/js/<bundle>.js
+_BODY_JS = {"skeleton": "skeleton", "arm": "arm"}   # lab.kind → assets/js/<bundle>.js
 
 def _body_ver():
     h = hashlib.md5()
@@ -3266,6 +3266,12 @@ def _body_ver():
         fp = os.path.join(ROOT, rel)
         if os.path.exists(fp): h.update(open(fp, "rb").read())
     return h.hexdigest()[:8]
+
+def _model_url():
+    """骨架模型的網址：版本號只看 glb 本身，改 CSS/JS 不會讓學生重新下載 1 MB 的模型。"""
+    fp = os.path.join(ROOT, "assets/models/skeleton.glb")
+    v = hashlib.md5(open(fp, "rb").read()).hexdigest()[:8] if os.path.exists(fp) else "0"
+    return f"/assets/models/skeleton.glb?v={v}"
 
 def _body_head(js=None):
     v = _body_ver()
@@ -3299,7 +3305,7 @@ def render_skeleton_lab(lesson):
         f'<button type="button" data-job="{j["key"]}" aria-pressed="false"><i aria-hidden="true">{j["icon"]}</i>'
         f'{html.escape(j["en"])}<small>{html.escape(j["zh"])}</small></button>' for j in lesson["jobs"])
     tg = _lab_toggles([("labels", "Labels", "標示", True), ("spin", "Slow spin", "慢慢轉", False)])
-    return f'''<div class="astro-lab sk-lab rvl" data-skeleton-lab data-model="/assets/models/skeleton.glb?v={_body_ver()}">
+    return f'''<div class="astro-lab sk-lab rvl" data-skeleton-lab data-model="{_model_url()}">
   <div class="al-stage">
     <div class="al-space">
       <canvas class="al-space-cv" aria-label="3D model of a human skeleton · 人體骨架 3D 模型"></canvas>
@@ -3339,6 +3345,62 @@ def render_skeleton_lab(lesson):
   <p class="sk-credit">{lab["credit_html"]}</p>
 </div>'''
 
+def render_arm_lab(lesson):
+    """第二課：真實骨頭＋示意肌肉的右手臂（assets/js/arm.js 綁這裡的 class）。"""
+    lab = lesson["lab"]
+    loads = [("0", "Nothing", "空手", "&#9995;"), ("0.2", "Apple", "蘋果", "&#127822;"),
+             ("0.6", "Water", "一瓶水", "&#129380;"), ("3", "Dumbbell", "啞鈴 3 kg", "&#127947;")]
+    load_btns = "".join(
+        f'<button type="button" data-load="{v}" aria-pressed="{"true" if v == "0" else "false"}"><i aria-hidden="true">{ic}</i>{en}<small>{zh}</small></button>'
+        for v, en, zh, ic in loads)
+    def row(cls, en, zh):
+        return (f'<div class="am-m {cls}"><span class="am-dot" aria-hidden="true"></span>'
+                f'<b>{en}<small>{zh}</small></b><em class="am-state"></em>'
+                f'<span class="am-len" aria-hidden="true"><s></s></span><span class="am-len-t"></span></div>')
+    acts = [("lift", "Lift", "舉起", "二頭肌拉"), ("lower", "Lower slowly", "慢慢放下", "二頭肌煞車"), ("push", "Push", "推出", "三頭肌拉")]
+    act_btns = "".join(
+        f'<button type="button" class="am-act am-act-{k}" data-act="{k}"><b>{en}</b><small>{zh} · {sub}</small></button>'
+        for k, en, zh, sub in acts)
+    tg = _lab_toggles([("labels", "Labels", "標示", True), ("arrows", "Pull arrows", "拉力箭頭", True),
+                       ("lever", "Lever", "槓桿", False), ("whole", "Whole skeleton", "整副骨架", True)])
+    return f'''<div class="astro-lab sk-lab am-lab rvl" data-arm-lab data-model="{_model_url()}">
+  <div class="al-stage">
+    <div class="al-space">
+      <canvas class="al-space-cv" aria-label="3D model of the right arm with the biceps and triceps · 右手臂與二頭肌、三頭肌 3D 模型"></canvas>
+      <div class="al-labels" aria-hidden="true"></div>
+      <p class="sk-loading">Loading the arm… · 手臂載入中…<span class="sk-bar"><i></i></span></p>
+      <p class="al-hint">Drag to turn · 拖曳旋轉　Scroll or pinch to zoom · 滾輪／雙指縮放</p>
+      <button type="button" class="al-home" title="Reset view · 重設視角" aria-label="Reset view · 重設視角">&#8634;</button>
+      <p class="al-nogl-msg">This 3D model needs WebGL, which this browser does not support. The cards below still explain everything.<br><span class="zh">這個瀏覽器不支援 WebGL，無法顯示 3D 模型；下方的卡片一樣能看懂。</span></p>
+    </div>
+    <aside class="al-sky sk-aside am-aside">
+      <div class="am-col">
+      <p class="al-sky-k">Elbow · 手肘</p>
+      <p class="am-angle"><b class="am-deg">—</b><span>bend<small>彎曲角度</small></span></p>
+      <div class="am-muscles" aria-live="polite">{row("am-bi", "Biceps", "肱二頭肌")}{row("am-tri", "Triceps", "肱三頭肌")}</div>
+      <p class="am-len-k">Bars show muscle length; 100% is the arm hanging loose. · 長條是肌肉長度，手臂自然下垂時＝100%</p>
+      <p class="am-say" aria-live="polite"></p>
+      </div>
+      <div class="am-col">
+      <p class="al-sky-k">In your hand · 手上拿著</p>
+      <div class="am-loads" role="group" aria-label="What the hand holds · 手上拿著什麼">{load_btns}</div>
+      <div class="am-force"><p class="am-kg-k">Biceps pull · 二頭肌的拉力</p><p class="am-kg">—</p><p class="am-kg-t"></p></div>
+      </div>
+    </aside>
+  </div>
+  <div class="al-controls">
+    <div class="al-row al-row-main">
+      <button type="button" class="al-play" aria-pressed="false"><span class="al-play-i" aria-hidden="true"></span><span class="al-play-t">Play · 播放</span></button>
+      <div class="am-acts" role="group" aria-label="Moves · 動作">{act_btns}</div>
+    </div>
+    <label class="ec-slider am-bend-row"><span class="ec-slider-k">Elbow bend · 手肘彎曲（拖曳試試）</span>
+      <input type="range" class="ec-time am-bend" min="10" max="138" step="1" value="10"></label>
+    <div class="al-row al-toggles">{tg}</div>
+  </div>
+  {_lab_foot(lab)}
+  <p class="sk-credit">{lab["credit_html"]}</p>
+</div>'''
+
 def _body_nav(slug):
     ls = BODY["lessons"]
     i = next(n for n, l in enumerate(ls) if l["slug"] == slug)
@@ -3362,7 +3424,7 @@ def build_body_lesson(lesson):
     reading_html = render_basic_unit(1, unit_dict, level="body", audio_rel="", pdf_rel="")
     lab = lesson["lab"]
     kind = lab["kind"]
-    lab_html = {"skeleton": render_skeleton_lab}[kind](lesson)
+    lab_html = {"skeleton": render_skeleton_lab, "arm": render_arm_lab}[kind](lesson)
 
     secs = []
     if lesson.get("jobs"):
@@ -3378,6 +3440,33 @@ def build_body_lesson(lesson):
         secs.append(("jobs", "Five Jobs · 五大功能", "What your skeleton does all day", "骨骼整天在做的五件事",
                      f'<div class="ph-grid jb-grid stagger">{cards}</div>',
                      _bi(lesson["jobs_note_en"], lesson["jobs_note_zh"], cls="lead rvl d2")))
+    if lesson.get("pairs"):
+        cards = "".join(
+            f'<article class="ph-card jb-card pr-card rvl">'
+            f'<div class="ph-ico jb-ico" aria-hidden="true">{p["icon"]}</div>'
+            f'<h3>{html.escape(p["a_en"])} + {html.escape(p["b_en"])}<span class="zh">{html.escape(p["a_zh"])}＋{html.escape(p["b_zh"])}</span></h3>'
+            f'<p class="ph-meta"><span>{html.escape(p["joint_en"])} · {html.escape(p["joint_zh"])}</span></p>'
+            f'<p class="ph-when">{html.escape(p["text_en"])}<br><span class="zh">{html.escape(p["text_zh"])}</span></p>'
+            f'<p class="jb-try"><b>Try it · 試試看</b>{html.escape(p["try_en"])}<span class="zh">{html.escape(p["try_zh"])}</span></p>'
+            + (f'<button type="button" class="ph-go" data-lab-demo="{p["demo"]}">See it in 3D · 在模型中看 <i>&uarr;</i></button>' if p.get("demo") else "")
+            + '</article>'
+            for p in lesson["pairs"])
+        secs.append(("pairs", "Muscle Pairs · 成對的肌肉", "One pulls, the other lets go", "一條拉、一條放",
+                     f'<div class="ph-grid pr-grid stagger">{cards}</div>',
+                     _bi(lesson["pairs_note_en"], lesson["pairs_note_zh"], cls="lead rvl d2")))
+    if lesson.get("kinds"):
+        cards = "".join(
+            f'<article class="ph-card kd-card rvl">'
+            f'<div class="ph-ico jb-ico" aria-hidden="true">{k["icon"]}</div>'
+            f'<h3>{html.escape(k["en"])}<span class="zh">{html.escape(k["zh"])}</span></h3>'
+            f'<p class="ph-meta"><span>{html.escape(k["where_en"])} · {html.escape(k["where_zh"])}</span>'
+            f'<span class="kd-ctl">{html.escape(k["control_en"])} · {html.escape(k["control_zh"])}</span></p>'
+            f'<p class="ph-when">{html.escape(k["text_en"])}<br><span class="zh">{html.escape(k["text_zh"])}</span></p>'
+            f'</article>'
+            for k in lesson["kinds"])
+        secs.append(("kinds", "Three Kinds of Muscle · 三種肌肉", "Not every muscle moves a bone", "不是每一種肌肉都拉骨頭",
+                     f'<div class="ph-grid kd-grid stagger">{cards}</div>',
+                     _bi(lesson["kinds_note_en"], lesson["kinds_note_zh"], cls="lead rvl d2")))
     if lesson.get("counts"):
         total = sum(c["n"] for c in lesson["counts"])
         def _bc_row(c):
@@ -3400,10 +3489,10 @@ def build_body_lesson(lesson):
             for st in ms["steps"])
         secs.append(("measure", "Measure Yourself · 親身測量", ms["title_en"], ms["title_zh"],
                      f'<ol class="ms-steps">{steps}</ol>'
-                     f'<p class="rvl"><button type="button" class="ph-go ms-go" data-lab-count>&#9995; {html.escape(ms["button_en"])} · {html.escape(ms["button_zh"])} <i>&uarr;</i></button></p>',
+                     f'<p class="rvl"><button type="button" class="ph-go ms-go" data-lab-{ms.get("action", "count")}="{ms.get("action_value", "")}">{ms.get("button_icon", "&#9995;")} {html.escape(ms["button_en"])} · {html.escape(ms["button_zh"])} <i>&uarr;</i></button></p>',
                      _bi(ms["lead_en"], ms["lead_zh"], cls="lead rvl d2")))
     secs.append(("myths", "Myth vs. Fact · 常見迷思", "Four things people get wrong", "四個常見的誤會", _sci_myths(lesson), ""))
-    tricks_h = {"skeleton": ("Bones in a sentence", "一句話記住骨頭")}[kind]
+    tricks_h = {"skeleton": ("Bones in a sentence", "一句話記住骨頭"), "arm": ("Muscles in a sentence", "一句話記住肌肉")}[kind]
     secs.append(("tricks", "Remember It · 記憶口訣", tricks_h[0], tricks_h[1], _sci_tricks(lesson), ""))
     if lesson.get("culture"):
         cu = lesson["culture"]
