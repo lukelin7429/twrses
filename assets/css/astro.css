@@ -432,3 +432,114 @@
 @media (max-width: 640px) { .td-lab .al-lab.tide.lo { display: none; } }
 .td-lab .al-lab.tide { font-size: .64rem; padding: .08rem .45rem; }
 @media (max-width: 640px) { .td-lab .al-lab.place { display: none; } }
+
+/* =========================================================
+   第五課：四季星空（.cn-lab、四季星空卡、今晚彰化的星空、東西方星空）
+   ========================================================= */
+.cn-lab .al-stage { grid-template-columns: minmax(0, 1fr) 360px; }
+.cn-aside { display: flex; flex-direction: column; }
+.cn-dome-box { position: relative; aspect-ratio: 1; border-radius: 50%; line-height: 0; }
+.cn-dome-cv { width: 100%; height: 100%; display: block; }
+.cn-badge { display: inline-block; margin: 0 0 .45rem; padding: .12rem .6rem; border-radius: 999px; background: var(--al-sun); color: #1b1405; font-size: .7rem; font-weight: 800; }
+.cn-badge[hidden] { display: none; }
+.cn-readout .ec-sub { margin-bottom: .6rem; }
+.cn-readout dd span { display: block; font-family: var(--zh); font-weight: 500; font-size: .76rem; color: var(--al-mute); }
+.cn-lab .ec-jump .cn-tonight { border-color: rgba(255,211,110,.45); color: var(--al-sun); }
+.cn-lab .se-chips .star-svg { width: 26px; height: 26px; }
+.cn-credit { margin: 0; padding: .8rem 1.3rem 1.1rem; font-size: .72rem; line-height: 1.55; color: var(--al-mute); border-top: 1px solid var(--al-line); }
+.cn-credit a { color: var(--al-text); text-decoration: underline; text-underline-offset: 2px; }
+.cn-credit .zh { color: #7f90b0; }
+
+.al-lab.cst { font-size: .68rem; background: rgba(6,10,22,.5); border-color: rgba(127,159,224,.35); color: #c9d6f5; text-align: center; line-height: 1.15; padding: .1rem .5rem .14rem; }
+.al-lab.cst small { display: block; font-family: var(--zh); font-weight: 600; font-size: .64rem; color: #9fb0cf; letter-spacing: .06em; }
+.al-lab.cst.zod { color: #ffe3a3; border-color: rgba(255,211,110,.35); }
+.al-lab.cst.st-night { color: #b9fff4; border-color: rgba(79,209,197,.7); background: rgba(6,40,40,.7); box-shadow: 0 0 14px rgba(79,209,197,.35); }
+.al-lab.cst.st-sun { filter: saturate(.3) brightness(.7); }
+.al-lab.cst.st-sun::after { content: "☀"; margin-left: .25rem; color: var(--al-sun); }
+.al-lab.cn-ast { color: #ffb3a1; border-color: rgba(255,138,112,.5); background: rgba(40,12,6,.6); }
+.al-lab.cn-mid, .al-lab.cn-hid { text-align: center; line-height: 1.25; }
+.al-lab.cn-mid { color: #b9fff4; border-color: rgba(79,209,197,.6); background: rgba(6,34,36,.8); }
+.al-lab.cn-hid { color: #ffe3a3; border-color: rgba(255,211,110,.45); background: rgba(40,28,6,.75); }
+.al-lab.cn-mid b, .al-lab.cn-hid b { display: block; font-weight: 600; font-size: .62rem; opacity: .85; }
+
+.al-lg-arrow i { border: 0; width: 20px; height: 3px; margin-top: .6rem; border-radius: 2px; background: var(--al-teal); position: relative; }
+.al-lg-arrow i::after { content: ""; position: absolute; right: -3px; top: -4px; border-left: 7px solid var(--al-teal); border-top: 5.5px solid transparent; border-bottom: 5.5px solid transparent; }
+.al-lg-night i { border: 0; width: 20px; height: 20px; border-radius: 0; background: linear-gradient(135deg, transparent 45%, #9fe8de 45% 55%, transparent 55%); }
+.al-lg-hidden i { border: 0; width: 20px; height: 20px; border-radius: 0; background: linear-gradient(135deg, transparent 45%, rgba(127,159,224,.35) 45% 55%, transparent 55%); }
+.al-lg-ecl i { border: 2px dashed var(--al-sun); }
+
+@media (max-width: 1020px) {
+  .cn-lab .al-stage { grid-template-columns: 1fr; }
+  .cn-aside { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); column-gap: 1.2rem; align-items: start; }
+  .cn-aside .al-sky-k { grid-column: 1 / -1; }
+  .cn-aside .cn-dome-box { grid-column: 1; grid-row: 2; }
+  .cn-aside .al-hemi-note { grid-column: 1; grid-row: 3; }
+  .cn-aside .cn-readout { grid-column: 2; grid-row: 2 / 4; margin-top: 0; }
+}
+@media (max-width: 640px) {
+  .cn-aside { display: block; }
+  .cn-aside .cn-dome-box { max-width: 420px; margin: 0 auto; }
+  .cn-aside .cn-readout { margin-top: .8rem; }
+  .cn-lab .al-lab.cst:not(.zod):not(.cn-ast) { display: none; }
+  .cn-lab .al-lab.cst { font-size: .6rem; padding: .06rem .4rem; }
+  .cn-lab .al-lab.cst small { font-size: .58rem; }
+  .cn-lab .al-lab.cn-mid b, .cn-lab .al-lab.cn-hid b { display: none; }
+  .cn-lab .ec-jump button { flex: 1 1 40%; }
+  .cn-credit { padding: .8rem .85rem 1rem; }
+}
+
+/* 四季星空卡 */
+.sk-card .ph-ico { background: radial-gradient(circle at 50% 40%, #16264a, #070b17); }
+.sk-list { list-style: none; margin: 0 0 .7rem; padding: 0; display: grid; gap: .3rem; }
+.sk-list li { font-size: .86rem; line-height: 1.45; color: var(--ink-soft); font-family: var(--zh); }
+.sk-list li b { font-family: var(--sans); color: var(--ink); }
+.sk-winter { border-top: 4px solid #4a78b8; } .sk-spring { border-top: 4px solid #4f9a5e; }
+.sk-summer { border-top: 4px solid #d2643c; } .sk-autumn { border-top: 4px solid #c9921f; }
+
+/* 今晚彰化的星空 */
+.tn-box { margin-top: 1.4rem; }
+.tn-when { margin: 0 0 1rem; font-weight: 800; color: var(--gold-dk); font-variant-numeric: tabular-nums; }
+.tn-when span { display: block; font-family: var(--zh); font-weight: 600; color: var(--ink-soft); font-size: .92rem; }
+.tn-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: .8rem; }
+.tn-item { display: flex; gap: .7rem; align-items: flex-start; padding: .85rem .95rem; border-radius: 14px; background: #fff; border: 1px solid var(--line); box-shadow: var(--shadow-sm); }
+.tn-ico { flex: none; width: 34px; height: 34px; display: grid; place-items: center; border-radius: 10px; background: radial-gradient(circle at 50% 40%, #16264a, #070b17); color: #ffe3a3; font-size: 1rem; }
+.tn-item h3 { font-size: 1rem; margin: 0 0 .2rem; }
+.tn-item h3 .zh { margin-left: .35rem; font-size: .88rem; color: var(--gold-dk); }
+.tn-item p { margin: 0; font-size: .82rem; line-height: 1.5; }
+.tn-item p .zh { display: block; color: var(--ink-soft); }
+.tn-h { margin: 1.6rem 0 .7rem; font-size: 1.15rem; }
+.tn-pair { display: grid; grid-template-columns: 1fr 1fr; gap: .8rem; max-width: 720px; }
+.tn-pair > div { padding: .9rem 1.1rem; border-radius: 14px; background: #fff; border: 1px solid var(--line); }
+.tn-pair b { display: block; font-family: var(--serif); font-size: 1.15rem; color: var(--brand-dk); }
+.tn-pair span { display: block; font-family: var(--zh); font-size: .86rem; color: var(--ink-soft); }
+.tn-pair p { margin: .5rem 0 0; font-size: .9rem; font-weight: 700; font-variant-numeric: tabular-nums; line-height: 1.6; }
+.tn-note { margin: .9rem 0 0; font-size: .9rem; color: var(--ink-soft); max-width: 72ch; }
+@media (max-width: 1020px) { .tn-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 560px) { .tn-grid, .tn-pair { grid-template-columns: 1fr; } }
+
+/* 東西方的星空 */
+.cc-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.1rem; margin-top: 1.4rem; }
+.cc-card { padding: 1.2rem 1.35rem 1.1rem; border-radius: 16px; background: #fff; border: 1px solid var(--line); border-top: 4px solid var(--gold); box-shadow: var(--shadow-sm); }
+.cc-k { margin: 0 0 .3rem; font-size: .72rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: var(--gold-dk); }
+.cc-card h3 { font-size: 1.2rem; margin: 0 0 .6rem; }
+.cc-card h3 .zh { margin-left: .45rem; font-size: 1rem; color: var(--ink-soft); }
+.cc-q { margin: 0 0 .75rem; padding: .6rem .9rem; border-left: 3px solid var(--gold); background: var(--cream); border-radius: 0 10px 10px 0; font-size: .88rem; font-style: italic; color: var(--ink-soft); }
+.cc-q .zh { display: block; font-style: normal; font-size: 1.05rem; font-weight: 700; color: var(--ink); margin-bottom: .2rem; letter-spacing: .04em; }
+.cc-card p { margin: 0; font-size: .95rem; line-height: 1.65; }
+.cc-card p .zh { display: inline-block; margin-top: .35rem; color: var(--ink-soft); }
+.cc-tbl-wrap { margin-top: 1.6rem; overflow-x: auto; -webkit-overflow-scrolling: touch; border-radius: 16px; border: 1px solid var(--line); background: #fff; }
+.cc-tbl { width: 100%; border-collapse: collapse; font-size: .9rem; }
+.cc-tbl caption { text-align: left; padding: .9rem 1.1rem .4rem; font-weight: 800; color: var(--gold-dk); }
+.cc-tbl th { text-align: left; font-size: .7rem; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-soft); padding: .5rem 1.1rem; border-bottom: 1px solid var(--line); }
+.cc-tbl td { padding: .65rem 1.1rem; border-bottom: 1px solid var(--line); vertical-align: top; line-height: 1.5; }
+.cc-tbl tr:last-child td { border-bottom: 0; }
+.cc-tbl td b { display: block; }
+.cc-tbl td span { display: block; color: var(--ink-soft); font-size: .84rem; }
+.cc-tbl td b.zh { font-size: 1.02rem; letter-spacing: .04em; }
+@media (max-width: 760px) {
+  .cc-grid { grid-template-columns: 1fr; }
+  .cc-tbl thead { display: none; }
+  .cc-tbl, .cc-tbl tbody, .cc-tbl tr, .cc-tbl td { display: block; width: 100%; }
+  .cc-tbl tr { padding: .5rem 0; border-bottom: 1px solid var(--line); }
+  .cc-tbl td { border: 0; padding: .2rem 1rem; }
+}
