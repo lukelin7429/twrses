@@ -22,10 +22,11 @@ import {
 } from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import {
-  DEG, TAU, ZH_DAY, atmosphereMaterial, glowTexture, makeEarthTextures, makeMoonTexture,
+  DEG, TAU, ZH_DAY, atmosphereMaterial, glowTexture, makeMoonTexture,
   phaseIndex, skyMoonMaterial, starField,
 } from './common.js';
 import * as E from './ephem.js';
+import { makeClouds, makeRealEarth } from './earthmap.js';
 
 const G = 25 / 5.145;                         // 小角度誇大倍數（白道傾角 5.145° → 25°）
 const D0 = 10;                                // 平均地月距離（畫面單位）
@@ -176,7 +177,7 @@ function initLab(root) {
   renderer.setPixelRatio(dpr); skyRenderer.setPixelRatio(dpr);
 
   const moonTex = makeMoonTexture();
-  const [earthTex, cloudTex] = makeEarthTextures();
+  const earthTex = makeRealEarth(), cloudTex = makeClouds();
 
   // 兩個 shader 共用同一組 uniform 物件：每格更新一次，地球、雲、月亮同步
   const U = {
@@ -198,10 +199,20 @@ function initLab(root) {
 
   const close = new Group();
   scene.add(close);
+  // 地球：地軸傾斜與自轉照真實時間（太陽固定在 +X 的座標裡，地軸要先轉 -λ☉），
+  // 所以日食時月影落在地圖上正確的地區。
+  const earthAxis = new Group(); close.add(earthAxis);
+  const earthSpin = new Group(); earthAxis.add(earthSpin);
   const earth = new Mesh(new SphereGeometry(RE, 64, 48), bodyMaterial(earthTex, 'earth', U));
-  close.add(earth);
+  earthSpin.add(earth);
   const clouds = new Mesh(new SphereGeometry(RE * 1.012, 48, 32), bodyMaterial(cloudTex, 'earth', U, true));
-  close.add(clouds);
+  earthSpin.add(clouds);
+  const twPin = new Mesh(new SphereGeometry(RE * 0.035, 12, 8), new MeshBasicMaterial({ color: 0xff5a36 }));
+  {
+    const la = E.SITE.lat * DEG, lo = E.SITE.lon * DEG, r = RE * 1.015;
+    twPin.position.set(r * Math.cos(la) * Math.cos(lo), r * Math.sin(la), -r * Math.cos(la) * Math.sin(lo));
+  }
+  earthSpin.add(twPin);
   const atmo = new Mesh(new SphereGeometry(RE * 1.1, 48, 32), atmosphereMaterial());
   close.add(atmo);
 
@@ -405,6 +416,10 @@ function initLab(root) {
     pa.setXYZ(1, moon.position.x, 0, moon.position.z);
     pa.needsUpdate = true;
     nodePivot.rotation.y = (c.m.node - c.s.lon) * DEG;
+    earthAxis.rotation.set(0, 0, 0);
+    earthAxis.rotateY(-c.s.lon * DEG);
+    earthAxis.rotateX(-E.OBLIQUITY * DEG);
+    earthSpin.rotation.y = E.gmst(date) * DEG;
 
     moonShadow.position.set(moon.position.x, moon.position.y, moon.position.z);
     moonShadow.visible = e < 90 || e > 270;                     // 月影只在月亮位於太陽這一側時畫
@@ -571,7 +586,7 @@ function initLab(root) {
   const lab = (cls, html) => { const s = document.createElement('span'); s.className = `al-lab ${cls}`; s.innerHTML = html; labels.appendChild(s); return s; };
   const L = {
     sun: lab('sun', '&#9728; Sun · 太陽<b>&rarr;</b>'), earth: lab('earth', 'Earth · 地球'),
-    moon: lab('moon', 'Moon · 月亮'), node: lab('node', '&#9674; Node · 交點'),
+    moon: lab('moon', 'Moon · 月亮'), node: lab('node', '&#9674; Node · 交點'), tw: lab('place', 'Taiwan · 台灣'),
     plane: lab('plane', "Earth's orbit plane · 黃道面"),
     ySeason1: lab('ysea', ''), ySeason2: lab('ysea', ''),
   };
@@ -613,12 +628,15 @@ function initLab(root) {
       place(L.moon, tmp.copy(moon.position).add(new Vector3(0, -RM - 0.4, 0)));
       nodeA.getWorldPosition(tmp); place(L.node, tmp.add(new Vector3(0, 0.3, 0)), -28);
       place(L.plane, tmp.set(-D0 * 1.1, 0, D0 * 0.95), 0, state.plane);
+      twPin.getWorldPosition(tmp);
+      const twFront = camera.position.distanceTo(tmp) < camera.position.length();
+      place(L.tw, tmp.clone(), 8, twFront && camera.position.length() < 9);
       L.ySeason1.style.opacity = L.ySeason2.style.opacity = 0;
     } else {
       placeSun(new Vector3(0, -3.2, 0));
       L.sun.classList.remove('edge');
       place(L.earth, tmp.copy(ySys.position).add(new Vector3(0, -1.4, 0)));
-      L.moon.style.opacity = L.node.style.opacity = L.plane.style.opacity = 0;
+      L.moon.style.opacity = L.node.style.opacity = L.plane.style.opacity = L.tw.style.opacity = 0;
       const [g1, , g3] = ghosts;
       place(L.ySeason1, tmp.copy(g1.position).add(new Vector3(0, -RR - 0.8, 0)));
       place(L.ySeason2, tmp.copy(g3.position).add(new Vector3(0, -RR - 0.8, 0)));
@@ -732,7 +750,7 @@ function initLab(root) {
       setT(nt);
       if (state.view === 'year' && Math.floor(nt / (20 * DAY)) !== Math.floor((nt - dt * state.speed * DAY) / (20 * DAY))) seasonLabels();
     }
-    earth.rotation.y += dt * 0.05; clouds.rotation.y += dt * 0.06;
+    clouds.rotation.y += dt * 0.01;
     if (camT < 1) {
       camT = Math.min(1, camT + dt / 0.9);
       camera.position.lerpVectors(camFrom, camTo, MathUtils.smootherstep(camT, 0, 1));
@@ -752,7 +770,7 @@ function initLab(root) {
   resize();
   setT(state.t);
   root.classList.add('al-ready', 'al-fresh');
-  root.__lab = { camera, controls, state, setT, setPlaying, setView };   // 除錯用：$('[data-eclipse-lab]').__lab
+  root.__lab = { camera, controls, state, setT, setPlaying, setView, earthSpin, moon };   // 除錯用：$('[data-eclipse-lab]').__lab
 
   return { jumpTo, watch: (ev) => jumpTo(ev, true) };
 }

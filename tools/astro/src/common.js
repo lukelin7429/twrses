@@ -154,35 +154,6 @@ export function makeMoonTexture() {
   return tex;
 }
 
-export function makeEarthTextures() {
-  const fbm = makeNoise(31);
-  const W = 768, H = 384;
-  const { cv } = sphereLoop(W, H, (x, y, z, lat) => {
-    const alat = Math.abs(lat) / DEG;
-    const n = fbm(x * 1.7 + 3, y * 1.7, z * 1.7) + 0.08 * fbm(x * 9, y * 9, z * 9, 2);
-    if (alat > 72 + 6 * fbm(x * 4, y * 4, z * 4, 2)) return [236, 242, 248];
-    if (n > 0.05) {
-      const desert = MathUtils.smoothstep(12, 22, alat) * MathUtils.smoothstep(34, 26, alat);
-      const t = Math.min(1, (n - 0.05) * 5);
-      const g = [58 + 30 * t, 110 + 12 * t, 62];
-      const d = [196, 170, 118];
-      const m = desert * 0.8;
-      return [g[0] * (1 - m) + d[0] * m, g[1] * (1 - m) + d[1] * m, g[2] * (1 - m) + d[2] * m];
-    }
-    const deep = Math.min(1, -n * 3 + 0.4);
-    return [22 + 20 * (1 - deep), 66 + 40 * (1 - deep), 138 + 40 * (1 - deep)];
-  });
-  const clouds = sphereLoop(512, 256, (x, y, z, lat) => {
-    const c = fbm(x * 2.4 + 9, y * 5, z * 2.4, 5);
-    const band = 0.6 + 0.4 * Math.abs(Math.cos(lat * 3));
-    const a = MathUtils.clamp((c * band - 0.06) * 3.2, 0, 0.85);
-    return [255, 255, 255, a * 255];
-  }).cv;
-  const t1 = new CanvasTexture(cv); t1.colorSpace = SRGBColorSpace;
-  const t2 = new CanvasTexture(clouds); t2.colorSpace = SRGBColorSpace;
-  return [t1, t2];
-}
-
 export function glowTexture(stops) {
   const cv = document.createElement('canvas');
   cv.width = cv.height = 256;

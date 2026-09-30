@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "model": "node scripts/build-skeleton.mjs",
-    "build": "esbuild src/skeleton.js src/arm.js --bundle --minify --format=iife --target=es2019 --legal-comments=eof --outdir=../../assets/js",
+    "build": "esbuild src/skeleton.js src/arm.js src/heart.js --bundle --minify --format=iife --target=es2019 --legal-comments=eof --outdir=../../assets/js",
     "test": "node test/skeleton.test.mjs"
   },
   "devDependencies": {

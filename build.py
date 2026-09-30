@@ -3257,7 +3257,7 @@ def build_astro_hub():
 # 第一課的骨架是真實解剖資料（BodyParts3D，CC BY 4.0），`npm run model` 產生 assets/models/skeleton.glb。
 # 面板與段落樣式沿用 astro.css，人體專屬的在 body.css；兩者都只載在本系列頁面。
 BODY_BASE = "/resources/classes/human-body/"
-_BODY_JS = {"skeleton": "skeleton", "arm": "arm"}   # lab.kind → assets/js/<bundle>.js
+_BODY_JS = {"skeleton": "skeleton", "arm": "arm", "heart": "heart"}   # lab.kind → assets/js/<bundle>.js
 
 def _body_ver():
     h = hashlib.md5()
@@ -3401,6 +3401,67 @@ def render_arm_lab(lesson):
   <p class="sk-credit">{lab["credit_html"]}</p>
 </div>'''
 
+def render_heart_lab(lesson):
+    """第三課：兩個幫浦的心臟與兩個循環（assets/js/heart.js 綁這裡的 class；全部自繪示意）。"""
+    lab = lesson["lab"]
+    rates = [("sleep", "&#128164;", "Asleep", "睡覺", 55), ("rest", "&#129681;", "At rest", "安靜", 72),
+             ("child", "&#129490;", "Child", "孩子", 90), ("run", "&#127939;", "Running", "跑步", 150)]
+    rate_btns = "".join(
+        f'<button type="button" data-rate="{k}" aria-pressed="{"true" if k == "rest" else "false"}"><i aria-hidden="true">{ic}</i>{en}<small>{zh} {n}</small></button>'
+        for k, ic, en, zh, n in rates)
+    stops = "".join(f'<li><b>{html.escape(st["en"])}</b><span>{html.escape(st["zh"])}</span></li>' for st in lab["stops"])
+    tg = _lab_toggles([("labels", "Labels", "標示", True), ("follow", "Follow one drop", "跟著一滴血", True),
+                       ("wall", "Heart wall", "心壁", True), ("sound", "Heartbeat sound", "心跳聲", False)])
+    return f'''<div class="astro-lab sk-lab hr-lab rvl" data-heart-lab>
+  <div class="al-stage">
+    <div class="al-space">
+      <canvas class="al-space-cv" aria-label="3D model of the heart and the two loops of blood · 心臟與兩個血液循環 3D 模型"></canvas>
+      <div class="al-labels" aria-hidden="true"></div>
+      <p class="al-hint">Drag to turn · 拖曳旋轉　Scroll or pinch to zoom · 滾輪／雙指縮放</p>
+      <button type="button" class="al-home" title="Reset view · 重設視角" aria-label="Reset view · 重設視角">&#8634;</button>
+      <p class="hr-facing">Drawn as if you are facing the person: their right side is on your left. · 像面對著一個人：他的右邊在你的左邊</p>
+      <p class="al-nogl-msg">This 3D model needs WebGL, which this browser does not support. The cards below still explain everything.<br><span class="zh">這個瀏覽器不支援 WebGL，無法顯示 3D 模型；下方的卡片一樣能看懂。</span></p>
+    </div>
+    <aside class="al-sky sk-aside hr-aside">
+      <div class="hr-col">
+      <p class="al-sky-k">Heart rate · 心跳</p>
+      <p class="hr-rate"><b class="hr-bpm">72</b><span>beats a minute<small>每分鐘心跳</small></span><em class="hr-src"></em></p>
+      <div class="hr-rates" role="group" aria-label="Heart rate · 心跳速度">{rate_btns}</div>
+      <div class="hr-mbox">
+        <button type="button" class="hr-measure"><i aria-hidden="true">&#129782;</i><span>Measure my pulse<small>量我的脈搏（15 秒）</small></span></button>
+        <div class="hr-tapbox">
+          <button type="button" class="hr-tap" aria-label="Tap with each beat · 每跳一下按一次">Tap<small>按</small></button>
+          <p class="hr-tap-count"><b class="hr-tap-n">0</b> taps · 下<br><b class="hr-tap-s">15</b> s left · 秒</p>
+        </div>
+        <p class="hr-tap-msg" aria-live="polite">Two fingers on the thumb side of your wrist, press gently, then start.<span class="zh">兩根手指輕按手腕拇指那一側，找到脈搏再開始。</span></p>
+      </div>
+      <dl class="hr-nums">
+        <div><dt>Beats a day · 每天心跳</dt><dd class="hr-day"></dd></div>
+        <div><dt>Blood a minute · 每分鐘打出</dt><dd><span class="hr-lmin"></span> L</dd></div>
+        <div><dt>Blood a day · 每天打出</dt><dd><span class="hr-lday"></span> L</dd></div>
+        <div><dt>Bathtubs a day · 每天幾缸</dt><dd class="hr-tubs"></dd></div>
+      </dl>
+      <p class="hr-nums-note">Adult-size heart, about 70 mL per beat at rest; a bathtub holds about 150 L. · 以成人安靜時每跳約 70 毫升計算；一缸約 150 公升。</p>
+      </div>
+      <div class="hr-col hr-follow">
+      <p class="al-sky-k">Follow one drop · 跟著一滴血</p>
+      <ol class="hr-stops">{stops}</ol>
+      </div>
+    </aside>
+  </div>
+  <div class="al-controls">
+    <div class="al-row al-row-main">
+      <button type="button" class="al-play" aria-pressed="true"><span class="al-play-i" aria-hidden="true"></span><span class="al-play-t">Pause · 暫停</span></button>
+      <div class="al-speed" role="group" aria-label="Speed · 速度">
+        <button type="button" data-speed="0.3" aria-pressed="false">Slow motion 慢動作</button>
+        <button type="button" data-speed="1" aria-pressed="true">Real time 真實速度</button>
+      </div>
+    </div>
+    <div class="al-row al-toggles">{tg}</div>
+  </div>
+  {_lab_foot(lab)}
+</div>'''
+
 def _body_nav(slug):
     ls = BODY["lessons"]
     i = next(n for n, l in enumerate(ls) if l["slug"] == slug)
@@ -3424,7 +3485,7 @@ def build_body_lesson(lesson):
     reading_html = render_basic_unit(1, unit_dict, level="body", audio_rel="", pdf_rel="")
     lab = lesson["lab"]
     kind = lab["kind"]
-    lab_html = {"skeleton": render_skeleton_lab, "arm": render_arm_lab}[kind](lesson)
+    lab_html = {"skeleton": render_skeleton_lab, "arm": render_arm_lab, "heart": render_heart_lab}[kind](lesson)
 
     secs = []
     if lesson.get("jobs"):
@@ -3440,6 +3501,20 @@ def build_body_lesson(lesson):
         secs.append(("jobs", "Five Jobs · 五大功能", "What your skeleton does all day", "骨骼整天在做的五件事",
                      f'<div class="ph-grid jb-grid stagger">{cards}</div>',
                      _bi(lesson["jobs_note_en"], lesson["jobs_note_zh"], cls="lead rvl d2")))
+    if lesson.get("chambers"):
+        cards = "".join(
+            f'<article class="ph-card jb-card ck-card ck-{c["side"]} rvl">'
+            f'<div class="ph-ico ck-ico" aria-hidden="true"><i></i></div>'
+            f'<h3>{html.escape(c["en"])}<span class="zh">{html.escape(c["zh"])}</span></h3>'
+            f'<p class="ph-meta"><span>{html.escape(c["from_en"])} · {html.escape(c["from_zh"])}</span>'
+            f'<span>{html.escape(c["to_en"])} · {html.escape(c["to_zh"])}</span></p>'
+            f'<p class="ph-when">{html.escape(c["text_en"])}<br><span class="zh">{html.escape(c["text_zh"])}</span></p>'
+            f'<button type="button" class="ph-go" data-lab-focus="{c["key"]}">See it in 3D · 在模型中看 <i>&uarr;</i></button>'
+            f'</article>'
+            for c in lesson["chambers"])
+        secs.append(("chambers", "Four Chambers · 四個腔室", "Two pumps, four rooms", "兩個幫浦、四個房間",
+                     f'<div class="ph-grid ck-grid stagger">{cards}</div>',
+                     _bi(lesson["chambers_note_en"], lesson["chambers_note_zh"], cls="lead rvl d2")))
     if lesson.get("pairs"):
         cards = "".join(
             f'<article class="ph-card jb-card pr-card rvl">'
@@ -3464,7 +3539,8 @@ def build_body_lesson(lesson):
             f'<p class="ph-when">{html.escape(k["text_en"])}<br><span class="zh">{html.escape(k["text_zh"])}</span></p>'
             f'</article>'
             for k in lesson["kinds"])
-        secs.append(("kinds", "Three Kinds of Muscle · 三種肌肉", "Not every muscle moves a bone", "不是每一種肌肉都拉骨頭",
+        kh = lesson.get("kinds_head") or {"eyebrow": "Three Kinds of Muscle · 三種肌肉", "en": "Not every muscle moves a bone", "zh": "不是每一種肌肉都拉骨頭"}
+        secs.append(("kinds", kh["eyebrow"], kh["en"], kh["zh"],
                      f'<div class="ph-grid kd-grid stagger">{cards}</div>',
                      _bi(lesson["kinds_note_en"], lesson["kinds_note_zh"], cls="lead rvl d2")))
     if lesson.get("counts"):
@@ -3492,7 +3568,8 @@ def build_body_lesson(lesson):
                      f'<p class="rvl"><button type="button" class="ph-go ms-go" data-lab-{ms.get("action", "count")}="{ms.get("action_value", "")}">{ms.get("button_icon", "&#9995;")} {html.escape(ms["button_en"])} · {html.escape(ms["button_zh"])} <i>&uarr;</i></button></p>',
                      _bi(ms["lead_en"], ms["lead_zh"], cls="lead rvl d2")))
     secs.append(("myths", "Myth vs. Fact · 常見迷思", "Four things people get wrong", "四個常見的誤會", _sci_myths(lesson), ""))
-    tricks_h = {"skeleton": ("Bones in a sentence", "一句話記住骨頭"), "arm": ("Muscles in a sentence", "一句話記住肌肉")}[kind]
+    tricks_h = {"skeleton": ("Bones in a sentence", "一句話記住骨頭"), "arm": ("Muscles in a sentence", "一句話記住肌肉"),
+                "heart": ("The heart in a sentence", "一句話記住心臟")}[kind]
     secs.append(("tricks", "Remember It · 記憶口訣", tricks_h[0], tricks_h[1], _sci_tricks(lesson), ""))
     if lesson.get("culture"):
         cu = lesson["culture"]

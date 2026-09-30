@@ -25,9 +25,10 @@ import {
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 
 import {
-  DEG, PHASE_CENTERS, SYN, TAU, ZH_DAY, atmosphereMaterial, fmtClock, glowTexture, makeEarthTextures,
+  DEG, PHASE_CENTERS, SYN, TAU, ZH_DAY, atmosphereMaterial, fmtClock, glowTexture,
   makeMoonTexture, phaseIndex, skyMoonMaterial, starField,
 } from './common.js';
+import { makeClouds, makeRealEarth } from './earthmap.js';
 
 // 兩種比例。compact 是教科書式的「看得清楚」版；true 是真實比例
 // （地球半徑 = 1；月球半徑 0.273；地月距離 60.3；白道傾角 5.1°；本影長約 217）。
@@ -85,7 +86,7 @@ function initLab(root) {
   skyRenderer.setPixelRatio(dpr);
 
   const moonTex = makeMoonTexture();
-  const [earthTex, cloudTex] = makeEarthTextures();
+  const earthTex = makeRealEarth(), cloudTex = makeClouds();
 
   // ---------------- 太空視角 ----------------
   const scene = new Scene();
