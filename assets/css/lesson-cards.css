@@ -1,0 +1,39 @@
+/* =========================================================
+   課程首頁的橫向課程卡（天文教育、中醫養生共用）
+   ========================================================= */
+.lc-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.25rem; margin-top: 1.2rem; }
+.lc-row { display: grid; grid-template-columns: 96px minmax(0, 1fr); gap: 1.3rem; align-items: stretch; padding: 1.5rem 1.6rem 1.4rem; background: #fff; border: 1px solid var(--line); border-radius: 18px; box-shadow: var(--shadow-sm); color: inherit; text-decoration: none; transition: transform .25s, box-shadow .25s, border-color .25s; }
+a.lc-row:hover { transform: translateY(-4px); box-shadow: var(--shadow); border-color: var(--gold); color: inherit; }
+.lc-ico { align-self: start; display: grid; place-items: center; width: 96px; height: 96px; border-radius: 22px; background: radial-gradient(circle at 50% 38%, #1b2f5c, #070b17); box-shadow: 0 12px 26px -16px rgba(6,12,30,.9); font-size: 2.4rem; }
+.lc-body { display: flex; flex-direction: column; min-width: 0; }
+.lc-meta { display: flex; flex-wrap: wrap; align-items: center; gap: .35rem .6rem; font-size: .76rem; }
+.lc-meta b { font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: var(--gold-dk); }
+.lc-meta i { font-style: normal; font-weight: 700; color: var(--ink-soft); background: var(--cream); padding: .08rem .55rem; border-radius: 999px; }
+.lc-title { font-family: var(--serif); font-size: clamp(1.28rem, 1.9vw, 1.55rem); line-height: 1.22; letter-spacing: -.005em; margin: .45rem 0 .25rem; color: var(--ink); }
+.lc-zh { font-family: var(--zh); font-weight: 700; font-size: 1.05rem; letter-spacing: .03em; color: var(--brand-dk); margin-bottom: .7rem; }
+.lc-bl { font-size: .98rem; line-height: 1.65; color: var(--ink-soft); }
+.lc-bl.zh { font-family: var(--zh); font-size: .95rem; margin-top: .3rem; }
+.lc-go { margin-top: auto; padding-top: 1rem; font-weight: 800; font-size: .95rem; color: var(--brand-dk); }
+.lc-go i { font-style: normal; display: inline-block; transition: transform .25s; }
+a.lc-row:hover .lc-go { color: var(--sunset); }
+a.lc-row:hover .lc-go i { transform: translateX(4px); }
+.lc-row.lc-soon { opacity: .7; box-shadow: none; background: rgba(255,255,255,.6); }
+@media (max-width: 880px) { .lc-list { grid-template-columns: 1fr; } }
+@media (max-width: 480px) {
+  .lc-row { grid-template-columns: 64px minmax(0, 1fr); gap: .9rem; padding: 1.1rem 1.1rem 1rem; }
+  .lc-ico { width: 64px; height: 64px; border-radius: 16px; }
+  .lc-ico svg { width: 44px; height: 44px; }
+}
+@media (prefers-reduced-motion: reduce) { a.lc-row:hover { transform: none; } }
+
+/* 沒有圖示的系列（中醫養生）：左邊放課次數字 */
+.lc-num { align-self: start; display: flex; flex-direction: column; align-items: center; justify-content: center; width: 72px; height: 72px; border-radius: 18px; background: linear-gradient(150deg, var(--brand), var(--brand-dk)); box-shadow: 0 12px 24px -16px rgba(10,79,71,.9); color: #fff; }
+.lc-num b { font-family: var(--serif); font-size: 1.9rem; line-height: 1; font-weight: 600; }
+.lc-num small { margin-top: .2rem; font-size: .6rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: rgba(255,255,255,.75); }
+.lc-row.lc-compact { grid-template-columns: 72px minmax(0, 1fr); }
+.unit-nav ~ section.lc-unit { scroll-margin-top: 140px; }
+@media (max-width: 480px) {
+  .lc-row.lc-compact { grid-template-columns: 56px minmax(0, 1fr); }
+  .lc-num { width: 56px; height: 56px; border-radius: 14px; }
+  .lc-num b { font-size: 1.5rem; }
+}

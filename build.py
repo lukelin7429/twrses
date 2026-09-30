@@ -2573,28 +2573,49 @@ def build_zhongyi_lesson(unit, lesson, unit_label):
           say_manifest=say_slug if has_clips else None))
     return path
 
+def _lc_head():
+    """課程首頁橫向卡片（assets/css/lesson-cards.css）；天文教育、中醫養生首頁共用。"""
+    fp = os.path.join(ROOT, "assets/css/lesson-cards.css")
+    v = hashlib.md5(open(fp, "rb").read()).hexdigest()[:8] if os.path.exists(fp) else "0"
+    return f'<link rel="stylesheet" href="/assets/css/lesson-cards.css?v={v}">\n'
+
+_ZY_LEVEL_EN = {"入門": "Beginner", "進階": "Advanced"}
+
 def build_zhongyi_hub():
-    unit_sections = []
+    # 橫向卡片：左邊課次數字、右邊雙語標題與簡介；上方一條單元導覽（捲動時自動標出目前單元）。
+    # 不再用 pm-cards 四欄窄卡——英文長標題會被切成好幾行（2026-09-30 Luke 嫌難讀）。
+    unit_sections, nav = [], []
     for idx, u in enumerate(ZHONGYI["units"]):
         label = ZHONGYI_UNIT_LABELS[idx] if idx < len(ZHONGYI_UNIT_LABELS) else str(idx + 1)
         cards = []
-        for l in u["lessons"]:
+        for n, l in enumerate(u["lessons"], 1):
+            lv = l["level"]
             cards.append(
-                f'<a class="pm-card rvl" href="{ZHONGYI_BASE}{l["slug"]}/">'
-                f'<span class="pm-card-lv">{html.escape(l["level"])}</span>'
-                f'<h3 class="tp-card-h">{html.escape(l["title"])}</h3>'
-                f'<p class="pm-card-zh">{html.escape(l["title_zh"])}</p>'
-                f'<p class="pm-card-bl">{html.escape(l["blurb_en"])}</p>'
-                f'<span class="fcard-go">Start reading · 開始閱讀 <i>&rarr;</i></span></a>')
+                f'<a class="lc-row lc-compact rvl" href="{ZHONGYI_BASE}{l["slug"]}/">'
+                f'<span class="lc-num" aria-hidden="true"><b>{n}</b><small>Lesson</small></span>'
+                f'<span class="lc-body">'
+                f'<span class="lc-meta"><b>Unit {idx + 1} · Lesson {n}</b><i>{html.escape(_ZY_LEVEL_EN.get(lv, lv))} · {html.escape(lv)}</i></span>'
+                f'<h3 class="lc-title">{html.escape(l["title"])}</h3>'
+                f'<span class="lc-zh">{html.escape(l["title_zh"])}</span>'
+                f'<span class="lc-bl">{html.escape(l["blurb_en"])}</span>'
+                f'<span class="lc-bl zh">{html.escape(l["blurb_zh"])}</span>'
+                f'<span class="lc-go">Start reading · 開始閱讀 <i>&rarr;</i></span>'
+                f'</span></a>')
         band = " band" if idx % 2 == 0 else ""
+        uid = f"unit-{idx + 1}"
+        short_zh = u["title_zh"].split("：", 1)[-1]
+        nav.append(f'<a class="unit-nav-link" href="#{uid}"><b>{idx + 1}</b><span>{html.escape(short_zh)}</span></a>')
         unit_sections.append(
-            f'<section class="section{band}"><div class="wrap">'
-            f'<p class="eyebrow rvl">Unit {html.escape(label)} · 單元{html.escape(label)}</p>'
+            f'<section class="section lc-unit{band}" id="{uid}"><div class="wrap">'
+            f'<p class="eyebrow rvl">Unit {idx + 1} · 單元{html.escape(label)}</p>'
             f'<h2 class="rvl d1 sweep">{html.escape(u["title_en"])} <span class="tp-h2-en">{html.escape(u["title_zh"])}</span></h2>'
             f'<p class="lead rvl d2" style="max-width:62ch">{html.escape(u["blurb_en"])}<br>'
             f'<span class="muted">{html.escape(u["blurb_zh"])}</span></p>'
-            f'<div class="pm-cards stagger">{"".join(cards)}</div>'
+            f'<div class="lc-list">{"".join(cards)}</div>'
             f'</div></section>')
+    unit_nav = (f'<nav class="unit-nav" aria-label="Jump to unit · 單元導覽"><div class="wrap">'
+                f'<span class="unit-nav-label">Jump to unit · 跳到單元</span>'
+                f'<div class="unit-nav-track">{"".join(nav)}</div></div></nav>')
     intro_html = "".join(
         f'<p>{html.escape(p["en"])}<br><span class="muted">{html.escape(p["zh"])}</span></p>'
         for p in ZHONGYI["intro"])
@@ -2604,10 +2625,11 @@ def build_zhongyi_hub():
 <section class="section"><div class="wrap">
   <div class="prose wide rvl">{intro_html}</div>
 </div></section>
+{unit_nav}
 {"".join(unit_sections)}
 '''
     write(ZHONGYI_BASE, layout(ZHONGYI_BASE, f'{ZHONGYI["title_en"]} · {ZHONGYI["title_zh"]}',
-          f'{ZHONGYI["lead_en"]} {ZHONGYI["lead_zh"]}', body, "resources"))
+          f'{ZHONGYI["lead_en"]} {ZHONGYI["lead_zh"]}', body, "resources", extra_head=_lc_head()))
     return ZHONGYI_BASE
 
 
@@ -3185,22 +3207,22 @@ def build_astro_hub():
     cards = []
     for l in ASTRO["lessons"]:
         cards.append(
-            f'<a class="as-row rvl" href="{ASTRO_BASE}{l["slug"]}/">'
-            f'<span class="as-ico" aria-hidden="true">{icon(l)}</span>'
-            f'<span class="as-body">'
-            f'<span class="as-meta"><b>Lesson {l["n"]} · 第{_astro_cn(l["n"])}課</b><i>{html.escape(l["level"])}</i></span>'
-            f'<h3 class="as-title">{html.escape(l["title"])}</h3>'
-            f'<span class="as-zh">{html.escape(l["title_zh"])}</span>'
-            f'<span class="as-bl">{html.escape(l["blurb_en"])}</span>'
-            f'<span class="as-bl zh">{html.escape(l["blurb_zh"])}</span>'
-            f'<span class="as-go">Start the lesson · 開始上課 <i>&rarr;</i></span>'
+            f'<a class="lc-row rvl" href="{ASTRO_BASE}{l["slug"]}/">'
+            f'<span class="lc-ico" aria-hidden="true">{icon(l)}</span>'
+            f'<span class="lc-body">'
+            f'<span class="lc-meta"><b>Lesson {l["n"]} · 第{_astro_cn(l["n"])}課</b><i>{html.escape(l["level"])}</i></span>'
+            f'<h3 class="lc-title">{html.escape(l["title"])}</h3>'
+            f'<span class="lc-zh">{html.escape(l["title_zh"])}</span>'
+            f'<span class="lc-bl">{html.escape(l["blurb_en"])}</span>'
+            f'<span class="lc-bl zh">{html.escape(l["blurb_zh"])}</span>'
+            f'<span class="lc-go">Start the lesson · 開始上課 <i>&rarr;</i></span>'
             f'</span></a>')
     for p in ASTRO.get("planned", []):
         cards.append(
-            f'<div class="as-row as-soon rvl">'
-            f'<span class="as-ico" aria-hidden="true">{p["icon"]}</span>'
-            f'<span class="as-body"><span class="as-meta"><b>Coming soon · 製作中</b></span>'
-            f'<h3 class="as-title">{html.escape(p["en"])}</h3><span class="as-zh">{html.escape(p["zh"])}</span></span></div>')
+            f'<div class="lc-row lc-soon rvl">'
+            f'<span class="lc-ico" aria-hidden="true">{p["icon"]}</span>'
+            f'<span class="lc-body"><span class="lc-meta"><b>Coming soon · 製作中</b></span>'
+            f'<h3 class="lc-title">{html.escape(p["en"])}</h3><span class="lc-zh">{html.escape(p["zh"])}</span></span></div>')
     intro_html = "".join(_bi(p["en"], p["zh"]) for p in ASTRO["intro"])
     lead = f'{html.escape(ASTRO["lead_en"])}<br><span class="muted">{html.escape(ASTRO["lead_zh"])}</span>'
     body = f'''
@@ -3211,11 +3233,11 @@ def build_astro_hub():
 <section class="section band"><div class="wrap">
   <p class="eyebrow rvl">Lessons · 課程</p>
   <h2 class="rvl d1 sweep">{len(ASTRO["lessons"])} lesson{"s" if len(ASTRO["lessons"]) > 1 else ""} so far <span class="tp-h2-en">目前 {len(ASTRO["lessons"])} 課，持續增加中</span></h2>
-  <div class="as-list">{"".join(cards)}</div>
+  <div class="lc-list">{"".join(cards)}</div>
 </div></section>
 '''
     write(ASTRO_BASE, layout(ASTRO_BASE, f'{ASTRO["title_en"]} · {ASTRO["title_zh"]}',
-          f'{ASTRO["lead_en"]} {ASTRO["lead_zh"]}', body, "resources", extra_head=_astro_head(js=False)))
+          f'{ASTRO["lead_en"]} {ASTRO["lead_zh"]}', body, "resources", extra_head=_astro_head() + _lc_head()))
     return ASTRO_BASE
 
 

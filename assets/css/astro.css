@@ -188,11 +188,6 @@
 .act-tip { margin: 1.4rem 0 0; padding: 1rem 1.2rem; border-left: 3px solid var(--brand); background: #fff; border-radius: 0 12px 12px 0; font-size: .95rem; line-height: 1.7; }
 .act-tip .zh { color: var(--ink-soft); }
 
-/* ---------- 系列首頁 ---------- */
-.as-card-ico { display: grid; place-items: center; width: 72px; height: 72px; margin: .5rem 0 .8rem; border-radius: 18px; background: radial-gradient(circle at 50% 40%, #16264a, #070b17); font-size: 2rem; }
-.as-soon { opacity: .72; background: rgba(255,255,255,.6); box-shadow: none; }
-.as-soon:hover { transform: none; box-shadow: none; border-color: var(--line); }
-.as-soon .as-card-ico { filter: grayscale(.4); }
 
 @media (max-width: 1020px) { .ph-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 760px) { .myth-grid, .trick-grid, .act { grid-template-columns: 1fr; } }
@@ -205,7 +200,6 @@
 
 /* 本系列 h2 的副標是中文，不要套英文副標的斜體 */
 .section .tp-h2-en { font-style: normal; font-family: var(--zh); font-weight: 600; }
-.as-card .as-card-ico { margin-top: 1.5rem; }
 
 /* =========================================================
    第二課：日食與月食（.ecl-lab、日月食種類卡、即將到來的日月食清單）
@@ -438,34 +432,3 @@
 @media (max-width: 640px) { .td-lab .al-lab.tide.lo { display: none; } }
 .td-lab .al-lab.tide { font-size: .64rem; padding: .08rem .45rem; }
 @media (max-width: 640px) { .td-lab .al-lab.place { display: none; } }
-
-/* =========================================================
-   系列首頁：橫向課程卡（取代四欄窄卡）
-   ========================================================= */
-.as-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.25rem; margin-top: 1.2rem; }
-.as-row { display: grid; grid-template-columns: 96px minmax(0, 1fr); gap: 1.3rem; align-items: start; padding: 1.5rem 1.6rem 1.4rem; background: #fff; border: 1px solid var(--line); border-radius: 18px; box-shadow: var(--shadow-sm); color: inherit; text-decoration: none; transition: transform .25s, box-shadow .25s, border-color .25s; }
-a.as-row:hover { transform: translateY(-4px); box-shadow: var(--shadow); border-color: var(--gold); color: inherit; }
-.as-ico { display: grid; place-items: center; width: 96px; height: 96px; border-radius: 22px; background: radial-gradient(circle at 50% 38%, #1b2f5c, #070b17); box-shadow: 0 12px 26px -16px rgba(6,12,30,.9); font-size: 2.4rem; }
-.as-body { display: flex; flex-direction: column; min-width: 0; }
-.as-meta { display: flex; flex-wrap: wrap; align-items: center; gap: .35rem .6rem; font-size: .76rem; }
-.as-meta b { font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: var(--gold-dk); }
-.as-meta i { font-style: normal; font-weight: 700; color: var(--ink-soft); background: var(--cream); padding: .08rem .55rem; border-radius: 999px; }
-.as-title { font-family: var(--serif); font-size: clamp(1.28rem, 1.9vw, 1.55rem); line-height: 1.22; letter-spacing: -.005em; margin: .45rem 0 .25rem; color: var(--ink); }
-.as-zh { font-family: var(--zh); font-weight: 700; font-size: 1.05rem; letter-spacing: .03em; color: var(--brand-dk); margin-bottom: .7rem; }
-.as-bl { font-size: .98rem; line-height: 1.65; color: var(--ink-soft); }
-.as-bl.zh { font-family: var(--zh); font-size: .95rem; margin-top: .3rem; }
-.as-go { margin-top: 1rem; font-weight: 800; font-size: .95rem; color: var(--brand-dk); }
-.as-go i { font-style: normal; display: inline-block; transition: transform .25s; }
-a.as-row:hover .as-go { color: var(--sunset); }
-a.as-row:hover .as-go i { transform: translateX(4px); }
-.as-row.as-soon { opacity: .7; box-shadow: none; background: rgba(255,255,255,.6); }
-@media (max-width: 880px) { .as-list { grid-template-columns: 1fr; } }
-@media (max-width: 480px) {
-  .as-row { grid-template-columns: 64px minmax(0, 1fr); gap: .9rem; padding: 1.1rem 1.1rem 1rem; }
-  .as-ico { width: 64px; height: 64px; border-radius: 16px; }
-  .as-ico svg { width: 44px; height: 44px; }
-}
-@media (prefers-reduced-motion: reduce) { a.as-row:hover { transform: none; } }
-.as-row { align-items: stretch; }
-.as-ico { align-self: start; }
-.as-go { margin-top: auto; padding-top: 1rem; }
