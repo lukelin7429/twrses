@@ -5083,6 +5083,450 @@
      "tip_zh": "安全提示：一定要有大人陪同，穿暖一點，不要在馬路上或屋頂上觀察。"
     }
    ]
+  },
+  {
+   "n": 12,
+   "slug": "star-colors",
+   "title": "Why Are Stars Different Colors?",
+   "title_zh": "星星為什麼有不同的顏色？",
+   "level": "入門 · Beginner",
+   "icon": "🌈",
+   "card": "colors",
+   "blurb_en": "Red Betelgeuse and blue-white Rigel sit in the same constellation. Heat a star from 2,000 to 30,000 degrees and watch its color change, then sort 580 real stars by color into the famous H-R diagram.",
+   "blurb_zh": "紅色的參宿四和藍白的參宿七在同一個星座裡。把一顆星從 2,000 度加熱到 30,000 度，看它怎麼變色；再把 580 顆真實的星依顏色排排站，排出有名的赫羅圖。",
+   "big_idea_en": "A star's color tells us how hot its surface is. Cooler stars glow orange-red, hotter stars glow white and blue-white, and our Sun sits in the middle.",
+   "big_idea_zh": "星星的顏色告訴我們它的表面有多熱。比較冷的星發出橙紅色的光，比較熱的星是白色、藍白色，我們的太陽在中間。",
+   "lab": {
+    "kind": "colors",
+    "eyebrow": "3D Model · 3D 模型",
+    "title_en": "Heat a Star, Then Sort the Stars",
+    "title_zh": "加熱一顆星，再讓星星排排站",
+    "how_en": "Drag the temperature slider and watch the star change from orange-red to white to blue-white, with the Sun beside it for comparison. On the right, see its light color by color: hotter stars shine brightest at shorter, bluer wavelengths. Then switch to Sort the Stars: about 580 real stars measured by Hipparcos start out in the sky around the Sun. Press the sort button, and they fly into place by color and true brightness.",
+    "how_zh": "拉動溫度滑桿，看這顆星從橙紅變白、再變藍白，旁邊有一顆太陽對照。右邊把它的光一個顏色一個顏色攤開：越熱的星，最強的光越偏向波長短的藍色。再切換到「星星排排站」：依巴谷衛星量過的約 580 顆真實恆星，先在太陽周圍的天空中；按下排排站，它們就依顏色和真正的亮度飛到定位。",
+    "legend": [
+     {
+      "cls": "cl-hot",
+      "en": "Slider colors: the real color of a glowing object at each temperature",
+      "zh": "滑桿上的顏色：每個溫度下發光物體真正的顏色"
+     },
+     {
+      "cls": "cl-sun",
+      "en": "Small star: the Sun, 5,772 K, for comparison",
+      "zh": "小顆的星：太陽，5,772 K，對照用"
+     },
+     {
+      "cls": "cl-hr",
+      "en": "Sorted view: left is hotter, right is cooler; up is brighter, down is fainter",
+      "zh": "排排站：左熱右冷，上亮下暗"
+     },
+     {
+      "cls": "ecl",
+      "en": "K is kelvin: subtract 273 for degrees Celsius",
+      "zh": "K 是絕對溫度（克耳文），減 273 就是攝氏度數"
+     }
+    ],
+    "scale_en": "Colors are calculated from the physics of glowing objects (Planck's law) and turned into screen colors. In the sorted view, each star's color comes from its measured color index, and its height from its true brightness, using the Hipparcos distance. Before sorting, distances are squeezed so that faraway stars fit on the screen.",
+    "scale_zh": "顏色是用發光物體的物理（普朗克定律）算出來、再換成螢幕顏色。排排站時，每顆星的顏色來自量到的色指數，高度來自它真正的亮度（用依巴谷衛星的距離換算）。排之前的距離有壓縮，遠方的星才放得進畫面。",
+    "credit_html": "Star colors and distances: <a href=\"https://cdsarc.cds.unistra.fr/viz-bin/cat/I/311\" target=\"_blank\" rel=\"noopener\">Hipparcos, the New Reduction</a> (F. van Leeuwen 2007). Credit: ESA, <a href=\"https://creativecommons.org/licenses/by-nc/3.0/igo/\" target=\"_blank\" rel=\"noopener\">CC BY-NC 3.0 IGO</a>. Color index to temperature: Ballesteros (2012). Color matching: CIE 1931, fit by Wyman, Sloan &amp; Shirley (2013). Background stars: <a href=\"https://cdsarc.cds.unistra.fr/viz-bin/cat/V/50\" target=\"_blank\" rel=\"noopener\">Yale Bright Star Catalogue, 5th ed.</a> (public domain).<br><span class=\"zh\">恆星顏色與距離：依巴谷衛星新版歸算，歐洲太空總署（ESA）提供，CC BY-NC 3.0 IGO 授權。色指數換算溫度：Ballesteros（2012）。配色：CIE 1931（Wyman 等人 2013 年的近似）。背景星空：耶魯亮星星表第五版（公有領域）。</span>"
+   },
+   "paras": [
+    "Look at Orion on a winter evening. Betelgeuse, on his shoulder, glows orange-red, while Rigel, at his foot, shines blue-white. Look carefully at other bright stars, and you will find that stars are not all white. They come in a whole range of colors: orange-red, orange, yellowish white, white, and blue-white. What makes the difference?",
+    "The answer is temperature. Anything hot enough gives off light, and its color depends on how hot it is. A piece of iron in a blacksmith's fire first glows dull red, then orange, then yellow, and finally white. A star's surface works the same way. Orange-red stars like Betelgeuse are the coolest, at about 3,300 degrees Celsius. Our Sun is about 5,500 degrees, and blue-white stars like Rigel are 12,000 degrees or more. This is the opposite of a bathroom faucet, where red means hot and blue means cold!",
+    "A star does not give off just one color. It gives off a whole rainbow of light mixed together, plus light our eyes cannot see. A hotter star gives off more blue light, and a cooler star gives off more red. The Sun's light is strongest in the green part of the rainbow, but it mixes in so much of every other color that the Sun is really white. It only looks yellow or orange when it is low in the sky, because the air scatters away some of its blue light.",
+    "About a hundred years ago, astronomers began sorting stars by their light. At Harvard, Annie Jump Cannon sorted hundreds of thousands of stars into classes named O, B, A, F, G, K, and M, from hottest to coolest. Then Ejnar Hertzsprung and Henry Norris Russell compared each star's color with how bright it really is. Most stars fell along one band, now called the main sequence. A few were giants, far brighter than their color suggests because they are enormous, and a few were tiny, faint white dwarfs.",
+    "Chinese astronomers paid attention to star colors, too. More than 2,000 years ago, the historian Sima Qian used stars as color samples: white like Sirius, red like Antares, and yellow like Betelgeuse. Yellow? Today Betelgeuse is clearly orange-red. In 2022, a team of astronomers suggested that the ancient records are right and that Betelgeuse has slowly changed color as it aged into a red supergiant. Antares, the red heart of the Scorpion, was known in China as the Great Fire.",
+    "You can see star colors for yourself, but they are soft, because our eyes see color poorly in the dark. The trick is to compare: look from Betelgeuse to Rigel, or from Arcturus to Vega. A pair of binoculars, slightly out of focus, makes the colors easier to see. Use the list below to find tonight's bright stars over Changhua, sorted from the coolest to the hottest."
+   ],
+   "paras_zh": [
+    "冬天的傍晚看看獵戶座。他肩膀上的參宿四發出橙紅色的光，腳邊的參宿七卻是藍白色。仔細看看其他亮星，你會發現星星不全是白的，而是有一整排顏色：橙紅、橙、黃白、白、藍白。是什麼造成這些差別？",
+    "答案是溫度。任何東西只要夠熱就會發光，而光的顏色由它有多熱決定。鐵匠爐火裡的一塊鐵，先發出暗紅色的光，接著變橙、變黃，最後變白。星星的表面也是這樣。像參宿四這樣的橙紅色星最冷，大約攝氏 3,300 度；我們的太陽大約 5,500 度；像參宿七這樣的藍白色星有 12,000 度以上。這和浴室的水龍頭正好相反——水龍頭是紅色代表熱、藍色代表冷！",
+    "一顆星發出的不只一種顏色，而是把整道彩虹的光混在一起，還有眼睛看不見的光。越熱的星發出越多藍光，越冷的星發出越多紅光。太陽的光在彩虹的綠色部分最強，但它混進了大量其他顏色，所以太陽其實是白的。只有太陽低垂時看起來才偏黃或橙，因為空氣把它的一部分藍光散射掉了。",
+    "大約一百年前，天文學家開始依星光替恆星分類。哈佛大學的坎農（Annie Jump Cannon）把幾十萬顆星分成 O、B、A、F、G、K、M 幾類，從最熱排到最冷。接著，赫茨普朗和羅素把每顆星的顏色和它真正的亮度放在一起比較，發現大部分的星都落在同一條帶子上，今天叫做「主序帶」。少數是巨星，比它的顏色該有的亮度亮得多，因為它們非常巨大；還有少數是又小又暗的白矮星。",
+    "中國的天文學家也很留意星星的顏色。兩千多年前，司馬遷在《史記．天官書》裡拿星星當顏色的樣本：「白比狼，赤比心，黃比參左肩」——白像天狼星、紅像心宿二、黃像參宿四。黃色？今天的參宿四明明是橙紅色。2022 年，一組天文學家認為古代紀錄沒有錯：參宿四在老化成紅超巨星的過程中，慢慢變了顏色。天蠍座紅色的心臟心宿二，在中國叫做「大火」。",
+    "你可以親眼看看星星的顏色，只是顏色很淡，因為眼睛在黑暗中分辨顏色的能力很差。訣竅是比較：從參宿四看到參宿七，或從大角星看到織女星。用雙筒望遠鏡、稍微失焦，顏色會比較明顯。用下面的清單找找今晚彰化天上的亮星，它們已經從最冷排到最熱。"
+   ],
+   "questions": [
+    "What does a star's color tell us?",
+    "Why does the Sun look yellow or orange when it is low in the sky?",
+    "What did Hertzsprung and Russell find when they compared stars' colors with their true brightness?"
+   ],
+   "answers": [
+    "How hot its surface is. Orange-red stars are the coolest, and blue-white stars are the hottest.",
+    "Because the air scatters away some of its blue light. In space, the Sun is really white.",
+    "Most stars fell along one band, the main sequence. A few were giants, much brighter for their color, and a few were small, faint white dwarfs."
+   ],
+   "vocab": [
+    {
+     "n": 1,
+     "w": "glow",
+     "pos": "v.",
+     "zh": "發光；發亮",
+     "ex": "The coals <b>glowed</b> red in the barbecue.",
+     "exzh": "烤肉架裡的木炭發出紅光。"
+    },
+    {
+     "n": 2,
+     "w": "temperature",
+     "pos": "n.",
+     "zh": "溫度",
+     "ex": "The <b>temperature</b> dropped below ten degrees last night.",
+     "exzh": "昨晚溫度降到十度以下。"
+    },
+    {
+     "n": 3,
+     "w": "surface",
+     "pos": "n.",
+     "zh": "表面",
+     "ex": "Leaves were floating on the <b>surface</b> of the pond.",
+     "exzh": "葉子漂在池塘的水面上。"
+    },
+    {
+     "n": 4,
+     "w": "rainbow",
+     "pos": "n.",
+     "zh": "彩虹",
+     "ex": "After the rain, a <b>rainbow</b> appeared over the mountains.",
+     "exzh": "雨後，山上出現了一道彩虹。"
+    },
+    {
+     "n": 5,
+     "w": "flame",
+     "pos": "n.",
+     "zh": "火焰",
+     "ex": "The candle <b>flame</b> flickered in the wind.",
+     "exzh": "燭火在風中搖曳。"
+    },
+    {
+     "n": 6,
+     "w": "compare",
+     "pos": "v.",
+     "zh": "比較",
+     "ex": "<b>Compare</b> the two pictures and find five differences.",
+     "exzh": "比較兩張圖，找出五個不同的地方。"
+    },
+    {
+     "n": 7,
+     "w": "giant",
+     "pos": "n.",
+     "zh": "巨人；巨大的東西",
+     "ex": "In the story, a friendly <b>giant</b> helps the village.",
+     "exzh": "故事裡，一個友善的巨人幫助村莊。"
+    },
+    {
+     "n": 8,
+     "w": "sort",
+     "pos": "v.",
+     "zh": "分類；整理",
+     "ex": "Please <b>sort</b> the cards by color.",
+     "exzh": "請把卡片依顏色分類。"
+    }
+   ],
+   "quiz": [
+    {
+     "q": "What does a star's color mainly tell us?",
+     "options": [
+      "How hot its surface is",
+      "How far away it is",
+      "How old it is",
+      "How fast it moves"
+     ],
+     "correct": 0
+    },
+    {
+     "q": "Which kind of star is the hottest?",
+     "options": [
+      "A blue-white star",
+      "An orange-red star",
+      "A yellow star",
+      "They are all the same"
+     ],
+     "correct": 0
+    },
+    {
+     "q": "What color is the Sun, seen from space?",
+     "options": [
+      "White",
+      "Yellow",
+      "Orange",
+      "Green"
+     ],
+     "correct": 0
+    },
+    {
+     "q": "Betelgeuse and Rigel are both in which constellation?",
+     "options": [
+      "Orion",
+      "Scorpius",
+      "Lyra",
+      "Ursa Major"
+     ],
+     "correct": 0
+    },
+    {
+     "q": "Most stars fall along one band when sorted by color and brightness. What is it called?",
+     "options": [
+      "The main sequence",
+      "The Milky Way",
+      "The ecliptic",
+      "The radiant"
+     ],
+     "correct": 0
+    }
+   ],
+   "palette": [
+    {
+     "key": "proxima",
+     "en": "Proxima Centauri",
+     "zh": "比鄰星",
+     "T": 3000,
+     "cls": "M",
+     "note_en": "The most common kind of star: a small, cool red dwarf. Too faint to see without a telescope.",
+     "note_zh": "最常見的一種星：又小又冷的紅矮星，肉眼看不到。"
+    },
+    {
+     "key": "betelgeuse",
+     "en": "Betelgeuse",
+     "zh": "參宿四",
+     "T": 3600,
+     "cls": "M",
+     "note_en": "A red supergiant so big that it would swallow Mars's orbit if it took the Sun's place.",
+     "note_zh": "紅超巨星，大到如果放在太陽的位置，會吞掉火星的軌道。"
+    },
+    {
+     "key": "arcturus",
+     "en": "Arcturus",
+     "zh": "大角星",
+     "T": 4300,
+     "cls": "K",
+     "note_en": "An orange giant, the brightest star in the spring sky. Compare it with blue-white Spica nearby.",
+     "note_zh": "橙色巨星，春季夜空最亮的星。和附近藍白色的角宿一比一比。"
+    },
+    {
+     "key": "sun",
+     "en": "The Sun",
+     "zh": "太陽",
+     "T": 5772,
+     "cls": "G",
+     "note_en": "A middle-of-the-road star. Its light peaks in green, yet the mix looks white.",
+     "note_zh": "一顆中等的星。它的光在綠色最強，混起來卻是白的。"
+    },
+    {
+     "key": "procyon",
+     "en": "Procyon",
+     "zh": "南河三",
+     "T": 6500,
+     "cls": "F",
+     "note_en": "A little hotter than the Sun, and one of our near neighbors, 11.5 light-years away.",
+     "note_zh": "比太陽稍熱，也是我們的近鄰，在 11.5 光年外。"
+    },
+    {
+     "key": "sirius",
+     "en": "Sirius",
+     "zh": "天狼星",
+     "T": 9900,
+     "cls": "A",
+     "note_en": "Sima Qian's sample of white. Low in the sky, it twinkles in flashes of many colors.",
+     "note_zh": "司馬遷「白比狼」的白色樣本。低垂時會閃出各種顏色。"
+    },
+    {
+     "key": "rigel",
+     "en": "Rigel",
+     "zh": "參宿七",
+     "T": 12100,
+     "cls": "B",
+     "note_en": "Orion's blue-white foot, a supergiant more than 100,000 times as bright as the Sun.",
+     "note_zh": "獵戶座藍白色的腳，是一顆比太陽亮十萬倍以上的超巨星。"
+    },
+    {
+     "key": "spica",
+     "en": "Spica",
+     "zh": "角宿一",
+     "T": 25300,
+     "cls": "B",
+     "note_en": "So hot that most of its light is ultraviolet, which our eyes cannot see.",
+     "note_zh": "熱到大部分的光是紫外線，眼睛看不見。"
+    }
+   ],
+   "palette_note_en": "K means kelvin, the scientific temperature scale: subtract 273 to get degrees Celsius. The letter is the star's class, from hot O and B to cool K and M.",
+   "palette_note_zh": "K 是絕對溫度（克耳文），減 273 就是攝氏度數。字母是光譜型，從熱的 O、B 排到冷的 K、M。",
+   "tonight": {
+    "eyebrow": "Tonight · 今晚",
+    "title_en": "Tonight's Star Colors",
+    "title_zh": "今晚星星的顏色",
+    "lead_en": "Every bright star above Changhua at 9 p.m. tonight, from the coolest to the hottest, with its surface temperature. The list is calculated in your browser for today's date.",
+    "lead_zh": "今晚九點彰化天上的每一顆亮星，由冷排到熱，附上表面溫度。清單在瀏覽器裡照今天的日期現算。",
+    "attr": "data-starcolors"
+   },
+   "culture_cards": {
+    "title_en": "Colors in the Ancient Sky",
+    "title_zh": "古人眼中星星的顏色",
+    "lead_en": "Long before thermometers, people noticed the colors of the stars and wrote them down.",
+    "lead_zh": "在溫度計發明之前很久，人們就注意到星星的顏色，還把它記了下來。",
+    "cards": [
+     {
+      "k": "史記 · Sima Qian",
+      "en": "Stars as Color Samples",
+      "zh": "白比狼，赤比心",
+      "quote_zh": "白比狼，赤比心，黃比參左肩，蒼比參右肩，黑比奎大星。——《史記．天官書》",
+      "quote_en": "\"White like Sirius, red like Antares, yellow like Betelgeuse, blue like Bellatrix, black like the great star of Kui.\" (Sima Qian, Records of the Grand Historian)",
+      "body_en": "Sima Qian used bright stars to describe the colors of the planets. His yellow Betelgeuse helped astronomers in 2022 argue that the star has turned red in the last 2,000 years.",
+      "body_zh": "司馬遷用亮星來描述行星的顏色。他筆下黃色的參宿四，成了 2022 年天文學家主張「這顆星兩千年來變紅了」的證據之一。"
+     },
+     {
+      "k": "大火 · The Great Fire",
+      "en": "The Red Heart of the Scorpion",
+      "zh": "七月流火",
+      "quote_zh": "七月流火，九月授衣。——《詩經．豳風．七月》",
+      "quote_en": "\"In the seventh month, the Fire flows west; in the ninth month, we hand out winter clothes.\" (Book of Songs)",
+      "body_en": "The Fire is Antares, red as a flame. \"The Fire flows\" means it sinks lower in the west each evening as autumn comes, so the line is about cooling weather, not a heat wave.",
+      "body_zh": "「火」是心宿二（大火），紅得像火焰。「流火」是說它在傍晚一天比一天低、往西沉落，表示秋天要來、天氣轉涼，不是形容天氣炎熱。"
+     },
+     {
+      "k": "Antares",
+      "en": "The Rival of Mars",
+      "zh": "火星的對手",
+      "body_en": "The name Antares comes from Greek for \"rival of Ares,\" the god the Romans called Mars, because its red color matches the red planet. Every two years or so, Mars passes near Antares, and the two red lights can be compared side by side.",
+      "body_zh": "Antares（心宿二）的名字來自希臘文「Ares（羅馬人稱 Mars，火星）的對手」，因為它和紅色的火星一樣紅。火星每隔約兩年經過它附近，兩點紅光可以並排比較——中國古人叫這種天象「熒惑守心」（第七課）。"
+     },
+     {
+      "k": "OBAFGKM",
+      "en": "Sorting the Stars",
+      "zh": "替星星分類",
+      "body_en": "In the early 1900s, Annie Jump Cannon and her team at Harvard sorted the light of hundreds of thousands of stars by hand. Her order, O B A F G K M, is still used today. Students remember it with \"Oh Be A Fine Girl, Kiss Me\" or \"Oh Be A Fine Guy, Kiss Me.\"",
+      "body_zh": "二十世紀初，哈佛大學的坎農和她的團隊用肉眼一張張判讀了幾十萬顆星的光譜。她排出的順序 O B A F G K M 沿用至今，英文口訣是「Oh Be A Fine Girl（或 Guy）, Kiss Me」。"
+     }
+    ]
+   },
+   "myths": [
+    {
+     "myth_en": "Red means hot and blue means cold, like a faucet.",
+     "myth_zh": "紅色代表熱、藍色代表冷，就像水龍頭。",
+     "fact_en": "For glowing objects, it is the other way around. Red stars are the coolest, and blue-white stars are the hottest.",
+     "fact_zh": "發光的東西正好相反：紅色的星最冷，藍白色的星最熱。"
+    },
+    {
+     "myth_en": "The Sun is a yellow star.",
+     "myth_zh": "太陽是黃色的星。",
+     "fact_en": "Seen from space, the Sun is white. It looks yellow or orange only through our air, especially when it is low in the sky.",
+     "fact_zh": "從太空看，太陽是白色的。只有隔著大氣看，特別是太陽低垂的時候，才會偏黃或偏橙。"
+    },
+    {
+     "myth_en": "Some stars are green.",
+     "myth_zh": "有些星星是綠色的。",
+     "fact_en": "A star whose light peaks in green, like the Sun, also gives off plenty of every other color, and the mix looks white. There are no green stars.",
+     "fact_zh": "光在綠色最強的星（像太陽）也發出大量其他顏色，混在一起是白色。沒有綠色的星。"
+    },
+    {
+     "myth_en": "A star flashing red and blue near the horizon is changing color.",
+     "myth_zh": "地平線附近一閃紅一閃藍的星，正在變色。",
+     "fact_en": "Our moving air bends each color of starlight a little differently. Near the horizon, a bright star like Sirius twinkles in flashes of color, but the star itself stays the same.",
+     "fact_zh": "流動的空氣把星光的每種顏色折射得不太一樣。在地平線附近，天狼星這樣的亮星會一閃一閃地變色，但星星本身沒有變。"
+    }
+   ],
+   "tricks": [
+    {
+     "title_en": "Red is cool, blue is hot",
+     "title_zh": "紅冷藍熱",
+     "body_en": "For stars, red means cooler and blue-white means hotter, the opposite of a faucet.",
+     "body_zh": "星星的紅色比較冷、藍白色比較熱，和水龍頭相反。"
+    },
+    {
+     "title_en": "O B A F G K M",
+     "title_zh": "O B A F G K M",
+     "body_en": "From hottest to coolest: Oh Be A Fine Girl (or Guy), Kiss Me.",
+     "body_zh": "從最熱到最冷。英文口訣：Oh Be A Fine Girl（或 Guy）, Kiss Me。"
+    },
+    {
+     "title_en": "The Sun is in the middle",
+     "title_zh": "太陽在中間",
+     "body_en": "About 5,500 degrees Celsius, a G star: not the hottest, not the coolest.",
+     "body_zh": "大約攝氏 5,500 度，G 型星：不是最熱，也不是最冷。"
+    },
+    {
+     "title_en": "Orion's two colors",
+     "title_zh": "獵戶座一紅一藍",
+     "body_en": "Red Betelgeuse on the shoulder, blue-white Rigel at the foot: compare them on a winter night.",
+     "body_zh": "肩上紅色的參宿四、腳邊藍白的參宿七，冬夜比一比。"
+    }
+   ],
+   "activities": [
+    {
+     "title_en": "Star Color Detectives",
+     "title_zh": "星星顏色偵探",
+     "materials": [
+      {
+       "en": "The list of tonight's star colors on this page",
+       "zh": "本頁「今晚星星的顏色」清單"
+      },
+      {
+       "en": "Crayons or colored pencils and a dark sheet of paper",
+       "zh": "蠟筆或色鉛筆，以及一張深色的紙"
+      },
+      {
+       "en": "Binoculars, if you have them",
+       "zh": "雙筒望遠鏡（有的話）"
+      }
+     ],
+     "steps": [
+      {
+       "en": "With an adult, go outside on a clear evening and let your eyes adjust for 10 minutes.",
+       "zh": "和大人一起在晴朗的傍晚到戶外，讓眼睛適應黑暗 10 分鐘。"
+      },
+      {
+       "en": "Find two bright stars from the list, one cool and one hot. Look back and forth between them.",
+       "zh": "從清單裡找兩顆亮星，一顆冷、一顆熱，來回比較著看。"
+      },
+      {
+       "en": "If you have binoculars, turn the focus a little so each star becomes a small disk. The colors will be easier to see.",
+       "zh": "有雙筒望遠鏡的話，把焦距稍微轉開，讓星星變成小圓盤，顏色會更明顯。"
+      },
+      {
+       "en": "Draw each star with the color you saw, then check its temperature in the list. Did the coolest star look the reddest?",
+       "zh": "用你看到的顏色把每顆星畫下來，再對照清單上的溫度：最冷的星看起來最紅嗎？"
+      }
+     ],
+     "tip_en": "Teaching tip: then drag the temperature slider in the 3D model to each star's temperature and compare the screen color with your drawing.",
+     "tip_zh": "教學提示：接著把 3D 模型的溫度滑桿拉到每顆星的溫度，比較螢幕上的顏色和你畫的。"
+    },
+    {
+     "title_en": "Make a Class H-R Diagram",
+     "title_zh": "全班做一張赫羅圖",
+     "materials": [
+      {
+       "en": "A large poster with two arrows: hotter to cooler (left to right) and fainter to brighter (bottom to top)",
+       "zh": "一張大海報，畫兩個箭頭：由左到右是由熱到冷，由下到上是由暗到亮"
+      },
+      {
+       "en": "Sticky dots in red, orange, yellow, white, and blue",
+       "zh": "紅、橙、黃、白、藍各色圓點貼紙"
+      },
+      {
+       "en": "Star cards with each star's temperature and true brightness (the cards on this page, plus a few more)",
+       "zh": "寫著溫度與真正亮度的星星卡（本頁的卡片，再加幾顆）"
+      }
+     ],
+     "steps": [
+      {
+       "en": "Give each student or pair one or two star cards.",
+       "zh": "每位同學或每組拿一、兩張星星卡。"
+      },
+      {
+       "en": "Choose the dot color that matches the star's temperature, and stick it on the poster in the right place.",
+       "zh": "依星星的溫度挑顏色相符的貼紙，貼到海報上對的位置。"
+      },
+      {
+       "en": "When everyone is done, step back. Do most dots fall along a band from the upper left to the lower right?",
+       "zh": "全部貼完後退後看：大部分的點是不是從左上排到右下，成一條帶子？"
+      },
+      {
+       "en": "Find the dots that are off the band. Which are giants, and which are white dwarfs?",
+       "zh": "找出不在帶子上的點：哪些是巨星？哪些是白矮星？"
+      }
+     ],
+     "tip_en": "Teaching tip: then press the sort button in the 3D model and watch 580 real stars build the same diagram.",
+     "tip_zh": "教學提示：接著按 3D 模型的「排排站」，看 580 顆真實的星排出同一張圖。"
+    }
+   ]
   }
  ],
  "planned": []

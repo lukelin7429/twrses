@@ -863,3 +863,47 @@
   .mt-tbl td { padding: .15rem .5rem; border: 0; }
 }
 .mt-readout dl div.ec-wide, .dl-readout dl div.ec-wide { grid-column: 1 / -1; }
+
+/* =========================================================
+   第十二課：星星的顏色（.cl-lab、由紅到藍卡、今晚星星的顏色）
+   ========================================================= */
+.cl-lab .al-stage { grid-template-columns: minmax(0, 1fr) 360px; }
+.cl-lab .se-chips { grid-template-columns: repeat(8, minmax(0, 1fr)); }
+.cl-sw { display: inline-block; width: 22px; height: 22px; border-radius: 50%; background: radial-gradient(circle at 40% 38%, #fff 0 8%, var(--c, #fff) 45%, color-mix(in srgb, var(--c, #fff) 55%, #000) 100%); box-shadow: 0 0 10px 2px color-mix(in srgb, var(--c, #fff) 55%, transparent); }
+.cl-sw-big { width: 44px; height: 44px; box-shadow: 0 0 22px 6px color-mix(in srgb, var(--c, #fff) 45%, transparent); }
+.cl-card .ph-ico { background: radial-gradient(circle at 50% 40%, #16264a, #070b17); }
+.cl-readout dd span { display: block; font-family: var(--zh); font-weight: 500; font-size: .74rem; color: var(--al-mute); }
+.cl-readout dl div.ec-wide { grid-column: 1 / -1; }
+.cl-readout dl div:not(.ec-wide) { grid-column: span 1; }
+.cl-slider .cl-temp-sl::-webkit-slider-runnable-track { height: 10px; background: var(--grad, linear-gradient(90deg, #ff8d15, #fff, #a6beff)); }
+.cl-slider .cl-temp-sl::-moz-range-track { height: 10px; background: var(--grad, linear-gradient(90deg, #ff8d15, #fff, #a6beff)); }
+.cl-slider .cl-temp-sl::-webkit-slider-thumb { margin-top: -6px; border-color: #fff; background: #0c1428; }
+.cl-sort { padding: .62rem 1.3rem; }
+.al-lab.cl-star { text-align: center; font-size: .8rem; color: #fff; }
+.al-lab.cl-ax { background: transparent; border: 0; color: #9fb0cf; font-size: .7rem; }
+.al-lab.cl-grp { color: #ffd36e; border-color: rgba(255,211,110,.45); font-size: .68rem; }
+.al-lab.cl-nm { font-size: .62rem; padding: .04rem .4rem; }
+.al-lab.cl-nm.on { color: #1b1405; background: var(--al-sun); border-color: transparent; font-weight: 800; }
+.al-lg-cl-hot i { border: 0; border-radius: 4px; width: 22px; height: 8px; margin-top: .45rem; background: linear-gradient(90deg, #ff8d15, #ffd1a3, #fff, #ccdbff, #a6beff); }
+.al-lg-cl-sun i { border: 0; background: radial-gradient(circle, #fff1ea 0 45%, transparent 50%); }
+.al-lg-cl-hr i { border: 0; border-radius: 0; background: linear-gradient(135deg, transparent 40%, #ffd36e 40% 55%, transparent 55%); }
+@media (max-width: 1020px) {
+  .cl-lab .al-stage { grid-template-columns: 1fr; }
+  .cl-aside { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); column-gap: 1.2rem; align-items: start; }
+  .cl-aside .al-sky-k { grid-column: 1 / -1; }
+  .cl-aside .se-fig { grid-column: 1; max-width: none; }
+  .cl-aside .cl-readout { grid-column: 2; margin-top: 0; }
+}
+@media (max-width: 640px) {
+  .cl-aside { display: block; }
+  .cl-lab .se-chips { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: .3rem; }
+  .cl-lab .se-chips .al-chip-en { font-size: .58rem; }
+  .cl-lab .al-lab.cl-ax, .cl-lab .al-lab.cl-grp { font-size: .58rem; }
+}
+/* 今晚星星的顏色 */
+@media (min-width: 1021px) { .cl-tn-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.cl-tn .cl-sw { flex: none; width: 30px; height: 30px; margin-top: .2rem; }
+.cl-tn p + p { margin-top: .3rem; }
+.cl-where { font-size: .78rem !important; color: var(--ink-soft); }
+.cl-bar { display: flex; height: 14px; margin: 0 0 1rem; border-radius: 999px; overflow: hidden; background: #0c1428; padding: 3px; gap: 3px; }
+.cl-bar i { flex: 1; border-radius: 999px; }

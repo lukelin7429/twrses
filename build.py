@@ -2656,7 +2656,7 @@ def _astro_ver():
     h = hashlib.md5()
     for rel in ("assets/css/astro.css", "assets/js/moon-phases.js", "assets/js/eclipses.js", "assets/js/seasons.js", "assets/js/tides.js",
                 "assets/js/constellations.js", "assets/js/north-star.js", "assets/js/planets-lab.js",
-                "assets/js/sundial.js", "assets/js/solar.js", "assets/js/star-distance.js", "assets/js/meteors-lab.js"):
+                "assets/js/sundial.js", "assets/js/solar.js", "assets/js/star-distance.js", "assets/js/meteors-lab.js", "assets/js/star-colors.js"):
         fp = os.path.join(ROOT, rel)
         if os.path.exists(fp): h.update(open(fp, "rb").read())
     return h.hexdigest()[:8]
@@ -2825,6 +2825,12 @@ def meteor_svg(size=56):
             '<stop offset="1" stop-color="#fff6d0"/></linearGradient></defs>'
             '<circle cx="18" cy="14" r="5" fill="none" stroke="#ffd36e" stroke-width="1.4"/>'
             f'{streaks}<circle cx="44" cy="8" r=".9" fill="#c8d4ff"/><circle cx="8" cy="52" r=".8" fill="#c8d4ff"/><circle cx="52" cy="50" r=".7" fill="#c8d4ff"/></svg>')
+
+def colors_svg(size=56):
+    """星色小圖（系列首頁的課程卡）：由紅到藍的幾顆星。"""
+    dots = "".join(f'<circle cx="{x}" cy="{y}" r="{r}" fill="{c}"/><circle cx="{x}" cy="{y}" r="{r * 2.2:.1f}" fill="{c}" opacity=".18"/>'
+                   for x, y, r, c in ((12, 40, 4.2, "#ffb46b"), (24, 22, 3.2, "#ffd1a3"), (34, 42, 3.6, "#fff1ea"), (44, 20, 3.4, "#e3e7ff"), (50, 40, 4.4, "#b5cdff")))
+    return f'<svg class="colors-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">{dots}</svg>'
 
 def _bi(en, zh, tag="p", cls=""):
     """英文在前、中文在後的雙語段落。"""
@@ -3536,6 +3542,53 @@ def render_meteor_lab(lesson):
   <p class="cn-credit">{lesson["lab"]["credit_html"]}</p>
 </div>'''
 
+def render_color_lab(lesson):
+    """第十二課：星星的顏色（assets/js/star-colors.js 綁這裡的 class）。"""
+    chips = "".join(
+        f'<button type="button" class="al-chip cl-chip" data-star="{p["key"]}"><span class="cl-sw" data-swatch="{p["T"]}" aria-hidden="true"></span>'
+        f'<span class="al-chip-en">{html.escape(p["en"])}</span><span class="al-chip-zh">{html.escape(p["zh"])}</span></button>'
+        for p in lesson["palette"])
+    return f'''<div class="astro-lab cl-lab rvl" data-color-lab>
+  <div class="al-stage">
+    <div class="al-space">
+      <canvas class="al-space-cv" aria-label="3D model of a star changing color with temperature, and real stars sorted by color · 星星隨溫度變色、真實恆星依顏色排排站的 3D 模型"></canvas>
+      <div class="al-labels" aria-hidden="true"></div>
+      <div class="ec-view" role="group" aria-label="View · 視角">
+        <button type="button" data-view="heat" aria-pressed="true">Heat a star · 加熱一顆星</button>
+        <button type="button" data-view="sort" aria-pressed="false">Sort the stars · 星星排排站</button>
+      </div>
+      <p class="al-hint">Drag to turn · 拖曳旋轉　Scroll or pinch to zoom · 滾輪／雙指縮放</p>
+      <button type="button" class="al-home" title="Reset view · 重設視角" aria-label="Reset view · 重設視角">&#8634;</button>
+      <p class="al-nogl-msg">This 3D model needs WebGL, which this browser does not support. The spectrum, the star cards, and tonight's list still work.<br><span class="zh">這個瀏覽器不支援 WebGL，無法顯示 3D 模型；光譜圖、星星卡片與今晚的清單一樣能用。</span></p>
+    </div>
+    <aside class="al-sky cl-aside">
+      <p class="al-sky-k">Its light, color by color · 它的光，一個顏色一個顏色看</p>
+      <figure class="se-fig"><div class="se-box"><canvas class="cl-spec-cv" aria-label="The star's spectrum compared with the Sun's · 這顆星與太陽的光譜"></canvas></div>
+        <figcaption>How much light the star gives off at each wavelength, scaled to its own peak. Dashed: the Sun. · 這顆星在每個波長發出多少光（以它自己的最高點為準）；虛線是太陽。</figcaption></figure>
+      <div class="al-readout ec-readout cl-readout" aria-live="polite">
+        <p class="se-place cl-name"></p>
+        <dl>
+          <div class="ec-wide"><dt>Surface temperature · 表面溫度</dt><dd class="cl-temp"></dd></div>
+          <div><dt>Color · 顏色</dt><dd class="cl-color"></dd></div>
+          <div><dt>Class · 光譜型</dt><dd class="cl-class"></dd></div>
+          <div class="ec-wide"><dt>Brightest light · 最強的光</dt><dd class="cl-peak"></dd></div>
+          <div class="ec-wide"><dt>Light from each square meter · 每平方公尺的光</dt><dd class="cl-flux"></dd></div>
+        </dl>
+      </div>
+    </aside>
+  </div>
+  <div class="al-controls">
+    <div class="al-row al-row-main">
+      <button type="button" class="al-play cl-sort" aria-pressed="false">Sort them by color · 依顏色排排站</button>
+    </div>
+    <label class="ec-slider cl-slider"><span class="ec-slider-k">Surface temperature · 表面溫度 <em>2,000 K → 30,000 K</em></span>
+      <input type="range" class="ec-time cl-temp-sl" min="0" max="1" step="0.001" value="0.2" aria-label="Surface temperature · 表面溫度"></label>
+    <div class="al-chips se-chips cl-chips">{chips}</div>
+  </div>
+  {_lab_foot(lesson["lab"])}
+  <p class="cn-credit">{lesson["lab"]["credit_html"]}</p>
+</div>'''
+
 def _astro_nav(slug):
     ls = ASTRO["lessons"]
     i = next(n for n, l in enumerate(ls) if l["slug"] == slug)
@@ -3593,10 +3646,10 @@ def build_astro_lesson(lesson):
     lab_html = {"eclipses": render_eclipse_lab, "seasons": render_season_lab, "tides": render_tide_lab,
                 "stars": render_star_lab, "northstar": render_north_lab, "planets": render_planet_lab,
                 "sundial": render_sundial_lab, "solar": render_solar_lab, "distance": render_distance_lab,
-                "meteors": render_meteor_lab}.get(kind, render_moon_lab)(lesson)
+                "meteors": render_meteor_lab, "colors": render_color_lab}.get(kind, render_moon_lab)(lesson)
     js = {"eclipses": "eclipses", "seasons": "seasons", "tides": "tides", "stars": "constellations",
           "northstar": "north-star", "planets": "planets-lab", "sundial": "sundial", "solar": "solar",
-          "distance": "star-distance", "meteors": "meteors-lab"}.get(kind, "moon-phases")
+          "distance": "star-distance", "meteors": "meteors-lab", "colors": "star-colors"}.get(kind, "moon-phases")
 
     # 依資料裡有什麼就排什麼段落；band（米色底）交替
     secs = []
@@ -3740,6 +3793,20 @@ def build_astro_lesson(lesson):
         secs.append(("showers", "Eight Showers · 八大流星雨", "A year of meteor showers", "一年的流星雨",
                      f'<div class="ph-grid ss-grid stagger">{sh_cards}</div>',
                      _bi(lesson["showers_note_en"], lesson["showers_note_zh"], cls="lead rvl d2")))
+    if lesson.get("palette"):
+        pal = "".join(
+            f'<article class="ph-card ss-card cl-card rvl">'
+            f'<div class="ph-ico"><span class="cl-sw cl-sw-big" data-swatch="{p["T"]}" aria-hidden="true"></span></div>'
+            f'<h3>{html.escape(p["en"])}<span class="zh">{html.escape(p["zh"])}</span></h3>'
+            f'<p class="ky-nums"><span><b>{p["T"]:,}</b>K · 表面溫度</span><span><b>{html.escape(p["cls"])}</b>Class · 光譜型</span></p>'
+            f'<p class="ph-meta"><span>About {round((p["T"] - 273) / 100) * 100:,} °C · 約攝氏 {round((p["T"] - 273) / 100) * 100:,} 度</span></p>'
+            f'<p class="ph-when">{html.escape(p["note_en"])}<br><span class="zh">{html.escape(p["note_zh"])}</span></p>'
+            f'<button type="button" class="ph-go" data-lab-color="{p["key"]}">See its color · 看它的顏色 <i>&uarr;</i></button>'
+            f'</article>'
+            for p in lesson["palette"])
+        secs.append(("palette", "From Red to Blue · 由紅到藍", "Eight stars, coolest first", "八顆星，由冷到熱",
+                     f'<div class="ph-grid ss-grid stagger">{pal}</div>',
+                     _bi(lesson["palette_note_en"], lesson["palette_note_zh"], cls="lead rvl d2")))
     if lesson.get("scalecalc"):
         sc = lesson["scalecalc"]
         btns = "".join(f'<button type="button" data-sun-cm="{cm}" aria-pressed="{"true" if cm == 24 else "false"}">{html.escape(en)} · {html.escape(zh)}</button>'
@@ -3859,7 +3926,8 @@ def build_astro_lesson(lesson):
                 "sundial": ("Read the Sun", "一句話讀懂日晷"),
                 "solar": ("Feel the size", "一句話感受太陽系有多大"),
                 "distance": ("Measure the stars", "一句話量星星"),
-                "meteors": ("Catch a shooting star", "一句話看懂流星雨")}[kind]
+                "meteors": ("Catch a shooting star", "一句話看懂流星雨"),
+                "colors": ("Read a star's color", "一句話讀懂星星的顏色")}[kind]
     secs.append(("tricks", "Remember It · 記憶口訣", tricks_h[0], tricks_h[1], _sci_tricks(lesson), ""))
     acts = lesson.get("activities") or [lesson["activity"]]
     for n, act in enumerate(acts, 1):
@@ -3901,7 +3969,7 @@ def build_astro_hub():
     def icon(l):
         c = l.get("card")
         return (eclipse_svg("solar:total", 60) if c == "eclipse" else season_svg(1, 60) if c == "season"
-                else tide_svg(60) if c == "tide" else star_svg(60) if c == "stars" else polaris_svg(60) if c == "north" else planet_svg(60) if c == "planets" else sundial_svg(60) if c == "sundial" else solar_svg(60) if c == "solar" else distance_svg(60) if c == "distance" else meteor_svg(60) if c == "meteors" else moon_svg(120, 60))
+                else tide_svg(60) if c == "tide" else star_svg(60) if c == "stars" else polaris_svg(60) if c == "north" else planet_svg(60) if c == "planets" else sundial_svg(60) if c == "sundial" else solar_svg(60) if c == "solar" else distance_svg(60) if c == "distance" else meteor_svg(60) if c == "meteors" else colors_svg(60) if c == "colors" else moon_svg(120, 60))
     cards = []
     for l in ASTRO["lessons"]:
         cards.append(

@@ -44,14 +44,14 @@
 
 - 內容：`data/astronomy.json`（`lessons[]` 一課一筆；`planned[]` 是系列首頁的「製作中」卡）。頁面由 `build.py` 的 `build_astro_hub()` / `build_astro_lesson()` 產生，reading／生字／小測驗沿用 `render_basic_unit()`。
 - 3D 模型：three.js，**原始碼在 `tools/astro/src/`**，每課一個入口，打包成 `assets/js/<入口>.js`（產物，不要手改）：
-  - `moon-phases.js`（第一課）、`eclipses.js`（第二課）、`seasons.js`（第三課）、`tides.js`（第四課）、`constellations.js`（第五課）、`north-star.js`（第六課）、`planets-lab.js`（第七課）、`sundial.js`（第八課）、`solar.js`（第九課）、`star-distance.js`（第十課）、`meteors-lab.js`（第十一課）；共用貼圖／著色在 `common.js`
+  - `moon-phases.js`（第一課）、`eclipses.js`（第二課）、`seasons.js`（第三課）、`tides.js`（第四課）、`constellations.js`（第五課）、`north-star.js`（第六課）、`planets-lab.js`（第七課）、`sundial.js`（第八課）、`solar.js`（第九課）、`star-distance.js`（第十課）、`meteors-lab.js`（第十一課）、`star-colors.js`（第十二課）；共用貼圖／著色在 `common.js`
   - 四課的地球都用**真實大陸**（`earthmap.js`）：Natural Earth 1:110m 陸地（公有領域，`world-atlas` 套件），打包時編進 JS。第二、三、四課的地軸傾斜與自轉照真實時間（第二課日食時月影落在正確地區，對照 2024/4/8、2027/8/2 食甚點誤差約 1–2°）；第一課仍是裝飾性自轉、不畫地軸
   - 第四課畫的是「平衡潮」（`ephem.js` 的 `equilibriumTide`），**不是潮汐表**：頁面一律提醒去中央氣象署查官方潮汐預報（潮間帶安全），不要加上「下一次滿潮幾點」這種讀數
   - `ephem.js`：Meeus 低精度星曆＋日月食預測（純函式）。改它之後一定要跑 `npm test`，對照 NASA 表確認 2019–2032 年日月食仍全數吻合
   ```
   cd tools/astro && npm install && npm run build && npm test   # three 與 esbuild 版本鎖在 package.json
   ```
-- 課程資料的 `lab.kind` 決定用哪個模型（`phases`／`eclipses`／`seasons`／`tides`／`stars`／`northstar`／`planets`／`sundial`／`solar`／`distance`／`meteors`）；第十一課多的欄位：`showers`（八大流星雨卡）；第十課多的欄位：`neighbors`（由近到遠卡，`key` 對應 near-stars.js 的星）、`birthday`；第九課多的欄位：`bodies`（八大行星卡）、`scalecalc`；第八課多的欄位：`sd_keys`（四個關鍵日 chip）、`instruments`（太陽的時鐘卡，`mode` 可跳進模型）；第七課多的欄位：`wanderers`（五星卡）；第六課多的欄位：`dipper`（斗柄四季卡）、`places`（各地北極星高度表，`place` 可跳進模型）、`tonight.attr`；第五課多的欄位：`skies`（四季星空卡）、`tonight`、`culture_cards`（參商、七夕、四象、三垣＋同星兩名表）；`phases`、`keys`、`terms`、`moontides`、`words`、`types`、`upcoming`、`activities[]` 有就畫、沒有就略過。
+- 課程資料的 `lab.kind` 決定用哪個模型（`phases`／`eclipses`／`seasons`／`tides`／`stars`／`northstar`／`planets`／`sundial`／`solar`／`distance`／`meteors`／`colors`）；第十二課多的欄位：`palette`（由紅到藍卡）；第十一課多的欄位：`showers`（八大流星雨卡）；第十課多的欄位：`neighbors`（由近到遠卡，`key` 對應 near-stars.js 的星）、`birthday`；第九課多的欄位：`bodies`（八大行星卡）、`scalecalc`；第八課多的欄位：`sd_keys`（四個關鍵日 chip）、`instruments`（太陽的時鐘卡，`mode` 可跳進模型）；第七課多的欄位：`wanderers`（五星卡）；第六課多的欄位：`dipper`（斗柄四季卡）、`places`（各地北極星高度表，`place` 可跳進模型）、`tonight.attr`；第五課多的欄位：`skies`（四季星空卡）、`tonight`、`culture_cards`（參商、七夕、四象、三垣＋同星兩名表）；`phases`、`keys`、`terms`、`moontides`、`words`、`types`、`upcoming`、`activities[]` 有就畫、沒有就略過。
 - 第三課的日出日落、晝長、節氣在 `ephem.js`（`dayInfo`、`solarTermsOfYear`），`npm test` 也會跑 `test/seasons.test.mjs`（對照台北、雪梨的已知日出日落）。
 - 第五課（`constellations.js`，`lab.kind = "stars"`）：外圈是**真實天球**——耶魯亮星星表 BSC5（公有領域，CDS V/50），亮於 5 等的 1,634 顆星，精簡成 `src/stars-data.js`（產物，`npm run stars` 重做；原始星表 1.6 MB 不進 repo，放 `~/Documents/twrses-bsc5/`，下載方法寫在 `scripts/build-stars.mjs` 檔頭）。
   - 星座連線、星名、中國星官、季節大三角是**本站自繪**，寫在 `src/figures.js`（用 BSC 名稱如 `'Alp Ori'`、`'Del1 Tau'` 指定星星，找不到會報錯）。**不要改用 Stellarium 的連線檔**：那是 CC BY-SA，會牽動整份資料的授權。頁面模型下方的出處行是 `lab.credit_html`，必須保留。
@@ -93,6 +93,11 @@
   - 右側全天星圖（北上東左，立體投影）：極大夜彰化的星、星座連線（輻射點所在星座加亮）、月亮、從輻射點沿大圓射出的流星；時刻可選最佳（`nightOf`：太陽低於 −12° 時輻射點最高）、9 p.m.、午夜、4 a.m.。月光判斷（`verdict`）同時看最佳時刻與兩小時前的月亮。
   - 頁面下方：八大流星雨卡（`showers`，下一次極大 `data-next-peak` 現算）、「接下來彰化的流星雨」表（`data-meteor-list`）。
   - 除錯：`document.querySelector('[data-meteor-lab]').__lab`（`setShower('qua'|'lyr'|'eta'|'per'|'ori'|'leo'|'gem'|'urs')`、`setT(ms)`、`setView('whole'|'earth')`、`goCam()`、`render()`）。
+- 第十二課（`star-colors.js`，`lab.kind = "colors"`）：一個機制——顏色＝表面溫度（紅冷藍熱，太陽在中間）。
+  - 計算在 `src/starcolor.js`（純函式）：黑體顏色 `bbColor(T)`＝Planck 光譜 × CIE 1931 配色函數（Wyman 等 2013 的多段高斯公式）→ sRGB（最亮一色調到 255、超出色域往白拉）；B−V → 溫度用 Ballesteros 2012 公式；維恩峰值、光譜型 OBAFGKM、顏色名稱。名星溫度 `TEMPS` 是文獻常用值（取到百位），鍵和 near-stars.js 的 `NEAR_NAMED` 一樣。`test/starcolor.test.mjs`（assert）：對照 Charity 黑體色表（1000／3000／4000／10000 K）、太陽近白、紅冷藍熱單調、太陽峰值 502 nm（綠）、B−V 0.65 → 5,778 K、Hipparcos B−V 換算溫度與文獻差 12% 內（參宿四是變星，B−V 1.5–1.85）。
+  - 兩個視角：「加熱一顆星」（溫度滑桿 2,000–30,000 K 對數刻度，滑桿底色就是各溫度的顏色；旁邊一顆太陽對照）與「星星排排站」（第十課的 582 顆 Hipparcos 星＋太陽，從天上的方向（距離取對數壓縮）用著色器 `mixv` 飛進赫羅圖：橫軸 B−V、縱軸絕對星等，熱的先動）。右側是 Planck 曲線（各自以峰值為準，太陽虛線對照）與可見光彩虹。
+  - 頁面下方：由紅到藍八顆星卡（`palette`，色塊 `data-swatch` 用同一個 bbColor 上色）、今晚九點彰化亮星由冷到熱（`data-starcolors`）。
+  - 除錯：`document.querySelector('[data-color-lab]').__lab`（`setStar(key)`、`setTemp(K)`、`setView('heat'|'sort')`、`setSorted(true)`、`finish()` 直接跳到動畫終點、`render()`）。
 - 第二課的「即將到來的日月食」清單是**瀏覽器當場算的**，永遠不會過期；台灣可見與否以彰化（24.08N, 120.54E）為準。
 - 系列首頁用 `.lc-list`／`.lc-row` 橫向課程卡（`assets/css/lesson-cards.css`，`_lc_head()` 載入；天文教育與中醫養生首頁共用，桌機兩欄、手機一欄）。**不要改回 `.pm-cards`**：那套四欄窄卡配上 `.tp-card-h`（中文字型＋加寬字距）會把英文長標題切成四、五行，Luke 看過嫌難讀（2026-09-30）。
 - `assets/css/astro.css` 與模型 JS 只載在天文頁（`_astro_head()`，版本號另算，不影響全站快取）。
