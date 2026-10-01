@@ -4775,7 +4775,7 @@ def build_body_hub():
 # 3D 原始碼在 tools/science/src/（three.js、esbuild，每課一個入口），打包成 assets/js/<入口>.js；
 # 面板、迷思、口訣、活動沿用 astro.css，本系列多出來的在 science.css；兩者都只載在本系列頁面。
 HTW_BASE = "/resources/classes/how-things-work/"
-_HTW_JS = {"battery": "battery", "generator": "generator", "solar": "solar-cell", "wind": "wind-turbine"}   # lab.kind → assets/js/<bundle>.js
+_HTW_JS = {"battery": "battery", "generator": "generator", "solar": "solar-cell", "wind": "wind-turbine", "internet": "internet-packets"}   # lab.kind → assets/js/<bundle>.js
 
 def _htw_cn(n):
     """課次的中文數字（一～九十九）：第十一課、第二十課。"""
@@ -5042,6 +5042,58 @@ def render_windturbine_lab(lesson):
   <p class="bt-credit">{lab["credit_html"]}</p>
 </div>'''
 
+def internet_svg(size=56):
+    """網路小圖（萬物原理首頁的課程卡）：兩塊陸地之間的海纜，上面跑著有編號的封包。"""
+    pk = "".join(f'<rect x="{x - 4}" y="{y - 4}" width="8" height="8" rx="1.5" fill="{c}"/>' for x, y, c in ((20, 36, "#58e1ff"), (31, 41, "#ffd36e"), (42, 37, "#7cf29a")))
+    return (f'<svg class="internet-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">'
+            '<rect x="4" y="18" width="10" height="20" rx="4" fill="#3e6b4f"/><rect x="46" y="16" width="10" height="24" rx="4" fill="#3e6b4f"/>'
+            '<path d="M14 30 Q30 52 46 30" stroke="#2a6fb0" stroke-width="2.4" fill="none"/>'
+            f'{pk}<path d="M6 46h48" stroke="#1f5c9a" stroke-width="1.2" opacity=".6"/></svg>')
+
+def render_internet_lab(lesson):
+    """第五課：封包從彰化到波士頓（assets/js/internet-packets.js 綁這裡的 class；全部自繪示意）。"""
+    lab = lesson["lab"]
+    tg = _lab_toggles([("labels", "Labels", "標示", True), ("lose", "Lose a packet", "弄丟一個封包", False), ("cut", "Cut cable A", "剪斷海纜 A", False)])
+    return f'''<div class="astro-lab bt-lab ip-lab rvl" data-internet-lab>
+  <div class="al-stage">
+    <div class="al-space">
+      <canvas class="al-space-cv" aria-label="3D map of packets traveling from Changhua to Boston through routers and undersea cables · 封包從彰化經路由器與海底電纜到波士頓的 3D 地圖"></canvas>
+      <div class="al-labels" aria-hidden="true"></div>
+      <p class="bt-cut">A simplified map, slowed down enormously: the real trip takes a fraction of a second · 簡化的地圖、大幅放慢：真實的旅程不到一秒</p>
+      <p class="al-hint">Drag to turn · 拖曳旋轉　Scroll or pinch to zoom · 滾輪／雙指縮放</p>
+      <button type="button" class="al-home" title="Reset view · 重設視角" aria-label="Reset view · 重設視角">&#8634;</button>
+      <p class="al-nogl-msg">This 3D model needs WebGL, which this browser does not support. The reading and the cards below still explain everything.<br><span class="zh">這個瀏覽器不支援 WebGL，無法顯示 3D 模型；下方的課文與卡片一樣能看懂。</span></p>
+    </div>
+    <aside class="al-sky bt-aside ip-aside">
+      <div class="ip-top">
+        <p class="al-sky-k">Send · 傳送</p>
+        <div class="bt-modes ip-send" role="group" aria-label="Send · 傳送">
+          <button type="button" data-send="text"><i aria-hidden="true">&#128172;</i>Send a text<small>傳文字</small></button>
+          <button type="button" data-send="photo"><i aria-hidden="true">&#128247;</i>Send a photo<small>傳照片</small></button>
+        </div>
+        <p class="ip-status">Waiting to send<small>等待傳送</small></p>
+        <p class="al-sky-k ip-k2">Arrived, by number · 依編號到達</p>
+        <div class="ip-slots" aria-live="polite"></div>
+        <dl class="bt-nums ip-nums">
+          <div><dt>Sent · 送出</dt><dd class="ip-sent">0</dd></div>
+          <div><dt>Arrived · 抵達</dt><dd class="ip-arr">0</dd></div>
+          <div><dt>Resent · 重送</dt><dd class="ip-resent">0</dd></div>
+          <div><dt>Out of order? · 順序亂了？</dt><dd class="ip-order">—</dd></div>
+        </dl>
+      </div>
+      <p class="bt-msg ip-msg" aria-live="polite"></p>
+    </aside>
+  </div>
+  <div class="al-controls">
+    <div class="al-row al-row-main">
+      <button type="button" class="al-play" aria-pressed="true"><span class="al-play-i" aria-hidden="true"></span><span class="al-play-t">Pause · 暫停</span></button>
+      <div class="al-row al-toggles ip-toggles">{tg}</div>
+    </div>
+  </div>
+  {_lab_foot(lab)}
+  <p class="bt-credit">{lab["credit_html"]}</p>
+</div>'''
+
 def _htw_flat():
     return [(ui, u, l) for ui, u in enumerate(HTW["units"]) for l in u["lessons"]]
 
@@ -5069,7 +5121,7 @@ def build_htw_lesson(ui, unit, lesson):
     reading_html = render_basic_unit(1, unit_dict, level="htw", audio_rel="", pdf_rel="")
     lab = lesson["lab"]
     kind = lab["kind"]
-    lab_html = {"battery": render_battery_lab, "generator": render_generator_lab, "solar": render_solarcell_lab, "wind": render_windturbine_lab}[kind](lesson)
+    lab_html = {"battery": render_battery_lab, "generator": render_generator_lab, "solar": render_solarcell_lab, "wind": render_windturbine_lab, "internet": render_internet_lab}[kind](lesson)
 
     secs = []
     if lesson.get("mix"):
@@ -5106,7 +5158,8 @@ def build_htw_lesson(ui, unit, lesson):
             f'<h3>{html.escape(pt["en"])}<span class="zh">{html.escape(pt["zh"])}</span></h3>'
             f'<p class="ph-meta"><span>{html.escape(pt["meta_en"])} · {html.escape(pt["meta_zh"])}</span></p>'
             f'<p class="ph-when">{html.escape(pt["text_en"])}<br><span class="zh">{html.escape(pt["text_zh"])}</span></p>'
-            + (f'<button type="button" class="ph-go" data-lab-speed="{pt["speed"]}">See it in 3D · 在模型中看 <i>&uarr;</i></button>' if pt.get("speed") is not None
+            + (f'<button type="button" class="ph-go" data-lab-demo="{pt["demo"]}">Try it in 3D · 在模型中試 <i>&uarr;</i></button>' if pt.get("demo")
+               else f'<button type="button" class="ph-go" data-lab-speed="{pt["speed"]}">See it in 3D · 在模型中看 <i>&uarr;</i></button>' if pt.get("speed") is not None
                else f'<button type="button" class="ph-go" data-lab-light="{pt["light"]}">See it in 3D · 在模型中看 <i>&uarr;</i></button>' if pt.get("light")
                else f'<button type="button" class="ph-go" data-lab-part="{pt["key"]}">See it in 3D · 在模型中看 <i>&uarr;</i></button>')
             + '</article>'
@@ -5128,7 +5181,8 @@ def build_htw_lesson(ui, unit, lesson):
     tricks_h = {"battery": ("Batteries in a sentence", "一句話記住電池"),
                 "generator": ("Power plants in a sentence", "一句話記住發電"),
                 "solar": ("Solar power in a sentence", "一句話記住太陽能"),
-                "wind": ("Wind power in a sentence", "一句話記住風力發電")}[kind]
+                "wind": ("Wind power in a sentence", "一句話記住風力發電"),
+                "internet": ("The internet in a sentence", "一句話記住網際網路")}[kind]
     secs.append(("tricks", "Remember It · 記憶口訣", tricks_h[0], tricks_h[1], _sci_tricks(lesson), ""))
     if lesson.get("safety"):
         items = "".join(f'<li class="rvl">{html.escape(s["en"])}<span class="zh">{html.escape(s["zh"])}</span></li>' for s in lesson["safety"])
@@ -5182,7 +5236,7 @@ def build_htw_lesson(ui, unit, lesson):
 def build_htw_hub():
     # 照中醫養生：單元導覽＋每個單元一段橫向課程卡；做好的課可點，planned 是「製作中」卡。
     def icon(l):
-        return battery_svg(60) if l.get("card") == "battery" else outlet_svg(60) if l.get("card") == "outlet" else solarpanel_svg(60) if l.get("card") == "solar" else windturbine_svg(60) if l.get("card") == "wind" else l["icon"]
+        return battery_svg(60) if l.get("card") == "battery" else outlet_svg(60) if l.get("card") == "outlet" else solarpanel_svg(60) if l.get("card") == "solar" else windturbine_svg(60) if l.get("card") == "wind" else internet_svg(60) if l.get("card") == "internet" else l["icon"]
     unit_sections, nav = [], []
     done = sum(len(u["lessons"]) for u in HTW["units"])
     total = done + sum(len(u.get("planned", [])) for u in HTW["units"])

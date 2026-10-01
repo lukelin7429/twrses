@@ -2040,14 +2040,495 @@
       "title_zh": "資訊與通訊",
       "blurb_en": "How a message, a phone call, and your location travel through wires, air, and space.",
       "blurb_zh": "訊息、電話和你的位置，怎麼穿過電線、空氣與太空。",
-      "lessons": [],
-      "planned": [
+      "lessons": [
         {
           "n": 5,
+          "slug": "internet",
+          "title": "How Does the Internet Work?",
+          "title_zh": "網際網路怎麼運作？",
+          "level": "入門 · Beginner",
           "icon": "🌐",
-          "en": "How Does the Internet Work?",
-          "zh": "網際網路怎麼運作？"
-        },
+          "card": "internet",
+          "blurb_en": "A message to Boston is cut into numbered packets that find their own way under the ocean. Send a text or a photo in 3D, lose a packet, cut a cable, and watch the internet fix it.",
+          "blurb_zh": "傳到波士頓的訊息，會被切成有編號的封包，各自從海底找路過去。用 3D 傳文字或照片、弄丟一個封包、剪斷一條海纜，看網路怎麼自己補救。",
+          "big_idea_en": "The internet cuts every message into small numbered packets. Routers pass each packet along, one hop at a time, by whatever path is open, and the receiving end puts the numbers back in order and asks for any piece that is missing.",
+          "big_idea_zh": "網際網路把每一則訊息切成一個個有編號的小封包。路由器一站一站把封包往前傳，哪條路通就走哪條；收件端再照編號排回原樣，缺了哪一片就請對方重送。",
+          "lab": {
+            "kind": "internet",
+            "eyebrow": "3D Model · 3D 模型",
+            "title_en": "A Message from Changhua to Boston",
+            "title_zh": "一則從彰化到波士頓的訊息",
+            "how_en": "Drag to turn the map, and scroll or pinch to zoom. Press Send a text or Send a photo and follow the numbered packets. Turn on Lose a packet to see the missing piece sent again, or Cut cable A to see the routers find another way.",
+            "how_zh": "拖曳可以旋轉地圖，滾輪或雙指可以縮放。按「傳文字」或「傳照片」，跟著有編號的封包走。打開「弄丟一個封包」看缺的那片怎麼重送，或打開「剪斷海纜 A」看路由器怎麼找別的路。",
+            "legend": [
+              {
+                "cls": "pkt",
+                "en": "Numbered cubes: packets. Each carries a piece of the message plus the address and its number.",
+                "zh": "有編號的方塊：封包，各帶著訊息的一小片，加上地址和編號"
+              },
+              {
+                "cls": "req",
+                "en": "Yellow ball: a “please resend” note going back to the app's servers",
+                "zh": "黃色小球：送回伺服器的「請重送」"
+              },
+              {
+                "cls": "cable",
+                "en": "Dark lines under the sea: undersea fiber-optic cables",
+                "zh": "海面下的深色線：海底光纖電纜"
+              }
+            ],
+            "scale_en": "A diagram, not a real map: the shapes, distances, and number of routers are simplified, and real messaging apps may use data centers in other places. The trip is slowed down enormously. A real photo is cut into about 2,000 packets, not 10, and light in the glass of a fiber covers the 12,532 km from Changhua to Boston in a straight line in about 0.06 seconds; real routes are longer, but a message still arrives in a fraction of a second.",
+            "scale_zh": "這是示意圖，不是真的地圖：形狀、距離和路由器的數量都簡化了，真實的通訊軟體也可能用別處的資料中心。旅程放慢了非常多倍。一張真的照片約切成 2,000 個封包，不是 10 個；光在光纖的玻璃裡跑完彰化到波士頓的直線距離 12,532 公里，只要約 0.06 秒，真實路線比較長，但訊息仍在一秒內就送到。",
+            "credit_html": "Model drawn by My Culture Connect as a teaching diagram. Cable facts from <a href=\"https://resources.telegeography.com/2023-mythbusting-part-3\" target=\"_blank\" rel=\"noopener\">TeleGeography</a> and the Central News Agency; packet size and the history of TCP/IP from Wikipedia. · 模型由人師教育協會自繪示意；海纜資料依 TeleGeography 與中央社，封包大小與 TCP/IP 歷史依維基百科。"
+          },
+          "paras": [
+            "Your grandfather lives in Boston, and you send him a photo on LINE from Changhua. Less than a second later, his phone buzzes on the other side of the world. The photo did not fly through the air the whole way, and it did not travel in one piece. It was chopped into thousands of small pieces that raced under the Pacific Ocean and were put back together on his phone.",
+            "The internet began with a crash. On October 29, 1969, a student at UCLA tried to send the word login to a computer at a research institute about 560 kilometers away. The letters L and O arrived, and then the system crashed. So the first message on the network that grew into the internet was simply LO. In 1974, Vint Cerf and Bob Kahn described a set of rules called TCP/IP, and the network switched to those rules on January 1, 1983. The internet still runs on them today.",
+            "The big idea is packets. Your phone cuts your photo into small pieces called packets, each up to about 1,500 bytes, so a three-megabyte photo becomes about 2,000 of them. Every packet carries three things: a piece of the photo, the address where it is going, and its number in the line. Like postcards, the packets travel separately, and each one finds its own way.",
+            "Along the way, packets pass through routers, special computers that read the address and send each packet one step closer, like mail sorters at the post office. Messaging apps first send your photo to the company's computers, called servers, which pass it on to your grandfather's phone. Because each router chooses a path on its own, two packets from the same photo may take different roads and arrive out of order. If one is lost, his phone notices the missing number and asks for it again.",
+            "To cross the ocean, the packets travel through undersea cables. Almost all data that goes between continents uses these cables, not satellites. In deep water, a cable is about as thick as a garden hose, and inside are glass fibers thinner than a hair that carry the data as flashes of light. Light in glass travels about 200,000 kilometers every second, so even the 12,500 kilometers from Changhua to Boston take only a fraction of a second.",
+            "Taiwan is connected to the world by 14 international undersea cables, which come ashore at landing stations in places like Tamsui and Toucheng. Because there are many cables and many routes, the internet can keep working when one breaks. In 2023, when both cables to the Matsu Islands were cut by passing ships, the islands had very slow internet until they were repaired. That is why engineers keep building more paths: the internet works because no single road is the only road."
+          ],
+          "paras_zh": [
+            "你的爺爺住在波士頓，你在彰化用 LINE 傳一張照片給他。不到一秒，他在地球另一邊的手機就響了。這張照片並不是一路在空中飛過去的，也不是整張一起送過去的：它被切成好幾千個小片，從太平洋底下飛奔過去，再在他的手機上拼回來。",
+            "網際網路是從一次當機開始的。1969 年 10 月 29 日，加州大學洛杉磯分校的一位學生，想把 login 這個字傳到約 560 公里外一間研究機構的電腦。L 和 O 到了，系統就當機了。所以這個後來長成網際網路的網路，第一則訊息只有「LO」。1974 年，瑟夫和卡恩寫下一套叫做 TCP/IP 的規則，這個網路在 1983 年 1 月 1 日正式改用它，網際網路到今天都還在用這套規則。",
+            "最重要的觀念是「封包」。手機把你的照片切成一小片一小片，叫做封包，每個最多約 1,500 位元組，所以一張 3 MB 的照片大約會變成 2,000 個封包。每個封包都帶著三樣東西：照片的一小片、要送去的地址，以及它排在第幾號。封包就像一張張明信片，各自上路，各自找路。",
+            "一路上，封包會經過「路由器」：一種特別的電腦，會讀封包上的地址，再把它往目的地送近一步，就像郵局的分信員。通訊軟體會先把你的照片送到公司的電腦，也就是伺服器，再由伺服器轉給爺爺的手機。因為每個路由器自己決定路線，同一張照片的兩個封包可能走不同的路，到達的順序也可能亂掉。要是掉了一個，爺爺的手機會發現少了哪一號，請對方再送一次。",
+            "要越過海洋，封包走的是海底電纜。洲與洲之間的資料，幾乎全部都走海底電纜，而不是衛星。在深海裡，一條電纜大約只有水管那麼粗，裡面是比頭髮還細的玻璃光纖，用一閃一閃的光傳送資料。光在玻璃裡每秒約跑 20 萬公里，所以就算彰化到波士頓有 12,500 公里，也只要一眨眼的一小部分時間。",
+            "台灣靠 14 條國際海底電纜和世界相連，它們在淡水、頭城等地的登陸站上岸。因為電纜很多、路線很多，就算斷了一條，網路還能繼續運作。2023 年，通往馬祖的兩條海纜都被經過的船隻弄斷，馬祖的網路變得非常慢，直到修好為止。所以工程師一直在多蓋幾條路：網際網路能運作，是因為沒有哪一條路是唯一的路。"
+          ],
+          "questions": [
+            "What was the first message sent on the network that grew into the internet, and why was it so short?",
+            "What three things does every packet carry?",
+            "Why can the internet keep working when one undersea cable breaks?"
+          ],
+          "answers": [
+            "It was LO. The student was trying to type login, but the system crashed after the first two letters.",
+            "A small piece of the message, the address where it is going, and its number, so the pieces can be put back in order.",
+            "Because there are many cables and many routes. Routers send the packets another way when one path is broken."
+          ],
+          "vocab": [
+            {
+              "n": 1,
+              "w": "internet",
+              "pos": "n.",
+              "zh": "網際網路",
+              "ex": "We use the <b>internet</b> to find information for our project.",
+              "exzh": "我們用網際網路找專題需要的資料。"
+            },
+            {
+              "n": 2,
+              "w": "packet",
+              "pos": "n.",
+              "zh": "封包；小包",
+              "ex": "Each <b>packet</b> carries a small piece of the photo.",
+              "exzh": "每個封包都帶著照片的一小片。"
+            },
+            {
+              "n": 3,
+              "w": "router",
+              "pos": "n.",
+              "zh": "路由器",
+              "ex": "Restart the <b>router</b> if the Wi-Fi stops working.",
+              "exzh": "如果 Wi-Fi 不能用，就把路由器重新開機。"
+            },
+            {
+              "n": 4,
+              "w": "address",
+              "pos": "n.",
+              "zh": "地址",
+              "ex": "Please write your <b>address</b> on the envelope.",
+              "exzh": "請把你的地址寫在信封上。"
+            },
+            {
+              "n": 5,
+              "w": "server",
+              "pos": "n.",
+              "zh": "伺服器",
+              "ex": "The game is down because its <b>server</b> is busy.",
+              "exzh": "這個遊戲連不上，因為伺服器太忙了。"
+            },
+            {
+              "n": 6,
+              "w": "cable",
+              "pos": "n.",
+              "zh": "電纜；線",
+              "ex": "A ship's anchor damaged the undersea <b>cable</b>.",
+              "exzh": "一艘船的錨弄壞了海底電纜。"
+            },
+            {
+              "n": 7,
+              "w": "connect",
+              "pos": "v.",
+              "zh": "連接",
+              "ex": "Can you <b>connect</b> your tablet to the classroom screen?",
+              "exzh": "你可以把平板連到教室的螢幕嗎？"
+            },
+            {
+              "n": 8,
+              "w": "route",
+              "pos": "n.",
+              "zh": "路線",
+              "ex": "The bus takes a different <b>route</b> on Sundays.",
+              "exzh": "星期天公車走不一樣的路線。"
+            }
+          ],
+          "quiz": [
+            {
+              "q": "What does the internet do with a photo before sending it?",
+              "options": [
+                "It cuts the photo into small numbered packets",
+                "It shrinks the photo until it fits in one piece",
+                "It prints the photo and mails it",
+                "It sends the whole photo by satellite"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "What does a router do?",
+              "options": [
+                "It reads a packet's address and sends it one step closer",
+                "It takes the photo",
+                "It charges the phone",
+                "It cleans the cable"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "Why might packets from the same photo arrive out of order?",
+              "options": [
+                "They can take different routes",
+                "The ocean is too cold",
+                "Routers read numbers backward",
+                "Photos are always sent backward"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "How does most data travel between continents?",
+              "options": [
+                "Through undersea cables",
+                "By satellite",
+                "By airplane",
+                "Through the air from tall towers"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "How many international undersea cables connected Taiwan to the world in early 2025?",
+              "options": [
+                "14",
+                "1",
+                "140",
+                "None"
+              ],
+              "correct": 0
+            }
+          ],
+          "parts_head": {
+            "eyebrow": "Try It in the Model · 在模型裡試試",
+            "en": "Four journeys",
+            "zh": "四趟旅程"
+          },
+          "parts": [
+            {
+              "key": "text",
+              "icon": "💬",
+              "en": "A short text",
+              "zh": "一則短訊息",
+              "meta_en": "4 packets in the model",
+              "meta_zh": "模型裡 4 個封包",
+              "demo": "text",
+              "text_en": "A real text message is so small that it fits in one packet. The model uses four so you can watch them split up.",
+              "text_zh": "真正的一句話小到一個封包就裝得下；模型用四個，讓你看得到它們分頭走。"
+            },
+            {
+              "key": "photo",
+              "icon": "📷",
+              "en": "A photo",
+              "zh": "一張照片",
+              "meta_en": "10 in the model, about 2,000 for real",
+              "meta_zh": "模型 10 個，真實約 2,000 個",
+              "demo": "photo",
+              "text_en": "A three-megabyte photo becomes about 2,000 packets. Watch them arrive out of order and fall into place by number.",
+              "text_zh": "一張 3 MB 的照片會變成大約 2,000 個封包。看它們到達的順序亂掉，再照編號排好。"
+            },
+            {
+              "key": "lose",
+              "icon": "❓",
+              "en": "A packet goes missing",
+              "zh": "掉了一個封包",
+              "meta_en": "Ask again",
+              "meta_zh": "再要一次",
+              "demo": "lose",
+              "text_en": "A busy router drops a packet. The receiving phone notices the gap in the numbers and asks for that one piece again.",
+              "text_zh": "很忙的路由器丟掉了一個封包。收件的手機發現編號有缺，就只把那一片再要一次。"
+            },
+            {
+              "key": "cut",
+              "icon": "✂️",
+              "en": "A cable breaks",
+              "zh": "海纜斷了",
+              "meta_en": "Find another way",
+              "meta_zh": "找別的路",
+              "demo": "cut",
+              "text_en": "With cable A cut, the routers send every packet by way of Japan. The trip is longer, but the photo still arrives.",
+              "text_zh": "海纜 A 斷了，路由器把每個封包都改走經過日本的路。路比較遠，照片一樣送得到。"
+            }
+          ],
+          "parts_note_en": "This is what TCP/IP does for every message, web page, and video call you make, millions of times a day.",
+          "parts_note_zh": "你傳的每則訊息、看的每個網頁、打的每通視訊，TCP/IP 每天都這樣做上百萬次。",
+          "facts": {
+            "eyebrow": "Taiwan's Lines to the World · 台灣連到世界的線",
+            "en": "Undersea cables by the numbers",
+            "zh": "海底電纜的數字",
+            "lead_en": "An island's internet depends on what lies on the sea floor around it.",
+            "lead_zh": "一座島的網路，靠的是它周圍海底的那些電纜。",
+            "items": [
+              {
+                "big": "14",
+                "unit_en": "international cables",
+                "unit_zh": "條國際海纜",
+                "en": "Undersea cables linking Taiwan to the world in early 2025, with more being built.",
+                "zh": "2025 年初連接台灣與世界的國際海纜，還有更多正在興建。"
+              },
+              {
+                "big": "7",
+                "unit_en": "landing stations",
+                "unit_zh": "座登陸站",
+                "en": "Two in Tamsui, one in Bali, two in Toucheng, and two in Fangshan.",
+                "zh": "淡水 2 座、八里 1 座、頭城 2 座、枋山 2 座。"
+              },
+              {
+                "big": "99%+",
+                "unit_en": "of data between continents",
+                "unit_zh": "洲際資料",
+                "en": "TeleGeography confirms that cables, not satellites, carry the vast majority of data between continents.",
+                "zh": "TeleGeography 證實：洲際資料絕大多數走海纜，不是衛星。"
+              },
+              {
+                "big": "0.06",
+                "unit_en": "seconds",
+                "unit_zh": "秒",
+                "en": "Time for light in glass fiber to cover the 12,532 km straight line from Changhua to Boston.",
+                "zh": "光在玻璃光纖裡跑完彰化到波士頓 12,532 公里直線距離的時間。"
+              },
+              {
+                "big": "1969",
+                "unit_en": "first message: “LO”",
+                "unit_zh": "第一則訊息「LO」",
+                "en": "The network that grew into the internet sent its first message on October 29, 1969, and crashed after two letters.",
+                "zh": "1969 年 10 月 29 日，網際網路的前身傳出第一則訊息，兩個字母後就當機。"
+              }
+            ]
+          },
+          "myths": [
+            {
+              "myth_en": "The internet travels mostly through satellites in space.",
+              "myth_zh": "網路大多是靠太空的衛星傳的。",
+              "fact_en": "Almost all data between continents travels through undersea cables. Satellites help where cables cannot reach, but they carry a small share.",
+              "fact_zh": "洲與洲之間的資料幾乎全部走海底電纜。衛星用在電纜到不了的地方，但只占一小部分。"
+            },
+            {
+              "myth_en": "Your message travels in one piece, straight to your friend.",
+              "myth_zh": "訊息是整個一起、直接送到朋友手上。",
+              "fact_en": "It is cut into packets that may take different routes, usually passes through the app's servers, and is put back together at the end.",
+              "fact_zh": "它被切成封包、可能各走不同的路，通常還會先經過通訊軟體的伺服器，最後才拼回原樣。"
+            },
+            {
+              "myth_en": "Wi-Fi and the internet are the same thing.",
+              "myth_zh": "Wi-Fi 就是網際網路。",
+              "fact_en": "Wi-Fi only connects your device to the router in your home or school. From there, the data travels on cables to the rest of the internet.",
+              "fact_zh": "Wi-Fi 只負責把你的裝置連到家裡或學校的路由器；從那裡開始，資料走電纜到網際網路的其他地方。"
+            },
+            {
+              "myth_en": "If one cable breaks, the whole country goes offline.",
+              "myth_zh": "一條海纜斷了，整個國家就斷網。",
+              "fact_en": "Routers send the traffic another way. A place with only one or two cables, like Matsu in 2023, suffers most, which is why more cables are built.",
+              "fact_zh": "路由器會把資料改走別的路。只有一兩條電纜的地方受害最大，像 2023 年的馬祖，所以才要多蓋幾條。"
+            }
+          ],
+          "tricks": [
+            {
+              "title_en": "Cut, number, send, rebuild",
+              "title_zh": "切開、編號、送出、拼回",
+              "body_en": "Four steps for every message: cut it into packets, number them, send them, and rebuild them in order.",
+              "body_zh": "每則訊息四步驟：切成封包、標上編號、送出去、照順序拼回來。"
+            },
+            {
+              "title_en": "Routers are mail sorters",
+              "title_zh": "路由器是分信員",
+              "body_en": "They read the address and pass the packet one step closer. Nobody plans the whole trip.",
+              "body_zh": "它們讀地址，把封包往前送一步；沒有人事先規劃整趟路。"
+            },
+            {
+              "title_en": "Under the sea, not in space",
+              "title_zh": "走海底，不走太空",
+              "body_en": "Between continents, the internet is mostly glass fibers lying on the ocean floor.",
+              "body_zh": "洲與洲之間的網路，大多是躺在海底的玻璃光纖。"
+            },
+            {
+              "title_en": "No single road",
+              "title_zh": "沒有唯一的路",
+              "body_en": "Many cables and many routes mean one break does not stop the message.",
+              "body_zh": "電纜多、路線多，斷一條也擋不住訊息。"
+            }
+          ],
+          "activities": [
+            {
+              "title_en": "The Packet Relay",
+              "title_zh": "封包接力",
+              "materials": [
+                {
+                  "en": "A short sentence or a simple drawing cut into 8 to 12 pieces",
+                  "zh": "一句話或一張簡單的圖，剪成 8 到 12 片"
+                },
+                {
+                  "en": "Envelopes or sticky notes for each piece",
+                  "zh": "每一片一個信封或便利貼"
+                },
+                {
+                  "en": "Students spread around the room as routers",
+                  "zh": "分散站在教室各處當路由器的同學"
+                }
+              ],
+              "steps": [
+                {
+                  "en": "The sender writes on each piece: the receiver's name (the address) and a number (1 of 10, 2 of 10, and so on).",
+                  "zh": "寄件人在每一片寫上：收件人的名字（地址）和編號（1/10、2/10……）。"
+                },
+                {
+                  "en": "Routers may pass a piece only to a neighbor next to them, choosing whichever neighbor seems closer to the receiver.",
+                  "zh": "路由器只能把紙片交給旁邊的同學，選看起來離收件人比較近的那一位。"
+                },
+                {
+                  "en": "The teacher secretly takes one piece away (a lost packet) and later blocks one row of desks (a broken cable).",
+                  "zh": "老師偷偷拿走一片（掉了的封包），稍後再擋住一排桌子（斷掉的電纜）。"
+                },
+                {
+                  "en": "The receiver lays the pieces out by number, finds the gap, and sends a request back for the missing one.",
+                  "zh": "收件人照編號排好，找出缺的那一號，送一張「請重送」回去。"
+                },
+                {
+                  "en": "Talk about it: Did the pieces arrive in order? What happened when the row was blocked?",
+                  "zh": "討論：紙片到的順序對嗎？擋住一排之後發生了什麼事？"
+                }
+              ],
+              "tip_en": "Time the whole relay, then remember that the real internet does the same thing for a photo of 2,000 packets in well under a second.",
+              "tip_zh": "幫整場接力計時，再想想：真正的網路處理一張 2,000 個封包的照片，全程不到一秒。"
+            },
+            {
+              "title_en": "Explore the Cable Map",
+              "title_zh": "看海底電纜地圖",
+              "materials": [
+                {
+                  "en": "A computer or tablet with a web browser",
+                  "zh": "一台有瀏覽器的電腦或平板"
+                },
+                {
+                  "en": "The free Submarine Cable Map by TeleGeography (submarinecablemap.com)",
+                  "zh": "TeleGeography 的免費海底電纜地圖（submarinecablemap.com）"
+                }
+              ],
+              "steps": [
+                {
+                  "en": "Zoom in on Taiwan. How many cables can you count coming ashore?",
+                  "zh": "放大台灣。數一數有幾條電纜在台灣上岸？"
+                },
+                {
+                  "en": "Click a cable that crosses the Pacific. Where does it land in the United States, and how long is it?",
+                  "zh": "點一條橫越太平洋的電纜：它在美國哪裡上岸？有多長？"
+                },
+                {
+                  "en": "Find a cable that reaches Japan or the Philippines. Why might a cable stop at islands on the way?",
+                  "zh": "找一條到日本或菲律賓的電纜。為什麼電纜會在途中的島嶼停靠？"
+                },
+                {
+                  "en": "Look at Matsu, Kinmen, and Penghu. Compare how many cables they have with Taiwan's main island.",
+                  "zh": "看看馬祖、金門、澎湖，比較它們和台灣本島各有幾條電纜。"
+                }
+              ],
+              "tip_en": "Teachers can project the map for the whole class. It is a good starting point for a talk about why islands care so much about their cables.",
+              "tip_zh": "老師可以把地圖投影給全班看，正好用來討論：為什麼島嶼這麼在乎自己的海纜。"
+            }
+          ],
+          "safety": [
+            {
+              "en": "Before you send a photo, ask: would I be happy if anyone saw this? Once it leaves your phone, copies can stay on servers and other people's phones.",
+              "zh": "傳照片之前先問自己：如果任何人都看得到，我會介意嗎？照片一離開手機，伺服器和別人的手機上就可能留著副本。"
+            },
+            {
+              "en": "Never send your address, passwords, or school name to someone you have not met in person.",
+              "zh": "絕不把住址、密碼或學校名稱傳給沒有見過面的人。"
+            },
+            {
+              "en": "If a message or link makes you feel uncomfortable or asks for secrets, stop and show a trusted adult.",
+              "zh": "收到讓你不舒服、或要你說秘密的訊息或連結，停下來，拿給信任的大人看。"
+            },
+            {
+              "en": "Unplug a router only with an adult's permission, and never open the case of any electronic device.",
+              "zh": "要拔路由器的插頭，先問過大人；絕不打開任何電子設備的外殼。"
+            }
+          ],
+          "sources": [
+            {
+              "en": "The first ARPANET message, “LO,” on October 29, 1969",
+              "zh": "1969 年 10 月 29 日 ARPANET 第一則訊息「LO」",
+              "src": "History of Information",
+              "url": "https://www.historyofinformation.com/detail.php?id=882"
+            },
+            {
+              "en": "TCP/IP: Cerf and Kahn's design (1974); ARPANET switched on January 1, 1983",
+              "zh": "TCP/IP：瑟夫與卡恩 1974 年的設計；1983 年 1 月 1 日 ARPANET 全面改用",
+              "src": "Wikipedia, “Internet protocol suite”",
+              "url": "https://en.wikipedia.org/wiki/Internet_protocol_suite"
+            },
+            {
+              "en": "Ethernet packets carry up to 1,500 bytes (MTU)",
+              "zh": "乙太網路封包最多 1,500 位元組（MTU）",
+              "src": "Wikipedia, “Maximum transmission unit”",
+              "url": "https://en.wikipedia.org/wiki/Maximum_transmission_unit"
+            },
+            {
+              "en": "Submarine cables carry over 99% of data between continents",
+              "zh": "洲際資料 99% 以上走海底電纜",
+              "src": "TeleGeography, 2023 Mythbusting Part 3",
+              "url": "https://resources.telegeography.com/2023-mythbusting-part-3"
+            },
+            {
+              "en": "Light travels about 204,000 km per second in fiber",
+              "zh": "光在光纖中每秒約 20.4 萬公里",
+              "src": "TeleGeography",
+              "url": "https://resources.telegeography.com/the-speed-of-light-never-changes-except-when-it-does"
+            },
+            {
+              "en": "Deep-sea cables are about as thick as a garden hose",
+              "zh": "深海段電纜約水管粗",
+              "src": "Engadget",
+              "url": "https://www.engadget.com/2187834/how-transatlantic-internet-cables-work/"
+            },
+            {
+              "en": "Taiwan has 14 international undersea cables and 7 landing stations",
+              "zh": "台灣 14 條國際海纜、7 座登陸站",
+              "src": "中央社（2025-01-10）",
+              "url": "https://www.cna.com.tw/news/aipl/202501100035.aspx"
+            },
+            {
+              "en": "Both cables to the Matsu Islands were cut in February 2023",
+              "zh": "2023 年 2 月馬祖兩條海纜被切斷",
+              "src": "Focus Taiwan",
+              "url": "https://focustaiwan.tw/society/202302160022"
+            },
+            {
+              "en": "The free Submarine Cable Map",
+              "zh": "免費的海底電纜地圖",
+              "src": "TeleGeography",
+              "url": "https://www.submarinecablemap.com/"
+            }
+          ]
+        }
+      ],
+      "planned": [
         {
           "n": 6,
           "icon": "📶",

@@ -243,3 +243,38 @@
 .hw-fact p { margin: .6rem 0 0; font-size: .92rem; line-height: 1.6; }
 .hw-fact p .zh { display: block; margin-top: .25rem; color: var(--ink-soft); font-size: .88rem; }
 .al-lg-wind i { border: 0; height: 4px; margin-top: .55rem; border-radius: 2px; background: linear-gradient(90deg, rgba(207,239,255,0), #cfefff); }
+
+/* ---------- 第五課：網路封包 ---------- */
+@media (min-width: 1021px) { .ip-lab .al-space { min-height: 620px; } }
+.ip-aside { gap: .9rem; }
+.ip-aside > * { min-width: 0; }
+.ip-send { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.ip-status { margin: .7rem 0 0; font-size: .95rem; font-weight: 800; color: #fff; line-height: 1.25; }
+.ip-status small { display: block; font-family: var(--zh); font-weight: 600; font-size: .8rem; color: var(--al-mute); }
+.ip-status.ok { color: #7cf29a; }
+.ip-k2 { margin-top: .8rem !important; }
+.ip-slots { display: grid; grid-template-columns: repeat(10, minmax(0, 1fr)); gap: .25rem; min-height: 30px; }
+.ip-slot { position: relative; display: grid; place-items: center; height: 30px; border-radius: 6px; border: 1px dashed rgba(160,180,230,.35); color: var(--al-mute); font-size: .78rem; font-weight: 800; transition: background .25s, color .25s, transform .25s; }
+.ip-slot.on { border: 0; background: var(--c); color: #0b1220; transform: translateY(-2px); }
+.ip-slot.on::after { content: attr(data-order); position: absolute; right: 2px; top: 1px; font-size: .5rem; font-weight: 700; opacity: .7; }
+.ip-is-done .ip-slot.on { box-shadow: 0 0 0 2px #7cf29a; }
+.ip-nums { grid-template-columns: repeat(2, minmax(0, 1fr)); margin-top: .7rem; }
+.ip-msg { min-height: 6.4em; }
+.ip-toggles { margin-left: .4rem; }
+.al-lab.ip-region { font-family: var(--serif); font-size: .82rem; color: #cfe0ff; background: rgba(6,10,22,.35); border-color: transparent; }
+.al-lab.ip-lb-dc { color: #ffe3a3; border-color: rgba(255,211,110,.4); }
+.al-lab.ip-lb-station { color: #cfe4ff; border-color: rgba(90,160,240,.5); }
+.al-lab.ip-lb-lost { color: #fff; background: #d8382e; border-color: #ff8a7a; }
+.al-lg-pkt i { border: 0; border-radius: 4px; background: linear-gradient(135deg, #58e1ff 0 33%, #ffd36e 33% 66%, #7cf29a 66%); }
+.al-lg-req i { border: 0; background: #ffd36e; }
+.al-lg-cable i { border: 0; height: 5px; margin-top: .5rem; border-radius: 3px; background: #2a6fb0; }
+@media (max-width: 1020px) {
+  .ip-lab .al-stage { grid-template-columns: minmax(0, 1fr); }
+  .ip-lab .bt-aside { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+}
+@media (max-width: 640px) {
+  .ip-lab .bt-aside { grid-template-columns: minmax(0, 1fr); }
+  .ip-msg { min-height: 0; }
+  .ip-slots { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+  .ip-toggles { margin-left: 0; }
+}

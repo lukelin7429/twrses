@@ -162,6 +162,9 @@
 - 第四課風機（`wind-turbine.js`，`lab.kind = "wind"`，`data-windturbine-lab`）：一個機制——葉片靠升力轉，直驅帶動一圈磁鐵經過線圈；功率跟風速三次方成正比。比例照大彰化 1、2a 的 SG 8.0-167 DD（8 MW、轉子 167 m、最快約 10.3 rpm）；`src/windcalc.js`：Cp 中低風速 0.45、接近滿載下降，約 12.7 m/s 滿載、25 m/s 以上順槳停機；`test/wind.test.mjs` 檢查掃風面積 21,904 m²、八倍、Cp 低於貝茲 59.3%、葉尖約 324 km/h。轉子用**真實轉速**，風的粒子是放慢的示意；穿過轉子的風會變慢（wake）。地圖北 +Z、東 −X；東北／西南季風會讓機艙偏航。風速滑桿 0–40 m/s（中央氣象署：17.2 輕颱、32.7 中颱、51.0 強颱）。
   - 頁面多的段落：`facts`（數字卡：台灣離岸風電 500 座、4.8 GW、2025 破 100 億度、4C Offshore 16/20、大彰化 111 座）；卡片 `parts` 可用 `speed` 跳到某個風速。
   - 除錯：`document.querySelector('[data-windturbine-lab]').__lab`（`setSpeed(m/s)`、`setWind('ne'|'sw')`、`lookInside()`、`run(秒)`、`render()`）。
+- 第五課網路（`internet-packets.js`，`lab.kind = "internet"`，`data-internet-lab`；單元二第一課）：一個機制——訊息切成有編號的封包，路由器一站一站傳、各走各的路，收件端照編號排回，缺號就請伺服器重送。**示意地圖**（不是真實形狀）：彰化手機 → Wi-Fi → 網路業者 → 通訊軟體伺服器 → 登陸站 → 海纜 A（直達）或 B（經日本）→ 美國西岸 → 兩條陸路 → 波士頓。「弄丟一個封包」在美西路由器丟掉第 ⌈60%⌉ 號；「剪斷海纜 A」全部改走 B。`src/netcalc.js`（MTU 1,500 位元組、3 MB 約 2,000 封包、光纖約 20.4 萬 km/s、彰化—波士頓直線 12,532 km、`reassemble`）；`test/internet.test.mjs`。通訊軟體伺服器的位置是簡化的，課文沒寫它在哪裡（查不到可靠來源）。
+  - 卡片 `parts` 可用 `demo`（`text`／`photo`／`lose`／`cut`）直接示範。
+  - 除錯：`document.querySelector('[data-internet-lab]').__lab`（`send('text'|'photo')`、`setLose(bool)`、`setCut(bool)`、`state.auto = false`、`run(秒)`、`render()`）。
 - 多個 session 同時改 build.py 時，本系列改在 scratchpad 的 git worktree（從 origin/main 開分支）做，`audio` 用 symlink 指到 `~/Documents/twrses/audio`（symlink 不會被 .gitignore 的 `audio/` 擋，**不要 add**），做完 rebase 再 `git push origin HEAD:main`。
 - 瀏覽器面板在背景時 `visibilityState` 是 hidden，IntersectionObserver 不觸發、截圖是空白：點一下頁面上的「在模型中看」按鈕就會直接初始化，截圖改用無頭 Chrome（playwright-core＋本機 Chrome，`--use-angle=swiftshader`）。
 - 🔊 錄音：`python3 tools/gen_audio.py --page resources/classes/how-things-work/<slug>` → `./tools/upload_audio.sh`，manifest 命名 `how-things-work-<slug>`。檢查線上 200 要帶瀏覽器 UA（Python 預設 UA 會被 r2.dev 擋成 403）。
