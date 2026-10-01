@@ -194,6 +194,11 @@
   - `src/skycalc.js`：`airMass`（Kasten & Young 1989）、`tauAt`（0.145×(500/λ)^4.05，綠光約 0.1）、`transmit`、`skyRadiance`（平行平面、單次散射的解析式）、`sunSpectrum`（5,778 K 黑體）、`toRGB`（**保留色相**：先算比例、再用最亮通道決定亮度；直接逐通道 1−e^(−x) 會全部洗成白色）。`test/sky.test.mjs`：(700/450)⁴≈5.86、空氣質量 1／2／38、日落藍光 <1%、紅光 >10%、中午天空藍>綠>紅、沒大氣全黑、日落太陽紅>綠>藍。
   - 卡片 `demo`：noon／afternoon／sunset／moon（關大氣）。窄螢幕隱藏「穿過幾倍空氣」標籤（會蓋到「彰化的你」），數字看右側面板。
   - 除錯：`document.querySelector('[data-skyblue-lab]').__lab`（`setElev(0–90)`、`setAir(bool)`、`state.photons`、`photons`（陣列）、`run(秒)`、`render()`）。
+- 第十課彩虹（`rainbow-drops.js`，`lab.kind = "rainbow"`，`data-rainbow-lab`，CSS 前綴 `rb-`）：一個機制——光進雨滴轉彎、背面反射、出來再轉彎；水對各色折射率不同，各色回頭角度不同、都擠在約 42°（主虹 θ＝4r−2i 的最大值；副虹 180°+2i−6r 的最小值約 50–52°、顏色相反）。**兩個視角**（`data-view`）：「你和雨」（你在原點面向 +z、太陽在背後、20 公尺外 36,000 顆落雨，每顆依「與太陽正對面的夾角」上色）與「一顆雨滴」（放大的 2D 剖面放在 `DROP_AT`＝(300,0,0)，免得和雨幕疊在一起）。滑桿依視角切換（`.rb-v-sky`／`.rb-v-drop` 隱藏另一條）。
+  - `src/rainbowcalc.js`：`nWater`（Cauchy 兩點擬合 Wikipedia 的 750 nm 1.330／350 nm 1.343）、`primaryAngle`、`rainbowAngle`、`secondaryRainbowAngle`、`primaryPath`（Snell 向量式的 2D 光路）。`test/rainbow.test.mjs`：綠光約 42°、b≈0.86、750 nm 42.5°／350 nm 40.6°（對上 Wikipedia）、副虹 50–53°、光路出射角等於公式。
+  - 坑：**Line 的點數要一開始就給對**（`setFromPoints` 只更新、不加大緩衝區，4 點的光路用 2 點建會狂噴 “Buffer size too small” 警告）；雨幕要「暗雨、亮虹」：PointsMaterial 的頂點色是線性值，0.045 在畫面上已經是灰色，未照到的雨滴要 0.01 左右，否則彩虹被淹沒；`$('.rb-k2')` 撞到兩個元素（標題和 dt）——同一個 class 不要給兩種元素。
+  - 卡片 `demo`：drop／rays／bow／high（另有 double，供除錯）。
+  - 除錯：`document.querySelector('[data-rainbow-lab]').__lab`（`setView('sky'|'drop')`、`setSun(0–60)`、`setB(0–0.99)`、`setRays(bool)`、`setSecond(bool)`、`BOW`、`BOW2`、`run(秒)`、`render()`）。
 - 上傳錄音時若出現大量「not found locally」：多半是天文 session 在 ~/Developer 那份 clone 產生、已上傳的句子（worktree 的快取沒有它們）。算出「manifest 裡有、快取裡沒有」的雜湊，逐一 curl 確認線上 200 即可。
 - 多個 session 同時改 build.py 時，本系列改在 scratchpad 的 git worktree（從 origin/main 開分支）做，`audio` 用 symlink 指到 `~/Documents/twrses/audio`（symlink 不會被 .gitignore 的 `audio/` 擋，**不要 add**），做完 rebase 再 `git push origin HEAD:main`。
 - 瀏覽器面板在背景時 `visibilityState` 是 hidden，IntersectionObserver 不觸發、截圖是空白：點一下頁面上的「在模型中看」按鈕就會直接初始化，截圖改用無頭 Chrome（playwright-core＋本機 Chrome，`--use-angle=swiftshader`）。
