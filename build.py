@@ -4918,7 +4918,7 @@ def build_body_hub():
 # 3D 原始碼在 tools/science/src/（three.js、esbuild，每課一個入口），打包成 assets/js/<入口>.js；
 # 面板、迷思、口訣、活動沿用 astro.css，本系列多出來的在 science.css；兩者都只載在本系列頁面。
 HTW_BASE = "/resources/classes/how-things-work/"
-_HTW_JS = {"battery": "battery", "generator": "generator", "solar": "solar-cell", "wind": "wind-turbine", "internet": "internet-packets", "signal": "cell-signal", "gps": "gps-satellites", "memory": "memory-bits"}   # lab.kind → assets/js/<bundle>.js
+_HTW_JS = {"battery": "battery", "generator": "generator", "solar": "solar-cell", "wind": "wind-turbine", "internet": "internet-packets", "signal": "cell-signal", "gps": "gps-satellites", "memory": "memory-bits", "sky": "sky-scatter"}   # lab.kind → assets/js/<bundle>.js
 
 def _htw_cn(n):
     """課次的中文數字（一～九十九）：第十一課、第二十課。"""
@@ -5402,6 +5402,55 @@ def render_memory_lab(lesson):
   <p class="bt-credit">{lab["credit_html"]}</p>
 </div>'''
 
+def skyblue_svg(size=56):
+    """藍天小圖（萬物原理首頁的課程卡）：上藍下橙的天空、地平線上的太陽與散開的藍光點。"""
+    dots = "".join(f'<circle cx="{x}" cy="{y}" r="1.6" fill="#7fb6ff"/>' for x, y in ((14, 14), (24, 9), (37, 15), (46, 8), (30, 21), (18, 25)))
+    return (f'<svg class="skyblue-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">'
+            '<defs><linearGradient id="skyb" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2f78d6"/><stop offset=".62" stop-color="#8cc4ff"/><stop offset=".86" stop-color="#ffb05a"/></linearGradient></defs>'
+            f'<rect x="4" y="4" width="52" height="44" rx="8" fill="url(#skyb)"/>{dots}'
+            '<circle cx="40" cy="45" r="7" fill="#ff7a3c"/><rect x="4" y="45" width="52" height="11" rx="3" fill="#2f5b3c"/></svg>')
+
+def render_skyblue_lab(lesson):
+    """第九課：陽光在大氣裡散射（assets/js/sky-scatter.js 綁這裡的 class；全部自繪示意）。"""
+    lab = lesson["lab"]
+    tg = _lab_toggles([("labels", "Labels", "標示", True), ("air", "Air", "大氣", True), ("photons", "Light particles", "光子", True)])
+    return f'''<div class="astro-lab bt-lab bs-lab rvl" data-skyblue-lab>
+  <div class="al-stage">
+    <div class="al-space">
+      <canvas class="al-space-cv" aria-label="3D model of sunlight crossing the air, with blue light scattered in every direction · 陽光穿過大氣、藍光被散射到四面八方的 3D 模型"></canvas>
+      <div class="al-labels" aria-hidden="true"></div>
+      <p class="bt-cut">The air is drawn far thicker than real, and the light is slowed down · 大氣畫得比真的厚很多，光也放慢了</p>
+      <p class="al-hint">Drag to turn · 拖曳旋轉　Scroll or pinch to zoom · 滾輪／雙指縮放</p>
+      <button type="button" class="al-home" title="Reset view · 重設視角" aria-label="Reset view · 重設視角">&#8634;</button>
+      <p class="al-nogl-msg">This 3D model needs WebGL, which this browser does not support. The reading and the cards below still explain everything.<br><span class="zh">這個瀏覽器不支援 WebGL，無法顯示 3D 模型；下方的課文與卡片一樣能看懂。</span></p>
+    </div>
+    <aside class="al-sky bt-aside bs-aside">
+      <div class="bs-top">
+        <p class="al-sky-k">What you see · 你看到的天空</p>
+        <div class="bs-viewbox"><canvas class="bs-view" aria-label="The sky and the Sun as seen from Changhua · 從彰化看到的天空和太陽"></canvas><span class="bs-when"></span></div>
+        <dl class="bt-nums bs-nums">
+          <div><dt>Air crossed · 穿過的空氣</dt><dd class="bs-am"></dd></div>
+          <div><dt>Blue that gets through · 藍光直達</dt><dd class="bs-blue"></dd></div>
+          <div><dt>Red that gets through · 紅光直達</dt><dd class="bs-red"></dd></div>
+        </dl>
+        <p class="al-sky-k bs-k2">Sunlight reaching you directly · 直接到達的陽光</p>
+        <ul class="bs-bars"></ul>
+      </div>
+      <p class="bt-msg bs-msg" aria-live="polite"></p>
+    </aside>
+  </div>
+  <div class="al-controls">
+    <div class="al-row al-row-main">
+      <button type="button" class="al-play" aria-pressed="true"><span class="al-play-i" aria-hidden="true"></span><span class="al-play-t">Pause · 暫停</span></button>
+      <label class="al-slider bs-elev-row"><span>Sun height · 太陽高度 <output class="bs-elev-out"></output></span>
+        <input type="range" class="al-age bs-elev" min="0" max="90" step="0.5" value="60"></label>
+    </div>
+    <div class="al-row al-toggles">{tg}</div>
+  </div>
+  {_lab_foot(lab)}
+  <p class="bt-credit">{lab["credit_html"]}</p>
+</div>'''
+
 def _htw_flat():
     return [(ui, u, l) for ui, u in enumerate(HTW["units"]) for l in u["lessons"]]
 
@@ -5429,7 +5478,7 @@ def build_htw_lesson(ui, unit, lesson):
     reading_html = render_basic_unit(1, unit_dict, level="htw", audio_rel="", pdf_rel="")
     lab = lesson["lab"]
     kind = lab["kind"]
-    lab_html = {"battery": render_battery_lab, "generator": render_generator_lab, "solar": render_solarcell_lab, "wind": render_windturbine_lab, "internet": render_internet_lab, "signal": render_cellsignal_lab, "gps": render_gps_lab, "memory": render_memory_lab}[kind](lesson)
+    lab_html = {"battery": render_battery_lab, "generator": render_generator_lab, "solar": render_solarcell_lab, "wind": render_windturbine_lab, "internet": render_internet_lab, "signal": render_cellsignal_lab, "gps": render_gps_lab, "memory": render_memory_lab, "sky": render_skyblue_lab}[kind](lesson)
 
     secs = []
     if lesson.get("mix"):
@@ -5493,7 +5542,8 @@ def build_htw_lesson(ui, unit, lesson):
                 "internet": ("The internet in a sentence", "一句話記住網際網路"),
                 "signal": ("Phone signals in a sentence", "一句話記住手機訊號"),
                 "gps": ("GPS in a sentence", "一句話記住 GPS"),
-                "memory": ("Memory in a sentence", "一句話記住記憶體")}[kind]
+                "memory": ("Memory in a sentence", "一句話記住記憶體"),
+                "sky": ("The blue sky in a sentence", "一句話記住藍天")}[kind]
     secs.append(("tricks", "Remember It · 記憶口訣", tricks_h[0], tricks_h[1], _sci_tricks(lesson), ""))
     if lesson.get("safety"):
         items = "".join(f'<li class="rvl">{html.escape(s["en"])}<span class="zh">{html.escape(s["zh"])}</span></li>' for s in lesson["safety"])
@@ -5547,7 +5597,7 @@ def build_htw_lesson(ui, unit, lesson):
 def build_htw_hub():
     # 照中醫養生：單元導覽＋每個單元一段橫向課程卡；做好的課可點，planned 是「製作中」卡。
     def icon(l):
-        return battery_svg(60) if l.get("card") == "battery" else outlet_svg(60) if l.get("card") == "outlet" else solarpanel_svg(60) if l.get("card") == "solar" else windturbine_svg(60) if l.get("card") == "wind" else internet_svg(60) if l.get("card") == "internet" else cellsignal_svg(60) if l.get("card") == "signal" else gps_svg(60) if l.get("card") == "gps" else memory_svg(60) if l.get("card") == "memory" else l["icon"]
+        return battery_svg(60) if l.get("card") == "battery" else outlet_svg(60) if l.get("card") == "outlet" else solarpanel_svg(60) if l.get("card") == "solar" else windturbine_svg(60) if l.get("card") == "wind" else internet_svg(60) if l.get("card") == "internet" else cellsignal_svg(60) if l.get("card") == "signal" else gps_svg(60) if l.get("card") == "gps" else memory_svg(60) if l.get("card") == "memory" else skyblue_svg(60) if l.get("card") == "sky" else l["icon"]
     unit_sections, nav = [], []
     done = sum(len(u["lessons"]) for u in HTW["units"])
     total = done + sum(len(u.get("planned", [])) for u in HTW["units"])

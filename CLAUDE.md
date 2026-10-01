@@ -190,6 +190,10 @@
   - 查證教訓：英特爾 1103（1970，1,024 位元）用的是**三電晶體**格子，不是一電晶體＋電容；後者是丹納德 1966 的設計，現代 DRAM 才用。課文只說 1103 開始取代磁芯記憶體。
   - 窄螢幕：字的標籤只顯示字本身（不顯示「3 bytes」與「…」，否則蓋住最右一行杯子）；「一格＝1 位元」等說明標籤隱藏。全部 0 讀回來時顯示「All 0s · 全部是 0」（不要顯示一排 NUL）。
   - 除錯：`document.querySelector('[data-memory-lab]').__lab`（`write(文字)`、`read()`、`setKind('dram'|'flash')`、`setPower(bool)`、`setRefresh(bool)`、`demo(名稱)`、`cells[排][格].q`、`run(秒)`、`render()`）。
+- 第九課藍天（`sky-scatter.js`，`lab.kind = "sky"`，`data-skyblue-lab`，CSS 前綴 `bs-`；**單元三第一課，資料在 `units[2]`**）：一個機制——空氣分子把短波長的藍光散射得比紅光多（∝ λ⁻⁴），被散射的藍光從天空四面八方射向你；太陽越低、穿過的空氣越多（地平線約 38 倍），藍光在路上散光，剩下紅橙。場景側面看地球弧（半徑 14）與誇大的大氣（厚 2.2、尺度高度 0.7），太陽在 10.5 單位處（要在畫面裡，光子從太陽射出才看得懂）；光子五色，散射機率＝β₀(530/λ)⁴·密度·路徑，散射後轉隨機方向並在 1.4 秒內淡出（不然滿天彩色碎紙）。右側「你看到的天空」是 2D canvas，顏色由 `skycalc.js` 算。
+  - `src/skycalc.js`：`airMass`（Kasten & Young 1989）、`tauAt`（0.145×(500/λ)^4.05，綠光約 0.1）、`transmit`、`skyRadiance`（平行平面、單次散射的解析式）、`sunSpectrum`（5,778 K 黑體）、`toRGB`（**保留色相**：先算比例、再用最亮通道決定亮度；直接逐通道 1−e^(−x) 會全部洗成白色）。`test/sky.test.mjs`：(700/450)⁴≈5.86、空氣質量 1／2／38、日落藍光 <1%、紅光 >10%、中午天空藍>綠>紅、沒大氣全黑、日落太陽紅>綠>藍。
+  - 卡片 `demo`：noon／afternoon／sunset／moon（關大氣）。窄螢幕隱藏「穿過幾倍空氣」標籤（會蓋到「彰化的你」），數字看右側面板。
+  - 除錯：`document.querySelector('[data-skyblue-lab]').__lab`（`setElev(0–90)`、`setAir(bool)`、`state.photons`、`photons`（陣列）、`run(秒)`、`render()`）。
 - 上傳錄音時若出現大量「not found locally」：多半是天文 session 在 ~/Developer 那份 clone 產生、已上傳的句子（worktree 的快取沒有它們）。算出「manifest 裡有、快取裡沒有」的雜湊，逐一 curl 確認線上 200 即可。
 - 多個 session 同時改 build.py 時，本系列改在 scratchpad 的 git worktree（從 origin/main 開分支）做，`audio` 用 symlink 指到 `~/Documents/twrses/audio`（symlink 不會被 .gitignore 的 `audio/` 擋，**不要 add**），做完 rebase 再 `git push origin HEAD:main`。
 - 瀏覽器面板在背景時 `visibilityState` 是 hidden，IntersectionObserver 不觸發、截圖是空白：點一下頁面上的「在模型中看」按鈕就會直接初始化，截圖改用無頭 Chrome（playwright-core＋本機 Chrome，`--use-angle=swiftshader`）。

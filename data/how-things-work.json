@@ -4060,14 +4060,498 @@
       "title_zh": "光與聲音",
       "blurb_en": "Why the sky is blue, where rainbows come from, and how sounds and pictures are captured.",
       "blurb_zh": "天空為什麼是藍的、彩虹從哪裡來，聲音和影像怎麼被捕捉下來。",
-      "lessons": [],
-      "planned": [
+      "lessons": [
         {
           "n": 9,
+          "slug": "blue-sky",
+          "title": "Why Is the Sky Blue?",
+          "title_zh": "天空為什麼是藍色的？",
+          "level": "入門 · Beginner",
           "icon": "🌤️",
-          "en": "Why Is the Sky Blue?",
-          "zh": "天空為什麼是藍色的？"
-        },
+          "card": "sky",
+          "blurb_en": "Sunlight looks white, so why is the sky blue and the sunset red? Watch light cross the air in 3D, slide the Sun down to the horizon, and see the sky change color over Changhua.",
+          "blurb_zh": "陽光看起來是白的，天空為什麼是藍的、夕陽又為什麼是紅的？在 3D 裡看光穿過大氣，把太陽拉到地平線，看彰化的天空怎麼變色。",
+          "big_idea_en": "Sunlight is every color mixed together. Air molecules are much smaller than light waves, and they scatter short blue waves several times more than long red ones, so blue light reaches your eyes from every part of the sky. At sunset, sunlight crosses far more air, the blue is scattered away on the way, and the light that is left is orange and red.",
+          "big_idea_zh": "陽光是各種顏色混在一起的光。空氣分子比光的波長小很多，把波長短的藍光散射得比波長長的紅光多好幾倍，所以天空的每個方向都有藍光射進你的眼睛。日落時陽光要穿過多得多的空氣，藍光在半路就被散射掉，剩下的就是橙色和紅色。",
+          "lab": {
+            "kind": "sky",
+            "eyebrow": "3D Model · 3D 模型",
+            "title_en": "Sunlight Through the Air",
+            "title_zh": "陽光穿過大氣",
+            "how_en": "Drag to turn the model, and scroll or pinch to zoom. Slide the Sun from high in the sky down to the horizon and watch the colored light particles: blue ones bounce off in every direction, while red ones mostly keep going straight. The small window shows the sky and the Sun as you would see them from Changhua. Turn off the air to see a sky like the Moon's.",
+            "how_zh": "拖曳可以旋轉模型，滾輪或雙指可以縮放。把太陽從高空拉到地平線，看彩色的光子：藍色的往四面八方彈開，紅色的大多直直往前走。右邊的小窗是你在彰化會看到的天空和太陽。關掉「大氣」，看看像月球那樣的天空。",
+            "legend": [
+              {
+                "cls": "bsblue",
+                "en": "Blue dots: blue light, which the air scatters several times more than red",
+                "zh": "藍點：藍光，空氣散射它比紅光多好幾倍"
+              },
+              {
+                "cls": "bsred",
+                "en": "Red dots: red light, which mostly passes straight through",
+                "zh": "紅點：紅光，大多直直穿過去"
+              },
+              {
+                "cls": "bspath",
+                "en": "Dashed line: the sunlight's path through the air to you",
+                "zh": "虛線：陽光穿過大氣到你這裡的路"
+              },
+              {
+                "cls": "bsair",
+                "en": "Blue shell: the air, drawn much thicker than real",
+                "zh": "藍色外殼：大氣，畫得比真的厚很多"
+              }
+            ],
+            "scale_en": "A diagram: compared with Earth, the air is drawn many times thicker than it really is, and the light particles move slowly so you can follow them. Only five colors are shown. The numbers and the colors in the small window are calculated for clean air, counting each bounce once; real skies also have dust, smoke, and clouds, which can make sunsets redder or duller.",
+            "scale_zh": "這是示意圖：和地球相比，大氣畫得比真的厚很多倍，光子也走得很慢，讓你跟得上。只畫了五種顏色。小窗裡的數字和顏色是用乾淨空氣、每道光只彈一次算出來的；真正的天空還有灰塵、煙和雲，夕陽可能更紅，也可能更暗淡。",
+            "credit_html": "Model drawn by My Culture Connect as a teaching diagram. Scattering facts from <a href=\"https://spaceplace.nasa.gov/blue-sky/en/\" target=\"_blank\" rel=\"noopener\">NASA Space Place</a> and the <a href=\"https://math.ucr.edu/home/baez/physics/General/BlueSky/blue_sky.html\" target=\"_blank\" rel=\"noopener\">UC Riverside Physics FAQ</a>; the amount of air at each Sun height uses the Kasten and Young (1989) formula. · 模型由人師教育協會自繪示意；散射依 NASA Space Place 與加州大學河濱分校物理 FAQ，太陽在各高度穿過的空氣量用 Kasten 與 Young（1989）的公式。"
+          },
+          "paras": [
+            "Look up on a clear day in Changhua, and the sky is bright blue. Wait until evening, stand on the coast facing the Taiwan Strait, and the setting Sun glows orange and red. But sunlight looks white, and the air looks clear. So where does the blue come from, and why does the Sun change color at the end of the day?",
+            "In 1672, Isaac Newton reported that a glass prism splits white sunlight into a rainbow of colors. White light is really every color mixed together. Each color is a light wave with its own length: red waves are the longest we can see, and blue and violet waves are the shortest. In 1859, John Tyndall showed that tiny particles scatter blue light more than red, and in 1871, Lord Rayleigh worked out the exact rule.",
+            "Here is Rayleigh's rule. Air molecules are far smaller than light waves. When sunlight hits them, they scatter a little of it in every direction, and the shorter the wave, the more it is scattered. Blue light is scattered several times more than red light. As sunlight crosses the air, blue light bounces off in all directions, so wherever you look in the sky, blue light is coming toward your eyes.",
+            "Violet waves are even shorter, so why isn't the sky violet? Sunlight has less violet than blue to begin with, some violet is absorbed high in the air, and our eyes are less sensitive to violet. The mix that reaches us looks sky blue. Clouds are different. Their water droplets are much bigger than light waves, so they scatter all colors about equally, and clouds look white or gray.",
+            "At sunset, sunlight arrives almost sideways. Instead of crossing the air straight down, it travels through up to about 38 times as much air. Along that long path, almost all the blue is scattered away, and mostly orange and red light reaches you. Dust and smoke can make sunsets even redder. This reddened light even reaches the Moon during a total lunar eclipse and turns it a coppery red, as you learned in the astronomy series.",
+            "Without air, there would be no blue sky. On the Moon, which has almost no air, the sky is black even in the daytime. On Mars, the thin air is full of fine dust, so the daytime sky looks orange or reddish, and the sky around the setting Sun turns blue-gray, the opposite of Earth. Next time you see a blue sky or a red sunset, remember that you are seeing sunlight bounce off the air above you."
+          ],
+          "paras_zh": [
+            "晴天在彰化抬頭看，天空是亮亮的藍色。等到傍晚，站在面向台灣海峽的海邊，落日發出橙紅的光。可是陽光看起來是白的，空氣看起來是透明的。藍色到底從哪裡來？太陽在一天結束時又為什麼變了顏色？",
+            "1672 年，牛頓發表：一塊玻璃稜鏡能把白色的陽光分成彩虹般的顏色。白光其實是所有顏色混在一起。每種顏色都是一種光波，有自己的波長：紅光是我們看得到的光裡波長最長的，藍光和紫光最短。1859 年，丁達爾發現細小的微粒散射藍光比紅光多；1871 年，瑞利找出了確切的規則。",
+            "瑞利的規則是這樣的：空氣分子比光的波長小很多很多。陽光碰到它們，就有一點點被散射到四面八方，而且波越短，被散射得越多。藍光被散射的量是紅光的好幾倍。陽光穿過空氣時，藍光往四處彈開，所以不管你看向天空的哪裡，都有藍光朝你的眼睛射過來。",
+            "紫光的波更短，天空為什麼不是紫色的？因為陽光裡的紫光本來就比藍光少，有些紫光在高空就被吸收了，我們的眼睛對紫光也比較不敏感。最後進到眼睛的混合光，看起來就是天藍色。雲就不一樣了：雲裡的小水滴比光的波長大很多，各種顏色都散射得差不多，所以雲看起來是白色或灰色。",
+            "日落時，陽光幾乎是橫著照過來的。它不是垂直穿過空氣，而是要穿過最多約 38 倍的空氣。在這麼長的路上，藍光幾乎全被散射掉，到達你眼前的大多是橙光和紅光。灰塵和煙會讓夕陽更紅。這些變紅的光甚至會照到月亮上：月全食時月亮變成古銅紅色，就是天文系列講過的那件事。",
+            "沒有空氣，就沒有藍天。月球幾乎沒有空氣，就算是白天，天空也是黑的。火星的空氣很稀薄、又充滿細細的灰塵，所以白天的天空是橙色或偏紅，落日旁邊的天空反而變成藍灰色，正好和地球相反。下次看到藍天或紅色的夕陽，記得：你看到的是陽光在你頭頂的空氣裡彈來彈去。"
+          ],
+          "questions": [
+            "Why does the air scatter blue light more than red light?",
+            "If violet light is scattered even more, why isn't the sky violet?",
+            "Why does the Sun look orange or red at sunset?"
+          ],
+          "answers": [
+            "Air molecules are much smaller than light waves, and the shorter the wave, the more it is scattered. Blue waves are shorter than red waves.",
+            "Sunlight has less violet than blue, some violet is absorbed high in the air, and our eyes are less sensitive to violet.",
+            "At sunset, sunlight crosses up to about 38 times as much air, so almost all the blue is scattered away before it reaches you, leaving mostly orange and red."
+          ],
+          "vocab": [
+            {
+              "n": 1,
+              "w": "scatter",
+              "pos": "v.",
+              "zh": "散開；散射",
+              "ex": "The wind <b>scattered</b> the leaves across the yard.",
+              "exzh": "風把葉子吹得滿院子都是。"
+            },
+            {
+              "n": 2,
+              "w": "prism",
+              "pos": "n.",
+              "zh": "稜鏡",
+              "ex": "A glass <b>prism</b> splits sunlight into colors.",
+              "exzh": "玻璃稜鏡能把陽光分成好幾種顏色。"
+            },
+            {
+              "n": 3,
+              "w": "molecule",
+              "pos": "n.",
+              "zh": "分子",
+              "ex": "A water <b>molecule</b> has two hydrogen atoms and one oxygen atom.",
+              "exzh": "一個水分子有兩個氫原子和一個氧原子。"
+            },
+            {
+              "n": 4,
+              "w": "horizon",
+              "pos": "n.",
+              "zh": "地平線",
+              "ex": "The ship slowly disappeared over the <b>horizon</b>.",
+              "exzh": "船慢慢消失在地平線的另一頭。"
+            },
+            {
+              "n": 5,
+              "w": "path",
+              "pos": "n.",
+              "zh": "路徑；小路",
+              "ex": "The bike <b>path</b> runs along the river.",
+              "exzh": "這條自行車道沿著河邊延伸。"
+            },
+            {
+              "n": 6,
+              "w": "sensitive",
+              "pos": "adj.",
+              "zh": "敏感的",
+              "ex": "My eyes are <b>sensitive</b> to bright light.",
+              "exzh": "我的眼睛對強光很敏感。"
+            },
+            {
+              "n": 7,
+              "w": "dust",
+              "pos": "n.",
+              "zh": "灰塵",
+              "ex": "There is <b>dust</b> on the old bookshelf.",
+              "exzh": "舊書架上積了一層灰塵。"
+            },
+            {
+              "n": 8,
+              "w": "opposite",
+              "pos": "n.",
+              "zh": "相反",
+              "ex": "Hot is the <b>opposite</b> of cold.",
+              "exzh": "熱是冷的相反。"
+            }
+          ],
+          "quiz": [
+            {
+              "q": "What is sunlight made of?",
+              "options": [
+                "All colors mixed together",
+                "Only yellow light",
+                "Only blue light",
+                "No color at all"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "Which light does the air scatter more?",
+              "options": [
+                "Blue light",
+                "Red light",
+                "Both exactly the same",
+                "Neither of them"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "Who worked out the rule for the blue sky in 1871?",
+              "options": [
+                "Lord Rayleigh",
+                "Isaac Newton",
+                "Albert Einstein",
+                "Marie Curie"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "Why are clouds white?",
+              "options": [
+                "Their water drops scatter all colors about equally",
+                "They are made of snow",
+                "They reflect the white ground",
+                "They have no water in them"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "What color is the daytime sky on the Moon?",
+              "options": [
+                "Black",
+                "Blue",
+                "Red",
+                "Green"
+              ],
+              "correct": 0
+            }
+          ],
+          "parts_head": {
+            "eyebrow": "Try It in the Model · 在模型裡試試",
+            "en": "Four skies",
+            "zh": "四種天空"
+          },
+          "parts": [
+            {
+              "key": "noon",
+              "icon": "☀️",
+              "en": "Midday",
+              "zh": "中午",
+              "meta_en": "Sun 75° high",
+              "meta_zh": "太陽高 75°",
+              "demo": "noon",
+              "text_en": "Sunlight crosses the least air. Blue scatters all over the sky, and the Sun looks white.",
+              "text_zh": "陽光穿過的空氣最少。藍光散滿天空，太陽看起來是白的。"
+            },
+            {
+              "key": "afternoon",
+              "icon": "🌤️",
+              "en": "Late afternoon",
+              "zh": "午後",
+              "meta_en": "Sun 25° high · 2.4× the air",
+              "meta_zh": "太陽高 25°・2.4 倍的空氣",
+              "demo": "afternoon",
+              "text_en": "The path is longer, so the Sun turns yellow and the sky near the horizon grows paler.",
+              "text_zh": "路變長了，太陽開始變黃，地平線附近的天空變淡。"
+            },
+            {
+              "key": "sunset",
+              "icon": "🌇",
+              "en": "Sunset",
+              "zh": "日落",
+              "meta_en": "Up to about 38× the air",
+              "meta_zh": "最多約 38 倍的空氣",
+              "demo": "sunset",
+              "text_en": "Almost all the blue is scattered away on the long path, and red and orange light reaches you.",
+              "text_zh": "藍光幾乎全在長長的路上被散射掉，到達你這裡的是紅光和橙光。"
+            },
+            {
+              "key": "moon",
+              "icon": "🌑",
+              "en": "No air, like the Moon",
+              "zh": "沒有空氣，像月球",
+              "meta_en": "Nothing to scatter",
+              "meta_zh": "沒有東西散射",
+              "demo": "moon",
+              "text_en": "With no air, the sky stays black, even with the Sun up.",
+              "text_zh": "沒有空氣，就算太陽高掛，天空還是黑的。"
+            }
+          ],
+          "parts_note_en": "The same reddened sunlight is what turns the Moon coppery red during a total lunar eclipse.",
+          "parts_note_zh": "月全食時把月亮照成古銅紅色的，就是這種變紅的陽光。",
+          "facts": {
+            "eyebrow": "The Sky by the Numbers · 天空的數字",
+            "en": "Numbers behind the colors",
+            "zh": "顏色背後的數字",
+            "lead_en": "A few numbers explain both the blue sky and the red sunset.",
+            "lead_zh": "幾個數字，就能說明藍天和紅色的夕陽。",
+            "items": [
+              {
+                "big": "5.9×",
+                "unit_en": "more scattering for blue",
+                "unit_zh": "藍光多散射的倍數",
+                "en": "Blue light at 450 nm is scattered about 5.9 times more than red at 700 nm, because (700 ÷ 450)⁴ ≈ 5.9.",
+                "zh": "450 奈米的藍光，散射量約是 700 奈米紅光的 5.9 倍，因為 (700 ÷ 450)⁴ ≈ 5.9。"
+              },
+              {
+                "big": "38×",
+                "unit_en": "the air at the horizon",
+                "unit_zh": "地平線方向的空氣量",
+                "en": "Near the horizon, sunlight crosses about 38 times as much air as when the Sun is straight overhead.",
+                "zh": "太陽在地平線附近時，陽光穿過的空氣約是太陽在正上方時的 38 倍。"
+              },
+              {
+                "big": "1672",
+                "unit_en": "Newton's prism",
+                "unit_zh": "牛頓的稜鏡",
+                "en": "Newton reported that a prism splits white sunlight into colors.",
+                "zh": "牛頓發表：稜鏡能把白色的陽光分成各種顏色。"
+              },
+              {
+                "big": "1859",
+                "unit_en": "Tyndall's experiments",
+                "unit_zh": "丁達爾的實驗",
+                "en": "John Tyndall showed that tiny particles scatter blue light more than red.",
+                "zh": "丁達爾發現細小微粒散射藍光比紅光多。"
+              },
+              {
+                "big": "1871",
+                "unit_en": "Rayleigh's rule",
+                "unit_zh": "瑞利的規則",
+                "en": "Lord Rayleigh explained the blue sky with the rule that shorter waves scatter much more.",
+                "zh": "瑞利用「波越短、散射越多」的規則解釋了藍天。"
+              }
+            ]
+          },
+          "myths": [
+            {
+              "myth_en": "The sky is blue because it reflects the ocean.",
+              "myth_zh": "天空是藍的，因為它反射了海洋。",
+              "fact_en": "The sky is blue over deserts and mountains too. The blue comes from the air scattering sunlight.",
+              "fact_zh": "沙漠和高山上的天空一樣是藍的。藍色來自空氣散射陽光。"
+            },
+            {
+              "myth_en": "The Sun turns orange at sunset because it cools down in the evening.",
+              "myth_zh": "夕陽是橙色的，因為太陽傍晚會變涼。",
+              "fact_en": "The Sun does not change. Its light crosses much more air, and the blue is scattered away on the way.",
+              "fact_zh": "太陽本身沒有變。是它的光穿過了更多空氣，藍光在半路被散射掉。"
+            },
+            {
+              "myth_en": "Space is dark because there is no sunlight there.",
+              "myth_zh": "太空是黑的，因為那裡沒有陽光。",
+              "fact_en": "Sunlight fills space, but with no air to scatter it toward your eyes, the sky looks black.",
+              "fact_zh": "太空裡到處都有陽光，只是沒有空氣把光散射到你眼裡，所以天空看起來是黑的。"
+            },
+            {
+              "myth_en": "Clouds are white because they are full of white smoke.",
+              "myth_zh": "雲是白的，因為裡面都是白煙。",
+              "fact_en": "Clouds are made of tiny water droplets or ice crystals. They are bigger than light waves, so they scatter all colors about equally.",
+              "fact_zh": "雲是由小水滴或小冰晶組成的。它們比光的波長大，各種顏色都散射得差不多。"
+            }
+          ],
+          "tricks": [
+            {
+              "title_en": "Short waves scatter more",
+              "title_zh": "波越短，散得越多",
+              "body_en": "Blue light has short waves, so the air bounces it around the most.",
+              "body_zh": "藍光的波短，所以被空氣彈得最多。"
+            },
+            {
+              "title_en": "Blue everywhere, red straight ahead",
+              "title_zh": "藍光四散，紅光直走",
+              "body_en": "Scattered blue fills the sky; red mostly goes straight through.",
+              "body_zh": "散開的藍光布滿天空；紅光大多直直穿過。"
+            },
+            {
+              "title_en": "Longer path, redder Sun",
+              "title_zh": "路越長，太陽越紅",
+              "body_en": "At sunset, light crosses up to about 38 times as much air.",
+              "body_zh": "日落時，光要穿過最多約 38 倍的空氣。"
+            },
+            {
+              "title_en": "No air, no blue",
+              "title_zh": "沒有空氣，就沒有藍天",
+              "body_en": "On the Moon, the daytime sky is black.",
+              "body_zh": "在月球上，白天的天空是黑的。"
+            }
+          ],
+          "safety": [
+            {
+              "en": "Never look straight at the Sun, even at sunrise or sunset. It can permanently damage your eyes.",
+              "zh": "絕不直視太陽，日出、日落時也一樣，可能會永久傷害眼睛。"
+            },
+            {
+              "en": "Never look at the Sun through binoculars, a telescope, or a camera viewfinder.",
+              "zh": "絕不透過雙筒望遠鏡、天文望遠鏡或相機的觀景窗看太陽。"
+            },
+            {
+              "en": "In the glass activity, use only a flashlight, and do not stare into it. Never shine a laser pointer at anyone's eyes.",
+              "zh": "杯子實驗只用手電筒，也不要盯著它看。絕不把雷射筆對著任何人的眼睛。"
+            },
+            {
+              "en": "Watch sunsets from a safe place with an adult, away from roads, cliffs, and the edge of the water.",
+              "zh": "看夕陽要和大人一起，待在安全的地方，遠離馬路、懸崖和水邊。"
+            },
+            {
+              "en": "On sunny days, wear a hat and sunscreen, and drink plenty of water.",
+              "zh": "大太陽的日子要戴帽子、擦防曬，多喝水。"
+            }
+          ],
+          "activities": [
+            {
+              "title_en": "Make a Sunset in a Glass",
+              "title_zh": "在杯子裡做一個夕陽",
+              "materials": [
+                {
+                  "en": "A tall clear glass or jar of water",
+                  "zh": "一個裝了水、透明的高玻璃杯或罐子"
+                },
+                {
+                  "en": "Milk and a teaspoon",
+                  "zh": "牛奶和一支茶匙"
+                },
+                {
+                  "en": "A bright white flashlight (a phone flashlight works)",
+                  "zh": "一支亮的白光手電筒（手機的手電筒也可以）"
+                },
+                {
+                  "en": "A white wall or a sheet of white paper",
+                  "zh": "一面白牆或一張白紙"
+                }
+              ],
+              "steps": [
+                {
+                  "en": "In a dark room, shine the flashlight through the side of the glass of plain water onto the white paper. What color is the spot of light?",
+                  "zh": "在暗暗的房間裡，用手電筒從側面照穿清水杯，照到白紙上。光點是什麼顏色？"
+                },
+                {
+                  "en": "Stir in half a teaspoon of milk. Look at the glass from the side: does the water glow a little blue?",
+                  "zh": "加半茶匙牛奶攪一攪。從側面看杯子：水是不是帶點藍色？"
+                },
+                {
+                  "en": "Now look at the spot on the paper. It turns yellow or orange, like the setting Sun.",
+                  "zh": "再看白紙上的光點：它變黃或變橙了，就像落日。"
+                },
+                {
+                  "en": "Add a little more milk at a time. The spot grows redder, just as a longer path through the air makes the Sun redder.",
+                  "zh": "一次多加一點牛奶，光點越來越紅，就像陽光穿過的空氣越多，太陽就越紅。"
+                }
+              ],
+              "tip_en": "The tiny fat drops in milk scatter blue light out of the beam, just as air does. If the colors are hard to see, use less milk and a brighter flashlight.",
+              "tip_zh": "牛奶裡的小油滴會把藍光散射出光束，就像空氣一樣。顏色不明顯的話，牛奶少一點、手電筒亮一點。"
+            },
+            {
+              "title_en": "Keep a Sky Color Diary",
+              "title_zh": "寫一本天空顏色日記",
+              "materials": [
+                {
+                  "en": "Colored pencils or paint color cards",
+                  "zh": "色鉛筆或油漆色卡"
+                },
+                {
+                  "en": "A notebook",
+                  "zh": "一本筆記本"
+                }
+              ],
+              "steps": [
+                {
+                  "en": "Choose one safe spot. At midday, in the late afternoon, and near sunset, color what the sky looks like straight overhead and near the horizon. Always face away from the Sun.",
+                  "zh": "選一個安全的地點，在中午、午後和接近日落時，各畫一次頭頂和地平線附近的天空顏色。一定要背對太陽。"
+                },
+                {
+                  "en": "Write down the weather each time: clear, hazy, or cloudy.",
+                  "zh": "每次記下天氣：晴朗、霧霧的、還是多雲。"
+                },
+                {
+                  "en": "Compare your pages. When is the sky overhead the deepest blue? When is the horizon palest or most orange?",
+                  "zh": "比較每一頁：頭頂的天空什麼時候最藍？地平線什麼時候最淡、最橙？"
+                },
+                {
+                  "en": "Compare your diary with the small window in the 3D model at the same Sun heights.",
+                  "zh": "把日記和 3D 模型小窗裡同樣太陽高度的天空比一比。"
+                }
+              ],
+              "tip_en": "Do this with an adult, and never look at the Sun itself.",
+              "tip_zh": "和大人一起做，絕對不要看太陽本身。"
+            }
+          ],
+          "sources": [
+            {
+              "en": "Blue light is scattered more; sunsets are red because light crosses more air; Mars has a reddish sky and blue-gray sunsets",
+              "zh": "藍光散射較多；夕陽紅是因為光穿過更多空氣；火星白天偏紅、日落藍灰",
+              "src": "NASA Space Place, “Why Is the Sky Blue?”",
+              "url": "https://spaceplace.nasa.gov/blue-sky/en/"
+            },
+            {
+              "en": "Why the sky is not violet; Tyndall (1859) and Rayleigh's fourth-power rule",
+              "zh": "天空為什麼不是紫色；丁達爾（1859）與瑞利的四次方規則",
+              "src": "UC Riverside Physics FAQ, “Why is the sky blue?”",
+              "url": "https://math.ucr.edu/home/baez/physics/General/BlueSky/blue_sky.html"
+            },
+            {
+              "en": "Rayleigh scattering is inversely proportional to the fourth power of the wavelength; Rayleigh's 1871 papers",
+              "zh": "瑞利散射與波長的四次方成反比；瑞利 1871 年的論文",
+              "src": "Wikipedia, “Rayleigh scattering”",
+              "url": "https://en.wikipedia.org/wiki/Rayleigh_scattering"
+            },
+            {
+              "en": "Newton first reported his prism experiments to the Royal Society in 1672",
+              "zh": "牛頓在 1672 年首次向皇家學會報告稜鏡實驗",
+              "src": "Wikipedia, “Opticks”",
+              "url": "https://en.wikipedia.org/wiki/Opticks"
+            },
+            {
+              "en": "Air mass reaches about 38 at the horizon (Kasten and Young formula)",
+              "zh": "地平線方向的空氣質量約 38（Kasten 與 Young 公式）",
+              "src": "Wikipedia, “Air mass (astronomy)”",
+              "url": "https://en.wikipedia.org/wiki/Air_mass_(astronomy)"
+            },
+            {
+              "en": "Cloud droplets are about the size of light waves and scatter all colors about equally (Mie scattering)",
+              "zh": "雲滴和光的波長差不多大，各色散射得差不多（米氏散射）",
+              "src": "Wikipedia, “Mie scattering”",
+              "url": "https://en.wikipedia.org/wiki/Mie_scattering"
+            },
+            {
+              "en": "The Moon's sky is black because it has no air to scatter sunlight",
+              "zh": "月球的天空是黑的，因為沒有空氣散射陽光",
+              "src": "Astronomy magazine, Ask Astro (February 2015)",
+              "url": "https://www.astronomy.com/observing/how-is-it-that-in-space-despite-the-suns-presence-the-surroundings-look-black-apollo-photos-show-a-black-sky-even-with-strong-sunlight-on-the-surface/"
+            },
+            {
+              "en": "Sunset colors in a glass of water and milk",
+              "zh": "用水和牛奶在杯子裡做出夕陽的顏色",
+              "src": "Science Buddies, in Scientific American",
+              "url": "https://www.scientificamerican.com/article/sunset-colors-in-a-glass/"
+            }
+          ]
+        }
+      ],
+      "planned": [
         {
           "n": 10,
           "icon": "🌈",
