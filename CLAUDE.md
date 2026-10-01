@@ -205,6 +205,11 @@
   - 坑：**Line 的點數要一開始就給對**（`setFromPoints` 只更新、不加大緩衝區，4 點的光路用 2 點建會狂噴 “Buffer size too small” 警告）；雨幕要「暗雨、亮虹」：PointsMaterial 的頂點色是線性值，0.045 在畫面上已經是灰色，未照到的雨滴要 0.01 左右，否則彩虹被淹沒；`$('.rb-k2')` 撞到兩個元素（標題和 dt）——同一個 class 不要給兩種元素。
   - 卡片 `demo`：drop／rays／bow／high（另有 double，供除錯）。
   - 除錯：`document.querySelector('[data-rainbow-lab]').__lab`（`setView('sky'|'drop')`、`setSun(0–60)`、`setB(0–0.99)`、`setRays(bool)`、`setSecond(bool)`、`BOW`、`BOW2`、`run(秒)`、`render()`）。
+- 第十一課聲音（`sound-waves.js`，`lab.kind = "sound"`，`data-soundwave-lab`，CSS 前綴 `sn-`）：一個機制——振動推擠空氣分子，一疏一密的壓力波往外傳，每顆分子只在原地晃（黃色那顆＋下方的振幅線）；傳到耳朵推動鼓膜、聽小骨、耳蝸（只輕帶，人體探索目前沒有耳朵課）。鼓在 x＝−9，64×9×7 顆分子用 **InstancedMesh**（每格 `setMatrixAt`＋`setColorAt`，擠＝橘、散＝深藍），耳朵在 x≈8.6。畫面波長 λ＝6·(100/f)^0.75、速度 2.6（示意）；音調滑桿是 log10(f/100)，100–1000 Hz；改音調會讓波從鼓重新出發。側欄另有「閃光到雷聲幾秒」→ 公里。
+  - `src/soundcalc.js`：`speedOfSound`（331.3＋0.606T）、`wavelength`、`thunderKm`、`secondsPerKm`、`displacement`（含波前）、`squeeze`。`test/sound.test.mjs`：20 °C 343.4、343 Hz 波長 1 m、2.92 秒／公里、水 4.3 倍、鐵 14.9 倍、分子平均位移為 0、波前前方不動、有疏有密。
+  - 版面：場景又長又扁，桌機 `.al-space` 降到 540px、鏡頭拉遠（係數 1.22），否則鼓或耳朵會被切掉。
+  - 卡片 `demo`：low／high／noair／thunder。
+  - 除錯：`document.querySelector('[data-soundwave-lab]').__lab`（`setF(100–1000)`、`setAmp(0–1)`、`setAir(bool)`、`setSec(0–20)`、`params()`、`state.t`、`run(秒)`、`render()`）。
 - 上傳錄音時若出現大量「not found locally」：多半是天文 session 在 ~/Developer 那份 clone 產生、已上傳的句子（worktree 的快取沒有它們）。算出「manifest 裡有、快取裡沒有」的雜湊，逐一 curl 確認線上 200 即可。
 - 多個 session 同時改 build.py 時，本系列改在 scratchpad 的 git worktree（從 origin/main 開分支）做，`audio` 用 symlink 指到 `~/Documents/twrses/audio`（symlink 不會被 .gitignore 的 `audio/` 擋，**不要 add**），做完 rebase 再 `git push origin HEAD:main`。
 - 瀏覽器面板在背景時 `visibilityState` 是 hidden，IntersectionObserver 不觸發、截圖是空白：點一下頁面上的「在模型中看」按鈕就會直接初始化，截圖改用無頭 Chrome（playwright-core＋本機 Chrome，`--use-angle=swiftshader`）。

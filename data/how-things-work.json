@@ -5022,15 +5022,505 @@
               "url": "https://en.wikipedia.org/wiki/Alexander_of_Aphrodisias"
             }
           ]
+        },
+        {
+          "n": 11,
+          "slug": "sound",
+          "title": "How Does Sound Reach Your Ears?",
+          "title_zh": "聲音怎麼傳到耳朵？",
+          "level": "入門 · Beginner",
+          "icon": "🔊",
+          "card": "sound",
+          "blurb_en": "Every sound is a push passed from molecule to molecule. Watch a drum send waves of squeezed air to an ear in 3D, change the pitch and the loudness, take the air away, and work out how far away the lightning was.",
+          "blurb_zh": "每一個聲音，都是空氣分子一個推一個傳過來的。在 3D 裡看鼓把一波波擠壓的空氣送到耳朵，調整音調和音量、把空氣拿走，再算算閃電有多遠。",
+          "big_idea_en": "Sound is a vibration. Something shaking back and forth pushes the air molecules next to it, they push the next ones, and a wave of squeezed and spread-out air travels outward while each molecule only wobbles in place. When the wave reaches your ear, it shakes your eardrum, and your inner ear turns the shaking into signals for your brain.",
+          "big_idea_zh": "聲音是振動。前後振動的東西推擠旁邊的空氣分子，分子再推下一批，一波「擠在一起、散開」的空氣就往外傳，而每顆分子只在原地晃。聲波傳到耳朵時推動鼓膜，內耳再把振動變成送往大腦的訊號。",
+          "lab": {
+            "kind": "sound",
+            "eyebrow": "3D Model · 3D 模型",
+            "title_en": "From a Drum to Your Ear",
+            "title_zh": "從鼓到耳朵",
+            "how_en": "Drag to turn the model, and scroll or pinch to zoom. Watch the drumhead push waves of air toward the ear, and follow the yellow molecule: it only moves back and forth. Slide the pitch and the loudness, turn the air off, and use the thunder slider to find out how far away a lightning strike was.",
+            "how_zh": "拖曳可以旋轉模型，滾輪或雙指可以縮放。看鼓面把一波波空氣推向耳朵，注意那顆黃色的分子：它只在原地前後晃。拉動音調和音量、把空氣關掉，再用雷聲滑桿算出閃電有多遠。",
+            "legend": [
+              {
+                "cls": "snsq",
+                "en": "Orange molecules: air squeezed together",
+                "zh": "橘色分子：擠在一起的空氣"
+              },
+              {
+                "cls": "snsp",
+                "en": "Dark blue molecules: air spread apart",
+                "zh": "深藍分子：散開的空氣"
+              },
+              {
+                "cls": "snspot",
+                "en": "Yellow molecule: watch it move back and forth in place",
+                "zh": "黃色分子：看它只在原地前後晃"
+              },
+              {
+                "cls": "snfront",
+                "en": "Pale wall: the front of the sound as it travels",
+                "zh": "淡藍色的牆：正在前進的聲音波前"
+              }
+            ],
+            "scale_en": "A diagram, slowed down hundreds of times. Real air molecules are far too small to see and packed much closer together, and the waves on screen are not drawn to scale. The numbers on the right use real values: sound travels about 343 meters per second in air at 20 °C.",
+            "scale_zh": "這是示意圖，放慢了好幾百倍。真正的空氣分子小到看不見，也擠得近很多，畫面上的波長不按比例。右側的數字用真實數值：20 °C 的空氣裡，聲音每秒約走 343 公尺。",
+            "credit_html": "Model drawn by My Culture Connect as a teaching diagram. Speed of sound from <a href=\"https://en.wikipedia.org/wiki/Speed_of_sound\" target=\"_blank\" rel=\"noopener\">Wikipedia</a>; how the ear works from the <a href=\"https://www.nidcd.nih.gov/health/how-do-we-hear\" target=\"_blank\" rel=\"noopener\">U.S. National Institute on Deafness and Other Communication Disorders</a>. · 模型由人師教育協會自繪示意；聲速依維基百科，耳朵的運作依美國國家耳聾及其他溝通障礙研究所（NIDCD）。"
+          },
+          "paras": [
+            "A summer storm is coming. You see a flash of lightning and start counting: one, two, three, four, five, six. Then, BOOM, the thunder arrives. The lightning and the thunder happened at the same moment, so why did the sound reach you so much later? And how does a sound travel through the air and into your ears at all?",
+            "Every sound starts with something vibrating, or moving quickly back and forth. When you hit a drum, the drumhead shakes. When you talk, the vocal cords in your throat vibrate. When lightning flashes, it heats the air so suddenly that the air bursts outward, and that burst is the thunder. Each vibration pushes on the air around it.",
+            "Air is made of tiny molecules, far too small to see. A vibrating drumhead pushes the molecules next to it, so they crowd together and push the next ones. Then the drumhead moves back, and the molecules spread apart. This pattern of squeezed and spread-out air travels outward as a sound wave. Each molecule only moves back and forth a tiny bit. It is the push that travels, not the air itself.",
+            "In air at 20 °C, sound travels about 343 meters every second, and a little faster when the air is warmer. That sounds fast, but light is almost a million times faster. So in a storm you see the flash almost at once, while the thunder takes about 3 seconds to travel each kilometer. Count the seconds and divide by three to find how many kilometers away the lightning was. Sound travels about 4 times faster in water and nearly 15 times faster in iron, but it cannot travel through empty space, where there is nothing to push.",
+            "When a sound wave reaches you, it travels down your ear canal and pushes on your eardrum, a thin piece of skin that vibrates like a tiny drum. Three tiny bones in your middle ear pass the vibration on to the cochlea, a snail-shaped tube filled with fluid. Inside it, tiny hair cells turn the vibration into electrical signals, and a nerve carries them to your brain.",
+            "How fast something vibrates sets the pitch. Fast vibrations make high sounds with short waves, and slow vibrations make low sounds with long waves. Most people can hear from about 20 to 20,000 vibrations per second, and the top of that range shrinks as we get older. How hard something vibrates sets the loudness. Very loud sounds can destroy hair cells, and in people they never grow back, so protect your ears and keep your headphones turned down."
+          ],
+          "paras_zh": [
+            "夏天的雷雨要來了。你看到一道閃電，開始數：一、二、三、四、五、六。然後「轟」一聲，雷聲到了。閃電和打雷明明是同一刻發生的，為什麼聲音晚了這麼久才到？聲音又是怎麼穿過空氣、跑進你的耳朵的？",
+            "每一個聲音，都從某個東西振動開始，也就是快速地前後來回。敲鼓時，鼓面在抖；說話時，喉嚨裡的聲帶在振動；閃電一閃，瞬間把空氣加熱，空氣猛然往外膨脹，那一下就是雷聲。每一次振動，都會推擠周圍的空氣。",
+            "空氣是由小到看不見的分子組成的。振動的鼓面推擠旁邊的分子，它們擠在一起，再去推下一批；接著鼓面往回退，分子又散開。這一擠一散的樣子往外傳，就是聲波。每顆分子只在原地前後晃一點點：傳過去的是推力，不是空氣本身。",
+            "在 20 °C 的空氣裡，聲音每秒約走 343 公尺，空氣越暖走得越快一點。聽起來很快，但光比它快了將近一百萬倍。所以雷雨時，閃光幾乎是馬上看到，雷聲卻要約 3 秒才走 1 公里。數一數秒數再除以三，就知道閃電離你幾公里。聲音在水裡快約 4 倍，在鐵裡快將近 15 倍；但在什麼都沒有的太空裡，沒有東西可以推，聲音就傳不過去。",
+            "聲波傳到你身上時，順著耳道進去，推動鼓膜：一片薄薄的皮膚，像小鼓一樣振動。中耳裡三塊小小的骨頭，把振動傳到耳蝸：一個裝滿液體、像蝸牛殼的管子。耳蝸裡細小的毛細胞把振動變成電訊號，再由神經送到大腦。",
+            "振動得多快，決定音調：振得快，聲音高、波短；振得慢，聲音低、波長。大部分人聽得到每秒約 20 次到 20,000 次的振動，年紀越大，聽得到的上限越低。振動得多用力，決定音量。很大的聲音會毀掉毛細胞，而人的毛細胞壞了就長不回來，所以要保護耳朵，耳機音量要調小。"
+          ],
+          "questions": [
+            "What does every sound start with?",
+            "Do the air molecules travel all the way from a drum to your ear? Explain.",
+            "How can you tell how far away a lightning strike was?"
+          ],
+          "answers": [
+            "Every sound starts with something vibrating, or moving quickly back and forth.",
+            "No. Each molecule only moves back and forth a little and pushes the next one. The push travels, not the air itself.",
+            "Count the seconds between the flash and the thunder, then divide by three to get the distance in kilometers."
+          ],
+          "vocab": [
+            {
+              "n": 1,
+              "w": "vibrate",
+              "pos": "v.",
+              "zh": "振動",
+              "ex": "My phone <b>vibrates</b> when a message arrives.",
+              "exzh": "有訊息進來時，我的手機會振動。"
+            },
+            {
+              "n": 2,
+              "w": "lightning",
+              "pos": "n.",
+              "zh": "閃電",
+              "ex": "A flash of <b>lightning</b> lit up the sky.",
+              "exzh": "一道閃電照亮了天空。"
+            },
+            {
+              "n": 3,
+              "w": "thunder",
+              "pos": "n.",
+              "zh": "雷聲",
+              "ex": "The dog hid under the bed when it heard the <b>thunder</b>.",
+              "exzh": "狗聽到雷聲，就躲到床底下。"
+            },
+            {
+              "n": 4,
+              "w": "eardrum",
+              "pos": "n.",
+              "zh": "鼓膜",
+              "ex": "Loud noise can hurt your <b>eardrum</b>.",
+              "exzh": "很大的噪音會傷到你的鼓膜。"
+            },
+            {
+              "n": 5,
+              "w": "pitch",
+              "pos": "n.",
+              "zh": "音調；音高",
+              "ex": "A bird's song has a high <b>pitch</b>.",
+              "exzh": "鳥叫聲的音調很高。"
+            },
+            {
+              "n": 6,
+              "w": "nerve",
+              "pos": "n.",
+              "zh": "神經",
+              "ex": "<b>Nerves</b> carry messages between your body and your brain.",
+              "exzh": "神經在身體和大腦之間傳遞訊息。"
+            },
+            {
+              "n": 7,
+              "w": "protect",
+              "pos": "v.",
+              "zh": "保護",
+              "ex": "Wear a helmet to <b>protect</b> your head.",
+              "exzh": "戴安全帽保護你的頭。"
+            },
+            {
+              "n": 8,
+              "w": "silent",
+              "pos": "adj.",
+              "zh": "無聲的；安靜的",
+              "ex": "The library was completely <b>silent</b>.",
+              "exzh": "圖書館裡一點聲音都沒有。"
+            }
+          ],
+          "quiz": [
+            {
+              "q": "What does every sound start with?",
+              "options": [
+                "Something vibrating",
+                "A flash of light",
+                "A change of color",
+                "A strong smell"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "About how fast does sound travel in air?",
+              "options": [
+                "343 meters per second",
+                "3 meters per second",
+                "300,000 kilometers per second",
+                "3 kilometers per second"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "You count 6 seconds between the flash and the thunder. About how far away was the lightning?",
+              "options": [
+                "About 2 kilometers",
+                "About 6 kilometers",
+                "About 18 kilometers",
+                "About 60 meters"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "What passes the vibration from your eardrum to your inner ear?",
+              "options": [
+                "Three tiny bones",
+                "Your eyelashes",
+                "Your nose",
+                "Your teeth"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "Why is space silent?",
+              "options": [
+                "There is no air to carry the sound",
+                "It is too cold for sound",
+                "The stars are too far away",
+                "The Sun is too bright"
+              ],
+              "correct": 0
+            }
+          ],
+          "parts_head": {
+            "eyebrow": "Try It in the Model · 在模型裡試試",
+            "en": "Four sounds to try",
+            "zh": "試試這四種聲音"
+          },
+          "parts": [
+            {
+              "key": "low",
+              "icon": "🥁",
+              "en": "A low sound",
+              "zh": "低沉的聲音",
+              "meta_en": "120 Hz · waves 2.9 m long",
+              "meta_zh": "120 Hz・波長 2.9 公尺",
+              "demo": "low",
+              "text_en": "The drum shakes slowly, so the squeezed bands of air are far apart.",
+              "text_zh": "鼓振得慢，擠在一起的空氣帶隔得很遠。"
+            },
+            {
+              "key": "high",
+              "icon": "🔔",
+              "en": "A high sound",
+              "zh": "高音",
+              "meta_en": "800 Hz · waves 43 cm long",
+              "meta_zh": "800 Hz・波長 43 公分",
+              "demo": "high",
+              "text_en": "The drum shakes fast, so the bands crowd close together.",
+              "text_zh": "鼓振得快，空氣帶擠得很近。"
+            },
+            {
+              "key": "noair",
+              "icon": "🚀",
+              "en": "No air, like space",
+              "zh": "沒有空氣，像太空",
+              "meta_en": "Nothing to push",
+              "meta_zh": "沒有東西可推",
+              "demo": "noair",
+              "text_en": "The drum still shakes, but no sound reaches the ear.",
+              "text_zh": "鼓還在振動，但聲音傳不到耳朵。"
+            },
+            {
+              "key": "thunder",
+              "icon": "⛈️",
+              "en": "Count to the thunder",
+              "zh": "數到雷聲",
+              "meta_en": "9 seconds ≈ 3 km",
+              "meta_zh": "9 秒 ≈ 3 公里",
+              "demo": "thunder",
+              "text_en": "Light arrives almost at once; sound needs about 3 seconds for each kilometer.",
+              "text_zh": "光幾乎瞬間就到；聲音每走 1 公里大約要 3 秒。"
+            }
+          ],
+          "parts_note_en": "Try the loudness slider too: louder sounds push the molecules farther, but the wave still travels at the same speed.",
+          "parts_note_zh": "也試試音量滑桿：越大聲，分子被推得越遠，但聲波前進的速度不變。",
+          "facts": {
+            "eyebrow": "Sound by the Numbers · 聲音的數字",
+            "en": "How fast and how far",
+            "zh": "多快、多遠",
+            "lead_en": "A few numbers explain thunder, distance, and why you should protect your ears.",
+            "lead_zh": "幾個數字，就能說明雷聲、遠近，和為什麼要保護耳朵。",
+            "items": [
+              {
+                "big": "343",
+                "unit_en": "meters per second",
+                "unit_zh": "公尺／秒",
+                "en": "The speed of sound in air at 20 °C. It is a little faster in warmer air.",
+                "zh": "20 °C 空氣中的聲速，空氣越暖越快一點。"
+              },
+              {
+                "big": "3",
+                "unit_en": "seconds per kilometer",
+                "unit_zh": "秒／公里",
+                "en": "Sound takes about 2.9 seconds to travel 1 kilometer, so count and divide by three.",
+                "zh": "聲音走 1 公里約 2.9 秒，所以秒數除以三。"
+              },
+              {
+                "big": "1,481",
+                "unit_en": "m/s in water",
+                "unit_zh": "公尺／秒（水中）",
+                "en": "Sound travels about 4.3 times faster in fresh water than in air.",
+                "zh": "聲音在淡水裡比在空氣中快約 4.3 倍。"
+              },
+              {
+                "big": "5,120",
+                "unit_en": "m/s in iron",
+                "unit_zh": "公尺／秒（鐵中）",
+                "en": "Nearly 15 times faster than in air.",
+                "zh": "比在空氣中快將近 15 倍。"
+              },
+              {
+                "big": "20–20,000",
+                "unit_en": "vibrations per second",
+                "unit_zh": "次／秒",
+                "en": "The usual range of human hearing; the top end drops with age.",
+                "zh": "一般人聽得到的範圍；年紀越大，上限越低。"
+              },
+              {
+                "big": "75",
+                "unit_en": "decibels, 40 hours a week",
+                "unit_zh": "分貝，每週 40 小時",
+                "en": "The weekly listening limit for children in the WHO and ITU safe listening standard.",
+                "zh": "世界衛生組織與國際電信聯盟安全聆聽標準給兒童的每週上限。"
+              }
+            ]
+          },
+          "myths": [
+            {
+              "myth_en": "Sound can travel through empty space.",
+              "myth_zh": "聲音可以穿過什麼都沒有的太空。",
+              "fact_en": "Sound needs something to push, such as air, water, or a solid. In a vacuum there is nothing to carry it.",
+              "fact_zh": "聲音需要可以推的東西，像空氣、水或固體。在真空裡，沒有東西能傳遞它。"
+            },
+            {
+              "myth_en": "Air flows from the speaker all the way to your ear.",
+              "myth_zh": "空氣從喇叭一路流到你的耳朵。",
+              "fact_en": "Each molecule only moves back and forth a little. The push is passed along, like a wave in a stadium crowd.",
+              "fact_zh": "每顆分子只前後晃一點點，傳下去的是推力，就像體育館觀眾一排排起立的人浪。"
+            },
+            {
+              "myth_en": "Thunder happens after the lightning.",
+              "myth_zh": "雷聲是在閃電之後才發生的。",
+              "fact_en": "They happen at the same moment. You see the flash first because light is almost a million times faster than sound.",
+              "fact_zh": "兩者同時發生。你先看到閃光，是因為光比聲音快了將近一百萬倍。"
+            },
+            {
+              "myth_en": "Your hearing always comes back after a loud noise.",
+              "myth_zh": "聽了很大的聲音，聽力總會恢復。",
+              "fact_en": "Very loud sounds can destroy the hair cells in your inner ear, and in people they never grow back.",
+              "fact_zh": "很大的聲音會毀掉內耳的毛細胞，而人的毛細胞壞了就長不回來。"
+            }
+          ],
+          "tricks": [
+            {
+              "title_en": "No vibration, no sound",
+              "title_zh": "沒有振動，就沒有聲音",
+              "body_en": "Every sound starts with something shaking back and forth.",
+              "body_zh": "每個聲音都從某個東西前後振動開始。"
+            },
+            {
+              "title_en": "The push travels, not the air",
+              "title_zh": "傳的是推力，不是空氣",
+              "body_en": "Each molecule only wobbles in place.",
+              "body_zh": "每顆分子只在原地晃。"
+            },
+            {
+              "title_en": "Count, then divide by three",
+              "title_zh": "數秒除以三＝公里",
+              "body_en": "Seconds from flash to thunder ÷ 3 = kilometers away.",
+              "body_zh": "閃光到雷聲的秒數 ÷ 3 ＝ 幾公里遠。"
+            },
+            {
+              "title_en": "Fast shake, high note",
+              "title_zh": "振得快，音就高",
+              "body_en": "Faster vibrations make higher sounds with shorter waves.",
+              "body_zh": "振動越快，聲音越高、波越短。"
+            }
+          ],
+          "safety": [
+            {
+              "en": "When thunder roars, go indoors. If you can hear thunder, you are close enough for lightning to strike.",
+              "zh": "聽到打雷就進室內。聽得到雷聲，就代表閃電近到可能打到你。"
+            },
+            {
+              "en": "Keep headphones at a low volume and take listening breaks. If people near you can hear your music, it is too loud.",
+              "zh": "耳機音量要小，聽一陣子就休息。旁邊的人聽得到你的音樂，就是太大聲了。"
+            },
+            {
+              "en": "Wear earplugs or earmuffs in very loud places, such as near fireworks or loud machines.",
+              "zh": "在很吵的地方，例如鞭炮、煙火或大型機器旁，要戴耳塞或耳罩。"
+            },
+            {
+              "en": "Never put anything into your ear canal, such as a pencil or a cotton swab.",
+              "zh": "絕不要把任何東西塞進耳道，像鉛筆或棉花棒。"
+            },
+            {
+              "en": "In the activities, never shout or bang anything right next to someone's ear.",
+              "zh": "做活動時，絕不在別人耳邊大叫或敲東西。"
+            }
+          ],
+          "activities": [
+            {
+              "title_en": "Make a String Telephone",
+              "title_zh": "做一支紙杯電話",
+              "materials": [
+                {
+                  "en": "Two paper cups",
+                  "zh": "兩個紙杯"
+                },
+                {
+                  "en": "A piece of string 5 to 10 meters long",
+                  "zh": "一條 5 到 10 公尺長的棉線"
+                },
+                {
+                  "en": "Two paper clips and a pencil",
+                  "zh": "兩根迴紋針和一支鉛筆"
+                }
+              ],
+              "steps": [
+                {
+                  "en": "With an adult's help, poke a small hole in the bottom of each cup. Push the string through and tie it to a paper clip inside.",
+                  "zh": "請大人幫忙，在兩個紙杯底部各戳一個小洞，把線穿進去，在杯子裡綁上迴紋針。"
+                },
+                {
+                  "en": "Walk apart until the string is tight. One person talks quietly into a cup while the other listens.",
+                  "zh": "兩人走開，把線拉直拉緊。一個人對著杯子小聲說話，另一個人聽。"
+                },
+                {
+                  "en": "Now let the string go loose, or pinch it with your fingers. What happens to the sound?",
+                  "zh": "再讓線鬆掉，或用手指捏住線：聲音怎麼了？"
+                },
+                {
+                  "en": "Talk about it: what is vibrating, and why does a tight string carry the sound better than the air alone?",
+                  "zh": "討論：什麼東西在振動？為什麼拉緊的線比空氣更能把聲音傳過去？"
+                }
+              ],
+              "tip_en": "Keep the string from touching anything along the way, and talk, don't shout.",
+              "tip_zh": "線中間不要碰到任何東西，用說的，不要用喊的。"
+            },
+            {
+              "title_en": "Measure the Speed of Sound",
+              "title_zh": "量一量聲音的速度",
+              "materials": [
+                {
+                  "en": "A large open field, such as a school sports field",
+                  "zh": "一大片空地，例如學校操場"
+                },
+                {
+                  "en": "Two pot lids or wooden blocks to bang together",
+                  "zh": "兩個鍋蓋或兩塊木頭，用來互敲"
+                },
+                {
+                  "en": "A stopwatch and a measuring tape (or a track with known distances)",
+                  "zh": "碼錶和捲尺（或已知距離的跑道）"
+                }
+              ],
+              "steps": [
+                {
+                  "en": "One student stands about 170 meters away and bangs the lids together high above the head, so everyone can see it.",
+                  "zh": "一位同學站在約 170 公尺外，把鍋蓋舉高互敲，讓大家都看得到。"
+                },
+                {
+                  "en": "Start the stopwatch when you see the lids hit, and stop it when you hear the bang.",
+                  "zh": "看到鍋蓋相碰就按下碼錶，聽到聲音再按停。"
+                },
+                {
+                  "en": "Repeat five times and find the average. Divide the distance by the time to get the speed.",
+                  "zh": "重複五次、算平均，用距離除以時間，得到速度。"
+                },
+                {
+                  "en": "How close did you get to 343 meters per second? Why is it hard to time something this fast?",
+                  "zh": "你們算出來跟每秒 343 公尺差多少？為什麼這麼快的東西很難計時？"
+                }
+              ],
+              "tip_en": "At 170 meters the sound takes only about half a second, so your reaction time matters. Have several students time it and compare.",
+              "tip_zh": "170 公尺聲音只要約半秒，反應時間影響很大，可以請幾位同學一起計時再比較。"
+            }
+          ],
+          "sources": [
+            {
+              "en": "Speed of sound: about 343 m/s at 20 °C (1 km in 2.92 s), faster when warmer; 1,481 m/s in fresh water; 5,120 m/s in iron",
+              "zh": "聲速：20 °C 約 343 公尺／秒（1 公里 2.92 秒），越暖越快；淡水 1,481、鐵 5,120 公尺／秒",
+              "src": "Wikipedia, “Speed of sound”",
+              "url": "https://en.wikipedia.org/wiki/Speed_of_sound"
+            },
+            {
+              "en": "Sound needs a medium and cannot travel through a vacuum",
+              "zh": "聲音需要介質，不能在真空中傳播",
+              "src": "Wikipedia, “Sound”",
+              "url": "https://en.wikipedia.org/wiki/Sound"
+            },
+            {
+              "en": "Lightning heats the air so fast that it expands into a shock wave; divide the counted seconds by three for kilometers",
+              "zh": "閃電瞬間加熱空氣、膨脹成衝擊波；秒數除以三就是公里",
+              "src": "Wikipedia, “Thunder”",
+              "url": "https://en.wikipedia.org/wiki/Thunder"
+            },
+            {
+              "en": "Human hearing is commonly given as 20 to 20,000 Hz, with high frequencies lost gradually with age",
+              "zh": "人類聽覺一般為 20 到 20,000 Hz，高頻隨年齡逐漸下降",
+              "src": "Wikipedia, “Hearing range”",
+              "url": "https://en.wikipedia.org/wiki/Hearing_range"
+            },
+            {
+              "en": "How we hear: eardrum, three tiny bones, cochlea, hair cells, auditory nerve",
+              "zh": "我們怎麼聽見：鼓膜、三塊聽小骨、耳蝸、毛細胞、聽神經",
+              "src": "NIDCD, “How Do We Hear?”",
+              "url": "https://www.nidcd.nih.gov/health/how-do-we-hear"
+            },
+            {
+              "en": "Loud noise can destroy hair cells, and human hair cells don't grow back; wear ear protection",
+              "zh": "噪音會毀掉毛細胞，人的毛細胞長不回來；要戴護耳",
+              "src": "NIDCD, “Noise-Induced Hearing Loss”",
+              "url": "https://www.nidcd.nih.gov/health/noise-induced-hearing-loss"
+            },
+            {
+              "en": "Safe listening standard: adults 80 dB and children 75 dB for 40 hours a week",
+              "zh": "安全聆聽標準：成人 80 分貝、兒童 75 分貝，每週 40 小時",
+              "src": "WHO and ITU, “Safe listening devices and systems” (2019)",
+              "url": "https://www.who.int/publications/i/item/9789241515276"
+            },
+            {
+              "en": "“When Thunder Roars, Go Indoors”: if you hear thunder, you are likely within striking distance",
+              "zh": "「雷聲響，進室內」：聽得到雷聲，就可能在雷擊範圍內",
+              "src": "U.S. National Weather Service",
+              "url": "https://www.weather.gov/safety/lightning-safety"
+            }
+          ]
         }
       ],
       "planned": [
-        {
-          "n": 11,
-          "icon": "🔊",
-          "en": "How Does Sound Reach Your Ears?",
-          "zh": "聲音怎麼傳到耳朵？"
-        },
         {
           "n": 12,
           "icon": "📷",

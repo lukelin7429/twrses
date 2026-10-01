@@ -5008,7 +5008,7 @@ def build_body_hub():
 # 3D 原始碼在 tools/science/src/（three.js、esbuild，每課一個入口），打包成 assets/js/<入口>.js；
 # 面板、迷思、口訣、活動沿用 astro.css，本系列多出來的在 science.css；兩者都只載在本系列頁面。
 HTW_BASE = "/resources/classes/how-things-work/"
-_HTW_JS = {"battery": "battery", "generator": "generator", "solar": "solar-cell", "wind": "wind-turbine", "internet": "internet-packets", "signal": "cell-signal", "gps": "gps-satellites", "memory": "memory-bits", "sky": "sky-scatter", "rainbow": "rainbow-drops"}   # lab.kind → assets/js/<bundle>.js
+_HTW_JS = {"battery": "battery", "generator": "generator", "solar": "solar-cell", "wind": "wind-turbine", "internet": "internet-packets", "signal": "cell-signal", "gps": "gps-satellites", "memory": "memory-bits", "sky": "sky-scatter", "rainbow": "rainbow-drops", "sound": "sound-waves"}   # lab.kind → assets/js/<bundle>.js
 
 def _htw_cn(n):
     """課次的中文數字（一～九十九）：第十一課、第二十課。"""
@@ -5593,6 +5593,59 @@ def render_rainbow_lab(lesson):
   <p class="bt-credit">{lab["credit_html"]}</p>
 </div>'''
 
+def soundwave_svg(size=56):
+    """聲音小圖（萬物原理首頁的課程卡）：喇叭與一圈圈往外傳的聲波，最後到耳朵。"""
+    return (f'<svg class="soundwave-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">'
+            '<path d="M6 24h7l9-8v28l-9-8H6z" fill="#cfd4dc"/>'
+            '<g fill="none" stroke="#ff9a4a" stroke-width="2.4" stroke-linecap="round">'
+            '<path d="M27 23a9 9 0 0 1 0 14"/><path d="M32 18a16 16 0 0 1 0 24"/><path d="M37 13a23 23 0 0 1 0 34"/></g>'
+            '<path d="M48 22c4 0 6 3 6 7 0 5-4 5-4 9 0 3-2 4-4 4" fill="none" stroke="#f1c7a6" stroke-width="3" stroke-linecap="round"/></svg>')
+
+def render_soundwave_lab(lesson):
+    """第十一課：聲波從鼓傳到耳朵（assets/js/sound-waves.js 綁這裡的 class；全部自繪示意）。"""
+    lab = lesson["lab"]
+    tg = _lab_toggles([("labels", "Labels", "標示", True), ("air", "Air", "空氣", True)])
+    return f'''<div class="astro-lab bt-lab sn-lab rvl" data-soundwave-lab>
+  <div class="al-stage">
+    <div class="al-space">
+      <canvas class="al-space-cv" aria-label="3D model of a drum pushing waves of air molecules toward an ear · 鼓推動一波波空氣分子傳到耳朵的 3D 模型"></canvas>
+      <div class="al-labels" aria-hidden="true"></div>
+      <p class="bt-cut">Slowed down hundreds of times; molecules drawn huge and far apart · 放慢好幾百倍；分子畫得很大、很稀</p>
+      <p class="al-hint">Drag to turn · 拖曳旋轉　Scroll or pinch to zoom · 滾輪／雙指縮放</p>
+      <button type="button" class="al-home" title="Reset view · 重設視角" aria-label="Reset view · 重設視角">&#8634;</button>
+      <p class="al-nogl-msg">This 3D model needs WebGL, which this browser does not support. The reading and the cards below still explain everything.<br><span class="zh">這個瀏覽器不支援 WebGL，無法顯示 3D 模型；下方的課文與卡片一樣能看懂。</span></p>
+    </div>
+    <aside class="al-sky bt-aside sn-aside">
+      <div class="sn-top">
+        <p class="al-sky-k">What you hear · 你聽到的</p>
+        <p class="sn-big"><b class="sn-hz"></b><span>Hz</span><em class="sn-pitch"></em></p>
+        <dl class="bt-nums sn-nums">
+          <div><dt>Wavelength in air · 波長</dt><dd class="sn-wl"></dd></div>
+          <div><dt>Speed in air · 聲速</dt><dd>343 m/s</dd></div>
+          <div><dt>At the ear · 到耳朵了嗎</dt><dd class="sn-arrive"></dd></div>
+        </dl>
+        <p class="al-sky-k sn-k2">How far is the lightning? · 閃電有多遠？</p>
+        <label class="al-slider sn-sec-row"><span>Seconds from flash to thunder · 閃光到雷聲幾秒 <output class="sn-sec-out"></output></span>
+          <input type="range" class="al-age sn-sec" min="0" max="20" step="0.5" value="6"></label>
+        <p class="sn-thunder"><b class="sn-km"></b><span>away · 遠<small>Light arrives almost at once; sound takes about 3 seconds per kilometer. · 光幾乎瞬間就到，聲音約 3 秒走 1 公里。</small></span></p>
+      </div>
+      <p class="bt-msg sn-msg" aria-live="polite"></p>
+    </aside>
+  </div>
+  <div class="al-controls">
+    <div class="al-row al-row-main">
+      <button type="button" class="al-play" aria-pressed="true"><span class="al-play-i" aria-hidden="true"></span><span class="al-play-t">Pause · 暫停</span></button>
+      <label class="al-slider sn-f-row"><span>Pitch · 音調 <output class="sn-f-out"></output></span>
+        <input type="range" class="al-age sn-f" min="0" max="1" step="0.005" value="0.42"></label>
+      <label class="al-slider sn-a-row"><span>Loudness · 音量 <output class="sn-a-out"></output></span>
+        <input type="range" class="al-age sn-a" min="0" max="1" step="0.01" value="0.55"></label>
+    </div>
+    <div class="al-row al-toggles">{tg}</div>
+  </div>
+  {_lab_foot(lab)}
+  <p class="bt-credit">{lab["credit_html"]}</p>
+</div>'''
+
 def _htw_flat():
     return [(ui, u, l) for ui, u in enumerate(HTW["units"]) for l in u["lessons"]]
 
@@ -5620,7 +5673,7 @@ def build_htw_lesson(ui, unit, lesson):
     reading_html = render_basic_unit(1, unit_dict, level="htw", audio_rel="", pdf_rel="")
     lab = lesson["lab"]
     kind = lab["kind"]
-    lab_html = {"battery": render_battery_lab, "generator": render_generator_lab, "solar": render_solarcell_lab, "wind": render_windturbine_lab, "internet": render_internet_lab, "signal": render_cellsignal_lab, "gps": render_gps_lab, "memory": render_memory_lab, "sky": render_skyblue_lab, "rainbow": render_rainbow_lab}[kind](lesson)
+    lab_html = {"battery": render_battery_lab, "generator": render_generator_lab, "solar": render_solarcell_lab, "wind": render_windturbine_lab, "internet": render_internet_lab, "signal": render_cellsignal_lab, "gps": render_gps_lab, "memory": render_memory_lab, "sky": render_skyblue_lab, "rainbow": render_rainbow_lab, "sound": render_soundwave_lab}[kind](lesson)
 
     secs = []
     if lesson.get("mix"):
@@ -5686,7 +5739,8 @@ def build_htw_lesson(ui, unit, lesson):
                 "gps": ("GPS in a sentence", "一句話記住 GPS"),
                 "memory": ("Memory in a sentence", "一句話記住記憶體"),
                 "sky": ("The blue sky in a sentence", "一句話記住藍天"),
-                "rainbow": ("Rainbows in a sentence", "一句話記住彩虹")}[kind]
+                "rainbow": ("Rainbows in a sentence", "一句話記住彩虹"),
+                "sound": ("Sound in a sentence", "一句話記住聲音")}[kind]
     secs.append(("tricks", "Remember It · 記憶口訣", tricks_h[0], tricks_h[1], _sci_tricks(lesson), ""))
     if lesson.get("safety"):
         items = "".join(f'<li class="rvl">{html.escape(s["en"])}<span class="zh">{html.escape(s["zh"])}</span></li>' for s in lesson["safety"])
@@ -5740,7 +5794,7 @@ def build_htw_lesson(ui, unit, lesson):
 def build_htw_hub():
     # 照中醫養生：單元導覽＋每個單元一段橫向課程卡；做好的課可點，planned 是「製作中」卡。
     def icon(l):
-        return battery_svg(60) if l.get("card") == "battery" else outlet_svg(60) if l.get("card") == "outlet" else solarpanel_svg(60) if l.get("card") == "solar" else windturbine_svg(60) if l.get("card") == "wind" else internet_svg(60) if l.get("card") == "internet" else cellsignal_svg(60) if l.get("card") == "signal" else gps_svg(60) if l.get("card") == "gps" else memory_svg(60) if l.get("card") == "memory" else skyblue_svg(60) if l.get("card") == "sky" else rainbow_svg(60) if l.get("card") == "rainbow" else l["icon"]
+        return battery_svg(60) if l.get("card") == "battery" else outlet_svg(60) if l.get("card") == "outlet" else solarpanel_svg(60) if l.get("card") == "solar" else windturbine_svg(60) if l.get("card") == "wind" else internet_svg(60) if l.get("card") == "internet" else cellsignal_svg(60) if l.get("card") == "signal" else gps_svg(60) if l.get("card") == "gps" else memory_svg(60) if l.get("card") == "memory" else skyblue_svg(60) if l.get("card") == "sky" else rainbow_svg(60) if l.get("card") == "rainbow" else soundwave_svg(60) if l.get("card") == "sound" else l["icon"]
     unit_sections, nav = [], []
     done = sum(len(u["lessons"]) for u in HTW["units"])
     total = done + sum(len(u.get("planned", [])) for u in HTW["units"])
