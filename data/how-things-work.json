@@ -1522,16 +1522,517 @@
               "url": "https://technews.tw/2025/12/16/changhua-has-abundant-solar-and-wind-energy-resources/"
             }
           ]
-        }
-      ],
-      "planned": [
+        },
         {
           "n": 4,
+          "slug": "wind-turbine",
+          "title": "How Does a Wind Turbine Make Power?",
+          "title_zh": "風力發電機怎麼發電？",
+          "level": "入門 · Beginner",
           "icon": "🌬️",
-          "en": "How Does a Wind Turbine Make Power?",
-          "zh": "風力發電機怎麼發電？"
+          "card": "wind",
+          "blurb_en": "Giant wings at sea turn the monsoon into electricity. Turn up the wind on a 3D offshore turbine, look inside at the generator, and see why twice the wind means eight times the power.",
+          "blurb_zh": "海上的巨大翅膀，把季風變成電。用 3D 離岸風機把風調大調小、看進機艙裡的發電機，看看為什麼風速加倍、電就變八倍。",
+          "big_idea_en": "A wind turbine is a generator with giant wings. The wind creates lift on the blades and spins them, the spinning turns a generator, and because the power in the wind grows with the cube of its speed, twice the wind carries eight times the power.",
+          "big_idea_zh": "風力發電機就是裝了巨大翅膀的發電機。風在葉片上產生升力、讓它轉起來，轉動帶動發電機；而風的功率跟風速的三次方成正比，所以風速加倍，功率就變成八倍。",
+          "lab": {
+            "kind": "wind",
+            "eyebrow": "3D Model · 3D 模型",
+            "title_en": "An Offshore Wind Turbine",
+            "title_zh": "一座離岸風機",
+            "how_en": "Drag to turn the model, and scroll or pinch to zoom. Slide the wind speed from calm to typhoon and watch the rotor, the blade angle, and the power curve. Switch the monsoon to see the turbine turn to face the wind, and press Look inside to see the generator.",
+            "how_zh": "拖曳可以旋轉模型，滾輪或雙指可以縮放。把風速從無風拉到颱風，看轉子、葉片角度和功率曲線怎麼變。切換季風，看風機轉向迎風；按「看發電機」看進機艙裡面。",
+            "legend": [
+              {
+                "cls": "wind",
+                "en": "Light streaks: moving air. Darker, shorter streaks behind the rotor: air slowed down after giving up energy.",
+                "zh": "淡色線條：流動的空氣；轉子後方較暗、較短的：交出能量後變慢的風"
+              },
+              {
+                "cls": "magnet",
+                "en": "Look inside: a ring of red and blue magnets turns past copper coils, the generator from Lesson 2",
+                "zh": "看機艙裡面：一圈紅藍磁鐵經過銅線圈，就是第二課的發電機"
+              },
+              {
+                "cls": "coil",
+                "en": "The coils and the undersea cable glow brighter as the power rises",
+                "zh": "功率越大，線圈和海底電纜越亮"
+              }
+            ],
+            "scale_en": "A diagram, scaled down from the 8-megawatt turbines off Changhua: a 167-meter rotor on a tall tower over a foundation in the seabed. The rotor turns at its real speed, about 10 turns a minute at most; the wind streaks are slowed down so you can follow them. Power follows a simplified curve: starting at about 3 m/s, full power at about 12.7 m/s, and stopping above about 25 m/s.",
+            "scale_zh": "這是示意圖，照彰化外海 8 百萬瓦風機的比例縮小：直徑 167 公尺的轉子、高高的塔架、打進海床的基樁。轉子用真實的轉速，最快每分鐘約 10 轉；風的線條則刻意放慢，讓你跟得上。功率照簡化的曲線：約 3 m/s 開始發電、約 12.7 m/s 滿載、約 25 m/s 以上停機。",
+            "credit_html": "Model drawn by My Culture Connect as a teaching diagram. Turbine size from the Siemens Gamesa SG 8.0-167 DD used at Greater Changhua 1 and 2a (<a href=\"https://www.thewindpower.net/turbine_en_1558_siemens-gamesa_sg-8.0-167-dd.php\" target=\"_blank\" rel=\"noopener\">The Wind Power</a>); how turbines work from the <a href=\"https://www.energy.gov/eere/wind/how-do-wind-turbines-work\" target=\"_blank\" rel=\"noopener\">U.S. Department of Energy</a>. · 模型由人師教育協會自繪示意；風機尺寸依大彰化 1、2a 使用的 SG 8.0-167 DD，原理依美國能源部。"
+          },
+          "paras": [
+            "Stand on the coast of Changhua on a winter day, and the northeast monsoon pushes so hard that you can lean into it. Far out at sea, beyond the horizon, more than a hundred giant turbines turn in that same wind. In June 2026, Taiwan finished building its 500th offshore wind turbine. How does moving air become the electricity in your home?",
+            "People have used the wind for thousands of years to sail boats, and for more than a thousand years to grind grain with windmills. A modern wind turbine does a new job: it spins a generator, just like the ones in Lesson 2. And where does wind come from? The sun heats the land, the sea, and the air unevenly. Warm air rises, cooler air rushes in to take its place, and that moving air is wind. In a way, wind power is solar power in disguise.",
+            "Turbine blades are not flat paddles. Each one is shaped like an airplane wing. As air flows over the curved blade, it creates a force called lift, which pulls the blade sideways. Lift turns the rotor around its hub. In the turbines off Changhua, the rotor turns a ring of strong magnets past coils of wire, which is the generator from Lesson 2 in a giant size. There is no gearbox at all.",
+            "These machines are enormous. Each blade on the Greater Changhua turbines is about 81 meters long, and the rotor sweeps an area about the size of three soccer fields. The rotor turns slowly, only about ten times a minute at most, but the tips of the blades travel at more than 300 kilometers an hour, faster than Taiwan's high-speed rail.",
+            "The power in the wind grows very fast with its speed. If the wind blows twice as fast, it carries eight times as much power, because the power grows with the speed multiplied by itself three times. A turbine like these starts making electricity at about 3 meters per second and reaches full power at about 12 to 13. In stronger winds, it turns its blades to spill some of the wind, and in a typhoon it turns them edge-on and stops to protect itself. No turbine can catch all of the wind's energy. The limit is about 59%, because the air has to keep moving past.",
+            "Taiwan has some of the best offshore wind in the world. One study found that 16 of the world's 20 windiest offshore sites are in the Taiwan Strait. By June 2026, Taiwan had built 500 offshore turbines, and in 2025 they made more than 10 billion kilowatt-hours of electricity for the first time. The wind does not always blow, and building in the sea is hard and expensive. But whenever the monsoon rushes across the strait, those giant wings turn it into power."
+          ],
+          "paras_zh": [
+            "冬天站在彰化的海邊，東北季風強到你可以把身體靠在風上。遠方海上、在海平線之外，一百多座巨大的風機正在同一陣風裡轉動。2026 年 6 月，台灣完成了第 500 座離岸風機。流動的空氣，是怎麼變成你家裡的電的？",
+            "人類用風來航行已經好幾千年，用風車磨穀物也超過一千年。現代的風力發電機做的是新工作：轉動發電機，就跟第二課的發電機一樣。那風又是從哪裡來的？太陽把陸地、海洋和空氣曬得不均勻，溫暖的空氣上升，較冷的空氣衝過來補位，這股流動的空氣就是風。某種意義上，風力其實是換了樣子的太陽能。",
+            "風機的葉片不是平平的槳，每一片的形狀都像飛機的機翼。空氣流過彎曲的葉片時，會產生一股叫做「升力」的力量，把葉片往側邊拉。升力讓轉子繞著輪轂轉動。彰化外海的這些風機，轉子直接帶動一圈強力磁鐵經過線圈，就是第二課發電機的巨大版，完全不需要齒輪箱。",
+            "這些機器大得驚人。大彰化風場每一片葉片長約 81 公尺，轉子掃過的面積大約是三座足球場。轉子轉得很慢，最快每分鐘大約只轉 10 圈，但葉尖的速度超過每小時 300 公里，比台灣高鐵還快。",
+            "風的功率隨著風速增加得非常快。風速加倍，帶的功率就變成八倍，因為功率跟風速自己乘自己三次成正比。這類風機大約在每秒 3 公尺時開始發電，每秒 12 到 13 公尺時達到滿載。風再更強，它會轉動葉片把一部分的風放掉；遇到颱風，就把葉片轉到側面對著風、停下來保護自己。沒有任何風機能接住風的全部能量，上限大約是 59%，因為空氣必須繼續往後流走。",
+            "台灣擁有全世界數一數二的離岸風場。有一份研究發現，全球風況最好的 20 處離岸風場，有 16 處在台灣海峽。到 2026 年 6 月，台灣已建好 500 座離岸風機；2025 年，離岸風電的發電量首度突破 100 億度。風不是隨時都在吹，在海上蓋風機也又難又貴。但每當季風掃過海峽，那些巨大的翅膀就把它變成電。"
+          ],
+          "questions": [
+            "Why is wind power sometimes called solar power in disguise?",
+            "How do the blades of a wind turbine make the rotor turn?",
+            "What does a wind turbine do in a typhoon, and why?"
+          ],
+          "answers": [
+            "Because wind is made when the sun heats the land, the sea, and the air unevenly: warm air rises and cooler air rushes in to take its place.",
+            "Each blade is shaped like an airplane wing. Air flowing over it creates lift, which pulls the blade sideways and turns the rotor.",
+            "It turns its blades edge-on to the wind and stops, to protect itself from damage until the storm passes."
+          ],
+          "vocab": [
+            {
+              "n": 1,
+              "w": "wind turbine",
+              "pos": "n.",
+              "zh": "風力發電機",
+              "ex": "A <b>wind turbine</b> stands on the hill behind the school.",
+              "exzh": "學校後面的山坡上有一座風力發電機。"
+            },
+            {
+              "n": 2,
+              "w": "blade",
+              "pos": "n.",
+              "zh": "葉片；刀片",
+              "ex": "The fan has three plastic <b>blades</b>.",
+              "exzh": "這台電風扇有三片塑膠葉片。"
+            },
+            {
+              "n": 3,
+              "w": "lift",
+              "pos": "n.",
+              "zh": "升力",
+              "ex": "An airplane's wings create <b>lift</b> to keep it in the air.",
+              "exzh": "飛機的機翼產生升力，讓它留在空中。"
+            },
+            {
+              "n": 4,
+              "w": "rotor",
+              "pos": "n.",
+              "zh": "轉子；旋翼",
+              "ex": "The helicopter's <b>rotor</b> began to spin faster and faster.",
+              "exzh": "直升機的旋翼越轉越快。"
+            },
+            {
+              "n": 5,
+              "w": "offshore",
+              "pos": "adj.",
+              "zh": "離岸的；在海上的",
+              "ex": "The <b>offshore</b> oil platform is far from land.",
+              "exzh": "那座離岸的鑽油平台離陸地很遠。"
+            },
+            {
+              "n": 6,
+              "w": "monsoon",
+              "pos": "n.",
+              "zh": "季風",
+              "ex": "The winter <b>monsoon</b> makes the sea rough.",
+              "exzh": "冬季的季風讓海面很不平靜。"
+            },
+            {
+              "n": 7,
+              "w": "typhoon",
+              "pos": "n.",
+              "zh": "颱風",
+              "ex": "Schools were closed because of the <b>typhoon</b>.",
+              "exzh": "因為颱風，學校停課了。"
+            },
+            {
+              "n": 8,
+              "w": "harness",
+              "pos": "v.",
+              "zh": "利用；駕馭",
+              "ex": "Farmers <b>harness</b> the river to water their fields.",
+              "exzh": "農民利用河水灌溉田地。"
+            }
+          ],
+          "quiz": [
+            {
+              "q": "If the wind blows twice as fast, about how much more power does it carry?",
+              "options": [
+                "About eight times as much",
+                "Twice as much",
+                "Four times as much",
+                "The same amount"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "What makes a turbine's blades turn?",
+              "options": [
+                "Lift, like an airplane wing",
+                "The wind hitting flat paddles",
+                "A motor inside each blade",
+                "Ocean waves"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "Which part of the turbine actually makes the electricity?",
+              "options": [
+                "The generator, where magnets turn past coils",
+                "The tower",
+                "The foundation in the seabed",
+                "The red tips of the blades"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "What is the most energy any wind turbine could take from the wind?",
+              "options": [
+                "About 59%",
+                "100%",
+                "About 10%",
+                "More than the wind carries"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "By June 2026, about how many offshore wind turbines had Taiwan built?",
+              "options": [
+                "500",
+                "50",
+                "5,000",
+                "5"
+              ],
+              "correct": 0
+            }
+          ],
+          "parts_head": {
+            "eyebrow": "Four Kinds of Wind · 四種風況",
+            "en": "From calm to typhoon",
+            "zh": "從無風到颱風"
+          },
+          "parts": [
+            {
+              "key": "calm",
+              "icon": "🍃",
+              "en": "Too calm",
+              "zh": "風太小",
+              "meta_en": "2 m/s · 7 km/h",
+              "meta_zh": "每秒 2 公尺",
+              "speed": 2,
+              "text_en": "Below about 3 meters per second there is too little power in the wind. The rotor drifts slowly and makes nothing.",
+              "text_zh": "低於每秒約 3 公尺，風裡的能量太少。轉子只會慢慢空轉，不發電。"
+            },
+            {
+              "key": "breeze",
+              "icon": "🌬️",
+              "en": "A good breeze",
+              "zh": "好風",
+              "meta_en": "8 m/s · about 3 MW in the model",
+              "meta_zh": "每秒 8 公尺，模型約 3 百萬瓦",
+              "speed": 8,
+              "text_en": "The blades catch the wind well, and power climbs quickly. At half this speed, there would be only one-eighth as much.",
+              "text_zh": "葉片把風接得很好，功率快速上升。風速只有一半的話，功率只剩八分之一。"
+            },
+            {
+              "key": "full",
+              "icon": "💨",
+              "en": "Full power",
+              "zh": "滿載",
+              "meta_en": "15 m/s · 8 MW",
+              "meta_zh": "每秒 15 公尺，8 百萬瓦",
+              "speed": 15,
+              "text_en": "The generator is making all it can. The turbine twists its blades a little to spill the extra wind instead of overloading.",
+              "text_zh": "發電機已經全力運轉。風機把葉片稍微轉開，把多的風放掉，免得超載。"
+            },
+            {
+              "key": "typhoon",
+              "icon": "🌀",
+              "en": "Typhoon",
+              "zh": "颱風",
+              "meta_en": "33 m/s · a moderate typhoon · stopped",
+              "meta_zh": "每秒 33 公尺，中度颱風，停機",
+              "speed": 33,
+              "text_en": "Too dangerous to run. The blades turn edge-on to the wind, the rotor stops, and the turbine waits for the storm to pass.",
+              "text_zh": "太危險，不能運轉。葉片轉到側面對著風，轉子停下來，風機等暴風過去。"
+            }
+          ],
+          "parts_note_en": "Meters per second times 3.6 gives kilometers per hour. Taiwan's Central Weather Administration calls a storm a typhoon once its winds reach 17.2 meters per second, a moderate typhoon at 32.7, and a strong typhoon at 51.0.",
+          "parts_note_zh": "每秒幾公尺乘以 3.6，就是每小時幾公里。中央氣象署的分級：近中心最大風速達每秒 17.2 公尺就是（輕度）颱風，32.7 是中度，51.0 以上是強烈颱風。",
+          "facts": {
+            "eyebrow": "Taiwan's Offshore Wind · 台灣的離岸風電",
+            "en": "The windy strait next door",
+            "zh": "就在家門口的強風海峽",
+            "lead_en": "The Taiwan Strait is squeezed between two mountain ranges, and in fall and winter the northeast monsoon funnels through it. That is why so many wind farms stand off Changhua.",
+            "lead_zh": "台灣海峽夾在兩岸的山脈之間，秋冬的東北季風從這裡灌進來，所以彰化外海蓋了這麼多風場。",
+            "items": [
+              {
+                "big": "500",
+                "unit_en": "turbines, June 2026",
+                "unit_zh": "座，2026 年 6 月",
+                "en": "Taiwan finished its 500th offshore wind turbine on June 12, 2026, less than ten years after the first two were built in 2017.",
+                "zh": "2026 年 6 月 12 日完成第 500 座離岸風機，距離 2017 年第一批 2 座示範風機還不到十年。"
+              },
+              {
+                "big": "4.8",
+                "unit_en": "gigawatts",
+                "unit_zh": "GW 裝置容量",
+                "en": "Total offshore capacity, fifth in the world according to the Global Wind Energy Council.",
+                "zh": "離岸風電總裝置容量，依全球風能理事會（GWEC）排名全球第五。"
+              },
+              {
+                "big": "10+",
+                "unit_en": "billion kWh in 2025",
+                "unit_zh": "億度的十倍：100 億度以上",
+                "en": "Offshore wind made more than 10 billion kilowatt-hours in 2025, the first year it passed that mark.",
+                "zh": "2025 年離岸風電發電量首度突破 100 億度。"
+              },
+              {
+                "big": "16 / 20",
+                "unit_en": "windiest offshore sites",
+                "unit_zh": "全球風況最好的離岸風場",
+                "en": "A 2014 study by 4C Offshore found that 16 of the world's 20 windiest offshore sites are in the Taiwan Strait.",
+                "zh": "4C Offshore 2014 年的研究：全球風況最好的 20 處離岸風場，台灣海峽占 16 處。"
+              },
+              {
+                "big": "111",
+                "unit_en": "turbines off Changhua",
+                "unit_zh": "座，大彰化 1、2a",
+                "en": "Greater Changhua 1 and 2a: 111 turbines of 8 megawatts each, about 900 megawatts in all, 35 to 60 kilometers off the coast.",
+                "zh": "大彰化 1、2a 風場：111 座 8 百萬瓦風機、合計約 900 百萬瓦，離岸 35 到 60 公里。"
+              }
+            ]
+          },
+          "myths": [
+            {
+              "myth_en": "Wind turbines need very strong winds to work.",
+              "myth_zh": "風力發電機要很強的風才能發電。",
+              "fact_en": "Big turbines start making power at about 3 meters per second, a gentle breeze. In very strong winds they actually shut down to protect themselves.",
+              "fact_zh": "大型風機在每秒約 3 公尺的微風就開始發電；風太強時反而會停機保護自己。"
+            },
+            {
+              "myth_en": "The blades spin fast, like a fan.",
+              "myth_zh": "風機的葉片像電風扇一樣轉得很快。",
+              "fact_en": "A big offshore rotor turns only about ten times a minute. But because the blades are so long, their tips move at more than 300 kilometers an hour.",
+              "fact_zh": "大型離岸風機的轉子每分鐘最多只轉約 10 圈；但葉片太長了，葉尖的速度超過每小時 300 公里。"
+            },
+            {
+              "myth_en": "A good turbine could catch all the energy in the wind.",
+              "myth_zh": "好的風機可以把風的能量全部接住。",
+              "fact_en": "Physics sets a limit of about 59%, called the Betz limit. If a turbine took everything, the air behind it would stop and block new wind from coming in.",
+              "fact_zh": "物理上限約 59%，叫做貝茲極限。要是風機把能量全拿走，後面的空氣就會停住，擋住新的風進來。"
+            },
+            {
+              "myth_en": "If we use the wind, someday it will run out.",
+              "myth_zh": "風用久了總有一天會用完。",
+              "fact_en": "Wind is made by the sun heating the Earth unevenly. As long as the sun shines, the wind keeps coming back.",
+              "fact_zh": "風是太陽把地球曬得不均勻產生的。只要太陽還在照，風就會一直再來。"
+            }
+          ],
+          "tricks": [
+            {
+              "title_en": "Wings, not paddles",
+              "title_zh": "是翅膀，不是槳",
+              "body_en": "Blades turn because of lift, the same force that holds up an airplane.",
+              "body_zh": "葉片會轉，靠的是升力，就是讓飛機浮在空中的那種力。"
+            },
+            {
+              "title_en": "Twice the wind, eight times the power",
+              "title_zh": "風速兩倍，功率八倍",
+              "body_en": "Power grows with the wind speed cubed: 2 × 2 × 2 = 8.",
+              "body_zh": "功率跟風速的三次方成正比：2 × 2 × 2 ＝ 8。"
+            },
+            {
+              "title_en": "Face the wind, feather in the storm",
+              "title_zh": "迎著風轉，遇暴風收翅",
+              "body_en": "The turbine turns to face the wind, and in a storm turns its blades edge-on and stops.",
+              "body_zh": "風機會轉向迎著風；遇到暴風，就把葉片轉到側面、停下來。"
+            },
+            {
+              "title_en": "Wind is sunshine in disguise",
+              "title_zh": "風是換了樣子的陽光",
+              "body_en": "The sun heats the Earth unevenly, air moves, and the turbine catches it.",
+              "body_zh": "太陽把地球曬得不均勻，空氣開始流動，風機把它接住。"
+            }
+          ],
+          "activities": [
+            {
+              "title_en": "Build a Pinwheel Turbine",
+              "title_zh": "做一個風車發電機",
+              "materials": [
+                {
+                  "en": "A small DC motor from a toy or science kit (it can work as a generator)",
+                  "zh": "一個玩具或科學教具用的小直流馬達（它也能當發電機）"
+                },
+                {
+                  "en": "Stiff paper or a paper cup for blades, a cork or bottle cap for the hub, and tape",
+                  "zh": "做葉片用的厚紙或紙杯、做輪轂用的軟木塞或瓶蓋、膠帶"
+                },
+                {
+                  "en": "A multimeter set to its smallest voltage range",
+                  "zh": "一台三用電表（轉到最小電壓檔）"
+                },
+                {
+                  "en": "An electric fan",
+                  "zh": "一台電風扇"
+                }
+              ],
+              "steps": [
+                {
+                  "en": "Push the hub onto the motor's shaft and tape on three or four blades. Clip the motor's two wires to the meter.",
+                  "zh": "把輪轂套上馬達的轉軸，貼上三到四片葉片；把馬達的兩條線接到電表。"
+                },
+                {
+                  "en": "Hold it in front of the fan on low, then medium, then high. Write down the voltage each time.",
+                  "zh": "放在電風扇前面，依序開弱、中、強，每次記下電壓。"
+                },
+                {
+                  "en": "Move it closer to and farther from the fan. How fast does the reading fall as you move away?",
+                  "zh": "把它移近、移遠，離電扇越遠，讀數掉得多快？"
+                },
+                {
+                  "en": "Twist the blades to different angles: flat, a little tilted, steeply tilted. Which angle works best? Real turbines change this angle to control their power.",
+                  "zh": "把葉片扭成不同角度：平的、稍微斜、很斜。哪個角度最好？真的風機就是靠改變這個角度來控制功率。"
+                },
+                {
+                  "en": "Try two blades, three, and six. Why do most real turbines have three?",
+                  "zh": "試試兩片、三片、六片葉片。為什麼真的風機大多是三片？"
+                }
+              ],
+              "tip_en": "Keep fingers and hair away from the fan, and use one with a safety guard. The motor makes only a small voltage, which is safe; never connect anything to a wall outlet.",
+              "tip_zh": "手指和頭髮要遠離電風扇，使用有護網的電扇。小馬達發出的電壓很小，是安全的；絕不要接到牆上的插座。"
+            },
+            {
+              "title_en": "Measure the Wind at School",
+              "title_zh": "量一量學校的風",
+              "materials": [
+                {
+                  "en": "Four small paper cups, two straws, a pin, and a pencil with an eraser (to make a cup anemometer)",
+                  "zh": "四個小紙杯、兩根吸管、一根大頭針、一支有橡皮擦的鉛筆（做杯式風速計）"
+                },
+                {
+                  "en": "A marker, a watch with seconds, and a ribbon",
+                  "zh": "一支麥克筆、有秒針的手錶、一條緞帶"
+                }
+              ],
+              "steps": [
+                {
+                  "en": "Cross the straws, tape a cup to each end with all cups facing the same way around, and pin the center to the pencil eraser so it spins freely. Mark one cup.",
+                  "zh": "把兩根吸管交叉，四端各貼一個紙杯（杯口朝同一個繞圈方向），中心用大頭針釘在鉛筆的橡皮擦上，讓它能自由轉動。在其中一個杯子做記號。"
+                },
+                {
+                  "en": "Go to four places: an open field, a hallway, behind a building, and a spot near the school gate.",
+                  "zh": "到四個地方：空曠的操場、走廊、建築物後面、校門口附近。"
+                },
+                {
+                  "en": "At each place, count how many times the marked cup goes around in 30 seconds. Hold up the ribbon to see which way the wind is blowing.",
+                  "zh": "在每個地方數 30 秒內做記號的杯子轉了幾圈，舉起緞帶看風往哪個方向吹。"
+                },
+                {
+                  "en": "Which place would be best for a wind turbine? Compare your results with the Central Weather Administration's wind report for Changhua that day.",
+                  "zh": "哪裡最適合蓋風機？把結果和當天中央氣象署對彰化的風力報告比一比。"
+                }
+              ],
+              "tip_en": "Stay on the ground. Do not climb onto roofs or walls to find wind, and come inside if there is thunder or a strong-wind warning.",
+              "tip_zh": "待在地面上，不要為了找風爬上屋頂或圍牆；打雷或有強風特報時要回到室內。"
+            }
+          ],
+          "safety": [
+            {
+              "en": "During a typhoon or strong-wind warning, stay indoors and away from the coast and windows. Wind-blown objects are dangerous.",
+              "zh": "颱風或強風特報時，待在室內，遠離海邊和窗戶；被吹飛的東西很危險。"
+            },
+            {
+              "en": "Never climb a wind turbine tower or go near one that is being repaired.",
+              "zh": "絕不攀爬風機塔架，也不要靠近正在維修的風機。"
+            },
+            {
+              "en": "Keep fingers, hair, and loose clothing away from fans and spinning blades, even small ones.",
+              "zh": "手指、頭髮和寬鬆的衣服要遠離電風扇和轉動的葉片，小的也一樣。"
+            },
+            {
+              "en": "The sea near the coast can be rough in the monsoon season. Do not go into the water without an adult and a lifeguard.",
+              "zh": "季風季節的近海浪很大。沒有大人和救生員，不要下水。"
+            }
+          ],
+          "sources": [
+            {
+              "en": "How wind turbines work: lift, generators, and wind as a form of solar energy",
+              "zh": "風機原理：升力、發電機、風是太陽能的一種",
+              "src": "U.S. Department of Energy",
+              "url": "https://www.energy.gov/eere/wind/how-do-wind-turbines-work"
+            },
+            {
+              "en": "Power grows with the cube of wind speed; the Betz limit is 16/27, about 59.3%",
+              "zh": "功率與風速三次方成正比；貝茲極限 16/27 約 59.3%",
+              "src": "Wikipedia, “Betz's law”",
+              "url": "https://en.wikipedia.org/wiki/Betz%27s_law"
+            },
+            {
+              "en": "Windmills were used for grinding grain more than a thousand years ago",
+              "zh": "風車用來磨穀物已有一千多年",
+              "src": "Wikipedia, “Windmill”",
+              "url": "https://en.wikipedia.org/wiki/Windmill"
+            },
+            {
+              "en": "SG 8.0-167 DD: 8 MW, 167-meter rotor, 21,904 m² swept area, pitch control",
+              "zh": "SG 8.0-167 DD：8 MW、轉子 167 m、掃風面積 21,904 m²、變槳控制",
+              "src": "The Wind Power",
+              "url": "https://www.thewindpower.net/turbine_en_1558_siemens-gamesa_sg-8.0-167-dd.php"
+            },
+            {
+              "en": "SG 8.0-167 DD: direct drive, about 10.3 turns a minute at most, starting at about 3 m/s, full power at about 12–13 m/s",
+              "zh": "SG 8.0-167 DD：直驅、最快每分鐘約 10.3 轉、約 3 m/s 切入、約 12–13 m/s 滿載",
+              "src": "wind-turbine-models.com",
+              "url": "https://en.wind-turbine-models.com/turbines/1800-siemens-gamesa-sg-8-0-167-dd"
+            },
+            {
+              "en": "Blades about 81.4 meters long; designed for Taiwan's typhoons and 60 Hz grid",
+              "zh": "葉片長約 81.4 公尺；為台灣颱風與 60 Hz 電網設計",
+              "src": "Energías Renovables",
+              "url": "https://www.energias-renovables.com/eolica/la-danesa-rsted-elige-maquinas-siemens-gamesa-20190625"
+            },
+            {
+              "en": "Greater Changhua 1 and 2a: 111 turbines, about 900 MW, 35–60 km off Changhua",
+              "zh": "大彰化 1、2a：111 座、約 900 MW、離岸 35–60 公里",
+              "src": "offshoreWIND.biz",
+              "url": "https://www.offshorewind.biz/2024/04/25/taiwans-first-far-offshore-and-large-scale-wind-project-inaugurated/"
+            },
+            {
+              "en": "Taiwan's 500th offshore turbine (June 12, 2026), 4.8 GW, fifth in the world; over 10 billion kWh in 2025",
+              "zh": "第 500 座離岸風機（2026/6/12）、4.8 GW、全球第五；2025 年突破 100 億度",
+              "src": "TechNews 科技新報（引經濟部能源署、GWEC）",
+              "url": "https://technews.tw/2026/06/15/taiwan-offshore-wind-500/"
+            },
+            {
+              "en": "4C Offshore: 16 of the world's 20 windiest offshore sites are in the Taiwan Strait",
+              "zh": "4C Offshore：全球風況最好的 20 處離岸風場，台灣海峽占 16 處",
+              "src": "遠見雜誌",
+              "url": "https://www.gvm.com.tw/article/55269"
+            },
+            {
+              "en": "Typhoon strength categories: 17.2, 32.7, and 51.0 m/s",
+              "zh": "颱風強度分級：每秒 17.2、32.7、51.0 公尺",
+              "src": "數位時代（依中央氣象署分級）",
+              "url": "https://www.bnext.com.tw/article/91925/typhoon-classification-guide"
+            },
+            {
+              "en": "Taiwan High Speed Rail trains run at up to 300 km/h",
+              "zh": "台灣高鐵營運最高時速 300 公里",
+              "src": "Wikipedia, “Taiwan High Speed Rail”",
+              "url": "https://en.wikipedia.org/wiki/Taiwan_High_Speed_Rail"
+            },
+            {
+              "en": "A standard soccer field is 105 by 68 meters (about 7,140 m²)",
+              "zh": "標準足球場 105 × 68 公尺（約 7,140 平方公尺）",
+              "src": "Wikipedia, “Football pitch”",
+              "url": "https://en.wikipedia.org/wiki/Football_pitch"
+            }
+          ]
         }
-      ]
+      ],
+      "planned": []
     },
     {
       "key": "info",

@@ -4713,7 +4713,7 @@ def build_body_hub():
 # 3D 原始碼在 tools/science/src/（three.js、esbuild，每課一個入口），打包成 assets/js/<入口>.js；
 # 面板、迷思、口訣、活動沿用 astro.css，本系列多出來的在 science.css；兩者都只載在本系列頁面。
 HTW_BASE = "/resources/classes/how-things-work/"
-_HTW_JS = {"battery": "battery", "generator": "generator", "solar": "solar-cell"}   # lab.kind → assets/js/<bundle>.js
+_HTW_JS = {"battery": "battery", "generator": "generator", "solar": "solar-cell", "wind": "wind-turbine"}   # lab.kind → assets/js/<bundle>.js
 
 def _htw_cn(n):
     """課次的中文數字（一～九十九）：第十一課、第二十課。"""
@@ -4923,6 +4923,63 @@ def render_solarcell_lab(lesson):
   <p class="bt-credit">{lab["credit_html"]}</p>
 </div>'''
 
+def windturbine_svg(size=56):
+    """風機小圖（萬物原理首頁的課程卡）：海上的三葉風機。"""
+    blades = "".join(f'<path d="M30 21 l-1.6 -15 q1.6 -2 3.2 0z" fill="#eef1f5" transform="rotate({a} 30 21)"/>' for a in (15, 135, 255))
+    return (f'<svg class="windturbine-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">'
+            '<path d="M4 52q6-3 13 0t13 0 13 0 13 0" stroke="#6fb6ff" stroke-width="2" fill="none"/>'
+            '<path d="M28.8 22h2.4l1.2 30h-4.8z" fill="#dfe4ec"/>'
+            f'{blades}<circle cx="30" cy="21" r="2.4" fill="#fff"/></svg>')
+
+def render_windturbine_lab(lesson):
+    """第四課：離岸風機（assets/js/wind-turbine.js 綁這裡的 class；比例照 SG 8.0-167 DD 縮小的示意）。"""
+    lab = lesson["lab"]
+    winds = [("ne", "&#8601;", "Northeast monsoon", "東北季風"), ("sw", "&#8599;", "Southwest monsoon", "西南季風")]
+    wb = "".join(f'<button type="button" data-wind="{k}" aria-pressed="{"true" if k == "ne" else "false"}"><i aria-hidden="true">{ic}</i>{en}<small>{zh}</small></button>' for k, ic, en, zh in winds)
+    tg = _lab_toggles([("labels", "Labels", "標示", True), ("inside", "Look inside", "看機艙裡面", False), ("wake", "Slower air behind", "後方變慢的風", True)])
+    return f'''<div class="astro-lab bt-lab wt-lab rvl" data-windturbine-lab>
+  <div class="al-stage">
+    <div class="al-space">
+      <canvas class="al-space-cv" aria-label="3D model of an offshore wind turbine turning in the wind · 離岸風機在風中轉動的 3D 模型"></canvas>
+      <div class="al-labels" aria-hidden="true"></div>
+      <p class="bt-cut">The rotor turns at its real speed; the wind is drawn slower than real · 轉子用真實轉速；風畫得比真的慢</p>
+      <p class="al-hint">Drag to turn · 拖曳旋轉　Scroll or pinch to zoom · 滾輪／雙指縮放</p>
+      <button type="button" class="al-home" title="Reset view · 重設視角" aria-label="Reset view · 重設視角">&#8634;</button>
+      <p class="al-nogl-msg">This 3D model needs WebGL, which this browser does not support. The reading and the cards below still explain everything.<br><span class="zh">這個瀏覽器不支援 WebGL，無法顯示 3D 模型；下方的課文與卡片一樣能看懂。</span></p>
+    </div>
+    <aside class="al-sky bt-aside wt-aside">
+      <div class="wt-top">
+        <p class="al-sky-k">Turbine · 風機</p>
+        <p class="wt-big"><b class="wt-p">0 MW</b><span class="wt-state"></span></p>
+        <dl class="bt-nums wt-nums">
+          <div><dt>Rotor · 轉速</dt><dd><span class="wt-rpm"></span> rpm</dd></div>
+          <div><dt>Blade tips · 葉尖速度</dt><dd class="wt-tip"></dd></div>
+          <div><dt>Blade angle · 葉片角度</dt><dd class="wt-pitch"></dd></div>
+        </dl>
+        <p class="bt-msg wt-msg" aria-live="polite"></p>
+      </div>
+      <div class="wt-curve-box">
+        <p class="al-sky-k">Power curve · 功率曲線</p>
+        <div class="wt-curve"><canvas class="wt-curve-cv" aria-label="Power curve: electricity made at each wind speed · 功率曲線：各種風速下發的電"></canvas></div>
+        <p class="wt-curve-note">Teal: what this turbine makes. Dashed: the most any turbine could take from this wind (59%). · 青線：這台風機發的電；虛線：任何風機最多能從這陣風拿到的（59%）。</p>
+        <p class="bt-count wt-x8"></p>
+      </div>
+    </aside>
+  </div>
+  <div class="al-controls">
+    <div class="al-row al-row-main">
+      <button type="button" class="al-play" aria-pressed="true"><span class="al-play-i" aria-hidden="true"></span><span class="al-play-t">Pause · 暫停</span></button>
+      <div class="bt-modes wt-winds" role="group" aria-label="Wind direction · 風向">{wb}</div>
+      <button type="button" class="al-today wt-inside-go">&#128269; Look inside · 看發電機</button>
+    </div>
+    <label class="al-slider wt-ws-row"><span>Wind speed · 風速 <output class="wt-ws-out"></output></span>
+      <input type="range" class="al-age wt-ws" min="0" max="40" step="0.5" value="8"></label>
+    <div class="al-row al-toggles">{tg}</div>
+  </div>
+  {_lab_foot(lab)}
+  <p class="bt-credit">{lab["credit_html"]}</p>
+</div>'''
+
 def _htw_flat():
     return [(ui, u, l) for ui, u in enumerate(HTW["units"]) for l in u["lessons"]]
 
@@ -4950,7 +5007,7 @@ def build_htw_lesson(ui, unit, lesson):
     reading_html = render_basic_unit(1, unit_dict, level="htw", audio_rel="", pdf_rel="")
     lab = lesson["lab"]
     kind = lab["kind"]
-    lab_html = {"battery": render_battery_lab, "generator": render_generator_lab, "solar": render_solarcell_lab}[kind](lesson)
+    lab_html = {"battery": render_battery_lab, "generator": render_generator_lab, "solar": render_solarcell_lab, "wind": render_windturbine_lab}[kind](lesson)
 
     secs = []
     if lesson.get("mix"):
@@ -4987,7 +5044,8 @@ def build_htw_lesson(ui, unit, lesson):
             f'<h3>{html.escape(pt["en"])}<span class="zh">{html.escape(pt["zh"])}</span></h3>'
             f'<p class="ph-meta"><span>{html.escape(pt["meta_en"])} · {html.escape(pt["meta_zh"])}</span></p>'
             f'<p class="ph-when">{html.escape(pt["text_en"])}<br><span class="zh">{html.escape(pt["text_zh"])}</span></p>'
-            + (f'<button type="button" class="ph-go" data-lab-light="{pt["light"]}">See it in 3D · 在模型中看 <i>&uarr;</i></button>' if pt.get("light")
+            + (f'<button type="button" class="ph-go" data-lab-speed="{pt["speed"]}">See it in 3D · 在模型中看 <i>&uarr;</i></button>' if pt.get("speed") is not None
+               else f'<button type="button" class="ph-go" data-lab-light="{pt["light"]}">See it in 3D · 在模型中看 <i>&uarr;</i></button>' if pt.get("light")
                else f'<button type="button" class="ph-go" data-lab-part="{pt["key"]}">See it in 3D · 在模型中看 <i>&uarr;</i></button>')
             + '</article>'
             for pt in lesson["parts"])
@@ -4995,10 +5053,20 @@ def build_htw_lesson(ui, unit, lesson):
         secs.append(("parts", ph["eyebrow"], ph["en"], ph["zh"],
                      f'<div class="ph-grid stagger">{cards}</div>',
                      _bi(lesson["parts_note_en"], lesson["parts_note_zh"], cls="lead rvl d2")))
+    if lesson.get("facts"):
+        fx = lesson["facts"]
+        tiles = "".join(
+            f'<div class="hw-fact rvl"><b class="hw-fact-n">{html.escape(it["big"])}</b>'
+            f'<span class="hw-fact-u">{html.escape(it["unit_en"])} · {html.escape(it["unit_zh"])}</span>'
+            f'<p>{html.escape(it["en"])}<span class="zh">{html.escape(it["zh"])}</span></p></div>'
+            for it in fx["items"])
+        secs.append(("facts", fx["eyebrow"], fx["en"], fx["zh"], f'<div class="hw-facts">{tiles}</div>',
+                     _bi(fx["lead_en"], fx["lead_zh"], cls="lead rvl d2")))
     secs.append(("myths", "Myth vs. Fact · 常見迷思", "Four things people get wrong", "四個常見的誤會", _sci_myths(lesson), ""))
     tricks_h = {"battery": ("Batteries in a sentence", "一句話記住電池"),
                 "generator": ("Power plants in a sentence", "一句話記住發電"),
-                "solar": ("Solar power in a sentence", "一句話記住太陽能")}[kind]
+                "solar": ("Solar power in a sentence", "一句話記住太陽能"),
+                "wind": ("Wind power in a sentence", "一句話記住風力發電")}[kind]
     secs.append(("tricks", "Remember It · 記憶口訣", tricks_h[0], tricks_h[1], _sci_tricks(lesson), ""))
     if lesson.get("safety"):
         items = "".join(f'<li class="rvl">{html.escape(s["en"])}<span class="zh">{html.escape(s["zh"])}</span></li>' for s in lesson["safety"])
@@ -5052,7 +5120,7 @@ def build_htw_lesson(ui, unit, lesson):
 def build_htw_hub():
     # 照中醫養生：單元導覽＋每個單元一段橫向課程卡；做好的課可點，planned 是「製作中」卡。
     def icon(l):
-        return battery_svg(60) if l.get("card") == "battery" else outlet_svg(60) if l.get("card") == "outlet" else solarpanel_svg(60) if l.get("card") == "solar" else l["icon"]
+        return battery_svg(60) if l.get("card") == "battery" else outlet_svg(60) if l.get("card") == "outlet" else solarpanel_svg(60) if l.get("card") == "solar" else windturbine_svg(60) if l.get("card") == "wind" else l["icon"]
     unit_sections, nav = [], []
     done = sum(len(u["lessons"]) for u in HTW["units"])
     total = done + sum(len(u.get("planned", [])) for u in HTW["units"])

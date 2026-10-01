@@ -200,3 +200,46 @@
   .sl-msg { min-height: 0; }
 }
 .sl-aside > * { min-width: 0; }
+
+/* ---------- 第四課：風機 ---------- */
+@media (min-width: 1021px) { .wt-lab .al-space { min-height: 640px; } }
+.wt-lab .al-space { background: linear-gradient(180deg, #13284d 0%, #0d1a33 60%); }
+.wt-aside { gap: .9rem; }
+.wt-aside > * { min-width: 0; }
+.wt-big { display: flex; align-items: baseline; gap: .7rem; margin: 0 0 .5rem; flex-wrap: wrap; }
+.wt-p { font-family: var(--serif); font-size: 2.4rem; line-height: 1; color: #fff; font-variant-numeric: tabular-nums; }
+.wt-state { font-size: .9rem; font-weight: 800; color: var(--al-sun); line-height: 1.15; }
+.wt-state small { display: block; font-family: var(--zh); font-weight: 600; font-size: .8rem; color: var(--al-mute); }
+.wt-state[data-r="storm"] { color: #ff8a7a; }
+.wt-state[data-r="calm"] { color: var(--al-mute); }
+.wt-msg { margin-top: .6rem; min-height: 6.2em; }
+.wt-curve { position: relative; height: 150px; border-radius: 12px; border: 1px solid var(--al-line); background: #02040c; overflow: hidden; }
+.wt-curve-cv { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.wt-curve-note { margin: .4rem 0 0; font-size: .68rem; line-height: 1.45; color: #7f90b0; }
+.wt-x8 { margin-top: .6rem; font-size: .78rem; }
+.wt-x8 b { font-family: var(--sans); color: var(--al-sun); }
+.wt-winds { display: inline-grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .3rem; }
+.wt-winds button { flex-direction: row; gap: .4rem; padding: .4rem .7rem; font-size: .74rem; }
+.wt-winds button small { display: inline; margin-left: .2rem; }
+.wt-ws-row { margin-top: .8rem; }
+.wt-ws-row > span { text-transform: none; letter-spacing: .02em; }
+.wt-ws-row output { margin-left: .3rem; font-weight: 800; color: #fff; }
+.al-lab.wt-cmp { font-family: var(--serif); font-weight: 700; padding: .02rem .4rem; color: #cfe0ff; background: rgba(6,10,22,.4); }
+@media (max-width: 1020px) {
+  .wt-lab .al-stage { grid-template-columns: minmax(0, 1fr); }
+  .wt-lab .bt-aside { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+}
+@media (max-width: 640px) {
+  .wt-lab .bt-aside { grid-template-columns: minmax(0, 1fr); }
+  .wt-msg { min-height: 0; }
+  .wt-winds { grid-template-columns: 1fr 1fr; width: 100%; }
+}
+
+/* 數字卡（第四課起：台灣的離岸風電） */
+.hw-facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1.4rem; }
+.hw-fact { padding: 1.2rem 1.25rem 1.1rem; background: #fff; border: 1px solid var(--line); border-radius: 16px; box-shadow: var(--shadow-sm); }
+.hw-fact-n { display: block; font-family: var(--serif); font-size: 2.3rem; line-height: 1; color: var(--brand-dk); }
+.hw-fact-u { display: block; margin-top: .3rem; font-size: .76rem; font-weight: 800; letter-spacing: .06em; color: var(--gold-dk); }
+.hw-fact p { margin: .6rem 0 0; font-size: .92rem; line-height: 1.6; }
+.hw-fact p .zh { display: block; margin-top: .25rem; color: var(--ink-soft); font-size: .88rem; }
+.al-lg-wind i { border: 0; height: 4px; margin-top: .55rem; border-radius: 2px; background: linear-gradient(90deg, rgba(207,239,255,0), #cfefff); }
