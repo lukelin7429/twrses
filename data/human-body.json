@@ -14,13 +14,7 @@
       "zh": "每一課也會請你在自己身上量一量、數一數，並附生字、閱讀理解、小測驗和課堂活動。本系列是教育用途，不是醫療建議。"
     }
   ],
-  "planned": [
-    {
-      "icon": "🦠",
-      "en": "How Does Your Body Fight Germs?",
-      "zh": "身體怎麼對抗病菌？"
-    }
-  ],
+  "planned": [],
   "lessons": [
     {
       "n": 1,
@@ -5160,6 +5154,426 @@
       },
       "health_en": "This lesson is for learning about the body. It is not medical advice. If a tooth hurts, your gums bleed or swell, or a tooth gets knocked out, tell an adult right away. A knocked-out adult tooth can sometimes be saved if you see a dentist quickly.",
       "health_zh": "本課是認識身體的教材，不是醫療建議。如果牙齒痛、牙齦流血或腫起來，或牙齒被撞掉，請馬上告訴大人。被撞掉的恆牙如果很快去看牙醫，有時還救得回來。"
+    },
+    {
+      "n": 12,
+      "slug": "germs",
+      "title": "How Does Your Body Fight Germs?",
+      "title_zh": "身體怎麼對抗病菌？",
+      "level": "入門 · Beginner",
+      "icon": "🦠",
+      "card": "germs",
+      "blurb_en": "Your body has three walls against germs, and it remembers every enemy it has beaten. Watch white blood cells chase bacteria through a tiny cut, and see why the second fight is so much faster.",
+      "blurb_zh": "身體有三道防線，而且記得每個打敗過的敵人。看白血球在一個小傷口裡追著細菌跑，再看看為什麼第二次交手快得多。",
+      "big_idea_en": "Your body fights germs with three walls: skin and mucus keep most germs out, white blood cells attack the ones that get in, and your body remembers each germ so it can win faster next time. That memory is how vaccines work.",
+      "big_idea_zh": "身體用三道防線對抗病菌：皮膚和黏液擋住大部分，白血球攻擊闖進來的，身體還會記住每一種病菌，下次贏得更快——疫苗就是靠這份記憶。",
+      "lab": {
+        "kind": "germs",
+        "eyebrow": "3D Model · 3D 模型",
+        "title_en": "Battle in a Tiny Cut",
+        "title_zh": "小傷口裡的戰爭",
+        "how_en": "A paper cut on your fingertip, blown up 2,000 times. Slide the time forward: bacteria slip in and double, the area turns red and swollen, white blood cells squeeze out of a blood vessel to eat them, and Y-shaped antibodies finally tag every last one. Then switch to the second time the same germ shows up, and compare the two fights on the chart.",
+        "how_zh": "指尖上一道被紙割到的小傷口，放大 2,000 倍。把時間往後拉：細菌溜進來、一變二、二變四，傷口附近又紅又腫，白血球從血管裡擠出來吃掉它們，最後 Y 字形的抗體把剩下的細菌全部標記起來。再切換到「第二次遇到同一種病菌」，在圖上比一比兩場仗。",
+        "legend": [
+          {
+            "cls": "germ",
+            "en": "Green rods: bacteria",
+            "zh": "綠色小棒：細菌"
+          },
+          {
+            "cls": "wbc",
+            "en": "Big pale cells: white blood cells",
+            "zh": "大大的淡色細胞：白血球"
+          },
+          {
+            "cls": "rbc",
+            "en": "Red discs: red blood cells in a tiny blood vessel",
+            "zh": "紅色圓盤：微血管裡的紅血球"
+          },
+          {
+            "cls": "ab",
+            "en": "Gold Ys: antibodies",
+            "zh": "金色的 Y：抗體"
+          }
+        ],
+        "scale_en": "The hand bones are real, from the same BodyParts3D skeleton as Lesson 1; the cut, the cells, and the germs are our own drawing, shown about 2,000 times bigger than life. The bacteria are drawn a little bigger than they really are so you can see them. Real cuts hold far more germs and cells, and the timeline is squeezed: hours at the start, days at the end. The two fights follow the typical pattern of a first and a second immune response.",
+        "scale_zh": "手部骨頭是真實的，和第一課同一副 BodyParts3D 骨架；傷口、細胞和病菌是本站自繪的示意圖，放大約 2,000 倍。細菌畫得比真實的大一點，方便看清楚。真實的傷口裡病菌和細胞多得多，時間軸也壓縮過：開頭以小時計，後面以天計。兩場仗依照第一次與第二次免疫反應的典型樣子。",
+        "credit_html": "Bone models: <a href=\"https://dbarchive.biosciencedbc.jp/en/bodyparts3d/download.html\" target=\"_blank\" rel=\"noopener\">BodyParts3D</a>, © The Database Center for Life Science, licensed under <a href=\"https://creativecommons.org/licenses/by/4.0/\" target=\"_blank\" rel=\"noopener\">CC BY 4.0</a>. We selected the bones, simplified the shapes, and turned the model upright; the germs and cells are our own drawing. · 骨骼模型來源：BodyParts3D（日本生命科學資料庫中心，CC BY 4.0 授權）；本站挑選骨頭、簡化形狀並轉正方向，病菌與細胞為本站自繪示意。"
+      },
+      "paras": [
+        "Germs are tiny living things, such as bacteria and viruses, that are too small to see. Most bacteria are harmless, and many, like the ones in your gut, even help you. But some can make you sick. Your body is attacked by germs every day, and it wins almost every time, usually without you noticing. It does this with three walls of defense.",
+        "The first wall keeps germs out. Your skin is a tough, dry barrier that most germs cannot get through. Your nose, mouth, and throat are lined with sticky mucus that traps germs, and tiny hairs sweep the mucus away so you can swallow or sneeze it out. Tears and saliva contain substances that kill bacteria, and your stomach is filled with strong acid. Germs get in mainly through cuts, or through your eyes, nose, and mouth, often from your own hands.",
+        "If germs get past the first wall, the second wall attacks right away. Bacteria can double every 20 minutes, so speed matters. Damaged cells send out alarm signals, and blood vessels nearby widen and leak fluid. That is why a cut turns red, warm, swollen, and sore. Then white blood cells squeeze out of the blood vessels and hunt the germs, swallowing them whole. A single drop of blood carries hundreds of thousands of white blood cells. A fever can help too, because many germs grow more slowly when your body is warmer.",
+        "The third wall is the smartest. Special white blood cells study the invader and make antibodies, Y-shaped proteins that fit only that one germ, like a key fits a lock. Antibodies stick to the germs, making them easier to catch and destroy. The first time your body meets a new germ, making the right antibodies can take a week or more, so you may feel sick for days.",
+        "But your body remembers. After the fight, memory cells stay on guard for years. If the same germ comes back, they make antibodies in a day or two, and the germ is often gone before you feel sick at all. Vaccines use this memory. A vaccine shows your body a harmless piece or a weakened form of a germ, so your body learns to recognize it without having to get sick first.",
+        "You can help your three walls. Wash your hands with soap for at least 20 seconds, especially before eating and after using the toilet. Cover coughs and sneezes with your elbow. Clean cuts and keep them covered. Sleep well and eat well, because a tired body fights germs less well. And remember that antibiotics kill bacteria but do nothing against viruses like colds and flu. Now try the germ calculator and the handwashing timer below the model."
+      ],
+      "paras_zh": [
+        "病菌是像細菌和病毒這樣的小生物，小到眼睛看不見。大部分細菌是無害的，很多甚至對你有幫助，例如腸道裡的細菌；但有些會讓你生病。你的身體每天都受到病菌攻擊，而且幾乎每次都贏，通常你根本沒發現。它靠的是三道防線。",
+        "第一道防線把病菌擋在外面。皮膚是一道堅韌、乾燥的屏障，大部分病菌穿不過去。鼻子、嘴巴和喉嚨裡有黏黏的黏液，能黏住病菌，細細的纖毛再把黏液掃走，讓你吞下去或打噴嚏噴出來。眼淚和口水裡有能殺死細菌的物質，胃裡則裝滿了強酸。病菌主要是從傷口，或從眼睛、鼻子和嘴巴進來，常常就是被自己的手帶進來的。",
+        "病菌如果闖過第一道防線，第二道防線馬上出動。細菌每 20 分鐘就能多一倍，所以速度很重要。受傷的細胞發出警報，附近的血管變寬、滲出液體，所以傷口會紅、熱、腫、痛。接著白血球從血管裡擠出來追捕病菌，把它們整個吞下去。一滴血裡就有幾十萬個白血球。發燒也能幫忙，因為很多病菌在體溫比較高時長得比較慢。",
+        "第三道防線最聰明。特別的白血球會研究入侵者，製造抗體：一種 Y 字形的蛋白質，只配得上那一種病菌，就像一把鑰匙只開一把鎖。抗體黏在病菌上，讓它們更容易被抓住、被消滅。身體第一次遇到新的病菌時，做出對的抗體可能要一個星期以上，所以你可能會不舒服好幾天。",
+        "但是身體會記得。打完這一仗，記憶細胞會守候好幾年。同一種病菌再來的時候，它們一兩天就能做出抗體，病菌常常在你感覺不舒服之前就被消滅了。疫苗就是利用這份記憶：疫苗讓身體看到病菌無害的一小部分，或是減弱過的病菌，讓身體不必先生病，就學會認出它。",
+        "你也可以幫助這三道防線。用肥皂洗手至少 20 秒，尤其是吃東西前和上完廁所後。咳嗽、打噴嚏時用手肘遮住。傷口要清潔，並且蓋好。睡飽、吃好，因為疲累的身體比較打不贏病菌。還要記得：抗生素能殺細菌，但對感冒、流感這些病毒完全沒用。現在試試模型下方的病菌計算機和洗手計時器。"
+      ],
+      "questions": [
+        "What are the three walls your body uses against germs?",
+        "Why does a cut turn red, warm, and swollen?",
+        "Why do you often not get sick the second time the same germ comes back?"
+      ],
+      "answers": [
+        "First, skin and mucus keep germs out. Second, white blood cells attack germs that get in. Third, antibodies target each germ, and the body remembers it.",
+        "Damaged cells send alarm signals, and nearby blood vessels widen and leak fluid so that white blood cells can get to the germs.",
+        "Memory cells remember the germ and make antibodies in a day or two, so the germ is gone before you feel sick."
+      ],
+      "vocab": [
+        {
+          "n": 1,
+          "w": "germ",
+          "pos": "n.",
+          "zh": "病菌",
+          "ex": "Wash your hands to get rid of <b>germs</b>.",
+          "exzh": "洗手可以把病菌洗掉。"
+        },
+        {
+          "n": 2,
+          "w": "bacteria",
+          "pos": "n.",
+          "zh": "細菌（複數）",
+          "ex": "Some <b>bacteria</b> help us digest our food.",
+          "exzh": "有些細菌會幫助我們消化食物。"
+        },
+        {
+          "n": 3,
+          "w": "virus",
+          "pos": "n.",
+          "zh": "病毒",
+          "ex": "A cold is caused by a <b>virus</b>.",
+          "exzh": "感冒是病毒引起的。"
+        },
+        {
+          "n": 4,
+          "w": "infection",
+          "pos": "n.",
+          "zh": "感染",
+          "ex": "Clean the cut so it doesn't get an <b>infection</b>.",
+          "exzh": "把傷口清乾淨，才不會感染。"
+        },
+        {
+          "n": 5,
+          "w": "fever",
+          "pos": "n.",
+          "zh": "發燒",
+          "ex": "She stayed home because she had a <b>fever</b>.",
+          "exzh": "她發燒了，所以待在家裡。"
+        },
+        {
+          "n": 6,
+          "w": "sneeze",
+          "pos": "v.",
+          "zh": "打噴嚏",
+          "ex": "Cover your nose with your elbow when you <b>sneeze</b>.",
+          "exzh": "打噴嚏時用手肘遮住鼻子。"
+        },
+        {
+          "n": 7,
+          "w": "soap",
+          "pos": "n.",
+          "zh": "肥皂",
+          "ex": "Use <b>soap</b> and scrub for twenty seconds.",
+          "exzh": "用肥皂搓洗二十秒。"
+        },
+        {
+          "n": 8,
+          "w": "vaccine",
+          "pos": "n.",
+          "zh": "疫苗",
+          "ex": "The nurse gave us a flu <b>vaccine</b> at school.",
+          "exzh": "護理師在學校幫我們打了流感疫苗。"
+        }
+      ],
+      "quiz": [
+        {
+          "q": "What is your body's first wall against germs?",
+          "options": [
+            "Skin and mucus",
+            "Antibodies",
+            "Memory cells",
+            "Antibiotics"
+          ],
+          "correct": 0
+        },
+        {
+          "q": "In good conditions, how often can some bacteria double?",
+          "options": [
+            "About every 20 minutes",
+            "About once a year",
+            "About once a week",
+            "They never double"
+          ],
+          "correct": 0
+        },
+        {
+          "q": "What do white blood cells do to germs?",
+          "options": [
+            "Hunt them and swallow them",
+            "Feed them",
+            "Turn them into red blood cells",
+            "Send them to the brain"
+          ],
+          "correct": 0
+        },
+        {
+          "q": "What shape are antibodies?",
+          "options": [
+            "Y-shaped",
+            "Round like a ball",
+            "Square",
+            "Shaped like a star"
+          ],
+          "correct": 0
+        },
+        {
+          "q": "According to the reading, what do antibiotics NOT work against?",
+          "options": [
+            "Viruses like colds and flu",
+            "Bacteria",
+            "Germs in a cut",
+            "Any germs at all"
+          ],
+          "correct": 0
+        }
+      ],
+      "kinds_head": {
+        "eyebrow": "Three Walls of Defense · 三道防線",
+        "en": "Who keeps you healthy",
+        "zh": "誰在保護你"
+      },
+      "kinds": [
+        {
+          "icon": "🧱",
+          "en": "Skin",
+          "zh": "皮膚",
+          "where_en": "All over the outside",
+          "where_zh": "全身外面",
+          "control_en": "Wall 1: keep germs out",
+          "control_zh": "第一道：擋在外面",
+          "text_en": "A tough, dry wall. Most germs get in only through cuts, so clean and cover them.",
+          "text_zh": "堅韌又乾燥的牆；大部分病菌只能從傷口進來，所以傷口要清潔、蓋好。"
+        },
+        {
+          "icon": "🤧",
+          "en": "Mucus, tears, and acid",
+          "zh": "黏液、眼淚和胃酸",
+          "where_en": "Nose, throat, eyes, and stomach",
+          "where_zh": "鼻子、喉嚨、眼睛和胃",
+          "control_en": "Wall 1: trap and kill",
+          "control_zh": "第一道：黏住、殺死",
+          "text_en": "Sticky mucus traps germs, tears and saliva fight bacteria, and stomach acid destroys most germs you swallow.",
+          "text_zh": "黏液黏住病菌，眼淚和口水對抗細菌，胃酸消滅大部分吞下去的病菌。"
+        },
+        {
+          "icon": "🔥",
+          "en": "Inflammation",
+          "zh": "發炎反應",
+          "where_en": "Wherever germs get in",
+          "where_zh": "病菌闖進來的地方",
+          "control_en": "Wall 2: sound the alarm",
+          "control_zh": "第二道：拉警報",
+          "text_en": "Red, warm, swollen, and sore: blood vessels open up so white blood cells can rush in.",
+          "text_zh": "紅、熱、腫、痛：血管打開，讓白血球趕過來。"
+        },
+        {
+          "icon": "⚪",
+          "en": "White blood cells",
+          "zh": "白血球",
+          "where_en": "In the blood, ready to leave it",
+          "where_zh": "在血液裡，隨時可以出動",
+          "control_en": "Wall 2: hunt and eat",
+          "control_zh": "第二道：追捕、吞掉",
+          "text_en": "Hundreds of thousands in each drop of blood. They squeeze out of blood vessels and swallow germs whole.",
+          "text_zh": "每一滴血裡有幾十萬個；它們從血管擠出來，把病菌整個吞下去。"
+        },
+        {
+          "icon": "🔑",
+          "en": "Antibodies and memory",
+          "zh": "抗體與記憶",
+          "where_en": "Made by special white blood cells",
+          "where_zh": "由特別的白血球製造",
+          "control_en": "Wall 3: target and remember",
+          "control_zh": "第三道：鎖定、記住",
+          "text_en": "Each antibody fits one germ like a key in a lock. Memory cells remember it for years.",
+          "text_zh": "每一種抗體只配一種病菌，像鑰匙配鎖；記憶細胞能記住它好幾年。"
+        }
+      ],
+      "kinds_note_en": "Think of a castle: the walls and the moat keep enemies out, the guards attack anyone who climbs in, and the castle keeps a wanted poster for every enemy it has ever caught.",
+      "kinds_note_zh": "把身體想成一座城堡：城牆和護城河把敵人擋在外面，衛兵攻擊爬進來的人，城堡還為每個抓過的敵人貼了一張通緝令。",
+      "measure": {
+        "title_en": "Germ math and a 20-second wash",
+        "title_zh": "病菌數學與 20 秒洗手",
+        "lead_en": "Use the calculator below the model to see how fast one bacterium can multiply, then wash your hands with the timer the way Taiwan's CDC teaches: wet, scrub, rinse, scoop, and dry.",
+        "lead_zh": "用模型下方的計算機，看一隻細菌能多快變多；再跟著計時器，照疾管署教的「濕、搓、沖、捧、擦」洗手。",
+        "steps": [
+          {
+            "n": "×2",
+            "en": "Do the germ math",
+            "zh": "算一算病菌",
+            "text_en": "Start with one bacterium that doubles every 20 minutes. Slide the hours and watch the number grow. How long until there are more than the 23 million people in Taiwan?",
+            "text_zh": "從一隻每 20 分鐘多一倍的細菌開始。拉動時間看數字變大：要多久才會比台灣的 2,300 萬人還多？"
+          },
+          {
+            "n": "20s",
+            "en": "Wash with the timer",
+            "zh": "跟著計時器洗手",
+            "text_en": "At a sink, press start and follow the five steps. Scrub for the full 20 seconds: palms, backs, between fingers, fingertips, thumbs, and wrists.",
+            "text_zh": "到洗手台按下開始，跟著五個步驟做。搓滿 20 秒：手心、手背、指縫、指尖、大拇指和手腕。"
+          },
+          {
+            "n": "✓",
+            "en": "Check with glitter",
+            "zh": "用亮粉檢查",
+            "text_en": "In class, put a little glitter or flour on your hands, then wash. Any sparkles left show the spots you usually miss.",
+            "text_zh": "在課堂上，手上沾一點亮粉或麵粉再洗；還留著亮亮的地方，就是你平常洗不到的地方。"
+          }
+        ],
+        "action": "test",
+        "action_value": "1",
+        "button_icon": "🧼",
+        "button_en": "Try the germ calculator and timer",
+        "button_zh": "試試病菌計算機和洗手計時器"
+      },
+      "myths": [
+        {
+          "myth_en": "All bacteria are bad for you.",
+          "myth_zh": "細菌都是壞的。",
+          "fact_en": "Most bacteria are harmless, and trillions of helpful bacteria live in your gut, where they help digest food and crowd out harmful germs.",
+          "fact_zh": "大部分細菌是無害的；腸道裡住著好幾兆個有益的細菌，幫忙消化食物，還把有害的病菌擠走。"
+        },
+        {
+          "myth_en": "Antibiotics cure colds.",
+          "myth_zh": "抗生素能治感冒。",
+          "fact_en": "Colds are caused by viruses, and antibiotics work only on bacteria. Taking them when they are not needed helps bacteria learn to resist them.",
+          "fact_zh": "感冒是病毒引起的，抗生素只對細菌有效。不需要時吃抗生素，反而讓細菌學會抵抗它。"
+        },
+        {
+          "myth_en": "A fever is always bad and should be stopped.",
+          "myth_zh": "發燒一定是壞事，要馬上退燒。",
+          "fact_en": "A fever is often part of how your body fights germs. A doctor or a parent decides when medicine is needed, especially if the fever is very high or lasts a long time.",
+          "fact_zh": "發燒常常是身體對抗病菌的一部分。要不要吃藥由醫生或家長決定，尤其是燒得很高或燒很久的時候。"
+        },
+        {
+          "myth_en": "If you can't see dirt, your hands are clean.",
+          "myth_zh": "手看起來不髒，就是乾淨的。",
+          "fact_en": "Germs are far too small to see. Clean-looking hands can still carry them, so wash before you eat and after using the toilet.",
+          "fact_zh": "病菌小到看不見，看起來乾淨的手也可能帶著病菌；吃東西前、上完廁所後都要洗手。"
+        }
+      ],
+      "tricks": [
+        {
+          "title_en": "Out, eat, remember",
+          "title_zh": "擋住、吃掉、記住",
+          "body_en": "Skin and mucus keep germs out, white blood cells eat them, and antibodies help your body remember them.",
+          "body_zh": "皮膚和黏液把病菌擋住，白血球把它們吃掉，抗體幫身體記住它們。"
+        },
+        {
+          "title_en": "Red, warm, swollen, sore",
+          "title_zh": "紅、熱、腫、痛",
+          "body_en": "The four signs of inflammation mean your body is already fighting.",
+          "body_zh": "發炎的四個徵兆，表示身體已經開始作戰。"
+        },
+        {
+          "title_en": "濕、搓、沖、捧、擦",
+          "title_zh": "濕、搓、沖、捧、擦",
+          "body_en": "Wet, scrub for 20 seconds, rinse, scoop water to clean the tap, and dry: Taiwan's five steps for washing hands.",
+          "body_zh": "淋濕、搓 20 秒、沖乾淨、捧水洗水龍頭、擦乾：台灣的洗手五步驟。"
+        },
+        {
+          "title_en": "Antibiotics are for bacteria",
+          "title_zh": "抗生素只打細菌",
+          "body_en": "Bacteria yes, viruses no. Colds and flu are viruses.",
+          "body_zh": "細菌有效，病毒沒用；感冒和流感都是病毒。"
+        }
+      ],
+      "activities": [
+        {
+          "title_en": "The Pepper Germ Test",
+          "title_zh": "胡椒粉病菌實驗",
+          "materials": [
+            {
+              "en": "A shallow plate of water and some ground black pepper",
+              "zh": "一個裝水的淺盤和一些黑胡椒粉"
+            },
+            {
+              "en": "Liquid soap or dish soap",
+              "zh": "洗手乳或洗碗精"
+            }
+          ],
+          "steps": [
+            {
+              "en": "Sprinkle pepper all over the water. The pepper is the “germs.”",
+              "zh": "把胡椒粉撒滿整個水面，胡椒粉就是「病菌」。"
+            },
+            {
+              "en": "Dip a clean finger into the middle. What happens?",
+              "zh": "用乾淨的手指點一下中間，發生了什麼事？"
+            },
+            {
+              "en": "Now put a drop of soap on your fingertip and dip it in again.",
+              "zh": "在指尖沾一滴肥皂，再點一次。"
+            },
+            {
+              "en": "Where did the pepper go? Why?",
+              "zh": "胡椒粉跑到哪裡去了？為什麼？"
+            }
+          ],
+          "tip_en": "Teaching tip: soap breaks the surface tension of the water, so the pepper rushes away. In real handwashing, soap also breaks up oils on your skin and lifts germs off so the water can rinse them away. That is why rinsing with water alone is not enough.",
+          "tip_zh": "教學提示：肥皂破壞了水的表面張力，所以胡椒粉一下子散開。真正洗手時，肥皂也會分解皮膚上的油脂，把病菌拉起來，讓水把它們沖走——所以只用清水沖是不夠的。"
+        },
+        {
+          "title_en": "The Handshake Chain",
+          "title_zh": "握手傳播遊戲",
+          "materials": [
+            {
+              "en": "A little glitter, flour, or washable paint",
+              "zh": "一點亮粉、麵粉或可洗的顏料"
+            },
+            {
+              "en": "Soap, water, and paper towels",
+              "zh": "肥皂、水和擦手紙"
+            }
+          ],
+          "steps": [
+            {
+              "en": "One student puts a little glitter on one hand. That is the “germ.”",
+              "zh": "一位同學在一隻手上沾一點亮粉，那就是「病菌」。"
+            },
+            {
+              "en": "Shake hands down a line of five or six students.",
+              "zh": "沿著一排五、六位同學依序握手。"
+            },
+            {
+              "en": "Check everyone's hands, then their desks, pencils, and faces. Where did the glitter end up?",
+              "zh": "檢查每個人的手，再看看桌子、鉛筆和臉：亮粉跑到哪裡去了？"
+            },
+            {
+              "en": "Everyone washes with soap. Who got it all off?",
+              "zh": "大家用肥皂洗手，誰洗得最乾淨？"
+            }
+          ],
+          "tip_en": "Teaching tip: germs travel the same way, and the last student in line still gets some. Ask how many students touched their face without noticing. Washable materials only, and keep glitter away from eyes.",
+          "tip_zh": "教學提示：病菌就是這樣傳出去的，排到最後的同學一樣會沾到。問問大家有幾個人不知不覺摸了臉。請只用可以洗掉的材料，亮粉不要碰到眼睛。"
+        }
+      ],
+      "culture": {
+        "title_en": "Escaping the Plague",
+        "title_zh": "免疫：免除疫病",
+        "body_en": "The Chinese word for immunity, 免疫 (miǎnyì), means “escaping the plague”: 免 is to avoid, and 疫 is an epidemic. English immunity comes from the Latin immunis, “free from a duty,” so an immune person was free from the sickness. The old saying 病從口入 (bìng cóng kǒu rù), “sickness comes in through the mouth,” is why Taiwanese students learn to wash their hands before every meal, and why the five steps 濕、搓、沖、捧、擦 are posted next to so many sinks.",
+        "body_zh": "中文的「免疫」，意思是「免除疫病」：免是避開，疫是流行病。英文 immunity 來自拉丁文 immunis，「免除義務」，所以 immune 的人就是不必生那場病的人。老話說「病從口入」，所以台灣的學生從小就學會飯前洗手，很多洗手台旁邊也貼著「濕、搓、沖、捧、擦」五個字。",
+        "link_en": "More Chinese health words in English",
+        "link_zh": "到中醫養生系列看更多"
+      },
+      "health_en": "This lesson is for learning about the body. It is not medical advice. If a cut gets more red, hot, swollen, or painful, or if you have a high fever or feel very sick, tell an adult. Take medicine only when a doctor or a parent says so, and follow the vaccine advice of your doctor and school.",
+      "health_zh": "本課是認識身體的教材，不是醫療建議。如果傷口越來越紅、熱、腫、痛，或發高燒、覺得非常不舒服，請告訴大人。只在醫生或家長說可以的時候吃藥，打疫苗請依照醫生和學校的建議。"
     }
   ]
 }

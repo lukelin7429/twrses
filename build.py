@@ -4311,7 +4311,7 @@ def build_astro_hub():
 # 面板與段落樣式沿用 astro.css，人體專屬的在 body.css；兩者都只載在本系列頁面。
 BODY_BASE = "/resources/classes/human-body/"
 _BODY_JS = {"skeleton": "skeleton", "arm": "arm", "heart": "heart", "lungs": "lungs", "joints": "joints",
-            "digestion": "digestion", "nerves": "nerves", "eyes": "eyes", "ears": "ears", "skin": "skin", "teeth": "teeth"}   # lab.kind → assets/js/<bundle>.js
+            "digestion": "digestion", "nerves": "nerves", "eyes": "eyes", "ears": "ears", "skin": "skin", "teeth": "teeth", "germs": "germs"}   # lab.kind → assets/js/<bundle>.js
 
 def _body_ver():
     h = hashlib.md5()
@@ -4988,6 +4988,69 @@ def render_teeth_lab(lesson):
   <p class="sk-credit">{lab["credit_html"]}</p>
 </div>'''
 
+def render_germs_lab(lesson):
+    """第十二課：指尖小傷口裡的免疫戰（assets/js/germs.js 綁這裡的 class）；病菌計算機與洗手計時器是 2D，不需要 WebGL。"""
+    lab = lesson["lab"]
+    wash = [("濕", "Wet", "把手淋濕"), ("搓", "Scrub 20 s", "抹肥皂搓 20 秒"), ("沖", "Rinse", "沖乾淨"),
+            ("捧", "Scoop", "捧水洗水龍頭"), ("擦", "Dry", "用擦手紙擦乾")]
+    wash_li = "".join(f'<li data-w="{i}"><b>{zh}</b><span>{en}<small>{d}</small></span></li>' for i, (zh, en, d) in enumerate(wash))
+    tg = _lab_toggles([("labels", "Labels", "標示", True), ("bones", "Hand bones", "手部骨頭", True)])
+    return f'''<div class="astro-lab sk-lab gm-lab rvl" data-germs-lab data-model="{_model_url()}">
+  <div class="al-stage">
+    <div class="al-space">
+      <canvas class="al-space-cv" aria-label="3D model of a tiny cut where white blood cells chase bacteria · 小傷口裡白血球追捕細菌的 3D 模型"></canvas>
+      <div class="al-labels" aria-hidden="true"></div>
+      <p class="sk-loading">Loading… · 載入中…<span class="sk-bar"><i></i></span></p>
+      <p class="al-hint">Drag to turn · 拖曳旋轉　Scroll or pinch to zoom · 滾輪／雙指縮放</p>
+      <p class="ey-mag">Shown about 2,000&times; life size · 放大約 2,000 倍</p>
+      <button type="button" class="al-home" title="Reset view · 重設視角" aria-label="Reset view · 重設視角">&#8634;</button>
+      <p class="al-nogl-msg">This 3D model needs WebGL, which this browser does not support. The calculator, the timer, and the cards below still work.<br><span class="zh">這個瀏覽器不支援 WebGL，無法顯示 3D 模型；下方的計算機、計時器和卡片一樣能用。</span></p>
+    </div>
+    <aside class="al-sky sk-aside gm-aside">
+      <div class="ea-pres gm-modes" role="group" aria-label="Which fight · 哪一場仗">
+        <button type="button" data-mode="first" aria-pressed="true"><i aria-hidden="true">&#10067;</i><span>First time<small>第一次遇到這種病菌</small></span></button>
+        <button type="button" data-mode="second" aria-pressed="false"><i aria-hidden="true">&#129504;</i><span>Second time<small>第二次：身體記得它</small></span></button>
+      </div>
+      <p class="gm-time"><b class="gm-t">0 min</b><span>after the cut<small class="gm-t-zh">割傷之後</small></span></p>
+      <dl class="ey-nums gm-nums">
+        <div><dt>Bacteria · 細菌</dt><dd class="gm-nb">—</dd></div>
+        <div><dt>White blood cells · 白血球</dt><dd class="gm-nw">—</dd></div>
+        <div><dt>Antibodies · 抗體</dt><dd class="gm-na">—</dd></div>
+      </dl>
+      <p class="ey-status gm-status" aria-live="polite"></p>
+      <p class="al-sky-k">Bacteria in the cut · 傷口裡的細菌</p>
+      <canvas class="gm-chart" width="340" height="170" aria-label="Number of bacteria over time in the first and second fight · 第一次和第二次交手時細菌數量的變化"></canvas>
+    </aside>
+  </div>
+  <div class="gm-strip">
+    <div class="gm-calc">
+      <p class="al-sky-k">Germ math · 病菌數學</p>
+      <p class="gm-calc-q">One bacterium doubles every 20 minutes. After <b class="gm-h">4 hours</b>:<span class="zh">一隻細菌每 20 分鐘多一倍，經過 <b class="gm-h-zh">4 小時</b>：</span></p>
+      <p class="gm-count">4,096</p>
+      <input type="range" class="ec-time gm-h-in" min="0" max="30" step="1" value="12" aria-label="Hours · 小時">
+      <p class="gm-compare"></p>
+    </div>
+    <div class="gm-wash">
+      <p class="al-sky-k">Handwashing timer · 洗手計時器</p>
+      <ol class="gm-wash-steps">{wash_li}</ol>
+      <div class="gm-wash-row"><div class="gm-ring" aria-hidden="true"><svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="19"/><circle class="gm-ring-p" cx="22" cy="22" r="19"/></svg><b class="gm-sec">20</b></div>
+        <div class="ey-bs-btns"><button type="button" class="gm-wash-go ey-bs-3d">&#129532; Start washing<small>開始洗手</small></button>
+        <button type="button" class="gm-wash-next" hidden>Next step &rarr;<small>下一步</small></button></div></div>
+      <p class="gm-wash-msg" aria-live="polite">Scrub everywhere: palms, backs, between fingers, fingertips, thumbs, and wrists. Singing “Happy Birthday” twice takes about 20 seconds.<span class="zh">每個地方都要搓到：內、外、夾、弓、大、立、完（手心、手背、指縫、指背、大拇指、指尖、手腕）。唱兩次〈生日快樂〉大約就是 20 秒。</span></p>
+    </div>
+  </div>
+  <div class="al-controls">
+    <div class="al-row al-row-main">
+      <button type="button" class="al-play" aria-pressed="false"><span class="al-play-i" aria-hidden="true"></span><span class="al-play-t">Play · 播放</span></button>
+      <label class="ec-slider gm-time-row"><span class="ec-slider-k">Time after the cut · 割傷之後的時間<em>hours at first, then days · 前面以小時計、後面以天計</em></span>
+        <input type="range" class="ec-time gm-time-in" min="0" max="1000" step="1" value="0"></label>
+    </div>
+    <div class="al-row al-toggles">{tg}</div>
+  </div>
+  {_lab_foot(lab)}
+  <p class="sk-credit">{lab["credit_html"]}</p>
+</div>'''
+
 def _body_nav(slug):
     ls = BODY["lessons"]
     i = next(n for n, l in enumerate(ls) if l["slug"] == slug)
@@ -5014,7 +5077,7 @@ def build_body_lesson(lesson):
     lab_html = {"skeleton": render_skeleton_lab, "arm": render_arm_lab, "heart": render_heart_lab, "lungs": render_lungs_lab,
                 "joints": render_joints_lab, "digestion": render_digestion_lab, "nerves": render_nerves_lab,
                 "eyes": render_eyes_lab, "ears": render_ears_lab, "skin": render_skin_lab,
-                "teeth": render_teeth_lab}[kind](lesson)
+                "teeth": render_teeth_lab, "germs": render_germs_lab}[kind](lesson)
 
     secs = []
     if lesson.get("jobs"):
@@ -5118,7 +5181,8 @@ def build_body_lesson(lesson):
                 "joints": ("Joints in a sentence", "一句話記住關節"), "digestion": ("Digestion in a sentence", "一句話記住消化"),
                 "nerves": ("Your nervous system in a sentence", "一句話記住神經系統"),
                 "eyes": ("Your eyes in a sentence", "一句話記住眼睛"), "ears": ("Your ears in a sentence", "一句話記住耳朵"),
-                "skin": ("Your skin in a sentence", "一句話記住皮膚"), "teeth": ("Your teeth in a sentence", "一句話記住牙齒")}[kind]
+                "skin": ("Your skin in a sentence", "一句話記住皮膚"), "teeth": ("Your teeth in a sentence", "一句話記住牙齒"),
+                "germs": ("Fighting germs in a sentence", "一句話記住免疫")}[kind]
     secs.append(("tricks", "Remember It · 記憶口訣", tricks_h[0], tricks_h[1], _sci_tricks(lesson), ""))
     if lesson.get("culture"):
         cu = lesson["culture"]
