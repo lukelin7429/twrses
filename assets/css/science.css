@@ -161,3 +161,42 @@
 .hw-nospin { margin: auto 0 0; font-size: .82rem; font-weight: 800; color: var(--gold-dk); }
 @media (max-width: 1020px) { .hw-plant-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 480px) { .hw-plant-grid { grid-template-columns: 1fr; } .hw-mix { padding: 1rem; } .hw-mix-seg { font-size: .78rem; } }
+
+/* ---------- 第三課：太陽能電池 ---------- */
+@media (min-width: 1021px) { .sl-lab .al-space { min-height: 640px; } }
+.sl-aside { gap: .9rem; }
+.sl-weather { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.sl-lights { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.sl-lights button { font-size: .7rem; }
+.sl-k2 { margin-top: .7rem !important; }
+.sl-msg { margin-top: .6rem; min-height: 6.2em; }
+.sl-bar { display: flex; height: 22px; border-radius: 8px; overflow: hidden; background: rgba(255,255,255,.06); }
+.sl-seg { flex-basis: 0; transition: flex-grow .4s; }
+.sl-b-elec, .sl-k-elec { background: #58e1ff; }
+.sl-b-heat, .sl-k-heat { background: #ff8a2a; }
+.sl-b-thru, .sl-k-thru { background: #8a3a3a; }
+.sl-b-refl, .sl-k-refl { background: #9aa3b4; }
+.sl-keys { list-style: none; margin: .55rem 0 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: .3rem .8rem; font-size: .74rem; color: var(--al-text); }
+.sl-keys li { display: grid; grid-template-columns: 10px 1fr auto; column-gap: .4rem; align-items: baseline; line-height: 1.25; }
+.sl-keys i { width: 10px; height: 10px; border-radius: 3px; grid-row: span 2; align-self: center; }
+.sl-keys .zh { grid-column: 2; color: var(--al-mute); font-size: .68rem; }
+.sl-keys b { grid-column: 3; grid-row: 1 / span 2; align-self: center; font-variant-numeric: tabular-nums; color: #fff; }
+.sl-nums { grid-template-columns: 1fr 1.6fr; margin-top: .6rem; }
+.sl-reset { margin-top: .5rem; border: 1px solid var(--al-line); background: transparent; color: var(--al-mute); font-family: var(--sans); font-weight: 700; font-size: .74rem; padding: .3rem .8rem; border-radius: 999px; cursor: pointer; }
+.sl-reset:hover { color: #fff; border-color: rgba(255,255,255,.35); }
+.sl-fact { margin-top: .6rem; font-size: .76rem; }
+.al-lab.sl-lb-n { color: #bcd2ff; border-color: rgba(61,111,214,.6); }
+.al-lab.sl-lb-p { color: #e3c8f2; border-color: rgba(138,90,168,.6); }
+.al-lab.sl-lb-h { color: #ff8fb8; border-color: rgba(255,143,184,.5); }
+.al-lg-ph i { border: 0; background: radial-gradient(circle, #fff 0 25%, #ffd36e 30%, rgba(255,211,110,0) 70%); }
+.al-lg-heat i { border: 0; background: radial-gradient(circle, #ffb36a, #ff8a2a 55%, rgba(255,138,42,0) 72%); }
+@media (max-width: 1020px) {
+  .sl-lab .al-stage { grid-template-columns: minmax(0, 1fr); }
+  .sl-lab .bt-aside { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+  .sl-top { grid-row: auto; }
+}
+@media (max-width: 640px) {
+  .sl-lab .bt-aside { grid-template-columns: minmax(0, 1fr); }
+  .sl-msg { min-height: 0; }
+}
+.sl-aside > * { min-width: 0; }

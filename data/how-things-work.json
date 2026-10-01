@@ -799,7 +799,7 @@
               "share_zh": "屬於再生能源",
               "spin_en": "Nothing spins!",
               "spin_zh": "完全不用轉！",
-              "text_en": "The one exception: solar panels turn light straight into electricity with no moving parts. How they do it is the next lesson.",
+              "text_en": "The one exception: solar panels turn light straight into electricity with no moving parts. How they do it is Lesson 3.",
               "text_zh": "唯一的例外：太陽能板直接把光變成電，沒有任何會動的零件。它怎麼做到，是下一課的主題。",
               "drive": ""
             }
@@ -1060,15 +1060,471 @@
               "url": "https://www.cdc.gov/carbon-monoxide/factsheets/generator-safety-fact-sheet.html"
             }
           ]
+        },
+        {
+          "n": 3,
+          "slug": "solar-panel",
+          "title": "How Does a Solar Panel Turn Light into Electricity?",
+          "title_zh": "太陽能板怎麼把光變成電？",
+          "level": "入門 · Beginner",
+          "icon": "☀️",
+          "card": "solar",
+          "blurb_en": "A solar panel never moves, yet electricity flows out of it all day. Watch photons knock electrons loose in a slice of silicon, then try red, blue, infrared, clouds, and night.",
+          "blurb_zh": "太陽能板一動也不動，卻整天流出電來。用 3D 看光子在矽片裡敲出電子，再換紅光、藍光、紅外線、陰天和夜晚試試看。",
+          "big_idea_en": "Light comes in tiny packets called photons. A photon can knock an electron loose in silicon, and a built-in electric field inside the panel pushes those electrons one way, out through the wire. No moving parts, no fuel.",
+          "big_idea_zh": "光是一小包一小包的「光子」。光子可以把矽裡的電子敲出來，太陽能板裡面的內建電場再把這些電子往同一個方向推，從電線流出去。沒有會動的零件，也不用燃料。",
+          "lab": {
+            "kind": "solar",
+            "eyebrow": "3D Model · 3D 模型",
+            "title_en": "Inside a Silicon Solar Cell",
+            "title_zh": "矽太陽能電池的剖面",
+            "how_en": "Drag to turn the model, and scroll or pinch to zoom. Choose the weather and the color of the light. Watch which photons free an electron (blue beads), which pass straight through, and where the energy ends up in the bar beside the model.",
+            "how_zh": "拖曳可以旋轉模型，滾輪或雙指可以縮放。選擇天氣和光的顏色，看看哪些光子敲出了電子（藍色小珠）、哪些直接穿過去，旁邊的長條會顯示能量最後去了哪裡。",
+            "legend": [
+              {
+                "cls": "ph",
+                "en": "Glowing dots with tails: photons. Dark red ones are infrared, which you cannot see.",
+                "zh": "帶尾巴的亮點：光子；暗紅色的是看不見的紅外線"
+              },
+              {
+                "cls": "el",
+                "en": "Blue beads: electrons. Pink beads: holes, the places electrons left.",
+                "zh": "藍色小珠：電子；粉紅小珠：電洞（電子離開後留下的空位）"
+              },
+              {
+                "cls": "heat",
+                "en": "Orange flashes: leftover energy turning into heat",
+                "zh": "橘色閃光：多出來的能量變成熱"
+              }
+            ],
+            "scale_en": "A diagram, not to scale. A real cell is thinner than four human hairs, and the top layer is far thinner still. A real cell receives trillions of photons every second, not a few. Where the energy goes is calculated from each photon's energy and about 0.6 volts per cell, which is why it lands near the 20% of real panels.",
+            "scale_zh": "這是示意圖，大小不按比例。真正的電池比四根頭髮還薄，上層又更薄得多；每秒照到的光子是好幾兆顆，不是幾顆。能量去向是用每顆光子的能量和每顆電池約 0.6 伏特算出來的，所以會落在真實太陽能板的兩成左右。",
+            "credit_html": "Model drawn by My Culture Connect as a teaching diagram, following <a href=\"https://www.pveducation.org/pvcdrom/pn-junctions/absorption-depth\" target=\"_blank\" rel=\"noopener\">PVEducation</a> and the <a href=\"https://www.energy.gov/eere/solar/solar-photovoltaic-technology-basics\" target=\"_blank\" rel=\"noopener\">U.S. Department of Energy</a>. · 模型由人師教育協會自繪示意，原理依 PVEducation 與美國能源部的說明。"
+          },
+          "paras": [
+            "Look across the rooftops of Changhua, and you will see rows of dark blue panels on homes, schools, and factories. They sit perfectly still. There is no turbine, no fuel, and no smoke, yet electricity flows out of them all day long. In the last lesson, almost every power plant needed something to spin. How can a solar panel make electricity without moving at all?",
+            "In 1839, a 19-year-old French scientist named Edmond Becquerel noticed that shining light on certain materials made a small electric current. This is called the photovoltaic effect: photo means light, and volt is a unit of electricity. More than a century later, in 1954, scientists at Bell Labs in the United States built the first practical solar cell from silicon, the same element found in sand. It turned about 6% of the sunlight that hit it into electricity.",
+            "Light travels in tiny packets of energy called photons. A solar cell is a thin slice of silicon, thinner than four human hairs. When a photon hits the silicon, it can give one electron enough energy to break free. Blue photons carry more energy than red ones, but each photon can free only one electron, and the extra energy becomes heat. Some infrared photons carry too little energy, so they pass straight through without freeing anything.",
+            "Freeing an electron is not enough, because it would soon fall back into place. So the cell is made of two layers. The top layer has a few extra electrons, and the bottom layer has a few missing ones, called holes. Where the two layers meet, an electric field forms, like a one-way slope. It pushes freed electrons up toward the top and holes down toward the bottom. The electrons can only get back by going around through the wire, and that flow is electricity.",
+            "One cell gives less than one volt, so a panel joins many cells in a row. Most panels on roofs today turn about one-fifth of the sunlight that hits them into electricity. Where does the rest go? Some light bounces off, some passes through, and much of it becomes heat. Heat is a problem, too. On a hot summer roof, a panel makes less power: about 0.4% less for every degree Celsius above 25.",
+            "In 2024, Taiwan's solar panels made about 15 billion kilowatt-hours, more than any other renewable source. Changhua has more renewable power connected to the grid than any other county. But the sun sets every evening and hides behind clouds, so solar power must be shared with other sources, or saved in batteries and in places like Sun Moon Lake. Still, every one of those panels works the same simple way: light knocks electrons loose, and a built-in slope sends them around the wire."
+          ],
+          "paras_zh": [
+            "放眼望去彰化的屋頂，你會看到住家、學校和工廠上，一排排深藍色的板子。它們一動也不動：沒有渦輪、沒有燃料、沒有煙，卻整天流出電來。上一課我們看到，幾乎每一座發電廠都需要有東西在轉。太陽能板怎麼可能完全不動就發電？",
+            "1839 年，19 歲的法國科學家貝克勒發現：光照在某些材料上，會產生微弱的電流。這叫做「光伏效應」（photovoltaic）：photo 是光，volt 是電的單位。一百多年後，1954 年，美國貝爾實驗室的科學家用矽做出第一顆實用的太陽能電池；矽就是沙子裡的那種元素。它能把照到的陽光約 6% 變成電。",
+            "光是一小包一小包的能量，叫做光子。太陽能電池是一片薄薄的矽，比四根頭髮還薄。光子打到矽，可以給一個電子足夠的能量，讓它掙脫出來。藍光光子的能量比紅光大，但一顆光子只能敲出一個電子，多出來的能量就變成熱。有些紅外線光子的能量太小，敲不出任何電子，就直接穿過去。",
+            "只把電子敲出來還不夠，因為它很快又會掉回原位。所以電池做成兩層：上層多一點電子，下層少一點電子，那些空位叫做「電洞」。兩層交界的地方會形成電場，像一道單向的斜坡：把被敲出的電子往上推、把電洞往下推。電子只能繞外面的電線才回得去，這股流動就是電。",
+            "一顆電池的電壓不到一伏特，所以一片太陽能板會把許多顆電池串在一起。現在屋頂上大多數的太陽能板，能把照到的陽光約五分之一變成電。其餘的去哪了？有些光被反射，有些穿過去，很多則變成了熱。熱也是個問題：在炎熱的夏天屋頂上，太陽能板的輸出會變少，溫度每比 25 °C 高一度，大約少 0.4%。",
+            "2024 年，台灣的太陽能板發了大約 149 億度電，比其他任何一種再生能源都多。彰化併入電網的再生能源，比全國任何一個縣市都多。可是太陽每天傍晚會下山，也會躲到雲後面，所以太陽能要和其他發電方式互相搭配，或先存進電池、存進像日月潭這樣的地方。不過，每一片太陽能板的原理都一樣簡單：光把電子敲出來，內建的斜坡把它們送去繞電線。"
+          ],
+          "questions": [
+            "What did Bell Labs build in 1954, and how much of the sunlight could it turn into electricity?",
+            "Why does a solar cell need two different layers?",
+            "Why does a solar panel make less electricity on a very hot day?"
+          ],
+          "answers": [
+            "The first practical solar cell, made from silicon. It turned about 6% of the sunlight that hit it into electricity.",
+            "Where the two layers meet, an electric field forms. It pushes freed electrons to the top and holes to the bottom, so the electrons cannot simply fall back; they have to go around through the wire.",
+            "Heat lowers the panel's voltage. It makes about 0.4% less power for every degree Celsius above 25."
+          ],
+          "vocab": [
+            {
+              "n": 1,
+              "w": "solar",
+              "pos": "adj.",
+              "zh": "太陽的",
+              "ex": "My calculator runs on a tiny <b>solar</b> cell above the screen.",
+              "exzh": "我的計算機靠螢幕上方一小片太陽能電池運作。"
+            },
+            {
+              "n": 2,
+              "w": "panel",
+              "pos": "n.",
+              "zh": "板；面板",
+              "ex": "Workers put new solar <b>panels</b> on the school roof.",
+              "exzh": "工人在學校屋頂裝了新的太陽能板。"
+            },
+            {
+              "n": 3,
+              "w": "photon",
+              "pos": "n.",
+              "zh": "光子",
+              "ex": "A <b>photon</b> is a tiny packet of light energy.",
+              "exzh": "光子是一小包光的能量。"
+            },
+            {
+              "n": 4,
+              "w": "silicon",
+              "pos": "n.",
+              "zh": "矽",
+              "ex": "Computer chips and solar cells are both made from <b>silicon</b>.",
+              "exzh": "電腦晶片和太陽能電池都是用矽做的。"
+            },
+            {
+              "n": 5,
+              "w": "layer",
+              "pos": "n.",
+              "zh": "層",
+              "ex": "This cake has three <b>layers</b> of chocolate.",
+              "exzh": "這個蛋糕有三層巧克力。"
+            },
+            {
+              "n": 6,
+              "w": "electric field",
+              "pos": "n.",
+              "zh": "電場",
+              "ex": "An <b>electric field</b> pushes on anything that has an electric charge.",
+              "exzh": "電場會推動任何帶電的東西。"
+            },
+            {
+              "n": 7,
+              "w": "energy",
+              "pos": "n.",
+              "zh": "能量",
+              "ex": "A banana gives you <b>energy</b> before a soccer game.",
+              "exzh": "足球比賽前吃根香蕉能給你能量。"
+            },
+            {
+              "n": 8,
+              "w": "efficiency",
+              "pos": "n.",
+              "zh": "效率",
+              "ex": "New light bulbs have much higher <b>efficiency</b> than old ones.",
+              "exzh": "新的燈泡效率比舊燈泡高得多。"
+            }
+          ],
+          "quiz": [
+            {
+              "q": "What can a photon do when it hits the silicon in a solar cell?",
+              "options": [
+                "Knock an electron loose",
+                "Spin a turbine",
+                "Boil water into steam",
+                "Turn the silicon into a magnet"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "What does the word photovoltaic mean?",
+              "options": [
+                "Light and electricity",
+                "Heat and water",
+                "Sun and wind",
+                "Sand and glass"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "Which light cannot free electrons in silicon?",
+              "options": [
+                "Some infrared light",
+                "Blue light",
+                "Green light",
+                "Red light"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "About how much of the sunlight do most panels on roofs turn into electricity?",
+              "options": [
+                "About one-fifth",
+                "All of it",
+                "About one-hundredth",
+                "Exactly half"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "What pushes the freed electrons toward the top of the cell?",
+              "options": [
+                "The electric field where the two layers meet",
+                "The wind",
+                "Gravity",
+                "A spinning magnet"
+              ],
+              "correct": 0
+            }
+          ],
+          "parts_head": {
+            "eyebrow": "Where the Sunlight Goes · 陽光去了哪裡",
+            "en": "Four ways for a photon to end",
+            "zh": "一顆光子的四種結局"
+          },
+          "parts": [
+            {
+              "key": "sun",
+              "icon": "↩️",
+              "en": "Bounces off",
+              "zh": "被反射",
+              "meta_en": "A small share",
+              "meta_zh": "一小部分",
+              "text_en": "Some light reflects from the surface. A thin coating on top cuts down the glare, and it is why solar panels look dark blue instead of shiny gray.",
+              "text_zh": "有些光從表面反射掉。頂層一層很薄的抗反射膜能減少反光，太陽能板看起來是深藍色、而不是亮亮的銀灰色，就是因為它。",
+              "light": "sun"
+            },
+            {
+              "key": "ir",
+              "icon": "🔦",
+              "en": "Passes through",
+              "zh": "直接穿過",
+              "meta_en": "Infrared with too little energy",
+              "meta_zh": "能量不夠的紅外線",
+              "text_en": "Photons of infrared light beyond about 1,100 nanometers carry too little energy to free an electron in silicon, so they go right through.",
+              "text_zh": "波長超過約 1,100 奈米的紅外線光子能量不夠，敲不出矽裡的電子，就直接穿過去。",
+              "light": "ir"
+            },
+            {
+              "key": "blue",
+              "icon": "🔥",
+              "en": "Becomes heat",
+              "zh": "變成熱",
+              "meta_en": "The biggest loss",
+              "meta_zh": "最大的損失",
+              "text_en": "Each photon frees at most one electron. A blue photon carries far more energy than the electron can carry away, and the rest warms the panel.",
+              "text_zh": "一顆光子最多只能敲出一個電子。藍光光子的能量遠多於電子能帶走的部分，剩下的都讓太陽能板變熱。",
+              "light": "blue"
+            },
+            {
+              "key": "red",
+              "icon": "⚡",
+              "en": "Becomes electricity",
+              "zh": "變成電",
+              "meta_en": "About one-fifth",
+              "meta_zh": "約五分之一",
+              "text_en": "Each freed electron that goes around the wire carries about 0.6 volts' worth of energy. Added up, about a fifth of the sunlight becomes electricity.",
+              "text_zh": "每個繞過電線的電子，帶走大約 0.6 伏特的能量。全部加起來，陽光約有五分之一變成了電。",
+              "light": "red"
+            }
+          ],
+          "parts_note_en": "Scientists keep finding ways to waste less: coatings that reflect less, cells that catch more colors, and panels that stay cooler.",
+          "parts_note_zh": "科學家一直在想辦法少浪費一點：反光更少的鍍膜、能接住更多顏色的電池，以及散熱更好的太陽能板。",
+          "myths": [
+            {
+              "myth_en": "Solar panels don't work on cloudy days.",
+              "myth_zh": "陰天時太陽能板不會發電。",
+              "fact_en": "They still make electricity from the light that gets through the clouds, just much less than in full sun.",
+              "fact_zh": "穿過雲層的光一樣能發電，只是比大太陽時少很多。"
+            },
+            {
+              "myth_en": "Solar panels work better when it is hotter.",
+              "myth_zh": "天氣越熱，太陽能板發電越多。",
+              "fact_en": "Panels need light, not heat. Heat actually lowers their output, by about 0.4% for each degree Celsius above 25. A cool, bright day is best.",
+              "fact_zh": "太陽能板要的是光，不是熱。高溫反而讓輸出下降，每比 25 °C 高一度約少 0.4%。涼爽又晴朗的日子最好。"
+            },
+            {
+              "myth_en": "A solar panel saves up electricity for the night.",
+              "myth_zh": "太陽能板會把電存起來晚上用。",
+              "fact_en": "A panel makes electricity only while light hits it. Saving power for the night takes a battery or other storage.",
+              "fact_zh": "太陽能板只有在光照到時才發電；要留到晚上用，得靠電池或其他儲能。"
+            },
+            {
+              "myth_en": "A solar panel and a solar water heater do the same thing.",
+              "myth_zh": "太陽能板和太陽能熱水器是同一種東西。",
+              "fact_en": "A solar water heater uses the sun's heat to warm water. A solar panel uses light to free electrons and make electricity.",
+              "fact_zh": "太陽能熱水器是用太陽的熱來加熱水；太陽能板是用光敲出電子來發電。"
+            }
+          ],
+          "tricks": [
+            {
+              "title_en": "Light knocks, the field sorts",
+              "title_zh": "光負責敲，電場負責分",
+              "body_en": "A photon knocks an electron loose; the built-in field sends electrons up and holes down.",
+              "body_zh": "光子把電子敲出來；內建電場把電子送上去、把電洞送下來。"
+            },
+            {
+              "title_en": "Photo plus volt",
+              "title_zh": "光＋電＝光伏",
+              "body_en": "Photovoltaic is just two words glued together: photo for light and volt for electricity.",
+              "body_zh": "Photovoltaic 就是兩個字黏在一起：photo 是光，volt 是電。"
+            },
+            {
+              "title_en": "One photon, one electron",
+              "title_zh": "一顆光子，一個電子",
+              "body_en": "However much energy a photon brings, it can free only one electron. The extra becomes heat.",
+              "body_zh": "光子帶來的能量再多，也只能敲出一個電子；多的變成熱。"
+            },
+            {
+              "title_en": "Light, not heat",
+              "title_zh": "要光，不要熱",
+              "body_en": "Bright and cool beats hot and hazy. Panels love sunlight but not high temperatures.",
+              "body_zh": "又亮又涼，勝過又熱又霧。太陽能板愛陽光，不愛高溫。"
+            }
+          ],
+          "activities": [
+            {
+              "title_en": "Test a Small Solar Panel",
+              "title_zh": "測試一片小太陽能板",
+              "materials": [
+                {
+                  "en": "A small solar panel from a science kit (about 2 to 6 volts)",
+                  "zh": "一片科學教具用的小太陽能板（約 2 到 6 伏特）"
+                },
+                {
+                  "en": "A small motor with a fan, or a multimeter",
+                  "zh": "一個裝了風扇的小馬達，或一台三用電表"
+                },
+                {
+                  "en": "Red and blue see-through plastic sheets (cellophane), and a piece of cardboard",
+                  "zh": "紅色、藍色的玻璃紙，和一張厚紙板"
+                }
+              ],
+              "steps": [
+                {
+                  "en": "Take the panel outside on a sunny day. Connect the motor (or the meter, set to volts) and point the panel straight at the sun. Note how fast the fan spins.",
+                  "zh": "晴天把太陽能板拿到戶外，接上馬達（或三用電表的電壓檔），讓板子正對太陽，記下風扇轉得多快。"
+                },
+                {
+                  "en": "Lay the panel flat, then tilt it away from the sun. What happens to the fan?",
+                  "zh": "把板子平放，再把它轉開、背對太陽。風扇怎麼了？"
+                },
+                {
+                  "en": "Cover half of the panel with cardboard. Then cover it completely. Then move into the shade.",
+                  "zh": "用厚紙板蓋住一半，再全部蓋住，再移到陰影裡。"
+                },
+                {
+                  "en": "Hold red cellophane over the panel, then blue. Which lets the fan spin faster? Talk about why the color of light matters.",
+                  "zh": "在板子上蓋紅色玻璃紙，再換藍色。哪一種讓風扇轉得比較快？討論光的顏色為什麼有關係。"
+                },
+                {
+                  "en": "Touch the panel after 10 minutes in the sun (carefully). It is warm: that is the energy that did not become electricity.",
+                  "zh": "在太陽下放 10 分鐘後，小心摸摸看板子：它是溫的，那就是沒變成電的能量。"
+                }
+              ],
+              "tip_en": "Never look straight at the sun, not even through colored plastic or sunglasses. Do not leave the panel or its wires on hot ground, and only use small kit panels: large rooftop panels can carry dangerous electricity whenever light hits them.",
+              "tip_zh": "絕對不要直視太陽，就算隔著玻璃紙或戴太陽眼鏡也不行。不要把板子或電線放在燙的地面上；只用教具用的小太陽能板——屋頂上的大型太陽能板只要有光照，就可能帶著危險的電。"
+            },
+            {
+              "title_en": "The Photon Game",
+              "title_zh": "光子遊戲",
+              "materials": [
+                {
+                  "en": "Cards in four colors: blue (worth 3 points), green (2), red (2), and dark red for infrared (1)",
+                  "zh": "四種顏色的卡片：藍（3 點）、綠（2 點）、紅（2 點）、暗紅代表紅外線（1 點）"
+                },
+                {
+                  "en": "A rope or tape line across the room (the junction)",
+                  "zh": "一條橫越教室的繩子或膠帶（接面）"
+                },
+                {
+                  "en": "A long loop of rope around the room (the wire)",
+                  "zh": "一條繞教室一圈的長繩（電線）"
+                }
+              ],
+              "steps": [
+                {
+                  "en": "Half the class are electrons sitting in the silicon. The other half are photons, each holding one card.",
+                  "zh": "一半的同學當「電子」坐在矽裡；另一半當「光子」，每人拿一張卡。"
+                },
+                {
+                  "en": "A photon walks up to an electron and shows the card. It takes at least 2 points to free an electron. A dark red card (1 point) is not enough: that photon walks straight through.",
+                  "zh": "光子走到一個電子面前亮出卡片。至少要 2 點才能讓電子掙脫；暗紅卡（1 點）不夠，那個光子就直接走過去。"
+                },
+                {
+                  "en": "A freed electron crosses the junction line and may not cross back. A blue photon frees only one electron too, and must fan itself for one point of extra heat.",
+                  "zh": "被釋放的電子越過接面線，而且不能走回頭。藍光光子也只能釋放一個電子，多出來的 1 點變成熱：要搧風搧一下。"
+                },
+                {
+                  "en": "The only way back for the electrons is to walk all the way around the rope loop, passing the bulb, who claps for each one.",
+                  "zh": "電子回到原位的唯一方法，是沿著繩圈繞一大圈，經過「燈泡」同學，每經過一個就拍一次手。"
+                },
+                {
+                  "en": "Count: how many points came in, how many claps (electricity), and how many points became heat or walked through?",
+                  "zh": "算一算：總共進來幾點、拍了幾次手（電），又有幾點變成熱或直接穿過去？"
+                }
+              ],
+              "tip_en": "The game shows the three big ideas: a photon needs enough energy, one photon frees only one electron, and the junction makes electrons go the long way around. Most of the points never become claps, just like a real panel.",
+              "tip_zh": "這個遊戲演出三個大觀念：光子的能量要夠、一顆光子只釋放一個電子、接面逼電子繞遠路。大部分的點數都沒有變成掌聲，就像真的太陽能板。"
+            }
+          ],
+          "safety": [
+            {
+              "en": "Never look directly at the sun, even through sunglasses, colored plastic, or a camera. It can permanently damage your eyes.",
+              "zh": "絕對不要直視太陽，戴太陽眼鏡、隔著玻璃紙或透過相機都不行，會永久傷害眼睛。"
+            },
+            {
+              "en": "Never climb onto a roof to look at solar panels, and never touch their wires or boxes. Large panels make dangerous electricity whenever light hits them, even if the system is switched off.",
+              "zh": "絕不爬上屋頂看太陽能板，也不碰它的電線或接線盒。大型太陽能板只要有光照就會產生危險的電，就算系統關掉了也一樣。"
+            },
+            {
+              "en": "Panels and their metal frames get very hot in summer sun. Touch only small kit panels, and touch carefully.",
+              "zh": "夏天的陽光下，太陽能板和金屬框會非常燙。只摸教具用的小板子，而且要小心。"
+            },
+            {
+              "en": "If a panel's glass is cracked, do not touch it, and tell an adult.",
+              "zh": "太陽能板的玻璃如果破了，不要碰，並告訴大人。"
+            }
+          ],
+          "sources": [
+            {
+              "en": "Becquerel discovered the photovoltaic effect in 1839, at age 19",
+              "zh": "貝克勒 1839 年（19 歲）發現光伏效應",
+              "src": "Wikipedia, “Edmond Becquerel”",
+              "url": "https://en.wikipedia.org/wiki/Edmond_Becquerel"
+            },
+            {
+              "en": "Bell Labs' first practical silicon solar cell, 1954, about 6% efficient",
+              "zh": "貝爾實驗室 1954 年第一顆實用矽太陽能電池，效率約 6%",
+              "src": "IEEE Milestone, Engineering and Technology History Wiki",
+              "url": "https://ethw.org/Milestones:First_Practical_Photovoltaic_Solar_Cell"
+            },
+            {
+              "en": "How PV cells work; a cell is thinner than four human hairs and makes about 1 or 2 watts",
+              "zh": "光伏電池原理；比四根頭髮還薄、每顆約 1–2 瓦",
+              "src": "U.S. Department of Energy",
+              "url": "https://www.energy.gov/eere/solar/solar-photovoltaic-technology-basics"
+            },
+            {
+              "en": "Blue light is absorbed near the surface, red light much deeper",
+              "zh": "藍光在表面附近被吸收，紅光深得多",
+              "src": "PVEducation, “Absorption Depth”",
+              "url": "https://www.pveducation.org/pvcdrom/pn-junctions/absorption-depth"
+            },
+            {
+              "en": "Commercial silicon cells: about 690 millivolts with no load",
+              "zh": "商用矽電池開路電壓約 690 毫伏",
+              "src": "PVEducation, “Open-Circuit Voltage”",
+              "url": "https://www.pveducation.org/pvcdrom/solar-cell-operation/open-circuit-voltage"
+            },
+            {
+              "en": "Silicon's band gap is about 1.1 electron volts",
+              "zh": "矽的能隙約 1.1 電子伏特",
+              "src": "Wikipedia, “Band gap”",
+              "url": "https://en.wikipedia.org/wiki/Band_gap"
+            },
+            {
+              "en": "Some absorbed photon energy turns into heat; heat lowers a cell's voltage",
+              "zh": "部分光子能量變成熱；高溫讓電壓下降",
+              "src": "U.S. Department of Energy",
+              "url": "https://www.energy.gov/eere/solar/solar-performance-and-efficiency"
+            },
+            {
+              "en": "Panel efficiency is typically around 20%",
+              "zh": "太陽能板效率通常約 20%",
+              "src": "Wikipedia, “Solar panel”",
+              "url": "https://en.wikipedia.org/wiki/Solar_panel"
+            },
+            {
+              "en": "Silicon panels lose about 0.4% of their output per degree Celsius (NREL measured −0.41%)",
+              "zh": "矽太陽能板每升高 1 °C 輸出約少 0.4%（NREL 量到 −0.41%）",
+              "src": "Tech Briefs",
+              "url": "https://www.techbriefs.com/component/content/article/18946-silicon-vs-gallium-arsenide-which-photovoltaic-material-performs-best"
+            },
+            {
+              "en": "Taiwan's solar power made 14.9 billion kWh in 2024, the most of any renewable source",
+              "zh": "2024 年台灣太陽光電發電 149 億度，再生能源中最多",
+              "src": "環境資訊中心（引經濟部能源署）",
+              "url": "https://e-info.org.tw/node/240831"
+            },
+            {
+              "en": "Changhua has the most renewable power connected to the grid of any county (over 4 GW)",
+              "zh": "彰化縣再生能源併網量突破 4GW，全台第一",
+              "src": "TechNews 科技新報（引中央社、台電）",
+              "url": "https://technews.tw/2025/12/16/changhua-has-abundant-solar-and-wind-energy-resources/"
+            }
+          ]
         }
       ],
       "planned": [
-        {
-          "n": 3,
-          "icon": "☀️",
-          "en": "How Does a Solar Panel Turn Light into Electricity?",
-          "zh": "太陽能板怎麼把光變成電？"
-        },
         {
           "n": 4,
           "icon": "🌬️",

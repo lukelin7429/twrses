@@ -4645,7 +4645,7 @@ def build_body_hub():
 # 3D 原始碼在 tools/science/src/（three.js、esbuild，每課一個入口），打包成 assets/js/<入口>.js；
 # 面板、迷思、口訣、活動沿用 astro.css，本系列多出來的在 science.css；兩者都只載在本系列頁面。
 HTW_BASE = "/resources/classes/how-things-work/"
-_HTW_JS = {"battery": "battery", "generator": "generator"}   # lab.kind → assets/js/<bundle>.js
+_HTW_JS = {"battery": "battery", "generator": "generator", "solar": "solar-cell"}   # lab.kind → assets/js/<bundle>.js
 
 def _htw_cn(n):
     """課次的中文數字（一～九十九）：第十一課、第二十課。"""
@@ -4790,6 +4790,71 @@ def render_generator_lab(lesson):
   <p class="bt-credit">{lab["credit_html"]}</p>
 </div>'''
 
+def solarpanel_svg(size=56):
+    """太陽能板小圖（萬物原理首頁的課程卡）：太陽＋斜放的格子板。不要叫 solar_svg：天文的太陽系圖示已經用了。"""
+    cells = "".join(f'<path d="M{14 + c * 9 + r * 3:.1f} {30 + r * 7} l9 0 l-3 7 l-9 0z" fill="#2f5fc4" stroke="#9fc0ff" stroke-width=".8"/>'
+                    for r in range(3) for c in range(4))
+    return (f'<svg class="solar-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">'
+            '<circle cx="46" cy="13" r="6" fill="#ffd36e"/>'
+            '<g stroke="#ffd36e" stroke-width="1.6" stroke-linecap="round"><path d="M46 3v2.5M46 20.5v2.5M36 13h2.5M53.5 13H56M39 6l1.8 1.8M51.2 18.2L53 20M39 20l1.8-1.8M51.2 7.8L53 6"/></g>'
+            f'{cells}<path d="M30 52v-6M24 54h12" stroke="#cfd4dc" stroke-width="2"/></svg>')
+
+def render_solarcell_lab(lesson):
+    """第三課：矽太陽能電池剖面（assets/js/solar-cell.js 綁這裡的 class；全部自繪示意）。"""
+    lab = lesson["lab"]
+    weather = [("sunny", "&#9728;&#65039;", "Sunny", "晴天"), ("cloudy", "&#9729;&#65039;", "Cloudy", "陰天"), ("night", "&#127769;", "Night", "夜晚")]
+    lights = [("sun", "&#127752;", "Sunlight", "陽光"), ("red", "&#128308;", "Red", "紅光"), ("blue", "&#128309;", "Blue", "藍光"), ("ir", "&#11093;", "Infrared", "紅外線")]
+    wb = "".join(f'<button type="button" data-weather="{k}" aria-pressed="{"true" if k == "sunny" else "false"}"><i aria-hidden="true">{ic}</i>{en}<small>{zh}</small></button>' for k, ic, en, zh in weather)
+    lb = "".join(f'<button type="button" data-light="{k}" aria-pressed="{"true" if k == "sun" else "false"}" class="sl-c-{k}"><i aria-hidden="true">{ic}</i>{en}<small>{zh}</small></button>' for k, ic, en, zh in lights)
+    tg = _lab_toggles([("labels", "Labels", "標示", True), ("field", "Electric field", "內建電場", True), ("holes", "Holes", "電洞", True)])
+    seg = lambda k, en, zh: (f'<span class="sl-seg sl-b-{k}" style="flex-grow:0"></span>', f'<li><i class="sl-k-{k}"></i>{en}<span class="zh">{zh}</span><b class="sl-p-{k}">—</b></li>')
+    segs = [seg("elec", "Electricity", "變成電"), seg("heat", "Heat", "變成熱"), seg("thru", "Passed through", "穿過去"), seg("refl", "Bounced off", "反射掉")]
+    return f'''<div class="astro-lab bt-lab sl-lab rvl" data-solarcell-lab>
+  <div class="al-stage">
+    <div class="al-space">
+      <canvas class="al-space-cv" aria-label="3D cutaway of a silicon solar cell with sunlight, freed electrons, and a light bulb · 矽太陽能電池的 3D 剖面：陽光、被敲出的電子和燈泡"></canvas>
+      <div class="al-labels" aria-hidden="true"></div>
+      <p class="bt-cut">Front cut away; layers drawn much thicker than real · 正面剖開，各層畫得比真的厚很多</p>
+      <p class="al-hint">Drag to turn · 拖曳旋轉　Scroll or pinch to zoom · 滾輪／雙指縮放</p>
+      <button type="button" class="al-home" title="Reset view · 重設視角" aria-label="Reset view · 重設視角">&#8634;</button>
+      <p class="al-nogl-msg">This 3D model needs WebGL, which this browser does not support. The reading and the cards below still explain everything.<br><span class="zh">這個瀏覽器不支援 WebGL，無法顯示 3D 模型；下方的課文與卡片一樣能看懂。</span></p>
+    </div>
+    <aside class="al-sky bt-aside sl-aside">
+      <div class="sl-top">
+        <p class="al-sky-k">Weather · 天氣</p>
+        <div class="bt-modes sl-weather" role="group" aria-label="Weather · 天氣">{wb}</div>
+        <p class="al-sky-k sl-k2">Light · 光的顏色</p>
+        <div class="bt-modes sl-lights" role="group" aria-label="Light · 光的顏色">{lb}</div>
+        <p class="bt-msg sl-msg" aria-live="polite"></p>
+      </div>
+      <div class="sl-energy">
+        <p class="al-sky-k">Where the energy went · 能量去了哪裡</p>
+        <div class="sl-bar" aria-hidden="true">{"".join(a for a, _ in segs)}</div>
+        <ul class="sl-keys">{"".join(b for _, b in segs)}</ul>
+        <dl class="bt-nums sl-nums">
+          <div><dt>Photons · 光子</dt><dd class="sl-ph">0</dd></div>
+          <div><dt>Electrons around the wire · 繞過電線的電子</dt><dd class="sl-el">0</dd></div>
+        </dl>
+        <button type="button" class="sl-reset">&#8634; Count again · 重新計算</button>
+        <p class="bt-count sl-fact">One silicon cell gives less than 1 volt (about 0.69 V with nothing connected). A panel joins many cells in a row, and most panels turn about one-fifth of sunlight into electricity.<span class="zh">一顆矽電池不到 1 伏特（不接東西時約 0.69 伏特）；一片太陽能板把許多顆串在一起，大多能把約五分之一的陽光變成電。</span></p>
+      </div>
+    </aside>
+  </div>
+  <div class="al-controls">
+    <div class="al-row al-row-main">
+      <button type="button" class="al-play" aria-pressed="true"><span class="al-play-i" aria-hidden="true"></span><span class="al-play-t">Pause · 暫停</span></button>
+      <div class="al-speed" role="group" aria-label="Speed · 速度">
+        <button type="button" data-speed="0.35" aria-pressed="false">Slow motion 慢動作</button>
+        <button type="button" data-speed="1" aria-pressed="true">Normal 中</button>
+        <button type="button" data-speed="2.5" aria-pressed="false">Fast 快</button>
+      </div>
+    </div>
+    <div class="al-row al-toggles">{tg}</div>
+  </div>
+  {_lab_foot(lab)}
+  <p class="bt-credit">{lab["credit_html"]}</p>
+</div>'''
+
 def _htw_flat():
     return [(ui, u, l) for ui, u in enumerate(HTW["units"]) for l in u["lessons"]]
 
@@ -4817,7 +4882,7 @@ def build_htw_lesson(ui, unit, lesson):
     reading_html = render_basic_unit(1, unit_dict, level="htw", audio_rel="", pdf_rel="")
     lab = lesson["lab"]
     kind = lab["kind"]
-    lab_html = {"battery": render_battery_lab, "generator": render_generator_lab}[kind](lesson)
+    lab_html = {"battery": render_battery_lab, "generator": render_generator_lab, "solar": render_solarcell_lab}[kind](lesson)
 
     secs = []
     if lesson.get("mix"):
@@ -4854,15 +4919,18 @@ def build_htw_lesson(ui, unit, lesson):
             f'<h3>{html.escape(pt["en"])}<span class="zh">{html.escape(pt["zh"])}</span></h3>'
             f'<p class="ph-meta"><span>{html.escape(pt["meta_en"])} · {html.escape(pt["meta_zh"])}</span></p>'
             f'<p class="ph-when">{html.escape(pt["text_en"])}<br><span class="zh">{html.escape(pt["text_zh"])}</span></p>'
-            f'<button type="button" class="ph-go" data-lab-part="{pt["key"]}">See it in 3D · 在模型中看 <i>&uarr;</i></button>'
-            f'</article>'
+            + (f'<button type="button" class="ph-go" data-lab-light="{pt["light"]}">See it in 3D · 在模型中看 <i>&uarr;</i></button>' if pt.get("light")
+               else f'<button type="button" class="ph-go" data-lab-part="{pt["key"]}">See it in 3D · 在模型中看 <i>&uarr;</i></button>')
+            + '</article>'
             for pt in lesson["parts"])
-        secs.append(("parts", "Four Parts · 四個部分", "What is inside a battery", "電池裡面有什麼",
+        ph = lesson.get("parts_head") or {"eyebrow": "Four Parts · 四個部分", "en": "What is inside a battery", "zh": "電池裡面有什麼"}
+        secs.append(("parts", ph["eyebrow"], ph["en"], ph["zh"],
                      f'<div class="ph-grid stagger">{cards}</div>',
                      _bi(lesson["parts_note_en"], lesson["parts_note_zh"], cls="lead rvl d2")))
     secs.append(("myths", "Myth vs. Fact · 常見迷思", "Four things people get wrong", "四個常見的誤會", _sci_myths(lesson), ""))
     tricks_h = {"battery": ("Batteries in a sentence", "一句話記住電池"),
-                "generator": ("Power plants in a sentence", "一句話記住發電")}[kind]
+                "generator": ("Power plants in a sentence", "一句話記住發電"),
+                "solar": ("Solar power in a sentence", "一句話記住太陽能")}[kind]
     secs.append(("tricks", "Remember It · 記憶口訣", tricks_h[0], tricks_h[1], _sci_tricks(lesson), ""))
     if lesson.get("safety"):
         items = "".join(f'<li class="rvl">{html.escape(s["en"])}<span class="zh">{html.escape(s["zh"])}</span></li>' for s in lesson["safety"])
@@ -4916,7 +4984,7 @@ def build_htw_lesson(ui, unit, lesson):
 def build_htw_hub():
     # 照中醫養生：單元導覽＋每個單元一段橫向課程卡；做好的課可點，planned 是「製作中」卡。
     def icon(l):
-        return battery_svg(60) if l.get("card") == "battery" else outlet_svg(60) if l.get("card") == "outlet" else l["icon"]
+        return battery_svg(60) if l.get("card") == "battery" else outlet_svg(60) if l.get("card") == "outlet" else solarpanel_svg(60) if l.get("card") == "solar" else l["icon"]
     unit_sections, nav = [], []
     done = sum(len(u["lessons"]) for u in HTW["units"])
     total = done + sum(len(u.get("planned", [])) for u in HTW["units"])
