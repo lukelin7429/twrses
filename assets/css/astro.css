@@ -748,3 +748,67 @@
   .ss-tbl th:nth-child(1), .ss-tbl td:nth-child(1) { width: 28%; }
   .ss-tbl th:nth-child(2), .ss-tbl td:nth-child(2) { width: 34%; }
 }
+
+/* =========================================================
+   第十課：星星離我們多遠（.dl-lab、由近到遠卡、星光時光機、生日星）
+   ========================================================= */
+.dl-lab .al-stage { grid-template-columns: minmax(0, 1fr) 360px; }
+.dl-lab .se-chips { grid-template-columns: repeat(8, minmax(0, 1fr)); }
+.dl-lab .se-chips .star-svg { width: 26px; height: 26px; }
+.dl-readout dd span, .dl-count span { display: block; font-family: var(--zh); font-weight: 500; font-size: .74rem; color: var(--al-mute); }
+.dl-readout dd { line-height: 1.35; }
+.dl-count { margin: .7rem 0 0; padding-top: .6rem; border-top: 1px solid var(--al-line); }
+.dl-lab .ec-view button { padding: .38rem .65rem; }
+.al-lab.dl-earth { color: #cfe2ff; border-color: rgba(79,156,255,.55); }
+.al-lab.dl-earth2 { color: #ffd9b8; border-color: rgba(255,154,74,.6); }
+.al-lab.dl-star { color: #fff; font-weight: 800; border-color: rgba(255,255,255,.4); }
+.al-lab.dl-arc { color: #1b1405; background: var(--al-sun); border: 0; font-weight: 800; font-size: .66rem; }
+.al-lab.dl-hit1, .al-lab.dl-hit2 { font-size: .62rem; padding: .04rem .4rem; }
+.al-lab.dl-hit1 { color: #9fe8de; border-color: rgba(79,209,197,.55); }
+.al-lab.dl-hit2 { color: #ffd9b8; border-color: rgba(255,154,74,.55); }
+.al-lab.dl-far { color: var(--al-sun); }
+.al-lab.dl-ring { background: transparent; border: 0; color: #8fa2c6; font-size: .62rem; padding: 0; }
+.al-lab.dl-nm { font-size: .64rem; padding: .05rem .45rem; }
+.al-lab.dl-nm.on { color: #1b1405; background: var(--al-sun); border-color: transparent; font-weight: 800; }
+.al-lg-dl-sight i { border: 0; border-radius: 0; width: 20px; height: 8px; margin-top: .4rem; background: linear-gradient(#4fd1c5 0 2px, transparent 2px 6px, #ff9a4a 6px 8px); }
+.al-lg-dl-shift i { border: 3px solid transparent; border-top-color: var(--al-sun); }
+.al-lg-dl-bars i { border: 0; border-radius: 2px; width: 20px; height: 4px; margin-top: .55rem; background: #ff9a4a; }
+@media (max-width: 1020px) {
+  .dl-lab .al-stage { grid-template-columns: 1fr; }
+  .dl-aside { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr); column-gap: 1.2rem; align-items: start; }
+  .dl-aside .al-sky-k { grid-column: 1 / -1; }
+  .dl-aside .se-fig { grid-column: 1; max-width: none; }
+  .dl-aside .dl-readout { grid-column: 2; margin-top: 0; }
+}
+@media (max-width: 640px) {
+  .dl-aside { display: block; }
+  .dl-aside .se-fig { max-width: 340px; margin-inline: auto; }
+  .dl-lab .se-chips { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: .3rem; }
+  .dl-lab .se-chips .al-chip-en { font-size: .6rem; }
+  .dl-lab .ec-view button { font-size: .64rem; padding: .28rem .45rem; }
+  .dl-lab .ec-jump button { flex: 1 1 40%; }
+  .dl-lab .al-lab.dl-hit1, .dl-lab .al-lab.dl-hit2, .dl-lab .al-lab.dl-ring { display: none; }
+  .dl-lab .al-lab.dl-nm:not(.on) { font-size: .56rem; padding: .02rem .3rem; }
+}
+/* 由近到遠卡 */
+.dl-card .ph-ico { background: radial-gradient(circle at 50% 40%, #16264a, #070b17); }
+.dl-depart { margin: 0 0 .8rem; padding: .5rem .7rem; border-radius: 10px; background: #fff6dc; color: #6b4a08; font-size: .82rem; font-weight: 700; line-height: 1.45; }
+.dl-depart:empty { display: none; }
+.dl-depart .zh { display: block; font-weight: 600; }
+/* 星光時光機 */
+@media (min-width: 1021px) { .dl-tn-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.dl-tn p + p { margin-top: .3rem; }
+.dl-tn-left b { color: var(--brand-dk); }
+.dl-tn-where { font-size: .78rem !important; color: var(--ink-soft); }
+/* 生日星 */
+.dl-bd-box { margin-top: 1.2rem; padding: 1.1rem 1.2rem 1.2rem; border-radius: 16px; background: #0c1428; color: #e8edf7; }
+.dl-bd-in { display: inline-flex; flex-wrap: wrap; align-items: center; gap: .6rem; font-weight: 800; }
+.dl-bd-in input { width: 6.5em; padding: .45rem .6rem; border-radius: 10px; border: 1px solid rgba(160,180,230,.35); background: #fff; color: #111; font: inherit; font-size: 1.05rem; }
+.dl-bd-lead, .dl-bd-none { margin: 1rem 0 .8rem; line-height: 1.55; }
+.dl-bd-lead span, .dl-bd-none span { display: block; font-family: var(--zh); color: #9fb0cf; font-size: .92rem; }
+.dl-bd-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .7rem; }
+.dl-bd { padding: .8rem .95rem; border-radius: 12px; background: rgba(255,255,255,.06); border: 1px solid rgba(160,180,230,.18); }
+.dl-bd b { display: block; font-family: var(--serif); font-size: 1.15rem; color: #ffd36e; }
+.dl-bd .zh { display: block; font-size: .9rem; color: #cfd8ea; }
+.dl-bd p { margin: .45rem 0 0; font-size: .82rem; line-height: 1.6; color: #e8edf7; font-variant-numeric: tabular-nums; }
+@media (max-width: 760px) { .dl-bd-grid { grid-template-columns: 1fr; } }

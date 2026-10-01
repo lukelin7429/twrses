@@ -4175,6 +4175,456 @@
      "tip_zh": "安全提示：事先走過一次路線、全班一起行動、避開車多的道路；繞學校跑道走就很好。"
     }
    ]
+  },
+  {
+   "n": 10,
+   "slug": "star-distance",
+   "title": "How Far Away Are the Stars?",
+   "title_zh": "星星離我們多遠？",
+   "level": "入門 · Beginner",
+   "icon": "📐",
+   "card": "distance",
+   "blurb_en": "Hold up your thumb and blink: it jumps. Earth plays the same trick with its orbit to measure the stars. Then find out when tonight's starlight set out, from the year you were born back to the Ming dynasty.",
+   "blurb_zh": "伸出拇指、輪流閉一隻眼，拇指會跳動。地球用繞太陽的軌道玩同一招，量出星星的距離。再看看今晚的星光是哪一年出發的：從你出生那年，一路到明朝。",
+   "big_idea_en": "Stars are so far away that we measure them in light-years. As Earth goes around the Sun, a nearby star shifts back and forth a tiny bit against the faraway stars behind it. This shift is called parallax, and the farther away the star, the smaller the shift.",
+   "big_idea_zh": "星星遠到要用「光年」來量。地球繞著太陽走，近的星星會在更遠的星空前面微微來回移動，這叫做「視差」；星星越遠，移動得越少。",
+   "lab": {
+    "kind": "distance",
+    "eyebrow": "3D Model · 3D 模型",
+    "title_en": "Two Eyes Half a Year Apart",
+    "title_zh": "相隔半年的兩隻眼睛",
+    "how_en": "Earth today (blue) and Earth half a year later (orange) look at the same nearby star. Their sight lines land on the faraway stars at two different spots: that shift is parallax. Pick a star and watch the two lines squeeze together as the star gets farther away. On the right, a telescope view shows the tiny loop each star traces in a year, all at the same zoom. Then switch to 20, 100, and 2,000 light-years to see where the Sun's real neighbors are.",
+    "how_zh": "今天的地球（藍）和半年後的地球（橘）看著同一顆近星，兩條視線落在遠方星空的兩個不同位置：這段差距就是視差。換一顆星，看星越遠、兩條線就夾得越緊。右邊是望遠鏡裡看到的：每顆星一年畫出的小圈圈，放大倍率都一樣。再切換到 20、100、2,000 光年，看看太陽真正的鄰居在哪裡。",
+    "legend": [
+     {
+      "cls": "dl-sight",
+      "en": "Blue and orange lines: sight lines from Earth today and from Earth half a year later",
+      "zh": "藍線與橘線：今天的地球、半年後的地球看出去的視線"
+     },
+     {
+      "cls": "dl-shift",
+      "en": "Gold arc: the shift between the two sight lines, twice the parallax angle",
+      "zh": "金色弧：兩條視線之間的位移，是視差角的兩倍"
+     },
+     {
+      "cls": "dl-bars",
+      "en": "Orange bars (neighbors views): how uncertain each star's distance is",
+      "zh": "橘色短線（鄰居視角）：每顆星距離的誤差範圍"
+     },
+     {
+      "cls": "ecl",
+      "en": "One light-year is about 9.46 trillion kilometers, 63,000 times the distance from Earth to the Sun",
+      "zh": "1 光年約 9.46 兆公里，是地球到太陽距離的 6.3 萬倍"
+     }
+    ],
+    "scale_en": "In the parallax view, Earth's orbit is true size and every star's distance is shrunk by the same 67,000 times, so nearer stars still show bigger shifts. In the neighbors views, one unit is one light-year and every position is real. The telescope view uses each star's real parallax.",
+    "scale_zh": "視差視角裡，地球軌道是真實大小，每顆星的距離都縮小同樣的 6.7 萬倍，所以越近的星，位移仍然越大。鄰居視角裡，1 單位＝1 光年，每顆星的位置都是真的。望遠鏡畫面用的是每顆星真實的視差。",
+    "credit_html": "Star distances: <a href=\"https://cdsarc.cds.unistra.fr/viz-bin/cat/I/311\" target=\"_blank\" rel=\"noopener\">Hipparcos, the New Reduction</a> (F. van Leeuwen 2007, CDS I/311). Credit: ESA, <a href=\"https://creativecommons.org/licenses/by-nc/3.0/igo/\" target=\"_blank\" rel=\"noopener\">CC BY-NC 3.0 IGO</a>. Alpha Centauri: Kervella et al. 2016 (A&amp;A 594, A107). Earth's orbit: NASA/JPL approximate orbital elements. Background stars: <a href=\"https://cdsarc.cds.unistra.fr/viz-bin/cat/V/50\" target=\"_blank\" rel=\"noopener\">Yale Bright Star Catalogue, 5th ed.</a> (public domain).<br><span class=\"zh\">恆星距離：Hipparcos 新版歸算（van Leeuwen 2007），歐洲太空總署（ESA）提供，CC BY-NC 3.0 IGO 授權。南門二：Kervella 等人 2016 年的測量。地球軌道：NASA／JPL 近似軌道根數。背景星空：耶魯亮星星表第五版（公有領域）。</span>"
+   },
+   "paras": [
+    "Look up on a clear night, and all the stars seem to sit on the same dark dome, as if they were the same distance away. They are not. Some stars are close neighbors of the Sun, and others are hundreds of times farther. The distances are so huge that kilometers are no help, so astronomers use the light-year: the distance light travels in one year, about 9.46 trillion kilometers. A light-year is a distance, not a time. Proxima Centauri, the nearest star after the Sun, is about 4.2 light-years away.",
+    "How can you measure the distance to something you can never visit? Try this. Hold up your thumb at arm's length and look at it with one eye. Then blink and look with the other eye. Your thumb seems to jump against the background. This jump is called parallax. Bring your thumb closer to your face, and it jumps more; move it farther away, and it jumps less. Your brain uses the small difference between your two eyes to judge how far away things are.",
+    "Astronomers use the same trick, but with two eyes much farther apart. Every six months, Earth reaches the opposite side of its orbit, about 300 million kilometers from where it was. Seen from these two places, a nearby star shifts a tiny bit against much more distant stars in the background. Measure the angle of that shift, draw a triangle, and you can work out the distance. The angle is tiny: even for Proxima Centauri, it is like the width of a coin seen from more than five kilometers away. Farther stars shift even less.",
+    "For more than 2,000 years, people looked for this shift and could not find it. Some ancient Greek thinkers even took this as proof that Earth does not move. The shift was simply too small for their eyes. At last, in 1838, the German astronomer Friedrich Bessel measured the parallax of a faint star called 61 Cygni and found it was about 10 light-years away. Today we know it is 11.4. In 1989, the European satellite Hipparcos began making precise measurements from above the blurry air, for about 118,000 stars, and its successor, Gaia, has measured nearly 1.5 billion.",
+    "Because light needs time to travel, looking at the stars means looking into the past. The light from Sirius that reaches you tonight left it about eight and a half years ago. Vega's light left 25 years ago, and Betelgeuse's light began its journey around 500 years ago, during China's Ming dynasty. The poet Li Bai wrote that people today cannot see the Moon of ancient times, yet this same Moon once shone on the ancients. Starlight turns his idea around: tonight you can see light that set out while people of the past were alive.",
+    "Parallax is the first step on a ladder of distances. It works well for nearby stars, but for very distant ones the shift is too small to measure well, so astronomers use other clues, such as how bright a star really is. Even some famous bright stars, like Deneb, still have uncertain distances. Use the list below to find out when tonight's starlight left home, and look for your own birthday star: a star whose light set out in the year you were born."
+   ],
+   "paras_zh": [
+    "晴朗的夜晚抬頭看，所有的星星好像都貼在同一個黑色的圓頂上，跟我們一樣遠。其實不是。有些星是太陽的近鄰，有些卻遠了好幾百倍。這些距離大到用公里來量已經沒有意義，所以天文學家用「光年」：光走一年的距離，大約 9.46 兆公里。光年是距離，不是時間。除了太陽以外最近的恆星是比鄰星，大約在 4.2 光年外。",
+    "一個永遠去不了的地方，要怎麼量它有多遠？試試看：把拇指伸直到手臂那麼遠，先用一隻眼睛看，再眨眼換另一隻眼睛看。拇指好像在背景前面跳了一下。這一跳就叫做「視差」。把拇指移近臉，它跳得更多；移遠一點，它就跳得少。你的大腦就是用兩隻眼睛之間的這一點點差異，來判斷東西有多遠。",
+    "天文學家用的是同一招，只是兩隻「眼睛」離得遠多了。每隔半年，地球就走到軌道的另一邊，離原來的位置大約 3 億公里。從這兩個地方看，一顆近的星會在背景中遠得多的星星前面，移動一點點。量出這個位移的角度，畫一個三角形，就能算出距離。這個角度非常小：就算是比鄰星，也只像從 5 公里外看一枚硬幣的寬度。更遠的星，移動得更少。",
+    "兩千多年來，人們一直在找這個位移，卻找不到。有些古希臘的思想家甚至把它當成「地球不會動」的證據。其實只是位移太小，肉眼看不出來。直到 1838 年，德國天文學家貝索量到一顆暗星「天鵝座 61」的視差，算出它大約在 10 光年外；今天我們知道是 11.4 光年。1989 年，歐洲的依巴谷衛星（Hipparcos）開始在模糊的大氣層之上做精確測量，量了大約 11.8 萬顆星；它的接班人蓋亞（Gaia）已經量了將近 15 億顆。",
+    "光走路需要時間，所以看星星就是在看過去。今晚到達你眼睛的天狼星光，大約是 8 年半前出發的；織女星的光是 25 年前出發的；參宿四的光大約 500 年前、中國的明朝時就踏上了旅程。李白寫過「今人不見古時月，今月曾經照古人」。星光正好倒過來：今晚你看到的光，出發時，古時候的人還活著。",
+    "視差是量距離這座「梯子」的第一階。它很適合量近的星，但星太遠時位移小到量不準，天文學家就改用別的線索，例如星星本身到底有多亮。就連天津四這樣有名的亮星，距離到今天還說不準。用下面的清單查查今晚的星光是哪一年出發的，也找一找你自己的生日星：它的光，就在你出生那年出發。"
+   ],
+   "questions": [
+    "What is a light-year?",
+    "Why do astronomers measure a star's position six months apart?",
+    "Who first measured the distance to a star, and when?"
+   ],
+   "answers": [
+    "It is the distance light travels in one year, about 9.46 trillion kilometers. It measures distance, not time.",
+    "Six months apart, Earth is on opposite sides of its orbit, about 300 million kilometers apart. Looking from two places so far apart makes the star's shift as big as possible.",
+    "The German astronomer Friedrich Bessel, in 1838. He measured the parallax of the star 61 Cygni."
+   ],
+   "vocab": [
+    {
+     "n": 1,
+     "w": "light-year",
+     "pos": "n.",
+     "zh": "光年（光走一年的距離）",
+     "ex": "The star is ten <b>light-years</b> away, so its light took ten years to reach us.",
+     "exzh": "這顆星在十光年外，所以它的光走了十年才到我們這裡。"
+    },
+    {
+     "n": 2,
+     "w": "neighbor",
+     "pos": "n.",
+     "zh": "鄰居",
+     "ex": "Our <b>neighbor</b> waters our plants when we go on vacation.",
+     "exzh": "我們去度假時，鄰居會幫我們澆花。"
+    },
+    {
+     "n": 3,
+     "w": "background",
+     "pos": "n.",
+     "zh": "背景",
+     "ex": "In the photo, my sister is smiling with a mountain in the <b>background</b>.",
+     "exzh": "照片裡，妹妹在笑，背景是一座山。"
+    },
+    {
+     "n": 4,
+     "w": "blink",
+     "pos": "v.",
+     "zh": "眨眼",
+     "ex": "Try not to <b>blink</b> when the camera flashes.",
+     "exzh": "相機閃光時，盡量不要眨眼。"
+    },
+    {
+     "n": 5,
+     "w": "angle",
+     "pos": "n.",
+     "zh": "角度",
+     "ex": "The ladder leans against the wall at an <b>angle</b>.",
+     "exzh": "梯子斜斜地靠在牆上。"
+    },
+    {
+     "n": 6,
+     "w": "faint",
+     "pos": "adj.",
+     "zh": "微弱的；暗淡的",
+     "ex": "We heard a <b>faint</b> sound from the other side of the field.",
+     "exzh": "我們聽到操場另一頭傳來微弱的聲音。"
+    },
+    {
+     "n": 7,
+     "w": "journey",
+     "pos": "n.",
+     "zh": "旅程",
+     "ex": "The <b>journey</b> from Taipei to Kaohsiung takes about an hour and a half by high-speed rail.",
+     "exzh": "從台北到高雄，搭高鐵大約一個半小時。"
+    },
+    {
+     "n": 8,
+     "w": "precise",
+     "pos": "adj.",
+     "zh": "精確的",
+     "ex": "A ruler gives a more <b>precise</b> measurement than your hand.",
+     "exzh": "用尺量比用手量更精確。"
+    }
+   ],
+   "quiz": [
+    {
+     "q": "A light-year measures...",
+     "options": [
+      "Distance",
+      "Time",
+      "Brightness",
+      "Speed"
+     ],
+     "correct": 0
+    },
+    {
+     "q": "Compared with a nearby star, a faraway star's parallax shift is...",
+     "options": [
+      "Smaller",
+      "Bigger",
+      "The same",
+      "Backward"
+     ],
+     "correct": 0
+    },
+    {
+     "q": "Which is the nearest star after the Sun?",
+     "options": [
+      "Proxima Centauri",
+      "Sirius",
+      "Polaris",
+      "Vega"
+     ],
+     "correct": 0
+    },
+    {
+     "q": "Why do astronomers measure a star's position six months apart?",
+     "options": [
+      "Earth is then on the opposite side of the Sun",
+      "The star is brighter in summer",
+      "The sky is darker in winter",
+      "The star moves faster then"
+     ],
+     "correct": 0
+    },
+    {
+     "q": "A star is 500 light-years away. The light you see from it tonight left it...",
+     "options": [
+      "About 500 years ago",
+      "About 500 days ago",
+      "Tonight",
+      "About 5 years ago"
+     ],
+     "correct": 0
+    }
+   ],
+   "neighbors": [
+    {
+     "key": "proxima",
+     "en": "Proxima Centauri",
+     "zh": "比鄰星",
+     "ly": "4.2",
+     "plx": "0.772″",
+     "note_en": "The nearest star after the Sun: a small red dwarf, too faint to see without a telescope and too far south to see from Taiwan.",
+     "note_zh": "除了太陽以外最近的恆星：一顆小小的紅矮星，肉眼看不到，在台灣也因為太偏南而看不見。"
+    },
+    {
+     "key": "acen",
+     "en": "Alpha Centauri",
+     "zh": "南門二",
+     "ly": "4.4",
+     "plx": "0.747″",
+     "note_en": "Two Sun-like stars that circle each other. Together they shine as the third-brightest star at night, but from Taiwan they barely clear the southern horizon.",
+     "note_zh": "兩顆和太陽很像的星互相繞轉，合起來是夜空第三亮的星；在台灣只會貼著南方地平線露個臉。"
+    },
+    {
+     "key": "sirius",
+     "en": "Sirius",
+     "zh": "天狼星",
+     "ly": "8.6",
+     "plx": "0.379″",
+     "note_en": "The brightest star in the night sky, partly because it is so close.",
+     "note_zh": "夜空中最亮的恆星，原因之一就是它離我們很近。"
+    },
+    {
+     "key": "61cyg",
+     "en": "61 Cygni",
+     "zh": "天鵝座 61",
+     "ly": "11.4",
+     "plx": "0.287″",
+     "note_en": "Bessel's star, the first to have its distance measured, in 1838. It drifts quickly across the sky, a clue that it is close.",
+     "note_zh": "貝索的星：1838 年第一顆量到距離的恆星。它在天上移動得很快，暗示它離我們很近。"
+    },
+    {
+     "key": "altair",
+     "en": "Altair",
+     "zh": "牛郎星",
+     "ly": "16.7",
+     "plx": "0.195″",
+     "note_en": "The Cowherd of the Qixi story, about 15 light-years from the Weaver Girl.",
+     "note_zh": "七夕故事裡的牛郎，和織女相隔大約 15 光年。"
+    },
+    {
+     "key": "vega",
+     "en": "Vega",
+     "zh": "織女星",
+     "ly": "25",
+     "plx": "0.130″",
+     "note_en": "The Weaver Girl, high overhead on summer evenings.",
+     "note_zh": "七夕故事裡的織女，夏天晚上高掛頭頂。"
+    },
+    {
+     "key": "betelgeuse",
+     "en": "Betelgeuse",
+     "zh": "參宿四",
+     "ly": "≈ 500",
+     "plx": "0.0066″",
+     "note_en": "A red supergiant in Orion. Its parallax is so small that its distance is still debated.",
+     "note_zh": "獵戶座的紅超巨星。視差太小，距離到現在還有爭論。"
+    },
+    {
+     "key": "deneb",
+     "en": "Deneb",
+     "zh": "天津四",
+     "ly": "≈ 1,400",
+     "plx": "0.0023″",
+     "note_en": "One of the most powerful stars we can see. Hipparcos could barely measure its shift, and other methods suggest it may be even farther.",
+     "note_zh": "肉眼看得到的恆星裡最強大的之一。依巴谷衛星幾乎量不出它的位移，其他方法甚至認為它更遠。"
+    }
+   ],
+   "neighbors_note_en": "Distances come from each star's parallax, measured by the Hipparcos satellite. The farther the star, the wider the range of possible distances. \"Light left\" is worked out for today's date.",
+   "neighbors_note_zh": "距離由依巴谷衛星量到的視差算出：星越遠，可能的距離範圍越寬。「光出發於」照今天的日期現算。",
+   "tonight": {
+    "eyebrow": "Tonight · 今晚",
+    "title_en": "Starlight Time Machine",
+    "title_zh": "星光時光機",
+    "lead_en": "Every bright star above Changhua at 9 p.m. tonight, nearest first, with the year its light set out. The list is calculated in your browser for today's date.",
+    "lead_zh": "今晚九點彰化天上的每一顆亮星，由近到遠排列，附上它的光是哪一年出發的。清單在瀏覽器裡照今天的日期現算。",
+    "attr": "data-starlight"
+   },
+   "birthday": {
+    "title_en": "Find Your Birthday Star",
+    "title_zh": "找出你的生日星",
+    "lead_en": "Type the year you were born. These stars are about as many light-years away as you are years old, so the light reaching you tonight left them around the time you were born.",
+    "lead_zh": "輸入你出生的年份。這幾顆星離我們的光年數，差不多就是你的歲數：今晚到達的光，大約在你出生那年出發。"
+   },
+   "culture_cards": {
+    "title_en": "Distance and Time in the Sky",
+    "title_zh": "天上的距離與時間",
+    "lead_en": "Poets, stargazers, and astronomers East and West have all wondered how far away the sky is.",
+    "lead_zh": "東西方的詩人、觀星者和天文學家，都想過天到底有多遠。",
+    "cards": [
+     {
+      "k": "七夕 · Qixi",
+      "en": "Fifteen Light-Years Apart",
+      "zh": "牛郎織女相隔 15 光年",
+      "quote_zh": "盈盈一水間，脈脈不得語。——〈迢迢牽牛星〉（古詩十九首）",
+      "quote_en": "\"Just one clear stream between them, they gaze and cannot speak.\" (Nineteen Old Poems)",
+      "body_en": "In the story, the Cowherd (Altair) and the Weaver Girl (Vega) meet once a year on a bridge of magpies. In space they are about 15 light-years apart, so even a message sent at the speed of light would take 15 years to arrive.",
+      "body_zh": "故事裡，牛郎（牛郎星）和織女（織女星）每年在鵲橋相會一次。在太空中，兩顆星相隔大約 15 光年：就算用光速傳訊息，也要 15 年才收得到。"
+     },
+     {
+      "k": "李白 · Li Bai",
+      "en": "Light from the Past",
+      "zh": "今月曾經照古人",
+      "quote_zh": "今人不見古時月，今月曾經照古人。——李白〈把酒問月〉",
+      "quote_en": "\"People today do not see the Moon of old times, yet today's Moon once shone on the people of old.\" (Li Bai)",
+      "body_en": "Starlight turns the poem around. The light you see tonight from Betelgeuse set out about 500 years ago, during the Ming dynasty. The farther the star, the older its light.",
+      "body_zh": "星光把這首詩倒過來：今晚看到的參宿四星光，大約 500 年前、明朝時就出發了。星越遠，光越古老。"
+     },
+     {
+      "k": "1838 · Bessel",
+      "en": "The First Star Measured",
+      "zh": "第一顆量到距離的星",
+      "body_en": "Friedrich Bessel watched 61 Cygni for more than a year and found a parallax of about 0.3 arcseconds, smaller than the width of a hair seen from 30 meters away. It was the shift people had looked for since ancient Greece, and the first distance ever measured to a star.",
+      "body_zh": "貝索觀測天鵝座 61 一年多，量到大約 0.3 角秒的視差，比從 30 公尺外看一根頭髮還細。這是從古希臘就有人在找的位移，也是人類第一次量出到恆星的距離。"
+     },
+     {
+      "k": "周髀 · Zhoubi",
+      "en": "Measuring the Sky with Triangles",
+      "zh": "用三角形量天",
+      "body_en": "The ancient Chinese book Zhoubi Suanjing compared the shadows of poles in different places and worked out that the Sun was 80,000 li high. Using two viewpoints and a triangle was the right idea. The answer was wrong only because the book assumed Earth was flat.",
+      "body_zh": "古代的《周髀算經》比較不同地方的竿影，推算出「日高八萬里」。用兩個觀測點加上三角形，方法是對的；答案錯，只是因為書裡假設大地是平的。"
+     }
+    ]
+   },
+   "myths": [
+    {
+     "myth_en": "A light-year is a measure of time.",
+     "myth_zh": "光年是時間單位。",
+     "fact_en": "A light-year is a distance: how far light travels in one year, about 9.46 trillion kilometers. It uses time to describe length, just like saying a store is \"ten minutes away.\"",
+     "fact_zh": "光年是距離：光走一年的路程，大約 9.46 兆公里。它是用時間來描述長度，就像說「商店在十分鐘路程外」。"
+    },
+    {
+     "myth_en": "All the stars are the same distance away, stuck on a dome.",
+     "myth_zh": "所有星星都一樣遠，貼在同一個圓頂上。",
+     "fact_en": "They only look that way because they are too far away for our eyes to judge depth. In Orion alone, Bellatrix is about 250 light-years away, Betelgeuse about 500, and Rigel about 860.",
+     "fact_zh": "看起來是這樣，只是因為它們太遠，眼睛分不出遠近。光是獵戶座：參宿五大約 250 光年，參宿四約 500 光年，參宿七約 860 光年。"
+    },
+    {
+     "myth_en": "The brightest stars are the closest ones.",
+     "myth_zh": "越亮的星，離我們越近。",
+     "fact_en": "Within 20 light-years, Hipparcos measured 74 stars, and only 17 of them can be seen without a telescope. Most of the Sun's neighbors, including Proxima Centauri, are dim red dwarfs. Deneb shines brightly even though it is more than 1,000 light-years away, because it gives off tens of thousands of times more light than the Sun.",
+     "fact_zh": "20 光年內，依巴谷衛星量到 74 顆星，肉眼看得到的只有 17 顆。太陽的鄰居大多是暗淡的紅矮星，比鄰星也是。天津四在 1,000 多光年外仍然很亮，因為它發出的光是太陽的好幾萬倍。"
+    },
+    {
+     "myth_en": "Many of the stars we see have already burned out.",
+     "myth_zh": "我們看到的星星，很多早就熄滅了。",
+     "fact_en": "Starlight is old, but not that old. Almost every star you can see without a telescope is within a few thousand light-years, and stars shine for millions or billions of years. Their light left them only recently, as stars go, so nearly all of them are still shining.",
+     "fact_zh": "星光很古老，但沒那麼古老。肉眼看得到的星，幾乎都在幾千光年以內，而恆星能發光幾百萬到幾十億年。以恆星的一生來說，它們的光才剛出發不久，所以幾乎都還亮著。"
+    }
+   ],
+   "tricks": [
+    {
+     "title_en": "Thumb jump",
+     "title_zh": "拇指跳一跳",
+     "body_en": "Blink one eye, then the other: near things jump more than far things. That jump is parallax.",
+     "body_zh": "輪流閉一隻眼：近的東西跳得多，遠的跳得少。這一跳就是視差。"
+    },
+    {
+     "title_en": "A light-year is a distance",
+     "title_zh": "光年是距離",
+     "body_en": "Not a time. One light-year is about 9.5 trillion kilometers, or 63,000 times the distance from Earth to the Sun.",
+     "body_zh": "不是時間。1 光年約 9.5 兆公里，是地球到太陽距離的 6.3 萬倍。"
+    },
+    {
+     "title_en": "4.2, 8.6, 25",
+     "title_zh": "比鄰 4.2、天狼 8.6、織女 25",
+     "body_en": "Proxima Centauri, Sirius, and Vega are about 4.2, 8.6, and 25 light-years away.",
+     "body_zh": "比鄰星、天狼星、織女星大約在 4.2、8.6、25 光年外。"
+    },
+    {
+     "title_en": "Look farther, see older light",
+     "title_zh": "看得越遠，看到越久以前",
+     "body_en": "Light from a star 500 light-years away left it about 500 years ago.",
+     "body_zh": "500 光年外的星，它的光大約是 500 年前出發的。"
+    }
+   ],
+   "activities": [
+    {
+     "title_en": "Measure Parallax with a Pencil",
+     "title_zh": "用鉛筆量視差",
+     "materials": [
+      {
+       "en": "A pencil and a tape measure",
+       "zh": "一枝鉛筆、一條捲尺"
+      },
+      {
+       "en": "Ten sticky notes numbered 1 to 10, stuck in a row on a wall about 10 cm apart",
+       "zh": "十張寫上 1 到 10 的便利貼，在牆上排成一列，每張相隔約 10 公分"
+      },
+      {
+       "en": "A worksheet with three columns: pencil distance, number of notes it jumps, and notes",
+       "zh": "一張學習單，分三欄：鉛筆距離、跳過幾張便利貼、備註"
+      }
+     ],
+     "steps": [
+      {
+       "en": "Stand 3 meters from the wall. Hold the pencil upright at arm's length, in front of the sticky notes.",
+       "zh": "站在離牆 3 公尺的地方，把鉛筆直立、手臂伸直，擋在便利貼前面。"
+      },
+      {
+       "en": "Close your left eye and note which number the pencil covers. Switch eyes and count how many notes it jumps.",
+       "zh": "閉上左眼，記下鉛筆擋住哪個號碼；換眼睛看，數數它跳過幾張。"
+      },
+      {
+       "en": "Repeat with the pencil at half an arm's length, then as close as you can still see it clearly. Record each jump.",
+       "zh": "把鉛筆移到半個手臂遠，再移到最近還看得清楚的地方，各做一次，記下跳了幾張。"
+      },
+      {
+       "en": "Discuss: when the pencil is twice as close, what happens to the jump? (It roughly doubles.) Astronomers use the same rule to turn a shift into a distance.",
+       "zh": "討論：鉛筆近了一倍，跳的距離怎麼變？（大約變兩倍。）天文學家就是用這個規律，把位移換算成距離。"
+      }
+     ],
+     "tip_en": "Teaching tip: your eyes are about 6 cm apart, while Earth's \"eyes\" are 300 million kilometers apart. Then open the 3D model and compare the shift of Proxima Centauri with Betelgeuse.",
+     "tip_zh": "教學提示：我們的兩眼相距約 6 公分，地球的兩隻「眼睛」相距 3 億公里。接著打開 3D 模型，比較比鄰星和參宿四的位移。"
+    },
+    {
+     "title_en": "Find Your Birthday Star",
+     "title_zh": "找出你的生日星",
+     "materials": [
+      {
+       "en": "The birthday-star finder on this page",
+       "zh": "本頁的生日星查詢"
+      },
+      {
+       "en": "The sky map in Lesson 5 (tonight's sky over Changhua) or a printed star map",
+       "zh": "第五課的星空圖（今晚彰化的星空），或一張印出來的星圖"
+      },
+      {
+       "en": "Paper and colored pencils for a class timeline",
+       "zh": "做全班時間軸用的紙和彩色鉛筆"
+      }
+     ],
+     "steps": [
+      {
+       "en": "Type your birth year into the finder. Write down your star's name, its distance, and the best month to see it.",
+       "zh": "在查詢框輸入出生年份，記下你的星的名字、距離，以及最適合看它的月份。"
+      },
+      {
+       "en": "Find the star on the Lesson 5 sky map or a star map, and mark it.",
+       "zh": "在第五課的星空圖或星圖上找到這顆星，做個記號。"
+      },
+      {
+       "en": "Make a class timeline: put each student's star on it, along with the year its light set out.",
+       "zh": "做一條全班的時間軸：把每個人的星，連同光出發的年份，貼上去。"
+      },
+      {
+       "en": "Discuss: why will you need a different star next year? (Next year you will be a year older, so you need a star one light-year farther away.)",
+       "zh": "討論：為什麼明年要換一顆星？（明年你大一歲，要找再遠一光年的星。）"
+      }
+     ],
+     "tip_en": "Tip: distances have small errors, so any star within about half a light-year of your age counts. Parents and grandparents can find theirs too; the finder goes out to 100 light-years.",
+     "tip_zh": "提示：距離有小小的誤差，跟你歲數相差半光年以內都算數。爸媽和爺爺奶奶也能找自己的生日星：查詢範圍到 100 光年。"
+    }
+   ]
   }
  ],
  "planned": []
