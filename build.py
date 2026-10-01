@@ -2651,7 +2651,7 @@ def _astro_cn(n):
 def _astro_ver():
     h = hashlib.md5()
     for rel in ("assets/css/astro.css", "assets/js/moon-phases.js", "assets/js/eclipses.js", "assets/js/seasons.js", "assets/js/tides.js",
-                "assets/js/constellations.js", "assets/js/north-star.js"):
+                "assets/js/constellations.js", "assets/js/north-star.js", "assets/js/planets-lab.js"):
         fp = os.path.join(ROOT, rel)
         if os.path.exists(fp): h.update(open(fp, "rb").read())
     return h.hexdigest()[:8]
@@ -2761,6 +2761,19 @@ def polaris_svg(size=56):
         for r, o, d, a in ((8, .6, 18, 20), (14, .5, 30, 150), (20, .45, 44, 250), (26, .35, 58, 60)))
     return (f'<svg class="polaris-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">{arcs}'
             '<path d="M30 25.5l1.3 3.2 3.2 1.3-3.2 1.3-1.3 3.2-1.3-3.2-3.2-1.3 3.2-1.3z" fill="#ffe3a3"/></svg>')
+
+def planet_svg(size=56, color="#f0dca0", ring=True):
+    """行星小圖（系列首頁的課程卡、行星卡）：帶光環的土星，或單色圓球。"""
+    _MOON_SVG_N[0] += 1
+    n = _MOON_SVG_N[0]
+    rings = (f'<ellipse cx="30" cy="30" rx="25" ry="7.5" fill="none" stroke="rgba(232,214,160,.85)" stroke-width="2.6" transform="rotate(-18 30 30)"/>'
+             if ring else "")
+    front = (f'<path d="M7 36.5 A25 7.5 -18 0 0 53 23.5" fill="none" stroke="rgba(232,214,160,.95)" stroke-width="2.6" transform="rotate(0 30 30)"/>'
+             if ring else "")
+    return (f'<svg class="planet-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">'
+            f'<defs><radialGradient id="pg{n}" cx="40%" cy="35%" r="70%"><stop offset="0" stop-color="#fff"/>'
+            f'<stop offset=".35" stop-color="{color}"/><stop offset="1" stop-color="#3a2a14"/></radialGradient></defs>'
+            f'{rings}<circle cx="30" cy="30" r="{13 if ring else 17}" fill="url(#pg{n})"/>{front}</svg>')
 
 def _bi(en, zh, tag="p", cls=""):
     """英文在前、中文在後的雙語段落。"""
@@ -3168,6 +3181,73 @@ def render_north_lab(lesson):
   <p class="cn-credit">{lesson["lab"]["credit_html"]}</p>
 </div>'''
 
+_PLANET_CSS = {"mercury": "#b9b2a6", "venus": "#fff1c4", "mars": "#ff7a4a", "jupiter": "#e8c9a0", "saturn": "#f0dca0"}
+
+def render_planet_lab(lesson):
+    """第七課：行星與逆行（assets/js/planets-lab.js 綁這裡的 class）。"""
+    tg = _lab_toggles([("sight", "Numbered sight lines", "編號視線", True), ("trail", "Path in the sky", "天上的路徑", True),
+                       ("lines", "Constellation lines", "星座連線", True)])
+    chips = "".join(
+        f'<button type="button" class="al-chip pl-chip" data-planet="{p["key"]}">{planet_svg(26, _PLANET_CSS[p["key"]], p["key"] == "saturn")}'
+        f'<span class="al-chip-en">{html.escape(p["en"])}</span><span class="al-chip-zh">{html.escape(p["zh"])}</span></button>'
+        for p in lesson["wanderers"])
+    return f'''<div class="astro-lab pl-lab rvl" data-planet-lab>
+  <div class="al-stage">
+    <div class="al-space">
+      <canvas class="al-space-cv" aria-label="3D model of the planets going around the Sun on real dates · 照真實日期繞太陽的行星 3D 模型"></canvas>
+      <div class="al-labels" aria-hidden="true"></div>
+      <div class="ec-view" role="group" aria-label="View · 視角">
+        <button type="button" data-view="above" aria-pressed="true">Above the orbits · 俯瞰軌道</button>
+        <button type="button" data-view="ride" aria-pressed="false">Ride with Earth · 跟著地球</button>
+      </div>
+      <p class="al-hint">Drag to turn · 拖曳旋轉　Scroll or pinch to zoom · 滾輪／雙指縮放</p>
+      <button type="button" class="al-home" title="Reset view · 重設視角" aria-label="Reset view · 重設視角">&#8634;</button>
+      <p class="al-nogl-msg">This 3D model needs WebGL, which this browser does not support. The path chart and the cards below still work.<br><span class="zh">這個瀏覽器不支援 WebGL，無法顯示 3D 模型；路徑圖與下方的卡片一樣能用。</span></p>
+    </div>
+    <aside class="al-sky pl-aside">
+      <p class="al-sky-k">Its path among the stars · 在星空中的路徑</p>
+      <figure class="se-fig"><div class="se-box"><canvas class="pl-path-cv" aria-label="The planet's path among the stars · 行星在星空中的路徑"></canvas></div>
+        <figcaption>East is on the left, as when you face south. Teal: moving east as usual. Orange: moving backward (west). Dots mark the 1st of each month. · 東在左邊（像面向南方看天空）。青色：照常往東走；橘色：往西倒退。圓點是每月 1 日。</figcaption></figure>
+      <div class="al-readout ec-readout pl-readout" aria-live="polite">
+        <p class="ec-date pl-date"></p>
+        <p class="se-place pl-name"></p>
+        <dl>
+          <div class="ec-wide"><dt>Moving · 移動方向</dt><dd class="pl-move"></dd></div>
+          <div><dt>In front of · 在哪個星座</dt><dd class="pl-con"></dd></div>
+          <div><dt>Brightness · 亮度</dt><dd class="pl-mag"></dd></div>
+          <div class="ec-wide"><dt>Distance from Earth · 與地球距離</dt><dd class="pl-dist"></dd></div>
+          <div class="ec-wide"><dt>When to look · 什麼時候看</dt><dd class="pl-vis"></dd></div>
+          <div class="ec-wide"><dt>Retrograde · 逆行</dt><dd class="pl-next"></dd></div>
+        </dl>
+      </div>
+    </aside>
+  </div>
+  <div class="al-controls">
+    <div class="al-row al-row-main">
+      <button type="button" class="al-play" aria-pressed="false"><span class="al-play-i" aria-hidden="true"></span><span class="al-play-t">Play · 播放</span></button>
+      <div class="al-speed" role="group" aria-label="Speed · 速度">
+        <button type="button" data-speed="2" aria-pressed="false">2 days/s · 慢</button>
+        <button type="button" data-speed="10" aria-pressed="true">10 days/s · 中</button>
+        <button type="button" data-speed="30" aria-pressed="false">30 days/s · 快</button>
+      </div>
+      <div class="ec-jump">
+        <button type="button" class="pl-prev">&#9664; Previous · 上一次逆行</button>
+        <button type="button" class="ec-now pl-now">Now · 現在</button>
+        <button type="button" class="pl-nextbtn">Next retrograde &#9654; · 下一次</button>
+      </div>
+    </div>
+    <div class="ec-slider">
+      <span class="ec-slider-k">Timeline · 時間軸 <em><i class="ec-dot ec-season-dot pl-band-dot"></i>retrograde 逆行期間</em></span>
+      <input type="range" class="ec-time pl-time" min="0" max="1460" step="1" value="365" aria-label="Date · 日期">
+      <div class="ec-track pl-track"></div>
+    </div>
+    <div class="al-chips se-chips pl-chips">{chips}</div>
+    <div class="al-row al-toggles">{tg}</div>
+  </div>
+  {_lab_foot(lesson["lab"])}
+  <p class="cn-credit">{lesson["lab"]["credit_html"]}</p>
+</div>'''
+
 def _astro_nav(slug):
     ls = ASTRO["lessons"]
     i = next(n for n, l in enumerate(ls) if l["slug"] == slug)
@@ -3223,9 +3303,9 @@ def build_astro_lesson(lesson):
     lab = lesson["lab"]
     kind = lab.get("kind", "phases")
     lab_html = {"eclipses": render_eclipse_lab, "seasons": render_season_lab, "tides": render_tide_lab,
-                "stars": render_star_lab, "northstar": render_north_lab}.get(kind, render_moon_lab)(lesson)
+                "stars": render_star_lab, "northstar": render_north_lab, "planets": render_planet_lab}.get(kind, render_moon_lab)(lesson)
     js = {"eclipses": "eclipses", "seasons": "seasons", "tides": "tides", "stars": "constellations",
-          "northstar": "north-star"}.get(kind, "moon-phases")
+          "northstar": "north-star", "planets": "planets-lab"}.get(kind, "moon-phases")
 
     # 依資料裡有什麼就排什麼段落；band（米色底）交替
     secs = []
@@ -3326,6 +3406,21 @@ def build_astro_lesson(lesson):
         secs.append(("skies", "Four Seasons of Stars · 四季星空", "What's up on a 9 p.m. evening", "晚上九點抬頭看得到什麼",
                      f'<div class="ph-grid stagger">{sky_cards}</div>',
                      _bi(lesson["skies_note_en"], lesson["skies_note_zh"], cls="lead rvl d2")))
+    if lesson.get("wanderers"):
+        w_cards = "".join(
+            f'<article class="ph-card pl-card rvl">'
+            f'<div class="ph-ico">{planet_svg(64, _PLANET_CSS[p["key"]], p["key"] == "saturn")}</div>'
+            f'<h3>{html.escape(p["en"])}<span class="zh">{html.escape(p["zh"])}・{html.escape(p["old_zh"])}</span></h3>'
+            f'<p class="ph-meta"><span>{html.escape(p["orbit_en"])} · {html.escape(p["orbit_zh"])}</span>'
+            f'<span>{html.escape(p["retro_en"])} · {html.escape(p["retro_zh"])}</span></p>'
+            f'<p class="ph-when">{html.escape(p["note_en"])}<br><span class="zh">{html.escape(p["note_zh"])}</span></p>'
+            f'<p class="pl-retro" data-retro="{p["key"]}"></p>'
+            f'<button type="button" class="ph-go" data-lab-planet="{p["key"]}">See it go backward · 看它逆行 <i>&uarr;</i></button>'
+            f'</article>'
+            for p in lesson["wanderers"])
+        secs.append(("wanderers", "The Five Wanderers · 五星", "Five planets you can see without a telescope", "肉眼看得到的五顆行星",
+                     f'<div class="ph-grid pl-grid stagger">{w_cards}</div>',
+                     _bi(lesson["wanderers_note_en"], lesson["wanderers_note_zh"], cls="lead rvl d2")))
     if lesson.get("dipper"):
         d_cards = "".join(
             f'<article class="ph-card sk-card sk-{k["key"]} rvl">'
@@ -3393,7 +3488,8 @@ def build_astro_lesson(lesson):
                 "seasons": ("Seasons in a sentence", "一句話記住四季"),
                 "tides": ("Tides in a sentence", "一句話記住潮汐"),
                 "stars": ("Find your way around the seasons", "一句話記住四季星空"),
-                "northstar": ("Never lose north", "一句話找到北方")}[kind]
+                "northstar": ("Never lose north", "一句話找到北方"),
+                "planets": ("Spot a wanderer", "一句話認出行星")}[kind]
     secs.append(("tricks", "Remember It · 記憶口訣", tricks_h[0], tricks_h[1], _sci_tricks(lesson), ""))
     acts = lesson.get("activities") or [lesson["activity"]]
     for n, act in enumerate(acts, 1):
@@ -3435,7 +3531,7 @@ def build_astro_hub():
     def icon(l):
         c = l.get("card")
         return (eclipse_svg("solar:total", 60) if c == "eclipse" else season_svg(1, 60) if c == "season"
-                else tide_svg(60) if c == "tide" else star_svg(60) if c == "stars" else polaris_svg(60) if c == "north" else moon_svg(120, 60))
+                else tide_svg(60) if c == "tide" else star_svg(60) if c == "stars" else polaris_svg(60) if c == "north" else planet_svg(60) if c == "planets" else moon_svg(120, 60))
     cards = []
     for l in ASTRO["lessons"]:
         cards.append(

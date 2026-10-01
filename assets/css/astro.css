@@ -581,3 +581,58 @@
 .ns-tbl .ns-go { display: inline-block; margin-top: .45rem; }
 .ns-tn .tn-ico { font-weight: 800; }
 @media (min-width: 1021px) { .ns-tn { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+
+/* =========================================================
+   第七課：行星（.pl-lab、五星卡、今晚的行星）
+   ========================================================= */
+.pl-lab .al-stage { grid-template-columns: minmax(0, 1fr) 360px; }
+.pl-readout .se-place { margin-top: .2rem; }
+.pl-readout dd span { display: block; font-family: var(--zh); font-weight: 500; font-size: .76rem; color: var(--al-mute); }
+.pl-readout .pl-move.back { color: #ffb27a; }
+.pl-chips { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+.pl-chips .planet-svg { width: 28px; height: 28px; }
+.pl-band, .ec-dot.pl-band-dot { background: rgba(255,154,74,.35); border-color: rgba(255,154,74,.6); }
+.pl-nowtick { position: absolute; top: -2px; width: 2px; height: 24px; margin-left: -1px; background: #fff; border-radius: 1px; box-shadow: 0 0 6px rgba(255,255,255,.6); }
+.pl-lab .ec-jump .pl-prev, .pl-lab .ec-jump .pl-nextbtn { border-color: rgba(255,154,74,.5); color: #ffb27a; }
+.al-lab.pl-lab { font-size: .64rem; opacity: .75; }
+.al-lab.pl-lab.on { font-size: .72rem; color: #fff; border-color: rgba(255,255,255,.35); }
+.al-lab.pl-earth.on { color: #bcd8ff; border-color: rgba(79,156,255,.6); }
+.al-lab.pl-sky { color: #ffd9b8; border-color: rgba(255,154,74,.6); background: rgba(40,18,6,.75); }
+.al-lab.pl-num { min-width: 1.5em; padding: .05rem .4rem; text-align: center; font-size: .7rem; font-weight: 800; color: #062a26; background: #9fe8de; border: 0; }
+.al-lab.pl-num.back { background: #ff9a4a; color: #2a1204; }
+.al-lg-sight i { border: 0; width: 20px; height: 2px; margin-top: .6rem; border-radius: 1px; background: #fff; }
+.al-lg-fan i { border: 0; border-radius: 0; background: linear-gradient(160deg, transparent 42%, #9fe8de 42% 50%, transparent 50%), linear-gradient(200deg, transparent 42%, #ff9a4a 42% 50%, transparent 50%); }
+.al-lg-trail i { border: 0; width: 22px; height: 6px; margin-top: .45rem; border-radius: 3px; background: linear-gradient(90deg, #4fd1c5 0 45%, #ff9a4a 45% 75%, #4fd1c5 75%); }
+@media (max-width: 1020px) {
+  .pl-lab .al-stage { grid-template-columns: 1fr; }
+  .pl-aside { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); column-gap: 1.2rem; align-items: start; }
+  .pl-aside .al-sky-k { grid-column: 1 / -1; }
+  .pl-aside .se-fig { grid-column: 1; max-width: none; }
+  .pl-aside .pl-readout { grid-column: 2; margin-top: 0; }
+}
+@media (max-width: 640px) {
+  .pl-aside { display: block; }
+  .pl-aside .pl-readout { margin-top: .6rem; }
+  .pl-chips { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: .25rem; }
+  .pl-chips .al-chip-en { font-size: .58rem; }
+  .pl-lab .al-lab.pl-lab:not(.on) { display: none; }
+  .pl-lab .al-lab.cst { font-size: .58rem; padding: .05rem .35rem; }
+  .pl-lab .ec-jump button { flex: 1 1 30%; font-size: .66rem; }
+}
+/* 五星卡 */
+.pl-grid { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+.pl-card .ph-ico { background: radial-gradient(circle at 50% 40%, #16264a, #070b17); }
+.pl-retro { margin: 0 0 .8rem; padding: .5rem .7rem; border-radius: 10px; background: #fff3e6; color: #7a3a0c; font-size: .82rem; font-weight: 700; line-height: 1.45; }
+.pl-retro:empty { display: none; }
+.pl-retro .zh { display: block; font-weight: 600; }
+@media (max-width: 1180px) { .pl-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (max-width: 760px) { .pl-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 480px) { .pl-grid { grid-template-columns: 1fr; } }
+/* 今晚的行星 */
+@media (min-width: 1021px) { .pl-tn-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.pl-tn.dim { opacity: .62; }
+.pl-tn p + p { margin-top: .35rem; }
+.pl-tn p b { color: var(--brand-dk); }
+.pl-dot::after { content: ""; width: 14px; height: 14px; border-radius: 50%; background: radial-gradient(circle at 35% 35%, #fff, var(--c) 45%, #3a2a14); }
+.pl-badge { display: inline-block; margin-left: .4rem; padding: .05rem .5rem; border-radius: 999px; background: #ff9a4a; color: #2a1204; font-size: .66rem; font-weight: 800; vertical-align: 2px; }
+.pl-times { font-size: .78rem !important; color: var(--ink-soft); font-variant-numeric: tabular-nums; }
