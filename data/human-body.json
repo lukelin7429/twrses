@@ -16,11 +16,6 @@
   ],
   "planned": [
     {
-      "icon": "🧴",
-      "en": "What Does Your Skin Do?",
-      "zh": "皮膚在做什麼？"
-    },
-    {
       "icon": "🦷",
       "en": "Why Do We Get Two Sets of Teeth?",
       "zh": "為什麼會換牙？"
@@ -4287,6 +4282,461 @@
       },
       "health_en": "This lesson is for learning about the body. It is not medical advice. Do not put anything into your ear canal. If you have ear pain, ringing in your ears, or trouble hearing, tell an adult. Keep earphones at a low volume, and cover your ears near firecrackers.",
       "health_zh": "本課是認識身體的教材，不是醫療建議。不要把任何東西放進耳道。如果耳朵痛、耳鳴，或聽不清楚，請告訴大人。戴耳機時音量要小，靠近鞭炮時要摀住耳朵。"
+    },
+    {
+      "n": 10,
+      "slug": "skin",
+      "title": "What Does Your Skin Do?",
+      "title_zh": "皮膚在做什麼？",
+      "level": "入門 · Beginner",
+      "icon": "🧴",
+      "card": "skin",
+      "blurb_en": "Your skin is your biggest organ: it keeps germs out, feels the world, and cools you with sweat. Zoom into a slice of skin, and find out how strong today's sun is.",
+      "blurb_zh": "皮膚是身體最大的器官：擋住病菌、感覺世界、用汗幫你降溫。放大看一片皮膚，再算算今天的太陽有多強。",
+      "big_idea_en": "Your skin is a living, waterproof wrap. It keeps germs out, feels touch, heat, and pain, cools you with sweat, and makes vitamin D in sunlight, but too much sun burns it.",
+      "big_idea_zh": "皮膚是活的防水外衣：擋住病菌、感覺碰觸冷熱與痛、用汗降溫、在陽光下製造維生素 D；但曬太多會灼傷。",
+      "lab": {
+        "kind": "skin",
+        "eyebrow": "3D Model · 3D 模型",
+        "title_en": "Zoom into Your Skin",
+        "title_zh": "放大看皮膚",
+        "how_en": "A tiny square of skin from your forearm, blown up 25 times and cut open. Pick a moment: a hot day, a cold wind, a light touch, or an hour in the sun, and watch the sweat glands, hairs, blood vessels, touch sensors, and pigment cells go to work. Then check how strong the sun in Changhua is today with the tool below the model.",
+        "how_zh": "從前臂取下一小塊皮膚，放大 25 倍、剖開來看。選一個情境：大熱天、冷風、輕輕一碰，或曬一小時太陽，看汗腺、毛髮、血管、觸覺感受器和色素細胞怎麼工作。再用模型下方的小工具，看看今天彰化的太陽有多強。",
+        "legend": [
+          {
+            "cls": "epi",
+            "en": "Tan top layer: epidermis",
+            "zh": "最上面的米色層：表皮"
+          },
+          {
+            "cls": "derm",
+            "en": "Pink middle layer: dermis",
+            "zh": "中間的粉紅層：真皮"
+          },
+          {
+            "cls": "fat",
+            "en": "Yellow bottom layer: fat",
+            "zh": "最下面的黃色層：皮下脂肪"
+          },
+          {
+            "cls": "sweat",
+            "en": "Blue: sweat glands and sweat",
+            "zh": "藍色：汗腺與汗水"
+          },
+          {
+            "cls": "nerve",
+            "en": "Yellow lines: nerves from the touch sensors",
+            "zh": "黃色的線：觸覺感受器的神經"
+          }
+        ],
+        "scale_en": "The forearm bones are real, from the same BodyParts3D skeleton as Lesson 1; the skin is our own drawing, shown 25 times bigger than life. The top layer is drawn thicker than it really is, and real skin has many more hairs, glands, and sensors packed into a space this size. The sun tool estimates the UV index for a clear sky; clouds, haze, and shade lower it.",
+        "scale_zh": "前臂的骨頭是真實的，和第一課同一副 BodyParts3D 骨架；皮膚是本站自繪的示意圖，放大成真實的 25 倍。表皮畫得比真實的厚，而且真實皮膚在這麼小的範圍裡，毛髮、腺體和感受器多得多。太陽小工具估算的是晴天的紫外線指數；有雲、霾或遮蔽時會比較低。",
+        "credit_html": "Bone models: <a href=\"https://dbarchive.biosciencedbc.jp/en/bodyparts3d/download.html\" target=\"_blank\" rel=\"noopener\">BodyParts3D</a>, © The Database Center for Life Science, licensed under <a href=\"https://creativecommons.org/licenses/by/4.0/\" target=\"_blank\" rel=\"noopener\">CC BY 4.0</a>. We selected the bones, simplified the shapes, and turned the model upright; the skin is our own drawing. · 骨骼模型來源：BodyParts3D（日本生命科學資料庫中心，CC BY 4.0 授權）；本站挑選骨頭、簡化形狀並轉正方向，皮膚為本站自繪示意。",
+        "scenarios": {
+          "hot": {
+            "icon": "🥵",
+            "en": "A hot day",
+            "zh": "大熱天",
+            "text_en": "Your sweat glands pour sweat out through tiny pores. As the sweat evaporates, it carries heat away. Blood vessels near the surface widen, so more warm blood can give off heat, which is why your face turns red.",
+            "text_zh": "汗腺把汗水從小小的毛孔送出來；汗水蒸發時把熱帶走。靠近表面的血管變寬，讓更多溫暖的血散熱，所以臉會變紅。"
+          },
+          "cold": {
+            "icon": "🥶",
+            "en": "A cold wind",
+            "zh": "冷風吹",
+            "text_en": "Tiny muscles pull each hair upright and make goosebumps. Furry animals trap warm air this way; for people it helps only a little. Blood vessels near the surface narrow to keep warm blood deeper inside.",
+            "text_zh": "小小的肌肉把每根毛拉直，起了雞皮疙瘩。毛很多的動物靠這樣留住暖空氣，對人只有一點點幫助。靠近表面的血管變窄，把溫暖的血留在比較深的地方。"
+          },
+          "touch": {
+            "icon": "👆",
+            "en": "A light touch",
+            "zh": "輕輕一碰",
+            "text_en": "Touch sensors near the top feel a light touch, and onion-shaped sensors deep down feel a hard press. They send signals along nerves to your spinal cord and brain in a few hundredths of a second.",
+            "text_zh": "靠近表面的觸覺感受器感覺輕輕的碰觸，深處像洋蔥的感受器感覺用力的按壓。它們沿著神經把訊號送到脊髓和大腦，只要百分之幾秒。"
+          },
+          "sun": {
+            "icon": "☀️",
+            "en": "An hour in the sun",
+            "zh": "曬一小時太陽",
+            "text_en": "Ultraviolet light gets into the skin. The skin uses some of it to make vitamin D, and pigment cells make more melanin, a dark shield that shows up as a tan. Too much UV damages the cells and causes a sunburn.",
+            "text_zh": "紫外線進入皮膚。皮膚用一部分紫外線製造維生素 D，色素細胞做出更多黑色素：一層深色的盾牌，看起來就是曬黑。紫外線太多會傷害細胞，造成曬傷。"
+          }
+        }
+      },
+      "paras": [
+        "Your skin is your body's biggest organ. Spread out flat, an adult's skin would cover about 2 square meters, about the size of a single bed. It is waterproof, it stretches, and it repairs itself when you get a scrape. Most importantly, it is a wall that keeps germs, dirt, and harmful chemicals outside your body, and it keeps the water inside your body from drying out.",
+        "Skin has three layers. The top layer, the epidermis, is thinner than a sheet of paper on most of your body. Its outside is made of flat, dead cells that flake off all the time, and new cells from below replace the whole layer about once a month. Under it is the dermis, a thicker, stretchy layer that holds blood vessels, nerves, sweat glands, and the roots of your hairs. At the bottom is a layer of fat that works like a cushion and a warm blanket.",
+        "Skin also helps control your temperature. You have between 2 and 4 million sweat glands. On a hot day, they pour sweat onto your skin, and as the sweat evaporates, it carries heat away. The blood vessels near the surface also widen to let heat out, which is why you look red after running. When you are cold, those blood vessels narrow, and tiny muscles pull your hairs upright, giving you goosebumps.",
+        "Your skin is full of sensors. Some feel a light touch, some feel a hard press, and others feel heat, cold, itching, and pain. Your fingertips and lips have the most, which is why you read with your fingertips when you feel for something in the dark. Your fingertips also have ridges called fingerprints. They formed before you were born, and no two people have the same ones, not even identical twins.",
+        "Sunlight is good for skin in small amounts, because skin uses it to make vitamin D, which you need for strong bones. But sunlight also carries ultraviolet light, or UV, which you cannot see. To protect itself, skin makes a dark substance called melanin, and a tan is a sign that your skin has already been harmed by UV. Too much UV causes sunburn, and over many years it can lead to wrinkles and skin cancer.",
+        "Scientists measure the strength of UV with the UV index. When it is 3 or higher, you need protection, and in Taiwan it often goes above 10 on summer days around noon. A simple test: if your shadow is shorter than you are, the sun is strong. Wear a hat, cover up, look for shade, and use sunscreen. Now check how strong the sun is in Changhua today with the tool below the model."
+      ],
+      "paras_zh": [
+        "皮膚是身體最大的器官。把一個大人的皮膚攤平，大約有 2 平方公尺，差不多是一張單人床那麼大。它防水、有彈性，擦傷了還會自己修補。最重要的是，它像一道牆，把病菌、髒東西和有害的化學物質擋在身體外面，也讓身體裡的水分不會乾掉。",
+        "皮膚有三層。最上面一層是表皮，身體大部分地方的表皮比一張紙還薄。表皮的外面是扁平的死細胞，一直在剝落，下面長出來的新細胞大約一個月就把整層換新。表皮下面是真皮，比較厚、有彈性，裡面有血管、神經、汗腺和毛髮的根。最底下是一層脂肪，像坐墊也像保暖的毯子。",
+        "皮膚也幫忙控制體溫。你有兩百萬到四百萬個汗腺。大熱天時，汗腺把汗水送到皮膚上，汗水蒸發時把熱帶走。靠近表面的血管也會變寬讓熱散出去，所以跑步之後臉紅紅的。覺得冷的時候，這些血管會變窄，小小的肌肉把毛拉直，就起了雞皮疙瘩。",
+        "皮膚裡到處都是感受器：有的感覺輕輕的碰觸，有的感覺用力的按壓，還有的感覺熱、冷、癢和痛。指尖和嘴唇最多，所以在黑暗中找東西時，你會用指尖去摸。指尖還有一條條的紋路，叫做指紋。指紋在你出生以前就形成了，每個人都不一樣，連同卵雙胞胎也不同。",
+        "少量的陽光對皮膚有好處，因為皮膚會用它製造維生素 D，那是骨骼強壯需要的。但陽光也帶著看不見的紫外線。為了保護自己，皮膚會製造一種深色的物質，叫做黑色素；曬黑其實表示皮膚已經被紫外線傷害了。紫外線太多會曬傷，長年下來還可能造成皺紋和皮膚癌。",
+        "科學家用「紫外線指數」來量紫外線的強度。指數 3 以上就需要防護；在台灣，夏天中午前後常常超過 10。有個簡單的測試：如果你的影子比你的身高短，太陽就很強。戴帽子、穿長袖、找陰涼的地方、擦防曬乳。現在用模型下方的小工具，看看今天彰化的太陽有多強。"
+      ],
+      "questions": [
+        "What are the three layers of the skin?",
+        "How does sweat help you cool down?",
+        "Why is a tan not a sign of healthy skin?"
+      ],
+      "answers": [
+        "The epidermis on top, the dermis in the middle, and a layer of fat at the bottom.",
+        "Sweat comes out onto the skin, and as it evaporates, it carries heat away from your body.",
+        "Skin makes melanin to protect itself from UV, so a tan shows that the skin has already been harmed by UV."
+      ],
+      "vocab": [
+        {
+          "n": 1,
+          "w": "skin",
+          "pos": "n.",
+          "zh": "皮膚",
+          "ex": "A baby's <b>skin</b> is very soft.",
+          "exzh": "嬰兒的皮膚非常柔軟。"
+        },
+        {
+          "n": 2,
+          "w": "layer",
+          "pos": "n.",
+          "zh": "層",
+          "ex": "Wear a few thin <b>layers</b> when it is cold.",
+          "exzh": "天氣冷的時候，穿幾件薄的衣服一層層疊起來。"
+        },
+        {
+          "n": 3,
+          "w": "sweat",
+          "pos": "v.",
+          "zh": "流汗",
+          "ex": "We all <b>sweat</b> a lot after basketball practice.",
+          "exzh": "籃球練習之後，我們都流了很多汗。"
+        },
+        {
+          "n": 4,
+          "w": "protect",
+          "pos": "v.",
+          "zh": "保護",
+          "ex": "A helmet <b>protects</b> your head.",
+          "exzh": "安全帽保護你的頭。"
+        },
+        {
+          "n": 5,
+          "w": "goosebumps",
+          "pos": "n.",
+          "zh": "雞皮疙瘩",
+          "ex": "That scary story gave me <b>goosebumps</b>.",
+          "exzh": "那個恐怖故事讓我起雞皮疙瘩。"
+        },
+        {
+          "n": 6,
+          "w": "sunburn",
+          "pos": "n.",
+          "zh": "曬傷",
+          "ex": "I got a bad <b>sunburn</b> at the beach.",
+          "exzh": "我在海邊曬傷得很嚴重。"
+        },
+        {
+          "n": 7,
+          "w": "sunscreen",
+          "pos": "n.",
+          "zh": "防曬乳",
+          "ex": "Put on <b>sunscreen</b> before you go outside.",
+          "exzh": "出門前先擦防曬乳。"
+        },
+        {
+          "n": 8,
+          "w": "fingerprint",
+          "pos": "n.",
+          "zh": "指紋",
+          "ex": "The police found a <b>fingerprint</b> on the glass.",
+          "exzh": "警察在玻璃杯上找到一枚指紋。"
+        }
+      ],
+      "quiz": [
+        {
+          "q": "What is the biggest organ in your body?",
+          "options": [
+            "Your skin",
+            "Your brain",
+            "Your liver",
+            "Your lungs"
+          ],
+          "correct": 0
+        },
+        {
+          "q": "What is the top layer of the skin called?",
+          "options": [
+            "The epidermis",
+            "The dermis",
+            "The fat layer",
+            "The fingerprint"
+          ],
+          "correct": 0
+        },
+        {
+          "q": "How does sweat cool you down?",
+          "options": [
+            "It carries heat away as it evaporates",
+            "It makes your skin thicker",
+            "It stops your blood from moving",
+            "It blocks the sunlight"
+          ],
+          "correct": 0
+        },
+        {
+          "q": "What does your skin make to protect itself from UV?",
+          "options": [
+            "Melanin",
+            "Sweat",
+            "Earwax",
+            "Saliva"
+          ],
+          "correct": 0
+        },
+        {
+          "q": "According to the reading, when do you need protection from the sun?",
+          "options": [
+            "When the UV index is 3 or higher",
+            "Only when the UV index is above 20",
+            "Only on cloudy days",
+            "Only in winter"
+          ],
+          "correct": 0
+        }
+      ],
+      "kinds_head": {
+        "eyebrow": "Inside Your Skin · 皮膚的構造",
+        "en": "Three layers and their helpers",
+        "zh": "三層皮膚和它們的幫手"
+      },
+      "kinds": [
+        {
+          "icon": "🧱",
+          "en": "Epidermis",
+          "zh": "表皮",
+          "where_en": "The thin top layer",
+          "where_zh": "最上面薄薄的一層",
+          "control_en": "The waterproof wall",
+          "control_zh": "防水的牆",
+          "text_en": "Flat, dead cells on the outside flake off all the time. Pigment cells at its base make melanin.",
+          "text_zh": "外面扁平的死細胞一直在剝落；底部的色素細胞製造黑色素。"
+        },
+        {
+          "icon": "🧵",
+          "en": "Dermis",
+          "zh": "真皮",
+          "where_en": "The thick middle layer",
+          "where_zh": "中間比較厚的一層",
+          "control_en": "Strong and stretchy",
+          "control_zh": "強韌又有彈性",
+          "text_en": "Holds blood vessels, nerves, sweat glands, and hair roots, all packed into stretchy fibers.",
+          "text_zh": "有彈性的纖維裡，塞滿了血管、神經、汗腺和毛髮的根。"
+        },
+        {
+          "icon": "🛏️",
+          "en": "Fat layer",
+          "zh": "皮下脂肪",
+          "where_en": "The bottom layer",
+          "where_zh": "最底下一層",
+          "control_en": "Cushion and blanket",
+          "control_zh": "坐墊與毯子",
+          "text_en": "Soft fat cushions bumps, keeps you warm, and stores energy.",
+          "text_zh": "軟軟的脂肪緩衝撞擊、保暖，還能儲存能量。"
+        },
+        {
+          "icon": "💦",
+          "en": "Sweat glands",
+          "zh": "汗腺",
+          "where_en": "Coiled tubes deep in the dermis",
+          "where_zh": "真皮深處捲起來的小管子",
+          "control_en": "Cool you down",
+          "control_zh": "幫你降溫",
+          "text_en": "Two to four million of them. Sweat cools you as it evaporates from your skin.",
+          "text_zh": "有兩百萬到四百萬個。汗水從皮膚蒸發時幫你降溫。"
+        },
+        {
+          "icon": "👆",
+          "en": "Touch sensors",
+          "zh": "觸覺感受器",
+          "where_en": "All through the skin",
+          "where_zh": "整片皮膚裡",
+          "control_en": "Feel the world",
+          "control_zh": "感覺世界",
+          "text_en": "Different sensors feel light touch, pressure, heat, cold, itching, and pain. Fingertips have the most.",
+          "text_zh": "不同的感受器分別感覺輕觸、壓力、熱、冷、癢和痛；指尖最多。"
+        }
+      ],
+      "kinds_note_en": "Think of a house: the epidermis is the roof, the dermis is the walls with all the pipes and wires inside, and the fat layer is the insulation under the floor.",
+      "kinds_note_zh": "把皮膚想成一棟房子：表皮是屋頂，真皮是牆壁，裡面藏著水管和電線，皮下脂肪則是地板下的隔熱層。",
+      "measure": {
+        "title_en": "How strong is today's sun?",
+        "title_zh": "今天的太陽有多強？",
+        "lead_en": "The sun tool below the model works out how high the sun is over Changhua at any time today and estimates the UV index for a clear sky. Then go outside and check with your own shadow.",
+        "lead_zh": "模型下方的太陽小工具會算出今天任何時刻太陽在彰化有多高，並估算晴天的紫外線指數。再到戶外用自己的影子確認一下。",
+        "steps": [
+          {
+            "n": "UV",
+            "en": "Check the number",
+            "zh": "看看指數",
+            "text_en": "Look at today's UV index chart. Find the hours when it is 3 or higher: those are the hours when you need protection.",
+            "text_zh": "看今天的紫外線指數圖，找出指數 3 以上的時段：那些時候就需要防護。"
+          },
+          {
+            "n": "☀",
+            "en": "Measure your shadow",
+            "zh": "量量你的影子",
+            "text_en": "At recess, stand in the sun and have a partner mark the end of your shadow. If your shadow is shorter than you are tall, the sun is strong.",
+            "text_zh": "下課時站在太陽下，請同伴在你影子的尾端做記號。如果影子比你的身高短，太陽就很強。"
+          },
+          {
+            "n": "✓",
+            "en": "Compare",
+            "zh": "比一比",
+            "text_en": "Compare with the UV forecast from Taiwan's Central Weather Administration. Clouds and haze usually make the real number lower than our clear-sky estimate.",
+            "text_zh": "和中央氣象署的紫外線預報比一比。有雲或霾的時候，實際的數字通常比我們估算的晴天數字低。"
+          }
+        ],
+        "action": "test",
+        "action_value": "1",
+        "button_icon": "☀️",
+        "button_en": "Check today's sun",
+        "button_zh": "看看今天的太陽"
+      },
+      "myths": [
+        {
+          "myth_en": "You can't get sunburned on a cloudy day.",
+          "myth_zh": "陰天不會曬傷。",
+          "fact_en": "Most UV passes through light clouds. You can get burned on a cloudy day, especially around noon in summer.",
+          "fact_zh": "大部分的紫外線能穿過薄雲。陰天一樣會曬傷，尤其是夏天的中午前後。"
+        },
+        {
+          "myth_en": "A tan means your skin is healthy.",
+          "myth_zh": "曬黑代表皮膚很健康。",
+          "fact_en": "A tan is your skin's way of protecting itself after UV has already damaged it.",
+          "fact_zh": "曬黑是皮膚在被紫外線傷害之後，努力保護自己的結果。"
+        },
+        {
+          "myth_en": "Sweat itself smells bad.",
+          "myth_zh": "汗本身就很臭。",
+          "fact_en": "Fresh sweat has almost no smell. The smell comes from bacteria on your skin breaking the sweat down.",
+          "fact_zh": "剛流出來的汗幾乎沒有味道；臭味是皮膚上的細菌分解汗水產生的。"
+        },
+        {
+          "myth_en": "Goosebumps keep people warm.",
+          "myth_zh": "雞皮疙瘩能讓人保暖。",
+          "fact_en": "In furry animals, raised fur traps a layer of warm air. People have so little body hair that goosebumps help only a little.",
+          "fact_zh": "毛很多的動物把毛豎起來，可以留住一層暖空氣；人的體毛太少，雞皮疙瘩只能幫一點點忙。"
+        }
+      ],
+      "tricks": [
+        {
+          "title_en": "Short shadow, strong sun",
+          "title_zh": "影子短，太陽強",
+          "body_en": "If your shadow is shorter than you are, the sun is high and its UV is strong.",
+          "body_zh": "影子比身高短，表示太陽很高，紫外線很強。"
+        },
+        {
+          "title_en": "Slip, slop, slap",
+          "title_zh": "穿、擦、戴",
+          "body_en": "A famous sun-safety rule from Australia: slip on a shirt, slop on sunscreen, slap on a hat.",
+          "body_zh": "澳洲有名的防曬口號：穿上衣服、擦上防曬乳、戴上帽子。"
+        },
+        {
+          "title_en": "Epi means on top",
+          "title_zh": "Epi 就是「在上面」",
+          "body_en": "The epidermis sits on top of the dermis. Derma is Greek for skin.",
+          "body_zh": "epidermis（表皮）在 dermis（真皮）的上面；derma 是希臘文的「皮膚」。"
+        },
+        {
+          "title_en": "Sweat cools by leaving",
+          "title_zh": "汗水離開才降溫",
+          "body_en": "Sweat cools you only when it evaporates. Dripping sweat that just falls off does not help much.",
+          "body_zh": "汗水要蒸發才會帶走熱；直接滴下來的汗幫助不大。"
+        }
+      ],
+      "activities": [
+        {
+          "title_en": "Fingerprint Detectives",
+          "title_zh": "指紋偵探",
+          "materials": [
+            {
+              "en": "A soft pencil and a sheet of paper",
+              "zh": "一支軟芯鉛筆和一張紙"
+            },
+            {
+              "en": "Clear tape and a magnifying glass",
+              "zh": "透明膠帶和一個放大鏡"
+            }
+          ],
+          "steps": [
+            {
+              "en": "Rub the pencil hard on the paper to make a dark patch.",
+              "zh": "用鉛筆在紙上用力塗出一塊黑黑的區域。"
+            },
+            {
+              "en": "Rub your fingertip on the patch, then press a piece of tape onto your fingertip.",
+              "zh": "用指尖在黑色區域上抹一抹，再把一段膠帶貼在指尖上。"
+            },
+            {
+              "en": "Peel off the tape and stick it on white paper. Look at it with the magnifying glass.",
+              "zh": "把膠帶撕下來貼在白紙上，用放大鏡看。"
+            },
+            {
+              "en": "Is it a loop, a whorl, or an arch? Count each kind in the class.",
+              "zh": "它是箕形、斗形還是弓形？統計全班每種各有幾個。"
+            }
+          ],
+          "tip_en": "Teaching tip: loops are the most common pattern, then whorls, and arches are the rarest. Even identical twins have different fingerprints, because tiny differences in the womb shape the ridges.",
+          "tip_zh": "教學提示：箕形最常見，其次是斗形，弓形最少。連同卵雙胞胎的指紋都不一樣，因為在媽媽肚子裡的小小差異，就會影響紋路的形成。"
+        },
+        {
+          "title_en": "The Sweat Test",
+          "title_zh": "汗水實驗",
+          "materials": [
+            {
+              "en": "Two thermometers, or just your two hands",
+              "zh": "兩支溫度計，或直接用兩隻手"
+            },
+            {
+              "en": "A wet paper towel and a fan or a piece of cardboard",
+              "zh": "一張濕紙巾，以及電風扇或一塊紙板"
+            }
+          ],
+          "steps": [
+            {
+              "en": "Wrap a wet paper towel around the end of one thermometer. Leave the other one dry.",
+              "zh": "用濕紙巾包住一支溫度計的末端，另一支保持乾的。"
+            },
+            {
+              "en": "Fan both thermometers for three minutes.",
+              "zh": "對兩支溫度計搧風三分鐘。"
+            },
+            {
+              "en": "Read both temperatures. Which one is cooler?",
+              "zh": "讀出兩支的溫度，哪一支比較低？"
+            },
+            {
+              "en": "No thermometers? Wet the back of one hand, then blow on both hands. Which feels cooler?",
+              "zh": "沒有溫度計？把一隻手的手背弄濕，再對兩隻手吹氣，哪一隻覺得比較涼？"
+            }
+          ],
+          "tip_en": "Teaching tip: the wet one cools down because evaporating water carries heat away, just like sweat. On a humid day, sweat evaporates slowly, which is why sticky summer days in Taiwan feel so hot.",
+          "tip_zh": "教學提示：濕的那一支溫度比較低，因為水蒸發時把熱帶走，就像汗水一樣。潮濕的日子汗水不容易蒸發，所以台灣悶熱的夏天特別難受。"
+        }
+      ],
+      "culture": {
+        "title_en": "Goose Skin, Chicken Skin",
+        "title_zh": "雞皮疙瘩",
+        "body_en": "English says goosebumps, and Chinese says 雞皮疙瘩 (jīpí gēda), “chicken-skin bumps.” Both languages compared our cold skin to a plucked bird. The classic 《孝經》 (Classic of Filial Piety) begins with a line many Taiwanese students know: 身體髮膚，受之父母 (shēntǐ fàfū, shòu zhī fùmǔ), “your body, hair, and skin come from your parents,” so taking care of them is the first way to show respect. Hats and sunscreen count!",
+        "body_zh": "英文說 goosebumps（鵝的疙瘩），中文說「雞皮疙瘩」：兩種語言都把冷到起疙瘩的皮膚，比作拔了毛的鳥。《孝經》開頭有一句很多台灣學生都背過：「身體髮膚，受之父母，不敢毀傷，孝之始也。」好好照顧自己的身體和皮膚，就是孝順的開始——戴帽子、擦防曬也算喔！",
+        "link_en": "More Chinese health words in English",
+        "link_zh": "到中醫養生系列看更多"
+      },
+      "health_en": "This lesson is for learning about the body. It is not medical advice. Use shade, hats, and sunscreen when the UV index is 3 or higher. If a sunburn blisters, a rash spreads, a cut gets red, hot, and swollen, or a mole changes shape or color, tell an adult.",
+      "health_zh": "本課是認識身體的教材，不是醫療建議。紫外線指數 3 以上時，要找陰涼處、戴帽子、擦防曬乳。如果曬傷起水泡、疹子越來越大、傷口又紅又熱又腫，或痣的形狀、顏色改變，請告訴大人。"
     }
   ]
 }

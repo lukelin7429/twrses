@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "model": "node scripts/build-skeleton.mjs",
-    "build": "esbuild src/skeleton.js src/arm.js src/heart.js src/lungs.js src/joints.js src/digestion.js src/nerves.js src/eyes.js src/ears.js --bundle --minify --format=iife --target=es2019 --legal-comments=eof --outdir=../../assets/js",
+    "build": "esbuild src/skeleton.js src/arm.js src/heart.js src/lungs.js src/joints.js src/digestion.js src/nerves.js src/eyes.js src/ears.js src/skin.js --bundle --minify --format=iife --target=es2019 --legal-comments=eof --outdir=../../assets/js",
     "test": "node test/skeleton.test.mjs"
   },
   "devDependencies": {

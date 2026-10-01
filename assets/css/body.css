@@ -702,3 +702,49 @@ button.bc-row:hover { transform: translateY(-2px); border-color: var(--gold); bo
   .ea-strip { grid-template-columns: 1fr; }
   .ea-ladder { grid-template-columns: repeat(5, minmax(0, 1fr)); }
 }
+
+/* =========================================================
+   第十課：皮膚（data-skin-lab）；情境按鈕沿用 ea-pres，標題沿用 nv-title
+   ========================================================= */
+.sn-lab .al-space { min-height: 660px; }
+.sn-aside { gap: .15rem; }
+.sn-title { margin-top: .9rem; }
+.sn-clock { display: flex; align-items: baseline; gap: .6rem; margin: .4rem 0; padding: .5rem .7rem; border-radius: 12px; background: rgba(176,124,255,.1); border: 1px solid rgba(176,124,255,.4); }
+.sn-clock[hidden] { display: none; }
+.sn-min { font-family: var(--serif); font-size: 2rem; line-height: 1; color: #fff; font-variant-numeric: tabular-nums; min-width: 2ch; }
+.sn-clock span { font-size: .78rem; font-weight: 700; color: var(--al-text); line-height: 1.3; }
+.sn-clock small { display: block; font-family: var(--zh); font-weight: 600; color: var(--al-mute); }
+.sn-replay { align-self: flex-start; margin-top: .3rem; }
+.sn-strip { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 1rem 1.4rem; align-items: start; padding: 1rem 1.2rem 1.1rem; border-top: 1px solid var(--al-line); background: rgba(10,16,34,.6); }
+.sn-cv { display: block; width: 100%; height: auto; border-radius: 12px; border: 1px solid var(--al-line); }
+.sn-text .al-sky-k { margin: 0 0 .5rem; }
+.sn-when { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: .6rem 1rem; align-items: end; }
+.sn-when label { font-size: .72rem; font-weight: 800; color: var(--al-mute); }
+.sn-when input[type="date"] { display: block; margin-top: .25rem; padding: .3rem .45rem; border-radius: 8px; border: 1px solid var(--al-line); background: rgba(255,255,255,.06); color: #fff; font: 700 .86rem var(--sans); color-scheme: dark; }
+.sn-tl b { font-family: var(--serif); font-size: 1.05rem; color: #fff; margin-left: .3rem; }
+.sn-t::-webkit-slider-runnable-track { background: linear-gradient(90deg, #ffd36e 0 var(--p, 0%), rgba(255,255,255,.12) var(--p, 0%)); }
+.sn-t::-moz-range-progress { height: 6px; border-radius: 999px; background: #ffd36e; }
+.sn-nums { margin: .7rem 0 .4rem; }
+.sn-nums dd { font-size: .92rem; }
+.sn-nums dd b { font-size: 1.25rem; }
+.sn-advice { margin: 0; padding: .45rem .6rem; border-left: 3px solid #f9d71c; border-radius: 0 10px 10px 0; background: rgba(255,255,255,.04); font-size: .84rem; line-height: 1.5; color: var(--al-text); }
+.sn-advice .zh { display: block; color: var(--al-mute); margin-top: .1rem; }
+.sn-note { margin: .6rem 0 0; font-size: .72rem; line-height: 1.5; color: #7f90b0; }
+.sn-note .zh { display: block; }
+.sn-note a { color: var(--al-mute); text-decoration: underline; text-underline-offset: 2px; }
+.al-lab.sn-lb-s { color: #cdeeff; border-color: rgba(143,211,255,.55); }
+.al-lab.sn-lb-v { color: #ffc4b8; border-color: rgba(217,64,64,.55); }
+.al-lg-epi i { border: 0; background: #e8c39e; }
+.al-lg-derm i { border: 0; background: #f2a7a0; }
+.al-lg-fat i { border: 0; background: #f5d76e; }
+.al-lg-sweat i { border: 0; background: #8fd3ff; }
+@media (max-width: 1020px) {
+  .sn-lab .al-space { aspect-ratio: 1 / 1; min-height: 380px; max-height: 80vh; }
+  .sn-lab .sn-aside { display: block; }
+  .sn-lab .sn-aside > .al-sky-k:not(:first-child) { margin-top: .9rem; }
+}
+@media (max-width: 640px) {
+  .sn-lab .al-space { min-height: 340px; }
+  .sn-strip { grid-template-columns: 1fr; }
+  .sn-when { grid-template-columns: 1fr; }
+}

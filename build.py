@@ -4311,7 +4311,7 @@ def build_astro_hub():
 # 面板與段落樣式沿用 astro.css，人體專屬的在 body.css；兩者都只載在本系列頁面。
 BODY_BASE = "/resources/classes/human-body/"
 _BODY_JS = {"skeleton": "skeleton", "arm": "arm", "heart": "heart", "lungs": "lungs", "joints": "joints",
-            "digestion": "digestion", "nerves": "nerves", "eyes": "eyes", "ears": "ears"}   # lab.kind → assets/js/<bundle>.js
+            "digestion": "digestion", "nerves": "nerves", "eyes": "eyes", "ears": "ears", "skin": "skin"}   # lab.kind → assets/js/<bundle>.js
 
 def _body_ver():
     h = hashlib.md5()
@@ -4863,6 +4863,59 @@ def render_ears_lab(lesson):
   <p class="sk-credit">{lab["credit_html"]}</p>
 </div>'''
 
+def render_skin_lab(lesson):
+    """第十課：放大剖開的皮膚（assets/js/skin.js 綁這裡的 class）；「今天彰化的太陽」是 2D 小工具，不需要 WebGL。"""
+    lab = lesson["lab"]
+    scen_json = html.escape(json.dumps(lab["scenarios"], ensure_ascii=False))
+    btns = "".join(
+        f'<button type="button" data-scen-go="{k}" aria-pressed="{"true" if k == "hot" else "false"}"><i aria-hidden="true">{v["icon"]}</i>'
+        f'<span>{html.escape(v["en"])}<small>{html.escape(v["zh"])}</small></span></button>'
+        for k, v in lab["scenarios"].items())
+    tg = _lab_toggles([("labels", "Labels", "標示", True), ("bones", "Arm bones", "手臂骨頭", True)])
+    return f'''<div class="astro-lab sk-lab sn-lab rvl" data-skin-lab data-model="{_model_url()}" data-scen="{scen_json}">
+  <div class="al-stage">
+    <div class="al-space">
+      <canvas class="al-space-cv" aria-label="3D model of a magnified, cut-open square of skin with hairs, sweat glands, blood vessels, and touch sensors · 放大剖開的一小塊皮膚 3D 模型，有毛髮、汗腺、血管與觸覺感受器"></canvas>
+      <div class="al-labels" aria-hidden="true"></div>
+      <p class="sk-loading">Loading… · 載入中…<span class="sk-bar"><i></i></span></p>
+      <p class="al-hint">Drag to turn · 拖曳旋轉　Scroll or pinch to zoom · 滾輪／雙指縮放</p>
+      <p class="ey-mag">Skin shown 25&times; life size, cut open · 皮膚放大 25 倍、剖開來看</p>
+      <button type="button" class="al-home" title="Reset view · 重設視角" aria-label="Reset view · 重設視角">&#8634;</button>
+      <p class="al-nogl-msg">This 3D model needs WebGL, which this browser does not support. The sun tool and the cards below still work.<br><span class="zh">這個瀏覽器不支援 WebGL，無法顯示 3D 模型；下方的太陽小工具和卡片一樣能用。</span></p>
+    </div>
+    <aside class="al-sky sk-aside sn-aside">
+      <p class="al-sky-k">Pick a moment · 選一個情境</p>
+      <div class="ea-pres sn-scs" role="group" aria-label="Moments · 情境">{btns}</div>
+      <p class="nv-title sn-title"></p><p class="nv-zh sn-zh"></p>
+      <p class="ey-status sn-status" aria-live="polite"></p>
+      <div class="sn-clock" hidden><b class="sn-min">0</b><span>minutes in the sun<small>曬太陽的分鐘數（10 秒＝1 小時）</small></span></div>
+      <button type="button" class="nv-replay sn-replay">&#8634; Replay<small>再看一次</small></button>
+    </aside>
+  </div>
+  <div class="sn-strip">
+    <div class="sn-chart"><canvas class="sn-cv" width="640" height="280" aria-label="Clear-sky UV index over today in Changhua · 今天彰化晴天的紫外線指數"></canvas></div>
+    <div class="sn-text">
+      <p class="al-sky-k">Today&#8217;s sun in Changhua · 今天彰化的太陽</p>
+      <div class="sn-when">
+        <label>Date · 日期<input type="date" class="sn-date"></label>
+        <label class="sn-tl">Time · 時間 <b class="sn-time">12:00</b><input type="range" class="ec-time sn-t" min="300" max="1140" step="5" value="720"></label>
+      </div>
+      <dl class="ey-nums sn-nums">
+        <div><dt>Sun height · 太陽高度</dt><dd class="sn-alt">—</dd></div>
+        <div><dt>Your shadow · 你的影子</dt><dd class="sn-shadow">—</dd></div>
+        <div><dt>UV index · 紫外線指數</dt><dd class="sn-uvi">—</dd></div>
+      </dl>
+      <p class="sn-advice" aria-live="polite"></p>
+      <p class="sn-note">Clear-sky estimate for Changhua (24.08&deg;N, 120.54&deg;E); clouds, haze, and shade lower it. For the real forecast, see the <a href="https://www.cwa.gov.tw/" target="_blank" rel="noopener">Central Weather Administration</a>.<span class="zh">彰化（北緯 24.08 度、東經 120.54 度）晴天的估算值；有雲、霾或遮蔽時會比較低。實際預報請看中央氣象署。</span></p>
+    </div>
+  </div>
+  <div class="al-controls">
+    <div class="al-row al-toggles">{tg}</div>
+  </div>
+  {_lab_foot(lab)}
+  <p class="sk-credit">{lab["credit_html"]}</p>
+</div>'''
+
 def _body_nav(slug):
     ls = BODY["lessons"]
     i = next(n for n, l in enumerate(ls) if l["slug"] == slug)
@@ -4888,7 +4941,7 @@ def build_body_lesson(lesson):
     kind = lab["kind"]
     lab_html = {"skeleton": render_skeleton_lab, "arm": render_arm_lab, "heart": render_heart_lab, "lungs": render_lungs_lab,
                 "joints": render_joints_lab, "digestion": render_digestion_lab, "nerves": render_nerves_lab,
-                "eyes": render_eyes_lab, "ears": render_ears_lab}[kind](lesson)
+                "eyes": render_eyes_lab, "ears": render_ears_lab, "skin": render_skin_lab}[kind](lesson)
 
     secs = []
     if lesson.get("jobs"):
@@ -4991,7 +5044,8 @@ def build_body_lesson(lesson):
                 "heart": ("The heart in a sentence", "一句話記住心臟"), "lungs": ("Breathing in a sentence", "一句話記住呼吸"),
                 "joints": ("Joints in a sentence", "一句話記住關節"), "digestion": ("Digestion in a sentence", "一句話記住消化"),
                 "nerves": ("Your nervous system in a sentence", "一句話記住神經系統"),
-                "eyes": ("Your eyes in a sentence", "一句話記住眼睛"), "ears": ("Your ears in a sentence", "一句話記住耳朵")}[kind]
+                "eyes": ("Your eyes in a sentence", "一句話記住眼睛"), "ears": ("Your ears in a sentence", "一句話記住耳朵"),
+                "skin": ("Your skin in a sentence", "一句話記住皮膚")}[kind]
     secs.append(("tricks", "Remember It · 記憶口訣", tricks_h[0], tricks_h[1], _sci_tricks(lesson), ""))
     if lesson.get("culture"):
         cu = lesson["culture"]
