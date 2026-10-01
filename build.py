@@ -4918,7 +4918,7 @@ def build_body_hub():
 # 3D 原始碼在 tools/science/src/（three.js、esbuild，每課一個入口），打包成 assets/js/<入口>.js；
 # 面板、迷思、口訣、活動沿用 astro.css，本系列多出來的在 science.css；兩者都只載在本系列頁面。
 HTW_BASE = "/resources/classes/how-things-work/"
-_HTW_JS = {"battery": "battery", "generator": "generator", "solar": "solar-cell", "wind": "wind-turbine", "internet": "internet-packets"}   # lab.kind → assets/js/<bundle>.js
+_HTW_JS = {"battery": "battery", "generator": "generator", "solar": "solar-cell", "wind": "wind-turbine", "internet": "internet-packets", "signal": "cell-signal"}   # lab.kind → assets/js/<bundle>.js
 
 def _htw_cn(n):
     """課次的中文數字（一～九十九）：第十一課、第二十課。"""
@@ -5237,6 +5237,61 @@ def render_internet_lab(lesson):
   <p class="bt-credit">{lab["credit_html"]}</p>
 </div>'''
 
+def cellsignal_svg(size=56):
+    """手機訊號小圖（萬物原理首頁的課程卡）：山、基地台與一圈圈電波。"""
+    return (f'<svg class="cellsignal-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">'
+            '<path d="M2 52 L22 24 L34 40 L42 30 L58 52 Z" fill="#3e6b4f"/>'
+            '<path d="M14 52 L16 26 L18 52" stroke="#dfe4ec" stroke-width="1.6" fill="none"/>'
+            '<g fill="none" stroke="#4fd1c5" stroke-width="1.6" stroke-linecap="round">'
+            '<path d="M11 21a7 7 0 0 1 10 0"/><path d="M7.5 17a12 12 0 0 1 17 0"/><path d="M4 13a17 17 0 0 1 24 0"/></g>'
+            '<g fill="#3ad17a"><rect x="44" y="12" width="3" height="5"/><rect x="48" y="9" width="3" height="8"/><rect x="52" y="6" width="3" height="11" opacity=".35"/></g></svg>')
+
+def render_cellsignal_lab(lesson):
+    """第六課：山區的手機訊號（assets/js/cell-signal.js 綁這裡的 class；全部自繪示意）。"""
+    lab = lesson["lab"]
+    bands = [("low", "&#128225;", "Low band", "低頻 700 MHz"), ("high", "&#9889;", "High band (5G)", "高頻 3.5 GHz")]
+    bb = "".join(f'<button type="button" data-band="{k}" aria-pressed="{"true" if k == "low" else "false"}"><i aria-hidden="true">{ic}</i>{en}<small>{zh}</small></button>' for k, ic, en, zh in bands)
+    tg = _lab_toggles([("labels", "Labels", "標示", True), ("coverage", "Coverage map", "覆蓋圖", True), ("towerB", "Tower in the valley", "山谷基地台", False)])
+    return f'''<div class="astro-lab bt-lab cs-lab rvl" data-cellsignal-lab>
+  <div class="al-stage">
+    <div class="al-space">
+      <canvas class="al-space-cv" aria-label="3D model of a hiker walking over a mountain while the phone signal changes · 登山客走過山區、手機訊號跟著變化的 3D 模型"></canvas>
+      <div class="al-labels" aria-hidden="true"></div>
+      <p class="bt-cut">Mountains and towers drawn much taller than real · 山和基地台畫得比真的高很多</p>
+      <p class="al-hint">Drag to turn · 拖曳旋轉　Scroll or pinch to zoom · 滾輪／雙指縮放</p>
+      <button type="button" class="al-home" title="Reset view · 重設視角" aria-label="Reset view · 重設視角">&#8634;</button>
+      <p class="al-nogl-msg">This 3D model needs WebGL, which this browser does not support. The reading and the cards below still explain everything.<br><span class="zh">這個瀏覽器不支援 WebGL，無法顯示 3D 模型；下方的課文與卡片一樣能看懂。</span></p>
+    </div>
+    <aside class="al-sky bt-aside cs-aside">
+      <div class="cs-top">
+        <p class="al-sky-k">Your phone · 你的手機</p>
+        <div class="cs-phone"><span class="cs-bars" data-b="4" aria-hidden="true"><i></i><i></i><i></i><i></i></span><b class="cs-bars-t"></b></div>
+        <dl class="bt-nums cs-nums">
+          <div><dt>Using tower · 連到</dt><dd class="cs-srv"></dd></div>
+          <div><dt>Distance · 距離</dt><dd class="cs-km"></dd></div>
+          <div><dt>Line of sight · 視線</dt><dd class="cs-los"></dd></div>
+          <div><dt>Strength (model) · 強度</dt><dd class="cs-dbm"></dd></div>
+          <div><dt>Wave travel time · 電波走多久</dt><dd class="cs-us"></dd></div>
+          <div><dt>Wavelength · 波長</dt><dd class="cs-wl"></dd></div>
+        </dl>
+        <p class="al-sky-k cs-k2">Frequency band · 頻段</p>
+        <div class="bt-modes cs-bands" role="group" aria-label="Frequency band · 頻段">{bb}</div>
+      </div>
+      <p class="bt-msg cs-msg" aria-live="polite"></p>
+    </aside>
+  </div>
+  <div class="al-controls">
+    <div class="al-row al-row-main">
+      <button type="button" class="al-play" aria-pressed="true"><span class="al-play-i" aria-hidden="true"></span><span class="al-play-t">Pause · 暫停</span></button>
+      <label class="al-slider cs-pos-row"><span>Where are you? · 你走到哪裡？ <output class="cs-pos-out"></output></span>
+        <input type="range" class="al-age cs-pos" min="-4.5" max="9" step="0.05" value="-2"></label>
+    </div>
+    <div class="al-row al-toggles">{tg}</div>
+  </div>
+  {_lab_foot(lab)}
+  <p class="bt-credit">{lab["credit_html"]}</p>
+</div>'''
+
 def _htw_flat():
     return [(ui, u, l) for ui, u in enumerate(HTW["units"]) for l in u["lessons"]]
 
@@ -5264,7 +5319,7 @@ def build_htw_lesson(ui, unit, lesson):
     reading_html = render_basic_unit(1, unit_dict, level="htw", audio_rel="", pdf_rel="")
     lab = lesson["lab"]
     kind = lab["kind"]
-    lab_html = {"battery": render_battery_lab, "generator": render_generator_lab, "solar": render_solarcell_lab, "wind": render_windturbine_lab, "internet": render_internet_lab}[kind](lesson)
+    lab_html = {"battery": render_battery_lab, "generator": render_generator_lab, "solar": render_solarcell_lab, "wind": render_windturbine_lab, "internet": render_internet_lab, "signal": render_cellsignal_lab}[kind](lesson)
 
     secs = []
     if lesson.get("mix"):
@@ -5325,7 +5380,8 @@ def build_htw_lesson(ui, unit, lesson):
                 "generator": ("Power plants in a sentence", "一句話記住發電"),
                 "solar": ("Solar power in a sentence", "一句話記住太陽能"),
                 "wind": ("Wind power in a sentence", "一句話記住風力發電"),
-                "internet": ("The internet in a sentence", "一句話記住網際網路")}[kind]
+                "internet": ("The internet in a sentence", "一句話記住網際網路"),
+                "signal": ("Phone signals in a sentence", "一句話記住手機訊號")}[kind]
     secs.append(("tricks", "Remember It · 記憶口訣", tricks_h[0], tricks_h[1], _sci_tricks(lesson), ""))
     if lesson.get("safety"):
         items = "".join(f'<li class="rvl">{html.escape(s["en"])}<span class="zh">{html.escape(s["zh"])}</span></li>' for s in lesson["safety"])
@@ -5379,7 +5435,7 @@ def build_htw_lesson(ui, unit, lesson):
 def build_htw_hub():
     # 照中醫養生：單元導覽＋每個單元一段橫向課程卡；做好的課可點，planned 是「製作中」卡。
     def icon(l):
-        return battery_svg(60) if l.get("card") == "battery" else outlet_svg(60) if l.get("card") == "outlet" else solarpanel_svg(60) if l.get("card") == "solar" else windturbine_svg(60) if l.get("card") == "wind" else internet_svg(60) if l.get("card") == "internet" else l["icon"]
+        return battery_svg(60) if l.get("card") == "battery" else outlet_svg(60) if l.get("card") == "outlet" else solarpanel_svg(60) if l.get("card") == "solar" else windturbine_svg(60) if l.get("card") == "wind" else internet_svg(60) if l.get("card") == "internet" else cellsignal_svg(60) if l.get("card") == "signal" else l["icon"]
     unit_sections, nav = [], []
     done = sum(len(u["lessons"]) for u in HTW["units"])
     total = done + sum(len(u.get("planned", [])) for u in HTW["units"])

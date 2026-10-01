@@ -176,6 +176,9 @@
 - 第五課網路（`internet-packets.js`，`lab.kind = "internet"`，`data-internet-lab`；單元二第一課）：一個機制——訊息切成有編號的封包，路由器一站一站傳、各走各的路，收件端照編號排回，缺號就請伺服器重送。**示意地圖**（不是真實形狀）：彰化手機 → Wi-Fi → 網路業者 → 通訊軟體伺服器 → 登陸站 → 海纜 A（直達）或 B（經日本）→ 美國西岸 → 兩條陸路 → 波士頓。「弄丟一個封包」在美西路由器丟掉第 ⌈60%⌉ 號；「剪斷海纜 A」全部改走 B。`src/netcalc.js`（MTU 1,500 位元組、3 MB 約 2,000 封包、光纖約 20.4 萬 km/s、彰化—波士頓直線 12,532 km、`reassemble`）；`test/internet.test.mjs`。通訊軟體伺服器的位置是簡化的，課文沒寫它在哪裡（查不到可靠來源）。
   - 卡片 `parts` 可用 `demo`（`text`／`photo`／`lose`／`cut`）直接示範。
   - 除錯：`document.querySelector('[data-internet-lab]').__lab`（`send('text'|'photo')`、`setLose(bool)`、`setCut(bool)`、`state.auto = false`、`run(秒)`、`render()`）。
+- 第六課手機訊號（`cell-signal.js`，`lab.kind = "signal"`，`data-cellsignal-lab`）：一個機制——手機用無線電波只連到最近的基地台，越遠越弱、被山擋住更弱。地形是函式 `ground(x, z)`（x 約 1 單位＝1 公里，高度誇大），山脊在 x = 3；視線檢查在基地台頂端到手機的線上取 40 點。地面頂點顏色＝訊號覆蓋圖（每個頂點用同一套 `src/radio.js` 算格數）。**Float32BufferAttribute 會複製陣列**：之後要寫 `geo.attributes.color.array`。`radio.js`：100 m 內自由空間、之後路徑損耗指數 3.5，山擋住時低頻 +18 dB、高頻 +28 dB，格數門檻 −85／−95／−105／−115 dBm（示意）；`test/signal.test.mjs`。卡片 `demo`：town／behind／tower／high。
+  - 除錯：`document.querySelector('[data-cellsignal-lab]').__lab`（`setX(公里)`、`setBand('low'|'high')`、`setTowerB(bool)`、`setCoverage(bool)`、`measure()`、`run(秒)`、`render()`）。
+- 上傳錄音時若出現大量「not found locally」：多半是天文 session 在 ~/Developer 那份 clone 產生、已上傳的句子（worktree 的快取沒有它們）。算出「manifest 裡有、快取裡沒有」的雜湊，逐一 curl 確認線上 200 即可。
 - 多個 session 同時改 build.py 時，本系列改在 scratchpad 的 git worktree（從 origin/main 開分支）做，`audio` 用 symlink 指到 `~/Documents/twrses/audio`（symlink 不會被 .gitignore 的 `audio/` 擋，**不要 add**），做完 rebase 再 `git push origin HEAD:main`。
 - 瀏覽器面板在背景時 `visibilityState` 是 hidden，IntersectionObserver 不觸發、截圖是空白：點一下頁面上的「在模型中看」按鈕就會直接初始化，截圖改用無頭 Chrome（playwright-core＋本機 Chrome，`--use-angle=swiftshader`）。
 - 🔊 錄音：`python3 tools/gen_audio.py --page resources/classes/how-things-work/<slug>` → `./tools/upload_audio.sh`，manifest 命名 `how-things-work-<slug>`。檢查線上 200 要帶瀏覽器 UA（Python 預設 UA 會被 r2.dev 擋成 403）。

@@ -2526,15 +2526,507 @@
               "url": "https://www.submarinecablemap.com/"
             }
           ]
+        },
+        {
+          "n": 6,
+          "slug": "phone-signal",
+          "title": "How Does a Phone Call Travel Without Wires?",
+          "title_zh": "手機訊號怎麼在空中傳遞？",
+          "level": "入門 · Beginner",
+          "icon": "📶",
+          "card": "signal",
+          "blurb_en": "Your phone talks to a tower using invisible radio waves. Walk a hiker over a 3D mountain, watch the signal bars drop behind the ridge, then add a tower and switch to 5G.",
+          "blurb_zh": "手機用看不見的無線電波和基地台說話。在 3D 山區帶著登山客走過山脊，看訊號格數在山後掉下來，再加一座基地台、換成 5G 試試看。",
+          "big_idea_en": "A phone turns your voice and data into invisible radio waves and sends them only as far as the nearest base station. The base station passes them into the cable network, so the wireless part is just the last short hop, and a mountain in the way can block it.",
+          "big_idea_zh": "手機把你的聲音和資料變成看不見的無線電波，只送到最近的基地台；基地台再把它接進電纜網路。所以無線只是最後短短的一段，而中間只要有山擋住，訊號就會被擋掉。",
+          "lab": {
+            "kind": "signal",
+            "eyebrow": "3D Model · 3D 模型",
+            "title_en": "Signal in the Mountains",
+            "title_zh": "山裡的訊號",
+            "how_en": "Drag to turn the model, and scroll or pinch to zoom. Slide to walk the hiker from town over the ridge into the valley, and watch the signal bars and the line to the tower. Switch between low band and high band, add a base station in the valley, and turn the coverage map on or off.",
+            "how_zh": "拖曳可以旋轉模型，滾輪或雙指可以縮放。拉動滑桿，帶著登山客從小鎮走過山脊、進到山谷，看訊號格數和連到基地台的那條線。切換低頻與高頻、在山谷加一座基地台、打開或關掉覆蓋圖。",
+            "legend": [
+              {
+                "cls": "cov",
+                "en": "Ground color: the signal map. Green is full bars, yellow is weak, red is no service.",
+                "zh": "地面顏色：訊號覆蓋圖。綠色滿格、黃色微弱、紅色沒有訊號"
+              },
+              {
+                "cls": "link",
+                "en": "Dashed line: the link between your phone and the base station it is using",
+                "zh": "虛線：你的手機和它正在使用的基地台之間的連線"
+              },
+              {
+                "cls": "ring",
+                "en": "Rings: radio waves spreading out from a base station (spacing not to scale)",
+                "zh": "圓環：從基地台往外擴散的無線電波（間距不按比例）"
+              }
+            ],
+            "scale_en": "A diagram: about 1 unit is 1 kilometer across, but the mountain and towers are drawn much taller than real. Signal strength is a teaching model, not measurements from any phone company: it weakens with distance like signals over real ground, and a mountain in the way removes more for high frequencies than for low ones. Phones turn signal strength into bars in different ways.",
+            "scale_zh": "這是示意圖：水平方向約 1 單位＝1 公里，但山和基地台畫得比真的高很多。訊號強度是教學用的模型，不是任何電信業者的實測：它隨距離變弱的方式接近真實地面的情況，被山擋住時高頻損失比低頻多。各廠牌手機把訊號強度換成格數的方式也不一樣。",
+            "credit_html": "Model drawn by My Culture Connect as a teaching diagram. Radio facts from <a href=\"https://science.nasa.gov/ems/05_radiowaves/\" target=\"_blank\" rel=\"noopener\">NASA</a>; Taiwan's base station figures from the National Communications Commission. · 模型由人師教育協會自繪示意；無線電波依 NASA，台灣基地台數字依國家通訊傳播委員會（NCC）。"
+          },
+          "paras": [
+            "You are hiking in Taiwan's mountains with your family. In the parking lot, your phone shows full bars. An hour up the trail, behind a ridge, the bars drop to one, and then to none. The phone has not changed, and neither has the network. What changed is the mountain between you and a tower you cannot see. How does a phone talk through thin air, and why can a mountain stop it?",
+            "In 1901, the Italian inventor Guglielmo Marconi sent a radio signal across the Atlantic Ocean, about 3,400 kilometers from England to Canada. The whole message was the letter S in Morse code. In 1973, Martin Cooper of Motorola made the first call from a handheld mobile phone, standing on a street in New York. His phone weighed more than a kilogram. Today's phones are far lighter, but they still use the same invisible waves.",
+            "A phone works by sending and receiving radio waves. Radio waves are a kind of light that our eyes cannot see, and they travel at the speed of light, about 300,000 kilometers every second. Your phone turns your voice into a pattern of tiny changes in a radio wave, and its antenna sends the wave out in all directions. A tower three kilometers away receives it in about ten millionths of a second.",
+            "The waves do not travel all the way to your friend. They only go as far as the nearest base station, a tower with antennas on a hill, a rooftop, or a pole. The base station connects to the cable network from Lesson 5, which carries the call the rest of the way. Each base station covers an area called a cell, which is why Americans say cell phone. As you move, your phone switches from one base station to the next without dropping the call. This switch is called a handoff.",
+            "Radio waves grow weaker as they spread out, and they lose even more strength when something solid is in the way. They can bend a little around a hilltop, but a big mountain blocks most of the signal. That is why hikers often have signal on a summit but none in the valley behind it. Lower-frequency waves travel farther and get around obstacles better. Higher-frequency waves, like the 3.5 gigahertz used for 5G, carry more data but do not reach as far, so 5G needs more base stations.",
+            "Taiwan's first 5G service began on June 30, 2020. By the end of 2025, Taiwan had more than 120,000 licensed base stations, and for the first time more of them were for 5G than for 4G. Still, nobody can put a tower behind every mountain. In an emergency, dial 112. If any phone company's base station can hear your phone, the call goes through, even without a SIM card. On long hikes, carry another way to call for help too, such as a satellite messenger."
+          ],
+          "paras_zh": [
+            "你和家人在台灣的山裡健行。在停車場時，手機訊號滿格；沿著步道走了一個小時、繞到山脊後面，格數掉到一格，然後完全沒有。手機沒變，電信網路也沒變，變的是你和一座看不見的基地台之間多了一座山。手機到底怎麼穿過空氣說話？一座山又為什麼能把它擋住？",
+            "1901 年，義大利發明家馬可尼把無線電訊號送過大西洋，從英國傳到約 3,400 公里外的加拿大，整則訊息只有摩斯電碼的一個字母 S。1973 年，摩托羅拉的庫柏站在紐約街頭，打出了第一通手持行動電話，他的電話重超過一公斤。今天的手機輕多了，但用的仍是同一種看不見的波。",
+            "手機靠著發送和接收無線電波運作。無線電波是一種眼睛看不見的光，以光速前進，每秒大約 30 萬公里。手機把你的聲音變成無線電波上一連串細微的變化，天線再把波往四面八方送出去。三公里外的基地台，大約只要十萬分之一秒就收到了。",
+            "這些波並不會一路傳到朋友那裡，它們只送到最近的基地台：裝著天線的鐵塔，可能在山頭、屋頂或電線桿上。基地台接到第五課講的電纜網路，由電纜把通話送完剩下的路。每個基地台負責一塊叫做「細胞」（cell）的區域，所以美國人把手機叫做 cell phone。你移動的時候，手機會從一個基地台換到下一個，通話不會中斷，這叫做「換手」。",
+            "無線電波越擴散越弱，碰到堅固的東西擋在中間，又會損失更多。它可以繞過山頂一點點，但一座大山會擋掉大部分的訊號。所以登山客常在山頂有訊號，到了山後的谷地卻完全沒有。頻率比較低的波傳得比較遠、也比較能繞過障礙；頻率比較高的波，像 5G 用的 3.5 GHz，能帶更多資料，但傳不了那麼遠，所以 5G 需要更多基地台。",
+            "台灣的第一個 5G 服務在 2020 年 6 月 30 日開台。到 2025 年底，台灣有超過 12 萬張基地台執照，而且 5G 的數量第一次超過了 4G。不過，沒有人能在每一座山後面都蓋基地台。遇到緊急狀況，請撥 112：只要任何一家電信業者的基地台收得到你的手機，就算沒有 SIM 卡也打得通。走長程的登山路線時，也要帶另一種求救工具，例如衛星通訊器。"
+          ],
+          "questions": [
+            "Where do the radio waves from your phone go first, and what happens to the call after that?",
+            "Why can you sometimes get a signal on a mountaintop but not in the valley behind it?",
+            "Why does 5G need more base stations than older networks?"
+          ],
+          "answers": [
+            "They go to the nearest base station. The base station passes the call into the cable network, which carries it the rest of the way.",
+            "On the mountaintop nothing blocks the path to the base station, but in the valley behind it the mountain blocks most of the radio waves.",
+            "5G uses higher-frequency waves, which carry more data but do not travel as far or get around obstacles as well, so the towers have to be closer together."
+          ],
+          "vocab": [
+            {
+              "n": 1,
+              "w": "wireless",
+              "pos": "adj.",
+              "zh": "無線的",
+              "ex": "My <b>wireless</b> earbuds connect to my phone.",
+              "exzh": "我的無線耳機連著手機。"
+            },
+            {
+              "n": 2,
+              "w": "signal",
+              "pos": "n.",
+              "zh": "訊號",
+              "ex": "There is no phone <b>signal</b> in the tunnel.",
+              "exzh": "隧道裡沒有手機訊號。"
+            },
+            {
+              "n": 3,
+              "w": "antenna",
+              "pos": "n.",
+              "zh": "天線",
+              "ex": "The radio has a long metal <b>antenna</b>.",
+              "exzh": "這台收音機有一根長長的金屬天線。"
+            },
+            {
+              "n": 4,
+              "w": "wave",
+              "pos": "n.",
+              "zh": "波",
+              "ex": "A stone dropped in a pond makes <b>waves</b> in every direction.",
+              "exzh": "石頭丟進池塘，會往四面八方激起波紋。"
+            },
+            {
+              "n": 5,
+              "w": "frequency",
+              "pos": "n.",
+              "zh": "頻率",
+              "ex": "Each radio station uses its own <b>frequency</b>.",
+              "exzh": "每個廣播電台都有自己的頻率。"
+            },
+            {
+              "n": 6,
+              "w": "block",
+              "pos": "v.",
+              "zh": "擋住",
+              "ex": "The tall building <b>blocks</b> our view of the sea.",
+              "exzh": "那棟高樓擋住了我們看海的視線。"
+            },
+            {
+              "n": 7,
+              "w": "tower",
+              "pos": "n.",
+              "zh": "塔；鐵塔",
+              "ex": "A phone <b>tower</b> stands on top of the hill.",
+              "exzh": "山頂上有一座手機基地台的鐵塔。"
+            },
+            {
+              "n": 8,
+              "w": "emergency",
+              "pos": "n.",
+              "zh": "緊急情況",
+              "ex": "In an <b>emergency</b>, stay calm and call for help.",
+              "exzh": "遇到緊急情況，要保持冷靜並求救。"
+            }
+          ],
+          "quiz": [
+            {
+              "q": "What does a phone use to send your voice through the air?",
+              "options": [
+                "Radio waves",
+                "Sound waves",
+                "Tiny drops of water",
+                "Invisible wires"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "Where do the radio waves from your phone go first?",
+              "options": [
+                "To the nearest base station",
+                "Straight to your friend's phone",
+                "To the Moon",
+                "To a satellite every time"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "Why might there be no signal in a valley behind a mountain?",
+              "options": [
+                "The mountain blocks most of the radio waves",
+                "Radio waves cannot travel in cool air",
+                "Phones turn themselves off in the mountains",
+                "Valleys are too far below the clouds"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "Which waves travel farther and get around obstacles better?",
+              "options": [
+                "Lower-frequency waves",
+                "Higher-frequency waves",
+                "They are exactly the same",
+                "Neither kind can go around anything"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "In Taiwan, which number works in an emergency even without a SIM card?",
+              "options": [
+                "112",
+                "104",
+                "1234",
+                "999"
+              ],
+              "correct": 0
+            }
+          ],
+          "parts_head": {
+            "eyebrow": "Try It in the Model · 在模型裡試試",
+            "en": "Four places to stand",
+            "zh": "站在四個地方"
+          },
+          "parts": [
+            {
+              "key": "town",
+              "icon": "🏘️",
+              "en": "In town",
+              "zh": "在小鎮裡",
+              "meta_en": "About 2 km from the tower",
+              "meta_zh": "離基地台約 2 公里",
+              "demo": "town",
+              "text_en": "Close to the tower with nothing in the way: full bars, and the waves arrive in a few millionths of a second.",
+              "text_zh": "離基地台很近、中間沒有東西擋：滿格，電波只要幾百萬分之一秒就到。"
+            },
+            {
+              "key": "behind",
+              "icon": "⛰️",
+              "en": "Behind the mountain",
+              "zh": "在山的背後",
+              "meta_en": "The ridge blocks the way",
+              "meta_zh": "山脊擋在中間",
+              "demo": "behind",
+              "text_en": "The waves bend a little over the ridge, but not enough. The phone shows no service.",
+              "text_zh": "電波越過山脊只彎下來一點點，不夠。手機顯示沒有訊號。"
+            },
+            {
+              "key": "tower",
+              "icon": "📡",
+              "en": "A new tower in the valley",
+              "zh": "山谷裡蓋一座基地台",
+              "meta_en": "Handoff",
+              "meta_zh": "換手",
+              "demo": "tower",
+              "text_en": "With a base station in the valley, the phone hands off to it and gets full bars again.",
+              "text_zh": "山谷裡有了基地台，手機換手連到它，又是滿格。"
+            },
+            {
+              "key": "high",
+              "icon": "⚡",
+              "en": "Switch to 5G high band",
+              "zh": "換成 5G 高頻",
+              "meta_en": "3.5 GHz",
+              "meta_zh": "3.5 GHz",
+              "demo": "high",
+              "text_en": "Higher frequency carries more data but fades faster with distance, so the green area shrinks.",
+              "text_zh": "頻率高、帶的資料多，但隨距離衰減得快，所以綠色的範圍變小了。"
+            }
+          ],
+          "parts_note_en": "This is why phone companies build towers on hilltops, and why trails and tunnels often have dead spots.",
+          "parts_note_zh": "這就是電信業者把基地台蓋在山頭的原因，也是步道和隧道常有收不到訊號的地方的原因。",
+          "facts": {
+            "eyebrow": "Taiwan's Mobile Network · 台灣的行動網路",
+            "en": "Towers by the numbers",
+            "zh": "基地台的數字",
+            "lead_en": "Every bar on your phone depends on a tower somewhere nearby.",
+            "lead_zh": "手機上的每一格訊號，都靠附近某一座基地台。",
+            "items": [
+              {
+                "big": "123,011",
+                "unit_en": "base station licenses",
+                "unit_zh": "張基地台執照",
+                "en": "Licensed 4G and 5G base stations in Taiwan at the end of 2025.",
+                "zh": "2025 年底台灣的 4G 與 5G 基地台執照數。"
+              },
+              {
+                "big": "52%",
+                "unit_en": "are 5G",
+                "unit_zh": "是 5G",
+                "en": "For the first time, 5G base stations (64,106) outnumbered 4G ones (58,905).",
+                "zh": "5G 基地台（64,106 張）第一次超過 4G（58,905 張）。"
+              },
+              {
+                "big": "2020",
+                "unit_en": "June 30: 5G begins",
+                "unit_zh": "6 月 30 日 5G 開台",
+                "en": "Chunghwa Telecom launched Taiwan's first 5G service; other companies followed within days.",
+                "zh": "中華電信推出台灣第一個 5G 服務，其他業者在幾天內跟進。"
+              },
+              {
+                "big": "300,000",
+                "unit_en": "km per second",
+                "unit_zh": "公里／秒",
+                "en": "Radio waves travel at the speed of light, so a tower 3 km away hears your phone in about 10 millionths of a second.",
+                "zh": "無線電波以光速前進，3 公里外的基地台約十萬分之一秒就收到。"
+              },
+              {
+                "big": "112",
+                "unit_en": "emergency number",
+                "unit_zh": "緊急救難電話",
+                "en": "Works through any company's base station in range, even without a SIM card.",
+                "zh": "只要在任何一家業者的基地台範圍內就打得通，沒有 SIM 卡也可以。"
+              }
+            ]
+          },
+          "myths": [
+            {
+              "myth_en": "More bars means the tower is closer.",
+              "myth_zh": "格數越多，代表基地台越近。",
+              "fact_en": "Bars show how strong the signal is. A far tower with a clear view can beat a near tower behind a hill.",
+              "fact_zh": "格數表示訊號有多強。視線沒被擋的遠方基地台，可能比躲在山後的近基地台還強。"
+            },
+            {
+              "myth_en": "Phones talk directly to each other.",
+              "myth_zh": "手機是直接和對方的手機通話。",
+              "fact_en": "Each phone talks only to its nearest base station. The network of cables and towers carries the call in between.",
+              "fact_zh": "每支手機只和最近的基地台說話，中間由電纜和基地台組成的網路把通話送過去。"
+            },
+            {
+              "myth_en": "5G waves travel faster than 4G waves.",
+              "myth_zh": "5G 的電波跑得比 4G 快。",
+              "fact_en": "All radio waves travel at the speed of light. 5G is faster because it carries more data at once, not because its waves move faster.",
+              "fact_zh": "所有無線電波都以光速前進。5G 比較快，是因為它一次能帶更多資料，不是電波跑得比較快。"
+            },
+            {
+              "myth_en": "Phone signals have been shown to cause brain cancer.",
+              "myth_zh": "手機訊號已被證實會造成腦癌。",
+              "fact_en": "A 2024 review for the World Health Organization looked at 63 studies and found no link between mobile phone use and brain cancer. Scientists keep studying the question.",
+              "fact_zh": "2024 年一份為世界衛生組織做的回顧研究，分析了 63 項研究，找不到使用手機和腦癌之間的關聯；科學家仍持續研究。"
+            }
+          ],
+          "tricks": [
+            {
+              "title_en": "Invisible light",
+              "title_zh": "看不見的光",
+              "body_en": "Radio waves are light our eyes cannot see, and they move at the speed of light.",
+              "body_zh": "無線電波是眼睛看不見的光，以光速前進。"
+            },
+            {
+              "title_en": "Phone, tower, cable",
+              "title_zh": "手機 → 基地台 → 電纜",
+              "body_en": "The wireless part is only the first and last hop. The middle is cables.",
+              "body_zh": "無線只是頭尾兩段，中間都是電纜。"
+            },
+            {
+              "title_en": "See the tower, get a signal",
+              "title_zh": "看得到基地台，就有訊號",
+              "body_en": "A clear line to the tower matters more than being close to it.",
+              "body_zh": "和基地台之間沒有東西擋，比離得近更重要。"
+            },
+            {
+              "title_en": "Low goes far, high carries more",
+              "title_zh": "低頻走得遠，高頻帶得多",
+              "body_en": "Lower frequencies reach farther; higher frequencies carry more data over shorter distances.",
+              "body_zh": "頻率低的傳得遠；頻率高的在短距離內能帶更多資料。"
+            }
+          ],
+          "activities": [
+            {
+              "title_en": "Map the Dead Spots",
+              "title_zh": "畫出收不到訊號的地方",
+              "materials": [
+                {
+                  "en": "A teacher's or parent's phone",
+                  "zh": "一支老師或家長的手機"
+                },
+                {
+                  "en": "A simple map of the school drawn on paper",
+                  "zh": "一張畫在紙上的簡單校園地圖"
+                },
+                {
+                  "en": "Colored pencils: green, yellow, red",
+                  "zh": "綠、黃、紅三色色鉛筆"
+                }
+              ],
+              "steps": [
+                {
+                  "en": "Walk to at least eight places: classrooms, a stairwell, an elevator lobby, a basement or underground parking lot, the playground, and near the school gate.",
+                  "zh": "走到至少八個地方：教室、樓梯間、電梯口、地下室或地下停車場、操場、校門口附近。"
+                },
+                {
+                  "en": "At each place, read the signal bars and color that spot on the map: green for 3–4 bars, yellow for 1–2, red for none.",
+                  "zh": "在每個地方看訊號格數，在地圖上塗色：3–4 格綠色、1–2 格黃色、沒有訊號紅色。"
+                },
+                {
+                  "en": "Look at your finished map. Where are the red spots? What is between those places and the outside: thick concrete, metal, or earth?",
+                  "zh": "看看完成的地圖：紅色在哪裡？那些地方和外面之間隔著什麼：厚混凝土、金屬，還是泥土？"
+                },
+                {
+                  "en": "Compare it with the coverage map in the 3D model. How is a building like a mountain?",
+                  "zh": "和 3D 模型的覆蓋圖比一比：一棟建築物哪裡像一座山？"
+                }
+              ],
+              "tip_en": "An adult should hold the phone. Stay out of places that are off limits, and do not stand in the way of traffic in the parking lot.",
+              "tip_zh": "手機由大人拿著。不要進入禁止進入的地方，在停車場不要站在車道上。"
+            },
+            {
+              "title_en": "Block the Waves",
+              "title_zh": "擋住電波",
+              "materials": [
+                {
+                  "en": "Two phones (an adult's), or a phone and a landline",
+                  "zh": "兩支手機（大人的），或一支手機加一支市話"
+                },
+                {
+                  "en": "Aluminum foil, plastic wrap, a paper bag, and a metal cookie tin with a lid",
+                  "zh": "鋁箔紙、保鮮膜、紙袋、一個有蓋的金屬餅乾盒"
+                }
+              ],
+              "steps": [
+                {
+                  "en": "Wrap one phone in plastic wrap and call it. Does it ring?",
+                  "zh": "用保鮮膜包住一支手機，打給它。會響嗎？"
+                },
+                {
+                  "en": "Try the paper bag, then the closed cookie tin, then several layers of aluminum foil with no gaps.",
+                  "zh": "依序試紙袋、蓋上蓋子的餅乾盒、包好幾層沒有縫隙的鋁箔紙。"
+                },
+                {
+                  "en": "Record which ones let the call through. Metal around a phone can block radio waves; this is called a Faraday cage.",
+                  "zh": "記錄哪些打得通。金屬把手機包起來，會擋住無線電波，這叫做「法拉第籠」。"
+                },
+                {
+                  "en": "Talk about it: why might your phone have no signal inside an elevator?",
+                  "zh": "討論：為什麼在電梯裡手機常常沒訊號？"
+                }
+              ],
+              "tip_en": "Unwrap the phone right after each test. Never put a phone, foil, or any metal in a microwave oven: it can spark and start a fire.",
+              "tip_zh": "每次測完馬上把手機拿出來。絕對不要把手機、鋁箔或任何金屬放進微波爐，會冒火花甚至起火。"
+            }
+          ],
+          "safety": [
+            {
+              "en": "Never use a phone while crossing the street or riding a bike or scooter. Look up, stop, and then use your phone.",
+              "zh": "過馬路、騎腳踏車或機車時絕不使用手機。先停下來，再看手機。"
+            },
+            {
+              "en": "Never climb a base station tower, a pole, or a rooftop to get a better signal.",
+              "zh": "絕不為了收訊爬上基地台鐵塔、電線桿或屋頂。"
+            },
+            {
+              "en": "Before hiking, tell someone your route, charge your phone, and keep it warm and dry. In an emergency, dial 112.",
+              "zh": "登山前告訴家人路線、把手機充飽電、保持乾燥保暖。遇到緊急狀況撥 112。"
+            },
+            {
+              "en": "On long mountain trips, carry a satellite messenger or personal locator beacon too, because some valleys have no signal at all.",
+              "zh": "長程登山要另外帶衛星通訊器或個人求救信標（PLB），因為有些山谷完全沒有訊號。"
+            },
+            {
+              "en": "Never put phones or metal in a microwave oven.",
+              "zh": "絕不把手機或金屬放進微波爐。"
+            }
+          ],
+          "sources": [
+            {
+              "en": "Marconi's transatlantic radio signal, December 1901",
+              "zh": "馬可尼 1901 年 12 月越過大西洋的無線電訊號",
+              "src": "IEEE Milestone, Engineering and Technology History Wiki",
+              "url": "https://ethw.org/Milestones:Reception_of_Transatlantic_Radio_Signals,_1901"
+            },
+            {
+              "en": "Martin Cooper's first handheld mobile phone call, April 3, 1973",
+              "zh": "庫柏 1973 年 4 月 3 日第一通手持行動電話",
+              "src": "Wikipedia, “Martin Cooper (inventor)”",
+              "url": "https://en.wikipedia.org/wiki/Martin_Cooper_(inventor)"
+            },
+            {
+              "en": "Radio waves are electromagnetic waves that travel at the speed of light",
+              "zh": "無線電波是以光速前進的電磁波",
+              "src": "NASA Science",
+              "url": "https://science.nasa.gov/ems/05_radiowaves/"
+            },
+            {
+              "en": "Cells, base stations, and handoff",
+              "zh": "細胞、基地台與換手",
+              "src": "Wikipedia, “Cellular network”",
+              "url": "https://en.wikipedia.org/wiki/Cellular_network"
+            },
+            {
+              "en": "Taiwan's 5G began on June 30, 2020",
+              "zh": "台灣 5G 於 2020 年 6 月 30 日開台",
+              "src": "TechNews 科技新報",
+              "url": "https://technews.tw/2020/07/01/taiwan-5g-new-life-qa/"
+            },
+            {
+              "en": "Taiwan's 5G spectrum: 3.5 GHz and 28 GHz bands",
+              "zh": "台灣 5G 頻段：3.5 GHz 與 28 GHz",
+              "src": "數位時代",
+              "url": "https://www.bnext.com.tw/article/56305/taiwan-5g-spectrum-auction-end"
+            },
+            {
+              "en": "Base station licenses at the end of 2025: 64,106 for 5G and 58,905 for 4G (NCC)",
+              "zh": "2025 年底基地台執照：5G 64,106、4G 58,905（NCC）",
+              "src": "小丰子3C俱樂部（引 NCC 公告）",
+              "url": "https://tel3c.tw/blog/post/48848"
+            },
+            {
+              "en": "Dial 112 through any company's base station; carry a PLB or satellite phone in the mountains",
+              "zh": "112 可透過任一業者基地台撥打；登山應帶 PLB 或衛星電話",
+              "src": "中央社（引 NCC，2022-04-02）",
+              "url": "https://www.cna.com.tw/news/ahel/202204020046.aspx"
+            },
+            {
+              "en": "WHO-commissioned 2024 review of 63 studies: no link between mobile phones and brain cancer",
+              "zh": "2024 年 WHO 委託的回顧（63 項研究）：手機與腦癌無關聯",
+              "src": "1News（New Zealand），報導 ARPANSA 主持的審查",
+              "url": "https://www.1news.co.nz/2024/09/04/study-review-shows-no-links-between-mobile-phone-use-and-brain-cancers/"
+            },
+            {
+              "en": "Metal enclosures block radio waves (Faraday cage)",
+              "zh": "金屬外殼會擋住無線電波（法拉第籠）",
+              "src": "Wikipedia, “Faraday cage”",
+              "url": "https://en.wikipedia.org/wiki/Faraday_cage"
+            },
+            {
+              "en": "The review itself: Environment International (2024)",
+              "zh": "研究原文：Environment International（2024）",
+              "src": "Karipidis et al., DOI 10.1016/j.envint.2024.108983",
+              "url": "https://doi.org/10.1016/j.envint.2024.108983"
+            }
+          ]
         }
       ],
       "planned": [
-        {
-          "n": 6,
-          "icon": "📶",
-          "en": "How Does a Phone Call Travel Without Wires?",
-          "zh": "手機訊號怎麼在空中傳遞？"
-        },
         {
           "n": 7,
           "icon": "🛰️",
