@@ -3753,7 +3753,7 @@ def build_astro_hub():
 # 面板與段落樣式沿用 astro.css，人體專屬的在 body.css；兩者都只載在本系列頁面。
 BODY_BASE = "/resources/classes/human-body/"
 _BODY_JS = {"skeleton": "skeleton", "arm": "arm", "heart": "heart", "lungs": "lungs", "joints": "joints",
-            "digestion": "digestion"}   # lab.kind → assets/js/<bundle>.js
+            "digestion": "digestion", "nerves": "nerves"}   # lab.kind → assets/js/<bundle>.js
 
 def _body_ver():
     h = hashlib.md5()
@@ -4110,6 +4110,52 @@ def render_digestion_lab(lesson):
   <p class="sk-credit">{lab["credit_html"]}</p>
 </div>'''
 
+def render_nerves_lab(lesson):
+    """第七課：大腦、脊髓與神經（assets/js/nerves.js 綁這裡的 class）。"""
+    lab = lesson["lab"]
+    scen_json = html.escape(json.dumps(lab["scenarios"], ensure_ascii=False))
+    btns = "".join(
+        f'<button type="button" class="nv-sc" data-scen-go="{k}" aria-pressed="false"><i aria-hidden="true">{v["icon"]}</i>'
+        f'<span>{html.escape(v["en"])}<small>{html.escape(v["zh"])}</small></span></button>'
+        for k, v in lab["scenarios"].items())
+    tg = _lab_toggles([("labels", "Labels", "標示", True), ("map", "Brain map", "大腦分區", False), ("skel", "Skeleton", "骨架", True)])
+    return f'''<div class="astro-lab sk-lab nv-lab rvl" data-nerves-lab data-model="{_model_url()}" data-scen="{scen_json}">
+  <div class="al-stage">
+    <div class="al-space">
+      <canvas class="al-space-cv" aria-label="3D model of the brain, spinal cord, and nerves with signals traveling along them · 大腦、脊髓與神經 3D 模型，訊號沿著神經傳遞"></canvas>
+      <div class="al-labels" aria-hidden="true"></div>
+      <p class="sk-loading">Loading… · 載入中…<span class="sk-bar"><i></i></span></p>
+      <p class="al-hint">Drag to turn · 拖曳旋轉　Scroll or pinch to zoom · 滾輪／雙指縮放</p>
+      <p class="nv-slow">Slow motion: 1 second here = 25 milliseconds · 慢動作：這裡 1 秒＝真實 25 毫秒</p>
+      <button type="button" class="al-home" title="Reset view · 重設視角" aria-label="Reset view · 重設視角">&#8634;</button>
+      <p class="al-nogl-msg">This 3D model needs WebGL, which this browser does not support. The cards below still explain everything.<br><span class="zh">這個瀏覽器不支援 WebGL，無法顯示 3D 模型；下方的卡片一樣能看懂。</span></p>
+    </div>
+    <aside class="al-sky sk-aside nv-aside">
+      <p class="al-sky-k">Pick a moment · 選一個情境</p>
+      <div class="nv-scs" role="group" aria-label="Scenarios · 情境">{btns}</div>
+      <p class="nv-title"></p><p class="nv-zh"></p>
+      <div class="nv-clock"><b class="nv-ms">0 ms</b><span>Signal path · 訊號走了<b class="nv-dist"></b></span>
+        <button type="button" class="nv-replay">&#8634; Replay<small>再看一次</small></button></div>
+      <ol class="nv-steps" aria-live="polite"></ol>
+      <p class="nv-note"></p>
+    </aside>
+  </div>
+  <div class="nv-strip">
+    <div class="nv-rt-box" role="button" tabindex="0" aria-label="Reaction test: tap to start, then tap when the ruler starts to fall · 反應測驗：點一下開始，尺開始掉就按"><canvas class="nv-rt-cv"></canvas></div>
+    <div class="nv-rt-text">
+      <p class="al-sky-k">Reaction test · 反應測驗</p>
+      <p class="nv-rt-msg">Tap the ruler box to start. When the ruler starts to fall, tap as fast as you can. Try five times.<span class="zh">點一下尺的方框開始。尺一開始往下掉，就用最快的速度按下去。試五次。</span></p>
+      <p class="nv-rt-list"></p>
+      <button type="button" class="nv-rt-use" hidden>&#129504; Play “catch the ruler” at my speed<small>用我的反應時間播放「接住尺」</small></button>
+    </div>
+  </div>
+  <div class="al-controls">
+    <div class="al-row al-toggles">{tg}</div>
+  </div>
+  {_lab_foot(lab)}
+  <p class="sk-credit">{lab["credit_html"]}</p>
+</div>'''
+
 def _body_nav(slug):
     ls = BODY["lessons"]
     i = next(n for n, l in enumerate(ls) if l["slug"] == slug)
@@ -4134,7 +4180,7 @@ def build_body_lesson(lesson):
     lab = lesson["lab"]
     kind = lab["kind"]
     lab_html = {"skeleton": render_skeleton_lab, "arm": render_arm_lab, "heart": render_heart_lab, "lungs": render_lungs_lab,
-                "joints": render_joints_lab, "digestion": render_digestion_lab}[kind](lesson)
+                "joints": render_joints_lab, "digestion": render_digestion_lab, "nerves": render_nerves_lab}[kind](lesson)
 
     secs = []
     if lesson.get("jobs"):
@@ -4235,7 +4281,8 @@ def build_body_lesson(lesson):
     secs.append(("myths", "Myth vs. Fact · 常見迷思", "Four things people get wrong", "四個常見的誤會", _sci_myths(lesson), ""))
     tricks_h = {"skeleton": ("Bones in a sentence", "一句話記住骨頭"), "arm": ("Muscles in a sentence", "一句話記住肌肉"),
                 "heart": ("The heart in a sentence", "一句話記住心臟"), "lungs": ("Breathing in a sentence", "一句話記住呼吸"),
-                "joints": ("Joints in a sentence", "一句話記住關節"), "digestion": ("Digestion in a sentence", "一句話記住消化")}[kind]
+                "joints": ("Joints in a sentence", "一句話記住關節"), "digestion": ("Digestion in a sentence", "一句話記住消化"),
+                "nerves": ("Your nervous system in a sentence", "一句話記住神經系統")}[kind]
     secs.append(("tricks", "Remember It · 記憶口訣", tricks_h[0], tricks_h[1], _sci_tricks(lesson), ""))
     if lesson.get("culture"):
         cu = lesson["culture"]

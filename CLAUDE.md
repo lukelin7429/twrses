@@ -104,7 +104,8 @@
 - 第四課肺（`lungs.js`，`lab.kind = "lungs"`）：**胸廓用 skeleton.glb 的真實肋骨、胸骨、胸椎**（肋骨繞後端轉＝提把動作），肺、橫膈膜、支氣管樹、心臟是自繪。一個呼吸量 b（0 吐完～1 吸滿）同時驅動肺大小（往下長 9%）、橫膈膜（頂端跟著肺底、壓平）、肋骨、氣流粒子。支氣管樹是「在肺裡撒末端點、從隆凸二分長過去」的填空樹（固定亂數種子，每次一樣）。「按住吸氣」讓模型跟著使用者即時呼吸；數呼吸＝30 秒 ×2。肺泡小窗是 2D canvas。除錯 `__lab.setB(0–1)`、`run(秒)`、`render()`、`state.holding = true`。
 - 第五課關節（`joints.js`，`lab.kind = "joints"`）：**整副真實骨架**，右側肢體掛在巢狀 pivot 上（肩 ⊃ 肘 ⊃ 拇指、髖 ⊃ 膝、頸椎一節套一節 ⊃ 頭顱）；換關節時其他關節回原位。轉向約定：繞 X 負角＝往前（髖、肩、肘屈曲），膝屈曲為正；繞 Z 負角＝右側往外。轉頭 65% 在寰樞關節、其餘分給 C2–C7。活動範圍是成人教科書值（`INFO` 裡），扇形／圓錐在原位時預先算好。除錯 `__lab.set('hip', {flex: 70, abd: 20})`、`drawCircle()`、`run(秒)`、`render()`。
 - 第六課消化（`digestion.js`，`lab.kind = "digestion"`）：骨架淡淡當定位，消化器官自繪、用骨頭定位（食道在脊椎前、胃在 T11 左下、小腸在 L1 到骨盆頂之間）。時間軸**非線性**：各站分到固定比例（`STAGES` 的 share），嘴 1 分鐘、食道 10 秒、胃 2–4 h、小腸 3–5 h、大腸約 1 天＋；「我的午餐現在在哪」用今天的午餐時間到現在的真實時間（還沒到就算昨天）。站名與說明在 `lab.stops`（以 data-stops 傳給 JS）。除錯 `__lab.setHours(h)`、`whereNow()`、`render()`。
-- 第二批剩下的課（大腦、眼睛）在 `data/human-body.json` 的 `planned[]`，做一課就移掉一筆。
+- 第七課大腦（`nerves.js`，`lab.kind = "nerves"`）：骨架淡淡定位，大腦兩半球依功能區上色（頂點色，`REGIONS`），脊髓、四肢神經、視神經自繪。四個情境（接尺、燙鍋子反射、膝跳反射、動腳趾）的毫秒時程在 `build()`，步驟文字在 `lab.scenarios`（data-scen）；慢動作 SLOW=40（畫面 1 秒＝真實 25 ms）。**反應測驗是獨立的 2D（`initReaction`），不需要 WebGL**；用 MutationObserver 才測得到（背景面板計時器被節流）。除錯 `__lab.choose('hot')`、`runMs(ms)`、`render()`。
+- 第二批剩下的課（眼睛）在 `data/human-body.json` 的 `planned[]`，做一課就移掉一筆。
 - 網站 `html` 有 smooth scroll：在背景的瀏覽器面板裡捲動會慢好幾秒，截圖前先設 `document.documentElement.style.scrollBehavior='auto'`。
 - 第二課起的共用工具在 `tools/body/src/common.js`（`loadBones`、`labeler`、`lazyBoot`）；卡片上的「在模型中看」按鈕用 `data-lab-<動作>="值"`。
   - 除錯：`document.querySelector('[data-skeleton-lab]').__lab`（`goJob`、`goRegion`、`setApart`、`startCount`、`stepCount(i)`、`render()`）。背景分頁 rAF 會降到每秒一兩格，截圖前用 `stepCount` 直接跳步。

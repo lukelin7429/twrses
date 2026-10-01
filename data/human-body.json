@@ -16,11 +16,6 @@
   ],
   "planned": [
     {
-      "icon": "🧠",
-      "en": "How Does Your Brain Talk to Your Body?",
-      "zh": "大腦怎麼指揮全身？"
-    },
-    {
       "icon": "👁️",
       "en": "How Do Your Eyes See?",
       "zh": "眼睛怎麼看見東西？"
@@ -2840,6 +2835,564 @@
       },
       "health_en": "This lesson is for learning about the body. It is not medical advice. If you have a very bad stomachache, keep throwing up, or see blood, tell an adult right away. Before tasting anything in class, check for food allergies, and wash your hands.",
       "health_zh": "本課是認識身體的教材，不是醫療建議。如果肚子非常痛、一直吐，或看到血，請馬上告訴大人。課堂上試吃任何東西之前，先確認有沒有食物過敏，也要洗手。"
+    },
+    {
+      "n": 7,
+      "slug": "brain",
+      "title": "How Does Your Brain Talk to Your Body?",
+      "title_zh": "大腦怎麼指揮全身？",
+      "level": "入門 · Beginner",
+      "icon": "🧠",
+      "card": "brain",
+      "blurb_en": "Signals race along your nerves faster than a bullet train. Watch them in slow motion, find out why a reflex beats thinking, and test your own reaction time.",
+      "blurb_zh": "訊號沿著神經奔馳，比高鐵還快。用慢動作看它們傳遞，弄懂為什麼反射比思考快，再測測自己的反應時間。",
+      "big_idea_en": "Your nerves carry signals in two directions: from your senses to your brain, and from your brain to your muscles. For some emergencies, your spinal cord takes a shortcut and acts before your brain even knows.",
+      "big_idea_zh": "神經把訊號往兩個方向送：從感官送到大腦，再從大腦送到肌肉。遇到某些緊急狀況，脊髓會走捷徑，在大腦知道之前就先行動。",
+      "lab": {
+        "kind": "nerves",
+        "eyebrow": "3D Model · 3D 模型",
+        "title_en": "Signals in Slow Motion",
+        "title_zh": "慢動作看訊號",
+        "how_en": "Pick a moment, and glowing signals travel along the nerves in slow motion while the clock counts real milliseconds. Compare catching a ruler, which needs your brain, with touching a hot pan, where your spinal cord acts first. Then take the reaction test below the model, and play the ruler catch at your own speed.",
+        "how_zh": "選一個情境，發亮的訊號會用慢動作沿著神經傳遞，時鐘顯示真實的毫秒數。比一比「接住尺」（需要大腦）和「碰到燙鍋子」（脊髓先行動）。再做模型下方的反應測驗，用你自己的速度播放「接住尺」。",
+        "legend": [
+          {
+            "cls": "signal",
+            "en": "Glowing dots: nerve signals",
+            "zh": "發亮的點：神經訊號"
+          },
+          {
+            "cls": "pain",
+            "en": "Orange dot: the slower pain signal",
+            "zh": "橘色的點：比較慢的痛覺訊號"
+          },
+          {
+            "cls": "nerve",
+            "en": "Yellow lines: the spinal cord and nerves",
+            "zh": "黃色的線：脊髓與神經"
+          },
+          {
+            "cls": "brainmap",
+            "en": "Colored areas: parts of the brain at work (vision, thinking, movement, touch)",
+            "zh": "上色的區域：正在工作的大腦區域（視覺、思考、運動、觸覺）"
+          }
+        ],
+        "scale_en": "The bones are real, from the same BodyParts3D skeleton as Lesson 1; the brain and nerves are simplified drawings. Real nerves branch into thousands of smaller nerves. The milliseconds are typical estimates: nerve signals travel at roughly 50 to 120 meters per second, muscles take tens of milliseconds to tighten, and pain from heat travels on much slower nerves.",
+        "scale_zh": "骨頭是真實的，和第一課同一副 BodyParts3D 骨架；大腦和神經是簡化的示意圖，真實的神經會分出成千上萬條小分支。毫秒數是一般的估計：神經訊號每秒大約跑 50 到 120 公尺，肌肉收緊要幾十毫秒，被燙到的痛覺則走在慢得多的神經上。",
+        "credit_html": "Bone models: <a href=\"https://dbarchive.biosciencedbc.jp/en/bodyparts3d/download.html\" target=\"_blank\" rel=\"noopener\">BodyParts3D</a>, © The Database Center for Life Science, licensed under <a href=\"https://creativecommons.org/licenses/by/4.0/\" target=\"_blank\" rel=\"noopener\">CC BY 4.0</a>. We selected the bones, simplified the shapes, and turned the model upright; the brain and nerves are our own drawing. · 骨骼模型來源：BodyParts3D（日本生命科學資料庫中心，CC BY 4.0 授權）；本站挑選骨頭、簡化形狀並轉正方向，大腦與神經為本站自繪示意。",
+        "scenarios": {
+          "ruler": {
+            "icon": "📏",
+            "en": "Catch a falling ruler",
+            "zh": "接住掉下的尺",
+            "steps": [
+              {
+                "at": 0,
+                "en": "The ruler starts to fall. Your eyes see it move.",
+                "zh": "尺開始往下掉，眼睛看到它在動。"
+              },
+              {
+                "at": 50,
+                "en": "The vision area at the back of your brain makes sense of it.",
+                "zh": "後腦的視覺區看懂了。"
+              },
+              {
+                "at": 120,
+                "en": "The front of your brain decides: catch it!",
+                "zh": "前額的大腦做出決定：接住它！"
+              },
+              {
+                "at": 130,
+                "en": "The movement area of the left brain sends the order. The left brain runs the right hand.",
+                "zh": "左腦的運動區送出命令：左腦管右手。"
+              },
+              {
+                "at": 150,
+                "en": "The order crosses over, races down the spinal cord, and out to the arm.",
+                "zh": "命令交叉到另一邊，沿著脊髓往下衝，再傳到手臂。"
+              },
+              {
+                "at": 200,
+                "en": "Hand muscles squeeze. Caught! About 0.2 seconds in all.",
+                "zh": "手部肌肉收緊，接住了！全部大約 0.2 秒。"
+              }
+            ],
+            "note_en": "Most of the time goes into seeing and deciding, not into the trip along the nerves.",
+            "note_zh": "大部分的時間花在看和決定，而不是訊號沿著神經跑。"
+          },
+          "hot": {
+            "icon": "🔥",
+            "en": "Touch a hot pan",
+            "zh": "碰到燙鍋子",
+            "steps": [
+              {
+                "at": 0,
+                "en": "Your fingertips touch the hot pan.",
+                "zh": "指尖碰到燙鍋子。"
+              },
+              {
+                "at": 15,
+                "en": "A fast signal reaches the spinal cord.",
+                "zh": "快速的訊號抵達脊髓。"
+              },
+              {
+                "at": 16,
+                "en": "The spinal cord sends “pull away!” straight back to the arm. No brain needed.",
+                "zh": "脊髓直接回送「縮回來！」給手臂，不需要大腦。"
+              },
+              {
+                "at": 32,
+                "en": "A copy of the signal reaches your brain, which notices the touch.",
+                "zh": "訊號的副本也送到大腦，大腦注意到被碰了一下。"
+              },
+              {
+                "at": 35,
+                "en": "Your hand jerks back.",
+                "zh": "手猛然縮回來。"
+              },
+              {
+                "at": 450,
+                "en": "The burning pain arrives last, on slower nerves. Ouch!",
+                "zh": "灼熱的痛覺走比較慢的神經，最後才到：好燙！"
+              }
+            ],
+            "note_en": "This is a reflex: your hand is already safe before you feel the pain.",
+            "note_zh": "這就是反射：你還沒感覺到痛，手就已經脫離危險了。"
+          },
+          "knee": {
+            "icon": "🔨",
+            "en": "Knee-jerk reflex",
+            "zh": "膝跳反射",
+            "steps": [
+              {
+                "at": 0,
+                "en": "A doctor taps the tendon just below the kneecap.",
+                "zh": "醫生輕敲髕骨下方的肌腱。"
+              },
+              {
+                "at": 8,
+                "en": "The signal runs up the thigh to the spinal cord in the lower back.",
+                "zh": "訊號沿著大腿跑到下背部的脊髓。"
+              },
+              {
+                "at": 16,
+                "en": "The spinal cord answers right away: tighten the thigh muscle.",
+                "zh": "脊髓馬上回答：收緊大腿肌肉。"
+              },
+              {
+                "at": 22,
+                "en": "The lower leg kicks out, all by itself.",
+                "zh": "小腿自己踢了出去。"
+              }
+            ],
+            "note_en": "Doctors use this test to check that the nerves and spinal cord are working.",
+            "note_zh": "醫生用這個測試檢查神經和脊髓是否正常。"
+          },
+          "toes": {
+            "icon": "🦶",
+            "en": "Wiggle your toes",
+            "zh": "動動腳趾",
+            "steps": [
+              {
+                "at": 0,
+                "en": "You decide to wiggle your toes. The movement area of the brain fires.",
+                "zh": "你決定動動腳趾，大腦的運動區發出訊號。"
+              },
+              {
+                "at": 14,
+                "en": "The order runs down the whole spinal cord.",
+                "zh": "命令沿著整條脊髓往下跑。"
+              },
+              {
+                "at": 24,
+                "en": "It leaves the backbone and travels down the leg.",
+                "zh": "它離開脊柱，沿著腿往下走。"
+              },
+              {
+                "at": 45,
+                "en": "Toe muscles tighten. Your toes wiggle.",
+                "zh": "腳趾的肌肉收緊，腳趾動了。"
+              }
+            ],
+            "note_en": "This is the longest trip in your body, well over a meter, yet it still takes only a few hundredths of a second.",
+            "note_zh": "這是身體裡最長的一段路，超過一公尺，卻也只要百分之幾秒。"
+          }
+        }
+      },
+      "paras": [
+        "Someone tosses you a ball. In less than half a second, your eyes see it, your brain figures out where it is going, and your arms move to catch it. All of that is the work of your nervous system: your brain, your spinal cord, and the nerves that reach every part of your body. An adult brain weighs only about 1.4 kilograms, but it has around 86 billion nerve cells, and it uses about a fifth of all the energy your body burns.",
+        "Nerve cells, called neurons, are long and thin, and they pass messages as tiny electrical signals. The fastest signals travel at about 120 meters per second, more than 400 kilometers an hour, which is faster than Taiwan's high-speed rail. Nerves are bundles of these cells, and they carry messages in two directions. Sensory nerves bring news in from your eyes, ears, skin, and other senses. Motor nerves carry orders out to your muscles.",
+        "Your spinal cord is the main cable. It is about as thick as your finger and about 45 centimeters long, protected inside your backbone, and pairs of nerves branch off it to every part of the body. At the top sits the brain. The large, wrinkly cerebrum handles thinking, the senses, and movement. Its two halves cross over: the left half runs the right side of your body, and the right half runs the left. The cerebellum at the back helps with balance and smooth movement, and the brainstem keeps you breathing and keeps your heart beating without you ever thinking about it.",
+        "Some messages never wait for the brain. If you touch a hot pan, a signal shoots to your spinal cord, and the spinal cord sends an order straight back: pull away! Your hand moves before you even feel the pain, which arrives a moment later on slower nerves. This kind of automatic, lightning-fast action is called a reflex. When a doctor taps just below your knee and your leg kicks, that is a reflex too, and it shows the doctor that your nerves are working.",
+        "Things that need a decision take longer. To catch a falling ruler, your eyes must see it, your brain must decide, and then the order must travel down to your hand. For most people, that takes about two tenths of a second, and during that time the ruler falls about 20 centimeters. Practice can make you a little faster. Being tired or distracted, for example by looking at a phone, makes you slower, which is why it is dangerous to cross the street while texting.",
+        "Your brain changes every time you learn something. Each time you practice a skill, the connections between your neurons get stronger, which is why practice makes things easier. Sleep matters too: while you sleep, your brain sorts and stores what you learned during the day. And because your brain cannot be replaced, wear a helmet when you ride a bike or scooter. Now try the reaction test below the model and see how far your ruler falls."
+      ],
+      "paras_zh": [
+        "有人丟給你一顆球。不到半秒，你的眼睛看到它、大腦算出它要往哪裡飛、手臂就動起來接住它。這一切都是神經系統的工作：大腦、脊髓，以及通到身體每個角落的神經。成人的大腦只有大約 1.4 公斤，卻有大約 860 億個神經細胞，而且用掉全身大約五分之一的能量。",
+        "神經細胞又叫神經元，又長又細，靠微小的電訊號傳遞訊息。最快的訊號每秒大約跑 120 公尺，也就是時速四百多公里，比台灣高鐵還快。神經是一束束的神經細胞，往兩個方向傳遞訊息：感覺神經把眼睛、耳朵、皮膚等感官的消息送進來，運動神經把命令送出去給肌肉。",
+        "脊髓是主幹線。它大約和手指一樣粗、大約 45 公分長，受到脊柱的保護，一對對的神經從它分出去，通到身體各處。最上面是大腦。又大又皺的大腦負責思考、感覺和動作，它的左右兩半是交叉的：左半邊管身體右側，右半邊管身體左側。後面的小腦幫忙維持平衡、讓動作順暢；腦幹則讓你持續呼吸、心臟持續跳動，完全不需要你去想。",
+        "有些訊息根本不等大腦。如果你碰到燙鍋子，訊號會衝到脊髓，脊髓直接回送命令：縮回來！你的手在感覺到痛之前就已經移開了，痛覺要再過一下子，才沿著比較慢的神經抵達。這種自動、閃電般的動作叫做反射。醫生輕敲你膝蓋下方、你的腿自己踢出去，也是一種反射，這讓醫生知道你的神經運作正常。",
+        "需要做決定的事就比較慢。要接住一把掉下來的尺，眼睛得先看到、大腦得做決定，命令再一路傳到手。大多數人大約要零點二秒，這段時間裡尺大約掉了 20 公分。練習能讓你快一點；累了或分心（例如看手機）就會變慢，所以邊走路邊滑手機過馬路很危險。",
+        "你每學一樣新東西，大腦就會改變一點。每練習一次，神經元之間的連結就更強，所以越練越容易。睡眠也很重要：睡覺時，大腦會整理、儲存你白天學到的東西。而且大腦無法替換，所以騎腳踏車或滑板車時要戴安全帽。現在試試看模型下方的反應測驗，看看你的尺會掉多遠。"
+      ],
+      "questions": [
+        "What is the difference between sensory nerves and motor nerves?",
+        "Why does your hand pull away from a hot pan before you feel the pain?",
+        "Why is it dangerous to cross the street while texting?"
+      ],
+      "answers": [
+        "Sensory nerves carry messages from the senses in to the spinal cord and brain. Motor nerves carry orders out to the muscles.",
+        "It is a reflex: the signal goes to the spinal cord, which sends an order straight back to the arm without waiting for the brain. The pain arrives later on slower nerves.",
+        "Being distracted slows your reaction time, so it takes longer to see a car, decide, and move out of the way."
+      ],
+      "vocab": [
+        {
+          "n": 1,
+          "w": "brain",
+          "pos": "n.",
+          "zh": "大腦；腦",
+          "ex": "Your <b>brain</b> keeps working even while you sleep.",
+          "exzh": "就算你在睡覺，大腦也一直在工作。"
+        },
+        {
+          "n": 2,
+          "w": "nerve",
+          "pos": "n.",
+          "zh": "神經",
+          "ex": "The dentist made the <b>nerve</b> in my tooth numb before fixing it.",
+          "exzh": "牙醫先讓我牙齒的神經麻掉，才開始治療。"
+        },
+        {
+          "n": 3,
+          "w": "neuron",
+          "pos": "n.",
+          "zh": "神經元；神經細胞",
+          "ex": "A single <b>neuron</b> can connect with thousands of others.",
+          "exzh": "一個神經元可以和成千上萬個神經元相連。"
+        },
+        {
+          "n": 4,
+          "w": "signal",
+          "pos": "n.",
+          "zh": "訊號",
+          "ex": "The traffic light gives a <b>signal</b> to stop.",
+          "exzh": "紅綠燈發出停止的訊號。"
+        },
+        {
+          "n": 5,
+          "w": "spinal cord",
+          "pos": "n.",
+          "zh": "脊髓",
+          "ex": "The <b>spinal cord</b> runs down the middle of your backbone.",
+          "exzh": "脊髓沿著脊柱的中間往下延伸。"
+        },
+        {
+          "n": 6,
+          "w": "reflex",
+          "pos": "n.",
+          "zh": "反射",
+          "ex": "Blinking when something flies at your face is a <b>reflex</b>.",
+          "exzh": "有東西飛向臉時眨眼，是一種反射。"
+        },
+        {
+          "n": 7,
+          "w": "react",
+          "pos": "v.",
+          "zh": "反應",
+          "ex": "The goalkeeper <b>reacted</b> quickly and stopped the ball.",
+          "exzh": "守門員反應很快，擋下了球。"
+        },
+        {
+          "n": 8,
+          "w": "sense",
+          "pos": "n.",
+          "zh": "感官；感覺",
+          "ex": "Dogs have a much better <b>sense</b> of smell than people.",
+          "exzh": "狗的嗅覺比人好得多。"
+        }
+      ],
+      "quiz": [
+        {
+          "q": "Which nerves carry orders out to the muscles?",
+          "options": [
+            "Motor nerves",
+            "Sensory nerves",
+            "Optic nerves",
+            "Taste nerves"
+          ],
+          "correct": 0
+        },
+        {
+          "q": "Which half of the brain runs the right side of your body?",
+          "options": [
+            "The left half",
+            "The right half",
+            "Both halves equally",
+            "Neither: the spinal cord does"
+          ],
+          "correct": 0
+        },
+        {
+          "q": "What does the cerebellum help with?",
+          "options": [
+            "Balance and smooth movement",
+            "Digesting food",
+            "Pumping blood",
+            "Making saliva"
+          ],
+          "correct": 0
+        },
+        {
+          "q": "About how long does it take most people to catch a falling ruler?",
+          "options": [
+            "About 0.2 seconds",
+            "About 2 seconds",
+            "About 20 seconds",
+            "About 0.002 seconds"
+          ],
+          "correct": 0
+        },
+        {
+          "q": "According to the reading, what happens to the connections between neurons when you practice a skill?",
+          "options": [
+            "They get stronger",
+            "They disappear",
+            "They turn into muscle",
+            "They stop working"
+          ],
+          "correct": 0
+        }
+      ],
+      "kinds_head": {
+        "eyebrow": "The Control Team · 指揮中心",
+        "en": "Who does what in your nervous system",
+        "zh": "神經系統裡誰負責什麼"
+      },
+      "kinds": [
+        {
+          "icon": "🧠",
+          "en": "Cerebrum",
+          "zh": "大腦",
+          "where_en": "The big, wrinkly top part",
+          "where_zh": "最大、皺皺的上半部",
+          "control_en": "Thinking, senses, movement",
+          "control_zh": "思考、感覺、動作",
+          "text_en": "Its two halves cross over: the left half runs the right side of your body.",
+          "text_zh": "左右兩半是交叉的：左半邊管身體右側。"
+        },
+        {
+          "icon": "🤹",
+          "en": "Cerebellum",
+          "zh": "小腦",
+          "where_en": "At the back, under the cerebrum",
+          "where_zh": "後方、大腦下面",
+          "control_en": "Balance and smooth movement",
+          "control_zh": "平衡、動作順暢",
+          "text_en": "It fine-tunes every move, so you can ride a bike or carry a full bowl of soup.",
+          "text_zh": "它微調每個動作，讓你能騎腳踏車、端著一碗滿滿的湯。"
+        },
+        {
+          "icon": "💓",
+          "en": "Brainstem",
+          "zh": "腦幹",
+          "where_en": "Where the brain meets the spinal cord",
+          "where_zh": "大腦和脊髓相接處",
+          "control_en": "Automatic jobs",
+          "control_zh": "自動化的工作",
+          "text_en": "Keeps you breathing, keeps your heart beating, and makes you swallow and cough, all without thinking.",
+          "text_zh": "讓你持續呼吸、心臟持續跳動，還負責吞嚥和咳嗽，完全不用想。"
+        },
+        {
+          "icon": "🪢",
+          "en": "Spinal cord",
+          "zh": "脊髓",
+          "where_en": "Inside the backbone",
+          "where_zh": "脊柱裡面",
+          "control_en": "Main cable and reflexes",
+          "control_zh": "主幹線與反射",
+          "text_en": "Carries messages between brain and body, and handles some reflexes all by itself.",
+          "text_zh": "在大腦和身體之間傳遞訊息，有些反射還能自己處理。"
+        },
+        {
+          "icon": "⚡",
+          "en": "Nerves",
+          "zh": "神經",
+          "where_en": "Everywhere in the body",
+          "where_zh": "全身各處",
+          "control_en": "Two-way roads",
+          "control_zh": "雙向道路",
+          "text_en": "Sensory nerves bring news in; motor nerves carry orders out.",
+          "text_zh": "感覺神經把消息送進來，運動神經把命令送出去。"
+        }
+      ],
+      "kinds_note_en": "Think of it as a company: the cerebrum is the boss, the cerebellum is the coach, the brainstem runs the machines, and the spinal cord and nerves are the phone lines.",
+      "kinds_note_zh": "把它想成一家公司：大腦是老闆，小腦是教練，腦幹負責顧機器，脊髓和神經是電話線。",
+      "measure": {
+        "title_en": "Measure your reaction time",
+        "title_zh": "測量你的反應時間",
+        "lead_en": "Do the classic ruler test with a partner, then try the on-screen version below the model. Both turn how far the ruler falls into how long you took to react.",
+        "lead_zh": "先和同伴做經典的直尺測驗，再試試模型下方的電腦版。兩者都是把尺掉的距離，換算成你反應所花的時間。",
+        "steps": [
+          {
+            "n": "0",
+            "en": "Get ready",
+            "zh": "準備",
+            "text_en": "Your partner holds a 30 cm ruler at the top. Put your thumb and finger open at the 0 mark, not touching it.",
+            "text_zh": "同伴拿著一把 30 公分的尺的頂端；你的拇指和食指張開，對準 0 公分的位置，不要碰到。"
+          },
+          {
+            "n": "cm",
+            "en": "Drop and catch",
+            "zh": "放手、接住",
+            "text_en": "Without warning, your partner lets go. Catch it as fast as you can and read the number at your fingers.",
+            "text_zh": "同伴不預告地放手，你用最快的速度接住，讀出手指位置的刻度。"
+          },
+          {
+            "n": "ms",
+            "en": "Turn it into time",
+            "zh": "換算成時間",
+            "text_en": "5 cm ≈ 0.10 s, 10 cm ≈ 0.14 s, 15 cm ≈ 0.17 s, 20 cm ≈ 0.20 s, 25 cm ≈ 0.23 s, 30 cm ≈ 0.25 s.",
+            "text_zh": "5 公分 ≈ 0.10 秒、10 公分 ≈ 0.14 秒、15 公分 ≈ 0.17 秒、20 公分 ≈ 0.20 秒、25 公分 ≈ 0.23 秒、30 公分 ≈ 0.25 秒。"
+          }
+        ],
+        "action": "test",
+        "action_value": "1",
+        "button_icon": "📏",
+        "button_en": "Try the on-screen reaction test",
+        "button_zh": "試試電腦版反應測驗"
+      },
+      "myths": [
+        {
+          "myth_en": "We only use 10 percent of our brains.",
+          "myth_zh": "我們只用了大腦的 10%。",
+          "fact_en": "Brain scans show that every part of the brain is active at some point during the day. Even during sleep, large parts of it are busy.",
+          "fact_zh": "腦部掃描顯示，一天當中大腦的每個部位都會活躍。就連睡覺時，大腦的許多部分也在忙。"
+        },
+        {
+          "myth_en": "People are either left-brained or right-brained.",
+          "myth_zh": "人分成「左腦型」和「右腦型」。",
+          "fact_en": "Each half does some jobs better, but healthy people use both halves together all the time. Studies have not found people who rely on one side more than the other.",
+          "fact_zh": "左右腦各有比較擅長的工作，但健康的人隨時都是兩邊一起用。研究並沒有發現哪些人比較依賴某一邊。"
+        },
+        {
+          "myth_en": "Every movement you make is decided by your brain.",
+          "myth_zh": "你的每個動作都是大腦決定的。",
+          "fact_en": "Reflexes, like pulling away from heat or the knee-jerk, are handled by the spinal cord before the brain even finds out.",
+          "fact_zh": "反射動作，例如碰到燙的東西縮手、膝跳反射，是脊髓處理的，大腦都還來不及知道。"
+        },
+        {
+          "myth_en": "A bigger brain always means a smarter animal.",
+          "myth_zh": "腦越大的動物越聰明。",
+          "fact_en": "A sperm whale's brain is about five times heavier than yours. What matters more is how the brain is built and how its cells are connected.",
+          "fact_zh": "抹香鯨的腦大約比你的重五倍。更重要的是大腦的構造，以及腦細胞怎麼連結。"
+        }
+      ],
+      "tricks": [
+        {
+          "title_en": "Sense, decide, act",
+          "title_zh": "感覺、決定、行動",
+          "body_en": "Senses send news in, the brain decides, and muscles act. A reflex skips the middle step.",
+          "body_zh": "感官把消息送進來、大腦決定、肌肉行動；反射跳過了中間那一步。"
+        },
+        {
+          "title_en": "The left runs the right",
+          "title_zh": "左腦管右邊",
+          "body_en": "The two halves of the brain cross over. When you write with your right hand, your left brain is giving the orders.",
+          "body_zh": "左右腦是交叉的。你用右手寫字時，下命令的是左腦。"
+        },
+        {
+          "title_en": "A reflex is a shortcut",
+          "title_zh": "反射是捷徑",
+          "body_en": "Hand to spinal cord and straight back again. The brain gets a copy of the message, but only afterward.",
+          "body_zh": "從手到脊髓，再直接回去。大腦也會收到訊息的副本，只是晚了一步。"
+        },
+        {
+          "title_en": "Faster than a bullet train",
+          "title_zh": "比高鐵還快",
+          "body_en": "The fastest nerve signals reach about 430 km/h; Taiwan's high-speed rail tops out at about 300 km/h.",
+          "body_zh": "最快的神經訊號約時速 430 公里；台灣高鐵最快約時速 300 公里。"
+        }
+      ],
+      "activities": [
+        {
+          "title_en": "The Ruler Drop League",
+          "title_zh": "直尺接接樂",
+          "materials": [
+            {
+              "en": "A 30 cm ruler for each pair",
+              "zh": "每兩人一把 30 公分直尺"
+            },
+            {
+              "en": "A results table on the board",
+              "zh": "黑板上的結果表"
+            }
+          ],
+          "steps": [
+            {
+              "en": "Each student does five catches with the hand they write with and five with the other hand.",
+              "zh": "每個人用寫字的手接五次，再用另一隻手接五次。"
+            },
+            {
+              "en": "Write down the distance each time and find the middle value.",
+              "zh": "每次都記下距離，找出中間值。"
+            },
+            {
+              "en": "Do five more catches while counting backward from 100 by sevens out loud.",
+              "zh": "再接五次，這次一邊大聲從 100 開始每次減 7 倒數。"
+            },
+            {
+              "en": "Compare: writing hand vs. other hand, and focused vs. distracted.",
+              "zh": "比較：寫字的手 vs. 另一隻手、專心 vs. 分心。"
+            }
+          ],
+          "tip_en": "Teaching tip: the distracted round is usually slower, which connects straight to the danger of using a phone while crossing the street. Use the conversion table in the Measure Yourself section, or the on-screen test, to turn centimeters into seconds.",
+          "tip_zh": "教學提示：分心的那一輪通常比較慢，正好可以連結到邊滑手機邊過馬路的危險。用「親身測量」段落的換算表，或電腦版測驗，把公分換成秒數。"
+        },
+        {
+          "title_en": "The Two-Point Touch Test",
+          "title_zh": "兩點觸覺測驗",
+          "materials": [
+            {
+              "en": "Two blunt pencils held together with a rubber band, or an unbent paper clip with its two ends about 1 cm apart",
+              "zh": "兩支鈍頭鉛筆用橡皮筋綁在一起，或把迴紋針扳開、兩端相距約 1 公分"
+            },
+            {
+              "en": "A partner and a blindfold or closed eyes",
+              "zh": "一位同伴，閉上眼睛或蒙眼"
+            }
+          ],
+          "steps": [
+            {
+              "en": "With your eyes closed, your partner gently touches your fingertip with either one point or both points.",
+              "zh": "你閉上眼睛，同伴用一個點或兩個點輕輕碰你的指尖。"
+            },
+            {
+              "en": "Say “one” or “two.” Try ten times and count how many you get right.",
+              "zh": "說出「一點」或「兩點」，試十次，算答對幾次。"
+            },
+            {
+              "en": "Repeat on the back of your hand and on your forearm.",
+              "zh": "在手背和前臂上重複一次。"
+            },
+            {
+              "en": "Where could you tell two points apart most easily? Why might that be?",
+              "zh": "哪裡最容易分辨出兩個點？為什麼？"
+            }
+          ],
+          "tip_en": "Teaching tip: fingertips have many more touch sensors than the forearm, and a bigger area of the brain's touch map is given to them. Press gently, and never use sharp points.",
+          "tip_zh": "教學提示：指尖的觸覺感受器比前臂多得多，大腦的觸覺地圖也分給它們比較大的區域。要輕輕地碰，絕對不要用尖銳的東西。"
+        }
+      ],
+      "culture": {
+        "title_en": "Where the Word 神經 Came From",
+        "title_zh": "「神經」這個詞從哪裡來",
+        "body_en": "The word for nerve, 神經 (shénjīng), was made up in Japan in 1774, when the doctor Sugita Genpaku translated a Dutch anatomy book. He joined 神, from 神氣 (spirit), with 經, from 經脈 (the body's channels in Chinese medicine), and the word later spread to Chinese. Everyday Chinese also talks about the brain with 腦筋: to think hard is 動腦筋, “move your brain sinews,” and a brain teaser is a 腦筋急轉彎, “a sharp turn for the brain.”",
+        "body_zh": "「神經」這個詞是 1774 年在日本造出來的：醫師杉田玄白翻譯一本荷蘭解剖書時，取「神氣」的「神」和中醫「經脈」的「經」組成這個詞，後來才傳進中文。日常中文也用「腦筋」講大腦：用心思考叫「動腦筋」，猜謎題叫「腦筋急轉彎」。",
+        "link_en": "More Chinese health words in English",
+        "link_zh": "到中醫養生系列看更多"
+      },
+      "health_en": "This lesson is for learning about the body. It is not medical advice. If you hit your head and feel dizzy, sick to your stomach, or very sleepy, tell an adult right away. Wear a helmet when you ride, and keep your phone away while crossing the street.",
+      "health_zh": "本課是認識身體的教材，不是醫療建議。如果撞到頭之後覺得頭暈、想吐，或特別想睡，請馬上告訴大人。騎車要戴安全帽，過馬路時不要看手機。"
     }
   ]
 }
