@@ -685,3 +685,66 @@
 .sd-tbl td { font-variant-numeric: tabular-nums; }
 .sd-tbl tr.sd-noonrow td { background: #fff6dc; }
 @media (max-width: 760px) { .sd-today { grid-template-columns: 1fr; } .sd-tbl thead { display: table-header-group; } .sd-tbl, .sd-tbl tbody { display: table; width: 100%; } .sd-tbl tr { display: table-row; padding: 0; } .sd-tbl td { display: table-cell; width: auto; padding: .45rem .6rem; border-bottom: 1px solid var(--line); } }
+
+/* =========================================================
+   第九課：太陽系有多大（.ss-lab、八大行星卡、比例模型計算器）
+   ========================================================= */
+.ss-lab .al-stage { grid-template-columns: minmax(0, 1fr) 380px; }
+.ss-aside .al-sky-k.ss-k2 { margin-top: .9rem; padding-top: .7rem; border-top: 1px solid var(--al-line); }
+.ss-log { list-style: none; margin: 0; padding: 0; display: grid; gap: .25rem; }
+.ss-log li { font-size: .78rem; color: var(--al-text); font-variant-numeric: tabular-nums; }
+.ss-log li b { color: var(--al-sun); margin-right: .4rem; }
+.ss-today-wrap { overflow-x: auto; }
+.ss-today { width: 100%; border-collapse: collapse; font-size: .74rem; font-variant-numeric: tabular-nums; }
+.ss-today th { text-align: left; font-size: .58rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--al-mute); padding: .2rem .3rem; border-bottom: 1px solid var(--al-line); }
+.ss-today td { padding: .3rem .3rem; border-bottom: 1px solid rgba(160,180,230,.08); color: var(--al-text); vertical-align: top; }
+.ss-today td span { display: block; font-family: var(--zh); font-size: .66rem; color: var(--al-mute); }
+.ss-today td i { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: .35rem; vertical-align: 1px; }
+.ss-lab .se-chips { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.ss-lab .se-chips .solar-svg { width: 26px; height: 26px; }
+.ss-preset.on { border-color: var(--al-sun); background: rgba(255,211,110,.1); }
+.al-lab.ss-pl { font-size: .64rem; padding: .06rem .45rem; }
+.al-lab.ss-light { color: #1b1405; background: var(--al-sun); border-color: transparent; font-weight: 800; }
+.al-lg-dots i { border: 0; width: 18px; height: 6px; margin-top: .45rem; background: radial-gradient(circle, #ff7a4a 0 2.5px, transparent 3px) 0 0/6px 6px repeat-x; }
+.al-lg-orbits i { border: 2px solid #e8c9a0; }
+.al-lg-ring i { border: 3px solid #fff1b0; box-shadow: 0 0 6px rgba(255,211,110,.8); }
+@media (max-width: 1020px) {
+  .ss-lab .al-stage { grid-template-columns: 1fr; }
+  .ss-aside { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr); column-gap: 1.2rem; align-items: start; }
+  .ss-aside > * { grid-column: 1; }
+  .ss-aside .ss-k2:last-of-type, .ss-aside .ss-today-wrap { grid-column: 2; }
+  .ss-aside .ss-k2:last-of-type { grid-row: 1; margin-top: 0; padding-top: 0; border-top: 0; }
+  .ss-aside .ss-today-wrap { grid-row: 2 / 8; }
+}
+@media (max-width: 640px) {
+  .ss-aside { display: block; }
+  .ss-aside .ss-k2:last-of-type { margin-top: .9rem; padding-top: .7rem; border-top: 1px solid var(--al-line); }
+  .ss-lab .al-lab.ss-pl:not(.ss-earth):not(.ss-jupiter):not(.ss-saturn):not(.ss-neptune) { display: none; }
+  .ss-lab .ec-view button { font-size: .64rem; padding: .28rem .5rem; }
+}
+/* 八大行星卡 */
+.ss-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.ss-card .ph-ico { background: radial-gradient(circle at 50% 40%, #16264a, #070b17); }
+@media (max-width: 1020px) { .ss-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 480px) { .ss-grid { grid-template-columns: 1fr; } }
+/* 比例模型計算器 */
+.ss-calc { margin-top: 1.4rem; }
+.ss-voyager { margin: 0 0 1rem; padding: .85rem 1.1rem; border-radius: 14px; background: #0c1428; color: #e8edf7; font-weight: 700; line-height: 1.5; }
+.ss-voyager b { font-family: var(--serif); font-size: 1.6rem; color: var(--al-sun, #ffd36e); margin-right: .4rem; }
+.ss-voyager span { display: block; font-family: var(--zh); font-weight: 600; color: #9fb0cf; font-size: .9rem; }
+.ss-pick { display: flex; flex-wrap: wrap; align-items: center; gap: .6rem 1rem; margin: 0 0 1rem; }
+.ss-pick > span { font-weight: 800; font-size: .9rem; }
+.ss-btns { display: flex; flex-wrap: wrap; gap: .4rem; }
+.ss-btns button { font-family: var(--sans); font-weight: 800; font-size: .82rem; padding: .45rem .8rem; border-radius: 999px; border: 1px solid var(--line); background: #fff; color: var(--ink); cursor: pointer; }
+.ss-btns button[aria-pressed="true"] { background: var(--brand); border-color: var(--brand); color: #fff; }
+.ss-pick label { font-size: .86rem; font-weight: 700; color: var(--ink-soft); }
+.ss-pick input { width: 6em; margin: 0 .3rem; padding: .35rem .5rem; border-radius: 8px; border: 1px solid var(--line); font: inherit; }
+.ss-tbl td { font-variant-numeric: tabular-nums; }
+.ss-tbl tr.ss-far td { background: #f4f1ea; }
+@media (max-width: 760px) { .ss-tbl thead { display: table-header-group; } .ss-tbl, .ss-tbl tbody { display: table; width: 100%; } .ss-tbl tr { display: table-row; padding: 0; } .ss-tbl td { display: table-cell; width: auto; padding: .45rem .5rem; border-bottom: 1px solid var(--line); font-size: .84rem; } }
+@media (max-width: 560px) {
+  .ss-tbl { table-layout: fixed; }
+  .ss-tbl th, .ss-tbl td { word-break: break-word; overflow-wrap: anywhere; font-size: .76rem; padding: .4rem .35rem; }
+  .ss-tbl th:nth-child(1), .ss-tbl td:nth-child(1) { width: 28%; }
+  .ss-tbl th:nth-child(2), .ss-tbl td:nth-child(2) { width: 34%; }
+}

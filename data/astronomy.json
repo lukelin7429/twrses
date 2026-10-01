@@ -3693,6 +3693,488 @@
      "tip_zh": "教學提示：春分到秋分，影子落在晷面上面；其餘時間要看下面——和 3D 模型裡的日晷一樣。"
     }
    ]
+  },
+  {
+   "n": 9,
+   "slug": "solar-system",
+   "title": "How Big Is the Solar System?",
+   "title_zh": "太陽系有多大？",
+   "level": "入門 · Beginner",
+   "icon": "🔭",
+   "card": "solar",
+   "blurb_en": "Shrink the Sun to a basketball and Earth becomes a sesame seed 26 meters away. Fly out to Neptune on true distances, and race a flash of sunlight across the solar system.",
+   "blurb_zh": "把太陽縮成一顆籃球，地球就是 26 公尺外的一粒芝麻。照真實距離飛到海王星，再跟著一道陽光跑過整個太陽系。",
+   "big_idea_en": "The planets are tiny compared with the distances between them, so the solar system is almost entirely empty space. No picture can show both the sizes and the distances to scale.",
+   "big_idea_zh": "和行星之間的距離比起來，行星本身小得驚人，所以太陽系幾乎全是空的。沒有一張圖能同時把大小和距離都照比例畫出來。",
+   "lab": {
+    "kind": "solar",
+    "eyebrow": "3D Model · 3D 模型",
+    "title_en": "True Distances, Adjustable Sizes",
+    "title_zh": "真實的距離，可以調的大小",
+    "how_en": "The orbits and the planets' positions are real and to scale for today. Drag the size slider down to True size: the planets shrink until even Jupiter disappears, and only the colored dots show where they are. Then press Play to send a flash of light from the Sun and watch how long it takes to reach each planet. Zoom out step by step, from the inner planets to Neptune.",
+    "how_zh": "軌道與行星今天的位置都是真實比例。把大小滑桿拉到「真實大小」：行星越縮越小，連木星都消失了，只剩彩色圓點標出位置。再按「播放」，從太陽發出一道光，看它多久才到每一顆行星。從內行星開始，一步步把鏡頭拉遠到海王星。",
+    "legend": [
+     {
+      "cls": "dots",
+      "en": "Colored dots: where each planet is today, drawn the same size at any zoom",
+      "zh": "彩色圓點：每顆行星今天的位置，不論遠近都畫一樣大"
+     },
+     {
+      "cls": "orbits",
+      "en": "Colored loops: the real orbits, to scale (1 AU = 10 units)",
+      "zh": "彩色圈：真實比例的軌道（1 天文單位＝10 單位）"
+     },
+     {
+      "cls": "ring",
+      "en": "Gold ring: a flash of light leaving the Sun, sped up 60 to 6,000 times",
+      "zh": "金色光環：從太陽出發的一道光，加速 60 到 6,000 倍"
+     },
+     {
+      "cls": "ecl",
+      "en": "One AU, the average Earth–Sun distance, is about 150 million kilometers",
+      "zh": "1 天文單位（AU）＝地球到太陽的平均距離，約 1.5 億公里"
+     }
+    ],
+    "scale_en": "Distances are always to scale. Sizes are true at the left end of the slider and enlarged up to 1,000 times at the right end; the Sun is never enlarged more than 20 times, or it would swallow Mercury's orbit. Positions are today's, from real orbital elements.",
+    "scale_zh": "距離永遠照比例。滑桿最左邊是真實大小，最右邊放大到 1000 倍；太陽最多只放大 20 倍，否則會吞掉水星的軌道。行星位置是今天的真實位置，由軌道根數算出。",
+    "credit_html": "Planet positions: approximate orbital elements from <a href=\"https://ssd.jpl.nasa.gov/planets/approx_pos.html\" target=\"_blank\" rel=\"noopener\">NASA/JPL Solar System Dynamics</a> (E. M. Standish). Sizes: NASA planetary fact sheets. Voyager 1 milestone: NASA/JPL (one light-day from Earth on November 18, 2026). Stars: <a href=\"https://cdsarc.cds.unistra.fr/viz-bin/cat/V/50\" target=\"_blank\" rel=\"noopener\">Yale Bright Star Catalogue, 5th ed.</a> (public domain).<br><span class=\"zh\">行星位置：NASA／JPL 太陽系動力學組的近似軌道根數（Standish）。行星大小：NASA 行星資料表。航海家一號：NASA／JPL（2026 年 11 月 18 日距離地球一光日）。星表：耶魯亮星星表第五版（公有領域）。</span>"
+   },
+   "paras": [
+    "Most pictures of the solar system show the planets lined up close together, like beads on a string. Those pictures are useful, but they cannot be true to scale. To see why, shrink the Sun to the size of a basketball. Earth becomes a sesame seed, about 26 meters away, and the Moon is a grain of sand less than seven centimeters from it. Mercury, Venus, and Mars are even smaller seeds, scattered within 40 meters of the ball.",
+    "Keep walking. Jupiter, the giant, is only a grape, 134 meters from the basketball. Saturn is a slightly smaller grape at 246 meters. Uranus and Neptune are peas, 495 and 776 meters out, almost two laps around a running track. On that scale, the nearest star after the Sun would be about 6,900 kilometers away, almost as far as Sydney is from Taiwan. Between all these tiny objects there is almost nothing at all. The solar system is mostly empty space.",
+    "How do we know such huge distances? Astronomers use a unit called the astronomical unit, or AU: the average distance from Earth to the Sun, about 150 million kilometers. Measuring it took centuries. In 1672, astronomers in Paris and in French Guiana measured the position of Mars at the same time, and the small difference between their views gave the first good estimate. In 1769, Captain Cook sailed to Tahiti to time Venus crossing the face of the Sun for the same purpose. Today, radar and spacecraft measure these distances to within a few meters.",
+    "Even light needs time to cross the solar system. Light moves 300,000 kilometers every second, yet sunlight takes about 8 minutes and 20 seconds to reach Earth, so the Sun you see is the Sun of eight minutes ago. Sunlight reaches Jupiter in about 43 minutes and Neptune in about four hours. Radio messages to rovers on Mars take between 3 and 22 minutes, depending on where the two planets are. Voyager 1, launched in 1977, is now so far away that on November 18, 2026, its signals will take a full day to reach us.",
+    "People have always wondered how big the world is. The Chinese word for universe, yuzhou, joins two ideas: yu, all of space in every direction, and zhou, all of time from the past to the future. The astronomer Zhang Heng, almost 1,900 years ago, pictured the sky as an egg with Earth as the yolk inside. Telescopes later added two planets no one had seen before: Uranus in 1781 and Neptune in 1846. Neptune was first found with mathematics, from the way it tugged on Uranus, and only then spotted in the sky.",
+    "Beyond Neptune lie Pluto and many other icy worlds, and far beyond them, a vast cloud of comets that may reach a quarter of the way to the nearest star. The planets you found in Lesson 7 are tiny bright dots scattered across this enormous emptiness. Try the calculator below, build your own model at school, and walk the solar system for yourself."
+   ],
+   "paras_zh": [
+    "大部分太陽系的圖，都把行星畫得排排站、靠得很近，像一串珠子。這種圖很好用，但不可能照比例。想知道為什麼，就把太陽縮成一顆籃球：地球變成大約 26 公尺外的一粒芝麻，月亮是一粒細沙，離地球不到 7 公分。水星、金星、火星是更小的種子，散落在籃球 40 公尺以內。",
+    "繼續往前走。巨大的木星只是一顆葡萄，在籃球 134 公尺外；土星是稍小一點的葡萄，在 246 公尺外；天王星和海王星是豌豆，在 495 和 776 公尺外——差不多是跑道兩圈。照這個比例，太陽以外最近的恆星在大約 6,900 公里外，幾乎是台灣到雪梨的距離。在這些小東西之間，幾乎什麼都沒有。太陽系大部分是空的。",
+    "這麼大的距離，是怎麼知道的？天文學家用「天文單位」（AU）：地球到太陽的平均距離，大約 1.5 億公里。量出它花了好幾百年。1672 年，巴黎和法屬圭亞那的天文學家同時測量火星的位置，兩地看到的一點點差異，第一次給了可靠的估計。1769 年，庫克船長航向大溪地，為的也是在那裡計時金星從太陽前面經過。今天，雷達和太空船能把這些距離量到幾公尺以內。",
+    "連光穿過太陽系都需要時間。光每秒走 30 萬公里，陽光到地球仍要大約 8 分 20 秒，所以你看到的太陽，是 8 分鐘前的太陽。陽光到木星大約 43 分鐘，到海王星大約 4 小時。傳給火星探測車的無線電訊息要 3 到 22 分鐘，看兩顆行星當時的位置而定。1977 年發射的航海家一號現在非常遠，到 2026 年 11 月 18 日，它的訊號要整整一天才傳得回來。",
+    "人類一直在想世界有多大。中文的「宇宙」結合了兩個概念：「宇」是上下四方所有的空間，「宙」是從古到今所有的時間。將近 1,900 年前，天文學家張衡把天想像成一顆蛋，地球是裡面的蛋黃。望遠鏡後來又添了兩顆以前沒人見過的行星：1781 年的天王星和 1846 年的海王星。海王星是先用數學「算」出來的——從它拉扯天王星的方式推算位置——然後才在天上找到。",
+    "海王星以外還有冥王星和許多冰冷的小世界，更遠處是一大片彗星雲，可能延伸到往最近恆星四分之一的路程。你在第七課找到的行星，只是散落在這片廣大空曠中的小亮點。試試下面的計算器，在學校做一個自己的模型，親自走一趟太陽系。"
+   ],
+   "questions": [
+    "Why can't most pictures show the solar system to scale?",
+    "About how long does sunlight take to reach Earth?",
+    "How did astronomers first get a good measurement of the distance to the Sun?"
+   ],
+   "answers": [
+    "If the planets were drawn big enough to see, the distances between them would be far too large to fit on the page. At true scale, the planets are tiny dots very far apart.",
+    "About 8 minutes and 20 seconds.",
+    "In 1672, astronomers in Paris and French Guiana measured the position of Mars at the same time and used the small difference between their views to work out the distance."
+   ],
+   "vocab": [
+    {
+     "n": 1,
+     "w": "scale",
+     "pos": "n.",
+     "zh": "比例；比例尺",
+     "ex": "This map uses a <b>scale</b> of 1 centimeter to 1 kilometer.",
+     "exzh": "這張地圖的比例尺是 1 公分代表 1 公里。"
+    },
+    {
+     "n": 2,
+     "w": "shrink",
+     "pos": "v.",
+     "zh": "縮小",
+     "ex": "My sweater <b>shrank</b> in the dryer.",
+     "exzh": "我的毛衣在烘衣機裡縮水了。"
+    },
+    {
+     "n": 3,
+     "w": "vast",
+     "pos": "adj.",
+     "zh": "廣大的",
+     "ex": "The desert is so <b>vast</b> that you cannot see where it ends.",
+     "exzh": "沙漠廣大到看不見盡頭。"
+    },
+    {
+     "n": 4,
+     "w": "mostly",
+     "pos": "adv.",
+     "zh": "大部分；主要",
+     "ex": "The cake was <b>mostly</b> chocolate.",
+     "exzh": "這個蛋糕大部分是巧克力。"
+    },
+    {
+     "n": 5,
+     "w": "spacecraft",
+     "pos": "n.",
+     "zh": "太空船；太空探測器",
+     "ex": "The <b>spacecraft</b> sent back pictures of Saturn's rings.",
+     "exzh": "太空船傳回了土星環的照片。"
+    },
+    {
+     "n": 6,
+     "w": "signal",
+     "pos": "n.",
+     "zh": "訊號",
+     "ex": "My phone has no <b>signal</b> in the mountains.",
+     "exzh": "我的手機在山上收不到訊號。"
+    },
+    {
+     "n": 7,
+     "w": "launch",
+     "pos": "v.",
+     "zh": "發射；推出",
+     "ex": "They <b>launched</b> the rocket at sunrise.",
+     "exzh": "他們在日出時發射了火箭。"
+    },
+    {
+     "n": 8,
+     "w": "estimate",
+     "pos": "n.",
+     "zh": "估計",
+     "ex": "My <b>estimate</b> is that there are 300 beans in the jar.",
+     "exzh": "我估計罐子裡有 300 顆豆子。"
+    }
+   ],
+   "quiz": [
+    {
+     "q": "If the Sun were a basketball, about how far away would Earth be?",
+     "options": [
+      "About 26 meters",
+      "About 26 centimeters",
+      "About 2.6 kilometers",
+      "Right next to it"
+     ],
+     "correct": 0
+    },
+    {
+     "q": "About how long does sunlight take to reach Earth?",
+     "options": [
+      "About 8 minutes",
+      "About 1 second",
+      "About 8 hours",
+      "About 8 days"
+     ],
+     "correct": 0
+    },
+    {
+     "q": "What is one astronomical unit (AU)?",
+     "options": [
+      "The average distance from Earth to the Sun",
+      "The width of Earth",
+      "One light-year",
+      "The distance to the Moon"
+     ],
+     "correct": 0
+    },
+    {
+     "q": "Which planet is farthest from the Sun?",
+     "options": [
+      "Neptune",
+      "Uranus",
+      "Pluto",
+      "Saturn"
+     ],
+     "correct": 0
+    },
+    {
+     "q": "Most of the solar system is...",
+     "options": [
+      "Empty space",
+      "Planets",
+      "Asteroids",
+      "Clouds of gas"
+     ],
+     "correct": 0
+    }
+   ],
+   "bodies": [
+    {
+     "key": "mercury",
+     "en": "Mercury",
+     "zh": "水星",
+     "css": "#b9b2a6",
+     "across": "0.38",
+     "au": "0.39",
+     "light_en": "3 min 13 s",
+     "light_zh": "3 分 13 秒",
+     "model_en": "a grain of sand, 10 m",
+     "model_zh": "一粒沙，10 公尺",
+     "note_en": "The smallest planet, racing around the Sun in 88 days.",
+     "note_zh": "最小的行星，88 天就繞太陽一圈。"
+    },
+    {
+     "key": "venus",
+     "en": "Venus",
+     "zh": "金星",
+     "css": "#fff1c4",
+     "across": "0.95",
+     "au": "0.72",
+     "light_en": "6 min 1 s",
+     "light_zh": "6 分 1 秒",
+     "model_en": "a sesame seed, 19 m",
+     "model_zh": "一粒芝麻，19 公尺",
+     "note_en": "Almost Earth's twin in size, wrapped in thick, hot clouds.",
+     "note_zh": "大小幾乎是地球的雙胞胎，裹著又厚又熱的雲。"
+    },
+    {
+     "key": "earth",
+     "en": "Earth",
+     "zh": "地球",
+     "css": "#4f9cff",
+     "across": "1",
+     "au": "1.00",
+     "light_en": "8 min 19 s",
+     "light_zh": "8 分 19 秒",
+     "model_en": "a sesame seed, 26 m",
+     "model_zh": "一粒芝麻，26 公尺",
+     "note_en": "Our home. Its Moon is a grain of sand less than 7 cm away on this scale.",
+     "note_zh": "我們的家。照這個比例，月亮是 7 公分內的一粒沙。"
+    },
+    {
+     "key": "mars",
+     "en": "Mars",
+     "zh": "火星",
+     "css": "#ff7a4a",
+     "across": "0.53",
+     "au": "1.52",
+     "light_en": "12 min 40 s",
+     "light_zh": "12 分 40 秒",
+     "model_en": "a tiny seed, 39 m",
+     "model_zh": "一粒小種子，39 公尺",
+     "note_en": "About half as wide as Earth. Radio signals take 3 to 22 minutes to get there.",
+     "note_zh": "寬度大約是地球的一半；無線電訊號要 3 到 22 分鐘才到。"
+    },
+    {
+     "key": "jupiter",
+     "en": "Jupiter",
+     "zh": "木星",
+     "css": "#e8c9a0",
+     "across": "11",
+     "au": "5.20",
+     "light_en": "43 min",
+     "light_zh": "43 分",
+     "model_en": "a grape, 134 m",
+     "model_zh": "一顆葡萄，134 公尺",
+     "note_en": "The giant: more than 1,000 Earths could fit inside it.",
+     "note_zh": "巨無霸：裡面裝得下一千多個地球。"
+    },
+    {
+     "key": "saturn",
+     "en": "Saturn",
+     "zh": "土星",
+     "css": "#f0dca0",
+     "across": "9.1",
+     "au": "9.54",
+     "light_en": "1 h 19 min",
+     "light_zh": "1 小時 19 分",
+     "model_en": "a grape, 246 m",
+     "model_zh": "一顆葡萄，246 公尺",
+     "note_en": "Its rings are wider than the planet but mostly thinner than a tall building.",
+     "note_zh": "光環比星球本身還寬，但大部分比一棟大樓還薄。"
+    },
+    {
+     "key": "uranus",
+     "en": "Uranus",
+     "zh": "天王星",
+     "css": "#9fe3ea",
+     "across": "4.0",
+     "au": "19.2",
+     "light_en": "2 h 40 min",
+     "light_zh": "2 小時 40 分",
+     "model_en": "a pea, 495 m",
+     "model_zh": "一顆豌豆，495 公尺",
+     "note_en": "The first planet found with a telescope, by William Herschel in 1781.",
+     "note_zh": "第一顆用望遠鏡發現的行星：1781 年赫歇爾發現。"
+    },
+    {
+     "key": "neptune",
+     "en": "Neptune",
+     "zh": "海王星",
+     "css": "#5b7cff",
+     "across": "3.9",
+     "au": "30.1",
+     "light_en": "4 h 10 min",
+     "light_zh": "4 小時 10 分",
+     "model_en": "a pea, 776 m",
+     "model_zh": "一顆豌豆，776 公尺",
+     "note_en": "Found in 1846 after mathematicians worked out where it had to be.",
+     "note_zh": "1846 年，數學家先算出它該在哪裡，才在天上找到。"
+    }
+   ],
+   "bodies_note_en": "\"Earths across\" compares each planet's width with Earth's. The last line uses the basketball model: the Sun is a 24-centimeter ball.",
+   "bodies_note_zh": "「幾個地球寬」是和地球比寬度。最後一行用籃球模型：太陽是一顆 24 公分的球。",
+   "scalecalc": {
+    "title_en": "Walk the Solar System",
+    "title_zh": "走一趟太陽系",
+    "lead_en": "Pick something to be the Sun, and the calculator works out how big each planet should be and how far away to put it. Walking times assume 1.2 meters per second.",
+    "lead_zh": "選一樣東西當太陽，計算器會算出每顆行星該做多大、要放多遠。走路時間以每秒 1.2 公尺計。"
+   },
+   "culture_cards": {
+    "title_en": "How Big Is the World?",
+    "title_zh": "世界有多大？",
+    "lead_en": "Thinkers East and West have tried to picture the size of the heavens, and to measure it.",
+    "lead_zh": "東西方的思想家，都試過想像天有多大，也試著把它量出來。",
+    "cards": [
+     {
+      "k": "宇宙 · Yuzhou",
+      "en": "Space and Time in One Word",
+      "zh": "上下四方，往古來今",
+      "quote_zh": "上下四方曰宇，往古來今曰宙。——《尸子》",
+      "quote_en": "\"Up, down, and the four directions are yu; from ancient times to now is zhou.\" (The Shizi)",
+      "body_en": "More than 2,000 years ago, the Chinese word for universe already joined space and time, an idea that modern physics would return to.",
+      "body_zh": "兩千多年前，中文的「宇宙」就把空間和時間放在一起，這個想法後來在現代物理裡又出現了。"
+     },
+     {
+      "k": "渾天 · Zhang Heng",
+      "en": "The Sky Like an Egg",
+      "zh": "渾天如雞子",
+      "quote_zh": "渾天如雞子，天體圓如彈丸，地如雞中黃。——張衡〈渾天儀注〉",
+      "quote_en": "\"The heavens are like a hen's egg, round as a crossbow pellet, and Earth is like the yolk.\" (Zhang Heng)",
+      "body_en": "Zhang Heng built a water-driven armillary sphere to show the turning sky around Earth. His egg was a model too: useful, even though the real sky has no shell.",
+      "body_zh": "張衡造了水力推動的渾天儀，展示天繞著地轉。他的「雞蛋」也是一個模型：很好用，雖然真實的天空並沒有蛋殼。"
+     },
+     {
+      "k": "1672 · 1769",
+      "en": "Measuring the Astronomical Unit",
+      "zh": "量出地球到太陽的距離",
+      "body_en": "In 1672, Giovanni Cassini in Paris and Jean Richer in French Guiana measured Mars at the same time and got about 140 million kilometers to the Sun. In 1769, observers around the world, including Captain Cook in Tahiti, timed Venus crossing the Sun to improve it.",
+      "body_zh": "1672 年，巴黎的卡西尼和法屬圭亞那的里歇同時測量火星，算出太陽大約在 1.4 億公里外。1769 年，世界各地的觀測者（包括在大溪地的庫克船長）計時金星凌日，把數字量得更準。"
+     },
+     {
+      "k": "天王 · 海王",
+      "en": "Two New Planets",
+      "zh": "兩顆新行星",
+      "body_en": "Uranus, found by William Herschel in 1781, was the first planet discovered with a telescope. Neptune was predicted in 1846 by Urbain Le Verrier from the way Uranus wobbled, and Johann Galle found it the same night he looked. Their Chinese names, the Sky King and the Sea King, follow the Greek and Roman gods.",
+      "body_zh": "1781 年赫歇爾發現的天王星，是第一顆用望遠鏡找到的行星。海王星則是 1846 年勒維耶從天王星的「搖晃」算出來的，伽勒照著去看，當晚就找到了。中文名「天王」「海王」，來自希臘羅馬神話的天神與海神。"
+     }
+    ]
+   },
+   "myths": [
+    {
+     "myth_en": "The planets are close together, like in textbook pictures.",
+     "myth_zh": "行星彼此靠得很近，就像課本上的圖。",
+     "fact_en": "Those pictures shrink the distances so the planets fit. If the Sun were a basketball, Earth would be 26 meters away and Neptune 776 meters away, and the planets would be seeds and peas.",
+     "fact_zh": "那些圖把距離縮短了，行星才放得進來。如果太陽是一顆籃球，地球在 26 公尺外、海王星在 776 公尺外，而行星只是種子和豌豆。"
+    },
+    {
+     "myth_en": "The asteroid belt is packed with rocks, like in the movies.",
+     "myth_zh": "小行星帶像電影裡一樣擠滿了石頭。",
+     "fact_en": "The asteroids are so spread out that spacecraft fly straight through the belt without needing to dodge. Standing on one asteroid, you could usually not see the next one with your eyes.",
+     "fact_zh": "小行星分散得非常開，太空船直接穿過小行星帶，不需要閃躲。站在一顆小行星上，通常用肉眼看不到下一顆。"
+    },
+    {
+     "myth_en": "Sunlight reaches us instantly.",
+     "myth_zh": "陽光一瞬間就照到我們。",
+     "fact_en": "It takes about 8 minutes and 20 seconds. If the Sun suddenly went dark, we would not know for eight minutes. Sunlight needs about four hours to reach Neptune.",
+     "fact_zh": "要大約 8 分 20 秒。如果太陽突然熄滅，我們要過 8 分鐘才會知道。陽光到海王星要大約 4 小時。"
+    },
+    {
+     "myth_en": "Pluto is the ninth planet.",
+     "myth_zh": "冥王星是第九顆行星。",
+     "fact_en": "Since 2006, astronomers have called Pluto a dwarf planet. It is smaller than our Moon and shares its part of space with many other icy worlds.",
+     "fact_zh": "從 2006 年起，天文學家把冥王星歸為矮行星。它比我們的月亮還小，和許多冰冷的小天體共用那一帶的空間。"
+    }
+   ],
+   "tricks": [
+    {
+     "title_en": "Eight minutes from the Sun",
+     "title_zh": "陽光走 8 分鐘",
+     "body_en": "Sunlight takes about 8 minutes and 20 seconds to reach Earth. One AU is about eight light-minutes.",
+     "body_zh": "陽光到地球大約 8 分 20 秒；1 天文單位大約等於 8 光分。"
+    },
+    {
+     "title_en": "Shui, jin, di, huo, mu, tu, tian, hai",
+     "title_zh": "水金地火木土天海",
+     "body_en": "The order out from the Sun. In English: My Very Educated Mother Just Served Us Noodles.",
+     "body_zh": "從太陽往外的順序。英文口訣：My Very Educated Mother Just Served Us Noodles。"
+    },
+    {
+     "title_en": "5, 10, 20, 30",
+     "title_zh": "5、10、20、30",
+     "body_en": "Jupiter, Saturn, Uranus, and Neptune are about 5, 10, 20, and 30 AU from the Sun.",
+     "body_zh": "木星、土星、天王星、海王星離太陽大約 5、10、20、30 天文單位。"
+    },
+    {
+     "title_en": "Basketball Sun, sesame Earth",
+     "title_zh": "籃球太陽，芝麻地球",
+     "body_en": "Make the Sun a basketball, and Earth is a sesame seed 26 meters away.",
+     "body_zh": "太陽做成籃球，地球就是 26 公尺外的一粒芝麻。"
+    }
+   ],
+   "activities": [
+    {
+     "title_en": "A Toilet-Paper Solar System",
+     "title_zh": "衛生紙太陽系",
+     "materials": [
+      {
+       "en": "A roll of toilet paper (each sheet about 10 cm long)",
+       "zh": "一捲衛生紙（每一格約 10 公分）"
+      },
+      {
+       "en": "Nine sticky notes labeled Sun, Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, Neptune",
+       "zh": "九張便利貼，寫上太陽與八大行星"
+      },
+      {
+       "en": "A long hallway at least 8 meters long",
+       "zh": "一條至少 8 公尺長的走廊"
+      }
+     ],
+     "steps": [
+      {
+       "en": "Stick the Sun at the end of the hallway. In this model, one AU is two and a half sheets.",
+       "zh": "把「太陽」貼在走廊一端。在這個模型裡，1 天文單位是兩格半。"
+      },
+      {
+       "en": "Unroll the paper and place each planet: Mercury at 1 sheet, Venus at 2, Earth at 2½, Mars at 4, Jupiter at 13, Saturn at 24, Uranus at 48, Neptune at 75.",
+       "zh": "拉開衛生紙，放上每顆行星：水星 1 格、金星 2 格、地球 2 格半、火星 4 格、木星 13 格、土星 24 格、天王星 48 格、海王星 75 格。"
+      },
+      {
+       "en": "Stand at the Sun and look down the hallway. Notice how crowded the inner planets are and how empty the rest is.",
+       "zh": "站在太陽那端往走廊看：內行星擠在一起，其餘大部分是空的。"
+      },
+      {
+       "en": "Ask: if the planets were also drawn to this scale, how big would Earth be? (Smaller than a speck of dust.)",
+       "zh": "問問大家：如果行星也照這個比例畫，地球有多大？（比灰塵還小。）"
+      }
+     ],
+     "tip_en": "Teaching tip: then open the 3D model at True size. The empty hallway and the empty screen show the same thing.",
+     "tip_zh": "教學提示：接著把 3D 模型切到「真實大小」——空蕩蕩的走廊和空蕩蕩的畫面，說的是同一件事。"
+    },
+    {
+     "title_en": "Walk the Basketball Solar System",
+     "title_zh": "走一趟籃球太陽系",
+     "materials": [
+      {
+       "en": "A basketball for the Sun",
+       "zh": "一顆籃球當太陽"
+      },
+      {
+       "en": "Seeds and small fruits: sesame seeds, a grape, and two peas",
+       "zh": "種子和小水果：芝麻、一顆葡萄、兩顆豌豆"
+      },
+      {
+       "en": "The calculator on this page and a long open space, such as a school track or a quiet road",
+       "zh": "本頁的計算器，以及一大片空地，例如操場跑道或安靜的道路"
+      }
+     ],
+     "steps": [
+      {
+       "en": "Put the basketball at the start. Use the calculator to find each planet's distance.",
+       "zh": "把籃球放在起點，用計算器查出每顆行星的距離。"
+      },
+      {
+       "en": "Walk out together and set down each planet as you reach it: sesame seeds for Mercury to Mars within 40 meters, a grape for Jupiter at 134 meters.",
+       "zh": "大家一起往外走，到了就放下行星：40 公尺內放水星到火星的芝麻，134 公尺放木星的葡萄。"
+      },
+      {
+       "en": "If you have room, keep going: Saturn at 246 meters, Uranus at 495, and Neptune at 776, almost two laps of a 400-meter track.",
+       "zh": "空間夠的話繼續走：土星 246 公尺、天王星 495 公尺、海王星 776 公尺，幾乎是 400 公尺跑道兩圈。"
+      },
+      {
+       "en": "Look back at the basketball from Neptune. Then discuss: where would the nearest star be? (About 6,900 kilometers away.)",
+       "zh": "從海王星回頭看籃球。再討論：最近的恆星會在哪裡？（大約 6,900 公里外。）"
+      }
+     ],
+     "tip_en": "Safety tip: walk the route ahead of time, keep everyone together, and stay off busy roads. A walk around the school track works well.",
+     "tip_zh": "安全提示：事先走過一次路線、全班一起行動、避開車多的道路；繞學校跑道走就很好。"
+    }
+   ]
   }
  ],
  "planned": []

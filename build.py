@@ -2652,7 +2652,7 @@ def _astro_ver():
     h = hashlib.md5()
     for rel in ("assets/css/astro.css", "assets/js/moon-phases.js", "assets/js/eclipses.js", "assets/js/seasons.js", "assets/js/tides.js",
                 "assets/js/constellations.js", "assets/js/north-star.js", "assets/js/planets-lab.js",
-                "assets/js/sundial.js"):
+                "assets/js/sundial.js", "assets/js/solar.js"):
         fp = os.path.join(ROOT, rel)
         if os.path.exists(fp): h.update(open(fp, "rb").read())
     return h.hexdigest()[:8]
@@ -2790,6 +2790,14 @@ def sundial_svg(size=56):
             '<path d="M30 32 L17 39" stroke="#1a1208" stroke-width="2.4" stroke-linecap="round"/>'
             '<path d="M30 32 L38 14" stroke="#8a6a3a" stroke-width="2" stroke-linecap="round"/>'
             '<rect x="27" y="44" width="6" height="10" fill="#9a9a9a"/></svg>')
+
+def solar_svg(size=56):
+    """太陽系小圖（系列首頁的課程卡）：太陽與幾圈軌道上的行星。"""
+    rings = "".join(f'<ellipse cx="30" cy="30" rx="{r}" ry="{r * .42:.1f}" fill="none" stroke="rgba(160,190,255,.45)" stroke-width="1"/>' for r in (11, 17, 23, 28))
+    dots = "".join(f'<circle cx="{x}" cy="{y}" r="{rr}" fill="{c}"/>' for x, y, rr, c in
+                   ((41, 30, 1.6, "#4f9cff"), (14, 35, 1.4, "#ff7a4a"), (49, 37, 2.6, "#e8c9a0"), (5, 27, 2, "#9fe3ea")))
+    return (f'<svg class="solar-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">{rings}'
+            f'<circle cx="30" cy="30" r="5" fill="#ffd36e"/>{dots}</svg>')
 
 def _bi(en, zh, tag="p", cls=""):
     """英文在前、中文在後的雙語段落。"""
@@ -3325,6 +3333,57 @@ def render_sundial_lab(lesson):
   <p class="cn-credit">{lesson["lab"]["credit_html"]}</p>
 </div>'''
 
+def render_solar_lab(lesson):
+    """第九課：太陽系的大小與距離（assets/js/solar.js 綁這裡的 class）。"""
+    tg = _lab_toggles([("dots", "Position dots", "位置圓點", True), ("orbits", "Orbits", "軌道", True)])
+    presets = "".join(
+        f'<button type="button" class="al-chip ss-preset" data-log="{v}">{solar_svg(26)}'
+        f'<span class="al-chip-en">{en}</span><span class="al-chip-zh">{zh}</span></button>'
+        for v, en, zh in ((0, "True size", "真實大小"), (1, "× 10", "放大 10 倍"), (2, "× 100", "放大 100 倍"), (3, "× 1,000", "放大 1000 倍")))
+    return f'''<div class="astro-lab ss-lab rvl" data-solar-lab>
+  <div class="al-stage">
+    <div class="al-space">
+      <canvas class="al-space-cv" aria-label="3D model of the solar system with true distances · 真實距離的太陽系 3D 模型"></canvas>
+      <div class="al-labels" aria-hidden="true"></div>
+      <div class="ec-view" role="group" aria-label="Zoom · 範圍">
+        <button type="button" data-view="inner" aria-pressed="true">Inner · 內行星</button>
+        <button type="button" data-view="jupiter" aria-pressed="false">To Jupiter · 到木星</button>
+        <button type="button" data-view="all" aria-pressed="false">All · 到海王星</button>
+      </div>
+      <p class="al-hint">Drag to turn · 拖曳旋轉　Scroll or pinch to zoom · 滾輪／雙指縮放</p>
+      <button type="button" class="al-home" title="Reset view · 重設視角" aria-label="Reset view · 重設視角">&#8634;</button>
+      <p class="al-nogl-msg">This 3D model needs WebGL, which this browser does not support. The distance table and the scale-model calculator below still work.<br><span class="zh">這個瀏覽器不支援 WebGL，無法顯示 3D 模型；距離表與下方的比例模型計算器一樣能用。</span></p>
+    </div>
+    <aside class="al-sky ss-aside">
+      <p class="al-sky-k">Size and light · 大小與光</p>
+      <p class="sd-diff ss-factor"></p>
+      <p class="sd-why ss-size-note"></p>
+      <p class="al-sky-k ss-k2">A flash of light from the Sun · 太陽發出的一道光</p>
+      <p class="sd-why ss-timer"></p>
+      <ol class="ss-log"></ol>
+      <p class="al-sky-k ss-k2">Today's distances · 今天的距離</p>
+      <div class="ss-today-wrap"><table class="ss-today"><thead><tr><th>Planet · 行星</th><th>From Sun (AU) · 離太陽</th><th>From Earth (million km) · 離地球（百萬公里）</th><th>Light from there · 光要走多久</th></tr></thead><tbody></tbody></table></div>
+    </aside>
+  </div>
+  <div class="al-controls">
+    <div class="al-row al-row-main">
+      <button type="button" class="al-play" aria-pressed="false"><span class="al-play-i" aria-hidden="true"></span><span class="al-play-t">Play · 播放</span></button>
+      <div class="al-speed" role="group" aria-label="Light speed · 光速">
+        <button type="button" data-speed="60" aria-pressed="true">Light ×60 · 光速 60 倍</button>
+        <button type="button" data-speed="600" aria-pressed="false">×600</button>
+        <button type="button" data-speed="6000" aria-pressed="false">×6,000</button>
+      </div>
+      <div class="ec-jump"><button type="button" class="ec-now ss-reset">Clear the light · 清除光環</button></div>
+    </div>
+    <label class="ec-slider"><span class="ec-slider-k">Planet size · 行星大小 <em>true size 真實大小 ← → ×1,000</em></span>
+      <input type="range" class="ec-time ss-size" min="0" max="3" step="0.01" value="3"></label>
+    <div class="al-chips se-chips">{presets}</div>
+    <div class="al-row al-toggles">{tg}</div>
+  </div>
+  {_lab_foot(lesson["lab"])}
+  <p class="cn-credit">{lesson["lab"]["credit_html"]}</p>
+</div>'''
+
 def _astro_nav(slug):
     ls = ASTRO["lessons"]
     i = next(n for n, l in enumerate(ls) if l["slug"] == slug)
@@ -3381,9 +3440,9 @@ def build_astro_lesson(lesson):
     kind = lab.get("kind", "phases")
     lab_html = {"eclipses": render_eclipse_lab, "seasons": render_season_lab, "tides": render_tide_lab,
                 "stars": render_star_lab, "northstar": render_north_lab, "planets": render_planet_lab,
-                "sundial": render_sundial_lab}.get(kind, render_moon_lab)(lesson)
+                "sundial": render_sundial_lab, "solar": render_solar_lab}.get(kind, render_moon_lab)(lesson)
     js = {"eclipses": "eclipses", "seasons": "seasons", "tides": "tides", "stars": "constellations",
-          "northstar": "north-star", "planets": "planets-lab", "sundial": "sundial"}.get(kind, "moon-phases")
+          "northstar": "north-star", "planets": "planets-lab", "sundial": "sundial", "solar": "solar"}.get(kind, "moon-phases")
 
     # 依資料裡有什麼就排什麼段落；band（米色底）交替
     secs = []
@@ -3484,6 +3543,31 @@ def build_astro_lesson(lesson):
         secs.append(("skies", "Four Seasons of Stars · 四季星空", "What's up on a 9 p.m. evening", "晚上九點抬頭看得到什麼",
                      f'<div class="ph-grid stagger">{sky_cards}</div>',
                      _bi(lesson["skies_note_en"], lesson["skies_note_zh"], cls="lead rvl d2")))
+    if lesson.get("bodies"):
+        b_cards = "".join(
+            f'<article class="ph-card ss-card rvl">'
+            f'<div class="ph-ico">{planet_svg(64, b["css"], b["key"] == "saturn")}</div>'
+            f'<h3>{html.escape(b["en"])}<span class="zh">{html.escape(b["zh"])}</span></h3>'
+            f'<p class="ky-nums"><span><b>{html.escape(b["across"])}</b>Earths across · 幾個地球寬</span><span><b>{html.escape(b["au"])}</b>AU from the Sun · 離太陽</span></p>'
+            f'<p class="ph-meta"><span>Sunlight takes {html.escape(b["light_en"])} · 陽光走 {html.escape(b["light_zh"])}</span>'
+            f'<span>Basketball Sun: {html.escape(b["model_en"])} · 籃球太陽：{html.escape(b["model_zh"])}</span></p>'
+            f'<p class="ph-when">{html.escape(b["note_en"])}<br><span class="zh">{html.escape(b["note_zh"])}</span></p>'
+            f'</article>'
+            for b in lesson["bodies"])
+        secs.append(("bodies", "Eight Planets · 八大行星", "Sizes and distances, side by side", "大小與距離，並排比一比",
+                     f'<div class="ph-grid ss-grid stagger">{b_cards}</div>',
+                     _bi(lesson["bodies_note_en"], lesson["bodies_note_zh"], cls="lead rvl d2")))
+    if lesson.get("scalecalc"):
+        sc = lesson["scalecalc"]
+        btns = "".join(f'<button type="button" data-sun-cm="{cm}" aria-pressed="{"true" if cm == 24 else "false"}">{html.escape(en)} · {html.escape(zh)}</button>'
+                       for cm, en, zh in ((1.5, "Marble", "彈珠"), (24, "Basketball", "籃球"), (65, "Exercise ball", "健身球"), (140, "As tall as you", "跟你一樣高")))
+        secs.append(("model", "Build It at School · 在學校做模型", sc["title_en"], sc["title_zh"],
+                     f'<div class="ss-calc rvl" data-scale-calc>'
+                     f'<p class="ss-voyager" data-voyager></p>'
+                     f'<div class="ss-pick"><span>Make the Sun · 把太陽做成</span><div class="ss-btns">{btns}</div>'
+                     f'<label>or type its width · 或輸入直徑 <input type="number" class="ss-sun-cm" value="24" min="0.1" step="0.1" inputmode="decimal"> cm</label></div>'
+                     f'<div class="cc-tbl-wrap" data-scale-out></div></div>',
+                     _bi(sc["lead_en"], sc["lead_zh"], cls="lead rvl d2")))
     if lesson.get("instruments"):
         i_cards = "".join(
             f'<article class="ph-card sk-card rvl">'
@@ -3581,7 +3665,8 @@ def build_astro_lesson(lesson):
                 "stars": ("Find your way around the seasons", "一句話記住四季星空"),
                 "northstar": ("Never lose north", "一句話找到北方"),
                 "planets": ("Spot a wanderer", "一句話認出行星"),
-                "sundial": ("Read the Sun", "一句話讀懂日晷")}[kind]
+                "sundial": ("Read the Sun", "一句話讀懂日晷"),
+                "solar": ("Feel the size", "一句話感受太陽系有多大")}[kind]
     secs.append(("tricks", "Remember It · 記憶口訣", tricks_h[0], tricks_h[1], _sci_tricks(lesson), ""))
     acts = lesson.get("activities") or [lesson["activity"]]
     for n, act in enumerate(acts, 1):
@@ -3623,7 +3708,7 @@ def build_astro_hub():
     def icon(l):
         c = l.get("card")
         return (eclipse_svg("solar:total", 60) if c == "eclipse" else season_svg(1, 60) if c == "season"
-                else tide_svg(60) if c == "tide" else star_svg(60) if c == "stars" else polaris_svg(60) if c == "north" else planet_svg(60) if c == "planets" else sundial_svg(60) if c == "sundial" else moon_svg(120, 60))
+                else tide_svg(60) if c == "tide" else star_svg(60) if c == "stars" else polaris_svg(60) if c == "north" else planet_svg(60) if c == "planets" else sundial_svg(60) if c == "sundial" else solar_svg(60) if c == "solar" else moon_svg(120, 60))
     cards = []
     for l in ASTRO["lessons"]:
         cards.append(
