@@ -318,3 +318,48 @@
   .cs-msg { min-height: 0; }
   .cs-pos-row { margin: .6rem 0 0; flex-basis: 100%; }
 }
+
+/* ---------- 第七課：GPS ---------- */
+@media (min-width: 1021px) { .gp-lab .al-space { min-height: 640px; } }
+.gp-lab .al-space { background: radial-gradient(80% 70% at 50% 45%, rgba(40,70,140,.25), transparent 70%), #050a18; }
+.gp-aside { gap: .9rem; }
+.gp-aside > * { min-width: 0; }
+.gp-sats { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.gp-sats button i { font-family: var(--serif); font-size: 1.25rem; line-height: 1.1; }
+.gp-where { margin: .8rem 0 .55rem; font-size: 1.15rem; font-weight: 800; color: #fff; line-height: 1.25; }
+.gp-where small { display: block; font-family: var(--zh); font-weight: 600; font-size: .85rem; color: var(--al-mute); }
+.gp-where.ok { color: #7cf29a; }
+.gp-where.bad { color: #ff8a7a; }
+.gp-list { list-style: none; margin: 0; padding: 0; display: grid; gap: .25rem; font-variant-numeric: tabular-nums; }
+.gp-list li { display: grid; grid-template-columns: 12px minmax(0, .8fr) minmax(0, 1fr) minmax(0, 1.1fr); gap: .45rem; align-items: center; font-size: .84rem; color: #fff; }
+.gp-list li i { width: 12px; height: 12px; border-radius: 50%; }
+.gp-list li span { text-align: right; }
+.gp-list .gp-head { font-size: .6rem; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; color: var(--al-mute); align-items: end; }
+.gp-list .gp-head b { font-weight: 700; }
+.gp-list .gp-head small { display: block; font-family: var(--zh); letter-spacing: 0; text-transform: none; font-size: .62rem; }
+.gp-nums { grid-template-columns: repeat(2, minmax(0, 1fr)); margin-top: .8rem; }
+.gp-nums dd small { display: inline; margin-left: .3rem; font-family: var(--zh); font-weight: 600; font-size: .7rem; color: #7cf29a; }
+.gp-msg { min-height: 6.4em; }
+.gp-err-row { flex: 1 1 280px; margin: 0 0 0 .6rem; }
+.gp-err-row > span { text-transform: none; letter-spacing: .02em; }
+.gp-err-row output { margin-left: .3rem; font-weight: 800; color: #fff; }
+.gp-err-row output small { font-family: var(--zh); font-weight: 600; color: var(--al-mute); }
+.al-lab.gp-lb-you { color: #ffd0cc; border-color: rgba(255,74,74,.6); }
+.al-lab.gp-lb-dot { color: #cfe4ff; border-color: rgba(61,139,255,.8); }
+.al-lab.gp-lb-q { padding: .05rem .45rem; font-weight: 800; }
+.al-lab.gp-lb-sat { color: #fff; }
+.al-lg-gcircle i { border: 0; height: 4px; margin-top: .5rem; border-radius: 2px; background: linear-gradient(90deg, #4fd1ff 0 25%, #ff7ad9 25% 50%, #9cf25a 50% 75%, #ffb02e 75%); }
+.al-lg-gsat i { border: 0; border-radius: 3px; background: linear-gradient(90deg, #ffb02e 0 33%, #f2f4f8 33% 66%, #4a505c 66%); }
+.al-lg-gdot i { border: 2px solid #8cc2ff; background: #3d8bff; }
+.al-lg-gpin i { border: 0; background: #ff4a4a; }
+@media (max-width: 1020px) {
+  .gp-lab .al-stage { grid-template-columns: minmax(0, 1fr); }
+  .gp-lab .bt-aside { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+}
+@media (max-width: 640px) {
+  .gp-lab .bt-aside { grid-template-columns: minmax(0, 1fr); }
+  .gp-msg { min-height: 0; }
+  .gp-err-row { margin: .6rem 0 0; flex-basis: 100%; }
+}
+/* 六張數字卡：桌機排成 3 × 2，不要 5 + 1 */
+@media (min-width: 1021px) { .hw-facts:has(> .hw-fact:nth-child(6):last-child) { grid-template-columns: repeat(3, minmax(0, 1fr)); } }

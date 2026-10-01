@@ -4918,7 +4918,7 @@ def build_body_hub():
 # 3D 原始碼在 tools/science/src/（three.js、esbuild，每課一個入口），打包成 assets/js/<入口>.js；
 # 面板、迷思、口訣、活動沿用 astro.css，本系列多出來的在 science.css；兩者都只載在本系列頁面。
 HTW_BASE = "/resources/classes/how-things-work/"
-_HTW_JS = {"battery": "battery", "generator": "generator", "solar": "solar-cell", "wind": "wind-turbine", "internet": "internet-packets", "signal": "cell-signal"}   # lab.kind → assets/js/<bundle>.js
+_HTW_JS = {"battery": "battery", "generator": "generator", "solar": "solar-cell", "wind": "wind-turbine", "internet": "internet-packets", "signal": "cell-signal", "gps": "gps-satellites"}   # lab.kind → assets/js/<bundle>.js
 
 def _htw_cn(n):
     """課次的中文數字（一～九十九）：第十一課、第二十課。"""
@@ -5292,6 +5292,59 @@ def render_cellsignal_lab(lesson):
   <p class="bt-credit">{lab["credit_html"]}</p>
 </div>'''
 
+def gps_svg(size=56):
+    """GPS 小圖（萬物原理首頁的課程卡）：地球、一顆衛星與交在一點的三個圓。"""
+    return (f'<svg class="gps-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">'
+            '<circle cx="26" cy="36" r="20" fill="#1f5c9a"/><path d="M14 26q6-6 12-2t8 8-4 10-10 2z" fill="#3e8a5a"/>'
+            '<g fill="none" stroke-width="1.8"><circle cx="21" cy="33" r="9" stroke="#4fd1ff"/><circle cx="33" cy="36" r="9" stroke="#ff7ad9"/><circle cx="27" cy="44" r="8" stroke="#9cf25a"/></g>'
+            '<circle cx="27.5" cy="36.5" r="2.6" fill="#3d8bff" stroke="#fff" stroke-width="1"/>'
+            '<g transform="translate(47 13) rotate(-30)"><rect x="-3" y="-3" width="6" height="6" rx="1" fill="#ffd36e"/>'
+            '<rect x="-12" y="-1.5" width="7" height="3" fill="#7fb0ff"/><rect x="5" y="-1.5" width="7" height="3" fill="#7fb0ff"/></g></svg>')
+
+def render_gps_lab(lesson):
+    """第七課：地球與 GPS 衛星（assets/js/gps-satellites.js 綁這裡的 class；地球與軌道照真實比例）。"""
+    lab = lesson["lab"]
+    nb = "".join(f'<button type="button" data-sats="{n}" aria-pressed="{"true" if n == 3 else "false"}"><i aria-hidden="true">{n}</i>{en}<small>{zh}</small></button>'
+                 for n, en, zh in ((1, "One", "一顆"), (2, "Two", "兩顆"), (3, "Three", "三顆"), (4, "Four", "四顆")))
+    tg = _lab_toggles([("labels", "Labels", "標示", True), ("orbits", "Orbits", "軌道", True), ("close", "Close-up on Taiwan", "近看台灣", False)])
+    return f'''<div class="astro-lab bt-lab gp-lab rvl" data-gps-lab>
+  <div class="al-stage">
+    <div class="al-space">
+      <canvas class="al-space-cv" aria-label="3D model of Earth and the GPS satellites, with circles showing how far a phone in Changhua is from each satellite · 地球與 GPS 衛星的 3D 模型，彩色圓表示彰化的手機離每顆衛星多遠"></canvas>
+      <div class="al-labels" aria-hidden="true"></div>
+      <p class="bt-cut">Earth and orbits to scale; satellites drawn much bigger, sped up, and signals slowed down · 地球與軌道照比例；衛星畫大、加快，訊號放慢</p>
+      <p class="al-hint">Drag to turn · 拖曳旋轉　Scroll or pinch to zoom · 滾輪／雙指縮放</p>
+      <button type="button" class="al-home" title="Reset view · 重設視角" aria-label="Reset view · 重設視角">&#8634;</button>
+      <p class="al-nogl-msg">This 3D model needs WebGL, which this browser does not support. The reading and the cards below still explain everything.<br><span class="zh">這個瀏覽器不支援 WebGL，無法顯示 3D 模型；下方的課文與卡片一樣能看懂。</span></p>
+    </div>
+    <aside class="al-sky bt-aside gp-aside">
+      <div class="gp-top">
+        <p class="al-sky-k">Satellites used · 用幾顆衛星</p>
+        <div class="bt-modes gp-sats" role="group" aria-label="Satellites used · 用幾顆衛星">{nb}</div>
+        <p class="gp-where" aria-live="polite"></p>
+        <ul class="gp-list"></ul>
+        <dl class="bt-nums gp-nums">
+          <div><dt>In view · 看得到</dt><dd class="gp-vis"></dd></div>
+          <div><dt>Phone clock off · 時鐘誤差</dt><dd class="gp-clk"></dd></div>
+          <div><dt>Each distance off · 每段距離多算</dt><dd class="gp-each"></dd></div>
+          <div><dt>Blue dot off · 藍點偏了</dt><dd class="gp-off"></dd></div>
+        </dl>
+      </div>
+      <p class="bt-msg gp-msg" aria-live="polite"></p>
+    </aside>
+  </div>
+  <div class="al-controls">
+    <div class="al-row al-row-main">
+      <button type="button" class="al-play" aria-pressed="true"><span class="al-play-i" aria-hidden="true"></span><span class="al-play-t">Pause · 暫停</span></button>
+      <label class="al-slider gp-err-row"><span>Phone clock off by · 手機時鐘誤差 <output class="gp-err-out"></output></span>
+        <input type="range" class="al-age gp-err" min="0" max="4" step="1" value="0"></label>
+    </div>
+    <div class="al-row al-toggles">{tg}</div>
+  </div>
+  {_lab_foot(lab)}
+  <p class="bt-credit">{lab["credit_html"]}</p>
+</div>'''
+
 def _htw_flat():
     return [(ui, u, l) for ui, u in enumerate(HTW["units"]) for l in u["lessons"]]
 
@@ -5319,7 +5372,7 @@ def build_htw_lesson(ui, unit, lesson):
     reading_html = render_basic_unit(1, unit_dict, level="htw", audio_rel="", pdf_rel="")
     lab = lesson["lab"]
     kind = lab["kind"]
-    lab_html = {"battery": render_battery_lab, "generator": render_generator_lab, "solar": render_solarcell_lab, "wind": render_windturbine_lab, "internet": render_internet_lab, "signal": render_cellsignal_lab}[kind](lesson)
+    lab_html = {"battery": render_battery_lab, "generator": render_generator_lab, "solar": render_solarcell_lab, "wind": render_windturbine_lab, "internet": render_internet_lab, "signal": render_cellsignal_lab, "gps": render_gps_lab}[kind](lesson)
 
     secs = []
     if lesson.get("mix"):
@@ -5381,7 +5434,8 @@ def build_htw_lesson(ui, unit, lesson):
                 "solar": ("Solar power in a sentence", "一句話記住太陽能"),
                 "wind": ("Wind power in a sentence", "一句話記住風力發電"),
                 "internet": ("The internet in a sentence", "一句話記住網際網路"),
-                "signal": ("Phone signals in a sentence", "一句話記住手機訊號")}[kind]
+                "signal": ("Phone signals in a sentence", "一句話記住手機訊號"),
+                "gps": ("GPS in a sentence", "一句話記住 GPS")}[kind]
     secs.append(("tricks", "Remember It · 記憶口訣", tricks_h[0], tricks_h[1], _sci_tricks(lesson), ""))
     if lesson.get("safety"):
         items = "".join(f'<li class="rvl">{html.escape(s["en"])}<span class="zh">{html.escape(s["zh"])}</span></li>' for s in lesson["safety"])
@@ -5435,7 +5489,7 @@ def build_htw_lesson(ui, unit, lesson):
 def build_htw_hub():
     # 照中醫養生：單元導覽＋每個單元一段橫向課程卡；做好的課可點，planned 是「製作中」卡。
     def icon(l):
-        return battery_svg(60) if l.get("card") == "battery" else outlet_svg(60) if l.get("card") == "outlet" else solarpanel_svg(60) if l.get("card") == "solar" else windturbine_svg(60) if l.get("card") == "wind" else internet_svg(60) if l.get("card") == "internet" else cellsignal_svg(60) if l.get("card") == "signal" else l["icon"]
+        return battery_svg(60) if l.get("card") == "battery" else outlet_svg(60) if l.get("card") == "outlet" else solarpanel_svg(60) if l.get("card") == "solar" else windturbine_svg(60) if l.get("card") == "wind" else internet_svg(60) if l.get("card") == "internet" else cellsignal_svg(60) if l.get("card") == "signal" else gps_svg(60) if l.get("card") == "gps" else l["icon"]
     unit_sections, nav = [], []
     done = sum(len(u["lessons"]) for u in HTW["units"])
     total = done + sum(len(u.get("planned", [])) for u in HTW["units"])

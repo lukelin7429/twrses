@@ -3024,15 +3024,525 @@
               "url": "https://doi.org/10.1016/j.envint.2024.108983"
             }
           ]
+        },
+        {
+          "n": 7,
+          "slug": "gps",
+          "title": "How Does GPS Know Where You Are?",
+          "title_zh": "GPS 怎麼知道你在哪裡？",
+          "level": "入門 · Beginner",
+          "icon": "🛰️",
+          "card": "gps",
+          "blurb_en": "Satellites 20,200 kilometers up keep telling the time. Turn a 3D Earth, watch circles from one, two, three, and four satellites meet at Changhua, then put the phone's clock off and see the blue dot go wrong.",
+          "blurb_zh": "兩萬公里高的衛星不停報時。轉動 3D 地球，看一、二、三、四顆衛星畫出的圓交在彰化，再讓手機的時鐘差一點點，看藍點跑掉多遠。",
+          "big_idea_en": "GPS satellites keep broadcasting the exact time and where they are. Your phone measures how long each signal took to arrive, which tells it how far away each satellite is, and the place where those distances all meet is where you are.",
+          "big_idea_zh": "GPS 衛星不停廣播「現在幾點、我在哪裡」。手機量出每個訊號花了多少時間才到，就知道離每顆衛星多遠；幾顆衛星的距離交會的那一點，就是你的位置。",
+          "lab": {
+            "kind": "gps",
+            "eyebrow": "3D Model · 3D 模型",
+            "title_en": "Finding You from Space",
+            "title_zh": "從太空找到你",
+            "how_en": "Drag to turn Earth, and scroll or pinch to zoom. Choose how many satellites your phone uses, from one to four, and watch their circles on Earth's surface. Then slide the phone's clock error and see the circles miss and the blue dot go wrong, until the fourth satellite fixes it. Turn on the close-up to look at Taiwan.",
+            "how_zh": "拖曳可以旋轉地球，滾輪或雙指可以縮放。選手機要用幾顆衛星（一到四顆），看它們在地表畫出的圓；再拉動「手機時鐘誤差」，看圓交不在一點、藍點跑掉，直到第四顆衛星把它校正回來。打開「近看台灣」可以拉近看。",
+            "legend": [
+              {
+                "cls": "gcircle",
+                "en": "Colored circles: every place on a circle is the measured distance from that satellite",
+                "zh": "彩色圓：圓上每一個地方，離那顆衛星都是量到的那個距離"
+              },
+              {
+                "cls": "gsat",
+                "en": "Satellites: colored ones are in use, white ones are in view, gray ones are below the horizon",
+                "zh": "衛星：彩色是正在用的、白色是看得到的、灰色在地平線以下"
+              },
+              {
+                "cls": "gpin",
+                "en": "Red pin: where you really are, in Changhua",
+                "zh": "紅色圖釘：你真正的位置（彰化）"
+              },
+              {
+                "cls": "gdot",
+                "en": "Blue dot: where the phone calculates you are",
+                "zh": "藍點：手機算出來的位置"
+              }
+            ],
+            "scale_en": "Earth and the GPS orbits are to scale: the orbits are about 4.2 times Earth's radius from its center. The satellites are drawn far bigger than real, they move about 290 times faster, and the signals are slowed down about 20 times. The 24 satellites follow GPS's basic design of six orbits with four satellites each, but their places are not today's real positions. Earth's spin is not shown, and Earth is drawn as a perfect sphere.",
+            "scale_zh": "地球與 GPS 軌道照比例：軌道離地心約 4.2 倍地球半徑。衛星畫得比真的大很多、繞得快約 290 倍，訊號則放慢約 20 倍。24 顆衛星照 GPS 的基本設計（6 個軌道、各 4 顆），但位置不是今天真實衛星的位置。地球自轉沒有畫出來，地球也畫成正圓球。",
+            "credit_html": "Model drawn by My Culture Connect as a teaching diagram. Coastlines from <a href=\"https://www.naturalearthdata.com/\" target=\"_blank\" rel=\"noopener\">Natural Earth</a> (public domain); orbit facts from <a href=\"https://archive.gps.gov/systems/gps/space/\" target=\"_blank\" rel=\"noopener\">GPS.gov</a>. The position math is the same idea real receivers use: distances from the travel time, plus the phone's clock error as a fourth unknown. · 模型由人師教育協會自繪示意；海岸線用 Natural Earth（公有領域），軌道數字依 GPS.gov。定位的算法和真正的接收器同一個概念：用訊號時間算距離，再把手機的時鐘誤差當成第四個未知數。"
+          },
+          "paras": [
+            "Open a map app, and a blue dot shows where you are, even on a quiet farm road in Changhua. Sometimes a light blue circle surrounds the dot, and the smaller the circle, the surer the app is. Walk between tall buildings, and the dot may jump to the next street. Nobody typed in your address. So how does your phone know where you are? It listens to satellites more than 20,000 kilometers above your head.",
+            "GPS stands for Global Positioning System. The United States military started the project in 1973 and launched the first satellite in 1978. At first, ordinary users got a signal that was blurred on purpose, so it was less accurate. On May 1, 2000, the United States turned the blurring off, and since then everyone gets the accurate signal for free. The system needs at least 24 satellites, and for more than ten years about 31 have been working. They fly about 20,200 kilometers up, and each one circles Earth twice a day.",
+            "Each GPS satellite carries several atomic clocks, which are extremely precise, and keeps broadcasting a simple message: which satellite it is, exactly where it is, and the exact time it sent the message. Your phone never sends anything back. It only listens. The signal is a radio wave, so it travels at the speed of light. From a satellite straight overhead, it takes about 0.07 seconds to reach you. Your phone compares the time in the message with the time the signal arrived, and travel time multiplied by the speed of light gives the distance to that satellite.",
+            "One distance is not enough. If you are 21,000 kilometers from one satellite, you could be anywhere on a huge circle on Earth's surface. A second satellite draws a second circle, and the two circles cross at only two points. A third satellite's circle passes through just one of them, and that point is you. Finding a place by measuring distances like this is called trilateration. It uses distances, not angles.",
+            "There is a catch. Light travels about 300 meters in one millionth of a second, so a tiny clock error turns into a big mistake. Your phone has a cheap quartz clock, not an atomic one. The fix is a fourth satellite. With four distances, the phone can work out its position and its own clock error at the same time. That is why GPS needs at least four satellites. Even Einstein matters here: the satellites are high up, where gravity is weaker, and they move fast, so their clocks would gain about 38 microseconds a day. Light travels about 11 kilometers in that time, so engineers set the satellite clocks to tick a tiny bit slower before launch.",
+            "Today your phone listens to more than GPS. Many phones also use Europe's Galileo, China's BeiDou, Russia's GLONASS, and Japan's QZSS, which serves the Asia-Oceania region. More satellites in view mean a better fix between tall buildings. Indoors, where satellite signals are weak, phones also use Wi-Fi and the cell towers from Lesson 6. Under open sky, a phone's GPS is usually accurate to about 5 meters. Near tall buildings, signals bounce off walls and travel farther, so the distances come out wrong and the blue dot drifts."
+          ],
+          "paras_zh": [
+            "打開地圖 App，一個藍點就標出你在哪裡，就算是在彰化安靜的田間小路上也一樣。有時候藍點外面還有一圈淺藍色的圓，圓越小，代表 App 越確定。走到高樓之間，藍點可能跳到隔壁那條街。沒有人輸入你的地址，手機到底怎麼知道你在哪裡？答案是：它在聽頭頂兩萬多公里高的衛星。",
+            "GPS 是「全球定位系統」的英文縮寫。美國軍方在 1973 年開始這個計畫，1978 年發射第一顆衛星。一開始，一般民眾收到的訊號被故意弄模糊，比較不準。2000 年 5 月 1 日，美國把這個模糊關掉，從此每個人都能免費收到準確的訊號。這個系統至少需要 24 顆衛星，十多年來大約一直有 31 顆在運作。它們飛在約 20,200 公里的高空，每顆一天繞地球兩圈。",
+            "每顆 GPS 衛星都帶著好幾個原子鐘，準得不得了，而且不停廣播一則簡單的訊息：我是哪一顆衛星、我現在的確切位置、這則訊息送出的確切時間。你的手機從來不回傳任何東西，它只負責聽。這個訊號是無線電波，以光速前進；從正上方的衛星傳下來，大約 0.07 秒到達。手機比對訊息裡的時間和訊號到達的時間，用「走了多久」乘上光速，就得到離那顆衛星多遠。",
+            "只有一段距離還不夠。如果你離一顆衛星 21,000 公里，你可能在地表上一個巨大的圓上的任何一點。第二顆衛星畫出第二個圓，兩個圓只交在兩個點。第三顆衛星的圓只通過其中一點，那一點就是你。像這樣量距離來找出位置，叫做「三邊定位」：用的是距離，不是角度。",
+            "但有個難題：光在百萬分之一秒裡就走了約 300 公尺，時鐘只要差一點點，位置就錯很多。手機裡的是便宜的石英鐘，不是原子鐘。解決辦法是第四顆衛星：有了四段距離，手機就能同時算出自己的位置和自己的時鐘誤差。這就是 GPS 至少需要四顆衛星的原因。連愛因斯坦都派上用場：衛星在高空，重力比較弱，又飛得很快，所以它們的時鐘每天會快約 38 微秒。光在這段時間能走約 11 公里，所以工程師在發射前，先把衛星的時鐘調得慢一點點。",
+            "今天的手機不只聽 GPS。很多手機也用歐洲的伽利略（Galileo）、中國的北斗、俄羅斯的格洛納斯（GLONASS），以及服務亞洲與大洋洲地區的日本準天頂衛星（QZSS）。看得到的衛星越多，在高樓之間就定得越準。在室內，衛星訊號很弱，手機還會用 Wi-Fi 和第六課講的基地台幫忙。在空曠的地方，手機的 GPS 通常準到約 5 公尺以內；在高樓旁邊，訊號會在牆上反彈、多走一段路，距離就算錯了，藍點也就跟著飄。"
+          ],
+          "questions": [
+            "What message does each GPS satellite keep broadcasting?",
+            "How does your phone turn a signal's travel time into a distance?",
+            "Why does GPS need at least four satellites?"
+          ],
+          "answers": [
+            "Which satellite it is, exactly where it is, and the exact time it sent the message.",
+            "It multiplies the travel time by the speed of light.",
+            "Three distances could find your position if the phone's clock were perfect, but phones have cheap clocks. A fourth distance lets the phone work out its own clock error too."
+          ],
+          "vocab": [
+            {
+              "n": 1,
+              "w": "satellite",
+              "pos": "n.",
+              "zh": "衛星",
+              "ex": "The weather <b>satellite</b> sends pictures of clouds back to Earth.",
+              "exzh": "氣象衛星把雲的照片傳回地球。"
+            },
+            {
+              "n": 2,
+              "w": "orbit",
+              "pos": "v.",
+              "zh": "繞著……運行",
+              "ex": "The Moon takes about a month to <b>orbit</b> Earth.",
+              "exzh": "月亮大約要一個月才繞地球一圈。"
+            },
+            {
+              "n": 3,
+              "w": "broadcast",
+              "pos": "v.",
+              "zh": "廣播；播送",
+              "ex": "The radio station <b>broadcasts</b> music all night.",
+              "exzh": "這個廣播電台整晚播放音樂。"
+            },
+            {
+              "n": 4,
+              "w": "location",
+              "pos": "n.",
+              "zh": "位置",
+              "ex": "Please share your <b>location</b> so we can pick you up.",
+              "exzh": "請分享你的位置，我們好去接你。"
+            },
+            {
+              "n": 5,
+              "w": "distance",
+              "pos": "n.",
+              "zh": "距離",
+              "ex": "The <b>distance</b> from my home to school is two kilometers.",
+              "exzh": "我家到學校的距離是兩公里。"
+            },
+            {
+              "n": 6,
+              "w": "measure",
+              "pos": "v.",
+              "zh": "測量",
+              "ex": "We <b>measured</b> the classroom with a tape measure.",
+              "exzh": "我們用捲尺量了教室。"
+            },
+            {
+              "n": 7,
+              "w": "accurate",
+              "pos": "adj.",
+              "zh": "準確的",
+              "ex": "Make sure your answer is <b>accurate</b> before you hand it in.",
+              "exzh": "交出去之前，先確定答案是準確的。"
+            },
+            {
+              "n": 8,
+              "w": "reflect",
+              "pos": "v.",
+              "zh": "反射",
+              "ex": "The calm lake <b>reflects</b> the mountains like a mirror.",
+              "exzh": "平靜的湖面像鏡子一樣映出群山。"
+            }
+          ],
+          "quiz": [
+            {
+              "q": "What does your phone send to the GPS satellites?",
+              "options": [
+                "Nothing; it only listens",
+                "Your name and address",
+                "A photo of the street",
+                "The time on your phone"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "About how high do GPS satellites fly?",
+              "options": [
+                "About 20,200 kilometers",
+                "About 20 kilometers",
+                "About 2,000 meters",
+                "About 384,000 kilometers"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "Your phone knows its distance from only one satellite. Where could you be?",
+              "options": [
+                "Anywhere on a circle",
+                "At exactly one point",
+                "Only at the North Pole",
+                "Nowhere on Earth"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "Why does GPS need at least four satellites?",
+              "options": [
+                "The phone also has to work out its own clock error",
+                "Each satellite works only six hours a day",
+                "Satellites must take turns sending signals",
+                "Four satellites are needed to see in the dark"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "Why can the blue dot drift between tall buildings?",
+              "options": [
+                "Signals bounce off walls and travel farther",
+                "Buildings make satellites move faster",
+                "Satellites cannot see cities",
+                "Phones turn off GPS in cities"
+              ],
+              "correct": 0
+            }
+          ],
+          "parts_head": {
+            "eyebrow": "Try It in the Model · 在模型裡試試",
+            "en": "Four steps to find you",
+            "zh": "四步找到你"
+          },
+          "parts": [
+            {
+              "key": "one",
+              "icon": "🛰️",
+              "en": "One satellite: a circle",
+              "zh": "一顆衛星：一個圓",
+              "meta_en": "About 20,000 km away",
+              "meta_zh": "大約兩萬公里遠",
+              "demo": "one",
+              "text_en": "One distance only tells you that you are somewhere on a huge circle on Earth's surface.",
+              "text_zh": "一段距離只能告訴你：你在地表上一個巨大的圓上的某一點。"
+            },
+            {
+              "key": "three",
+              "icon": "🎯",
+              "en": "Three satellites: one point",
+              "zh": "三顆衛星：一個點",
+              "meta_en": "Trilateration",
+              "meta_zh": "三邊定位",
+              "demo": "three",
+              "text_en": "Three circles cross at just one place on Earth's surface, and that place is you.",
+              "text_zh": "三個圓在地表上只交在一個地方，那裡就是你。"
+            },
+            {
+              "key": "clock",
+              "icon": "⏱️",
+              "en": "A clock off by 1/1,000 second",
+              "zh": "時鐘差千分之一秒",
+              "meta_en": "Every distance 300 km too long",
+              "meta_zh": "每段距離多算 300 公里",
+              "demo": "clock",
+              "text_en": "The three circles miss each other, and the blue dot lands hundreds of kilometers away.",
+              "text_zh": "三個圓互相錯開，藍點落在幾百公里外。"
+            },
+            {
+              "key": "four",
+              "icon": "✅",
+              "en": "The fourth satellite fixes it",
+              "zh": "第四顆衛星來校正",
+              "meta_en": "Position + time",
+              "meta_zh": "位置＋時間",
+              "demo": "four",
+              "text_en": "With one more distance, the phone works out its own clock error, and the circles meet at you again.",
+              "text_zh": "多一段距離，手機就能算出自己的時鐘誤差，圓又交回你身上。"
+            }
+          ],
+          "parts_note_en": "Your phone does this again and again, with even more satellites, whenever you open a map.",
+          "parts_note_zh": "每次打開地圖，手機都在一次又一次做這件事，而且用的衛星比這還多。",
+          "facts": {
+            "eyebrow": "GPS by the Numbers · GPS 的數字",
+            "en": "Numbers behind the blue dot",
+            "zh": "藍點背後的數字",
+            "lead_en": "Every one of these numbers is part of putting your blue dot in the right place.",
+            "lead_zh": "每一個數字，都是把藍點放對位置的一部分。",
+            "items": [
+              {
+                "big": "31",
+                "unit_en": "satellites working",
+                "unit_zh": "顆衛星在運作",
+                "en": "At least 24 are needed; for more than ten years, about 31 have been kept working.",
+                "zh": "至少需要 24 顆；十多年來一直維持約 31 顆在運作。"
+              },
+              {
+                "big": "20,200",
+                "unit_en": "km above Earth",
+                "unit_zh": "公里高",
+                "en": "Each GPS satellite circles Earth twice a day.",
+                "zh": "每顆 GPS 衛星一天繞地球兩圈。"
+              },
+              {
+                "big": "0.07",
+                "unit_en": "seconds",
+                "unit_zh": "秒",
+                "en": "Time for a signal from a satellite straight overhead to reach you at the speed of light.",
+                "zh": "正上方衛星的訊號，以光速傳到你這裡所花的時間。"
+              },
+              {
+                "big": "300",
+                "unit_en": "meters per microsecond",
+                "unit_zh": "公尺／微秒",
+                "en": "A clock off by one millionth of a second makes a distance about 300 meters wrong.",
+                "zh": "時鐘差百萬分之一秒，距離就差約 300 公尺。"
+              },
+              {
+                "big": "38",
+                "unit_en": "microseconds a day",
+                "unit_zh": "微秒／天",
+                "en": "How much faster the satellite clocks would run because of relativity if engineers did not adjust them.",
+                "zh": "因為相對論，衛星時鐘若不調整，每天會快這麼多。"
+              },
+              {
+                "big": "4.9",
+                "unit_en": "meters",
+                "unit_zh": "公尺",
+                "en": "A smartphone's GPS is typically accurate to within this distance under open sky.",
+                "zh": "在空曠處，手機 GPS 通常準到這個距離以內。"
+              }
+            ]
+          },
+          "myths": [
+            {
+              "myth_en": "Your phone sends your location to the GPS satellites.",
+              "myth_zh": "手機會把你的位置傳給 GPS 衛星。",
+              "fact_en": "GPS signals go one way. The satellites only broadcast, and your phone only listens, so the satellites never know where you are.",
+              "fact_zh": "GPS 訊號是單向的：衛星只負責廣播、手機只負責聽，所以衛星根本不知道你在哪裡。"
+            },
+            {
+              "myth_en": "GPS needs mobile data or the internet.",
+              "myth_zh": "GPS 要有行動數據或網路才能用。",
+              "fact_en": "Your phone can find its position from satellite signals alone, for free. The map pictures may need the internet, unless you download them ahead of time.",
+              "fact_zh": "手機只靠衛星訊號就能定位，而且免費；需要網路的通常是地圖的圖資，事先下載離線地圖就不用。"
+            },
+            {
+              "myth_en": "GPS finds you by measuring angles to three satellites.",
+              "myth_zh": "GPS 是量三顆衛星的角度來找到你。",
+              "fact_en": "GPS measures distances, not angles, from the signals' travel time. And it needs at least four satellites, because the phone's clock is not perfect.",
+              "fact_zh": "GPS 量的是距離，不是角度，靠的是訊號走了多久；而且至少要四顆衛星，因為手機的時鐘並不完美。"
+            },
+            {
+              "myth_en": "The blue dot is always exactly right.",
+              "myth_zh": "藍點永遠準確無誤。",
+              "fact_en": "Under open sky a phone is usually within about 5 meters, but buildings, bridges, and trees can block or bounce the signals. The light blue circle shows how unsure the app is.",
+              "fact_zh": "在空曠處手機通常準到約 5 公尺以內，但大樓、橋和樹會擋住或反彈訊號。藍點外的淺藍色圓，就是 App 不確定的範圍。"
+            }
+          ],
+          "tricks": [
+            {
+              "title_en": "Time is distance",
+              "title_zh": "時間就是距離",
+              "body_en": "Travel time × speed of light = how far away the satellite is.",
+              "body_zh": "訊號走的時間 × 光速 ＝ 衛星離你多遠。"
+            },
+            {
+              "title_en": "One circle, two points, one place",
+              "title_zh": "一個圓、兩個點、一個位置",
+              "body_en": "Each satellite adds a circle, and three circles meet at just one point.",
+              "body_zh": "每顆衛星加一個圓，三個圓只交在一點。"
+            },
+            {
+              "title_en": "Three for where, one for when",
+              "title_zh": "三顆定位置，一顆對時間",
+              "body_en": "The fourth satellite lets your phone fix its own clock.",
+              "body_zh": "第四顆衛星讓手機校正自己的時鐘。"
+            },
+            {
+              "title_en": "One microsecond, 300 meters",
+              "title_zh": "差一微秒，差 300 公尺",
+              "body_en": "Light is so fast that a tiny clock error becomes a big distance error.",
+              "body_zh": "光太快了，時鐘差一點點，距離就差很多。"
+            }
+          ],
+          "safety": [
+            {
+              "en": "On a hike, never rely on your phone's GPS alone. Batteries run out, and the dot can drift in deep valleys. Download offline maps, carry a power bank and a paper map, and tell your family your route.",
+              "zh": "登山不能只靠手機 GPS：手機會沒電，在深谷裡藍點也會飄。事先下載離線地圖、帶行動電源和紙本地圖，並把路線告訴家人。"
+            },
+            {
+              "en": "Do not stare at a map while you walk. Stop in a safe place, check the map, and then keep going. Never use a phone while crossing a street or riding a bike or scooter.",
+              "zh": "走路時不要盯著地圖。先停在安全的地方看地圖，再繼續走。過馬路、騎腳踏車或機車時絕不用手機。"
+            },
+            {
+              "en": "Share your live location only with people you trust, such as your family, and turn sharing off when you no longer need it.",
+              "zh": "即時位置只分享給信任的人，例如家人；不需要時就關掉分享。"
+            },
+            {
+              "en": "Ask a parent before you let an app use your location, and check in your phone's settings which apps can see it.",
+              "zh": "讓 App 使用你的位置之前先問家長，也到手機設定裡看看有哪些 App 看得到你的位置。"
+            },
+            {
+              "en": "If you get lost, stop, stay calm, and call 112. Describe what you can see around you.",
+              "zh": "迷路時先停下來、保持冷靜，撥 112，說出你身邊看得到的東西。"
+            }
+          ],
+          "activities": [
+            {
+              "title_en": "Find the Hidden Town with Three Circles",
+              "title_zh": "用三個圓找出藏起來的城鎮",
+              "materials": [
+                {
+                  "en": "A printed map of Taiwan with a scale bar",
+                  "zh": "一張有比例尺的台灣地圖"
+                },
+                {
+                  "en": "A drawing compass and a ruler",
+                  "zh": "圓規和尺"
+                },
+                {
+                  "en": "Colored pencils",
+                  "zh": "色鉛筆"
+                }
+              ],
+              "steps": [
+                {
+                  "en": "The teacher secretly picks a town on the map and tells the class only its distance from three cities, such as Taichung, Tainan, and Hualien.",
+                  "zh": "老師偷偷在地圖上選一個城鎮，只告訴全班它離三個城市（例如台中、台南、花蓮）各多遠。"
+                },
+                {
+                  "en": "Use the scale bar to open the compass to each distance, and draw a circle around each city in a different color.",
+                  "zh": "用比例尺把圓規張開到每一段距離，以每個城市為圓心，用不同顏色畫圓。"
+                },
+                {
+                  "en": "Where do all three circles cross? That is the hidden town. With only two circles, how many possible places are there?",
+                  "zh": "三個圓交在哪裡？那就是藏起來的城鎮。如果只有兩個圓，有幾個可能的地方？"
+                },
+                {
+                  "en": "Now the teacher adds the same extra distance to every number, like a clock that runs fast. Draw the circles again. Do they still meet? Shrink all three by the same amount until they do, just as the fourth satellite helps a phone do.",
+                  "zh": "接著老師把每段距離都多加同樣的長度，就像時鐘走快了。再畫一次：三個圓還交在一點嗎？把三個圓縮小同樣的長度，直到交在一起，這就是第四顆衛星幫手機做的事。"
+                }
+              ],
+              "tip_en": "Compass points are sharp. Keep them on the paper, and never point them at anyone.",
+              "tip_zh": "圓規的針很尖，只能放在紙上，絕對不要對著別人。"
+            },
+            {
+              "title_en": "Watch Your Blue Dot",
+              "title_zh": "觀察你的藍點",
+              "materials": [
+                {
+                  "en": "An adult's phone with a map app",
+                  "zh": "一支裝有地圖 App 的大人手機"
+                },
+                {
+                  "en": "A notebook and a pencil",
+                  "zh": "筆記本和鉛筆"
+                }
+              ],
+              "steps": [
+                {
+                  "en": "With an adult, open the map app in the middle of the playground and wait 30 seconds. Look at the size of the light blue circle around the dot.",
+                  "zh": "和大人一起，在操場正中央打開地圖 App，等 30 秒，看看藍點外淺藍色圓的大小。"
+                },
+                {
+                  "en": "Then stand next to a tall building, under a big tree, and just inside a doorway. Each time, notice whether the light blue circle grows or the dot moves.",
+                  "zh": "再分別站到高樓旁、大樹下、門口內側，每次都看看淺藍色的圓有沒有變大、藍點有沒有移動。"
+                },
+                {
+                  "en": "Make a table: the place, the circle size (small, medium, or large), and whether the dot jumped.",
+                  "zh": "做一張表：地點、圓的大小（小、中、大）、藍點有沒有跳。"
+                },
+                {
+                  "en": "Talk about it: where was the dot best, and why? Think about walls and roofs that block or reflect the signals.",
+                  "zh": "討論：哪裡的藍點最準？為什麼？想想牆壁和屋頂怎麼擋住或反射訊號。"
+                }
+              ],
+              "tip_en": "Stay on school grounds with an adult, and stop walking whenever you look at the screen.",
+              "tip_zh": "和大人一起待在校園裡，看螢幕的時候就停下腳步。"
+            }
+          ],
+          "sources": [
+            {
+              "en": "GPS satellites transmit one-way signals that give their position and time",
+              "zh": "GPS 衛星送出單向訊號，告訴你它的位置與時間",
+              "src": "GPS.gov, “GPS Overview”",
+              "url": "https://archive.gps.gov/systems/gps/"
+            },
+            {
+              "en": "At least 24 satellites committed, 31 flown for more than a decade, about 20,200 km up, twice a day, six orbital planes",
+              "zh": "至少 24 顆、十多年來 31 顆、高約 20,200 公里、每天兩圈、六個軌道面",
+              "src": "GPS.gov, “Space Segment”",
+              "url": "https://archive.gps.gov/systems/gps/space/"
+            },
+            {
+              "en": "Each GPS satellite contains multiple atomic clocks",
+              "zh": "每顆 GPS 衛星都有好幾個原子鐘",
+              "src": "GPS.gov, “Timing”",
+              "url": "https://archive.gps.gov/applications/timing/"
+            },
+            {
+              "en": "Smartphones typically within 4.9 m under open sky; buildings, trees, and reflections (multipath) degrade accuracy",
+              "zh": "手機在空曠處通常在 4.9 公尺內；大樓、樹木與反射（多路徑）會讓它變不準",
+              "src": "GPS.gov, “GPS Accuracy”",
+              "url": "https://archive.gps.gov/systems/gps/performance/accuracy/"
+            },
+            {
+              "en": "Project began in 1973, first satellite 1978, Selective Availability turned off on May 1, 2000; four unknowns (x, y, z, and clock bias)",
+              "zh": "1973 年開始、1978 年第一顆衛星、2000 年 5 月 1 日關掉「選擇可用性」；四個未知數（位置三個加時鐘誤差）",
+              "src": "Wikipedia, “Global Positioning System”",
+              "url": "https://en.wikipedia.org/wiki/Global_Positioning_System"
+            },
+            {
+              "en": "A receiver needs distances from four or more satellites",
+              "zh": "接收器需要四顆以上衛星的距離",
+              "src": "NASA Space Place, “What Is GPS?”",
+              "url": "https://spaceplace.nasa.gov/gps/en/"
+            },
+            {
+              "en": "Relativity: satellite clocks gain 45 µs a day from weaker gravity and lose 7 µs from speed, 38 µs in all",
+              "zh": "相對論：重力較弱快 45 微秒、速度造成慢 7 微秒，每天共快 38 微秒",
+              "src": "Richard Pogge, The Ohio State University",
+              "url": "https://www.astronomy.ohio-state.edu/pogge.1/Ast162/Unit5/gps.html"
+            },
+            {
+              "en": "The satellite clocks are set to run slightly slow before launch (10.22999999543 MHz instead of 10.23 MHz)",
+              "zh": "衛星時鐘在發射前就調慢一點（10.22999999543 MHz，而不是 10.23 MHz）",
+              "src": "Wikipedia, “Error analysis for the Global Positioning System”",
+              "url": "https://en.wikipedia.org/wiki/Error_analysis_for_the_Global_Positioning_System"
+            },
+            {
+              "en": "Japan's QZSS (Michibiki) works together with GPS and serves the Asia-Oceania region",
+              "zh": "日本準天頂衛星（QZSS，引路號）和 GPS 一起使用，服務亞洲與大洋洲",
+              "src": "Cabinet Office, Japan (qzss.go.jp)",
+              "url": "https://qzss.go.jp/en/overview/services/sv01_what.html"
+            },
+            {
+              "en": "Example phone using GPS, GLONASS, Galileo, QZSS, and BeiDou",
+              "zh": "手機同時使用 GPS、格洛納斯、伽利略、準天頂、北斗的例子",
+              "src": "Apple, “iPhone 16 – Tech Specs”",
+              "url": "https://support.apple.com/en-us/121029"
+            },
+            {
+              "en": "Phones also use Wi-Fi, mobile network towers, and sensors to find their location",
+              "zh": "手機也用 Wi-Fi、行動網路基地台和感測器來定位",
+              "src": "Google, Android Help, “How Location Accuracy improves location”",
+              "url": "https://support.google.com/android/answer/15157297"
+            },
+            {
+              "en": "The blue dot and the light blue circle that shows how sure the map is",
+              "zh": "藍點，以及表示地圖有多確定的淺藍色圓",
+              "src": "Google Maps Help",
+              "url": "https://support.google.com/maps/answer/2839911"
+            }
+          ]
         }
       ],
       "planned": [
-        {
-          "n": 7,
-          "icon": "🛰️",
-          "en": "How Does GPS Know Where You Are?",
-          "zh": "GPS 怎麼知道你在哪裡？"
-        },
         {
           "n": 8,
           "icon": "💾",
