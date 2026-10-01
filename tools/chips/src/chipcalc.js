@@ -46,7 +46,7 @@ export const siResistivity = (type, N = 0) => 1 / siConductivity(type, N);
 export const dopantsFromRatio = (oneIn) => SI_ATOMS / oneIn;
 export function atomsPerFreeCarrier(type, N = 0) {
   const { n, p } = carriers(type, N);
-  return SI_ATOMS / (type === 'p' ? p : type === 'n' ? n : n + p);
+  return SI_ATOMS / (type === 'p' ? p : n);   // 純矽也只數自由電子（電洞一樣多，但標籤寫的是電子）
 }
 /** 滑桿 0–70 → 每幾個矽原子換一個（10¹¹ … 10⁴，每 10 格差 10 倍） */
 export const AMT_MAX = 70;

@@ -50,8 +50,8 @@ assert.ok(dim > 0.02 && dim < 0.3, `百億分之一：微亮（${dim}）`);
 
 // 滑桿：0 → 1/10¹¹、50 → 1/10⁶、70 → 1/10⁴
 near(oneInFromSlider(0), 1e11, 1e-9, '滑桿 0'); near(oneInFromSlider(50), 1e6, 1e-9, '滑桿 50'); near(oneInFromSlider(70), 1e4, 1e-9, '滑桿 70');
-// 每幾個原子一個自由電子：純矽約 5 兆、摻雜時＝摻雜比例
-near(atomsPerFreeCarrier('pure'), SI_ATOMS / 2e10, 1e-9, '純矽 2.5 兆');
+// 每幾個原子一個自由電子：純矽 5 兆、摻雜時＝摻雜比例
+near(atomsPerFreeCarrier('pure'), 5e12, 1e-9, '純矽：每 5 兆個原子 1 個自由電子');
 near(atomsPerFreeCarrier('n', N6), 1e6, 1e-6, 'N 型＝1/1,000,000');
 
 // 格式
