@@ -812,3 +812,54 @@
 .dl-bd .zh { display: block; font-size: .9rem; color: #cfd8ea; }
 .dl-bd p { margin: .45rem 0 0; font-size: .82rem; line-height: 1.6; color: #e8edf7; font-variant-numeric: tabular-nums; }
 @media (max-width: 760px) { .dl-bd-grid { grid-template-columns: 1fr; } }
+
+/* =========================================================
+   第十一課：流星雨（.mt-lab、八大流星雨卡、接下來的流星雨）
+   ========================================================= */
+.mt-lab .al-stage { grid-template-columns: minmax(0, 1fr) 360px; }
+.mt-lab .se-chips { grid-template-columns: repeat(8, minmax(0, 1fr)); }
+.mt-lab .se-chips .meteor-svg { width: 26px; height: 26px; }
+.mt-hour { display: flex; flex-wrap: wrap; gap: .25rem; margin: 0 0 .5rem; padding: 3px; border-radius: 14px; background: rgba(255,255,255,.05); border: 1px solid var(--al-line); }
+.mt-hour button { flex: 1 1 auto; font-size: .7rem; padding: .3rem .5rem; }
+.mt-aside .se-fig figcaption span, .mt-readout dd span { display: block; font-family: var(--zh); font-weight: 500; font-size: .74rem; color: var(--al-mute); }
+.mt-aside .se-fig figcaption { font-size: .74rem; color: var(--al-text); font-weight: 700; }
+.mt-readout dd { line-height: 1.35; }
+.mt-note { margin: .2rem 0 .2rem; }
+.mt-note span, .mt-date span { display: inline; margin-left: .5rem; }
+.al-lab.mt-earth { color: #cfe2ff; border-color: rgba(79,156,255,.55); }
+.al-lab.mt-mark { color: #1b1405; background: var(--al-sun); border: 0; font-weight: 800; font-size: .66rem; }
+.al-lab.mt-parent { font-size: .64rem; color: #fff1d0; }
+.al-lab.mt-fwd { font-size: .62rem; color: #9fe8de; border-color: rgba(79,209,197,.55); }
+.al-lg-mt-dust i { border: 0; width: 20px; height: 8px; margin-top: .4rem; background: radial-gradient(circle, #ffc27a 0 1.5px, transparent 2px) 0 0/5px 4px; }
+.al-lg-mt-ring i { border: 2px solid var(--al-sun); }
+.al-lg-mt-streak i { border: 0; border-radius: 1px; width: 18px; height: 2px; margin-top: .6rem; background: #fff1b0; transform: rotate(-25deg); }
+@media (max-width: 1020px) {
+  .mt-lab .al-stage { grid-template-columns: 1fr; }
+  .mt-aside { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); column-gap: 1.2rem; align-items: start; }
+  .mt-aside .al-sky-k { grid-column: 1 / -1; }
+  .mt-aside .se-fig, .mt-aside .mt-hour { grid-column: 1; max-width: none; }
+  .mt-aside .mt-readout { grid-column: 2; grid-row: 2 / 4; margin-top: 0; }
+}
+@media (max-width: 640px) {
+  .mt-aside { display: block; }
+  .mt-aside .se-fig { max-width: 360px; margin-inline: auto; }
+  .mt-lab .se-chips { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: .3rem; }
+  .mt-lab .se-chips .al-chip-en { font-size: .58rem; }
+  .mt-lab .ec-jump button { flex: 1 1 40%; }
+  .mt-lab .al-speed button { padding: .32rem .5rem; font-size: .7rem; }
+  .mt-lab .al-lab.mt-parent { display: none; }
+  .mt-note span, .mt-date span { display: block; margin-left: 0; }
+}
+/* 接下來的流星雨 */
+.mt-tbl td { vertical-align: top; font-variant-numeric: tabular-nums; }
+.mt-tbl td span { display: block; font-family: var(--zh); font-size: .8rem; color: var(--ink-soft); }
+.mt-tbl .mt-dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: .4rem; vertical-align: 0; }
+.mt-v-good .mt-dot { background: #2f9e6a; } .mt-v-fair .mt-dot { background: #e0a020; } .mt-v-poor .mt-dot { background: #c8553d; }
+.mt-tbl .mt-go { margin: 0; white-space: nowrap; }
+@media (max-width: 760px) {
+  .mt-tbl thead { display: none; }
+  .mt-tbl, .mt-tbl tbody, .mt-tbl tr, .mt-tbl td { display: block; width: 100%; }
+  .mt-tbl tr { padding: .7rem .2rem; border-bottom: 1px solid var(--line); }
+  .mt-tbl td { padding: .15rem .5rem; border: 0; }
+}
+.mt-readout dl div.ec-wide, .dl-readout dl div.ec-wide { grid-column: 1 / -1; }
