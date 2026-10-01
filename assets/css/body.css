@@ -627,3 +627,78 @@ button.bc-row:hover { transform: translateY(-2px); border-color: var(--gold); bo
   .ey-objs button, .ey-types button { font-size: .7rem; padding: .4rem .4rem; }
   .ey-mag { font-size: .64rem; right: 3.4rem; }
 }
+
+/* =========================================================
+   第九課：耳朵（data-ears-lab）；狀態框、按鈕列沿用第八課的 ey- 樣式
+   ========================================================= */
+.ea-lab .al-space { min-height: 700px; }
+.ea-aside { gap: .15rem; }
+.ea-pres { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .3rem; }
+.ea-pres button { display: flex; align-items: center; gap: .45rem; padding: .45rem .55rem; border-radius: 12px; border: 1px solid var(--al-line); background: rgba(255,255,255,.03); color: #fff; font-family: var(--sans); font-weight: 800; font-size: .76rem; text-align: left; line-height: 1.15; cursor: pointer; transition: background .2s, border-color .2s; }
+.ea-pres i { font-style: normal; font-size: 1.25rem; }
+.ea-pres small { display: block; font-family: var(--zh); font-weight: 600; font-size: .68rem; color: var(--al-mute); }
+.ea-pres button:hover { background: rgba(255,255,255,.07); }
+.ea-pres button[aria-pressed="true"] { border-color: #9fd8ff; background: rgba(159,216,255,.1); box-shadow: 0 0 0 1px #9fd8ff inset; }
+.ea-meter { margin: .7rem 0 .1rem; }
+.ea-meter-k { display: flex; flex-wrap: wrap; align-items: baseline; gap: .1rem .5rem; margin: .5rem 0 .25rem; font-size: .7rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--al-mute); }
+.ea-meter-k b { font-family: var(--serif); font-size: 1.15rem; letter-spacing: 0; text-transform: none; color: #fff; font-variant-numeric: tabular-nums; }
+.ea-meter-k em { font-style: normal; font-weight: 700; letter-spacing: .02em; text-transform: none; color: #b9f0c9; }
+.ea-loud .ea-db-w { color: #ff9a8a; }
+.ea-bar { position: relative; height: 10px; margin: 0 .3rem 1.25rem; border-radius: 999px; }
+.ea-bar > s { position: absolute; inset: 0; border-radius: inherit; text-decoration: none; }
+.ea-hzbar > s { background: linear-gradient(90deg, #ff5a5a, #ffb066, #ffe08a, #7ddc9a, #5ab4ff, #b07cff); }
+.ea-dbbar > s { background: linear-gradient(90deg, #2f6b4a 0, #7ddc9a 46%, #ffd36e 54%, #ffb066 65%, #ff5a5a 66%, #b0203a 100%); }
+.ea-bar > i { position: absolute; top: 12px; width: 1px; height: 5px; background: rgba(255,255,255,.35); }
+.ea-bar > i span { position: absolute; top: 5px; left: 50%; transform: translateX(-50%); white-space: nowrap; font-size: .6rem; font-weight: 700; color: var(--al-mute); }
+.ea-bar > i:first-of-type span { transform: none; left: 0; }
+.ea-bar > i:last-of-type span { transform: translateX(-100%); left: 0; }
+.ea-mark { position: absolute; top: 50%; width: 16px; height: 16px; margin: -8px 0 0 -8px; border-radius: 50%; background: #fff; border: 3px solid #0a1224; box-shadow: 0 0 0 2px #fff; transition: left .15s; }
+.ea-heard { position: absolute; left: 0; top: -4px; bottom: -4px; border-radius: 999px; border: 2px dashed #b9f0c9; pointer-events: none; }
+.ea-heard[hidden] { display: none; }
+.ea-more { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.ea-more button[aria-pressed="true"] { border-color: #9fd8ff; background: rgba(159,216,255,.12); box-shadow: 0 0 0 1px #9fd8ff inset; }
+
+/* 聽力測驗：左邊是 8–20 kHz 的階梯 */
+.ea-strip { display: grid; grid-template-columns: 210px minmax(0, 1fr); gap: 1rem 1.4rem; align-items: start; padding: 1rem 1.2rem 1.1rem; border-top: 1px solid var(--al-line); background: rgba(10,16,34,.6); }
+.ea-ladder { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .3rem; }
+.ea-ladder li { display: flex; align-items: baseline; justify-content: center; gap: .25rem; padding: .35rem .3rem; border-radius: 10px; border: 1px solid var(--al-line); background: rgba(255,255,255,.03); color: var(--al-mute); font-variant-numeric: tabular-nums; transition: background .2s, border-color .2s, color .2s; }
+.ea-ladder li b { font-family: var(--serif); font-size: 1.05rem; color: inherit; }
+.ea-ladder li span { font-size: .62rem; font-weight: 700; }
+.ea-ladder li.yes { color: #0c2416; background: #7ddc9a; border-color: #7ddc9a; }
+.ea-ladder li.no { color: #7f90b0; text-decoration: line-through; }
+.ea-ladder li.cur { color: #fff; border-color: #9fd8ff; box-shadow: 0 0 0 2px rgba(159,216,255,.4); animation: ea-pulse .7s ease-in-out infinite alternate; }
+@keyframes ea-pulse { from { background: rgba(159,216,255,.08); } to { background: rgba(159,216,255,.3); } }
+.ea-ht-text .al-sky-k { margin: 0 0 .4rem; }
+.ea-ht-msg { margin: 0; font-size: .88rem; line-height: 1.55; color: var(--al-text); min-height: 3.2em; }
+.ea-ht-msg .zh { display: block; color: var(--al-mute); margin-top: .15rem; }
+.ea-ht-msg b { color: #9fd8ff; }
+.ea-ht-btns button[hidden] { display: none; }
+.ea-ht-safe { margin: .8rem 0 0; padding: .45rem .6rem; border-radius: 10px; background: rgba(255,211,110,.08); font-size: .74rem; line-height: 1.5; color: var(--al-text); }
+.ea-ht-safe .zh { display: block; color: var(--al-mute); }
+
+.al-lab.ea-lb-b { color: #f6efdc; border-color: rgba(243,234,214,.5); }
+.al-lab.ea-lb-hi { color: #e3ccff; border-color: rgba(176,124,255,.6); }
+.al-lab.ea-lb-lo { color: #ffc4b8; border-color: rgba(255,90,90,.6); }
+.al-lab.ea-lb-a { color: #ffd9b0; border-color: rgba(255,176,102,.55); }
+.al-lg-air i { border: 0; background: radial-gradient(circle, #9fd8ff 0 28%, transparent 32%) 0 0 / 6px 6px; }
+.al-lg-ossicle i { border: 0; background: #f3ead6; border-radius: 40% 60% 50% 50%; }
+.al-lg-cmap i { border: 0; background: linear-gradient(90deg, #b07cff, #5ab4ff, #7ddc9a, #ffe08a, #ff5a5a); border-radius: 4px; }
+.al-lg-spot i { border: 0; background: radial-gradient(circle, #fff 0 25%, #fff3c8 40%, rgba(255,220,120,0) 72%); }
+.ea-hz-in::-webkit-slider-runnable-track { background: linear-gradient(90deg, #ff5a5a, #ffe08a, #7ddc9a, #5ab4ff, #b07cff); }
+.ea-hz-in::-moz-range-track { background: linear-gradient(90deg, #ff5a5a, #ffe08a, #7ddc9a, #5ab4ff, #b07cff); }
+.ea-db-in::-webkit-slider-runnable-track { background: linear-gradient(90deg, #2f6b4a, #7ddc9a 46%, #ffd36e 58%, #ff5a5a 66%, #b0203a); }
+.ea-db-in::-moz-range-track { background: linear-gradient(90deg, #2f6b4a, #7ddc9a 46%, #ffd36e 58%, #ff5a5a 66%, #b0203a); }
+
+@media (max-width: 1020px) {
+  .ea-lab .al-space { aspect-ratio: 1 / 1; min-height: 380px; max-height: 80vh; }
+  .ea-lab .ea-aside { display: block; }
+  .ea-lab .ea-aside > .al-sky-k:not(:first-child) { margin-top: .9rem; }
+  .ea-pres { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+@media (max-width: 640px) {
+  .ea-lab .al-space { min-height: 340px; }
+  .ea-pres { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .ea-more { grid-template-columns: 1fr; }
+  .ea-strip { grid-template-columns: 1fr; }
+  .ea-ladder { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+}

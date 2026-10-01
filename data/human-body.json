@@ -14,7 +14,23 @@
       "zh": "每一課也會請你在自己身上量一量、數一數，並附生字、閱讀理解、小測驗和課堂活動。本系列是教育用途，不是醫療建議。"
     }
   ],
-  "planned": [],
+  "planned": [
+    {
+      "icon": "🧴",
+      "en": "What Does Your Skin Do?",
+      "zh": "皮膚在做什麼？"
+    },
+    {
+      "icon": "🦷",
+      "en": "Why Do We Get Two Sets of Teeth?",
+      "zh": "為什麼會換牙？"
+    },
+    {
+      "icon": "🦠",
+      "en": "How Does Your Body Fight Germs?",
+      "zh": "身體怎麼對抗病菌？"
+    }
+  ],
   "lessons": [
     {
       "n": 1,
@@ -3816,6 +3832,461 @@
       },
       "health_en": "This lesson is for learning about the body. It is not medical advice. Never look straight at the Sun, even with sunglasses. If things suddenly look blurry, you see flashes or a dark shadow, or an eye hurts or gets hit, tell an adult right away. Have your eyes checked once a year.",
       "health_zh": "本課是認識身體的教材，不是醫療建議。絕對不要直視太陽，戴太陽眼鏡也不行。如果看東西突然變模糊、看到閃光或一片黑影，或眼睛疼痛、被撞到，請馬上告訴大人。每年做一次視力檢查。"
+    },
+    {
+      "n": 9,
+      "slug": "ears",
+      "title": "How Do Your Ears Hear?",
+      "title_zh": "耳朵怎麼聽見聲音？",
+      "level": "入門 · Beginner",
+      "icon": "👂",
+      "card": "ears",
+      "blurb_en": "Sound is air that shakes. Follow it through your eardrum and three tiny bones into a snail-shaped tube, and find the highest note you can still hear.",
+      "blurb_zh": "聲音是空氣在振動。跟著它穿過鼓膜和三塊小骨頭，走進蝸牛殼形狀的耳蝸，再找出你還聽得到的最高音。",
+      "big_idea_en": "Sound is air shaking. Your eardrum catches the shaking, three tiny bones pass it on, and the cochlea turns it into nerve signals: high sounds near its entrance, low sounds deep inside.",
+      "big_idea_zh": "聲音是空氣在振動：鼓膜接住振動，三塊小骨頭把它傳下去，耳蝸再把它變成神經訊號——高音在入口附近，低音在最裡面。",
+      "lab": {
+        "kind": "ears",
+        "eyebrow": "3D Model · 3D 模型",
+        "title_en": "Follow a Sound into Your Ear",
+        "title_zh": "跟著聲音走進耳朵",
+        "how_en": "Pick a sound, and watch the air shake its way down the ear canal, rock the three tiny bones, and light up the cochlea: high notes near the entrance, low notes at the tip. Change the pitch and the loudness, uncoil the cochlea to see the whole map, and spin around to see why you get dizzy. Then take the hearing test below the model.",
+        "how_zh": "選一個聲音，看空氣的振動沿著耳道走進去，推動三塊小骨頭，讓耳蝸亮起來：高音在入口附近，低音在尖端。調整音高和音量，把耳蝸拉直看整張地圖，再轉個圈，看看為什麼會頭暈。最後做模型下方的聽力測驗。",
+        "legend": [
+          {
+            "cls": "air",
+            "en": "Blue dots: air shaking (slowed way down)",
+            "zh": "藍色的點：振動的空氣（放得很慢）"
+          },
+          {
+            "cls": "ossicle",
+            "en": "Ivory: the three tiny bones",
+            "zh": "象牙色：三塊聽小骨"
+          },
+          {
+            "cls": "cmap",
+            "en": "Rainbow on the cochlea: where each pitch lands",
+            "zh": "耳蝸上的彩虹：每個音高落在哪裡"
+          },
+          {
+            "cls": "spot",
+            "en": "Glow: where this note bends the hair cells",
+            "zh": "發亮的點：這個音讓毛細胞彎曲的位置"
+          },
+          {
+            "cls": "nerve",
+            "en": "Yellow: the hearing nerve to the brain",
+            "zh": "黃色：通往大腦的聽神經"
+          }
+        ],
+        "scale_en": "The skull is real, from the same BodyParts3D skeleton as Lesson 1; the ear is our own drawing, shown four times bigger than life and cut open. BodyParts3D has no ear bones, so we drew the hammer, anvil, and stirrup ourselves. The outer ear is drawn smaller than it would be at this size, and the air waves are slowed down so much that you can see them. Where each pitch lands along the cochlea follows the Greenwood formula used by hearing scientists.",
+        "scale_zh": "頭骨是真實的，和第一課同一副 BodyParts3D 骨架；耳朵是本站自繪的示意圖，放大成真實的四倍並且剖開。BodyParts3D 沒有聽小骨，所以鎚骨、砧骨、鐙骨是我們自己畫的。外耳畫得比這個比例該有的小，空氣的振動也放慢到眼睛看得見。每個音高在耳蝸上的位置，依照聽覺科學家使用的 Greenwood 公式。",
+        "credit_html": "Bone models: <a href=\"https://dbarchive.biosciencedbc.jp/en/bodyparts3d/download.html\" target=\"_blank\" rel=\"noopener\">BodyParts3D</a>, © The Database Center for Life Science, licensed under <a href=\"https://creativecommons.org/licenses/by/4.0/\" target=\"_blank\" rel=\"noopener\">CC BY 4.0</a>. We selected the bones, simplified the shapes, and turned the model upright; the ear, the brain, and the sound waves are our own drawing. · 骨骼模型來源：BodyParts3D（日本生命科學資料庫中心，CC BY 4.0 授權）；本站挑選骨頭、簡化形狀並轉正方向，耳朵、大腦與聲波為本站自繪示意。",
+        "presets": {
+          "bird": {
+            "icon": "🐦",
+            "en": "Bird",
+            "zh": "鳥叫",
+            "hz": 4000,
+            "db": 50
+          },
+          "talk": {
+            "icon": "🗣️",
+            "en": "Talking",
+            "zh": "說話",
+            "hz": 500,
+            "db": 60
+          },
+          "drum": {
+            "icon": "🥁",
+            "en": "Drum",
+            "zh": "鼓聲",
+            "hz": 80,
+            "db": 90
+          },
+          "fire": {
+            "icon": "🧨",
+            "en": "Firecrackers",
+            "zh": "鞭炮",
+            "hz": 2000,
+            "db": 120
+          }
+        }
+      },
+      "paras": [
+        "Clap your hands. The clap pushes the air, and the push travels outward in waves at about 340 meters per second, fast enough to cross a soccer field in a third of a second. When the waves reach you, the air in your ear shakes back and forth, and your ears turn that shaking into sound. Fast shaking sounds high, like a bird. Slow shaking sounds low, like a drum. Scientists count the shakes in hertz: one hertz means one shake every second. Young people can hear from about 20 to 20,000 hertz.",
+        "The part of your ear that you can see is shaped to catch sound and send it into the ear canal, a tube about 2.5 centimeters long. At the end of the canal is the eardrum, a thin, tight skin about as wide as your little fingernail. When sound waves hit it, the eardrum shakes, just like the skin of a drum. The canal also makes earwax, which traps dust and germs and slowly moves out on its own. That is why doctors say you should never push cotton swabs into your ears.",
+        "Behind the eardrum is a tiny space filled with air, and in it are the three smallest bones in your body: the hammer, the anvil, and the stirrup. They pass the shaking along like a lever and make it about twenty times stronger. The stirrup is only about 3 millimeters long, smaller than a grain of rice. A thin tube connects this space to the back of your nose. When your ears pop in an elevator or on an airplane, that tube has just opened to let air in or out.",
+        "The stirrup pushes on the cochlea, a tube rolled up like a snail shell and filled with liquid. Inside are about 15,000 hair cells, each topped with tiny hairs that bend when the liquid moves. High notes bend the hairs near the entrance of the cochlea, and low notes travel all the way to its tip. The bending makes nerve signals, which race along the hearing nerve to your brain. Each ear sends signals to both sides of the brain, and by comparing your two ears, your brain can tell which direction a sound came from.",
+        "Next to the cochlea are three loops filled with liquid, called the semicircular canals. They do not hear at all. Instead, they help you keep your balance. When you turn your head, the liquid in the loops sloshes and bends more hair cells, telling your brain which way you moved. If you spin around and stop suddenly, the liquid keeps swirling for a moment, so your brain thinks you are still turning. That is why you feel dizzy.",
+        "Hair cells cannot grow back once they are damaged, so loud sounds can harm your hearing for life. Loudness is measured in decibels. Talking is about 60 decibels, and busy traffic is about 85. Sounds that loud or louder can harm your hearing if you listen for a long time. Firecrackers at a temple festival can be louder than 120 decibels, so cover your ears or keep your distance. With earphones, keep the volume low and take breaks. Now try the hearing test below the model and find the highest note you can hear."
+      ],
+      "paras_zh": [
+        "拍一下手。這一拍推動了空氣，這股推力以每秒大約 340 公尺的速度一波波往外傳，三分之一秒就能跑過一座足球場。聲波到達你身邊時，耳朵裡的空氣前後振動，耳朵再把這種振動變成聲音。振動得快，聽起來就高，像鳥叫；振動得慢，聽起來就低，像鼓聲。科學家用「赫茲」計算振動的次數：一赫茲就是每秒振動一次。年輕人大約聽得到 20 到 20,000 赫茲。",
+        "耳朵露在外面的部分，形狀剛好能接住聲音，把它送進耳道。耳道是一條大約 2.5 公分長的管子，盡頭是鼓膜：一片又薄又緊的皮膜，大約和你的小指指甲一樣寬。聲波打到鼓膜時，鼓膜就像鼓皮一樣振動。耳道也會製造耳垢，耳垢能黏住灰塵和病菌，還會自己慢慢往外移，所以醫生說絕對不要把棉花棒往耳朵裡塞。",
+        "鼓膜後面是一個裝著空氣的小空間，裡面有全身最小的三塊骨頭：鎚骨、砧骨和鐙骨。它們像槓桿一樣把振動傳下去，還讓它增強大約二十倍。鐙骨只有大約 3 毫米長，比一粒米還小。有一條細細的管子把這個空間連到鼻子後面；搭電梯或坐飛機時耳朵「啵」一聲，就是這條管子打開，讓空氣進出。",
+        "鐙骨推動耳蝸。耳蝸是一條捲得像蝸牛殼的管子，裡面裝滿液體，有大約一萬五千個毛細胞，每個頂端都有細細的毛，液體一動，毛就會彎。高音讓耳蝸入口附近的毛彎曲，低音則一路傳到耳蝸的尖端。毛的彎曲產生神經訊號，沿著聽神經衝向大腦。每隻耳朵都把訊號送到大腦的左右兩邊，大腦比較兩隻耳朵聽到的，就能分辨聲音從哪個方向來。",
+        "耳蝸旁邊有三個裝著液體的圓環，叫做半規管。它們完全不負責聽，而是幫你保持平衡。你轉頭時，圓環裡的液體晃動，讓更多毛細胞彎曲，告訴大腦你往哪個方向動。如果你轉圈圈又突然停下來，液體還會繼續轉一下，大腦就以為你還在轉，所以你會覺得頭暈。",
+        "毛細胞一旦受傷就長不回來，所以太大的聲音可能讓聽力永遠受損。聲音的大小用「分貝」來量：說話大約 60 分貝，車多的馬路大約 85 分貝；這麼大聲或更大聲的聲音，聽久了就可能傷害聽力。廟會的鞭炮可能超過 120 分貝，要摀住耳朵或離遠一點。戴耳機時把音量調小，並且記得休息。現在試試模型下方的聽力測驗，找出你聽得到的最高音。"
+      ],
+      "questions": [
+        "What happens to your eardrum when sound waves reach it?",
+        "How does the cochlea tell high notes from low notes?",
+        "Why do you feel dizzy after you spin around?"
+      ],
+      "answers": [
+        "It shakes back and forth like the skin of a drum, and it passes the shaking on to the three tiny bones.",
+        "High notes bend the hair cells near the entrance of the cochlea, and low notes travel all the way to its tip.",
+        "The liquid in the semicircular canals keeps swirling after you stop, so your brain thinks you are still turning."
+      ],
+      "vocab": [
+        {
+          "n": 1,
+          "w": "hear",
+          "pos": "v.",
+          "zh": "聽見",
+          "ex": "Can you <b>hear</b> the rain on the roof?",
+          "exzh": "你聽得到屋頂上的雨聲嗎？"
+        },
+        {
+          "n": 2,
+          "w": "eardrum",
+          "pos": "n.",
+          "zh": "鼓膜",
+          "ex": "A very loud bang can hurt your <b>eardrum</b>.",
+          "exzh": "很大的爆炸聲可能會傷到你的鼓膜。"
+        },
+        {
+          "n": 3,
+          "w": "vibrate",
+          "pos": "v.",
+          "zh": "振動；震動",
+          "ex": "My phone <b>vibrates</b> when a message comes in.",
+          "exzh": "有訊息進來時，我的手機會震動。"
+        },
+        {
+          "n": 4,
+          "w": "pitch",
+          "pos": "n.",
+          "zh": "音高",
+          "ex": "A bird's song has a much higher <b>pitch</b> than a lion's roar.",
+          "exzh": "鳥叫聲的音高比獅子吼高得多。"
+        },
+        {
+          "n": 5,
+          "w": "loud",
+          "pos": "adj.",
+          "zh": "大聲的",
+          "ex": "The music was so <b>loud</b> that we had to shout.",
+          "exzh": "音樂太大聲，我們只好用喊的。"
+        },
+        {
+          "n": 6,
+          "w": "balance",
+          "pos": "n.",
+          "zh": "平衡",
+          "ex": "It takes good <b>balance</b> to ride a unicycle.",
+          "exzh": "騎單輪車需要很好的平衡感。"
+        },
+        {
+          "n": 7,
+          "w": "dizzy",
+          "pos": "adj.",
+          "zh": "頭暈的",
+          "ex": "I felt <b>dizzy</b> after the merry-go-round.",
+          "exzh": "坐完旋轉木馬後，我覺得頭暈。"
+        },
+        {
+          "n": 8,
+          "w": "earphones",
+          "pos": "n.",
+          "zh": "耳機",
+          "ex": "Take off your <b>earphones</b> when someone is talking to you.",
+          "exzh": "有人跟你說話時，請把耳機拿下來。"
+        }
+      ],
+      "quiz": [
+        {
+          "q": "What are the three smallest bones in your body called?",
+          "options": [
+            "The hammer, anvil, and stirrup",
+            "The ribs, spine, and skull",
+            "The femur, tibia, and fibula",
+            "The cornea, iris, and lens"
+          ],
+          "correct": 0
+        },
+        {
+          "q": "Which part of the ear is rolled up like a snail shell?",
+          "options": [
+            "The cochlea",
+            "The eardrum",
+            "The ear canal",
+            "The earlobe"
+          ],
+          "correct": 0
+        },
+        {
+          "q": "Where in the cochlea do high notes bend the hair cells?",
+          "options": [
+            "Near the entrance",
+            "At the very tip",
+            "Outside the cochlea",
+            "On the eardrum"
+          ],
+          "correct": 0
+        },
+        {
+          "q": "What do the semicircular canals help you with?",
+          "options": [
+            "Keeping your balance",
+            "Hearing high notes",
+            "Making earwax",
+            "Seeing colors"
+          ],
+          "correct": 0
+        },
+        {
+          "q": "According to the reading, about how loud is busy traffic?",
+          "options": [
+            "About 85 decibels",
+            "About 8 decibels",
+            "About 300 decibels",
+            "About 20 decibels"
+          ],
+          "correct": 0
+        }
+      ],
+      "kinds_head": {
+        "eyebrow": "Parts of the Ear · 耳朵的構造",
+        "en": "From the air to your brain",
+        "zh": "從空氣到大腦"
+      },
+      "kinds": [
+        {
+          "icon": "👂",
+          "en": "Outer ear and ear canal",
+          "zh": "外耳與耳道",
+          "where_en": "The part you can see, and a 2.5 cm tube",
+          "where_zh": "看得見的部分和 2.5 公分長的管子",
+          "control_en": "Catches sound",
+          "control_zh": "接住聲音",
+          "text_en": "Its curves catch sound and send it in. The canal makes earwax, which cleans itself out.",
+          "text_zh": "彎彎曲曲的形狀把聲音收進來；耳道會製造耳垢，耳垢自己會往外移。"
+        },
+        {
+          "icon": "🥁",
+          "en": "Eardrum",
+          "zh": "鼓膜",
+          "where_en": "At the end of the ear canal",
+          "where_zh": "耳道的盡頭",
+          "control_en": "Shakes with the sound",
+          "control_zh": "跟著聲音振動",
+          "text_en": "A thin, tight skin about as wide as your little fingernail. It moves less than the width of an atom for the quietest sounds.",
+          "text_zh": "又薄又緊的皮膜，大約和小指指甲一樣寬；最小的聲音讓它移動的距離，比一個原子還小。"
+        },
+        {
+          "icon": "🦴",
+          "en": "Three tiny bones",
+          "zh": "三塊聽小骨",
+          "where_en": "In the air-filled middle ear",
+          "where_zh": "裝著空氣的中耳",
+          "control_en": "Make the shaking stronger",
+          "control_zh": "把振動放大",
+          "text_en": "The hammer, anvil, and stirrup work like a lever and make the push about twenty times stronger.",
+          "text_zh": "鎚骨、砧骨、鐙骨像槓桿一樣，把推力放大大約二十倍。"
+        },
+        {
+          "icon": "🐌",
+          "en": "Cochlea",
+          "zh": "耳蝸",
+          "where_en": "Deep inside, in the inner ear",
+          "where_zh": "最裡面的內耳",
+          "control_en": "Turns shaking into signals",
+          "control_zh": "把振動變成訊號",
+          "text_en": "About 15,000 hair cells, with high notes at the entrance and low notes at the tip, like a piano rolled up.",
+          "text_zh": "大約一萬五千個毛細胞：高音在入口、低音在尖端，像一架捲起來的鋼琴。"
+        },
+        {
+          "icon": "🌀",
+          "en": "Semicircular canals",
+          "zh": "半規管",
+          "where_en": "Three loops next to the cochlea",
+          "where_zh": "耳蝸旁邊的三個圓環",
+          "control_en": "Keep your balance",
+          "control_zh": "保持平衡",
+          "text_en": "They point in three directions, so together they can feel your head nod, shake, and tilt.",
+          "text_zh": "三個圓環朝三個方向，合起來就能感覺到點頭、搖頭和歪頭。"
+        }
+      ],
+      "kinds_note_en": "Think of a relay race: the outer ear catches the sound, the eardrum and the three tiny bones pass the shaking along, and the cochlea hands it to the nerve as a signal for your brain.",
+      "kinds_note_zh": "把它想成一場接力賽：外耳接住聲音，鼓膜和三塊小骨頭把振動往下傳，耳蝸再把它變成訊號，交給神經送到大腦。",
+      "measure": {
+        "title_en": "Find the highest note you can hear",
+        "title_zh": "找出你聽得到的最高音",
+        "lead_en": "The hearing test below the model plays short, quiet notes, starting at 8,000 hertz and climbing higher. Do it in a quiet room with your device's speakers, not earphones.",
+        "lead_zh": "模型下方的聽力測驗會播放短短的、小聲的音，從 8,000 赫茲開始一路往上。請在安靜的房間用裝置的喇叭做，不要戴耳機。",
+        "steps": [
+          {
+            "n": "1",
+            "en": "Set the volume",
+            "zh": "調好音量",
+            "text_en": "Play the 1,000 Hz test note and turn your device's volume down until the note is soft but clear. Do not use earphones.",
+            "text_zh": "播放 1,000 赫茲的試聽音，把裝置的音量調小，調到聽起來輕輕的但清楚。不要戴耳機。"
+          },
+          {
+            "n": "2",
+            "en": "Climb the notes",
+            "zh": "一路往上",
+            "text_en": "Tap “I hear it” for each higher note. When you cannot hear a note anymore, tap “I can't.” Your score is the last note you heard.",
+            "text_zh": "每聽到一個更高的音，就按「聽得到」；聽不到時按「聽不到」。最後一個聽得到的音，就是你的成績。"
+          },
+          {
+            "n": "kHz",
+            "en": "Compare",
+            "zh": "比一比",
+            "text_en": "Compare with your classmates and with adults. Young people can often hear above 17,000 Hz, and the top note goes down as people get older. Some speakers cannot play the very highest notes.",
+            "text_zh": "和同學、大人比一比。年輕人常常聽得到 17,000 赫茲以上，年紀越大，聽得到的最高音越低。有些喇叭本身放不出最高的音。"
+          }
+        ],
+        "action": "test",
+        "action_value": "1",
+        "button_icon": "👂",
+        "button_en": "Try the hearing test",
+        "button_zh": "試試聽力測驗"
+      },
+      "myths": [
+        {
+          "myth_en": "You should clean inside your ears with cotton swabs.",
+          "myth_zh": "應該用棉花棒把耳朵裡面清乾淨。",
+          "fact_en": "Earwax cleans itself out. Cotton swabs can push the wax deeper or even hurt the eardrum. Just wash the outside of your ears.",
+          "fact_zh": "耳垢會自己往外移。棉花棒反而可能把耳垢推得更深，甚至戳傷鼓膜。洗耳朵外面就好。"
+        },
+        {
+          "myth_en": "Only old people lose their hearing.",
+          "myth_zh": "只有老人才會聽力變差。",
+          "fact_en": "Loud sounds can damage hair cells at any age, and they never grow back. That is why it matters to protect your hearing now.",
+          "fact_zh": "太大的聲音在任何年紀都可能傷害毛細胞，而且毛細胞長不回來，所以現在就要保護聽力。"
+        },
+        {
+          "myth_en": "In space, you could hear a rocket roar.",
+          "myth_zh": "在太空中也聽得到火箭的轟隆聲。",
+          "fact_en": "Space is almost empty, with no air to shake, so sound cannot travel there. Astronauts talk to each other by radio.",
+          "fact_zh": "太空幾乎是空的，沒有空氣可以振動，所以聲音傳不過去。太空人是用無線電互相說話的。"
+        },
+        {
+          "myth_en": "Your voice sounds the same to you as it does to everyone else.",
+          "myth_zh": "你聽到的自己的聲音，和別人聽到的一樣。",
+          "fact_en": "You hear your own voice through the air and also through the bones of your head, which makes it sound deeper. That is why your voice sounds strange in a recording.",
+          "fact_zh": "你聽自己說話，除了經過空氣，還會經過頭骨傳進來，所以聽起來比較低沉；這就是錄音裡的聲音聽起來怪怪的原因。"
+        }
+      ],
+      "tricks": [
+        {
+          "title_en": "Hammer, anvil, stirrup",
+          "title_zh": "鎚骨、砧骨、鐙骨",
+          "body_en": "Think of a blacksmith and a horse rider: the hammer hits the anvil, and the rider's foot rests in the stirrup. That is their order from the eardrum inward.",
+          "body_zh": "想像鐵匠和騎士：鎚子敲在鐵砧上，騎士的腳踩在馬鐙裡。這就是它們從鼓膜往裡排的順序。"
+        },
+        {
+          "title_en": "High at the door, low at the end",
+          "title_zh": "高音在門口，低音在盡頭",
+          "body_en": "High notes bend hair cells near the entrance of the cochlea; low notes travel all the way to the tip.",
+          "body_zh": "高音讓耳蝸入口附近的毛細胞彎曲；低音一路走到尖端。"
+        },
+        {
+          "title_en": "3 seconds = 1 kilometer",
+          "title_zh": "3 秒＝1 公里",
+          "body_en": "Count the seconds between the lightning and the thunder, then divide by 3. That is about how many kilometers away the storm is.",
+          "body_zh": "數一數閃電到雷聲之間有幾秒，再除以 3，大約就是雷雨離你幾公里。"
+        },
+        {
+          "title_en": "60/60 for earphones",
+          "title_zh": "耳機 60/60",
+          "body_en": "A common rule of thumb: no more than 60 percent of the volume, for no more than 60 minutes at a time.",
+          "body_zh": "常見的簡單原則：音量不超過 60%，一次不超過 60 分鐘。"
+        }
+      ],
+      "activities": [
+        {
+          "title_en": "Paper Cup Telephone",
+          "title_zh": "紙杯傳聲筒",
+          "materials": [
+            {
+              "en": "Two paper cups",
+              "zh": "兩個紙杯"
+            },
+            {
+              "en": "3 to 5 meters of string, and two toothpicks",
+              "zh": "3 到 5 公尺長的線和兩根牙籤"
+            }
+          ],
+          "steps": [
+            {
+              "en": "Poke a small hole in the bottom of each cup. Push the string through and tie it to a toothpick inside the cup.",
+              "zh": "在兩個杯底各戳一個小洞，把線穿過去，在杯子裡綁在牙籤上。"
+            },
+            {
+              "en": "Walk apart until the string is tight. One person talks into a cup, and the other listens.",
+              "zh": "兩個人往後退，把線拉直。一個人對著杯子說話，另一個人聽。"
+            },
+            {
+              "en": "Now let the string go loose. Can you still hear?",
+              "zh": "再把線放鬆，還聽得到嗎？"
+            },
+            {
+              "en": "Pinch the string in the middle while your partner talks. What happens?",
+              "zh": "同伴說話時，用手指捏住線的中間，會發生什麼事？"
+            }
+          ],
+          "tip_en": "Teaching tip: sound is shaking, and a tight string carries the shaking from one cup to the other. The bottom of the cup works like an eardrum. A loose or pinched string cannot pass the shaking along, just as a damaged eardrum or stiff ear bones make hearing harder.",
+          "tip_zh": "教學提示：聲音就是振動，拉緊的線把振動從一個杯子傳到另一個杯子，杯底就像鼓膜。線鬆了或被捏住，振動就傳不過去，就像鼓膜受傷或聽小骨變僵硬時，聽力會變差。"
+        },
+        {
+          "title_en": "Where Did That Sound Come From?",
+          "title_zh": "聲音從哪裡來？",
+          "materials": [
+            {
+              "en": "A blindfold, or just closed eyes",
+              "zh": "一條蒙眼布，或直接閉上眼睛"
+            },
+            {
+              "en": "A chair in the middle of the room",
+              "zh": "教室中間的一張椅子"
+            }
+          ],
+          "steps": [
+            {
+              "en": "One student sits in the chair with eyes closed.",
+              "zh": "一位同學閉上眼睛坐在椅子上。"
+            },
+            {
+              "en": "Classmates take turns snapping their fingers from different places around the chair. The student points to where each sound came from.",
+              "zh": "其他同學輪流在椅子周圍不同的地方彈手指，坐著的同學指出聲音從哪裡來。"
+            },
+            {
+              "en": "Now the student covers one ear with a hand and tries again.",
+              "zh": "接著讓坐著的同學用手摀住一隻耳朵，再試一次。"
+            },
+            {
+              "en": "Count how many times they pointed the right way, with two ears and with one.",
+              "zh": "算一算用兩隻耳朵和一隻耳朵時，各指對了幾次。"
+            }
+          ],
+          "tip_en": "Teaching tip: your brain finds a sound's direction by comparing the two ears: the sound reaches the nearer ear a tiny bit sooner and a little louder. With one ear covered, the guesses usually get much worse. Sounds straight in front or straight behind are the hardest.",
+          "tip_zh": "教學提示：大腦比較兩隻耳朵來判斷方向：聲音會比較早、比較大聲地到達比較近的那隻耳朵。摀住一隻耳朵後，通常會猜錯得多。正前方和正後方的聲音最難分辨。"
+        }
+      ],
+      "culture": {
+        "title_en": "Sharp Ears, Bright Eyes",
+        "title_zh": "耳聰目明",
+        "body_en": "In Chinese, 聰明 (cōngmíng) means smart, but the two characters began with the senses: 耳聰目明, ears that hear clearly and eyes that see clearly. Look closely, and 聰 has 耳, the character for ear, on its left side. Confucius said that by sixty, his ears were “in tune” (六十而耳順): he could listen to anything calmly. And 耳濡目染, “what the ears soak up and the eyes take in,” means learning from what you hear and see every day, which is a great way to learn English, too.",
+        "body_zh": "中文的「聰明」是指頭腦好，但這兩個字原本講的是感官：「耳聰目明」，耳朵聽得清楚、眼睛看得明白。仔細看，「聰」字的左邊就是「耳」。孔子說自己「六十而耳順」，到了六十歲，聽什麼都能心平氣和。還有「耳濡目染」：每天聽到、看到的東西，不知不覺就學會了——這也是學英文的好方法。",
+        "link_en": "More Chinese health words in English",
+        "link_zh": "到中醫養生系列看更多"
+      },
+      "health_en": "This lesson is for learning about the body. It is not medical advice. Do not put anything into your ear canal. If you have ear pain, ringing in your ears, or trouble hearing, tell an adult. Keep earphones at a low volume, and cover your ears near firecrackers.",
+      "health_zh": "本課是認識身體的教材，不是醫療建議。不要把任何東西放進耳道。如果耳朵痛、耳鳴，或聽不清楚，請告訴大人。戴耳機時音量要小，靠近鞭炮時要摀住耳朵。"
     }
   ]
 }

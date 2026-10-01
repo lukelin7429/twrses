@@ -4311,7 +4311,7 @@ def build_astro_hub():
 # 面板與段落樣式沿用 astro.css，人體專屬的在 body.css；兩者都只載在本系列頁面。
 BODY_BASE = "/resources/classes/human-body/"
 _BODY_JS = {"skeleton": "skeleton", "arm": "arm", "heart": "heart", "lungs": "lungs", "joints": "joints",
-            "digestion": "digestion", "nerves": "nerves", "eyes": "eyes"}   # lab.kind → assets/js/<bundle>.js
+            "digestion": "digestion", "nerves": "nerves", "eyes": "eyes", "ears": "ears"}   # lab.kind → assets/js/<bundle>.js
 
 def _body_ver():
     h = hashlib.md5()
@@ -4792,6 +4792,77 @@ def render_eyes_lab(lesson):
   <p class="sk-credit">{lab["credit_html"]}</p>
 </div>'''
 
+def render_ears_lab(lesson):
+    """第九課：放大剖開的耳朵＋聲波（assets/js/ears.js 綁這裡的 class）；聽力測驗是 2D＋WebAudio，不需要 WebGL。"""
+    lab = lesson["lab"]
+    pre_json = html.escape(json.dumps(lab["presets"], ensure_ascii=False))
+    pre_btns = "".join(
+        f'<button type="button" data-pre="{k}" aria-pressed="{"true" if k == "bird" else "false"}"><i aria-hidden="true">{v["icon"]}</i>'
+        f'<span>{html.escape(v["en"])}<small>{html.escape(v["zh"])} · {v["hz"]:,} Hz</small></span></button>'
+        for k, v in lab["presets"].items())
+    steps = [8000, 10000, 12000, 14000, 15000, 16000, 17000, 18000, 19000, 20000]
+    ladder = "".join(f'<li data-hz="{f}"><b>{f // 1000}</b><span>kHz</span></li>' for f in reversed(steps))
+    hz_ticks = "".join(f'<i style="left:{p}%"><span>{t}</span></i>' for p, t in
+                       [(0, "20"), (23.3, "100"), (56.7, "1k"), (90, "10k"), (100, "20k")])
+    db_ticks = "".join(f'<i style="left:{round(v / 130 * 100, 1)}%"><span>{t}</span></i>' for v, t in
+                       [(30, "&#129323; 30"), (60, "&#128483;&#65039; 60"), (85, "&#128663; 85"), (120, "&#129512; 120")])
+    tg = _lab_toggles([("labels", "Labels", "標示", True), ("waves", "Air waves", "空氣振動", True),
+                       ("skull", "Skull and brain", "頭骨與大腦", True)])
+    return f'''<div class="astro-lab sk-lab ea-lab rvl" data-ears-lab data-model="{_model_url()}" data-pre="{pre_json}">
+  <div class="al-stage">
+    <div class="al-space">
+      <canvas class="al-space-cv" aria-label="3D model of the ear cut open, with sound waves moving the eardrum, the three tiny bones, and the cochlea · 剖開的耳朵 3D 模型，聲波推動鼓膜、三塊聽小骨與耳蝸"></canvas>
+      <div class="al-labels" aria-hidden="true"></div>
+      <p class="sk-loading">Loading… · 載入中…<span class="sk-bar"><i></i></span></p>
+      <p class="al-hint">Drag to turn · 拖曳旋轉　Scroll or pinch to zoom · 滾輪／雙指縮放</p>
+      <p class="ey-mag">Ear shown 4&times; life size, cut open · 耳朵放大 4 倍、剖開來看</p>
+      <button type="button" class="al-home" title="Reset view · 重設視角" aria-label="Reset view · 重設視角">&#8634;</button>
+      <p class="al-nogl-msg">This 3D model needs WebGL, which this browser does not support. The hearing test and the cards below still work.<br><span class="zh">這個瀏覽器不支援 WebGL，無法顯示 3D 模型；下方的聽力測驗和卡片一樣能用。</span></p>
+    </div>
+    <aside class="al-sky sk-aside ea-aside">
+      <p class="al-sky-k">Pick a sound · 選一個聲音</p>
+      <div class="ea-pres" role="group" aria-label="Sounds · 聲音">{pre_btns}</div>
+      <div class="ea-meter">
+        <p class="ea-meter-k">Pitch · 音高 <b class="ea-hz">4,000 Hz</b> <em class="ea-hz-w"></em></p>
+        <div class="ea-bar ea-hzbar"><s></s>{hz_ticks}<u class="ea-heard" hidden></u><b class="ea-mark"></b></div>
+        <p class="ea-meter-k">Loudness · 音量 <b class="ea-db">50 dB</b> <em class="ea-db-w"></em></p>
+        <div class="ea-bar ea-dbbar"><s></s>{db_ticks}<b class="ea-mark"></b></div>
+      </div>
+      <p class="ey-status ea-status" aria-live="polite"></p>
+      <div class="ey-more ea-more">
+        <button type="button" class="ea-uncoil" aria-pressed="false"><i aria-hidden="true">&#128012;</i><span>Uncoil the cochlea<small>把耳蝸拉直</small></span></button>
+        <button type="button" class="ea-spin" aria-pressed="false"><i aria-hidden="true">&#127744;</i><span>Spin around<small>轉圈圈：平衡</small></span></button>
+        <button type="button" class="ea-play" aria-pressed="false"><i aria-hidden="true">&#128264;</i><span>Play it quietly<small>小聲播放這個音</small></span></button>
+      </div>
+    </aside>
+  </div>
+  <div class="ea-strip">
+    <ol class="ea-ladder" aria-label="Notes in the hearing test · 聽力測驗的音">{ladder}</ol>
+    <div class="ea-ht-text">
+      <p class="al-sky-k">Hearing test · 聽力測驗</p>
+      <p class="ea-ht-msg"></p>
+      <div class="ey-bs-btns ea-ht-btns">
+        <button type="button" class="ea-ht-cal">&#9654; Test note: 1,000 Hz<small>試聽 1,000 赫茲，先調好音量</small></button>
+        <button type="button" class="ea-ht-start ey-bs-3d">&#128066; Start the test<small>開始測驗</small></button>
+        <button type="button" class="ea-ht-yes ey-bs-3d" hidden>&#10003; I hear it<small>聽得到</small></button>
+        <button type="button" class="ea-ht-no" hidden>&#10007; I can&#8217;t<small>聽不到</small></button>
+        <button type="button" class="ea-ht-again" hidden>&#8634; Play it again<small>再聽一次</small></button>
+        <button type="button" class="ea-ht-3d" hidden>&#128066; Show my top note in 3D<small>在 3D 耳朵裡看我的最高音</small></button>
+      </div>
+      <p class="ea-ht-safe">&#128265; Quiet room, speakers only, no earphones. Every note is short and quiet. Stop if anything feels uncomfortable.<span class="zh">請在安靜的房間用喇叭，不要戴耳機。每個音都短短的、小小聲；只要覺得不舒服就停下來。</span></p>
+    </div>
+  </div>
+  <div class="al-controls">
+    <label class="ec-slider ea-hz-row"><span class="ec-slider-k">Pitch · 音高<em>low · 低 &harr; high · 高</em></span>
+      <input type="range" class="ec-time ea-hz-in" min="0" max="1000" step="1" value="756"></label>
+    <label class="ec-slider ea-db-row"><span class="ec-slider-k">Loudness · 音量<em>quiet · 小聲 &harr; very loud · 非常大聲</em></span>
+      <input type="range" class="ec-time ea-db-in" min="0" max="130" step="1" value="50"></label>
+    <div class="al-row al-toggles">{tg}</div>
+  </div>
+  {_lab_foot(lab)}
+  <p class="sk-credit">{lab["credit_html"]}</p>
+</div>'''
+
 def _body_nav(slug):
     ls = BODY["lessons"]
     i = next(n for n, l in enumerate(ls) if l["slug"] == slug)
@@ -4817,7 +4888,7 @@ def build_body_lesson(lesson):
     kind = lab["kind"]
     lab_html = {"skeleton": render_skeleton_lab, "arm": render_arm_lab, "heart": render_heart_lab, "lungs": render_lungs_lab,
                 "joints": render_joints_lab, "digestion": render_digestion_lab, "nerves": render_nerves_lab,
-                "eyes": render_eyes_lab}[kind](lesson)
+                "eyes": render_eyes_lab, "ears": render_ears_lab}[kind](lesson)
 
     secs = []
     if lesson.get("jobs"):
@@ -4920,7 +4991,7 @@ def build_body_lesson(lesson):
                 "heart": ("The heart in a sentence", "一句話記住心臟"), "lungs": ("Breathing in a sentence", "一句話記住呼吸"),
                 "joints": ("Joints in a sentence", "一句話記住關節"), "digestion": ("Digestion in a sentence", "一句話記住消化"),
                 "nerves": ("Your nervous system in a sentence", "一句話記住神經系統"),
-                "eyes": ("Your eyes in a sentence", "一句話記住眼睛")}[kind]
+                "eyes": ("Your eyes in a sentence", "一句話記住眼睛"), "ears": ("Your ears in a sentence", "一句話記住耳朵")}[kind]
     secs.append(("tricks", "Remember It · 記憶口訣", tricks_h[0], tricks_h[1], _sci_tricks(lesson), ""))
     if lesson.get("culture"):
         cu = lesson["culture"]
