@@ -3667,7 +3667,8 @@ def build_astro_hub():
 # 第一課的骨架是真實解剖資料（BodyParts3D，CC BY 4.0），`npm run model` 產生 assets/models/skeleton.glb。
 # 面板與段落樣式沿用 astro.css，人體專屬的在 body.css；兩者都只載在本系列頁面。
 BODY_BASE = "/resources/classes/human-body/"
-_BODY_JS = {"skeleton": "skeleton", "arm": "arm", "heart": "heart", "lungs": "lungs", "joints": "joints"}   # lab.kind → assets/js/<bundle>.js
+_BODY_JS = {"skeleton": "skeleton", "arm": "arm", "heart": "heart", "lungs": "lungs", "joints": "joints",
+            "digestion": "digestion"}   # lab.kind → assets/js/<bundle>.js
 
 def _body_ver():
     h = hashlib.md5()
@@ -3976,6 +3977,54 @@ def render_joints_lab(lesson):
   <p class="sk-credit">{lab["credit_html"]}</p>
 </div>'''
 
+def render_digestion_lab(lesson):
+    """第六課：跟著一口飯走完消化道（assets/js/digestion.js 綁這裡的 class）。"""
+    lab = lesson["lab"]
+    stops_json = html.escape(json.dumps(lab["stops"], ensure_ascii=False))
+    stops = "".join(f'<li role="button" tabindex="0"><b>{html.escape(st["en"])}</b><span>{html.escape(st["zh"])}</span></li>' for st in lab["stops"])
+    tg = _lab_toggles([("labels", "Labels", "標示", True), ("organs", "Liver and pancreas", "肝與胰臟", True), ("skel", "Skeleton", "骨架", True)])
+    return f'''<div class="astro-lab sk-lab dg-lab rvl" data-digestion-lab data-model="{_model_url()}" data-stops="{stops_json}">
+  <div class="al-stage">
+    <div class="al-space">
+      <canvas class="al-space-cv" aria-label="3D model of the digestive system with one bite of lunch moving through it · 消化道 3D 模型，一口午餐正在裡面移動"></canvas>
+      <div class="al-labels" aria-hidden="true"></div>
+      <p class="sk-loading">Loading… · 載入中…<span class="sk-bar"><i></i></span></p>
+      <p class="al-hint">Drag to turn · 拖曳旋轉　Scroll or pinch to zoom · 滾輪／雙指縮放</p>
+      <button type="button" class="al-home" title="Reset view · 重設視角" aria-label="Reset view · 重設視角">&#8634;</button>
+      <p class="al-nogl-msg">This 3D model needs WebGL, which this browser does not support. The cards below still explain everything.<br><span class="zh">這個瀏覽器不支援 WebGL，無法顯示 3D 模型；下方的卡片一樣能看懂。</span></p>
+    </div>
+    <aside class="al-sky sk-aside dg-aside">
+      <p class="al-sky-k">Lunch clock · 午餐時鐘</p>
+      <div class="dg-clockrow">
+        <label class="dg-lunch-l"><span>I ate lunch at<small>我吃午餐的時間</small></span><input type="time" class="dg-lunch" value="12:00"></label>
+        <button type="button" class="dg-now"><i aria-hidden="true">&#128339;</i><span>Where is my lunch now?<small>我的午餐現在在哪？</small></span></button>
+      </div>
+      <dl class="hr-nums dg-nums">
+        <div><dt>Time since lunch · 吃完多久</dt><dd class="dg-elapsed">0 s</dd></div>
+        <div><dt>Clock · 時間</dt><dd class="dg-clock">12:00</dd></div>
+      </dl>
+      <p class="al-sky-k">Right now · 現在在</p>
+      <p class="dg-stop-en"></p><p class="dg-stop-zh"></p>
+      <p class="dg-stop-time"></p>
+      <p class="dg-what" aria-live="polite"></p>
+    </aside>
+  </div>
+  <div class="hr-follow dg-follow">
+    <p class="al-sky-k">The journey · 一口飯的旅程（點一站跳過去）</p>
+    <ol class="hr-stops">{stops}</ol>
+  </div>
+  <div class="al-controls">
+    <div class="al-row al-row-main">
+      <button type="button" class="al-play" aria-pressed="false"><span class="al-play-i" aria-hidden="true"></span><span class="al-play-t">Play · 播放</span></button>
+      <label class="ec-slider dg-slider"><span class="ec-slider-k">Time since lunch · 吃完午餐後的時間<em>(not to scale: each stop gets its own stretch · 刻度不等比，每站各占一段)</em></span>
+        <input type="range" class="ec-time dg-time" min="0" max="1000" step="1" value="0"></label>
+    </div>
+    <div class="al-row al-toggles">{tg}</div>
+  </div>
+  {_lab_foot(lab)}
+  <p class="sk-credit">{lab["credit_html"]}</p>
+</div>'''
+
 def _body_nav(slug):
     ls = BODY["lessons"]
     i = next(n for n, l in enumerate(ls) if l["slug"] == slug)
@@ -4000,7 +4049,7 @@ def build_body_lesson(lesson):
     lab = lesson["lab"]
     kind = lab["kind"]
     lab_html = {"skeleton": render_skeleton_lab, "arm": render_arm_lab, "heart": render_heart_lab, "lungs": render_lungs_lab,
-                "joints": render_joints_lab}[kind](lesson)
+                "joints": render_joints_lab, "digestion": render_digestion_lab}[kind](lesson)
 
     secs = []
     if lesson.get("jobs"):
@@ -4101,7 +4150,7 @@ def build_body_lesson(lesson):
     secs.append(("myths", "Myth vs. Fact · 常見迷思", "Four things people get wrong", "四個常見的誤會", _sci_myths(lesson), ""))
     tricks_h = {"skeleton": ("Bones in a sentence", "一句話記住骨頭"), "arm": ("Muscles in a sentence", "一句話記住肌肉"),
                 "heart": ("The heart in a sentence", "一句話記住心臟"), "lungs": ("Breathing in a sentence", "一句話記住呼吸"),
-                "joints": ("Joints in a sentence", "一句話記住關節")}[kind]
+                "joints": ("Joints in a sentence", "一句話記住關節"), "digestion": ("Digestion in a sentence", "一句話記住消化")}[kind]
     secs.append(("tricks", "Remember It · 記憶口訣", tricks_h[0], tricks_h[1], _sci_tricks(lesson), ""))
     if lesson.get("culture"):
         cu = lesson["culture"]

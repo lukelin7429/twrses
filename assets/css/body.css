@@ -412,3 +412,50 @@ button.bc-row:hover { transform: translateY(-2px); border-color: var(--gold); bo
 @media (max-width: 640px) {
   .jt-lab .al-space { aspect-ratio: 4 / 5; }
 }
+
+/* =========================================================
+   第六課：消化（data-digestion-lab）；路線條沿用第三課的 hr-follow／hr-stops
+   ========================================================= */
+.dg-lab .al-space { min-height: 640px; }
+.dg-aside { gap: .15rem; }
+.dg-clockrow { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: .5rem; align-items: stretch; }
+.dg-lunch-l { display: flex; flex-direction: column; gap: .25rem; font-size: .72rem; font-weight: 800; color: var(--al-text); line-height: 1.15; }
+.dg-lunch-l small { display: block; font-family: var(--zh); font-weight: 600; color: var(--al-mute); }
+.dg-lunch { font: 800 1.05rem var(--sans); color: #fff; background: rgba(255,255,255,.06); border: 1px solid var(--al-line); border-radius: 10px; padding: .35rem .5rem; color-scheme: dark; }
+.dg-now { display: flex; align-items: center; gap: .5rem; padding: .55rem .8rem; border: 0; border-radius: 14px; background: #f0b44a; color: #1b1405; font-family: var(--sans); font-weight: 800; font-size: .84rem; text-align: left; line-height: 1.2; cursor: pointer; box-shadow: 0 10px 26px -12px rgba(240,180,74,.9); transition: transform .2s; }
+.dg-now:hover { transform: translateY(-2px); }
+.dg-now i { font-style: normal; font-size: 1.2rem; }
+.dg-now small { display: block; font-family: var(--zh); font-weight: 600; font-size: .74rem; color: rgba(27,20,5,.7); }
+.dg-nums { margin-bottom: .6rem; }
+.dg-nums dd { font-size: 1.25rem; }
+.dg-stop-en { margin: 0; font-family: var(--serif); font-size: 1.55rem; line-height: 1.1; color: #fff; }
+.dg-stop-zh { margin: .15rem 0 .45rem; font-family: var(--zh); font-size: 1.1rem; font-weight: 600; letter-spacing: .05em; color: #f0b44a; }
+.dg-stop-time { display: inline-block; margin: 0; padding: .2rem .7rem; border-radius: 999px; background: rgba(240,180,74,.14); border: 1px solid rgba(240,180,74,.45); color: #fff; font-size: .78rem; font-weight: 800; }
+.dg-stop-time small { margin-left: .4rem; font-family: var(--zh); font-weight: 600; color: var(--al-mute); }
+.dg-what { margin: .6rem 0 0; font-size: .86rem; line-height: 1.6; color: var(--al-text); min-height: 7em; }
+.dg-what .zh { display: block; color: var(--al-mute); margin-top: .2rem; }
+.dg-lab .hr-stops { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+.dg-lab .hr-stops li { cursor: pointer; }
+.dg-lab .hr-stops li:hover { background: rgba(255,255,255,.06); color: #fff; }
+.dg-lab .hr-stops li:focus-visible { outline: 2px solid #f0b44a; outline-offset: 2px; }
+.dg-slider { flex: 1; min-width: 240px; margin: 0; }
+.dg-slider .ec-slider-k em { font-size: .66rem; }
+.dg-time::-webkit-slider-runnable-track { background: linear-gradient(90deg, #f0b44a 0 var(--p, 0%), rgba(255,255,255,.12) var(--p, 0%)); }
+.dg-time::-moz-range-progress { height: 6px; border-radius: 999px; background: #f0b44a; }
+.al-lab.dg-lb { font-size: .7rem; color: #cfe0ff; }
+.al-lab.dg-lb-food { color: #1b1405; background: #f0b44a; border-color: #f0b44a; font-weight: 800; box-shadow: 0 6px 20px -6px rgba(240,180,74,.8); }
+.al-lab.dg-lb-org { color: #e8d2a8; }
+.al-lab[hidden] { display: none; }
+.al-lg-food i { border: 0; background: radial-gradient(circle at 40% 35%, #fff4cf, #e8c46a); box-shadow: 0 0 8px 2px rgba(240,180,74,.6); }
+.al-lg-squeeze i { border: 3px solid #c8424a; }
+.dg-lab .al-lg-organ i { opacity: 1; background: conic-gradient(#8b3a2e 0 40%, #3f8f4a 0 60%, #f0c96a 0); }
+
+@media (max-width: 1020px) {
+  .dg-lab .al-space { aspect-ratio: 1 / 1; min-height: 380px; max-height: 80vh; }
+  .dg-lab .dg-aside { display: block; }
+  .dg-lab .hr-stops { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+@media (max-width: 640px) {
+  .dg-lab .al-space { aspect-ratio: 4 / 5; }
+  .dg-clockrow { grid-template-columns: 1fr; }
+}

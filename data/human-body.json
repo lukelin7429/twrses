@@ -16,11 +16,6 @@
   ],
   "planned": [
     {
-      "icon": "🍱",
-      "en": "What Happens to Your Lunch?",
-      "zh": "午餐吃下去之後去了哪裡？"
-    },
-    {
       "icon": "🧠",
       "en": "How Does Your Brain Talk to Your Body?",
       "zh": "大腦怎麼指揮全身？"
@@ -2368,6 +2363,483 @@
       },
       "health_en": "This lesson is for learning about the body. It is not medical advice. If a joint swells, hurts badly, or will not move after a fall, tell an adult and see a doctor. When measuring, stop where it feels comfortable, and never pull or bend someone else's joint.",
       "health_zh": "本課是認識身體的教材，不是醫療建議。如果關節腫起來、非常痛，或跌倒後動不了，請告訴大人並就醫。量角度時在舒服的地方就停，絕對不要拉扯或硬扳別人的關節。"
+    },
+    {
+      "n": 6,
+      "slug": "digestion",
+      "title": "What Happens to Your Lunch?",
+      "title_zh": "午餐吃下去之後去了哪裡？",
+      "level": "入門 · Beginner",
+      "icon": "🍱",
+      "card": "digestion",
+      "blurb_en": "Your lunch takes a trip of several meters and a day or more. Follow one bite through the mouth, stomach, and intestines, and find out where your own lunch is right now.",
+      "blurb_zh": "午餐要走好幾公尺、花一天以上的時間。跟著一口飯走過嘴巴、胃和腸子，再看看你自己的午餐現在走到哪裡。",
+      "big_idea_en": "Digestion breaks food into pieces small enough to pass into your blood. Your mouth and stomach break it down, your small intestine takes in the goodness, and your large intestine takes back the water.",
+      "big_idea_zh": "消化就是把食物分解成小到能進入血液的程度：嘴巴和胃負責分解，小腸吸收養分，大腸把水分收回來。",
+      "lab": {
+        "kind": "digestion",
+        "eyebrow": "3D Model · 3D 模型",
+        "title_en": "Follow One Bite",
+        "title_zh": "跟著一口飯走",
+        "how_en": "Press Play to follow one bite of lunch from your mouth to the end, or drag the time slider. Watch the ring of muscle that squeezes behind the food, and how the bite changes along the way. Then type the time you ate lunch and press Where is my lunch now? to see where your own lunch is.",
+        "how_zh": "按「播放」跟著一口午餐從嘴巴走到最後，或拖動時間滑桿。看看食物後面那一圈擠壓的肌肉，還有這口飯一路上怎麼變化。再輸入你吃午餐的時間，按「我的午餐現在在哪？」，看看你的午餐走到哪裡了。",
+        "legend": [
+          {
+            "cls": "food",
+            "en": "Glowing ball: one bite of lunch, changing as it is digested",
+            "zh": "發亮的小球：一口午餐，一路被消化、慢慢改變"
+          },
+          {
+            "cls": "squeeze",
+            "en": "Red ring: muscles squeezing behind the food to push it along",
+            "zh": "紅色的環：在食物後面擠壓、把它往前推的肌肉"
+          },
+          {
+            "cls": "organ",
+            "en": "Brown, green, and yellow: liver, gallbladder, and pancreas, which add digestive juices",
+            "zh": "褐、綠、黃：肝、膽囊、胰臟，負責加入消化液"
+          }
+        ],
+        "scale_en": "The bones are real, from the same BodyParts3D skeleton as Lesson 1; the organs are simplified drawings in about the right places. The times are typical for an adult, but they vary a lot from person to person and meal to meal. The time slider is not to scale: the mouth and esophagus take seconds, the large intestine a day or more.",
+        "scale_zh": "骨頭是真實的，和第一課同一副 BodyParts3D 骨架；器官是放在大致正確位置的簡化示意圖。時間是成人的一般情況，每個人、每一餐都差很多。時間滑桿的刻度不等比：嘴巴和食道只要幾秒，大腸卻要一天以上。",
+        "credit_html": "Bone models: <a href=\"https://dbarchive.biosciencedbc.jp/en/bodyparts3d/download.html\" target=\"_blank\" rel=\"noopener\">BodyParts3D</a>, © The Database Center for Life Science, licensed under <a href=\"https://creativecommons.org/licenses/by/4.0/\" target=\"_blank\" rel=\"noopener\">CC BY 4.0</a>. We selected the bones, simplified the shapes, and turned the model upright; the digestive organs are our own drawing. · 骨骼模型來源：BodyParts3D（日本生命科學資料庫中心，CC BY 4.0 授權）；本站挑選骨頭、簡化形狀並轉正方向，消化器官為本站自繪示意。",
+        "stops": [
+          {
+            "en": "Mouth",
+            "zh": "嘴巴",
+            "time_en": "About 1 minute",
+            "time_zh": "約 1 分鐘",
+            "what_en": "Teeth cut and grind the food. Saliva wets it and starts turning starch into sugar. The tongue rolls it into a soft ball to swallow.",
+            "what_zh": "牙齒切斷、磨碎食物；唾液把它弄濕，開始把澱粉變成糖；舌頭把它捲成一顆軟軟的小球吞下去。"
+          },
+          {
+            "en": "Esophagus",
+            "zh": "食道",
+            "time_en": "About 10 seconds",
+            "time_zh": "約 10 秒",
+            "what_en": "Waves of muscle squeeze the food down to the stomach. This works even when you are lying down, or floating in space.",
+            "what_zh": "一波波的肌肉把食物往下擠到胃裡；就算躺著，或是在太空中飄著，也照樣能吞。"
+          },
+          {
+            "en": "Stomach",
+            "zh": "胃",
+            "time_en": "2 to 4 hours",
+            "time_zh": "2 到 4 小時",
+            "what_en": "Strong acid and juices mix with the food while the stomach churns it into a thick soup called chyme.",
+            "what_zh": "強酸和消化液和食物混在一起，胃不斷攪拌，把它變成濃濃的湯，叫做食糜。"
+          },
+          {
+            "en": "Small intestine",
+            "zh": "小腸",
+            "time_en": "3 to 5 hours",
+            "time_zh": "3 到 5 小時",
+            "what_en": "Juices from the liver and pancreas finish the job. Tiny finger-like villi soak up the nutrients into the blood, so the bite gets smaller.",
+            "what_zh": "肝和胰臟送來的消化液完成分解；無數像手指一樣的小絨毛把養分吸進血液，所以這口飯越來越小。"
+          },
+          {
+            "en": "Large intestine",
+            "zh": "大腸",
+            "time_en": "About a day, often longer",
+            "time_zh": "約一天，常常更久",
+            "what_en": "Water is taken back into the body, and trillions of helpful bacteria break down what is left and make some vitamins.",
+            "what_zh": "水分被收回身體，數以兆計的好細菌分解剩下的東西，還會製造一些維生素。"
+          },
+          {
+            "en": "Out",
+            "zh": "排出",
+            "time_en": "After 1 to 3 days",
+            "time_zh": "1 到 3 天後",
+            "what_en": "What your body cannot use leaves the body. The whole trip usually takes one to three days.",
+            "what_zh": "身體用不到的部分排出體外。整趟旅程通常要一到三天。"
+          }
+        ]
+      },
+      "paras": [
+        "Think about the lunch you ate today, maybe rice, vegetables, and a piece of fish. Over the next day or two, that lunch will travel through a tube several meters long that runs from your mouth all the way through your body. On the way, it will be crushed, soaked, mixed, and broken into pieces so tiny that they can pass into your blood, which carries them to every cell. This is digestion.",
+        "Digestion starts before you even swallow. Your front teeth cut, and your back teeth grind. Your mouth makes about a liter of saliva every day, which wets the food and starts to turn starch into sugar. That is why a plain cracker begins to taste a little sweet if you chew it for a long time. Your tongue then rolls the food into a soft ball and pushes it to the back of your throat. As you swallow, a small flap closes over your windpipe, so the food goes down the right way.",
+        "The esophagus is a muscle tube about 25 centimeters long. Rings of muscle squeeze one after another, pushing the food down to the stomach in about ten seconds. Gravity is not needed: astronauts can eat and swallow in space. The stomach is a stretchy, J-shaped bag on the left side of your upper belly. Its walls churn the food for two to four hours and mix it with a strong acid and juices, turning lunch into a thick soup called chyme. A layer of mucus protects the stomach from its own acid.",
+        "Next comes the small intestine, a narrow tube about 5 meters long, coiled up in the middle of your belly. Here, juices from the pancreas and bile from the liver, stored in the gallbladder, finish breaking the food down. The inside wall is covered with millions of tiny, finger-like bumps called villi, which soak up the nutrients and pass them into the blood. Most of the real work of digestion happens here, over three to five hours.",
+        "What is left moves into the large intestine. It is wider than the small intestine but much shorter, about 1.5 meters long, and it wraps around the small intestine like a frame. Its main job is to take water back into the body. It is also home to trillions of helpful bacteria, which break down some of the leftovers and even make vitamins your body can use. After a day or more, whatever your body cannot use leaves the body. From lunch to the end, the whole trip usually takes one to three days.",
+        "You can help your digestion every day. Chew slowly, drink water, and eat fiber, which you get from vegetables, fruit, beans, and whole grains. Fiber cannot be digested, but it keeps food moving smoothly and feeds your helpful gut bacteria. Now look at the clock. What time did you eat lunch today? Type it into the model and find out where your lunch is right now."
+      ],
+      "paras_zh": [
+        "想想你今天吃的午餐，也許是米飯、青菜和一塊魚。接下來一兩天，這頓午餐會走過一條好幾公尺長的管子，從嘴巴一路穿過你的身體。一路上它會被壓碎、浸泡、攪拌，分解成小到能進入血液的程度，再由血液送到每一個細胞。這就是消化。",
+        "消化在你吞下去之前就開始了。門牙負責切，後面的牙齒負責磨。嘴巴每天製造大約一公升的唾液，把食物弄濕，還會開始把澱粉變成糖——所以一片蘇打餅乾嚼久了，會開始有一點甜味。接著舌頭把食物捲成一顆軟軟的小球，推到喉嚨後面。吞嚥時，一片小小的蓋子會蓋住氣管，讓食物走對路。",
+        "食道是一條大約 25 公分長的肌肉管。一圈圈的肌肉接連收縮，大約十秒就把食物推進胃裡。這不需要重力：太空人在太空中也能吃東西、吞下去。胃是一個有彈性的 J 形袋子，位在上腹部的左邊。胃壁會攪拌食物兩到四個小時，讓它和強酸、消化液混在一起，把午餐變成濃濃的湯，叫做食糜。一層黏液保護胃，不被自己的胃酸傷到。",
+        "接下來是小腸，一條大約 5 公尺長的細管子，盤在肚子中間。在這裡，胰臟送來的消化液，以及肝臟製造、儲存在膽囊裡的膽汁，完成食物的分解。小腸內壁布滿了幾百萬個像手指一樣的小突起，叫做絨毛，負責吸收養分、送進血液。消化真正的重頭戲大多發生在這裡，大約要三到五個小時。",
+        "剩下的東西進到大腸。大腸比小腸粗，卻短得多，大約 1.5 公尺長，像一個框一樣圍著小腸。它主要的工作是把水分收回身體。大腸也住著數以兆計的好細菌，它們會分解一部分剩下的東西，甚至製造身體用得到的維生素。一天或更久之後，身體用不到的東西就排出體外。從午餐到最後，整趟旅程通常要一到三天。",
+        "你每天都能幫助自己的消化：細嚼慢嚥、多喝水，再多吃膳食纖維——蔬菜、水果、豆類和全穀類裡都有。纖維不能被消化，卻能讓食物順暢地往前走，還能餵養腸道裡的好細菌。現在看看時鐘：你今天幾點吃午餐？把時間輸入模型，看看你的午餐現在走到哪裡了。"
+      ],
+      "questions": [
+        "Why does a plain cracker begin to taste sweet if you chew it for a long time?",
+        "Where does most of the real work of digestion happen, and how do nutrients get into the blood?",
+        "What is the main job of the large intestine?"
+      ],
+      "answers": [
+        "Saliva starts turning the starch in the cracker into sugar.",
+        "In the small intestine. Tiny finger-like villi on its inside wall soak up the nutrients and pass them into the blood.",
+        "To take water back into the body. It is also home to helpful bacteria that break down leftovers and make some vitamins."
+      ],
+      "vocab": [
+        {
+          "n": 1,
+          "w": "digest",
+          "pos": "v.",
+          "zh": "消化",
+          "ex": "Babies cannot <b>digest</b> some foods that adults eat.",
+          "exzh": "嬰兒無法消化一些大人吃的食物。"
+        },
+        {
+          "n": 2,
+          "w": "saliva",
+          "pos": "n.",
+          "zh": "唾液；口水",
+          "ex": "The smell of fried chicken filled my mouth with <b>saliva</b>.",
+          "exzh": "炸雞的香味讓我口水直流。"
+        },
+        {
+          "n": 3,
+          "w": "swallow",
+          "pos": "v.",
+          "zh": "吞下",
+          "ex": "Chew your food well before you <b>swallow</b> it.",
+          "exzh": "食物要嚼爛再吞下去。"
+        },
+        {
+          "n": 4,
+          "w": "stomach",
+          "pos": "n.",
+          "zh": "胃",
+          "ex": "My <b>stomach</b> is growling, so it must be lunchtime.",
+          "exzh": "我的肚子在咕嚕咕嚕叫，一定是午餐時間到了。"
+        },
+        {
+          "n": 5,
+          "w": "acid",
+          "pos": "n.",
+          "zh": "酸",
+          "ex": "Lemon juice contains a mild <b>acid</b>.",
+          "exzh": "檸檬汁含有溫和的酸。"
+        },
+        {
+          "n": 6,
+          "w": "intestine",
+          "pos": "n.",
+          "zh": "腸",
+          "ex": "The small <b>intestine</b> is longer than the large one.",
+          "exzh": "小腸比大腸還長。"
+        },
+        {
+          "n": 7,
+          "w": "nutrient",
+          "pos": "n.",
+          "zh": "養分；營養素",
+          "ex": "Plants take <b>nutrients</b> from the soil.",
+          "exzh": "植物從土壤吸取養分。"
+        },
+        {
+          "n": 8,
+          "w": "absorb",
+          "pos": "v.",
+          "zh": "吸收",
+          "ex": "A sponge <b>absorbs</b> water.",
+          "exzh": "海綿會吸水。"
+        }
+      ],
+      "quiz": [
+        {
+          "q": "What does saliva begin to do to starch?",
+          "options": [
+            "Turn it into sugar",
+            "Turn it into acid",
+            "Turn it into water",
+            "Turn it into fiber"
+          ],
+          "correct": 0
+        },
+        {
+          "q": "How does food move down the esophagus?",
+          "options": [
+            "Rings of muscle squeeze it down",
+            "Gravity pulls it down",
+            "The stomach sucks it down",
+            "Saliva washes it down"
+          ],
+          "correct": 0
+        },
+        {
+          "q": "Where are most nutrients taken into the blood?",
+          "options": [
+            "In the small intestine",
+            "In the mouth",
+            "In the esophagus",
+            "In the large intestine"
+          ],
+          "correct": 0
+        },
+        {
+          "q": "What protects the stomach from its own acid?",
+          "options": [
+            "A layer of mucus",
+            "A layer of fat",
+            "The ribs",
+            "Saliva"
+          ],
+          "correct": 0
+        },
+        {
+          "q": "According to the reading, about how long does the whole trip usually take?",
+          "options": [
+            "One to three days",
+            "About ten seconds",
+            "About one hour",
+            "About one week"
+          ],
+          "correct": 0
+        }
+      ],
+      "kinds_head": {
+        "eyebrow": "Helpers Along the Way · 沿路的幫手",
+        "en": "Food never passes through these, but they make digestion work",
+        "zh": "食物不經過它們，消化卻少不了它們"
+      },
+      "kinds": [
+        {
+          "icon": "🦷",
+          "en": "Teeth and saliva",
+          "zh": "牙齒與唾液",
+          "where_en": "In the mouth",
+          "where_zh": "嘴巴裡",
+          "control_en": "About 1 liter of saliva a day",
+          "control_zh": "每天約 1 公升唾液",
+          "text_en": "Chewing makes the pieces small, so the juices that come later can reach more of the food.",
+          "text_zh": "咀嚼把食物弄小，後面的消化液才能接觸到更多食物。"
+        },
+        {
+          "icon": "🟤",
+          "en": "Liver",
+          "zh": "肝臟",
+          "where_en": "Upper right of the belly",
+          "where_zh": "右上腹",
+          "control_en": "Largest organ inside the body",
+          "control_zh": "身體裡最大的器官",
+          "text_en": "Makes bile, which breaks fat into tiny drops, and also checks and cleans the blood coming from the intestines.",
+          "text_zh": "製造膽汁，把油脂分散成小油滴；也檢查、淨化從腸子送來的血液。"
+        },
+        {
+          "icon": "🟢",
+          "en": "Gallbladder",
+          "zh": "膽囊",
+          "where_en": "Under the liver",
+          "where_zh": "肝臟下方",
+          "control_en": "Stores bile",
+          "control_zh": "儲存膽汁",
+          "text_en": "A small green bag that squeezes bile into the small intestine when a fatty meal arrives.",
+          "text_zh": "一個綠色的小袋子；油膩的食物一到，就把膽汁擠進小腸。"
+        },
+        {
+          "icon": "🟡",
+          "en": "Pancreas",
+          "zh": "胰臟",
+          "where_en": "Behind the stomach",
+          "where_zh": "胃的後面",
+          "control_en": "Makes strong juices",
+          "control_zh": "製造強效消化液",
+          "text_en": "Its juices break down starch, protein, and fat. It also makes insulin, which controls the sugar in your blood.",
+          "text_zh": "它的消化液能分解澱粉、蛋白質和脂肪；它也製造胰島素，控制血液裡的糖。"
+        },
+        {
+          "icon": "🦠",
+          "en": "Gut bacteria",
+          "zh": "腸道細菌",
+          "where_en": "Mostly in the large intestine",
+          "where_zh": "大多在大腸",
+          "control_en": "Trillions of them",
+          "control_zh": "數以兆計",
+          "text_en": "Helpful bacteria break down fiber, make some vitamins, and help keep harmful germs out.",
+          "text_zh": "好細菌分解纖維、製造一些維生素，還幫忙擋住壞病菌。"
+        }
+      ],
+      "kinds_note_en": "Digestion is a team job: the tube moves the food, and the helpers add the juices that break it apart.",
+      "kinds_note_zh": "消化是團隊合作：管子負責搬運食物，幫手負責加入分解它的消化液。",
+      "measure": {
+        "title_en": "Taste your saliva at work, and find your lunch",
+        "title_zh": "嚐嚐唾液在工作，再找找你的午餐",
+        "lead_en": "Two quick experiments you can do with your own body, and one you can do with the model.",
+        "lead_zh": "兩個用自己身體就能做的小實驗，再加一個和模型一起做的。",
+        "steps": [
+          {
+            "n": "60",
+            "en": "The cracker test",
+            "zh": "蘇打餅乾試驗",
+            "text_en": "Chew a plain, unsalted cracker for 60 seconds without swallowing. Does it start to taste a little sweet? That is saliva turning starch into sugar.",
+            "text_zh": "把一片原味、不加鹽的蘇打餅乾嚼 60 秒，先不要吞。有沒有開始覺得有點甜？那就是唾液把澱粉變成糖。"
+          },
+          {
+            "n": "20+",
+            "en": "Count your chews",
+            "zh": "數一數咀嚼次數",
+            "text_en": "At lunch, count how many times you chew one bite before you swallow. Try to reach 20.",
+            "text_zh": "吃午餐時，數數看一口飯嚼幾下才吞下去，試著嚼到 20 下。"
+          },
+          {
+            "n": "🕐",
+            "en": "Where is my lunch now?",
+            "zh": "我的午餐現在在哪？",
+            "text_en": "Type the time you ate lunch into the model and press the button. It uses the real time right now.",
+            "text_zh": "在模型裡輸入你吃午餐的時間，按下按鈕。它會用現在的真實時間計算。"
+          }
+        ],
+        "action": "now",
+        "action_value": "1",
+        "button_icon": "🕐",
+        "button_en": "Where is my lunch now?",
+        "button_zh": "我的午餐現在在哪？"
+      },
+      "myths": [
+        {
+          "myth_en": "Swallowed gum stays in your stomach for seven years.",
+          "myth_zh": "吞下去的口香糖會在胃裡待七年。",
+          "fact_en": "Your body cannot digest gum, but it does not stay. It moves through and leaves the body within a few days, like other things you cannot digest. Still, gum is for chewing, not swallowing.",
+          "fact_zh": "身體無法消化口香糖，但它不會留下來；它會和其他無法消化的東西一樣，幾天內就排出體外。不過口香糖還是用來嚼的，不是用來吞的。"
+        },
+        {
+          "myth_en": "Most digestion happens in the stomach.",
+          "myth_zh": "消化大部分在胃裡完成。",
+          "fact_en": "The stomach churns and starts breaking food down, but most digestion, and almost all the taking in of nutrients, happens in the small intestine.",
+          "fact_zh": "胃負責攪拌、開始分解，但大部分的消化，以及幾乎全部的養分吸收，都在小腸裡進行。"
+        },
+        {
+          "myth_en": "Food falls down to your stomach because of gravity.",
+          "myth_zh": "食物是靠重力掉進胃裡的。",
+          "fact_en": "Muscles in the esophagus squeeze the food along. That is why you can swallow lying down, and why astronauts can eat in space.",
+          "fact_zh": "是食道的肌肉把食物擠下去的。所以躺著也能吞，太空人在太空中也能吃東西。"
+        },
+        {
+          "myth_en": "Stomach ulcers are mostly caused by stress and spicy food.",
+          "myth_zh": "胃潰瘍主要是壓力和吃辣造成的。",
+          "fact_en": "Many ulcers are caused by a kind of bacteria called H. pylori. Two Australian doctors showed this, and one of them even drank the bacteria to prove it. They won a Nobel Prize in 2005.",
+          "fact_zh": "許多胃潰瘍其實是一種叫幽門螺旋桿菌的細菌造成的。兩位澳洲醫生證明了這件事，其中一位甚至親自喝下細菌來證明，兩人在 2005 年獲得諾貝爾獎。"
+        }
+      ],
+      "tricks": [
+        {
+          "title_en": "Chew, churn, soak up, dry out",
+          "title_zh": "咀嚼、攪拌、吸收、收水",
+          "body_en": "Mouth chews, stomach churns, small intestine soaks up nutrients, large intestine takes back water.",
+          "body_zh": "嘴巴咀嚼、胃攪拌、小腸吸收養分、大腸把水收回來。"
+        },
+        {
+          "title_en": "Small is long, large is wide",
+          "title_zh": "小腸長、大腸粗",
+          "body_en": "The names are about width, not length: the small intestine is about 5 meters long, the large intestine only about 1.5 meters, but much wider.",
+          "body_zh": "名字說的是粗細，不是長短：小腸約 5 公尺長，大腸只有約 1.5 公尺，卻粗得多。"
+        },
+        {
+          "title_en": "Squeeze, do not fall",
+          "title_zh": "是擠，不是掉",
+          "body_en": "Food is squeezed through your whole digestive tract by waves of muscle, from your throat to the very end.",
+          "body_zh": "從喉嚨到最後，食物一路都是被一波波的肌肉擠著走，不是自己掉下去的。"
+        },
+        {
+          "title_en": "From lunch to the end: one to three days",
+          "title_zh": "從午餐到最後：一到三天",
+          "body_en": "Minutes in the mouth, seconds down the esophagus, hours in the stomach and small intestine, a day or more in the large intestine.",
+          "body_zh": "嘴裡幾分鐘、食道幾秒、胃和小腸幾個小時、大腸一天以上。"
+        }
+      ],
+      "activities": [
+        {
+          "title_en": "Lay Out Your Digestive Tract",
+          "title_zh": "把消化道鋪開來看",
+          "materials": [
+            {
+              "en": "A ball of yarn or string, at least 8 meters",
+              "zh": "一捲毛線或棉線，至少 8 公尺"
+            },
+            {
+              "en": "A meter stick or tape measure",
+              "zh": "一支公尺尺或捲尺"
+            },
+            {
+              "en": "Labels or sticky notes",
+              "zh": "標籤或便利貼"
+            }
+          ],
+          "steps": [
+            {
+              "en": "Measure and cut four pieces: esophagus 25 cm, stomach 25 cm, small intestine 5 m, large intestine 1.5 m.",
+              "zh": "量好、剪下四段：食道 25 公分、胃 25 公分、小腸 5 公尺、大腸 1.5 公尺。"
+            },
+            {
+              "en": "Tie them together in order and label each part.",
+              "zh": "依順序綁在一起，每一段貼上名稱。"
+            },
+            {
+              "en": "Stretch the whole thing down the hallway. Which part is longest by far?",
+              "zh": "把整條拉直放在走廊上。哪一段長得最多？"
+            },
+            {
+              "en": "Discuss: how does all of that fit inside your belly?",
+              "zh": "討論：這麼長的東西，怎麼裝得進肚子裡？"
+            }
+          ],
+          "tip_en": "Teaching tip: these are rough adult lengths, and in a living person the small intestine is often shorter because its muscles keep it bunched up. Coil the small-intestine string into a small pile to show how it fits.",
+          "tip_zh": "教學提示：這些是成人的大約長度；在活人身上，小腸常常比較短，因為肌肉讓它保持收縮。把代表小腸的那段線盤成一小堆，就看得出它怎麼塞進肚子。"
+        },
+        {
+          "title_en": "A Stomach in a Zipper Bag",
+          "title_zh": "夾鏈袋裡的胃",
+          "materials": [
+            {
+              "en": "A strong zipper bag (the stomach)",
+              "zh": "一個堅固的夾鏈袋（胃）"
+            },
+            {
+              "en": "Two plain crackers and a small piece of banana",
+              "zh": "兩片原味餅乾和一小塊香蕉"
+            },
+            {
+              "en": "Half a cup of water with a little lemon juice (the stomach juices)",
+              "zh": "半杯加了一點檸檬汁的水（胃液）"
+            },
+            {
+              "en": "An old stocking or tights, a bowl, and scissors",
+              "zh": "一隻舊絲襪或褲襪、一個碗、一把剪刀"
+            }
+          ],
+          "steps": [
+            {
+              "en": "Break the crackers and banana into the bag, add the lemon water, and seal it tight.",
+              "zh": "把餅乾和香蕉剝碎放進袋子，倒入檸檬水，把袋口封緊。"
+            },
+            {
+              "en": "Squeeze and knead the bag for two minutes. This is the stomach churning.",
+              "zh": "揉捏袋子兩分鐘——這就是胃在攪拌。"
+            },
+            {
+              "en": "Cut off one corner and squeeze the mush into the stocking over the bowl. This is the small intestine.",
+              "zh": "剪開一個角，在碗上方把糊糊擠進絲襪裡——這就是小腸。"
+            },
+            {
+              "en": "Squeeze the stocking gently from top to bottom. What drips into the bowl, and what stays inside?",
+              "zh": "從上往下輕輕擠絲襪。滴進碗裡的是什麼？留在裡面的又是什麼？"
+            }
+          ],
+          "tip_en": "Teaching tip: the liquid that drips through stands for the nutrients passing into the blood, and what stays inside moves on to the large intestine. Do not eat the materials, and wipe up spills right away.",
+          "tip_zh": "教學提示：滴下來的液體代表進入血液的養分，留在絲襪裡的就是接下來要進大腸的部分。材料不可以吃，打翻了要馬上擦乾淨。"
+        }
+      ],
+      "culture": {
+        "title_en": "Dissolve and Transform, and a Date Swallowed Whole",
+        "title_zh": "「消」與「化」，還有囫圇吞棗",
+        "body_en": "The Chinese word for digestion, 消化 (xiāohuà), joins 消, to melt away, with 化, to change. Chinese also uses it for ideas: to 消化 a lesson means to really understand it. The idiom 囫圇吞棗 describes swallowing a date whole without chewing, which means reading or learning something without taking it in. The opposite advice for eating is 細嚼慢嚥: chew finely, swallow slowly. And the everyday word for a meal, 吃飯, simply means to eat rice.",
+        "body_zh": "中文的「消化」由「消」（消融）和「化」（變化）組成。中文也拿它來說學習：把一課「消化」了，就是真的懂了。成語「囫圇吞棗」是說整顆棗子沒嚼就吞下去，比喻讀書學習不求理解。吃東西的相反建議是「細嚼慢嚥」。而日常說的「吃飯」，字面上就是吃米飯。",
+        "link_en": "More Chinese health words in English",
+        "link_zh": "到中醫養生系列看更多"
+      },
+      "health_en": "This lesson is for learning about the body. It is not medical advice. If you have a very bad stomachache, keep throwing up, or see blood, tell an adult right away. Before tasting anything in class, check for food allergies, and wash your hands.",
+      "health_zh": "本課是認識身體的教材，不是醫療建議。如果肚子非常痛、一直吐，或看到血，請馬上告訴大人。課堂上試吃任何東西之前，先確認有沒有食物過敏，也要洗手。"
     }
   ]
 }
