@@ -3575,7 +3575,7 @@ def build_astro_hub():
 # 第一課的骨架是真實解剖資料（BodyParts3D，CC BY 4.0），`npm run model` 產生 assets/models/skeleton.glb。
 # 面板與段落樣式沿用 astro.css，人體專屬的在 body.css；兩者都只載在本系列頁面。
 BODY_BASE = "/resources/classes/human-body/"
-_BODY_JS = {"skeleton": "skeleton", "arm": "arm", "heart": "heart", "lungs": "lungs"}   # lab.kind → assets/js/<bundle>.js
+_BODY_JS = {"skeleton": "skeleton", "arm": "arm", "heart": "heart", "lungs": "lungs", "joints": "joints"}   # lab.kind → assets/js/<bundle>.js
 
 def _body_ver():
     h = hashlib.md5()
@@ -3845,6 +3845,45 @@ def render_lungs_lab(lesson):
   <p class="sk-credit">{lab["credit_html"]}</p>
 </div>'''
 
+def render_joints_lab(lesson):
+    """第五課：真實骨架上的六個關節（assets/js/joints.js 綁這裡的 class）。"""
+    lab = lesson["lab"]
+    joints = [("knee", "Knee", "膝", "Hinge · 鉸鏈"), ("hip", "Hip", "髖", "Ball · 球窩"), ("elbow", "Elbow", "肘", "Hinge · 鉸鏈"),
+              ("shoulder", "Shoulder", "肩", "Ball · 球窩"), ("neck", "Neck", "頸", "Pivot · 樞軸"), ("thumb", "Thumb", "拇指", "Saddle · 鞍狀")]
+    chips = "".join(
+        f'<button type="button" class="al-chip jt-chip" data-joint="{k}"><span class="al-chip-en">{en}</span>'
+        f'<span class="al-chip-zh">{zh}</span><small>{ty}</small></button>' for k, en, zh, ty in joints)
+    tg = _lab_toggles([("labels", "Labels", "標示", True), ("range", "Range of motion", "活動範圍", True), ("trace", "Path", "軌跡", True)])
+    return f'''<div class="astro-lab sk-lab jt-lab rvl" data-joints-lab data-model="{_model_url()}">
+  <div class="al-stage">
+    <div class="al-space">
+      <canvas class="al-space-cv" aria-label="3D model of a real skeleton with six moving joints · 真實骨架上六個會動的關節 3D 模型"></canvas>
+      <div class="al-labels" aria-hidden="true"></div>
+      <p class="sk-loading">Loading the skeleton… · 骨架載入中…<span class="sk-bar"><i></i></span></p>
+      <p class="al-hint">Drag to turn · 拖曳旋轉　Scroll or pinch to zoom · 滾輪／雙指縮放</p>
+      <button type="button" class="al-home" title="Reset view · 重設視角" aria-label="Reset view · 重設視角">&#8634;</button>
+      <p class="al-nogl-msg">This 3D model needs WebGL, which this browser does not support. The cards below still explain everything.<br><span class="zh">這個瀏覽器不支援 WebGL，無法顯示 3D 模型；下方的卡片一樣能看懂。</span></p>
+    </div>
+    <aside class="al-sky sk-aside jt-aside">
+      <p class="al-sky-k">Joint · 關節</p>
+      <p class="jt-name"></p><p class="jt-zh"></p>
+      <p class="jt-type"></p>
+      <p class="jt-ways"></p>
+      <p class="jt-like"></p>
+      <div class="jt-sliders"></div>
+      <div class="jt-btns"><button type="button" class="jt-circle"></button><button type="button" class="jt-reset">&#8634; Back to start<small>回到原位</small></button></div>
+      <p class="jt-say" aria-live="polite"></p>
+      <p class="jt-ex"></p>
+    </aside>
+  </div>
+  <div class="al-controls">
+    <div class="al-chips jt-chips">{chips}</div>
+    <div class="al-row al-toggles">{tg}</div>
+  </div>
+  {_lab_foot(lab)}
+  <p class="sk-credit">{lab["credit_html"]}</p>
+</div>'''
+
 def _body_nav(slug):
     ls = BODY["lessons"]
     i = next(n for n, l in enumerate(ls) if l["slug"] == slug)
@@ -3868,7 +3907,8 @@ def build_body_lesson(lesson):
     reading_html = render_basic_unit(1, unit_dict, level="body", audio_rel="", pdf_rel="")
     lab = lesson["lab"]
     kind = lab["kind"]
-    lab_html = {"skeleton": render_skeleton_lab, "arm": render_arm_lab, "heart": render_heart_lab, "lungs": render_lungs_lab}[kind](lesson)
+    lab_html = {"skeleton": render_skeleton_lab, "arm": render_arm_lab, "heart": render_heart_lab, "lungs": render_lungs_lab,
+                "joints": render_joints_lab}[kind](lesson)
 
     secs = []
     if lesson.get("jobs"):
@@ -3884,6 +3924,22 @@ def build_body_lesson(lesson):
         secs.append(("jobs", "Five Jobs · 五大功能", "What your skeleton does all day", "骨骼整天在做的五件事",
                      f'<div class="ph-grid jb-grid stagger">{cards}</div>',
                      _bi(lesson["jobs_note_en"], lesson["jobs_note_zh"], cls="lead rvl d2")))
+    if lesson.get("types"):
+        th = lesson["types_head"]
+        def _type_card(t):
+            go = (f'<button type="button" class="ph-go" data-lab-joint="{t["joint"]}">See it in 3D · 在模型中看 <i>&uarr;</i></button>'
+                  if t.get("joint") else '<p class="ty-none">Not in the 3D model · 模型中沒有示範</p>')
+            return (f'<article class="ph-card jb-card tp-card rvl">'
+                    f'<div class="ph-ico jb-ico" aria-hidden="true">{t["icon"]}</div>'
+                    f'<h3>{html.escape(t["en"])}<span class="zh">{html.escape(t["zh"])}</span></h3>'
+                    f'<p class="ph-meta"><span>{html.escape(t["where_en"])} · {html.escape(t["where_zh"])}</span>'
+                    f'<span class="kd-ctl">{html.escape(t["moves_en"])} · {html.escape(t["moves_zh"])}</span></p>'
+                    f'<p class="ph-when">{html.escape(t["text_en"])}<br><span class="zh">{html.escape(t["text_zh"])}</span></p>'
+                    f'<p class="jb-try"><b>Try it · 試試看</b>{html.escape(t["try_en"])}<span class="zh">{html.escape(t["try_zh"])}</span></p>'
+                    f'{go}</article>')
+        secs.append(("types", th["eyebrow"], th["en"], th["zh"],
+                     f'<div class="ph-grid kd-grid stagger">{"".join(_type_card(t) for t in lesson["types"])}</div>',
+                     _bi(lesson["types_note_en"], lesson["types_note_zh"], cls="lead rvl d2")))
     if lesson.get("chambers"):
         cards = "".join(
             f'<article class="ph-card jb-card ck-card ck-{c["side"]} rvl">'
@@ -3952,7 +4008,8 @@ def build_body_lesson(lesson):
                      _bi(ms["lead_en"], ms["lead_zh"], cls="lead rvl d2")))
     secs.append(("myths", "Myth vs. Fact · 常見迷思", "Four things people get wrong", "四個常見的誤會", _sci_myths(lesson), ""))
     tricks_h = {"skeleton": ("Bones in a sentence", "一句話記住骨頭"), "arm": ("Muscles in a sentence", "一句話記住肌肉"),
-                "heart": ("The heart in a sentence", "一句話記住心臟"), "lungs": ("Breathing in a sentence", "一句話記住呼吸")}[kind]
+                "heart": ("The heart in a sentence", "一句話記住心臟"), "lungs": ("Breathing in a sentence", "一句話記住呼吸"),
+                "joints": ("Joints in a sentence", "一句話記住關節")}[kind]
     secs.append(("tricks", "Remember It · 記憶口訣", tricks_h[0], tricks_h[1], _sci_tricks(lesson), ""))
     if lesson.get("culture"):
         cu = lesson["culture"]

@@ -14,7 +14,23 @@
       "zh": "每一課也會請你在自己身上量一量、數一數，並附生字、閱讀理解、小測驗和課堂活動。本系列是教育用途，不是醫療建議。"
     }
   ],
-  "planned": [],
+  "planned": [
+    {
+      "icon": "🍱",
+      "en": "What Happens to Your Lunch?",
+      "zh": "午餐吃下去之後去了哪裡？"
+    },
+    {
+      "icon": "🧠",
+      "en": "How Does Your Brain Talk to Your Body?",
+      "zh": "大腦怎麼指揮全身？"
+    },
+    {
+      "icon": "👁️",
+      "en": "How Do Your Eyes See?",
+      "zh": "眼睛怎麼看見東西？"
+    }
+  ],
   "lessons": [
     {
       "n": 1,
@@ -1906,6 +1922,452 @@
       },
       "health_en": "This lesson is for learning about the body. It is not medical advice. If you have trouble breathing, your chest feels tight, or your lips look blue, tell an adult right away. Never play breath-holding games or breathe very fast on purpose; both can make people faint.",
       "health_zh": "本課是認識身體的教材，不是醫療建議。如果呼吸困難、胸口悶，或嘴唇發紫，請馬上告訴大人。不要玩憋氣比賽，也不要故意快速呼吸，兩者都可能讓人昏倒。"
+    },
+    {
+      "n": 5,
+      "slug": "joints",
+      "title": "How Do Your Joints Move?",
+      "title_zh": "關節怎麼活動？",
+      "level": "入門 · Beginner",
+      "icon": "🤸",
+      "card": "joints",
+      "blurb_en": "A knee swings like a door, but a shoulder can draw a circle. Move six real joints in 3D, then measure how far your own joints bend.",
+      "blurb_zh": "膝蓋像門一樣擺動，肩膀卻能畫圓。在 3D 骨架上動動六個真實的關節，再量一量自己的關節能彎多少。",
+      "big_idea_en": "A joint is a place where bones meet. Its shape decides how it moves: a hinge swings one way, a ball in a socket turns every way, and a pivot twists.",
+      "big_idea_zh": "關節是骨頭相接的地方，它的形狀決定它怎麼動：鉸鏈只往一個方向擺，球窩往哪裡都能轉，樞軸則是扭轉。",
+      "lab": {
+        "kind": "joints",
+        "eyebrow": "3D Model · 3D 模型",
+        "title_en": "Six Real Joints",
+        "title_zh": "六個真實的關節",
+        "how_en": "Pick a joint below the model. The bones that move turn gold, and the shaded fan shows how far that joint can usually go. Drag the sliders: a hinge has one, a ball-and-socket has three. Then press the circle button. Which joints can draw a circle, and which can only swing back and forth?",
+        "how_zh": "在模型下方選一個關節。會動的骨頭變成金色，淡淡的扇形是這個關節一般能動的範圍。拖動滑桿：鉸鏈關節只有一條，球窩關節有三條。再按「畫圓圈」：哪些關節畫得出圓，哪些只能來回擺？",
+        "legend": [
+          {
+            "cls": "gold",
+            "en": "Gold bones: the part that moves at this joint",
+            "zh": "金色骨頭：這個關節帶動的部分"
+          },
+          {
+            "cls": "fan",
+            "en": "Shaded fan: the usual range of motion for an adult",
+            "zh": "淡色扇形：成人一般的活動範圍"
+          },
+          {
+            "cls": "trace",
+            "en": "Blue line: the path the end of the bone traces",
+            "zh": "藍線：骨頭末端走過的路徑"
+          }
+        ],
+        "scale_en": "The bones are real, from the same BodyParts3D skeleton as Lesson 1. The ranges are typical adult numbers; everyone is a little different. In a real body, raising your arm high also turns your shoulder blade, and turning your head uses all seven neck bones, not just the top two. The model simplifies both.",
+        "scale_zh": "骨頭是真實的，和第一課同一副 BodyParts3D 骨架。活動範圍是成人常見的數字，每個人都有點不同。真實的身體裡，手臂舉高時肩胛骨也會跟著轉，轉頭則會用到全部七節頸椎，不只最上面兩節；模型把這兩件事簡化了。",
+        "credit_html": "Bone models: <a href=\"https://dbarchive.biosciencedbc.jp/en/bodyparts3d/download.html\" target=\"_blank\" rel=\"noopener\">BodyParts3D</a>, © The Database Center for Life Science, licensed under <a href=\"https://creativecommons.org/licenses/by/4.0/\" target=\"_blank\" rel=\"noopener\">CC BY 4.0</a>. We selected the bones, simplified the shapes, turned the model upright, and set the joint movements. · 骨骼模型來源：BodyParts3D（日本生命科學資料庫中心，CC BY 4.0 授權）；本站挑選骨頭、簡化形狀、轉正方向並設定關節動作。"
+      },
+      "paras": [
+        "Try walking across the room without bending your knees. You will waddle like a penguin. Now try eating lunch without bending your elbows. Every time you move, bones change their angle at places where two bones meet. These places are called joints, and your body has several hundred of them, from your jaw to your smallest toe.",
+        "Not every joint moves. The bones of your skull are joined by wavy seams called sutures, which lock them together like puzzle pieces to protect your brain. A newborn baby's skull still has soft spots between the bones so that the head can grow, but they close by about the age of two. The joints between the bones of your spine move only a little each, but together they let you bend and twist. The joints that move the most are in your arms and legs.",
+        "Inside a moving joint, the ends of the bones never grind against each other. Each end is covered with cartilage, a smooth, rubbery layer that is more slippery than ice sliding on ice. The whole joint is wrapped in a capsule filled with a little slippery liquid called synovial fluid, which works like oil in a machine. Strong straps called ligaments hold the bones together, so they can move without coming apart.",
+        "The shape of a joint decides how it moves. Your knee and elbow are hinge joints: like a door, they swing one way and back. Your shoulder and hip are ball-and-socket joints: a round ball at the top of the arm or thigh bone sits in a cup, so the limb can swing forward, backward, out to the side, and even in a circle. At the top of your neck, a pivot joint lets your head turn to say “no.” And at the base of your thumb is a saddle joint, which rocks two ways and lets your thumb touch the tip of every other finger.",
+        "There is always a trade-off between freedom and strength. Your shoulder has a shallow cup, which gives it the widest range of any joint in the body, but it is also the large joint that most often slips out of place. Your hip has a deep cup that holds the ball tightly. It cannot move as freely, but it can carry your whole weight when you run and jump. Your knee, the largest joint in the body, has two rubbery cushions inside and several strong ligaments to keep it steady.",
+        "Joints stay healthy when you use them. Moving squeezes fluid in and out of the cartilage, which keeps it fed, and strong muscles around a joint help protect it. Warm up before sports, and never force a joint past where it wants to go. And the popping sound when someone cracks their knuckles? It is a tiny gas bubble forming in the joint fluid. Now make a simple tool to measure how far your own joints can bend."
+      ],
+      "paras_zh": [
+        "試試看不彎膝蓋走過教室，你會像企鵝一樣搖搖擺擺。再試試看不彎手肘吃午餐。你每動一下，骨頭都會在兩塊骨頭相接的地方改變角度。這些地方叫做關節，從下巴到最小的腳趾，你全身有好幾百個關節。",
+        "不是每個關節都會動。頭顱骨之間由彎彎曲曲的接縫——骨縫——連在一起，像拼圖一樣卡緊，保護大腦。新生兒的頭顱骨之間還有軟軟的囟門，讓頭可以長大，但大約兩歲就會閉合。脊椎骨之間的關節每一節只能動一點點，合起來卻讓你能彎腰、扭身。動得最多的關節，在手臂和腿上。",
+        "在會動的關節裡，骨頭的末端從來不會直接互相磨擦。每個末端都包著一層軟骨，光滑又有彈性，比冰在冰上滑還要滑。整個關節外面包著一層關節囊，裡面有一點點滑滑的液體，叫做滑液，作用就像機器裡的潤滑油。強韌的帶子——韌帶——把骨頭綁在一起，讓它們能動卻不會分開。",
+        "關節的形狀決定它怎麼動。膝蓋和手肘是鉸鏈關節：像一扇門，只能往一個方向擺、再擺回來。肩膀和髖部是球窩關節：手臂或大腿骨頂端的圓球卡在一個杯狀的窩裡，所以四肢可以往前、往後、往旁邊擺，甚至畫圓。頸部頂端有一個樞軸關節，讓你能轉頭說「不」。拇指根部則是鞍狀關節，可以朝兩個方向搖，讓拇指碰得到其他每一根手指的指尖。",
+        "自由和穩固之間，總是要取捨。肩膀的窩很淺，讓它成為全身活動範圍最大的關節，但它也是最常脫臼的大關節。髖關節的窩很深，把球緊緊包住；它不能動得那麼自由，卻能在你跑跳時撐起全身的重量。膝蓋是全身最大的關節，裡面有兩塊有彈性的軟墊，還有好幾條強韌的韌帶讓它保持穩定。",
+        "關節要常常用才會健康。活動會把液體擠進、擠出軟骨，為它帶來養分；關節周圍強壯的肌肉也能保護它。運動前要暖身，也絕對不要硬把關節扳到超過它能到的地方。那折手指時的「啪」一聲呢？那是關節液裡形成的一個小小氣泡。現在做一個簡單的工具，量一量你自己的關節能彎多少度。"
+      ],
+      "questions": [
+        "Why do the bones in a moving joint not grind against each other?",
+        "What is the difference between how a hinge joint and a ball-and-socket joint move?",
+        "Why can the hip carry more weight than the shoulder, even though the shoulder moves more freely?"
+      ],
+      "answers": [
+        "The ends of the bones are covered with smooth, slippery cartilage, and the joint is filled with synovial fluid that works like oil.",
+        "A hinge joint swings in only one direction and back, like a door. A ball-and-socket joint can move in every direction, even in a circle.",
+        "The hip has a deep cup that holds the ball tightly, so it is strong and stable. The shoulder has a shallow cup, which lets it move more but makes it less stable."
+      ],
+      "vocab": [
+        {
+          "n": 1,
+          "w": "hinge",
+          "pos": "n.",
+          "zh": "鉸鏈",
+          "ex": "The door squeaks because its <b>hinge</b> needs oil.",
+          "exzh": "門會吱吱叫，是因為鉸鏈需要上油。"
+        },
+        {
+          "n": 2,
+          "w": "socket",
+          "pos": "n.",
+          "zh": "窩；插座",
+          "ex": "Plug the lamp into the <b>socket</b> on the wall.",
+          "exzh": "把檯燈插進牆上的插座。"
+        },
+        {
+          "n": 3,
+          "w": "cartilage",
+          "pos": "n.",
+          "zh": "軟骨",
+          "ex": "The tip of your nose is made of <b>cartilage</b>, not bone.",
+          "exzh": "鼻尖是軟骨做的，不是骨頭。"
+        },
+        {
+          "n": 4,
+          "w": "ligament",
+          "pos": "n.",
+          "zh": "韌帶",
+          "ex": "She hurt a <b>ligament</b> in her ankle during the game.",
+          "exzh": "她在比賽中弄傷了腳踝的韌帶。"
+        },
+        {
+          "n": 5,
+          "w": "flexible",
+          "pos": "adj.",
+          "zh": "有彈性的；柔軟的",
+          "ex": "Gymnasts are very <b>flexible</b> and can touch their toes easily.",
+          "exzh": "體操選手非常柔軟，可以輕鬆碰到腳趾。"
+        },
+        {
+          "n": 6,
+          "w": "rotate",
+          "pos": "v.",
+          "zh": "旋轉；轉動",
+          "ex": "Earth <b>rotates</b> once every day.",
+          "exzh": "地球每天自轉一圈。"
+        },
+        {
+          "n": 7,
+          "w": "range",
+          "pos": "n.",
+          "zh": "範圍",
+          "ex": "This shop sells a wide <b>range</b> of fruit.",
+          "exzh": "這家店賣各式各樣的水果。"
+        },
+        {
+          "n": 8,
+          "w": "slippery",
+          "pos": "adj.",
+          "zh": "滑的",
+          "ex": "Be careful: the floor is <b>slippery</b> after it rains.",
+          "exzh": "小心，下雨後地板很滑。"
+        }
+      ],
+      "quiz": [
+        {
+          "q": "What kind of joint is your knee?",
+          "options": [
+            "A hinge joint",
+            "A ball-and-socket joint",
+            "A pivot joint",
+            "A fixed joint"
+          ],
+          "correct": 0
+        },
+        {
+          "q": "What holds the bones of a joint together?",
+          "options": [
+            "Ligaments",
+            "Synovial fluid",
+            "Cartilage",
+            "Blood vessels"
+          ],
+          "correct": 0
+        },
+        {
+          "q": "Which joint lets your head turn to say “no”?",
+          "options": [
+            "A pivot joint at the top of the neck",
+            "A hinge joint in the jaw",
+            "A saddle joint in the thumb",
+            "A ball-and-socket joint in the shoulder"
+          ],
+          "correct": 0
+        },
+        {
+          "q": "What happens to a baby's soft spots by about age two?",
+          "options": [
+            "They close up",
+            "They grow larger",
+            "They turn into ball-and-socket joints",
+            "They fill with synovial fluid"
+          ],
+          "correct": 0
+        },
+        {
+          "q": "According to the reading, what makes the popping sound when someone cracks their knuckles?",
+          "options": [
+            "A tiny gas bubble forming in the joint fluid",
+            "Two bones grinding together",
+            "A ligament snapping",
+            "Cartilage breaking"
+          ],
+          "correct": 0
+        }
+      ],
+      "types_head": {
+        "eyebrow": "Kinds of Joints · 關節的種類",
+        "en": "Shape decides movement",
+        "zh": "形狀決定怎麼動"
+      },
+      "types": [
+        {
+          "icon": "🚪",
+          "en": "Hinge",
+          "zh": "鉸鏈關節",
+          "where_en": "Knee, elbow, fingers",
+          "where_zh": "膝蓋、手肘、手指",
+          "moves_en": "1 way",
+          "moves_zh": "1 個方向",
+          "text_en": "Swings like a door: bend and straighten, nothing else.",
+          "text_zh": "像門一樣擺動：彎曲、伸直，就這樣。",
+          "try_en": "Sit down and try to swing your lower leg sideways from the knee. It will not go.",
+          "try_zh": "坐下來，試著讓小腿從膝蓋往旁邊擺——擺不動。",
+          "joint": "knee"
+        },
+        {
+          "icon": "🕹️",
+          "en": "Ball-and-socket",
+          "zh": "球窩關節",
+          "where_en": "Shoulder, hip",
+          "where_zh": "肩膀、髖部",
+          "moves_en": "3 ways",
+          "moves_zh": "3 個方向",
+          "text_en": "A ball in a cup: forward, back, sideways, twisting, and full circles.",
+          "text_zh": "圓球卡在窩裡：往前、往後、往旁邊、扭轉，還能畫一整圈。",
+          "try_en": "Draw big circles in the air with your straight arm.",
+          "try_zh": "手臂伸直，在空中畫大圓圈。",
+          "joint": "shoulder"
+        },
+        {
+          "icon": "🔄",
+          "en": "Pivot",
+          "zh": "樞軸關節",
+          "where_en": "Top of the neck, forearm",
+          "where_zh": "頸部頂端、前臂",
+          "moves_en": "Twists",
+          "moves_zh": "扭轉",
+          "text_en": "One bone turns around another, like a doorknob.",
+          "text_zh": "一塊骨頭繞著另一塊轉，像門把一樣。",
+          "try_en": "Turn your palm up and down. Your radius is pivoting around your ulna.",
+          "try_zh": "把手掌翻上翻下：橈骨正繞著尺骨轉。",
+          "joint": "neck"
+        },
+        {
+          "icon": "🐎",
+          "en": "Saddle",
+          "zh": "鞍狀關節",
+          "where_en": "Base of the thumb",
+          "where_zh": "拇指根部",
+          "moves_en": "2 ways",
+          "moves_zh": "2 個方向",
+          "text_en": "Rocks two ways, so the thumb can reach across the palm to every finger.",
+          "text_zh": "朝兩個方向搖，讓拇指能橫過手掌碰到每一根手指。",
+          "try_en": "Touch your thumb to the tip of each finger, one by one.",
+          "try_zh": "用拇指依序碰每一根手指的指尖。",
+          "joint": "thumb"
+        },
+        {
+          "icon": "🧩",
+          "en": "Gliding",
+          "zh": "滑動關節",
+          "where_en": "Wrist, ankle, spine",
+          "where_zh": "手腕、腳踝、脊椎",
+          "moves_en": "Small slides",
+          "moves_zh": "小幅滑動",
+          "text_en": "Flat surfaces slide a little past each other. Many small slides add up to a flexible wrist or back.",
+          "text_zh": "平平的面互相滑動一點點；許多小滑動加起來，手腕和背就變得靈活。",
+          "try_en": "Wave your hand while holding your forearm still. Feel the wrist bones shift.",
+          "try_zh": "固定前臂、揮揮手，感覺手腕的小骨頭在移動。"
+        },
+        {
+          "icon": "🔒",
+          "en": "Fixed",
+          "zh": "不動關節",
+          "where_en": "Skull",
+          "where_zh": "頭顱骨",
+          "moves_en": "Does not move",
+          "moves_zh": "不會動",
+          "text_en": "Wavy seams lock the skull bones together like puzzle pieces to protect the brain.",
+          "text_zh": "彎曲的骨縫像拼圖一樣把頭顱骨卡緊，保護大腦。",
+          "try_en": "Gently feel the top of your head. It is one hard helmet, with no hinges.",
+          "try_zh": "輕輕摸摸頭頂：是一整頂硬安全帽，沒有任何鉸鏈。"
+        }
+      ],
+      "types_note_en": "Look at the shape of the bone ends, and you can usually guess how a joint moves.",
+      "types_note_zh": "看看骨頭末端的形狀，通常就猜得出這個關節怎麼動。",
+      "measure": {
+        "title_en": "Measure your own range of motion",
+        "title_zh": "量一量自己的活動範圍",
+        "lead_en": "Make a simple joint-angle meter, then work with a partner to measure how far your knee and elbow bend. Compare your numbers with the typical ranges shown on the sliders in the model.",
+        "lead_zh": "做一個簡單的關節角度計，和同伴一起量膝蓋和手肘能彎幾度，再和模型滑桿上的一般範圍比一比。",
+        "steps": [
+          {
+            "n": "1",
+            "en": "Make the meter",
+            "zh": "做角度計",
+            "text_en": "Join two cardboard strips at one end with a brass fastener, and tape a paper protractor at the joint.",
+            "text_zh": "兩條紙板用雙腳釘在一端接起來，在接點貼一張紙量角器。"
+          },
+          {
+            "n": "2",
+            "en": "Line it up",
+            "zh": "對準",
+            "text_en": "Hold the fastener on your partner's elbow, one strip along the upper arm and one along the forearm.",
+            "text_zh": "把雙腳釘對準同伴的手肘，一條紙板沿著上臂、一條沿著前臂。"
+          },
+          {
+            "n": "3",
+            "en": "Bend and read",
+            "zh": "彎曲、讀數",
+            "text_en": "Have your partner bend as far as is comfortable, never forcing it, and read the angle. Then measure the knee.",
+            "text_zh": "請同伴在舒服的範圍內彎到最多（不要硬扳），讀出角度。再量膝蓋。"
+          }
+        ],
+        "action": "joint",
+        "action_value": "knee",
+        "button_icon": "📐",
+        "button_en": "Compare with the knee in 3D",
+        "button_zh": "和 3D 模型的膝蓋比一比"
+      },
+      "myths": [
+        {
+          "myth_en": "Cracking your knuckles causes arthritis.",
+          "myth_zh": "折手指會造成關節炎。",
+          "fact_en": "The pop is a gas bubble forming in the joint fluid. Studies have not found that knuckle cracking causes arthritis, though it can annoy the people around you.",
+          "fact_zh": "那一聲是關節液裡形成的氣泡。研究並沒有發現折手指會造成關節炎——雖然可能會讓旁邊的人覺得很煩。"
+        },
+        {
+          "myth_en": "In a joint, bone rubs directly on bone.",
+          "myth_zh": "關節裡是骨頭直接磨骨頭。",
+          "fact_en": "Smooth cartilage covers the bone ends, and slippery fluid fills the space. Bones only grind when the cartilage has worn away, which is a sign of disease.",
+          "fact_zh": "骨頭末端包著光滑的軟骨，中間還有滑液。只有軟骨磨損了，骨頭才會互相磨擦，那是生病的徵兆。"
+        },
+        {
+          "myth_en": "Double-jointed people have extra joints.",
+          "myth_zh": "「雙關節」的人多了一些關節。",
+          "fact_en": "They have the same joints as everyone else. Their ligaments are looser, or their joint shapes are a little different, so they can bend farther.",
+          "fact_zh": "他們的關節和大家一樣多，只是韌帶比較鬆，或關節形狀稍微不同，所以能彎得比較多。"
+        },
+        {
+          "myth_en": "Stiff joints should be kept still.",
+          "myth_zh": "關節僵硬就應該少動。",
+          "fact_en": "Gentle movement keeps joints healthy by moving fluid through the cartilage. The exception is an injury: then follow what a doctor says.",
+          "fact_zh": "溫和的活動能讓液體在軟骨裡流動，讓關節保持健康。例外是受傷的時候：那就要聽醫生的。"
+        }
+      ],
+      "tricks": [
+        {
+          "title_en": "Door, joystick, doorknob",
+          "title_zh": "門、搖桿、門把",
+          "body_en": "Hinge = door, ball-and-socket = joystick, pivot = doorknob. Name the object, and you know the move.",
+          "body_zh": "鉸鏈＝門，球窩＝搖桿，樞軸＝門把。說出那個東西，就知道它怎麼動。"
+        },
+        {
+          "title_en": "Can it draw a circle?",
+          "title_zh": "畫得出圓嗎？",
+          "body_en": "If a limb can draw a circle in the air from that joint, it is a ball-and-socket. A hinge can only draw an arc.",
+          "body_zh": "如果四肢能從那個關節在空中畫圓，就是球窩關節；鉸鏈只畫得出一段弧。"
+        },
+        {
+          "title_en": "Shoulder for freedom, hip for strength",
+          "title_zh": "肩膀要自由，髖部要穩固",
+          "body_en": "Same kind of joint, different cups: shallow for reaching, deep for carrying weight.",
+          "body_zh": "同一種關節、不一樣的窩：淺窩用來伸展，深窩用來承重。"
+        },
+        {
+          "title_en": "Thumbs up for the saddle",
+          "title_zh": "為鞍狀關節按個讚",
+          "body_en": "Your thumb's saddle joint lets it face the other fingers. That is why you can grip a pencil and pick up a coin.",
+          "body_zh": "拇指的鞍狀關節讓它能和其他手指面對面，所以你才能握筆、撿起硬幣。"
+        }
+      ],
+      "activities": [
+        {
+          "title_en": "The Taped-Thumb Challenge",
+          "title_zh": "黏住拇指大挑戰",
+          "materials": [
+            {
+              "en": "Paper tape or masking tape (gentle on skin)",
+              "zh": "紙膠帶（不傷皮膚）"
+            },
+            {
+              "en": "A pencil, a button-up shirt or jacket, a few coins",
+              "zh": "一支鉛筆、一件有扣子的衣服或外套、幾枚硬幣"
+            },
+            {
+              "en": "A timer",
+              "zh": "一個計時器"
+            }
+          ],
+          "steps": [
+            {
+              "en": "Time yourself writing your name, doing up one button, and picking up three coins.",
+              "zh": "計時：寫自己的名字、扣一顆扣子、撿起三枚硬幣。"
+            },
+            {
+              "en": "Ask a partner to gently tape your thumb against the side of your hand so it cannot move.",
+              "zh": "請同伴用紙膠帶輕輕把你的拇指貼在手掌側邊，讓它不能動。"
+            },
+            {
+              "en": "Try the same three jobs again and time them.",
+              "zh": "再做一次同樣的三件事，計時。"
+            },
+            {
+              "en": "Remove the tape. Which job was hardest without your thumb? Why?",
+              "zh": "撕下膠帶。沒有拇指時哪一件最難？為什麼？"
+            }
+          ],
+          "tip_en": "Teaching tip: keep the tape loose and take it off after a few minutes. Afterward, look at the thumb in the 3D model and press the circle button: its saddle joint is what lets it face the other fingers.",
+          "tip_zh": "教學提示：膠帶不要貼太緊，幾分鐘後就撕掉。做完再看 3D 模型裡的拇指，按「畫圓圈」：正是鞍狀關節讓它能和其他手指面對面。"
+        },
+        {
+          "title_en": "Joint Hunt: Hinge, Ball, or Pivot?",
+          "title_zh": "關節大搜查：鉸鏈、球窩，還是樞軸？",
+          "materials": [
+            {
+              "en": "A worksheet with three columns: hinge, ball-and-socket, pivot",
+              "zh": "一張分三欄的學習單：鉸鏈、球窩、樞軸"
+            },
+            {
+              "en": "Space to move",
+              "zh": "可以活動的空間"
+            }
+          ],
+          "steps": [
+            {
+              "en": "Move one joint at a time: jaw, neck, shoulder, elbow, wrist, finger, hip, knee, ankle.",
+              "zh": "一次只動一個關節：下巴、脖子、肩膀、手肘、手腕、手指、髖部、膝蓋、腳踝。"
+            },
+            {
+              "en": "For each one, ask: can it draw a circle? Can it twist? Does it only swing one way?",
+              "zh": "每一個都問自己：能畫圓嗎？能扭轉嗎？只能往一個方向擺嗎？"
+            },
+            {
+              "en": "Write each joint in a column. Some may not fit neatly; mark them with a question mark.",
+              "zh": "把每個關節寫進一欄；不太好歸類的就打個問號。"
+            },
+            {
+              "en": "Compare with a partner and check your answers with the cards on this page.",
+              "zh": "和同伴比對答案，再用這一頁的卡片檢查。"
+            }
+          ],
+          "tip_en": "Teaching tip: the wrist and ankle are good puzzles. They move in two directions but cannot twist much, because many small gliding joints work together. Accept good reasoning even when the answer is “it's a mix.”",
+          "tip_zh": "教學提示：手腕和腳踝是很好的謎題：它們能朝兩個方向動，卻幾乎不能扭轉，因為是許多小滑動關節一起工作。只要理由說得通，「是混合型」也是好答案。"
+        }
+      ],
+      "culture": {
+        "title_en": "A Gate and a Bamboo Node",
+        "title_zh": "「關」與「節」",
+        "body_en": "The Chinese word for joint, 關節 (guānjié), joins two pictures. 關 is a gate or a mountain pass, a narrow place that things must move through. 節 is the node on a bamboo stem, where one section meets the next, just as one bone meets another. The same 節 appears in 季節 (season) and 節日 (festival), marking where one stretch of time meets the next. And when something is the key point of a problem, Chinese calls it 關鍵 or says you have found the 節骨眼, the “joint-bone eye.”",
+        "body_zh": "中文的「關節」由兩個意象組成：「關」是關口、隘口，東西必須通過的狹窄地方；「節」是竹子的竹節，一段接著下一段的地方，就像一塊骨頭接著另一塊。同一個「節」也出現在「季節」「節日」裡，標示一段時間接到下一段。事情的要緊處，中文說「關鍵」，或說抓到了「節骨眼」。",
+        "link_en": "More Chinese health words in English",
+        "link_zh": "到中醫養生系列看更多"
+      },
+      "health_en": "This lesson is for learning about the body. It is not medical advice. If a joint swells, hurts badly, or will not move after a fall, tell an adult and see a doctor. When measuring, stop where it feels comfortable, and never pull or bend someone else's joint.",
+      "health_zh": "本課是認識身體的教材，不是醫療建議。如果關節腫起來、非常痛，或跌倒後動不了，請告訴大人並就醫。量角度時在舒服的地方就停，絕對不要拉扯或硬扳別人的關節。"
     }
   ]
 }
