@@ -947,3 +947,51 @@
 .mf-best li b { color: var(--brand-dk); margin-right: .4rem; }
 .mf-best li span { display: block; font-family: var(--zh); color: var(--ink-soft); }
 @media (max-width: 760px) { .mf-tn { grid-template-columns: 1fr; } .mf-fig:first-child { max-width: 300px; margin-inline: auto; } }
+
+/* =========================================================
+   第十四課：銀河（.mw-lab、我們的星系卡、今晚彰化的銀河）
+   ========================================================= */
+.mw-lab .al-stage { grid-template-columns: minmax(0, 1fr) 360px; }
+.mw-lab .al-space { min-height: 600px; }
+.mw-readout dd span { display: block; font-family: var(--zh); font-weight: 500; font-size: .74rem; color: var(--al-mute); }
+.mw-readout dl div.ec-wide { grid-column: 1 / -1; }
+.mw-whenb { display: flex; flex-wrap: wrap; gap: .25rem; margin: 0 0 .4rem; padding: 3px; border-radius: 14px; background: rgba(255,255,255,.05); border: 1px solid var(--al-line); }
+.mw-whenb button { flex: 1 1 auto; font-size: .68rem; padding: .3rem .45rem; }
+.al-lab.mw-sun { color: #1b1405; background: var(--al-sun); border: 0; font-weight: 800; text-align: center; }
+.al-lab.mw-gc { color: #ffe2a8; border-color: rgba(255,211,110,.45); }
+.al-lab.mw-ruler { background: transparent; border: 0; color: #9fb0cf; font-size: .66rem; }
+.al-lab.mw-dir { color: #ffe2a8; border-color: rgba(255,211,110,.4); text-align: center; font-size: .66rem; }
+.al-lab.mw-star { color: #cfe2ff; font-size: .64rem; }
+.al-lab small { font-weight: 600; font-size: .58rem; color: #9fb0cf; }
+.al-lab.mw-sun small { color: #3a2a08; }
+.al-lg-mw-sun i { border: 2px solid var(--al-sun); background: radial-gradient(circle, var(--al-sun) 0 25%, transparent 30%); }
+.al-lg-mw-arm i { border: 0; background: conic-gradient(#b8c8ff 0 50%, #ffe2a8 0); }
+.al-lg-mw-band i { border: 0; border-radius: 4px; width: 22px; height: 8px; margin-top: .45rem; background: linear-gradient(90deg, transparent, rgba(200,210,255,.8), transparent); }
+@media (max-width: 1020px) {
+  .mw-lab .al-stage { grid-template-columns: 1fr; }
+  .mw-lab .al-space { min-height: 320px; }
+  .mw-aside { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); column-gap: 1.2rem; align-items: start; }
+  .mw-aside .al-sky-k { grid-column: 1 / -1; }
+  .mw-aside .se-fig, .mw-aside .mw-whenb { grid-column: 1; }
+  .mw-aside .mw-readout { grid-column: 2; grid-row: 2 / 4; margin-top: 0; }
+}
+@media (max-width: 640px) {
+  .mw-aside { display: block; }
+  .mw-aside .se-fig { max-width: 360px; margin-inline: auto; }
+  .mw-lab .ec-view button { font-size: .62rem; padding: .28rem .45rem; }
+  .mw-lab .al-lab.mw-star, .mw-lab .al-lab small { display: none; }
+}
+.mw-card .ph-ico { background: radial-gradient(circle at 50% 40%, #16264a, #070b17); }
+.mw-num { margin: 0 0 .7rem; font-size: .82rem; color: var(--ink-soft); font-weight: 700; }
+.mw-num b { display: block; font-family: var(--serif); font-size: 1.5rem; color: var(--brand-dk); }
+/* 今晚彰化的銀河 */
+@media (min-width: 1021px) { .mw-tn-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.mw-bars { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: .4rem; align-items: end; height: 170px; padding: .8rem; border-radius: 14px; background: #0c1428; }
+.mw-bar { position: relative; height: 100%; display: flex; flex-direction: column; justify-content: flex-end; align-items: center; }
+.mw-bar i { display: block; width: 70%; min-height: 2px; border-radius: 6px 6px 0 0; background: #3a4a72; }
+.mw-bar.up i { background: linear-gradient(180deg, #ffe2a8, #d9a43c); }
+.mw-bar b { order: -1; font-size: .64rem; color: #cfd8ea; margin-bottom: .2rem; font-variant-numeric: tabular-nums; }
+.mw-bar span { margin-top: .3rem; font-size: .62rem; color: #9fb0cf; text-align: center; line-height: 1.2; }
+.mw-bar span em { display: block; font-style: normal; font-family: var(--zh); }
+.mw-bar.now span { color: #ffd36e; font-weight: 800; }
+@media (max-width: 560px) { .mw-bars { gap: .15rem; padding: .5rem; } .mw-bar b { font-size: .52rem; } .mw-bar span { font-size: .52rem; } }

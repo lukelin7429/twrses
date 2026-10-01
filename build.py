@@ -2656,7 +2656,7 @@ def _astro_ver():
     h = hashlib.md5()
     for rel in ("assets/css/astro.css", "assets/js/moon-phases.js", "assets/js/eclipses.js", "assets/js/seasons.js", "assets/js/tides.js",
                 "assets/js/constellations.js", "assets/js/north-star.js", "assets/js/planets-lab.js",
-                "assets/js/sundial.js", "assets/js/solar.js", "assets/js/star-distance.js", "assets/js/meteors-lab.js", "assets/js/star-colors.js", "assets/js/moon-face.js"):
+                "assets/js/sundial.js", "assets/js/solar.js", "assets/js/star-distance.js", "assets/js/meteors-lab.js", "assets/js/star-colors.js", "assets/js/moon-face.js", "assets/js/milky-way.js"):
         fp = os.path.join(ROOT, rel)
         if os.path.exists(fp): h.update(open(fp, "rb").read())
     return h.hexdigest()[:8]
@@ -2831,6 +2831,16 @@ def colors_svg(size=56):
     dots = "".join(f'<circle cx="{x}" cy="{y}" r="{r}" fill="{c}"/><circle cx="{x}" cy="{y}" r="{r * 2.2:.1f}" fill="{c}" opacity=".18"/>'
                    for x, y, r, c in ((12, 40, 4.2, "#ffb46b"), (24, 22, 3.2, "#ffd1a3"), (34, 42, 3.6, "#fff1ea"), (44, 20, 3.4, "#e3e7ff"), (50, 40, 4.4, "#b5cdff")))
     return f'<svg class="colors-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">{dots}</svg>'
+
+def milkyway_svg(size=56):
+    """銀河小圖（系列首頁的課程卡）：一個斜看的旋渦星系，太陽是金色小點。"""
+    arms = "".join(f'<path d="M30 30 Q{x1} {y1} {x2} {y2}" stroke="rgba(190,205,255,.75)" stroke-width="{w}" fill="none" stroke-linecap="round"/>'
+                   for x1, y1, x2, y2, w in ((44, 22, 52, 34, 2.2), (16, 38, 8, 26, 2.2), (38, 40, 26, 44, 1.6), (22, 20, 34, 16, 1.6)))
+    return (f'<svg class="milkyway-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">'
+            '<g transform="rotate(-18 30 30) scale(1 .62) translate(0 18)">'
+            '<circle cx="30" cy="30" r="25" fill="rgba(120,140,220,.12)"/>'
+            f'{arms}<circle cx="30" cy="30" r="6" fill="#ffe2a8"/><circle cx="30" cy="30" r="10" fill="rgba(255,226,168,.25)"/>'
+            '<circle cx="44" cy="35" r="1.8" fill="#ffd36e"/></g></svg>')
 
 def _bi(en, zh, tag="p", cls=""):
     """英文在前、中文在後的雙語段落。"""
@@ -3637,6 +3647,49 @@ def render_moonface_lab(lesson):
   <p class="cn-credit">{lesson["lab"]["credit_html"]}</p>
 </div>'''
 
+def render_milkyway_lab(lesson):
+    """第十四課：銀河（assets/js/milky-way.js 綁這裡的 class）。"""
+    tg = _lab_toggles([("real", "Real bright stars (From the Sun)", "真實亮星（從太陽看）", True)])
+    return f'''<div class="astro-lab mw-lab rvl" data-milkyway-lab>
+  <div class="al-stage">
+    <div class="al-space">
+      <canvas class="al-space-cv" aria-label="3D model of the Milky Way galaxy with the Sun's position · 銀河系與太陽位置的 3D 模型"></canvas>
+      <div class="al-labels" aria-hidden="true"></div>
+      <div class="ec-view" role="group" aria-label="View · 視角">
+        <button type="button" data-view="outside" aria-pressed="true">Outside · 從外面看</button>
+        <button type="button" data-view="edge" aria-pressed="false">Edge-on · 側面看</button>
+        <button type="button" data-view="inside" aria-pressed="false">From the Sun · 從太陽看</button>
+      </div>
+      <p class="al-hint">Drag to turn · 拖曳旋轉　Scroll or pinch to zoom · 滾輪／雙指縮放</p>
+      <button type="button" class="al-home" title="Reset view · 重設視角" aria-label="Reset view · 重設視角">&#8634;</button>
+      <p class="al-nogl-msg">This 3D model needs WebGL, which this browser does not support. The sky chart and tonight's guide still work.<br><span class="zh">這個瀏覽器不支援 WebGL，無法顯示 3D 模型；星圖與今晚的指南一樣能用。</span></p>
+    </div>
+    <aside class="al-sky mw-aside">
+      <p class="al-sky-k">The Milky Way over Changhua · 彰化天上的銀河</p>
+      <figure class="se-fig"><div class="se-box"><canvas class="mw-sky-cv" aria-label="All-sky chart over Changhua with the Milky Way band · 彰化全天星圖與銀河光帶"></canvas></div>
+        <figcaption>North up, east left, like looking straight up. · 北上東左，像躺著往上看。</figcaption></figure>
+      <div class="ec-where mw-whenb" role="group" aria-label="Time · 時刻">
+        <button type="button" data-when="tonight" aria-pressed="true">Tonight 9 p.m. · 今晚九點</button>
+        <button type="button" data-when="now" aria-pressed="false">Now · 現在</button>
+        <button type="button" data-when="july" aria-pressed="false">July 15, 9 p.m. · 七月</button>
+      </div>
+      <div class="al-readout ec-readout mw-readout" aria-live="polite">
+        <p class="ec-date mw-when"></p>
+        <dl>
+          <div class="ec-wide"><dt>Galactic center · 銀河中心</dt><dd class="mw-gcr"></dd></div>
+          <div class="ec-wide"><dt>The band passes through · 光帶經過</dt><dd class="mw-band"></dd></div>
+          <div class="ec-wide"><dt>Moon · 月亮</dt><dd class="mw-moon"></dd></div>
+        </dl>
+      </div>
+    </aside>
+  </div>
+  <div class="al-controls">
+    <div class="al-row al-toggles">{tg}</div>
+  </div>
+  {_lab_foot(lesson["lab"])}
+  <p class="cn-credit">{lesson["lab"]["credit_html"]}</p>
+</div>'''
+
 def _astro_nav(slug):
     ls = ASTRO["lessons"]
     i = next(n for n, l in enumerate(ls) if l["slug"] == slug)
@@ -3694,10 +3747,11 @@ def build_astro_lesson(lesson):
     lab_html = {"eclipses": render_eclipse_lab, "seasons": render_season_lab, "tides": render_tide_lab,
                 "stars": render_star_lab, "northstar": render_north_lab, "planets": render_planet_lab,
                 "sundial": render_sundial_lab, "solar": render_solar_lab, "distance": render_distance_lab,
-                "meteors": render_meteor_lab, "colors": render_color_lab, "moonface": render_moonface_lab}.get(kind, render_moon_lab)(lesson)
+                "meteors": render_meteor_lab, "colors": render_color_lab, "moonface": render_moonface_lab,
+                "milkyway": render_milkyway_lab}.get(kind, render_moon_lab)(lesson)
     js = {"eclipses": "eclipses", "seasons": "seasons", "tides": "tides", "stars": "constellations",
           "northstar": "north-star", "planets": "planets-lab", "sundial": "sundial", "solar": "solar",
-          "distance": "star-distance", "meteors": "meteors-lab", "colors": "star-colors", "moonface": "moon-face"}.get(kind, "moon-phases")
+          "distance": "star-distance", "meteors": "meteors-lab", "colors": "star-colors", "moonface": "moon-face", "milkyway": "milky-way"}.get(kind, "moon-phases")
 
     # 依資料裡有什麼就排什麼段落；band（米色底）交替
     secs = []
@@ -3868,6 +3922,19 @@ def build_astro_lesson(lesson):
         secs.append(("facts", "Near Side, Far Side · 正面與背面", "Four ways to think about the Moon's face", "從四個角度看月亮的臉",
                      f'<div class="ph-grid stagger">{f_cards}</div>',
                      _bi(lesson["facts_note_en"], lesson["facts_note_zh"], cls="lead rvl d2")))
+    if lesson.get("galaxy"):
+        g_cards = "".join(
+            f'<article class="ph-card ss-card mw-card rvl">'
+            f'<div class="ph-ico">{milkyway_svg(64)}</div>'
+            f'<h3>{html.escape(g["en"])}<span class="zh">{html.escape(g["zh"])}</span></h3>'
+            f'<p class="mw-num"><b>{html.escape(g["num"])}</b>{html.escape(g["num_en"])} · {html.escape(g["num_zh"])}</p>'
+            f'<p class="ph-when">{html.escape(g["note_en"])}<br><span class="zh">{html.escape(g["note_zh"])}</span></p>'
+            f'<button type="button" class="ph-go" data-lab-view="{g["view"]}">See it in 3D · 在模型中看 <i>&uarr;</i></button>'
+            f'</article>'
+            for g in lesson["galaxy"])
+        secs.append(("galaxy", "Our Galaxy · 我們的星系", "Four numbers to remember", "記住四個數字",
+                     f'<div class="ph-grid ss-grid stagger">{g_cards}</div>',
+                     _bi(lesson["galaxy_note_en"], lesson["galaxy_note_zh"], cls="lead rvl d2")))
     if lesson.get("scalecalc"):
         sc = lesson["scalecalc"]
         btns = "".join(f'<button type="button" data-sun-cm="{cm}" aria-pressed="{"true" if cm == 24 else "false"}">{html.escape(en)} · {html.escape(zh)}</button>'
@@ -3989,7 +4056,8 @@ def build_astro_lesson(lesson):
                 "distance": ("Measure the stars", "一句話量星星"),
                 "meteors": ("Catch a shooting star", "一句話看懂流星雨"),
                 "colors": ("Read a star's color", "一句話讀懂星星的顏色"),
-                "moonface": ("Face the Earth", "一句話記住月亮的臉")}[kind]
+                "moonface": ("Face the Earth", "一句話記住月亮的臉"),
+                "milkyway": ("Find your place in the galaxy", "一句話找到我們在銀河的位置")}[kind]
     secs.append(("tricks", "Remember It · 記憶口訣", tricks_h[0], tricks_h[1], _sci_tricks(lesson), ""))
     acts = lesson.get("activities") or [lesson["activity"]]
     for n, act in enumerate(acts, 1):
@@ -4031,7 +4099,7 @@ def build_astro_hub():
     def icon(l):
         c = l.get("card")
         return (eclipse_svg("solar:total", 60) if c == "eclipse" else season_svg(1, 60) if c == "season"
-                else tide_svg(60) if c == "tide" else star_svg(60) if c == "stars" else polaris_svg(60) if c == "north" else planet_svg(60) if c == "planets" else sundial_svg(60) if c == "sundial" else solar_svg(60) if c == "solar" else distance_svg(60) if c == "distance" else meteor_svg(60) if c == "meteors" else colors_svg(60) if c == "colors" else moon_svg(180, 60) if c == "moonface" else moon_svg(120, 60))
+                else tide_svg(60) if c == "tide" else star_svg(60) if c == "stars" else polaris_svg(60) if c == "north" else planet_svg(60) if c == "planets" else sundial_svg(60) if c == "sundial" else solar_svg(60) if c == "solar" else distance_svg(60) if c == "distance" else meteor_svg(60) if c == "meteors" else colors_svg(60) if c == "colors" else moon_svg(180, 60) if c == "moonface" else milkyway_svg(60) if c == "milkyway" else moon_svg(120, 60))
     cards = []
     for l in ASTRO["lessons"]:
         cards.append(
