@@ -44,14 +44,14 @@
 
 - 內容：`data/astronomy.json`（`lessons[]` 一課一筆；`planned[]` 是系列首頁的「製作中」卡）。頁面由 `build.py` 的 `build_astro_hub()` / `build_astro_lesson()` 產生，reading／生字／小測驗沿用 `render_basic_unit()`。
 - 3D 模型：three.js，**原始碼在 `tools/astro/src/`**，每課一個入口，打包成 `assets/js/<入口>.js`（產物，不要手改）：
-  - `moon-phases.js`（第一課）、`eclipses.js`（第二課）、`seasons.js`（第三課）、`tides.js`（第四課）、`constellations.js`（第五課）、`north-star.js`（第六課）、`planets-lab.js`（第七課）、`sundial.js`（第八課）、`solar.js`（第九課）、`star-distance.js`（第十課）、`meteors-lab.js`（第十一課）、`star-colors.js`（第十二課）、`moon-face.js`（第十三課）、`milky-way.js`（第十四課）；共用貼圖／著色在 `common.js`
+  - `moon-phases.js`（第一課）、`eclipses.js`（第二課）、`seasons.js`（第三課）、`tides.js`（第四課）、`constellations.js`（第五課）、`north-star.js`（第六課）、`planets-lab.js`（第七課）、`sundial.js`（第八課）、`solar.js`（第九課）、`star-distance.js`（第十課）、`meteors-lab.js`（第十一課）、`star-colors.js`（第十二課）、`moon-face.js`（第十三課）、`milky-way.js`（第十四課）、`moon-illusion.js`（第十五課）；共用貼圖／著色在 `common.js`
   - 四課的地球都用**真實大陸**（`earthmap.js`）：Natural Earth 1:110m 陸地（公有領域，`world-atlas` 套件），打包時編進 JS。第二、三、四課的地軸傾斜與自轉照真實時間（第二課日食時月影落在正確地區，對照 2024/4/8、2027/8/2 食甚點誤差約 1–2°）；第一課仍是裝飾性自轉、不畫地軸
   - 第四課畫的是「平衡潮」（`ephem.js` 的 `equilibriumTide`），**不是潮汐表**：頁面一律提醒去中央氣象署查官方潮汐預報（潮間帶安全），不要加上「下一次滿潮幾點」這種讀數
   - `ephem.js`：Meeus 低精度星曆＋日月食預測（純函式）。改它之後一定要跑 `npm test`，對照 NASA 表確認 2019–2032 年日月食仍全數吻合
   ```
   cd tools/astro && npm install && npm run build && npm test   # three 與 esbuild 版本鎖在 package.json
   ```
-- 課程資料的 `lab.kind` 決定用哪個模型（`phases`／`eclipses`／`seasons`／`tides`／`stars`／`northstar`／`planets`／`sundial`／`solar`／`distance`／`meteors`／`colors`／`moonface`／`milkyway`）；第十四課多的欄位：`galaxy`（我們的星系卡）；第十三課多的欄位：`facts`（正面與背面卡）；第十二課多的欄位：`palette`（由紅到藍卡）；第十一課多的欄位：`showers`（八大流星雨卡）；第十課多的欄位：`neighbors`（由近到遠卡，`key` 對應 near-stars.js 的星）、`birthday`；第九課多的欄位：`bodies`（八大行星卡）、`scalecalc`；第八課多的欄位：`sd_keys`（四個關鍵日 chip）、`instruments`（太陽的時鐘卡，`mode` 可跳進模型）；第七課多的欄位：`wanderers`（五星卡）；第六課多的欄位：`dipper`（斗柄四季卡）、`places`（各地北極星高度表，`place` 可跳進模型）、`tonight.attr`；第五課多的欄位：`skies`（四季星空卡）、`tonight`、`culture_cards`（參商、七夕、四象、三垣＋同星兩名表）；`phases`、`keys`、`terms`、`moontides`、`words`、`types`、`upcoming`、`activities[]` 有就畫、沒有就略過。
+- 課程資料的 `lab.kind` 決定用哪個模型（`phases`／`eclipses`／`seasons`／`tides`／`stars`／`northstar`／`planets`／`sundial`／`solar`／`distance`／`meteors`／`colors`／`moonface`／`milkyway`／`illusion`）；第十五課多的欄位：`views`（四種看法卡）；第十四課多的欄位：`galaxy`（我們的星系卡）；第十三課多的欄位：`facts`（正面與背面卡）；第十二課多的欄位：`palette`（由紅到藍卡）；第十一課多的欄位：`showers`（八大流星雨卡）；第十課多的欄位：`neighbors`（由近到遠卡，`key` 對應 near-stars.js 的星）、`birthday`；第九課多的欄位：`bodies`（八大行星卡）、`scalecalc`；第八課多的欄位：`sd_keys`（四個關鍵日 chip）、`instruments`（太陽的時鐘卡，`mode` 可跳進模型）；第七課多的欄位：`wanderers`（五星卡）；第六課多的欄位：`dipper`（斗柄四季卡）、`places`（各地北極星高度表，`place` 可跳進模型）、`tonight.attr`；第五課多的欄位：`skies`（四季星空卡）、`tonight`、`culture_cards`（參商、七夕、四象、三垣＋同星兩名表）；`phases`、`keys`、`terms`、`moontides`、`words`、`types`、`upcoming`、`activities[]` 有就畫、沒有就略過。
 - 第三課的日出日落、晝長、節氣在 `ephem.js`（`dayInfo`、`solarTermsOfYear`），`npm test` 也會跑 `test/seasons.test.mjs`（對照台北、雪梨的已知日出日落）。
 - 第五課（`constellations.js`，`lab.kind = "stars"`）：外圈是**真實天球**——耶魯亮星星表 BSC5（公有領域，CDS V/50），亮於 5 等的 1,634 顆星，精簡成 `src/stars-data.js`（產物，`npm run stars` 重做；原始星表 1.6 MB 不進 repo，放 `~/Documents/twrses-bsc5/`，下載方法寫在 `scripts/build-stars.mjs` 檔頭）。
   - 星座連線、星名、中國星官、季節大三角是**本站自繪**，寫在 `src/figures.js`（用 BSC 名稱如 `'Alp Ori'`、`'Del1 Tau'` 指定星星，找不到會報錯）。**不要改用 Stellarium 的連線檔**：那是 CC BY-SA，會牽動整份資料的授權。頁面模型下方的出處行是 `lab.credit_html`，必須保留。
@@ -109,6 +109,12 @@
   - 3D：程序生成的棒旋星系（**示意圖，不是星圖**，固定亂數種子）：1 單位＝1,000 光年，太陽在 (26.7, 0, 0)，Y＝銀河北極；從太陽看銀經 l、銀緯 b 的方向＝(−cos b cos l, sin b, cos b sin l)（右手系，從北極看順時針轉，旋臂拖曳）。三個視角：從外面看、側面看、從太陽看（相機在太陽上，外圈疊真實 BSC 亮星與方向標籤：人馬座、天鵝座、牛郎織女…）。
   - 右側：彰化全天星圖，銀河光帶用 9,000 個依銀道座標取樣的點畫（往銀心較亮、銀緯較厚，天鵝到天鷹有大裂縫），可切換今晚九點／現在／七月。頁面下方「今晚彰化的銀河」與 12 個月晚上九點銀心高度長條圖（`data-milkyway`）；卡片 `galaxy`（按鈕 `data-lab-view`）。
   - 除錯：`document.querySelector('[data-milkyway-lab]').__lab`（`setView('outside'|'edge'|'inside', true)`、`render()`、`drawSky()`）。
+- 第十五課（`moon-illusion.js`，`lab.kind = "illusion"`）：一個機制——月亮錯覺在大腦，不在天上：月亮永遠約 0.5°，剛升起時離你還多了將近一個地球半徑、反而小約 1.5%。真正會變的是地月距離（超級／微型月亮差 14%）。
+  - 計算在 `src/moonsize.js`（純函式）：觀測者到月亮的距離 √(d²+R²−2dR sin alt)、角直徑、`moonNight`（月出用地心高度 0.125°、最高點、月落）、`fullMoons`＋`rankFullMoons`（最大三次＝超級月亮、最小＝微型月亮）。`test/moonsize.test.mjs`（assert）：2026 超級月亮 1/3、11/24、12/24 與公開距離差 < 200 km、微型月亮 5/31、最大最小差 14%、彰化 10/1 月出 21:01、升到最高變大 1.8%。
+  - 3D 三個視角：「眼睛」（站在彰化地面：+Y 天頂、−Z 北、+X 東，水平視角 66°，月亮照真實角大小放在 800 單位外；房子、遠山、2 公里外的塔（放在月出方位）是布景；拖曳轉頭、↺ 回到月亮）、「長鏡頭」（水平 2.5°，會自動跳到月亮剛升起約 0.8° 的時刻，月亮正好在塔後面）、「從太空看」（赤道座標、地球照恆星時轉、距離壓縮 5 倍，彰化的你從地球側邊轉向月亮）。量月環是 HTML 圓圈，大小固定為月出時的角直徑。夜晚三選一：今晚／下次滿月／最大的滿月。
+  - 右側 2D 錯覺圖（同樣大的兩個月亮，屋頂 vs 空曠），「顯示量尺」「拿掉屋頂」。頁面下方「今晚的月出與今年的滿月」（`data-moonsize`，13 次滿月照比例畫）。卡片 `views`（按鈕 `data-lab-view`）。
+  - 面板外的段落不能用 `var(--al-sun)`（只在 `.astro-lab` 裡有定義），要寫死 `#ffd36e`。
+  - 除錯：`document.querySelector('[data-illusion-lab]').__lab`（`setNight('tonight'|'full'|'super')`、`setView('eye'|'tele'|'space')`、`setT(ms)`、`render()`）。
 - 第二課的「即將到來的日月食」清單是**瀏覽器當場算的**，永遠不會過期；台灣可見與否以彰化（24.08N, 120.54E）為準。
 - 系列首頁用 `.lc-list`／`.lc-row` 橫向課程卡（`assets/css/lesson-cards.css`，`_lc_head()` 載入；天文教育與中醫養生首頁共用，桌機兩欄、手機一欄）。**不要改回 `.pm-cards`**：那套四欄窄卡配上 `.tp-card-h`（中文字型＋加寬字距）會把英文長標題切成四、五行，Luke 看過嫌難讀（2026-09-30）。
 - `assets/css/astro.css` 與模型 JS 只載在天文頁（`_astro_head()`，版本號另算，不影響全站快取）。

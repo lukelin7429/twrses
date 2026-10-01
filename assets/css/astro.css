@@ -995,3 +995,43 @@
 .mw-bar span em { display: block; font-style: normal; font-family: var(--zh); }
 .mw-bar.now span { color: #ffd36e; font-weight: 800; }
 @media (max-width: 560px) { .mw-bars { gap: .15rem; padding: .5rem; } .mw-bar b { font-size: .52rem; } .mw-bar span { font-size: .52rem; } }
+
+/* =========================================================
+   第十五課：月亮錯覺（.mi-lab、四種看法卡、今晚的月出與今年的滿月）
+   ========================================================= */
+.mi-lab .al-stage { grid-template-columns: minmax(0, 1fr) 360px; }
+.mi-lab .al-space-cv { cursor: grab; }
+.mi-ring { position: absolute; left: 0; top: 0; border: 2px dashed var(--al-sun); border-radius: 50%; pointer-events: none; opacity: 0; transition: opacity .2s; box-shadow: 0 0 12px rgba(255,211,110,.35); }
+.mi-readout dd span { display: block; font-family: var(--zh); font-weight: 500; font-size: .74rem; color: var(--al-mute); }
+.mi-readout dl div.ec-wide { grid-column: 1 / -1; }
+.mi-ill { display: flex; flex-wrap: wrap; gap: .25rem; margin: 0 0 .4rem; padding: 3px; border-radius: 14px; background: rgba(255,255,255,.05); border: 1px solid var(--al-line); }
+.mi-ill button { flex: 1 1 auto; font-size: .68rem; padding: .3rem .45rem; }
+.mi-night button[aria-pressed="true"] { background: rgba(255,211,110,.18); color: #fff; }
+.al-lab.mi-tower { font-size: .62rem; color: #cfd8ea; }
+.al-lab.mi-card { background: transparent; border: 0; color: #9fb0cf; font-size: .7rem; }
+.al-lab.mi-you { color: #1b1405; background: var(--al-sun); border: 0; font-weight: 800; }
+.al-lg-mi-ring i { border: 2px dashed var(--al-sun); }
+.al-lg-mi-tower i { border: 0; border-radius: 2px; width: 6px; height: 18px; margin-left: 6px; background: #3a4560; }
+.al-lg-mi-space i { border: 0; border-radius: 0; width: 20px; height: 6px; margin-top: .45rem; background: linear-gradient(#ffd36e 0 2px, transparent 2px 4px, #9fb0cf 4px 6px); }
+@media (max-width: 1020px) {
+  .mi-lab .al-stage { grid-template-columns: 1fr; }
+  .mi-aside { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); column-gap: 1.2rem; align-items: start; }
+  .mi-aside .al-sky-k { grid-column: 1 / -1; }
+  .mi-aside .se-fig, .mi-aside .mi-ill { grid-column: 1; }
+  .mi-aside .mi-readout { grid-column: 2; grid-row: 2 / 4; margin-top: 0; }
+}
+@media (max-width: 640px) {
+  .mi-aside { display: block; }
+  .mi-lab .ec-view button { font-size: .62rem; padding: .28rem .45rem; }
+  .mi-lab .ec-jump button { flex: 1 1 30%; font-size: .64rem; }
+}
+/* 今年的滿月 */
+@media (min-width: 1021px) { .mi-tn-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.mi-discs { display: grid; grid-template-columns: repeat(auto-fill, minmax(96px, 1fr)); gap: .6rem; padding: 1rem; border-radius: 16px; background: #0c1428; }
+.mi-disc { display: flex; flex-direction: column; align-items: center; text-align: center; gap: .25rem; padding: .5rem .2rem; border-radius: 12px; }
+.mi-disc i { display: block; border-radius: 50%; background: radial-gradient(circle at 40% 38%, #fffaf0, #e8dcc0 60%, #b9ab8a); margin: auto 0 .3rem; }
+.mi-disc b { font-size: .8rem; color: #fff; }
+.mi-disc span { font-size: .66rem; color: #9fb0cf; font-variant-numeric: tabular-nums; }
+.mi-disc em { font-style: normal; font-size: .62rem; font-weight: 800; color: #1b1405; background: #ffd36e; border-radius: 999px; padding: .05rem .45rem; }
+.mi-disc.mic em { background: #9fb0cf; }
+.mi-disc.sup { background: rgba(255,211,110,.08); box-shadow: 0 0 0 1px rgba(255,211,110,.35) inset; }

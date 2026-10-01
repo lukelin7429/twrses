@@ -2656,7 +2656,7 @@ def _astro_ver():
     h = hashlib.md5()
     for rel in ("assets/css/astro.css", "assets/js/moon-phases.js", "assets/js/eclipses.js", "assets/js/seasons.js", "assets/js/tides.js",
                 "assets/js/constellations.js", "assets/js/north-star.js", "assets/js/planets-lab.js",
-                "assets/js/sundial.js", "assets/js/solar.js", "assets/js/star-distance.js", "assets/js/meteors-lab.js", "assets/js/star-colors.js", "assets/js/moon-face.js", "assets/js/milky-way.js"):
+                "assets/js/sundial.js", "assets/js/solar.js", "assets/js/star-distance.js", "assets/js/meteors-lab.js", "assets/js/star-colors.js", "assets/js/moon-face.js", "assets/js/milky-way.js", "assets/js/moon-illusion.js"):
         fp = os.path.join(ROOT, rel)
         if os.path.exists(fp): h.update(open(fp, "rb").read())
     return h.hexdigest()[:8]
@@ -2841,6 +2841,13 @@ def milkyway_svg(size=56):
             '<circle cx="30" cy="30" r="25" fill="rgba(120,140,220,.12)"/>'
             f'{arms}<circle cx="30" cy="30" r="6" fill="#ffe2a8"/><circle cx="30" cy="30" r="10" fill="rgba(255,226,168,.25)"/>'
             '<circle cx="44" cy="35" r="1.8" fill="#ffd36e"/></g></svg>')
+
+def illusion_svg(size=56):
+    """月亮錯覺小圖（系列首頁的課程卡）：屋頂後面一輪大月亮。"""
+    return (f'<svg class="illusion-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">'
+            '<circle cx="30" cy="34" r="17" fill="#f4d48a"/><circle cx="30" cy="34" r="23" fill="rgba(244,212,138,.18)"/>'
+            '<circle cx="24" cy="30" r="3.5" fill="rgba(150,120,70,.35)"/><circle cx="35" cy="38" r="4.5" fill="rgba(150,120,70,.3)"/>'
+            '<path d="M0 60 L0 46 L8 40 L16 46 L16 42 L24 42 L24 48 L32 41 L40 48 L40 44 L48 44 L48 50 L54 45 L60 49 L60 60 Z" fill="#0a0e1a"/></svg>')
 
 def _bi(en, zh, tag="p", cls=""):
     """英文在前、中文在後的雙語段落。"""
@@ -3690,6 +3697,59 @@ def render_milkyway_lab(lesson):
   <p class="cn-credit">{lesson["lab"]["credit_html"]}</p>
 </div>'''
 
+def render_illusion_lab(lesson):
+    """第十五課：月亮錯覺（assets/js/moon-illusion.js 綁這裡的 class）。"""
+    tg = _lab_toggles([("ring", "Measuring ring", "量月環", True), ("scenery", "Houses, hills, and tower", "房子、山與塔", True)])
+    return f'''<div class="astro-lab mi-lab rvl" data-illusion-lab>
+  <div class="al-stage">
+    <div class="al-space">
+      <canvas class="al-space-cv" aria-label="3D model of the Moon rising over Changhua at its true size · 照真實大小、從彰化升起的月亮 3D 模型"></canvas>
+      <div class="al-labels" aria-hidden="true"></div>
+      <div class="mi-ring" aria-hidden="true"></div>
+      <div class="ec-view" role="group" aria-label="View · 視角">
+        <button type="button" data-view="eye" aria-pressed="true">Your eyes · 眼睛</button>
+        <button type="button" data-view="tele" aria-pressed="false">Telephoto lens · 長鏡頭</button>
+        <button type="button" data-view="space" aria-pressed="false">From space · 從太空看</button>
+      </div>
+      <p class="al-hint">Drag to look around · 拖曳轉頭看四周</p>
+      <button type="button" class="al-home" title="Look at the Moon · 回到月亮" aria-label="Look at the Moon · 回到月亮">&#8634;</button>
+      <p class="al-nogl-msg">This 3D model needs WebGL, which this browser does not support. The two-Moon picture and tonight's moonrise still work.<br><span class="zh">這個瀏覽器不支援 WebGL，無法顯示 3D 模型；兩個月亮的圖與今晚的月出一樣能用。</span></p>
+    </div>
+    <aside class="al-sky mi-aside">
+      <p class="al-sky-k">Which Moon looks bigger? · 哪個月亮看起來比較大？</p>
+      <figure class="se-fig"><div class="se-box"><canvas class="mi-ill-cv" aria-label="Two Moons of the same size, one low behind rooftops and one high in an empty sky · 一樣大的兩個月亮，一個在屋頂後、一個在空曠的高空"></canvas></div></figure>
+      <div class="ec-where mi-ill" role="group" aria-label="Picture · 圖">
+        <button type="button" data-ill="showRuler" aria-pressed="false">Show the ruler · 顯示量尺</button>
+        <button type="button" data-ill="hideScene" aria-pressed="false">Hide the rooftops · 拿掉屋頂</button>
+      </div>
+      <div class="al-readout ec-readout mi-readout" aria-live="polite">
+        <p class="ec-date mi-when"></p>
+        <dl>
+          <div class="ec-wide"><dt>Moon · 月亮</dt><dd class="mi-alt"></dd></div>
+          <div class="ec-wide"><dt>Distance from you · 離你多遠</dt><dd class="mi-dist"></dd></div>
+          <div class="ec-wide"><dt>Size in the sky · 在天上多大</dt><dd class="mi-size"></dd></div>
+          <div class="ec-wide"><dt>Since moonrise · 和月出時比</dt><dd class="mi-grow"></dd></div>
+        </dl>
+      </div>
+    </aside>
+  </div>
+  <div class="al-controls">
+    <div class="al-row al-row-main">
+      <button type="button" class="al-play" aria-pressed="false"><span class="al-play-i" aria-hidden="true"></span><span class="al-play-t">Play · 播放</span></button>
+      <div class="ec-jump mi-night" role="group" aria-label="Which night · 哪一夜">
+        <button type="button" data-night="tonight" aria-pressed="true">Tonight · 今晚</button>
+        <button type="button" data-night="full" aria-pressed="false">Next full Moon · 下次滿月</button>
+        <button type="button" data-night="super" aria-pressed="false">Biggest full Moon · 最大的滿月</button>
+      </div>
+    </div>
+    <label class="ec-slider"><span class="ec-slider-k">Time · 時間 <em>from moonrise to moonset 從月出到月落（播放：1 秒 20 分鐘）</em></span>
+      <input type="range" class="ec-time mi-time" min="0" max="720" step="1" value="0" aria-label="Minutes after moonrise · 月出後幾分鐘"></label>
+    <div class="al-row al-toggles">{tg}</div>
+  </div>
+  {_lab_foot(lesson["lab"])}
+  <p class="cn-credit">{lesson["lab"]["credit_html"]}</p>
+</div>'''
+
 def _astro_nav(slug):
     ls = ASTRO["lessons"]
     i = next(n for n, l in enumerate(ls) if l["slug"] == slug)
@@ -3748,10 +3808,11 @@ def build_astro_lesson(lesson):
                 "stars": render_star_lab, "northstar": render_north_lab, "planets": render_planet_lab,
                 "sundial": render_sundial_lab, "solar": render_solar_lab, "distance": render_distance_lab,
                 "meteors": render_meteor_lab, "colors": render_color_lab, "moonface": render_moonface_lab,
-                "milkyway": render_milkyway_lab}.get(kind, render_moon_lab)(lesson)
+                "milkyway": render_milkyway_lab, "illusion": render_illusion_lab}.get(kind, render_moon_lab)(lesson)
     js = {"eclipses": "eclipses", "seasons": "seasons", "tides": "tides", "stars": "constellations",
           "northstar": "north-star", "planets": "planets-lab", "sundial": "sundial", "solar": "solar",
-          "distance": "star-distance", "meteors": "meteors-lab", "colors": "star-colors", "moonface": "moon-face", "milkyway": "milky-way"}.get(kind, "moon-phases")
+          "distance": "star-distance", "meteors": "meteors-lab", "colors": "star-colors", "moonface": "moon-face", "milkyway": "milky-way",
+          "illusion": "moon-illusion"}.get(kind, "moon-phases")
 
     # 依資料裡有什麼就排什麼段落；band（米色底）交替
     secs = []
@@ -3935,6 +3996,19 @@ def build_astro_lesson(lesson):
         secs.append(("galaxy", "Our Galaxy · 我們的星系", "Four numbers to remember", "記住四個數字",
                      f'<div class="ph-grid ss-grid stagger">{g_cards}</div>',
                      _bi(lesson["galaxy_note_en"], lesson["galaxy_note_zh"], cls="lead rvl d2")))
+    if lesson.get("views"):
+        v_cards = "".join(
+            f'<article class="ph-card ss-card mw-card rvl">'
+            f'<div class="ph-ico">{moon_svg(v["elong"], 64)}</div>'
+            f'<h3>{html.escape(v["en"])}<span class="zh">{html.escape(v["zh"])}</span></h3>'
+            f'<p class="mw-num"><b>{html.escape(v["num"])}</b>{html.escape(v["num_en"])} · {html.escape(v["num_zh"])}</p>'
+            f'<p class="ph-when">{html.escape(v["note_en"])}<br><span class="zh">{html.escape(v["note_zh"])}</span></p>'
+            + (f'<button type="button" class="ph-go" data-lab-view="{v["view"]}">See it in 3D · 在模型中看 <i>&uarr;</i></button>' if v.get("view") else "")
+            + '</article>'
+            for v in lesson["views"])
+        secs.append(("views", "Four Ways to Look · 四種看法", "Is the Moon really bigger?", "月亮真的變大了嗎？",
+                     f'<div class="ph-grid ss-grid stagger">{v_cards}</div>',
+                     _bi(lesson["views_note_en"], lesson["views_note_zh"], cls="lead rvl d2")))
     if lesson.get("scalecalc"):
         sc = lesson["scalecalc"]
         btns = "".join(f'<button type="button" data-sun-cm="{cm}" aria-pressed="{"true" if cm == 24 else "false"}">{html.escape(en)} · {html.escape(zh)}</button>'
@@ -4057,7 +4131,8 @@ def build_astro_lesson(lesson):
                 "meteors": ("Catch a shooting star", "一句話看懂流星雨"),
                 "colors": ("Read a star's color", "一句話讀懂星星的顏色"),
                 "moonface": ("Face the Earth", "一句話記住月亮的臉"),
-                "milkyway": ("Find your place in the galaxy", "一句話找到我們在銀河的位置")}[kind]
+                "milkyway": ("Find your place in the galaxy", "一句話找到我們在銀河的位置"),
+                "illusion": ("Don't be fooled", "一句話破解月亮錯覺")}[kind]
     secs.append(("tricks", "Remember It · 記憶口訣", tricks_h[0], tricks_h[1], _sci_tricks(lesson), ""))
     acts = lesson.get("activities") or [lesson["activity"]]
     for n, act in enumerate(acts, 1):
@@ -4099,7 +4174,7 @@ def build_astro_hub():
     def icon(l):
         c = l.get("card")
         return (eclipse_svg("solar:total", 60) if c == "eclipse" else season_svg(1, 60) if c == "season"
-                else tide_svg(60) if c == "tide" else star_svg(60) if c == "stars" else polaris_svg(60) if c == "north" else planet_svg(60) if c == "planets" else sundial_svg(60) if c == "sundial" else solar_svg(60) if c == "solar" else distance_svg(60) if c == "distance" else meteor_svg(60) if c == "meteors" else colors_svg(60) if c == "colors" else moon_svg(180, 60) if c == "moonface" else milkyway_svg(60) if c == "milkyway" else moon_svg(120, 60))
+                else tide_svg(60) if c == "tide" else star_svg(60) if c == "stars" else polaris_svg(60) if c == "north" else planet_svg(60) if c == "planets" else sundial_svg(60) if c == "sundial" else solar_svg(60) if c == "solar" else distance_svg(60) if c == "distance" else meteor_svg(60) if c == "meteors" else colors_svg(60) if c == "colors" else moon_svg(180, 60) if c == "moonface" else milkyway_svg(60) if c == "milkyway" else illusion_svg(60) if c == "illusion" else moon_svg(120, 60))
     cards = []
     for l in ASTRO["lessons"]:
         cards.append(
