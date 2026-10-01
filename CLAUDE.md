@@ -135,6 +135,10 @@
 - 第一課電池（`battery.js`，`lab.kind = "battery"`）：鋰離子電池剖面，**全部自繪示意**。一個機制：電解液讓鋰離子過、擋住電子，電子只能繞外面的電線。兩邊電極各 70 格（5 層 × 7 × 2），鋰的總數 70；每顆離子穿過電解液的同時，電線裡（本來就塞滿的）電子剛好挪一格——所以「裡面跨過的離子＝外面繞過的電子」計數永遠相等。老化：`cycles` 越多，越多鋰困在石墨表面的 SEI（灰色），容量依 Apple「500 次完整循環後 80%」畫成直線。電量、電壓、容量的純函式在 `src/cell.js`，`npm test` 跑 `test/battery.test.mjs`（4.2 V／3.0 V、500 循環 80%、放電再充滿離子數＝電子數）。
   - CatmullRom 的 `getPointAt` 參數要夾在 0–1：`MathUtils.smootherstep` 在 t≈1 會算出 1.0000000000000002，曲線就當掉（`ease()`）。
   - 除錯：`document.querySelector('[data-battery-lab]').__lab`（`setMode('use'|'charge'|'off')`、`setSoc(0–100)`、`setCycles(0–750)`、`focus('anode'|'cathode'|'electrolyte'|'separator')`、`run(秒)`、`render()`）。
+- 第二課發電機（`generator.js`，`lab.kind = "generator"`）：一個機制——磁鐵**轉動**經過線圈才推得動電子，N、S 極輪流經過所以是交流電。轉軸沿 X 軸：左邊是推動者（手搖、蒸汽／燃氣渦輪、水車、風機，`data-drive`），中間磁鐵＋上下線圈，右邊房子裡的燈泡；電壓 ∝ 轉速 × sin θ（純函式在 `src/grid.js`，`test/generator.test.mjs`：不轉＝0、60 Hz 每秒換向 120 次、兩極 3,600 rpm、轉速加倍功率四倍）。電線裡的電子**原地來回晃**（位移 ∝ −cos θ，振幅與轉速無關），不要改成繞圈跑。右側示波器是 2D canvas，**要絕對定位**（否則 canvas 的像素寬度會變成 grid 的最小寬度，把手機版撐爆）。「按住搖動」用 pointer capture，頁面捲動時不會被當成放手。
+  - 頁面多的段落：`mix`（2025 台灣發電結構長條圖，能源署數字；換新年度時改這裡）、`plants`（六種發電方式卡，`drive` 可跳進模型；太陽能沒有 drive）。
+  - 除錯：`document.querySelector('[data-generator-lab]').__lab`（`setDrive('crank'|'steam'|'water'|'wind')`、`setSpeed(0–2)`、`state.cranking = true`、`run(秒)`、`render()`）。
+- 多個 session 同時改 build.py 時，本系列改在 scratchpad 的 git worktree（從 origin/main 開分支）做，`audio` 用 symlink 指到 `~/Documents/twrses/audio`（symlink 不會被 .gitignore 的 `audio/` 擋，**不要 add**），做完 rebase 再 `git push origin HEAD:main`。
 - 瀏覽器面板在背景時 `visibilityState` 是 hidden，IntersectionObserver 不觸發、截圖是空白：點一下頁面上的「在模型中看」按鈕就會直接初始化，截圖改用無頭 Chrome（playwright-core＋本機 Chrome，`--use-angle=swiftshader`）。
 - 🔊 錄音：`python3 tools/gen_audio.py --page resources/classes/how-things-work/<slug>` → `./tools/upload_audio.sh`，manifest 命名 `how-things-work-<slug>`。檢查線上 200 要帶瀏覽器 UA（Python 預設 UA 會被 r2.dev 擋成 403）。
 - 課程規劃在 Obsidian：`第二大腦/創作庫/萬物原理科普課程規劃（twrses）.md`。

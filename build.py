@@ -4550,7 +4550,7 @@ def build_body_hub():
 # 3D 原始碼在 tools/science/src/（three.js、esbuild，每課一個入口），打包成 assets/js/<入口>.js；
 # 面板、迷思、口訣、活動沿用 astro.css，本系列多出來的在 science.css；兩者都只載在本系列頁面。
 HTW_BASE = "/resources/classes/how-things-work/"
-_HTW_JS = {"battery": "battery"}   # lab.kind → assets/js/<bundle>.js
+_HTW_JS = {"battery": "battery", "generator": "generator"}   # lab.kind → assets/js/<bundle>.js
 
 def _htw_cn(n):
     """課次的中文數字（一～九十九）：第十一課、第二十課。"""
@@ -4636,6 +4636,65 @@ def render_battery_lab(lesson):
   <p class="bt-credit">{lab["credit_html"]}</p>
 </div>'''
 
+def outlet_svg(size=56):
+    """插座小圖（系列首頁的課程卡）：台灣的兩孔插座＋一道閃電。"""
+    return (f'<svg class="outlet-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">'
+            '<rect x="12" y="10" width="36" height="40" rx="8" fill="#f3ead6"/>'
+            '<rect x="21" y="21" width="4" height="12" rx="1.5" fill="#3a3326"/>'
+            '<rect x="35" y="21" width="4" height="12" rx="1.5" fill="#3a3326"/>'
+            '<path d="M30 36l-4 8h3l-1 6 5-9h-3l1-5z" fill="#ffb02e"/></svg>')
+
+def render_generator_lab(lesson):
+    """第二課：轉動的磁鐵發電（assets/js/generator.js 綁這裡的 class；全部自繪示意）。"""
+    lab = lesson["lab"]
+    drives = [("crank", "&#9995;", "Your hand", "你的手"), ("steam", "&#9832;&#65039;", "Steam / gas", "蒸汽／燃氣"),
+              ("water", "&#128167;", "Water", "水力"), ("wind", "&#127788;&#65039;", "Wind", "風力")]
+    drive_btns = "".join(
+        f'<button type="button" data-drive="{k}" aria-pressed="{"true" if k == "steam" else "false"}"><i aria-hidden="true">{ic}</i>{en}<small>{zh}</small></button>'
+        for k, ic, en, zh in drives)
+    tg = _lab_toggles([("labels", "Labels", "標示", True), ("field", "Magnetic field", "磁力線", True),
+                       ("electrons", "Electrons in the wire", "電線裡的電子", True)])
+    return f'''<div class="astro-lab bt-lab gn-lab rvl" data-generator-lab>
+  <div class="al-stage">
+    <div class="al-space">
+      <canvas class="al-space-cv" aria-label="3D model of a magnet spinning between two coils, wired to a light bulb in a house · 磁鐵在兩組線圈之間轉動、接到房子裡燈泡的 3D 模型"></canvas>
+      <div class="al-labels" aria-hidden="true"></div>
+      <p class="bt-cut">Slow motion: a real generator in Taiwan turns 60 times a second · 慢動作：台灣真正的發電機每秒轉 60 圈</p>
+      <p class="al-hint">Drag to turn · 拖曳旋轉　Scroll or pinch to zoom · 滾輪／雙指縮放</p>
+      <button type="button" class="al-home" title="Reset view · 重設視角" aria-label="Reset view · 重設視角">&#8634;</button>
+      <p class="al-nogl-msg">This 3D model needs WebGL, which this browser does not support. The reading and the cards below still explain everything.<br><span class="zh">這個瀏覽器不支援 WebGL，無法顯示 3D 模型；下方的課文與卡片一樣能看懂。</span></p>
+    </div>
+    <aside class="al-sky bt-aside gn-aside">
+      <div class="gn-top">
+        <p class="al-sky-k">What turns the magnet? · 是什麼在轉磁鐵？</p>
+        <div class="bt-modes gn-drives" role="group" aria-label="What turns the magnet? · 是什麼在轉磁鐵？">{drive_btns}</div>
+        <button type="button" class="gn-crank" hidden>&#128260; Hold to crank<small>按住不放來搖</small></button>
+        <p class="bt-msg gn-drive-msg" aria-live="polite"></p>
+      </div>
+      <div class="gn-scope-box">
+        <p class="al-sky-k">Voltage over time · 電壓隨時間變化</p>
+        <div class="gn-scope"><canvas class="gn-scope-cv" aria-label="Graph of the voltage swinging between plus and minus · 電壓在正負之間擺動的圖"></canvas></div>
+        <dl class="bt-nums gn-nums">
+          <div><dt>Turns a second · 每秒轉幾圈</dt><dd class="gn-f"></dd></div>
+          <div><dt>Direction flips a second · 每秒換方向</dt><dd class="gn-flip"></dd></div>
+          <div><dt>Bulb · 燈泡</dt><dd class="gn-bright"></dd></div>
+        </dl>
+        <p class="bt-count gn-real">In Taiwan's power plants: <b class="gn-real-hz">60</b> cycles a second; a two-pole generator turns <b class="gn-real-rpm">3,600</b> times a minute, and the current flips 120 times a second.<span class="zh">台灣的電廠：每秒 60 個週期；兩極發電機每分鐘轉 3,600 圈，電流每秒換方向 120 次。</span></p>
+      </div>
+    </aside>
+  </div>
+  <div class="al-controls">
+    <div class="al-row al-row-main">
+      <button type="button" class="al-play" aria-pressed="true"><span class="al-play-i" aria-hidden="true"></span><span class="al-play-t">Pause · 暫停</span></button>
+      <label class="al-slider gn-speed-row"><span>Spin speed · 轉速 <output class="gn-speed-out"></output></span>
+        <input type="range" class="al-age gn-speed" min="0" max="2" step="0.05" value="0.5"></label>
+    </div>
+    <div class="al-row al-toggles">{tg}</div>
+  </div>
+  {_lab_foot(lab)}
+  <p class="bt-credit">{lab["credit_html"]}</p>
+</div>'''
+
 def _htw_flat():
     return [(ui, u, l) for ui, u in enumerate(HTW["units"]) for l in u["lessons"]]
 
@@ -4663,9 +4722,36 @@ def build_htw_lesson(ui, unit, lesson):
     reading_html = render_basic_unit(1, unit_dict, level="htw", audio_rel="", pdf_rel="")
     lab = lesson["lab"]
     kind = lab["kind"]
-    lab_html = {"battery": render_battery_lab}[kind](lesson)
+    lab_html = {"battery": render_battery_lab, "generator": render_generator_lab}[kind](lesson)
 
     secs = []
+    if lesson.get("mix"):
+        mx = lesson["mix"]
+        segs = "".join(
+            f'<span class="hw-mix-seg hw-mix-{p["key"]}" style="flex:{p["pct"]}" title="{html.escape(p["en"])} · {html.escape(p["zh"])} {p["pct"]}%">'
+            f'{p["pct"]:.0f}%</span>' for p in mx["parts"])
+        keys = "".join(
+            f'<li><i class="hw-mix-{p["key"]}" aria-hidden="true"></i><b>{p["pct"]}%</b>{html.escape(p["en"])}<span class="zh">{html.escape(p["zh"])}</span></li>'
+            for p in mx["parts"])
+        secs.append(("mix", "Taiwan's Power · 台灣的電", mx["title_en"], mx["title_zh"],
+                     f'<div class="hw-mix rvl"><div class="hw-mix-bar" role="img" aria-label="{html.escape(mx["title_en"])}">{segs}</div>'
+                     f'<ul class="hw-mix-key">{keys}</ul>'
+                     f'<p class="hw-mix-note">{html.escape(mx["note_en"])}<span class="zh">{html.escape(mx["note_zh"])}</span></p></div>',
+                     _bi(mx["lead_en"], mx["lead_zh"], cls="lead rvl d2")))
+    if lesson.get("plants"):
+        def _plant(pl):
+            go = (f'<button type="button" class="ph-go" data-lab-drive="{pl["drive"]}">See it in 3D · 在模型中看 <i>&uarr;</i></button>'
+                  if pl.get("drive") else '<p class="ty-none hw-nospin">No generator to spin · 沒有發電機要轉</p>')
+            return (f'<article class="ph-card hw-part rvl">'
+                    f'<div class="ph-ico hw-ico" aria-hidden="true">{pl["icon"]}</div>'
+                    f'<h3>{html.escape(pl["en"])}<span class="zh">{html.escape(pl["zh"])}</span></h3>'
+                    f'<p class="ph-meta"><span>{html.escape(pl["share_en"])} · {html.escape(pl["share_zh"])}</span>'
+                    f'<span><b>&#10227;</b> {html.escape(pl["spin_en"])} · {html.escape(pl["spin_zh"])}</span></p>'
+                    f'<p class="ph-when">{html.escape(pl["text_en"])}<br><span class="zh">{html.escape(pl["text_zh"])}</span></p>'
+                    f'{go}</article>')
+        secs.append(("plants", "Six Ways to Make Power · 六種發電方式", "What turns the generator?", "是什麼在轉發電機？",
+                     f'<div class="ph-grid hw-plant-grid stagger">{"".join(_plant(p) for p in lesson["plants"])}</div>',
+                     _bi(lesson["plants_note_en"], lesson["plants_note_zh"], cls="lead rvl d2")))
     if lesson.get("parts"):
         cards = "".join(
             f'<article class="ph-card hw-part rvl">'
@@ -4680,7 +4766,8 @@ def build_htw_lesson(ui, unit, lesson):
                      f'<div class="ph-grid stagger">{cards}</div>',
                      _bi(lesson["parts_note_en"], lesson["parts_note_zh"], cls="lead rvl d2")))
     secs.append(("myths", "Myth vs. Fact · 常見迷思", "Four things people get wrong", "四個常見的誤會", _sci_myths(lesson), ""))
-    tricks_h = {"battery": ("Batteries in a sentence", "一句話記住電池")}[kind]
+    tricks_h = {"battery": ("Batteries in a sentence", "一句話記住電池"),
+                "generator": ("Power plants in a sentence", "一句話記住發電")}[kind]
     secs.append(("tricks", "Remember It · 記憶口訣", tricks_h[0], tricks_h[1], _sci_tricks(lesson), ""))
     if lesson.get("safety"):
         items = "".join(f'<li class="rvl">{html.escape(s["en"])}<span class="zh">{html.escape(s["zh"])}</span></li>' for s in lesson["safety"])
@@ -4734,7 +4821,7 @@ def build_htw_lesson(ui, unit, lesson):
 def build_htw_hub():
     # 照中醫養生：單元導覽＋每個單元一段橫向課程卡；做好的課可點，planned 是「製作中」卡。
     def icon(l):
-        return battery_svg(60) if l.get("card") == "battery" else l["icon"]
+        return battery_svg(60) if l.get("card") == "battery" else outlet_svg(60) if l.get("card") == "outlet" else l["icon"]
     unit_sections, nav = [], []
     done = sum(len(u["lessons"]) for u in HTW["units"])
     total = done + sum(len(u.get("planned", [])) for u in HTW["units"])

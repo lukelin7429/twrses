@@ -103,3 +103,61 @@
 @media (max-width: 760px) { .hw-safety { grid-template-columns: 1fr; } }
 .bt-lab .al-hint { left: auto; right: 1rem; text-align: right; }
 .bt-narrow .bt-cut { display: none; }
+
+/* ---------- 第二課：發電機 ---------- */
+@media (min-width: 1021px) { .gn-lab .al-space { min-height: 620px; } }
+.gn-aside { gap: .9rem; }
+.gn-drives { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.gn-drives button { font-size: .7rem; }
+.gn-crank { display: flex; align-items: center; justify-content: center; gap: .5rem; width: 100%; margin-top: .55rem; padding: .7rem 1rem; border: 0; border-radius: 999px; background: var(--al-sun); color: #1b1405; font-family: var(--sans); font-weight: 800; font-size: .92rem; cursor: pointer; touch-action: none; user-select: none; -webkit-user-select: none; box-shadow: 0 10px 26px -12px rgba(255,211,110,.9); }
+.gn-crank small { font-family: var(--zh); font-weight: 600; font-size: .8rem; opacity: .8; }
+.gn-crank.on { transform: scale(.97); background: #ffe39a; box-shadow: 0 0 0 4px rgba(255,211,110,.25); }
+.gn-crank[hidden] { display: none; }
+.gn-drive-msg { margin-top: .6rem; min-height: 6.5em; }
+.gn-scope { position: relative; height: 132px; border-radius: 12px; border: 1px solid var(--al-line); background: #02040c; overflow: hidden; }
+.gn-scope-cv { position: absolute; inset: 0; display: block; width: 100%; height: 100%; }
+.gn-aside > * { min-width: 0; }
+.gn-nums { margin-top: .6rem; }
+.gn-nums dd { font-size: .9rem; }
+.gn-real { margin-top: .6rem; font-size: .76rem; }
+.gn-real b { font-family: var(--sans); font-size: .9rem; color: var(--al-sun); }
+.gn-speed-row { flex: 1 1 260px; margin: 0 0 0 .6rem; }
+.gn-speed-row output { margin-left: .3rem; font-weight: 800; color: #fff; text-transform: none; letter-spacing: 0; }
+.al-lab.gn-lb { font-family: var(--serif); font-size: .9rem; font-weight: 700; padding: .05rem .45rem; color: #fff; }
+.al-lab.gn-lb-n { background: rgba(224,71,76,.85); border-color: rgba(255,160,160,.6); }
+.al-lab.gn-lb-s { background: rgba(63,127,224,.85); border-color: rgba(160,200,255,.6); }
+.al-lab.gn-lb-coil { color: #ffc89a; border-color: rgba(200,116,58,.55); }
+.al-lg-magnet i { border: 0; background: linear-gradient(90deg, #e0474c 0 50%, #3f7fe0 50%); border-radius: 4px; }
+.al-lg-coil i { border-color: #c8743a; }
+@media (max-width: 1020px) {
+  .gn-lab .al-stage { grid-template-columns: minmax(0, 1fr); }
+  .gn-lab .bt-aside { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+  .gn-top { grid-row: auto; }
+}
+@media (max-width: 640px) {
+  .gn-lab .bt-aside { grid-template-columns: minmax(0, 1fr); }
+  .gn-drive-msg { min-height: 0; }
+  .gn-speed-row { margin: .6rem 0 0; flex-basis: 100%; }
+}
+
+/* 台灣發電結構長條圖 */
+.hw-mix { margin-top: 1.4rem; padding: 1.3rem 1.4rem; background: #fff; border: 1px solid var(--line); border-radius: 18px; box-shadow: var(--shadow-sm); }
+.hw-mix-bar { display: flex; height: 54px; border-radius: 12px; overflow: hidden; }
+.hw-mix-seg { display: grid; place-items: center; min-width: 0; overflow: hidden; color: #fff; font-weight: 800; font-size: .95rem; white-space: nowrap; }
+.hw-mix-seg.hw-mix-other, .hw-mix-seg.hw-mix-nuclear { font-size: 0; }
+.hw-mix-gas { background: #e08a3c; }
+.hw-mix-coal { background: #4b4f5c; }
+.hw-mix-renew { background: #3aa77a; }
+.hw-mix-other { background: #9aa3b4; }
+.hw-mix-nuclear { background: #8a5ad6; }
+.hw-mix-key { list-style: none; margin: 1rem 0 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: .6rem 1rem; }
+.hw-mix-key li { display: grid; grid-template-columns: 14px auto; column-gap: .55rem; align-items: baseline; font-size: .92rem; line-height: 1.45; }
+.hw-mix-key i { grid-row: span 3; width: 14px; height: 14px; border-radius: 4px; margin-top: .2rem; }
+.hw-mix-key b { font-family: var(--serif); font-size: 1.3rem; }
+.hw-mix-key .zh { color: var(--ink-soft); font-size: .88rem; }
+.hw-mix-note { margin: 1rem 0 0; font-size: .82rem; line-height: 1.6; color: var(--ink-soft); }
+.hw-mix-note .zh { display: block; }
+.hw-plant-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.hw-nospin { margin: auto 0 0; font-size: .82rem; font-weight: 800; color: var(--gold-dk); }
+@media (max-width: 1020px) { .hw-plant-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 480px) { .hw-plant-grid { grid-template-columns: 1fr; } .hw-mix { padding: 1rem; } .hw-mix-seg { font-size: .78rem; } }
