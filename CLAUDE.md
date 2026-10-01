@@ -213,6 +213,30 @@
 
 ---
 
+## 晶片與半導體 Chips and Semiconductors（/resources/classes/semiconductors/）— 架構照萬物原理，資料、程式、CSS 自己一套
+
+- 內容：`data/semiconductors.json`：`units[]`（三個單元：半導體是什麼／晶片怎麼做出來／AI 時代的晶片）底下 `lessons[]` 與 `planned[]`（「製作中」卡，做一課就從 planned 移到 lessons）；課次 `n` 全系列連號（1–8）。每課欄位同萬物原理，多的：`home`（「你家有幾顆晶片？」勾選清單）、`links`（延伸閱讀卡，連到萬物原理，不重講）、`culture_cards`（四張文化／產業卡，用 astro.css 的 `.cc-card`）、`facts`、`safety`、`sources`（**數字一定要先查證再寫**，附來源與年份）。
+- 頁面：`build.py` 的 `build_chip_hub()`（單元導覽＋`.lc-row` 橫向課程卡；系列小圖示 `chipsilicon_svg()`）/ `build_chip_lesson()`；reading、迷思、口訣、活動沿用 `render_basic_unit()`、`_sci_myths()`、`_sci_tricks()`、`_astro_activity()`。「閱讀與經典」頁有入口卡（💿）。
+- 樣式：共用 `assets/css/astro.css`，本系列專屬的在 `assets/css/chips.css`（**class 前綴一律 `cp-`**，不要用 science.css 的 `bt-`／`hw-`：那支 CSS 不載在本系列）；`_chip_head()` 只在本系列頁面載入。
+- 3D：**原始碼在 `tools/chips/src/`**（自己的 package.json，three 0.186.1、esbuild 0.25.10），bundle 一律 `chip-*`，打包到 `assets/js/<入口>.js`（產物，不要手改）；`lab.kind` → bundle 對照在 `build.py` 的 `_CHIP_JS`。`labeler`、`lazyBoot` 在 `tools/chips/src/common.js`（從 tools/science 抄來）。**不要 import tools/science 或 tools/astro 的檔案**（esbuild 會打包進第二份 three.js）。
+  ```
+  cd tools/chips && npm ci && npm run build && npm test
+  ```
+- 第一課半導體（`chip-doping.js`，`lab.kind = "doping"`，`data-chipdoping-lab`）：一個機制——導不導電看有沒有自由移動的電荷；純矽的電子都在牽手（共價鍵），換掉極少數原子成磷（多一個電子，N 型）或硼（少一個＝電洞，P 型）就導電。
+  - 兩個視角共用一個 renderer（切 group 的 visible）：「三種材料」地上三排測試器（後到前：銅、玻璃、矽；電池在左、LED 在右，電子從負極出發由左往右穿過材料），電線裡電子速度 ∝ LED 電流；材料裡畫自由電荷（銅 60 顆、玻璃 0、純矽 0、摻雜矽依摻雜量對數 3–40 顆；電子往＋、電洞往−漂）。「矽的原子」XY 平面 7 × 5 原子的**平面示意**（每根鍵兩個電子），兩個原子換成磷或硼；電洞跳躍：**左邊（−側）鍵上的電子往＋跳進電洞，電洞往左移**，到左緣被負極填掉、右緣再生一個（第一版方向寫反過，改的時候注意）。
+  - 相機距離用 `fit(w, h)` 依畫面比例算（手機 1:1 也放得下整個場景）。
+  - `src/chipcalc.js`（純函式）：σ = q(nμn + pμp)，電中性解 n、p（ni = 10¹⁰），遷移率用 Caughey–Thomas；導電測試器 3 V＋紅 LED 1.9 V＋100 Ω、樣品 2 cm × 1 cm²（`ledLevel`，以銅為 1）；滑桿 0–70 → 每 10¹¹…10⁴ 個原子換 1 個（`oneInFromSlider`）；`fmtBig`（million／billion／trillion、萬／億／兆；先 toPrecision(3) 修整，否則 10⁹ 會寫成「1000 million」）；`homeChips`。
+  - `test/doping.test.mjs`（assert）：純矽 3.2 × 10⁵ Ω·cm（Ioffe）、N 型 10¹⁶ ≈ 0.5、P 型 ≈ 1.4 Ω·cm、n·p = ni²、百萬分之一的磷 > 100 萬倍（課文的說法）、銅／純矽 > 10¹¹、導電順序與刻度、LED 亮暗、滑桿與格式、**讀 data/semiconductors.json 檢查 `home` 清單**（每項要有 `est`：source／guess／min；手機 30、汽車 1,000；範例家庭 20–200 顆）。
+  - 頁面下方「你家有幾顆晶片？」（`data-chip-home`，`initHome()` 在同一支 bundle，不需要 WebGL）：只有兩個數字有出處——iFixit 2025 iPhone 17 Pro 認出 38 顆（取 30）、美國商務部 2021 電動車約 2,000 顆＝一般車兩倍（取 1,000）；有按鍵的家電只算 1 顆微控制器；電腦、平板、電視等標「本站估計」。
+  - 卡片 `demo`：compare／pure／phosphorus／boron（另有 lit）。
+  - 除錯：`document.querySelector('[data-chipdoping-lab]').__lab`（`setView('cmp'|'atoms', 立即?)`、`setDope('pure'|'n'|'p')`、`setAmt(0–70)`、`setPower(bool)`、`demo(名稱)`、`goCam()`、`run(秒)`、`render()`）。截圖後讀 aria-pressed／顏色要等 0.2 秒的 CSS transition，否則看起來兩個按鈕都亮。
+  - 查證過的數字（2026-10）：矽占地殼 27.7%（RSC）；晶格常數 0.5431 nm、5 × 10²² 原子/cm³、本質電阻率 3.2 × 10⁵ Ω·cm（Ioffe）；電阻率表銅 1.68 × 10⁻⁸、矽 2.3 × 10³、玻璃 10¹¹–10¹⁵ Ω·m（Wikipedia）；輕摻雜約一億分之一、重摻雜約萬分之一；電子級多晶矽雜質 < 十億分之一；「semiconducting」伏打 1782（據 Busch）、Halbleiter 魏斯 1910；竹科 1980/12/15 成立、我國第一個科學園區、核准廠商逾 600 家、就業逾 16 萬人、2021 年積體電路是廠商家數最多的產業；基爾比 1958/9/12（鍺）、快捷 1960 第一批矽 IC、2000 諾貝爾物理獎；健保 IC 卡 2004/1/1 全面使用。**查不到的不寫**：竹科產值比重、各家電的晶片數、新生兒自動發卡。
+- 和萬物原理互相連結：第一課的 `links` 連第三課太陽能板（電子與電洞）；之後講 0 與 1、DRAM 時連萬物原理第八課（computer-memory），不重講。
+- 🔊 錄音：`python3 tools/gen_audio.py --page resources/classes/semiconductors/<slug> --out audio/say-<slug>` → `python3 tools/upload_say_dir.py assets/data/say/semiconductors-<slug>.json audio/say-<slug>`（manifest 命名 `semiconductors-<slug>`；`gen_audio.py` 的 SHORT_PAGES 已加本系列）。worktree 裡先把 `~/Developer/repos/twrses/tools/.r2_uploaded_cache.txt` 複製過來，做完 `sort -u` 合併回去。
+- 課程規劃在 Obsidian：`第二大腦/創作庫/半導體科普課程規劃（twrses）.md`（三單元八課、待查證清單、交接指令）；系列索引 `第二大腦/英文學習/晶片與半導體（twrses.org）.md`。
+
+---
+
 ## Build / Deploy
 ```
 python3 build.py        # BASE=/twrses → 服務於 lukelin7429.github.io/twrses/ 或 www.twrses.org

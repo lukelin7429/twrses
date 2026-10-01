@@ -1413,6 +1413,8 @@ def build_reading_hub():
              "Read how your body works in English, with 3D models and measurements you take on yourself. 用英文讀懂身體，每課附 3D 模型與親身測量。"),
             ("/resources/classes/how-things-work/", "🔋", "How Things Work · 萬物原理",
              "Everyday questions with surprising answers, explained in English with 3D models. 生活裡的科學問題，用英文讀懂，再用 3D 模型看它怎麼運作。"),
+            ("/resources/classes/semiconductors/", "💿", "Chips and Semiconductors · 晶片與半導體",
+             "What is inside a chip? From sand to silicon to the chips behind AI, in English with 3D models. 晶片裡有什麼？從沙子、矽到 AI 晶片，用英文讀懂，再用 3D 模型看清楚。"),
             ("/resources/grandfather/", "🌅", "Grandfather · 落日餘暉",
              "Thirty chapters of life wisdom by Leon La Couvée, in English and Chinese. 三十章人生智慧，中英對照。"),
             ("/resources/periodicals/", "📰", "Periodicals · 英語期刊",
@@ -5794,6 +5796,308 @@ def build_htw_hub():
     return HTW_BASE
 
 
+# ---- 晶片與半導體 Chips and Semiconductors（資料驅動，data/semiconductors.json）----
+# 架構照萬物原理：系列首頁分單元（單元導覽＋.lc-row 橫向課程卡），課程頁照天文教育
+# （英文 reading＋每課一個 3D 模型＋延伸段落）。units[].lessons 是做好的課、units[].planned 是製作中。
+# 3D 原始碼在 tools/chips/src/（three.js、esbuild，每課一個入口），打包成 assets/js/chip-*.js；
+# 面板、迷思、口訣、活動沿用 astro.css，本系列多出來的在 chips.css（class 前綴 cp-）；兩者都只載在本系列頁面。
+_chipj = os.path.join(ROOT, "data", "semiconductors.json")
+CHIP = json.load(open(_chipj, encoding="utf-8")) if os.path.exists(_chipj) else None
+CHIP_BASE = "/resources/classes/semiconductors/"
+_CHIP_JS = {"doping": "chip-doping"}   # lab.kind → assets/js/<bundle>.js
+
+def _chip_ver():
+    h = hashlib.md5()
+    for rel in ("assets/css/astro.css", "assets/css/chips.css", *(f"assets/js/{j}.js" for j in _CHIP_JS.values())):
+        fp = os.path.join(ROOT, rel)
+        if os.path.exists(fp): h.update(open(fp, "rb").read())
+    return h.hexdigest()[:8]
+
+def _chip_head(js=None):
+    v = _chip_ver()
+    tag = f'<script defer src="/assets/js/{js}.js?v={v}"></script>\n' if js else ""
+    return (f'<link rel="stylesheet" href="/assets/css/astro.css?v={v}">\n'
+            f'<link rel="stylesheet" href="/assets/css/chips.css?v={v}">\n{tag}')
+
+def chipsilicon_svg(size=56):
+    """晶片與半導體的系列小圖示：一顆有腳的晶片，裡面是矽原子格子（藍灰），中間一顆換成磷（橘）。"""
+    pins = "".join(
+        f'<rect x="{15 + i * 8}" y="3" width="3" height="7" rx="1" fill="#cfd4dc"/><rect x="{15 + i * 8}" y="50" width="3" height="7" rx="1" fill="#cfd4dc"/>'
+        f'<rect x="3" y="{15 + i * 8}" width="7" height="3" rx="1" fill="#cfd4dc"/><rect x="50" y="{15 + i * 8}" width="7" height="3" rx="1" fill="#cfd4dc"/>'
+        for i in range(4))
+    pts = [(20 + c * 10, 20 + r * 10) for r in range(3) for c in range(3)]
+    bonds = "".join(f'<line x1="{x}" y1="{y}" x2="{x + 10}" y2="{y}" stroke="#5f7290" stroke-width="1.6"/>' for x, y in pts if x < 40)
+    bonds += "".join(f'<line x1="{x}" y1="{y}" x2="{x}" y2="{y + 10}" stroke="#5f7290" stroke-width="1.6"/>' for x, y in pts if y < 40)
+    atoms = "".join(f'<circle cx="{x}" cy="{y}" r="3.6" fill="{"#ff9a3c" if (x, y) == (30, 30) else "#9fb3d1"}"/>' for x, y in pts)
+    return (f'<svg class="chipsilicon-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">'
+            f'{pins}<rect x="9" y="9" width="42" height="42" rx="5" fill="#1d2b3f" stroke="#5f7fa8" stroke-width="1.6"/>'
+            f'{bonds}{atoms}<circle cx="36.5" cy="25" r="1.8" fill="#58e1ff"/></svg>')
+
+def render_chipdoping_lab(lesson):
+    """第一課：銅、玻璃、矽與摻雜（assets/js/chip-doping.js 綁這裡的 class；全部自繪示意）。"""
+    lab = lesson["lab"]
+    dopes = [("pure", "&#9898;", "Pure silicon", "純矽"), ("n", "&#128992;", "Phosphorus (N)", "加磷（N 型）"),
+             ("p", "&#128995;", "Boron (P)", "加硼（P 型）")]
+    db = "".join(f'<button type="button" data-dope="{k}" aria-pressed="{"true" if k == "pure" else "false"}"><i aria-hidden="true">{ic}</i>{en}<small>{zh}</small></button>'
+                 for k, ic, en, zh in dopes)
+    marks = [("glass", "Glass", "玻璃"), ("pure", "Pure silicon", "純矽"), ("copper", "Copper", "銅")]
+    mk = "".join(f'<i class="cp-mk cp-mk-{k}" data-mk="{k}"><b>{en}</b><small>{zh}</small></i>' for k, en, zh in marks)
+    tg = _lab_toggles([("power", "Power", "電源", True), ("labels", "Labels", "標示", True)])
+    return f'''<div class="astro-lab cp-lab rvl" data-chipdoping-lab>
+  <div class="al-stage">
+    <div class="al-space">
+      <canvas class="al-space-cv" aria-label="3D model comparing copper, glass and silicon, and a close-up of silicon atoms with phosphorus or boron added · 比較銅、玻璃與矽，並放大看矽原子摻進磷或硼的 3D 模型"></canvas>
+      <div class="al-labels" aria-hidden="true"></div>
+      <div class="cp-view" role="group" aria-label="View · 視角">
+        <button type="button" data-view="cmp" aria-pressed="true">Three materials<small>三種材料</small></button>
+        <button type="button" data-view="atoms" aria-pressed="false">Inside silicon<small>矽的原子</small></button>
+      </div>
+      <p class="al-hint">Drag to turn · 拖曳旋轉　Scroll or pinch to zoom · 滾輪／雙指縮放</p>
+      <button type="button" class="al-home" title="Reset view · 重設視角" aria-label="Reset view · 重設視角">&#8634;</button>
+      <p class="al-nogl-msg">This 3D model needs WebGL, which this browser does not support. The reading and the cards below still explain everything.<br><span class="zh">這個瀏覽器不支援 WebGL，無法顯示 3D 模型；下方的課文與卡片一樣能看懂。</span></p>
+    </div>
+    <aside class="al-sky cp-aside">
+      <div class="cp-top">
+        <p class="al-sky-k">What is in the silicon? · 矽裡加了什麼？</p>
+        <div class="cp-dope" role="group" aria-label="What is in the silicon? · 矽裡加了什麼？">{db}</div>
+        <label class="al-slider cp-amt-row"><span>How much? · 加多少？</span>
+          <output class="cp-amt-out"></output>
+          <input type="range" class="al-age cp-amt" min="0" max="70" step="1" value="50" aria-label="How much is added · 加多少"></label>
+      </div>
+      <div class="cp-ladder">
+        <p class="al-sky-k">How well it conducts · 導電能力</p>
+        <div class="cp-track">{mk}<i class="cp-mk cp-mk-you" aria-hidden="true"><b>Your silicon</b><small>你的矽</small></i></div>
+        <p class="cp-ladder-note">Each tick is 10 times more · 每一格差 10 倍</p>
+      </div>
+      <dl class="cp-nums">
+        <div><dt>Free to move · 自由的電荷</dt><dd class="cp-free"></dd></div>
+        <div><dt>Vs. pure silicon · 跟純矽比</dt><dd class="cp-times"></dd></div>
+        <div><dt>Silicon's LED · 矽那一排的 LED</dt><dd class="cp-led"></dd></div>
+      </dl>
+      <p class="cp-msg" aria-live="polite"></p>
+    </aside>
+  </div>
+  <div class="al-controls">
+    <div class="al-row al-row-main">
+      <button type="button" class="al-play" aria-pressed="true"><span class="al-play-i" aria-hidden="true"></span><span class="al-play-t">Pause · 暫停</span></button>
+      <div class="al-row al-toggles">{tg}</div>
+    </div>
+  </div>
+  {_lab_foot(lab)}
+  <p class="cp-credit">{lab["credit_html"]}</p>
+</div>'''
+
+def _chip_home(hm):
+    """「你家有幾顆晶片？」勾選清單（chip-doping.js 的 initHome 計算；不需要 WebGL）。"""
+    est = {"source": ("source", "有出處"), "guess": ("our guess", "本站估計"), "min": ("at least", "至少")}
+    rows = []
+    for it in hm["items"]:
+        q = it.get("qty", 0)
+        e = est[it["est"]]
+        rows.append(
+            f'<li class="cp-hi{" on" if q else ""}" data-k="{it["key"]}">'
+            f'<label class="cp-hi-l"><input type="checkbox"{" checked" if q else ""}>'
+            f'<span class="cp-hi-ic" aria-hidden="true">{it["icon"]}</span>'
+            f'<span class="cp-hi-t">{html.escape(it["en"])}<small>{html.escape(it["zh"])}</small></span></label>'
+            f'<span class="cp-hi-n"><b>{it["n"]:,}</b> each · 每個<em class="cp-est-{it["est"]}">{e[0]} · {e[1]}</em></span>'
+            f'<input class="cp-qty" type="number" min="1" max="20" value="{max(1, q)}" aria-label="How many · 幾個"></li>')
+    items = html.escape(json.dumps([{"key": it["key"], "n": it["n"]} for it in hm["items"]]))
+    return (f'<div class="cp-home rvl" data-chip-home data-items="{items}">'
+            f'<ul class="cp-home-list">{"".join(rows)}</ul>'
+            f'<div class="cp-home-out" aria-live="polite">'
+            f'<p class="cp-home-k">Your home · 你家</p>'
+            f'<p class="cp-home-big">at least <b class="cp-home-total">0</b> chips</p>'
+            f'<p class="cp-home-zh">至少 <b class="cp-home-total">0</b> 顆晶片</p>'
+            f'<p class="cp-home-sub">in <b class="cp-home-things">0</b> things · 分布在 <b class="cp-home-things">0</b> 樣東西裡</p>'
+            f'<div class="cp-home-bar" aria-hidden="true"><i></i></div>'
+            f'<p class="cp-home-note">{html.escape(hm["note_en"])}<span class="zh">{html.escape(hm["note_zh"])}</span></p>'
+            f'</div></div>'
+            '<noscript><p class="muted">The counter works in your browser and needs JavaScript. · 計算在瀏覽器裡進行，需要開啟 JavaScript。</p></noscript>')
+
+def _chip_flat():
+    return [(ui, u, l) for ui, u in enumerate(CHIP["units"]) for l in u["lessons"]]
+
+def _chip_nav(slug):
+    flat = _chip_flat()
+    i = next(n for n, (_, _, l) in enumerate(flat) if l["slug"] == slug)
+    def side(item, dirn, label):
+        if not item:
+            return '<span class="pm-nav-x"></span>'
+        l = item[2]
+        arrow = "&larr;" if dirn == "prev" else "&rarr;"
+        return (f'<a class="pm-nav-s pm-nav-{dirn}" href="{CHIP_BASE}{l["slug"]}/">'
+                f'<span class="pm-nav-k">{arrow} {label}</span>'
+                f'<span class="pm-nav-t">{html.escape(l["title"])}</span></a>')
+    prev = flat[i - 1] if i > 0 else None
+    nxt = flat[i + 1] if i < len(flat) - 1 else None
+    return (f'<nav class="pm-nav rvl">{side(prev, "prev", "上一課 · Previous")}'
+            f'<a class="pm-nav-hub" href="{CHIP_BASE}">&#9776; 回晶片與半導體 · All Lessons</a>'
+            f'{side(nxt, "next", "下一課 · Next")}</nav>')
+
+def build_chip_lesson(ui, unit, lesson):
+    path = f'{CHIP_BASE}{lesson["slug"]}/'
+    unit_dict = {k: lesson[k] for k in ("title", "paras", "paras_zh", "questions", "answers", "vocab", "quiz")}
+    unit_dict["unit"] = lesson["n"]
+    reading_html = render_basic_unit(1, unit_dict, level="chips", audio_rel="", pdf_rel="")
+    lab = lesson["lab"]
+    kind = lab["kind"]
+    lab_html = {"doping": render_chipdoping_lab}[kind](lesson)
+
+    secs = []
+    if lesson.get("home"):
+        hm = lesson["home"]
+        secs.append(("home", hm["eyebrow"], hm["en"], hm["zh"], _chip_home(hm), _bi(hm["lead_en"], hm["lead_zh"], cls="lead rvl d2")))
+    if lesson.get("parts"):
+        cards = "".join(
+            f'<article class="ph-card cp-part rvl">'
+            f'<div class="ph-ico cp-ico" aria-hidden="true">{pt["icon"]}</div>'
+            f'<h3>{html.escape(pt["en"])}<span class="zh">{html.escape(pt["zh"])}</span></h3>'
+            f'<p class="ph-meta"><span>{html.escape(pt["meta_en"])} · {html.escape(pt["meta_zh"])}</span></p>'
+            f'<p class="ph-when">{html.escape(pt["text_en"])}<br><span class="zh">{html.escape(pt["text_zh"])}</span></p>'
+            f'<button type="button" class="ph-go" data-lab-demo="{pt["demo"]}">Try it in 3D · 在模型中試 <i>&uarr;</i></button>'
+            f'</article>' for pt in lesson["parts"])
+        ph = lesson["parts_head"]
+        secs.append(("parts", ph["eyebrow"], ph["en"], ph["zh"], f'<div class="ph-grid stagger">{cards}</div>',
+                     _bi(lesson["parts_note_en"], lesson["parts_note_zh"], cls="lead rvl d2")))
+    if lesson.get("links"):
+        lk = "".join(
+            f'<a class="cp-link rvl" href="{html.escape(x["href"])}">'
+            f'<span class="cp-link-ic" aria-hidden="true">{x["icon"]}</span>'
+            f'<span class="cp-link-b"><span class="cp-link-k">{html.escape(x["k_en"])} · {html.escape(x["k_zh"])}</span>'
+            f'<b>{html.escape(x["en"])}</b><span class="zh cp-link-zh">{html.escape(x["zh"])}</span>'
+            f'<span class="cp-link-n">{html.escape(x["note_en"])}<span class="zh">{html.escape(x["note_zh"])}</span></span>'
+            f'<span class="cp-link-go">Go to the lesson · 前往這一課 <i>&rarr;</i></span></span></a>'
+            for x in lesson["links"])
+        secs.append(("more", "Go Further · 延伸閱讀", "Electrons and holes at work", "電子和電洞在工作", f'<div class="cp-links">{lk}</div>', ""))
+    if lesson.get("facts"):
+        fx = lesson["facts"]
+        tiles = "".join(
+            f'<div class="cp-fact rvl"><b class="cp-fact-n">{html.escape(it["big"])}</b>'
+            f'<span class="cp-fact-u">{html.escape(it["unit_en"])} · {html.escape(it["unit_zh"])}</span>'
+            f'<p>{html.escape(it["en"])}<span class="zh">{html.escape(it["zh"])}</span></p></div>'
+            for it in fx["items"])
+        secs.append(("facts", fx["eyebrow"], fx["en"], fx["zh"], f'<div class="cp-facts">{tiles}</div>',
+                     _bi(fx["lead_en"], fx["lead_zh"], cls="lead rvl d2")))
+    if lesson.get("culture_cards"):
+        cu = lesson["culture_cards"]
+        cc = "".join(
+            f'<article class="cc-card rvl"><p class="cc-k">{html.escape(c["k"])}</p>'
+            f'<h3>{html.escape(c["en"])}<span class="zh">{html.escape(c["zh"])}</span></h3>'
+            f'{_bi(c["body_en"], c["body_zh"])}</article>'
+            for c in cu["cards"])
+        secs.append(("stories", cu["eyebrow"], cu["title_en"], cu["title_zh"], f'<div class="cc-grid">{cc}</div>',
+                     _bi(cu["lead_en"], cu["lead_zh"], cls="lead rvl d2")))
+    secs.append(("myths", "Myth vs. Fact · 常見迷思", "Four things people get wrong", "四個常見的誤會", _sci_myths(lesson), ""))
+    tricks_h = {"doping": ("Semiconductors in a sentence", "一句話記住半導體")}[kind]
+    secs.append(("tricks", "Remember It · 記憶口訣", tricks_h[0], tricks_h[1], _sci_tricks(lesson), ""))
+    if lesson.get("safety"):
+        items = "".join(f'<li class="rvl">{html.escape(s["en"])}<span class="zh">{html.escape(s["zh"])}</span></li>' for s in lesson["safety"])
+        secs.append(("safety", "Safety First · 安全提醒", "Before you try anything", "動手之前先讀",
+                     f'<ul class="cp-safety">{items}</ul>', ""))
+    acts = lesson.get("activities") or [lesson["activity"]]
+    for n, act in enumerate(acts, 1):
+        eb = "Classroom Activity · 課堂活動" if len(acts) == 1 else f"Classroom Activity {n} · 課堂活動{_astro_cn(n)}"
+        secs.append((f"activity{'' if n == 1 else n}", eb, act["title_en"], act["title_zh"], _astro_activity(act), ""))
+    sec_html = "\n".join(_astro_sec(sid, k % 2 == 1, eb, en, zh, inner, lead)
+                         for k, (sid, eb, en, zh, inner, lead) in enumerate(secs))
+    src_html = ""
+    if lesson.get("sources"):
+        rows = "".join(
+            f'<li><span>{html.escape(s["en"])}<span class="zh">{html.escape(s["zh"])}</span></span>'
+            f'<a href="{html.escape(s["url"])}" target="_blank" rel="noopener">{html.escape(s["src"])} &#8599;</a></li>'
+            for s in lesson["sources"])
+        src_html = (f'<div class="cp-sources rvl"><p class="sub-head">Sources · 資料出處</p>'
+                    f'<p class="muted">Facts and numbers on this page were checked against these sources (October 2026). · 本頁的事實與數字依下列資料查證（2026 年 10 月）。</p>'
+                    f'<ol>{rows}</ol></div>')
+
+    eyebrow = (f'Chips and Semiconductors · Unit {ui + 1} · Lesson {lesson["n"]} · '
+               f'晶片與半導體 單元{_htw_cn(ui + 1)} 第{_htw_cn(lesson["n"])}課')
+    lead = f'{html.escape(lesson["blurb_en"])}<br><span class="muted">{html.escape(lesson["blurb_zh"])}</span>'
+    body = f'''
+{page_hero(eyebrow, f'{html.escape(lesson["title"])}<span class="h1-zh">{html.escape(lesson["title_zh"])}</span>', lead, back=(CHIP_BASE, "回晶片與半導體 · All Lessons"))}
+<section class="section astro-lab-sec" id="model"><div class="wrap">
+  <div class="big-idea rvl"><span class="big-idea-k">Big idea · 一句話看懂</span>{_bi(lesson["big_idea_en"], lesson["big_idea_zh"])}</div>
+  <p class="eyebrow rvl">{html.escape(lab["eyebrow"])}</p>
+  <h2 class="rvl d1 sweep">{html.escape(lab["title_en"])} <span class="tp-h2-en">{html.escape(lab["title_zh"])}</span></h2>
+  {_bi(lab["how_en"], lab["how_zh"], cls="lead rvl d2 al-how")}
+  {lab_html}
+</div></section>
+<section class="section band" id="reading"><div class="wrap" style="max-width:940px">
+  <p class="eyebrow rvl">Reading · 英文閱讀</p>
+  {reading_html}
+</div></section>
+{sec_html}
+<section class="section"><div class="wrap">
+{src_html}
+{_chip_nav(lesson["slug"])}
+</div></section>
+'''
+    say_slug = f'semiconductors-{lesson["slug"]}'   # tools/gen_audio.py 以路徑末兩段命名
+    has_clips = os.path.exists(os.path.join(ROOT, "assets/data/say", say_slug + ".json"))
+    write(path, layout(path, f'{lesson["title"]} · {lesson["title_zh"]}',
+          f'{lesson["blurb_en"]} {lesson["blurb_zh"]}', body, "resources",
+          say_manifest=say_slug if has_clips else None, extra_head=_chip_head(_CHIP_JS[kind])))
+    return path
+
+def build_chip_hub():
+    # 照萬物原理：單元導覽＋每個單元一段橫向課程卡；做好的課可點，planned 是「製作中」卡。
+    def icon(l):
+        return chipsilicon_svg(60) if l.get("card") == "silicon" else l["icon"]
+    unit_sections, nav = [], []
+    done = sum(len(u["lessons"]) for u in CHIP["units"])
+    total = done + sum(len(u.get("planned", [])) for u in CHIP["units"])
+    for idx, u in enumerate(CHIP["units"]):
+        rows = []
+        for l in u["lessons"]:
+            rows.append((l["n"],
+                f'<a class="lc-row rvl" href="{CHIP_BASE}{l["slug"]}/">'
+                f'<span class="lc-ico" aria-hidden="true">{icon(l)}</span>'
+                f'<span class="lc-body">'
+                f'<span class="lc-meta"><b>Lesson {l["n"]} · 第{_htw_cn(l["n"])}課</b><i>{html.escape(l["level"])}</i></span>'
+                f'<h3 class="lc-title">{html.escape(l["title"])}</h3>'
+                f'<span class="lc-zh">{html.escape(l["title_zh"])}</span>'
+                f'<span class="lc-bl">{html.escape(l["blurb_en"])}</span>'
+                f'<span class="lc-bl zh">{html.escape(l["blurb_zh"])}</span>'
+                f'<span class="lc-go">Start the lesson · 開始上課 <i>&rarr;</i></span>'
+                f'</span></a>'))
+        for p in u.get("planned", []):
+            rows.append((p["n"],
+                f'<div class="lc-row lc-soon rvl">'
+                f'<span class="lc-ico" aria-hidden="true">{p["icon"]}</span>'
+                f'<span class="lc-body"><span class="lc-meta"><b>Lesson {p["n"]} · 第{_htw_cn(p["n"])}課 · Coming soon 製作中</b></span>'
+                f'<h3 class="lc-title">{html.escape(p["en"])}</h3><span class="lc-zh">{html.escape(p["zh"])}</span></span></div>'))
+        rows.sort(key=lambda r: r[0])
+        band = " band" if idx % 2 == 0 else ""
+        uid = f"unit-{idx + 1}"
+        nav.append(f'<a class="unit-nav-link" href="#{uid}"><b>{idx + 1}</b><span>{html.escape(u["title_zh"])}</span></a>')
+        unit_sections.append(
+            f'<section class="section lc-unit{band}" id="{uid}"><div class="wrap">'
+            f'<p class="eyebrow rvl">Unit {idx + 1} · 單元{_htw_cn(idx + 1)}</p>'
+            f'<h2 class="rvl d1 sweep">{html.escape(u["title_en"])} <span class="tp-h2-en">{html.escape(u["title_zh"])}</span></h2>'
+            f'<p class="lead rvl d2" style="max-width:62ch">{html.escape(u["blurb_en"])}<br>'
+            f'<span class="muted">{html.escape(u["blurb_zh"])}</span></p>'
+            f'<div class="lc-list">{"".join(r[1] for r in rows)}</div>'
+            f'</div></section>')
+    unit_nav = (f'<nav class="unit-nav" aria-label="Jump to unit · 單元導覽"><div class="wrap">'
+                f'<span class="unit-nav-label">Jump to unit · 跳到單元</span>'
+                f'<div class="unit-nav-track">{"".join(nav)}</div></div></nav>')
+    intro_html = "".join(_bi(p["en"], p["zh"]) for p in CHIP["intro"])
+    intro_html += _bi(f"{done} of {total} lessons are ready so far; more are on the way.",
+                      f"目前完成 {done} 課（共規劃 {total} 課），持續增加中。", cls="cp-progress")
+    lead = f'{html.escape(CHIP["lead_en"])}<br><span class="muted">{html.escape(CHIP["lead_zh"])}</span>'
+    body = f'''
+{page_hero(CHIP["eyebrow"], f'{CHIP["title_en"]} <span class="h1-zh">{CHIP["title_zh"]}</span>', lead, back=("/resources/reading/", "回閱讀與經典"))}
+<section class="section"><div class="wrap">
+  <div class="prose wide rvl cp-intro"><span class="cp-intro-ic" aria-hidden="true">{chipsilicon_svg(76)}</span>{intro_html}</div>
+</div></section>
+{unit_nav}
+{"".join(unit_sections)}
+'''
+    write(CHIP_BASE, layout(CHIP_BASE, f'{CHIP["title_en"]} · {CHIP["title_zh"]}',
+          f'{CHIP["lead_en"]} {CHIP["lead_zh"]}', body, "resources", extra_head=_chip_head() + _lc_head()))
+    return CHIP_BASE
+
+
 def build_poetry_hub():
     cards = []
     for pm in POEMS["poems"]:
@@ -7734,6 +8038,10 @@ def main():
         paths.append(build_htw_hub())
         for _ui, _u in enumerate(HTW["units"]):
             for _l in _u["lessons"]: paths.append(build_htw_lesson(_ui, _u, _l))
+    if CHIP:
+        paths.append(build_chip_hub())
+        for _ui, _u in enumerate(CHIP["units"]):
+            for _l in _u["lessons"]: paths.append(build_chip_lesson(_ui, _u, _l))
     build_grandfather(); paths.append("/resources/grandfather/")
     build_periodicals(); paths.append("/resources/periodicals/")
     build_media_hub(); paths.append("/media/")

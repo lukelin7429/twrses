@@ -38,7 +38,7 @@ EN_ONLY_PAGES = ("resources/classes/poetry",)
 # to the English-only Ava. Sentences keep the Multilingual voice — they carry
 # enough context, and it is the voice chosen for them.
 SHORT_PAGES = ("resources/booklets", "resources/classes/astronomy", "resources/classes/human-body",
-               "resources/classes/how-things-work")
+               "resources/classes/how-things-work", "resources/classes/semiconductors")
 SHORT_WORDS = 3
 
 
