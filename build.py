@@ -4918,7 +4918,7 @@ def build_body_hub():
 # 3D 原始碼在 tools/science/src/（three.js、esbuild，每課一個入口），打包成 assets/js/<入口>.js；
 # 面板、迷思、口訣、活動沿用 astro.css，本系列多出來的在 science.css；兩者都只載在本系列頁面。
 HTW_BASE = "/resources/classes/how-things-work/"
-_HTW_JS = {"battery": "battery", "generator": "generator", "solar": "solar-cell", "wind": "wind-turbine", "internet": "internet-packets", "signal": "cell-signal", "gps": "gps-satellites"}   # lab.kind → assets/js/<bundle>.js
+_HTW_JS = {"battery": "battery", "generator": "generator", "solar": "solar-cell", "wind": "wind-turbine", "internet": "internet-packets", "signal": "cell-signal", "gps": "gps-satellites", "memory": "memory-bits"}   # lab.kind → assets/js/<bundle>.js
 
 def _htw_cn(n):
     """課次的中文數字（一～九十九）：第十一課、第二十課。"""
@@ -5345,6 +5345,63 @@ def render_gps_lab(lesson):
   <p class="bt-credit">{lab["credit_html"]}</p>
 </div>'''
 
+def memory_svg(size=56):
+    """記憶體小圖（萬物原理首頁的課程卡）：一顆晶片，上面一排 0 與 1。"""
+    bits = "01000001"
+    cells = "".join(f'<rect x="{13 + i * 4.5}" y="24" width="3.4" height="12" rx="1" fill="{"#58e1ff" if b == "1" else "#2f4a6a"}"/>' for i, b in enumerate(bits))
+    pins = "".join(f'<rect x="{14 + i * 6}" y="4" width="2.4" height="6" fill="#cfd4dc"/><rect x="{14 + i * 6}" y="50" width="2.4" height="6" fill="#cfd4dc"/>' for i in range(6))
+    return (f'<svg class="memory-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">'
+            f'{pins}<rect x="8" y="10" width="44" height="40" rx="4" fill="#1d2b3f" stroke="#5f7fa8" stroke-width="1.6"/>{cells}'
+            '<text x="30" y="45" text-anchor="middle" font-size="7" font-weight="700" fill="#ffd36e" font-family="sans-serif">A</text></svg>')
+
+def render_memory_lab(lesson):
+    """第八課：記憶體格子（assets/js/memory-bits.js 綁這裡的 class；全部自繪示意）。"""
+    lab = lesson["lab"]
+    kinds = [("dram", "&#9889;", "RAM (DRAM)", "記憶體"), ("flash", "&#128190;", "Flash storage", "快閃記憶體")]
+    kb = "".join(f'<button type="button" data-mem="{k}" aria-pressed="{"true" if k == "dram" else "false"}"><i aria-hidden="true">{ic}</i>{en}<small>{zh}</small></button>' for k, ic, en, zh in kinds)
+    tg = _lab_toggles([("labels", "Labels", "標示", True), ("power", "Power", "電源", True), ("refresh", "Refresh (RAM)", "刷新（RAM）", True)])
+    return f'''<div class="astro-lab bt-lab mb-lab rvl" data-memory-lab>
+  <div class="al-stage">
+    <div class="al-space">
+      <canvas class="al-space-cv" aria-label="3D model of memory cells storing a word as 0s and 1s · 記憶體格子用 0 和 1 存下一個字的 3D 模型"></canvas>
+      <div class="al-labels" aria-hidden="true"></div>
+      <p class="bt-cut">Hugely enlarged and slowed down; a real chip has billions of cells · 大幅放大、放慢；真的晶片有幾十億格</p>
+      <p class="al-hint">Drag to turn · 拖曳旋轉　Scroll or pinch to zoom · 滾輪／雙指縮放</p>
+      <button type="button" class="al-home" title="Reset view · 重設視角" aria-label="Reset view · 重設視角">&#8634;</button>
+      <p class="al-nogl-msg">This 3D model needs WebGL, which this browser does not support. The reading and the cards below still explain everything.<br><span class="zh">這個瀏覽器不支援 WebGL，無法顯示 3D 模型；下方的課文與卡片一樣能看懂。</span></p>
+    </div>
+    <aside class="al-sky bt-aside mb-aside">
+      <div class="mb-top">
+        <p class="al-sky-k">Kind of memory · 記憶體種類</p>
+        <div class="bt-modes mb-kinds" role="group" aria-label="Kind of memory · 記憶體種類">{kb}</div>
+        <label class="al-sky-k mb-k2" for="mb-text">Type up to 16 bytes · 最多 16 個位元組</label>
+        <div class="mb-form">
+          <input id="mb-text" class="mb-text" type="text" value="HELLO" maxlength="16" autocomplete="off" spellcheck="false">
+          <button type="button" class="mb-save">Save<small>存進去</small></button>
+          <button type="button" class="mb-read">Read<small>讀出來</small></button>
+        </div>
+        <ul class="mb-bytes" aria-live="polite"></ul>
+        <p class="mb-backrow"><span>Read back · 讀回來</span><b class="mb-back">—</b></p>
+        <dl class="bt-nums mb-nums">
+          <div><dt>Bytes · 位元組</dt><dd class="mb-nb"></dd></div>
+          <div><dt>Bits · 位元</dt><dd class="mb-nbits"></dd></div>
+          <div><dt>Power · 電源</dt><dd class="mb-pow"></dd></div>
+          <div><dt>Refresh · 刷新</dt><dd class="mb-ref"></dd></div>
+        </dl>
+      </div>
+      <p class="bt-msg mb-msg" aria-live="polite"></p>
+    </aside>
+  </div>
+  <div class="al-controls">
+    <div class="al-row al-row-main">
+      <button type="button" class="al-play" aria-pressed="true"><span class="al-play-i" aria-hidden="true"></span><span class="al-play-t">Pause · 暫停</span></button>
+      <div class="al-row al-toggles mb-toggles">{tg}</div>
+    </div>
+  </div>
+  {_lab_foot(lab)}
+  <p class="bt-credit">{lab["credit_html"]}</p>
+</div>'''
+
 def _htw_flat():
     return [(ui, u, l) for ui, u in enumerate(HTW["units"]) for l in u["lessons"]]
 
@@ -5372,7 +5429,7 @@ def build_htw_lesson(ui, unit, lesson):
     reading_html = render_basic_unit(1, unit_dict, level="htw", audio_rel="", pdf_rel="")
     lab = lesson["lab"]
     kind = lab["kind"]
-    lab_html = {"battery": render_battery_lab, "generator": render_generator_lab, "solar": render_solarcell_lab, "wind": render_windturbine_lab, "internet": render_internet_lab, "signal": render_cellsignal_lab, "gps": render_gps_lab}[kind](lesson)
+    lab_html = {"battery": render_battery_lab, "generator": render_generator_lab, "solar": render_solarcell_lab, "wind": render_windturbine_lab, "internet": render_internet_lab, "signal": render_cellsignal_lab, "gps": render_gps_lab, "memory": render_memory_lab}[kind](lesson)
 
     secs = []
     if lesson.get("mix"):
@@ -5435,7 +5492,8 @@ def build_htw_lesson(ui, unit, lesson):
                 "wind": ("Wind power in a sentence", "一句話記住風力發電"),
                 "internet": ("The internet in a sentence", "一句話記住網際網路"),
                 "signal": ("Phone signals in a sentence", "一句話記住手機訊號"),
-                "gps": ("GPS in a sentence", "一句話記住 GPS")}[kind]
+                "gps": ("GPS in a sentence", "一句話記住 GPS"),
+                "memory": ("Memory in a sentence", "一句話記住記憶體")}[kind]
     secs.append(("tricks", "Remember It · 記憶口訣", tricks_h[0], tricks_h[1], _sci_tricks(lesson), ""))
     if lesson.get("safety"):
         items = "".join(f'<li class="rvl">{html.escape(s["en"])}<span class="zh">{html.escape(s["zh"])}</span></li>' for s in lesson["safety"])
@@ -5489,7 +5547,7 @@ def build_htw_lesson(ui, unit, lesson):
 def build_htw_hub():
     # 照中醫養生：單元導覽＋每個單元一段橫向課程卡；做好的課可點，planned 是「製作中」卡。
     def icon(l):
-        return battery_svg(60) if l.get("card") == "battery" else outlet_svg(60) if l.get("card") == "outlet" else solarpanel_svg(60) if l.get("card") == "solar" else windturbine_svg(60) if l.get("card") == "wind" else internet_svg(60) if l.get("card") == "internet" else cellsignal_svg(60) if l.get("card") == "signal" else gps_svg(60) if l.get("card") == "gps" else l["icon"]
+        return battery_svg(60) if l.get("card") == "battery" else outlet_svg(60) if l.get("card") == "outlet" else solarpanel_svg(60) if l.get("card") == "solar" else windturbine_svg(60) if l.get("card") == "wind" else internet_svg(60) if l.get("card") == "internet" else cellsignal_svg(60) if l.get("card") == "signal" else gps_svg(60) if l.get("card") == "gps" else memory_svg(60) if l.get("card") == "memory" else l["icon"]
     unit_sections, nav = [], []
     done = sum(len(u["lessons"]) for u in HTW["units"])
     total = done + sum(len(u.get("planned", [])) for u in HTW["units"])

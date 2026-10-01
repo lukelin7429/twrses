@@ -184,6 +184,12 @@
   - 圓用「帶子」網格畫（角半徑 ±w），1px 的線在手機上太細。標籤在地球背面要藏（`hidden()` 做射線與單位球的交點檢查）。近看時訊號光點縮小（不然飛過鏡頭會變成一大團白）。
   - 數字卡六張時，桌機用 `:has()` 排成 3 × 2（science.css 最後一條）。卡片 `demo`：one／three／clock／four（都會飛到「近看台灣」）。
   - 除錯：`document.querySelector('[data-gps-lab]').__lab`（`setSats(1–4)`、`setErr(0–4)`＝0／1 µs／10 µs／0.1 ms／1 ms、`setClose(bool)`、`compute()`、`state.t`（小時）、`run(秒)`、`render()`）。
+- 第八課記憶體（`memory-bits.js`，`lab.kind = "memory"`，`data-memory-lab`，CSS 前綴 `mb-`；單元二最後一課）：一個機制——每格是一個「杯子」（電容），滿＝1、空＝0，過黃線（一半）讀成 1；8 格一排＝1 個位元組，16 排＝位址 0–15。輸入框文字用 UTF-8 變位元組（英文 1、大部分中文 3、emoji 4；超過 16 個位元組在字與字之間截斷）。**RAM（DRAM）**：每格 tau 4–9 秒指數漏電，每 2.5 秒一次刷新掃描（真實約 64 毫秒）把過線的補滿、沒過線的歸零；關電源或關刷新就漏光。**快閃記憶體**：灰色半透明蓋子、不漏。
+  - `src/memcalc.js`（`encode`、`decode`、`toBits`、`charSpans`、`leak`、`readBit`、`photoBits`），`test/memory.test.mjs`：A＝65＝01000001、彰化 6 位元組、往返一致、截斷不切中文字、tau 4 的格子 2.5 秒內不會忘、12MP 照片 2.88 億位元＝36 MB。
+  - 卡片 `demo`：letter／chinese／ramoff／flashoff。ramoff、flashoff 用「劇本」（`state.script`，照模擬時間 `state.clock` 執行，所以暫停時劇本也停）：寫入 → 3.2 秒關電 → 11 秒（flash 7.5 秒）開電並讀出。
+  - 查證教訓：英特爾 1103（1970，1,024 位元）用的是**三電晶體**格子，不是一電晶體＋電容；後者是丹納德 1966 的設計，現代 DRAM 才用。課文只說 1103 開始取代磁芯記憶體。
+  - 窄螢幕：字的標籤只顯示字本身（不顯示「3 bytes」與「…」，否則蓋住最右一行杯子）；「一格＝1 位元」等說明標籤隱藏。全部 0 讀回來時顯示「All 0s · 全部是 0」（不要顯示一排 NUL）。
+  - 除錯：`document.querySelector('[data-memory-lab]').__lab`（`write(文字)`、`read()`、`setKind('dram'|'flash')`、`setPower(bool)`、`setRefresh(bool)`、`demo(名稱)`、`cells[排][格].q`、`run(秒)`、`render()`）。
 - 上傳錄音時若出現大量「not found locally」：多半是天文 session 在 ~/Developer 那份 clone 產生、已上傳的句子（worktree 的快取沒有它們）。算出「manifest 裡有、快取裡沒有」的雜湊，逐一 curl 確認線上 200 即可。
 - 多個 session 同時改 build.py 時，本系列改在 scratchpad 的 git worktree（從 origin/main 開分支）做，`audio` 用 symlink 指到 `~/Documents/twrses/audio`（symlink 不會被 .gitignore 的 `audio/` 擋，**不要 add**），做完 rebase 再 `git push origin HEAD:main`。
 - 瀏覽器面板在背景時 `visibilityState` 是 hidden，IntersectionObserver 不觸發、截圖是空白：點一下頁面上的「在模型中看」按鈕就會直接初始化，截圖改用無頭 Chrome（playwright-core＋本機 Chrome，`--use-angle=swiftshader`）。

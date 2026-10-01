@@ -3540,16 +3540,519 @@
               "url": "https://support.google.com/maps/answer/2839911"
             }
           ]
-        }
-      ],
-      "planned": [
+        },
         {
           "n": 8,
+          "slug": "computer-memory",
+          "title": "How Does a Computer Remember Things?",
+          "title_zh": "電腦怎麼記住東西？",
+          "level": "入門 · Beginner",
           "icon": "💾",
-          "en": "How Does a Computer Remember Things?",
-          "zh": "電腦怎麼記住東西？"
+          "card": "memory",
+          "blurb_en": "Everything a computer remembers is stored as 0s and 1s. Type a word into a 3D memory chip, watch each letter become eight tiny cups of charge, then pull the plug and see which kind of memory forgets.",
+          "blurb_zh": "電腦記住的每一樣東西，都存成 0 和 1。在 3D 記憶體晶片裡打一個字，看每個字母變成 8 個裝電荷的小杯子；再拔掉電源，看哪一種記憶體會忘記。",
+          "big_idea_en": "A computer turns words, pictures, and sounds into 0s and 1s. Each 0 or 1 is kept in a tiny cell that is either charged or empty, and billions of these cells sit in numbered rows so the computer can find them again. RAM must keep refreshing its cells and forgets when the power goes off, while flash memory locks its charge in and remembers.",
+          "big_idea_zh": "電腦把文字、圖片、聲音都變成 0 和 1。每個 0 或 1 存在一個極小的格子裡，有電荷就是 1、空的就是 0；幾十億個格子排成有編號的一排排，電腦才找得回來。RAM 要不停刷新、一斷電就忘記；快閃記憶體把電荷鎖住，關機也記得。",
+          "lab": {
+            "kind": "memory",
+            "eyebrow": "3D Model · 3D 模型",
+            "title_en": "Inside a Memory Chip",
+            "title_zh": "記憶體晶片裡面",
+            "how_en": "Drag to turn the model, and scroll or pinch to zoom. Type a word and press Save to store it one row at a time, then press Read to turn the 0s and 1s back into letters. Switch between RAM and flash memory, turn the refresh off, or switch the power off and on again to see which kind of memory remembers.",
+            "how_zh": "拖曳可以旋轉模型，滾輪或雙指可以縮放。輸入一個字、按「存進去」，看它一排一排存進去；再按「讀出來」，把 0 和 1 變回文字。切換 RAM 和快閃記憶體、關掉刷新，或把電源關掉再打開，看哪一種記憶體記得住。",
+            "legend": [
+              {
+                "cls": "mone",
+                "en": "Full cup: a charged cell, which means 1",
+                "zh": "滿的杯子：有電荷的格子，代表 1"
+              },
+              {
+                "cls": "mzero",
+                "en": "Empty cup: no charge, which means 0",
+                "zh": "空杯子：沒有電荷，代表 0"
+              },
+              {
+                "cls": "mline",
+                "en": "Yellow line: halfway. Above it, the computer reads a 1",
+                "zh": "黃線：一半的位置，高過這條線就讀成 1"
+              },
+              {
+                "cls": "mlid",
+                "en": "Gray lid (flash memory): insulation that keeps the electrons from leaking",
+                "zh": "灰色蓋子（快閃記憶體）：絕緣層，讓電子漏不出去"
+              }
+            ],
+            "scale_en": "A diagram, hugely enlarged: a real memory chip packs billions of cells, and only 16 bytes are shown here. Real RAM is refreshed about every 64 milliseconds; here the leaking and refreshing are slowed down so you can watch them. Real cells are not cups, and real flash cells are built differently from RAM cells; the lid is only a reminder that their electrons are sealed in by insulation.",
+            "scale_zh": "這是大幅放大的示意圖：真的記憶體晶片有幾十億格，這裡只畫 16 個位元組。真的 RAM 大約每 64 毫秒刷新一次，這裡把漏電和刷新放慢，讓你看得見。真的格子不是杯子，快閃記憶體的構造也和 RAM 不一樣；蓋子只是提醒你：它的電子被絕緣層封住了。",
+            "credit_html": "Model drawn by My Culture Connect as a teaching diagram. Memory history from the <a href=\"https://www.computerhistory.org/storageengine/semiconductors-compete-with-magnetic-cores/\" target=\"_blank\" rel=\"noopener\">Computer History Museum</a>; letters are stored with UTF-8, the code used by almost every webpage. · 模型由人師教育協會自繪示意；記憶體的歷史依美國電腦歷史博物館，文字用幾乎所有網頁都在用的 UTF-8 編碼存。"
+          },
+          "paras": [
+            "You take a photo of the sunset over the fields in Changhua, turn off your phone, and go to sleep. The next morning, the photo is still there. But a phone is only metal, glass, and silicon. It has no brain. How can it remember a photo, a message, or your favorite song? The answer is surprisingly simple: it stores everything as 0s and 1s.",
+            "Each 0 or 1 is called a bit, which is short for binary digit. The American scientist John Tukey first used the word in 1947, and Claude Shannon made it famous in 1948. In 1970, a memory chip from Intel that held 1,024 bits began to replace older kinds of computer memory. Today a phone with 128 gigabytes of storage holds about one trillion bits. Taiwan helps make memory, too: companies such as Nanya Technology, Winbond, and Macronix produce memory chips.",
+            "How can 0s and 1s make words? Computers group bits in eights, and eight bits are called a byte. Eight bits can make 256 different patterns, enough to give every English letter its own number. The letter A is number 65, which in bits is 01000001. Most Chinese characters need three bytes, or 24 bits. Photos work the same way: each tiny dot, or pixel, usually uses 8 bits each for red, green, and blue. A 12-megapixel photo is about 288 million bits before the phone squeezes it into a smaller file.",
+            "Where are the bits kept? In a computer's working memory, called RAM, each bit sits in a microscopic cell made of a tiny switch, called a transistor, and a tiny store of electric charge, called a capacitor. A charged cell means 1, and an empty cell means 0. Billions of cells are lined up in rows, and every byte has its own number, called an address, so the computer can find any byte in an instant.",
+            "There is a problem. The charge in each cell slowly leaks away, like water from a cup with a tiny hole. So the computer refreshes its memory: it reads every cell and tops up the 1s, usually every 64 milliseconds. When you turn the power off, nothing refreshes the cells, and the 1s fade into 0s. That is why RAM forgets everything when a computer shuts down, and why work you have not saved can be lost.",
+            "So how does your phone keep your photos? It also has flash memory, invented by Fujio Masuoka at Toshiba in Japan in 1980. In flash memory, electrons are pushed into a tiny box surrounded by insulating material, so they stay there even without power. A computer uses fast RAM for the work it is doing right now and flash memory to keep your files for later. So save your work often, and keep a backup copy of the photos you love."
+          ],
+          "paras_zh": [
+            "你拍下彰化田野上的夕陽，關掉手機去睡覺。第二天早上，照片還在。可是手機只是金屬、玻璃和矽，沒有大腦，它怎麼記得住一張照片、一則訊息、你最喜歡的歌？答案簡單得令人驚訝：它把所有東西都存成 0 和 1。",
+            "每一個 0 或 1 叫做一個「位元」（bit），是 binary digit（二進位數字）的縮寫。美國科學家塔基在 1947 年最先用了這個字，夏農在 1948 年讓它出名。1970 年，英特爾一顆能存 1,024 個位元的記憶體晶片，開始取代舊式的電腦記憶體。今天一支有 128 GB 儲存空間的手機，大約存得下一兆個位元。台灣也參與製造記憶體：南亞科技、華邦電子、旺宏電子等公司都生產記憶體晶片。",
+            "0 和 1 怎麼變成文字？電腦把位元八個八個分成一組，8 個位元叫做一個「位元組」（byte）。8 個位元可以排出 256 種不同的組合，足夠讓每個英文字母都有自己的號碼。字母 A 是 65 號，寫成位元就是 01000001。大部分中文字要 3 個位元組，也就是 24 個位元。照片也是一樣：每一個小點（像素）通常用紅、綠、藍各 8 個位元。一張 1,200 萬畫素的照片，在手機把它壓縮成小檔案之前，大約有 2 億 8,800 萬個位元。",
+            "位元存在哪裡？電腦的工作記憶體叫做 RAM，每個位元住在一個極小的格子裡：一個小開關（電晶體）加上一個存電荷的小容器（電容）。有電荷代表 1，空的代表 0。幾十億個格子排成一排排，每個位元組都有自己的編號，叫做「位址」，所以電腦一瞬間就能找到任何一個位元組。",
+            "但有個問題：每個格子裡的電荷會慢慢漏掉，就像有小洞的杯子會漏水。所以電腦要「刷新」記憶體：讀過每一格，把 1 再補滿，通常每 64 毫秒一次。電源一關，就沒有人刷新，1 漸漸變成 0。這就是電腦關機後 RAM 會忘光光、還沒存檔的作業會不見的原因。",
+            "那手機怎麼留住你的照片？它還有「快閃記憶體」，是日本東芝的舛岡富士雄在 1980 年發明的。快閃記憶體把電子推進一個四周都是絕緣材料的小盒子，所以就算沒有電，電子也留在裡面。電腦用速度快的 RAM 做眼前的工作，用快閃記憶體把檔案留到以後。所以要常常存檔，你喜歡的照片也要另外備份一份。"
+          ],
+          "questions": [
+            "How many bits are in a byte, and how many different patterns can they make?",
+            "Why does RAM forget everything when the power goes off?",
+            "How does flash memory keep your photos when your phone is turned off?"
+          ],
+          "answers": [
+            "A byte has 8 bits, and they can make 256 different patterns.",
+            "The charge in each RAM cell slowly leaks away. Without power, nothing refreshes the cells, so the 1s fade into 0s.",
+            "It pushes electrons into a tiny box surrounded by insulating material, so they stay there even without power."
+          ],
+          "vocab": [
+            {
+              "n": 1,
+              "w": "memory",
+              "pos": "n.",
+              "zh": "記憶；記憶體",
+              "ex": "My grandmother has a great <b>memory</b> for names.",
+              "exzh": "我奶奶記名字的記性很好。"
+            },
+            {
+              "n": 2,
+              "w": "store",
+              "pos": "v.",
+              "zh": "儲存",
+              "ex": "We <b>store</b> the winter clothes in a box under the bed.",
+              "exzh": "我們把冬天的衣服收在床底下的箱子裡。"
+            },
+            {
+              "n": 3,
+              "w": "digit",
+              "pos": "n.",
+              "zh": "數字；位數",
+              "ex": "A phone number in Taiwan usually has ten <b>digits</b>.",
+              "exzh": "台灣的手機號碼通常有十位數。"
+            },
+            {
+              "n": 4,
+              "w": "code",
+              "pos": "n.",
+              "zh": "代碼；密碼",
+              "ex": "Each student has a <b>code</b> to log in to the computer.",
+              "exzh": "每個學生都有一組登入電腦的代碼。"
+            },
+            {
+              "n": 5,
+              "w": "pixel",
+              "pos": "n.",
+              "zh": "像素",
+              "ex": "If you zoom in on a photo, you can see each <b>pixel</b>.",
+              "exzh": "把照片放大，就看得到一個一個像素。"
+            },
+            {
+              "n": 6,
+              "w": "charge",
+              "pos": "n.",
+              "zh": "電荷；電量",
+              "ex": "My phone still has half its <b>charge</b>.",
+              "exzh": "我的手機還有一半的電。"
+            },
+            {
+              "n": 7,
+              "w": "leak",
+              "pos": "v.",
+              "zh": "漏出",
+              "ex": "Water <b>leaked</b> from the bottom of the old bucket.",
+              "exzh": "舊水桶的底部在漏水。"
+            },
+            {
+              "n": 8,
+              "w": "backup",
+              "pos": "n.",
+              "zh": "備份",
+              "ex": "Keep a <b>backup</b> of your photos in case you lose your phone.",
+              "exzh": "照片要留一份備份，以防手機不見。"
+            }
+          ],
+          "quiz": [
+            {
+              "q": "What is a bit?",
+              "options": [
+                "A single 0 or 1",
+                "A small piece of a chip",
+                "Eight letters in a row",
+                "A kind of battery"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "How many bits are in one byte?",
+              "options": [
+                "8",
+                "2",
+                "10",
+                "100"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "Which number stands for the letter A?",
+              "options": [
+                "65",
+                "1",
+                "26",
+                "100"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "Why does RAM need to be refreshed?",
+              "options": [
+                "Its cells slowly leak their charge",
+                "It gets too hot",
+                "It runs out of addresses",
+                "Refreshing makes the screen brighter"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "Which kind of memory keeps your photos when your phone is off?",
+              "options": [
+                "Flash memory",
+                "RAM",
+                "The screen",
+                "The speaker"
+              ],
+              "correct": 0
+            }
+          ],
+          "parts_head": {
+            "eyebrow": "Try It in the Model · 在模型裡試試",
+            "en": "Four things to try",
+            "zh": "試試這四件事"
+          },
+          "parts": [
+            {
+              "key": "letter",
+              "icon": "🔤",
+              "en": "One letter, one byte",
+              "zh": "一個字母，一個位元組",
+              "meta_en": "A = 65 = 01000001",
+              "meta_zh": "A＝65＝01000001",
+              "demo": "letter",
+              "text_en": "Save the letter A. Only two cups are full, the 64 and the 1, and 64 + 1 = 65.",
+              "text_zh": "存一個 A：只有兩個杯子是滿的，64 和 1，64＋1＝65。"
+            },
+            {
+              "key": "chinese",
+              "icon": "🀄",
+              "en": "A Chinese word",
+              "zh": "一個中文詞",
+              "meta_en": "彰化 = 6 bytes",
+              "meta_zh": "彰化＝6 個位元組",
+              "demo": "chinese",
+              "text_en": "Each of these two characters needs three bytes, so the word fills six rows.",
+              "text_zh": "這兩個字各要 3 個位元組，所以一共占了 6 排。"
+            },
+            {
+              "key": "ramoff",
+              "icon": "🔌",
+              "en": "Unplug the RAM",
+              "zh": "拔掉 RAM 的電",
+              "meta_en": "No power, no refresh",
+              "meta_zh": "沒電就沒有刷新",
+              "demo": "ramoff",
+              "text_en": "Watch HELLO leak away. When the power comes back, the computer reads only 0s.",
+              "text_zh": "看 HELLO 慢慢漏光。電源再打開時，電腦讀到的只剩 0。"
+            },
+            {
+              "key": "flashoff",
+              "icon": "💾",
+              "en": "Unplug the flash memory",
+              "zh": "拔掉快閃記憶體的電",
+              "meta_en": "Electrons locked in",
+              "meta_zh": "電子被鎖住",
+              "demo": "flashoff",
+              "text_en": "The same test with flash memory: when the power comes back, HELLO is still there.",
+              "text_zh": "快閃記憶體做同樣的實驗：電源再打開，HELLO 還在。"
+            }
+          ],
+          "parts_note_en": "Your computer uses both kinds: RAM for what it is doing right now, and flash memory or a hard drive to keep your files for later.",
+          "parts_note_zh": "電腦兩種都用：RAM 做眼前的工作，快閃記憶體或硬碟把檔案留到以後。",
+          "facts": {
+            "eyebrow": "Memory by the Numbers · 記憶體的數字",
+            "en": "Counting 0s and 1s",
+            "zh": "數一數 0 和 1",
+            "lead_en": "From one letter to a whole phone, it all comes down to counting bits.",
+            "lead_zh": "從一個字母到一整支手機，說穿了都是在數位元。",
+            "items": [
+              {
+                "big": "8",
+                "unit_en": "bits in a byte",
+                "unit_zh": "個位元＝1 個位元組",
+                "en": "Eight bits make 256 patterns, from 00000000 to 11111111.",
+                "zh": "8 個位元能排出 256 種組合，從 00000000 到 11111111。"
+              },
+              {
+                "big": "3",
+                "unit_en": "bytes for most Chinese characters",
+                "unit_zh": "個位元組存一個中文字",
+                "en": "In UTF-8, the code almost every webpage uses; an English letter needs just 1.",
+                "zh": "幾乎所有網頁都用的 UTF-8 編碼；英文字母只要 1 個。"
+              },
+              {
+                "big": "1,024",
+                "unit_en": "bits on Intel's 1103 (1970)",
+                "unit_zh": "個位元（1970 年英特爾 1103）",
+                "en": "This memory chip began to replace older magnetic core memory.",
+                "zh": "這顆記憶體晶片開始取代舊式的磁芯記憶體。"
+              },
+              {
+                "big": "64",
+                "unit_en": "milliseconds",
+                "unit_zh": "毫秒",
+                "en": "How often RAM is usually refreshed: more than 15 times every second.",
+                "zh": "RAM 通常多久刷新一次：每秒超過 15 次。"
+              },
+              {
+                "big": "288 million",
+                "unit_en": "bits in a 12-megapixel photo",
+                "unit_zh": "個位元（1,200 萬畫素照片）",
+                "en": "12 million pixels × 24 bits each, before the phone compresses it.",
+                "zh": "1,200 萬個像素 × 每個 24 位元，壓縮之前。"
+              },
+              {
+                "big": "1 trillion",
+                "unit_en": "bits in 128 GB",
+                "unit_zh": "個位元（128 GB）",
+                "en": "Roughly what a phone with 128 gigabytes of storage can hold.",
+                "zh": "128 GB 儲存空間的手機大約裝得下這麼多。"
+              }
+            ]
+          },
+          "myths": [
+            {
+              "myth_en": "Turning a computer off erases everything.",
+              "myth_zh": "電腦關機，所有東西都會被清掉。",
+              "fact_en": "Only RAM forgets. Files saved in flash memory or on a hard drive stay. That is why you save your work before you shut down.",
+              "fact_zh": "只有 RAM 會忘記。存進快閃記憶體或硬碟的檔案都還在，所以關機前要先存檔。"
+            },
+            {
+              "myth_en": "A computer stores a picture as a tiny picture.",
+              "myth_zh": "電腦把照片存成一張很小的照片。",
+              "fact_en": "Everything, including pictures, music, and words, is stored as numbers made of 0s and 1s.",
+              "fact_zh": "所有東西，包括照片、音樂和文字，都存成由 0 和 1 組成的數字。"
+            },
+            {
+              "myth_en": "A Chinese character takes the same space as an English letter.",
+              "myth_zh": "一個中文字和一個英文字母占的空間一樣大。",
+              "fact_en": "In UTF-8, most Chinese characters need three bytes, while an English letter needs only one.",
+              "fact_zh": "在 UTF-8 裡，大部分中文字要 3 個位元組，英文字母只要 1 個。"
+            },
+            {
+              "myth_en": "When you delete a photo, it disappears right away.",
+              "myth_zh": "刪掉的照片會立刻消失。",
+              "fact_en": "Many phones first move it to a Recently Deleted album. On an iPhone, it stays there for 30 days before it is removed for good.",
+              "fact_zh": "很多手機會先把它移到「最近刪除」相簿；iPhone 會在那裡留 30 天，之後才永久刪除。"
+            }
+          ],
+          "tricks": [
+            {
+              "title_en": "Eight bits make a byte",
+              "title_zh": "8 個位元＝1 個位元組",
+              "body_en": "Eight 0s and 1s are enough for one English letter.",
+              "body_zh": "8 個 0 和 1，就夠存一個英文字母。"
+            },
+            {
+              "title_en": "Full is 1, empty is 0",
+              "title_zh": "滿是 1、空是 0",
+              "body_en": "A charged cell is a 1; an empty cell is a 0.",
+              "body_zh": "有電荷的格子是 1，空的格子是 0。"
+            },
+            {
+              "title_en": "RAM forgets, flash remembers",
+              "title_zh": "RAM 會忘、快閃會記",
+              "body_en": "RAM needs power and refreshing; flash keeps its charge locked in.",
+              "body_zh": "RAM 要有電、要刷新；快閃記憶體把電荷鎖住。"
+            },
+            {
+              "title_en": "Save early, save often",
+              "title_zh": "早存檔、常存檔",
+              "body_en": "Work in RAM is lost when the power goes off, so save it and back it up.",
+              "body_zh": "RAM 裡的東西一斷電就沒了，所以要存檔、要備份。"
+            }
+          ],
+          "safety": [
+            {
+              "en": "Never take apart a phone, tablet, or laptop to look at its chips. The lithium battery inside can catch fire if it is bent or punctured.",
+              "zh": "絕不要拆開手機、平板或筆電看裡面的晶片：裡面的鋰電池被折到或刺破，可能會起火。"
+            },
+            {
+              "en": "Save your work often, and with a parent's help, back up important photos and files in a second place.",
+              "zh": "作業要常常存檔；重要的照片和檔案，請家長幫忙另外備份一份。"
+            },
+            {
+              "en": "Never share your passwords, even with friends.",
+              "zh": "密碼絕不告訴別人，就算是好朋友也一樣。"
+            },
+            {
+              "en": "Do not plug in a USB drive that you found or that came from a stranger. It could carry harmful software.",
+              "zh": "撿到的或陌生人給的隨身碟不要插，裡面可能有惡意程式。"
+            },
+            {
+              "en": "Before an old phone is given away or recycled, ask an adult to back it up and reset it, so your photos and messages are erased.",
+              "zh": "舊手機送人或回收之前，請大人先備份、再重設，把你的照片和訊息清掉。"
+            }
+          ],
+          "activities": [
+            {
+              "title_en": "Write Your Name in Binary",
+              "title_zh": "用 0 和 1 寫你的名字",
+              "materials": [
+                {
+                  "en": "A table of capital letters and their numbers: A = 65, B = 66, and so on to Z = 90",
+                  "zh": "一張大寫字母號碼表：A＝65、B＝66……一直到 Z＝90"
+                },
+                {
+                  "en": "Eight cards labeled 128, 64, 32, 16, 8, 4, 2, 1",
+                  "zh": "八張卡片，分別寫 128、64、32、16、8、4、2、1"
+                },
+                {
+                  "en": "Grid paper and two colors of pencils",
+                  "zh": "方格紙和兩種顏色的色鉛筆"
+                }
+              ],
+              "steps": [
+                {
+                  "en": "Find the number for each letter of your English name in capital letters.",
+                  "zh": "用大寫字母，找出你英文名字每個字母的號碼。"
+                },
+                {
+                  "en": "Make each number by adding cards, starting from 128. Write 1 under each card you use and 0 under each card you skip. For example, A = 64 + 1 = 01000001.",
+                  "zh": "從 128 開始用卡片湊出每個號碼：用到的卡片寫 1、沒用到的寫 0。例如 A＝64＋1＝01000001。"
+                },
+                {
+                  "en": "Color eight squares for each letter: dark for 1, light for 0. Your name is now a strip of bytes.",
+                  "zh": "每個字母塗 8 格：1 塗深色、0 塗淺色。你的名字就變成一條位元組。"
+                },
+                {
+                  "en": "Trade strips with a partner and decode each other's names.",
+                  "zh": "和同學交換紙條，解出對方的名字。"
+                }
+              ],
+              "tip_en": "Check your work: every capital letter starts with 010.",
+              "tip_zh": "檢查一下：每個大寫字母都是 010 開頭。"
+            },
+            {
+              "title_en": "Draw a Picture with 0s and 1s",
+              "title_zh": "用 0 和 1 畫一張圖",
+              "materials": [
+                {
+                  "en": "Grid paper with 8 × 8 squares",
+                  "zh": "8 × 8 格的方格紙"
+                },
+                {
+                  "en": "A pencil and an eraser",
+                  "zh": "鉛筆和橡皮擦"
+                }
+              ],
+              "steps": [
+                {
+                  "en": "The teacher reads eight rows of eight 0s and 1s. Fill in each square that is a 1.",
+                  "zh": "老師唸出 8 排、每排 8 個 0 和 1，是 1 的格子就塗黑。"
+                },
+                {
+                  "en": "Look at the finished grid. What picture appears?",
+                  "zh": "看看完成的方格，出現了什麼圖案？"
+                },
+                {
+                  "en": "Draw your own 8 × 8 picture, write each row as eight bits, and read it to a partner to copy.",
+                  "zh": "自己畫一張 8 × 8 的圖，把每一排寫成 8 個位元，唸給同學聽，讓他畫出來。"
+                },
+                {
+                  "en": "Talk about it: your picture used 64 bits. A 12-megapixel phone photo uses 12 million pixels with 24 bits each. How many bits is that?",
+                  "zh": "討論：你的圖用了 64 個位元。一張 1,200 萬畫素的手機照片有 1,200 萬個像素、每個 24 位元，總共幾個位元？"
+                }
+              ],
+              "tip_en": "Use a pencil so you can fix mistakes, and read each row slowly.",
+              "tip_zh": "用鉛筆，畫錯可以擦；每一排要唸慢一點。"
+            }
+          ],
+          "sources": [
+            {
+              "en": "Tukey shortened “binary digit” to “bit” in a 1947 Bell Labs memo; Shannon introduced it in 1948",
+              "zh": "塔基 1947 年在貝爾實驗室備忘錄把 binary digit 縮成 bit；夏農 1948 年正式使用",
+              "src": "HistoryofInformation.com",
+              "url": "https://www.historyofinformation.com/detail.php?id=673"
+            },
+            {
+              "en": "Intel's 1103 (1970), a 1,024-bit DRAM, began to replace magnetic core memory; Dennard's single-transistor cell",
+              "zh": "英特爾 1103（1970）1,024 位元 DRAM 開始取代磁芯記憶體；丹納德的單電晶體格子",
+              "src": "Computer History Museum",
+              "url": "https://www.computerhistory.org/storageengine/semiconductors-compete-with-magnetic-cores/"
+            },
+            {
+              "en": "A DRAM cell is a capacitor and a transistor; refreshed often every 64 ms",
+              "zh": "DRAM 格子是一個電容加一個電晶體；通常每 64 毫秒刷新",
+              "src": "Wikipedia, “Dynamic random-access memory”",
+              "url": "https://en.wikipedia.org/wiki/Dynamic_random-access_memory"
+            },
+            {
+              "en": "Flash memory invented by Fujio Masuoka at Toshiba in 1980; charge kept in an insulated gate",
+              "zh": "快閃記憶體由東芝的舛岡富士雄在 1980 年發明；電荷存在被絕緣層包住的閘極",
+              "src": "Wikipedia, “Flash memory”",
+              "url": "https://en.wikipedia.org/wiki/Flash_memory"
+            },
+            {
+              "en": "ASCII: 128 codes for English letters, digits, and symbols",
+              "zh": "ASCII：128 個代碼，給英文字母、數字與符號",
+              "src": "Wikipedia, “ASCII”",
+              "url": "https://en.wikipedia.org/wiki/ASCII"
+            },
+            {
+              "en": "UTF-8: one to four bytes per character; most Chinese characters need three; used by almost every webpage",
+              "zh": "UTF-8：每個字 1 到 4 個位元組，大部分中文字 3 個；幾乎所有網頁都用",
+              "src": "Wikipedia, “UTF-8”",
+              "url": "https://en.wikipedia.org/wiki/UTF-8"
+            },
+            {
+              "en": "24-bit color: 8 bits each for red, green, and blue",
+              "zh": "24 位元色彩：紅綠藍各 8 位元",
+              "src": "Wikipedia, “Color depth”",
+              "url": "https://en.wikipedia.org/wiki/Color_depth"
+            },
+            {
+              "en": "Nanya Technology makes DRAM",
+              "zh": "南亞科技生產 DRAM",
+              "src": "Nanya Technology",
+              "url": "https://www.nanya.com/en/"
+            },
+            {
+              "en": "Winbond (headquartered in Taichung) makes DRAM and flash memory",
+              "zh": "華邦電子（總部台中）生產 DRAM 與快閃記憶體",
+              "src": "Wikipedia, “Winbond”",
+              "url": "https://en.wikipedia.org/wiki/Winbond"
+            },
+            {
+              "en": "Macronix, headquartered in Taiwan, makes flash memory",
+              "zh": "旺宏電子（總部在台灣）生產快閃記憶體",
+              "src": "Wikipedia, “Macronix”",
+              "url": "https://en.wikipedia.org/wiki/Macronix"
+            },
+            {
+              "en": "Deleted photos stay in Recently Deleted for 30 days on iPhone",
+              "zh": "iPhone 刪除的照片會在「最近刪除」留 30 天",
+              "src": "Apple Support",
+              "url": "https://support.apple.com/en-us/104967"
+            }
+          ]
         }
-      ]
+      ],
+      "planned": []
     },
     {
       "key": "light",
