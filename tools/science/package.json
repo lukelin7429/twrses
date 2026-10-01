@@ -1,0 +1,14 @@
+{
+  "name": "twrses-science",
+  "private": true,
+  "description": "萬物原理 How Things Work 3D 模型的原始碼與打包設定。產物寫到 assets/js/，npm run build 重新打包。",
+  "type": "module",
+  "scripts": {
+    "build": "esbuild src/battery.js --bundle --minify --format=iife --target=es2019 --legal-comments=eof --outdir=../../assets/js",
+    "test": "node test/battery.test.mjs"
+  },
+  "devDependencies": {
+    "esbuild": "0.25.10",
+    "three": "0.186.1"
+  }
+}

@@ -1,0 +1,105 @@
+/* =========================================================
+   萬物原理 · How Things Work — 課程頁專屬樣式
+   只載在 /resources/classes/how-things-work/ 底下（build.py 的 _htw_head）。
+   3D 面板、迷思、口訣、課堂活動等共用樣式在 astro.css，這裡只放本系列多出來的。
+   ========================================================= */
+
+/* ---------- 第一課：電池剖面 ---------- */
+.bt-lab { --bt-li: #ffc94a; --bt-el: #58e1ff; --bt-ok: #4fd1a5; --bt-low: #ff6b5e; }
+.bt-lab .al-stage { grid-template-columns: minmax(0, 1fr) 340px; }
+.bt-lab .al-space { min-height: 600px; background: radial-gradient(70% 60% at 50% 45%, rgba(80,110,170,.18), transparent 70%); }
+.bt-cut { position: absolute; left: 1rem; top: .8rem; right: 4rem; margin: 0; font-size: .72rem; color: var(--al-mute); pointer-events: none; }
+
+.bt-aside { display: flex; flex-direction: column; gap: .7rem; }
+.bt-aside .al-sky-k { margin-bottom: .45rem; }
+.bt-phone { display: flex; align-items: center; gap: .8rem; }
+.bt-cell { position: relative; flex: none; width: 92px; height: 40px; border: 3px solid #cfd8ea; border-radius: 9px; padding: 3px; }
+.bt-cell::after { content: ""; position: absolute; right: -9px; top: 11px; width: 5px; height: 12px; border-radius: 0 3px 3px 0; background: #cfd8ea; }
+.bt-fill { display: block; height: 100%; width: 85%; border-radius: 4px; background: var(--bt-ok); transition: width .25s, background .25s; }
+.bt-phone.low .bt-fill { background: var(--bt-low); }
+.bt-bolt { position: absolute; inset: 0; display: none; place-items: center; font-size: 1.2rem; color: #fff; text-shadow: 0 0 6px rgba(0,0,0,.6); }
+.bt-phone.charging .bt-bolt { display: grid; }
+.bt-pct { font-family: var(--serif); font-size: 2.5rem; line-height: 1; color: #fff; font-variant-numeric: tabular-nums; }
+.bt-state { margin: .5rem 0 0; font-size: .95rem; font-weight: 800; color: var(--al-sun); line-height: 1.2; }
+.bt-state small { display: block; font-family: var(--zh); font-weight: 600; font-size: .82rem; color: var(--al-mute); margin-top: .1rem; }
+
+.bt-modes { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .3rem; }
+.bt-modes button { display: flex; flex-direction: column; align-items: center; gap: .1rem; padding: .45rem .2rem; border-radius: 12px; border: 1px solid var(--al-line); background: rgba(255,255,255,.03); color: var(--al-text); font-family: var(--sans); font-weight: 800; font-size: .74rem; cursor: pointer; transition: background .2s, border-color .2s; }
+.bt-modes button i { font-style: normal; font-size: 1.15rem; }
+.bt-modes small { display: block; font-family: var(--zh); font-weight: 600; font-size: .7rem; color: var(--al-mute); }
+.bt-modes button:hover { background: rgba(255,255,255,.07); }
+.bt-modes button[aria-pressed="true"] { border-color: var(--al-sun); background: rgba(255,211,110,.12); box-shadow: 0 0 0 1px var(--al-sun) inset; }
+
+.bt-nums { margin: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .45rem .6rem; }
+.bt-nums dt { font-size: .6rem; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; color: var(--al-mute); line-height: 1.25; }
+.bt-nums dd { margin: .15rem 0 0; font-size: 1rem; font-weight: 800; color: #fff; font-variant-numeric: tabular-nums; }
+.bt-count { margin: 0; padding: .55rem .7rem; border-radius: 12px; border: 1px solid var(--al-line); background: rgba(255,255,255,.03); font-size: .8rem; line-height: 1.45; color: var(--al-text); }
+.bt-count b { font-family: var(--serif); font-size: 1.25rem; font-variant-numeric: tabular-nums; }
+.bt-ions { color: var(--bt-li); }
+.bt-els { color: var(--bt-el); }
+.bt-count .zh, .bt-msg .zh { display: block; color: var(--al-mute); margin-top: .15rem; }
+.bt-msg { margin: 0; font-size: .84rem; line-height: 1.55; color: var(--al-text); }
+.bt-aging { display: block; margin-top: .55rem; padding-top: .55rem; border-top: 1px solid var(--al-line); color: #c9ced8; }
+
+.bt-sliders { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 1.6rem; margin: .2rem 0 .6rem; }
+.bt-sliders .al-slider > span { text-transform: none; letter-spacing: .02em; }
+.bt-sliders output { margin-left: .3rem; font-weight: 800; color: #fff; font-variant-numeric: tabular-nums; }
+.bt-cyc::-webkit-slider-runnable-track { background: linear-gradient(90deg, #9aa3b4 0 var(--p, 0%), rgba(255,255,255,.12) var(--p, 0%)); }
+.bt-cyc::-webkit-slider-thumb { border-color: #9aa3b4; }
+.bt-cyc::-moz-range-progress { background: #9aa3b4; }
+
+/* 3D 裡的標籤：英文一行、中文一行 */
+.al-lab.bt-lb { text-align: center; line-height: 1.25; padding: .18rem .6rem; }
+.al-lab.bt-lb small { display: block; font-family: var(--zh); font-weight: 600; font-size: .66rem; color: var(--al-mute); }
+.al-lab.bt-lb-a { border-color: rgba(190,205,230,.45); }
+.al-lab.bt-lb-c { border-color: rgba(160,140,255,.5); color: #e2dcff; }
+.al-lab.bt-lb-e { border-color: rgba(90,160,240,.5); color: #cfe4ff; }
+.al-lab.bt-lb-li { color: var(--bt-li); border-color: rgba(255,201,74,.5); }
+.al-lab.bt-lb-el { color: var(--bt-el); border-color: rgba(88,225,255,.45); }
+.al-lab.bt-lb-b { color: #ffe3a3; border-color: rgba(255,211,110,.4); }
+.al-lab.bt-sel { color: #1b1405; background: var(--al-sun); border-color: var(--al-sun); box-shadow: 0 6px 20px -6px rgba(255,211,110,.8); }
+.al-lab.bt-sel small { color: #3a2a06; }
+.al-lab[hidden] { display: none; }
+.bt-narrow .al-lab.bt-lb { font-size: .62rem; padding: .1rem .45rem; }
+.bt-narrow .al-lab.bt-lb small { font-size: .6rem; }
+
+/* 圖例與出處 */
+.al-lg-li i { border: 0; background: var(--bt-li, #ffc94a); box-shadow: 0 0 10px 2px rgba(255,201,74,.5); }
+.al-lg-el i { border: 0; width: 12px; height: 12px; margin: .3rem 3px 0; background: var(--bt-el, #58e1ff); box-shadow: 0 0 8px 2px rgba(88,225,255,.5); }
+.al-lg-stuck i { border: 0; background: #7d828c; }
+.bt-credit { margin: 0; padding: 0 1.3rem 1.1rem; font-size: .74rem; line-height: 1.6; color: #7f90b0; }
+.bt-credit a { color: var(--al-mute); text-decoration: underline; text-underline-offset: 2px; }
+
+@media (max-width: 1020px) {
+  .bt-lab .al-stage { grid-template-columns: 1fr; }
+  .bt-lab .al-space { aspect-ratio: 4 / 3; min-height: 380px; max-height: 80vh; }
+  .bt-lab .bt-aside { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); column-gap: 1.2rem; row-gap: .7rem; align-items: start; }
+  .bt-top { grid-row: span 2; }
+  .bt-msg { grid-column: 1 / -1; }
+}
+@media (max-width: 640px) {
+  .bt-lab .al-space { aspect-ratio: 1 / 1; min-height: 0; }
+  .bt-lab .bt-aside { grid-template-columns: 1fr; }
+  .bt-top { grid-row: auto; }
+  .bt-sliders { grid-template-columns: 1fr; }
+  .bt-pct { font-size: 2.1rem; }
+}
+
+/* ---------- 課程頁的延伸段落 ---------- */
+.hw-ico { display: grid; place-items: center; width: 64px; height: 64px; border-radius: 18px; background: radial-gradient(circle at 50% 38%, #1b2f5c, #070b17); font-size: 2rem; }
+.hw-safety { list-style: none; margin: 1.4rem 0 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .9rem 1.1rem; }
+.hw-safety li { position: relative; padding: 1rem 1.2rem 1rem 3.1rem; background: #fff; border: 1px solid #f0c9b8; border-radius: 14px; font-size: .98rem; line-height: 1.65; box-shadow: var(--shadow-sm); }
+.hw-safety li::before { content: "\26A0"; position: absolute; left: 1.05rem; top: .95rem; font-size: 1.2rem; color: var(--sunset); }
+.hw-safety li .zh { display: block; margin-top: .3rem; color: var(--ink-soft); font-size: .93rem; }
+.hw-sources { margin: 0 0 2.4rem; padding: 1.3rem 1.5rem; border: 1px solid var(--line); border-radius: 16px; background: var(--cream); }
+.hw-sources .sub-head { margin-top: 0; }
+.hw-sources > .muted { margin: .2rem 0 .8rem; font-size: .9rem; }
+.hw-sources ol { margin: 0; padding-left: 1.3em; display: grid; gap: .55rem; }
+.hw-sources li { font-size: .92rem; line-height: 1.55; }
+.hw-sources li > span { display: block; }
+.hw-sources li .zh { display: inline; margin-left: .4rem; color: var(--ink-soft); font-size: .88rem; }
+.hw-sources a { font-weight: 700; font-size: .86rem; color: var(--brand-dk); overflow-wrap: anywhere; }
+.hw-progress { font-weight: 700; color: var(--brand-dk); }
+@media (max-width: 760px) { .hw-safety { grid-template-columns: 1fr; } }
+.bt-lab .al-hint { left: auto; right: 1rem; text-align: right; }
+.bt-narrow .bt-cut { display: none; }

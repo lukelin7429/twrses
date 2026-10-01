@@ -114,6 +114,24 @@
 
 ---
 
+## 萬物原理 How Things Work（/resources/classes/how-things-work/）— 課程頁照天文、首頁照中醫分單元
+
+- 內容：`data/how-things-work.json`：`units[]`（五個單元）底下 `lessons[]`（做好的課）與 `planned[]`（「製作中」卡，做一課就從 planned 移到 lessons）。課次 `n` 全系列連號（1–20）。每課欄位同 astronomy.json，多的：`parts`（電池四個部分卡，`data-lab-part`）、`safety`（安全提醒，排在活動之前）、`sources`（資料出處，頁面最下方列出；**數字一定要先查證再寫**）。
+- 頁面：`build.py` 的 `build_htw_hub()`（單元導覽＋`.lc-row` 橫向課程卡，`_lc_head()`）/ `build_htw_lesson()`；reading、迷思、口訣、活動沿用 `render_basic_unit()`、`_sci_myths()`、`_sci_tricks()`、`_astro_activity()`。
+- 樣式：共用 `assets/css/astro.css`，本系列專屬的在 `assets/css/science.css`；`_htw_head()` 只在本系列頁面載入。
+- 3D：**原始碼在 `tools/science/src/`**，每課一個入口，打包到 `assets/js/<入口>.js`（產物，不要手改）；`lab.kind` → bundle 對照在 `build.py` 的 `_HTW_JS`。共用的 `labeler`、`lazyBoot` 在 `tools/science/src/common.js`（從 tools/body 抄來，免得把骨架資料打包進來）。
+  ```
+  cd tools/science && npm install && npm run build && npm test
+  ```
+- 第一課電池（`battery.js`，`lab.kind = "battery"`）：鋰離子電池剖面，**全部自繪示意**。一個機制：電解液讓鋰離子過、擋住電子，電子只能繞外面的電線。兩邊電極各 70 格（5 層 × 7 × 2），鋰的總數 70；每顆離子穿過電解液的同時，電線裡（本來就塞滿的）電子剛好挪一格——所以「裡面跨過的離子＝外面繞過的電子」計數永遠相等。老化：`cycles` 越多，越多鋰困在石墨表面的 SEI（灰色），容量依 Apple「500 次完整循環後 80%」畫成直線。電量、電壓、容量的純函式在 `src/cell.js`，`npm test` 跑 `test/battery.test.mjs`（4.2 V／3.0 V、500 循環 80%、放電再充滿離子數＝電子數）。
+  - CatmullRom 的 `getPointAt` 參數要夾在 0–1：`MathUtils.smootherstep` 在 t≈1 會算出 1.0000000000000002，曲線就當掉（`ease()`）。
+  - 除錯：`document.querySelector('[data-battery-lab]').__lab`（`setMode('use'|'charge'|'off')`、`setSoc(0–100)`、`setCycles(0–750)`、`focus('anode'|'cathode'|'electrolyte'|'separator')`、`run(秒)`、`render()`）。
+- 瀏覽器面板在背景時 `visibilityState` 是 hidden，IntersectionObserver 不觸發、截圖是空白：點一下頁面上的「在模型中看」按鈕就會直接初始化，截圖改用無頭 Chrome（playwright-core＋本機 Chrome，`--use-angle=swiftshader`）。
+- 🔊 錄音：`python3 tools/gen_audio.py --page resources/classes/how-things-work/<slug>` → `./tools/upload_audio.sh`，manifest 命名 `how-things-work-<slug>`。檢查線上 200 要帶瀏覽器 UA（Python 預設 UA 會被 r2.dev 擋成 403）。
+- 課程規劃在 Obsidian：`第二大腦/創作庫/萬物原理科普課程規劃（twrses）.md`。
+
+---
+
 ## Build / Deploy
 ```
 python3 build.py        # BASE=/twrses → 服務於 lukelin7429.github.io/twrses/ 或 www.twrses.org

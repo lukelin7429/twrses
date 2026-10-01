@@ -1,0 +1,661 @@
+{
+  "title_en": "How Things Work",
+  "title_zh": "萬物原理",
+  "eyebrow": "How Things Work · 萬物原理",
+  "lead_en": "Everyday questions with surprising answers: how batteries store power, how a message crosses the ocean, why the sky is blue. Read the answer in English, then see it work in 3D.",
+  "lead_zh": "生活裡的問題，背後都有驚人的答案：電池怎麼存電、訊息怎麼橫越大海、天空為什麼是藍的。先用英文讀懂，再用 3D 看它怎麼運作。",
+  "intro": [
+    {
+      "en": "Every lesson starts with an everyday question. A 3D model shows the answer at work, one idea at a time, and an English reading explains it, with Chinese a tap away.",
+      "zh": "每一課都從一個生活裡的問題開始：先用 3D 模型看答案怎麼運作，一課只講清楚一個道理；再讀一篇英文短文把它說明白，中文翻譯隨點隨看。"
+    },
+    {
+      "en": "The lessons are grouped into five units. Each lesson has words to learn, a short quiz, common myths, easy ways to remember the idea, and an activity to try at home or in class. Facts and numbers are checked, and every lesson lists its sources.",
+      "zh": "課程分成五個單元。每一課都有生字、小測驗、常見迷思、記憶口訣，以及在家或在教室就能做的活動。事實與數字都經過查證，每課最後列出資料出處。"
+    }
+  ],
+  "units": [
+    {
+      "key": "energy",
+      "title_en": "Electricity and Energy",
+      "title_zh": "電與能源",
+      "blurb_en": "Where the power in your pocket, your wall, and on your roof comes from.",
+      "blurb_zh": "口袋裡、插座裡、屋頂上的電，都是從哪裡來的。",
+      "lessons": [
+        {
+          "n": 1,
+          "slug": "battery",
+          "title": "How Does a Battery Store Electricity?",
+          "title_zh": "電池怎麼儲存電？",
+          "level": "入門 · Beginner",
+          "icon": "🔋",
+          "card": "battery",
+          "blurb_en": "A battery is not a tank of electricity. Look inside a lithium-ion battery in 3D and watch ions cross inside while electrons light the bulb outside.",
+          "blurb_zh": "電池不是裝著電的罐子。用 3D 看進鋰離子電池裡：離子在裡面跨過去，電子在外面點亮燈泡。",
+          "big_idea_en": "A battery does not hold electricity. It holds two chemicals that want to trade electrons. Close the circuit, and the electrons flow through the wire outside. That flow is electricity.",
+          "big_idea_zh": "電池裡裝的不是電，而是兩種想交換電子的化學物質。把電路接通，電子就從外面的電線流過去，這股流動就是電。",
+          "lab": {
+            "kind": "battery",
+            "eyebrow": "3D Model · 3D 模型",
+            "title_en": "Inside a Lithium-Ion Battery",
+            "title_zh": "鋰離子電池的剖面",
+            "how_en": "Drag to turn the model, and scroll or pinch to zoom. Choose Use it, Charge it, or Switch off, and watch the yellow lithium ions inside and the blue electrons in the wire. Drag the Charge slider to set the battery level, and the Charge cycles slider to make the battery older.",
+            "how_zh": "拖曳可以旋轉模型，滾輪或雙指可以縮放。選「用電」「充電」或「關掉」，看黃色的鋰離子在電池裡移動、藍色的電子在電線裡移動。拖動「電量」滑桿可以設定電量，拖動「充放電循環」滑桿可以讓電池變老。",
+            "legend": [
+              {
+                "cls": "li",
+                "en": "Yellow balls: lithium ions (Li⁺)",
+                "zh": "黃色球：鋰離子"
+              },
+              {
+                "cls": "el",
+                "en": "Blue beads: electrons (e⁻) in the wire",
+                "zh": "藍色小珠：電線裡的電子"
+              },
+              {
+                "cls": "stuck",
+                "en": "Gray balls: lithium trapped in the crust on the graphite (old battery)",
+                "zh": "灰色球：被困在石墨表面薄殼裡的鋰（老電池）"
+              }
+            ],
+            "scale_en": "A diagram, not to scale. The front is cut away; a real battery is sealed. Real electrodes are thinner than paper and rolled up tightly, and they hold billions of billions of lithium ions, not seventy. In a real wire, electrons drift far more slowly than shown here. The voltage and the 80% figure follow the sources listed at the bottom of the page.",
+            "scale_zh": "這是示意圖，大小不按比例。正面是剖開的，真正的電池是密封的；真實的電極比紙還薄、捲得很緊，裡面的鋰離子是幾十億的幾十億倍，不是七十顆。真實電線裡電子漂移的速度比這裡慢得多。電壓與「80%」的數字依照頁面最下方列出的出處。",
+            "credit_html": "Model drawn by My Culture Connect as a teaching diagram. Battery behavior is simplified from <a href=\"https://batteryuniversity.com/article/bu-204-how-do-lithium-batteries-work\" target=\"_blank\" rel=\"noopener\">Battery University BU-204</a>; capacity loss follows <a href=\"https://support.apple.com/en-us/106348\" target=\"_blank\" rel=\"noopener\">Apple's figure</a> of 80% after 500 full cycles, drawn as a straight line. · 模型由人師教育協會自繪示意；電池行為簡化自 Battery University，容量衰退依 Apple 公布的「500 次完整循環後保有 80%」畫成直線。"
+          },
+          "paras": [
+            "Look at the top corner of your phone. Maybe it says 73%. In a few hours it might say 20%, and the phone will warn you to charge it. But what exactly is running out? Most people picture a battery as a little tank of electricity, like a bottle of water that slowly empties. That picture is wrong, and the real answer is much more interesting.",
+            "The first battery was built in 1800 by the Italian scientist Alessandro Volta. He stacked discs of zinc and copper with cloth soaked in salt water between them. Every battery since then, including the one in your phone, works on the same idea. A battery holds two different chemicals, one at each end. One side has electrons it would like to give away, and the other side would like to take them. A battery is not a box of electricity. It is a box of chemicals that want to trade electrons.",
+            "So why don't the electrons just jump across inside the battery? Between the two sides sits a material called the electrolyte. It lets charged atoms, called ions, pass through, but it blocks electrons. The electrons are stuck. They can only reach the other side if you give them a path outside the battery. That path is a circuit: a wire from one end of the battery, through a light bulb or the parts of your phone, and back to the other end.",
+            "When the circuit is closed, electrons flow out of the negative end, through the wire, and into the positive end. That flow of electrons is electricity, and on its way it lights the bulb or runs your phone. At the same time, inside the battery, ions move through the electrolyte to keep both sides balanced: one ion inside for every electron outside. Open the circuit, and both flows stop at once. That is why a battery can sit in a drawer for months and still work.",
+            "Your phone has a lithium-ion battery. Its negative side is graphite, the same material as pencil lead, made of thin layers like the floors of a parking garage. When the battery is charged, lithium is parked between those layers. As you use the phone, lithium ions leave the graphite, cross the electrolyte, and settle into the layers of a metal oxide on the positive side, while their electrons take the long way through the phone. Charging pushes them all back. The scientists who developed this battery shared the 2019 Nobel Prize in Chemistry.",
+            "So what does 73% mean? Your phone estimates how much of the lithium that can move is still waiting in the graphite. And why does an old phone die faster? Each time you charge and use it, a few lithium ions get trapped in a thin crust that slowly grows on the graphite, and they never move again. Heat makes the crust grow faster, and so does keeping the battery full for long periods. Many phones are designed to keep about 80% of their original capacity after 500 full charge cycles. The phone still says 100% when it is full, but its full is smaller than it used to be."
+          ],
+          "paras_zh": [
+            "看看你手機螢幕上方的角落，也許顯示 73%。再過幾個小時可能剩 20%，手機會提醒你充電。可是，到底是什麼東西在「用完」？大多數人把電池想像成一個裝電的小罐子，像一瓶水慢慢被倒空。這個畫面是錯的，真正的答案有趣得多。",
+            "第一顆電池是義大利科學家伏打在 1800 年做出來的。他把鋅片和銅片疊起來，中間夾著泡過鹽水的布。從那以後的每一顆電池，包括你手機裡那顆，都是同一個道理：電池裡有兩種不同的化學物質，一頭一種。一邊有想送出去的電子，另一邊想要接收電子。電池不是一盒電，而是一盒想交換電子的化學物質。",
+            "那電子為什麼不直接在電池裡面跳過去？因為兩邊中間隔著一種叫做「電解液」的材料。它讓帶電的原子，也就是「離子」通過，卻擋住電子。電子被卡住了，只有在電池外面給它一條路，它才到得了另一邊。這條路就是電路：一條電線從電池的一頭出發，經過燈泡或手機裡的零件，再回到另一頭。",
+            "電路接通時，電子從負極流出來，經過電線，流進正極。這股電子的流動就是電，一路上它點亮燈泡、讓手機運作。同時，在電池裡面，離子穿過電解液，讓兩邊保持平衡：外面每走一個電子，裡面就走一顆離子。把電路斷開，兩股流動會同時停下來。所以電池放在抽屜裡好幾個月，拿出來還能用。",
+            "你的手機用的是鋰離子電池。它的負極是石墨，跟鉛筆芯是同一種材料，由一層層薄片組成，像立體停車場的樓層。電池充滿電時，鋰就停在這些層與層之間。你使用手機時，鋰離子離開石墨、穿過電解液，住進正極那邊金屬氧化物的層間；它們的電子則繞遠路，經過整支手機。充電就是把它們全部推回去。發展出這種電池的科學家，共同獲得了 2019 年諾貝爾化學獎。",
+            "那 73% 是什麼意思？手機在估計：能移動的鋰，還有多少留在石墨裡等著。那為什麼舊手機的電用得比較快？每次充電和使用，都會有幾顆鋰離子被困在石墨表面一層慢慢長厚的薄殼裡，從此再也不能移動。高溫會讓這層殼長得更快，長時間一直充滿電也會。許多手機的設計是：完整充放電 500 次以後，還保有原本大約 80% 的容量。電池充滿時手機一樣顯示 100%，只是這個「滿」比以前小了。"
+          ],
+          "questions": [
+            "Why can't the electrons simply move from one side to the other inside the battery?",
+            "When you use your phone, what moves inside the battery, and what moves through the wire?",
+            "Why does an old phone battery run out faster than a new one?"
+          ],
+          "answers": [
+            "Because the electrolyte between the two sides lets ions through but blocks electrons. The electrons can only cross through a circuit outside the battery.",
+            "Inside, lithium ions move from the graphite through the electrolyte to the metal oxide. Through the wire, electrons move from the negative end to the positive end, one electron for every ion.",
+            "Every time the battery is charged and used, some lithium gets trapped in a thin crust on the graphite, so less lithium can move. A full charge holds less than it did when the battery was new. Heat and staying full for long periods make this happen faster."
+          ],
+          "vocab": [
+            {
+              "n": 1,
+              "w": "electron",
+              "pos": "n.",
+              "zh": "電子",
+              "ex": "Every atom has tiny <b>electrons</b> moving around its center.",
+              "exzh": "每個原子都有微小的電子在它的中心周圍移動。"
+            },
+            {
+              "n": 2,
+              "w": "chemical",
+              "pos": "n.",
+              "zh": "化學物質",
+              "ex": "Some <b>chemicals</b> under the sink are dangerous, so keep them away from small children.",
+              "exzh": "水槽下面有些化學物質很危險，要放在小孩拿不到的地方。"
+            },
+            {
+              "n": 3,
+              "w": "electrolyte",
+              "pos": "n.",
+              "zh": "電解液；電解質",
+              "ex": "The <b>electrolyte</b> in a car battery is a strong acid.",
+              "exzh": "汽車電瓶裡的電解液是強酸。"
+            },
+            {
+              "n": 4,
+              "w": "ion",
+              "pos": "n.",
+              "zh": "離子",
+              "ex": "Salt water carries electricity because it is full of <b>ions</b>.",
+              "exzh": "鹽水能導電，因為裡面充滿了離子。"
+            },
+            {
+              "n": 5,
+              "w": "circuit",
+              "pos": "n.",
+              "zh": "電路",
+              "ex": "The light didn't turn on because the <b>circuit</b> was broken.",
+              "exzh": "燈沒有亮，因為電路斷了。"
+            },
+            {
+              "n": 6,
+              "w": "flow",
+              "pos": "v.",
+              "zh": "流動",
+              "ex": "Rivers <b>flow</b> from the mountains to the sea.",
+              "exzh": "河流從山上流向大海。"
+            },
+            {
+              "n": 7,
+              "w": "charge",
+              "pos": "v.",
+              "zh": "充電",
+              "ex": "I <b>charge</b> my phone every night before I go to bed.",
+              "exzh": "我每天晚上睡覺前都會幫手機充電。"
+            },
+            {
+              "n": 8,
+              "w": "capacity",
+              "pos": "n.",
+              "zh": "容量",
+              "ex": "This water bottle has a <b>capacity</b> of one liter.",
+              "exzh": "這個水壺的容量是一公升。"
+            }
+          ],
+          "quiz": [
+            {
+              "q": "What does a battery actually store?",
+              "options": [
+                "Two chemicals that want to trade electrons",
+                "A tank of electricity",
+                "Tiny bolts of lightning",
+                "Air under pressure"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "What does the electrolyte do?",
+              "options": [
+                "It lets ions through but blocks electrons",
+                "It lets electrons through but blocks ions",
+                "It makes the battery heavier so it won't move",
+                "It turns light into electricity"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "When you use your phone, which way do the electrons in the wire flow?",
+              "options": [
+                "From the negative end to the positive end",
+                "From the positive end to the negative end",
+                "They do not move at all",
+                "Only inside the battery"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "In a charged lithium-ion battery, where is most of the lithium that can move?",
+              "options": [
+                "Between the layers of graphite",
+                "In the metal oxide",
+                "In the wire",
+                "Outside the battery"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "Why does an old phone battery hold less charge?",
+              "options": [
+                "Some lithium gets trapped and can no longer move",
+                "The electrons get used up",
+                "Electricity leaks out into your pocket",
+                "The phone shows the wrong number on purpose"
+              ],
+              "correct": 0
+            }
+          ],
+          "parts": [
+            {
+              "key": "anode",
+              "icon": "✏️",
+              "en": "Negative side: graphite",
+              "zh": "負極：石墨",
+              "meta_en": "Carbon in thin layers",
+              "meta_zh": "一層層的碳",
+              "text_en": "A stack of carbon sheets with room between them. When the battery is charged, lithium is parked in those gaps, ready to give away its electrons.",
+              "text_zh": "一疊碳的薄片，片與片之間留有空間。電池充滿時，鋰就停在這些空隙裡，隨時準備送出電子。"
+            },
+            {
+              "key": "cathode",
+              "icon": "🪨",
+              "en": "Positive side: metal oxide",
+              "zh": "正極：金屬氧化物",
+              "meta_en": "Metals such as cobalt or nickel, joined with oxygen",
+              "meta_zh": "鈷、鎳等金屬與氧結合",
+              "text_en": "Layers that lithium would rather live in. As you use the battery, lithium ions move in here, and the electrons that went around the wire join them.",
+              "text_zh": "鋰比較「想住」的層狀材料。使用電池時，鋰離子搬進這裡，繞過電線的電子也在這裡和它們會合。"
+            },
+            {
+              "key": "electrolyte",
+              "icon": "💧",
+              "en": "Electrolyte",
+              "zh": "電解液",
+              "meta_en": "A lithium salt dissolved in a liquid",
+              "meta_zh": "溶在液體裡的鋰鹽",
+              "text_en": "The road for ions. It lets lithium ions pass but blocks electrons, which forces the electrons to take the wire. It can burn, which is one reason a lithium battery must never be punctured.",
+              "text_zh": "離子走的路。它讓鋰離子通過、擋住電子，逼電子去走電線。它會燃燒，這也是鋰電池絕對不能刺破的原因之一。"
+            },
+            {
+              "key": "separator",
+              "icon": "🧻",
+              "en": "Separator",
+              "zh": "隔離膜",
+              "meta_en": "A plastic film full of tiny holes",
+              "meta_zh": "佈滿小孔的塑膠薄膜",
+              "text_en": "A wall thinner than a hair that keeps the two sides from touching. If they touched, the battery would short-circuit and could overheat. Ions slip through its tiny holes.",
+              "text_zh": "比頭髮還薄的一道牆，讓兩極不會碰在一起。要是碰到了，電池會短路，可能過熱。離子從它的小孔鑽過去。"
+            }
+          ],
+          "parts_note_en": "In a real phone battery, these layers are thinner than paper and are rolled or folded together many times over. The model shows just one slice.",
+          "parts_note_zh": "真正的手機電池裡，這幾層都比紙還薄，而且捲起來或摺疊了很多層。模型只畫出其中一個切面。",
+          "myths": [
+            {
+              "myth_en": "A battery is a container full of electricity.",
+              "myth_zh": "電池是一個裝滿電的容器。",
+              "fact_en": "A battery stores chemicals, not electricity. When it runs down, the number of electrons inside does not change; what changes is where the lithium sits. Electricity only appears when a circuit lets electrons flow.",
+              "fact_zh": "電池存的是化學物質，不是電。電池沒電時，裡面的電子數量並沒有變少，改變的是鋰待在哪一邊。要等電路讓電子流動，才有電。"
+            },
+            {
+              "myth_en": "Electrons race out of the battery at nearly the speed of light.",
+              "myth_zh": "電子以接近光速從電池衝出去。",
+              "fact_en": "The wire is already full of electrons, and they all start shuffling forward at once, so the light comes on instantly. Each electron drifts slowly, usually less than a millimeter per second.",
+              "fact_zh": "電線裡本來就塞滿電子，一接通它們就同時往前挪，所以燈馬上亮。每個電子其實走得很慢，通常一秒不到一毫米。"
+            },
+            {
+              "myth_en": "You should run a phone battery down to 0% before charging it.",
+              "myth_zh": "手機電池要用到 0% 再充電。",
+              "fact_en": "That advice was for some older kinds of batteries. Lithium-ion batteries have no memory, and running them all the way down is hard on them. Charging whenever it is convenient is fine.",
+              "fact_zh": "那是某些舊式電池的說法。鋰離子電池沒有「記憶效應」，每次都用到底反而傷電池。方便的時候就充，完全沒問題。"
+            },
+            {
+              "myth_en": "In a lemon battery, the lemon makes the electricity.",
+              "myth_zh": "檸檬電池的電是檸檬做出來的。",
+              "fact_en": "The energy comes from the zinc slowly dissolving. The lemon juice is only the electrolyte. A potato or a cup of salt water works too.",
+              "fact_zh": "能量來自鋅慢慢溶解。檸檬汁只是電解液，換成馬鈴薯或一杯鹽水也可以。"
+            }
+          ],
+          "tricks": [
+            {
+              "title_en": "Ions inside, electrons outside",
+              "title_zh": "離子走裡面，電子走外面",
+              "body_en": "Inside the battery, ions cross the electrolyte. Outside, electrons go around the wire. One for one, always together.",
+              "body_zh": "電池裡面，離子穿過電解液；電池外面，電子繞著電線走。一個對一個，永遠一起動。"
+            },
+            {
+              "title_en": "No loop, no flow",
+              "title_zh": "沒有迴路，就沒有電流",
+              "body_en": "Break the circuit anywhere and everything stops, inside and outside. That is all an on-off switch does.",
+              "body_zh": "電路在任何一處斷開，裡外的流動就全部停下來。開關做的就是這件事。"
+            },
+            {
+              "title_en": "Charging pushes uphill, using rolls downhill",
+              "title_zh": "充電是推上坡，用電是滾下坡",
+              "body_en": "Charging pushes lithium back into the graphite, where it doesn't want to be. Using the battery lets it roll back down, and the energy comes out as electricity.",
+              "body_zh": "充電把鋰推回它不想待的石墨裡；用電時讓它滾回去，能量就變成電放出來。"
+            },
+            {
+              "title_en": "Keep it cool, keep it in the middle",
+              "title_zh": "保持涼爽，別老停在兩端",
+              "body_en": "Heat, and sitting at 100% or 0% for a long time, wear a battery out faster. Room temperature and a charge somewhere in the middle are easiest on it.",
+              "body_zh": "高溫、長時間停在 100% 或 0%，都會讓電池老得比較快。室溫、電量在中間，對電池最輕鬆。"
+            }
+          ],
+          "activities": [
+            {
+              "title_en": "Make a Lemon Battery",
+              "title_zh": "做一顆檸檬電池",
+              "materials": [
+                {
+                  "en": "3 or 4 fresh, juicy lemons",
+                  "zh": "3 到 4 顆新鮮多汁的檸檬"
+                },
+                {
+                  "en": "3 or 4 copper strips (or pieces of thick copper wire)",
+                  "zh": "3 到 4 片銅片（或粗銅線）"
+                },
+                {
+                  "en": "3 or 4 galvanized (zinc-coated) nails",
+                  "zh": "3 到 4 根鍍鋅鐵釘"
+                },
+                {
+                  "en": "5 wires with alligator clips",
+                  "zh": "5 條鱷魚夾導線"
+                },
+                {
+                  "en": "1 small red LED (red needs the least voltage)",
+                  "zh": "1 顆小的紅色 LED（紅色需要的電壓最低）"
+                },
+                {
+                  "en": "A multimeter, if you have one",
+                  "zh": "三用電表（有的話）"
+                }
+              ],
+              "steps": [
+                {
+                  "en": "Roll each lemon on the table, pressing down gently, to break up the juice inside.",
+                  "zh": "把每顆檸檬放在桌上輕壓滾一滾，讓裡面的果汁流出來。"
+                },
+                {
+                  "en": "Push one copper strip and one zinc nail into each lemon, about 2 to 3 centimeters apart. They must not touch each other.",
+                  "zh": "在每顆檸檬插一片銅片和一根鍍鋅釘，相距約 2 到 3 公分，兩者不能碰在一起。"
+                },
+                {
+                  "en": "If you have a multimeter, measure one lemon. You should see about 0.9 volts. Copper is the positive (+) side, and zinc is the negative (−) side.",
+                  "zh": "有三用電表的話，量一顆檸檬，大約是 0.9 伏特。銅是正極（+），鋅是負極（−）。"
+                },
+                {
+                  "en": "Connect the lemons in a row: the zinc of lemon 1 to the copper of lemon 2, the zinc of lemon 2 to the copper of lemon 3, and so on. This is called connecting them in series, and the voltages add up.",
+                  "zh": "把檸檬串成一排：第一顆的鋅接第二顆的銅、第二顆的鋅接第三顆的銅，以此類推。這叫「串聯」，電壓會加起來。"
+                },
+                {
+                  "en": "Clip the free copper (+) to the LED's long leg and the free zinc (−) to its short leg. Turn off the room lights and look closely. A red LED usually needs two or three lemons in a row; if it stays dark, add another lemon or check the LED's legs.",
+                  "zh": "把最後剩下的銅（+）接到 LED 的長腳，鋅（−）接到短腳。關掉教室的燈仔細看。紅色 LED 通常要串兩、三顆檸檬；如果不亮，再加一顆，或檢查 LED 有沒有接反。"
+                },
+                {
+                  "en": "Talk about it: which metal is being used up? (The zinc slowly dissolves, and tiny bubbles of hydrogen form on the copper.)",
+                  "zh": "討論：哪一種金屬在被消耗？（鋅慢慢溶解，銅片上會冒出很小的氫氣泡。）"
+                }
+              ],
+              "tip_en": "Safety: an adult should do any cutting, and the lemons must go in the trash afterward, never in anyone's mouth, because metal has dissolved into the juice. Wash your hands when you finish. A lemon battery gives only a tiny current, about a thousandth of an amp at most, so it can light a small LED dimly but can never charge a phone. Never try any of this with a wall outlet.",
+              "tip_zh": "安全：需要切東西時由大人來做；做完的檸檬一律丟掉，絕對不能吃，因為金屬已經溶進果汁裡。做完要洗手。檸檬電池的電流很小，最多大約千分之一安培，只能讓小 LED 微微發亮，絕對不能幫手機充電。也絕對不要拿插座做任何實驗。"
+            },
+            {
+              "title_en": "Pass the Electrons: A Human Battery",
+              "title_zh": "傳電子：人體電池遊戲",
+              "materials": [
+                {
+                  "en": "About 12 soft balls or beanbags (the electrons)",
+                  "zh": "大約 12 顆軟球或沙包（電子）"
+                },
+                {
+                  "en": "A row of chairs (the electrolyte)",
+                  "zh": "一排椅子（電解液）"
+                },
+                {
+                  "en": "Yellow paper badges for 4 students (the lithium)",
+                  "zh": "4 個黃色名牌（鋰）"
+                }
+              ],
+              "steps": [
+                {
+                  "en": "Students stand in a big loop. On one half of the loop, each student holds one ball. This half is the wire, and it is already full of electrons.",
+                  "zh": "全班站成一個大圈。圈的一半，每個人手上拿一顆球——這一半是電線，裡面本來就裝滿了電子。"
+                },
+                {
+                  "en": "Inside the loop, the graphite team stands on the left and the metal oxide team on the right, with the chairs between them. The four lithium students start with the graphite team.",
+                  "zh": "圈內左邊站「石墨隊」、右邊站「金屬氧化物隊」，中間隔著那排椅子。四位「鋰」同學一開始站在石墨隊。"
+                },
+                {
+                  "en": "The rule: a lithium student may walk across the chairs only when, at the same moment, every student in the wire passes a ball one place toward the metal oxide side. Balls may never cross the chairs.",
+                  "zh": "規則：只有在電線上每個人同時把球往金屬氧化物那邊傳一格的那一刻，一位鋰同學才可以越過椅子。球永遠不准越過椅子。"
+                },
+                {
+                  "en": "One student in the wire is the bulb and claps each time a ball passes. That clap is the light.",
+                  "zh": "電線上有一位同學當燈泡，每有一顆球經過就拍一次手——那就是燈亮。"
+                },
+                {
+                  "en": "Now charge it: the teacher is the charger and makes the wire pass balls backward, and the lithium students walk back to the graphite.",
+                  "zh": "接著充電：老師當充電器，讓電線上的球往回傳，鋰同學走回石墨隊。"
+                },
+                {
+                  "en": "Ask: what happens if one student in the wire refuses to pass? Everyone freezes. That is a switch, and that is why a battery keeps its charge on the shelf.",
+                  "zh": "問大家：如果電線上有一個人不肯傳球，會怎樣？全部停住。這就是開關，也是電池放著不會沒電的原因。"
+                }
+              ],
+              "tip_en": "The game shows the two big ideas of this lesson: ions travel inside and electrons travel outside, and they always move together, one for one. It also shows why a light comes on instantly even though each ball moves only one place.",
+              "tip_zh": "這個遊戲演出本課的兩個大觀念：離子走裡面、電子走外面，而且永遠一個對一個一起動。它也說明了為什麼每顆球只移動一格，燈卻馬上就亮。"
+            }
+          ],
+          "safety": [
+            {
+              "en": "Never open, puncture, crush, or bend a lithium battery. Its electrolyte can burn, and a damaged battery can catch fire.",
+              "zh": "絕不拆開、刺穿、壓扁或彎折鋰電池。它的電解液會燃燒，受損的電池可能起火。"
+            },
+            {
+              "en": "If a phone or power bank becomes puffy, very hot, or smells strange, stop using and charging it, and tell an adult.",
+              "zh": "手機或行動電源如果鼓起來、變得很燙或有怪味，立刻停止使用和充電，並告訴大人。"
+            },
+            {
+              "en": "Never do experiments with a wall outlet. The electricity in the wall can seriously hurt or kill you. The activities on this page use only lemons and tiny currents.",
+              "zh": "絕對不要拿插座做實驗。插座裡的電會造成重傷甚至致命。本頁的活動只用檸檬和非常小的電流。"
+            },
+            {
+              "en": "Keep button batteries away from young children. A swallowed button battery can cause severe burns in as little as two hours. If you think a child swallowed one, get medical help right away.",
+              "zh": "鈕扣電池要放在幼兒拿不到的地方。吞下去的鈕扣電池最快兩小時就能造成嚴重灼傷；懷疑孩子吞了，要立刻就醫。"
+            },
+            {
+              "en": "Do not throw batteries in the trash. In Taiwan, convenience stores, supermarkets, and recycling trucks collect used batteries. Cover the ends of lithium batteries with tape first.",
+              "zh": "電池不要丟一般垃圾。在台灣，便利商店、超市和資源回收車都收廢電池。鋰電池的兩極先用膠帶貼起來再回收。"
+            }
+          ],
+          "sources": [
+            {
+              "en": "Volta's first battery, 1800",
+              "zh": "伏打的第一顆電池（1800 年）",
+              "src": "Wikipedia, “Voltaic pile”",
+              "url": "https://en.wikipedia.org/wiki/Voltaic_pile"
+            },
+            {
+              "en": "The 2019 Nobel Prize in Chemistry for lithium-ion batteries",
+              "zh": "2019 年諾貝爾化學獎：鋰離子電池",
+              "src": "NobelPrize.org",
+              "url": "https://www.nobelprize.org/prizes/chemistry/2019/summary/"
+            },
+            {
+              "en": "How lithium-ion batteries work; about 3.6 volts per cell; no memory effect",
+              "zh": "鋰離子電池原理、每顆約 3.6 伏特、沒有記憶效應",
+              "src": "Battery University, BU-204",
+              "url": "https://batteryuniversity.com/article/bu-204-how-do-lithium-batteries-work"
+            },
+            {
+              "en": "Heat and staying fully charged wear batteries out faster",
+              "zh": "高溫與長時間充滿會加速電池老化",
+              "src": "Battery University, BU-808",
+              "url": "https://batteryuniversity.com/article/bu-808-how-to-prolong-lithium-based-batteries"
+            },
+            {
+              "en": "The crust on the graphite (SEI) is the main cause of capacity loss",
+              "zh": "石墨表面的薄殼（SEI）是容量衰退的主因",
+              "src": "Research paper, arXiv:2112.13671",
+              "url": "https://arxiv.org/abs/2112.13671"
+            },
+            {
+              "en": "80% of original capacity after 500 full cycles (iPhone 14 and earlier; iPhone 15 and later: 1,000 cycles)",
+              "zh": "500 次完整循環後保有 80% 容量（iPhone 14 以前；iPhone 15 以後為 1,000 次）",
+              "src": "Apple Support",
+              "url": "https://support.apple.com/en-us/106348"
+            },
+            {
+              "en": "Electrons drift less than a millimeter per second",
+              "zh": "電子漂移每秒不到一毫米",
+              "src": "OpenStax, College Physics 2e, 20.1",
+              "url": "https://openstax.org/books/college-physics-2e/pages/20-1-current"
+            },
+            {
+              "en": "Lemon battery: about 0.9 volts, energy from the zinc",
+              "zh": "檸檬電池約 0.9 伏特，能量來自鋅",
+              "src": "Wikipedia, “Lemon battery”",
+              "url": "https://en.wikipedia.org/wiki/Lemon_battery"
+            },
+            {
+              "en": "Button batteries can cause severe burns within two hours",
+              "zh": "鈕扣電池兩小時內可造成嚴重灼傷",
+              "src": "National Capital Poison Center",
+              "url": "https://www.poison.org/battery"
+            },
+            {
+              "en": "Taping the ends of used lithium batteries",
+              "zh": "廢鋰電池兩極貼膠帶",
+              "src": "U.S. EPA",
+              "url": "https://www.epa.gov/recycle/used-lithium-ion-batteries"
+            },
+            {
+              "en": "Where to recycle batteries in Taiwan",
+              "zh": "台灣的廢電池回收管道",
+              "src": "桃園市政府環境保護局",
+              "url": "https://recycle.tyoem.gov.tw/J_Waste_battery.aspx"
+            }
+          ]
+        }
+      ],
+      "planned": [
+        {
+          "n": 2,
+          "icon": "🔌",
+          "en": "Where Does the Electricity in the Wall Come From?",
+          "zh": "插座裡的電從哪裡來？"
+        },
+        {
+          "n": 3,
+          "icon": "☀️",
+          "en": "How Does a Solar Panel Turn Light into Electricity?",
+          "zh": "太陽能板怎麼把光變成電？"
+        },
+        {
+          "n": 4,
+          "icon": "🌬️",
+          "en": "How Does a Wind Turbine Make Power?",
+          "zh": "風力發電機怎麼發電？"
+        }
+      ]
+    },
+    {
+      "key": "info",
+      "title_en": "Information and Communication",
+      "title_zh": "資訊與通訊",
+      "blurb_en": "How a message, a phone call, and your location travel through wires, air, and space.",
+      "blurb_zh": "訊息、電話和你的位置，怎麼穿過電線、空氣與太空。",
+      "lessons": [],
+      "planned": [
+        {
+          "n": 5,
+          "icon": "🌐",
+          "en": "How Does the Internet Work?",
+          "zh": "網際網路怎麼運作？"
+        },
+        {
+          "n": 6,
+          "icon": "📶",
+          "en": "How Does a Phone Call Travel Without Wires?",
+          "zh": "手機訊號怎麼在空中傳遞？"
+        },
+        {
+          "n": 7,
+          "icon": "🛰️",
+          "en": "How Does GPS Know Where You Are?",
+          "zh": "GPS 怎麼知道你在哪裡？"
+        },
+        {
+          "n": 8,
+          "icon": "💾",
+          "en": "How Does a Computer Remember Things?",
+          "zh": "電腦怎麼記住東西？"
+        }
+      ]
+    },
+    {
+      "key": "light",
+      "title_en": "Light and Sound",
+      "title_zh": "光與聲音",
+      "blurb_en": "Why the sky is blue, where rainbows come from, and how sounds and pictures are captured.",
+      "blurb_zh": "天空為什麼是藍的、彩虹從哪裡來，聲音和影像怎麼被捕捉下來。",
+      "lessons": [],
+      "planned": [
+        {
+          "n": 9,
+          "icon": "🌤️",
+          "en": "Why Is the Sky Blue?",
+          "zh": "天空為什麼是藍色的？"
+        },
+        {
+          "n": 10,
+          "icon": "🌈",
+          "en": "How Does a Rainbow Form?",
+          "zh": "彩虹是怎麼形成的？"
+        },
+        {
+          "n": 11,
+          "icon": "🔊",
+          "en": "How Does Sound Reach Your Ears?",
+          "zh": "聲音怎麼傳到耳朵？"
+        },
+        {
+          "n": 12,
+          "icon": "📷",
+          "en": "How Does a Camera Take a Picture?",
+          "zh": "相機怎麼拍下照片？"
+        }
+      ]
+    },
+    {
+      "key": "motion",
+      "title_en": "Machines and Motion",
+      "title_zh": "機械與運動",
+      "blurb_en": "The clever physics inside airplanes, bicycles, elevators, and refrigerators.",
+      "blurb_zh": "飛機、腳踏車、電梯和冰箱裡的巧妙物理。",
+      "lessons": [],
+      "planned": [
+        {
+          "n": 13,
+          "icon": "✈️",
+          "en": "How Does an Airplane Stay in the Air?",
+          "zh": "飛機為什麼飛得起來？"
+        },
+        {
+          "n": 14,
+          "icon": "🚲",
+          "en": "Why Doesn't a Moving Bicycle Fall Over?",
+          "zh": "腳踏車騎起來為什麼不會倒？"
+        },
+        {
+          "n": 15,
+          "icon": "🛗",
+          "en": "How Does an Elevator Lift So Much Weight?",
+          "zh": "電梯怎麼舉起那麼重的東西？"
+        },
+        {
+          "n": 16,
+          "icon": "🧊",
+          "en": "How Does a Refrigerator Keep Food Cold?",
+          "zh": "冰箱怎麼讓食物變冷？"
+        }
+      ]
+    },
+    {
+      "key": "chem",
+      "title_en": "Everyday Chemistry",
+      "title_zh": "生活化學",
+      "blurb_en": "The chemistry happening in your sink, your kitchen, and your microwave.",
+      "blurb_zh": "洗手台、廚房和微波爐裡正在發生的化學。",
+      "lessons": [],
+      "planned": [
+        {
+          "n": 17,
+          "icon": "🧼",
+          "en": "How Does Soap Clean?",
+          "zh": "肥皂為什麼能去污？"
+        },
+        {
+          "n": 18,
+          "icon": "🍞",
+          "en": "Why Does Bread Rise?",
+          "zh": "麵包為什麼會膨脹？"
+        },
+        {
+          "n": 19,
+          "icon": "🔩",
+          "en": "Why Does Iron Rust?",
+          "zh": "鐵為什麼會生鏽？"
+        },
+        {
+          "n": 20,
+          "icon": "🍲",
+          "en": "How Does a Microwave Oven Heat Food?",
+          "zh": "微波爐怎麼加熱食物？"
+        }
+      ]
+    }
+  ]
+}
