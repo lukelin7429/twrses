@@ -219,3 +219,47 @@
 .cp-cnt-out .cp-home-zh b { font-size: 1.25rem; }
 @media (max-width: 1020px) { .cp-cnt { grid-template-columns: 1fr; } }
 @media (max-width: 480px) { .cp-cnt-who { grid-template-columns: 1fr; } .cp-nums.cp-nums3 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+/* ---------- 第三課：從沙子到晶片 ---------- */
+.cp-wf-steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .3rem; }
+.cp-wf-steps button { display: flex; flex-direction: column; align-items: center; gap: .05rem; padding: .4rem .2rem .45rem; border-radius: 12px; border: 1px solid var(--al-line); background: rgba(255,255,255,.03); color: var(--al-text); font-family: var(--sans); font-weight: 800; font-size: .7rem; line-height: 1.2; text-align: center; cursor: pointer; transition: background .2s, border-color .2s; }
+.cp-wf-steps button b { font-family: var(--serif); font-size: 1.05rem; color: var(--al-sun); }
+.cp-wf-steps small { display: block; font-family: var(--zh); font-weight: 600; font-size: .68rem; color: var(--al-mute); }
+.cp-wf-steps button:hover { background: rgba(255,255,255,.07); }
+.cp-wf-steps button[aria-pressed="true"] { border-color: var(--al-sun); background: rgba(255,211,110,.12); box-shadow: 0 0 0 1px var(--al-sun) inset; }
+.cp-wf-tour { display: flex; align-items: center; justify-content: center; gap: .4rem; width: 100%; padding: .6rem .8rem; border-radius: 999px; border: 1px solid rgba(255,211,110,.5); background: transparent; color: var(--al-sun); font-family: var(--sans); font-weight: 800; font-size: .86rem; cursor: pointer; }
+.cp-wf-tour:hover, .cp-wf-tour[aria-pressed="true"] { background: rgba(255,211,110,.14); }
+.cp-wf-panel[hidden] { display: none; }
+.cp-wf-k { margin: 0; font-size: .7rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--al-sun); }
+.cp-wf-panel h3 { margin: .2rem 0 .5rem; font-size: 1.15rem; color: #fff; }
+.cp-wf-panel h3 .zh { display: block; font-size: .92rem; color: var(--al-mute); margin-top: .1rem; }
+.cp-wf-panel .cp-msg { margin-bottom: .7rem; }
+.cp-wf-panel .cp-nums { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.cp-wf-panel .cp-nums > div:first-child { grid-column: auto; }
+.al-lab.cp-st { font-size: .74rem; }
+.al-lab.cp-st-on { color: #1b1405; background: var(--al-sun); border-color: var(--al-sun); }
+.al-lab.cp-st-on small { color: #3a2a06; }
+
+/* 一片晶圓切得出幾顆晶片？ */
+.cp-dpw { display: grid; grid-template-columns: minmax(0, 440px) minmax(0, 1fr); gap: 1.4rem; margin-top: 1.4rem; align-items: start; }
+.cp-dpw-pic { padding: 1rem; border-radius: 20px; background: radial-gradient(120% 90% at 20% 0%, #13224a 0%, #060a16 60%); }
+.cp-dpw-cv { display: block; width: 100%; aspect-ratio: 1 / 1; }
+.cp-dpw-key { margin: .6rem 0 0; font-size: .8rem; color: #c9d3e8; text-align: center; }
+.cp-dpw-key i { display: inline-block; width: 12px; height: 12px; border-radius: 3px; vertical-align: -1px; margin: 0 .3rem 0 .6rem; }
+.cp-dpw-key i.ok { background: #2f6fd6; }
+.cp-dpw-key i.no { background: rgba(120,130,150,.7); }
+.cp-dpw-side { display: grid; gap: 1rem; }
+.cp-dpw-size-out { margin-left: .4rem; font-weight: 800; color: var(--ink); text-transform: none; letter-spacing: 0; }
+.cp-dpw .al-age::-webkit-slider-runnable-track { background: linear-gradient(90deg, var(--brand) 0 var(--p, 29%), #e5dfd0 var(--p, 29%)); }
+.cp-dpw .al-age::-webkit-slider-thumb { border-color: var(--brand); }
+.cp-dpw .al-age::-moz-range-progress { background: var(--brand); }
+.cp-dpw-pre { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .45rem; margin-top: .6rem; }
+.cp-dpw-pre button { padding: .5rem .4rem; border-radius: 12px; border: 1px solid var(--line); background: var(--cream); color: var(--ink); font-family: var(--sans); font-weight: 800; font-size: .84rem; cursor: pointer; }
+.cp-dpw-pre button small { display: block; font-family: var(--zh); font-weight: 600; font-size: .76rem; color: var(--ink-soft); margin-top: .1rem; }
+.cp-dpw-pre button[aria-pressed="true"] { background: var(--brand); border-color: var(--brand); color: #fff; }
+.cp-dpw-pre button[aria-pressed="true"] small { color: rgba(255,255,255,.85); }
+@media (max-width: 1020px) { .cp-dpw { grid-template-columns: 1fr; } .cp-dpw-pic { max-width: 520px; margin: 0 auto; width: 100%; } }
+@media (max-width: 480px) { .cp-wf-steps button { font-size: .66rem; } }
+.al-lg-cpsand i { border: 0; background: #e2cd98; }
+.al-lg-cpsi i { border: 0; background: linear-gradient(135deg, #c9d2de, #6f7f99); }
+.al-lg-cphot i { border: 0; background: #ff8a2a; box-shadow: 0 0 10px 2px rgba(255,138,42,.6); }

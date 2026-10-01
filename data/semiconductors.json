@@ -1503,14 +1503,818 @@
       "title_zh": "晶片怎麼做出來",
       "blurb_en": "From quartz to a shining wafer, drawing circuits with light, and how small a nanometer really is.",
       "blurb_zh": "從石英到閃亮的晶圓、用光畫出電路，以及奈米到底有多小。",
-      "lessons": [],
-      "planned": [
+      "lessons": [
         {
           "n": 3,
+          "slug": "sand-to-chip",
+          "title": "How Does Sand Become a Chip?",
+          "title_zh": "沙子怎麼變成晶片？",
+          "level": "入門 · Beginner",
           "icon": "🏖️",
-          "en": "How Does Sand Become a Chip?",
-          "zh": "沙子怎麼變成晶片？"
-        },
+          "card": "wafer",
+          "blurb_en": "Follow silicon from a pile of quartz sand to a shining wafer in 3D: melt it, purify it, pull a giant crystal out of a pot of liquid silicon, slice it thin, and cut out hundreds of chips. Then find out how many chips one wafer can hold.",
+          "blurb_zh": "在 3D 裡跟著矽，從一堆石英砂走到閃亮的晶圓：熔煉、提純、從一鍋熔化的矽裡拉出一根大單晶、切成薄片，再切出幾百顆晶片。最後算算一片晶圓能做幾顆晶片。",
+          "big_idea_en": "Chips are made from the silicon in sand. It is purified until almost every atom is silicon, grown into one giant crystal, and sliced into thin wafers, and each wafer carries hundreds of chips at once.",
+          "big_idea_zh": "晶片的原料是沙子裡的矽：先提純到幾乎每一個原子都是矽，長成一整根大單晶，再切成薄薄的晶圓；一片晶圓上同時做出幾百顆晶片。",
+          "lab": {
+            "kind": "wafer",
+            "eyebrow": "3D Model · 3D 模型",
+            "title_en": "From Sand to Chip",
+            "title_zh": "從沙子到晶片",
+            "how_en": "Drag to turn the model, and scroll or pinch to zoom. Press a step to fly to it and watch it happen, or press Play the whole journey to visit all six in order. The calculator below the reading changes the size of the chips on the last wafer.",
+            "how_zh": "拖曳可以旋轉模型，滾輪或雙指可以縮放。按一個步驟，飛過去看它怎麼做；或按「播放全程」，六站依序走一遍。課文下方的計算器可以改變最後那片晶圓上晶片的大小。",
+            "overview_en": "This is the whole production line. Read it like two lines of text: the back row first, from left to right, then the front row. Choose a step to look closer.",
+            "overview_zh": "這是整條生產線。像讀兩行字一樣看：先看後排、由左到右，再看前排。選一個步驟靠近看。",
+            "steps": [
+              {
+                "short_en": "Quartz sand",
+                "short_zh": "石英砂",
+                "title_en": "Start with quartz",
+                "title_zh": "從石英開始",
+                "text_en": "Most sand is mainly quartz: silicon joined with oxygen. To make silicon, factories usually start with high-purity quartz rock rather than ordinary beach sand.",
+                "text_zh": "大部分的沙子主要是石英，也就是矽和氧結合成的。煉矽時，工廠通常用高純度的石英岩，而不是一般沙灘的沙。",
+                "nums": [
+                  {
+                    "k_en": "Silicon in Earth's crust",
+                    "k_zh": "矽占地殼",
+                    "v_en": "27.7% by mass",
+                    "v_zh": "質量的 27.7%"
+                  },
+                  {
+                    "k_en": "Quartz",
+                    "k_zh": "石英",
+                    "v_en": "SiO₂",
+                    "v_zh": "矽＋氧"
+                  }
+                ]
+              },
+              {
+                "short_en": "Furnace",
+                "short_zh": "電爐",
+                "title_en": "Pull out the oxygen",
+                "title_zh": "把氧拿掉",
+                "text_en": "Quartz and carbon are heated in an electric arc furnace. The carbon pulls the oxygen away, leaving silicon. It is about 98 to 99 percent pure, still far too dirty for a chip.",
+                "text_zh": "石英和碳一起放進電弧爐加熱，碳把氧帶走，留下矽。純度約 98% 到 99%，對晶片來說還是太髒了。",
+                "nums": [
+                  {
+                    "k_en": "Temperature",
+                    "k_zh": "溫度",
+                    "v_en": "above 2,000 °C",
+                    "v_zh": "超過 2,000 °C"
+                  },
+                  {
+                    "k_en": "Purity",
+                    "k_zh": "純度",
+                    "v_en": "about 98–99%",
+                    "v_zh": "約 98–99%"
+                  }
+                ]
+              },
+              {
+                "short_en": "Purify",
+                "short_zh": "提純",
+                "title_en": "Clean it to ten nines",
+                "title_zh": "提純到十個 9",
+                "text_en": "The silicon is turned into a liquid chemical, trichlorosilane, and purified. Then it is turned back into silicon on thin rods glowing inside a bell-shaped reactor, and the rods grow thick with polysilicon.",
+                "text_zh": "矽先變成一種液體化學品「三氯矽烷」再提純，然後在鐘形反應爐裡發熱的細矽棒上變回矽，矽棒越長越粗，就是多晶矽。",
+                "nums": [
+                  {
+                    "k_en": "Rod temperature",
+                    "k_zh": "矽棒溫度",
+                    "v_en": "about 1,150 °C",
+                    "v_zh": "約 1,150 °C"
+                  },
+                  {
+                    "k_en": "Purity for chips",
+                    "k_zh": "晶片用的純度",
+                    "v_en": "10–11 nines",
+                    "v_zh": "10 到 11 個 9"
+                  }
+                ]
+              },
+              {
+                "short_en": "Grow a crystal",
+                "short_zh": "拉晶",
+                "title_en": "Pull one giant crystal",
+                "title_zh": "拉出一整根單晶",
+                "text_en": "The pure silicon is melted in a pot. A seed crystal is dipped in and slowly pulled up while it turns. The silicon freezes onto it with every atom lined up the same way: the Czochralski method.",
+                "text_zh": "純矽在坩堝裡熔化。把一小塊晶種浸進去，一邊旋轉一邊慢慢往上拉，矽就凝固在晶種上，每個原子都排成同一個方向：這叫柴可拉斯基法。",
+                "nums": [
+                  {
+                    "k_en": "Silicon melts at",
+                    "k_zh": "矽的熔點",
+                    "v_en": "1,414 °C",
+                    "v_zh": "1,414 °C"
+                  },
+                  {
+                    "k_en": "An ingot can be",
+                    "k_zh": "晶棒可以",
+                    "v_en": "about 2 m long",
+                    "v_zh": "長約 2 公尺、重數百公斤"
+                  }
+                ]
+              },
+              {
+                "short_en": "Slice",
+                "short_zh": "切片",
+                "title_en": "Slice it into wafers",
+                "title_zh": "切成晶圓",
+                "text_en": "A wire saw slices the ingot into thin disks. The wafers are ground, etched, and polished until they shine like mirrors.",
+                "text_zh": "鋼線鋸把晶棒切成薄薄的圓片，再經過研磨、蝕刻、拋光，亮得像鏡子一樣。",
+                "nums": [
+                  {
+                    "k_en": "Diameter",
+                    "k_zh": "直徑",
+                    "v_en": "300 mm (called 12-inch)",
+                    "v_zh": "300 mm（俗稱 12 吋）"
+                  },
+                  {
+                    "k_en": "Thickness",
+                    "k_zh": "厚度",
+                    "v_en": "775 µm",
+                    "v_zh": "775 微米，不到 1 公釐"
+                  }
+                ]
+              },
+              {
+                "short_en": "Chips",
+                "short_zh": "晶片",
+                "title_en": "Hundreds of chips at once",
+                "title_zh": "一次做出幾百顆晶片",
+                "text_en": "Hundreds of chips are built side by side on each wafer, layer by layer. Each one is tested on the wafer, then the wafer is cut apart and the good chips are packaged.",
+                "text_zh": "每片晶圓上一層一層、並排做出幾百顆晶片。先在晶圓上逐顆測試，再切開，把好的晶片封裝起來。",
+                "nums": [
+                  {
+                    "k_en": "10 × 10 mm chips",
+                    "k_zh": "10 × 10 mm 的晶片",
+                    "v_en": "about 600 per wafer",
+                    "v_zh": "一片約 600 顆"
+                  },
+                  {
+                    "k_en": "Tested",
+                    "k_zh": "測試",
+                    "v_en": "before cutting",
+                    "v_zh": "切開之前"
+                  }
+                ]
+              }
+            ],
+            "legend": [
+              {
+                "cls": "cpsand",
+                "en": "Sand: mostly quartz, silicon joined with oxygen",
+                "zh": "沙子：大部分是石英，也就是矽和氧結合成的"
+              },
+              {
+                "cls": "cpsi",
+                "en": "Silver gray: silicon",
+                "zh": "銀灰色：矽"
+              },
+              {
+                "cls": "cphot",
+                "en": "Orange glow: very hot, or melted",
+                "zh": "橘色的光：非常燙，或已經熔化"
+              },
+              {
+                "cls": "cpn",
+                "en": "Blue squares: chips on the wafer",
+                "zh": "藍色方格：晶圓上的晶片"
+              }
+            ],
+            "scale_en": "A teaching diagram, not to scale. The sand grains are enlarged, the ingot is drawn much shorter than a real one, and the wafers are drawn far thicker than 775 micrometers. Each step is sped up to a few seconds. The chips on the last wafer are laid out with the same calculator as the one below the reading.",
+            "scale_zh": "這是示意圖，不是真實比例：砂粒放大了，晶棒畫得比真的短很多，晶圓也畫得比 775 微米厚得多；每一步都加快成幾秒鐘。最後那片晶圓上的晶片，用的是和課文下方計算器同一套算法。",
+            "credit_html": "Model drawn by My Culture Connect as a teaching diagram. The steps follow the process described by wafer maker <a href=\"https://www.sumcosi.com/english/products/process/\" target=\"_blank\" rel=\"noopener\">SUMCO</a> and Wikipedia's articles on silicon, polysilicon, the Czochralski method, and wafers. · 模型由人師教育協會自繪示意；步驟依晶圓廠 SUMCO 的製程說明與維基百科的矽、多晶矽、柴可拉斯基法、晶圓條目。"
+          },
+          "paras": [
+            "A chip begins as something you can find on almost any beach: sand. Most sand is mainly quartz, which is silicon joined with oxygen, and silicon is the second most common element in Earth's crust. But a chip needs silicon so pure and so perfectly arranged that turning sand into a chip is one of the most careful jobs people have ever learned to do.",
+            "First, the oxygen has to go. Factories usually start with high-purity quartz rock rather than beach sand. They heat it with carbon in an electric furnace hotter than 2,000 degrees Celsius. The carbon pulls the oxygen away, leaving silicon that is about 98 to 99 percent pure. That sounds pure, but for a chip it is still far too dirty.",
+            "Next, the silicon is cleaned with chemistry. It is turned into a liquid called trichlorosilane, purified, and then turned back into silicon on thin rods heated to about 1,150 degrees. The rods slowly grow thick. The result is called polysilicon, and for chips it is at least 99.99999999 percent pure. That is ten nines in a row.",
+            "Polysilicon is made of many tiny crystals, but a chip needs one single crystal. So the silicon is melted at 1,414 degrees. A small seed crystal is dipped into the liquid and slowly pulled up while it turns. The silicon freezes onto the seed with every atom lined up the same way, growing into a long, shiny ingot that can be about two meters long. This is called the Czochralski method, after the Polish scientist who invented it in 1916.",
+            "Next, a wire saw slices the ingot into thin disks called wafers. The wafers are ground, etched, and polished until they shine like mirrors. The main size used for advanced chips today is 300 millimeters across, usually called a 12-inch wafer, and it is only about 775 micrometers thick, less than one millimeter.",
+            "Finally, hundreds of chips are built side by side on each wafer, layer by layer, as you will see in the next lesson. Every chip is tested while it is still on the wafer. Then the wafer is cut apart, and the good chips are packaged. Because chips are square and wafers are round, some silicon at the edge is always wasted. Try the calculator below to see how much."
+          ],
+          "paras_zh": [
+            "晶片的起點，是幾乎每個海灘都找得到的東西：沙子。大部分的沙子主要是石英，也就是矽和氧結合成的；矽是地殼裡第二多的元素。可是晶片需要的矽必須非常純、排列得非常整齊，所以把沙子變成晶片，是人類學過最講究的工作之一。",
+            "第一步，要把氧拿掉。工廠通常用高純度的石英岩，而不是沙灘的沙，把它和碳一起放進超過攝氏 2,000 度的電爐加熱。碳把氧帶走，留下純度約 98% 到 99% 的矽。聽起來很純，但對晶片來說還是太髒了。",
+            "接著用化學方法清潔矽。先把它變成一種叫「三氯矽烷」的液體，提純之後，再讓它在加熱到約 1,150 度的細矽棒上變回矽，矽棒慢慢長粗。這樣做出來的叫「多晶矽」，晶片用的純度至少是 99.99999999%，也就是一連十個 9。",
+            "多晶矽是由許多很小的晶體組成的，但晶片需要「一整塊」單晶。所以把矽加熱到 1,414 度熔化，把一小塊晶種浸進液體，一邊旋轉一邊慢慢往上拉。矽凝固在晶種上，每個原子都排成同一個方向，長成一根又長又亮的晶棒，可以長達約 2 公尺。這叫做「柴可拉斯基法」，名字來自 1916 年發明它的波蘭科學家。",
+            "然後，鋼線鋸把晶棒切成薄薄的圓片，叫做「晶圓」。晶圓經過研磨、蝕刻、拋光，亮得像鏡子一樣。今天先進晶片主要用的晶圓直徑 300 公釐，通常叫做 12 吋晶圓，厚度只有約 775 微米，不到 1 公釐。",
+            "最後，每片晶圓上一層一層、並排做出幾百顆晶片，下一課就會看到怎麼做。每顆晶片在還沒切開前就先在晶圓上測試，然後把晶圓切開，好的晶片拿去封裝。因為晶片是方的、晶圓是圓的，邊緣一定會浪費一些矽。用下面的計算器算算看浪費多少。"
+          ],
+          "questions": [
+            "Why can't silicon straight from the furnace be used for chips?",
+            "How is a single crystal of silicon grown?",
+            "Why is some silicon always wasted at the edge of a wafer?"
+          ],
+          "answers": [
+            "It is only about 98 to 99 percent pure, which is still far too dirty for a chip.",
+            "A seed crystal is dipped into melted silicon and slowly pulled up while it turns, so the silicon freezes onto it with every atom lined up.",
+            "Chips are square and wafers are round, so the squares cannot fill the whole circle."
+          ],
+          "vocab": [
+            {
+              "n": 1,
+              "w": "sand",
+              "pos": "n.",
+              "zh": "沙子",
+              "ex": "The children built a castle out of wet <b>sand</b>.",
+              "exzh": "孩子們用濕沙堆了一座城堡。"
+            },
+            {
+              "n": 2,
+              "w": "melt",
+              "pos": "v.",
+              "zh": "融化；熔化",
+              "ex": "Ice cream <b>melts</b> quickly on a hot day.",
+              "exzh": "大熱天裡，冰淇淋很快就融化了。"
+            },
+            {
+              "n": 3,
+              "w": "pure",
+              "pos": "adj.",
+              "zh": "純的",
+              "ex": "This bottle holds <b>pure</b> water with nothing added.",
+              "exzh": "這瓶是什麼都沒加的純水。"
+            },
+            {
+              "n": 4,
+              "w": "furnace",
+              "pos": "n.",
+              "zh": "爐子；熔爐",
+              "ex": "The glass maker heated the sand in a hot <b>furnace</b>.",
+              "exzh": "玻璃師傅把沙子放進很燙的爐子裡加熱。"
+            },
+            {
+              "n": 5,
+              "w": "seed",
+              "pos": "n.",
+              "zh": "種子；晶種",
+              "ex": "A tiny <b>seed</b> can grow into a tall tree.",
+              "exzh": "一顆小小的種子可以長成高大的樹。"
+            },
+            {
+              "n": 6,
+              "w": "slice",
+              "pos": "v.",
+              "zh": "切成薄片",
+              "ex": "Please <b>slice</b> the bread for breakfast.",
+              "exzh": "請把麵包切片當早餐。"
+            },
+            {
+              "n": 7,
+              "w": "wafer",
+              "pos": "n.",
+              "zh": "威化餅；晶圓",
+              "ex": "A chocolate <b>wafer</b> is thin and crispy.",
+              "exzh": "巧克力威化餅又薄又脆。"
+            },
+            {
+              "n": 8,
+              "w": "waste",
+              "pos": "n.",
+              "zh": "浪費；廢料",
+              "ex": "Throwing away good food is a <b>waste</b>.",
+              "exzh": "把好好的食物丟掉是一種浪費。"
+            }
+          ],
+          "quiz": [
+            {
+              "q": "What does the furnace take away from quartz?",
+              "options": [
+                "Oxygen",
+                "Silicon",
+                "Water",
+                "Salt"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "What is the seed crystal for?",
+              "options": [
+                "Growing one single crystal of silicon",
+                "Feeding plants",
+                "Coloring the wafer",
+                "Cutting the ingot"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "About how thick is a 300 mm wafer?",
+              "options": [
+                "Less than a millimeter",
+                "About 1 centimeter",
+                "About 10 centimeters",
+                "About 1 meter"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "Why are chips tested before the wafer is cut?",
+              "options": [
+                "So bad chips are not packaged",
+                "To make them shine",
+                "To melt them again",
+                "To make them bigger"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "If each chip is made bigger, what happens to the number of chips on a wafer?",
+              "options": [
+                "It goes down",
+                "It goes up",
+                "It stays the same",
+                "It doubles"
+              ],
+              "correct": 0
+            }
+          ],
+          "parts_head": {
+            "eyebrow": "Try It in the Model · 在模型裡試試",
+            "en": "Four steps to watch",
+            "zh": "看這四個步驟"
+          },
+          "parts": [
+            {
+              "key": "furnace",
+              "icon": "🔥",
+              "en": "The furnace",
+              "zh": "電爐",
+              "meta_en": "Above 2,000 °C",
+              "meta_zh": "超過 2,000 °C",
+              "demo": "furnace",
+              "text_en": "Carbon pulls the oxygen out of quartz, leaving gray lumps of silicon.",
+              "text_zh": "碳把石英裡的氧帶走，留下一塊塊灰色的矽。"
+            },
+            {
+              "key": "pull",
+              "icon": "🧲",
+              "en": "Pull a crystal",
+              "zh": "拉出單晶",
+              "meta_en": "Melted at 1,414 °C",
+              "meta_zh": "1,414 °C 熔化",
+              "demo": "pull",
+              "text_en": "Watch the ingot grow as the turning seed is pulled out of the melted silicon.",
+              "text_zh": "晶種一邊轉一邊從熔化的矽裡往上拉，看晶棒越長越長。"
+            },
+            {
+              "key": "slice",
+              "icon": "🪚",
+              "en": "Slice the ingot",
+              "zh": "切開晶棒",
+              "meta_en": "775 µm thin",
+              "meta_zh": "775 微米薄",
+              "demo": "slice",
+              "text_en": "A wire saw cuts the ingot into wafers, which stack up like coins.",
+              "text_zh": "鋼線鋸把晶棒切成晶圓，一片片像硬幣一樣疊起來。"
+            },
+            {
+              "key": "dies",
+              "icon": "🔲",
+              "en": "Cut out the chips",
+              "zh": "切出晶片",
+              "meta_en": "Hundreds per wafer",
+              "meta_zh": "一片幾百顆",
+              "demo": "dies",
+              "text_en": "The chips are separated, and one is packaged. Change the chip size with the calculator below.",
+              "text_zh": "晶片被切開，其中一顆封裝起來。用下面的計算器改變晶片大小。"
+            }
+          ],
+          "parts_note_en": "Press Play the whole journey to watch all six steps in order, from a pile of sand to a packaged chip.",
+          "parts_note_zh": "按「播放全程」，依序看完六個步驟：從一堆沙子到一顆封裝好的晶片。",
+          "links_head": {
+            "eyebrow": "Go Further · 延伸閱讀",
+            "en": "Before and after this lesson",
+            "zh": "這一課的前後"
+          },
+          "links": [
+            {
+              "href": "/resources/classes/semiconductors/what-is-a-semiconductor/",
+              "icon": "💿",
+              "k_en": "Chips and Semiconductors · Lesson 1",
+              "k_zh": "晶片與半導體 第一課",
+              "en": "What Is a Semiconductor?",
+              "zh": "什麼是半導體？",
+              "note_en": "Why silicon must be so pure: one wrong atom in a million already changes how well it conducts.",
+              "note_zh": "矽為什麼要這麼純：每 100 萬個原子換掉 1 個，導電能力就大大改變。"
+            },
+            {
+              "href": "/resources/classes/semiconductors/transistor/",
+              "icon": "🔀",
+              "k_en": "Chips and Semiconductors · Lesson 2",
+              "k_zh": "晶片與半導體 第二課",
+              "en": "What Does a Transistor Do?",
+              "zh": "電晶體在做什麼？",
+              "note_en": "What each chip on the wafer is full of: billions of tiny switches.",
+              "note_zh": "晶圓上每顆晶片裡裝滿的東西：幾十億個小開關。"
+            }
+          ],
+          "dies": {
+            "eyebrow": "Chips per Wafer · 一片晶圓幾顆晶片",
+            "en": "How many chips fit on one wafer?",
+            "zh": "一片晶圓切得出幾顆晶片？",
+            "lead_en": "Drag the slider to change the size of each square chip, or try an example. Watch how many whole chips fit and how much of the round edge is wasted. The 3D wafer above changes too.",
+            "lead_zh": "拉動滑桿改變方形晶片的大小，或按一個例子。看看能放幾顆完整的晶片、圓形的邊緣浪費多少。上面 3D 模型的晶圓也會跟著變。",
+            "presets": [
+              {
+                "key": "tiny",
+                "w": 2,
+                "h": 2,
+                "en": "tiny chip",
+                "zh": "很小的晶片"
+              },
+              {
+                "key": "small",
+                "w": 5,
+                "h": 5,
+                "en": "small chip",
+                "zh": "小晶片"
+              },
+              {
+                "key": "mid",
+                "w": 10,
+                "h": 10,
+                "en": "medium chip",
+                "zh": "中型晶片"
+              },
+              {
+                "key": "max",
+                "w": 26,
+                "h": 33,
+                "en": "largest single print",
+                "zh": "一次曝光的最大範圍"
+              }
+            ],
+            "note_en": "Our count keeps a 3 mm edge unused and leaves a 0.1 mm saw lane between chips (example values), then slides the grid to fit as many whole chips as possible. The shortcut formula ignores both, so its number is a little higher. 26 × 33 mm is the largest area today's common EUV machines can print in one shot, so the biggest single chips are about that size.",
+            "note_zh": "我們的算法留了 3 公釐不能用的邊緣、晶片之間留 0.1 公釐的切割道（示例數值），再移動方格找出最多的排法。近似公式沒有扣這兩樣，所以數字稍微多一點。26 × 33 公釐是今天常見的 EUV 曝光機一次能印的最大範圍，所以最大的單顆晶片差不多就這麼大。"
+          },
+          "facts": {
+            "eyebrow": "Silicon's Journey by the Numbers · 旅程裡的數字",
+            "en": "Hot, pure, and thin",
+            "zh": "很燙、很純、很薄",
+            "lead_en": "The numbers behind each step.",
+            "lead_zh": "每一步背後的數字。",
+            "items": [
+              {
+                "big": "2,000 °C+",
+                "unit_en": "in the arc furnace",
+                "unit_zh": "電弧爐的溫度",
+                "en": "Hot enough to pull the oxygen out of quartz.",
+                "zh": "熱到能把石英裡的氧拿掉。"
+              },
+              {
+                "big": "1,414 °C",
+                "unit_en": "silicon melts",
+                "unit_zh": "矽的熔點",
+                "en": "The temperature of the pot the crystal is pulled from.",
+                "zh": "拉晶時坩堝裡熔化的矽就是這個溫度。"
+              },
+              {
+                "big": "10–11 nines",
+                "unit_en": "chip-grade polysilicon",
+                "unit_zh": "晶片用多晶矽的純度",
+                "en": "99.99999999% pure or better.",
+                "zh": "純度 99.99999999% 以上。"
+              },
+              {
+                "big": "2 m",
+                "unit_en": "long ingots",
+                "unit_zh": "晶棒的長度",
+                "en": "A single crystal can be this long and weigh several hundred kilograms.",
+                "zh": "一整根單晶可以長達約 2 公尺、重數百公斤。"
+              },
+              {
+                "big": "300 mm",
+                "unit_en": "main wafer size today",
+                "unit_zh": "今天的主要晶圓尺寸",
+                "en": "Called 12-inch, though it is really 11.8 inches.",
+                "zh": "俗稱 12 吋，其實是 11.8 吋。"
+              },
+              {
+                "big": "775 µm",
+                "unit_en": "thickness of a 300 mm wafer",
+                "unit_zh": "12 吋晶圓的厚度",
+                "en": "Less than one millimeter.",
+                "zh": "不到 1 公釐。"
+              }
+            ]
+          },
+          "culture_cards": {
+            "eyebrow": "Wafer Stories · 晶圓的故事",
+            "title_en": "A pen, a reactor, a nickname, and Hsinchu",
+            "title_zh": "一支筆、一座反應爐、一個暱稱和新竹",
+            "lead_en": "Four stories from the road between sand and chips.",
+            "lead_zh": "從沙子到晶片的路上，四個小故事。",
+            "cards": [
+              {
+                "k": "1916 · Czochralski · 柴可拉斯基",
+                "en": "A pen in the wrong pot",
+                "zh": "沾錯了墨水",
+                "body_en": "The story goes that in 1916, the Polish scientist Jan Czochralski dipped his pen into a pot of melted tin instead of his inkwell. When he pulled it out, a thin thread of tin came with it, and it was a single crystal. He reported his method in 1918, and today it is used to grow the silicon crystals for chips.",
+                "body_zh": "相傳 1916 年，波蘭科學家柴可拉斯基把筆伸進一鍋熔化的錫，而不是墨水瓶。拿出來時，筆尖帶出一條細細的錫絲，竟然是一整塊單晶。他在 1918 年發表這個方法，今天晶片用的矽單晶就是這樣長出來的。"
+              },
+              {
+                "k": "1950s · Siemens · 西門子",
+                "en": "Ten nines of purity",
+                "zh": "十個 9 的純度",
+                "body_en": "In the 1950s, the German companies Siemens and Wacker developed a way to make ultra-pure silicon by growing it on hot, thin rods inside a bell-shaped reactor. It is still called the Siemens process, and for chips it reaches ten to eleven nines, from 99.99999999 to 99.999999999 percent pure.",
+                "body_zh": "1950 年代，德國的西門子和瓦克公司發展出一種方法：在鐘形反應爐裡，讓矽長在發熱的細矽棒上，做出超高純度的矽。這方法至今仍叫「西門子法」，晶片用的純度達到十到十一個 9，也就是 99.99999999% 到 99.999999999%。"
+              },
+              {
+                "k": "12-inch · 12 吋",
+                "en": "Why 300 mm is called 12-inch",
+                "zh": "300 mm 為什麼叫 12 吋",
+                "body_en": "A 300 mm wafer is really 11.8 inches across, but almost everyone calls it a 12-inch wafer, and a factory that uses it is a 12-inch fab, 12 吋晶圓廠 in Chinese. 300 mm wafers were introduced in 1999. A research group working on even bigger 450 mm wafers began shutting down in 2017.",
+                "body_zh": "300 公釐的晶圓其實是 11.8 吋，但大家都叫它 12 吋晶圓，用它的工廠就叫「12 吋晶圓廠」。300 mm 晶圓在 1999 年推出；研究更大 450 mm 晶圓的聯盟，在 2017 年開始解散。"
+              },
+              {
+                "k": "Made in Taiwan · 台灣製造",
+                "en": "Blank wafers from Taiwan",
+                "zh": "台灣做的空白晶圓",
+                "body_en": "Taiwan also makes the blank silicon wafers that chips are built on. GlobalWafers, headquartered in Hsinchu Science Park, makes 300 mm and 200 mm wafers, and companies such as Wafer Works and Formosa SUMCO Technology also make silicon wafers in Taiwan.",
+                "body_zh": "台灣也生產做晶片用的空白矽晶圓。總部在新竹科學園區的環球晶圓生產 12 吋和 8 吋晶圓；合晶科技、台塑勝高科技等公司也在台灣生產矽晶圓。"
+              }
+            ]
+          },
+          "myths": [
+            {
+              "myth_en": "A silicon wafer is a kind of glass.",
+              "myth_zh": "矽晶圓是一種玻璃。",
+              "fact_en": "Glass is amorphous: its atoms have no regular pattern. A wafer is a single crystal, with every atom lined up in the same pattern from edge to edge.",
+              "fact_zh": "玻璃是非晶質，原子沒有規則的排列；晶圓是單晶，從這一邊到那一邊，每個原子都排成同一個圖樣。"
+            },
+            {
+              "myth_en": "Each chip is carved from its own little block of silicon.",
+              "myth_zh": "每顆晶片都是從自己的一小塊矽雕出來的。",
+              "fact_en": "Hundreds of chips are made side by side on one wafer at the same time, then cut apart.",
+              "fact_zh": "幾百顆晶片在同一片晶圓上同時並排做好，再切開。"
+            },
+            {
+              "myth_en": "Bigger wafers make bigger chips.",
+              "myth_zh": "晶圓越大，晶片就越大。",
+              "fact_en": "A chip's size is set by its design. A bigger wafer simply fits more chips.",
+              "fact_zh": "晶片的大小由設計決定；晶圓大，只是放得下更多晶片。"
+            },
+            {
+              "myth_en": "Every chip on a wafer works.",
+              "myth_zh": "晶圓上每顆晶片都是好的。",
+              "fact_en": "Some don't. Every chip is tested while still on the wafer, and the bad ones are left out before packaging, which saves money.",
+              "fact_zh": "有些是壞的。每顆晶片在晶圓上就先測試，壞的不拿去封裝，省下成本。"
+            }
+          ],
+          "tricks": [
+            {
+              "title_en": "Sand, silicon, pure, crystal, slice",
+              "title_zh": "砂、矽、純、晶、切",
+              "body_en": "Five steps: quartz to silicon, purify it, grow one crystal, slice it into wafers.",
+              "body_zh": "石英變矽、提純、長成單晶、切成晶圓。"
+            },
+            {
+              "title_en": "One seed, one crystal",
+              "title_zh": "一顆晶種，一整根單晶",
+              "body_en": "Every atom in the ingot lines up with the tiny seed it grew from.",
+              "body_zh": "晶棒裡每個原子，都跟著最上面那顆小晶種排隊。"
+            },
+            {
+              "title_en": "A wafer holds hundreds",
+              "title_zh": "一片晶圓，幾百顆晶片",
+              "body_en": "Chips are made side by side on one wafer, then cut apart.",
+              "body_zh": "晶片在同一片晶圓上並排做好，再切開。"
+            },
+            {
+              "title_en": "Smaller chips, less waste",
+              "title_zh": "晶片越小，浪費越少",
+              "body_en": "Squares never fill a circle; big chips leave more of the edge unused.",
+              "body_zh": "方格永遠填不滿圓，晶片越大，邊緣浪費越多。"
+            }
+          ],
+          "safety": [
+            {
+              "en": "An adult must make and pour the hot sugar syrup. Boiling water and hot syrup can cause serious burns.",
+              "zh": "熱糖漿一定要由大人煮、大人倒。滾水和熱糖漿會造成嚴重燙傷。"
+            },
+            {
+              "en": "Never try to melt sand, glass, or metal at home. The furnaces in this lesson are thousands of degrees and belong in factories.",
+              "zh": "絕不要在家裡熔化沙子、玻璃或金屬。這一課的爐子有好幾千度，只能在工廠裡用。"
+            },
+            {
+              "en": "Be careful with the sharp point of a compass and with scissors.",
+              "zh": "小心圓規的尖端和剪刀。"
+            },
+            {
+              "en": "Cover the crystal jar to keep out dust and insects, and throw it away if mold grows.",
+              "zh": "養晶體的罐子要蓋好，防灰塵和昆蟲；如果發霉就丟掉。"
+            }
+          ],
+          "activities": [
+            {
+              "title_en": "Make a Real-Size Paper Wafer",
+              "title_zh": "做一片真實大小的紙晶圓",
+              "materials": [
+                {
+                  "en": "A large sheet of paper or cardboard, at least 32 cm wide",
+                  "zh": "一張至少 32 公分寬的大紙或紙板"
+                },
+                {
+                  "en": "A compass, or a pin, string, and pencil",
+                  "zh": "圓規，或圖釘、細繩和鉛筆"
+                },
+                {
+                  "en": "A ruler and colored pencils",
+                  "zh": "直尺和色鉛筆"
+                }
+              ],
+              "steps": [
+                {
+                  "en": "Draw a circle with a radius of 15 cm. It is exactly the size of a real 300 mm wafer.",
+                  "zh": "畫一個半徑 15 公分的圓，大小和真的 12 吋晶圓一模一樣。"
+                },
+                {
+                  "en": "Draw a grid of 2 cm squares across the circle. Each square is a 20 mm chip.",
+                  "zh": "在圓上畫 2 公分的方格，每格是一顆 20 公釐的晶片。"
+                },
+                {
+                  "en": "Color the squares that fit completely inside the circle, and count them. Shade the broken squares at the edge in gray.",
+                  "zh": "把完全在圓裡的方格塗色、數一數；邊緣不完整的方格塗灰色。"
+                },
+                {
+                  "en": "Compare your count with the calculator for 20 mm chips. Then try 5 cm squares. Which size wastes more of the edge?",
+                  "zh": "和計算器 20 公釐的結果比一比；再試試 5 公分的方格。哪一種邊緣浪費比較多？"
+                }
+              ],
+              "tip_en": "Your count may be a little higher than the calculator's, because the calculator keeps a 3 mm edge unused.",
+              "tip_zh": "你數到的可能比計算器多一點，因為計算器留了 3 公釐的邊緣不用。"
+            },
+            {
+              "title_en": "Grow a Sugar Crystal from a Seed",
+              "title_zh": "用晶種養一塊糖晶體",
+              "materials": [
+                {
+                  "en": "Sugar and water (about 2.5 cups of sugar for every cup of water)",
+                  "zh": "糖和水（大約每 1 杯水配 2.5 杯糖）"
+                },
+                {
+                  "en": "A clean glass jar, a cotton string, and a pencil",
+                  "zh": "乾淨的玻璃罐、棉線和一支鉛筆"
+                },
+                {
+                  "en": "A few grains of sugar to use as seeds",
+                  "zh": "幾粒當晶種用的砂糖"
+                }
+              ],
+              "steps": [
+                {
+                  "en": "Wet the string and roll it in sugar. These grains are your seed crystals.",
+                  "zh": "把棉線沾濕、在砂糖裡滾一滾，這些糖粒就是晶種。"
+                },
+                {
+                  "en": "An adult heats the water, stirs in the sugar until it dissolves, and lets it cool a little before pouring it into the jar.",
+                  "zh": "請大人把水加熱，攪入糖直到溶化，稍微放涼後倒進罐子。"
+                },
+                {
+                  "en": "Tie the string to the pencil and hang it in the syrup without touching the sides or bottom. Leave the jar still for several days.",
+                  "zh": "把棉線綁在鉛筆上，垂進糖漿裡，不要碰到罐子的側面和底部。靜置幾天。"
+                },
+                {
+                  "en": "Look at the crystals with a magnifying glass. How did the seeds decide where the crystals grew? How is this like pulling a silicon crystal from a seed?",
+                  "zh": "用放大鏡看晶體：晶種怎麼決定晶體長在哪裡？這和用晶種拉出矽單晶有什麼像的地方？"
+                }
+              ],
+              "tip_en": "Do not move or shake the jar while the crystals grow. This makes many small crystals, not a few big ones. Silicon crystals are pulled slowly and smoothly for the same reason.",
+              "tip_zh": "晶體長大時不要移動或搖晃罐子，否則會長出很多小晶體，而不是幾塊大的。矽單晶要慢慢、平穩地拉，也是同樣的道理。"
+            }
+          ],
+          "sources": [
+            {
+              "en": "Silicon is 27.7% of Earth's crust by mass; melts at 1,414 °C; made by reducing sand with carbon in an electric furnace",
+              "zh": "矽占地殼質量 27.7%；熔點 1,414 °C；以碳在電爐中還原製成",
+              "src": "Royal Society of Chemistry, Periodic Table",
+              "url": "https://periodic-table.rsc.org/element/14/silicon"
+            },
+            {
+              "en": "Silicon of 96–99% purity is made by reducing quartzite or sand with coke in an electric arc furnace",
+              "zh": "純度 96–99% 的矽是用焦炭在電弧爐中還原石英岩或沙製成",
+              "src": "Wikipedia, “Silicon”",
+              "url": "https://en.wikipedia.org/wiki/Silicon"
+            },
+            {
+              "en": "Quartz is put into a submerged arc furnace at above 2,000 °C",
+              "zh": "石英放入溫度超過 2,000 °C 的埋弧爐",
+              "src": "NTNU (Norwegian University of Science and Technology)",
+              "url": "https://ntnu.edu/metpro/karin-fjeldstad-jusnes"
+            },
+            {
+              "en": "Silicon smelting uses quartz rock and carbon as the charge",
+              "zh": "煉矽以石英岩和碳為原料",
+              "src": "University of Oxford, Mathematical Institute",
+              "url": "https://www.maths.ox.ac.uk/node/38368"
+            },
+            {
+              "en": "Siemens process: trichlorosilane deposited on silicon filaments heated to up to 1,150 °C; electronic grade 10N–11N; developed by Siemens and Wacker in the 1950s",
+              "zh": "西門子法：三氯矽烷沉積在加熱到最高 1,150 °C 的矽棒；電子級 10N–11N；1950 年代由西門子與瓦克發展",
+              "src": "Bernreuter Research",
+              "url": "https://www.bernreuter.com/polysilicon/production-processes/"
+            },
+            {
+              "en": "Polycrystalline silicon and the Siemens process",
+              "zh": "多晶矽與西門子法",
+              "src": "Wikipedia, “Polycrystalline silicon”",
+              "url": "https://en.wikipedia.org/wiki/Polycrystalline_silicon"
+            },
+            {
+              "en": "Czochralski method: seed dipped into molten silicon, pulled up and rotated; invented 1916, reported 1918; ingots up to 2 m long, several hundred kilograms; the inkwell anecdote",
+              "zh": "柴可拉斯基法：晶種浸入熔融矽、邊轉邊拉；1916 年發明、1918 年發表；晶棒長達 2 公尺、重數百公斤；墨水瓶的軼事",
+              "src": "Wikipedia, “Czochralski method”",
+              "url": "https://en.wikipedia.org/wiki/Czochralski_method"
+            },
+            {
+              "en": "Jan Czochralski and the anecdote of the pen dipped in molten tin",
+              "zh": "柴可拉斯基與筆沾到熔錫的軼事",
+              "src": "Science in Poland (2013)",
+              "url": "https://scienceinpoland.pl/en/news/news%2C397758%2Cjan-czochralski---scholar-whose-technology-changed-the-world.html"
+            },
+            {
+              "en": "Wafer making: crystal pulling, wire-saw slicing, lapping, etching, mirror polishing",
+              "zh": "晶圓製程：拉晶、鋼線切片、研磨、蝕刻、鏡面拋光",
+              "src": "SUMCO",
+              "url": "https://www.sumcosi.com/english/products/process/"
+            },
+            {
+              "en": "300 mm (11.8 inch, usually called 12 inch) wafers introduced 1999, typically 775 µm thick, with a notch; 450 mm research group began dismantling in 2017; die-per-wafer estimate formula",
+              "zh": "300 mm（11.8 吋，俗稱 12 吋）晶圓 1999 年推出、厚約 775 µm、有缺口；450 mm 研究聯盟 2017 年開始解散；每片晶圓晶片數估算公式",
+              "src": "Wikipedia, “Wafer (electronics)”",
+              "url": "https://en.wikipedia.org/wiki/Wafer_(electronics)"
+            },
+            {
+              "en": "300 mm wafer specification: 775 ± 25 µm thick, SEMI standard notch",
+              "zh": "12 吋晶圓規格：厚 775 ± 25 µm、SEMI 標準缺口",
+              "src": "SVM wafer specification sheet",
+              "url": "https://svmi.com/wp-content/uploads/2020/09/SV031.pdf"
+            },
+            {
+              "en": "EUV scanner field size 26 mm × 33 mm (0.33 NA)",
+              "zh": "EUV 曝光機一次曝光範圍 26 × 33 mm（0.33 NA）",
+              "src": "Wikipedia, “Extreme ultraviolet lithography”",
+              "url": "https://en.wikipedia.org/wiki/Extreme_ultraviolet_lithography"
+            },
+            {
+              "en": "Die: a piece of a wafer; plural dies or dice",
+              "zh": "晶片（die）：晶圓切下的一塊；複數 dies 或 dice",
+              "src": "Wikipedia, “Die (integrated circuit)”",
+              "url": "https://en.wikipedia.org/wiki/Die_(integrated_circuit)"
+            },
+            {
+              "en": "Wafer dicing: separating the dies by saw, laser, or plasma",
+              "zh": "晶圓切割：用鋸片、雷射或電漿把晶片分開",
+              "src": "Wikipedia, “Wafer dicing”",
+              "url": "https://en.wikipedia.org/wiki/Wafer_dicing"
+            },
+            {
+              "en": "Every die is tested on the wafer before packaging; bad dies are not packaged",
+              "zh": "每顆晶片在封裝前先在晶圓上測試；壞的不封裝",
+              "src": "Wikipedia, “Wafer testing”",
+              "url": "https://en.wikipedia.org/wiki/Wafer_testing"
+            },
+            {
+              "en": "Glass is an amorphous solid with no long-range order",
+              "zh": "玻璃是沒有長程秩序的非晶質固體",
+              "src": "Wikipedia, “Amorphous solid”",
+              "url": "https://en.wikipedia.org/wiki/Amorphous_solid"
+            },
+            {
+              "en": "Monocrystalline silicon: one continuous crystal lattice",
+              "zh": "單晶矽：整塊連續的晶格",
+              "src": "Wikipedia, “Monocrystalline silicon”",
+              "url": "https://en.wikipedia.org/wiki/Monocrystalline_silicon"
+            },
+            {
+              "en": "GlobalWafers: headquartered in Hsinchu Science Park; 300 mm and 200 mm wafer manufacturing",
+              "zh": "環球晶圓：總部在新竹科學園區；生產 12 吋與 8 吋晶圓",
+              "src": "GlobalWafers",
+              "url": "https://www.gw-semi.com/overview-locations/"
+            },
+            {
+              "en": "Wafer Works makes polished, epitaxial, and SOI silicon wafers",
+              "zh": "合晶科技生產拋光、磊晶與 SOI 矽晶圓",
+              "src": "Wafer Works",
+              "url": "https://www.waferworks.com/"
+            },
+            {
+              "en": "Formosa SUMCO Technology makes 8-inch and 12-inch wafers in Mailiao, Yunlin",
+              "zh": "台塑勝高科技在雲林麥寮生產 8 吋與 12 吋晶圓",
+              "src": "Taipei Times (2022)",
+              "url": "https://www.taipeitimes.com/News/biz/archives/2022/05/30/2003778990"
+            },
+            {
+              "en": "Rock candy activity: 2.5 parts sugar to 1 part water; adult supervision for hot syrup",
+              "zh": "冰糖晶體活動：糖與水約 2.5 比 1；熱糖漿要大人監督",
+              "src": "ANU College of Science",
+              "url": "https://science.anu.edu.au/engagement/science-lab-experiments-home-school/how-make-rock-candy"
+            }
+          ]
+        }
+      ],
+      "planned": [
         {
           "n": 4,
           "icon": "🔦",

@@ -5858,7 +5858,7 @@ def build_htw_hub():
 _chipj = os.path.join(ROOT, "data", "semiconductors.json")
 CHIP = json.load(open(_chipj, encoding="utf-8")) if os.path.exists(_chipj) else None
 CHIP_BASE = "/resources/classes/semiconductors/"
-_CHIP_JS = {"doping": "chip-doping", "transistor": "chip-transistor"}   # lab.kind → assets/js/<bundle>.js
+_CHIP_JS = {"doping": "chip-doping", "transistor": "chip-transistor", "wafer": "chip-wafer"}   # lab.kind → assets/js/<bundle>.js
 
 def _chip_ver():
     h = hashlib.md5()
@@ -6008,6 +6008,82 @@ def render_chiptransistor_lab(lesson):
   <p class="cp-credit">{lab["credit_html"]}</p>
 </div>'''
 
+def chipwafer_svg(size=56):
+    """第三課的課程卡小圖示：一片晶圓（銀色圓、底部缺口），上面排滿藍色晶片方格。"""
+    cells = "".join(f'<rect x="{x}" y="{y}" width="6.4" height="6.4" rx=".8" fill="#2f6fd6"/>'
+                    for x in range(9, 50, 7) for y in range(9, 50, 7)
+                    if (x + 3.2 - 30) ** 2 + (y + 3.2 - 30) ** 2 <= 18 ** 2)
+    return (f'<svg class="chipwafer-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">'
+            '<circle cx="30" cy="30" r="25" fill="#c9d2de"/><circle cx="30" cy="30" r="25" fill="none" stroke="#5f7290" stroke-width="1.4"/>'
+            f'{cells}<circle cx="30" cy="55" r="1.8" fill="#0b1326"/></svg>')
+
+def render_chipwafer_lab(lesson):
+    """第三課：從沙子到晶片的生產線（assets/js/chip-wafer.js 綁這裡的 class；全部自繪示意）。"""
+    lab = lesson["lab"]
+    st = lab["steps"]
+    btns = "".join(f'<button type="button" data-step="{i}" aria-pressed="false"><b>{i + 1}</b>{html.escape(s["short_en"])}<small>{html.escape(s["short_zh"])}</small></button>'
+                   for i, s in enumerate(st))
+    panels = "".join(
+        f'<div class="cp-wf-panel" data-panel="{i}" hidden><p class="cp-wf-k">Step {i + 1} · 第 {i + 1} 步</p>'
+        f'<h3>{html.escape(s["title_en"])}<span class="zh">{html.escape(s["title_zh"])}</span></h3>'
+        f'<p class="cp-msg">{html.escape(s["text_en"])}<span class="zh">{html.escape(s["text_zh"])}</span></p>'
+        + ('<dl class="cp-nums">' + "".join(f'<div><dt>{html.escape(n["k_en"])} · {html.escape(n["k_zh"])}</dt><dd>{html.escape(n["v_en"])}<small>{html.escape(n["v_zh"])}</small></dd></div>' for n in s.get("nums", [])) + '</dl>' if s.get("nums") else '')
+        + '</div>' for i, s in enumerate(st))
+    data_steps = html.escape(json.dumps([{"short_en": s["short_en"], "short_zh": s["short_zh"]} for s in st], ensure_ascii=False))
+    tg = _lab_toggles([("labels", "Labels", "標示", True)])
+    return f'''<div class="astro-lab cp-lab cp-wf-lab rvl" data-chipwafer-lab data-steps="{data_steps}">
+  <div class="al-stage">
+    <div class="al-space">
+      <canvas class="al-space-cv" aria-label="3D production line from quartz sand to a packaged chip · 從石英砂到封裝晶片的 3D 生產線"></canvas>
+      <div class="al-labels" aria-hidden="true"></div>
+      <div class="cp-view" role="group" aria-label="View · 視角">
+        <button type="button" data-view="line" aria-pressed="true">Whole line<small>整條生產線</small></button>
+        <button type="button" data-view="step" aria-pressed="false">Close-up<small>近看這一步</small></button>
+      </div>
+      <p class="al-hint">Drag to turn · 拖曳旋轉　Scroll or pinch to zoom · 滾輪／雙指縮放</p>
+      <button type="button" class="al-home" title="Reset view · 重設視角" aria-label="Reset view · 重設視角">&#8634;</button>
+      <p class="al-nogl-msg">This 3D model needs WebGL, which this browser does not support. The reading and the cards below still explain everything.<br><span class="zh">這個瀏覽器不支援 WebGL，無法顯示 3D 模型；下方的課文與卡片一樣能看懂。</span></p>
+    </div>
+    <aside class="al-sky cp-aside">
+      <p class="al-sky-k">Six steps · 六個步驟</p>
+      <div class="cp-wf-steps" role="group" aria-label="Steps · 步驟">{btns}</div>
+      <button type="button" class="cp-wf-tour" aria-pressed="false"><span aria-hidden="true">&#9654;</span> <span class="t">Play the whole journey · 播放全程</span></button>
+      <p class="cp-msg">{html.escape(lab["overview_en"])}<span class="zh">{html.escape(lab["overview_zh"])}</span></p>
+      {panels}
+    </aside>
+  </div>
+  <div class="al-controls">
+    <div class="al-row al-row-main">
+      <button type="button" class="al-play" aria-pressed="true"><span class="al-play-i" aria-hidden="true"></span><span class="al-play-t">Pause · 暫停</span></button>
+      <div class="al-row al-toggles">{tg}</div>
+    </div>
+  </div>
+  {_lab_foot(lab)}
+  <p class="cp-credit">{lab["credit_html"]}</p>
+</div>'''
+
+def _chip_dies(dz):
+    """「一片晶圓切得出幾顆晶片？」（chip-wafer.js 的 initCalc 計算與畫圖；不需要 WebGL）。"""
+    pre = "".join(f'<button type="button" data-die="{p["w"]}x{p["h"]}" aria-pressed="false">{p["w"]} × {p["h"]} mm<small>{html.escape(p["zh"])}</small></button>'
+                  for p in dz["presets"])
+    return (f'<div class="cp-dpw rvl" data-chip-dies>'
+            f'<div class="cp-dpw-pic"><canvas class="cp-dpw-cv" aria-label="A 300 mm wafer covered with chips · 排滿晶片的 300 mm 晶圓"></canvas>'
+            f'<p class="cp-dpw-key"><i class="ok"></i>Whole chips · 完整晶片　<i class="no"></i>Wasted at the edge · 邊緣浪費</p></div>'
+            f'<div class="cp-dpw-side">'
+            f'<div class="cp-cnt-in"><label class="cp-cnt-l"><span>Chip size · 晶片大小 <output class="cp-dpw-size-out"></output></span>'
+            f'<input type="range" class="al-age cp-dpw-size" min="2" max="30" step="1" value="10" aria-label="Chip size in millimeters · 晶片邊長（公釐）"></label>'
+            f'<div class="cp-dpw-pre" role="group" aria-label="Presets · 範例">{pre}</div>'
+            f'<p class="cp-cnt-note">{html.escape(dz["note_en"])}<span class="zh">{html.escape(dz["note_zh"])}</span></p></div>'
+            f'<div class="cp-home-out cp-cnt-out" aria-live="polite">'
+            f'<p class="cp-home-k">One 300 mm wafer · 一片 12 吋晶圓</p>'
+            f'<p class="cp-home-big"><b class="cp-dpw-full">0</b> whole chips</p>'
+            f'<p class="cp-home-zh"><b class="cp-dpw-full">0</b> 顆完整的晶片</p>'
+            f'<p class="cp-home-sub"><b class="cp-dpw-part">0</b> pieces wasted at the edge · 邊緣浪費 <b class="cp-dpw-part">0</b> 塊</p>'
+            f'<p class="cp-home-sub">Wafer area used by whole chips · 完整晶片占晶圓面積 <b class="cp-dpw-used">0%</b></p>'
+            f'<p class="cp-home-note">The common shortcut formula says about <b class="cp-dpw-approx">0</b>.<span class="zh">常用的近似公式算出約 <b class="cp-dpw-approx">0</b> 顆。</span></p>'
+            f'</div></div></div>'
+            '<noscript><p class="muted">The calculator works in your browser and needs JavaScript. · 計算在瀏覽器裡進行，需要開啟 JavaScript。</p></noscript>')
+
 def _chip_count(ct):
     """「一顆一顆數，要數多久？」（chip-transistor.js 的 initCount 計算；不需要 WebGL）。"""
     opts = "".join(f'<option value="{i}"{" selected" if i == ct.get("default", 0) else ""}>{html.escape(c["en"])} · {html.escape(c["zh"])}</option>'
@@ -6085,12 +6161,15 @@ def build_chip_lesson(ui, unit, lesson):
     reading_html = render_basic_unit(1, unit_dict, level="chips", audio_rel="", pdf_rel="")
     lab = lesson["lab"]
     kind = lab["kind"]
-    lab_html = {"doping": render_chipdoping_lab, "transistor": render_chiptransistor_lab}[kind](lesson)
+    lab_html = {"doping": render_chipdoping_lab, "transistor": render_chiptransistor_lab, "wafer": render_chipwafer_lab}[kind](lesson)
 
     secs = []
     if lesson.get("home"):
         hm = lesson["home"]
         secs.append(("home", hm["eyebrow"], hm["en"], hm["zh"], _chip_home(hm), _bi(hm["lead_en"], hm["lead_zh"], cls="lead rvl d2")))
+    if lesson.get("dies"):
+        dz = lesson["dies"]
+        secs.append(("dies", dz["eyebrow"], dz["en"], dz["zh"], _chip_dies(dz), _bi(dz["lead_en"], dz["lead_zh"], cls="lead rvl d2")))
     if lesson.get("count"):
         ct = lesson["count"]
         secs.append(("count", ct["eyebrow"], ct["en"], ct["zh"], _chip_count(ct), _bi(ct["lead_en"], ct["lead_zh"], cls="lead rvl d2")))
@@ -6137,7 +6216,8 @@ def build_chip_lesson(ui, unit, lesson):
                      _bi(cu["lead_en"], cu["lead_zh"], cls="lead rvl d2")))
     secs.append(("myths", "Myth vs. Fact · 常見迷思", "Four things people get wrong", "四個常見的誤會", _sci_myths(lesson), ""))
     tricks_h = {"doping": ("Semiconductors in a sentence", "一句話記住半導體"),
-                "transistor": ("Transistors in a sentence", "一句話記住電晶體")}[kind]
+                "transistor": ("Transistors in a sentence", "一句話記住電晶體"),
+                "wafer": ("From sand to chip in a sentence", "一句話記住沙子變晶片")}[kind]
     secs.append(("tricks", "Remember It · 記憶口訣", tricks_h[0], tricks_h[1], _sci_tricks(lesson), ""))
     if lesson.get("safety"):
         items = "".join(f'<li class="rvl">{html.escape(s["en"])}<span class="zh">{html.escape(s["zh"])}</span></li>' for s in lesson["safety"])
@@ -6191,7 +6271,7 @@ def build_chip_lesson(ui, unit, lesson):
 def build_chip_hub():
     # 照萬物原理：單元導覽＋每個單元一段橫向課程卡；做好的課可點，planned 是「製作中」卡。
     def icon(l):
-        return chipsilicon_svg(60) if l.get("card") == "silicon" else chiptransistor_svg(60) if l.get("card") == "transistor" else l["icon"]
+        return chipsilicon_svg(60) if l.get("card") == "silicon" else chiptransistor_svg(60) if l.get("card") == "transistor" else chipwafer_svg(60) if l.get("card") == "wafer" else l["icon"]
     unit_sections, nav = [], []
     done = sum(len(u["lessons"]) for u in CHIP["units"])
     total = done + sum(len(u.get("planned", [])) for u in CHIP["units"])
