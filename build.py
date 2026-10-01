@@ -3851,7 +3851,7 @@ def build_astro_hub():
 # 面板與段落樣式沿用 astro.css，人體專屬的在 body.css；兩者都只載在本系列頁面。
 BODY_BASE = "/resources/classes/human-body/"
 _BODY_JS = {"skeleton": "skeleton", "arm": "arm", "heart": "heart", "lungs": "lungs", "joints": "joints",
-            "digestion": "digestion", "nerves": "nerves"}   # lab.kind → assets/js/<bundle>.js
+            "digestion": "digestion", "nerves": "nerves", "eyes": "eyes"}   # lab.kind → assets/js/<bundle>.js
 
 def _body_ver():
     h = hashlib.md5()
@@ -4254,6 +4254,84 @@ def render_nerves_lab(lesson):
   <p class="sk-credit">{lab["credit_html"]}</p>
 </div>'''
 
+def render_eyes_lab(lesson):
+    """第八課：放大剖開的眼睛＋光線（assets/js/eyes.js 綁這裡的 class）；盲點測驗卡是 2D，不需要 WebGL。"""
+    lab = lesson["lab"]
+    objs = [("far", "&#127795;", "Far tree", "遠方的樹 · 6 m"), ("near", "&#129716;", "Plant on the desk", "桌上的盆栽 · 30 cm"),
+            ("close", "&#129295;", "Too close", "太近了 · 10 cm")]
+    obj_btns = "".join(
+        f'<button type="button" data-obj="{k}" aria-pressed="{"true" if k == "far" else "false"}"><i aria-hidden="true">{ic}</i>'
+        f'<span>{en}<small>{zh}</small></span></button>' for k, ic, en, zh in objs)
+    eyes = [("normal", "Normal", "正常"), ("near", "Nearsighted", "近視"), ("far", "Farsighted", "遠視")]
+    eye_btns = "".join(
+        f'<button type="button" data-eye="{k}" aria-pressed="{"true" if k == "normal" else "false"}">{en}<small>{zh}</small></button>'
+        for k, en, zh in eyes)
+    tg = _lab_toggles([("auto", "Auto-focus", "自動對焦", True), ("labels", "Labels", "標示", True),
+                       ("rays", "Light rays", "光線", True), ("skull", "Skull and brain", "頭骨與大腦", True)])
+    return f'''<div class="astro-lab sk-lab ey-lab rvl" data-eyes-lab data-model="{_model_url()}">
+  <div class="al-stage">
+    <div class="al-space">
+      <canvas class="al-space-cv" aria-label="3D model of an eye cut in half, with light from a tree crossing inside it and landing upside down on the retina · 剖開一半的眼睛 3D 模型，樹的光在眼睛裡交叉，上下顛倒地落在視網膜上"></canvas>
+      <div class="al-labels" aria-hidden="true"></div>
+      <p class="sk-loading">Loading… · 載入中…<span class="sk-bar"><i></i></span></p>
+      <p class="al-hint">Drag to turn · 拖曳旋轉　Scroll or pinch to zoom · 滾輪／雙指縮放</p>
+      <p class="ey-mag">Eye shown 5&times; life size, cut in half · 眼球放大 5 倍、剖開一半</p>
+      <button type="button" class="al-home" title="Reset view · 重設視角" aria-label="Reset view · 重設視角">&#8634;</button>
+      <p class="al-nogl-msg">This 3D model needs WebGL, which this browser does not support. The blind spot card and the cards below still work.<br><span class="zh">這個瀏覽器不支援 WebGL，無法顯示 3D 模型；下方的盲點測驗卡和卡片一樣能用。</span></p>
+    </div>
+    <aside class="al-sky sk-aside ey-aside">
+      <p class="al-sky-k">Look at · 看什麼</p>
+      <div class="ey-objs" role="group" aria-label="What the eye looks at · 眼睛看什麼">{obj_btns}</div>
+      <div class="ey-views">
+        <figure><canvas class="ey-cv ey-cv-ret" width="320" height="240"></canvas>
+          <figcaption>On the retina<small>視網膜上：上下顛倒</small></figcaption></figure>
+        <figure><canvas class="ey-cv ey-cv-see" width="320" height="240"></canvas>
+          <figcaption>What you see<small>你看到的：大腦轉正</small></figcaption></figure>
+      </div>
+      <p class="ey-status" aria-live="polite"></p>
+      <dl class="ey-nums">
+        <div><dt>Distance · 距離</dt><dd class="ey-dist">6 m</dd></div>
+        <div><dt>Pupil · 瞳孔</dt><dd class="ey-pupil">—</dd></div>
+        <div><dt>Lens · 水晶體</dt><dd class="ey-lensd">—</dd></div>
+      </dl>
+      <p class="al-sky-k">Eye · 眼睛</p>
+      <div class="ey-types" role="group" aria-label="Kind of eye · 眼睛的類型">{eye_btns}</div>
+      <div class="ey-more">
+        <button type="button" class="ey-glasses" aria-pressed="false" disabled><i aria-hidden="true">&#128083;</i><span>Put on glasses<small>戴上眼鏡</small></span></button>
+        <button type="button" class="ey-blind" aria-pressed="false"><i aria-hidden="true">&#9899;</i><span>Blind spot<small>盲點</small></span></button>
+      </div>
+    </aside>
+  </div>
+  <div class="ey-strip">
+    <div class="ey-card" data-side="left" data-mode="dot" role="img" aria-label="Blind spot test card: a cross and a dot · 盲點測驗卡：一個十字和一個圓點">
+      <i class="ey-line" aria-hidden="true"></i><b class="ey-cross" aria-hidden="true">+</b><b class="ey-dot" aria-hidden="true"></b>
+    </div>
+    <div class="ey-bs-text">
+      <p class="al-sky-k">Blind spot test · 盲點測驗</p>
+      <p class="ey-bs-msg"></p>
+      <div class="ey-bs-btns">
+        <button type="button" class="ey-bs-eye">&#8644; Test my other eye<small>換測另一隻眼睛</small></button>
+        <button type="button" class="ey-bs-mode">&#10135; Try a broken line<small>改成斷掉的線</small></button>
+        <button type="button" class="ey-bs-3d">&#128065;&#65039; Where does the dot land?<small>在 3D 眼睛裡看圓點落在哪</small></button>
+      </div>
+      <div class="ey-calc">
+        <label>Gap between + and dot<small>十字到圓點</small><span><input type="number" class="ey-gap" min="1" max="40" step="0.1" inputmode="decimal"> cm</span></label>
+        <label>Your eye to the screen<small>眼睛到螢幕</small><span><input type="number" class="ey-far" min="5" max="100" step="1" inputmode="decimal"> cm</span></label>
+        <p class="ey-angle" aria-live="polite">Measure both with a ruler when the dot disappears.<span class="zh">圓點消失時，用尺量出這兩個距離。</span></p>
+      </div>
+    </div>
+  </div>
+  <div class="al-controls">
+    <label class="ec-slider ey-light-row"><span class="ec-slider-k">Light · 光線<em>dim · 暗 &harr; bright sunlight · 大太陽</em></span>
+      <input type="range" class="ec-time ey-light" min="0" max="100" step="1" value="55"></label>
+    <label class="ec-slider ey-lens-row"><span class="ec-slider-k">Lens shape · 水晶體形狀<em>flat, for far · 扁：看遠 &harr; round, for near · 圓：看近</em></span>
+      <input type="range" class="ec-time ey-lens" min="0" max="100" step="1" value="0"></label>
+    <div class="al-row al-toggles">{tg}</div>
+  </div>
+  {_lab_foot(lab)}
+  <p class="sk-credit">{lab["credit_html"]}</p>
+</div>'''
+
 def _body_nav(slug):
     ls = BODY["lessons"]
     i = next(n for n, l in enumerate(ls) if l["slug"] == slug)
@@ -4278,7 +4356,8 @@ def build_body_lesson(lesson):
     lab = lesson["lab"]
     kind = lab["kind"]
     lab_html = {"skeleton": render_skeleton_lab, "arm": render_arm_lab, "heart": render_heart_lab, "lungs": render_lungs_lab,
-                "joints": render_joints_lab, "digestion": render_digestion_lab, "nerves": render_nerves_lab}[kind](lesson)
+                "joints": render_joints_lab, "digestion": render_digestion_lab, "nerves": render_nerves_lab,
+                "eyes": render_eyes_lab}[kind](lesson)
 
     secs = []
     if lesson.get("jobs"):
@@ -4380,7 +4459,8 @@ def build_body_lesson(lesson):
     tricks_h = {"skeleton": ("Bones in a sentence", "一句話記住骨頭"), "arm": ("Muscles in a sentence", "一句話記住肌肉"),
                 "heart": ("The heart in a sentence", "一句話記住心臟"), "lungs": ("Breathing in a sentence", "一句話記住呼吸"),
                 "joints": ("Joints in a sentence", "一句話記住關節"), "digestion": ("Digestion in a sentence", "一句話記住消化"),
-                "nerves": ("Your nervous system in a sentence", "一句話記住神經系統")}[kind]
+                "nerves": ("Your nervous system in a sentence", "一句話記住神經系統"),
+                "eyes": ("Your eyes in a sentence", "一句話記住眼睛")}[kind]
     secs.append(("tricks", "Remember It · 記憶口訣", tricks_h[0], tricks_h[1], _sci_tricks(lesson), ""))
     if lesson.get("culture"):
         cu = lesson["culture"]

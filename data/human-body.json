@@ -14,13 +14,7 @@
       "zh": "每一課也會請你在自己身上量一量、數一數，並附生字、閱讀理解、小測驗和課堂活動。本系列是教育用途，不是醫療建議。"
     }
   ],
-  "planned": [
-    {
-      "icon": "👁️",
-      "en": "How Do Your Eyes See?",
-      "zh": "眼睛怎麼看見東西？"
-    }
-  ],
+  "planned": [],
   "lessons": [
     {
       "n": 1,
@@ -3393,6 +3387,435 @@
       },
       "health_en": "This lesson is for learning about the body. It is not medical advice. If you hit your head and feel dizzy, sick to your stomach, or very sleepy, tell an adult right away. Wear a helmet when you ride, and keep your phone away while crossing the street.",
       "health_zh": "本課是認識身體的教材，不是醫療建議。如果撞到頭之後覺得頭暈、想吐，或特別想睡，請馬上告訴大人。騎車要戴安全帽，過馬路時不要看手機。"
+    },
+    {
+      "n": 8,
+      "slug": "eyes",
+      "title": "How Do Your Eyes See?",
+      "title_zh": "眼睛怎麼看見東西？",
+      "level": "入門 · Beginner",
+      "icon": "👁️",
+      "card": "eyes",
+      "blurb_en": "Light bends inside your eye and paints an upside-down picture at the back. Focus a 3D eye near and far, fix blurry vision with glasses, and find the blind spot in your own eye.",
+      "blurb_zh": "光在眼睛裡轉彎，在眼球後面畫出一幅上下顛倒的圖。讓 3D 眼睛看遠看近、戴上眼鏡修正模糊，再找出你自己眼睛裡的盲點。",
+      "big_idea_en": "Your eye works like a camera. The cornea and the lens bend light to make a sharp, upside-down picture on the retina, and your brain turns it right side up. Where the optic nerve leaves the eye, there are no light-sensing cells, so every eye has a blind spot.",
+      "big_idea_zh": "眼睛就像一台相機：角膜和水晶體把光折彎，在視網膜上形成清楚、上下顛倒的像，大腦再把它轉正。視神經離開眼球的地方沒有感光細胞，所以每隻眼睛都有一個盲點。",
+      "lab": {
+        "kind": "eyes",
+        "eyebrow": "3D Model · 3D 模型",
+        "title_en": "Follow the Light into Your Eye",
+        "title_zh": "跟著光走進眼睛",
+        "how_en": "Pick something far or near, and watch light from its top and bottom cross inside the eye and land upside down on the retina. Turn the light up and down to see the pupil change, focus the lens yourself, then switch to a nearsighted or farsighted eye and put on glasses. The blind spot button shows where light goes when part of a picture disappears.",
+        "how_zh": "選一個遠的或近的東西，看它上端和下端的光在眼睛裡交叉，上下顛倒地落在視網膜上。把光線調亮調暗，看瞳孔怎麼變；自己動手調水晶體對焦；再換成近視或遠視的眼睛，戴上眼鏡試試。按「盲點」，看看畫面有一部分消失時，光落到了哪裡。",
+        "legend": [
+          {
+            "cls": "raytop",
+            "en": "Green lines: light from the top of the object",
+            "zh": "綠色的線：物體上端發出的光"
+          },
+          {
+            "cls": "raybot",
+            "en": "Orange lines: light from the bottom of the object",
+            "zh": "橘色的線：物體下端發出的光"
+          },
+          {
+            "cls": "focus",
+            "en": "White dots: where the light comes to a point",
+            "zh": "白色的點：光聚成一點的地方（焦點）"
+          },
+          {
+            "cls": "disc",
+            "en": "Pale spot: the blind spot, where the optic nerve leaves",
+            "zh": "淡黃色的圓點：盲點，視神經離開眼球的地方"
+          },
+          {
+            "cls": "visual",
+            "en": "Green glow: the vision area at the back of the brain",
+            "zh": "綠色的光：後腦的視覺區"
+          }
+        ],
+        "scale_en": "The skull is real, from the same BodyParts3D skeleton as Lesson 1; the eye is our own drawing, shown five times bigger than life and cut in half so you can see inside. The distances to the tree and the plant are not to scale, and the focusing errors are made bigger so they are easy to see. Young eyes can usually focus even closer than this model does.",
+        "scale_zh": "頭骨是真實的，和第一課同一副 BodyParts3D 骨架；眼睛是本站自繪的示意圖，放大成真實的五倍，並且剖開一半讓你看見裡面。到樹和盆栽的距離沒有照比例，對焦的誤差也刻意放大，方便看清楚。年輕的眼睛通常能對焦得比這個模型更近。",
+        "credit_html": "Bone models: <a href=\"https://dbarchive.biosciencedbc.jp/en/bodyparts3d/download.html\" target=\"_blank\" rel=\"noopener\">BodyParts3D</a>, © The Database Center for Life Science, licensed under <a href=\"https://creativecommons.org/licenses/by/4.0/\" target=\"_blank\" rel=\"noopener\">CC BY 4.0</a>. We selected the bones, simplified the shapes, and turned the model upright; the eye, the brain, and the objects are our own drawing. · 骨骼模型來源：BodyParts3D（日本生命科學資料庫中心，CC BY 4.0 授權）；本站挑選骨頭、簡化形狀並轉正方向，眼睛、大腦與物體為本站自繪示意。"
+      },
+      "paras": [
+        "Look up from this page at something far away, then look back down. Your eyes just changed their focus twice, and you probably did not even notice. Each eye is a ball about 2.4 centimeters across, filled with a clear jelly. Light bounces off everything around you, and some of it enters your eyes. Inside, the light is bent to make a tiny, sharp picture at the back of each eye, a lot like the picture inside a camera. Your eyes collect the light, but the seeing itself happens in your brain.",
+        "The front of the eye lets light in. First comes the cornea, a clear, curved window that does most of the bending of light. Behind it is the iris, the colored part of your eye, which is a ring of muscle. The black circle in the middle of the iris is the pupil, and it is simply a hole. In bright sunlight, the iris makes the pupil as small as 2 millimeters to keep out extra light. In the dark, it opens the pupil to about 8 millimeters to catch as much light as it can. When you walk into a dark movie theater, your pupils open wide in seconds, but your eyes need several more minutes to get used to the dark.",
+        "Behind the pupil is the lens, which fine-tunes the focus. A ring of tiny muscles around it changes its shape. To see something far away, the lens is pulled flatter. To see something up close, the muscles tighten and the lens gets rounder, so it bends light more. Light from each point of an object comes together at one point on the retina, the thin layer at the back of the eye. But here is a surprise: the picture on your retina is upside down and flipped left to right. Your brain sorts this out, so the world looks right side up.",
+        "The retina is where light turns into nerve signals. It has more than 120 million light-sensing cells of two kinds. Rods work in dim light but cannot see color, which is why things look gray at night. Cones need brighter light, and they let you see colors and fine details. The signals leave the eye through the optic nerve, a cable of about a million nerve fibers. Where the optic nerve leaves the eye, there are no light-sensing cells at all, so every eye has a blind spot. You never notice it, because your two eyes cover for each other and your brain fills in the gap.",
+        "Some eyes have trouble focusing. In a nearsighted eye, the eyeball is a little too long. Light from faraway things comes to a point in front of the retina, so the board at school looks blurry, but a book up close looks sharp. In a farsighted eye, the eyeball is a little too short, so things up close are harder to see clearly. Glasses fix both problems by bending the light a little before it enters the eye. Lenses for nearsighted eyes are thinner in the middle and spread the light out. Lenses for farsighted eyes are thicker in the middle and bring the light together.",
+        "Taiwan has one of the highest rates of nearsightedness in the world, and most students here are nearsighted by the end of elementary school. Scientists have found that children who spend more time outdoors are less likely to become nearsighted, which is why Taiwan encourages two hours outside every day. When you read or use a screen, keep it at least 30 centimeters away, and every 30 minutes, rest your eyes for 10 minutes by looking far away. Never look straight at the Sun. Now try the blind spot test below the model and find the hole in your own vision."
+      ],
+      "paras_zh": [
+        "從這一頁抬起頭，看看遠方的東西，再低頭看回來。你的眼睛剛剛換了兩次焦距，你大概完全沒注意到。每隻眼睛都是一顆直徑約 2.4 公分的球，裡面裝滿透明的膠狀物。光從身邊的每樣東西反射出來，其中一些進入你的眼睛。在眼睛裡，光被折彎，在每隻眼睛的後面形成一幅小小的、清楚的圖像，很像相機裡的影像。眼睛負責收集光，真正「看見」卻是在大腦裡發生的。",
+        "眼睛的前面負責讓光進來。最前面是角膜，一片透明、彎彎的窗戶，大部分的折光都是它做的。角膜後面是虹膜，就是眼睛有顏色的部分，它是一圈肌肉。虹膜中間的黑色圓圈是瞳孔，它其實只是一個洞。在明亮的陽光下，虹膜把瞳孔縮小到只有 2 毫米，擋掉多餘的光；在黑暗中，它把瞳孔張開到大約 8 毫米，盡量收集光線。走進漆黑的電影院時，瞳孔幾秒鐘就張大了，但眼睛還要再過好幾分鐘才能適應黑暗。",
+        "瞳孔後面是水晶體，負責微調焦距。它周圍有一圈很小的肌肉，可以改變它的形狀。要看遠方的東西，水晶體被拉得比較扁；要看近的東西，肌肉收緊，水晶體變得比較圓，把光折得更多。物體上每一點發出的光，會聚在視網膜上的一點；視網膜是眼睛後面薄薄的一層。不過有件令人驚訝的事：視網膜上的像是上下顛倒、左右相反的。大腦會把它整理好，所以你看到的世界是正的。",
+        "視網膜是光變成神經訊號的地方。它有超過一億兩千萬個感光細胞，分成兩種：桿狀細胞在昏暗的光線下工作，但看不出顏色，所以晚上東西看起來灰灰的；錐狀細胞需要比較亮的光，讓你看見顏色和細節。訊號經由視神經離開眼睛，視神經是一條大約有一百萬條神經纖維的電纜。視神經離開眼球的地方完全沒有感光細胞，所以每隻眼睛都有一個盲點。你從來沒注意到它，因為兩隻眼睛會互相補位，大腦也會把空缺補起來。",
+        "有些眼睛對焦有困難。近視的眼睛，眼球稍微太長，遠方東西的光在視網膜前面就聚成一點，所以教室的黑板看起來模模糊糊，近處的書卻很清楚。遠視的眼睛，眼球稍微太短，所以近的東西比較難看清楚。眼鏡在光進入眼睛之前先把它稍微折彎，兩種問題都能解決。近視的鏡片中間比較薄，把光散開；遠視的鏡片中間比較厚，把光聚攏。",
+        "台灣是全世界近視比率最高的地方之一，大多數學生到國小畢業時就已經近視了。科學家發現，在戶外待得比較久的孩子比較不容易近視，所以台灣鼓勵大家每天到戶外兩小時。看書或看螢幕時，至少保持 30 公分的距離，每看 30 分鐘就休息 10 分鐘，看看遠方。絕對不要直視太陽。現在試試模型下方的盲點測驗，找出你自己視野裡的那個洞。"
+      ],
+      "questions": [
+        "What do the cornea and the lens do?",
+        "Why does every eye have a blind spot?",
+        "Why can a nearsighted person read a book easily but not the board at school?"
+      ],
+      "answers": [
+        "They bend light so that it makes a sharp picture on the retina. The cornea does most of the bending, and the lens changes shape to focus on things near or far.",
+        "Where the optic nerve leaves the eye, there are no light-sensing cells, so light that lands on that spot is not seen.",
+        "A nearsighted eyeball is a little too long. Light from faraway things comes to a point in front of the retina, so they look blurry, but light from things up close comes to a point on the retina."
+      ],
+      "vocab": [
+        {
+          "n": 1,
+          "w": "pupil",
+          "pos": "n.",
+          "zh": "瞳孔",
+          "ex": "Your <b>pupils</b> get bigger when you walk into a dark room.",
+          "exzh": "走進暗暗的房間時，你的瞳孔會變大。"
+        },
+        {
+          "n": 2,
+          "w": "lens",
+          "pos": "n.",
+          "zh": "水晶體；鏡片",
+          "ex": "One <b>lens</b> of my glasses has a scratch on it.",
+          "exzh": "我的眼鏡有一片鏡片刮傷了。"
+        },
+        {
+          "n": 3,
+          "w": "retina",
+          "pos": "n.",
+          "zh": "視網膜",
+          "ex": "The eye doctor took a photo of my <b>retina</b>.",
+          "exzh": "眼科醫生幫我的視網膜拍了一張照片。"
+        },
+        {
+          "n": 4,
+          "w": "focus",
+          "pos": "v.",
+          "zh": "對焦；看清楚",
+          "ex": "Hold the book still so your eyes can <b>focus</b> on the words.",
+          "exzh": "把書拿穩，眼睛才能對準字、看清楚。"
+        },
+        {
+          "n": 5,
+          "w": "blurry",
+          "pos": "adj.",
+          "zh": "模糊的",
+          "ex": "Without my glasses, the board looks <b>blurry</b>.",
+          "exzh": "沒戴眼鏡時，黑板看起來模模糊糊的。"
+        },
+        {
+          "n": 6,
+          "w": "upside down",
+          "pos": "adv.",
+          "zh": "上下顛倒",
+          "ex": "He held the map <b>upside down</b> and got lost.",
+          "exzh": "他把地圖拿反了，結果迷路了。"
+        },
+        {
+          "n": 7,
+          "w": "nearsighted",
+          "pos": "adj.",
+          "zh": "近視的",
+          "ex": "My brother is <b>nearsighted</b>, so he sits in the front row.",
+          "exzh": "我哥哥近視，所以坐在第一排。"
+        },
+        {
+          "n": 8,
+          "w": "blind spot",
+          "pos": "n.",
+          "zh": "盲點；視線死角",
+          "ex": "A big truck has a <b>blind spot</b> where the driver cannot see you.",
+          "exzh": "大卡車有一個駕駛看不到你的視線死角。"
+        }
+      ],
+      "quiz": [
+        {
+          "q": "Which part of the eye does most of the bending of light?",
+          "options": [
+            "The cornea",
+            "The iris",
+            "The retina",
+            "The optic nerve"
+          ],
+          "correct": 0
+        },
+        {
+          "q": "What does the pupil do in a dark room?",
+          "options": [
+            "It gets bigger",
+            "It gets smaller",
+            "It closes",
+            "It changes color"
+          ],
+          "correct": 0
+        },
+        {
+          "q": "What is surprising about the picture on your retina?",
+          "options": [
+            "It is upside down",
+            "It is only black and white",
+            "It is bigger than the eye",
+            "It is made by the iris"
+          ],
+          "correct": 0
+        },
+        {
+          "q": "Which cells let you see colors?",
+          "options": [
+            "Cones",
+            "Rods",
+            "Bone cells",
+            "Muscle cells"
+          ],
+          "correct": 0
+        },
+        {
+          "q": "According to the reading, what do lenses for nearsighted eyes look like?",
+          "options": [
+            "Thinner in the middle",
+            "Thicker in the middle",
+            "Completely flat",
+            "Dark like sunglasses"
+          ],
+          "correct": 0
+        }
+      ],
+      "kinds_head": {
+        "eyebrow": "Parts of the Eye · 眼睛的構造",
+        "en": "Who does what inside your eye",
+        "zh": "眼睛裡誰負責什麼"
+      },
+      "kinds": [
+        {
+          "icon": "🪟",
+          "en": "Cornea",
+          "zh": "角膜",
+          "where_en": "The clear window at the very front",
+          "where_zh": "最前面的透明窗戶",
+          "control_en": "Bends light the most",
+          "control_zh": "負責大部分的折光",
+          "text_en": "It has no blood vessels, so it stays perfectly clear. It gets its oxygen straight from the air and from your tears.",
+          "text_zh": "它沒有血管，所以能保持完全透明；它直接從空氣和眼淚裡取得氧氣。"
+        },
+        {
+          "icon": "🎨",
+          "en": "Iris and pupil",
+          "zh": "虹膜與瞳孔",
+          "where_en": "The colored ring and the hole in its middle",
+          "where_zh": "有顏色的圓環和中間的洞",
+          "control_en": "Lets in the right amount of light",
+          "control_zh": "讓剛好的光量進來",
+          "text_en": "Brown, blue, green, or gray, the iris is a muscle that makes the pupil smaller in bright light and bigger in the dark.",
+          "text_zh": "不論是棕色、藍色、綠色還是灰色，虹膜都是肌肉：光亮時把瞳孔縮小，黑暗時把它張大。"
+        },
+        {
+          "icon": "🔍",
+          "en": "Lens",
+          "zh": "水晶體",
+          "where_en": "Just behind the pupil",
+          "where_zh": "就在瞳孔後面",
+          "control_en": "Fine-tunes the focus",
+          "control_zh": "微調焦距",
+          "text_en": "Tiny muscles let it get rounder for things up close and flatter for things far away.",
+          "text_zh": "周圍的小肌肉讓它看近時變圓、看遠時變扁。"
+        },
+        {
+          "icon": "🎞️",
+          "en": "Retina",
+          "zh": "視網膜",
+          "where_en": "The thin layer at the back",
+          "where_zh": "眼球後面薄薄的一層",
+          "control_en": "Turns light into nerve signals",
+          "control_zh": "把光變成神經訊號",
+          "text_en": "More than 120 million rods and cones. The sharpest spot, the fovea, sits right where you are looking.",
+          "text_zh": "有超過一億兩千萬個桿狀與錐狀細胞；看得最清楚的中央小凹，就在你視線正對的地方。"
+        },
+        {
+          "icon": "🔌",
+          "en": "Optic nerve",
+          "zh": "視神經",
+          "where_en": "Leaves the back of the eye",
+          "where_zh": "從眼球後面離開",
+          "control_en": "Carries the picture to the brain",
+          "control_zh": "把影像送到大腦",
+          "text_en": "About a million nerve fibers. Where it leaves the eye, there are no light-sensing cells: that is your blind spot.",
+          "text_zh": "大約一百萬條神經纖維。它離開眼球的地方沒有感光細胞，那就是你的盲點。"
+        }
+      ],
+      "kinds_note_en": "Think of a camera: the cornea and the lens are the camera's lens, the pupil is the opening that lets light in, the retina is the image sensor, and the optic nerve is the cable to the computer, which is your brain.",
+      "kinds_note_zh": "把眼睛想成一台相機：角膜和水晶體是鏡頭，瞳孔是讓光進來的光圈，視網膜是感光元件，視神經是接到電腦的傳輸線，而那台電腦就是你的大腦。",
+      "measure": {
+        "title_en": "Find your blind spot",
+        "title_zh": "找出你的盲點",
+        "lead_en": "Use the blind spot card below the model, or draw your own on paper: a small cross and a dot about 8 cm apart. Every eye has a blind spot. Here is how to catch yours.",
+        "lead_zh": "用模型下方的盲點測驗卡，或在紙上自己畫一張：一個小十字和一個圓點，相距大約 8 公分。每隻眼睛都有盲點，用下面的方法把它找出來。",
+        "steps": [
+          {
+            "n": "1",
+            "en": "Close one eye",
+            "zh": "閉上一隻眼睛",
+            "text_en": "Cover your right eye. With your left eye, stare at the cross. The dot should be on the left. To test your right eye, switch sides.",
+            "text_zh": "遮住右眼，用左眼盯著十字，圓點應該在左邊。要測右眼，就左右對調。"
+          },
+          {
+            "n": "2",
+            "en": "Move slowly",
+            "zh": "慢慢移動",
+            "text_en": "Keep staring at the cross and slowly move your face closer or farther away. At one distance, usually 20 to 35 cm, the dot disappears!",
+            "text_zh": "一直盯著十字，慢慢把臉靠近或拉遠。到了某個距離（通常是 20 到 35 公分），圓點就不見了！"
+          },
+          {
+            "n": "15°",
+            "en": "Do the math",
+            "zh": "算一算",
+            "text_en": "Measure the gap between the cross and the dot, and your distance from the screen. Gap ÷ distance is usually about 0.27, which means your blind spot sits about 15° to the side.",
+            "text_zh": "量出十字和圓點的距離，以及眼睛到螢幕的距離。兩者相除通常約 0.27，表示你的盲點在視線旁邊大約 15° 的地方。"
+          }
+        ],
+        "action": "test",
+        "action_value": "1",
+        "button_icon": "👁️",
+        "button_en": "Try the blind spot card",
+        "button_zh": "試試盲點測驗卡"
+      },
+      "myths": [
+        {
+          "myth_en": "If you cross your eyes, they might get stuck that way.",
+          "myth_zh": "鬥雞眼做太久，眼睛會卡住回不來。",
+          "fact_en": "The muscles that move your eyes always relax again. Crossing your eyes may feel funny, but it cannot make them stay crossed.",
+          "fact_zh": "控制眼球轉動的肌肉一定會再放鬆。故意鬥雞眼可能會怪怪的，但不會讓眼睛卡住。"
+        },
+        {
+          "myth_en": "Eating lots of carrots gives you super night vision.",
+          "myth_zh": "多吃紅蘿蔔，晚上就能看得超清楚。",
+          "fact_en": "Carrots have vitamin A, which your eyes need, but extra carrots will not make healthy eyes better than normal. The story spread in Britain during World War II, partly to keep its new radar a secret.",
+          "fact_zh": "紅蘿蔔含有眼睛需要的維生素 A，但多吃並不會讓健康的眼睛變得比正常更好。這個說法是二次大戰時在英國流傳開的，部分原因是為了掩護他們的新雷達。"
+        },
+        {
+          "myth_en": "Wearing glasses makes your eyes weaker.",
+          "myth_zh": "戴眼鏡會讓眼睛越來越差。",
+          "fact_en": "Glasses do not change the shape of your eye. They only bend light so the picture lands on the retina. Many children's eyes keep changing as they grow, with or without glasses.",
+          "fact_zh": "眼鏡不會改變眼球的形狀，它只是把光折彎，讓影像落在視網膜上。很多孩子的眼睛在成長中本來就會改變，戴不戴眼鏡都一樣。"
+        },
+        {
+          "myth_en": "You see with your eyes.",
+          "myth_zh": "我們是用眼睛看東西的。",
+          "fact_en": "Your eyes only collect light. The seeing happens in your brain, which makes sense of the upside-down picture and fills in your blind spot.",
+          "fact_zh": "眼睛只負責收集光，真正的「看見」發生在大腦：它把上下顛倒的影像整理好，還把盲點補起來。"
+        }
+      ],
+      "tricks": [
+        {
+          "title_en": "Bright light, small pupil",
+          "title_zh": "光越亮，瞳孔越小",
+          "body_en": "The iris works like a camera's opening: small in sunlight, wide open in the dark.",
+          "body_zh": "虹膜就像相機的光圈：陽光下縮小，黑暗中張大。"
+        },
+        {
+          "title_en": "Round for near, flat for far",
+          "title_zh": "看近變圓，看遠變扁",
+          "body_en": "To look at something close, tiny muscles tighten and the lens gets rounder. Looking far away lets them relax, and the lens flattens.",
+          "body_zh": "看近的東西時，小肌肉收緊，水晶體變圓；看遠方時肌肉放鬆，水晶體變扁。"
+        },
+        {
+          "title_en": "Cones see color",
+          "title_zh": "Cones 看 Color",
+          "body_en": "Both start with C. Rods take over in dim light, which is why the world looks gray at night.",
+          "body_zh": "兩個字都是 C 開頭：錐狀細胞看顏色。光線暗時換桿狀細胞上場，所以晚上世界看起來灰灰的。"
+        },
+        {
+          "title_en": "Upside down, then turned around",
+          "title_zh": "先倒立，再轉正",
+          "body_en": "The eye makes an upside-down picture, and the brain sorts it out so you see the world right side up.",
+          "body_zh": "眼睛做出上下顛倒的像，大腦把它整理好，你看到的世界才是正的。"
+        }
+      ],
+      "activities": [
+        {
+          "title_en": "Make a Pinhole Viewer",
+          "title_zh": "做一個針孔觀景器",
+          "materials": [
+            {
+              "en": "A cardboard tube, such as a paper towel roll",
+              "zh": "一個紙筒，例如廚房紙巾的捲筒"
+            },
+            {
+              "en": "Aluminum foil, a pin, wax paper, and two rubber bands",
+              "zh": "鋁箔紙、一根大頭針、烘焙紙和兩條橡皮筋"
+            },
+            {
+              "en": "A jacket or a dark cloth",
+              "zh": "一件外套或一塊深色的布"
+            }
+          ],
+          "steps": [
+            {
+              "en": "Cover one end of the tube with foil and poke a tiny hole in the middle with the pin.",
+              "zh": "用鋁箔紙蓋住紙筒的一端，用大頭針在中間戳一個小洞。"
+            },
+            {
+              "en": "Cover the other end with wax paper. This is your screen.",
+              "zh": "用烘焙紙蓋住另一端，這就是你的屏幕。"
+            },
+            {
+              "en": "Point the foil end at a bright window or a lamp. Drape the jacket over your head and the screen end so it is dark.",
+              "zh": "把鋁箔那一端對著明亮的窗戶或檯燈，用外套蓋住頭和屏幕那一端，讓它暗下來。"
+            },
+            {
+              "en": "Look at the screen. Is the picture right side up? Wave your hand in front of the window. Which way does it move?",
+              "zh": "看看屏幕上的影像是正的嗎？在窗戶前揮揮手，影像往哪個方向動？"
+            }
+          ],
+          "tip_en": "Teaching tip: the pinhole is the pupil and the wax paper is the retina, and the picture is upside down, just like in your eye. Make the hole bigger and the picture gets brighter but blurrier. A real eye adds a lens, so its picture is bright and sharp at the same time. Never point the viewer at the Sun.",
+          "tip_zh": "教學提示：針孔就是瞳孔，烘焙紙就是視網膜，影像和眼睛裡一樣是上下顛倒的。把洞戳大，影像會變亮但變模糊；真正的眼睛多了水晶體，所以影像能又亮又清楚。絕對不要把觀景器對著太陽。"
+        },
+        {
+          "title_en": "Pupil Watch",
+          "title_zh": "瞳孔觀察",
+          "materials": [
+            {
+              "en": "A partner",
+              "zh": "一位同伴"
+            },
+            {
+              "en": "A normally lit room",
+              "zh": "一間光線正常的教室"
+            }
+          ],
+          "steps": [
+            {
+              "en": "Sit facing your partner and look at the size of their pupils.",
+              "zh": "和同伴面對面坐，看看對方瞳孔的大小。"
+            },
+            {
+              "en": "Your partner covers both eyes with their hands for 20 seconds.",
+              "zh": "同伴用雙手遮住兩隻眼睛 20 秒。"
+            },
+            {
+              "en": "When they take their hands away, watch closely: the big, dark pupils shrink in about a second.",
+              "zh": "對方把手拿開時仔細看：又大又黑的瞳孔大約一秒內就縮小了。"
+            },
+            {
+              "en": "Next, your partner covers just one eye. Watch the open eye. Does its pupil change too?",
+              "zh": "接著，同伴只遮住一隻眼睛，你觀察沒遮住的那一隻：它的瞳孔也有變化嗎？"
+            }
+          ],
+          "tip_en": "Teaching tip: the two pupils usually change together, because the brain controls them as a pair, so the open eye's pupil gets a little bigger too. Never shine a flashlight or a phone light into anyone's eyes.",
+          "tip_zh": "教學提示：兩邊的瞳孔通常一起變化，因為大腦把它們當成一對來控制，所以沒遮的那隻眼睛，瞳孔也會稍微變大。絕對不要用手電筒或手機的燈照別人的眼睛。"
+        }
+      ],
+      "culture": {
+        "title_en": "A Little Person in Your Eye",
+        "title_zh": "眼睛裡的小人兒",
+        "body_en": "Look closely into a friend's eye, and you will see a tiny picture of yourself. English and Chinese both noticed this. The English word pupil comes from the Latin pupilla, “little doll.” In Chinese, the pupil is 瞳孔 (tóngkǒng); the 童 in 瞳 mainly gives the sound, but the pupil is also called 瞳人 (tóngrén), “the person in the eye.” Chinese names the two focusing problems simply: 近視 (jìnshì), “near-seeing,” and 遠視 (yuǎnshì), “far-seeing.” And the saying 眼見為憑, “what the eyes see is proof,” may be worth a second thought once you have found your blind spot.",
+        "body_zh": "仔細看朋友的眼睛，會看到一個小小的自己。英文和中文都注意到了這件事：英文的 pupil（瞳孔）來自拉丁文 pupilla，意思是「小娃娃」；中文的「瞳」，「童」主要是表音，不過瞳孔也叫「瞳人」，因為對看時瞳孔裡會映出人影。兩種對焦問題，中文說得很直白：「近視」看得清近的，「遠視」看得清遠的。至於「眼見為憑」這句話，找到自己的盲點之後，或許值得再想一想。",
+        "link_en": "More Chinese health words in English",
+        "link_zh": "到中醫養生系列看更多"
+      },
+      "health_en": "This lesson is for learning about the body. It is not medical advice. Never look straight at the Sun, even with sunglasses. If things suddenly look blurry, you see flashes or a dark shadow, or an eye hurts or gets hit, tell an adult right away. Have your eyes checked once a year.",
+      "health_zh": "本課是認識身體的教材，不是醫療建議。絕對不要直視太陽，戴太陽眼鏡也不行。如果看東西突然變模糊、看到閃光或一片黑影，或眼睛疼痛、被撞到，請馬上告訴大人。每年做一次視力檢查。"
     }
   ]
 }

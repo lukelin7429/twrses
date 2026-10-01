@@ -523,3 +523,107 @@ button.bc-row:hover { transform: translateY(-2px); border-color: var(--gold); bo
   .nv-strip { grid-template-columns: 110px minmax(0, 1fr); }
   .nv-slow { font-size: .64rem; right: 3.4rem; }
 }
+
+/* =========================================================
+   第八課：眼睛（data-eyes-lab）
+   ========================================================= */
+.ey-lab .al-space { min-height: 720px; }   /* 比右欄（狀態文字最長時）高，畫面不會跟著跳 */
+.ey-mag { position: absolute; left: 1rem; top: .8rem; right: 4rem; margin: 0; font-size: .72rem; color: var(--al-mute); pointer-events: none; }
+.ey-aside { gap: .15rem; }
+.ey-objs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .3rem; }
+.ey-objs button, .ey-types button, .ey-more button { display: flex; align-items: center; gap: .4rem; padding: .45rem .5rem; border-radius: 12px; border: 1px solid var(--al-line); background: rgba(255,255,255,.03); color: #fff; font-family: var(--sans); font-weight: 800; font-size: .74rem; text-align: left; line-height: 1.15; cursor: pointer; transition: background .2s, border-color .2s; }
+.ey-objs button { flex-direction: column; align-items: flex-start; gap: .15rem; }
+.ey-objs i, .ey-more i { font-style: normal; font-size: 1.15rem; }
+.ey-objs small, .ey-types small, .ey-more small { display: block; font-family: var(--zh); font-weight: 600; font-size: .68rem; color: var(--al-mute); }
+.ey-objs button:hover, .ey-types button:hover, .ey-more button:hover:not(:disabled) { background: rgba(255,255,255,.07); }
+.ey-objs button[aria-pressed="true"], .ey-types button[aria-pressed="true"] { border-color: #b8f28a; background: rgba(184,242,138,.1); box-shadow: 0 0 0 1px #b8f28a inset; }
+.ey-views { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .5rem; margin: .7rem 0 .2rem; }
+.ey-views figure { margin: 0; }
+.ey-cv { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; border-radius: 10px; border: 1px solid var(--al-line); background: #0a1224; }
+.ey-views figcaption { margin-top: .25rem; font-size: .72rem; font-weight: 800; color: #fff; line-height: 1.2; }
+.ey-views figcaption small { display: block; font-family: var(--zh); font-weight: 600; font-size: .68rem; color: var(--al-mute); }
+.ey-status { margin: .45rem 0 .3rem; padding: .45rem .6rem; border-left: 3px solid rgba(255,255,255,.2); border-radius: 0 10px 10px 0; background: rgba(255,255,255,.04); font-size: .8rem; line-height: 1.45; color: var(--al-text); min-height: 8.4em; }
+.ey-status .zh { display: block; color: var(--al-mute); margin-top: .15rem; font-size: .76rem; }
+.ey-status.ey-ok { border-color: #7ddc9a; background: rgba(125,220,154,.08); }
+.ey-status.ey-bad { border-color: #ffb066; background: rgba(255,176,102,.08); }
+.ey-status.ey-blindmsg { border-color: #ff5c7a; background: rgba(255,92,122,.08); }
+.ey-nums { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .3rem; margin: 0 0 .2rem; }
+.ey-nums div { padding: .35rem .45rem; border-radius: 10px; background: rgba(255,255,255,.04); }
+.ey-nums dt { font-size: .62rem; font-weight: 700; color: var(--al-mute); line-height: 1.25; }
+.ey-nums dd { margin: .1rem 0 0; font-family: var(--serif); font-size: 1.02rem; color: #fff; font-variant-numeric: tabular-nums; line-height: 1.2; }
+.ey-types { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .3rem; }
+.ey-types button { flex-direction: column; align-items: flex-start; gap: .1rem; }
+.ey-more { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .3rem; margin-top: .35rem; }
+.ey-more button[aria-pressed="true"] { border-color: #9fd8ff; background: rgba(159,216,255,.12); box-shadow: 0 0 0 1px #9fd8ff inset; }
+.ey-more .ey-blind[aria-pressed="true"] { border-color: #ff5c7a; background: rgba(255,92,122,.12); box-shadow: 0 0 0 1px #ff5c7a inset; }
+.ey-more button:disabled { opacity: .4; cursor: not-allowed; }
+
+/* 盲點測驗卡：白底黑字，跟紙本一樣 */
+.ey-strip { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 1rem 1.4rem; align-items: start; padding: 1rem 1.2rem 1.1rem; border-top: 1px solid var(--al-line); background: rgba(10,16,34,.6); }
+.ey-card { position: relative; height: 170px; border-radius: 14px; background: #fff; overflow: hidden; }
+.ey-cross, .ey-dot { position: absolute; top: 50%; transform: translate(-50%, -50%); }
+.ey-cross { font-family: var(--sans); font-size: 2.1rem; font-weight: 400; line-height: 1; color: #111; }
+.ey-dot { width: 22px; height: 22px; border-radius: 50%; background: #111; }
+.ey-card[data-side="left"] .ey-dot { left: 13%; }
+.ey-card[data-side="left"] .ey-cross { left: 85%; }
+.ey-card[data-side="right"] .ey-dot { left: 87%; }
+.ey-card[data-side="right"] .ey-cross { left: 15%; }
+.ey-line { display: none; position: absolute; left: 0; right: 0; top: 50%; height: 4px; margin-top: -2px; }
+.ey-card[data-mode="line"] .ey-line { display: block; }
+.ey-card[data-mode="line"] .ey-dot { visibility: hidden; }
+.ey-card[data-mode="line"] .ey-cross { top: 30%; }
+.ey-card[data-side="left"] .ey-line { background: linear-gradient(90deg, #111 0 calc(13% - 10px), transparent 0 calc(13% + 10px), #111 0); }
+.ey-card[data-side="right"] .ey-line { background: linear-gradient(90deg, #111 0 calc(87% - 10px), transparent 0 calc(87% + 10px), #111 0); }
+.ey-bs-text .al-sky-k { margin: 0 0 .4rem; }
+.ey-bs-msg { margin: 0; font-size: .86rem; line-height: 1.55; color: var(--al-text); }
+.ey-bs-msg .zh { display: block; color: var(--al-mute); margin-top: .15rem; }
+.ey-bs-msg b { color: #fff; }
+.ey-bs-btns { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: .7rem; }
+.ey-bs-btns button { display: inline-flex; flex-direction: column; align-items: flex-start; padding: .4rem .8rem; border-radius: 12px; border: 1px solid var(--al-line); background: rgba(255,255,255,.04); color: #fff; font-family: var(--sans); font-weight: 800; font-size: .76rem; cursor: pointer; line-height: 1.2; text-align: left; }
+.ey-bs-btns button small { font-family: var(--zh); font-weight: 600; font-size: .68rem; color: var(--al-mute); }
+.ey-bs-btns button:hover { background: rgba(255,255,255,.08); }
+.ey-bs-btns .ey-bs-3d { border: 0; background: #ff5c7a; color: #2a0610; }
+.ey-bs-btns .ey-bs-3d small { color: rgba(42,6,16,.75); }
+.ey-bs-btns .ey-bs-3d:hover { background: #ff7891; }
+.ey-calc { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .5rem .8rem; margin-top: .8rem; padding-top: .7rem; border-top: 1px solid var(--al-line); }
+.ey-calc label { font-size: .74rem; font-weight: 800; color: #fff; line-height: 1.2; }
+.ey-calc label small { display: block; font-family: var(--zh); font-weight: 600; font-size: .68rem; color: var(--al-mute); }
+.ey-calc label span { display: flex; align-items: center; gap: .35rem; margin-top: .25rem; font-weight: 700; color: var(--al-mute); }
+.ey-calc input { width: 5.2em; padding: .3rem .45rem; border-radius: 8px; border: 1px solid var(--al-line); background: rgba(255,255,255,.06); color: #fff; font: 700 .9rem var(--sans); }
+.ey-calc input:focus-visible { outline: 2px solid #ff5c7a; outline-offset: 2px; }
+.ey-angle { grid-column: 1 / -1; margin: 0; font-size: .8rem; line-height: 1.5; color: var(--al-text); }
+.ey-angle .zh { display: block; color: var(--al-mute); }
+.ey-angle b { color: #ffd0d9; }
+
+/* 滑桿：光線（暗→亮）、水晶體（扁→圓） */
+.ey-light::-webkit-slider-runnable-track { background: linear-gradient(90deg, #1b2440, #ffd36e); }
+.ey-light::-moz-range-track { background: linear-gradient(90deg, #1b2440, #ffd36e); }
+.ey-lens::-webkit-slider-runnable-track { background: linear-gradient(90deg, #b8f28a 0 var(--p, 0%), rgba(255,255,255,.12) var(--p, 0%)); }
+.ey-lens::-moz-range-progress { height: 6px; border-radius: 999px; background: #b8f28a; }
+
+.al-lab.ey-lb { font-size: .68rem; color: #e8f0ff; }
+.al-lab.ey-lb-m { color: #ffc4b8; border-color: rgba(168,64,60,.6); }
+.al-lab.ey-lb-d { color: #2a2206; background: #f6e7b0; border-color: #f6e7b0; }
+.al-lab.ey-lb-f { color: #0a1224; background: #fff; border-color: #fff; }
+.al-lab.ey-lb-i { color: #d6f8c0; border-color: rgba(184,242,138,.55); }
+.al-lab.ey-lb-o { color: #d6f8c0; border-color: rgba(184,242,138,.35); font-weight: 600; }
+.al-lab.ey-lb-v { color: #b9f0c9; border-color: rgba(125,220,154,.55); }
+.al-lg-raytop i { border: 0; height: 4px; margin-top: .55rem; border-radius: 2px; background: #b8f28a; }
+.al-lg-raybot i { border: 0; height: 4px; margin-top: .55rem; border-radius: 2px; background: #ffb066; }
+.al-lg-focus i { border: 0; width: 10px; height: 10px; margin: .35rem .2rem 0; background: #fff; box-shadow: 0 0 8px 2px rgba(255,255,255,.5); }
+.al-lg-disc i { border: 0; background: radial-gradient(circle, #f6e7b0 0 45%, #e0805c 50%); }
+.al-lg-visual i { border: 0; background: radial-gradient(circle, #b9f0c9, #2f9a52 70%, rgba(47,154,82,0)); }
+
+@media (max-width: 1020px) {
+  .ey-lab .al-space { aspect-ratio: 1 / 1; min-height: 380px; max-height: 80vh; }
+  .ey-lab .ey-aside { display: block; }
+  .ey-lab .ey-aside > .al-sky-k:not(:first-child) { margin-top: .9rem; }
+  .ey-views { max-width: 560px; }
+}
+@media (max-width: 640px) {
+  .ey-lab .al-space { aspect-ratio: 1 / 1; min-height: 340px; }   /* 場景是橫的，手機用正方形少一點空白 */
+  .ey-strip { grid-template-columns: 1fr; }
+  .ey-card { height: 140px; }
+  .ey-objs button, .ey-types button { font-size: .7rem; padding: .4rem .4rem; }
+  .ey-mag { font-size: .64rem; right: 3.4rem; }
+}
