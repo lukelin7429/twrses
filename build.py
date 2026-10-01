@@ -4311,7 +4311,7 @@ def build_astro_hub():
 # 面板與段落樣式沿用 astro.css，人體專屬的在 body.css；兩者都只載在本系列頁面。
 BODY_BASE = "/resources/classes/human-body/"
 _BODY_JS = {"skeleton": "skeleton", "arm": "arm", "heart": "heart", "lungs": "lungs", "joints": "joints",
-            "digestion": "digestion", "nerves": "nerves", "eyes": "eyes", "ears": "ears", "skin": "skin"}   # lab.kind → assets/js/<bundle>.js
+            "digestion": "digestion", "nerves": "nerves", "eyes": "eyes", "ears": "ears", "skin": "skin", "teeth": "teeth"}   # lab.kind → assets/js/<bundle>.js
 
 def _body_ver():
     h = hashlib.md5()
@@ -4916,6 +4916,78 @@ def render_skin_lab(lesson):
   <p class="sk-credit">{lab["credit_html"]}</p>
 </div>'''
 
+def render_teeth_lab(lesson):
+    """第十一課：真實頷骨＋自繪牙齒，年齡滑桿看換牙（assets/js/teeth.js 綁這裡的 class）；牙齒圖與蛀牙剖面是 2D，不需要 WebGL。"""
+    lab = lesson["lab"]
+    age_btns = "".join(f'<button type="button" data-age="{a}">{a}<small>歲</small></button>' for a in lab["ages"])
+    def row(jaw):
+        cells = []
+        for side, order in (("l", range(7, 0, -1)), ("r", range(1, 8))):
+            for n in order:
+                cells.append(f'<button type="button" class="th-c" data-jaw="{jaw}" data-side="{side}" data-pos="{n}" data-st="0" '
+                             f'aria-label="{"Upper" if jaw == "u" else "Lower"} {"left" if side == "l" else "right"} {n}"><i></i><b>{n}</b></button>')
+            if side == "l":
+                cells.append('<span class="th-mid" aria-hidden="true"></span>')
+        return "".join(cells)
+    steps = [("Healthy", "健康的牙"), ("Plaque", "牙菌斑"), ("Acid", "細菌產酸"), ("A hole", "蛀出洞"), ("Ouch!", "痛到牙髓")]
+    cav_btns = "".join(f'<button type="button" data-cav="{i}" aria-pressed="{"true" if i == 0 else "false"}">{en}<small>{zh}</small></button>' for i, (en, zh) in enumerate(steps))
+    tg = _lab_toggles([("labels", "Labels", "標示", True), ("open", "Open mouth", "張開嘴巴", True), ("skull", "Skull", "頭骨", True)])
+    return f'''<div class="astro-lab sk-lab th-lab rvl" data-teeth-lab data-model="{_model_url()}">
+  <div class="al-stage">
+    <div class="al-space">
+      <canvas class="al-space-cv" aria-label="3D model of the jaws with baby teeth falling out and adult teeth growing in · 上下頷骨的 3D 模型，乳牙掉落、恆牙長出"></canvas>
+      <div class="al-labels" aria-hidden="true"></div>
+      <p class="sk-loading">Loading… · 載入中…<span class="sk-bar"><i></i></span></p>
+      <p class="al-hint">Drag to turn · 拖曳旋轉　Tap a tooth · 點一顆牙　Scroll or pinch to zoom · 滾輪／雙指縮放</p>
+      <button type="button" class="al-home" title="Reset view · 重設視角" aria-label="Reset view · 重設視角">&#8634;</button>
+      <p class="al-nogl-msg">This 3D model needs WebGL, which this browser does not support. The tooth chart and the cards below still work.<br><span class="zh">這個瀏覽器不支援 WebGL，無法顯示 3D 模型；下方的牙齒圖和卡片一樣能用。</span></p>
+    </div>
+    <aside class="al-sky sk-aside th-aside">
+      <p class="al-sky-k">Age · 年齡</p>
+      <p class="th-age"><b class="th-age-n">8</b><span>years old<small>歲</small></span></p>
+      <div class="th-ages" role="group" aria-label="Jump to an age · 跳到某個年齡">{age_btns}</div>
+      <dl class="ey-nums th-nums">
+        <div><dt>Baby teeth · 乳牙</dt><dd class="th-n-baby">—</dd></div>
+        <div><dt>Adult teeth · 恆牙</dt><dd class="th-n-adult">—</dd></div>
+        <div><dt>Waiting · 等待中</dt><dd class="th-n-wait">—</dd></div>
+      </dl>
+      <p class="ey-status th-status" aria-live="polite"></p>
+      <div class="sk-card th-card">
+        <div class="sk-empty"><p>Tap any tooth in the model to see its name.</p><p class="zh">點模型裡任何一顆牙，看它的名字。</p></div>
+        <div class="sk-info"><p class="sk-name-en th-name-en"></p><p class="sk-name-zh th-name-zh"></p><p class="sk-region th-set"></p><p class="sk-rjob th-when"></p></div>
+      </div>
+    </aside>
+  </div>
+  <div class="th-strip">
+    <div class="th-chart">
+      <p class="al-sky-k">My tooth chart · 我的牙齒圖</p>
+      <p class="th-mirror"><span>Your left · 你的左邊</span><em>as you see it in a mirror · 照鏡子看到的樣子</em><span>Your right · 你的右邊</span></p>
+      <div class="th-row th-up" aria-label="Upper teeth · 上排">{row("u")}</div>
+      <div class="th-row th-lo" aria-label="Lower teeth · 下排">{row("l")}</div>
+      <p class="th-key"><span><i class="k1"></i>Baby · 乳牙</span><span><i class="k2"></i>Adult · 恆牙</span><span><i class="k3"></i>Gap · 空位</span><span>1–2 incisors · 門牙　3 canine · 犬齒　4–5 premolars or baby molars · 小臼齒或乳臼齒　6–7 molars · 大臼齒</span></p>
+      <p class="th-result" aria-live="polite"></p>
+      <div class="ey-bs-btns"><button type="button" class="th-to3d ey-bs-3d" hidden>&#129463; Show my tooth age in 3D<small>在 3D 模型看我的牙齒年齡</small></button>
+        <button type="button" class="th-clear">&#8634; Start over<small>重新標記</small></button></div>
+    </div>
+    <div class="th-cav">
+      <p class="al-sky-k">How a cavity forms · 蛀牙怎麼形成</p>
+      <canvas class="th-cav-cv" width="360" height="300" aria-label="Cross-section of a molar · 臼齒剖面"></canvas>
+      <div class="th-cav-btns" role="group" aria-label="Steps · 步驟">{cav_btns}</div>
+      <p class="th-cav-msg" aria-live="polite"></p>
+    </div>
+  </div>
+  <div class="al-controls">
+    <div class="al-row al-row-main">
+      <button type="button" class="al-play" aria-pressed="false"><span class="al-play-i" aria-hidden="true"></span><span class="al-play-t">Play · 播放</span></button>
+      <label class="ec-slider th-age-row"><span class="ec-slider-k">Age · 年齡<em>3 &rarr; 20 years old · 歲</em></span>
+        <input type="range" class="ec-time th-age-in" min="3" max="20" step="0.1" value="8"></label>
+    </div>
+    <div class="al-row al-toggles">{tg}</div>
+  </div>
+  {_lab_foot(lab)}
+  <p class="sk-credit">{lab["credit_html"]}</p>
+</div>'''
+
 def _body_nav(slug):
     ls = BODY["lessons"]
     i = next(n for n, l in enumerate(ls) if l["slug"] == slug)
@@ -4941,7 +5013,8 @@ def build_body_lesson(lesson):
     kind = lab["kind"]
     lab_html = {"skeleton": render_skeleton_lab, "arm": render_arm_lab, "heart": render_heart_lab, "lungs": render_lungs_lab,
                 "joints": render_joints_lab, "digestion": render_digestion_lab, "nerves": render_nerves_lab,
-                "eyes": render_eyes_lab, "ears": render_ears_lab, "skin": render_skin_lab}[kind](lesson)
+                "eyes": render_eyes_lab, "ears": render_ears_lab, "skin": render_skin_lab,
+                "teeth": render_teeth_lab}[kind](lesson)
 
     secs = []
     if lesson.get("jobs"):
@@ -5045,7 +5118,7 @@ def build_body_lesson(lesson):
                 "joints": ("Joints in a sentence", "一句話記住關節"), "digestion": ("Digestion in a sentence", "一句話記住消化"),
                 "nerves": ("Your nervous system in a sentence", "一句話記住神經系統"),
                 "eyes": ("Your eyes in a sentence", "一句話記住眼睛"), "ears": ("Your ears in a sentence", "一句話記住耳朵"),
-                "skin": ("Your skin in a sentence", "一句話記住皮膚")}[kind]
+                "skin": ("Your skin in a sentence", "一句話記住皮膚"), "teeth": ("Your teeth in a sentence", "一句話記住牙齒")}[kind]
     secs.append(("tricks", "Remember It · 記憶口訣", tricks_h[0], tricks_h[1], _sci_tricks(lesson), ""))
     if lesson.get("culture"):
         cu = lesson["culture"]
