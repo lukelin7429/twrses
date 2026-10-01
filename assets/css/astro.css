@@ -636,3 +636,52 @@
 .pl-dot::after { content: ""; width: 14px; height: 14px; border-radius: 50%; background: radial-gradient(circle at 35% 35%, #fff, var(--c) 45%, #3a2a14); }
 .pl-badge { display: inline-block; margin-left: .4rem; padding: .05rem .5rem; border-radius: 999px; background: #ff9a4a; color: #2a1204; font-size: .66rem; font-weight: 800; vertical-align: 2px; }
 .pl-times { font-size: .78rem !important; color: var(--ink-soft); font-variant-numeric: tabular-nums; }
+
+/* =========================================================
+   第八課：日晷（.sd-lab、太陽的時鐘、今天彰化的日晷）
+   ========================================================= */
+.sd-lab .al-stage { grid-template-columns: minmax(0, 1fr) 360px; }
+.sd-aside .cn-badge { margin-bottom: .35rem; }
+.sd-clocks { display: grid; grid-template-columns: 1fr 1fr; gap: .5rem; margin: .2rem 0 .55rem; }
+.sd-clocks div { padding: .5rem .7rem; border-radius: 12px; background: rgba(255,255,255,.05); border: 1px solid var(--al-line); }
+.sd-clocks span { display: block; font-size: .64rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--al-mute); }
+.sd-clocks b { display: block; font-family: var(--serif); font-size: 1.7rem; line-height: 1.15; color: #fff; font-variant-numeric: tabular-nums; }
+.sd-clocks div + div b { color: var(--al-sun); }
+.sd-diff { margin: 0 0 .3rem; font-family: var(--serif); font-size: 1.1rem; color: #fff; line-height: 1.25; }
+.sd-diff span, .sd-why span { display: block; font-family: var(--zh); font-size: .78rem; color: var(--al-mute); }
+.sd-why { margin: 0 0 .7rem; font-size: .76rem; line-height: 1.5; color: var(--al-text); }
+.sd-readout dd span { display: block; font-family: var(--zh); font-weight: 500; font-size: .76rem; color: var(--al-mute); }
+.sd-lab .se-chips .sundial-svg { width: 26px; height: 26px; }
+.sd-key-d { font-family: var(--sans); color: #fff; font-weight: 700; }
+.al-lab.sd-mark { min-width: 1.5em; padding: .02rem .3rem; text-align: center; font-size: .6rem; font-weight: 800; color: #1b1405; background: rgba(255,255,255,.88); border: 0; }
+.al-lab.sd-mark.noon { background: var(--al-sun); }
+.al-lab.sd-face { font-size: .64rem; color: #ffe3a3; border-color: rgba(255,211,110,.45); }
+.al-lab.sd-sol { font-size: .62rem; }
+.al-lab.sd-sum { color: #ffd2b0; border-color: rgba(255,178,122,.55); }
+.al-lab.sd-win { color: #cde9ff; border-color: rgba(159,216,255,.55); }
+.al-lab.sd-f8 { color: #ffe3a3; border-color: rgba(255,211,110,.5); }
+.al-lg-sun i { border: 0; width: 22px; height: 11px; margin-top: .3rem; border-radius: 11px 11px 0 0; border-top: 3px solid var(--al-sun); border-left: 3px solid var(--al-sun); border-right: 3px solid var(--al-sun); background: transparent; }
+.al-lg-marks i { border: 0; width: 8px; height: 8px; margin: .4rem 5px 0; background: #fff; box-shadow: 10px 0 0 #ffd36e; }
+.al-lg-solst i { border: 0; border-radius: 0; width: 20px; height: 8px; margin-top: .35rem; background: linear-gradient(#ffb27a 0 35%, transparent 35% 65%, #9fd8ff 65%); }
+@media (max-width: 1020px) {
+  .sd-lab .al-stage { grid-template-columns: 1fr; }
+  .sd-aside { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); column-gap: 1.2rem; align-items: start; }
+  .sd-aside > .al-sky-k { grid-column: 1 / -1; }
+  .sd-aside .se-fig { grid-column: 2; grid-row: 2 / 7; max-width: none; }
+  .sd-aside .sd-readout { grid-column: 1 / -1; }
+}
+@media (max-width: 640px) {
+  .sd-aside { display: block; }
+  .sd-clocks b { font-size: 1.45rem; }
+  .sd-lab .al-lab.sd-sol { display: none; }
+  .sd-lab .ec-jump button { flex: 1 1 40%; }
+}
+/* 今天彰化的日晷 */
+.sd-today { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: 1.2rem; align-items: start; }
+.sd-big { display: grid; gap: .7rem; }
+.sd-big p { margin: 0; padding: .9rem 1.1rem; border-radius: 14px; background: #fff; border: 1px solid var(--line); box-shadow: var(--shadow-sm); font-size: .88rem; font-weight: 700; color: var(--ink-soft); }
+.sd-big b { display: block; font-family: var(--serif); font-size: 1.6rem; color: var(--brand-dk); font-variant-numeric: tabular-nums; }
+.sd-big span { display: block; font-family: var(--zh); font-weight: 600; font-size: .84rem; }
+.sd-tbl td { font-variant-numeric: tabular-nums; }
+.sd-tbl tr.sd-noonrow td { background: #fff6dc; }
+@media (max-width: 760px) { .sd-today { grid-template-columns: 1fr; } .sd-tbl thead { display: table-header-group; } .sd-tbl, .sd-tbl tbody { display: table; width: 100%; } .sd-tbl tr { display: table-row; padding: 0; } .sd-tbl td { display: table-cell; width: auto; padding: .45rem .6rem; border-bottom: 1px solid var(--line); } }

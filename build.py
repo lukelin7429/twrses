@@ -2651,7 +2651,8 @@ def _astro_cn(n):
 def _astro_ver():
     h = hashlib.md5()
     for rel in ("assets/css/astro.css", "assets/js/moon-phases.js", "assets/js/eclipses.js", "assets/js/seasons.js", "assets/js/tides.js",
-                "assets/js/constellations.js", "assets/js/north-star.js", "assets/js/planets-lab.js"):
+                "assets/js/constellations.js", "assets/js/north-star.js", "assets/js/planets-lab.js",
+                "assets/js/sundial.js"):
         fp = os.path.join(ROOT, rel)
         if os.path.exists(fp): h.update(open(fp, "rb").read())
     return h.hexdigest()[:8]
@@ -2774,6 +2775,21 @@ def planet_svg(size=56, color="#f0dca0", ring=True):
             f'<defs><radialGradient id="pg{n}" cx="40%" cy="35%" r="70%"><stop offset="0" stop-color="#fff"/>'
             f'<stop offset=".35" stop-color="{color}"/><stop offset="1" stop-color="#3a2a14"/></radialGradient></defs>'
             f'{rings}<circle cx="30" cy="30" r="{13 if ring else 17}" fill="url(#pg{n})"/>{front}</svg>')
+
+def sundial_svg(size=56):
+    """日晷小圖（系列首頁的課程卡）：圓形晷面、時刻線與一道影子。"""
+    import math
+    ticks = "".join(
+        f'<line x1="{30 + 13 * math.cos(math.radians(a)):.1f}" y1="{32 + 13 * math.sin(math.radians(a)) * .55:.1f}" '
+        f'x2="{30 + 20 * math.cos(math.radians(a)):.1f}" y2="{32 + 20 * math.sin(math.radians(a)) * .55:.1f}"/>'
+        for a in range(180, 361, 15))
+    return (f'<svg class="sundial-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">'
+            '<circle cx="47" cy="11" r="5" fill="#ffd36e"/>'
+            '<ellipse cx="30" cy="32" rx="22" ry="12.5" fill="#d8d0bc"/>'
+            f'<g stroke="#5a4320" stroke-width="1">{ticks}</g>'
+            '<path d="M30 32 L17 39" stroke="#1a1208" stroke-width="2.4" stroke-linecap="round"/>'
+            '<path d="M30 32 L38 14" stroke="#8a6a3a" stroke-width="2" stroke-linecap="round"/>'
+            '<rect x="27" y="44" width="6" height="10" fill="#9a9a9a"/></svg>')
 
 def _bi(en, zh, tag="p", cls=""):
     """英文在前、中文在後的雙語段落。"""
@@ -3248,6 +3264,67 @@ def render_planet_lab(lesson):
   <p class="cn-credit">{lesson["lab"]["credit_html"]}</p>
 </div>'''
 
+def render_sundial_lab(lesson):
+    """第八課：竿影與日晷（assets/js/sundial.js 綁這裡的 class）。"""
+    tg = _lab_toggles([("marks", "Hour marks", "時刻刻度", True), ("path", "Sun's path", "太陽軌跡", True),
+                       ("solst", "Solstice shadows", "冬夏至的影子", True), ("fig8", "Clock noon every day", "每天 12:00 的太陽", False)])
+    chips = "".join(
+        f'<button type="button" class="al-chip sd-key" data-key="{i}">{sundial_svg(26)}'
+        f'<span class="al-chip-en">{html.escape(k["en"])}</span><span class="al-chip-zh">{html.escape(k["zh"])} <b class="sd-key-d"></b></span></button>'
+        for i, k in enumerate(lesson["sd_keys"]))
+    return f'''<div class="astro-lab sd-lab rvl" data-sundial-lab>
+  <div class="al-stage">
+    <div class="al-space">
+      <canvas class="al-space-cv" aria-label="3D model of a shadow stick and a sundial in Changhua · 彰化的竿影與日晷 3D 模型"></canvas>
+      <div class="al-labels" aria-hidden="true"></div>
+      <div class="ec-view" role="group" aria-label="Instrument · 儀器">
+        <button type="button" data-mode="stick" aria-pressed="true">Shadow stick · 立竿見影</button>
+        <button type="button" data-mode="dial" aria-pressed="false">Sundial · 赤道式日晷</button>
+      </div>
+      <p class="al-hint">Drag to turn · 拖曳旋轉　Scroll or pinch to zoom · 滾輪／雙指縮放</p>
+      <button type="button" class="al-home" title="Reset view · 重設視角" aria-label="Reset view · 重設視角">&#8634;</button>
+      <p class="al-nogl-msg">This 3D model needs WebGL, which this browser does not support. The clock comparison and the table below still work.<br><span class="zh">這個瀏覽器不支援 WebGL，無法顯示 3D 模型；時鐘對照與下方的表格一樣能用。</span></p>
+    </div>
+    <aside class="al-sky sd-aside">
+      <p class="al-sky-k">Sundial or clock? · 日晷還是時鐘？</p>
+      <p class="cn-badge sd-badge" hidden><b></b></p>
+      <p class="ec-date sd-date-t"></p>
+      <div class="sd-clocks"><div><span>Clock · 時鐘</span><b class="sd-clock"></b></div><div><span>Sundial · 日晷</span><b class="sd-dialtime"></b></div></div>
+      <p class="sd-diff"></p>
+      <p class="sd-why"></p>
+      <figure class="se-fig"><div class="se-box"><canvas class="sd-eot-cv" aria-label="How far a Changhua sundial is from the clock through the year · 一年中彰化日晷和時鐘差多少"></canvas></div>
+        <figcaption>Above zero: the sundial is ahead of the clock. Below: behind. · 零以上：日晷比時鐘快；以下：比時鐘慢。</figcaption></figure>
+      <div class="al-readout ec-readout sd-readout" aria-live="polite"><dl>
+        <div class="ec-wide"><dt>Solar noon · 太陽正午</dt><dd class="sd-noon"></dd></div>
+        <div class="ec-wide"><dt>Noon shadow · 正午影長</dt><dd class="sd-shadow"></dd></div>
+        <div class="ec-wide"><dt>Sun now · 現在的太陽</dt><dd class="sd-sun"></dd></div>
+      </dl></div>
+    </aside>
+  </div>
+  <div class="al-controls">
+    <div class="al-row al-row-main">
+      <button type="button" class="al-play" aria-pressed="false"><span class="al-play-i" aria-hidden="true"></span><span class="al-play-t">Play · 播放</span></button>
+      <div class="al-speed" role="group" aria-label="Speed · 速度">
+        <button type="button" data-speed="0.0069444" aria-pressed="false">10 min/s · 慢</button>
+        <button type="button" data-speed="0.0416667" aria-pressed="true">1 hour/s · 看一天</button>
+        <button type="button" data-speed="3" aria-pressed="false">3 days/s · 同一時刻</button>
+      </div>
+      <div class="ec-jump"><button type="button" class="sd-noonbtn">Solar noon · 太陽正午</button><button type="button" class="ec-now sd-now">Now · 現在</button></div>
+    </div>
+    <div class="ec-slider">
+      <span class="ec-slider-k">Date · 日期</span>
+      <input type="range" class="ec-time sd-date" min="0" max="8760" step="1" value="0" aria-label="Date · 日期">
+      <div class="ec-track se-track sd-track"></div>
+    </div>
+    <label class="ec-slider se-time-row"><span class="ec-slider-k">Clock time, Taiwan · 時鐘時間（台灣）</span>
+      <input type="range" class="ec-time sd-time" min="300" max="1200" step="1" value="720"></label>
+    <div class="al-chips se-chips">{chips}</div>
+    <div class="al-row al-toggles">{tg}</div>
+  </div>
+  {_lab_foot(lesson["lab"])}
+  <p class="cn-credit">{lesson["lab"]["credit_html"]}</p>
+</div>'''
+
 def _astro_nav(slug):
     ls = ASTRO["lessons"]
     i = next(n for n, l in enumerate(ls) if l["slug"] == slug)
@@ -3303,9 +3380,10 @@ def build_astro_lesson(lesson):
     lab = lesson["lab"]
     kind = lab.get("kind", "phases")
     lab_html = {"eclipses": render_eclipse_lab, "seasons": render_season_lab, "tides": render_tide_lab,
-                "stars": render_star_lab, "northstar": render_north_lab, "planets": render_planet_lab}.get(kind, render_moon_lab)(lesson)
+                "stars": render_star_lab, "northstar": render_north_lab, "planets": render_planet_lab,
+                "sundial": render_sundial_lab}.get(kind, render_moon_lab)(lesson)
     js = {"eclipses": "eclipses", "seasons": "seasons", "tides": "tides", "stars": "constellations",
-          "northstar": "north-star", "planets": "planets-lab"}.get(kind, "moon-phases")
+          "northstar": "north-star", "planets": "planets-lab", "sundial": "sundial"}.get(kind, "moon-phases")
 
     # 依資料裡有什麼就排什麼段落；band（米色底）交替
     secs = []
@@ -3406,6 +3484,19 @@ def build_astro_lesson(lesson):
         secs.append(("skies", "Four Seasons of Stars · 四季星空", "What's up on a 9 p.m. evening", "晚上九點抬頭看得到什麼",
                      f'<div class="ph-grid stagger">{sky_cards}</div>',
                      _bi(lesson["skies_note_en"], lesson["skies_note_zh"], cls="lead rvl d2")))
+    if lesson.get("instruments"):
+        i_cards = "".join(
+            f'<article class="ph-card sk-card rvl">'
+            f'<div class="ph-ico">{sundial_svg(60)}</div>'
+            f'<h3>{html.escape(k["en"])}<span class="zh">{html.escape(k["zh"])}</span></h3>'
+            f'<p class="ph-meta"><span>{html.escape(k["meta_en"])} · {html.escape(k["meta_zh"])}</span></p>'
+            f'<p class="ph-when">{html.escape(k["note_en"])}<br><span class="zh">{html.escape(k["note_zh"])}</span></p>'
+            + (f'<button type="button" class="ph-go" data-lab-mode="{k["mode"]}">See it in 3D · 在模型中看 <i>&uarr;</i></button>' if k.get("mode") else "")
+            + '</article>'
+            for k in lesson["instruments"])
+        secs.append(("instruments", "Sun Clocks · 太陽的時鐘", "From a stick to a sundial", "從一根竿子到日晷",
+                     f'<div class="ph-grid stagger">{i_cards}</div>',
+                     _bi(lesson["instruments_note_en"], lesson["instruments_note_zh"], cls="lead rvl d2")))
     if lesson.get("wanderers"):
         w_cards = "".join(
             f'<article class="ph-card pl-card rvl">'
@@ -3489,7 +3580,8 @@ def build_astro_lesson(lesson):
                 "tides": ("Tides in a sentence", "一句話記住潮汐"),
                 "stars": ("Find your way around the seasons", "一句話記住四季星空"),
                 "northstar": ("Never lose north", "一句話找到北方"),
-                "planets": ("Spot a wanderer", "一句話認出行星")}[kind]
+                "planets": ("Spot a wanderer", "一句話認出行星"),
+                "sundial": ("Read the Sun", "一句話讀懂日晷")}[kind]
     secs.append(("tricks", "Remember It · 記憶口訣", tricks_h[0], tricks_h[1], _sci_tricks(lesson), ""))
     acts = lesson.get("activities") or [lesson["activity"]]
     for n, act in enumerate(acts, 1):
@@ -3531,7 +3623,7 @@ def build_astro_hub():
     def icon(l):
         c = l.get("card")
         return (eclipse_svg("solar:total", 60) if c == "eclipse" else season_svg(1, 60) if c == "season"
-                else tide_svg(60) if c == "tide" else star_svg(60) if c == "stars" else polaris_svg(60) if c == "north" else planet_svg(60) if c == "planets" else moon_svg(120, 60))
+                else tide_svg(60) if c == "tide" else star_svg(60) if c == "stars" else polaris_svg(60) if c == "north" else planet_svg(60) if c == "planets" else sundial_svg(60) if c == "sundial" else moon_svg(120, 60))
     cards = []
     for l in ASTRO["lessons"]:
         cards.append(

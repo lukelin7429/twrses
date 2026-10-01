@@ -44,14 +44,14 @@
 
 - 內容：`data/astronomy.json`（`lessons[]` 一課一筆；`planned[]` 是系列首頁的「製作中」卡）。頁面由 `build.py` 的 `build_astro_hub()` / `build_astro_lesson()` 產生，reading／生字／小測驗沿用 `render_basic_unit()`。
 - 3D 模型：three.js，**原始碼在 `tools/astro/src/`**，每課一個入口，打包成 `assets/js/<入口>.js`（產物，不要手改）：
-  - `moon-phases.js`（第一課）、`eclipses.js`（第二課）、`seasons.js`（第三課）、`tides.js`（第四課）、`constellations.js`（第五課）、`north-star.js`（第六課）、`planets-lab.js`（第七課）；共用貼圖／著色在 `common.js`
+  - `moon-phases.js`（第一課）、`eclipses.js`（第二課）、`seasons.js`（第三課）、`tides.js`（第四課）、`constellations.js`（第五課）、`north-star.js`（第六課）、`planets-lab.js`（第七課）、`sundial.js`（第八課）；共用貼圖／著色在 `common.js`
   - 四課的地球都用**真實大陸**（`earthmap.js`）：Natural Earth 1:110m 陸地（公有領域，`world-atlas` 套件），打包時編進 JS。第二、三、四課的地軸傾斜與自轉照真實時間（第二課日食時月影落在正確地區，對照 2024/4/8、2027/8/2 食甚點誤差約 1–2°）；第一課仍是裝飾性自轉、不畫地軸
   - 第四課畫的是「平衡潮」（`ephem.js` 的 `equilibriumTide`），**不是潮汐表**：頁面一律提醒去中央氣象署查官方潮汐預報（潮間帶安全），不要加上「下一次滿潮幾點」這種讀數
   - `ephem.js`：Meeus 低精度星曆＋日月食預測（純函式）。改它之後一定要跑 `npm test`，對照 NASA 表確認 2019–2032 年日月食仍全數吻合
   ```
   cd tools/astro && npm install && npm run build && npm test   # three 與 esbuild 版本鎖在 package.json
   ```
-- 課程資料的 `lab.kind` 決定用哪個模型（`phases`／`eclipses`／`seasons`／`tides`／`stars`／`northstar`／`planets`）；第七課多的欄位：`wanderers`（五星卡）；第六課多的欄位：`dipper`（斗柄四季卡）、`places`（各地北極星高度表，`place` 可跳進模型）、`tonight.attr`；第五課多的欄位：`skies`（四季星空卡）、`tonight`、`culture_cards`（參商、七夕、四象、三垣＋同星兩名表）；`phases`、`keys`、`terms`、`moontides`、`words`、`types`、`upcoming`、`activities[]` 有就畫、沒有就略過。
+- 課程資料的 `lab.kind` 決定用哪個模型（`phases`／`eclipses`／`seasons`／`tides`／`stars`／`northstar`／`planets`／`sundial`）；第八課多的欄位：`sd_keys`（四個關鍵日 chip）、`instruments`（太陽的時鐘卡，`mode` 可跳進模型）；第七課多的欄位：`wanderers`（五星卡）；第六課多的欄位：`dipper`（斗柄四季卡）、`places`（各地北極星高度表，`place` 可跳進模型）、`tonight.attr`；第五課多的欄位：`skies`（四季星空卡）、`tonight`、`culture_cards`（參商、七夕、四象、三垣＋同星兩名表）；`phases`、`keys`、`terms`、`moontides`、`words`、`types`、`upcoming`、`activities[]` 有就畫、沒有就略過。
 - 第三課的日出日落、晝長、節氣在 `ephem.js`（`dayInfo`、`solarTermsOfYear`），`npm test` 也會跑 `test/seasons.test.mjs`（對照台北、雪梨的已知日出日落）。
 - 第五課（`constellations.js`，`lab.kind = "stars"`）：外圈是**真實天球**——耶魯亮星星表 BSC5（公有領域，CDS V/50），亮於 5 等的 1,634 顆星，精簡成 `src/stars-data.js`（產物，`npm run stars` 重做；原始星表 1.6 MB 不進 repo，放 `~/Documents/twrses-bsc5/`，下載方法寫在 `scripts/build-stars.mjs` 檔頭）。
   - 星座連線、星名、中國星官、季節大三角是**本站自繪**，寫在 `src/figures.js`（用 BSC 名稱如 `'Alp Ori'`、`'Del1 Tau'` 指定星星，找不到會報錯）。**不要改用 Stellarium 的連線檔**：那是 CC BY-SA，會牽動整份資料的授權。頁面模型下方的出處行是 `lab.credit_html`，必須保留。
@@ -69,6 +69,11 @@
   - 「編號視線」的 1–9 標在地球與行星的位置上、路徑圖上也標同樣 1–9；**不要標在視線遠端**：畫面裡的「牆」不夠遠，視差會把倒退的順序吃掉（實測：縮到 1.2 倍時木星看不出倒退）。
   - 右側路徑圖東在左（面向南方），時間窗依行星而定（`SPAN`：火星 ±110 天、土星 ±140 天…），太寬逆行圈會被壓扁。一打開時若有外行星正在逆行就選它。頁面下方「今晚的行星」與五星卡上的下一次逆行日期都在瀏覽器裡現算。
   - 除錯：`document.querySelector('[data-planet-lab]').__lab`（`setPlanet('mars', 跳到下次逆行?)`、`setT(ms)`、`setView('above'|'ride')`、`jumpRetro(±1)`）。
+- 第八課（`sundial.js`，`lab.kind = "sundial"`）：一個機制——影子跟著太陽轉；晷針斜到指向北極星（彰化 24°），影子就一年到頭每小時 15°。日晷減時鐘＝均時差（`ephem.js` 的 `sunEquatorial().eotMin`）＋經度修正 `LON_MIN`（彰化 120.54°E → +2.16 分）。
+  - `test/sundial.test.mjs`（assert）：均時差極值 11/3 +16.43、2/11 −14.21（對照公認值）、5/14、7/26；太陽正午時太陽方位剛好 180°；夏至正午高 89.4°、冬至影長 1.09 倍竿高。
+  - 場景：彰化地面（+X 東、+Y 天頂、+Z 南），影子**解析計算**（不用陰影貼圖）。兩種儀器：立竿見影（竿影＋整點刻度＋冬夏至影端曲線＋「每天 12:00 的太陽」8 字形）與赤道式日晷（晷面垂直天軸；太陽在天赤道北邊看上面、南邊看下面，相機自動對準亮面；晷面由北側最低緣支撐，從南方看下面時不擋）。春秋分前後陽光擦過晷面，提示文字會說明。
+  - 頁面下方「今天彰化的日晷」：日晷每個整點對應的時鐘時刻與一公尺竿影，瀏覽器現算。
+  - 除錯：`document.querySelector('[data-sundial-lab]').__lab`（`setT(ms)`、`setMode('stick'|'dial')`、`jumpKey(0–3)`、`solarNoon()`）。背景面板 rAF 很慢時，相機轉場要很久才完成，直接設 `camera.position` 看最終構圖。
 - 第二課的「即將到來的日月食」清單是**瀏覽器當場算的**，永遠不會過期；台灣可見與否以彰化（24.08N, 120.54E）為準。
 - 系列首頁用 `.lc-list`／`.lc-row` 橫向課程卡（`assets/css/lesson-cards.css`，`_lc_head()` 載入；天文教育與中醫養生首頁共用，桌機兩欄、手機一欄）。**不要改回 `.pm-cards`**：那套四欄窄卡配上 `.tp-card-h`（中文字型＋加寬字距）會把英文長標題切成四、五行，Luke 看過嫌難讀（2026-09-30）。
 - `assets/css/astro.css` 與模型 JS 只載在天文頁（`_astro_head()`，版本號另算，不影響全站快取）。
