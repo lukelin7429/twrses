@@ -1035,3 +1035,66 @@
 .mi-disc em { font-style: normal; font-size: .62rem; font-weight: 800; color: #1b1405; background: #ffd36e; border-radius: 999px; padding: .05rem .45rem; }
 .mi-disc.mic em { background: #9fb0cf; }
 .mi-disc.sup { background: rgba(255,211,110,.08); box-shadow: 0 0 0 1px rgba(255,211,110,.35) inset; }
+
+/* =========================================================
+   第十六課：日出的方位（.sr-lab、四個日出點卡、今天的日出與懸日查詢）
+   ========================================================= */
+.sr-lab .al-stage { grid-template-columns: minmax(0, 1fr) 360px; }
+.sr-lab .al-space-cv { cursor: grab; }
+.sr-readout dd span { display: block; font-family: var(--zh); font-weight: 500; font-size: .74rem; color: var(--al-mute); }
+.sr-readout dl div.ec-wide { grid-column: 1 / -1; }
+.sr-readout [hidden] { display: none; }
+.sr-place { display: flex; flex-wrap: wrap; gap: .25rem; margin: 0 0 .4rem; padding: 3px; border-radius: 14px; }
+.sr-place button { flex: 1 1 auto; font-size: .68rem; padding: .3rem .45rem; }
+.sr-key button[aria-pressed="true"] { background: rgba(255,211,110,.18); color: #fff; }
+.al-lab.sr-ws { color: #bcd6ff; border-color: rgba(127,180,255,.5); }
+.al-lab.sr-ve { color: #fff; }
+.al-lab.sr-ss { color: #ffd0a8; border-color: rgba(255,162,90,.5); }
+.al-lab.sr-tick { background: transparent; border: 0; color: #9fb0cf; font-size: .62rem; padding: 0; }
+.al-lab.sr-slot { color: #1b1405; background: #e7c48f; border: 0; font-size: .66rem; }
+.al-lab.sr-axis { font-size: .64rem; color: #cfd8ea; }
+.al-lg-sr-trail i { border: 0; width: 22px; height: 8px; margin-top: .4rem; border-radius: 4px; background: linear-gradient(90deg, #ffa25a, #e8eefc, #7fb4ff); }
+.al-lg-sr-posts i { border: 0; border-radius: 0; width: 18px; height: 18px; background: linear-gradient(90deg, transparent 2px, #ffa25a 2px 4px, transparent 4px 8px, #e8eefc 8px 10px, transparent 10px 14px, #7fb4ff 14px 16px, transparent 16px); }
+.al-lg-sr-paths i { border: 0; border-radius: 0; width: 22px; height: 12px; margin-top: .3rem; border-top: 2px solid #ffd36e; border-radius: 50% 50% 0 0; }
+@media (max-width: 1020px) {
+  .sr-lab .al-stage { grid-template-columns: 1fr; }
+  .sr-aside { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); column-gap: 1.2rem; align-items: start; }
+  .sr-aside .al-sky-k { grid-column: 1 / -1; }
+  .sr-aside .se-fig, .sr-aside .sr-place { grid-column: 1; }
+  .sr-aside .sr-readout { grid-column: 2; grid-row: 2 / 4; margin-top: 0; }
+}
+@media (max-width: 640px) {
+  .sr-aside { display: block; }
+  .sr-lab .ec-view button { font-size: .64rem; padding: .28rem .5rem; }
+  .sr-lab .ec-jump button { flex: 1 1 30%; font-size: .64rem; }
+}
+.sr-card.sr-ws .ph-ico { background: radial-gradient(circle at 50% 40%, #1a2c52, #070b17); }
+.sr-card.sr-ss .ph-ico { background: radial-gradient(circle at 50% 40%, #3a2a24, #0d0b10); }
+@media (min-width: 1021px) { .sr-tn-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.sr-swing { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: .6rem; }
+.sr-swing > div { padding: .75rem .85rem; border-radius: 14px; background: #fff; border: 1px solid var(--line); box-shadow: var(--shadow-sm); font-size: .8rem; line-height: 1.45; }
+.sr-swing b { display: block; font-family: var(--serif); font-size: 1.15rem; color: var(--brand-dk); margin-bottom: .2rem; font-variant-numeric: tabular-nums; }
+.sr-swing span { display: block; }
+.sr-swing .zh { color: var(--ink-soft); }
+@media (max-width: 760px) { .sr-swing { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.sr-henge { display: grid; grid-template-columns: minmax(0, 300px) minmax(0, 1fr); gap: 1.2rem; padding: 1rem; border-radius: 16px; background: #0c1428; color: #e8edf7; }
+.sr-henge-ctl { display: flex; flex-direction: column; gap: .7rem; min-width: 0; }
+.sr-roads { display: flex; flex-wrap: wrap; gap: .25rem; padding: 3px; border-radius: 14px; background: rgba(255,255,255,.05); border: 1px solid rgba(160,180,230,.22); }
+.sr-roads button { flex: 1 1 auto; font: inherit; font-size: .72rem; font-weight: 700; padding: .32rem .55rem; border-radius: 999px; border: 0; background: transparent; color: #cfd8ea; cursor: pointer; }
+.sr-roads button[aria-pressed="true"] { background: #ffd36e; color: #1b1405; }
+.sr-custom { display: block; font-size: .78rem; color: #9fb0cf; opacity: .6; transition: opacity .2s; }
+.sr-custom.on { opacity: 1; }
+.sr-custom b { color: #ffd36e; margin: 0 .2rem; font-variant-numeric: tabular-nums; }
+.sr-custom input { display: block; width: 100%; margin-top: .4rem; accent-color: #ffd36e; }
+.sr-compass { display: block; width: 100%; max-width: 260px; margin: 0 auto; border-radius: 12px; }
+.sr-henge-out { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: .8rem 1.2rem; align-content: start; min-width: 0; }
+.sr-where { grid-column: 1 / -1; margin: 0; font-weight: 800; color: #ffd36e; }
+.sr-hcol h4 { margin: 0 0 .5rem; font-size: .95rem; color: #fff; }
+.sr-hcol h4 .zh { display: block; font-size: .8rem; color: #9fb0cf; font-family: var(--zh); }
+.sr-hcol ul { list-style: none; margin: 0; padding: 0; display: grid; gap: .45rem; }
+.sr-hcol li { padding: .5rem .7rem; border-radius: 10px; background: rgba(255,211,110,.08); border: 1px solid rgba(255,211,110,.25); font-size: .8rem; }
+.sr-hcol li b { color: #fff; }
+.sr-hcol li .zh, .sr-none .zh, .sr-small .zh { display: block; color: #9fb0cf; font-family: var(--zh); }
+.sr-none { margin: 0; font-size: .8rem; color: #cfd8ea; }
+.sr-small { margin: .6rem 0 0; font-size: .72rem; color: #9fb0cf; }
+@media (max-width: 760px) { .sr-henge, .sr-henge-out { grid-template-columns: 1fr; } }

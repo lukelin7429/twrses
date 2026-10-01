@@ -2656,7 +2656,7 @@ def _astro_ver():
     h = hashlib.md5()
     for rel in ("assets/css/astro.css", "assets/js/moon-phases.js", "assets/js/eclipses.js", "assets/js/seasons.js", "assets/js/tides.js",
                 "assets/js/constellations.js", "assets/js/north-star.js", "assets/js/planets-lab.js",
-                "assets/js/sundial.js", "assets/js/solar.js", "assets/js/star-distance.js", "assets/js/meteors-lab.js", "assets/js/star-colors.js", "assets/js/moon-face.js", "assets/js/milky-way.js", "assets/js/moon-illusion.js"):
+                "assets/js/sundial.js", "assets/js/solar.js", "assets/js/star-distance.js", "assets/js/meteors-lab.js", "assets/js/star-colors.js", "assets/js/moon-face.js", "assets/js/milky-way.js", "assets/js/moon-illusion.js", "assets/js/sunrise-lab.js"):
         fp = os.path.join(ROOT, rel)
         if os.path.exists(fp): h.update(open(fp, "rb").read())
     return h.hexdigest()[:8]
@@ -2848,6 +2848,24 @@ def illusion_svg(size=56):
             '<circle cx="30" cy="34" r="17" fill="#f4d48a"/><circle cx="30" cy="34" r="23" fill="rgba(244,212,138,.18)"/>'
             '<circle cx="24" cy="30" r="3.5" fill="rgba(150,120,70,.35)"/><circle cx="35" cy="38" r="4.5" fill="rgba(150,120,70,.3)"/>'
             '<path d="M0 60 L0 46 L8 40 L16 46 L16 42 L24 42 L24 48 L32 41 L40 48 L40 44 L48 44 L48 50 L54 45 L60 49 L60 60 Z" fill="#0a0e1a"/></svg>')
+
+def sunrise_svg(size=56, off=None):
+    """日出小圖（系列首頁的課程卡、四個日出點卡）：地平線上的半個太陽，上方一道弧標出冬至到夏至的日出範圍。
+    off：東偏北幾度（負＝偏南），畫成指針；None 時畫三個點（夏至、春秋分、冬至）。"""
+    import math
+    def pt(o, r=22):
+        a = math.radians(o * 1.4)          # 角度放大 1.4 倍，小圖比較看得出來
+        return 30 - r * math.sin(a), 44 - r * math.cos(a)
+    arc = " ".join(f"{'M' if k == 0 else 'L'}{pt(o)[0]:.1f} {pt(o)[1]:.1f}" for k, o in enumerate(range(26, -27, -2)))
+    if off is None:
+        dots = "".join(f'<circle cx="{pt(o)[0]:.1f}" cy="{pt(o)[1]:.1f}" r="2.6" fill="{c}"/>' for o, c in ((26, "#ffa25a"), (0, "#e8eefc"), (-25, "#7fb4ff")))
+    else:
+        x, y = pt(off)
+        dots = f'<line x1="30" y1="44" x2="{x:.1f}" y2="{y:.1f}" stroke="#ffd36e" stroke-width="2" stroke-linecap="round"/><circle cx="{x:.1f}" cy="{y:.1f}" r="3.2" fill="#ffd36e"/>'
+    return (f'<svg class="sunrise-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">'
+            '<circle cx="30" cy="44" r="15" fill="rgba(255,190,90,.22)"/><circle cx="30" cy="44" r="10" fill="#ffc861"/>'
+            f'<path d="{arc}" stroke="rgba(255,211,110,.55)" stroke-width="1.6" fill="none" stroke-dasharray="2 2.4"/>{dots}'
+            '<rect x="0" y="44" width="60" height="16" fill="#0a0e1a"/><line x1="4" y1="44" x2="56" y2="44" stroke="#9fb0cf" stroke-width="1"/></svg>')
 
 def _bi(en, zh, tag="p", cls=""):
     """英文在前、中文在後的雙語段落。"""
@@ -3750,6 +3768,61 @@ def render_illusion_lab(lesson):
   <p class="cn-credit">{lesson["lab"]["credit_html"]}</p>
 </div>'''
 
+def render_sunrise_lab(lesson):
+    """第十六課：日出的方位（assets/js/sunrise-lab.js 綁這裡的 class）。"""
+    tg = _lab_toggles([("trail", "Trail of sunrises", "日出足跡", True), ("paths", "The Sun's daily paths", "太陽每天走的路", True),
+                       ("scenery", "Scenery", "景物", True)])
+    return f'''<div class="astro-lab sr-lab rvl" data-sunrise-lab>
+  <div class="al-stage">
+    <div class="al-space">
+      <canvas class="al-space-cv" aria-label="3D model of where the Sun rises on the horizon through the year · 一年之中太陽在地平線上從哪裡升起的 3D 模型"></canvas>
+      <div class="al-labels" aria-hidden="true"></div>
+      <div class="ec-view" role="group" aria-label="View · 視角">
+        <button type="button" data-view="east" aria-pressed="true">Face east · 面向東方</button>
+        <button type="button" data-view="dome" aria-pressed="false">Sky dome · 天空圓頂</button>
+      </div>
+      <p class="al-hint">Drag to look around · 拖曳轉動視角</p>
+      <button type="button" class="al-home" title="Face east again · 回到原本的視角" aria-label="Face east again · 回到原本的視角">&#8634;</button>
+      <p class="al-nogl-msg">This 3D model needs WebGL, which this browser does not support. The sunrise chart and today's sunrise still work.<br><span class="zh">這個瀏覽器不支援 WebGL，無法顯示 3D 模型；一年的日出方位圖與今天的日出一樣能用。</span></p>
+    </div>
+    <aside class="al-sky sr-aside">
+      <p class="al-sky-k">Where the Sun rises, all year · 一年的日出方位</p>
+      <figure class="se-fig"><div class="se-box"><canvas class="sr-year-cv" aria-label="Chart of the sunrise direction through the year for Changhua, Taosi, and Singapore · 彰化、陶寺、新加坡一年的日出方位圖"></canvas></div></figure>
+      <div class="ec-where sr-place" role="group" aria-label="Place · 地點">
+        <button type="button" data-place="changhua" aria-pressed="true">Changhua · 彰化</button>
+        <button type="button" data-place="taosi" aria-pressed="false">Taosi · 陶寺</button>
+        <button type="button" data-place="singapore" aria-pressed="false">Singapore · 新加坡</button>
+      </div>
+      <div class="al-readout ec-readout sr-readout" aria-live="polite">
+        <p class="ec-date sr-when"></p>
+        <dl>
+          <div class="ec-wide"><dt>Sunrise · 日出</dt><dd class="sr-rise"></dd></div>
+          <div class="ec-wide"><dt>Sunset · 日落</dt><dd class="sr-set"></dd></div>
+          <div class="ec-wide"><dt>Since yesterday · 和昨天比</dt><dd class="sr-shift"></dd></div>
+          <div class="ec-wide sr-slot-row" hidden><dt>Taosi slot · 陶寺的縫</dt><dd class="sr-slotv"></dd></div>
+        </dl>
+      </div>
+    </aside>
+  </div>
+  <div class="al-controls">
+    <div class="al-row al-row-main">
+      <button type="button" class="al-play" aria-pressed="false"><span class="al-play-i" aria-hidden="true"></span><span class="al-play-t">Play · 播放</span></button>
+      <div class="ec-jump sr-key" role="group" aria-label="Key days · 關鍵日">
+        <button type="button" data-key="ws" aria-pressed="false">Winter solstice · 冬至</button>
+        <button type="button" data-key="ve" aria-pressed="false">Spring equinox · 春分</button>
+        <button type="button" data-key="ss" aria-pressed="false">Summer solstice · 夏至</button>
+        <button type="button" data-key="ae" aria-pressed="false">Fall equinox · 秋分</button>
+        <button type="button" data-key="today" aria-pressed="true">Today · 今天</button>
+      </div>
+    </div>
+    <label class="ec-slider"><span class="ec-slider-k">Day of the year · 一年中的哪一天 <em>January 1 to December 31 · 1 月 1 日到 12 月 31 日（播放：1 秒 12 天）</em></span>
+      <input type="range" class="ec-time sr-time" min="0" max="364" step="1" value="0" aria-label="Day of the year · 一年中的第幾天"></label>
+    <div class="al-row al-toggles">{tg}</div>
+  </div>
+  {_lab_foot(lesson["lab"])}
+  <p class="cn-credit">{lesson["lab"]["credit_html"]}</p>
+</div>'''
+
 def _astro_nav(slug):
     ls = ASTRO["lessons"]
     i = next(n for n, l in enumerate(ls) if l["slug"] == slug)
@@ -3808,11 +3881,11 @@ def build_astro_lesson(lesson):
                 "stars": render_star_lab, "northstar": render_north_lab, "planets": render_planet_lab,
                 "sundial": render_sundial_lab, "solar": render_solar_lab, "distance": render_distance_lab,
                 "meteors": render_meteor_lab, "colors": render_color_lab, "moonface": render_moonface_lab,
-                "milkyway": render_milkyway_lab, "illusion": render_illusion_lab}.get(kind, render_moon_lab)(lesson)
+                "milkyway": render_milkyway_lab, "illusion": render_illusion_lab, "sunrise": render_sunrise_lab}.get(kind, render_moon_lab)(lesson)
     js = {"eclipses": "eclipses", "seasons": "seasons", "tides": "tides", "stars": "constellations",
           "northstar": "north-star", "planets": "planets-lab", "sundial": "sundial", "solar": "solar",
           "distance": "star-distance", "meteors": "meteors-lab", "colors": "star-colors", "moonface": "moon-face", "milkyway": "milky-way",
-          "illusion": "moon-illusion"}.get(kind, "moon-phases")
+          "illusion": "moon-illusion", "sunrise": "sunrise-lab"}.get(kind, "moon-phases")
 
     # 依資料裡有什麼就排什麼段落；band（米色底）交替
     secs = []
@@ -4009,6 +4082,20 @@ def build_astro_lesson(lesson):
         secs.append(("views", "Four Ways to Look · 四種看法", "Is the Moon really bigger?", "月亮真的變大了嗎？",
                      f'<div class="ph-grid ss-grid stagger">{v_cards}</div>',
                      _bi(lesson["views_note_en"], lesson["views_note_zh"], cls="lead rvl d2")))
+    if lesson.get("points"):
+        p_cards = "".join(
+            f'<article class="ph-card ss-card sr-card sr-{p["key"]} rvl">'
+            f'<div class="ph-ico">{sunrise_svg(64, p["off"])}</div>'
+            f'<h3>{html.escape(p["en"])}<span class="zh">{html.escape(p["zh"])}</span></h3>'
+            f'<p class="mw-num"><b>{html.escape(p["num"])}</b>{html.escape(p["num_en"])} · {html.escape(p["num_zh"])}</p>'
+            f'<p class="ph-meta"><span>{html.escape(p["when_en"])} · {html.escape(p["when_zh"])}</span></p>'
+            f'<p class="ph-when">{html.escape(p["note_en"])}<br><span class="zh">{html.escape(p["note_zh"])}</span></p>'
+            f'<button type="button" class="ph-go" data-lab-day="{p["key"]}">See it in 3D · 在模型中看 <i>&uarr;</i></button>'
+            f'</article>'
+            for p in lesson["points"])
+        secs.append(("points", "Four Sunrise Points · 四個日出點", "Where the Sun rises in Changhua", "彰化的太陽從哪裡升起",
+                     f'<div class="ph-grid ss-grid stagger">{p_cards}</div>',
+                     _bi(lesson["points_note_en"], lesson["points_note_zh"], cls="lead rvl d2")))
     if lesson.get("scalecalc"):
         sc = lesson["scalecalc"]
         btns = "".join(f'<button type="button" data-sun-cm="{cm}" aria-pressed="{"true" if cm == 24 else "false"}">{html.escape(en)} · {html.escape(zh)}</button>'
@@ -4106,7 +4193,7 @@ def build_astro_lesson(lesson):
         table = '' if not cu.get("names") else (f'<div class="cc-tbl-wrap rvl"><table class="cc-tbl"><caption>{html.escape(cu["table_en"])} · {html.escape(cu["table_zh"])}</caption>'
                  f'<thead><tr><th>Western name · 西方名稱</th><th>Chinese name · 中國星名</th><th>Why it matters · 小故事</th></tr></thead>'
                  f'<tbody>{rows}</tbody></table></div>')
-        secs.append(("culture", "East and West · 東西方的星空", cu["title_en"], cu["title_zh"],
+        secs.append(("culture", cu.get("eyebrow", "East and West · 東西方的星空"), cu["title_en"], cu["title_zh"],
                      f'<div class="cc-grid">{cc}</div>{table}',
                      _bi(cu["lead_en"], cu["lead_zh"], cls="lead rvl d2")))
     if lesson.get("upcoming"):
@@ -4132,7 +4219,8 @@ def build_astro_lesson(lesson):
                 "colors": ("Read a star's color", "一句話讀懂星星的顏色"),
                 "moonface": ("Face the Earth", "一句話記住月亮的臉"),
                 "milkyway": ("Find your place in the galaxy", "一句話找到我們在銀河的位置"),
-                "illusion": ("Don't be fooled", "一句話破解月亮錯覺")}[kind]
+                "illusion": ("Don't be fooled", "一句話破解月亮錯覺"),
+                "sunrise": ("Read the horizon", "一句話讀懂日出點")}[kind]
     secs.append(("tricks", "Remember It · 記憶口訣", tricks_h[0], tricks_h[1], _sci_tricks(lesson), ""))
     acts = lesson.get("activities") or [lesson["activity"]]
     for n, act in enumerate(acts, 1):
@@ -4174,7 +4262,7 @@ def build_astro_hub():
     def icon(l):
         c = l.get("card")
         return (eclipse_svg("solar:total", 60) if c == "eclipse" else season_svg(1, 60) if c == "season"
-                else tide_svg(60) if c == "tide" else star_svg(60) if c == "stars" else polaris_svg(60) if c == "north" else planet_svg(60) if c == "planets" else sundial_svg(60) if c == "sundial" else solar_svg(60) if c == "solar" else distance_svg(60) if c == "distance" else meteor_svg(60) if c == "meteors" else colors_svg(60) if c == "colors" else moon_svg(180, 60) if c == "moonface" else milkyway_svg(60) if c == "milkyway" else illusion_svg(60) if c == "illusion" else moon_svg(120, 60))
+                else tide_svg(60) if c == "tide" else star_svg(60) if c == "stars" else polaris_svg(60) if c == "north" else planet_svg(60) if c == "planets" else sundial_svg(60) if c == "sundial" else solar_svg(60) if c == "solar" else distance_svg(60) if c == "distance" else meteor_svg(60) if c == "meteors" else colors_svg(60) if c == "colors" else moon_svg(180, 60) if c == "moonface" else milkyway_svg(60) if c == "milkyway" else illusion_svg(60) if c == "illusion" else sunrise_svg(60) if c == "sunrise" else moon_svg(120, 60))
     cards = []
     for l in ASTRO["lessons"]:
         cards.append(
