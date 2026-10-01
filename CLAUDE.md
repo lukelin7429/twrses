@@ -83,7 +83,7 @@
   - `src/near-stars.js` 是產物（`npm run near`，`scripts/build-near.mjs`）：原始星表 hip2.dat 不進 repo，放 `~/Documents/twrses-hip2/`（下載方法寫在腳本檔頭）；同時比對 BSC5 補上拜耳名。收錄：20 光年內全部、100 光年內亮於 6 等、更遠但亮於 3 等，共 582 顆。俗名與中文名在腳本的 `NAMES`（以 HIP 編號為鍵，key 給 `data-lab-star` 用）。
   - 計算在 `src/distance.js`（純函式）：視差→光年、誤差範圍、視差橢圓（`parallaxShift`，用 planets.js 的地球位置）、光出發年份與中國朝代（`eraOf`，天文年號，沒有西元 0 年；1912 起寫民國）、生日星。`test/distance.test.mjs`（assert）：比鄰星 4.24、南門二 4.37、天狼星 8.6、織女星 25.0、牛郎星 16.7、天鵝座 61 約 11.4 光年；牛郎織女相距 14.6 光年；比鄰星視差＝5.3 公里外的一元硬幣；參宿四的光（含誤差範圍）出發於明朝；黃道極的星畫圓、黃道上的星畫線。
   - 兩個場景共用一個 renderer：「視差」（1 AU＝10 單位，恆星距離一律縮小 67,000 倍，`SHRINK`）與「鄰居」20／100／2,000 光年（1 單位＝1 光年，著色器 `uMax` 只畫範圍內的星，橘線是距離誤差）。右側望遠鏡畫面用真實視差、每顆星同一個放大倍率。誤差大於 4% 的星，距離與出發年份都寫範圍。
-  - 標籤每一格只改「這一格顯示」與「上一格顯示、這一格不顯示」的（`beginLabels`／`endLabels`）：先全部設 0 再設 1 的話，讀 clientWidth 會強制重算樣式，透明度過場每格從 0 重來，標籤就看不見。class 前綴用 `dl-`（`sd-` 是第八課日晷的）。
+  - 標籤每一格只改「這一格顯示」與「上一格顯示、這一格不顯示」的（`beginLabels`／`endLabels`）：先全部設 0 再設 1 的話，讀 clientWidth 會強制重算樣式，透明度過場每格從 0 重來，標籤就看不見。class 前綴用 `dl-`（`sd-` 是第八課日晷的）。視線要延伸到很遠的背景星空：切成多段（`SIGHT_N`），相機也退到星的反方向——否則延伸端跑到相機背後時，配上對數深度緩衝整條線會消失（第一次上線時天鵝座 61 就這樣）。
   - 頁面下方：由近到遠八顆星卡（`neighbors`，光出發年份 `data-depart` 現算）、「星光時光機」今晚九點彰化亮星由近到遠（`data-starlight`）、生日星（`birthday`，`data-birthday`，只列彰化看得到、赤緯 > −50° 的星）。
   - 除錯：`document.querySelector('[data-distance-lab]').__lab`（`setStar('proxima'|'acen'|'sirius'|'61cyg'|'altair'|'vega'|'betelgeuse'|'deneb')`、`setView('parallax'|'20'|'100'|'2000')`、`setT(ms)`、`goCam(true)` 直接到最終構圖、`render()`）。瀏覽器面板隱藏時 IntersectionObserver 不觸發：點頁面上的「看它的視差」按鈕會直接啟動模型；或用無頭 Chrome 截圖（WebGL 正常）。
 - 第二課的「即將到來的日月食」清單是**瀏覽器當場算的**，永遠不會過期；台灣可見與否以彰化（24.08N, 120.54E）為準。

@@ -31,6 +31,7 @@ import { helio } from './planets.js';
 const K = 10;                       // 視差場景：1 AU＝10 單位
 export const SHRINK = 67000;        // 視差場景：恆星距離縮小的倍率
 const RS_A = 90000;                 // 視差場景的遠方星空半徑
+const SIGHT_N = 48;                 // 每條視線切成幾個點（越靠近地球越密）
 const DAY = 86400000, YEAR = 365.25636 * DAY;
 const SITE = { lat: 24.08, lon: 120.54 };   // 彰化
 const MON = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
@@ -127,9 +128,10 @@ function initLab(root) {
     A.earth2 = new Mesh(new SphereGeometry(0.55, 32, 16), new MeshBasicMaterial({ color: 0xff9a4a, transparent: true, opacity: 0.85 })); A.scene.add(A.earth2);
     A.star = new Sprite(new SpriteMaterial({ map: starTex, color: 0xffffff, blending: AdditiveBlending, depthWrite: false, transparent: true, sizeAttenuation: false }));
     A.star.scale.setScalar(0.05); A.scene.add(A.star);
-    // setFromPoints 不會加大既有的 buffer，所以建立時就給足點數（視線 2 點、角度弧 25 點）
+    // setFromPoints 不會加大既有的 buffer，所以建立時就給足點數（視線 SIGHT_N 點、角度弧 25 點）。
+    // 視線要延伸到很遠的背景星空，切成多段：一端跑到相機背後時（對數深度緩衝），整條線才不會一起消失。
     const mkLine = (col, op = 0.9, n = 2) => { const l = new Line(lineGeo(Array.from({ length: n }, () => new Vector3())), new LineBasicMaterial({ color: col, transparent: true, opacity: op })); l.frustumCulled = false; A.scene.add(l); return l; };
-    A.sight1 = mkLine(0x4fd1c5); A.sight2 = mkLine(0xff9a4a);
+    A.sight1 = mkLine(0x4fd1c5, 0.9, SIGHT_N); A.sight2 = mkLine(0xff9a4a, 0.9, SIGHT_N);
     A.base = new Line(lineGeo([new Vector3(), new Vector3(1, 0, 0)]), new LineDashedMaterial({ color: 0xffffff, dashSize: 0.6, gapSize: 0.5, transparent: true, opacity: 0.6 }));
     A.base.frustumCulled = false; A.scene.add(A.base);
     A.arc = mkLine(0xffd36e, 1, 25);
@@ -225,7 +227,8 @@ function initLab(root) {
     A.star.scale.setScalar(MathUtils.clamp(0.07 - s.mag * 0.008, 0.045, 0.085));
     const hit = (from) => from.clone().add(S.clone().sub(from).normalize().multiplyScalar(RS_A * 0.98));
     const h1 = hit(E), h2 = hit(E2);
-    A.sight1.geometry.setFromPoints([E, h1]); A.sight2.geometry.setFromPoints([E2, h2]);
+    const seg = (from, to) => Array.from({ length: SIGHT_N }, (_, k) => from.clone().lerp(to, Math.pow(k / (SIGHT_N - 1), 3)));
+    A.sight1.geometry.setFromPoints(seg(E, h1)); A.sight2.geometry.setFromPoints(seg(E2, h2));
     A.base.geometry.setFromPoints([E, E2]); A.base.computeLineDistances();
     A.hit1.geometry.attributes.position.array.set(h1.toArray()); A.hit1.geometry.attributes.position.needsUpdate = true;
     A.hit2.geometry.attributes.position.array.set(h2.toArray()); A.hit2.geometry.attributes.position.needsUpdate = true;
@@ -319,7 +322,8 @@ function initLab(root) {
       n.normalize(); if (n.y < 0) n.negate();
       const half = Math.max(D * 0.62, 16), dist = half / Math.tan((camera.fov / 2) * DEG) * 1.3;
       const tgt = dir.clone().multiplyScalar(D * 0.5);
-      return { pos: tgt.clone().add(n.multiplyScalar(dist)).add(new Vector3(0, dist * 0.18, 0)), tgt };
+      // 相機稍微退到「星的反方向」：視線延伸到背景星空的那一端永遠在相機前方
+      return { pos: tgt.clone().add(n.multiplyScalar(dist)).add(dir.clone().multiplyScalar(-dist * 0.22)), tgt };
     }
     const Rr = +state.view, D = Rr * (camera.aspect < 1.1 ? 1.3 : 1.75);
     return { pos: new Vector3(D * 0.5, D * 0.62, D * 0.66), tgt: new Vector3() };
@@ -376,7 +380,10 @@ function initLab(root) {
       L.star.innerHTML = `${s.en} · ${s.zh}`;
       if (state.sight) {
         L.arc.innerHTML = 'Shift · 視差位移';
-        place(L.arc, S.clone().add(E.clone().add(E2).multiplyScalar(0.5).sub(S).normalize().multiplyScalar(Math.min(D * 0.28, 9) + 2)), -32);
+        // 弧的位置離星名太近時，改標在星的上方
+        const arcAt = S.clone().add(E.clone().add(E2).multiplyScalar(0.5).sub(S).normalize().multiplyScalar(Math.min(D * 0.28, 9) + 2));
+        const [sx, sy] = px(S), [qx, qy] = px(arcAt);
+        if (Math.hypot(sx - qx, sy - qy) > 60) place(L.arc, arcAt, -12); else place(L.arc, S, -36);
         place(L.hit1, new Vector3().fromArray(A.hit1.geometry.attributes.position.array), 14);
         place(L.hit2, new Vector3().fromArray(A.hit2.geometry.attributes.position.array), 14);
       }
