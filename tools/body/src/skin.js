@@ -166,6 +166,7 @@ function initLab(root) {
   const state = { ready: false, labels: true, bonesOn: true, scen: 'hot', t: 0, vessel: 1, vesselT: 1.6, hair: 0, burn: 0, tan: 0 };
   const skinG = new Group();
   skinG.scale.setScalar(S);
+  skinG.visible = false;                           // 載入完、放好位置才顯示
   scene.add(skinG);
   const P = {};
   const W = (p) => skinG.localToWorld(p.clone());
@@ -353,6 +354,7 @@ function initLab(root) {
     controls.target.copy(P.target);
     buildVessels(1);
     choose('hot');
+    skinG.visible = true;
     state.ready = true;
     R.loading.hidden = true;
     root.classList.add('al-ready');

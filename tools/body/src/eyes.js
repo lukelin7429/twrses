@@ -232,6 +232,7 @@ function initLab(root) {
   let bones = null, E = null;
   const eyeG = new Group();                        // 眼睛座標（放大的左眼和眼前的東西都掛在這裡）
   eyeG.scale.setScalar(S);
+  eyeG.visible = false;                            // 載入完、放好位置才顯示
   scene.add(eyeG);
   const P = {};                                    // 位置、曲線
   const W = (p) => p.clone().multiplyScalar(S).add(eyeG.position);   // 眼睛座標 → 場景
@@ -531,6 +532,7 @@ function initLab(root) {
 
     applyStretch(1);                               // 也會放好視神經盤、接上視神經
     setObj('far');
+    eyeG.visible = true;
     state.ready = true;
     R.loading.hidden = true;
     root.classList.add('al-ready');

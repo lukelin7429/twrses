@@ -281,6 +281,7 @@ function initLab(root) {
   let bones = null, Ed = null;
   const earG = new Group();
   earG.scale.setScalar(S);
+  earG.visible = false;                            // 載入完、放好位置才顯示
   scene.add(earG);
   const P = {};
   const W = (p) => p.clone().multiplyScalar(S).add(earG.position);
@@ -482,6 +483,7 @@ function initLab(root) {
     controls.target.copy(P.target);
     buildCochlea(0);
     choosePre('bird');
+    earG.visible = true;
     state.ready = true;
     R.loading.hidden = true;
     root.classList.add('al-ready');
