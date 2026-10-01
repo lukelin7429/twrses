@@ -283,7 +283,7 @@ function initLab(root) {
   const bg = (() => { let x = 97; const r = () => ((x = (x * 1664525 + 1013904223) >>> 0) / 4294967296); return Array.from({ length: 70 }, () => [r(), r(), 0.25 + r() * 0.75 * r()]); })();
   function drawScope() {
     const W = scopeCv.clientWidth || 300, H = W;
-    if (scopeCv.width !== Math.round(W * dpr)) { scopeCv.width = Math.round(W * dpr); scopeCv.height = Math.round(H * dpr); }
+    if (scopeCv.width !== Math.round(W * dpr) || scopeCv.height !== Math.round(H * dpr)) { scopeCv.width = Math.round(W * dpr); scopeCv.height = Math.round(H * dpr); }
     const c = scopeCv.getContext('2d'); c.setTransform(dpr, 0, 0, dpr, 0, 0);
     c.fillStyle = '#02040c'; c.fillRect(0, 0, W, H);
     for (const [x, y, b] of bg) { c.fillStyle = `rgba(210,220,255,${b * 0.7})`; c.beginPath(); c.arc(x * W, y * H, 0.6 + b * 1.1, 0, TAU); c.fill(); }

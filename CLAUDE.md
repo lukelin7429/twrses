@@ -44,14 +44,14 @@
 
 - 內容：`data/astronomy.json`（`lessons[]` 一課一筆；`planned[]` 是系列首頁的「製作中」卡）。頁面由 `build.py` 的 `build_astro_hub()` / `build_astro_lesson()` 產生，reading／生字／小測驗沿用 `render_basic_unit()`。
 - 3D 模型：three.js，**原始碼在 `tools/astro/src/`**，每課一個入口，打包成 `assets/js/<入口>.js`（產物，不要手改）：
-  - `moon-phases.js`（第一課）、`eclipses.js`（第二課）、`seasons.js`（第三課）、`tides.js`（第四課）、`constellations.js`（第五課）、`north-star.js`（第六課）、`planets-lab.js`（第七課）、`sundial.js`（第八課）、`solar.js`（第九課）、`star-distance.js`（第十課）、`meteors-lab.js`（第十一課）、`star-colors.js`（第十二課）；共用貼圖／著色在 `common.js`
+  - `moon-phases.js`（第一課）、`eclipses.js`（第二課）、`seasons.js`（第三課）、`tides.js`（第四課）、`constellations.js`（第五課）、`north-star.js`（第六課）、`planets-lab.js`（第七課）、`sundial.js`（第八課）、`solar.js`（第九課）、`star-distance.js`（第十課）、`meteors-lab.js`（第十一課）、`star-colors.js`（第十二課）、`moon-face.js`（第十三課）；共用貼圖／著色在 `common.js`
   - 四課的地球都用**真實大陸**（`earthmap.js`）：Natural Earth 1:110m 陸地（公有領域，`world-atlas` 套件），打包時編進 JS。第二、三、四課的地軸傾斜與自轉照真實時間（第二課日食時月影落在正確地區，對照 2024/4/8、2027/8/2 食甚點誤差約 1–2°）；第一課仍是裝飾性自轉、不畫地軸
   - 第四課畫的是「平衡潮」（`ephem.js` 的 `equilibriumTide`），**不是潮汐表**：頁面一律提醒去中央氣象署查官方潮汐預報（潮間帶安全），不要加上「下一次滿潮幾點」這種讀數
   - `ephem.js`：Meeus 低精度星曆＋日月食預測（純函式）。改它之後一定要跑 `npm test`，對照 NASA 表確認 2019–2032 年日月食仍全數吻合
   ```
   cd tools/astro && npm install && npm run build && npm test   # three 與 esbuild 版本鎖在 package.json
   ```
-- 課程資料的 `lab.kind` 決定用哪個模型（`phases`／`eclipses`／`seasons`／`tides`／`stars`／`northstar`／`planets`／`sundial`／`solar`／`distance`／`meteors`／`colors`）；第十二課多的欄位：`palette`（由紅到藍卡）；第十一課多的欄位：`showers`（八大流星雨卡）；第十課多的欄位：`neighbors`（由近到遠卡，`key` 對應 near-stars.js 的星）、`birthday`；第九課多的欄位：`bodies`（八大行星卡）、`scalecalc`；第八課多的欄位：`sd_keys`（四個關鍵日 chip）、`instruments`（太陽的時鐘卡，`mode` 可跳進模型）；第七課多的欄位：`wanderers`（五星卡）；第六課多的欄位：`dipper`（斗柄四季卡）、`places`（各地北極星高度表，`place` 可跳進模型）、`tonight.attr`；第五課多的欄位：`skies`（四季星空卡）、`tonight`、`culture_cards`（參商、七夕、四象、三垣＋同星兩名表）；`phases`、`keys`、`terms`、`moontides`、`words`、`types`、`upcoming`、`activities[]` 有就畫、沒有就略過。
+- 課程資料的 `lab.kind` 決定用哪個模型（`phases`／`eclipses`／`seasons`／`tides`／`stars`／`northstar`／`planets`／`sundial`／`solar`／`distance`／`meteors`／`colors`／`moonface`）；第十三課多的欄位：`facts`（正面與背面卡）；第十二課多的欄位：`palette`（由紅到藍卡）；第十一課多的欄位：`showers`（八大流星雨卡）；第十課多的欄位：`neighbors`（由近到遠卡，`key` 對應 near-stars.js 的星）、`birthday`；第九課多的欄位：`bodies`（八大行星卡）、`scalecalc`；第八課多的欄位：`sd_keys`（四個關鍵日 chip）、`instruments`（太陽的時鐘卡，`mode` 可跳進模型）；第七課多的欄位：`wanderers`（五星卡）；第六課多的欄位：`dipper`（斗柄四季卡）、`places`（各地北極星高度表，`place` 可跳進模型）、`tonight.attr`；第五課多的欄位：`skies`（四季星空卡）、`tonight`、`culture_cards`（參商、七夕、四象、三垣＋同星兩名表）；`phases`、`keys`、`terms`、`moontides`、`words`、`types`、`upcoming`、`activities[]` 有就畫、沒有就略過。
 - 第三課的日出日落、晝長、節氣在 `ephem.js`（`dayInfo`、`solarTermsOfYear`），`npm test` 也會跑 `test/seasons.test.mjs`（對照台北、雪梨的已知日出日落）。
 - 第五課（`constellations.js`，`lab.kind = "stars"`）：外圈是**真實天球**——耶魯亮星星表 BSC5（公有領域，CDS V/50），亮於 5 等的 1,634 顆星，精簡成 `src/stars-data.js`（產物，`npm run stars` 重做；原始星表 1.6 MB 不進 repo，放 `~/Documents/twrses-bsc5/`，下載方法寫在 `scripts/build-stars.mjs` 檔頭）。
   - 星座連線、星名、中國星官、季節大三角是**本站自繪**，寫在 `src/figures.js`（用 BSC 名稱如 `'Alp Ori'`、`'Del1 Tau'` 指定星星，找不到會報錯）。**不要改用 Stellarium 的連線檔**：那是 CC BY-SA，會牽動整份資料的授權。頁面模型下方的出處行是 `lab.credit_html`，必須保留。
@@ -98,6 +98,12 @@
   - 兩個視角：「加熱一顆星」（溫度滑桿 2,000–30,000 K 對數刻度，滑桿底色就是各溫度的顏色；旁邊一顆太陽對照）與「星星排排站」（第十課的 582 顆 Hipparcos 星＋太陽，從天上的方向（距離取對數壓縮）用著色器 `mixv` 飛進赫羅圖：橫軸 B−V、縱軸絕對星等，熱的先動）。右側是 Planck 曲線（各自以峰值為準，太陽虛線對照）與可見光彩虹。
   - 頁面下方：由紅到藍八顆星卡（`palette`，色塊 `data-swatch` 用同一個 bbColor 上色）、今晚九點彰化亮星由冷到熱（`data-starcolors`）。
   - 除錯：`document.querySelector('[data-color-lab]').__lab`（`setStar(key)`、`setTemp(K)`、`setView('heat'|'sort')`、`setSorted(true)`、`finish()` 直接跳到動畫終點、`render()`）。
+- 第十三課（`moon-face.js`，`lab.kind = "moonface"`）：一個機制——同步自轉（繞地球一圈＝自轉一圈＝27.32 天），潮汐把月亮的自轉煞到同步。
+  - 天平動在 `src/libration.js`（純函式）：Meeus 第 53 章光學天平動（不含 < 0.04° 的物理天平動），`diskToSeleno` 是正射投影反算。`test/libration.test.mjs`（assert）：Meeus 例題 53.a（l −1.206°、b +4.194°）、2020–2029 範圍 ±8.0°／±6.8°、月面撒點算出十年內 58% 曾面向地球（課本 59% 另含周日天平動）、經度天平動週期＝近點月 27.55 天。
+  - 3D：兩個 renderer（同第一課）。月亮 tiltG（自轉軸對軌道面斜 6.68°，空間中固定）⊃ spinG（自轉）⊃ 月球＋紅色正面箭頭；軌道照克卜勒方程式（偏心率 0.055）。自轉三種：真實 `M + π`（等速，所以箭頭在地月連線兩旁擺動＝天平動）、不自轉、轉太快（2M）；「放大搖晃 3 倍」把偏心率和傾角乘 3。月面貼圖 `makeMoonTexture`（近地面中心在 +X、東經在右）；從地球看用 `skyMoonMaterial`，地球照調到 0.1 才看得出同一張臉；第 0 天接近滿月。
+  - 頁面下方「今天的月亮怎麼搖」：用同一張月面貼圖逐像素正射投影畫出今天真實的月相＋天平動，加一個月的天平動路徑（斜橢圓）與東西緣、南北極最佳日。卡片 `facts`（按鈕 `data-lab-mode`）。
+  - 畫布尺寸要同時比對 width 與 height：預設是 300×150，寬度剛好算出 300 時只比 width 會跳過設定高度，圖被拉長（第十到十三課都修了）。
+  - 除錯：`document.querySelector('[data-moonface-lab]').__lab`（`setMode('locked'|'nospin'|'fast')`、`setT(天)`、`render()`）。
 - 第二課的「即將到來的日月食」清單是**瀏覽器當場算的**，永遠不會過期；台灣可見與否以彰化（24.08N, 120.54E）為準。
 - 系列首頁用 `.lc-list`／`.lc-row` 橫向課程卡（`assets/css/lesson-cards.css`，`_lc_head()` 載入；天文教育與中醫養生首頁共用，桌機兩欄、手機一欄）。**不要改回 `.pm-cards`**：那套四欄窄卡配上 `.tp-card-h`（中文字型＋加寬字距）會把英文長標題切成四、五行，Luke 看過嫌難讀（2026-09-30）。
 - `assets/css/astro.css` 與模型 JS 只載在天文頁（`_astro_head()`，版本號另算，不影響全站快取）。

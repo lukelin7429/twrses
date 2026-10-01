@@ -2656,7 +2656,7 @@ def _astro_ver():
     h = hashlib.md5()
     for rel in ("assets/css/astro.css", "assets/js/moon-phases.js", "assets/js/eclipses.js", "assets/js/seasons.js", "assets/js/tides.js",
                 "assets/js/constellations.js", "assets/js/north-star.js", "assets/js/planets-lab.js",
-                "assets/js/sundial.js", "assets/js/solar.js", "assets/js/star-distance.js", "assets/js/meteors-lab.js", "assets/js/star-colors.js"):
+                "assets/js/sundial.js", "assets/js/solar.js", "assets/js/star-distance.js", "assets/js/meteors-lab.js", "assets/js/star-colors.js", "assets/js/moon-face.js"):
         fp = os.path.join(ROOT, rel)
         if os.path.exists(fp): h.update(open(fp, "rb").read())
     return h.hexdigest()[:8]
@@ -3589,6 +3589,54 @@ def render_color_lab(lesson):
   <p class="cn-credit">{lesson["lab"]["credit_html"]}</p>
 </div>'''
 
+def render_moonface_lab(lesson):
+    """第十三課：月亮同一面（assets/js/moon-face.js 綁這裡的 class）。"""
+    tg = _lab_toggles([("arrow", "Near-side arrow", "正面箭頭", True), ("boost", "Exaggerate rocking ×3", "放大搖晃 3 倍", False)])
+    return f'''<div class="astro-lab mf-lab rvl" data-moonface-lab>
+  <div class="al-stage">
+    <div class="al-space">
+      <canvas class="al-space-cv" aria-label="3D model of the Moon spinning once for every trip around Earth · 月亮繞地球一圈、自轉一圈的 3D 模型"></canvas>
+      <div class="al-labels" aria-hidden="true"></div>
+      <div class="ec-view mf-mode" role="group" aria-label="The Moon's spin · 月亮的自轉">
+        <button type="button" data-mode="locked" aria-pressed="true">Real Moon · 真實</button>
+        <button type="button" data-mode="nospin" aria-pressed="false">No spin · 不自轉</button>
+        <button type="button" data-mode="fast" aria-pressed="false">Too fast · 轉太快</button>
+      </div>
+      <p class="al-hint">Drag to turn · 拖曳旋轉　Scroll or pinch to zoom · 滾輪／雙指縮放</p>
+      <button type="button" class="al-home" title="Reset view · 重設視角" aria-label="Reset view · 重設視角">&#8634;</button>
+      <p class="al-nogl-msg">This 3D model needs WebGL, which this browser does not support. Today's Moon and the cards below still work.<br><span class="zh">這個瀏覽器不支援 WebGL，無法顯示 3D 模型；下方「今天的月亮」與卡片一樣能用。</span></p>
+    </div>
+    <aside class="al-sky mf-aside">
+      <p class="al-sky-k">From Earth · 從地球看</p>
+      <div class="al-sky-view"><canvas class="mf-sky-cv al-sky-cv" aria-label="The Moon as seen from Earth in the model · 模型裡從地球看到的月亮"></canvas></div>
+      <div class="al-readout ec-readout mf-readout" aria-live="polite">
+        <dl>
+          <div><dt>Model time · 模型時間</dt><dd class="mf-day"></dd></div>
+          <div><dt>Face we see · 看到的面</dt><dd class="mf-face"></dd></div>
+          <div class="ec-wide"><dt>Orbits and spins · 公轉與自轉</dt><dd class="mf-spin"></dd></div>
+          <div class="ec-wide"><dt>Arrow off the Earth line · 箭頭偏離地月連線</dt><dd class="mf-off"></dd></div>
+        </dl>
+        <p class="sd-why mf-note"></p>
+      </div>
+    </aside>
+  </div>
+  <div class="al-controls">
+    <div class="al-row al-row-main">
+      <button type="button" class="al-play" aria-pressed="false"><span class="al-play-i" aria-hidden="true"></span><span class="al-play-t">Play · 播放</span></button>
+      <div class="al-speed" role="group" aria-label="Speed · 速度">
+        <button type="button" data-speed="1" aria-pressed="false">1 day/s · 慢</button>
+        <button type="button" data-speed="2" aria-pressed="true">2 days/s · 中</button>
+        <button type="button" data-speed="6" aria-pressed="false">6 days/s · 快</button>
+      </div>
+    </div>
+    <label class="ec-slider"><span class="ec-slider-k">Days · 天數 <em>two trips around Earth 繞地球兩圈（54.6 天）</em></span>
+      <input type="range" class="ec-time mf-time" min="0" max="54.64" step="0.05" value="0" aria-label="Days · 天數"></label>
+    <div class="al-row al-toggles">{tg}</div>
+  </div>
+  {_lab_foot(lesson["lab"])}
+  <p class="cn-credit">{lesson["lab"]["credit_html"]}</p>
+</div>'''
+
 def _astro_nav(slug):
     ls = ASTRO["lessons"]
     i = next(n for n, l in enumerate(ls) if l["slug"] == slug)
@@ -3646,10 +3694,10 @@ def build_astro_lesson(lesson):
     lab_html = {"eclipses": render_eclipse_lab, "seasons": render_season_lab, "tides": render_tide_lab,
                 "stars": render_star_lab, "northstar": render_north_lab, "planets": render_planet_lab,
                 "sundial": render_sundial_lab, "solar": render_solar_lab, "distance": render_distance_lab,
-                "meteors": render_meteor_lab, "colors": render_color_lab}.get(kind, render_moon_lab)(lesson)
+                "meteors": render_meteor_lab, "colors": render_color_lab, "moonface": render_moonface_lab}.get(kind, render_moon_lab)(lesson)
     js = {"eclipses": "eclipses", "seasons": "seasons", "tides": "tides", "stars": "constellations",
           "northstar": "north-star", "planets": "planets-lab", "sundial": "sundial", "solar": "solar",
-          "distance": "star-distance", "meteors": "meteors-lab", "colors": "star-colors"}.get(kind, "moon-phases")
+          "distance": "star-distance", "meteors": "meteors-lab", "colors": "star-colors", "moonface": "moon-face"}.get(kind, "moon-phases")
 
     # 依資料裡有什麼就排什麼段落；band（米色底）交替
     secs = []
@@ -3807,6 +3855,19 @@ def build_astro_lesson(lesson):
         secs.append(("palette", "From Red to Blue · 由紅到藍", "Eight stars, coolest first", "八顆星，由冷到熱",
                      f'<div class="ph-grid ss-grid stagger">{pal}</div>',
                      _bi(lesson["palette_note_en"], lesson["palette_note_zh"], cls="lead rvl d2")))
+    if lesson.get("facts"):
+        f_cards = "".join(
+            f'<article class="ph-card mf-card rvl">'
+            f'<div class="ph-ico">{moon_svg(f["elong"], 64)}</div>'
+            f'<h3>{html.escape(f["en"])}<span class="zh">{html.escape(f["zh"])}</span></h3>'
+            f'<p class="ph-meta"><span>{html.escape(f["meta_en"])} · {html.escape(f["meta_zh"])}</span></p>'
+            f'<p class="ph-when">{html.escape(f["note_en"])}<br><span class="zh">{html.escape(f["note_zh"])}</span></p>'
+            + (f'<button type="button" class="ph-go" data-lab-mode="{f["mode"]}">See it in 3D · 在模型中看 <i>&uarr;</i></button>' if f.get("mode") else "")
+            + '</article>'
+            for f in lesson["facts"])
+        secs.append(("facts", "Near Side, Far Side · 正面與背面", "Four ways to think about the Moon's face", "從四個角度看月亮的臉",
+                     f'<div class="ph-grid stagger">{f_cards}</div>',
+                     _bi(lesson["facts_note_en"], lesson["facts_note_zh"], cls="lead rvl d2")))
     if lesson.get("scalecalc"):
         sc = lesson["scalecalc"]
         btns = "".join(f'<button type="button" data-sun-cm="{cm}" aria-pressed="{"true" if cm == 24 else "false"}">{html.escape(en)} · {html.escape(zh)}</button>'
@@ -3927,7 +3988,8 @@ def build_astro_lesson(lesson):
                 "solar": ("Feel the size", "一句話感受太陽系有多大"),
                 "distance": ("Measure the stars", "一句話量星星"),
                 "meteors": ("Catch a shooting star", "一句話看懂流星雨"),
-                "colors": ("Read a star's color", "一句話讀懂星星的顏色")}[kind]
+                "colors": ("Read a star's color", "一句話讀懂星星的顏色"),
+                "moonface": ("Face the Earth", "一句話記住月亮的臉")}[kind]
     secs.append(("tricks", "Remember It · 記憶口訣", tricks_h[0], tricks_h[1], _sci_tricks(lesson), ""))
     acts = lesson.get("activities") or [lesson["activity"]]
     for n, act in enumerate(acts, 1):
@@ -3969,7 +4031,7 @@ def build_astro_hub():
     def icon(l):
         c = l.get("card")
         return (eclipse_svg("solar:total", 60) if c == "eclipse" else season_svg(1, 60) if c == "season"
-                else tide_svg(60) if c == "tide" else star_svg(60) if c == "stars" else polaris_svg(60) if c == "north" else planet_svg(60) if c == "planets" else sundial_svg(60) if c == "sundial" else solar_svg(60) if c == "solar" else distance_svg(60) if c == "distance" else meteor_svg(60) if c == "meteors" else colors_svg(60) if c == "colors" else moon_svg(120, 60))
+                else tide_svg(60) if c == "tide" else star_svg(60) if c == "stars" else polaris_svg(60) if c == "north" else planet_svg(60) if c == "planets" else sundial_svg(60) if c == "sundial" else solar_svg(60) if c == "solar" else distance_svg(60) if c == "distance" else meteor_svg(60) if c == "meteors" else colors_svg(60) if c == "colors" else moon_svg(180, 60) if c == "moonface" else moon_svg(120, 60))
     cards = []
     for l in ASTRO["lessons"]:
         cards.append(

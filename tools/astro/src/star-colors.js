@@ -203,7 +203,7 @@ function initLab(root) {
   }
   function drawSpec() {
     const W = specCv.clientWidth || 300, H = Math.round(W * 0.62);
-    if (specCv.width !== Math.round(W * dpr)) { specCv.width = Math.round(W * dpr); specCv.height = Math.round(H * dpr); specCv.style.height = `${H}px`; }
+    if (specCv.width !== Math.round(W * dpr) || specCv.height !== Math.round(H * dpr)) { specCv.width = Math.round(W * dpr); specCv.height = Math.round(H * dpr); specCv.style.height = `${H}px`; }
     const c = specCv.getContext('2d'); c.setTransform(dpr, 0, 0, dpr, 0, 0);
     c.fillStyle = '#02040c'; c.fillRect(0, 0, W, H);
     const L0 = 100, L1 = 1600, x = (nm) => 12 + (nm - L0) / (L1 - L0) * (W - 24), base = H - 30, top = 18;

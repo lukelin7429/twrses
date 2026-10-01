@@ -4,8 +4,8 @@
   "description": "天文教育 3D 模型的原始碼與打包設定。產物寫到 assets/js/，npm run build 重新打包。",
   "type": "module",
   "scripts": {
-    "build": "esbuild src/moon-phases.js src/eclipses.js src/seasons.js src/tides.js src/constellations.js src/north-star.js src/planets-lab.js src/sundial.js src/solar.js src/star-distance.js src/meteors-lab.js src/star-colors.js --bundle --minify --format=iife --target=es2019 --legal-comments=eof --outdir=../../assets/js",
-    "test": "node test/ephem.test.mjs && node test/seasons.test.mjs && node test/stars.test.mjs && node test/planets.test.mjs && node test/sundial.test.mjs && node test/distance.test.mjs && node test/meteors.test.mjs && node test/starcolor.test.mjs",
+    "build": "esbuild src/moon-phases.js src/eclipses.js src/seasons.js src/tides.js src/constellations.js src/north-star.js src/planets-lab.js src/sundial.js src/solar.js src/star-distance.js src/meteors-lab.js src/star-colors.js src/moon-face.js --bundle --minify --format=iife --target=es2019 --legal-comments=eof --outdir=../../assets/js",
+    "test": "node test/ephem.test.mjs && node test/seasons.test.mjs && node test/stars.test.mjs && node test/planets.test.mjs && node test/sundial.test.mjs && node test/distance.test.mjs && node test/meteors.test.mjs && node test/starcolor.test.mjs && node test/libration.test.mjs",
     "stars": "node scripts/build-stars.mjs",
     "near": "node scripts/build-near.mjs"
   },

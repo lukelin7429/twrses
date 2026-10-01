@@ -907,3 +907,43 @@
 .cl-where { font-size: .78rem !important; color: var(--ink-soft); }
 .cl-bar { display: flex; height: 14px; margin: 0 0 1rem; border-radius: 999px; overflow: hidden; background: #0c1428; padding: 3px; gap: 3px; }
 .cl-bar i { flex: 1; border-radius: 999px; }
+
+/* =========================================================
+   第十三課：月亮同一面（.mf-lab、正面與背面卡、今天的月亮怎麼搖）
+   ========================================================= */
+.mf-lab .al-stage { grid-template-columns: minmax(0, 1fr) 330px; }
+.mf-readout dd span, .mf-note span { display: block; font-family: var(--zh); font-weight: 500; font-size: .74rem; color: var(--al-mute); }
+.mf-readout dl div.ec-wide { grid-column: 1 / -1; }
+.mf-note { margin: .7rem 0 0; padding-top: .6rem; border-top: 1px solid var(--al-line); }
+.mf-mode button { padding: .38rem .7rem; }
+.al-lab.mf-earth { color: #cfe2ff; border-color: rgba(79,156,255,.55); }
+.al-lab.mf-arrow { color: #ffd2c4; border-color: rgba(255,122,92,.6); font-size: .64rem; }
+.al-lg-mf-arrow i { border: 0; border-radius: 1px; width: 20px; height: 3px; margin-top: .55rem; background: #ff7a5c; }
+.al-lg-mf-sight i { border: 0; border-radius: 0; width: 20px; height: 2px; margin-top: .6rem; background: repeating-linear-gradient(90deg, #9fe8de 0 4px, transparent 4px 7px); }
+.al-lg-mf-orbit i { border: 2px solid #9fb0cf; border-radius: 50%; transform: scaleX(1.2); }
+@media (max-width: 1020px) {
+  .mf-lab .al-stage { grid-template-columns: 1fr; }
+  .mf-aside { display: grid; grid-template-columns: minmax(0, 220px) minmax(0, 1fr); grid-template-rows: auto auto; column-gap: 1.1rem; }
+  .mf-aside .al-sky-k { grid-column: 1 / -1; }
+  .mf-aside .al-sky-view { grid-column: 1; grid-row: 2; }
+  .mf-aside .mf-readout { grid-column: 2; grid-row: 2; margin-top: 0; }
+}
+@media (max-width: 640px) {
+  .mf-aside { grid-template-columns: minmax(0, 140px) minmax(0, 1fr); }
+  .mf-mode button { font-size: .64rem; padding: .28rem .45rem; }
+  .mf-lab .al-lab.mf-arrow { display: none; }
+}
+.mf-card .ph-ico { background: radial-gradient(circle at 50% 40%, #16264a, #070b17); }
+/* 今天的月亮怎麼搖 */
+.mf-tn { display: grid; grid-template-columns: minmax(0, 340px) minmax(0, 1fr); gap: 1.6rem; align-items: start; margin-top: 1.2rem; }
+.mf-fig { margin: 0; }
+.mf-fig canvas { width: 100%; aspect-ratio: 1; display: block; border-radius: 50%; background: #02040c; box-shadow: 0 0 0 10px #0c1428, 0 24px 50px -20px rgba(6,12,30,.7); }
+.mf-fig2 canvas { border-radius: 14px; box-shadow: none; max-width: 300px; }
+.mf-fig figcaption { margin-top: 1rem; font-size: .82rem; line-height: 1.55; color: var(--ink-soft); }
+.mf-big { font-family: var(--serif); font-size: 1.25rem; line-height: 1.5; color: var(--ink); margin: 0 0 1rem; }
+.mf-big span { display: block; font-family: var(--zh); font-size: 1rem; color: var(--ink-soft); }
+.mf-best { list-style: none; margin: 0 0 1.2rem; padding: 0; display: grid; gap: .55rem; }
+.mf-best li { padding: .65rem .9rem; border-radius: 12px; background: #fff; border: 1px solid var(--line); font-size: .88rem; line-height: 1.5; }
+.mf-best li b { color: var(--brand-dk); margin-right: .4rem; }
+.mf-best li span { display: block; font-family: var(--zh); color: var(--ink-soft); }
+@media (max-width: 760px) { .mf-tn { grid-template-columns: 1fr; } .mf-fig:first-child { max-width: 300px; margin-inline: auto; } }

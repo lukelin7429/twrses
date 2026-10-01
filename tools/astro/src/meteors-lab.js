@@ -270,7 +270,7 @@ function initLab(root) {
   function drawSky(tNow = performance.now()) {
     if (!skyCv) return;
     const W = skyCv.clientWidth || 300, H = W;
-    if (skyCv.width !== Math.round(W * dpr)) { skyCv.width = Math.round(W * dpr); skyCv.height = Math.round(H * dpr); }
+    if (skyCv.width !== Math.round(W * dpr) || skyCv.height !== Math.round(H * dpr)) { skyCv.width = Math.round(W * dpr); skyCv.height = Math.round(H * dpr); }
     const c = skyCv.getContext('2d'); c.setTransform(dpr, 0, 0, dpr, 0, 0);
     const cx = W / 2, cy = H / 2, Rr = W * 0.46, s = sel(), t = skyTime();
     if (skyAt !== t.getTime()) { skyAA = allStarsAltAz(t, SITE); skyAt = t.getTime(); }
