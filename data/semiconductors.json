@@ -46,10 +46,26 @@
             "how_en": "Drag to turn the model, and scroll or pinch to zoom. In Three materials, the same battery and LED test copper, glass, and silicon. Choose what to add to the silicon and how much, and watch the LED. Then switch to Inside silicon to see why: every silicon atom holds hands with four neighbors, and phosphorus or boron changes that.",
             "how_zh": "拖曳可以旋轉模型，滾輪或雙指可以縮放。「三種材料」用同一顆電池和 LED 測試銅、玻璃和矽；選擇矽裡要加什麼、加多少，看 LED 會不會亮。再切換到「矽的原子」看原因：每個矽原子都和四個鄰居牽手，加進磷或硼就改變了這件事。",
             "legend": [
-              { "cls": "cpel", "en": "Blue dots: electrons", "zh": "藍點：電子" },
-              { "cls": "cphole", "en": "Pink rings: holes, where an electron is missing", "zh": "粉紅圈：電洞，少了一個電子的空位" },
-              { "cls": "cpp", "en": "Orange: phosphorus atoms, with 5 outer electrons", "zh": "橘色：磷原子，外圈 5 個電子" },
-              { "cls": "cpb", "en": "Purple: boron atoms, with only 3 outer electrons", "zh": "紫色：硼原子，外圈只有 3 個電子" }
+              {
+                "cls": "cpel",
+                "en": "Blue dots: electrons",
+                "zh": "藍點：電子"
+              },
+              {
+                "cls": "cphole",
+                "en": "Pink rings: holes, where an electron is missing",
+                "zh": "粉紅圈：電洞，少了一個電子的空位"
+              },
+              {
+                "cls": "cpp",
+                "en": "Orange: phosphorus atoms, with 5 outer electrons",
+                "zh": "橘色：磷原子，外圈 5 個電子"
+              },
+              {
+                "cls": "cpb",
+                "en": "Purple: boron atoms, with only 3 outer electrons",
+                "zh": "紫色：硼原子，外圈只有 3 個電子"
+              }
             ],
             "scale_en": "A teaching diagram, not to scale. The close-up of silicon is drawn flat, but a real silicon crystal is three-dimensional, and its repeating unit is only 0.5431 nanometers across. Two of the 35 atoms are swapped so you can see them; real chips swap anywhere from about one atom in 100 million to one in 10,000. Electrons are slowed down so you can follow them. The LED is calculated for a piece 2 centimeters long, tested with a 3-volt battery.",
             "scale_zh": "這是示意圖，不是真實比例。矽的近看畫成平面，真的矽晶體是立體的，重複的小單元只有 0.5431 奈米寬。35 個原子裡換掉 2 個，是為了讓你看得見；真的晶片大約是每 1 億個原子換 1 個，到每 1 萬個換 1 個。電子的速度放慢了，讓你跟得上。LED 的亮度是照「一塊 2 公分長的材料、接 3 伏特電池」計算的。",
@@ -82,40 +98,187 @@
             "Each phosphorus atom brings a fifth electron that is free to move, so the silicon conducts much better. It becomes n-type silicon."
           ],
           "vocab": [
-            { "n": 1, "w": "conduct", "pos": "v.", "zh": "傳導（電或熱）", "ex": "Metal pots <b>conduct</b> heat quickly, so use a cloth to hold the handle.", "exzh": "金屬鍋導熱很快，所以要用布握把手。" },
-            { "n": 2, "w": "insulator", "pos": "n.", "zh": "絕緣體", "ex": "The plastic around a wire is an <b>insulator</b>.", "exzh": "電線外面的塑膠是絕緣體。" },
-            { "n": 3, "w": "semiconductor", "pos": "n.", "zh": "半導體", "ex": "Silicon is the <b>semiconductor</b> used in most chips.", "exzh": "矽是大部分晶片使用的半導體。" },
-            { "n": 4, "w": "element", "pos": "n.", "zh": "元素", "ex": "Oxygen is the most common <b>element</b> in Earth's crust.", "exzh": "氧是地殼裡最多的元素。" },
-            { "n": 5, "w": "atom", "pos": "n.", "zh": "原子", "ex": "Everything around you is made of tiny <b>atoms</b>.", "exzh": "你身邊的一切都是由極小的原子組成的。" },
-            { "n": 6, "w": "crystal", "pos": "n.", "zh": "晶體", "ex": "Salt forms tiny <b>crystals</b> shaped like cubes.", "exzh": "鹽會形成像小方塊一樣的晶體。" },
-            { "n": 7, "w": "impurity", "pos": "n.", "zh": "雜質", "ex": "A water filter removes <b>impurities</b> from tap water.", "exzh": "濾水器會除去自來水裡的雜質。" },
-            { "n": 8, "w": "chip", "pos": "n.", "zh": "晶片", "ex": "My new bank card has a <b>chip</b> in it.", "exzh": "我的新金融卡上有一顆晶片。" }
+            {
+              "n": 1,
+              "w": "conduct",
+              "pos": "v.",
+              "zh": "傳導（電或熱）",
+              "ex": "Metal pots <b>conduct</b> heat quickly, so use a cloth to hold the handle.",
+              "exzh": "金屬鍋導熱很快，所以要用布握把手。"
+            },
+            {
+              "n": 2,
+              "w": "insulator",
+              "pos": "n.",
+              "zh": "絕緣體",
+              "ex": "The plastic around a wire is an <b>insulator</b>.",
+              "exzh": "電線外面的塑膠是絕緣體。"
+            },
+            {
+              "n": 3,
+              "w": "semiconductor",
+              "pos": "n.",
+              "zh": "半導體",
+              "ex": "Silicon is the <b>semiconductor</b> used in most chips.",
+              "exzh": "矽是大部分晶片使用的半導體。"
+            },
+            {
+              "n": 4,
+              "w": "element",
+              "pos": "n.",
+              "zh": "元素",
+              "ex": "Oxygen is the most common <b>element</b> in Earth's crust.",
+              "exzh": "氧是地殼裡最多的元素。"
+            },
+            {
+              "n": 5,
+              "w": "atom",
+              "pos": "n.",
+              "zh": "原子",
+              "ex": "Everything around you is made of tiny <b>atoms</b>.",
+              "exzh": "你身邊的一切都是由極小的原子組成的。"
+            },
+            {
+              "n": 6,
+              "w": "crystal",
+              "pos": "n.",
+              "zh": "晶體",
+              "ex": "Salt forms tiny <b>crystals</b> shaped like cubes.",
+              "exzh": "鹽會形成像小方塊一樣的晶體。"
+            },
+            {
+              "n": 7,
+              "w": "impurity",
+              "pos": "n.",
+              "zh": "雜質",
+              "ex": "A water filter removes <b>impurities</b> from tap water.",
+              "exzh": "濾水器會除去自來水裡的雜質。"
+            },
+            {
+              "n": 8,
+              "w": "chip",
+              "pos": "n.",
+              "zh": "晶片",
+              "ex": "My new bank card has a <b>chip</b> in it.",
+              "exzh": "我的新金融卡上有一顆晶片。"
+            }
           ],
           "quiz": [
-            { "q": "Which of these is a good conductor?", "options": ["Copper", "Glass", "Plastic", "Rubber"], "correct": 0 },
-            { "q": "How many outer electrons does a silicon atom have?", "options": ["4", "1", "5", "8"], "correct": 0 },
-            { "q": "What is a hole in a semiconductor?", "options": ["A place where an electron is missing", "A tiny crack in the chip", "An extra electron", "A gap between two chips"], "correct": 0 },
-            { "q": "What do you get when you add a little phosphorus to silicon?", "options": ["N-type silicon, with extra free electrons", "P-type silicon, with holes", "Pure silicon", "Glass"], "correct": 0 },
-            { "q": "What is most sand mainly made of?", "options": ["Silicon joined with oxygen", "Copper", "Pure phosphorus", "Plastic"], "correct": 0 }
+            {
+              "q": "Which of these is a good conductor?",
+              "options": [
+                "Copper",
+                "Glass",
+                "Plastic",
+                "Rubber"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "How many outer electrons does a silicon atom have?",
+              "options": [
+                "4",
+                "1",
+                "5",
+                "8"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "What is a hole in a semiconductor?",
+              "options": [
+                "A place where an electron is missing",
+                "A tiny crack in the chip",
+                "An extra electron",
+                "A gap between two chips"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "What do you get when you add a little phosphorus to silicon?",
+              "options": [
+                "N-type silicon, with extra free electrons",
+                "P-type silicon, with holes",
+                "Pure silicon",
+                "Glass"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "What is most sand mainly made of?",
+              "options": [
+                "Silicon joined with oxygen",
+                "Copper",
+                "Pure phosphorus",
+                "Plastic"
+              ],
+              "correct": 0
+            }
           ],
-          "parts_head": { "eyebrow": "Try It in the Model · 在模型裡試試", "en": "Four things to try", "zh": "試試這四件事" },
+          "parts_head": {
+            "eyebrow": "Try It in the Model · 在模型裡試試",
+            "en": "Four things to try",
+            "zh": "試試這四件事"
+          },
           "parts": [
-            { "key": "compare", "icon": "🔋", "en": "Three materials, one LED", "zh": "三種材料、一顆 LED", "meta_en": "Copper lights it; glass and pure silicon do not", "meta_zh": "銅會亮；玻璃和純矽不亮", "demo": "compare",
-              "text_en": "Test copper, glass, and pure silicon with the same battery. Only copper lights the LED.", "text_zh": "用同一顆電池測試銅、玻璃和純矽：只有銅讓 LED 亮起來。" },
-            { "key": "pure", "icon": "🤝", "en": "Four hands, all busy", "zh": "四隻手都在忙", "meta_en": "Pure silicon", "meta_zh": "純矽", "demo": "pure",
-              "text_en": "Zoom into pure silicon. Every electron is holding a bond, so even with the power on, nothing moves.", "text_zh": "放大看純矽：每個電子都忙著牽手，所以就算接上電源，也沒有東西在動。" },
-            { "key": "phosphorus", "icon": "🟠", "en": "Add phosphorus", "zh": "加進磷", "meta_en": "N-type: one extra electron", "meta_zh": "N 型：多一個電子", "demo": "phosphorus",
-              "text_en": "Phosphorus has five outer electrons. Watch the extra one wander and drift toward the + side.", "text_zh": "磷外圈有五個電子。看多出來的那一個到處亂跑，又被推向「＋」那一邊。" },
-            { "key": "boron", "icon": "🟣", "en": "Add boron", "zh": "加進硼", "meta_en": "P-type: one missing electron", "meta_zh": "P 型：少一個電子", "demo": "boron",
-              "text_en": "Boron has only three. Watch the hole move toward the − side as electrons jump in one by one.", "text_zh": "硼只有三個。電子一個接一個跳進來，看電洞往「−」那一邊移動。" }
+            {
+              "key": "compare",
+              "icon": "🔋",
+              "en": "Three materials, one LED",
+              "zh": "三種材料、一顆 LED",
+              "meta_en": "Copper lights it; glass and pure silicon do not",
+              "meta_zh": "銅會亮；玻璃和純矽不亮",
+              "demo": "compare",
+              "text_en": "Test copper, glass, and pure silicon with the same battery. Only copper lights the LED.",
+              "text_zh": "用同一顆電池測試銅、玻璃和純矽：只有銅讓 LED 亮起來。"
+            },
+            {
+              "key": "pure",
+              "icon": "🤝",
+              "en": "Four hands, all busy",
+              "zh": "四隻手都在忙",
+              "meta_en": "Pure silicon",
+              "meta_zh": "純矽",
+              "demo": "pure",
+              "text_en": "Zoom into pure silicon. Every electron is holding a bond, so even with the power on, nothing moves.",
+              "text_zh": "放大看純矽：每個電子都忙著牽手，所以就算接上電源，也沒有東西在動。"
+            },
+            {
+              "key": "phosphorus",
+              "icon": "🟠",
+              "en": "Add phosphorus",
+              "zh": "加進磷",
+              "meta_en": "N-type: one extra electron",
+              "meta_zh": "N 型：多一個電子",
+              "demo": "phosphorus",
+              "text_en": "Phosphorus has five outer electrons. Watch the extra one wander and drift toward the + side.",
+              "text_zh": "磷外圈有五個電子。看多出來的那一個到處亂跑，又被推向「＋」那一邊。"
+            },
+            {
+              "key": "boron",
+              "icon": "🟣",
+              "en": "Add boron",
+              "zh": "加進硼",
+              "meta_en": "P-type: one missing electron",
+              "meta_zh": "P 型：少一個電子",
+              "demo": "boron",
+              "text_en": "Boron has only three. Watch the hole move toward the − side as electrons jump in one by one.",
+              "text_zh": "硼只有三個。電子一個接一個跳進來，看電洞往「−」那一邊移動。"
+            }
           ],
           "parts_note_en": "N-type and p-type silicon are still almost entirely silicon: only a tiny number of atoms are swapped. Every chip puts n-type and p-type regions right next to each other, and the next lesson shows the switch they make.",
           "parts_note_zh": "N 型和 P 型矽幾乎都還是矽，只換掉了極少數原子。每顆晶片都把 N 型和 P 型區域緊緊排在一起；下一課就來看它們組成的開關。",
           "links": [
-            { "href": "/resources/classes/how-things-work/solar-panel/", "icon": "☀️", "k_en": "How Things Work · Lesson 3", "k_zh": "萬物原理 第三課",
-              "en": "How Does a Solar Panel Turn Light into Electricity?", "zh": "太陽能板怎麼把光變成電？",
+            {
+              "href": "/resources/classes/how-things-work/solar-panel/",
+              "icon": "☀️",
+              "k_en": "How Things Work · Lesson 3",
+              "k_zh": "萬物原理 第三課",
+              "en": "How Does a Solar Panel Turn Light into Electricity?",
+              "zh": "太陽能板怎麼把光變成電？",
               "note_en": "See n-type and p-type silicon stacked together, and watch light knock electrons loose and push them one way and the holes the other.",
-              "note_zh": "看 N 型和 P 型矽疊在一起：光把電子敲出來，電子往一邊、電洞往另一邊。" }
+              "note_zh": "看 N 型和 P 型矽疊在一起：光把電子敲出來，電子往一邊、電洞往另一邊。"
+            }
           ],
           "home": {
             "eyebrow": "Chips at Home · 家裡的晶片",
@@ -126,23 +289,159 @@
             "note_en": "These are low estimates, not exact counts. Only two numbers come from published sources: a 2025 teardown of one smartphone identified 38 chips, so we count 30 per phone, and the U.S. Commerce Department said in 2021 that an average electric car has about 2,000 chips, roughly double a regular car, so we count 1,000 per car. For an appliance with buttons, we count just one chip, the tiny computer called a microcontroller that reads the buttons. For computers, tablets, TVs, and the like, the numbers are our own low guesses. Most homes really have more.",
             "note_zh": "這些是保守的估計，不是精確的數字。只有兩個數字有公開出處：2025 年一支智慧型手機拆解後認出 38 顆晶片，所以我們每支手機只算 30 顆；美國商務部 2021 年說，電動車平均約有 2,000 顆晶片，大約是一般汽車的兩倍，所以每輛車算 1,000 顆。有按鍵的家電，我們只算一顆：讀取按鍵的小電腦「微控制器」。電腦、平板、電視這些，是我們自己保守的猜測。大部分家庭實際上更多。",
             "items": [
-              { "key": "phone", "icon": "📱", "en": "Smartphone", "zh": "智慧型手機", "n": 30, "est": "source", "qty": 2 },
-              { "key": "computer", "icon": "💻", "en": "Laptop or desktop computer", "zh": "筆電或桌上型電腦", "n": 10, "est": "guess", "qty": 1 },
-              { "key": "tablet", "icon": "📲", "en": "Tablet", "zh": "平板", "n": 10, "est": "guess", "qty": 0 },
-              { "key": "tv", "icon": "📺", "en": "TV", "zh": "電視", "n": 5, "est": "guess", "qty": 1 },
-              { "key": "router", "icon": "📶", "en": "Wi-Fi router", "zh": "Wi-Fi 分享器", "n": 3, "est": "guess", "qty": 1 },
-              { "key": "console", "icon": "🎮", "en": "Game console", "zh": "遊戲機", "n": 10, "est": "guess", "qty": 0 },
-              { "key": "watch", "icon": "⌚", "en": "Smartwatch or fitness band", "zh": "智慧手錶或手環", "n": 3, "est": "guess", "qty": 0 },
-              { "key": "earbuds", "icon": "🎧", "en": "Wireless earbuds (a pair)", "zh": "無線耳機（一副）", "n": 2, "est": "min", "qty": 0 },
-              { "key": "cards", "icon": "💳", "en": "Cards with a chip: health insurance card, EasyCard, bank card", "zh": "有晶片的卡：健保卡、悠遊卡、金融卡", "n": 1, "est": "min", "qty": 4 },
-              { "key": "remote", "icon": "🕹️", "en": "Remote control", "zh": "遙控器", "n": 1, "est": "min", "qty": 2 },
-              { "key": "ricecooker", "icon": "🍚", "en": "Rice cooker with buttons", "zh": "有按鍵的電子鍋", "n": 1, "est": "min", "qty": 1 },
-              { "key": "fridge", "icon": "🧊", "en": "Refrigerator", "zh": "冰箱", "n": 1, "est": "min", "qty": 1 },
-              { "key": "washer", "icon": "🧺", "en": "Washing machine", "zh": "洗衣機", "n": 1, "est": "min", "qty": 1 },
-              { "key": "aircon", "icon": "❄️", "en": "Air conditioner", "zh": "冷氣機", "n": 1, "est": "min", "qty": 2 },
-              { "key": "microwave", "icon": "🔥", "en": "Microwave oven", "zh": "微波爐", "n": 1, "est": "min", "qty": 0 },
-              { "key": "scooter", "icon": "🛵", "en": "Scooter", "zh": "機車", "n": 1, "est": "guess", "qty": 1 },
-              { "key": "car", "icon": "🚗", "en": "Car", "zh": "汽車", "n": 1000, "est": "source", "qty": 0 }
+              {
+                "key": "phone",
+                "icon": "📱",
+                "en": "Smartphone",
+                "zh": "智慧型手機",
+                "n": 30,
+                "est": "source",
+                "qty": 2
+              },
+              {
+                "key": "computer",
+                "icon": "💻",
+                "en": "Laptop or desktop computer",
+                "zh": "筆電或桌上型電腦",
+                "n": 10,
+                "est": "guess",
+                "qty": 1
+              },
+              {
+                "key": "tablet",
+                "icon": "📲",
+                "en": "Tablet",
+                "zh": "平板",
+                "n": 10,
+                "est": "guess",
+                "qty": 0
+              },
+              {
+                "key": "tv",
+                "icon": "📺",
+                "en": "TV",
+                "zh": "電視",
+                "n": 5,
+                "est": "guess",
+                "qty": 1
+              },
+              {
+                "key": "router",
+                "icon": "📶",
+                "en": "Wi-Fi router",
+                "zh": "Wi-Fi 分享器",
+                "n": 3,
+                "est": "guess",
+                "qty": 1
+              },
+              {
+                "key": "console",
+                "icon": "🎮",
+                "en": "Game console",
+                "zh": "遊戲機",
+                "n": 10,
+                "est": "guess",
+                "qty": 0
+              },
+              {
+                "key": "watch",
+                "icon": "⌚",
+                "en": "Smartwatch or fitness band",
+                "zh": "智慧手錶或手環",
+                "n": 3,
+                "est": "guess",
+                "qty": 0
+              },
+              {
+                "key": "earbuds",
+                "icon": "🎧",
+                "en": "Wireless earbuds (a pair)",
+                "zh": "無線耳機（一副）",
+                "n": 2,
+                "est": "min",
+                "qty": 0
+              },
+              {
+                "key": "cards",
+                "icon": "💳",
+                "en": "Cards with a chip: health insurance card, EasyCard, bank card",
+                "zh": "有晶片的卡：健保卡、悠遊卡、金融卡",
+                "n": 1,
+                "est": "min",
+                "qty": 4
+              },
+              {
+                "key": "remote",
+                "icon": "🕹️",
+                "en": "Remote control",
+                "zh": "遙控器",
+                "n": 1,
+                "est": "min",
+                "qty": 2
+              },
+              {
+                "key": "ricecooker",
+                "icon": "🍚",
+                "en": "Rice cooker with buttons",
+                "zh": "有按鍵的電子鍋",
+                "n": 1,
+                "est": "min",
+                "qty": 1
+              },
+              {
+                "key": "fridge",
+                "icon": "🧊",
+                "en": "Refrigerator",
+                "zh": "冰箱",
+                "n": 1,
+                "est": "min",
+                "qty": 1
+              },
+              {
+                "key": "washer",
+                "icon": "🧺",
+                "en": "Washing machine",
+                "zh": "洗衣機",
+                "n": 1,
+                "est": "min",
+                "qty": 1
+              },
+              {
+                "key": "aircon",
+                "icon": "❄️",
+                "en": "Air conditioner",
+                "zh": "冷氣機",
+                "n": 1,
+                "est": "min",
+                "qty": 2
+              },
+              {
+                "key": "microwave",
+                "icon": "🔥",
+                "en": "Microwave oven",
+                "zh": "微波爐",
+                "n": 1,
+                "est": "min",
+                "qty": 0
+              },
+              {
+                "key": "scooter",
+                "icon": "🛵",
+                "en": "Scooter",
+                "zh": "機車",
+                "n": 1,
+                "est": "guess",
+                "qty": 1
+              },
+              {
+                "key": "car",
+                "icon": "🚗",
+                "en": "Car",
+                "zh": "汽車",
+                "n": 1000,
+                "est": "source",
+                "qty": 0
+              }
             ]
           },
           "facts": {
@@ -152,12 +451,48 @@
             "lead_en": "A few big and small numbers that explain silicon.",
             "lead_zh": "用幾個很大和很小的數字，認識矽。",
             "items": [
-              { "big": "14", "unit_en": "silicon's atomic number", "unit_zh": "矽的原子序", "en": "A silicon atom has 14 electrons. Four of them are outer electrons, the “hands” that form bonds.", "zh": "矽原子有 14 個電子，其中 4 個是外圈電子，也就是用來牽手（鍵結）的「手」。" },
-              { "big": "27.7%", "unit_en": "of Earth's crust, by mass", "unit_zh": "地殼的質量", "en": "Silicon is second only to oxygen.", "zh": "僅次於氧，排第二。" },
-              { "big": "0.5431", "unit_en": "nanometers", "unit_zh": "奈米", "en": "The width of silicon's repeating crystal unit, a tiny cube that holds 8 atoms.", "zh": "矽晶體重複的小單元的寬度；這個小立方體裡有 8 個原子。" },
-              { "big": "5 × 10²²", "unit_en": "atoms in 1 cubic centimeter", "unit_zh": "個原子（1 立方公分）", "en": "That is 50 billion trillion silicon atoms in a piece the size of a sugar cube.", "zh": "一塊方糖大小的矽，原子數是 5 後面接 22 個 0。" },
-              { "big": "1 in 1 million", "unit_en": "atoms swapped for phosphorus", "unit_zh": "個原子換成磷", "en": "Enough to make silicon conduct more than a million times better (our calculation).", "zh": "就足以讓矽的導電能力變成 100 萬倍以上（本站計算）。" },
-              { "big": "100 billion ×", "unit_en": "copper vs. pure silicon", "unit_zh": "銅比純矽", "en": "Copper conducts more than a hundred billion times better than pure silicon.", "zh": "銅的導電能力是純矽的一千億倍以上。" }
+              {
+                "big": "14",
+                "unit_en": "silicon's atomic number",
+                "unit_zh": "矽的原子序",
+                "en": "A silicon atom has 14 electrons. Four of them are outer electrons, the “hands” that form bonds.",
+                "zh": "矽原子有 14 個電子，其中 4 個是外圈電子，也就是用來牽手（鍵結）的「手」。"
+              },
+              {
+                "big": "27.7%",
+                "unit_en": "of Earth's crust, by mass",
+                "unit_zh": "地殼的質量",
+                "en": "Silicon is second only to oxygen.",
+                "zh": "僅次於氧，排第二。"
+              },
+              {
+                "big": "0.5431",
+                "unit_en": "nanometers",
+                "unit_zh": "奈米",
+                "en": "The width of silicon's repeating crystal unit, a tiny cube that holds 8 atoms.",
+                "zh": "矽晶體重複的小單元的寬度；這個小立方體裡有 8 個原子。"
+              },
+              {
+                "big": "5 × 10²²",
+                "unit_en": "atoms in 1 cubic centimeter",
+                "unit_zh": "個原子（1 立方公分）",
+                "en": "That is 50 billion trillion silicon atoms in a piece the size of a sugar cube.",
+                "zh": "一塊方糖大小的矽，原子數是 5 後面接 22 個 0。"
+              },
+              {
+                "big": "1 in 1 million",
+                "unit_en": "atoms swapped for phosphorus",
+                "unit_zh": "個原子換成磷",
+                "en": "Enough to make silicon conduct more than a million times better (our calculation).",
+                "zh": "就足以讓矽的導電能力變成 100 萬倍以上（本站計算）。"
+              },
+              {
+                "big": "100 billion ×",
+                "unit_en": "copper vs. pure silicon",
+                "unit_zh": "銅比純矽",
+                "en": "Copper conducts more than a hundred billion times better than pure silicon.",
+                "zh": "銅的導電能力是純矽的一千億倍以上。"
+              }
             ]
           },
           "culture_cards": {
@@ -167,62 +502,149 @@
             "lead_en": "Four short stories behind a word you hear in the news.",
             "lead_zh": "新聞裡常聽到的這個詞，背後的四個小故事。",
             "cards": [
-              { "k": "From Sand · 來自沙子", "en": "Silicon comes from sand", "zh": "矽來自沙子",
+              {
+                "k": "From Sand · 來自沙子",
+                "en": "Silicon comes from sand",
+                "zh": "矽來自沙子",
                 "body_en": "Silicon makes up about 28% of Earth's crust by mass, and most sand is mainly silicon dioxide. But chips are not made from beach sand directly. Quartz is heated with carbon in an electric furnace to make silicon that is about 98% pure, and then it is cleaned chemically until fewer than one atom in a billion is unwanted.",
-                "body_zh": "矽約占地殼質量的 28%，大部分的沙子主要是二氧化矽。但晶片不是直接拿沙灘的沙來做：先把石英和碳一起放進電爐加熱，得到純度約 98% 的矽，再用化學方法提純，直到不要的原子少於十億分之一。" },
-              { "k": "The Word · 這個詞", "en": "Where “semiconductor” comes from", "zh": "「半導體」這個詞",
+                "body_zh": "矽約占地殼質量的 28%，大部分的沙子主要是二氧化矽。但晶片不是直接拿沙灘的沙來做：先把石英和碳一起放進電爐加熱，得到純度約 98% 的矽，再用化學方法提純，直到不要的原子少於十億分之一。"
+              },
+              {
+                "k": "The Word · 這個詞",
+                "en": "Where “semiconductor” comes from",
+                "zh": "「半導體」這個詞",
                 "body_en": "According to historians, Alessandro Volta, the Italian scientist who built the first battery, called some materials “semiconducting” as early as 1782. In 1910, Josef Weiss used the German word Halbleiter, “half conductor,” in its modern sense. Chinese uses the same idea: 半 (half) + 導體 (conductor). “Half” does not mean it conducts half the time. It means its conductivity sits between a metal's and an insulator's.",
-                "body_zh": "據歷史學者的研究，發明第一顆電池的義大利科學家伏打，早在 1782 年就用「半導電」形容某些材料。1910 年，魏斯用德文 Halbleiter（「半導體」）表達今天的意思。中文用的是同一個想法：半＋導體。「半」不是說它一半時間導電，而是說它的導電能力介於金屬和絕緣體之間。" },
-              { "k": "Hsinchu · 新竹", "en": "Taiwan's first science park", "zh": "台灣第一個科學園區",
+                "body_zh": "據歷史學者的研究，發明第一顆電池的義大利科學家伏打，早在 1782 年就用「半導電」形容某些材料。1910 年，魏斯用德文 Halbleiter（「半導體」）表達今天的意思。中文用的是同一個想法：半＋導體。「半」不是說它一半時間導電，而是說它的導電能力介於金屬和絕緣體之間。"
+              },
+              {
+                "k": "Hsinchu · 新竹",
+                "en": "Taiwan's first science park",
+                "zh": "台灣第一個科學園區",
                 "body_en": "Hsinchu Science Park officially opened on December 15, 1980, as Taiwan's first science park. Its administration says more than 600 companies have been approved to join and more than 160,000 people work there. In 2021, integrated circuits, the industry that makes chips, was its biggest industry by number of companies.",
-                "body_zh": "新竹科學園區在 1980 年 12 月 15 日正式成立，是台灣第一個科學園區。依竹科管理局的資料，核准進駐的廠商超過 600 家，就業人數超過 16 萬人。2021 年，積體電路（也就是做晶片的產業）是園區裡廠商家數最多的產業。" },
-              { "k": "Your First Chip · 你的第一顆晶片", "en": "The first chip, and yours", "zh": "世界第一顆晶片，和你的第一顆",
+                "body_zh": "新竹科學園區在 1980 年 12 月 15 日正式成立，是台灣第一個科學園區。依竹科管理局的資料，核准進駐的廠商超過 600 家，就業人數超過 16 萬人。2021 年，積體電路（也就是做晶片的產業）是園區裡廠商家數最多的產業。"
+              },
+              {
+                "k": "Your First Chip · 你的第一顆晶片",
+                "en": "The first chip, and yours",
+                "zh": "世界第一顆晶片，和你的第一顆",
                 "body_en": "On September 12, 1958, Jack Kilby of Texas Instruments showed the first integrated circuit, built on a small piece of germanium. In 1960, a team at Fairchild made the first working chips on silicon. Kilby later shared the 2000 Nobel Prize in Physics. In Taiwan, your own first chip may be your health insurance card: chip cards fully replaced the old paper cards on January 1, 2004.",
-                "body_zh": "1958 年 9 月 12 日，德州儀器的基爾比展示了第一個積體電路，做在一小片鍺上。1960 年，快捷半導體的團隊做出第一批能運作的矽晶片。基爾比後來獲得 2000 年諾貝爾物理獎（與他人共享）。在台灣，你自己的第一顆晶片可能就是健保卡：2004 年 1 月 1 日起，晶片卡全面取代了舊的紙卡。" }
+                "body_zh": "1958 年 9 月 12 日，德州儀器的基爾比展示了第一個積體電路，做在一小片鍺上。1960 年，快捷半導體的團隊做出第一批能運作的矽晶片。基爾比後來獲得 2000 年諾貝爾物理獎（與他人共享）。在台灣，你自己的第一顆晶片可能就是健保卡：2004 年 1 月 1 日起，晶片卡全面取代了舊的紙卡。"
+              }
             ]
           },
           "myths": [
-            { "myth_en": "A semiconductor is half conductor and half insulator.", "myth_zh": "半導體就是一半導電、一半不導電。",
+            {
+              "myth_en": "A semiconductor is half conductor and half insulator.",
+              "myth_zh": "半導體就是一半導電、一半不導電。",
               "fact_en": "The whole material conducts, just much less than a metal. “Semi” means its conductivity is in between, and it can be changed by adding other atoms, by heat, or by light.",
-              "fact_zh": "整塊材料都會導電，只是比金屬差得多。「半」是說它的導電能力介於中間，而且加入別的原子、加熱或照光都能改變它。" },
-            { "myth_en": "Chips are made of metal.", "myth_zh": "晶片是金屬做的。",
+              "fact_zh": "整塊材料都會導電，只是比金屬差得多。「半」是說它的導電能力介於中間，而且加入別的原子、加熱或照光都能改變它。"
+            },
+            {
+              "myth_en": "Chips are made of metal.",
+              "myth_zh": "晶片是金屬做的。",
               "fact_en": "A chip is mostly silicon, which is not a metal. Very thin metal lines, usually copper or aluminum, connect its parts, and the shiny metal legs belong to the package that protects it.",
-              "fact_zh": "晶片主要是矽，矽不是金屬。極細的金屬線（通常是銅或鋁）把裡面的元件連起來；看得到的亮晶晶金屬腳，屬於保護它的外殼（封裝）。" },
-            { "myth_en": "Beach sand can go straight into a chip factory.", "myth_zh": "沙灘上的沙直接就能拿去做晶片。",
+              "fact_zh": "晶片主要是矽，矽不是金屬。極細的金屬線（通常是銅或鋁）把裡面的元件連起來；看得到的亮晶晶金屬腳，屬於保護它的外殼（封裝）。"
+            },
+            {
+              "myth_en": "Beach sand can go straight into a chip factory.",
+              "myth_zh": "沙灘上的沙直接就能拿去做晶片。",
               "fact_en": "Quartz must first be turned into silicon in a furnace, then purified until fewer than one atom in a billion is unwanted, and grown into a single large crystal before chips can be made.",
-              "fact_zh": "要先在電爐裡把石英變成矽，再提純到不要的原子少於十億分之一，還要長成一整塊單晶，才能拿來做晶片。" },
-            { "myth_en": "Silicon and silicone are the same thing.", "myth_zh": "矽（silicon）和矽膠（silicone）是同一種東西。",
+              "fact_zh": "要先在電爐裡把石英變成矽，再提純到不要的原子少於十億分之一，還要長成一整塊單晶，才能拿來做晶片。"
+            },
+            {
+              "myth_en": "Silicon and silicone are the same thing.",
+              "myth_zh": "矽（silicon）和矽膠（silicone）是同一種東西。",
               "fact_en": "Silicon is an element, a hard, shiny, blue-gray solid. Silicone is a soft, rubbery material, used for things like phone cases and baking molds, made of silicon joined with oxygen, carbon, and hydrogen. Silicon Valley is named after silicon chips.",
-              "fact_zh": "矽是一種元素，是堅硬、帶藍灰色光澤的固體。矽膠（silicone，又叫矽利康）是軟軟的、像橡膠的材料，用來做手機殼、烘焙模具，由矽和氧、碳、氫組成。矽谷的「矽」指的是矽晶片。" }
+              "fact_zh": "矽是一種元素，是堅硬、帶藍灰色光澤的固體。矽膠（silicone，又叫矽利康）是軟軟的、像橡膠的材料，用來做手機殼、烘焙模具，由矽和氧、碳、氫組成。矽谷的「矽」指的是矽晶片。"
+            }
           ],
           "tricks": [
-            { "title_en": "Conductor, insulator, and in between", "title_zh": "導體、絕緣體，半導體在中間", "body_en": "Copper lets electrons go, glass holds them tight, and silicon is in between.", "body_zh": "銅放電子走，玻璃把電子抓緊，矽在中間。" },
-            { "title_en": "Four hands, all busy", "title_zh": "四隻手都在忙", "body_en": "Each silicon atom shares four pairs of electrons with its neighbors, so almost none are free.", "body_zh": "每個矽原子和鄰居共用四對電子，所以幾乎沒有自由電子。" },
-            { "title_en": "Phosphorus gives, boron takes", "title_zh": "磷多給一個，硼少一個", "body_en": "Phosphorus (5) adds a free electron: n-type. Boron (3) leaves a hole: p-type.", "body_zh": "磷（5 個）多出自由電子：N 型。硼（3 個）留下電洞：P 型。" },
-            { "title_en": "A pinch changes everything", "title_zh": "加一點點，差很多", "body_en": "Swap one atom in a million, and silicon conducts over a million times better.", "body_zh": "每 100 萬個原子換 1 個，導電能力就變成 100 萬倍以上。" }
+            {
+              "title_en": "Conductor, insulator, and in between",
+              "title_zh": "導體、絕緣體，半導體在中間",
+              "body_en": "Copper lets electrons go, glass holds them tight, and silicon is in between.",
+              "body_zh": "銅放電子走，玻璃把電子抓緊，矽在中間。"
+            },
+            {
+              "title_en": "Four hands, all busy",
+              "title_zh": "四隻手都在忙",
+              "body_en": "Each silicon atom shares four pairs of electrons with its neighbors, so almost none are free.",
+              "body_zh": "每個矽原子和鄰居共用四對電子，所以幾乎沒有自由電子。"
+            },
+            {
+              "title_en": "Phosphorus gives, boron takes",
+              "title_zh": "磷多給一個，硼少一個",
+              "body_en": "Phosphorus (5) adds a free electron: n-type. Boron (3) leaves a hole: p-type.",
+              "body_zh": "磷（5 個）多出自由電子：N 型。硼（3 個）留下電洞：P 型。"
+            },
+            {
+              "title_en": "A pinch changes everything",
+              "title_zh": "加一點點，差很多",
+              "body_en": "Swap one atom in a million, and silicon conducts over a million times better.",
+              "body_zh": "每 100 萬個原子換 1 個，導電能力就變成 100 萬倍以上。"
+            }
           ],
           "safety": [
-            { "en": "Use only small dry-cell batteries, such as AA or AAA. Never put wires, clips, or any metal into a wall outlet.", "zh": "只用三號、四號這類小型乾電池。電線、夾子或任何金屬都絕不能插進牆上的插座。" },
-            { "en": "Never connect the two ends of a battery directly with a wire, foil, or a paper clip. That is a short circuit, and the wire and battery can get hot.", "zh": "絕不要用電線、鋁箔或迴紋針直接連接電池的兩端。那是短路，電線和電池會發燙。" },
-            { "en": "Keep button batteries away from young children. A swallowed button battery is a medical emergency.", "zh": "鈕扣電池要遠離幼兒；誤吞鈕扣電池要立刻就醫。" },
-            { "en": "Never take apart a phone or computer to look for its chips. The lithium battery inside can catch fire if it is bent or punctured.", "zh": "絕不要拆開手機或電腦找晶片：裡面的鋰電池被折到或刺破，可能會起火。" },
-            { "en": "Do not put coins, clips, or batteries in your mouth, and wash your hands after the activity.", "zh": "硬幣、夾子、電池都不要放進嘴裡；活動結束後要洗手。" }
+            {
+              "en": "Use only small dry-cell batteries, such as AA or AAA. Never put wires, clips, or any metal into a wall outlet.",
+              "zh": "只用三號、四號這類小型乾電池。電線、夾子或任何金屬都絕不能插進牆上的插座。"
+            },
+            {
+              "en": "Never connect the two ends of a battery directly with a wire, foil, or a paper clip. That is a short circuit, and the wire and battery can get hot.",
+              "zh": "絕不要用電線、鋁箔或迴紋針直接連接電池的兩端。那是短路，電線和電池會發燙。"
+            },
+            {
+              "en": "Keep button batteries away from young children. A swallowed button battery is a medical emergency.",
+              "zh": "鈕扣電池要遠離幼兒；誤吞鈕扣電池要立刻就醫。"
+            },
+            {
+              "en": "Never take apart a phone or computer to look for its chips. The lithium battery inside can catch fire if it is bent or punctured.",
+              "zh": "絕不要拆開手機或電腦找晶片：裡面的鋰電池被折到或刺破，可能會起火。"
+            },
+            {
+              "en": "Do not put coins, clips, or batteries in your mouth, and wash your hands after the activity.",
+              "zh": "硬幣、夾子、電池都不要放進嘴裡；活動結束後要洗手。"
+            }
           ],
           "activities": [
             {
               "title_en": "Build a Conductivity Tester",
               "title_zh": "做一個導電測試器",
               "materials": [
-                { "en": "A holder for two AA batteries, with two AA batteries", "zh": "兩顆三號電池和電池盒" },
-                { "en": "A red LED and a 100-ohm resistor (or an LED with a built-in resistor)", "zh": "一顆紅色 LED 和一個 100 歐姆電阻（或內建電阻的 LED）" },
-                { "en": "Three wires with alligator clips", "zh": "三條附鱷魚夾的電線" },
-                { "en": "Things to test: a pencil lead, a paper clip, an eraser, a coin, aluminum foil, a plastic ruler, a wooden chopstick, a glass marble", "zh": "要測的東西：鉛筆芯、迴紋針、橡皮擦、硬幣、鋁箔、塑膠尺、竹筷、玻璃彈珠" }
+                {
+                  "en": "A holder for two AA batteries, with two AA batteries",
+                  "zh": "兩顆三號電池和電池盒"
+                },
+                {
+                  "en": "A red LED and a 100-ohm resistor (or an LED with a built-in resistor)",
+                  "zh": "一顆紅色 LED 和一個 100 歐姆電阻（或內建電阻的 LED）"
+                },
+                {
+                  "en": "Three wires with alligator clips",
+                  "zh": "三條附鱷魚夾的電線"
+                },
+                {
+                  "en": "Things to test: a pencil lead, a paper clip, an eraser, a coin, aluminum foil, a plastic ruler, a wooden chopstick, a glass marble",
+                  "zh": "要測的東西：鉛筆芯、迴紋針、橡皮擦、硬幣、鋁箔、塑膠尺、竹筷、玻璃彈珠"
+                }
               ],
               "steps": [
-                { "en": "Connect the battery holder, the resistor, and the LED in a loop, but leave one gap with two free clips. The LED's longer leg goes toward the + side.", "zh": "把電池盒、電阻和 LED 接成一圈，但留一個缺口，缺口兩邊各是一個鱷魚夾。LED 比較長的腳接「＋」那一邊。" },
-                { "en": "Touch the two free clips together. The LED should light up. If it does not, turn the LED around.", "zh": "把兩個鱷魚夾碰在一起，LED 應該會亮；如果不亮，就把 LED 反過來接。" },
-                { "en": "Before each test, predict whether the LED will light. Then clip both ends of the object and write down bright, dim, or dark.", "zh": "每次測試之前先猜猜看會不會亮，再用兩個夾子夾住東西的兩端，記錄「亮、微亮、不亮」。" },
-                { "en": "Sort your objects into conductors and insulators. Which ones surprised you? Pencil lead is not a metal, so why does it conduct?", "zh": "把東西分成導體和絕緣體。哪些結果讓你意外？鉛筆芯不是金屬，為什麼會導電？" }
+                {
+                  "en": "Connect the battery holder, the resistor, and the LED in a loop, but leave one gap with two free clips. The LED's longer leg goes toward the + side.",
+                  "zh": "把電池盒、電阻和 LED 接成一圈，但留一個缺口，缺口兩邊各是一個鱷魚夾。LED 比較長的腳接「＋」那一邊。"
+                },
+                {
+                  "en": "Touch the two free clips together. The LED should light up. If it does not, turn the LED around.",
+                  "zh": "把兩個鱷魚夾碰在一起，LED 應該會亮；如果不亮，就把 LED 反過來接。"
+                },
+                {
+                  "en": "Before each test, predict whether the LED will light. Then clip both ends of the object and write down bright, dim, or dark.",
+                  "zh": "每次測試之前先猜猜看會不會亮，再用兩個夾子夾住東西的兩端，記錄「亮、微亮、不亮」。"
+                },
+                {
+                  "en": "Sort your objects into conductors and insulators. Which ones surprised you? Pencil lead is not a metal, so why does it conduct?",
+                  "zh": "把東西分成導體和絕緣體。哪些結果讓你意外？鉛筆芯不是金屬，為什麼會導電？"
+                }
               ],
               "tip_en": "Coins and foil can have paint or plastic coatings that block the current, so clip a clean, shiny spot. Pencil lead is graphite, a form of carbon that conducts electricity.",
               "tip_zh": "硬幣和鋁箔表面可能有漆或塑膠膜擋住電流，要夾在乾淨、亮亮的地方。鉛筆芯是石墨，一種會導電的碳。"
@@ -231,52 +653,849 @@
               "title_en": "Be the Silicon Crystal",
               "title_zh": "全班來當矽晶體",
               "materials": [
-                { "en": "Bean bags or balls of paper: about one per student, plus a few extra", "zh": "沙包或揉成球的紙：大約每人一個，再多準備幾個" },
-                { "en": "Two signs: “−” and “+”, taped to opposite walls", "zh": "兩張牌子：「−」和「＋」，貼在教室兩邊的牆上" },
-                { "en": "Two colored caps or stickers for the “phosphorus” and “boron” students", "zh": "兩頂彩色帽子或貼紙，給扮演「磷」和「硼」的同學" }
+                {
+                  "en": "Bean bags or balls of paper: about one per student, plus a few extra",
+                  "zh": "沙包或揉成球的紙：大約每人一個，再多準備幾個"
+                },
+                {
+                  "en": "Two signs: “−” and “+”, taped to opposite walls",
+                  "zh": "兩張牌子：「−」和「＋」，貼在教室兩邊的牆上"
+                },
+                {
+                  "en": "Two colored caps or stickers for the “phosphorus” and “boron” students",
+                  "zh": "兩頂彩色帽子或貼紙，給扮演「磷」和「硼」的同學"
+                }
               ],
               "steps": [
-                { "en": "Stand in rows between the two signs and hold hands with the people beside you. Each pair of joined hands holds one bean bag: a shared electron. Every hand is busy, so no bean bag can move. This is pure silicon.", "zh": "在兩張牌子之間排成幾排，和旁邊的同學牽手。每一對牽著的手夾著一個沙包，代表共用的電子。所有的手都在忙，沒有沙包能移動：這就是純矽。" },
-                { "en": "One student puts on the phosphorus cap and holds an extra bean bag under one arm. That electron has no hand to hold, so roll it along the floor toward the + sign. This is n-type.", "zh": "一位同學戴上「磷」的帽子，腋下多夾一個沙包。這個電子沒有手可以牽，就讓它沿著地板滾向「＋」：這就是 N 型。" },
-                { "en": "Now one student puts on the boron cap. One pair of their joined hands holds no bean bag: that is a hole. The pair on the − side passes its bean bag into the empty hands, which leaves its own hands empty. Keep passing.", "zh": "換一位同學戴上「硼」的帽子，他有一對牽著的手沒有沙包：這就是電洞。靠「−」那一邊的一對手，把沙包傳進空著的手裡，自己的手就空了。一直傳下去。" },
-                { "en": "Talk about it: the bean bags moved toward +, but the empty hands moved toward −. Why do we say holes move the opposite way from electrons?", "zh": "討論：沙包往「＋」移動，空著的手卻往「−」移動。為什麼我們說電洞移動的方向和電子相反？" }
+                {
+                  "en": "Stand in rows between the two signs and hold hands with the people beside you. Each pair of joined hands holds one bean bag: a shared electron. Every hand is busy, so no bean bag can move. This is pure silicon.",
+                  "zh": "在兩張牌子之間排成幾排，和旁邊的同學牽手。每一對牽著的手夾著一個沙包，代表共用的電子。所有的手都在忙，沒有沙包能移動：這就是純矽。"
+                },
+                {
+                  "en": "One student puts on the phosphorus cap and holds an extra bean bag under one arm. That electron has no hand to hold, so roll it along the floor toward the + sign. This is n-type.",
+                  "zh": "一位同學戴上「磷」的帽子，腋下多夾一個沙包。這個電子沒有手可以牽，就讓它沿著地板滾向「＋」：這就是 N 型。"
+                },
+                {
+                  "en": "Now one student puts on the boron cap. One pair of their joined hands holds no bean bag: that is a hole. The pair on the − side passes its bean bag into the empty hands, which leaves its own hands empty. Keep passing.",
+                  "zh": "換一位同學戴上「硼」的帽子，他有一對牽著的手沒有沙包：這就是電洞。靠「−」那一邊的一對手，把沙包傳進空著的手裡，自己的手就空了。一直傳下去。"
+                },
+                {
+                  "en": "Talk about it: the bean bags moved toward +, but the empty hands moved toward −. Why do we say holes move the opposite way from electrons?",
+                  "zh": "討論：沙包往「＋」移動，空著的手卻往「−」移動。為什麼我們說電洞移動的方向和電子相反？"
+                }
               ],
               "tip_en": "Go slowly and call out each pass. Watching the empty hands travel is the whole point.",
               "tip_zh": "慢慢來，每傳一次就喊出來。看著「空手」一路移動，就是這個活動的重點。"
             }
           ],
           "sources": [
-            { "en": "Silicon is 27.7% of Earth's crust by mass, second after oxygen; sand is silicon dioxide; silicon is made by heating sand or quartz with carbon in an electric furnace", "zh": "矽占地殼質量 27.7%，僅次於氧；沙子是二氧化矽；矽是把沙或石英和碳放進電爐加熱製成", "src": "Royal Society of Chemistry, Periodic Table", "url": "https://periodic-table.rsc.org/element/14/silicon" },
-            { "en": "Silicon has four valence electrons and a diamond cubic crystal; lattice constant 0.5431 nm; furnace silicon is 96–99% pure", "zh": "矽有四個價電子、鑽石立方晶體；晶格常數 0.5431 奈米；電爐煉出的矽純度 96–99%", "src": "Wikipedia, “Silicon”", "url": "https://en.wikipedia.org/wiki/Silicon" },
-            { "en": "Electronic-grade polysilicon has impurity levels below one part per billion", "zh": "電子級多晶矽的雜質低於十億分之一", "src": "Wikipedia, “Polycrystalline silicon”", "url": "https://en.wikipedia.org/wiki/Polycrystalline_silicon" },
-            { "en": "Silicon at 300 K: 5 × 10²² atoms per cm³, intrinsic carriers about 10¹⁰ per cm³, intrinsic resistivity 3.2 × 10⁵ Ω·cm", "zh": "300 K 的矽：每立方公分 5 × 10²² 個原子、本質載子約 10¹⁰ 個、本質電阻率 3.2 × 10⁵ Ω·cm", "src": "Ioffe Institute, Silicon basic parameters", "url": "https://www.ioffe.ru/SVA/NSM/Semicond/Si/basic.html" },
-            { "en": "Electron and hole mobility in silicon (up to 1,400 and 450 cm²/V·s)", "zh": "矽的電子與電洞遷移率（最高 1,400 與 450 cm²/V·s）", "src": "Ioffe Institute, Silicon electrical properties", "url": "https://www.ioffe.ru/SVA/NSM/Semicond/Si/electric.html" },
-            { "en": "Resistivity at 20 °C: copper 1.68 × 10⁻⁸ Ω·m, silicon 2.3 × 10³ Ω·m, glass 10¹¹–10¹⁵ Ω·m", "zh": "20 °C 電阻率：銅 1.68 × 10⁻⁸、矽 2.3 × 10³、玻璃 10¹¹–10¹⁵ Ω·m", "src": "Wikipedia, “Electrical resistivity and conductivity”", "url": "https://en.wikipedia.org/wiki/Electrical_resistivity_and_conductivity" },
-            { "en": "Light doping is about one dopant atom per 100 million atoms; heavy doping about one per ten thousand", "zh": "輕摻雜約每 1 億個原子摻 1 個；重摻雜約每 1 萬個摻 1 個", "src": "Wikipedia, “Doping (semiconductor)”", "url": "https://en.wikipedia.org/wiki/Doping_(semiconductor)" },
-            { "en": "Phosphorus has five valence electrons and is a donor (n-type)", "zh": "磷有五個價電子，是施體（N 型）", "src": "Wikipedia, “Donor (semiconductors)”", "url": "https://en.wikipedia.org/wiki/Donor_(semiconductors)" },
-            { "en": "Boron has three valence electrons and is an acceptor (p-type)", "zh": "硼有三個價電子，是受體（P 型）", "src": "Wikipedia, “Acceptor (semiconductors)”", "url": "https://en.wikipedia.org/wiki/Acceptor_(semiconductors)" },
-            { "en": "“One in a million → over a million times better” is our own calculation: charge balance plus the Caughey–Thomas mobility formula, checked against the Ioffe data above", "zh": "「每 100 萬個換 1 個 → 好 100 萬倍以上」是本站的計算：電中性條件加上 Caughey–Thomas 遷移率公式，並對照上面的約飛研究所資料", "src": "Wikipedia, “Electron mobility”", "url": "https://en.wikipedia.org/wiki/Electron_mobility" },
-            { "en": "Volta first used the term “semiconducting” in 1782 (according to G. Busch)", "zh": "伏打在 1782 年最先使用「半導電」一詞（據 G. Busch）", "src": "Łukasiak & Jakubowski, “History of Semiconductors,” Journal of Telecommunications and Information Technology (2010)", "url": "https://djena.engineering.cornell.edu/hws/history_of_semiconductors.pdf" },
-            { "en": "Josef Weiss introduced the term Halbleiter in its modern meaning in his 1910 thesis", "zh": "魏斯在 1910 年的博士論文用 Halbleiter 表達今天的意思", "src": "Wikipedia, “Semiconductor”", "url": "https://en.wikipedia.org/wiki/Semiconductor" },
-            { "en": "Hsinchu Science Park was officially established on December 15, 1980", "zh": "新竹科學園區於民國 69 年 12 月 15 日正式成立", "src": "Hsinchu Science Park Bureau (竹科管理局)", "url": "https://www.sipa.gov.tw/home.jsp?serno=201001210024&mserno=201001210023&menudata=ChineseMenu&contlink=content/about_1.jsp" },
-            { "en": "Taiwan's first science park; more than 600 companies approved; more than 160,000 employees", "zh": "我國第一個科學園區；核准廠商逾 600 家；就業人數超過 16 萬人", "src": "Hsinchu Science Park Bureau (竹科管理局)", "url": "https://www.sipa.gov.tw/home.jsp?serno=201001210039&mserno=201001210037&menudata=CHINESEMENU&contlink=content%2Fintroduction_2_1.jsp&level3=Y&serno3=201002010007" },
-            { "en": "Integrated circuits were the park's largest industry by number of companies (January 2021 data)", "zh": "積體電路是園區廠商家數最多的產業（2021 年 1 月資料）", "src": "Hsinchu Science Park Bureau, English site", "url": "https://www.sipa.gov.tw/english/index.jsp" },
-            { "en": "Jack Kilby built the first integrated circuit, on germanium, on September 12, 1958", "zh": "基爾比在 1958 年 9 月 12 日做出第一個積體電路（鍺）", "src": "Computer History Museum", "url": "https://www.computerhistory.org/siliconengine/all-semiconductor-solid-circuit-is-demonstrated/" },
-            { "en": "Fairchild engineers produced the first working monolithic silicon ICs in May 1960", "zh": "快捷半導體的工程師在 1960 年 5 月做出第一批能運作的單晶片矽積體電路", "src": "Computer History Museum", "url": "https://www.computerhistory.org/siliconengine/practical-monolithic-integrated-circuit-concept-patented/" },
-            { "en": "Kilby shared the 2000 Nobel Prize in Physics for his part in inventing the integrated circuit", "zh": "基爾比因發明積體電路，共同獲得 2000 年諾貝爾物理獎", "src": "The Nobel Prize", "url": "https://www.nobelprize.org/prizes/physics/2000/summary/" },
-            { "en": "Taiwan's National Health Insurance has fully used IC cards since January 1, 2004", "zh": "全民健保自民國 93 年 1 月 1 日起全面使用健保 IC 卡", "src": "Ministry of Health and Welfare (衛生福利部)", "url": "https://www.mohw.gov.tw/cp-16-28196-1.html" },
-            { "en": "A chip is built on a thin piece of semiconductor, most often silicon; its metal lines are usually aluminum or copper", "zh": "晶片做在一片薄薄的半導體（通常是矽）上；金屬線通常是鋁或銅", "src": "Wikipedia, “Integrated circuit”", "url": "https://en.wikipedia.org/wiki/Integrated_circuit" },
-            { "en": "iPhone 17 Pro chip identification: 38 chips identified (2025)", "zh": "iPhone 17 Pro 晶片辨識：認出 38 顆晶片（2025）", "src": "iFixit", "url": "https://www.ifixit.com/Guide/iPhone+17+Pro+Chip+ID/196117" },
-            { "en": "U.S. Commerce Department: an average electric vehicle has about 2,000 chips, roughly double a non-electric car (2021)", "zh": "美國商務部：電動車平均約 2,000 顆晶片，約為非電動車的兩倍（2021）", "src": "Scientific American / E&E News", "url": "https://www.scientificamerican.com/article/chip-shortage-threatens-bidens-electric-vehicle-plans-commerce-secretary-says/" },
-            { "en": "Microcontrollers run microwaves, refrigerators, and washing machines (2021 chip shortage)", "zh": "微波爐、冰箱、洗衣機都靠微控制器運作（2021 年晶片短缺報導）", "src": "Reuters, via Asia Financial", "url": "https://www.asiafinancial.com/?p=736" },
-            { "en": "Silicone is a polymer made of silicon, oxygen, carbon, and hydrogen", "zh": "矽膠（silicone）是由矽、氧、碳、氫組成的聚合物", "src": "Wikipedia, “Silicone”", "url": "https://en.wikipedia.org/wiki/Silicone" },
-            { "en": "Silicon Valley is named after the silicon used in chips", "zh": "矽谷因晶片用的矽而得名", "src": "Wikipedia, “Silicon Valley”", "url": "https://en.wikipedia.org/wiki/Silicon_Valley" }
+            {
+              "en": "Silicon is 27.7% of Earth's crust by mass, second after oxygen; sand is silicon dioxide; silicon is made by heating sand or quartz with carbon in an electric furnace",
+              "zh": "矽占地殼質量 27.7%，僅次於氧；沙子是二氧化矽；矽是把沙或石英和碳放進電爐加熱製成",
+              "src": "Royal Society of Chemistry, Periodic Table",
+              "url": "https://periodic-table.rsc.org/element/14/silicon"
+            },
+            {
+              "en": "Silicon has four valence electrons and a diamond cubic crystal; lattice constant 0.5431 nm; furnace silicon is 96–99% pure",
+              "zh": "矽有四個價電子、鑽石立方晶體；晶格常數 0.5431 奈米；電爐煉出的矽純度 96–99%",
+              "src": "Wikipedia, “Silicon”",
+              "url": "https://en.wikipedia.org/wiki/Silicon"
+            },
+            {
+              "en": "Electronic-grade polysilicon has impurity levels below one part per billion",
+              "zh": "電子級多晶矽的雜質低於十億分之一",
+              "src": "Wikipedia, “Polycrystalline silicon”",
+              "url": "https://en.wikipedia.org/wiki/Polycrystalline_silicon"
+            },
+            {
+              "en": "Silicon at 300 K: 5 × 10²² atoms per cm³, intrinsic carriers about 10¹⁰ per cm³, intrinsic resistivity 3.2 × 10⁵ Ω·cm",
+              "zh": "300 K 的矽：每立方公分 5 × 10²² 個原子、本質載子約 10¹⁰ 個、本質電阻率 3.2 × 10⁵ Ω·cm",
+              "src": "Ioffe Institute, Silicon basic parameters",
+              "url": "https://www.ioffe.ru/SVA/NSM/Semicond/Si/basic.html"
+            },
+            {
+              "en": "Electron and hole mobility in silicon (up to 1,400 and 450 cm²/V·s)",
+              "zh": "矽的電子與電洞遷移率（最高 1,400 與 450 cm²/V·s）",
+              "src": "Ioffe Institute, Silicon electrical properties",
+              "url": "https://www.ioffe.ru/SVA/NSM/Semicond/Si/electric.html"
+            },
+            {
+              "en": "Resistivity at 20 °C: copper 1.68 × 10⁻⁸ Ω·m, silicon 2.3 × 10³ Ω·m, glass 10¹¹–10¹⁵ Ω·m",
+              "zh": "20 °C 電阻率：銅 1.68 × 10⁻⁸、矽 2.3 × 10³、玻璃 10¹¹–10¹⁵ Ω·m",
+              "src": "Wikipedia, “Electrical resistivity and conductivity”",
+              "url": "https://en.wikipedia.org/wiki/Electrical_resistivity_and_conductivity"
+            },
+            {
+              "en": "Light doping is about one dopant atom per 100 million atoms; heavy doping about one per ten thousand",
+              "zh": "輕摻雜約每 1 億個原子摻 1 個；重摻雜約每 1 萬個摻 1 個",
+              "src": "Wikipedia, “Doping (semiconductor)”",
+              "url": "https://en.wikipedia.org/wiki/Doping_(semiconductor)"
+            },
+            {
+              "en": "Phosphorus has five valence electrons and is a donor (n-type)",
+              "zh": "磷有五個價電子，是施體（N 型）",
+              "src": "Wikipedia, “Donor (semiconductors)”",
+              "url": "https://en.wikipedia.org/wiki/Donor_(semiconductors)"
+            },
+            {
+              "en": "Boron has three valence electrons and is an acceptor (p-type)",
+              "zh": "硼有三個價電子，是受體（P 型）",
+              "src": "Wikipedia, “Acceptor (semiconductors)”",
+              "url": "https://en.wikipedia.org/wiki/Acceptor_(semiconductors)"
+            },
+            {
+              "en": "“One in a million → over a million times better” is our own calculation: charge balance plus the Caughey–Thomas mobility formula, checked against the Ioffe data above",
+              "zh": "「每 100 萬個換 1 個 → 好 100 萬倍以上」是本站的計算：電中性條件加上 Caughey–Thomas 遷移率公式，並對照上面的約飛研究所資料",
+              "src": "Wikipedia, “Electron mobility”",
+              "url": "https://en.wikipedia.org/wiki/Electron_mobility"
+            },
+            {
+              "en": "Volta first used the term “semiconducting” in 1782 (according to G. Busch)",
+              "zh": "伏打在 1782 年最先使用「半導電」一詞（據 G. Busch）",
+              "src": "Łukasiak & Jakubowski, “History of Semiconductors,” Journal of Telecommunications and Information Technology (2010)",
+              "url": "https://djena.engineering.cornell.edu/hws/history_of_semiconductors.pdf"
+            },
+            {
+              "en": "Josef Weiss introduced the term Halbleiter in its modern meaning in his 1910 thesis",
+              "zh": "魏斯在 1910 年的博士論文用 Halbleiter 表達今天的意思",
+              "src": "Wikipedia, “Semiconductor”",
+              "url": "https://en.wikipedia.org/wiki/Semiconductor"
+            },
+            {
+              "en": "Hsinchu Science Park was officially established on December 15, 1980",
+              "zh": "新竹科學園區於民國 69 年 12 月 15 日正式成立",
+              "src": "Hsinchu Science Park Bureau (竹科管理局)",
+              "url": "https://www.sipa.gov.tw/home.jsp?serno=201001210024&mserno=201001210023&menudata=ChineseMenu&contlink=content/about_1.jsp"
+            },
+            {
+              "en": "Taiwan's first science park; more than 600 companies approved; more than 160,000 employees",
+              "zh": "我國第一個科學園區；核准廠商逾 600 家；就業人數超過 16 萬人",
+              "src": "Hsinchu Science Park Bureau (竹科管理局)",
+              "url": "https://www.sipa.gov.tw/home.jsp?serno=201001210039&mserno=201001210037&menudata=CHINESEMENU&contlink=content%2Fintroduction_2_1.jsp&level3=Y&serno3=201002010007"
+            },
+            {
+              "en": "Integrated circuits were the park's largest industry by number of companies (January 2021 data)",
+              "zh": "積體電路是園區廠商家數最多的產業（2021 年 1 月資料）",
+              "src": "Hsinchu Science Park Bureau, English site",
+              "url": "https://www.sipa.gov.tw/english/index.jsp"
+            },
+            {
+              "en": "Jack Kilby built the first integrated circuit, on germanium, on September 12, 1958",
+              "zh": "基爾比在 1958 年 9 月 12 日做出第一個積體電路（鍺）",
+              "src": "Computer History Museum",
+              "url": "https://www.computerhistory.org/siliconengine/all-semiconductor-solid-circuit-is-demonstrated/"
+            },
+            {
+              "en": "Fairchild engineers produced the first working monolithic silicon ICs in May 1960",
+              "zh": "快捷半導體的工程師在 1960 年 5 月做出第一批能運作的單晶片矽積體電路",
+              "src": "Computer History Museum",
+              "url": "https://www.computerhistory.org/siliconengine/practical-monolithic-integrated-circuit-concept-patented/"
+            },
+            {
+              "en": "Kilby shared the 2000 Nobel Prize in Physics for his part in inventing the integrated circuit",
+              "zh": "基爾比因發明積體電路，共同獲得 2000 年諾貝爾物理獎",
+              "src": "The Nobel Prize",
+              "url": "https://www.nobelprize.org/prizes/physics/2000/summary/"
+            },
+            {
+              "en": "Taiwan's National Health Insurance has fully used IC cards since January 1, 2004",
+              "zh": "全民健保自民國 93 年 1 月 1 日起全面使用健保 IC 卡",
+              "src": "Ministry of Health and Welfare (衛生福利部)",
+              "url": "https://www.mohw.gov.tw/cp-16-28196-1.html"
+            },
+            {
+              "en": "A chip is built on a thin piece of semiconductor, most often silicon; its metal lines are usually aluminum or copper",
+              "zh": "晶片做在一片薄薄的半導體（通常是矽）上；金屬線通常是鋁或銅",
+              "src": "Wikipedia, “Integrated circuit”",
+              "url": "https://en.wikipedia.org/wiki/Integrated_circuit"
+            },
+            {
+              "en": "iPhone 17 Pro chip identification: 38 chips identified (2025)",
+              "zh": "iPhone 17 Pro 晶片辨識：認出 38 顆晶片（2025）",
+              "src": "iFixit",
+              "url": "https://www.ifixit.com/Guide/iPhone+17+Pro+Chip+ID/196117"
+            },
+            {
+              "en": "U.S. Commerce Department: an average electric vehicle has about 2,000 chips, roughly double a non-electric car (2021)",
+              "zh": "美國商務部：電動車平均約 2,000 顆晶片，約為非電動車的兩倍（2021）",
+              "src": "Scientific American / E&E News",
+              "url": "https://www.scientificamerican.com/article/chip-shortage-threatens-bidens-electric-vehicle-plans-commerce-secretary-says/"
+            },
+            {
+              "en": "Microcontrollers run microwaves, refrigerators, and washing machines (2021 chip shortage)",
+              "zh": "微波爐、冰箱、洗衣機都靠微控制器運作（2021 年晶片短缺報導）",
+              "src": "Reuters, via Asia Financial",
+              "url": "https://www.asiafinancial.com/?p=736"
+            },
+            {
+              "en": "Silicone is a polymer made of silicon, oxygen, carbon, and hydrogen",
+              "zh": "矽膠（silicone）是由矽、氧、碳、氫組成的聚合物",
+              "src": "Wikipedia, “Silicone”",
+              "url": "https://en.wikipedia.org/wiki/Silicone"
+            },
+            {
+              "en": "Silicon Valley is named after the silicon used in chips",
+              "zh": "矽谷因晶片用的矽而得名",
+              "src": "Wikipedia, “Silicon Valley”",
+              "url": "https://en.wikipedia.org/wiki/Silicon_Valley"
+            }
+          ]
+        },
+        {
+          "n": 2,
+          "slug": "transistor",
+          "title": "What Does a Transistor Do?",
+          "title_zh": "電晶體在做什麼？",
+          "level": "入門 · Beginner",
+          "icon": "🔀",
+          "card": "transistor",
+          "blurb_en": "A transistor is a switch with no moving parts. Turn up the gate voltage and watch a channel of electrons appear in 3D, then wire two switches together to make AND, OR, and the first step of adding.",
+          "blurb_zh": "電晶體是沒有任何會動零件的開關。在 3D 裡調高閘極電壓，看電子的通道長出來；再把兩個開關接在一起，做出「且」「或」和加法的第一步。",
+          "big_idea_en": "A transistor is a switch controlled by electricity. A small voltage on its gate opens a channel of electrons, so current can flow; take the voltage away, and the channel closes. On means 1 and off means 0, and billions of these switches, wired together, can do math.",
+          "big_idea_zh": "電晶體是用電控制的開關：閘極加一點電壓，就打開一條電子的通道讓電流通過；拿掉電壓，通道就關上。開代表 1、關代表 0，幾十億個這樣的開關接在一起，就能算數學。",
+          "lab": {
+            "kind": "transistor",
+            "eyebrow": "3D Model · 3D 模型",
+            "title_en": "Inside a Transistor",
+            "title_zh": "電晶體裡面",
+            "how_en": "Drag to turn the model, and scroll or pinch to zoom. In One transistor, slide the gate voltage up and watch electrons gather under the gate to make a channel between the source and the drain. Then switch to Switches that add, turn inputs A and B on and off, and see which lights come on when two transistors are wired in a row or side by side.",
+            "how_zh": "拖曳可以旋轉模型，滾輪或雙指可以縮放。在「一顆電晶體」把閘極電壓往上拉，看電子聚到閘極下面，在源極和汲極之間鋪出通道。再切換到「會算數的開關」，打開、關掉輸入 A 和 B，看兩顆電晶體串在一起或並排時，哪一顆燈會亮。",
+            "legend": [
+              {
+                "cls": "cpel",
+                "en": "Blue dots: electrons",
+                "zh": "藍點：電子"
+              },
+              {
+                "cls": "cphole",
+                "en": "Pink rings: holes in the p-type silicon",
+                "zh": "粉紅圈：P 型矽裡的電洞"
+              },
+              {
+                "cls": "cpn",
+                "en": "Blue blocks: n-type silicon, the source and the drain",
+                "zh": "藍色塊：N 型矽，也就是源極和汲極"
+              },
+              {
+                "cls": "cpg",
+                "en": "Gold: the gate, sitting on a thin white insulator",
+                "zh": "金色：閘極，底下是一層薄薄的白色絕緣層"
+              }
+            ],
+            "scale_en": "A teaching diagram, not to scale. Real transistors in a modern chip are far smaller, and many are built in 3D shapes such as fins instead of a flat slab. The voltages are only for illustration. The electrons are slowed down enormously so you can watch them; a real chip's clock ticks more than three billion times every second.",
+            "scale_zh": "這是示意圖，不是真實比例。現代晶片裡的電晶體小得多，而且很多做成像鰭片一樣的立體形狀，不是平平的一塊。圖上的電壓只是示意。電子的速度大幅放慢，讓你看得見；真的晶片，時脈每秒跳動超過 30 億次。",
+            "credit_html": "Model drawn by My Culture Connect as a teaching diagram. The parts follow the standard description of the <a href=\"https://en.wikipedia.org/wiki/MOSFET\" target=\"_blank\" rel=\"noopener\">MOS transistor</a>: an n-type source and drain in p-type silicon, with a gate over a thin insulator. · 模型由人師教育協會自繪示意；構造照 MOS 電晶體的標準說法：P 型矽裡的 N 型源極與汲極，上面隔著薄絕緣層的閘極。"
+          },
+          "paras": [
+            "In the last lesson, you saw that engineers can make silicon conduct by adding a pinch of phosphorus or boron. Now comes the amazing part. A chip uses n-type and p-type silicon to build tiny switches called transistors, often billions of them. A transistor has no moving parts, yet it can turn a current on and off billions of times every second. Every app, photo, and game on your phone depends on these switches.",
+            "Most transistors in a chip work like this. Two n-type regions, called the source and the drain, sit in a piece of p-type silicon. Electrons would gladly flow from the source to the drain, but the p-type silicon between them blocks the way. Above that gap is the gate, a layer that conducts, separated from the silicon by a very thin layer of insulator.",
+            "When a small positive voltage is put on the gate, it pulls electrons into a thin layer just under the insulator. This layer, called a channel, joins the source to the drain, and current flows. The switch is on. Take the voltage away, and the channel disappears, so the switch is off. The gate never touches the current. It controls the current from the other side of the insulator.",
+            "A switch has only two states, on and off, and computers use them to stand for 1 and 0. With 0s and 1s, a computer can write any number, just as we write any number with the ten digits 0 to 9. This way of counting is called binary. In binary, the numbers one, two, three, and four are written 1, 10, 11, and 100.",
+            "How can switches do math? Put two transistors in a row, and current flows only if both are on. That is called an AND gate. Put them side by side, and current flows if either one is on. That is an OR gate. A few gates together can add. In binary, 1 + 1 = 10: the sum is 0, and a 1 is carried to the next place, just like carrying a 1 when you add 5 + 5.",
+            "The first transistor was built at Bell Labs in the United States in 1947, and its three inventors shared the Nobel Prize in Physics in 1956. In 1971, Intel's first microprocessor, the 4004, had 2,300 transistors. In 2024, Apple announced a chip with 28 billion. Each one is a switch, flipping on and off and adding up our world one 1 and 0 at a time."
+          ],
+          "paras_zh": [
+            "上一課看到，工程師在矽裡加一點點磷或硼，就能讓它導電。接下來才是最神奇的部分：晶片用 N 型和 P 型矽做出極小的開關，叫做「電晶體」，數量常常有幾十億顆。電晶體沒有任何會動的零件，卻能每秒把電流開關幾十億次。手機裡的每個 App、每張照片、每個遊戲，都靠這些開關。",
+            "晶片裡大部分的電晶體是這樣運作的：一塊 P 型矽上有兩塊 N 型區域，叫做「源極」和「汲極」。電子很樂意從源極流到汲極，可是中間的 P 型矽擋住了路。在這段空隙上方是「閘極」：一層會導電的材料，和矽之間隔著一層非常薄的絕緣層。",
+            "在閘極加上一點正電壓，它就把電子吸到絕緣層正下方，形成薄薄的一層。這一層叫做「通道」，把源極和汲極連起來，電流就流過去了：開關打開。把電壓拿掉，通道就消失，開關關上。閘極從來不碰電流，而是隔著絕緣層控制它。",
+            "開關只有兩種狀態：開和關，電腦就用它們代表 1 和 0。只用 0 和 1，電腦就能寫出任何數字，就像我們用 0 到 9 十個數字寫出任何數一樣。這種數法叫做「二進位」。在二進位裡，一、二、三、四寫成 1、10、11、100。",
+            "開關怎麼算數學？把兩顆電晶體排成一串，兩顆都開，電流才過得去，這叫「且閘」（AND gate）。把它們並排，只要有一顆開，電流就過得去，這叫「或閘」（OR gate）。幾個閘組合起來就能做加法。在二進位裡，1＋1＝10：這一位是 0，再進 1 到下一位，就像算 5＋5 時要進位一樣。",
+            "第一顆電晶體 1947 年在美國的貝爾實驗室做出來，三位發明人在 1956 年共同獲得諾貝爾物理獎。1971 年，英特爾第一顆微處理器 4004 有 2,300 顆電晶體；2024 年，蘋果發表了一顆有 280 億顆電晶體的晶片。每一顆都是一個開關，開開關關，用一個個 1 和 0 算出我們的世界。"
+          ],
+          "questions": [
+            "What are the three main parts of a transistor?",
+            "What happens when a positive voltage is put on the gate?",
+            "How are two transistors connected to make an AND gate, and when does current flow?"
+          ],
+          "answers": [
+            "The source, the drain, and the gate.",
+            "It pulls electrons into a thin channel under the insulator. The channel joins the source to the drain, so current flows.",
+            "They are put in a row, and current flows only when both are on."
+          ],
+          "vocab": [
+            {
+              "n": 1,
+              "w": "switch",
+              "pos": "n.",
+              "zh": "開關",
+              "ex": "Press the <b>switch</b> by the door to turn on the light.",
+              "exzh": "按門邊的開關，把燈打開。"
+            },
+            {
+              "n": 2,
+              "w": "current",
+              "pos": "n.",
+              "zh": "電流；水流",
+              "ex": "The wire carries an electric <b>current</b> to the lamp.",
+              "exzh": "電線把電流送到檯燈。"
+            },
+            {
+              "n": 3,
+              "w": "voltage",
+              "pos": "n.",
+              "zh": "電壓",
+              "ex": "A AA battery has a <b>voltage</b> of 1.5 volts.",
+              "exzh": "一顆三號電池的電壓是 1.5 伏特。"
+            },
+            {
+              "n": 4,
+              "w": "gate",
+              "pos": "n.",
+              "zh": "大門；閘門；閘極",
+              "ex": "The farmer opened the <b>gate</b> to let the cows out.",
+              "exzh": "農夫打開柵門，讓牛出去。"
+            },
+            {
+              "n": 5,
+              "w": "transistor",
+              "pos": "n.",
+              "zh": "電晶體",
+              "ex": "A <b>transistor</b> can turn a current on and off.",
+              "exzh": "電晶體可以把電流打開、關上。"
+            },
+            {
+              "n": 6,
+              "w": "binary",
+              "pos": "adj.",
+              "zh": "二進位的",
+              "ex": "In <b>binary</b>, the number two is written 10.",
+              "exzh": "在二進位裡，二寫成 10。"
+            },
+            {
+              "n": 7,
+              "w": "calculate",
+              "pos": "v.",
+              "zh": "計算",
+              "ex": "Can you <b>calculate</b> how many days are in ten weeks?",
+              "exzh": "你能算出十個星期有幾天嗎？"
+            },
+            {
+              "n": 8,
+              "w": "billion",
+              "pos": "n.",
+              "zh": "十億",
+              "ex": "A <b>billion</b> is a thousand million.",
+              "exzh": "十億就是一千個百萬。"
+            }
+          ],
+          "quiz": [
+            {
+              "q": "What does a transistor do?",
+              "options": [
+                "Turns a current on and off",
+                "Stores sunlight",
+                "Makes electricity from heat",
+                "Keeps the chip cool"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "Which part decides whether a transistor is on or off?",
+              "options": [
+                "The gate",
+                "The battery",
+                "The drain",
+                "The plastic case"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "In binary, how do you write the number three?",
+              "options": [
+                "11",
+                "3",
+                "111",
+                "10"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "Two switches are in a row. When does the light turn on?",
+              "options": [
+                "Only when both are on",
+                "When either one is on",
+                "Never",
+                "Only when both are off"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "How many transistors did Intel's 4004 have in 1971?",
+              "options": [
+                "2,300",
+                "23",
+                "28 billion",
+                "2 million"
+              ],
+              "correct": 0
+            }
+          ],
+          "parts_head": {
+            "eyebrow": "Try It in the Model · 在模型裡試試",
+            "en": "Four things to try",
+            "zh": "試試這四件事"
+          },
+          "parts": [
+            {
+              "key": "off",
+              "icon": "⭕",
+              "en": "Gate off",
+              "zh": "閘極沒有電",
+              "meta_en": "Switch off = 0",
+              "meta_zh": "開關關＝0",
+              "demo": "off",
+              "text_en": "With no voltage on the gate, the p-type silicon blocks the way. No channel, no current.",
+              "text_zh": "閘極沒有電壓，P 型矽把路擋住：沒有通道，就沒有電流。"
+            },
+            {
+              "key": "on",
+              "icon": "🟢",
+              "en": "Gate on",
+              "zh": "閘極加電",
+              "meta_en": "Switch on = 1",
+              "meta_zh": "開關開＝1",
+              "demo": "on",
+              "text_en": "Turn the gate voltage up. Watch the holes get pushed away and a channel of electrons appear.",
+              "text_zh": "把閘極電壓調高：看電洞被推開，一條電子的通道長出來。"
+            },
+            {
+              "key": "and",
+              "icon": "🔗",
+              "en": "Two in a row: AND",
+              "zh": "串在一起：且",
+              "meta_en": "Both must be on",
+              "meta_zh": "兩個都要開",
+              "demo": "and",
+              "text_en": "Current has to pass through both transistors, so the light needs A and B.",
+              "text_zh": "電流要通過兩顆電晶體，所以 A 和 B 都要開，燈才亮。"
+            },
+            {
+              "key": "or",
+              "icon": "🔀",
+              "en": "Side by side: OR",
+              "zh": "並排：或",
+              "meta_en": "Either one is enough",
+              "meta_zh": "有一個開就夠",
+              "demo": "or",
+              "text_en": "Current can take either path, so the light needs only A or B.",
+              "text_zh": "電流可以走任何一條路，所以 A 或 B 有一個開，燈就亮。"
+            }
+          ],
+          "parts_note_en": "Real chips usually pair this kind of transistor with a p-channel one that turns on with the opposite voltage, so that almost no current is wasted while they wait. The idea is the same: a gate that opens and closes a channel.",
+          "parts_note_zh": "真的晶片通常把這種電晶體和「P 通道」電晶體配成一對（相反的電壓才打開），等待時幾乎不浪費電流。道理一樣：閘極打開、關上一條通道。",
+          "links_head": {
+            "eyebrow": "Go Further · 延伸閱讀",
+            "en": "Where the switches and the 0s and 1s come from",
+            "zh": "開關從哪裡來、0 和 1 去哪裡"
+          },
+          "links": [
+            {
+              "href": "/resources/classes/semiconductors/what-is-a-semiconductor/",
+              "icon": "💿",
+              "k_en": "Chips and Semiconductors · Lesson 1",
+              "k_zh": "晶片與半導體 第一課",
+              "en": "What Is a Semiconductor?",
+              "zh": "什麼是半導體？",
+              "note_en": "Why n-type silicon has free electrons and p-type silicon has holes: the two materials every transistor is made of.",
+              "note_zh": "N 型矽為什麼有自由電子、P 型矽為什麼有電洞：每顆電晶體都用這兩種材料做成。"
+            },
+            {
+              "href": "/resources/classes/how-things-work/computer-memory/",
+              "icon": "💾",
+              "k_en": "How Things Work · Lesson 8",
+              "k_zh": "萬物原理 第八課",
+              "en": "How Does a Computer Remember Things?",
+              "zh": "電腦怎麼記住東西？",
+              "note_en": "How 0s and 1s become letters and photos, and how memory chips keep them, in a 3D memory chip you can type into.",
+              "note_zh": "0 和 1 怎麼變成文字和照片、記憶體晶片怎麼存住它們；可以在 3D 記憶體晶片裡打字。"
+            }
+          ],
+          "count": {
+            "eyebrow": "Count the Switches · 數一數開關",
+            "en": "How long would it take to count them?",
+            "zh": "一顆一顆數，要數多久？",
+            "lead_en": "Pick a chip and count its transistors, one every second, day and night without sleeping. Then ask everyone in Taiwan to help.",
+            "lead_zh": "選一顆晶片，一秒數一顆電晶體，日夜不停、不睡覺。再請全台灣的人一起幫忙。",
+            "people": 23224721,
+            "people_en": "Taiwan's population at the end of August 2026 was about 23.2 million (Ministry of the Interior figures, as reported in September 2026).",
+            "people_zh": "台灣 2026 年 8 月底人口約 2,320 萬人（內政部資料，2026 年 9 月報導）。",
+            "note_en": "Transistor counts are the numbers the makers announced. Blackwell is two pieces of silicon joined to work as one chip.",
+            "note_zh": "電晶體數量是廠商公布的數字。Blackwell 是兩片矽接在一起、當成一顆晶片使用。",
+            "default": 1,
+            "chips": [
+              {
+                "key": "i4004",
+                "en": "Intel 4004 (1971), the first microprocessor",
+                "zh": "英特爾 4004（1971，第一顆微處理器）",
+                "n": 2300,
+                "src": "Intel",
+                "year": 1971
+              },
+              {
+                "key": "m4",
+                "en": "Apple M4 (2024), used in an iPad Pro",
+                "zh": "蘋果 M4（2024，用在 iPad Pro）",
+                "n": 28000000000,
+                "src": "Apple",
+                "year": 2024
+              },
+              {
+                "key": "blackwell",
+                "en": "NVIDIA Blackwell (2024), built for AI",
+                "zh": "輝達 Blackwell（2024，AI 用）",
+                "n": 208000000000,
+                "src": "NVIDIA",
+                "year": 2024
+              }
+            ]
+          },
+          "facts": {
+            "eyebrow": "Transistors by the Numbers · 電晶體的數字",
+            "en": "From 2,300 to 208 billion",
+            "zh": "從 2,300 到 2,080 億",
+            "lead_en": "Fifty years of switches, counted by the companies that made them.",
+            "lead_zh": "五十年來的開關，用廠商公布的數字來數。",
+            "items": [
+              {
+                "big": "3",
+                "unit_en": "main parts",
+                "unit_zh": "個主要部分",
+                "en": "Source, drain, and gate.",
+                "zh": "源極、汲極、閘極。"
+              },
+              {
+                "big": "2",
+                "unit_en": "states",
+                "unit_zh": "種狀態",
+                "en": "On means 1 and off means 0.",
+                "zh": "開代表 1，關代表 0。"
+              },
+              {
+                "big": "2,300",
+                "unit_en": "transistors · Intel 4004 (1971)",
+                "unit_zh": "顆電晶體（英特爾 4004，1971）",
+                "en": "The first microprocessor sold by Intel.",
+                "zh": "英特爾推出的第一顆微處理器。"
+              },
+              {
+                "big": "28 billion",
+                "unit_en": "transistors · Apple M4 (2024)",
+                "unit_zh": "顆電晶體（蘋果 M4，2024）",
+                "en": "More than ten million times the 4004.",
+                "zh": "是 4004 的一千萬倍以上。"
+              },
+              {
+                "big": "208 billion",
+                "unit_en": "transistors · NVIDIA Blackwell (2024)",
+                "unit_zh": "顆電晶體（輝達 Blackwell，2024）",
+                "en": "Two pieces of silicon joined to work as one AI chip.",
+                "zh": "兩片矽接在一起，當成一顆 AI 晶片。"
+              },
+              {
+                "big": "99%",
+                "unit_en": "of microchips use MOS transistors",
+                "unit_zh": "的晶片用 MOS 電晶體",
+                "en": "The kind of transistor in this lesson, according to the Computer History Museum.",
+                "zh": "就是這一課的這種電晶體（美國電腦歷史博物館）。"
+              }
+            ]
+          },
+          "culture_cards": {
+            "eyebrow": "Transistor Stories · 電晶體的故事",
+            "title_en": "A Christmas present, a name, a law, and a record",
+            "title_zh": "一份聖誕禮物、一個名字、一條定律、一項紀錄",
+            "lead_en": "Four short stories about the switch inside everything.",
+            "lead_zh": "關於「萬物裡的開關」的四個小故事。",
+            "cards": [
+              {
+                "k": "1947 · Bell Labs · 貝爾實驗室",
+                "en": "A Christmas present",
+                "zh": "一份聖誕禮物",
+                "body_en": "On December 16, 1947, John Bardeen and Walter Brattain at Bell Labs in the United States made the first working transistor: two gold contacts pressed onto a piece of germanium. They showed it to lab officials on December 23, and their group leader, William Shockley, called it a magnificent Christmas present. The three men shared the 1956 Nobel Prize in Physics.",
+                "body_zh": "1947 年 12 月 16 日，美國貝爾實驗室的巴丁和布拉頓做出第一顆能運作的電晶體：兩個金接點壓在一小塊鍺上。他們在 12 月 23 日展示給實驗室主管看，小組領導人蕭克利說這是「一份很棒的聖誕禮物」。三人在 1956 年共同獲得諾貝爾物理獎。"
+              },
+              {
+                "k": "The Word · 這個詞",
+                "en": "Where “transistor” comes from",
+                "zh": "「電晶體」這個名字",
+                "body_en": "Engineer John Pierce named it. Vacuum tubes had a property called transconductance, and the new device had transresistance, so Pierce began the name with “trans-” and ended it like the varistor and the thermistor, other new parts of the time. Bell Labs announced the transistor to the public on June 30, 1948. The Chinese name, 電晶體, means “electric crystal.”",
+                "body_zh": "命名的是工程師皮爾斯。真空管有一種性質叫 transconductance，新元件則有 transresistance，所以他用「trans-」開頭，結尾學當時的新零件 varistor、thermistor。貝爾實驗室在 1948 年 6 月 30 日向大眾公布電晶體。中文「電晶體」，字面上就是「電的晶體」。"
+              },
+              {
+                "k": "Moore's Law · 摩爾定律",
+                "en": "Doubling, again and again",
+                "zh": "一次又一次加倍",
+                "body_en": "In 1965, Gordon Moore predicted that the number of parts on a chip would double every year. In 1975 he changed it to every two years. From the 4004's 2,300 transistors in 1971 to 28 billion in Apple's M4 in 2024 is more than ten million times as many.",
+                "body_zh": "1965 年，摩爾預測晶片上的元件數量每年會加倍；1975 年他改成每兩年加倍。從 1971 年 4004 的 2,300 顆，到 2024 年蘋果 M4 的 280 億顆，增加了一千萬倍以上。"
+              },
+              {
+                "k": "A Record · 一項紀錄",
+                "en": "The most-made thing in history",
+                "zh": "人類做過最多的東西",
+                "body_en": "In 2018, the Computer History Museum reported an estimate that about 13 sextillion transistors had been made since 1947. That is 13 followed by 21 zeros, which makes the transistor the most frequently manufactured human artifact in history. Almost all of them are MOS transistors, the kind in this lesson.",
+                "body_zh": "2018 年，美國電腦歷史博物館引用分析師的估計：從 1947 年到當時，人類大約做了 1.3 × 10²² 顆電晶體，也就是 13 後面接 21 個 0。這讓電晶體成為人類史上製造數量最多的東西，而且幾乎全是這一課講的 MOS 電晶體。"
+              }
+            ]
+          },
+          "myths": [
+            {
+              "myth_en": "A transistor has tiny moving parts that click on and off.",
+              "myth_zh": "電晶體裡有會喀噠開關的小零件。",
+              "fact_en": "Nothing moves except electrons. A voltage on the gate makes a channel of electrons appear or disappear.",
+              "fact_zh": "除了電子，什麼都沒有動。閘極上的電壓讓一條電子的通道出現或消失。"
+            },
+            {
+              "myth_en": "Inside a computer, numbers are stored with the digits 0 to 9.",
+              "myth_zh": "電腦裡的數字是用 0 到 9 存的。",
+              "fact_en": "Inside the chip, every number is stored in binary, using only 0s and 1s, because a switch has only two states.",
+              "fact_zh": "晶片裡每個數字都用二進位存，只有 0 和 1，因為開關只有兩種狀態。"
+            },
+            {
+              "myth_en": "Transistors were first made for computers.",
+              "myth_zh": "電晶體一開始是為電腦做的。",
+              "fact_en": "In the United States, the first transistor products were a hearing aid in 1952 and the Regency TR-1 pocket radio in 1954.",
+              "fact_zh": "在美國，最早用電晶體的產品是 1952 年的助聽器，和 1954 年的口袋收音機 Regency TR-1。"
+            },
+            {
+              "myth_en": "When a transistor is off, its electrons disappear.",
+              "myth_zh": "電晶體關掉時，電子就不見了。",
+              "fact_en": "The electrons are still in the source and the drain. Off only means there is no channel joining them.",
+              "fact_zh": "電子還在源極和汲極裡；「關」只是表示沒有通道把它們連起來。"
+            }
+          ],
+          "tricks": [
+            {
+              "title_en": "Gate on, channel open",
+              "title_zh": "閘極有電，通道就開",
+              "body_en": "A small voltage on the gate pulls in electrons and opens the way.",
+              "body_zh": "閘極加一點電壓，把電子吸過來，路就通了。"
+            },
+            {
+              "title_en": "On is 1, off is 0",
+              "title_zh": "開是 1，關是 0",
+              "body_en": "Two states are all a computer needs to write any number.",
+              "body_zh": "電腦只要兩種狀態，就能寫出任何數字。"
+            },
+            {
+              "title_en": "In a row is AND, side by side is OR",
+              "title_zh": "串聯是「且」，並聯是「或」",
+              "body_en": "A row needs both switches; side by side needs just one.",
+              "body_zh": "串在一起要兩個都開；並排只要一個開。"
+            },
+            {
+              "title_en": "1 + 1 = 10",
+              "title_zh": "1＋1＝10",
+              "body_en": "In binary, write 0 and carry the 1, just like 5 + 5.",
+              "body_zh": "二進位裡寫 0、進 1，就像 5＋5。"
+            }
+          ],
+          "safety": [
+            {
+              "en": "Use only small dry-cell batteries, such as AA or AAA. Never put wires, clips, or any metal into a wall outlet.",
+              "zh": "只用三號、四號這類小型乾電池。電線、夾子或任何金屬都絕不能插進牆上的插座。"
+            },
+            {
+              "en": "Never connect the two ends of a battery directly with a wire or a paper clip. That is a short circuit, and it can get hot.",
+              "zh": "絕不要用電線或迴紋針直接連接電池兩端。那是短路，會發燙。"
+            },
+            {
+              "en": "Ask an adult to make the holes in the cardboard for the paper-clip switches.",
+              "zh": "迴紋針開關要在紙板上打洞時，請大人幫忙。"
+            },
+            {
+              "en": "Keep button batteries away from young children. A swallowed button battery is a medical emergency.",
+              "zh": "鈕扣電池要遠離幼兒；誤吞鈕扣電池要立刻就醫。"
+            },
+            {
+              "en": "Never take apart a phone or computer to look for its transistors. The lithium battery inside can catch fire if it is bent or punctured.",
+              "zh": "絕不要拆開手機或電腦找電晶體：裡面的鋰電池被折到或刺破，可能會起火。"
+            }
+          ],
+          "activities": [
+            {
+              "title_en": "Build AND and OR with Two Switches",
+              "title_zh": "用兩個開關做出「且」和「或」",
+              "materials": [
+                {
+                  "en": "A holder for two AA batteries, with two AA batteries",
+                  "zh": "兩顆三號電池和電池盒"
+                },
+                {
+                  "en": "A red LED and a 100-ohm resistor (or an LED with a built-in resistor)",
+                  "zh": "一顆紅色 LED 和一個 100 歐姆電阻（或內建電阻的 LED）"
+                },
+                {
+                  "en": "Two switches, or make each one from a paper clip and two brass paper fasteners on cardboard",
+                  "zh": "兩個開關，或用迴紋針和兩個雙腳釘在紙板上各做一個"
+                },
+                {
+                  "en": "Five wires with alligator clips",
+                  "zh": "五條附鱷魚夾的電線"
+                }
+              ],
+              "steps": [
+                {
+                  "en": "Make a loop of the battery, the resistor, the LED, and one switch. Check that the switch turns the LED on and off. The LED's longer leg goes toward the + side.",
+                  "zh": "把電池、電阻、LED 和一個開關接成一圈，確認開關能讓 LED 亮和熄。LED 比較長的腳接「＋」那一邊。"
+                },
+                {
+                  "en": "Put the two switches in a row. Try all four ways to set them, and fill in a table: A, B, light on or off.",
+                  "zh": "把兩個開關串在一起。試試四種開關組合，填一張表：A、B、燈亮或不亮。"
+                },
+                {
+                  "en": "Rebuild the circuit with the two switches side by side, and fill in a second table.",
+                  "zh": "改成兩個開關並排，再填第二張表。"
+                },
+                {
+                  "en": "Compare the tables. Which one is AND, and which is OR? Think of a door with two locks, and a room with two doors.",
+                  "zh": "比較兩張表：哪一張是「且」、哪一張是「或」？想想「一扇門有兩道鎖」和「一個房間有兩扇門」。"
+                }
+              ],
+              "tip_en": "Draw the circuit before you build it, and open the switches whenever you move a wire.",
+              "tip_zh": "接線前先把電路畫出來；每次移動電線時，都先把開關打開（斷開）。"
+            },
+            {
+              "title_en": "Count to 31 on One Hand",
+              "title_zh": "用一隻手數到 31",
+              "materials": [
+                {
+                  "en": "Your hands",
+                  "zh": "你的雙手"
+                },
+                {
+                  "en": "Paper and a pencil",
+                  "zh": "紙和鉛筆"
+                }
+              ],
+              "steps": [
+                {
+                  "en": "Give each finger a value: thumb 1, pointer 2, middle 4, ring 8, little finger 16. A raised finger is a 1, and a folded finger is a 0.",
+                  "zh": "每根手指一個值：拇指 1、食指 2、中指 4、無名指 8、小指 16。伸直是 1，彎下是 0。"
+                },
+                {
+                  "en": "Count from 0 to 31 together, raising fingers to make each number. Write a few numbers in binary, such as 5 = 101.",
+                  "zh": "全班一起從 0 數到 31，用伸直的手指湊出每個數。把幾個數寫成二進位，例如 5＝101。"
+                },
+                {
+                  "en": "Add two small numbers with a partner, one on each hand. When two 1s meet in the same place, write 0 and carry 1 to the next finger.",
+                  "zh": "和同學各用一隻手比一個小數字，把它們加起來：同一位遇到兩個 1，就寫 0、進 1 到下一根手指。"
+                },
+                {
+                  "en": "Talk about it: one hand counts to 31. How high can two hands, ten fingers, count? (Answer: 1,023.)",
+                  "zh": "討論：一隻手可以數到 31，兩隻手十根手指能數到多少？（答案：1,023。）"
+                }
+              ],
+              "tip_en": "The number 4 raises only the middle finger, so many teachers have students turn their hands sideways and laugh about it together.",
+              "tip_zh": "數字 4 只伸中指，很多老師會請學生把手轉成側面，大家一起笑一笑就好。"
+            }
+          ],
+          "sources": [
+            {
+              "en": "First working transistor December 16, 1947, shown December 23 (Bardeen, Brattain; Shockley's “Christmas present”); named by John Pierce; announced June 30, 1948",
+              "zh": "第一顆電晶體 1947/12/16 成功、12/23 展示；皮爾斯命名；1948/6/30 公布",
+              "src": "Computer History Museum",
+              "url": "https://www.computerhistory.org/siliconengine/invention-of-the-point-contact-transistor/"
+            },
+            {
+              "en": "1956 Nobel Prize in Physics: Shockley, Bardeen, and Brattain, for the discovery of the transistor effect",
+              "zh": "1956 年諾貝爾物理獎：蕭克利、巴丁、布拉頓",
+              "src": "The Nobel Prize",
+              "url": "https://www.nobelprize.org/prizes/physics/1956/summary/"
+            },
+            {
+              "en": "How the name “transistor” was chosen (transconductance, transresistance, varistor, thermistor)",
+              "zh": "「transistor」這個名字的由來",
+              "src": "PBS, Transistorized!",
+              "url": "https://www.pbs.org/transistor/album1/pierce/naming.html"
+            },
+            {
+              "en": "MOS transistor demonstrated by Atalla and Kahng (1959–1960); over 99 percent of microchips use MOS transistors",
+              "zh": "MOS 電晶體由阿塔拉與姜大元示範（1959–1960）；超過 99% 的晶片用 MOS 電晶體",
+              "src": "Computer History Museum",
+              "url": "https://www.computerhistory.org/siliconengine/metal-oxide-semiconductor-mos-transistor-demonstrated/"
+            },
+            {
+              "en": "MOSFET structure: n-type source and drain in a p-type body; gate over a thin insulator; positive gate voltage forms an n-channel",
+              "zh": "MOS 電晶體構造：P 型基底裡的 N 型源極與汲極；閘極在薄絕緣層上；正電壓形成 N 通道",
+              "src": "Wikipedia, “MOSFET”",
+              "url": "https://en.wikipedia.org/wiki/MOSFET"
+            },
+            {
+              "en": "CMOS pairs n-channel and p-channel transistors",
+              "zh": "CMOS 把 N 通道與 P 通道電晶體配成一對",
+              "src": "Wikipedia, “CMOS”",
+              "url": "https://en.wikipedia.org/wiki/CMOS"
+            },
+            {
+              "en": "Series switches: both must be on (AND); parallel switches: at least one on (OR)",
+              "zh": "串聯開關要兩個都開（且）；並聯有一個開就好（或）",
+              "src": "LibreTexts, Applied Discrete Structures",
+              "url": "https://math.libretexts.org/Bookshelves/Combinatorics_and_Discrete_Mathematics/Applied_Discrete_Structures_(Doerr_and_Levasseur)/13%3A_Boolean_Algebra/13.07%3A_A_Brief_Introduction_to_Switching_Theory_and_Logic_Design"
+            },
+            {
+              "en": "Half adder: XOR for the sum, AND for the carry",
+              "zh": "半加器：和用 XOR、進位用 AND",
+              "src": "Wikipedia, “Adder (electronics)”",
+              "url": "https://en.wikipedia.org/wiki/Adder_(electronics)"
+            },
+            {
+              "en": "Intel 4004 (announced November 15, 1971): 2,300 transistors",
+              "zh": "英特爾 4004（1971/11/15 發表）：2,300 顆電晶體",
+              "src": "Intel",
+              "url": "https://timeline.intel.com/1971/the-first-programmable-microprocessor:-the-4004"
+            },
+            {
+              "en": "Apple M4 (May 7, 2024): 28 billion transistors; debuts in iPad Pro",
+              "zh": "蘋果 M4（2024/5/7）：280 億顆電晶體；首先用在 iPad Pro",
+              "src": "Apple Newsroom",
+              "url": "https://www.apple.com/newsroom/2024/05/apple-introduces-m4-chip/"
+            },
+            {
+              "en": "NVIDIA Blackwell (March 18, 2024): 208 billion transistors",
+              "zh": "輝達 Blackwell（2024/3/18）：2,080 億顆電晶體",
+              "src": "NVIDIA Newsroom",
+              "url": "https://nvidianews.nvidia.com/news/nvidia-blackwell-platform-arrives-to-power-a-new-era-of-computing"
+            },
+            {
+              "en": "Moore's law: doubling every year (1965), revised to every two years (1975)",
+              "zh": "摩爾定律：每年加倍（1965），改成每兩年（1975）",
+              "src": "Computer History Museum",
+              "url": "https://www.computerhistory.org/siliconengine/moores-law-predicts-the-future-of-integrated-circuits/"
+            },
+            {
+              "en": "About 13 sextillion transistors made since 1947 (analyst estimate, 2018): the most frequently manufactured human artifact",
+              "zh": "1947 年以來約 1.3 × 10²² 顆電晶體（分析師估計，2018）：人類製造最多的東西",
+              "src": "Computer History Museum blog (2018)",
+              "url": "https://computerhistory.org/blog/13-sextillion-counting-the-long-winding-road-to-the-most-frequently-manufactured-human-artifact-in-history/"
+            },
+            {
+              "en": "First transistorized consumer products: Sonotone hearing aid (1952), Regency TR-1 radio (1954)",
+              "zh": "最早的電晶體消費產品：助聽器（1952）、Regency TR-1 收音機（1954）",
+              "src": "Computer History Museum",
+              "url": "https://www.computerhistory.org/siliconengine/transistorized-consumer-products-appear/"
+            },
+            {
+              "en": "Clock rate: 3 GHz means three billion cycles per second",
+              "zh": "時脈：3 GHz＝每秒 30 億次",
+              "src": "Wikipedia, “Clock rate”",
+              "url": "https://en.wikipedia.org/wiki/Clock_rate"
+            },
+            {
+              "en": "Recent phone chips run at more than 3.7 GHz (Apple A17 Pro up to 3.78 GHz)",
+              "zh": "近年的手機晶片時脈超過 3.7 GHz（蘋果 A17 Pro 最高 3.78 GHz）",
+              "src": "Wikipedia, “Apple A17 Pro”",
+              "url": "https://en.wikipedia.org/wiki/Apple_A17_Pro"
+            },
+            {
+              "en": "Taiwan's population at the end of August 2026: 23,224,721 (Ministry of the Interior data)",
+              "zh": "台灣 2026 年 8 月底人口 23,224,721 人（內政部資料）",
+              "src": "Business Today (今周刊), September 10, 2026",
+              "url": "https://www.businesstoday.com.tw/article/category/183027/post/202609100018/"
+            }
           ]
         }
       ],
-      "planned": [
-        { "n": 2, "icon": "🔀", "en": "What Does a Transistor Do?", "zh": "電晶體在做什麼？" }
-      ]
+      "planned": []
     },
     {
       "key": "making",
@@ -286,9 +1505,24 @@
       "blurb_zh": "從石英到閃亮的晶圓、用光畫出電路，以及奈米到底有多小。",
       "lessons": [],
       "planned": [
-        { "n": 3, "icon": "🏖️", "en": "How Does Sand Become a Chip?", "zh": "沙子怎麼變成晶片？" },
-        { "n": 4, "icon": "🔦", "en": "How Do You Draw a Circuit Smaller Than a Virus?", "zh": "怎麼畫出比病毒還小的電路？" },
-        { "n": 5, "icon": "📏", "en": "How Small Is a Nanometer? An Angstrom?", "zh": "奈米、埃米有多小？" }
+        {
+          "n": 3,
+          "icon": "🏖️",
+          "en": "How Does Sand Become a Chip?",
+          "zh": "沙子怎麼變成晶片？"
+        },
+        {
+          "n": 4,
+          "icon": "🔦",
+          "en": "How Do You Draw a Circuit Smaller Than a Virus?",
+          "zh": "怎麼畫出比病毒還小的電路？"
+        },
+        {
+          "n": 5,
+          "icon": "📏",
+          "en": "How Small Is a Nanometer? An Angstrom?",
+          "zh": "奈米、埃米有多小？"
+        }
       ]
     },
     {
@@ -299,9 +1533,24 @@
       "blurb_zh": "晶片為什麼要疊在一起、AI 為什麼需要快速的記憶體，以及台灣怎麼成為晶片島。",
       "lessons": [],
       "planned": [
-        { "n": 6, "icon": "🧱", "en": "Why Do We Stack Chips Together?", "zh": "先進封裝：為什麼要把晶片疊在一起？" },
-        { "n": 7, "icon": "🛣️", "en": "What Is HBM, and Why Does AI Need It?", "zh": "HBM 是什麼？AI 為什麼需要它？" },
-        { "n": 8, "icon": "🏝️", "en": "How Did Taiwan Become a Chip Island?", "zh": "台灣怎麼成為晶片島？" }
+        {
+          "n": 6,
+          "icon": "🧱",
+          "en": "Why Do We Stack Chips Together?",
+          "zh": "先進封裝：為什麼要把晶片疊在一起？"
+        },
+        {
+          "n": 7,
+          "icon": "🛣️",
+          "en": "What Is HBM, and Why Does AI Need It?",
+          "zh": "HBM 是什麼？AI 為什麼需要它？"
+        },
+        {
+          "n": 8,
+          "icon": "🏝️",
+          "en": "How Did Taiwan Become a Chip Island?",
+          "zh": "台灣怎麼成為晶片島？"
+        }
       ]
     }
   ]

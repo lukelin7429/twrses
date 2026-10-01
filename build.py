@@ -5804,7 +5804,7 @@ def build_htw_hub():
 _chipj = os.path.join(ROOT, "data", "semiconductors.json")
 CHIP = json.load(open(_chipj, encoding="utf-8")) if os.path.exists(_chipj) else None
 CHIP_BASE = "/resources/classes/semiconductors/"
-_CHIP_JS = {"doping": "chip-doping"}   # lab.kind → assets/js/<bundle>.js
+_CHIP_JS = {"doping": "chip-doping", "transistor": "chip-transistor"}   # lab.kind → assets/js/<bundle>.js
 
 def _chip_ver():
     h = hashlib.md5()
@@ -5887,6 +5887,96 @@ def render_chipdoping_lab(lesson):
   <p class="cp-credit">{lab["credit_html"]}</p>
 </div>'''
 
+def chiptransistor_svg(size=56):
+    """第二課的課程卡小圖示：電晶體剖面（紫色 P 型、兩塊藍色 N 型、金色閘極），中間一條亮起的電子通道。"""
+    dots = "".join(f'<circle cx="{x}" cy="35.5" r="1.4" fill="#58e1ff"/>' for x in range(23, 39, 3))
+    return (f'<svg class="chiptransistor-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">'
+            '<rect x="6" y="30" width="48" height="22" rx="3" fill="#6a4aa0" opacity=".85"/>'
+            '<rect x="6" y="30" width="15" height="10" rx="2" fill="#2f6fd6"/><rect x="39" y="30" width="15" height="10" rx="2" fill="#2f6fd6"/>'
+            '<rect x="20" y="27" width="20" height="3" fill="#e8f0ff"/><rect x="20" y="17" width="20" height="10" rx="1.5" fill="#c9a14a"/>'
+            '<rect x="28.5" y="7" width="3" height="10" fill="#cfd4dc"/><rect x="12" y="20" width="3" height="10" fill="#cfd4dc"/><rect x="45" y="20" width="3" height="10" fill="#cfd4dc"/>'
+            f'{dots}<text x="30" y="25" text-anchor="middle" font-size="7" font-weight="800" fill="#1b1405" font-family="sans-serif">1</text></svg>')
+
+def render_chiptransistor_lab(lesson):
+    """第二課：電晶體剖面＋串聯／並聯開關（assets/js/chip-transistor.js 綁這裡的 class；全部自繪示意）。"""
+    lab = lesson["lab"]
+    tg = _lab_toggles([("labels", "Labels", "標示", True)])
+    rows = "".join(f'<tr data-ab="{a}{b}"><td>{a}</td><td>{b}</td><td>{a & b}</td><td>{a | b}</td></tr>' for a in (0, 1) for b in (0, 1))
+    return f'''<div class="astro-lab cp-lab cp-tr-lab rvl" data-chiptransistor-lab>
+  <div class="al-stage">
+    <div class="al-space">
+      <canvas class="al-space-cv" aria-label="3D cutaway of a transistor whose gate opens a channel of electrons, and two transistors wired as AND and OR · 電晶體剖面：閘極打開電子通道；以及兩顆電晶體接成「且」與「或」的 3D 模型"></canvas>
+      <div class="al-labels" aria-hidden="true"></div>
+      <div class="cp-view" role="group" aria-label="View · 視角">
+        <button type="button" data-view="one" aria-pressed="true">One transistor<small>一顆電晶體</small></button>
+        <button type="button" data-view="logic" aria-pressed="false">Switches that add<small>會算數的開關</small></button>
+      </div>
+      <p class="al-hint">Drag to turn · 拖曳旋轉　Scroll or pinch to zoom · 滾輪／雙指縮放</p>
+      <button type="button" class="al-home" title="Reset view · 重設視角" aria-label="Reset view · 重設視角">&#8634;</button>
+      <p class="al-nogl-msg">This 3D model needs WebGL, which this browser does not support. The reading and the cards below still explain everything.<br><span class="zh">這個瀏覽器不支援 WebGL，無法顯示 3D 模型；下方的課文與卡片一樣能看懂。</span></p>
+    </div>
+    <aside class="al-sky cp-aside">
+      <div class="cp-tr-one">
+        <p class="al-sky-k">Gate voltage · 閘極電壓</p>
+        <div class="cp-dope cp-tr-quick" role="group" aria-label="Gate · 閘極">
+          <button type="button" data-gate="0" aria-pressed="true"><i aria-hidden="true">&#11093;</i>Off · 0<small>關</small></button>
+          <button type="button" data-gate="1" aria-pressed="false"><i aria-hidden="true">&#128994;</i>On · 1<small>開</small></button>
+        </div>
+        <label class="al-slider cp-amt-row"><span>Slide it slowly · 慢慢拉</span>
+          <output class="cp-amt-out cp-vg-out"></output>
+          <input type="range" class="al-age cp-vg" min="0" max="100" step="1" value="0" aria-label="Gate voltage · 閘極電壓"></label>
+        <p class="cp-tr-mk"><span>Current · 電流</span><span class="cp-tr-meter"><i></i></span></p>
+        <dl class="cp-nums cp-nums3">
+          <div><dt>Channel · 通道</dt><dd class="cp-chan"></dd></div>
+          <div><dt>Current · 電流</dt><dd class="cp-cur"></dd></div>
+          <div><dt>Switch · 開關</dt><dd class="cp-bit cp-led"></dd></div>
+        </dl>
+      </div>
+      <div class="cp-tr-two">
+        <p class="al-sky-k">Inputs · 輸入</p>
+        <div class="cp-dope cp-tr-ins" role="group" aria-label="Inputs · 輸入">
+          <button type="button" data-in="a" aria-pressed="true">A = <b>1</b><small>按一下切換</small></button>
+          <button type="button" data-in="b" aria-pressed="false">B = <b>0</b><small>按一下切換</small></button>
+        </div>
+        <table class="cp-tr-truth"><thead><tr><th>A</th><th>B</th><th>AND<small>且</small></th><th>OR<small>或</small></th></tr></thead><tbody>{rows}</tbody></table>
+        <p class="cp-tr-sum" aria-live="polite"></p>
+      </div>
+      <p class="cp-msg" aria-live="polite"></p>
+    </aside>
+  </div>
+  <div class="al-controls">
+    <div class="al-row al-row-main">
+      <button type="button" class="al-play" aria-pressed="true"><span class="al-play-i" aria-hidden="true"></span><span class="al-play-t">Pause · 暫停</span></button>
+      <div class="al-row al-toggles">{tg}</div>
+    </div>
+  </div>
+  {_lab_foot(lab)}
+  <p class="cp-credit">{lab["credit_html"]}</p>
+</div>'''
+
+def _chip_count(ct):
+    """「一顆一顆數，要數多久？」（chip-transistor.js 的 initCount 計算；不需要 WebGL）。"""
+    opts = "".join(f'<option value="{i}"{" selected" if i == ct.get("default", 0) else ""}>{html.escape(c["en"])} · {html.escape(c["zh"])}</option>'
+                   for i, c in enumerate(ct["chips"]))
+    chips = html.escape(json.dumps([{"n": c["n"]} for c in ct["chips"]]))
+    return (f'<div class="cp-cnt rvl" data-chip-count data-chips="{chips}" data-people="{ct["people"]}">'
+            f'<div class="cp-cnt-in">'
+            f'<label class="cp-cnt-l"><span>Chip · 晶片</span><select class="cp-cnt-chip">{opts}</select></label>'
+            f'<div class="cp-cnt-who" role="group" aria-label="Who counts · 誰來數">'
+            f'<button type="button" data-who="me" aria-pressed="true">Just me, 1 per second<small>我自己，一秒一顆</small></button>'
+            f'<button type="button" data-who="taiwan" aria-pressed="false">Everyone in Taiwan<small>全台灣一起數</small></button></div>'
+            f'<p class="cp-cnt-note">{html.escape(ct["people_en"])}<span class="zh">{html.escape(ct["people_zh"])}</span></p>'
+            f'<p class="cp-cnt-note">{html.escape(ct["note_en"])}<span class="zh">{html.escape(ct["note_zh"])}</span></p></div>'
+            f'<div class="cp-home-out cp-cnt-out" aria-live="polite">'
+            f'<p class="cp-home-k">Time to count · 要數多久</p>'
+            f'<p class="cp-home-sub"><b class="cp-cnt-n">0</b> transistors · 顆電晶體</p>'
+            f'<p class="cp-home-big"><b class="cp-cnt-en">—</b></p>'
+            f'<p class="cp-home-zh"><b class="cp-cnt-zh">—</b></p>'
+            f'<p class="cp-home-note">Since you opened this page, you could have counted <b class="cp-cnt-live">0</b> transistors.'
+            f'<span class="zh">從你打開這一頁到現在，你可以數 <b class="cp-cnt-live">0</b> 顆。</span></p>'
+            f'</div></div>'
+            '<noscript><p class="muted">The counter works in your browser and needs JavaScript. · 計算在瀏覽器裡進行，需要開啟 JavaScript。</p></noscript>')
+
 def _chip_home(hm):
     """「你家有幾顆晶片？」勾選清單（chip-doping.js 的 initHome 計算；不需要 WebGL）。"""
     est = {"source": ("source", "有出處"), "guess": ("our guess", "本站估計"), "min": ("at least", "至少")}
@@ -5941,12 +6031,15 @@ def build_chip_lesson(ui, unit, lesson):
     reading_html = render_basic_unit(1, unit_dict, level="chips", audio_rel="", pdf_rel="")
     lab = lesson["lab"]
     kind = lab["kind"]
-    lab_html = {"doping": render_chipdoping_lab}[kind](lesson)
+    lab_html = {"doping": render_chipdoping_lab, "transistor": render_chiptransistor_lab}[kind](lesson)
 
     secs = []
     if lesson.get("home"):
         hm = lesson["home"]
         secs.append(("home", hm["eyebrow"], hm["en"], hm["zh"], _chip_home(hm), _bi(hm["lead_en"], hm["lead_zh"], cls="lead rvl d2")))
+    if lesson.get("count"):
+        ct = lesson["count"]
+        secs.append(("count", ct["eyebrow"], ct["en"], ct["zh"], _chip_count(ct), _bi(ct["lead_en"], ct["lead_zh"], cls="lead rvl d2")))
     if lesson.get("parts"):
         cards = "".join(
             f'<article class="ph-card cp-part rvl">'
@@ -5968,7 +6061,8 @@ def build_chip_lesson(ui, unit, lesson):
             f'<span class="cp-link-n">{html.escape(x["note_en"])}<span class="zh">{html.escape(x["note_zh"])}</span></span>'
             f'<span class="cp-link-go">Go to the lesson · 前往這一課 <i>&rarr;</i></span></span></a>'
             for x in lesson["links"])
-        secs.append(("more", "Go Further · 延伸閱讀", "Electrons and holes at work", "電子和電洞在工作", f'<div class="cp-links">{lk}</div>', ""))
+        lh = lesson.get("links_head") or {"eyebrow": "Go Further · 延伸閱讀", "en": "Electrons and holes at work", "zh": "電子和電洞在工作"}
+        secs.append(("more", lh["eyebrow"], lh["en"], lh["zh"], f'<div class="cp-links">{lk}</div>', ""))
     if lesson.get("facts"):
         fx = lesson["facts"]
         tiles = "".join(
@@ -5988,7 +6082,8 @@ def build_chip_lesson(ui, unit, lesson):
         secs.append(("stories", cu["eyebrow"], cu["title_en"], cu["title_zh"], f'<div class="cc-grid">{cc}</div>',
                      _bi(cu["lead_en"], cu["lead_zh"], cls="lead rvl d2")))
     secs.append(("myths", "Myth vs. Fact · 常見迷思", "Four things people get wrong", "四個常見的誤會", _sci_myths(lesson), ""))
-    tricks_h = {"doping": ("Semiconductors in a sentence", "一句話記住半導體")}[kind]
+    tricks_h = {"doping": ("Semiconductors in a sentence", "一句話記住半導體"),
+                "transistor": ("Transistors in a sentence", "一句話記住電晶體")}[kind]
     secs.append(("tricks", "Remember It · 記憶口訣", tricks_h[0], tricks_h[1], _sci_tricks(lesson), ""))
     if lesson.get("safety"):
         items = "".join(f'<li class="rvl">{html.escape(s["en"])}<span class="zh">{html.escape(s["zh"])}</span></li>' for s in lesson["safety"])
@@ -6042,7 +6137,7 @@ def build_chip_lesson(ui, unit, lesson):
 def build_chip_hub():
     # 照萬物原理：單元導覽＋每個單元一段橫向課程卡；做好的課可點，planned 是「製作中」卡。
     def icon(l):
-        return chipsilicon_svg(60) if l.get("card") == "silicon" else l["icon"]
+        return chipsilicon_svg(60) if l.get("card") == "silicon" else chiptransistor_svg(60) if l.get("card") == "transistor" else l["icon"]
     unit_sections, nav = [], []
     done = sum(len(u["lessons"]) for u in CHIP["units"])
     total = done + sum(len(u.get("planned", [])) for u in CHIP["units"])

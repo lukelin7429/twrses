@@ -231,7 +231,15 @@
   - 卡片 `demo`：compare／pure／phosphorus／boron（另有 lit）。
   - 除錯：`document.querySelector('[data-chipdoping-lab]').__lab`（`setView('cmp'|'atoms', 立即?)`、`setDope('pure'|'n'|'p')`、`setAmt(0–70)`、`setPower(bool)`、`demo(名稱)`、`goCam()`、`run(秒)`、`render()`）。截圖後讀 aria-pressed／顏色要等 0.2 秒的 CSS transition，否則看起來兩個按鈕都亮。
   - 查證過的數字（2026-10）：矽占地殼 27.7%（RSC）；晶格常數 0.5431 nm、5 × 10²² 原子/cm³、本質電阻率 3.2 × 10⁵ Ω·cm（Ioffe）；電阻率表銅 1.68 × 10⁻⁸、矽 2.3 × 10³、玻璃 10¹¹–10¹⁵ Ω·m（Wikipedia）；輕摻雜約一億分之一、重摻雜約萬分之一；電子級多晶矽雜質 < 十億分之一；「semiconducting」伏打 1782（據 Busch）、Halbleiter 魏斯 1910；竹科 1980/12/15 成立、我國第一個科學園區、核准廠商逾 600 家、就業逾 16 萬人、2021 年積體電路是廠商家數最多的產業；基爾比 1958/9/12（鍺）、快捷 1960 第一批矽 IC、2000 諾貝爾物理獎；健保 IC 卡 2004/1/1 全面使用。**查不到的不寫**：竹科產值比重、各家電的晶片數、新生兒自動發卡。
-- 和萬物原理互相連結：第一課的 `links` 連第三課太陽能板（電子與電洞）；之後講 0 與 1、DRAM 時連萬物原理第八課（computer-memory），不重講。
+- 第二課電晶體（`chip-transistor.js`，`lab.kind = "transistor"`，`data-chiptransistor-lab`）：一個機制——閘極加正電壓、隔著絕緣層把電子吸成通道，源極到汲極就通（開＝1）；兩個開關串聯＝AND、並聯＝OR。
+  - 兩個視角：「一顆電晶體」剖面（P 型基底紫＋電洞、N 型源極汲極藍＋自由電子、白色絕緣層、金色閘極與「＋」；上方電線有電池與 LED，電子由源極經通道到汲極再從上面繞回；閘極越正，閘極下的電洞往下推＝空乏）；「會算數的開關」板子上 AND 串聯（後排）、OR 並聯（前排）兩個小電路，右側輸入 A、B、真值表（目前那一列亮）與 1 位元加法（carry＝AND、sum＝XOR）。右側欄用 `.cp-tr-one`／`.cp-tr-two` 依視角切換（root 的 `cp-tr-logic` class）。
+  - `src/transcalc.js`：`channel`、`current`（平方律，VTH 0.4 V、VDD 1.0 V 是**示意值**——「現代晶片低於 1 伏特」查不到可靠來源，不要寫）、`series`/`parallel`/`XOR`/`halfAdd`/`fullAdd`/`addBits`、`fmtDuration`（年／天／小時／分鐘／秒，不到 1 秒寫「不到 1 秒」）。`test/transistor.test.mjs`：臨界以下沒電流、單調、真值表、0–15 全部相加、**讀 data 的 `count` 檢查晶片數與出處**、M4 一秒一顆 887 年、全台灣（23,224,721 人）20 分鐘、Blackwell 2.5 小時、4004 不到 1 秒。
+  - 頁面下方「一顆一顆數，要數多久？」（`count`，`data-chip-count`，`initCount()` 在同一支 bundle）：只用廠商公布的數字——英特爾 4004 2,300（1971）、蘋果 M4 280 億（Apple Newsroom 2024）、輝達 Blackwell 2,080 億（NVIDIA 2024，兩片矽當一顆用）。**蘋果手機晶片（A17 Pro 的 190 億等）不是新聞稿數字，不要用**；A18／A19／A20、M5 都沒公布。台灣人口用內政部 2026 年 8 月底 23,224,721（今周刊轉述，官方表打不開）。
+  - 卡片 `demo`：off／on／and／or。`links_head` 可自訂延伸閱讀的標題（第二課連本系列第一課＋萬物原理第八課 computer-memory）。
+  - 查證過（2026-10）：1947/12/16 第一顆電晶體、12/23 展示、蕭克利「聖誕禮物」、皮爾斯命名（transresistance＋varistor/thermistor 的結尾）、1948/6/30 公布、1956 諾貝爾；MOS 電晶體 1959–1960（CHM 標題寫 1960 示範），超過 99% 晶片用 MOS；摩爾 1965 每年→1975 每兩年；約 1.3 × 10²² 顆（分析師估計，CHM 2018）；1952 助聽器、1954 Regency TR-1；時脈 3 GHz＝每秒 30 億次（A17 Pro 最高 3.78 GHz，Wikipedia）。
+  - 除錯：`document.querySelector('[data-chiptransistor-lab]').__lab`（`setView('one'|'logic', 立即?)`、`setGate(0–1 V, 立即?)`、`setInput('a'|'b', 0|1)`、`demo(名稱)`、`goCam()`、`run(秒)`、`render()`）。
+- 共用工具 `tools/chips/src/common.js`：`labeler`、`lazyBoot`、`canvasTex`、`glowTex`、`polyline`（電線裡的電子沿弧長走）、`tube`。第一課的 chip-doping.js 還是自己寫一份（沒改動），新課用 common.js 的。新入口要加進 `package.json` 的 build 與 test。
+- 和萬物原理互相連結：第一課的 `links` 連第三課太陽能板（電子與電洞）；第二課連萬物原理第八課（computer-memory，0 與 1、DRAM），不重講。
 - 🔊 錄音：`python3 tools/gen_audio.py --page resources/classes/semiconductors/<slug> --out audio/say-<slug>` → `python3 tools/upload_say_dir.py assets/data/say/semiconductors-<slug>.json audio/say-<slug>`（manifest 命名 `semiconductors-<slug>`；`gen_audio.py` 的 SHORT_PAGES 已加本系列）。worktree 裡先把 `~/Developer/repos/twrses/tools/.r2_uploaded_cache.txt` 複製過來，做完 `sort -u` 合併回去。
 - 課程規劃在 Obsidian：`第二大腦/創作庫/半導體科普課程規劃（twrses）.md`（三單元八課、待查證清單、交接指令）；系列索引 `第二大腦/英文學習/晶片與半導體（twrses.org）.md`。
 
