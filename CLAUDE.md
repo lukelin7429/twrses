@@ -216,6 +216,13 @@
   - `src/cameracalc.js`：`imageDistance`、`magnification`、`blurDiameter`、`imageHeight`、`pinholeBlur`、`bayer`、`bayerCounts`、`megapixels`、`exposure`；`test/camera.test.mjs`：薄透鏡公式、遠物在焦點、近物像距變長、倒立、對準焦模糊 0、光圈加倍模糊加倍、針孔越小越清楚、RGGB、綠是紅藍兩倍、100×100＝0.01 MP、光圈加倍進光四倍。
   - 卡片 `demo`：sharp／blurry／pixels（12×9＋濾色片）／pinhole（孔徑 0.05）。
   - 除錯：`document.querySelector('[data-cameralens-lab]').__lab`（`setS(3.2–5.4)`、`setAp(0.04–2.4)`、`setN(8–96)`、`setRaw(bool)`、`setPinhole(bool)`、`DI`、`run(秒)`、`render()`）。
+- 第十三課飛機（`airplane-wing.js`，`lab.kind = "wing"`，`data-airwing-lab`，CSS 前綴 `aw-`；**單元四第一課，資料在 `units[3]`**）：一個機制——機翼以小迎角把流過的空氣往下轉，空氣把機翼往上推＝升力；升力 ∝ 速度²；迎角太大（本模型設 15° 以上）失速。風洞視角：機翼不動、風從左吹右，1,500 顆粒子＋56 顆「一排煙」＋10 條流線。
+  - **氣流是真的算出來的**：`src/liftcalc.js` 用茹科夫斯基翼型位勢流（ζ 平面圓心 (−0.09, 0.09)、通過 ζ＝1；z＝ζ＋1/ζ；庫塔條件 Γ＝4πUa·sin(α＋β)；速度＝(dW/dζ)/(dz/dζ)，尾緣附近夾在 3U 以內；z→ζ 取圓外的根）。世界座標＝機翼座標轉 −α（機頭抬起）。位勢流算不出失速，所以 `stallFactor` 另外把 CL 降低、畫面上讓上方粒子亂飄、上方流線變紅變淡。
+  - `test/lift.test.mjs`：弦長約 4、有彎度（零升力角為負）、升力斜率約 2π／弧度、速度加倍升力四倍、遠方均勻流、上方快下方慢、機翼後方下洗，以及**「上下同時到達」是錯的**——從上游同時出發，上方的空氣先到（8.14 對 8.38）。
+  - 流線：從上游 10 個高度用 RK2、等距 0.05 描 400 點，迎角變了才重描（`traceStreams`）。粒子顏色要「深底＋高增益」（中間色 #3a5a8c、差值 ×3.5），不然加法混色下全部看起來是白的。
+  - 模型飛機的重量＝`liftRel(8°, 250 km/h)`：抬 8°、時速 250 公里剛好離地（純示意，不是任何真實機型）。
+  - 卡片 `demo`：slow／takeoff／stall／smoke。
+  - 除錯：`document.querySelector('[data-airwing-lab]').__lab`（`setAlpha(−4–22)`、`setSpeed(0–320)`、`releaseSmoke()`、`smoke`、`state.streams`、`run(秒)`、`render()`）。
 - 上傳錄音時若出現大量「not found locally」：多半是天文 session 在 ~/Developer 那份 clone 產生、已上傳的句子（worktree 的快取沒有它們）。算出「manifest 裡有、快取裡沒有」的雜湊，逐一 curl 確認線上 200 即可。
 - 多個 session 同時改 build.py 時，本系列改在 scratchpad 的 git worktree（從 origin/main 開分支）做，`audio` 用 symlink 指到 `~/Documents/twrses/audio`（symlink 不會被 .gitignore 的 `audio/` 擋，**不要 add**），做完 rebase 再 `git push origin HEAD:main`。
 - 瀏覽器面板在背景時 `visibilityState` 是 hidden，IntersectionObserver 不觸發、截圖是空白：點一下頁面上的「在模型中看」按鈕就會直接初始化，截圖改用無頭 Chrome（playwright-core＋本機 Chrome，`--use-angle=swiftshader`）。

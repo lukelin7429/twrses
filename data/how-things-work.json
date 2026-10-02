@@ -6018,14 +6018,491 @@
       "title_zh": "機械與運動",
       "blurb_en": "The clever physics inside airplanes, bicycles, elevators, and refrigerators.",
       "blurb_zh": "飛機、腳踏車、電梯和冰箱裡的巧妙物理。",
-      "lessons": [],
-      "planned": [
+      "lessons": [
         {
           "n": 13,
+          "slug": "airplane",
+          "title": "How Does an Airplane Stay in the Air?",
+          "title_zh": "飛機為什麼飛得起來？",
+          "level": "入門 · Beginner",
           "icon": "✈️",
-          "en": "How Does an Airplane Stay in the Air?",
-          "zh": "飛機為什麼飛得起來？"
-        },
+          "card": "wing",
+          "blurb_en": "A wing flies by pushing air down. Step into a 3D wind tunnel, tilt the wing, change the speed until lift beats weight, release a line of smoke, and push the angle too far to see a stall.",
+          "blurb_zh": "機翼靠著把空氣往下推飛起來。走進 3D 風洞，調整機翼角度、加快速度直到升力大過重量，放一排煙，再把角度拉太大，看看什麼是失速。",
+          "big_idea_en": "A wing meets the air at a small angle and turns the air flowing past it downward. Pushing air down pushes the wing up, and that upward push is called lift. The faster the plane goes, the more lift its wings make, so a plane races down the runway until the lift is bigger than its weight.",
+          "big_idea_zh": "機翼帶著一個小角度迎向空氣，把流過的空氣往下轉。把空氣往下推，機翼就被往上推，這股向上的力叫升力。飛機跑得越快，機翼的升力越大，所以飛機要在跑道上衝刺，直到升力大過自己的重量。",
+          "lab": {
+            "kind": "wing",
+            "eyebrow": "3D Model · 3D 模型",
+            "title_en": "A Wing in a Wind Tunnel",
+            "title_zh": "風洞裡的機翼",
+            "how_en": "Drag to turn the model, and scroll or pinch to zoom. In a wind tunnel the wing stays still and the air rushes past it. Tilt the wing, change the speed, and watch the lift arrow grow until lift beats weight. Release a line of smoke to see which air reaches the back of the wing first, then tilt the wing too far to make it stall.",
+            "how_zh": "拖曳可以旋轉模型，滾輪或雙指可以縮放。在風洞裡，機翼不動、空氣從旁邊衝過去。調整機翼角度、改變速度，看升力箭頭變長，直到升力大過重量。放一排煙，看哪邊的空氣先到機翼後面；再把角度拉太大，讓機翼失速。",
+            "legend": [
+              {
+                "cls": "awfast",
+                "en": "Orange air: moving faster than the wind",
+                "zh": "橘色空氣：比風還快"
+              },
+              {
+                "cls": "awslow",
+                "en": "Blue air: moving slower than the wind",
+                "zh": "藍色空氣：比風還慢"
+              },
+              {
+                "cls": "awlift",
+                "en": "Green arrow: lift, which grows with speed and angle",
+                "zh": "綠色箭頭：升力，隨速度與角度變大"
+              },
+              {
+                "cls": "awsmoke",
+                "en": "Yellow line: a line of smoke released all at once",
+                "zh": "黃色那一排：同時放出的一排煙"
+              }
+            ],
+            "scale_en": "A diagram. The airflow is calculated with a classic math model of a wing (the Joukowski airfoil), which shows the faster air on top and the air turned downward behind the wing, but slowed down so you can follow it. That model cannot show a stall by itself, so above about 15 degrees the lift is reduced and the air on top is drawn as swirls. The model plane's weight is set so that it lifts off at about 250 km/h with the wing tilted 8 degrees.",
+            "scale_zh": "這是示意圖。氣流用一個經典的機翼數學模型（茹科夫斯基翼型）算出來，畫得出上方較快的空氣和機翼後面被往下轉的氣流，並放慢讓你跟得上。這個模型本身算不出失速，所以超過約 15 度時另外把升力調低、把上方氣流畫成亂流。模型飛機的重量設定成：機翼抬 8 度、時速約 250 公里時剛好離地。",
+            "credit_html": "Model drawn by My Culture Connect as a teaching diagram. How lift works, and why the “equal transit time” idea is wrong, from <a href=\"https://www1.grc.nasa.gov/beginners-guide-to-aeronautics/\" target=\"_blank\" rel=\"noopener\">NASA Glenn Research Center’s Beginner’s Guide to Aeronautics</a>. · 模型由人師教育協會自繪示意；升力的原理、以及「上下同時到達」為什麼是錯的，依 NASA 格倫研究中心的航空入門指南。"
+          },
+          "paras": [
+            "At Taoyuan International Airport, a huge jet rolls onto the runway. Its engines roar, it races faster and faster, and then its nose lifts and the whole plane climbs into the sky. A passenger jet is very heavy, much heavier than the air around it. So how can something so heavy stay up in the air?",
+            "People dreamed of flying for thousands of years. On December 17, 1903, at Kitty Hawk, North Carolina, Orville Wright made the first powered airplane flight in the Wright brothers' Flyer. It lasted just 12 seconds and covered about 37 meters. Today flying is ordinary: in 2025, Taoyuan International Airport alone handled about 47.8 million passengers.",
+            "The secret is in the wing. A wing is shaped and tilted so that it meets the air at a small angle. As the plane races forward, the wing turns the air flowing past it, pushing a huge amount of air downward every second. Pushing air down pushes the wing up, just as pushing down on the ground with your legs lifts you into the air when you jump. This upward push is called lift.",
+            "Look closely at the air flowing around a wing, and you will see that the air over the top moves faster than the air underneath, and its pressure is lower. Many books say the air on top must hurry to meet the air underneath at the back of the wing. NASA explains that this is wrong: the air over the top actually gets to the back first. The lower pressure on top and the air pushed downward are two parts of the same story.",
+            "Lift grows quickly with speed. If a plane goes twice as fast, its wings make four times as much lift. That is why a plane races down the runway: it must go fast enough for the lift to be bigger than its weight. Tilting the wing up a little more gives more lift too, but only up to a point. If the angle gets too steep, the air can no longer follow the top of the wing, and the lift suddenly drops. This is called a stall.",
+            "A flying plane is a balance of four forces. Lift pushes it up, and weight pulls it down. Thrust from the engines pushes it forward, and drag from the air pulls it back. When lift is bigger than weight, the plane climbs, and when thrust is bigger than drag, it speeds up. Birds, paper airplanes, and giant jets all fly by the same rules."
+          ],
+          "paras_zh": [
+            "在桃園國際機場，一架巨大的噴射客機滑上跑道。引擎轟鳴，它越衝越快，接著機頭抬起，整架飛機爬上天空。客機非常重，比周圍的空氣重得多。這麼重的東西，怎麼留得在空中？",
+            "人類夢想飛行已經好幾千年了。1903 年 12 月 17 日，在美國北卡羅來納州的小鷹鎮，奧維爾．萊特駕駛萊特兄弟的「飛行者號」，完成了第一次有動力的飛機飛行：只飛了 12 秒、大約 37 公尺。今天，飛行已經稀鬆平常：2025 年，光是桃園國際機場就有約 4,780 萬人次旅客。",
+            "祕密就在機翼。機翼的形狀和角度，讓它以一個小角度迎向空氣。飛機往前衝時，機翼把流過的空氣轉向，每秒把大量的空氣往下推。把空氣往下推，機翼就被往上推，就像跳起來時，雙腳往下蹬地，人就往上飛。這股向上的推力叫做升力。",
+            "仔細看機翼周圍的氣流，會發現機翼上方的空氣比下方流得快，壓力也比較低。很多書說：上方的空氣必須趕路，才能在機翼後面和下方的空氣會合。NASA 說明這是錯的：上方的空氣其實比較早到達機翼後面。上方壓力較低，和空氣被往下推，是同一件事的兩個面向。",
+            "升力會隨速度快速變大：飛機速度加倍，機翼的升力就變成四倍。這就是飛機要在跑道上衝刺的原因：它得跑得夠快，升力才會大過重量。把機翼再抬高一點，升力也會變大，但有個限度。角度太陡時，空氣沒辦法再沿著機翼上表面流，升力會突然掉下來，這叫做「失速」。",
+            "飛行中的飛機，是四個力的平衡：升力往上推、重力往下拉，引擎的推力往前推、空氣的阻力往後拉。升力大過重力，飛機就爬升；推力大過阻力，飛機就加速。鳥、紙飛機和巨大的噴射客機，都遵守同樣的規則飛行。"
+          ],
+          "questions": [
+            "How does a wing push a plane up?",
+            "What happens to the lift if a plane flies twice as fast?",
+            "What is a stall?"
+          ],
+          "answers": [
+            "The wing turns the air flowing past it downward. Pushing the air down pushes the wing up.",
+            "The wings make four times as much lift.",
+            "When the wing is tilted too steeply, the air can no longer follow the top of the wing, and the lift suddenly drops."
+          ],
+          "vocab": [
+            {
+              "n": 1,
+              "w": "wing",
+              "pos": "n.",
+              "zh": "翅膀；機翼",
+              "ex": "The bird spread its <b>wings</b> and flew away.",
+              "exzh": "鳥張開翅膀飛走了。"
+            },
+            {
+              "n": 2,
+              "w": "lift",
+              "pos": "n.",
+              "zh": "升力；向上的力",
+              "ex": "The kite needs wind to get enough <b>lift</b>.",
+              "exzh": "風箏要有風才有足夠的升力。"
+            },
+            {
+              "n": 3,
+              "w": "runway",
+              "pos": "n.",
+              "zh": "跑道",
+              "ex": "The plane waited at the end of the <b>runway</b>.",
+              "exzh": "飛機在跑道尾端等待。"
+            },
+            {
+              "n": 4,
+              "w": "weight",
+              "pos": "n.",
+              "zh": "重量",
+              "ex": "The bridge can hold the <b>weight</b> of ten trucks.",
+              "exzh": "這座橋撐得住十輛卡車的重量。"
+            },
+            {
+              "n": 5,
+              "w": "angle",
+              "pos": "n.",
+              "zh": "角度",
+              "ex": "Hold the paper airplane at a small <b>angle</b> when you throw it.",
+              "exzh": "丟紙飛機時，讓它稍微抬一點角度。"
+            },
+            {
+              "n": 6,
+              "w": "engine",
+              "pos": "n.",
+              "zh": "引擎",
+              "ex": "The car's <b>engine</b> started with a loud noise.",
+              "exzh": "車子的引擎轟的一聲發動了。"
+            },
+            {
+              "n": 7,
+              "w": "pilot",
+              "pos": "n.",
+              "zh": "飛行員",
+              "ex": "The <b>pilot</b> welcomed everyone on board.",
+              "exzh": "機長歡迎大家登機。"
+            },
+            {
+              "n": 8,
+              "w": "balance",
+              "pos": "n.",
+              "zh": "平衡",
+              "ex": "Riding a bike takes good <b>balance</b>.",
+              "exzh": "騎腳踏車需要很好的平衡感。"
+            }
+          ],
+          "quiz": [
+            {
+              "q": "What does a wing do to the air flowing past it?",
+              "options": [
+                "It turns the air downward",
+                "It heats the air up",
+                "It stops the air",
+                "It turns the air into water"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "If a plane flies twice as fast, how much lift do its wings make?",
+              "options": [
+                "Four times as much",
+                "Twice as much",
+                "The same",
+                "Half as much"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "Which force pulls a plane backward?",
+              "options": [
+                "Drag",
+                "Lift",
+                "Thrust",
+                "Weight"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "What happens in a stall?",
+              "options": [
+                "The air stops following the top of the wing, and lift drops",
+                "The engines stop",
+                "The plane gets lighter",
+                "The wings fold up"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "In which year did the Wright brothers make the first powered airplane flight?",
+              "options": [
+                "1903",
+                "1803",
+                "1953",
+                "2003"
+              ],
+              "correct": 0
+            }
+          ],
+          "parts_head": {
+            "eyebrow": "Try It in the Model · 在模型裡試試",
+            "en": "Four flights to try",
+            "zh": "試試這四種飛行"
+          },
+          "parts": [
+            {
+              "key": "slow",
+              "icon": "🐢",
+              "en": "Half speed",
+              "zh": "速度減半",
+              "meta_en": "Only a quarter of the lift",
+              "meta_zh": "升力只剩四分之一",
+              "demo": "slow",
+              "text_en": "At half the speed, the wing makes only a quarter of the lift, so the plane can't leave the runway.",
+              "text_zh": "速度減半，升力只剩四分之一，飛機離不開跑道。"
+            },
+            {
+              "key": "takeoff",
+              "icon": "🛫",
+              "en": "Takeoff",
+              "zh": "起飛",
+              "meta_en": "Lift beats weight",
+              "meta_zh": "升力大過重量",
+              "demo": "takeoff",
+              "text_en": "Fast enough, with the wing tilted 8 degrees: the green lift arrow grows past the red weight arrow.",
+              "text_zh": "速度夠快、機翼抬 8 度：綠色的升力箭頭超過紅色的重力箭頭。"
+            },
+            {
+              "key": "stall",
+              "icon": "⚠️",
+              "en": "Too steep: stall",
+              "zh": "太陡：失速",
+              "meta_en": "Wing tilted 20 degrees",
+              "meta_zh": "機翼抬 20 度",
+              "demo": "stall",
+              "text_en": "The air breaks away from the top of the wing in swirls, and the lift drops.",
+              "text_zh": "空氣從機翼上表面剝離成亂流，升力掉下來。"
+            },
+            {
+              "key": "smoke",
+              "icon": "💨",
+              "en": "A line of smoke",
+              "zh": "一排煙",
+              "meta_en": "Top air arrives first",
+              "meta_zh": "上面的空氣先到",
+              "demo": "smoke",
+              "text_en": "A straight line of smoke breaks apart around the wing, and the part above reaches the back first.",
+              "text_zh": "一排直直的煙在機翼周圍分開，上面那段先到機翼後面。"
+            }
+          ],
+          "parts_note_en": "Notice the air behind the wing: it is always turned downward. That downward push is what keeps the plane up.",
+          "parts_note_zh": "注意機翼後面的空氣：它總是被往下轉。就是這股往下的推力，讓飛機留在空中。",
+          "facts": {
+            "eyebrow": "Flight by the Numbers · 飛行的數字",
+            "en": "Numbers that keep a plane up",
+            "zh": "讓飛機留在天上的數字",
+            "lead_en": "From the first 12-second hop to tens of millions of passengers a year.",
+            "lead_zh": "從第一次 12 秒的短跳，到每年幾千萬人次的旅客。",
+            "items": [
+              {
+                "big": "4×",
+                "unit_en": "lift at twice the speed",
+                "unit_zh": "倍升力（速度加倍）",
+                "en": "Lift grows with the square of the speed.",
+                "zh": "升力和速度的平方成正比。"
+              },
+              {
+                "big": "4",
+                "unit_en": "forces",
+                "unit_zh": "個力",
+                "en": "Lift, weight, thrust, and drag act on every flying plane.",
+                "zh": "升力、重力、推力、阻力，作用在每一架飛行中的飛機上。"
+              },
+              {
+                "big": "12",
+                "unit_en": "seconds",
+                "unit_zh": "秒",
+                "en": "The length of the first powered airplane flight, on December 17, 1903.",
+                "zh": "1903 年 12 月 17 日第一次動力飛行的時間。"
+              },
+              {
+                "big": "37",
+                "unit_en": "meters (120 feet)",
+                "unit_zh": "公尺（120 英尺）",
+                "en": "How far that first flight went.",
+                "zh": "那一次飛行的距離。"
+              },
+              {
+                "big": "47.8 million",
+                "unit_en": "passengers in 2025",
+                "unit_zh": "人次旅客（2025 年）",
+                "en": "Taoyuan International Airport's total for the year.",
+                "zh": "桃園國際機場一整年的旅客量。"
+              },
+              {
+                "big": "2035",
+                "unit_en": "third runway planned",
+                "unit_zh": "第三跑道預定完成",
+                "en": "Taiwan's plan for Taoyuan Airport aims to finish a third runway by 2035.",
+                "zh": "桃園機場的發展計畫，預定 2035 年以前完成第三跑道。"
+              }
+            ]
+          },
+          "myths": [
+            {
+              "myth_en": "The air on top of the wing must meet the air underneath at the back.",
+              "myth_zh": "機翼上方的空氣，必須和下方的空氣在後面會合。",
+              "fact_en": "NASA explains that this “equal transit time” idea is wrong. The air over the top actually reaches the back of the wing first.",
+              "fact_zh": "NASA 說明這種「上下同時到達」的說法是錯的。上方的空氣其實比較早到達機翼後面。"
+            },
+            {
+              "myth_en": "Planes float because they are lighter than air.",
+              "myth_zh": "飛機會飄，是因為它比空氣輕。",
+              "fact_en": "Planes are much heavier than air. Their wings make lift by pushing air downward as they move fast.",
+              "fact_zh": "飛機比空氣重得多，是靠機翼在快速前進時把空氣往下推，產生升力。"
+            },
+            {
+              "myth_en": "The engines push the plane up into the sky.",
+              "myth_zh": "是引擎把飛機推上天的。",
+              "fact_en": "The engines push the plane forward. The wings turn that forward speed into lift.",
+              "fact_zh": "引擎把飛機往前推，機翼再把往前的速度變成升力。"
+            },
+            {
+              "myth_en": "A stall means the engine has stopped.",
+              "myth_zh": "失速就是引擎熄火了。",
+              "fact_en": "A stall is about the wing: it is tilted so steeply that the air can't follow it, and lift drops. The engines can still be running.",
+              "fact_zh": "失速說的是機翼：角度太陡，空氣跟不上，升力掉下來。引擎可能還在運轉。"
+            }
+          ],
+          "tricks": [
+            {
+              "title_en": "Push air down, go up",
+              "title_zh": "把空氣往下推，飛機就往上",
+              "body_en": "Every bit of lift comes from air turned downward.",
+              "body_zh": "每一點升力，都來自被往下轉的空氣。"
+            },
+            {
+              "title_en": "Twice the speed, four times the lift",
+              "title_zh": "速度加倍，升力四倍",
+              "body_en": "That is why planes race down the runway.",
+              "body_zh": "所以飛機要在跑道上衝刺。"
+            },
+            {
+              "title_en": "Too steep, you stall",
+              "title_zh": "角度太陡就失速",
+              "body_en": "More angle helps only up to a point.",
+              "body_zh": "角度加大只在一定範圍內有用。"
+            },
+            {
+              "title_en": "Lift, weight, thrust, drag",
+              "title_zh": "升力、重力、推力、阻力",
+              "body_en": "The four forces on every flying plane.",
+              "body_zh": "每架飛行中的飛機都有這四個力。"
+            }
+          ],
+          "safety": [
+            {
+              "en": "Never throw paper airplanes at anyone's face.",
+              "zh": "絕不把紙飛機往別人臉上丟。"
+            },
+            {
+              "en": "Fly kites far from power lines and airports.",
+              "zh": "放風箏要遠離電線和機場。"
+            },
+            {
+              "en": "Drones have rules in Taiwan, such as no flying near airports. Fly one only with an adult who knows the rules.",
+              "zh": "在台灣飛無人機有規定，例如不能在機場附近飛。只能和懂規定的大人一起飛。"
+            },
+            {
+              "en": "Never shine a laser pointer at an airplane. It can dazzle the pilots.",
+              "zh": "絕不拿雷射筆照飛機，會讓飛行員看不清楚。"
+            },
+            {
+              "en": "On a plane, keep your seat belt fastened whenever you are seated.",
+              "zh": "搭飛機時，只要坐著就要繫好安全帶。"
+            }
+          ],
+          "activities": [
+            {
+              "title_en": "Feel the Lift with Your Hand",
+              "title_zh": "用手感受升力",
+              "materials": [
+                {
+                  "en": "A strong electric fan or a hair dryer on the cool setting",
+                  "zh": "一台電風扇，或開冷風的吹風機"
+                },
+                {
+                  "en": "Your flat hand",
+                  "zh": "你攤平的手"
+                }
+              ],
+              "steps": [
+                {
+                  "en": "Hold your hand flat in front of the fan, like a wing, with your fingers pointing at the fan.",
+                  "zh": "把手攤平放在電風扇前面，當作機翼，手指對著電風扇。"
+                },
+                {
+                  "en": "Tilt the front of your hand up a little. What do you feel?",
+                  "zh": "把手的前端稍微抬高，感覺到什麼？"
+                },
+                {
+                  "en": "Tilt it more and more. When does the push stop growing and start to feel shaky?",
+                  "zh": "越抬越高：什麼時候推力不再變大、開始抖動？"
+                },
+                {
+                  "en": "Turn the fan to a lower speed. How does the push change?",
+                  "zh": "把風速調低，推力怎麼變？"
+                }
+              ],
+              "tip_en": "Never put your hand or anything else near the fan blades. Only hold your hand in front of the fan's cover.",
+              "tip_zh": "手和任何東西都不能靠近扇葉，只在電扇的護網前面感受。"
+            },
+            {
+              "title_en": "Paper Airplane Test Flights",
+              "title_zh": "紙飛機試飛",
+              "materials": [
+                {
+                  "en": "Sheets of A4 paper",
+                  "zh": "幾張 A4 紙"
+                },
+                {
+                  "en": "A measuring tape and paper clips",
+                  "zh": "捲尺和迴紋針"
+                }
+              ],
+              "steps": [
+                {
+                  "en": "Fold a simple paper airplane and throw it gently, level with the floor. Measure how far it flies.",
+                  "zh": "摺一架簡單的紙飛機，水平地輕輕丟出去，量它飛多遠。"
+                },
+                {
+                  "en": "Bend the back edges of both wings up a tiny bit, and throw again. What changes?",
+                  "zh": "把兩邊機翼的後緣往上折一點點，再丟一次：有什麼變化？"
+                },
+                {
+                  "en": "Add a paper clip to the nose, then to the tail. Which way flies farther?",
+                  "zh": "在機頭夾一根迴紋針，再改夾在機尾：哪一種飛得遠？"
+                },
+                {
+                  "en": "Throw it with the nose pointed steeply up. Does it stall and drop?",
+                  "zh": "把機頭朝上很陡地丟：會不會失速、掉下來？"
+                }
+              ],
+              "tip_en": "Throw in an open space, and never at anyone's face.",
+              "tip_zh": "在空曠的地方丟，絕不對著別人的臉。"
+            }
+          ],
+          "sources": [
+            {
+              "en": "Lift is made by turning a moving flow of air",
+              "zh": "升力來自把流動的空氣轉向",
+              "src": "NASA Glenn, “What is Lift?”",
+              "url": "https://www.grc.nasa.gov/www/k-12/airplane/right2.html"
+            },
+            {
+              "en": "The “equal transit time” explanation is wrong; the air over the top reaches the trailing edge first",
+              "zh": "「上下同時到達」的解釋是錯的；上方空氣先到尾緣",
+              "src": "NASA Glenn, “Incorrect Lift Theory”",
+              "url": "https://www.grc.nasa.gov/www/k-12/VirtualAero/BottleRocket/airplane/wrong1.html"
+            },
+            {
+              "en": "Lift equation: lift grows with the square of the velocity",
+              "zh": "升力公式：升力和速度的平方成正比",
+              "src": "NASA Glenn, “The Lift Equation”",
+              "url": "https://www1.grc.nasa.gov/beginners-guide-to-aeronautics/lift-equation/"
+            },
+            {
+              "en": "Lift grows with angle of attack for small angles; at high angles the flow separates and the wing stalls",
+              "zh": "小角度時升力隨迎角變大；角度太大氣流分離、機翼失速",
+              "src": "NASA Glenn, “Inclination Effects on Lift”",
+              "url": "https://www1.grc.nasa.gov/beginners-guide-to-aeronautics/foilinc/"
+            },
+            {
+              "en": "The four forces: lift, weight, thrust, and drag",
+              "zh": "四個力：升力、重力、推力、阻力",
+              "src": "NASA Glenn, “Four Forces on an Airplane”",
+              "url": "https://www1.grc.nasa.gov/beginners-guide-to-aeronautics/four-forces-on-an-airplane/"
+            },
+            {
+              "en": "First powered flight: Orville Wright, December 17, 1903, 12 seconds, 120 feet",
+              "zh": "第一次動力飛行：奧維爾．萊特，1903 年 12 月 17 日，12 秒、120 英尺",
+              "src": "NASA History",
+              "url": "https://www.nasa.gov/history/120-years-ago-the-first-powered-flight-at-kitty-hawk/"
+            },
+            {
+              "en": "Taoyuan International Airport handled 47.8 million passengers in 2025; a third runway is planned by 2035",
+              "zh": "桃園機場 2025 年旅客 4,780 萬人次；第三跑道預定 2035 年前完成",
+              "src": "工商時報（引國家發展委員會，2026-02-26）",
+              "url": "https://www.ctee.com.tw/news/20260226702103-430104"
+            }
+          ]
+        }
+      ],
+      "planned": [
         {
           "n": 14,
           "icon": "🚲",

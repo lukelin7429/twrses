@@ -5008,7 +5008,7 @@ def build_body_hub():
 # 3D 原始碼在 tools/science/src/（three.js、esbuild，每課一個入口），打包成 assets/js/<入口>.js；
 # 面板、迷思、口訣、活動沿用 astro.css，本系列多出來的在 science.css；兩者都只載在本系列頁面。
 HTW_BASE = "/resources/classes/how-things-work/"
-_HTW_JS = {"battery": "battery", "generator": "generator", "solar": "solar-cell", "wind": "wind-turbine", "internet": "internet-packets", "signal": "cell-signal", "gps": "gps-satellites", "memory": "memory-bits", "sky": "sky-scatter", "rainbow": "rainbow-drops", "sound": "sound-waves", "camera": "camera-lens"}   # lab.kind → assets/js/<bundle>.js
+_HTW_JS = {"battery": "battery", "generator": "generator", "solar": "solar-cell", "wind": "wind-turbine", "internet": "internet-packets", "signal": "cell-signal", "gps": "gps-satellites", "memory": "memory-bits", "sky": "sky-scatter", "rainbow": "rainbow-drops", "sound": "sound-waves", "camera": "camera-lens", "wing": "airplane-wing"}   # lab.kind → assets/js/<bundle>.js
 
 def _htw_cn(n):
     """課次的中文數字（一～九十九）：第十一課、第二十課。"""
@@ -5699,6 +5699,55 @@ def render_cameralens_lab(lesson):
   <p class="bt-credit">{lab["credit_html"]}</p>
 </div>'''
 
+def airwing_svg(size=56):
+    """飛機小圖（萬物原理首頁的課程卡）：機翼剖面、上方較快的氣流與往下轉的氣流、向上的升力箭頭。"""
+    return (f'<svg class="airwing-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">'
+            '<g fill="none" stroke-width="2" stroke-linecap="round"><path d="M4 22 C20 14 36 16 56 30" stroke="#ff9a3c"/><path d="M4 40 C22 38 38 40 56 48" stroke="#2f6bff"/></g>'
+            '<path d="M12 32 C18 22 34 22 50 34 C36 33 22 34 12 32z" fill="#d8dee8"/>'
+            '<path d="M30 26 V8" stroke="#3ad17a" stroke-width="3"/><path d="M24 13 L30 5 L36 13z" fill="#3ad17a"/></svg>')
+
+def render_airwing_lab(lesson):
+    """第十三課：風洞裡的機翼（assets/js/airplane-wing.js 綁這裡的 class；氣流用位勢流計算）。"""
+    lab = lesson["lab"]
+    tg = _lab_toggles([("labels", "Labels", "標示", True), ("forces", "Force arrows", "力的箭頭", True), ("streams", "Flow lines", "流線", True)])
+    return f'''<div class="astro-lab bt-lab aw-lab rvl" data-airwing-lab>
+  <div class="al-stage">
+    <div class="al-space">
+      <canvas class="al-space-cv" aria-label="3D wind tunnel with air flowing over a wing and being turned downward · 3D 風洞：空氣流過機翼、被往下轉"></canvas>
+      <div class="al-labels" aria-hidden="true"></div>
+      <p class="bt-cut">A wind tunnel view: the wing stays still and the air moves; air slowed down for viewing · 風洞視角：機翼不動、空氣在動；氣流放慢了</p>
+      <p class="al-hint">Drag to turn · 拖曳旋轉　Scroll or pinch to zoom · 滾輪／雙指縮放</p>
+      <button type="button" class="al-home" title="Reset view · 重設視角" aria-label="Reset view · 重設視角">&#8634;</button>
+      <p class="al-nogl-msg">This 3D model needs WebGL, which this browser does not support. The reading and the cards below still explain everything.<br><span class="zh">這個瀏覽器不支援 WebGL，無法顯示 3D 模型；下方的課文與卡片一樣能看懂。</span></p>
+    </div>
+    <aside class="al-sky bt-aside aw-aside">
+      <div class="aw-top">
+        <p class="al-sky-k">The model plane · 模型飛機</p>
+        <p class="aw-status" aria-live="polite"></p>
+        <div class="aw-meter"><span class="aw-meter-k">Lift vs. weight · 升力和重量比</span><div class="aw-bar"><i></i><b aria-hidden="true"></b></div><span class="aw-meter-s"><em>0</em><em>= weight · 等於重量</em><em>2×</em></span></div>
+        <dl class="bt-nums aw-nums">
+          <div><dt>Lift ÷ weight · 升力÷重量</dt><dd class="aw-ratio"></dd></div>
+          <div><dt>Lift coefficient · 升力係數</dt><dd class="aw-cl"></dd></div>
+        </dl>
+        <button type="button" class="aw-smoke">&#128168; Release a line of smoke<small>放一排煙</small></button>
+      </div>
+      <p class="bt-msg aw-msg" aria-live="polite"></p>
+    </aside>
+  </div>
+  <div class="al-controls">
+    <div class="al-row al-row-main">
+      <button type="button" class="al-play" aria-pressed="true"><span class="al-play-i" aria-hidden="true"></span><span class="al-play-t">Pause · 暫停</span></button>
+      <label class="al-slider aw-a-row"><span>Wing angle · 機翼角度 <output class="aw-a-out"></output></span>
+        <input type="range" class="al-age aw-a" min="-4" max="22" step="0.5" value="8"></label>
+      <label class="al-slider aw-v-row"><span>Speed · 速度 <output class="aw-v-out"></output></span>
+        <input type="range" class="al-age aw-v" min="0" max="320" step="5" value="250"></label>
+    </div>
+    <div class="al-row al-toggles">{tg}</div>
+  </div>
+  {_lab_foot(lab)}
+  <p class="bt-credit">{lab["credit_html"]}</p>
+</div>'''
+
 def _htw_flat():
     return [(ui, u, l) for ui, u in enumerate(HTW["units"]) for l in u["lessons"]]
 
@@ -5726,7 +5775,7 @@ def build_htw_lesson(ui, unit, lesson):
     reading_html = render_basic_unit(1, unit_dict, level="htw", audio_rel="", pdf_rel="")
     lab = lesson["lab"]
     kind = lab["kind"]
-    lab_html = {"battery": render_battery_lab, "generator": render_generator_lab, "solar": render_solarcell_lab, "wind": render_windturbine_lab, "internet": render_internet_lab, "signal": render_cellsignal_lab, "gps": render_gps_lab, "memory": render_memory_lab, "sky": render_skyblue_lab, "rainbow": render_rainbow_lab, "sound": render_soundwave_lab, "camera": render_cameralens_lab}[kind](lesson)
+    lab_html = {"battery": render_battery_lab, "generator": render_generator_lab, "solar": render_solarcell_lab, "wind": render_windturbine_lab, "internet": render_internet_lab, "signal": render_cellsignal_lab, "gps": render_gps_lab, "memory": render_memory_lab, "sky": render_skyblue_lab, "rainbow": render_rainbow_lab, "sound": render_soundwave_lab, "camera": render_cameralens_lab, "wing": render_airwing_lab}[kind](lesson)
 
     secs = []
     if lesson.get("mix"):
@@ -5794,7 +5843,8 @@ def build_htw_lesson(ui, unit, lesson):
                 "sky": ("The blue sky in a sentence", "一句話記住藍天"),
                 "rainbow": ("Rainbows in a sentence", "一句話記住彩虹"),
                 "sound": ("Sound in a sentence", "一句話記住聲音"),
-                "camera": ("Cameras in a sentence", "一句話記住相機")}[kind]
+                "camera": ("Cameras in a sentence", "一句話記住相機"),
+                "wing": ("Flight in a sentence", "一句話記住飛行")}[kind]
     secs.append(("tricks", "Remember It · 記憶口訣", tricks_h[0], tricks_h[1], _sci_tricks(lesson), ""))
     if lesson.get("safety"):
         items = "".join(f'<li class="rvl">{html.escape(s["en"])}<span class="zh">{html.escape(s["zh"])}</span></li>' for s in lesson["safety"])
@@ -5848,7 +5898,7 @@ def build_htw_lesson(ui, unit, lesson):
 def build_htw_hub():
     # 照中醫養生：單元導覽＋每個單元一段橫向課程卡；做好的課可點，planned 是「製作中」卡。
     def icon(l):
-        return battery_svg(60) if l.get("card") == "battery" else outlet_svg(60) if l.get("card") == "outlet" else solarpanel_svg(60) if l.get("card") == "solar" else windturbine_svg(60) if l.get("card") == "wind" else internet_svg(60) if l.get("card") == "internet" else cellsignal_svg(60) if l.get("card") == "signal" else gps_svg(60) if l.get("card") == "gps" else memory_svg(60) if l.get("card") == "memory" else skyblue_svg(60) if l.get("card") == "sky" else rainbow_svg(60) if l.get("card") == "rainbow" else soundwave_svg(60) if l.get("card") == "sound" else cameralens_svg(60) if l.get("card") == "camera" else l["icon"]
+        return battery_svg(60) if l.get("card") == "battery" else outlet_svg(60) if l.get("card") == "outlet" else solarpanel_svg(60) if l.get("card") == "solar" else windturbine_svg(60) if l.get("card") == "wind" else internet_svg(60) if l.get("card") == "internet" else cellsignal_svg(60) if l.get("card") == "signal" else gps_svg(60) if l.get("card") == "gps" else memory_svg(60) if l.get("card") == "memory" else skyblue_svg(60) if l.get("card") == "sky" else rainbow_svg(60) if l.get("card") == "rainbow" else soundwave_svg(60) if l.get("card") == "sound" else cameralens_svg(60) if l.get("card") == "camera" else airwing_svg(60) if l.get("card") == "wing" else l["icon"]
     unit_sections, nav = [], []
     done = sum(len(u["lessons"]) for u in HTW["units"])
     total = done + sum(len(u.get("planned", [])) for u in HTW["units"])
