@@ -276,6 +276,36 @@
 
 ---
 
+## 書法 Chinese Calligraphy（/resources/classes/calligraphy/）— 架構照晶片與半導體，3D 改成「寫字引擎」
+
+- 內容：`data/calligraphy.json`：`units[]`（三個單元：文房四寶與基本功／字體的演變／書法家與名作）底下 `lessons[]` 與 `planned[]`（「製作中」卡，做一課就從 planned 移到 lessons）；課次 `n` 全系列連號（1–10）。每課欄位同晶片與半導體，多的：`drops`（「一滴墨在不同的紙上」）、`pad`（練字板：`char` 是筆畫資料的 key、`tips`）、`links` 可放 `soon: true` 的預告卡（沒有 href，畫成虛線框「製作中」）。`lab.focus`（右側欄的看法按鈕與說明）、`lab.virtues`（尖齊圓健）、`lab.phases`（起筆／行筆／收筆的說明，3D 標籤與力道曲線共用）。
+- 頁面：`build.py` 的 `build_cal_hub()`（單元導覽＋`.lc-row` 橫向課程卡；系列小圖示 `calbrush_svg()`＝宣紙上一筆墨＋毛筆，第一課卡 `calfour_svg()`）/ `build_cal_lesson()`；reading、迷思、口訣、活動沿用 `render_basic_unit()`、`_sci_myths()`、`_sci_tricks()`、`_astro_activity()`；卡片小圖示 `_cg_icon('brush'|'ink'|'paper'|'stone')`（純 SVG，不用字型）。「閱讀與經典」頁有入口卡（🖌️）。段落順序：3D → 英文閱讀 → 模型卡 → 一滴墨 → 練字板 → 文化卡 → 迷思 → 口訣 → 教室提醒 → 活動 → 下一課預告 → 資料出處。
+- 樣式：共用 `assets/css/astro.css`，本系列專屬的在 `assets/css/calligraphy.css`（**class 前綴一律 `cg-`**）；`_cal_head()` 只在本系列頁面載入。
+- 3D：**原始碼在 `tools/callig/src/`**（自己的 package.json，three 0.186.1、esbuild 0.25.10），bundle 一律 `cal-*`；`lab.kind` → bundle 對照在 `build.py` 的 `_CAL_JS`（第一課 `four` → `cal-four`）。`labeler`、`lazyBoot`、`canvasTex` 在 `tools/callig/src/common.js`（從 tools/chips 抄來）。**不要 import tools/chips、tools/science、tools/astro 的檔案**（esbuild 會打包進第二份 three.js）。
+  ```
+  cd tools/callig && npm ci && npm run build && npm test
+  ```
+- **寫字引擎（每課共用，只換資料）**：
+  - `brush.js`（純函式，`test/brush.test.mjs`）：`prepStroke`（向心 Catmull-Rom 取樣，弧長 s、時間 t＝∫ds/v、壓力 p、階段 phase）、`footprint`（壓力 → 筆毛貼紙的半寬 hw 與往後拖的長度 len；全壓 118 單位寬）、`tipTrail`（筆尖往哪拖：目標＝運動反方向，每走 ds 轉 1−e^(−ds/26) 的角度差；正好掉頭固定逆時針轉）、`stamps`／`teardrop`（每個取樣點一個蛋形印子：圓頭在筆的位置、尾巴往筆尖方向收窄，尾端是圓的——尖尾會在筆尖轉向時把邊緣弄成鋸齒）、`outline`、`sampleAt`、`forceCurve`、`speedToPressure`（慢＝粗：pMin 0.12 + 0.8/(1+(v/700)²)）、`penPressure`、`smoothTo`、`PAPERS`/`INKS`/`bleed`（暈開示意）、`grindDarkness`（1−e^(−圈/40)，示意）、`HAIR`/`bendFor`/`springBack`（羊毫 soft 1、兼毫 0.72、狼毫 0.48；彈回速率 2.2／4.2／7.5，示意）。
+  - `ink2d.js`：畫在 canvas 上的墨（`paperBase` 紙色＋纖維、`drawGrid` 米字格／九宮格、`drawStamps`、`drawBlot`、`drawForce`）。**半透明（描紅）要先不透明畫在暫存畫布再整張淡淡貼上**：印子互相重疊，直接用 globalAlpha 畫會越疊越深（第一版的範字就變成大紅色）。
+  - `brush3d.js`：`makeBrush`（筆毛 26 圈 × 20 段每格重算：中心線＝往下的直線 → 四分之一圓（半徑 rc＝min(1.2d, 0.9(L−d))）→ 貼紙的直線，總長固定；貼紙部分橫向攤開、上下壓扁；`fan` 壓扁攤開看「齊」；蘸墨從筆尖往上變黑）、`makePaper`（墨畫在 canvas 貼圖上，不是 3D 幾何；ink 層另存，切格線時重疊）、`makeWriter`（`poseAt(t)`、`drawTo(t)`；多筆字之間提筆 0.22 秒、空中移 0.4 秒、下筆 0.2 秒）、`placeBrush`。**筆桿走在前、筆毛拖在後**：placeBrush 把筆桿往筆尖反方向挪 `bendOffset`，筆肚才蓋在墨跡上（第一版筆桿在墨跡正上方，筆毛彎到旁邊，看起來墨是空中掉下來的）。
+  - `pad.js`（2D 練字板，不需要 WebGL）：米字格＋淡紅範字（描紅），滑鼠／手指照速度、觸控筆（`pointerType 'pen'` 且有壓力）照 `PointerEvent.pressure`；`getCoalescedEvents` 補點、位置 0.65 平滑、每 2.5 單位一個印子；畫布 `touch-action: none`＋touchstart/touchmove `preventDefault`，寫字時頁面不捲動；看示範（照筆畫資料的真實時間）、復原、清除、存成圖片（`calligraphy-practice-<key>.png`）。
+- **筆畫資料**：`tools/callig/src/strokes/<key>.json`（打包時編進 JS；`test/strokes.test.mjs` 檢查格式）：
+  ```
+  { "char": "一", "key": "yi", "box": 1000, "count": 1, "order_src": "教育部《國字標準字體筆順學習網》…", "drawn_by": "…",
+    "strokes": [ { "n": 1, "en": "Horizontal", "zh": "橫", "pts": [[x, y, 壓力 0–1, 速度 單位/秒], …], "phases": [起筆結束的控制點, 行筆結束的控制點] } ] }
+  ```
+  字框 1000 × 1000、y 往下；第一點與最後一點壓力 < 0.1（下筆、提筆）；一筆 1–8 秒；`count` 要等於教育部的筆畫數。**全部自己手繪**（用 `node` 把印子輸出成 SVG、再用 shot.mjs 截圖檢查形狀）；筆順一律照教育部《國字標準字體筆順學習網》（https://stroke-order.learningweb.moe.edu.tw/，2025 版網站標題已改成「國字標準字體筆順學習網」）。要用開源筆畫資料前先確認授權、寫進 sources。篆隸行草的範字用 SVG 路徑或有授權的圖片，不要用網頁字型。
+- 第一課文房四寶（`cal-four.js`，`lab.kind = "four"`，`data-calfour-lab`）：書桌（1 單位約 10 公分）：毛氈＋宣紙（米字格 26 公分、紙鎮）、筆架（山形 ExtrudeGeometry）上的毛筆、硯台（側面輪廓 Shape 擠出：硯池在遠端 −z、斜坡、硯堂；**ExtrudeGeometry 轉 rotation.y＝−π/2 才是輪廓 x → 世界 +z**，第一版轉成 +π/2，硯池跑到近端、水被硯堂蓋住）、墨床上的墨條（金色雲紋只用線條畫）、水盂（LatheGeometry）。六個看法 `data-focus`：desk／brush（換毛、尖齊圓健、壓一下在小紙片留印子）／ink（墨條立起來畫圈，積水與硯池照 grindDarkness 變黑）／paper（同一滴墨在生宣與影印紙上，影印紙上有反光的墨珠）／stone（加水＝圈數 ×0.55）／write（筆架 → 硯池上方 → 蘸墨 → 移到第一點 → 下筆 → 寫 → 提筆，`SEQ` 的秒數再乘放慢倍率）。點桌上的東西（raycast，`userData.focus`）也能切換。寫字時鏡頭 `data-cam`：side／top／tip（跟著筆尖，controls 關掉，**要自己 `camera.lookAt`**）；蘸墨期間用 `pre` 全景。
+  - 頁面下方「一滴墨在不同的紙上」（`drops`，`data-cal-drops`，`initDrops()`）：生宣／熟宣／報紙／影印紙四格同時滴，濃淡三種；捲到才自動滴第一滴。
+  - 除錯：`document.querySelector('[data-calfour-lab]').__lab`（`setMode('desk'|'brush'|'ink'|'paper'|'stone'|'write', 立即?)`、`setHair('goat'|'mixed'|'weasel')`、`act('press'|'tip'|'even'|'round'|'spring')`、`setSpeed(1|0.5|0.25)`、`setCam('side'|'top'|'tip')`、`drop()`、`addWater()`、`seek(seq 秒)`、`SEQ`、`writeEnd()`、`run(秒)`、`render()`、`goCam()`）；練字板 `document.querySelector('[data-cal-pad]').__pad`（`strokes`、`write([[x, y, 毫秒], …], pointerType, pressure)`、`demo()`、`setDemoTime(秒)`、`clear()`）；一滴墨 `document.querySelector('[data-cal-drops]').__drops`（`go()`、`setT(秒)`、`setInk(k)`）。用 shot.mjs 實測時，`run()` 之後要 `render()`；`tipWorld()` 自己會更新 matrixWorld。
+  - 查證過（2026-10）：最早的完整毛筆 1954 年長沙左家公山戰國楚墓（Wikipedia“Ink brush”；所以寫「兩千兩百多年」），蒙恬造筆是傳說；羊毫軟、狼毫（多半是黃鼠狼毛）硬、兼毫；墨＝松煙或油煙加膠壓模（Smithsonian 國立亞洲藝術博物館）；硯面細滑又帶點粗、英文 hill／sea；湖筆善璉、徽墨歙縣、宣紙涇縣（青檀樹皮＋稻草；生宣吸水暈開、熟宣上明礬）、2009 年列入 UNESCO 人類非物質文化遺產；端硯肇慶、唐代端州；蘇易簡《文房四譜》北宋十世紀後半（筆二卷、硯墨紙各一卷）、葉夢得記「世言歙州有文房四寶」（平凡社《世界大百科事典》）；歙州 1121 年改名徽州；埔里手工紙：日治時代起引進日本與中國技術、二戰後至 1960–70 年代短暫外銷、1980 年代起沒落、九二一後更少（國立臺灣工藝研究發展中心《臺灣工藝》2018）；入木三分：教育部《成語典》說語出南朝宋羊欣《筆陣圖》，《太平廣記》卷二〇七也記載，課文寫「相傳」；國小三、四年級「硬筆字為主，毛筆為輔」（十二年國教國語文 4-Ⅱ-7）。**沒寫**：「文房四寶」一詞起源於哪個朝代（維基百科說南北朝、平凡社引宋代，說法不一）、王羲之生卒年、全國語文競賽寫字的規則（官網連不上，只查到單一學校的校內辦法）、「磨墨如病夫，執筆如壯士」的作者（只當「老話」寫）。
+- 和既有系列互相連結：第八課連古文選讀〈蘭亭集序〉（`data/guwen.json` 的 `lan-ting-ji-xu`），第十課連〈前赤壁賦〉（`qian-chi-bi-fu`）；第一課的 `links` 只有一張第二課的預告卡（`soon: true`）。
+- 🔊 錄音：`python3 tools/gen_audio.py --page resources/classes/calligraphy/<slug> --out audio/say-<slug>` → `python3 tools/upload_say_dir.py assets/data/say/calligraphy-<slug>.json audio/say-<slug>`（manifest 命名 `calligraphy-<slug>`；`gen_audio.py` 的 SHORT_PAGES 已加本系列）。worktree 裡先把 `~/Developer/repos/twrses/tools/.r2_uploaded_cache.txt` 複製過來，做完 `sort -u` 合併回去。
+- 課程規劃在 Obsidian：`第二大腦/創作庫/書法課程規劃（twrses）.md`（三單元十課、待查證清單、交接指令）；系列索引 `第二大腦/英文學習/書法（twrses.org）.md`。
+
+---
+
 ## Build / Deploy
 ```
 python3 build.py        # BASE=/twrses → 服務於 lukelin7429.github.io/twrses/ 或 www.twrses.org

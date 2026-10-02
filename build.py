@@ -1415,6 +1415,8 @@ def build_reading_hub():
              "Everyday questions with surprising answers, explained in English with 3D models. 生活裡的科學問題，用英文讀懂，再用 3D 模型看它怎麼運作。"),
             ("/resources/classes/semiconductors/", "💿", "Chips and Semiconductors · 晶片與半導體",
              "What is inside a chip? From sand to silicon to the chips behind AI, in English with 3D models. 晶片裡有什麼？從沙子、矽到 AI 晶片，用英文讀懂，再用 3D 模型看清楚。"),
+            ("/resources/classes/calligraphy/", "🖌️", "Chinese Calligraphy · 書法",
+             "Brush, ink, paper, and inkstone: watch a 3D brush write in slow motion, then write it yourself on the practice pad. 文房四寶與毛筆字：先看 3D 毛筆慢動作寫字，再到練字板上自己寫。"),
             ("/resources/grandfather/", "🌅", "Grandfather · 落日餘暉",
              "Thirty chapters of life wisdom by Leon La Couvée, in English and Chinese. 三十章人生智慧，中英對照。"),
             ("/resources/periodicals/", "📰", "Periodicals · 英語期刊",
@@ -6516,6 +6518,367 @@ def build_chip_hub():
     return CHIP_BASE
 
 
+# ---- 書法 Chinese Calligraphy（資料驅動，data/calligraphy.json）----
+# 架構照晶片與半導體：系列首頁分單元（單元導覽＋.lc-row 橫向課程卡），課程頁照天文教育
+# （英文 reading＋每課一個 3D 毛筆示範＋延伸段落）。units[].lessons 是做好的課、units[].planned 是製作中。
+# 本系列的特色是共用的「寫字引擎」：tools/callig/src/brush.js（純函式）、brush3d.js（three.js 的筆與紙）、
+# pad.js（2D 練字板），每課只換筆畫資料（tools/callig/src/strokes/*.json）。打包成 assets/js/cal-*.js；
+# 面板、迷思、口訣、活動沿用 astro.css，本系列多出來的在 calligraphy.css（class 前綴 cg-）；兩者都只載在本系列頁面。
+_calj = os.path.join(ROOT, "data", "calligraphy.json")
+CAL = json.load(open(_calj, encoding="utf-8")) if os.path.exists(_calj) else None
+CAL_BASE = "/resources/classes/calligraphy/"
+_CAL_JS = {"four": "cal-four"}   # lab.kind → assets/js/<bundle>.js
+
+def _cal_ver():
+    h = hashlib.md5()
+    for rel in ("assets/css/astro.css", "assets/css/calligraphy.css", *(f"assets/js/{j}.js" for j in _CAL_JS.values())):
+        fp = os.path.join(ROOT, rel)
+        if os.path.exists(fp): h.update(open(fp, "rb").read())
+    return h.hexdigest()[:8]
+
+def _cal_head(js=None):
+    v = _cal_ver()
+    tag = f'<script defer src="/assets/js/{js}.js?v={v}"></script>\n' if js else ""
+    return (f'<link rel="stylesheet" href="/assets/css/astro.css?v={v}">\n'
+            f'<link rel="stylesheet" href="/assets/css/calligraphy.css?v={v}">\n{tag}')
+
+def calbrush_svg(size=56):
+    """書法的系列小圖示：一張宣紙上一筆墨（「一」），一枝毛筆斜斜地剛寫完。"""
+    return (f'<svg class="calbrush-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">'
+            '<rect x="5" y="13" width="44" height="40" rx="3" fill="#f6f0e1"/>'
+            '<path d="M10.5 36.2c1-3.6 3.6-3.4 6.4-3.1l18.5-1.5c3.8-.4 7 .2 7.3 3 .3 3.1-2.9 4.2-5.9 3.4l-1.5-.5-18.6 1.7c-3 .3-6.8.6-6.2-3z" fill="#151311"/>'
+            '<path d="M55.5 3.5 43.2 24.8" stroke="#c9a466" stroke-width="4.2" stroke-linecap="round"/>'
+            '<path d="M44.2 23.1 42.2 26.6" stroke="#3a2216" stroke-width="5.2" stroke-linecap="round"/>'
+            '<path d="M42.6 25.4c1.9 1.3 1.6 4.4-.4 6.9l-2.6 3.1c-.3-3.1-.8-5.6.6-8.4.6-1.1 1.4-1.7 2.4-1.6z" fill="#efe6d0"/>'
+            '<path d="M41.7 30c.4 1.6-.5 3.4-2.3 5.4-.3-1.8-.5-3.4.2-5 .6-.9 1.5-1.1 2.1-.4z" fill="#151311"/></svg>')
+
+def _cg_brush(x, y, s=1.0):
+    return (f'<g transform="translate({x} {y}) scale({s})">'
+            '<rect x="-2.2" y="0" width="4.4" height="26" rx="2" fill="#c9a466"/><rect x="-2.6" y="24" width="5.2" height="4" rx="1" fill="#3a2216"/>'
+            '<path d="M-2.6 28c0 4 1 8 2.6 12 1.6-4 2.6-8 2.6-12z" fill="#efe6d0"/><path d="M-1.4 34c.5 2.2 .8 4 1.4 6 .6-2 .9-3.8 1.4-6z" fill="#151311"/></g>')
+
+def _cg_ink(x, y, s=1.0):
+    return (f'<g transform="translate({x} {y}) scale({s})">'
+            '<rect x="-5" y="0" width="10" height="30" rx="1.5" fill="#141318"/><rect x="-3.4" y="2" width="6.8" height="26" rx="1" fill="none" stroke="#c9a14a" stroke-width=".9"/>'
+            '<path d="M-1.6 10a2 2 0 1 1 2 2 2.4 2.4 0 1 0 2 3" fill="none" stroke="#c9a14a" stroke-width=".9"/></g>')
+
+def _cg_paper(x, y, s=1.0):
+    return (f'<g transform="translate({x} {y}) scale({s})">'
+            '<rect x="0" y="0" width="26" height="26" rx="1.5" fill="#f6f0e1"/>'
+            '<g stroke="#d6564a" stroke-width=".8" fill="none"><rect x="3" y="3" width="20" height="20"/>'
+            '<path d="M13 3v20M3 13h20M3 3l20 20M23 3 3 23" stroke-dasharray="1.6 1.4"/></g>'
+            '<path d="M6.5 13.4c.6-1.4 1.6-1.2 2.6-1.1l7.4-.5c1.6-.1 2.8.1 2.9 1.2.1 1.2-1.1 1.6-2.3 1.3l-8.2.6c-1.2.1-2.7.2-2.4-1.5z" fill="#151311"/></g>')
+
+def _cg_stone(x, y, s=1.0):
+    return (f'<g transform="translate({x} {y}) scale({s})">'
+            '<rect x="0" y="0" width="22" height="30" rx="4" fill="#3b2f3a"/><rect x="2.6" y="2.6" width="16.8" height="24.8" rx="2.6" fill="#4d3f4b"/>'
+            '<rect x="2.6" y="2.6" width="16.8" height="7.5" rx="2.6" fill="#1a1820"/><ellipse cx="11" cy="19" rx="5" ry="3.6" fill="#22202a" opacity=".85"/></g>')
+
+def calfour_svg(size=56):
+    """第一課的課程卡小圖示：文房四寶（筆、墨、紙、硯）排在一起。"""
+    return (f'<svg class="calfour-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">'
+            f'{_cg_paper(4, 17, 1.05)}{_cg_stone(34, 24, 0.82)}{_cg_ink(47, 4, 0.62)}{_cg_brush(10, 2, 0.5)}</svg>')
+
+def _cg_icon(kind, size=66):
+    inner = {"brush": _cg_brush(30, 4, 1.24), "ink": _cg_ink(30, 6, 1.6), "paper": _cg_paper(6.5, 6.5, 1.8), "stone": _cg_stone(13, 6.75, 1.55)}[kind]
+    return f'<svg viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">{inner}</svg>'
+
+def render_calfour_lab(lesson):
+    """第一課：書桌上的文房四寶＋寫字引擎示範（assets/js/cal-four.js 綁這裡的 class；全部自繪示意）。"""
+    lab = lesson["lab"]
+    F = {f["key"]: f for f in lab["focus"]}
+    fb = "".join(
+        f'<button type="button" data-focus="{f["key"]}" aria-pressed="{"true" if f["key"] == "desk" else "false"}">'
+        f'<i aria-hidden="true">{html.escape(f["icon"])}</i>{html.escape(f["en"])}<small>{html.escape(f["zh"])}</small></button>'
+        for f in lab["focus"])
+    def head(k):
+        f = F[k]
+        return (f'<h3 class="cg-panel-h">{html.escape(f["title_en"])}<span class="zh">{html.escape(f["title_zh"])}</span></h3>'
+                f'<p class="cg-panel-t">{html.escape(f["text_en"])}<span class="zh">{html.escape(f["text_zh"])}</span></p>')
+    hairs = [("goat", "Goat", "羊毫"), ("mixed", "Mixed", "兼毫"), ("weasel", "Weasel", "狼毫")]
+    hb = "".join(f'<button type="button" data-hair="{k}" aria-pressed="{"true" if k == "goat" else "false"}">{en}<small>{zh}</small></button>' for k, en, zh in hairs)
+    vb = "".join(
+        f'<button type="button" class="cg-virtue" data-virtue="{v["key"]}" aria-pressed="false" data-en="{html.escape(v["text_en"])}" data-zh="{html.escape(v["text_zh"])}">'
+        f'<b>{html.escape(v["zh"])}</b><span>{html.escape(v["en"])}</span></button>'
+        for v in lab["virtues"])
+    speeds = [("1", "1×", "原速"), ("0.5", "½×", "慢"), ("0.25", "¼×", "很慢")]
+    sb = "".join(f'<button type="button" data-speed="{k}" aria-pressed="{"true" if k == "1" else "false"}">{en}<small>{zh}</small></button>' for k, en, zh in speeds)
+    cams = [("side", "Side", "側面"), ("top", "Top", "正上方"), ("tip", "Tip", "貼近筆尖")]
+    cb = "".join(f'<button type="button" data-cam="{k}" aria-pressed="{"true" if k == "side" else "false"}">{en}<small>{zh}</small></button>' for k, en, zh in cams)
+    tg = _lab_toggles([("labels", "Labels", "標示", True), ("grid", "Grid", "格線", True)])
+    phases = html.escape(json.dumps(lab["phases"], ensure_ascii=False))
+    return f'''<div class="astro-lab cg-lab rvl" data-calfour-lab data-phases="{phases}">
+  <div class="al-stage">
+    <div class="al-space">
+      <canvas class="al-space-cv" aria-label="3D model of a calligraphy desk with a brush, an ink stick, paper, and an inkstone, and a brush that writes the character one · 書桌上的筆、墨、紙、硯，以及會寫「一」的毛筆 3D 模型"></canvas>
+      <div class="al-labels" aria-hidden="true"></div>
+      <div class="cg-cams" role="group" aria-label="View · 角度">{cb}</div>
+      <p class="al-hint">Drag to turn · 拖曳旋轉　Scroll or pinch to zoom · 滾輪／雙指縮放　Tap a treasure · 點一下近看</p>
+      <button type="button" class="al-home" title="Reset view · 重設視角" aria-label="Reset view · 重設視角">&#8634;</button>
+      <p class="al-nogl-msg">This 3D model needs WebGL, which this browser does not support. The reading, the cards, and the practice pad below still work.<br><span class="zh">這個瀏覽器不支援 WebGL，無法顯示 3D 模型；下方的課文、卡片和練字板一樣能用。</span></p>
+    </div>
+    <aside class="al-sky cg-aside">
+      <p class="al-sky-k">Look closer · 近看</p>
+      <div class="cg-focus" role="group" aria-label="Look closer · 近看">{fb}</div>
+      <div class="cg-panel" data-panel="desk">{head("desk")}</div>
+      <div class="cg-panel" data-panel="brush" hidden>{head("brush")}
+        <div class="cg-seg cg-hairs" role="group" aria-label="Brush hair · 筆毛">{hb}</div>
+        <dl class="cg-nums"><div><dt>Hair · 筆毛</dt><dd class="cg-hair-out"></dd></div><div><dt>Same push, it bends · 同樣力道彎了</dt><dd class="cg-bend-out">—</dd></div></dl>
+        <p class="al-sky-k cg-k2">Four virtues of a good brush · 好筆四德</p>
+        <div class="cg-virtues">{vb}</div>
+        <p class="cg-virtue-t" aria-live="polite">Tap a virtue to see it on the brush. · 點一個字，看毛筆示範。</p>
+        <button type="button" class="cg-btn-d" data-virtue="press">Press again · 再壓一下</button>
+      </div>
+      <div class="cg-panel" data-panel="ink" hidden>{head("ink")}
+        <div class="cg-grind-out"><b class="cg-circles">0</b><span>circles · 圈</span></div>
+        <div class="cg-dark-row"><span>Clear · 清水</span><span class="cg-dark-bar"><i></i></span><span>Black · 黑</span><b class="cg-dark">0%</b></div>
+        <div class="cg-btns"><button type="button" class="cg-btn-d cg-grind" aria-pressed="false"><span class="t">Grind · 磨墨</span></button>
+          <button type="button" class="cg-btn-d cg-fresh-water">Fresh water · 換清水</button></div>
+        <p class="cg-note-d">Illustration: real grinding takes many more circles. · 示意：真的磨墨要磨更多圈。</p>
+      </div>
+      <div class="cg-panel" data-panel="paper" hidden>{head("paper")}
+        <dl class="cg-nums"><div><dt>Raw Xuan paper · 生宣紙</dt><dd class="cg-spread-xuan"></dd></div><div><dt>Copy paper · 影印紙</dt><dd class="cg-spread-copy"></dd></div></dl>
+        <p class="cg-note-d">How many times wider the spot grows than the drop (illustration). · 墨跡比剛落下時寬幾倍（示意）。</p>
+        <button type="button" class="cg-btn-d cg-redrop">Drop again · 再滴一次</button>
+      </div>
+      <div class="cg-panel" data-panel="stone" hidden>{head("stone")}
+        <button type="button" class="cg-btn-d cg-add-water">Add water · 加水</button>
+        <p class="cg-note-d">Adding water makes the ink lighter, so grind a little more. · 加了水墨就變淡，要再多磨一會兒。</p>
+      </div>
+      <div class="cg-panel" data-panel="write" hidden>{head("write")}
+        <div class="cg-seg cg-speeds" role="group" aria-label="Speed · 速度">{sb}</div>
+        <p class="al-sky-k cg-k2">Force curve · 力道曲線 <b class="cg-press-out">—</b></p>
+        <canvas class="cg-force" aria-label="Force curve of the stroke · 這一筆的力道曲線"></canvas>
+        <p class="cg-phase-k" aria-live="polite"></p>
+        <p class="cg-phase-t"></p>
+        <button type="button" class="cg-btn-d cg-again">Write again · 再寫一次</button>
+      </div>
+    </aside>
+  </div>
+  <div class="al-controls">
+    <div class="al-row al-row-main">
+      <button type="button" class="al-play" aria-pressed="true"><span class="al-play-i" aria-hidden="true"></span><span class="al-play-t">Pause · 暫停</span></button>
+      <div class="al-row al-toggles">{tg}</div>
+    </div>
+  </div>
+  {_lab_foot(lab)}
+  <p class="cg-credit">{lab["credit_html"]}</p>
+</div>'''
+
+def _cal_drops(dp):
+    inks = "".join(f'<button type="button" data-ink="{k["key"]}" aria-pressed="{"true" if k["key"] == "mid" else "false"}">{html.escape(k["en"])}<small>{html.escape(k["zh"])}</small></button>' for k in dp["inks"])
+    cards = "".join(
+        f'<figure class="cg-drop" data-paper="{p["key"]}"><canvas class="cg-drop-cv" aria-label="{html.escape(p["en"])} · {html.escape(p["zh"])}"></canvas>'
+        f'<figcaption><span class="cg-drop-n"><b>{html.escape(p["en"])}</b><span class="zh">{html.escape(p["zh"])}</span></span><b class="cg-drop-x">—</b>'
+        f'<span class="cg-drop-t">{html.escape(p["text_en"])}<span class="zh">{html.escape(p["text_zh"])}</span></span></figcaption></figure>'
+        for p in dp["papers"])
+    return (f'<div class="cg-drops rvl" data-cal-drops>'
+            f'<div class="cg-drop-ctl"><div class="cg-seg cg-seg-l" role="group" aria-label="Ink · 墨的濃淡">{inks}</div>'
+            f'<button type="button" class="cg-btn" data-drop>Drop again · 再滴一次</button></div>'
+            f'<div class="cg-drop-grid">{cards}</div>'
+            f'<p class="cg-drop-note">Illustration, not a measurement. The number is how many times wider the spot is than the drop. · 示意，不是量測；數字是墨跡比剛落下時寬幾倍。</p></div>')
+
+def _cal_pad(pd):
+    tips = "".join(f'<li>{html.escape(t["en"])}<span class="zh">{html.escape(t["zh"])}</span></li>' for t in pd["tips"])
+    return f'''<div class="cg-pad rvl" data-cal-pad data-char="{html.escape(pd["char"])}">
+  <div class="cg-pad-paper"><canvas class="cg-pad-cv" aria-label="Practice pad: trace the character one with a mouse, a finger, or a stylus · 練字板：用滑鼠、手指或觸控筆描寫「一」"></canvas></div>
+  <div class="cg-pad-side">
+    <div class="cg-pad-btns">
+      <button type="button" class="cg-btn cg-btn-gold" data-pad="demo">&#9654; Watch the demo · 看示範</button>
+      <button type="button" class="cg-btn" data-pad="undo">&#8630; Undo · 復原</button>
+      <button type="button" class="cg-btn" data-pad="clear">Clear · 清除</button>
+      <button type="button" class="cg-btn" data-pad="save">&#11015; Save as a picture · 存成圖片</button>
+    </div>
+    <div class="cg-pad-tg">
+      <label><input type="checkbox" data-pt="grid" checked> Grid · 米字格</label>
+      <label><input type="checkbox" data-pt="model" checked> Model · 範字</label>
+    </div>
+    <div class="cg-pad-meter-w" aria-hidden="true"><span>Thin · 細</span><span class="cg-pad-meter"><i></i></span><span>Thick · 粗</span></div>
+    <p class="cg-pad-mode" hidden><span class="cg-m-mouse">Mouse or finger: slow = thick, fast = thin<span class="zh">滑鼠或手指：寫得慢＝粗、寫得快＝細</span></span><span class="cg-m-pen">Stylus: press harder for a thicker line<span class="zh">觸控筆：越用力線越粗</span></span></p>
+    <ol class="cg-pad-tips">{tips}</ol>
+    <p class="cg-pad-msg" aria-live="polite"></p>
+  </div>
+</div>'''
+
+def _cal_flat():
+    return [(ui, u, l) for ui, u in enumerate(CAL["units"]) for l in u["lessons"]]
+
+def _cal_nav(slug):
+    flat = _cal_flat()
+    i = next(n for n, (_, _, l) in enumerate(flat) if l["slug"] == slug)
+    def side(item, dirn, label):
+        if not item:
+            return '<span class="pm-nav-x"></span>'
+        l = item[2]
+        arrow = "&larr;" if dirn == "prev" else "&rarr;"
+        return (f'<a class="pm-nav-s pm-nav-{dirn}" href="{CAL_BASE}{l["slug"]}/">'
+                f'<span class="pm-nav-k">{arrow} {label}</span>'
+                f'<span class="pm-nav-t">{html.escape(l["title"])}</span></a>')
+    prev = flat[i - 1] if i > 0 else None
+    nxt = flat[i + 1] if i < len(flat) - 1 else None
+    return (f'<nav class="pm-nav rvl">{side(prev, "prev", "上一課 · Previous")}'
+            f'<a class="pm-nav-hub" href="{CAL_BASE}">&#9776; 回書法 · All Lessons</a>'
+            f'{side(nxt, "next", "下一課 · Next")}</nav>')
+
+def build_cal_lesson(ui, unit, lesson):
+    path = f'{CAL_BASE}{lesson["slug"]}/'
+    unit_dict = {k: lesson[k] for k in ("title", "paras", "paras_zh", "questions", "answers", "vocab", "quiz")}
+    unit_dict["unit"] = lesson["n"]
+    reading_html = render_basic_unit(1, unit_dict, level="callig", audio_rel="", pdf_rel="")
+    lab = lesson["lab"]
+    kind = lab["kind"]
+    lab_html = {"four": render_calfour_lab}[kind](lesson)
+
+    secs = []
+    if lesson.get("parts"):
+        cards = "".join(
+            f'<article class="ph-card cg-part rvl">'
+            f'<div class="ph-ico cg-ico" aria-hidden="true">{_cg_icon(pt["icon"])}</div>'
+            f'<h3>{html.escape(pt["en"])}<span class="zh">{html.escape(pt["zh"])}</span></h3>'
+            f'<p class="ph-meta"><span>{html.escape(pt["meta_en"])} · {html.escape(pt["meta_zh"])}</span></p>'
+            f'<p class="ph-when">{html.escape(pt["text_en"])}<br><span class="zh">{html.escape(pt["text_zh"])}</span></p>'
+            f'<button type="button" class="ph-go" data-lab-demo="{pt["demo"]}">Try it in 3D · 在模型中試 <i>&uarr;</i></button>'
+            f'</article>' for pt in lesson["parts"])
+        ph = lesson["parts_head"]
+        secs.append(("parts", ph["eyebrow"], ph["en"], ph["zh"], f'<div class="ph-grid stagger">{cards}</div>',
+                     _bi(lesson["parts_note_en"], lesson["parts_note_zh"], cls="lead rvl d2")))
+    if lesson.get("drops"):
+        dp = lesson["drops"]
+        secs.append(("drops", dp["eyebrow"], dp["en"], dp["zh"], _cal_drops(dp), _bi(dp["lead_en"], dp["lead_zh"], cls="lead rvl d2")))
+    if lesson.get("pad"):
+        pd = lesson["pad"]
+        secs.append(("pad", pd["eyebrow"], pd["en"], pd["zh"], _cal_pad(pd), _bi(pd["lead_en"], pd["lead_zh"], cls="lead rvl d2")))
+    if lesson.get("culture_cards"):
+        cu = lesson["culture_cards"]
+        cc = "".join(
+            f'<article class="cc-card rvl"><p class="cc-k">{html.escape(c["k"])}</p>'
+            f'<h3>{html.escape(c["en"])}<span class="zh">{html.escape(c["zh"])}</span></h3>'
+            f'{_bi(c["body_en"], c["body_zh"])}</article>'
+            for c in cu["cards"])
+        secs.append(("stories", cu["eyebrow"], cu["title_en"], cu["title_zh"], f'<div class="cc-grid">{cc}</div>',
+                     _bi(cu["lead_en"], cu["lead_zh"], cls="lead rvl d2")))
+    secs.append(("myths", "Myth vs. Fact · 常見迷思", "Four things people get wrong", "四個常見的誤會", _sci_myths(lesson), ""))
+    tricks_h = {"four": ("The Four Treasures in a sentence", "一句話記住文房四寶")}[kind]
+    secs.append(("tricks", "Remember It · 記憶口訣", tricks_h[0], tricks_h[1], _sci_tricks(lesson), ""))
+    if lesson.get("safety"):
+        items = "".join(f'<li class="rvl">{html.escape(s["en"])}<span class="zh">{html.escape(s["zh"])}</span></li>' for s in lesson["safety"])
+        secs.append(("safety", "In the Classroom · 教室提醒", "Before you pick up a brush", "拿起毛筆之前",
+                     f'<ul class="cg-safety">{items}</ul>', ""))
+    acts = lesson.get("activities") or [lesson["activity"]]
+    for n, act in enumerate(acts, 1):
+        eb = "Classroom Activity · 課堂活動" if len(acts) == 1 else f"Classroom Activity {n} · 課堂活動{_astro_cn(n)}"
+        secs.append((f"activity{'' if n == 1 else n}", eb, act["title_en"], act["title_zh"], _astro_activity(act), ""))
+    if lesson.get("links"):
+        def link(x):
+            body = (f'<span class="cg-link-ic" aria-hidden="true">{x["icon"]}</span>'
+                    f'<span class="cg-link-b"><span class="cg-link-k">{html.escape(x["k_en"])} · {html.escape(x["k_zh"])}</span>'
+                    f'<b>{html.escape(x["en"])}</b><span class="zh cg-link-zh">{html.escape(x["zh"])}</span>'
+                    f'<span class="cg-link-n">{html.escape(x["note_en"])}<span class="zh">{html.escape(x["note_zh"])}</span></span>')
+            if x.get("soon"):
+                return f'<div class="cg-link cg-link-soon rvl">{body}<span class="cg-link-go">Coming soon · 製作中</span></span></div>'
+            return f'<a class="cg-link rvl" href="{html.escape(x["href"])}">{body}<span class="cg-link-go">Go to the lesson · 前往這一課 <i>&rarr;</i></span></span></a>'
+        lh = lesson.get("links_head") or {"eyebrow": "Go Further · 延伸閱讀", "en": "Read more", "zh": "延伸閱讀"}
+        secs.append(("more", lh["eyebrow"], lh["en"], lh["zh"], f'<div class="cg-links">{"".join(link(x) for x in lesson["links"])}</div>', ""))
+    sec_html = "\n".join(_astro_sec(sid, k % 2 == 1, eb, en, zh, inner, lead)
+                         for k, (sid, eb, en, zh, inner, lead) in enumerate(secs))
+    src_html = ""
+    if lesson.get("sources"):
+        rows = "".join(
+            f'<li><span>{html.escape(s["en"])}<span class="zh">{html.escape(s["zh"])}</span></span>'
+            f'<a href="{html.escape(s["url"])}" target="_blank" rel="noopener">{html.escape(s["src"])} &#8599;</a></li>'
+            for s in lesson["sources"])
+        src_html = (f'<div class="cg-sources rvl"><p class="sub-head">Sources · 資料出處</p>'
+                    f'<p class="muted">Dates, names, places, and facts on this page were checked against these sources (October 2026). · 本頁的年代、人名、地名與事實依下列資料查證（2026 年 10 月）。</p>'
+                    f'<ol>{rows}</ol></div>')
+
+    eyebrow = (f'Chinese Calligraphy · Unit {ui + 1} · Lesson {lesson["n"]} · '
+               f'書法 單元{_htw_cn(ui + 1)} 第{_htw_cn(lesson["n"])}課')
+    lead = f'{html.escape(lesson["blurb_en"])}<br><span class="muted">{html.escape(lesson["blurb_zh"])}</span>'
+    body = f'''
+{page_hero(eyebrow, f'{html.escape(lesson["title"])}<span class="h1-zh">{html.escape(lesson["title_zh"])}</span>', lead, back=(CAL_BASE, "回書法 · All Lessons"))}
+<section class="section astro-lab-sec" id="model"><div class="wrap">
+  <div class="big-idea rvl"><span class="big-idea-k">Big idea · 一句話看懂</span>{_bi(lesson["big_idea_en"], lesson["big_idea_zh"])}</div>
+  <p class="eyebrow rvl">{html.escape(lab["eyebrow"])}</p>
+  <h2 class="rvl d1 sweep">{html.escape(lab["title_en"])} <span class="tp-h2-en">{html.escape(lab["title_zh"])}</span></h2>
+  {_bi(lab["how_en"], lab["how_zh"], cls="lead rvl d2 al-how")}
+  {lab_html}
+</div></section>
+<section class="section band" id="reading"><div class="wrap" style="max-width:940px">
+  <p class="eyebrow rvl">Reading · 英文閱讀</p>
+  {reading_html}
+</div></section>
+{sec_html}
+<section class="section"><div class="wrap">
+{src_html}
+{_cal_nav(lesson["slug"])}
+</div></section>
+'''
+    say_slug = f'calligraphy-{lesson["slug"]}'   # tools/gen_audio.py 以路徑末兩段命名
+    has_clips = os.path.exists(os.path.join(ROOT, "assets/data/say", say_slug + ".json"))
+    write(path, layout(path, f'{lesson["title"]} · {lesson["title_zh"]}',
+          f'{lesson["blurb_en"]} {lesson["blurb_zh"]}', body, "resources",
+          say_manifest=say_slug if has_clips else None, extra_head=_cal_head(_CAL_JS[kind])))
+    return path
+
+def build_cal_hub():
+    # 照晶片與半導體：單元導覽＋每個單元一段橫向課程卡；做好的課可點，planned 是「製作中」卡。
+    def icon(l):
+        return calfour_svg(60) if l.get("card") == "four" else l["icon"]
+    unit_sections, nav = [], []
+    done = sum(len(u["lessons"]) for u in CAL["units"])
+    total = done + sum(len(u.get("planned", [])) for u in CAL["units"])
+    for idx, u in enumerate(CAL["units"]):
+        rows = []
+        for l in u["lessons"]:
+            rows.append((l["n"],
+                f'<a class="lc-row rvl" href="{CAL_BASE}{l["slug"]}/">'
+                f'<span class="lc-ico cg-lc-ico" aria-hidden="true">{icon(l)}</span>'
+                f'<span class="lc-body">'
+                f'<span class="lc-meta"><b>Lesson {l["n"]} · 第{_htw_cn(l["n"])}課</b><i>{html.escape(l["level"])}</i></span>'
+                f'<h3 class="lc-title">{html.escape(l["title"])}</h3>'
+                f'<span class="lc-zh">{html.escape(l["title_zh"])}</span>'
+                f'<span class="lc-bl">{html.escape(l["blurb_en"])}</span>'
+                f'<span class="lc-bl zh">{html.escape(l["blurb_zh"])}</span>'
+                f'<span class="lc-go">Start the lesson · 開始上課 <i>&rarr;</i></span>'
+                f'</span></a>'))
+        for p in u.get("planned", []):
+            rows.append((p["n"],
+                f'<div class="lc-row lc-soon rvl">'
+                f'<span class="lc-ico" aria-hidden="true">{p["icon"]}</span>'
+                f'<span class="lc-body"><span class="lc-meta"><b>Lesson {p["n"]} · 第{_htw_cn(p["n"])}課 · Coming soon 製作中</b></span>'
+                f'<h3 class="lc-title">{html.escape(p["en"])}</h3><span class="lc-zh">{html.escape(p["zh"])}</span></span></div>'))
+        rows.sort(key=lambda r: r[0])
+        band = " band" if idx % 2 == 0 else ""
+        uid = f"unit-{idx + 1}"
+        nav.append(f'<a class="unit-nav-link" href="#{uid}"><b>{idx + 1}</b><span>{html.escape(u["title_zh"])}</span></a>')
+        unit_sections.append(
+            f'<section class="section lc-unit{band}" id="{uid}"><div class="wrap">'
+            f'<p class="eyebrow rvl">Unit {idx + 1} · 單元{_htw_cn(idx + 1)}</p>'
+            f'<h2 class="rvl d1 sweep">{html.escape(u["title_en"])} <span class="tp-h2-en">{html.escape(u["title_zh"])}</span></h2>'
+            f'<p class="lead rvl d2" style="max-width:62ch">{html.escape(u["blurb_en"])}<br>'
+            f'<span class="muted">{html.escape(u["blurb_zh"])}</span></p>'
+            f'<div class="lc-list">{"".join(r[1] for r in rows)}</div>'
+            f'</div></section>')
+    unit_nav = (f'<nav class="unit-nav" aria-label="Jump to unit · 單元導覽"><div class="wrap">'
+                f'<span class="unit-nav-label">Jump to unit · 跳到單元</span>'
+                f'<div class="unit-nav-track">{"".join(nav)}</div></div></nav>')
+    intro_html = "".join(_bi(p["en"], p["zh"]) for p in CAL["intro"])
+    intro_html += _bi(f"{done} of {total} lessons are ready so far; more are on the way.",
+                      f"目前完成 {done} 課（共規劃 {total} 課），持續增加中。", cls="cg-progress")
+    lead = f'{html.escape(CAL["lead_en"])}<br><span class="muted">{html.escape(CAL["lead_zh"])}</span>'
+    body = f'''
+{page_hero(CAL["eyebrow"], f'{CAL["title_en"]} <span class="h1-zh">{CAL["title_zh"]}</span>', lead, back=("/resources/reading/", "回閱讀與經典"))}
+<section class="section"><div class="wrap">
+  <div class="prose wide rvl cg-intro"><span class="cg-intro-ic" aria-hidden="true">{calbrush_svg(76)}</span>{intro_html}</div>
+</div></section>
+{unit_nav}
+{"".join(unit_sections)}
+'''
+    write(CAL_BASE, layout(CAL_BASE, f'{CAL["title_en"]} · {CAL["title_zh"]}',
+          f'{CAL["lead_en"]} {CAL["lead_zh"]}', body, "resources", extra_head=_cal_head() + _lc_head()))
+    return CAL_BASE
+
+
 def build_poetry_hub():
     cards = []
     for pm in POEMS["poems"]:
@@ -8460,6 +8823,10 @@ def main():
         paths.append(build_chip_hub())
         for _ui, _u in enumerate(CHIP["units"]):
             for _l in _u["lessons"]: paths.append(build_chip_lesson(_ui, _u, _l))
+    if CAL:
+        paths.append(build_cal_hub())
+        for _ui, _u in enumerate(CAL["units"]):
+            for _l in _u["lessons"]: paths.append(build_cal_lesson(_ui, _u, _l))
     build_grandfather(); paths.append("/resources/grandfather/")
     build_periodicals(); paths.append("/resources/periodicals/")
     build_media_hub(); paths.append("/media/")

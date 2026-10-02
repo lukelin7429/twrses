@@ -1,0 +1,835 @@
+{
+  "title_en": "Chinese Calligraphy",
+  "title_zh": "書法",
+  "eyebrow": "Chinese Calligraphy · 書法",
+  "lead_en": "A brush, a stick of ink, a sheet of paper, and a stone. People have written with brush and ink for more than two thousand years and turned writing into an art. Watch a brush write in slow motion, then try it yourself.",
+  "lead_zh": "一枝筆、一塊墨、一張紙、一方硯。人們用筆墨寫字已經兩千多年，把寫字變成了藝術。先看毛筆慢動作怎麼寫，再自己動手試試。",
+  "intro": [
+    {
+      "en": "Every lesson starts with a question about the brush, the characters, or the people who wrote them. A 3D brush writes on Xuan paper in slow motion, one idea at a time, and an English reading explains it, with Chinese a tap away.",
+      "zh": "每一課都從一個問題開始：關於毛筆、關於字、或是寫字的人。一枝 3D 毛筆在宣紙上用慢動作寫字，一課只講清楚一件事；再讀一篇英文短文把它說明白，中文翻譯隨點隨看。"
+    },
+    {
+      "en": "At the bottom of every lesson is a practice pad. Write with a mouse, a finger, or a stylus: write slowly for a thick line and quickly for a thin one, just like a real brush. Stroke order follows Taiwan's Ministry of Education standard, and every date, name, and place has been checked against the sources listed on each page.",
+      "zh": "每一課下方都有練字板：用滑鼠、手指或觸控筆寫，寫得慢線就粗、寫得快線就細，跟真的毛筆一樣。筆順照教育部的標準；每一個年代、人名、地名都查證過，出處列在每一頁最下方。"
+    }
+  ],
+  "units": [
+    {
+      "key": "tools",
+      "title_en": "Tools and Basics",
+      "title_zh": "文房四寶與基本功",
+      "blurb_en": "The four tools on a calligrapher's desk, how a soft brush makes thick and thin lines, the eight basic strokes, and why strokes go in order.",
+      "blurb_zh": "書桌上的四樣工具、軟軟的毛筆怎麼寫出粗細、八種基本筆畫，以及筆順為什麼有先後。",
+      "lessons": [
+        {
+          "n": 1,
+          "slug": "four-treasures",
+          "title": "What Are the Four Treasures of the Study?",
+          "title_zh": "文房四寶是什麼？",
+          "level": "入門 · Beginner",
+          "icon": "🖌️",
+          "card": "four",
+          "blurb_en": "Brush, ink, paper, and inkstone: turn a scholar's desk in 3D, grind ink, drop it on two kinds of paper, and watch a brush write 一 (one) in slow motion. Then write it yourself.",
+          "blurb_zh": "筆、墨、紙、硯：在 3D 裡轉著看讀書人的書桌，磨墨、把墨滴在兩種紙上，再看毛筆慢動作寫出「一」。最後自己寫寫看。",
+          "big_idea_en": "Chinese calligraphy needs only four tools: a brush, ink, paper, and an inkstone. Each one has its secrets: brush hair can be soft or springy, ink is made from soot, Xuan paper drinks in ink, and the inkstone is where you grind the ink.",
+          "big_idea_zh": "書法只要四樣工具：筆、墨、紙、硯。每一樣都有學問：筆毛有軟有硬、墨是煙灰做的、宣紙會吸墨、硯台用來磨墨。",
+          "lab": {
+            "kind": "four",
+            "eyebrow": "3D Model · 3D 模型",
+            "title_en": "The Four Treasures on a Desk",
+            "title_zh": "書桌上的文房四寶",
+            "how_en": "Drag to turn the desk, and scroll or pinch to zoom. Tap the brush, the ink stick, the paper, or the inkstone (or use the buttons) to take a closer look at each one. Then choose Write to watch the brush dip into the ink and write 一 (one) in slow motion, from the side, from above, or right next to the tip.",
+            "how_zh": "拖曳可以旋轉書桌，滾輪或雙指可以縮放。點一下桌上的毛筆、墨條、紙或硯台（或用右邊的按鈕），就能飛過去近看。最後選「寫一筆」，看毛筆蘸墨、慢動作寫出「一」，可以從側面、正上方或貼近筆尖看。",
+            "focus": [
+              {
+                "key": "desk",
+                "icon": "🪑",
+                "en": "Desk",
+                "zh": "書桌",
+                "title_en": "Four treasures and their helpers",
+                "title_zh": "四寶和它們的小幫手",
+                "text_en": "The brush, ink, paper, and inkstone are the Four Treasures of the Study. The brush rest, the paperweight, and the water dropper are helpers, and the felt pad under the paper soaks up extra ink. Tap anything on the desk to look closer.",
+                "text_zh": "筆、墨、紙、硯就是文房四寶。筆架、紙鎮、水盂是小幫手，紙下面的毛氈會吸掉多餘的墨。點桌上任何一樣東西，就能近看。"
+              },
+              {
+                "key": "brush",
+                "icon": "筆",
+                "en": "Brush",
+                "zh": "筆",
+                "title_en": "The brush",
+                "title_zh": "毛筆",
+                "text_en": "Choose a hair, and the brush presses down on a scrap of paper with the same force each time. Soft goat hair bends the most; springy weasel hair bounces back the fastest. Then check the four virtues of a good brush.",
+                "text_zh": "選一種筆毛，毛筆每次都用同樣的力道壓在小紙片上：軟的羊毫彎得最多，有彈性的狼毫彈回最快。再看看好筆的四個條件。"
+              },
+              {
+                "key": "ink",
+                "icon": "墨",
+                "en": "Ink",
+                "zh": "墨",
+                "title_en": "The ink stick",
+                "title_zh": "墨條",
+                "text_en": "An ink stick is soot mixed with glue, pressed in a mold, and dried. Grind it in slow circles with a little water on the inkstone, and the water turns black, a little at a time.",
+                "text_zh": "墨條是煙灰加膠、壓進模子再晾乾做成的。在硯台上加一點水、慢慢畫圈磨，水就一點一點變黑。"
+              },
+              {
+                "key": "paper",
+                "icon": "紙",
+                "en": "Paper",
+                "zh": "紙",
+                "title_en": "The paper",
+                "title_zh": "宣紙",
+                "text_en": "The same drop of ink falls on raw Xuan paper and on copy paper. Raw Xuan paper drinks in the water, so the ink spreads with soft, fuzzy edges. Copy paper is sized, or coated, so the drop sits on top, shines, and stays small.",
+                "text_zh": "同一滴墨落在生宣紙和影印紙上：生宣紙會把水吸進去，墨就暈開，邊緣毛毛的；影印紙上過膠，墨珠停在表面、亮亮的，幾乎不擴散。"
+              },
+              {
+                "key": "stone",
+                "icon": "硯",
+                "en": "Inkstone",
+                "zh": "硯",
+                "title_en": "The inkstone",
+                "title_zh": "硯台",
+                "text_en": "The flat part where you grind is the grinding surface, sometimes called the hill. The deep end is the ink well, or the sea, where the finished ink collects. A water dropper adds just a few drops of water at a time.",
+                "text_zh": "磨墨的平面叫硯堂，英文叫它 the hill（山丘）；一頭深下去的地方是硯池，英文叫 the sea（海），磨好的墨流到那裡。水盂一次只加幾滴水。"
+              },
+              {
+                "key": "write",
+                "icon": "一",
+                "en": "Write",
+                "zh": "寫一筆",
+                "title_en": "Watch the brush write 一",
+                "title_zh": "看毛筆寫「一」",
+                "text_en": "The same engine will write every character in this series. Slow it down, pause it, and change the view. The curve shows how hard the brush presses along the stroke.",
+                "text_zh": "這個系列每一個字都由同一套寫字引擎來寫。可以放慢、暫停、換角度；下面的曲線是這一筆每個地方壓多重。"
+              }
+            ],
+            "virtues": [
+              {
+                "key": "tip",
+                "zh": "尖",
+                "en": "Sharp",
+                "text_en": "The hairs come to one fine point.",
+                "text_zh": "筆毛收成一個細細的尖。"
+              },
+              {
+                "key": "even",
+                "zh": "齊",
+                "en": "Even",
+                "text_en": "Pressed flat, the hair tips line up evenly.",
+                "text_zh": "壓扁攤開時，毛尖排得整整齊齊。"
+              },
+              {
+                "key": "round",
+                "zh": "圓",
+                "en": "Round",
+                "text_en": "The tuft is full and round all the way around.",
+                "text_zh": "筆頭飽滿，四周都是圓的。"
+              },
+              {
+                "key": "spring",
+                "zh": "健",
+                "en": "Springy",
+                "text_en": "After you press it, it springs back straight.",
+                "text_zh": "壓下去再放開，馬上彈回直直的。"
+              }
+            ],
+            "phases": [
+              {
+                "short_en": "Start",
+                "short_zh": "起筆",
+                "en": "Starting the stroke",
+                "zh": "起筆",
+                "text_en": "The tip goes a little to the left, against the way the stroke will go, then the brush presses down to the lower right. The tip is hidden inside the stroke, and the head comes out square.",
+                "text_zh": "筆尖先往左逆著走一點，再往右下按：筆尖藏在筆畫裡（藏鋒），起頭方方正正。"
+              },
+              {
+                "short_en": "Move",
+                "short_zh": "行筆",
+                "en": "Moving along",
+                "zh": "行筆",
+                "text_en": "The handle stays upright and the brush moves steadily to the right, a little uphill. The tip runs along the middle of the line, so the stroke is round and full.",
+                "text_zh": "筆桿直立，穩穩地往右、稍微往上走；筆尖走在線的中間（中鋒），線條圓潤飽滿。"
+              },
+              {
+                "short_en": "Finish",
+                "short_zh": "收筆",
+                "en": "Finishing",
+                "zh": "收筆",
+                "text_en": "Near the end the brush lifts a little, presses down to the lower right again, then turns back to the left and lifts off. The end is rounded, and the tip finishes inside the stroke.",
+                "text_zh": "快到終點時先稍微提起，再往右下一按，然後往回收、提筆離紙（回鋒）：收尾圓潤，筆尖收在筆畫裡。"
+              }
+            ],
+            "legend": [
+              {
+                "cls": "cgt",
+                "en": "Gold labels: the Four Treasures",
+                "zh": "金色標籤：文房四寶"
+              },
+              {
+                "cls": "cgh",
+                "en": "White labels: helpers on the desk and parts of each treasure",
+                "zh": "白色標籤：桌上的小幫手、各部位的名稱"
+              },
+              {
+                "cls": "cgg",
+                "en": "Red lines: the 米 grid printed on practice paper",
+                "zh": "紅線：練習紙上的米字格"
+              },
+              {
+                "cls": "cgf",
+                "en": "Gold curve: how hard the brush presses along the stroke",
+                "zh": "金色曲線：這一筆每個地方壓多重"
+              }
+            ],
+            "scale_en": "A teaching model. Sizes are roughly real: the brush is about 26 centimeters long, and the grid on the paper is 26 centimeters wide. How far ink spreads, how fast the water turns black, and how much each kind of hair bends are illustrations, not measurements. The stroke 一 is hand-drawn as a centerline with a pressure for every point.",
+            "scale_zh": "這是教學用的示意模型。大小大約照真的：毛筆約 26 公分長，紙上的格子 26 公分寬。墨暈開多遠、水變黑多快、各種筆毛彎多少，都是示意，不是量測。「一」這一筆是自己手繪的中心線，每一點都有壓力。",
+            "credit_html": "Model, stroke data, and the writing engine are drawn and programmed by My Culture Connect. Stroke order follows the Ministry of Education's <a href=\"https://stroke-order.learningweb.moe.edu.tw/\" target=\"_blank\" rel=\"noopener\">Stroke Order of Standard Chinese Characters</a> website. · 模型、筆畫資料與寫字引擎由人師教育協會自繪、自寫；筆順依教育部《國字標準字體筆順學習網》。"
+          },
+          "paras": [
+            "Calligraphy is the art of beautiful writing. In Chinese calligraphy, people write characters with a soft brush and black ink, and they need only four tools: a brush, an ink stick, paper, and an inkstone. Together these are called the Four Treasures of the Study, because for centuries they sat on the desk in a scholar's study. People have written with brushes for a very long time. The oldest brush ever found came from a tomb near Changsha and is more than 2,200 years old.",
+            "The brush is a bundle of animal hair tied into a point and fixed to a bamboo handle. Soft white goat hair holds a lot of ink and makes round, gentle lines. Springy brown hair from the tail of a weasel makes sharp, strong lines. In Chinese it is called “wolf hair,” but it usually comes from a weasel. Many brushes mix the two kinds. A good brush has four virtues: its tip is sharp, its hairs are even, its body is round, and it springs back after you press it.",
+            "An ink stick looks like a small black bar, but it is made from soot. Makers burn pine wood or oil, collect the fine black soot, mix it with glue, and press it into molds to dry. To make liquid ink, you put a few drops of water on the inkstone and rub the stick in slow circles. Bit by bit, the soot comes off, and the water turns black. Grinding takes time, so many people today use bottled ink, but grinding is also a calm way to get ready to write.",
+            "Calligraphers often write on Xuan paper, which is named after Xuanzhou in Anhui Province, China. It is made by hand from the bark of the blue sandalwood tree and rice straw. Raw Xuan paper drinks in water, so a drop of ink spreads out with soft edges, and the paper shows every move of the brush. Copy paper is different. It is sized, or coated, so the water cannot soak in, and the ink sits on top. In Taiwan, the town of Puli has made handmade paper since the Japanese era.",
+            "The inkstone is a flat piece of fine, hard stone. Its surface is smooth but a little rough, just enough to grind the ink stick quickly. The flat part where you grind is called the hill, and the deep part at one end is called the sea, where the finished ink collects. Some of the most famous inkstones are Duan inkstones, carved from purple stone near Zhaoqing in Guangdong Province, an area that was called Duanzhou in the Tang dynasty.",
+            "Calligraphy is not only for experts or for grandparents. In Taiwan, students begin writing with a brush in third or fourth grade, and many people write spring couplets for the Lunar New Year. You do not even need ink to start: a brush dipped in clean water can practice on old newspaper or on a water-writing cloth, where the marks fade as they dry. In this lesson, first watch the 3D brush write the character 一 (one) in slow motion. Then try writing it yourself on the practice pad."
+          ],
+          "paras_zh": [
+            "書法是把字寫得美的藝術。寫中國書法要用柔軟的毛筆和黑色的墨，而且只需要四樣工具：筆、墨條、紙和硯台。這四樣合稱「文房四寶」，因為幾百年來它們就擺在讀書人書房的桌上。人們用毛筆寫字已經很久很久了：目前找到最古老的毛筆，出土於長沙附近的一座墓，已經有兩千兩百多年。",
+            "毛筆是一束動物的毛，紮成尖尖的形狀，裝在竹子做的筆桿上。軟軟的白色羊毛（羊毫）吸得住很多墨，寫出來的線條圓潤柔和；黃鼠狼尾巴上有彈性的褐色毛，寫出來的線條銳利有力。這種毛中文叫「狼毫」，其實通常來自黃鼠狼。很多毛筆把兩種毛混在一起（兼毫）。好的毛筆有四個條件：筆尖要尖、毛要齊、筆肚要圓、壓下去要能彈回來（尖、齊、圓、健）。",
+            "墨條看起來像一根黑色的小棒子，其實是用煙灰做的。做墨的人燒松木或油，收集細細的黑色煙灰，加上膠拌勻，壓進模子裡晾乾。要變成墨汁，就在硯台上滴幾滴水，拿墨條慢慢畫圈磨：煙灰一點一點磨下來，水就變黑了。磨墨很花時間，所以今天很多人用瓶裝的墨汁；不過磨墨也是寫字前讓心安靜下來的好方法。",
+            "書法家常寫在宣紙上。宣紙的名字來自中國安徽的宣州，是用青檀樹的樹皮和稻草手工做成的。生宣紙會把水吸進去，所以一滴墨會暈開、邊緣柔柔的，筆的每一個動作都看得出來。影印紙就不一樣了：它上過膠，水滲不進去，墨就停在表面。在台灣，埔里從日治時代就開始做手工紙。",
+            "硯台是一塊扁平、細緻又堅硬的石頭。它的表面光滑，卻又帶一點點粗，剛好能把墨條很快磨下來。磨墨的平面叫「硯堂」，英文叫它「山丘」（the hill）；一頭深下去的地方叫「硯池」，英文叫它「海」（the sea），磨好的墨就流到那裡。最有名的硯台之一是端硯，用廣東肇慶附近的紫色石頭雕成；這一帶在唐代叫端州。",
+            "書法不是只有專家或爺爺奶奶在寫。在台灣，學生在三、四年級就開始學寫毛筆字，過農曆年時也有很多人寫春聯。開始練習甚至不需要墨：毛筆蘸清水，就能在舊報紙或水寫布上練習，水痕乾了就消失。這一課，先看 3D 毛筆用慢動作寫出「一」，再到練字板上自己寫寫看。"
+          ],
+          "questions": [
+            "What are the Four Treasures of the Study, and why do they have that name?",
+            "How do you turn an ink stick into liquid ink?",
+            "Why does a drop of ink spread on raw Xuan paper but not on copy paper?"
+          ],
+          "answers": [
+            "They are the brush, the ink stick, paper, and the inkstone. They have that name because for centuries they sat on the desk in a scholar's study.",
+            "Put a few drops of water on the inkstone and rub the ink stick in slow circles until the soot comes off and the water turns black.",
+            "Raw Xuan paper drinks in water, so the ink spreads. Copy paper is sized, or coated, so the water cannot soak in and the ink stays on top."
+          ],
+          "vocab": [
+            {
+              "n": 1,
+              "w": "calligraphy",
+              "pos": "n.",
+              "zh": "書法",
+              "ex": "My grandfather practices <b>calligraphy</b> every morning before breakfast.",
+              "exzh": "我爺爺每天早餐前都會練書法。"
+            },
+            {
+              "n": 2,
+              "w": "treasure",
+              "pos": "n.",
+              "zh": "寶物；珍寶",
+              "ex": "This old map is the family's greatest <b>treasure</b>.",
+              "exzh": "這張舊地圖是這家人最珍貴的寶物。"
+            },
+            {
+              "n": 3,
+              "w": "study",
+              "pos": "n.",
+              "zh": "書房",
+              "ex": "Dad reads in his <b>study</b> after dinner.",
+              "exzh": "爸爸晚飯後在書房看書。"
+            },
+            {
+              "n": 4,
+              "w": "soot",
+              "pos": "n.",
+              "zh": "煙灰；煤灰",
+              "ex": "The old chimney was black with <b>soot</b>.",
+              "exzh": "老煙囪被煙灰燻得黑黑的。"
+            },
+            {
+              "n": 5,
+              "w": "grind",
+              "pos": "v.",
+              "zh": "磨；研磨",
+              "ex": "We <b>grind</b> the coffee beans just before we make coffee.",
+              "exzh": "我們泡咖啡前才把咖啡豆磨碎。"
+            },
+            {
+              "n": 6,
+              "w": "absorb",
+              "pos": "v.",
+              "zh": "吸收",
+              "ex": "A sponge can <b>absorb</b> a lot of water.",
+              "exzh": "海綿可以吸收很多水。"
+            },
+            {
+              "n": 7,
+              "w": "spread",
+              "pos": "v.",
+              "zh": "擴散；蔓延",
+              "ex": "The spilled juice <b>spread</b> across the table.",
+              "exzh": "打翻的果汁在桌上擴散開來。"
+            },
+            {
+              "n": 8,
+              "w": "springy",
+              "pos": "adj.",
+              "zh": "有彈性的",
+              "ex": "The new mattress feels soft but <b>springy</b>.",
+              "exzh": "新床墊摸起來軟軟的，卻很有彈性。"
+            }
+          ],
+          "quiz": [
+            {
+              "q": "Which of these is NOT one of the Four Treasures of the Study?",
+              "options": [
+                "A ballpoint pen",
+                "A brush",
+                "An inkstone",
+                "An ink stick"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "What is an ink stick mainly made of?",
+              "options": [
+                "Soot mixed with glue",
+                "Black stone",
+                "Dried tea leaves",
+                "Charcoal and sugar"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "Which brush hair is the softest?",
+              "options": [
+                "Goat hair",
+                "Weasel hair",
+                "Mixed hair",
+                "Plastic hair"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "On an inkstone, where does the finished ink collect?",
+              "options": [
+                "In the deep well, called the sea",
+                "On the flat hill",
+                "In the water dropper",
+                "On the brush rest"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "What happens to a drop of ink on raw Xuan paper?",
+              "options": [
+                "It spreads out with soft edges",
+                "It stays a small, shiny bead",
+                "It turns blue",
+                "It rolls off the paper"
+              ],
+              "correct": 0
+            }
+          ],
+          "parts_head": {
+            "eyebrow": "Try It in the Model · 在模型裡試試",
+            "en": "One card for each treasure",
+            "zh": "每一寶一張卡"
+          },
+          "parts": [
+            {
+              "key": "brush",
+              "icon": "brush",
+              "en": "The brush",
+              "zh": "筆",
+              "meta_en": "Goat, mixed, or weasel hair",
+              "meta_zh": "羊毫、兼毫、狼毫",
+              "demo": "brush",
+              "text_en": "Press three kinds of brushes with the same force. Which bends the most, and which springs back the fastest?",
+              "text_zh": "用同樣的力道壓三種毛筆：哪一種彎得最多？哪一種彈回最快？"
+            },
+            {
+              "key": "ink",
+              "icon": "ink",
+              "en": "The ink stick",
+              "zh": "墨",
+              "meta_en": "Soot and glue, ground with water",
+              "meta_zh": "煙灰加膠，加水來磨",
+              "demo": "ink",
+              "text_en": "Grind the ink stick in circles on the inkstone and watch the water turn black.",
+              "text_zh": "拿墨條在硯台上畫圈磨，看水慢慢變黑。"
+            },
+            {
+              "key": "paper",
+              "icon": "paper",
+              "en": "The paper",
+              "zh": "紙",
+              "meta_en": "Raw Xuan paper vs. copy paper",
+              "meta_zh": "生宣紙 vs. 影印紙",
+              "demo": "paper",
+              "text_en": "Drop the same ink on two papers and compare how far it spreads.",
+              "text_zh": "把同一滴墨滴在兩種紙上，比比看暈開多遠。"
+            },
+            {
+              "key": "stone",
+              "icon": "stone",
+              "en": "The inkstone",
+              "zh": "硯",
+              "meta_en": "The hill and the sea",
+              "meta_zh": "硯堂與硯池",
+              "demo": "stone",
+              "text_en": "Find where you grind the ink and where the finished ink collects.",
+              "text_zh": "找出在哪裡磨墨、磨好的墨流到哪裡。"
+            }
+          ],
+          "parts_note_en": "Then choose Write in the model to watch all four treasures work together.",
+          "parts_note_zh": "最後在模型裡選「寫一筆」，看四寶一起合作。",
+          "drops": {
+            "eyebrow": "Try It · 動手試試",
+            "en": "A Drop of Ink on Different Papers",
+            "zh": "一滴墨在不同的紙上",
+            "lead_en": "Choose thick, medium, or light ink, and the same drop falls on four papers at once. The number shows how many times wider the spot has grown than the drop. It is an illustration of how each paper takes in water, not a lab measurement.",
+            "lead_zh": "選濃墨、中墨或淡墨，同一滴墨同時落在四種紙上。數字是墨跡比剛落下時寬了幾倍。這是依照各種紙吸水的情形畫的示意，不是實驗量測。",
+            "papers": [
+              {
+                "key": "xuan",
+                "en": "Raw Xuan paper",
+                "zh": "生宣紙",
+                "text_en": "Not sized, so it drinks water fast. The ink spreads with fuzzy edges and a pale ring of water.",
+                "text_zh": "沒上膠，吸水很快：墨暈開，邊緣毛毛的，外圈還有一圈淡淡的水痕。"
+              },
+              {
+                "key": "shu",
+                "en": "Sized Xuan paper",
+                "zh": "熟宣紙",
+                "text_en": "Brushed with alum, so it takes in much less water. Good for fine, careful painting.",
+                "text_zh": "刷過明礬，吸水少得多，適合畫細緻的工筆畫。"
+              },
+              {
+                "key": "news",
+                "en": "Newspaper",
+                "zh": "報紙",
+                "text_en": "Soft and thirsty, but uneven. Great for practicing with clean water.",
+                "text_zh": "軟軟的、很會吸水，但不均勻。用清水練字很適合。"
+              },
+              {
+                "key": "copy",
+                "en": "Copy paper",
+                "zh": "影印紙",
+                "text_en": "Sized and smooth. The drop sits on top, shines, and takes a long time to dry.",
+                "text_zh": "上過膠、很光滑：墨珠停在表面、亮亮的，很久才乾。"
+              }
+            ],
+            "inks": [
+              {
+                "key": "thick",
+                "en": "Thick ink",
+                "zh": "濃墨"
+              },
+              {
+                "key": "mid",
+                "en": "Medium ink",
+                "zh": "中墨"
+              },
+              {
+                "key": "light",
+                "en": "Light ink",
+                "zh": "淡墨"
+              }
+            ]
+          },
+          "pad": {
+            "eyebrow": "Practice Pad · 練字板",
+            "en": "Write 一 yourself",
+            "zh": "自己寫一個「一」",
+            "char": "yi",
+            "lead_en": "Trace the faint red 一 with a mouse, a finger, or a stylus. Move slowly for a thick line and quickly for a thin one; with a stylus, pressing harder makes the line thicker. Tap Watch the demo to see the brush write it first, and save your best one as a picture.",
+            "lead_zh": "用滑鼠、手指或觸控筆，描寫淡紅色的「一」。寫得慢線就粗，寫得快線就細；用觸控筆時，越用力越粗。先按「看示範」看毛筆怎麼寫，寫得滿意就存成圖片。",
+            "tips": [
+              {
+                "en": "Start by pressing down to the lower right, like the brush in the model.",
+                "zh": "起筆先往右下按，就像模型裡的毛筆。"
+              },
+              {
+                "en": "Move at a steady speed through the middle, a little uphill.",
+                "zh": "中間用穩定的速度走，稍微往上斜。"
+              },
+              {
+                "en": "At the end, slow down, press, and lift.",
+                "zh": "最後放慢、按一下，再提起來。"
+              }
+            ]
+          },
+          "links_head": {
+            "eyebrow": "Coming Next · 下一課預告",
+            "en": "From four tools to the first stroke",
+            "zh": "從四樣工具到第一筆"
+          },
+          "links": [
+            {
+              "soon": true,
+              "icon": "〰️",
+              "k_en": "Lesson 2 · Coming soon",
+              "k_zh": "第二課・製作中",
+              "en": "How Does a Brush Make Thick and Thin Lines?",
+              "zh": "一枝毛筆怎麼寫出粗細？",
+              "note_en": "Press down and the hairs spread for a thick line; lift up and they gather for a thin one. Next time, we slow down the start, the middle, and the end of a stroke, and learn how to hold the brush.",
+              "note_zh": "往下壓，筆毛散開線就粗；往上提，筆毛收攏線就細。下一課把起筆、行筆、收筆分開放慢看，也學怎麼拿毛筆。"
+            }
+          ],
+          "culture_cards": {
+            "eyebrow": "Stories of the Four Treasures · 四寶的故事",
+            "title_en": "Four places, a famous name, Taiwan's paper, and an old saying",
+            "title_zh": "四個產地、一個名稱、台灣的紙、一句成語",
+            "lead_en": "Four short stories behind the tools on the desk.",
+            "lead_zh": "書桌上這幾樣工具背後的四個小故事。",
+            "cards": [
+              {
+                "k": "Four Places · 四個產地",
+                "en": "Where the famous treasures come from",
+                "zh": "四寶的故鄉",
+                "body_en": "The best-known treasures are named after the places that made them famous. Hu brushes come from Huzhou in Zhejiang, where the town of Shanlian still makes them by hand. Hui ink comes from old Huizhou in Anhui, and She County still makes it. Xuan paper is named after Xuanzhou in Anhui and is made in Jing County; in 2009 the craft was added to UNESCO's list of the Intangible Cultural Heritage of Humanity. Duan inkstones are carved near Zhaoqing in Guangdong, which was called Duanzhou in the Tang dynasty.",
+                "body_zh": "最有名的四寶，常用產地來稱呼。湖筆出自浙江湖州，善璉鎮至今還在手工製筆；徽墨出自安徽古徽州，歙縣至今仍在製墨；宣紙因安徽宣州得名，產在涇縣，2009 年宣紙傳統製作技藝列入聯合國教科文組織的人類非物質文化遺產代表作名錄；端硯雕自廣東肇慶附近，肇慶在唐代叫端州。"
+              },
+              {
+                "k": "The Name · 這個說法",
+                "en": "Where “the Four Treasures of the Study” comes from",
+                "zh": "「文房四寶」這個說法",
+                "body_en": "Wenfang (文房) means a scholar's study, the room for reading and writing. In the late 900s, Su Yijian, an official of the Song dynasty, wrote a whole book about the four tools, the Wenfang Sipu (Four Records of the Study): two parts on brushes, and one part each on inkstones, ink, and paper. Another Song writer, Ye Mengde, wrote down a saying of his time: “Shezhou has the Four Treasures of the Study,” meaning brush, ink, paper, and inkstone. In 1121, Shezhou was renamed Huizhou, the home of Hui ink.",
+                "body_zh": "「文房」是讀書人的書房，讀書寫字的地方。北宋官員蘇易簡在十世紀後半寫了一整本講這四樣工具的書《文房四譜》：筆兩卷，硯、墨、紙各一卷。宋代的葉夢得也記下當時的說法：「世言歙州有文房四寶，謂筆、墨、紙、硯也。」歙州在 1121 年改名徽州，也就是徽墨的故鄉。"
+              },
+              {
+                "k": "Made in Taiwan · 台灣的紙",
+                "en": "Handmade paper from Puli",
+                "zh": "埔里的手工紙",
+                "body_en": "Puli, near the geographic center of Taiwan, is known for its clean water, and papermakers need clean water. Handmade papermaking skills from Japan and China came to Puli during the Japanese era, and after World War II, through the 1960s and 1970s, Puli's handmade paper enjoyed a short export boom. From the 1980s the industry shrank, as many mills closed or moved to mainland China or Southeast Asia, and after the 1999 earthquake even fewer remained. Some of the mills still working now welcome visitors, who can watch paper being made and try making a sheet themselves.",
+                "body_zh": "埔里位在台灣地理中心附近，以水質純淨聞名，而造紙最需要好水。日治時期，日本和中國的手工造紙技術傳進埔里；二戰後到 1960、70 年代，埔里的手工紙曾短暫外銷興盛。1980 年代起產業逐漸萎縮，許多紙廠關門，或搬到中國大陸、東南亞設廠；1999 年九二一地震後，紙廠又更少了。還在做紙的紙廠，有些開放參觀，可以看師傅抄紙，也能自己動手做一張。"
+              },
+              {
+                "k": "A Saying · 一句成語",
+                "en": "Three fen into the wood: 入木三分",
+                "zh": "入木三分",
+                "body_en": "An old story says that Wang Xizhi, the great calligrapher of the Eastern Jin dynasty, once wrote on a wooden board for a ceremony. Later, when workers shaved the board to write on it again, they found his ink had soaked three fen deep into the wood (a fen is a small old unit of length). Today 入木三分 describes powerful brushwork, and also a comment or description that goes deep and gets right to the point.",
+                "body_zh": "相傳東晉書法家王羲之曾在祭祀用的木板上寫字，後來工人要把木板削掉重寫，發現墨跡滲進木頭有三分深（分是古代很小的長度單位）。今天「入木三分」用來形容筆力強勁，也比喻評論深刻中肯、描寫生動逼真。"
+              }
+            ]
+          },
+          "myths": [
+            {
+              "myth_en": "You need bottled ink to write calligraphy.",
+              "myth_zh": "寫毛筆字一定要用墨汁。",
+              "fact_en": "For centuries, ink was ground fresh from an ink stick on an inkstone. Bottled ink is a modern shortcut that many classes use, and beginners can even practice with plain water on newspaper or a water-writing cloth.",
+              "fact_zh": "幾百年來，墨都是拿墨條在硯台上現磨的。瓶裝墨汁是現代的方便做法，很多課堂都用；初學的人甚至可以只用清水，在報紙或水寫布上練習。"
+            },
+            {
+              "myth_en": "Xuan paper is just ordinary white paper.",
+              "myth_zh": "宣紙就是普通的白紙。",
+              "fact_en": "Xuan paper is made by hand from tree bark and rice straw. Raw Xuan paper is not sized, so it drinks in water and makes ink spread; copy paper is sized and smooth, so ink sits on top. The English name “rice paper” is misleading, too: the fibers come from bark and straw, not from rice grains.",
+              "fact_zh": "宣紙是用樹皮和稻草手工做的。生宣紙沒上膠，會吸水、讓墨暈開；影印紙上過膠又光滑，墨停在表面。英文常說的「rice paper（米紙）」也容易誤會：纖維來自樹皮和稻草，不是米粒。"
+            },
+            {
+              "myth_en": "The softer the brush, the easier it is to write.",
+              "myth_zh": "筆毛越軟越好寫。",
+              "fact_en": "Soft goat hair holds lots of ink, but it bends a lot and springs back slowly, so it is hard to control. Springier weasel-hair or mixed-hair brushes are often easier for beginners.",
+              "fact_zh": "軟的羊毫吸墨多，可是彎得多、彈回得慢，比較難控制。有彈性的狼毫或兼毫，對初學者常常比較好寫。"
+            },
+            {
+              "myth_en": "Only old people write calligraphy.",
+              "myth_zh": "書法只有老人家在寫。",
+              "fact_en": "In Taiwan, students start writing with a brush in third or fourth grade as part of their Chinese lessons, and people of all ages write spring couplets for the Lunar New Year.",
+              "fact_zh": "在台灣，學生三、四年級就在國語課學寫毛筆字；過農曆年寫春聯的，也是男女老少都有。"
+            }
+          ],
+          "tricks": [
+            {
+              "title_en": "Brush, ink, paper, stone",
+              "title_zh": "筆、墨、紙、硯",
+              "body_en": "Four tools on one desk: the Four Treasures of the Study.",
+              "body_zh": "四樣工具一張桌：文房四寶。"
+            },
+            {
+              "title_en": "Sharp, even, round, springy",
+              "title_zh": "尖、齊、圓、健",
+              "body_en": "A good brush comes to a point, lines up evenly, stays round, and springs back.",
+              "body_zh": "好筆四個條件：筆尖尖、毛整齊、筆肚圓、有彈性。"
+            },
+            {
+              "title_en": "Grind slowly, in circles",
+              "title_zh": "磨墨畫圓，慢慢來",
+              "body_en": "A few drops of water, small circles, and patience make dark ink.",
+              "body_zh": "幾滴水、畫小圓、有耐心，墨就黑了。"
+            },
+            {
+              "title_en": "Raw paper drinks, copy paper doesn't",
+              "title_zh": "生宣會喝水，影印紙不喝",
+              "body_en": "On raw Xuan paper, ink spreads; on sized paper, it stays put.",
+              "body_zh": "墨在生宣紙上會暈開，在上過膠的紙上停在原地。"
+            }
+          ],
+          "safety": [
+            {
+              "en": "Ink stains clothes and is very hard to wash out. Wear old clothes or an apron, and roll up your sleeves.",
+              "zh": "墨沾到衣服很難洗掉：穿舊衣服或圍裙，袖子捲起來。"
+            },
+            {
+              "en": "Cover the desk with old newspaper, and keep the ink in a heavy, steady dish so it will not tip over.",
+              "zh": "桌上先鋪舊報紙；墨要裝在重一點、放得穩的碟子裡，免得打翻。"
+            },
+            {
+              "en": "Do not put the brush, the ink, or the ink stick in your mouth, and do not lick the brush tip to shape it.",
+              "zh": "毛筆、墨汁、墨條都不要放進嘴裡，也不要用嘴巴舔筆尖。"
+            },
+            {
+              "en": "Inkstones are heavy stone. Carry them with two hands, and set them down gently.",
+              "zh": "硯台是石頭，很重：用兩隻手拿，輕輕放下。"
+            },
+            {
+              "en": "After writing, wash the brush in clean water until the water runs clear, gently shape it into a point, and hang it tip-down or lay it flat to dry. Wash your hands, too.",
+              "zh": "寫完後用清水洗筆，洗到水變清為止；輕輕把筆毛理成尖形，筆尖朝下掛起來或平放晾乾。也要洗手。"
+            }
+          ],
+          "activities": [
+            {
+              "title_en": "Practice with Water: Horizontal Lines",
+              "title_zh": "用清水練橫線",
+              "materials": [
+                {
+                  "en": "A brush of any size",
+                  "zh": "一枝毛筆（大小都可以）"
+                },
+                {
+                  "en": "A cup of clean water",
+                  "zh": "一杯清水"
+                },
+                {
+                  "en": "Old newspaper or a water-writing cloth",
+                  "zh": "舊報紙或水寫布"
+                },
+                {
+                  "en": "A paper towel",
+                  "zh": "一張紙巾"
+                }
+              ],
+              "steps": [
+                {
+                  "en": "Dip the brush in the water, then wipe it on the edge of the cup so it is wet but not dripping.",
+                  "zh": "毛筆蘸水，在杯緣刮一刮，讓它濕濕的但不會滴水。"
+                },
+                {
+                  "en": "Hold the brush straight up, like the brush in the 3D model.",
+                  "zh": "像 3D 模型裡的毛筆一樣，把筆桿拿直。"
+                },
+                {
+                  "en": "Write a row of horizontal lines from left to right. Press down at the start, move steadily, then press and lift at the end.",
+                  "zh": "由左到右寫一排橫線：起筆往下按、中間穩穩地走、最後按一下再提起。"
+                },
+                {
+                  "en": "Write one line slowly and one line quickly. Which is thicker? Watch the water marks fade as they dry, then write again in the same place.",
+                  "zh": "一條慢慢寫、一條快快寫：哪一條比較粗？看水痕乾掉慢慢消失，再在同一個地方重寫。"
+                }
+              ],
+              "tip_en": "Water writing is clean and cheap, and you can repeat it as many times as you like, so it works well for a whole class. Newspaper soaks up water a bit like raw Xuan paper, so it also shows how ink would spread.",
+              "tip_zh": "用清水練字乾淨又省錢，想寫幾次就寫幾次，很適合全班一起練。報紙吸水的樣子有點像生宣紙，也看得出墨會怎麼暈開。"
+            },
+            {
+              "title_en": "The Ink-Grinding Race: How Many Circles Make Black Ink?",
+              "title_zh": "磨墨比賽：磨幾圈水才夠黑？",
+              "materials": [
+                {
+                  "en": "For each team: an inkstone, an ink stick, and a water dropper or a small spoon",
+                  "zh": "每一組：一個硯台、一條墨條、一個水盂或小湯匙"
+                },
+                {
+                  "en": "Strips of white paper (raw Xuan paper if you have it)",
+                  "zh": "白紙條（有生宣紙更好）"
+                },
+                {
+                  "en": "A record sheet and a pencil",
+                  "zh": "一張紀錄表和一枝鉛筆"
+                },
+                {
+                  "en": "Old newspaper to cover the desks",
+                  "zh": "舊報紙，鋪在桌上"
+                }
+              ],
+              "steps": [
+                {
+                  "en": "Every team puts the same amount of water on the grinding surface, for example five drops.",
+                  "zh": "每一組在硯堂上放一樣多的水，例如 5 滴。"
+                },
+                {
+                  "en": "One student grinds in small, slow circles, pressing gently, while a teammate counts the circles.",
+                  "zh": "一個人輕輕地、慢慢地畫小圓磨墨，隊友數圈數。"
+                },
+                {
+                  "en": "Every 20 circles, dab a little ink onto a paper strip and write the number of circles beside it.",
+                  "zh": "每磨 20 圈，在紙條上點一點墨，旁邊寫上圈數。"
+                },
+                {
+                  "en": "Stop at 100 circles. Line up the strips from every team and compare: whose ink got darkest? Did grinding faster or pressing harder help?",
+                  "zh": "磨到 100 圈就停。把各組的紙條排在一起比較：誰的墨最黑？磨得快、壓得重有沒有幫助？"
+                }
+              ],
+              "tip_en": "An old saying goes: grind ink as gently as a sick man, and hold the brush as firmly as a strong man. Pressing hard makes rough, gritty ink. After grinding, wipe the ink stick dry so it does not stick to the stone or crack.",
+              "tip_zh": "有句老話說：「磨墨如病夫，執筆如壯士。」用力壓反而磨出粗粗的墨。磨完要把墨條擦乾，免得黏在硯上或裂開。"
+            }
+          ],
+          "sources": [
+            {
+              "en": "Brush hair from deer, goat, sable, rabbit, and other animals; ink sticks of pine soot or lampblack mixed with glue and pressed in molds; ink ground with water on an inkstone; an inkstone fine and smooth yet abrasive; “rice paper” is a misnomer",
+              "zh": "筆毛來自鹿、羊、貂、兔等；墨條是松煙或油煙加膠壓模；在硯上加水磨墨；硯面細滑又帶點粗；「rice paper」是誤稱",
+              "src": "Smithsonian National Museum of Asian Art, “Four Treasures of a Scholar's Studio”",
+              "url": "https://asia-archive.si.edu/learn/chinas-calligraphic-arts/four-treasures"
+            },
+            {
+              "en": "Hu brushes made in Shanlian, Huzhou; Hui ink still made in She County; Xuan paper from Jing County; goat, weasel, and mixed hair; soot from lacquer, pine, or oil",
+              "zh": "湖筆產於湖州善璉；徽墨今產於歙縣；宣紙產於涇縣；羊毫、狼毫、兼毫；油煙、松煙",
+              "src": "Wikipedia, “Four Treasures of the Study”",
+              "url": "https://en.wikipedia.org/wiki/Four_Treasures_of_the_Study"
+            },
+            {
+              "en": "The earliest intact brush was found in 1954 in a Warring States (475–221 BCE) tomb near Changsha; the Meng Tian invention story is a legend; soft (goat), hard (weasel), and mixed hair",
+              "zh": "最早的完整毛筆 1954 年出土於長沙附近的戰國墓（西元前 475–221 年）；蒙恬造筆是傳說；軟毫（羊）、硬毫（黃鼠狼）、兼毫",
+              "src": "Wikipedia, “Ink brush”",
+              "url": "https://en.wikipedia.org/wiki/Ink_brush"
+            },
+            {
+              "en": "Xuan paper: bark of Pteroceltis tatarinowii (blue sandalwood), Jing County under Xuanzhou; raw Xuan absorbs water and blurs ink; sized (Shu) Xuan has an alum sizing",
+              "zh": "宣紙用青檀樹皮，產於宣州轄下的涇縣；生宣吸水、墨會暈開；熟宣上過明礬",
+              "src": "Wikipedia, “Xuan paper”",
+              "url": "https://en.wikipedia.org/wiki/Xuan_paper"
+            },
+            {
+              "en": "Traditional handicrafts of making Xuan paper, inscribed in 2009 on the Representative List of the Intangible Cultural Heritage of Humanity",
+              "zh": "宣紙傳統製作技藝，2009 年列入人類非物質文化遺產代表作名錄",
+              "src": "UNESCO Intangible Cultural Heritage",
+              "url": "https://ich.unesco.org/en/RL/traditional-handicrafts-of-making-xuan-paper-00199"
+            },
+            {
+              "en": "The inkstone's flat “hill” for grinding and hollow “sea” for the ink; Duan inkstones from Zhaoqing, named after Duan Prefecture of the Tang dynasty",
+              "zh": "硯磨墨的平面（英文 hill）與裝墨的凹處（sea）；端硯產於肇慶，名稱來自唐代的端州",
+              "src": "Wikipedia, “Inkstone”",
+              "url": "https://en.wikipedia.org/wiki/Inkstone"
+            },
+            {
+              "en": "Su Yijian's Wenfang Sipu (Northern Song, late 10th century): two parts on brushes, one each on inkstones, ink, and paper; Ye Mengde's record of the saying “Shezhou has the Four Treasures of the Study”",
+              "zh": "蘇易簡《文房四譜》（北宋，十世紀後半）：筆譜二卷、硯墨紙譜各一卷；葉夢得記「世言歙州有文房四寶」",
+              "src": "Heibonsha World Encyclopedia, “文房四宝” and “文房四譜” (Kotobank)",
+              "url": "https://kotobank.jp/word/%E6%96%87%E6%88%BF%E5%9B%9B%E5%AE%9D-128671"
+            },
+            {
+              "en": "Shezhou was renamed Huizhou in 1121 (third year of Xuanhe, Song dynasty)",
+              "zh": "宋宣和三年（1121 年）歙州改名徽州",
+              "src": "維基百科「徽州」",
+              "url": "https://zh.wikipedia.org/zh-tw/%E5%BE%BD%E5%B7%9E"
+            },
+            {
+              "en": "Puli's clean water; handmade papermaking skills from Japan and China since the Japanese era; a short export boom after WWII through the 1960s–70s; decline from the 1980s; mills closing or moving abroad after 1991; fewer mills after the 1999 earthquake; Kuang Hsing Paper Mill's turn to tourism",
+              "zh": "埔里水質純淨；日治時代起引進日本與中國的手工造紙技術；二戰後至 1960–70 年代短暫外銷榮景；1980 年代起沒落；1991 年後紙廠歇業或外移；九二一地震後逐年遞減；廣興紙寮轉型觀光",
+              "src": "國立臺灣工藝研究發展中心《臺灣工藝》季刊，簡政展〈藝有所紙，紙點迷津─廣興紙寮〉（2018）",
+              "url": "https://themefile.culture.tw/ntcri/quarterly/files/f55cb439-eefa-48a4-837b-f36b0a899d55.pdf"
+            },
+            {
+              "en": "入木三分: ink soaked three fen into the wood, describing powerful brushwork; later used for deep, apt comments or vivid descriptions; traced to Yang Xin's Bizhen Tu",
+              "zh": "入木三分：墨跡深透木板三分，形容筆力遒勁；後比喻評論深刻中肯或描寫生動逼真；語出南朝宋羊欣《筆陣圖》",
+              "src": "教育部《成語典》「入木三分」",
+              "url": "https://dict.idioms.moe.edu.tw/idiomView.jsp?ID=58&q=1"
+            },
+            {
+              "en": "The story of Wang Xizhi's ceremonial board (“工人削之，筆入木三分”)",
+              "zh": "王羲之祝版的故事（「工人削之，筆入木三分」）",
+              "src": "《太平廣記》卷二百七（維基文庫）",
+              "url": "https://zh.wikisource.org/zh-hant/%E5%A4%AA%E5%B9%B3%E5%BB%A3%E8%A8%98/%E5%8D%B7%E7%AC%AC207"
+            },
+            {
+              "en": "Taiwan's curriculum, learning performance 4-II-7: in grades 3–4, students write mainly with pens and pencils, with the brush as a supplement, and learn the brushwork of regular-script strokes",
+              "zh": "十二年國教國語文學習表現 4-Ⅱ-7：「習寫以硬筆字為主，毛筆為輔，掌握楷書筆畫的書寫方法」（第二學習階段，三、四年級）",
+              "src": "國家教育研究院《語文領域－國語文課程手冊》（2018）",
+              "url": "https://www.naer.edu.tw/upload/1/16/doc/2012/%E8%AA%9E%E6%96%87%E9%A0%98%E5%9F%9F-%E5%9C%8B%E8%AA%9E%E6%96%87%E8%AA%B2%E7%A8%8B%E6%89%8B%E5%86%8A(%E5%AE%9A%E7%A8%BF%E7%89%88).pdf"
+            },
+            {
+              "en": "Stroke order of 一 (one stroke, horizontal), used for the practice pad and the 3D brush",
+              "zh": "「一」的筆順（一畫：橫），練字板與 3D 毛筆都照這個",
+              "src": "教育部《國字標準字體筆順學習網》",
+              "url": "https://stroke-order.learningweb.moe.edu.tw/"
+            }
+          ]
+        }
+      ],
+      "planned": [
+        {
+          "n": 2,
+          "icon": "〰️",
+          "en": "How Does a Brush Make Thick and Thin Lines?",
+          "zh": "一枝毛筆怎麼寫出粗細？"
+        },
+        {
+          "n": 3,
+          "icon": "✳️",
+          "en": "Can One Character Teach You Every Stroke?",
+          "zh": "永字八法：一個字學會所有筆畫？"
+        },
+        {
+          "n": 4,
+          "icon": "🔢",
+          "en": "Why Do We Write Strokes in Order?",
+          "zh": "筆順與結構：為什麼要先橫後豎？"
+        }
+      ]
+    },
+    {
+      "key": "scripts",
+      "title_en": "How Chinese Writing Changed",
+      "title_zh": "字體的演變",
+      "blurb_en": "From marks on tortoise shells to the neat lines of seal script, the silkworm heads and swallow tails of clerical script, and the speed of running and cursive script.",
+      "blurb_zh": "從龜甲上的刻痕到線條勻稱的篆書、蠶頭燕尾的隸書，再到越寫越快的行書與草書。",
+      "lessons": [],
+      "planned": [
+        {
+          "n": 5,
+          "icon": "🐢",
+          "en": "Where Did Chinese Characters Come From?",
+          "zh": "漢字從哪裡來？甲骨文到篆書"
+        },
+        {
+          "n": 6,
+          "icon": "🎋",
+          "en": "Why Does Clerical Script Have Silkworm Heads and Swallow Tails?",
+          "zh": "隸書：為什麼是蠶頭燕尾？"
+        },
+        {
+          "n": 7,
+          "icon": "💨",
+          "en": "Regular, Running, Cursive: How Fast Can You Write?",
+          "zh": "楷書、行書、草書：同一個字，三種速度"
+        }
+      ]
+    },
+    {
+      "key": "masters",
+      "title_en": "Great Calligraphers",
+      "title_zh": "書法家與名作",
+      "blurb_en": "The Sage of Calligraphy and the Orchid Pavilion, why every master's writing looks different, and the treasures of calligraphy you can see in Taiwan.",
+      "blurb_zh": "書聖王羲之與蘭亭、為什麼每個書法家的字都不一樣，以及在台灣看得到的書法國寶。",
+      "lessons": [],
+      "planned": [
+        {
+          "n": 8,
+          "icon": "🍶",
+          "en": "Why Is Wang Xizhi Called the Sage of Calligraphy?",
+          "zh": "書聖王羲之：蘭亭序的故事"
+        },
+        {
+          "n": 9,
+          "icon": "💪",
+          "en": "Strong Muscle, Hard Bone: Why Does Every Calligrapher's Writing Look Different?",
+          "zh": "顏筋柳骨：為什麼每個書法家的字都不一樣？"
+        },
+        {
+          "n": 10,
+          "icon": "🏛️",
+          "en": "What Treasures of Calligraphy Can You See in Taiwan?",
+          "zh": "故宮裡的書法國寶"
+        }
+      ]
+    }
+  ]
+}
