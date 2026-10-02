@@ -540,3 +540,38 @@
   .sn-msg { min-height: 0; }
   .sn-f-row, .sn-a-row { margin: .6rem 0 0; flex-basis: 100%; }
 }
+
+/* ---------- 第十二課：相機 ---------- */
+@media (min-width: 1021px) { .cm-lab .al-space { min-height: 600px; } }
+.cm-lab .al-space { background: #111a2e; }
+.cm-aside { gap: .9rem; }
+.cm-aside > * { min-width: 0; }
+.cm-photobox { position: relative; aspect-ratio: 4 / 3; border-radius: 10px; overflow: hidden; border: 6px solid #e9edf5; box-shadow: 0 6px 18px -8px rgba(0,0,0,.7); background: #000; }
+.cm-photo { position: absolute; inset: 0; width: 100%; height: 100%; display: block; image-rendering: pixelated; }
+.cm-pix-row { margin: .7rem 0 0; }
+.cm-pix-row > span { text-transform: none; letter-spacing: .02em; }
+.cm-pix-row output { margin-left: .3rem; font-weight: 800; color: #fff; }
+.cm-count { margin: .35rem 0 0; font-size: 1.05rem; font-weight: 800; color: #fff; font-variant-numeric: tabular-nums; }
+.cm-count small { margin-left: .3rem; font-size: .72rem; font-weight: 600; color: var(--al-mute); }
+.cm-count em { display: block; font-style: normal; font-size: .72rem; font-weight: 700; color: var(--al-mute); margin-top: .1rem; }
+.cm-nums { grid-template-columns: repeat(3, minmax(0, 1fr)); margin-top: .8rem; }
+.cm-nums dd small { display: inline; margin-left: .25rem; font-family: var(--zh); font-weight: 600; font-size: .7rem; color: var(--al-mute); }
+.cm-focus.ok { color: #7cf29a; } .cm-focus.bad { color: #ff8a7a; }
+.cm-msg { min-height: 7.6em; }
+.cm-s-row, .cm-ap-row { flex: 1 1 220px; margin: 0 0 0 .6rem; }
+.cm-s-row > span, .cm-ap-row > span { text-transform: none; letter-spacing: .02em; }
+.cm-s-row output, .cm-ap-row output { margin-left: .3rem; font-weight: 800; color: #fff; }
+.al-lab.cm-lb-x { color: #ffe3a3; border-color: rgba(255,211,110,.5); }
+.al-lg-cmred i { border: 0; height: 3px; margin-top: .55rem; background: #ff5a4a; }
+.al-lg-cmgreen i { border: 0; height: 3px; margin-top: .55rem; background: #5ed36a; }
+.al-lg-cmbayer i { border: 0; border-radius: 2px; background: conic-gradient(#ff5a4a 0 25%, #5ed36a 0 50%, #4a8bff 0 75%, #5ed36a 0); }
+.al-lg-cmstop i { border: 3px solid #1b2333; border-radius: 50%; background: transparent; box-shadow: 0 0 0 1px #6f86c0; }
+@media (max-width: 1020px) {
+  .cm-lab .al-stage { grid-template-columns: minmax(0, 1fr); }
+  .cm-lab .bt-aside { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+}
+@media (max-width: 640px) {
+  .cm-lab .bt-aside { grid-template-columns: minmax(0, 1fr); }
+  .cm-msg { min-height: 0; }
+  .cm-s-row, .cm-ap-row { margin: .6rem 0 0; flex-basis: 100%; }
+}

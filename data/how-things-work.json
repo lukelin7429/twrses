@@ -5518,16 +5518,499 @@
               "url": "https://www.weather.gov/safety/lightning-safety"
             }
           ]
-        }
-      ],
-      "planned": [
+        },
         {
           "n": 12,
+          "slug": "camera",
+          "title": "How Does a Camera Take a Picture?",
+          "title_zh": "相機怎麼拍下照片？",
+          "level": "入門 · Beginner",
           "icon": "📷",
-          "en": "How Does a Camera Take a Picture?",
-          "zh": "相機怎麼拍下照片？"
+          "card": "camera",
+          "blurb_en": "A lens makes an upside-down picture, and millions of tiny pixels turn it into numbers. Cut open a 3D camera, focus it, open and close the aperture, see the red, green, and blue filters, and watch the photo turn blocky with too few pixels.",
+          "blurb_zh": "鏡頭做出一個上下顛倒的影像，幾百萬個小小的像素再把它變成數字。剖開 3D 相機，自己對焦、調光圈，看看紅綠藍濾色片，再看像素太少時照片怎麼變成一格一格。",
+          "big_idea_en": "A camera's lens bends light so that the light from each point of a scene comes together at one point on the sensor, making a small upside-down picture. The sensor is a grid of millions of tiny pixels, each under a red, green, or blue filter, and each one turns the light it catches into a number. A photo is a giant grid of those numbers.",
+          "big_idea_zh": "相機的鏡頭把光彎折，讓景物上每一點射來的光聚到感光元件上的一點，排成一個上下顛倒的小影像。感光元件是幾百萬個小小的像素排成的格子，每一格上蓋著紅、綠或藍的濾色片，把接到的光變成一個數字。一張照片，就是這些數字排成的大表格。",
+          "lab": {
+            "kind": "camera",
+            "eyebrow": "3D Model · 3D 模型",
+            "title_en": "Inside a Camera",
+            "title_zh": "相機裡面",
+            "how_en": "Drag to turn the model, and scroll or pinch to zoom. Follow the red and green light rays from the scene through the lens to the sensor. Slide the focus until the rays meet on the sensor, open and close the aperture, and change the number of pixels in the photo. Turn on the color filters to see what each pixel really measures, or take the lens away and use a tiny hole instead.",
+            "how_zh": "拖曳可以旋轉模型，滾輪或雙指可以縮放。跟著紅色和綠色的光線，從景物穿過鏡頭走到感光元件。拉動對焦，讓光線剛好在感光元件上交會；把光圈開大、關小；改變照片的像素數。打開「濾色片」看每一格真正量到什麼，或拿掉鏡頭、改用一個小孔。",
+            "legend": [
+              {
+                "cls": "cmred",
+                "en": "Red lines: light from the red roof",
+                "zh": "紅線：紅色屋頂射來的光"
+              },
+              {
+                "cls": "cmgreen",
+                "en": "Green lines: light from the green grass",
+                "zh": "綠線：綠色草地射來的光"
+              },
+              {
+                "cls": "cmstop",
+                "en": "Dark ring: the aperture, the opening that lets light in",
+                "zh": "深色圓環：光圈，讓光進來的開口"
+              },
+              {
+                "cls": "cmbayer",
+                "en": "Red, green, and blue squares: the color filters on the pixels (twice as many green)",
+                "zh": "紅綠藍小格：像素上的濾色片（綠色是兩倍）"
+              }
+            ],
+            "scale_en": "A diagram: the camera is cut open and much bigger than a phone camera, and the pixels are drawn huge. In the model the sensor moves to focus; in real cameras the lens usually moves instead, which has the same effect. The photo is calculated from the drawing: flipped, blurred by how far out of focus it is, brightened or darkened by the aperture, then split into pixels.",
+            "scale_zh": "這是示意圖：相機剖開、比手機相機大很多，像素也畫得很大。模型裡是移動感光元件來對焦，真正的相機通常是移動鏡頭，效果一樣。右側照片是從畫中的景物算出來的：先顛倒，再依失焦程度模糊，依光圈調亮暗，最後切成一格一格的像素。",
+            "credit_html": "Model drawn by My Culture Connect as a teaching diagram. Camera history from Wikipedia (<a href=\"https://en.wikipedia.org/wiki/Camera_obscura\" target=\"_blank\" rel=\"noopener\">Camera obscura</a>, <a href=\"https://en.wikipedia.org/wiki/Bayer_filter\" target=\"_blank\" rel=\"noopener\">Bayer filter</a>); for the eye, see <a href=\"/resources/classes/human-body/eyes/\">Human Body, Lesson 8</a>. · 模型由人師教育協會自繪示意；相機的歷史依維基百科；眼睛的部分請看人體探索第八課。"
+          },
+          "paras": [
+            "Open the camera on a phone, tap the button, and the scene in front of you is saved in a split second: the color of the sky, a friend's smile, the steam rising from a bowl of noodles. Look at a phone's specs, and you may see a number like 48 MP, which means 48 megapixels. What is a pixel, and how does a camera turn light into a picture you can keep?",
+            "People noticed long ago that light can make pictures by itself. One of the earliest written records is in the Chinese book Mozi, from the 4th century BC, which describes how light passing through a small hole makes an upside-down image. In 1088, the Song dynasty scientist Shen Kuo explained the flip by comparing it to an oar turning around a fixed point. In 1827, Nicéphore Niépce in France made the oldest photograph that still survives, and it probably needed many hours of sunlight.",
+            "A camera works a lot like your eye. Light bounces off everything in front of it. The lens bends that light so that the rays from each point of the scene come together at one point on the sensor at the back of the camera. Because the rays cross on the way, the picture on the sensor is upside down and flipped left to right. To focus, the camera moves the lens a tiny bit forward or backward until the picture is sharp.",
+            "The opening that lets light in is called the aperture. A wider opening lets in more light, so the photo is brighter, but things that are out of focus look blurrier. In the dark, a camera keeps its shutter open longer to collect enough light. Even with no lens at all, a tiny hole can make a picture, because light travels in straight lines. The smaller the hole, the sharper the picture, but the darker it gets.",
+            "The sensor is a grid of millions of tiny light-sensitive squares called pixels. Each pixel measures how much light lands on it and turns that into a number. A pixel cannot tell colors apart by itself, so each one sits under a tiny red, green, or blue filter. Most camera sensors use a pattern invented by Bryce Bayer in 1976, with twice as many green filters as red or blue ones, because our eyes are most sensitive to green. The camera then works out the full color of every pixel from its neighbors.",
+            "In 1975, Steven Sasson at Kodak built the first self-contained digital camera. It had only 100 by 100 pixels, 10,000 in all, and took 23 seconds to save each black-and-white picture onto a cassette tape. Today the main camera of an iPhone 16 has 48 megapixels, or 48 million. Every pixel's color is stored as numbers, the same 0s and 1s you met in Lesson 8. A photo is a giant grid of numbers that remembers how bright the light was, and what color, at every spot."
+          ],
+          "paras_zh": [
+            "打開手機相機，按一下，眼前的景象一瞬間就被存下來：天空的顏色、朋友的笑臉、一碗麵冒出的熱氣。看看手機的規格，可能會看到「48 MP」，意思是 4,800 萬畫素。像素到底是什麼？相機又怎麼把光變成一張留得住的照片？",
+            "人們很早就發現，光自己就能做出影像。最早的文字紀錄之一在中國的《墨子》，成書於公元前四世紀，說明光穿過一個小孔，會形成上下顛倒的影像。1088 年，宋朝的沈括把這種顛倒比喻成船槳繞著一個固定點轉動。1827 年，法國的尼埃普斯拍出現存最古老的照片，大概要曬好幾個小時的太陽。",
+            "相機的運作很像你的眼睛。光從眼前的每樣東西反彈出來；鏡頭把這些光彎折，讓景物上每一點射來的光，聚到相機後方感光元件上的一點。因為光線在途中交叉，感光元件上的影像上下顛倒、左右相反。對焦時，相機把鏡頭往前或往後移動一點點，直到影像清楚。",
+            "讓光進來的開口叫做「光圈」。光圈開得越大，進來的光越多，照片越亮，但沒有對準焦的東西也會更糊。在暗的地方，相機會讓快門開久一點，收集足夠的光。就算完全沒有鏡頭，一個小孔也能做出影像，因為光走直線。孔越小，影像越清楚，但也越暗。",
+            "感光元件是幾百萬個小小的感光方格排成的格子，每一格叫做一個「像素」。每個像素量出落在它上面的光有多少，變成一個數字。像素本身分不出顏色，所以每一格上面都蓋著紅、綠或藍的小濾色片。大多數相機的感光元件，用的是拜耳在 1976 年發明的排法：綠色濾色片是紅色或藍色的兩倍，因為人眼對綠色最敏感。相機再從旁邊的格子，算出每一格完整的顏色。",
+            "1975 年，柯達公司的沙森做出第一台獨立的數位相機：只有 100 × 100 個像素，總共一萬個，每拍一張黑白照片要花 23 秒才存進錄音帶。今天 iPhone 16 的主相機有 4,800 萬畫素。每個像素的顏色都存成數字，也就是第八課的 0 和 1。一張照片，就是一張巨大的數字表，記住了每一個點的光有多亮、是什麼顏色。"
+          ],
+          "questions": [
+            "Why is the picture on a camera's sensor upside down?",
+            "What happens when you make the aperture wider?",
+            "How does a camera record color if each pixel cannot tell colors apart?"
+          ],
+          "answers": [
+            "The lens makes the light rays from each point of the scene cross on their way to the sensor, so the top of the scene lands at the bottom of the picture.",
+            "More light gets in, so the photo is brighter, but things that are out of focus look blurrier.",
+            "Each pixel sits under a red, green, or blue filter, so it measures one color, and the camera works out the full color of every pixel from its neighbors."
+          ],
+          "vocab": [
+            {
+              "n": 1,
+              "w": "lens",
+              "pos": "n.",
+              "zh": "鏡頭；透鏡",
+              "ex": "Clean the <b>lens</b> before you take a photo.",
+              "exzh": "拍照前先把鏡頭擦乾淨。"
+            },
+            {
+              "n": 2,
+              "w": "focus",
+              "pos": "v.",
+              "zh": "對焦；集中",
+              "ex": "Tap the screen to <b>focus</b> on the flower.",
+              "exzh": "點一下螢幕，對焦在花上。"
+            },
+            {
+              "n": 3,
+              "w": "sensor",
+              "pos": "n.",
+              "zh": "感測器；感光元件",
+              "ex": "The door opens when the <b>sensor</b> sees you.",
+              "exzh": "感測器偵測到你，門就會打開。"
+            },
+            {
+              "n": 4,
+              "w": "filter",
+              "pos": "n.",
+              "zh": "濾鏡；濾色片",
+              "ex": "She put a blue <b>filter</b> over the flashlight.",
+              "exzh": "她在手電筒前面加了一片藍色濾片。"
+            },
+            {
+              "n": 5,
+              "w": "shutter",
+              "pos": "n.",
+              "zh": "快門",
+              "ex": "You can hear the <b>shutter</b> click when you take a picture.",
+              "exzh": "拍照時你會聽到快門「喀嚓」一聲。"
+            },
+            {
+              "n": 6,
+              "w": "grid",
+              "pos": "n.",
+              "zh": "格子；網格",
+              "ex": "We drew the map on a <b>grid</b> of squares.",
+              "exzh": "我們把地圖畫在方格紙上。"
+            },
+            {
+              "n": 7,
+              "w": "blurry",
+              "pos": "adj.",
+              "zh": "模糊的",
+              "ex": "The photo is <b>blurry</b> because my hand moved.",
+              "exzh": "因為手晃了一下，照片糊掉了。"
+            },
+            {
+              "n": 8,
+              "w": "upside down",
+              "pos": "adv.",
+              "zh": "上下顛倒地",
+              "ex": "He held the map <b>upside down</b> and got lost.",
+              "exzh": "他把地圖拿反了，結果迷路了。"
+            }
+          ],
+          "quiz": [
+            {
+              "q": "What does a camera's lens do?",
+              "options": [
+                "It bends light to make a picture on the sensor",
+                "It makes the light warmer",
+                "It stores the photos",
+                "It charges the battery"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "What does the picture on the sensor look like?",
+              "options": [
+                "Upside down",
+                "Exactly like the scene",
+                "Always black and white",
+                "Bigger than the scene"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "What is a pixel?",
+              "options": [
+                "One tiny light-sensitive square on the sensor",
+                "A kind of lens",
+                "A button on the camera",
+                "A color of paint"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "Why are there more green filters than red or blue ones?",
+              "options": [
+                "Our eyes are most sensitive to green",
+                "Green filters are cheaper",
+                "Plants are green",
+                "Red and blue filters break easily"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "What happens when you make the aperture smaller?",
+              "options": [
+                "Less light gets in, so the photo is darker",
+                "The photo gets more pixels",
+                "The picture turns right side up",
+                "All the colors turn green"
+              ],
+              "correct": 0
+            }
+          ],
+          "parts_head": {
+            "eyebrow": "Try It in the Model · 在模型裡試試",
+            "en": "Four photos to take",
+            "zh": "拍四張照片"
+          },
+          "parts": [
+            {
+              "key": "sharp",
+              "icon": "📸",
+              "en": "In focus",
+              "zh": "對準焦",
+              "meta_en": "The rays meet on the sensor",
+              "meta_zh": "光線在感光元件上交會",
+              "demo": "sharp",
+              "text_en": "Each point of the scene lands on one point of the sensor, so the photo is sharp.",
+              "text_zh": "景物上的每一點，都落在感光元件上的一點，照片就清楚。"
+            },
+            {
+              "key": "blurry",
+              "icon": "🌫️",
+              "en": "Out of focus",
+              "zh": "失焦",
+              "meta_en": "Each point becomes a circle",
+              "meta_zh": "每一點變成一個小圓",
+              "demo": "blurry",
+              "text_en": "The rays meet before they reach the sensor, then spread out again, so the photo is blurry.",
+              "text_zh": "光線還沒到感光元件就交會了，又散開來，照片就糊了。"
+            },
+            {
+              "key": "pixels",
+              "icon": "🟩",
+              "en": "Only 12 × 9 pixels",
+              "zh": "只有 12 × 9 個像素",
+              "meta_en": "With the color filters showing",
+              "meta_zh": "顯示濾色片",
+              "demo": "pixels",
+              "text_en": "The photo turns into big blocks, and the sensor shows its red, green, and blue filters.",
+              "text_zh": "照片變成大方塊，感光元件上露出紅、綠、藍濾色片。"
+            },
+            {
+              "key": "pinhole",
+              "icon": "🕳️",
+              "en": "No lens, just a hole",
+              "zh": "沒有鏡頭，只有小孔",
+              "meta_en": "Sharp but dim",
+              "meta_zh": "清楚但很暗",
+              "demo": "pinhole",
+              "text_en": "Light travels in straight lines, so a tiny hole makes an upside-down picture too.",
+              "text_zh": "光走直線，所以一個小孔也能做出顛倒的影像。"
+            }
+          ],
+          "parts_note_en": "Your eye has a lens, an opening, and a sensor of its own. Compare this model with Human Body, Lesson 8, “How Do Your Eyes See?”",
+          "parts_note_zh": "眼睛也有自己的鏡頭、光圈和感光層。可以和人體探索第八課〈眼睛怎麼看見東西？〉比一比。",
+          "facts": {
+            "eyebrow": "Cameras by the Numbers · 相機的數字",
+            "en": "From a pinhole to 48 million pixels",
+            "zh": "從一個小孔到 4,800 萬個像素",
+            "lead_en": "Cameras changed enormously, but the idea of light making an upside-down picture is about 2,400 years old.",
+            "lead_zh": "相機變了很多很多，但「光自己做出顛倒影像」的想法，已經有大約 2,400 年了。",
+            "items": [
+              {
+                "big": "4th century BC",
+                "unit_en": "pinhole image in the Mozi",
+                "unit_zh": "《墨子》記載小孔成像",
+                "en": "One of the earliest written records of an upside-down pinhole image.",
+                "zh": "最早記載小孔顛倒成像的文字之一。"
+              },
+              {
+                "big": "1827",
+                "unit_en": "oldest surviving photograph",
+                "unit_zh": "現存最古老的照片",
+                "en": "Made by Nicéphore Niépce in France; it probably took many hours of sunlight.",
+                "zh": "法國的尼埃普斯拍攝，大概曬了好幾個小時。"
+              },
+              {
+                "big": "10,000",
+                "unit_en": "pixels in 1975",
+                "unit_zh": "個像素（1975 年）",
+                "en": "Steven Sasson's digital camera had 100 × 100 pixels and needed 23 seconds per photo.",
+                "zh": "沙森的數位相機只有 100 × 100 個像素，每張照片要 23 秒。"
+              },
+              {
+                "big": "2×",
+                "unit_en": "as many green filters",
+                "unit_zh": "綠色濾色片的倍數",
+                "en": "Bayer's 1976 pattern: half green, a quarter red, a quarter blue.",
+                "zh": "拜耳 1976 年的排法：一半綠、四分之一紅、四分之一藍。"
+              },
+              {
+                "big": "48 million",
+                "unit_en": "pixels in an iPhone 16",
+                "unit_zh": "個像素（iPhone 16 主相機）",
+                "en": "The main camera of an iPhone 16 is rated at 48 megapixels.",
+                "zh": "iPhone 16 主相機標示為 4,800 萬畫素。"
+              },
+              {
+                "big": "4×",
+                "unit_en": "the light",
+                "unit_zh": "倍的光",
+                "en": "Make the opening twice as wide, and its area, and the light it lets in, becomes four times as big.",
+                "zh": "光圈直徑加倍，開口面積和進來的光都變成四倍。"
+              }
+            ]
+          },
+          "myths": [
+            {
+              "myth_en": "The picture inside a camera is right side up.",
+              "myth_zh": "相機裡面的影像是正的。",
+              "fact_en": "The rays cross as they pass through the lens, so the picture on the sensor is upside down. The camera flips it back before you see it.",
+              "fact_zh": "光線穿過鏡頭時交叉，所以感光元件上的影像是顛倒的，相機在你看到之前就幫你轉正了。"
+            },
+            {
+              "myth_en": "Each pixel sees every color.",
+              "myth_zh": "每個像素都看得到所有顏色。",
+              "fact_en": "Each pixel sits under one red, green, or blue filter and measures only that color. The camera fills in the rest from nearby pixels.",
+              "fact_zh": "每個像素只蓋著一片紅、綠或藍的濾色片，只量那一種顏色；其餘的顏色由相機從旁邊的像素算出來。"
+            },
+            {
+              "myth_en": "More megapixels always means a better photo.",
+              "myth_zh": "畫素越多，照片一定越好。",
+              "fact_en": "More pixels can record more detail, but focus, light, and the quality of the lens matter just as much.",
+              "fact_zh": "像素多能記下更多細節，但對焦、光線和鏡頭的品質一樣重要。"
+            },
+            {
+              "myth_en": "You need a lens to make a picture.",
+              "myth_zh": "一定要有鏡頭才能成像。",
+              "fact_en": "A tiny hole works too, because light travels in straight lines. It just makes a dimmer picture.",
+              "fact_zh": "一個小孔也可以，因為光走直線，只是影像比較暗。"
+            }
+          ],
+          "tricks": [
+            {
+              "title_en": "Bend, cross, flip",
+              "title_zh": "轉彎、交叉、顛倒",
+              "body_en": "The lens bends the light, the rays cross, and the picture comes out upside down.",
+              "body_zh": "鏡頭彎折光線，光線交叉，影像就顛倒了。"
+            },
+            {
+              "title_en": "Wide opening, more light",
+              "title_zh": "光圈大，光就多",
+              "body_en": "Twice as wide lets in four times the light.",
+              "body_zh": "直徑加倍，光變四倍。"
+            },
+            {
+              "title_en": "One pixel, one color",
+              "title_zh": "一格一色",
+              "body_en": "Each pixel measures red, green, or blue, never all three.",
+              "body_zh": "每一格只量紅、綠、藍其中一種。"
+            },
+            {
+              "title_en": "A photo is numbers",
+              "title_zh": "照片就是數字",
+              "body_en": "Brightness and color at every spot, stored as 0s and 1s.",
+              "body_zh": "每一點的亮度和顏色，都存成 0 和 1。"
+            }
+          ],
+          "safety": [
+            {
+              "en": "Never point a camera, phone, or pair of binoculars at the Sun, and never look at the Sun through a viewfinder. It can hurt your eyes and damage the sensor.",
+              "zh": "絕不用相機、手機或望遠鏡對著太陽，也不要從觀景窗看太陽，會傷眼睛，也會弄壞感光元件。"
+            },
+            {
+              "en": "Ask before you take a photo of someone, and never share a photo of someone without their permission.",
+              "zh": "拍別人之前先問，沒經過同意不要分享別人的照片。"
+            },
+            {
+              "en": "Don't post photos that show your home address, your school's name, or where you are right now.",
+              "zh": "不要上傳看得出你家地址、學校名稱或你現在在哪裡的照片。"
+            },
+            {
+              "en": "Watch where you are going. Never step into the road to take a photo.",
+              "zh": "拍照時注意腳下，絕不為了拍照走到馬路上。"
+            },
+            {
+              "en": "In the activity, let an adult cut the box and poke the hole.",
+              "zh": "做活動時，割紙盒、戳小孔請大人幫忙。"
+            }
+          ],
+          "activities": [
+            {
+              "title_en": "Make a Pinhole Viewer",
+              "title_zh": "做一個針孔成像箱",
+              "materials": [
+                {
+                  "en": "A long box or a chip can with a lid",
+                  "zh": "一個長紙盒，或一個有蓋的洋芋片罐"
+                },
+                {
+                  "en": "Aluminum foil, a pin, and tape",
+                  "zh": "鋁箔紙、一根大頭針、膠帶"
+                },
+                {
+                  "en": "Tracing paper or baking paper for a screen",
+                  "zh": "描圖紙或烘焙紙（當螢幕）"
+                },
+                {
+                  "en": "A dark cloth or a towel",
+                  "zh": "一塊深色的布或毛巾"
+                }
+              ],
+              "steps": [
+                {
+                  "en": "With an adult, cut a small square window in one end of the box and cover it with foil. Poke one tiny hole in the middle of the foil with the pin.",
+                  "zh": "請大人幫忙，在盒子一端割一個小方窗，貼上鋁箔紙，用大頭針在中間戳一個小洞。"
+                },
+                {
+                  "en": "Tape the tracing paper inside the box, across the middle, as a screen. (In a chip can, cut it about 5 cm from the bottom and put the paper between the two pieces.)",
+                  "zh": "把描圖紙橫貼在盒子中間當螢幕。（洋芋片罐可以在離底部約 5 公分處切開，把紙夾在兩段中間。）"
+                },
+                {
+                  "en": "Point the hole at a bright window or a sunny tree, never at the Sun. Cover your head and the open end with the cloth and look at the screen.",
+                  "zh": "把小孔對著明亮的窗戶或陽光下的樹，絕不對著太陽。用布蓋住頭和開口，看螢幕。"
+                },
+                {
+                  "en": "Is the picture upside down? Now make the hole a little bigger. What happens to the brightness and the sharpness?",
+                  "zh": "影像是不是顛倒的？再把孔弄大一點：亮度和清晰度怎麼變了？"
+                }
+              ],
+              "tip_en": "The picture is faint, so the darker it is around your eyes, the better you will see it.",
+              "tip_zh": "影像很淡，眼睛周圍越暗，看得越清楚。"
+            },
+            {
+              "title_en": "Zoom In on a Photo",
+              "title_zh": "把照片放到最大",
+              "materials": [
+                {
+                  "en": "A phone or tablet (an adult's)",
+                  "zh": "一支手機或平板（大人的）"
+                },
+                {
+                  "en": "A magnifying glass",
+                  "zh": "一個放大鏡"
+                }
+              ],
+              "steps": [
+                {
+                  "en": "Take a photo of something colorful, then zoom in on it as far as you can. When do you start to see little squares?",
+                  "zh": "拍一張色彩豐富的照片，盡量放大。放到多大開始看到小方格？"
+                },
+                {
+                  "en": "Take the same photo in a dim room. Zoom in again. What looks different?",
+                  "zh": "在比較暗的房間拍同一張照片，再放大看看，有什麼不一樣？"
+                },
+                {
+                  "en": "Open a plain white page on the screen and look at it through the magnifying glass. What colors do you see?",
+                  "zh": "在螢幕上打開一頁全白的畫面，用放大鏡看：你看到哪些顏色？"
+                },
+                {
+                  "en": "Talk about it: a camera measures red, green, and blue, and a screen mixes red, green, and blue. How are they alike?",
+                  "zh": "討論：相機量紅、綠、藍，螢幕混合紅、綠、藍，兩者哪裡像？"
+                }
+              ],
+              "tip_en": "Don't press hard on the screen with the magnifying glass, and keep it out of direct sunlight.",
+              "tip_zh": "放大鏡不要用力壓螢幕，也不要放在太陽直射的地方。"
+            }
+          ],
+          "sources": [
+            {
+              "en": "The Mozi (4th century BC) describes an upside-down pinhole image; Shen Kuo's 1088 explanation",
+              "zh": "《墨子》（公元前四世紀）記載小孔顛倒成像；沈括 1088 年的解釋",
+              "src": "Wikipedia, “Camera obscura”",
+              "url": "https://en.wikipedia.org/wiki/Camera_obscura"
+            },
+            {
+              "en": "Oldest surviving photograph, by Niépce in 1827, with a long exposure traditionally estimated at about eight hours",
+              "zh": "現存最古老的照片：尼埃普斯 1827 年，曝光時間傳統估計約八小時",
+              "src": "Wikipedia, “View from the Window at Le Gras”",
+              "url": "https://en.wikipedia.org/wiki/View_from_the_Window_at_Le_Gras"
+            },
+            {
+              "en": "Bayer filter: used in most single-chip camera sensors; half green, a quarter red, a quarter blue; Bayer's 1976 patent",
+              "zh": "拜耳濾色陣列：多數單晶片感光元件採用；一半綠、四分之一紅、四分之一藍；1976 年專利",
+              "src": "Wikipedia, “Bayer filter”",
+              "url": "https://en.wikipedia.org/wiki/Bayer_filter"
+            },
+            {
+              "en": "Steven Sasson's 1975 Kodak camera: 100 × 100 pixels, 23 seconds per black-and-white image, recorded to cassette tape",
+              "zh": "沙森 1975 年在柯達的相機：100 × 100 像素、每張黑白照片 23 秒、存在錄音帶",
+              "src": "Wikipedia, “Steven Sasson”",
+              "url": "https://en.wikipedia.org/wiki/Steven_Sasson"
+            },
+            {
+              "en": "iPhone 16: 48MP Fusion main camera",
+              "zh": "iPhone 16：4,800 萬畫素主相機",
+              "src": "Apple, “iPhone 16 – Tech Specs”",
+              "url": "https://support.apple.com/en-us/121029"
+            },
+            {
+              "en": "Thin lens equation and image formation",
+              "zh": "薄透鏡公式與成像",
+              "src": "Wikipedia, “Thin lens”",
+              "url": "https://en.wikipedia.org/wiki/Thin_lens"
+            },
+            {
+              "en": "How the eye focuses an upside-down picture on the retina",
+              "zh": "眼睛怎麼把顛倒的影像對焦在視網膜上",
+              "src": "twrses.org, Human Body Lesson 8",
+              "url": "https://twrses.org/resources/classes/human-body/eyes/"
+            }
+          ]
         }
-      ]
+      ],
+      "planned": []
     },
     {
       "key": "motion",

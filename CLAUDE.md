@@ -210,6 +210,12 @@
   - 版面：場景又長又扁，桌機 `.al-space` 降到 540px、鏡頭拉遠（係數 1.22），否則鼓或耳朵會被切掉。
   - 卡片 `demo`：low／high／noair／thunder。
   - 除錯：`document.querySelector('[data-soundwave-lab]').__lab`（`setF(100–1000)`、`setAmp(0–1)`、`setAir(bool)`、`setSec(0–20)`、`params()`、`state.t`、`run(秒)`、`render()`）。
+- 第十二課相機（`camera-lens.js`，`lab.kind = "camera"`，`data-cameralens-lab`，CSS 前綴 `cm-`；單元三最後一課）：一個機制——鏡頭把每一點的光聚到感光元件一點（倒立），感光元件是一格格像素、每格只透過紅／綠／藍其中一種濾色片（拜耳 RGGB，綠是兩倍），光變數字。和人體探索第八課〈眼睛〉重疊的「鏡頭、對焦、倒立」只輕帶，重點放在像素與濾色片。側面看：x＝−8 景物板（canvas 自繪房子和樹）、x＝0 鏡頭與光圈環、x＝s 感光元件（對焦滑桿移動它，像距 DI≈4.08 由薄透鏡公式算）。紅屋頂、綠草地各三道光線＋流動光點。
+  - 影像計算（同一份給感光元件貼圖與右側照片）：景物經鏡頭中心縮放 s/物距、上下顛倒 → 盒狀模糊三次（模糊圈 ＝ 光圈 × |s − DI| ÷ DI；針孔 ＝ 孔徑 × (物距＋s) ÷ 物距）→ 亮度 ∝ 光圈²（針孔另乘 250 當「長曝光」，面板照實顯示 0.002×）→ 取樣 N × 3N/4。**方向**：從鏡頭側看感光元件只有上下顛倒（左右和拍照者看到的一樣），所以照片只需上下翻回來；從相機背面看才是「上下左右都顛倒」。
+  - 坑：**CanvasTexture 換尺寸要換一張新的貼圖**（`dispose()` 舊的；WebGL 上傳後不能改大小，否則畫面停在舊的、模糊）。窄畫面把鏡頭中心往右移，否則感光元件被切掉。
+  - `src/cameracalc.js`：`imageDistance`、`magnification`、`blurDiameter`、`imageHeight`、`pinholeBlur`、`bayer`、`bayerCounts`、`megapixels`、`exposure`；`test/camera.test.mjs`：薄透鏡公式、遠物在焦點、近物像距變長、倒立、對準焦模糊 0、光圈加倍模糊加倍、針孔越小越清楚、RGGB、綠是紅藍兩倍、100×100＝0.01 MP、光圈加倍進光四倍。
+  - 卡片 `demo`：sharp／blurry／pixels（12×9＋濾色片）／pinhole（孔徑 0.05）。
+  - 除錯：`document.querySelector('[data-cameralens-lab]').__lab`（`setS(3.2–5.4)`、`setAp(0.04–2.4)`、`setN(8–96)`、`setRaw(bool)`、`setPinhole(bool)`、`DI`、`run(秒)`、`render()`）。
 - 上傳錄音時若出現大量「not found locally」：多半是天文 session 在 ~/Developer 那份 clone 產生、已上傳的句子（worktree 的快取沒有它們）。算出「manifest 裡有、快取裡沒有」的雜湊，逐一 curl 確認線上 200 即可。
 - 多個 session 同時改 build.py 時，本系列改在 scratchpad 的 git worktree（從 origin/main 開分支）做，`audio` 用 symlink 指到 `~/Documents/twrses/audio`（symlink 不會被 .gitignore 的 `audio/` 擋，**不要 add**），做完 rebase 再 `git push origin HEAD:main`。
 - 瀏覽器面板在背景時 `visibilityState` 是 hidden，IntersectionObserver 不觸發、截圖是空白：點一下頁面上的「在模型中看」按鈕就會直接初始化，截圖改用無頭 Chrome（playwright-core＋本機 Chrome，`--use-angle=swiftshader`）。

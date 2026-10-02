@@ -5008,7 +5008,7 @@ def build_body_hub():
 # 3D 原始碼在 tools/science/src/（three.js、esbuild，每課一個入口），打包成 assets/js/<入口>.js；
 # 面板、迷思、口訣、活動沿用 astro.css，本系列多出來的在 science.css；兩者都只載在本系列頁面。
 HTW_BASE = "/resources/classes/how-things-work/"
-_HTW_JS = {"battery": "battery", "generator": "generator", "solar": "solar-cell", "wind": "wind-turbine", "internet": "internet-packets", "signal": "cell-signal", "gps": "gps-satellites", "memory": "memory-bits", "sky": "sky-scatter", "rainbow": "rainbow-drops", "sound": "sound-waves"}   # lab.kind → assets/js/<bundle>.js
+_HTW_JS = {"battery": "battery", "generator": "generator", "solar": "solar-cell", "wind": "wind-turbine", "internet": "internet-packets", "signal": "cell-signal", "gps": "gps-satellites", "memory": "memory-bits", "sky": "sky-scatter", "rainbow": "rainbow-drops", "sound": "sound-waves", "camera": "camera-lens"}   # lab.kind → assets/js/<bundle>.js
 
 def _htw_cn(n):
     """課次的中文數字（一～九十九）：第十一課、第二十課。"""
@@ -5646,6 +5646,59 @@ def render_soundwave_lab(lesson):
   <p class="bt-credit">{lab["credit_html"]}</p>
 </div>'''
 
+def cameralens_svg(size=56):
+    """相機小圖（萬物原理首頁的課程卡）：相機機身、鏡頭，與一小塊紅綠藍像素格。"""
+    cells = "".join(f'<rect x="{38 + (i % 3) * 5}" y="{8 + (i // 3) * 5}" width="4.4" height="4.4" fill="{c}"/>' for i, c in enumerate(("#ff5a4a", "#5ed36a", "#ff5a4a", "#5ed36a", "#4a8bff", "#5ed36a", "#ff5a4a", "#5ed36a", "#ff5a4a")))
+    return (f'<svg class="cameralens-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">'
+            '<rect x="6" y="22" width="44" height="28" rx="5" fill="#2b3446" stroke="#8aa0c8" stroke-width="1.6"/>'
+            '<rect x="14" y="17" width="12" height="7" rx="2" fill="#2b3446" stroke="#8aa0c8" stroke-width="1.6"/>'
+            '<circle cx="28" cy="36" r="10" fill="#9fd4ff" stroke="#cfd4dc" stroke-width="2.4"/><circle cx="28" cy="36" r="4" fill="#1b2333"/>'
+            f'{cells}</svg>')
+
+def render_cameralens_lab(lesson):
+    """第十二課：相機剖面與像素（assets/js/camera-lens.js 綁這裡的 class；全部自繪示意）。"""
+    lab = lesson["lab"]
+    tg = _lab_toggles([("labels", "Labels", "標示", True), ("raw", "Color filters", "濾色片", False), ("pinhole", "No lens (pinhole)", "沒有鏡頭（針孔）", False)])
+    return f'''<div class="astro-lab bt-lab cm-lab rvl" data-cameralens-lab>
+  <div class="al-stage">
+    <div class="al-space">
+      <canvas class="al-space-cv" aria-label="3D model of a camera cut open, with light rays from a scene crossing to make an upside-down picture on the sensor · 剖開的相機 3D 模型：景物的光線交叉，在感光元件上形成顛倒的影像"></canvas>
+      <div class="al-labels" aria-hidden="true"></div>
+      <p class="bt-cut">A diagram: the camera is cut open, and the pixels are drawn huge · 示意圖：相機剖開，像素畫得很大</p>
+      <p class="al-hint">Drag to turn · 拖曳旋轉　Scroll or pinch to zoom · 滾輪／雙指縮放</p>
+      <button type="button" class="al-home" title="Reset view · 重設視角" aria-label="Reset view · 重設視角">&#8634;</button>
+      <p class="al-nogl-msg">This 3D model needs WebGL, which this browser does not support. The reading and the cards below still explain everything.<br><span class="zh">這個瀏覽器不支援 WebGL，無法顯示 3D 模型；下方的課文與卡片一樣能看懂。</span></p>
+    </div>
+    <aside class="al-sky bt-aside cm-aside">
+      <div class="cm-top">
+        <p class="al-sky-k">The photo · 拍到的照片</p>
+        <div class="cm-photobox"><canvas class="cm-photo" aria-label="The photo the camera makes · 相機拍出的照片"></canvas></div>
+        <label class="al-slider cm-pix-row"><span>Pixels · 像素 <output class="cm-pix-out"></output></span>
+          <input type="range" class="al-age cm-pix" min="8" max="96" step="4" value="64"></label>
+        <p class="cm-count"></p>
+        <dl class="bt-nums cm-nums">
+          <div><dt>Focus · 對焦</dt><dd class="cm-focus"></dd></div>
+          <div><dt>Light let in · 進光量</dt><dd class="cm-light"></dd></div>
+          <div><dt>On the sensor · 感光元件上</dt><dd class="cm-flip"></dd></div>
+        </dl>
+      </div>
+      <p class="bt-msg cm-msg" aria-live="polite"></p>
+    </aside>
+  </div>
+  <div class="al-controls">
+    <div class="al-row al-row-main">
+      <button type="button" class="al-play" aria-pressed="true"><span class="al-play-i" aria-hidden="true"></span><span class="al-play-t">Pause · 暫停</span></button>
+      <label class="al-slider cm-s-row"><span>Focus · 對焦 <output class="cm-s-out"></output></span>
+        <input type="range" class="al-age cm-s" min="3.2" max="5.4" step="0.01" value="4.08"></label>
+      <label class="al-slider cm-ap-row"><span>Opening · 光圈 <output class="cm-ap-out"></output></span>
+        <input type="range" class="al-age cm-ap" min="0.04" max="2.4" step="0.01" value="1.2"></label>
+    </div>
+    <div class="al-row al-toggles">{tg}</div>
+  </div>
+  {_lab_foot(lab)}
+  <p class="bt-credit">{lab["credit_html"]}</p>
+</div>'''
+
 def _htw_flat():
     return [(ui, u, l) for ui, u in enumerate(HTW["units"]) for l in u["lessons"]]
 
@@ -5673,7 +5726,7 @@ def build_htw_lesson(ui, unit, lesson):
     reading_html = render_basic_unit(1, unit_dict, level="htw", audio_rel="", pdf_rel="")
     lab = lesson["lab"]
     kind = lab["kind"]
-    lab_html = {"battery": render_battery_lab, "generator": render_generator_lab, "solar": render_solarcell_lab, "wind": render_windturbine_lab, "internet": render_internet_lab, "signal": render_cellsignal_lab, "gps": render_gps_lab, "memory": render_memory_lab, "sky": render_skyblue_lab, "rainbow": render_rainbow_lab, "sound": render_soundwave_lab}[kind](lesson)
+    lab_html = {"battery": render_battery_lab, "generator": render_generator_lab, "solar": render_solarcell_lab, "wind": render_windturbine_lab, "internet": render_internet_lab, "signal": render_cellsignal_lab, "gps": render_gps_lab, "memory": render_memory_lab, "sky": render_skyblue_lab, "rainbow": render_rainbow_lab, "sound": render_soundwave_lab, "camera": render_cameralens_lab}[kind](lesson)
 
     secs = []
     if lesson.get("mix"):
@@ -5740,7 +5793,8 @@ def build_htw_lesson(ui, unit, lesson):
                 "memory": ("Memory in a sentence", "一句話記住記憶體"),
                 "sky": ("The blue sky in a sentence", "一句話記住藍天"),
                 "rainbow": ("Rainbows in a sentence", "一句話記住彩虹"),
-                "sound": ("Sound in a sentence", "一句話記住聲音")}[kind]
+                "sound": ("Sound in a sentence", "一句話記住聲音"),
+                "camera": ("Cameras in a sentence", "一句話記住相機")}[kind]
     secs.append(("tricks", "Remember It · 記憶口訣", tricks_h[0], tricks_h[1], _sci_tricks(lesson), ""))
     if lesson.get("safety"):
         items = "".join(f'<li class="rvl">{html.escape(s["en"])}<span class="zh">{html.escape(s["zh"])}</span></li>' for s in lesson["safety"])
@@ -5794,7 +5848,7 @@ def build_htw_lesson(ui, unit, lesson):
 def build_htw_hub():
     # 照中醫養生：單元導覽＋每個單元一段橫向課程卡；做好的課可點，planned 是「製作中」卡。
     def icon(l):
-        return battery_svg(60) if l.get("card") == "battery" else outlet_svg(60) if l.get("card") == "outlet" else solarpanel_svg(60) if l.get("card") == "solar" else windturbine_svg(60) if l.get("card") == "wind" else internet_svg(60) if l.get("card") == "internet" else cellsignal_svg(60) if l.get("card") == "signal" else gps_svg(60) if l.get("card") == "gps" else memory_svg(60) if l.get("card") == "memory" else skyblue_svg(60) if l.get("card") == "sky" else rainbow_svg(60) if l.get("card") == "rainbow" else soundwave_svg(60) if l.get("card") == "sound" else l["icon"]
+        return battery_svg(60) if l.get("card") == "battery" else outlet_svg(60) if l.get("card") == "outlet" else solarpanel_svg(60) if l.get("card") == "solar" else windturbine_svg(60) if l.get("card") == "wind" else internet_svg(60) if l.get("card") == "internet" else cellsignal_svg(60) if l.get("card") == "signal" else gps_svg(60) if l.get("card") == "gps" else memory_svg(60) if l.get("card") == "memory" else skyblue_svg(60) if l.get("card") == "sky" else rainbow_svg(60) if l.get("card") == "rainbow" else soundwave_svg(60) if l.get("card") == "sound" else cameralens_svg(60) if l.get("card") == "camera" else l["icon"]
     unit_sections, nav = [], []
     done = sum(len(u["lessons"]) for u in HTW["units"])
     total = done + sum(len(u.get("planned", [])) for u in HTW["units"])

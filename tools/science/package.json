@@ -4,8 +4,8 @@
   "description": "萬物原理 How Things Work 3D 模型的原始碼與打包設定。產物寫到 assets/js/，npm run build 重新打包。",
   "type": "module",
   "scripts": {
-    "build": "esbuild src/battery.js src/generator.js src/solar-cell.js src/wind-turbine.js src/internet-packets.js src/cell-signal.js src/gps-satellites.js src/memory-bits.js src/sky-scatter.js src/rainbow-drops.js src/sound-waves.js --bundle --minify --format=iife --target=es2019 --legal-comments=eof --outdir=../../assets/js",
-    "test": "node test/battery.test.mjs && node test/generator.test.mjs && node test/solar.test.mjs && node test/wind.test.mjs && node test/internet.test.mjs && node test/signal.test.mjs && node test/gps.test.mjs && node test/memory.test.mjs && node test/sky.test.mjs && node test/rainbow.test.mjs && node test/sound.test.mjs"
+    "build": "esbuild src/battery.js src/generator.js src/solar-cell.js src/wind-turbine.js src/internet-packets.js src/cell-signal.js src/gps-satellites.js src/memory-bits.js src/sky-scatter.js src/rainbow-drops.js src/sound-waves.js src/camera-lens.js --bundle --minify --format=iife --target=es2019 --legal-comments=eof --outdir=../../assets/js",
+    "test": "node test/battery.test.mjs && node test/generator.test.mjs && node test/solar.test.mjs && node test/wind.test.mjs && node test/internet.test.mjs && node test/signal.test.mjs && node test/gps.test.mjs && node test/memory.test.mjs && node test/sky.test.mjs && node test/rainbow.test.mjs && node test/sound.test.mjs && node test/camera.test.mjs"
   },
   "devDependencies": {
     "esbuild": "0.25.10",
