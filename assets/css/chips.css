@@ -263,3 +263,27 @@
 .al-lg-cpsand i { border: 0; background: #e2cd98; }
 .al-lg-cpsi i { border: 0; background: linear-gradient(135deg, #c9d2de, #6f7f99); }
 .al-lg-cphot i { border: 0; background: #ff8a2a; box-shadow: 0 0 10px 2px rgba(255,138,42,.6); }
+
+/* ---------- 第四課：用光畫電路 ---------- */
+.cp-lt-wsteps { display: none; }
+.cp-lt-waferview .cp-lt-wsteps { display: block; }
+.cp-lt-wsteps .al-sky-k { margin-top: .2rem; }
+.cp-lt-steps { grid-template-columns: repeat(5, minmax(0, 1fr)); margin-bottom: .6rem; }
+.cp-lt-steps button { font-size: .64rem; padding: .35rem .1rem .4rem; }
+.cp-lt-wsteps .cp-wf-panel { margin-top: .7rem; }
+.cp-lt-lab .cp-msg[hidden] { display: none; }
+.cp-sun-pic { background: #f1ede3; }
+.cp-sun-cv { image-rendering: auto; border-radius: 8px; box-shadow: 0 10px 24px -14px rgba(0,0,0,.6); }
+.cp-sun-status { margin: .7rem 0 0; font-size: .86rem; line-height: 1.5; color: var(--ink); text-align: center; }
+.cp-sun-status small { display: block; font-family: var(--zh); color: var(--ink-soft); font-size: .82rem; }
+.cp-sun-text { width: 100%; margin-top: .6rem; padding: .5rem .7rem; border: 1px solid var(--line); border-radius: 10px; font: inherit; font-size: 1rem; text-transform: uppercase; }
+.cp-sun-text[hidden] { display: none; }
+.cp-sun-l { margin-top: .9rem; }
+.cp-sun-l output { margin-left: .4rem; font-weight: 800; color: var(--ink); text-transform: none; letter-spacing: 0; }
+.cp-sun-masks { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.cp-sun-wash { width: 100%; margin-top: 1rem; padding: .7rem 1rem; border: 0; border-radius: 999px; background: #1f4f8f; color: #fff; font-family: var(--sans); font-weight: 800; font-size: .95rem; cursor: pointer; box-shadow: 0 10px 24px -12px rgba(31,79,143,.8); }
+.cp-sun-wash:hover { background: #2a62ad; }
+@media (max-width: 480px) { .cp-lt-steps { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.cp-lt-nums > div:first-child { grid-column: auto; }
+.al-lg-cplt i { border: 0; background: #9b7bff; box-shadow: 0 0 10px 2px rgba(155,123,255,.6); }
+.al-lg-cpres i { border: 0; border-radius: 4px; background: #d9822b; }

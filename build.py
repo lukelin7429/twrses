@@ -5858,7 +5858,7 @@ def build_htw_hub():
 _chipj = os.path.join(ROOT, "data", "semiconductors.json")
 CHIP = json.load(open(_chipj, encoding="utf-8")) if os.path.exists(_chipj) else None
 CHIP_BASE = "/resources/classes/semiconductors/"
-_CHIP_JS = {"doping": "chip-doping", "transistor": "chip-transistor", "wafer": "chip-wafer"}   # lab.kind → assets/js/<bundle>.js
+_CHIP_JS = {"doping": "chip-doping", "transistor": "chip-transistor", "wafer": "chip-wafer", "litho": "chip-litho"}   # lab.kind → assets/js/<bundle>.js
 
 def _chip_ver():
     h = hashlib.md5()
@@ -6084,6 +6084,87 @@ def _chip_dies(dz):
             f'</div></div></div>'
             '<noscript><p class="muted">The calculator works in your browser and needs JavaScript. · 計算在瀏覽器裡進行，需要開啟 JavaScript。</p></noscript>')
 
+def chiplitho_svg(size=56):
+    """第四課的課程卡小圖示：一道紫色的光從上往下穿過光罩（有縫的板子）、收窄打在晶圓上。"""
+    return (f'<svg class="chiplitho-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">'
+            '<path d="M18 6h24l-6 22H24z" fill="#9b7bff" opacity=".45"/><path d="M24 30h12l-4 18h-4z" fill="#9b7bff" opacity=".75"/>'
+            '<rect x="10" y="26" width="40" height="4" rx="1" fill="#cfd4dc"/>'
+            '<rect x="14" y="26" width="5" height="4" fill="#3a4a66"/><rect x="24" y="26" width="4" height="4" fill="#3a4a66"/><rect x="33" y="26" width="4" height="4" fill="#3a4a66"/><rect x="42" y="26" width="5" height="4" fill="#3a4a66"/>'
+            '<ellipse cx="30" cy="51" rx="20" ry="4.5" fill="#c9d2de"/><rect x="27" y="48.5" width="6" height="3" fill="#f3e6ff"/></svg>')
+
+def render_chiplitho_lab(lesson):
+    """第四課：曝光機與晶圓上的五個步驟（assets/js/chip-litho.js 綁這裡的 class；全部自繪示意）。"""
+    lab = lesson["lab"]
+    st = lab["steps"]
+    lights = [("duv", "DUV · 193 nm", "深紫外光"), ("euv", "EUV · 13.5 nm", "極紫外光")]
+    lb = "".join(f'<button type="button" data-light="{k}" aria-pressed="{"true" if k == "duv" else "false"}">{en}<small>{zh}</small></button>' for k, en, zh in lights)
+    sb = "".join(f'<button type="button" data-wstep="{i}" aria-pressed="false"><b>{i + 1}</b>{html.escape(s["short_en"])}<small>{html.escape(s["short_zh"])}</small></button>' for i, s in enumerate(st))
+    panels = "".join(
+        f'<div class="cp-wf-panel" data-panel="{i}" hidden><p class="cp-wf-k">Step {i + 1} · 第 {i + 1} 步</p>'
+        f'<h3>{html.escape(s["title_en"])}<span class="zh">{html.escape(s["title_zh"])}</span></h3>'
+        f'<p class="cp-msg">{html.escape(s["text_en"])}<span class="zh">{html.escape(s["text_zh"])}</span></p></div>' for i, s in enumerate(st))
+    msgs = "".join(f'<p class="cp-msg cp-lt-msg" data-msg="{k}" hidden>{html.escape(m["en"])}<span class="zh">{html.escape(m["zh"])}</span></p>' for k, m in lab["msgs"].items())
+    tg = _lab_toggles([("labels", "Labels", "標示", True)])
+    return f'''<div class="astro-lab cp-lab cp-lt-lab rvl" data-chiplitho-lab>
+  <div class="al-stage">
+    <div class="al-space">
+      <canvas class="al-space-cv" aria-label="3D model of a lithography machine printing a circuit pattern onto a wafer, and the five steps on the wafer · 曝光機把電路圖案印到晶圓上、以及晶圓上五個步驟的 3D 模型"></canvas>
+      <div class="al-labels" aria-hidden="true"></div>
+      <div class="cp-view" role="group" aria-label="View · 視角">
+        <button type="button" data-view="machine" aria-pressed="true">The machine<small>曝光機</small></button>
+        <button type="button" data-view="wafer" aria-pressed="false">On the wafer<small>晶圓上的步驟</small></button>
+      </div>
+      <p class="al-hint">Drag to turn · 拖曳旋轉　Scroll or pinch to zoom · 滾輪／雙指縮放</p>
+      <button type="button" class="al-home" title="Reset view · 重設視角" aria-label="Reset view · 重設視角">&#8634;</button>
+      <p class="al-nogl-msg">This 3D model needs WebGL, which this browser does not support. The reading and the cards below still explain everything.<br><span class="zh">這個瀏覽器不支援 WebGL，無法顯示 3D 模型；下方的課文與卡片一樣能看懂。</span></p>
+    </div>
+    <aside class="al-sky cp-aside">
+      <p class="al-sky-k">Which light? · 用哪一種光？</p>
+      <div class="cp-dope cp-tr-quick" role="group" aria-label="Which light? · 用哪一種光？">{lb}</div>
+      <dl class="cp-nums cp-lt-nums">
+        <div><dt>Wavelength · 波長</dt><dd class="cp-lt-nm"></dd></div>
+        <div><dt>Finest line · 最細的線</dt><dd class="cp-lt-cd"></dd></div>
+        <div><dt>Focus with · 聚光</dt><dd class="cp-lt-opt"></dd></div>
+        <div><dt>Light travels in · 光走在</dt><dd class="cp-lt-air"></dd></div>
+      </dl>
+      {msgs}
+      <div class="cp-lt-wsteps">
+        <p class="al-sky-k">Five steps on the wafer · 晶圓上的五步</p>
+        <div class="cp-wf-steps cp-lt-steps" role="group" aria-label="Steps · 步驟">{sb}</div>
+        <button type="button" class="cp-wf-tour cp-lt-auto" aria-pressed="false"><span aria-hidden="true">&#9654;</span> <span class="t">Play all five steps · 五步連續播放</span></button>
+        {panels}
+      </div>
+    </aside>
+  </div>
+  <div class="al-controls">
+    <div class="al-row al-row-main">
+      <button type="button" class="al-play" aria-pressed="true"><span class="al-play-i" aria-hidden="true"></span><span class="al-play-t">Pause · 暫停</span></button>
+      <div class="al-row al-toggles">{tg}</div>
+    </div>
+  </div>
+  {_lab_foot(lab)}
+  <p class="cp-credit">{lab["credit_html"]}</p>
+</div>'''
+
+def _chip_sun(sp):
+    """「在螢幕上曬一張藍曬圖」（chip-litho.js 的 initSun；2D canvas，不需要 WebGL）。"""
+    masks = "".join(f'<button type="button" data-mask="{m["key"]}" aria-pressed="false">{html.escape(m["en"])}<small>{html.escape(m["zh"])}</small></button>' for m in sp["masks"])
+    return (f'<div class="cp-dpw cp-sun rvl" data-chip-sun>'
+            f'<div class="cp-dpw-pic cp-sun-pic"><canvas class="cp-dpw-cv cp-sun-cv" aria-label="A simulated sun print · 模擬的藍曬圖"></canvas>'
+            f'<p class="cp-sun-status" aria-live="polite"></p></div>'
+            f'<div class="cp-dpw-side"><div class="cp-cnt-in">'
+            f'<p class="cp-cnt-l"><span>1 · Choose a mask · 選一張光罩</span></p>'
+            f'<div class="cp-dpw-pre cp-sun-masks" role="group" aria-label="Mask · 光罩">{masks}</div>'
+            f'<input class="cp-sun-text" type="text" maxlength="8" value="CHIP" aria-label="Your word · 你的字" hidden>'
+            f'<label class="cp-cnt-l cp-sun-l"><span>2 · Time in the sun · 曬多久 <output class="cp-sun-time-out"></output></span>'
+            f'<input type="range" class="al-age cp-sun-time" min="0" max="40" step="1" value="15"></label>'
+            f'<label class="cp-cnt-l cp-sun-l"><span>3 · Gap between mask and paper · 光罩離紙多遠 <output class="cp-sun-gap-out"></output></span>'
+            f'<input type="range" class="al-age cp-sun-gap" min="0" max="6" step="0.5" value="0"></label>'
+            f'<button type="button" class="cp-sun-wash">Wash it · 用水沖洗</button>'
+            f'<p class="cp-cnt-note">{html.escape(sp["note_en"])}<span class="zh">{html.escape(sp["note_zh"])}</span></p>'
+            f'</div></div></div>'
+            '<noscript><p class="muted">The simulator works in your browser and needs JavaScript. · 模擬在瀏覽器裡進行，需要開啟 JavaScript。</p></noscript>')
+
 def _chip_count(ct):
     """「一顆一顆數，要數多久？」（chip-transistor.js 的 initCount 計算；不需要 WebGL）。"""
     opts = "".join(f'<option value="{i}"{" selected" if i == ct.get("default", 0) else ""}>{html.escape(c["en"])} · {html.escape(c["zh"])}</option>'
@@ -6161,12 +6242,15 @@ def build_chip_lesson(ui, unit, lesson):
     reading_html = render_basic_unit(1, unit_dict, level="chips", audio_rel="", pdf_rel="")
     lab = lesson["lab"]
     kind = lab["kind"]
-    lab_html = {"doping": render_chipdoping_lab, "transistor": render_chiptransistor_lab, "wafer": render_chipwafer_lab}[kind](lesson)
+    lab_html = {"doping": render_chipdoping_lab, "transistor": render_chiptransistor_lab, "wafer": render_chipwafer_lab, "litho": render_chiplitho_lab}[kind](lesson)
 
     secs = []
     if lesson.get("home"):
         hm = lesson["home"]
         secs.append(("home", hm["eyebrow"], hm["en"], hm["zh"], _chip_home(hm), _bi(hm["lead_en"], hm["lead_zh"], cls="lead rvl d2")))
+    if lesson.get("sunprint"):
+        sp = lesson["sunprint"]
+        secs.append(("sunprint", sp["eyebrow"], sp["en"], sp["zh"], _chip_sun(sp), _bi(sp["lead_en"], sp["lead_zh"], cls="lead rvl d2")))
     if lesson.get("dies"):
         dz = lesson["dies"]
         secs.append(("dies", dz["eyebrow"], dz["en"], dz["zh"], _chip_dies(dz), _bi(dz["lead_en"], dz["lead_zh"], cls="lead rvl d2")))
@@ -6217,7 +6301,8 @@ def build_chip_lesson(ui, unit, lesson):
     secs.append(("myths", "Myth vs. Fact · 常見迷思", "Four things people get wrong", "四個常見的誤會", _sci_myths(lesson), ""))
     tricks_h = {"doping": ("Semiconductors in a sentence", "一句話記住半導體"),
                 "transistor": ("Transistors in a sentence", "一句話記住電晶體"),
-                "wafer": ("From sand to chip in a sentence", "一句話記住沙子變晶片")}[kind]
+                "wafer": ("From sand to chip in a sentence", "一句話記住沙子變晶片"),
+                "litho": ("Drawing with light in a sentence", "一句話記住用光畫電路")}[kind]
     secs.append(("tricks", "Remember It · 記憶口訣", tricks_h[0], tricks_h[1], _sci_tricks(lesson), ""))
     if lesson.get("safety"):
         items = "".join(f'<li class="rvl">{html.escape(s["en"])}<span class="zh">{html.escape(s["zh"])}</span></li>' for s in lesson["safety"])
@@ -6271,7 +6356,7 @@ def build_chip_lesson(ui, unit, lesson):
 def build_chip_hub():
     # 照萬物原理：單元導覽＋每個單元一段橫向課程卡；做好的課可點，planned 是「製作中」卡。
     def icon(l):
-        return chipsilicon_svg(60) if l.get("card") == "silicon" else chiptransistor_svg(60) if l.get("card") == "transistor" else chipwafer_svg(60) if l.get("card") == "wafer" else l["icon"]
+        return chipsilicon_svg(60) if l.get("card") == "silicon" else chiptransistor_svg(60) if l.get("card") == "transistor" else chipwafer_svg(60) if l.get("card") == "wafer" else chiplitho_svg(60) if l.get("card") == "litho" else l["icon"]
     unit_sections, nav = [], []
     done = sum(len(u["lessons"]) for u in CHIP["units"])
     total = done + sum(len(u.get("planned", [])) for u in CHIP["units"])

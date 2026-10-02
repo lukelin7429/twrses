@@ -2312,15 +2312,711 @@
               "url": "https://science.anu.edu.au/engagement/science-lab-experiments-home-school/how-make-rock-candy"
             }
           ]
+        },
+        {
+          "n": 4,
+          "slug": "lithography",
+          "title": "How Do You Draw a Circuit Smaller Than a Virus?",
+          "title_zh": "怎麼畫出比病毒還小的電路？",
+          "level": "入門 · Beginner",
+          "icon": "🔦",
+          "card": "litho",
+          "blurb_en": "Chips are drawn with light. In 3D, watch light shine through a mask and shrink onto a wafer, switch from DUV to EUV light made by blasting drops of tin, then cut open the wafer to see the five steps that carve a pattern. Then make a sun print on your screen.",
+          "blurb_zh": "晶片是用光畫出來的。在 3D 裡看光穿過光罩、縮小印到晶圓上；從 DUV 切換到用雷射打錫滴產生的 EUV；再把晶圓剖開，看刻出圖案的五個步驟。最後在螢幕上曬一張藍曬圖。",
+          "big_idea_en": "Chips are drawn with light. Light shines through a mask with the circuit pattern, lenses or mirrors shrink it onto a light-sensitive coating on the wafer, and the pattern is then etched in. This is repeated layer after layer, and the shorter the light's wavelength, the finer the lines.",
+          "big_idea_zh": "晶片是用光畫出來的：光穿過畫好電路的光罩，鏡頭或反射鏡把圖案縮小，印在晶圓的感光膠上，再把圖案蝕刻出來。一層一層重複做；光的波長越短，畫得越細。",
+          "lab": {
+            "kind": "litho",
+            "eyebrow": "3D Model · 3D 模型",
+            "title_en": "Drawing with Light",
+            "title_zh": "用光畫電路",
+            "how_en": "Drag to turn the model, and scroll or pinch to zoom. In The machine, watch the light print one field after another across the wafer, and switch between DUV and EUV light. Then choose On the wafer to see a slice of the wafer go through the five steps that carve the pattern.",
+            "how_zh": "拖曳可以旋轉模型，滾輪或雙指可以縮放。在「曝光機」看光把晶圓一格一格印滿，並切換 DUV 和 EUV 兩種光；再選「晶圓上的步驟」，看晶圓剖面經過刻出圖案的五個步驟。",
+            "steps": [
+              {
+                "short_en": "Coat",
+                "short_zh": "塗光阻",
+                "title_en": "Coat with photoresist",
+                "title_zh": "塗上光阻",
+                "text_en": "The wafer already has a thin layer to be patterned. A light-sensitive coating called photoresist is spread over it, thin and even.",
+                "text_zh": "晶圓上已經有一層要刻圖案的薄膜。先在上面塗一層又薄又均勻的感光膠，叫做「光阻」。"
+              },
+              {
+                "short_en": "Expose",
+                "short_zh": "曝光",
+                "title_en": "Shine light through the mask",
+                "title_zh": "讓光穿過光罩",
+                "text_en": "Light passes through the clear parts of the mask and lands on the photoresist. The dark parts of the mask block it. Where light lands, the photoresist changes chemically.",
+                "text_zh": "光穿過光罩透明的地方，照到光阻上；光罩上不透光的部分把光擋住。照到光的光阻，化學性質就改變了。"
+              },
+              {
+                "short_en": "Develop",
+                "short_zh": "顯影",
+                "title_en": "Wash away the exposed parts",
+                "title_zh": "把照到光的部分洗掉",
+                "text_en": "A liquid called developer washes away the photoresist that was hit by light. This is how a positive photoresist works. Now the pattern is an open stencil.",
+                "text_zh": "用顯影液把照過光的光阻洗掉（這是「正型光阻」的做法），光阻就變成一張開了洞的模板。"
+              },
+              {
+                "short_en": "Etch",
+                "short_zh": "蝕刻",
+                "title_en": "Etch the layer",
+                "title_zh": "蝕刻薄膜",
+                "text_en": "Chemicals or a plasma eat away the layer wherever the photoresist is gone. Where photoresist remains, the layer is protected.",
+                "text_zh": "用化學藥劑或電漿，把沒有光阻保護的薄膜蝕刻掉；還有光阻的地方，薄膜就被保護住。"
+              },
+              {
+                "short_en": "Strip",
+                "short_zh": "去光阻",
+                "title_en": "Remove the rest of the photoresist",
+                "title_zh": "把剩下的光阻去掉",
+                "text_en": "The leftover photoresist is removed, and the pattern from the mask is now carved into the layer. A chip repeats steps like these for layer after layer.",
+                "text_zh": "把剩下的光阻去掉，光罩上的圖案就刻進薄膜裡了。一顆晶片要這樣一層又一層地重複做。"
+              }
+            ],
+            "msgs": {
+              "m_duv": {
+                "en": "Deep ultraviolet (DUV) light from a laser shines through the mask, and a stack of glass lenses shrinks the pattern four times onto one field of the wafer. Then the wafer moves, and the next field is printed.",
+                "zh": "雷射發出的深紫外光（DUV）穿過光罩，一疊玻璃鏡頭把圖案縮小 4 倍，印在晶圓的一格上；接著晶圓移動，再印下一格。"
+              },
+              "m_euv": {
+                "en": "Extreme ultraviolet (EUV) light has a much shorter wavelength, so it can print finer lines. But glass and even air absorb it, so the machine uses mirrors instead of lenses and works in a vacuum. The light is made by a laser hitting tiny drops of tin.",
+                "zh": "極紫外光（EUV）的波長短得多，可以印出更細的線。但玻璃、甚至空氣都會吸收它，所以機器改用反射鏡、在真空中工作。這種光是雷射打在小錫滴上產生的。"
+              },
+              "w": {
+                "en": "This is a tiny slice of the wafer, cut open. Press the steps, or play all five, to see how the pattern on the mask ends up carved into the layer. Switch between DUV and EUV to compare how fine the lines are.",
+                "zh": "這是晶圓上一小塊的剖面。按每一步，或連續播放五步，看光罩上的圖案怎麼刻進薄膜裡。切換 DUV 和 EUV，比比看線條有多細。"
+              }
+            },
+            "legend": [
+              {
+                "cls": "cplt",
+                "en": "Purple beam: ultraviolet light (really invisible)",
+                "zh": "紫色光束：紫外光（真實是看不見的）"
+              },
+              {
+                "cls": "cpres",
+                "en": "Orange: photoresist, the light-sensitive coating",
+                "zh": "橘色：光阻，會感光的膜"
+              },
+              {
+                "cls": "cpn",
+                "en": "Blue: the layer being patterned",
+                "zh": "藍色：要刻出圖案的薄膜"
+              },
+              {
+                "cls": "cpsi",
+                "en": "Silver: mirrors, chrome on the mask, the silicon wafer",
+                "zh": "銀色：反射鏡、光罩上的鉻、矽晶圓"
+              }
+            ],
+            "scale_en": "A teaching diagram, not to scale. Ultraviolet light is invisible; it is drawn purple. A real machine is about the size of a bus, with many more mirrors and lenses than shown. In the wafer slice, the number of lines follows the finest line each light can print (about 57 nm for DUV and 16 nm for EUV), but the drawing is enlarged millions of times.",
+            "scale_zh": "這是示意圖，不是真實比例。紫外光其實看不見，這裡畫成紫色。真的機器大約有一台公車那麼大，反射鏡和鏡頭也比圖上多得多。晶圓剖面裡的線條數，是照兩種光能印出的最細線寬（DUV 約 57 奈米、EUV 約 16 奈米）的比例畫的，但整張圖放大了好幾百萬倍。",
+            "credit_html": "Model drawn by My Culture Connect as a teaching diagram. Light sources, the 4× reduction, and the resolution formula follow <a href=\"https://www.asml.com/en/technology/lithography-principles/light-and-lasers\" target=\"_blank\" rel=\"noopener\">ASML</a>; the five steps follow Wikipedia's article on photolithography. · 模型由人師教育協會自繪示意；光源、縮小 4 倍與解析度公式依 ASML 的說明，五個步驟依維基百科的微影條目。"
+          },
+          "paras": [
+            "A transistor in a modern chip is far too small to draw with a pen, a laser, or even the sharpest needle. A flu virus is only about 80 to 120 nanometers across, and many lines in a chip are thinner than that. So how do engineers draw billions of them at once? They use light as a pen. The process is called photolithography, from Greek words meaning writing on stone with light.",
+            "It works a bit like a stencil. First, the wafer is coated with photoresist, a thin film that changes when light hits it. The circuit pattern is drawn on a mask, a plate of quartz glass with chrome where light should be blocked. Light shines through the mask, and lenses shrink the pattern four times before it lands on the wafer.",
+            "Next, the wafer is washed in a liquid called developer. In the most common kind of photoresist, the parts hit by light wash away, so the photoresist becomes a stencil with tiny openings. Chemicals or a plasma etch the layer underneath through the openings, and then the leftover photoresist is removed. The pattern from the mask is now carved into the chip.",
+            "One pattern is not enough. A chip is built up layer by layer: transistors at the bottom, then many layers of tiny metal wires above them. ASML, the Dutch company that makes the most advanced lithography machines, says a modern chip can need up to about 100 patterning steps. Every layer has to line up with the one below it almost perfectly.",
+            "Why use such special light? The finest line light can draw depends on its wavelength. Many machines use deep ultraviolet (DUV) light with a wavelength of 193 nanometers. The newest use extreme ultraviolet (EUV) light at just 13.5 nanometers, more than 14 times shorter. EUV light is made by hitting tiny drops of tin with lasers, 50,000 drops every second. Even air absorbs it, so an EUV machine works in a vacuum and uses mirrors instead of lenses.",
+            "A single speck of dust could ruin a pattern this small, so chips are made in cleanrooms. In the cleanest kind, ISO class 1, a cubic meter of air may hold no more than 10 particles bigger than 0.1 micrometers. Ordinary room air is around class 9, and each step up the scale allows about ten times more particles. The rooms where photoresist is handled are lit with yellow light, because blue and ultraviolet light would expose it by accident."
+          ],
+          "paras_zh": [
+            "現代晶片裡的電晶體，小到用筆、用雷射、甚至最尖的針都畫不出來。一個流感病毒只有約 80 到 120 奈米寬，而晶片裡很多線條比這還細。工程師怎麼一次畫出幾十億個？他們用光當筆。這個過程叫做「微影」（photolithography），英文字源於希臘文，意思是「用光在石頭上寫字」。",
+            "它有點像用模板噴畫。首先，在晶圓上塗一層光阻：照到光就會改變的薄膜。電路圖案畫在「光罩」上，那是一片石英玻璃，要擋光的地方鍍上鉻。光穿過光罩，鏡頭把圖案縮小 4 倍，再落到晶圓上。",
+            "接著，用一種叫「顯影液」的液體沖洗晶圓。最常見的光阻，照到光的部分會被洗掉，光阻就變成一張有細小開口的模板。再用化學藥劑或電漿，從開口把底下那層蝕刻掉，最後去掉剩下的光阻。光罩上的圖案就刻進晶片裡了。",
+            "一次圖案是不夠的。晶片是一層一層蓋起來的：最下面是電晶體，上面是好多層極細的金屬導線。製造最先進曝光機的荷蘭公司艾司摩爾（ASML）說，一顆現代晶片最多需要約 100 次圖案步驟。每一層都必須和下面那一層幾乎完美地對齊。",
+            "為什麼要用這麼特別的光？光能畫出多細的線，取決於它的波長。很多機器用波長 193 奈米的深紫外光（DUV）；最新的機器用只有 13.5 奈米的極紫外光（EUV），短了 14 倍以上。EUV 是用雷射打在小小的錫滴上產生的，每秒 5 萬滴。連空氣都會吸收它，所以 EUV 機器要在真空中工作，並且用反射鏡代替鏡頭。",
+            "一粒灰塵就能毀掉這麼小的圖案，所以晶片要在無塵室裡做。最乾淨的 ISO 1 級無塵室，每立方公尺空氣裡大於 0.1 微米的微粒不能超過 10 顆。一般室內空氣大約是 9 級，而等級每往上一級，允許的微粒大約多 10 倍。處理光阻的房間用黃色的燈光，因為藍光和紫外光會不小心讓光阻感光。"
+          ],
+          "questions": [
+            "What does the mask do?",
+            "What happens to the most common kind of photoresist where light hits it?",
+            "Why does an EUV machine use mirrors and work in a vacuum?"
+          ],
+          "answers": [
+            "It carries the circuit pattern. Light passes through its clear parts and is blocked by the chrome.",
+            "Those parts wash away in the developer, leaving a stencil with tiny openings.",
+            "Glass and even air absorb EUV light, so it must travel in a vacuum and bounce off mirrors."
+          ],
+          "vocab": [
+            {
+              "n": 1,
+              "w": "pattern",
+              "pos": "n.",
+              "zh": "圖案；模式",
+              "ex": "The tiles on the floor make a pretty <b>pattern</b>.",
+              "exzh": "地上的磁磚排成漂亮的圖案。"
+            },
+            {
+              "n": 2,
+              "w": "stencil",
+              "pos": "n.",
+              "zh": "模板（鏤空版）",
+              "ex": "We used a <b>stencil</b> to paint stars on the wall.",
+              "exzh": "我們用模板在牆上畫星星。"
+            },
+            {
+              "n": 3,
+              "w": "lens",
+              "pos": "n.",
+              "zh": "鏡頭；透鏡",
+              "ex": "A magnifying glass has a curved <b>lens</b>.",
+              "exzh": "放大鏡有一片彎曲的透鏡。"
+            },
+            {
+              "n": 4,
+              "w": "mirror",
+              "pos": "n.",
+              "zh": "鏡子",
+              "ex": "She checked her hair in the <b>mirror</b>.",
+              "exzh": "她在鏡子前看看頭髮。"
+            },
+            {
+              "n": 5,
+              "w": "shrink",
+              "pos": "v.",
+              "zh": "縮小",
+              "ex": "Wool sweaters can <b>shrink</b> in hot water.",
+              "exzh": "羊毛衣用熱水洗可能會縮水。"
+            },
+            {
+              "n": 6,
+              "w": "layer",
+              "pos": "n.",
+              "zh": "層",
+              "ex": "The cake has three <b>layers</b> of chocolate.",
+              "exzh": "這個蛋糕有三層巧克力。"
+            },
+            {
+              "n": 7,
+              "w": "wavelength",
+              "pos": "n.",
+              "zh": "波長",
+              "ex": "Red light has a longer <b>wavelength</b> than blue light.",
+              "exzh": "紅光的波長比藍光長。"
+            },
+            {
+              "n": 8,
+              "w": "dust",
+              "pos": "n.",
+              "zh": "灰塵",
+              "ex": "There was <b>dust</b> on the old books.",
+              "exzh": "舊書上積了一層灰塵。"
+            }
+          ],
+          "quiz": [
+            {
+              "q": "What is photolithography?",
+              "options": [
+                "Drawing patterns with light",
+                "Cutting chips with a saw",
+                "Melting sand",
+                "Testing chips"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "Which light has the shorter wavelength?",
+              "options": [
+                "EUV, 13.5 nm",
+                "DUV, 193 nm",
+                "Red light",
+                "They are the same"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "In the most common photoresist, what happens to the parts hit by light?",
+              "options": [
+                "They wash away",
+                "They turn into metal",
+                "They glow forever",
+                "Nothing happens"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "Why are lithography rooms lit with yellow light?",
+              "options": [
+                "Blue and ultraviolet light would expose the photoresist",
+                "Yellow light is cheaper",
+                "It keeps the room warm",
+                "Workers like yellow"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "How many times smaller is the pattern on the wafer than on the mask?",
+              "options": [
+                "4 times",
+                "2 times",
+                "100 times",
+                "It is the same size"
+              ],
+              "correct": 0
+            }
+          ],
+          "parts_head": {
+            "eyebrow": "Try It in the Model · 在模型裡試試",
+            "en": "Four things to try",
+            "zh": "試試這四件事"
+          },
+          "parts": [
+            {
+              "key": "duv",
+              "icon": "🔦",
+              "en": "A DUV machine",
+              "zh": "DUV 曝光機",
+              "meta_en": "193 nm, glass lenses",
+              "meta_zh": "193 奈米，玻璃鏡頭",
+              "demo": "duv",
+              "text_en": "Light from a laser passes through the mask and a stack of lenses, and prints one field after another across the wafer.",
+              "text_zh": "雷射光穿過光罩和一疊鏡頭，把晶圓一格一格印滿。"
+            },
+            {
+              "key": "euv",
+              "icon": "✨",
+              "en": "An EUV machine",
+              "zh": "EUV 曝光機",
+              "meta_en": "13.5 nm, mirrors in a vacuum",
+              "meta_zh": "13.5 奈米，真空裡的反射鏡",
+              "demo": "euv",
+              "text_en": "Laser pulses flash tin drops into glowing plasma, and the light bounces off mirrors and a reflective mask.",
+              "text_zh": "雷射把錫滴打成發光的電漿，光經過反射鏡和反射式光罩一路彈到晶圓上。"
+            },
+            {
+              "key": "steps",
+              "icon": "🧪",
+              "en": "Five steps on the wafer",
+              "zh": "晶圓上的五步",
+              "meta_en": "Coat, expose, develop, etch, strip",
+              "meta_zh": "塗、照、洗、刻、去",
+              "demo": "steps",
+              "text_en": "Watch a slice of the wafer as the mask's pattern is carved into the layer.",
+              "text_zh": "看晶圓剖面上，光罩的圖案怎麼刻進薄膜。"
+            },
+            {
+              "key": "fine",
+              "icon": "📏",
+              "en": "Finer lines",
+              "zh": "更細的線",
+              "meta_en": "About 57 nm vs. 16 nm",
+              "meta_zh": "約 57 奈米對 16 奈米",
+              "demo": "fine",
+              "text_en": "Switch the light and compare the finished lines: EUV's are about three and a half times finer.",
+              "text_zh": "切換光源，比較刻好的線：EUV 的線大約細了三倍半。"
+            }
+          ],
+          "parts_note_en": "ASML gives the finest line as about k1 × wavelength ÷ NA. NA describes how widely the lenses or mirrors gather light, and k1 is usually about 0.4. EUV's wavelength is 14 times shorter, but its mirrors gather light less widely, so its lines are about 3.5 times finer, not 14.",
+          "parts_note_zh": "ASML 說，最細的線約等於 k1 × 波長 ÷ NA。NA 表示鏡頭或反射鏡收光的範圍有多大，k1 通常約 0.4。EUV 的波長短了 14 倍，但它的反射鏡收光範圍比較小，所以線條細了約 3.5 倍，而不是 14 倍。",
+          "links_head": {
+            "eyebrow": "Go Further · 延伸閱讀",
+            "en": "Before and after this lesson",
+            "zh": "這一課的前後"
+          },
+          "links": [
+            {
+              "href": "/resources/classes/semiconductors/sand-to-chip/",
+              "icon": "🏖️",
+              "k_en": "Chips and Semiconductors · Lesson 3",
+              "k_zh": "晶片與半導體 第三課",
+              "en": "How Does Sand Become a Chip?",
+              "zh": "沙子怎麼變成晶片？",
+              "note_en": "Where the wafer comes from, and how many chips fit on it.",
+              "note_zh": "晶圓從哪裡來，一片能放幾顆晶片。"
+            },
+            {
+              "href": "/resources/classes/semiconductors/transistor/",
+              "icon": "🔀",
+              "k_en": "Chips and Semiconductors · Lesson 2",
+              "k_zh": "晶片與半導體 第二課",
+              "en": "What Does a Transistor Do?",
+              "zh": "電晶體在做什麼？",
+              "note_en": "The source, drain, and gate are exactly the shapes these patterns draw.",
+              "note_zh": "源極、汲極、閘極，就是這些圖案畫出來的形狀。"
+            }
+          ],
+          "sunprint": {
+            "eyebrow": "Make a Sun Print · 曬一張藍曬圖",
+            "en": "Print with light on your screen",
+            "zh": "在螢幕上用光印圖案",
+            "lead_en": "This is how blueprints were made, and it works like a lithography machine without the lens. Choose a mask, leave the paper in the sun, then wash it. Try lifting the mask away from the paper.",
+            "lead_zh": "藍圖（blueprint）就是這樣做的，原理像少了鏡頭的曝光機。選一張光罩，讓紙曬太陽，再用水沖洗。試試看把光罩拿離紙面。",
+            "masks": [
+              {
+                "key": "leaf",
+                "en": "Leaf",
+                "zh": "葉子"
+              },
+              {
+                "key": "circuit",
+                "en": "Circuit",
+                "zh": "電路"
+              },
+              {
+                "key": "text",
+                "en": "Your word",
+                "zh": "你的字"
+              }
+            ],
+            "note_en": "The times are only examples. Real cyanotype paper needs anywhere from a few minutes to about 40 minutes, depending on the sun and the paper. The blur shows why a lithography machine must focus light so precisely: when shadows are fuzzy, thin lines run together.",
+            "note_zh": "時間只是示例：真的藍曬紙要曬幾分鐘到大約 40 分鐘，看陽光和紙而定。模糊的效果說明了曝光機為什麼要把光聚得那麼準：影子一糊，細線就連在一起了。"
+          },
+          "facts": {
+            "eyebrow": "Lithography by the Numbers · 微影的數字",
+            "en": "Light, mirrors, and very clean air",
+            "zh": "光、反射鏡和非常乾淨的空氣",
+            "lead_en": "The numbers behind drawing with light.",
+            "lead_zh": "用光畫電路背後的數字。",
+            "items": [
+              {
+                "big": "193 nm",
+                "unit_en": "DUV light",
+                "unit_zh": "深紫外光的波長",
+                "en": "Made by an argon fluoride laser.",
+                "zh": "由氟化氬雷射產生。"
+              },
+              {
+                "big": "13.5 nm",
+                "unit_en": "EUV light",
+                "unit_zh": "極紫外光的波長",
+                "en": "More than 14 times shorter than DUV.",
+                "zh": "比 DUV 短 14 倍以上。"
+              },
+              {
+                "big": "4×",
+                "unit_en": "smaller on the wafer",
+                "unit_zh": "晶圓上縮小的倍數",
+                "en": "The mask's pattern is four times larger than the chip's.",
+                "zh": "光罩上的圖案是晶片上的 4 倍大。"
+              },
+              {
+                "big": "50,000",
+                "unit_en": "tin drops a second",
+                "unit_zh": "每秒的錫滴數",
+                "en": "Each drop is hit by two laser pulses to make EUV light.",
+                "zh": "每一滴都被雷射打兩次，才發出 EUV 光。"
+              },
+              {
+                "big": "≈ 100",
+                "unit_en": "patterning steps",
+                "unit_zh": "次圖案步驟",
+                "en": "What a modern chip can need, according to ASML.",
+                "zh": "ASML 說一顆現代晶片最多約需要這麼多次。"
+              },
+              {
+                "big": "10",
+                "unit_en": "particles per m³",
+                "unit_zh": "顆微粒（每立方公尺）",
+                "en": "The most allowed (0.1 µm or bigger) in the cleanest cleanrooms, ISO class 1.",
+                "zh": "最乾淨的無塵室（ISO 1 級）允許的 0.1 微米以上微粒上限。"
+              }
+            ]
+          },
+          "culture_cards": {
+            "eyebrow": "Lithography Stories · 微影的故事",
+            "title_en": "A word, a blueprint, a giant machine, and yellow light",
+            "title_zh": "一個詞、一張藍圖、一台巨大的機器、一種黃色的光",
+            "lead_en": "Four stories about drawing with light.",
+            "lead_zh": "關於「用光畫畫」的四個小故事。",
+            "cards": [
+              {
+                "k": "1957 · Lathrop & Nall",
+                "en": "Writing on stone with light",
+                "zh": "用光在石頭上寫字",
+                "body_en": "In 1957, Jay Lathrop and James Nall, working for the U.S. Army, patented a way to use light-sensitive coatings to pattern tiny metal strips for transistors. The word photolithography first appeared in print for this work in 1958. It comes from Greek: photo means light, litho means stone, and graphy means writing.",
+                "body_zh": "1957 年，替美國陸軍工作的拉斯羅普和納爾，取得一項專利：用感光塗料替電晶體做出細小的金屬條。1958 年，photolithography（微影）這個詞第一次為這項技術出現在刊物上。它來自希臘文：photo 是光、litho 是石頭、graphy 是書寫。"
+              },
+              {
+                "k": "1842 · Blueprints · 藍圖",
+                "en": "Pictures made by sunlight",
+                "zh": "陽光印出來的圖",
+                "body_en": "In 1842, the British scientist John Herschel published the cyanotype, a process that turns paper blue where light hits it. In 1843, Anna Atkins used it to make Photographs of British Algae, often called the first book illustrated with photographs. Architects and engineers later copied drawings this way, which is why we still say blueprint.",
+                "body_zh": "1842 年，英國科學家赫歇爾發表了「氰版照相」（藍曬）：紙張照到光的地方會變藍。1843 年，安娜．阿特金斯用它做出《英國藻類照片集》，常被稱為第一本用照片做插圖的書。後來建築師和工程師用這種方法複製圖紙，所以我們今天還說「藍圖」。"
+              },
+              {
+                "k": "Veldhoven · ASML · 艾司摩爾",
+                "en": "A machine the size of a bus",
+                "zh": "像公車一樣大的機器",
+                "body_en": "As of 2025, ASML, based in Veldhoven in the Netherlands, is the only company that makes EUV machines for chip production. Reuters describes one as about the size of a school bus and weighing about 150 tons, shipped in around 40 containers.",
+                "body_zh": "到 2025 年為止，總部在荷蘭費爾德霍溫的艾司摩爾（ASML），是世界上唯一生產晶片用 EUV 曝光機的公司。路透社形容一台大約像一輛校車那麼大、重約 150 公噸，要裝約 40 個貨櫃運送。"
+              },
+              {
+                "k": "Yellow Light · 黃光",
+                "en": "Why lithography rooms glow yellow",
+                "zh": "微影區為什麼是黃色的",
+                "body_en": "Photoresist reacts to blue and ultraviolet light, so the parts of a cleanroom where it is used are lit with yellow light that leaves it alone. One photoresist maker says light shorter than 500 nanometers must be filtered out.",
+                "body_zh": "光阻會對藍光和紫外光起反應，所以無塵室裡使用光阻的區域，都用不會讓它感光的黃色燈光。一家光阻廠商說，波長短於 500 奈米的光都要濾掉。"
+              }
+            ]
+          },
+          "myths": [
+            {
+              "myth_en": "Chips are drawn line by line by a tiny robot pen or laser.",
+              "myth_zh": "晶片是用很小的機器筆或雷射一條一條畫出來的。",
+              "fact_en": "A whole field of the pattern is printed at once with light through a mask, a bit like taking a photograph.",
+              "fact_zh": "光穿過光罩，一次就印出一整格的圖案，有點像拍照。"
+            },
+            {
+              "myth_en": "EUV light is just very bright purple light.",
+              "myth_zh": "EUV 就是很亮的紫色光。",
+              "fact_en": "EUV light is invisible, with a wavelength far shorter than any color we can see. Even air absorbs it.",
+              "fact_zh": "EUV 是看不見的光，波長比任何看得見的顏色都短得多，連空氣都會吸收它。"
+            },
+            {
+              "myth_en": "The mask is the same size as the chip.",
+              "myth_zh": "光罩和晶片一樣大。",
+              "fact_en": "The pattern on the mask is four times larger. The machine's optics shrink it onto the wafer.",
+              "fact_zh": "光罩上的圖案是 4 倍大，由機器的光學系統縮小印到晶圓上。"
+            },
+            {
+              "myth_en": "One trip through the machine makes a chip.",
+              "myth_zh": "晶片進曝光機一次就做好了。",
+              "fact_en": "A modern chip can need up to about 100 patterning steps, one layer on top of another.",
+              "fact_zh": "一顆現代晶片最多約要 100 次圖案步驟，一層疊一層。"
+            }
+          ],
+          "tricks": [
+            {
+              "title_en": "Coat, expose, develop, etch, strip",
+              "title_zh": "塗、照、洗、刻、去",
+              "body_en": "Five steps carve one pattern into one layer.",
+              "body_zh": "五個步驟，把一個圖案刻進一層。"
+            },
+            {
+              "title_en": "Big mask, small chip",
+              "title_zh": "光罩大、晶片小",
+              "body_en": "The pattern shrinks four times on the way to the wafer.",
+              "body_zh": "圖案到晶圓上縮小 4 倍。"
+            },
+            {
+              "title_en": "Shorter light, finer lines",
+              "title_zh": "波長越短，線越細",
+              "body_en": "193 nm DUV, 13.5 nm EUV.",
+              "body_zh": "DUV 193 奈米，EUV 13.5 奈米。"
+            },
+            {
+              "title_en": "EUV: mirrors in a vacuum",
+              "title_zh": "EUV：真空裡的反射鏡",
+              "body_en": "Glass and air absorb it, so no lenses and no air.",
+              "body_zh": "玻璃和空氣都會吸收它，所以不用鏡頭、不要空氣。"
+            }
+          ],
+          "safety": [
+            {
+              "en": "Never look directly at the sun, even through sunglasses or colored plastic.",
+              "zh": "絕不要直視太陽，戴太陽眼鏡或透過有色塑膠片也不行。"
+            },
+            {
+              "en": "Use ready-made sun-print paper. If older students mix cyanotype chemicals, an adult must supervise; wear gloves and goggles, and keep the chemicals away from strong acids.",
+              "zh": "請用現成的藍曬紙。如果高年級學生要自己調藍曬藥劑，一定要有大人在旁，戴手套和護目鏡，並且遠離強酸。"
+            },
+            {
+              "en": "Wash your hands after handling sun-print paper.",
+              "zh": "碰過藍曬紙之後要洗手。"
+            },
+            {
+              "en": "Use a flashlight, not a laser pointer, and never shine light into anyone's eyes.",
+              "zh": "用手電筒，不要用雷射筆；也絕不要把光照向別人的眼睛。"
+            },
+            {
+              "en": "An adult should handle the glass from a picture frame, or use a clear plastic sheet instead.",
+              "zh": "相框的玻璃請大人拿；也可以改用透明塑膠片。"
+            }
+          ],
+          "activities": [
+            {
+              "title_en": "Make a Sun Print",
+              "title_zh": "做一張藍曬圖",
+              "materials": [
+                {
+                  "en": "Sun-print (cyanotype) paper from a craft or science shop",
+                  "zh": "美術或科學用品店買的藍曬紙"
+                },
+                {
+                  "en": "Flat objects such as leaves and paper clips, or a stencil cut from cardboard",
+                  "zh": "葉子、迴紋針這類扁平的東西，或用紙板剪的模板"
+                },
+                {
+                  "en": "A clear plastic sheet, and a tray of water",
+                  "zh": "一張透明塑膠片，和一盤清水"
+                }
+              ],
+              "steps": [
+                {
+                  "en": "Indoors, away from bright light, lay the paper blue side up and arrange your objects on it.",
+                  "zh": "在室內、避開強光，把藍曬紙藍色那面朝上，擺上你的東西。"
+                },
+                {
+                  "en": "Cover them with the clear sheet so they stay flat, then carry everything into the sun.",
+                  "zh": "蓋上透明塑膠片把東西壓平，再拿到太陽下。"
+                },
+                {
+                  "en": "Wait until the paper turns pale, following the time on the package. Then rinse it in water and let it dry.",
+                  "zh": "照包裝上的時間，等紙變淡，再放進水裡沖洗、晾乾。"
+                },
+                {
+                  "en": "Compare the edges. Which objects gave sharp edges, and which gave blurry ones? How is this like a lithography machine?",
+                  "zh": "比較邊緣：哪些東西印出的邊很清楚、哪些比較模糊？這和曝光機有什麼像的地方？"
+                }
+              ],
+              "tip_en": "Try one object lifted a few centimeters above the paper. Its print will be fuzzier, just like an image that is out of focus.",
+              "tip_zh": "試試看把一樣東西架高幾公分，它印出來會比較模糊，就像沒對準焦的影像。"
+            },
+            {
+              "title_en": "Shrink a Pattern with a Lens",
+              "title_zh": "用透鏡把圖案縮小",
+              "materials": [
+                {
+                  "en": "A flashlight and a magnifying glass",
+                  "zh": "一支手電筒和一個放大鏡"
+                },
+                {
+                  "en": "A clear plastic sheet with a simple pattern drawn in black marker",
+                  "zh": "一張用黑色麥克筆畫了簡單圖案的透明片"
+                },
+                {
+                  "en": "A sheet of white paper as a screen, in a dim room",
+                  "zh": "一張白紙當屏幕，在昏暗的房間裡"
+                }
+              ],
+              "steps": [
+                {
+                  "en": "Hold the drawn sheet in front of the flashlight so light passes through the pattern.",
+                  "zh": "把畫了圖案的透明片放在手電筒前面，讓光穿過圖案。"
+                },
+                {
+                  "en": "Hold the magnifying glass between the pattern and the white paper.",
+                  "zh": "把放大鏡放在圖案和白紙之間。"
+                },
+                {
+                  "en": "Slowly move the paper and the lens until a sharp image of the pattern appears. Can you make it smaller than the drawing?",
+                  "zh": "慢慢移動白紙和放大鏡，直到出現清楚的圖案影像。你能讓它比原圖還小嗎？"
+                },
+                {
+                  "en": "Notice that the image is upside down. Talk about it: a lithography machine shrinks its mask pattern four times in the same way, but with many lenses or mirrors.",
+                  "zh": "注意影像是上下顛倒的。討論：曝光機也是這樣把光罩圖案縮小 4 倍，只是用了很多鏡頭或反射鏡。"
+                }
+              ],
+              "tip_en": "If the image is blurry, move the paper a little closer to or farther from the lens. Finding the sharpest spot is called focusing.",
+              "tip_zh": "影像模糊時，把紙稍微移近或移遠一點；找到最清楚的位置，就叫做對焦。"
+            }
+          ],
+          "sources": [
+            {
+              "en": "KrF 248 nm and ArF 193 nm lasers; EUV 13.5 nm, more than 14 times shorter; tin droplets 50,000 times a second, hit by two laser pulses",
+              "zh": "KrF 248、ArF 193 奈米雷射；EUV 13.5 奈米，短 14 倍以上；錫滴每秒 5 萬次、每滴兩道雷射脈衝",
+              "src": "ASML, Light & lasers",
+              "url": "https://www.asml.com/en/technology/lithography-principles/light-and-lasers"
+            },
+            {
+              "en": "EUV light is absorbed by everything, even air; high vacuum and multilayer mirrors; NA 0.33 and 0.55",
+              "zh": "EUV 光什麼都會吸收、連空氣也是；高真空與多層膜反射鏡；NA 0.33 與 0.55",
+              "src": "ASML, EUV lithography systems",
+              "url": "https://www.asml.com/en/products/euv-lithography-systems"
+            },
+            {
+              "en": "The blueprint (mask) is four times larger than the pattern on the chip; the process is repeated about 100 times",
+              "zh": "光罩圖案是晶片上的 4 倍；這個過程重複約 100 次",
+              "src": "ASML, Technology",
+              "url": "https://www.asml.com/en/technology"
+            },
+            {
+              "en": "Resolution: CD = k1 × λ / NA; k1's physical limit is 0.25",
+              "zh": "解析度：CD ＝ k1 × λ ／ NA；k1 物理極限 0.25",
+              "src": "ASML, Rayleigh criterion",
+              "url": "https://www.asml.com/en/technology/lithography-principles/rayleigh-criterion"
+            },
+            {
+              "en": "Photolithography steps; positive photoresist is the most common; k1 about 0.4 in production; immersion with water",
+              "zh": "微影步驟；正型光阻最常見；量產 k1 約 0.4；浸潤式用水",
+              "src": "Wikipedia, “Photolithography”",
+              "url": "https://en.wikipedia.org/wiki/Photolithography"
+            },
+            {
+              "en": "Positive photoresist: exposed parts become soluble in developer",
+              "zh": "正型光阻：照光的部分會溶於顯影液",
+              "src": "Wikipedia, “Photoresist”",
+              "url": "https://en.wikipedia.org/wiki/Photoresist"
+            },
+            {
+              "en": "Immersion lithography: example of a 1.35 NA tool at 193 nm",
+              "zh": "浸潤式微影：193 奈米、NA 1.35 的例子",
+              "src": "Wikipedia, “Immersion lithography”",
+              "url": "https://en.wikipedia.org/wiki/Immersion_lithography"
+            },
+            {
+              "en": "EUV light is absorbed by glass and air; field size 26 × 33 mm; ASML the only producer of EUV systems as of 2025",
+              "zh": "EUV 會被玻璃和空氣吸收；曝光範圍 26 × 33 mm；到 2025 年 ASML 是唯一的 EUV 製造商",
+              "src": "Wikipedia, “Extreme ultraviolet lithography”",
+              "url": "https://en.wikipedia.org/wiki/Extreme_ultraviolet_lithography"
+            },
+            {
+              "en": "Photomask: quartz (fused silica) plate with a chromium pattern; shrunk four or five times",
+              "zh": "光罩：石英玻璃上鍍鉻的圖案；縮小 4 或 5 倍",
+              "src": "Wikipedia, “Photomask”",
+              "url": "https://en.wikipedia.org/wiki/Photomask"
+            },
+            {
+              "en": "ASML's global headquarters is in Veldhoven, the Netherlands",
+              "zh": "ASML 全球總部在荷蘭費爾德霍溫",
+              "src": "ASML, About ASML",
+              "url": "https://www.asml.com/en/company/about-asml"
+            },
+            {
+              "en": "An EUV machine: about the size of a school bus, about 150 tons, shipped in around 40 containers (2026)",
+              "zh": "EUV 機台：約一輛校車大、約 150 公噸、約 40 個貨櫃運送（2026）",
+              "src": "Reuters, via Yahoo Finance",
+              "url": "https://finance.yahoo.com/news/explainer-250-million-asml-printer-050227041.html"
+            },
+            {
+              "en": "Cleanroom classes (ISO 14644-1): ISO 1 allows 10 particles ≥0.1 µm per m³; ordinary room air is around ISO 9; yellow lighting for photolithography",
+              "zh": "無塵室等級（ISO 14644-1）：ISO 1 每立方公尺 0.1 µm 以上微粒 10 顆；一般室內約 ISO 9；微影區用黃光",
+              "src": "Wikipedia, “Cleanroom”",
+              "url": "https://en.wikipedia.org/wiki/Cleanroom"
+            },
+            {
+              "en": "Yellow light: wavelengths below 500 nm must be blocked for photoresist",
+              "zh": "黃光：光阻區要擋掉 500 奈米以下的光",
+              "src": "MicroChemicals",
+              "url": "https://microchemicals.com/products/yellowlight_uv_filter.html"
+            },
+            {
+              "en": "Influenza A virions are 80–120 nm in diameter",
+              "zh": "A 型流感病毒直徑 80–120 奈米",
+              "src": "Wikipedia, “Influenza A virus”",
+              "url": "https://en.wikipedia.org/wiki/Influenza_A_virus"
+            },
+            {
+              "en": "Lathrop and Nall patented photolithographic techniques in 1957",
+              "zh": "拉斯羅普與納爾 1957 年取得微影技術專利",
+              "src": "Computer History Museum",
+              "url": "https://www.computerhistory.org/siliconengine/photolithography-techniques-are-used-to-make-silicon-devices/"
+            },
+            {
+              "en": "Cyanotype: published by Herschel in 1842; ferric ammonium citrate and potassium ferricyanide; blueprints",
+              "zh": "藍曬：赫歇爾 1842 年發表；檸檬酸鐵銨與鐵氰化鉀；藍圖",
+              "src": "Wikipedia, “Cyanotype”",
+              "url": "https://en.wikipedia.org/wiki/Cyanotype"
+            },
+            {
+              "en": "Anna Atkins' 1843 book of cyanotypes; exposure 10–40 minutes; fixed by washing in water",
+              "zh": "安娜．阿特金斯 1843 年的藍曬書；曝光 10–40 分鐘；用水沖洗定影",
+              "src": "Natural History Museum, London",
+              "url": "https://www.nhm.ac.uk/discover/anna-atkins-cyanotypes-the-first-book-of-photographs"
+            },
+            {
+              "en": "Cyanotype safety for schools: gloves, goggles, hand washing, keep away from strong acids (2025)",
+              "zh": "學校藍曬安全：手套、護目鏡、洗手、遠離強酸（2025）",
+              "src": "Science in School",
+              "url": "https://scienceinschool.org/article/2025/cyanoprinting-where-art-and-chemistry-meet/"
+            }
+          ]
         }
       ],
       "planned": [
-        {
-          "n": 4,
-          "icon": "🔦",
-          "en": "How Do You Draw a Circuit Smaller Than a Virus?",
-          "zh": "怎麼畫出比病毒還小的電路？"
-        },
         {
           "n": 5,
           "icon": "📏",
