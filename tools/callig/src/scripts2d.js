@@ -9,12 +9,13 @@
  *   boneBase / rubbingBase                  甲骨的底色、拓片的底色
  *
  * 古文字的中心線在 strokes/ancient.json（自己描的；對位參考 Wikimedia Commons「Ancient Chinese characters project」的公有領域字形）。
- * 隸書（示意）在同一個檔案的 clerical；楷書用 strokes/<key>.json（筆順依教育部）。
+ * 隸書（示意）在 strokes/clerical.json（第六課重畫：蠶頭、一個字一個燕尾）；楷書用 strokes/<key>.json（筆順依教育部）。
  * 字框 1000 × 1000，y 往下；字框 → 畫布：T＝{ k, ox, oy }。
  */
 import { prepStroke, stamps } from './brush.js';
 import { drawStamps, paperBase, rng } from './ink2d.js';
 import ANCIENT from './strokes/ancient.json';
+import CLERICAL from './strokes/clerical.json';
 import RI from './strokes/ri.json';
 import YUE from './strokes/yue.json';
 import SHAN from './strokes/shan.json';
@@ -24,6 +25,8 @@ import MA from './strokes/ma.json';
 
 export const REGULAR = { ri: RI, yue: YUE, shan: SHAN, shui: SHUI, ren: REN, ma: MA };
 export const KEYS = ['ri', 'yue', 'shan', 'shui', 'ren', 'ma'];
+export const CLERICAL_KEYS = ['yi', 'san', 'tu', 'shan', 'ren', 'shui'];   // 第六課的六個字（每個字正好一個燕尾）
+export { CLERICAL };
 
 export const STAGES = [
   { key: 'pic', en: 'Picture', zh: '圖畫', note_en: 'Illustration', note_zh: '示意圖' },
@@ -40,6 +43,8 @@ const W = { oracle: 34, bronze: 64, seal: 46 };
 
 export function glyphFor(key, stage) {
   if (stage === 'regular') return REGULAR[key].strokes;
+  if (stage === 'clerical') return CLERICAL.chars[key].strokes;
+  if (stage === 'seal' && !ANCIENT.chars[key]) return CLERICAL.chars[key].seal;   // 一、三、土的小篆
   return ANCIENT.chars[key][stage];
 }
 
@@ -212,6 +217,11 @@ function drawBrush(g, id, strokes, T, { t = 1, color = '#151311' } = {}) {
     left -= sts.length;
   }
 }
+
+/** 小篆（一樣粗的圓滑線）畫在任何地方：第六課「隸變」的底圖與前後對照 */
+export function drawSeal(g, key, T, { t = 1, color = '#151311' } = {}) { drawEven(g, glyphFor(key, 'seal'), T, { t, w: W.seal, color }); }
+/** 隸書每一筆的印子（快取）：第六課「找燕尾」要一筆一筆畫、一筆一筆判斷 */
+export function clericalStamps(key) { return brushStamps(`${key}-clerical`, glyphFor(key, 'clerical')); }
 
 // ---------------------------------------------------------------------
 // 圖畫（示意）：太陽、月亮、山、河、人、馬

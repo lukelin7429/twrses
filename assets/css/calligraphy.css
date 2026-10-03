@@ -380,3 +380,30 @@ a.cg-link:hover { transform: translateY(-3px); box-shadow: var(--shadow); border
 .al-lg-cgo i { border: 0; border-radius: 40% 40% 46% 46%; background: #e3d4b0; }
 .al-lg-cgb i { border: 0; border-radius: 4px; background: linear-gradient(135deg, #7d8c62, #4f5d3f); }
 .al-lg-cgw i { border: 0; border-radius: 3px; background: #1f1f22; box-shadow: inset 0 0 0 5px #1f1f22, inset 0 0 0 7px #ece8dd; }
+
+/* ---------- 第六課：隸書——為什麼是蠶頭燕尾？ ---------- */
+.cg-clerical-lab .cg-panel { border-top: 0; padding-top: 0; }
+.cg-clerical-lab .cg-modes button i { font-size: 1.05rem; }
+.cg-clerical-lab .cg-cams button { padding: .38rem .55rem; }
+.cg-clerical-lab .cg-chars6 { margin-bottom: .7rem; }
+.cg-clerical-lab .cg-whole { margin-bottom: .6rem; }
+.cg-clerical-lab .cg-force { margin-top: .2rem; }
+.al-lab.cg-lb-seal { color: #dbe7f7; border-color: rgba(120,160,210,.8); background: rgba(40,62,92,.86); }
+.al-lab.cg-lb-seal small { color: #b9cde6; }
+.al-lg-cgs i { border: 0; border-radius: 3px; height: 6px; margin-top: .5rem; background: #5f7fa6; }
+.al-lg-cgv i { border: 0; border-radius: 3px; height: 6px; margin-top: .5rem; background: #c4321f; }
+.al-lg-cgm i { border: 0; border-radius: 3px; background: linear-gradient(90deg, #d8c38c 0 30%, #b99d5f 30% 36%, #d8c38c 36% 66%, #b99d5f 66% 72%, #d8c38c 72%); }
+
+/* 隸變前後 */
+.cg-wipe-cv { width: 100%; aspect-ratio: 1; display: block; border-radius: 10px; touch-action: pan-y; cursor: ew-resize; -webkit-user-select: none; user-select: none; }
+.cg-wipe .cg-time-slider { margin: .8rem .2rem .2rem; }
+.cg-wipe-ratio { display: flex; align-items: center; gap: .9rem; margin: 0 0 .8rem; padding: .8rem 1rem; border-radius: 14px; background: var(--cream); border: 1px solid var(--line); }
+.cg-wipe-ratio[hidden] { display: none; }
+.cg-wipe-ratio span { display: flex; flex-direction: column; font-size: .82rem; font-weight: 700; color: var(--ink-soft); line-height: 1.3; }
+.cg-wipe-ratio b { font-family: var(--serif); font-size: 1.8rem; color: var(--brand-dk); line-height: 1.1; }
+.cg-wipe-ratio small { font-family: var(--zh); font-weight: 600; }
+.cg-wipe-ratio i { font-style: normal; font-size: 1.4rem; color: var(--gold-dk); }
+.cg-wipe .cg-time-note { min-height: 5.2em; }
+@media (max-width: 860px) { .cg-wipe .cg-time-note { min-height: 0; } }
+.cg-clerical-lab .cg-btns { margin-bottom: .7rem; }
+.cg-clerical-lab .cg-btns .cg-whole { margin-bottom: 0; }
