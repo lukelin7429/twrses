@@ -1909,14 +1909,14 @@
               "note_zh": "提與按、藏鋒與回鋒、懸針：每一法裡都用得到的動作。"
             },
             {
-              "soon": true,
               "icon": "🔢",
-              "k_en": "Lesson 4 · Coming soon",
-              "k_zh": "第四課・製作中",
+              "k_en": "Next Lesson · Lesson 4",
+              "k_zh": "下一課・第四課",
               "en": "Why Do We Write Strokes in Order?",
               "zh": "筆順與結構：為什麼要先橫後豎？",
-              "note_en": "Top before bottom, left before right, horizontal before vertical: why stroke order makes writing smoother and characters steadier.",
-              "note_zh": "先上後下、先左後右、先橫後豎：為什麼照筆順寫，手最順、字最穩。"
+              "note_en": "Left to right, top to bottom, horizontal before vertical: the Ministry of Education's rules for which stroke comes first, and why everyone follows the same order.",
+              "note_zh": "先左後右、先上後下、先橫後豎：教育部的筆順法則，以及為什麼大家照同一套順序寫。",
+              "href": "/resources/classes/calligraphy/stroke-order/"
             }
           ],
           "culture_cards": {
@@ -2158,16 +2158,727 @@
               "url": "https://stroke-order.learningweb.moe.edu.tw/dictView.jsp?ID=27704"
             }
           ]
-        }
-      ],
-      "planned": [
+        },
         {
           "n": 4,
+          "slug": "stroke-order",
+          "title": "Why Do We Write Strokes in Order?",
+          "title_zh": "筆順與結構：為什麼要先橫後豎？",
+          "level": "入門 · Beginner",
           "icon": "🔢",
-          "en": "Why Do We Write Strokes in Order?",
-          "zh": "筆順與結構：為什麼要先橫後豎？"
+          "card": "order",
+          "blurb_en": "Left to right, top to bottom, horizontal before vertical: Taiwan's Ministry of Education sums up stroke order in 17 basic rules. Watch a 3D brush follow six of them, play Guess the Next Stroke, and practice the six example characters.",
+          "blurb_zh": "先左後右、先上後下、先橫後豎：教育部把筆順歸納成 17 條基本法則。看 3D 毛筆示範其中 6 條，玩「猜下一筆」，再練寫六個例字。",
+          "big_idea_en": "Stroke order is a shared agreement about which stroke comes first. Taiwan's Ministry of Education sums it up in 17 basic rules, such as left to right, top to bottom, and horizontal before vertical. When everyone follows the same order, writing is easier to teach and to learn, and it follows the flow of the brush from one stroke into the next.",
+          "big_idea_zh": "筆順是大家約好的「先寫哪一筆」。教育部把它歸納成 17 條基本法則，例如先左後右、先上後下、先橫後豎。大家照同一套筆順寫，教和學都容易，也順著毛筆從這一筆走到下一筆的筆勢。",
+          "lab": {
+            "kind": "order",
+            "eyebrow": "3D Model · 3D 模型",
+            "title_en": "Six Rules, Six Characters",
+            "title_zh": "六條法則、六個例字",
+            "how_en": "Drag to turn, and scroll or pinch to zoom. Choose a rule, and the brush writes an example character from the Ministry of Education's list. Blue numbers show the order, and a dashed line shows how the brush moves through the air to the next stroke. Try Backward to see the same character written in reverse order, then switch the grid between the 米 grid and the nine-square grid.",
+            "how_zh": "拖曳可以旋轉，滾輪或雙指可以縮放。選一條法則，毛筆就寫出教育部列的例字：藍色數字是筆順，虛線是毛筆在空中移到下一筆的路。試試「倒過來寫」，看同一個字反過來寫是什麼樣子；格線也能在米字格和九宮格之間切換。",
+            "rules": [
+              {
+                "key": "lr",
+                "glyph": "川",
+                "zh": "自左至右",
+                "en": "Left to right",
+                "examples": "川、仁、街、湖",
+                "moe_zh": "凡左右並排結體的文字，皆先寫左邊筆畫和結構體，再依次寫右邊筆畫和結構體。",
+                "why_en": "The three strokes of 川 stand side by side, so they are written from the left: the left-falling stroke, the short vertical in the middle, and the long vertical on the right.",
+                "why_zh": "「川」三筆左右並排，從左邊寫起：左邊的撇、中間的短豎、右邊的長豎。"
+              },
+              {
+                "key": "tb",
+                "glyph": "三",
+                "zh": "先上後下",
+                "en": "Top to bottom",
+                "examples": "三、字、星、意",
+                "moe_zh": "凡上下組合結體的文字，皆先寫上面筆畫和結構體，再依次寫下面筆畫和結構體。",
+                "why_en": "The three horizontal strokes of 三 are stacked, so they go from the top down. Look at the lengths, too: the middle one is the shortest, and the bottom one is the longest.",
+                "why_zh": "「三」三橫上下疊在一起，從上往下寫。也看看長短：中間最短、最下面最長。"
+              },
+              {
+                "key": "hv",
+                "glyph": "十",
+                "zh": "先橫後豎",
+                "en": "Horizontal before vertical",
+                "examples": "十、干、士、甘、聿",
+                "moe_zh": "凡橫畫與豎畫相交，或橫畫與豎畫相接在上者，皆先寫橫畫，再寫豎畫。",
+                "why_en": "In 十 the horizontal and vertical strokes cross, so the horizontal comes first.",
+                "why_zh": "「十」橫豎相交，所以先寫橫，再寫豎。"
+              },
+              {
+                "key": "pn",
+                "glyph": "人",
+                "zh": "先撇後捺",
+                "en": "Left-falling before right-falling",
+                "examples": "交、入、今、長",
+                "moe_zh": "凡撇畫與捺畫相交，或相接者，皆先撇而後捺。",
+                "why_en": "In 人 the right-falling stroke starts on the left-falling one, so the left-falling stroke comes first.",
+                "why_zh": "「人」的捺從撇的中間出發，兩筆相接，所以先撇後捺。"
+              },
+              {
+                "key": "mid",
+                "glyph": "小",
+                "zh": "中間的豎先寫",
+                "en": "The middle vertical first",
+                "examples": "上、小、山、水",
+                "moe_zh": "豎畫在上或在中而不與其他筆畫相交者，先寫豎畫。",
+                "why_en": "In 小 the vertical hook stands in the middle and does not cross the two dots, so it comes first; then the left dot, then the right dot.",
+                "why_zh": "「小」中間的豎鉤不和兩點相交，所以先寫；再寫左點、右點。"
+              },
+              {
+                "key": "box",
+                "glyph": "日",
+                "zh": "先外後內再封口",
+                "en": "Outside, inside, then close",
+                "examples": "日、田、回、國",
+                "moe_zh": "四圍的結構，先寫外圍，再寫裡面，底下封口的橫畫最後寫。",
+                "why_en": "日 is a box. First the left side, then the top and the right side in one turning stroke, then the stroke inside, and the bottom line last to close the box. Closing it last leaves room to place the inside stroke well.",
+                "why_zh": "「日」是四面圍起來的結構：先寫左邊的豎，再一筆寫上面和右邊（橫折鉤），接著寫裡面的橫，最後才用底下的橫封口。最後才封口，裡面那一橫才放得好。"
+              }
+            ],
+            "legend": [
+              {
+                "cls": "cgn",
+                "en": "Blue numbers: the standard stroke order",
+                "zh": "藍色數字：標準筆順"
+              },
+              {
+                "cls": "cgr",
+                "en": "Red numbers: the backward order, which is not the standard",
+                "zh": "紅色數字：倒過來的順序，不是標準筆順"
+              },
+              {
+                "cls": "cga",
+                "en": "Dashed line: the brush moving through the air to the next stroke",
+                "zh": "虛線：毛筆在空中移到下一筆的路"
+              },
+              {
+                "cls": "cgg",
+                "en": "Red lines: the nine-square grid or the 米 grid",
+                "zh": "紅線：九宮格或米字格"
+              }
+            ],
+            "scale_en": "A teaching model. The grid is 26 centimeters wide. The example characters are hand-drawn as centerlines with a pressure and a speed for every point, using the stroke order of the Ministry of Education. The dashed lines only show where the brush travels in the air; they are not a measure of which order is better.",
+            "scale_zh": "這是教學用的示意模型，格子 26 公分寬。例字是自己手繪的中心線，每一點都有壓力和速度，筆順依教育部。虛線只是畫出毛筆在空中怎麼移動，不拿來比哪一種順序比較好。",
+            "credit_html": "Model, stroke data, and the writing engine are drawn and programmed by My Culture Connect. The rules and example characters come from the Ministry of Education's <a href=\"https://stroke-order.learningweb.moe.edu.tw/page.jsp?ID=23\" target=\"_blank\" rel=\"noopener\">Basic Rules of Stroke Order</a>. · 模型、筆畫資料與寫字引擎由人師教育協會自繪、自寫；法則與例字依教育部《國字標準字體筆順學習網》〈筆順基本原則〉。"
+          },
+          "paras": [
+            "Stroke order is simply the order in which the strokes of a character are written. In Taiwan, the Ministry of Education sets a standard order for thousands of characters. Its handbook of standard characters sums up the order in 17 basic rules, and its stroke-order website, first opened in 2008, now shows animations for 6,063 characters that anyone can look up.",
+            "Six of the rules are easy to see. Write from left to right, as in 川 (river), and from top to bottom, as in 三 (three). Write a horizontal stroke before a vertical stroke that crosses it, as in 十 (ten), and a left-falling stroke before a right-falling stroke that meets it, as in 人 (person). When a vertical stroke stands alone in the middle, like the one in 小 (small), write it first. For a box like 日 (sun), write the outside, then the inside, and close the bottom last.",
+            "If the finished character looks the same, why does the order matter? First, it is shared. Teachers, textbooks, and the ministry's website all teach the same order, so everyone can learn from everyone else. Second, the order follows the flow of the brush. The ministry explains that the second stroke of 日 ends with a small hook because the brush is already turning toward the next stroke inside the box.",
+            "Order also helps with structure. In 日, writing the middle stroke before the bottom line lets you see the space you are dividing, and the bottom line closes the box neatly at the end. In 三, writing from the top down lets you compare each line with the one above it, so you can make the middle one short and the bottom one long.",
+            "Practice paper helps, too. A nine-square grid divides each square into nine smaller squares, like the character 井, so you can check where each stroke begins and ends. The 田 grid and the 米 grid do the same job. Long ago, children started school by tracing red characters in a copybook that began 上大人, 孔乙己, chosen because the characters have very few strokes.",
+            "In this lesson, choose a rule and watch the 3D brush write its example character, with numbers showing the order. Try writing it backward, too, and notice that the result can look similar even though the order is not the standard one. Then play Guess the Next Stroke, and practice the six example characters on the practice pad."
+          ],
+          "paras_zh": [
+            "筆順，就是一個字的筆畫先後書寫的順序。在台灣，教育部為幾千個國字訂出標準筆順：《常用國字標準字體筆順手冊》把筆順歸納成 17 條基本法則；教育部的筆順學習網 2008 年開始試用，現在有 6,063 個國字的筆順動畫，任何人都能上網查。",
+            "其中有六條很容易看懂：從左寫到右，像「川」；從上寫到下，像「三」；橫和豎相交時先寫橫，像「十」；撇和捺相接時先撇後捺，像「人」；中間的豎不和其他筆畫相交時先寫，像「小」；四面圍起來的字，先寫外圍、再寫裡面、最後封口，像「日」。",
+            "寫出來的字看起來一樣，為什麼還要管筆順？第一，它是共同的標準：老師、課本和教育部的網站都教同一套筆順，大家可以互相學。第二，筆順順著毛筆的筆勢。教育部就解釋過：「日」的第二筆最後帶一個小鉤，是因為毛筆已經轉向，準備寫框裡的下一筆。",
+            "筆順也幫助結構。寫「日」時，先寫中間的橫、最後才寫底下的橫，就看得見要分割的空間，最後再整齊地封口。寫「三」時，從上往下寫，每一橫都能和上面那一橫比一比，才能讓中間最短、最下面最長。",
+            "練習用的格子也有幫助。九宮格用「井」字形把一大格分成九小格，方便看每一筆從哪裡起、到哪裡收；田字格、米字格的功用也一樣。從前的孩子入學時，用描紅的習字簿練字，第一頁就是「上大人，孔乙己」，因為這些字的筆畫很少。",
+            "這一課，選一條法則，看 3D 毛筆寫出例字，數字標出筆順。也試試倒過來寫：寫出來的字可能看起來差不多，但那不是標準筆順。接著玩「猜下一筆」，再到練字板上練寫六個例字。"
+          ],
+          "questions": [
+            "What is stroke order, and who sets the standard order in Taiwan?",
+            "Name two of the rules in this lesson, with an example character for each.",
+            "Why is the bottom line of 日 written last?"
+          ],
+          "answers": [
+            "It is the order in which the strokes of a character are written. In Taiwan, the Ministry of Education sets the standard order.",
+            "For example: left to right, as in 川; top to bottom, as in 三; horizontal before vertical, as in 十; left-falling before right-falling, as in 人; the middle vertical first, as in 小; outside, inside, then close, as in 日.",
+            "Because the rule for boxes is outside first, then inside, then the bottom line to close the box. Closing it last leaves room to place the inside stroke well."
+          ],
+          "vocab": [
+            {
+              "n": 1,
+              "w": "rule",
+              "pos": "n.",
+              "zh": "規則；法則",
+              "ex": "The first <b>rule</b> of the pool is “No running.”",
+              "exzh": "游泳池的第一條規則是「不准奔跑」。"
+            },
+            {
+              "n": 2,
+              "w": "standard",
+              "pos": "n.",
+              "zh": "標準",
+              "ex": "All the rulers in our class follow the same <b>standard</b>.",
+              "exzh": "我們班上所有的尺都用同一個標準。"
+            },
+            {
+              "n": 3,
+              "w": "cross",
+              "pos": "v.",
+              "zh": "交叉；橫過",
+              "ex": "The two roads <b>cross</b> near the school.",
+              "exzh": "兩條路在學校附近交叉。"
+            },
+            {
+              "n": 4,
+              "w": "enclose",
+              "pos": "v.",
+              "zh": "圍住",
+              "ex": "A tall fence <b>encloses</b> the garden.",
+              "exzh": "一道高高的圍籬圍住了花園。"
+            },
+            {
+              "n": 5,
+              "w": "structure",
+              "pos": "n.",
+              "zh": "結構",
+              "ex": "The <b>structure</b> of this bridge is very strong.",
+              "exzh": "這座橋的結構非常堅固。"
+            },
+            {
+              "n": 6,
+              "w": "flow",
+              "pos": "n.",
+              "zh": "流動；順暢的動勢",
+              "ex": "Good music has a natural <b>flow</b>.",
+              "exzh": "好的音樂有自然的流動感。"
+            },
+            {
+              "n": 7,
+              "w": "grid",
+              "pos": "n.",
+              "zh": "格子；方格",
+              "ex": "Draw the map on a <b>grid</b> of small squares.",
+              "exzh": "把地圖畫在小方格上。"
+            },
+            {
+              "n": 8,
+              "w": "trace",
+              "pos": "v.",
+              "zh": "描；描摹",
+              "ex": "Children often <b>trace</b> letters before they write them alone.",
+              "exzh": "孩子常常先描字母，再自己寫。"
+            }
+          ],
+          "quiz": [
+            {
+              "q": "How many basic stroke-order rules are in the Ministry of Education's handbook?",
+              "options": [
+                "17",
+                "6",
+                "8",
+                "100"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "In 川, which stroke is written first?",
+              "options": [
+                "The one on the left",
+                "The one on the right",
+                "The middle one",
+                "Any of them"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "In 十, which stroke is written first?",
+              "options": [
+                "The horizontal stroke",
+                "The vertical stroke",
+                "Both at once",
+                "It does not matter"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "In 小, which stroke is written first?",
+              "options": [
+                "The vertical hook in the middle",
+                "The left dot",
+                "The right dot",
+                "The bottom line"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "What is a nine-square grid?",
+              "options": [
+                "A square divided into nine smaller squares for practice",
+                "A game with nine players",
+                "A brush with nine kinds of hair",
+                "A list of nine rules"
+              ],
+              "correct": 0
+            }
+          ],
+          "parts_head": {
+            "eyebrow": "Try It in the Model · 在模型裡試試",
+            "en": "Six rules to watch",
+            "zh": "看這六條法則"
+          },
+          "parts": [
+            {
+              "key": "lr",
+              "glyph": "川",
+              "en": "Left to right: 川",
+              "zh": "自左至右：川",
+              "meta_en": "Ministry of Education examples",
+              "meta_zh": "教育部例字：川、仁、街、湖",
+              "demo": "lr",
+              "text_en": "The three strokes of 川 stand side by side, so they are written from the left: the left-falling stroke, the short vertical in the middle, and the long vertical on the right.",
+              "text_zh": "「川」三筆左右並排，從左邊寫起：左邊的撇、中間的短豎、右邊的長豎。"
+            },
+            {
+              "key": "tb",
+              "glyph": "三",
+              "en": "Top to bottom: 三",
+              "zh": "先上後下：三",
+              "meta_en": "Ministry of Education examples",
+              "meta_zh": "教育部例字：三、字、星、意",
+              "demo": "tb",
+              "text_en": "The three horizontal strokes of 三 are stacked, so they go from the top down. Look at the lengths, too: the middle one is the shortest, and the bottom one is the longest.",
+              "text_zh": "「三」三橫上下疊在一起，從上往下寫。也看看長短：中間最短、最下面最長。"
+            },
+            {
+              "key": "hv",
+              "glyph": "十",
+              "en": "Horizontal before vertical: 十",
+              "zh": "先橫後豎：十",
+              "meta_en": "Ministry of Education examples",
+              "meta_zh": "教育部例字：十、干、士、甘、聿",
+              "demo": "hv",
+              "text_en": "In 十 the horizontal and vertical strokes cross, so the horizontal comes first.",
+              "text_zh": "「十」橫豎相交，所以先寫橫，再寫豎。"
+            },
+            {
+              "key": "pn",
+              "glyph": "人",
+              "en": "Left-falling before right-falling: 人",
+              "zh": "先撇後捺：人",
+              "meta_en": "Ministry of Education examples",
+              "meta_zh": "教育部例字：交、入、今、長",
+              "demo": "pn",
+              "text_en": "In 人 the right-falling stroke starts on the left-falling one, so the left-falling stroke comes first.",
+              "text_zh": "「人」的捺從撇的中間出發，兩筆相接，所以先撇後捺。"
+            },
+            {
+              "key": "mid",
+              "glyph": "小",
+              "en": "The middle vertical first: 小",
+              "zh": "中間的豎先寫：小",
+              "meta_en": "Ministry of Education examples",
+              "meta_zh": "教育部例字：上、小、山、水",
+              "demo": "mid",
+              "text_en": "In 小 the vertical hook stands in the middle and does not cross the two dots, so it comes first; then the left dot, then the right dot.",
+              "text_zh": "「小」中間的豎鉤不和兩點相交，所以先寫；再寫左點、右點。"
+            },
+            {
+              "key": "box",
+              "glyph": "日",
+              "en": "Outside, inside, then close: 日",
+              "zh": "先外後內再封口：日",
+              "meta_en": "Ministry of Education examples",
+              "meta_zh": "教育部例字：日、田、回、國",
+              "demo": "box",
+              "text_en": "日 is a box. First the left side, then the top and the right side in one turning stroke, then the stroke inside, and the bottom line last to close the box. Closing it last leaves room to place the inside stroke well.",
+              "text_zh": "「日」是四面圍起來的結構：先寫左邊的豎，再一筆寫上面和右邊（橫折鉤），接著寫裡面的橫，最後才用底下的橫封口。最後才封口，裡面那一橫才放得好。"
+            }
+          ],
+          "parts_note_en": "Each card's example comes from the Ministry of Education's list. Tap Watch it in 3D, then try Backward in the model.",
+          "parts_note_zh": "每張卡片的例字都取自教育部的列表。點「在模型中看」，再在模型裡試試「倒過來寫」。",
+          "guess": {
+            "eyebrow": "Game · 小遊戲",
+            "en": "Guess the Next Stroke",
+            "zh": "猜下一筆",
+            "lead_en": "All the strokes are shown in gray. Tap them one by one in the standard order. A right answer turns black and gets a number; a wrong one flashes red, with a hint about the rule.",
+            "lead_zh": "字的每一筆都先畫成灰色，照標準筆順一筆一筆點。點對了那一筆變黑、標上數字；點錯了會閃紅色，並提示這個字用的法則。",
+            "hints": {
+              "chuan": {
+                "en": "Left to right!",
+                "zh": "從左寫到右！"
+              },
+              "san": {
+                "en": "Top to bottom!",
+                "zh": "從上寫到下！"
+              },
+              "shi": {
+                "en": "The horizontal comes first!",
+                "zh": "先橫後豎！"
+              },
+              "ren": {
+                "en": "The left-falling stroke comes first!",
+                "zh": "先撇後捺！"
+              },
+              "xiao": {
+                "en": "The middle vertical comes first!",
+                "zh": "中間的豎先寫！"
+              },
+              "ri": {
+                "en": "Outside, then inside, then close the bottom!",
+                "zh": "先外圍、再裡面、最後封口！"
+              }
+            }
+          },
+          "pad": {
+            "eyebrow": "Practice Pad · 練字板",
+            "en": "Practice the six examples",
+            "zh": "練寫六個例字",
+            "char": "ri",
+            "curve": true,
+            "order": true,
+            "chars": [
+              {
+                "key": "chuan",
+                "glyph": "川"
+              },
+              {
+                "key": "san",
+                "glyph": "三"
+              },
+              {
+                "key": "shi",
+                "glyph": "十"
+              },
+              {
+                "key": "ren",
+                "glyph": "人"
+              },
+              {
+                "key": "xiao",
+                "glyph": "小"
+              },
+              {
+                "key": "ri",
+                "glyph": "日"
+              }
+            ],
+            "lead_en": "Choose a character and trace it in the order of the blue numbers. After each stroke, the chart compares your press-and-lift curve with the brush's for that stroke.",
+            "lead_zh": "選一個字，照藍色數字的順序描寫。每寫完一筆，圖上就把你的提按曲線和毛筆那一筆比較。",
+            "tips": [
+              {
+                "en": "Say the rule out loud before you start, for example “outside, inside, close.”",
+                "zh": "下筆前先唸出法則，例如「先外、後內、再封口」。"
+              },
+              {
+                "en": "In 日, make the bottom line touch both sides but not stick out past the right side.",
+                "zh": "寫「日」的封口橫要碰到兩邊，但不要超出右邊。"
+              },
+              {
+                "en": "In 三, keep the middle line short and the bottom line long.",
+                "zh": "寫「三」時，中間短、下面長。"
+              }
+            ]
+          },
+          "links_head": {
+            "eyebrow": "Before and Next · 上一課與下一課",
+            "en": "From the eight principles to the story of writing",
+            "zh": "從八法到漢字的故事"
+          },
+          "links": [
+            {
+              "href": "/resources/classes/calligraphy/eight-principles/",
+              "icon": "✳️",
+              "k_en": "Lesson 3",
+              "k_zh": "第三課",
+              "en": "Can One Character Teach You Every Stroke?",
+              "zh": "永字八法：一個字學會所有筆畫？",
+              "note_en": "The five strokes of 永 follow the same rules: the dot first, the box-like turn next, and the right-falling stroke last.",
+              "note_zh": "「永」的五畫也照這些法則：先點、再橫折鉤，最後才是捺。"
+            },
+            {
+              "soon": true,
+              "icon": "🐢",
+              "k_en": "Lesson 5 · Coming soon · Unit 2",
+              "k_zh": "第五課・製作中・單元二",
+              "en": "Where Did Chinese Characters Come From?",
+              "zh": "漢字從哪裡來？甲骨文到篆書",
+              "note_en": "Marks carved on tortoise shells and ox bones, writing cast in bronze, and the even lines of seal script: how characters looked before the brush shaped them.",
+              "note_zh": "刻在龜甲牛骨上的字、鑄在青銅器上的字、線條勻稱的篆書：在毛筆讓字變成今天的樣子以前，漢字長什麼樣。"
+            }
+          ],
+          "culture_cards": {
+            "eyebrow": "Stories of Stroke Order · 筆順的故事",
+            "title_en": "Seventeen rules, a tiny hook, a grid like 井, and the first page of an old copybook",
+            "title_zh": "十七條法則、一個小鉤、井字格，和舊習字簿的第一頁",
+            "lead_en": "Four short stories about how people learn to write in order.",
+            "lead_zh": "關於「照順序寫字」的四個小故事。",
+            "cards": [
+              {
+                "k": "The Standard · 標準",
+                "en": "Seventeen rules and a website",
+                "zh": "十七條法則與一個網站",
+                "body_en": "Taiwan's Ministry of Education sums up stroke order in 17 basic rules in its handbook of standard characters. Its stroke-order website opened for trial use in 2008 with the 4,808 common characters. In 2020 it grew to 6,057 characters and dropped the word “common” from its name, and in 2024 it reached 6,063 characters.",
+                "body_zh": "教育部在《常用國字標準字體筆順手冊》裡，把筆順歸納成 17 條基本法則。教育部的筆順學習網 2008 年試用，收錄 4,808 個常用字；2020 年擴充到 6,057 字，網站名稱也拿掉了「常用」兩個字；2024 年再擴充到 6,063 字。"
+              },
+              {
+                "k": "A Tiny Hook · 小鉤",
+                "en": "Why 日 has a hook and 口 does not",
+                "zh": "「日」為什麼有鉤，「口」沒有？",
+                "body_en": "The ministry's website answers this question. In 口 the second stroke turns without a hook and leans inward, ready to meet the closing stroke, because there is nothing inside. In 日 the second stroke ends with a small hook, because the brush is already turning toward the next stroke inside the box. The hook shows the flow of the brush.",
+                "body_zh": "教育部的網站回答過這個問題：「口」裡面沒有其他筆畫，第二筆是「橫折」不帶鉤，折筆往內斜，準備接最後一筆封口；「日」框裡還有筆畫，第二筆是「橫折鉤」，鉤起來是因為毛筆已經準備寫框裡的下一筆，是筆勢使然。"
+              },
+              {
+                "k": "Practice Grids · 格子",
+                "en": "A grid shaped like 井",
+                "zh": "井字格：九宮格",
+                "body_en": "The ministry's dictionary describes the nine-square grid as practice paper for copying models: each large square is divided like the character 井 into nine smaller squares, so learners can match the model and place every dot and line. The 田 grid and the 米 grid do the same job.",
+                "body_zh": "教育部辭典說，九宮格是臨帖用的界格紙：每一大格用「井」字形分成九小格，方便臨摹時對照範本字形、掌握點畫的部位。另有田字格、米字格，功用相當。"
+              },
+              {
+                "k": "An Old Copybook · 習字簿",
+                "en": "上大人, 孔乙己: the first page",
+                "zh": "上大人，孔乙己",
+                "body_en": "Long ago, children starting school traced red characters in a copybook that began 上大人，孔乙己，化三千，七十士. These characters were chosen because they have very few strokes. Tracing red models like this is called 描紅, the same idea as the faint red characters on this lesson's practice pad.",
+                "body_zh": "從前學童入學時，用描紅的習字簿練字，上面寫著「上大人，孔乙己，化三千，七十士」，因為這些字筆畫簡少，方便學習。照著紅色範字一筆一筆描，就叫「描紅」，和這一課練字板上淡紅色的範字是同一個道理。"
+              }
+            ]
+          },
+          "myths": [
+            {
+              "myth_en": "If the finished character looks right, stroke order does not matter.",
+              "myth_zh": "字寫出來看起來對，筆順就不重要。",
+              "fact_en": "The result can look similar, but stroke order is a shared standard that teachers, textbooks, and the ministry's website all use. It also follows the flow of the brush, and later, when you write faster, strokes begin to join in the order you write them.",
+              "fact_zh": "寫出來可能看起來差不多，但筆順是老師、課本和教育部網站共同使用的標準；它也順著毛筆的筆勢；以後寫得快的時候，筆畫會照書寫的順序連起來。"
+            },
+            {
+              "myth_en": "Stroke order is just one rule: top to bottom, left to right.",
+              "myth_zh": "筆順只有一條規則：由上而下、由左而右。",
+              "fact_en": "The ministry lists 17 basic rules. Some go against “top to bottom” at first glance: in 小 the middle vertical comes first, and in 日 the bottom line comes last.",
+              "fact_zh": "教育部列了 17 條基本法則。有的乍看不是「由上而下」：「小」要先寫中間的豎，「日」的底下那一橫最後寫。"
+            },
+            {
+              "myth_en": "The box of 日 is drawn as one stroke.",
+              "myth_zh": "「日」外面的框是一筆畫完的。",
+              "fact_en": "The box takes three strokes: the left vertical, the top and right side in one turning stroke, and the bottom line, which is written last to close the box.",
+              "fact_zh": "外框要三筆：左邊的豎、一筆寫上面和右邊的橫折鉤，還有最後才寫、用來封口的底下那一橫。"
+            },
+            {
+              "myth_en": "Stroke order only matters for brush calligraphy.",
+              "myth_zh": "只有寫毛筆字才需要筆順。",
+              "fact_en": "The standard order belongs to the character, not to the tool, so it is the same for pencils and pens. In Taiwan's curriculum for grades 3 and 4, children write mainly with pencils and pens, with the brush as a supplement.",
+              "fact_zh": "標準筆順跟著字走，不跟著筆走，鉛筆、原子筆也一樣。台灣國語文課綱第二學習階段（三、四年級）的寫字，以硬筆為主、毛筆為輔。"
+            }
+          ],
+          "tricks": [
+            {
+              "title_en": "Left to right, top to bottom",
+              "title_zh": "先左後右，先上後下",
+              "body_en": "Most characters start at the upper left.",
+              "body_zh": "大部分的字從左上開始寫。"
+            },
+            {
+              "title_en": "Horizontal, then vertical",
+              "title_zh": "先橫後豎",
+              "body_en": "When they cross, the horizontal goes first: 十.",
+              "body_zh": "橫豎相交先寫橫：十。"
+            },
+            {
+              "title_en": "Left-falling, then right-falling",
+              "title_zh": "先撇後捺",
+              "body_en": "When they meet, the left-falling stroke goes first: 人.",
+              "body_zh": "撇捺相接先寫撇：人。"
+            },
+            {
+              "title_en": "Go in, then close the door",
+              "title_zh": "先外後內再封口",
+              "body_en": "Outside, then inside, then the bottom line: 日.",
+              "body_zh": "先外圍、再裡面、最後封口：日。"
+            }
+          ],
+          "safety": [
+            {
+              "en": "Ink stains clothes and is very hard to wash out. Wear old clothes or an apron, and roll up your sleeves.",
+              "zh": "墨沾到衣服很難洗掉：穿舊衣服或圍裙，袖子捲起來。"
+            },
+            {
+              "en": "Cover the desk with old newspaper, and keep the ink in a heavy, steady dish so it will not tip over.",
+              "zh": "桌上先鋪舊報紙；墨要裝在重一點、放得穩的碟子裡，免得打翻。"
+            },
+            {
+              "en": "Press gently. Crushing the brush against the paper squashes the hairs and can split or break them.",
+              "zh": "輕輕地按就好：把筆用力壓在紙上，筆毛會擠扁，也可能分岔或折斷。"
+            },
+            {
+              "en": "Do not put the brush, the ink, or the ink stick in your mouth, and do not lick the brush tip to shape it.",
+              "zh": "毛筆、墨汁、墨條都不要放進嘴裡，也不要用嘴巴舔筆尖。"
+            },
+            {
+              "en": "After writing, wash the brush in clean water until the water runs clear, gently shape it into a point, and hang it tip-down or lay it flat to dry. Wash your hands, too.",
+              "zh": "寫完後用清水洗筆，洗到水變清為止；輕輕把筆毛理成尖形，筆尖朝下掛起來或平放晾乾。也要洗手。"
+            }
+          ],
+          "activities": [
+            {
+              "title_en": "Writing in the Air",
+              "title_zh": "空中寫字",
+              "materials": [
+                {
+                  "en": "Enough space for everyone to stretch out an arm",
+                  "zh": "每個人都能伸直手臂的空間"
+                },
+                {
+                  "en": "The six example characters on the board: 川、三、十、人、小、日",
+                  "zh": "黑板上寫好六個例字：川、三、十、人、小、日"
+                },
+                {
+                  "en": "Later: brushes, water, and old newspaper",
+                  "zh": "之後用：毛筆、清水、舊報紙"
+                }
+              ],
+              "steps": [
+                {
+                  "en": "Everyone stands and writes a character in the air with the whole arm, as big as possible, counting the strokes out loud: one, two, three.",
+                  "zh": "全班站起來，用整隻手臂在空中把字寫得越大越好，一邊大聲數筆順：一、二、三。"
+                },
+                {
+                  "en": "The teacher watches for anyone moving in a different order and stops to ask which rule applies.",
+                  "zh": "老師看誰的順序不一樣，停下來問：這個字用的是哪一條法則？"
+                },
+                {
+                  "en": "Repeat with your eyes closed. Can you still feel where each stroke starts?",
+                  "zh": "閉上眼睛再寫一次：還感覺得到每一筆從哪裡開始嗎？"
+                },
+                {
+                  "en": "Finish by writing the same characters with water on newspaper, saying the numbers as you go.",
+                  "zh": "最後用清水在報紙上寫同樣的字，邊寫邊唸數字。"
+                }
+              ],
+              "tip_en": "Big arm movements make the order easy for the teacher to see, and students remember movements better than lists.",
+              "tip_zh": "手臂動作大，老師一眼就看得出順序；而且動作比條列的規則更容易記住。"
+            },
+            {
+              "title_en": "Stroke-Order Relay",
+              "title_zh": "筆順接力",
+              "materials": [
+                {
+                  "en": "A large sheet of paper with a nine-square grid for each team, taped to the wall",
+                  "zh": "每組一大張畫好九宮格的紙，貼在牆上"
+                },
+                {
+                  "en": "A thick marker or a brush with water for each team",
+                  "zh": "每組一枝粗的麥克筆，或一枝蘸清水的毛筆"
+                },
+                {
+                  "en": "A tablet or computer with the Ministry of Education's stroke-order website",
+                  "zh": "一台能開教育部筆順學習網的平板或電腦"
+                }
+              ],
+              "steps": [
+                {
+                  "en": "The teacher names a character. The first student in each team runs up and writes only the first stroke.",
+                  "zh": "老師說一個字，每組第一位同學跑上前，只寫第一筆。"
+                },
+                {
+                  "en": "The next student writes the second stroke, and so on, until the character is finished.",
+                  "zh": "下一位寫第二筆，依序接力，直到把字寫完。"
+                },
+                {
+                  "en": "Check the order with the stroke-order animation on the ministry's website. Each correct stroke earns a point.",
+                  "zh": "用教育部筆順學習網的動畫核對順序，每一筆寫對得一分。"
+                },
+                {
+                  "en": "Talk about the strokes that teams got wrong. Which rule would have helped?",
+                  "zh": "討論大家寫錯的那幾筆：哪一條法則能幫上忙？"
+                }
+              ],
+              "tip_en": "Start with the six characters from this lesson, then try 田 and 山 from the ministry's examples.",
+              "tip_zh": "先從這一課的六個例字開始，再試試教育部例字裡的「田」和「山」。"
+            }
+          ],
+          "sources": [
+            {
+              "en": "The 17 basic rules of stroke order, with example characters for each, from the Handbook of Standard Characters",
+              "zh": "依《常用國字標準字體筆順手冊》歸納的 17 條筆順基本法則與例字",
+              "src": "教育部《國字標準字體筆順學習網》〈筆順基本原則〉",
+              "url": "https://stroke-order.learningweb.moe.edu.tw/page.jsp?ID=23"
+            },
+            {
+              "en": "English version of the rules (lists 人 as an example of left-falling before right-falling)",
+              "zh": "法則的英文版（先撇後捺的例字列了「人」）",
+              "src": "Ministry of Education, “Basic Rules of Stroke Order”",
+              "url": "https://stroke-order.learningweb.moe.edu.tw/page.jsp?ID=46"
+            },
+            {
+              "en": "Website history: trial version 2008 (ROC year 97), 4,808 common characters; 2020 expanded to 6,057 and renamed; 2024 expanded to 6,063; the site design uses 上大人孔乙己 as practice characters for beginners",
+              "zh": "網站版次：民國 97 年試用版、4,808 個常用字；109 年擴充為 6,057 字並更名；113 年 6,063 字；內頁以初學者練字例「上大人孔乙己」設計",
+              "src": "教育部《國字標準字體筆順學習網》〈網站介紹〉",
+              "url": "https://stroke-order.learningweb.moe.edu.tw/page.jsp?ID=11"
+            },
+            {
+              "en": "Why the second stroke of 日 ends with a hook and that of 口 does not (the flow of the brush); practice mode checks each stroke",
+              "zh": "「日」第二筆為什麼帶鉤、「口」不帶鉤（筆勢使然）；筆順練習會檢查每一筆",
+              "src": "教育部《國字標準字體筆順學習網》〈常見問題集〉",
+              "url": "https://stroke-order.learningweb.moe.edu.tw/page.jsp?ID=24"
+            },
+            {
+              "en": "Stroke order: the order in which the strokes of a character are written",
+              "zh": "筆順：書寫文字時，筆畫先後的順序",
+              "src": "教育部《重編國語辭典修訂本》「筆順」",
+              "url": "https://dict.revised.moe.edu.tw/dictView.jsp?ID=17694"
+            },
+            {
+              "en": "Nine-square grid: practice paper divided like 井 into nine squares; the 田 grid and 米 grid do the same job",
+              "zh": "九宮格：臨帖所用的界格紙，「井」字形分九小格；另有田字格、米字格，功用相當",
+              "src": "教育部《重編國語辭典修訂本》「九宮格」",
+              "url": "https://dict.revised.moe.edu.tw/dictView.jsp?ID=92062"
+            },
+            {
+              "en": "上大人: the old copybook children traced when starting school, “上大人，孔乙己，化三千，七十士”, chosen for its few strokes",
+              "zh": "上大人：舊時學童入學時描紅的習字簿，筆畫簡少，便利學童學習",
+              "src": "教育部《重編國語辭典修訂本》「上大人」",
+              "url": "https://dict.revised.moe.edu.tw/dictView.jsp?ID=131941"
+            },
+            {
+              "en": "描紅: tracing red model characters printed on practice paper, stroke by stroke",
+              "zh": "描紅：用紅色將字套印在習字紙上，按照紅字範本一點一畫依樣描寫",
+              "src": "教育部《重編國語辭典修訂本》「描紅」",
+              "url": "https://dict.revised.moe.edu.tw/dictView.jsp?ID=31243"
+            },
+            {
+              "en": "Taiwan's curriculum, learning stage 2 (grades 3 and 4), 4-II-7: writing mainly with pencils and pens, with the brush as a supplement",
+              "zh": "十二年國教國語文第二學習階段 4-Ⅱ-7：習寫以硬筆字為主，毛筆為輔",
+              "src": "國家教育研究院《語文領域－國語文課程手冊》（2018）",
+              "url": "https://www.naer.edu.tw/upload/1/16/doc/2012/%E8%AA%9E%E6%96%87%E9%A0%98%E5%9F%9F-%E5%9C%8B%E8%AA%9E%E6%96%87%E8%AA%B2%E7%A8%8B%E6%89%8B%E5%86%8A(%E5%AE%9A%E7%A8%BF%E7%89%88).pdf"
+            },
+            {
+              "en": "Stroke order of 川 (3 strokes)",
+              "zh": "「川」3 畫的筆順",
+              "src": "教育部《國字標準字體筆順學習網》「川」",
+              "url": "https://stroke-order.learningweb.moe.edu.tw/dictView.jsp?ID=24029"
+            },
+            {
+              "en": "Stroke order of 三 (3 strokes)",
+              "zh": "「三」3 畫的筆順",
+              "src": "教育部《國字標準字體筆順學習網》「三」",
+              "url": "https://stroke-order.learningweb.moe.edu.tw/dictView.jsp?ID=19977"
+            },
+            {
+              "en": "Stroke order of 十 (2 strokes)",
+              "zh": "「十」2 畫的筆順",
+              "src": "教育部《國字標準字體筆順學習網》「十」",
+              "url": "https://stroke-order.learningweb.moe.edu.tw/dictView.jsp?ID=21313"
+            },
+            {
+              "en": "Stroke order of 人 (2 strokes)",
+              "zh": "「人」2 畫的筆順",
+              "src": "教育部《國字標準字體筆順學習網》「人」",
+              "url": "https://stroke-order.learningweb.moe.edu.tw/dictView.jsp?ID=20154"
+            },
+            {
+              "en": "Stroke order of 小 (3 strokes): the vertical hook, then the left dot, then the right dot",
+              "zh": "「小」3 畫：豎鉤、左點、右點",
+              "src": "教育部《國字標準字體筆順學習網》「小」",
+              "url": "https://stroke-order.learningweb.moe.edu.tw/dictView.jsp?ID=23567"
+            },
+            {
+              "en": "Stroke order of 日 (4 strokes): vertical, horizontal-turn-hook, the middle horizontal, the bottom horizontal",
+              "zh": "「日」4 畫：豎、橫折鉤、橫、橫（封口）",
+              "src": "教育部《國字標準字體筆順學習網》「日」",
+              "url": "https://stroke-order.learningweb.moe.edu.tw/dictView.jsp?ID=26085"
+            }
+          ]
         }
-      ]
+      ],
+      "planned": []
     },
     {
       "key": "scripts",

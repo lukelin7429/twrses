@@ -15,6 +15,7 @@
  *   bristles(n, seed)         側鋒的筆毛一根根分開：每根的位置、粗細、多快沒墨（畫飛白）
  *   curveFromStamps、curveMatch   練字板：你這一筆的提按曲線、和示範有多像
  *   methodSpans(samples, stroke)  永字八法：每一法在這一筆的哪一段（時間、弧長；筆畫資料的 methods 用控制點範圍標）
+ *   hitStroke(list, x, y, max)     猜下一筆：點在哪一筆上（離那一筆的中心線最近、而且在 max 以內）
  *   stamps(samples, opt)      一筆的「印子」：每個取樣點一個水滴形，疊起來就是墨跡
  *   teardrop(st, n)           一個印子的多邊形
  *   outline(stamps)           整筆墨跡的外輪廓（左右兩條邊）
@@ -366,5 +367,23 @@ export function methodSpans(samples, stroke) {
     if (i0 < 0) i0 = 0;
     return { ...m, i0, i1, t0: samples[i0].t, t1: samples[i1].t, s0: samples[i0].s, s1: samples[i1].s };
   });
+}
+
+// ---------------------------------------------------------------------
+// 猜下一筆：點在哪一筆上
+// ---------------------------------------------------------------------
+/**
+ * list：[{ i 第幾筆（0 起算）, s 取樣點 }]（只放還能選的筆）；(x, y) 字框座標。
+ * 回傳離 (x, y) 最近的那一筆的 i（距離算到中心線取樣點），超過 max 就回 −1。
+ */
+export function hitStroke(list, x, y, max = 70) {
+  let best = -1, bd = Infinity;
+  for (const { i, s } of list) {
+    for (const q of s) {
+      const d = Math.hypot(q.x - x, q.y - y);
+      if (d < bd) { bd = d; best = i; }
+    }
+  }
+  return bd <= max ? best : -1;
 }
 

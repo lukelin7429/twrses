@@ -11,7 +11,8 @@
  *   位置用筆畫資料的 num: [x, y]，沒有就放在起點的後方）。畫布 touch-action: none，寫字時頁面不會捲動。
  * 有 .cg-pad-curve 畫布時（第二課起）：每寫完一筆，畫出你的提按曲線（藍）疊在示範那一筆的力道曲線（金）上，
  *   .cg-pad-score 寫出和示範有多像（brush.js 的 curveFromStamps、curveMatch）。第 n 筆對示範的第 n 筆（照筆順）。
- * 除錯：root.__pad（strokes、render()、clear()、demo()、write(點陣列)）
+ * 有 [data-pad-char] 按鈕時（第四課）：可以換範字（setChar），換字就清掉重寫。chars＝{ key: 筆畫資料 }。
+ * 除錯：root.__pad（strokes、render()、clear()、demo()、write(點陣列)、setChar(key)）
  */
 import { BOX, clamp, curveFromStamps, curveMatch, footprint, forceCurve, penPressure, prepStroke, smoothTo, speedToPressure, stamps } from './brush.js';
 import { drawCompare, drawGrid, drawStamps, paperBase } from './ink2d.js';
@@ -19,7 +20,7 @@ import { drawCompare, drawGrid, drawStamps, paperBase } from './ink2d.js';
 const STEP = 2.5;         // 兩個印子之間的距離（字框單位）
 const LAG = 26;           // 筆尖轉向的慣性（同 brush.js 的 tipTrail）
 
-export function initPad(root, char) {
+export function initPad(root, char, chars = null) {
   const cv = root.querySelector('.cg-pad-cv');
   const g = cv.getContext('2d');
   const meter = root.querySelector('.cg-pad-meter i');
@@ -27,7 +28,7 @@ export function initPad(root, char) {
   const msg = root.querySelector('.cg-pad-msg');
   const opts = { grid: true, model: true, order: false };
   root.querySelectorAll('[data-pt]').forEach((el) => { opts[el.getAttribute('data-pt')] = el.checked; });
-  const model = char.strokes.map((st) => { const s = prepStroke(st); return { s, sts: stamps(s) }; });
+  let model = char.strokes.map((st) => { const s = prepStroke(st); return { s, sts: stamps(s) }; });
   const strokes = [];          // 使用者寫的：[{ sts: [印子…] }]
   let T = { k: 1, ox: 0, oy: 0 }, S = 0, cur = null, usedPen = false;
   let demo = null;             // { t, until } 示範播放中
@@ -131,11 +132,12 @@ export function initPad(root, char) {
 
   // ---------- 提按曲線比較（第二課起） ----------
   const cmpCv = root.querySelector('.cg-pad-curve'), cmpOut = root.querySelector('.cg-pad-score');
-  const mCurves = model.map((m) => forceCurve(m.s));
-  const mBounds = model.map((m) => {
+  let mCurves = model.map((m) => forceCurve(m.s));
+  const boundsOf = (m) => {
     const L = m.s[m.s.length - 1].s || 1, a = m.s.find((q) => q.phase >= 1), b = m.s.find((q) => q.phase >= 2);
     return [a ? a.s / L : 0.2, b ? b.s / L : 0.8];
-  });
+  };
+  let mBounds = model.map(boundsOf);
   let lastScore = null;
   function compare() {
     if (!cmpCv) return;
@@ -174,7 +176,7 @@ export function initPad(root, char) {
   cv.addEventListener('touchmove', (e) => e.preventDefault(), { passive: false });
 
   // ---------- 看示範 ----------
-  const totalDemo = model.reduce((a, m) => a + m.s[m.s.length - 1].t, 0) + 0.45 * (model.length - 1);
+  let totalDemo = model.reduce((a, m) => a + m.s[m.s.length - 1].t, 0) + 0.45 * (model.length - 1);
   function drawDemo() {
     let t = demo.t;
     for (const m of model) {
@@ -233,13 +235,25 @@ export function initPad(root, char) {
     else done(cv.toDataURL('image/png'));
   }
 
+  // ---------- 換範字（第四課） ----------
+  function setChar(key) {
+    if (!chars || !chars[key]) return;
+    char = chars[key];
+    model = char.strokes.map((st) => { const s2 = prepStroke(st); return { s: s2, sts: stamps(s2) }; });
+    totalDemo = model.reduce((a, m) => a + m.s[m.s.length - 1].t, 0) + 0.45 * (model.length - 1);
+    mCurves = model.map((m) => forceCurve(m.s)); mBounds = model.map(boundsOf);
+    strokes.length = 0; if (demo) stopDemo(); base = null; render(); compare();
+    root.querySelectorAll('[data-pad-char]').forEach((b2) => b2.setAttribute('aria-pressed', b2.getAttribute('data-pad-char') === key ? 'true' : 'false'));
+  }
+  root.querySelectorAll('[data-pad-char]').forEach((b2) => b2.addEventListener('click', () => setChar(b2.getAttribute('data-pad-char'))));
+
   new ResizeObserver(size).observe(cv);
   size();
   if (cmpCv) { new ResizeObserver(() => compare()).observe(cmpCv); compare(); }
   if (modeEl) modeEl.hidden = false;
 
   root.__pad = {
-    strokes, render, clear: () => { strokes.length = 0; render(); compare(); }, demo: startDemo, stopDemo, score: () => lastScore,
+    strokes, render, clear: () => { strokes.length = 0; render(); compare(); }, demo: startDemo, stopDemo, score: () => lastScore, setChar,
     setDemoTime: (t) => { demo = demo || { t: 0 }; demo.t = t; render(); },
     // 除錯：照點陣列寫一筆 [[x, y, 毫秒], …]（字框座標），走跟真的指標一樣的流程
     write(pts, pointerType = 'mouse', pressure = 0.5) {

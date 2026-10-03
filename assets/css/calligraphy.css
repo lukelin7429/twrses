@@ -253,3 +253,56 @@ a.cg-link:hover { transform: translateY(-3px); box-shadow: var(--shadow); border
 .cg-ico .cg-mini { width: 72px; height: 72px; border-radius: 10px; display: block; }
 @media (max-width: 1020px) { .cg-methods { grid-template-columns: repeat(8, minmax(0, 1fr)); } .cg-methods button span { display: none; } }
 @media (max-width: 640px) { .cg-methods { grid-template-columns: repeat(4, minmax(0, 1fr)); } .cg-methods button span { display: block; } }
+
+/* ---------- 第四課：筆順與結構 ---------- */
+.cg-rules { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.cg-rules button b { width: 34px; height: 34px; font-size: 1.15rem; }
+.cg-backseg { margin: 0; }
+.cg-backseg button[data-back="1"][aria-pressed="true"] { border-color: #ff8a7a; background: rgba(214,72,60,.18); box-shadow: 0 0 0 1px #ff8a7a inset; }
+.cg-backseg button[data-back="1"][aria-pressed="true"] small { color: #ffb3a8; }
+.cg-rule { border-top: 1px solid var(--al-line); padding-top: .7rem; }
+.cg-rule-k { margin: 0 0 .3rem; font-family: var(--zh); font-weight: 800; font-size: 1.15rem; color: var(--al-sun); line-height: 1.25; }
+.cg-rule-k small { display: block; font-family: var(--sans); font-size: .78rem; font-weight: 800; letter-spacing: .02em; color: #fff; }
+.cg-rule-t { margin: 0 0 .45rem; font-family: var(--zh); font-size: .8rem; line-height: 1.65; color: var(--al-mute); }
+.cg-rule-ex { display: block; margin-top: .15rem; color: var(--al-text); font-weight: 700; }
+.cg-rule-why { margin: 0; font-size: .83rem; line-height: 1.6; color: var(--al-text); }
+.cg-rule-why .zh { display: block; margin-top: .25rem; color: var(--al-mute); }
+.cg-grids { margin-bottom: .3rem; }
+.cg-back-badge { position: absolute; left: 50%; top: 4.2rem; transform: translate(-50%, -8px); margin: 0; padding: .4rem .95rem; border-radius: 999px; background: rgba(214,72,60,.92); color: #fff; font-weight: 800; font-size: .82rem; text-align: center; line-height: 1.3; box-shadow: 0 10px 24px -12px rgba(0,0,0,.7); opacity: 0; pointer-events: none; transition: opacity .25s, transform .25s; z-index: 2; white-space: nowrap; }
+.cg-back-badge .zh { display: block; font-size: .76rem; font-weight: 700; color: #ffe1dc; }
+.cg-backward .cg-back-badge { opacity: 1; transform: translate(-50%, 0); }
+.al-lab.cg-lb-num { display: grid; place-items: center; width: 26px; height: 26px; padding: 0; border-radius: 50%; background: #1f6f8b; border: 2px solid #fff; color: #fff; font-size: .86rem; font-weight: 800; letter-spacing: 0; box-shadow: 0 6px 14px -6px rgba(0,0,0,.7); }
+.al-lab.cg-lb-num.back { background: #d6483c; }
+.cg-narrow .al-lab.cg-lb-num { width: 22px; height: 22px; padding: 0; font-size: .74rem; }
+.al-lg-cgn i { border: 2px solid #fff; background: #1f6f8b; }
+.al-lg-cgr i { border: 2px solid #fff; background: #d6483c; }
+.al-lg-cga i { border: 0; border-radius: 0; height: 0; margin-top: .55rem; border-top: 3px dashed #ffd36e; }
+@media (max-width: 1020px) { .cg-rules { grid-template-columns: repeat(6, minmax(0, 1fr)); } }
+@media (max-width: 640px) {
+  .cg-rules { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .cg-back-badge { top: auto; bottom: .7rem; font-size: .72rem; padding: .32rem .8rem; }
+  .cg-back-badge .zh { font-size: .68rem; }
+}
+
+/* 猜下一筆 */
+.cg-guess { display: grid; grid-template-columns: minmax(0, 440px) minmax(0, 1fr); gap: 1.6rem; margin-top: 1.4rem; align-items: start; }
+.cg-guess-paper { padding: 12px; background: #fff; border: 1px solid var(--line); border-radius: 20px; box-shadow: var(--shadow); }
+.cg-guess-cv { width: 100%; aspect-ratio: 1; display: block; border-radius: 8px; touch-action: none; cursor: pointer; -webkit-user-select: none; user-select: none; -webkit-tap-highlight-color: transparent; }
+.cg-guess-char { margin: 0; font-family: var(--zh); font-size: 2.6rem; font-weight: 800; line-height: 1.1; color: var(--brand-dk); }
+.cg-guess-char small { display: block; margin-top: .3rem; font-family: var(--sans); font-size: .9rem; font-weight: 700; color: var(--ink-soft); }
+.cg-guess-msg { min-height: 3.4em; margin: 1rem 0 0; padding: .85rem 1rem; border-radius: 14px; background: var(--cream); border: 1px solid var(--line); font-size: 1rem; font-weight: 700; line-height: 1.55; color: var(--ink); }
+.cg-guess-msg .zh { display: block; margin-top: .2rem; font-weight: 600; color: var(--ink-soft); }
+.cg-guess-sc { display: flex; justify-content: space-between; align-items: center; gap: 1rem; margin: 1rem 0; font-size: .86rem; font-weight: 700; color: var(--ink-soft); }
+.cg-guess-sc .zh { display: block; font-weight: 600; }
+.cg-guess-sc b { font-family: var(--serif); font-size: 1.7rem; color: var(--brand-dk); font-variant-numeric: tabular-nums; }
+.cg-guess-note { margin: 1rem 0 0; font-size: .86rem; color: var(--ink-soft); }
+.cg-guess-note .zh { display: block; }
+@media (max-width: 860px) { .cg-guess { grid-template-columns: minmax(0, 1fr); } .cg-guess-paper { max-width: 440px; width: 100%; margin: 0 auto; box-sizing: border-box; } }
+@media (max-width: 480px) { .cg-guess-paper { padding: 8px; } .cg-guess-char { font-size: 2.1rem; } }
+
+/* 練字板：換範字 */
+.cg-pad-chars { display: flex; flex-wrap: wrap; align-items: center; gap: .4rem; margin: 0 0 1rem; }
+.cg-pad-chars > span { margin-right: .3rem; font-size: .8rem; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; color: var(--gold-dk); }
+.cg-pad-chars button { width: 46px; height: 46px; border-radius: 12px; border: 1px solid var(--line); background: #fff; color: var(--ink); font-family: var(--zh); font-size: 1.4rem; font-weight: 700; cursor: pointer; transition: border-color .2s, background .2s, transform .2s; }
+.cg-pad-chars button:hover { border-color: var(--gold); transform: translateY(-1px); }
+.cg-pad-chars button[aria-pressed="true"] { background: var(--brand); border-color: var(--brand); color: #fff; }

@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import {
   prepStroke, strokeLength, strokeDuration, sampleAt, footprint, pressDepth, tipTrail, stamps, teardrop, outline,
   forceCurve, speedToPressure, penPressure, smoothTo, bleed, PAPERS, INKS, grindDarkness, HAIR, bendFor, springBack,
-  bendGeom, bristles, curveFromStamps, curveMatch,
+  bendGeom, bristles, curveFromStamps, curveMatch, hitStroke,
 } from '../src/brush.js';
 
 let n = 0;
@@ -165,6 +165,16 @@ ok('練字板的提按曲線：照示範寫＝ 100%，壓力全反過來很低',
   const flipped = user.map(([f, p]) => [f, 0.9 - p]);
   assert.ok(curveMatch(model, flipped) < 0.5);
   assert.equal(curveMatch(model, []), 0);
+});
+
+ok('猜下一筆：點在哪一筆上（最近的中心線、太遠不算）', () => {
+  const a = prepStroke({ pts: [[100, 300, 0.1, 200], [900, 300, 0.1, 200]] }, { step: 5 });   // 橫
+  const b = prepStroke({ pts: [[500, 100, 0.1, 200], [500, 900, 0.1, 200]] }, { step: 5 });   // 豎
+  const list = [{ i: 0, s: a }, { i: 1, s: b }];
+  assert.equal(hitStroke(list, 200, 310), 0);
+  assert.equal(hitStroke(list, 505, 700), 1);
+  assert.equal(hitStroke(list, 120, 900), -1, '離每一筆都很遠');
+  assert.equal(hitStroke([{ i: 1, s: b }], 200, 310, 70), -1, '只剩豎的時候點橫的位置不算');
 });
 
 console.log(`brush.test.mjs: ${n} 項全部通過`);

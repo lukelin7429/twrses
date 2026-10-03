@@ -155,10 +155,10 @@ export function makePaper({ w = 3.2, h = 3.8, x = 0, y = 0.02, z = 0, ppu = 360,
   const bc = boxCenter || [x, z];
   // 字框 → 畫布像素
   const T = { k: (box * ppu) / BOX, ox: (bc[0] - box / 2 - (x - w / 2)) * ppu, oy: (bc[1] - box / 2 - (z - h / 2)) * ppu };
-  let showGrid = grid;
+  let showGrid = grid;                              // true（米字格）、'mi'、'jiu'（九宮格）或 false
   function drawBase() {
     paperBase(gb, CW, CH, { color, seed: 5, fiber: 0.45, edge: ppu * 0.04 });
-    if (showGrid) drawGrid(gb, T.ox, T.oy, box * ppu, { lw: Math.max(2, ppu / 110), color: 'rgba(205,62,50,.72)' });
+    if (showGrid) drawGrid(gb, T.ox, T.oy, box * ppu, { kind: showGrid === 'jiu' ? 'jiu' : 'mi', lw: Math.max(2, ppu / 110), color: 'rgba(205,62,50,.72)' });
   }
   function compose() { g.drawImage(base, 0, 0); g.drawImage(ink, 0, 0); tex.needsUpdate = true; }
   drawBase(); compose();
@@ -187,10 +187,12 @@ const AIR = { up: 0.22, move: 0.4, down: 0.2 };   // 多筆字：提筆、在空
 
 /**
  * opt.side：側鋒（tipTrail 的 side，弧度）；opt.tilt：筆桿斜幾度（弧度，給 placeBrush）；opt.bristles：側鋒的筆毛（畫飛白）
+ * opt.order：照這個順序寫（筆的索引，0 起算；第四課「倒過來寫」用）；沒給就照筆畫資料的順序
  */
 export function makeWriter(paper, char, opt = {}) {
   const tr = { side: opt.side || 0 };
-  const strokes = char.strokes.map((st) => {
+  const order = opt.order || char.strokes.map((_, i) => i);
+  const strokes = order.map((k) => char.strokes[k]).map((st) => {
     const s = prepStroke(st);
     return { st, s, sts: stamps(s, tr), trail: tipTrail(s, tr), dur: strokeDuration(s), drawn: 0 };
   });
