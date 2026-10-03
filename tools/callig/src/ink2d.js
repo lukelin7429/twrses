@@ -148,7 +148,7 @@ export function drawBlot(g, cx, cy, R, b, seed = 3) {
  * 力道曲線：curve＝[[走了幾成, 壓力], …]；at＝目前走到幾成（null 不畫）；bounds＝[起筆結束, 行筆結束]（幾成）
  * 顏色照 3D 深色面板。
  */
-export function drawForce(g, w, h, curve, { at = null, bounds = null, labels = null, color = '#ffd36e' } = {}) {
+export function drawForce(g, w, h, curve, { at = null, bounds = null, labels = null, color = '#ffd36e', bands = null } = {}) {
   const padL = 6, padR = 6, padT = 10, padB = 18;
   const X = (f) => padL + f * (w - padL - padR), Y = (p) => h - padB - p * (h - padT - padB);
   g.clearRect(0, 0, w, h);
@@ -161,6 +161,17 @@ export function drawForce(g, w, h, curve, { at = null, bounds = null, labels = n
       g.fillStyle = 'rgba(207,216,234,.85)'; g.font = `600 ${Math.round(h * 0.1)}px system-ui, sans-serif`; g.textAlign = 'center';
       for (let i = 0; i < 3; i++) g.fillText(labels[i], (X(edges[i]) + X(edges[i + 1])) / 2, h - 5);
     }
+  }
+  if (bands) {   // 永字八法：一筆裡的幾法，各一個色帶＋名稱（[{ from, to, label, on }]，from／to 是走了幾成）
+    const fill = ['rgba(79,209,197,.10)', 'rgba(255,211,110,.08)', 'rgba(255,143,184,.10)'];
+    g.font = `700 ${Math.round(h * 0.1)}px system-ui, sans-serif`; g.textAlign = 'center';
+    bands.forEach((b, i) => {
+      g.fillStyle = b.on ? 'rgba(255,211,110,.22)' : fill[i % 3];
+      g.fillRect(X(b.from), padT - 6, X(b.to) - X(b.from), h - padT - padB + 6);
+      g.fillStyle = b.on ? '#ffd36e' : 'rgba(207,216,234,.85)';
+      g.fillText(b.label, (X(b.from) + X(b.to)) / 2, h - 5);
+      if (i) { g.strokeStyle = 'rgba(255,255,255,.25)'; g.beginPath(); g.moveTo(X(b.from), padT - 6); g.lineTo(X(b.from), h - padB); g.stroke(); }
+    });
   }
   g.strokeStyle = 'rgba(160,180,230,.18)'; g.lineWidth = 1;
   for (const p of [0, 0.5, 1]) { g.beginPath(); g.moveTo(padL, Y(p)); g.lineTo(w - padR, Y(p)); g.stroke(); }

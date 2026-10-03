@@ -235,3 +235,21 @@ a.cg-link:hover { transform: translateY(-3px); box-shadow: var(--shadow); border
 .cg-pad-score { margin: .5rem 0 0; font-size: .92rem; line-height: 1.55; }
 .cg-pad-score b { color: var(--brand-dk); font-size: 1.05rem; }
 .cg-pad-score .zh { display: block; color: var(--ink-soft); }
+
+/* ---------- 第三課：永字八法 ---------- */
+.cg-methods { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: .3rem; }
+.cg-methods button { display: flex; flex-direction: column; align-items: center; gap: .1rem; padding: .4rem .15rem .35rem; border-radius: 12px; border: 1px solid var(--al-line); background: rgba(255,255,255,.03); color: var(--al-text); font-family: var(--sans); cursor: pointer; transition: background .2s, border-color .2s; }
+.cg-methods button b { display: grid; place-items: center; width: 32px; height: 32px; border-radius: 50%; background: #f3ead6; color: #151311; font-family: var(--zh); font-size: 1.05rem; }
+.cg-methods button span { font-weight: 800; font-size: .62rem; line-height: 1.15; text-align: center; }
+.cg-methods button small { font-family: var(--zh); font-size: .66rem; color: var(--al-mute); }
+.cg-methods button:hover { background: rgba(255,255,255,.07); }
+.cg-methods button[aria-pressed="true"] { border-color: var(--al-sun); background: rgba(255,211,110,.12); box-shadow: 0 0 0 1px var(--al-sun) inset; }
+.cg-methods button[aria-pressed="true"] b { background: var(--al-sun); }
+.cg-whole { align-self: flex-start; }
+.al-lab.cg-lb-m { color: #ffe3a3; border-color: rgba(201,161,74,.75); background: rgba(12,10,6,.72); }
+.al-lab.cg-lb-m b { font-family: var(--zh); font-size: .9rem; color: #fff; }
+.al-lab.cg-lb-m.on { color: #1b1405; background: var(--al-sun); border-color: var(--al-sun); }
+.al-lab.cg-lb-m.on b, .al-lab.cg-lb-m.on small { color: #1b1405; }
+.cg-ico .cg-mini { width: 72px; height: 72px; border-radius: 10px; display: block; }
+@media (max-width: 1020px) { .cg-methods { grid-template-columns: repeat(8, minmax(0, 1fr)); } .cg-methods button span { display: none; } }
+@media (max-width: 640px) { .cg-methods { grid-template-columns: repeat(4, minmax(0, 1fr)); } .cg-methods button span { display: block; } }

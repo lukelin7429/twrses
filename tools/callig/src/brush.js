@@ -14,6 +14,7 @@
  *   bendGeom(L, d, tilt)      3D 筆毛彎下去的形狀（直線 → 圓弧 → 貼紙），筆桿可以斜（側鋒）
  *   bristles(n, seed)         側鋒的筆毛一根根分開：每根的位置、粗細、多快沒墨（畫飛白）
  *   curveFromStamps、curveMatch   練字板：你這一筆的提按曲線、和示範有多像
+ *   methodSpans(samples, stroke)  永字八法：每一法在這一筆的哪一段（時間、弧長；筆畫資料的 methods 用控制點範圍標）
  *   stamps(samples, opt)      一筆的「印子」：每個取樣點一個水滴形，疊起來就是墨跡
  *   teardrop(st, n)           一個印子的多邊形
  *   outline(stamps)           整筆墨跡的外輪廓（左右兩條邊）
@@ -349,3 +350,21 @@ export const HAIR = {
 export const bendFor = (hairKey, force) => clamp(force * HAIR[hairKey].soft);
 /** 放開 t 秒後還彎著多少（從 b0 開始）：越硬的毛彈回越快 */
 export const springBack = (hairKey, b0, t) => b0 * Math.exp(-HAIR[hairKey].spring * Math.max(0, t));
+
+// ---------------------------------------------------------------------
+// 永字八法：一筆裡面可以有好幾法（例如橫折鉤＝勒＋努＋趯）
+// ---------------------------------------------------------------------
+/**
+ * 筆畫資料的 methods：[{ key, ch 古名, zh 今名, en, from, to }]（控制點範圍，前一法的 to＝後一法的 from）。
+ * 回傳每一法在取樣點上的範圍：{ ...method, i0, i1, t0, t1, s0, s1 }（i1、t1、s1 是結束那一點）。
+ */
+export function methodSpans(samples, stroke) {
+  return (stroke.methods || []).map((m) => {
+    let i0 = samples.findIndex((q) => q.ctrl >= m.from - 1e-9);
+    let i1 = samples.length - 1;
+    for (let i = samples.length - 1; i >= 0; i--) if (samples[i].ctrl <= m.to + 1e-9) { i1 = i; break; }
+    if (i0 < 0) i0 = 0;
+    return { ...m, i0, i1, t0: samples[i0].t, t1: samples[i1].t, s0: samples[i0].s, s1: samples[i1].s };
+  });
+}
+

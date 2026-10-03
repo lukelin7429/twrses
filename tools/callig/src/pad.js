@@ -7,7 +7,8 @@
  *   - 滑鼠與手指：寫得慢＝粗、寫得快＝細（brush.js 的 speedToPressure）
  *   - 觸控筆（pointerType 'pen' 而且有壓力）：越壓越粗（penPressure）
  *   - 筆毛印子和 3D 宣紙同一套（brush.js 的 stamps／水滴形），所以寫出來像毛筆不像原子筆
- * 按鈕 data-pad="demo|undo|clear|save"；開關 data-pt="grid|model"。畫布 touch-action: none，寫字時頁面不會捲動。
+ * 按鈕 data-pad="demo|undo|clear|save"；開關 data-pt="grid|model|order"（order＝在範字每一筆的起點標筆順數字；
+ *   位置用筆畫資料的 num: [x, y]，沒有就放在起點的後方）。畫布 touch-action: none，寫字時頁面不會捲動。
  * 有 .cg-pad-curve 畫布時（第二課起）：每寫完一筆，畫出你的提按曲線（藍）疊在示範那一筆的力道曲線（金）上，
  *   .cg-pad-score 寫出和示範有多像（brush.js 的 curveFromStamps、curveMatch）。第 n 筆對示範的第 n 筆（照筆順）。
  * 除錯：root.__pad（strokes、render()、clear()、demo()、write(點陣列)）
@@ -24,7 +25,8 @@ export function initPad(root, char) {
   const meter = root.querySelector('.cg-pad-meter i');
   const modeEl = root.querySelector('.cg-pad-mode');
   const msg = root.querySelector('.cg-pad-msg');
-  const opts = { grid: true, model: true };
+  const opts = { grid: true, model: true, order: false };
+  root.querySelectorAll('[data-pt]').forEach((el) => { opts[el.getAttribute('data-pt')] = el.checked; });
   const model = char.strokes.map((st) => { const s = prepStroke(st); return { s, sts: stamps(s) }; });
   const strokes = [];          // 使用者寫的：[{ sts: [印子…] }]
   let T = { k: 1, ox: 0, oy: 0 }, S = 0, cur = null, usedPen = false;
@@ -47,6 +49,19 @@ export function initPad(root, char) {
       paperBase(b, S, S, { seed: 11, fiber: 0.35 });
       if (opts.grid) drawGrid(b, S * 0.012, S * 0.012, S * 0.976, { lw: Math.max(1, S / 360) });
       if (opts.model) model.forEach((m) => drawStamps(b, m.sts, T, { color: 'rgb(214,72,60)', alpha: 0.3 }));
+      if (opts.order) model.forEach((m, k) => {   // 筆順數字：藍底白字的小圓
+        let x, y;
+        const num = char.strokes[k].num;
+        if (num) [x, y] = num;
+        else {
+          const a = m.s[0], b2 = m.s[Math.min(m.s.length - 1, 12)], L = Math.hypot(b2.x - a.x, b2.y - a.y) || 1;
+          x = a.x - ((b2.x - a.x) / L) * 50; y = a.y - ((b2.y - a.y) / L) * 50;
+        }
+        const r = 23 * T.k;
+        b.save(); b.fillStyle = 'rgba(31,111,139,.92)'; b.beginPath(); b.arc(x * T.k, y * T.k, r, 0, Math.PI * 2); b.fill();
+        b.fillStyle = '#fff'; b.font = `800 ${Math.round(r * 1.25)}px system-ui, sans-serif`; b.textAlign = 'center'; b.textBaseline = 'middle';
+        b.fillText(String(k + 1), x * T.k, y * T.k + r * 0.06); b.restore();
+      });
     }
     g.drawImage(base, 0, 0);
   }
