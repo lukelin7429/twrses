@@ -6,7 +6,7 @@ import { readdirSync, readFileSync } from 'node:fs';
 import { methodSpans, prepStroke, stamps, strokeDuration } from '../src/brush.js';
 
 const dir = new URL('../src/strokes/', import.meta.url);
-const files = readdirSync(dir).filter((f) => f.endsWith('.json'));
+const files = readdirSync(dir).filter((f) => f.endsWith('.json') && f !== 'ancient.json');   // 古文字另有 ancient.test.mjs
 assert.ok(files.length > 0, '至少要有一個字');
 let n = 0;
 for (const f of files) {

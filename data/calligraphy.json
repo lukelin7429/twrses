@@ -2585,14 +2585,14 @@
               "note_zh": "「永」的五畫也照這些法則：先點、再橫折鉤，最後才是捺。"
             },
             {
-              "soon": true,
               "icon": "🐢",
-              "k_en": "Lesson 5 · Coming soon · Unit 2",
-              "k_zh": "第五課・製作中・單元二",
+              "k_en": "Next Lesson · Lesson 5 · Unit 2",
+              "k_zh": "下一課・第五課・單元二",
               "en": "Where Did Chinese Characters Come From?",
               "zh": "漢字從哪裡來？甲骨文到篆書",
               "note_en": "Marks carved on tortoise shells and ox bones, writing cast in bronze, and the even lines of seal script: how characters looked before the brush shaped them.",
-              "note_zh": "刻在龜甲牛骨上的字、鑄在青銅器上的字、線條勻稱的篆書：在毛筆讓字變成今天的樣子以前，漢字長什麼樣。"
+              "note_zh": "刻在龜甲牛骨上的字、鑄在青銅器上的字、線條勻稱的篆書：在毛筆讓字變成今天的樣子以前，漢字長什麼樣。",
+              "href": "/resources/classes/calligraphy/oracle-bones/"
             }
           ],
           "culture_cards": {
@@ -2886,14 +2886,861 @@
       "title_zh": "字體的演變",
       "blurb_en": "From marks on tortoise shells to the neat lines of seal script, the silkworm heads and swallow tails of clerical script, and the speed of running and cursive script.",
       "blurb_zh": "從龜甲上的刻痕到線條勻稱的篆書、蠶頭燕尾的隸書，再到越寫越快的行書與草書。",
-      "lessons": [],
-      "planned": [
+      "lessons": [
         {
           "n": 5,
+          "slug": "oracle-bones",
+          "title": "Where Did Chinese Characters Come From?",
+          "title_zh": "漢字從哪裡來？甲骨文到篆書",
+          "level": "入門 · Beginner",
           "icon": "🐢",
-          "en": "Where Did Chinese Characters Come From?",
-          "zh": "漢字從哪裡來？甲骨文到篆書"
-        },
+          "card": "oracle",
+          "blurb_en": "Long before paper, people carved characters on tortoise shells and cast them in bronze. In 3D, crack a shell the way Shang diviners did, carve a character, make a rubbing from a bronze ding, and watch a brush write small seal script. Then pull a slider through 3,000 years.",
+          "blurb_zh": "在有紙以前，人們把字刻在龜甲上、鑄在青銅器上。在 3D 裡照商代占卜的方法讓龜甲裂開、刻一個字，從青銅鼎拓下銘文，再看毛筆寫小篆；最後拉一根滑桿，走過三千年。",
+          "big_idea_en": "The earliest Chinese writing that survives on real objects was carved on tortoise shells and animal bones more than 3,000 years ago. Many of those characters began as pictures of things. Over many centuries, the shapes became simpler and more even: carved oracle bone script, bronze script, and then small seal script, the standard of the Qin dynasty.",
+          "big_idea_zh": "現存有實物可證的最早漢字，是三千多年前刻在龜甲、獸骨上的甲骨文；其中許多字一開始是東西的圖畫。經過很多個世紀，字形越來越簡單、線條越來越勻稱：刀刻的甲骨文、青銅器上的金文，再到秦朝的標準字體小篆。",
+          "lab": {
+            "kind": "oracle",
+            "eyebrow": "3D Model · 3D 模型",
+            "title_en": "Shell, Bronze, and Brush",
+            "title_zh": "龜甲、青銅、毛筆",
+            "how_en": "Drag to turn, and scroll or pinch to zoom. Choose where the writing is made: on a tortoise shell, in a bronze ding, or with a brush. Choose one of six characters, and each place shows it in that time's script. On the shell, follow four steps: hollows, heat, crack, and carve.",
+            "how_zh": "拖曳可以旋轉，滾輪或雙指可以縮放。選字寫在哪裡：龜甲上、青銅鼎裡，或用毛筆寫；再選六個字中的一個，每個地方都用那個時代的字形。在龜甲上可以一步一步看：挖洞、灼燒、裂開、刻字。",
+            "modes": [
+              {
+                "key": "shell",
+                "icon": "甲",
+                "en": "Oracle bones",
+                "zh": "甲骨",
+                "title_en": "Ask a question, read the crack",
+                "title_zh": "問一個問題，看裂紋",
+                "text_en": "Diviners cut hollows into the back of a tortoise shell and heated them. Cracks appeared on the front, and the record was carved beside them.",
+                "text_zh": "占卜的人在龜甲背面挖凹洞、用火燒，正面就出現裂紋；占卜的紀錄刻在裂紋旁邊。",
+                "when_en": "Late Shang dynasty",
+                "when_zh": "商代晚期",
+                "tool_en": "Carved with a knife",
+                "tool_zh": "用刀刻",
+                "steps": [
+                  {
+                    "key": "hollow",
+                    "en": "Hollows",
+                    "zh": "鑽鑿",
+                    "text_en": "Hollows are cut into the back of the shell. They make the shell thinner there, so a crack can form when it is heated.",
+                    "text_zh": "在龜甲背面挖出凹洞（鑽鑿），讓那裡變薄，加熱時才容易裂開。"
+                  },
+                  {
+                    "key": "heat",
+                    "en": "Heat",
+                    "zh": "灼燒",
+                    "text_en": "The red-hot end of a wooden stick is pressed into a hollow on the back.",
+                    "text_zh": "用燒紅的木條末端，去燒背面挖好的凹洞。"
+                  },
+                  {
+                    "key": "crack",
+                    "en": "Crack",
+                    "zh": "卜兆",
+                    "text_en": "With a cracking sound, a crack appears on the front, shaped a bit like 卜. One scholar suggested that 卜 copies both the sound and the shape of the crack. Nobody today knows exactly how the diviners read the cracks.",
+                    "text_zh": "甲骨發出裂開的聲音，正面出現像「卜」字的裂紋（卜兆）。有學者說，「卜」字既模仿裂開的聲音，也畫出裂紋的樣子。古人到底怎麼判讀裂紋，現在已經不可考。"
+                  },
+                  {
+                    "key": "carve",
+                    "en": "Carve",
+                    "zh": "刻字",
+                    "text_en": "The record is carved with a knife beside the crack: the date, who asked, the question, and the answer. Knife lines are thin and straight; look how the round sun comes out almost square.",
+                    "text_zh": "用刀把紀錄刻在裂紋旁邊：哪一天、誰來問、問什麼、得到什麼答案。刀刻的線又細又直；看看圓圓的太陽，刻出來幾乎是方的。"
+                  }
+                ]
+              },
+              {
+                "key": "bronze",
+                "icon": "金",
+                "en": "Bronze",
+                "zh": "金文",
+                "title_en": "Writing in bronze",
+                "title_zh": "青銅器上的字",
+                "text_en": "In the Shang and Zhou dynasties, writing was cast or carved on bronze vessels like this ding. A rubbing turns it into a page: paper is pressed onto the writing and patted with ink, and the sunken lines stay white.",
+                "text_zh": "商周時代，字鑄或刻在青銅器上，像這個鼎。拓片把它變成一張紙：紙貼在字上、拍上墨，凹下去的筆畫就留白。",
+                "when_en": "Shang and Zhou dynasties",
+                "when_zh": "商周時代",
+                "tool_en": "Cast in bronze",
+                "tool_zh": "鑄在青銅器上"
+              },
+              {
+                "key": "seal",
+                "icon": "篆",
+                "en": "Seal script",
+                "zh": "小篆",
+                "title_en": "One standard script",
+                "title_zh": "全國統一的字",
+                "text_en": "After the Qin dynasty united China in 221 BCE, small seal script became the standard. Its lines are smooth and the same width, so a brush keeps its tip in the middle and presses evenly all the way.",
+                "text_zh": "秦在西元前 221 年統一天下以後，小篆成為標準字體。線條圓滑、粗細一樣，所以毛筆用中鋒、從頭到尾力道平均。",
+                "when_en": "Qin dynasty, from 221 BCE",
+                "when_zh": "秦朝，西元前 221 年起",
+                "tool_en": "Brush, even pressure",
+                "tool_zh": "毛筆，力道平均"
+              }
+            ],
+            "chars": {
+              "ri": "sun · 太陽",
+              "yue": "moon · 月亮",
+              "shan": "mountain · 山",
+              "shui": "water · 水",
+              "ren": "person · 人",
+              "ma": "horse · 馬"
+            },
+            "legend": [
+              {
+                "cls": "cgo",
+                "en": "Bone-colored shell: a tortoise plastron, the underside of the shell",
+                "zh": "米黃色：龜的腹甲（龜殼的腹面）"
+              },
+              {
+                "cls": "cgb",
+                "en": "Green metal: a bronze ding with three legs",
+                "zh": "綠色金屬：三隻腳的青銅鼎"
+              },
+              {
+                "cls": "cgw",
+                "en": "Black sheet with white characters: a rubbing",
+                "zh": "黑底白字：拓片"
+              },
+              {
+                "cls": "cgt",
+                "en": "Yellow labels: names of the parts",
+                "zh": "黃色標籤：各部分的名稱"
+              }
+            ],
+            "scale_en": "A teaching model, not to scale: real oracle bone characters are much smaller, and a real ding is much bigger. In the model, the inscription sits on the bottom of the bowl so it is easy to see. The character forms are our own tracings over public domain reference glyphs.",
+            "scale_zh": "這是教學用的示意模型，不照實際比例：真的甲骨文字小得多，真的鼎大得多。模型把銘文放在鼎的內底，比較容易看。字形是我們對著公有領域的參考字形自己描的。",
+            "credit_html": "Model, character tracings, and the writing engine are drawn and programmed by My Culture Connect. Reference glyphs for the oracle bone, bronze, and seal scripts: <a href=\"https://commons.wikimedia.org/wiki/Commons:Ancient_Chinese_characters_project\" target=\"_blank\" rel=\"noopener\">Wikimedia Commons, Ancient Chinese Characters Project</a> (public domain). · 模型、字形描線與寫字引擎由人師教育協會自繪、自寫；甲骨文、金文、小篆的對位參考是 Wikimedia Commons「Ancient Chinese characters project」的公有領域字形。"
+          },
+          "paras": [
+            "Before there was paper, people in China wrote on hard things. More than 3,000 years ago, in the late Shang dynasty, people carved characters on tortoise shells and animal bones, mostly the shoulder blades of cattle. We call this writing oracle bone script. Taiwan's Ministry of Education calls it the earliest Chinese writing that survives on real objects.",
+            "Why carve on shells? The Shang kings asked many questions about what would happen. Diviners cut hollows into the back of a shell or bone and pressed the red-hot end of a wooden stick into them. Cracks appeared on the front, shaped a bit like the character 卜, which means to divine. Then they carved the record beside the cracks: the date, the question, and the answer. Nobody today knows exactly how they read the cracks.",
+            "Many early characters began as pictures of things. 日 was the sun, 月 a crescent moon, 山 three mountain peaks, 水 a stream with drops of water, 人 a person seen from the side, and 馬 a horse standing on its tail, with a big eye and a mane. About 1,900 years ago, the scholar Xu Shen called this way of making characters 象形, drawing the shape of a thing, and he gave 日 and 月 as his examples.",
+            "Writing was also cast or carved on bronze. In the Shang and Zhou dynasties, words were put on bronze vessels such as the ding, a pot with three legs. These lines are thicker and rounder than carved lines. To study them on paper, people make rubbings: paper is pressed onto the writing and patted with ink, and the sunken characters stay white. The Mao Gong Ding in the National Palace Museum in Taipei holds about 500 characters in 32 lines.",
+            "In 221 BCE, the state of Qin united China. The Shiji, a famous history, records that the First Emperor made the writing the same everywhere. Li Si and other officials simplified the older script into a standard form called small seal script, with smooth lines of even width.",
+            "After seal script came clerical script, flat and wide (Lesson 6), and then regular script, the way we write today (Lesson 7). In this lesson, crack and carve a shell in 3D, make a rubbing from a bronze ding, and watch a brush write seal script. Then pull the slider to see one character change over 3,000 years."
+          ],
+          "paras_zh": [
+            "在有紙以前，中國人把字寫在硬的東西上。三千多年前的商代晚期，人們把字刻在龜甲和獸骨（大多是牛的肩胛骨）上，我們叫它甲骨文。台灣教育部的辭典說，甲骨文是中國有實物可證的最早文字。",
+            "為什麼要刻在龜甲上？商王對未來有很多問題。占卜的人在龜甲或獸骨的背面挖出凹洞，再用燒紅的木條末端去燒，正面就出現裂紋，形狀有點像「卜」字，「卜」就是占卜的意思。接著，他們把紀錄刻在裂紋旁邊：哪一天、問什麼、得到什麼答案。古人到底怎麼判讀裂紋，現在已經不可考了。",
+            "許多早期的字是從東西的圖畫來的：「日」是太陽，「月」是彎彎的月亮，「山」是三座山峰，「水」是一道水流和兩旁的水滴，「人」是側面的人，「馬」是一匹站起來的馬，有大眼睛和鬃毛。大約一千九百年前，學者許慎把這種造字方法叫做「象形」，也就是照著東西的樣子畫出來，他舉的例子正是「日」和「月」。",
+            "字也鑄或刻在青銅器上。商周時代，人們把文字放在鼎這類青銅器上；鼎是有三隻腳的鍋子。這些線條比刻的線粗、也比較圓。為了在紙上研究，人們做拓片：把紙貼在字上、拍上墨，凹下去的字就留白。台北國立故宮博物院的毛公鼎，裡面有 32 行、大約 500 個字。",
+            "西元前 221 年，秦統一天下。著名的史書《史記》記載，秦始皇讓全國「書同文字」。李斯等官員把舊的字體加以省改，成為標準字體，叫做小篆，線條圓滑、粗細一樣。",
+            "小篆之後是字形扁扁的隸書（第六課），再來是我們今天寫的楷書（第七課）。這一課，在 3D 裡讓龜甲裂開、刻一個字，從青銅鼎拓下銘文，看毛筆寫小篆；再拉動滑桿，看一個字三千年來怎麼變。"
+          ],
+          "questions": [
+            "What did people in the late Shang dynasty carve characters on?",
+            "How did the diviners make cracks appear on a shell?",
+            "What does 象形 mean, and which two characters did Xu Shen give as examples?"
+          ],
+          "answers": [
+            "They carved characters on tortoise shells and animal bones.",
+            "They cut hollows into the back and pressed the red-hot end of a wooden stick into them. Cracks appeared on the front.",
+            "It means drawing the shape of a thing. His examples were 日 and 月."
+          ],
+          "vocab": [
+            {
+              "n": 1,
+              "w": "ancient",
+              "pos": "adj.",
+              "zh": "古老的",
+              "ex": "The <b>ancient</b> city is more than 2,000 years old.",
+              "exzh": "這座古城已經兩千多年了。"
+            },
+            {
+              "n": 2,
+              "w": "carve",
+              "pos": "v.",
+              "zh": "雕刻",
+              "ex": "She <b>carved</b> a small bird out of soap.",
+              "exzh": "她用肥皂刻了一隻小鳥。"
+            },
+            {
+              "n": 3,
+              "w": "crack",
+              "pos": "n.",
+              "zh": "裂縫；裂紋",
+              "ex": "There is a long <b>crack</b> in the window.",
+              "exzh": "窗戶上有一條長長的裂縫。"
+            },
+            {
+              "n": 4,
+              "w": "shell",
+              "pos": "n.",
+              "zh": "殼；甲",
+              "ex": "The turtle hid its head inside its <b>shell</b>.",
+              "exzh": "烏龜把頭縮進殼裡。"
+            },
+            {
+              "n": 5,
+              "w": "bronze",
+              "pos": "n.",
+              "zh": "青銅",
+              "ex": "The statue in the park is made of <b>bronze</b>.",
+              "exzh": "公園裡的雕像是青銅做的。"
+            },
+            {
+              "n": 6,
+              "w": "cast",
+              "pos": "v.",
+              "zh": "鑄造",
+              "ex": "The workers <b>cast</b> the bell from hot metal.",
+              "exzh": "工人用熔化的金屬鑄成這口鐘。"
+            },
+            {
+              "n": 7,
+              "w": "symbol",
+              "pos": "n.",
+              "zh": "符號；象徵",
+              "ex": "A heart is a <b>symbol</b> of love.",
+              "exzh": "愛心是愛的象徵。"
+            },
+            {
+              "n": 8,
+              "w": "unite",
+              "pos": "v.",
+              "zh": "統一；聯合",
+              "ex": "The two teams <b>united</b> to clean the beach.",
+              "exzh": "兩隊聯合起來打掃海灘。"
+            }
+          ],
+          "quiz": [
+            {
+              "q": "How was oracle bone script made?",
+              "options": [
+                "It was carved on shells and bones.",
+                "It was painted on silk.",
+                "It was printed on paper.",
+                "It was written in sand."
+              ],
+              "correct": 0
+            },
+            {
+              "q": "Which character looks like a crack in a shell?",
+              "options": [
+                "卜",
+                "山",
+                "人",
+                "水"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "Where is the Mao Gong Ding today?",
+              "options": [
+                "The National Palace Museum in Taipei",
+                "A museum in London",
+                "A temple in Kyoto",
+                "Nobody knows"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "In which year did the state of Qin unite China?",
+              "options": [
+                "221 BCE",
+                "1899",
+                "1046 BCE",
+                "100 CE"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "What is a rubbing?",
+              "options": [
+                "A copy made by pressing paper onto writing and patting it with ink",
+                "A kind of brush",
+                "A broken tortoise shell",
+                "A bronze pot with three legs"
+              ],
+              "correct": 0
+            }
+          ],
+          "parts_head": {
+            "eyebrow": "Six Pictographs · 六個象形字",
+            "en": "From pictures to characters",
+            "zh": "從圖畫到文字"
+          },
+          "parts": [
+            {
+              "key": "ri",
+              "evo": "ri",
+              "demo": "ri",
+              "en": "日 · sun",
+              "zh": "日：太陽",
+              "meta_en": "Pictograph",
+              "meta_zh": "象形",
+              "text_en": "A sun with a mark in the middle. Carved on bone, the circle is made of straight lines and looks almost square. Cast in bronze, it is round again, with a fat dot. In seal script, the dot becomes a line across.",
+              "text_zh": "中間有一點的太陽。刻在骨頭上，圓圈用直線刻，看起來幾乎是方的；鑄在青銅上又變圓了，中間是一個胖胖的點；到了小篆，那一點變成一橫。"
+            },
+            {
+              "key": "yue",
+              "evo": "yue",
+              "demo": "yue",
+              "en": "月 · moon",
+              "zh": "月：月亮",
+              "meta_en": "Pictograph",
+              "meta_zh": "象形",
+              "text_en": "A crescent moon. The oracle bone form is a curved slice; later forms add lines inside, and the crescent slowly turns into the 月 we write today.",
+              "text_zh": "彎彎的月亮。甲骨文是一片彎彎的月牙；後來裡面多了線條，月牙慢慢變成今天寫的「月」。"
+            },
+            {
+              "key": "shan",
+              "evo": "shan",
+              "demo": "shan",
+              "en": "山 · mountain",
+              "zh": "山：山",
+              "meta_en": "Pictograph",
+              "meta_zh": "象形",
+              "text_en": "Three peaks standing on the ground, with the middle one the tallest. The peaks became three vertical strokes on a base.",
+              "text_zh": "三座山峰站在地上，中間那座最高。山峰後來變成三豎，站在一條底線上。"
+            },
+            {
+              "key": "shui",
+              "evo": "shui",
+              "demo": "shui",
+              "en": "水 · water",
+              "zh": "水：水",
+              "meta_en": "Pictograph",
+              "meta_zh": "象形",
+              "text_en": "A stream in the middle with drops of water on both sides. In regular script, the drops became the strokes on the left and right.",
+              "text_zh": "中間一道水流，兩旁是水滴。到了楷書，水滴變成左右兩邊的筆畫。"
+            },
+            {
+              "key": "ren",
+              "evo": "ren",
+              "demo": "ren",
+              "en": "人 · person",
+              "zh": "人：人",
+              "meta_en": "Pictograph",
+              "meta_zh": "象形",
+              "text_en": "A person seen from the side, bending forward with an arm hanging down. Two strokes are left in 人.",
+              "text_zh": "從側面看的人，身體往前彎、手垂下來。到了「人」字，只剩下兩筆。"
+            },
+            {
+              "key": "ma",
+              "evo": "ma",
+              "demo": "ma",
+              "en": "馬 · horse",
+              "zh": "馬：馬",
+              "meta_en": "Pictograph",
+              "meta_zh": "象形",
+              "text_en": "A horse standing on its tail: a big eye at the top, a mane along the back, and legs on the left. The Shuowen says 馬 shows the horse's head, mane, tail, and four legs.",
+              "text_zh": "一匹站起來的馬：上面是大眼睛，背上有鬃毛，腿在左邊。《說文解字》說「馬」字畫的是馬的頭、鬃毛、尾巴和四隻腳。"
+            }
+          ],
+          "parts_note_en": "Each card shows one character in four scripts: oracle bone, bronze, small seal, and regular. Tap Watch it in 3D to see it carved, cast, and written.",
+          "parts_note_zh": "每張卡片用四種字體畫同一個字：甲骨文、金文、小篆、楷書。點「在模型中看」，看它被刻、被鑄、被寫出來。",
+          "time": {
+            "eyebrow": "Slider · 時間滑桿",
+            "en": "Three thousand years in one slider",
+            "zh": "一根滑桿，走過三千年",
+            "lead_en": "Choose a character and pull the slider. Watch it change from a picture to oracle bone script, bronze script, small seal script, clerical script, and the regular script we write today.",
+            "lead_zh": "選一個字，拉動滑桿：看它從圖畫變成甲骨文、金文、小篆、隸書，一直到我們今天寫的楷書。",
+            "stages": [
+              {
+                "key": "pic",
+                "en": "Picture",
+                "zh": "圖畫",
+                "when_en": "Our drawing",
+                "when_zh": "示意圖",
+                "text_en": "Many early characters began as pictures of things. These pictures are our own drawings, made to show the idea.",
+                "text_zh": "許多早期的字是從東西的圖畫來的。這裡的圖是我們畫的示意圖，方便看懂這個想法。"
+              },
+              {
+                "key": "oracle",
+                "en": "Oracle bone script",
+                "zh": "甲骨文",
+                "when_en": "Late Shang dynasty",
+                "when_zh": "商代晚期",
+                "text_en": "Carved with a knife on shells and bones, so the lines are thin and straight. Look at the horse: it stands on its tail, with its head at the top.",
+                "text_zh": "用刀刻在龜甲、獸骨上，線條又細又直。看看那匹馬：牠站起來了，頭在上面。"
+              },
+              {
+                "key": "bronze",
+                "en": "Bronze script",
+                "zh": "金文",
+                "when_en": "Shang and Zhou dynasties",
+                "when_zh": "商周時代",
+                "text_en": "Cast or carved on bronze vessels. The lines are thicker and rounder. Here it is shown as a rubbing: white on black.",
+                "text_zh": "鑄或刻在青銅器上，線條比較粗、比較圓。這裡畫成拓片：黑底白字。"
+              },
+              {
+                "key": "seal",
+                "en": "Small seal script",
+                "zh": "小篆",
+                "when_en": "Qin dynasty, from 221 BCE",
+                "when_zh": "秦朝，西元前 221 年起",
+                "text_en": "The standard script after the Qin dynasty united China. The lines are smooth and the same width everywhere.",
+                "text_zh": "秦統一天下後的標準字體。線條圓滑，每一處都一樣粗。"
+              },
+              {
+                "key": "clerical",
+                "en": "Clerical script",
+                "zh": "隸書",
+                "when_en": "Began in the Qin, common in the Han and Wei",
+                "when_zh": "創始於秦，通行於漢、魏",
+                "text_en": "A simpler form of seal script. The shapes become flat and wide, and curves become straight lines and turns. Our drawing is a sketch; Lesson 6 looks closer.",
+                "text_zh": "篆書的簡化體。字形變扁、變寬，彎彎的線變成直線和轉折。這裡畫的是示意，第六課再仔細看。"
+              },
+              {
+                "key": "regular",
+                "en": "Regular script",
+                "zh": "楷書",
+                "when_en": "Complete by the Wei, still used today",
+                "when_zh": "至魏完備，通行至今",
+                "text_en": "Regular script grew out of clerical script and is still used today. This is the form you learn in school.",
+                "text_zh": "楷書由隸書演變而來，一直用到今天，就是我們在學校學的字。"
+              }
+            ]
+          },
+          "which": {
+            "eyebrow": "Game · 小遊戲",
+            "en": "Which Character Is It?",
+            "zh": "這是哪個字？",
+            "lead_en": "Look at an oracle bone character and choose the modern character. A wrong answer gives you a clue. When you are ready, try the bronze script.",
+            "lead_zh": "看一個甲骨文，選出今天的字。答錯了會有提示。熟練以後，換金文試試看。",
+            "hints": {
+              "ri": {
+                "word": "sun",
+                "en": "Look for a shape with a mark in the middle. What shines in the sky all day?",
+                "zh": "找一個中間有一點的形狀。白天在天上發光的是什麼？"
+              },
+              "yue": {
+                "word": "moon",
+                "en": "It is a curved shape like a slice. What do you see in the sky at night?",
+                "zh": "它是彎彎的一片。晚上在天上看到的是什麼？"
+              },
+              "shan": {
+                "word": "mountain",
+                "en": "Count the points on top. What would you climb?",
+                "zh": "數數上面有幾個尖尖。你會去爬的是什麼？"
+              },
+              "shui": {
+                "word": "water",
+                "en": "One wavy line in the middle with drops on both sides. What flows?",
+                "zh": "中間一條彎彎的線，兩邊有水滴。什麼東西會流？"
+              },
+              "ren": {
+                "word": "person",
+                "en": "It has a back and an arm. Who could it be?",
+                "zh": "它有背、有手。會是誰呢？"
+              },
+              "ma": {
+                "word": "horse",
+                "en": "Find a big eye, a mane, and legs. This animal is standing on its tail.",
+                "zh": "找找大眼睛、鬃毛和腿。這隻動物站起來了。"
+              }
+            }
+          },
+          "pad": {
+            "eyebrow": "Practice Pad · 練字板",
+            "en": "Write small seal script",
+            "zh": "寫寫看小篆",
+            "char": "ri",
+            "curve": true,
+            "chars": [
+              {
+                "key": "ri",
+                "glyph": "日"
+              },
+              {
+                "key": "yue",
+                "glyph": "月"
+              },
+              {
+                "key": "shan",
+                "glyph": "山"
+              },
+              {
+                "key": "shui",
+                "glyph": "水"
+              },
+              {
+                "key": "ren",
+                "glyph": "人"
+              },
+              {
+                "key": "ma",
+                "glyph": "馬"
+              }
+            ],
+            "lead_en": "Choose a character and trace its small seal script. Seal lines stay the same width, so keep an even, steady speed. After each stroke, the chart compares your press-and-lift curve with the brush's flat one.",
+            "lead_zh": "選一個字，描寫它的小篆。小篆的線粗細一樣，所以速度要平穩、不快不慢。每寫完一筆，圖上就把你的提按曲線和毛筆平平的曲線比較。",
+            "tips": [
+              {
+                "en": "Keep the same speed from the start of a line to the end: slow and steady.",
+                "zh": "一條線從頭到尾保持同樣的速度：慢慢地、穩穩地。"
+              },
+              {
+                "en": "Start and finish each line with a round end, not a point.",
+                "zh": "每條線的頭和尾都是圓的，不要尖尖的。"
+              },
+              {
+                "en": "Turn slowly around the curves, like the bottom of 日 and 山.",
+                "zh": "轉彎的地方慢慢轉，像「日」和「山」的底部。"
+              }
+            ]
+          },
+          "links_head": {
+            "eyebrow": "Before and Next · 上一課與下一課",
+            "en": "From stroke order to clerical script",
+            "zh": "從筆順到隸書"
+          },
+          "links": [
+            {
+              "href": "/resources/classes/calligraphy/stroke-order/",
+              "icon": "🔢",
+              "k_en": "Lesson 4",
+              "k_zh": "第四課",
+              "en": "Why Do We Write Strokes in Order?",
+              "zh": "筆順與結構：為什麼要先橫後豎？",
+              "note_en": "Today's standard stroke order belongs to regular script, the last stage on this lesson's slider.",
+              "note_zh": "今天的標準筆順是楷書的筆順，也就是這一課滑桿的最後一站。"
+            },
+            {
+              "soon": true,
+              "icon": "🐛",
+              "k_en": "Lesson 6 · Coming soon",
+              "k_zh": "第六課・製作中",
+              "en": "Why Does Clerical Script Have Silkworm Heads and Swallow Tails?",
+              "zh": "隸書：為什麼是蠶頭燕尾？",
+              "note_en": "Clerical script made seal script simpler: the shapes became flat and wide, and the horizontal stroke grew a head like a silkworm and a tail that flicks up.",
+              "note_zh": "隸書把小篆簡化了：字形變得扁扁寬寬，橫畫起筆像蠶頭、收筆往上挑出尾巴。"
+            }
+          ],
+          "culture_cards": {
+            "eyebrow": "Stories of Ancient Writing · 古文字的故事",
+            "title_en": "A medicine with writing, fifteen digs, the longest inscription, and an old dictionary",
+            "title_zh": "藥材上的字、十五次發掘、最長的銘文，和一本古老的字典",
+            "lead_en": "Four short stories about how we found, kept, and explained the oldest Chinese writing.",
+            "lead_zh": "關於最古老的漢字怎麼被發現、被保存、被解釋的四個小故事。",
+            "cards": [
+              {
+                "k": "Discovery · 發現",
+                "en": "A story about medicine",
+                "zh": "藥材的故事",
+                "body_en": "Oracle bones came from Xiaotun village near Anyang, Henan, and 1899 is usually given as the year they were discovered. A famous story says the scholar Wang Yirong was ill, and writing was spotted on a piece of turtle shell bought as medicine. Historians have shown that this story cannot be trusted; another account says an antique dealer brought Wang twelve pieces. Wang died in 1900, and in 1903 Liu E published the first book of oracle bone rubbings.",
+                "body_zh": "甲骨出自河南安陽附近的小屯村，後人通常把 1899 年當作甲骨文發現的年份。有個有名的故事說，學者王懿榮生病，有人在買來當藥的龜版上看見了字；學者已經證明這個故事不可信。另一種說法是古董商帶了十二片甲骨給王懿榮看。王懿榮 1900 年就去世了，1903 年劉鶚出版了第一本甲骨拓片的書《鐵雲藏龜》。"
+              },
+              {
+                "k": "Taiwan · 台灣",
+                "en": "Fifteen seasons of digging",
+                "zh": "十五次發掘",
+                "body_en": "From 1928 to 1937, Academia Sinica's Institute of History and Philology dug fifteen times at Yinxu, the ruins of the late Shang capital near Anyang. Today the institute in Taipei holds more than 25,000 pieces of oracle bones, and its museum shows some of them. In 2006, Yinxu became a UNESCO World Heritage Site.",
+                "body_zh": "1928 到 1937 年，中央研究院歷史語言研究所在安陽附近的殷墟（商代晚期的都城遺址）進行了十五次發掘。現在位在台北的史語所收藏了兩萬五千多片甲骨，所裡的歷史文物陳列館可以看到其中一些。2006 年，殷墟列入聯合國教科文組織的世界遺產。"
+              },
+              {
+                "k": "The Longest Inscription · 最長的銘文",
+                "en": "The Mao Gong Ding in Taipei",
+                "zh": "台北故宮的毛公鼎",
+                "body_en": "The Mao Gong Ding is a bronze ding from the late Western Zhou dynasty. Inside its bowl are 32 lines of writing, about 500 characters. The National Palace Museum in Taipei calls it the longest bronze inscription known so far. The Ministry of Education's dictionary counts 497 characters, so we say about 500.",
+                "body_zh": "毛公鼎是西周晚期的青銅鼎，鼎腹裡面鑄了 32 行字，大約 500 字。台北國立故宮博物院說它是目前所知最長的青銅器銘文。教育部辭典算的是 497 字，所以我們說「大約 500 字」。"
+              },
+              {
+                "k": "An Old Dictionary · 字典",
+                "en": "Xu Shen's Shuowen Jiezi",
+                "zh": "許慎的《說文解字》",
+                "body_en": "Around the year 100, the scholar Xu Shen finished the Shuowen Jiezi. It explains 9,353 characters, written in small seal script and sorted into 540 groups. It describes six ways characters were made; drawing the shape of a thing (象形) is one of them, with 日 and 月 as examples. It also says 卜 shows the shape of a heated shell's crack.",
+                "body_zh": "大約西元 100 年，東漢學者許慎完成了《說文解字》，用小篆解說 9,353 個字，分成 540 部。書裡說造字的方法有六種（六書），「象形」是其中一種，例子是「日」和「月」；書裡也說「卜」字像燒過的龜甲上的裂紋。"
+              }
+            ]
+          },
+          "myths": [
+            {
+              "myth_en": "Every Chinese character is a picture.",
+              "myth_zh": "每個漢字都是一幅畫。",
+              "fact_en": "Only some began as pictures. Xu Shen described six ways characters were made. Many characters join a part for meaning with a part for sound, like 江 and 河, his own examples.",
+              "fact_zh": "只有一部分是從圖畫來的。許慎說造字有六種方法；很多字是「表示意思的部分」加上「表示讀音的部分」，像他舉的「江」和「河」。"
+            },
+            {
+              "myth_en": "One man, Cangjie, invented Chinese writing.",
+              "myth_zh": "漢字是倉頡一個人發明的。",
+              "fact_en": "That is a legend. As the Ministry of Education's dictionary says, writing could not be invented by one person; it grew little by little over a long time.",
+              "fact_zh": "那是傳說。教育部辭典說，文字不可能是一個人獨創的，而是先人一點一點累積而成。"
+            },
+            {
+              "myth_en": "Scholars can read every oracle bone character.",
+              "myth_zh": "學者已經看得懂所有的甲骨文。",
+              "fact_en": "Not yet. A 2016 UNESCO report counts about 4,400 different characters, and only about 1,400 of them match characters we use today. Other counts differ a little, but many are still a puzzle.",
+              "fact_zh": "還沒有。2016 年聯合國教科文組織的報告說，甲骨文大約有 4,400 個不同的字，其中大約只有 1,400 個對得上今天用的字。各家的數字有些不同，但還有很多字是謎。"
+            },
+            {
+              "myth_en": "Ancient characters look nothing like today's.",
+              "myth_zh": "古文字和今天的字完全不像。",
+              "fact_en": "Many keep their shape. 山 still has three peaks, 水 still has a stream in the middle, and 人 still has two strokes. Pull the slider and look for what stays the same.",
+              "fact_zh": "很多字保留了原來的樣子：「山」還是三座山峰，「水」中間還是一道水流，「人」還是兩筆。拉拉看滑桿，找找什麼沒有變。"
+            }
+          ],
+          "tricks": [
+            {
+              "title_en": "Knife, bronze, brush",
+              "title_zh": "刀刻、青銅、毛筆",
+              "body_en": "Oracle bones were carved, bronze was cast, and seal script has even lines.",
+              "body_zh": "甲骨文用刀刻，金文在青銅器上，小篆線條勻稱。"
+            },
+            {
+              "title_en": "卜 is a crack",
+              "title_zh": "「卜」就是裂紋",
+              "body_en": "One line down and one line out, like the crack on a shell.",
+              "body_zh": "一豎一點，就像龜甲上的裂紋。"
+            },
+            {
+              "title_en": "日 and 月 are pictures",
+              "title_zh": "日月是象形",
+              "body_en": "Xu Shen's examples of drawing the shape of a thing.",
+              "body_zh": "許慎舉的象形字例子。"
+            },
+            {
+              "title_en": "221 BCE: one script",
+              "title_zh": "西元前 221 年，書同文",
+              "body_en": "Qin united China and made the writing the same.",
+              "body_zh": "秦統一天下，全國的字寫成一樣。"
+            }
+          ],
+          "safety": [
+            {
+              "en": "Carve with a blunt wooden stick or a dull pencil on clay or a foam tray. Never use a real knife in class.",
+              "zh": "用鈍的木棒或沒削尖的鉛筆，在黏土或保麗龍盤上刻；上課時絕對不要用真的刀。"
+            },
+            {
+              "en": "Do not try to crack shells or bones with heat. The model shows how it was done; we do not do it in class.",
+              "zh": "不要自己用火燒龜甲或骨頭。模型示範古人怎麼做，課堂上不做。"
+            },
+            {
+              "en": "Crayons and ink can stain. Cover the desk and wear old clothes or an apron.",
+              "zh": "蠟筆和墨都會弄髒：桌上先鋪報紙，穿舊衣服或圍裙。"
+            },
+            {
+              "en": "Wash your hands after working with clay, crayons, or ink.",
+              "zh": "玩過黏土、蠟筆或墨之後，記得洗手。"
+            }
+          ],
+          "activities": [
+            {
+              "title_en": "Carve an Oracle Bone",
+              "title_zh": "刻一片甲骨",
+              "materials": [
+                {
+                  "en": "A flat piece of clay for each student (or a clean foam tray)",
+                  "zh": "每人一塊壓平的黏土（或一個洗乾淨的保麗龍盤）"
+                },
+                {
+                  "en": "A blunt wooden stick or a dull pencil",
+                  "zh": "一根鈍的木棒，或沒削尖的鉛筆"
+                },
+                {
+                  "en": "A sheet with the six oracle bone characters from this lesson",
+                  "zh": "一張印好這一課六個甲骨文的學習單"
+                }
+              ],
+              "steps": [
+                {
+                  "en": "Shape the clay like a shell or a bone, and press it flat.",
+                  "zh": "把黏土捏成龜甲或骨頭的形狀，再壓平。"
+                },
+                {
+                  "en": "On the left, carve a crack shaped like 卜.",
+                  "zh": "在左邊刻一個像「卜」的裂紋。"
+                },
+                {
+                  "en": "Beside the crack, carve one of the six oracle bone characters using only straight lines.",
+                  "zh": "在裂紋旁邊刻六個甲骨文中的一個，只能用直線。"
+                },
+                {
+                  "en": "Trade with a classmate. Can they read your character? Can you read theirs?",
+                  "zh": "和同學交換：他看得出你刻的是什麼字嗎？你看得出他的嗎？"
+                }
+              ],
+              "tip_en": "Ask the class: was it harder to carve a circle or a straight line? Then look at 日 in oracle bone script.",
+              "tip_zh": "問問全班：刻圓圈和刻直線，哪個比較難？再看看甲骨文的「日」。"
+            },
+            {
+              "title_en": "Make a Rubbing",
+              "title_zh": "做一張拓片",
+              "materials": [
+                {
+                  "en": "A clean foam tray",
+                  "zh": "一個洗乾淨的保麗龍盤"
+                },
+                {
+                  "en": "A pencil, thin paper, and a crayon with the paper peeled off",
+                  "zh": "一枝鉛筆、一張薄紙，和一枝剝掉包裝紙的蠟筆"
+                }
+              ],
+              "steps": [
+                {
+                  "en": "Press hard with the pencil to draw a character into the foam, so the lines sink in.",
+                  "zh": "用鉛筆用力在保麗龍盤上寫一個字，讓筆畫凹下去。"
+                },
+                {
+                  "en": "Lay the paper on top and hold it still.",
+                  "zh": "把薄紙蓋在上面，按好不要動。"
+                },
+                {
+                  "en": "Rub the side of the crayon across the paper. The sunken lines stay white.",
+                  "zh": "用蠟筆的側面在紙上來回塗，凹下去的筆畫就留白了。"
+                },
+                {
+                  "en": "Compare your rubbing with the one in the 3D model.",
+                  "zh": "把你的拓片和 3D 模型裡的拓片比一比。"
+                }
+              ],
+              "tip_en": "Try 日 in bronze script: a circle with a fat dot in the middle.",
+              "tip_zh": "試試金文的「日」：一個圓圈，中間一個胖胖的點。"
+            }
+          ],
+          "sources": [
+            {
+              "en": "Oracle bone script: carved on tortoise shells and animal bones for divination in the Shang dynasty; the earliest Chinese writing proven by real objects; found at Xiaotun, Anyang, from 1899",
+              "zh": "甲骨文：商代人占卜時刻於龜甲、獸骨上的文字，為中國有實物可證的最早文字；光緒二十五年在河南安陽小屯村陸續發現",
+              "src": "教育部《重編國語辭典修訂本》「甲骨文」",
+              "url": "https://dict.revised.moe.edu.tw/dictView.jsp?ID=89660"
+            },
+            {
+              "en": "Oracle bones discovered in 1899; the institute holds more than 25,000 pieces",
+              "zh": "甲骨文自一八九九年發現；本所現藏甲骨二萬五千多片",
+              "src": "中央研究院歷史語言研究所歷史文物陳列館〈甲骨〉",
+              "url": "https://museum.sinica.edu.tw/collection/32/"
+            },
+            {
+              "en": "Fifteen seasons of excavation at Yinxu, 1928 to 1937",
+              "zh": "1928 至 1937 年在殷墟進行十五次發掘",
+              "src": "Institute of History and Philology Museum, Academia Sinica",
+              "url": "https://museum.sinica.edu.tw/en/collection/7/"
+            },
+            {
+              "en": "How divination worked: mostly tortoise shells and cattle shoulder blades; hollows (鑽鑿) to thin the shell; a red-hot stick; a cracking sound and a crack like 卜 (Chen Mengjia on 卜); records of date, person, question, and result; how the cracks were read is no longer known",
+              "zh": "龜甲與獸骨（以牛肩胛骨佔多數）；鑽鑿使甲骨變薄；燒紅的木條燋灼；「卜」聲與類似「卜」字的裂紋（陳夢家說）；刻下時間、人物、問題、吉凶與應驗；如何判斷已不可考",
+              "src": "中研院史語所歷史文物陳列館〈殷商占卜的取材與過程〉",
+              "url": "https://museum.sinica.edu.tw/resources/item/61/"
+            },
+            {
+              "en": "The Wang Yirong medicine story cannot be trusted; 1899 is the year later given for the discovery (Li Zongkun, 2008)",
+              "zh": "王懿榮從藥材發現甲骨的說法不可信；後人以 1899 年為甲骨文發現之年（李宗焜，《古今論衡》第 18 期，2008）",
+              "src": "中央研究院歷史語言研究所《古今論衡》",
+              "url": "https://museum.sinica.edu.tw/resources/file/160/"
+            },
+            {
+              "en": "Wang Yirong: the medicine story (“據說”), the dealer with twelve pieces, his death in 1900, and Liu E's 1903 book of rubbings",
+              "zh": "王懿榮：「據說」的藥材故事、古董商帶十二片甲骨的另一種說法、1900 年去世、劉鶚 1903 年《鐵雲藏龜》",
+              "src": "中央研究院「商王陵」網站〈王懿榮〉",
+              "url": "https://shangkingtomb.archeodata.sinica.edu.tw/pages/knowledge/content_WangYi-rong.html"
+            },
+            {
+              "en": "Yin Xu: near Anyang, Henan; capital of the late Shang dynasty (1300–1046 BC); inscribed in 2006",
+              "zh": "殷墟：河南安陽附近，商代晚期都城（西元前 1300–1046 年）；2006 年列入世界遺產",
+              "src": "UNESCO World Heritage Centre, “Yin Xu”",
+              "url": "https://whc.unesco.org/en/list/1114"
+            },
+            {
+              "en": "Chinese Oracle-Bone Inscriptions in the Memory of the World Register (2017); nomination counts about 150,000 pieces, about 4,400 characters, about 1,400 matching modern characters",
+              "zh": "甲骨文 2017 年列入世界記憶名錄；申報書：約十五萬片、約四千四百字、約一千四百字可對應今字",
+              "src": "UNESCO Memory of the World",
+              "url": "https://www.unesco.org/en/memory-world/chinese-oracle-bone-inscriptions"
+            },
+            {
+              "en": "Shuowen on 卜: “灼剥龜也，象炙龜之形。一曰象龜兆之從橫也”",
+              "zh": "《說文解字》卷三下「卜」（四部叢刊本）",
+              "src": "維基文庫《說文解字》（四部叢刊本）卷第三下",
+              "url": "https://zh.wikisource.org/wiki/%E8%AA%AC%E6%96%87%E8%A7%A3%E5%AD%97_(%E5%9B%9B%E9%83%A8%E5%8F%A2%E5%88%8A%E6%9C%AC)/%E5%8D%B7%E7%AC%AC%E4%B8%89%E4%B8%8B"
+            },
+            {
+              "en": "Shuowen postface: six ways of making characters; 象形 with 日 and 月 as examples; 形聲 with 江 and 河; 540 groups and 9,353 characters; Li Si and small seal script",
+              "zh": "《說文解字．敘》：六書、「象形者，畫成其物，隨體詰詘，日、月是也」、形聲「江、河」、五百四十部、九千三百五十三文、李斯與小篆",
+              "src": "維基文庫《說文解字》卷十五",
+              "url": "https://zh.wikisource.org/wiki/%E8%AA%AA%E6%96%87%E8%A7%A3%E5%AD%97/15"
+            },
+            {
+              "en": "Shuowen on 馬: shows the horse's head, mane, tail, and four legs",
+              "zh": "《說文解字》「馬」：象馬頭髦尾四足之形",
+              "src": "維基文庫《說文解字》卷十",
+              "url": "https://zh.wikisource.org/wiki/%E8%AA%AA%E6%96%87%E8%A7%A3%E5%AD%97/10"
+            },
+            {
+              "en": "Shuowen Jiezi by Xu Shen of the Eastern Han: 540 groups, 9,353 characters",
+              "zh": "《說文解字》：東漢許慎撰，分列五百四十部，收錄九千三百五十三字",
+              "src": "教育部《重編國語辭典修訂本》「說文解字」",
+              "url": "https://dict.revised.moe.edu.tw/dictView.jsp?ID=134000"
+            },
+            {
+              "en": "Bronze inscriptions: writing cast or carved on bronze vessels from the Shang to the Han",
+              "zh": "金文：商周秦漢時代鑄刻在青銅器上的文字",
+              "src": "教育部《重編國語辭典修訂本》「金文」",
+              "url": "https://dict.revised.moe.edu.tw/dictView.jsp?ID=94344"
+            },
+            {
+              "en": "Mao Gong Ding: late Western Zhou; 500 characters, the longest bronze inscription known so far",
+              "zh": "毛公鼎：西周晚期；銘文全長五百字，為迄今所知最長的青銅器銘文",
+              "src": "國立故宮博物院〈毛公鼎〉",
+              "url": "https://theme.npm.edu.tw/selection/Article.aspx?sNo=04001041"
+            },
+            {
+              "en": "Mao Gong Ding: 497 characters",
+              "zh": "毛公鼎：四百九十七字",
+              "src": "教育部《重編國語辭典修訂本》「毛公鼎」",
+              "url": "https://dict.revised.moe.edu.tw/dictView.jsp?ID=29244"
+            },
+            {
+              "en": "Shiji, Annals of the First Emperor: “書同文字” (221 BCE)",
+              "zh": "《史記．秦始皇本紀》：「一法度衡石丈尺。車同軌。書同文字。」",
+              "src": "維基文庫《史記》卷六",
+              "url": "https://zh.wikisource.org/wiki/%E5%8F%B2%E8%A8%98/%E5%8D%B7006"
+            },
+            {
+              "en": "Small seal script: after Qin united China, Li Si and others simplified the great seal script into the official standard",
+              "zh": "小篆：秦統一天下後，令李斯等人在大篆的基礎上加以省改，頒行全國成為官定的標準字體",
+              "src": "教育部《重編國語辭典修訂本》「小篆」",
+              "url": "https://dict.revised.moe.edu.tw/dictView.jsp?ID=106965"
+            },
+            {
+              "en": "象形: one of the six ways, drawing the shape of a thing",
+              "zh": "象形：六書之一，根據物體的形象描繪而成文字",
+              "src": "教育部《重編國語辭典修訂本》「象形」",
+              "url": "https://dict.revised.moe.edu.tw/dictView.jsp?ID=110294"
+            },
+            {
+              "en": "Cangjie: said to be the inventor of writing, but writing could not be invented by one person",
+              "zh": "倉頡：相傳為漢字的創造者，然文字不可能是一人所獨創",
+              "src": "教育部《重編國語辭典修訂本》「倉頡」",
+              "url": "https://dict.revised.moe.edu.tw/dictView.jsp?ID=141976"
+            },
+            {
+              "en": "Clerical script: a simpler form of seal script, begun in the Qin and common in the Han and Wei",
+              "zh": "隸書：篆書的簡化體，創始於秦，通行於漢、魏",
+              "src": "教育部《重編國語辭典修訂本》「隸書」",
+              "url": "https://dict.revised.moe.edu.tw/dictView.jsp?ID=62752"
+            },
+            {
+              "en": "Regular script: grew out of clerical script, complete by the Wei, still used today",
+              "zh": "楷書：由隸書演變而來，約起源於後漢，至魏完備成體，通行至今",
+              "src": "教育部《重編國語辭典修訂本》「楷書」",
+              "url": "https://dict.revised.moe.edu.tw/dictView.jsp?ID=76915"
+            },
+            {
+              "en": "Rubbing: a sheet made by copying writing or pictures from steles and bronzes",
+              "zh": "拓片：將碑刻、金石文物上的字畫拓印下來的紙片",
+              "src": "教育部《重編國語辭典修訂本》「拓片」",
+              "url": "https://dict.revised.moe.edu.tw/dictView.jsp?ID=49264"
+            },
+            {
+              "en": "Stroke order of 月 (4 strokes), 山 (3), 水 (4), and 馬 (10) for the regular-script drawings",
+              "zh": "楷書範字「月」4 畫、「山」3 畫、「水」4 畫、「馬」10 畫的筆順",
+              "src": "教育部《國字標準字體筆順學習網》",
+              "url": "https://stroke-order.learningweb.moe.edu.tw/dictView.jsp?ID=39340"
+            },
+            {
+              "en": "Reference glyphs for tracing the oracle bone, bronze, and seal forms (public domain)",
+              "zh": "甲骨文、金文、小篆描線的對位參考字形（公有領域）",
+              "src": "Wikimedia Commons, Ancient Chinese Characters Project",
+              "url": "https://commons.wikimedia.org/wiki/Commons:Ancient_Chinese_characters_project"
+            }
+          ]
+        }
+      ],
+      "planned": [
         {
           "n": 6,
           "icon": "🎋",
