@@ -4889,14 +4889,14 @@
               "note_zh": "楷書由隸書演變而來，少了往上挑的尾巴。"
             },
             {
-              "soon": true,
               "icon": "🍶",
-              "k_en": "Lesson 8 · Coming soon · Unit 3",
-              "k_zh": "第八課・製作中・單元三",
+              "k_en": "Next Lesson · Lesson 8 · Unit 3",
+              "k_zh": "下一課・第八課・單元三",
               "en": "Why Is Wang Xizhi Called the Sage of Calligraphy?",
               "zh": "書聖王羲之：蘭亭序的故事",
               "note_en": "The running-script 永 in this lesson comes from a copy of his most famous work, the Lanting Xu. Next: the day he wrote it.",
-              "note_zh": "這一課行書的「永」，來自他最有名的作品〈蘭亭序〉的摹本。下一課：他寫下這篇字的那一天。"
+              "note_zh": "這一課行書的「永」，來自他最有名的作品〈蘭亭序〉的摹本。下一課：他寫下這篇字的那一天。",
+              "href": "/resources/classes/calligraphy/wang-xizhi/"
             }
           ],
           "culture_cards": {
@@ -5224,14 +5224,752 @@
       "title_zh": "書法家與名作",
       "blurb_en": "The Sage of Calligraphy and the Orchid Pavilion, why every master's writing looks different, and the treasures of calligraphy you can see in Taiwan.",
       "blurb_zh": "書聖王羲之與蘭亭、為什麼每個書法家的字都不一樣，以及在台灣看得到的書法國寶。",
-      "lessons": [],
-      "planned": [
+      "lessons": [
         {
           "n": 8,
+          "slug": "wang-xizhi",
+          "title": "Why Is Wang Xizhi Called the Sage of Calligraphy?",
+          "title_zh": "書聖王羲之：蘭亭序的故事",
+          "level": "入門 · Beginner",
           "icon": "🍶",
-          "en": "Why Is Wang Xizhi Called the Sage of Calligraphy?",
-          "zh": "書聖王羲之：蘭亭序的故事"
-        },
+          "card": "lanting",
+          "blurb_en": "One spring day in 353, Wang Xizhi and his friends floated wine cups down a winding stream and wrote poems. Then he wrote a preface that became the most famous piece of running script. Float a cup in 3D, watch the brush write 之 four different ways, and find all twenty in a real copy of the scroll.",
+          "blurb_zh": "西元 353 年的一個春天，王羲之和朋友們在彎彎的小溪上漂酒杯、作詩；他接著寫下一篇序，成了最有名的行書。在 3D 裡放一只酒杯，看毛筆把「之」寫成四種樣子，再到摹本裡找出全部二十個「之」。",
+          "big_idea_en": "Wang Xizhi lived in the Eastern Jin dynasty, and later generations called him the Sage of Calligraphy. In 353, at a spring gathering beside a winding stream, he wrote the Lanting Xu, the best-known work of running script. Its 324 characters include 之 twenty times, and no two are written the same way. The original is lost; we know it from later copies.",
+          "big_idea_zh": "王羲之是東晉人，後人稱他「書聖」。永和九年（353）春天，他在一條彎彎的小溪邊和朋友聚會，寫下〈蘭亭序〉——最有名的行書。全文 324 個字裡有二十個「之」，沒有兩個寫得一樣。原蹟已經失傳，我們今天看到的是後來的摹本。",
+          "lab": {
+            "kind": "lanting",
+            "eyebrow": "3D Model · 3D 模型",
+            "title_en": "A Winding Stream and Four Ways to Write 之",
+            "title_zh": "曲水流觴，和四個不同的「之」",
+            "how_en": "Drag to turn, and scroll or pinch to zoom. Float a wine cup down the winding stream and see where it stops. Then choose Four 之 to watch the brush write the same character four different ways, as it appears in a copy of the Lanting Xu.",
+            "how_zh": "拖曳可以旋轉，滾輪或雙指可以縮放。在彎彎的小溪上放一只酒杯，看它停在誰面前。再選「四個之」，看毛筆把同一個字寫成四種樣子——都出自〈蘭亭序〉的摹本。",
+            "modes": [
+              {
+                "key": "stream",
+                "icon": "觴",
+                "en": "The stream",
+                "zh": "曲水流觴",
+                "title_en": "A cup on the water",
+                "title_zh": "水上的酒杯",
+                "text_en": "The guests sit along a winding stream. A cup of wine floats down from upstream, and the guest it stops beside picks it up and drinks. Wang Xizhi wrote: “one cup, one poem.”",
+                "text_zh": "客人沿著彎彎的小溪坐下。酒杯從上游漂下來，停在誰面前，誰就拿起來喝。王羲之寫道：「一觴一詠」。"
+              },
+              {
+                "key": "write",
+                "icon": "之",
+                "en": "Four 之",
+                "zh": "四個之",
+                "title_en": "One character, four shapes",
+                "title_zh": "同一個字，四種樣子",
+                "text_en": "Four of the twenty 之 from a copy of the Lanting Xu. Each has a dot and a zigzag line, but look how the shapes change: wide, narrow, slanting, tall.",
+                "text_zh": "〈蘭亭序〉摹本二十個「之」裡的四個。每一個都是一點加一條彎來彎去的線，可是形狀都不一樣：有的寬、有的窄、有的斜、有的高。"
+              }
+            ],
+            "legend": [
+              {
+                "cls": "cgsr",
+                "en": "Blue ribbon: the winding stream",
+                "zh": "藍色的帶子：彎彎的小溪"
+              },
+              {
+                "cls": "cgcu",
+                "en": "Red cup: a lacquer wine cup with two ears",
+                "zh": "紅色的杯子：有兩個耳朵的漆酒杯"
+              },
+              {
+                "cls": "cgt",
+                "en": "Yellow label: the guest whose turn it is",
+                "zh": "黃色標籤：輪到的那位客人"
+              }
+            ],
+            "scale_en": "A teaching model, not a picture of the real place: the stream, the pavilion, the bamboo, and the twelve guests are our own simple shapes, and more people came to the real gathering. The cup is a lacquer cup with two ears, a kind used in early China. The four forms of 之 are our own tracings over a copy of the Lanting Xu.",
+            "scale_zh": "這是教學用的示意模型，不是當年實景：小溪、亭子、竹林和十二位客人都是我們畫的簡單造型，真正參加聚會的人更多。酒杯畫成有兩個耳朵的漆杯（耳杯），是古代常見的一種酒杯。四個「之」是我們對著〈蘭亭序〉摹本自己描的。",
+            "credit_html": "Model, stroke data, and the writing engine are drawn and programmed by My Culture Connect. The four forms of 之 are our own tracings over the Shenlong copy of the Lanting Xu (<a href=\"https://commons.wikimedia.org/wiki/File:%E7%A5%9E%E9%BE%8D%E8%98%AD%E4%BA%AD%E5%BA%8F%E5%85%A8.JPG\" target=\"_blank\" rel=\"noopener\">Wikimedia Commons</a> (public domain). The scroll is in the Palace Museum, Beijing.) · 模型、筆畫資料與寫字引擎由人師教育協會自繪、自寫；四個「之」對著神龍本〈蘭亭序〉（維基共享資源，公有領域；原卷藏北京故宮博物院）自己描的。"
+          },
+          "paras": [
+            "On the third day of the third month in the year 353, Wang Xizhi met his friends at the Orchid Pavilion in Kuaiji, near today's Shaoxing in Zhejiang. It was the day of an old spring custom: people went to the water to wash away bad luck. There were high mountains, tall bamboo, and a clear, fast stream.",
+            "The friends sat along a winding stream and played a game. Cups of wine floated down from upstream, and when a cup stopped beside a guest, that guest picked it up and drank. They also wrote poems. An early record says that 26 of them wrote poems that day, and 15 could not and had to drink more wine as a penalty. Wang Xizhi described the day as “one cup, one poem.”",
+            "At the end of the day, the poems were gathered into a collection, and Wang Xizhi wrote a preface for it. We call it the Lanting Xu, the Preface to the Orchid Pavilion Collection. It begins with the happy gathering and ends with deeper thoughts about how quickly life passes.",
+            "The preface is written in running script. A Tang dynasty writer, He Yanzhi, counted 28 lines and 324 characters. He noticed that when a character appears more than once, each one has a different shape. The character 之 appears most often, about twenty times, and no two are alike. Count them in the gallery below: there are exactly twenty.",
+            "Where is the original today? Nobody has it. Tang dynasty books say that Emperor Taizong loved Wang Xizhi's writing so much that the Lanting Xu was buried with him. What we have are copies made by hand in the Tang dynasty and later. That is why museums call the Lanting Xu “the best running script under heaven” and yet can show only copies.",
+            "Later generations called Wang Xizhi the Sage of Calligraphy. In this lesson, float a cup down the stream, watch the brush write 之 four different ways, find the matching 之 in the game, and trace them yourself."
+          ],
+          "paras_zh": [
+            "永和九年（353）三月三日，王羲之和朋友們在會稽山陰的蘭亭聚會，地點在今天的浙江紹興。那一天是古老的春天習俗「修禊」：大家到水邊洗濯，去除不祥。那裡有高高的山、長長的竹子，還有一條清澈湍急的溪水。",
+            "朋友們沿著彎彎的小溪坐下來，玩一個遊戲：酒杯從上游漂下來，停在誰面前，誰就拿起來喝。大家也作詩。早期的記載說，那天有 26 個人寫出了詩，另外 15 個人寫不出來，被罰喝酒。王羲之形容這一天是「一觴一詠」。",
+            "聚會結束後，大家的詩編成一本詩集，王羲之為它寫了一篇序，就是〈蘭亭集序〉，簡稱〈蘭亭序〉。文章從愉快的聚會寫起，最後寫到更深的感想：人生過得好快。",
+            "這篇序是用行書寫的。唐朝的何延之數過：一共 28 行、324 個字。他還注意到，同一個字出現不只一次的時候，每一個的寫法都不同；其中「之」字最多，「乃有二十許個，變轉悉異，遂無同者」。到下面的圖裡數數看：正好二十個。",
+            "原蹟現在在哪裡？沒有人有。唐朝的書上說，唐太宗非常喜愛王羲之的字，〈蘭亭序〉後來跟著他入葬了。我們今天看到的，是唐朝和後來的人照著摹寫的本子。所以博物館一方面說〈蘭亭序〉是「天下第一行書」，一方面能展出的都是摹本。",
+            "後人稱王羲之為「書聖」。這一課，在小溪上放一只酒杯，看毛筆把「之」寫成四種樣子，在遊戲裡找出一樣的「之」，再自己描寫看看。"
+          ],
+          "questions": [
+            "What game did the friends play beside the stream?",
+            "How many times does 之 appear in the Lanting Xu, and what is special about them?",
+            "Why can museums show only copies of the Lanting Xu?"
+          ],
+          "answers": [
+            "They floated cups of wine down a winding stream. When a cup stopped beside a guest, that guest picked it up and drank. They also wrote poems.",
+            "Twenty times, and no two are written the same way.",
+            "Because the original is lost. Tang dynasty books say it was buried with Emperor Taizong."
+          ],
+          "vocab": [
+            {
+              "n": 1,
+              "w": "sage",
+              "pos": "n.",
+              "zh": "聖人；智者",
+              "ex": "People climbed the mountain to ask the old <b>sage</b> for advice.",
+              "exzh": "人們爬上山，向那位老智者請教。"
+            },
+            {
+              "n": 2,
+              "w": "gathering",
+              "pos": "n.",
+              "zh": "聚會",
+              "ex": "Our family has a big <b>gathering</b> every New Year.",
+              "exzh": "我們家每年過年都有一場大聚會。"
+            },
+            {
+              "n": 3,
+              "w": "stream",
+              "pos": "n.",
+              "zh": "小溪",
+              "ex": "We crossed the <b>stream</b> on flat stones.",
+              "exzh": "我們踩著平平的石頭過小溪。"
+            },
+            {
+              "n": 4,
+              "w": "float",
+              "pos": "v.",
+              "zh": "漂；浮",
+              "ex": "A leaf <b>floated</b> slowly down the river.",
+              "exzh": "一片葉子慢慢地順著河水漂下去。"
+            },
+            {
+              "n": 5,
+              "w": "poem",
+              "pos": "n.",
+              "zh": "詩",
+              "ex": "She wrote a short <b>poem</b> about the rain.",
+              "exzh": "她寫了一首關於雨的短詩。"
+            },
+            {
+              "n": 6,
+              "w": "preface",
+              "pos": "n.",
+              "zh": "序；前言",
+              "ex": "The author thanks her teacher in the <b>preface</b>.",
+              "exzh": "作者在序裡感謝她的老師。"
+            },
+            {
+              "n": 7,
+              "w": "original",
+              "pos": "n.",
+              "zh": "原作；原件",
+              "ex": "This is a print; the <b>original</b> is in a museum.",
+              "exzh": "這是複製畫，原作在博物館裡。"
+            },
+            {
+              "n": 8,
+              "w": "bury",
+              "pos": "v.",
+              "zh": "埋葬；埋",
+              "ex": "The dog <b>buried</b> its bone in the garden.",
+              "exzh": "狗把骨頭埋在花園裡。"
+            }
+          ],
+          "quiz": [
+            {
+              "q": "In which year did Wang Xizhi write the Lanting Xu?",
+              "options": [
+                "353",
+                "221 BCE",
+                "1109",
+                "1965"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "What floated down the winding stream?",
+              "options": [
+                "Cups of wine",
+                "Paper boats",
+                "Brushes",
+                "Bamboo slips"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "Which script is the Lanting Xu written in?",
+              "options": [
+                "Running script",
+                "Seal script",
+                "Clerical script",
+                "Oracle bone script"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "How many times does 之 appear in the Lanting Xu?",
+              "options": [
+                "Twenty",
+                "Two",
+                "Eight",
+                "One hundred"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "What is true about the original Lanting Xu?",
+              "options": [
+                "It is lost; we have only copies.",
+                "It is in every museum.",
+                "It was carved on a bone.",
+                "It was written last year."
+              ],
+              "correct": 0
+            }
+          ],
+          "parts_head": {
+            "eyebrow": "Four Forms · 四個之",
+            "en": "The same character, never the same shape",
+            "zh": "同一個字，沒有一個長得一樣"
+          },
+          "parts": [
+            {
+              "key": "z1",
+              "zhi": "z1",
+              "demo": "z1",
+              "en": "No. 1: 暮春之初",
+              "zh": "第 1 個：暮春之初",
+              "meta_en": "“the beginning of late spring”",
+              "meta_zh": "「暮春之初」",
+              "text_en": "Low and wide. The zigzag slides to the left and ends in a long, heavy line.",
+              "text_zh": "又矮又寬。彎線往左滑下去，最後是一條又長又重的橫線。"
+            },
+            {
+              "key": "z4",
+              "zhi": "z4",
+              "demo": "z4",
+              "en": "No. 4: 宇宙之大",
+              "zh": "第 4 個：宇宙之大",
+              "meta_en": "“the vastness of the universe”",
+              "meta_zh": "「宇宙之大」",
+              "text_en": "The widest of the four, with a sharp turn at the upper right, like the wide world it is describing.",
+              "text_zh": "四個裡面最寬的，右上角有一個尖尖的轉折——就像它在寫的「宇宙之大」。"
+            },
+            {
+              "key": "z6",
+              "zhi": "z6",
+              "demo": "z6",
+              "en": "No. 6: 視聽之娛",
+              "zh": "第 6 個：視聽之娛",
+              "meta_en": "“the pleasures of seeing and hearing”",
+              "meta_zh": "「視聽之娛」",
+              "text_en": "Small and narrow, written quickly. The last line slants down to the right.",
+              "text_zh": "又小又窄，寫得很快。最後一筆往右下斜出去。"
+            },
+            {
+              "key": "z12",
+              "zhi": "z12",
+              "demo": "z12",
+              "en": "No. 12: 係之矣",
+              "zh": "第 12 個：係之矣",
+              "meta_en": "“tied to it”",
+              "meta_zh": "「感慨係之矣」",
+              "text_en": "Tall and thin, almost like cursive script. The dot sits high above the line.",
+              "text_zh": "又高又瘦，幾乎像草書。上面那一點離得高高的。"
+            }
+          ],
+          "parts_note_en": "These four are our own tracings. Tap Watch it in 3D to see the brush write each one.",
+          "parts_note_zh": "這四個是我們照著摹本描的。點「在模型中看」，看毛筆怎麼寫出每一個。",
+          "zhi20": {
+            "eyebrow": "From the Scroll · 卷子裡的字",
+            "en": "Twenty times 之",
+            "zh": "二十個「之」",
+            "lead_en": "Here are all twenty, cut from a real copy of the scroll, in the order they appear. No. 13 is written heavily over other characters: even a famous work has corrections.",
+            "lead_zh": "這是摹本裡全部二十個「之」，照出現的順序排。第 13 個寫得又黑又重，蓋在別的字上面——有名的作品也有塗改的地方。",
+            "img": "/assets/img/calligraphy/lanting-zhi20.jpg",
+            "items": [
+              {
+                "zh": "暮春之初"
+              },
+              {
+                "zh": "山陰之蘭亭"
+              },
+              {
+                "zh": "絲竹管弦之盛"
+              },
+              {
+                "zh": "宇宙之大"
+              },
+              {
+                "zh": "品類之盛"
+              },
+              {
+                "zh": "視聽之娛"
+              },
+              {
+                "zh": "人之相與"
+              },
+              {
+                "zh": "一室之內"
+              },
+              {
+                "zh": "形骸之外"
+              },
+              {
+                "zh": "老之將至"
+              },
+              {
+                "zh": "所之既惓"
+              },
+              {
+                "zh": "係之矣"
+              },
+              {
+                "zh": "向之所欣",
+                "note_en": "correction",
+                "note_zh": "塗改"
+              },
+              {
+                "zh": "俛仰之間"
+              },
+              {
+                "zh": "以之興懷"
+              },
+              {
+                "zh": "興感之由"
+              },
+              {
+                "zh": "喻之於懷"
+              },
+              {
+                "zh": "後之視今"
+              },
+              {
+                "zh": "今之視昔"
+              },
+              {
+                "zh": "後之攬者"
+              }
+            ],
+            "credit_html": "Details of the Shenlong copy of the Lanting Xu. <a href=\"https://commons.wikimedia.org/wiki/File:%E7%A5%9E%E9%BE%8D%E8%98%AD%E4%BA%AD%E5%BA%8F%E5%85%A8.JPG\" target=\"_blank\" rel=\"noopener\">Wikimedia Commons</a> (public domain). The scroll is in the Palace Museum, Beijing. · 維基共享資源（公有領域）；原卷藏北京故宮博物院。"
+          },
+          "same": {
+            "eyebrow": "Game · 小遊戲",
+            "en": "Find the Same 之",
+            "zh": "找出一樣的之",
+            "lead_en": "Look at the 之 in the big square, then find the one that is exactly the same among the four below. Look closely: they are all a little different.",
+            "lead_zh": "看看大格子裡的「之」，再從下面四個裡面，找出一模一樣的那一個。仔細看：每一個都有一點不一樣。",
+            "img": "/assets/img/calligraphy/lanting-zhi20.jpg",
+            "names": [
+              "暮春之初",
+              "山陰之蘭亭",
+              "絲竹管弦之盛",
+              "宇宙之大",
+              "品類之盛",
+              "視聽之娛",
+              "人之相與",
+              "一室之內",
+              "形骸之外",
+              "老之將至",
+              "所之既惓",
+              "係之矣",
+              "向之所欣",
+              "俛仰之間",
+              "以之興懷",
+              "興感之由",
+              "喻之於懷",
+              "後之視今",
+              "今之視昔",
+              "後之攬者"
+            ]
+          },
+          "pad": {
+            "eyebrow": "Practice Pad · 練字板",
+            "en": "Trace four 之",
+            "zh": "描寫四個「之」",
+            "char": "z1",
+            "curve": false,
+            "timer": true,
+            "chars": [
+              {
+                "key": "z1",
+                "glyph": "①"
+              },
+              {
+                "key": "z4",
+                "glyph": "④"
+              },
+              {
+                "key": "z6",
+                "glyph": "⑥"
+              },
+              {
+                "key": "z12",
+                "glyph": "⑫"
+              }
+            ],
+            "lead_en": "Choose one of the four forms and trace it. Each has a dot and one long zigzag line. The numbers tell you which 之 it is in the text.",
+            "lead_zh": "從四個「之」裡選一個描寫看看。每個都是一點，加上一條彎來彎去的長線。數字是它在全文裡排第幾個。",
+            "tips": [
+              {
+                "en": "Write the dot first, then the zigzag line without lifting.",
+                "zh": "先寫上面那一點，再一筆寫完彎彎的長線，中間不要提筆。"
+              },
+              {
+                "en": "Slow down at each turn, and speed up on the long lines.",
+                "zh": "轉彎的地方慢一點，長線的地方快一點。"
+              },
+              {
+                "en": "After tracing all four, write a fifth one of your own.",
+                "zh": "四個都描過以後，寫一個你自己的第五個「之」。"
+              }
+            ]
+          },
+          "links_head": {
+            "eyebrow": "Read More · 延伸閱讀",
+            "en": "The scripts before, the essay itself, and what comes next",
+            "zh": "之前的字體、文章本身，和下一課"
+          },
+          "links": [
+            {
+              "href": "/resources/classes/calligraphy/three-speeds/",
+              "icon": "✍️",
+              "k_en": "Lesson 7",
+              "k_zh": "第七課",
+              "en": "Regular, Running, Cursive: How Fast Can You Write?",
+              "zh": "楷書、行書、草書：同一個字，三種速度",
+              "note_en": "The Lanting Xu is in running script: quicker than regular script, and still easy to read.",
+              "note_zh": "〈蘭亭序〉是行書：比楷書快，也還很容易認。"
+            },
+            {
+              "href": "/resources/classes/guwen/lan-ting-ji-xu/",
+              "icon": "📜",
+              "k_en": "Classical Chinese Prose",
+              "k_zh": "古文選讀",
+              "en": "Preface to the Orchid Pavilion Collection",
+              "zh": "蘭亭集序",
+              "note_en": "Read the whole essay with a line-by-line translation: a happy gathering, and then thoughts about time, life, and death.",
+              "note_zh": "讀全文與逐句白話翻譯：前半寫一場愉快的聚會，後半想到時間、生與死。"
+            },
+            {
+              "soon": true,
+              "icon": "💪",
+              "k_en": "Lesson 9 · Coming soon",
+              "k_zh": "第九課・製作中",
+              "en": "Strong Muscle, Hard Bone: Why Does Every Calligrapher's Writing Look Different?",
+              "zh": "顏筋柳骨：為什麼每個書法家的字都不一樣？",
+              "note_en": "Tang dynasty masters learned from Wang Xizhi and then found styles of their own.",
+              "note_zh": "唐代的書法家向王羲之學習，再寫出自己的風格。"
+            }
+          ],
+          "culture_cards": {
+            "eyebrow": "Stories of Wang Xizhi · 王羲之的故事",
+            "title_en": "A scroll for a flock of geese, fans that sold out, a famous son-in-law, and a letter in Taipei",
+            "title_zh": "一卷字換一群鵝、賣光的扇子、東床快婿，和台北的一封短信",
+            "lead_en": "Stories people have told about him for more than a thousand years, and one letter you can see in Taiwan. They are old stories; nobody can check every detail.",
+            "lead_zh": "一千多年來人們一直說著他的故事，還有一封在台灣看得到的短信。這些是古書裡的故事，細節沒有人能一一查證。",
+            "cards": [
+              {
+                "k": "Geese · 鵝",
+                "en": "A scroll for a flock of geese",
+                "zh": "寫經換鵝",
+                "body_en": "The history of the Jin dynasty says a Daoist priest in Shanyin kept fine geese. Wang Xizhi loved them and asked to buy them. The priest said: write out the Daodejing for me, and the whole flock is yours. Wang Xizhi gladly wrote it and carried the geese home in a cage, very pleased.",
+                "body_zh": "《晉書》記載：山陰有一位道士養了好鵝，王羲之很喜歡，想跟他買。道士說：「為寫《道德經》，當舉群相贈耳。」王羲之欣然寫完，「籠鵝而歸，甚以為樂」。"
+              },
+              {
+                "k": "Fans · 扇子",
+                "en": "The fans that sold out",
+                "zh": "老婆婆的竹扇",
+                "body_en": "The same history tells of an old woman selling six-sided bamboo fans. Wang Xizhi wrote five characters on each one. She was upset at first. He told her: just say these were written by Wang Youjun, and ask a hundred coins. She did, and people rushed to buy them.",
+                "body_zh": "《晉書》又說：王羲之看見一位老婆婆在賣六角竹扇，就在每把扇子上寫了五個字。老婆婆起先不高興，他說：「但言是王右軍書，以求百錢邪。」老婆婆照著說，大家搶著買。"
+              },
+              {
+                "k": "A Son-in-Law · 女婿",
+                "en": "The young man on the east bed",
+                "zh": "東床快婿",
+                "body_en": "A Tales of the World story: a great official sent a messenger to the Wang family to choose a husband for his daughter. All the young men tried to look their best, except one, who lay on the east bed with his belly bare as if he had heard nothing. “That is the one!” said the official. It was Wang Xizhi. Today 東床 still means a son-in-law.",
+                "body_zh": "《世說新語》的故事：太尉郗鑒派人到王家挑女婿。王家的年輕人個個裝得很端正，只有一個人「在東床上坦腹臥，如不聞」。郗鑒說：「正此好！」那個人就是王羲之。直到今天，「東床」還是女婿的意思。"
+              },
+              {
+                "k": "Taiwan · 台灣",
+                "en": "A letter about snow, in Taipei",
+                "zh": "台北故宮的〈快雪時晴帖〉",
+                "body_en": "The National Palace Museum in Taipei keeps a short letter of Wang Xizhi's, Timely Clearing After Snowfall: four lines, 28 characters, beginning “Xizhi bows his head. After the quick snow, the sky has cleared.” The museum says it is a fine tracing copy made in the Tang dynasty. The Qianlong Emperor loved it and counted it among his Three Rarities. It is a National Treasure.",
+                "body_zh": "台北國立故宮博物院藏有王羲之的一封短信〈快雪時晴帖〉：行書四行、二十八個字，開頭是「羲之頓首。快雪時晴，佳想安善」。故宮說它是唐代的精摹本。乾隆皇帝非常珍愛，把它列為「三希」之一。它是國寶。"
+              }
+            ]
+          },
+          "myths": [
+            {
+              "myth_en": "Museums show the Lanting Xu that Wang Xizhi wrote himself.",
+              "myth_zh": "博物館裡展出的〈蘭亭序〉是王羲之親筆寫的。",
+              "fact_en": "The original is lost. What museums have are copies made by hand in the Tang dynasty and later, and rubbings from stone carvings.",
+              "fact_zh": "原蹟已經失傳。博物館裡的是唐朝和後來的人摹寫的本子，以及從刻石拓下來的拓本。"
+            },
+            {
+              "myth_en": "A great calligrapher writes the same character the same way every time.",
+              "myth_zh": "厲害的書法家，同一個字每次都寫得一模一樣。",
+              "fact_en": "In the Lanting Xu it is the opposite. He Yanzhi wrote that every repeated character has a different form, and that the twenty or so 之 are all different.",
+              "fact_zh": "〈蘭亭序〉正好相反。何延之說「有重者皆構別體」，二十來個「之」「變轉悉異，遂無同者」。"
+            },
+            {
+              "myth_en": "The Lanting Xu is only about a party.",
+              "myth_zh": "〈蘭亭序〉只是在寫一場聚會。",
+              "fact_en": "It begins with the gathering, but then it turns to time, life, and death. You can read the whole essay in our Classical Chinese Prose series.",
+              "fact_zh": "文章從聚會寫起，後半卻轉到時間、生與死。全文可以到我們的「古文選讀」讀。"
+            },
+            {
+              "myth_en": "Wang Xizhi invented running script.",
+              "myth_zh": "行書是王羲之發明的。",
+              "fact_en": "Running script was already in use before him. He is remembered because he wrote it so well that later generations took his writing as their model.",
+              "fact_zh": "在他以前就有行書了。大家記得他，是因為他寫得太好，後人都拿他的字當範本。"
+            }
+          ],
+          "tricks": [
+            {
+              "title_en": "353: the Orchid Pavilion",
+              "title_zh": "永和九年，蘭亭",
+              "body_en": "Third day of the third month, beside a winding stream.",
+              "body_zh": "三月三日，彎彎的小溪邊。"
+            },
+            {
+              "title_en": "One cup, one poem",
+              "title_zh": "一觴一詠",
+              "body_en": "The cup floats; a guest drinks and chants.",
+              "body_zh": "酒杯漂過來，喝一杯、吟一首。"
+            },
+            {
+              "title_en": "Twenty 之, twenty shapes",
+              "title_zh": "二十個之，個個不同",
+              "body_en": "No two are alike.",
+              "body_zh": "變轉悉異，遂無同者。"
+            },
+            {
+              "title_en": "The original is lost",
+              "title_zh": "原蹟失傳，只有摹本",
+              "body_en": "We know it from copies.",
+              "body_zh": "今天看到的都是摹本和拓本。"
+            }
+          ],
+          "safety": [
+            {
+              "en": "Ink stains clothes and is very hard to wash out. Wear old clothes or an apron, and roll up your sleeves.",
+              "zh": "墨沾到衣服很難洗掉：穿舊衣服或圍裙，袖子捲起來。"
+            },
+            {
+              "en": "Cover the desk with old newspaper, and keep the ink in a heavy, steady dish so it will not tip over.",
+              "zh": "桌上先鋪舊報紙；墨要裝在重一點、放得穩的碟子裡，免得打翻。"
+            },
+            {
+              "en": "Press gently. Crushing the brush against the paper squashes the hairs and can split or break them.",
+              "zh": "輕輕地按就好：把筆用力壓在紙上，筆毛會擠扁，也可能分岔或折斷。"
+            },
+            {
+              "en": "Do not put the brush, the ink, or the ink stick in your mouth, and do not lick the brush tip to shape it.",
+              "zh": "毛筆、墨汁、墨條都不要放進嘴裡，也不要用嘴巴舔筆尖。"
+            },
+            {
+              "en": "After writing, wash the brush in clean water until the water runs clear, gently shape it into a point, and hang it tip-down or lay it flat to dry. Wash your hands, too.",
+              "zh": "寫完後用清水洗筆，洗到水變清為止；輕輕把筆毛理成尖形，筆尖朝下掛起來或平放晾乾。也要洗手。"
+            }
+          ],
+          "activities": [
+            {
+              "title_en": "A Winding Stream in the Classroom",
+              "title_zh": "教室裡的曲水流觴",
+              "materials": [
+                {
+                  "en": "Desks moved into a long winding line, with students sitting on both sides",
+                  "zh": "把桌子排成一條彎彎的長線，同學坐在兩邊"
+                },
+                {
+                  "en": "A paper cup with a word card inside (no water needed)",
+                  "zh": "一個紙杯，裡面放一張字卡（不用裝水）"
+                },
+                {
+                  "en": "Music, or a student who claps a beat",
+                  "zh": "音樂，或一位同學打拍子"
+                }
+              ],
+              "steps": [
+                {
+                  "en": "Pass the cup along the “stream” while the music plays.",
+                  "zh": "音樂響的時候，把紙杯沿著「小溪」一個傳一個。"
+                },
+                {
+                  "en": "When the music stops, the student holding the cup takes out the card and reads the word.",
+                  "zh": "音樂一停，拿到紙杯的同學抽出字卡、唸出上面的字。"
+                },
+                {
+                  "en": "That student says one line of a poem, or one English sentence, using the word.",
+                  "zh": "這位同學用那個字說一句詩，或造一個英文句子。"
+                },
+                {
+                  "en": "Put in a new card and start the music again.",
+                  "zh": "換一張新的字卡，音樂再開始。"
+                }
+              ],
+              "tip_en": "Use this lesson's vocabulary for the cards: stream, float, poem, gathering.",
+              "tip_zh": "字卡可以用這一課的生字：stream、float、poem、gathering。"
+            },
+            {
+              "title_en": "Five Different 之",
+              "title_zh": "五個不一樣的「之」",
+              "materials": [
+                {
+                  "en": "A brush and water (or a pencil) and paper for each student",
+                  "zh": "每人一枝毛筆和清水（或鉛筆）、一張紙"
+                },
+                {
+                  "en": "This lesson's picture of the twenty 之",
+                  "zh": "這一課「二十個之」的圖"
+                }
+              ],
+              "steps": [
+                {
+                  "en": "Choose three 之 from the picture and copy them as closely as you can.",
+                  "zh": "從圖裡選三個「之」，盡量照樣子臨寫。"
+                },
+                {
+                  "en": "Now write two more of your own that are different from all three.",
+                  "zh": "再寫兩個你自己的「之」，要和前面三個都不一樣。"
+                },
+                {
+                  "en": "Show your five to a partner. Which parts did you change: the dot, the turn, or the last line?",
+                  "zh": "把五個「之」給同伴看：你改了哪裡？那一點、轉彎，還是最後一筆？"
+                },
+                {
+                  "en": "Pick the one you like best and say why.",
+                  "zh": "選出你最喜歡的一個，說說為什麼。"
+                }
+              ],
+              "tip_en": "There is no wrong answer here. The point is to see how much one simple character can change.",
+              "tip_zh": "這裡沒有標準答案，重點是看見一個簡單的字可以有多少變化。"
+            }
+          ],
+          "sources": [
+            {
+              "en": "Wang Xizhi: served as General of the Right Army, so he is called Wang Youjun; later generations called him the Sage of Calligraphy (the dictionary gives his dates as 321–379; other sources differ)",
+              "zh": "王羲之：嘗為右軍將軍，世稱王右軍；後人稱為「書聖」（辭典作西元 321～379，生卒年另有他說）",
+              "src": "教育部《重編國語辭典修訂本》「王羲之」",
+              "url": "https://dict.revised.moe.edu.tw/dictView.jsp?ID=162632"
+            },
+            {
+              "en": "Lanting Xu: written on the third day of the third month, 353, at the Orchid Pavilion in Shanyin, Kuaiji",
+              "zh": "蘭亭集序：永和九年（西元 353）三月三日，會於會稽山陰的蘭亭，眾人賦詩，羲之自為作序",
+              "src": "教育部《重編國語辭典修訂本》「蘭亭集序」",
+              "url": "https://dict.revised.moe.edu.tw/dictView.jsp?ID=60916"
+            },
+            {
+              "en": "Floating cups on a winding stream: on the third day of the third month, people sat beside a winding stream, set wine cups afloat upstream, and whoever a cup stopped beside took it and drank",
+              "zh": "流觴曲水：參加者坐在曲折環繞的水流旁，在上游放酒杯，任它順水流下，停在何處，則由某人取酒杯而飲",
+              "src": "教育部《重編國語辭典修訂本》「流觴曲水」",
+              "url": "https://dict.revised.moe.edu.tw/dictView.jsp?ID=63440"
+            },
+            {
+              "en": "修禊: an old custom of washing at the water's edge in the third month to drive away bad luck",
+              "zh": "修禊：於陰曆三月上巳日，臨水洗濯，借以祓除不祥",
+              "src": "教育部《重編國語辭典修訂本》「修禊」",
+              "url": "https://dict.revised.moe.edu.tw/dictView.jsp?ID=107419"
+            },
+            {
+              "en": "Text of the Lanting Xu: “崇山峻嶺，茂林修竹…清流激湍…引以為流觴曲水，列坐其次…一觴一詠”; the geese story; the fan story; “right army general”",
+              "zh": "《晉書．王羲之傳》：〈蘭亭序〉全文（崇山峻嶺、茂林修竹、流觴曲水、一觴一詠）；寫經換鵝；老姥竹扇；右軍將軍、會稽內史",
+              "src": "維基文庫《晉書》卷八十",
+              "url": "https://zh.wikisource.org/wiki/%E6%99%89%E6%9B%B8/%E5%8D%B7080"
+            },
+            {
+              "en": "He Yanzhi, Lanting Ji (Tang): 28 lines, 324 characters; repeated characters all have different forms; 之 appears most, about twenty times, none alike; Emperor Taizong and the monk Biancai",
+              "zh": "何延之〈蘭亭記〉（唐）：「凡二十八行，三百二十四字，有重者皆構別體。就中『之』字最多，乃有二十許個，變轉悉異，遂無同者」；唐太宗從辯才取得〈蘭亭〉的故事",
+              "src": "維基文庫《法書要錄》卷三",
+              "url": "https://zh.wikisource.org/wiki/%E6%B3%95%E6%9B%B8%E8%A6%81%E9%8C%84/%E5%8D%B7%E4%B8%89"
+            },
+            {
+              "en": "Wu Pingyi (Tang): when Emperor Taizong died, the original went into his tomb",
+              "zh": "武平一〈徐氏法書記〉（唐）：「及太宗晏駕，本入玄宮」",
+              "src": "維基文庫《法書要錄》卷三",
+              "url": "https://zh.wikisource.org/wiki/%E6%B3%95%E6%9B%B8%E8%A6%81%E9%8C%84/%E5%8D%B7%E4%B8%89"
+            },
+            {
+              "en": "Our count: the Lanting Xu text has 之 twenty times (counted in the text and in the Shenlong copy)",
+              "zh": "自己數的：〈蘭亭序〉全文「之」共二十個（原文與神龍本影像各數一次）",
+              "src": "維基文庫〈蘭亭集序〉",
+              "url": "https://zh.wikisource.org/wiki/%E8%98%AD%E4%BA%AD%E9%9B%86%E5%BA%8F"
+            },
+            {
+              "en": "The Lanting Xu has long been called the best running script under heaven",
+              "zh": "〈蘭亭序〉素有「天下第一行書」之稱",
+              "src": "國立故宮博物院〈蘭亭癖〉展覽說明",
+              "url": "https://www.npm.gov.tw/Exhibition-Content.aspx?sno=04014382&l=1"
+            },
+            {
+              "en": "The original Lanting Xu is lost",
+              "zh": "〈蘭亭序〉原蹟雖已失傳",
+              "src": "國立故宮博物院典藏資料檢索〈定武蘭亭真本 卷〉",
+              "url": "https://digitalarchive.npm.gov.tw/Collection/Detail/14853?dep=P"
+            },
+            {
+              "en": "東床快婿: the story of Wang Xizhi being chosen as a son-in-law",
+              "zh": "東床快婿：晉時王羲之坦腹東床被人選做女婿的故事",
+              "src": "教育部《重編國語辭典修訂本》「東床快婿」",
+              "url": "https://dict.revised.moe.edu.tw/dictView.jsp?ID=48880"
+            },
+            {
+              "en": "Image of the Shenlong copy of the Lanting Xu (public domain): source of the twenty 之 and reference for our tracings",
+              "zh": "神龍本〈蘭亭序〉影像（公有領域）：二十個「之」的圖片來源與描線的對位參考",
+              "src": "Wikimedia Commons〈神龍蘭亭序全.JPG〉",
+              "url": "https://commons.wikimedia.org/wiki/File:%E7%A5%9E%E9%BE%8D%E8%98%AD%E4%BA%AD%E5%BA%8F%E5%85%A8.JPG"
+            },
+            {
+              "en": "The earliest record of the numbers: 26 people wrote poems; 15 could not and were each fined wine (Liu Xiaobiao's notes, early 6th century, quoting Wang Xizhi's Linhe Xu). Song dynasty lists count 42 people instead.",
+              "zh": "最早的人數記載：「二十六人，賦詩如左…十五人，不能賦詩，罰酒各三斗」（《世說新語．企羨》劉孝標注引〈臨河敘〉）；宋代的名單則是四十二人",
+              "src": "維基文庫《世說新語．企羨》",
+              "url": "https://zh.wikisource.org/wiki/%E4%B8%96%E8%AA%AA%E6%96%B0%E8%AA%9E/%E4%BC%81%E7%BE%A1"
+            },
+            {
+              "en": "The Orchid Pavilion: southwest of Shaoxing, Zhejiang",
+              "zh": "蘭亭：位於浙江省紹興縣西南",
+              "src": "教育部《重編國語辭典修訂本》「蘭亭」",
+              "url": "https://dict.revised.moe.edu.tw/dictView.jsp?ID=60913"
+            },
+            {
+              "en": "The son-in-law story: “on the east bed with his belly bare, as if he had not heard”",
+              "zh": "《世說新語．雅量》：「唯有一郎，在東床上坦腹臥，如不聞。」郗公云：「正此好！」",
+              "src": "維基文庫《世說新語．雅量》",
+              "url": "https://zh.wikisource.org/wiki/%E4%B8%96%E8%AA%AA%E6%96%B0%E8%AA%9E/%E9%9B%85%E9%87%8F"
+            },
+            {
+              "en": "Timely Clearing After Snowfall: running script, four lines, 28 characters; a fine Tang tracing copy; one of Qianlong's Three Rarities",
+              "zh": "〈快雪時晴帖〉：「本幅為唐代精摹本，行書四行二十八字」；乾隆將此帖與〈中秋帖〉〈伯遠帖〉合稱「三希」",
+              "src": "國立故宮博物院典藏資料檢索〈晉王羲之快雪時晴帖 冊〉",
+              "url": "https://digitalarchive.npm.gov.tw/Collection/Detail/19?dep=P"
+            },
+            {
+              "en": "Timely Clearing After Snowfall: designated a National Treasure on March 26, 2012",
+              "zh": "王羲之快雪時晴帖：國寶（2012-03-26 指定）",
+              "src": "文化部文化資產局國家文化資產網",
+              "url": "https://nchdb.boch.gov.tw/assets/advanceSearch/antiquity/20120326000057"
+            },
+            {
+              "en": "Eared cup (耳杯): an oval drinking cup with an ear on each side, usually lacquer or bronze, common from the Warring States to the Jin",
+              "zh": "耳杯：古代飲酒器，橢圓形，兩側各有一耳，多為木胎漆器或青銅器，盛行於戰國至晉代之間",
+              "src": "教育部《重編國語辭典修訂本》「耳杯」",
+              "url": "https://dict.revised.moe.edu.tw/dictView.jsp?ID=148375"
+            },
+            {
+              "en": "Running script before Wang Xizhi: “at the beginning of the Wei, Zhong and Hu practiced running script” (Wei Heng, d. 291)",
+              "zh": "王羲之以前已有行書：衛恆《四體書勢》「魏初有鍾、胡二家為行書法」",
+              "src": "維基文庫《四體書勢》",
+              "url": "https://zh.wikisource.org/wiki/%E5%9B%9B%E9%AB%94%E6%9B%B8%E5%8B%A2"
+            }
+          ]
+        }
+      ],
+      "planned": [
         {
           "n": 9,
           "icon": "💪",
