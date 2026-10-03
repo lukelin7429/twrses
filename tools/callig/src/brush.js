@@ -10,7 +10,10 @@
  *
  *   prepStroke(stroke, opt)   控制點 → 平滑取樣（向心 Catmull-Rom）＋弧長 s、時間 t、壓力 p、階段 phase
  *   footprint(p, opt)         壓力 → 筆毛貼在紙上的形狀：圓頭在筆桿正下方，半寬 hw、往後拖的長度 len
- *   tipTrail(samples, opt)    筆尖往哪裡拖：有慣性（筆毛被拖著走，要走一段距離才轉得過來）
+ *   tipTrail(samples, opt)    筆尖往哪裡拖：有慣性（筆毛被拖著走，要走一段距離才轉得過來）；side＝側鋒（筆尖偏到一邊）
+ *   bendGeom(L, d, tilt)      3D 筆毛彎下去的形狀（直線 → 圓弧 → 貼紙），筆桿可以斜（側鋒）
+ *   bristles(n, seed)         側鋒的筆毛一根根分開：每根的位置、粗細、多快沒墨（畫飛白）
+ *   curveFromStamps、curveMatch   練字板：你這一筆的提按曲線、和示範有多像
  *   stamps(samples, opt)      一筆的「印子」：每個取樣點一個水滴形，疊起來就是墨跡
  *   teardrop(st, n)           一個印子的多邊形
  *   outline(stamps)           整筆墨跡的外輪廓（左右兩條邊）
@@ -117,8 +120,9 @@ export const pressDepth = (p) => 0.58 * clamp(p) ** 0.95;
  * 筆尖往哪裡拖（角度，弧度；0 ＝ +x、π/2 ＝ +y 往下）。
  * 筆毛被拖著走：目標方向是「運動方向的反方向」，每走 ds 只轉過 1 − e^(−ds/lag) 的角度差。
  * 正好掉頭（差 180°）時固定往逆時針轉，免得卡住不動。
+ * side（弧度）：側鋒。筆桿斜了，筆尖不在線的中間而貼著一邊走；目標方向再轉 side（π/2＝往右寫時筆尖在上緣）。
  */
-export function tipTrail(samples, { lag = 26, start = null } = {}) {
+export function tipTrail(samples, { lag = 26, start = null, side = 0 } = {}) {
   const out = new Array(samples.length);
   let a = start;
   if (a === null) {
@@ -126,13 +130,13 @@ export function tipTrail(samples, { lag = 26, start = null } = {}) {
     let k = 1;
     while (k < samples.length && Math.hypot(samples[k].x - samples[0].x, samples[k].y - samples[0].y) < 1e-6) k++;
     const b = samples[Math.min(k, samples.length - 1)];
-    a = Math.atan2(samples[0].y - b.y, samples[0].x - b.x);
+    a = Math.atan2(samples[0].y - b.y, samples[0].x - b.x) + side;
   }
   out[0] = a;
   for (let i = 1; i < samples.length; i++) {
     const dx = samples[i].x - samples[i - 1].x, dy = samples[i].y - samples[i - 1].y, ds = Math.hypot(dx, dy);
     if (ds > 1e-9) {
-      const target = Math.atan2(-dy, -dx);
+      const target = Math.atan2(-dy, -dx) + side;   // 中鋒 side＝0：拖在正後方；側鋒：偏到一邊
       let d = wrapPi(target - a);
       if (Math.abs(Math.abs(d) - Math.PI) < 1e-6) d = Math.PI - 1e-6;
       a = wrapPi(a + d * (1 - Math.exp(-ds / lag)));
@@ -217,6 +221,39 @@ export function forceCurve(samples, n = 120) {
 }
 
 // ---------------------------------------------------------------------
+// 3D 筆毛彎下去的形狀（brush3d.js 用）
+// ---------------------------------------------------------------------
+/**
+ * 筆毛長 L、筆毛根部離紙面 H＝L − d、筆桿斜 tilt（弧度，往筆尖的反方向倒）時，中心線分三段：
+ *   順著筆桿往下的直線 b0 → 轉到水平的圓弧（半徑 rc，轉 π/2 − tilt）→ 貼在紙上的直線 flat。總長固定＝L。
+ * offset＝貼紙的地方（圓弧結束）離筆桿正下方多遠：墨跡的圓頭在那裡，所以 3D 要把筆桿往前挪這麼多。
+ * 沒碰到紙（L·cos tilt ≤ H）：整根直的。tilt＝0 時和第一課的四分之一圓完全一樣（rc＝min(1.2d, 0.9H)）。
+ */
+export function bendGeom(L, d, tilt = 0) {
+  const H = L - d, c = Math.cos(tilt), s = Math.sin(tilt);
+  const excess = L - H / c;                       // 順著筆桿量，超過紙面多長
+  if (excess <= 1e-6) return { touch: false, H, b0: L, rc: 0, arc: 0, flat: 0, offset: 0, tilt };
+  let rc = Math.min(1.2 * excess, (0.9 * H) / Math.max(1e-6, 1 - s));
+  let b0 = (H - rc * (1 - s)) / c;
+  const turn = Math.PI / 2 - tilt;
+  let flat = L - b0 - rc * turn;
+  if (flat < 0) {                                 // 圓弧太大：縮到剛好沒有平的那段
+    rc = (H / c - L) / ((1 - s) / c - turn);
+    b0 = (H - rc * (1 - s)) / c; flat = 0;
+  }
+  return { touch: true, H, b0, rc, arc: rc * turn, flat, offset: b0 * s + rc * c, tilt };
+}
+
+/** 側鋒寫字時筆毛一根根分開：[{ u 位置 0＝筆肚那一緣…1＝筆尖那一緣, w 粗細, k 乾的門檻 }]（固定種子，每次一樣） */
+export function bristles(n = 28, seed = 7) {
+  let a = (seed * 2654435761) >>> 0 || 1;
+  const r = () => { a ^= a << 13; a >>>= 0; a ^= a >>> 17; a ^= a << 5; a >>>= 0; return a / 4294967296; };
+  const out = [];
+  for (let i = 0; i < n; i++) out.push({ u: (i + 0.15 + 0.7 * r()) / n, w: 0.6 + 0.8 * r(), k: r() });
+  return out;
+}
+
+// ---------------------------------------------------------------------
 // 練字板：寫得慢＝粗、寫得快＝細；有觸控筆壓力時用壓力
 // ---------------------------------------------------------------------
 export const PAD = { pMin: 0.12, pMax: 0.92, vMid: 700 };
@@ -233,6 +270,30 @@ export function penPressure(raw) {
 /** 往目標值平滑靠近（時間常數 tau 秒）：手抖或速度跳動時線寬不會忽粗忽細 */
 export function smoothTo(prev, target, dt, tau = 0.06) {
   return prev + (target - prev) * (1 - Math.exp(-Math.max(0, dt) / tau));
+}
+
+/** 使用者寫的一筆（印子陣列，每個有 x、y、p）→ 提按曲線 [[走了幾成, 壓力], …]，和 forceCurve 同格式 */
+export function curveFromStamps(sts, n = 120) {
+  if (!sts.length) return [];
+  const d = [0];
+  for (let i = 1; i < sts.length; i++) d.push(d[i - 1] + Math.hypot(sts[i].x - sts[i - 1].x, sts[i].y - sts[i - 1].y));
+  const L = d[d.length - 1] || 1;
+  const out = [];
+  let j = 0;
+  for (let k = 0; k <= n; k++) {
+    const s = (L * k) / n;
+    while (j < sts.length - 2 && d[j + 1] < s) j++;
+    const b = Math.min(j + 1, sts.length - 1), f = d[b] > d[j] ? clamp((s - d[j]) / (d[b] - d[j])) : 0;
+    out.push([k / n, lerp(sts[j].p, sts[b].p, f)]);
+  }
+  return out;
+}
+/** 兩條提按曲線有多像（0–1）：同一個位置的壓力差平均起來，差 0.5 以上算 0 */
+export function curveMatch(a, b) {
+  if (!a.length || a.length !== b.length) return 0;
+  let s = 0;
+  for (let i = 0; i < a.length; i++) s += Math.abs(a[i][1] - b[i][1]);
+  return clamp(1 - s / a.length / 0.5);
 }
 
 // ---------------------------------------------------------------------

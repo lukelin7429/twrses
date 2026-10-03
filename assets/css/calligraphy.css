@@ -189,3 +189,49 @@ a.cg-link:hover { transform: translateY(-3px); box-shadow: var(--shadow); border
 .cg-intro-ic { float: right; margin: 0 0 .8rem 1.2rem; display: grid; place-items: center; width: 104px; height: 104px; border-radius: 26px; background: radial-gradient(circle at 50% 38%, #3a2a1c, #120c08); box-shadow: 0 14px 30px -18px rgba(30,15,5,.9); }
 @media (max-width: 760px) { .cg-safety { grid-template-columns: 1fr; } }
 @media (max-width: 560px) { .cg-link { flex-direction: column; } .cg-intro-ic { width: 80px; height: 80px; } .cg-intro-ic svg { width: 58px; height: 58px; } }
+
+/* ---------- 第二課：提按、中鋒與側鋒、寫「十」 ---------- */
+.cg-press-lab:not(.cg-writing) .cg-cams { display: inline-flex; }   /* 第二課三個看法都能換角度（蓋過第一課「只有寫字時才顯示」） */
+.cg-modes { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.cg-seg2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.cg-seg4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.cg-patterns { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.cg-hand-row { margin: .2rem 0 .7rem; }
+.cg-hand-row > span { text-transform: none; letter-spacing: .02em; font-size: .74rem; }
+.cg-handmode .cg-hand-row .al-age::-webkit-slider-thumb { box-shadow: 0 0 0 6px rgba(255,211,110,.35); }
+.cg-spread-row { grid-template-columns: auto minmax(0, 1fr) auto; }
+.cg-spread i { background: linear-gradient(90deg, #8a6a3a, #ffd36e); transition: width .1s; }
+.al-lab.cg-lb-ph small { font-size: .66rem; }
+.al-lg-cgp i { border: 0; border-radius: 6px; background: #4fd1c5; }
+@media (max-width: 1020px) { .cg-modes { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+
+/* 執筆：五根手指 */
+.cg-fingers { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 1rem; margin-top: 1.4rem; }
+.cg-finger { position: relative; padding: 1.1rem 1.1rem 1.15rem; background: #fff; border: 1px solid var(--line); border-radius: 18px; box-shadow: var(--shadow-sm); }
+.cg-finger-ch { display: grid; place-items: center; width: 64px; height: 64px; border-radius: 50%; background: radial-gradient(circle at 50% 38%, #3a2a1c, #120c08); color: #f6f0e1; font-family: var(--zh); font-size: 2rem; font-weight: 700; box-shadow: 0 10px 22px -14px rgba(30,15,5,.9); }
+.cg-finger-py { display: block; margin-top: .55rem; font-size: .78rem; font-weight: 800; letter-spacing: .08em; color: var(--gold-dk); }
+.cg-finger h3 { margin: .2rem 0 .4rem; font-size: 1.1rem; }
+.cg-finger h3 .zh { display: block; font-size: .92rem; font-weight: 600; color: var(--ink-soft); }
+.cg-finger p { margin: 0; font-size: .9rem; line-height: 1.6; }
+.cg-finger p .zh { display: block; margin-top: .25rem; color: var(--ink-soft); font-size: .86rem; }
+.cg-checks { margin-top: 1.3rem; padding: 1.1rem 1.4rem; border-radius: 16px; background: var(--cream); border: 1px solid var(--line); }
+.cg-checks .sub-head { margin-top: 0; }
+.cg-checks ul { margin: .4rem 0 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .6rem 1.2rem; }
+.cg-checks li { position: relative; padding-left: 1.7rem; font-size: .95rem; line-height: 1.55; }
+.cg-checks li::before { content: "\2713"; position: absolute; left: 0; top: 0; font-weight: 800; color: var(--brand); }
+.cg-checks li .zh { display: block; color: var(--ink-soft); font-size: .9rem; }
+@media (max-width: 1020px) { .cg-fingers { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (max-width: 760px) { .cg-checks ul { grid-template-columns: 1fr; } }
+@media (max-width: 560px) { .cg-fingers { grid-template-columns: repeat(2, minmax(0, 1fr)); } .cg-finger-ch { width: 52px; height: 52px; font-size: 1.6rem; } }
+
+/* 練字板：提按曲線比較 */
+.cg-pad-cmp { margin-top: 1.1rem; padding: .9rem 1rem 1rem; border: 1px solid var(--line); border-radius: 16px; background: #fff; }
+.cg-pad-cmp .sub-head { margin-top: 0; }
+.cg-pad-curve { width: 100%; height: 130px; display: block; border-radius: 10px; }
+.cg-pad-key { margin: .45rem 0 0; font-size: .8rem; font-weight: 700; color: var(--ink-soft); }
+.cg-pad-key i { display: inline-block; width: 18px; height: 4px; border-radius: 2px; vertical-align: middle; margin: 0 .35rem 0 0; }
+.cg-key-m { background: #b8902f; }
+.cg-key-u { background: #1f6f8b; margin-left: .8rem !important; }
+.cg-pad-score { margin: .5rem 0 0; font-size: .92rem; line-height: 1.55; }
+.cg-pad-score b { color: var(--brand-dk); font-size: 1.05rem; }
+.cg-pad-score .zh { display: block; color: var(--ink-soft); }

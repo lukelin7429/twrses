@@ -459,20 +459,20 @@
             ]
           },
           "links_head": {
-            "eyebrow": "Coming Next · 下一課預告",
+            "eyebrow": "Next Lesson · 下一課",
             "en": "From four tools to the first stroke",
             "zh": "從四樣工具到第一筆"
           },
           "links": [
             {
-              "soon": true,
               "icon": "〰️",
-              "k_en": "Lesson 2 · Coming soon",
-              "k_zh": "第二課・製作中",
+              "k_en": "Next Lesson · Lesson 2",
+              "k_zh": "下一課・第二課",
               "en": "How Does a Brush Make Thick and Thin Lines?",
               "zh": "一枝毛筆怎麼寫出粗細？",
               "note_en": "Press down and the hairs spread for a thick line; lift up and they gather for a thin one. Next time, we slow down the start, the middle, and the end of a stroke, and learn how to hold the brush.",
-              "note_zh": "往下壓，筆毛散開線就粗；往上提，筆毛收攏線就細。下一課把起筆、行筆、收筆分開放慢看，也學怎麼拿毛筆。"
+              "note_zh": "往下壓，筆毛散開線就粗；往上提，筆毛收攏線就細。下一課把起筆、行筆、收筆分開放慢看，也學怎麼拿毛筆。",
+              "href": "/resources/classes/calligraphy/thick-and-thin/"
             }
           ],
           "culture_cards": {
@@ -752,15 +752,756 @@
               "url": "https://stroke-order.learningweb.moe.edu.tw/"
             }
           ]
+        },
+        {
+          "n": 2,
+          "slug": "thick-and-thin",
+          "title": "How Does a Brush Make Thick and Thin Lines?",
+          "title_zh": "一枝毛筆怎麼寫出粗細？",
+          "level": "入門 · Beginner",
+          "icon": "〰️",
+          "card": "press",
+          "blurb_en": "A brush's tip is soft: press down for a thick line, lift up for a thin one. Control the pressure of a 3D brush yourself, compare the center tip with the side tip, slow down every part of 十 (ten), and see how your own press-and-lift curve compares.",
+          "blurb_zh": "毛筆的筆鋒是軟的：往下按線就粗，往上提線就細。自己控制 3D 毛筆壓多重、比較中鋒和側鋒、把「十」的每一段放慢看，再看看你的提按曲線像不像示範。",
+          "big_idea_en": "The biggest difference between a brush and a ballpoint pen is the soft tip. Press down, and the hairs spread for a thick line; lift up, and they gather for a thin one. The beauty of calligraphy lives in the rhythm of pressing and lifting, and it starts with holding the brush upright.",
+          "big_idea_zh": "毛筆和原子筆最大的不同：筆鋒是軟的。往下按，筆毛散開線就粗；往上提，筆毛收攏線就細。書法的美就在提與按的節奏，而這要從把筆拿直開始。",
+          "lab": {
+            "kind": "press",
+            "eyebrow": "3D Model · 3D 模型",
+            "title_en": "Press, Lift, and the Tip",
+            "title_zh": "提、按與筆鋒",
+            "how_en": "Drag to turn, and scroll or pinch to zoom. In Press and lift, the brush crosses the paper row by row while you decide how hard it presses: drag the slider, or choose a pattern. In Center or side tip, the same line is written two ways. In Writing 十, slow down the start, the middle, and the finish of each stroke. Change the view with Side, Top, or Tip.",
+            "how_zh": "拖曳可以旋轉，滾輪或雙指可以縮放。「提按」：毛筆一行一行往右寫，壓多重由你決定——拉滑桿，或選一種節奏。「中鋒與側鋒」：同一條線用兩種方法寫。「寫十」：把每一筆的起筆、行筆、收筆放慢看。用「側面、正上方、貼近筆尖」換角度。",
+            "modes": [
+              {
+                "key": "press",
+                "icon": "按",
+                "en": "Press and lift",
+                "zh": "提按",
+                "title_en": "You are the hand",
+                "title_zh": "你來當寫字的手",
+                "text_en": "The brush moves at the same speed the whole time. Only the pressure changes, and that is enough to make the line thin, thick, or anything in between. Watch the hairs spread when it presses and gather when it lifts.",
+                "text_zh": "毛筆一直用同樣的速度走，只有壓的力道在變，就足以讓線條變細、變粗。看筆毛按下去時散開、提起來時收攏。"
+              },
+              {
+                "key": "tip",
+                "icon": "鋒",
+                "en": "Center or side tip",
+                "zh": "中鋒與側鋒",
+                "title_en": "Where does the tip go?",
+                "title_zh": "筆尖走在哪裡？",
+                "text_en": "With the handle upright, the tip runs along the middle of the line: the center tip, round and full. With the handle leaning, the tip slides along one edge: the side tip, flat, with one sharp edge and one dry, rough edge.",
+                "text_zh": "筆桿直立，筆尖走在線的中間：中鋒，線條圓潤飽滿。筆桿斜了，筆尖貼著一邊走：側鋒，線條扁平，一邊齊、一邊乾乾毛毛的。"
+              },
+              {
+                "key": "shi",
+                "icon": "十",
+                "en": "Writing 十",
+                "zh": "寫「十」",
+                "title_en": "Start, middle, finish",
+                "title_zh": "起筆、行筆、收筆",
+                "text_en": "十 has two strokes: the horizontal first, then the vertical. Pick a stroke and a part to replay it at quarter speed. The curve shows how hard the brush presses along the stroke.",
+                "text_zh": "「十」有兩筆：先橫後豎。選一筆、選一段，用四分之一的速度重播；曲線是這一筆每個地方壓多重。"
+              }
+            ],
+            "patterns": [
+              {
+                "key": "swell",
+                "en": "Light–heavy–light",
+                "zh": "輕重輕"
+              },
+              {
+                "key": "wave",
+                "en": "Press, lift, press",
+                "zh": "一按一提"
+              },
+              {
+                "key": "steady",
+                "en": "Same all the way",
+                "zh": "一樣重"
+              },
+              {
+                "key": "hand",
+                "en": "Your hand",
+                "zh": "你來控制"
+              }
+            ],
+            "phases": [
+              [
+                {
+                  "short_en": "Start",
+                  "short_zh": "起筆",
+                  "en": "Start",
+                  "zh": "起筆",
+                  "text_en": "Hide the tip: it moves a little to the left, against the way the stroke will go, then the brush presses down to the lower right. The head of the stroke comes out square.",
+                  "text_zh": "藏鋒：筆尖先往左逆著走一點，再往右下按，起頭方方正正。"
+                },
+                {
+                  "short_en": "Move",
+                  "short_zh": "行筆",
+                  "en": "Middle",
+                  "zh": "行筆",
+                  "text_en": "Lift a little and move steadily to the right, slightly uphill, with the tip in the middle of the line.",
+                  "text_zh": "稍微提起，穩穩地往右、稍微往上走，筆尖保持在線的中間。"
+                },
+                {
+                  "short_en": "Finish",
+                  "short_zh": "收筆",
+                  "en": "Finish",
+                  "zh": "收筆",
+                  "text_en": "Lift slightly, press down to the lower right, then turn the tip back to the left and lift off: the tip returns inside the stroke.",
+                  "text_zh": "先輕輕提，再往右下一按，然後筆尖往左回收、提筆離紙（回鋒）。"
+                }
+              ],
+              [
+                {
+                  "short_en": "Start",
+                  "short_zh": "起筆",
+                  "en": "Start",
+                  "zh": "起筆",
+                  "text_en": "Hide the tip again: it goes up a little first, then turns and presses down to the lower right.",
+                  "text_zh": "一樣藏鋒：筆尖先往上逆入一點，再轉往右下按。"
+                },
+                {
+                  "short_en": "Move",
+                  "short_zh": "行筆",
+                  "en": "Middle",
+                  "zh": "行筆",
+                  "text_en": "Move straight down at an even speed, keeping the tip in the middle so the line stays round and full.",
+                  "text_zh": "用平均的速度直直往下走，筆尖在中間，線條圓潤飽滿。"
+                },
+                {
+                  "short_en": "Finish",
+                  "short_zh": "收筆",
+                  "en": "Finish",
+                  "zh": "收筆",
+                  "text_en": "A hanging needle: keep moving down while you lift a little at a time, until the tip leaves the paper in a fine point.",
+                  "text_zh": "懸針：一邊往下走、一邊慢慢提起，直到筆尖離開紙面，收成細細的尖。"
+                }
+              ]
+            ],
+            "legend": [
+              {
+                "cls": "cgp",
+                "en": "Teal labels: what the brush is doing right now",
+                "zh": "青色標籤：毛筆現在在做什麼"
+              },
+              {
+                "cls": "cgt",
+                "en": "Gold-edged labels: the line width and the two kinds of tip",
+                "zh": "金框標籤：線寬、兩種筆鋒"
+              },
+              {
+                "cls": "cgg",
+                "en": "Red lines: the 米 grid (Writing 十)",
+                "zh": "紅線：米字格（寫「十」）"
+              },
+              {
+                "cls": "cgf",
+                "en": "Gold curve: how hard the brush presses along the stroke",
+                "zh": "金色曲線：這一筆每個地方壓多重"
+              }
+            ],
+            "scale_en": "A teaching model. Sizes are roughly real: the brush is about 26 centimeters long, and the grid is 26 centimeters wide, so one thousandth of the grid is 0.26 millimeters; line widths use the same rule as the practice pad. In the side tip, the handle leans about 24 degrees and the ink is drawn hair by hair; real dry-brush streaks depend on the ink, the paper, and the speed. The strokes of 十 are hand-drawn as centerlines with a pressure for every point.",
+            "scale_zh": "這是教學用的示意模型。大小大約照真的：毛筆約 26 公分長，格子 26 公分寬，所以格子的千分之一是 0.26 公釐；線寬和練字板用同一個算法。側鋒時筆桿斜約 24°，墨一根筆毛一根筆毛地畫；真的飛白要看墨、紙和速度。「十」的兩筆是自己手繪的中心線，每一點都有壓力。",
+            "credit_html": "Model, stroke data, and the writing engine are drawn and programmed by My Culture Connect. Stroke order follows the Ministry of Education's <a href=\"https://stroke-order.learningweb.moe.edu.tw/dictView.jsp?ID=21313\" target=\"_blank\" rel=\"noopener\">Stroke Order of Standard Chinese Characters</a> website. · 模型、筆畫資料與寫字引擎由人師教育協會自繪、自寫；筆順依教育部《國字標準字體筆順學習網》。"
+          },
+          "paras": [
+            "Draw a line with a ballpoint pen, and it is the same width from beginning to end. Draw a line with a brush, and it can be as thin as a hair in one place and as wide as your finger in another. The secret is the soft tip. When you press the brush down, the hairs spread out, and the line gets thicker. When you lift it up, the hairs come back together, and the line gets thinner.",
+            "Calligraphers call these two movements pressing and lifting. A good line is not pressed the same way from end to end. In a horizontal stroke, the brush presses down at the start, moves a little lighter through the middle, and presses again near the end. This rhythm of pressing and lifting gives a stroke its life, a bit like the beat in a piece of music.",
+            "Every stroke has three parts: the start, the middle, and the finish. In regular script, the tip often starts by moving a little in the opposite direction, so that it is hidden inside the stroke. This is called hiding the tip. At the end, the brush can turn back on itself, or it can lift slowly until the line ends in a fine point, like a needle hanging down.",
+            "Watch where the tip goes. When the handle stays upright, the tip runs along the middle of the line. This is called the center tip, and it makes lines that look round and full. When the handle leans, the tip slides along one edge, and the line turns flat, with one sharp side and one rough side. This is the side tip.",
+            "To keep the tip in the middle, hold the brush upright. A traditional grip, often traced to Lu Xisheng of the Tang dynasty, gives each of the five fingers a job. The thumb, the index finger, and the middle finger hold the handle from both sides, the ring finger pushes back from behind, and the little finger supports the ring finger. Keep your fingers firm but your palm hollow, as if you were holding an egg.",
+            "Speed matters, too. When the brush moves slowly, more ink soaks into the paper and the line grows thicker. When it moves quickly, the line becomes thinner and drier. In this lesson, slow down the 3D brush to watch pressing and lifting up close. Then write 十 (ten) on the practice pad: first the horizontal stroke, then the vertical one. The pad will compare your press-and-lift curve with the brush's."
+          ],
+          "paras_zh": [
+            "用原子筆畫一條線，從頭到尾都一樣寬。用毛筆畫一條線，有的地方細得像頭髮，有的地方寬得像手指。祕密就在軟軟的筆鋒：把筆往下按，筆毛散開，線就變粗；往上提，筆毛收攏，線就變細。",
+            "書法家把這兩個動作叫做「按」和「提」。好的線條不會從頭到尾壓得一樣重。寫一筆橫的時候，起筆往下按，中間稍微輕一點地走過去，快到終點時再按一次。這種提與按的節奏讓筆畫有了生命，有點像音樂裡的拍子。",
+            "每一筆都有三個部分：起筆、行筆、收筆。寫楷書時，筆尖常常先往相反的方向走一點，讓筆尖藏在筆畫裡，這叫「藏鋒」。到了終點，毛筆可以往回收（回鋒），也可以一邊走一邊慢慢提起，讓線條收成細細的尖，像一根懸著的針（懸針）。",
+            "注意筆尖走在哪裡。筆桿直立的時候，筆尖走在線的中間，這叫「中鋒」，寫出來的線條圓潤飽滿。筆桿斜了，筆尖就貼著一邊滑過去，線條變得扁平，一邊整齊、一邊粗糙，這叫「側鋒」。",
+            "要讓筆尖保持在中間，就要把筆拿直。有一種傳統的拿法，常說是唐代陸希聲傳下來的，讓五根手指各有工作：大拇指、食指、中指從兩邊拿住筆桿，無名指從後面頂住，小指托住無名指。手指要實，掌心要虛，好像手裡握著一顆蛋（指實掌虛）。",
+            "速度也有關係。毛筆走得慢，比較多的墨滲進紙裡，線就變粗；走得快，線就變細、也比較乾。這一課，先把 3D 毛筆放慢，近看提和按；再到練字板上寫「十」：先寫橫，再寫豎。練字板會把你的提按曲線和毛筆的拿來比較。"
+          ],
+          "questions": [
+            "Why can one brush make both thick and thin lines?",
+            "What are the three parts of a stroke, and what does hiding the tip mean?",
+            "What is the difference between the center tip and the side tip?"
+          ],
+          "answers": [
+            "Its tip is soft. When you press it down, the hairs spread and the line gets thicker; when you lift it up, the hairs gather and the line gets thinner.",
+            "The start, the middle, and the finish. Hiding the tip means the tip first moves a little in the opposite direction, so it stays hidden inside the stroke.",
+            "With the center tip, the handle is upright and the tip runs along the middle of the line, so the line is round and full. With the side tip, the handle leans and the tip slides along one edge, so the line is flat, with one sharp side and one rough side."
+          ],
+          "vocab": [
+            {
+              "n": 1,
+              "w": "press",
+              "pos": "v.",
+              "zh": "按；壓",
+              "ex": "<b>Press</b> the button to start the machine.",
+              "exzh": "按下按鈕讓機器開始運轉。"
+            },
+            {
+              "n": 2,
+              "w": "lift",
+              "pos": "v.",
+              "zh": "提起；舉起",
+              "ex": "Please <b>lift</b> the box carefully; it is heavy.",
+              "exzh": "請小心地把箱子提起來，它很重。"
+            },
+            {
+              "n": 3,
+              "w": "rhythm",
+              "pos": "n.",
+              "zh": "節奏",
+              "ex": "We clapped our hands to the <b>rhythm</b> of the song.",
+              "exzh": "我們跟著歌的節奏拍手。"
+            },
+            {
+              "n": 4,
+              "w": "tip",
+              "pos": "n.",
+              "zh": "尖端；筆尖",
+              "ex": "The <b>tip</b> of my pencil broke during the test.",
+              "exzh": "考試時我的鉛筆尖斷了。"
+            },
+            {
+              "n": 5,
+              "w": "stroke",
+              "pos": "n.",
+              "zh": "筆畫",
+              "ex": "The character 十 has two <b>strokes</b>.",
+              "exzh": "「十」這個字有兩筆。"
+            },
+            {
+              "n": 6,
+              "w": "upright",
+              "pos": "adj.",
+              "zh": "直立的",
+              "ex": "Keep your back <b>upright</b> when you sit at your desk.",
+              "exzh": "坐在書桌前時，背要挺直。"
+            },
+            {
+              "n": 7,
+              "w": "grip",
+              "pos": "n.",
+              "zh": "握法；抓握",
+              "ex": "A tennis coach can help you find the right <b>grip</b>.",
+              "exzh": "網球教練可以幫你找到正確的握拍方式。"
+            },
+            {
+              "n": 8,
+              "w": "hollow",
+              "pos": "adj.",
+              "zh": "空心的；中空的",
+              "ex": "The old tree is <b>hollow</b> inside, and owls live in it.",
+              "exzh": "那棵老樹裡面是空的，有貓頭鷹住在裡面。"
+            }
+          ],
+          "quiz": [
+            {
+              "q": "What happens when you press a brush down?",
+              "options": [
+                "The hairs spread and the line gets thicker.",
+                "The hairs gather and the line gets thinner.",
+                "The ink turns blue.",
+                "The brush stops moving."
+              ],
+              "correct": 0
+            },
+            {
+              "q": "What do calligraphers call the two movements that change a line's width?",
+              "options": [
+                "Pressing and lifting",
+                "Grinding and dipping",
+                "Folding and cutting",
+                "Pushing and pulling"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "In which part of a stroke does the brush hide its tip?",
+              "options": [
+                "The start",
+                "The middle",
+                "Only after the stroke is finished",
+                "Never"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "Which kind of tip makes round, full lines?",
+              "options": [
+                "The center tip",
+                "The side tip",
+                "A broken tip",
+                "A dry tip"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "How should your palm feel when you hold a brush?",
+              "options": [
+                "Hollow, as if holding an egg",
+                "Tight like a fist",
+                "Flat on the desk",
+                "Wet with ink"
+              ],
+              "correct": 0
+            }
+          ],
+          "parts_head": {
+            "eyebrow": "Try It in the Model · 在模型裡試試",
+            "en": "Four things to try",
+            "zh": "試試這四件事"
+          },
+          "parts": [
+            {
+              "key": "swell",
+              "icon": "swell",
+              "en": "Light, heavy, light",
+              "zh": "輕重輕",
+              "meta_en": "One line goes thin, thick, thin",
+              "meta_zh": "一條線由細變粗再變細",
+              "demo": "press",
+              "text_en": "The brush keeps the same speed; only the pressure swells and fades.",
+              "text_zh": "毛筆速度不變，只有力道慢慢加重又減輕。"
+            },
+            {
+              "key": "wave",
+              "icon": "wave",
+              "en": "Press, lift, press",
+              "zh": "一按一提",
+              "meta_en": "Or drag the slider yourself",
+              "meta_zh": "也可以自己拉滑桿",
+              "demo": "wave",
+              "text_en": "Watch the hairs spread and gather three times in one line.",
+              "text_zh": "一條線裡，看筆毛散開、收攏三次。"
+            },
+            {
+              "key": "side",
+              "icon": "side",
+              "en": "Center or side tip",
+              "zh": "中鋒與側鋒",
+              "meta_en": "Upright handle vs. leaning handle",
+              "meta_zh": "筆桿直立 vs. 筆桿斜",
+              "demo": "side",
+              "text_en": "Write the same line twice and compare the edges from the top view.",
+              "text_zh": "同一條線寫兩次，用正上方的角度比較邊緣。"
+            },
+            {
+              "key": "needle",
+              "icon": "needle",
+              "en": "The hanging needle",
+              "zh": "懸針",
+              "meta_en": "The end of 十's vertical stroke",
+              "meta_zh": "「十」那一豎的收尾",
+              "demo": "needle",
+              "text_en": "Watch the brush lift a little at a time until the line ends in a point.",
+              "text_zh": "看毛筆一點一點提起，直到線條收成尖。"
+            }
+          ],
+          "parts_note_en": "Then choose Writing 十 and replay each part of each stroke at quarter speed.",
+          "parts_note_zh": "再選「寫十」，把每一筆的每一段用四分之一的速度重播。",
+          "hold": {
+            "eyebrow": "Hold the Brush · 執筆",
+            "en": "Five fingers, one upright brush",
+            "zh": "五根手指，一枝直立的筆",
+            "lead_en": "A traditional grip gives each finger one job and names it with one character. It is often traced to Lu Xisheng of the Tang dynasty and is known as the five-character method.",
+            "lead_zh": "傳統的執筆法讓每根手指負責一件事，每件事用一個字來說，常說是唐代陸希聲傳下來的「五字執筆法」：擫、押、鉤、格、抵。",
+            "fingers": [
+              {
+                "ch": "擫",
+                "py": "yè",
+                "en": "Thumb",
+                "zh": "大拇指",
+                "text_en": "Presses the handle from the inside, tilted slightly upward.",
+                "text_zh": "大拇指上節貼住筆桿內側，稍微往上斜。"
+              },
+              {
+                "ch": "押",
+                "py": "yā",
+                "en": "Index finger",
+                "zh": "食指",
+                "text_en": "Presses from the outside, so the thumb and index finger hold the handle between them.",
+                "text_zh": "食指從外側壓住筆桿，和大拇指一內一外夾住。"
+              },
+              {
+                "ch": "鉤",
+                "py": "gōu",
+                "en": "Middle finger",
+                "zh": "中指",
+                "text_en": "Curls like a hook around the outside and pulls inward.",
+                "text_zh": "中指彎成鉤，鉤住筆桿外側往內用力。"
+              },
+              {
+                "ch": "格",
+                "py": "gé",
+                "en": "Ring finger",
+                "zh": "無名指",
+                "text_en": "Pushes back from the inside with the edge of the nail, balancing the middle finger.",
+                "text_zh": "無名指以指甲與肉相接處從內側頂住，擋住中指往內的力。"
+              },
+              {
+                "ch": "抵",
+                "py": "dǐ",
+                "en": "Little finger",
+                "zh": "小指",
+                "text_en": "Rests against the ring finger to support it.",
+                "text_zh": "小指緊靠無名指，幫它托住。"
+              }
+            ],
+            "checks": [
+              {
+                "en": "The handle stands upright.",
+                "zh": "筆桿直立。"
+              },
+              {
+                "en": "Fingers firm, palm hollow, as if you were holding an egg.",
+                "zh": "指實掌虛，掌心好像握著一顆蛋。"
+              },
+              {
+                "en": "Wrist and arm stay loose, so the whole arm can move the brush.",
+                "zh": "手腕、手臂放鬆，讓整隻手臂帶動毛筆。"
+              }
+            ]
+          },
+          "pad": {
+            "eyebrow": "Practice Pad · 練字板",
+            "en": "Write 十 and compare your curve",
+            "zh": "寫「十」，比比看提按曲線",
+            "char": "shi",
+            "curve": true,
+            "lead_en": "Trace the faint red 十: first the horizontal stroke, then the vertical one. Move slowly for thick and quickly for thin, or press harder with a stylus. After each stroke, the chart shows your press-and-lift curve in blue over the brush's curve in gold.",
+            "lead_zh": "描寫淡紅色的「十」：先寫橫，再寫豎。寫得慢線就粗、寫得快線就細，用觸控筆就越用力越粗。每寫完一筆，圖上會用藍線畫出你的提按曲線，疊在毛筆示範的金色曲線上。",
+            "tips": [
+              {
+                "en": "Stroke 1 first: the horizontal, from left to right.",
+                "zh": "先寫第 1 筆：橫，由左到右。"
+              },
+              {
+                "en": "Then the vertical, from top to bottom; lift slowly at the end for a fine point.",
+                "zh": "再寫豎，由上往下，最後慢慢提起成尖。"
+              },
+              {
+                "en": "Check the chart: did you press at the start and lift at the end?",
+                "zh": "看看圖：起筆有沒有按、收筆有沒有提？"
+              }
+            ]
+          },
+          "links_head": {
+            "eyebrow": "Before and Next · 上一課與下一課",
+            "en": "From the tools to the eight strokes",
+            "zh": "從工具到八種筆畫"
+          },
+          "links": [
+            {
+              "href": "/resources/classes/calligraphy/four-treasures/",
+              "icon": "🖌️",
+              "k_en": "Lesson 1",
+              "k_zh": "第一課",
+              "en": "What Are the Four Treasures of the Study?",
+              "zh": "文房四寶是什麼？",
+              "note_en": "Goat, mixed, and weasel hair: which brush bends the most? Watch the same brush press down on paper.",
+              "note_zh": "羊毫、兼毫、狼毫：哪一種彎得最多？看同一枝筆按在紙上。"
+            },
+            {
+              "soon": true,
+              "icon": "✳️",
+              "k_en": "Lesson 3 · Coming soon",
+              "k_zh": "第三課・製作中",
+              "en": "Can One Character Teach You Every Stroke?",
+              "zh": "永字八法：一個字學會所有筆畫？",
+              "note_en": "The character 永 (forever) holds the eight basic strokes of regular script. Next time, the brush writes them one by one.",
+              "note_zh": "「永」這一個字裡就有楷書的八種基本筆畫。下一課，毛筆一筆一筆寫給你看。"
+            }
+          ],
+          "culture_cards": {
+            "eyebrow": "Sayings About the Brush · 關於筆的成語",
+            "title_en": "An upright heart, iron strokes, strength through paper, and dancing dragons",
+            "title_zh": "心正筆正、鐵畫銀鉤、力透紙背、筆走龍蛇",
+            "lead_en": "Four sayings about writing with a brush, and the stories behind them.",
+            "lead_zh": "四句形容寫字的成語，和它們背後的故事。",
+            "cards": [
+              {
+                "k": "A Story · 一個故事",
+                "en": "An upright heart, an upright brush",
+                "zh": "心正筆正",
+                "body_en": "The Old Book of Tang records that Emperor Muzong once asked the calligrapher Liu Gongquan how to use the brush perfectly. Liu answered, “Using the brush depends on the heart. When the heart is upright, the brush is upright.” The emperor's face changed: he understood that Liu was giving him advice through calligraphy. Today 心正筆正 also means that an honest heart leads to honest actions.",
+                "body_zh": "《舊唐書》記載，唐穆宗問書法家柳公權，筆要怎麼用才能寫到最好。柳公權回答：「用筆在心，心正則筆正。」穆宗臉色一變，明白柳公權是藉著書法在勸他。今天「心正筆正」也比喻內心公正，做事就正直。"
+              },
+              {
+                "k": "Iron and Silver · 鐵與銀",
+                "en": "Iron strokes and silver hooks",
+                "zh": "鐵畫銀鉤",
+                "body_en": "The Tang calligrapher Ouyang Xun wrote in his essay On Using the Brush that good strokes are “firm like iron strokes, graceful like silver hooks.” A children's classic, Youxue Qionglin, later used the words for Wang Xizhi's writing. Today 鐵畫銀鉤 praises calligraphy that is both strong and beautiful.",
+                "body_zh": "唐代書法家歐陽詢在〈用筆論〉裡說，好的筆畫「剛則鐵畫，媚若銀鉤」：剛勁像鐵、柔美像銀。後來的童蒙書《幼學瓊林》用它來形容王羲之的字。今天「鐵畫銀鉤」用來稱讚書法剛柔並濟。"
+              },
+              {
+                "k": "Strength · 力道",
+                "en": "Strength through the back of the paper",
+                "zh": "力透紙背",
+                "body_en": "The saying comes from Yan Zhenqing's notes on the brush methods he learned from Zhang Xu: when the writing is strong, its force seems to reach right through to the back of the paper. Today 力透紙背 praises powerful calligraphy, and also writing whose ideas are deep and strong. Strength here means control, not crushing the brush.",
+                "body_zh": "這句話出自唐代顏真卿記錄張旭（張長史）筆法的〈張長史十二意筆法記〉：寫字時運筆的力量好像穿透到紙的背面。今天「力透紙背」形容書法遒勁有力，也形容文章立意深刻。這裡的「力」是控制，不是把筆壓扁。"
+              },
+              {
+                "k": "Movement · 動感",
+                "en": "The brush runs like dragons and snakes",
+                "zh": "筆走龍蛇",
+                "body_en": "The Song poet Shi Xiaoyou praised a friend with the line “筆走龍蛇” in one of his ci poems: the brush moves as freely as dragons and snakes. Today it describes writing or calligraphy that flows freely and skillfully. You will see this kind of movement in running and cursive script later in this series.",
+                "body_zh": "宋代詞人石孝友在〈滿庭芳．上張紫微〉裡用「筆走龍蛇」稱讚對方：筆像龍蛇一樣自在地遊走。今天用來形容文筆揮灑自如、書法優美熟練。這個系列後面的行書、草書，就看得到這種動感。"
+              }
+            ]
+          },
+          "myths": [
+            {
+              "myth_en": "Thick lines need a thick brush.",
+              "myth_zh": "粗的線要用粗的筆。",
+              "fact_en": "One brush can make both. Press it down and the hairs spread; lift it and they gather. In this lesson's model, the same brush makes lines from under 2 millimeters to about 3 centimeters wide.",
+              "fact_zh": "同一枝筆就做得到：往下按，筆毛散開；往上提，筆毛收攏。在這一課的模型裡，同一枝筆畫得出不到 2 公釐、到大約 3 公分寬的線。"
+            },
+            {
+              "myth_en": "Pressing harder makes stronger calligraphy.",
+              "myth_zh": "越用力壓，字就越有力。",
+              "fact_en": "Strength comes from control: pressing and lifting at the right moments. Crushing the brush squashes the hairs, makes blobs, and can split the tip.",
+              "fact_zh": "有力來自控制：在對的時候按、在對的時候提。把筆壓扁，筆毛會擠成一團、墨跡變成一坨，筆尖也可能分岔。"
+            },
+            {
+              "myth_en": "You hold a brush the same way as a pencil.",
+              "myth_zh": "拿毛筆和拿鉛筆一樣。",
+              "fact_en": "A brush is held upright, often with all five fingers, and the palm stays hollow. A pencil-style grip tilts the handle, so the tip slides to one side and the line turns flat.",
+              "fact_zh": "毛筆要拿直，常用五根手指，掌心是空的。像拿鉛筆那樣斜斜地拿，筆尖會偏到一邊，線就變扁。"
+            },
+            {
+              "myth_en": "A stroke is just a line from one end to the other.",
+              "myth_zh": "一筆就是從這頭畫到那頭的線。",
+              "fact_en": "Every stroke has a start, a middle, and a finish. The tip can hide at the start, run in the middle, and turn back or lift to a point at the end.",
+              "fact_zh": "每一筆都有起筆、行筆、收筆：起筆可以藏鋒，行筆走中鋒，收筆可以回鋒，或是提成尖。"
+            }
+          ],
+          "tricks": [
+            {
+              "title_en": "Press for thick, lift for thin",
+              "title_zh": "按粗提細",
+              "body_en": "The hairs spread when you press and gather when you lift.",
+              "body_zh": "按下去筆毛散開，提起來筆毛收攏。"
+            },
+            {
+              "title_en": "Keep the tip in the middle",
+              "title_zh": "中鋒行筆",
+              "body_en": "An upright handle keeps the tip in the middle of the line.",
+              "body_zh": "筆桿直立，筆尖就在線的中間。"
+            },
+            {
+              "title_en": "Hide it, then bring it back",
+              "title_zh": "藏鋒起，回鋒收",
+              "body_en": "Start against the direction, finish by turning back.",
+              "body_zh": "起筆逆著走，收筆往回收。"
+            },
+            {
+              "title_en": "Fingers firm, palm hollow",
+              "title_zh": "指實掌虛",
+              "body_en": "Hold the brush as if an egg were resting in your palm.",
+              "body_zh": "掌心好像握著一顆蛋。"
+            }
+          ],
+          "safety": [
+            {
+              "en": "Ink stains clothes and is very hard to wash out. Wear old clothes or an apron, and roll up your sleeves.",
+              "zh": "墨沾到衣服很難洗掉：穿舊衣服或圍裙，袖子捲起來。"
+            },
+            {
+              "en": "Cover the desk with old newspaper, and keep the ink in a heavy, steady dish so it will not tip over.",
+              "zh": "桌上先鋪舊報紙；墨要裝在重一點、放得穩的碟子裡，免得打翻。"
+            },
+            {
+              "en": "Press gently. Crushing the brush against the paper squashes the hairs and can split or break them.",
+              "zh": "輕輕地按就好：把筆用力壓在紙上，筆毛會擠扁，也可能分岔或折斷。"
+            },
+            {
+              "en": "Do not put the brush, the ink, or the ink stick in your mouth, and do not lick the brush tip to shape it.",
+              "zh": "毛筆、墨汁、墨條都不要放進嘴裡，也不要用嘴巴舔筆尖。"
+            },
+            {
+              "en": "After writing, wash the brush in clean water until the water runs clear, gently shape it into a point, and hang it tip-down or lay it flat to dry. Wash your hands, too.",
+              "zh": "寫完後用清水洗筆，洗到水變清為止；輕輕把筆毛理成尖形，筆尖朝下掛起來或平放晾乾。也要洗手。"
+            }
+          ],
+          "activities": [
+            {
+              "title_en": "Thin, Thick, Thin with Water",
+              "title_zh": "用清水練提按",
+              "materials": [
+                {
+                  "en": "A brush of any size",
+                  "zh": "一枝毛筆（大小都可以）"
+                },
+                {
+                  "en": "A cup of clean water",
+                  "zh": "一杯清水"
+                },
+                {
+                  "en": "Old newspaper or a water-writing cloth",
+                  "zh": "舊報紙或水寫布"
+                },
+                {
+                  "en": "A paper towel",
+                  "zh": "一張紙巾"
+                }
+              ],
+              "steps": [
+                {
+                  "en": "Dip the brush in the water and wipe it on the edge of the cup so it is wet but not dripping.",
+                  "zh": "毛筆蘸水，在杯緣刮一刮，濕但不會滴。"
+                },
+                {
+                  "en": "Draw a horizontal line at an even speed: start light, press down slowly until it is thick, then lift slowly until it is thin again.",
+                  "zh": "用平均的速度畫一條橫線：先輕輕地，慢慢按到最粗，再慢慢提起來變細。"
+                },
+                {
+                  "en": "Draw a wave line: press, lift, press, lift. Then draw a vertical line that ends in a fine point, like a hanging needle.",
+                  "zh": "畫一條波浪線：按、提、按、提。再畫一條豎線，收尾提成細細的尖，像懸著的針。"
+                },
+                {
+                  "en": "Trade with a partner and guess where they pressed and where they lifted. Write again after the water dries.",
+                  "zh": "和同學交換，猜猜對方哪裡按、哪裡提。水乾了再寫一次。"
+                }
+              ],
+              "tip_en": "Water marks fade as they dry, so students can try again and again without wasting ink or paper.",
+              "tip_zh": "水痕乾了就消失，學生可以一次又一次地試，不浪費墨也不浪費紙。"
+            },
+            {
+              "title_en": "An Egg in the Palm: The Five-Finger Check",
+              "title_zh": "掌中握蛋：五指執筆檢查",
+              "materials": [
+                {
+                  "en": "A brush for each student",
+                  "zh": "每人一枝毛筆"
+                },
+                {
+                  "en": "A ping-pong ball or a small ball for each pair",
+                  "zh": "每兩人一顆乒乓球或小球"
+                },
+                {
+                  "en": "A cup of water and old newspaper",
+                  "zh": "一杯清水和舊報紙"
+                },
+                {
+                  "en": "A checklist with the five characters: 擫、押、鉤、格、抵",
+                  "zh": "寫著擫、押、鉤、格、抵的檢查表"
+                }
+              ],
+              "steps": [
+                {
+                  "en": "Hold the ball loosely in your palm, then pick up the brush with all five fingers so the ball can stay there.",
+                  "zh": "掌心輕輕握著球，再用五根手指拿起毛筆，讓球還能留在掌心裡。"
+                },
+                {
+                  "en": "Your partner checks each finger against the checklist, and that the handle stands upright.",
+                  "zh": "同學照檢查表一根一根看手指，也看筆桿是不是直立。"
+                },
+                {
+                  "en": "Put the ball down, keep the hollow palm, and write 十 with water: the horizontal first, then the vertical.",
+                  "zh": "把球放下，掌心保持空空的，用清水寫「十」：先橫後豎。"
+                },
+                {
+                  "en": "Switch roles. Talk about it: what changes when the handle leans?",
+                  "zh": "交換角色。討論：筆桿斜了，線條有什麼不一樣？"
+                }
+              ],
+              "tip_en": "The ball is only a reminder of a hollow palm; take it away before writing for real. Left-handed students can mirror every step.",
+              "tip_zh": "球只是用來提醒「掌虛」，真正寫字前要拿走。用左手的學生，每一步左右相反就好。"
+            }
+          ],
+          "sources": [
+            {
+              "en": "Center tip (中鋒, also 正鋒): however the brush turns, the tip stays in the middle of the stroke",
+              "zh": "中鋒：寫毛筆字時，不論如何運轉，筆鋒均保持在筆畫的中間，也稱「正鋒」",
+              "src": "教育部《重編國語辭典修訂本》「中鋒」",
+              "url": "https://dict.revised.moe.edu.tw/dictView.jsp?ID=119779"
+            },
+            {
+              "en": "Side tip (側鋒): the tip is not in the middle of the stroke but leans to one side",
+              "zh": "側鋒：運筆時筆心不在筆畫中央，筆鋒偏側",
+              "src": "教育部《重編國語辭典修訂本》「側鋒」",
+              "url": "https://dict.revised.moe.edu.tw/dictView.jsp?ID=140898"
+            },
+            {
+              "en": "Hiding the tip (藏鋒): the tip is hidden and not shown",
+              "zh": "藏鋒：筆鋒藏而不露",
+              "src": "教育部《重編國語辭典修訂本》「藏鋒」",
+              "url": "https://dict.revised.moe.edu.tw/dictView.jsp?ID=142055"
+            },
+            {
+              "en": "Returning the tip (回鋒): at the end of a stroke, the brush turns back",
+              "zh": "回鋒：行筆至筆畫的盡頭，反向回收",
+              "src": "教育部《重編國語辭典修訂本》「回鋒」",
+              "url": "https://dict.revised.moe.edu.tw/dictView.jsp?ID=84971"
+            },
+            {
+              "en": "Start, middle, and finish of a stroke; the horizontal, the dew-drop vertical, and the hanging-needle vertical as basic strokes taught in elementary school",
+              "zh": "運筆過程：起筆、行筆、收筆；基本筆法教學：橫、垂露豎、懸針豎",
+              "src": "宜蘭縣國小書法教學資料（ilc.edu.tw）",
+              "url": "https://2blog.ilc.edu.tw/wp-content/uploads/sites/1163/24/24-2634575.pdf"
+            },
+            {
+              "en": "The five-character grip 擫、押、鉤、格、抵, recorded as obtained by Lu Xisheng of the Tang dynasty; the job of each finger; fingers firm and palm hollow, “like holding an egg”",
+              "zh": "「唐陸希聲得撥鐙法凡五字，曰擫、押、鈎、格、抵」（楊賓語）；五指各自的用力方式；指實掌虛、「形同握卵」",
+              "src": "鄭國瑞〈楊賓之書學觀〉，《東海大學圖書館館訊》新 89 期（2010）",
+              "url": "https://dcollection.lib.thu.edu.tw/wp-content/uploads/2024/12/89%E6%9C%9F25-59.pdf"
+            },
+            {
+              "en": "The five-finger grip: thumb, index, and middle fingers hold the brush and keep the handle straight; the little finger supports the ring finger; the palm is shaped as if hiding an egg",
+              "zh": "五指執筆：大拇指、食指、中指握住並保持筆桿直；小指托住無名指；掌心像藏著一顆蛋",
+              "src": "Lee & Lee, International Journal of Environmental Research and Public Health (2021)",
+              "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8507993/"
+            },
+            {
+              "en": "心正筆正: “Using the brush depends on the heart; when the heart is upright, the brush is upright” (Liu Gongquan to Emperor Muzong, Old Book of Tang)",
+              "zh": "心正筆正：「用筆在心，心正則筆正」（《舊唐書．柳公綽傳》）",
+              "src": "教育部《成語典》「心正筆正」",
+              "url": "https://dict.idioms.moe.edu.tw/idiomView.jsp?ID=17102&q=1"
+            },
+            {
+              "en": "“上改容，知其筆諫也”: the emperor's face changed, understanding the advice",
+              "zh": "「上改容，知其筆諫也」",
+              "src": "《舊唐書》卷一百六十五（維基文庫）",
+              "url": "https://zh.wikisource.org/zh-hant/%E8%88%8A%E5%94%90%E6%9B%B8/%E5%8D%B7165"
+            },
+            {
+              "en": "鐵畫銀鉤: from Ouyang Xun's On Using the Brush (“剛則鐵畫，媚若銀鉤”); Youxue Qionglin uses it for Wang Xizhi's writing",
+              "zh": "鐵畫銀鉤：語本唐歐陽詢〈用筆論〉；《幼學瓊林》「鐵畫銀鉤，王羲之之字法」",
+              "src": "教育部《成語典》「鐵畫銀鉤」",
+              "url": "https://dict.idioms.moe.edu.tw/idiomView.jsp?ID=9782&q=1"
+            },
+            {
+              "en": "力透紙背: the force of the brush reaches through to the back of the paper; from Yan Zhenqing's record of Zhang Xu's brush methods",
+              "zh": "力透紙背：運筆的力量穿透到紙的另一面；語本唐顏真卿〈張長史十二意筆法記〉",
+              "src": "教育部《成語典》「力透紙背」",
+              "url": "https://dict.idioms.moe.edu.tw/idiomView.jsp?ID=431&q=1"
+            },
+            {
+              "en": "筆走龍蛇: free and skillful writing; Song poet Shi Xiaoyou's ci “滿庭芳．上張紫微”",
+              "zh": "筆走龍蛇：比喻文筆揮灑自如或書法優美熟練；宋石孝友〈滿庭芳．上張紫微〉",
+              "src": "教育部《成語典》「筆走龍蛇」",
+              "url": "https://dict.idioms.moe.edu.tw/idiomView.jsp?ID=7677&q=1"
+            },
+            {
+              "en": "Taiwan's curriculum for grades 3–4 (4-II-7): teach how to hold the brush first, then observe, compare, and demonstrate the start, middle, and finish of each stroke",
+              "zh": "十二年國教國語文 4-Ⅱ-7 說明：先指導毛筆的執筆方法，再就起筆、行筆及收筆進行觀察、比較與示範",
+              "src": "國家教育研究院《語文領域－國語文課程手冊》（2018）",
+              "url": "https://www.naer.edu.tw/upload/1/16/doc/2012/%E8%AA%9E%E6%96%87%E9%A0%98%E5%9F%9F-%E5%9C%8B%E8%AA%9E%E6%96%87%E8%AA%B2%E7%A8%8B%E6%89%8B%E5%86%8A(%E5%AE%9A%E7%A8%BF%E7%89%88).pdf"
+            },
+            {
+              "en": "Stroke order of 十: two strokes, the horizontal first and then the vertical",
+              "zh": "「十」的筆順：共 2 畫，先橫後豎",
+              "src": "教育部《國字標準字體筆順學習網》「十」",
+              "url": "https://stroke-order.learningweb.moe.edu.tw/dictView.jsp?ID=21313"
+            }
+          ]
         }
       ],
       "planned": [
-        {
-          "n": 2,
-          "icon": "〰️",
-          "en": "How Does a Brush Make Thick and Thin Lines?",
-          "zh": "一枝毛筆怎麼寫出粗細？"
-        },
         {
           "n": 3,
           "icon": "✳️",

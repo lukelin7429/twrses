@@ -6527,7 +6527,7 @@ def build_chip_hub():
 _calj = os.path.join(ROOT, "data", "calligraphy.json")
 CAL = json.load(open(_calj, encoding="utf-8")) if os.path.exists(_calj) else None
 CAL_BASE = "/resources/classes/calligraphy/"
-_CAL_JS = {"four": "cal-four"}   # lab.kind → assets/js/<bundle>.js
+_CAL_JS = {"four": "cal-four", "press": "cal-press"}   # lab.kind → assets/js/<bundle>.js
 
 def _cal_ver():
     h = hashlib.md5()
@@ -6579,9 +6579,30 @@ def calfour_svg(size=56):
     return (f'<svg class="calfour-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">'
             f'{_cg_paper(4, 17, 1.05)}{_cg_stone(34, 24, 0.82)}{_cg_ink(47, 4, 0.62)}{_cg_brush(10, 2, 0.5)}</svg>')
 
+_CG_LINES = {   # 第二課卡片的小圖示：宣紙上一筆墨（提按的樣子），只用 SVG 路徑
+    "swell": '<path d="M9 31c6-2.2 12-6 21-6.4 9 .4 15 4.2 21 6.4-6 2.2-12 6-21 6.4-9-.4-15-4.2-21-6.4z" fill="#151311"/>',
+    "wave": '<path d="M9 31c3-3.5 6-5.5 9-5.5s5 4 7 4 4-6 8-6 5 6 8 6 5-4 7-4 2 3.5 3 5.5c-1 2-1 5.5-3 5.5s-4-4-7-4-4 6-8 6-6-6-8-6-4 4-7 4-6-2-9-5.5z" fill="#151311"/>',
+    "side": '<path d="M10 22c2-3 6-3 10-3h20c4 0 8 0 10 3-2 3-6 3-10 3H20c-4 0-8 0-10-3z" fill="#151311"/>'
+            '<path d="M10 39l3-3h34l3 3-3 1H13z" fill="#151311"/><path d="M13 41.4h34M14 42.6h31M16 43.6h26" stroke="#151311" stroke-width=".8" stroke-dasharray="3 1.6"/>',
+    "needle": '<path d="M27.6 9c3.6-1.6 6.4.6 6 3.4l-.6 3.2-.3 22c-.2 5-1 9.5-2.7 13.6-1.6-4-2.4-8.6-2.6-13.6l-.5-22C26.2 13.2 25.6 10 27.6 9z" fill="#151311"/>',
+}
+
 def _cg_icon(kind, size=66):
+    if kind in _CG_LINES:
+        return (f'<svg viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">'
+                f'<rect x="4" y="4" width="52" height="52" rx="3" fill="#f6f0e1"/>{_CG_LINES[kind]}</svg>')
     inner = {"brush": _cg_brush(30, 4, 1.24), "ink": _cg_ink(30, 6, 1.6), "paper": _cg_paper(6.5, 6.5, 1.8), "stone": _cg_stone(13, 6.75, 1.55)}[kind]
     return f'<svg viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">{inner}</svg>'
+
+def calpress_svg(size=56):
+    """第二課的課程卡小圖示：宣紙上一筆由細變粗再變細的墨，旁邊一枝毛筆。"""
+    return (f'<svg class="calpress-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">'
+            '<rect x="5" y="13" width="44" height="40" rx="3" fill="#f6f0e1"/>'
+            '<path d="M9 35c5-1.8 10-5 17-5.4 7 .4 12 3.6 17 5.4-5 1.8-10 5-17 5.4-7-.4-12-3.6-17-5.4z" fill="#151311"/>'
+            '<path d="M55.5 3.5 45.2 22.8" stroke="#c9a466" stroke-width="4.2" stroke-linecap="round"/>'
+            '<path d="M46.2 21.1 44.2 24.6" stroke="#3a2216" stroke-width="5.2" stroke-linecap="round"/>'
+            '<path d="M44.6 23.4c1.9 1.3 1.6 4.4-.4 6.9l-2.6 3.1c-.3-3.1-.8-5.6.6-8.4.6-1.1 1.4-1.7 2.4-1.6z" fill="#efe6d0"/>'
+            '<path d="M43.7 28c.4 1.6-.5 3.4-2.3 5.4-.3-1.8-.5-3.4.2-5 .6-.9 1.5-1.1 2.1-.4z" fill="#151311"/></svg>')
 
 def render_calfour_lab(lesson):
     """第一課：書桌上的文房四寶＋寫字引擎示範（assets/js/cal-four.js 綁這裡的 class；全部自繪示意）。"""
@@ -6665,6 +6686,84 @@ def render_calfour_lab(lesson):
   <p class="cg-credit">{lab["credit_html"]}</p>
 </div>'''
 
+def render_calpress_lab(lesson):
+    """第二課：提按、中鋒與側鋒、寫「十」（assets/js/cal-press.js 綁這裡的 class；全部自繪示意）。"""
+    lab = lesson["lab"]
+    M = {m["key"]: m for m in lab["modes"]}
+    mb = "".join(
+        f'<button type="button" data-mode="{m["key"]}" aria-pressed="{"true" if m["key"] == "press" else "false"}">'
+        f'<i aria-hidden="true">{html.escape(m["icon"])}</i>{html.escape(m["en"])}<small>{html.escape(m["zh"])}</small></button>'
+        for m in lab["modes"])
+    def head(k):
+        m = M[k]
+        return (f'<h3 class="cg-panel-h">{html.escape(m["title_en"])}<span class="zh">{html.escape(m["title_zh"])}</span></h3>'
+                f'<p class="cg-panel-t">{html.escape(m["text_en"])}<span class="zh">{html.escape(m["text_zh"])}</span></p>')
+    pb = "".join(f'<button type="button" data-pattern="{x["key"]}" aria-pressed="{"true" if x["key"] == "swell" else "false"}">{html.escape(x["en"])}<small>{html.escape(x["zh"])}</small></button>'
+                 for x in lab["patterns"])
+    speeds = [("1", "1×", "原速"), ("0.5", "½×", "慢"), ("0.25", "¼×", "很慢")]
+    sb = "".join(f'<button type="button" data-speed="{k}" aria-pressed="{"true" if k == "1" else "false"}">{en}<small>{zh}</small></button>' for k, en, zh in speeds)
+    cams = [("side", "Side", "側面"), ("top", "Top", "正上方"), ("tip", "Tip", "貼近筆尖")]
+    cb = "".join(f'<button type="button" data-cam="{k}" aria-pressed="{"true" if k == "side" else "false"}">{en}<small>{zh}</small></button>' for k, en, zh in cams)
+    tg = _lab_toggles([("labels", "Labels", "標示", True), ("grid", "Grid", "格線", True)])
+    phases = html.escape(json.dumps(lab["phases"], ensure_ascii=False))
+    return f'''<div class="astro-lab cg-lab cg-press-lab rvl" data-calpress-lab data-phases="{phases}">
+  <div class="al-stage">
+    <div class="al-space">
+      <canvas class="al-space-cv" aria-label="3D model of a brush writing on paper: pressing and lifting, the center tip and the side tip, and the character ten · 毛筆在紙上寫字的 3D 模型：提按、中鋒與側鋒、寫「十」"></canvas>
+      <div class="al-labels" aria-hidden="true"></div>
+      <div class="cg-cams" role="group" aria-label="View · 角度">{cb}</div>
+      <p class="al-hint">Drag to turn · 拖曳旋轉　Scroll or pinch to zoom · 滾輪／雙指縮放</p>
+      <button type="button" class="al-home" title="Reset view · 重設視角" aria-label="Reset view · 重設視角">&#8634;</button>
+      <p class="al-nogl-msg">This 3D model needs WebGL, which this browser does not support. The reading, the cards, and the practice pad below still work.<br><span class="zh">這個瀏覽器不支援 WebGL，無法顯示 3D 模型；下方的課文、卡片和練字板一樣能用。</span></p>
+    </div>
+    <aside class="al-sky cg-aside">
+      <p class="al-sky-k">Try it · 試試看</p>
+      <div class="cg-focus cg-modes" role="group" aria-label="Try it · 試試看">{mb}</div>
+      <div class="cg-panel" data-panel="press">{head("press")}
+        <div class="cg-seg cg-patterns" role="group" aria-label="Pattern · 力道的節奏">{pb}</div>
+        <label class="al-slider cg-hand-row"><span>Lift 提 ← · → Press 按</span>
+          <input type="range" class="al-age cg-hand" min="0" max="100" step="1" value="50" style="--p:50%" aria-label="How hard the brush presses · 壓多重"></label>
+        <dl class="cg-nums"><div><dt>Pressure · 力道</dt><dd class="cg-p-out">—</dd></div><div><dt>Line width · 線寬</dt><dd class="cg-w-out">—</dd></div></dl>
+        <div class="cg-dark-row cg-spread-row"><span>Hairs gather · 收攏</span><span class="cg-dark-bar cg-spread"><i></i></span><span>Spread · 散開</span></div>
+        <button type="button" class="cg-btn-d cg-again">Start over · 重新寫</button>
+      </div>
+      <div class="cg-panel" data-panel="tip" hidden>{head("tip")}
+        <div class="cg-seg cg-seg2" role="group" aria-label="Which tip · 哪一種筆鋒"><button type="button" data-tip="center" aria-pressed="true">Center tip<small>中鋒</small></button><button type="button" data-tip="side" aria-pressed="false">Side tip<small>側鋒</small></button></div>
+        <dl class="cg-nums"><div><dt>Handle · 筆桿</dt><dd class="cg-tip-handle"></dd></div><div><dt>Tip · 筆尖</dt><dd class="cg-tip-where"></dd></div></dl>
+        <p class="cg-note-d">Use the Top view to compare the two edges. · 用「正上方」比較兩條線的邊緣。</p>
+      </div>
+      <div class="cg-panel" data-panel="shi" hidden>{head("shi")}
+        <div class="cg-seg cg-seg2" role="group" aria-label="Stroke · 第幾筆"><button type="button" data-stroke="0" aria-pressed="true">1 Horizontal<small>橫</small></button><button type="button" data-stroke="1" aria-pressed="false">2 Vertical<small>豎</small></button></div>
+        <div class="cg-seg cg-seg4" role="group" aria-label="Replay a part · 重播一段"><button type="button" data-phase="0">Start<small>起筆</small></button><button type="button" data-phase="1">Middle<small>行筆</small></button><button type="button" data-phase="2">Finish<small>收筆</small></button><button type="button" data-phase="all">Whole<small>整個字</small></button></div>
+        <div class="cg-seg cg-speeds" role="group" aria-label="Speed · 速度">{sb}</div>
+        <p class="al-sky-k cg-k2">Force curve · 力道曲線 <b class="cg-press-out">—</b></p>
+        <canvas class="cg-force" aria-label="Force curve of the stroke · 這一筆的力道曲線"></canvas>
+        <p class="cg-phase-k" aria-live="polite"></p>
+        <p class="cg-phase-t"></p>
+      </div>
+    </aside>
+  </div>
+  <div class="al-controls">
+    <div class="al-row al-row-main">
+      <button type="button" class="al-play" aria-pressed="true"><span class="al-play-i" aria-hidden="true"></span><span class="al-play-t">Pause · 暫停</span></button>
+      <div class="al-row al-toggles">{tg}</div>
+    </div>
+  </div>
+  {_lab_foot(lab)}
+  <p class="cg-credit">{lab["credit_html"]}</p>
+</div>'''
+
+def _cal_hold(hd):
+    cards = "".join(
+        f'<article class="cg-finger rvl"><b class="cg-finger-ch" aria-hidden="true">{html.escape(f["ch"])}</b>'
+        f'<span class="cg-finger-py">{html.escape(f["ch"])} {html.escape(f["py"])}</span>'
+        f'<h3>{html.escape(f["en"])}<span class="zh">{html.escape(f["zh"])}</span></h3>'
+        f'<p>{html.escape(f["text_en"])}<span class="zh">{html.escape(f["text_zh"])}</span></p></article>'
+        for f in hd["fingers"])
+    checks = "".join(f'<li>{html.escape(c["en"])}<span class="zh">{html.escape(c["zh"])}</span></li>' for c in hd["checks"])
+    return (f'<div class="cg-fingers stagger">{cards}</div>'
+            f'<div class="cg-checks rvl"><p class="sub-head">Check your grip · 檢查你的執筆</p><ul>{checks}</ul></div>')
+
 def _cal_drops(dp):
     inks = "".join(f'<button type="button" data-ink="{k["key"]}" aria-pressed="{"true" if k["key"] == "mid" else "false"}">{html.escape(k["en"])}<small>{html.escape(k["zh"])}</small></button>' for k in dp["inks"])
     cards = "".join(
@@ -6680,6 +6779,10 @@ def _cal_drops(dp):
 
 def _cal_pad(pd):
     tips = "".join(f'<li>{html.escape(t["en"])}<span class="zh">{html.escape(t["zh"])}</span></li>' for t in pd["tips"])
+    curve = ('<div class="cg-pad-cmp"><p class="sub-head">Your press-and-lift curve · 你的提按曲線</p>'
+             '<canvas class="cg-pad-curve" aria-label="Your press-and-lift curve compared with the demo · 你的提按曲線和示範比較"></canvas>'
+             '<p class="cg-pad-key"><i class="cg-key-m"></i>Demo · 示範　<i class="cg-key-u"></i>You · 你</p>'
+             '<p class="cg-pad-score" aria-live="polite"></p></div>') if pd.get("curve") else ""
     return f'''<div class="cg-pad rvl" data-cal-pad data-char="{html.escape(pd["char"])}">
   <div class="cg-pad-paper"><canvas class="cg-pad-cv" aria-label="Practice pad: trace the character one with a mouse, a finger, or a stylus · 練字板：用滑鼠、手指或觸控筆描寫「一」"></canvas></div>
   <div class="cg-pad-side">
@@ -6696,6 +6799,7 @@ def _cal_pad(pd):
     <div class="cg-pad-meter-w" aria-hidden="true"><span>Thin · 細</span><span class="cg-pad-meter"><i></i></span><span>Thick · 粗</span></div>
     <p class="cg-pad-mode" hidden><span class="cg-m-mouse">Mouse or finger: slow = thick, fast = thin<span class="zh">滑鼠或手指：寫得慢＝粗、寫得快＝細</span></span><span class="cg-m-pen">Stylus: press harder for a thicker line<span class="zh">觸控筆：越用力線越粗</span></span></p>
     <ol class="cg-pad-tips">{tips}</ol>
+    {curve}
     <p class="cg-pad-msg" aria-live="polite"></p>
   </div>
 </div>'''
@@ -6727,7 +6831,7 @@ def build_cal_lesson(ui, unit, lesson):
     reading_html = render_basic_unit(1, unit_dict, level="callig", audio_rel="", pdf_rel="")
     lab = lesson["lab"]
     kind = lab["kind"]
-    lab_html = {"four": render_calfour_lab}[kind](lesson)
+    lab_html = {"four": render_calfour_lab, "press": render_calpress_lab}[kind](lesson)
 
     secs = []
     if lesson.get("parts"):
@@ -6745,6 +6849,9 @@ def build_cal_lesson(ui, unit, lesson):
     if lesson.get("drops"):
         dp = lesson["drops"]
         secs.append(("drops", dp["eyebrow"], dp["en"], dp["zh"], _cal_drops(dp), _bi(dp["lead_en"], dp["lead_zh"], cls="lead rvl d2")))
+    if lesson.get("hold"):
+        hd = lesson["hold"]
+        secs.append(("hold", hd["eyebrow"], hd["en"], hd["zh"], _cal_hold(hd), _bi(hd["lead_en"], hd["lead_zh"], cls="lead rvl d2")))
     if lesson.get("pad"):
         pd = lesson["pad"]
         secs.append(("pad", pd["eyebrow"], pd["en"], pd["zh"], _cal_pad(pd), _bi(pd["lead_en"], pd["lead_zh"], cls="lead rvl d2")))
@@ -6758,7 +6865,8 @@ def build_cal_lesson(ui, unit, lesson):
         secs.append(("stories", cu["eyebrow"], cu["title_en"], cu["title_zh"], f'<div class="cc-grid">{cc}</div>',
                      _bi(cu["lead_en"], cu["lead_zh"], cls="lead rvl d2")))
     secs.append(("myths", "Myth vs. Fact · 常見迷思", "Four things people get wrong", "四個常見的誤會", _sci_myths(lesson), ""))
-    tricks_h = {"four": ("The Four Treasures in a sentence", "一句話記住文房四寶")}[kind]
+    tricks_h = {"four": ("The Four Treasures in a sentence", "一句話記住文房四寶"),
+                "press": ("Press and lift in a sentence", "一句話記住提按")}[kind]
     secs.append(("tricks", "Remember It · 記憶口訣", tricks_h[0], tricks_h[1], _sci_tricks(lesson), ""))
     if lesson.get("safety"):
         items = "".join(f'<li class="rvl">{html.escape(s["en"])}<span class="zh">{html.escape(s["zh"])}</span></li>' for s in lesson["safety"])
@@ -6823,7 +6931,7 @@ def build_cal_lesson(ui, unit, lesson):
 def build_cal_hub():
     # 照晶片與半導體：單元導覽＋每個單元一段橫向課程卡；做好的課可點，planned 是「製作中」卡。
     def icon(l):
-        return calfour_svg(60) if l.get("card") == "four" else l["icon"]
+        return calfour_svg(60) if l.get("card") == "four" else calpress_svg(60) if l.get("card") == "press" else l["icon"]
     unit_sections, nav = [], []
     done = sum(len(u["lessons"]) for u in CAL["units"])
     total = done + sum(len(u.get("planned", [])) for u in CAL["units"])

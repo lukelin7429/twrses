@@ -18,10 +18,10 @@
  */
 import {
   BufferAttribute, BufferGeometry, CanvasTexture, Color, CylinderGeometry, DoubleSide, Group, Mesh,
-  MeshStandardMaterial, PlaneGeometry, SRGBColorSpace, TorusGeometry, Vector3,
+  MeshStandardMaterial, PlaneGeometry, Quaternion, SRGBColorSpace, TorusGeometry, Vector3,
 } from 'three';
-import { BOX, HAIR, clamp, pressDepth, prepStroke, sampleAt, stamps, strokeDuration, tipTrail } from './brush.js';
-import { drawGrid, drawStamps, paperBase } from './ink2d.js';
+import { BOX, HAIR, bendGeom, clamp, pressDepth, prepStroke, sampleAt, stamps, strokeDuration, tipTrail } from './brush.js';
+import { drawBristles, drawGrid, drawStamps, paperBase } from './ink2d.js';
 
 // =====================================================================
 // 毛筆
@@ -30,20 +30,21 @@ const RINGS = 26, SEG = 20;
 
 export function makeBrush({ L = 0.45, R = 0.07, handle = 2.0, hair = 'goat' } = {}) {
   const group = new Group();
+  const handleG = new Group(); group.add(handleG);   // 筆桿這一組可以斜（側鋒），筆毛根部在原點不動
   // 筆桿（竹）、竹節、筆斗、筆尾與掛繩圈
   const bamboo = new MeshStandardMaterial({ color: 0xc9a466, roughness: 0.55, metalness: 0.02 });
   const node = new MeshStandardMaterial({ color: 0x9c7a44, roughness: 0.6 });
   const lacq = new MeshStandardMaterial({ color: 0x3a2216, roughness: 0.35, metalness: 0.1 });
   const hr = R * 0.78;
   const stick = new Mesh(new CylinderGeometry(hr * 0.92, hr, handle, 24), bamboo);
-  stick.position.y = 0.16 + handle / 2; group.add(stick);
-  for (const f of [0.38, 0.74]) { const n = new Mesh(new CylinderGeometry(hr * 1.06, hr * 1.06, 0.025, 24), node); n.position.y = 0.16 + handle * f; group.add(n); }
+  stick.position.y = 0.16 + handle / 2; handleG.add(stick);
+  for (const f of [0.38, 0.74]) { const n = new Mesh(new CylinderGeometry(hr * 1.06, hr * 1.06, 0.025, 24), node); n.position.y = 0.16 + handle * f; handleG.add(n); }
   const ferrule = new Mesh(new CylinderGeometry(hr * 1.04, R * 1.02, 0.18, 24), lacq);
-  ferrule.position.y = 0.09; group.add(ferrule);
+  ferrule.position.y = 0.09; handleG.add(ferrule);
   const cap = new Mesh(new CylinderGeometry(hr * 0.95, hr * 0.92, 0.1, 24), lacq);
-  cap.position.y = 0.16 + handle + 0.05; group.add(cap);
+  cap.position.y = 0.16 + handle + 0.05; handleG.add(cap);
   const loop = new Mesh(new TorusGeometry(0.05, 0.008, 8, 24), new MeshStandardMaterial({ color: 0xb03a2e, roughness: 0.7 }));
-  loop.position.y = 0.16 + handle + 0.14; group.add(loop);
+  loop.position.y = 0.16 + handle + 0.14; handleG.add(loop);
 
   // 筆毛：RINGS 圈 × SEG 段，每格重算頂點
   const nV = RINGS * SEG + 1;
@@ -62,7 +63,8 @@ export function makeBrush({ L = 0.45, R = 0.07, handle = 2.0, hair = 'goat' } = 
   const tuft = new Mesh(geo, new MeshStandardMaterial({ vertexColors: true, roughness: 0.85, metalness: 0, side: DoubleSide }));
   group.add(tuft);
 
-  const state = { d: 0, dir: [-1, 0], fan: 0, ink: 0, hair, wet: 0 };
+  const state = { d: 0, dir: [-1, 0], fan: 0, ink: 0, hair, wet: 0, tilt: 0 };
+  const Y = new Vector3(0, 1, 0), lean = new Vector3();
   const cHair = new Color(), cInk = new Color(0x141214), cTmp = new Color(), cCore = new Color(0x8a5a30);
   const radius = (u) => R * (1 + 0.35 * Math.sin(Math.PI * u)) * (1 - u) ** 0.65;
 
@@ -70,20 +72,25 @@ export function makeBrush({ L = 0.45, R = 0.07, handle = 2.0, hair = 'goat' } = 
     Object.assign(state, o);
     const d = clamp(state.d, 0, L * 0.85);
     const [dx, dz] = state.dir;
-    const h = L - d;                                   // 筆毛根部到紙面的高度
-    const rc = d > 1e-5 ? Math.min(1.2 * d, h * 0.9) : 0;
-    const b0 = h - rc, arc = (Math.PI / 2) * rc;
-    const press = d / L;
+    const tilt = state.tilt || 0;
+    const G = bendGeom(L, d, tilt);                    // 直線 b0 → 圓弧 rc → 貼紙 flat（brush.js，node 有測試）
+    const ts = Math.sin(tilt), tc = Math.cos(tilt);
+    const press = G.touch ? Math.min(1, (L - G.H / tc) / L) : 0;
     const sx = -dz, sz = dx;                           // 側向（垂直於筆尖方向的水平向量）
+    // 筆桿往筆尖的反方向倒 tilt：筆桿的 +Y 轉到 (−dx·sin, cos, −dz·sin)
+    lean.set(-dx * ts, tc, -dz * ts);
+    handleG.quaternion.setFromUnitVectors(Y, lean);
     cHair.setHex(HAIR[state.hair].color);
+    const a0 = -(Math.PI / 2 - tilt);                  // 第一段的方向角（在「筆尖方向—上下」平面裡）
+    const c0x = G.b0 * ts - G.rc * Math.sin(a0), c0y = -G.b0 * tc + G.rc * Math.cos(a0);   // 圓弧的圓心
     for (let r = 0; r < RINGS; r++) {
       const u = r / (RINGS - 1);
       const a = u * L;
       // 中心線上的點（水平偏移 o、高度 y）與切線（to 水平分量、ty）
       let o, y, to, ty, onPaper;
-      if (rc === 0 || a <= b0) { o = 0; y = -a; to = 0; ty = -1; onPaper = 0; }
-      else if (a <= b0 + arc) { const ph = (a - b0) / rc; o = rc * (1 - Math.cos(ph)); y = -b0 - rc * Math.sin(ph); to = Math.sin(ph); ty = -Math.cos(ph); onPaper = Math.sin(ph); }
-      else { o = rc + (a - b0 - arc); y = -h; to = 1; ty = 0; onPaper = 1; }
+      if (!G.touch || a <= G.b0) { o = a * ts; y = -a * tc; to = ts; ty = -tc; onPaper = 0; }
+      else if (a <= G.b0 + G.arc) { const ph = a0 + (a - G.b0) / G.rc; o = c0x + G.rc * Math.sin(ph); y = c0y - G.rc * Math.cos(ph); to = Math.cos(ph); ty = Math.sin(ph); onPaper = Math.sin(((ph - a0) / -a0) * Math.PI / 2); }
+      else { o = G.offset + (a - G.b0 - G.arc); y = -G.H; to = 1; ty = 0; onPaper = 1; }
       // 壓扁、攤開：貼紙的部分橫向變寬、上下變薄；fan 把整個下半部壓成扇形
       const rr = radius(u);
       const fanK = state.fan * u;
@@ -159,10 +166,13 @@ export function makePaper({ w = 3.2, h = 3.8, x = 0, y = 0.02, z = 0, ppu = 360,
     mesh, tex, canvas: cv, T, y, box,
     /** 字框座標 → 世界座標（紙面上） */
     world: (bx, by, out = new Vector3()) => out.set(bc[0] + (bx / BOX - 0.5) * box, y, bc[1] + (by / BOX - 0.5) * box),
-    stampMany(sts, i0, i1) {
+    /** style.bristles：側鋒，筆毛一根根畫（飛白）；沒有就是中鋒的實心印子 */
+    stampMany(sts, i0, i1, style = {}) {
       if (i1 <= i0) return;
-      drawStamps(gi, sts, T, { i0, i1, soft: ppu / 150 });
-      drawStamps(g, sts, T, { i0, i1, soft: ppu / 150 });
+      for (const gg of [gi, g]) {
+        if (style.bristles) drawBristles(gg, sts, T, { i0, i1, bristles: style.bristles, dry: style.dry ?? 0.55 });
+        else drawStamps(gg, sts, T, { i0, i1, soft: ppu / 150 });
+      }
       tex.needsUpdate = true;
     },
     clearInk() { gi.clearRect(0, 0, CW, CH); compose(); },
@@ -175,10 +185,14 @@ export function makePaper({ w = 3.2, h = 3.8, x = 0, y = 0.02, z = 0, ppu = 360,
 // =====================================================================
 const AIR = { up: 0.22, move: 0.4, down: 0.2 };   // 多筆字：提筆、在空中移過去、下筆（秒）
 
-export function makeWriter(paper, char) {
+/**
+ * opt.side：側鋒（tipTrail 的 side，弧度）；opt.tilt：筆桿斜幾度（弧度，給 placeBrush）；opt.bristles：側鋒的筆毛（畫飛白）
+ */
+export function makeWriter(paper, char, opt = {}) {
+  const tr = { side: opt.side || 0 };
   const strokes = char.strokes.map((st) => {
     const s = prepStroke(st);
-    return { st, s, sts: stamps(s), trail: tipTrail(s), dur: strokeDuration(s), drawn: 0 };
+    return { st, s, sts: stamps(s, tr), trail: tipTrail(s, tr), dur: strokeDuration(s), drawn: 0 };
   });
   const segs = [];
   let T = 0;
@@ -190,6 +204,8 @@ export function makeWriter(paper, char) {
   return {
     strokes, duration: T,
     reset() { strokes.forEach((k) => { k.drawn = 0; }); },
+    /** 每一筆在整個時間軸上從幾秒到幾秒（分段重播用） */
+    spans: () => segs.filter((g) => !g.air).map((g) => ({ t0: g.t0, t1: g.t1, i: g.i })),
     /** t 秒時的姿勢：{ x, y（字框）, p, d（世界單位的壓深用 pressDepth）, dir, hover（筆尖離紙多高，0＝碰到）, phase, n（第幾筆）, f（這一筆走了幾成） } */
     poseAt(t) {
       const seg = segs.find((g) => t < g.t1) || segs[segs.length - 1];
@@ -200,11 +216,11 @@ export function makeWriter(paper, char) {
         const mm = m * m * (3 - 2 * m);
         const hover = u < up ? u / up : u > dn ? (1 - u) / (1 - dn) : 1;
         const da = trailAt(seg.a, seg.a.trail.length - 1);
-        return { x: a.x + (b.x - a.x) * mm, y: a.y + (b.y - a.y) * mm, p: 0, dir: [Math.cos(da), Math.sin(da)], hover, phase: -1, n: seg.b.st.n - 1, f: 0 };
+        return { x: a.x + (b.x - a.x) * mm, y: a.y + (b.y - a.y) * mm, p: 0, dir: [Math.cos(da), Math.sin(da)], hover, phase: -1, n: seg.b.st.n - 1, f: 0, tilt: opt.tilt || 0 };
       }
       const k = seg.k, q = sampleAt(k.s, clamp(t - seg.t0, 0, k.dur));
       const a = trailAt(k, q.i);
-      return { x: q.x, y: q.y, p: q.p, dir: [Math.cos(a), Math.sin(a)], hover: 0, phase: q.phase, n: seg.i, f: q.s / (k.s[k.s.length - 1].s || 1) };
+      return { x: q.x, y: q.y, p: q.p, dir: [Math.cos(a), Math.sin(a)], hover: 0, phase: q.phase, n: seg.i, f: q.s / (k.s[k.s.length - 1].s || 1), tilt: opt.tilt || 0 };
     },
     /** 把到 t 秒為止該有的墨跡畫上紙（只畫還沒畫過的） */
     drawTo(t) {
@@ -213,26 +229,29 @@ export function makeWriter(paper, char) {
         const k = seg.k, local = t - seg.t0;
         let n = k.drawn;
         while (n < k.sts.length && k.sts[n].t <= local) n++;
-        if (n > k.drawn) { paper.stampMany(k.sts, k.drawn, n); k.drawn = n; }
+        if (n > k.drawn) { paper.stampMany(k.sts, k.drawn, n, { bristles: opt.bristles }); k.drawn = n; }
       }
     },
   };
 }
 
-/** 筆毛彎下去時，貼紙的部分從筆桿正下方往筆尖方向偏多遠（＝四分之一圓的半徑，setPose 裡的 rc） */
-export const bendOffset = (L, d) => (d > 1e-5 ? Math.min(1.2 * d, (L - d) * 0.9) : 0);
+/** 筆毛彎下去時，貼紙的部分從筆桿正下方往筆尖方向偏多遠（brush.js 的 bendGeom） */
+export const bendOffset = (L, d, tilt = 0) => bendGeom(L, d, tilt).offset;
 
 /**
- * 把毛筆擺到寫字的姿勢：筆桿直立（中鋒），筆毛根部在紙面上 L − 壓深 + hover 的高度。
+ * 把毛筆擺到寫字的姿勢，筆毛根部在紙面上方。中鋒筆桿直立；pose.tilt（側鋒）時筆桿往筆尖的反方向倒。
  * 筆桿走在前面、筆毛拖在後面：墨跡的圓頭（字框的那一點）在筆肚貼紙的地方，
  * 所以筆桿要往「筆尖的反方向」挪 bendOffset，筆肚才剛好蓋在墨跡上。
+ * 筆斜了，筆毛要再往下一點才碰得到紙：根部高度＝L·cos(tilt) − 壓深。
  */
 export function placeBrush(brush, paper, pose, hover = 0) {
   const w = paper.world(pose.x, pose.y);
-  const d = pressDepth(pose.p) * brush.L;
-  const o = bendOffset(brush.L, d);
+  const tilt = pose.tilt || 0, L = brush.L;
+  const press = pressDepth(pose.p) * L;
+  const d = L - (L * Math.cos(tilt) - press);      // 給 setPose：根部高度 H＝L − d
+  const o = bendOffset(L, d, tilt);
   brush.group.quaternion.identity();
-  brush.group.position.set(w.x - pose.dir[0] * o, paper.y + 0.002 + brush.L - d + hover, w.z - pose.dir[1] * o);
-  brush.setPose({ d, dir: pose.dir, fan: 0 });
-  return d;
+  brush.group.position.set(w.x - pose.dir[0] * o, paper.y + 0.002 + (L - d) + hover, w.z - pose.dir[1] * o);
+  brush.setPose({ d, dir: pose.dir, fan: 0, tilt });
+  return press;
 }

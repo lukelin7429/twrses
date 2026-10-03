@@ -8,10 +8,12 @@
  *   - 觸控筆（pointerType 'pen' 而且有壓力）：越壓越粗（penPressure）
  *   - 筆毛印子和 3D 宣紙同一套（brush.js 的 stamps／水滴形），所以寫出來像毛筆不像原子筆
  * 按鈕 data-pad="demo|undo|clear|save"；開關 data-pt="grid|model"。畫布 touch-action: none，寫字時頁面不會捲動。
+ * 有 .cg-pad-curve 畫布時（第二課起）：每寫完一筆，畫出你的提按曲線（藍）疊在示範那一筆的力道曲線（金）上，
+ *   .cg-pad-score 寫出和示範有多像（brush.js 的 curveFromStamps、curveMatch）。第 n 筆對示範的第 n 筆（照筆順）。
  * 除錯：root.__pad（strokes、render()、clear()、demo()、write(點陣列)）
  */
-import { BOX, clamp, footprint, penPressure, prepStroke, smoothTo, speedToPressure, stamps } from './brush.js';
-import { drawGrid, drawStamps, paperBase } from './ink2d.js';
+import { BOX, clamp, curveFromStamps, curveMatch, footprint, forceCurve, penPressure, prepStroke, smoothTo, speedToPressure, stamps } from './brush.js';
+import { drawCompare, drawGrid, drawStamps, paperBase } from './ink2d.js';
 
 const STEP = 2.5;         // 兩個印子之間的距離（字框單位）
 const LAG = 26;           // 筆尖轉向的慣性（同 brush.js 的 tipTrail）
@@ -109,6 +111,38 @@ export function initPad(root, char) {
     if (!cur.sts.length) strokes.pop();
     cur = null;
     if (msg) msg.textContent = '';
+    compare();
+  }
+
+  // ---------- 提按曲線比較（第二課起） ----------
+  const cmpCv = root.querySelector('.cg-pad-curve'), cmpOut = root.querySelector('.cg-pad-score');
+  const mCurves = model.map((m) => forceCurve(m.s));
+  const mBounds = model.map((m) => {
+    const L = m.s[m.s.length - 1].s || 1, a = m.s.find((q) => q.phase >= 1), b = m.s.find((q) => q.phase >= 2);
+    return [a ? a.s / L : 0.2, b ? b.s / L : 0.8];
+  });
+  let lastScore = null;
+  function compare() {
+    if (!cmpCv) return;
+    const css = cmpCv.clientWidth || 300, dpr = Math.min(window.devicePixelRatio || 1, 2);
+    const w = Math.round(css * dpr), h = Math.round((cmpCv.clientHeight || 120) * dpr);
+    if (cmpCv.width !== w || cmpCv.height !== h) { cmpCv.width = w; cmpCv.height = h; }
+    const g2 = cmpCv.getContext('2d');
+    const real = strokes.filter((st) => st.sts.length >= 8);
+    const k = real.length ? (real.length - 1) % model.length : 0;
+    const zhs = ['起筆', '行筆', '收筆'];
+    if (!real.length) {
+      drawCompare(g2, w, h, mCurves[0], [], { bounds: mBounds[0], labels: zhs });
+      lastScore = null;
+      if (cmpOut) cmpOut.innerHTML = `Write stroke 1 (${char.strokes[0].en}) to see your curve.<span class="zh">寫第 1 筆（${char.strokes[0].zh}），看看你的提按曲線。</span>`;
+      return;
+    }
+    const uc = curveFromStamps(real[real.length - 1].sts);
+    const m = curveMatch(mCurves[k], uc);
+    lastScore = { k, m };
+    drawCompare(g2, w, h, mCurves[k], uc, { bounds: mBounds[k], labels: zhs });
+    if (cmpOut) cmpOut.innerHTML = `Stroke ${k + 1} (${char.strokes[k].en}): <b>${Math.round(m * 100)}%</b> like the demo.`
+      + `<span class="zh">第 ${k + 1} 筆（${char.strokes[k].zh}）：和示範的提按 <b>${Math.round(m * 100)}%</b> 相似。</span>`;
   }
   cv.addEventListener('pointerdown', (e) => {
     if (e.button !== undefined && e.button > 0) return;
@@ -166,8 +200,8 @@ export function initPad(root, char) {
   root.querySelectorAll('[data-pad]').forEach((b) => b.addEventListener('click', () => {
     const k = b.getAttribute('data-pad');
     if (k === 'demo') { if (demo) stopDemo(); else startDemo(); }
-    if (k === 'undo') { strokes.pop(); render(); }
-    if (k === 'clear') { strokes.length = 0; render(); }
+    if (k === 'undo') { strokes.pop(); render(); compare(); }
+    if (k === 'clear') { strokes.length = 0; render(); compare(); }
     if (k === 'save') save();
   }));
   root.querySelectorAll('[data-pt]').forEach((el) => el.addEventListener('change', () => {
@@ -186,10 +220,11 @@ export function initPad(root, char) {
 
   new ResizeObserver(size).observe(cv);
   size();
+  if (cmpCv) { new ResizeObserver(() => compare()).observe(cmpCv); compare(); }
   if (modeEl) modeEl.hidden = false;
 
   root.__pad = {
-    strokes, render, clear: () => { strokes.length = 0; render(); }, demo: startDemo, stopDemo,
+    strokes, render, clear: () => { strokes.length = 0; render(); compare(); }, demo: startDemo, stopDemo, score: () => lastScore,
     setDemoTime: (t) => { demo = demo || { t: 0 }; demo.t = t; render(); },
     // 除錯：照點陣列寫一筆 [[x, y, 毫秒], …]（字框座標），走跟真的指標一樣的流程
     write(pts, pointerType = 'mouse', pressure = 0.5) {

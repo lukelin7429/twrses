@@ -6,6 +6,8 @@
  *   paperBase(g, w, h, opt)           紙色＋淡淡的纖維
  *   drawGrid(g, x, y, s, opt)         米字格（kind 'mi'）或九宮格（'jiu'），紅線
  *   drawStamp / drawStamps            筆毛印子（brush.js 的水滴形）
+ *   drawBristles                      側鋒：筆毛一根根畫，筆肚那一緣會乾（飛白）
+ *   drawCompare                       練字板：示範的力道曲線（金色）和你的提按曲線（藍線），白底
  *   drawBlot(g, cx, cy, R, b, seed)   一滴墨暈開（brush.js 的 bleed 結果）
  *   drawForce(g, w, h, curve, opt)    力道曲線（走了幾成 → 壓力）
  */
@@ -180,3 +182,62 @@ export function drawForce(g, w, h, curve, { at = null, bounds = null, labels = n
   }
   g.restore();
 }
+
+/**
+ * 側鋒的墨：每個印子沿著筆尖方向排一列筆毛（brush.js 的 bristles），每根畫一個小圓；印子很密，
+ * 所以每根筆毛拖出一條順著運筆方向的細線。筆肚那一緣（u 小）比較容易乾，門檻 k 太高的筆毛就不畫 → 飛白的縫。
+ * 筆尖那一緣筆毛密、圓也大一點，邊緣是齊的。
+ */
+export function drawBristles(g, sts, T, { i0 = 0, i1 = sts.length, bristles = [], color = '#151311', dry = 0.55 } = {}) {
+  if (i1 <= i0) return;
+  g.save();
+  g.fillStyle = color;
+  for (let i = i0; i < i1; i++) {
+    const st = sts[i], ca = Math.cos(st.a), sa = Math.sin(st.a), span = st.hw + st.len;
+    for (const b of bristles) {
+      if (b.k > 1 - dry * (1 - b.u) ** 1.5) continue;
+      const pos = -st.hw + b.u * span;
+      const r = Math.max(0.5, st.hw * (0.045 + 0.05 * b.u) * b.w * T.k);
+      g.beginPath();
+      g.arc(T.ox + (st.x + ca * pos) * T.k, T.oy + (st.y + sa * pos) * T.k, r, 0, Math.PI * 2);
+      g.fill();
+    }
+  }
+  g.restore();
+}
+
+/**
+ * 練字板的提按曲線比較（白底）：model＝示範（金色填色），user＝你寫的（藍線）；bounds＝起筆、行筆結束在幾成。
+ */
+export function drawCompare(g, w, h, model, user, { bounds = null, labels = null } = {}) {
+  const padL = 8, padR = 8, padT = 10, padB = 20;
+  const X = (f) => padL + f * (w - padL - padR), Y = (p) => h - padB - p * (h - padT - padB);
+  g.clearRect(0, 0, w, h);
+  g.save();
+  g.fillStyle = '#fbf8f1'; g.fillRect(0, 0, w, h);
+  if (bounds) {
+    const shade = ['rgba(31,111,139,.07)', 'rgba(0,0,0,0)', 'rgba(201,161,74,.10)'];
+    const edges = [0, bounds[0], bounds[1], 1];
+    for (let i = 0; i < 3; i++) { g.fillStyle = shade[i]; g.fillRect(X(edges[i]), padT - 6, X(edges[i + 1]) - X(edges[i]), h - padT - padB + 6); }
+    if (labels) {
+      g.fillStyle = 'rgba(60,60,60,.75)'; g.font = `600 ${Math.max(10, Math.round(h * 0.085))}px system-ui, sans-serif`; g.textAlign = 'center';
+      for (let i = 0; i < 3; i++) g.fillText(labels[i], (X(edges[i]) + X(edges[i + 1])) / 2, h - 5);
+    }
+  }
+  g.strokeStyle = 'rgba(0,0,0,.08)'; g.lineWidth = 1;
+  for (const p of [0, 0.5, 1]) { g.beginPath(); g.moveTo(padL, Y(p)); g.lineTo(w - padR, Y(p)); g.stroke(); }
+  if (model.length) {
+    g.beginPath(); g.moveTo(X(0), Y(0));
+    for (const [f, p] of model) g.lineTo(X(f), Y(p));
+    g.lineTo(X(1), Y(0)); g.closePath();
+    g.fillStyle = 'rgba(201,161,74,.32)'; g.fill();
+    g.beginPath(); model.forEach(([f, p], i) => (i ? g.lineTo(X(f), Y(p)) : g.moveTo(X(f), Y(p))));
+    g.strokeStyle = '#b8902f'; g.lineWidth = 2; g.stroke();
+  }
+  if (user.length) {
+    g.beginPath(); user.forEach(([f, p], i) => (i ? g.lineTo(X(f), Y(p)) : g.moveTo(X(f), Y(p))));
+    g.strokeStyle = '#1f6f8b'; g.lineWidth = 2.5; g.stroke();
+  }
+  g.restore();
+}
+

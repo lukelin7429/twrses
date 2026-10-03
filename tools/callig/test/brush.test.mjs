@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import {
   prepStroke, strokeLength, strokeDuration, sampleAt, footprint, pressDepth, tipTrail, stamps, teardrop, outline,
   forceCurve, speedToPressure, penPressure, smoothTo, bleed, PAPERS, INKS, grindDarkness, HAIR, bendFor, springBack,
+  bendGeom, bristles, curveFromStamps, curveMatch,
 } from '../src/brush.js';
 
 let n = 0;
@@ -120,6 +121,50 @@ ok('筆毛（示意）：同樣的力道，羊毫彎最多；放開後狼毫彈�
   assert.ok(springBack('weasel', 1, 0.3) < springBack('mixed', 1, 0.3) && springBack('mixed', 1, 0.3) < springBack('goat', 1, 0.3));
   assert.equal(springBack('goat', 1, 0), 1);
   assert.deepEqual(Object.keys(HAIR).sort(), ['goat', 'mixed', 'weasel']);
+});
+
+ok('側鋒：往右寫時筆尖偏到上緣（−π/2），中鋒在正後方（π）', () => {
+  const s = prepStroke(line, { step: 2 });
+  const c = tipTrail(s), d = tipTrail(s, { side: Math.PI / 2 });
+  near(Math.abs(c[c.length - 1]), Math.PI, 1e-6);
+  near(d[d.length - 1], -Math.PI / 2, 1e-6);
+  // 側鋒的墨跡：印子的尾巴朝上，所以整條線上緣到中心線的距離＝ len、下緣＝ hw（扁的，不對稱）
+  const st = stamps(s, { side: Math.PI / 2 }), m = st[Math.floor(st.length / 2)];
+  const ys = teardrop(m, 12).map((q) => q[1]);
+  near(m.y - Math.min(...ys), m.len, 1e-6); near(Math.max(...ys) - m.y, m.hw, 0.2);
+});
+
+ok('3D 筆毛彎法：總長＝筆毛長；筆桿直立時和第一課的四分之一圓一樣；斜的筆桿要壓更深才碰到紙', () => {
+  const L = 0.45;
+  for (const tilt of [0, 0.2, 0.42]) for (const d of [0.02, 0.08, 0.15, 0.26]) {
+    const g = bendGeom(L, d, tilt);
+    if (!g.touch) continue;
+    near(g.b0 + g.arc + g.flat, L, 1e-9, `總長 tilt ${tilt} d ${d}`);
+    assert.ok(g.flat >= 0 && g.rc > 0 && g.b0 >= 0);
+    near(g.b0 * Math.cos(tilt) + g.rc * (1 - Math.sin(tilt)), L - d, 1e-9, '根部高度');
+  }
+  const g0 = bendGeom(L, 0.1, 0);
+  near(g0.rc, Math.min(1.2 * 0.1, 0.9 * (L - 0.1)), 1e-12); near(g0.offset, g0.rc, 1e-12);
+  assert.equal(bendGeom(L, 0, 0).touch, false);
+  assert.equal(bendGeom(L, 0.02, 0.42).touch, false, '筆斜 24°，壓 0.02 還碰不到紙');
+  assert.equal(bendGeom(L, L * (1 - Math.cos(0.42)) + 0.05, 0.42).touch, true);
+});
+
+ok('側鋒的筆毛：固定種子每次一樣、位置 0–1 由小到大', () => {
+  const a = bristles(30, 7), b = bristles(30, 7);
+  assert.deepEqual(a, b); assert.equal(a.length, 30);
+  for (let i = 1; i < a.length; i++) assert.ok(a[i].u > a[i - 1].u);
+  assert.ok(a[0].u > 0 && a[a.length - 1].u < 1);
+});
+
+ok('練字板的提按曲線：照示範寫＝ 100%，壓力全反過來很低', () => {
+  const s = prepStroke({ pts: [[100, 500, 0.1, 200], [300, 500, 0.8, 200], [500, 500, 0.3, 200], [700, 500, 0.6, 200]] }, { step: 2 });
+  const model = forceCurve(s, 60), user = curveFromStamps(stamps(s), 60);
+  assert.equal(user.length, 61);
+  assert.ok(curveMatch(model, user) > 0.97, `${curveMatch(model, user)}`);
+  const flipped = user.map(([f, p]) => [f, 0.9 - p]);
+  assert.ok(curveMatch(model, flipped) < 0.5);
+  assert.equal(curveMatch(model, []), 0);
 });
 
 console.log(`brush.test.mjs: ${n} 項全部通過`);
