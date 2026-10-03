@@ -12,6 +12,7 @@
  * 有 .cg-pad-curve 畫布時（第二課起）：每寫完一筆，畫出你的提按曲線（藍）疊在示範那一筆的力道曲線（金）上，
  *   .cg-pad-score 寫出和示範有多像（brush.js 的 curveFromStamps、curveMatch）。第 n 筆對示範的第 n 筆（照筆順）。
  * 有 [data-pad-char] 按鈕時（第四課）：可以換範字（setChar），換字就清掉重寫。chars＝{ key: 筆畫資料 }。
+ * 有 .cg-pad-time 時（第七課）：碼表。從第一筆下筆到最後一筆提筆花了幾秒、寫了幾筆（提筆幾次），和示範比；timing() 回傳數字。
  * 除錯：root.__pad（strokes、render()、clear()、demo()、write(點陣列)、setChar(key)）
  */
 import { BOX, clamp, curveFromStamps, curveMatch, footprint, forceCurve, penPressure, prepStroke, smoothTo, speedToPressure, stamps } from './brush.js';
@@ -83,7 +84,7 @@ export function initPad(root, char, chars = null) {
     const pt = toBox(e);
     const pen = e.pointerType === 'pen' && e.pressure > 0;
     if (pen && !usedPen) { usedPen = true; root.classList.add('cg-pad-pen'); }
-    cur = { id: e.pointerId, pen, x: pt.x, y: pt.y, sx: pt.x, sy: pt.y, t: e.timeStamp, p: pen ? penPressure(e.pressure) : 0.32, a: Math.PI, sts: [] };
+    cur = { id: e.pointerId, pen, x: pt.x, y: pt.y, sx: pt.x, sy: pt.y, t: e.timeStamp, t0: e.timeStamp, t1: e.timeStamp, p: pen ? penPressure(e.pressure) : 0.32, a: Math.PI, sts: [] };
     strokes.push(cur);
     put(cur.x, cur.y, cur.p, cur.a);
   }
@@ -124,10 +125,11 @@ export function initPad(root, char, chars = null) {
   }
   function end(e) {
     if (!cur || (e && e.pointerId !== cur.id)) return;
+    cur.t1 = Math.max(cur.t, e && e.timeStamp ? e.timeStamp : cur.t);
     if (!cur.sts.length) strokes.pop();
     cur = null;
     if (msg) msg.textContent = '';
-    compare();
+    compare(); showTime();
   }
 
   // ---------- 提按曲線比較（第二課起） ----------
@@ -177,6 +179,22 @@ export function initPad(root, char, chars = null) {
 
   // ---------- 看示範 ----------
   let totalDemo = model.reduce((a, m) => a + m.s[m.s.length - 1].t, 0) + 0.45 * (model.length - 1);
+
+  // ---------- 碼表（第七課） ----------
+  const timeEl = root.querySelector('.cg-pad-time');
+  function timing() {
+    const real = strokes.filter((st) => st.sts.length >= 3);
+    const sec = real.length ? Math.max(0, (real[real.length - 1].t1 - real[0].t0) / 1000) : 0;
+    return { strokes: real.length, lifts: Math.max(0, real.length - 1), seconds: sec, modelStrokes: model.length, modelSeconds: totalDemo };
+  }
+  function showTime() {
+    if (!timeEl) return;
+    const t = timing();
+    const you = t.strokes ? `<b>${t.seconds.toFixed(1)} s</b> · ${t.strokes} ${t.strokes === 1 ? 'stroke' : 'strokes'}, ${t.lifts} ${t.lifts === 1 ? 'lift' : 'lifts'}` : '<b>—</b>';
+    const youZh = t.strokes ? `${t.seconds.toFixed(1)} 秒・${t.strokes} 筆・提筆 ${t.lifts} 次` : '還沒寫';
+    timeEl.innerHTML = `<span class="cg-pad-you"><i>You · 你</i>${you}<small>${youZh}</small></span>`
+      + `<span class="cg-pad-brush"><i>Demo · 示範</i><b>${t.modelSeconds.toFixed(1)} s</b> · ${t.modelStrokes} ${t.modelStrokes === 1 ? 'stroke' : 'strokes'}, ${t.modelStrokes - 1} ${t.modelStrokes === 2 ? 'lift' : 'lifts'}<small>${t.modelSeconds.toFixed(1)} 秒・${t.modelStrokes} 筆・提筆 ${t.modelStrokes - 1} 次</small></span>`;
+  }
   function drawDemo() {
     let t = demo.t;
     for (const m of model) {
@@ -217,8 +235,8 @@ export function initPad(root, char, chars = null) {
   root.querySelectorAll('[data-pad]').forEach((b) => b.addEventListener('click', () => {
     const k = b.getAttribute('data-pad');
     if (k === 'demo') { if (demo) stopDemo(); else startDemo(); }
-    if (k === 'undo') { strokes.pop(); render(); compare(); }
-    if (k === 'clear') { strokes.length = 0; render(); compare(); }
+    if (k === 'undo') { strokes.pop(); render(); compare(); showTime(); }
+    if (k === 'clear') { strokes.length = 0; render(); compare(); showTime(); }
     if (k === 'save') save();
   }));
   root.querySelectorAll('[data-pt]').forEach((el) => el.addEventListener('change', () => {
@@ -242,7 +260,7 @@ export function initPad(root, char, chars = null) {
     model = char.strokes.map((st) => { const s2 = prepStroke(st); return { s: s2, sts: stamps(s2) }; });
     totalDemo = model.reduce((a, m) => a + m.s[m.s.length - 1].t, 0) + 0.45 * (model.length - 1);
     mCurves = model.map((m) => forceCurve(m.s)); mBounds = model.map(boundsOf);
-    strokes.length = 0; if (demo) stopDemo(); base = null; render(); compare();
+    strokes.length = 0; if (demo) stopDemo(); base = null; render(); compare(); showTime();
     root.querySelectorAll('[data-pad-char]').forEach((b2) => b2.setAttribute('aria-pressed', b2.getAttribute('data-pad-char') === key ? 'true' : 'false'));
   }
   root.querySelectorAll('[data-pad-char]').forEach((b2) => b2.addEventListener('click', () => setChar(b2.getAttribute('data-pad-char'))));
@@ -251,9 +269,10 @@ export function initPad(root, char, chars = null) {
   size();
   if (cmpCv) { new ResizeObserver(() => compare()).observe(cmpCv); compare(); }
   if (modeEl) modeEl.hidden = false;
+  showTime();
 
   root.__pad = {
-    strokes, render, clear: () => { strokes.length = 0; render(); compare(); }, demo: startDemo, stopDemo, score: () => lastScore, setChar,
+    strokes, render, clear: () => { strokes.length = 0; render(); compare(); showTime(); }, demo: startDemo, stopDemo, score: () => lastScore, setChar, timing,
     setDemoTime: (t) => { demo = demo || { t: 0 }; demo.t = t; render(); },
     // 除錯：照點陣列寫一筆 [[x, y, 毫秒], …]（字框座標），走跟真的指標一樣的流程
     write(pts, pointerType = 'mouse', pressure = 0.5) {

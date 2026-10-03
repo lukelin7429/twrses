@@ -4172,14 +4172,14 @@
               "note_zh": "甲骨文、金文、小篆：隸書之前的字體。"
             },
             {
-              "soon": true,
               "icon": "✍️",
-              "k_en": "Lesson 7 · Coming soon",
-              "k_zh": "第七課・製作中",
+              "k_en": "Next Lesson · Lesson 7",
+              "k_zh": "下一課・第七課",
               "en": "Regular, Running, Cursive: How Fast Can You Write?",
               "zh": "楷書、行書、草書：同一個字，三種速度",
               "note_en": "Regular script grew out of clerical script and dropped the flicked tail. Then writers went faster: strokes joined in running script and flew in cursive script.",
-              "note_zh": "楷書由隸書演變而來，少了往上挑的尾巴。接著越寫越快：行書把筆畫連起來，草書寫得像在飛。"
+              "note_zh": "楷書由隸書演變而來，少了往上挑的尾巴。接著越寫越快：行書把筆畫連起來，草書寫得像在飛。",
+              "href": "/resources/classes/calligraphy/three-speeds/"
             }
           ],
           "culture_cards": {
@@ -4513,16 +4513,710 @@
               "url": "https://commons.wikimedia.org/wiki/Commons:Ancient_Chinese_characters_project"
             }
           ]
-        }
-      ],
-      "planned": [
+        },
         {
           "n": 7,
-          "icon": "💨",
-          "en": "Regular, Running, Cursive: How Fast Can You Write?",
-          "zh": "楷書、行書、草書：同一個字，三種速度"
+          "slug": "three-speeds",
+          "title": "Regular, Running, Cursive: How Fast Can You Write?",
+          "title_zh": "楷書、行書、草書：同一個字，三種速度",
+          "level": "入門 · Beginner",
+          "icon": "✍️",
+          "card": "speed",
+          "blurb_en": "One character, three ways to write it. In regular script every stroke stands alone. In running script the strokes join. In cursive script they melt into one flowing line. Watch three brushes race in 3D, name five scripts in a game, and time your own writing on the practice pad.",
+          "blurb_zh": "同一個字，三種寫法：楷書一筆一畫分開，行書把筆畫連起來，草書連成一條流動的線。看三枝毛筆在 3D 裡比賽，玩五種字體的認字遊戲，再用練字板的碼表量量自己寫多快。",
+          "big_idea_en": "Regular, running, and cursive script are three ways to write the same character. Regular script writes each stroke separately, so it is the clearest and the slowest. Running script links the strokes, so it is quicker and still easy to read. Cursive script joins and simplifies the strokes, so it is the fastest and the hardest to read.",
+          "big_idea_zh": "楷書、行書、草書，是同一個字的三種寫法。楷書一筆一畫分開寫，最清楚、也最慢；行書把筆畫連起來，比較快、還認得出來；草書把筆畫連在一起又簡化，最快、也最難認。",
+          "lab": {
+            "kind": "speed",
+            "eyebrow": "3D Model · 3D 模型",
+            "title_en": "Three Brushes, One Character",
+            "title_zh": "三枝筆，同一個字",
+            "how_en": "Drag to turn, and scroll or pinch to zoom. Three brushes write the same character at the same time: regular script on the left, running script in the middle, and cursive script on the right. Watch the timers, then choose one script to look closer, or change the character.",
+            "how_zh": "拖曳可以旋轉，滾輪或雙指可以縮放。三枝毛筆同時寫同一個字：左邊楷書、中間行書、右邊草書。看看每張紙上的計時，再選一種字體近看，或換一個字。",
+            "modes": [
+              {
+                "key": "race",
+                "icon": "三",
+                "en": "Race",
+                "zh": "一起寫"
+              },
+              {
+                "key": "kai",
+                "icon": "楷",
+                "en": "Regular",
+                "zh": "楷書"
+              },
+              {
+                "key": "xing",
+                "icon": "行",
+                "en": "Running",
+                "zh": "行書"
+              },
+              {
+                "key": "cao",
+                "icon": "草",
+                "en": "Cursive",
+                "zh": "草書"
+              }
+            ],
+            "chars": {
+              "yong": "forever · 永",
+              "zhi": "of · 之",
+              "shui": "water · 水"
+            },
+            "legend": [
+              {
+                "cls": "cgt",
+                "en": "Bright label: the script that finishes first",
+                "zh": "亮起來的標籤：最先寫完的字體"
+              },
+              {
+                "cls": "cgth",
+                "en": "Thread: a thin line where the brush does not quite leave the paper",
+                "zh": "牽絲：筆沒有完全離開紙的細線"
+              },
+              {
+                "cls": "cgg",
+                "en": "Red lines: the 米 grid, 21 centimeters wide",
+                "zh": "紅線：米字格，寬 21 公分"
+              }
+            ],
+            "scale_en": "A teaching model. The times are calculated by our model, not measured from a real calligrapher: the brush takes time for the careful start and finish of every stroke, and each lift between strokes costs 0.82 seconds. The running and cursive forms are our own tracings over an early copy of the Lanting Xu and a rubbing of Zhiyong's Thousand Character Classic.",
+            "scale_zh": "這是教學用的示意模型。時間是模型算出來的，不是量真人寫字：每一筆仔細的起筆和收筆都要花時間，筆和筆之間每提筆一次算 0.82 秒。行書和草書的字形，是我們對著〈蘭亭序〉的古摹本和智永〈真草千字文〉的拓本自己描的。",
+            "credit_html": "Model, stroke data, and the writing engine are drawn and programmed by My Culture Connect. Running-script reference: the Shenlong copy of the Lanting Xu (<a href=\"https://commons.wikimedia.org/wiki/File:%E7%A5%9E%E9%BE%8D%E8%98%AD%E4%BA%AD%E5%BA%8F%E5%85%A8.JPG\" target=\"_blank\" rel=\"noopener\">Wikimedia Commons</a>, public domain). Cursive-script reference: <a href=\"https://digitalarchive.npm.gov.tw/opendata/Pub/Detail?id=1932&dep=P&mode=full\" target=\"_blank\" rel=\"noopener\">墨拓智永書真草千文 冊</a>, The National Palace Museum, Taipei, CC BY 4.0 @ www.npm.gov.tw. · 模型、筆畫資料與寫字引擎由人師教育協會自繪、自寫；行書對位參考神龍本〈蘭亭序〉（維基共享資源，公有領域），草書對位參考國立故宮博物院〈墨拓智永書真草千文 冊〉（CC BY 4.0）。"
+          },
+          "paras": [
+            "Write your name slowly and neatly. Now write it again as fast as you can. The letters lean, join, and lose some of their parts. Chinese calligraphy has names for these different ways of writing. Three of them are regular script, running script, and cursive script.",
+            "In regular script, every stroke is written separately. The brush starts each stroke with care, finishes it with care, and then leaves the paper before the next one. This makes regular script the clearest of the three, and the slowest. It is the form you see in textbooks and learn first.",
+            "Running script sits between regular and cursive script. The Ministry of Education's dictionary says it is close to regular script but more flowing and lively. The brush does not always leave the paper, so some strokes are joined by a thin line called a thread. The characters are quicker to write and still easy to recognize.",
+            "Cursive script was made for speed. The same dictionary says it appeared so that people could write conveniently and quickly. Strokes are joined, shortened, or left out, so a whole character can become one or two flowing lines. It is the fastest of the three, and the hardest to read.",
+            "Here is a surprise: cursive script is not regular script written in a hurry. It began around the Qin and Han dynasties as a quick way to write clerical script. Regular script took shape later, in the Later Han dynasty, and was complete by the Wei. So the three scripts are three ways of writing, and all three are still used today.",
+            "In this lesson, three brushes write the same character at the same time, and you can see which one finishes first. Then name all five scripts you have met in this unit, and use the stopwatch on the practice pad to find your own three speeds."
+          ],
+          "paras_zh": [
+            "慢慢地、整整齊齊地寫下你的名字；再用最快的速度寫一次。字母歪了、連在一起了，有些地方還不見了。中文書法替這些不同的寫法取了名字，其中三種是：楷書、行書、草書。",
+            "楷書一筆一畫分開寫。每一筆都仔細地起筆、仔細地收筆，筆離開紙以後，才寫下一筆。所以楷書是三種裡面最清楚、也最慢的。課本上印的、你最先學的，就是這種字。",
+            "行書介於楷書和草書之間。教育部辭典說，它接近楷書，但筆勢比較流暢活潑。毛筆不一定每次都離開紙，有些筆畫之間就留下一條細細的線，叫做「牽絲」。行書寫起來比較快，也還很容易認。",
+            "草書是為了快而產生的。同一本辭典說，它是「為書寫方便、快速而產生的字體」。筆畫有的連起來、有的縮短、有的省略，一個字可能變成一兩條流動的線。它是三種裡面最快、也最難認的。",
+            "有件事可能讓你意外：草書不是把楷書寫快變來的。草書大約在秦漢之際就出現了，一開始是隸書的快寫；楷書比較晚才成形，大約起源於後漢，到魏才完備。所以這三種字體是三種寫法，而且到今天都還有人在寫。",
+            "這一課，三枝毛筆同時寫同一個字，看看哪一枝最先寫完；再認一認這個單元學過的五種字體，然後用練字板的碼表，量量你自己的三種速度。"
+          ],
+          "questions": [
+            "Which of the three scripts is the clearest, and which is the fastest?",
+            "What is a thread in running script?",
+            "Did cursive script come from writing regular script quickly? What does the lesson say?"
+          ],
+          "answers": [
+            "Regular script is the clearest. Cursive script is the fastest.",
+            "It is a thin line that joins two strokes, left where the brush does not quite leave the paper.",
+            "No. Cursive script began around the Qin and Han dynasties as a quick way to write clerical script. Regular script took shape later."
+          ],
+          "vocab": [
+            {
+              "n": 1,
+              "w": "separate",
+              "pos": "adj.",
+              "zh": "分開的",
+              "ex": "The twins sleep in <b>separate</b> rooms.",
+              "exzh": "這對雙胞胎睡在不同的房間。"
+            },
+            {
+              "n": 2,
+              "w": "join",
+              "pos": "v.",
+              "zh": "連接",
+              "ex": "<b>Join</b> the two dots with a straight line.",
+              "exzh": "用一條直線把兩個點連起來。"
+            },
+            {
+              "n": 3,
+              "w": "thread",
+              "pos": "n.",
+              "zh": "線；細絲",
+              "ex": "She pulled a loose <b>thread</b> from her sweater.",
+              "exzh": "她從毛衣上拉掉一根鬆掉的線。"
+            },
+            {
+              "n": 4,
+              "w": "smooth",
+              "pos": "adj.",
+              "zh": "流暢的；平滑的",
+              "ex": "The skater made one <b>smooth</b> turn after another.",
+              "exzh": "溜冰的人做出一個又一個流暢的轉彎。"
+            },
+            {
+              "n": 5,
+              "w": "speed",
+              "pos": "n.",
+              "zh": "速度",
+              "ex": "The train picked up <b>speed</b> as it left the station.",
+              "exzh": "火車離開車站後越開越快。"
+            },
+            {
+              "n": 6,
+              "w": "recognize",
+              "pos": "v.",
+              "zh": "認出",
+              "ex": "I did not <b>recognize</b> my cousin in his new glasses.",
+              "exzh": "表哥換了新眼鏡，我一時沒認出他來。"
+            },
+            {
+              "n": 7,
+              "w": "draft",
+              "pos": "n.",
+              "zh": "草稿",
+              "ex": "Write a first <b>draft</b>, then fix your mistakes.",
+              "exzh": "先寫一份草稿，再把錯的地方改好。"
+            },
+            {
+              "n": 8,
+              "w": "copy",
+              "pos": "n.",
+              "zh": "複本；摹本",
+              "ex": "The museum shows a <b>copy</b> of the old map.",
+              "exzh": "博物館展出那張古地圖的複本。"
+            }
+          ],
+          "quiz": [
+            {
+              "q": "In which script is every stroke written separately?",
+              "options": [
+                "Regular script",
+                "Running script",
+                "Cursive script",
+                "None of them"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "What joins two strokes in running script?",
+              "options": [
+                "A thin thread",
+                "A red seal",
+                "A swallow tail",
+                "A grid line"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "Why was cursive script made?",
+              "options": [
+                "To write quickly and conveniently",
+                "To carve on bones",
+                "To cast in bronze",
+                "To look as square as possible"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "Which script is usually the hardest to read?",
+              "options": [
+                "Cursive script",
+                "Regular script",
+                "Running script",
+                "They are all the same"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "In the old saying, regular script is like standing and running script is like walking. What is cursive script like?",
+              "options": [
+                "Running",
+                "Sleeping",
+                "Sitting",
+                "Swimming"
+              ],
+              "correct": 0
+            }
+          ],
+          "parts_head": {
+            "eyebrow": "Three Scripts · 三種字體",
+            "en": "The same character, three ways",
+            "zh": "同一個「永」，三種寫法"
+          },
+          "parts": [
+            {
+              "key": "kai",
+              "script": "kai",
+              "demo": "kai",
+              "en": "Regular script",
+              "zh": "楷書",
+              "meta_en": "5 strokes · 4 lifts · 21.0 s",
+              "meta_zh": "5 筆・提筆 4 次・21.0 秒",
+              "text_en": "Five strokes, and every one has its own careful start and finish. Between strokes, the brush leaves the paper four times.",
+              "text_zh": "五筆，每一筆都有自己的起筆和收筆。筆和筆之間，毛筆離開紙四次。"
+            },
+            {
+              "key": "xing",
+              "script": "xing",
+              "demo": "xing",
+              "en": "Running script",
+              "zh": "行書",
+              "meta_en": "4 strokes · 3 lifts · 12.4 s",
+              "meta_zh": "4 筆・提筆 3 次・12.4 秒",
+              "text_en": "Four strokes: the left-falling stroke runs straight into the right-falling stroke. The red lines are threads, where the brush hardly leaves the paper. Traced from an early copy of the Lanting Xu.",
+              "text_zh": "四筆：撇直接連到捺。紅色的細線是牽絲，毛筆在那裡幾乎沒有離開紙。字形描自〈蘭亭序〉的古摹本（神龍本）。"
+            },
+            {
+              "key": "cao",
+              "script": "cao",
+              "demo": "cao",
+              "en": "Cursive script",
+              "zh": "草書",
+              "meta_en": "1 stroke · 0 lifts · 8.5 s",
+              "meta_zh": "1 筆・提筆 0 次・8.5 秒",
+              "text_en": "One line. The dot, the hook, and both sides are joined and simplified into a single looping stroke. Traced from a rubbing of Zhiyong's Thousand Character Classic.",
+              "text_zh": "一筆到底。點、鉤和左右兩邊連在一起、又簡化了，變成一條繞圈的線。字形描自智永〈真草千字文〉的拓本。"
+            }
+          ],
+          "parts_note_en": "The numbers come from our model of the character 永. Tap Watch it in 3D to see each script written by itself.",
+          "parts_note_zh": "卡片上的數字是用我們的模型算「永」字得到的。點「在模型中看」，單獨看每一種字體怎麼寫。",
+          "sheets": {
+            "eyebrow": "From the Masters · 法帖裡的字",
+            "en": "What the real ones look like",
+            "zh": "看看真的法帖",
+            "lead_en": "Our running and cursive characters are tracings. Here are the works we traced them from.",
+            "lead_zh": "模型裡的行書和草書是我們描的。這裡是我們照著描的法帖。",
+            "items": [
+              {
+                "img": "/assets/img/calligraphy/zhiyong-yong.jpg",
+                "w": 660,
+                "h": 340,
+                "alt_en": "A rubbing with the character 永 in regular script on the right and cursive script on the left",
+                "alt_zh": "拓本：右邊楷書的「永」，左邊草書的「永」",
+                "en": "永 in regular and cursive script",
+                "zh": "楷書和草書的「永」",
+                "text_en": "Zhiyong, a monk and a descendant of Wang Xizhi, wrote the Thousand Character Classic in regular and cursive script side by side, which helps learners recognize the cursive forms. Here the regular 永 is on the right and the cursive 永 on the left. This rubbing was made from a stone carved in 1109.",
+                "text_zh": "智永是王羲之的後代，也是一位出家人。他把〈千字文〉用楷書和草書並排寫出來，方便學的人認草書。圖中右邊是楷書的「永」，左邊是草書的「永」。這份拓本拓自大觀三年（1109）刻的石碑。",
+                "credit_html": "<a href=\"https://digitalarchive.npm.gov.tw/opendata/Pub/Detail?id=1932&dep=P&mode=full\" target=\"_blank\" rel=\"noopener\">墨拓智永書真草千文 冊</a>, The National Palace Museum, Taipei, CC BY 4.0 @ www.npm.gov.tw"
+              },
+              {
+                "img": "/assets/img/calligraphy/zhiyong-shui.jpg",
+                "w": 660,
+                "h": 340,
+                "alt_en": "A rubbing with the character 水 in regular script on the right and cursive script on the left",
+                "alt_zh": "拓本：右邊楷書的「水」，左邊草書的「水」",
+                "en": "水 in regular and cursive script",
+                "zh": "楷書和草書的「水」",
+                "text_en": "From the same rubbing: the regular 水 on the right has four strokes. In the cursive 水 on the left, they have become three short curves.",
+                "text_zh": "同一份拓本：右邊楷書的「水」有四筆；左邊草書的「水」，變成三條短短的彎線。",
+                "credit_html": "<a href=\"https://digitalarchive.npm.gov.tw/opendata/Pub/Detail?id=1932&dep=P&mode=full\" target=\"_blank\" rel=\"noopener\">墨拓智永書真草千文 冊</a>, The National Palace Museum, Taipei, CC BY 4.0 @ www.npm.gov.tw"
+              },
+              {
+                "img": "/assets/img/calligraphy/shenlong-yonghe.jpg",
+                "w": 300,
+                "h": 900,
+                "tall": true,
+                "alt_en": "The opening characters 永和九年 of the Lanting Xu in running script",
+                "alt_zh": "〈蘭亭序〉開頭「永和九年」四個行書字",
+                "en": "永和九年 in running script",
+                "zh": "行書的「永和九年」",
+                "text_en": "The first four characters of the Lanting Xu: 永和九年, the ninth year of Yonghe (353). Wang Xizhi's original is lost. This is from an early tracing copy known as the Shenlong copy. Our running-script 永 was traced from the first character.",
+                "text_zh": "〈蘭亭序〉開頭四個字「永和九年」（353）。王羲之的原蹟已經失傳，這是一件古摹本（神龍本）。我們行書的「永」，就是照著第一個字描的。",
+                "credit_html": "<a href=\"https://commons.wikimedia.org/wiki/File:%E7%A5%9E%E9%BE%8D%E8%98%AD%E4%BA%AD%E5%BA%8F%E5%85%A8.JPG\" target=\"_blank\" rel=\"noopener\">Wikimedia Commons</a> (public domain). The scroll is in the Palace Museum, Beijing. · 維基共享資源（公有領域）；原卷藏北京故宮博物院。"
+              }
+            ]
+          },
+          "scripts": {
+            "eyebrow": "Game · 小遊戲",
+            "en": "Which Script Is It?",
+            "zh": "這是哪一種字體？",
+            "lead_en": "You have now met five scripts: seal, clerical, regular, running, and cursive. Look at each character and name its script. Ten questions make a round.",
+            "lead_zh": "到這一課，你已經認識五種字體：篆書、隸書、楷書、行書、草書。看看每個字，說出它是哪一種字體。一輪十題。",
+            "hints": {
+              "seal": {
+                "en": "Seal script has smooth lines of the same width, with rounded turns.",
+                "zh": "篆書的線條圓滑、粗細一樣，轉彎是圓的。"
+              },
+              "clerical": {
+                "en": "Clerical script is flat and wide, and one stroke ends in a flicked tail.",
+                "zh": "隸書字形扁扁寬寬，有一筆的收筆往上挑。"
+              },
+              "regular": {
+                "en": "Regular script has separate strokes, each with a clear start and finish.",
+                "zh": "楷書一筆一畫分開，起筆、收筆都很清楚。"
+              },
+              "running": {
+                "en": "Running script joins some strokes, but you can still see every part.",
+                "zh": "行書把一些筆畫連起來，但每個部分都還看得出來。"
+              },
+              "cursive": {
+                "en": "Cursive script joins and simplifies the strokes into a few flowing lines.",
+                "zh": "草書把筆畫連在一起又簡化，變成幾條流動的線。"
+              }
+            }
+          },
+          "pad": {
+            "eyebrow": "Practice Pad · 練字板",
+            "en": "Time yourself",
+            "zh": "量量你寫多快",
+            "char": "yong-kai",
+            "curve": false,
+            "order": false,
+            "scripts": true,
+            "timer": true,
+            "lead_en": "Choose a script and a character, then trace it. The stopwatch runs from your first touch to your last lift, and it counts how many times you lift.",
+            "lead_zh": "選一種字體、一個字，描寫看看。碼表從你第一筆下筆算到最後一筆提筆，也會數你提筆幾次。",
+            "tips": [
+              {
+                "en": "Trace the regular form first, stroke by stroke. Then try the running form without stopping at the thin threads.",
+                "zh": "先一筆一筆描楷書，再描行書：遇到細細的牽絲不要停。"
+              },
+              {
+                "en": "For the cursive form, tap Watch the demo first. Follow the line the way the brush goes.",
+                "zh": "描草書以前先按「看示範」，照著毛筆走的方向寫。"
+              },
+              {
+                "en": "Compare your three times. Which script was the fastest for you?",
+                "zh": "比一比你的三個時間：哪一種字體你寫得最快？"
+              }
+            ]
+          },
+          "links_head": {
+            "eyebrow": "Before and Next · 上一課與下一課",
+            "en": "From clerical script to the Sage of Calligraphy",
+            "zh": "從隸書到書聖"
+          },
+          "links": [
+            {
+              "href": "/resources/classes/calligraphy/clerical-script/",
+              "icon": "🐛",
+              "k_en": "Lesson 6",
+              "k_zh": "第六課",
+              "en": "Why Does Clerical Script Have Silkworm Heads and Swallow Tails?",
+              "zh": "隸書：為什麼是蠶頭燕尾？",
+              "note_en": "Regular script grew out of clerical script and dropped the flicked tail.",
+              "note_zh": "楷書由隸書演變而來，少了往上挑的尾巴。"
+            },
+            {
+              "soon": true,
+              "icon": "🍶",
+              "k_en": "Lesson 8 · Coming soon · Unit 3",
+              "k_zh": "第八課・製作中・單元三",
+              "en": "Why Is Wang Xizhi Called the Sage of Calligraphy?",
+              "zh": "書聖王羲之：蘭亭序的故事",
+              "note_en": "The running-script 永 in this lesson comes from a copy of his most famous work, the Lanting Xu. Next: the day he wrote it.",
+              "note_zh": "這一課行書的「永」，來自他最有名的作品〈蘭亭序〉的摹本。下一課：他寫下這篇字的那一天。"
+            }
+          ],
+          "culture_cards": {
+            "eyebrow": "Stories of Three Scripts · 三種字體的故事",
+            "title_en": "Stand, walk, run; a monk's model book; the most famous running script; and cursive treasures in Taipei",
+            "title_zh": "站、走、跑；智永的範本；最有名的行書；台北故宮的草書國寶",
+            "lead_en": "Four short stories about writing slowly, writing quickly, and learning to do both.",
+            "lead_zh": "關於慢慢寫、快快寫，還有兩種都要學的四個小故事。",
+            "cards": [
+              {
+                "k": "An Old Saying · 老話",
+                "en": "Stand, walk, run",
+                "zh": "真如立，行如行，草如走",
+                "body_en": "The Song dynasty writer Su Shi put it this way: regular script is like standing, running script is like walking, and cursive script is like running, and nobody can run before learning to stand and walk. (English says running script, but 行 means to walk.) In Taiwan, elementary school students practice regular script, and in junior high they learn to recognize the different scripts.",
+                "body_zh": "宋代的蘇軾說：「真如立，行如行，草如走，未有未能行立而能走者也。」楷書像站著，行書像走路，草書像跑步（古文的「走」是跑）；還不會站、不會走的人，不可能會跑。在台灣，國小學生練寫楷書，到國中「認識各種書體」。"
+              },
+              {
+                "k": "A Model Book · 範本",
+                "en": "One text, two scripts",
+                "zh": "一篇文章，兩種字體",
+                "body_en": "Zhiyong was a monk and a seventh-generation descendant of Wang Xizhi. He is said to have written 800 copies of the Thousand Character Classic, each in regular and cursive script, and given them to temples. Putting the two scripts side by side helps learners recognize the cursive forms. The National Palace Museum in Taipei has a rubbing of a version carved in stone in 1109; the pictures above come from it.",
+                "body_zh": "智永是一位出家人，也是王羲之的七世孫。據記載，他臨寫了八百本〈真草千字文〉，每一本都用楷書和草書並列，分送給各寺院。兩種字體並排，方便學的人認草書。台北國立故宮博物院藏有大觀三年（1109）刻石的拓本，上面的圖片就是從那裡來的。"
+              },
+              {
+                "k": "Running Script · 行書",
+                "en": "The best running script under heaven",
+                "zh": "天下第一行書",
+                "body_en": "In 353, Wang Xizhi and his friends met at the Orchid Pavilion to write poems, and he wrote the preface to their poems: the Lanting Xu. It has long been called the best running script under heaven. The original is lost, and we know it only from copies. Our running-script 永 was traced from the first character of one early tracing copy, known as the Shenlong copy. Lesson 8 tells the story.",
+                "body_zh": "東晉永和九年（353），王羲之和謝安等四十一人在蘭亭聚會作詩，他為詩集寫了序，就是〈蘭亭序〉，素有「天下第一行書」之稱。原蹟已經失傳，今天只能看到摹本。我們行書的「永」，就是照著一件古摹本（神龍本）的第一個字描的。第八課會說這個故事。"
+              },
+              {
+                "k": "Taiwan · 台灣",
+                "en": "Cursive treasures in Taipei",
+                "zh": "台北故宮的草書國寶",
+                "body_en": "Two famous cursive scrolls are in the National Palace Museum in Taipei, and both are National Treasures. Sun Guoting wrote his Treatise on Calligraphy (書譜) in 687. The monk Huaisu wrote his Autobiography (自敘帖) in 777 in wild cursive, the freest kind, with many simplified and joined strokes.",
+                "body_zh": "兩件有名的草書長卷都在台北國立故宮博物院，都是國寶。孫過庭的〈書譜〉寫於垂拱三年（687）。出家人懷素的〈自敘帖〉寫於大曆十二年（777），用的是狂草——最奔放的一種草書，簡筆、連筆很多。"
+              }
+            ]
+          },
+          "myths": [
+            {
+              "myth_en": "Cursive script is just messy writing.",
+              "myth_zh": "草書就是亂寫。",
+              "fact_en": "Cursive script has its own forms to learn. Zhiyong wrote a whole model book with every line in regular script and again in cursive, and the Ministry of Education's dictionary calls it an excellent model for learning both.",
+              "fact_zh": "草書有自己的寫法要學。智永寫了一整本範本，每一行都有楷書和草書；教育部辭典說它是「學習楷書與草書的絕佳範本」。"
+            },
+            {
+              "myth_en": "Cursive script came from writing regular script faster.",
+              "myth_zh": "草書是把楷書寫快變來的。",
+              "fact_en": "It is the other way around in time. Cursive script began around the Qin and Han dynasties as a quick form of clerical script. Regular script took shape in the Later Han and was complete by the Wei.",
+              "fact_zh": "時間上正好相反。草書大約起於秦漢之際，是隸書的快寫；楷書約起源於後漢，到魏才完備。"
+            },
+            {
+              "myth_en": "In cursive script, the brush never leaves the paper.",
+              "myth_zh": "寫草書，毛筆從頭到尾都不離開紙。",
+              "fact_en": "Sometimes it does. In our tracing of Zhiyong's cursive 水, there are three separate strokes. Early cursive script even kept every character apart from the next one.",
+              "fact_zh": "有時候還是會離開。我們描的智永草書「水」就有三筆。早期的草書（章草）甚至每個字都各自獨立，不和下一個字相連。"
+            },
+            {
+              "myth_en": "草書 means “grass writing.”",
+              "myth_zh": "「草書」的「草」是青草的草。",
+              "fact_en": "The character 草 can mean grass, but it also means rough or quick, as in 潦草 (careless writing) and 草稿 (a draft). The dictionary describes early cursive script as clerical script written quickly and roughly.",
+              "fact_zh": "「草」可以是青草，但也有「草率、粗略」和「草稿」的意思，像「潦草」「起草」。教育部辭典說，早期的草書是「將隸書草率寫成」。"
+            }
+          ],
+          "tricks": [
+            {
+              "title_en": "Stand, walk, run",
+              "title_zh": "真如立，行如行，草如走",
+              "body_en": "Regular script stands, running script walks, and cursive script runs.",
+              "body_zh": "楷書像站著，行書像走路，草書像跑步。"
+            },
+            {
+              "title_en": "Regular: lift every time",
+              "title_zh": "楷書：筆筆分開",
+              "body_en": "Every stroke starts and finishes by itself.",
+              "body_zh": "每一筆都自己起筆、收筆。"
+            },
+            {
+              "title_en": "Running: follow the thread",
+              "title_zh": "行書：牽絲相連",
+              "body_en": "A thin line leads the brush to the next stroke.",
+              "body_zh": "細細的線把筆帶到下一筆。"
+            },
+            {
+              "title_en": "Cursive: one flowing line",
+              "title_zh": "草書：連成一氣",
+              "body_en": "Strokes join, shrink, or disappear.",
+              "body_zh": "筆畫連起來、縮短，或省略。"
+            }
+          ],
+          "safety": [
+            {
+              "en": "Ink stains clothes and is very hard to wash out. Wear old clothes or an apron, and roll up your sleeves.",
+              "zh": "墨沾到衣服很難洗掉：穿舊衣服或圍裙，袖子捲起來。"
+            },
+            {
+              "en": "Cover the desk with old newspaper, and keep the ink in a heavy, steady dish so it will not tip over.",
+              "zh": "桌上先鋪舊報紙；墨要裝在重一點、放得穩的碟子裡，免得打翻。"
+            },
+            {
+              "en": "Press gently. Crushing the brush against the paper squashes the hairs and can split or break them.",
+              "zh": "輕輕地按就好：把筆用力壓在紙上，筆毛會擠扁，也可能分岔或折斷。"
+            },
+            {
+              "en": "Do not put the brush, the ink, or the ink stick in your mouth, and do not lick the brush tip to shape it.",
+              "zh": "毛筆、墨汁、墨條都不要放進嘴裡，也不要用嘴巴舔筆尖。"
+            },
+            {
+              "en": "After writing, wash the brush in clean water until the water runs clear, gently shape it into a point, and hang it tip-down or lay it flat to dry. Wash your hands, too.",
+              "zh": "寫完後用清水洗筆，洗到水變清為止；輕輕把筆毛理成尖形，筆尖朝下掛起來或平放晾乾。也要洗手。"
+            }
+          ],
+          "activities": [
+            {
+              "title_en": "My Three Speeds",
+              "title_zh": "我的三種速度",
+              "materials": [
+                {
+                  "en": "A pencil and paper for each student (or a brush and water)",
+                  "zh": "每人一枝鉛筆和紙（或毛筆和清水）"
+                },
+                {
+                  "en": "A stopwatch or a phone timer for each pair",
+                  "zh": "每兩人一個碼表或手機計時器"
+                }
+              ],
+              "steps": [
+                {
+                  "en": "Write 永 slowly, stroke by stroke. Your partner times you and counts how many times your pencil leaves the paper.",
+                  "zh": "一筆一畫慢慢寫「永」。同伴幫你計時，並數一數鉛筆離開紙幾次。"
+                },
+                {
+                  "en": "Write it again, lifting the pencil as few times as you can. Time and count again.",
+                  "zh": "再寫一次，盡量少提筆。再計時、再數一次。"
+                },
+                {
+                  "en": "Write it a third time as fast as you can. Can your partner still read it?",
+                  "zh": "第三次用最快的速度寫。同伴還認得出來嗎？"
+                },
+                {
+                  "en": "Make a small table: lifts and seconds for each try. What changed the most?",
+                  "zh": "畫一個小表格：每一次提筆幾次、花了幾秒。哪一項變得最多？"
+                }
+              ],
+              "tip_en": "Ask: when would you choose the slow way? When would the fast way be good enough?",
+              "tip_zh": "問問大家：什麼時候要選慢的寫法？什麼時候快的寫法就夠了？"
+            },
+            {
+              "title_en": "Cursive Detectives",
+              "title_zh": "草書小偵探",
+              "materials": [
+                {
+                  "en": "This lesson's pictures of Zhiyong's rubbing, shown on a screen or printed",
+                  "zh": "這一課的智永拓本圖片（投影或印出來）"
+                },
+                {
+                  "en": "Paper and a pencil",
+                  "zh": "紙和鉛筆"
+                }
+              ],
+              "steps": [
+                {
+                  "en": "Look at the regular and cursive forms of 永 and 水 side by side. Point to the part of the cursive form that matches each regular stroke.",
+                  "zh": "把「永」和「水」的楷書、草書放在一起看：指出草書的哪一部分，對應楷書的哪一筆。"
+                },
+                {
+                  "en": "Which strokes were joined? Which became shorter? Was anything left out?",
+                  "zh": "哪些筆畫連起來了？哪些變短了？有沒有哪一筆省略了？"
+                },
+                {
+                  "en": "Now invent a quick form for a simple character, such as 山. Show it to a classmate without saying what it is.",
+                  "zh": "現在替一個簡單的字（例如「山」）自己設計一個快寫的樣子，不要說是什麼字，拿給同學看。"
+                },
+                {
+                  "en": "Could they read it? Talk about why cursive script needs forms that everyone learns.",
+                  "zh": "同學認得出來嗎？討論一下：為什麼草書需要大家都學同一套寫法？"
+                }
+              ],
+              "tip_en": "This links back to Lesson 4: a shared standard lets people read one another's writing.",
+              "tip_zh": "這和第四課有關：有共同的標準，大家才看得懂彼此寫的字。"
+            }
+          ],
+          "sources": [
+            {
+              "en": "Running script: between regular and cursive script; close to regular script, but more flowing and lively",
+              "zh": "行書：筆勢和字形介於楷書與草書之間，近於楷書，但筆勢較流暢活潑",
+              "src": "教育部《重編國語辭典修訂本》「行書」",
+              "url": "https://dict.revised.moe.edu.tw/dictView.jsp?ID=110955"
+            },
+            {
+              "en": "Cursive script: made for convenient, quick writing; began around the Qin and Han; early cursive (章草) came from writing clerical script quickly, with separate characters; later cursive joins characters",
+              "zh": "草書：為書寫方便、快速而產生的字體，大約起於秦漢之際；章草「將隸書草率寫成…其字個個獨立，不相連綿」；今草筆勢連綴",
+              "src": "教育部《重編國語辭典修訂本》「草書」",
+              "url": "https://dict.revised.moe.edu.tw/dictView.jsp?ID=141624"
+            },
+            {
+              "en": "Wild cursive: many simplified and joined strokes, so it is harder to recognize",
+              "zh": "狂草：簡筆、連筆甚多，較不易於辨認",
+              "src": "教育部《重編國語辭典修訂本》「狂草」",
+              "url": "https://dict.revised.moe.edu.tw/dictView.jsp?ID=78644"
+            },
+            {
+              "en": "Regular script: grew out of clerical script; began in the Later Han, complete by the Wei, still used today",
+              "zh": "楷書：由隸書演變而來，約起源於後漢，至魏完備成體，通行至今",
+              "src": "教育部《重編國語辭典修訂本》「楷書」",
+              "url": "https://dict.revised.moe.edu.tw/dictView.jsp?ID=76915"
+            },
+            {
+              "en": "Thread (牽絲): in calligraphy, the fine traces left as the brush moves from one stroke to the next",
+              "zh": "牽絲：書法上指筆勢往來之間所牽帶的纖細痕跡",
+              "src": "教育部《重編國語辭典修訂本》「牽絲」",
+              "url": "https://dict.revised.moe.edu.tw/dictView.jsp?ID=100597"
+            },
+            {
+              "en": "Zhiyong wrote the Thousand Character Classic in regular and cursive script; an excellent model for learning both",
+              "zh": "真草千字文：智永以楷書和草書寫成，為學習楷書與草書的絕佳範本",
+              "src": "教育部《重編國語辭典修訂本》「真草千字文」",
+              "url": "https://dict.revised.moe.edu.tw/dictView.jsp?ID=116500"
+            },
+            {
+              "en": "Rubbing of Zhiyong's Thousand Character Classic (the Guanzhong version, carved in 1109): regular and cursive side by side to help learners recognize cursive forms; reference for our cursive tracings and source of the two rubbing images",
+              "zh": "〈墨拓智永書真草千文 冊〉（關中本，大觀三年 1109 刻）：草、楷並列方便學習者識草認字；草書描線的對位參考與本頁兩張拓本圖片的來源",
+              "src": "國立故宮博物院 Open Data（CC BY 4.0）",
+              "url": "https://digitalarchive.npm.gov.tw/opendata/Pub/Detail?id=1932&dep=P&mode=full"
+            },
+            {
+              "en": "Su Shi: “regular script is like standing, running script like walking, cursive script like running; no one can run before learning to stand and walk”",
+              "zh": "蘇軾〈書唐氏六家書後〉：「真生行，行生草，真如立，行如行，草如走，未有未能行立而能走者也。」",
+              "src": "維基文庫〈書唐氏六家書後〉",
+              "url": "https://zh.wikisource.org/wiki/%E6%9B%B8%E5%94%90%E6%B0%8F%E5%85%AD%E5%AE%B6%E6%9B%B8%E5%BE%8C"
+            },
+            {
+              "en": "Stroke order for the regular-script forms: 永 (5 strokes), 之 (4), 水 (4)",
+              "zh": "楷書範字的筆順：「永」5 畫、「之」4 畫、「水」4 畫",
+              "src": "教育部《國字標準字體筆順學習網》「之」",
+              "url": "https://stroke-order.learningweb.moe.edu.tw/dictView.jsp?ID=20043"
+            },
+            {
+              "en": "Lanting Xu: written by Wang Xizhi on the third day of the third month, 353, at a gathering with Xie An, Sun Chuo, and others at the Orchid Pavilion",
+              "zh": "蘭亭集序：東晉永和九年（西元 353）三月三日，王羲之與謝安、孫綽等四十一人會於會稽山陰的蘭亭",
+              "src": "教育部《重編國語辭典修訂本》「蘭亭集序」",
+              "url": "https://dict.revised.moe.edu.tw/dictView.jsp?ID=60916"
+            },
+            {
+              "en": "The Lanting Xu has long been called the best running script under heaven (天下第一行書)",
+              "zh": "〈蘭亭序〉素有「天下第一行書」之稱",
+              "src": "國立故宮博物院〈蘭亭癖〉展覽說明",
+              "url": "https://www.npm.gov.tw/Exhibition-Content.aspx?sno=04014382&l=1"
+            },
+            {
+              "en": "The original Lanting Xu is lost",
+              "zh": "〈蘭亭序〉原蹟雖已失傳",
+              "src": "國立故宮博物院典藏資料檢索〈定武蘭亭真本 卷〉",
+              "url": "https://digitalarchive.npm.gov.tw/Collection/Detail/14853?dep=P"
+            },
+            {
+              "en": "Image of the Shenlong copy of the Lanting Xu (public domain); reference for our running-script tracings and source of the 永和九年 picture",
+              "zh": "神龍本〈蘭亭序〉影像（公有領域）：行書描線的對位參考與本頁「永和九年」圖片的來源",
+              "src": "Wikimedia Commons〈神龍蘭亭序全.JPG〉",
+              "url": "https://commons.wikimedia.org/wiki/File:%E7%A5%9E%E9%BE%8D%E8%98%AD%E4%BA%AD%E5%BA%8F%E5%85%A8.JPG"
+            },
+            {
+              "en": "Zhiyong: said to have written 800 copies of the Thousand Character Classic in regular and cursive script and given them to temples; one ink copy and one carved version (the Guanzhong version) survive",
+              "zh": "智永：相傳曾書《真草千字文》八百本，分送浙東諸寺，今尚存墨跡一本，刻本一種（關中本）",
+              "src": "教育部《重編國語辭典修訂本》「智永」",
+              "url": "https://dict.revised.moe.edu.tw/dictView.jsp?ID=114488"
+            },
+            {
+              "en": "Sun Guoting's Treatise on Calligraphy (書譜): cursive script, dated 687",
+              "zh": "孫過庭〈書譜〉：草書，卷尾題「垂拱三年寫記」（687）",
+              "src": "國立故宮博物院精選賞析〈書譜〉",
+              "url": "https://theme.npm.edu.tw/selection/Article.aspx?sNo=04001002"
+            },
+            {
+              "en": "Huaisu's Autobiography (自敘帖): wild cursive, dated 777",
+              "zh": "懷素〈自敘帖〉：大曆十二年（777）以狂草寫成",
+              "src": "國立故宮博物院精選賞析〈自敘帖〉",
+              "url": "https://theme.npm.edu.tw/selection/Article.aspx?sNo=04001004"
+            },
+            {
+              "en": "Huaisu's Autobiography: designated a National Treasure on March 26, 2012; regarded as the model of wild cursive",
+              "zh": "懷素自敘帖卷：國寶（2012-03-26 指定）；世推為狂草書的代表",
+              "src": "文化部文化資產局國家文化資產網",
+              "url": "https://nchdb.boch.gov.tw/assets/advanceSearch/antiquity/20120326000076"
+            },
+            {
+              "en": "Sun Guoting's Treatise on Calligraphy: designated a National Treasure on March 26, 2012",
+              "zh": "孫過庭書譜：國寶（2012-03-26 指定）",
+              "src": "文化部文化資產局國家文化資產網",
+              "url": "https://nchdb.boch.gov.tw/assets/advanceSearch/antiquity/20120326000055"
+            },
+            {
+              "en": "Taiwan's curriculum: 4-II-7 and 4-III-5, practice regular script (elementary school); 4-IV-4, recognize the different scripts and appreciate famous works (junior high)",
+              "zh": "十二年國教國語文領綱：4-Ⅱ-7「掌握楷書筆畫的書寫方法」、4-Ⅲ-5「掌握楷書形體結構的書寫方法」、4-Ⅳ-4「認識各種書體，欣賞名家碑帖」",
+              "src": "國家教育研究院《十二年國民基本教育課程綱要：國語文》（2018）",
+              "url": "https://www.naer.edu.tw/upload/1/16/doc/806/%E5%8D%81%E4%BA%8C%E5%B9%B4%E5%9C%8B%E6%B0%91%E5%9F%BA%E6%9C%AC%E6%95%99%E8%82%B2%E8%AA%B2%E7%A8%8B%E7%B6%B1%E8%A6%81%E5%9C%8B%E6%B0%91%E4%B8%AD%E5%B0%8F%E5%AD%B8%E6%9A%A8%E6%99%AE%E9%80%9A%E5%9E%8B%E9%AB%98%E7%B4%9A%E4%B8%AD%E7%AD%89%E5%AD%B8%E6%A0%A1%28%E8%AA%9E%E6%96%87%E9%A0%98%E5%9F%9F%E2%94%80%E5%9C%8B%E8%AA%9E%E6%96%87%29.pdf"
+            },
+            {
+              "en": "Curriculum handbook on 4-IV-4: students learn to tell apart seal, clerical, cursive, regular, and running script",
+              "zh": "課程手冊對 4-Ⅳ-4 的說明：讓學生能辨識篆、隸、草、楷、行等各種書體",
+              "src": "國家教育研究院《語文領域－國語文課程手冊》（2018）",
+              "url": "https://www.naer.edu.tw/upload/1/16/doc/2012/%E8%AA%9E%E6%96%87%E9%A0%98%E5%9F%9F-%E5%9C%8B%E8%AA%9E%E6%96%87%E8%AA%B2%E7%A8%8B%E6%89%8B%E5%86%8A(%E5%AE%9A%E7%A8%BF%E7%89%88).pdf"
+            },
+            {
+              "en": "The character 草: also means rough or careless (潦草), a draft (起草), and to write quickly",
+              "zh": "「草」：馬虎、粗率（潦草）；底稿、文稿（起草）；草寫",
+              "src": "教育部《重編國語辭典修訂本》「草」",
+              "url": "https://dict.revised.moe.edu.tw/dictView.jsp?ID=9782"
+            },
+            {
+              "en": "Early cursive (章草): written quickly from clerical script; the characters are not joined to one another",
+              "zh": "章草：一種由隸書草寫而成的字體，各字之間不連屬",
+              "src": "教育部《重編國語辭典修訂本》「章草」",
+              "url": "https://dict.revised.moe.edu.tw/dictView.jsp?ID=116895"
+            }
+          ]
         }
-      ]
+      ],
+      "planned": []
     },
     {
       "key": "masters",

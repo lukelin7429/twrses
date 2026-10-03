@@ -407,3 +407,64 @@ a.cg-link:hover { transform: translateY(-3px); box-shadow: var(--shadow); border
 @media (max-width: 860px) { .cg-wipe .cg-time-note { min-height: 0; } }
 .cg-clerical-lab .cg-btns { margin-bottom: .7rem; }
 .cg-clerical-lab .cg-btns .cg-whole { margin-bottom: 0; }
+
+/* ---------- 第七課：楷書、行書、草書——同一個字，三種速度 ---------- */
+.cg-modes4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.cg-modes4 button { font-size: .66rem; }
+.cg-chars3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.cg-race { width: 100%; border-collapse: collapse; font-size: .8rem; color: var(--al-text); font-variant-numeric: tabular-nums; }
+.cg-race thead th { padding: .2rem .2rem .35rem; font-weight: 700; font-size: .66rem; color: var(--al-mute); text-align: center; line-height: 1.2; }
+.cg-race thead th b { display: block; font-family: var(--zh); font-size: .95rem; color: #fff; }
+.cg-race tbody th { padding: .38rem .3rem .38rem 0; text-align: left; font-weight: 800; font-size: .74rem; line-height: 1.2; border-top: 1px solid var(--al-line); }
+.cg-race tbody th small { display: block; font-family: var(--zh); font-weight: 600; font-size: .68rem; color: var(--al-mute); }
+.cg-race tbody td { padding: .38rem .2rem; text-align: center; font-weight: 800; color: #fff; border-top: 1px solid var(--al-line); }
+.cg-race-time td { font-size: .9rem; color: var(--al-mute) !important; }
+.cg-race-time td.done { color: #fff !important; }
+.cg-race-time td.win { color: #1b1405 !important; background: var(--al-sun); border-radius: 8px; }
+.cg-speed-lab[data-mode="race"] [data-cam="tip"] { display: none; }
+.cg-speed-lab .cg-race-msg { min-height: 4.6em; margin-top: 0; }
+.al-lab.cg-lb-race { padding: .2rem .7rem; }
+.al-lab.cg-lb-race b { margin-right: .3rem; }
+.al-lab.cg-lb-race small { font-family: var(--sans); font-size: .78rem; font-weight: 800; color: #fff; font-variant-numeric: tabular-nums; }
+.cg-narrow .al-lab.cg-lb-race { font-size: .58rem; padding: .1rem .35rem; }
+.cg-narrow .al-lab.cg-lb-race small { font-size: .62rem; }
+.al-lg-cgth i { border: 0; border-radius: 3px; height: 5px; margin-top: .5rem; background: #d13a25; }
+@media (max-width: 1020px) { .cg-race { max-width: 520px; } }
+
+/* 法帖裡的字（真的拓本、摹本） */
+.cg-sheets { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.2rem; margin-top: 1.4rem; align-items: start; }
+.cg-sheet { margin: 0; background: #fff; border: 1px solid var(--line); border-radius: 18px; overflow: hidden; box-shadow: var(--shadow-sm); }
+.cg-sheet img { display: block; width: 100%; height: 230px; object-fit: cover; background: #1c1b18; }
+.cg-sheet figcaption { padding: 1rem 1.2rem 1.1rem; }
+.cg-sheet figcaption b { display: block; font-family: var(--serif); font-size: 1.12rem; line-height: 1.3; }
+.cg-sheet figcaption > .zh { display: block; font-weight: 700; color: var(--gold-dk); margin-bottom: .4rem; }
+.cg-sheet figcaption p { margin: 0 0 .3rem; font-size: .92rem; line-height: 1.6; }
+.cg-sheet figcaption p .zh, .cg-sheet figcaption p + p { color: var(--ink-soft); }
+.cg-sheet-credit { display: block; margin-top: .6rem; font-size: .74rem; line-height: 1.5; color: var(--ink-soft); }
+.cg-sheet-credit a { color: var(--brand-dk); }
+@media (max-width: 900px) { .cg-sheets { grid-template-columns: 1fr; max-width: 520px; } .cg-sheet img { height: 260px; } }
+
+/* 這是哪一種字體？ */
+.cg-scripts-opts { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: .45rem; }
+.cg-scripts-opts button { height: auto; padding: .7rem .2rem .6rem; font-size: 1rem; display: flex; flex-direction: column; align-items: center; gap: .1rem; }
+.cg-scripts-opts button b { font-family: var(--zh); font-size: 1.25rem; }
+.cg-scripts-opts button span { font-family: var(--sans); font-size: .7rem; font-weight: 800; color: var(--ink-soft); }
+.cg-scripts-opts button.ok span, .cg-scripts-opts button.ok b { color: #fff; }
+@media (max-width: 480px) { .cg-scripts-opts { grid-template-columns: repeat(3, minmax(0, 1fr)); } .cg-scripts-opts button { height: auto; font-size: 1rem; } }
+
+/* 練字板：字體按鈕、碼表 */
+.cg-pad-scripts button { width: auto; min-width: 74px; height: 46px; padding: 0 .7rem; font-size: 1.05rem; line-height: 1.05; }
+.cg-pad-scripts button small { display: block; font-family: var(--sans); font-size: .62rem; font-weight: 800; opacity: .8; }
+.cg-pad-timer { margin-top: 1.1rem; padding: .9rem 1rem 1rem; border: 1px solid var(--line); border-radius: 16px; background: #fff; }
+.cg-pad-timer .sub-head { margin-top: 0; }
+.cg-pad-time { margin: .2rem 0 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .8rem; font-size: .88rem; line-height: 1.45; color: var(--ink); }
+.cg-pad-time > span { display: block; }
+.cg-pad-time i { display: block; font-style: normal; font-size: .72rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--gold-dk); }
+.cg-pad-time b { font-family: var(--serif); font-size: 1.5rem; color: var(--brand-dk); font-variant-numeric: tabular-nums; }
+.cg-pad-time small { display: block; color: var(--ink-soft); font-family: var(--zh); font-size: .84rem; }
+.cg-pad-brush b { color: #b8902f; }
+@media (max-width: 640px) { .cg-speed-lab .al-space { aspect-ratio: 5 / 4; } }
+.cg-sheet-tall { display: grid; grid-template-columns: 124px minmax(0, 1fr); }
+.cg-sheet-tall img { width: 124px; height: 100%; min-height: 340px; object-fit: cover; object-position: center top; background: #c9a55a; }
+.cg-ico:has(> canvas[data-cg-script]) { width: 132px; height: 132px; border-radius: 22px; }
+.cg-ico canvas[data-cg-script] { width: 116px; height: 116px; }
