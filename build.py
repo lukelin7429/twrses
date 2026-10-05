@@ -4311,7 +4311,7 @@ def build_astro_hub():
 # 面板與段落樣式沿用 astro.css，人體專屬的在 body.css；兩者都只載在本系列頁面。
 BODY_BASE = "/resources/classes/human-body/"
 _BODY_JS = {"skeleton": "skeleton", "arm": "arm", "heart": "heart", "lungs": "lungs", "joints": "joints",
-            "digestion": "digestion", "nerves": "nerves", "eyes": "eyes", "ears": "ears", "skin": "skin", "teeth": "teeth", "germs": "germs", "kidneys": "kidneys"}   # lab.kind → assets/js/<bundle>.js
+            "digestion": "digestion", "nerves": "nerves", "eyes": "eyes", "ears": "ears", "skin": "skin", "teeth": "teeth", "germs": "germs", "kidneys": "kidneys", "taste": "taste"}   # lab.kind → assets/js/<bundle>.js
 
 def _body_ver():
     h = hashlib.md5()
@@ -5117,6 +5117,71 @@ def render_kidneys_lab(lesson):
   <p class="sk-credit">{lab["credit_html"]}</p>
 </div>'''
 
+def render_taste_lab(lesson):
+    """第十四課：剖開的真實頭骨＋真實舌頭，自繪味蕾、嗅覺區與兩條路（assets/js/taste.js 綁這裡的 class）；捏鼻子計分卡是 2D，不需要 WebGL。"""
+    lab = lesson["lab"]
+    foods_json = html.escape(json.dumps(lab["foods"], ensure_ascii=False))
+    foods = "".join(
+        f'<button type="button" data-food="{f["key"]}" aria-pressed="{"true" if n == 0 else "false"}"><i aria-hidden="true">{f["icon"]}</i>'
+        f'<span>{html.escape(f["en"])}<small>{html.escape(f["zh"])}</small></span></button>'
+        for n, f in enumerate(lab["foods"]))
+    tastes = [("sweet", "Sweet", "甜"), ("sour", "Sour", "酸"), ("salty", "Salty", "鹹"), ("bitter", "Bitter", "苦"), ("umami", "Umami", "鮮")]
+    bars = "".join(f'<div class="ts-bar ts-{k}"><span>{en}<small>{zh}</small></span><b><i></i></b></div>' for k, en, zh in tastes)
+    def row(k, en, zh):
+        return (f'<div class="ts-row" data-row="{k}"><p class="ts-row-k">{en}<small>{zh}</small></p>'
+                f'<div class="ts-btns"><button type="button" class="ts-yes" data-add="1">&#10003; Right<small>猜對</small></button>'
+                f'<button type="button" class="ts-no" data-add="0">&#10007; Wrong<small>猜錯</small></button></div>'
+                f'<div class="ts-meter" aria-hidden="true"><i></i></div><p class="ts-score" aria-live="polite">0 / 0</p></div>')
+    tg = _lab_toggles([("labels", "Labels", "標示", True), ("skull", "Skull", "頭骨", True), ("face", "Face outline", "臉的輪廓", True)])
+    return f'''<div class="astro-lab sk-lab ts-lab rvl" data-taste-lab data-model="{_model_url()}" data-organs="{_organs_url()}" data-foods="{foods_json}">
+  <div class="al-stage">
+    <div class="al-space">
+      <canvas class="al-space-cv" aria-label="3D model of a head cut down the middle, with the real tongue, taste buds, and the smell patch at the top of the nose · 從正中剖開的頭部 3D 模型，有真實的舌頭、味蕾與鼻腔頂端的嗅覺區"></canvas>
+      <div class="al-labels" aria-hidden="true"></div>
+      <p class="sk-loading">Loading… · 載入中…<span class="sk-bar"><i></i></span></p>
+      <p class="al-hint">Drag to turn · 拖曳旋轉　Scroll or pinch to zoom · 滾輪／雙指縮放</p>
+      <p class="ey-mag">Head cut down the middle, seen from the left · 頭從正中剖開，從左邊看</p>
+      <button type="button" class="al-home" title="Reset view · 重設視角" aria-label="Reset view · 重設視角">&#8634;</button>
+      <p class="al-nogl-msg">This 3D model needs WebGL, which this browser does not support. The score card and the cards below still work.<br><span class="zh">這個瀏覽器不支援 WebGL，無法顯示 3D 模型；下方的計分卡和卡片一樣能用。</span></p>
+    </div>
+    <aside class="al-sky sk-aside ts-aside">
+      <p class="al-sky-k">The tongue says · 舌頭說</p>
+      <div class="ts-bars">{bars}</div>
+      <div class="ts-bar ts-painrow"><span>Pain and heat<small>痛和熱（不是味覺）</small></span><b><i></i></b></div>
+      <p class="al-sky-k">The nose says · 鼻子說</p>
+      <p class="ts-nose" aria-live="polite"></p>
+      <p class="al-sky-k">The brain says · 大腦說</p>
+      <p class="ey-status ts-status" aria-live="polite"></p>
+      <div class="ey-more ts-more">
+        <button type="button" class="ts-pinch" aria-pressed="false"><i aria-hidden="true">&#129295;</i><span>Pinch the nose<small>捏住鼻子</small></span></button>
+        <button type="button" class="ts-bite"><i aria-hidden="true">&#128523;</i><span>Take another bite<small>再吃一口</small></span></button>
+        <button type="button" class="ts-zb" aria-pressed="false"><i aria-hidden="true">&#128300;</i><span>Zoom: a taste bud<small>放大一個味蕾</small></span></button>
+        <button type="button" class="ts-zs" aria-pressed="false"><i aria-hidden="true">&#128067;</i><span>Zoom: the smell patch<small>放大嗅覺區</small></span></button>
+      </div>
+    </aside>
+  </div>
+  <div class="ts-strip">
+    <div class="ts-card">
+      <p class="al-sky-k">Pinch-test score card · 捏鼻子試吃計分卡</p>
+      {row("pinch", "1 &#129295; Nose pinched", "捏住鼻子")}
+      {row("open", "2 &#128067; Nose open", "放開鼻子")}
+      <div class="ts-tools"><button type="button" class="ts-undo" disabled>&#8630; Undo<small>復原上一筆</small></button><button type="button" class="ts-reset">Start over<small>重新開始</small></button></div>
+    </div>
+    <div class="ts-result">
+      <p class="al-sky-k">What we found · 我們的發現</p>
+      <p class="ts-big"><b class="ts-diff">—</b><span>right answers: nose pinched &rarr; nose open<small>猜對率：捏住鼻子 → 放開鼻子</small></span></p>
+      <p class="ts-msg" aria-live="polite"></p>
+      <p class="ts-note">Sit down, take small pieces, and chew well. Check for food allergies first.<span class="zh">坐好、小口吃、慢慢嚼；先確認有沒有人對食物過敏。</span></p>
+    </div>
+  </div>
+  <div class="al-controls">
+    <div class="ea-pres ts-foods" role="group" aria-label="Foods · 食物">{foods}</div>
+    <div class="al-row al-toggles">{tg}</div>
+  </div>
+  {_lab_foot(lab)}
+  <p class="sk-credit">{lab["credit_html"]}</p>
+</div>'''
+
 def _body_nav(slug):
     ls = BODY["lessons"]
     i = next(n for n, l in enumerate(ls) if l["slug"] == slug)
@@ -5143,7 +5208,8 @@ def build_body_lesson(lesson):
     lab_html = {"skeleton": render_skeleton_lab, "arm": render_arm_lab, "heart": render_heart_lab, "lungs": render_lungs_lab,
                 "joints": render_joints_lab, "digestion": render_digestion_lab, "nerves": render_nerves_lab,
                 "eyes": render_eyes_lab, "ears": render_ears_lab, "skin": render_skin_lab,
-                "teeth": render_teeth_lab, "germs": render_germs_lab, "kidneys": render_kidneys_lab}[kind](lesson)
+                "teeth": render_teeth_lab, "germs": render_germs_lab, "kidneys": render_kidneys_lab,
+                "taste": render_taste_lab}[kind](lesson)
 
     secs = []
     if lesson.get("jobs"):
@@ -5249,7 +5315,8 @@ def build_body_lesson(lesson):
                 "eyes": ("Your eyes in a sentence", "一句話記住眼睛"), "ears": ("Your ears in a sentence", "一句話記住耳朵"),
                 "skin": ("Your skin in a sentence", "一句話記住皮膚"), "teeth": ("Your teeth in a sentence", "一句話記住牙齒"),
                 "germs": ("Fighting germs in a sentence", "一句話記住免疫"),
-                "kidneys": ("Your kidneys in a sentence", "一句話記住腎臟")}[kind]
+                "kidneys": ("Your kidneys in a sentence", "一句話記住腎臟"),
+                "taste": ("Taste and smell in a sentence", "一句話記住味覺和嗅覺")}[kind]
     secs.append(("tricks", "Remember It · 記憶口訣", tricks_h[0], tricks_h[1], _sci_tricks(lesson), ""))
     if lesson.get("culture"):
         cu = lesson["culture"]

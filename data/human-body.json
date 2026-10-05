@@ -16,11 +16,6 @@
   ],
   "planned": [
     {
-      "icon": "👅",
-      "en": "How Do You Taste and Smell?",
-      "zh": "味道是怎麼來的？"
-    },
-    {
       "icon": "😴",
       "en": "Why Do You Need Sleep?",
       "zh": "為什麼要睡覺？"
@@ -6015,6 +6010,553 @@
       },
       "health_en": "This lesson is for learning about the body. It is not medical advice. If it hurts when you go to the restroom, if your urine looks red or brown, or if you are very thirsty all the time, tell an adult. Take medicine only when a doctor or a parent says so, because some medicines are hard on the kidneys.",
       "health_zh": "本課是認識身體的教材，不是醫療建議。如果上廁所時會痛、尿液看起來是紅色或褐色，或是一直覺得非常口渴，請告訴大人。只在醫生或家長說可以的時候吃藥，因為有些藥會傷腎。"
+    },
+    {
+      "n": 14,
+      "slug": "taste",
+      "title": "How Do You Taste and Smell?",
+      "title_zh": "味道是怎麼來的？",
+      "level": "入門 · Beginner",
+      "icon": "👅",
+      "card": "taste",
+      "blurb_en": "Most of what you call taste is really smell. Send food molecules to a real 3D tongue and up the back way to the nose, then pinch your nose and taste the difference.",
+      "blurb_zh": "你以為的「味道」，大部分其實是嗅覺。在 3D 裡把食物分子送到真實的舌頭、再從後門送進鼻子，然後捏住鼻子吃一口，嚐嚐差別。",
+      "big_idea_en": "Your tongue senses only five basic tastes. Your nose senses thousands of smells, and your brain mixes the two into flavor.",
+      "big_idea_zh": "舌頭只分得出五種基本味道，鼻子卻聞得出幾千種氣味；大腦把兩者混在一起，才是你吃到的「風味」。",
+      "lab": {
+        "kind": "taste",
+        "eyebrow": "3D Model · 3D 模型",
+        "title_en": "Two Roads to Flavor",
+        "title_zh": "風味的兩條路",
+        "how_en": "The head is cut down the middle so you can look inside. Pick a food and watch its molecules take two roads. Some dissolve in saliva and reach the taste buds, which sit all over the tongue. Others float up behind the roof of the mouth into the nose: the back door. Now pinch the nose. The second road is closed, and the brain can only say sweet, sour, salty, bitter, or umami. Try the chili, too!",
+        "how_zh": "頭從正中間剖開，讓你看到裡面。選一種食物，看它的分子走兩條路：一些溶在口水裡、到達遍布整個舌頭的味蕾；另一些從上顎後面往上飄進鼻子——這是「後門」。現在捏住鼻子：第二條路關起來了，大腦只說得出甜、酸、鹹、苦、鮮。也試試辣椒吧！",
+        "legend": [
+          {
+            "cls": "tongue",
+            "en": "Pink: the real tongue",
+            "zh": "粉紅色：真實的舌頭"
+          },
+          {
+            "cls": "tsbud",
+            "en": "Dots on the tongue: taste buds lighting up",
+            "zh": "舌頭上的點：亮起來的味蕾"
+          },
+          {
+            "cls": "tsodor",
+            "en": "Light blue: smell molecules in the air",
+            "zh": "淡藍色：空氣裡的氣味分子"
+          },
+          {
+            "cls": "tssmell",
+            "en": "Yellow: the smell patch at the top of the nose",
+            "zh": "黃色：鼻腔頂端的嗅覺區"
+          },
+          {
+            "cls": "tspain",
+            "en": "Red sparks: pain and heat nerves (chili)",
+            "zh": "紅色火花：痛覺與溫度神經（辣椒）"
+          }
+        ],
+        "scale_en": "The skull bones and the tongue are real shapes from BodyParts3D, in their real places; the face outline, the soft palate, the taste buds, the smell patch, the nerves, and the two magnified views are our own drawing. Real taste buds and smell cells are far too small to see, and real molecules are about a million times smaller than these dots. The colors and the bars are for teaching: a real food has many more molecules than the few shown here. The model has no teeth, because BodyParts3D does not include them.",
+        "scale_zh": "頭骨和舌頭是 BodyParts3D 的真實形狀，位置也是真的；臉的輪廓、軟顎、味蕾、嗅覺區、神經和兩個放大圖是本站自繪的示意圖。真正的味蕾和嗅覺細胞小到看不見，真正的分子更比這些小點小了大約一百萬倍。顏色和長條是為了教學：真實食物裡的分子種類比這裡畫的多得多。模型沒有牙齒，因為 BodyParts3D 沒有牙齒的資料。",
+        "credit_html": "Bone and organ models: <a href=\"https://dbarchive.biosciencedbc.jp/en/bodyparts3d/download.html\" target=\"_blank\" rel=\"noopener\">BodyParts3D</a>, © The Database Center for Life Science, licensed under <a href=\"https://creativecommons.org/licenses/by/4.0/\" target=\"_blank\" rel=\"noopener\">CC BY 4.0</a>. We selected the skull bones and the tongue, simplified the shapes, turned the model upright, and cut the skull down the middle; the face outline, soft palate, taste buds, smell patch, and nerves are our own drawing. · 骨骼與器官模型來源：BodyParts3D（日本生命科學資料庫中心，CC BY 4.0 授權）；本站挑選頭骨與舌頭，簡化形狀、轉正方向並從正中剖開，臉的輪廓、軟顎、味蕾、嗅覺區與神經為本站自繪示意。",
+        "foods": [
+          {
+            "key": "gummy",
+            "icon": "🍬",
+            "en": "Strawberry gummy",
+            "zh": "草莓軟糖",
+            "taste": [
+              0.85,
+              0.3,
+              0,
+              0,
+              0
+            ],
+            "pain": 0,
+            "smell_en": "strawberry",
+            "smell_zh": "草莓香",
+            "open_en": "Sweet, a little sour, and it smells like strawberry. That is a strawberry gummy!",
+            "open_zh": "甜甜的、有一點酸，還有草莓的香味——是草莓軟糖！",
+            "pinch_en": "Sweet and a little sour. It is some kind of candy, but which flavor? No idea.",
+            "pinch_zh": "甜甜的、有一點酸。是某種糖果，可是什麼口味？完全猜不出來。"
+          },
+          {
+            "key": "lemon",
+            "icon": "🍋",
+            "en": "Lemon",
+            "zh": "檸檬",
+            "taste": [
+              0.1,
+              0.95,
+              0,
+              0.1,
+              0
+            ],
+            "pain": 0,
+            "smell_en": "lemon",
+            "smell_zh": "檸檬香",
+            "open_en": "Very sour, with a fresh lemon smell. That is a lemon!",
+            "open_zh": "非常酸，加上清新的檸檬香——是檸檬！",
+            "pinch_en": "Very sour! But is it lemon, lime, or vinegar? The tongue alone cannot tell.",
+            "pinch_zh": "好酸！可是這是檸檬、萊姆，還是醋？光靠舌頭分不出來。"
+          },
+          {
+            "key": "chips",
+            "icon": "🥨",
+            "en": "Salted pretzel",
+            "zh": "鹹脆餅",
+            "taste": [
+              0.15,
+              0,
+              0.85,
+              0,
+              0.1
+            ],
+            "pain": 0,
+            "smell_en": "baked bread",
+            "smell_zh": "烤麵包香",
+            "open_en": "Salty, with a warm baked smell. That is a pretzel!",
+            "open_zh": "鹹鹹的，帶著烤過的香味——是脆餅！",
+            "pinch_en": "Salty and crunchy. A cracker? A chip? Hard to say.",
+            "pinch_zh": "鹹鹹脆脆的。是餅乾？還是洋芋片？很難說。"
+          },
+          {
+            "key": "choco",
+            "icon": "🍫",
+            "en": "Dark chocolate",
+            "zh": "黑巧克力",
+            "taste": [
+              0.4,
+              0.05,
+              0,
+              0.7,
+              0
+            ],
+            "pain": 0,
+            "smell_en": "chocolate",
+            "smell_zh": "巧克力香",
+            "open_en": "Bitter and a little sweet, with that rich chocolate smell. Dark chocolate!",
+            "open_zh": "苦苦的、有一點甜，還有濃濃的巧克力香——是黑巧克力！",
+            "pinch_en": "Bitter, a little sweet, and it is melting. Without the smell, chocolate is hard to recognize.",
+            "pinch_zh": "苦苦的、有一點甜，正在融化。少了香味，巧克力很難認出來。"
+          },
+          {
+            "key": "broth",
+            "icon": "🍲",
+            "en": "Kelp broth",
+            "zh": "昆布高湯",
+            "taste": [
+              0.05,
+              0,
+              0.45,
+              0,
+              0.9
+            ],
+            "pain": 0,
+            "smell_en": "the sea",
+            "smell_zh": "海的香氣",
+            "open_en": "Savory and a little salty, with a smell of the sea. That is umami: a good broth!",
+            "open_zh": "鮮鮮的、有一點鹹，還有海的香氣——這就是鮮味：一碗好高湯！",
+            "pinch_en": "Savory and a little salty. The umami is still there, because it is a taste, not a smell.",
+            "pinch_zh": "鮮鮮的、有一點鹹。鮮味還在，因為它是味覺，不是嗅覺。"
+          },
+          {
+            "key": "chili",
+            "icon": "🌶️",
+            "en": "Chili pepper",
+            "zh": "辣椒",
+            "taste": [
+              0.15,
+              0,
+              0,
+              0.05,
+              0
+            ],
+            "pain": 0.95,
+            "smell_en": "chili",
+            "smell_zh": "辣椒香",
+            "open_en": "Ouch, hot! None of the five tastes is strong. The burn comes from pain and heat nerves, not from taste buds.",
+            "open_zh": "哇，好辣！五種味道都不強——那種燒燒的感覺來自痛覺和溫度神經，不是味蕾。",
+            "pinch_en": "Still hot! Pinching your nose does not stop the burn, because spicy is not a smell either. It is pain.",
+            "pinch_zh": "還是好辣！捏住鼻子也擋不住，因為辣也不是氣味——它是痛覺。"
+          }
+        ]
+      },
+      "paras": [
+        "Pinch your nose shut and pop a fruit candy into your mouth. It is sweet, and maybe a little sour, but which fruit is it? You cannot tell. Now let go of your nose. Strawberry! What happened? The thing you call “taste” is really two senses working together. Your tongue does one part of the job, your nose does the other, and your brain mixes them into one thing: flavor.",
+        "Look at your tongue in a mirror. The little bumps are called papillae, and they are not taste buds. The taste buds are hidden in the sides of many of those bumps, and they are much too small to see. You have several thousand of them: most are on your tongue, and some are on the roof of your mouth and in your throat. Each taste bud is a tiny bundle of taste cells with a small opening at the top. When food dissolves in your saliva, its molecules wash into that opening, and the taste cells send a signal along nerves to your brain. Taste cells wear out fast, so your body replaces them about every ten days. That is why a burned tongue feels normal again so soon.",
+        "Taste cells can report only five basic tastes: sweet, sour, salty, bitter, and umami. Scientists think each one is a useful message. Sweet means sugar, and sugar means energy. Salty means minerals your body needs. Sour means acid, as in a lemon or in fruit that is not ripe. Bitter is a warning, because many poisons are bitter. Umami is the savory taste of broth, mushrooms, and cheese, and it tells you that a food has protein. It was the last of the five to be named: in 1908, the Japanese chemist Kikunae Ikeda found it in kelp broth.",
+        "You may have seen a map of the tongue that puts sweet at the tip, sour and salty on the sides, and bitter at the back. The map is wrong. Every part of your tongue that has taste buds can sense all five tastes. The mistake is more than eighty years old. In 1901, a German scientist measured very small differences from one part of the tongue to another. In 1942, an American textbook drew those results as a simple chart, and readers took it to mean that each area senses just one taste. You can test this yourself with a little sugar: you will taste it wherever it touches.",
+        "So where does “strawberry” come from? From your nose. High inside it is a small patch of smell cells, with about 400 kinds of smell sensors. Every smell switches on its own mix of sensors, like a chord played on a piano, and that is how you can tell thousands of smells apart. Smells reach the patch by two roads. The front door is your nostrils: you sniff. The back door is a passage that joins the top of your throat to your nose. While you chew, smell molecules from the food float up through this back door. Pinch your nose, or catch a cold, and that air cannot move. The food seems to have almost no flavor at all.",
+        "And what about spicy food? Spicy is not a taste. The chemical in chili peppers switches on nerves that feel pain and heat, the same nerves that warn you about soup that is too hot. That is why spicy food “burns.” Mint plays the opposite trick: it switches on nerves that feel cold. Your brain adds these feelings to taste and smell, along with the crunch and the warmth of the food, and the result is the flavor of your lunch. Now find a partner and try the pinch test below the model."
+      ],
+      "paras_zh": [
+        "捏住鼻子，把一顆水果糖放進嘴裡。甜甜的，也許有一點酸，可是這是什麼水果？你說不出來。現在放開鼻子——是草莓！發生了什麼事？你說的「味道」，其實是兩種感覺一起合作的結果：舌頭做一部分，鼻子做另一部分，大腦再把它們混成一樣東西——風味。",
+        "照鏡子看看你的舌頭。那些小小的突起叫做舌乳頭，它們不是味蕾。味蕾藏在許多舌乳頭的側面，小到眼睛看不見。你有好幾千個味蕾：大部分在舌頭上，有些在上顎和喉嚨裡。每個味蕾是一小束味覺細胞，頂端有一個小開口。食物溶在口水裡，分子流進那個開口，味覺細胞就沿著神經把訊號送到大腦。味覺細胞耗損得很快，所以身體大約每十天就把它們換新一次——這就是為什麼燙到的舌頭很快就恢復正常。",
+        "味覺細胞只能回報五種基本味道：甜、酸、鹹、苦、鮮。科學家認為，每一種都是有用的訊息。甜代表糖，糖就是能量。鹹代表身體需要的礦物質。酸代表酸性的東西，像檸檬，或是還沒熟的水果。苦是警告，因為很多有毒的東西是苦的。鮮是高湯、香菇和起司那種鮮美的味道，告訴你食物裡有蛋白質。它是五種裡面最晚被命名的：1908 年，日本化學家池田菊苗在昆布高湯裡找到了它。",
+        "你可能看過一張舌頭地圖：舌尖嚐甜、兩側嚐酸和鹹、舌根嚐苦。這張地圖是錯的。舌頭上只要有味蕾的地方，五種味道都嚐得到。這個錯誤已經流傳八十多年了：1901 年，一位德國科學家量到舌頭各處有非常微小的差別；1942 年，美國一本教科書把結果畫成一張簡單的圖，讀者就以為每一區只嚐得到一種味道。你可以自己用一點糖來測試：糖碰到哪裡，哪裡就嚐得到甜。",
+        "那麼「草莓味」是哪裡來的？來自鼻子。鼻腔裡很高的地方有一小片嗅覺細胞，上面大約有 400 種氣味感應器。每一種氣味會打開自己的一組感應器，就像在鋼琴上彈一個和弦，所以你分得出幾千種氣味。氣味到達那裡有兩條路。前門是鼻孔：用聞的。後門是一條把喉嚨頂端和鼻子連起來的通道：咀嚼的時候，食物的氣味分子就從這個後門往上飄。捏住鼻子，或是感冒鼻塞，空氣流不動，食物就好像幾乎沒有味道了。",
+        "那辣呢？辣不是味覺。辣椒裡的化學物質打開的是感覺痛和熱的神經——也就是湯太燙時警告你的那些神經，所以吃辣才會「燒燒的」。薄荷玩的是相反的把戲：它打開感覺冷的神經。大腦把這些感覺，連同食物的脆度和溫度，一起加進味覺和嗅覺裡，結果就是你午餐的風味。現在找一位同伴，試試模型下方的捏鼻子測驗吧。"
+      ],
+      "questions": [
+        "What are the five basic tastes, and where on the tongue can you sense them?",
+        "How do smells from the food in your mouth reach your nose?",
+        "Why does spicy food “burn”?"
+      ],
+      "answers": [
+        "Sweet, sour, salty, bitter, and umami. You can sense all five on every part of the tongue that has taste buds.",
+        "Through the back door: a passage that joins the top of the throat to the nose. While you chew, smell molecules float up through it.",
+        "Because the chemical in chili peppers switches on nerves that feel pain and heat. Spicy is not a taste."
+      ],
+      "vocab": [
+        {
+          "n": 1,
+          "w": "tongue",
+          "pos": "n.",
+          "zh": "舌頭",
+          "ex": "The doctor asked me to stick out my <b>tongue</b>.",
+          "exzh": "醫生請我把舌頭伸出來。"
+        },
+        {
+          "n": 2,
+          "w": "taste bud",
+          "pos": "n.",
+          "zh": "味蕾",
+          "ex": "Your <b>taste buds</b> are too small to see.",
+          "exzh": "你的味蕾小到看不見。"
+        },
+        {
+          "n": 3,
+          "w": "flavor",
+          "pos": "n.",
+          "zh": "風味；口味",
+          "ex": "What <b>flavor</b> of ice cream do you want?",
+          "exzh": "你想要什麼口味的冰淇淋？"
+        },
+        {
+          "n": 4,
+          "w": "saliva",
+          "pos": "n.",
+          "zh": "口水；唾液",
+          "ex": "<b>Saliva</b> helps you taste and swallow your food.",
+          "exzh": "口水幫助你嚐味道、把食物吞下去。"
+        },
+        {
+          "n": 5,
+          "w": "sour",
+          "pos": "adj.",
+          "zh": "酸的",
+          "ex": "This lemon candy is really <b>sour</b>!",
+          "exzh": "這顆檸檬糖真的好酸！"
+        },
+        {
+          "n": 6,
+          "w": "bitter",
+          "pos": "adj.",
+          "zh": "苦的",
+          "ex": "The medicine tasted <b>bitter</b>, so I drank some water.",
+          "exzh": "藥吃起來很苦，所以我喝了一些水。"
+        },
+        {
+          "n": 7,
+          "w": "spicy",
+          "pos": "adj.",
+          "zh": "辣的",
+          "ex": "Is this hot pot <b>spicy</b>?",
+          "exzh": "這個火鍋會辣嗎？"
+        },
+        {
+          "n": 8,
+          "w": "pinch",
+          "pos": "v.",
+          "zh": "捏",
+          "ex": "<b>Pinch</b> your nose and take a bite.",
+          "exzh": "捏住鼻子，然後咬一口。"
+        }
+      ],
+      "quiz": [
+        {
+          "q": "How many basic tastes can your tongue sense?",
+          "options": [
+            "Five",
+            "Two",
+            "Four hundred",
+            "Thousands"
+          ],
+          "correct": 0
+        },
+        {
+          "q": "Where are your taste buds?",
+          "options": [
+            "All over the tongue, hidden in many of its bumps",
+            "Only at the tip of the tongue",
+            "Only at the back of the tongue",
+            "Inside the nose"
+          ],
+          "correct": 0
+        },
+        {
+          "q": "Which taste did Kikunae Ikeda find in kelp broth in 1908?",
+          "options": [
+            "Umami",
+            "Sweet",
+            "Sour",
+            "Bitter"
+          ],
+          "correct": 0
+        },
+        {
+          "q": "Why is it hard to tell the flavor of a candy when you pinch your nose?",
+          "options": [
+            "Smell molecules cannot travel up to the smell cells",
+            "Your tongue stops working",
+            "The candy loses its sugar",
+            "Your mouth makes no saliva"
+          ],
+          "correct": 0
+        },
+        {
+          "q": "According to the reading, what is “spicy”?",
+          "options": [
+            "A feeling of pain and heat",
+            "One of the five basic tastes",
+            "A kind of smell",
+            "A sixth taste found only at the back of the tongue"
+          ],
+          "correct": 0
+        }
+      ],
+      "kinds_head": {
+        "eyebrow": "Your Flavor Team · 風味小隊",
+        "en": "Five parts, one flavor",
+        "zh": "五個成員，合成一種風味"
+      },
+      "kinds": [
+        {
+          "icon": "👅",
+          "en": "Papillae",
+          "zh": "舌乳頭",
+          "where_en": "The bumps all over the top of your tongue",
+          "where_zh": "舌頭表面一粒一粒的突起",
+          "control_en": "Grip food; hold the taste buds",
+          "control_zh": "抓住食物、裝著味蕾",
+          "text_en": "These are the bumps you can see. The most common kind has no taste buds at all: it just makes the tongue rough.",
+          "text_zh": "這些是你看得見的突起。數量最多的那一種根本沒有味蕾，只是讓舌頭表面粗粗的。"
+        },
+        {
+          "icon": "🧅",
+          "en": "Taste buds",
+          "zh": "味蕾",
+          "where_en": "Hidden in the papillae, on the roof of the mouth, and in the throat",
+          "where_zh": "藏在舌乳頭裡，上顎和喉嚨也有",
+          "control_en": "Sense the five basic tastes",
+          "control_zh": "分辨五種基本味道",
+          "text_en": "Each one is a bundle of taste cells shaped like an onion. The cells are replaced about every ten days.",
+          "text_zh": "每個味蕾是一束味覺細胞，形狀像一顆洋蔥；細胞大約每十天換新一次。"
+        },
+        {
+          "icon": "💧",
+          "en": "Saliva",
+          "zh": "口水",
+          "where_en": "Made by glands around your mouth",
+          "where_zh": "由嘴巴周圍的腺體製造",
+          "control_en": "Dissolves food",
+          "control_zh": "把食物溶開",
+          "text_en": "Taste cells can only sense what is dissolved. Dry your tongue with a clean tissue, and a bit of sugar has almost no taste until it gets wet.",
+          "text_zh": "味覺細胞只嚐得到溶開的東西。用乾淨的衛生紙把舌頭擦乾，放一點糖，在它變濕之前幾乎沒有味道。"
+        },
+        {
+          "icon": "👃",
+          "en": "Smell patch",
+          "zh": "嗅覺區",
+          "where_en": "At the very top of the inside of your nose",
+          "where_zh": "鼻腔裡面最高的地方",
+          "control_en": "Senses thousands of smells",
+          "control_zh": "分辨幾千種氣味",
+          "text_en": "It has about 400 kinds of smell sensors. Smells get there through the nostrils or through the back door from your throat.",
+          "text_zh": "上面大約有 400 種氣味感應器。氣味從鼻孔進來，或是從喉嚨的後門上來。"
+        },
+        {
+          "icon": "🔥",
+          "en": "Pain and heat nerves",
+          "zh": "痛覺與溫度神經",
+          "where_en": "Everywhere in your mouth and nose",
+          "where_zh": "嘴巴和鼻子裡到處都有",
+          "control_en": "Feel hot, cold, and ouch",
+          "control_zh": "感覺熱、冷和痛",
+          "text_en": "Chili switches on the “hot” nerves, and mint switches on the “cold” ones. Neither is a taste or a smell.",
+          "text_zh": "辣椒打開「熱」的神經，薄荷打開「冷」的神經。兩者都不是味覺，也不是嗅覺。"
+        }
+      ],
+      "kinds_note_en": "Think of a band: the tongue plays five notes, the nose plays thousands, the nerves add the drums, and your brain hears one song. That song is flavor.",
+      "kinds_note_zh": "把它想成一個樂團：舌頭只彈五個音，鼻子彈幾千個音，神經負責打鼓，而大腦聽到的是一首歌——這首歌就是風味。",
+      "measure": {
+        "title_en": "The pinch test",
+        "title_zh": "捏鼻子試吃",
+        "lead_en": "Work with a partner. You need small fruit gummies or jelly beans in three or four flavors. Use the score card below the model to keep count for your pair, or for the whole class.",
+        "lead_zh": "兩個人一組，準備三、四種口味的小水果軟糖或雷根糖。用模型下方的計分卡，記錄你們這一組（或全班）的結果。",
+        "steps": [
+          {
+            "n": "1",
+            "en": "Eyes closed, nose pinched",
+            "zh": "閉上眼睛、捏住鼻子",
+            "text_en": "Sit down, close your eyes, and pinch your nose. Your partner gives you one small candy. Chew it slowly for five seconds and guess the flavor. Your partner taps right or wrong in the first row.",
+            "text_zh": "坐好、閉上眼睛、捏住鼻子。同伴給你一小顆糖，慢慢嚼五秒鐘，猜猜是什麼口味。同伴在第一列點「猜對」或「猜錯」。"
+          },
+          {
+            "n": "2",
+            "en": "Let go and guess again",
+            "zh": "放開鼻子，再猜一次",
+            "text_en": "Keep chewing, let go of your nose, and breathe out. Guess again. Your partner taps right or wrong in the second row.",
+            "text_zh": "繼續嚼，放開鼻子，吐一口氣，再猜一次。同伴在第二列點「猜對」或「猜錯」。"
+          },
+          {
+            "n": "%",
+            "en": "Compare",
+            "zh": "比一比",
+            "text_en": "Switch roles and repeat with a new candy. After a few rounds, compare the two rows. How much did your nose help?",
+            "text_zh": "兩人交換，換一顆新的糖再做一次。做幾輪之後，比較兩列的結果：鼻子幫了多少忙？"
+          }
+        ],
+        "action": "test",
+        "action_value": "1",
+        "button_icon": "👃",
+        "button_en": "Open the score card",
+        "button_zh": "打開計分卡"
+      },
+      "myths": [
+        {
+          "myth_en": "Different parts of the tongue sense different tastes.",
+          "myth_zh": "舌頭的不同部位負責不同的味道。",
+          "fact_en": "Every part of the tongue that has taste buds can sense all five tastes. The famous tongue map came from a 1901 study that was misread in a 1942 textbook.",
+          "fact_zh": "舌頭上只要有味蕾的地方，五種味道都嚐得到。那張有名的舌頭地圖，來自 1942 年一本教科書對 1901 年一份研究的誤讀。"
+        },
+        {
+          "myth_en": "Spicy is one of the basic tastes.",
+          "myth_zh": "辣是一種基本味道。",
+          "fact_en": "Spicy is pain and heat. Chili switches on the same nerves that warn you when food is too hot, not the taste buds.",
+          "fact_zh": "辣是痛覺和熱的感覺。辣椒打開的是食物太燙時警告你的那些神經，不是味蕾。"
+        },
+        {
+          "myth_en": "The bumps on your tongue are your taste buds.",
+          "myth_zh": "舌頭上一粒一粒的就是味蕾。",
+          "fact_en": "The bumps are papillae. Taste buds are hidden inside many of them and are too small to see without a microscope.",
+          "fact_zh": "那些突起是舌乳頭。味蕾藏在許多舌乳頭裡面，不用顯微鏡是看不見的。"
+        },
+        {
+          "myth_en": "When you have a cold, your tongue stops working.",
+          "myth_zh": "感冒的時候，舌頭就失靈了。",
+          "fact_en": "Your tongue is fine: you can still tell sweet from salty. It is your stuffy nose that keeps smells away from the smell cells, so food seems to have little flavor.",
+          "fact_zh": "舌頭沒事：你還是分得出甜和鹹。是鼻塞讓氣味到不了嗅覺細胞，所以食物好像沒什麼味道。"
+        }
+      ],
+      "tricks": [
+        {
+          "title_en": "Taste + smell = flavor",
+          "title_zh": "味覺＋嗅覺＝風味",
+          "body_en": "The tongue gives five tastes, the nose gives thousands of smells, and the brain adds them up.",
+          "body_zh": "舌頭給五種味道，鼻子給幾千種氣味，大腦把它們加起來。"
+        },
+        {
+          "title_en": "Five on the tongue",
+          "title_zh": "舌頭上的五個",
+          "body_en": "Sweet, sour, salty, bitter, umami. In Chinese: 甜、酸、鹹、苦、鮮. All five, all over the tongue.",
+          "body_zh": "甜、酸、鹹、苦、鮮。五種味道，整個舌頭都嚐得到。"
+        },
+        {
+          "title_en": "Two doors to the nose",
+          "title_zh": "鼻子有兩個門",
+          "body_en": "The front door is your nostrils, for sniffing. The back door is behind the roof of your mouth, for the food you are chewing.",
+          "body_zh": "前門是鼻孔，用來聞；後門在上顎後面，給你正在嚼的食物用。"
+        },
+        {
+          "title_en": "Spicy is “ouch,” not “yum”",
+          "title_zh": "辣是痛，不是味",
+          "body_en": "Chili talks to your pain and heat nerves. Your taste buds have nothing to do with it.",
+          "body_zh": "辣椒找上的是痛覺和溫度神經，和味蕾沒有關係。"
+        }
+      ],
+      "activities": [
+        {
+          "title_en": "Apple or Pear?",
+          "title_zh": "蘋果還是梨子？",
+          "materials": [
+            {
+              "en": "An apple and a pear, peeled and cut into small cubes of the same size",
+              "zh": "一顆蘋果和一顆梨子，削皮、切成一樣大的小丁"
+            },
+            {
+              "en": "Toothpicks, a blindfold, and a tally chart",
+              "zh": "牙籤、眼罩和一張劃記表"
+            }
+          ],
+          "steps": [
+            {
+              "en": "Work in pairs. The taster puts on the blindfold and pinches their nose.",
+              "zh": "兩人一組。試吃的人戴上眼罩、捏住鼻子。"
+            },
+            {
+              "en": "The partner gives one cube on a toothpick. Apple or pear? Record the guess.",
+              "zh": "同伴用牙籤給一塊小丁。是蘋果還是梨子？記下答案。"
+            },
+            {
+              "en": "Do it five times in a mixed-up order. Then do five more with the nose open.",
+              "zh": "打亂順序做五次；然後放開鼻子，再做五次。"
+            },
+            {
+              "en": "Count the right answers each way. Which sense told the two fruits apart?",
+              "zh": "數一數兩種情況各猜對幾次。是哪一種感覺分出這兩種水果的？"
+            }
+          ],
+          "tip_en": "Teaching tip: check for food allergies first, and have everyone wash their hands. Apple and pear are both sweet and crisp, so with the nose pinched, many students do little better than guessing. Ask older students: why do we need five tries, not one?",
+          "tip_zh": "教學提示：先確認有沒有人對食物過敏，並請大家洗手。蘋果和梨子都是甜甜脆脆的，所以捏住鼻子的時候，很多學生猜對的次數和亂猜差不多。可以問高年級學生：為什麼要試五次，而不是一次？"
+        },
+        {
+          "title_en": "Bust the Tongue Map",
+          "title_zh": "打破舌頭地圖",
+          "materials": [
+            {
+              "en": "Three cups: sugar water, salt water, and water with a little lemon juice",
+              "zh": "三個杯子：糖水、鹽水，以及加了一點檸檬汁的水"
+            },
+            {
+              "en": "Clean cotton swabs (a new one for every touch), drinking water, and a drawing of a tongue for each student",
+              "zh": "乾淨的棉花棒（每碰一次換一支新的）、開水，以及每人一張舌頭的圖"
+            }
+          ],
+          "steps": [
+            {
+              "en": "Dip a swab in the sugar water and touch the tip of your tongue. Can you taste sweet?",
+              "zh": "用棉花棒沾糖水，碰一下舌尖。嚐得到甜嗎？"
+            },
+            {
+              "en": "With a new swab each time, touch one side, then the middle near the back. Mark on your drawing where you tasted it.",
+              "zh": "每次換一支新的棉花棒，碰舌頭的一側，再碰靠後面的中間。嚐得到的地方，就在圖上做記號。"
+            },
+            {
+              "en": "Rinse with water. Repeat with the salt water, and then with the lemon water.",
+              "zh": "用開水漱口，換鹽水再做一次，然後換檸檬水。"
+            },
+            {
+              "en": "Compare your drawing with the old tongue map. Is there a part of your tongue that tastes only one thing?",
+              "zh": "把你的圖和舊的舌頭地圖比一比：你的舌頭有哪一塊只嚐得到一種味道嗎？"
+            }
+          ],
+          "tip_en": "Teaching tip: do not touch too far back, which can make students gag, and never share swabs. Students may find that the very middle of the tongue is weak for every taste, because it has few taste buds. That is a real finding. What they will not find is a “sweet-only” tip or a “sour-only” side.",
+          "tip_zh": "教學提示：不要碰太後面，會讓學生想吐；棉花棒絕對不要共用。學生可能會發現舌頭正中間對每一種味道都比較遲鈍，因為那裡味蕾很少——這是真的。但他們不會找到「只嚐得到甜」的舌尖，或「只嚐得到酸」的兩側。"
+        }
+      ],
+      "culture": {
+        "title_en": "Five Flavors and One More Word",
+        "title_zh": "五味，和一個「鮮」字",
+        "body_en": "Chinese has talked about 五味 (wǔwèi), the “five flavors,” for more than two thousand years: 酸甜苦辣鹹, sour, sweet, bitter, spicy, and salty. Four of them match the basic tastes of modern science. The fifth, 辣 (là), turns out to be pain, not taste. And the one that science added in 1908, umami, already had a Chinese word: 鮮 (xiān), written with the characters for fish 魚 and sheep 羊. When people feel happy, sad, and sorry all at once, they say 五味雜陳, “the five flavors are all mixed together.” Your brain mixes flavors, and it mixes feelings too.",
+        "body_zh": "中文講「五味」已經兩千多年了：酸、甜、苦、辣、鹹。其中四種和現代科學的基本味道一樣；第五種「辣」，後來才知道其實是痛覺，不是味覺。而科學在 1908 年才加進來的 umami，中文早就有一個字：「鮮」，由「魚」和「羊」組成。心裡又高興、又難過、又抱歉的時候，我們說「五味雜陳」——大腦會把味道混在一起，也會把感覺混在一起。",
+        "link_en": "More Chinese health words in English",
+        "link_zh": "到中醫養生系列看更多"
+      },
+      "health_en": "This lesson is for learning about the body. It is not medical advice. Before any tasting activity, check for food allergies, and wash your hands. Sit down, take small pieces, and chew well, especially while your nose is pinched. Never taste something if you do not know what it is. If you cannot smell or taste for more than a few days, tell an adult.",
+      "health_zh": "本課是認識身體的教材，不是醫療建議。做任何試吃活動之前，先確認有沒有人對食物過敏，並把手洗乾淨。坐好、小口吃、慢慢嚼，捏住鼻子的時候更要注意。不知道是什麼的東西絕對不要放進嘴裡嚐。如果好幾天都聞不到或嚐不到味道，請告訴大人。"
     }
   ]
 }

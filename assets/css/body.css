@@ -931,3 +931,72 @@ button.bc-row:hover { transform: translateY(-2px); border-color: var(--gold); bo
   .kd2-strip { grid-template-columns: 1fr; }
   .kd2-cups { grid-template-columns: repeat(6, minmax(0, 1fr)); }
 }
+
+/* =========================================================
+   第十四課：味覺與嗅覺（data-taste-lab；前綴 ts-）
+   ========================================================= */
+.ts-lab .al-space { min-height: 680px; }
+.ts-aside { gap: .12rem; }
+.ts-aside .al-sky-k { margin-top: .7rem; }
+.ts-aside .al-sky-k:first-child { margin-top: 0; }
+.ts-bars { display: grid; gap: .22rem; }
+.ts-bar { display: grid; grid-template-columns: 5.6em minmax(0, 1fr); align-items: center; gap: .5rem; font-size: .74rem; font-weight: 800; color: #fff; line-height: 1.1; }
+.ts-bar small { font-family: var(--zh); font-weight: 600; font-size: .7rem; color: var(--al-mute); margin-left: .35em; }
+.ts-bar b { display: block; height: 12px; border-radius: 999px; background: rgba(255,255,255,.08); overflow: hidden; }
+.ts-bar i { display: block; height: 100%; width: 0; border-radius: 999px; background: var(--c, #fff); transition: width .25s; }
+.ts-sweet { --c: #ff8fc0; } .ts-sour { --c: #e6f04a; } .ts-salty { --c: #dfeaff; } .ts-bitter { --c: #6fcf7a; } .ts-umami { --c: #ffa24a; }
+.ts-painrow { --c: #ff3b30; grid-template-columns: 1fr; gap: .2rem; margin-top: .45rem; padding-top: .45rem; border-top: 1px dashed var(--al-line); opacity: .45; transition: opacity .3s; }
+.ts-painrow.ts-on { opacity: 1; }
+.ts-painrow small { display: inline; }
+.ts-nose { margin: 0; padding: .4rem .6rem; border-radius: 10px; background: rgba(255,255,255,.04); border: 1px solid transparent; font-size: .8rem; line-height: 1.35; color: var(--al-mute); min-height: 3.3em; }
+.ts-nose .zh { display: block; font-size: .74rem; }
+.ts-nose b { color: #fff; font-size: .95rem; }
+.ts-nose.ts-on { border-color: rgba(159,216,255,.6); background: rgba(159,216,255,.1); color: #d8eeff; }
+.ts-nose.ts-off { border-color: rgba(255,92,122,.5); background: rgba(255,92,122,.08); color: #ffc9d2; }
+.ts-status { min-height: 7.4em; margin-top: 0; }
+.ts-more .ts-pinch[aria-pressed="true"] { border-color: #ff5c7a; background: rgba(255,92,122,.14); box-shadow: 0 0 0 1px #ff5c7a inset; }
+.ts-more button { cursor: pointer; }
+.ts-foods { grid-template-columns: repeat(6, minmax(0, 1fr)); margin-bottom: .7rem; }
+.ts-foods button[aria-pressed="true"] { border-color: #ffd36e; background: rgba(255,211,110,.1); box-shadow: 0 0 0 1px #ffd36e inset; }
+.al-lab.ts-lb-o { color: #d8eeff; border-color: rgba(159,216,255,.6); }
+.al-lab.ts-lb-p { color: #ffd0cc; border-color: rgba(255,59,48,.7); }
+.al-lg-tongue i { border: 0; background: #e9788a; border-radius: 45% 45% 50% 50%; }
+.al-lg-tsbud i { border: 0; background: radial-gradient(circle at 30% 35%, #ff8fc0 0 22%, transparent 25%), radial-gradient(circle at 70% 40%, #e6f04a 0 22%, transparent 25%), radial-gradient(circle at 50% 75%, #ffa24a 0 22%, transparent 25%); }
+.al-lg-tsodor i { border: 0; background: radial-gradient(circle, #9fd8ff 0 45%, transparent 50%); }
+.al-lg-tssmell i { border: 0; background: #ffc940; border-radius: 50%; }
+.al-lg-tspain i { border: 0; background: radial-gradient(circle, #ff3b30 0 40%, transparent 46%); }
+.ts-strip { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: 1rem 1.6rem; align-items: start; padding: 1rem 1.2rem 1.1rem; border-top: 1px solid var(--al-line); background: rgba(10,16,34,.6); }
+.ts-strip .al-sky-k { margin: 0 0 .5rem; }
+.ts-row { display: grid; grid-template-columns: minmax(0, 9.5em) minmax(0, 1fr); gap: .35rem .8rem; align-items: center; padding: .55rem 0; border-top: 1px solid var(--al-line); }
+.ts-row-k { margin: 0; font-size: .86rem; font-weight: 800; color: #fff; line-height: 1.2; }
+.ts-row-k small, .ts-btns small, .ts-tools small { display: block; font-family: var(--zh); font-weight: 600; font-size: .7rem; color: var(--al-mute); }
+.ts-btns { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .35rem; }
+.ts-btns button, .ts-tools button { padding: .5rem .4rem; border-radius: 12px; border: 1px solid var(--al-line); background: rgba(255,255,255,.04); color: #fff; font: 800 .82rem var(--sans); line-height: 1.15; cursor: pointer; transition: background .15s, transform .1s; }
+.ts-btns button:hover, .ts-tools button:hover:not(:disabled) { background: rgba(255,255,255,.09); }
+.ts-btns button:active { transform: scale(.96); }
+.ts-yes { border-color: rgba(125,220,154,.6) !important; } .ts-no { border-color: rgba(255,176,102,.6) !important; }
+.ts-meter { grid-column: 1 / -1; height: 10px; border-radius: 999px; background: rgba(255,255,255,.1); overflow: hidden; }
+.ts-meter i { display: block; height: 100%; width: 0; border-radius: 999px; background: #7ddc9a; transition: width .3s; }
+.ts-score { grid-column: 1 / -1; margin: 0; font-size: .82rem; color: var(--al-text); font-variant-numeric: tabular-nums; }
+.ts-score b { color: #7ddc9a; font-size: .95rem; }
+.ts-score .zh, .ts-msg .zh, .ts-note .zh { display: block; color: var(--al-mute); }
+.ts-score .zh { display: inline; margin-left: .6em; }
+.ts-tools { display: flex; gap: .4rem; margin-top: .5rem; }
+.ts-tools button { font-size: .74rem; padding: .4rem .7rem; }
+.ts-tools button:disabled { opacity: .4; cursor: not-allowed; }
+.ts-big { display: flex; align-items: baseline; flex-wrap: wrap; gap: .3rem .7rem; margin: .2rem 0 .5rem; }
+.ts-big b { font-family: var(--serif); font-size: 2rem; color: #fff; font-variant-numeric: tabular-nums; line-height: 1; }
+.ts-big span { font-size: .78rem; font-weight: 700; color: var(--al-mute); line-height: 1.25; }
+.ts-big small { display: block; font-family: var(--zh); }
+.ts-msg { margin: 0 0 .6rem; font-size: .86rem; line-height: 1.55; color: var(--al-text); }
+.ts-note { margin: 0; padding-top: .5rem; border-top: 1px dashed var(--al-line); font-size: .74rem; line-height: 1.5; color: var(--al-mute); }
+@media (max-width: 1020px) {
+  .ts-lab .al-space { aspect-ratio: 1 / 1; min-height: 380px; max-height: 80vh; }
+  .ts-lab .ts-aside { display: block; }
+  .ts-foods { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+@media (max-width: 640px) {
+  .ts-lab .al-space { aspect-ratio: 4 / 5; min-height: 340px; }
+  .ts-strip { grid-template-columns: 1fr; }
+  .ts-foods { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
