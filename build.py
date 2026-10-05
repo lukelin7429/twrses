@@ -4311,7 +4311,7 @@ def build_astro_hub():
 # 面板與段落樣式沿用 astro.css，人體專屬的在 body.css；兩者都只載在本系列頁面。
 BODY_BASE = "/resources/classes/human-body/"
 _BODY_JS = {"skeleton": "skeleton", "arm": "arm", "heart": "heart", "lungs": "lungs", "joints": "joints",
-            "digestion": "digestion", "nerves": "nerves", "eyes": "eyes", "ears": "ears", "skin": "skin", "teeth": "teeth", "germs": "germs", "kidneys": "kidneys", "taste": "taste", "sleep": "sleep"}   # lab.kind → assets/js/<bundle>.js
+            "digestion": "digestion", "nerves": "nerves", "eyes": "eyes", "ears": "ears", "skin": "skin", "teeth": "teeth", "germs": "germs", "kidneys": "kidneys", "taste": "taste", "sleep": "sleep", "growth": "growth"}   # lab.kind → assets/js/<bundle>.js
 
 def _body_ver():
     h = hashlib.md5()
@@ -5252,6 +5252,77 @@ def render_sleep_lab(lesson):
   <p class="sk-credit">{lab["credit_html"]}</p>
 </div>'''
 
+def render_growth_lab(lesson):
+    """第十六課：真實腿骨依年齡長大＋自繪生長板（assets/js/growth.js 綁這裡的 class）；早晚身高與臂展工具是 2D，不需要 WebGL。"""
+    lab = lesson["lab"]
+    notes_json = html.escape(json.dumps(lab["notes"], ensure_ascii=False))
+    jumps = "".join(f'<button type="button" data-age="{a}" aria-pressed="{"true" if a == 2 else "false"}">{a}<small>歲</small></button>' for a in lab["jumps"])
+    tg = _lab_toggles([("labels", "Labels", "標示", True), ("skel", "Skeleton and ruler", "骨架和尺", True)])
+    return f'''<div class="astro-lab sk-lab gw-lab rvl" data-growth-lab data-model="{_model_url()}" data-notes="{notes_json}">
+  <div class="al-stage">
+    <div class="al-space">
+      <canvas class="al-space-cv" aria-label="3D model of a skeleton growing beside a ruler, and magnified leg bones with glowing growth plates · 站在尺旁邊長大的骨架，以及放大的腿骨與發亮的生長板"></canvas>
+      <div class="al-labels" aria-hidden="true"></div>
+      <p class="sk-loading">Loading… · 載入中…<span class="sk-bar"><i></i></span></p>
+      <p class="al-hint">Drag to turn · 拖曳旋轉　Scroll or pinch to zoom · 滾輪／雙指縮放</p>
+      <p class="ey-mag">Leg bones shown about 2&times; life size · 腿骨大約放大 2 倍</p>
+      <button type="button" class="al-home" title="Reset view · 重設視角" aria-label="Reset view · 重設視角">&#8634;</button>
+      <p class="al-nogl-msg">This 3D model needs WebGL, which this browser does not support. The measuring tool and the cards below still work.<br><span class="zh">這個瀏覽器不支援 WebGL，無法顯示 3D 模型；下方的測量工具和卡片一樣能用。</span></p>
+    </div>
+    <aside class="al-sky sk-aside gw-aside">
+      <p class="gm-time gw-clock"><b class="gw-age">2</b><span>years old<small>歲（舉例的孩子）</small></span></p>
+      <div class="gw-ages" role="group" aria-label="Jump to an age · 跳到某個年齡">{jumps}</div>
+      <dl class="ey-nums gw-nums">
+        <div><dt>Height · 身高</dt><dd class="gw-h">—</dd></div>
+        <div><dt>Thighbone · 股骨</dt><dd class="gw-femur">—</dd></div>
+        <div><dt>Growing per year · 一年長</dt><dd class="gw-speed">—</dd></div>
+      </dl>
+      <p class="al-sky-k">Inside a growth plate · 生長板裡面</p>
+      <div class="gw-cellbox"><canvas class="gw-cells" aria-hidden="true"></canvas></div>
+      <p class="ey-status gw-status" aria-live="polite"></p>
+      <div class="ey-more gw-more">
+        <button type="button" class="gw-xray" aria-pressed="false"><i aria-hidden="true">&#129460;</i><span>X-ray view<small>X 光畫面</small></span></button>
+        <button type="button" class="gw-knee" aria-pressed="false"><i aria-hidden="true">&#128269;</i><span>Zoom to the knee<small>靠近看膝蓋</small></span></button>
+      </div>
+    </aside>
+  </div>
+  <div class="gw-strip">
+    <div class="gw-tall">
+      <p class="al-sky-k">Morning and evening · 早上和晚上</p>
+      <div class="gw-set">
+        <label>Morning height<small>早上的身高</small><span><input type="number" class="gw-am" min="50" max="230" step="0.1" inputmode="decimal" placeholder="132.4"> cm</span></label>
+        <label>Evening height<small>晚上的身高</small><span><input type="number" class="gw-pm" min="50" max="230" step="0.1" inputmode="decimal" placeholder="131.2"> cm</span></label>
+      </div>
+      <div class="gw-compare" aria-hidden="true">
+        <div class="gw-bar gw-bar-am"><i></i><span>&#9728;&#65039;</span></div>
+        <div class="gw-bar gw-bar-pm"><i></i><span>&#127769;</span></div>
+        <p class="gw-big"><b class="gw-diff">—</b><span>morning minus evening<small>早上減晚上</small></span></p>
+      </div>
+      <p class="gw-msg" aria-live="polite"></p>
+    </div>
+    <div class="gw-arm">
+      <p class="al-sky-k">Arm span · 臂展</p>
+      <div class="gw-set gw-set1">
+        <label>Fingertip to fingertip<small>指尖到指尖</small><span><input type="number" class="gw-span" min="50" max="230" step="0.1" inputmode="decimal" placeholder="131"> cm</span></label>
+        <p class="gw-big"><b class="gw-ratio">—</b><span>of your height<small>是身高的百分之幾</small></span></p>
+      </div>
+      <div class="gw-fig" aria-hidden="true"><i class="gw-fig-h"></i><i class="gw-fig-w"></i></div>
+      <p class="gw-smsg" aria-live="polite"></p>
+      <p class="gw-note">In one study of 100 children, the average child was about 1.5 cm shorter in the late afternoon than first thing in the morning.<span class="zh">有一項研究量了 100 個孩子：到了傍晚，平均比早上剛起床時矮大約 1.5 公分。</span></p>
+    </div>
+  </div>
+  <div class="al-controls">
+    <div class="al-row al-row-main">
+      <button type="button" class="al-play" aria-pressed="false"><span class="al-play-i" aria-hidden="true"></span><span class="al-play-t">Play · 播放</span></button>
+      <label class="ec-slider gw-age-row"><span class="ec-slider-k">Age · 年齡<em>2 &rarr; 18 years · 2 歲到 18 歲</em></span>
+        <input type="range" class="ec-time gw-slider" min="2" max="18" step="0.05" value="2"></label>
+    </div>
+    <div class="al-row al-toggles">{tg}</div>
+  </div>
+  {_lab_foot(lab)}
+  <p class="sk-credit">{lab["credit_html"]}</p>
+</div>'''
+
 def _body_nav(slug):
     ls = BODY["lessons"]
     i = next(n for n, l in enumerate(ls) if l["slug"] == slug)
@@ -5279,7 +5350,7 @@ def build_body_lesson(lesson):
                 "joints": render_joints_lab, "digestion": render_digestion_lab, "nerves": render_nerves_lab,
                 "eyes": render_eyes_lab, "ears": render_ears_lab, "skin": render_skin_lab,
                 "teeth": render_teeth_lab, "germs": render_germs_lab, "kidneys": render_kidneys_lab,
-                "taste": render_taste_lab, "sleep": render_sleep_lab}[kind](lesson)
+                "taste": render_taste_lab, "sleep": render_sleep_lab, "growth": render_growth_lab}[kind](lesson)
 
     secs = []
     if lesson.get("jobs"):
@@ -5387,7 +5458,8 @@ def build_body_lesson(lesson):
                 "germs": ("Fighting germs in a sentence", "一句話記住免疫"),
                 "kidneys": ("Your kidneys in a sentence", "一句話記住腎臟"),
                 "taste": ("Taste and smell in a sentence", "一句話記住味覺和嗅覺"),
-                "sleep": ("Sleep in a sentence", "一句話記住睡眠")}[kind]
+                "sleep": ("Sleep in a sentence", "一句話記住睡眠"),
+                "growth": ("Growing taller in a sentence", "一句話記住長高")}[kind]
     secs.append(("tricks", "Remember It · 記憶口訣", tricks_h[0], tricks_h[1], _sci_tricks(lesson), ""))
     if lesson.get("culture"):
         cu = lesson["culture"]

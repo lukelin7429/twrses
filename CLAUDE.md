@@ -168,7 +168,14 @@
   - **睡眠計算機是 2D（`initCalc`）**：睡著與起床時間 → 時數（跨午夜），對照 6–12 歲 9–12 小時；點星期幾存進一週長條（再點一次清除），存 localStorage（`twrses-sleep-week`）。
   - 查證：CDC／美國睡眠醫學會（6–12 歲 9–12 小時、13–17 歲 8–10 小時；睡前至少 30 分鐘關螢幕、固定作息）、NHLBI（生理時鐘靠光對時；褪黑激素傍晚上升、凌晨最高；深夜強光會讓大腦不分泌褪黑激素；睡眠幫助形成長期記憶；睡不夠比較容易感冒）、Wikipedia（REM：1953 年 Kleitman 與 Aserinsky，肌肉幾乎完全麻痺、大腦活動接近清醒、第一次約在入睡後 70 分鐘、越到早上越長；深睡集中在前兩輪、生長激素在深睡分泌；睡眠週期成人 70–110 分鐘）。課文**沒有寫**「睡覺時大腦排毒」（主要是小鼠研究）和「週末補眠沒用」。
   - 除錯 `__lab.setMin(分鐘)`（會暫停）、`setHead(bool)`、`setPlaying(bool)`、`stageAt(m)`、`totals(m)`、`state.hold = true`、`run(秒)`、`render()`。
-- 第四批（第 13–16 課：腎臟、味覺與嗅覺、睡眠、長高）規劃在 Obsidian 課程規劃第九節；`planned[]` 放著還沒做的第 16 課，做一課移掉一筆。
+- 第十六課長高（`growth.js`，`lab.kind = "growth"`，`data-growth-lab`，CSS 前綴 `gw-`；第四批最後一課）：左邊整副真實骨架站在尺旁邊（`bodyG.scale` ＝身高／171.5），右邊是**放大 2.1 倍的右腿骨**——股骨、髕骨、脛骨、腓骨用 `mesh.clone()` 各配新材質放進 `legIn`（位移到腳底在原點），`legG.scale = (MAG·k^0.82, MAG·k, MAG·k^0.82)`（長度照身高、粗細縮得少一點）。標籤位置用 `legIn.localToWorld`（它的 matrixWorld 已經包含 legG，**不要再套一次 legG**），再加世界座標的左右位移。
+  - 四片生長板是比骨頭寬 7% 的發亮圓盤（`CylinderGeometry` 高 1、用 scale.y 當厚度）：位置與半徑用 `worldVerts` 在該高度切片算（股骨遠端 min.y＋4.5 cm、脛骨近端 max.y−3 cm、脛骨遠端 min.y＋3 cm）；股骨頭那片取最上面、最靠中線的頂點平均，沿股骨頸方向 (−0.78, −0.62, 0) 傾斜。`openAt(age)`＝1−smoothstep(14, 17)：厚度 11 mm → 1.6 mm（**畫厚了**）、顏色青綠 → 骨色細線。小火花往「骨幹那一側」移動，數量跟著 `speedAt(age)`。
+  - **X 光畫面**（`setXray`）：背景全黑、骨頭 0xe6f1ff 半透明＋自發光、`depthWrite = false`，生長板變成暗色縫隙（軟骨照不出來），閉合後變亮；右欄 2D「生長板裡面」也跟著換色。
+  - 身高表 `HT`（2–18 歲每年一個數字）是**一個舉例的孩子**，頁面與 scale 說明都寫明不是標準、不是預測；右欄主要數字是股骨長（身高 × 0.2735，模型的比例）。**Luke 的決定：只講骨頭怎麼長高，不談青春期其他變化、不做「你會長多高」的預測**，健康提醒寫每個人長高的時間不一樣。
+  - **早晚身高與臂展是 2D（`initMeasure`）**：早上減晚上的差（> 3 cm 或負值請學生重量）、臂展是身高的百分之幾；不存檔。
+  - 查證：NIAMS（生長板在長骨兩端附近、每根長骨至少兩片、是骨頭最後變硬也最脆弱的部分、青春期某個時候閉合成實心骨頭）、Wikipedia〈Epiphyseal plate〉（軟骨細胞分裂堆疊、老的細胞被骨頭取代、閉合後留下骨骺線）、〈Human height〉（100 個孩子從早上起床到下午 4–5 點平均矮 1.54 公分；身高差異 60–80% 來自遺傳）、MedlinePlus（2–10 歲穩定成長、最後一次快速成長在 9–15 歲之間開始）。課文**沒有寫每年長幾公分的數字**（查不到適合直接引用的來源），也沒寫男女閉合年齡。
+  - 除錯 `__lab.setAge(歲)`（會暫停）、`setXray(bool)`、`setKnee(bool)`、`setPlaying(bool)`、`heightAt(a)`、`speedAt(a)`、`openAt(a)`、`plates`、`state.hold = true`、`run(秒)`、`render()`。
+- 第四批（第 13–16 課：腎臟、味覺與嗅覺、睡眠、長高）規劃在 Obsidian 課程規劃第九節，**四課已全部完成（2026-10-05），`planned[]` 目前是空的**；要再加課，先在課程規劃定題，再放進 `planned[]`。
 - 網站 `html` 有 smooth scroll：在背景的瀏覽器面板裡捲動會慢好幾秒，截圖前先設 `document.documentElement.style.scrollBehavior='auto'`。
 - 第二課起的共用工具在 `tools/body/src/common.js`（`loadBones`、`labeler`、`lazyBoot`）；卡片上的「在模型中看」按鈕用 `data-lab-<動作>="值"`。
   - 除錯：`document.querySelector('[data-skeleton-lab]').__lab`（`goJob`、`goRegion`、`setApart`、`startCount`、`stepCount(i)`、`render()`）。背景分頁 rAF 會降到每秒一兩格，截圖前用 `stepCount` 直接跳步。

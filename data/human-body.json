@@ -14,13 +14,7 @@
       "zh": "每一課也會請你在自己身上量一量、數一數，並附生字、閱讀理解、小測驗和課堂活動。本系列是教育用途，不是醫療建議。"
     }
   ],
-  "planned": [
-    {
-      "icon": "📏",
-      "en": "How Do You Grow Taller?",
-      "zh": "你是怎麼長高的？"
-    }
-  ],
+  "planned": [],
   "lessons": [
     {
       "n": 1,
@@ -7041,6 +7035,451 @@
       },
       "health_en": "This lesson is for learning about the body. It is not medical advice. Everyone's sleep is a little different. If you often cannot fall asleep, if you snore loudly, or if you feel very sleepy in class most days, tell an adult. Do not take anything to help you sleep unless a doctor says so.",
       "health_zh": "本課是認識身體的教材，不是醫療建議。每個人的睡眠都有一點不一樣。如果你常常睡不著、打呼很大聲，或是大部分的日子上課都很想睡，請告訴大人。除非醫生說可以，不要吃任何幫助睡眠的東西。"
+    },
+    {
+      "n": 16,
+      "slug": "growth",
+      "title": "How Do You Grow Taller?",
+      "title_zh": "你是怎麼長高的？",
+      "level": "入門 · Beginner",
+      "icon": "📏",
+      "card": "growth",
+      "blurb_en": "Bones grow at soft growth plates near their ends. Watch real 3D leg bones grow from age 2 to 18, look at them the way an X-ray does, and measure how much taller you are in the morning.",
+      "blurb_zh": "骨頭在兩端附近軟軟的生長板長長。看真實的 3D 腿骨從 2 歲長到 18 歲，用 X 光的方式看一看，再量量你早上比晚上高多少。",
+      "big_idea_en": "You grow taller because cartilage at the growth plates keeps making new bone. When the plates close after the teenage years, growing taller stops.",
+      "big_idea_zh": "你會長高，是因為生長板的軟骨不斷變成新的骨頭；青春期過後生長板閉合，就不再長高了。",
+      "lab": {
+        "kind": "growth",
+        "eyebrow": "3D Model · 3D 模型",
+        "title_en": "Watch a Leg Grow",
+        "title_zh": "看一條腿長大",
+        "how_en": "Slide the age from 2 to 18, or press play. On the left, a whole skeleton grows beside a ruler. On the right, the thighbone and the shinbone are magnified. The glowing bands near their ends are the growth plates: sparks show new bone being added on the side toward the middle of the bone. Switch to the X-ray view, and the plates turn into dark gaps, just as a doctor sees them. Keep sliding: in the late teens the gaps close, and the bones stop getting longer.",
+        "how_zh": "把年齡從 2 歲拉到 18 歲，或按播放。左邊是一整副骨架，站在一把尺旁邊長大；右邊是放大的股骨和脛骨。兩端附近發亮的帶子就是生長板：小火花表示新的骨頭正加在靠近骨頭中段的那一側。切換到 X 光畫面，生長板變成暗色的縫隙，就像醫生看到的那樣。繼續拉：十幾歲後期，縫隙閉合，骨頭就不再變長了。",
+        "legend": [
+          {
+            "cls": "gwplate",
+            "en": "Glowing bands: growth plates (cartilage)",
+            "zh": "發亮的帶子：生長板（軟骨）"
+          },
+          {
+            "cls": "gwnew",
+            "en": "Sparks: new bone being added",
+            "zh": "小火花：正在加上去的新骨頭"
+          },
+          {
+            "cls": "gwline",
+            "en": "Thin line: a closed growth plate",
+            "zh": "細線：已經閉合的生長板"
+          },
+          {
+            "cls": "gwxray",
+            "en": "X-ray view: bone is light, cartilage is dark",
+            "zh": "X 光畫面：骨頭是亮的，軟骨是暗的"
+          }
+        ],
+        "scale_en": "The bones are real adult shapes from BodyParts3D, made smaller for younger ages; a real child's bones are not just small adult bones, and their ends are shaped differently. The growth plates are drawn thicker than they really are, and the sparks are only a sign that bone is being added. The heights are for one example child, not a rule: healthy children of the same age can differ by many centimeters, and they start and finish growing at different times.",
+        "scale_zh": "骨頭是 BodyParts3D 的真實成人形狀，依年齡縮小；真正的兒童骨頭並不只是縮小的成人骨頭，兩端的形狀也不一樣。生長板畫得比實際厚，小火花只是表示「這裡正在加骨頭」。身高是一個舉例的孩子，不是標準：同年齡的健康孩子可能相差好幾公分，開始和結束長高的時間也不一樣。",
+        "credit_html": "Bone models: <a href=\"https://dbarchive.biosciencedbc.jp/en/bodyparts3d/download.html\" target=\"_blank\" rel=\"noopener\">BodyParts3D</a>, © The Database Center for Life Science, licensed under <a href=\"https://creativecommons.org/licenses/by/4.0/\" target=\"_blank\" rel=\"noopener\">CC BY 4.0</a>. We selected the bones, simplified the shapes, turned the model upright, and scaled it by age; the growth plates are our own drawing. · 骨骼模型來源：BodyParts3D（日本生命科學資料庫中心，CC BY 4.0 授權）；本站挑選骨頭、簡化形狀、轉正方向並依年齡縮放，生長板為本站自繪示意。",
+        "notes": {
+          "steady": {
+            "en": "The growth plates are open and busy. Cartilage cells divide and stack up, and the oldest ones turn into bone. This child is growing at a steady pace.",
+            "zh": "生長板開著，而且很忙。軟骨細胞不斷分裂、疊起來，最老的那些變成骨頭。這個孩子正以穩定的速度長高。"
+          },
+          "fast": {
+            "en": "A few years of faster growth. The plates are working at top speed. This begins at a different age for every child, sometime between about 9 and 15.",
+            "zh": "長得比較快的幾年，生長板全速工作。每個孩子開始的年齡都不一樣，大約在 9 到 15 歲之間。"
+          },
+          "closing": {
+            "en": "The plates are getting thinner. Bone is replacing the cartilage faster than new cartilage is made, and growth is slowing down.",
+            "zh": "生長板越來越薄。骨頭取代軟骨的速度，比新軟骨長出來還快，長高慢下來了。"
+          },
+          "closed": {
+            "en": "The plates have closed. The cartilage is now solid bone, and only a thin line shows where it was. The bones will not get longer, but they stay alive and keep rebuilding themselves.",
+            "zh": "生長板閉合了。軟骨已經變成堅硬的骨頭，只剩一條細線留在原處。骨頭不會再變長，但它們仍然是活的，會不斷重建自己。"
+          }
+        },
+        "jumps": [
+          2,
+          6,
+          10,
+          13,
+          18
+        ]
+      },
+      "paras": [
+        "Stand against a door frame and ask someone to make a mark above your head. Come back in a year, and the mark will be too low. You have grown. But think about that for a moment. Your bones are as hard as rock. How can something so hard get longer?",
+        "The answer is that a bone does not stretch. It grows only in special places called growth plates. A long bone, like your thighbone, has a growth plate near each end. A growth plate is a thin layer of cartilage, the same bendy stuff that shapes your ears and the tip of your nose.",
+        "Inside a growth plate, cartilage cells divide again and again, and the new cells stack up in columns like coins. The oldest cells, on the side toward the middle of the bone, die, and hard bone takes their place. So the plate stays about the same thickness while the bone behind it grows longer, and the two ends of the bone move farther apart. A chemical messenger called growth hormone tells the cartilage cells to keep dividing. Your body releases growth hormone while you are in deep sleep.",
+        "Doctors can see growth plates on an X-ray. Bone shows up white, but cartilage hardly shows at all, so an open growth plate looks like a dark gap across the bone. Growth plates are the last part of a bone to harden, and they are weaker than the bone around them. That is why a child who falls hard and has a sore, swollen joint should see a doctor.",
+        "Children do not grow at the same speed every year. From about age 2 to age 10, most children grow at a steady pace. Then come a few years of faster growth, which begin at a different age for each child, sometime between about 9 and 15. Later, the growth plates slowly close: bone replaces the last of the cartilage, and only a thin line is left. This usually happens in the middle or late teens. After that, you do not grow taller. Your bones are still alive, though, and they keep rebuilding themselves all your life.",
+        "What decides how tall you will be? Mostly the genes you got from your parents. You cannot make your growth plates work faster by stretching or by hanging from a bar. What you can do is give them what they need: enough sleep, food with protein and calcium, some sunshine for vitamin D, and plenty of active play. One more surprise: you are taller in the morning than in the evening. During the day, the soft discs between the bones of your spine get squeezed, and at night they fill out again. Try the measuring tool below the model and see for yourself."
+      ],
+      "paras_zh": [
+        "靠著門框站好，請人在你頭頂上方畫一條線。一年後再回來，那條線就太低了——你長高了。但請想一想：你的骨頭像石頭一樣硬。這麼硬的東西，怎麼會變長呢？",
+        "答案是：骨頭並不會被拉長，它只在一些特別的地方生長，那些地方叫做生長板。長長的骨頭，例如股骨，兩端附近各有一片生長板。生長板是薄薄的一層軟骨，就是讓耳朵和鼻尖有形狀的那種有彈性的東西。",
+        "在生長板裡，軟骨細胞一次又一次地分裂，新的細胞像硬幣一樣一疊一疊地排成一行行。靠近骨頭中段那一側、最老的細胞會死掉，由堅硬的骨頭取代。所以生長板本身的厚度差不多不變，它後面的骨頭卻越來越長，骨頭的兩端也就越離越遠。有一種叫做生長激素的化學信差，會叫軟骨細胞繼續分裂；身體是在深睡的時候分泌生長激素的。",
+        "醫生可以在 X 光片上看到生長板。骨頭在 X 光片上是白色的，軟骨卻幾乎照不出來，所以還沒閉合的生長板看起來就像橫過骨頭的一道暗色縫隙。生長板是骨頭最後才變硬的部分，也比周圍的骨頭脆弱。所以小朋友重重摔一跤之後，如果關節又痛又腫，就應該去看醫生。",
+        "孩子並不是每年都長得一樣快。大約從 2 歲到 10 歲，大部分的孩子以穩定的速度長高；接著有幾年長得比較快，每個孩子開始的年齡都不一樣，大約在 9 到 15 歲之間。之後生長板慢慢閉合：骨頭取代了最後的軟骨，只留下一條細線。這通常發生在十幾歲的中後期。在那之後，你就不會再長高了。不過骨頭仍然是活的，一輩子都在不斷重建自己。",
+        "是什麼決定你會長多高？主要是你從父母那裡得到的基因。拉筋或吊單槓並不能讓生長板工作得更快；你能做的，是給它們需要的東西：足夠的睡眠、含有蛋白質和鈣的食物、曬一點太陽來得到維生素 D，還有多多活動、玩耍。還有一個驚喜：你早上比晚上高。白天，脊椎骨之間柔軟的椎間盤被壓扁了；到了晚上，它們又恢復飽滿。用模型下方的測量工具，自己量量看。"
+      ],
+      "questions": [
+        "Where does a long bone grow, and what is that place made of?",
+        "Why does a growth plate look like a dark gap on an X-ray?",
+        "Why are you taller in the morning than in the evening?"
+      ],
+      "answers": [
+        "It grows at the growth plates near its two ends. A growth plate is a thin layer of cartilage.",
+        "Because bone shows up white on an X-ray, but cartilage hardly shows at all.",
+        "Because the soft discs between the bones of the spine get squeezed during the day and fill out again at night."
+      ],
+      "vocab": [
+        {
+          "n": 1,
+          "w": "grow",
+          "pos": "v.",
+          "zh": "生長；長大",
+          "ex": "Plants <b>grow</b> fast in the summer.",
+          "exzh": "植物在夏天長得很快。"
+        },
+        {
+          "n": 2,
+          "w": "height",
+          "pos": "n.",
+          "zh": "身高；高度",
+          "ex": "The nurse measured my <b>height</b> at school.",
+          "exzh": "護理師在學校幫我量了身高。"
+        },
+        {
+          "n": 3,
+          "w": "measure",
+          "pos": "v.",
+          "zh": "測量",
+          "ex": "Let's <b>measure</b> the table before we move it.",
+          "exzh": "搬桌子之前，我們先量一量吧。"
+        },
+        {
+          "n": 4,
+          "w": "cartilage",
+          "pos": "n.",
+          "zh": "軟骨",
+          "ex": "Your ears are made of <b>cartilage</b>, so they can bend.",
+          "exzh": "你的耳朵是軟骨做的，所以可以彎。"
+        },
+        {
+          "n": 5,
+          "w": "growth plate",
+          "pos": "n.",
+          "zh": "生長板",
+          "ex": "A <b>growth plate</b> is near each end of the bone.",
+          "exzh": "骨頭的兩端附近各有一片生長板。"
+        },
+        {
+          "n": 6,
+          "w": "thighbone",
+          "pos": "n.",
+          "zh": "股骨；大腿骨",
+          "ex": "The <b>thighbone</b> is the longest bone in your body.",
+          "exzh": "股骨是你身體裡最長的骨頭。"
+        },
+        {
+          "n": 7,
+          "w": "X-ray",
+          "pos": "n.",
+          "zh": "X 光片",
+          "ex": "The doctor looked at an <b>X-ray</b> of my wrist.",
+          "exzh": "醫生看了我手腕的 X 光片。"
+        },
+        {
+          "n": 8,
+          "w": "adult",
+          "pos": "n.",
+          "zh": "成人；大人",
+          "ex": "An <b>adult</b> does not grow taller anymore.",
+          "exzh": "大人不會再長高了。"
+        }
+      ],
+      "quiz": [
+        {
+          "q": "Where does a long bone grow longer?",
+          "options": [
+            "At the growth plates near its ends",
+            "In the very middle of the bone",
+            "All along its length, by stretching",
+            "Only at the top end"
+          ],
+          "correct": 0
+        },
+        {
+          "q": "What is a growth plate made of?",
+          "options": [
+            "Cartilage",
+            "Solid bone",
+            "Muscle",
+            "Skin"
+          ],
+          "correct": 0
+        },
+        {
+          "q": "What does growth hormone do in a growth plate?",
+          "options": [
+            "It tells the cartilage cells to keep dividing",
+            "It turns the bone into cartilage",
+            "It closes the growth plate",
+            "It makes the bone softer"
+          ],
+          "correct": 0
+        },
+        {
+          "q": "What happens when the growth plates close?",
+          "options": [
+            "You stop growing taller",
+            "Your bones stop being alive",
+            "You start growing faster",
+            "Your bones turn into cartilage"
+          ],
+          "correct": 0
+        },
+        {
+          "q": "According to the reading, when are you tallest?",
+          "options": [
+            "In the morning",
+            "In the evening",
+            "Right after exercise",
+            "Just before bed"
+          ],
+          "correct": 0
+        }
+      ],
+      "kinds_head": {
+        "eyebrow": "A Growing Bone · 一根會長大的骨頭",
+        "en": "The parts that make you taller",
+        "zh": "讓你長高的幾個部分"
+      },
+      "kinds": [
+        {
+          "icon": "🦴",
+          "en": "Shaft",
+          "zh": "骨幹",
+          "where_en": "The long middle part of the bone",
+          "where_zh": "骨頭中間長長的部分",
+          "control_en": "Gets longer as new bone is added",
+          "control_zh": "新骨頭加上去，它就變長",
+          "text_en": "The shaft itself does not stretch. It gets longer only because the growth plates keep adding bone to its ends.",
+          "text_zh": "骨幹本身不會被拉長；它會變長，完全是因為生長板不斷在它的兩端加上新的骨頭。"
+        },
+        {
+          "icon": "✨",
+          "en": "Growth plates",
+          "zh": "生長板",
+          "where_en": "Near each end of a long bone",
+          "where_zh": "長骨的兩端附近",
+          "control_en": "Make the bone longer",
+          "control_zh": "讓骨頭變長",
+          "text_en": "Thin layers of cartilage. Each long bone has at least two. They are the last part of a bone to harden.",
+          "text_zh": "薄薄的一層軟骨，每根長骨至少有兩片；它們是骨頭最後才變硬的部分。"
+        },
+        {
+          "icon": "🪙",
+          "en": "Cartilage cells",
+          "zh": "軟骨細胞",
+          "where_en": "Inside the growth plates",
+          "where_zh": "在生長板裡面",
+          "control_en": "Divide and stack up",
+          "control_zh": "分裂、疊起來",
+          "text_en": "They stack up like coins. The oldest ones die, and bone takes their place.",
+          "text_zh": "它們像硬幣一樣疊起來；最老的細胞死掉，由骨頭取代。"
+        },
+        {
+          "icon": "💬",
+          "en": "Growth hormone",
+          "zh": "生長激素",
+          "where_en": "Made by a gland under your brain",
+          "where_zh": "由大腦下方的腺體製造",
+          "control_en": "Says “keep dividing”",
+          "control_zh": "下令「繼續分裂」",
+          "text_en": "It travels in the blood to the growth plates. Your body releases it during deep sleep.",
+          "text_zh": "它隨著血液來到生長板；身體在深睡的時候分泌它。"
+        },
+        {
+          "icon": "🥞",
+          "en": "Discs of the spine",
+          "zh": "椎間盤",
+          "where_en": "Between the bones of your backbone",
+          "where_zh": "在脊椎骨和脊椎骨之間",
+          "control_en": "Cushion the spine",
+          "control_zh": "當脊椎的墊子",
+          "text_en": "They get squeezed during the day and fill out again at night. That is why you are taller in the morning.",
+          "text_zh": "它們白天被壓扁，晚上又恢復飽滿——這就是你早上比較高的原因。"
+        }
+      ],
+      "kinds_note_en": "Think of building a tower with blocks: you cannot stretch the blocks, but you can keep adding new ones at the top. A growth plate is the place where the new blocks are made.",
+      "kinds_note_zh": "把它想成用積木蓋塔：積木不能被拉長，但你可以一直在上面加新的。生長板就是製造新積木的地方。",
+      "measure": {
+        "title_en": "Morning and evening",
+        "title_zh": "早上和晚上的身高",
+        "lead_en": "Measure your height twice in one day, and use the tool below the model to see the difference. You can also compare your arm span with your height.",
+        "lead_zh": "同一天量兩次身高，用模型下方的工具看看差多少。你也可以比一比臂展和身高。",
+        "steps": [
+          {
+            "n": "☀️",
+            "en": "In the morning",
+            "zh": "早上",
+            "text_en": "Right after you get up, take off your shoes and stand with your heels, back, and head against a wall. Ask a helper to lay a book flat on your head, mark the wall, and measure to the nearest millimeter.",
+            "text_zh": "一起床就量：脫掉鞋子，腳跟、背和頭貼著牆站好。請人把一本書平放在你頭上，在牆上做記號，量到公釐。"
+          },
+          {
+            "n": "🌙",
+            "en": "In the evening",
+            "zh": "晚上",
+            "text_en": "Just before bed, measure again in exactly the same way. Enter both numbers in the tool.",
+            "text_zh": "睡覺前，用完全一樣的方法再量一次。把兩個數字輸入工具裡。"
+          },
+          {
+            "n": "↔",
+            "en": "Your arm span",
+            "zh": "你的臂展",
+            "text_en": "Stretch your arms out to the sides, and have a helper measure from fingertip to fingertip. For many people, it is close to their height.",
+            "text_zh": "兩手往兩邊平舉伸直，請人從一邊的指尖量到另一邊的指尖。很多人的臂展和身高差不多。"
+          }
+        ],
+        "action": "test",
+        "action_value": "1",
+        "button_icon": "📏",
+        "button_en": "Open the measuring tool",
+        "button_zh": "打開測量工具"
+      },
+      "myths": [
+        {
+          "myth_en": "Bones grow by stretching all along their length.",
+          "myth_zh": "骨頭是整根一起被拉長的。",
+          "fact_en": "A long bone grows only at the growth plates near its ends. The middle of the bone just gets pushed along.",
+          "fact_zh": "長骨只在兩端附近的生長板生長，中間的部分只是被往外推。"
+        },
+        {
+          "myth_en": "Stretching or hanging from a bar makes you grow taller.",
+          "myth_zh": "拉筋或吊單槓可以長高。",
+          "fact_en": "Exercise is good for your bones, but it cannot make the growth plates work faster. Sleep, good food, and time do that job.",
+          "fact_zh": "運動對骨頭很好，但沒辦法讓生長板工作得更快。那是睡眠、好的食物和時間的工作。"
+        },
+        {
+          "myth_en": "Everyone has a growth spurt at the same age.",
+          "myth_zh": "每個人都在同樣的年紀突然長高。",
+          "fact_en": "The years of fast growth begin sometime between about 9 and 15. Classmates who are the same age can be at very different points, and all of them can be healthy.",
+          "fact_zh": "長得比較快的那幾年，大約在 9 到 15 歲之間開始。同年齡的同學可能處在很不一樣的階段，而他們都可以是健康的。"
+        },
+        {
+          "myth_en": "You are the same height all day.",
+          "myth_zh": "一整天身高都一樣。",
+          "fact_en": "You are tallest in the morning. In one study of 100 children, the average child was about 1.5 centimeters shorter in the late afternoon.",
+          "fact_zh": "早上最高。有一項研究量了 100 個孩子，到了傍晚平均矮了大約 1.5 公分。"
+        }
+      ],
+      "tricks": [
+        {
+          "title_en": "Bones grow at the ends",
+          "title_zh": "骨頭從兩端長",
+          "body_en": "Not in the middle, and not by stretching: at the growth plates near each end.",
+          "body_zh": "不是從中間，也不是被拉長：是在兩端附近的生長板。"
+        },
+        {
+          "title_en": "Cartilage first, bone later",
+          "title_zh": "先是軟骨，後來變骨頭",
+          "body_en": "New cartilage is made, and old cartilage turns into bone. When the cartilage is all gone, growing taller stops.",
+          "body_zh": "新的軟骨長出來，舊的軟骨變成骨頭。軟骨全部用完，就不再長高了。"
+        },
+        {
+          "title_en": "Sleep, eat, play",
+          "title_zh": "睡飽、吃好、多活動",
+          "body_en": "You cannot rush your growth plates, but you can give them what they need.",
+          "body_zh": "生長板催不得，但你可以給它們需要的東西。"
+        },
+        {
+          "title_en": "Tall in the morning",
+          "title_zh": "早上比較高",
+          "body_en": "Your spine's discs fill out at night and get squeezed by day. Always measure at the same time of day.",
+          "body_zh": "椎間盤晚上恢復飽滿、白天被壓扁。量身高要固定在同一個時段量。"
+        }
+      ],
+      "activities": [
+        {
+          "title_en": "The Door-Frame Record",
+          "title_zh": "門框上的紀錄",
+          "materials": [
+            {
+              "en": "A strip of paper about 2 meters long, taped to a wall or a door frame",
+              "zh": "一張大約 2 公尺長的紙條，貼在牆上或門框上"
+            },
+            {
+              "en": "A hardcover book, a pencil, and a tape measure",
+              "zh": "一本精裝書、一枝鉛筆和一把捲尺"
+            }
+          ],
+          "steps": [
+            {
+              "en": "Take off your shoes and stand with your heels, back, and head against the paper strip.",
+              "zh": "脫掉鞋子，腳跟、背和頭貼著紙條站好。"
+            },
+            {
+              "en": "A helper lays the book flat on your head and draws a short line under it. Write the date next to the line.",
+              "zh": "請人把書平放在你頭上，在書底下畫一條短線，旁邊寫上日期。"
+            },
+            {
+              "en": "Measure again on the first school day of every month, at the same time of day.",
+              "zh": "每個月第一個上學日再量一次，而且要在同一個時段量。"
+            },
+            {
+              "en": "At the end of the school year, work out how much you grew. In which months did you grow the most?",
+              "zh": "學年結束時，算一算你長高了多少。哪幾個月長得最多？"
+            }
+          ],
+          "tip_en": "Teaching tip: keep each student's strip private, and compare each child only with himself or herself. The point is the change, not the number. Height can be a sensitive subject, and children of the same age really do grow at very different times.",
+          "tip_zh": "教學提示：每個學生的紙條請保密，只拿孩子和自己比較。重點是「變化」，不是數字。身高可能是敏感的話題，而同年齡的孩子長高的時間真的差很多。"
+        },
+        {
+          "title_en": "Arm Span and Height",
+          "title_zh": "臂展和身高",
+          "materials": [
+            {
+              "en": "A tape measure and masking tape",
+              "zh": "一把捲尺和紙膠帶"
+            },
+            {
+              "en": "Graph paper, or a large grid on the board",
+              "zh": "方格紙，或是黑板上的一大張方格"
+            }
+          ],
+          "steps": [
+            {
+              "en": "Work in pairs. Measure your partner's height, then the arm span from fingertip to fingertip.",
+              "zh": "兩人一組。先量同伴的身高，再量從一邊指尖到另一邊指尖的臂展。"
+            },
+            {
+              "en": "Put a dot on the graph: height across, arm span up. Do not write names.",
+              "zh": "在方格紙上點一個點：橫軸是身高，縱軸是臂展。不要寫名字。"
+            },
+            {
+              "en": "When the whole class has added a dot, look at the pattern. Do the dots make a line?",
+              "zh": "全班都點完之後，看看整體的樣子：這些點排成一條線嗎？"
+            },
+            {
+              "en": "Draw the line where arm span equals height. Are most dots close to it?",
+              "zh": "畫出「臂展＝身高」的那條線。大部分的點都靠近它嗎？"
+            }
+          ],
+          "tip_en": "Teaching tip: this is a first scatter plot. Anonymous dots keep the focus on the pattern instead of on who is tallest. Ask why the two measurements go together: arms and legs both grow at growth plates, under the same growth hormone.",
+          "tip_zh": "教學提示：這是學生的第一張散布圖。匿名的點讓大家看的是整體趨勢，而不是誰最高。問問學生：為什麼這兩個數字會一起變大？因為手臂和腿都靠生長板生長，聽的是同一種生長激素的指揮。"
+        }
+      ],
+      "culture": {
+        "title_en": "Pulling Up the Sprouts",
+        "title_zh": "拔苗助長",
+        "body_en": "More than two thousand years ago, the Chinese thinker Mencius told a story about a farmer who thought the young plants in his field were growing too slowly. So he pulled each one up a little to help it grow. When his son ran out to look, every one of them had withered. The story became the saying 拔苗助長 (bá miáo zhù zhǎng), “pulling up the sprouts to help them grow”: you cannot rush something that needs time. Growth plates work the same way. Here is a language tip, too. In Chinese, 長高 means to get taller and 長大 means to get older. In English, “grow taller” is about your height, but “grow up” is about becoming an adult.",
+        "body_zh": "兩千多年前，中國思想家孟子講過一個故事：有個農夫嫌自己的秧苗長得太慢，就把每一株都往上拔高一點，想幫它們長大。他的兒子跑去田裡一看，秧苗全都枯死了。這個故事後來變成成語「拔苗助長」：需要時間的事情，急不得。生長板也是一樣。順便學一個語言小知識：中文的「長高」是變高，「長大」是年紀變大；英文的 grow taller 講的是身高，grow up 講的則是長大成人。",
+        "link_en": "More Chinese health words in English",
+        "link_zh": "到中醫養生系列看更多"
+      },
+      "health_en": "This lesson is for learning about the body. It is not medical advice. Everyone grows at a different time and at a different speed, and being taller or shorter does not make anyone better. Doctors follow each child's growth on a growth chart. If you have a question about your own growth, or if a joint hurts or swells after a fall, tell an adult. Do not use any product that promises to make you taller.",
+      "health_zh": "本課是認識身體的教材，不是醫療建議。每個人長高的時間和速度都不一樣，長得高或矮並不會讓誰比較好。醫生會用生長曲線追蹤每個孩子的成長。如果你對自己的成長有疑問，或是跌倒之後關節會痛、會腫，請告訴大人。不要使用任何宣稱能讓你長高的產品。"
     }
   ]
 }
