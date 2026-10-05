@@ -652,3 +652,46 @@
   .bk-msg { min-height: 0; }
   .bk-v-row { margin: .6rem 0 0; flex-basis: 100%; }
 }
+
+/* ---------- 第十五課：電梯 ---------- */
+@media (min-width: 1021px) { .ev-lab .al-space { min-height: 680px; } }
+.ev-lab .al-space { background: #101a30; }
+.ev-aside { gap: .9rem; }
+.ev-aside > * { min-width: 0; }
+.ev-status { margin: .2rem 0 .8rem; font-family: var(--serif); font-size: 1.5rem; line-height: 1.1; color: #fff; }
+.ev-status small { display: block; font-family: var(--zh); font-size: .85rem; color: var(--al-mute); margin-top: .2rem; }
+.ev-status.ok { color: #7cf29a; } .ev-status.bad { color: #ff8a7a; }
+.ev-nums { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.ev-nums dd small { display: block; font-family: var(--zh); font-weight: 600; font-size: .68rem; color: var(--al-mute); }
+.ev-bars { margin: .9rem 0; display: grid; gap: .5rem; }
+.ev-bar { margin: 0; display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: .15rem .5rem; align-items: center; font: 700 .72rem var(--sans); color: var(--al-mute); }
+.ev-bar i { grid-column: 1 / -1; grid-row: 2; display: block; height: 10px; border-radius: 6px; background: rgba(255,255,255,.08); position: relative; overflow: hidden; }
+.ev-bar i::after { content: ""; position: absolute; inset: 0 auto 0 0; width: var(--w, 0%); border-radius: 6px; background: #7cf29a; transition: width .3s; }
+.ev-bar-b i::after { background: #ff8a7a; }
+.ev-bar b { color: #fff; font-variant-numeric: tabular-nums; }
+.ev-lab.ev-nocw .ev-bar-a { opacity: .45; }
+.ev-btns { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: .4rem; }
+.ev-btns button { padding: .55rem .5rem; border-radius: 12px; border: 1px solid var(--al-line); background: rgba(255,255,255,.05); color: #fff; font: 800 .82rem var(--sans); cursor: pointer; line-height: 1.2; }
+.ev-btns button small { display: block; font-family: var(--zh); font-weight: 600; font-size: .7rem; color: var(--al-mute); }
+.ev-btns .ev-cut { border-color: #ff8a7a; background: rgba(255,90,74,.16); }
+.ev-btns button:disabled { opacity: .4; cursor: not-allowed; }
+.ev-msg { min-height: 7.6em; }
+.ev-row { flex: 1 1 200px; margin: 0 0 0 .6rem; }
+.ev-row > span { text-transform: none; letter-spacing: .02em; }
+.ev-row output { margin-left: .3rem; font-weight: 800; color: #fff; }
+.al-lab.ev-lb-cw { color: #e3e8f2; border-color: rgba(207,216,234,.6); }
+.al-lab.ev-lb-floor { color: #9fb2d6; border-color: transparent; background: transparent; padding: 0 .2rem; font-size: .72rem; font-weight: 800; }
+.al-lg-evcar i { border: 0; height: 10px; margin-top: .3rem; border-radius: 2px; background: #cfd8ea; }
+.al-lg-evcw i { border: 0; height: 10px; margin-top: .3rem; border-radius: 2px; background: #70798c; }
+.al-lg-evwheel i { border: 2px solid #d8c27a; border-radius: 50%; width: 10px; height: 10px; margin: .3rem 4px 0; background: transparent; }
+.al-lg-evbrake i { border: 0; height: 10px; width: 10px; margin: .3rem 4px 0; border-radius: 2px; background: #ff4a3a; }
+@media (max-width: 1020px) {
+  .ev-lab .al-stage { grid-template-columns: minmax(0, 1fr); }
+  .ev-lab .bt-aside { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+}
+@media (max-width: 640px) {
+  .ev-lab .bt-aside { grid-template-columns: minmax(0, 1fr); }
+  .ev-lab .al-space { aspect-ratio: 3 / 4; min-height: 0; }
+  .ev-msg { min-height: 0; }
+  .ev-row { margin: .6rem 0 0; flex-basis: 100%; }
+}

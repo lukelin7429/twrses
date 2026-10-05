@@ -235,6 +235,11 @@
   - 模擬每格切 10 小步（dt 太大高增益會發散）；3D 的側推比測試大（1.15 rad/s）才看得出來。
   - 卡片 `demo`：fast／slow／locked／still（都會自動側推一下）。
   - 除錯：`document.querySelector('[data-bicycle-lab]').__lab`（`setSpeed(0–30)`、`setLocked(bool)`、`push()`、`standUp()`、`sim`（phi、delta、psi、x、z）、`VC`、`run(秒)`——`state.playing` 要是 true 才會前進、`render()`）。
+- 第十五課電梯（`elevator-lift.js`，`lab.kind = "elevator"`，`data-elevator-lab`，CSS 前綴 `ev-`）：一個機制——鋼索繞過頂樓的曳引輪，一頭掛車廂、一頭掛差不多重的平衡錘，馬達只搬「兩邊的重量差」。8 層樓（每層 1.5 單位）、車廂在左、平衡錘在右反向移動；沒人操作時車廂自己隨機跑樓層。
+  - `src/elevcalc.js`（示意數字）：車廂 1,000 kg、載重 1,000 kg、每人 70 kg（最多 12 人）、平衡錘＝車廂＋45% 載重＝1,450 kg；6 人時差 30 kg、坐滿差 390 kg、沒有平衡錘 1,840 kg。鋼索全斷：自由落下到 2 m/s 觸發調速機，再以 0.6 g 煞停，模型裡共掉約 0.5–0.6 公尺（只是模型的數字，課文有註明）。
+  - 用詞照《建築技術規則建築設備編》：**平衡錘**（不是配重，課文只在第一次出現時加註「也叫配重」）、**鋼索**（不是鋼纜）、安全裝置、調速機。
+  - 手機版 `.al-space` 是 `aspect-ratio` 決定大小：**不要在手機斷點設 `min-height`**（會連寬度一起撐大、超出畫面被裁掉，標籤的 narrow 判斷也會失效）；直的場景改 `aspect-ratio: 3 / 4; min-height: 0`。
+  - 卡片 `demo`：balanced／full／nocw／cut。除錯：`document.querySelector('[data-elevator-lab]').__lab`（`setPeople(0–12)`、`setFloor(1–8)`、`setCw(bool)`、`cut()`、`fix()`、`run(sec)`、`render()`）。
 - 上傳錄音時若出現大量「not found locally」：多半是天文 session 在 ~/Developer 那份 clone 產生、已上傳的句子（worktree 的快取沒有它們）。算出「manifest 裡有、快取裡沒有」的雜湊，逐一 curl 確認線上 200 即可。
 - 多個 session 同時改 build.py 時，本系列改在 scratchpad 的 git worktree（從 origin/main 開分支）做，`audio` 用 symlink 指到 `~/Documents/twrses/audio`（symlink 不會被 .gitignore 的 `audio/` 擋，**不要 add**），做完 rebase 再 `git push origin HEAD:main`。
 - 瀏覽器面板在背景時 `visibilityState` 是 hidden，IntersectionObserver 不觸發、截圖是空白：點一下頁面上的「在模型中看」按鈕就會直接初始化，截圖改用無頭 Chrome（playwright-core＋本機 Chrome，`--use-angle=swiftshader`）。

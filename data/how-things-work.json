@@ -6974,15 +6974,501 @@
               "url": "https://en.wikipedia.org/wiki/Countersteering"
             }
           ]
+        },
+        {
+          "n": 15,
+          "slug": "elevator",
+          "title": "How Does an Elevator Lift So Much Weight?",
+          "title_zh": "電梯怎麼舉起那麼重的東西？",
+          "level": "入門 · Beginner",
+          "icon": "🛗",
+          "card": "elevator",
+          "blurb_en": "An elevator car hangs on one end of its cables, and a heavy counterweight hangs on the other. Add riders to a 3D elevator, take the counterweight away to see how hard the motor has to work, then cut the cables and watch the safety brakes catch the car.",
+          "blurb_zh": "電梯車廂掛在鋼索的一頭，另一頭掛著很重的平衡錘。在 3D 電梯裡加乘客，把平衡錘拿掉看馬達要多費力，再把鋼索剪斷，看安全裝置怎麼接住車廂。",
+          "big_idea_en": "An elevator does not lift its whole weight. Steel cables run over a wheel at the top of the building, with the car on one end and a counterweight of about the same weight on the other. The two sides nearly balance, like a seesaw, so the motor only has to move the small difference between them.",
+          "big_idea_zh": "電梯並不是把全部的重量硬舉起來。鋼索繞過大樓頂端的輪子，一頭掛車廂，另一頭掛差不多一樣重的平衡錘。兩邊幾乎平衡，像蹺蹺板一樣，所以馬達只要搬動兩邊相差的那一點點重量。",
+          "lab": {
+            "kind": "elevator",
+            "eyebrow": "3D Model · 3D 模型",
+            "title_en": "The Elevator and Its Hidden Partner",
+            "title_zh": "電梯和它看不見的搭檔",
+            "how_en": "Drag to turn the view, and scroll or pinch to zoom. The car rides up and down while the gray counterweight moves the opposite way. Slide the riders from 0 to 12 and watch “Motor holds” shrink to almost nothing near 6 riders. Turn the counterweight off to see what the motor would have to hold alone. Then press “Cut all the cables.”",
+            "how_zh": "拖曳可以旋轉視角，滾輪或雙指可以縮放。車廂上上下下，灰色的平衡錘往反方向移動。把乘客從 0 拉到 12，看「馬達撐住」在 6 個人附近變得幾乎是零。把平衡錘關掉，看馬達自己一個要撐住多少。最後按「把鋼索全部剪斷」。",
+            "legend": [
+              {
+                "cls": "evcar",
+                "en": "Light box: the car, with its riders inside",
+                "zh": "淺色的箱子：車廂，裡面是乘客"
+              },
+              {
+                "cls": "evcw",
+                "en": "Gray block: the counterweight",
+                "zh": "灰色的方塊：平衡錘"
+              },
+              {
+                "cls": "evwheel",
+                "en": "Gold wheel: the drive wheel, turned by the motor",
+                "zh": "金色的輪子：馬達帶動的曳引輪"
+              },
+              {
+                "cls": "evbrake",
+                "en": "Red blocks: the safety brakes gripping the rails",
+                "zh": "紅色的方塊：夾住導軌的安全裝置"
+              }
+            ],
+            "scale_en": "A teaching model. The weights are example numbers: a 1,000 kg car that can carry 1,000 kg, riders of 70 kg each, and a 1,450 kg counterweight. Real elevators differ. The floors are drawn shorter than real ones, and the cables' own weight is left out. The drop after the cables are cut (about half a meter here) is calculated for this model only.",
+            "scale_zh": "這是教學用的模型。重量是舉例的數字：車廂 1,000 公斤、可以載 1,000 公斤、每位乘客 70 公斤、平衡錘 1,450 公斤，真正的電梯各有不同。樓層畫得比真的矮，鋼索自己的重量也沒有算進去。剪斷鋼索後掉下的距離（這裡大約半公尺）只是這個模型算出來的。",
+            "credit_html": "Model drawn by My Culture Connect as a teaching diagram. How the counterweight is sized and how the safety devices work follow <a href=\"https://en.wikipedia.org/wiki/Elevator\" target=\"_blank\" rel=\"noopener\">Wikipedia, “Elevator”</a>. · 模型由人師教育協會自繪示意；平衡錘的重量與安全裝置的原理依維基百科「Elevator」條目。"
+          },
+          "paras": [
+            "Step into an elevator, press a button, and a small room carries you and ten other people up the building. At Taipei 101, the elevator takes visitors from the 5th floor to the 89th in only 37 seconds. A full elevator car can weigh more than a family car. How can a motor lift something that heavy, again and again, all day long?",
+            "The secret is hidden in the shaft, where riders never see it. Strong steel cables are tied to the top of the car. They go up, over a wheel at the top of the building, and down the other side. There they hold a tall stack of heavy metal blocks called the counterweight. When the car goes up, the counterweight comes down. When the car comes down, the counterweight goes up.",
+            "Think of a seesaw with two children of the same weight. A tiny push sends one up and the other down. An elevator works the same way. The counterweight weighs about as much as the car plus half of the riders it can carry. With the car half full, the two sides balance almost perfectly, and the motor hardly has to work.",
+            "So the motor never lifts the whole car. It only moves the difference between the two sides. In our model, a full car weighs 1,840 kilograms, but the motor has to hold only 390 kilograms. An empty car is lighter than the counterweight, so it wants to rise by itself, and the motor holds it back. Either way, the elevator uses far less energy.",
+            "What if a cable breaks? Long ago, people were afraid of exactly that. In 1853 an American, Elisha Otis, invented a safety brake. The next year, at a fair in New York, he stood on a platform high in the air and had the rope cut. The platform stopped at once. His brake gripped the rails on both sides and held him there.",
+            "Elevators today are even safer. A car hangs on several cables, and each cable alone is strong enough to hold a full car. A device called a governor watches the speed. If the car ever moves down too fast, brakes on the car grip the rails and stop it. So ride without fear, but in a fire or after an earthquake, always take the stairs."
+          ],
+          "paras_zh": [
+            "走進電梯，按一個按鈕，這個小房間就載著你和另外十個人往樓上去。在台北 101，電梯把遊客從 5 樓送到 89 樓只要 37 秒。坐滿人的電梯車廂可能比一輛家用汽車還重。馬達怎麼舉得起那麼重的東西，而且一整天舉個不停？",
+            "祕密藏在電梯井裡，乘客從來看不到。堅固的鋼索綁在車廂頂端，往上繞過大樓最上面的輪子，再從另一邊垂下來，吊著一疊又高又重的金屬塊，叫做平衡錘（也叫配重）。車廂往上，平衡錘就往下；車廂往下，平衡錘就往上。",
+            "想像蹺蹺板兩邊坐著一樣重的兩個小孩，輕輕一推，一個上去、一個下來。電梯也是一樣。平衡錘的重量，大約等於車廂加上「最多能載的乘客的一半」。車廂半滿的時候，兩邊幾乎完全平衡，馬達幾乎不用出力。",
+            "所以馬達從來不必舉起整個車廂，只要搬動兩邊的差。在我們的模型裡，坐滿的車廂重 1,840 公斤，但馬達只要撐住 390 公斤。空車廂比平衡錘輕，會自己想往上跑，馬達反而要拉住它。不管哪一種，電梯用的電都少很多。",
+            "萬一鋼索斷了怎麼辦？很久以前，大家怕的就是這件事。1853 年，美國人奧的斯（Elisha Otis）發明了一種安全煞車。隔年在紐約的博覽會上，他站在高高的平台上，請人把繩子砍斷。平台馬上停住——他的煞車卡住兩邊的導軌，把他穩穩留在半空中。",
+            "今天的電梯更安全。車廂掛在好幾條鋼索上，每一條都夠力單獨吊住坐滿的車廂。還有一個叫調速機的裝置盯著速度：只要車廂往下跑得太快，車廂上的煞車就會夾住導軌，把它停住。所以放心搭電梯；但是火災或地震之後，一定要走樓梯。"
+          ],
+          "questions": [
+            "What hangs on the other end of the cables from the elevator car?",
+            "Why does the motor not have to lift the whole weight of the car?",
+            "What happens if an elevator car starts to move down too fast?"
+          ],
+          "answers": [
+            "A counterweight: a stack of heavy metal blocks that weighs about as much as the car plus half of the riders it can carry.",
+            "Because the counterweight balances most of the car's weight, like a seesaw. The motor only has to move the difference between the two sides.",
+            "The governor notices the speed, and safety brakes on the car grip the rails and stop it."
+          ],
+          "vocab": [
+            {
+              "n": 1,
+              "w": "elevator",
+              "pos": "n.",
+              "zh": "電梯",
+              "ex": "We took the <b>elevator</b> to the tenth floor.",
+              "exzh": "我們搭電梯到十樓。"
+            },
+            {
+              "n": 2,
+              "w": "cable",
+              "pos": "n.",
+              "zh": "鋼索；纜線",
+              "ex": "The bridge hangs from thick steel <b>cables</b>.",
+              "exzh": "這座橋吊在粗粗的鋼索上。"
+            },
+            {
+              "n": 3,
+              "w": "counterweight",
+              "pos": "n.",
+              "zh": "平衡錘；配重",
+              "ex": "The crane has a big <b>counterweight</b> at the back.",
+              "exzh": "起重機後面有一塊很大的配重。"
+            },
+            {
+              "n": 4,
+              "w": "shaft",
+              "pos": "n.",
+              "zh": "（電梯）井；豎井",
+              "ex": "The elevator <b>shaft</b> runs from the basement to the roof.",
+              "exzh": "電梯井從地下室一直通到屋頂。"
+            },
+            {
+              "n": 5,
+              "w": "motor",
+              "pos": "n.",
+              "zh": "馬達",
+              "ex": "A small <b>motor</b> turns the fan.",
+              "exzh": "一顆小馬達讓電風扇轉動。"
+            },
+            {
+              "n": 6,
+              "w": "brake",
+              "pos": "n.",
+              "zh": "煞車",
+              "ex": "Check your <b>brakes</b> before you ride down the hill.",
+              "exzh": "騎下坡之前，先檢查煞車。"
+            },
+            {
+              "n": 7,
+              "w": "passenger",
+              "pos": "n.",
+              "zh": "乘客",
+              "ex": "The bus can carry forty <b>passengers</b>.",
+              "exzh": "這輛公車可以載四十位乘客。"
+            },
+            {
+              "n": 8,
+              "w": "emergency",
+              "pos": "n.",
+              "zh": "緊急情況",
+              "ex": "In an <b>emergency</b>, press the red button.",
+              "exzh": "遇到緊急情況，請按紅色按鈕。"
+            }
+          ],
+          "quiz": [
+            {
+              "q": "When the elevator car goes up, what does the counterweight do?",
+              "options": [
+                "It goes down",
+                "It goes up too",
+                "It stays still",
+                "It spins around"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "About how heavy is the counterweight?",
+              "options": [
+                "As heavy as the car plus half of the riders it can carry",
+                "As heavy as one rider",
+                "Twice as heavy as a full car",
+                "It has almost no weight"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "What does the motor really have to move?",
+              "options": [
+                "The difference between the two sides",
+                "The whole car and all the riders",
+                "Only the counterweight",
+                "The whole building"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "What did Elisha Otis invent in 1853?",
+              "options": [
+                "A safety brake for elevators",
+                "The first electric motor",
+                "The steel cable",
+                "The escalator"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "There is a fire in the building. What should you do?",
+              "options": [
+                "Take the stairs, not the elevator",
+                "Take the elevator because it is faster",
+                "Wait inside the elevator",
+                "Hold the elevator doors open"
+              ],
+              "correct": 0
+            }
+          ],
+          "parts_head": {
+            "eyebrow": "Try It in the Model · 在模型裡試試",
+            "en": "Four elevator rides",
+            "zh": "搭四趟電梯"
+          },
+          "parts": [
+            {
+              "key": "balanced",
+              "icon": "⚖️",
+              "en": "Half full",
+              "zh": "半滿",
+              "meta_en": "6 riders",
+              "meta_zh": "6 位乘客",
+              "demo": "balanced",
+              "text_en": "With six riders the car weighs 1,420 kg and the counterweight 1,450 kg. The motor holds only 30 kg: almost a perfect balance.",
+              "text_zh": "6 位乘客時，車廂重 1,420 公斤，平衡錘 1,450 公斤。馬達只要撐住 30 公斤，幾乎完全平衡。"
+            },
+            {
+              "key": "full",
+              "icon": "👨‍👩‍👧‍👦",
+              "en": "Full car",
+              "zh": "坐滿",
+              "meta_en": "12 riders",
+              "meta_zh": "12 位乘客",
+              "demo": "full",
+              "text_en": "A full car weighs 1,840 kg, but the motor holds only the 390 kg difference. The counterweight carries the rest.",
+              "text_zh": "坐滿的車廂重 1,840 公斤，但馬達只撐住相差的 390 公斤，其他的都由平衡錘分擔。"
+            },
+            {
+              "key": "nocw",
+              "icon": "🏋️",
+              "en": "No counterweight",
+              "zh": "沒有平衡錘",
+              "meta_en": "Motor alone",
+              "meta_zh": "馬達自己來",
+              "demo": "nocw",
+              "text_en": "Take the counterweight away and the motor must hold all 1,840 kg by itself, nearly five times as much. In the model, the motor glows orange.",
+              "text_zh": "把平衡錘拿掉，馬達就得自己撐住全部的 1,840 公斤，將近五倍。模型裡的馬達會發出橘光。"
+            },
+            {
+              "key": "cut",
+              "icon": "✂️",
+              "en": "Cables cut",
+              "zh": "鋼索斷了",
+              "meta_en": "Safety brakes",
+              "meta_zh": "安全裝置",
+              "demo": "cut",
+              "text_en": "Every cable is cut at once. The car begins to fall, the governor feels the speed, and the red safety brakes grip the rails.",
+              "text_zh": "所有的鋼索同時被剪斷。車廂開始往下掉，調速機察覺速度不對，紅色的安全裝置就夾住導軌。"
+            }
+          ],
+          "parts_note_en": "Watch the two bars in the panel: the green one is what the motor holds with a counterweight, and the red one is what it would hold without it.",
+          "parts_note_zh": "注意面板上的兩條橫槓：綠色是有平衡錘時馬達要撐住的重量，紅色是沒有平衡錘時要撐住的重量。",
+          "facts": {
+            "eyebrow": "Elevators by the Numbers · 電梯的數字",
+            "en": "From a cut rope to Taipei 101",
+            "zh": "從砍斷的繩子到台北 101",
+            "lead_en": "Safe elevators are the reason cities could grow tall.",
+            "lead_zh": "有了安全的電梯，城市才蓋得出高樓。",
+            "items": [
+              {
+                "big": "1853",
+                "unit_en": "the safety brake",
+                "unit_zh": "安全煞車",
+                "en": "Elisha Otis invented a device that stops an elevator if its rope breaks, and showed it in New York in 1854.",
+                "zh": "奧的斯發明了繩子斷掉時能把電梯停住的裝置，1854 年在紐約公開示範。"
+              },
+              {
+                "big": "1857",
+                "unit_en": "first passenger safety elevator",
+                "unit_zh": "第一部載客的安全電梯",
+                "en": "It opened on March 23, 1857, in a five-story store on Broadway in New York City.",
+                "zh": "1857 年 3 月 23 日，在紐約百老匯街一棟五層樓的商店裡啟用。"
+              },
+              {
+                "big": "40–50%",
+                "unit_en": "of the load",
+                "unit_zh": "的載重",
+                "en": "A counterweight usually weighs as much as the car plus 40 to 50 percent of the load it can carry.",
+                "zh": "平衡錘的重量，通常等於車廂加上可載重量的 40% 到 50%。"
+              },
+              {
+                "big": "2–6",
+                "unit_en": "cables",
+                "unit_zh": "條鋼索",
+                "en": "A car usually hangs on 2 to 6 cables. Each one alone can hold a full car, plus 25 percent more.",
+                "zh": "車廂通常掛在 2 到 6 條鋼索上，每一條都能單獨吊住滿載的車廂，還多出 25%。"
+              },
+              {
+                "big": "37",
+                "unit_en": "seconds",
+                "unit_zh": "秒",
+                "en": "The time Taipei 101's elevators take from the 5th floor to the observatory on the 89th.",
+                "zh": "台北 101 的電梯從 5 樓到 89 樓觀景台所需的時間。"
+              },
+              {
+                "big": "60.6",
+                "unit_en": "km/h",
+                "unit_zh": "公里／小時",
+                "en": "The top speed of Taipei 101's elevators going up, the fastest in the world when the tower opened.",
+                "zh": "台北 101 電梯上升的最高速度，啟用時是全世界最快。"
+              }
+            ]
+          },
+          "myths": [
+            {
+              "myth_en": "The motor lifts the whole weight of the car and everyone in it.",
+              "myth_zh": "馬達把整個車廂和裡面所有的人硬舉起來。",
+              "fact_en": "The counterweight balances most of that weight. The motor only moves the difference between the two sides.",
+              "fact_zh": "大部分的重量由平衡錘抵消，馬達只搬動兩邊的重量差。"
+            },
+            {
+              "myth_en": "If a cable breaks, the elevator falls all the way to the bottom.",
+              "myth_zh": "鋼索一斷，電梯就會一路摔到底。",
+              "fact_en": "A car hangs on several cables, and each one alone can hold it. If it still moves down too fast, safety brakes grip the rails.",
+              "fact_zh": "車廂掛在好幾條鋼索上，每一條都能單獨吊住它。就算真的往下跑太快，安全裝置也會夾住導軌。"
+            },
+            {
+              "myth_en": "A heavier counterweight is always better.",
+              "myth_zh": "平衡錘越重越好。",
+              "fact_en": "Too heavy is as bad as too light. It is sized to balance a car that is about half full, the middle of what the elevator carries.",
+              "fact_zh": "太重和太輕一樣不好。它的重量剛好平衡「大約半滿」的車廂，也就是電梯載重的中間值。"
+            },
+            {
+              "myth_en": "In a fire, the elevator is the fastest way out.",
+              "myth_zh": "火災時搭電梯逃生最快。",
+              "fact_en": "Never use an elevator in a fire. The power may go out and trap you inside. Take the stairs.",
+              "fact_zh": "火災時絕對不可以搭電梯，可能停電把你困在裡面。請走樓梯。"
+            }
+          ],
+          "tricks": [
+            {
+              "title_en": "A seesaw on a wheel",
+              "title_zh": "掛在輪子上的蹺蹺板",
+              "body_en": "Car on one side, counterweight on the other. One goes up, the other comes down.",
+              "body_zh": "一邊是車廂，一邊是平衡錘。一個上去，另一個就下來。"
+            },
+            {
+              "title_en": "Only the difference",
+              "title_zh": "只搬差額",
+              "body_en": "The motor does not lift the car. It moves the difference between the two sides.",
+              "body_zh": "馬達不是舉起車廂，是搬動兩邊的重量差。"
+            },
+            {
+              "title_en": "Half full is just right",
+              "title_zh": "半滿剛剛好",
+              "body_en": "The counterweight matches a half-full car, so that is when the motor works least.",
+              "body_zh": "平衡錘和半滿的車廂一樣重，所以那時候馬達最省力。"
+            },
+            {
+              "title_en": "Too fast? Grip the rails",
+              "title_zh": "太快？夾住導軌",
+              "body_en": "A governor watches the speed. Too fast going down, and the brakes grip the rails.",
+              "body_zh": "調速機盯著速度；往下太快，煞車就夾住導軌。"
+            }
+          ],
+          "safety": [
+            {
+              "en": "Never use an elevator in a fire. After an earthquake, take the stairs too, because the power may fail.",
+              "zh": "火災時不可以搭電梯。地震之後也請走樓梯，因為可能會停電。"
+            },
+            {
+              "en": "If an earthquake starts while you are in an elevator, crouch down, press the buttons for every floor, and get out at the first floor where it stops.",
+              "zh": "在電梯裡遇到地震：蹲低身體，按下所有樓層的按鈕，在第一個停下來的樓層走出去。"
+            },
+            {
+              "en": "If the elevator gets stuck, stay calm, press the emergency call button, and wait for help. Do not try to force the doors open.",
+              "zh": "電梯卡住時保持冷靜，按緊急呼叫鈕，等人來幫忙。不要自己去扳電梯門。"
+            },
+            {
+              "en": "Never put a hand, foot, or bag between closing doors, and keep clothes and bag straps away from them.",
+              "zh": "不要把手、腳或包包伸進正在關的門，衣服和背帶也要離門遠一點。"
+            },
+            {
+              "en": "Do the activities with an adult. Keep the hanging bottles low over the floor, and do not play with the elevator buttons.",
+              "zh": "活動要有大人陪同。吊起來的瓶子離地面低一點；不要玩電梯的按鈕。"
+            }
+          ],
+          "activities": [
+            {
+              "title_en": "Lift a Bottle with One Finger",
+              "title_zh": "一根手指舉起水瓶",
+              "materials": [
+                {
+                  "en": "Two plastic bottles of the same size with caps, and water",
+                  "zh": "兩個一樣大、有蓋子的寶特瓶，和水"
+                },
+                {
+                  "en": "A strong string about 1.5 meters long",
+                  "zh": "一條大約 1.5 公尺的結實繩子"
+                },
+                {
+                  "en": "A smooth broom handle laid across two chairs (this is your “wheel”)",
+                  "zh": "一支光滑的掃把柄，橫放在兩張椅子上（當作「輪子」）"
+                }
+              ],
+              "steps": [
+                {
+                  "en": "Fill one bottle with water. This is the car. Tie it to one end of the string and pass the string over the broom handle.",
+                  "zh": "把一個瓶子裝滿水，這是「車廂」。綁在繩子的一頭，把繩子繞過掃把柄。"
+                },
+                {
+                  "en": "Pull the other end of the string down with one finger to lift the bottle. How hard is it?",
+                  "zh": "用一根手指把繩子的另一頭往下拉，把瓶子吊起來。費不費力？"
+                },
+                {
+                  "en": "Now fill the second bottle almost full and tie it to the other end. This is the counterweight.",
+                  "zh": "現在把第二個瓶子裝到快滿，綁在繩子的另一頭，這是「平衡錘」。"
+                },
+                {
+                  "en": "Lift the first bottle again with one finger. What changed? What happens if the counterweight is heavier than the car?",
+                  "zh": "再用一根手指把第一個瓶子抬起來。有什麼不一樣？如果平衡錘比車廂重，會怎麼樣？"
+                }
+              ],
+              "tip_en": "The closer the two bottles are in weight, the easier the lift. That is exactly what an elevator's counterweight is for.",
+              "tip_zh": "兩個瓶子的重量越接近，就越省力。電梯的平衡錘就是做這件事。"
+            },
+            {
+              "title_en": "Elevator Detective",
+              "title_zh": "電梯小偵探",
+              "materials": [
+                {
+                  "en": "An elevator in your school or building, and an adult to ride with you",
+                  "zh": "學校或大樓裡的一部電梯，和一位陪你搭的大人"
+                },
+                {
+                  "en": "A notebook and a pencil",
+                  "zh": "筆記本和鉛筆"
+                }
+              ],
+              "steps": [
+                {
+                  "en": "Inside the car, find the sign that shows the load in kilograms and the number of people allowed. Write both down.",
+                  "zh": "在車廂裡找出標示載重（公斤）和限乘人數的牌子，把兩個數字抄下來。"
+                },
+                {
+                  "en": "Divide the kilograms by the number of people. How many kilograms does the sign allow for each person?",
+                  "zh": "把公斤數除以人數。這塊牌子給每個人算幾公斤？"
+                },
+                {
+                  "en": "Find the emergency call button. Look at it, but do not press it.",
+                  "zh": "找出緊急呼叫鈕。看就好，不要按。"
+                },
+                {
+                  "en": "Ride up one floor. Do you feel a little heavier when the car starts, and a little lighter when it stops?",
+                  "zh": "往上搭一層樓。車廂啟動時有沒有覺得變重一點、停下來時變輕一點？"
+                }
+              ],
+              "tip_en": "Ride at a quiet time so you do not keep other people waiting.",
+              "tip_zh": "挑人少的時候去，不要讓別人等。"
+            }
+          ],
+          "sources": [
+            {
+              "en": "Cables over a drive wheel with a counterweight; the counterweight weighs as much as the car plus 40–50% of its capacity",
+              "zh": "鋼索繞過曳引輪、另一頭掛平衡錘；平衡錘重量等於車廂加上 40–50% 的載重",
+              "src": "Wikipedia, “Elevator”",
+              "url": "https://en.wikipedia.org/wiki/Elevator"
+            },
+            {
+              "en": "A car hangs on 2 to 6 (or more) cables, each able to hold the rated load plus 25%; a governor detects overspeed and brake shoes clamp the rails",
+              "zh": "車廂掛在 2 到 6 條（或更多）鋼索上，每條都能承受額定載重再加 25%；調速機偵測超速，煞車夾住導軌",
+              "src": "Wikipedia, “Elevator”",
+              "url": "https://en.wikipedia.org/wiki/Elevator"
+            },
+            {
+              "en": "Elisha Otis: safety device invented in 1853, shown at the New York Crystal Palace in 1854; first passenger safety elevator on March 23, 1857",
+              "zh": "奧的斯：1853 年發明安全裝置，1854 年在紐約水晶宮博覽會示範；1857 年 3 月 23 日第一部載客安全電梯啟用",
+              "src": "Wikipedia, “Elisha Otis”",
+              "url": "https://en.wikipedia.org/wiki/Elisha_Otis"
+            },
+            {
+              "en": "At the 1854 demonstration Otis stood on the platform and had the rope cut; the safety device stopped it",
+              "zh": "1854 年的示範：奧的斯站在平台上請人砍斷繩子，安全裝置把平台停住",
+              "src": "ASME, “Elisha Graves Otis”",
+              "url": "https://www.asme.org/topics-resources/content/elisha-graves-otis"
+            },
+            {
+              "en": "Taipei 101 elevators: 5th to 89th floor in 37 seconds at 60.6 km/h (1,010 m/min), the fastest in the world when completed",
+              "zh": "台北 101 電梯：5 樓到 89 樓 37 秒，時速 60.6 公里（每分鐘 1,010 公尺），完工時世界最快",
+              "src": "Wikipedia, “Taipei 101”",
+              "url": "https://en.wikipedia.org/wiki/Taipei_101"
+            },
+            {
+              "en": "Taiwan's official term and definition of the counterweight (平衡錘): weights that balance the car and part of the design load",
+              "zh": "台灣法規的名稱與定義——平衡錘：平衡昇降機廂靜載重及部分設計載重之一個或數個重物",
+              "src": "建築技術規則建築設備編（全國法規資料庫）",
+              "url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0070117"
+            },
+            {
+              "en": "In an elevator during an earthquake: crouch, press every floor button, get out where it stops; if stuck, use the emergency call button",
+              "zh": "地震時在電梯內：蹲低、按下所有樓層按鈕、在停下的樓層走出；卡住時用緊急呼叫鈕求救",
+              "src": "臺北市政府消防局防災教育雲",
+              "url": "https://www.disasterlearning.gov.taipei/tw/Knowledge/ugC_Knowledge_Detail.aspx?ID=101&TID=4&CID=15"
+            },
+            {
+              "en": "Do not use elevators when escaping a fire",
+              "zh": "火災逃生避難時不可搭乘電梯",
+              "src": "臺北市政府消防局",
+              "url": "https://www.119.gov.taipei/News_Content.aspx?n=6EEFD6ACA51B8E33&sms=87415A8B9CE81B16&s=6FB1F286840AC217"
+            }
+          ]
         }
       ],
       "planned": [
-        {
-          "n": 15,
-          "icon": "🛗",
-          "en": "How Does an Elevator Lift So Much Weight?",
-          "zh": "電梯怎麼舉起那麼重的東西？"
-        },
         {
           "n": 16,
           "icon": "🧊",

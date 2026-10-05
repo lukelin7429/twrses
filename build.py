@@ -5339,7 +5339,7 @@ def build_body_hub():
 # 3D 原始碼在 tools/science/src/（three.js、esbuild，每課一個入口），打包成 assets/js/<入口>.js；
 # 面板、迷思、口訣、活動沿用 astro.css，本系列多出來的在 science.css；兩者都只載在本系列頁面。
 HTW_BASE = "/resources/classes/how-things-work/"
-_HTW_JS = {"battery": "battery", "generator": "generator", "solar": "solar-cell", "wind": "wind-turbine", "internet": "internet-packets", "signal": "cell-signal", "gps": "gps-satellites", "memory": "memory-bits", "sky": "sky-scatter", "rainbow": "rainbow-drops", "sound": "sound-waves", "camera": "camera-lens", "wing": "airplane-wing", "bike": "bicycle-balance"}   # lab.kind → assets/js/<bundle>.js
+_HTW_JS = {"battery": "battery", "generator": "generator", "solar": "solar-cell", "wind": "wind-turbine", "internet": "internet-packets", "signal": "cell-signal", "gps": "gps-satellites", "memory": "memory-bits", "sky": "sky-scatter", "rainbow": "rainbow-drops", "sound": "sound-waves", "camera": "camera-lens", "wing": "airplane-wing", "bike": "bicycle-balance", "elevator": "elevator-lift"}   # lab.kind → assets/js/<bundle>.js
 
 def _htw_cn(n):
     """課次的中文數字（一～九十九）：第十一課、第二十課。"""
@@ -6131,6 +6131,65 @@ def render_bicycle_lab(lesson):
   <p class="bt-credit">{lab["credit_html"]}</p>
 </div>'''
 
+def elevator_svg(size=56):
+    """電梯小圖（萬物原理首頁的課程卡）：頂樓的曳引輪，鋼索一頭掛車廂、一頭掛平衡錘。"""
+    return (f'<svg class="elevator-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">'
+            '<rect x="8" y="4" width="44" height="54" rx="3" fill="#1b2740" stroke="#6f86c0" stroke-width="1.5"/>'
+            '<circle cx="32" cy="12" r="6" fill="none" stroke="#d8c27a" stroke-width="2.4"/>'
+            '<path d="M26 12 V30 M38 12 V20" stroke="#e8ecf4" stroke-width="1.6"/>'
+            '<rect x="14" y="30" width="24" height="20" rx="2" fill="#cfd8ea" stroke="#fff" stroke-width="1.4"/>'
+            '<path d="M26 30 V50" stroke="#8a96ad" stroke-width="1.2"/>'
+            '<rect x="42" y="20" width="6" height="16" rx="1" fill="#70798c" stroke="#cfd8ea" stroke-width="1"/></svg>')
+
+def render_elevator_lab(lesson):
+    """第十五課：電梯井裡的車廂與平衡錘（assets/js/elevator-lift.js 綁這裡的 class；重量是示意）。"""
+    lab = lesson["lab"]
+    tg = _lab_toggles([("labels", "Labels", "標示", True), ("cw", "Counterweight", "平衡錘", True)])
+    return f'''<div class="astro-lab bt-lab ev-lab rvl" data-elevator-lab>
+  <div class="al-stage">
+    <div class="al-space">
+      <canvas class="al-space-cv" aria-label="3D model of an elevator shaft: the car on one end of the cables, a counterweight on the other, and the drive wheel on top · 電梯井的 3D 模型：鋼索一頭是車廂、一頭是平衡錘，頂樓是曳引輪"></canvas>
+      <div class="al-labels" aria-hidden="true"></div>
+      <p class="bt-cut">Elevator shaft with the front wall removed; floors drawn shorter than real · 拿掉前牆的電梯井；樓層畫得比真的矮</p>
+      <p class="al-hint">Drag to turn · 拖曳旋轉　Scroll or pinch to zoom · 滾輪／雙指縮放</p>
+      <button type="button" class="al-home" title="Reset view · 重設視角" aria-label="Reset view · 重設視角">&#8634;</button>
+      <p class="al-nogl-msg">This 3D model needs WebGL, which this browser does not support. The reading and the cards below still explain everything.<br><span class="zh">這個瀏覽器不支援 WebGL，無法顯示 3D 模型；下方的課文與卡片一樣能看懂。</span></p>
+    </div>
+    <aside class="al-sky bt-aside ev-aside">
+      <div class="ev-top">
+        <p class="al-sky-k">What the motor must hold · 馬達要撐住多少</p>
+        <p class="ev-status" aria-live="polite"></p>
+        <dl class="bt-nums ev-nums">
+          <div><dt>Car + riders · 車廂＋乘客</dt><dd class="ev-carkg"></dd></div>
+          <div><dt>Counterweight · 平衡錘</dt><dd class="ev-cwkg"></dd></div>
+          <div><dt>Motor holds · 馬達撐住</dt><dd class="ev-hold"></dd></div>
+        </dl>
+        <div class="ev-bars">
+          <p class="ev-bar ev-bar-a"><span>With counterweight · 有平衡錘</span><i></i><b class="ev-val-a"></b></p>
+          <p class="ev-bar ev-bar-b"><span>Without · 沒有平衡錘</span><i></i><b class="ev-val-b"></b></p>
+        </div>
+        <div class="ev-btns">
+          <button type="button" class="ev-cut">&#9986; Cut all the cables<small>把鋼索全部剪斷</small></button>
+          <button type="button" class="ev-fix">Repair<small>修好</small></button>
+        </div>
+      </div>
+      <p class="bt-msg ev-msg" aria-live="polite"></p>
+    </aside>
+  </div>
+  <div class="al-controls">
+    <div class="al-row al-row-main">
+      <button type="button" class="al-play" aria-pressed="true"><span class="al-play-i" aria-hidden="true"></span><span class="al-play-t">Pause · 暫停</span></button>
+      <label class="al-slider ev-row"><span>Riders · 乘客 <output class="ev-people-out"></output></span>
+        <input type="range" class="al-age ev-people" min="0" max="12" step="1" value="6"></label>
+      <label class="al-slider ev-row"><span>Go to floor · 到幾樓 <output class="ev-floor-out"></output></span>
+        <input type="range" class="al-age ev-floor" min="1" max="8" step="1" value="1"></label>
+    </div>
+    <div class="al-row al-toggles">{tg}</div>
+  </div>
+  {_lab_foot(lab)}
+  <p class="bt-credit">{lab["credit_html"]}</p>
+</div>'''
+
 def _htw_flat():
     return [(ui, u, l) for ui, u in enumerate(HTW["units"]) for l in u["lessons"]]
 
@@ -6158,7 +6217,7 @@ def build_htw_lesson(ui, unit, lesson):
     reading_html = render_basic_unit(1, unit_dict, level="htw", audio_rel="", pdf_rel="")
     lab = lesson["lab"]
     kind = lab["kind"]
-    lab_html = {"battery": render_battery_lab, "generator": render_generator_lab, "solar": render_solarcell_lab, "wind": render_windturbine_lab, "internet": render_internet_lab, "signal": render_cellsignal_lab, "gps": render_gps_lab, "memory": render_memory_lab, "sky": render_skyblue_lab, "rainbow": render_rainbow_lab, "sound": render_soundwave_lab, "camera": render_cameralens_lab, "wing": render_airwing_lab, "bike": render_bicycle_lab}[kind](lesson)
+    lab_html = {"battery": render_battery_lab, "generator": render_generator_lab, "solar": render_solarcell_lab, "wind": render_windturbine_lab, "internet": render_internet_lab, "signal": render_cellsignal_lab, "gps": render_gps_lab, "memory": render_memory_lab, "sky": render_skyblue_lab, "rainbow": render_rainbow_lab, "sound": render_soundwave_lab, "camera": render_cameralens_lab, "wing": render_airwing_lab, "bike": render_bicycle_lab, "elevator": render_elevator_lab}[kind](lesson)
 
     secs = []
     if lesson.get("mix"):
@@ -6228,7 +6287,8 @@ def build_htw_lesson(ui, unit, lesson):
                 "sound": ("Sound in a sentence", "一句話記住聲音"),
                 "camera": ("Cameras in a sentence", "一句話記住相機"),
                 "wing": ("Flight in a sentence", "一句話記住飛行"),
-                "bike": ("Bicycles in a sentence", "一句話記住腳踏車")}[kind]
+                "bike": ("Bicycles in a sentence", "一句話記住腳踏車"),
+                "elevator": ("Elevators in a sentence", "一句話記住電梯")}[kind]
     secs.append(("tricks", "Remember It · 記憶口訣", tricks_h[0], tricks_h[1], _sci_tricks(lesson), ""))
     if lesson.get("safety"):
         items = "".join(f'<li class="rvl">{html.escape(s["en"])}<span class="zh">{html.escape(s["zh"])}</span></li>' for s in lesson["safety"])
@@ -6282,7 +6342,7 @@ def build_htw_lesson(ui, unit, lesson):
 def build_htw_hub():
     # 照中醫養生：單元導覽＋每個單元一段橫向課程卡；做好的課可點，planned 是「製作中」卡。
     def icon(l):
-        return battery_svg(60) if l.get("card") == "battery" else outlet_svg(60) if l.get("card") == "outlet" else solarpanel_svg(60) if l.get("card") == "solar" else windturbine_svg(60) if l.get("card") == "wind" else internet_svg(60) if l.get("card") == "internet" else cellsignal_svg(60) if l.get("card") == "signal" else gps_svg(60) if l.get("card") == "gps" else memory_svg(60) if l.get("card") == "memory" else skyblue_svg(60) if l.get("card") == "sky" else rainbow_svg(60) if l.get("card") == "rainbow" else soundwave_svg(60) if l.get("card") == "sound" else cameralens_svg(60) if l.get("card") == "camera" else airwing_svg(60) if l.get("card") == "wing" else bicycle_svg(60) if l.get("card") == "bike" else l["icon"]
+        return battery_svg(60) if l.get("card") == "battery" else outlet_svg(60) if l.get("card") == "outlet" else solarpanel_svg(60) if l.get("card") == "solar" else windturbine_svg(60) if l.get("card") == "wind" else internet_svg(60) if l.get("card") == "internet" else cellsignal_svg(60) if l.get("card") == "signal" else gps_svg(60) if l.get("card") == "gps" else memory_svg(60) if l.get("card") == "memory" else skyblue_svg(60) if l.get("card") == "sky" else rainbow_svg(60) if l.get("card") == "rainbow" else soundwave_svg(60) if l.get("card") == "sound" else cameralens_svg(60) if l.get("card") == "camera" else airwing_svg(60) if l.get("card") == "wing" else bicycle_svg(60) if l.get("card") == "bike" else elevator_svg(60) if l.get("card") == "elevator" else l["icon"]
     unit_sections, nav = [], []
     done = sum(len(u["lessons"]) for u in HTW["units"])
     total = done + sum(len(u.get("planned", [])) for u in HTW["units"])
