@@ -459,6 +459,7 @@ function initLab(root) {
     sBulb: lab.add('ey-lb ey-lb-d', 'To the brain · 通往大腦'), sBone: lab.add('ey-lb', 'Bone with tiny holes · 有小洞的骨頭'),
     sCells: lab.add('ey-lb', 'Smell cells: about 400 kinds · 嗅覺細胞：大約 400 種'), sMuc: lab.add('ey-lb', 'Mucus · 黏液'), sMol: lab.add('ey-lb ts-lb-o', 'Smell molecules · 氣味分子'),
   };
+  for (const el of Object.values(Lb)) el.hidden = true;      // 模型載入前先藏起來，不然會疊在左上角
   let autoLabels = true;
   const tgL = $('[data-t="labels"]');
   if (tgL) tgL.addEventListener('change', () => { autoLabels = false; });

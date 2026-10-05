@@ -162,7 +162,13 @@
   - **捏鼻子試吃計分卡是 2D（`initScore`）**，不需要 WebGL：兩列（捏住／放開）各有猜對、猜錯，可復原、重新開始，存在 localStorage（`twrses-taste-score`，包 try/catch）；兩列都滿 5 次才下結論。
   - 查證：NIDCD（五種基本味道；出生時約 10,000 個味蕾；嗅覺細胞在鼻腔高處一小片、氣味有鼻孔與喉嚨頂端兩條路；辣椒的灼熱屬於 common chemical sense）、Wikipedia（味蕾 2,000–8,000、味覺細胞壽命約 10 天；舌頭地圖＝Hänig 1901 被 Boring 1942 重畫後誤讀；鮮味＝池田菊苗 1908 昆布高湯；人類約 400 種嗅覺受體）。課文只寫「好幾千個味蕾」「幾千種氣味」，**沒有寫「風味 80% 來自嗅覺」和「一兆種氣味」**（查不到可靠出處）。
   - 除錯 `__lab.setFood('gummy'|'lemon'|'chips'|'choco'|'broth'|'chili')`、`setPinch(bool)`、`setZoom('bud'|'smell'|null)`、`bite()`、`state.auto = false`、`state.hold = true`（rAF 不再推進時間，截圖才不會慢一拍就吞下去了）、`run(秒)`、`render()`。側欄長條有 CSS transition，背景面板截圖常停在舊值，以 `style.width` 為準。
-- 第四批（第 13–16 課：腎臟、味覺與嗅覺、睡眠、長高）規劃在 Obsidian 課程規劃第九節；`planned[]` 放著還沒做的 15–16 課，做一課移掉一筆。
+- 第十五課睡眠（`sleep.js`，`lab.kind = "sleep"`，`data-sleep-lab`，CSS 前綴 `zz-`——`sl-` 已被萬物原理的太陽能課用掉）：**整副真實骨架躺下**——骨架和所有自繪的東西（大腦、眼球、心臟、腦下垂體、松果體）都用「站著」的座標放進 `bodyG`，再把 `bodyG.rotation.x = −π/2`（頭在 −Z、臉朝上）、y 位移＝−(所有骨頭的 min z)；標籤位置用 `bodyG.localToWorld`（`W()`）。大腦沿用第七課的功能區頂點色，但改 `MeshBasicMaterial`、每格重算顏色。房間（床、牆、窗、床頭燈）在 `room`；窗外的天空、星星、月亮、太陽只是牆上的平面。
+  - 時間軸 `state.min`：0＝晚上 9:00 關燈，−30（20:30）～630（07:30），播放時 1 秒＝15 分鐘。`SEG` 是**典型的一晚（示意，不是量測）**：W 醒／L 淺睡（N1＋N2）／D 深睡（N3）／R 快速動眼期；深睡集中在前三輪、REM 越到早上越長。每個階段決定 `ACT`（大腦各區亮度；深睡整顆腦同步起伏、REM 視覺區最亮思考區最暗）、`TONE`（REM＝0，手腳骨頭變藍）、`HEART`、生長激素（只在深睡，綠點從腦下垂體沿脊柱流到腿骨）、記憶火花；褪黑激素 `melAt()` 只看時鐘。
+  - 右欄腦波與下方的睡眠階段圖都是 2D canvas（**外層 position: relative＋固定高度、canvas 絕對定位**，否則會撐寬手機版）；階段圖可點、可拖（pointer capture，`touch-action: pan-y`）。拖時間軸、點階段圖、按四個跳轉鈕都會暫停。
+  - **睡眠計算機是 2D（`initCalc`）**：睡著與起床時間 → 時數（跨午夜），對照 6–12 歲 9–12 小時；點星期幾存進一週長條（再點一次清除），存 localStorage（`twrses-sleep-week`）。
+  - 查證：CDC／美國睡眠醫學會（6–12 歲 9–12 小時、13–17 歲 8–10 小時；睡前至少 30 分鐘關螢幕、固定作息）、NHLBI（生理時鐘靠光對時；褪黑激素傍晚上升、凌晨最高；深夜強光會讓大腦不分泌褪黑激素；睡眠幫助形成長期記憶；睡不夠比較容易感冒）、Wikipedia（REM：1953 年 Kleitman 與 Aserinsky，肌肉幾乎完全麻痺、大腦活動接近清醒、第一次約在入睡後 70 分鐘、越到早上越長；深睡集中在前兩輪、生長激素在深睡分泌；睡眠週期成人 70–110 分鐘）。課文**沒有寫**「睡覺時大腦排毒」（主要是小鼠研究）和「週末補眠沒用」。
+  - 除錯 `__lab.setMin(分鐘)`（會暫停）、`setHead(bool)`、`setPlaying(bool)`、`stageAt(m)`、`totals(m)`、`state.hold = true`、`run(秒)`、`render()`。
+- 第四批（第 13–16 課：腎臟、味覺與嗅覺、睡眠、長高）規劃在 Obsidian 課程規劃第九節；`planned[]` 放著還沒做的第 16 課，做一課移掉一筆。
 - 網站 `html` 有 smooth scroll：在背景的瀏覽器面板裡捲動會慢好幾秒，截圖前先設 `document.documentElement.style.scrollBehavior='auto'`。
 - 第二課起的共用工具在 `tools/body/src/common.js`（`loadBones`、`labeler`、`lazyBoot`）；卡片上的「在模型中看」按鈕用 `data-lab-<動作>="值"`。
   - 除錯：`document.querySelector('[data-skeleton-lab]').__lab`（`goJob`、`goRegion`、`setApart`、`startCount`、`stepCount(i)`、`render()`）。背景分頁 rAF 會降到每秒一兩格，截圖前用 `stepCount` 直接跳步。

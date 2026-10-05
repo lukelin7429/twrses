@@ -1000,3 +1000,79 @@ button.bc-row:hover { transform: translateY(-2px); border-color: var(--gold); bo
   .ts-strip { grid-template-columns: 1fr; }
   .ts-foods { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
+
+/* =========================================================
+   第十五課：睡眠（data-sleep-lab；前綴 zz-，sl- 已被萬物原理的太陽能課用掉）
+   ========================================================= */
+.zz-lab .al-space { min-height: 700px; }
+.zz-aside { gap: .12rem; }
+.zz-aside .al-sky-k { margin-top: .6rem; }
+.zz-clock { margin: 0 0 .1rem; align-items: center; flex-wrap: wrap; gap: .4rem .7rem; }
+.zz-t { font-family: var(--serif); font-size: 2rem; color: #fff; font-variant-numeric: tabular-nums; line-height: 1; white-space: nowrap; }
+.gm-time .zz-stage { padding: .22rem .7rem; border-radius: 999px; border: 1.5px solid var(--c, #ffd36e); color: var(--c, #ffd36e); font-size: .82rem; font-weight: 800; }
+.gm-time .zz-stage small { display: inline; margin-left: .45em; font-family: var(--zh); font-weight: 700; }
+.zz-eegbox { position: relative; height: 62px; border-radius: 10px; background: rgba(0,0,0,.28); border: 1px solid var(--al-line); overflow: hidden; }
+.zz-eegbox canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+.zz-status { min-height: 9.6em; }
+.zz-meters { display: grid; gap: .25rem; }
+.zz-m { display: grid; grid-template-columns: 8.8em minmax(0, 1fr); align-items: center; gap: .5rem; font-size: .72rem; font-weight: 800; color: #fff; line-height: 1.1; }
+.zz-m small { display: block; font-family: var(--zh); font-weight: 600; font-size: .68rem; color: var(--al-mute); }
+.zz-m b { display: block; height: 10px; border-radius: 999px; background: rgba(255,255,255,.08); overflow: hidden; }
+.zz-m i { display: block; height: 100%; width: 0; border-radius: 999px; background: var(--c); transition: width .2s; }
+.zz-m-tone { --c: #ff8a5c; } .zz-m-gh { --c: #6fe08a; } .zz-m-mel { --c: #b48cff; }
+.zz-more button { cursor: pointer; }
+.zz-head { display: flex; align-items: center; gap: .5rem; width: 100%; margin-top: .3rem; padding: .45rem .6rem; border-radius: 12px; border: 1px solid var(--al-line); background: rgba(255,255,255,.03); color: #fff; font: 800 .76rem var(--sans); text-align: left; line-height: 1.15; cursor: pointer; }
+.zz-head i { font-style: normal; font-size: 1.15rem; }
+.zz-head small { display: block; font-family: var(--zh); font-weight: 600; font-size: .68rem; color: var(--al-mute); }
+.zz-head:hover { background: rgba(255,255,255,.07); }
+.zz-head[aria-pressed="true"] { border-color: #9fd8ff; background: rgba(159,216,255,.12); box-shadow: 0 0 0 1px #9fd8ff inset; }
+.zz-hyp { position: relative; height: 128px; margin-bottom: .8rem; border-radius: 12px; background: rgba(0,0,0,.25); border: 1px solid var(--al-line); overflow: hidden; }
+.zz-hyp canvas { position: absolute; inset: 0; width: 100%; height: 100%; cursor: pointer; touch-action: pan-y; }
+.zz-time-row { flex: 1 1 260px; margin: 0; }
+.zz-time::-webkit-slider-runnable-track { background: linear-gradient(90deg, #7fb0ff 0 var(--p, 0%), rgba(255,255,255,.12) var(--p, 0%)); }
+.zz-time::-moz-range-progress { height: 6px; border-radius: 999px; background: #7fb0ff; }
+.al-lab.zz-lb-g { color: #c9f7d3; border-color: rgba(111,224,138,.6); }
+.al-lab.zz-lb-p { color: #e2d3ff; border-color: rgba(180,140,255,.6); }
+.al-lab.zz-lb-b { color: #d3e1ff; border-color: rgba(91,140,255,.7); }
+.al-lg-zzbrain i { border: 0; border-radius: 50%; background: conic-gradient(#7fb0ff, #ff8a5c, #ffd36e, #7ddc9a, #c59cff, #7fb0ff); }
+.al-lg-zzgh i { border: 0; background: radial-gradient(circle, #6fe08a 0 42%, transparent 48%); }
+.al-lg-zzmel i { border: 0; border-radius: 50%; background: radial-gradient(circle, #b48cff 0 25%, rgba(180,140,255,.3) 30% 70%, transparent 75%); }
+.al-lg-zzmem i { border: 0; background: radial-gradient(circle, #ffd36e 0 38%, transparent 44%); }
+.al-lg-zzoff i { border: 0; background: #5b8cff; border-radius: 4px; }
+.zz-strip { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); gap: 1rem 1.8rem; align-items: start; padding: 1rem 1.2rem 1.1rem; border-top: 1px solid var(--al-line); background: rgba(10,16,34,.6); }
+.zz-strip .al-sky-k { margin: 0 0 .5rem; }
+.zz-set { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .6rem 1rem; align-items: end; }
+.zz-set label { font-size: .76rem; font-weight: 800; color: #fff; line-height: 1.2; }
+.zz-set small { display: block; font-family: var(--zh); font-weight: 600; font-size: .7rem; color: var(--al-mute); }
+.zz-set input { display: block; width: 100%; margin-top: .3rem; padding: .4rem .5rem; border-radius: 10px; border: 1px solid var(--al-line); background: rgba(255,255,255,.06); color: #fff; font: 700 1rem var(--sans); color-scheme: dark; }
+.zz-out { grid-column: 1 / -1; display: flex; align-items: baseline; gap: .6rem; margin: .2rem 0 0; }
+.zz-out b { font-family: var(--serif); font-size: 2rem; color: #fff; font-variant-numeric: tabular-nums; line-height: 1.1; }
+.zz-out span { font-size: .78rem; font-weight: 700; color: var(--al-mute); line-height: 1.2; }
+.zz-msg { margin: .5rem 0; padding: .5rem .7rem; border-left: 3px solid rgba(255,255,255,.25); border-radius: 0 10px 10px 0; background: rgba(255,255,255,.04); font-size: .86rem; line-height: 1.5; color: var(--al-text); }
+.zz-msg.zz-ok { border-color: #7ddc9a; background: rgba(125,220,154,.08); }
+.zz-msg.zz-warn { border-color: #ffb066; background: rgba(255,176,102,.08); }
+.zz-msg .zh, .zz-note .zh, .zz-avg .zh { display: block; color: var(--al-mute); }
+.zz-note { margin: 0; font-size: .72rem; line-height: 1.5; color: var(--al-mute); }
+.zz-days { position: relative; display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: .3rem; }
+.zz-day { display: flex; flex-direction: column; align-items: center; gap: .2rem; padding: .3rem .1rem .35rem; border-radius: 10px; border: 1px solid var(--al-line); background: rgba(255,255,255,.03); color: #fff; font: 800 .74rem var(--sans); cursor: pointer; line-height: 1.15; }
+.zz-day:hover { background: rgba(255,255,255,.07); }
+.zz-col { position: relative; display: block; width: 100%; height: 96px; border-radius: 6px; background: rgba(255,255,255,.05); overflow: hidden; }
+.zz-col i { position: absolute; left: 0; right: 0; bottom: 0; height: 0; background: #7fb0ff; transition: height .3s; }
+.zz-col i.zz-ok { background: #7ddc9a; } .zz-col i.zz-warn { background: #ffb066; }
+.zz-day b { font-variant-numeric: tabular-nums; }
+.zz-day small { font-family: var(--zh); font-weight: 600; font-size: .64rem; color: var(--al-mute); text-align: center; }
+.zz-line { position: absolute; left: 0; right: 0; top: calc(.3rem + 1px + 96px * .25); border-top: 1.5px dashed rgba(255,255,255,.55); pointer-events: none; }
+.zz-line em { position: absolute; right: 2px; top: -1.25em; font-style: normal; font-size: .62rem; font-weight: 800; color: rgba(255,255,255,.75); }
+.zz-avg { margin: .6rem 0 .5rem; font-size: .84rem; line-height: 1.5; color: var(--al-text); }
+.zz-avg b { color: #9fd8ff; }
+.zz-clear { padding: .35rem .7rem; border-radius: 10px; border: 1px solid var(--al-line); background: rgba(255,255,255,.04); color: #fff; font: 800 .72rem var(--sans); cursor: pointer; }
+.zz-clear small { display: inline; margin-left: .5em; font-family: var(--zh); font-weight: 600; color: var(--al-mute); }
+@media (max-width: 1020px) {
+  .zz-lab .al-space { aspect-ratio: 1 / 1; min-height: 380px; max-height: 80vh; }
+  .zz-lab .zz-aside { display: block; }
+}
+@media (max-width: 640px) {
+  .zz-lab .al-space { aspect-ratio: 4 / 5; min-height: 340px; }
+  .zz-strip { grid-template-columns: 1fr; }
+  .zz-hyp { height: 112px; }
+}

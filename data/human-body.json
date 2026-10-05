@@ -16,11 +16,6 @@
   ],
   "planned": [
     {
-      "icon": "😴",
-      "en": "Why Do You Need Sleep?",
-      "zh": "為什麼要睡覺？"
-    },
-    {
       "icon": "📏",
       "en": "How Do You Grow Taller?",
       "zh": "你是怎麼長高的？"
@@ -6557,6 +6552,495 @@
       },
       "health_en": "This lesson is for learning about the body. It is not medical advice. Before any tasting activity, check for food allergies, and wash your hands. Sit down, take small pieces, and chew well, especially while your nose is pinched. Never taste something if you do not know what it is. If you cannot smell or taste for more than a few days, tell an adult.",
       "health_zh": "本課是認識身體的教材，不是醫療建議。做任何試吃活動之前，先確認有沒有人對食物過敏，並把手洗乾淨。坐好、小口吃、慢慢嚼，捏住鼻子的時候更要注意。不知道是什麼的東西絕對不要放進嘴裡嚐。如果好幾天都聞不到或嚐不到味道，請告訴大人。"
+    },
+    {
+      "n": 15,
+      "slug": "sleep",
+      "title": "Why Do You Need Sleep?",
+      "title_zh": "為什麼要睡覺？",
+      "level": "入門 · Beginner",
+      "icon": "😴",
+      "card": "sleep",
+      "blurb_en": "While you sleep, your brain saves what you learned and your body grows and repairs itself. Travel through a whole night of sleep in 3D, and count your own sleep hours.",
+      "blurb_zh": "睡覺時，大腦把學到的東西存起來，身體長高、修補。在 3D 裡走過一整晚的睡眠，再算算你自己睡了幾小時。",
+      "big_idea_en": "Sleep is not switching off. Your brain moves through stages all night, saving what you learned, while your body releases growth hormone and repairs itself.",
+      "big_idea_zh": "睡覺不是關機：大腦整晚在不同的階段之間切換，把學到的東西存起來；身體則分泌生長激素、修補自己。",
+      "lab": {
+        "kind": "sleep",
+        "eyebrow": "3D Model · 3D 模型",
+        "title_en": "One Night of Sleep",
+        "title_zh": "一整晚的睡眠",
+        "how_en": "Press play, or drag the time from bedtime to morning. The chart under the model shows the stages of a typical night: light sleep, deep sleep, and REM sleep, the stage with the most vivid dreams. Watch what changes. In deep sleep the brain waves turn big and slow, and growth hormone flows. In REM sleep the eyes dart, the brain lights up, and the big muscles are switched off. Outside the window, the moon crosses the sky.",
+        "how_zh": "按播放，或是把時間從睡前拖到早上。模型下方的圖是典型一晚的睡眠階段：淺睡、深睡，以及夢最鮮明的快速動眼期（REM）。看看什麼在變：深睡時腦波又大又慢，生長激素流出來；快速動眼期眼球快速轉動、大腦亮起來，大肌肉卻被關掉了。窗外，月亮慢慢走過天空。",
+        "legend": [
+          {
+            "cls": "zzbrain",
+            "en": "Colors on the brain: the areas that are busy right now",
+            "zh": "大腦上的顏色：現在正在忙的區域"
+          },
+          {
+            "cls": "zzgh",
+            "en": "Green dots: growth hormone",
+            "zh": "綠點：生長激素"
+          },
+          {
+            "cls": "zzmel",
+            "en": "Purple glow: melatonin, the “it is night” signal",
+            "zh": "紫色光暈：褪黑激素，「現在是晚上」的訊號"
+          },
+          {
+            "cls": "zzmem",
+            "en": "Gold sparks: memories being saved",
+            "zh": "金色火花：正在存檔的記憶"
+          },
+          {
+            "cls": "zzoff",
+            "en": "Blue arms and legs: big muscles switched off (REM)",
+            "zh": "藍色的手腳：大肌肉被關掉（快速動眼期）"
+          }
+        ],
+        "scale_en": "The skeleton is a real one from BodyParts3D, lying down; the brain, the eyes, the heart, the two small glands, and the room are our own drawing. The night shown here is a typical pattern, not a measurement: real nights differ from person to person and from night to night. Time is sped up: one second here is 15 minutes. The brain-wave line is a drawing of what a sleep lab records, and the dots show when hormones are released, not how much.",
+        "scale_zh": "骨架是 BodyParts3D 的真實骨架，讓它躺下來；大腦、眼睛、心臟、兩個小腺體和房間是本站自繪的示意圖。這裡的一晚是典型的樣子，不是實際測量：每個人、每一晚都不一樣。時間加快了：這裡的 1 秒是 15 分鐘。腦波那條線是照睡眠實驗室的紀錄畫的示意圖；小點表示激素什麼時候分泌，不代表分泌多少。",
+        "credit_html": "Bone models: <a href=\"https://dbarchive.biosciencedbc.jp/en/bodyparts3d/download.html\" target=\"_blank\" rel=\"noopener\">BodyParts3D</a>, © The Database Center for Life Science, licensed under <a href=\"https://creativecommons.org/licenses/by/4.0/\" target=\"_blank\" rel=\"noopener\">CC BY 4.0</a>. We selected the bones, simplified the shapes, and laid the skeleton down; the brain, eyes, heart, glands, and room are our own drawing. · 骨骼模型來源：BodyParts3D（日本生命科學資料庫中心，CC BY 4.0 授權）；本站挑選骨頭、簡化形狀並讓骨架躺下，大腦、眼睛、心臟、腺體與房間為本站自繪示意。",
+        "stages": {
+          "W": {
+            "en": "Awake",
+            "zh": "醒著",
+            "text_en": "Awake. The whole brain is busy, and the brain waves are small and fast.",
+            "text_zh": "醒著。整個大腦都在忙，腦波又小又快。"
+          },
+          "L": {
+            "en": "Light sleep",
+            "zh": "淺睡",
+            "text_en": "Light sleep. The muscles relax, the heartbeat and breathing slow down, and the eyes are still. It is easy to wake up from this stage. About half of the night is spent here.",
+            "text_zh": "淺睡。肌肉放鬆，心跳和呼吸變慢，眼睛不動。這個階段很容易被叫醒。一整晚大約有一半的時間在這裡。"
+          },
+          "D": {
+            "en": "Deep sleep",
+            "zh": "深睡",
+            "text_en": "Deep sleep. The brain waves are big and slow, and it is very hard to wake up. Growth hormone is released, the body repairs itself, and the brain saves what you learned today.",
+            "text_zh": "深睡。腦波又大又慢，很難被叫醒。生長激素分泌出來，身體修補自己，大腦把今天學到的東西存起來。"
+          },
+          "R": {
+            "en": "REM sleep",
+            "zh": "快速動眼期",
+            "text_en": "REM sleep. The eyes dart under the eyelids, and the brain is almost as busy as when you are awake: this is when you have your most vivid dreams. The big muscles are switched off, so you do not act your dreams out.",
+            "text_zh": "快速動眼期。眼球在眼皮底下快速轉動，大腦幾乎和醒著時一樣忙——最鮮明的夢就在這時候。大肌肉被關掉了，所以你不會把夢裡的動作真的做出來。"
+          },
+          "pre": {
+            "text_en": "Bedtime. The light is low, and melatonin is rising: the body clock says night is coming. A yawn or two, and the eyes feel heavy.",
+            "text_zh": "睡前。燈光調暗了，褪黑激素正在上升：生理時鐘說，晚上要來了。打一兩個呵欠，眼皮越來越重。"
+          },
+          "post": {
+            "text_en": "Good morning! Daylight tells the body clock to start the day, and melatonin is almost gone. After more than nine hours of sleep, the brain is ready to learn again.",
+            "text_zh": "早安！陽光告訴生理時鐘：新的一天開始了，褪黑激素幾乎消失。睡了九個多小時，大腦又準備好學習了。"
+          }
+        },
+        "jumps": [
+          {
+            "key": "bed",
+            "min": -15,
+            "icon": "🛏️",
+            "en": "Bedtime",
+            "zh": "睡前"
+          },
+          {
+            "key": "deep",
+            "min": 50,
+            "icon": "🌊",
+            "en": "Deep sleep",
+            "zh": "深睡"
+          },
+          {
+            "key": "rem",
+            "min": 450,
+            "icon": "💭",
+            "en": "A dream (REM)",
+            "zh": "做夢（REM）"
+          },
+          {
+            "key": "wake",
+            "min": 605,
+            "icon": "🌅",
+            "en": "Morning",
+            "zh": "早上"
+          }
+        ]
+      },
+      "paras": [
+        "You will spend about a third of your life asleep. It can seem like a waste of time: you lie still, your eyes are closed, and nothing happens. But sleep is not like switching off a light. Your brain stays busy all night, and your body uses the quiet hours to do jobs it cannot do well while you are running around.",
+        "Sleep comes in stages. First comes light sleep: your muscles relax, and your heartbeat and breathing slow down. Next comes deep sleep, when your brain waves turn big and slow and it is very hard to wake you. Then comes REM sleep. REM stands for rapid eye movement, because your eyes dart around under your eyelids. In REM sleep your brain is almost as busy as when you are awake, and you have your most vivid dreams. Your big muscles are switched off, so you do not act your dreams out. Scientists in Chicago first described REM sleep in 1953.",
+        "The stages repeat in cycles, and in an adult one cycle takes about an hour and a half. You go through several cycles each night, but they are not all the same. Most of your deep sleep comes in the first few hours. The REM periods start short and grow longer toward morning. So if you go to bed too late, you lose deep sleep, and if you get up too early, you lose dreams.",
+        "What is all this for? One job is memory. Sleep helps your brain turn what you learned today into long-term memories. That is why a good night's sleep before a test helps more than staying up late to study. Another job is growing. Your body releases growth hormone during deep sleep, which helps you grow and helps your body repair itself. Sleep also helps you fight germs: people who do not sleep enough are more likely to catch colds.",
+        "How does your body know when to sleep? You have a body clock deep inside your brain, and it is set by light. When your eyes see daylight, the clock knows it is day. In the evening, as it gets dark, your brain starts to release a hormone called melatonin, which tells the body that night has come. Bright light late in the evening, including the light from screens, can stop your brain from releasing melatonin. Then you do not feel sleepy, even when your body needs rest.",
+        "How much sleep do you need? More than adults do. Sleep doctors say children from 6 to 12 years old need 9 to 12 hours every night, and teenagers need 8 to 10. You can help your body clock. Go to bed and get up at the same time every day, even on weekends. Turn off screens at least 30 minutes before bedtime. Keep your room dark, quiet, and cool, and skip tea and cola in the evening. Now use the sleep calculator below the model: how many hours did you sleep last night?"
+      ],
+      "paras_zh": [
+        "你的一生大約有三分之一的時間在睡覺。這聽起來好像很浪費：躺著不動、眼睛閉著，什麼事都沒發生。但是睡覺並不像關燈。你的大腦整晚都在忙，身體也利用這段安靜的時間，做那些你跑來跑去時做不好的工作。",
+        "睡眠分成幾個階段。先是淺睡：肌肉放鬆，心跳和呼吸變慢。接著是深睡，腦波變得又大又慢，很難把你叫醒。然後是快速動眼期，英文叫 REM（rapid eye movement），因為眼球會在眼皮底下快速轉動。這個階段大腦幾乎和醒著時一樣忙，最鮮明的夢就在這時候。你的大肌肉被關掉了，所以不會把夢裡的動作真的做出來。1953 年，芝加哥的科學家首次描述了快速動眼期。",
+        "這些階段會一輪一輪地重複，大人的一輪大約一個半小時。每晚你會經過好幾輪，但每一輪並不一樣：深睡大多集中在前幾個小時；快速動眼期一開始很短，越接近早上越長。所以太晚睡，少掉的是深睡；太早起，少掉的是夢。",
+        "這一切是為了什麼？第一件事是記憶：睡眠幫助大腦把今天學到的東西變成長期記憶。所以考試前好好睡一覺，比熬夜念書更有用。第二件事是長大：身體在深睡時分泌生長激素，幫助你長高，也幫助身體修補自己。睡眠還幫你對抗病菌：睡不夠的人比較容易感冒。",
+        "身體怎麼知道什麼時候該睡？你的大腦深處有一個生理時鐘，它是用光來對時的。眼睛看到日光，時鐘就知道現在是白天。到了傍晚，天色變暗，大腦開始分泌一種叫做褪黑激素的激素，告訴身體：晚上到了。深夜的強光——包括螢幕的光——會讓大腦停止分泌褪黑激素，於是身體明明需要休息，你卻不覺得想睡。",
+        "你需要睡多久？比大人多。睡眠醫學專家說，6 到 12 歲的孩子每晚需要 9 到 12 小時，青少年需要 8 到 10 小時。你可以幫生理時鐘一個忙：每天在同樣的時間上床、起床，週末也一樣；睡前至少 30 分鐘關掉螢幕；房間保持黑暗、安靜、涼爽；晚上不要喝茶和可樂。現在用模型下方的睡眠計算機算一算：你昨晚睡了幾個小時？"
+      ],
+      "questions": [
+        "What happens in your brain and body during REM sleep?",
+        "Why do you lose deep sleep if you go to bed too late?",
+        "How can light from a screen keep you awake?"
+      ],
+      "answers": [
+        "Your eyes dart around, your brain is almost as busy as when you are awake, and you have your most vivid dreams. Your big muscles are switched off.",
+        "Because most deep sleep comes in the first few hours of the night.",
+        "Bright light late in the evening can stop the brain from releasing melatonin, the hormone that tells the body night has come."
+      ],
+      "vocab": [
+        {
+          "n": 1,
+          "w": "asleep",
+          "pos": "adj.",
+          "zh": "睡著的",
+          "ex": "The baby fell <b>asleep</b> in the car.",
+          "exzh": "寶寶在車上睡著了。"
+        },
+        {
+          "n": 2,
+          "w": "awake",
+          "pos": "adj.",
+          "zh": "醒著的",
+          "ex": "I was still <b>awake</b> at midnight.",
+          "exzh": "半夜十二點我還醒著。"
+        },
+        {
+          "n": 3,
+          "w": "dream",
+          "pos": "n.",
+          "zh": "夢",
+          "ex": "I had a funny <b>dream</b> about a flying bus.",
+          "exzh": "我做了一個好笑的夢，夢到會飛的公車。"
+        },
+        {
+          "n": 4,
+          "w": "stage",
+          "pos": "n.",
+          "zh": "階段",
+          "ex": "Deep sleep is one <b>stage</b> of sleep.",
+          "exzh": "深睡是睡眠的一個階段。"
+        },
+        {
+          "n": 5,
+          "w": "memory",
+          "pos": "n.",
+          "zh": "記憶",
+          "ex": "Sleep helps your <b>memory</b>.",
+          "exzh": "睡眠對記憶有幫助。"
+        },
+        {
+          "n": 6,
+          "w": "hormone",
+          "pos": "n.",
+          "zh": "激素；荷爾蒙",
+          "ex": "Growth <b>hormone</b> helps children grow.",
+          "exzh": "生長激素幫助孩子長大。"
+        },
+        {
+          "n": 7,
+          "w": "yawn",
+          "pos": "v.",
+          "zh": "打呵欠",
+          "ex": "I always <b>yawn</b> when I am tired.",
+          "exzh": "我累的時候都會打呵欠。"
+        },
+        {
+          "n": 8,
+          "w": "bedtime",
+          "pos": "n.",
+          "zh": "就寢時間",
+          "ex": "My <b>bedtime</b> is nine o'clock.",
+          "exzh": "我的就寢時間是九點。"
+        }
+      ],
+      "quiz": [
+        {
+          "q": "In which stage do you have your most vivid dreams?",
+          "options": [
+            "REM sleep",
+            "Deep sleep",
+            "Light sleep",
+            "Just before you fall asleep"
+          ],
+          "correct": 0
+        },
+        {
+          "q": "When does most of your deep sleep happen?",
+          "options": [
+            "In the first few hours of the night",
+            "Just before you wake up",
+            "In the middle of the day",
+            "It is spread evenly through the night"
+          ],
+          "correct": 0
+        },
+        {
+          "q": "What does growth hormone do?",
+          "options": [
+            "It helps you grow and helps your body repair itself",
+            "It wakes you up in the morning",
+            "It makes your eyes move in your sleep",
+            "It tells your brain it is night"
+          ],
+          "correct": 0
+        },
+        {
+          "q": "What sets your body clock?",
+          "options": [
+            "Light",
+            "Food",
+            "Noise",
+            "Homework"
+          ],
+          "correct": 0
+        },
+        {
+          "q": "According to the reading, how much sleep do children from 6 to 12 need each night?",
+          "options": [
+            "9 to 12 hours",
+            "5 to 6 hours",
+            "7 to 8 hours",
+            "14 to 16 hours"
+          ],
+          "correct": 0
+        }
+      ],
+      "kinds_head": {
+        "eyebrow": "The Night Shift · 夜班小隊",
+        "en": "Who works while you sleep?",
+        "zh": "你睡覺時，誰在上班？"
+      },
+      "kinds": [
+        {
+          "icon": "⏰",
+          "en": "Body clock",
+          "zh": "生理時鐘",
+          "where_en": "Deep inside your brain",
+          "where_zh": "大腦深處",
+          "control_en": "Sets the time for sleep",
+          "control_zh": "決定什麼時候該睡",
+          "text_en": "It runs on a cycle of about one day, and light coming in through your eyes resets it every morning.",
+          "text_zh": "它大約一天轉一圈；每天早上，從眼睛進來的光會幫它重新對時。"
+        },
+        {
+          "icon": "🌙",
+          "en": "Melatonin",
+          "zh": "褪黑激素",
+          "where_en": "Made by a tiny gland in the middle of your brain",
+          "where_zh": "由大腦中央一個很小的腺體製造",
+          "control_en": "Says “it is night”",
+          "control_zh": "告訴身體「晚上了」",
+          "text_en": "It starts to rise in the evening and is highest in the early morning hours. Bright light late in the evening can hold it back.",
+          "text_zh": "它從傍晚開始上升，凌晨最高。深夜的強光會把它壓下去。"
+        },
+        {
+          "icon": "📈",
+          "en": "Growth hormone",
+          "zh": "生長激素",
+          "where_en": "Made by a gland about the size of a pea, under your brain",
+          "where_zh": "由大腦下方一個豌豆大的腺體製造",
+          "control_en": "Helps you grow and repair",
+          "control_zh": "幫助長高和修補",
+          "text_en": "It is released during deep sleep, which mostly comes early in the night. That is one reason bedtime matters.",
+          "text_zh": "它在深睡時分泌，而深睡大多在前半夜——這就是就寢時間很重要的原因之一。"
+        },
+        {
+          "icon": "💾",
+          "en": "Memory",
+          "zh": "記憶",
+          "where_en": "Deep in the brain, and all over its surface",
+          "where_zh": "大腦深處，以及整個表面",
+          "control_en": "Saves what you learned",
+          "control_zh": "把學到的存起來",
+          "text_en": "Sleep helps turn today's lessons into long-term memories.",
+          "text_zh": "睡眠幫助你把今天學到的東西變成長期記憶。"
+        },
+        {
+          "icon": "🔌",
+          "en": "Muscle switch",
+          "zh": "肌肉開關",
+          "where_en": "In the brain stem, at the base of your brain",
+          "where_zh": "在腦幹，大腦的底部",
+          "control_en": "Turns off the big muscles in REM sleep",
+          "control_zh": "在快速動眼期關掉大肌肉",
+          "text_en": "It keeps you from acting your dreams out. Your heart, your breathing muscles, and your eyes keep working.",
+          "text_zh": "它讓你不會把夢裡的動作真的做出來；心臟、呼吸的肌肉和眼睛則照常工作。"
+        }
+      ],
+      "kinds_note_en": "Think of a school at night: the students have gone home, but the cleaners, the repair crew, and the librarian who files the day's papers are all hard at work.",
+      "kinds_note_zh": "把它想成晚上的學校：學生回家了，但清潔人員、修繕師傅，還有把當天資料歸檔的圖書館員，都正在努力工作。",
+      "measure": {
+        "title_en": "How many hours did you sleep?",
+        "title_zh": "你睡了幾個小時？",
+        "lead_en": "Use the sleep calculator below the model. It works out your hours and keeps a record for one week.",
+        "lead_zh": "用模型下方的睡眠計算機，算出你睡了幾個小時，並記錄一個星期。",
+        "steps": [
+          {
+            "n": "🌙",
+            "en": "Bedtime",
+            "zh": "幾點睡",
+            "text_en": "Enter the time you fell asleep last night, not the time you got into bed.",
+            "text_zh": "輸入你昨晚睡著的時間，不是躺上床的時間。"
+          },
+          {
+            "n": "☀️",
+            "en": "Wake-up time",
+            "zh": "幾點起床",
+            "text_en": "Enter the time you woke up this morning. The calculator shows your hours next to the 9 to 12 hours that children from 6 to 12 need.",
+            "text_zh": "輸入你今天早上醒來的時間。計算機會算出時數，並和 6 到 12 歲孩子需要的 9 到 12 小時比一比。"
+          },
+          {
+            "n": "7",
+            "en": "Keep a week",
+            "zh": "記錄一週",
+            "text_en": "Tap the day to save it. Do this every morning for a week. Are your school nights and your weekends the same?",
+            "text_zh": "點一下星期幾，把它存起來。連續一個星期，每天早上記一次。上學日和週末睡得一樣多嗎？"
+          }
+        ],
+        "action": "test",
+        "action_value": "1",
+        "button_icon": "😴",
+        "button_en": "Open the sleep calculator",
+        "button_zh": "打開睡眠計算機"
+      },
+      "myths": [
+        {
+          "myth_en": "When you sleep, your brain switches off.",
+          "myth_zh": "睡覺的時候，大腦就關機了。",
+          "fact_en": "Your brain stays busy all night. In REM sleep it is almost as active as when you are awake.",
+          "fact_zh": "大腦整晚都在忙。快速動眼期時，它幾乎和醒著時一樣活躍。"
+        },
+        {
+          "myth_en": "Some people never dream.",
+          "myth_zh": "有些人從來不做夢。",
+          "fact_en": "Almost everyone dreams every night. We forget most dreams unless we wake up in the middle of one.",
+          "fact_zh": "幾乎每個人每晚都會做夢。除非剛好在夢的中途醒來，否則大部分的夢都會忘記。"
+        },
+        {
+          "myth_en": "Staying up late to study helps you remember more.",
+          "myth_zh": "熬夜念書可以記得更多。",
+          "fact_en": "Sleep is when your brain turns the day's lessons into long-term memories. Cut the sleep, and you cut the saving.",
+          "fact_zh": "睡覺時，大腦才把當天學的東西變成長期記憶。少睡了，存檔也就少了。"
+        },
+        {
+          "myth_en": "Watching videos in bed is a good way to get sleepy.",
+          "myth_zh": "躺在床上看影片，比較容易想睡。",
+          "fact_en": "Bright light late in the evening can stop your brain from releasing melatonin. Turn screens off at least 30 minutes before bedtime.",
+          "fact_zh": "深夜的強光會讓大腦停止分泌褪黑激素。睡前至少 30 分鐘就把螢幕關掉。"
+        }
+      ],
+      "tricks": [
+        {
+          "title_en": "Light, deep, dream, repeat",
+          "title_zh": "淺睡、深睡、做夢，再來一次",
+          "body_en": "The stages come in cycles, again and again, all night long.",
+          "body_zh": "睡眠階段一輪一輪地重複，整晚都是。"
+        },
+        {
+          "title_en": "Deep first, dreams last",
+          "title_zh": "先深睡，後做夢",
+          "body_en": "Most deep sleep comes early in the night. The long dreams come toward morning.",
+          "body_zh": "深睡大多在前半夜；長長的夢在接近早上的時候。"
+        },
+        {
+          "title_en": "9 to 12 for ages 6 to 12",
+          "title_zh": "6 到 12 歲，睡 9 到 12 小時",
+          "body_en": "Children from 6 to 12 need 9 to 12 hours of sleep. The numbers almost match!",
+          "body_zh": "6 到 12 歲的孩子需要睡 9 到 12 小時——數字幾乎一樣！"
+        },
+        {
+          "title_en": "Screens off, lights low",
+          "title_zh": "螢幕關掉，燈光調暗",
+          "body_en": "Darkness lets melatonin rise. Give your brain 30 screen-free minutes before bedtime.",
+          "body_zh": "黑暗讓褪黑激素上升。睡前留 30 分鐘不看螢幕的時間給大腦。"
+        }
+      ],
+      "activities": [
+        {
+          "title_en": "My Sleep Diary",
+          "title_zh": "我的睡眠日記",
+          "materials": [
+            {
+              "en": "A chart with seven rows: bedtime, wake-up time, hours of sleep, and “How do I feel?” (1 to 5)",
+              "zh": "一張七列的表格：幾點睡、幾點起床、睡了幾小時，以及「精神如何？」（1 到 5 分）"
+            },
+            {
+              "en": "A pencil next to your bed",
+              "zh": "床邊放一枝鉛筆"
+            }
+          ],
+          "steps": [
+            {
+              "en": "Every morning for one week, write down when you fell asleep and when you woke up.",
+              "zh": "連續一個星期，每天早上寫下你幾點睡著、幾點醒來。"
+            },
+            {
+              "en": "Work out the hours. Give yourself a score from 1 (very sleepy) to 5 (wide awake) at 10 o'clock in the morning.",
+              "zh": "算出睡了幾小時。早上十點時，幫自己的精神打分數：1 分（很想睡）到 5 分（非常清醒）。"
+            },
+            {
+              "en": "Make a bar graph of your seven nights. Draw a line at 9 hours.",
+              "zh": "把七個晚上畫成長條圖，在 9 小時的地方畫一條線。"
+            },
+            {
+              "en": "On which days did you feel best? What was different about the night before?",
+              "zh": "哪幾天精神最好？前一晚有什麼不一樣？"
+            }
+          ],
+          "tip_en": "Teaching tip: this is good practice with time: the hours cross midnight, so students cannot simply subtract. Keep the results private or anonymous, because bedtimes depend on family schedules that children do not control. Look for patterns in the whole class instead of comparing students.",
+          "tip_zh": "教學提示：這是練習時間計算的好機會——時數會跨過半夜，不能直接相減。結果請保密或匿名，因為就寢時間常常取決於家裡的作息，不是孩子能決定的。請看全班的趨勢，不要比較個別學生。"
+        },
+        {
+          "title_en": "The Screens-Off Experiment",
+          "title_zh": "關螢幕實驗",
+          "materials": [
+            {
+              "en": "Your sleep diary from Activity 1",
+              "zh": "活動一的睡眠日記"
+            },
+            {
+              "en": "A book, drawing paper, or a quiet game for the last half hour of the day",
+              "zh": "一本書、圖畫紙，或是一個安靜的遊戲，給睡前半小時用"
+            }
+          ],
+          "steps": [
+            {
+              "en": "For three nights, do what you usually do before bed. Record how long it takes you to fall asleep, and your morning score.",
+              "zh": "前三個晚上，照平常的方式度過睡前時間。記下你花多久才睡著，以及隔天早上的精神分數。"
+            },
+            {
+              "en": "For the next three nights, turn off all screens 30 minutes before bedtime and do something quiet.",
+              "zh": "接下來三個晚上，睡前 30 分鐘關掉所有螢幕，做一件安靜的事。"
+            },
+            {
+              "en": "Compare the two sets of nights.",
+              "zh": "比較這兩組晚上。"
+            },
+            {
+              "en": "Was there a difference? What else might explain it?",
+              "zh": "有差別嗎？還有什麼原因可能造成這個差別？"
+            }
+          ],
+          "tip_en": "Teaching tip: this is a real experiment with a real weakness, and it is worth saying so: three nights is a small sample, and students know which nights are which. Ask them how they would make the test fairer. Send a note home first, so that families can join in.",
+          "tip_zh": "教學提示：這是一個真正的實驗，也有真正的弱點，值得直接告訴學生：三個晚上的樣本很小，而且學生自己知道哪幾晚是實驗組。問問他們：要怎麼讓這個實驗更公平？請先發一張通知單回家，讓家人一起參與。"
+        }
+      ],
+      "culture": {
+        "title_en": "A Night, an Inch",
+        "title_zh": "一暝大一寸",
+        "body_en": "Taiwanese grandparents say 一暝大一寸 (chi̍t-mî tōa chi̍t-chhùn) to a sleeping baby: “one night, one inch bigger.” Nobody grows an inch in a night, but the saying holds a truth that science found much later: the body releases growth hormone during deep sleep. Mandarin has 早睡早起身體好, “early to bed and early to rise is good for your health,” and English has an old rhyme that says almost the same thing: “Early to bed and early to rise makes a man healthy, wealthy, and wise.”",
+        "body_zh": "台灣的阿公阿嬤會對睡著的寶寶說「一暝大一寸」：睡一晚，長大一寸。沒有人真的一個晚上長一寸，但這句話裡藏著科學很久以後才發現的道理：身體在深睡時分泌生長激素。華語說「早睡早起身體好」，英文也有一句幾乎一樣的老話：“Early to bed and early to rise makes a man healthy, wealthy, and wise.”（早睡早起，使人健康、富有又聰明。）",
+        "link_en": "More Chinese health words in English",
+        "link_zh": "到中醫養生系列看更多"
+      },
+      "health_en": "This lesson is for learning about the body. It is not medical advice. Everyone's sleep is a little different. If you often cannot fall asleep, if you snore loudly, or if you feel very sleepy in class most days, tell an adult. Do not take anything to help you sleep unless a doctor says so.",
+      "health_zh": "本課是認識身體的教材，不是醫療建議。每個人的睡眠都有一點不一樣。如果你常常睡不著、打呼很大聲，或是大部分的日子上課都很想睡，請告訴大人。除非醫生說可以，不要吃任何幫助睡眠的東西。"
     }
   ]
 }

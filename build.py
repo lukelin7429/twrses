@@ -4311,7 +4311,7 @@ def build_astro_hub():
 # 面板與段落樣式沿用 astro.css，人體專屬的在 body.css；兩者都只載在本系列頁面。
 BODY_BASE = "/resources/classes/human-body/"
 _BODY_JS = {"skeleton": "skeleton", "arm": "arm", "heart": "heart", "lungs": "lungs", "joints": "joints",
-            "digestion": "digestion", "nerves": "nerves", "eyes": "eyes", "ears": "ears", "skin": "skin", "teeth": "teeth", "germs": "germs", "kidneys": "kidneys", "taste": "taste"}   # lab.kind → assets/js/<bundle>.js
+            "digestion": "digestion", "nerves": "nerves", "eyes": "eyes", "ears": "ears", "skin": "skin", "teeth": "teeth", "germs": "germs", "kidneys": "kidneys", "taste": "taste", "sleep": "sleep"}   # lab.kind → assets/js/<bundle>.js
 
 def _body_ver():
     h = hashlib.md5()
@@ -5182,6 +5182,76 @@ def render_taste_lab(lesson):
   <p class="sk-credit">{lab["credit_html"]}</p>
 </div>'''
 
+def render_sleep_lab(lesson):
+    """第十五課：躺下的真實骨架＋自繪大腦，一整晚的睡眠階段（assets/js/sleep.js 綁這裡的 class）；睡眠計算機是 2D，不需要 WebGL。"""
+    lab = lesson["lab"]
+    stages_json = html.escape(json.dumps(lab["stages"], ensure_ascii=False))
+    jumps = "".join(
+        f'<button type="button" data-jump="{j["min"]}" aria-pressed="false"><i aria-hidden="true">{j["icon"]}</i>'
+        f'<span>{html.escape(j["en"])}<small>{html.escape(j["zh"])}</small></span></button>' for j in lab["jumps"])
+    meters = "".join(f'<div class="zz-m zz-m-{k}"><span>{en}<small>{zh}</small></span><b><i></i></b></div>'
+                     for k, en, zh in [("tone", "Muscle tone", "肌肉張力"), ("gh", "Growth hormone", "生長激素"), ("mel", "Melatonin", "褪黑激素")])
+    days = "".join(f'<button type="button" class="zz-day" aria-pressed="false" aria-label="{en} · 星期{zh}"><span class="zz-col"><i></i></span><b>+</b><small>{en[:3]}<br>{zh}</small></button>'
+                   for en, zh in [("Monday", "一"), ("Tuesday", "二"), ("Wednesday", "三"), ("Thursday", "四"), ("Friday", "五"), ("Saturday", "六"), ("Sunday", "日")])
+    tg = _lab_toggles([("labels", "Labels", "標示", True), ("skel", "Skeleton", "骨架", True), ("room", "Bedroom", "房間", True)])
+    return f'''<div class="astro-lab sk-lab zz-lab rvl" data-sleep-lab data-model="{_model_url()}" data-stages="{stages_json}">
+  <div class="al-stage">
+    <div class="al-space">
+      <canvas class="al-space-cv" aria-label="3D model of a skeleton asleep in bed, with the brain, eyes, heart, and hormones changing through the night · 躺在床上睡覺的骨架 3D 模型，大腦、眼睛、心臟與激素隨著夜晚變化"></canvas>
+      <div class="al-labels" aria-hidden="true"></div>
+      <p class="sk-loading">Loading… · 載入中…<span class="sk-bar"><i></i></span></p>
+      <p class="al-hint">Drag to turn · 拖曳旋轉　Scroll or pinch to zoom · 滾輪／雙指縮放</p>
+      <p class="ey-mag">1 second = 15 minutes · 1 秒＝15 分鐘</p>
+      <button type="button" class="al-home" title="Reset view · 重設視角" aria-label="Reset view · 重設視角">&#8634;</button>
+      <p class="al-nogl-msg">This 3D model needs WebGL, which this browser does not support. The sleep calculator and the cards below still work.<br><span class="zh">這個瀏覽器不支援 WebGL，無法顯示 3D 模型；下方的睡眠計算機和卡片一樣能用。</span></p>
+    </div>
+    <aside class="al-sky sk-aside zz-aside">
+      <p class="gm-time zz-clock"><b class="zz-t">8:30 PM</b><span class="zz-stage"></span></p>
+      <p class="al-sky-k">Brain waves · 腦波</p>
+      <div class="zz-eegbox"><canvas class="zz-eeg" aria-hidden="true"></canvas></div>
+      <p class="ey-status zz-status" aria-live="polite"></p>
+      <div class="zz-meters">{meters}</div>
+      <p class="al-sky-k">Sleep so far (h:mm) · 到現在睡了多久</p>
+      <dl class="ey-nums zz-nums">
+        <div><dt>Light · 淺睡</dt><dd class="zz-tl">0:00</dd></div>
+        <div><dt>Deep · 深睡</dt><dd class="zz-td">0:00</dd></div>
+        <div><dt>REM · 快速動眼</dt><dd class="zz-tr">0:00</dd></div>
+      </dl>
+      <div class="ey-more zz-more">{jumps}</div>
+      <button type="button" class="zz-head" aria-pressed="false"><i aria-hidden="true">&#129504;</i><span>Look at the brain<small>靠近看大腦</small></span></button>
+    </aside>
+  </div>
+  <div class="zz-strip">
+    <div class="zz-calc">
+      <p class="al-sky-k">Sleep calculator · 睡眠計算機</p>
+      <div class="zz-set">
+        <label>I fell asleep at<small>昨晚幾點睡著</small><input type="time" class="zz-bed" value="21:30"></label>
+        <label>I woke up at<small>今天幾點起床</small><input type="time" class="zz-wake" value="06:30"></label>
+        <p class="zz-out"><b class="zz-hours">—</b><span>of sleep<small>睡眠時間</small></span></p>
+      </div>
+      <p class="zz-msg" aria-live="polite"></p>
+      <p class="zz-note">The 9 to 12 hours is the advice of the American Academy of Sleep Medicine for ages 6 to 12; teenagers need 8 to 10.<span class="zh">9 到 12 小時是美國睡眠醫學會對 6 到 12 歲孩子的建議；青少年需要 8 到 10 小時。</span></p>
+    </div>
+    <div class="zz-week">
+      <p class="al-sky-k">My week · 我的一週</p>
+      <div class="zz-days" role="group" aria-label="Days of the week · 一週七天">{days}<span class="zz-line" aria-hidden="true"><em>9 h</em></span></div>
+      <p class="zz-avg" aria-live="polite"></p>
+      <button type="button" class="zz-clear">Clear the week<small>清除這一週</small></button>
+    </div>
+  </div>
+  <div class="al-controls">
+    <div class="zz-hyp"><canvas aria-label="Sleep stages through the night; tap or drag to move in time · 一整晚的睡眠階段圖，點或拖曳可以移動時間"></canvas></div>
+    <div class="al-row al-row-main">
+      <button type="button" class="al-play" aria-pressed="true"><span class="al-play-i" aria-hidden="true"></span><span class="al-play-t">Pause · 暫停</span></button>
+      <label class="ec-slider zz-time-row"><span class="ec-slider-k">Time of night · 夜裡的時間<em>8:30 PM &rarr; 7:30 AM</em></span>
+        <input type="range" class="ec-time zz-time" min="-30" max="630" step="1" value="-30"></label>
+    </div>
+    <div class="al-row al-toggles">{tg}</div>
+  </div>
+  {_lab_foot(lab)}
+  <p class="sk-credit">{lab["credit_html"]}</p>
+</div>'''
+
 def _body_nav(slug):
     ls = BODY["lessons"]
     i = next(n for n, l in enumerate(ls) if l["slug"] == slug)
@@ -5209,7 +5279,7 @@ def build_body_lesson(lesson):
                 "joints": render_joints_lab, "digestion": render_digestion_lab, "nerves": render_nerves_lab,
                 "eyes": render_eyes_lab, "ears": render_ears_lab, "skin": render_skin_lab,
                 "teeth": render_teeth_lab, "germs": render_germs_lab, "kidneys": render_kidneys_lab,
-                "taste": render_taste_lab}[kind](lesson)
+                "taste": render_taste_lab, "sleep": render_sleep_lab}[kind](lesson)
 
     secs = []
     if lesson.get("jobs"):
@@ -5316,7 +5386,8 @@ def build_body_lesson(lesson):
                 "skin": ("Your skin in a sentence", "一句話記住皮膚"), "teeth": ("Your teeth in a sentence", "一句話記住牙齒"),
                 "germs": ("Fighting germs in a sentence", "一句話記住免疫"),
                 "kidneys": ("Your kidneys in a sentence", "一句話記住腎臟"),
-                "taste": ("Taste and smell in a sentence", "一句話記住味覺和嗅覺")}[kind]
+                "taste": ("Taste and smell in a sentence", "一句話記住味覺和嗅覺"),
+                "sleep": ("Sleep in a sentence", "一句話記住睡眠")}[kind]
     secs.append(("tricks", "Remember It · 記憶口訣", tricks_h[0], tricks_h[1], _sci_tricks(lesson), ""))
     if lesson.get("culture"):
         cu = lesson["culture"]
