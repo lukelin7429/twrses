@@ -228,6 +228,11 @@
   - 模型飛機的重量＝`liftRel(8°, 250 km/h)`：抬 8°、時速 250 公里剛好離地（純示意，不是任何真實機型）。
   - 卡片 `demo`：slow／takeoff／stall／smoke。
   - 除錯：`document.querySelector('[data-airwing-lab]').__lab`（`setAlpha(−4–22)`、`setSpeed(0–320)`、`releaseSmoke()`、`smoke`、`state.streams`、`run(秒)`、`render()`）。
+- 第十四課腳踏車（`bicycle-balance.js`，`lab.kind = "bike"`，`data-bicycle-lab`，CSS 前綴 `bk-`）：一個機制——車子往一邊倒，前輪就往那邊轉，把車輪帶回車身底下；夠快才接得住，太慢、停著、前輪鎖死都會倒。**沒有人騎**（像真的實驗：推出去、放手、再側推）。車沿 +x 前進、右手邊 +z：車頭方向 ψ 往右為正（`rotation.y = −ψ`）、傾斜 φ 往右為正（`rotation.x = +φ`）、轉向 δ 往右為正（繞後傾的轉向軸轉 −δ）。鏡頭跟車、地面格線以 2 公尺為單位跟著平移、前後輪痕跡各 500 點。
+  - `src/bikecalc.js`（**簡化教學模型，不是 Whipple 方程**）：h·φ″ ＝ g·sin φ − (v²/w)·tan δ·cos φ − (b·v/w)·δ′·cos φ；轉向規則 τ·δ′ ＝ K·φ − δ。線性化的穩定條件：v² > g·w/K（約時速 10 公里）且 v < b/τ。**τ 一開始設 0.14 秒，穩定範圍只剩 10–10.8 km/h**（Routh 判據算出上限 b/τ），改成 0.03 秒才涵蓋滑桿的 0–30 km/h。`test/bike.test.mjs`：時速 20 推一下會站直、時速 5 與靜止會倒、前輪鎖死再快也倒、往右倒時 δ 也往右、越快歪得越少。
+  - 模擬每格切 10 小步（dt 太大高增益會發散）；3D 的側推比測試大（1.15 rad/s）才看得出來。
+  - 卡片 `demo`：fast／slow／locked／still（都會自動側推一下）。
+  - 除錯：`document.querySelector('[data-bicycle-lab]').__lab`（`setSpeed(0–30)`、`setLocked(bool)`、`push()`、`standUp()`、`sim`（phi、delta、psi、x、z）、`VC`、`run(秒)`——`state.playing` 要是 true 才會前進、`render()`）。
 - 上傳錄音時若出現大量「not found locally」：多半是天文 session 在 ~/Developer 那份 clone 產生、已上傳的句子（worktree 的快取沒有它們）。算出「manifest 裡有、快取裡沒有」的雜湊，逐一 curl 確認線上 200 即可。
 - 多個 session 同時改 build.py 時，本系列改在 scratchpad 的 git worktree（從 origin/main 開分支）做，`audio` 用 symlink 指到 `~/Documents/twrses/audio`（symlink 不會被 .gitignore 的 `audio/` 擋，**不要 add**），做完 rebase 再 `git push origin HEAD:main`。
 - 瀏覽器面板在背景時 `visibilityState` 是 hidden，IntersectionObserver 不觸發、截圖是空白：點一下頁面上的「在模型中看」按鈕就會直接初始化，截圖改用無頭 Chrome（playwright-core＋本機 Chrome，`--use-angle=swiftshader`）。

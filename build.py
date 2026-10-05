@@ -5272,7 +5272,7 @@ def build_body_hub():
 # 3D 原始碼在 tools/science/src/（three.js、esbuild，每課一個入口），打包成 assets/js/<入口>.js；
 # 面板、迷思、口訣、活動沿用 astro.css，本系列多出來的在 science.css；兩者都只載在本系列頁面。
 HTW_BASE = "/resources/classes/how-things-work/"
-_HTW_JS = {"battery": "battery", "generator": "generator", "solar": "solar-cell", "wind": "wind-turbine", "internet": "internet-packets", "signal": "cell-signal", "gps": "gps-satellites", "memory": "memory-bits", "sky": "sky-scatter", "rainbow": "rainbow-drops", "sound": "sound-waves", "camera": "camera-lens", "wing": "airplane-wing"}   # lab.kind → assets/js/<bundle>.js
+_HTW_JS = {"battery": "battery", "generator": "generator", "solar": "solar-cell", "wind": "wind-turbine", "internet": "internet-packets", "signal": "cell-signal", "gps": "gps-satellites", "memory": "memory-bits", "sky": "sky-scatter", "rainbow": "rainbow-drops", "sound": "sound-waves", "camera": "camera-lens", "wing": "airplane-wing", "bike": "bicycle-balance"}   # lab.kind → assets/js/<bundle>.js
 
 def _htw_cn(n):
     """課次的中文數字（一～九十九）：第十一課、第二十課。"""
@@ -6012,6 +6012,58 @@ def render_airwing_lab(lesson):
   <p class="bt-credit">{lab["credit_html"]}</p>
 </div>'''
 
+def bicycle_svg(size=56):
+    """腳踏車小圖（萬物原理首頁的課程卡）：一台微微傾斜的腳踏車，前輪轉向、地上有彎彎的輪胎痕跡。"""
+    return (f'<svg class="bicycle-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">'
+            '<path d="M6 54 C20 50 34 56 54 50" fill="none" stroke="#ffd36e" stroke-width="1.6" stroke-dasharray="3 3"/>'
+            '<g transform="rotate(-6 30 46)" fill="none" stroke-linecap="round">'
+            '<circle cx="15" cy="38" r="10" stroke="#cfd4dc" stroke-width="2.4"/><circle cx="45" cy="38" r="10" stroke="#cfd4dc" stroke-width="2.4"/>'
+            '<path d="M15 38 L26 22 L40 22 L45 38 M26 22 L30 38 L15 38 M30 38 L40 22" stroke="#e04a3a" stroke-width="2.6" stroke-linejoin="round"/>'
+            '<path d="M38 16 h7 M22 18 h8" stroke="#1b1f28" stroke-width="2.6"/></g></svg>')
+
+def render_bicycle_lab(lesson):
+    """第十四課：沒有人騎的腳踏車（assets/js/bicycle-balance.js 綁這裡的 class；簡化的平衡模型）。"""
+    lab = lesson["lab"]
+    tg = _lab_toggles([("labels", "Labels", "標示", True), ("tracks", "Tire tracks", "輪胎痕跡", True), ("lock", "Lock the front wheel", "鎖住前輪", False)])
+    return f'''<div class="astro-lab bt-lab bk-lab rvl" data-bicycle-lab>
+  <div class="al-stage">
+    <div class="al-space">
+      <canvas class="al-space-cv" aria-label="3D model of a riderless bicycle rolling, leaning, and steering itself upright · 沒有人騎的腳踏車往前滾、傾斜、自己轉向站直的 3D 模型"></canvas>
+      <div class="al-labels" aria-hidden="true"></div>
+      <p class="bt-cut">A riderless bike, pushed and let go; a simplified model of how it balances · 沒有人騎、推出去放手的腳踏車；簡化的平衡模型</p>
+      <p class="al-hint">Drag to turn · 拖曳旋轉　Scroll or pinch to zoom · 滾輪／雙指縮放</p>
+      <button type="button" class="al-home" title="Reset view · 重設視角" aria-label="Reset view · 重設視角">&#8634;</button>
+      <p class="al-nogl-msg">This 3D model needs WebGL, which this browser does not support. The reading and the cards below still explain everything.<br><span class="zh">這個瀏覽器不支援 WebGL，無法顯示 3D 模型；下方的課文與卡片一樣能看懂。</span></p>
+    </div>
+    <aside class="al-sky bt-aside bk-aside">
+      <div class="bk-top">
+        <p class="al-sky-k">The bike · 這台腳踏車</p>
+        <p class="bk-status" aria-live="polite"></p>
+        <div class="bk-btns">
+          <button type="button" class="bk-push">&#128400; Push it sideways<small>從旁邊推一下</small></button>
+          <button type="button" class="bk-up">Stand it up<small>扶起來</small></button>
+        </div>
+        <dl class="bt-nums bk-nums">
+          <div><dt>Lean · 傾斜</dt><dd class="bk-lean"></dd></div>
+          <div><dt>Front wheel turned · 前輪轉了</dt><dd class="bk-steer"></dd></div>
+          <div><dt>Needs at least (model) · 至少要多快</dt><dd class="bk-need"></dd></div>
+        </dl>
+      </div>
+      <p class="bt-msg bk-msg" aria-live="polite"></p>
+    </aside>
+  </div>
+  <div class="al-controls">
+    <div class="al-row al-row-main">
+      <button type="button" class="al-play" aria-pressed="true"><span class="al-play-i" aria-hidden="true"></span><span class="al-play-t">Pause · 暫停</span></button>
+      <label class="al-slider bk-v-row"><span>Speed · 速度 <output class="bk-v-out"></output></span>
+        <input type="range" class="al-age bk-v" min="0" max="30" step="1" value="18"></label>
+    </div>
+    <div class="al-row al-toggles">{tg}</div>
+  </div>
+  {_lab_foot(lab)}
+  <p class="bt-credit">{lab["credit_html"]}</p>
+</div>'''
+
 def _htw_flat():
     return [(ui, u, l) for ui, u in enumerate(HTW["units"]) for l in u["lessons"]]
 
@@ -6039,7 +6091,7 @@ def build_htw_lesson(ui, unit, lesson):
     reading_html = render_basic_unit(1, unit_dict, level="htw", audio_rel="", pdf_rel="")
     lab = lesson["lab"]
     kind = lab["kind"]
-    lab_html = {"battery": render_battery_lab, "generator": render_generator_lab, "solar": render_solarcell_lab, "wind": render_windturbine_lab, "internet": render_internet_lab, "signal": render_cellsignal_lab, "gps": render_gps_lab, "memory": render_memory_lab, "sky": render_skyblue_lab, "rainbow": render_rainbow_lab, "sound": render_soundwave_lab, "camera": render_cameralens_lab, "wing": render_airwing_lab}[kind](lesson)
+    lab_html = {"battery": render_battery_lab, "generator": render_generator_lab, "solar": render_solarcell_lab, "wind": render_windturbine_lab, "internet": render_internet_lab, "signal": render_cellsignal_lab, "gps": render_gps_lab, "memory": render_memory_lab, "sky": render_skyblue_lab, "rainbow": render_rainbow_lab, "sound": render_soundwave_lab, "camera": render_cameralens_lab, "wing": render_airwing_lab, "bike": render_bicycle_lab}[kind](lesson)
 
     secs = []
     if lesson.get("mix"):
@@ -6108,7 +6160,8 @@ def build_htw_lesson(ui, unit, lesson):
                 "rainbow": ("Rainbows in a sentence", "一句話記住彩虹"),
                 "sound": ("Sound in a sentence", "一句話記住聲音"),
                 "camera": ("Cameras in a sentence", "一句話記住相機"),
-                "wing": ("Flight in a sentence", "一句話記住飛行")}[kind]
+                "wing": ("Flight in a sentence", "一句話記住飛行"),
+                "bike": ("Bicycles in a sentence", "一句話記住腳踏車")}[kind]
     secs.append(("tricks", "Remember It · 記憶口訣", tricks_h[0], tricks_h[1], _sci_tricks(lesson), ""))
     if lesson.get("safety"):
         items = "".join(f'<li class="rvl">{html.escape(s["en"])}<span class="zh">{html.escape(s["zh"])}</span></li>' for s in lesson["safety"])
@@ -6162,7 +6215,7 @@ def build_htw_lesson(ui, unit, lesson):
 def build_htw_hub():
     # 照中醫養生：單元導覽＋每個單元一段橫向課程卡；做好的課可點，planned 是「製作中」卡。
     def icon(l):
-        return battery_svg(60) if l.get("card") == "battery" else outlet_svg(60) if l.get("card") == "outlet" else solarpanel_svg(60) if l.get("card") == "solar" else windturbine_svg(60) if l.get("card") == "wind" else internet_svg(60) if l.get("card") == "internet" else cellsignal_svg(60) if l.get("card") == "signal" else gps_svg(60) if l.get("card") == "gps" else memory_svg(60) if l.get("card") == "memory" else skyblue_svg(60) if l.get("card") == "sky" else rainbow_svg(60) if l.get("card") == "rainbow" else soundwave_svg(60) if l.get("card") == "sound" else cameralens_svg(60) if l.get("card") == "camera" else airwing_svg(60) if l.get("card") == "wing" else l["icon"]
+        return battery_svg(60) if l.get("card") == "battery" else outlet_svg(60) if l.get("card") == "outlet" else solarpanel_svg(60) if l.get("card") == "solar" else windturbine_svg(60) if l.get("card") == "wind" else internet_svg(60) if l.get("card") == "internet" else cellsignal_svg(60) if l.get("card") == "signal" else gps_svg(60) if l.get("card") == "gps" else memory_svg(60) if l.get("card") == "memory" else skyblue_svg(60) if l.get("card") == "sky" else rainbow_svg(60) if l.get("card") == "rainbow" else soundwave_svg(60) if l.get("card") == "sound" else cameralens_svg(60) if l.get("card") == "camera" else airwing_svg(60) if l.get("card") == "wing" else bicycle_svg(60) if l.get("card") == "bike" else l["icon"]
     unit_sections, nav = [], []
     done = sum(len(u["lessons"]) for u in HTW["units"])
     total = done + sum(len(u.get("planned", [])) for u in HTW["units"])

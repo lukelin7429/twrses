@@ -6500,15 +6500,483 @@
               "url": "https://www.ctee.com.tw/news/20260226702103-430104"
             }
           ]
+        },
+        {
+          "n": 14,
+          "slug": "bicycle",
+          "title": "Why Doesn't a Moving Bicycle Fall Over?",
+          "title_zh": "腳踏車騎起來為什麼不會倒？",
+          "level": "入門 · Beginner",
+          "icon": "🚲",
+          "card": "bike",
+          "blurb_en": "A bike with nobody on it can balance itself, as long as it keeps rolling. Push a riderless 3D bike sideways, watch its front wheel steer under the lean, then slow it down or lock the front wheel and see it fall.",
+          "blurb_zh": "沒有人騎的腳踏車，只要一直往前滾，就能自己保持平衡。從旁邊推一下這台 3D 腳踏車，看前輪怎麼轉到傾斜的那一邊；再讓它慢下來，或把前輪鎖住，看它倒下。",
+          "big_idea_en": "When a moving bike starts to lean to one side, its front wheel turns toward that side. That steers the wheels back underneath the bike and stands it up again. The faster the bike rolls, the better this works. A bike that is too slow, standing still, or unable to steer cannot catch itself, so it falls.",
+          "big_idea_zh": "前進中的腳踏車開始往一邊倒時，前輪會往那一邊轉，把車輪帶回車身底下，車子就又站直了。車子滾得越快，這招越有效。太慢、停著不動、或前輪不能轉的腳踏車接不住自己，就會倒。",
+          "lab": {
+            "kind": "bike",
+            "eyebrow": "3D Model · 3D 模型",
+            "title_en": "The Bike That Balances Itself",
+            "title_zh": "自己保持平衡的腳踏車",
+            "how_en": "Drag to turn the view, and scroll or pinch to zoom. The bike is rolling with no rider. Press “Push it sideways” and watch the front wheel turn toward the lean and the yellow front-wheel track swing out under the bike. Slide the speed down to see when it can no longer catch itself, and lock the front wheel to see what steering is for.",
+            "how_zh": "拖曳可以旋轉視角，滾輪或雙指可以縮放。這台腳踏車沒有人騎，自己往前滾。按「從旁邊推一下」，看前輪往傾斜的那邊轉，黃色的前輪痕跡繞到車身底下。把速度往下拉，看它什麼時候接不住自己；再把前輪鎖住，看看轉向到底有什麼用。",
+            "legend": [
+              {
+                "cls": "bkfront",
+                "en": "Yellow line: the track of the front wheel",
+                "zh": "黃線：前輪的痕跡"
+              },
+              {
+                "cls": "bkrear",
+                "en": "Blue line: the track of the rear wheel",
+                "zh": "藍線：後輪的痕跡"
+              },
+              {
+                "cls": "bkdot",
+                "en": "Yellow dots on the wheels: watch them to see the wheels spin",
+                "zh": "輪子上的黃點：看它就知道輪子在轉"
+              }
+            ],
+            "scale_en": "A simplified model, not the full equations of a real bicycle. The bike is treated like a pole that tips over, and a single rule stands for everything that makes a real front wheel turn toward a lean (the shape of the fork, where the weight sits, and the spinning wheels all play a part). In this model the bike can catch itself above about 10 km/h; real bikes differ, and a rider helps a lot.",
+            "scale_zh": "這是簡化的模型，不是真實腳踏車的完整方程式。腳踏車被當成一根會倒的桿子，並用一條規則代表「讓真正的前輪往傾斜方向轉」的所有原因（前叉的形狀、重量的位置、轉動的輪子都有份）。在這個模型裡，時速約 10 公里以上才接得住自己；真正的腳踏車各有不同，而且有人騎的時候，騎的人幫了很大的忙。",
+            "credit_html": "Model drawn by My Culture Connect as a teaching diagram. That no single effect keeps a bike upright comes from <a href=\"https://doi.org/10.1126/science.1201959\" target=\"_blank\" rel=\"noopener\">Kooijman and others, <i>Science</i> (2011)</a>. · 模型由人師教育協會自繪示意；「沒有哪一個單一原因讓腳踏車不倒」依 Kooijman 等人 2011 年發表在《科學》期刊的研究。"
+          },
+          "paras": [
+            "Do you remember learning to ride a bike? Going slowly, you wobbled and fell. Then one day you pedaled a little faster, and suddenly the bike stayed up, almost by itself. Stop at a red light, though, and you have to put a foot down right away. Why is a bike so easy to balance when it is moving and impossible when it is standing still?",
+            "The first two-wheeler was built by Karl Drais in Germany in 1817. It had no pedals; riders pushed along the ground with their feet. Drais noticed that he could keep his balance by steering the front wheel. In 1885, John Kemp Starley's Rover, with a chain driving the rear wheel, became the first modern bicycle. Today Taiwan is one of the world's great bicycle makers: Giant began in Taichung in 1972, and Merida has its headquarters in Dacun, right here in Changhua County.",
+            "Here is the secret. When a moving bike starts to lean to the right, its front wheel turns to the right too. The bike begins to curve to the right, and that carries the wheels back underneath the falling bike. It is like balancing a broom on your hand: when the broom tips, you move your hand under it. A bike does the same thing with its wheels.",
+            "Speed matters. When the bike is going fast, a small turn of the front wheel quickly brings the wheels back under it. When the bike is going slowly, the same turn hardly moves the wheels sideways at all, so the bike keeps falling. And when the bike is standing still, steering cannot help. That is why slow riding is wobbly and why you put your foot down when you stop.",
+            "A bike can even do this with nobody on it. Push a riderless bike fast enough, let go, and it will roll along upright, steering itself whenever it starts to tip. For a long time people said that the spinning wheels held the bike up, like a spinning top. But in 2011, scientists built a strange little bike that canceled out the spinning effect, and it still balanced. They showed that no single thing keeps a bike up. The shape of the front fork, where the weight sits, and the spinning wheels all work together.",
+            "When you ride, you are part of the system. You make tiny steering corrections all the time without thinking about them, turning the handlebars toward the side you are falling to. You even start a turn by steering the other way for an instant, so that the bike leans into the turn. Your brain learned all of this the day the bike finally stayed up."
+          ],
+          "paras_zh": [
+            "還記得學騎腳踏車的時候嗎？慢慢騎的時候，你搖搖晃晃、常常跌倒。然後有一天，你踩得快了一點，腳踏車突然就站得穩穩的，幾乎不用你管。可是一到紅燈停下來，就得馬上把腳放到地上。為什麼腳踏車動的時候那麼好平衡，停著的時候卻根本站不住？",
+            "第一台兩輪車，是德國的德萊斯在 1817 年做的。它沒有踏板，騎的人用腳蹬地前進。德萊斯發現，只要轉動前輪，就能保持平衡。1885 年，史塔利的「漫遊者」用鏈條帶動後輪，成了第一台現代腳踏車。今天台灣是世界上重要的自行車製造地：巨大（捷安特）1972 年在台中創立，美利達的總部就在彰化縣的大村。",
+            "祕密在這裡：前進中的腳踏車開始往右倒時，前輪也會往右轉。車子開始往右彎，就把車輪帶回正在倒下的車身底下。這就像把掃把立在手掌上：掃把一歪，你就把手移到它底下。腳踏車用車輪做同一件事。",
+            "速度很重要。車子跑得快時，前輪只要轉一點點，車輪很快就回到車身底下。車子跑得慢時，同樣的轉向幾乎沒辦法讓車輪往旁邊移，車子就繼續倒。車子完全停住時，轉向一點用也沒有。所以慢慢騎會搖搖晃晃，停下來就得把腳放下。",
+            "就算沒有人騎，腳踏車也做得到。把一台沒人騎的腳踏車用力推出去、放手，它會直直往前滾，一開始歪就自己轉向。長久以來，大家都說是轉動的輪子像陀螺一樣把車子撐住。但在 2011 年，科學家做了一台奇怪的小腳踏車，把轉動的效果抵消掉，它還是能保持平衡。他們證明：讓腳踏車不倒的，不是哪一個單獨的原因，而是前叉的形狀、重量的位置和轉動的輪子一起合作。",
+            "你騎車的時候，你也是這個系統的一部分。你不用想，就一直在做很小的修正，把龍頭往快要倒的那一邊轉。你甚至會在轉彎前，先往反方向轉一下下，讓車子朝彎道那一邊傾斜。這一切，都是腳踏車終於站穩的那一天，你的大腦學會的。"
+          ],
+          "questions": [
+            "What does the front wheel do when a moving bike starts to lean to one side?",
+            "Why is it harder to balance a bike when you ride slowly?",
+            "What did scientists show in 2011 about why a bike stays up?"
+          ],
+          "answers": [
+            "It turns toward the side the bike is leaning to, which steers the wheels back underneath the bike.",
+            "At low speed, turning the front wheel hardly moves the wheels sideways, so they cannot get back under the bike in time.",
+            "They showed that no single thing keeps a bike up. Even a bike without the spinning-wheel effect can balance, because the fork's shape, the position of the weight, and the spinning wheels work together."
+          ],
+          "vocab": [
+            {
+              "n": 1,
+              "w": "balance",
+              "pos": "v.",
+              "zh": "保持平衡",
+              "ex": "Can you <b>balance</b> on one foot for ten seconds?",
+              "exzh": "你能單腳站十秒嗎？"
+            },
+            {
+              "n": 2,
+              "w": "lean",
+              "pos": "v.",
+              "zh": "傾斜；靠",
+              "ex": "The old tree <b>leans</b> toward the river.",
+              "exzh": "那棵老樹往河那邊傾斜。"
+            },
+            {
+              "n": 3,
+              "w": "steer",
+              "pos": "v.",
+              "zh": "轉向；駕駛",
+              "ex": "She <b>steered</b> the boat around the rocks.",
+              "exzh": "她把船轉向，繞過岩石。"
+            },
+            {
+              "n": 4,
+              "w": "wobble",
+              "pos": "v.",
+              "zh": "搖晃",
+              "ex": "The table <b>wobbles</b> because one leg is short.",
+              "exzh": "桌子會晃，因為有一隻腳比較短。"
+            },
+            {
+              "n": 5,
+              "w": "handlebars",
+              "pos": "n.",
+              "zh": "龍頭；把手",
+              "ex": "Keep both hands on the <b>handlebars</b>.",
+              "exzh": "兩隻手都要握住龍頭。"
+            },
+            {
+              "n": 6,
+              "w": "pedal",
+              "pos": "v.",
+              "zh": "踩踏板",
+              "ex": "You have to <b>pedal</b> hard to get up the hill.",
+              "exzh": "要用力踩才上得了坡。"
+            },
+            {
+              "n": 7,
+              "w": "upright",
+              "pos": "adj.",
+              "zh": "直立的",
+              "ex": "Put the bottle <b>upright</b> so it doesn't spill.",
+              "exzh": "把瓶子放直，才不會灑出來。"
+            },
+            {
+              "n": 8,
+              "w": "headquarters",
+              "pos": "n.",
+              "zh": "總部",
+              "ex": "The company's <b>headquarters</b> is in Changhua.",
+              "exzh": "這家公司的總部在彰化。"
+            }
+          ],
+          "quiz": [
+            {
+              "q": "When a moving bike starts to lean to the right, which way does the front wheel turn?",
+              "options": [
+                "To the right",
+                "To the left",
+                "It does not turn",
+                "Backward"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "Why does turning toward the lean help?",
+              "options": [
+                "It steers the wheels back under the bike",
+                "It makes the bike lighter",
+                "It stops the wheels from spinning",
+                "It makes the tires stickier"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "When is a bike hardest to balance?",
+              "options": [
+                "When it is standing still",
+                "When it is going fast",
+                "When it is going downhill",
+                "When the wind is behind it"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "What happens to a rolling bike if its front wheel cannot turn?",
+              "options": [
+                "It falls over, even at high speed",
+                "It balances better",
+                "It goes faster",
+                "Nothing changes"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "Where is the bicycle company Merida's headquarters?",
+              "options": [
+                "Dacun, in Changhua County",
+                "Tokyo, Japan",
+                "Berlin, Germany",
+                "Kaohsiung City"
+              ],
+              "correct": 0
+            }
+          ],
+          "parts_head": {
+            "eyebrow": "Try It in the Model · 在模型裡試試",
+            "en": "Four pushes",
+            "zh": "推四次看看"
+          },
+          "parts": [
+            {
+              "key": "fast",
+              "icon": "🚲",
+              "en": "Rolling fast",
+              "zh": "跑得快",
+              "meta_en": "20 km/h",
+              "meta_zh": "時速 20 公里",
+              "demo": "fast",
+              "text_en": "Give it a push: it leans, the front wheel turns under it, and it stands up again.",
+              "text_zh": "推它一下：車子歪了，前輪轉到底下，它又站直了。"
+            },
+            {
+              "key": "slow",
+              "icon": "🐢",
+              "en": "Rolling slowly",
+              "zh": "跑得慢",
+              "meta_en": "5 km/h",
+              "meta_zh": "時速 5 公里",
+              "demo": "slow",
+              "text_en": "The front wheel turns, but the bike is too slow to get its wheels back under it. Down it goes.",
+              "text_zh": "前輪有轉，但車子太慢，車輪來不及回到底下，就倒了。"
+            },
+            {
+              "key": "locked",
+              "icon": "🔒",
+              "en": "Front wheel locked",
+              "zh": "前輪鎖住",
+              "meta_en": "20 km/h, no steering",
+              "meta_zh": "時速 20 公里，不能轉向",
+              "demo": "locked",
+              "text_en": "Even at high speed, a bike that cannot steer cannot catch itself.",
+              "text_zh": "就算跑得快，不能轉向的腳踏車也接不住自己。"
+            },
+            {
+              "key": "still",
+              "icon": "🛑",
+              "en": "Standing still",
+              "zh": "停著不動",
+              "meta_en": "0 km/h",
+              "meta_zh": "時速 0 公里",
+              "demo": "still",
+              "text_en": "With no speed at all, the bike tips over like a pencil standing on its point.",
+              "text_zh": "完全沒有速度，腳踏車就像立在筆尖上的鉛筆一樣倒下。"
+            }
+          ],
+          "parts_note_en": "Watch the yellow front-wheel track: every time the bike leans, the track swings out to that side and then comes back.",
+          "parts_note_zh": "注意黃色的前輪痕跡：車子每歪一次，痕跡就往那一邊繞出去、再繞回來。",
+          "facts": {
+            "eyebrow": "Bicycles by the Numbers · 腳踏車的數字",
+            "en": "Two hundred years on two wheels",
+            "zh": "兩個輪子的兩百年",
+            "lead_en": "From a wooden running machine to bikes made a few kilometers from here.",
+            "lead_zh": "從木頭做的「跑步機器」，到離這裡沒幾公里就在製造的腳踏車。",
+            "items": [
+              {
+                "big": "1817",
+                "unit_en": "the first two-wheeler",
+                "unit_zh": "第一台兩輪車",
+                "en": "Karl Drais's “running machine” had no pedals; riders pushed with their feet.",
+                "zh": "德萊斯的「跑步機器」沒有踏板，用腳蹬地前進。"
+              },
+              {
+                "big": "1885",
+                "unit_en": "the first modern bicycle",
+                "unit_zh": "第一台現代腳踏車",
+                "en": "J. K. Starley's Rover was the first commercially successful safety bicycle.",
+                "zh": "史塔利的「漫遊者」是第一台在市場上成功的安全腳踏車。"
+              },
+              {
+                "big": "1972",
+                "unit_en": "Giant and Merida founded",
+                "unit_zh": "巨大與美利達創立",
+                "en": "Giant started in Dajia, Taichung, and Merida was founded the same year.",
+                "zh": "巨大在台中大甲創立，美利達也在同一年成立。"
+              },
+              {
+                "big": "2011",
+                "unit_en": "a surprise in Science",
+                "unit_zh": "《科學》期刊的驚奇",
+                "en": "A bike with no spinning-wheel effect and no trail still balanced itself.",
+                "zh": "一台沒有陀螺效應、沒有拖曳距的腳踏車，照樣自己保持平衡。"
+              },
+              {
+                "big": "10",
+                "unit_en": "km/h in this model",
+                "unit_zh": "公里／時（本模型）",
+                "en": "Below about this speed, the model bike cannot catch itself. Real bikes differ.",
+                "zh": "低於這個速度，模型裡的腳踏車接不住自己。真正的腳踏車各有不同。"
+              }
+            ]
+          },
+          "myths": [
+            {
+              "myth_en": "The spinning wheels hold a bike up, like a spinning top.",
+              "myth_zh": "是轉動的輪子像陀螺一樣把腳踏車撐住。",
+              "fact_en": "Spinning wheels help a little, but in 2011 scientists built a bike that canceled that effect, and it still balanced. Steering under the lean is what matters most.",
+              "fact_zh": "轉動的輪子有一點幫助，但 2011 年科學家做了一台把這個效果抵消掉的腳踏車，它還是能平衡。最重要的是把車輪轉到傾斜的那一邊。"
+            },
+            {
+              "myth_en": "You balance a bike by keeping the handlebars perfectly straight.",
+              "myth_zh": "騎車要把龍頭握得直直的才會穩。",
+              "fact_en": "You stay up by steering all the time, in tiny movements toward whichever side you start to fall.",
+              "fact_zh": "你是靠不停地微微轉向才站得住：快往哪邊倒，就往哪邊轉一點。"
+            },
+            {
+              "myth_en": "Riding slowly is safer because it is easier to balance.",
+              "myth_zh": "慢慢騎比較安全，因為比較好平衡。",
+              "fact_en": "Very slow riding is the hardest to balance. Ride at a steady, moderate speed, and slow down by braking early, not by creeping.",
+              "fact_zh": "騎得很慢反而最難平衡。保持穩定、適中的速度，要減速就提早煞車，不要用龜速前進。"
+            },
+            {
+              "myth_en": "A bike can only stay up if someone is riding it.",
+              "myth_zh": "一定要有人騎，腳踏車才站得住。",
+              "fact_en": "A riderless bike pushed fast enough will roll along upright, steering itself when it tips.",
+              "fact_zh": "沒有人騎的腳踏車，只要推得夠快，也會直直往前滾，歪了就自己轉向。"
+            }
+          ],
+          "tricks": [
+            {
+              "title_en": "Steer into the fall",
+              "title_zh": "往倒的那邊轉",
+              "body_en": "Falling right? The wheel turns right and brings the bike back under you.",
+              "body_zh": "往右倒？輪子就往右轉，把車子帶回你底下。"
+            },
+            {
+              "title_en": "Like a broom on your hand",
+              "title_zh": "像手掌上的掃把",
+              "body_en": "Move the bottom under the top, and it stays up.",
+              "body_zh": "把底部移到上面的東西底下，它就站得住。"
+            },
+            {
+              "title_en": "Speed is your friend",
+              "title_zh": "速度是你的朋友",
+              "body_en": "Faster rolling makes steering corrections work quickly.",
+              "body_zh": "滾得越快，轉向的修正越快見效。"
+            },
+            {
+              "title_en": "No single hero",
+              "title_zh": "沒有單一功臣",
+              "body_en": "Fork shape, weight position, and spinning wheels all help.",
+              "body_zh": "前叉形狀、重量位置、轉動的輪子都有功勞。"
+            }
+          ],
+          "safety": [
+            {
+              "en": "Always wear a helmet that fits, and fasten the strap.",
+              "zh": "騎車一定要戴合適的安全帽，並把帶子扣好。"
+            },
+            {
+              "en": "Keep both hands on the handlebars. No phone, and no riding with no hands.",
+              "zh": "兩隻手都握住龍頭。不滑手機，也不放手騎車。"
+            },
+            {
+              "en": "Check your brakes and tires before you ride, and use lights when it is dark.",
+              "zh": "出發前檢查煞車和輪胎，天黑要開車燈。"
+            },
+            {
+              "en": "Ride on the right with traffic, and stop and look at every intersection.",
+              "zh": "靠右順著車流方向騎，每個路口都要停下來看清楚。"
+            },
+            {
+              "en": "Do the activities in an empty playground or parking lot with an adult, never on the road.",
+              "zh": "活動要在空的操場或停車場、有大人陪同時進行，絕不在馬路上做。"
+            }
+          ],
+          "activities": [
+            {
+              "title_en": "Balance a Broom",
+              "title_zh": "把掃把立在手上",
+              "materials": [
+                {
+                  "en": "A broom or a long stick, and a ruler or a pencil",
+                  "zh": "一支掃把或長棍，和一把尺或一支鉛筆"
+                },
+                {
+                  "en": "An open space away from windows",
+                  "zh": "一塊遠離窗戶的空地"
+                }
+              ],
+              "steps": [
+                {
+                  "en": "Stand the broom upside down on your open palm and try to keep it balanced. Which way do you move your hand when it tips?",
+                  "zh": "把掃把倒過來立在攤開的手掌上，試著讓它不倒。它一歪，你的手往哪邊移？"
+                },
+                {
+                  "en": "Now try the same thing with a short ruler or a pencil. Which is easier, the long broom or the short ruler?",
+                  "zh": "換成短短的尺或鉛筆再試一次。長的掃把和短的尺，哪個比較容易？"
+                },
+                {
+                  "en": "Try to balance the broom while keeping your hand perfectly still. What happens?",
+                  "zh": "試著手完全不動，讓掃把保持平衡。結果怎麼樣？"
+                },
+                {
+                  "en": "Talk about it: how is your hand like a bike's front wheel?",
+                  "zh": "討論：你的手哪裡像腳踏車的前輪？"
+                }
+              ],
+              "tip_en": "A tall object tips more slowly, so there is more time to catch it.",
+              "tip_zh": "高的東西倒得比較慢，有比較多時間接住它。"
+            },
+            {
+              "title_en": "The Slow Race",
+              "title_zh": "慢騎比賽",
+              "materials": [
+                {
+                  "en": "Bicycles and helmets",
+                  "zh": "腳踏車和安全帽"
+                },
+                {
+                  "en": "Chalk to mark a 10-meter lane in an empty playground",
+                  "zh": "粉筆，在空操場畫一條 10 公尺的車道"
+                },
+                {
+                  "en": "A stopwatch",
+                  "zh": "一個碼錶"
+                }
+              ],
+              "steps": [
+                {
+                  "en": "Ride the 10-meter lane at normal speed. Watch your handlebars: do they stay still?",
+                  "zh": "用平常的速度騎過 10 公尺車道，注意龍頭：它有保持不動嗎？"
+                },
+                {
+                  "en": "Now ride the lane as slowly as you can without putting a foot down. The slowest rider wins.",
+                  "zh": "再用最慢的速度騎過去，腳不能落地。最慢的人獲勝。"
+                },
+                {
+                  "en": "Have a friend watch your front wheel. How much more does it turn from side to side when you go slowly?",
+                  "zh": "請同學看你的前輪：慢騎時，它左右轉動的幅度大了多少？"
+                },
+                {
+                  "en": "Talk about it: why do you have to steer so much more at low speed?",
+                  "zh": "討論：為什麼慢騎時要轉得那麼多？"
+                }
+              ],
+              "tip_en": "Wear a helmet, keep the lane clear, and put your foot down whenever you need to.",
+              "tip_zh": "戴安全帽，車道上不要有人，需要時隨時把腳放下。"
+            }
+          ],
+          "sources": [
+            {
+              "en": "A bicycle can balance itself without gyroscopic or caster (trail) effects; several factors work together",
+              "zh": "沒有陀螺效應與拖曳距的腳踏車也能自己平衡；是好幾個因素一起作用",
+              "src": "Kooijman et al., Science 332 (2011)",
+              "url": "https://doi.org/10.1126/science.1201959"
+            },
+            {
+              "en": "A bike stays up by steering to keep its wheels under its center of mass; no single effect is solely responsible; Drais and Rankine on steering toward the lean",
+              "zh": "腳踏車靠轉向把車輪保持在重心底下；沒有單一原因；德萊斯與蘭金談往傾斜方向轉",
+              "src": "Wikipedia, “Bicycle and motorcycle dynamics”",
+              "url": "https://en.wikipedia.org/wiki/Bicycle_and_motorcycle_dynamics"
+            },
+            {
+              "en": "Karl Drais invented the Laufmaschine (“running machine”) in 1817",
+              "zh": "德萊斯 1817 年發明「跑步機器」",
+              "src": "Wikipedia, “Dandy horse”",
+              "url": "https://en.wikipedia.org/wiki/Dandy_horse"
+            },
+            {
+              "en": "J. K. Starley's Rover (1885), the first commercially successful safety bicycle",
+              "zh": "史塔利的「漫遊者」（1885）：第一台商業成功的安全腳踏車",
+              "src": "Wikipedia, “Safety bicycle”",
+              "url": "https://en.wikipedia.org/wiki/Safety_bicycle"
+            },
+            {
+              "en": "Giant: founded in Dajia, Taichung, in 1972; recognized as the world's largest bicycle maker",
+              "zh": "巨大：1972 年創立於台中大甲；被認為是全球最大的自行車製造商",
+              "src": "Wikipedia, “Giant Bicycles”",
+              "url": "https://en.wikipedia.org/wiki/Giant_Bicycles"
+            },
+            {
+              "en": "Merida: founded in 1972; registered address in Dacun Township, Changhua County",
+              "zh": "美利達：1972 年創立；公司登記地址在彰化縣大村鄉",
+              "src": "科技新報公司資料（商業登記）",
+              "url": "https://info.technews.tw/company/59052361-美利達工業股份有限公司"
+            },
+            {
+              "en": "Starting a turn by briefly steering the other way (countersteering)",
+              "zh": "轉彎前先短暫往反方向轉（反向轉向）",
+              "src": "Wikipedia, “Countersteering”",
+              "url": "https://en.wikipedia.org/wiki/Countersteering"
+            }
+          ]
         }
       ],
       "planned": [
-        {
-          "n": 14,
-          "icon": "🚲",
-          "en": "Why Doesn't a Moving Bicycle Fall Over?",
-          "zh": "腳踏車騎起來為什麼不會倒？"
-        },
         {
           "n": 15,
           "icon": "🛗",

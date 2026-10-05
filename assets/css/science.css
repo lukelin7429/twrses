@@ -618,3 +618,37 @@
   .aw-msg { min-height: 0; }
   .aw-a-row, .aw-v-row { margin: .6rem 0 0; flex-basis: 100%; }
 }
+
+/* ---------- 第十四課：腳踏車 ---------- */
+@media (min-width: 1021px) { .bk-lab .al-space { min-height: 600px; } }
+.bk-lab .al-space { background: linear-gradient(180deg, #23375a 0%, #1a2a44 60%); }
+.bk-aside { gap: .9rem; }
+.bk-aside > * { min-width: 0; }
+.bk-status { margin: .2rem 0 .8rem; font-family: var(--serif); font-size: 1.6rem; line-height: 1.1; color: #fff; }
+.bk-status small { display: block; font-family: var(--zh); font-size: .85rem; color: var(--al-mute); margin-top: .2rem; }
+.bk-status.ok { color: #7cf29a; } .bk-status.bad { color: #ff8a7a; }
+.bk-btns { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: .4rem; }
+.bk-btns button { padding: .55rem .5rem; border-radius: 12px; border: 1px solid var(--al-line); background: rgba(255,255,255,.05); color: #fff; font: 800 .82rem var(--sans); cursor: pointer; line-height: 1.2; }
+.bk-btns button small { display: block; font-family: var(--zh); font-weight: 600; font-size: .7rem; color: var(--al-mute); }
+.bk-btns .bk-push { border-color: var(--al-sun); background: rgba(255,211,110,.14); }
+.bk-btns button:disabled { opacity: .4; cursor: not-allowed; }
+.bk-nums { grid-template-columns: repeat(3, minmax(0, 1fr)); margin-top: .9rem; }
+.bk-nums dd small { display: inline; margin-left: .25rem; font-family: var(--zh); font-weight: 600; font-size: .7rem; color: var(--al-mute); }
+.bk-msg { min-height: 7.6em; }
+.bk-v-row { flex: 1 1 260px; margin: 0 0 0 .6rem; }
+.bk-v-row > span { text-transform: none; letter-spacing: .02em; }
+.bk-v-row output { margin-left: .3rem; font-weight: 800; color: #fff; }
+.al-lab.bk-lb-steer { color: #1b1405; background: #ffd36e; border-color: #ffd36e; }
+.al-lab.bk-lb-steer small { color: #3a2a06; }
+.al-lg-bkfront i { border: 0; height: 3px; margin-top: .55rem; background: #ffd36e; }
+.al-lg-bkrear i { border: 0; height: 3px; margin-top: .55rem; background: #9fd4ff; }
+.al-lg-bkdot i { border: 0; border-radius: 50%; width: 10px; height: 10px; margin: .35rem 4px 0; background: #ffd36e; }
+@media (max-width: 1020px) {
+  .bk-lab .al-stage { grid-template-columns: minmax(0, 1fr); }
+  .bk-lab .bt-aside { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+}
+@media (max-width: 640px) {
+  .bk-lab .bt-aside { grid-template-columns: minmax(0, 1fr); }
+  .bk-msg { min-height: 0; }
+  .bk-v-row { margin: .6rem 0 0; flex-basis: 100%; }
+}
