@@ -6909,7 +6909,7 @@ def build_chip_hub():
 _calj = os.path.join(ROOT, "data", "calligraphy.json")
 CAL = json.load(open(_calj, encoding="utf-8")) if os.path.exists(_calj) else None
 CAL_BASE = "/resources/classes/calligraphy/"
-_CAL_JS = {"four": "cal-four", "press": "cal-press", "yong": "cal-yong", "order": "cal-order", "oracle": "cal-oracle", "clerical": "cal-clerical", "speed": "cal-speed", "lanting": "cal-lanting"}   # lab.kind → assets/js/<bundle>.js
+_CAL_JS = {"four": "cal-four", "press": "cal-press", "yong": "cal-yong", "order": "cal-order", "oracle": "cal-oracle", "clerical": "cal-clerical", "speed": "cal-speed", "lanting": "cal-lanting", "styles": "cal-styles"}   # lab.kind → assets/js/<bundle>.js
 
 def _cal_ver():
     h = hashlib.md5()
@@ -7730,6 +7730,110 @@ def _cal_same(sm):
   </div>
 </div>'''
 
+def _cal_styles():
+    fp = os.path.join(ROOT, "tools/callig/src/strokes/styles.json")
+    return json.load(open(fp, encoding="utf-8"))["chars"] if os.path.exists(fp) else {}
+
+def calstyles_svg(size=56):
+    """第九課的課程卡小圖示：顏體的第一個範字（tools/callig/src/strokes/styles.json）。"""
+    D = _cal_styles()
+    c = next(iter(D.values()), None)
+    return _cg_form_svg(c["yan"]["strokes"] if c else [], size, "calstyles-svg")
+
+_CG_MASTER2 = [("yan", "Yan Zhenqing", "顏真卿"), ("liu", "Liu Gongquan", "柳公權")]
+
+def render_calstyles_lab(lesson):
+    """第九課：兩枝筆同時用顏體、柳體寫同一個字（assets/js/cal-styles.js 綁這裡的 class；全部自繪示意）。"""
+    lab = lesson["lab"]
+    D = _cal_styles()
+    first = next(iter(D), "")
+    mb = "".join(
+        f'<button type="button" data-mode="{m["key"]}" aria-pressed="{"true" if m["key"] == "both" else "false"}">'
+        f'<i aria-hidden="true">{html.escape(m["icon"])}</i>{html.escape(m["en"])}<small>{html.escape(m["zh"])}</small></button>'
+        for m in lab["modes"])
+    cb = "".join(f'<button type="button" data-char="{k}" aria-pressed="{"true" if k == first else "false"}" title="{html.escape(c["en"])}">{html.escape(c["char"])}</button>' for k, c in D.items())
+    speeds = [("1", "1×", "原速"), ("0.5", "½×", "慢"), ("0.25", "¼×", "很慢")]
+    spb = "".join(f'<button type="button" data-speed="{k}" aria-pressed="{"true" if k == "1" else "false"}">{en}<small>{zh}</small></button>' for k, en, zh in speeds)
+    cams = [("near", "Close", "近看"), ("top", "Top", "正上方"), ("tip", "Tip", "貼近筆尖")]
+    camb = "".join(f'<button type="button" data-cam="{k}" aria-pressed="{"true" if k == "near" else "false"}">{en}<small>{zh}</small></button>' for k, en, zh in cams)
+    tg = _lab_toggles([("labels", "Labels", "標示", True)])
+    head = "".join(f'<th scope="col"><b>{zh}</b>{en.split()[0]}</th>' for k, en, zh in _CG_MASTER2)
+    def row(key, en, zh):
+        return (f'<tr class="cg-race-{key}"><th scope="row">{en}<small>{zh}</small></th>'
+                + "".join(f'<td data-cell="{key}-{k}">—</td>' for k, _, _ in _CG_MASTER2) + '</tr>')
+    rows = row("avg", "Average line", "平均線寬") + row("max", "Thickest", "最粗") + row("min", "Thinnest", "最細")
+    frm = "".join(f'<span><b>{zh}</b><i data-sty-from="{k}"></i></span>' for k, _, zh in _CG_MASTER2)
+    return f'''<div class="astro-lab cg-lab cg-press-lab cg-speed-lab cg-styles-lab rvl" data-calstyles-lab>
+  <div class="al-stage">
+    <div class="al-space">
+      <canvas class="al-space-cv" aria-label="3D model of two brushes writing the same character at the same time, one in the style of Yan Zhenqing and one in the style of Liu Gongquan · 兩枝毛筆同時用顏真卿和柳公權的寫法寫同一個字的 3D 模型"></canvas>
+      <div class="al-labels" aria-hidden="true"></div>
+      <div class="cg-cams" role="group" aria-label="View · 角度">{camb}</div>
+      <p class="al-hint">Drag to turn · 拖曳旋轉　Scroll or pinch to zoom · 滾輪／雙指縮放</p>
+      <button type="button" class="al-home" title="Reset view · 重設視角" aria-label="Reset view · 重設視角">&#8634;</button>
+      <p class="al-nogl-msg">This 3D model needs WebGL, which this browser does not support. The reading, the cards, the game, and the practice pad below still work.<br><span class="zh">這個瀏覽器不支援 WebGL，無法顯示 3D 模型；下方的課文、卡片、小遊戲和練字板一樣能用。</span></p>
+    </div>
+    <aside class="al-sky cg-aside">
+      <p class="al-sky-k">Side by side, or one at a time · 一起看，或一個一個看</p>
+      <div class="cg-focus cg-modes cg-modes3" role="group" aria-label="Both or one master · 一起看或單看一位">{mb}</div>
+      <p class="al-sky-k cg-k2">Character · 哪一個字</p>
+      <div class="cg-chars6 cg-chars3" role="group" aria-label="Character · 哪一個字">{cb}</div>
+      <p class="al-sky-k cg-k2">Stroke · 哪一筆</p>
+      <div class="cg-seg cg-sty-strokes" role="group" aria-label="Stroke · 哪一筆"></div>
+      <div class="cg-sty-curve-w">
+        <p class="cg-sty-curve-k"></p>
+        <canvas class="cg-sty-curve" aria-label="Press-and-lift curves of this stroke for the two masters · 這一筆兩位書法家的提按曲線"></canvas>
+        <p class="cg-pad-key cg-sty-key"><i class="cg-key-m"></i>Yan · 顏　<i class="cg-key-u"></i>Liu · 柳　<span>high = pressed hard · 越高＝按得越重</span></p>
+      </div>
+      <table class="cg-race cg-sty-table"><thead><tr><td></td>{head}</tr></thead><tbody>{rows}</tbody></table>
+      <p class="cg-sty-from">{frm}</p>
+      <p class="cg-step-t cg-race-msg cg-sty-msg" aria-live="polite"></p>
+      <div class="cg-seg cg-speeds" role="group" aria-label="Speed · 速度">{spb}</div>
+      <button type="button" class="cg-btn-d cg-again">Write again · 再寫一次</button>
+    </aside>
+  </div>
+  <div class="al-controls">
+    <div class="al-row al-row-main">
+      <button type="button" class="al-play" aria-pressed="true"><span class="al-play-i" aria-hidden="true"></span><span class="al-play-t">Pause · 暫停</span></button>
+      <div class="al-row al-toggles">{tg}</div>
+    </div>
+  </div>
+  {_lab_foot(lab)}
+  <p class="cg-credit">{lab["credit_html"]}</p>
+</div>'''
+
+def _cal_who(wh):
+    """第九課：「這是誰的字？」（styles2d.js 的 initWho；碑帖上真的字，一張拼圖用 background-position 切）。"""
+    items = html.escape(json.dumps(wh["items"], ensure_ascii=False))
+    names = html.escape(json.dumps(wh["names"], ensure_ascii=False))
+    return f'''<div class="cg-guess cg-same cg-who rvl" data-cal-who data-img="{html.escape(wh["img"])}" data-cols="{wh["cols"]}" data-rows="{wh["rows"]}" data-items="{items}" data-names="{names}">
+  <div class="cg-guess-paper"><span class="cg-same-target cg-who-target" role="img" aria-label="A character from a stone inscription · 碑上的一個字"></span></div>
+  <div class="cg-guess-side">
+    <p class="cg-which-q cg-who-q"></p>
+    <div class="cg-which-opts cg-who-opts" role="group" aria-label="Choices · 選項"></div>
+    <p class="cg-guess-msg cg-who-msg" aria-live="polite"></p>
+    <p class="cg-guess-sc"><span>Right on the first try<span class="zh">一次就答對</span></span><b class="cg-who-score">0 / 8</b></p>
+    <div class="cg-pad-btns">
+      <button type="button" class="cg-btn cg-btn-gold" data-who="next">Next · 下一題 &rarr;</button>
+      <button type="button" class="cg-btn" data-who="again">&#8630; Play again · 再玩一次</button>
+    </div>
+    <p class="cg-sheet-credit">{wh["credit_html"]}</p>
+  </div>
+</div>'''
+
+def _cal_pairs(pr):
+    """第九課：同一個字，不同的人寫（碑帖上真的字並排；每列一個字）。"""
+    cols = pr["cols"]
+    head = "".join(f'<th scope="col"><b>{html.escape(c["zh"])}</b>{html.escape(c["en"])}<small>{html.escape(c["from_zh"])}</small></th>' for c in cols)
+    rows = ""
+    for r in pr["rows"]:
+        tds = "".join(
+            (f'<td><img src="{html.escape(r["imgs"][c["key"]])}" alt="{html.escape(r["zh"])} written by {html.escape(c["en"])} · {html.escape(c["zh"])}寫的「{html.escape(r["zh"])}」" loading="lazy" width="240" height="240"></td>'
+             if r["imgs"].get(c["key"]) else '<td class="cg-pair-x">—</td>') for c in cols)
+        rows += f'<tr><th scope="row"><b>{html.escape(r["zh"])}</b>{html.escape(r["en"])}</th>{tds}</tr>'
+    return (f'<div class="cg-pairs-w rvl"><table class="cg-pairs cg-pairs-{len(cols)}"><thead><tr><td></td>{head}</tr></thead><tbody>{rows}</tbody></table></div>'
+            f'<p class="cg-sheet-credit cg-z20-credit rvl">{pr["credit_html"]}</p>')
+
 def _cg_evo(key):
     """第五課卡片：甲骨文 → 金文 → 小篆 → 楷書四張小圖（cal-oracle.js 用 scripts2d.js 畫）。"""
     names = [("oracle", "甲骨文"), ("bronze", "金文"), ("seal", "小篆"), ("regular", "楷書")]
@@ -7778,6 +7882,16 @@ def _cal_pad(pd):
                  f'<div class="cg-pad-chars" role="group" aria-label="Choose a character · 選一個字"><span>Character · 範字</span>{cb}</div>')
     timer = ('<div class="cg-pad-timer"><p class="sub-head">Stopwatch · 碼表</p><p class="cg-pad-time" aria-live="polite"></p>'
              '<p class="cg-pad-key">From your first touch to your last lift. · 從第一筆下筆算到最後一筆提筆。</p></div>') if pd.get("timer") else ""
+    if pd.get("masters"):
+        D9 = _cal_styles()
+        wb = "".join(f'<button type="button" data-pad-who="{k}" aria-pressed="{"true" if k == "yan" else "false"}">{zh}<small>{en}</small></button>' for k, en, zh in _CG_MASTER2)
+        cb = "".join(f'<button type="button" data-pad-ch="{k}" aria-pressed="{"true" if i == 0 else "false"}">{html.escape(c["char"])}</button>' for i, (k, c) in enumerate(D9.items()))
+        chars = (f'<div class="cg-pad-chars cg-pad-scripts" role="group" aria-label="Choose a master · 選一位書法家"><span>Model · 範本</span>{wb}</div>'
+                 f'<div class="cg-pad-chars" role="group" aria-label="Choose a character · 選一個字"><span>Character · 範字</span>{cb}</div>')
+        timer = ('<div class="cg-pad-timer cg-pad-like" aria-live="polite"><p class="sub-head">Whose lines are yours closer to? · 你的線條比較像誰？</p>'
+                 '<p class="cg-like-ends"><span>Liu · 柳<small>thin · 細</small></span><span>Yan · 顏<small>thick · 粗</small></span></p>'
+                 '<p class="cg-like-bar"><i></i></p><p class="cg-like-t"></p>'
+                 '<p class="cg-pad-key">This compares only how thick your lines are, not their shape. · 這裡只比線條的粗細，不比字形。</p></div>')
     if pd.get("chars"):
         cb = "".join(f'<button type="button" data-pad-char="{html.escape(c["key"])}" aria-pressed="{"true" if c["key"] == pd["char"] else "false"}">{html.escape(c["glyph"])}</button>' for c in pd["chars"])
         chars = f'<div class="cg-pad-chars" role="group" aria-label="Choose a character · 選一個字"><span>Character · 範字</span>{cb}</div>'
@@ -7831,18 +7945,18 @@ def build_cal_lesson(ui, unit, lesson):
     reading_html = render_basic_unit(1, unit_dict, level="callig", audio_rel="", pdf_rel="")
     lab = lesson["lab"]
     kind = lab["kind"]
-    lab_html = {"four": render_calfour_lab, "press": render_calpress_lab, "yong": render_calyong_lab, "order": render_calorder_lab, "oracle": render_caloracle_lab, "clerical": render_calclerical_lab, "speed": render_calspeed_lab, "lanting": render_callanting_lab}[kind](lesson)
+    lab_html = {"four": render_calfour_lab, "press": render_calpress_lab, "yong": render_calyong_lab, "order": render_calorder_lab, "oracle": render_caloracle_lab, "clerical": render_calclerical_lab, "speed": render_calspeed_lab, "lanting": render_callanting_lab, "styles": render_calstyles_lab}[kind](lesson)
 
     secs = []
     if lesson.get("parts"):
         cards = "".join(
             f'<article class="ph-card cg-part rvl">'
-            f'<div class="ph-ico cg-ico" aria-hidden="true">{_cg_mini(pt) if pt.get("mini") else _cg_oracle_svg(pt["evo"], 72) if pt.get("evo") else f'<canvas class="cg-mini" data-cg-cler="{pt["cler"]}"></canvas>' if pt.get("cler") else f'<canvas class="cg-mini" data-cg-script="{pt["script"]}" data-key="yong"></canvas>' if pt.get("script") else _cg_form_svg(_cal_lanting(pt["zhi"])["strokes"], 96) if pt.get("zhi") else _cg_char_svg(_CG_RULE_CHAR[pt["key"]], 72) if pt.get("glyph") else _cg_icon(pt["icon"])}</div>'
+            f'<div class="ph-ico cg-ico" aria-hidden="true">{_cg_mini(pt) if pt.get("mini") else _cg_oracle_svg(pt["evo"], 72) if pt.get("evo") else f'<canvas class="cg-mini" data-cg-cler="{pt["cler"]}"></canvas>' if pt.get("cler") else f'<canvas class="cg-mini" data-cg-script="{pt["script"]}" data-key="yong"></canvas>' if pt.get("script") else _cg_form_svg(_cal_lanting(pt["zhi"])["strokes"], 96) if pt.get("zhi") else f'<canvas class="cg-mini" data-cg-style="{pt["style"]}" data-key="{pt.get("ch", "")}"></canvas>' if pt.get("style") else _cg_char_svg(_CG_RULE_CHAR[pt["key"]], 72) if pt.get("glyph") else _cg_icon(pt["icon"])}</div>'
             f'<h3>{html.escape(pt["en"])}<span class="zh">{html.escape(pt["zh"])}</span></h3>'
             f'<p class="ph-meta"><span>{html.escape(pt["meta_en"])} · {html.escape(pt["meta_zh"])}</span></p>'
             f'<p class="ph-when">{html.escape(pt["text_en"])}<br><span class="zh">{html.escape(pt["text_zh"])}</span></p>'
             f'{_cg_evo(pt["evo"]) if pt.get("evo") else ""}'
-            f'<button type="button" class="ph-go" data-lab-demo="{pt["demo"]}">{"Watch it in 3D · 在模型中看" if pt.get("mini") or pt.get("glyph") or pt.get("evo") or pt.get("cler") or pt.get("script") or pt.get("zhi") else "Try it in 3D · 在模型中試"} <i>&uarr;</i></button>'
+            f'<button type="button" class="ph-go" data-lab-demo="{pt["demo"]}">{"Watch it in 3D · 在模型中看" if pt.get("mini") or pt.get("glyph") or pt.get("evo") or pt.get("cler") or pt.get("script") or pt.get("zhi") or pt.get("style") else "Try it in 3D · 在模型中試"} <i>&uarr;</i></button>'
             f'</article>' for pt in lesson["parts"])
         ph = lesson["parts_head"]
         secs.append(("parts", ph["eyebrow"], ph["en"], ph["zh"], f'<div class="ph-grid stagger">{cards}</div>',
@@ -7859,6 +7973,12 @@ def build_cal_lesson(ui, unit, lesson):
     if lesson.get("which"):
         wh = lesson["which"]
         secs.append(("which", wh["eyebrow"], wh["en"], wh["zh"], _cal_which(wh), _bi(wh["lead_en"], wh["lead_zh"], cls="lead rvl d2")))
+    if lesson.get("pairs"):
+        pr = lesson["pairs"]
+        secs.append(("pairs", pr["eyebrow"], pr["en"], pr["zh"], _cal_pairs(pr), _bi(pr["lead_en"], pr["lead_zh"], cls="lead rvl d2")))
+    if lesson.get("who"):
+        wh = lesson["who"]
+        secs.append(("who", wh["eyebrow"], wh["en"], wh["zh"], _cal_who(wh), _bi(wh["lead_en"], wh["lead_zh"], cls="lead rvl d2")))
     if lesson.get("zhi20"):
         z = lesson["zhi20"]
         secs.append(("zhi20", z["eyebrow"], z["en"], z["zh"], _cal_zhi20(z), _bi(z["lead_en"], z["lead_zh"], cls="lead rvl d2")))
@@ -7900,7 +8020,8 @@ def build_cal_lesson(ui, unit, lesson):
                 "oracle": ("Three thousand years in a sentence", "一句話記住三千年"),
                 "clerical": ("Clerical script in a sentence", "一句話記住隸書"),
                 "speed": ("Three scripts in a sentence", "一句話記住楷行草"),
-                "lanting": ("The Lanting Xu in a sentence", "一句話記住蘭亭序")}[kind]
+                "lanting": ("The Lanting Xu in a sentence", "一句話記住蘭亭序"),
+                "styles": ("Yan and Liu in a sentence", "一句話記住顏筋柳骨")}[kind]
     secs.append(("tricks", "Remember It · 記憶口訣", tricks_h[0], tricks_h[1], _sci_tricks(lesson), ""))
     if lesson.get("safety"):
         items = "".join(f'<li class="rvl">{html.escape(s["en"])}<span class="zh">{html.escape(s["zh"])}</span></li>' for s in lesson["safety"])
@@ -7965,7 +8086,7 @@ def build_cal_lesson(ui, unit, lesson):
 def build_cal_hub():
     # 照晶片與半導體：單元導覽＋每個單元一段橫向課程卡；做好的課可點，planned 是「製作中」卡。
     def icon(l):
-        return calfour_svg(60) if l.get("card") == "four" else calpress_svg(60) if l.get("card") == "press" else calyong_svg(60) if l.get("card") == "yong" else calorder_svg(60) if l.get("card") == "order" else caloracle_svg(60) if l.get("card") == "oracle" else calclerical_svg(60) if l.get("card") == "clerical" else calspeed_svg(60) if l.get("card") == "speed" else callanting_svg(60) if l.get("card") == "lanting" else l["icon"]
+        return calfour_svg(60) if l.get("card") == "four" else calpress_svg(60) if l.get("card") == "press" else calyong_svg(60) if l.get("card") == "yong" else calorder_svg(60) if l.get("card") == "order" else caloracle_svg(60) if l.get("card") == "oracle" else calclerical_svg(60) if l.get("card") == "clerical" else calspeed_svg(60) if l.get("card") == "speed" else callanting_svg(60) if l.get("card") == "lanting" else calstyles_svg(60) if l.get("card") == "styles" else l["icon"]
     unit_sections, nav = [], []
     done = sum(len(u["lessons"]) for u in CAL["units"])
     total = done + sum(len(u.get("planned", [])) for u in CAL["units"])

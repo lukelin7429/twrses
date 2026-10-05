@@ -504,3 +504,63 @@ a.cg-link:hover { transform: translateY(-3px); box-shadow: var(--shadow); border
 .cg-same-opts button.ok { border-color: #2f8f5b; box-shadow: 0 0 0 3px rgba(47,143,91,.3); }
 .cg-same-opts button.no { border-color: #d6483c; opacity: .45; }
 .cg-ico:has(> svg[viewBox="0 0 60 60"][width="96"]) { width: 112px; height: 112px; border-radius: 20px; }
+
+/* =====================================================================
+   第九課：顏筋柳骨（兩枝筆同時寫、提按曲線、同字比較、這是誰的字、你的線條像誰）
+   ===================================================================== */
+.cg-modes3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.cg-modes3 button { font-size: .68rem; }
+.cg-chars4x { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.cg-sty-strokes { display: flex; flex-wrap: wrap; gap: .35rem; margin-bottom: .8rem; }
+.cg-sty-strokes button { flex: 1 1 0; min-width: 44px; }
+.cg-sty-strokes button small { font-family: var(--zh); }
+.cg-sty-curve-w { margin: 0 0 .8rem; padding: .55rem .6rem .5rem; border-radius: 14px; background: #fbf8f1; }
+.cg-sty-curve-k { margin: 0 0 .3rem; font-size: .74rem; font-weight: 800; color: #2b2418; line-height: 1.3; }
+.cg-sty-curve-k .zh { display: block; font-family: var(--zh); font-weight: 600; font-size: .72rem; color: #6b5d43; }
+.cg-sty-curve { display: block; width: 100%; height: 104px; border-radius: 8px; }
+.cg-sty-key { margin: .35rem 0 0 !important; font-size: .66rem !important; color: #4d4331 !important; }
+.cg-sty-key span { display: block; margin-top: .15rem; opacity: .8; }
+.cg-sty-table { margin-bottom: .5rem; }
+.cg-sty-table thead th:first-of-type b { color: #ffd36e; }
+.cg-sty-table thead th:last-of-type b { color: #8fd3ea; }
+.cg-sty-from { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .4rem; margin: 0 0 .7rem; font-size: .66rem; line-height: 1.35; color: var(--al-mute); }
+.cg-sty-from b { display: block; font-family: var(--zh); color: #fff; font-size: .72rem; }
+.cg-sty-from i { font-style: normal; font-family: var(--zh); }
+.cg-styles-lab .cg-sty-msg { min-height: 4.4em; margin-top: 0; }
+.al-lab.cg-lb-yan { border-color: rgba(255,211,110,.8); }
+.al-lab.cg-lb-liu { border-color: rgba(143,211,234,.8); }
+@media (max-width: 1020px) { .cg-sty-curve-w, .cg-sty-table, .cg-sty-from { max-width: 520px; } }
+
+/* 同一個字，不同的人寫 */
+.cg-pairs-w { margin-top: 1.4rem; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.cg-pairs { width: 100%; border-collapse: separate; border-spacing: .6rem; table-layout: fixed; }
+.cg-pairs thead td { width: 4.2rem; }
+.cg-pairs thead th { padding: 0 0 .2rem; text-align: center; font-size: .78rem; font-weight: 800; color: var(--ink-soft); line-height: 1.3; }
+.cg-pairs thead th b { display: block; font-family: var(--zh); font-size: 1.15rem; color: var(--ink); }
+.cg-pairs thead th small { display: block; font-family: var(--zh); font-weight: 600; font-size: .7rem; }
+.cg-pairs tbody th { text-align: center; font-size: .72rem; font-weight: 800; color: var(--ink-soft); }
+.cg-pairs tbody th b { display: block; font-family: var(--zh); font-size: 1.7rem; color: var(--ink); line-height: 1.1; }
+.cg-pairs td { padding: 0; }
+.cg-pairs td img { display: block; width: 100%; height: auto; aspect-ratio: 1; object-fit: cover; border-radius: 14px; border: 1px solid var(--line); box-shadow: var(--shadow-sm); background: #222; }
+.cg-pair-x { text-align: center; color: var(--ink-soft); }
+@media (max-width: 620px) { .cg-pairs { border-spacing: .35rem; } .cg-pairs thead td { width: 2.6rem; } .cg-pairs tbody th b { font-size: 1.25rem; } .cg-pairs thead th { font-size: .62rem; } .cg-pairs thead th b { font-size: .92rem; } .cg-pairs thead th small { display: none; } .cg-pairs td img { border-radius: 9px; } }
+
+/* 這是誰的字？ */
+.cg-who-opts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.cg-who-opts button { height: auto; min-height: 72px; padding: .5rem .4rem; font-size: 1.5rem; line-height: 1.15; }
+.cg-who-opts button span { display: block; font-family: var(--sans); font-size: .72rem; font-weight: 800; opacity: .8; }
+.cg-who .cg-sheet-credit { margin-top: 1rem; }
+@media (max-width: 480px) { .cg-who-opts button { min-height: 60px; font-size: 1.25rem; } }
+
+/* 練字板：你的線條比較像誰？ */
+.cg-like-ends { display: flex; justify-content: space-between; margin: .2rem 0 .3rem; font-weight: 800; font-size: .86rem; color: var(--ink); }
+.cg-like-ends small { display: block; font-weight: 600; font-size: .7rem; color: var(--ink-soft); }
+.cg-like-ends span:last-child { text-align: right; }
+.cg-like-bar { position: relative; height: 14px; margin: 0 0 .7rem; border-radius: 99px; background: linear-gradient(90deg, #8fd3ea, #f1e6c8 50%, #d9a441); }
+.cg-like-bar i { position: absolute; top: 50%; left: 50%; width: 22px; height: 22px; margin: -11px 0 0 -11px; border-radius: 50%; background: #fff; border: 3px solid var(--ink); box-shadow: var(--shadow-sm); transition: left .35s; opacity: .35; }
+.cg-pad-like.has .cg-like-bar i { opacity: 1; }
+.cg-like-t { margin: 0 0 .4rem; font-size: .92rem; line-height: 1.5; color: var(--ink); }
+.cg-like-t .zh { display: block; font-family: var(--zh); color: var(--ink-soft); font-size: .88rem; }
+.al-lg-cgsy i { border: 0; border-radius: 3px; height: 5px; margin-top: .5rem; background: #d9a441; }
+.al-lg-cgsl i { border: 0; border-radius: 3px; height: 5px; margin-top: .5rem; background: #4fa3c4; }
+.al-lg-cgsg i { border: 2px solid #cd3e32; border-radius: 2px; background: transparent; }

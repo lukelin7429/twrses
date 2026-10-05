@@ -5656,14 +5656,14 @@
               "note_zh": "讀全文與逐句白話翻譯：前半寫一場愉快的聚會，後半想到時間、生與死。"
             },
             {
-              "soon": true,
               "icon": "💪",
-              "k_en": "Lesson 9 · Coming soon",
-              "k_zh": "第九課・製作中",
+              "k_en": "Next Lesson · Lesson 9",
+              "k_zh": "下一課・第九課",
               "en": "Strong Muscle, Hard Bone: Why Does Every Calligrapher's Writing Look Different?",
               "zh": "顏筋柳骨：為什麼每個書法家的字都不一樣？",
               "note_en": "Tang dynasty masters learned from Wang Xizhi and then found styles of their own.",
-              "note_zh": "唐代的書法家向王羲之學習，再寫出自己的風格。"
+              "note_zh": "唐代的書法家向王羲之學習，再寫出自己的風格。",
+              "href": "/resources/classes/calligraphy/yan-and-liu/"
             }
           ],
           "culture_cards": {
@@ -5967,15 +5967,822 @@
               "url": "https://zh.wikisource.org/wiki/%E5%9B%9B%E9%AB%94%E6%9B%B8%E5%8B%A2"
             }
           ]
+        },
+        {
+          "n": 9,
+          "slug": "yan-and-liu",
+          "title": "Strong Muscle, Hard Bone: Why Does Every Calligrapher's Writing Look Different?",
+          "title_zh": "顏筋柳骨：為什麼每個書法家的字都不一樣？",
+          "level": "入門 · Beginner",
+          "icon": "💪",
+          "card": "styles",
+          "blurb_en": "Yan Zhenqing and Liu Gongquan both wrote regular script in the Tang dynasty, yet you can tell them apart at a glance. Watch two brushes write the same character side by side in 3D, compare their press-and-lift curves, guess who wrote each character on real stone rubbings, and find out whose lines yours are closer to.",
+          "blurb_zh": "顏真卿和柳公權都是唐朝人，寫的都是楷書，可是一眼就分得出來。在 3D 裡看兩枝毛筆並排寫同一個字、比一比提按曲線，到真的拓本上猜猜每個字是誰寫的，再看看你的線條比較像誰。",
+          "big_idea_en": "Every calligrapher writes the same characters with the same strokes, but each one presses, lifts, and shapes them in a different way. Yan Zhenqing's lines are thick and full; Liu Gongquan's are lean and firm. Later writers summed it up in four characters: 顏筋柳骨, the muscle of Yan and the bone of Liu.",
+          "big_idea_zh": "每一位書法家寫的是同樣的字、同樣的筆畫，可是下筆的輕重、提按的方式、字的形狀，每個人都不一樣。顏真卿的線條又粗又飽滿，柳公權的線條又瘦又挺。後人用四個字來形容：「顏筋柳骨」。",
+          "lab": {
+            "kind": "styles",
+            "eyebrow": "3D Model · 3D 模型",
+            "title_en": "Two Brushes, One Character: Yan and Liu",
+            "title_zh": "兩枝筆寫同一個字：顏真卿和柳公權",
+            "how_en": "Drag to turn, and scroll or pinch to zoom. Two brushes write the same character at the same time: Yan Zhenqing's way on the left, Liu Gongquan's way on the right. Choose a character, replay one stroke at a time, and compare the two press-and-lift curves.",
+            "how_zh": "拖曳可以旋轉，滾輪或雙指可以縮放。兩枝毛筆同時寫同一個字：左邊是顏真卿的寫法，右邊是柳公權的寫法。可以換字、一筆一筆重播，再比一比兩條提按曲線。",
+            "modes": [
+              {
+                "key": "both",
+                "icon": "並",
+                "en": "Side by side",
+                "zh": "一起看"
+              },
+              {
+                "key": "yan",
+                "icon": "顏",
+                "en": "Yan",
+                "zh": "顏真卿"
+              },
+              {
+                "key": "liu",
+                "icon": "柳",
+                "en": "Liu",
+                "zh": "柳公權"
+              }
+            ],
+            "legend": [
+              {
+                "cls": "cgsy",
+                "en": "Gold curve: how hard Yan's brush presses",
+                "zh": "金色曲線：顏真卿的筆按得多重"
+              },
+              {
+                "cls": "cgsl",
+                "en": "Blue curve: how hard Liu's brush presses",
+                "zh": "藍色曲線：柳公權的筆按得多重"
+              },
+              {
+                "cls": "cgsg",
+                "en": "Red grid: the same 25-cm square on both sheets",
+                "zh": "紅色格線：兩張紙上一樣大的 25 公分方格"
+              }
+            ],
+            "scale_en": "A teaching model. Both characters are drawn at the same size so that the lines can be compared, and the brushes move by the same speed rules. The center lines are our own tracings over rubbings of the Duobao Pagoda Stele (Yan, 752) and the Xuanmi Pagoda Stele (Liu, 841); the thickness of each line is measured from those rubbings. The widths in the table are for a 25-cm square, and they count only the main part of each stroke. A stone carving and its rubbing are not exactly what the brush wrote, so the numbers are a guide, not a measurement of the original writing.",
+            "scale_zh": "這是教學用的示意模型。兩個字放大到同樣大，線條才能比較；兩枝筆照同一套速度規則移動。中心線是我們對著〈多寶塔碑〉（顏，752 年）和〈玄秘塔碑〉（柳，841 年）的拓本自己描的，每一點的粗細是從拓本上量出來的。表格裡的寬度是字寫在 25 公分方格裡的大小，只算每一筆中間的行筆。刻在石頭上再拓下來的字，和毛筆當初寫的不會完全一樣，所以這些數字只是參考，不是原蹟的測量值。",
+            "credit_html": "Model, stroke data, and the writing engine are drawn and programmed by My Culture Connect. The two forms of each character are our own tracings over public-domain rubbings: Yan Zhenqing, Duobao Pagoda Stele (<a href=\"https://commons.wikimedia.org/wiki/File:%E5%A4%9A%E5%AE%9D%E5%A1%94%E7%A2%91.%E5%94%90.%E9%A2%9C%E7%9C%9F%E5%8D%BF.%E4%B9%A6.%E5%8C%97%E5%AE%8B%E6%8B%93%E6%9C%AC.%E4%B8%9C%E4%BA%AC%E5%9B%BD%E7%AB%8B%E5%8D%9A%E7%89%A9%E9%A6%86%E8%97%8F.pdf\" target=\"_blank\" rel=\"noopener\">Wikimedia Commons</a>; Tokyo National Museum) and Liu Gongquan, Xuanmi Pagoda Stele (<a href=\"https://commons.wikimedia.org/wiki/File:%E5%94%90_%E6%9F%B3%E5%85%AC%E6%9D%83_%E7%8E%84%E7%A7%98%E5%A1%94%E7%A2%91%E6%95%B4%E6%8B%93.jpg\" target=\"_blank\" rel=\"noopener\">Wikimedia Commons</a>). · 模型、筆畫資料與寫字引擎由人師教育協會自繪、自寫；每個字的兩種寫法，是對著公有領域的拓本自己描的：顏真卿〈多寶塔碑〉（維基共享資源；東京國立博物館藏）、柳公權〈玄秘塔碑〉（維基共享資源）。"
+          },
+          "paras": [
+            "Ask two friends to write the character 大. They will use the same three strokes in the same order, but the two characters will not look the same. Calligraphers are like that too. Two of the most famous, Yan Zhenqing and Liu Gongquan, both lived in the Tang dynasty and both wrote regular script, yet people can tell their writing apart at a glance.",
+            "Yan Zhenqing was an official in the 700s. His lines are thick and full, and his characters look broad and steady. He was also known for his courage. When the general An Lushan rebelled, most cities in the north fell, but Yan had quietly repaired the walls of his city, Pingyuan, and stored food, so it was ready. In his seventies he was sent to speak with another rebel, who killed him because he would not give in.",
+            "Liu Gongquan was born about seventy years later. His lines are leaner, with sharp corners and a tight center, like a strong, thin frame. One day the emperor asked him how to use the brush well. Liu answered, “Using the brush depends on the heart. When the heart is upright, the brush is upright.” The emperor understood that Liu was really giving him advice about how to rule.",
+            "Almost two hundred years after Liu died, the Song dynasty writer Fan Zhongyan praised a friend's calligraphy with four characters: 顏筋柳骨, “the muscle of Yan and the bone of Liu.” The words stuck. Muscle stands for Yan's full, powerful lines; bone stands for Liu's hard, clean ones. Both are praise: the phrase means writing that is strong.",
+            "Where does the difference come from? Not from the characters, and not from the stroke order. It comes from how hard the brush presses, where it lifts, how each stroke begins and ends, and how the strokes are spaced. In our model, when both write the same character at the same size, Yan's lines are 1.2 to 1.5 times as thick as Liu's.",
+            "For more than a thousand years, students have learned regular script by copying masters such as these two, stroke by stroke. People often name four great masters of regular script together: Ouyang Xun, Yan Zhenqing, Liu Gongquan, and Zhao Mengfu. In this lesson, watch two brushes write side by side, guess who wrote each character, and then try both styles yourself."
+          ],
+          "paras_zh": [
+            "請兩位同學各寫一個「大」字。他們用的是同樣的三筆、同樣的筆順，可是寫出來的兩個字不會一樣。書法家也是這樣。顏真卿和柳公權是最有名的兩位：都是唐朝人，寫的都是楷書，可是大家一眼就能分出誰是誰。",
+            "顏真卿是西元八世紀的官員。他的線條又粗又飽滿，字看起來寬闊、穩重。他也以勇敢聞名：安祿山叛變的時候，北方的城池大多失守，只有他守的平原城，因為早就悄悄修好城牆、存好糧食，所以守得住。七十多歲時，他奉命去勸說另一個叛將，因為不肯屈服而被殺害。",
+            "柳公權比顏真卿晚出生大約七十年。他的線條比較瘦，轉角銳利，字的中心收得很緊，像一副又瘦又結實的骨架。有一次，皇帝問他怎樣才能把筆用好，他回答：「用筆在心，心正則筆正。」皇帝聽懂了——柳公權其實是在勸他好好治理國家。",
+            "柳公權去世後將近兩百年，宋朝的范仲淹用四個字稱讚朋友的書法：「顏筋柳骨」。這四個字就這樣流傳下來。「筋」說的是顏真卿飽滿有力的線條，「骨」說的是柳公權堅硬俐落的線條。兩個都是稱讚：意思是字寫得很有力。",
+            "差別是從哪裡來的？不是字不一樣，也不是筆順不一樣，而是毛筆按得多重、在哪裡提起來、每一筆怎麼開始和結束、筆畫之間怎麼安排。在我們的模型裡，兩個人把同一個字寫成同樣大的時候，顏真卿的線條是柳公權的 1.2 到 1.5 倍粗。",
+            "一千多年來，學楷書的人都是照著像他們這樣的名家，一筆一筆臨摹。大家常把四位楷書名家合在一起說：歐陽詢、顏真卿、柳公權、趙孟頫。這一課，看兩枝毛筆並排寫字，猜猜每個字是誰寫的，再自己兩種寫法都試試看。"
+          ],
+          "questions": [
+            "How are Yan Zhenqing's lines different from Liu Gongquan's?",
+            "What did Liu Gongquan tell the emperor about using the brush?",
+            "If the characters and the stroke order are the same, where does the difference between two calligraphers come from?"
+          ],
+          "answers": [
+            "Yan's lines are thick and full, and his characters look broad and steady. Liu's lines are leaner, with sharp corners and a tight center.",
+            "He said that using the brush depends on the heart: when the heart is upright, the brush is upright.",
+            "From how hard the brush presses, where it lifts, how each stroke begins and ends, and how the strokes are spaced."
+          ],
+          "vocab": [
+            {
+              "n": 1,
+              "w": "muscle",
+              "pos": "n.",
+              "zh": "肌肉",
+              "ex": "Swimming makes your arm <b>muscles</b> strong.",
+              "exzh": "游泳會讓手臂的肌肉變強壯。"
+            },
+            {
+              "n": 2,
+              "w": "bone",
+              "pos": "n.",
+              "zh": "骨頭",
+              "ex": "Milk helps your <b>bones</b> grow.",
+              "exzh": "牛奶幫助骨頭長大。"
+            },
+            {
+              "n": 3,
+              "w": "style",
+              "pos": "n.",
+              "zh": "風格；樣式",
+              "ex": "Each singer has a different <b>style</b>.",
+              "exzh": "每位歌手都有不同的風格。"
+            },
+            {
+              "n": 4,
+              "w": "lean",
+              "pos": "adj.",
+              "zh": "瘦而結實的",
+              "ex": "The runner was tall and <b>lean</b>.",
+              "exzh": "那位跑者又高又精瘦。"
+            },
+            {
+              "n": 5,
+              "w": "firm",
+              "pos": "adj.",
+              "zh": "堅定的；結實的",
+              "ex": "Give the door a <b>firm</b> push.",
+              "exzh": "用力、穩穩地推一下門。"
+            },
+            {
+              "n": 6,
+              "w": "courage",
+              "pos": "n.",
+              "zh": "勇氣",
+              "ex": "It takes <b>courage</b> to say you are sorry.",
+              "exzh": "說對不起需要勇氣。"
+            },
+            {
+              "n": 7,
+              "w": "rebel",
+              "pos": "v. / n.",
+              "zh": "叛變；叛軍",
+              "ex": "The soldiers <b>rebelled</b> against the king.",
+              "exzh": "士兵們起來反抗國王。"
+            },
+            {
+              "n": 8,
+              "w": "compare",
+              "pos": "v.",
+              "zh": "比較",
+              "ex": "<b>Compare</b> the two pictures and find five differences.",
+              "exzh": "比較這兩張圖，找出五個不一樣的地方。"
+            }
+          ],
+          "quiz": [
+            {
+              "q": "In which dynasty did Yan Zhenqing and Liu Gongquan live?",
+              "options": [
+                "The Tang dynasty",
+                "The Han dynasty",
+                "The Shang dynasty",
+                "The Qing dynasty"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "Whose lines are thick and full?",
+              "options": [
+                "Yan Zhenqing's",
+                "Liu Gongquan's",
+                "Both the same",
+                "Neither"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "What does 顏筋柳骨 mean?",
+              "options": [
+                "The muscle of Yan and the bone of Liu",
+                "Yan is tall and Liu is short",
+                "A willow tree in spring",
+                "A doctor's lesson about the body"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "What did Liu Gongquan say makes the brush upright?",
+              "options": [
+                "An upright heart",
+                "An expensive brush",
+                "A heavy inkstone",
+                "A fast hand"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "Two calligraphers write the same character. What can be different?",
+              "options": [
+                "How hard they press and how they shape each stroke",
+                "The number of strokes",
+                "The meaning of the character",
+                "The stroke order"
+              ],
+              "correct": 0
+            }
+          ],
+          "parts_head": {
+            "eyebrow": "Two Masters · 兩位書法家",
+            "en": "Muscle and bone",
+            "zh": "筋與骨"
+          },
+          "parts": [
+            {
+              "key": "yan",
+              "style": "yan",
+              "ch": "da",
+              "demo": "yan",
+              "en": "Yan Zhenqing: muscle",
+              "zh": "顏真卿：筋",
+              "meta_en": "Tang dynasty · model: Duobao Pagoda Stele, 752",
+              "meta_zh": "唐・範本：〈多寶塔碑〉（752）",
+              "text_en": "Thick, full lines. The right-falling stroke swells into a heavy foot. The dictionary describes his writing as powerful, grand, and dignified.",
+              "text_zh": "線條又粗又飽滿，捺的末端有厚重的捺腳。教育部辭典形容他的字「筆力勁拔，雄渾莊重」。"
+            },
+            {
+              "key": "liu",
+              "style": "liu",
+              "ch": "da",
+              "demo": "liu",
+              "en": "Liu Gongquan: bone",
+              "zh": "柳公權：骨",
+              "meta_en": "Tang dynasty · model: Xuanmi Pagoda Stele, 841",
+              "meta_zh": "唐・範本：〈玄秘塔碑〉（841）",
+              "text_en": "Leaner lines with sharp corners, and the strokes pull in tightly toward the center. The dictionary describes his writing as strong in bone and tight in structure.",
+              "text_zh": "線條比較瘦，轉角銳利，筆畫往字的中心收緊。教育部辭典形容他的字「骨力遒健，結構緊密」。"
+            }
+          ],
+          "parts_note_en": "These two 大 are our own tracings over the rubbings. Tap Watch it in 3D to see each one written.",
+          "parts_note_zh": "這兩個「大」是我們對著拓本描的。點「在模型中看」，看毛筆怎麼寫出來。",
+          "pad": {
+            "eyebrow": "Practice Pad · 練字板",
+            "en": "Write like Yan, write like Liu",
+            "zh": "學顏真卿寫，學柳公權寫",
+            "char": "shi-yan",
+            "curve": false,
+            "masters": true,
+            "lead_en": "Choose a model and a character, then trace it. With a mouse or a finger, slow means thick and fast means thin. The bar shows whose lines yours are closer to.",
+            "lead_zh": "選一位書法家的範本和一個字，描寫看看。用滑鼠或手指時，寫得慢線就粗、寫得快線就細。下面的橫條會告訴你，你的線條粗細比較接近誰。",
+            "tips": [
+              {
+                "en": "For Yan: go slowly and let every line grow thick and full.",
+                "zh": "學顏：慢慢寫，讓每一筆都又粗又飽滿。"
+              },
+              {
+                "en": "For Liu: move a little faster, keep the lines thin, and stop firmly at each corner.",
+                "zh": "學柳：寫快一點，線條細細的，轉角的地方穩穩停一下。"
+              },
+              {
+                "en": "Write the same character both ways and look at them side by side.",
+                "zh": "同一個字用兩種方法各寫一次，放在一起看。"
+              }
+            ]
+          },
+          "links_head": {
+            "eyebrow": "Read More · 延伸閱讀",
+            "en": "The lesson before, and what comes next",
+            "zh": "上一課，和下一課"
+          },
+          "links": [
+            {
+              "href": "/resources/classes/calligraphy/wang-xizhi/",
+              "icon": "🍶",
+              "k_en": "Lesson 8",
+              "k_zh": "第八課",
+              "en": "Why Is Wang Xizhi Called the Sage of Calligraphy?",
+              "zh": "書聖王羲之：蘭亭序的故事",
+              "note_en": "Liu Gongquan began by studying Wang Xizhi's writing, and then found a style of his own.",
+              "note_zh": "柳公權一開始學的就是王羲之的字，後來才寫出自己的風格。"
+            },
+            {
+              "href": "/resources/classes/calligraphy/thick-and-thin/",
+              "icon": "〰️",
+              "k_en": "Lesson 2",
+              "k_zh": "第二課",
+              "en": "How Does a Brush Make Thick and Thin Lines?",
+              "zh": "一枝毛筆怎麼寫出粗細？",
+              "note_en": "Press for thick, lift for thin: the same skill makes Yan's full lines and Liu's lean ones.",
+              "note_zh": "按下去就粗、提起來就細：顏真卿飽滿的線和柳公權清瘦的線，靠的是同一個基本功。"
+            },
+            {
+              "soon": true,
+              "icon": "🏛️",
+              "k_en": "Lesson 10 · Coming soon",
+              "k_zh": "第十課・製作中",
+              "en": "What Treasures of Calligraphy Can You See in Taiwan?",
+              "zh": "故宮裡的書法國寶",
+              "note_en": "Famous works by Wang Xizhi, Yan Zhenqing, Huaisu, and Su Shi are kept in Taipei.",
+              "note_zh": "王羲之、顏真卿、懷素、蘇軾的名作，就收藏在台北。"
+            }
+          ],
+          "culture_cards": {
+            "eyebrow": "Stories and Treasures · 故事與國寶",
+            "title_en": "Four characters of praise, advice for an emperor, a draft full of grief, and a name worth gold",
+            "title_zh": "四個字的稱讚、給皇帝的忠告、滿紙悲傷的草稿，和值千金的名字",
+            "lead_en": "Where the phrase comes from, what the history books say about the two men, and one work by Yan Zhenqing that you can see in Taipei.",
+            "lead_zh": "「顏筋柳骨」是怎麼來的、史書怎麼記這兩個人，還有一件在台北看得到的顏真卿真跡。",
+            "cards": [
+              {
+                "k": "The Phrase · 出處",
+                "en": "Who first said 顏筋柳骨?",
+                "zh": "「顏筋柳骨」是誰說的？",
+                "body_en": "In 1043 the Song dynasty statesman Fan Zhongyan wrote a farewell to his dead friend Shi Manqing. One line says, “Manqing's brush: the muscle of Yan, the bone of Liu.” So the phrase began as praise for a third person whose writing had the strengths of both. Later it came to describe Yan and Liu themselves.",
+                "body_zh": "宋仁宗慶曆三年（1043），范仲淹為過世的朋友石曼卿寫了一篇祭文，裡面說：「曼卿之筆，顏筋柳骨。」（蘇軾引用的寫法）所以這四個字一開始，是稱讚「第三個人」的字兼有兩家的長處；後來才用來形容顏真卿和柳公權本人。"
+              },
+              {
+                "k": "Advice · 筆諫",
+                "en": "“When the heart is upright, the brush is upright”",
+                "zh": "心正則筆正",
+                "body_en": "The Old Book of Tang says that Emperor Muzong once asked Liu Gongquan how to use the brush perfectly. Liu replied, “Using the brush depends on the heart; when the heart is upright, the brush is upright.” The emperor's face changed: he knew Liu was using the brush to give him advice.",
+                "body_zh": "《舊唐書》記載：唐穆宗「嘗問公權筆何盡善，對曰：『用筆在心，心正則筆正。』上改容，知其筆諫也。」——皇帝的臉色變了，因為他知道柳公權是藉著談毛筆來勸他。"
+              },
+              {
+                "k": "Taiwan · 台灣",
+                "en": "A draft full of grief, in Taipei",
+                "zh": "台北故宮的〈祭姪文稿〉",
+                "body_en": "In 758 Yan Zhenqing wrote a draft to mourn his nephew Jiming, who was killed in the rebellion. He crossed out and changed words as he went: an old note on the scroll counts 234 characters plus 34 crossed out. The Yuan dynasty collector Xianyu Shu called it “the second-best running script under heaven.” It is in the National Palace Museum in Taipei and is a National Treasure.",
+                "body_zh": "乾元元年（758），顏真卿為在戰亂中遇害的姪子季明寫了一篇祭文的草稿。他邊寫邊塗改：卷後的舊題記數過，一共 234 個字，另外塗掉 34 個字。元代的鮮于樞稱它「天下行書第二」。這件作品收藏在台北的國立故宮博物院，是國寶。"
+              },
+              {
+                "k": "Fame · 名氣",
+                "en": "A name worth gold",
+                "zh": "「此購柳書」",
+                "body_en": "The Old Book of Tang says that when a great family set up a memorial stone and the writing was not by Liu Gongquan, people thought the children had failed in their duty to their parents. Envoys from other lands even brought a separate sum of money, marked “for buying Liu's calligraphy.”",
+                "body_zh": "《舊唐書》說：「當時公卿大臣家碑板，不得公權手筆者，人以為不孝。外夷入貢，皆別署貨貝，曰此購柳書。」——大官家裡立碑，如果不是柳公權寫的，別人會覺得子孫不孝；外國使者來進貢，還特別另外準備一筆錢，寫明是「買柳公權的字」用的。"
+              }
+            ]
+          },
+          "myths": [
+            {
+              "myth_en": "Yan Zhenqing's writing was always thick and heavy.",
+              "myth_zh": "顏真卿的字一直都又粗又重。",
+              "fact_en": "The Duobao Pagoda Stele, which our model follows, is his earliest surviving work, written when he was 44. The National Palace Museum notes that it is cleaner and leaner than the grand, heavy style of his middle and later years.",
+              "fact_zh": "我們模型參考的〈多寶塔碑〉是他傳世最早的作品，寫的時候四十四歲。故宮說這件作品「風格清勁，與中晚期的偉岸沉雄略有不同」——他後來的字更粗、更厚重。"
+            },
+            {
+              "myth_en": "“Muscle” is praise and “bone” is a complaint that Liu's writing is too thin.",
+              "myth_zh": "「筋」是稱讚，「骨」是嫌柳公權的字太瘦。",
+              "fact_en": "Both words are praise. The dictionary explains that the writing of Yan and Liu is strong and vigorous, and that is why people say 顏筋柳骨.",
+              "fact_zh": "兩個字都是稱讚。教育部辭典解釋：「唐代顏真卿、柳公權的書法，筆力遒勁，故稱為『顏筋柳骨』。」"
+            },
+            {
+              "myth_en": "The history books say Liu Gongquan learned from Yan Zhenqing.",
+              "myth_zh": "史書說柳公權是跟顏真卿學的。",
+              "fact_en": "The Old Book of Tang says only that he first studied Wang Xizhi and then looked widely at recent writers before forming his own style. It was the Song writer Su Shi who thought Liu's writing came out of Yan's.",
+              "fact_zh": "《舊唐書》只說他「初學王書，遍閱近代筆法，體勢勁媚，自成一家」。說「柳少師書，本出於顏」的是宋朝的蘇軾——那是蘇軾的看法。"
+            },
+            {
+              "myth_en": "Good handwriting proves that someone is a good person.",
+              "myth_zh": "字寫得好，就證明這個人是好人。",
+              "fact_en": "Old writers such as Su Shi liked to say that writing resembles the person, and Yan Zhenqing's life fits the idea well. But that is a way of looking at art, not a rule. Handwriting gets better with practice.",
+              "fact_zh": "蘇軾這些古人喜歡說「凡書象其為人」，顏真卿的一生也很符合這個說法。不過那是欣賞書法的一種看法，不是定律。字是練出來的。"
+            }
+          ],
+          "tricks": [
+            {
+              "title_en": "Muscle of Yan, bone of Liu",
+              "title_zh": "顏筋柳骨",
+              "body_en": "Yan: thick and full. Liu: lean and firm.",
+              "body_zh": "顏：粗而飽滿。柳：瘦而挺拔。"
+            },
+            {
+              "title_en": "Upright heart, upright brush",
+              "title_zh": "心正則筆正",
+              "body_en": "Liu Gongquan's answer to the emperor.",
+              "body_zh": "柳公權回答皇帝的話。"
+            },
+            {
+              "title_en": "Same strokes, different pressure",
+              "title_zh": "筆畫一樣，輕重不同",
+              "body_en": "Style comes from pressing, lifting, and spacing.",
+              "body_zh": "風格來自提按和結構。"
+            },
+            {
+              "title_en": "Ou, Yan, Liu, Zhao",
+              "title_zh": "歐、顏、柳、趙",
+              "body_en": "Four masters of regular script people often name together.",
+              "body_zh": "大家常合稱的四位楷書名家。"
+            }
+          ],
+          "safety": [
+            {
+              "en": "Ink stains clothes and is very hard to wash out. Wear old clothes or an apron, and roll up your sleeves.",
+              "zh": "墨沾到衣服很難洗掉：穿舊衣服或圍裙，袖子捲起來。"
+            },
+            {
+              "en": "Cover the desk with old newspaper, and keep the ink in a heavy, steady dish so it will not tip over.",
+              "zh": "桌上先鋪舊報紙；墨要裝在重一點、放得穩的碟子裡，免得打翻。"
+            },
+            {
+              "en": "Press gently. Crushing the brush against the paper squashes the hairs and can split or break them.",
+              "zh": "輕輕地按就好：把筆用力壓在紙上，筆毛會擠扁，也可能分岔或折斷。"
+            },
+            {
+              "en": "Do not put the brush, the ink, or the ink stick in your mouth, and do not lick the brush tip to shape it.",
+              "zh": "毛筆、墨汁、墨條都不要放進嘴裡，也不要用嘴巴舔筆尖。"
+            },
+            {
+              "en": "After writing, wash the brush in clean water until the water runs clear, gently shape it into a point, and hang it tip-down or lay it flat to dry. Wash your hands, too.",
+              "zh": "寫完後用清水洗筆，洗到水變清為止；輕輕把筆毛理成尖形，筆尖朝下掛起來或平放晾乾。也要洗手。"
+            }
+          ],
+          "activities": [
+            {
+              "title_en": "One Character, Two Ways",
+              "title_zh": "一個字，兩種寫法",
+              "materials": [
+                {
+                  "en": "A brush and clean water, with newspaper or a water-writing cloth",
+                  "zh": "毛筆和清水，舊報紙或水寫布"
+                },
+                {
+                  "en": "This page's side-by-side model, on a screen",
+                  "zh": "這一頁的並排模型（用螢幕看）"
+                }
+              ],
+              "steps": [
+                {
+                  "en": "Watch the two brushes write 十 in the model.",
+                  "zh": "先看模型裡兩枝筆寫「十」。"
+                },
+                {
+                  "en": "Write 十 the Yan way: press down more and move slowly.",
+                  "zh": "學顏真卿寫一個「十」：按重一點、慢慢寫。"
+                },
+                {
+                  "en": "Write 十 the Liu way: press less, keep the line thin, and stop firmly at the ends.",
+                  "zh": "學柳公權寫一個「十」：按輕一點、線條細細的，收筆穩穩停住。"
+                },
+                {
+                  "en": "Do the same with 人 and 大. Show a partner and ask which is which.",
+                  "zh": "「人」和「大」也各寫兩種。給同伴看，請他猜哪個是哪一種。"
+                }
+              ],
+              "tip_en": "Use water first. When you can make the two look different, try it with ink.",
+              "tip_zh": "先用清水練。兩種寫得出差別以後，再用墨寫。"
+            },
+            {
+              "title_en": "Handwriting Detectives",
+              "title_zh": "筆跡小偵探",
+              "materials": [
+                {
+                  "en": "Small cards and pencils or pens",
+                  "zh": "小卡片和鉛筆或原子筆"
+                },
+                {
+                  "en": "A box to collect the cards",
+                  "zh": "一個收卡片的盒子"
+                }
+              ],
+              "steps": [
+                {
+                  "en": "Everyone writes the same three characters, 大 人 十, on a card, with no name.",
+                  "zh": "每個人在卡片上寫同樣的三個字「大、人、十」，不要寫名字。"
+                },
+                {
+                  "en": "Mix the cards. Each group takes five and guesses who wrote each one.",
+                  "zh": "把卡片混在一起。每組抽五張，猜猜各是誰寫的。"
+                },
+                {
+                  "en": "Say what clue you used: thick or thin lines? Big or small? Leaning or straight?",
+                  "zh": "說出你用的線索：線條粗還是細？字大還是小？歪的還是正的？"
+                },
+                {
+                  "en": "Talk about it: what makes each person's writing their own?",
+                  "zh": "討論：每個人的字，是哪些地方讓它有自己的樣子？"
+                }
+              ],
+              "tip_en": "Describe the writing, not the writer: every style has its strengths.",
+              "tip_zh": "只描述字，不評論人：每一種風格都有它的長處。"
+            }
+          ],
+          "sources": [
+            {
+              "en": "顏筋柳骨: the calligraphy of Yan Zhenqing and Liu Gongquan is strong and vigorous, hence the phrase",
+              "zh": "顏筋柳骨：「唐代顏真卿、柳公權的書法，筆力遒勁，故稱為『顏筋柳骨』。」",
+              "src": "教育部《重編國語辭典修訂本》「顏筋柳骨」",
+              "url": "https://dict.revised.moe.edu.tw/dictView.jsp?ID=155363"
+            },
+            {
+              "en": "Yan Zhenqing: governor of Pingyuan; resisted An Lushan; killed by Li Xilie; writing powerful, grand, and dignified (the dictionary gives 708–784; the National Palace Museum gives 709–785)",
+              "zh": "顏真卿：「玄宗時為平原太守，安祿山反，倡義討賊…德宗時李希烈反，受命前往慰諭，為所縊殺…筆力勁拔，雄渾莊重，與柳公權並稱顏柳。」（辭典作西元 708～784；故宮作 709～785，生卒年各說不一）",
+              "src": "教育部《重編國語辭典修訂本》「顏真卿」",
+              "url": "https://dict.revised.moe.edu.tw/dictView.jsp?ID=155366"
+            },
+            {
+              "en": "Liu Gongquan (778–865): strong in bone, tight in structure; known together with Yan Zhenqing as “Yan and Liu”",
+              "zh": "柳公權：「（西元778～865）字誠懸…工書法，骨力遒健，結構緊密，體勢勁媚，自成一家。與顏真卿齊名，並稱『顏柳』。」",
+              "src": "教育部《重編國語辭典修訂本》「柳公權」",
+              "url": "https://dict.revised.moe.edu.tw/dictView.jsp?ID=63705"
+            },
+            {
+              "en": "Ouyang Xun (557–641) and Zhao Mengfu (1254–1322)",
+              "zh": "歐陽詢（西元557～641）「書體遒勁刻厲，自成一家」；趙孟頫（西元1254～1322）「工於書法，尤善行楷」",
+              "src": "教育部《重編國語辭典修訂本》「歐陽詢」「趙孟頫」",
+              "url": "https://dict.revised.moe.edu.tw/dictView.jsp?ID=147601"
+            },
+            {
+              "en": "Fan Zhongyan's farewell to Shi Manqing (1043), as quoted by Su Shi: “Manqing's brush: the muscle of Yan, the bone of Liu”",
+              "zh": "蘇軾〈書石曼卿詩筆後〉引范仲淹祭文：「曼卿之筆，顏筋柳骨。散落人間，寶為神物。」（祭文作於慶曆三年；《宣和書譜》轉引作「延年之筆」）",
+              "src": "維基文庫〈書石曼卿詩筆後〉",
+              "url": "https://zh.wikisource.org/wiki/%E6%9B%B8%E7%9F%B3%E6%9B%BC%E5%8D%BF%E8%A9%A9%E7%AD%86%E5%BE%8C"
+            },
+            {
+              "en": "Fan Zhongyan's original text, dated the third year of Qingli (1043)",
+              "zh": "范仲淹〈祭石學士文〉：「維慶厯三年九月…致祭于故友曼卿學士之靈」",
+              "src": "維基文庫《范文正公集》卷十",
+              "url": "https://zh.wikisource.org/wiki/%E8%8C%83%E6%96%87%E6%AD%A3%E5%85%AC%E9%9B%86/%E5%8D%B710"
+            },
+            {
+              "en": "“Using the brush depends on the heart”; memorial stones not written by Liu; envoys' money “for buying Liu's calligraphy”; he first studied Wang Xizhi",
+              "zh": "「用筆在心，心正則筆正。」上改容，知其筆諫也；「當時公卿大臣家碑板，不得公權手筆者，人以為不孝。外夷入貢，皆別署貨貝，曰此購柳書」；「公權初學王書，遍閱近代筆法，體勢勁媚，自成一家」",
+              "src": "維基文庫《舊唐書》卷一百六十五（柳公綽傳附公權）",
+              "url": "https://zh.wikisource.org/wiki/%E8%88%8A%E5%94%90%E6%9B%B8/%E5%8D%B7165"
+            },
+            {
+              "en": "Yan Zhenqing at Pingyuan: he repaired the walls and stored food before An Lushan rebelled; his death at the hands of Li Xilie, aged 77",
+              "zh": "「真卿以霖雨為托，修城浚池，陰料丁壯，儲廩實…祿山果反，河朔盡陷，獨平原城守具備」；「遂縊殺之，年七十七」",
+              "src": "維基文庫《舊唐書》卷一百二十八",
+              "url": "https://zh.wikisource.org/wiki/%E8%88%8A%E5%94%90%E6%9B%B8/%E5%8D%B7128"
+            },
+            {
+              "en": "The nephew Jiming was killed when his father refused to surrender",
+              "zh": "「取少子季明加刃頸上曰：『降我，當活而子。』杲卿不答。遂並盧逖殺之。」",
+              "src": "維基文庫《新唐書》卷一百九十二",
+              "url": "https://zh.wikisource.org/wiki/%E6%96%B0%E5%94%90%E6%9B%B8/%E5%8D%B7192"
+            },
+            {
+              "en": "Draft of a Requiem to My Nephew: written in 758; 234 characters plus 34 crossed out; Xianyu Shu: “the second-best running script under heaven”",
+              "zh": "〈祭姪文稿〉：「作於乾元元年（758）…文稿雖見增刪塗改，卻筆筆真情流露」；題跋「共計字二百三十四字。又塗抹三十四」；鮮于樞跋「天下行書第二。余家法書第一」",
+              "src": "國立故宮博物院典藏資料檢索〈唐顏真卿祭姪文稿 卷〉（故書000060）",
+              "url": "https://digitalarchive.npm.gov.tw/Collection/Detail/3?dep=P"
+            },
+            {
+              "en": "Draft of a Requiem to My Nephew: designated a National Treasure on March 26, 2012",
+              "zh": "顏真卿祭姪文稿卷：國寶（2012-03-26 指定）",
+              "src": "文化部文化資產局國家文化資產網",
+              "url": "https://nchdb.boch.gov.tw/assets/advanceSearch/antiquity/20120326000091"
+            },
+            {
+              "en": "Duobao Pagoda Stele: his earliest surviving work, written at 44; cleaner and leaner than his later style",
+              "zh": "〈多寶塔碑〉：「此碑是他傳世最早的作品，魯公書此碑時年四十四，因此風格清勁，與中晚期的偉岸沉雄略有不同。」",
+              "src": "國立故宮博物院典藏資料檢索〈宋拓多寶佛塔碑 冊〉（故帖000019）",
+              "url": "https://digitalarchive.npm.gov.tw/Collection/Detail/1947?dep=P"
+            },
+            {
+              "en": "Duobao Pagoda Stele: written by Yan Zhenqing; set up in the eleventh year of Tianbao (752)",
+              "zh": "〈多寶塔碑〉：「琅邪顏真卿書」「天寶十一載歲次壬辰四月…建」",
+              "src": "維基文庫〈西京千福寺多寶佛塔感應碑〉",
+              "url": "https://zh.wikisource.org/wiki/%E8%A5%BF%E4%BA%AC%E5%8D%83%E7%A6%8F%E5%AF%BA%E5%A4%9A%E5%AF%B6%E4%BD%9B%E5%A1%94%E6%84%9F%E6%87%89%E7%A2%91"
+            },
+            {
+              "en": "Xuanmi Pagoda Stele: text by Pei Xiu, written by Liu Gongquan; set up in the first year of Huichang (841)",
+              "zh": "〈玄秘塔碑〉：「裴休撰」「柳公權書并篆額」「會昌元年十二月廿八日建」",
+              "src": "維基文庫〈玄秘塔碑銘〉",
+              "url": "https://zh.wikisource.org/wiki/%E7%8E%84%E7%A7%98%E5%A1%94%E7%A2%91%E9%8A%98"
+            },
+            {
+              "en": "Su Shi: “Liu's writing came out of Yan's, yet he brought out new ideas of his own”; “writing resembles the person”",
+              "zh": "蘇軾：「柳少師書，本出於顏，而能自出新意」；「凡書象其為人」",
+              "src": "維基文庫〈書唐氏六家書後〉",
+              "url": "https://zh.wikisource.org/wiki/%E6%9B%B8%E5%94%90%E6%B0%8F%E5%85%AD%E5%AE%B6%E6%9B%B8%E5%BE%8C"
+            },
+            {
+              "en": "Rubbing used for the Yan forms and the gallery: Duobao Pagoda Stele, Northern Song rubbing, Tokyo National Museum (public domain)",
+              "zh": "顏體的參考拓本與圖片：〈多寶塔碑〉北宋拓本，東京國立博物館藏 TB-1371（公有領域）",
+              "src": "Wikimedia Commons",
+              "url": "https://commons.wikimedia.org/wiki/File:%E5%A4%9A%E5%AE%9D%E5%A1%94%E7%A2%91.%E5%94%90.%E9%A2%9C%E7%9C%9F%E5%8D%BF.%E4%B9%A6.%E5%8C%97%E5%AE%8B%E6%8B%93%E6%9C%AC.%E4%B8%9C%E4%BA%AC%E5%9B%BD%E7%AB%8B%E5%8D%9A%E7%89%A9%E9%A6%86%E8%97%8F.pdf"
+            },
+            {
+              "en": "Rubbing used for the Liu forms and the gallery: Xuanmi Pagoda Stele (public domain)",
+              "zh": "柳體的參考拓本與圖片：〈玄秘塔碑〉整拓（公有領域）",
+              "src": "Wikimedia Commons",
+              "url": "https://commons.wikimedia.org/wiki/File:%E5%94%90_%E6%9F%B3%E5%85%AC%E6%9D%83_%E7%8E%84%E7%A7%98%E5%A1%94%E7%A2%91%E6%95%B4%E6%8B%93.jpg"
+            },
+            {
+              "en": "Taiwan curriculum: know stories of famous calligraphers (4-Ⅱ-8); recognize scripts and appreciate famous works (4-Ⅳ-4)",
+              "zh": "十二年國教國語文領綱：4-Ⅱ-8「知道古今書法名家的故事。」4-Ⅳ-4「認識各種書體，欣賞名家碑帖。」",
+              "src": "國家教育研究院《十二年國民基本教育課程綱要 語文領域—國語文》",
+              "url": "https://www.naer.edu.tw/upload/1/16/doc/806/%E5%8D%81%E4%BA%8C%E5%B9%B4%E5%9C%8B%E6%B0%91%E5%9F%BA%E6%9C%AC%E6%95%99%E8%82%B2%E8%AA%B2%E7%A8%8B%E7%B6%B1%E8%A6%81%E5%9C%8B%E6%B0%91%E4%B8%AD%E5%B0%8F%E5%AD%B8%E6%9A%A8%E6%99%AE%E9%80%9A%E5%9E%8B%E9%AB%98%E7%B4%9A%E4%B8%AD%E7%AD%89%E5%AD%B8%E6%A0%A1%28%E8%AA%9E%E6%96%87%E9%A0%98%E5%9F%9F%E2%94%80%E5%9C%8B%E8%AA%9E%E6%96%87%29.pdf"
+            }
+          ],
+          "pairs": {
+            "eyebrow": "On the Stone · 碑帖上的字",
+            "en": "Same character, four masters",
+            "zh": "同一個字，四位書法家",
+            "lead_en": "Each row is one character written by four masters of regular script. Look across a row: which is the thickest? Which has the sharpest corners? Three are rubbings from stone (white on black); Zhao Mengfu's is ink on paper.",
+            "lead_zh": "每一列是同一個字，由四位楷書名家寫的。橫著看一列：誰最粗？誰的轉角最銳利？前三位是從石碑拓下來的（黑底白字），趙孟頫的是寫在紙上的墨跡。",
+            "cols": [
+              {
+                "key": "ou",
+                "en": "Ouyang Xun",
+                "zh": "歐陽詢",
+                "from_zh": "〈九成宮醴泉銘〉"
+              },
+              {
+                "key": "yan",
+                "en": "Yan Zhenqing",
+                "zh": "顏真卿",
+                "from_zh": "〈多寶塔碑〉"
+              },
+              {
+                "key": "liu",
+                "en": "Liu Gongquan",
+                "zh": "柳公權",
+                "from_zh": "〈玄秘塔碑〉"
+              },
+              {
+                "key": "zhao",
+                "en": "Zhao Mengfu",
+                "zh": "趙孟頫",
+                "from_zh": "〈膽巴碑〉"
+              }
+            ],
+            "rows": [
+              {
+                "zh": "大",
+                "en": "big",
+                "imgs": {
+                  "ou": "/assets/img/calligraphy/four-ou-da.jpg",
+                  "yan": "/assets/img/calligraphy/four-yan-da.jpg",
+                  "liu": "/assets/img/calligraphy/four-liu-da.jpg",
+                  "zhao": "/assets/img/calligraphy/four-zhao-da.jpg"
+                }
+              },
+              {
+                "zh": "之",
+                "en": "of",
+                "imgs": {
+                  "ou": "/assets/img/calligraphy/four-ou-zhi.jpg",
+                  "yan": "/assets/img/calligraphy/four-yan-zhi.jpg",
+                  "liu": "/assets/img/calligraphy/four-liu-zhi.jpg",
+                  "zhao": "/assets/img/calligraphy/four-zhao-zhi.jpg"
+                }
+              },
+              {
+                "zh": "無",
+                "en": "without",
+                "imgs": {
+                  "ou": "/assets/img/calligraphy/four-ou-wu.jpg",
+                  "yan": "/assets/img/calligraphy/four-yan-wu.jpg",
+                  "liu": "/assets/img/calligraphy/four-liu-wu.jpg",
+                  "zhao": "/assets/img/calligraphy/four-zhao-wu.jpg"
+                }
+              },
+              {
+                "zh": "以",
+                "en": "by",
+                "imgs": {
+                  "ou": "/assets/img/calligraphy/four-ou-yi.jpg",
+                  "yan": "/assets/img/calligraphy/four-yan-yi.jpg",
+                  "liu": "/assets/img/calligraphy/four-liu-yi.jpg",
+                  "zhao": "/assets/img/calligraphy/four-zhao-yi.jpg"
+                }
+              }
+            ],
+            "credit_html": "Ouyang Xun, Jiucheng Palace inscription, reproduction of a Tang rubbing, National Diet Library, Japan (<a href=\"https://commons.wikimedia.org/wiki/File:NDL1145008_%E4%B9%9D%E6%88%90%E5%AE%AE%E9%86%B4%E6%B3%89%E9%8A%98_-_%E6%B5%B7%E5%86%85%E7%AC%AC%E4%B8%80%E5%94%90%E6%8B%93%E6%9C%AC.pdf\" target=\"_blank\" rel=\"noopener\">Wikimedia Commons</a>, public domain); Yan Zhenqing, Duobao Pagoda Stele, Northern Song rubbing, Tokyo National Museum (<a href=\"https://commons.wikimedia.org/wiki/File:%E5%A4%9A%E5%AE%9D%E5%A1%94%E7%A2%91.%E5%94%90.%E9%A2%9C%E7%9C%9F%E5%8D%BF.%E4%B9%A6.%E5%8C%97%E5%AE%8B%E6%8B%93%E6%9C%AC.%E4%B8%9C%E4%BA%AC%E5%9B%BD%E7%AB%8B%E5%8D%9A%E7%89%A9%E9%A6%86%E8%97%8F.pdf\" target=\"_blank\" rel=\"noopener\">Wikimedia Commons</a>, public domain); Liu Gongquan, Xuanmi Pagoda Stele rubbing (<a href=\"https://commons.wikimedia.org/wiki/File:%E5%94%90_%E6%9F%B3%E5%85%AC%E6%9D%83_%E7%8E%84%E7%A7%98%E5%A1%94%E7%A2%91%E6%95%B4%E6%8B%93.jpg\" target=\"_blank\" rel=\"noopener\">Wikimedia Commons</a>, public domain); Zhao Mengfu, Danba Stele handscroll, Palace Museum, Beijing (<a href=\"https://commons.wikimedia.org/wiki/File:%E8%B5%B5%E5%AD%9F%E9%A0%AB%E6%A5%B7%E4%B9%A6%E5%B8%9D%E5%B8%88%E8%83%86%E5%B7%B4%E7%A2%91%E5%8D%B7.png\" target=\"_blank\" rel=\"noopener\">Wikimedia Commons</a>, public domain). · 歐陽詢〈九成宮醴泉銘〉唐拓本複製本，日本國立國會圖書館藏；顏真卿〈多寶塔碑〉北宋拓本，東京國立博物館藏；柳公權〈玄秘塔碑〉拓本；趙孟頫〈帝師膽巴碑〉卷，北京故宮博物院藏（皆取自維基共享資源，公有領域）。"
+          },
+          "who": {
+            "eyebrow": "Game · 小遊戲",
+            "en": "Who Wrote This?",
+            "zh": "這是誰的字？",
+            "lead_en": "Each character is cut from a real rubbing: the Duobao Pagoda Stele by Yan Zhenqing, or the Xuanmi Pagoda Stele by Liu Gongquan. We made the backgrounds the same, so you have to look at the lines.",
+            "lead_zh": "每個字都是從真的拓本上剪下來的：顏真卿的〈多寶塔碑〉，或柳公權的〈玄秘塔碑〉。我們把底色處理成一樣，所以要看線條才分得出來。",
+            "img": "/assets/img/calligraphy/yanliu-who.jpg",
+            "cols": 5,
+            "rows": 4,
+            "items": [
+              {
+                "who": "yan",
+                "zh": "千",
+                "from": "〈多寶塔碑〉",
+                "from_en": "Duobao Pagoda Stele"
+              },
+              {
+                "who": "yan",
+                "zh": "十",
+                "from": "〈多寶塔碑〉",
+                "from_en": "Duobao Pagoda Stele"
+              },
+              {
+                "who": "yan",
+                "zh": "三",
+                "from": "〈多寶塔碑〉",
+                "from_en": "Duobao Pagoda Stele"
+              },
+              {
+                "who": "yan",
+                "zh": "之",
+                "from": "〈多寶塔碑〉",
+                "from_en": "Duobao Pagoda Stele"
+              },
+              {
+                "who": "yan",
+                "zh": "下",
+                "from": "〈多寶塔碑〉",
+                "from_en": "Duobao Pagoda Stele"
+              },
+              {
+                "who": "yan",
+                "zh": "心",
+                "from": "〈多寶塔碑〉",
+                "from_en": "Duobao Pagoda Stele"
+              },
+              {
+                "who": "yan",
+                "zh": "中",
+                "from": "〈多寶塔碑〉",
+                "from_en": "Duobao Pagoda Stele"
+              },
+              {
+                "who": "yan",
+                "zh": "方",
+                "from": "〈多寶塔碑〉",
+                "from_en": "Duobao Pagoda Stele"
+              },
+              {
+                "who": "yan",
+                "zh": "法",
+                "from": "〈多寶塔碑〉",
+                "from_en": "Duobao Pagoda Stele"
+              },
+              {
+                "who": "yan",
+                "zh": "其",
+                "from": "〈多寶塔碑〉",
+                "from_en": "Duobao Pagoda Stele"
+              },
+              {
+                "who": "liu",
+                "zh": "千",
+                "from": "〈玄秘塔碑〉",
+                "from_en": "Xuanmi Pagoda Stele"
+              },
+              {
+                "who": "liu",
+                "zh": "十",
+                "from": "〈玄秘塔碑〉",
+                "from_en": "Xuanmi Pagoda Stele"
+              },
+              {
+                "who": "liu",
+                "zh": "三",
+                "from": "〈玄秘塔碑〉",
+                "from_en": "Xuanmi Pagoda Stele"
+              },
+              {
+                "who": "liu",
+                "zh": "之",
+                "from": "〈玄秘塔碑〉",
+                "from_en": "Xuanmi Pagoda Stele"
+              },
+              {
+                "who": "liu",
+                "zh": "下",
+                "from": "〈玄秘塔碑〉",
+                "from_en": "Xuanmi Pagoda Stele"
+              },
+              {
+                "who": "liu",
+                "zh": "心",
+                "from": "〈玄秘塔碑〉",
+                "from_en": "Xuanmi Pagoda Stele"
+              },
+              {
+                "who": "liu",
+                "zh": "中",
+                "from": "〈玄秘塔碑〉",
+                "from_en": "Xuanmi Pagoda Stele"
+              },
+              {
+                "who": "liu",
+                "zh": "方",
+                "from": "〈玄秘塔碑〉",
+                "from_en": "Xuanmi Pagoda Stele"
+              },
+              {
+                "who": "liu",
+                "zh": "法",
+                "from": "〈玄秘塔碑〉",
+                "from_en": "Xuanmi Pagoda Stele"
+              },
+              {
+                "who": "liu",
+                "zh": "其",
+                "from": "〈玄秘塔碑〉",
+                "from_en": "Xuanmi Pagoda Stele"
+              }
+            ],
+            "names": {
+              "yan": {
+                "en": "Yan Zhenqing",
+                "zh": "顏真卿",
+                "hint_en": "Yan's lines are thick and full, with heavy ends.",
+                "hint_zh": "顏真卿的線條又粗又飽滿，收筆很厚重。"
+              },
+              "liu": {
+                "en": "Liu Gongquan",
+                "zh": "柳公權",
+                "hint_en": "Liu's lines are leaner, with sharp corners and a tight center.",
+                "hint_zh": "柳公權的線條比較瘦，轉角銳利，中心收得很緊。"
+              }
+            },
+            "credit_html": "Rubbings: Yan Zhenqing, Duobao Pagoda Stele, Northern Song rubbing in the Tokyo National Museum (<a href=\"https://commons.wikimedia.org/wiki/File:%E5%A4%9A%E5%AE%9D%E5%A1%94%E7%A2%91.%E5%94%90.%E9%A2%9C%E7%9C%9F%E5%8D%BF.%E4%B9%A6.%E5%8C%97%E5%AE%8B%E6%8B%93%E6%9C%AC.%E4%B8%9C%E4%BA%AC%E5%9B%BD%E7%AB%8B%E5%8D%9A%E7%89%A9%E9%A6%86%E8%97%8F.pdf\" target=\"_blank\" rel=\"noopener\">Wikimedia Commons</a>, public domain); Liu Gongquan, Xuanmi Pagoda Stele (<a href=\"https://commons.wikimedia.org/wiki/File:%E5%94%90_%E6%9F%B3%E5%85%AC%E6%9D%83_%E7%8E%84%E7%A7%98%E5%A1%94%E7%A2%91%E6%95%B4%E6%8B%93.jpg\" target=\"_blank\" rel=\"noopener\">Wikimedia Commons</a>, public domain). · 拓本：顏真卿〈多寶塔碑〉北宋拓本，東京國立博物館藏（維基共享資源，公有領域）；柳公權〈玄秘塔碑〉拓本（維基共享資源，公有領域）。 Backgrounds evened out by us; the shapes of the characters are unchanged. · 底色經過我們處理，字的形狀沒有改。"
+          }
         }
       ],
       "planned": [
-        {
-          "n": 9,
-          "icon": "💪",
-          "en": "Strong Muscle, Hard Bone: Why Does Every Calligrapher's Writing Look Different?",
-          "zh": "顏筋柳骨：為什麼每個書法家的字都不一樣？"
-        },
         {
           "n": 10,
           "icon": "🏛️",
