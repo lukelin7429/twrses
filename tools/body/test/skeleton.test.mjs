@@ -22,3 +22,11 @@ const nodes = new Set(json.nodes.map((n) => n.name));
 for (const id of ids) assert.ok(nodes.has(id), `模型缺 ${id}`);
 assert.match(json.asset.copyright, /BodyParts3D.*CC Attribution 4\.0/);
 console.log(`skeleton: ${bones.length} bones OK, glb ${(glb.length / 1024).toFixed(0)} KB`);
+
+// organs.glb：真實器官（第十三課起），六個節點、同樣的授權標示
+const og = fs.readFileSync(new URL('../../../assets/models/organs.glb', import.meta.url));
+const ojson = JSON.parse(og.subarray(20, 20 + og.readUInt32LE(12)).toString('utf8'));
+const onodes = new Set(ojson.nodes.map((n) => n.name));
+for (const id of ['r-kidney', 'l-kidney', 'r-ureter', 'l-ureter', 'bladder', 'tongue']) assert.ok(onodes.has(id), `organs.glb 缺 ${id}`);
+assert.match(ojson.asset.copyright, /BodyParts3D.*CC Attribution 4\.0/);
+console.log(`organs: ${onodes.size} nodes OK, glb ${(og.length / 1024).toFixed(0)} KB`);

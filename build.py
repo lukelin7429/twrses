@@ -4311,11 +4311,11 @@ def build_astro_hub():
 # 面板與段落樣式沿用 astro.css，人體專屬的在 body.css；兩者都只載在本系列頁面。
 BODY_BASE = "/resources/classes/human-body/"
 _BODY_JS = {"skeleton": "skeleton", "arm": "arm", "heart": "heart", "lungs": "lungs", "joints": "joints",
-            "digestion": "digestion", "nerves": "nerves", "eyes": "eyes", "ears": "ears", "skin": "skin", "teeth": "teeth", "germs": "germs"}   # lab.kind → assets/js/<bundle>.js
+            "digestion": "digestion", "nerves": "nerves", "eyes": "eyes", "ears": "ears", "skin": "skin", "teeth": "teeth", "germs": "germs", "kidneys": "kidneys"}   # lab.kind → assets/js/<bundle>.js
 
 def _body_ver():
     h = hashlib.md5()
-    for rel in ("assets/css/astro.css", "assets/css/body.css", "assets/models/skeleton.glb",
+    for rel in ("assets/css/astro.css", "assets/css/body.css", "assets/models/skeleton.glb", "assets/models/organs.glb",
                 *(f"assets/js/{j}.js" for j in _BODY_JS.values())):
         fp = os.path.join(ROOT, rel)
         if os.path.exists(fp): h.update(open(fp, "rb").read())
@@ -4326,6 +4326,12 @@ def _model_url():
     fp = os.path.join(ROOT, "assets/models/skeleton.glb")
     v = hashlib.md5(open(fp, "rb").read()).hexdigest()[:8] if os.path.exists(fp) else "0"
     return f"/assets/models/skeleton.glb?v={v}"
+
+def _organs_url():
+    """真實器官模型（腎臟、輸尿管、膀胱、舌頭）的網址：版本號只看 glb 本身。"""
+    fp = os.path.join(ROOT, "assets/models/organs.glb")
+    v = hashlib.md5(open(fp, "rb").read()).hexdigest()[:8] if os.path.exists(fp) else "0"
+    return f"/assets/models/organs.glb?v={v}"
 
 def _body_head(js=None):
     v = _body_ver()
@@ -5051,6 +5057,66 @@ def render_germs_lab(lesson):
   <p class="sk-credit">{lab["credit_html"]}</p>
 </div>'''
 
+def render_kidneys_lab(lesson):
+    """第十三課：真實腎臟、輸尿管、膀胱＋自繪血管與腎元（assets/js/kidneys.js 綁這裡的 class）；喝水紀錄是 2D，不需要 WebGL。"""
+    lab = lesson["lab"]
+    cups = "".join(f'<button type="button" class="kd2-cup" data-i="{i}" aria-pressed="false" aria-label="Cup {i + 1} · 第 {i + 1} 杯"><i></i></button>' for i in range(12))
+    colors = [("#f7f3c4", "Almost clear", "幾乎透明"), ("#f3e27a", "Pale yellow", "淡黃色"), ("#e8c53a", "Yellow", "黃色"), ("#c98f1c", "Dark yellow", "深黃色")]
+    sw = "".join(f'<button type="button" class="kd2-sw" data-c="{i}" aria-pressed="false" style="--c:{c}"><i></i><span>{en}<small>{zh}</small></span></button>' for i, (c, en, zh) in enumerate(colors))
+    tg = _lab_toggles([("labels", "Labels", "標示", True), ("blood", "Blood flow", "血流", True), ("skel", "Skeleton", "骨架", True)])
+    return f'''<div class="astro-lab sk-lab kd2-lab rvl" data-kidneys-lab data-model="{_model_url()}" data-organs="{_organs_url()}">
+  <div class="al-stage">
+    <div class="al-space">
+      <canvas class="al-space-cv" aria-label="3D model of the real kidneys, ureters, and bladder, with blood flowing in and urine flowing out · 真實腎臟、輸尿管與膀胱的 3D 模型，血流進去、尿液流出來"></canvas>
+      <div class="al-labels" aria-hidden="true"></div>
+      <p class="sk-loading">Loading… · 載入中…<span class="sk-bar"><i></i></span></p>
+      <p class="al-hint">Drag to turn · 拖曳旋轉　Scroll or pinch to zoom · 滾輪／雙指縮放</p>
+      <p class="ey-mag">1 second = 20 minutes · 1 秒＝20 分鐘</p>
+      <button type="button" class="al-home" title="Reset view · 重設視角" aria-label="Reset view · 重設視角">&#8634;</button>
+      <p class="al-nogl-msg">This 3D model needs WebGL, which this browser does not support. The water tracker and the cards below still work.<br><span class="zh">這個瀏覽器不支援 WebGL，無法顯示 3D 模型；下方的喝水紀錄和卡片一樣能用。</span></p>
+    </div>
+    <aside class="al-sky sk-aside kd2-aside">
+      <p class="al-sky-k">Today so far · 今天到現在</p>
+      <p class="gm-time kd2-clock"><b class="kd2-t">7:00</b><span>on the model&#8217;s clock<small>模型裡的時間</small></span></p>
+      <dl class="ey-nums kd2-nums">
+        <div><dt>Blood filtered · 過濾的血</dt><dd class="kd2-filt">0 L</dd></div>
+        <div><dt>Urine made · 尿液</dt><dd class="kd2-urine">0 mL</dd></div>
+        <div><dt>Bladder · 膀胱</dt><dd class="kd2-blad">0%</dd></div>
+      </dl>
+      <div class="kd2-bladder" aria-hidden="true"><i class="kd2-fill"></i><span class="kd2-bl-t"></span></div>
+      <p class="ey-status kd2-status" aria-live="polite"></p>
+      <div class="ey-more kd2-more">
+        <button type="button" class="kd2-zoom" aria-pressed="false"><i aria-hidden="true">&#128300;</i><span>Zoom into a nephron<small>放大一顆腎元</small></span></button>
+        <button type="button" class="kd2-go" disabled><i aria-hidden="true">&#128701;</i><span>Go to the restroom<small>去上廁所</small></span></button>
+      </div>
+    </aside>
+  </div>
+  <div class="kd2-strip">
+    <div class="kd2-track">
+      <p class="al-sky-k">My water today · 我今天喝的水</p>
+      <div class="kd2-set">
+        <label>My weight<small>我的體重</small><span><input type="number" class="kd2-kg" min="10" max="120" step="1" inputmode="numeric" placeholder="30"> kg</span></label>
+        <label>My cup or bottle holds<small>我的杯子或水壺裝</small><span><input type="number" class="kd2-ml" min="50" max="1500" step="10" value="250" inputmode="numeric"> mL</span></label>
+      </div>
+      <div class="kd2-cups" role="group" aria-label="Cups I drank · 我喝了幾杯">{cups}</div>
+      <div class="kd2-bar" aria-hidden="true"><i></i><b></b></div>
+      <p class="kd2-total" aria-live="polite"></p>
+    </div>
+    <div class="kd2-color">
+      <p class="al-sky-k">Color card · 尿液顏色卡</p>
+      <div class="kd2-sws" role="group" aria-label="Urine color · 尿液顏色">{sw}</div>
+      <p class="kd2-color-msg" aria-live="polite">Next time you go to the restroom, tap the color closest to what you see.<span class="zh">下次上廁所時，點最接近的顏色。</span></p>
+    </div>
+  </div>
+  <div class="al-controls">
+    <label class="ec-slider kd2-water-row"><span class="ec-slider-k">Water you drank · 喝了多少水<em>very little · 很少 &harr; plenty · 很多</em></span>
+      <input type="range" class="ec-time kd2-water" min="0" max="100" step="1" value="55"></label>
+    <div class="al-row al-toggles">{tg}</div>
+  </div>
+  {_lab_foot(lab)}
+  <p class="sk-credit">{lab["credit_html"]}</p>
+</div>'''
+
 def _body_nav(slug):
     ls = BODY["lessons"]
     i = next(n for n, l in enumerate(ls) if l["slug"] == slug)
@@ -5077,7 +5143,7 @@ def build_body_lesson(lesson):
     lab_html = {"skeleton": render_skeleton_lab, "arm": render_arm_lab, "heart": render_heart_lab, "lungs": render_lungs_lab,
                 "joints": render_joints_lab, "digestion": render_digestion_lab, "nerves": render_nerves_lab,
                 "eyes": render_eyes_lab, "ears": render_ears_lab, "skin": render_skin_lab,
-                "teeth": render_teeth_lab, "germs": render_germs_lab}[kind](lesson)
+                "teeth": render_teeth_lab, "germs": render_germs_lab, "kidneys": render_kidneys_lab}[kind](lesson)
 
     secs = []
     if lesson.get("jobs"):
@@ -5182,7 +5248,8 @@ def build_body_lesson(lesson):
                 "nerves": ("Your nervous system in a sentence", "一句話記住神經系統"),
                 "eyes": ("Your eyes in a sentence", "一句話記住眼睛"), "ears": ("Your ears in a sentence", "一句話記住耳朵"),
                 "skin": ("Your skin in a sentence", "一句話記住皮膚"), "teeth": ("Your teeth in a sentence", "一句話記住牙齒"),
-                "germs": ("Fighting germs in a sentence", "一句話記住免疫")}[kind]
+                "germs": ("Fighting germs in a sentence", "一句話記住免疫"),
+                "kidneys": ("Your kidneys in a sentence", "一句話記住腎臟")}[kind]
     secs.append(("tricks", "Remember It · 記憶口訣", tricks_h[0], tricks_h[1], _sci_tricks(lesson), ""))
     if lesson.get("culture"):
         cu = lesson["culture"]

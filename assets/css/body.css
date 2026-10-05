@@ -878,3 +878,56 @@ button.bc-row:hover { transform: translateY(-2px); border-color: var(--gold); bo
   .gm-lab .al-space { min-height: 340px; }
   .gm-strip { grid-template-columns: 1fr; }
 }
+
+/* =========================================================
+   第十三課：腎臟（data-kidneys-lab；前綴 kd2-，kd- 已被「種類卡」用掉）
+   ========================================================= */
+.kd2-lab .al-space { min-height: 680px; }
+.kd2-aside { gap: .15rem; }
+.kd2-clock { margin-top: 0; }
+.kd2-bladder { position: relative; height: 26px; margin: .2rem 0 .3rem; border-radius: 999px; border: 1px solid var(--al-line); background: rgba(255,255,255,.05); overflow: hidden; }
+.kd2-fill { position: absolute; left: 0; top: 0; bottom: 0; width: 0; height: 100% !important; background: #e8c53a; transition: width .3s; }
+.kd2-bl-t { position: absolute; inset: 0; display: grid; place-items: center; font-size: .72rem; font-weight: 800; color: #fff; text-shadow: 0 1px 3px rgba(0,0,0,.7); font-variant-numeric: tabular-nums; }
+.kd2-status { min-height: 6.6em; }
+.kd2-more button[aria-pressed="true"] { border-color: #ffd36e; background: rgba(255,211,110,.12); box-shadow: 0 0 0 1px #ffd36e inset; }
+.kd2-go:not(:disabled) { border-color: #6fc3ff; background: rgba(111,195,255,.12); }
+.kd2-water::-webkit-slider-runnable-track { background: linear-gradient(90deg, #c98f1c, #f5eeb0 60%, #6fc3ff); }
+.kd2-water::-moz-range-track { background: linear-gradient(90deg, #c98f1c, #f5eeb0 60%, #6fc3ff); }
+.kd2-strip { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: 1rem 1.6rem; align-items: start; padding: 1rem 1.2rem 1.1rem; border-top: 1px solid var(--al-line); background: rgba(10,16,34,.6); }
+.kd2-strip .al-sky-k { margin: 0 0 .5rem; }
+.kd2-set { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .5rem 1rem; }
+.kd2-set label { font-size: .74rem; font-weight: 800; color: #fff; line-height: 1.2; }
+.kd2-set small { display: block; font-family: var(--zh); font-weight: 600; font-size: .68rem; color: var(--al-mute); }
+.kd2-set span { display: flex; align-items: center; gap: .35rem; margin-top: .25rem; font-weight: 700; color: var(--al-mute); }
+.kd2-set input { width: 5.4em; padding: .3rem .45rem; border-radius: 8px; border: 1px solid var(--al-line); background: rgba(255,255,255,.06); color: #fff; font: 700 .9rem var(--sans); }
+.kd2-cups { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: .25rem; margin: .8rem 0 .5rem; }
+.kd2-cup { padding: 0; border: 0; background: none; cursor: pointer; }
+.kd2-cup i { display: block; aspect-ratio: 3 / 4; border: 2px solid rgba(255,255,255,.35); border-top: 0; border-radius: 2px 2px 7px 7px; background: linear-gradient(0deg, transparent, transparent); transition: background .2s, border-color .2s; }
+.kd2-cup[aria-pressed="true"] i { border-color: #6fc3ff; background: linear-gradient(0deg, #6fc3ff 0 78%, transparent 78%); }
+.kd2-cup:hover i { border-color: #fff; }
+.kd2-cup:focus-visible { outline: 2px solid #6fc3ff; outline-offset: 2px; border-radius: 6px; }
+.kd2-bar { position: relative; height: 12px; border-radius: 999px; background: rgba(255,255,255,.1); margin-bottom: 1.3rem; }
+.kd2-bar i { display: block; height: 100%; width: 0; border-radius: 999px; background: #6fc3ff; transition: width .3s; }
+.kd2-bar b { position: absolute; right: 0; top: 15px; font-size: .68rem; font-weight: 800; color: var(--al-mute); }
+.kd2-total { margin: 0; font-size: .86rem; line-height: 1.55; color: var(--al-text); }
+.kd2-total .zh, .kd2-color-msg .zh { display: block; color: var(--al-mute); }
+.kd2-total b { color: #6fc3ff; }
+.kd2-sws { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: .3rem; }
+.kd2-sw { display: flex; flex-direction: column; align-items: center; gap: .3rem; padding: .4rem .2rem; border-radius: 12px; border: 1px solid var(--al-line); background: rgba(255,255,255,.03); color: #fff; font: 800 .66rem var(--sans); cursor: pointer; text-align: center; line-height: 1.15; }
+.kd2-sw i { display: block; width: 100%; height: 30px; border-radius: 8px; background: var(--c); }
+.kd2-sw small { display: block; font-family: var(--zh); font-weight: 600; color: var(--al-mute); }
+.kd2-sw[aria-pressed="true"] { border-color: #fff; box-shadow: 0 0 0 1px #fff inset; }
+.kd2-color-msg { margin: .6rem 0 0; font-size: .82rem; line-height: 1.5; color: var(--al-text); }
+.al-lab.kd2-lb-v { color: #e6c2dc; border-color: rgba(122,42,102,.8); }
+.al-lg-kid i { border: 0; background: #9c3a2e; border-radius: 50% 40% 40% 50%; }
+.al-lg-urine i { border: 0; background: #e8c53a; }
+.al-lg-h2o i { border: 0; background: radial-gradient(circle, #6fc3ff 0 45%, transparent 50%); }
+@media (max-width: 1020px) {
+  .kd2-lab .al-space { aspect-ratio: 1 / 1; min-height: 380px; max-height: 80vh; }
+  .kd2-lab .kd2-aside { display: block; }
+}
+@media (max-width: 640px) {
+  .kd2-lab .al-space { aspect-ratio: 4 / 5; min-height: 340px; }
+  .kd2-strip { grid-template-columns: 1fr; }
+  .kd2-cups { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+}

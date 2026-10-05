@@ -14,7 +14,23 @@
       "zh": "每一課也會請你在自己身上量一量、數一數，並附生字、閱讀理解、小測驗和課堂活動。本系列是教育用途，不是醫療建議。"
     }
   ],
-  "planned": [],
+  "planned": [
+    {
+      "icon": "👅",
+      "en": "How Do You Taste and Smell?",
+      "zh": "味道是怎麼來的？"
+    },
+    {
+      "icon": "😴",
+      "en": "Why Do You Need Sleep?",
+      "zh": "為什麼要睡覺？"
+    },
+    {
+      "icon": "📏",
+      "en": "How Do You Grow Taller?",
+      "zh": "你是怎麼長高的？"
+    }
+  ],
   "lessons": [
     {
       "n": 1,
@@ -5574,6 +5590,431 @@
       },
       "health_en": "This lesson is for learning about the body. It is not medical advice. If a cut gets more red, hot, swollen, or painful, or if you have a high fever or feel very sick, tell an adult. Take medicine only when a doctor or a parent says so, and follow the vaccine advice of your doctor and school.",
       "health_zh": "本課是認識身體的教材，不是醫療建議。如果傷口越來越紅、熱、腫、痛，或發高燒、覺得非常不舒服，請告訴大人。只在醫生或家長說可以的時候吃藥，打疫苗請依照醫生和學校的建議。"
+    },
+    {
+      "n": 13,
+      "slug": "kidneys",
+      "title": "Where Does the Water You Drink Go?",
+      "title_zh": "喝下去的水去了哪裡？",
+      "level": "入門 · Beginner",
+      "icon": "💧",
+      "card": "kidneys",
+      "blurb_en": "Your two kidneys clean all of your blood about 30 times a day. Follow the water through real 3D kidneys, zoom into one tiny filter, and check whether you are drinking enough today.",
+      "blurb_zh": "兩顆腎臟每天把全身的血洗大約 30 遍。跟著水走過真實的 3D 腎臟，放大看一個小小的過濾器，再看看你今天水喝得夠不夠。",
+      "big_idea_en": "Your kidneys are filters. They clean your blood again and again, keep the water and salt your body needs, and send the rest to your bladder as urine.",
+      "big_idea_zh": "腎臟是濾水器：一遍又一遍把血過濾乾淨，留下身體需要的水和鹽，把其餘的變成尿液送到膀胱。",
+      "lab": {
+        "kind": "kidneys",
+        "eyebrow": "3D Model · 3D 模型",
+        "title_en": "Follow the Water",
+        "title_zh": "跟著水走",
+        "how_en": "These are real kidneys, in their real place beside your backbone. Blood flows in, clean blood flows out, and drops of urine run down two thin tubes to the bladder. Slide how much water you drank and watch the urine change. Zoom into a nephron to see the three steps: filter, take back, flush. When the bladder is full, send your model to the restroom!",
+        "how_zh": "這是真實的腎臟，就在脊柱兩旁真正的位置。血流進去、乾淨的血流出來，一滴滴尿液沿著兩條細管流到膀胱。拉動「喝了多少水」，看尿液怎麼變。放大一顆腎元，看三個步驟：過濾、回收、排出。膀胱滿了，就讓模型去上廁所吧！",
+        "legend": [
+          {
+            "cls": "kid",
+            "en": "Red-brown: the real kidneys",
+            "zh": "紅褐色：真實的腎臟"
+          },
+          {
+            "cls": "rich",
+            "en": "Bright red: blood coming in from the heart",
+            "zh": "鮮紅色：從心臟來的血"
+          },
+          {
+            "cls": "poor",
+            "en": "Dark red: cleaned blood going back",
+            "zh": "暗紅色：過濾後流回去的血"
+          },
+          {
+            "cls": "urine",
+            "en": "Yellow: urine on its way to the bladder",
+            "zh": "黃色：流向膀胱的尿液"
+          },
+          {
+            "cls": "h2o",
+            "en": "Blue dots in the nephron: water",
+            "zh": "腎元裡的藍點：水"
+          }
+        ],
+        "scale_en": "The bones, kidneys, ureters, and bladder are real shapes from BodyParts3D, in their real places; the blood vessels and the nephron are our own drawing. A real nephron is far too thin to see, and each kidney has about a million of them. Time is sped up: one second here is 20 minutes. The amounts are for a child of about 30 kilograms; an adult's kidneys filter about 140 liters of blood a day.",
+        "scale_zh": "骨頭、腎臟、輸尿管和膀胱是 BodyParts3D 的真實形狀，位置也是真的；血管和腎元是本站自繪的示意圖。真正的腎元細到看不見，每顆腎臟大約有一百萬個。時間加快了：這裡的 1 秒是 20 分鐘。數量以體重約 30 公斤的孩子估算；大人的腎臟一天大約過濾 140 公升的血。",
+        "credit_html": "Bone and organ models: <a href=\"https://dbarchive.biosciencedbc.jp/en/bodyparts3d/download.html\" target=\"_blank\" rel=\"noopener\">BodyParts3D</a>, © The Database Center for Life Science, licensed under <a href=\"https://creativecommons.org/licenses/by/4.0/\" target=\"_blank\" rel=\"noopener\">CC BY 4.0</a>. We selected the bones, the kidneys, the ureters, and the bladder, simplified the shapes, and turned the model upright; the blood vessels and the nephron are our own drawing. · 骨骼與器官模型來源：BodyParts3D（日本生命科學資料庫中心，CC BY 4.0 授權）；本站挑選骨頭、腎臟、輸尿管與膀胱，簡化形狀並轉正方向，血管與腎元為本站自繪示意。"
+      },
+      "paras": [
+        "Take a sip of water. In a few minutes it will be in your blood, and within an hour or two, some of it will be on its way out again. Your body is about 60 percent water, and it has to keep that amount just right. The organs in charge are your two kidneys. They are shaped like beans, each about the size of your fist, and they sit on either side of your backbone, just under your lowest ribs. The right one sits a little lower, because your liver is above it.",
+        "Your kidneys are filters for your blood. As your cells work, they make waste, and the blood carries it away. About a fifth of the blood your heart pumps goes straight to the kidneys. In an adult, they filter about half a cup of blood every minute. That adds up to about 140 liters a day, which means all of your blood gets cleaned about 30 times every day.",
+        "The cleaning is done by tiny filters called nephrons, and each kidney has about a million of them. A nephron works in three steps. First, it filters: water, salt, sugar, and waste are pushed out of the blood, while blood cells are too big to get through. Second, it takes back: almost all of the water, and all of the sugar your body needs, return to the blood. Third, it flushes: the waste and the extra water that are left become urine.",
+        "From 140 liters of filtered blood, only 1 to 2 liters become urine. Urine drips down two thin tubes called ureters into the bladder, a stretchy bag that slowly fills like a balloon. When it is about half full, nerves tell your brain that it is time to find a restroom. Urine is yellow because of a pigment left over when old red blood cells are broken down.",
+        "Your kidneys also decide how much water to keep. If you drink a lot, they let more water go, and your urine is pale. If you have not had enough, they hold water back, and your urine turns dark yellow. So the color is a message from your kidneys: pale yellow means you are doing fine, and dark yellow means it is time to drink. You lose water in your sweat and your breath too, so you need more on hot days and when you exercise.",
+        "Kidneys work quietly, and people often do not notice a problem until it is serious. Taiwan has one of the highest rates of kidney failure in the world, often after years of diabetes or high blood pressure. You can look after your kidneys now. Drink water instead of sugary drinks: Taiwan's health agency says elementary students need at least 1,500 milliliters a day. Do not eat too much salt, and go to the restroom when you need to. Now count your cups with the water tracker below the model."
+      ],
+      "paras_zh": [
+        "喝一口水。幾分鐘後它就會進到你的血液裡，一兩個小時之內，其中一部分又要準備離開了。你的身體大約 60% 是水，而且必須把水量維持得剛剛好。負責這件事的器官是兩顆腎臟。它們的形狀像豆子，每顆大約和你的拳頭一樣大，位在脊柱兩旁、最下面幾根肋骨的下方。右邊那顆稍微低一點，因為它上面有肝臟。",
+        "腎臟是血液的過濾器。細胞工作時會產生廢物，由血液帶走。心臟打出來的血，大約有五分之一直接流向腎臟。大人的腎臟每分鐘大約過濾半杯血，一天加起來大約 140 公升，也就是說，你全身的血每天大約被洗 30 遍。",
+        "負責清洗的是很小的過濾器，叫做腎元，每顆腎臟大約有一百萬個。腎元的工作分成三步。第一步，過濾：水、鹽、糖和廢物被擠出血液，血球太大，過不去。第二步，回收：幾乎所有的水，以及身體需要的糖，全部回到血液裡。第三步，排出：剩下的廢物和多餘的水，就成了尿液。",
+        "140 公升過濾過的血，只有 1 到 2 公升變成尿液。尿液沿著兩條叫做輸尿管的細管，一滴滴流進膀胱。膀胱是一個有彈性的袋子，像氣球一樣慢慢裝滿。大約半滿的時候，神經會告訴大腦：該去找廁所了。尿液是黃色的，是因為老舊的紅血球被分解後留下了一種色素。",
+        "腎臟還會決定要留下多少水。水喝得多，腎臟就多放一些水出去，尿液顏色很淡；水喝得不夠，腎臟就把水留住，尿液變成深黃色。所以尿液的顏色是腎臟給你的訊息：淡黃色表示沒問題，深黃色表示該喝水了。流汗和呼吸也會讓你失去水分，所以天氣熱和運動的時候要喝更多。",
+        "腎臟默默工作，等到有感覺時，問題往往已經很嚴重了。台灣是全世界腎臟衰竭比率最高的地方之一，常常是多年的糖尿病或高血壓造成的。你現在就可以照顧自己的腎臟：喝白開水，不要喝含糖飲料——國民健康署說，國小學生每天至少要喝 1,500 毫升的水。不要吃太鹹，想上廁所就去上。現在用模型下方的喝水紀錄，數數你今天喝了幾杯。"
+      ],
+      "questions": [
+        "What are the three steps a nephron uses to clean the blood?",
+        "Why is only a small part of the filtered liquid turned into urine?",
+        "What does the color of your urine tell you?"
+      ],
+      "answers": [
+        "It filters water, salt, sugar, and waste out of the blood; it takes back the water and sugar the body needs; and it flushes the waste and extra water out as urine.",
+        "Because the nephrons take almost all of the water, and the things the body needs, back into the blood.",
+        "Pale yellow means you have had enough water. Dark yellow means your kidneys are holding water back, and you need to drink."
+      ],
+      "vocab": [
+        {
+          "n": 1,
+          "w": "kidney",
+          "pos": "n.",
+          "zh": "腎臟",
+          "ex": "You have two <b>kidneys</b>, one on each side of your backbone.",
+          "exzh": "你有兩顆腎臟，脊柱兩邊各一顆。"
+        },
+        {
+          "n": 2,
+          "w": "filter",
+          "pos": "v.",
+          "zh": "過濾",
+          "ex": "This bottle <b>filters</b> the water before you drink it.",
+          "exzh": "這個水壺會先把水過濾，你再喝。"
+        },
+        {
+          "n": 3,
+          "w": "waste",
+          "pos": "n.",
+          "zh": "廢物；垃圾",
+          "ex": "Please put your <b>waste</b> in the right bin.",
+          "exzh": "請把垃圾丟進正確的桶子。"
+        },
+        {
+          "n": 4,
+          "w": "urine",
+          "pos": "n.",
+          "zh": "尿液",
+          "ex": "The doctor asked for a sample of my <b>urine</b>.",
+          "exzh": "醫生請我留一份尿液檢體。"
+        },
+        {
+          "n": 5,
+          "w": "bladder",
+          "pos": "n.",
+          "zh": "膀胱",
+          "ex": "My <b>bladder</b> is full. I need a restroom!",
+          "exzh": "我的膀胱滿了，我要上廁所！"
+        },
+        {
+          "n": 6,
+          "w": "thirsty",
+          "pos": "adj.",
+          "zh": "口渴的",
+          "ex": "We were so <b>thirsty</b> after the race.",
+          "exzh": "賽跑之後我們好渴。"
+        },
+        {
+          "n": 7,
+          "w": "sip",
+          "pos": "n.",
+          "zh": "一小口",
+          "ex": "Take a <b>sip</b> of water between classes.",
+          "exzh": "下課時喝一小口水。"
+        },
+        {
+          "n": 8,
+          "w": "restroom",
+          "pos": "n.",
+          "zh": "廁所；洗手間",
+          "ex": "May I go to the <b>restroom</b>, please?",
+          "exzh": "請問我可以去上廁所嗎？"
+        }
+      ],
+      "quiz": [
+        {
+          "q": "What do your kidneys do?",
+          "options": [
+            "Filter your blood",
+            "Pump your blood",
+            "Digest your food",
+            "Help you breathe"
+          ],
+          "correct": 0
+        },
+        {
+          "q": "About how many nephrons does each kidney have?",
+          "options": [
+            "About a million",
+            "About ten",
+            "About a hundred",
+            "Just one"
+          ],
+          "correct": 0
+        },
+        {
+          "q": "Why can't blood cells pass through the filter in a nephron?",
+          "options": [
+            "They are too big",
+            "They are too small",
+            "They are too cold",
+            "They move too fast"
+          ],
+          "correct": 0
+        },
+        {
+          "q": "Where is urine stored before it leaves your body?",
+          "options": [
+            "In the bladder",
+            "In the stomach",
+            "In the lungs",
+            "In the kidneys' filters"
+          ],
+          "correct": 0
+        },
+        {
+          "q": "According to the reading, what does dark yellow urine mean?",
+          "options": [
+            "You need to drink more water",
+            "You drank too much water",
+            "Your kidneys have stopped working",
+            "You ate too many vegetables"
+          ],
+          "correct": 0
+        }
+      ],
+      "kinds_head": {
+        "eyebrow": "Your Water System · 身體的排水系統",
+        "en": "From blood to bladder",
+        "zh": "從血液到膀胱"
+      },
+      "kinds": [
+        {
+          "icon": "🫘",
+          "en": "Kidneys",
+          "zh": "腎臟",
+          "where_en": "Beside your backbone, under the lowest ribs",
+          "where_zh": "脊柱兩旁、最下面的肋骨下方",
+          "control_en": "Clean the blood",
+          "control_zh": "把血洗乾淨",
+          "text_en": "Two bean-shaped filters, each about the size of your fist. You can live a healthy life with just one.",
+          "text_zh": "兩顆豆子形狀的過濾器，每顆大約和拳頭一樣大；只有一顆也能健康地生活。"
+        },
+        {
+          "icon": "🔬",
+          "en": "Nephrons",
+          "zh": "腎元",
+          "where_en": "About a million in each kidney",
+          "where_zh": "每顆腎臟大約一百萬個",
+          "control_en": "Filter, take back, flush",
+          "control_zh": "過濾、回收、排出",
+          "text_en": "Each one filters a little blood, returns the water and sugar you need, and sends the waste on.",
+          "text_zh": "每個腎元過濾一點點血，把需要的水和糖送回去，把廢物往下送。"
+        },
+        {
+          "icon": "🩸",
+          "en": "Kidney blood vessels",
+          "zh": "腎臟的血管",
+          "where_en": "From the body's main artery and back to its main vein",
+          "where_zh": "從主動脈來，回到大靜脈",
+          "control_en": "Bring blood in and out",
+          "control_zh": "把血送進來、送回去",
+          "text_en": "About a fifth of the blood from every heartbeat goes to the kidneys.",
+          "text_zh": "每一下心跳打出的血，大約有五分之一流向腎臟。"
+        },
+        {
+          "icon": "🧵",
+          "en": "Ureters",
+          "zh": "輸尿管",
+          "where_en": "One thin tube from each kidney",
+          "where_zh": "每顆腎臟各一條細管",
+          "control_en": "Carry urine down",
+          "control_zh": "把尿液往下送",
+          "text_en": "Each tube is about as long as a ruler. Their walls squeeze in waves, so urine goes down even if you are lying flat.",
+          "text_zh": "每條大約一把尺那麼長；管壁像波浪一樣收縮，所以就算躺著，尿液也會往下流。"
+        },
+        {
+          "icon": "🎈",
+          "en": "Bladder",
+          "zh": "膀胱",
+          "where_en": "Low in your belly, inside the hip bones",
+          "where_zh": "下腹部、骨盆裡面",
+          "control_en": "Stores urine",
+          "control_zh": "儲存尿液",
+          "text_en": "A stretchy bag of muscle. It tells your brain when it is about half full.",
+          "text_zh": "一個有彈性的肌肉袋子；大約半滿時，它會通知大腦。"
+        }
+      ],
+      "kinds_note_en": "Think of a water treatment plant: pipes bring dirty water in, a million tiny filters clean it, the clean water goes back to the city, and the waste goes to a holding tank.",
+      "kinds_note_zh": "把它想成一座淨水廠：水管把髒水送進來，一百萬個小濾網把它洗乾淨，乾淨的水送回城市，廢水送到儲水槽。",
+      "measure": {
+        "title_en": "Are you drinking enough today?",
+        "title_zh": "你今天水喝得夠嗎？",
+        "lead_en": "Use the water tracker below the model to count what you drink today, and check the color card the next time you go to the restroom.",
+        "lead_zh": "用模型下方的喝水紀錄，數一數你今天喝了多少水；下次上廁所時，對照一下顏色卡。",
+        "steps": [
+          {
+            "n": "mL",
+            "en": "Find your goal",
+            "zh": "找出你的目標",
+            "text_en": "Enter your weight. A common rule is 30 milliliters for each kilogram, and elementary students in Taiwan need at least 1,500 milliliters a day.",
+            "text_zh": "輸入你的體重。常用的算法是每公斤 30 毫升；台灣的國小學生每天至少要喝 1,500 毫升。"
+          },
+          {
+            "n": "🥤",
+            "en": "Count your cups",
+            "zh": "數一數喝了幾杯",
+            "text_en": "Tap a cup every time you finish one. Measure your own cup or bottle once so you know how much it holds.",
+            "text_zh": "每喝完一杯就點一個杯子。先量一次自己的杯子或水壺裝多少，才知道喝了多少。"
+          },
+          {
+            "n": "🎨",
+            "en": "Check the color",
+            "zh": "看看顏色",
+            "text_en": "Pale yellow is the goal. If it is dark yellow, drink a cup of water now. You need more on hot days and after sports.",
+            "text_zh": "淡黃色就是目標。如果是深黃色，現在就喝一杯水。天氣熱和運動之後要喝更多。"
+          }
+        ],
+        "action": "test",
+        "action_value": "1",
+        "button_icon": "💧",
+        "button_en": "Open the water tracker",
+        "button_zh": "打開喝水紀錄"
+      },
+      "myths": [
+        {
+          "myth_en": "Everyone needs exactly eight glasses of water a day.",
+          "myth_zh": "每個人每天都剛好要喝八杯水。",
+          "fact_en": "It depends on your size, the weather, and how active you are. A rule many people use is 30 milliliters for each kilogram of body weight.",
+          "fact_zh": "要看你的體型、天氣和活動量。很多人用的算法是每公斤體重 30 毫升。"
+        },
+        {
+          "myth_en": "The more water you drink, the better.",
+          "myth_zh": "水喝得越多越好。",
+          "fact_en": "Your kidneys can only handle so much at a time, and gulping down a huge amount very fast can make you sick. Small sips through the day work best.",
+          "fact_zh": "腎臟一次能處理的量有限，一下子猛灌一大堆水反而會不舒服。一整天小口小口地喝最好。"
+        },
+        {
+          "myth_en": "You only need to drink when you feel thirsty.",
+          "myth_zh": "口渴的時候再喝就好。",
+          "fact_en": "By the time you feel thirsty, you are already a little short of water, and children at play often do not notice. Drink at every break.",
+          "fact_zh": "覺得口渴時，身體其實已經有點缺水了；小朋友玩得正開心時常常沒發現。每節下課都喝一點吧。"
+        },
+        {
+          "myth_en": "You need two kidneys to stay alive.",
+          "myth_zh": "要有兩顆腎臟才活得下去。",
+          "fact_en": "One healthy kidney can do the whole job. That is why a living person can give a kidney to someone whose kidneys have failed.",
+          "fact_zh": "一顆健康的腎臟就能完成全部的工作，所以活著的人可以把一顆腎臟捐給腎臟衰竭的人。"
+        }
+      ],
+      "tricks": [
+        {
+          "title_en": "Filter, take back, flush",
+          "title_zh": "過濾、回收、排出",
+          "body_en": "The three steps of every nephron: push the small stuff out, take back what you need, and flush the rest.",
+          "body_zh": "每個腎元的三個步驟：把小東西擠出去、把需要的拿回來、把剩下的排掉。"
+        },
+        {
+          "title_en": "Pale yellow is the goal",
+          "title_zh": "淡黃色就對了",
+          "body_en": "Pale yellow urine means enough water. Dark yellow means drink up.",
+          "body_zh": "尿液淡黃色表示水喝夠了；深黃色表示快去喝水。"
+        },
+        {
+          "title_en": "Weight times 30",
+          "title_zh": "體重乘以 30",
+          "body_en": "Your weight in kilograms times 30 gives a daily water goal in milliliters: 30 kilograms means 900, but schoolchildren need at least 1,500.",
+          "body_zh": "體重（公斤）乘以 30，就是一天喝水的毫升數；30 公斤算出來是 900，但國小學生至少要喝 1,500。"
+        },
+        {
+          "title_en": "The right one sits lower",
+          "title_zh": "右邊的比較低",
+          "body_en": "Your right kidney is a little lower than your left, because the liver takes up the space above it.",
+          "body_zh": "右邊的腎臟比左邊低一點，因為上面的空間被肝臟占走了。"
+        }
+      ],
+      "activities": [
+        {
+          "title_en": "Filter It!",
+          "title_zh": "過濾看看！",
+          "materials": [
+            {
+              "en": "A coffee filter or paper towel, a funnel, and two clear cups",
+              "zh": "一張咖啡濾紙或紙巾、一個漏斗和兩個透明杯子"
+            },
+            {
+              "en": "Water, a spoonful of sand or rice, and a few drops of food coloring",
+              "zh": "水、一匙沙子或米，以及幾滴食用色素"
+            }
+          ],
+          "steps": [
+            {
+              "en": "Mix the sand and the food coloring into a cup of water. This is your “blood.”",
+              "zh": "把沙子和食用色素攪進一杯水裡，這就是你的「血液」。"
+            },
+            {
+              "en": "Put the filter in the funnel and pour the mixture through it into the second cup.",
+              "zh": "把濾紙放進漏斗，把混合液倒過去，流進第二個杯子。"
+            },
+            {
+              "en": "What stayed in the filter? What went through?",
+              "zh": "什麼東西留在濾紙上？什麼東西通過了？"
+            },
+            {
+              "en": "The color went through with the water. How could you get the water back without the color?",
+              "zh": "顏色跟著水一起通過了。要怎麼把水拿回來，卻不要顏色呢？"
+            }
+          ],
+          "tip_en": "Teaching tip: the paper filter is like the first step of a nephron: big things, like blood cells, stay behind, and small things go through. But a kidney is much smarter than paper. In the second step, it takes back the water and sugar it wants and leaves the waste, something no simple filter can do.",
+          "tip_zh": "教學提示：濾紙就像腎元的第一步：大的東西（例如血球）留下來，小的東西通過。但腎臟比濾紙聰明得多：第二步，它把想要的水和糖拿回來、把廢物留下，這是簡單的濾紙做不到的。"
+        },
+        {
+          "title_en": "Our Class Water Day",
+          "title_zh": "全班喝水日",
+          "materials": [
+            {
+              "en": "A measuring cup and everyone's own bottle or cup",
+              "zh": "一個量杯，和每個人自己的水壺或杯子"
+            },
+            {
+              "en": "A tally chart on the board",
+              "zh": "黑板上的劃記表"
+            }
+          ],
+          "steps": [
+            {
+              "en": "Measure how many milliliters each bottle or cup holds.",
+              "zh": "量一量每個水壺或杯子可以裝幾毫升。"
+            },
+            {
+              "en": "For one school day, make a tally mark every time you finish a bottle or cup.",
+              "zh": "上學的一整天，每喝完一壺或一杯就畫一筆。"
+            },
+            {
+              "en": "At the end of the day, work out how many milliliters you drank.",
+              "zh": "放學前算一算，你總共喝了幾毫升。"
+            },
+            {
+              "en": "Who reached 1,500? What could help the class drink more tomorrow?",
+              "zh": "誰喝到 1,500 毫升了？明天可以怎麼做，讓全班喝更多水？"
+            }
+          ],
+          "tip_en": "Teaching tip: this is good practice with multiplication and units. Most students are surprised by how little they drink at school. Agree on a class habit, such as a sip at every bell, and let students go to the restroom when they ask.",
+          "tip_zh": "教學提示：這是練習乘法和單位換算的好機會。大多數學生會很驚訝自己在學校喝得這麼少。全班可以約定一個習慣，例如每次鐘響喝一口；學生想上廁所時，也請讓他們去。"
+        }
+      ],
+      "culture": {
+        "title_en": "Beans, Nuts, and the Waist",
+        "title_zh": "腰子、腰果和紅腰豆",
+        "body_en": "In everyday Chinese and Taiwanese, a kidney is often called 腰子 (yāozi), “the waist one,” because the kidneys sit at the waist. That is also why a cashew is a 腰果 (yāoguǒ), “waist nut”: it is curved just like a kidney. English noticed the same shape in a different food: the kidney bean. And when a Taiwanese family asks 你今天喝水了沒？, “Have you had water today?”, they are looking after two small organs most people never think about.",
+        "body_zh": "日常的中文和台語常把腎臟叫做「腰子」，因為腎臟就在腰的位置。腰果也是這樣得名的：它彎彎的形狀就像一顆腰子。英文在另一種食物上看到同樣的形狀：kidney bean，中文正好也叫「紅腰豆」。家人問你「今天喝水了沒？」的時候，其實是在照顧兩顆大多數人從來沒想過的小器官。",
+        "link_en": "More Chinese health words in English",
+        "link_zh": "到中醫養生系列看更多"
+      },
+      "health_en": "This lesson is for learning about the body. It is not medical advice. If it hurts when you go to the restroom, if your urine looks red or brown, or if you are very thirsty all the time, tell an adult. Take medicine only when a doctor or a parent says so, because some medicines are hard on the kidneys.",
+      "health_zh": "本課是認識身體的教材，不是醫療建議。如果上廁所時會痛、尿液看起來是紅色或褐色，或是一直覺得非常口渴，請告訴大人。只在醫生或家長說可以的時候吃藥，因為有些藥會傷腎。"
     }
   ]
 }

@@ -4,6 +4,7 @@
  *   loadBones(url, onProgress) → Promise<{ model, bones }>
  *       載入 assets/models/skeleton.glb（BodyParts3D，座標：公尺、Y 朝上、臉朝 +Z、腳底 y = 0；
  *       身體的右邊在 -X）。bones: id → { mesh, mat, box, center, info }，每塊骨頭一個獨立材質。
+ *   loadOrgans(url) → Promise<{ model, parts }>  真實器官（第十三課起），parts: name → { mesh, mat, box, center }
  *   worldVerts(mesh, filter) 取出一塊骨頭的世界座標頂點（找關節中心之類用）
  *   labeler(container, canvas, camera) → { add(cls, html), place(el, v, dy) }
  *   lazyBoot(selector, init) 模型快捲進畫面才初始化
@@ -37,6 +38,30 @@ export function loadBones(url, onProgress) {
       });
       resolve({ model, bones });
     }, (e) => { if (e.total && onProgress) onProgress(e.loaded / e.total); }, reject);
+  });
+}
+
+// 載入 assets/models/organs.glb（真實器官：r-kidney、l-kidney、r-ureter、l-ureter、bladder、tongue），座標與骨架對齊。
+// 回傳 name → { mesh, mat, box, center }，每個器官一個獨立材質。
+export function loadOrgans(url) {
+  const loader = new GLTFLoader();
+  loader.setMeshoptDecoder(MeshoptDecoder);
+  return new Promise((resolve, reject) => {
+    loader.load(url, (gltf) => {
+      const model = gltf.scene;
+      model.updateMatrixWorld(true);
+      const parts = new Map();
+      model.traverse((o) => {
+        if (!o.isMesh) return;
+        const name = o.name || o.parent?.name;
+        o.geometry.computeVertexNormals();
+        const mat = new MeshStandardMaterial({ color: 0xb4483c, roughness: 0.55, metalness: 0 });
+        o.material = mat;
+        const box = new Box3().setFromObject(o);
+        parts.set(name, { mesh: o, mat, box, center: box.getCenter(new Vector3()) });
+      });
+      resolve({ model, parts });
+    }, undefined, reject);
   });
 }
 
