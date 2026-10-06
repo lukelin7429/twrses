@@ -7964,14 +7964,497 @@
       "title_zh": "生活化學",
       "blurb_en": "The chemistry happening in your sink, your kitchen, and your microwave.",
       "blurb_zh": "洗手台、廚房和微波爐裡正在發生的化學。",
-      "lessons": [],
-      "planned": [
+      "lessons": [
         {
           "n": 17,
+          "slug": "soap",
+          "title": "How Does Soap Clean?",
+          "title_zh": "肥皂為什麼能去污？",
+          "level": "入門 · Beginner",
           "icon": "🧼",
-          "en": "How Does Soap Clean?",
-          "zh": "肥皂為什麼能去污？"
-        },
+          "card": "soap",
+          "blurb_en": "Water alone slides right over grease. A soap molecule has one end that loves water and one end that loves oil, so it can grab both. Zoom in on a patch of grease in 3D and wash it three ways: water only, soap without rubbing, and soap with rubbing.",
+          "blurb_zh": "只用水，水會從油污上面滑過去。肥皂分子一頭喜歡水、一頭喜歡油，所以兩邊都抓得住。在 3D 裡放大一塊油污，用三種方法洗洗看：只用水、加肥皂不搓、加肥皂又搓洗。",
+          "big_idea_en": "Oil and water do not mix, so water alone cannot wash grease away. A soap molecule has a head that loves water and a tail that loves oil. The tails push into the grease while the heads stay in the water. Rubbing breaks the grease into tiny drops, each one wrapped in soap, and then the water can carry them away.",
+          "big_idea_zh": "油和水不相溶，所以只用水沖不掉油污。肥皂分子有一個喜歡水的頭、一條喜歡油的尾巴。尾巴鑽進油污，頭留在水裡。搓洗把油污拆成一顆顆小油滴，每一顆都被肥皂包住，水就能把它們帶走。",
+          "lab": {
+            "kind": "soap",
+            "eyebrow": "3D Model · 3D 模型",
+            "title_en": "Grease Under the Magnifying Glass",
+            "title_zh": "放大鏡下的油污",
+            "how_en": "Drag to turn the view, and scroll or pinch to zoom. The yellow lump is grease stuck to skin, and water is flowing past it from left to right. Pick a way to wash on the right, then watch, or drag the time slider back and forth. The three bars compare how much grease each way leaves behind at the same moment.",
+            "how_zh": "拖曳可以旋轉視角，滾輪或雙指可以縮放。黃色的那一團是黏在皮膚上的油污，水從左往右流過。在右邊選一種洗法，然後看它怎麼變，也可以把時間滑桿來回拉。三條橫槓比較同一個時間、三種洗法各還剩多少油污。",
+            "legend": [
+              {
+                "cls": "sphead",
+                "en": "Blue ball: the head of a soap molecule, which loves water",
+                "zh": "藍色小球：肥皂分子的頭，喜歡水"
+              },
+              {
+                "cls": "sptail",
+                "en": "Yellow stick: the tail of a soap molecule, which loves oil",
+                "zh": "黃色小棒：肥皂分子的尾巴，喜歡油"
+              },
+              {
+                "cls": "spoil",
+                "en": "Yellow lump and small yellow balls: grease, and drops of it",
+                "zh": "黃色的一團和小黃球：油污，和拆下來的油滴"
+              },
+              {
+                "cls": "spwater",
+                "en": "Pale blue dots: water flowing past",
+                "zh": "淡藍色的小點：流過的水"
+              }
+            ],
+            "scale_en": "A teaching model, not a measurement. The percentages come from a simple formula chosen to show the pattern (water barely helps, soap helps, soap with rubbing helps most); they are not results from an experiment. Real soap molecules are far too small to see, even with an ordinary microscope, and a real patch of grease would hold more of them than anyone could count.",
+            "scale_zh": "這是教學用的模型，不是實驗量到的結果。百分比來自一條簡單的算式，只是為了呈現趨勢（只用水幾乎沒用、加肥皂有用、加肥皂又搓洗最有用）。真正的肥皂分子小到連一般的顯微鏡都看不見；一塊真的油污上面的肥皂分子，多到數不清。",
+            "credit_html": "Model drawn by My Culture Connect as a teaching diagram. How soap molecules surround oil follows <a href=\"https://en.wikipedia.org/wiki/Soap\" target=\"_blank\" rel=\"noopener\">Wikipedia, “Soap”</a>. · 模型由人師教育協會自繪示意；肥皂分子怎麼把油包起來，依維基百科「Soap」條目。"
+          },
+          "paras": [
+            "After lunch, try to wash an oily lunch box with water only. The water runs off, and the box is still slippery. Add a little dish soap, rub, and rinse. Now it is clean and squeaky. What did the soap do that the water could not do alone?",
+            "The trouble is that oil and water do not mix. Pour some cooking oil into a glass of water and it floats on top in its own layer. Shake the glass, and the oil soon comes back together. Grease on your hands or on a plate is oil too, so water just slides over it and leaves it behind.",
+            "Soap is made of special molecules with two different ends. One end, the head, loves water. The other end, a long tail, loves oil and stays away from water. When soap meets grease, the tails push into the grease, and the heads stay outside in the water. Soon the grease is covered with soap molecules, like pins in a pincushion.",
+            "Now you rub. Rubbing breaks the grease into tiny drops. Soap molecules quickly surround each drop, with their tails inside and their heads facing out. To the water, each little ball now looks like something it likes, so the water can pick it up. When you rinse, the drops are carried down the drain.",
+            "Soap also helps against germs. Many germs stick to the oil on your skin, so they wash away with it. Soap can even break apart the fatty outer layer that some germs have. That is why Taiwan's Centers for Disease Control teaches five steps: wet, rub, rinse, scoop, and dry. Rub with soap for at least 20 seconds.",
+            "People have been making soap for a very long time. The oldest records of something like soap come from Babylon, about 2800 BC. Soap is made by mixing fats or oils with a strong chemical called lye. So the next time you wash your hands, remember the tiny molecules at work, and give them time to do their job."
+          ],
+          "paras_zh": [
+            "吃完午餐，試試看只用水洗油油的便當盒。水流走了，盒子還是滑滑的。加一點洗碗精，搓一搓，再沖水，現在洗得乾乾淨淨、摸起來澀澀的。肥皂做了什麼，是水自己做不到的？",
+            "麻煩在於油和水不相溶。把一些沙拉油倒進一杯水裡，油會浮在上面自成一層。搖一搖杯子，油很快又聚回來。手上或盤子上的油污也是油，所以水只是從上面滑過去，把它留在原地。",
+            "肥皂是由一種很特別的分子組成的，它的兩頭不一樣。一頭叫做頭，喜歡水；另一頭是一條長長的尾巴，喜歡油、躲著水。肥皂碰到油污時，尾巴會鑽進油污裡，頭留在外面的水裡。很快，油污上就插滿了肥皂分子，像插滿大頭針的針包。",
+            "接著你開始搓。搓揉把油污拆成一顆顆很小的油滴。肥皂分子馬上把每一顆包圍起來，尾巴朝裡、頭朝外。對水來說，每顆小球現在看起來都是它喜歡的東西，所以水抓得住它了。一沖水，油滴就被帶進排水孔。",
+            "肥皂也能對付病菌。很多病菌黏在皮膚的油脂上，會跟著油一起被洗掉。有些病菌外面有一層脂肪做的外殼，肥皂甚至能把它拆開。所以疾病管制署教大家洗手五步驟：濕、搓、沖、捧、擦。用肥皂搓手至少要 20 秒。",
+            "人類做肥皂已經很久很久了。最早像肥皂的東西的紀錄來自巴比倫，大約在西元前 2800 年。肥皂是把油脂和一種叫做鹼液的強鹼混在一起做成的。下次洗手的時候，想一想那些正在工作的小分子，也給它們足夠的時間把事情做完。"
+          ],
+          "questions": [
+            "Why can't water alone wash grease away?",
+            "What are the two ends of a soap molecule, and what does each one love?",
+            "What does rubbing do when you wash with soap?"
+          ],
+          "answers": [
+            "Because oil and water do not mix. Water slides over the grease and leaves it behind.",
+            "The head loves water, and the long tail loves oil.",
+            "It breaks the grease into tiny drops, so soap molecules can surround each drop and the water can carry it away."
+          ],
+          "vocab": [
+            {
+              "n": 1,
+              "w": "soap",
+              "pos": "n.",
+              "zh": "肥皂",
+              "ex": "Wash your hands with <b>soap</b> before you eat.",
+              "exzh": "吃東西前要用肥皂洗手。"
+            },
+            {
+              "n": 2,
+              "w": "grease",
+              "pos": "n.",
+              "zh": "油污；油脂",
+              "ex": "The pan was covered with <b>grease</b>.",
+              "exzh": "鍋子上都是油污。"
+            },
+            {
+              "n": 3,
+              "w": "molecule",
+              "pos": "n.",
+              "zh": "分子",
+              "ex": "A <b>molecule</b> is far too small to see.",
+              "exzh": "分子小到看不見。"
+            },
+            {
+              "n": 4,
+              "w": "mix",
+              "pos": "v.",
+              "zh": "混合",
+              "ex": "Oil and water do not <b>mix</b>.",
+              "exzh": "油和水不會混在一起。"
+            },
+            {
+              "n": 5,
+              "w": "rub",
+              "pos": "v.",
+              "zh": "搓；摩擦",
+              "ex": "<b>Rub</b> your hands together for twenty seconds.",
+              "exzh": "雙手互相搓二十秒。"
+            },
+            {
+              "n": 6,
+              "w": "rinse",
+              "pos": "v.",
+              "zh": "沖洗",
+              "ex": "<b>Rinse</b> the soap off with clean water.",
+              "exzh": "用清水把肥皂沖掉。"
+            },
+            {
+              "n": 7,
+              "w": "germ",
+              "pos": "n.",
+              "zh": "病菌",
+              "ex": "Washing your hands removes <b>germs</b>.",
+              "exzh": "洗手可以去除病菌。"
+            },
+            {
+              "n": 8,
+              "w": "surround",
+              "pos": "v.",
+              "zh": "包圍",
+              "ex": "Tall trees <b>surround</b> the school.",
+              "exzh": "高高的樹圍繞著學校。"
+            }
+          ],
+          "quiz": [
+            {
+              "q": "What happens when you pour cooking oil into water?",
+              "options": [
+                "The oil stays in its own layer",
+                "The oil disappears into the water",
+                "The water turns into oil",
+                "The oil sinks and turns to ice"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "Which part of a soap molecule pushes into the grease?",
+              "options": [
+                "The tail, which loves oil",
+                "The head, which loves water",
+                "Both ends at the same time",
+                "Neither end"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "In a drop of oil wrapped in soap, which way do the heads face?",
+              "options": [
+                "Out, toward the water",
+                "In, toward the oil",
+                "Up, toward the air",
+                "Down, toward the skin"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "Why should you rub your hands when you wash them?",
+              "options": [
+                "Rubbing breaks the grease into tiny drops that soap can wrap",
+                "Rubbing makes the water hotter",
+                "Rubbing turns soap into water",
+                "Rubbing is only for fun"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "How long should you rub your hands with soap?",
+              "options": [
+                "At least 20 seconds",
+                "About 2 seconds",
+                "Exactly 5 seconds",
+                "Until the water runs out"
+              ],
+              "correct": 0
+            }
+          ],
+          "parts_head": {
+            "eyebrow": "Try It in the Model · 在模型裡試試",
+            "en": "Four ways to wash",
+            "zh": "四種洗法"
+          },
+          "parts": [
+            {
+              "key": "water",
+              "icon": "💧",
+              "en": "Water only",
+              "zh": "只用水",
+              "meta_en": "30 seconds",
+              "meta_zh": "30 秒",
+              "demo": "water",
+              "text_en": "Water flows past for half a minute, and the grease hardly changes. Oil and water do not mix.",
+              "text_zh": "水流了半分鐘，油污幾乎沒變。油和水不相溶。"
+            },
+            {
+              "key": "soap",
+              "icon": "🧼",
+              "en": "Soap, no rubbing",
+              "zh": "加肥皂、不搓",
+              "meta_en": "Covered",
+              "meta_zh": "包住了",
+              "demo": "soap",
+              "text_en": "The tails dive into the grease and cover it, but without rubbing only a few drops break away.",
+              "text_zh": "尾巴鑽進油污、把它包住，但是不搓的話，只有少少幾顆油滴脫落。"
+            },
+            {
+              "key": "scrub5",
+              "icon": "⏱️",
+              "en": "A quick 5-second wash",
+              "zh": "隨便洗 5 秒",
+              "meta_en": "Too short",
+              "meta_zh": "太短了",
+              "demo": "scrub5",
+              "text_en": "Soap and rubbing, but only for 5 seconds. In this model about half of the grease is still there.",
+              "text_zh": "加肥皂又搓洗，但只洗 5 秒。在這個模型裡，大約還有一半的油污留著。"
+            },
+            {
+              "key": "scrub20",
+              "icon": "✅",
+              "en": "A full 20 seconds",
+              "zh": "搓滿 20 秒",
+              "meta_en": "Almost all gone",
+              "meta_zh": "幾乎都不見了",
+              "demo": "scrub20",
+              "text_en": "Keep rubbing for 20 seconds and nearly all of the grease has left as tiny wrapped drops.",
+              "text_zh": "持續搓 20 秒，幾乎所有的油污都變成包好的小油滴離開了。"
+            }
+          ],
+          "parts_note_en": "Look closely at a drop that is floating away: every blue head faces out toward the water, and every yellow tail points in toward the oil.",
+          "parts_note_zh": "仔細看一顆正在漂走的油滴：每一個藍色的頭都朝外對著水，每一條黃色的尾巴都朝裡指著油。",
+          "facts": {
+            "eyebrow": "Soap by the Numbers · 肥皂的數字",
+            "en": "Numbers for clean hands",
+            "zh": "洗乾淨的數字",
+            "lead_en": "One very old date, and five numbers to use at the sink today.",
+            "lead_zh": "一個很古老的年份，和五個今天在洗手台就用得到的數字。",
+            "items": [
+              {
+                "big": "2800 BC",
+                "unit_en": "the oldest record",
+                "unit_zh": "最早的紀錄",
+                "en": "The earliest recorded evidence of soap-like materials comes from ancient Babylon.",
+                "zh": "最早像肥皂的東西的紀錄，來自古代的巴比倫，大約西元前 2800 年。"
+              },
+              {
+                "big": "2",
+                "unit_en": "ends",
+                "unit_zh": "頭",
+                "en": "Every soap molecule has two ends: a head that loves water and a tail that loves oil.",
+                "zh": "每個肥皂分子都有兩頭：喜歡水的頭，和喜歡油的尾巴。"
+              },
+              {
+                "big": "5",
+                "unit_en": "steps",
+                "unit_zh": "步驟",
+                "en": "Wet, rub, rinse, scoop water over the faucet, and dry: the five steps taught in Taiwan.",
+                "zh": "濕、搓、沖、捧、擦：台灣教的洗手五步驟。"
+              },
+              {
+                "big": "7",
+                "unit_en": "places to rub",
+                "unit_zh": "字訣",
+                "en": "Palms, backs, between the fingers, knuckles, thumbs, fingertips, and wrists.",
+                "zh": "內、外、夾、弓、大、立、完：手心、手背、指縫、指背、大拇指、指尖、手腕。"
+              },
+              {
+                "big": "20",
+                "unit_en": "seconds",
+                "unit_zh": "秒",
+                "en": "Rub your hands with soap for at least 20 seconds.",
+                "zh": "用肥皂搓手至少要 20 秒。"
+              },
+              {
+                "big": "40–60",
+                "unit_en": "seconds",
+                "unit_zh": "秒",
+                "en": "A whole wash with soap and water, from wetting to drying, takes about 40 to 60 seconds.",
+                "zh": "用肥皂和清水完整洗一次手，從弄濕到擦乾，大約 40 到 60 秒。"
+              }
+            ]
+          },
+          "myths": [
+            {
+              "myth_en": "If you rinse long enough, water alone will get the grease off.",
+              "myth_zh": "只要沖得夠久，光用水也洗得掉油污。",
+              "fact_en": "Oil and water do not mix, so water keeps sliding over the grease. You need soap to connect the two.",
+              "fact_zh": "油和水不相溶，水只會一直從油污上面滑過去。要靠肥皂把兩邊連起來。"
+            },
+            {
+              "myth_en": "Soap works the moment it touches your hands, so a quick wash is fine.",
+              "myth_zh": "肥皂一碰到手就有效，隨便洗一下就好。",
+              "fact_en": "Soap needs rubbing and time to break the grease into drops. Rub for at least 20 seconds.",
+              "fact_zh": "肥皂需要搓揉和時間，才能把油污拆成小油滴。至少要搓 20 秒。"
+            },
+            {
+              "myth_en": "Soap destroys the grease and makes it disappear.",
+              "myth_zh": "肥皂把油污消滅了，油就不見了。",
+              "fact_en": "The oil is still oil. Soap only wraps it in tiny drops so that water can carry it away.",
+              "fact_zh": "油還是油。肥皂只是把它包成很小的油滴，讓水帶得走。"
+            },
+            {
+              "myth_en": "Alcohol hand rub can always take the place of soap and water.",
+              "myth_zh": "酒精乾洗手隨時都能代替肥皂和水。",
+              "fact_en": "Alcohol has only a limited effect on enteroviruses, says Taiwan's CDC. Washing with soap is the best protection.",
+              "fact_zh": "疾管署提醒，酒精對腸病毒的效果有限；用肥皂洗手才是最有效的預防方法。"
+            }
+          ],
+          "tricks": [
+            {
+              "title_en": "Head loves water, tail loves oil",
+              "title_zh": "頭愛水，尾巴愛油",
+              "body_en": "One soap molecule can hold on to both at once.",
+              "body_zh": "一個肥皂分子可以同時抓住兩邊。"
+            },
+            {
+              "title_en": "Tails in, heads out",
+              "title_zh": "尾巴朝裡，頭朝外",
+              "body_en": "Soap wraps each drop of oil in a coat that water likes.",
+              "body_zh": "肥皂替每一顆油滴穿上一件水喜歡的外衣。"
+            },
+            {
+              "title_en": "Rub, then rinse",
+              "title_zh": "先搓，再沖",
+              "body_en": "Rubbing breaks the grease up. Rinsing carries it away.",
+              "body_zh": "搓洗把油污拆開，沖水把它帶走。"
+            },
+            {
+              "title_en": "Give it 20 seconds",
+              "title_zh": "給它 20 秒",
+              "body_en": "Soap is not magic. It needs time to do its job.",
+              "body_zh": "肥皂不是魔法，它需要時間把事情做完。"
+            }
+          ],
+          "safety": [
+            {
+              "en": "Keep soap out of your eyes and mouth. If it gets in your eyes, rinse them with plenty of clean water.",
+              "zh": "不要讓肥皂跑進眼睛和嘴巴。跑進眼睛的話，用大量清水沖洗。"
+            },
+            {
+              "en": "For the activities, use only hand soap or dish soap. Never play with other cleaning products such as bleach.",
+              "zh": "活動只用洗手乳、肥皂或洗碗精。不可以拿漂白水等其他清潔劑來玩。"
+            },
+            {
+              "en": "Wash your hands before you eat, before you play with a baby, after you blow your nose, after you use the toilet, and before and after you see a doctor.",
+              "zh": "洗手五時機：吃東西前、跟小寶寶玩前、擤鼻涕後、上廁所後、看病前後。"
+            },
+            {
+              "en": "Wipe up spilled water and oil right away so that nobody slips.",
+              "zh": "灑出來的水和油要馬上擦乾，免得有人滑倒。"
+            },
+            {
+              "en": "Do the activities with an adult, and do not pour leftover oil down the sink. Wipe it up with paper and put it in the trash.",
+              "zh": "活動要有大人陪同。剩下的油不要倒進水槽，用紙擦起來丟進垃圾桶。"
+            }
+          ],
+          "activities": [
+            {
+              "title_en": "Oil, Water, and Soap in a Jar",
+              "title_zh": "瓶子裡的油、水和肥皂",
+              "materials": [
+                {
+                  "en": "A clear jar or bottle with a tight lid",
+                  "zh": "一個蓋得緊的透明瓶子或罐子"
+                },
+                {
+                  "en": "Water, two spoonfuls of cooking oil, and a few drops of dish soap",
+                  "zh": "水、兩湯匙沙拉油、幾滴洗碗精"
+                }
+              ],
+              "steps": [
+                {
+                  "en": "Fill the jar halfway with water and add the oil. Where does the oil go?",
+                  "zh": "把瓶子裝半滿的水，加入沙拉油。油跑到哪裡？"
+                },
+                {
+                  "en": "Close the lid and shake hard for ten seconds. Put the jar down and watch for one minute.",
+                  "zh": "蓋緊蓋子，用力搖十秒。把瓶子放下，觀察一分鐘。"
+                },
+                {
+                  "en": "Add a few drops of dish soap, close the lid, and shake again for ten seconds.",
+                  "zh": "加幾滴洗碗精，蓋緊，再搖十秒。"
+                },
+                {
+                  "en": "Watch for another minute. What is different this time? Where did the oil go?",
+                  "zh": "再觀察一分鐘。這次有什麼不一樣？油跑到哪裡去了？"
+                }
+              ],
+              "tip_en": "With soap, the oil stays in the water as tiny drops, each one wrapped in soap. That is why the water turns cloudy.",
+              "tip_zh": "加了肥皂，油會變成很小的油滴留在水裡，每一滴都被肥皂包住，所以水變得霧霧的。"
+            },
+            {
+              "title_en": "The 20-Second Test",
+              "title_zh": "20 秒大考驗",
+              "materials": [
+                {
+                  "en": "A little cooking oil and some ground pepper or cinnamon (the pretend germs)",
+                  "zh": "一點沙拉油，和一些胡椒粉或肉桂粉（假裝是病菌）"
+                },
+                {
+                  "en": "A sink, hand soap, and a timer",
+                  "zh": "洗手台、洗手乳或肥皂、計時器"
+                }
+              ],
+              "steps": [
+                {
+                  "en": "Rub a drop of oil over both hands, then sprinkle on the pepper. These are your pretend germs.",
+                  "zh": "在雙手抹一滴油，再撒上胡椒粉。這些是假裝的病菌。"
+                },
+                {
+                  "en": "Rinse with water only for 5 seconds. How much is left?",
+                  "zh": "只用水沖 5 秒。還剩多少？"
+                },
+                {
+                  "en": "Add soap and rub for 5 seconds, then rinse. Look between your fingers and around your nails.",
+                  "zh": "加肥皂搓 5 秒，再沖水。看看指縫和指甲周圍。"
+                },
+                {
+                  "en": "Now wash again with soap for a full 20 seconds, rubbing palms, backs, between fingers, knuckles, thumbs, fingertips, and wrists. Compare.",
+                  "zh": "現在再用肥皂洗滿 20 秒，照「內、外、夾、弓、大、立、完」搓。比較看看。"
+                }
+              ],
+              "tip_en": "The places people miss most are the thumbs, the fingertips, and between the fingers. Did your pretend germs hide there?",
+              "tip_zh": "最常漏掉的地方是大拇指、指尖和指縫。你的假病菌是不是躲在那裡？"
+            }
+          ],
+          "sources": [
+            {
+              "en": "Soap molecules form micelles: water-loving groups on the outside, a fat-loving pocket inside that holds the oil and makes it washable",
+              "zh": "肥皂分子形成微胞：親水的部分在外、親油的口袋在內，把油包住、讓水帶得走",
+              "src": "Wikipedia, “Soap”",
+              "url": "https://en.wikipedia.org/wiki/Soap"
+            },
+            {
+              "en": "Soap is a salt of a fatty acid, made from fats or oils and lye; soap-like materials in Babylon around 2800 BC; soap disrupts the fatty membranes of microorganisms",
+              "zh": "肥皂是脂肪酸的鹽，由油脂和鹼液製成；西元前 2800 年左右巴比倫已有像肥皂的東西；肥皂會破壞微生物的脂質膜",
+              "src": "Wikipedia, “Soap”",
+              "url": "https://en.wikipedia.org/wiki/Soap"
+            },
+            {
+              "en": "A micelle: a small cluster of soap molecules around oil, suspended in water",
+              "zh": "微胞：肥皂分子圍著油聚成的小團，懸浮在水裡",
+              "src": "Wikipedia, “Micelle”",
+              "url": "https://en.wikipedia.org/wiki/Micelle"
+            },
+            {
+              "en": "Five moments, five steps (wet, rub, rinse, scoop, dry), and the seven-word rhyme for handwashing",
+              "zh": "洗手五時機、五步驟（濕、搓、沖、捧、擦）與七字訣（內、外、夾、弓、大、立、完）",
+              "src": "衛生福利部疾病管制署",
+              "url": "https://www.cdc.gov.tw/Category/ListContent/EmXemht4IT-IRAPrAnyG9A?uaid=WAyM39BF9OlaBUO6J4_yog"
+            },
+            {
+              "en": "Rub for at least 20 seconds",
+              "zh": "搓手步驟要有 20 秒以上",
+              "src": "衛生福利部疾病管制署",
+              "url": "https://www.cdc.gov.tw/Category/ListContent/xdiZ0NuS67snzX0a7DGUHg?uaid=B0OhDJnMK-8TzgnrWivk2A"
+            },
+            {
+              "en": "Washing with soap and water takes about 40 to 60 seconds in all",
+              "zh": "肥皂和清水洗手全程約 40～60 秒",
+              "src": "衛生福利部疾病管制署「手部衛生簡介」",
+              "url": "https://www.cdc.gov.tw/Category/MPage/BUB88Dc-WrHrczuT0TE-bA"
+            },
+            {
+              "en": "Alcohol has limited effect on enteroviruses; washing with soap is the most effective prevention",
+              "zh": "酒精對腸病毒之毒殺效果有限；最有效的預防方法是以肥皂勤洗手",
+              "src": "衛生福利部疾病管制署",
+              "url": "https://www.cdc.gov.tw/Bulletin/Detail/WMN_PHZ4FFC8YXrplNdX9g?typeid=MmgtpeidAR5Ooai4-fgHzQ"
+            },
+            {
+              "en": "Rubbing creates friction that helps remove germs; soap lifts off the natural oils that hold dirt and bacteria so running water can carry them away",
+              "zh": "搓揉產生的摩擦有助去除病菌；肥皂讓皮膚上黏著髒污和細菌的油脂被流水帶走",
+              "src": "Wikipedia, “Hand washing”",
+              "url": "https://en.wikipedia.org/wiki/Hand_washing"
+            }
+          ]
+        }
+      ],
+      "planned": [
         {
           "n": 18,
           "icon": "🍞",

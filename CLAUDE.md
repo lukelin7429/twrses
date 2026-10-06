@@ -264,6 +264,11 @@
   - `src/fridgecalc.js`（**簡化模型，不是真冰箱的規格**）：dT/dt = LEAK·(門開×12)·(廚房−T) − (運轉 ? PUMP : 0)，溫控 5.5°C 啟動、2.5°C 停止；1 秒＝模型 4 分鐘。熱的帳用舉例數字「搬 2 份＋電 1 份＝送出 3 份」。門開著時穩定在 23–24°C、壓縮機不停。
   - 卡片 `demo`：normal／door／unplug／hot。除錯：`document.querySelector('[data-fridge-lab]').__lab`（`setRoom(18–36)`、`setDoor(bool)`、`setPlugged(bool)`、`setTemp(°C)`、`run(sec)`、`render()`）。
   - 出處的坑：食藥好文網（article-consumer.fda.gov.tw）連不上，改用 fda.gov.tw 的《藥物食品安全週報》同一篇；能源效率分級的說明用標準檢驗局的 PDF（`curl -k`＋`pdftotext`）。
+- 第十七課肥皂（`soap-micelle.js`，`lab.kind = "soap"`，`data-soap-lab`，CSS 前綴 `sp-`，資料在 **`units[4]`「生活化學」**）：一個機制——肥皂分子一頭親水（藍色的頭）、一頭親油（黃色的尾巴）；尾巴插進油污，搓洗把油污拆成小油滴，肥皂把每一滴包成微胞（尾巴朝裡、頭朝外），水帶走。
+  - **整個畫面只由（洗法 mode、時間 t）決定**（`draw()` 沒有累積狀態），所以時間滑桿可以來回拉；分子的游動用另一個一直走的 `clock`。分子三個階段用 smoothstep 接起來：在水裡游 → 貼到油污表面（`join` 秒）→ 跟著第 j 顆油滴離開（`releaseTime(mode, j)`）。
+  - `src/soapcalc.js`（**示意模型，不是實驗數字**，比例說明有寫）：`cleaned(mode, t) = cap·(1 − e^(−t/τ))`，water 0.03／soap 0.42／scrub 1；搓 5 秒約剩一半、20 秒剩 5%。
+  - 卡片 `demo`：water／soap／scrub5／scrub20（後兩個跳到那個時間並暫停）。除錯：`document.querySelector('[data-soap-lab]').__lab`（`setMode('water'|'soap'|'scrub')`、`setTime(0–30)`、`setPlaying(bool)`、`run(sec)`、`render()`）。
+  - 查證的坑：水溫要不要熱，美國 CDC 與 WHO 說法不同 → 不寫；洗手步驟與秒數用疾管署自己的頁面（五步驟、七字訣、搓 20 秒、全程 40–60 秒、酒精對腸病毒效果有限）。
 - 上傳錄音時若出現大量「not found locally」：多半是天文 session 在 ~/Developer 那份 clone 產生、已上傳的句子（worktree 的快取沒有它們）。算出「manifest 裡有、快取裡沒有」的雜湊，逐一 curl 確認線上 200 即可。
 - 多個 session 同時改 build.py 時，本系列改在 scratchpad 的 git worktree（從 origin/main 開分支）做，`audio` 用 symlink 指到 `~/Documents/twrses/audio`（symlink 不會被 .gitignore 的 `audio/` 擋，**不要 add**），做完 rebase 再 `git push origin HEAD:main`。
 - 瀏覽器面板在背景時 `visibilityState` 是 hidden，IntersectionObserver 不觸發、截圖是空白：點一下頁面上的「在模型中看」按鈕就會直接初始化，截圖改用無頭 Chrome（playwright-core＋本機 Chrome，`--use-angle=swiftshader`）。

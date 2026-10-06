@@ -5549,7 +5549,7 @@ def build_body_hub():
 # 3D 原始碼在 tools/science/src/（three.js、esbuild，每課一個入口），打包成 assets/js/<入口>.js；
 # 面板、迷思、口訣、活動沿用 astro.css，本系列多出來的在 science.css；兩者都只載在本系列頁面。
 HTW_BASE = "/resources/classes/how-things-work/"
-_HTW_JS = {"battery": "battery", "generator": "generator", "solar": "solar-cell", "wind": "wind-turbine", "internet": "internet-packets", "signal": "cell-signal", "gps": "gps-satellites", "memory": "memory-bits", "sky": "sky-scatter", "rainbow": "rainbow-drops", "sound": "sound-waves", "camera": "camera-lens", "wing": "airplane-wing", "bike": "bicycle-balance", "elevator": "elevator-lift", "fridge": "fridge-cycle"}   # lab.kind → assets/js/<bundle>.js
+_HTW_JS = {"battery": "battery", "generator": "generator", "solar": "solar-cell", "wind": "wind-turbine", "internet": "internet-packets", "signal": "cell-signal", "gps": "gps-satellites", "memory": "memory-bits", "sky": "sky-scatter", "rainbow": "rainbow-drops", "sound": "sound-waves", "camera": "camera-lens", "wing": "airplane-wing", "bike": "bicycle-balance", "elevator": "elevator-lift", "fridge": "fridge-cycle", "soap": "soap-micelle"}   # lab.kind → assets/js/<bundle>.js
 
 def _htw_cn(n):
     """課次的中文數字（一～九十九）：第十一課、第二十課。"""
@@ -6456,6 +6456,65 @@ def render_fridge_lab(lesson):
   <p class="bt-credit">{lab["credit_html"]}</p>
 </div>'''
 
+def soap_svg(size=56):
+    """肥皂小圖（萬物原理首頁的課程卡）：一顆被肥皂分子包住的油滴——藍色的頭朝外、黃色的尾巴朝裡。"""
+    import math
+    mol = "".join(
+        f'<path d="M{30 + 9 * math.cos(a):.1f} {30 + 9 * math.sin(a):.1f} L{30 + 19 * math.cos(a):.1f} {30 + 19 * math.sin(a):.1f}" stroke="#ffd84a" stroke-width="2.2" stroke-linecap="round"/>'
+        f'<circle cx="{30 + 22 * math.cos(a):.1f}" cy="{30 + 22 * math.sin(a):.1f}" r="4" fill="#3f9bff"/>'
+        for a in [i * math.pi / 5 for i in range(10)])
+    return (f'<svg class="soap-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">'
+            f'<circle cx="30" cy="30" r="9" fill="#d9a514"/>{mol}</svg>')
+
+def render_soap_lab(lesson):
+    """第十七課：放大的油污與肥皂分子（assets/js/soap-micelle.js 綁這裡的 class；數字是示意模型）。"""
+    lab = lesson["lab"]
+    tg = _lab_toggles([("labels", "Labels", "標示", True)])
+    return f'''<div class="astro-lab bt-lab sp-lab rvl" data-soap-lab>
+  <div class="al-stage">
+    <div class="al-space">
+      <canvas class="al-space-cv" aria-label="3D close-up of a patch of grease on skin: soap molecules push their tails into the grease, rubbing breaks it into drops, and water carries the wrapped drops away · 皮膚上一塊油污的 3D 放大圖：肥皂分子把尾巴插進油污，搓洗把它拆成小油滴，水把包好的油滴帶走"></canvas>
+      <div class="al-labels" aria-hidden="true"></div>
+      <p class="bt-cut">A greatly magnified view; the molecules are drawn far bigger and far fewer than real · 放大很多倍的示意圖；分子畫得比真的大非常多、也少非常多</p>
+      <p class="al-hint">Drag to turn · 拖曳旋轉　Scroll or pinch to zoom · 滾輪／雙指縮放</p>
+      <button type="button" class="al-home" title="Reset view · 重設視角" aria-label="Reset view · 重設視角">&#8634;</button>
+      <p class="al-nogl-msg">This 3D model needs WebGL, which this browser does not support. The reading and the cards below still explain everything.<br><span class="zh">這個瀏覽器不支援 WebGL，無法顯示 3D 模型；下方的課文與卡片一樣能看懂。</span></p>
+    </div>
+    <aside class="al-sky bt-aside sp-aside">
+      <div class="sp-top">
+        <p class="al-sky-k">How are you washing? · 你怎麼洗？</p>
+        <div class="sp-modes">
+          <button type="button" class="sp-mode" data-mode="water" aria-pressed="false">Water only<small>只用水</small></button>
+          <button type="button" class="sp-mode" data-mode="soap" aria-pressed="false">Soap, no rubbing<small>加肥皂、不搓</small></button>
+          <button type="button" class="sp-mode" data-mode="scrub" aria-pressed="true">Soap + rubbing<small>加肥皂又搓洗</small></button>
+        </div>
+        <p class="sp-status" aria-live="polite"></p>
+        <dl class="bt-nums sp-nums">
+          <div><dt>Grease left · 還剩的油污</dt><dd class="sp-left"></dd></div>
+          <div><dt>Oil drops carried away · 被帶走的油滴</dt><dd class="sp-away"></dd></div>
+        </dl>
+        <div class="sp-bars">
+          <p class="sp-bars-k">Grease left at this moment · 這個時候還剩多少</p>
+          <p class="sp-bar sp-bar-water"><span>Water only · 只用水</span><i></i><b></b></p>
+          <p class="sp-bar sp-bar-soap"><span>Soap, no rubbing · 加肥皂、不搓</span><i></i><b></b></p>
+          <p class="sp-bar sp-bar-scrub"><span>Soap + rubbing · 加肥皂又搓洗</span><i></i><b></b></p>
+        </div>
+      </div>
+      <p class="bt-msg sp-msg" aria-live="polite"></p>
+    </aside>
+  </div>
+  <div class="al-controls">
+    <div class="al-row al-row-main">
+      <button type="button" class="al-play" aria-pressed="true"><span class="al-play-i" aria-hidden="true"></span><span class="al-play-t">Pause · 暫停</span></button>
+      <label class="al-slider sp-row"><span>Washing time · 洗了多久 <output class="sp-time-out"></output></span>
+        <input type="range" class="al-age sp-time" min="0" max="30" step="0.5" value="0"></label>
+    </div>
+    <div class="al-row al-toggles">{tg}</div>
+  </div>
+  {_lab_foot(lab)}
+  <p class="bt-credit">{lab["credit_html"]}</p>
+</div>'''
+
 def _htw_flat():
     return [(ui, u, l) for ui, u in enumerate(HTW["units"]) for l in u["lessons"]]
 
@@ -6483,7 +6542,7 @@ def build_htw_lesson(ui, unit, lesson):
     reading_html = render_basic_unit(1, unit_dict, level="htw", audio_rel="", pdf_rel="")
     lab = lesson["lab"]
     kind = lab["kind"]
-    lab_html = {"battery": render_battery_lab, "generator": render_generator_lab, "solar": render_solarcell_lab, "wind": render_windturbine_lab, "internet": render_internet_lab, "signal": render_cellsignal_lab, "gps": render_gps_lab, "memory": render_memory_lab, "sky": render_skyblue_lab, "rainbow": render_rainbow_lab, "sound": render_soundwave_lab, "camera": render_cameralens_lab, "wing": render_airwing_lab, "bike": render_bicycle_lab, "elevator": render_elevator_lab, "fridge": render_fridge_lab}[kind](lesson)
+    lab_html = {"battery": render_battery_lab, "generator": render_generator_lab, "solar": render_solarcell_lab, "wind": render_windturbine_lab, "internet": render_internet_lab, "signal": render_cellsignal_lab, "gps": render_gps_lab, "memory": render_memory_lab, "sky": render_skyblue_lab, "rainbow": render_rainbow_lab, "sound": render_soundwave_lab, "camera": render_cameralens_lab, "wing": render_airwing_lab, "bike": render_bicycle_lab, "elevator": render_elevator_lab, "fridge": render_fridge_lab, "soap": render_soap_lab}[kind](lesson)
 
     secs = []
     if lesson.get("mix"):
@@ -6555,7 +6614,8 @@ def build_htw_lesson(ui, unit, lesson):
                 "wing": ("Flight in a sentence", "一句話記住飛行"),
                 "bike": ("Bicycles in a sentence", "一句話記住腳踏車"),
                 "elevator": ("Elevators in a sentence", "一句話記住電梯"),
-                "fridge": ("Refrigerators in a sentence", "一句話記住冰箱")}[kind]
+                "fridge": ("Refrigerators in a sentence", "一句話記住冰箱"),
+                "soap": ("Soap in a sentence", "一句話記住肥皂")}[kind]
     secs.append(("tricks", "Remember It · 記憶口訣", tricks_h[0], tricks_h[1], _sci_tricks(lesson), ""))
     if lesson.get("safety"):
         items = "".join(f'<li class="rvl">{html.escape(s["en"])}<span class="zh">{html.escape(s["zh"])}</span></li>' for s in lesson["safety"])
@@ -6609,7 +6669,7 @@ def build_htw_lesson(ui, unit, lesson):
 def build_htw_hub():
     # 照中醫養生：單元導覽＋每個單元一段橫向課程卡；做好的課可點，planned 是「製作中」卡。
     def icon(l):
-        return battery_svg(60) if l.get("card") == "battery" else outlet_svg(60) if l.get("card") == "outlet" else solarpanel_svg(60) if l.get("card") == "solar" else windturbine_svg(60) if l.get("card") == "wind" else internet_svg(60) if l.get("card") == "internet" else cellsignal_svg(60) if l.get("card") == "signal" else gps_svg(60) if l.get("card") == "gps" else memory_svg(60) if l.get("card") == "memory" else skyblue_svg(60) if l.get("card") == "sky" else rainbow_svg(60) if l.get("card") == "rainbow" else soundwave_svg(60) if l.get("card") == "sound" else cameralens_svg(60) if l.get("card") == "camera" else airwing_svg(60) if l.get("card") == "wing" else bicycle_svg(60) if l.get("card") == "bike" else elevator_svg(60) if l.get("card") == "elevator" else fridge_svg(60) if l.get("card") == "fridge" else l["icon"]
+        return battery_svg(60) if l.get("card") == "battery" else outlet_svg(60) if l.get("card") == "outlet" else solarpanel_svg(60) if l.get("card") == "solar" else windturbine_svg(60) if l.get("card") == "wind" else internet_svg(60) if l.get("card") == "internet" else cellsignal_svg(60) if l.get("card") == "signal" else gps_svg(60) if l.get("card") == "gps" else memory_svg(60) if l.get("card") == "memory" else skyblue_svg(60) if l.get("card") == "sky" else rainbow_svg(60) if l.get("card") == "rainbow" else soundwave_svg(60) if l.get("card") == "sound" else cameralens_svg(60) if l.get("card") == "camera" else airwing_svg(60) if l.get("card") == "wing" else bicycle_svg(60) if l.get("card") == "bike" else elevator_svg(60) if l.get("card") == "elevator" else fridge_svg(60) if l.get("card") == "fridge" else soap_svg(60) if l.get("card") == "soap" else l["icon"]
     unit_sections, nav = [], []
     done = sum(len(u["lessons"]) for u in HTW["units"])
     total = done + sum(len(u.get("planned", [])) for u in HTW["units"])
