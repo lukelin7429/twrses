@@ -269,6 +269,11 @@
   - `src/soapcalc.js`（**示意模型，不是實驗數字**，比例說明有寫）：`cleaned(mode, t) = cap·(1 − e^(−t/τ))`，water 0.03／soap 0.42／scrub 1；搓 5 秒約剩一半、20 秒剩 5%。
   - 卡片 `demo`：water／soap／scrub5／scrub20（後兩個跳到那個時間並暫停）。除錯：`document.querySelector('[data-soap-lab]').__lab`（`setMode('water'|'soap'|'scrub')`、`setTime(0–30)`、`setPlaying(bool)`、`run(sec)`、`render()`）。
   - 查證的坑：水溫要不要熱，美國 CDC 與 WHO 說法不同 → 不寫；洗手步驟與秒數用疾管署自己的頁面（五步驟、七字訣、搓 20 秒、全程 40–60 秒、酒精對腸病毒效果有限）。
+- 第十八課麵包（`bread-rise.js`，`lab.kind = "bread"`，`data-bread-lab`，CSS 前綴 `br-`，`units[4]`）：一個機制——酵母（活的真菌）吃糖吐出二氧化碳，有彈性的麵筋把氣體包成氣泡、把麵糰撐大；溫暖快、冷慢、沒有酵母不會發；烤或蒸時氣體再脹一次、麵糰定型，小洞留下。
+  - 切開一半的麵糰：後半顆圓頂（SphereGeometry 的 phi 半圈）＋朝鏡頭的半圓切面（CircleGeometry），氣泡、酵母、二氧化碳都是貼在切面上的 InstancedMesh 圓片（z 稍微往前錯開）；`controls` 限制方位角 ±1.2，免得轉到背後看到空的。畫面只由（t、T、yeast、bakeK）決定，時間滑桿可來回拉。
+  - `src/breadcalc.js`（**示意模型，不是食譜**）：`rate(T)` 每高 10°C 快一倍（只算 5–40°C）、`size()` 1→最多 2 倍、送去烤再乘 1.15；1 秒＝6 分鐘。
+  - **酵母幾度會死沒有可靠出處，所以課文與模型都不寫那個數字**（滑桿只到 40°C）；課文只用「溫水約 40–45°C 叫醒乾酵母」（Wikipedia Proofing）。蘇打餅乾常含酵母，對照物改用水餃皮。
+  - 卡片 `demo`：warm／fridge／noyeast／bake。除錯：`document.querySelector('[data-bread-lab]').__lab`（`setTime(0–90)`、`setTemp(5–40)`、`setYeast(bool)`、`bake()`、`reset()`、`run(sec)`、`render()`）。
 - 上傳錄音時若出現大量「not found locally」：多半是天文 session 在 ~/Developer 那份 clone 產生、已上傳的句子（worktree 的快取沒有它們）。算出「manifest 裡有、快取裡沒有」的雜湊，逐一 curl 確認線上 200 即可。
 - 多個 session 同時改 build.py 時，本系列改在 scratchpad 的 git worktree（從 origin/main 開分支）做，`audio` 用 symlink 指到 `~/Documents/twrses/audio`（symlink 不會被 .gitignore 的 `audio/` 擋，**不要 add**），做完 rebase 再 `git push origin HEAD:main`。
 - 瀏覽器面板在背景時 `visibilityState` 是 hidden，IntersectionObserver 不觸發、截圖是空白：點一下頁面上的「在模型中看」按鈕就會直接初始化，截圖改用無頭 Chrome（playwright-core＋本機 Chrome，`--use-angle=swiftshader`）。

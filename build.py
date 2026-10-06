@@ -5549,7 +5549,7 @@ def build_body_hub():
 # 3D 原始碼在 tools/science/src/（three.js、esbuild，每課一個入口），打包成 assets/js/<入口>.js；
 # 面板、迷思、口訣、活動沿用 astro.css，本系列多出來的在 science.css；兩者都只載在本系列頁面。
 HTW_BASE = "/resources/classes/how-things-work/"
-_HTW_JS = {"battery": "battery", "generator": "generator", "solar": "solar-cell", "wind": "wind-turbine", "internet": "internet-packets", "signal": "cell-signal", "gps": "gps-satellites", "memory": "memory-bits", "sky": "sky-scatter", "rainbow": "rainbow-drops", "sound": "sound-waves", "camera": "camera-lens", "wing": "airplane-wing", "bike": "bicycle-balance", "elevator": "elevator-lift", "fridge": "fridge-cycle", "soap": "soap-micelle"}   # lab.kind → assets/js/<bundle>.js
+_HTW_JS = {"battery": "battery", "generator": "generator", "solar": "solar-cell", "wind": "wind-turbine", "internet": "internet-packets", "signal": "cell-signal", "gps": "gps-satellites", "memory": "memory-bits", "sky": "sky-scatter", "rainbow": "rainbow-drops", "sound": "sound-waves", "camera": "camera-lens", "wing": "airplane-wing", "bike": "bicycle-balance", "elevator": "elevator-lift", "fridge": "fridge-cycle", "soap": "soap-micelle", "bread": "bread-rise"}   # lab.kind → assets/js/<bundle>.js
 
 def _htw_cn(n):
     """課次的中文數字（一～九十九）：第十一課、第二十課。"""
@@ -6515,6 +6515,64 @@ def render_soap_lab(lesson):
   <p class="bt-credit">{lab["credit_html"]}</p>
 </div>'''
 
+def bread_svg(size=56):
+    """麵包小圖（萬物原理首頁的課程卡）：切開的麵糰，裡面是一個個氣泡。"""
+    holes = "".join(f'<circle cx="{x}" cy="{y}" r="{r}" fill="#a98a5c"/>' for x, y, r in
+                    [(18, 40, 4), (28, 30, 5.5), (40, 38, 4.5), (33, 43, 3), (22, 29, 3), (44, 28, 3.5), (36, 21, 3.5), (13, 34, 2.5)])
+    return (f'<svg class="bread-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">'
+            '<path d="M5 50 C5 22 18 10 30 10 C42 10 55 22 55 50 Z" fill="#f4e4bf" stroke="#b4722a" stroke-width="3" stroke-linejoin="round"/>'
+            f'{holes}<path d="M3 51 H57" stroke="#9c6b3f" stroke-width="3" stroke-linecap="round"/></svg>')
+
+def render_bread_lab(lesson):
+    """第十八課：剖開的麵糰（assets/js/bread-rise.js 綁這裡的 class；數字是示意模型）。"""
+    lab = lesson["lab"]
+    tg = _lab_toggles([("labels", "Labels", "標示", True), ("yeast", "Yeast in the dough", "麵糰裡有酵母", True)])
+    return f'''<div class="astro-lab bt-lab br-lab rvl" data-bread-lab>
+  <div class="al-stage">
+    <div class="al-space">
+      <canvas class="al-space-cv" aria-label="3D model of a ball of dough cut in half: yeast gives off gas, bubbles grow, and the dough rises · 切開一半的麵糰 3D 模型：酵母吐出氣體，氣泡變大，麵糰長高"></canvas>
+      <div class="al-labels" aria-hidden="true"></div>
+      <p class="bt-cut">A ball of dough cut in half; yeast and bubbles drawn far bigger and far fewer than real · 切開一半的麵糰；酵母和氣泡畫得比真的大非常多、也少非常多</p>
+      <p class="al-hint">Drag to turn · 拖曳旋轉　Scroll or pinch to zoom · 滾輪／雙指縮放</p>
+      <button type="button" class="al-home" title="Reset view · 重設視角" aria-label="Reset view · 重設視角">&#8634;</button>
+      <p class="al-nogl-msg">This 3D model needs WebGL, which this browser does not support. The reading and the cards below still explain everything.<br><span class="zh">這個瀏覽器不支援 WebGL，無法顯示 3D 模型；下方的課文與卡片一樣能看懂。</span></p>
+    </div>
+    <aside class="al-sky bt-aside br-aside">
+      <div class="br-top">
+        <p class="al-sky-k">The dough · 這塊麵糰</p>
+        <p class="br-status" aria-live="polite"></p>
+        <dl class="bt-nums br-nums">
+          <div><dt>Size · 大小</dt><dd class="br-size"></dd></div>
+          <div><dt>Gas being made · 產生氣體</dt><dd class="br-speed"></dd></div>
+        </dl>
+        <div class="br-bars">
+          <p class="br-bars-k">How much bigger by now? · 到現在長大了多少？</p>
+          <p class="br-bar br-bar-warm"><span>Warm place (35°C) · 溫暖的地方</span><i></i><b></b></p>
+          <p class="br-bar br-bar-cold"><span>Refrigerator (5°C) · 冰箱裡</span><i></i><b></b></p>
+          <p class="br-bar br-bar-none"><span>No yeast · 沒有酵母</span><i></i><b></b></p>
+        </div>
+        <div class="br-btns">
+          <button type="button" class="br-bake">&#128293; Bake it<small>送去烤</small></button>
+          <button type="button" class="br-reset">Start over<small>重來</small></button>
+        </div>
+      </div>
+      <p class="bt-msg br-msg" aria-live="polite"></p>
+    </aside>
+  </div>
+  <div class="al-controls">
+    <div class="al-row al-row-main">
+      <button type="button" class="al-play" aria-pressed="true"><span class="al-play-i" aria-hidden="true"></span><span class="al-play-t">Pause · 暫停</span></button>
+      <label class="al-slider br-row"><span>Waiting time · 等了多久 <output class="br-time-out"></output></span>
+        <input type="range" class="al-age br-time" min="0" max="90" step="1" value="0"></label>
+      <label class="al-slider br-row"><span>Temperature · 溫度 <output class="br-temp-out"></output></span>
+        <input type="range" class="al-age br-temp" min="5" max="40" step="1" value="30"></label>
+    </div>
+    <div class="al-row al-toggles">{tg}</div>
+  </div>
+  {_lab_foot(lab)}
+  <p class="bt-credit">{lab["credit_html"]}</p>
+</div>'''
+
 def _htw_flat():
     return [(ui, u, l) for ui, u in enumerate(HTW["units"]) for l in u["lessons"]]
 
@@ -6542,7 +6600,7 @@ def build_htw_lesson(ui, unit, lesson):
     reading_html = render_basic_unit(1, unit_dict, level="htw", audio_rel="", pdf_rel="")
     lab = lesson["lab"]
     kind = lab["kind"]
-    lab_html = {"battery": render_battery_lab, "generator": render_generator_lab, "solar": render_solarcell_lab, "wind": render_windturbine_lab, "internet": render_internet_lab, "signal": render_cellsignal_lab, "gps": render_gps_lab, "memory": render_memory_lab, "sky": render_skyblue_lab, "rainbow": render_rainbow_lab, "sound": render_soundwave_lab, "camera": render_cameralens_lab, "wing": render_airwing_lab, "bike": render_bicycle_lab, "elevator": render_elevator_lab, "fridge": render_fridge_lab, "soap": render_soap_lab}[kind](lesson)
+    lab_html = {"battery": render_battery_lab, "generator": render_generator_lab, "solar": render_solarcell_lab, "wind": render_windturbine_lab, "internet": render_internet_lab, "signal": render_cellsignal_lab, "gps": render_gps_lab, "memory": render_memory_lab, "sky": render_skyblue_lab, "rainbow": render_rainbow_lab, "sound": render_soundwave_lab, "camera": render_cameralens_lab, "wing": render_airwing_lab, "bike": render_bicycle_lab, "elevator": render_elevator_lab, "fridge": render_fridge_lab, "soap": render_soap_lab, "bread": render_bread_lab}[kind](lesson)
 
     secs = []
     if lesson.get("mix"):
@@ -6615,7 +6673,8 @@ def build_htw_lesson(ui, unit, lesson):
                 "bike": ("Bicycles in a sentence", "一句話記住腳踏車"),
                 "elevator": ("Elevators in a sentence", "一句話記住電梯"),
                 "fridge": ("Refrigerators in a sentence", "一句話記住冰箱"),
-                "soap": ("Soap in a sentence", "一句話記住肥皂")}[kind]
+                "soap": ("Soap in a sentence", "一句話記住肥皂"),
+                "bread": ("Bread in a sentence", "一句話記住麵包")}[kind]
     secs.append(("tricks", "Remember It · 記憶口訣", tricks_h[0], tricks_h[1], _sci_tricks(lesson), ""))
     if lesson.get("safety"):
         items = "".join(f'<li class="rvl">{html.escape(s["en"])}<span class="zh">{html.escape(s["zh"])}</span></li>' for s in lesson["safety"])
@@ -6669,7 +6728,7 @@ def build_htw_lesson(ui, unit, lesson):
 def build_htw_hub():
     # 照中醫養生：單元導覽＋每個單元一段橫向課程卡；做好的課可點，planned 是「製作中」卡。
     def icon(l):
-        return battery_svg(60) if l.get("card") == "battery" else outlet_svg(60) if l.get("card") == "outlet" else solarpanel_svg(60) if l.get("card") == "solar" else windturbine_svg(60) if l.get("card") == "wind" else internet_svg(60) if l.get("card") == "internet" else cellsignal_svg(60) if l.get("card") == "signal" else gps_svg(60) if l.get("card") == "gps" else memory_svg(60) if l.get("card") == "memory" else skyblue_svg(60) if l.get("card") == "sky" else rainbow_svg(60) if l.get("card") == "rainbow" else soundwave_svg(60) if l.get("card") == "sound" else cameralens_svg(60) if l.get("card") == "camera" else airwing_svg(60) if l.get("card") == "wing" else bicycle_svg(60) if l.get("card") == "bike" else elevator_svg(60) if l.get("card") == "elevator" else fridge_svg(60) if l.get("card") == "fridge" else soap_svg(60) if l.get("card") == "soap" else l["icon"]
+        return battery_svg(60) if l.get("card") == "battery" else outlet_svg(60) if l.get("card") == "outlet" else solarpanel_svg(60) if l.get("card") == "solar" else windturbine_svg(60) if l.get("card") == "wind" else internet_svg(60) if l.get("card") == "internet" else cellsignal_svg(60) if l.get("card") == "signal" else gps_svg(60) if l.get("card") == "gps" else memory_svg(60) if l.get("card") == "memory" else skyblue_svg(60) if l.get("card") == "sky" else rainbow_svg(60) if l.get("card") == "rainbow" else soundwave_svg(60) if l.get("card") == "sound" else cameralens_svg(60) if l.get("card") == "camera" else airwing_svg(60) if l.get("card") == "wing" else bicycle_svg(60) if l.get("card") == "bike" else elevator_svg(60) if l.get("card") == "elevator" else fridge_svg(60) if l.get("card") == "fridge" else soap_svg(60) if l.get("card") == "soap" else bread_svg(60) if l.get("card") == "bread" else l["icon"]
     unit_sections, nav = [], []
     done = sum(len(u["lessons"]) for u in HTW["units"])
     total = done + sum(len(u.get("planned", [])) for u in HTW["units"])
