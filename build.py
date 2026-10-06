@@ -7236,7 +7236,7 @@ def build_chip_hub():
 _calj = os.path.join(ROOT, "data", "calligraphy.json")
 CAL = json.load(open(_calj, encoding="utf-8")) if os.path.exists(_calj) else None
 CAL_BASE = "/resources/classes/calligraphy/"
-_CAL_JS = {"four": "cal-four", "press": "cal-press", "yong": "cal-yong", "order": "cal-order", "oracle": "cal-oracle", "clerical": "cal-clerical", "speed": "cal-speed", "lanting": "cal-lanting", "styles": "cal-styles"}   # lab.kind → assets/js/<bundle>.js
+_CAL_JS = {"four": "cal-four", "press": "cal-press", "yong": "cal-yong", "order": "cal-order", "oracle": "cal-oracle", "clerical": "cal-clerical", "speed": "cal-speed", "lanting": "cal-lanting", "styles": "cal-styles", "gallery": "cal-gallery"}   # lab.kind → assets/js/<bundle>.js
 
 def _cal_ver():
     h = hashlib.md5()
@@ -8161,6 +8161,109 @@ def _cal_pairs(pr):
     return (f'<div class="cg-pairs-w rvl"><table class="cg-pairs cg-pairs-{len(cols)}"><thead><tr><td></td>{head}</tr></thead><tbody>{rows}</tbody></table></div>'
             f'<p class="cg-sheet-credit cg-z20-credit rvl">{pr["credit_html"]}</p>')
 
+def calgallery_svg(size=56):
+    """第十課的課程卡小圖示：展櫃裡攤開的一卷字（純 SVG）。"""
+    lines = "".join(f'<path d="M{16 + i * 7} 21 q2 5 -1 9 q-3 4 1 9" fill="none" stroke="#151311" stroke-width="{1.6 if i % 2 else 2.2}" stroke-linecap="round"/>' for i in range(5))
+    return (f'<svg class="calgallery-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">'
+            '<rect x="3" y="3" width="54" height="54" rx="3" fill="#27384a"/><rect x="9" y="15" width="42" height="30" rx="2" fill="#f6f0e1"/>'
+            f'{lines}<rect x="6" y="14" width="4" height="32" rx="2" fill="#8a5a2b"/><rect x="50" y="14" width="4" height="32" rx="2" fill="#8a5a2b"/>'
+            '<rect x="24" y="49" width="12" height="3" rx="1.5" fill="#b9c2cc"/></svg>')
+
+def render_calgallery_lab(lesson):
+    """第十課：示意展廳與燈光實驗（assets/js/cal-gallery.js 綁這裡的 class；展廳自繪，作品是有授權的影像）。"""
+    lab = lesson["lab"]
+    mb = "".join(
+        f'<button type="button" data-mode="{m["key"]}" aria-pressed="{"true" if m["key"] == "tour" else "false"}">'
+        f'<i aria-hidden="true">{html.escape(m["icon"])}</i>{html.escape(m["en"])}<small>{html.escape(m["zh"])}</small></button>'
+        for m in lab["modes"])
+    M = {m["key"]: m for m in lab["modes"]}
+    wb = "".join(f'<button type="button" data-work="{i}" aria-pressed="false" title="{html.escape(w["en"])}">{i + 1}<small>{html.escape(w["short_zh"])}</small></button>' for i, w in enumerate(lab["works"]))
+    lx = "".join(f'<button type="button" data-lux="{v}" aria-pressed="{"true" if v == 50 else "false"}">{en}<small>{zh}</small></button>' for v, en, zh in lab["lux_presets"])
+    tg = _lab_toggles([("labels", "Labels", "標示", True)])
+    works = html.escape(json.dumps(lab["works"], ensure_ascii=False))
+    lt = M["light"]
+    return f'''<div class="astro-lab cg-lab cg-press-lab cg-gallery-lab rvl" data-calgallery-lab data-works="{works}" data-e0="{lab["e0"]}">
+  <div class="al-stage">
+    <div class="al-space">
+      <canvas class="al-space-cv" aria-label="3D model of a museum gallery with five works of calligraphy on the wall, and a light experiment with a strip of dyed paper · 博物館展廳的 3D 模型：牆上有五件書法作品，中間有一個用染色試紙做的燈光實驗"></canvas>
+      <div class="al-labels" aria-hidden="true"></div>
+      <p class="al-hint">Drag to look around · 拖曳環顧　Scroll or pinch to zoom · 滾輪／雙指縮放　Tap a work · 點作品走近</p>
+      <button type="button" class="al-home" title="Reset view · 重設視角" aria-label="Reset view · 重設視角">&#8634;</button>
+      <p class="al-nogl-msg">This 3D model needs WebGL, which this browser does not support. The reading, the five works, the game, and the practice pad below still work.<br><span class="zh">這個瀏覽器不支援 WebGL，無法顯示 3D 模型；下方的課文、五件作品、小遊戲和練字板一樣能用。</span></p>
+    </div>
+    <aside class="al-sky cg-aside">
+      <p class="al-sky-k">Two things to do · 兩件事</p>
+      <div class="cg-focus cg-modes cg-modes2" role="group" aria-label="Two things to do · 兩件事">{mb}</div>
+      <div class="cg-panel" data-panel="tour">
+        <div class="cg-seg cg-gal-works" role="group" aria-label="Works · 作品">{wb}</div>
+        <h3 class="cg-panel-h cg-work-h"></h3>
+        <dl class="cg-nums cg-gal-nums"><div><dt>By · 作者</dt><dd class="cg-work-who">—</dd></div><div><dt>When · 年代</dt><dd class="cg-work-when">—</dd></div><div><dt>Script · 字體</dt><dd class="cg-work-script">—</dd></div><div><dt>Size · 大小</dt><dd class="cg-work-size">—</dd></div></dl>
+        <p class="cg-panel-t cg-work-t"></p>
+        <div class="cg-gal-nav"><button type="button" class="cg-btn-d" data-step="-1">&larr; Previous · 上一件</button><button type="button" class="cg-btn-d" data-step="1">Next · 下一件 &rarr;</button><button type="button" class="cg-btn-d cg-all">All five · 看全部</button></div>
+      </div>
+      <div class="cg-panel" data-panel="light" hidden>
+        <h3 class="cg-panel-h">{html.escape(lt["title_en"])}<span class="zh">{html.escape(lt["title_zh"])}</span></h3>
+        <p class="cg-panel-t">{html.escape(lt["text_en"])}<span class="zh">{html.escape(lt["text_zh"])}</span></p>
+        <div class="cg-seg cg-gal-lux" role="group" aria-label="Light level · 亮度">{lx}</div>
+        <label class="cg-lux-w"><span>Light · 照度 <b class="cg-lux-out">50 lux</b></span><input type="range" class="cg-lux" min="0" max="100" step="1" value="0" aria-label="Light level in lux · 照度（勒克斯）"></label>
+        <dl class="cg-nums cg-gal-nums"><div class="cg-wide"><dt>Yearly limit (16,000 lux·hours) used up in · 一年的額度（16,000 lux·小時）幾天用完</dt><dd class="cg-limit-out">40</dd></div></dl>
+        <p class="cg-step-t cg-eq-out"></p>
+        <div class="cg-gal-nav"><button type="button" class="cg-btn-d cg-float" data-days="40">Show for 40 days · 展 40 天</button><button type="button" class="cg-btn-d" data-days="365">A whole year · 展一整年</button><button type="button" class="cg-btn-d cg-reset">New strip · 換新試紙</button></div>
+        <dl class="cg-nums cg-gal-nums"><div><dt>Days on show · 展出天數</dt><dd class="cg-days-out">0</dd></div><div><dt>Yearly limit used · 用掉幾倍額度</dt><dd class="cg-used-out">0 ×</dd></div><div><dt>Light received · 累積照到的光</dt><dd class="cg-exp-out">0</dd></div><div><dt>Faded (model) · 褪色（示意）</dt><dd class="cg-fade-out">0%</dd></div></dl>
+        <p class="cg-fade-bar" aria-hidden="true"><i></i></p>
+        <p class="cg-step-t cg-gal-msg" aria-live="polite"></p>
+      </div>
+    </aside>
+  </div>
+  <div class="al-controls">
+    <div class="al-row al-row-main">
+      <button type="button" class="al-play" aria-pressed="true"><span class="al-play-i" aria-hidden="true"></span><span class="al-play-t">Pause · 暫停</span></button>
+      <div class="al-row al-toggles">{tg}</div>
+    </div>
+  </div>
+  {_lab_foot(lab)}
+  <p class="cg-credit">{lab["credit_html"]}</p>
+</div>'''
+
+def _cal_match(mt):
+    """第十課：「這是哪一件？」（gallery2d.js 的 initMatch；每題一張作品局部）。"""
+    items = html.escape(json.dumps(mt["items"], ensure_ascii=False))
+    works = html.escape(json.dumps(mt["works"], ensure_ascii=False))
+    return f'''<div class="cg-guess cg-same cg-match rvl" data-cal-match data-items="{items}" data-works="{works}">
+  <div class="cg-guess-paper"><span class="cg-same-target cg-match-target" role="img" aria-label="A detail of one of the five works · 五件作品之一的局部"></span></div>
+  <div class="cg-guess-side">
+    <p class="cg-which-q cg-match-q"></p>
+    <div class="cg-match-opts" role="group" aria-label="Choices · 選項"></div>
+    <p class="cg-guess-msg cg-match-msg" aria-live="polite"></p>
+    <p class="cg-guess-sc"><span>Right on the first try<span class="zh">一次就答對</span></span><b class="cg-match-score">0 / {len(mt["items"])}</b></p>
+    <div class="cg-pad-btns">
+      <button type="button" class="cg-btn cg-btn-gold" data-match="next">Next · 下一題 &rarr;</button>
+      <button type="button" class="cg-btn" data-match="again">&#8630; Play again · 再玩一次</button>
+    </div>
+    <p class="cg-sheet-credit">{mt["credit_html"]}</p>
+  </div>
+</div>'''
+
+def _cal_tline(tl):
+    """第十課：五件作品排年代（橫的時間軸，手機上直排）。"""
+    lis = "".join(
+        f'<li class="rvl"><b>{html.escape(it["year"])}</b><span class="cg-tl-dy">{html.escape(it["dy_en"])}<span class="zh">{html.escape(it["dy_zh"])}</span></span>'
+        f'<strong>{html.escape(it["en"])}<span class="zh">{html.escape(it["zh"])}</span></strong>'
+        f'<em>{html.escape(it["note_en"])}<span class="zh">{html.escape(it["note_zh"])}</span></em></li>' for it in tl["items"])
+    return f'<ol class="cg-tline">{lis}</ol>'
+
+def _cal_recap(rc):
+    """第十課：十堂課回顧（每課一句話＋連結；課名、小圖示直接讀 CAL）。"""
+    flat = {l["n"]: l for _, _, l in _cal_flat()}
+    lis = ""
+    for it in rc["items"]:
+        l = flat.get(it["n"])
+        if not l: continue
+        lis += (f'<li class="rvl"><a href="{CAL_BASE}{l["slug"]}/"><span class="cg-rc-n">{l["n"]}</span>'
+                f'<span class="cg-rc-b"><b>{html.escape(l["title"])}</b><span class="zh">{html.escape(l["title_zh"])}</span>'
+                f'<em>{html.escape(it["en"])}<span class="zh">{html.escape(it["zh"])}</span></em></span></a></li>')
+    return f'<ol class="cg-recap">{lis}</ol>'
+
 def _cg_evo(key):
     """第五課卡片：甲骨文 → 金文 → 小篆 → 楷書四張小圖（cal-oracle.js 用 scripts2d.js 畫）。"""
     names = [("oracle", "甲骨文"), ("bronze", "金文"), ("seal", "小篆"), ("regular", "楷書")]
@@ -8272,7 +8375,7 @@ def build_cal_lesson(ui, unit, lesson):
     reading_html = render_basic_unit(1, unit_dict, level="callig", audio_rel="", pdf_rel="")
     lab = lesson["lab"]
     kind = lab["kind"]
-    lab_html = {"four": render_calfour_lab, "press": render_calpress_lab, "yong": render_calyong_lab, "order": render_calorder_lab, "oracle": render_caloracle_lab, "clerical": render_calclerical_lab, "speed": render_calspeed_lab, "lanting": render_callanting_lab, "styles": render_calstyles_lab}[kind](lesson)
+    lab_html = {"four": render_calfour_lab, "press": render_calpress_lab, "yong": render_calyong_lab, "order": render_calorder_lab, "oracle": render_caloracle_lab, "clerical": render_calclerical_lab, "speed": render_calspeed_lab, "lanting": render_callanting_lab, "styles": render_calstyles_lab, "gallery": render_calgallery_lab}[kind](lesson)
 
     secs = []
     if lesson.get("parts"):
@@ -8300,6 +8403,12 @@ def build_cal_lesson(ui, unit, lesson):
     if lesson.get("which"):
         wh = lesson["which"]
         secs.append(("which", wh["eyebrow"], wh["en"], wh["zh"], _cal_which(wh), _bi(wh["lead_en"], wh["lead_zh"], cls="lead rvl d2")))
+    if lesson.get("tline"):
+        tl = lesson["tline"]
+        secs.append(("tline", tl["eyebrow"], tl["en"], tl["zh"], _cal_tline(tl), _bi(tl["lead_en"], tl["lead_zh"], cls="lead rvl d2")))
+    if lesson.get("match"):
+        mt = lesson["match"]
+        secs.append(("match", mt["eyebrow"], mt["en"], mt["zh"], _cal_match(mt), _bi(mt["lead_en"], mt["lead_zh"], cls="lead rvl d2")))
     if lesson.get("pairs"):
         pr = lesson["pairs"]
         secs.append(("pairs", pr["eyebrow"], pr["en"], pr["zh"], _cal_pairs(pr), _bi(pr["lead_en"], pr["lead_zh"], cls="lead rvl d2")))
@@ -8348,7 +8457,8 @@ def build_cal_lesson(ui, unit, lesson):
                 "clerical": ("Clerical script in a sentence", "一句話記住隸書"),
                 "speed": ("Three scripts in a sentence", "一句話記住楷行草"),
                 "lanting": ("The Lanting Xu in a sentence", "一句話記住蘭亭序"),
-                "styles": ("Yan and Liu in a sentence", "一句話記住顏筋柳骨")}[kind]
+                "styles": ("Yan and Liu in a sentence", "一句話記住顏筋柳骨"),
+                "gallery": ("The treasures in a sentence", "一句話記住故宮國寶")}[kind]
     secs.append(("tricks", "Remember It · 記憶口訣", tricks_h[0], tricks_h[1], _sci_tricks(lesson), ""))
     if lesson.get("safety"):
         items = "".join(f'<li class="rvl">{html.escape(s["en"])}<span class="zh">{html.escape(s["zh"])}</span></li>' for s in lesson["safety"])
@@ -8358,6 +8468,9 @@ def build_cal_lesson(ui, unit, lesson):
     for n, act in enumerate(acts, 1):
         eb = "Classroom Activity · 課堂活動" if len(acts) == 1 else f"Classroom Activity {n} · 課堂活動{_astro_cn(n)}"
         secs.append((f"activity{'' if n == 1 else n}", eb, act["title_en"], act["title_zh"], _astro_activity(act), ""))
+    if lesson.get("recap"):
+        rc = lesson["recap"]
+        secs.append(("recap", rc["eyebrow"], rc["en"], rc["zh"], _cal_recap(rc), _bi(rc["lead_en"], rc["lead_zh"], cls="lead rvl d2")))
     if lesson.get("links"):
         def link(x):
             body = (f'<span class="cg-link-ic" aria-hidden="true">{x["icon"]}</span>'
@@ -8413,7 +8526,7 @@ def build_cal_lesson(ui, unit, lesson):
 def build_cal_hub():
     # 照晶片與半導體：單元導覽＋每個單元一段橫向課程卡；做好的課可點，planned 是「製作中」卡。
     def icon(l):
-        return calfour_svg(60) if l.get("card") == "four" else calpress_svg(60) if l.get("card") == "press" else calyong_svg(60) if l.get("card") == "yong" else calorder_svg(60) if l.get("card") == "order" else caloracle_svg(60) if l.get("card") == "oracle" else calclerical_svg(60) if l.get("card") == "clerical" else calspeed_svg(60) if l.get("card") == "speed" else callanting_svg(60) if l.get("card") == "lanting" else calstyles_svg(60) if l.get("card") == "styles" else l["icon"]
+        return calfour_svg(60) if l.get("card") == "four" else calpress_svg(60) if l.get("card") == "press" else calyong_svg(60) if l.get("card") == "yong" else calorder_svg(60) if l.get("card") == "order" else caloracle_svg(60) if l.get("card") == "oracle" else calclerical_svg(60) if l.get("card") == "clerical" else calspeed_svg(60) if l.get("card") == "speed" else callanting_svg(60) if l.get("card") == "lanting" else calstyles_svg(60) if l.get("card") == "styles" else calgallery_svg(60) if l.get("card") == "gallery" else l["icon"]
     unit_sections, nav = [], []
     done = sum(len(u["lessons"]) for u in CAL["units"])
     total = done + sum(len(u.get("planned", [])) for u in CAL["units"])

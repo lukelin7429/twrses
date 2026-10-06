@@ -6256,14 +6256,14 @@
               "note_zh": "按下去就粗、提起來就細：顏真卿飽滿的線和柳公權清瘦的線，靠的是同一個基本功。"
             },
             {
-              "soon": true,
               "icon": "🏛️",
-              "k_en": "Lesson 10 · Coming soon",
-              "k_zh": "第十課・製作中",
+              "k_en": "Next Lesson · Lesson 10",
+              "k_zh": "下一課・第十課",
               "en": "What Treasures of Calligraphy Can You See in Taiwan?",
               "zh": "故宮裡的書法國寶",
               "note_en": "Famous works by Wang Xizhi, Yan Zhenqing, Huaisu, and Su Shi are kept in Taipei.",
-              "note_zh": "王羲之、顏真卿、懷素、蘇軾的名作，就收藏在台北。"
+              "note_zh": "王羲之、顏真卿、懷素、蘇軾的名作，就收藏在台北。",
+              "href": "/resources/classes/calligraphy/palace-treasures/"
             }
           ],
           "culture_cards": {
@@ -6780,16 +6780,959 @@
             },
             "credit_html": "Rubbings: Yan Zhenqing, Duobao Pagoda Stele, Northern Song rubbing in the Tokyo National Museum (<a href=\"https://commons.wikimedia.org/wiki/File:%E5%A4%9A%E5%AE%9D%E5%A1%94%E7%A2%91.%E5%94%90.%E9%A2%9C%E7%9C%9F%E5%8D%BF.%E4%B9%A6.%E5%8C%97%E5%AE%8B%E6%8B%93%E6%9C%AC.%E4%B8%9C%E4%BA%AC%E5%9B%BD%E7%AB%8B%E5%8D%9A%E7%89%A9%E9%A6%86%E8%97%8F.pdf\" target=\"_blank\" rel=\"noopener\">Wikimedia Commons</a>, public domain); Liu Gongquan, Xuanmi Pagoda Stele (<a href=\"https://commons.wikimedia.org/wiki/File:%E5%94%90_%E6%9F%B3%E5%85%AC%E6%9D%83_%E7%8E%84%E7%A7%98%E5%A1%94%E7%A2%91%E6%95%B4%E6%8B%93.jpg\" target=\"_blank\" rel=\"noopener\">Wikimedia Commons</a>, public domain). · 拓本：顏真卿〈多寶塔碑〉北宋拓本，東京國立博物館藏（維基共享資源，公有領域）；柳公權〈玄秘塔碑〉拓本（維基共享資源，公有領域）。 Backgrounds evened out by us; the shapes of the characters are unchanged. · 底色經過我們處理，字的形狀沒有改。"
           }
-        }
-      ],
-      "planned": [
+        },
         {
           "n": 10,
+          "slug": "palace-treasures",
+          "title": "What Treasures of Calligraphy Can You See in Taiwan?",
+          "title_zh": "故宮裡的書法國寶",
+          "level": "入門 · Beginner",
           "icon": "🏛️",
-          "en": "What Treasures of Calligraphy Can You See in Taiwan?",
-          "zh": "故宮裡的書法國寶"
+          "card": "gallery",
+          "blurb_en": "A letter about snow, a draft full of grief, a monk's wild cursive, a book about writing, and two poems from exile: five National Treasures of calligraphy are kept in Taipei. Walk through a 3D gallery, find out why the lights are so low, match details to the works, and look back over all ten lessons.",
+          "blurb_zh": "一封談雪的短信、一篇滿紙悲傷的草稿、一位和尚的狂草、一卷談寫字的書、兩首貶謫中寫的詩——五件書法國寶就收藏在台北。走進 3D 展廳，看看燈光為什麼這麼暗，用局部圖配對作品，再回顧這十堂課。",
+          "big_idea_en": "Some of the most famous works of Chinese calligraphy are kept in the National Palace Museum in Taipei, and many are National Treasures. Paper and silk are harmed by light, and the harm adds up, so the museum keeps the lights low, shows each work for only a short time, and then lets it rest.",
+          "big_idea_zh": "許多最有名的書法作品收藏在台北的國立故宮博物院，其中不少是國寶。紙和絹怕光，而且光造成的傷害會累積，所以博物館把燈光調暗、每件作品只展出很短的時間，展完還要讓它休息。",
+          "lab": {
+            "kind": "gallery",
+            "eyebrow": "3D Model · 3D 模型",
+            "title_en": "A Gallery of Five Treasures, and Why the Lights Are Low",
+            "title_zh": "五件國寶的展廳，和燈光為什麼這麼暗",
+            "how_en": "Drag to look around, and scroll or pinch to zoom. Tap a work to walk up to it and read who wrote it, when, and in which script. Then choose Light: turn the light up, show a test strip for a year, and see why museums keep these rooms dim.",
+            "how_zh": "拖曳可以環顧四周，滾輪或雙指可以縮放。點一件作品走近看：誰寫的、什麼時候、用哪一種字體。再選「燈光」：把燈調亮，讓一條試紙展出一年，看看博物館為什麼把展廳的燈開得這麼暗。",
+            "modes": [
+              {
+                "key": "tour",
+                "icon": "覽",
+                "en": "Visit",
+                "zh": "逛展廳"
+              },
+              {
+                "key": "light",
+                "icon": "光",
+                "en": "Light",
+                "zh": "燈光",
+                "title_en": "Light adds up",
+                "title_zh": "光會累積",
+                "text_en": "The case holds a strip of dyed paper, half covered by a card. Choose a light level and put it on show. The museum's rule for its most protected works is no more than 16,000 lux-hours of light in a year.",
+                "text_zh": "展櫃裡有一條染了顏色的試紙，一半用卡紙蓋住。選一種亮度，讓它展出。故宮對最需要保護的書畫的規定是：一年累積照到的光，不高於 16,000 lux・小時。"
+              }
+            ],
+            "works": [
+              {
+                "key": "kuaixue",
+                "en": "Timely Clearing After Snowfall",
+                "zh": "快雪時晴帖",
+                "short_zh": "快雪",
+                "who_en": "Wang Xizhi (Jin dynasty)",
+                "who_zh": "王羲之（晉）",
+                "when_en": "A Tang dynasty tracing copy",
+                "when_zh": "唐代的精摹本",
+                "script_en": "Running script",
+                "script_zh": "行書",
+                "size_en": "23 × 14.8 cm",
+                "size_zh": "高 23 公分、寬 14.8 公分",
+                "text_en": "A short letter of four lines and 28 characters, sending greetings after a snowfall. The museum says it is a fine tracing copy made in the Tang dynasty. The Qianlong Emperor called it “matchless under heaven.”",
+                "text_zh": "一封四行、二十八個字的短信，寫大雪初晴時對朋友的問候。故宮說它是唐代的精摹本。乾隆皇帝稱讚它「天下無雙，古今鮮對」。",
+                "img": "/assets/img/calligraphy/gal-kuaixue.jpg",
+                "aspect": 0.638
+              },
+              {
+                "key": "shupu",
+                "en": "Treatise on Calligraphy",
+                "zh": "書譜",
+                "short_zh": "書譜",
+                "who_en": "Sun Guoting (Tang dynasty)",
+                "who_zh": "孫過庭（唐）",
+                "when_en": "687",
+                "when_zh": "垂拱三年（687）",
+                "script_en": "Cursive script",
+                "script_zh": "草書",
+                "size_en": "26.5 × 900.8 cm",
+                "size_zh": "高 26.5 公分、長 900.8 公分",
+                "text_en": "A nine-meter scroll about how to write well, itself written in cursive script: 351 lines and about 3,700 characters. It is a book about calligraphy and a model of calligraphy at the same time.",
+                "text_zh": "一卷九公尺長、談「怎樣把字寫好」的文章，本身就用草書寫成：現存 351 行、約 3,700 多字。它既是書法理論，也是學草書的範本。",
+                "img": "/assets/img/calligraphy/gal-shupu.jpg",
+                "aspect": 4.0
+              },
+              {
+                "key": "jizhi",
+                "en": "Draft of a Requiem to My Nephew",
+                "zh": "祭姪文稿",
+                "short_zh": "祭姪",
+                "who_en": "Yan Zhenqing (Tang dynasty)",
+                "who_zh": "顏真卿（唐）",
+                "when_en": "758",
+                "when_zh": "乾元元年（758）",
+                "script_en": "Running script",
+                "script_zh": "行書",
+                "size_en": "28.2 × 77 cm",
+                "size_zh": "高 28.2 公分、長 77 公分",
+                "text_en": "A draft written in grief for a nephew killed in the rebellion. The ink goes from wet to dry and many words are crossed out. The museum says these marks show the thoughts churning in the writer's mind.",
+                "text_zh": "為在戰亂中遇害的姪子寫的祭文草稿。墨色有濃有淡、有乾有濕，還有許多塗改。故宮說這些痕跡「顯露魯公振筆疾書時翻騰的思緒」。",
+                "img": "/assets/img/calligraphy/gal-jizhi.jpg",
+                "aspect": 2.655
+              },
+              {
+                "key": "zixu",
+                "en": "Autobiography",
+                "zh": "自敘帖",
+                "short_zh": "自敘",
+                "who_en": "Huaisu (Tang dynasty)",
+                "who_zh": "懷素（唐）",
+                "when_en": "777",
+                "when_zh": "大曆十二年（777）",
+                "script_en": "Wild cursive script",
+                "script_zh": "狂草",
+                "size_en": "28.3 × 755 cm",
+                "size_zh": "高 28.3 公分、長 755 公分",
+                "text_en": "The monk Huaisu tells how he learned to write, and copies out poems that friends wrote in praise of his cursive. The museum compares his round, turning lines to coiled steel cable.",
+                "text_zh": "和尚懷素寫自己學書法的經過，並抄下朋友們稱讚他草書的詩句。故宮形容他的筆畫「圓轉遒逸，如曲折盤繞的鋼索」。",
+                "img": "/assets/img/calligraphy/gal-zixu.jpg",
+                "aspect": 4.0
+              },
+              {
+                "key": "hanshi",
+                "en": "The Cold Food Observance",
+                "zh": "寒食帖",
+                "short_zh": "寒食",
+                "who_en": "Su Shi (Song dynasty)",
+                "who_zh": "蘇軾（宋）",
+                "when_en": "Poems of 1082",
+                "when_zh": "詩作於元豐五年（1082）",
+                "script_en": "Running script",
+                "script_zh": "行書",
+                "size_en": "34.2 × 199.5 cm, with the note after it",
+                "size_zh": "高 34.2 公分、長 199.5 公分（含後面的題跋）",
+                "text_en": "Two poems Su Shi wrote in exile in Huangzhou, on his third Cold Food Festival there. The characters start small and grow larger and heavier as the poems go on. His friend Huang Tingjian wrote beside it that even Su Shi might not write it so well a second time.",
+                "text_zh": "蘇軾被貶到黃州，在那裡過第三個寒食節時寫的兩首詩。字一開始比較小，越寫越大、越寫越重。朋友黃庭堅在後面題字說：就算叫東坡再寫一次，也未必寫得這麼好。",
+                "img": "/assets/img/calligraphy/gal-hanshi.jpg",
+                "aspect": 3.03
+              }
+            ],
+            "lux_presets": [
+              [
+                50,
+                "50",
+                "規定"
+              ],
+              [
+                500,
+                "500",
+                "十倍"
+              ],
+              [
+                5000,
+                "5,000",
+                "一百倍"
+              ]
+            ],
+            "e0": 1500000,
+            "legend": [
+              {
+                "cls": "cgsy",
+                "en": "Warm spotlights: one for each work",
+                "zh": "暖色的投射燈：每件作品一盞"
+              },
+              {
+                "cls": "cgt",
+                "en": "Yellow label: the half of the strip in the light",
+                "zh": "黃色標籤：試紙照到光的那一半"
+              },
+              {
+                "cls": "cgsg",
+                "en": "Dark card: the half that stays covered",
+                "zh": "深色卡紙：一直蓋住的那一半"
+              }
+            ],
+            "scale_en": "A teaching model, not the real galleries: the room is our own simple design and the works are not to scale (all five are less than 35 cm tall). For the three long scrolls, the wall shows only the opening part or the main part. The light numbers are real: the museum's rules give 50 lux as the limit for paintings and calligraphy, and 16,000 lux-hours a year for its most protected works (for example, 50 lux for 8 hours a day for 40 days). The fading of the test strip is only an illustration of how light adds up; it is not a measurement of any real work, and the works on the wall never fade in the model.",
+            "scale_zh": "這是教學用的示意模型，不是真的展廳：房間是我們自己設計的，作品也不是照比例（五件的高度都不到 35 公分）。三件長卷在牆上只放了開頭或主要的一段。燈光的數字是真的：故宮的規定是書畫照度不高於 50 lux，限展書畫一年累積不高於 16,000 lux・小時（例如 50 lux、每天 8 小時，可展 40 天）。試紙褪色的快慢只是用來說明「光會累積」的示意，不是任何一件文物的實測；牆上的作品在模型裡不會褪色。",
+            "credit_html": "Gallery model drawn and programmed by My Culture Connect. Works on the wall: <a href=\"https://commons.wikimedia.org/wiki/File:NPM-%E6%95%85%E6%9B%B8000141_%E6%99%89%E7%8E%8B%E7%BE%B2%E4%B9%8B%E5%BF%AB%E9%9B%AA%E6%99%82%E6%99%B4%E5%B8%96_%E5%86%8A.pdf\" target=\"_blank\" rel=\"noopener\">晉王羲之快雪時晴帖 冊</a>。國立故宮博物院，台北，CC BY 4.0 @ www.npm.gov.tw（經裁切） <a href=\"https://commons.wikimedia.org/wiki/File:NPM-%E6%95%85%E6%9B%B8000058_%E5%94%90%E5%AD%AB%E9%81%8E%E5%BA%AD%E6%9B%B8%E8%AD%9C_%E5%8D%B7.pdf\" target=\"_blank\" rel=\"noopener\">唐孫過庭書譜 卷</a>。國立故宮博物院，台北，CC BY 4.0 @ www.npm.gov.tw（經裁切、拼接） <a href=\"https://commons.wikimedia.org/wiki/File:NPM-%E6%95%85%E6%9B%B8000060_%E5%94%90%E9%A1%8F%E7%9C%9F%E5%8D%BF%E7%A5%AD%E5%A7%AA%E6%96%87%E7%A8%BF_%E5%8D%B7.pdf\" target=\"_blank\" rel=\"noopener\">唐顏真卿祭姪文稿 卷</a>。國立故宮博物院，台北，CC BY 4.0 @ www.npm.gov.tw（經裁切、拼接） <a href=\"https://commons.wikimedia.org/wiki/File:NPM-%E6%95%85%E6%9B%B8000062_%E5%94%90%E6%87%B7%E7%B4%A0%E8%87%AA%E6%95%98%E5%B8%96_%E5%8D%B7.pdf\" target=\"_blank\" rel=\"noopener\">唐懷素自敘帖 卷</a>。國立故宮博物院，台北，CC BY 4.0 @ www.npm.gov.tw（經裁切、拼接） <a href=\"https://commons.wikimedia.org/wiki/File:NPM-%E8%B3%BC%E6%9B%B8001001_%E5%8C%97%E5%AE%8B%E8%98%87%E6%9D%B1%E5%9D%A1%E6%9B%B8%E9%BB%83%E5%B7%9E%E5%AF%92%E9%A3%9F%E8%A9%A9_%E5%8D%B7.pdf\" target=\"_blank\" rel=\"noopener\">北宋蘇東坡書黃州寒食詩 卷</a>。國立故宮博物院，台北，CC BY 4.0 @ www.npm.gov.tw（經裁切、拼接）"
+          },
+          "paras": [
+            "Where can you see the real writing of the masters in this series? One answer is Taipei. The National Palace Museum there keeps more than 3,700 works of calligraphy, and some of them are among the most famous in the world.",
+            "The museum began in 1925 in the old palace in Beijing. In 1933, as war came closer, more than thirteen thousand crates of its treasures were sent south for safety. In 1948 and 1949, a selection of the finest pieces was shipped to Taiwan, and in 1965 a new museum building opened in Taipei.",
+            "This lesson looks at five works. Two were written by people you have already met: a short letter by Wang Xizhi, kept as a fine Tang dynasty copy, and Yan Zhenqing's draft for his nephew. Two are in cursive script: Sun Guoting's long scroll about how to write, and the wild cursive of the monk Huaisu. The last is by the Song dynasty poet Su Shi.",
+            "In 1080 Su Shi was sent away from the capital to live in Huangzhou. During his third Cold Food Festival there, in 1082, it rained and rained, and he wrote two sad poems. On the scroll, the characters begin small and grow larger and heavier as his feelings rise. The lower edge of the scroll is marked by fire. It was once taken to Japan, and the museum bought it in 1987.",
+            "You cannot see these works every day. Paper and silk are fragile, and light harms them a little at a time. The harm adds up and cannot be undone. So the museum keeps paintings and calligraphy at no more than 50 lux, which is far dimmer than daylight. Its most protected works may be shown for no more than 42 days, and then they rest for at least three years.",
+            "All five are National Treasures. After ten lessons, you can read them in a new way: you know the scripts, the strokes, and how a brush makes thick and thin lines. If you visit, walk slowly, look closely, and never use a flash."
+          ],
+          "paras_zh": [
+            "這個系列裡的書法家，他們真正寫的字要到哪裡看？其中一個答案是台北。台北的國立故宮博物院收藏了三千七百多件書法作品，有些是全世界最有名的。",
+            "故宮博物院 1925 年在北京的紫禁城成立。1933 年戰火逼近，一萬多箱文物被運到南方避難。1948、1949 年，其中挑選出來的精品用船運到台灣；1965 年，台北的新館落成開放。",
+            "這一課看五件作品。其中兩件的作者你已經認識：王羲之的一封短信（留下來的是唐代的精摹本），和顏真卿為姪子寫的草稿。兩件是草書：孫過庭談「怎麼寫字」的長卷，和和尚懷素的狂草。最後一件是宋朝詩人蘇軾寫的。",
+            "元豐三年（1080），蘇軾被貶離京城，到黃州居住。元豐五年（1082）他在那裡過第三個寒食節，雨下個不停，他寫了兩首悲傷的詩。在這卷字上，字一開始比較小，隨著情緒越來越激動，越寫越大、越寫越重。卷子的下緣有火燒過的痕跡。它曾經流落到日本，1987 年由故宮買回。",
+            "這些作品不是天天看得到。紙和絹很脆弱，光會一點一點地傷害它們；傷害會累積，而且無法復原。所以故宮規定書畫的照度不高於 50 lux——比白天的日光暗得多。最需要保護的那些「限展」書畫，一次最多展出 42 天，展完至少要休息三年。",
+            "這五件都是國寶。上完十堂課，你可以用新的眼光來看它們：你認得字體、認得筆畫，也知道毛筆怎麼寫出粗細。如果去參觀，請慢慢走、仔細看，而且絕對不要開閃光燈。"
+          ],
+          "questions": [
+            "When did the new museum building open in Taipei?",
+            "What happens to the characters in Su Shi's scroll as the poems go on?",
+            "Why does the museum show its most protected works for only a short time?"
+          ],
+          "answers": [
+            "In 1965.",
+            "They begin small and grow larger and heavier as his feelings rise.",
+            "Because light harms paper and silk a little at a time, and the harm adds up and cannot be undone."
+          ],
+          "vocab": [
+            {
+              "n": 1,
+              "w": "museum",
+              "pos": "n.",
+              "zh": "博物館",
+              "ex": "Our class visited a science <b>museum</b> last week.",
+              "exzh": "我們班上星期去參觀科學博物館。"
+            },
+            {
+              "n": 2,
+              "w": "collection",
+              "pos": "n.",
+              "zh": "收藏；藏品",
+              "ex": "My uncle has a large <b>collection</b> of stamps.",
+              "exzh": "我叔叔收藏了很多郵票。"
+            },
+            {
+              "n": 3,
+              "w": "fragile",
+              "pos": "adj.",
+              "zh": "脆弱的；易碎的",
+              "ex": "Be careful with that box: the glasses inside are <b>fragile</b>.",
+              "exzh": "小心那個箱子，裡面的玻璃杯很容易破。"
+            },
+            {
+              "n": 4,
+              "w": "protect",
+              "pos": "v.",
+              "zh": "保護",
+              "ex": "A helmet <b>protects</b> your head.",
+              "exzh": "安全帽保護你的頭。"
+            },
+            {
+              "n": 5,
+              "w": "dim",
+              "pos": "adj.",
+              "zh": "昏暗的",
+              "ex": "It is hard to read in <b>dim</b> light.",
+              "exzh": "光線昏暗的時候很難看書。"
+            },
+            {
+              "n": 6,
+              "w": "harm",
+              "pos": "v. / n.",
+              "zh": "傷害",
+              "ex": "Too much sun can <b>harm</b> your skin.",
+              "exzh": "曬太多太陽會傷害皮膚。"
+            },
+            {
+              "n": 7,
+              "w": "festival",
+              "pos": "n.",
+              "zh": "節日",
+              "ex": "We eat mooncakes at the Mid-Autumn <b>Festival</b>.",
+              "exzh": "我們在中秋節吃月餅。"
+            },
+            {
+              "n": 8,
+              "w": "visit",
+              "pos": "v. / n.",
+              "zh": "參觀；拜訪",
+              "ex": "We <b>visit</b> my grandparents every Sunday.",
+              "exzh": "我們每個星期天去看爺爺奶奶。"
+            }
+          ],
+          "quiz": [
+            {
+              "q": "Where are these five works kept?",
+              "options": [
+                "In the National Palace Museum in Taipei",
+                "In a cave in the mountains",
+                "In a school library",
+                "In a temple by the sea"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "Which script did the monk Huaisu use in his Autobiography?",
+              "options": [
+                "Wild cursive script",
+                "Seal script",
+                "Clerical script",
+                "Regular script"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "Who wrote the two Cold Food poems in Huangzhou?",
+              "options": [
+                "Su Shi",
+                "Wang Xizhi",
+                "Liu Gongquan",
+                "Sun Guoting"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "What is the museum's light limit for paintings and calligraphy?",
+              "options": [
+                "50 lux",
+                "500 lux",
+                "5,000 lux",
+                "No limit"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "Why must you never use a flash in the galleries?",
+              "options": [
+                "Light harms paper and silk, and the harm adds up",
+                "The flash is too noisy",
+                "Photos are too big",
+                "The guards are sleeping"
+              ],
+              "correct": 0
+            }
+          ],
+          "pad": {
+            "eyebrow": "Practice Pad · 練字板",
+            "en": "One more time: three scripts",
+            "zh": "再寫一次：三種字體",
+            "char": "yong-xing",
+            "curve": false,
+            "scripts": true,
+            "timer": true,
+            "lead_en": "Three of the five treasures are in running script and two are in cursive. Trace 永, 之, and 水 once more in all three scripts, and time yourself. These models are from Lesson 7.",
+            "lead_zh": "五件國寶裡有三件是行書、兩件是草書。再用三種字體描一次「永、之、水」，順便計時。這些範字是第七課的。",
+            "tips": [
+              {
+                "en": "Start with running script, the script of three of the five works.",
+                "zh": "先寫行書——五件作品裡有三件是行書。"
+              },
+              {
+                "en": "Then try cursive: fewer lifts, and the strokes melt into each other.",
+                "zh": "再試草書：提筆更少，筆畫融在一起。"
+              },
+              {
+                "en": "Go back to regular script last. Does it feel different now?",
+                "zh": "最後回到楷書。現在寫起來，感覺有沒有不一樣？"
+              }
+            ]
+          },
+          "links_head": {
+            "eyebrow": "Read More · 延伸閱讀",
+            "en": "The lesson before, an essay by Su Shi, and back to the start",
+            "zh": "上一課、蘇軾的文章，和回到第一課"
+          },
+          "links": [
+            {
+              "href": "/resources/classes/calligraphy/yan-and-liu/",
+              "icon": "💪",
+              "k_en": "Lesson 9",
+              "k_zh": "第九課",
+              "en": "Strong Muscle, Hard Bone: Why Does Every Calligrapher's Writing Look Different?",
+              "zh": "顏筋柳骨：為什麼每個書法家的字都不一樣？",
+              "note_en": "Yan Zhenqing's regular script, before you look at his running script in this lesson.",
+              "note_zh": "先看顏真卿的楷書，再回來看這一課裡他的行書。"
+            },
+            {
+              "href": "/resources/classes/guwen/qian-chi-bi-fu/",
+              "icon": "📜",
+              "k_en": "Classical Chinese Prose",
+              "k_zh": "古文選讀",
+              "en": "The Former Rhapsody on the Red Cliff",
+              "zh": "前赤壁賦",
+              "note_en": "Su Shi wrote this essay in Huangzhou in the autumn of 1082, the same year as the Cold Food poems.",
+              "note_zh": "蘇軾在黃州寫的文章，時間是 1082 年秋天——和寒食詩同一年。"
+            },
+            {
+              "href": "/resources/classes/calligraphy/four-treasures/",
+              "icon": "🖌️",
+              "k_en": "Lesson 1",
+              "k_zh": "第一課",
+              "en": "What Are the Four Treasures of the Study?",
+              "zh": "文房四寶是什麼？",
+              "note_en": "Start again from the brush, the ink, the paper, and the inkstone.",
+              "note_zh": "從筆、墨、紙、硯重新開始。"
+            }
+          ],
+          "culture_cards": {
+            "eyebrow": "Stories and a Visit · 故事與參觀",
+            "title_en": "A scroll that survived fire, ten thousand banana plants, an emperor's favorite, and how to visit",
+            "title_zh": "逃過火災的卷子、一萬多株芭蕉、皇帝的最愛，和參觀須知",
+            "lead_en": "Three stories that are written on the scrolls themselves or in old books, and what to know before you go.",
+            "lead_zh": "三個寫在卷子上或古書裡的故事，還有出發前要知道的事。",
+            "cards": [
+              {
+                "k": "A Journey · 流傳",
+                "en": "The scroll that survived fire",
+                "zh": "逃過火災的〈寒食帖〉",
+                "body_en": "Later owners wrote the scroll's story on the scroll itself. One note says it was marked by fire when the Summer Palace was burned in 1860. It later went to Japan, where its owner carried it out of the fires after the great Tokyo earthquake of 1923. After the Second World War it was bought back, and in 1987 the museum bought it.",
+                "body_zh": "後來的收藏者把這卷字的遭遇寫在卷子後面。一則題跋說，1860 年圓明園被焚時它留下了燒痕。後來它流落到日本；1923 年關東大地震引起大火，收藏者冒險把它搶救出來。第二次世界大戰後它被買回，1987 年由故宮收購。"
+              },
+              {
+                "k": "Practice · 苦練",
+                "en": "Ten thousand banana plants",
+                "zh": "懷素種芭蕉",
+                "body_en": "A Tang dynasty life of Huaisu says he was too poor to buy paper, so he planted more than ten thousand banana plants at home to write on. When that was not enough, he wrote on a lacquered tray and a lacquered board, over and over, until he wore them through.",
+                "body_zh": "唐朝陸羽寫的〈僧懷素傳〉說：懷素「貧無紙可書，嘗於故里種芭蕉萬餘株，以供揮灑。書不足，乃漆一盤書之，又漆一方板，書至再三，盤板皆穿。」——沒有紙，就種芭蕉來寫；還不夠，就寫在漆盤和漆板上，寫到都磨穿了。"
+              },
+              {
+                "k": "An Emperor · 皇帝",
+                "en": "The emperor's favorite",
+                "zh": "乾隆最愛的一封信",
+                "body_en": "The Qianlong Emperor treasured Wang Xizhi's snow letter. The museum notes that he praised it as “matchless under heaven, rarely equaled in any age,” and kept it with two other works as his “Three Rarities.” You can still see his writing and seals all around the four lines.",
+                "body_zh": "乾隆皇帝非常珍愛〈快雪時晴帖〉。故宮說他「譽之為『天下無雙，古今鮮對』」，並把它和另外兩件作品合稱「三希」。直到今天，那四行字的周圍還看得到他題的字和蓋的印章。"
+              },
+              {
+                "k": "Taiwan · 台灣",
+                "en": "Before you visit",
+                "zh": "去故宮之前",
+                "body_en": "The museum is at No. 221, Section 2, Zhishan Road, Shilin District, Taipei. These works are not always on show, so check the museum's website first. Flash, extra lights, tripods, and selfie sticks are not allowed. The galleries are kept at 20 to 24 degrees Celsius, so bring a jacket.",
+                "body_zh": "故宮在臺北市士林區至善路二段 221 號。這些作品不是隨時都在展出，出發前先上故宮的網站查。展場拍照「禁止使用閃光燈、補光器材、腳架、自拍器」。展廳溫度維持在攝氏 20 到 24 度，記得帶件外套。"
+              }
+            ]
+          },
+          "myths": [
+            {
+              "myth_en": "The museum's most famous works are always on show.",
+              "myth_zh": "故宮最有名的作品隨時都看得到。",
+              "fact_en": "Most paintings and calligraphy are shown for no more than three months and then rest for at least eighteen months. The seventy most protected works are shown for no more than 42 days at a time.",
+              "fact_zh": "一般書畫「展出期間以不超過三個月為原則，每次展出後須歸庫養護至少十八個月」；七十件限展書畫精華，一次最多展 42 天。"
+            },
+            {
+              "myth_en": "Timely Clearing After Snowfall is in Wang Xizhi's own hand.",
+              "myth_zh": "〈快雪時晴帖〉是王羲之親筆寫的。",
+              "fact_en": "The museum describes it as a fine tracing copy made in the Tang dynasty. As Lesson 8 told, the original of his Lanting Xu is lost too.",
+              "fact_zh": "故宮的說明是「本幅為唐代精摹本」。第八課說過，他的〈蘭亭序〉原蹟也已經失傳。"
+            },
+            {
+              "myth_en": "Ancient critics ranked the Cold Food scroll “the third-best running script under heaven.”",
+              "myth_zh": "古人把〈寒食帖〉評為「天下第三行書」。",
+              "fact_en": "We could not find any old source for that ranking. What the records do have is the Ming dynasty artist Dong Qichang, who called it the best of Su Shi's writing. Grouping it with the Lanting Xu and Yan Zhenqing's draft as the three great works of running script is a later habit.",
+              "fact_zh": "這個排名找不到古人的出處。有記錄的是明朝董其昌稱它為「蘇書甲觀」。把它和〈蘭亭序〉、〈祭姪文稿〉合稱三大行書，是後人的說法。"
+            },
+            {
+              "myth_en": "The lights are low because black ink fades quickly.",
+              "myth_zh": "燈光暗，是因為黑色的墨很容易褪色。",
+              "fact_en": "Carbon ink is one of the materials least harmed by light. What light harms more are the paper, the silk, and their colors. That is why our test strip in the model uses dyes, not ink.",
+              "fact_zh": "碳做的墨是最不怕光的材料之一。比較怕光的是紙、絹和上面的顏色。所以模型裡的試紙用的是染料，不是墨。"
+            }
+          ],
+          "tricks": [
+            {
+              "title_en": "Five treasures in Taipei",
+              "title_zh": "五件國寶在台北",
+              "body_en": "Snow letter, treatise, draft, autobiography, Cold Food.",
+              "body_zh": "快雪、書譜、祭姪、自敘、寒食。"
+            },
+            {
+              "title_en": "Light adds up",
+              "title_zh": "光會累積",
+              "body_en": "Light × time: the harm cannot be undone.",
+              "body_zh": "照度 × 時間：傷害無法復原。"
+            },
+            {
+              "title_en": "Dim, short, and rest",
+              "title_zh": "燈暗、展短、要休息",
+              "body_en": "50 lux; 42 days; three years of rest.",
+              "body_zh": "50 lux；42 天；休息三年。"
+            },
+            {
+              "title_en": "No flash",
+              "title_zh": "不開閃光燈",
+              "body_en": "Walk slowly and look closely.",
+              "body_zh": "慢慢走，仔細看。"
+            }
+          ],
+          "safety": [
+            {
+              "en": "Ink stains clothes and is very hard to wash out. Wear old clothes or an apron, and roll up your sleeves.",
+              "zh": "墨沾到衣服很難洗掉：穿舊衣服或圍裙，袖子捲起來。"
+            },
+            {
+              "en": "Cover the desk with old newspaper, and keep the ink in a heavy, steady dish so it will not tip over.",
+              "zh": "桌上先鋪舊報紙；墨要裝在重一點、放得穩的碟子裡，免得打翻。"
+            },
+            {
+              "en": "Press gently. Crushing the brush against the paper squashes the hairs and can split or break them.",
+              "zh": "輕輕地按就好：把筆用力壓在紙上，筆毛會擠扁，也可能分岔或折斷。"
+            },
+            {
+              "en": "Do not put the brush, the ink, or the ink stick in your mouth, and do not lick the brush tip to shape it.",
+              "zh": "毛筆、墨汁、墨條都不要放進嘴裡，也不要用嘴巴舔筆尖。"
+            },
+            {
+              "en": "After writing, wash the brush in clean water until the water runs clear, gently shape it into a point, and hang it tip-down or lay it flat to dry. Wash your hands, too.",
+              "zh": "寫完後用清水洗筆，洗到水變清為止；輕輕把筆毛理成尖形，筆尖朝下掛起來或平放晾乾。也要洗手。"
+            }
+          ],
+          "activities": [
+            {
+              "title_en": "The Sunlight Test",
+              "title_zh": "陽光實驗",
+              "materials": [
+                {
+                  "en": "Two sheets of colored construction paper (the same color)",
+                  "zh": "兩張同樣顏色的色紙"
+                },
+                {
+                  "en": "A piece of thick card and some tape",
+                  "zh": "一塊厚紙板和膠帶"
+                },
+                {
+                  "en": "A sunny windowsill and a drawer",
+                  "zh": "曬得到太陽的窗台，和一個抽屜"
+                }
+              ],
+              "steps": [
+                {
+                  "en": "Tape the card over half of one sheet and put it on the sunny windowsill.",
+                  "zh": "用厚紙板蓋住其中一張色紙的一半，放在窗台上曬太陽。"
+                },
+                {
+                  "en": "Put the other sheet in a dark drawer.",
+                  "zh": "另一張放進黑暗的抽屜。"
+                },
+                {
+                  "en": "After two weeks, take off the card and compare the three: sunlit, covered, and drawer.",
+                  "zh": "兩個星期後拿掉紙板，比較三個地方：曬到太陽的、被蓋住的、抽屜裡的。"
+                },
+                {
+                  "en": "Talk about it: which museum rules does this explain?",
+                  "zh": "討論：這個實驗可以解釋博物館的哪些規定？"
+                }
+              ],
+              "tip_en": "Take a photo on the first day so you can compare.",
+              "tip_zh": "第一天先拍一張照片，之後才好比較。"
+            },
+            {
+              "title_en": "Be a Curator",
+              "title_zh": "我是策展人",
+              "materials": [
+                {
+                  "en": "This page's five works, on a screen or printed",
+                  "zh": "這一頁的五件作品（用螢幕看或印出來）"
+                },
+                {
+                  "en": "Cards and pens for labels",
+                  "zh": "寫說明牌的卡片和筆"
+                }
+              ],
+              "steps": [
+                {
+                  "en": "Each group chooses one of the five works.",
+                  "zh": "每組從五件作品裡選一件。"
+                },
+                {
+                  "en": "Write a museum label in English: who, when, which script, and one sentence about why it is special.",
+                  "zh": "用英文寫一張說明牌：誰寫的、什麼時候、哪一種字體，再用一句話說它特別的地方。"
+                },
+                {
+                  "en": "Decide how long your work may be on show, and how you will protect it from light.",
+                  "zh": "決定你的作品可以展多久，以及要怎麼保護它不被光傷害。"
+                },
+                {
+                  "en": "Hold a five-work exhibition and give a one-minute tour.",
+                  "zh": "辦一場五件作品的小展覽，每組導覽一分鐘。"
+                }
+              ],
+              "tip_en": "Good labels are short. Try to use fewer than forty words.",
+              "tip_zh": "好的說明牌很短。試試看不超過四十個英文字。"
+            }
+          ],
+          "sources": [
+            {
+              "en": "Museum history: founded October 10, 1925; treasures moved south in 1933 (13,427 crates and 64 bundles); shipped to Taiwan in 1948–49; the new Taipei building opened on November 12, 1965",
+              "zh": "院史：「1925年10月10日，故宮博物院正式成立」；1933 年「故宮文物共13,427箱又64包，計分五批啟運」；1948 年秋「主張擇精品運臺」；1965 年「11月12日，國立故宮博物院臺北新館落成揭幕」",
+              "src": "國立故宮博物院〈院史〉",
+              "url": "https://www.npm.gov.tw/Articles.aspx?sno=03012532&l=1"
+            },
+            {
+              "en": "Collection: 3,757 works of calligraphy (as of September 30, 2026)",
+              "zh": "典藏統計：「法書－3,757件」（截至 115 年 9 月 30 日）",
+              "src": "國立故宮博物院〈典藏概述〉",
+              "url": "https://www.npm.gov.tw/Articles.aspx?sno=03001524&l=1"
+            },
+            {
+              "en": "Light limits: paintings and calligraphy no more than 50 lux; restricted works no more than 16,000 lux-hours a year (for example, 50 lux, 8 hours a day, 40 days); UV below 75 microwatts per lumen",
+              "zh": "「書畫、紙、絹…不高於50 Lux」「限展書畫之年累積照度不高於16,000Lux．h/year為原則」「例如50Lux，每天8小時，可展40天」「紫外線強度低於七十五微瓦/流明」",
+              "src": "〈國立故宮博物院文物展覽保存維護要點〉",
+              "url": "https://law.npm.gov.tw/LawContent.aspx?id=GL000071"
+            },
+            {
+              "en": "Most paintings and calligraphy: shown for no more than three months, then at least eighteen months in storage",
+              "zh": "「展出期間以不超過三個月為原則，每次展出後須歸庫養護至少十八個月。」",
+              "src": "國立故宮博物院主管法規共用系統",
+              "url": "https://law.npm.gov.tw/LawContent.aspx?id=GL000067"
+            },
+            {
+              "en": "The seventy restricted works: no more than 42 days on show",
+              "zh": "「若屬『七十件限展書畫精華』，展期則以42天為上限。」",
+              "src": "國立故宮博物院展覽說明",
+              "url": "https://www.npm.gov.tw/Exhibition-Content.aspx?sno=04012751&l=1"
+            },
+            {
+              "en": "At least three years between showings, and no more than 42 days",
+              "zh": "「為了加強保護珍貴古物，減少被光線照射的時間，每次展覽至少必須間隔三年以上，而且展期不能超過 42 天。」",
+              "src": "國立故宮博物院展覽說明",
+              "url": "https://www.npm.gov.tw/Exhibition-Content.aspx?sno=04011674&l=1"
+            },
+            {
+              "en": "Light dose is light level times time; 50 lux is the museum benchmark; carbon ink is among the least light-sensitive materials",
+              "zh": "累積曝光量＝照度 × 時間；50 lux 是博物館的基準；碳墨屬於最不怕光的材料",
+              "src": "Canadian Conservation Institute, “Agent of Deterioration: Light, Ultraviolet and Infrared”",
+              "url": "https://www.canada.ca/en/conservation-institute/services/agents-deterioration/light.html"
+            },
+            {
+              "en": "Timely Clearing After Snowfall: museum record (故書000141)",
+              "zh": "〈晉王羲之快雪時晴帖 冊〉典藏頁（故書000141）：作者、書體、年代、尺寸與說明",
+              "src": "國立故宮博物院典藏資料檢索",
+              "url": "https://digitalarchive.npm.gov.tw/Collection/Detail/19?dep=P"
+            },
+            {
+              "en": "Treatise on Calligraphy: museum record (故書000058)",
+              "zh": "〈唐孫過庭書譜 卷〉典藏頁（故書000058）：作者、書體、年代、尺寸與說明",
+              "src": "國立故宮博物院典藏資料檢索",
+              "url": "https://digitalarchive.npm.gov.tw/Collection/Detail/14900?dep=P"
+            },
+            {
+              "en": "Draft of a Requiem to My Nephew: museum record (故書000060)",
+              "zh": "〈唐顏真卿祭姪文稿 卷〉典藏頁（故書000060）：作者、書體、年代、尺寸與說明",
+              "src": "國立故宮博物院典藏資料檢索",
+              "url": "https://digitalarchive.npm.gov.tw/Collection/Detail/3?dep=P"
+            },
+            {
+              "en": "Autobiography: museum record (故書000062)",
+              "zh": "〈唐懷素自敘帖 卷〉典藏頁（故書000062）：作者、書體、年代、尺寸與說明",
+              "src": "國立故宮博物院典藏資料檢索",
+              "url": "https://digitalarchive.npm.gov.tw/Collection/Detail/14901?dep=P"
+            },
+            {
+              "en": "The Cold Food Observance: museum record (購書001001)",
+              "zh": "〈北宋蘇東坡書黃州寒食詩 卷〉典藏頁（購書001001）：作者、書體、年代、尺寸與說明",
+              "src": "國立故宮博物院典藏資料檢索",
+              "url": "https://digitalarchive.npm.gov.tw/Collection/Detail/14714?dep=P"
+            },
+            {
+              "en": "All five were designated National Treasures on March 26, 2012 (this link: the Cold Food scroll, with its history: about 1949 to a Taipei collector; bought by the museum in 1987)",
+              "zh": "五件都在 2012-03-26 指定為國寶（此連結：寒食帖，含流傳經過「約一九四九年歸台北收藏家，一九八七年故宮購回」與「蘇書甲觀」）",
+              "src": "文化部文化資產局國家文化資產網",
+              "url": "https://nchdb.boch.gov.tw/assets/advanceSearch/antiquity/20120326000059"
+            },
+            {
+              "en": "Su Shi: sent to Huangzhou; built a house on the Eastern Slope and called himself Dongpo",
+              "zh": "「以黃州團練副使安置。軾與田父野老，相從溪山間，築室於東坡，自號『東坡居士』。」",
+              "src": "維基文庫《宋史》卷三百三十八",
+              "url": "https://zh.wikisource.org/wiki/%E5%AE%8B%E5%8F%B2/%E5%8D%B7338"
+            },
+            {
+              "en": "Cold Food Festival: one or two days before Qingming, when no fires were lit",
+              "zh": "寒食節：「每年冬至後一百零五日，約在清明節前一、二日」「禁火寒食」",
+              "src": "教育部《重編國語辭典修訂本》「寒食節」",
+              "url": "https://dict.revised.moe.edu.tw/dictView.jsp?ID=81828"
+            },
+            {
+              "en": "Huaisu planted more than ten thousand banana plants to write on",
+              "zh": "「貧無紙可書，嘗於故里種芭蕉萬餘株，以供揮灑。」",
+              "src": "維基文庫 陸羽〈僧懷素傳〉",
+              "url": "https://zh.wikisource.org/wiki/%E5%83%A7%E6%87%B7%E7%B4%A0%E5%82%B3"
+            },
+            {
+              "en": "Wild cursive: flourished in the Tang dynasty with Zhang Xu and Huaisu",
+              "zh": "狂草：「至唐代張旭、懷素時盛行。狂草筆勢縱逸不拘，連綿迴繞」",
+              "src": "教育部《重編國語辭典修訂本》「狂草」",
+              "url": "https://dict.revised.moe.edu.tw/dictView.jsp?ID=78644"
+            },
+            {
+              "en": "Visiting rules: no flash, extra lights, tripods, or selfie sticks; galleries kept at 20–24°C",
+              "zh": "「展場拍照或攝影禁止使用閃光燈、補光器材、腳架、自拍器等輔助設備」「展廳溫度維持在攝氏20度至24度間」",
+              "src": "國立故宮博物院〈展場參觀須知〉",
+              "url": "https://www.npm.gov.tw/Articles.aspx?sno=02007005&l=1"
+            },
+            {
+              "en": "Taiwan curriculum: know stories of famous calligraphers (4-Ⅱ-8); appreciate famous works (4-Ⅳ-4)",
+              "zh": "十二年國教國語文領綱：4-Ⅱ-8「知道古今書法名家的故事。」4-Ⅳ-4「認識各種書體，欣賞名家碑帖。」",
+              "src": "國家教育研究院《十二年國民基本教育課程綱要 語文領域—國語文》",
+              "url": "https://www.naer.edu.tw/upload/1/16/doc/806/%E5%8D%81%E4%BA%8C%E5%B9%B4%E5%9C%8B%E6%B0%91%E5%9F%BA%E6%9C%AC%E6%95%99%E8%82%B2%E8%AA%B2%E7%A8%8B%E7%B6%B1%E8%A6%81%E5%9C%8B%E6%B0%91%E4%B8%AD%E5%B0%8F%E5%AD%B8%E6%9A%A8%E6%99%AE%E9%80%9A%E5%9E%8B%E9%AB%98%E7%B4%9A%E4%B8%AD%E7%AD%89%E5%AD%B8%E6%A0%A1%28%E8%AA%9E%E6%96%87%E9%A0%98%E5%9F%9F%E2%94%80%E5%9C%8B%E8%AA%9E%E6%96%87%29.pdf"
+            }
+          ],
+          "sheets": {
+            "eyebrow": "Five Treasures · 五件國寶",
+            "en": "Look closely: a detail from each",
+            "zh": "靠近一點看：每一件的局部",
+            "lead_en": "These are real details from the five works, from the museum's open data. Before you read the caption, ask yourself: which script is it? Is the ink wet or dry? Do the characters stay the same size?",
+            "lead_zh": "這是五件作品真的局部，來自故宮的開放資料。先別看說明，問問自己：這是哪一種字體？墨是濕的還是乾的？字的大小一樣嗎？",
+            "items": [
+              {
+                "img": "/assets/img/calligraphy/gal-kuaixue-d.jpg",
+                "w": 654,
+                "h": 720,
+                "alt_en": "Detail of Timely Clearing After Snowfall",
+                "alt_zh": "〈快雪時晴帖〉局部",
+                "en": "Timely Clearing After Snowfall · Wang Xizhi (Jin dynasty)",
+                "zh": "〈快雪時晴帖〉・王羲之（晉）",
+                "text_en": "Running script; a Tang dynasty tracing copy. Four short lines of calm running script, with many red seals around them.",
+                "text_zh": "行書；唐代的精摹本。四行從容的行書，周圍蓋了很多紅色的印章。",
+                "credit_html": "<a href=\"https://commons.wikimedia.org/wiki/File:NPM-%E6%95%85%E6%9B%B8000141_%E6%99%89%E7%8E%8B%E7%BE%B2%E4%B9%8B%E5%BF%AB%E9%9B%AA%E6%99%82%E6%99%B4%E5%B8%96_%E5%86%8A.pdf\" target=\"_blank\" rel=\"noopener\">晉王羲之快雪時晴帖 冊</a>。國立故宮博物院，台北，CC BY 4.0 @ www.npm.gov.tw（經裁切）"
+              },
+              {
+                "img": "/assets/img/calligraphy/gal-shupu-d.jpg",
+                "w": 720,
+                "h": 720,
+                "alt_en": "Detail of the Treatise on Calligraphy",
+                "alt_zh": "〈書譜〉局部",
+                "en": "Treatise on Calligraphy · Sun Guoting (Tang dynasty)",
+                "zh": "〈書譜〉・孫過庭（唐）",
+                "text_en": "Cursive script; 687. Small, quick cursive in neat columns: each character stands alone.",
+                "text_zh": "草書；垂拱三年（687）。小小的、寫得很快的草書，一行一行很整齊，字和字多半不相連。",
+                "credit_html": "<a href=\"https://commons.wikimedia.org/wiki/File:NPM-%E6%95%85%E6%9B%B8000058_%E5%94%90%E5%AD%AB%E9%81%8E%E5%BA%AD%E6%9B%B8%E8%AD%9C_%E5%8D%B7.pdf\" target=\"_blank\" rel=\"noopener\">唐孫過庭書譜 卷</a>。國立故宮博物院，台北，CC BY 4.0 @ www.npm.gov.tw（經裁切、拼接）"
+              },
+              {
+                "img": "/assets/img/calligraphy/gal-jizhi-d.jpg",
+                "w": 720,
+                "h": 720,
+                "alt_en": "Detail of the Draft of a Requiem to My Nephew",
+                "alt_zh": "〈祭姪文稿〉局部",
+                "en": "Draft of a Requiem to My Nephew · Yan Zhenqing (Tang dynasty)",
+                "zh": "〈祭姪文稿〉・顏真卿（唐）",
+                "text_en": "Running script; 758. A draft: look for dry, scratchy ink and words crossed out.",
+                "text_zh": "行書；乾元元年（758）。這是草稿：找找乾乾的枯筆，和塗掉的字。",
+                "credit_html": "<a href=\"https://commons.wikimedia.org/wiki/File:NPM-%E6%95%85%E6%9B%B8000060_%E5%94%90%E9%A1%8F%E7%9C%9F%E5%8D%BF%E7%A5%AD%E5%A7%AA%E6%96%87%E7%A8%BF_%E5%8D%B7.pdf\" target=\"_blank\" rel=\"noopener\">唐顏真卿祭姪文稿 卷</a>。國立故宮博物院，台北，CC BY 4.0 @ www.npm.gov.tw（經裁切、拼接）"
+              },
+              {
+                "img": "/assets/img/calligraphy/gal-zixu-d.jpg",
+                "w": 720,
+                "h": 720,
+                "alt_en": "Detail of the Autobiography",
+                "alt_zh": "〈自敘帖〉局部",
+                "en": "Autobiography · Huaisu (Tang dynasty)",
+                "zh": "〈自敘帖〉・懷素（唐）",
+                "text_en": "Wild cursive script; 777. Wild cursive: thin, round lines that loop on and on, with some characters suddenly huge.",
+                "text_zh": "狂草；大曆十二年（777）。狂草：細細圓圓的線一直繞下去，有些字突然寫得很大。",
+                "credit_html": "<a href=\"https://commons.wikimedia.org/wiki/File:NPM-%E6%95%85%E6%9B%B8000062_%E5%94%90%E6%87%B7%E7%B4%A0%E8%87%AA%E6%95%98%E5%B8%96_%E5%8D%B7.pdf\" target=\"_blank\" rel=\"noopener\">唐懷素自敘帖 卷</a>。國立故宮博物院，台北，CC BY 4.0 @ www.npm.gov.tw（經裁切、拼接）"
+              },
+              {
+                "img": "/assets/img/calligraphy/gal-hanshi-d.jpg",
+                "w": 720,
+                "h": 720,
+                "alt_en": "Detail of The Cold Food Observance",
+                "alt_zh": "〈寒食帖〉局部",
+                "en": "The Cold Food Observance · Su Shi (Song dynasty)",
+                "zh": "〈寒食帖〉・蘇軾（宋）",
+                "text_en": "Running script; poems of 1082. Heavy, slanting running script that grows bigger, with a few strokes pulled very long.",
+                "text_zh": "行書；詩作於元豐五年（1082）。又重又斜的行書，越寫越大，有幾個字的長筆畫拉得很長。",
+                "credit_html": "<a href=\"https://commons.wikimedia.org/wiki/File:NPM-%E8%B3%BC%E6%9B%B8001001_%E5%8C%97%E5%AE%8B%E8%98%87%E6%9D%B1%E5%9D%A1%E6%9B%B8%E9%BB%83%E5%B7%9E%E5%AF%92%E9%A3%9F%E8%A9%A9_%E5%8D%B7.pdf\" target=\"_blank\" rel=\"noopener\">北宋蘇東坡書黃州寒食詩 卷</a>。國立故宮博物院，台北，CC BY 4.0 @ www.npm.gov.tw（經裁切、拼接）"
+              }
+            ]
+          },
+          "tline": {
+            "eyebrow": "In Order · 排年代",
+            "en": "Seven hundred years on one line",
+            "zh": "一條線上的七百年",
+            "lead_en": "From Wang Xizhi's time to Su Shi's is about seven hundred years. Three of the five works were written within ninety years of each other in the Tang dynasty.",
+            "lead_zh": "從王羲之到蘇軾，大約七百年。五件裡有三件是唐朝寫的，前後相差不到九十年。",
+            "items": [
+              {
+                "year": "300s",
+                "dy_en": "Jin",
+                "dy_zh": "晉",
+                "en": "Timely Clearing After Snowfall",
+                "zh": "快雪時晴帖",
+                "note_en": "Wang Xizhi's letter; what survives is a Tang tracing copy.",
+                "note_zh": "王羲之的信；留下來的是唐代的精摹本。"
+              },
+              {
+                "year": "687",
+                "dy_en": "Tang",
+                "dy_zh": "唐",
+                "en": "Treatise on Calligraphy",
+                "zh": "書譜",
+                "note_en": "Sun Guoting, cursive script.",
+                "note_zh": "孫過庭，草書。"
+              },
+              {
+                "year": "758",
+                "dy_en": "Tang",
+                "dy_zh": "唐",
+                "en": "Draft of a Requiem to My Nephew",
+                "zh": "祭姪文稿",
+                "note_en": "Yan Zhenqing, running script.",
+                "note_zh": "顏真卿，行書。"
+              },
+              {
+                "year": "777",
+                "dy_en": "Tang",
+                "dy_zh": "唐",
+                "en": "Autobiography",
+                "zh": "自敘帖",
+                "note_en": "Huaisu, wild cursive script.",
+                "note_zh": "懷素，狂草。"
+              },
+              {
+                "year": "1082",
+                "dy_en": "Song",
+                "dy_zh": "宋",
+                "en": "The Cold Food Observance",
+                "zh": "寒食帖",
+                "note_en": "Su Shi's poems of 1082; the scroll was written then or soon after.",
+                "note_zh": "蘇軾 1082 年作的詩；這卷字寫於當時或稍後。"
+              }
+            ]
+          },
+          "match": {
+            "eyebrow": "Game · 小遊戲",
+            "en": "Which Work Is It?",
+            "zh": "這是哪一件？",
+            "lead_en": "Here is a small piece of one of the five works. Which one is it from? Use what you know about scripts, ink, and the size of the characters.",
+            "lead_zh": "這是五件作品其中一件的一小塊。它出自哪一件？用你學過的字體、墨色和字的大小來判斷。",
+            "items": [
+              {
+                "key": "kuaixue",
+                "img": "/assets/img/calligraphy/gal-kuaixue-m1.jpg"
+              },
+              {
+                "key": "kuaixue",
+                "img": "/assets/img/calligraphy/gal-kuaixue-m2.jpg"
+              },
+              {
+                "key": "shupu",
+                "img": "/assets/img/calligraphy/gal-shupu-m1.jpg"
+              },
+              {
+                "key": "shupu",
+                "img": "/assets/img/calligraphy/gal-shupu-m2.jpg"
+              },
+              {
+                "key": "jizhi",
+                "img": "/assets/img/calligraphy/gal-jizhi-m1.jpg"
+              },
+              {
+                "key": "jizhi",
+                "img": "/assets/img/calligraphy/gal-jizhi-m2.jpg"
+              },
+              {
+                "key": "zixu",
+                "img": "/assets/img/calligraphy/gal-zixu-m1.jpg"
+              },
+              {
+                "key": "zixu",
+                "img": "/assets/img/calligraphy/gal-zixu-m2.jpg"
+              },
+              {
+                "key": "hanshi",
+                "img": "/assets/img/calligraphy/gal-hanshi-m1.jpg"
+              },
+              {
+                "key": "hanshi",
+                "img": "/assets/img/calligraphy/gal-hanshi-m2.jpg"
+              }
+            ],
+            "works": {
+              "kuaixue": {
+                "en": "Timely Clearing After Snowfall",
+                "zh": "快雪時晴帖",
+                "who_en": "Wang Xizhi (Jin dynasty)",
+                "who_zh": "王羲之（晉）",
+                "hint_en": "Four short lines of calm running script, with many red seals around them.",
+                "hint_zh": "四行從容的行書，周圍蓋了很多紅色的印章。"
+              },
+              "shupu": {
+                "en": "Treatise on Calligraphy",
+                "zh": "書譜",
+                "who_en": "Sun Guoting (Tang dynasty)",
+                "who_zh": "孫過庭（唐）",
+                "hint_en": "Small, quick cursive in neat columns: each character stands alone.",
+                "hint_zh": "小小的、寫得很快的草書，一行一行很整齊，字和字多半不相連。"
+              },
+              "jizhi": {
+                "en": "Draft of a Requiem to My Nephew",
+                "zh": "祭姪文稿",
+                "who_en": "Yan Zhenqing (Tang dynasty)",
+                "who_zh": "顏真卿（唐）",
+                "hint_en": "A draft: look for dry, scratchy ink and words crossed out.",
+                "hint_zh": "這是草稿：找找乾乾的枯筆，和塗掉的字。"
+              },
+              "zixu": {
+                "en": "Autobiography",
+                "zh": "自敘帖",
+                "who_en": "Huaisu (Tang dynasty)",
+                "who_zh": "懷素（唐）",
+                "hint_en": "Wild cursive: thin, round lines that loop on and on, with some characters suddenly huge.",
+                "hint_zh": "狂草：細細圓圓的線一直繞下去，有些字突然寫得很大。"
+              },
+              "hanshi": {
+                "en": "The Cold Food Observance",
+                "zh": "寒食帖",
+                "who_en": "Su Shi (Song dynasty)",
+                "who_zh": "蘇軾（宋）",
+                "hint_en": "Heavy, slanting running script that grows bigger, with a few strokes pulled very long.",
+                "hint_zh": "又重又斜的行書，越寫越大，有幾個字的長筆畫拉得很長。"
+              }
+            },
+            "credit_html": "Details of five works in the National Palace Museum, Taipei. <a href=\"https://commons.wikimedia.org/wiki/File:NPM-%E6%95%85%E6%9B%B8000141_%E6%99%89%E7%8E%8B%E7%BE%B2%E4%B9%8B%E5%BF%AB%E9%9B%AA%E6%99%82%E6%99%B4%E5%B8%96_%E5%86%8A.pdf\" target=\"_blank\" rel=\"noopener\">晉王羲之快雪時晴帖 冊</a>。國立故宮博物院，台北，CC BY 4.0 @ www.npm.gov.tw（經裁切） <a href=\"https://commons.wikimedia.org/wiki/File:NPM-%E6%95%85%E6%9B%B8000058_%E5%94%90%E5%AD%AB%E9%81%8E%E5%BA%AD%E6%9B%B8%E8%AD%9C_%E5%8D%B7.pdf\" target=\"_blank\" rel=\"noopener\">唐孫過庭書譜 卷</a>。國立故宮博物院，台北，CC BY 4.0 @ www.npm.gov.tw（經裁切、拼接） <a href=\"https://commons.wikimedia.org/wiki/File:NPM-%E6%95%85%E6%9B%B8000060_%E5%94%90%E9%A1%8F%E7%9C%9F%E5%8D%BF%E7%A5%AD%E5%A7%AA%E6%96%87%E7%A8%BF_%E5%8D%B7.pdf\" target=\"_blank\" rel=\"noopener\">唐顏真卿祭姪文稿 卷</a>。國立故宮博物院，台北，CC BY 4.0 @ www.npm.gov.tw（經裁切、拼接） <a href=\"https://commons.wikimedia.org/wiki/File:NPM-%E6%95%85%E6%9B%B8000062_%E5%94%90%E6%87%B7%E7%B4%A0%E8%87%AA%E6%95%98%E5%B8%96_%E5%8D%B7.pdf\" target=\"_blank\" rel=\"noopener\">唐懷素自敘帖 卷</a>。國立故宮博物院，台北，CC BY 4.0 @ www.npm.gov.tw（經裁切、拼接） <a href=\"https://commons.wikimedia.org/wiki/File:NPM-%E8%B3%BC%E6%9B%B8001001_%E5%8C%97%E5%AE%8B%E8%98%87%E6%9D%B1%E5%9D%A1%E6%9B%B8%E9%BB%83%E5%B7%9E%E5%AF%92%E9%A3%9F%E8%A9%A9_%E5%8D%B7.pdf\" target=\"_blank\" rel=\"noopener\">北宋蘇東坡書黃州寒食詩 卷</a>。國立故宮博物院，台北，CC BY 4.0 @ www.npm.gov.tw（經裁切、拼接）"
+          },
+          "recap": {
+            "eyebrow": "Ten Lessons · 十堂課",
+            "en": "Look how far you have come",
+            "zh": "回頭看看，你走了多遠",
+            "lead_en": "This is the last lesson in the series. Here are all ten, with one sentence each. Tap any lesson to go back.",
+            "lead_zh": "這是這個系列的最後一課。十堂課各用一句話回顧，點任何一課都可以回去看。",
+            "items": [
+              {
+                "n": 1,
+                "en": "Brush, ink, paper, and inkstone: the four tools of writing.",
+                "zh": "筆、墨、紙、硯：寫字的四樣工具。"
+              },
+              {
+                "n": 2,
+                "en": "Press for thick, lift for thin.",
+                "zh": "按下去就粗，提起來就細。"
+              },
+              {
+                "n": 3,
+                "en": "The character 永 holds eight basic strokes.",
+                "zh": "一個「永」字，藏著八種基本筆法。"
+              },
+              {
+                "n": 4,
+                "en": "Stroke order gives everyone the same path through a character.",
+                "zh": "筆順讓每個人用同一條路線寫一個字。"
+              },
+              {
+                "n": 5,
+                "en": "Characters began as pictures on bones and bronze.",
+                "zh": "文字從甲骨和青銅器上的圖畫開始。"
+              },
+              {
+                "n": 6,
+                "en": "Clerical script flattened the curves and added the swallow tail.",
+                "zh": "隸書把彎的拉直，還多了一個燕尾。"
+              },
+              {
+                "n": 7,
+                "en": "Regular, running, and cursive: one character, three speeds.",
+                "zh": "楷、行、草：同一個字，三種速度。"
+              },
+              {
+                "n": 8,
+                "en": "Wang Xizhi wrote 之 twenty times, and no two are alike.",
+                "zh": "王羲之寫了二十個「之」，沒有兩個一樣。"
+              },
+              {
+                "n": 9,
+                "en": "Yan's muscle and Liu's bone: same strokes, different pressure.",
+                "zh": "顏筋柳骨：筆畫一樣，輕重不同。"
+              },
+              {
+                "n": 10,
+                "en": "The treasures are in Taipei, resting in dim light.",
+                "zh": "國寶就在台北，在暗暗的燈光下休息。"
+              }
+            ]
+          }
         }
-      ]
+      ],
+      "planned": []
     }
   ]
 }
