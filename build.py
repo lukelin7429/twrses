@@ -5549,7 +5549,7 @@ def build_body_hub():
 # 3D 原始碼在 tools/science/src/（three.js、esbuild，每課一個入口），打包成 assets/js/<入口>.js；
 # 面板、迷思、口訣、活動沿用 astro.css，本系列多出來的在 science.css；兩者都只載在本系列頁面。
 HTW_BASE = "/resources/classes/how-things-work/"
-_HTW_JS = {"battery": "battery", "generator": "generator", "solar": "solar-cell", "wind": "wind-turbine", "internet": "internet-packets", "signal": "cell-signal", "gps": "gps-satellites", "memory": "memory-bits", "sky": "sky-scatter", "rainbow": "rainbow-drops", "sound": "sound-waves", "camera": "camera-lens", "wing": "airplane-wing", "bike": "bicycle-balance", "elevator": "elevator-lift"}   # lab.kind → assets/js/<bundle>.js
+_HTW_JS = {"battery": "battery", "generator": "generator", "solar": "solar-cell", "wind": "wind-turbine", "internet": "internet-packets", "signal": "cell-signal", "gps": "gps-satellites", "memory": "memory-bits", "sky": "sky-scatter", "rainbow": "rainbow-drops", "sound": "sound-waves", "camera": "camera-lens", "wing": "airplane-wing", "bike": "bicycle-balance", "elevator": "elevator-lift", "fridge": "fridge-cycle"}   # lab.kind → assets/js/<bundle>.js
 
 def _htw_cn(n):
     """課次的中文數字（一～九十九）：第十一課、第二十課。"""
@@ -6400,6 +6400,62 @@ def render_elevator_lab(lesson):
   <p class="bt-credit">{lab["credit_html"]}</p>
 </div>'''
 
+def fridge_svg(size=56):
+    """冰箱小圖（萬物原理首頁的課程卡）：冰箱裡是藍色的冷、背後的散熱管是紅色的熱。"""
+    return (f'<svg class="fridge-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">'
+            '<rect x="12" y="5" width="28" height="50" rx="4" fill="#e8edf5" stroke="#8a96ad" stroke-width="1.6"/>'
+            '<rect x="15" y="8" width="22" height="14" rx="2" fill="#9fd4ff"/><rect x="15" y="25" width="22" height="27" rx="2" fill="#cfe9ff"/>'
+            '<path d="M12 23.5 H40" stroke="#8a96ad" stroke-width="1.4"/><path d="M34 12 v6 M34 30 v9" stroke="#6b7385" stroke-width="2" stroke-linecap="round"/>'
+            '<path d="M44 12 h6 v6 h-6 v6 h6 v6 h-6 v6 h6 v6 h-6" fill="none" stroke="#ff5a2a" stroke-width="2" stroke-linejoin="round"/>'
+            '<path d="M53 10 q3 -3 0 -6 M56 20 q3 -3 0 -6" fill="none" stroke="#ffb347" stroke-width="1.4" stroke-linecap="round"/></svg>')
+
+def render_fridge_lab(lesson):
+    """第十六課：透明冰箱與冷媒的一圈（assets/js/fridge-cycle.js 綁這裡的 class；溫度是簡化模型）。"""
+    lab = lesson["lab"]
+    tg = _lab_toggles([("labels", "Labels", "標示", True), ("heat", "Heat", "熱", True), ("plug", "Plugged in", "插著電", True)])
+    return f'''<div class="astro-lab bt-lab fr-lab rvl" data-fridge-lab>
+  <div class="al-stage">
+    <div class="al-space">
+      <canvas class="al-space-cv" aria-label="3D model of a see-through refrigerator: refrigerant circles from the compressor to the coil on the back, through a thin tube, into the cold coil inside, and back · 透明冰箱的 3D 模型：冷媒從壓縮機到背後的散熱管，經過細管進到裡面的蒸發器，再回到壓縮機"></canvas>
+      <div class="al-labels" aria-hidden="true"></div>
+      <p class="bt-cut">A see-through refrigerator, seen from behind; tubes drawn thicker and fewer than real · 從後面看的透明冰箱；管子畫得比真的粗、比真的少</p>
+      <p class="al-hint">Drag to turn · 拖曳旋轉　Scroll or pinch to zoom · 滾輪／雙指縮放</p>
+      <button type="button" class="al-home" title="Reset view · 重設視角" aria-label="Reset view · 重設視角">&#8634;</button>
+      <p class="al-nogl-msg">This 3D model needs WebGL, which this browser does not support. The reading and the cards below still explain everything.<br><span class="zh">這個瀏覽器不支援 WebGL，無法顯示 3D 模型；下方的課文與卡片一樣能看懂。</span></p>
+    </div>
+    <aside class="al-sky bt-aside fr-aside">
+      <div class="fr-top">
+        <p class="al-sky-k">Where the heat goes · 熱往哪裡去</p>
+        <p class="fr-status" aria-live="polite"></p>
+        <dl class="bt-nums fr-nums">
+          <div><dt>Inside · 冰箱裡</dt><dd class="fr-tin"></dd></div>
+          <div><dt>Kitchen · 廚房</dt><dd class="fr-tout"></dd></div>
+          <div><dt>Compressor · 壓縮機</dt><dd class="fr-comp"></dd></div>
+        </dl>
+        <div class="fr-bars">
+          <p class="fr-bar fr-bar-in"><span>Heat taken from inside · 從裡面搬走的熱</span><i></i><b></b></p>
+          <p class="fr-bar fr-bar-el"><span>+ Electricity used · ＋用掉的電</span><i></i><b></b></p>
+          <p class="fr-bar fr-bar-out"><span>= Heat sent to the kitchen · ＝送到廚房的熱</span><i></i><b></b></p>
+        </div>
+        <div class="fr-btns">
+          <button type="button" class="fr-door"></button>
+        </div>
+      </div>
+      <p class="bt-msg fr-msg" aria-live="polite"></p>
+    </aside>
+  </div>
+  <div class="al-controls">
+    <div class="al-row al-row-main">
+      <button type="button" class="al-play" aria-pressed="true"><span class="al-play-i" aria-hidden="true"></span><span class="al-play-t">Pause · 暫停</span></button>
+      <label class="al-slider fr-row"><span>Kitchen temperature · 廚房的溫度 <output class="fr-room-out"></output></span>
+        <input type="range" class="al-age fr-room" min="18" max="36" step="1" value="28"></label>
+    </div>
+    <div class="al-row al-toggles">{tg}</div>
+  </div>
+  {_lab_foot(lab)}
+  <p class="bt-credit">{lab["credit_html"]}</p>
+</div>'''
+
 def _htw_flat():
     return [(ui, u, l) for ui, u in enumerate(HTW["units"]) for l in u["lessons"]]
 
@@ -6427,7 +6483,7 @@ def build_htw_lesson(ui, unit, lesson):
     reading_html = render_basic_unit(1, unit_dict, level="htw", audio_rel="", pdf_rel="")
     lab = lesson["lab"]
     kind = lab["kind"]
-    lab_html = {"battery": render_battery_lab, "generator": render_generator_lab, "solar": render_solarcell_lab, "wind": render_windturbine_lab, "internet": render_internet_lab, "signal": render_cellsignal_lab, "gps": render_gps_lab, "memory": render_memory_lab, "sky": render_skyblue_lab, "rainbow": render_rainbow_lab, "sound": render_soundwave_lab, "camera": render_cameralens_lab, "wing": render_airwing_lab, "bike": render_bicycle_lab, "elevator": render_elevator_lab}[kind](lesson)
+    lab_html = {"battery": render_battery_lab, "generator": render_generator_lab, "solar": render_solarcell_lab, "wind": render_windturbine_lab, "internet": render_internet_lab, "signal": render_cellsignal_lab, "gps": render_gps_lab, "memory": render_memory_lab, "sky": render_skyblue_lab, "rainbow": render_rainbow_lab, "sound": render_soundwave_lab, "camera": render_cameralens_lab, "wing": render_airwing_lab, "bike": render_bicycle_lab, "elevator": render_elevator_lab, "fridge": render_fridge_lab}[kind](lesson)
 
     secs = []
     if lesson.get("mix"):
@@ -6498,7 +6554,8 @@ def build_htw_lesson(ui, unit, lesson):
                 "camera": ("Cameras in a sentence", "一句話記住相機"),
                 "wing": ("Flight in a sentence", "一句話記住飛行"),
                 "bike": ("Bicycles in a sentence", "一句話記住腳踏車"),
-                "elevator": ("Elevators in a sentence", "一句話記住電梯")}[kind]
+                "elevator": ("Elevators in a sentence", "一句話記住電梯"),
+                "fridge": ("Refrigerators in a sentence", "一句話記住冰箱")}[kind]
     secs.append(("tricks", "Remember It · 記憶口訣", tricks_h[0], tricks_h[1], _sci_tricks(lesson), ""))
     if lesson.get("safety"):
         items = "".join(f'<li class="rvl">{html.escape(s["en"])}<span class="zh">{html.escape(s["zh"])}</span></li>' for s in lesson["safety"])
@@ -6552,7 +6609,7 @@ def build_htw_lesson(ui, unit, lesson):
 def build_htw_hub():
     # 照中醫養生：單元導覽＋每個單元一段橫向課程卡；做好的課可點，planned 是「製作中」卡。
     def icon(l):
-        return battery_svg(60) if l.get("card") == "battery" else outlet_svg(60) if l.get("card") == "outlet" else solarpanel_svg(60) if l.get("card") == "solar" else windturbine_svg(60) if l.get("card") == "wind" else internet_svg(60) if l.get("card") == "internet" else cellsignal_svg(60) if l.get("card") == "signal" else gps_svg(60) if l.get("card") == "gps" else memory_svg(60) if l.get("card") == "memory" else skyblue_svg(60) if l.get("card") == "sky" else rainbow_svg(60) if l.get("card") == "rainbow" else soundwave_svg(60) if l.get("card") == "sound" else cameralens_svg(60) if l.get("card") == "camera" else airwing_svg(60) if l.get("card") == "wing" else bicycle_svg(60) if l.get("card") == "bike" else elevator_svg(60) if l.get("card") == "elevator" else l["icon"]
+        return battery_svg(60) if l.get("card") == "battery" else outlet_svg(60) if l.get("card") == "outlet" else solarpanel_svg(60) if l.get("card") == "solar" else windturbine_svg(60) if l.get("card") == "wind" else internet_svg(60) if l.get("card") == "internet" else cellsignal_svg(60) if l.get("card") == "signal" else gps_svg(60) if l.get("card") == "gps" else memory_svg(60) if l.get("card") == "memory" else skyblue_svg(60) if l.get("card") == "sky" else rainbow_svg(60) if l.get("card") == "rainbow" else soundwave_svg(60) if l.get("card") == "sound" else cameralens_svg(60) if l.get("card") == "camera" else airwing_svg(60) if l.get("card") == "wing" else bicycle_svg(60) if l.get("card") == "bike" else elevator_svg(60) if l.get("card") == "elevator" else fridge_svg(60) if l.get("card") == "fridge" else l["icon"]
     unit_sections, nav = [], []
     done = sum(len(u["lessons"]) for u in HTW["units"])
     total = done + sum(len(u.get("planned", [])) for u in HTW["units"])

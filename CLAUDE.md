@@ -259,6 +259,11 @@
   - 用詞照《建築技術規則建築設備編》：**平衡錘**（不是配重，課文只在第一次出現時加註「也叫配重」）、**鋼索**（不是鋼纜）、安全裝置、調速機。
   - 手機版 `.al-space` 是 `aspect-ratio` 決定大小：**不要在手機斷點設 `min-height`**（會連寬度一起撐大、超出畫面被裁掉，標籤的 narrow 判斷也會失效）；直的場景改 `aspect-ratio: 3 / 4; min-height: 0`。
   - 卡片 `demo`：balanced／full／nocw／cut。除錯：`document.querySelector('[data-elevator-lab]').__lab`（`setPeople(0–12)`、`setFloor(1–8)`、`setCw(bool)`、`cut()`、`fix()`、`run(sec)`、`render()`）。
+- 第十六課冰箱（`fridge-cycle.js`，`lab.kind = "fridge"`，`data-fridge-lab`，CSS 前綴 `fr-`）：一個機制——冰箱不製造冷，是把熱搬出去；冷媒繞一圈：1 壓縮機 → 2 背後的散熱管（放熱、變液體）→ 3 毛細管（降壓變冷）→ 4 裡面的蒸發器（蒸發吸熱）。**單元四到此完成。**
+  - 透明冰箱，門朝 +z、背面朝 −z，鏡頭在右後方偏側面（太偏後面時散熱管會整片蓋住內部）。冷媒是 170 顆 InstancedMesh：顏色＝冷熱、大小與間距＝氣體或液體（`uOfM()` 用查表把「冷媒量座標」換成路徑位置，所以氣體段自然比較稀、跑得快）。橘色光點＝熱（食物→蒸發器、散熱管→廚房、門開時門外→裡面）。
+  - `src/fridgecalc.js`（**簡化模型，不是真冰箱的規格**）：dT/dt = LEAK·(門開×12)·(廚房−T) − (運轉 ? PUMP : 0)，溫控 5.5°C 啟動、2.5°C 停止；1 秒＝模型 4 分鐘。熱的帳用舉例數字「搬 2 份＋電 1 份＝送出 3 份」。門開著時穩定在 23–24°C、壓縮機不停。
+  - 卡片 `demo`：normal／door／unplug／hot。除錯：`document.querySelector('[data-fridge-lab]').__lab`（`setRoom(18–36)`、`setDoor(bool)`、`setPlugged(bool)`、`setTemp(°C)`、`run(sec)`、`render()`）。
+  - 出處的坑：食藥好文網（article-consumer.fda.gov.tw）連不上，改用 fda.gov.tw 的《藥物食品安全週報》同一篇；能源效率分級的說明用標準檢驗局的 PDF（`curl -k`＋`pdftotext`）。
 - 上傳錄音時若出現大量「not found locally」：多半是天文 session 在 ~/Developer 那份 clone 產生、已上傳的句子（worktree 的快取沒有它們）。算出「manifest 裡有、快取裡沒有」的雜湊，逐一 curl 確認線上 200 即可。
 - 多個 session 同時改 build.py 時，本系列改在 scratchpad 的 git worktree（從 origin/main 開分支）做，`audio` 用 symlink 指到 `~/Documents/twrses/audio`（symlink 不會被 .gitignore 的 `audio/` 擋，**不要 add**），做完 rebase 再 `git push origin HEAD:main`。
 - 瀏覽器面板在背景時 `visibilityState` 是 hidden，IntersectionObserver 不觸發、截圖是空白：點一下頁面上的「在模型中看」按鈕就會直接初始化，截圖改用無頭 Chrome（playwright-core＋本機 Chrome，`--use-angle=swiftshader`）。

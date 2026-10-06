@@ -7466,16 +7466,497 @@
               "url": "https://www.119.gov.taipei/News_Content.aspx?n=6EEFD6ACA51B8E33&sms=87415A8B9CE81B16&s=6FB1F286840AC217"
             }
           ]
-        }
-      ],
-      "planned": [
+        },
         {
           "n": 16,
+          "slug": "refrigerator",
+          "title": "How Does a Refrigerator Keep Food Cold?",
+          "title_zh": "冰箱怎麼讓食物變冷？",
+          "level": "入門 · Beginner",
           "icon": "🧊",
-          "en": "How Does a Refrigerator Keep Food Cold?",
-          "zh": "冰箱怎麼讓食物變冷？"
+          "card": "fridge",
+          "blurb_en": "A refrigerator does not make cold. It carries heat out of the food and into your kitchen. Follow the refrigerant around a see-through 3D fridge, then open the door or pull the plug and watch the inside warm up.",
+          "blurb_zh": "冰箱並不是「製造冷」，而是把食物裡的熱搬到廚房去。在透明的 3D 冰箱裡跟著冷媒繞一圈，再把門打開、或把插頭拔掉，看裡面怎麼變暖。",
+          "big_idea_en": "A refrigerator does not make cold; it moves heat. A liquid called refrigerant evaporates in tubes inside the refrigerator and soaks up heat from the food. A compressor then squeezes it until it is hot, and a coil on the outside gives that heat to the kitchen. Then the refrigerant goes back inside and does it all again.",
+          "big_idea_zh": "冰箱不是製造冷，而是搬運熱。一種叫冷媒的液體在冰箱裡面的管子蒸發，把食物的熱吸走；壓縮機再把它壓縮到變熱，由外面的散熱管把熱交給廚房。然後冷媒回到裡面，再來一次。",
+          "lab": {
+            "kind": "fridge",
+            "eyebrow": "3D Model · 3D 模型",
+            "title_en": "The Heat Mover",
+            "title_zh": "搬熱的機器",
+            "how_en": "Drag to turn the view, and scroll or pinch to zoom. You are looking at a see-through refrigerator from behind. Follow the dots from 1 to 4: red means hot, blue means cold. Orange glows are heat, leaving the food and leaving the coil on the back. Press “Open the door,” switch off “Plugged in,” or make the kitchen hotter, and watch the temperature inside.",
+            "how_zh": "拖曳可以旋轉視角，滾輪或雙指可以縮放。你是從後面看一台透明的冰箱。跟著小圓點從 1 走到 4：紅色是熱、藍色是冷。橘色的光點是熱，從食物離開、也從背後的散熱管離開。按「把門打開」、關掉「插著電」、或把廚房調熱，看冰箱裡的溫度怎麼變。",
+            "legend": [
+              {
+                "cls": "frhot",
+                "en": "Red dots: hot refrigerant, squeezed by the compressor",
+                "zh": "紅點：被壓縮機壓過、很熱的冷媒"
+              },
+              {
+                "cls": "frcold",
+                "en": "Blue dots: cold refrigerant, after the thin tube",
+                "zh": "藍點：通過細管之後、很冷的冷媒"
+              },
+              {
+                "cls": "frsize",
+                "en": "Big and far apart = gas; small and close together = liquid",
+                "zh": "大而稀疏＝氣體；小而密＝液體"
+              },
+              {
+                "cls": "frheat",
+                "en": "Orange glows: heat on the move",
+                "zh": "橘色光點：正在移動的熱"
+              }
+            ],
+            "scale_en": "A teaching model. The temperatures come from a simple calculation, not from a real refrigerator, and one second here stands for about four minutes. The bars use example numbers (2 parts of heat moved for 1 part of electricity); real refrigerators differ. The tubes are drawn thicker and far fewer than real ones, real refrigerant stays sealed inside the tubes where you cannot see it, and many refrigerators hide the outside coil in their walls.",
+            "scale_zh": "這是教學用的模型。溫度是用簡單的算式算出來的，不是真冰箱量到的；這裡的 1 秒大約代表 4 分鐘。橫槓用的是舉例的數字（用 1 份電搬 2 份熱），真正的冰箱各有不同。管子畫得比真的粗、也少很多；真的冷媒封在管子裡看不到；很多冰箱把外面的散熱管藏在外殼裡。",
+            "credit_html": "Model drawn by My Culture Connect as a teaching diagram. The four steps of the cycle follow <a href=\"https://en.wikipedia.org/wiki/Vapor-compression_refrigeration\" target=\"_blank\" rel=\"noopener\">Wikipedia, “Vapor-compression refrigeration”</a>. · 模型由人師教育協會自繪示意；循環的四個步驟依維基百科「Vapor-compression refrigeration」條目。"
+          },
+          "paras": [
+            "Open the refrigerator on a hot day and cool air touches your face. Now put your hand on the side of the refrigerator, or near the back. On many refrigerators it feels warm! Why would a machine that keeps food cold be warm on the outside? The answer tells you how a refrigerator really works.",
+            "A refrigerator cannot make cold, because cold is not a thing. Cold just means less heat. So a refrigerator does only one job: it takes heat out of the box and puts it somewhere else. To do that, it uses a trick you already know. When you climb out of a swimming pool, the water on your skin dries and you feel chilly. A liquid that evaporates takes heat away with it.",
+            "Inside the walls of a refrigerator there is a long tube with a special liquid in it, called refrigerant. In the part of the tube that is inside the box, the refrigerant is very cold, colder than the food. It evaporates and turns into a gas. As it does, it soaks up heat from the air and the food, just like the water drying on your skin.",
+            "Next the gas goes to the compressor, the part that hums at the bottom of the refrigerator. The compressor squeezes the gas hard, and squeezing makes it hot, hotter than your kitchen. The hot gas flows through a coil on the outside. There it gives its heat to the room and turns back into a liquid. Then it is pushed through a very thin tube. Its pressure drops suddenly, it becomes very cold, and it goes back inside to start again.",
+            "People have used this idea for a long time. In 1834 Jacob Perkins built the first working machine that cooled things this way. Before home refrigerators, families kept food cold with big blocks of ice. The first electric refrigerators for homes were made in 1913. Today the refrigerant in most new refrigerators is a gas called isobutane.",
+            "Here is a puzzle. On a hot day, can you cool the kitchen by leaving the refrigerator door open? No! The heat taken from inside comes right back out of the coil into the same room, together with the heat from the electricity. The kitchen gets warmer. So close the door quickly, do not pack the refrigerator too full, and leave some space around it so the heat can get away."
+          ],
+          "paras_zh": [
+            "大熱天打開冰箱，涼涼的空氣撲到臉上。現在把手放在冰箱的側面，或靠近背後的地方——很多冰箱摸起來是溫溫的！一台讓食物保持冰涼的機器，外面為什麼是熱的？答案正好說明了冰箱真正的原理。",
+            "冰箱沒辦法「製造冷」，因為冷並不是一種東西，冷只是熱比較少。所以冰箱只做一件事：把箱子裡的熱拿出來，放到別的地方。它用的是你早就知道的一招。從游泳池爬上來時，皮膚上的水慢慢乾掉，你會覺得涼涼的。液體蒸發的時候，會把熱一起帶走。",
+            "冰箱的外殼裡有一條長長的管子，裡面裝著一種特別的液體，叫做冷媒。在冰箱裡面的那一段管子，冷媒非常冷，比食物還冷。它蒸發變成氣體，同時把空氣和食物的熱吸走，就像皮膚上乾掉的水一樣。",
+            "接著氣體來到壓縮機，也就是冰箱底下嗡嗡響的那個零件。壓縮機用力擠壓氣體，一擠就變熱，比你家的廚房還熱。熱熱的氣體流過外面的散熱管，把熱交給房間，自己變回液體。然後它被推進一條非常細的管子，壓力突然下降，變得非常冷，再回到裡面重新開始。",
+            "人們用這個方法已經很久了。1834 年，柏金斯（Jacob Perkins）做出第一台用這種方式冷卻、真的能運轉的機器。家裡有冰箱之前，大家是用大冰塊來保存食物。第一批家用的電冰箱在 1913 年做出來。今天大部分新冰箱用的冷媒，是一種叫異丁烷的氣體。",
+            "來猜個謎：大熱天把冰箱門一直開著，廚房會變涼嗎？不會！從裡面搬走的熱，馬上又從散熱管回到同一個房間，還要加上電變成的熱，廚房反而更熱。所以開了門要快點關上，冰箱不要塞太滿，四周也要留一點空間，讓熱散得出去。"
+          ],
+          "questions": [
+            "What is the one job that a refrigerator really does?",
+            "What happens to the refrigerant inside the refrigerator, and what happens to it in the coil outside?",
+            "Why does the kitchen get warmer if you leave the refrigerator door open?"
+          ],
+          "answers": [
+            "It moves heat: it takes heat out of the box and puts it into the room outside.",
+            "Inside, the cold refrigerant evaporates into a gas and soaks up heat. In the coil outside, the hot gas gives its heat to the room and turns back into a liquid.",
+            "Because the heat taken from inside goes right back into the same room, together with the heat from the electricity the refrigerator uses."
+          ],
+          "vocab": [
+            {
+              "n": 1,
+              "w": "refrigerator",
+              "pos": "n.",
+              "zh": "冰箱",
+              "ex": "Put the milk back in the <b>refrigerator</b>.",
+              "exzh": "把牛奶放回冰箱。"
+            },
+            {
+              "n": 2,
+              "w": "refrigerant",
+              "pos": "n.",
+              "zh": "冷媒",
+              "ex": "The <b>refrigerant</b> flows through tubes in the walls.",
+              "exzh": "冷媒在外殼裡的管子流動。"
+            },
+            {
+              "n": 3,
+              "w": "evaporate",
+              "pos": "v.",
+              "zh": "蒸發",
+              "ex": "The water on the road <b>evaporated</b> in the sun.",
+              "exzh": "路上的水在太陽下蒸發了。"
+            },
+            {
+              "n": 4,
+              "w": "compressor",
+              "pos": "n.",
+              "zh": "壓縮機",
+              "ex": "You can hear the <b>compressor</b> hum at night.",
+              "exzh": "晚上聽得到壓縮機嗡嗡的聲音。"
+            },
+            {
+              "n": 5,
+              "w": "squeeze",
+              "pos": "v.",
+              "zh": "擠壓",
+              "ex": "<b>Squeeze</b> the bottle to get the last drop out.",
+              "exzh": "擠一擠瓶子，把最後一滴擠出來。"
+            },
+            {
+              "n": 6,
+              "w": "soak up",
+              "pos": "phr. v.",
+              "zh": "吸收",
+              "ex": "A towel <b>soaks up</b> water.",
+              "exzh": "毛巾會吸水。"
+            },
+            {
+              "n": 7,
+              "w": "temperature",
+              "pos": "n.",
+              "zh": "溫度",
+              "ex": "The <b>temperature</b> inside is four degrees.",
+              "exzh": "裡面的溫度是四度。"
+            },
+            {
+              "n": 8,
+              "w": "spoil",
+              "pos": "v.",
+              "zh": "（食物）壞掉",
+              "ex": "Fish <b>spoils</b> quickly on a hot day.",
+              "exzh": "天氣熱的時候，魚很快就壞掉。"
+            }
+          ],
+          "quiz": [
+            {
+              "q": "What does a refrigerator really do?",
+              "options": [
+                "It moves heat from inside to outside",
+                "It makes cold and adds it to the food",
+                "It blows cold air in from outdoors",
+                "It turns electricity into ice"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "What happens when the refrigerant evaporates inside the refrigerator?",
+              "options": [
+                "It soaks up heat",
+                "It gives off heat",
+                "It turns into ice",
+                "It leaks into the food"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "What does the compressor do to the refrigerant gas?",
+              "options": [
+                "It squeezes the gas and makes it hot",
+                "It freezes the gas",
+                "It lets the gas out into the kitchen",
+                "It turns the gas into water"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "Why is the outside of a refrigerator warm?",
+              "options": [
+                "The coil is giving heat to the room",
+                "The refrigerator is broken",
+                "The food inside is too hot",
+                "The light inside is always on"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "You leave the refrigerator door open all afternoon. What happens to the kitchen?",
+              "options": [
+                "It gets warmer",
+                "It gets much cooler",
+                "It freezes",
+                "Nothing changes at all"
+              ],
+              "correct": 0
+            }
+          ],
+          "parts_head": {
+            "eyebrow": "Try It in the Model · 在模型裡試試",
+            "en": "Four days in the life of a refrigerator",
+            "zh": "冰箱的四種日子"
+          },
+          "parts": [
+            {
+              "key": "normal",
+              "icon": "🧊",
+              "en": "A normal day",
+              "zh": "平常的一天",
+              "meta_en": "Door closed",
+              "meta_zh": "門關著",
+              "demo": "normal",
+              "text_en": "The compressor runs until the inside is cold enough, then rests. A little heat leaks in, and it starts again. That is why a refrigerator hums, goes quiet, and hums again.",
+              "text_zh": "壓縮機運轉到裡面夠冷，就休息。一點點熱滲進來，它又啟動。所以冰箱會嗡嗡響一陣、安靜一陣、再響一陣。"
+            },
+            {
+              "key": "door",
+              "icon": "🚪",
+              "en": "Door left open",
+              "zh": "門忘了關",
+              "meta_en": "Heat pours in",
+              "meta_zh": "熱湧進來",
+              "demo": "door",
+              "text_en": "Warm air pours in faster than the refrigerant can carry heat away. The inside warms up even though the compressor never stops.",
+              "text_zh": "暖空氣湧進來的速度，比冷媒搬熱還快。壓縮機一刻都沒停，裡面還是越來越暖。"
+            },
+            {
+              "key": "unplug",
+              "icon": "🔌",
+              "en": "Unplugged",
+              "zh": "拔掉插頭",
+              "meta_en": "No heat mover",
+              "meta_zh": "沒人搬熱",
+              "demo": "unplug",
+              "text_en": "The dots stop. Nothing is moving heat out, so the inside slowly climbs to the temperature of the kitchen. A closed door slows this down.",
+              "text_zh": "小圓點停了。沒有東西把熱搬出去，裡面慢慢升到和廚房一樣的溫度。門關著可以拖慢這件事。"
+            },
+            {
+              "key": "hot",
+              "icon": "🥵",
+              "en": "A hot kitchen",
+              "zh": "很熱的廚房",
+              "meta_en": "35°C",
+              "meta_zh": "35°C",
+              "demo": "hot",
+              "text_en": "More heat leaks in from a hotter room, so the compressor has to run longer and rest less. That uses more electricity.",
+              "text_zh": "房間越熱，滲進來的熱越多，壓縮機就得運轉更久、休息更少，也就更耗電。"
+            }
+          ],
+          "parts_note_en": "Watch the three bars: the heat sent to the kitchen is always the heat taken from inside plus the electricity used. That is why an open refrigerator can never cool a room.",
+          "parts_note_zh": "注意三條橫槓：送到廚房的熱，永遠等於從裡面搬走的熱加上用掉的電。所以開著門的冰箱不可能讓房間變涼。",
+          "facts": {
+            "eyebrow": "Refrigerators by the Numbers · 冰箱的數字",
+            "en": "Cold numbers to remember",
+            "zh": "值得記住的冰涼數字",
+            "lead_en": "Two dates from history, and four numbers for your own kitchen.",
+            "lead_zh": "兩個歷史上的年份，和四個你家廚房用得到的數字。",
+            "items": [
+              {
+                "big": "1834",
+                "unit_en": "the first working machine",
+                "unit_zh": "第一台能運轉的機器",
+                "en": "Jacob Perkins built the first working refrigeration system that squeezes a gas and lets a liquid evaporate.",
+                "zh": "柏金斯做出第一台「壓縮氣體、讓液體蒸發」而且真的能運轉的冷凍系統。"
+              },
+              {
+                "big": "1913",
+                "unit_en": "home refrigerators",
+                "unit_zh": "家用電冰箱",
+                "en": "The first electric refrigerators for home use were invented and produced.",
+                "zh": "第一批家用的電冰箱被發明並生產出來。"
+              },
+              {
+                "big": "0–7°C",
+                "unit_en": "in the refrigerator",
+                "unit_zh": "冷藏",
+                "en": "Taiwan's Food and Drug Administration suggests keeping the refrigerator between 0°C and 7°C.",
+                "zh": "食藥署建議家用冰箱的冷藏溫度維持在 0°C 到 7°C 之間。"
+              },
+              {
+                "big": "−18°C",
+                "unit_en": "in the freezer",
+                "unit_zh": "冷凍",
+                "en": "The freezer should stay below −18°C.",
+                "zh": "冷凍則應該低於 −18°C。"
+              },
+              {
+                "big": "7–60°C",
+                "unit_en": "the danger zone",
+                "unit_zh": "危險溫度帶",
+                "en": "Germs grow easily between 7°C and 60°C, so food should not sit at room temperature for long.",
+                "zh": "7°C 到 60°C 之間微生物容易孳生，所以食物不要在室溫放太久。"
+              },
+              {
+                "big": "1–5",
+                "unit_en": "energy grades",
+                "unit_zh": "能源效率分級",
+                "en": "Refrigerators in Taiwan carry an energy label from grade 1 to grade 5. Grade 1 uses the least electricity.",
+                "zh": "台灣的電冰箱有 1 到 5 級的能源效率標示，1 級用電最少。"
+              }
+            ]
+          },
+          "myths": [
+            {
+              "myth_en": "A refrigerator makes cold and puts it into the food.",
+              "myth_zh": "冰箱製造「冷」，再把冷放進食物裡。",
+              "fact_en": "There is no such thing as cold to add. A refrigerator takes heat out of the food and moves it to the room.",
+              "fact_zh": "沒有「冷」這種東西可以加進去。冰箱是把食物裡的熱拿出來，搬到房間裡。"
+            },
+            {
+              "myth_en": "Leaving the refrigerator door open will cool the kitchen.",
+              "myth_zh": "把冰箱門開著，廚房會變涼。",
+              "fact_en": "The heat comes right back out of the coil into the same room, plus the heat from the electricity. The kitchen gets warmer.",
+              "fact_zh": "熱馬上又從散熱管回到同一個房間，還加上電變成的熱，廚房反而更熱。"
+            },
+            {
+              "myth_en": "If the outside of the refrigerator feels warm, it is broken.",
+              "myth_zh": "冰箱外面摸起來溫溫的，就是壞了。",
+              "fact_en": "That warmth is the heat that was carried out of the food. Leave space around the refrigerator so it can get away.",
+              "fact_zh": "那些溫溫的，正是從食物裡搬出來的熱。冰箱四周要留空間，讓熱散得出去。"
+            },
+            {
+              "myth_en": "Food in the refrigerator never goes bad, because the cold kills germs.",
+              "myth_zh": "食物放進冰箱就不會壞，因為低溫會殺死細菌。",
+              "fact_en": "Cold only slows germs down; it does not kill them. Food in the refrigerator still spoils, just more slowly.",
+              "fact_zh": "低溫只能讓微生物長得慢，不能殺菌。放在冰箱的食物還是會壞，只是慢一點。"
+            }
+          ],
+          "tricks": [
+            {
+              "title_en": "It moves heat",
+              "title_zh": "它是搬熱的",
+              "body_en": "A refrigerator does not make cold. It carries heat out.",
+              "body_zh": "冰箱不製造冷，是把熱搬出去。"
+            },
+            {
+              "title_en": "Evaporate inside, squeeze outside",
+              "title_zh": "裡面蒸發，外面壓縮",
+              "body_en": "Evaporating soaks up heat inside. Squeezing makes the gas hot enough to give that heat away outside.",
+              "body_zh": "在裡面蒸發吸熱；在外面壓縮變熱，才能把熱送出去。"
+            },
+            {
+              "title_en": "Warm outside means it is working",
+              "title_zh": "外面溫溫的，表示它在工作",
+              "body_en": "The heat you feel on the outside came from the food inside.",
+              "body_zh": "你在外面摸到的熱，是從裡面的食物搬出來的。"
+            },
+            {
+              "title_en": "In + electricity = out",
+              "title_zh": "裡面的熱＋電＝外面的熱",
+              "body_en": "More heat always comes out than was taken in. An open door cannot cool a room.",
+              "body_zh": "送出去的熱永遠比搬走的多，所以開著門不可能讓房間變涼。"
+            }
+          ],
+          "safety": [
+            {
+              "en": "Never climb into or hide inside a refrigerator or freezer, not even an old one that is unplugged. You could be trapped with no air.",
+              "zh": "絕對不可以爬進或躲進冰箱、冰櫃，就算是沒插電的舊冰箱也一樣，可能被關在裡面沒有空氣。"
+            },
+            {
+              "en": "Do not touch, pull, or poke the tubes and the compressor at the back. The refrigerant is sealed inside and must stay there.",
+              "zh": "不要去摸、拉或戳背後的管子和壓縮機。冷媒封在裡面，不能讓它跑出來。"
+            },
+            {
+              "en": "An old refrigerator must go to recycling, where the refrigerant is taken out safely first. Never dump one or take it apart.",
+              "zh": "舊冰箱要交給回收，處理時會先把冷媒安全地抽出來。不可以亂丟，也不要自己拆。"
+            },
+            {
+              "en": "Do not leave food at room temperature for long. Put leftovers in the refrigerator soon, and keep raw food and cooked food apart.",
+              "zh": "食物不要在室溫放太久。吃剩的要盡快冰起來，生的和熟的要分開放。"
+            },
+            {
+              "en": "Do the activities with an adult. Do not move the refrigerator by yourself, and close the door quickly after you look inside.",
+              "zh": "活動要有大人陪同。不要自己搬動冰箱；看完裡面就趕快把門關上。"
+            }
+          ],
+          "activities": [
+            {
+              "title_en": "Cool Hands",
+              "title_zh": "涼涼的手",
+              "materials": [
+                {
+                  "en": "A cup of water at room temperature",
+                  "zh": "一杯室溫的水"
+                },
+                {
+                  "en": "A fan, or a piece of cardboard to wave",
+                  "zh": "一台電風扇，或一張可以搧風的厚紙板"
+                }
+              ],
+              "steps": [
+                {
+                  "en": "Wet the back of one hand with the water. Keep the other hand dry.",
+                  "zh": "用水把一隻手的手背弄濕，另一隻手保持乾的。"
+                },
+                {
+                  "en": "Hold both hands in front of the fan, or have a friend wave the cardboard at them.",
+                  "zh": "兩隻手一起放在電風扇前面，或請同學用厚紙板對著手搧風。"
+                },
+                {
+                  "en": "Which hand feels cooler? Keep going until the wet hand is dry. Does the cool feeling stop?",
+                  "zh": "哪一隻手比較涼？繼續吹到濕的手乾掉，涼涼的感覺還在嗎？"
+                },
+                {
+                  "en": "The water was not cold. Where did the heat from your skin go?",
+                  "zh": "水並不冰，那你皮膚上的熱跑到哪裡去了？"
+                }
+              ],
+              "tip_en": "The water took heat from your skin as it evaporated. Refrigerant does the same thing inside a refrigerator, only much faster.",
+              "tip_zh": "水蒸發時把你皮膚的熱帶走了。冷媒在冰箱裡做的是同一件事，只是快得多。"
+            },
+            {
+              "title_en": "Refrigerator Detective",
+              "title_zh": "冰箱小偵探",
+              "materials": [
+                {
+                  "en": "The refrigerator at home, and an adult to help",
+                  "zh": "家裡的冰箱，和一位幫忙的大人"
+                },
+                {
+                  "en": "A watch or a phone timer, a notebook, and a pencil",
+                  "zh": "手錶或手機計時器、筆記本和鉛筆"
+                }
+              ],
+              "steps": [
+                {
+                  "en": "Put your hand flat on each side of the refrigerator and on the top. Where does it feel warm?",
+                  "zh": "把手平貼在冰箱的兩側和上面。哪裡摸起來溫溫的？"
+                },
+                {
+                  "en": "Find the energy label. Which grade is it, from 1 to 5?",
+                  "zh": "找出能源效率標示。它是 1 到 5 級裡的第幾級？"
+                },
+                {
+                  "en": "Listen. Time how long the refrigerator hums and how long it stays quiet. Write both times down.",
+                  "zh": "仔細聽。計時冰箱嗡嗡響多久、安靜多久，把兩個時間記下來。"
+                },
+                {
+                  "en": "Try again on a hotter day, or after someone has opened the door many times. Does it hum for longer?",
+                  "zh": "天氣更熱的時候、或有人開了很多次門之後再量一次。它響得比較久嗎？"
+                }
+              ],
+              "tip_en": "Some new refrigerators are very quiet, and some change speed instead of stopping. If you cannot hear yours, look for the warm spot instead.",
+              "tip_zh": "有些新冰箱很安靜，有些是改變轉速而不是停下來。聽不到的話，就改找摸起來溫溫的地方。"
+            }
+          ],
+          "sources": [
+            {
+              "en": "The cycle: compressor, condenser, expansion device, evaporator; the refrigerant evaporates to absorb heat and condenses to release it",
+              "zh": "循環的四個部分：壓縮機、冷凝器、膨脹裝置、蒸發器；冷媒蒸發吸熱、冷凝放熱",
+              "src": "Wikipedia, “Vapor-compression refrigeration”",
+              "url": "https://en.wikipedia.org/wiki/Vapor-compression_refrigeration"
+            },
+            {
+              "en": "Jacob Perkins built the first working vapor-compression system in 1834; first electric home refrigerators in 1913; R-600a (isobutane) is the main refrigerant now used",
+              "zh": "柏金斯 1834 年做出第一台能運轉的蒸氣壓縮式系統；1913 年第一批家用電冰箱；現在主要使用的冷媒是 R-600a（異丁烷）",
+              "src": "Wikipedia, “Refrigerator”",
+              "url": "https://en.wikipedia.org/wiki/Refrigerator"
+            },
+            {
+              "en": "A liquid that evaporates takes heat away (evaporative cooling)",
+              "zh": "液體蒸發時會帶走熱（蒸發冷卻）",
+              "src": "Wikipedia, “Evaporation”",
+              "url": "https://en.wikipedia.org/wiki/Evaporation"
+            },
+            {
+              "en": "Leaving a refrigerator door open makes the room warmer, not cooler",
+              "zh": "冰箱門開著，房間只會更熱、不會變涼",
+              "src": "University of Illinois Physics, “Ask the Van: Open Refrigerator”",
+              "url": "https://van.physics.illinois.edu/ask/listing/1790"
+            },
+            {
+              "en": "Home refrigerator 0–7°C, freezer below −18°C; do not overfill; 7–60°C is the danger zone; cold slows germs but does not kill them",
+              "zh": "家用冰箱冷藏 0–7°C、冷凍低於 −18°C；不要塞太滿；7–60°C 是危險溫度帶；冰箱是抑制微生物生長而不是殺菌",
+              "src": "衛生福利部食品藥物管理署《藥物食品安全週報》",
+              "url": "https://www.fda.gov.tw/tc/PublishOtherEpaperContent.aspx?id=1574&tid=5264&r=1794511877"
+            },
+            {
+              "en": "Refrigerator energy grades 1 to 5 (grade 1 uses less electricity); leave space around the refrigerator; open the door as little as possible",
+              "zh": "電冰箱能源效率分 1 至 5 級（1 級用電較少）；冰箱四周保持空間；盡量減少開門次數",
+              "src": "經濟部標準檢驗局",
+              "url": "https://www.bsmi.gov.tw/wSite/public/Data/f1695440337790.pdf"
+            },
+            {
+              "en": "Old refrigerators: the refrigerant is removed first when they are recycled",
+              "zh": "廢電冰箱回收處理時，拆解前先抽出冷媒",
+              "src": "新北市政府環境保護局（資料來源：環境部資源循環署）",
+              "url": "https://recycle.ntpc.gov.tw/Article/Content/90faca012eb04a6dad5adc37f156d14a"
+            },
+            {
+              "en": "Children have been trapped inside old refrigerators",
+              "zh": "曾有兒童被困在舊冰箱裡",
+              "src": "Wikipedia, “Refrigerator death”",
+              "url": "https://en.wikipedia.org/wiki/Refrigerator_death"
+            }
+          ]
         }
-      ]
+      ],
+      "planned": []
     },
     {
       "key": "chem",
