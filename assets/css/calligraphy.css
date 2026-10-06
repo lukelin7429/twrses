@@ -631,3 +631,37 @@ a.cg-link:hover { transform: translateY(-3px); box-shadow: var(--shadow); border
 .cg-rc-b em { display: block; margin-top: .3rem; font-style: normal; font-size: .84rem; line-height: 1.5; color: var(--ink-soft); }
 .cg-rc-b em .zh { display: block; font-family: var(--zh); }
 @media (max-width: 760px) { .cg-recap { grid-template-columns: minmax(0, 1fr); } }
+
+/* =====================================================================
+   第十一課：怎麼寫春聯？（寫斗方、貼大門、哪一句是上聯）
+   ===================================================================== */
+.cg-chars2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.cg-nums3x dd small { display: block; font-family: var(--zh); font-weight: 600; font-size: .74rem; color: var(--al-mute); }
+.cg-couplets-lab .cg-cp-wmsg { min-height: 4.2em; margin: 0 0 .7rem; }
+.cg-cp-sets { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.cg-cp-sets button small { font-size: .62rem; }
+.cg-cp-lines { grid-template-columns: minmax(0, 1fr); }
+.cg-cp-lines dd { font-family: var(--zh); font-size: 1rem; letter-spacing: .04em; }
+.cg-cp-lines dd small { display: inline; margin-left: .5rem; font-family: var(--sans); font-size: .72rem; font-weight: 700; color: var(--al-mute); letter-spacing: 0; }
+.cg-couplets-lab .cg-cp-msg { min-height: 5.6em; margin: 0 0 .7rem; padding: .55rem .7rem; border-radius: 12px; border: 1px solid var(--al-line); }
+.cg-couplets-lab.cg-cp-ok .cg-cp-msg { border-color: #4fd1a5; background: rgba(79,209,165,.1); }
+.cg-couplets-lab.cg-cp-no .cg-cp-msg { border-color: #ff8f8f; background: rgba(255,143,143,.08); }
+.cg-couplets-lab .cg-cp-fmsg { min-height: 4.2em; margin-top: 0; }
+.cg-couplets-lab[data-mode="door"] .al-hint { color: #1f2d3d; text-shadow: 0 1px 0 rgba(255,255,255,.5); }
+.cg-couplets-lab[data-mode="door"] .al-lab { background: rgba(12,18,30,.82); }
+.cg-couplets-lab[data-mode="door"] .al-lab.cg-lb-t { background: rgba(255,211,110,.96); }
+.cg-couplets-lab .cg-cams[hidden] { display: none !important; }
+
+/* 哪一句是上聯？ */
+.cg-sides-strips { display: flex; justify-content: center; align-items: flex-start; gap: 2.2rem; padding: 1.2rem; background: #e9e2d2; border: 1px solid var(--line); border-radius: 20px; box-shadow: var(--shadow); }
+.cg-sides-strips canvas { display: block; width: 92px; height: auto; border-radius: 4px; box-shadow: 0 6px 16px rgba(60,20,10,.28); }
+.cg-sides-opts { display: grid; grid-template-columns: minmax(0, 1fr); gap: .5rem; }
+.cg-sides-opts button { padding: .6rem .8rem; border-radius: 14px; border: 1px solid var(--line); background: #fff; cursor: pointer; text-align: left; box-shadow: var(--shadow-sm); transition: transform .15s, border-color .2s; }
+.cg-sides-opts button b { display: block; font-family: var(--zh); font-size: 1.25rem; letter-spacing: .08em; color: var(--ink); }
+.cg-sides-opts button span { display: block; margin-top: .1rem; font-size: .78rem; font-weight: 700; color: var(--ink-soft); }
+.cg-sides-opts button:hover:not(:disabled) { transform: translateY(-2px); border-color: var(--gold); }
+.cg-sides-opts button.ok { background: #2f8f5b; border-color: #2f8f5b; }
+.cg-sides-opts button.ok b, .cg-sides-opts button.ok span { color: #fff; }
+.cg-sides-opts button.no { background: #fbe4e1; border-color: #e4a39a; }
+.cg-sides-opts button:disabled:not(.ok):not(.no) { opacity: .55; }
+@media (max-width: 860px) { .cg-sides-strips { gap: 1.4rem; padding: .9rem; } .cg-sides-strips canvas { width: 70px; } }

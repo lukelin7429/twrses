@@ -7153,6 +7153,16 @@
               "zh": "文房四寶是什麼？",
               "note_en": "Start again from the brush, the ink, the paper, and the inkstone.",
               "note_zh": "從筆、墨、紙、硯重新開始。"
+            },
+            {
+              "href": "/resources/classes/calligraphy/spring-couplets/",
+              "icon": "🧧",
+              "k_en": "Next Lesson · Lesson 11 · Unit 4",
+              "k_zh": "下一課・第十一課・單元四",
+              "en": "How Do You Write Spring Couplets?",
+              "zh": "怎麼寫春聯？",
+              "note_en": "From the museum back to your own front door: calligraphy you can write and hang yourself.",
+              "note_zh": "從博物館回到自己家門口：自己寫、自己貼的書法。"
             }
           ],
           "culture_cards": {
@@ -7733,6 +7743,892 @@
         }
       ],
       "planned": []
+    },
+    {
+      "key": "life",
+      "title_en": "Calligraphy in Daily Life",
+      "title_zh": "生活裡的書法",
+      "blurb_en": "Red paper on the door at New Year, the small red seals on a finished work, copying a text by hand, and how brush writing meets other kinds of writing.",
+      "blurb_zh": "過年貼在門上的紅紙、作品上小小的紅色印章、一筆一畫地抄寫，以及毛筆字和其他書寫的關係。",
+      "lessons": [
+        {
+          "n": 11,
+          "slug": "spring-couplets",
+          "title": "How Do You Write Spring Couplets?",
+          "title_zh": "怎麼寫春聯？",
+          "level": "入門 · Beginner",
+          "icon": "🧧",
+          "card": "couplets",
+          "blurb_en": "Before the Lunar New Year, red paper goes up beside the door: two matching lines, a short line above, and a diamond with 春 or 福. Watch the brush write 春 and 福 in 3D, decide which line goes on which side of the door, play the upper-line game, and trace the two characters yourself.",
+          "blurb_zh": "農曆新年前，門邊會貼上紅紙：兩句相對的句子、上面一條短的橫批，還有寫著「春」或「福」的菱形紅紙。在 3D 裡看毛筆寫「春」和「福」，決定哪一句貼在門的哪一邊，玩「哪一句是上聯？」，再自己描寫這兩個字。",
+          "big_idea_en": "Spring couplets are lucky words written on red paper and put up by the door at the Lunar New Year. A couplet has two matching lines. The upper line ends in an oblique tone and the lower line ends in a level tone, and by custom the upper line goes on the right as you face the door.",
+          "big_idea_zh": "春聯是農曆新年時寫在紅紙上、貼在門邊的吉祥話。一副對聯有兩句互相對仗的句子：上聯的最後一個字是仄聲，下聯的最後一個字是平聲；照習慣，面對大門時，上聯貼在右邊。",
+          "lab": {
+            "kind": "couplets",
+            "eyebrow": "3D Model · 3D 模型",
+            "title_en": "Write It, Then Hang It",
+            "title_zh": "先寫，再貼",
+            "how_en": "Drag to turn, and scroll or pinch to zoom. First watch the brush write 春 or 福 on a red diamond of paper. Then go to the door: choose a couplet, decide which line goes on which side, and check your answer.",
+            "how_zh": "拖曳可以旋轉，滾輪或雙指可以縮放。先看毛筆在紅色的斗方上寫「春」或「福」。再到大門前：選一副對聯，決定哪一句貼哪一邊，按「檢查」看看對不對。",
+            "modes": [
+              {
+                "key": "write",
+                "icon": "寫",
+                "en": "Write",
+                "zh": "寫斗方",
+                "title_en": "A diamond of red paper",
+                "title_zh": "一張紅色的斗方",
+                "text_en": "This paper is a square turned on its corner, so it looks like a diamond. People write one lucky character on it. The brush follows the standard stroke order.",
+                "text_zh": "這張紙叫斗方：把正方形的紙轉四十五度，看起來像菱形，上面寫一個吉祥的字。毛筆照標準的筆順寫。"
+              },
+              {
+                "key": "door",
+                "icon": "貼",
+                "en": "Hang",
+                "zh": "貼春聯",
+                "title_en": "Which side?",
+                "title_zh": "貼哪一邊？",
+                "text_en": "A couplet has an upper line and a lower line. Look at the last character of each line, decide which line belongs on the right, and then check.",
+                "text_zh": "一副對聯有上聯和下聯。看看兩句的最後一個字，決定哪一句該貼在右邊，再按「檢查」。"
+              }
+            ],
+            "couplets": [
+              {
+                "short_zh": "增壽",
+                "a": {
+                  "text": "天增歲月人增壽",
+                  "last": {
+                    "zh": "壽",
+                    "py": "shòu",
+                    "tone": 4,
+                    "ze": true
+                  }
+                },
+                "b": {
+                  "text": "春滿乾坤福滿門",
+                  "last": {
+                    "zh": "門",
+                    "py": "mén",
+                    "tone": 2,
+                    "ze": false
+                  }
+                },
+                "top": "迎春接福"
+              },
+              {
+                "short_zh": "富貴",
+                "a": {
+                  "text": "花開富貴",
+                  "last": {
+                    "zh": "貴",
+                    "py": "guì",
+                    "tone": 4,
+                    "ze": true
+                  }
+                },
+                "b": {
+                  "text": "竹報平安",
+                  "last": {
+                    "zh": "安",
+                    "py": "ān",
+                    "tone": 1,
+                    "ze": false
+                  }
+                },
+                "top": "吉祥如意"
+              },
+              {
+                "short_zh": "復始",
+                "a": {
+                  "text": "一元復始",
+                  "last": {
+                    "zh": "始",
+                    "py": "shǐ",
+                    "tone": 3,
+                    "ze": true
+                  }
+                },
+                "b": {
+                  "text": "萬象更新",
+                  "last": {
+                    "zh": "新",
+                    "py": "xīn",
+                    "tone": 1,
+                    "ze": false
+                  }
+                },
+                "top": "大地回春"
+              },
+              {
+                "short_zh": "雨順",
+                "a": {
+                  "text": "風調雨順",
+                  "last": {
+                    "zh": "順",
+                    "py": "shùn",
+                    "tone": 4,
+                    "ze": true
+                  }
+                },
+                "b": {
+                  "text": "國泰民安",
+                  "last": {
+                    "zh": "安",
+                    "py": "ān",
+                    "tone": 1,
+                    "ze": false
+                  }
+                },
+                "top": "歲歲平安"
+              }
+            ],
+            "flip": {
+              "off_en": "The 福 on the door is upright. Turn it over to see what some families do.",
+              "off_zh": "門上的「福」是正的。把它倒過來，看看有些人家怎麼貼。",
+              "on_en": "Upside down! 倒 (upside down) sounds like 到 (to arrive), so an upside-down 福 says “good fortune has arrived.” Customs differ from family to family, so ask at home how yours is hung.",
+              "on_zh": "倒過來了！「倒」和「到」同音，倒貼的「福」就是「福到了」。每一家的習慣不一樣，回家問問你們家是怎麼貼的。"
+            },
+            "legend": [
+              {
+                "cls": "cgt",
+                "en": "Yellow label: the upper line",
+                "zh": "黃色標籤：上聯"
+              },
+              {
+                "cls": "cgcu",
+                "en": "Red paper with gold flecks",
+                "zh": "灑金的紅紙"
+              },
+              {
+                "cls": "cgsg",
+                "en": "Diamond paper: a square turned on its corner",
+                "zh": "斗方：把正方形的紙轉 45 度"
+              }
+            ],
+            "scale_en": "A teaching model. The door, the wall, and the red paper are our own simple shapes. The characters 春 and 福 on the diamonds are our own brush strokes, written in the stroke order of Taiwan's Ministry of Education (9 strokes and 13 strokes). The words on the long strips are drawn with your device's own font, so they are labels, not models of calligraphy. The door follows the traditional layout: the upper line on the right as you face the door, and the horizontal scroll read from right to left. Customs differ from place to place.",
+            "scale_zh": "這是教學用的示意模型。大門、牆和紅紙都是我們畫的簡單造型。斗方上的「春」和「福」是我們自己的筆畫資料，筆順依教育部（春 9 畫、福 13 畫）。長條春聯上的字是用你的裝置本身的字型畫的，只是標示文字，不是書法範本。大門照傳統的貼法：面對大門，上聯在右邊，橫批由右往左讀。各地的習慣不完全一樣。",
+            "credit_html": "Model, stroke data for 春 and 福, and the writing engine are drawn and programmed by My Culture Connect. Stroke order follows the Ministry of Education's stroke-order site. · 模型、「春」「福」的筆畫資料與寫字引擎由人師教育協會自繪、自寫；筆順依教育部《國字標準字體筆順學習網》。"
+          },
+          "paras": [
+            "A few days before the Lunar New Year, something red appears on doors all over Taiwan. Families put up strips of red paper with lucky words written in ink. These are spring couplets.",
+            "The custom is very old. Long ago, people hung two boards of peach wood by the door at the New Year to keep bad things away. Later they wrote lucky lines on the boards. The history of the Song dynasty tells of a king of Shu, Meng Chang, who wrote his own pair of lines on the boards one New Year's Eve in the tenth century. In time, red paper took the place of wood.",
+            "A couplet is a pair of lines. The two lines have the same number of characters, and their words match each other one by one. One line goes on each side of the door. A short line, the horizontal scroll, goes above the door. Many families also hang a diamond of red paper with just one character, such as 春 for spring or 福 for good fortune.",
+            "Which line goes on which side? Listen to the last character. The upper line ends in an oblique tone, and the lower line ends in a level tone. In Mandarin, the first and second tones are mostly level, and the third and fourth tones are oblique. By custom, the upper line goes on the right as you face the door.",
+            "There is one trap. A few characters, such as 福, are second tone in Mandarin today, but they belong to an old group of short, clipped sounds that count as oblique. That is why some people check a tricky line by saying it in Taiwanese or Hakka.",
+            "You can write your own. Fold the red paper lightly to mark a square for each character, write from top to bottom, and let the ink dry flat. Every winter, calligraphers at museums and halls around Taiwan write couplets for visitors. This year, try writing one yourself."
+          ],
+          "paras_zh": [
+            "農曆新年前幾天，台灣到處的門上都出現了紅色。家家戶戶貼上紅紙條，上面用墨寫著吉祥話。這就是春聯。",
+            "這個習俗非常古老。很久以前，人們過年時在門邊掛兩塊桃木板（桃符），用來避邪。後來有人在木板上寫吉祥的句子。《宋史》記載，十世紀時後蜀的國君孟昶，有一年除夕親自在桃符上題了一副句子。再後來，紅紙取代了木板。",
+            "一副對聯有兩句。兩句的字數一樣，用字一個對一個。門的兩邊各貼一句；門的上方再貼一條短的，叫橫批。很多人家還會貼一張菱形的紅紙，上面只寫一個字，例如「春」或「福」。",
+            "哪一句貼哪一邊？聽聽最後一個字。上聯的末字是仄聲，下聯的末字是平聲。用國語來說，一聲、二聲大多是平聲，三聲、四聲是仄聲。照習慣，面對大門時，上聯貼在右邊。",
+            "有一個陷阱。少數幾個字，例如「福」，現在國語唸二聲，可是它們屬於古代一種又短又急的聲調（入聲），算仄聲。所以遇到拿不準的句子，有人會改用台語或客語唸唸看。",
+            "你也可以自己寫。把紅紙輕輕摺出每個字的方格，從上往下寫，寫完平放晾乾。每年冬天，台灣各地的博物館和紀念館都有書法家為民眾寫春聯。今年，試試看自己寫一副。"
+          ],
+          "questions": [
+            "What did people hang by the door at the New Year long ago, before paper couplets?",
+            "How can you tell the upper line of a couplet from the lower line?",
+            "Why is the character 福 a trap for people who use Mandarin tones to check a couplet?"
+          ],
+          "answers": [
+            "Two boards of peach wood, to keep bad things away.",
+            "Listen to the last character: the upper line ends in an oblique tone, and the lower line ends in a level tone.",
+            "Because 福 is second tone in Mandarin today, but it belongs to an old group of sounds that count as oblique."
+          ],
+          "vocab": [
+            {
+              "n": 1,
+              "w": "couplet",
+              "pos": "n.",
+              "zh": "對聯",
+              "ex": "The poem ends with a <b>couplet</b>: two lines that go together.",
+              "exzh": "這首詩的結尾是一副對句：互相搭配的兩行。"
+            },
+            {
+              "n": 2,
+              "w": "pair",
+              "pos": "n.",
+              "zh": "一對；一雙",
+              "ex": "I need a new <b>pair</b> of shoes.",
+              "exzh": "我需要一雙新鞋。"
+            },
+            {
+              "n": 3,
+              "w": "hang",
+              "pos": "v.",
+              "zh": "掛；貼（在牆上、門上）",
+              "ex": "Let's <b>hang</b> the picture above the sofa.",
+              "exzh": "我們把這幅畫掛在沙發上面吧。"
+            },
+            {
+              "n": 4,
+              "w": "lucky",
+              "pos": "adj.",
+              "zh": "幸運的；吉祥的",
+              "ex": "Eight is a <b>lucky</b> number for many people.",
+              "exzh": "對很多人來說，八是幸運數字。"
+            },
+            {
+              "n": 5,
+              "w": "tone",
+              "pos": "n.",
+              "zh": "聲調；語氣",
+              "ex": "Mandarin has four <b>tones</b>.",
+              "exzh": "國語有四個聲調。"
+            },
+            {
+              "n": 6,
+              "w": "match",
+              "pos": "v.",
+              "zh": "相配；對應",
+              "ex": "Your socks do not <b>match</b>.",
+              "exzh": "你的兩隻襪子不一樣。"
+            },
+            {
+              "n": 7,
+              "w": "fold",
+              "pos": "v.",
+              "zh": "摺",
+              "ex": "<b>Fold</b> the paper in half.",
+              "exzh": "把紙對摺。"
+            },
+            {
+              "n": 8,
+              "w": "custom",
+              "pos": "n.",
+              "zh": "習俗",
+              "ex": "Giving red envelopes is a New Year <b>custom</b>.",
+              "exzh": "發紅包是過年的習俗。"
+            }
+          ],
+          "quiz": [
+            {
+              "q": "When do families put up spring couplets?",
+              "options": [
+                "Before the Lunar New Year",
+                "At the Mid-Autumn Festival",
+                "On the first day of school",
+                "Every Sunday"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "How many long lines are in one couplet?",
+              "options": [
+                "Two",
+                "One",
+                "Four",
+                "Seven"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "The upper line ends in which kind of tone?",
+              "options": [
+                "An oblique tone",
+                "A level tone",
+                "No tone",
+                "Any tone"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "By custom, where does the upper line go?",
+              "options": [
+                "On the right as you face the door",
+                "On the left as you face the door",
+                "Above the door",
+                "Inside the house"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "What is the diamond-shaped paper with one character?",
+              "options": [
+                "A square of paper turned on its corner",
+                "A kite",
+                "A red envelope",
+                "A page from a book"
+              ],
+              "correct": 0
+            }
+          ],
+          "parts_head": {
+            "eyebrow": "On the Door · 門上有什麼",
+            "en": "Four pieces of red paper",
+            "zh": "四種紅紙"
+          },
+          "parts": [
+            {
+              "key": "up",
+              "strip": "v",
+              "demo": "door",
+              "en": "Upper line",
+              "zh": "上聯",
+              "meta_en": "Ends in an oblique tone",
+              "meta_zh": "末字仄聲",
+              "text_en": "The first half of the couplet. By custom it goes on the right as you face the door.",
+              "text_zh": "對聯的前一半。照習慣，面對大門時貼在右邊。"
+            },
+            {
+              "key": "down",
+              "strip": "v",
+              "demo": "door",
+              "en": "Lower line",
+              "zh": "下聯",
+              "meta_en": "Ends in a level tone",
+              "meta_zh": "末字平聲",
+              "text_en": "The second half. It has the same number of characters, and its words match the upper line one by one.",
+              "text_zh": "對聯的後一半。字數和上聯一樣，用字一個對一個。"
+            },
+            {
+              "key": "top",
+              "strip": "h",
+              "demo": "door",
+              "en": "Horizontal scroll",
+              "zh": "橫批",
+              "meta_en": "Above the door",
+              "meta_zh": "貼在門的上方",
+              "text_en": "A short line, often four characters, that goes with the couplet.",
+              "text_zh": "和對聯搭配的橫幅，常常是四個字。"
+            },
+            {
+              "key": "fang",
+              "fang": "fu",
+              "demo": "fu",
+              "en": "Diamond paper",
+              "zh": "斗方",
+              "meta_en": "One lucky character",
+              "meta_zh": "一個吉祥的字",
+              "text_en": "A square of paper turned on its corner, for a single character such as 春 or 福.",
+              "text_zh": "把正方形的紙轉四十五度，寫一個字，例如「春」或「福」。"
+            }
+          ],
+          "parts_note_en": "Tap a card to see that piece on the door, or to watch the brush write 福.",
+          "parts_note_zh": "點卡片，到模型裡看它貼在門上的哪裡，或看毛筆寫「福」。",
+          "pad": {
+            "eyebrow": "Practice Pad · 練字板",
+            "en": "Trace 春 and 福",
+            "zh": "描寫「春」和「福」",
+            "char": "chun",
+            "curve": false,
+            "order": true,
+            "chars": [
+              {
+                "key": "chun",
+                "glyph": "春"
+              },
+              {
+                "key": "fu",
+                "glyph": "福"
+              }
+            ],
+            "lead_en": "Trace 春 (9 strokes) or 福 (13 strokes) in the order of the blue numbers. These two characters have many strokes, so keep your lines thin and leave room between them.",
+            "lead_zh": "照藍色數字的順序描寫「春」（9 畫）或「福」（13 畫）。這兩個字筆畫多，線條要細一點，筆畫之間要留空。",
+            "tips": [
+              {
+                "en": "In 春, the three horizontal lines are different lengths: the third is the longest.",
+                "zh": "「春」的三橫長短不同：第三橫最長。"
+              },
+              {
+                "en": "In 福, write the left side first (four strokes), and then the right side from top to bottom.",
+                "zh": "「福」先寫左邊（四畫），再把右邊由上往下寫完。"
+              },
+              {
+                "en": "On real red paper, fold the paper to find the middle before you start.",
+                "zh": "寫在真的紅紙上時，先把紙摺一摺，找出正中間再下筆。"
+              }
+            ]
+          },
+          "links_head": {
+            "eyebrow": "Read More · 延伸閱讀",
+            "en": "Lessons that help with this one",
+            "zh": "和這一課有關的幾課"
+          },
+          "links": [
+            {
+              "href": "/resources/classes/calligraphy/stroke-order/",
+              "icon": "🔢",
+              "k_en": "Lesson 4",
+              "k_zh": "第四課",
+              "en": "Why Do We Write Strokes in Order?",
+              "zh": "筆順與結構：為什麼要先橫後豎？",
+              "note_en": "春 has nine strokes and 福 has thirteen. The order rules from Lesson 4 tell you where to start.",
+              "note_zh": "「春」九畫、「福」十三畫。第四課的筆順法則告訴你從哪裡開始。"
+            },
+            {
+              "href": "/resources/classes/calligraphy/thick-and-thin/",
+              "icon": "〰️",
+              "k_en": "Lesson 2",
+              "k_zh": "第二課",
+              "en": "How Does a Brush Make Thick and Thin Lines?",
+              "zh": "一枝毛筆怎麼寫出粗細？",
+              "note_en": "Big characters on a couplet need firm pressing and clean lifting.",
+              "note_zh": "春聯上的大字，更需要按得穩、提得乾淨。"
+            },
+            {
+              "soon": true,
+              "icon": "🔴",
+              "k_en": "Lesson 12 · Coming soon",
+              "k_zh": "第十二課・製作中",
+              "en": "What Are the Red Seals on a Work of Calligraphy?",
+              "zh": "印章與篆刻：作品上的紅色印章是什麼？",
+              "note_en": "Red again: the small seals that sign a finished work.",
+              "note_zh": "又是紅色：作品完成後蓋上的小小印章。"
+            }
+          ],
+          "culture_cards": {
+            "eyebrow": "Stories and Taiwan · 故事與台灣",
+            "title_en": "Peach-wood boards, a king's two lines, an emperor's order, and the couplets of today",
+            "title_zh": "桃木板、國君的兩句話、皇帝的命令，和今天的春聯",
+            "lead_en": "Two things that old books record, one famous story, and where to see couplets being written in Taiwan.",
+            "lead_zh": "兩件古書記下來的事、一個有名的傳說，還有在台灣哪裡看得到現場寫春聯。",
+            "cards": [
+              {
+                "k": "Before Paper · 桃符",
+                "en": "Boards of peach wood",
+                "zh": "門邊的桃木板",
+                "body_en": "The dictionary explains that people long ago set two peach-wood boards by the door at the New Year, with the names or pictures of two gods who could catch ghosts. A Qing dynasty book about Beijing says simply, “Spring couplets are peach-wood charms.”",
+                "body_zh": "教育部辭典解釋「桃符」：古代相傳有神荼、鬱壘二神能捉百鬼，所以新年時在門旁設兩塊桃木板，寫上二神的名字或畫上圖像，用來驅鬼避邪。清朝的《燕京歲時記》說：「春聯者，即桃符也。」"
+              },
+              {
+                "k": "A King · 孟昶",
+                "en": "“The new year brings blessings to spare”",
+                "zh": "新年納餘慶",
+                "body_en": "The History of Song says that every New Year's Eve the king of Shu had a scholar write words on the peach boards beside his bedroom door. One year he did not like them, so he wrote his own: 新年納餘慶，喜節號長春. A Qing scholar called this pair the oldest of its kind. Other books give slightly different words, and some scholars point to still earlier lines.",
+                "body_zh": "《宋史》記載，後蜀國君孟昶「每歲除，命學士為詞，題桃符，置寢門左右」；有一年他嫌學士寫得不好，「自命筆題云：『新年納餘慶，喜節號長春。』」清朝的紀昀說這一聯「最古」。不過各書記的字句略有不同（常見的寫法是「嘉節號長春」），也有學者指出還有更早的例子。"
+              },
+              {
+                "k": "A Story · 傳說",
+                "en": "Did an emperor order every door to have one?",
+                "zh": "明太祖下令貼春聯？",
+                "body_en": "A famous story says the first Ming emperor ordered every household in his capital to put up a spring couplet on New Year's Eve, and then walked the streets in plain clothes to look at them. The story comes from a Qing dynasty book of anecdotes, written long after his time, so treat it as a story.",
+                "body_zh": "有個有名的故事：明太祖定都金陵後，「於除夕忽傳旨：公卿士庶家，門上須加春聯一副」，還微服出去看。這個說法出自清朝的筆記《簪雲樓雜說》（後人轉引），離明太祖的時代已經很久，所以只能當作傳說。"
+              },
+              {
+                "k": "Taiwan · 台灣",
+                "en": "Couplets written while you wait",
+                "zh": "現場揮毫送春聯",
+                "body_en": "Each winter the Office of the President gives out a New Year couplet; for 2026, the Year of the Horse, the words were 七喜春來, written by the calligrapher Yu Tianci. The National Palace Museum has invited calligraphers to write couplets and diamond papers for visitors, and the Sun Yat-sen Memorial Hall has held a New Year writing event since 2005.",
+                "body_zh": "總統府每年冬天都會發送新年春聯；2026 年（馬年）的賀詞是「七喜春來」，由書法家余天賜揮毫。故宮辦過新春揮毫活動，請書法老師「為民眾揮毫致贈春聯、斗方」；國父紀念館則從民國 94 年（2005）起，每年春節前都舉辦迎春揮毫。"
+              }
+            ]
+          },
+          "myths": [
+            {
+              "myth_en": "The two lines can go on either side of the door.",
+              "myth_zh": "兩句貼哪一邊都可以。",
+              "fact_en": "A couplet has an order. The upper line ends in an oblique tone and the lower line in a level tone, and by custom the upper line goes on the right as you face the door.",
+              "fact_zh": "對聯有上下之分：上聯末字仄聲、下聯末字平聲。照習慣，面對大門時上聯貼右邊。"
+            },
+            {
+              "myth_en": "Third and fourth tone are always oblique; first and second tone are always level.",
+              "myth_zh": "三聲、四聲一定是仄聲，一聲、二聲一定是平聲。",
+              "fact_en": "Mostly, but not always. The dictionary notes that the old entering tone no longer exists in Mandarin: its characters are now spread across all four tones. So 福 is second tone today but still counts as oblique.",
+              "fact_zh": "大部分是，但不是全部。教育部辭典說：「現國音中已無入聲，入聲字分別歸入陰平、陽平、上聲、去聲四聲之中。」所以「福」現在唸二聲，仍然算仄聲。"
+            },
+            {
+              "myth_en": "Spring couplets began with an order from the first Ming emperor.",
+              "myth_zh": "春聯是明太祖下令才開始有的。",
+              "fact_en": "That is a story from a Qing dynasty book. The History of Song already records lines written on New Year peach boards in the tenth century, about four hundred years earlier.",
+              "fact_zh": "那是清朝筆記裡的故事。《宋史》已經記載十世紀時在桃符上題句，比明太祖早了大約四百年。"
+            },
+            {
+              "myth_en": "The character 福 must always be hung upside down.",
+              "myth_zh": "「福」字一定要倒著貼。",
+              "fact_en": "Some people do turn it over, because 倒 (upside down) sounds like 到 (to arrive). But it is a play on words, not a rule, and customs differ from family to family.",
+              "fact_zh": "有人把它倒過來貼，因為「倒」和「到」同音，代表「福到」。不過這是諧音的趣味，不是規定；每一家的習慣不一樣。"
+            }
+          ],
+          "tricks": [
+            {
+              "title_en": "Oblique above, level below",
+              "title_zh": "上仄下平",
+              "body_en": "Listen to the last character of each line.",
+              "body_zh": "聽每一句的最後一個字。"
+            },
+            {
+              "title_en": "Face the door: upper line on the right",
+              "title_zh": "面對大門，上聯在右",
+              "body_en": "The traditional way to hang a couplet.",
+              "body_zh": "傳統的貼法。"
+            },
+            {
+              "title_en": "Turn the square on its corner",
+              "title_zh": "斗方轉四十五度",
+              "body_en": "One lucky character: 春 or 福.",
+              "body_zh": "寫一個吉祥的字：春、福。"
+            },
+            {
+              "title_en": "Dry it flat",
+              "title_zh": "寫完平放晾乾",
+              "body_en": "Wet ink runs if you hang it too soon.",
+              "body_zh": "墨還沒乾就掛起來，會往下流。"
+            }
+          ],
+          "safety": [
+            {
+              "en": "Ink stains clothes and is very hard to wash out. Wear old clothes or an apron, and roll up your sleeves.",
+              "zh": "墨沾到衣服很難洗掉：穿舊衣服或圍裙，袖子捲起來。"
+            },
+            {
+              "en": "Cover the desk with old newspaper, and keep the ink in a heavy, steady dish so it will not tip over.",
+              "zh": "桌上先鋪舊報紙；墨要裝在重一點、放得穩的碟子裡，免得打翻。"
+            },
+            {
+              "en": "Press gently. Crushing the brush against the paper squashes the hairs and can split or break them.",
+              "zh": "輕輕地按就好：把筆用力壓在紙上，筆毛會擠扁，也可能分岔或折斷。"
+            },
+            {
+              "en": "Do not put the brush, the ink, or the ink stick in your mouth, and do not lick the brush tip to shape it.",
+              "zh": "毛筆、墨汁、墨條都不要放進嘴裡，也不要用嘴巴舔筆尖。"
+            },
+            {
+              "en": "After writing, wash the brush in clean water until the water runs clear, gently shape it into a point, and hang it tip-down or lay it flat to dry. Wash your hands, too.",
+              "zh": "寫完後用清水洗筆，洗到水變清為止；輕輕把筆毛理成尖形，筆尖朝下掛起來或平放晾乾。也要洗手。"
+            }
+          ],
+          "activities": [
+            {
+              "title_en": "Write a Diamond of Spring",
+              "title_zh": "寫一張「春」字斗方",
+              "materials": [
+                {
+                  "en": "A square of red paper, about 20 to 30 cm on each side",
+                  "zh": "正方形的紅紙，邊長大約 20 到 30 公分"
+                },
+                {
+                  "en": "A large brush, ink, and old newspaper to cover the desk",
+                  "zh": "大一點的毛筆、墨汁，鋪桌子的舊報紙"
+                },
+                {
+                  "en": "Scrap paper for practice",
+                  "zh": "練習用的廢紙"
+                }
+              ],
+              "steps": [
+                {
+                  "en": "Fold the square corner to corner both ways, then open it. The folds cross at the middle.",
+                  "zh": "把紅紙沿兩條對角線各摺一次再打開，摺痕交叉的地方就是正中間。"
+                },
+                {
+                  "en": "Turn the paper so that one corner points up.",
+                  "zh": "把紙轉成一個角朝上。"
+                },
+                {
+                  "en": "Practice 春 on scrap paper first, in the right stroke order. Use the practice pad on this page if you like.",
+                  "zh": "先在廢紙上照筆順練習「春」。也可以先用這一頁的練字板。"
+                },
+                {
+                  "en": "Write 春 on the red paper, with the middle of the character on the cross. Let it dry flat.",
+                  "zh": "在紅紙上寫「春」，讓字的中心落在摺痕交叉的地方。寫完平放晾乾。"
+                }
+              ],
+              "tip_en": "Load the brush well, but wipe off the extra ink first so it does not drip.",
+              "tip_zh": "筆要蘸飽墨，但下筆前先把多餘的墨刮掉，才不會滴下來。"
+            },
+            {
+              "title_en": "The Classroom Door",
+              "title_zh": "教室的大門",
+              "materials": [
+                {
+                  "en": "Six couplets from this page, each line on its own strip of paper",
+                  "zh": "這一頁的六副對聯，每一句寫在一張紙條上"
+                },
+                {
+                  "en": "Tape, and the classroom door",
+                  "zh": "膠帶，和教室的門"
+                }
+              ],
+              "steps": [
+                {
+                  "en": "Mix up all twelve strips. Each pair of students takes one strip and finds the partner who holds the matching line.",
+                  "zh": "把十二張紙條混在一起。兩人一組拿一張，去找拿著另一句的那一組。"
+                },
+                {
+                  "en": "Say the last characters out loud and decide which line is the upper line.",
+                  "zh": "把兩句的末字唸出來，決定哪一句是上聯。"
+                },
+                {
+                  "en": "Stand facing the door and hold the two lines on the correct sides. The class checks.",
+                  "zh": "面對教室的門，把兩句舉在正確的兩邊，請全班檢查。"
+                },
+                {
+                  "en": "Challenge: write your own pair of four-character lines in English or Chinese.",
+                  "zh": "挑戰：用英文或中文，自己寫一副四個字（或四個詞）的對句。"
+                }
+              ],
+              "tip_en": "An English couplet can match too: “Flowers open, wealth arrives; bamboo speaks, peace stays.”",
+              "tip_zh": "英文也可以對仗，例如把「花開富貴，竹報平安」譯成兩句字數相當的句子。"
+            }
+          ],
+          "sources": [
+            {
+              "en": "Spring couplets: lucky lines written on red paper at the Lunar New Year and put up on both sides of the door",
+              "zh": "春聯：「農曆新年時，以紅紙書寫吉祥的聯語，張貼在門的兩旁。」",
+              "src": "教育部《重編國語辭典修訂本》「春聯」",
+              "url": "https://dict.revised.moe.edu.tw/dictView.jsp?ID=126155"
+            },
+            {
+              "en": "Couplet: two lines with the same number of characters whose words match",
+              "zh": "對聯：「字數相同，用字互相對仗的兩個句子。」上聯：「對聯的前一半。」橫批：「與對聯搭配的橫幅。」",
+              "src": "教育部《重編國語辭典修訂本》「對聯」",
+              "url": "https://dict.revised.moe.edu.tw/dictView.jsp?ID=48134"
+            },
+            {
+              "en": "Peach-wood charms and the two door gods; “Spring couplets are peach-wood charms”",
+              "zh": "桃符：「新年時於門旁設兩塊桃木板，上面書寫二神之名或畫上其圖像，用以驅鬼避邪」；《燕京歲時記》：「春聯者，即桃符也。」",
+              "src": "教育部《重編國語辭典修訂本》「桃符」",
+              "url": "https://dict.revised.moe.edu.tw/dictView.jsp?ID=50179"
+            },
+            {
+              "en": "Diamond paper (doufang): a square paper for lucky words, pasted on the door",
+              "zh": "斗方：「用以書寫吉祥文字，貼在門上的方形紙。」",
+              "src": "教育部《重編國語辭典修訂本》「斗方」",
+              "url": "https://dict.revised.moe.edu.tw/dictView.jsp?ID=43311"
+            },
+            {
+              "en": "Level and oblique tones: level is the level tone; oblique is the rising, departing, and entering tones",
+              "zh": "平仄：「平，四聲中的平聲。仄，四聲中的上、去、入三聲。」平聲：「今國音分化為陰平、陽平二類，即第一聲、第二聲。」",
+              "src": "教育部《重編國語辭典修訂本》「平仄」",
+              "url": "https://dict.revised.moe.edu.tw/dictView.jsp?ID=25978"
+            },
+            {
+              "en": "The entering tone no longer exists in Mandarin; its characters are spread across the four tones",
+              "zh": "入聲：「現國音中已無入聲，入聲字分別歸入陰平、陽平、上聲、去聲四聲之中。」",
+              "src": "教育部《重編國語辭典修訂本》「入聲」",
+              "url": "https://dict.revised.moe.edu.tw/dictView.jsp?ID=136666"
+            },
+            {
+              "en": "Meng Chang wrote his own lines on the peach boards: 新年納餘慶，喜節號長春",
+              "zh": "「每歲除，命學士為詞，題桃符，置寢門左右。末年，學士幸寅遜撰詞，昶以其非工，自命筆題云：『新年納餘慶，喜節號長春。』」",
+              "src": "維基文庫《宋史》卷四百七十九",
+              "url": "https://zh.wikisource.org/wiki/%E5%AE%8B%E5%8F%B2/%E5%8D%B7479"
+            },
+            {
+              "en": "Ji Yun: Meng Chang's pair is the oldest; the story of the first Ming emperor's order, quoted from a Qing book of anecdotes",
+              "zh": "「楹帖始於桃符，蜀孟昶『餘慶』『長春』一聯最古」；引《簪雲樓雜說》：「春聯之設，自明孝陵昉也…於除夕忽傳旨：『公卿士庶家，門上須加春聯一副。』」",
+              "src": "維基文庫 梁章鉅《楹聯叢話》卷一",
+              "url": "https://zh.wikisource.org/wiki/%E6%A5%B9%E8%81%AF%E5%8F%A2%E8%A9%B1/%E5%8D%B7%E4%B8%80"
+            },
+            {
+              "en": "Upper line ends in an oblique tone, lower line in a level tone",
+              "zh": "「對聯必有一上聯(或稱右聯)與一下聯(左聯)」「上聯最後一字必為仄聲，下聯最後一字必為平聲，更可以此分辨上下聯，以免左右掛反」",
+              "src": "臺北市立麗山高中 徐茂瑋〈閒話對聯〉",
+              "url": "http://schoolday.lssh.tp.edu.tw/~life/01_05.htm"
+            },
+            {
+              "en": "Which side: level tone (first and second tone) on the left; rising, departing, and entering tones on the right",
+              "zh": "「平聲（國字注音第一、二聲）在左邊，上聲、去聲（國字注音第三、四聲）及入聲字在右邊。其中入聲字的判別方法是用台語發音，音短促而重者即是。」",
+              "src": "臺北市民族國小「民族小小書法家」〈春聯的正確貼法〉",
+              "url": "http://dc.mces.tp.edu.tw/~calligraph/product3.html"
+            },
+            {
+              "en": "Turning 福 or 春 upside down for the pun “has arrived”; Meng Chang's lines called the earliest spring couplet",
+              "zh": "「更有人把這些字都倒過來貼，代表『福到』、『春到』…」",
+              "src": "農業部兒童網〈春聯〉",
+              "url": "https://kids.moa.gov.tw/theme_data.php?theme=kids_learning&sub_theme=A01&id=25"
+            },
+            {
+              "en": "Stroke order and stroke counts: 春 has 9 strokes; 福 has 13",
+              "zh": "筆順與筆畫數：「春」9 畫、「福」13 畫",
+              "src": "教育部《國字標準字體筆順學習網》",
+              "url": "https://stroke-order.learningweb.moe.edu.tw/dictView.jsp?ID=31119"
+            },
+            {
+              "en": "The Office of the President's New Year couplet for 2026 (Year of the Horse): 七喜春來, written by Yu Tianci",
+              "zh": "總統府 115 年新春賀詞「七喜春來」，由書法名家余天賜揮毫",
+              "src": "中華民國總統府新聞稿",
+              "url": "https://www.president.gov.tw/NEWS/39745"
+            },
+            {
+              "en": "National Palace Museum: calligraphers write couplets and diamond papers for visitors",
+              "zh": "「現場安排6位書法老師為民眾揮毫致贈春聯、斗方」",
+              "src": "國立故宮博物院〈新春揮毫贈春聯活動〉",
+              "url": "https://www.npm.gov.tw/Articles.aspx?sno=04013985&l=1"
+            },
+            {
+              "en": "Sun Yat-sen Memorial Hall: a New Year calligraphy event every year since 2005",
+              "zh": "「自94年起，每到農曆春節前夕都會舉辦迎春揮毫活動」",
+              "src": "國立國父紀念館新聞稿",
+              "url": "https://www.yatsen.gov.tw/News_Content.aspx?n=6519&s=159986"
+            },
+            {
+              "en": "Taiwan curriculum: forms and set phrases of letters, notes, and couplets (Be-Ⅳ-2); brush writing in regular script (4-Ⅲ-5)",
+              "zh": "十二年國教國語文領綱：Be-Ⅳ-2「在人際溝通方面，以書信、便條、對聯等之慣用語彙與書寫格式為主。」4-Ⅲ-5「習寫以硬筆字為主，毛筆為輔，掌握楷書形體結構的書寫方法。」",
+              "src": "國家教育研究院《十二年國民基本教育課程綱要 語文領域—國語文》",
+              "url": "https://stv.naer.edu.tw/data/course_outline/pta_18510_4703638_59125.pdf"
+            }
+          ],
+          "sides": {
+            "eyebrow": "Game · 小遊戲",
+            "en": "Which Line Is the Upper Line?",
+            "zh": "哪一句是上聯？",
+            "lead_en": "Here are the two lines of a couplet, in mixed-up order. Say the last character of each line out loud. The line that ends in the third or fourth tone is the upper line. (None of these six has a trap character at the end.)",
+            "lead_zh": "一副對聯的兩句，順序被弄亂了。把兩句的最後一個字唸出來：末字是三聲或四聲的那一句就是上聯。（這六副的末字都沒有陷阱字。）",
+            "couplets": [
+              {
+                "short_zh": "增壽",
+                "a": {
+                  "text": "天增歲月人增壽",
+                  "last": {
+                    "zh": "壽",
+                    "py": "shòu",
+                    "tone": 4,
+                    "ze": true
+                  }
+                },
+                "b": {
+                  "text": "春滿乾坤福滿門",
+                  "last": {
+                    "zh": "門",
+                    "py": "mén",
+                    "tone": 2,
+                    "ze": false
+                  }
+                },
+                "top": "迎春接福"
+              },
+              {
+                "short_zh": "富貴",
+                "a": {
+                  "text": "花開富貴",
+                  "last": {
+                    "zh": "貴",
+                    "py": "guì",
+                    "tone": 4,
+                    "ze": true
+                  }
+                },
+                "b": {
+                  "text": "竹報平安",
+                  "last": {
+                    "zh": "安",
+                    "py": "ān",
+                    "tone": 1,
+                    "ze": false
+                  }
+                },
+                "top": "吉祥如意"
+              },
+              {
+                "short_zh": "復始",
+                "a": {
+                  "text": "一元復始",
+                  "last": {
+                    "zh": "始",
+                    "py": "shǐ",
+                    "tone": 3,
+                    "ze": true
+                  }
+                },
+                "b": {
+                  "text": "萬象更新",
+                  "last": {
+                    "zh": "新",
+                    "py": "xīn",
+                    "tone": 1,
+                    "ze": false
+                  }
+                },
+                "top": "大地回春"
+              },
+              {
+                "short_zh": "雨順",
+                "a": {
+                  "text": "風調雨順",
+                  "last": {
+                    "zh": "順",
+                    "py": "shùn",
+                    "tone": 4,
+                    "ze": true
+                  }
+                },
+                "b": {
+                  "text": "國泰民安",
+                  "last": {
+                    "zh": "安",
+                    "py": "ān",
+                    "tone": 1,
+                    "ze": false
+                  }
+                },
+                "top": "歲歲平安"
+              },
+              {
+                "short_zh": "餘慶",
+                "a": {
+                  "text": "新年納餘慶",
+                  "last": {
+                    "zh": "慶",
+                    "py": "qìng",
+                    "tone": 4,
+                    "ze": true
+                  }
+                },
+                "b": {
+                  "text": "喜節號長春",
+                  "last": {
+                    "zh": "春",
+                    "py": "chūn",
+                    "tone": 1,
+                    "ze": false
+                  }
+                },
+                "top": "恭賀新禧"
+              },
+              {
+                "short_zh": "大地",
+                "a": {
+                  "text": "春回大地",
+                  "last": {
+                    "zh": "地",
+                    "py": "dì",
+                    "tone": 4,
+                    "ze": true
+                  }
+                },
+                "b": {
+                  "text": "福滿人間",
+                  "last": {
+                    "zh": "間",
+                    "py": "jiān",
+                    "tone": 1,
+                    "ze": false
+                  }
+                },
+                "top": "萬象更新"
+              }
+            ]
+          }
+        }
+      ],
+      "planned": [
+        {
+          "n": 12,
+          "icon": "🔴",
+          "en": "What Are the Red Seals on a Work of Calligraphy?",
+          "zh": "印章與篆刻：作品上的紅色印章是什麼？"
+        },
+        {
+          "n": 13,
+          "icon": "📿",
+          "en": "Why Do People Copy Sutras by Hand?",
+          "zh": "抄經：書法與修行"
+        },
+        {
+          "n": 14,
+          "icon": "✒️",
+          "en": "How Is Chinese Calligraphy Different from Western Calligraphy?",
+          "zh": "中文書法和西洋書法有什麼不同？"
+        },
+        {
+          "n": 15,
+          "icon": "✏️",
+          "en": "Does Brush Writing Help Your Pencil Writing?",
+          "zh": "毛筆字和硬筆字"
+        }
+      ]
     }
   ]
 }

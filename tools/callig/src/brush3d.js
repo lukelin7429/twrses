@@ -142,7 +142,7 @@ export function makeBrush({ L = 0.45, R = 0.07, handle = 2.0, hair = 'goat' } = 
 // =====================================================================
 // 宣紙（墨畫在 canvas 貼圖上）
 // =====================================================================
-export function makePaper({ w = 3.2, h = 3.8, x = 0, y = 0.02, z = 0, ppu = 360, box = 2.6, boxCenter = null, grid = true, color = '#f6f0e1' } = {}) {
+export function makePaper({ w = 3.2, h = 3.8, x = 0, y = 0.02, z = 0, ppu = 360, box = 2.6, boxCenter = null, grid = true, color = '#f6f0e1', diamond = false, gridColor = 'rgba(205,62,50,.72)' } = {}) {
   const CW = Math.round(w * ppu), CH = Math.round(h * ppu);
   const cv = document.createElement('canvas'); cv.width = CW; cv.height = CH;
   const ink = document.createElement('canvas'); ink.width = CW; ink.height = CH;
@@ -150,7 +150,7 @@ export function makePaper({ w = 3.2, h = 3.8, x = 0, y = 0.02, z = 0, ppu = 360,
   let under = null;                                 // 墨的底下、紙的上面多一層（第六課：先畫淡淡的小篆，毛筆再寫隸書）
   const g = cv.getContext('2d'), gi = ink.getContext('2d'), gb = base.getContext('2d');
   const tex = new CanvasTexture(cv); tex.colorSpace = SRGBColorSpace; tex.anisotropy = 4;
-  const mesh = new Mesh(new PlaneGeometry(w, h), new MeshStandardMaterial({ map: tex, roughness: 0.92, metalness: 0 }));
+  const mesh = new Mesh(new PlaneGeometry(w, h), new MeshStandardMaterial({ map: tex, roughness: 0.92, metalness: 0, transparent: diamond, alphaTest: diamond ? 0.5 : 0 }));
   mesh.rotation.x = -Math.PI / 2;
   mesh.position.set(x, y, z);
   const bc = boxCenter || [x, z];
@@ -159,9 +159,17 @@ export function makePaper({ w = 3.2, h = 3.8, x = 0, y = 0.02, z = 0, ppu = 360,
   let showGrid = grid;                              // true（米字格）、'mi'、'jiu'（九宮格）或 false
   function drawBase() {
     paperBase(gb, CW, CH, { color, seed: 5, fiber: 0.45, edge: ppu * 0.04 });
-    if (showGrid) drawGrid(gb, T.ox, T.oy, box * ppu, { kind: showGrid === 'jiu' ? 'jiu' : 'mi', lw: Math.max(2, ppu / 110), color: 'rgba(205,62,50,.72)' });
+    if (showGrid) drawGrid(gb, T.ox, T.oy, box * ppu, { kind: showGrid === 'jiu' ? 'jiu' : 'mi', lw: Math.max(2, ppu / 110), color: gridColor });
   }
-  function compose() { g.drawImage(base, 0, 0); if (under) g.drawImage(under, 0, 0); g.drawImage(ink, 0, 0); tex.needsUpdate = true; }
+  function compose() {
+    if (diamond) {   // 斗方（第十一課）：紙是轉了 45 度的正方形，字還是正的——只畫菱形裡面，外面透明
+      g.clearRect(0, 0, CW, CH);
+      g.save(); g.beginPath(); g.moveTo(CW / 2, 0); g.lineTo(CW, CH / 2); g.lineTo(CW / 2, CH); g.lineTo(0, CH / 2); g.closePath(); g.clip();
+    }
+    g.drawImage(base, 0, 0); if (under) g.drawImage(under, 0, 0); g.drawImage(ink, 0, 0);
+    if (diamond) g.restore();
+    tex.needsUpdate = true;
+  }
   drawBase(); compose();
   return {
     mesh, tex, canvas: cv, T, y, box,
