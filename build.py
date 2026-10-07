@@ -7080,7 +7080,41 @@ def _ph_lab_fallacy(lab):
   <div class="ph-fgs">{fams}</div>
 </div>'''
 
+def _ph_lab_zeno(lab):
+    """A4：阿基里斯與烏龜。芝諾的走法（一次一個階段）與時鐘的走法並排；數字全部在 philosophy.js 裡現算。"""
+    return f'''<div class="ph-el ph-zn rvl" data-ph-zeno>
+  <div class="ph-vl-top"><div class="ph-zn-ratio" role="group" aria-label="How much faster is Achilles? · 阿基里斯快幾倍？">
+      <span>Achilles is · 阿基里斯快</span>
+      <button type="button" data-zn-r="2" aria-pressed="false">2×</button>
+      <button type="button" data-zn-r="10" aria-pressed="true">10×</button>
+      <button type="button" data-zn-r="100" aria-pressed="false">100×</button></div>
+    <span class="ph-el-count">{_ph_e(lab["note_en"])}</span></div>
+  <div class="ph-el-stage">
+    <svg class="ph-zn-track" viewBox="0 0 1000 170" role="img" aria-label="A race track with Achilles and the tortoise · 跑道上的阿基里斯與烏龜">
+      <line class="ph-zn-ground" x1="20" y1="120" x2="980" y2="120"/>
+      <g data-zn-marks></g>
+      <g data-zn-limit><line class="ph-zn-lim" x1="0" y1="34" x2="0" y2="132"/><text class="ph-zn-limt" y="26" text-anchor="middle"></text></g>
+      <g data-zn-t><circle class="ph-zn-tort" r="13" cy="104"/><text class="ph-zn-lbl" y="80" text-anchor="middle">tortoise 龜</text></g>
+      <g data-zn-a><circle class="ph-zn-ach" r="13" cy="104"/><text class="ph-zn-lbl" y="152" text-anchor="middle">Achilles</text></g>
+    </svg>
+    <div class="ph-zn-read">
+      <div><small>Stage · 階段</small><b data-zn-n>0</b></div>
+      <div><small>Clock · 時間</small><b data-zn-time>0 s</b></div>
+      <div><small>Gap · 差距</small><b data-zn-gap>100 m</b></div>
+      <div><small>Limit · 極限</small><b data-zn-lim></b></div>
+    </div>
+    <div class="ph-zn-btns">
+      <button type="button" class="ph-vl-next" data-zn-step>Zeno’s next stage · 芝諾的下一階段</button>
+      <button type="button" class="ph-zn-run" data-zn-run>Let the clock run · 讓時鐘自己走</button>
+      <button type="button" class="ph-el-reset" data-zn-reset>Start again · 重來</button>
+    </div>
+    <p class="ph-zn-msg" data-zn-msg aria-live="polite"></p>
+    <div class="ph-zn-tablewrap"><table class="ph-zn-table"><thead><tr><th>Stage<span lang="zh-Hant">階段</span></th><th>Achilles runs<span lang="zh-Hant">阿基里斯跑</span></th><th>It takes<span lang="zh-Hant">花費</span></th><th>Gap left<span lang="zh-Hant">剩下差距</span></th><th>Clock so far<span lang="zh-Hant">累計時間</span></th></tr></thead><tbody data-zn-rows></tbody></table></div>
+  </div>
+</div>'''
+
 def _ph_lab(lab):
+    if lab.get("kind") == "zeno": return _ph_lab_zeno(lab)
     if lab.get("kind") == "validity": return _ph_lab_validity(lab)
     if lab.get("kind") == "fallacy": return _ph_lab_fallacy(lab)
     """蘇格拉底式詰問：三個對話錄、每個三個定義；資料塞進 JSON，由 philosophy.js 接手。"""

@@ -301,6 +301,81 @@
     root.__lab = { state: function () { return { i: i, score: score.slice(), finished: finished }; } };
   });
 
+  /* ---- A4：阿基里斯與烏龜（芝諾的走法 vs. 時鐘的走法） ---- */
+  $$('[data-ph-zeno]').forEach(function (root) {
+    var VA = 10, HEAD = 100, X0 = 40, X1 = 960;
+    var r = 10, n, a, t, clock, timer = null, mode;
+    var gA = $('[data-zn-a]', root), gT = $('[data-zn-t]', root), gL = $('[data-zn-limit]', root), marks = $('[data-zn-marks]', root);
+    var rows = $('[data-zn-rows]', root), msg = $('[data-zn-msg]', root);
+    function vt() { return VA / r; }
+    function meet() { return HEAD / (1 - 1 / r); }          // 追上的位置
+    function tMeet() { return HEAD / (VA - vt()); }           // 追上的時刻
+    function sx(m) { return X0 + (X1 - X0) * m / (meet() * 1.22); }
+    function fmt(v, unit) {
+      var s;
+      if (v === 0) s = '0';
+      else if (v >= 0.01) s = String(+v.toPrecision(6));
+      else s = v.toExponential(2).replace('e-', ' × 10⁻').replace(/⁻(\d+)/, function (_, d) { return '⁻' + d.split('').map(function (c) { return '⁰¹²³⁴⁵⁶⁷⁸⁹'[+c]; }).join(''); });
+      return s + ' ' + unit;
+    }
+    function draw() {
+      gA.setAttribute('transform', 'translate(' + sx(a) + ',0)');
+      gT.setAttribute('transform', 'translate(' + sx(t) + ',0)');
+      gL.setAttribute('transform', 'translate(' + sx(meet()) + ',0)');
+      $('text', gL).textContent = fmt(+meet().toPrecision(6), 'm');
+      $('[data-zn-n]', root).textContent = mode === 'run' ? '—' : n;
+      $('[data-zn-time]', root).textContent = mode === 'run' ? clock.toFixed(2) + ' s' : String(+clock.toPrecision(14)) + ' s';
+      $('[data-zn-gap]', root).textContent = mode === 'run' ? (t >= a ? (t - a).toFixed(1) + ' m' : 'ahead by ' + (a - t).toFixed(1) + ' m') : fmt(n ? HEAD / Math.pow(r, n) : HEAD, 'm');
+      $('[data-zn-lim]', root).textContent = fmt(+tMeet().toPrecision(6), 's');
+    }
+    function say(en, zh) { msg.textContent = en; var z = el('span', '', zh); z.lang = 'zh-Hant'; msg.appendChild(z); }
+    function reset() {
+      if (timer) { clearInterval(timer); timer = null; }
+      root.classList.remove('is-running');
+      n = 0; a = 0; t = HEAD; clock = 0; mode = 'zeno'; rows.textContent = ''; marks.textContent = '';
+      $$('[data-zn-r]', root).forEach(function (b) { b.setAttribute('aria-pressed', +b.getAttribute('data-zn-r') === r ? 'true' : 'false'); });
+      say('Press “Zeno’s next stage.” Each press takes Achilles to where the tortoise was.', '按「芝諾的下一階段」。每按一次，阿基里斯就到達烏龜剛才所在的位置。');
+      draw();
+    }
+    function step() {
+      if (timer) return;
+      if (mode === 'run') reset();
+      var d = t - a, dt = d / VA;
+      var m = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+      m.setAttribute('x1', sx(t)); m.setAttribute('x2', sx(t)); m.setAttribute('y1', 112); m.setAttribute('y2', 128); m.setAttribute('class', 'ph-zn-mark'); marks.appendChild(m);
+      n++;
+      // 用閉合式算，避免一步步累加的浮點誤差：第 n 階段後差距＝HEAD／rⁿ
+      var gap = HEAD / Math.pow(r, n); d = HEAD / Math.pow(r, n - 1); dt = d / VA;
+      clock = (HEAD / VA) * (1 - Math.pow(r, -n)) / (1 - 1 / r); a = VA * clock; t = a + gap;
+      var long = String(+clock.toPrecision(14)) + ' s';
+      var tr = el('tr'); [n, fmt(d, 'm'), fmt(dt, 's'), fmt(gap, 'm'), long].forEach(function (c) { tr.appendChild(el('td', '', String(c))); });
+      rows.appendChild(tr); tr.scrollIntoView({ block: 'nearest' });
+      if (n < 4) say('A gap remains, so there is another stage to run.', '還剩一段差距，所以還有下一個階段要跑。');
+      else if (n < 12) say('The gap keeps shrinking by the same factor. The clock creeps toward ' + fmt(+tMeet().toPrecision(6), 's') + ' and has not reached it.', '差距一直以同樣的比例縮小。時鐘慢慢逼近 ' + fmt(+tMeet().toPrecision(6), 's') + '，但還沒到。');
+      else say('You could press forever: no stage is the last. Yet all of them together take less than ' + fmt(+tMeet().toPrecision(6), 's') + '. Now let the clock run.', '你可以永遠按下去：沒有哪一個階段是最後一個。可是它們全部加起來，花不到 ' + fmt(+tMeet().toPrecision(6), 's') + '。現在讓時鐘自己走。');
+      draw();
+    }
+    function run() {
+      if (timer) return;
+      reset(); mode = 'run'; root.classList.add('is-running');
+      var T = tMeet(), end = T * 1.2, t0 = Date.now(), dur = 6000, passed = false;
+      say('The clock is running at an even pace.', '時鐘以均勻的速度在走。');
+      timer = setInterval(function () {
+        var k = Math.min(1, (Date.now() - t0) / dur);
+        clock = end * k; a = VA * clock; t = HEAD + vt() * clock;
+        if (!passed && clock >= T) { passed = true; say('At ' + fmt(+T.toPrecision(6), 's') + ' they are level, and after that Achilles is ahead. Zeno’s stages all lie before this moment.', '在 ' + fmt(+T.toPrecision(6), 's') + ' 兩者並肩，之後阿基里斯就領先了。芝諾的那些階段，全都落在這一刻之前。'); }
+        draw();
+        if (k >= 1) { clearInterval(timer); timer = null; }
+      }, 30);
+    }
+    $('[data-zn-step]', root).addEventListener('click', step);
+    $('[data-zn-run]', root).addEventListener('click', run);
+    $('[data-zn-reset]', root).addEventListener('click', reset);
+    $$('[data-zn-r]', root).forEach(function (b) { b.addEventListener('click', function () { r = +b.getAttribute('data-zn-r'); reset(); }); });
+    reset();
+    root.__lab = { step: step, run: run, state: function () { return { r: r, n: n, a: a, t: t, clock: clock, meet: meet(), tMeet: tMeet(), mode: mode }; } };
+  });
+
   /* ---- 自己的定義：打字之後出現五個檢查項（只存在這個頁面的記憶體裡） ---- */
   var own = $('[data-ph-own]'), checks = $('[data-ph-own-checks]');
   if (own && checks) {
