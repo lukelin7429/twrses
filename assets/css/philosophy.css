@@ -503,3 +503,45 @@ main:has(.ph-tools) .wrap { width: min(980px, 92vw); }
 .ph-db-card.is-cogito span { color: rgba(20,35,59,.75); }
 .ph-db-card.is-cogito::before { border-color: var(--ph-night); background: var(--ph-night); }
 @media (max-width: 640px) { .ph-db-grid { grid-template-columns: 1fr; } }
+
+/* ---------- A6：柏拉圖的洞穴（3D） ---------- */
+.ph-cave-view { position: relative; aspect-ratio: 16 / 9; background: #05070c; overflow: hidden; }
+.ph-cave-view canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; touch-action: none; cursor: grab; }
+.ph-cave-view canvas:active { cursor: grabbing; }
+.ph-cave-labels { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
+.ph-cave-lab { position: absolute; left: 0; top: 0; white-space: nowrap; font: 700 .8rem var(--sans); color: #fff; background: rgba(10,18,32,.72); border: 1px solid rgba(255,211,110,.55); border-radius: 8px; padding: .2rem .55rem; transition: opacity .3s; text-align: center; line-height: 1.25; }
+.ph-cave-lab i { display: block; font: normal .72rem var(--zh); color: #ffd98a; }
+.ph-cave-veil { position: absolute; inset: 0; pointer-events: none; opacity: 0; }
+.ph-cave-veil.is-glare { background: #fffbe8; }
+.ph-cave-veil.is-dark { background: #000; }
+.ph-cave-veil.go { animation: ph-cave-veil 4.2s ease-out both; }
+@keyframes ph-cave-veil { 0% { opacity: 0; } 22% { opacity: .96; } 100% { opacity: 0; } }
+.ph-cave-hint { position: absolute; left: .9rem; bottom: .6rem; margin: 0; font-size: .76rem; color: rgba(255,255,255,.6); pointer-events: none; }
+.ph-cave-tools { position: absolute; right: .7rem; top: .7rem; display: flex; gap: .4rem; }
+.ph-cave-tools button { all: unset; cursor: pointer; width: 36px; height: 36px; border-radius: 10px; display: grid; place-items: center; background: rgba(10,18,32,.7); border: 1px solid rgba(255,255,255,.25); color: #fff; font: 700 .9rem var(--sans); }
+.ph-cave-tools button[aria-pressed="false"] { opacity: .5; }
+.ph-cave-tools button:focus-visible { outline: 2px solid #ffd36e; outline-offset: 2px; }
+.ph-cave-nogl-msg { display: none; position: absolute; inset: 0; margin: 0; padding: 2rem; place-content: center; text-align: center; color: #fff; }
+.ph-cave-nogl .ph-cave-nogl-msg { display: grid; }
+.ph-cave-nogl canvas, .ph-cave-nogl .ph-cave-hint, .ph-cave-nogl .ph-cave-tools { display: none; }
+.ph-cave-stages { display: grid; grid-template-columns: repeat(6, 1fr); background: rgba(0,0,0,.3); }
+.ph-cave-stages button { all: unset; box-sizing: border-box; cursor: pointer; display: flex; align-items: center; gap: .5rem; padding: .7rem .6rem; color: rgba(255,255,255,.6); border-top: 3px solid transparent; transition: color .2s, background .2s, border-color .2s; }
+.ph-cave-stages button b { flex: none; width: 26px; height: 26px; border-radius: 50%; display: grid; place-items: center; border: 1.5px solid currentColor; font: 800 .8rem var(--sans); }
+.ph-cave-stages button span { font: 700 .84rem/1.2 var(--sans); }
+.ph-cave-stages button i { display: block; font: normal .76rem var(--zh); opacity: .8; }
+.ph-cave-stages button:hover { color: #fff; background: rgba(255,255,255,.05); }
+.ph-cave-stages button[aria-pressed="true"] { color: #fff; border-top-color: #ffd36e; background: rgba(255,255,255,.08); }
+.ph-cave-stages button[aria-pressed="true"] b { background: #ffd36e; border-color: #ffd36e; color: var(--ph-night); }
+.ph-cave-stages button:focus-visible { outline: 2px solid #ffd36e; outline-offset: -4px; }
+.ph-cave-cap { min-height: 11.5rem; animation: ph-rise .45s ease both; }
+.ph-cave-cap[hidden] { display: none; }
+.ph-cave-ref { margin: 0; font: 800 .76rem var(--sans); letter-spacing: .12em; text-transform: uppercase; color: #ffd98a; }
+.ph-cave-cap h4 { margin: .2rem 0 .5rem; font: 600 1.6rem var(--serif); color: #fff; }
+.ph-cave-cap h4 span { font: 600 .6em var(--zh); color: rgba(255,255,255,.7); margin-left: .4em; }
+.ph-cave-cap .ph-p { margin: 0 0 .6rem; }
+.ph-cave-cap .ph-en { font: 400 1.1rem/1.7 var(--serif); color: #eef2f8; max-width: 66ch; }
+.ph-cave-cap .ph-zh { color: rgba(255,255,255,.72); max-width: 44em; }
+.ph-cave-line { border-left: 3px solid #ffd36e; padding-left: .9rem; margin-top: .8rem; }
+.ph-cave-line .ph-en { font: 500 .98rem/1.6 var(--sans); color: #ffd98a; }
+@media (max-width: 760px) { .ph-cave-stages { grid-template-columns: repeat(3, 1fr); } .ph-cave-view { aspect-ratio: 4 / 3; } .ph-cave-lab { font-size: .68rem; } }
+@media (prefers-reduced-motion: reduce) { .ph-cave-veil.go { animation: none; } }

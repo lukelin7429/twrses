@@ -6921,14 +6921,20 @@ _phj = os.path.join(ROOT, "data", "philosophy.json")
 PHIL = json.load(open(_phj, encoding="utf-8")) if os.path.exists(_phj) else None
 PHIL_BASE = "/resources/classes/philosophy/"
 
-def _ph_head():
+_PH_3D = {"cave": "ph-cave"}   # lab.kind → assets/js/<bundle>.js（three.js，原始碼在 tools/philosophy/src/）
+
+def _ph_head(lab_kind=None):
+    files = ["assets/css/philosophy.css", "assets/js/philosophy.js"]
+    js3d = _PH_3D.get(lab_kind)
+    if js3d: files.append(f"assets/js/{js3d}.js")
     h = hashlib.md5()
-    for rel in ("assets/css/philosophy.css", "assets/js/philosophy.js"):
+    for rel in files:
         fp = os.path.join(ROOT, rel)
         if os.path.exists(fp): h.update(open(fp, "rb").read())
     v = h.hexdigest()[:8]
     return (f'<link rel="stylesheet" href="/assets/css/philosophy.css?v={v}">\n'
-            f'<script defer src="/assets/js/philosophy.js?v={v}"></script>\n')
+            f'<script defer src="/assets/js/philosophy.js?v={v}"></script>\n'
+            + (f'<script defer src="/assets/js/{js3d}.js?v={v}"></script>\n' if js3d else ""))
 
 def _ph_e(s): return html.escape(s, quote=True)
 
@@ -7128,7 +7134,36 @@ def _ph_lab_doubt(lab):
   </div>
 </div>'''
 
+def _ph_lab_cave(lab):
+    """A6：柏拉圖的洞穴（3D，assets/js/ph-cave.js 綁 data-ph-cave）。階段按鈕與說明文字在這裡產生，場景在 JS 裡。"""
+    st = lab["stages"]
+    btns = "".join(f'<button type="button" data-cave-stage="{i}" aria-pressed="{"true" if i == 0 else "false"}">'
+                   f'<b>{i if i else "◎"}</b><span>{_ph_e(s["name"]["en"])}<i lang="zh-Hant">{_ph_e(s["name"]["zh"])}</i></span></button>' for i, s in enumerate(st))
+    caps = "".join(
+        f'<div class="ph-cave-cap" data-cave-cap="{i}"{"" if i == 0 else " hidden"}>'
+        f'<p class="ph-cave-ref">{_ph_e(s["ref"])}</p><h4>{_ph_e(s["name"]["en"])} <span lang="zh-Hant">{_ph_e(s["name"]["zh"])}</span></h4>'
+        f'{_ph_bi(s["text"], say=False)}<div class="ph-cave-line">{_ph_bi(s["line"], say=False)}</div></div>' for i, s in enumerate(st))
+    return f'''<div class="ph-el ph-cave rvl" data-ph-cave data-stage="0">
+  <div class="ph-cave-view">
+    <canvas aria-label="3D model of Plato\'s cave · 柏拉圖洞穴的 3D 模型"></canvas>
+    <div class="ph-cave-labels" data-cave-labels aria-hidden="true"></div>
+    <div class="ph-cave-veil" data-cave-veil aria-hidden="true"></div>
+    <p class="ph-cave-hint">Drag to look around · 拖曳環顧　Scroll or pinch to zoom · 滾輪／雙指縮放</p>
+    <div class="ph-cave-tools">
+      <button type="button" data-cave-toggle-labels aria-pressed="true" title="Labels · 標示">Aa</button>
+      <button type="button" data-cave-home title="Reset this view · 回到這個視角">&#8634;</button>
+    </div>
+    <p class="ph-cave-nogl-msg">This 3D model needs WebGL, which this browser does not support. The stages below still tell the story.<br><span lang="zh-Hant">這個瀏覽器不支援 WebGL，無法顯示 3D 模型；下方各階段的文字仍然完整。</span></p>
+  </div>
+  <div class="ph-cave-stages" role="group" aria-label="Stages of the story · 故事的階段">{btns}</div>
+  <div class="ph-el-stage ph-cave-caps">{caps}
+    <div class="ph-el-foot"><span class="ph-el-count">Republic VII · 《理想國》卷七</span>
+      <button type="button" class="ph-vl-next" data-cave-next>Next stage · 下一階段 &rarr;</button></div>
+  </div>
+</div>'''
+
 def _ph_lab(lab):
+    if lab.get("kind") == "cave": return _ph_lab_cave(lab)
     if lab.get("kind") == "doubt": return _ph_lab_doubt(lab)
     if lab.get("kind") == "zeno": return _ph_lab_zeno(lab)
     if lab.get("kind") == "validity": return _ph_lab_validity(lab)
@@ -7249,7 +7284,7 @@ def build_phil_lesson(L):
     say_slug = f'philosophy-{L["slug"]}'   # tools/gen_audio.py 以路徑末兩段命名
     has_clips = os.path.exists(os.path.join(ROOT, "assets/data/say", say_slug + ".json"))
     write(path, layout(path, f'{L["title"]} {L["title_zh"]}', f'{L["blurb_en"]} {L["blurb_zh"]}', body, "resources",
-          say_manifest=say_slug if has_clips else None, extra_head=_ph_head()))
+          say_manifest=say_slug if has_clips else None, extra_head=_ph_head(L["lab"].get("kind"))))
     return path
 
 def build_phil_person(P):
