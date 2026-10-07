@@ -42,7 +42,8 @@
        "n": "A2",
        "en": "What Makes a Good Argument?",
        "zh": "什麼是好的論證？",
-       "note": "Validity and soundness · 有效與健全"
+       "note": "Validity and soundness · 有效與健全",
+       "slug": "good-argument"
       },
       {
        "n": "A3",
@@ -717,7 +718,8 @@
        "n": "",
        "en": "Aristotle",
        "zh": "亞里斯多德",
-       "note": "384–322 BCE"
+       "note": "384–322 BCE",
+       "slug": "philosophers/aristotle"
       },
       {
        "n": "",
@@ -2023,6 +2025,695 @@
    "people": [
     "socrates"
    ]
+  },
+  {
+   "slug": "good-argument",
+   "shelf": "questions",
+   "n": "A2",
+   "unit_en": "Thinking Tools",
+   "unit_zh": "思考的工具",
+   "title": "What Makes a Good Argument?",
+   "title_zh": "什麼是好的論證？",
+   "level": "Advanced · 高級",
+   "minutes": 25,
+   "blurb_en": "Validity, soundness, and the discovery that the shape of an argument can be judged apart from what it is about.",
+   "blurb_zh": "有效、健全，以及一個發現：論證的形狀，可以跟它在談什麼分開來評判。",
+   "big_en": "A good deductive argument does two separate jobs: its conclusion follows from its premises, and its premises are true. Logic can check the first without knowing anything about the second.",
+   "big_zh": "一個好的演繹論證要做到兩件各自獨立的事：結論從前提推得出來，而且前提是真的。邏輯可以檢查第一件，而完全不必知道第二件。",
+   "essay": [
+    {
+     "h_en": "Reasons on the table",
+     "h_zh": "把理由攤在桌上",
+     "paras": [
+      {
+       "en": "In ordinary speech an argument is a quarrel. In philosophy it is something quieter and more useful: a set of statements, the premises, offered as reasons for accepting another statement, the conclusion. To give an argument is to put your reasons on the table where other people can inspect them. There are then exactly two ways it can fail. One or more of the premises may be false, or the conclusion may not follow from the premises even if they are all true. The whole of logic grows out of keeping these two failures apart.",
+       "zh": "在日常用語裡，argument 是吵架。在哲學裡，它安靜得多，也有用得多：一組陳述（前提）被提出來，當作接受另一個陳述（結論）的理由。提出論證，就是把你的理由攤在桌上，讓別人檢查。這樣一來，它失敗的方式恰好只有兩種：前提當中有一個或幾個是假的；或者，就算前提全是真的，結論也推不出來。整門邏輯學，都是從把這兩種失敗分開而長出來的。"
+      }
+     ]
+    },
+    {
+     "h_en": "Validity: a matter of form",
+     "h_zh": "有效：形式的問題",
+     "paras": [
+      {
+       "en": "Take the most famous example in the subject. All humans are mortal; Socrates is human; therefore Socrates is mortal. If you grant the two premises you cannot consistently deny the conclusion. An argument with this property is called valid: it is impossible for all of its premises to be true while its conclusion is false. The premises are then said to entail the conclusion.",
+       "zh": "拿這門學問裡最有名的例子來看。所有人都會死；蘇格拉底是人；所以蘇格拉底會死。如果你承認這兩個前提，就不可能不自相矛盾地否認結論。有這種性質的論證叫作「有效」：它的前提不可能全部為真而結論為假。這時我們說，前提「蘊涵」結論。"
+      },
+      {
+       "en": "Aristotle (384–322 BCE) saw that this necessity has nothing to do with Socrates or with death. It holds by virtue of the pattern alone. Replace the terms with letters, as he was the first to do, and the pattern still compels: if A belongs to every B, and B belongs to every C, then A belongs to every C. Whatever you put in for the letters, true premises will never lead to a false conclusion. With that step, the study of reasoning became a science of forms.",
+       "zh": "亞里斯多德（西元前 384–322 年）看出，這種必然性跟蘇格拉底無關，也跟死亡無關；它單單憑著那個樣式成立。像他首創的那樣，把詞項換成字母，這個樣式照樣有約束力：如果 A 屬於每一個 B，而 B 屬於每一個 C，那麼 A 屬於每一個 C。不管你把什麼填進字母裡，真的前提永遠不會導出假的結論。跨出這一步，對推理的研究就成了一門關於形式的科學。"
+      }
+     ]
+    },
+    {
+     "h_en": "Validity is not truth",
+     "h_zh": "有效不等於真",
+     "paras": [
+      {
+       "en": "The definition has a consequence that surprises almost everyone at first. Validity says nothing about whether the premises are in fact true. “All fish can fly; all whales are fish; therefore all whales can fly” is a perfectly valid argument. Every statement in it is false, and yet the conclusion follows: if the premises were true, the conclusion would have to be.",
+       "zh": "這個定義有一個後果，幾乎每個人初次聽到都會吃驚：有效性完全不管前提事實上是不是真的。「所有的魚都會飛；所有的鯨都是魚；所以所有的鯨都會飛」是一個完全有效的論證。裡面每一句都是假的，可是結論推得出來：假如前提為真，結論就非真不可。"
+      },
+      {
+       "en": "The reverse also happens. “All poets are human; Li Bai is human; therefore Li Bai is a poet” has two true premises and a true conclusion, and it is invalid. The quickest way to see this is to keep the form and change the content: all poets are human; Socrates is human; therefore Socrates is a poet. The premises are still true and the conclusion is now false, so the form cannot be trusted, and it never could. This is the method of counterexample, and it is the logician’s basic instrument.",
+       "zh": "反過來的情況也有。「所有詩人都是人；李白是人；所以李白是詩人」有兩個真前提、一個真結論，卻是無效的。要看出這一點，最快的辦法是保留形式、更換內容：所有詩人都是人；蘇格拉底是人；所以蘇格拉底是詩人。前提還是真的，結論卻變成假的了，可見這個形式靠不住，而且從來就靠不住。這就是反例法，邏輯學家最基本的工具。"
+      }
+     ]
+    },
+    {
+     "h_en": "Soundness: validity plus truth",
+     "h_zh": "健全：有效加上真",
+     "paras": [
+      {
+       "en": "An argument that is valid and also has true premises is called sound. Soundness is what we actually want, because only a sound argument guarantees its conclusion. The division of labor is worth noticing. Whether an argument is valid can be settled from an armchair. Whether its premises are true usually cannot: that depends on biology, or history, or whatever else the premises bear on. Logic transmits truth from premises to conclusion. It does not supply the truth in the first place.",
+       "zh": "既有效、前提又都為真的論證，叫作「健全」。健全才是我們真正要的，因為只有健全的論證保證它的結論。這裡的分工值得留意。一個論證有沒有效，坐在扶手椅上就能判定。它的前提是不是真的，通常不行：那要看生物學、歷史，或前提所涉及的任何別的領域。邏輯把真從前提傳送到結論；它並不一開始就供應真。"
+      }
+     ]
+    },
+    {
+     "h_en": "Four patterns worth knowing by name",
+     "h_zh": "四個值得記住名字的樣式",
+     "paras": [
+      {
+       "en": "Much everyday reasoning runs on “if.” Two patterns are valid. Modus ponens: if P then Q; P; therefore Q. Modus tollens: if P then Q; not Q; therefore not P. Each has an invalid twin that looks almost the same. Affirming the consequent: if it rained, the street is wet; the street is wet; therefore it rained. (A street cleaner may have passed.) Denying the antecedent: if it rained, the street is wet; it did not rain; therefore the street is not wet. A wet street does not rule out other causes, and that is all it takes for both twins to fail.",
+       "zh": "日常推理有一大半是靠「如果」在運轉的。有兩個樣式有效。肯定前件（modus ponens）：如果 P 則 Q；P；所以 Q。否定後件（modus tollens）：如果 P 則 Q；非 Q；所以非 P。它們各有一個長得幾乎一樣的無效雙胞胎。肯定後件：如果下過雨，街道是溼的；街道是溼的；所以下過雨。（也許是洗街車剛經過。）否定前件：如果下過雨，街道是溼的；沒下過雨；所以街道不是溼的。街道溼，並不排除別的原因；單憑這一點，兩個雙胞胎就都不成立。"
+      }
+     ]
+    },
+    {
+     "h_en": "When the conclusion goes beyond the premises",
+     "h_zh": "當結論超出前提",
+     "paras": [
+      {
+       "en": "Everything so far concerns deduction, where the premises are meant to guarantee the conclusion. Most reasoning in science and in life is of another kind. From “every swan observed so far has been white” to “all swans are white” is an inductive step: the conclusion says more than the premises do, and so it can be false even when they are true. Inductive arguments are therefore never valid, and it would be a mistake to blame them for that. They are judged by strength, and a strong one makes its conclusion probable. Whether that standard can itself be justified is a famous problem, taken up in lesson A8.",
+       "zh": "到目前為止談的都是演繹：前提要保證結論。科學與生活裡的推理，大半屬於另一種。從「目前觀察到的每一隻天鵝都是白的」到「所有天鵝都是白的」是歸納的一步：結論說的比前提多，所以即使前提為真，結論也可能為假。因此歸納論證永遠不是有效的，而為此責怪它是弄錯了對象。評判它的標準是「強度」：強的歸納論證使結論很可能為真。這個標準本身能不能被證成，是一個著名的難題，留到 A8 那一課。"
+      }
+     ]
+    },
+    {
+     "h_en": "Three inventions",
+     "h_zh": "三次發明",
+     "paras": [
+      {
+       "en": "Logic was invented at least three times. In China the later Mohists, in the third century BCE, analyzed disputation and held that an explanation must bring out the reason for a claim: 以說出故. In India the Nyāya school set out a five-step inference that became the common property of Hindu and Buddhist philosophers: the hill has fire; because it has smoke; wherever there is smoke there is fire, as in a kitchen; this hill has smoke; therefore it has fire.",
+       "zh": "邏輯至少被發明過三次。在中國，西元前三世紀的後期墨家分析了辯論，主張解說必須把一個主張的理由提出來：「以說出故」。在印度，正理派定出了五支的推論，後來成為印度教與佛教哲學家的共同資產：此山有火；因為有煙；凡有煙處必有火，如廚房；此山有煙；所以此山有火。"
+      },
+      {
+       "en": "The Indian pattern differs from Aristotle’s in one instructive way. It insists on an example, the kitchen, so that the general rule is tied to a case both parties have seen. A Greek syllogism asks only whether the conclusion follows. An Indian inference asks in addition how the rule is known. That second question, as we shall see, is exactly where Aristotle’s critics attacked.",
+       "zh": "印度的樣式跟亞里斯多德的有一個很有啟發性的差別：它堅持要舉一個例子（廚房），把普遍規則繫在雙方都見過的個案上。希臘的三段論只問結論推不推得出來；印度的推論還多問一句：這條規則是怎麼知道的？我們接下來會看到，批評亞里斯多德的人，攻擊的正是這第二個問題。"
+      }
+     ]
+    },
+    {
+     "h_en": "Why form matters",
+     "h_zh": "形式為什麼重要",
+     "paras": [
+      {
+       "en": "It may seem that validity is trivially easy to get, and in a sense it is: for any conclusion at all, one can invent premises that entail it. That is why a valid argument settles nothing by itself, and why serious disagreement is nearly always about premises. Yet the discipline of form is what makes such disagreement productive. Set an opponent’s reasoning out in valid form, supplying in its strongest version whatever was left unsaid, and you will see which premise carries the weight. You then know precisely what the two of you disagree about, and in turn what evidence would bear on it. Philosophers call this the principle of charity. It is good manners, and it is also the fastest way to find out who is right.",
+       "zh": "有效性似乎輕而易舉就能到手；在某個意義上確實如此：不管什麼結論，都可以編出蘊涵它的前提。正因為這樣，一個有效的論證本身什麼也沒解決，而認真的分歧幾乎總是關於前提的。可是，讓這種分歧有成果的，正是對形式的講究。把對手的推理整理成有效的形式，沒說出口的部分用最強的版本替他補上，你就會看出是哪一個前提在承重。這時你確切知道你們兩人到底在爭什麼，進而知道什麼證據跟它有關。哲學家稱之為「善意理解原則」。這是好的風度，同時也是找出誰對的最快方法。"
+      }
+     ]
+    }
+   ],
+   "lab": {
+    "kind": "validity",
+    "title_en": "Try it: valid, sound, or neither?",
+    "title_zh": "親手做一次：有效、健全，還是都不是？",
+    "lead_en": "Six short arguments. For each, decide first whether the conclusion follows. Only if it does is there a second question: are the premises all true? Do not let a true conclusion, or a false one, make the decision for you.",
+    "lead_zh": "六個短論證。每一個先判斷結論推不推得出來；推得出來，才有第二個問題：前提全是真的嗎？別讓結論的真假替你做決定。",
+    "items": [
+     {
+      "p": [
+       {
+        "en": "All humans are mortal.",
+        "zh": "所有人都會死。"
+       },
+       {
+        "en": "Socrates is human.",
+        "zh": "蘇格拉底是人。"
+       }
+      ],
+      "c": {
+       "en": "Socrates is mortal.",
+       "zh": "蘇格拉底會死。"
+      },
+      "valid": true,
+      "true": true,
+      "form": [
+       "All A are B",
+       "s is A",
+       "∴ s is B"
+      ],
+      "name": "Barbara (first figure)",
+      "why": {
+       "en": "The form guarantees the conclusion, and both premises are true. This is what a sound argument looks like.",
+       "zh": "形式保證了結論，兩個前提又都是真的。健全的論證就是這個樣子。"
+      }
+     },
+     {
+      "p": [
+       {
+        "en": "All fish can fly.",
+        "zh": "所有的魚都會飛。"
+       },
+       {
+        "en": "All whales are fish.",
+        "zh": "所有的鯨都是魚。"
+       }
+      ],
+      "c": {
+       "en": "All whales can fly.",
+       "zh": "所有的鯨都會飛。"
+      },
+      "valid": true,
+      "true": false,
+      "form": [
+       "All A are B",
+       "All C are A",
+       "∴ All C are B"
+      ],
+      "name": "Barbara",
+      "why": {
+       "en": "Same form as the first argument, so it is valid: if the premises were true, the conclusion would have to be. Both premises are false, so it is unsound. Validity does not care.",
+       "zh": "形式跟第一個論證相同，所以有效：假如前提為真，結論就非真不可。兩個前提都是假的，所以不健全。有效性不在乎這個。"
+      }
+     },
+     {
+      "p": [
+       {
+        "en": "All poets are human.",
+        "zh": "所有詩人都是人。"
+       },
+       {
+        "en": "Li Bai is human.",
+        "zh": "李白是人。"
+       }
+      ],
+      "c": {
+       "en": "Li Bai is a poet.",
+       "zh": "李白是詩人。"
+      },
+      "valid": false,
+      "true": true,
+      "form": [
+       "All A are B",
+       "s is B",
+       "∴ s is A"
+      ],
+      "name": "Undistributed middle",
+      "why": {
+       "en": "Everything here is true, and the argument is still invalid. The premises put poets inside the class of humans and Li Bai inside it too, and say nothing about how the two are related.",
+       "zh": "這裡每一句都是真的，論證卻仍然無效。前提把詩人放進「人」這個類，也把李白放進去，但對這兩者的關係什麼都沒說。"
+      },
+      "counter": {
+       "en": "All poets are human. Socrates is human. Therefore Socrates is a poet.",
+       "zh": "所有詩人都是人。蘇格拉底是人。所以蘇格拉底是詩人。"
+      }
+     },
+     {
+      "p": [
+       {
+        "en": "If it rained last night, the street is wet.",
+        "zh": "如果昨晚下過雨，街道是溼的。"
+       },
+       {
+        "en": "The street is wet.",
+        "zh": "街道是溼的。"
+       }
+      ],
+      "c": {
+       "en": "It rained last night.",
+       "zh": "昨晚下過雨。"
+      },
+      "valid": false,
+      "true": true,
+      "form": [
+       "If P then Q",
+       "Q",
+       "∴ P"
+      ],
+      "name": "Affirming the consequent",
+      "why": {
+       "en": "The first premise says rain is enough for a wet street. It does not say rain is the only way. This is how a detective’s guess differs from a proof.",
+       "zh": "第一個前提說下雨足以讓街道溼，並沒有說那是唯一的方式。偵探的猜測與證明，差別就在這裡。"
+      },
+      "counter": {
+       "en": "If I am in Taipei, I am in Taiwan. I am in Taiwan. Therefore I am in Taipei.",
+       "zh": "如果我在臺北，我就在臺灣。我在臺灣。所以我在臺北。"
+      }
+     },
+     {
+      "p": [
+       {
+        "en": "If the Buddha was born in Athens, he was born in Greece.",
+        "zh": "如果佛陀生於雅典，他就生於希臘。"
+       },
+       {
+        "en": "The Buddha was not born in Greece.",
+        "zh": "佛陀不是生於希臘。"
+       }
+      ],
+      "c": {
+       "en": "The Buddha was not born in Athens.",
+       "zh": "佛陀不是生於雅典。"
+      },
+      "valid": true,
+      "true": true,
+      "form": [
+       "If P then Q",
+       "not Q",
+       "∴ not P"
+      ],
+      "name": "Modus tollens",
+      "why": {
+       "en": "Modus tollens. Note that the first premise is true although both of its parts are false: a conditional claims only a connection.",
+       "zh": "否定後件。注意第一個前提是真的，雖然它的兩個部分都是假的：條件句只宣稱一個連結。"
+      }
+     },
+     {
+      "p": [
+       {
+        "en": "All birds can fly.",
+        "zh": "所有的鳥都會飛。"
+       },
+       {
+        "en": "Penguins are birds.",
+        "zh": "企鵝是鳥。"
+       }
+      ],
+      "c": {
+       "en": "Penguins can fly.",
+       "zh": "企鵝會飛。"
+      },
+      "valid": true,
+      "true": false,
+      "form": [
+       "All A are B",
+       "All C are A",
+       "∴ All C are B"
+      ],
+      "name": "Barbara",
+      "why": {
+       "en": "Valid, with one false premise. Because the form is valid and the conclusion is false, we can run the argument backward: at least one premise must be false. This is how a valid argument is used to refute.",
+       "zh": "有效，但有一個假前提。因為形式有效而結論為假，我們可以把論證倒過來用：至少有一個前提是假的。有效論證就是這樣被用來反駁的。"
+      }
+     }
+    ],
+    "table": [
+     [
+      "Valid, premises all true",
+      "有效，前提全真",
+      "Sound: the conclusion must be true",
+      "健全：結論必真"
+     ],
+     [
+      "Valid, a premise false",
+      "有效，有假前提",
+      "Unsound: the conclusion may be true or false",
+      "不健全：結論可真可假"
+     ],
+     [
+      "Invalid, premises all true",
+      "無效，前提全真",
+      "Unsound: the conclusion may be true or false",
+      "不健全：結論可真可假"
+     ],
+     [
+      "Invalid, a premise false",
+      "無效，有假前提",
+      "Unsound: the conclusion may be true or false",
+      "不健全：結論可真可假"
+     ]
+    ]
+   },
+   "argument": {
+    "title_en": "The argument, laid out",
+    "title_zh": "論證攤開來",
+    "lead_en": "The most serious attack on the syllogism is itself an argument, and John Stuart Mill gave it its classic form in 1843. Click a step to see what can be said against it.",
+    "lead_zh": "對三段論最嚴重的攻擊，本身也是一個論證；彌爾在 1843 年給了它經典的形式。點任何一步，看看別人可以怎麼反對它。",
+    "steps": [
+     {
+      "k": "P1",
+      "en": "We are entitled to assert “All men are mortal” only if we already know, of each man, that he is mortal.",
+      "zh": "我們有資格斷言「所有人都會死」，唯有在我們已經知道每一個人都會死的時候。",
+      "ob_en": "This is the step most often attacked. We do not learn general truths by checking every case. We infer them from observed cases, or accept them as laws, and then apply them to cases we have never examined.",
+      "ob_zh": "這是最常被攻擊的一步。我們不是靠逐一檢查每個個案來得知普遍真理的。我們從觀察過的個案推出它，或把它當作定律接受，再應用到從沒檢查過的個案上。",
+      "weak": true
+     },
+     {
+      "k": "P2",
+      "en": "Socrates is one of the men. So knowing the first premise already includes knowing that Socrates is mortal.",
+      "zh": "蘇格拉底是其中一個人。所以知道第一個前提，已經包含了知道蘇格拉底會死。",
+      "ob_en": "This follows only if P1 is granted. Someone can know the rule without having considered this instance, as a doctor knows that a drug is toxic before meeting the next patient.",
+      "ob_zh": "只有承認了 P1，這一步才成立。一個人可以知道規則，而沒有考慮過這個個例；就像醫生在見到下一位病人之前，就知道某種藥有毒。"
+     },
+     {
+      "k": "P3",
+      "en": "An argument whose premises already assume its conclusion proves nothing. It begs the question.",
+      "zh": "前提已經預設了結論的論證，什麼也沒證明。它犯了「乞題」。",
+      "ob_en": "True of circular arguments. But in every valid argument the conclusion is, in a logical sense, contained in the premises; that is what validity means. If containment were a fault, all deduction would be worthless, including geometry.",
+      "ob_zh": "對循環論證來說確實如此。可是每一個有效論證，結論在邏輯上都「包含」在前提裡；有效性本來就是這個意思。如果包含是毛病，一切演繹就都沒有價值了，連幾何學也是。"
+     },
+     {
+      "k": "C",
+      "en": "Therefore the syllogism, taken as a proof of its conclusion, is circular.",
+      "zh": "所以，三段論若被當成對其結論的證明，是循環的。",
+      "ob_en": "Mill accepted this conclusion and drew a striking moral: real inference runs from particular cases to particular cases, and the general premise is only a memorandum of what we have observed. Most later logicians rejected P1 and kept the syllogism.",
+      "ob_zh": "彌爾接受這個結論，並且引出一個驚人的教訓：真正的推論是從個案到個案，普遍前提只是我們觀察所得的備忘錄。後來大多數邏輯學家否定 P1，保住了三段論。"
+     }
+    ]
+   },
+   "source": {
+    "title_en": "In his own words",
+    "title_zh": "原典怎麼說",
+    "work": "Aristotle, Prior Analytics I.1–4",
+    "work_zh": "亞里斯多德《前分析篇》卷一第一至四章",
+    "tr": "translated by A. J. Jenkinson (public domain)",
+    "lead_en": "The Prior Analytics is the first treatise on formal logic in any language. It opens by saying what a deduction is; three chapters later, letters replace words.",
+    "lead_zh": "《前分析篇》是任何語言裡第一部形式邏輯的專論。它開頭先說明什麼是演繹；三章之後，字母取代了詞語。",
+    "passages": [
+     {
+      "ref": "Prior Analytics 24b18–20",
+      "en": "A syllogism is discourse in which, certain things being stated, something other than what is stated follows of necessity from their being so.",
+      "zh": "三段論是這樣一種論述：某些事情被陳述了之後，另一件不同於所陳述的事情，因為它們如此而必然隨之而來。",
+      "note_en": "Three phrases carry the definition. “Certain things”: more than one premise. “Something other”: the conclusion must be new, which rules out merely repeating a premise. “Of necessity”: this is the first statement of what we now call validity. Syllogismos here means deduction in general, a wider sense than the three-line pattern the word later came to name.",
+      "note_zh": "三個詞組撐起這個定義。「某些事情」：前提不只一個。「另一件不同的事」：結論必須是新的，這就排除了單純重複前提。「必然」：這是我們今天所說的「有效性」最早的表述。這裡的 syllogismos 指的是一般的演繹，比後來專指三行格式的那個意思要寬。"
+     },
+     {
+      "ref": "Prior Analytics 25b37–39",
+      "en": "If A is predicated of all B, and B of all C, A must be predicated of all C.",
+      "zh": "如果 A 述說一切 B，而 B 述說一切 C，那麼 A 必定述說一切 C。",
+      "note_en": "This plain sentence is one of the great inventions. By writing A, B, and C, Aristotle shows that he is talking about every argument of this shape at once. Variables entered logic here, well before they were used in algebra. Notice also the order: he says “A of all B” where we say “all B are A,” which is why his syllogisms read backward to a modern eye.",
+      "note_zh": "這個平淡的句子是偉大的發明之一。亞里斯多德寫下 A、B、C，表示他談的是所有這個形狀的論證。變項是從這裡進入邏輯的，遠早於代數使用它們。也注意語序：他說「A 述說一切 B」，我們說「所有 B 都是 A」；所以他的三段論在現代人看來是倒著寫的。"
+     }
+    ]
+   },
+   "objections": {
+    "title_en": "Objections and replies",
+    "title_zh": "反駁與回應",
+    "items": [
+     {
+      "o_en": "Deduction can never teach us anything. If the conclusion is already contained in the premises, a valid argument only tells us what we knew.",
+      "o_zh": "演繹永遠不能教我們任何東西。如果結論已經包含在前提裡，有效論證只是把我們已經知道的事再說一遍。",
+      "r_en": "Logical containment is not psychological possession. The axioms of geometry contain the Pythagorean theorem, and no one who learns the axioms thereby knows the theorem. Deduction is informative for limited minds, and ours are limited. How an inference can be both necessary and informative is nevertheless a real puzzle, sometimes called the scandal of deduction.",
+      "r_zh": "邏輯上的包含，不等於心理上的擁有。幾何學的公理包含了畢氏定理，但沒有人學了公理就因此知道那條定理。對有限的心靈來說，演繹帶來新知，而我們的心靈是有限的。不過，一個推論怎麼能既是必然的、又帶來新知，確實是個難題，有人稱之為「演繹的醜聞」。"
+     },
+     {
+      "o_en": "The rules of logic cannot be justified without using them. Any proof that modus ponens is reliable will rely on modus ponens.",
+      "o_zh": "邏輯規則沒辦法不靠它們自己來證成。任何證明「肯定前件」可靠的證明，都會用到肯定前件。",
+      "r_en": "Lewis Carroll dramatized this in 1895. His Tortoise accepts the premises of a valid argument and refuses the conclusion until the rule of inference is written down as a further premise, and then asks for another, without end. The usual moral is that a rule of inference is not one more premise. It is something we do with premises, and at some point one must simply reason. Whether that amounts to a justification or to an admission that there is none is still argued.",
+      "r_zh": "路易斯・卡羅在 1895 年把這個問題寫成了一場戲。他筆下的烏龜接受一個有效論證的前提，卻不肯接受結論，除非先把推論規則寫下來當作又一個前提；寫下來之後，牠又要求再一個，沒完沒了。通常引出的教訓是：推論規則不是多一個前提，它是我們拿前提來「做」的事，到了某一點人就是得動手推理。這究竟算是一種證成，還是承認沒有證成，至今仍有爭論。"
+     },
+     {
+      "o_en": "Validity is beside the point. People are not moved by syllogisms, and the arguments that matter in life are never deductive.",
+      "o_zh": "有效性根本不是重點。人不會被三段論打動，而人生中重要的論證從來不是演繹的。",
+      "r_en": "The second half is nearly right: most reasoning that matters is inductive or practical. But the deductive standard still does work there. It lets us ask what would have to be added to make an argument valid, and the added premise is usually the one worth fighting about. As for persuasion, logic was never offered as a description of how people are moved. It describes what they would be right to be moved by.",
+      "r_zh": "後半句幾乎是對的：重要的推理大半是歸納的或實踐的。但演繹的標準在那裡仍然派得上用場。它讓我們問：要補上什麼，這個論證才會有效？而被補上的那個前提，通常就是最值得爭的那一個。至於說服力，邏輯從來不是要描述人實際上被什麼打動，它描述的是人被什麼打動才是對的。"
+     }
+    ]
+   },
+   "said": {
+    "claim": "“All men are mortal; Socrates is a man; therefore Socrates is mortal.”",
+    "claim_zh": "「所有人都會死；蘇格拉底是人；所以蘇格拉底會死。」",
+    "verdict_en": "Not in Aristotle",
+    "verdict_zh": "亞里斯多德沒有這樣寫",
+    "en": "The world’s best-known syllogism appears nowhere in Aristotle’s logical works. He stated his patterns with letters and seldom used a named individual as a term. The Socrates example is a schoolroom tradition of much later date; by 1843 Mill could treat it as the standard specimen. It is still a fair illustration of the pattern Aristotle discovered.",
+    "zh": "全世界最有名的三段論，在亞里斯多德的邏輯著作裡找不到。他用字母陳述他的樣式，很少拿一個有名有姓的個人當詞項。蘇格拉底這個例子是很久以後才有的課堂傳統；到了 1843 年，彌爾已經把它當成標準範例。用它來說明亞里斯多德發現的那個樣式，仍然是恰當的。"
+   },
+   "terms": [
+    {
+     "t": "premise",
+     "o": "L. praemissa ‘(proposition) set in front’",
+     "zh": "前提",
+     "d_en": "A statement offered as a reason for the conclusion.",
+     "d_zh": "被提出來當作結論之理由的陳述。"
+    },
+    {
+     "t": "valid",
+     "o": "L. validus ‘strong’",
+     "zh": "有效的",
+     "d_en": "Such that the premises cannot all be true while the conclusion is false. Said of arguments, never of statements.",
+     "d_zh": "前提不可能全真而結論為假。只用來形容論證，不用來形容陳述。"
+    },
+    {
+     "t": "sound",
+     "o": "",
+     "zh": "健全的",
+     "d_en": "Valid, and with premises that are all true.",
+     "d_zh": "有效，而且前提全部為真。"
+    },
+    {
+     "t": "entail",
+     "o": "",
+     "zh": "蘊涵",
+     "d_en": "Premises entail a conclusion when it follows from them necessarily.",
+     "d_zh": "結論必然從前提推出時，我們說前提蘊涵結論。"
+    },
+    {
+     "t": "syllogism",
+     "o": "Gk. syllogismos ‘a reckoning together’",
+     "zh": "三段論",
+     "d_en": "In Aristotle, any deduction; later, an argument with two premises and three terms.",
+     "d_zh": "在亞里斯多德是任何演繹；後來專指兩個前提、三個詞項的論證。"
+    },
+    {
+     "t": "deduction / induction",
+     "o": "L. deducere ‘to lead down’; inducere ‘to lead in’",
+     "zh": "演繹／歸納",
+     "d_en": "Reasoning whose premises are meant to guarantee the conclusion; reasoning whose premises are meant to make it probable.",
+     "d_zh": "前提要保證結論的推理；前提要使結論很可能為真的推理。"
+    },
+    {
+     "t": "modus ponens",
+     "o": "L. ‘the mode that affirms’",
+     "zh": "肯定前件",
+     "d_en": "If P then Q; P; therefore Q.",
+     "d_zh": "如果 P 則 Q；P；所以 Q。"
+    },
+    {
+     "t": "modus tollens",
+     "o": "L. ‘the mode that denies’",
+     "zh": "否定後件",
+     "d_en": "If P then Q; not Q; therefore not P.",
+     "d_zh": "如果 P 則 Q；非 Q；所以非 P。"
+    },
+    {
+     "t": "petitio principii",
+     "o": "L. ‘assuming the starting point’",
+     "zh": "乞題、循環論證",
+     "d_en": "Assuming in the premises the very thing to be proved.",
+     "d_zh": "在前提裡預設了正要證明的那件事。"
+    }
+   ],
+   "vocab": [
+    {
+     "w": "grant",
+     "pos": "v.",
+     "zh": "（姑且）承認",
+     "eg": "If you grant the two premises you cannot consistently deny the conclusion.",
+     "eg_zh": "如果你承認這兩個前提，就不可能不自相矛盾地否認結論。"
+    },
+    {
+     "w": "by virtue of",
+     "pos": "prep. phr.",
+     "zh": "憑藉、由於",
+     "eg": "It holds by virtue of the pattern alone.",
+     "eg_zh": "它單單憑著那個樣式成立。"
+    },
+    {
+     "w": "hold",
+     "pos": "v.",
+     "zh": "成立、為真",
+     "eg": "The necessity holds whatever the argument is about.",
+     "eg_zh": "不管論證在談什麼，這個必然性都成立。"
+    },
+    {
+     "w": "compel",
+     "pos": "v.",
+     "zh": "迫使（人接受）",
+     "eg": "Replace the terms with letters and the pattern still compels.",
+     "eg_zh": "把詞項換成字母，這個樣式照樣有約束力。"
+    },
+    {
+     "w": "from an armchair",
+     "pos": "adv. phr.",
+     "zh": "不靠實地調查、光憑思考",
+     "eg": "Whether an argument is valid can be settled from an armchair.",
+     "eg_zh": "一個論證有沒有效，坐在扶手椅上就能判定。"
+    },
+    {
+     "w": "bear on",
+     "pos": "phr. v.",
+     "zh": "與……有關、涉及",
+     "eg": "That depends on whatever the premises bear on.",
+     "eg_zh": "那要看前提所涉及的是什麼。"
+    },
+    {
+     "w": "rule out",
+     "pos": "phr. v.",
+     "zh": "排除",
+     "eg": "A wet street does not rule out other causes.",
+     "eg_zh": "街道溼，並不排除別的原因。"
+    },
+    {
+     "w": "trivially",
+     "pos": "adv.",
+     "zh": "輕而易舉地；不足道地",
+     "eg": "Validity may seem trivially easy to get.",
+     "eg_zh": "有效性似乎輕而易舉就能到手。"
+    },
+    {
+     "w": "in turn",
+     "pos": "adv. phr.",
+     "zh": "進而、接著",
+     "eg": "You know what you disagree about, and in turn what evidence would bear on it.",
+     "eg_zh": "你知道你們在爭什麼，進而知道什麼證據跟它有關。"
+    },
+    {
+     "w": "beg the question",
+     "pos": "v. phr.",
+     "zh": "乞題（預設了待證的結論）",
+     "eg": "An argument whose premises assume its conclusion begs the question.",
+     "eg_zh": "前提預設了結論的論證，犯了乞題。"
+    }
+   ],
+   "quiz": [
+    {
+     "q": "What does it mean to call an argument valid?",
+     "options": [
+      "Its premises cannot all be true while its conclusion is false.",
+      "Its premises and conclusion are all true.",
+      "Most people find it convincing.",
+      "Its conclusion is probably true."
+     ],
+     "correct": 0
+    },
+    {
+     "q": "“All poets are human; Li Bai is human; therefore Li Bai is a poet.” What is wrong with it?",
+     "options": [
+      "Nothing in it is false, but the conclusion does not follow.",
+      "The first premise is false.",
+      "The conclusion is false.",
+      "It is valid but unsound."
+     ],
+     "correct": 0
+    },
+    {
+     "q": "How does the method of counterexample show that a form is invalid?",
+     "options": [
+      "It finds an argument of the same form with true premises and a false conclusion.",
+      "It shows that one premise is false.",
+      "It shows that the conclusion is unpopular.",
+      "It replaces the conclusion with its opposite."
+     ],
+     "correct": 0
+    },
+    {
+     "q": "According to the essay, how does the Indian five-step inference differ from Aristotle’s syllogism?",
+     "options": [
+      "It requires an example that ties the general rule to a familiar case.",
+      "It has no conclusion.",
+      "It uses letters in place of words.",
+      "It rejects general rules."
+     ],
+     "correct": 0
+    },
+    {
+     "q": "Which premise of Mill’s objection do most later logicians reject?",
+     "options": [
+      "That we can assert a general statement only after knowing every case.",
+      "That Socrates is a man.",
+      "That circular arguments prove nothing.",
+      "That all men are mortal."
+     ],
+     "correct": 0
+    }
+   ],
+   "write": [
+    {
+     "en": "Find a short argument in today’s news or in an advertisement. Set it out as numbered premises and a conclusion, supplying any premise that was left unsaid. Is it valid? Which premise would you challenge?",
+     "zh": "從今天的新聞或一則廣告裡找一個短論證。把它整理成編號的前提與結論，沒說出口的前提替它補上。它有效嗎？你會質疑哪一個前提？"
+    },
+    {
+     "en": "Write one argument that is valid and plainly unsound, and one that is invalid although every statement in it is true. Then give a counterexample to the second.",
+     "zh": "寫一個有效但明顯不健全的論證，再寫一個每一句都是真的、卻無效的論證。然後替第二個找一個反例。"
+    },
+    {
+     "en": "Is Mill right that the syllogism begs the question? Defend your answer in about 150 words.",
+     "zh": "彌爾說三段論犯了乞題，他對嗎？用大約 150 個英文字為你的答案辯護。"
+    }
+   ],
+   "dharma": {
+    "title_en": "A view from the Dharma",
+    "title_zh": "佛法怎麼看",
+    "paras": [
+     {
+      "en": "Buddhist philosophers had a logic of their own, hetuvidyā, the “science of reasons,” known in Chinese as 因明. Around 500 CE the logician Dignāga reduced the Nyāya’s five steps to three. Thesis: sound is impermanent. Reason: because it is produced. Example: whatever is produced is impermanent, like a pot; and nothing permanent is produced, like space.",
+      "zh": "佛教哲學家有自己的邏輯：hetuvidyā，「關於理由的學問」，漢譯「因明」。大約西元 500 年，邏輯學家陳那把正理派的五支簡化成三支。宗：聲是無常。因：所作性故（因為它是造作出來的）。喻：凡所作者皆是無常，如瓶（同喻）；凡是常者皆非所作，如虛空（異喻）。"
+     },
+     {
+      "en": "Set beside Aristotle’s syllogism, the form is close: the example states the general rule, the reason applies it, and the thesis follows. The difference is the pot. A Buddhist inference is incomplete until the rule has been tied to a case that both parties accept, and tested against a contrasting case. Mill complained that the syllogism never tells us how its general premise is known. The Indian logicians had built an answer to that complaint into the form itself, some thirteen centuries earlier. Whether an example can really support a universal rule is, of course, the problem of induction again (Dharma and the West, D14).",
+      "zh": "跟亞里斯多德的三段論擺在一起，形式很接近：喻陳述普遍規則，因把它應用上去，宗就隨之成立。差別在那只瓶子。佛教的推論要等到規則繫在雙方都接受的個案上，並且用一個相反的個案檢驗過，才算完整。彌爾抱怨三段論從不告訴我們，它的普遍前提是怎麼知道的。印度的邏輯學家早了大約一千三百年，就把對這個抱怨的回答做進了形式本身。當然，一個例子到底能不能支持一條普遍規則，那又是歸納問題了（佛法與西方哲學 D14）。"
+     }
+    ],
+    "terms": [
+     [
+      "宗",
+      "pakṣa",
+      "thesis"
+     ],
+     [
+      "因",
+      "hetu",
+      "reason"
+     ],
+     [
+      "喻",
+      "dṛṣṭānta",
+      "example"
+     ],
+     [
+      "比量",
+      "anumāna",
+      "inference"
+     ]
+    ]
+   },
+   "further": [
+    {
+     "t": "Aristotle, Prior Analytics, translated by A. J. Jenkinson",
+     "url": "https://classics.mit.edu/Aristotle/prior.html",
+     "n_en": "Book I, chapters 1 to 7, is enough to see the system being built.",
+     "n_zh": "讀卷一第一到七章，就足以看到這套系統怎麼搭起來。"
+    },
+    {
+     "t": "John Stuart Mill, A System of Logic (1843), Book II, chapter 3",
+     "url": "https://www.gutenberg.org/ebooks/27942",
+     "n_en": "The charge that every syllogism begs the question. Public domain.",
+     "n_zh": "「每個三段論都犯了乞題」這項指控的出處。公版。"
+    },
+    {
+     "t": "Lewis Carroll, “What the Tortoise Said to Achilles,” Mind (1895)",
+     "url": "https://en.wikisource.org/wiki/What_the_Tortoise_Said_to_Achilles",
+     "n_en": "Three pages, and still unsettling.",
+     "n_zh": "三頁，至今仍然令人不安。"
+    },
+    {
+     "t": "Stanford Encyclopedia of Philosophy, “Aristotle’s Logic”",
+     "url": "https://plato.stanford.edu/entries/aristotle-logic/",
+     "n_en": "",
+     "n_zh": ""
+    },
+    {
+     "t": "Stanford Encyclopedia of Philosophy, “Logic and Language in Early Chinese Philosophy” and “Dignāga”",
+     "url": "https://plato.stanford.edu/entries/dignaga/",
+     "n_en": "For the other two inventions.",
+     "n_zh": "另外兩次發明。"
+    }
+   ],
+   "people": [
+    "aristotle",
+    "socrates"
+   ]
   }
  ],
  "philosophers": [
@@ -2316,6 +3007,311 @@
    ],
    "lessons": [
     "what-is-philosophy"
+   ]
+  },
+  {
+   "slug": "aristotle",
+   "name": "Aristotle",
+   "name_zh": "亞里斯多德",
+   "greek": "Ἀριστοτέλης",
+   "dates": "384–322 BCE",
+   "place_en": "Stagira and Athens",
+   "place_zh": "斯塔基拉、雅典",
+   "era_en": "Greece and Rome",
+   "era_zh": "希臘羅馬",
+   "tag_en": "He divided knowledge into the subjects we still study, and invented the science that checks reasoning in all of them.",
+   "tag_zh": "他把知識分成我們至今還在讀的科目，並且發明了檢查一切科目推理的那門學問。",
+   "facts": [
+    [
+     "Born",
+     "出生",
+     "384 BCE, Stagira, northern Greece"
+    ],
+    [
+     "Died",
+     "去世",
+     "322 BCE, Chalcis, on the island of Euboea"
+    ],
+    [
+     "Father",
+     "父親",
+     "Nicomachus, physician to the king of Macedon"
+    ],
+    [
+     "Teacher",
+     "老師",
+     "Plato, for about twenty years"
+    ],
+    [
+     "School",
+     "學校",
+     "The Lyceum, Athens, founded 335 BCE"
+    ],
+    [
+     "Pupils",
+     "學生",
+     "Alexander the Great; Theophrastus"
+    ]
+   ],
+   "life": [
+    {
+     "h_en": "The outsider at the Academy",
+     "h_zh": "學院裡的外地人",
+     "paras": [
+      {
+       "en": "Aristotle was born in 384 BCE at Stagira, a small town in the north of Greece. His father, Nicomachus, was physician to the king of Macedon, and it is tempting to see the doctor’s son in the philosopher who later dissected cuttlefish and classified some five hundred kinds of animal. Orphaned young, he was sent at seventeen to Athens to study at Plato’s Academy, and he stayed for about twenty years, until Plato died.",
+       "zh": "亞里斯多德西元前 384 年生於希臘北部的小鎮斯塔基拉。父親尼各馬可是馬其頓國王的御醫；這位哲學家日後解剖烏賊、替大約五百種動物分類，讓人很難不在他身上看到醫生兒子的影子。他年少失怙，十七歲被送到雅典，進柏拉圖的學院求學，一待大約二十年，直到柏拉圖去世。"
+      },
+      {
+       "en": "He was never a citizen of Athens and could not own property there. He was also never simply a disciple. Where Plato looked past the changing world to eternal Forms, Aristotle came to hold that the form of a thing is found in the thing, and that knowledge begins from careful observation of particulars. A later saying sums up his attitude: Plato is dear to me, but truth is dearer. The wording is medieval; the thought is his (Nicomachean Ethics I.6).",
+       "zh": "他始終不是雅典公民，在那裡不能擁有產業。他也從來不只是個門徒。柏拉圖把目光越過變動的世界，望向永恆的「理型」；亞里斯多德後來則主張，事物的形式就在事物之中，知識要從仔細觀察個別事物開始。後世有句話概括了他的態度：「吾愛吾師，吾更愛真理。」這個措辭是中世紀的，意思卻是他自己的（《尼各馬可倫理學》卷一第六章）。"
+      }
+     ]
+    },
+    {
+     "h_en": "The years abroad",
+     "h_zh": "在外的歲月",
+     "paras": [
+      {
+       "en": "When Plato died in 347, Aristotle left Athens. He spent several years on the coast of Asia Minor and on the island of Lesbos, where, with his friend Theophrastus, he did much of the biological research that fills a quarter of his surviving work. Around 343 Philip of Macedon invited him to tutor his thirteen-year-old son, the future Alexander the Great. What the philosopher taught the conqueror, and how much of it stayed, nobody knows.",
+       "zh": "西元前 347 年柏拉圖去世，亞里斯多德離開雅典。他在小亞細亞沿岸與列斯伏斯島住了幾年；他現存著作有四分之一是生物學，其中大部分的研究，就是在那裡跟朋友泰奧弗拉斯托斯一起做的。大約西元前 343 年，馬其頓的腓力請他去教自己十三歲的兒子，也就是日後的亞歷山大大帝。哲學家教了征服者什麼、留下了多少，沒有人知道。"
+      }
+     ]
+    },
+    {
+     "h_en": "The Lyceum",
+     "h_zh": "呂克昂",
+     "paras": [
+      {
+       "en": "In 335 he returned to Athens and opened his own school in a public gymnasium called the Lyceum. Its members were nicknamed Peripatetics, probably from the covered walk, the peripatos, where they talked. The Lyceum was something new: a research institute, with a library, collections of specimens, and teams compiling the constitutions of 158 Greek cities.",
+       "zh": "西元前 335 年他回到雅典，在一座名叫呂克昂的公共體育場開了自己的學校。學校的成員被稱為「逍遙學派」，這個綽號大概來自他們邊走邊談的那條有頂走廊（peripatos）。呂克昂是一種新的東西：一所研究機構，有圖書館、有標本收藏，還有團隊在彙編 158 個希臘城邦的政制。"
+      },
+      {
+       "en": "What survives from those years is about thirty treatises, roughly a third of what he wrote. They are not polished books. They read like lecture notes, dense and abrupt, and the dialogues he published for the public, which Cicero praised as a golden river of eloquence, are lost. When Alexander died in 323, Athens turned on everything Macedonian, and a charge of impiety was prepared against Aristotle. He withdrew to Chalcis, reportedly saying that he would not let the Athenians sin twice against philosophy, and died there the following year.",
+       "zh": "那些年留下來的是大約三十部專論，約佔他全部著作的三分之一。它們不是精心修飾的書，讀起來像講課筆記，濃縮而突兀；他為一般讀者發表的對話錄，西塞羅曾讚美為「雄辯的金色河流」，卻全都失傳了。西元前 323 年亞歷山大去世，雅典轉而敵視一切跟馬其頓有關的東西，有人準備以「不敬神」的罪名控告亞里斯多德。他退居卡爾基斯，據說留下一句話：他不讓雅典人對哲學犯第二次罪。第二年他在那裡去世。"
+      }
+     ]
+    }
+   ],
+   "timeline": [
+    [
+     "384",
+     "Born at Stagira",
+     "生於斯塔基拉"
+    ],
+    [
+     "367",
+     "Enters Plato’s Academy",
+     "進柏拉圖的學院"
+    ],
+    [
+     "347",
+     "Plato dies; Aristotle leaves Athens",
+     "柏拉圖去世，離開雅典"
+    ],
+    [
+     "c. 343",
+     "Tutor to Alexander",
+     "擔任亞歷山大的老師"
+    ],
+    [
+     "335",
+     "Founds the Lyceum",
+     "創立呂克昂"
+    ],
+    [
+     "323",
+     "Alexander dies; charge of impiety",
+     "亞歷山大去世；被控不敬神"
+    ],
+    [
+     "322",
+     "Dies at Chalcis",
+     "卒於卡爾基斯"
+    ]
+   ],
+   "idea": {
+    "title_en": "The central idea: Reasoning has a form",
+    "title_zh": "核心觀念：推理有它的形式",
+    "paras": [
+     {
+      "en": "Aristotle’s logical works were later bundled under the title Organon, “the tool,” and the name is exact. He did not regard logic as one science among others. It was the instrument every science uses. His discovery was that whether a conclusion follows depends on the arrangement of terms in an argument and not on what the terms mean, so that arrangements can be studied systematically. In the Prior Analytics he worked through every combination of two premises of four kinds, identified those that yield a conclusion of necessity, and showed how the rest reduce to a few basic patterns. No one had attempted anything like it. Near the end of the Organon he says so himself: on this subject there was nothing at all before him to build on.",
+      "zh": "亞里斯多德的邏輯著作後來被合編在《工具論》（Organon）這個標題下，這個名字很精確。他不把邏輯看成眾多科學當中的一門；它是每一門科學都要用的工具。他的發現是：結論推不推得出來，取決於論證裡詞項的排列，而不是詞項的意思，所以排列方式可以有系統地研究。在《前分析篇》裡，他把四種命題兩兩組合成前提的每一種情形都走過一遍，辨認出哪些必然得出結論，並證明其餘的可以化約為少數幾個基本樣式。在他之前沒有人做過類似的事。《工具論》接近結尾處，他自己也這麼說：在這個題目上，他之前完全沒有可以憑藉的東西。"
+     },
+     {
+      "en": "The same habit of mind runs through everything else he touched. To understand a thing is to grasp its causes, and he distinguished four: what it is made of, what form it has, what brought it about, and what it is for. To live well is to exercise, over a whole life, the excellences proper to a human being, which is what he meant by eudaimonia. To be good at feeling and acting is to hit the mean between too much and too little, as courage lies between cowardice and rashness. In each field he begins by collecting the opinions of “the many and the wise,” sorts out the puzzles, and builds from there.",
+      "zh": "同一種思考習慣貫穿他碰過的一切。了解一樣東西，就是掌握它的原因；他分出四種：它由什麼構成、有什麼形式、由什麼促成、為了什麼目的。活得好，就是在一整個人生中發揮人之為人所特有的卓越，這是他說的 eudaimonia（幸福、人的興盛）。在感受與行動上做得好，就是命中太多與太少之間的「中道」，就像勇敢位於懦弱與魯莽之間。在每個領域，他都先蒐集「多數人與有智慧的人」的意見，理清其中的疑難，再從那裡往上蓋。"
+     }
+    ]
+   },
+   "quote": {
+    "en": "All men by nature desire to know.",
+    "zh": "人人天生都渴望知道。",
+    "ref": "Aristotle, Metaphysics I.1, 980a, tr. W. D. Ross",
+    "note_en": "The first sentence of the Metaphysics. His evidence is that we enjoy seeing things even when it is of no use to us.",
+    "note_zh": "《形上學》的第一句。他的證據是：即使沒有用處，我們也喜歡看東西。"
+   },
+   "objection": {
+    "title_en": "The strongest objection: The logic was too small",
+    "title_zh": "最強的反駁：這套邏輯太小了",
+    "paras": [
+     {
+      "en": "For two thousand years Aristotle’s logic was treated as finished. Kant wrote in 1787 that since Aristotle logic had not needed to retrace a single step, and had not been able to advance one either. Less than a century later it was shown to be a fragment. The syllogism handles statements built from two terms, “all A are B.” It cannot handle relations. From “a horse is an animal” it follows that the head of a horse is the head of an animal, and, as Augustus De Morgan pointed out, no syllogism can prove it. Nor can it deal with statements that mix “every” and “some,” such as “everyone loves someone,” on which mathematics depends. In 1879 Gottlob Frege published a logic that could do all this, and Aristotle’s system became one small corner of it.",
+      "zh": "有兩千年之久，亞里斯多德的邏輯被當成已經完成的學問。康德在 1787 年寫道，自亞里斯多德以來，邏輯沒有必要後退一步，也沒能前進一步。不到一百年後，它被證明只是一個片段。三段論處理由兩個詞項構成的陳述：「所有 A 都是 B」。它處理不了「關係」。從「馬是動物」可以推出「馬的頭是動物的頭」，而正如德摩根指出的，沒有任何三段論證得出這一點。它也對付不了混用「每一個」與「某一個」的陳述，例如「每個人都愛著某個人」，而數學正需要這種陳述。1879 年，弗雷格發表了一套能做到這一切的邏輯，亞里斯多德的系統成了其中的一個小角落。"
+     },
+     {
+      "en": "A second objection concerns his authority and not his logic. Because he was right about so much, his mistakes were protected for centuries: that heavier bodies fall faster, that the earth sits still at the center, that some people are slaves by nature and that women are naturally subordinate. The fault lies partly with his followers, since Aristotle himself held that argument must give way to observation. But the last two claims are his own, argued for in the Politics, and they show how a careful reasoner can mistake the arrangements of his own society for facts of nature.",
+      "zh": "第二個反駁針對的是他的權威，不是他的邏輯。因為他對的地方太多，他的錯誤被保護了好幾個世紀：重的物體落得比較快；地球靜止在中心；有些人天生就是奴隸，而女人天生居於從屬。過錯有一部分在他的追隨者，因為亞里斯多德自己主張，論證必須向觀察讓步。但最後兩項是他本人的主張，在《政治學》裡有論證；它們顯示，一個細心的推理者可以怎樣把自己社會的安排，誤認為自然的事實。"
+     }
+    ]
+   },
+   "problem": {
+    "title_en": "How the books reached us",
+    "title_zh": "這些書是怎麼傳到我們手上的",
+    "paras": [
+     {
+      "en": "The treatises we read were probably never meant for publication. According to an ancient story, Aristotle’s manuscripts passed to Theophrastus and then to heirs who hid them in a cellar, where they lay for some two centuries before being brought to Rome and edited by Andronicus of Rhodes in the first century BCE. Whatever the truth of the story, the arrangement and many of the titles we use are the editor’s. “Metaphysics” itself is his label for the books placed after the Physics. In the Latin West most of Aristotle was then lost for centuries and returned in the twelfth and thirteenth centuries, largely through Arabic scholarship, with the commentaries of Ibn Sīnā and Ibn Rushd. To medieval readers he was simply “the Philosopher.”",
+      "zh": "我們讀到的這些專論，大概從來不是為了出版而寫的。照一個古代的說法，亞里斯多德的手稿傳給泰奧弗拉斯托斯，再傳給後人，後人把它們藏在地窖裡，一放大約兩個世紀，才被帶到羅馬，在西元前一世紀由羅得島的安德羅尼科編訂。不管這個故事有幾分真，我們現在用的編排與許多書名都出自這位編者；「形上學」這個名字，就是他給排在《物理學》之後那幾卷書的標籤。此後在拉丁語的西方，亞里斯多德的大部分著作失傳了好幾個世紀，到十二、十三世紀才回來，而且主要是經由阿拉伯學術，連同伊本・西那與伊本・魯世德的註釋一起。對中世紀的讀者來說，他就叫「那位哲學家」。"
+     }
+    ]
+   },
+   "said": {
+    "claim": "“We are what we repeatedly do. Excellence, then, is not an act, but a habit.”",
+    "claim_zh": "「我們反覆做什麼，我們就是什麼。所以卓越不是一個行為，而是一種習慣。」",
+    "verdict_en": "Will Durant, 1926",
+    "verdict_zh": "威爾・杜蘭，1926 年",
+    "en": "These are Will Durant’s words, from his summary of Aristotle’s ethics in The Story of Philosophy (1926). They paraphrase Nicomachean Ethics II.1–4, where Aristotle says that we become just by doing just acts and brave by doing brave acts. The summary is fair. The sentence is not Aristotle’s.",
+    "zh": "這是威爾・杜蘭的話，出自他在《哲學的故事》（1926）裡對亞里斯多德倫理學的摘要。它轉述的是《尼各馬可倫理學》卷二第一至四章；亞里斯多德在那裡說，我們因為做正義的事而成為正義的人，因為做勇敢的事而成為勇敢的人。這個摘要很公允，但句子不是亞里斯多德寫的。"
+   },
+   "dharma": {
+    "title_en": "Aristotle and the Buddha",
+    "title_zh": "亞里斯多德與佛陀",
+    "paras": [
+     {
+      "en": "Two comparisons are often made, and both need care. The first is between Aristotle’s mean and the Buddha’s Middle Way. They share a shape and differ in substance. Aristotle’s mean is a point on a scale of feeling or action, different for each person and situation: the right amount of anger, the right amount of giving. The Middle Way (majjhimā paṭipadā) of the first sermon is a path between two ways of life, indulgence in sense pleasure and self-mortification, and it is spelled out as the eightfold path. Aristotle aims at the flourishing of a self. The Buddha’s path leads to seeing that there is no such self to flourish.",
+      "zh": "常有人做兩個比較，兩個都需要小心。第一個是亞里斯多德的「中道」與佛陀的「中道」。兩者形狀相同，內容不同。亞里斯多德的中道是感受或行動量尺上的一個點，隨人、隨情境而不同：恰當分量的憤怒，恰當分量的施予。佛陀初轉法輪所說的中道（majjhimā paṭipadā），是兩種生活方式之間的一條路——耽於欲樂與自我折磨——並且具體展開為八正道。亞里斯多德瞄準的是一個自我的興盛；佛陀的道路通向的是看清：並沒有這樣一個可供興盛的自我。"
+     },
+     {
+      "en": "The second comparison is closer. Aristotle held that character is formed by repeated action: we become what we practice. Buddhist accounts of karma and of cultivation (bhāvanā) say much the same, and both traditions conclude that ethics is a matter of training and not only of knowing. That is the point on which both part company with Socrates. Which Western ethical theory Buddhist ethics most resembles, Aristotle’s or the utilitarians’, is a live debate among scholars (Dharma and the West, D18).",
+      "zh": "第二個比較貼近得多。亞里斯多德主張，品格是由反覆的行動形成的：我們練習什麼，就成為什麼。佛教對業與修習（bhāvanā）的說明，講的幾乎是同一件事；兩個傳統都得出結論：倫理是訓練的事，不只是知道的事。在這一點上，兩者都跟蘇格拉底分道揚鑣。至於佛教倫理最像西方哪一種倫理學理論——亞里斯多德的，還是效益主義的——是學界正在進行的爭論（佛法與西方哲學 D18）。"
+     }
+    ],
+    "terms": [
+     [
+      "中道",
+      "majjhimā paṭipadā",
+      "the middle way"
+     ],
+     [
+      "修習",
+      "bhāvanā",
+      "cultivation"
+     ],
+     [
+      "業",
+      "kamma / karma",
+      "intentional action"
+     ]
+    ]
+   },
+   "terms": [
+    {
+     "t": "Organon",
+     "o": "Gk. organon ‘tool, instrument’",
+     "zh": "《工具論》",
+     "d_en": "The traditional name for Aristotle’s six logical treatises.",
+     "d_zh": "亞里斯多德六部邏輯專論的傳統總稱。"
+    },
+    {
+     "t": "Peripatetic",
+     "o": "Gk. peripatos ‘a covered walk’",
+     "zh": "逍遙學派（的）",
+     "d_en": "Belonging to Aristotle’s school.",
+     "d_zh": "屬於亞里斯多德學派的。"
+    },
+    {
+     "t": "eudaimonia",
+     "o": "Gk. eu ‘well’ + daimōn ‘guardian spirit’",
+     "zh": "幸福、人的興盛",
+     "d_en": "Living and doing well over a whole life; often translated “happiness,” more exactly “flourishing.”",
+     "d_zh": "在一整個人生中活得好、做得好；常譯「幸福」，更精確的說法是「興盛」。"
+    },
+    {
+     "t": "telos",
+     "o": "Gk. ‘end, goal’",
+     "zh": "目的",
+     "d_en": "That for the sake of which a thing exists or is done; the root of “teleology.”",
+     "d_zh": "事物存在或行為發生所為的目的；teleology（目的論）的字根。"
+    },
+    {
+     "t": "the four causes",
+     "o": "Gk. aitia ‘cause, explanation’",
+     "zh": "四因",
+     "d_en": "Material, formal, efficient, and final: four kinds of answer to the question why.",
+     "d_zh": "質料因、形式因、動力因、目的因：對「為什麼」的四種回答。"
+    },
+    {
+     "t": "the mean",
+     "o": "Gk. mesotēs",
+     "zh": "中道",
+     "d_en": "The right amount, between excess and deficiency, in feeling and action.",
+     "d_zh": "感受與行動上，介於過與不及之間的恰當分量。"
+    }
+   ],
+   "quiz": [
+    {
+     "q": "What was new about the Lyceum?",
+     "options": [
+      "It worked as a research institute, with a library and collections.",
+      "It charged the highest fees in Athens.",
+      "It taught only mathematics.",
+      "It was open only to Athenian citizens."
+     ],
+     "correct": 0
+    },
+    {
+     "q": "What did Aristotle discover about arguments?",
+     "options": [
+      "Whether a conclusion follows depends on the arrangement of terms, not on their meaning.",
+      "Only arguments about nature can be valid.",
+      "Every argument is circular.",
+      "Observation is unnecessary."
+     ],
+     "correct": 0
+    },
+    {
+     "q": "Why was Aristotle’s logic shown to be incomplete in the nineteenth century?",
+     "options": [
+      "It could not handle relations or statements mixing “every” and “some.”",
+      "It contained a contradiction.",
+      "It had been mistranslated from Greek.",
+      "It relied on experiments."
+     ],
+     "correct": 0
+    }
+   ],
+   "further": [
+    {
+     "t": "Aristotle, Nicomachean Ethics, translated by W. D. Ross",
+     "url": "https://classics.mit.edu/Aristotle/nicomachaen.html",
+     "n_en": "Books I and II are the place to start.",
+     "n_zh": "從卷一、卷二讀起。"
+    },
+    {
+     "t": "Aristotle, Prior Analytics, translated by A. J. Jenkinson",
+     "url": "https://classics.mit.edu/Aristotle/prior.html",
+     "n_en": "",
+     "n_zh": ""
+    },
+    {
+     "t": "Stanford Encyclopedia of Philosophy, “Aristotle”",
+     "url": "https://plato.stanford.edu/entries/aristotle/",
+     "n_en": "",
+     "n_zh": ""
+    }
+   ],
+   "lessons": [
+    "good-argument"
    ]
   }
  ]

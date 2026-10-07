@@ -153,6 +153,99 @@
     root.__lab = { load: load, state: function () { return { key: cur.key, out: out }; } };
   });
 
+  /* ---- A2：有效、健全，還是都不是？ ---- */
+  $$('[data-ph-validity]').forEach(function (root) {
+    var items;
+    try { items = JSON.parse($('[data-vl-data]', root).textContent); } catch (e) { return; }
+    var arg = $('[data-vl-arg]', root), ask = $('[data-vl-ask]', root), out = $('[data-vl-out]', root);
+    var dots = $('[data-vl-dots]', root), count = $('[data-vl-count]', root), next = $('[data-vl-next]', root);
+    var i = 0, score = [], finished = false;
+
+    function line(k, o, cls) {
+      var row = el('div', 'ph-vl-line ' + (cls || ''));
+      row.appendChild(el('span', 'ph-vl-k', k));
+      var b = el('div'); b.appendChild(el('p', '', o.en));
+      var z = el('p', 'ph-zh', o.zh); z.lang = 'zh-Hant'; b.appendChild(z); addTr(z);
+      row.appendChild(b); return row;
+    }
+    function choice(q, qzh, opts, cb) {
+      ask.textContent = '';
+      var p = el('p', 'ph-vl-q'); p.appendChild(el('b', '', q)); var s = el('span', '', qzh); s.lang = 'zh-Hant'; p.appendChild(s); ask.appendChild(p);
+      var box = el('div', 'ph-vl-opts');
+      opts.forEach(function (o) {
+        var b = el('button', 'ph-vl-opt'); b.type = 'button'; b.appendChild(el('b', '', o[0])); var z = el('span', '', o[1]); z.lang = 'zh-Hant'; b.appendChild(z);
+        b.addEventListener('click', function () { cb(o[2]); }); box.appendChild(b);
+      });
+      ask.appendChild(box);
+    }
+    function paint() {
+      dots.textContent = '';
+      items.forEach(function (_, k) {
+        dots.appendChild(el('i', k < score.length ? (score[k] ? 'ok' : 'no') : (k === i && !finished ? 'cur' : '')));
+      });
+      count.textContent = finished ? '' : 'Argument ' + (i + 1) + ' of ' + items.length + ' · 第 ' + (i + 1) + '／' + items.length + ' 個';
+    }
+    function verdict(it) { return it.valid ? (it.true ? ['Valid and sound', '有效，而且健全', 'sound'] : ['Valid but unsound', '有效，但不健全', 'valid']) : ['Invalid', '無效', 'invalid']; }
+    function reveal(it, saidValid, saidTrue) {
+      var right = saidValid === it.valid && (!it.valid || saidTrue === it.true);
+      score.push(right); ask.textContent = ''; out.textContent = '';
+      var v = verdict(it);
+      var card = el('div', 'ph-vl-card is-' + v[2]);
+      var head = el('p', 'ph-vl-verdict'); head.appendChild(el('b', '', v[0])); var hz = el('span', '', v[1]); hz.lang = 'zh-Hant'; head.appendChild(hz);
+      head.appendChild(el('em', right ? 'ok' : 'no', right ? 'You had it · 你答對了' : 'Look again · 再看一次'));
+      card.appendChild(head);
+      var form = el('div', 'ph-vl-form'); form.appendChild(el('small', '', 'The form · 形式 — ' + it.name));
+      it.form.forEach(function (f) { form.appendChild(el('code', f.charAt(0) === '∴' ? 'c' : '', f)); });
+      card.appendChild(form);
+      var why = el('div', 'ph-vl-why'); why.appendChild(el('p', '', it.why.en)); var wz = el('p', 'ph-zh', it.why.zh); wz.lang = 'zh-Hant'; why.appendChild(wz); addTr(wz);
+      card.appendChild(why);
+      if (!it.valid && saidValid === false) { /* 答對無效：不必問前提 */ }
+      if (!it.valid) {
+        var note = el('p', 'ph-vl-skip', 'An invalid argument is unsound whatever its premises, so there is no second question. · 無效的論證不管前提如何都不健全，所以沒有第二個問題。');
+        card.appendChild(note);
+      }
+      if (it.counter) {
+        var c = el('div', 'ph-vl-counter'); c.appendChild(el('small', '', 'Same form, true premises, false conclusion · 同一個形式、真前提、假結論'));
+        c.appendChild(el('p', '', it.counter.en)); var cz = el('p', 'ph-zh', it.counter.zh); cz.lang = 'zh-Hant'; c.appendChild(cz); addTr(cz);
+        card.appendChild(c);
+      }
+      out.appendChild(card);
+      next.hidden = false;
+      next.textContent = i === items.length - 1 ? 'See your result · 看結果 →' : 'Next argument · 下一個 →';
+      paint();
+    }
+    function show() {
+      var it = items[i]; finished = false;
+      arg.textContent = ''; out.textContent = ''; next.hidden = true;
+      it.p.forEach(function (p, k) { arg.appendChild(line('P' + (k + 1), p)); });
+      arg.appendChild(line('∴', it.c, 'is-c'));
+      arg.classList.remove('ph-vl-in'); void arg.offsetWidth; arg.classList.add('ph-vl-in');
+      choice('Does the conclusion follow from the premises?', '結論從前提推得出來嗎？',
+        [['Yes: valid', '推得出來：有效', true], ['No: invalid', '推不出來：無效', false]], function (sv) {
+          if (!sv || !it.valid) { reveal(it, sv, null); return; }
+          choice('It is valid. Are the premises all true?', '它是有效的。前提全是真的嗎？',
+            [['Yes: sound', '全真：健全', true], ['No: unsound', '有假：不健全', false]], function (st) { reveal(it, true, st); });
+        });
+      paint();
+    }
+    function finish() {
+      finished = true; arg.textContent = ''; ask.textContent = ''; out.textContent = ''; next.hidden = true;
+      var n = score.filter(Boolean).length;
+      var card = el('div', 'ph-el-end');
+      var h = el('h4', '', n + ' of ' + items.length); h.appendChild(el('span', '', '答對 ' + n + '／' + items.length)); card.appendChild(h);
+      card.appendChild(el('p', '', n === items.length
+        ? 'You kept the two questions apart every time. That separation is the whole lesson.'
+        : 'The usual slip is to let a true conclusion pass for a valid argument, or a false one for an invalid argument. Try again and judge the form first.'));
+      var z = el('p', 'ph-zh', n === items.length ? '你每一次都把兩個問題分開了。這個「分開」就是這一課的全部。' : '最常見的失誤，是因為結論為真就當它有效，或因為結論為假就當它無效。再試一次，先判斷形式。');
+      z.lang = 'zh-Hant'; card.appendChild(z); addTr(z);
+      out.appendChild(card); paint();
+    }
+    next.addEventListener('click', function () { if (i < items.length - 1) { i++; show(); } else finish(); });
+    $('[data-vl-reset]', root).addEventListener('click', function () { i = 0; score = []; show(); });
+    show();
+    root.__lab = { state: function () { return { i: i, score: score.slice(), finished: finished }; } };
+  });
+
   /* ---- 自己的定義：打字之後出現五個檢查項（只存在這個頁面的記憶體裡） ---- */
   var own = $('[data-ph-own]'), checks = $('[data-ph-own-checks]');
   if (own && checks) {

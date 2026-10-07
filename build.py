@@ -7032,7 +7032,29 @@ def _ph_people_cards(slugs):
                    f'<span class="ph-go">Read the profile · 讀小傳 &rarr;</span></a>')
     return f'<div class="ph-pcards">{"".join(out)}</div>'
 
+def _ph_lab_validity(lab):
+    """A2：六個論證，先判有效、再判前提真假；資料塞進 JSON，由 philosophy.js 接手。"""
+    payload = html.escape(json.dumps(lab["items"], ensure_ascii=False), quote=False)
+    rows = "".join(f'<tr><th>{_ph_e(a)}<span lang="zh-Hant">{_ph_e(az)}</span></th><td>{_ph_e(b)}<span lang="zh-Hant">{_ph_e(bz)}</span></td></tr>'
+                   for a, az, b, bz in lab["table"])
+    return f'''<div class="ph-el ph-vl rvl" data-ph-validity>
+  <script type="application/json" data-vl-data>{payload}</script>
+  <div class="ph-vl-top"><div class="ph-vl-dots" data-vl-dots aria-hidden="true"></div><span class="ph-el-count" data-vl-count></span></div>
+  <div class="ph-el-stage">
+    <div class="ph-vl-arg" data-vl-arg></div>
+    <div class="ph-vl-ask" data-vl-ask aria-live="polite"></div>
+    <div class="ph-vl-out" data-vl-out aria-live="polite"></div>
+    <div class="ph-el-foot"><button type="button" class="ph-el-reset" data-vl-reset>Start again · 重來</button>
+      <button type="button" class="ph-vl-next" data-vl-next hidden>Next argument · 下一個 &rarr;</button></div>
+  </div>
+</div>
+<div class="ph-tests">
+  <h3 class="rvl">The four possibilities <span class="ph-h2-zh">四種可能</span></h3>
+  <div class="ph-vl-table rvl"><table><tbody>{rows}</tbody></table></div>
+</div>'''
+
 def _ph_lab(lab):
+    if lab.get("kind") == "validity": return _ph_lab_validity(lab)
     """蘇格拉底式詰問：三個對話錄、每個三個定義；資料塞進 JSON，由 philosophy.js 接手。"""
     payload = html.escape(json.dumps(lab["dialogues"], ensure_ascii=False), quote=False)
     tabs = "".join(f'<button type="button" role="tab" class="ph-el-tab" data-el-tab="{d["key"]}" aria-selected="{"true" if i == 0 else "false"}">'
@@ -7107,6 +7129,11 @@ def _ph_nav(prev=None, nxt=None):
     return (f'<nav class="pm-nav rvl">{side(prev, "prev", "Previous · 上一篇")}'
             f'<a class="pm-nav-hub" href="{PHIL_BASE}">&#9776; All of Philosophy · 回哲學</a>{side(nxt, "next", "Next · 下一篇")}</nav>')
 
+def _ph_adjacent(L):
+    ls = PHIL["lessons"]; i = ls.index(L)
+    link = lambda x: (f'{PHIL_BASE}{x["slug"]}/', f'{x["n"]} · {x["title"]}')
+    return (link(ls[i - 1]) if i > 0 else None, link(ls[i + 1]) if i < len(ls) - 1 else None)
+
 def build_phil_lesson(L):
     path = f'{PHIL_BASE}{L["slug"]}/'
     words = sum(len(p["en"].split()) for s in L["essay"] for p in s["paras"])
@@ -7138,7 +7165,7 @@ def build_phil_lesson(L):
   <h2 class="rvl d1 sweep">People and reading <span class="ph-h2-zh">人物與延伸閱讀</span></h2>
   {_ph_people_cards(L["people"])}
   {_ph_further(L["further"])}
-  {_ph_nav()}
+  {_ph_nav(*_ph_adjacent(L))}
 </div></section>
 '''
     say_slug = f'philosophy-{L["slug"]}'   # tools/gen_audio.py 以路徑末兩段命名
