@@ -638,3 +638,9 @@ main:has(.ph-tools) .wrap { width: min(980px, 92vw); }
 .ph-ship-markout[hidden] { display: none; }
 .ph-pick .ph-ck-reply .ph-p { margin: .2rem 0 0; }
 .ph-pick .ph-ck-reply .ph-en { font: 400 1.04rem/1.7 var(--sans); }
+
+/* ---------- A10：踏進這條河 ---------- */
+.ph-rv-view { background: #cdbb8f; }
+.ph-rv-view canvas { display: block; width: 100%; height: auto; }
+.ph-rv .ph-zn-run[aria-pressed="true"] { background: #4fd1a5; color: var(--ph-night); }
+.ph-rv-read b { font-size: clamp(.95rem, 2vw, 1.2rem); }

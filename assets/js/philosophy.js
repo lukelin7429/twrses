@@ -537,6 +537,90 @@
     });
   });
 
+  /* ---- A10：踏進這條河（水滴流過石頭；踏進去會標記碰到腳的水） ---- */
+  $$('[data-ph-river]').forEach(function (root) {
+    var N;
+    try { N = JSON.parse($('[data-rv-data]', root).textContent); } catch (e) { return; }
+    var cv = $('canvas', root), g = cv.getContext('2d'), W = cv.width, H = cv.height;
+    var msg = $('[data-rv-msg]', root), stepsEl = $('[data-rv-steps]', root), leftEl = $('[data-rv-left]', root), passedEl = $('[data-rv-passed]', root), stateEl = $('[data-rv-state]', root);
+    var ROCK = { x: 610, y: 215, r: 34 }, FOOT = { x: 330, y: 205, r: 62 };
+    var drops, steps, passed, frozen, pattern, firstTotal, said;
+    function bankTop(x) { return 70 + 16 * Math.sin(x / 150); }
+    function bankBot(x) { return 350 + 18 * Math.sin(x / 130 + 1.4); }
+    function spawn(x) {
+      var t = Math.random();
+      return { x: x, t: t, y: 0, v: 1.5 + 1.6 * (1 - Math.abs(t - 0.5) * 2) + Math.random() * 0.4, tag: 0, eddy: 0, a: Math.random() * 6.28 };
+    }
+    function say(key) { if (said === key) return; said = key; var o = N[key]; msg.textContent = o.en; var z = el('span', '', o.zh); z.lang = 'zh-Hant'; msg.appendChild(z); }
+    function reset() {
+      drops = []; for (var i = 0; i < 760; i++) drops.push(spawn(Math.random() * W));
+      steps = 0; passed = 0; frozen = false; pattern = false; firstTotal = 0; said = null;
+      $('[data-rv-freeze]', root).setAttribute('aria-pressed', 'false'); $('[data-rv-pattern]', root).setAttribute('aria-pressed', 'false');
+      say('start'); readout();
+    }
+    function readout() {
+      stepsEl.textContent = steps; passedEl.textContent = passed;
+      var left = drops.filter(function (d) { return d.tag === 1; }).length;
+      leftEl.textContent = firstTotal ? left + ' / ' + firstTotal : '—';
+      stateEl.textContent = frozen ? 'stopped · 停住' : 'flowing · 流動';
+      if (steps === 1 && firstTotal && left === 0 && !frozen && !pattern) say('gone');
+    }
+    function step() {
+      steps++; var n = 0;
+      drops.forEach(function (d) { var dx = d.x - FOOT.x, dy = d.y - FOOT.y; if (dx * dx + dy * dy < FOOT.r * FOOT.r) { d.tag = steps === 1 ? 1 : 2; n++; } });
+      if (steps === 1) firstTotal = n;
+      said = null; say(steps === 1 ? 'step1' : 'step2'); readout();
+    }
+    function tick() {
+      drops.forEach(function (d, i) {
+        if (!frozen) {
+          if (d.eddy > 0) {                          // 困在石頭後面的漩渦裡轉幾圈
+            d.a += 0.11; d.eddy--; d.x = ROCK.x + 62 + Math.cos(d.a) * 22; d.yo = Math.sin(d.a) * 20;
+            if (d.eddy === 0) { d.t = (ROCK.y + d.yo - bankTop(d.x)) / (bankBot(d.x) - bankTop(d.x)); d.yo = null; }
+          } else {
+            d.x += d.v;
+            var y = bankTop(d.x) + d.t * (bankBot(d.x) - bankTop(d.x)), dx = d.x - ROCK.x, dy = y - ROCK.y, r2 = dx * dx + dy * dy, R = ROCK.r + 9;
+            if (r2 < R * R) { d.t += (dy >= 0 ? 1 : -1) * 0.012; }                       // 繞過石頭
+            if (dx > 20 && dx < 60 && Math.abs(dy) < 46 && Math.random() < 0.09) { d.eddy = 90 + Math.floor(Math.random() * 120); d.a = Math.random() * 6.28; }
+          }
+          if (d.x > W + 6) { if (d.tag) { /* 被標記的水流走了 */ } drops[i] = spawn(-6); passed++; }
+        }
+        d.y = d.eddy > 0 && d.yo != null ? ROCK.y + d.yo : bankTop(d.x) + Math.min(0.97, Math.max(0.03, d.t)) * (bankBot(d.x) - bankTop(d.x));
+      });
+      draw(); readout();
+    }
+    function draw() {
+      g.fillStyle = '#cdbb8f'; g.fillRect(0, 0, W, H);
+      g.beginPath(); g.moveTo(0, bankTop(0)); for (var x = 0; x <= W; x += 10) g.lineTo(x, bankTop(x)); for (x = W; x >= 0; x -= 10) g.lineTo(x, bankBot(x)); g.closePath();
+      g.fillStyle = frozen ? '#9fc4d6' : '#2f7fa8'; g.fill();
+      if (pattern) {
+        g.strokeStyle = '#ffd36e'; g.lineWidth = 3; g.setLineDash([9, 7]);
+        g.beginPath(); for (x = 0; x <= W; x += 10) g.lineTo(x, bankTop(x)); g.stroke();
+        g.beginPath(); for (x = 0; x <= W; x += 10) g.lineTo(x, bankBot(x)); g.stroke();
+        g.beginPath(); g.arc(ROCK.x + 62, ROCK.y, 31, 0, 6.3); g.stroke(); g.setLineDash([]);
+        g.fillStyle = '#ffd36e'; g.font = '700 17px sans-serif'; g.fillText('eddy · 漩渦', ROCK.x + 100, ROCK.y - 30); g.fillText('banks · 河岸', 24, bankTop(24) - 12);
+      }
+      drops.forEach(function (d) {
+        g.fillStyle = d.tag === 1 ? '#ff9d5c' : d.tag === 2 ? '#7ff0c8' : 'rgba(255,255,255,.55)';
+        g.beginPath(); g.arc(d.x, d.y, d.tag ? 4.6 : 2.4, 0, 6.3); g.fill();
+      });
+      g.fillStyle = '#6b6258'; g.beginPath(); g.arc(ROCK.x, ROCK.y, ROCK.r, 0, 6.3); g.fill();
+      g.fillStyle = '#857b6f'; g.beginPath(); g.arc(ROCK.x - 8, ROCK.y - 9, ROCK.r * 0.55, 0, 6.3); g.fill();
+      if (steps) {
+        g.strokeStyle = '#fff'; g.lineWidth = 2.5; g.setLineDash([6, 5]); g.beginPath(); g.arc(FOOT.x, FOOT.y, FOOT.r, 0, 6.3); g.stroke(); g.setLineDash([]);
+        g.fillStyle = '#fff'; g.font = '700 16px sans-serif'; g.fillText('you · 你', FOOT.x - 28, FOOT.y - FOOT.r - 9);
+      }
+    }
+    $('[data-rv-step]', root).addEventListener('click', step);
+    $('[data-rv-freeze]', root).addEventListener('click', function (e) { frozen = !frozen; e.currentTarget.setAttribute('aria-pressed', frozen ? 'true' : 'false'); e.currentTarget.firstChild.textContent = frozen ? 'Let it flow · 讓它流' : 'Stop the river · 把河停住'; said = null; say(frozen ? 'frozen' : (steps ? 'step' + Math.min(2, steps) : 'start')); });
+    $('[data-rv-pattern]', root).addEventListener('click', function (e) { pattern = !pattern; e.currentTarget.setAttribute('aria-pressed', pattern ? 'true' : 'false'); said = null; if (pattern) say('pattern'); });
+    $('[data-rv-reset]', root).addEventListener('click', reset);
+    reset(); for (var k = 0; k < 200; k++) tick(); passed = 0;
+    if (/river=step/.test(location.hash)) { step(); for (k = 0; k < 28; k++) tick(); pattern = true; }   // 截圖用
+    setInterval(tick, 33);
+    root.__lab = { step: step, tick: tick, state: function () { return { steps: steps, passed: passed, frozen: frozen, pattern: pattern, first: firstTotal, left: drops.filter(function (d) { return d.tag === 1; }).length, said: said }; } };
+  });
+
   /* ---- 通用：先選邊、再看回應（data-ph-pick） ---- */
   $$('[data-ph-pick]').forEach(function (root) {
     var btns = $$('[data-pick]', root), reps = $$('[data-pick-reply]', root), tried = $('[data-pick-tried]', root), seen = {};

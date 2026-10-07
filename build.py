@@ -7273,7 +7273,35 @@ def _ph_lab_ship(lab):
   {_ph_pick(lab["pick"])}
 </div>'''
 
+def _ph_lab_river(lab):
+    """A10：踏進這條河（2D canvas，philosophy.js 的 data-ph-river）。水滴流過石頭；踏進去會標記碰到腳的水。"""
+    payload = html.escape(json.dumps(lab["notes"], ensure_ascii=False), quote=False)
+    return f'''<div class="ph-el ph-rv rvl" data-ph-river>
+  <script type="application/json" data-rv-data>{payload}</script>
+  <div class="ph-rv-view"><canvas width="1000" height="420" aria-label="A river flowing past a rock, seen from above · 從上方看，流過一塊石頭的河"></canvas></div>
+  <div class="ph-el-stage">
+    <div class="ph-zn-read ph-rv-read">
+      <div><small>Steps · 踏進幾次</small><b data-rv-steps>0</b></div>
+      <div><small>First water still here · 第一次的水還在</small><b data-rv-left>—</b></div>
+      <div><small>Drops gone by · 已流過的水滴</small><b data-rv-passed>0</b></div>
+      <div><small>The river · 這條河</small><b data-rv-state>flowing</b></div>
+    </div>
+    <div class="ph-zn-btns">
+      <button type="button" class="ph-vl-next" data-rv-step>Step in · 踏進去</button>
+      <button type="button" class="ph-zn-run" data-rv-freeze aria-pressed="false">Stop the river · 把河停住</button>
+      <button type="button" class="ph-zn-run" data-rv-pattern aria-pressed="false">Show the pattern · 顯示樣式</button>
+      <button type="button" class="ph-el-reset" data-rv-reset>Start again · 重來</button>
+    </div>
+    <p class="ph-zn-msg" data-rv-msg aria-live="polite"></p>
+  </div>
+</div>
+<div class="ph-tests">
+  <h3 class="rvl">Was it the same river? <span class="ph-h2-zh">那是同一條河嗎？</span></h3>
+  {_ph_pick(lab["pick"])}
+</div>'''
+
 def _ph_lab(lab):
+    if lab.get("kind") == "river": return _ph_lab_river(lab)
     if lab.get("kind") == "ship": return _ph_lab_ship(lab)
     if lab.get("kind") == "chicken": return _ph_lab_chicken(lab)
     if lab.get("kind") == "meno": return _ph_lab_meno(lab)
