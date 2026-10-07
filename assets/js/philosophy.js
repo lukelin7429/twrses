@@ -376,6 +376,74 @@
     root.__lab = { step: step, run: run, state: function () { return { r: r, n: n, a: a, t: t, clock: clock, meet: meet(), tMeet: tMeet(), mode: mode }; } };
   });
 
+  /* ---- A5：懷疑的階梯（先預測、再施加懷疑） ---- */
+  $$('[data-ph-doubt]').forEach(function (root) {
+    var D;
+    try { D = JSON.parse($('[data-db-data]', root).textContent); } catch (e) { return; }
+    var grid = $('[data-db-grid]', root), q = $('[data-db-q]', root), out = $('[data-db-out]', root);
+    var go = $('[data-db-go]', root), wavesEl = $('[data-db-waves]', root), count = $('[data-db-count]', root);
+    var w, cards, phase, hits;
+    function zhp(parent, text, cls) { var z = el('p', cls || 'ph-zh', text); z.lang = 'zh-Hant'; parent.appendChild(z); if (!cls) addTr(z); return z; }
+    function standing() { return cards.filter(function (c) { return !c.fallen; }); }
+    function paint() {
+      wavesEl.textContent = '';
+      D.waves.forEach(function (wv, k) {
+        var s = el('span', k < w ? 'done' : (k === w ? 'cur' : ''), (k + 1) + '. ' + wv.name.en); wavesEl.appendChild(s);
+      });
+      count.textContent = standing().length + ' of ' + cards.length + ' still standing · 還站著 ' + standing().length + '／' + cards.length;
+    }
+    function ask() {
+      phase = 'predict'; out.textContent = ''; q.textContent = '';
+      var wv = D.waves[w];
+      q.appendChild(el('small', '', 'Wave ' + (w + 1) + ' · 第 ' + (w + 1) + ' 波 — ' + wv.name.zh));
+      q.appendChild(el('p', '', wv.q.en)); zhp(q, wv.q.zh, 'ph-db-qzh');
+      q.appendChild(el('p', 'ph-db-hint', 'Tap the beliefs you expect to fall, then apply the doubt. · 點選你預期會倒下的信念，再施加懷疑。'));
+      go.hidden = false; go.textContent = 'Apply the doubt · 施加懷疑';
+      cards.forEach(function (c) { c.b.classList.remove('is-miss', 'is-hit'); c.pick = false; c.b.setAttribute('aria-pressed', 'false'); c.b.disabled = c.fallen; });
+      paint();
+    }
+    function apply() {
+      var wv = D.waves[w], right = 0, total = 0;
+      standing().forEach(function (c) {
+        var falls = c.lv === w + 1; total++;
+        if (falls === c.pick) right++; else c.b.classList.add('is-miss');
+        c.b.disabled = true;
+        if (falls) { c.fallen = true; c.b.classList.add('is-fallen'); c.b.setAttribute('data-wave', String(w + 1)); }
+      });
+      hits += right;
+      var card = el('div', 'ph-vl-card');
+      var head = el('p', 'ph-vl-verdict'); head.appendChild(el('b', '', wv.name.en));
+      head.appendChild(el('em', right === total ? 'ok' : 'no', 'You matched Descartes on ' + right + ' of ' + total + ' · 與笛卡兒一致 ' + right + '／' + total)); card.appendChild(head);
+      var why = el('div', 'ph-vl-why'); why.appendChild(el('p', '', wv.why.en)); zhp(why, wv.why.zh); card.appendChild(why);
+      card.appendChild(el('p', 'ph-vl-skip', wv.ref));
+      out.textContent = ''; out.appendChild(card);
+      phase = 'shown'; w++;
+      if (w < D.waves.length) go.textContent = 'Next wave · 下一波 →';
+      else {
+        go.hidden = true;
+        cards.forEach(function (c) { if (!c.fallen) c.b.classList.add('is-cogito'); });
+        var end = el('div', 'ph-el-end'); var h = el('h4', '', 'Cogito'); h.appendChild(el('span', '', '我思')); end.appendChild(h);
+        end.appendChild(el('p', '', D.end.en)); zhp(end, D.end.zh); out.appendChild(end);
+      }
+      paint();
+    }
+    function reset() {
+      w = 0; hits = 0; grid.textContent = '';
+      cards = D.beliefs.map(function (bf) {
+        var b = el('button', 'ph-db-card'); b.type = 'button'; b.setAttribute('aria-pressed', 'false');
+        b.appendChild(el('b', '', bf.t.en)); var z = el('span', '', bf.t.zh); z.lang = 'zh-Hant'; b.appendChild(z);
+        var c = { b: b, lv: bf.lv, fallen: false, pick: false };
+        b.addEventListener('click', function () { if (phase !== 'predict' || c.fallen) return; c.pick = !c.pick; b.setAttribute('aria-pressed', c.pick ? 'true' : 'false'); });
+        grid.appendChild(b); return c;
+      });
+      ask();
+    }
+    go.addEventListener('click', function () { if (phase === 'predict') apply(); else if (w < D.waves.length) ask(); });
+    $('[data-db-reset]', root).addEventListener('click', reset);
+    reset();
+    root.__lab = { state: function () { return { w: w, standing: standing().length, hits: hits, phase: phase }; } };
+  });
+
   /* ---- 自己的定義：打字之後出現五個檢查項（只存在這個頁面的記憶體裡） ---- */
   var own = $('[data-ph-own]'), checks = $('[data-ph-own-checks]');
   if (own && checks) {

@@ -7113,7 +7113,23 @@ def _ph_lab_zeno(lab):
   </div>
 </div>'''
 
+def _ph_lab_doubt(lab):
+    """A5：懷疑的階梯。十個信念、三波懷疑；每一波先讓讀者預測哪些會倒，再揭曉。"""
+    payload = html.escape(json.dumps({"beliefs": lab["beliefs"], "waves": lab["waves"], "end": lab["end"]}, ensure_ascii=False), quote=False)
+    return f'''<div class="ph-el ph-db rvl" data-ph-doubt>
+  <script type="application/json" data-db-data>{payload}</script>
+  <div class="ph-vl-top"><div class="ph-db-waves" data-db-waves></div><span class="ph-el-count" data-db-count></span></div>
+  <div class="ph-el-stage">
+    <div class="ph-db-q" data-db-q aria-live="polite"></div>
+    <div class="ph-db-grid" data-db-grid></div>
+    <div class="ph-vl-out" data-db-out aria-live="polite"></div>
+    <div class="ph-el-foot"><button type="button" class="ph-el-reset" data-db-reset>Start again · 重來</button>
+      <button type="button" class="ph-vl-next" data-db-go>Apply the doubt · 施加懷疑</button></div>
+  </div>
+</div>'''
+
 def _ph_lab(lab):
+    if lab.get("kind") == "doubt": return _ph_lab_doubt(lab)
     if lab.get("kind") == "zeno": return _ph_lab_zeno(lab)
     if lab.get("kind") == "validity": return _ph_lab_validity(lab)
     if lab.get("kind") == "fallacy": return _ph_lab_fallacy(lab)
@@ -7251,7 +7267,7 @@ def build_phil_person(P):
 {page_hero(f'Philosophers · 哲學家 · {_ph_e(P["era_en"])}', f'{_ph_e(P["name"])} <span class="ph-h1-zh">{_ph_e(P["name_zh"])} · {_ph_e(P["greek"])}</span>', hero_lead, back=(PHIL_BASE + "#shelf-philosophers", "Philosophers · 回哲學家"))}
 {_ph_toolbar()}
 <section class="section tight ph-top"><div class="wrap ph-person-top">
-  <div class="ph-mono rvl" aria-hidden="true"><span>{_ph_e(P["greek"][0])}</span><i>{_ph_e(P["dates"])}</i></div>
+  <div class="ph-mono rvl" aria-hidden="true"><span>{_ph_e(P.get("mono") or P["greek"][0])}</span><i>{_ph_e(P["dates"])}</i></div>
   <dl class="ph-facts rvl d1">{facts}</dl>
   <p class="ph-trnote rvl d2" style="grid-column:1/-1"><b>中文翻譯</b><span>Every paragraph has a Chinese translation. Tap <span class="ph-tr"><span>中譯</span><i>▾</i></span> under a paragraph to open that one, or use <strong>Show Chinese · 顯示中譯</strong> at the top to open them all.</span>
     <span lang="zh-Hant">每一段都有中譯：點段落下方的「中譯」只開那一段，或按上方的「顯示中譯」一次全部打開。</span></p>
