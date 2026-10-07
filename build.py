@@ -1417,6 +1417,8 @@ def build_reading_hub():
              "What is inside a chip? From sand to silicon to the chips behind AI, in English with 3D models. 晶片裡有什麼？從沙子、矽到 AI 晶片，用英文讀懂，再用 3D 模型看清楚。"),
             ("/resources/classes/calligraphy/", "🖌️", "Chinese Calligraphy · 書法",
              "Brush, ink, paper, and inkstone: watch a 3D brush write in slow motion, then write it yourself on the practice pad. 文房四寶與毛筆字：先看 3D 毛筆慢動作寫字，再到練字板上自己寫。"),
+            ("/resources/classes/philosophy/", "🦉", "Philosophy · 哲學",
+             "Advanced reading: the big questions, the people who asked them, and where the Dharma meets Western thought. 高級閱讀：哲學的大問題、問這些問題的人，以及佛法與西方哲學的對照。"),
             ("/resources/grandfather/", "🌅", "Grandfather · 落日餘暉",
              "Thirty chapters of life wisdom by Leon La Couvée, in English and Chinese. 三十章人生智慧，中英對照。"),
             ("/resources/periodicals/", "📰", "Periodicals · 英語期刊",
@@ -6909,6 +6911,331 @@ def build_htw_hub():
     return HTW_BASE
 
 
+# ---- 哲學 Philosophy（資料驅動，data/philosophy.json）----
+# 五個書架：A 大哉問（分支）、B 哲學史、C 哲學家、D 佛法與西方哲學、E 原典精讀。
+# shelves[].units[].items 是整份課表（系列首頁用）；做好的課在 lessons[]、人物在 philosophers[]，
+# 以 item.slug 掛回課表，沒有 slug 的就是「製作中」。
+# 定位與其他系列不同：這個系列是高級程度（成人讀者），英文長文為主、中譯可開關。
+# 樣式在 assets/css/philosophy.css（class 前綴 ph-）、互動在 assets/js/philosophy.js，兩者只載在本系列頁面。
+_phj = os.path.join(ROOT, "data", "philosophy.json")
+PHIL = json.load(open(_phj, encoding="utf-8")) if os.path.exists(_phj) else None
+PHIL_BASE = "/resources/classes/philosophy/"
+
+def _ph_head():
+    h = hashlib.md5()
+    for rel in ("assets/css/philosophy.css", "assets/js/philosophy.js"):
+        fp = os.path.join(ROOT, rel)
+        if os.path.exists(fp): h.update(open(fp, "rb").read())
+    v = h.hexdigest()[:8]
+    return (f'<link rel="stylesheet" href="/assets/css/philosophy.css?v={v}">\n'
+            f'<script defer src="/assets/js/philosophy.js?v={v}"></script>\n')
+
+def _ph_e(s): return html.escape(s, quote=True)
+
+def _ph_say(text, label="Listen · 聽這段"):
+    t = _ph_e(re.sub(r"\s+", " ", re.sub(r"[“”‘’…]", "", text)).strip())
+    return f'<button class="spk ph-spk" data-say="{t}" aria-label="{label}">🔊</button>'
+
+def _ph_bi(p, cls="", say=True):
+    """一段英文＋可開關的中譯。"""
+    spk = _ph_say(p["en"]) if say else ""
+    return (f'<div class="ph-p {cls}"><p class="ph-en">{spk}<span>{_ph_e(p["en"])}</span></p>'
+            f'<p class="ph-zh" lang="zh-Hant">{_ph_e(p["zh"])}</p></div>')
+
+def _ph_owl(size=120):
+    """系列的標誌：雅典娜的貓頭鷹（自繪）。"""
+    return (f'<svg class="ph-owl" viewBox="0 0 120 120" width="{size}" height="{size}" aria-hidden="true">'
+            '<path class="ph-owl-body" d="M60 14c-22 0-36 15-36 40v18c0 20 14 34 36 34s36-14 36-34V54c0-25-14-40-36-40z"/>'
+            '<path class="ph-owl-ear" d="M27 40 22 14l22 12M93 40l5-26-22 12"/>'
+            '<circle class="ph-owl-eye" cx="43" cy="52" r="15"/><circle class="ph-owl-eye" cx="77" cy="52" r="15"/>'
+            '<circle class="ph-owl-pupil" cx="43" cy="52" r="6"/><circle class="ph-owl-pupil" cx="77" cy="52" r="6"/>'
+            '<path class="ph-owl-beak" d="M60 60l-6 10h12z"/>'
+            '<path class="ph-owl-wing" d="M40 82q20 12 40 0M44 92q16 9 32 0"/></svg>')
+
+def _ph_toolbar():
+    return ('<div class="ph-tools" data-ph-tools><div class="wrap ph-tools-in">'
+            '<nav class="ph-toc" aria-label="On this page · 本頁目錄" data-ph-toc></nav>'
+            '<button type="button" class="ph-zh-btn" data-ph-zh aria-pressed="false">'
+            '<span class="on">Hide Chinese · 隱藏中譯</span><span class="off">Show Chinese · 顯示中譯</span></button>'
+            '</div><div class="ph-progress" aria-hidden="true"><i data-ph-bar></i></div></div>')
+
+def _ph_sec(sid, toc, eyebrow, h_en, h_zh, inner, band=False, lead=None):
+    lead_html = (f'<div class="ph-lead rvl d2">{_ph_bi(lead, say=False)}</div>' if lead else "")
+    return (f'<section class="section ph-sec{" band" if band else ""}" id="{sid}" data-ph-toc-label="{_ph_e(toc)}"><div class="wrap">'
+            f'<p class="eyebrow rvl">{eyebrow}</p>'
+            f'<h2 class="rvl d1 sweep">{_ph_e(h_en)} <span class="ph-h2-zh">{_ph_e(h_zh)}</span></h2>'
+            f'{lead_html}{inner}</div></section>')
+
+def _ph_terms(items):
+    rows = "".join(
+        f'<div class="ph-term rvl"><div class="ph-term-h"><b>{_ph_e(t["t"])}</b>{_ph_say(t["t"], "Say this term · 唸這個術語")}'
+        f'<span class="ph-term-zh">{_ph_e(t["zh"])}</span></div>'
+        + (f'<p class="ph-term-o">{_ph_e(t["o"])}</p>' if t.get("o") else "")
+        + f'<p class="ph-term-d">{_ph_e(t["d_en"])}</p><p class="ph-zh" lang="zh-Hant">{_ph_e(t["d_zh"])}</p></div>'
+        for t in items)
+    return f'<div class="ph-terms">{rows}</div>'
+
+def _ph_vocab(items):
+    rows = "".join(
+        f'<div class="adv-item">'
+        f'<div class="top"><b>{_ph_e(a["w"])}</b><span class="pos">({_ph_e(a["pos"])})</span>'
+        f'<span class="zh">{_ph_e(a["zh"])}</span>{_ph_say(a["w"], "Say this word · 唸單字")}</div>'
+        f'<p class="eg">{_ph_say(a["eg"], "Say this sentence · 唸例句")}<span>{_ph_e(a["eg"])}</span></p>'
+        f'<p class="eg-zh">{_ph_e(a["eg_zh"])}</p></div>' for a in items)
+    return f'<div class="adv-list rvl">{rows}</div>'
+
+def _ph_quiz(items, seed):
+    L = "ABCD"
+    base = sum(ord(c) for c in seed) % 4
+    qs = []
+    for qi, item in enumerate(items):
+        target = (base + qi * 3) % 4
+        opts = list(item["options"]); opts.insert(target, opts.pop(item["correct"]))
+        dc = ' data-correct="1"'
+        btns = "".join(f'<button class="quiz-opt"{dc if k == target else ""}>'
+                       f'<span class="ql">{L[k]}</span>{_ph_e(o)}</button>' for k, o in enumerate(opts))
+        qs.append(f'<div class="quiz"><p class="q ph-q">{qi+1}. {_ph_e(item["q"])}</p><div class="quiz-opts">{btns}</div></div>')
+    return f'<div class="rvl">{"".join(qs)}</div>'
+
+def _ph_said(s):
+    return (f'<aside class="ph-said rvl"><p class="ph-said-k">Did he really say that? · 這句話真的是他說的嗎？</p>'
+            f'<p class="ph-said-claim">{_ph_e(s["claim"])}<span lang="zh-Hant">{_ph_e(s["claim_zh"])}</span></p>'
+            f'<p class="ph-said-v"><b>{_ph_e(s["verdict_en"])}</b> · {_ph_e(s["verdict_zh"])}</p>'
+            f'{_ph_bi(s, say=False)}</aside>')
+
+def _ph_further(items):
+    def one(f):
+        t = (f'<a href="{_ph_e(f["url"])}" target="_blank" rel="noopener">{_ph_e(f["t"])} &#8599;</a>' if f.get("url") else _ph_e(f["t"]))
+        n = (f'<span class="ph-fur-n">{_ph_e(f["n_en"])}<span class="ph-zh ph-inline" lang="zh-Hant"> {_ph_e(f["n_zh"])}</span></span>' if f.get("n_en") else "")
+        return f'<li>{t}{n}</li>'
+    return f'<ul class="ph-further rvl">{"".join(one(f) for f in items)}</ul>'
+
+def _ph_dharma(d):
+    terms = ""
+    if d.get("terms"):
+        terms = ('<div class="ph-tri rvl">' + "".join(
+            f'<div><b lang="zh-Hant">{_ph_e(z)}</b><i>{_ph_e(p)}</i><span>{_ph_e(e)}</span></div>' for z, p, e in d["terms"]) + '</div>')
+    return (f'<div class="ph-dharma"><div class="ph-wheel" aria-hidden="true">☸</div>'
+            f'<div class="ph-essay">{"".join(_ph_bi(p) for p in d["paras"])}</div>{terms}</div>')
+
+def _ph_person(slug): return next(p for p in PHIL["philosophers"] if p["slug"] == slug)
+def _ph_lesson(slug): return next(l for l in PHIL["lessons"] if l["slug"] == slug)
+
+def _ph_people_cards(slugs):
+    out = []
+    for s in slugs:
+        p = _ph_person(s)
+        out.append(f'<a class="ph-pcard rvl" href="{PHIL_BASE}philosophers/{p["slug"]}/">'
+                   f'<span class="ph-pcard-mono" aria-hidden="true">{_ph_e(p["name"][0])}</span>'
+                   f'<span class="ph-pcard-b"><b>{_ph_e(p["name"])} <span lang="zh-Hant">{_ph_e(p["name_zh"])}</span></b>'
+                   f'<i>{_ph_e(p["dates"])} · {_ph_e(p["place_en"])}</i><span>{_ph_e(p["tag_en"])}</span></span>'
+                   f'<span class="ph-go">Read the profile · 讀小傳 &rarr;</span></a>')
+    return f'<div class="ph-pcards">{"".join(out)}</div>'
+
+def _ph_lab(lab):
+    """蘇格拉底式詰問：三個對話錄、每個三個定義；資料塞進 JSON，由 philosophy.js 接手。"""
+    payload = html.escape(json.dumps(lab["dialogues"], ensure_ascii=False), quote=False)
+    tabs = "".join(f'<button type="button" role="tab" class="ph-el-tab" data-el-tab="{d["key"]}" aria-selected="{"true" if i == 0 else "false"}">'
+                   f'<b>{_ph_e(d["en"])}</b><span lang="zh-Hant">{_ph_e(d["zh"])}</span><i>{_ph_e(d["greek"])}</i></button>'
+                   for i, d in enumerate(lab["dialogues"]))
+    tests = "".join(f'<li class="rvl"><span class="ph-test-n">{i+1}</span><div>{_ph_bi(t, say=False)}</div></li>' for i, t in enumerate(lab["tests"]))
+    return f'''<div class="ph-el rvl" data-ph-elenchus>
+  <script type="application/json" data-el-data>{payload}</script>
+  <div class="ph-el-tabs" role="tablist" aria-label="Choose a question · 選一個問題">{tabs}</div>
+  <div class="ph-el-stage">
+    <div class="ph-el-scene"><p class="ph-el-src" data-el-src></p><p class="ph-el-who" data-el-who></p></div>
+    <div class="ph-el-ask"><span class="ph-el-av" aria-hidden="true">Σ</span>
+      <p class="ph-el-q"><b data-el-q></b><span lang="zh-Hant" data-el-qzh></span></p></div>
+    <p class="ph-el-hint" data-el-hint>Choose the answer you find most convincing. · 選一個你覺得最有說服力的答案。</p>
+    <div class="ph-el-defs" data-el-defs></div>
+    <div class="ph-el-log" data-el-log aria-live="polite"></div>
+    <div class="ph-el-end" data-el-end hidden></div>
+    <div class="ph-el-foot"><span class="ph-el-count" data-el-count></span>
+      <button type="button" class="ph-el-reset" data-el-reset>Start again · 重來</button></div>
+  </div>
+</div>
+<div class="ph-tests">
+  <h3 class="rvl">Five tests for any definition <span class="ph-h2-zh">檢驗任何定義的五個問題</span></h3>
+  <ol class="ph-test-list">{tests}</ol>
+  <div class="ph-own rvl">
+    {_ph_bi({"en": lab["own_en"], "zh": lab["own_zh"]}, say=False)}
+    <textarea data-ph-own rows="3" placeholder="Friendship is …" aria-label="Your definition · 你的定義"></textarea>
+    <div class="ph-own-checks" data-ph-own-checks></div>
+  </div>
+</div>'''
+
+def _ph_argument(a):
+    steps = "".join(
+        f'<button type="button" class="ph-arg-step{" is-c" if s["k"] == "C" else ""}{" is-weak" if s.get("weak") else ""}" aria-expanded="false">'
+        f'<span class="ph-arg-k">{"∴" if s["k"] == "C" else s["k"]}</span>'
+        f'<span class="ph-arg-b"><span class="ph-arg-en">{_ph_e(s["en"])}</span><span class="ph-zh" lang="zh-Hant">{_ph_e(s["zh"])}</span>'
+        f'<span class="ph-arg-ob"><b>{"The step most often attacked" if s.get("weak") else "What can be said against it"} · {"最常被攻擊的一步" if s.get("weak") else "可以怎麼反對"}</b>'
+        f'{_ph_e(s["ob_en"])}<span class="ph-zh" lang="zh-Hant">{_ph_e(s["ob_zh"])}</span></span></span>'
+        f'<span class="ph-arg-plus" aria-hidden="true">+</span></button>' for s in a["steps"])
+    return f'<div class="ph-arg rvl" data-ph-arg>{steps}</div>'
+
+def _ph_source(s):
+    ps = "".join(
+        f'<figure class="ph-src rvl"><blockquote><p>{_ph_say(p["en"])}{_ph_e(p["en"])}</p></blockquote>'
+        f'<figcaption>{_ph_e(p["ref"])}</figcaption>'
+        f'<p class="ph-zh ph-src-zh" lang="zh-Hant">{_ph_e(p["zh"])}</p>'
+        f'<div class="ph-src-note"><b>Close reading · 精讀</b>{_ph_bi({"en": p["note_en"], "zh": p["note_zh"]}, say=False)}</div></figure>'
+        for p in s["passages"])
+    return f'<p class="ph-src-work rvl"><b>{_ph_e(s["work"])}</b> <span lang="zh-Hant">{_ph_e(s["work_zh"])}</span> · {_ph_e(s["tr"])}</p>{ps}'
+
+def _ph_objections(o):
+    return '<div class="ph-objs">' + "".join(
+        f'<div class="ph-obj rvl"><div class="ph-obj-o"><span class="ph-obj-k">Objection {i+1} · 反駁</span>'
+        f'{_ph_bi({"en": x["o_en"], "zh": x["o_zh"]}, say=False)}</div>'
+        f'<div class="ph-obj-r"><span class="ph-obj-k">Reply · 回應</span>{_ph_bi({"en": x["r_en"], "zh": x["r_zh"]}, say=False)}</div></div>'
+        for i, x in enumerate(o["items"])) + '</div>'
+
+def _ph_essay(secs, numbered=True):
+    out = []
+    for i, s in enumerate(secs):
+        num = f'<span class="ph-es-n">{i+1:02d}</span>' if numbered else ""
+        out.append(f'<div class="ph-es-sec rvl"><h3>{num}{_ph_e(s["h_en"])} <span class="ph-h2-zh">{_ph_e(s["h_zh"])}</span></h3>'
+                   + "".join(_ph_bi(p, cls="ph-first" if (i == 0 and j == 0) else "") for j, p in enumerate(s["paras"])) + '</div>')
+    return f'<div class="ph-essay">{"".join(out)}</div>'
+
+def _ph_nav(prev=None, nxt=None):
+    def side(x, dirn, label):
+        if not x: return '<span class="pm-nav-x"></span>'
+        arrow = "&larr;" if dirn == "prev" else "&rarr;"
+        return (f'<a class="pm-nav-s pm-nav-{dirn}" href="{x[0]}"><span class="pm-nav-k">{arrow} {label}</span>'
+                f'<span class="pm-nav-t">{_ph_e(x[1])}</span></a>')
+    return (f'<nav class="pm-nav rvl">{side(prev, "prev", "Previous · 上一篇")}'
+            f'<a class="pm-nav-hub" href="{PHIL_BASE}">&#9776; All of Philosophy · 回哲學</a>{side(nxt, "next", "Next · 下一篇")}</nav>')
+
+def build_phil_lesson(L):
+    path = f'{PHIL_BASE}{L["slug"]}/'
+    words = sum(len(p["en"].split()) for s in L["essay"] for p in s["paras"])
+    hero_lead = (f'{_ph_e(L["blurb_en"])}<br><span class="muted" lang="zh-Hant">{_ph_e(L["blurb_zh"])}</span>')
+    meta = (f'<div class="ph-meta rvl"><span><b>{_ph_e(L["n"])}</b> Big Questions · 大哉問</span><span>{_ph_e(L["unit_en"])} · {_ph_e(L["unit_zh"])}</span>'
+            f'<span>{_ph_e(L["level"])}</span><span>{words:,} words · about {L["minutes"]} min</span></div>')
+    write_list = "".join(f'<li class="rvl">{_ph_bi(w, say=False)}</li>' for w in L["write"])
+    body = f'''
+{page_hero(f'{L["n"]} · {_ph_e(L["unit_en"])} {_ph_e(L["unit_zh"])}', f'{_ph_e(L["title"])} <span class="ph-h1-zh">{_ph_e(L["title_zh"])}</span>', hero_lead, back=(PHIL_BASE, "Philosophy · 回哲學"))}
+{_ph_toolbar()}
+<section class="section tight ph-top"><div class="wrap">
+  {meta}
+  <div class="ph-big rvl d1"><span class="ph-big-k">The big idea · 大觀念</span>
+    <p class="ph-big-en">{_ph_e(L["big_en"])}</p><p class="ph-big-zh" lang="zh-Hant">{_ph_e(L["big_zh"])}</p></div>
+</div></section>
+{_ph_sec("essay", "Essay", "The essay · 課文", L["title"], L["title_zh"], _ph_essay(L["essay"]))}
+{_ph_sec("try", "Try it", "Thought experiment · 思想實驗", L["lab"]["title_en"], L["lab"]["title_zh"], _ph_lab(L["lab"]), band=True, lead={"en": L["lab"]["lead_en"], "zh": L["lab"]["lead_zh"]})}
+{_ph_sec("argument", "Argument", "Standard form · 標準形式", L["argument"]["title_en"], L["argument"]["title_zh"], _ph_argument(L["argument"]), lead={"en": L["argument"]["lead_en"], "zh": L["argument"]["lead_zh"]})}
+{_ph_sec("source", "Source", "Primary text · 原典", L["source"]["title_en"], L["source"]["title_zh"], _ph_source(L["source"]) + _ph_said(L["said"]), band=True, lead={"en": L["source"]["lead_en"], "zh": L["source"]["lead_zh"]})}
+{_ph_sec("objections", "Objections", "Both sides · 正反兩面", L["objections"]["title_en"], L["objections"]["title_zh"], _ph_objections(L["objections"]))}
+{_ph_sec("terms", "Terms", "Terms of art · 哲學術語", "The vocabulary of the subject", "這門學問的用語", _ph_terms(L["terms"]), band=True)}
+{_ph_sec("vocab", "English", "Advanced English · 高級英文", "Words and phrases worth keeping", "值得帶走的字與片語", _ph_vocab(L["vocab"]))}
+{_ph_sec("quiz", "Check", "Reading check · 理解測驗", "Did it land?", "讀懂了嗎", _ph_quiz(L["quiz"], L["slug"]) + f'<h3 class="ph-write-h rvl">Write · 你怎麼想？</h3><ol class="ph-write">{write_list}</ol>', band=True)}
+{_ph_sec("dharma", "Dharma", "Dharma and the West · 佛法與西方哲學", L["dharma"]["title_en"], L["dharma"]["title_zh"], _ph_dharma(L["dharma"]))}
+<section class="section band ph-sec" id="more" data-ph-toc-label="More"><div class="wrap">
+  <p class="eyebrow rvl">Go further · 延伸</p>
+  <h2 class="rvl d1 sweep">People and reading <span class="ph-h2-zh">人物與延伸閱讀</span></h2>
+  {_ph_people_cards(L["people"])}
+  {_ph_further(L["further"])}
+  {_ph_nav()}
+</div></section>
+'''
+    write(path, layout(path, f'{L["title"]} {L["title_zh"]}', f'{L["blurb_en"]} {L["blurb_zh"]}', body, "resources", extra_head=_ph_head()))
+    return path
+
+def build_phil_person(P):
+    path = f'{PHIL_BASE}philosophers/{P["slug"]}/'
+    facts = "".join(f'<div><dt>{_ph_e(en)} <span lang="zh-Hant">{_ph_e(zh)}</span></dt><dd>{_ph_e(v)}</dd></div>' for en, zh, v in P["facts"])
+    tl = "".join(f'<li class="rvl"><b>{_ph_e(y)}</b><span>{_ph_e(en)}<i lang="zh-Hant">{_ph_e(zh)}</i></span></li>' for y, en, zh in P["timeline"])
+    q = P["quote"]
+    lessons = "".join(
+        f'<a class="ph-pcard rvl" href="{PHIL_BASE}{l["slug"]}/"><span class="ph-pcard-mono" aria-hidden="true">?</span>'
+        f'<span class="ph-pcard-b"><b>{_ph_e(l["title"])} <span lang="zh-Hant">{_ph_e(l["title_zh"])}</span></b>'
+        f'<i>{_ph_e(l["n"])} · Big Questions 大哉問</i><span>{_ph_e(l["blurb_en"])}</span></span>'
+        f'<span class="ph-go">Read the lesson · 讀這一課 &rarr;</span></a>' for l in map(_ph_lesson, P["lessons"]))
+    hero_lead = f'{_ph_e(P["tag_en"])}<br><span class="muted" lang="zh-Hant">{_ph_e(P["tag_zh"])}</span>'
+    body = f'''
+{page_hero(f'Philosophers · 哲學家 · {_ph_e(P["era_en"])}', f'{_ph_e(P["name"])} <span class="ph-h1-zh">{_ph_e(P["name_zh"])} · {_ph_e(P["greek"])}</span>', hero_lead, back=(PHIL_BASE + "#shelf-philosophers", "Philosophers · 回哲學家"))}
+{_ph_toolbar()}
+<section class="section tight ph-top"><div class="wrap ph-person-top">
+  <div class="ph-mono rvl" aria-hidden="true"><span>{_ph_e(P["greek"][0])}</span><i>{_ph_e(P["dates"])}</i></div>
+  <dl class="ph-facts rvl d1">{facts}</dl>
+</div></section>
+{_ph_sec("life", "Life", "Life · 生平", "A life in three scenes", "三幕人生", _ph_essay(P["life"], numbered=False) + f'<ol class="ph-tl">{tl}</ol>')}
+{_ph_sec("idea", "Idea", "The central idea · 核心觀念", P["idea"]["title_en"].split(": ", 1)[-1].capitalize(), P["idea"]["title_zh"].split("：", 1)[-1],
+         f'<div class="ph-essay">{"".join(_ph_bi(p) for p in P["idea"]["paras"])}</div>'
+         f'<figure class="ph-quote rvl"><blockquote>{_ph_e(q["en"])}<span lang="zh-Hant">{_ph_e(q["zh"])}</span></blockquote>'
+         f'<figcaption>{_ph_e(q["ref"])}<br>{_ph_e(q["note_en"])} <span class="ph-zh ph-inline" lang="zh-Hant">{_ph_e(q["note_zh"])}</span></figcaption></figure>', band=True)}
+{_ph_sec("objection", "Objection", "The strongest objection · 最強的反駁", P["objection"]["title_en"].split(": ", 1)[-1].capitalize(), P["objection"]["title_zh"].split("：", 1)[-1],
+         f'<div class="ph-essay">{"".join(_ph_bi(p) for p in P["objection"]["paras"])}</div>')}
+{_ph_sec("sources", "Sources", "How we know · 史料", P["problem"]["title_en"], P["problem"]["title_zh"],
+         f'<div class="ph-essay">{"".join(_ph_bi(p) for p in P["problem"]["paras"])}</div>' + _ph_said(P["said"]), band=True)}
+{_ph_sec("dharma", "Dharma", "Dharma and the West · 佛法與西方哲學", P["dharma"]["title_en"], P["dharma"]["title_zh"], _ph_dharma(P["dharma"]))}
+{_ph_sec("terms", "Terms", "Terms of art · 哲學術語", "Words that come with him", "跟著他一起來的詞", _ph_terms(P["terms"]), band=True)}
+{_ph_sec("quiz", "Check", "Reading check · 理解測驗", "Did it land?", "讀懂了嗎", _ph_quiz(P["quiz"], P["slug"]))}
+<section class="section band ph-sec" id="more" data-ph-toc-label="More"><div class="wrap">
+  <p class="eyebrow rvl">Go further · 延伸</p>
+  <h2 class="rvl d1 sweep">Where he appears <span class="ph-h2-zh">他出現在哪幾課</span></h2>
+  <div class="ph-pcards">{lessons}</div>
+  {_ph_further(P["further"])}
+  {_ph_nav()}
+</div></section>
+'''
+    write(path, layout(path, f'{P["name"]} {P["name_zh"]}', f'{P["tag_en"]} {P["tag_zh"]}', body, "resources", extra_head=_ph_head()))
+    return path
+
+def build_phil_hub():
+    total = sum(len(u["items"]) for sh in PHIL["shelves"] for u in sh["units"])
+    done = len(PHIL["lessons"]) + len(PHIL["philosophers"])
+    tabs, secs = [], []
+    for si, sh in enumerate(PHIL["shelves"]):
+        n = sum(len(u["items"]) for u in sh["units"])
+        ready = sum(1 for u in sh["units"] for it in u["items"] if it.get("slug"))
+        tabs.append(f'<a class="ph-shelf-tab" href="#shelf-{sh["key"]}"><b>{sh["letter"]}</b>'
+                    f'<span>{_ph_e(sh["en"])}<i lang="zh-Hant">{_ph_e(sh["zh"])}</i></span><em>{n}</em></a>')
+        units = []
+        for ui, u in enumerate(sh["units"]):
+            rows = []
+            for it in u["items"]:
+                inner = (f'<span class="ph-it-n">{_ph_e(it["n"])}</span>' if it["n"] else "") + \
+                        (f'<span class="ph-it-b"><b>{_ph_e(it["en"])}</b><span lang="zh-Hant">{_ph_e(it["zh"])}</span>'
+                         + (f'<i>{_ph_e(it["note"])}</i>' if it.get("note") else "") + '</span>')
+                if it.get("slug"):
+                    rows.append(f'<li><a class="ph-it is-ready" href="{PHIL_BASE}{it["slug"]}/">{inner}<span class="ph-it-go">Read · 開始讀 &rarr;</span></a></li>')
+                else:
+                    rows.append(f'<li><div class="ph-it">{inner}</div></li>')
+            uw = sh["unit_word"]
+            kicker = (f'{uw[0]} {ui + 1}' if uw[0] else "") + (f' · {_ph_e(u["tag"])}' if u["tag"] and uw[0] else (_ph_e(u["tag"]) if u["tag"] and sh["key"] != "philosophers" else ""))
+            units.append(f'<div class="ph-unit rvl"><p class="ph-unit-k">{kicker}</p>'
+                         f'<h3>{_ph_e(u["en"])} <span class="ph-h2-zh">{_ph_e(u["zh"])}</span></h3><ul class="ph-items">{"".join(rows)}</ul></div>')
+        secs.append(
+            f'<section class="section ph-shelf{" band" if si % 2 == 0 else ""}" id="shelf-{sh["key"]}"><div class="wrap">'
+            f'<div class="ph-shelf-h"><span class="ph-shelf-letter rvl" aria-hidden="true">{sh["letter"]}</span><div>'
+            f'<p class="eyebrow rvl">Shelf {sh["letter"]} · {n} {"profiles" if sh["key"] == "philosophers" else "texts" if sh["key"] == "sources" else "lessons"}'
+            f'{f" · {ready} ready" if ready else " · in preparation 製作中"}</p>'
+            f'<h2 class="rvl d1 sweep">{_ph_e(sh["en"])} <span class="ph-h2-zh">{_ph_e(sh["zh"])}</span></h2>'
+            f'<p class="lead rvl d2">{_ph_e(sh["blurb_en"])}<br><span class="muted" lang="zh-Hant">{_ph_e(sh["blurb_zh"])}</span></p></div></div>'
+            f'<div class="ph-units ph-units-{sh["key"]}">{"".join(units)}</div></div></section>')
+    first = PHIL["lessons"][0]
+    lead = f'{_ph_e(PHIL["lead_en"])}<br><span class="muted" lang="zh-Hant">{_ph_e(PHIL["lead_zh"])}</span>'
+    intro = "".join(f'<p>{_ph_e(p["en"])}</p><p class="ph-intro-zh" lang="zh-Hant">{_ph_e(p["zh"])}</p>' for p in PHIL["intro"])
+    stats = "".join(f'<div class="rvl"><b data-ph-count="{v}">{v}</b><span>{en}<i lang="zh-Hant">{zh}</i></span></div>' for v, en, zh in
+                    [(len(PHIL["shelves"]), "shelves", "個書架"), (total, "lessons planned", "課規劃中"), (26, "centuries", "個世紀"), (3, "traditions", "個傳統")])
+    body = f'''
+{page_hero(PHIL["eyebrow"] + f' · {_ph_e(PHIL["level_en"])} {_ph_e(PHIL["level_zh"])}', f'{PHIL["title_en"]} <span class="ph-h1-zh">{PHIL["title_zh"]}</span>', lead, back=("/resources/reading/", "回閱讀與經典"))}
+<section class="section ph-hub-intro"><div class="wrap ph-hub-grid">
+  <div class="ph-hub-text rvl">{intro}
+    <a class="ph-start" href="{PHIL_BASE}{first["slug"]}/"><span>Start with lesson {first["n"]} · 從第一課開始</span><b>{_ph_e(first["title"])} <i lang="zh-Hant">{_ph_e(first["title_zh"])}</i></b><em>&rarr;</em></a>
+    <p class="ph-hub-prog">{done} of {total} are ready so far; the rest are in preparation. <span lang="zh-Hant">目前完成 {done} 篇（共規劃 {total} 篇），其餘製作中。</span></p>
+  </div>
+  <div class="ph-hub-art rvl d1">{_ph_owl(170)}<div class="ph-stats">{stats}</div></div>
+</div></section>
+<nav class="ph-shelf-nav" aria-label="Shelves · 書架"><div class="wrap"><div class="ph-shelf-tabs">{"".join(tabs)}</div></div></nav>
+{"".join(secs)}
+'''
+    write(PHIL_BASE, layout(PHIL_BASE, f'{PHIL["title_en"]} · {PHIL["title_zh"]}', f'{PHIL["lead_en"]} {PHIL["lead_zh"]}', body, "resources", extra_head=_ph_head()))
+    return PHIL_BASE
+
+
 # ---- 晶片與半導體 Chips and Semiconductors（資料驅動，data/semiconductors.json）----
 # 架構照萬物原理：系列首頁分單元（單元導覽＋.lc-row 橫向課程卡），課程頁照天文教育
 # （英文 reading＋每課一個 3D 模型＋延伸段落）。units[].lessons 是做好的課、units[].planned 是製作中。
@@ -10891,6 +11218,10 @@ def main():
         paths.append(build_cal_hub())
         for _ui, _u in enumerate(CAL["units"]):
             for _l in _u["lessons"]: paths.append(build_cal_lesson(_ui, _u, _l))
+    if PHIL:
+        paths.append(build_phil_hub())
+        for _l in PHIL["lessons"]: paths.append(build_phil_lesson(_l))
+        for _p in PHIL["philosophers"]: paths.append(build_phil_person(_p))
     build_grandfather(); paths.append("/resources/grandfather/")
     build_periodicals(); paths.append("/resources/periodicals/")
     build_media_hub(); paths.append("/media/")
