@@ -444,6 +444,44 @@
     root.__lab = { state: function () { return { w: w, standing: standing().length, hits: hits, phase: phase }; } };
   });
 
+  /* ---- A7：把正方形加倍（《美諾篇》）與莫利紐茲問題 ---- */
+  $$('[data-ph-meno]').forEach(function (root) {
+    var D;
+    try { D = JSON.parse($('[data-mn-data]', root).textContent); } catch (e) { return; }
+    var say = $('[data-mn-say]', root), note = $('[data-mn-note]', root), opts = $('[data-mn-opts]', root), area = $('[data-mn-area]', root);
+    var AREA = { start: 'Area 4 · 面積 4', four: 'Side 4 → area 16 · 邊長 4 → 面積 16', three: 'Side 3 → area 9 · 邊長 3 → 面積 9', diag: 'How many halves? · 幾個「半個」？', done: 'Area 8 · 面積 8' };
+    var path = [];
+    function zhp(parent, text) { var z = el('p', 'ph-zh', text); z.lang = 'zh-Hant'; parent.appendChild(z); addTr(z); }
+    function go(key, wrong) {
+      var st = D.steps.filter(function (x) { return x.key === key; })[0];
+      if (!wrong) path.push(key);
+      root.setAttribute('data-state', key); area.textContent = AREA[key];
+      say.textContent = ''; say.appendChild(el('p', '', st.say.en)); zhp(say, st.say.zh);
+      note.textContent = ''; note.hidden = !st.note;
+      if (st.note) { note.appendChild(el('p', '', st.note.en)); zhp(note, st.note.zh); }
+      if (wrong) { note.hidden = false; note.textContent = ''; note.appendChild(el('p', '', 'Count again. Each diagonal cuts one of the four squares in half, and the tilted figure takes one half from each. · 再數一次。每條對角線把四個正方形之一切成兩半，斜著的圖形從每個正方形各取一半。')); }
+      opts.textContent = '';
+      st.opts.forEach(function (o) {
+        var b = el('button', 'ph-vl-opt'); b.type = 'button'; b.appendChild(el('b', '', o.t.en)); var z = el('span', '', o.t.zh); z.lang = 'zh-Hant'; b.appendChild(z);
+        b.addEventListener('click', function () { go(o.go, !!o.wrong); }); opts.appendChild(b);
+      });
+    }
+    $('[data-mn-reset]', root).addEventListener('click', function () { path = []; go('start'); });
+    go('start');
+    var hm = /meno=(\w+)/.exec(location.hash); if (hm) go(hm[1]);   // 截圖用：#meno=done
+    root.__lab = { go: go, state: function () { return { state: root.getAttribute('data-state'), path: path.slice() }; } };
+  });
+  $$('[data-ph-molyneux]').forEach(function (root) {
+    var out = $('[data-ml-out]', root);
+    $$('[data-ml]', root).forEach(function (b) {
+      b.addEventListener('click', function () {
+        var v = b.getAttribute('data-ml'); out.hidden = false;
+        $$('[data-ml]', root).forEach(function (x) { x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); });
+        $('[data-ml-yes]', root).classList.toggle('is-yours', v === 'yes'); $('[data-ml-no]', root).classList.toggle('is-yours', v === 'no');
+      });
+    });
+  });
+
   /* ---- 自己的定義：打字之後出現五個檢查項（只存在這個頁面的記憶體裡） ---- */
   var own = $('[data-ph-own]'), checks = $('[data-ph-own-checks]');
   if (own && checks) {

@@ -545,3 +545,49 @@ main:has(.ph-tools) .wrap { width: min(980px, 92vw); }
 .ph-cave-line .ph-en { font: 500 .98rem/1.6 var(--sans); color: #ffd98a; }
 @media (max-width: 760px) { .ph-cave-stages { grid-template-columns: repeat(3, 1fr); } .ph-cave-view { aspect-ratio: 4 / 3; } .ph-cave-lab { font-size: .68rem; } }
 @media (prefers-reduced-motion: reduce) { .ph-cave-veil.go { animation: none; } }
+
+/* ---------- A7：把正方形加倍（美諾篇） ---------- */
+.ph-mn-grid { display: grid; grid-template-columns: minmax(0, 360px) minmax(0, 1fr); gap: clamp(1.2rem, 3vw, 2.4rem); align-items: start; }
+.ph-mn-fig svg { width: 100%; height: auto; display: block; background: #e9dcc3; border-radius: 14px; }
+.ph-mn-fig svg * { transition: opacity .5s ease, fill .5s ease; }
+.ph-mn-orig { fill: rgba(14,107,96,.28); stroke: #0a4f47; stroke-width: 4; }
+.ph-mn-big { fill: rgba(181,84,47,.14); stroke: #8a3d22; stroke-width: 3; opacity: 0; }
+.ph-mn-three { fill: rgba(217,154,43,.3); stroke: #b97e16; stroke-width: 3; opacity: 0; }
+.ph-mn-tilt { fill: rgba(20,35,59,.3); stroke: #14233b; stroke-width: 4; opacity: 0; }
+.ph-mn-lines line { stroke: #8a3d22; stroke-width: 1.5; stroke-dasharray: 6 5; opacity: 0; }
+.ph-mn-diags line { stroke: #14233b; stroke-width: 3; opacity: 0; stroke-dasharray: 290; stroke-dashoffset: 290; transition: stroke-dashoffset 1s ease, opacity .3s; }
+.ph-mn-t { font: 700 34px var(--serif); fill: #14233b; opacity: 0; }
+.ph-mn-side { font: 700 20px var(--sans); fill: #0a4f47; }
+.ph-mn-t-orig { opacity: 1; fill: #0a4f47; }
+[data-state="four"] .ph-mn-big, [data-state="four"] .ph-mn-lines line, [data-state="four"] .ph-mn-t-four { opacity: 1; }
+[data-state="three"] .ph-mn-three, [data-state="three"] .ph-mn-t-three { opacity: 1; }
+[data-state="three"] .ph-mn-t-orig { opacity: 0; }
+[data-state="diag"] .ph-mn-big, [data-state="diag"] .ph-mn-lines line, [data-state="done"] .ph-mn-big, [data-state="done"] .ph-mn-lines line { opacity: 1; }
+[data-state="diag"] .ph-mn-diags line, [data-state="done"] .ph-mn-diags line { opacity: 1; stroke-dashoffset: 0; }
+[data-state="done"] .ph-mn-tilt, [data-state="done"] .ph-mn-t-tilt { opacity: 1; }
+[data-state="done"] .ph-mn-t-orig, [data-state="diag"] .ph-mn-t-orig { opacity: 0; }
+.ph-mn-area { margin: .6rem 0 0; text-align: center; font: 700 .95rem ui-monospace, 'SF Mono', Menlo, monospace; color: #ffd98a; }
+.ph-mn-talk .ph-el-ask { align-items: flex-start; }
+.ph-mn-say p { margin: 0; font: 500 clamp(1.08rem, 2.2vw, 1.25rem)/1.6 var(--serif); color: #fff; }
+.ph-mn-say .ph-zh { font: 400 .95rem/1.7 var(--zh); color: rgba(255,255,255,.72); }
+.ph-mn-note { background: #fff; color: var(--ink); border-radius: 12px; border-left: 5px solid var(--gold); padding: .8rem 1rem; margin: .2rem 0 1rem; animation: ph-rise .45s ease both; }
+.ph-mn-note[hidden] { display: none; }
+.ph-mn-note p { margin: 0; font-size: 1.02rem; line-height: 1.7; }
+.ph-mn-note .ph-tr { background: var(--brand-lt); color: var(--brand-dk); }
+.ph-mn-opts { display: grid; gap: .6rem; }
+.ph-mn-opts .ph-vl-opt { text-align: left; }
+@media (max-width: 760px) { .ph-mn-grid { grid-template-columns: 1fr; } .ph-mn-fig { max-width: 320px; margin: 0 auto; } }
+.ph-ml-opts { display: flex; flex-wrap: wrap; gap: .6rem; margin: .8rem 0 0; }
+.ph-ml-opts button { all: unset; cursor: pointer; font: 700 .95rem var(--sans); padding: .5rem 1.1rem; border-radius: 999px; border: 1.5px solid var(--brand); color: var(--brand-dk); transition: background .2s, color .2s; }
+.ph-ml-opts button:hover, .ph-ml-opts button[aria-pressed="true"] { background: var(--brand); color: #fff; }
+.ph-ml-opts button:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+.ph-ml-out { display: grid; grid-template-columns: 1fr 1fr; gap: .8rem; margin-top: 1rem; animation: ph-rise .45s ease both; }
+.ph-ml-out[hidden] { display: none; }
+.ph-ml-side, .ph-ml-res { border: 1px solid var(--line); border-radius: 12px; padding: .8rem 1rem; }
+.ph-ml-side.is-yours { border-color: var(--gold); box-shadow: 0 0 0 3px rgba(217,154,43,.25); }
+.ph-ml-side > b, .ph-ml-res > b { font: 800 .74rem var(--sans); letter-spacing: .1em; text-transform: uppercase; color: var(--gold-dk); }
+.ph-ml-res { grid-column: 1 / -1; background: var(--brand-lt); border-color: var(--brand); }
+.ph-ml-res > b { color: var(--brand-dk); }
+.ph-ml .ph-ml-out .ph-en { font: 400 1.02rem/1.7 var(--sans); }
+.ph-ml .ph-ml-out .ph-p { margin: .3rem 0 0; }
+@media (max-width: 640px) { .ph-ml-out { grid-template-columns: 1fr; } }

@@ -7162,7 +7162,52 @@ def _ph_lab_cave(lab):
   </div>
 </div>'''
 
+def _ph_lab_meno(lab):
+    """A7：《美諾篇》把正方形加倍（SVG，四格大正方形；狀態由 philosophy.js 切換 data-state），外加莫利紐茲問題。"""
+    payload = html.escape(json.dumps({"steps": lab["steps"], "molyneux": lab["molyneux"]}, ensure_ascii=False), quote=False)
+    m = lab["molyneux"]
+    return f'''<div class="ph-el ph-mn rvl" data-ph-meno data-state="start">
+  <script type="application/json" data-mn-data>{payload}</script>
+  <div class="ph-el-stage ph-mn-grid">
+    <div class="ph-mn-fig">
+      <svg viewBox="-10 -10 420 444" role="img" aria-label="A square and the squares built on it · 正方形與在它上面作出的正方形">
+        <rect class="ph-mn-big" x="0" y="0" width="400" height="400"/>
+        <rect class="ph-mn-three" x="0" y="100" width="300" height="300"/>
+        <polygon class="ph-mn-tilt" points="200,0 400,200 200,400 0,200"/>
+        <g class="ph-mn-lines"><line x1="200" y1="0" x2="200" y2="400"/><line x1="0" y1="200" x2="400" y2="200"/></g>
+        <g class="ph-mn-diags"><line x1="0" y1="200" x2="200" y2="0"/><line x1="200" y1="0" x2="400" y2="200"/><line x1="400" y1="200" x2="200" y2="400"/><line x1="200" y1="400" x2="0" y2="200"/></g>
+        <rect class="ph-mn-orig" x="0" y="200" width="200" height="200"/>
+        <text class="ph-mn-t ph-mn-t-orig" x="100" y="306" text-anchor="middle">4</text>
+        <text class="ph-mn-t ph-mn-t-four" x="300" y="106" text-anchor="middle">16</text>
+        <text class="ph-mn-t ph-mn-t-three" x="150" y="256" text-anchor="middle">9</text>
+        <text class="ph-mn-t ph-mn-t-tilt" x="262" y="158" text-anchor="middle">8</text>
+        <text class="ph-mn-side" x="100" y="425" text-anchor="middle">2 ft · 尺</text>
+      </svg>
+      <p class="ph-mn-area" data-mn-area></p>
+    </div>
+    <div class="ph-mn-talk">
+      <div class="ph-el-ask"><span class="ph-el-av" aria-hidden="true">Σ</span><div class="ph-mn-say" data-mn-say aria-live="polite"></div></div>
+      <div class="ph-mn-note" data-mn-note hidden></div>
+      <div class="ph-mn-opts" data-mn-opts></div>
+      <div class="ph-el-foot"><span class="ph-el-count">Plato, Meno 82b–85b</span><button type="button" class="ph-el-reset" data-mn-reset>Start again · 重來</button></div>
+    </div>
+  </div>
+</div>
+<div class="ph-tests">
+  <h3 class="rvl">A second experiment <span class="ph-h2-zh">第二個實驗</span></h3>
+  <div class="ph-own ph-ml rvl" data-ph-molyneux>
+    {_ph_bi(m["q"], say=False)}
+    <div class="ph-ml-opts"><button type="button" data-ml="yes">Yes, he can · 能</button><button type="button" data-ml="no">No, he cannot · 不能</button></div>
+    <div class="ph-ml-out" data-ml-out hidden>
+      <div class="ph-ml-side" data-ml-yes><b>Yes · 能</b>{_ph_bi(m["yes"], say=False)}</div>
+      <div class="ph-ml-side" data-ml-no><b>No · 不能</b>{_ph_bi(m["no"], say=False)}</div>
+      <div class="ph-ml-res"><b>What happened · 結果</b>{_ph_bi(m["result"], say=False)}</div>
+    </div>
+  </div>
+</div>'''
+
 def _ph_lab(lab):
+    if lab.get("kind") == "meno": return _ph_lab_meno(lab)
     if lab.get("kind") == "cave": return _ph_lab_cave(lab)
     if lab.get("kind") == "doubt": return _ph_lab_doubt(lab)
     if lab.get("kind") == "zeno": return _ph_lab_zeno(lab)
