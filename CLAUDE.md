@@ -279,6 +279,11 @@
   - `src/rustcalc.js`（**示意模型**）：`speed()` 沒水或沒空氣＝0、鹽水＝3 倍；`exposed(coat)` none 1／paint 0／scratch 0.2／zinc 0；「天」只是模型裡的時間，比例說明有寫。
   - 右上角三格清單（鐵／氧／水）顯示哪幾樣「碰得到鐵」——上了漆時氧和水都算碰不到。
   - 卡片 `demo`：wet／salt／dry／scratch。除錯：`document.querySelector('[data-rust-lab]').__lab`（`set({water, air, salt, coat})`、`setTime(0–60)`、`setCoat('none'|'paint'|'scratch'|'zinc')`、`setFlag('water'|'air'|'salt', bool)`、`run(sec)`、`render()`）。
+- 第二十課微波爐（`microwave-oven.js`，`lab.kind = "microwave"`，`data-microwave-lab`，CSS 前綴 `mcw-`（`mw-` 是天文銀河、`mo-` 是 astro.css 的），slug `microwave-oven`，`units[4]`）：一個機制——微波在金屬箱子裡反射，讓食物裡的水分子來回轉動而生熱；箱子裡有熱點和冷點所以要轉盤；冰吸收得少、乾盤子幾乎不吸收、金屬尖端冒火花。**全系列 20 課到此完成。**
+  - 1 單位＝10 公分；爐腔門朝 +z、磁控管在右邊、頂蓋半透明。黃色三條線是駐波（振幅＝圖樣×cos ωt，節點不動）、底板的橘色光點是強度圖、左後方的泡泡是放大的水分子（冰的時候幾乎不動）。食物 19 顆，顏色＝溫度（藍→綠→黃→橘→紅）。
+  - `src/microcalc.js`（**示意模型**）：`intensity(x, z) = 4·sin²(kx+φ)·sin²(kz+φ)`（公分；熱點相隔半波長 6.1 公分，測試順便檢查 12.2 cm × 2.45 GHz ≈ 光速）；`tempAt()` 對轉盤上的點沿圓周積分；food／ice／plate 的吸收比 1／0.12／0.03。溫度只由（item、t、turn）決定，時間滑桿可來回拉。轉盤角度：`table.rotation.y = −角度`，才會和 microcalc 的座標一致。
+  - 卡片 `demo`：food／noturn／ice／fork。除錯：`document.querySelector('[data-microwave-lab]').__lab`（`setItem('food'|'ice'|'plate'|'fork')`、`setFlag('turn'|'waves', bool)`、`setTime(0–120)`、`restart()`、`run(sec)`、`render()`）。
+  - 台灣出處：食藥署「食藥闢謠專區」（2.45 GHz、每秒約 25 億次、不殘留放射性、帶殼蛋／密封／尖銳金屬）、國健署（不會使食物具有放射性）。
 - 上傳錄音時若出現大量「not found locally」：多半是天文 session 在 ~/Developer 那份 clone 產生、已上傳的句子（worktree 的快取沒有它們）。算出「manifest 裡有、快取裡沒有」的雜湊，逐一 curl 確認線上 200 即可。
 - 多個 session 同時改 build.py 時，本系列改在 scratchpad 的 git worktree（從 origin/main 開分支）做，`audio` 用 symlink 指到 `~/Documents/twrses/audio`（symlink 不會被 .gitignore 的 `audio/` 擋，**不要 add**），做完 rebase 再 `git push origin HEAD:main`。
 - 瀏覽器面板在背景時 `visibilityState` 是 hidden，IntersectionObserver 不觸發、截圖是空白：點一下頁面上的「在模型中看」按鈕就會直接初始化，截圖改用無頭 Chrome（playwright-core＋本機 Chrome，`--use-angle=swiftshader`）。

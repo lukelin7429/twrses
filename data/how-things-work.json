@@ -9409,16 +9409,485 @@
               "url": "https://en.wikipedia.org/wiki/Tetanus"
             }
           ]
-        }
-      ],
-      "planned": [
+        },
         {
           "n": 20,
+          "slug": "microwave-oven",
+          "title": "How Does a Microwave Oven Heat Food?",
+          "title_zh": "微波爐怎麼加熱食物？",
+          "level": "入門 · Beginner",
           "icon": "🍲",
-          "en": "How Does a Microwave Oven Heat Food?",
-          "zh": "微波爐怎麼加熱食物？"
+          "card": "microwave",
+          "blurb_en": "A microwave oven does not heat food from the outside like a stove. Invisible waves make the water molecules inside the food flip back and forth, and the food heats itself. Look inside a 3D oven, stop the turntable to find the hot spots, and see what ice, an empty plate, and a metal fork do.",
+          "blurb_zh": "微波爐不像瓦斯爐那樣從外面把食物燒熱。看不見的微波讓食物裡的水分子不停地來回轉，食物就自己熱起來。在 3D 微波爐裡看看裡面，把轉盤停住找出熱點，再看看冰塊、空盤子和金屬叉子會怎麼樣。",
+          "big_idea_en": "A microwave oven fills a metal box with invisible waves called microwaves. The waves make the water molecules in food flip back and forth billions of times a second. The jostling molecules bump into one another, and that motion is heat. So the food heats itself, while a dry plate stays cool.",
+          "big_idea_zh": "微波爐讓金屬箱子裡充滿一種看不見的波，叫做微波。微波讓食物裡的水分子每秒來回轉動幾十億次。轉來轉去的分子互相碰撞，這種運動就是熱。所以是食物自己熱起來，乾的盤子卻還是涼的。",
+          "lab": {
+            "kind": "microwave",
+            "eyebrow": "3D Model · 3D 模型",
+            "title_en": "Inside the Metal Box",
+            "title_zh": "金屬箱子的裡面",
+            "how_en": "Drag to turn the view, and scroll or pinch to zoom. The yellow lines are microwaves bouncing between the metal walls, and the orange glow on the floor shows where they are strong. The food changes color from blue (cold) to red (hot). The bubble on the left is a close-up of water molecules. Switch the turntable off, choose what goes on the plate, and drag the time slider.",
+            "how_zh": "拖曳可以旋轉視角，滾輪或雙指可以縮放。黃色的線是在金屬壁之間來回反射的微波，底板上橘色的光點表示哪裡的微波比較強。食物的顏色從藍（冷）變到紅（熱）。左邊的泡泡是放大的水分子。把轉盤關掉、選擇盤子上放什麼，再拉時間滑桿看看。",
+            "legend": [
+              {
+                "cls": "mcwwave",
+                "en": "Yellow lines: microwaves (they wave in place, strong in some spots and still in others)",
+                "zh": "黃線：微波（在原地上下擺動，有的地方強、有的地方不動）"
+              },
+              {
+                "cls": "mcwspot",
+                "en": "Orange glow: where the microwaves are strong",
+                "zh": "橘色光點：微波比較強的地方"
+              },
+              {
+                "cls": "mcwfood",
+                "en": "Food color: blue is cold, yellow is warm, red is hot",
+                "zh": "食物的顏色：藍是冷、黃是溫、紅是燙"
+              },
+              {
+                "cls": "mcwmol",
+                "en": "Red ball with two white balls: one water molecule",
+                "zh": "一顆紅球加兩顆白球：一個水分子"
+              }
+            ],
+            "scale_en": "A teaching model, not a measurement of any real oven. The temperatures come from a simple formula, and the pattern of hot spots is the simplest one possible; real ovens have more complicated patterns, and food also heats by passing warmth from one part to the next. The waves are slowed down enormously so you can see them: real ones flip about 2.45 billion times a second. Real water molecules are far too small to see.",
+            "scale_zh": "這是教學用的模型，不是哪一台微波爐量出來的結果。溫度來自一條簡單的算式，熱點的圖樣也是最簡單的一種；真的微波爐圖樣複雜得多，食物也會把熱從一處傳到另一處。微波被放慢了非常多倍，你才看得到：真的微波每秒大約變換 24.5 億次。真正的水分子小到看不見。",
+            "credit_html": "Model drawn by My Culture Connect as a teaching diagram. How microwaves heat food follows <a href=\"https://en.wikipedia.org/wiki/Microwave_oven\" target=\"_blank\" rel=\"noopener\">Wikipedia, “Microwave oven”</a> and <a href=\"https://www.fda.gov.tw/tc/newsContent.aspx?id=22631\" target=\"_blank\" rel=\"noopener\">Taiwan FDA</a>. · 模型由人師教育協會自繪示意；微波怎麼加熱食物，依維基百科「Microwave oven」條目與食藥署「食藥闢謠專區」。"
+          },
+          "paras": [
+            "Put a bowl of cold soup in the microwave oven and press start. One minute later the soup is steaming. But touch the rim of the bowl: it is hardly warm. A stove heats the pot first, and the pot heats the soup. A microwave oven seems to skip the pot. How does it do that?",
+            "Inside the oven is a part called a magnetron. It makes microwaves, which are invisible waves like the ones that carry radio and Wi-Fi signals. The cooking space is a metal box, and microwaves bounce off metal, so they fly back and forth inside. Even the window in the door has a metal mesh in it. The holes are much smaller than the waves, so light gets out but the microwaves stay in.",
+            "Now for the trick. A water molecule has a slightly positive end and a slightly negative end. The microwaves push and pull on these ends, first one way and then the other, about 2.45 billion times a second. The water molecules try to follow, flipping back and forth. They bump into the molecules around them, and all that jostling is heat. The food heats itself.",
+            "That explains the cool bowl. A dry plate or bowl has almost no water in it, so the waves pass right through. It also explains why ice heats slowly: in ice, the water molecules are locked in place and can hardly turn. And because the bouncing waves are strong in some places and weak in others, the oven has hot spots and cold spots. The turntable carries the food through both.",
+            "Metal is a different story. Microwaves cannot pass through metal. At sharp points, like the tips of a fork or the edges of crumpled foil, electric charge piles up and jumps through the air as sparks. So never put metal in a microwave oven. Eggs in their shells and tightly sealed containers are dangerous too, because steam builds up inside until they burst.",
+            "The idea was found by accident. In 1945 an American engineer, Percy Spencer, was working with radar when he noticed that a candy bar in his pocket had melted. The first thing he cooked on purpose was popcorn. Are microwaves dangerous to eat? No. They do not make food radioactive, and the moment the oven stops, the waves are gone. Only the heat is left."
+          ],
+          "paras_zh": [
+            "把一碗冷掉的湯放進微波爐，按下啟動。一分鐘後，湯冒著熱氣。可是摸摸碗的邊緣——幾乎不熱。瓦斯爐是先把鍋子燒熱，鍋子再把湯燒熱。微波爐好像跳過了鍋子這一步。它是怎麼辦到的？",
+            "微波爐裡面有一個零件叫磁控管，它會發出微波。微波是看不見的波，和傳送收音機、Wi-Fi 訊號的波是同一類。加熱的空間是一個金屬箱子，而微波碰到金屬會反彈，所以它們在裡面飛來飛去。連門上的窗子裡都有一層金屬網，網子的洞比微波小得多，所以光出得來，微波卻出不來。",
+            "接下來是關鍵。水分子有一頭帶一點正電，另一頭帶一點負電。微波對這兩頭又推又拉，一下這邊、一下那邊，每秒大約 24.5 億次。水分子想跟上，就不停地來回轉，撞到旁邊的分子。這些推擠碰撞就是熱。食物是自己熱起來的。",
+            "這就說明了碗為什麼不燙。乾的盤子或碗裡幾乎沒有水，微波直接穿過去。這也說明了冰為什麼熱得慢：冰裡面的水分子被固定住，幾乎轉不動。另外，來回反射的微波有的地方強、有的地方弱，所以爐子裡有熱點也有冷點，轉盤就是帶著食物輪流經過這兩種地方。",
+            "金屬就是另一回事了。微波穿不過金屬。在尖尖的地方，例如叉子的尖端、揉皺的鋁箔的邊緣，電荷會擠在一起，再跳過空氣變成火花。所以絕對不可以把金屬放進微波爐。帶殼的蛋和密封的容器也很危險，因為水蒸氣在裡面越積越多，最後會爆開。",
+            "這個點子是意外發現的。1945 年，美國工程師史賓賽（Percy Spencer）在研究雷達的時候，發現口袋裡的糖果棒融化了。他第一樣故意拿來加熱的東西是爆米花。微波加熱的食物吃了危險嗎？不會。微波不會讓食物帶有放射性，而且微波爐一停，微波馬上就消失了，留下來的只有熱。"
+          ],
+          "questions": [
+            "What do microwaves do to the water molecules in food?",
+            "Why does a dry plate stay cool in a microwave oven?",
+            "Why should you never put a metal fork in a microwave oven?"
+          ],
+          "answers": [
+            "They make the water molecules flip back and forth very fast. The molecules bump into their neighbors, and that motion is heat.",
+            "Because it has almost no water in it, so the microwaves pass right through.",
+            "Because electric charge piles up at the sharp tips of the fork and jumps through the air as sparks."
+          ],
+          "vocab": [
+            {
+              "n": 1,
+              "w": "microwave",
+              "pos": "n., v.",
+              "zh": "微波；微波爐；用微波爐加熱",
+              "ex": "You can <b>microwave</b> the rice for one minute.",
+              "exzh": "你可以把飯微波一分鐘。"
+            },
+            {
+              "n": 2,
+              "w": "wave",
+              "pos": "n.",
+              "zh": "波；波浪",
+              "ex": "Light and radio signals travel as <b>waves</b>.",
+              "exzh": "光和無線電訊號都是以波的形式傳送。"
+            },
+            {
+              "n": 3,
+              "w": "bounce",
+              "pos": "v.",
+              "zh": "反彈",
+              "ex": "The ball <b>bounced</b> off the wall.",
+              "exzh": "球從牆上彈回來。"
+            },
+            {
+              "n": 4,
+              "w": "flip",
+              "pos": "v.",
+              "zh": "翻轉",
+              "ex": "<b>Flip</b> the pancake when it turns golden.",
+              "exzh": "鬆餅變金黃色的時候把它翻面。"
+            },
+            {
+              "n": 5,
+              "w": "spark",
+              "pos": "n.",
+              "zh": "火花",
+              "ex": "<b>Sparks</b> flew from the fire.",
+              "exzh": "火堆裡飛出火花。"
+            },
+            {
+              "n": 6,
+              "w": "turntable",
+              "pos": "n.",
+              "zh": "轉盤",
+              "ex": "The <b>turntable</b> turns the food slowly.",
+              "exzh": "轉盤帶著食物慢慢轉。"
+            },
+            {
+              "n": 7,
+              "w": "defrost",
+              "pos": "v.",
+              "zh": "解凍",
+              "ex": "<b>Defrost</b> the fish before you cook it.",
+              "exzh": "煮魚之前要先解凍。"
+            },
+            {
+              "n": 8,
+              "w": "evenly",
+              "pos": "adv.",
+              "zh": "均勻地",
+              "ex": "Stir the soup so that it heats <b>evenly</b>.",
+              "exzh": "把湯攪一攪，才會熱得均勻。"
+            }
+          ],
+          "quiz": [
+            {
+              "q": "What do microwaves mainly heat in food?",
+              "options": [
+                "The water in it",
+                "The plate under it",
+                "The air around it",
+                "The salt in it"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "What keeps the microwaves inside the oven?",
+              "options": [
+                "Metal walls and a metal mesh in the door",
+                "The glass turntable",
+                "The light bulb",
+                "The plastic buttons"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "Why does a microwave oven have a turntable?",
+              "options": [
+                "To carry the food through hot spots and cold spots",
+                "To make the food taste better",
+                "To cool the oven down",
+                "To make the waves stronger"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "Why does ice heat slowly in a microwave oven?",
+              "options": [
+                "Its water molecules are locked in place and can hardly turn",
+                "Ice has no water in it",
+                "Ice bounces the waves away like metal",
+                "The oven turns off when it sees ice"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "Does a microwave oven make food radioactive?",
+              "options": [
+                "No. When the oven stops, the waves are gone",
+                "Yes, for about an hour",
+                "Yes, forever",
+                "Only if the food is frozen"
+              ],
+              "correct": 0
+            }
+          ],
+          "parts_head": {
+            "eyebrow": "Try It in the Model · 在模型裡試試",
+            "en": "Four things to heat",
+            "zh": "加熱四樣東西"
+          },
+          "parts": [
+            {
+              "key": "food",
+              "icon": "🍲",
+              "en": "Food, turntable on",
+              "zh": "食物，轉盤轉動",
+              "meta_en": "Even",
+              "meta_zh": "均勻",
+              "demo": "food",
+              "text_en": "The plate turns, so every bite takes its turn in the hot spots. The whole plate warms up together.",
+              "text_zh": "盤子在轉，每一口都輪流經過熱點，整盤一起變熱。"
+            },
+            {
+              "key": "noturn",
+              "icon": "🛑",
+              "en": "Turntable stopped",
+              "zh": "轉盤停住",
+              "meta_en": "Hot and cold",
+              "meta_zh": "有燙有冷",
+              "demo": "noturn",
+              "text_en": "Now each bite stays put. Some turn red very quickly, and some stay blue. This is why food can be burning hot in one place and cold in another.",
+              "text_zh": "現在每一口都待在原地。有些很快就變紅，有些一直是藍的。所以食物有時候一邊燙得要命、另一邊還是冷的。"
+            },
+            {
+              "key": "ice",
+              "icon": "🧊",
+              "en": "Ice cubes",
+              "zh": "冰塊",
+              "meta_en": "Slow",
+              "meta_zh": "很慢",
+              "demo": "ice",
+              "text_en": "Look at the close-up: the molecules in ice barely move. After two minutes the ice in this model is still frozen.",
+              "text_zh": "看放大的泡泡：冰裡的分子幾乎不動。在這個模型裡，兩分鐘後冰塊還是冰的。"
+            },
+            {
+              "key": "fork",
+              "icon": "⚡",
+              "en": "A metal fork",
+              "zh": "金屬叉子",
+              "meta_en": "Never!",
+              "meta_zh": "絕對不行！",
+              "demo": "fork",
+              "text_en": "Sparks jump from the tips of the fork. In a real oven this can damage the part that makes the waves. Only try it here.",
+              "text_zh": "火花從叉子的尖端跳出來。在真的微波爐裡，這可能弄壞產生微波的零件。只能在這裡試。"
+            }
+          ],
+          "parts_note_en": "Try the empty plate, too. With no water to grab, the waves have almost nothing to heat.",
+          "parts_note_zh": "也試試空盤子：沒有水可以抓，微波幾乎沒有東西可以加熱。",
+          "facts": {
+            "eyebrow": "Microwaves by the Numbers · 微波的數字",
+            "en": "From a melted candy bar to every kitchen",
+            "zh": "從融化的糖果棒到每個廚房",
+            "lead_en": "The waves are fast, and the first oven was enormous.",
+            "lead_zh": "微波變換得很快，而第一台微波爐非常巨大。",
+            "items": [
+              {
+                "big": "2.45",
+                "unit_en": "billion times a second",
+                "unit_zh": "每秒 24.5 億次",
+                "en": "Home microwave ovens use waves of about 2.45 gigahertz. That is how often they push and pull on the water molecules.",
+                "zh": "家用微波爐使用大約 2.45 GHz 的微波，也就是每秒推拉水分子這麼多次。"
+              },
+              {
+                "big": "12.2",
+                "unit_en": "centimeters",
+                "unit_zh": "公分",
+                "en": "The length of one of these waves, far bigger than the holes in the door's metal mesh.",
+                "zh": "一個微波的波長，比門上金屬網的洞大得多。"
+              },
+              {
+                "big": "About 1",
+                "unit_en": "centimeter",
+                "unit_zh": "大約 1 公分",
+                "en": "How far the microwaves reach into most foods. The middle is heated by warmth passing inward, so stir and wait.",
+                "zh": "微波大約只能進到大多數食物這麼深；中間是靠熱往裡面傳，所以要攪一攪、等一下。"
+              },
+              {
+                "big": "1945",
+                "unit_en": "a lucky accident",
+                "unit_zh": "幸運的意外",
+                "en": "Percy Spencer noticed that radar waves had melted the candy bar in his pocket.",
+                "zh": "史賓賽發現雷達的微波把他口袋裡的糖果棒融化了。"
+              },
+              {
+                "big": "1947",
+                "unit_en": "the first one sold",
+                "unit_zh": "第一台上市",
+                "en": "The Radarange, the first microwave oven on sale, was almost 1.8 meters tall.",
+                "zh": "第一台上市的微波爐 Radarange，幾乎有 1.8 公尺高。"
+              },
+              {
+                "big": "340",
+                "unit_en": "kilograms",
+                "unit_zh": "公斤",
+                "en": "The weight of that first oven. It used about three times as much power as a home oven does today.",
+                "zh": "那台微波爐的重量。它用的電大約是現在家用微波爐的三倍。"
+              }
+            ]
+          },
+          "myths": [
+            {
+              "myth_en": "Microwaved food becomes radioactive.",
+              "myth_zh": "微波過的食物會有放射性。",
+              "fact_en": "No. Microwaves only make molecules turn and shake. They cannot change what the food is made of, and they vanish when the oven stops.",
+              "fact_zh": "不會。微波只能讓分子轉動、震動，沒辦法改變食物的組成；微波爐一停，微波就消失了。"
+            },
+            {
+              "myth_en": "A microwave oven cooks food from the inside out.",
+              "myth_zh": "微波爐是從食物裡面往外加熱的。",
+              "fact_en": "The waves reach only about a centimeter into most foods. The middle heats up later, as warmth passes inward.",
+              "fact_zh": "微波大約只能進到大多數食物一公分深；中間是後來才靠熱往裡面傳而變熱的。"
+            },
+            {
+              "myth_en": "The microwaves can leak out through the holes in the door.",
+              "myth_zh": "微波會從門上的小洞漏出來。",
+              "fact_en": "The holes in the metal mesh are much smaller than the waves, so the waves bounce back while light passes through.",
+              "fact_zh": "金屬網的洞比微波小得多，微波會被彈回去，只有光穿得過來。"
+            },
+            {
+              "myth_en": "The plate gets hot because the microwaves heat it.",
+              "myth_zh": "盤子會燙，是因為被微波加熱了。",
+              "fact_en": "A microwave-safe plate has almost no water, so the waves pass through it. It gets hot because the hot food warms it.",
+              "fact_zh": "可微波的盤子裡幾乎沒有水，微波會直接穿過去。它會燙，是被熱食物燙熱的。"
+            }
+          ],
+          "tricks": [
+            {
+              "title_en": "Waves in a metal box",
+              "title_zh": "金屬箱子裡的波",
+              "body_en": "Microwaves bounce off metal, so the box keeps them in.",
+              "body_zh": "微波碰到金屬會反彈，所以箱子把它們關在裡面。"
+            },
+            {
+              "title_en": "Water does the dancing",
+              "title_zh": "跳舞的是水",
+              "body_en": "Water molecules flip back and forth, bump their neighbors, and make heat.",
+              "body_zh": "水分子來回轉、撞到鄰居，就產生熱。"
+            },
+            {
+              "title_en": "No water, no heat",
+              "title_zh": "沒有水就不熱",
+              "body_en": "Dry plates stay cool, and ice heats slowly.",
+              "body_zh": "乾的盤子不燙，冰也熱得慢。"
+            },
+            {
+              "title_en": "No metal, no eggs, no sealed lids",
+              "title_zh": "不放金屬、帶殼蛋、密封容器",
+              "body_en": "Metal sparks. Eggs and sealed containers burst.",
+              "body_zh": "金屬會冒火花；帶殼的蛋和密封的容器會爆開。"
+            }
+          ],
+          "safety": [
+            {
+              "en": "Never put metal in a microwave oven: no forks, spoons, foil, or dishes with metal trim.",
+              "zh": "絕對不可以把金屬放進微波爐：叉子、湯匙、鋁箔、有金屬邊的碗盤都不行。"
+            },
+            {
+              "en": "Never microwave an egg in its shell or a tightly sealed container. Leave a small gap so steam can escape.",
+              "zh": "不可以微波帶殼的蛋或密封的容器。蓋子要留一點縫，讓水蒸氣跑出來。"
+            },
+            {
+              "en": "Use only containers that are marked safe for microwave ovens.",
+              "zh": "只用標示可以微波的容器。"
+            },
+            {
+              "en": "Food and steam can be much hotter than the dish feels. Use oven mitts, open lids away from your face, and stir before you taste.",
+              "zh": "食物和水蒸氣可能比碗摸起來燙得多。要戴隔熱手套，掀蓋子時不要對著臉，吃之前先攪一攪。"
+            },
+            {
+              "en": "Use the microwave oven only with an adult. If the door is cracked or does not close properly, do not use it.",
+              "zh": "要有大人陪同才能使用微波爐。門有裂痕或關不緊的時候，不要使用。"
+            }
+          ],
+          "activities": [
+            {
+              "title_en": "Water Versus Ice",
+              "title_zh": "水和冰比一比",
+              "materials": [
+                {
+                  "en": "Two microwave-safe cups that are the same",
+                  "zh": "兩個一樣的可微波杯子"
+                },
+                {
+                  "en": "Cold water, a few ice cubes, and an adult to run the oven",
+                  "zh": "冷水、幾顆冰塊，和一位操作微波爐的大人"
+                }
+              ],
+              "steps": [
+                {
+                  "en": "Put cold water in one cup and the same amount of ice cubes in the other.",
+                  "zh": "一個杯子裝冷水，另一個裝差不多一樣多的冰塊。"
+                },
+                {
+                  "en": "Guess: after 30 seconds in the microwave oven, what will each cup look like?",
+                  "zh": "先猜猜看：微波 30 秒之後，兩個杯子各會變成什麼樣子？"
+                },
+                {
+                  "en": "Ask the adult to heat both cups together for 30 seconds and take them out with oven mitts.",
+                  "zh": "請大人把兩個杯子一起微波 30 秒，再戴隔熱手套拿出來。"
+                },
+                {
+                  "en": "Look, but do not touch the water until the adult says it is safe. Is the ice all melted? Which one took in more heat?",
+                  "zh": "用看的；大人說可以之前不要碰水。冰全部融化了嗎？哪一杯吸收的熱比較多？"
+                }
+              ],
+              "tip_en": "In liquid water the molecules are free to turn. In ice they are locked in place, so ice takes in the waves poorly.",
+              "tip_zh": "液態水裡的分子可以自由轉動；冰裡的分子被固定住，所以冰不太吸收微波。"
+            },
+            {
+              "title_en": "Find the Hot Spots",
+              "title_zh": "找出熱點",
+              "materials": [
+                {
+                  "en": "A large microwave-safe plate and a bag of small marshmallows",
+                  "zh": "一個大的可微波盤子，和一包小棉花糖"
+                },
+                {
+                  "en": "A ruler, and an adult to run the oven",
+                  "zh": "一把尺，和一位操作微波爐的大人"
+                }
+              ],
+              "steps": [
+                {
+                  "en": "Cover the plate with marshmallows in one flat layer, touching each other.",
+                  "zh": "把棉花糖在盤子上鋪滿平平的一層，一顆挨著一顆。"
+                },
+                {
+                  "en": "Ask the adult to take out the turntable (or stop it from turning) and heat the plate for about 20 seconds.",
+                  "zh": "請大人把轉盤拿出來（或讓它不要轉），把盤子微波大約 20 秒。"
+                },
+                {
+                  "en": "Look for the places where the marshmallows have puffed up or melted first. These are the hot spots.",
+                  "zh": "找找看哪些地方的棉花糖最先膨起來或融化，那些就是熱點。"
+                },
+                {
+                  "en": "Measure the distance from one hot spot to the next. Then put the turntable back and try again with fresh marshmallows. What changes?",
+                  "zh": "量一量一個熱點到下一個熱點的距離。再把轉盤裝回去，換新的棉花糖再試一次。有什麼不一樣？"
+                }
+              ],
+              "tip_en": "Let the marshmallows cool before anyone touches them. Melted sugar is very hot and sticks to skin.",
+              "tip_zh": "棉花糖要放涼才能碰。融化的糖非常燙，而且會黏在皮膚上。"
+            }
+          ],
+          "sources": [
+            {
+              "en": "Microwaves make polar molecules such as water rotate back and forth, which heats the food; ovens work at about 2.45 GHz, a wavelength of 12.2 cm",
+              "zh": "微波讓水等極性分子來回轉動而加熱食物；家用微波爐約 2.45 GHz，波長 12.2 公分",
+              "src": "Wikipedia, “Microwave oven”",
+              "url": "https://en.wikipedia.org/wiki/Microwave_oven"
+            },
+            {
+              "en": "The metal cooking chamber and the mesh in the door keep the waves in because the holes are much smaller than the wavelength; uneven energy needs a stirrer or a turntable",
+              "zh": "金屬爐腔與門上的金屬網把微波關在裡面，因為洞比波長小得多；能量分布不均，所以需要攪拌扇或轉盤",
+              "src": "Wikipedia, “Microwave oven”",
+              "url": "https://en.wikipedia.org/wiki/Microwave_oven"
+            },
+            {
+              "en": "Microwaves reach about 1 cm into most foods; heating is less efficient in frozen water; pointed metal makes sparks; eggs and closed containers can explode",
+              "zh": "微波大約進到大多數食物 1 公分深；冰吸收得比較差；尖的金屬會產生火花；蛋和密閉容器可能爆開",
+              "src": "Wikipedia, “Microwave oven”",
+              "url": "https://en.wikipedia.org/wiki/Microwave_oven"
+            },
+            {
+              "en": "Percy Spencer's discovery in 1945 (a melted candy bar; popcorn was the first food cooked on purpose); the 1947 Radarange was almost 1.8 m tall and weighed 340 kg",
+              "zh": "史賓賽 1945 年的發現（融化的糖果棒；第一樣故意加熱的食物是爆米花）；1947 年的 Radarange 幾乎 1.8 公尺高、340 公斤重",
+              "src": "Wikipedia, “Microwave oven”",
+              "url": "https://en.wikipedia.org/wiki/Microwave_oven"
+            },
+            {
+              "en": "Used correctly, a microwave oven leaves no toxins or radioactive material in food; 2.45 GHz, about 2.5 billion vibrations a second; no eggs in shells, no over-sealed food, no sharp or thin metal",
+              "zh": "正確使用微波爐，食物不會產生毒素或殘留放射性物質；頻率約 2.45 GHz、每秒約 25 億次；帶殼雞蛋、過度密封、尖銳或薄片型金屬都不宜",
+              "src": "衛生福利部食品藥物管理署「食藥闢謠專區」",
+              "url": "https://www.fda.gov.tw/tc/newsContent.aspx?id=22631"
+            },
+            {
+              "en": "Microwave ovens do not make food radioactive and do not change its chemical structure",
+              "zh": "微波爐不會使食物具有放射性，也不會改變食物的分子或化學結構",
+              "src": "衛生福利部國民健康署",
+              "url": "https://www.hpa.gov.tw/Pages/Detail.aspx?nodeid=127&pid=8882"
+            }
+          ]
         }
-      ]
+      ],
+      "planned": []
     }
   ]
 }

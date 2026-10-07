@@ -872,3 +872,43 @@
   .rt-msg { min-height: 0; }
   .rt-row { margin: .6rem 0 0; flex-basis: 100%; }
 }
+
+/* ---------- 第二十課：微波爐 ---------- */
+@media (min-width: 1021px) { .mcw-lab .al-space { min-height: 640px; } }
+.mcw-lab .al-space { background: #121c30; }
+.mcw-aside { gap: .9rem; }
+.mcw-aside > * { min-width: 0; }
+.mcw-items { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .35rem; margin: .3rem 0 .8rem; }
+.mcw-item { padding: .45rem .3rem; border-radius: 12px; border: 1px solid var(--al-line); background: rgba(255,255,255,.05); color: #fff; font: 800 .74rem var(--sans); cursor: pointer; line-height: 1.2; }
+.mcw-item small { display: block; font-family: var(--zh); font-weight: 600; font-size: .68rem; color: var(--al-mute); margin-top: .1rem; }
+.mcw-item.on { border-color: var(--al-sun); background: rgba(255,211,110,.18); }
+.mcw-item-bad.on { border-color: #ff8a7a; background: rgba(255,90,74,.18); }
+.mcw-status { margin: .2rem 0 .8rem; font-family: var(--serif); font-size: 1.5rem; line-height: 1.1; color: #fff; }
+.mcw-status small { display: block; font-family: var(--zh); font-size: .85rem; color: var(--al-mute); margin-top: .2rem; }
+.mcw-status.ok { color: #7cf29a; } .mcw-status.bad { color: #ff8a7a; }
+.mcw-nums { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.mcw-bars { margin: .9rem 0 0; display: grid; gap: .45rem; }
+.mcw-bar { margin: 0; display: grid; gap: .15rem; font: 700 .72rem var(--sans); color: var(--al-mute); }
+.mcw-bar i { display: block; height: 10px; border-radius: 6px; background: rgba(255,255,255,.08); position: relative; overflow: hidden; }
+.mcw-bar i::after { content: ""; position: absolute; inset: 0 auto 0 0; width: var(--w, 0%); border-radius: 6px; background: #ff7a3a; }
+.mcw-bar-cold i::after { background: #5aa6ff; }
+.mcw-msg { min-height: 8.6em; }
+.mcw-row { flex: 1 1 260px; margin: 0 0 0 .6rem; }
+.mcw-row > span { text-transform: none; letter-spacing: .02em; }
+.mcw-row output { margin-left: .3rem; font-weight: 800; color: #fff; font-variant-numeric: tabular-nums; }
+.al-lab.mcw-lb-mag { color: #ffd9c2; border-color: rgba(200,116,58,.8); }
+.al-lab.mcw-lb-wave { color: #fff3b0; border-color: rgba(255,224,102,.7); }
+.al-lab.mcw-lb-hot { color: #fff; background: #d8382e; border-color: #ff8a7a; font-weight: 800; }
+.al-lg-mcwwave i { border: 0; height: 3px; margin-top: .55rem; background: #ffe066; }
+.al-lg-mcwspot i { border: 0; border-radius: 50%; width: 11px; height: 11px; margin: .3rem 4px 0; background: #ff9a3a; box-shadow: 0 0 6px #ff9a3a; }
+.al-lg-mcwfood i { border: 0; height: 10px; margin-top: .3rem; border-radius: 5px; background: linear-gradient(90deg, #5aa6ff, #ffd84a, #e0261a); }
+.al-lg-mcwmol i { border: 0; width: 16px; height: 12px; margin-top: .25rem; background: radial-gradient(circle at 8px 7px, #ff4a4a 4.5px, transparent 5px), radial-gradient(circle at 3px 3px, #fff 2.5px, transparent 3px), radial-gradient(circle at 13px 3px, #fff 2.5px, transparent 3px); }
+@media (max-width: 1020px) {
+  .mcw-lab .al-stage { grid-template-columns: minmax(0, 1fr); }
+  .mcw-lab .bt-aside { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+}
+@media (max-width: 640px) {
+  .mcw-lab .bt-aside { grid-template-columns: minmax(0, 1fr); }
+  .mcw-msg { min-height: 0; }
+  .mcw-row { margin: .6rem 0 0; flex-basis: 100%; }
+}

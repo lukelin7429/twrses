@@ -5549,7 +5549,7 @@ def build_body_hub():
 # 3D 原始碼在 tools/science/src/（three.js、esbuild，每課一個入口），打包成 assets/js/<入口>.js；
 # 面板、迷思、口訣、活動沿用 astro.css，本系列多出來的在 science.css；兩者都只載在本系列頁面。
 HTW_BASE = "/resources/classes/how-things-work/"
-_HTW_JS = {"battery": "battery", "generator": "generator", "solar": "solar-cell", "wind": "wind-turbine", "internet": "internet-packets", "signal": "cell-signal", "gps": "gps-satellites", "memory": "memory-bits", "sky": "sky-scatter", "rainbow": "rainbow-drops", "sound": "sound-waves", "camera": "camera-lens", "wing": "airplane-wing", "bike": "bicycle-balance", "elevator": "elevator-lift", "fridge": "fridge-cycle", "soap": "soap-micelle", "bread": "bread-rise", "rust": "iron-rust"}   # lab.kind → assets/js/<bundle>.js
+_HTW_JS = {"battery": "battery", "generator": "generator", "solar": "solar-cell", "wind": "wind-turbine", "internet": "internet-packets", "signal": "cell-signal", "gps": "gps-satellites", "memory": "memory-bits", "sky": "sky-scatter", "rainbow": "rainbow-drops", "sound": "sound-waves", "camera": "camera-lens", "wing": "airplane-wing", "bike": "bicycle-balance", "elevator": "elevator-lift", "fridge": "fridge-cycle", "soap": "soap-micelle", "bread": "bread-rise", "rust": "iron-rust", "microwave": "microwave-oven"}   # lab.kind → assets/js/<bundle>.js
 
 def _htw_cn(n):
     """課次的中文數字（一～九十九）：第十一課、第二十課。"""
@@ -6638,6 +6638,64 @@ def render_rust_lab(lesson):
   <p class="bt-credit">{lab["credit_html"]}</p>
 </div>'''
 
+def microwave_svg(size=56):
+    """微波爐小圖（萬物原理首頁的課程卡）：一台微波爐，裡面有黃色的波和一盤熱食。"""
+    return (f'<svg class="microwave-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">'
+            '<rect x="4" y="13" width="52" height="34" rx="4" fill="#2a3140" stroke="#8a96ad" stroke-width="1.5"/>'
+            '<rect x="8" y="17" width="34" height="26" rx="2" fill="#121c30" stroke="#c7ced9" stroke-width="1.2"/>'
+            '<path d="M11 24 q3.5 -5 7 0 t7 0 t7 0 t7 0" fill="none" stroke="#ffe066" stroke-width="1.8" stroke-linecap="round"/>'
+            '<ellipse cx="25" cy="38" rx="10" ry="2.2" fill="#fff"/><circle cx="21" cy="35" r="3" fill="#ff8a2a"/><circle cx="27" cy="34.5" r="3.2" fill="#e0261a"/><circle cx="31" cy="36" r="2.4" fill="#ffd84a"/>'
+            '<circle cx="49" cy="22" r="2.4" fill="#c8743a"/><rect x="46" y="29" width="6" height="2.4" rx="1" fill="#8a96ad"/><rect x="46" y="34" width="6" height="2.4" rx="1" fill="#8a96ad"/>'
+            '<path d="M10 50 h8 M42 50 h8" stroke="#8a96ad" stroke-width="3" stroke-linecap="round"/></svg>')
+
+def render_microwave_lab(lesson):
+    """第二十課：剖開的微波爐（assets/js/microwave-oven.js 綁這裡的 class；溫度是示意模型）。"""
+    lab = lesson["lab"]
+    tg = _lab_toggles([("labels", "Labels", "標示", True), ("turn", "Turntable", "轉盤", True), ("waves", "Show the waves", "顯示微波", True)])
+    return f'''<div class="astro-lab bt-lab mcw-lab rvl" data-microwave-lab>
+  <div class="al-stage">
+    <div class="al-space">
+      <canvas class="al-space-cv" aria-label="3D model of a microwave oven with the top removed: waves bounce inside the metal box, water molecules in the food flip back and forth, and the food heats up · 拿掉頂蓋的微波爐 3D 模型：微波在金屬箱子裡反射，食物裡的水分子來回轉動，食物變熱"></canvas>
+      <div class="al-labels" aria-hidden="true"></div>
+      <p class="bt-cut">A microwave oven you can see into; waves and molecules drawn far bigger than real · 看得進去的微波爐；波和分子都畫得比真的大非常多</p>
+      <p class="al-hint">Drag to turn · 拖曳旋轉　Scroll or pinch to zoom · 滾輪／雙指縮放</p>
+      <button type="button" class="al-home" title="Reset view · 重設視角" aria-label="Reset view · 重設視角">&#8634;</button>
+      <p class="al-nogl-msg">This 3D model needs WebGL, which this browser does not support. The reading and the cards below still explain everything.<br><span class="zh">這個瀏覽器不支援 WebGL，無法顯示 3D 模型；下方的課文與卡片一樣能看懂。</span></p>
+    </div>
+    <aside class="al-sky bt-aside mcw-aside">
+      <div class="mcw-top">
+        <p class="al-sky-k">What is on the plate? · 盤子上放什麼？</p>
+        <div class="mcw-items">
+          <button type="button" class="mcw-item" data-item="food" aria-pressed="true">Food<small>含水的食物</small></button>
+          <button type="button" class="mcw-item" data-item="ice" aria-pressed="false">Ice cubes<small>冰塊</small></button>
+          <button type="button" class="mcw-item" data-item="plate" aria-pressed="false">Empty plate<small>空盤子</small></button>
+          <button type="button" class="mcw-item mcw-item-bad" data-item="fork" aria-pressed="false">Food + metal fork<small>食物＋金屬叉子</small></button>
+        </div>
+        <p class="mcw-status" aria-live="polite"></p>
+        <dl class="bt-nums mcw-nums">
+          <div><dt>Hottest spot · 最熱的地方</dt><dd class="mcw-hot"></dd></div>
+          <div><dt>Coldest spot · 最冷的地方</dt><dd class="mcw-cold"></dd></div>
+        </dl>
+        <div class="mcw-bars">
+          <p class="mcw-bar mcw-bar-hot"><span>Hottest · 最熱</span><i></i></p>
+          <p class="mcw-bar mcw-bar-cold"><span>Coldest · 最冷</span><i></i></p>
+        </div>
+      </div>
+      <p class="bt-msg mcw-msg" aria-live="polite"></p>
+    </aside>
+  </div>
+  <div class="al-controls">
+    <div class="al-row al-row-main">
+      <button type="button" class="al-play" aria-pressed="true"><span class="al-play-i" aria-hidden="true"></span><span class="al-play-t">Stop · 停止</span></button>
+      <label class="al-slider mcw-row"><span>Cooking time · 加熱時間 <output class="mcw-time-out"></output></span>
+        <input type="range" class="al-age mcw-time" min="0" max="120" step="1" value="0"></label>
+    </div>
+    <div class="al-row al-toggles">{tg}</div>
+  </div>
+  {_lab_foot(lab)}
+  <p class="bt-credit">{lab["credit_html"]}</p>
+</div>'''
+
 def _htw_flat():
     return [(ui, u, l) for ui, u in enumerate(HTW["units"]) for l in u["lessons"]]
 
@@ -6665,7 +6723,7 @@ def build_htw_lesson(ui, unit, lesson):
     reading_html = render_basic_unit(1, unit_dict, level="htw", audio_rel="", pdf_rel="")
     lab = lesson["lab"]
     kind = lab["kind"]
-    lab_html = {"battery": render_battery_lab, "generator": render_generator_lab, "solar": render_solarcell_lab, "wind": render_windturbine_lab, "internet": render_internet_lab, "signal": render_cellsignal_lab, "gps": render_gps_lab, "memory": render_memory_lab, "sky": render_skyblue_lab, "rainbow": render_rainbow_lab, "sound": render_soundwave_lab, "camera": render_cameralens_lab, "wing": render_airwing_lab, "bike": render_bicycle_lab, "elevator": render_elevator_lab, "fridge": render_fridge_lab, "soap": render_soap_lab, "bread": render_bread_lab, "rust": render_rust_lab}[kind](lesson)
+    lab_html = {"battery": render_battery_lab, "generator": render_generator_lab, "solar": render_solarcell_lab, "wind": render_windturbine_lab, "internet": render_internet_lab, "signal": render_cellsignal_lab, "gps": render_gps_lab, "memory": render_memory_lab, "sky": render_skyblue_lab, "rainbow": render_rainbow_lab, "sound": render_soundwave_lab, "camera": render_cameralens_lab, "wing": render_airwing_lab, "bike": render_bicycle_lab, "elevator": render_elevator_lab, "fridge": render_fridge_lab, "soap": render_soap_lab, "bread": render_bread_lab, "rust": render_rust_lab, "microwave": render_microwave_lab}[kind](lesson)
 
     secs = []
     if lesson.get("mix"):
@@ -6740,7 +6798,8 @@ def build_htw_lesson(ui, unit, lesson):
                 "fridge": ("Refrigerators in a sentence", "一句話記住冰箱"),
                 "soap": ("Soap in a sentence", "一句話記住肥皂"),
                 "bread": ("Bread in a sentence", "一句話記住麵包"),
-                "rust": ("Rust in a sentence", "一句話記住生鏽")}[kind]
+                "rust": ("Rust in a sentence", "一句話記住生鏽"),
+                "microwave": ("Microwave ovens in a sentence", "一句話記住微波爐")}[kind]
     secs.append(("tricks", "Remember It · 記憶口訣", tricks_h[0], tricks_h[1], _sci_tricks(lesson), ""))
     if lesson.get("safety"):
         items = "".join(f'<li class="rvl">{html.escape(s["en"])}<span class="zh">{html.escape(s["zh"])}</span></li>' for s in lesson["safety"])
@@ -6794,7 +6853,7 @@ def build_htw_lesson(ui, unit, lesson):
 def build_htw_hub():
     # 照中醫養生：單元導覽＋每個單元一段橫向課程卡；做好的課可點，planned 是「製作中」卡。
     def icon(l):
-        return battery_svg(60) if l.get("card") == "battery" else outlet_svg(60) if l.get("card") == "outlet" else solarpanel_svg(60) if l.get("card") == "solar" else windturbine_svg(60) if l.get("card") == "wind" else internet_svg(60) if l.get("card") == "internet" else cellsignal_svg(60) if l.get("card") == "signal" else gps_svg(60) if l.get("card") == "gps" else memory_svg(60) if l.get("card") == "memory" else skyblue_svg(60) if l.get("card") == "sky" else rainbow_svg(60) if l.get("card") == "rainbow" else soundwave_svg(60) if l.get("card") == "sound" else cameralens_svg(60) if l.get("card") == "camera" else airwing_svg(60) if l.get("card") == "wing" else bicycle_svg(60) if l.get("card") == "bike" else elevator_svg(60) if l.get("card") == "elevator" else fridge_svg(60) if l.get("card") == "fridge" else soap_svg(60) if l.get("card") == "soap" else bread_svg(60) if l.get("card") == "bread" else rust_svg(60) if l.get("card") == "rust" else l["icon"]
+        return battery_svg(60) if l.get("card") == "battery" else outlet_svg(60) if l.get("card") == "outlet" else solarpanel_svg(60) if l.get("card") == "solar" else windturbine_svg(60) if l.get("card") == "wind" else internet_svg(60) if l.get("card") == "internet" else cellsignal_svg(60) if l.get("card") == "signal" else gps_svg(60) if l.get("card") == "gps" else memory_svg(60) if l.get("card") == "memory" else skyblue_svg(60) if l.get("card") == "sky" else rainbow_svg(60) if l.get("card") == "rainbow" else soundwave_svg(60) if l.get("card") == "sound" else cameralens_svg(60) if l.get("card") == "camera" else airwing_svg(60) if l.get("card") == "wing" else bicycle_svg(60) if l.get("card") == "bike" else elevator_svg(60) if l.get("card") == "elevator" else fridge_svg(60) if l.get("card") == "fridge" else soap_svg(60) if l.get("card") == "soap" else bread_svg(60) if l.get("card") == "bread" else rust_svg(60) if l.get("card") == "rust" else microwave_svg(60) if l.get("card") == "microwave" else l["icon"]
     unit_sections, nav = [], []
     done = sum(len(u["lessons"]) for u in HTW["units"])
     total = done + sum(len(u.get("planned", [])) for u in HTW["units"])
