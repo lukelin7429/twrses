@@ -7300,7 +7300,42 @@ def _ph_lab_river(lab):
   {_ph_pick(lab["pick"])}
 </div>'''
 
+def _ph_lab_demon(lab):
+    """A11：拉普拉斯的球桌（2D canvas，決定性的彈性碰撞；重播完全相同、微調 0.01° 結果就不同），以及作弊的信封。"""
+    payload = html.escape(json.dumps({"notes": lab["notes"], "envelope": lab["envelope"]}, ensure_ascii=False), quote=False)
+    e = lab["envelope"]
+    return f'''<div class="ph-el ph-dm rvl" data-ph-demon>
+  <script type="application/json" data-dm-data>{payload}</script>
+  <div class="ph-dm-view"><canvas width="1000" height="440" aria-label="Six balls on a table · 球桌上的六顆球"></canvas></div>
+  <div class="ph-el-stage">
+    <div class="ph-zn-read">
+      <div><small>Runs · 運行次數</small><b data-dm-runs>0</b></div>
+      <div><small>Time · 時間</small><b data-dm-t>0.0 s</b></div>
+      <div><small>Red ball ends at · 紅球終點</small><b data-dm-end>—</b></div>
+      <div><small>Start angle · 起始角度</small><b data-dm-ang>30.00°</b></div>
+    </div>
+    <div class="ph-zn-btns">
+      <button type="button" class="ph-vl-next" data-dm-run>Run the universe · 讓宇宙運行</button>
+      <button type="button" class="ph-zn-run" data-dm-nudge>Nudge the red ball 0.01° · 把紅球轉 0.01°</button>
+      <button type="button" class="ph-el-reset" data-dm-reset>Start again · 重來</button>
+    </div>
+    <p class="ph-zn-msg" data-dm-msg aria-live="polite"></p>
+  </div>
+</div>
+<div class="ph-tests">
+  <h3 class="rvl">The demon predicts you <span class="ph-h2-zh">惡魔預測你</span></h3>
+  <div class="ph-own ph-env rvl" data-ph-envelope>
+    {_ph_bi(e["q"], say=False)}
+    <div class="ph-env-row"><div class="ph-env-card" data-env-card aria-hidden="true">✉</div>
+      <div class="ph-ml-opts"><button type="button" data-env="left">{_ph_e(e["left"]["en"])} · {_ph_e(e["left"]["zh"])}</button><button type="button" data-env="right">{_ph_e(e["right"]["en"])} · {_ph_e(e["right"]["zh"])}</button></div></div>
+    <div class="ph-ck-reply" data-env-out hidden></div>
+  </div>
+  <h3 class="rvl" style="margin-top:2.4rem">Where do you stand? <span class="ph-h2-zh">你站在哪一邊？</span></h3>
+  {_ph_pick(lab["pick"])}
+</div>'''
+
 def _ph_lab(lab):
+    if lab.get("kind") == "demon": return _ph_lab_demon(lab)
     if lab.get("kind") == "river": return _ph_lab_river(lab)
     if lab.get("kind") == "ship": return _ph_lab_ship(lab)
     if lab.get("kind") == "chicken": return _ph_lab_chicken(lab)

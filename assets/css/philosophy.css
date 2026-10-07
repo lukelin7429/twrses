@@ -644,3 +644,14 @@ main:has(.ph-tools) .wrap { width: min(980px, 92vw); }
 .ph-rv-view canvas { display: block; width: 100%; height: auto; }
 .ph-rv .ph-zn-run[aria-pressed="true"] { background: #4fd1a5; color: var(--ph-night); }
 .ph-rv-read b { font-size: clamp(.95rem, 2vw, 1.2rem); }
+
+/* ---------- A11：拉普拉斯的球桌與信封 ---------- */
+.ph-dm-view { background: #17543f; }
+.ph-dm-view canvas { display: block; width: 100%; height: auto; }
+.ph-dm .ph-zn-read b { font-size: clamp(.9rem, 1.9vw, 1.15rem); }
+.ph-env-row { display: flex; flex-wrap: wrap; align-items: center; gap: 1.2rem; margin-top: .9rem; }
+.ph-env-row .ph-ml-opts { margin: 0; }
+.ph-env-card { width: 132px; height: 84px; border-radius: 10px; background: linear-gradient(145deg, #f3e3b8, #d9a94a); color: var(--ph-night); display: grid; place-items: center; font: 600 2rem var(--serif); box-shadow: var(--shadow-sm); transition: transform .5s; }
+.ph-env-card.is-open { font-size: 1.05rem; transform: rotate(-3deg); background: #fff; border: 2px solid var(--gold); }
+.ph-env .ph-ck-reply p { font-size: 1.04rem; line-height: 1.7; }
+.ph-env-confess { margin-top: .8rem !important; padding-top: .8rem; border-top: 1px dashed var(--ph-terra); }

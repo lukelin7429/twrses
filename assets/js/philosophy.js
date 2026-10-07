@@ -621,6 +621,89 @@
     root.__lab = { step: step, tick: tick, state: function () { return { steps: steps, passed: passed, frozen: frozen, pattern: pattern, first: firstTotal, left: drops.filter(function (d) { return d.tag === 1; }).length, said: said }; } };
   });
 
+  /* ---- A11：拉普拉斯的球桌（決定性的小宇宙）與作弊的信封 ---- */
+  $$('[data-ph-demon]').forEach(function (root) {
+    var D;
+    try { D = JSON.parse($('[data-dm-data]', root).textContent); } catch (e) { return; }
+    var cv = $('canvas', root), g = cv.getContext('2d'), W = cv.width, H = cv.height, R = 17, STEPS = 620, DT = 1 / 60;
+    var msg = $('[data-dm-msg]', root), runsEl = $('[data-dm-runs]', root), tEl = $('[data-dm-t]', root), endEl = $('[data-dm-end]', root), angEl = $('[data-dm-ang]', root);
+    var COL = ['#e2553d', '#f3e3b8', '#9fc3ea', '#4fd1a5', '#ffd36e', '#c9a0dc'];
+    var angle = 30, runs, last, timer = null, balls, trail, k, said;
+    function init() {
+      var a = angle * Math.PI / 180, sp = 430;
+      balls = [{ x: 150, y: 220, vx: Math.cos(a) * sp, vy: Math.sin(a) * sp }, { x: 520, y: 150, vx: 0, vy: 0 }, { x: 600, y: 300, vx: -60, vy: 20 },
+               { x: 760, y: 200, vx: 0, vy: 0 }, { x: 430, y: 340, vx: 40, vy: -30 }, { x: 850, y: 330, vx: 0, vy: 0 }];
+      trail = []; k = 0;
+    }
+    function stepSim() {
+      var i, j, b, c, dx, dy, d, nx, ny, p, ov;
+      for (i = 0; i < balls.length; i++) {
+        b = balls[i]; b.x += b.vx * DT; b.y += b.vy * DT;
+        if (b.x < R) { b.x = R; b.vx = -b.vx; } if (b.x > W - R) { b.x = W - R; b.vx = -b.vx; }
+        if (b.y < R) { b.y = R; b.vy = -b.vy; } if (b.y > H - R) { b.y = H - R; b.vy = -b.vy; }
+      }
+      for (i = 0; i < balls.length; i++) for (j = i + 1; j < balls.length; j++) {
+        b = balls[i]; c = balls[j]; dx = c.x - b.x; dy = c.y - b.y; d = Math.sqrt(dx * dx + dy * dy);
+        if (d < 2 * R && d > 0) {
+          nx = dx / d; ny = dy / d; p = (b.vx - c.vx) * nx + (b.vy - c.vy) * ny;
+          if (p > 0) { b.vx -= p * nx; b.vy -= p * ny; c.vx += p * nx; c.vy += p * ny; }
+          ov = (2 * R - d) / 2; b.x -= nx * ov; b.y -= ny * ov; c.x += nx * ov; c.y += ny * ov;
+        }
+      }
+      k++; if (k % 3 === 0) trail.push([balls[0].x, balls[0].y]);
+    }
+    function draw() {
+      g.fillStyle = '#17543f'; g.fillRect(0, 0, W, H);
+      g.strokeStyle = 'rgba(255,255,255,.22)'; g.lineWidth = 2; g.setLineDash([8, 8]); g.beginPath(); g.moveTo(W / 2, 0); g.lineTo(W / 2, H); g.stroke(); g.setLineDash([]);
+      g.fillStyle = 'rgba(255,255,255,.3)'; g.font = '700 15px sans-serif'; g.fillText('left · 左', 14, 24); g.fillText('right · 右', W - 92, 24);
+      if (trail.length > 1) { g.strokeStyle = 'rgba(226,85,61,.55)'; g.lineWidth = 2; g.beginPath(); g.moveTo(trail[0][0], trail[0][1]); trail.forEach(function (p) { g.lineTo(p[0], p[1]); }); g.stroke(); }
+      balls.forEach(function (b, i) { g.fillStyle = COL[i]; g.beginPath(); g.arc(b.x, b.y, R, 0, 6.3); g.fill(); g.strokeStyle = 'rgba(0,0,0,.35)'; g.lineWidth = 1.5; g.stroke(); });
+    }
+    function say(key, o) {
+      said = key; var n = D.notes[key], en = n.en, zh = n.zh;
+      if (o) { en = en.replace('{side}', o.side); zh = zh.replace('{side_zh}', o.zh); }
+      msg.textContent = en; var z = el('span', '', zh); z.lang = 'zh-Hant'; msg.appendChild(z);
+    }
+    function result() { var b = balls[0]; return { side: b.x < W / 2 ? 'left' : 'right', zh: b.x < W / 2 ? '左' : '右', sig: b.x.toFixed(6) + ',' + b.y.toFixed(6) }; }
+    function finish(nudged) {
+      var r = result(); runs++; runsEl.textContent = runs; endEl.textContent = r.side + ' · ' + r.zh + ' (' + balls[0].x.toFixed(1) + ', ' + balls[0].y.toFixed(1) + ')';
+      if (nudged) say('nudged'); else if (last && last.sig === r.sig) say('same'); else say('ran', r);
+      last = r; $('[data-dm-run]', root).textContent = 'Rewind and run again · 倒回去再跑一次';
+    }
+    function run(nudged, instant) {
+      if (timer) return; init(); draw();
+      if (instant) { while (k < STEPS) stepSim(); draw(); tEl.textContent = (k * DT).toFixed(1) + ' s'; finish(nudged); return; }
+      timer = setInterval(function () {
+        for (var n = 0; n < 2 && k < STEPS; n++) stepSim();
+        draw(); tEl.textContent = (k * DT).toFixed(1) + ' s';
+        if (k >= STEPS) { clearInterval(timer); timer = null; finish(nudged); }
+      }, 16);
+    }
+    function reset() { if (timer) { clearInterval(timer); timer = null; } angle = 30; runs = 0; last = null; runsEl.textContent = 0; endEl.textContent = '—'; tEl.textContent = '0.0 s'; angEl.textContent = '30.00°'; $('[data-dm-run]', root).textContent = 'Run the universe · 讓宇宙運行'; init(); draw(); say('start'); }
+    $('[data-dm-run]', root).addEventListener('click', function () { run(false); });
+    $('[data-dm-nudge]', root).addEventListener('click', function () { if (timer) return; angle = +(angle + 0.01).toFixed(2); angEl.textContent = angle.toFixed(2) + '°'; last = null; run(true); });
+    $('[data-dm-reset]', root).addEventListener('click', reset);
+    reset();
+    root.__lab = { run: run, state: function () { return { runs: runs, angle: angle, said: said, last: last, busy: !!timer }; } };
+  });
+  $$('[data-ph-envelope]').forEach(function (root) {
+    var dm = document.querySelector('[data-ph-demon] [data-dm-data]'); if (!dm) return;
+    var E = JSON.parse(dm.textContent).envelope, out = $('[data-env-out]', root), card = $('[data-env-card]', root);
+    $$('[data-env]', root).forEach(function (b) {
+      b.addEventListener('click', function () {
+        var v = b.getAttribute('data-env'), o = E[v];
+        $$('[data-env]', root).forEach(function (x) { x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); });
+        card.textContent = o.en + ' · ' + o.zh; card.classList.add('is-open');
+        out.hidden = false; out.textContent = '';
+        out.appendChild(el('b', '', 'The envelope · 信封'));
+        out.appendChild(el('p', '', E.open.en.replace('{pick}', o.en)));
+        var z = el('p', 'ph-zh', E.open.zh.replace('{pick_zh}', o.zh)); z.lang = 'zh-Hant'; out.appendChild(z); addTr(z);
+        out.appendChild(el('p', 'ph-env-confess', E.confess.en));
+        var z2 = el('p', 'ph-zh', E.confess.zh); z2.lang = 'zh-Hant'; out.appendChild(z2); addTr(z2);
+      });
+    });
+  });
+
   /* ---- 通用：先選邊、再看回應（data-ph-pick） ---- */
   $$('[data-ph-pick]').forEach(function (root) {
     var btns = $$('[data-pick]', root), reps = $$('[data-pick-reply]', root), tried = $('[data-pick-tried]', root), seen = {};
