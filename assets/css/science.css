@@ -826,3 +826,49 @@
   .br-msg { min-height: 0; }
   .br-row { margin: .6rem 0 0; flex-basis: 100%; }
 }
+
+/* ---------- 第十九課：生鏽 ---------- */
+@media (min-width: 1021px) { .rt-lab .al-space { min-height: 700px; } }
+.rt-lab .al-space { background: #13233c; }
+.rt-aside { gap: .9rem; }
+.rt-aside > * { min-width: 0; }
+.rt-needs { list-style: none; margin: .3rem 0 .8rem; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .35rem; }
+.rt-needs li { padding: .45rem .3rem; border-radius: 12px; border: 1px solid rgba(255,138,122,.6); background: rgba(255,90,74,.1); color: #fff; font: 800 .78rem var(--sans); text-align: center; line-height: 1.2; }
+.rt-needs li small { display: block; font-family: var(--zh); font-weight: 600; font-size: .7rem; color: var(--al-mute); }
+.rt-needs li b { display: block; font-size: 1rem; color: #ff8a7a; }
+.rt-needs li.ok { border-color: rgba(124,242,154,.6); background: rgba(124,242,154,.1); }
+.rt-needs li.ok b { color: #7cf29a; }
+.rt-status { margin: .2rem 0 .8rem; font-family: var(--serif); font-size: 1.5rem; line-height: 1.1; color: #fff; }
+.rt-status small { display: block; font-family: var(--zh); font-size: .85rem; color: var(--al-mute); margin-top: .2rem; }
+.rt-status.ok { color: #7cf29a; } .rt-status.bad { color: #ff9a6a; }
+.rt-nums { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.rt-nums dd small { display: inline; margin-left: .3rem; font-family: var(--zh); font-weight: 600; font-size: .72rem; color: var(--al-mute); }
+.rt-bars { margin: .9rem 0; display: grid; gap: .45rem; }
+.rt-bars-k, .rt-coats-k { margin: 0; font: 700 .7rem var(--sans); letter-spacing: .04em; color: var(--al-sun); }
+.rt-bar { margin: 0; display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: .15rem .5rem; align-items: center; font: 700 .72rem var(--sans); color: var(--al-mute); }
+.rt-bar i { grid-column: 1 / -1; grid-row: 2; display: block; height: 10px; border-radius: 6px; background: rgba(255,255,255,.08); position: relative; overflow: hidden; }
+.rt-bar i::after { content: ""; position: absolute; inset: 0 auto 0 0; width: var(--w, 0%); border-radius: 6px; background: #c8692a; }
+.rt-bar b { color: #fff; font-variant-numeric: tabular-nums; }
+.rt-coats { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .35rem; margin-top: .35rem; }
+.rt-coat { padding: .45rem .3rem; border-radius: 12px; border: 1px solid var(--al-line); background: rgba(255,255,255,.05); color: #fff; font: 800 .74rem var(--sans); cursor: pointer; line-height: 1.2; }
+.rt-coat small { display: block; font-family: var(--zh); font-weight: 600; font-size: .68rem; color: var(--al-mute); margin-top: .1rem; }
+.rt-coat.on { border-color: var(--al-sun); background: rgba(255,211,110,.18); }
+.rt-msg { min-height: 7.6em; }
+.rt-row { flex: 1 1 260px; margin: 0 0 0 .6rem; }
+.rt-row > span { text-transform: none; letter-spacing: .02em; }
+.rt-row output { margin-left: .3rem; font-weight: 800; color: #fff; }
+.al-lab.rt-lb-o2 { color: #ffd0d0; border-color: rgba(255,74,74,.7); }
+.al-lab.rt-lb-rust { color: #fff; background: #a5491a; border-color: #d27a3e; font-weight: 800; }
+.al-lg-rtiron i { border: 0; border-radius: 50%; width: 12px; height: 12px; margin: .25rem 3px 0; background: #9aa4b2; }
+.al-lg-rtrust i { border: 0; border-radius: 40% 55% 45% 60%; width: 13px; height: 11px; margin: .25rem 3px 0; background: #b5521e; }
+.al-lg-rto2 i { border: 0; width: 16px; height: 9px; margin-top: .35rem; background: radial-gradient(circle at 4.5px 4.5px, #ff4a4a 4px, transparent 4.5px), radial-gradient(circle at 11.5px 4.5px, #ff4a4a 4px, transparent 4.5px); }
+.al-lg-rtwater i { border: 0; border-radius: 50% 50% 45% 45%; width: 14px; height: 9px; margin: .35rem 2px 0; background: rgba(88,180,255,.7); }
+@media (max-width: 1020px) {
+  .rt-lab .al-stage { grid-template-columns: minmax(0, 1fr); }
+  .rt-lab .bt-aside { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+}
+@media (max-width: 640px) {
+  .rt-lab .bt-aside { grid-template-columns: minmax(0, 1fr); }
+  .rt-msg { min-height: 0; }
+  .rt-row { margin: .6rem 0 0; flex-basis: 100%; }
+}

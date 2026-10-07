@@ -274,6 +274,11 @@
   - `src/breadcalc.js`（**示意模型，不是食譜**）：`rate(T)` 每高 10°C 快一倍（只算 5–40°C）、`size()` 1→最多 2 倍、送去烤再乘 1.15；1 秒＝6 分鐘。
   - **酵母幾度會死沒有可靠出處，所以課文與模型都不寫那個數字**（滑桿只到 40°C）；課文只用「溫水約 40–45°C 叫醒乾酵母」（Wikipedia Proofing）。蘇打餅乾常含酵母，對照物改用水餃皮。
   - 卡片 `demo`：warm／fridge／noyeast／bake。除錯：`document.querySelector('[data-bread-lab]').__lab`（`setTime(0–90)`、`setTemp(5–40)`、`setYeast(bool)`、`bake()`、`reset()`、`run(sec)`、`render()`）。
+- 第十九課生鏽（`iron-rust.js`，`lab.kind = "rust"`，`data-rust-lab`，CSS 前綴 `rt-`（`ru-`／`rs-` 已被 search.css 用掉），`units[4]`）：一個機制——鐵＋氧＋水三樣到齊才生鏽；鹽讓它變快；鐵鏽又鬆又會剝落，底下的鐵接著鏽；油漆擋住水和氧，鍍鋅刮傷了鋅還是會保護鐵。
+  - 兩層鐵原子（16×9 的 InstancedMesh，`setColorAt` 逐顆由灰變紅褐、脹大、剝落）、一滴水、鹽粒、空氣裡的氧分子（成對紅球，有水又有露出的鐵時一半會鑽進水滴）、旁邊堆起來的鏽屑、油漆／鍍鋅層（中間留一道刮痕）。畫面只由（t、water、air、salt、coat）決定，時間滑桿可來回拉。
+  - `src/rustcalc.js`（**示意模型**）：`speed()` 沒水或沒空氣＝0、鹽水＝3 倍；`exposed(coat)` none 1／paint 0／scratch 0.2／zinc 0；「天」只是模型裡的時間，比例說明有寫。
+  - 右上角三格清單（鐵／氧／水）顯示哪幾樣「碰得到鐵」——上了漆時氧和水都算碰不到。
+  - 卡片 `demo`：wet／salt／dry／scratch。除錯：`document.querySelector('[data-rust-lab]').__lab`（`set({water, air, salt, coat})`、`setTime(0–60)`、`setCoat('none'|'paint'|'scratch'|'zinc')`、`setFlag('water'|'air'|'salt', bool)`、`run(sec)`、`render()`）。
 - 上傳錄音時若出現大量「not found locally」：多半是天文 session 在 ~/Developer 那份 clone 產生、已上傳的句子（worktree 的快取沒有它們）。算出「manifest 裡有、快取裡沒有」的雜湊，逐一 curl 確認線上 200 即可。
 - 多個 session 同時改 build.py 時，本系列改在 scratchpad 的 git worktree（從 origin/main 開分支）做，`audio` 用 symlink 指到 `~/Documents/twrses/audio`（symlink 不會被 .gitignore 的 `audio/` 擋，**不要 add**），做完 rebase 再 `git push origin HEAD:main`。
 - 瀏覽器面板在背景時 `visibilityState` 是 hidden，IntersectionObserver 不觸發、截圖是空白：點一下頁面上的「在模型中看」按鈕就會直接初始化，截圖改用無頭 Chrome（playwright-core＋本機 Chrome，`--use-angle=swiftshader`）。
