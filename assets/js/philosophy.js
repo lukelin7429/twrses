@@ -22,6 +22,20 @@
     try { localStorage.setItem('ph-zh', on ? '1' : '0'); } catch (e) {}
   });
 
+  /* ---- 每一段自己的「中譯」鈕：不必打開全頁中譯，也能只看這一段 ---- */
+  function addTr(z) {
+    if (z.classList.contains('ph-inline') || z.closest('.ph-arg-step') || z.previousElementSibling && z.previousElementSibling.classList.contains('ph-tr')) return;
+    var b = el('button', 'ph-tr'); b.type = 'button'; b.setAttribute('aria-expanded', 'false');
+    b.appendChild(el('span', '', '中譯')); b.appendChild(el('i', '', '▾'));
+    b.setAttribute('aria-label', 'Show the Chinese translation of this paragraph · 顯示這一段的中譯');
+    b.addEventListener('click', function () {
+      var open = z.classList.toggle('is-open');
+      b.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    z.parentNode.insertBefore(b, z);
+  }
+  $$('.ph-zh').forEach(addTr);
+
   /* ---- 本頁目錄、捲動定位、閱讀進度 ---- */
   var toc = $('[data-ph-toc]'), bar = $('[data-ph-bar]');
   var secs = $$('[data-ph-toc-label]');
@@ -80,7 +94,7 @@
 
     function bi(parent, en, zh, tag) {
       var p = el(tag || 'p', '', en); parent.appendChild(p);
-      var z = el('p', 'ph-zh', zh); z.lang = 'zh-Hant'; parent.appendChild(z);
+      var z = el('p', 'ph-zh', zh); z.lang = 'zh-Hant'; parent.appendChild(z); addTr(z);
       return p;
     }
     function type(node, text, done) {
@@ -108,7 +122,7 @@
       var soc = el('div', 'ph-el-soc'); soc.appendChild(el('span', 'ph-el-av sm', 'Σ'));
       var bub = el('div', 'ph-el-bub'); bub.appendChild(el('small', '', 'Socrates · ' + d.flaw));
       var p = el('p'); bub.appendChild(p);
-      var z = el('p', 'ph-zh', d.re_zh); z.lang = 'zh-Hant'; bub.appendChild(z);
+      var z = el('p', 'ph-zh', d.re_zh); z.lang = 'zh-Hant'; bub.appendChild(z); addTr(z);
       bub.appendChild(el('cite', '', d.ref));
       soc.appendChild(bub); turn.appendChild(soc); log.appendChild(turn);
       var r = turn.getBoundingClientRect();

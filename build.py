@@ -7121,6 +7121,8 @@ def build_phil_lesson(L):
   {meta}
   <div class="ph-big rvl d1"><span class="ph-big-k">The big idea · 大觀念</span>
     <p class="ph-big-en">{_ph_e(L["big_en"])}</p><p class="ph-big-zh" lang="zh-Hant">{_ph_e(L["big_zh"])}</p></div>
+  <p class="ph-trnote rvl d2"><b>中文翻譯</b><span>Every paragraph has a Chinese translation. Tap <span class="ph-tr"><span>中譯</span><i>▾</i></span> under a paragraph to open that one, or use <strong>Show Chinese · 顯示中譯</strong> at the top to open them all.</span>
+    <span lang="zh-Hant">每一段都有中譯：點段落下方的「中譯」只開那一段，或按上方的「顯示中譯」一次全部打開。</span></p>
 </div></section>
 {_ph_sec("essay", "Essay", "The essay · 課文", L["title"], L["title_zh"], _ph_essay(L["essay"]))}
 {_ph_sec("try", "Try it", "Thought experiment · 思想實驗", L["lab"]["title_en"], L["lab"]["title_zh"], _ph_lab(L["lab"]), band=True, lead={"en": L["lab"]["lead_en"], "zh": L["lab"]["lead_zh"]})}
@@ -7162,6 +7164,8 @@ def build_phil_person(P):
 <section class="section tight ph-top"><div class="wrap ph-person-top">
   <div class="ph-mono rvl" aria-hidden="true"><span>{_ph_e(P["greek"][0])}</span><i>{_ph_e(P["dates"])}</i></div>
   <dl class="ph-facts rvl d1">{facts}</dl>
+  <p class="ph-trnote rvl d2" style="grid-column:1/-1"><b>中文翻譯</b><span>Every paragraph has a Chinese translation. Tap <span class="ph-tr"><span>中譯</span><i>▾</i></span> under a paragraph to open that one, or use <strong>Show Chinese · 顯示中譯</strong> at the top to open them all.</span>
+    <span lang="zh-Hant">每一段都有中譯：點段落下方的「中譯」只開那一段，或按上方的「顯示中譯」一次全部打開。</span></p>
 </div></section>
 {_ph_sec("life", "Life", "Life · 生平", "A life in three scenes", "三幕人生", _ph_essay(P["life"], numbered=False) + f'<ol class="ph-tl">{tl}</ol>')}
 {_ph_sec("idea", "Idea", "The central idea · 核心觀念", P["idea"]["title_en"].split(": ", 1)[-1].capitalize(), P["idea"]["title_zh"].split("：", 1)[-1],

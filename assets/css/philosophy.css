@@ -338,3 +338,20 @@ main:has(.ph-tools) .wrap { width: min(980px, 92vw); }
 .ph-term-o, .ph-el-tab i, .ph-tri i { font-family: 'Times New Roman', Times, serif; font-size: .95rem; }
 
 .ph-sec { overflow-x: clip; }
+
+/* 每段的「中譯」鈕；全頁中譯打開時收起來 */
+.ph-tr { all: unset; box-sizing: border-box; cursor: pointer; display: inline-flex; align-items: center; gap: .3rem; margin-top: .45rem; font: 700 .78rem var(--zh); letter-spacing: .06em; color: var(--brand-dk); background: var(--brand-lt); border-radius: 999px; padding: .16rem .7rem; transition: background .2s, color .2s; }
+.ph-tr:hover { background: var(--brand); color: #fff; }
+.ph-tr:focus-visible { outline: 2px solid var(--brand); outline-offset: 2px; }
+.ph-tr i { font-style: normal; font-size: .7rem; transition: transform .25s; }
+.ph-tr[aria-expanded="true"] i { transform: rotate(180deg); }
+.ph-tr[aria-expanded="true"] { background: var(--brand); color: #fff; }
+.ph-zh.is-open { display: block; animation: ph-zh-in .4s ease both; opacity: 1; }
+.ph-show-zh .ph-tr { display: none; }
+.ph-el .ph-tr, .ph-said .ph-tr { background: rgba(255,255,255,.14); color: #fff; }
+.ph-el-bub .ph-tr { background: var(--brand-lt); color: var(--brand-dk); }
+.ph-arg-step[aria-expanded="true"] .ph-zh { display: block; opacity: 1; }
+.ph-trnote { display: flex; flex-wrap: wrap; align-items: center; gap: .4rem .7rem; margin: 1.4rem 0 0; padding: .7rem 1rem; background: var(--cream); border: 1px dashed var(--gold); border-radius: 12px; font-size: .95rem; color: var(--ink-soft); }
+.ph-trnote b { font-family: var(--zh); color: var(--brand-dk); }
+.ph-trnote .ph-tr { margin: 0; pointer-events: none; }
+.ph-zh-btn { box-shadow: 0 0 0 4px rgba(14,107,96,.12); }
