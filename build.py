@@ -7139,7 +7139,10 @@ def build_phil_lesson(L):
   {_ph_nav()}
 </div></section>
 '''
-    write(path, layout(path, f'{L["title"]} {L["title_zh"]}', f'{L["blurb_en"]} {L["blurb_zh"]}', body, "resources", extra_head=_ph_head()))
+    say_slug = f'philosophy-{L["slug"]}'   # tools/gen_audio.py 以路徑末兩段命名
+    has_clips = os.path.exists(os.path.join(ROOT, "assets/data/say", say_slug + ".json"))
+    write(path, layout(path, f'{L["title"]} {L["title_zh"]}', f'{L["blurb_en"]} {L["blurb_zh"]}', body, "resources",
+          say_manifest=say_slug if has_clips else None, extra_head=_ph_head()))
     return path
 
 def build_phil_person(P):
@@ -7180,7 +7183,10 @@ def build_phil_person(P):
   {_ph_nav()}
 </div></section>
 '''
-    write(path, layout(path, f'{P["name"]} {P["name_zh"]}', f'{P["tag_en"]} {P["tag_zh"]}', body, "resources", extra_head=_ph_head()))
+    say_slug = f'philosophers-{P["slug"]}'
+    has_clips = os.path.exists(os.path.join(ROOT, "assets/data/say", say_slug + ".json"))
+    write(path, layout(path, f'{P["name"]} {P["name_zh"]}', f'{P["tag_en"]} {P["tag_zh"]}', body, "resources",
+          say_manifest=say_slug if has_clips else None, extra_head=_ph_head()))
     return path
 
 def build_phil_hub():
