@@ -464,8 +464,8 @@ python3 build.py        # BASE=/twrses → 服務於 lukelin7429.github.io/twrse
 
 - 內容：`data/philosophy.json`（`shelves` 是整份課表；`lessons[]`、`philosophers[]` 是做好的頁面，以 `slug` 掛回課表）。頁面由 `build.py`「哲學 Philosophy」區塊的 `build_phil_hub()`／`build_phil_lesson()`／`build_phil_person()` 產生（函式一律 `_ph_` 前綴）。
 - 樣式 `assets/css/philosophy.css`（class 前綴 `ph-`）、互動 `assets/js/philosophy.js`（手寫、不打包），兩者只載在本系列。
-- 每課一個思想實驗，`lab.kind` 分流：（空）蘇格拉底式詰問、`validity`、`fallacy`、`zeno`、`doubt`、`cave`。新增一種＝`build.py` 加 `_ph_lab_<kind>()`＋`philosophy.js` 加一段。
-- 3D（目前只有 A6 洞穴）：原始碼 `tools/philosophy/src/ph-*.js`，`cd tools/philosophy && npm install && npm run build` 打包成 `assets/js/ph-*.js`（產物，不要手改）；`build.py` 的 `_PH_3D` 把 `lab.kind` 對到 bundle，只在那一課載入。網址加 `#cave=0…5` 可直接跳到視角（截圖用）。
+- 每課一個思想實驗，`lab.kind` 分流：（空）蘇格拉底式詰問、`validity`、`fallacy`、`zeno`、`doubt`、`cave`、`meno`、`chicken`、`ship`；另有通用的「先選邊再看回應」元件 `_ph_pick()`。新增一種＝`build.py` 加 `_ph_lab_<kind>()`＋`philosophy.js` 加一段。
+- 3D（A6 洞穴 `ph-cave`、A9 特修斯之船 `ph-ship`）：原始碼 `tools/philosophy/src/ph-*.js`，`cd tools/philosophy && npm install && npm run build` 打包成 `assets/js/ph-*.js`（產物，不要手改）；`build.py` 的 `_PH_3D` 把 `lab.kind` 對到 bundle，只在那一課載入。網址加 `#cave=0…5`、`#ship=35`、`#ship=allb` 可直接跳到狀態（截圖用；無頭 Chrome 要加 `--use-angle=swiftshader --enable-unsafe-swiftshader`）。
 - 中譯預設收起：每段下方有「中譯」鈕（`philosophy.js` 的 `addTr` 自動加在每個 `.ph-zh` 前），頁首另有全頁開關。資料照樣每段給 `en`＋`zh`。
 - 錄音：`python3 tools/gen_audio.py --page resources/classes/philosophy/<slug>`（人物頁是 `…/philosophers/<slug>`）→ `./tools/upload_audio.sh` → 重跑 `build.py`。
 - 引文一律對過公版原文才放；英文一律美式拼字，**直接引用的公版譯文保留原拼法**。

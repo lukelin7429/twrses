@@ -620,3 +620,21 @@ main:has(.ph-tools) .wrap { width: min(980px, 92vw); }
 .ph-ck-reply p { margin: .2rem 0 0; font-size: 1.04rem; line-height: 1.7; }
 .ph-ck-tried { margin: .8rem 0 0; font-size: .92rem; font-weight: 600; color: var(--brand-dk); }
 @media (max-width: 640px) { .ph-ck-opts { grid-template-columns: 1fr; } }
+
+/* ---------- A9：特修斯之船（3D）與通用的選邊元件 ---------- */
+.ph-ship .ph-cave-view { background: #bfe3f2; }
+.ph-ship-hint { color: rgba(20,35,59,.65); }
+.ph-ship .ph-cave-lab { background: rgba(20,35,59,.82); }
+.ph-ship-read { display: grid; grid-template-columns: 1fr 1fr; gap: .7rem; }
+.ph-ship-read div { background: rgba(255,255,255,.07); border-radius: 12px; padding: .6rem .9rem; }
+.ph-ship-read small { display: block; font: 800 .7rem var(--sans); letter-spacing: .08em; text-transform: uppercase; color: #9fc3ea; }
+.ph-ship-read b { font: 600 clamp(1.2rem, 2.6vw, 1.6rem) ui-monospace, 'SF Mono', Menlo, monospace; color: #fff; }
+.ph-ship-slider { display: grid; grid-template-columns: auto 1fr auto; gap: .8rem; align-items: center; margin: 1rem 0; font: 700 .8rem var(--sans); color: rgba(255,255,255,.7); }
+.ph-ship-slider input { width: 100%; accent-color: #ffd36e; height: 1.6rem; cursor: pointer; }
+.ph-ship .ph-zn-run[disabled], .ph-ship .ph-vl-next[disabled] { opacity: .35; cursor: default; transform: none; }
+.ph-ship-mark { border-color: #ff9d7a; }
+.ph-ship-mark:hover { background: rgba(255,157,122,.2); }
+.ph-ship-markout { margin: .6rem 0 0; padding: .7rem 1rem; background: rgba(255,157,122,.14); border-left: 3px solid #ff9d7a; border-radius: 0 10px 10px 0; font-size: .98rem; line-height: 1.6; color: #fff; }
+.ph-ship-markout[hidden] { display: none; }
+.ph-pick .ph-ck-reply .ph-p { margin: .2rem 0 0; }
+.ph-pick .ph-ck-reply .ph-en { font: 400 1.04rem/1.7 var(--sans); }

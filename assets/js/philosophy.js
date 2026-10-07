@@ -537,6 +537,20 @@
     });
   });
 
+  /* ---- 通用：先選邊、再看回應（data-ph-pick） ---- */
+  $$('[data-ph-pick]').forEach(function (root) {
+    var btns = $$('[data-pick]', root), reps = $$('[data-pick-reply]', root), tried = $('[data-pick-tried]', root), seen = {};
+    btns.forEach(function (b) {
+      b.addEventListener('click', function () {
+        var i = b.getAttribute('data-pick'); seen[i] = true; b.classList.add('is-seen');
+        btns.forEach(function (x) { x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); });
+        reps.forEach(function (r) { r.hidden = r.getAttribute('data-pick-reply') !== i; });
+        var k = Object.keys(seen).length;
+        if (tried) tried.textContent = k === btns.length ? 'You have read all ' + k + ' replies. Notice that each answer was given a cost. · ' + k + ' 個回應你都讀過了。注意：每一個答案都被指出了代價。' : k + ' of ' + btns.length + ' read · 已讀 ' + k + '／' + btns.length;
+      });
+    });
+  });
+
   /* ---- 自己的定義：打字之後出現五個檢查項（只存在這個頁面的記憶體裡） ---- */
   var own = $('[data-ph-own]'), checks = $('[data-ph-own-checks]');
   if (own && checks) {

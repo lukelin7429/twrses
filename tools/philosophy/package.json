@@ -4,7 +4,7 @@
   "description": "哲學 Philosophy 系列 3D 模型的原始碼與打包設定。產物寫到 assets/js/ph-*.js，npm run build 重新打包。",
   "type": "module",
   "scripts": {
-    "build": "esbuild src/ph-cave.js --bundle --minify --format=iife --target=es2019 --legal-comments=eof --outdir=../../assets/js"
+    "build": "esbuild src/ph-cave.js src/ph-ship.js --bundle --minify --format=iife --target=es2019 --legal-comments=eof --outdir=../../assets/js"
   },
   "devDependencies": {
     "esbuild": "0.25.10",

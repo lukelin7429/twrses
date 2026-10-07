@@ -6921,7 +6921,7 @@ _phj = os.path.join(ROOT, "data", "philosophy.json")
 PHIL = json.load(open(_phj, encoding="utf-8")) if os.path.exists(_phj) else None
 PHIL_BASE = "/resources/classes/philosophy/"
 
-_PH_3D = {"cave": "ph-cave"}   # lab.kind → assets/js/<bundle>.js（three.js，原始碼在 tools/philosophy/src/）
+_PH_3D = {"cave": "ph-cave", "ship": "ph-ship"}   # lab.kind → assets/js/<bundle>.js（three.js，原始碼在 tools/philosophy/src/）
 
 def _ph_head(lab_kind=None):
     files = ["assets/css/philosophy.css", "assets/js/philosophy.js"]
@@ -7235,7 +7235,46 @@ def _ph_lab_chicken(lab):
   </div>
 </div>'''
 
+def _ph_pick(pick, attr=""):
+    """通用的「先選邊、再看回應」小元件（philosophy.js 的 data-ph-pick）：每個選項各有一段回應，選了才顯示。"""
+    opts = "".join(f'<button type="button" class="ph-ck-opt" data-pick="{i}"><b>{_ph_e(o["t"]["en"])}</b><span lang="zh-Hant">{_ph_e(o["t"]["zh"])}</span></button>' for i, o in enumerate(pick["opts"]))
+    reps = "".join(f'<div class="ph-ck-reply" data-pick-reply="{i}" hidden><b>{_ph_e(o["tag"])}</b>{_ph_bi(o["r"], say=False)}</div>' for i, o in enumerate(pick["opts"]))
+    return (f'<div class="ph-own ph-pick rvl" data-ph-pick {attr}>{_ph_bi(pick["q"], say=False)}'
+            f'<div class="ph-ck-opts">{opts}</div>{reps}<p class="ph-ck-tried" data-pick-tried></p></div>')
+
+def _ph_lab_ship(lab):
+    """A9：特修斯之船（3D，assets/js/ph-ship.js 綁 data-ph-ship）。拉桿與按鈕在這裡，場景在 JS 裡。"""
+    return f'''<div class="ph-el ph-cave ph-ship rvl" data-ph-ship>
+  <div class="ph-cave-view">
+    <canvas aria-label="3D model of the Ship of Theseus · 特修斯之船的 3D 模型"></canvas>
+    <div class="ph-cave-labels" data-ship-labels aria-hidden="true"></div>
+    <p class="ph-cave-hint ph-ship-hint">Drag to turn · 拖曳旋轉　Scroll or pinch to zoom · 滾輪／雙指縮放</p>
+    <p class="ph-cave-nogl-msg">This 3D model needs WebGL, which this browser does not support. The questions below can still be answered.<br><span lang="zh-Hant">這個瀏覽器不支援 WebGL，無法顯示 3D 模型；下方的問題仍然可以作答。</span></p>
+  </div>
+  <div class="ph-el-stage">
+    <div class="ph-ship-read">
+      <div><small>Parts replaced · 已更換</small><b data-ship-count>0</b></div>
+      <div><small>Original material left · 原件剩餘</small><b data-ship-orig>100%</b></div>
+    </div>
+    <label class="ph-ship-slider"><span>Original · 原樣</span><input type="range" min="0" max="70" value="0" step="1" data-ship-range aria-label="Parts replaced · 已更換的零件數"><span>All new · 全新</span></label>
+    <div class="ph-zn-btns">
+      <button type="button" class="ph-vl-next" data-ship-one>Replace one part · 換一個零件</button>
+      <button type="button" class="ph-zn-run" data-ship-years>Let the years pass · 讓歲月過去</button>
+      <button type="button" class="ph-zn-run ph-ship-mark" data-ship-mark>It is no longer his ship · 它不再是他的船了</button>
+      <button type="button" class="ph-zn-run" data-ship-build disabled>Rebuild from the old planks · 用舊木板重組</button>
+      <button type="button" class="ph-el-reset" data-ship-reset>Start again · 重來</button>
+    </div>
+    <p class="ph-zn-msg" data-ship-note aria-live="polite"></p>
+    <p class="ph-ship-markout" data-ship-markout hidden></p>
+  </div>
+</div>
+<div class="ph-tests">
+  <h3 class="rvl">Which one is his? <span class="ph-h2-zh">哪一艘是他的？</span></h3>
+  {_ph_pick(lab["pick"])}
+</div>'''
+
 def _ph_lab(lab):
+    if lab.get("kind") == "ship": return _ph_lab_ship(lab)
     if lab.get("kind") == "chicken": return _ph_lab_chicken(lab)
     if lab.get("kind") == "meno": return _ph_lab_meno(lab)
     if lab.get("kind") == "cave": return _ph_lab_cave(lab)
