@@ -246,6 +246,61 @@
     root.__lab = { state: function () { return { i: i, score: score.slice(), finished: finished }; } };
   });
 
+  /* ---- A3：指出毛病（四選一） ---- */
+  $$('[data-ph-fallacy]').forEach(function (root) {
+    var items;
+    try { items = JSON.parse($('[data-fl-data]', root).textContent); } catch (e) { return; }
+    var card = $('[data-fl-card]', root), ask = $('[data-fl-ask]', root), out = $('[data-fl-out]', root);
+    var dots = $('[data-fl-dots]', root), count = $('[data-fl-count]', root), next = $('[data-fl-next]', root);
+    var i = 0, score = [], finished = false;
+    function zhp(parent, text) { var z = el('p', 'ph-zh', text); z.lang = 'zh-Hant'; parent.appendChild(z); addTr(z); }
+    function paint() {
+      dots.textContent = '';
+      items.forEach(function (_, k) { dots.appendChild(el('i', k < score.length ? (score[k] ? 'ok' : 'no') : (k === i && !finished ? 'cur' : ''))); });
+      count.textContent = finished ? '' : (i + 1) + ' of ' + items.length + ' · 第 ' + (i + 1) + '／' + items.length + ' 段';
+    }
+    function block(cls, label, o) {
+      var d = el('div', cls); d.appendChild(el('small', '', label)); d.appendChild(el('p', '', o.en)); zhp(d, o.zh); return d;
+    }
+    function answer(k, btns) {
+      var it = items[i], right = k === it.k; score.push(right);
+      btns.forEach(function (b, n) { b.disabled = true; if (n === it.k) b.classList.add('is-right'); else if (n === k) b.classList.add('is-wrong'); });
+      var c = el('div', 'ph-vl-card ' + (right ? 'is-sound' : 'is-invalid'));
+      var head = el('p', 'ph-vl-verdict'); head.appendChild(el('b', '', it.a));
+      head.appendChild(el('em', right ? 'ok' : 'no', right ? 'You had it · 你答對了' : 'Look again · 再看一次')); c.appendChild(head);
+      c.appendChild(block('ph-vl-why', 'What is wrong · 毛病在哪', it.why));
+      c.appendChild(block('ph-fl-fix', 'What it imitates, and the repair · 它模仿什麼、怎麼修', it.fix));
+      out.appendChild(c); next.hidden = false;
+      next.textContent = i === items.length - 1 ? 'See your result · 看結果 →' : 'Next · 下一段 →';
+      paint();
+    }
+    function show() {
+      var it = items[i]; finished = false; card.textContent = ''; ask.textContent = ''; out.textContent = ''; next.hidden = true;
+      card.appendChild(el('small', '', it.src));
+      card.appendChild(el('p', 'ph-fl-t', it.t.en)); var z = el('p', 'ph-fl-zh', it.t.zh); z.lang = 'zh-Hant'; card.appendChild(z);
+      card.classList.remove('ph-vl-in'); void card.offsetWidth; card.classList.add('ph-vl-in');
+      var q = el('p', 'ph-vl-q'); q.appendChild(el('b', '', 'Which diagnosis fits best?')); var qs = el('span', '', '哪一個診斷最貼切？'); qs.lang = 'zh-Hant'; q.appendChild(qs); ask.appendChild(q);
+      var box = el('div', 'ph-vl-opts'), btns = [];
+      it.opts.forEach(function (o, k) {
+        var b = el('button', 'ph-vl-opt'); b.type = 'button'; b.appendChild(el('b', '', o));
+        b.addEventListener('click', function () { if (!b.disabled) answer(k, btns); }); btns.push(b); box.appendChild(b);
+      });
+      ask.appendChild(box); paint();
+    }
+    function finish() {
+      finished = true; card.textContent = ''; ask.textContent = ''; out.textContent = ''; next.hidden = true;
+      var n = score.filter(Boolean).length, c = el('div', 'ph-el-end');
+      var h = el('h4', '', n + ' of ' + items.length); h.appendChild(el('span', '', '答對 ' + n + '／' + items.length)); c.appendChild(h);
+      c.appendChild(el('p', '', 'The names matter less than the second line of each answer. For the next week, try to notice which respectable pattern a weak argument is borrowing, starting with your own.'));
+      zhp(c, '名稱沒有每題解說的第二行重要。接下來一個禮拜，試著留意一個弱論證借用了哪個正當的樣式，從你自己的論證開始。');
+      out.appendChild(c); paint();
+    }
+    next.addEventListener('click', function () { if (i < items.length - 1) { i++; show(); } else finish(); });
+    $('[data-fl-reset]', root).addEventListener('click', function () { i = 0; score = []; show(); });
+    show();
+    root.__lab = { state: function () { return { i: i, score: score.slice(), finished: finished }; } };
+  });
+
   /* ---- 自己的定義：打字之後出現五個檢查項（只存在這個頁面的記憶體裡） ---- */
   var own = $('[data-ph-own]'), checks = $('[data-ph-own-checks]');
   if (own && checks) {

@@ -416,3 +416,25 @@ main:has(.ph-tools) .wrap { width: min(980px, 92vw); }
 
 .ph-vl-line .ph-zh { display: block; opacity: 1; margin-top: .1rem; }
 .ph-vl-line .ph-tr { display: none; }
+
+/* ---------- A3：指出毛病 ---------- */
+.ph-fl-card { background: #fff; color: var(--ink); border-radius: 4px 18px 18px 18px; padding: 1.1rem 1.4rem 1.2rem; max-width: 46rem; box-shadow: 0 14px 30px -18px rgba(0,0,0,.6); }
+.ph-fl-card small { font: 800 .74rem var(--sans); letter-spacing: .08em; text-transform: uppercase; color: var(--gold-dk); }
+.ph-fl-t { margin: .35rem 0 .3rem; font: 500 clamp(1.2rem, 2.5vw, 1.45rem)/1.5 var(--serif); }
+.ph-fl-zh { margin: 0; font: 400 .98rem/1.7 var(--zh); color: var(--ink-soft); }
+.ph-vl-opt[disabled] { cursor: default; opacity: .5; transform: none; }
+.ph-vl-opt.is-right { opacity: 1; background: #1f7a63; border-color: #4fd1a5; }
+.ph-vl-opt.is-wrong { opacity: 1; background: #8a3d22; border-color: #ff9d7a; }
+.ph-vl-why small, .ph-fl-fix small { display: block; font: 800 .72rem var(--sans); letter-spacing: .1em; text-transform: uppercase; color: var(--gold-dk); margin-bottom: .2rem; }
+.ph-fl-fix { background: var(--brand-lt); border-left: 3px solid var(--brand); border-radius: 0 10px 10px 0; padding: .7rem 1rem; }
+.ph-fl-fix small { color: var(--brand-dk); }
+.ph-fl-fix p { margin: 0; font-size: 1.04rem; line-height: 1.7; }
+.ph-fgs { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 1rem; margin-top: 1rem; align-items: start; }
+.ph-fg { background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 1rem 1.2rem; border-top: 4px solid var(--gold); }
+.ph-fg h4 { margin: 0 0 .5rem; font: 600 1.25rem var(--serif); color: var(--brand-dk); }
+.ph-fg h4 span { font: 600 .8em var(--zh); color: var(--ink-soft); margin-left: .3em; }
+.ph-fg ul { list-style: none; margin: 0; padding: 0; display: grid; gap: .55rem; }
+.ph-fg li { display: grid; grid-template-columns: 1fr auto; gap: 0 .6rem; padding-top: .55rem; border-top: 1px dashed var(--line); }
+.ph-fg li b { font-size: 1rem; }
+.ph-fg li i { font: normal .88rem var(--zh); color: var(--gold-dk); }
+.ph-fg li span { grid-column: 1 / -1; font-size: .92rem; color: var(--ink-soft); line-height: 1.5; }

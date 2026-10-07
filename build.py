@@ -7053,8 +7053,36 @@ def _ph_lab_validity(lab):
   <div class="ph-vl-table rvl"><table><tbody>{rows}</tbody></table></div>
 </div>'''
 
+def _ph_lab_fallacy(lab):
+    """A3：八段日常言論，四選一指出謬誤；下方附三個家族的速查表。"""
+    items = []
+    for i, it in enumerate(lab["items"]):
+        opts = list(it["opts"]); k = (i * 3 + 1) % 4; opts.insert(k, it["a"])
+        items.append({**it, "opts": opts, "k": k})
+    payload = html.escape(json.dumps(items, ensure_ascii=False), quote=False)
+    fams = "".join(
+        f'<div class="ph-fg rvl"><h4>{_ph_e(f["fam"])} <span lang="zh-Hant">{_ph_e(f["fam_zh"])}</span></h4><ul>'
+        + "".join(f'<li><b>{_ph_e(n)}</b><i lang="zh-Hant">{_ph_e(z)}</i><span>{_ph_e(d)}</span></li>' for n, z, d in f["items"])
+        + '</ul></div>' for f in lab["guide"])
+    return f'''<div class="ph-el ph-vl rvl" data-ph-fallacy>
+  <script type="application/json" data-fl-data>{payload}</script>
+  <div class="ph-vl-top"><div class="ph-vl-dots" data-fl-dots aria-hidden="true"></div><span class="ph-el-count" data-fl-count></span></div>
+  <div class="ph-el-stage">
+    <div class="ph-fl-card" data-fl-card></div>
+    <div class="ph-vl-ask" data-fl-ask aria-live="polite"></div>
+    <div class="ph-vl-out" data-fl-out aria-live="polite"></div>
+    <div class="ph-el-foot"><button type="button" class="ph-el-reset" data-fl-reset>Start again · 重來</button>
+      <button type="button" class="ph-vl-next" data-fl-next hidden>Next · 下一段 &rarr;</button></div>
+  </div>
+</div>
+<div class="ph-tests">
+  <h3 class="rvl">A field guide <span class="ph-h2-zh">謬誤速查</span></h3>
+  <div class="ph-fgs">{fams}</div>
+</div>'''
+
 def _ph_lab(lab):
     if lab.get("kind") == "validity": return _ph_lab_validity(lab)
+    if lab.get("kind") == "fallacy": return _ph_lab_fallacy(lab)
     """蘇格拉底式詰問：三個對話錄、每個三個定義；資料塞進 JSON，由 philosophy.js 接手。"""
     payload = html.escape(json.dumps(lab["dialogues"], ensure_ascii=False), quote=False)
     tabs = "".join(f'<button type="button" role="tab" class="ph-el-tab" data-el-tab="{d["key"]}" aria-selected="{"true" if i == 0 else "false"}">'
