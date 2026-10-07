@@ -7206,7 +7206,37 @@ def _ph_lab_meno(lab):
   </div>
 </div>'''
 
+def _ph_lab_chicken(lab):
+    """A8：羅素的雞。每天早上按一次，信心（拉普拉斯接續律）上升，直到某一天；接著讓讀者替歸納法找理由。"""
+    payload = html.escape(json.dumps({k: lab[k] for k in ("last", "fed", "end", "justify")}, ensure_ascii=False), quote=False)
+    j = lab["justify"]
+    opts = "".join(f'<button type="button" class="ph-ck-opt" data-ck-j="{i}"><b>{_ph_e(o["t"]["en"])}</b><span lang="zh-Hant">{_ph_e(o["t"]["zh"])}</span></button>' for i, o in enumerate(j["opts"]))
+    return f'''<div class="ph-el ph-ck rvl" data-ph-chicken>
+  <script type="application/json" data-ck-data>{payload}</script>
+  <div class="ph-vl-top"><span class="ph-el-count" data-ck-day>Day 0 · 第 0 天</span><span class="ph-el-count" data-ck-conf></span></div>
+  <div class="ph-el-stage">
+    <div class="ph-ck-yard" aria-hidden="true"><div class="ph-ck-days" data-ck-days></div></div>
+    <div class="ph-ck-meter"><div class="ph-ck-bar"><i data-ck-bar></i></div><span data-ck-pct>50%</span></div>
+    <p class="ph-zn-msg" data-ck-msg aria-live="polite"></p>
+    <div class="ph-zn-btns">
+      <button type="button" class="ph-vl-next" data-ck-next>Next morning · 下一個早晨</button>
+      <button type="button" class="ph-el-reset" data-ck-reset>Start again · 重來</button>
+    </div>
+    <div class="ph-ck-rule">{_ph_bi(lab["rule"], say=False)}</div>
+  </div>
+</div>
+<div class="ph-tests">
+  <h3 class="rvl">Now justify the method <span class="ph-h2-zh">現在替這個方法找理由</span></h3>
+  <div class="ph-own ph-ckj rvl" data-ph-ckj>
+    {_ph_bi(j["q"], say=False)}
+    <div class="ph-ck-opts">{opts}</div>
+    <div class="ph-ck-reply" data-ck-reply hidden></div>
+    <p class="ph-ck-tried" data-ck-tried></p>
+  </div>
+</div>'''
+
 def _ph_lab(lab):
+    if lab.get("kind") == "chicken": return _ph_lab_chicken(lab)
     if lab.get("kind") == "meno": return _ph_lab_meno(lab)
     if lab.get("kind") == "cave": return _ph_lab_cave(lab)
     if lab.get("kind") == "doubt": return _ph_lab_doubt(lab)

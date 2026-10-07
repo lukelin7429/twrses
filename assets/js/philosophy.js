@@ -482,6 +482,61 @@
     });
   });
 
+  /* ---- A8：羅素的雞（歸納），以及替歸納找理由 ---- */
+  $$('[data-ph-chicken]').forEach(function (root) {
+    var D;
+    try { D = JSON.parse($('[data-ck-data]', root).textContent); } catch (e) { return; }
+    var days = $('[data-ck-days]', root), bar = $('[data-ck-bar]', root), pct = $('[data-ck-pct]', root), msg = $('[data-ck-msg]', root);
+    var next = $('[data-ck-next]', root), dayEl = $('[data-ck-day]', root), conf = $('[data-ck-conf]', root);
+    var n, dead;
+    function say(en, zh) { msg.textContent = en; var z = el('span', '', zh); z.lang = 'zh-Hant'; msg.appendChild(z); }
+    function paint() {
+      var p = (n + 1) / (n + 2);                    // 拉普拉斯接續律
+      bar.style.width = (dead ? 0 : p * 100) + '%'; pct.textContent = dead ? '—' : (p * 100).toFixed(1) + '%';
+      dayEl.textContent = 'Day ' + (n + (dead ? 1 : 0)) + ' · 第 ' + (n + (dead ? 1 : 0)) + ' 天';
+      conf.textContent = dead ? '' : 'Confidence in grain tomorrow · 對「明天有穀子」的信心';
+      root.classList.toggle('is-dead', dead);
+    }
+    function reset() {
+      n = 0; dead = false; days.textContent = ''; next.hidden = false;
+      say('You have just hatched. You have no idea what mornings are like.', '你剛孵出來，完全不知道早晨是什麼樣子。'); paint();
+    }
+    function step() {
+      if (dead) return;
+      if (n >= D.last) {
+        dead = true; var x = el('i', 'x', '✕'); days.appendChild(x); next.hidden = true;
+        say(D.end.en, D.end.zh); paint(); return;
+      }
+      n++; days.appendChild(el('i', '', '🌾'));
+      var p = ((n + 1) / (n + 2) * 100).toFixed(1);
+      if (n === 1) say(D.fed.en + ' One morning proves little.', D.fed.zh + '一個早上證明不了什麼。');
+      else if (n < 6) say(D.fed.en + ' The pattern is starting to look reliable.', D.fed.zh + '這個規律開始顯得可靠了。');
+      else if (n < 12) say(D.fed.en + ' ' + n + ' mornings out of ' + n + '. You begin to run toward him.', D.fed.zh + n + ' 個早上，' + n + ' 次都有。你開始朝他跑過去。');
+      else say(D.fed.en + ' You are now ' + p + '% sure about tomorrow, and with good reason.', D.fed.zh + '你現在對明天有 ' + p + '% 的把握，而且理由充分。');
+      paint();
+    }
+    next.addEventListener('click', step);
+    $('[data-ck-reset]', root).addEventListener('click', reset);
+    reset();
+    root.__lab = { step: step, data: D, state: function () { return { n: n, dead: dead, pct: pct.textContent }; } };
+  });
+  $$('[data-ph-ckj]').forEach(function (root) {
+    var lab = document.querySelector('[data-ph-chicken]'); if (!lab || !lab.__lab) return;
+    var J = lab.__lab.data.justify, reply = $('[data-ck-reply]', root), tried = $('[data-ck-tried]', root), seen = {};
+    $$('[data-ck-j]', root).forEach(function (b) {
+      b.addEventListener('click', function () {
+        var i = +b.getAttribute('data-ck-j'), o = J.opts[i]; seen[i] = true;
+        $$('[data-ck-j]', root).forEach(function (x) { x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); });
+        b.classList.add('is-seen');
+        reply.hidden = false; reply.textContent = '';
+        reply.appendChild(el('b', '', o.tag)); reply.appendChild(el('p', '', o.r.en));
+        var z = el('p', 'ph-zh', o.r.zh); z.lang = 'zh-Hant'; reply.appendChild(z); addTr(z);
+        var k = Object.keys(seen).length;
+        tried.textContent = k === J.opts.length ? 'You have tried all four. Three lead back to the question, and the fourth declines to answer it. That is Hume’s problem. · 四個你都試過了。三個繞回問題本身，第四個拒絕回答。這就是休謨的問題。' : k + ' of ' + J.opts.length + ' tried · 已試 ' + k + '／' + J.opts.length;
+      });
+    });
+  });
+
   /* ---- 自己的定義：打字之後出現五個檢查項（只存在這個頁面的記憶體裡） ---- */
   var own = $('[data-ph-own]'), checks = $('[data-ph-own-checks]');
   if (own && checks) {

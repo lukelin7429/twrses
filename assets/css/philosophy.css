@@ -591,3 +591,32 @@ main:has(.ph-tools) .wrap { width: min(980px, 92vw); }
 .ph-ml .ph-ml-out .ph-en { font: 400 1.02rem/1.7 var(--sans); }
 .ph-ml .ph-ml-out .ph-p { margin: .3rem 0 0; }
 @media (max-width: 640px) { .ph-ml-out { grid-template-columns: 1fr; } }
+
+/* ---------- A8：羅素的雞 ---------- */
+.ph-ck-yard { background: rgba(255,255,255,.05); border-radius: 14px; padding: .9rem 1rem; min-height: 4.2rem; }
+.ph-ck-days { display: flex; flex-wrap: wrap; gap: .35rem; }
+.ph-ck-days i { font-style: normal; width: 2.1rem; height: 2.1rem; display: grid; place-items: center; background: rgba(79,209,165,.18); border: 1px solid rgba(79,209,165,.5); border-radius: 9px; font-size: 1.1rem; animation: ph-stamp .4s cubic-bezier(.2,1.6,.4,1) both; }
+.ph-ck-days i.x { background: var(--ph-terra); border-color: #ff9d7a; color: #fff; font-weight: 800; }
+.ph-ck-meter { display: flex; align-items: center; gap: .9rem; margin: 1rem 0 .2rem; }
+.ph-ck-bar { flex: 1; height: 16px; border-radius: 99px; background: rgba(255,255,255,.12); overflow: hidden; }
+.ph-ck-bar i { display: block; height: 100%; width: 50%; background: linear-gradient(90deg, #4fd1a5, #ffd36e); border-radius: 99px; transition: width .5s ease; }
+.ph-ck-meter span { font: 700 1.3rem ui-monospace, 'SF Mono', Menlo, monospace; color: #fff; min-width: 5ch; text-align: right; }
+.ph-ck.is-dead .ph-ck-bar i { transition-duration: .15s; }
+.ph-ck-rule { margin-top: 1.2rem; border-top: 1px dashed rgba(255,255,255,.2); padding-top: .8rem; }
+.ph-ck-rule .ph-en { font: 400 .92rem/1.6 var(--sans); color: rgba(255,255,255,.72); }
+.ph-ck-rule .ph-zh { color: rgba(255,255,255,.6); }
+.ph-ck-rule .ph-p { margin: 0; }
+.ph-ck-opts { display: grid; grid-template-columns: 1fr 1fr; gap: .6rem; margin-top: .9rem; }
+.ph-ck-opt { all: unset; box-sizing: border-box; cursor: pointer; display: grid; gap: .1rem; padding: .7rem 1rem; border-radius: 12px; border: 1.5px solid var(--line); background: var(--paper); transition: border-color .2s, transform .2s, background .2s; }
+.ph-ck-opt:hover { border-color: var(--brand); transform: translateY(-2px); }
+.ph-ck-opt:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+.ph-ck-opt b { font: 600 1rem/1.4 var(--sans); }
+.ph-ck-opt span { font: .88rem var(--zh); color: var(--ink-soft); }
+.ph-ck-opt.is-seen { background: var(--cream); }
+.ph-ck-opt[aria-pressed="true"] { border-color: var(--brand); background: var(--brand-lt); }
+.ph-ck-reply { margin-top: 1rem; border-left: 4px solid var(--ph-terra); background: #fbf1ec; border-radius: 0 12px 12px 0; padding: .8rem 1rem; animation: ph-rise .4s ease both; }
+.ph-ck-reply[hidden] { display: none; }
+.ph-ck-reply b { font: 800 .74rem var(--sans); letter-spacing: .1em; text-transform: uppercase; color: var(--ph-terra); }
+.ph-ck-reply p { margin: .2rem 0 0; font-size: 1.04rem; line-height: 1.7; }
+.ph-ck-tried { margin: .8rem 0 0; font-size: .92rem; font-weight: 600; color: var(--brand-dk); }
+@media (max-width: 640px) { .ph-ck-opts { grid-template-columns: 1fr; } }
