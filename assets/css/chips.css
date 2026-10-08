@@ -440,3 +440,19 @@
 .cp-vf-track { position: relative; height: 14px; margin: 1rem 0 .2rem; border-radius: 99px; background: rgba(255,255,255,.14); }
 .cp-vf-bar { position: absolute; inset: 0 auto 0 0; border-radius: 99px; background: linear-gradient(90deg, #ffd36e, #ff8a2a); transition: width .15s; }
 .cp-vf-track span { position: absolute; top: -4px; bottom: -4px; left: 38.46%; width: 2px; background: #fff; opacity: .8; }
+
+/* ---------- 第十課：AI 晶片和一般 CPU 有什麼不同？ ---------- */
+@media (min-width: 1021px) { .cp-ai-lab .al-space { min-height: 680px; } }
+.cp-ai-bar i { background: linear-gradient(90deg, #58b4ff, #7cf29a); transition: none; }
+.cp-ai-msg[hidden] { display: none; }
+.cp-ai-n small, .cp-ai-t small, .cp-ai-busy small, .cp-ai-fin small { display: block; font-size: .7rem; font-weight: 600; color: var(--al-mute); }
+.al-lab.cp-ai-lb-job, .al-lab.cp-ai-lb-chip { font-weight: 800; }
+.al-lab.cp-ai-lb-done { color: #06281a; background: #7cf29a; border-color: #7cf29a; font-weight: 800; }
+.al-lab.cp-ai-lb-done small { color: #0b3d28; }
+.al-lg-cpaicpu i { border: 0; height: 11px; width: 11px; margin: .3rem 6px 0; border-radius: 2px; background: #3d6fd8; box-shadow: 14px 0 0 #3d6fd8; margin-right: 20px; }
+.al-lg-cpaigpu i { border: 0; height: 11px; margin-top: .3rem; border-radius: 2px; background: repeating-linear-gradient(90deg, #ffb347 0 3px, transparent 3px 5px); }
+.al-lg-cpaitile i { border: 0; height: 11px; margin-top: .3rem; border-radius: 2px; background: linear-gradient(90deg, #33415f 0 40%, #ffd36e 40% 55%, #58b4ff 55%); }
+.cp-amd .al-age::-webkit-slider-runnable-track { background: linear-gradient(90deg, var(--brand) 0 var(--p, 50%), #e5dfd0 var(--p, 50%)); }
+.cp-amd .al-age::-webkit-slider-thumb { border-color: var(--brand); }
+.cp-amd .al-age::-moz-range-progress { background: var(--brand); }
+.cp-amd-bar { background: linear-gradient(90deg, #58b4ff, #7cf29a); }
