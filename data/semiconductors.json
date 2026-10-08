@@ -3014,16 +3014,672 @@
               "url": "https://scienceinschool.org/article/2025/cyanoprinting-where-art-and-chemistry-meet/"
             }
           ]
-        }
-      ],
-      "planned": [
+        },
         {
           "n": 5,
+          "slug": "nanometer",
+          "title": "How Small Is a Nanometer? An Angstrom?",
+          "title_zh": "奈米、埃米有多小？",
+          "level": "入門 · Beginner",
           "icon": "📏",
-          "en": "How Small Is a Nanometer? An Angstrom?",
-          "zh": "奈米、埃米有多小？"
+          "card": "scale",
+          "blurb_en": "News about chips is full of nanometers and angstroms. Zoom in 3D from your fingernail to a hair, a blood cell, a virus, the lines on a chip, and at last single silicon atoms. Then find out how many nanometers your nails have grown since you opened this page.",
+          "blurb_zh": "晶片的新聞裡到處是奈米和埃米。在 3D 裡從指甲一路放大：頭髮、紅血球、病毒、晶片上的線，最後是一顆顆矽原子。再算算看，從你打開這一頁到現在，指甲長了幾奈米。",
+          "big_idea_en": "A nanometer is one billionth of a meter, and an angstrom is one tenth of a nanometer, about the size of a single atom. The lines on today's chips are tens of nanometers apart. Names like “3 nanometer” and “2 nanometer” are names for generations of chips, not lengths that anyone measured.",
+          "big_idea_zh": "1 奈米是十億分之一公尺；1 埃米是十分之一奈米，差不多就是一顆原子的大小。現在晶片上的線，彼此相隔幾十奈米。「3 奈米」「2 奈米」是每一代晶片的名字，不是量出來的長度。",
+          "lab": {
+            "kind": "scale",
+            "eyebrow": "3D Model · 3D 模型",
+            "title_en": "Zoom In, Ten Times at a Time",
+            "title_zh": "一次放大十倍",
+            "how_en": "Drag the Zoom slider, press × 10, or pick one of the eight stops. The yellow bracket at the bottom is a ruler: its length is written beside it, and it changes as you zoom. Watch the units change from centimeters to millimeters, micrometers, nanometers, and finally angstroms. You can also drag the picture to turn it.",
+            "how_zh": "拉「縮放」滑桿、按「× 10」，或直接選八站裡的一站。下方黃色的括號是一把尺：旁邊寫著它有多長，放大的時候會跟著換。注意單位怎麼從公分變成公釐、微米、奈米，最後變成埃米。也可以拖曳畫面轉一轉。",
+            "stops": [
+              {
+                "key": "nail",
+                "short_en": "Nail",
+                "short_zh": "指甲",
+                "title_en": "A fingernail: about 1 centimeter",
+                "title_zh": "指甲：大約 1 公分",
+                "text_en": "Start with something you can see. A fingernail is about 1 centimeter wide, which is 10 million nanometers.",
+                "text_zh": "從看得到的東西開始。指甲大約 1 公分寬，也就是 1,000 萬奈米。"
+              },
+              {
+                "key": "hair",
+                "short_en": "Hair",
+                "short_zh": "頭髮",
+                "title_en": "A hair: about 75 micrometers",
+                "title_zh": "頭髮：大約 75 微米",
+                "text_en": "Human hairs are between 17 and 181 micrometers thick; 75 is a common round number. A micrometer is one thousandth of a millimeter.",
+                "text_zh": "人的頭髮粗細在 17 到 181 微米之間，常取 75 微米當代表。1 微米是千分之一公釐。"
+              },
+              {
+                "key": "rbc",
+                "short_en": "Blood cell",
+                "short_zh": "紅血球",
+                "title_en": "A red blood cell: about 7 micrometers",
+                "title_zh": "紅血球：大約 7 微米",
+                "text_en": "A red blood cell is a disk about 6 to 8 micrometers across. Ten of them side by side are as wide as one hair.",
+                "text_zh": "紅血球是直徑大約 6 到 8 微米的圓盤。十個排成一排，差不多是一根頭髮寬。"
+              },
+              {
+                "key": "bacterium",
+                "short_en": "Bacterium",
+                "short_zh": "細菌",
+                "title_en": "A bacterium: about 2 micrometers",
+                "title_zh": "細菌：大約 2 微米",
+                "text_en": "An E. coli bacterium is a rod about 2 micrometers long. This is close to the smallest thing an ordinary light microscope shows well.",
+                "text_zh": "一隻大腸桿菌是長約 2 微米的小桿子。這已經接近一般光學顯微鏡看得清楚的最小東西。"
+              },
+              {
+                "key": "virus",
+                "short_en": "Virus",
+                "short_zh": "病毒",
+                "title_en": "A flu virus: about 100 nanometers",
+                "title_zh": "流感病毒：大約 100 奈米",
+                "text_en": "Now we are counting in nanometers. A flu virus is 80 to 120 nanometers across, too small for a light microscope to show clearly.",
+                "text_zh": "現在開始用奈米來算了。流感病毒的直徑是 80 到 120 奈米，小到光學顯微鏡看不清楚。"
+              },
+              {
+                "key": "line",
+                "short_en": "Chip lines",
+                "short_zh": "晶片的線",
+                "title_en": "Lines on a chip: 24 nanometers apart",
+                "title_zh": "晶片上的線：相隔 24 奈米",
+                "text_en": "In a chip called “3 nanometer,” the closest metal lines are expected to be 24 nanometers apart. The little yellow bar shows how short 3 nanometers really is.",
+                "text_zh": "在一顆叫做「3 奈米」的晶片裡，最密的金屬線預計相隔 24 奈米。那條黃色的小橫槓，就是 3 奈米真正的長度。"
+              },
+              {
+                "key": "dna",
+                "short_en": "DNA",
+                "short_zh": "DNA",
+                "title_en": "DNA: about 2 nanometers wide",
+                "title_zh": "DNA：大約 2 奈米寬",
+                "text_en": "The twisted ladder of DNA is about 2 nanometers wide. Scientists often write that as 20 angstroms.",
+                "text_zh": "DNA 這條扭轉的梯子大約 2 奈米寬，科學家常把它寫成 20 埃米。"
+              },
+              {
+                "key": "atom",
+                "short_en": "Atoms",
+                "short_zh": "原子",
+                "title_en": "Silicon atoms: about 0.24 nanometers",
+                "title_zh": "矽原子：大約 0.24 奈米",
+                "text_en": "At last, single atoms. Neighboring silicon atoms sit about 0.24 nanometers apart, or 2.4 angstroms. The yellow bar is 1 angstrom long.",
+                "text_zh": "終於看到一顆顆原子了。相鄰的矽原子相隔大約 0.24 奈米，也就是 2.4 埃米。黃色的橫槓長 1 埃米。"
+              }
+            ],
+            "legend": [
+              {
+                "cls": "cpscbar",
+                "en": "Yellow bracket: the ruler for the picture you are looking at",
+                "zh": "黃色括號：目前這個畫面的比例尺"
+              },
+              {
+                "cls": "cpscgold",
+                "en": "Yellow bars in the model: 3 nanometers (at the chip lines) and 1 angstrom (at the atoms)",
+                "zh": "模型裡的黃色橫槓：3 奈米（在晶片的線那一站）和 1 埃米（在原子那一站）"
+              },
+              {
+                "cls": "cpscfloor",
+                "en": "The floor takes the color of the thing you have zoomed into",
+                "zh": "地板的顏色，就是你鑽進去的那個東西的顏色"
+              }
+            ],
+            "scale_en": "Every object is drawn at its true size compared with the others, so this model is to scale. The shapes are simplified, and the objects are simply stacked on one another so that you can compare them: a virus does not really sit on a bacterium, and chips are not made on DNA. The fingernail's width (about 1 centimeter) is a round number. Real atoms are not hard balls.",
+            "scale_zh": "每一樣東西都照彼此的真實大小比例畫，所以這個模型是「照比例」的。形狀是簡化的，而且只是把它們一個疊在一個上面方便比較：病毒並不是真的坐在細菌上，晶片也不是做在 DNA 上。指甲的寬度（約 1 公分）是取整數。真正的原子也不是硬硬的小球。",
+            "credit_html": "Model drawn by My Culture Connect as a teaching diagram. The sizes come from the sources listed at the bottom of this page; the chip line spacing is the IRDS 2021 figure quoted in <a href=\"https://en.wikipedia.org/wiki/3_nm_process\" target=\"_blank\" rel=\"noopener\">Wikipedia, “3 nm process”</a>. · 模型由人師教育協會自繪示意；各項大小依本頁最下方列出的出處，晶片線距採用維基百科「3 nm process」條目引用的 IRDS 2021 數字。"
+          },
+          "paras": [
+            "Turn on the news in Taiwan and you will hear about 3-nanometer chips, 2-nanometer chips, and now chips measured in angstroms. These words sound very small, and they are. But how small? Smaller than a hair? Smaller than a germ? Let us take a trip down to the bottom, ten times smaller at each step.",
+            "Start with your fingernail, about one centimeter wide. Zoom in about a hundred times and you reach a single hair, about 75 micrometers thick. A micrometer is one thousandth of a millimeter. Zoom in ten times more and you meet a red blood cell, about 7 micrometers across. A bacterium is smaller still, about 2 micrometers long.",
+            "Keep going, and micrometers become too big. We need a smaller unit: the nanometer, one thousandth of a micrometer, or one billionth of a meter. A flu virus is about 100 nanometers across. The finest lines on a modern chip are a few tens of nanometers apart. A strand of DNA is only about 2 nanometers wide.",
+            "At the very bottom are atoms. Silicon atoms in a chip sit about 0.24 nanometers from their neighbors. For sizes like this, scientists use an even smaller unit, the angstrom, which is one tenth of a nanometer. It is named after Anders Ångström, a Swedish scientist. So one silicon atom is a little more than 2 angstroms wide.",
+            "Now for a surprise. A “3-nanometer chip” does not have parts that are 3 nanometers wide. Long ago, the number in the name was a real length on the chip. Today it is only a name for a generation of chips: a smaller number means a newer design that packs in more transistors. In a “3-nanometer” chip, the closest metal lines are expected to be about 24 nanometers apart.",
+            "Names with angstroms work the same way. One chip maker uses names like 18A, and another uses A16, where the A stands for angstrom. They tell you which generation a chip belongs to, not what a ruler would read. Still, the real sizes are amazing. Chip makers now build parts only a few dozen atoms wide, billions of times on every chip."
+          ],
+          "paras_zh": [
+            "在台灣打開新聞，常會聽到 3 奈米晶片、2 奈米晶片，現在還有用「埃米」來算的晶片。這些詞聽起來很小，也真的很小。可是到底多小？比頭髮細嗎？比細菌小嗎？我們一路往下走，每一步都縮小十倍。",
+            "從你的指甲開始，寬度大約 1 公分。放大大約一百倍，會看到一根頭髮，粗細大約 75 微米。1 微米是千分之一公釐。再放大十倍，會遇到紅血球，直徑大約 7 微米。細菌又更小，大約 2 微米長。",
+            "繼續往下，微米就太大了，我們需要更小的單位：奈米。1 奈米是千分之一微米，也就是十億分之一公尺。流感病毒的直徑大約 100 奈米。現代晶片上最細的線，彼此相隔幾十奈米。一條 DNA 只有大約 2 奈米寬。",
+            "最底下是原子。晶片裡的矽原子，和旁邊的原子相隔大約 0.24 奈米。這麼小的尺寸，科學家用一個更小的單位，叫做埃米（也寫成「埃」），是十分之一奈米。它是用瑞典科學家埃格斯特朗（Anders Ångström）的名字命名的。所以一顆矽原子的寬度是 2 埃米多一點。",
+            "接下來的事可能讓你很意外：「3 奈米晶片」裡面，並沒有哪個零件是 3 奈米寬。很久以前，名字裡的數字確實是晶片上量得到的長度。現在它只是一代晶片的名字：數字越小，代表設計越新、塞進去的電晶體越多。在一顆「3 奈米」的晶片裡，最密的金屬線預計相隔大約 24 奈米。",
+            "用埃米取的名字也是一樣。有一家晶片公司用 18A 這樣的名字，另一家用 A16，其中的 A 就是埃米（angstrom）。這些名字告訴你晶片屬於哪一代，不是用尺量出來的讀數。不過真正的尺寸還是很驚人：晶片公司現在做出來的零件只有幾十顆原子寬，而且每一顆晶片上要做幾十億次。"
+          ],
+          "questions": [
+            "How big is a nanometer, and how big is an angstrom?",
+            "Which is smaller: a flu virus or the spacing between the finest lines on a modern chip?",
+            "What does the “3” in “3-nanometer chip” tell you?"
+          ],
+          "answers": [
+            "A nanometer is one billionth of a meter. An angstrom is one tenth of a nanometer, about the size of a single atom.",
+            "The spacing between the lines on the chip. It is a few tens of nanometers, and a flu virus is about 100 nanometers across.",
+            "It is the name of a generation of chips. A smaller number means a newer design with more transistors. It is not a length that anyone measured on the chip."
+          ],
+          "vocab": [
+            {
+              "n": 1,
+              "w": "nanometer",
+              "pos": "n.",
+              "zh": "奈米",
+              "ex": "A <b>nanometer</b> is one billionth of a meter.",
+              "exzh": "1 奈米是十億分之一公尺。"
+            },
+            {
+              "n": 2,
+              "w": "angstrom",
+              "pos": "n.",
+              "zh": "埃米；埃",
+              "ex": "One nanometer is ten <b>angstroms</b>.",
+              "exzh": "1 奈米等於 10 埃米。"
+            },
+            {
+              "n": 3,
+              "w": "unit",
+              "pos": "n.",
+              "zh": "單位",
+              "ex": "The meter is a <b>unit</b> of length.",
+              "exzh": "公尺是長度的單位。"
+            },
+            {
+              "n": 4,
+              "w": "measure",
+              "pos": "v.",
+              "zh": "測量",
+              "ex": "<b>Measure</b> the desk with a ruler.",
+              "exzh": "用尺量一量這張桌子。"
+            },
+            {
+              "n": 5,
+              "w": "width",
+              "pos": "n.",
+              "zh": "寬度",
+              "ex": "What is the <b>width</b> of this door?",
+              "exzh": "這扇門的寬度是多少？"
+            },
+            {
+              "n": 6,
+              "w": "magnify",
+              "pos": "v.",
+              "zh": "放大",
+              "ex": "A microscope <b>magnifies</b> tiny things.",
+              "exzh": "顯微鏡會把很小的東西放大。"
+            },
+            {
+              "n": 7,
+              "w": "compare",
+              "pos": "v.",
+              "zh": "比較",
+              "ex": "<b>Compare</b> the two pictures. What is different?",
+              "exzh": "比較這兩張圖，有什麼不一樣？"
+            },
+            {
+              "n": 8,
+              "w": "generation",
+              "pos": "n.",
+              "zh": "世代；一代",
+              "ex": "This phone is the newest <b>generation</b>.",
+              "exzh": "這支手機是最新的一代。"
+            }
+          ],
+          "quiz": [
+            {
+              "q": "How many nanometers are in one meter?",
+              "options": [
+                "One billion",
+                "One thousand",
+                "One million",
+                "Ten"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "How many angstroms are in one nanometer?",
+              "options": [
+                "10",
+                "100",
+                "1,000",
+                "One half"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "Which of these is the smallest?",
+              "options": [
+                "A silicon atom",
+                "A flu virus",
+                "A red blood cell",
+                "A hair"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "What is the “3 nanometers” in “3-nanometer chip”?",
+              "options": [
+                "The name of a generation of chips",
+                "The width of every transistor",
+                "The thickness of the chip",
+                "The size of a silicon atom"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "About how fast does a fingernail grow?",
+              "options": [
+                "About 1 nanometer every second",
+                "About 1 millimeter every second",
+                "About 1 centimeter every day",
+                "It does not grow at all"
+              ],
+              "correct": 0
+            }
+          ],
+          "parts_head": {
+            "eyebrow": "Try It in the Model · 在模型裡試試",
+            "en": "Four stops on the way down",
+            "zh": "往下走的四站"
+          },
+          "parts": [
+            {
+              "key": "hair",
+              "icon": "💇",
+              "en": "A single hair",
+              "zh": "一根頭髮",
+              "meta_en": "About 75 micrometers",
+              "meta_zh": "約 75 微米",
+              "demo": "hair",
+              "text_en": "The last thing on this trip that your eyes can see without help. Everything after this needs a microscope.",
+              "text_zh": "這趟旅程裡，眼睛不靠工具還看得到的最後一樣東西。再往下都需要顯微鏡。"
+            },
+            {
+              "key": "virus",
+              "icon": "🦠",
+              "en": "A flu virus",
+              "zh": "流感病毒",
+              "meta_en": "About 100 nanometers",
+              "meta_zh": "約 100 奈米",
+              "demo": "virus",
+              "text_en": "Here the unit changes from micrometers to nanometers. Look how small the virus is beside the bacterium.",
+              "text_zh": "單位從微米換成奈米了。看看病毒在細菌旁邊有多小。"
+            },
+            {
+              "key": "line",
+              "icon": "💿",
+              "en": "Lines on a chip",
+              "zh": "晶片上的線",
+              "meta_en": "24 nanometers apart",
+              "meta_zh": "相隔 24 奈米",
+              "demo": "line",
+              "text_en": "Find the little yellow bar. That is 3 nanometers. The lines of a “3-nanometer” chip are much farther apart than that.",
+              "text_zh": "找找那條黃色的小橫槓，那就是 3 奈米。「3 奈米」晶片上的線，間距比它大得多。"
+            },
+            {
+              "key": "atom",
+              "icon": "⚛️",
+              "en": "Silicon atoms",
+              "zh": "矽原子",
+              "meta_en": "About 2.4 angstroms",
+              "meta_zh": "約 2.4 埃米",
+              "demo": "atom",
+              "text_en": "The bottom of the trip. From your fingernail to here, the picture has been magnified more than 40 million times.",
+              "text_zh": "旅程的最底下。從指甲到這裡，畫面已經放大了四千多萬倍。"
+            }
+          ],
+          "parts_note_en": "Each press of × 10 makes the picture ten times narrower. It takes about seven presses to go from a fingernail to atoms.",
+          "parts_note_zh": "每按一次「× 10」，畫面就窄十倍。從指甲到原子，大約要按七次。",
+          "links_head": {
+            "eyebrow": "Go Further · 延伸閱讀",
+            "en": "The lines and the atoms",
+            "zh": "那些線和那些原子"
+          },
+          "links": [
+            {
+              "href": "/resources/classes/semiconductors/lithography/",
+              "icon": "🔦",
+              "k_en": "Chips and Semiconductors · Lesson 4",
+              "k_zh": "晶片與半導體 第四課",
+              "en": "How Do You Draw a Circuit Smaller Than a Virus?",
+              "zh": "怎麼畫出比病毒還小的電路？",
+              "note_en": "How light draws lines only tens of nanometers wide.",
+              "note_zh": "光怎麼畫出只有幾十奈米寬的線。"
+            },
+            {
+              "href": "/resources/classes/semiconductors/what-is-a-semiconductor/",
+              "icon": "💎",
+              "k_en": "Chips and Semiconductors · Lesson 1",
+              "k_zh": "晶片與半導體 第一課",
+              "en": "What Is a Semiconductor?",
+              "zh": "什麼是半導體？",
+              "note_en": "What those silicon atoms are doing, and why a few different atoms change everything.",
+              "note_zh": "那些矽原子在做什麼，為什麼換掉幾顆原子就完全不一樣。"
+            }
+          ],
+          "nail": {
+            "eyebrow": "Your Own Nanometers · 你自己的奈米",
+            "en": "How much have your nails grown?",
+            "zh": "你的指甲長了多少？",
+            "lead_en": "Fingernails grow about 3.5 millimeters a month. That sounds slow, but in nanometers it is more than one every second. The counter started when you opened this page.",
+            "lead_zh": "指甲平均每個月大約長 3.5 公釐。聽起來很慢，但換成奈米，每秒就長一奈米多。右邊的數字從你打開這一頁就開始算了。",
+            "mm_per_month": 3.5,
+            "note_en": "The growth rate is an average for healthy young adults; your own nails may be faster or slower. The paper is cut along its long side, 297 millimeters. Real scissors give up after six or seven cuts, but the arithmetic keeps going.",
+            "note_zh": "生長速度是健康年輕人的平均值，你自己的指甲可能快一點或慢一點。紙是沿著長邊（297 公釐）剪的；真的剪刀剪六、七次就剪不下去了，但算術可以一直算下去。"
+          },
+          "facts": {
+            "eyebrow": "Small by the Numbers · 小的數字",
+            "en": "From a billionth of a meter to an atom",
+            "zh": "從十億分之一公尺到一顆原子",
+            "lead_en": "Six numbers for thinking small.",
+            "lead_zh": "六個幫你想像「小」的數字。",
+            "items": [
+              {
+                "big": "1 nm",
+                "unit_en": "one billionth of a meter",
+                "unit_zh": "十億分之一公尺",
+                "en": "A nanometer is 0.000000001 meter. A billion of them in a row make one meter.",
+                "zh": "1 奈米是 0.000000001 公尺。十億個排成一排才是 1 公尺。"
+              },
+              {
+                "big": "1 Å",
+                "unit_en": "one tenth of a nanometer",
+                "unit_zh": "十分之一奈米",
+                "en": "An angstrom is about the size of one atom. Ten angstroms make one nanometer.",
+                "zh": "1 埃米差不多是一顆原子的大小。10 埃米是 1 奈米。"
+              },
+              {
+                "big": "0.24 nm",
+                "unit_en": "between silicon atoms",
+                "unit_zh": "矽原子的間距",
+                "en": "Neighboring silicon atoms in a crystal are about this far apart: 2.4 angstroms.",
+                "zh": "晶體裡相鄰的矽原子大約相隔這麼遠，也就是 2.4 埃米。"
+              },
+              {
+                "big": "24 nm",
+                "unit_en": "lines in a “3 nm” chip",
+                "unit_zh": "「3 奈米」晶片的線距",
+                "en": "The expected spacing of the closest metal lines in a “3-nanometer” chip, eight times the number in its name.",
+                "zh": "「3 奈米」晶片裡最密的金屬線預計的間距，是名字裡那個數字的八倍。"
+              },
+              {
+                "big": "1.3 nm",
+                "unit_en": "nail growth each second",
+                "unit_zh": "指甲每秒長的長度",
+                "en": "At 3.5 millimeters a month, a fingernail grows about this much every second.",
+                "zh": "每個月長 3.5 公釐的指甲，每秒大約長這麼多。"
+              },
+              {
+                "big": "29",
+                "unit_en": "cuts",
+                "unit_zh": "次",
+                "en": "Cut a strip of A4 paper in half this many times and it would be less than 1 nanometer long.",
+                "zh": "把一條 A4 紙對半剪這麼多次，它的長度就不到 1 奈米了。"
+              }
+            ]
+          },
+          "culture_cards": {
+            "eyebrow": "Stories of Small Units · 小單位的故事",
+            "title_en": "A dwarf, a Swedish scientist, a name, and a letter A",
+            "title_zh": "一個小矮人、一位瑞典科學家、一個名字、一個字母 A",
+            "lead_en": "Four stories behind the words in the news.",
+            "lead_zh": "新聞裡那些詞背後的四個小故事。",
+            "cards": [
+              {
+                "k": "nano · 奈",
+                "en": "Nano means dwarf",
+                "zh": "nano 的意思是小矮人",
+                "body_en": "The prefix nano comes from the Greek word nanos, which means dwarf. In 1960 it was officially approved as the prefix for one billionth. In Taiwan it is written 奈米; you may also see 納米 in other places.",
+                "body_zh": "字首 nano 來自希臘文的 nanos，意思是「矮人」。1960 年，它正式成為代表「十億分之一」的字首。台灣寫成「奈米」，在其他地方也會看到「納米」。"
+              },
+              {
+                "k": "1868 · Ångström",
+                "en": "The man who measured sunlight",
+                "zh": "測量陽光的人",
+                "body_en": "In 1868 the Swedish physicist Anders Ångström made a chart of the colors in sunlight. He wrote the wavelengths in units of one ten-millionth of a millimeter. That unit was later named the angstrom after him. It is not an official SI unit, but scientists still use it for atoms.",
+                "body_zh": "1868 年，瑞典物理學家埃格斯特朗把陽光裡的各種顏色畫成一張圖表，波長用「千萬分之一公釐」當單位。這個單位後來就用他的名字命名為埃米。它不是國際單位制（SI）的正式單位，但科學家講原子時還是常用。"
+              },
+              {
+                "k": "IRDS 2021",
+                "en": "A name, not a ruler",
+                "zh": "是名字，不是尺",
+                "body_en": "An international roadmap for the chip industry says that a “3-nanometer” chip is expected to have gates 48 nanometers apart and metal lines 24 nanometers apart. Nothing in it is 3 nanometers. The number is a label that tells you the generation.",
+                "body_zh": "半導體產業的一份國際技術藍圖指出，「3 奈米」晶片的閘極預計相隔 48 奈米、金屬線相隔 24 奈米，裡面沒有任何東西是 3 奈米。這個數字是一個標籤，告訴你它是哪一代。"
+              },
+              {
+                "k": "18A · A16",
+                "en": "The letter A",
+                "zh": "字母 A",
+                "body_en": "In 2021 Intel began naming its newest generations with the letter A for angstrom, such as 20A and 18A. In 2024 TSMC announced a generation called A16, planned for production in 2026. Like the nanometer names, these are names of generations.",
+                "body_zh": "2021 年，英特爾開始用代表埃米的字母 A 替最新幾代製程命名，例如 20A、18A。2024 年，台積電發表了名為 A16 的製程，預計 2026 年生產。和奈米的名字一樣，這些也是世代的名字。"
+              }
+            ]
+          },
+          "myths": [
+            {
+              "myth_en": "A 3-nanometer chip has transistors that are 3 nanometers wide.",
+              "myth_zh": "3 奈米晶片裡的電晶體是 3 奈米寬。",
+              "fact_en": "The 3 is the name of a generation. The closest lines in such a chip are expected to be about 24 nanometers apart.",
+              "fact_zh": "3 是這一代的名字。這種晶片裡最密的線，預計相隔大約 24 奈米。"
+            },
+            {
+              "myth_en": "So the numbers in chip names mean nothing at all.",
+              "myth_zh": "所以晶片名字裡的數字完全沒有意義。",
+              "fact_en": "They still tell you the order. A smaller number means a newer generation that fits more transistors into the same space.",
+              "fact_zh": "它們還是告訴你先後順序：數字越小，代表越新的一代，同樣的面積放得下更多電晶體。"
+            },
+            {
+              "myth_en": "A nanometer is the smallest length there is.",
+              "myth_zh": "奈米是最小的長度。",
+              "fact_en": "Atoms are smaller. A silicon atom is about 0.24 nanometers, or 2.4 angstroms, and the parts inside an atom are far smaller still.",
+              "fact_zh": "原子更小。矽原子大約 0.24 奈米，也就是 2.4 埃米；原子裡面的東西還要小得多。"
+            },
+            {
+              "myth_en": "With a good school microscope you can see viruses and atoms.",
+              "myth_zh": "學校的顯微鏡夠好的話，就看得到病毒和原子。",
+              "fact_en": "A light microscope can only show details down to about 200 nanometers. Viruses, chip lines, and atoms need other kinds of microscopes.",
+              "fact_zh": "光學顯微鏡大約只能看清楚 200 奈米以上的細節。病毒、晶片上的線和原子，要用別種顯微鏡才看得到。"
+            }
+          ],
+          "tricks": [
+            {
+              "title_en": "Milli, micro, nano",
+              "title_zh": "毫、微、奈",
+              "body_en": "Each step is a thousand times smaller: millimeter, micrometer, nanometer.",
+              "body_zh": "每一步都小一千倍：公釐（毫米）、微米、奈米。"
+            },
+            {
+              "title_en": "Ten angstroms in a nanometer",
+              "title_zh": "1 奈米＝10 埃米",
+              "body_en": "An angstrom is about one atom wide.",
+              "body_zh": "1 埃米大約是一顆原子寬。"
+            },
+            {
+              "title_en": "A name, not a ruler",
+              "title_zh": "是名字，不是尺",
+              "body_en": "“3 nanometer” names a generation of chips. Nobody measured 3 nanometers.",
+              "body_zh": "「3 奈米」是一代晶片的名字，沒有人量到 3 奈米。"
+            },
+            {
+              "title_en": "One nanometer a second",
+              "title_zh": "一秒一奈米",
+              "body_en": "That is about how fast your fingernails grow.",
+              "body_zh": "你的指甲差不多就是長這麼快。"
+            }
+          ],
+          "safety": [
+            {
+              "en": "Use safety scissors, and cut away from your fingers.",
+              "zh": "使用安全剪刀，剪的時候刀口不要對著手指。"
+            },
+            {
+              "en": "Do not pull out anyone's hair for the activity. Use a hair that has already fallen out.",
+              "zh": "不要為了活動去拔別人的頭髮，用已經掉下來的頭髮就好。"
+            },
+            {
+              "en": "Pick up all the tiny pieces of paper when you finish, and keep them away from small children.",
+              "zh": "做完之後把小紙屑全部撿起來，不要讓小小孩拿到。"
+            },
+            {
+              "en": "If you use a microscope or a magnifying glass, never point it at the sun.",
+              "zh": "使用顯微鏡或放大鏡時，絕對不要對著太陽。"
+            }
+          ],
+          "activities": [
+            {
+              "title_en": "Cut Your Way to a Nanometer",
+              "title_zh": "一路剪到奈米",
+              "materials": [
+                {
+                  "en": "A strip of A4 paper cut along the long side (297 millimeters long)",
+                  "zh": "沿著長邊剪下來的一條 A4 紙（長 297 公釐）"
+                },
+                {
+                  "en": "Safety scissors, a ruler, and a pencil",
+                  "zh": "安全剪刀、尺和鉛筆"
+                }
+              ],
+              "steps": [
+                {
+                  "en": "Cut the strip in half. Throw one half away, and cut the other half in half again. Count each cut.",
+                  "zh": "把紙條對半剪開。丟掉一半，剩下的一半再對半剪。每剪一次就數一次。"
+                },
+                {
+                  "en": "After each cut, measure the piece and write the length down. How many cuts can you make before the piece is too small to hold?",
+                  "zh": "每剪一次就量一量、記下長度。剪到第幾次，紙片就小到拿不住了？"
+                },
+                {
+                  "en": "Keep going with a calculator instead of scissors. After 12 cuts the piece would be as wide as a hair. What is it after 22 cuts?",
+                  "zh": "接下來不用剪刀，改用計算機繼續算。剪 12 次之後，紙片差不多是一根頭髮寬。剪 22 次之後呢？"
+                },
+                {
+                  "en": "How many cuts until the piece is shorter than 1 nanometer? Check your answer with the slider on this page.",
+                  "zh": "要剪幾次，紙片才會短於 1 奈米？用這一頁的滑桿對一對答案。"
+                }
+              ],
+              "tip_en": "Most people can make only six or seven cuts. The other twenty-two cuts are the distance between what our hands can do and what a chip factory does.",
+              "tip_zh": "大部分的人只剪得了六、七次。剩下的二十二次，就是我們的手和晶圓廠之間的距離。"
+            },
+            {
+              "title_en": "The Powers-of-Ten Line",
+              "title_zh": "十的次方排排站",
+              "materials": [
+                {
+                  "en": "Eight cards with these names: fingernail, hair, red blood cell, bacterium, flu virus, chip lines, DNA, silicon atom",
+                  "zh": "八張卡片，寫上：指甲、頭髮、紅血球、細菌、流感病毒、晶片上的線、DNA、矽原子"
+                },
+                {
+                  "en": "A long strip of tape on the floor with eight marks, one big step apart",
+                  "zh": "在地上貼一條長膠帶，上面做八個記號，每個記號相隔一大步"
+                }
+              ],
+              "steps": [
+                {
+                  "en": "Label the marks from 1 centimeter down to 1 angstrom. Each mark is ten times smaller than the one before.",
+                  "zh": "把記號從 1 公分標到 1 埃米，每個記號都比前一個小十倍。"
+                },
+                {
+                  "en": "Without looking at the page, put each card where you think it belongs.",
+                  "zh": "先不要看網頁，把每張卡片放到你覺得對的位置。"
+                },
+                {
+                  "en": "Check with the 3D model and move the cards that were wrong. Which one surprised you most?",
+                  "zh": "用 3D 模型對答案，把放錯的卡片移到對的位置。哪一張最讓你意外？"
+                },
+                {
+                  "en": "Where would you put “3 nanometers”? Is anything on your cards really that size?",
+                  "zh": "「3 奈米」該放在哪裡？你的卡片裡有哪一樣東西真的是那個大小嗎？"
+                }
+              ],
+              "tip_en": "On this line, one step is ten times. Three steps are a thousand times, which is one change of unit.",
+              "tip_zh": "在這條線上，走一步是十倍；走三步是一千倍，剛好換一個單位。"
+            }
+          ],
+          "sources": [
+            {
+              "en": "The angstrom is 10⁻¹⁰ m (0.1 nm); named after Anders Jonas Ångström (1814–1874); his 1868 chart of sunlight; never part of the SI; used for atoms and chemical bonds",
+              "zh": "埃米是 10⁻¹⁰ 公尺（0.1 奈米）；以埃格斯特朗（1814–1874）命名；1868 年的太陽光譜圖；不屬於 SI；用於原子與化學鍵",
+              "src": "Wikipedia, “Angstrom”",
+              "url": "https://en.wikipedia.org/wiki/Angstrom"
+            },
+            {
+              "en": "Nano means one billionth; from Greek nanos, “dwarf”; approved as a prefix in 1960",
+              "zh": "nano 代表十億分之一；源自希臘文 nanos「矮人」；1960 年成為正式字首",
+              "src": "Wikipedia, “Nano-”",
+              "url": "https://en.wikipedia.org/wiki/Nano-"
+            },
+            {
+              "en": "Human hair is 17 to 181 µm in diameter; a nominal value often chosen is 75 µm",
+              "zh": "人的頭髮直徑 17–181 微米；常取 75 微米為代表值",
+              "src": "Wikipedia, “Hair's breadth”",
+              "url": "https://en.wikipedia.org/wiki/Hair%27s_breadth"
+            },
+            {
+              "en": "A red blood cell has a disk diameter of about 6.2–8.2 µm",
+              "zh": "紅血球的圓盤直徑約 6.2–8.2 微米",
+              "src": "Wikipedia, “Red blood cell”",
+              "url": "https://en.wikipedia.org/wiki/Red_blood_cell"
+            },
+            {
+              "en": "E. coli cells are rod-shaped and about 2.0 µm long",
+              "zh": "大腸桿菌呈桿狀，長約 2.0 微米",
+              "src": "Wikipedia, “Escherichia coli”",
+              "url": "https://en.wikipedia.org/wiki/Escherichia_coli"
+            },
+            {
+              "en": "Influenza A virions are 80–120 nm in diameter",
+              "zh": "A 型流感病毒直徑 80–120 奈米",
+              "src": "Wikipedia, “Influenza A virus”",
+              "url": "https://en.wikipedia.org/wiki/Influenza_A_virus"
+            },
+            {
+              "en": "“3 nanometer” has no direct relation to any physical feature; IRDS 2021 expects a 48 nm gate pitch and a 24 nm metal pitch; the name refers to a new generation with higher transistor density",
+              "zh": "「3 奈米」和任何實際尺寸沒有直接關係；IRDS 2021 預期閘極間距 48 奈米、金屬間距 24 奈米；名稱指的是電晶體密度更高的新一代",
+              "src": "Wikipedia, “3 nm process”",
+              "url": "https://en.wikipedia.org/wiki/3_nm_process"
+            },
+            {
+              "en": "“2 nanometer” likewise; Intel's 20A and 18A names (2021), with A for angstrom",
+              "zh": "「2 奈米」也一樣；英特爾 2021 年的 20A、18A 命名，A 代表埃米",
+              "src": "Wikipedia, “2 nm process”",
+              "url": "https://en.wikipedia.org/wiki/2_nm_process"
+            },
+            {
+              "en": "TSMC announced its A16 technology on April 24, 2024, planned for production in 2026",
+              "zh": "台積電 2024 年 4 月 24 日發表 A16 製程，預計 2026 年生產",
+              "src": "TSMC press release (2024)",
+              "url": "https://pr.tsmc.com/english/news/3136"
+            },
+            {
+              "en": "DNA is about 22–26 angstroms (2.2–2.6 nm) wide",
+              "zh": "DNA 寬約 22–26 埃米（2.2–2.6 奈米）",
+              "src": "Wikipedia, “DNA”",
+              "url": "https://en.wikipedia.org/wiki/DNA"
+            },
+            {
+              "en": "Silicon: single-bond covalent radius 117.6 pm (so neighboring atoms are about 0.235 nm apart); lattice constant 0.5431 nm",
+              "zh": "矽：單鍵共價半徑 117.6 皮米（相鄰原子相隔約 0.235 奈米）；晶格常數 0.5431 奈米",
+              "src": "Wikipedia, “Silicon”",
+              "url": "https://en.wikipedia.org/wiki/Silicon"
+            },
+            {
+              "en": "Fingernails grow about 3.5 mm a month on average (Yaemsiri and others, 2010)",
+              "zh": "指甲平均每月約長 3.5 公釐（Yaemsiri 等，2010）",
+              "src": "Wikipedia, “Nail (anatomy)”",
+              "url": "https://en.wikipedia.org/wiki/Nail_(anatomy)"
+            },
+            {
+              "en": "A4 paper is 210 × 297 mm",
+              "zh": "A4 紙的尺寸是 210 × 297 公釐",
+              "src": "Wikipedia, “ISO 216”",
+              "url": "https://en.wikipedia.org/wiki/ISO_216"
+            },
+            {
+              "en": "Optical microscopes are limited to about 200 nm by the diffraction of visible light",
+              "zh": "光學顯微鏡受可見光繞射限制，解析度約 200 奈米",
+              "src": "Wikipedia, “Optical microscope”",
+              "url": "https://en.wikipedia.org/wiki/Optical_microscope"
+            }
+          ]
         }
-      ]
+      ],
+      "planned": []
     },
     {
       "key": "ai",

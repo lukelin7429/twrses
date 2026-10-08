@@ -7759,7 +7759,7 @@ def build_phil_hub():
 _chipj = os.path.join(ROOT, "data", "semiconductors.json")
 CHIP = json.load(open(_chipj, encoding="utf-8")) if os.path.exists(_chipj) else None
 CHIP_BASE = "/resources/classes/semiconductors/"
-_CHIP_JS = {"doping": "chip-doping", "transistor": "chip-transistor", "wafer": "chip-wafer", "litho": "chip-litho"}   # lab.kind → assets/js/<bundle>.js
+_CHIP_JS = {"doping": "chip-doping", "transistor": "chip-transistor", "wafer": "chip-wafer", "litho": "chip-litho", "scale": "chip-scale"}   # lab.kind → assets/js/<bundle>.js
 
 def _chip_ver():
     h = hashlib.md5()
@@ -8047,6 +8047,93 @@ def render_chiplitho_lab(lesson):
   <p class="cp-credit">{lab["credit_html"]}</p>
 </div>'''
 
+def chipscale_svg(size=56):
+    """第五課的課程卡小圖示：一把尺，刻度越來越密，最後是一顆原子。"""
+    ticks = "".join(f'<path d="M{x} 30 v{h}" stroke="#3a4a66" stroke-width="{w}"/>' for x, h, w in
+                    [(8, 12, 2), (17, 8, 1.6), (25, 12, 1.6), (31, 6, 1.2), (36, 10, 1.2), (40, 5, 1), (43, 8, 1), (45.5, 4, .8), (47.5, 6, .8)])
+    return (f'<svg class="chipscale-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">'
+            f'<rect x="4" y="30" width="46" height="16" rx="2" fill="#ffd36e"/>{ticks}'
+            '<circle cx="52" cy="20" r="5" fill="#b9c0cc" stroke="#6b7385" stroke-width="1.2"/>'
+            '<path d="M10 20 H40" stroke="#58b4ff" stroke-width="2" stroke-linecap="round" stroke-dasharray="1 5"/>'
+            '<path d="M38 15 l7 5 l-7 5" fill="none" stroke="#58b4ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>')
+
+def render_chipscale_lab(lesson):
+    """第五課：十的次方縮放，從指甲到矽原子（assets/js/chip-scale.js 綁這裡的 class；全部自繪示意）。"""
+    lab = lesson["lab"]
+    st = lab["stops"]
+    sb = "".join(f'<button type="button" data-stop="{html.escape(s["key"])}" aria-pressed="false"><b>{i + 1}</b>{html.escape(s["short_en"])}<small>{html.escape(s["short_zh"])}</small></button>' for i, s in enumerate(st))
+    panels = "".join(
+        f'<div class="cp-wf-panel cp-sc-panel" data-panel="{i}" hidden><p class="cp-wf-k">Stop {i + 1} of {len(st)} · 第 {i + 1} 站</p>'
+        f'<h3>{html.escape(s["title_en"])}<span class="zh">{html.escape(s["title_zh"])}</span></h3>'
+        f'<p class="cp-msg">{html.escape(s["text_en"])}<span class="zh">{html.escape(s["text_zh"])}</span></p></div>' for i, s in enumerate(st))
+    tg = _lab_toggles([("labels", "Labels", "標示", True)])
+    return f'''<div class="astro-lab cp-lab cp-sc-lab rvl" data-chipscale-lab>
+  <div class="al-stage">
+    <div class="al-space">
+      <canvas class="al-space-cv" aria-label="3D zoom from a fingernail down to silicon atoms, one power of ten at a time · 從指甲一路放大到矽原子的 3D 模型，一次放大十倍"></canvas>
+      <div class="al-labels" aria-hidden="true"></div>
+      <div class="cp-sc-rule" aria-hidden="true"><i class="cp-sc-bar"></i><span class="cp-sc-bar-t"></span></div>
+      <p class="al-hint">Drag to turn · 拖曳旋轉　Use the slider to zoom · 用滑桿放大縮小</p>
+      <button type="button" class="al-home" title="Reset view · 重設視角" aria-label="Reset view · 重設視角">&#8634;</button>
+      <p class="al-nogl-msg">This 3D model needs WebGL, which this browser does not support. The reading and the cards below still explain everything.<br><span class="zh">這個瀏覽器不支援 WebGL，無法顯示 3D 模型；下方的課文與卡片一樣能看懂。</span></p>
+    </div>
+    <aside class="al-sky cp-aside">
+      <p class="al-sky-k">How wide is the picture? · 畫面有多寬？</p>
+      <dl class="cp-nums cp-sc-nums">
+        <div><dt>The picture is · 畫面寬</dt><dd class="cp-sc-view"></dd></div>
+        <div><dt>Magnified · 放大了</dt><dd class="cp-sc-mag"></dd></div>
+      </dl>
+      <ul class="cp-sc-units" aria-label="Units · 單位">
+        <li><b>1 cm</b> = 10 mm<small>公分、公釐</small></li>
+        <li><b>1 mm</b> = 1,000 µm<small>微米</small></li>
+        <li><b>1 µm</b> = 1,000 nm<small>奈米</small></li>
+        <li><b>1 nm</b> = 10 Å<small>埃米</small></li>
+      </ul>
+      <div class="cp-sc-x10" role="group" aria-label="Zoom · 縮放">
+        <button type="button" class="cp-sc-out">&divide; 10<small>縮小十倍</small></button>
+        <button type="button" class="cp-sc-in">&times; 10<small>放大十倍</small></button>
+      </div>
+      <p class="al-sky-k">Eight stops · 八站</p>
+      <div class="cp-wf-steps cp-sc-stops" role="group" aria-label="Stops · 每一站">{sb}</div>
+      {panels}
+    </aside>
+  </div>
+  <div class="al-controls">
+    <div class="al-row al-row-main">
+      <button type="button" class="al-play" aria-pressed="true"><span class="al-play-i" aria-hidden="true"></span><span class="al-play-t">Pause · 暫停</span></button>
+      <label class="al-slider cp-sc-zrow"><span>Zoom · 縮放</span>
+        <input type="range" class="al-age cp-sc-zoom" min="0" max="1" step="0.001" value="0"></label>
+      <div class="al-row al-toggles">{tg}</div>
+    </div>
+  </div>
+  {_lab_foot(lab)}
+  <p class="cp-credit">{lab["credit_html"]}</p>
+</div>'''
+
+def _chip_nail(nl):
+    """「你的指甲長了多少？」（chip-scale.js 的 initNail；不需要 WebGL）。"""
+    spans = "".join(f'<button type="button" data-span="{k}" aria-pressed="{"true" if k == "min" else "false"}">{en}<small>{zh}</small></button>'
+                    for k, en, zh in [("s", "1 second", "1 秒"), ("min", "1 minute", "1 分鐘"), ("h", "1 hour", "1 小時"), ("d", "1 day", "1 天"), ("y", "1 year", "1 年")])
+    return (f'<div class="cp-cnt cp-nl rvl" data-chip-nail data-rate="{nl["mm_per_month"]}">'
+            f'<div class="cp-cnt-in">'
+            f'<p class="cp-cnt-l"><span>How much does a fingernail grow in… · 指甲在這段時間長多少</span></p>'
+            f'<div class="cp-dpw-pre cp-nl-spans" role="group" aria-label="Time · 時間">{spans}</div>'
+            f'<p class="cp-nl-ans"><b class="cp-nl-en">—</b><span class="zh cp-nl-zh">—</span></p>'
+            f'<p class="cp-cnt-note"><span class="cp-nl-cmp"></span><span class="zh cp-nl-cmp-zh"></span></p>'
+            f'<label class="cp-cnt-l cp-nl-cutl"><span>Cut a strip of A4 paper in half, again and again · 把一條 A4 紙一次剪一半：<output class="cp-nl-cut-out">0</output> cuts · 次</span>'
+            f'<input type="range" class="al-age cp-nl-cut" min="0" max="30" step="1" value="0"></label>'
+            f'<p class="cp-nl-ans cp-nl-cutans"><b class="cp-nl-cut-len">—</b></p>'
+            f'<p class="cp-cnt-note cp-nl-cut-cmp"></p>'
+            f'<p class="cp-cnt-note">{html.escape(nl["note_en"])}<span class="zh">{html.escape(nl["note_zh"])}</span></p></div>'
+            f'<div class="cp-home-out cp-cnt-out" aria-live="off">'
+            f'<p class="cp-home-k">Since you opened this page · 從你打開這一頁到現在</p>'
+            f'<p class="cp-home-big"><b class="cp-nl-nm">0</b> nanometers · 奈米</p>'
+            f'<p class="cp-home-zh">Your fingernails have grown this much in <b class="cp-nl-sec">0</b> seconds.<span class="zh">你的指甲在 <b class="cp-nl-sec">0</b> 秒裡長了這麼多。</span></p>'
+            f'<p class="cp-home-note">That is about <b class="cp-nl-atoms">0</b> silicon atoms in a row.'
+            f'<span class="zh">大約是 <b class="cp-nl-atoms">0</b> 顆矽原子排成一排。</span></p>'
+            f'</div></div>'
+            '<noscript><p class="muted">The counter works in your browser and needs JavaScript. · 計算在瀏覽器裡進行，需要開啟 JavaScript。</p></noscript>')
+
 def _chip_sun(sp):
     """「在螢幕上曬一張藍曬圖」（chip-litho.js 的 initSun；2D canvas，不需要 WebGL）。"""
     masks = "".join(f'<button type="button" data-mask="{m["key"]}" aria-pressed="false">{html.escape(m["en"])}<small>{html.escape(m["zh"])}</small></button>' for m in sp["masks"])
@@ -8143,7 +8230,7 @@ def build_chip_lesson(ui, unit, lesson):
     reading_html = render_basic_unit(1, unit_dict, level="chips", audio_rel="", pdf_rel="")
     lab = lesson["lab"]
     kind = lab["kind"]
-    lab_html = {"doping": render_chipdoping_lab, "transistor": render_chiptransistor_lab, "wafer": render_chipwafer_lab, "litho": render_chiplitho_lab}[kind](lesson)
+    lab_html = {"doping": render_chipdoping_lab, "transistor": render_chiptransistor_lab, "wafer": render_chipwafer_lab, "litho": render_chiplitho_lab, "scale": render_chipscale_lab}[kind](lesson)
 
     secs = []
     if lesson.get("home"):
@@ -8155,6 +8242,9 @@ def build_chip_lesson(ui, unit, lesson):
     if lesson.get("dies"):
         dz = lesson["dies"]
         secs.append(("dies", dz["eyebrow"], dz["en"], dz["zh"], _chip_dies(dz), _bi(dz["lead_en"], dz["lead_zh"], cls="lead rvl d2")))
+    if lesson.get("nail"):
+        nl = lesson["nail"]
+        secs.append(("nail", nl["eyebrow"], nl["en"], nl["zh"], _chip_nail(nl), _bi(nl["lead_en"], nl["lead_zh"], cls="lead rvl d2")))
     if lesson.get("count"):
         ct = lesson["count"]
         secs.append(("count", ct["eyebrow"], ct["en"], ct["zh"], _chip_count(ct), _bi(ct["lead_en"], ct["lead_zh"], cls="lead rvl d2")))
@@ -8203,7 +8293,8 @@ def build_chip_lesson(ui, unit, lesson):
     tricks_h = {"doping": ("Semiconductors in a sentence", "一句話記住半導體"),
                 "transistor": ("Transistors in a sentence", "一句話記住電晶體"),
                 "wafer": ("From sand to chip in a sentence", "一句話記住沙子變晶片"),
-                "litho": ("Drawing with light in a sentence", "一句話記住用光畫電路")}[kind]
+                "litho": ("Drawing with light in a sentence", "一句話記住用光畫電路"),
+                "scale": ("Nanometers in a sentence", "一句話記住奈米")}[kind]
     secs.append(("tricks", "Remember It · 記憶口訣", tricks_h[0], tricks_h[1], _sci_tricks(lesson), ""))
     if lesson.get("safety"):
         items = "".join(f'<li class="rvl">{html.escape(s["en"])}<span class="zh">{html.escape(s["zh"])}</span></li>' for s in lesson["safety"])
@@ -8257,7 +8348,7 @@ def build_chip_lesson(ui, unit, lesson):
 def build_chip_hub():
     # 照萬物原理：單元導覽＋每個單元一段橫向課程卡；做好的課可點，planned 是「製作中」卡。
     def icon(l):
-        return chipsilicon_svg(60) if l.get("card") == "silicon" else chiptransistor_svg(60) if l.get("card") == "transistor" else chipwafer_svg(60) if l.get("card") == "wafer" else chiplitho_svg(60) if l.get("card") == "litho" else l["icon"]
+        return chipsilicon_svg(60) if l.get("card") == "silicon" else chiptransistor_svg(60) if l.get("card") == "transistor" else chipwafer_svg(60) if l.get("card") == "wafer" else chiplitho_svg(60) if l.get("card") == "litho" else chipscale_svg(60) if l.get("card") == "scale" else l["icon"]
     unit_sections, nav = [], []
     done = sum(len(u["lessons"]) for u in CHIP["units"])
     total = done + sum(len(u.get("planned", [])) for u in CHIP["units"])
