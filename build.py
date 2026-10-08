@@ -7803,7 +7803,7 @@ def build_phil_hub():
 _chipj = os.path.join(ROOT, "data", "semiconductors.json")
 CHIP = json.load(open(_chipj, encoding="utf-8")) if os.path.exists(_chipj) else None
 CHIP_BASE = "/resources/classes/semiconductors/"
-_CHIP_JS = {"doping": "chip-doping", "transistor": "chip-transistor", "wafer": "chip-wafer", "litho": "chip-litho", "scale": "chip-scale", "package": "chip-package"}   # lab.kind → assets/js/<bundle>.js
+_CHIP_JS = {"doping": "chip-doping", "transistor": "chip-transistor", "wafer": "chip-wafer", "litho": "chip-litho", "scale": "chip-scale", "package": "chip-package", "hbm": "chip-hbm"}   # lab.kind → assets/js/<bundle>.js
 
 def _chip_ver():
     h = hashlib.md5()
@@ -8252,6 +8252,77 @@ def _chip_pack(pk):
             f'</div></div></div>'
             '<noscript><p class="muted">The builder works in your browser and needs JavaScript. · 這個小工具在瀏覽器裡執行，需要開啟 JavaScript。</p></noscript>')
 
+def chiphbm_svg(size=56):
+    """第七課的課程卡小圖示：一疊記憶體和一顆運算晶片，中間是一條很多車道的路。"""
+    stack = "".join(f'<rect x="38" y="{40 - i * 5}" width="17" height="4" rx=".8" fill="{"#8a5ad6" if i % 2 == 0 else "#9a6ae6"}"/>' for i in range(7))
+    lanes = "".join(f'<path d="M21 {26 + i * 3.4} H37" stroke="#ffd36e" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="3 2"/>' for i in range(6))
+    return (f'<svg class="chiphbm-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">'
+            '<rect x="3" y="46" width="54" height="5" rx="1.5" fill="#8fa6c8"/><rect x="5" y="22" width="16" height="22" rx="1.5" fill="#3d6fd8"/>'
+            f'{stack}{lanes}</svg>')
+
+def render_chiphbm_lab(lesson):
+    """第七課：一般記憶體（路遠、車道少）對 HBM（疊在旁邊、上千車道）（assets/js/chip-hbm.js 綁這裡的 class；全部自繪示意）。"""
+    lab = lesson["lab"]
+    gb = "".join(f'<button type="button" data-gen="{html.escape(g["key"])}" aria-pressed="false">{html.escape(g["name"])}<small>{g["year"]}</small></button>' for g in lab["gens"])
+    msgs = "".join(f'<p class="cp-msg cp-hb-msg" data-msg="{k}" hidden>{html.escape(m["en"])}<span class="zh">{html.escape(m["zh"])}</span></p>' for k, m in lab["msgs"].items())
+    tg = _lab_toggles([("labels", "Labels", "標示", True)])
+    return f'''<div class="astro-lab cp-lab cp-hb-lab rvl" data-chiphbm-lab>
+  <div class="al-stage">
+    <div class="al-space">
+      <canvas class="al-space-cv" aria-label="3D model comparing ordinary memory far across a board with HBM, a stack of memory chips beside the logic chip joined by a very wide road · 比較一般記憶體（在板子另一頭）和 HBM（疊在運算晶片旁邊、用很寬的路相連）的 3D 模型"></canvas>
+      <div class="al-labels" aria-hidden="true"></div>
+      <div class="cp-view" role="group" aria-label="Memory · 記憶體">
+        <button type="button" data-view="far" aria-pressed="false">Ordinary memory<small>一般記憶體</small></button>
+        <button type="button" data-view="hbm" aria-pressed="true">HBM<small>高頻寬記憶體</small></button>
+      </div>
+      <p class="al-hint">Drag to turn · 拖曳旋轉　Scroll or pinch to zoom · 滾輪／雙指縮放</p>
+      <button type="button" class="al-home" title="Reset view · 重設視角" aria-label="Reset view · 重設視角">&#8634;</button>
+      <p class="al-nogl-msg">This 3D model needs WebGL, which this browser does not support. The reading and the cards below still explain everything.<br><span class="zh">這個瀏覽器不支援 WebGL，無法顯示 3D 模型；下方的課文與卡片一樣能看懂。</span></p>
+    </div>
+    <aside class="al-sky cp-aside">
+      <p class="al-sky-k">Which HBM? · 哪一代 HBM？</p>
+      <div class="cp-dope cp-tr-quick cp-hb-gens" role="group" aria-label="Generation · 世代">{gb}</div>
+      <dl class="cp-nums cp-lt-nums">
+        <div><dt>Data lines · 資料線（車道）</dt><dd class="cp-hb-lanes"></dd></div>
+        <div><dt>Floors · 樓層</dt><dd class="cp-hb-floors"></dd></div>
+        <div><dt>Data each second · 每秒送的資料</dt><dd class="cp-hb-bw"></dd></div>
+        <div><dt>Movies each second · 每秒幾部電影</dt><dd class="cp-hb-mov"></dd></div>
+      </dl>
+      {msgs}
+    </aside>
+  </div>
+  <div class="al-controls">
+    <div class="al-row al-row-main">
+      <button type="button" class="al-play" aria-pressed="true"><span class="al-play-i" aria-hidden="true"></span><span class="al-play-t">Pause · 暫停</span></button>
+      <div class="al-row al-toggles">{tg}</div>
+    </div>
+  </div>
+  {_lab_foot(lab)}
+  <p class="cp-credit">{lab["credit_html"]}</p>
+</div>'''
+
+def _chip_band(bd):
+    """「一秒搬幾部電影？」（chip-hbm.js 的 initBand；不需要 WebGL）。"""
+    gens = "".join(f'<button type="button" data-gen="{html.escape(g["key"])}" aria-pressed="false">{html.escape(g["name"])}<small>{g["year"]}</small></button>' for g in bd["gens"])
+    nets = "".join(f'<button type="button" data-net="{n["mbps"]}" aria-pressed="false">{html.escape(n["en"])}<small>{html.escape(n["zh"])}</small></button>' for n in bd["nets"])
+    return (f'<div class="cp-cnt cp-bd rvl" data-chip-band data-movie="{bd["movie_gb"]}">'
+            f'<div class="cp-cnt-in">'
+            f'<p class="cp-cnt-l"><span>1 · Which HBM? · 哪一代 HBM</span></p>'
+            f'<div class="cp-dpw-pre cp-bd-gens" role="group" aria-label="Generation · 世代">{gens}</div>'
+            f'<label class="cp-cnt-l cp-sun-l"><span>2 · Stacks beside the logic chip · 運算晶片旁邊放幾疊 <output class="cp-bd-stacks-out">6</output></span>'
+            f'<input type="range" class="al-age cp-bd-stacks" min="1" max="8" step="1" value="6"></label>'
+            f'<p class="cp-cnt-l cp-sun-l"><span>3 · Compare with a home internet line · 和家裡的網路比一比</span></p>'
+            f'<div class="cp-dpw-pre cp-bd-net" role="group" aria-label="Internet speed · 網路速度">{nets}</div>'
+            f'<p class="cp-cnt-note">{html.escape(bd["note_en"])}<span class="zh">{html.escape(bd["note_zh"])}</span></p></div>'
+            f'<div class="cp-home-out cp-cnt-out" aria-live="polite">'
+            f'<p class="cp-home-k">Movies moved every second · 每秒搬幾部電影</p>'
+            f'<p class="cp-home-big"><b class="cp-bd-n">0</b> movies · 部</p>'
+            f'<p class="cp-home-sub"><b class="cp-bd-gb">0</b> GB every second · 每秒這麼多 GB</p>'
+            f'<p class="cp-home-note">Your home line would need <b class="cp-bd-en">—</b> to send what this memory sends in one second.'
+            f'<span class="zh">這些記憶體一秒送出的資料，家裡的網路要傳 <b class="cp-bd-zh">—</b>。</span></p>'
+            f'</div></div>'
+            '<noscript><p class="muted">The calculator works in your browser and needs JavaScript. · 計算在瀏覽器裡進行，需要開啟 JavaScript。</p></noscript>')
+
 def _chip_sun(sp):
     """「在螢幕上曬一張藍曬圖」（chip-litho.js 的 initSun；2D canvas，不需要 WebGL）。"""
     masks = "".join(f'<button type="button" data-mask="{m["key"]}" aria-pressed="false">{html.escape(m["en"])}<small>{html.escape(m["zh"])}</small></button>' for m in sp["masks"])
@@ -8348,7 +8419,7 @@ def build_chip_lesson(ui, unit, lesson):
     reading_html = render_basic_unit(1, unit_dict, level="chips", audio_rel="", pdf_rel="")
     lab = lesson["lab"]
     kind = lab["kind"]
-    lab_html = {"doping": render_chipdoping_lab, "transistor": render_chiptransistor_lab, "wafer": render_chipwafer_lab, "litho": render_chiplitho_lab, "scale": render_chipscale_lab, "package": render_chippackage_lab}[kind](lesson)
+    lab_html = {"doping": render_chipdoping_lab, "transistor": render_chiptransistor_lab, "wafer": render_chipwafer_lab, "litho": render_chiplitho_lab, "scale": render_chipscale_lab, "package": render_chippackage_lab, "hbm": render_chiphbm_lab}[kind](lesson)
 
     secs = []
     if lesson.get("home"):
@@ -8360,6 +8431,9 @@ def build_chip_lesson(ui, unit, lesson):
     if lesson.get("dies"):
         dz = lesson["dies"]
         secs.append(("dies", dz["eyebrow"], dz["en"], dz["zh"], _chip_dies(dz), _bi(dz["lead_en"], dz["lead_zh"], cls="lead rvl d2")))
+    if lesson.get("band"):
+        bd = lesson["band"]
+        secs.append(("band", bd["eyebrow"], bd["en"], bd["zh"], _chip_band(bd), _bi(bd["lead_en"], bd["lead_zh"], cls="lead rvl d2")))
     if lesson.get("pack"):
         pk = lesson["pack"]
         secs.append(("pack", pk["eyebrow"], pk["en"], pk["zh"], _chip_pack(pk), _bi(pk["lead_en"], pk["lead_zh"], cls="lead rvl d2")))
@@ -8416,7 +8490,8 @@ def build_chip_lesson(ui, unit, lesson):
                 "wafer": ("From sand to chip in a sentence", "一句話記住沙子變晶片"),
                 "litho": ("Drawing with light in a sentence", "一句話記住用光畫電路"),
                 "scale": ("Nanometers in a sentence", "一句話記住奈米"),
-                "package": ("Packaging in a sentence", "一句話記住封裝")}[kind]
+                "package": ("Packaging in a sentence", "一句話記住封裝"),
+                "hbm": ("HBM in a sentence", "一句話記住 HBM")}[kind]
     secs.append(("tricks", "Remember It · 記憶口訣", tricks_h[0], tricks_h[1], _sci_tricks(lesson), ""))
     if lesson.get("safety"):
         items = "".join(f'<li class="rvl">{html.escape(s["en"])}<span class="zh">{html.escape(s["zh"])}</span></li>' for s in lesson["safety"])
@@ -8470,7 +8545,7 @@ def build_chip_lesson(ui, unit, lesson):
 def build_chip_hub():
     # 照萬物原理：單元導覽＋每個單元一段橫向課程卡；做好的課可點，planned 是「製作中」卡。
     def icon(l):
-        return chipsilicon_svg(60) if l.get("card") == "silicon" else chiptransistor_svg(60) if l.get("card") == "transistor" else chipwafer_svg(60) if l.get("card") == "wafer" else chiplitho_svg(60) if l.get("card") == "litho" else chipscale_svg(60) if l.get("card") == "scale" else chippackage_svg(60) if l.get("card") == "package" else l["icon"]
+        return chipsilicon_svg(60) if l.get("card") == "silicon" else chiptransistor_svg(60) if l.get("card") == "transistor" else chipwafer_svg(60) if l.get("card") == "wafer" else chiplitho_svg(60) if l.get("card") == "litho" else chipscale_svg(60) if l.get("card") == "scale" else chippackage_svg(60) if l.get("card") == "package" else chiphbm_svg(60) if l.get("card") == "hbm" else l["icon"]
     unit_sections, nav = [], []
     done = sum(len(u["lessons"]) for u in CHIP["units"])
     total = done + sum(len(u.get("planned", [])) for u in CHIP["units"])

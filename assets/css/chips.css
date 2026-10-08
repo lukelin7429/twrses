@@ -358,3 +358,21 @@
 .cp-pkw-layers { grid-template-columns: repeat(5, minmax(0, 1fr)); margin-top: 0; }
 .cp-pkw-logic { margin-top: 0; }
 .cp-pkw .cp-nl-ans b span { font: inherit; color: inherit; }
+
+/* ---------- 第七課：HBM ---------- */
+@media (min-width: 1021px) { .cp-hb-lab .al-space { min-height: 620px; } }
+.cp-hb-gens { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.cp-hb-gens button:disabled { opacity: .4; cursor: not-allowed; }
+.cp-hb-msg[hidden] { display: none; }
+.al-lab.cp-hb-lb-road { color: #2a1d00; background: #ffd36e; border-color: #ffd36e; font-weight: 800; }
+.al-lab.cp-hb-lb-road small { color: #4a3400; }
+.al-lg-cphbroad i { border: 0; height: 10px; margin-top: .3rem; border-radius: 2px; background: repeating-linear-gradient(0deg, #2a3246 0 2px, #8b98b5 2px 3px); }
+.al-lg-cphbcar i { border: 0; height: 5px; width: 10px; margin: .5rem 4px 0; border-radius: 1px; background: #fff2a0; }
+.cp-bd-gens { grid-template-columns: repeat(4, minmax(0, 1fr)); margin-top: 0; }
+.cp-bd-net { margin-top: 0; }
+.cp-bd .al-age::-webkit-slider-runnable-track { background: linear-gradient(90deg, var(--brand) 0 var(--p, 71%), #e5dfd0 var(--p, 71%)); }
+.cp-bd .al-age::-webkit-slider-thumb { border-color: var(--brand); }
+.cp-bd .al-age::-moz-range-progress { background: var(--brand); }
+.cp-pkw .al-age::-webkit-slider-runnable-track { background: linear-gradient(90deg, var(--brand) 0 var(--p, 50%), #e5dfd0 var(--p, 50%)); }
+.cp-pkw .al-age::-webkit-slider-thumb { border-color: var(--brand); }
+.cp-pkw .al-age::-moz-range-progress { background: var(--brand); }

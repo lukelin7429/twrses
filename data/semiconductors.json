@@ -4264,15 +4264,623 @@
               "url": "https://en.wikipedia.org/wiki/ASE_Group"
             }
           ]
+        },
+        {
+          "n": 7,
+          "slug": "hbm",
+          "title": "What Is HBM, and Why Does AI Need It?",
+          "title_zh": "HBM 是什麼？AI 為什麼需要它？",
+          "level": "入門 · Beginner",
+          "icon": "🛣️",
+          "card": "hbm",
+          "blurb_en": "An AI chip can calculate very fast, but it often has to wait for its data. HBM is memory stacked like a tower right beside the chip and joined to it by a road with more than a thousand lanes. In 3D, compare ordinary memory with four generations of HBM, then work out how many movies it could move in one second.",
+          "blurb_zh": "AI 晶片算得很快，卻常常要等資料。HBM 是像高塔一樣疊起來的記憶體，就放在晶片旁邊，中間是一條有上千個車道的路。在 3D 裡比較一般記憶體和四代 HBM，再算算它一秒可以搬幾部電影。",
+          "big_idea_en": "A fast chip is no use if its data arrives slowly. HBM, short for High Bandwidth Memory, stacks memory chips into a tower, connects the floors with tiny elevators called TSVs, and sets the tower right next to the logic chip. More than a thousand data lines join them, like a very wide, very short highway, so huge amounts of data move at once.",
+          "big_idea_zh": "資料送得慢，晶片再快也沒用。HBM 是「高頻寬記憶體」（High Bandwidth Memory）的縮寫：把記憶體晶片疊成一座塔，用叫做矽穿孔的小電梯連接每一層，再把塔緊貼著運算晶片放。上千條資料線把兩邊連起來，像一條又寬又短的高速公路，一次就能送很多資料。",
+          "lab": {
+            "kind": "hbm",
+            "eyebrow": "3D Model · 3D 模型",
+            "title_en": "The Thousand-Lane Highway",
+            "title_zh": "上千車道的高速公路",
+            "how_en": "Drag to turn the model, and scroll or pinch to zoom. Start with “Ordinary memory”: the memory chips are far across the board, and the road has few lanes. Then choose HBM. The memory becomes a tower beside the blue logic chip, and the road becomes short and wide. Pick a generation on the right to see the lanes, the floors, and the speed change.",
+            "how_zh": "拖曳可以旋轉模型，滾輪或雙指可以縮放。先看「一般記憶體」：記憶體晶片在板子的另一頭，路上沒幾個車道。再選 HBM：記憶體變成藍色運算晶片旁邊的一座塔，路變得又短又寬。在右邊選世代，看車道、樓層和速度怎麼變。",
+            "gens": [
+              {
+                "key": "hbm1",
+                "name": "HBM",
+                "year": 2013
+              },
+              {
+                "key": "hbm2",
+                "name": "HBM2",
+                "year": 2016
+              },
+              {
+                "key": "hbm3",
+                "name": "HBM3",
+                "year": 2022
+              },
+              {
+                "key": "hbm4",
+                "name": "HBM4",
+                "year": 2025
+              }
+            ],
+            "msgs": {
+              "far": {
+                "en": "Ordinary memory sits in its own packages, some distance from the logic chip. Each memory chip has only a few dozen data lines, and the trip is long. The logic chip finishes its work and waits.",
+                "zh": "一般的記憶體各有自己的封裝，離運算晶片有一段距離。每顆記憶體晶片只有幾十條資料線，路又長。運算晶片算完了，只能等。"
+              },
+              "hbm1": {
+                "en": "The first HBM became a standard in 2013. Four memory chips are stacked, and 1,024 data lines join the stack to the logic chip. That is 32 times as many as an ordinary graphics memory chip has.",
+                "zh": "第一代 HBM 在 2013 年成為標準。四層記憶體疊在一起，用 1,024 條資料線接到運算晶片，是一顆一般顯示卡記憶體的 32 倍。"
+              },
+              "hbm2": {
+                "en": "HBM2 arrived in 2016. The road is still 1,024 lanes wide, but each lane carries data more than twice as fast, and the tower can be eight floors tall.",
+                "zh": "HBM2 在 2016 年推出。路還是 1,024 個車道，但每個車道送資料的速度快了兩倍多，塔也可以疊到八層。"
+              },
+              "hbm3": {
+                "en": "HBM3 came in 2022. Each lane is faster again, and one stack can move about 819 gigabytes every second.",
+                "zh": "HBM3 在 2022 年推出。每個車道又更快了，一疊每秒能送大約 819 GB。"
+              },
+              "hbm4": {
+                "en": "HBM4, set as a standard in 2025, doubles the road to 2,048 lanes, and the tower can have 16 floors. One stack can move about 2,048 gigabytes every second.",
+                "zh": "2025 年訂出標準的 HBM4，把路加寬一倍到 2,048 個車道，塔也可以疊到 16 層。一疊每秒能送大約 2,048 GB。"
+              }
+            },
+            "legend": [
+              {
+                "cls": "cppklogic",
+                "en": "Blue: the logic chip, which does the calculating",
+                "zh": "藍色：運算晶片，負責計算"
+              },
+              {
+                "cls": "cppkmem",
+                "en": "Purple: memory chips (stacked, in HBM)",
+                "zh": "紫色：記憶體晶片（HBM 是疊起來的）"
+              },
+              {
+                "cls": "cphbroad",
+                "en": "Gray road with lane lines: the data lines. One lane in the model stands for 64 real data lines",
+                "zh": "有車道線的灰色路面：資料線。模型裡的一個車道代表 64 條真的資料線"
+              },
+              {
+                "cls": "cphbcar",
+                "en": "Small cars: data on the move (yellow going one way, blue the other)",
+                "zh": "小車子：正在移動的資料（黃色往一邊、藍色往另一邊）"
+              }
+            ],
+            "scale_en": "A teaching diagram, not to scale. The numbers of data lines, floors, and gigabytes per second come from the published HBM standards. The road, the cars, and the distances are only pictures: real data lines are thin wires inside the interposer, and data is electrical signals, not cars. The ordinary memory shown is graphics memory, whose chips each have 32 data lines; it is drawn with a single lane.",
+            "scale_zh": "這是教學用的示意圖，不是真實比例。資料線數、樓層數和每秒幾 GB 來自公開的 HBM 標準。路、車子和距離都只是比喻：真的資料線是中介層裡的細線，資料是電的訊號，不是車子。圖裡的一般記憶體是顯示卡記憶體，每顆晶片 32 條資料線，模型裡畫成一個車道。",
+            "credit_html": "Model drawn by My Culture Connect as a teaching diagram. The figures for each generation follow the table in <a href=\"https://en.wikipedia.org/wiki/High_Bandwidth_Memory\" target=\"_blank\" rel=\"noopener\">Wikipedia, “High Bandwidth Memory”</a>, which cites the JEDEC standards. · 模型由人師教育協會自繪示意；各代的數字依維基百科「High Bandwidth Memory」條目的規格表（引自 JEDEC 標準）。"
+          },
+          "paras": [
+            "Imagine the best cook in the world working in a kitchen where the refrigerator is at the other end of the street. The cook is fast, but most of the time is spent walking to fetch the eggs. A chip that runs AI has the same trouble. It can do an enormous number of calculations each second, but only if the numbers it needs arrive in time.",
+            "Those numbers are kept in memory chips. In an ordinary computer, the memory sits in its own packages some distance from the logic chip, and each memory chip talks through only a few dozen data lines. For everyday work that is fine. For AI, which moves mountains of data, the logic chip ends up waiting. The memory cannot deliver fast enough.",
+            "HBM was made to fix this. The letters stand for High Bandwidth Memory. Bandwidth means how much data can move in one second. Engineers did three things. First, they stacked memory chips on top of one another, like the floors of a tower. Second, they ran tiny copper posts, called TSVs, straight through the stack, like elevators, so every floor is connected.",
+            "Third, they moved the tower right next to the logic chip, on the same interposer you met in the last lesson. Because the two are so close, they can be joined by a huge number of very short wires. The first HBM had 1,024 data lines for each stack. Think of a highway with more than a thousand lanes that is very, very short.",
+            "HBM became an industry standard in 2013, and it has grown quickly since. Each new generation sends data faster through every lane, and the towers get taller: 4 floors, then 8, 12, and 16. The newest standard, HBM4, doubles the highway to 2,048 lanes. One HBM4 stack can move about 2,048 gigabytes in a single second.",
+            "That is why you now hear about HBM in the news. An AI chip usually has several HBM towers standing around it, feeding it data all day. The memory is no longer far down the street. The refrigerator has moved right beside the cook, and it has a thousand doors."
+          ],
+          "paras_zh": [
+            "想像全世界最厲害的廚師，在一間廚房裡工作，可是冰箱在街的另一頭。廚師手腳很快，但大部分的時間都花在走路去拿雞蛋。跑 AI 的晶片也有一樣的麻煩：它每秒能做非常非常多次計算，但前提是它需要的數字要及時送到。",
+            "這些數字放在記憶體晶片裡。一般的電腦，記憶體各有自己的封裝，和運算晶片隔著一段距離，而且每顆記憶體晶片只透過幾十條資料線來溝通。平常的工作這樣就夠了。可是 AI 要搬動像山一樣多的資料，運算晶片最後只能乾等，因為記憶體送得不夠快。",
+            "HBM 就是為了解決這件事做出來的。這三個字母是 High Bandwidth Memory，高頻寬記憶體；「頻寬」的意思是一秒鐘能送多少資料。工程師做了三件事。第一，把記憶體晶片一顆顆疊起來，像一座塔的樓層。第二，用叫做矽穿孔（TSV）的細銅柱直直穿過整疊晶片，像電梯一樣，讓每一層都連得到。",
+            "第三，把這座塔搬到運算晶片的正旁邊，放在上一課認識的中介層上。因為兩邊靠得這麼近，就可以用非常多條很短的線把它們連起來。第一代 HBM 每一疊就有 1,024 條資料線。想像一條有一千多個車道、卻非常非常短的高速公路。",
+            "HBM 在 2013 年成為業界標準，之後進步得很快。每一代，每個車道送資料的速度都更快，塔也越疊越高：4 層、8 層、12 層、16 層。最新的標準 HBM4，把高速公路加寬一倍到 2,048 個車道。一疊 HBM4 一秒鐘大約能送 2,048 GB 的資料。",
+            "所以現在新聞裡常聽到 HBM。一顆 AI 晶片的旁邊通常站著好幾座 HBM 的塔，整天不停地餵資料給它。記憶體不再遠在街的另一頭了：冰箱已經搬到廚師身邊，而且有一千個門。"
+          ],
+          "questions": [
+            "Why does an AI chip sometimes have to wait?",
+            "What three things did engineers do to make HBM?",
+            "What does “bandwidth” mean?"
+          ],
+          "answers": [
+            "Because its data is kept in memory, and ordinary memory, which is farther away and has few data lines, cannot deliver the data fast enough.",
+            "They stacked memory chips like a tower, connected the floors with TSVs like elevators, and put the tower right next to the logic chip with more than a thousand short data lines.",
+            "How much data can move in one second."
+          ],
+          "vocab": [
+            {
+              "n": 1,
+              "w": "memory",
+              "pos": "n.",
+              "zh": "記憶體；記憶",
+              "ex": "This phone has a lot of <b>memory</b>.",
+              "exzh": "這支手機的記憶體很大。"
+            },
+            {
+              "n": 2,
+              "w": "data",
+              "pos": "n.",
+              "zh": "資料",
+              "ex": "The photos are stored as <b>data</b>.",
+              "exzh": "照片是以資料的形式儲存的。"
+            },
+            {
+              "n": 3,
+              "w": "bandwidth",
+              "pos": "n.",
+              "zh": "頻寬",
+              "ex": "A video call needs more <b>bandwidth</b> than a text message.",
+              "exzh": "視訊通話需要的頻寬比文字訊息多。"
+            },
+            {
+              "n": 4,
+              "w": "lane",
+              "pos": "n.",
+              "zh": "車道",
+              "ex": "The highway has four <b>lanes</b>.",
+              "exzh": "這條高速公路有四個車道。"
+            },
+            {
+              "n": 5,
+              "w": "deliver",
+              "pos": "v.",
+              "zh": "遞送",
+              "ex": "The truck <b>delivers</b> bread every morning.",
+              "exzh": "那輛卡車每天早上送麵包。"
+            },
+            {
+              "n": 6,
+              "w": "fetch",
+              "pos": "v.",
+              "zh": "去拿來",
+              "ex": "Please <b>fetch</b> my bag from the car.",
+              "exzh": "請幫我去車上把包包拿來。"
+            },
+            {
+              "n": 7,
+              "w": "nearby",
+              "pos": "adv., adj.",
+              "zh": "在附近",
+              "ex": "Is there a bus stop <b>nearby</b>?",
+              "exzh": "這附近有公車站嗎？"
+            },
+            {
+              "n": 8,
+              "w": "standard",
+              "pos": "n.",
+              "zh": "標準",
+              "ex": "All the plugs follow the same <b>standard</b>.",
+              "exzh": "所有的插頭都照同一個標準做。"
+            }
+          ],
+          "quiz": [
+            {
+              "q": "What do the letters HBM stand for?",
+              "options": [
+                "High Bandwidth Memory",
+                "Heavy Big Machine",
+                "Hot Blue Metal",
+                "High Building Model"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "What is bandwidth?",
+              "options": [
+                "How much data can move in one second",
+                "How wide a chip is",
+                "How hot a chip gets",
+                "How many chips fit on a wafer"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "How are the memory chips in HBM arranged?",
+              "options": [
+                "Stacked like the floors of a tower",
+                "Spread far apart on the board",
+                "Mixed into the logic chip",
+                "Kept in a different room"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "How many data lines did the first HBM stack have?",
+              "options": [
+                "1,024",
+                "32",
+                "8",
+                "1"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "Why is HBM placed right next to the logic chip?",
+              "options": [
+                "So the wires can be very short and very many",
+                "So it looks neat",
+                "Because memory chips are afraid of the dark",
+                "To make the chip heavier"
+              ],
+              "correct": 0
+            }
+          ],
+          "parts_head": {
+            "eyebrow": "Try It in the Model · 在模型裡試試",
+            "en": "Four roads to the memory",
+            "zh": "通往記憶體的四條路"
+          },
+          "parts": [
+            {
+              "key": "far",
+              "icon": "🚶",
+              "en": "Ordinary memory",
+              "zh": "一般記憶體",
+              "meta_en": "Far and narrow",
+              "meta_zh": "又遠又窄",
+              "demo": "far",
+              "text_en": "One lane, a long way. Watch how few cars reach the logic chip.",
+              "text_zh": "一個車道，路很長。看看到得了運算晶片的車有多少。"
+            },
+            {
+              "key": "hbm1",
+              "icon": "🛣️",
+              "en": "The first HBM",
+              "zh": "第一代 HBM",
+              "meta_en": "2013 · 1,024 lines",
+              "meta_zh": "2013 年 · 1,024 條線",
+              "demo": "hbm1",
+              "text_en": "Four floors of memory, right beside the chip, with 1,024 data lines between them.",
+              "text_zh": "四層記憶體，就在晶片旁邊，中間有 1,024 條資料線。"
+            },
+            {
+              "key": "hbm3",
+              "icon": "🏙️",
+              "en": "HBM3",
+              "zh": "HBM3",
+              "meta_en": "2022 · 819 GB each second",
+              "meta_zh": "2022 年 · 每秒 819 GB",
+              "demo": "hbm3",
+              "text_en": "Twelve floors, and each lane is more than six times as fast as in the first HBM.",
+              "text_zh": "十二層樓，每個車道的速度是第一代的六倍多。"
+            },
+            {
+              "key": "hbm4",
+              "icon": "🚀",
+              "en": "HBM4",
+              "zh": "HBM4",
+              "meta_en": "2025 · 2,048 lines",
+              "meta_zh": "2025 年 · 2,048 條線",
+              "demo": "hbm4",
+              "text_en": "The road doubles in width, and the tower reaches sixteen floors.",
+              "text_zh": "路寬了一倍，塔疊到十六層。"
+            }
+          ],
+          "parts_note_en": "Bandwidth is lanes times speed: the number of data lines multiplied by how fast each line sends data.",
+          "parts_note_zh": "頻寬就是「車道數 × 車速」：資料線的數目，乘上每條線送資料的速度。",
+          "links_head": {
+            "eyebrow": "Go Further · 延伸閱讀",
+            "en": "Stacking, and what memory is",
+            "zh": "疊晶片，以及記憶體是什麼"
+          },
+          "links": [
+            {
+              "href": "/resources/classes/semiconductors/chip-stacking/",
+              "icon": "🧱",
+              "k_en": "Chips and Semiconductors · Lesson 6",
+              "k_zh": "晶片與半導體 第六課",
+              "en": "Why Do We Stack Chips Together?",
+              "zh": "先進封裝：為什麼要把晶片疊在一起？",
+              "note_en": "The interposer and the TSVs that HBM depends on.",
+              "note_zh": "HBM 靠的中介層和矽穿孔。"
+            },
+            {
+              "href": "/resources/classes/how-things-work/computer-memory/",
+              "icon": "💾",
+              "k_en": "How Things Work · Lesson 8",
+              "k_zh": "萬物原理 第八課",
+              "en": "How Does a Computer Remember Things?",
+              "zh": "電腦怎麼記住東西？",
+              "note_en": "What is inside a memory chip: rows and rows of tiny cells holding 0s and 1s.",
+              "note_zh": "記憶體晶片裡面有什麼：一排排存著 0 和 1 的小格子。"
+            }
+          ],
+          "band": {
+            "eyebrow": "Bandwidth Calculator · 頻寬計算器",
+            "en": "How many movies in one second?",
+            "zh": "一秒搬幾部電影？",
+            "lead_en": "Suppose one movie file is 5 gigabytes. Choose a generation of HBM and how many stacks stand beside the chip, and see how many movies' worth of data they could move every second.",
+            "lead_zh": "假設一部電影的檔案是 5 GB。選一代 HBM、選晶片旁邊放幾疊，看看它們每秒可以搬動相當於幾部電影的資料。",
+            "gens": [
+              {
+                "key": "hbm1",
+                "name": "HBM",
+                "year": 2013
+              },
+              {
+                "key": "hbm2",
+                "name": "HBM2",
+                "year": 2016
+              },
+              {
+                "key": "hbm3",
+                "name": "HBM3",
+                "year": 2022
+              },
+              {
+                "key": "hbm4",
+                "name": "HBM4",
+                "year": 2025
+              }
+            ],
+            "movie_gb": 5,
+            "nets": [
+              {
+                "mbps": 100,
+                "en": "100 megabits a second",
+                "zh": "每秒 100 Mb"
+              },
+              {
+                "mbps": 1000,
+                "en": "1 gigabit a second",
+                "zh": "每秒 1 Gb"
+              }
+            ],
+            "note_en": "The 5-gigabyte movie and the home internet speeds are examples. The gigabytes per second for each generation are the top figures in the standards for one stack; real products may run below them.",
+            "note_zh": "5 GB 的電影和家用網路的速度都是舉例。各代每秒幾 GB 是標準裡一疊的最高數字，實際的產品可能比較低。"
+          },
+          "facts": {
+            "eyebrow": "HBM by the Numbers · HBM 的數字",
+            "en": "Wider, taller, faster",
+            "zh": "更寬、更高、更快",
+            "lead_en": "Six numbers from the HBM standards.",
+            "lead_zh": "HBM 標準裡的六個數字。",
+            "items": [
+              {
+                "big": "2013",
+                "unit_en": "the first standard",
+                "unit_zh": "第一個標準",
+                "en": "HBM was adopted as an industry standard in October 2013.",
+                "zh": "HBM 在 2013 年 10 月成為業界標準。"
+              },
+              {
+                "big": "1,024",
+                "unit_en": "data lines",
+                "unit_zh": "條資料線",
+                "en": "The width of the road for one stack in the first three generations.",
+                "zh": "前三代，每一疊的「路寬」。"
+              },
+              {
+                "big": "32×",
+                "unit_en": "wider",
+                "unit_zh": "倍寬",
+                "en": "An ordinary graphics memory chip has 32 data lines. An HBM stack has 32 times as many.",
+                "zh": "一顆一般的顯示卡記憶體有 32 條資料線，一疊 HBM 是它的 32 倍。"
+              },
+              {
+                "big": "16",
+                "unit_en": "floors",
+                "unit_zh": "層",
+                "en": "The tallest stack in the newest standards: sixteen memory chips, one on top of another.",
+                "zh": "最新標準裡最高的一疊：十六顆記憶體晶片一顆疊一顆。"
+              },
+              {
+                "big": "2,048",
+                "unit_en": "data lines in HBM4",
+                "unit_zh": "條（HBM4）",
+                "en": "The 2025 standard doubles the road.",
+                "zh": "2025 年的標準把路加寬一倍。"
+              },
+              {
+                "big": "16×",
+                "unit_en": "in twelve years",
+                "unit_zh": "倍（十二年）",
+                "en": "From 128 gigabytes a second in 2013 to 2,048 in 2025, for a single stack.",
+                "zh": "單一疊的速度，從 2013 年的每秒 128 GB 到 2025 年的 2,048 GB。"
+              }
+            ]
+          },
+          "culture_cards": {
+            "eyebrow": "HBM Stories · HBM 的故事",
+            "title_en": "A word, a committee, a tower, and three makers",
+            "title_zh": "一個詞、一個委員會、一座塔、三家公司",
+            "lead_en": "Four short stories behind three letters.",
+            "lead_zh": "三個字母背後的四個小故事。",
+            "cards": [
+              {
+                "k": "Bandwidth · 頻寬",
+                "en": "Lanes times speed",
+                "zh": "車道數乘車速",
+                "body_en": "Bandwidth tells you how much data can pass in one second. You can raise it in two ways: add more lanes, or make each lane faster. HBM does both. That is why it has “High Bandwidth” in its name.",
+                "body_zh": "頻寬告訴你一秒鐘能通過多少資料。要提高它有兩個辦法：增加車道，或讓每個車道更快。HBM 兩樣都做，所以名字裡才有「高頻寬」。"
+              },
+              {
+                "k": "JEDEC · 2013",
+                "en": "Why a standard matters",
+                "zh": "為什麼要有標準",
+                "body_en": "HBM was first developed by Samsung, AMD, and SK Hynix, and in October 2013 an industry group called JEDEC adopted it as a standard. A standard means that memory from different makers fits the same chips, the way any plug fits a socket made to the same standard.",
+                "body_zh": "HBM 最早是三星、超微（AMD）和 SK 海力士開發的；2013 年 10 月，叫做 JEDEC 的產業組織把它訂成標準。有了標準，不同公司做的記憶體就能配同樣的晶片，就像照同一個標準做的插頭都插得進插座。"
+              },
+              {
+                "k": "4 → 16",
+                "en": "A taller and taller tower",
+                "zh": "越疊越高的塔",
+                "body_en": "The first HBM stacks had four memory chips. Later generations went to eight, then twelve, then sixteen. As the tower grows, each chip has to be thinner, and the tiny posts that run through them must line up from floor to floor.",
+                "body_zh": "第一代 HBM 疊四顆記憶體晶片，後來變成八顆、十二顆、十六顆。塔越高，每一顆晶片就要越薄，穿過它們的細柱也要一層一層對得剛剛好。"
+              },
+              {
+                "k": "2025",
+                "en": "Three makers",
+                "zh": "三家公司",
+                "body_en": "In 2025 the world's largest makers of HBM were SK Hynix and Samsung of South Korea and Micron of the United States. The towers are then joined to logic chips by advanced packaging, the subject of the last lesson.",
+                "body_zh": "2025 年全世界最大的 HBM 製造商，是南韓的 SK 海力士和三星，以及美國的美光。這些塔接著要靠先進封裝（上一課的主題）和運算晶片接在一起。"
+              }
+            ]
+          },
+          "myths": [
+            {
+              "myth_en": "HBM is a kind of AI chip that does the thinking.",
+              "myth_zh": "HBM 是一種負責思考的 AI 晶片。",
+              "fact_en": "HBM is memory. It holds the data and hands it over quickly. The calculating is done by the logic chip beside it.",
+              "fact_zh": "HBM 是記憶體，負責放資料、並且很快地交出去。計算是旁邊的運算晶片做的。"
+            },
+            {
+              "myth_en": "High bandwidth just means the memory holds more.",
+              "myth_zh": "高頻寬就是記憶體裝得比較多。",
+              "fact_en": "Bandwidth is about speed of delivery: how much data moves each second. How much the memory holds is called capacity.",
+              "fact_zh": "頻寬講的是送得多快：每秒搬多少資料。能裝多少叫做容量。"
+            },
+            {
+              "myth_en": "A faster logic chip always makes the whole computer faster.",
+              "myth_zh": "運算晶片越快，整台電腦就一定越快。",
+              "fact_en": "Not if it has to wait for data. A fast cook with a faraway refrigerator is still slow.",
+              "fact_zh": "如果它要等資料，就不一定。冰箱在很遠的地方，再快的廚師也快不起來。"
+            },
+            {
+              "myth_en": "HBM is just ordinary memory with a new name.",
+              "myth_zh": "HBM 只是一般記憶體換個名字。",
+              "fact_en": "It is built differently: chips stacked with TSVs, set beside the logic chip, and joined by over a thousand data lines.",
+              "fact_zh": "它的做法不一樣：用矽穿孔把晶片疊起來、放在運算晶片旁邊、用上千條資料線相連。"
+            }
+          ],
+          "tricks": [
+            {
+              "title_en": "The fridge beside the cook",
+              "title_zh": "廚師旁邊的冰箱",
+              "body_en": "HBM is memory moved right next to the chip.",
+              "body_zh": "HBM 就是搬到晶片旁邊的記憶體。"
+            },
+            {
+              "title_en": "A tower with elevators",
+              "title_zh": "有電梯的塔",
+              "body_en": "Memory chips are stacked, and TSVs connect the floors.",
+              "body_zh": "記憶體晶片疊起來，矽穿孔連接每一層。"
+            },
+            {
+              "title_en": "A thousand lanes",
+              "title_zh": "一千個車道",
+              "body_en": "1,024 data lines in each stack, and 2,048 in HBM4.",
+              "body_zh": "每一疊 1,024 條資料線，HBM4 是 2,048 條。"
+            },
+            {
+              "title_en": "Lanes times speed",
+              "title_zh": "車道數乘車速",
+              "body_en": "That is what bandwidth means.",
+              "body_zh": "這就是頻寬的意思。"
+            }
+          ],
+          "safety": [
+            {
+              "en": "Do not open computers, graphics cards, or servers to look for memory. They can be damaged by a tiny spark from your fingers, and some parts stay charged.",
+              "zh": "不要為了找記憶體去拆電腦、顯示卡或伺服器。手指上一點點靜電就可能弄壞零件，有些零件還帶著電。"
+            },
+            {
+              "en": "In the highway game, walk. Mark the lanes clearly so that nobody bumps into anyone else.",
+              "zh": "玩高速公路遊戲的時候用走的。把車道標清楚，免得互相撞到。"
+            },
+            {
+              "en": "Keep small cards and tokens away from little children.",
+              "zh": "小卡片和代幣不要讓小小孩拿到。"
+            }
+          ],
+          "activities": [
+            {
+              "title_en": "The Highway Game",
+              "title_zh": "高速公路遊戲",
+              "materials": [
+                {
+                  "en": "Forty small cards (the data), a timer, and tape to mark lanes on the floor",
+                  "zh": "四十張小卡片（資料）、計時器，和在地上貼車道用的膠帶"
+                },
+                {
+                  "en": "Two tables: one is the memory, one is the logic chip",
+                  "zh": "兩張桌子：一張當記憶體，一張當運算晶片"
+                }
+              ],
+              "steps": [
+                {
+                  "en": "Round 1: put the tables far apart with one lane between them. One student at a time carries one card. How many cards arrive in one minute?",
+                  "zh": "第一回合：兩張桌子離很遠，中間只有一個車道。一次只能一位同學拿一張卡片走過去。一分鐘送到幾張？"
+                },
+                {
+                  "en": "Round 2: keep the distance, but mark four lanes. Four students can walk at once.",
+                  "zh": "第二回合：距離不變，但是貼出四個車道，可以四位同學同時走。"
+                },
+                {
+                  "en": "Round 3: push the tables close together and keep the four lanes.",
+                  "zh": "第三回合：把兩張桌子推近，維持四個車道。"
+                },
+                {
+                  "en": "Write down the cards per minute for each round. That number is the bandwidth. Which change helped more: more lanes, or a shorter road?",
+                  "zh": "記下每一回合每分鐘送到幾張，這個數字就是頻寬。哪一種改變幫助比較大：車道變多，還是路變短？"
+                }
+              ],
+              "tip_en": "HBM does both at once: far more lanes, and a much shorter road.",
+              "tip_zh": "HBM 兩樣一起做：車道多很多，路也短很多。"
+            },
+            {
+              "title_en": "Build a Memory Tower",
+              "title_zh": "蓋一座記憶體塔",
+              "materials": [
+                {
+                  "en": "Sixteen squares of cardboard, all the same size",
+                  "zh": "十六片一樣大的方形厚紙板"
+                },
+                {
+                  "en": "Drinking straws, a hole punch, and a marker",
+                  "zh": "吸管、打洞器和麥克筆"
+                }
+              ],
+              "steps": [
+                {
+                  "en": "Punch four holes in the same places on every square. These are the TSVs.",
+                  "zh": "在每一片紙板的同樣位置打四個洞，這些就是矽穿孔。"
+                },
+                {
+                  "en": "Write a different number on each square. These are the data.",
+                  "zh": "在每一片上寫一個不同的數字，這些就是資料。"
+                },
+                {
+                  "en": "Thread the straws through the holes to stack four squares, then eight, then sixteen.",
+                  "zh": "把吸管穿過洞，先疊四片，再疊八片，最後疊十六片。"
+                },
+                {
+                  "en": "What gets harder as the tower grows? What would happen if one hole were in the wrong place?",
+                  "zh": "塔越高，什麼事變得越難？如果有一個洞打歪了，會怎麼樣？"
+                }
+              ],
+              "tip_en": "In a real stack, a great many posts must line up through every chip. That is one reason tall stacks are hard to make.",
+              "tip_zh": "真的堆疊裡，非常多根細柱要穿過每一顆晶片、全部對準。這是高的堆疊很難做的原因之一。"
+            }
+          ],
+          "sources": [
+            {
+              "en": "HBM: an interface for 3D-stacked memory, first developed by Samsung, AMD, and SK Hynix; adopted by JEDEC as an industry standard in October 2013; HBM2 in January 2016",
+              "zh": "HBM：3D 堆疊記憶體的介面，最早由三星、超微與 SK 海力士開發；2013 年 10 月由 JEDEC 訂為業界標準；HBM2 於 2016 年 1 月",
+              "src": "Wikipedia, “High Bandwidth Memory”",
+              "url": "https://en.wikipedia.org/wiki/High_Bandwidth_Memory"
+            },
+            {
+              "en": "Specification table: HBM (2013) 1,024 bits, 4 dies, 128 GB/s; HBM2 (2016) 8 dies, 307 GB/s; HBM3 (2022) 12 dies, 819 GB/s; HBM4 (April 2025) 2,048 bits, 16 dies, 2,048 GB/s per stack",
+              "zh": "規格表：HBM（2013）1,024 位元、4 層、128 GB/s；HBM2（2016）8 層、307 GB/s；HBM3（2022）12 層、819 GB/s；HBM4（2025 年 4 月）2,048 位元、16 層、每疊 2,048 GB/s",
+              "src": "Wikipedia, “High Bandwidth Memory”",
+              "url": "https://en.wikipedia.org/wiki/High_Bandwidth_Memory"
+            },
+            {
+              "en": "The HBM bus is very wide: 1,024 bits for a stack, compared with 32 bits for a GDDR memory chip; an interposer connects the memory and the processor and keeps them physically close",
+              "zh": "HBM 的匯流排很寬：一疊 1,024 位元，GDDR 記憶體每顆 32 位元；用中介層連接記憶體與處理器，讓兩者靠得很近",
+              "src": "Wikipedia, “High Bandwidth Memory”",
+              "url": "https://en.wikipedia.org/wiki/High_Bandwidth_Memory"
+            },
+            {
+              "en": "In 2025 the largest makers of HBM included SK Hynix, Samsung Electronics, and Micron Technology; demand has risen sharply because of AI",
+              "zh": "2025 年最大的 HBM 製造商包括 SK 海力士、三星電子與美光；因為 AI，需求大幅上升",
+              "src": "Wikipedia, “High Bandwidth Memory”",
+              "url": "https://en.wikipedia.org/wiki/High_Bandwidth_Memory"
+            },
+            {
+              "en": "A through-silicon via is a vertical electrical connection that passes completely through a silicon die",
+              "zh": "矽穿孔是完全穿過矽晶粒的垂直電氣連接",
+              "src": "Wikipedia, “Through-silicon via”",
+              "url": "https://en.wikipedia.org/wiki/Through-silicon_via"
+            }
+          ]
         }
       ],
       "planned": [
-        {
-          "n": 7,
-          "icon": "🛣️",
-          "en": "What Is HBM, and Why Does AI Need It?",
-          "zh": "HBM 是什麼？AI 為什麼需要它？"
-        },
         {
           "n": 8,
           "icon": "🏝️",
