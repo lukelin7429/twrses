@@ -376,3 +376,40 @@
 .cp-pkw .al-age::-webkit-slider-runnable-track { background: linear-gradient(90deg, var(--brand) 0 var(--p, 50%), #e5dfd0 var(--p, 50%)); }
 .cp-pkw .al-age::-webkit-slider-thumb { border-color: var(--brand); }
 .cp-pkw .al-age::-moz-range-progress { background: var(--brand); }
+
+/* ---------- 第八課：台灣怎麼成為晶片島？ ---------- */
+@media (min-width: 1021px) { .cp-is-lab .al-space { min-height: 700px; } }
+.cp-is-jbox, .cp-is-tbox { display: flex; flex-direction: column; gap: .85rem; }
+.cp-is-jbox[hidden], .cp-is-tbox[hidden] { display: none; }
+.cp-is-steps { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.cp-is-steps button { font-size: .66rem; line-height: 1.15; }
+.cp-is-kmrow b { color: var(--al-sun); }
+.cp-is-yrow > span { text-transform: none; letter-spacing: .02em; }
+.cp-is-yrow output { margin-left: .3rem; font-weight: 800; color: #fff; font-size: 1.1rem; }
+.cp-is-evs { list-style: none; margin: 0; padding: 0; display: grid; gap: .3rem; }
+.cp-is-ev { display: grid; grid-template-columns: 3rem minmax(0, 1fr); gap: .5rem; padding: .4rem .55rem; border-radius: 10px; border: 1px solid var(--al-line); font-size: .78rem; line-height: 1.35; color: var(--al-mute); opacity: .45; cursor: pointer; }
+.cp-is-ev b { font-family: var(--serif); font-size: .95rem; color: var(--al-mute); }
+.cp-is-ev .zh { display: block; font-size: .74rem; }
+.cp-is-ev.on { opacity: 1; color: var(--al-text); }
+.cp-is-ev.on b { color: var(--al-sun); }
+.cp-is-ev.now { border-color: var(--al-sun); background: rgba(255,211,110,.12); }
+.al-lab.cp-is-lb { font-weight: 800; }
+.al-lab.cp-is-lb-hsinchu { border-color: #58b4ff; } .al-lab.cp-is-lb-taichung { border-color: #7cf29a; }
+.al-lab.cp-is-lb-tainan { border-color: #ffb347; } .al-lab.cp-is-lb-kaohsiung { border-color: #ff7ad9; }
+.al-lab.cp-is-lb-changhua { border-style: dashed; font-weight: 600; }
+.al-lg-cpispin i { border: 0; border-radius: 50%; width: 11px; height: 11px; margin: .3rem 4px 0; background: #58b4ff; box-shadow: 14px 0 0 #ffb347, 28px 0 0 #ff7ad9; margin-right: 34px; }
+.al-lg-cpisarc i { border: 0; height: 3px; margin-top: .55rem; background: #ffd36e; }
+.al-lg-cpisland i { border: 0; height: 10px; margin-top: .3rem; border-radius: 2px; background: #2f8f5b; }
+.cp-who-list { display: grid; gap: .55rem; }
+.cp-who-row { display: grid; grid-template-columns: minmax(0, 8.5rem) minmax(0, 1fr); gap: .6rem; align-items: center; padding: .55rem .7rem; border-radius: 14px; background: #fff; border: 1px solid var(--line); }
+.cp-who-row.done { border-color: var(--brand); background: linear-gradient(120deg, #fff, #eef7f3); }
+.cp-who-n { margin: 0; line-height: 1.2; } .cp-who-n b { font-size: 1rem; color: var(--ink); }
+.cp-who-n small { display: block; font-family: var(--zh); font-size: .8rem; color: var(--ink-soft); }
+.cp-who-b { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .3rem; }
+.cp-who-b button { padding: .4rem .2rem; border-radius: 10px; border: 1px solid var(--line); background: var(--cream); color: var(--ink); font: 800 .74rem var(--sans); cursor: pointer; line-height: 1.2; }
+.cp-who-b button small { display: block; font-family: var(--zh); font-weight: 600; font-size: .7rem; color: var(--ink-soft); }
+.cp-who-b button.ok { background: var(--brand); border-color: var(--brand); color: #fff; } .cp-who-b button.ok small { color: rgba(255,255,255,.85); }
+.cp-who-b button.no { background: #fbe9e6; border-color: #e0806f; color: #9a2f1f; }
+.cp-who-reset { margin-top: 1rem; padding: .5rem 1rem; border-radius: 999px; border: 1px solid rgba(255,211,110,.6); background: transparent; color: #ffd36e; font: 800 .82rem var(--sans); cursor: pointer; }
+.cp-who-reset[hidden], .cp-who-msg[hidden] { display: none; }
+@media (max-width: 560px) { .cp-who-row { grid-template-columns: minmax(0, 1fr); } }

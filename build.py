@@ -7803,7 +7803,7 @@ def build_phil_hub():
 _chipj = os.path.join(ROOT, "data", "semiconductors.json")
 CHIP = json.load(open(_chipj, encoding="utf-8")) if os.path.exists(_chipj) else None
 CHIP_BASE = "/resources/classes/semiconductors/"
-_CHIP_JS = {"doping": "chip-doping", "transistor": "chip-transistor", "wafer": "chip-wafer", "litho": "chip-litho", "scale": "chip-scale", "package": "chip-package", "hbm": "chip-hbm"}   # lab.kind → assets/js/<bundle>.js
+_CHIP_JS = {"doping": "chip-doping", "transistor": "chip-transistor", "wafer": "chip-wafer", "litho": "chip-litho", "scale": "chip-scale", "package": "chip-package", "hbm": "chip-hbm", "island": "chip-island"}   # lab.kind → assets/js/<bundle>.js
 
 def _chip_ver():
     h = hashlib.md5()
@@ -8323,6 +8323,84 @@ def _chip_band(bd):
             f'</div></div>'
             '<noscript><p class="muted">The calculator works in your browser and needs JavaScript. · 計算在瀏覽器裡進行，需要開啟 JavaScript。</p></noscript>')
 
+def chipisland_svg(size=56):
+    """第八課的課程卡小圖示：台灣的輪廓，上面三個亮點和一條黃色的路線。"""
+    return (f'<svg class="chipisland-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">'
+            '<path d="M35 5 L41 9 L39 18 L36 30 L32 42 L27 54 L24 53 L22 44 L17 36 L19 26 L25 15 L30 8 Z" fill="#2f8f5b" stroke="#7fd0a3" stroke-width="1.2" stroke-linejoin="round"/>'
+            '<path d="M29 14 Q14 28 21 37 Q18 41 22 44" fill="none" stroke="#ffd36e" stroke-width="1.8" stroke-linecap="round" stroke-dasharray="1 3.4"/>'
+            '<circle cx="29" cy="14" r="3" fill="#58b4ff"/><circle cx="21" cy="37" r="3" fill="#ffb347"/><circle cx="22" cy="44" r="3" fill="#ff7ad9"/></svg>')
+
+def render_chipisland_lab(lesson):
+    """第八課：台灣地圖上一顆晶片的旅程與時間軸（assets/js/chip-island.js 綁這裡的 class；輪廓與位置是示意）。"""
+    lab = lesson["lab"]
+    st, ev = lab["steps"], lab["events"]
+    sb = "".join(f'<button type="button" data-step="{i}" aria-pressed="false"><b>{i + 1}</b>{html.escape(s["short_en"])}<small>{html.escape(s["short_zh"])}</small></button>' for i, s in enumerate(st))
+    panels = "".join(
+        f'<div class="cp-wf-panel cp-is-panel" data-panel="{i}" hidden><p class="cp-wf-k">Step {i + 1} · 第 {i + 1} 步 · {html.escape(s["where_en"])} {html.escape(s["where_zh"])}</p>'
+        f'<h3>{html.escape(s["title_en"])}<span class="zh">{html.escape(s["title_zh"])}</span></h3>'
+        f'<p class="cp-msg">{html.escape(s["text_en"])}<span class="zh">{html.escape(s["text_zh"])}</span></p></div>' for i, s in enumerate(st))
+    evs = "".join(
+        f'<li class="cp-is-ev" data-ev="{html.escape(e["key"])}" tabindex="0"><b>{e["year"]}</b><span>{html.escape(e["en"])}<span class="zh">{html.escape(e["zh"])}</span></span></li>' for e in ev)
+    names = html.escape(json.dumps([{"en": s["short_en"], "zh": s["short_zh"]} for s in st], ensure_ascii=False))
+    tg = _lab_toggles([("labels", "Labels", "標示", True)])
+    return f'''<div class="astro-lab cp-lab cp-is-lab rvl" data-chipisland-lab data-steps="{names}">
+  <div class="al-stage">
+    <div class="al-space">
+      <canvas class="al-space-cv" aria-label="3D map of Taiwan showing one chip's journey from design to manufacturing to packaging, and a timeline of the chip industry · 台灣的 3D 地圖：一顆晶片從設計、製造到封裝測試的旅程，以及晶片產業的時間軸"></canvas>
+      <div class="al-labels" aria-hidden="true"></div>
+      <div class="cp-view" role="group" aria-label="View · 視角">
+        <button type="button" data-view="journey" aria-pressed="true">A chip's journey<small>晶片的旅程</small></button>
+        <button type="button" data-view="time" aria-pressed="false">Timeline<small>時間軸</small></button>
+      </div>
+      <p class="al-hint">Drag to turn · 拖曳旋轉　Scroll or pinch to zoom · 滾輪／雙指縮放</p>
+      <button type="button" class="al-home" title="Reset view · 重設視角" aria-label="Reset view · 重設視角">&#8634;</button>
+      <p class="al-nogl-msg">This 3D model needs WebGL, which this browser does not support. The reading and the cards below still explain everything.<br><span class="zh">這個瀏覽器不支援 WebGL，無法顯示 3D 模型；下方的課文與卡片一樣能看懂。</span></p>
+    </div>
+    <aside class="al-sky cp-aside">
+      <div class="cp-is-jbox">
+        <p class="al-sky-k">Three jobs, then the world · 三段工作，再到全世界</p>
+        <div class="cp-wf-steps cp-is-steps" role="group" aria-label="Steps · 步驟">{sb}</div>
+        <button type="button" class="cp-wf-tour cp-is-tour" aria-pressed="true"><span aria-hidden="true">&#9654;</span> <span class="t">Stop · 停止</span></button>
+        {panels}
+        <p class="cp-msg cp-is-kmrow">This example trip, in straight lines: <b class="cp-is-km"></b><span class="zh">這趟示例旅程的直線距離：新竹到台南，再到高雄</span></p>
+      </div>
+      <div class="cp-is-tbox" hidden>
+        <p class="al-sky-k">Drag the year · 拉動年份</p>
+        <label class="al-slider cp-is-yrow"><span>Year · 年份 <output class="cp-is-year-out"></output></span>
+          <input type="range" class="al-age cp-is-year" min="1970" max="2005" step="1" value="1970"></label>
+        <ol class="cp-is-evs">{evs}</ol>
+      </div>
+    </aside>
+  </div>
+  <div class="al-controls">
+    <div class="al-row al-row-main">
+      <button type="button" class="al-play" aria-pressed="true"><span class="al-play-i" aria-hidden="true"></span><span class="al-play-t">Pause · 暫停</span></button>
+      <div class="al-row al-toggles">{tg}</div>
+    </div>
+  </div>
+  {_lab_foot(lab)}
+  <p class="cp-credit">{lab["credit_html"]}</p>
+</div>'''
+
+def _chip_who(wh):
+    """「誰做哪一段？」（chip-island.js 的 initWho；不需要 WebGL）。"""
+    roles = [("design", "Designs", "設計"), ("make", "Makes", "製造"), ("pack", "Packages & tests", "封裝測試")]
+    rows = "".join(
+        f'<div class="cp-who-row" data-name="{html.escape(c["name"])}"><p class="cp-who-n"><b>{html.escape(c["name"])}</b><small>{html.escape(c["zh"])}</small></p>'
+        f'<div class="cp-who-b" role="group" aria-label="{html.escape(c["name"])}">'
+        + "".join(f'<button type="button" data-role="{k}" aria-pressed="false">{en}<small>{zh}</small></button>' for k, en, zh in roles)
+        + '</div></div>' for c in wh["companies"])
+    return (f'<div class="cp-cnt cp-who rvl" data-chip-who>'
+            f'<div class="cp-cnt-in cp-who-list">{rows}'
+            f'<p class="cp-cnt-note">{html.escape(wh["note_en"])}<span class="zh">{html.escape(wh["note_zh"])}</span></p></div>'
+            f'<div class="cp-home-out cp-cnt-out" aria-live="polite">'
+            f'<p class="cp-home-k">Your score · 你的分數</p>'
+            f'<p class="cp-home-big"><b class="cp-who-score">0 / 7</b></p>'
+            f'<p class="cp-home-note cp-who-msg" hidden>{html.escape(wh["done_en"])}<span class="zh">{html.escape(wh["done_zh"])}</span></p>'
+            f'<button type="button" class="cp-who-reset" hidden>Start again · 重來</button>'
+            f'</div></div>'
+            '<noscript><p class="muted">The game works in your browser and needs JavaScript. · 這個小遊戲在瀏覽器裡執行，需要開啟 JavaScript。</p></noscript>')
+
 def _chip_sun(sp):
     """「在螢幕上曬一張藍曬圖」（chip-litho.js 的 initSun；2D canvas，不需要 WebGL）。"""
     masks = "".join(f'<button type="button" data-mask="{m["key"]}" aria-pressed="false">{html.escape(m["en"])}<small>{html.escape(m["zh"])}</small></button>' for m in sp["masks"])
@@ -8419,7 +8497,7 @@ def build_chip_lesson(ui, unit, lesson):
     reading_html = render_basic_unit(1, unit_dict, level="chips", audio_rel="", pdf_rel="")
     lab = lesson["lab"]
     kind = lab["kind"]
-    lab_html = {"doping": render_chipdoping_lab, "transistor": render_chiptransistor_lab, "wafer": render_chipwafer_lab, "litho": render_chiplitho_lab, "scale": render_chipscale_lab, "package": render_chippackage_lab, "hbm": render_chiphbm_lab}[kind](lesson)
+    lab_html = {"doping": render_chipdoping_lab, "transistor": render_chiptransistor_lab, "wafer": render_chipwafer_lab, "litho": render_chiplitho_lab, "scale": render_chipscale_lab, "package": render_chippackage_lab, "hbm": render_chiphbm_lab, "island": render_chipisland_lab}[kind](lesson)
 
     secs = []
     if lesson.get("home"):
@@ -8431,6 +8509,9 @@ def build_chip_lesson(ui, unit, lesson):
     if lesson.get("dies"):
         dz = lesson["dies"]
         secs.append(("dies", dz["eyebrow"], dz["en"], dz["zh"], _chip_dies(dz), _bi(dz["lead_en"], dz["lead_zh"], cls="lead rvl d2")))
+    if lesson.get("who"):
+        wh = lesson["who"]
+        secs.append(("who", wh["eyebrow"], wh["en"], wh["zh"], _chip_who(wh), _bi(wh["lead_en"], wh["lead_zh"], cls="lead rvl d2")))
     if lesson.get("band"):
         bd = lesson["band"]
         secs.append(("band", bd["eyebrow"], bd["en"], bd["zh"], _chip_band(bd), _bi(bd["lead_en"], bd["lead_zh"], cls="lead rvl d2")))
@@ -8491,7 +8572,8 @@ def build_chip_lesson(ui, unit, lesson):
                 "litho": ("Drawing with light in a sentence", "一句話記住用光畫電路"),
                 "scale": ("Nanometers in a sentence", "一句話記住奈米"),
                 "package": ("Packaging in a sentence", "一句話記住封裝"),
-                "hbm": ("HBM in a sentence", "一句話記住 HBM")}[kind]
+                "hbm": ("HBM in a sentence", "一句話記住 HBM"),
+                "island": ("The chip island in a sentence", "一句話記住晶片島")}[kind]
     secs.append(("tricks", "Remember It · 記憶口訣", tricks_h[0], tricks_h[1], _sci_tricks(lesson), ""))
     if lesson.get("safety"):
         items = "".join(f'<li class="rvl">{html.escape(s["en"])}<span class="zh">{html.escape(s["zh"])}</span></li>' for s in lesson["safety"])
@@ -8545,7 +8627,7 @@ def build_chip_lesson(ui, unit, lesson):
 def build_chip_hub():
     # 照萬物原理：單元導覽＋每個單元一段橫向課程卡；做好的課可點，planned 是「製作中」卡。
     def icon(l):
-        return chipsilicon_svg(60) if l.get("card") == "silicon" else chiptransistor_svg(60) if l.get("card") == "transistor" else chipwafer_svg(60) if l.get("card") == "wafer" else chiplitho_svg(60) if l.get("card") == "litho" else chipscale_svg(60) if l.get("card") == "scale" else chippackage_svg(60) if l.get("card") == "package" else chiphbm_svg(60) if l.get("card") == "hbm" else l["icon"]
+        return chipsilicon_svg(60) if l.get("card") == "silicon" else chiptransistor_svg(60) if l.get("card") == "transistor" else chipwafer_svg(60) if l.get("card") == "wafer" else chiplitho_svg(60) if l.get("card") == "litho" else chipscale_svg(60) if l.get("card") == "scale" else chippackage_svg(60) if l.get("card") == "package" else chiphbm_svg(60) if l.get("card") == "hbm" else chipisland_svg(60) if l.get("card") == "island" else l["icon"]
     unit_sections, nav = [], []
     done = sum(len(u["lessons"]) for u in CHIP["units"])
     total = done + sum(len(u.get("planned", [])) for u in CHIP["units"])

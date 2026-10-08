@@ -4,8 +4,8 @@
   "description": "晶片與半導體 Chips and Semiconductors 3D 模型的原始碼與打包設定。產物寫到 assets/js/，npm run build 重新打包。",
   "type": "module",
   "scripts": {
-    "build": "esbuild src/chip-doping.js src/chip-transistor.js src/chip-wafer.js src/chip-litho.js src/chip-scale.js src/chip-package.js src/chip-hbm.js --bundle --minify --format=iife --target=es2019 --legal-comments=eof --outdir=../../assets/js",
-    "test": "node test/doping.test.mjs && node test/transistor.test.mjs && node test/wafer.test.mjs && node test/litho.test.mjs && node test/scale.test.mjs && node test/package.test.mjs && node test/hbm.test.mjs"
+    "build": "esbuild src/chip-doping.js src/chip-transistor.js src/chip-wafer.js src/chip-litho.js src/chip-scale.js src/chip-package.js src/chip-hbm.js src/chip-island.js --bundle --minify --format=iife --target=es2019 --legal-comments=eof --outdir=../../assets/js",
+    "test": "node test/doping.test.mjs && node test/transistor.test.mjs && node test/wafer.test.mjs && node test/litho.test.mjs && node test/scale.test.mjs && node test/package.test.mjs && node test/hbm.test.mjs && node test/island.test.mjs"
   },
   "devDependencies": {
     "esbuild": "0.25.10",

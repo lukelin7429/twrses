@@ -4878,16 +4878,699 @@
               "url": "https://en.wikipedia.org/wiki/Through-silicon_via"
             }
           ]
-        }
-      ],
-      "planned": [
+        },
         {
           "n": 8,
+          "slug": "chip-island",
+          "title": "How Did Taiwan Become a Chip Island?",
+          "title_zh": "台灣怎麼成為晶片島？",
+          "level": "入門 · Beginner",
           "icon": "🏝️",
-          "en": "How Did Taiwan Become a Chip Island?",
-          "zh": "台灣怎麼成為晶片島？"
+          "card": "island",
+          "blurb_en": "A chip is designed, made, and packaged by different companies, and Taiwan has important ones for every step. On a 3D map, follow one chip from Hsinchu to Tainan to Kaohsiung and out to the world, then drag a timeline from 1973 to see how the industry grew. Finish by sorting companies by the job they do.",
+          "blurb_zh": "一顆晶片由不同的公司負責設計、製造和封裝，而每一段台灣都有重要的公司。在 3D 地圖上跟著一顆晶片從新竹到台南、再到高雄，最後送往全世界；再從 1973 年開始拉時間軸，看這個產業怎麼長大。最後玩個小遊戲，分分看哪家公司做哪一段。",
+          "big_idea_en": "Making a chip takes three big jobs: designing it, manufacturing it, and packaging and testing it. In 1987 a company in Taiwan chose to do only the manufacturing, for anyone who had a design. That idea, the foundry, changed how the world makes chips. Today Taiwan has important companies for all three jobs, gathered in a few science parks.",
+          "big_idea_zh": "做出一顆晶片有三件大事：設計、製造、封裝測試。1987 年，台灣有一家公司決定只做「製造」這一段，誰有設計就幫誰做。這個點子叫做晶圓代工，改變了全世界做晶片的方式。今天，這三件事台灣都有重要的公司，而且集中在幾個科學園區裡。",
+          "lab": {
+            "kind": "island",
+            "eyebrow": "3D Model · 3D 模型",
+            "title_en": "One Chip's Trip Across the Island",
+            "title_zh": "一顆晶片的環島之旅",
+            "how_en": "Drag to turn the map, and scroll or pinch to zoom. In “A chip's journey,” watch a glowing chip travel through the three jobs and then leave for the world; press a step to see it again. Then choose “Timeline” and drag the year from 1970 to 2005. Places light up on the map as things happen there.",
+            "how_zh": "拖曳可以旋轉地圖，滾輪或雙指可以縮放。在「晶片的旅程」，看一顆發亮的晶片走過三段工作、最後飛向全世界；按任何一步可以再看一次。再選「時間軸」，把年份從 1970 拉到 2005，哪裡發生了事情，地圖上的那個地方就會亮起來。",
+            "steps": [
+              {
+                "short_en": "Design",
+                "short_zh": "設計",
+                "where_en": "Hsinchu",
+                "where_zh": "新竹",
+                "title_en": "Design the chip",
+                "title_zh": "設計晶片",
+                "text_en": "Engineers at a design company draw the circuit on computers: billions of transistors and the wires between them. A company that only designs chips is called fabless, because it has no factory. MediaTek, in Hsinchu, is one.",
+                "text_zh": "設計公司的工程師在電腦上畫出電路：幾十億個電晶體，和它們之間的連線。只做設計、沒有工廠的公司叫做無廠半導體公司（fabless）。總部在新竹的聯發科就是其中一家。"
+              },
+              {
+                "short_en": "Make",
+                "short_zh": "製造",
+                "where_en": "Tainan",
+                "where_zh": "台南",
+                "title_en": "Make it on a wafer",
+                "title_zh": "在晶圓上做出來",
+                "text_en": "The design goes to a foundry, a company that manufactures chips for others. In a wafer fab in a science park, the pattern is printed onto silicon wafers layer by layer, as you saw in Lessons 3 and 4.",
+                "text_zh": "設計圖送到晶圓代工廠，也就是替別人製造晶片的公司。在科學園區的晶圓廠裡，圖案一層一層印到矽晶圓上，就像第三、四課看到的那樣。"
+              },
+              {
+                "short_en": "Package",
+                "short_zh": "封裝測試",
+                "where_en": "Kaohsiung",
+                "where_zh": "高雄",
+                "title_en": "Package and test",
+                "title_zh": "封裝與測試",
+                "text_en": "The wafers travel to a packaging and testing company. There the chips are cut apart, put into packages, sometimes stacked together as in Lesson 6, and tested one by one.",
+                "text_zh": "晶圓接著送到封裝測試公司。晶片在那裡被切開、放進封裝，有時像第六課那樣疊在一起，再一顆一顆測試。"
+              },
+              {
+                "short_en": "Ship",
+                "short_zh": "出貨",
+                "where_en": "To the world",
+                "where_zh": "全世界",
+                "title_en": "Out to the world",
+                "title_zh": "送往全世界",
+                "text_en": "The finished chips leave Taiwan for factories that build phones, computers, cars, and servers. This route is only an example: every chip has its own path, and many paths cross other countries too.",
+                "text_zh": "做好的晶片離開台灣，送到組裝手機、電腦、汽車和伺服器的工廠。這條路線只是一個例子：每顆晶片都有自己的路，很多還會經過別的國家。"
+              }
+            ],
+            "events": [
+              {
+                "key": "itri",
+                "year": 1973,
+                "en": "ITRI, a government research institute, is founded.",
+                "zh": "工業技術研究院（工研院）成立。"
+              },
+              {
+                "key": "rca",
+                "year": 1976,
+                "en": "Engineers are sent to RCA in the United States to learn how to make chips.",
+                "zh": "工程師被派到美國 RCA 公司學習製造積體電路。"
+              },
+              {
+                "key": "umc",
+                "year": 1980,
+                "en": "UMC, Taiwan's first chip company, is spun off from ITRI.",
+                "zh": "台灣第一家積體電路公司聯華電子（聯電）從工研院獨立出來。"
+              },
+              {
+                "key": "hsp",
+                "year": 1980,
+                "en": "Hsinchu Science Park is established on December 15.",
+                "zh": "新竹科學園區在 12 月 15 日成立。"
+              },
+              {
+                "key": "ase",
+                "year": 1984,
+                "en": "ASE opens its first packaging factory in Kaohsiung.",
+                "zh": "日月光在高雄設立第一座封裝廠。"
+              },
+              {
+                "key": "tsmc",
+                "year": 1987,
+                "en": "TSMC is founded: the world's first company that only manufactures chips for others.",
+                "zh": "台積電成立：全世界第一家專門替別人製造晶片的公司。"
+              },
+              {
+                "key": "stsp",
+                "year": 1995,
+                "en": "The plan for the Southern Taiwan Science Park is approved.",
+                "zh": "南部科學園區的開發計畫獲得核定。"
+              },
+              {
+                "key": "ctsp",
+                "year": 2003,
+                "en": "The Central Taiwan Science Park opens.",
+                "zh": "中部科學園區啟用。"
+              }
+            ],
+            "legend": [
+              {
+                "cls": "cpispin",
+                "en": "Pins: Hsinchu (blue), Tainan (orange), Kaohsiung (pink); green is Taichung",
+                "zh": "圖釘：新竹（藍）、台南（橘）、高雄（粉紅）；綠色是台中"
+              },
+              {
+                "cls": "cpisarc",
+                "en": "Yellow arcs: the example route of one chip",
+                "zh": "黃色弧線：一顆晶片的示例路線"
+              },
+              {
+                "cls": "cpisland",
+                "en": "Green: Taiwan (a simplified outline)",
+                "zh": "綠色：台灣（簡化的輪廓）"
+              }
+            ],
+            "scale_en": "A teaching map. The outline of Taiwan is simplified, the smaller islands are left out, and each pin marks a city, not an exact address. The route from Hsinchu to Tainan to Kaohsiung is one example of how a chip might travel; real chips take many different routes, and the distances shown are straight lines, not roads.",
+            "scale_zh": "這是教學用的地圖。台灣的輪廓是簡化的，沒有畫離島，圖釘標的是城市、不是確切的地址。從新竹到台南再到高雄的路線，只是晶片可能怎麼走的一個例子；真的晶片有各種不同的路線，圖上的距離也是直線距離，不是公路里程。",
+            "credit_html": "Map and model drawn by My Culture Connect as a teaching diagram. Dates follow <a href=\"https://en.wikipedia.org/wiki/Semiconductor_industry_in_Taiwan\" target=\"_blank\" rel=\"noopener\">Wikipedia, “Semiconductor industry in Taiwan”</a> and the other sources listed at the bottom of this page. · 地圖與模型由人師教育協會自繪示意；年份依維基百科「Semiconductor industry in Taiwan」條目與本頁最下方列出的其他出處。"
+          },
+          "paras": [
+            "Taiwan is a small island, yet people all over the world call it a chip island. Phones, computers, cars, and the servers that run AI depend on chips that passed through Taiwan. How did this happen? It did not happen by luck, and it did not happen quickly. It took about fifty years, and it began with a plan.",
+            "In 1973 the government founded a research institute called ITRI in Hsinchu. A year later, a small group of officials and engineers met to discuss how Taiwan could start making integrated circuits. In 1976 teams of young engineers were sent to RCA, a company in the United States, to learn how. They came home and built a demonstration factory, and it worked well.",
+            "The next step was to turn research into companies. In 1980 UMC was spun off from ITRI and became Taiwan's first chip company. In the same year Hsinchu Science Park opened beside two universities, so that companies, engineers, and students could be close together. Today hundreds of companies have their homes in that park.",
+            "Then came the big idea. In those days, a chip company did everything itself: it designed its chips and also built the expensive factories to make them. In 1987 Morris Chang founded TSMC to do only one part. It would manufacture chips for any company that had a design, and it would not design chips of its own. This kind of company is called a foundry.",
+            "The foundry changed the industry. Now a small team with a good idea could design a chip without building a factory. Design companies, called fabless companies, grew up around the world. And Taiwan filled in the other steps as well: design companies such as MediaTek in Hsinchu, and packaging and testing companies such as ASE in Kaohsiung.",
+            "So a chip's trip can look like this: designed in one place, manufactured in a science park, packaged and tested in another city, and then shipped to the world. Hsinchu, Taichung, Tainan, and Kaohsiung all lie along the west coast of one small island, and that closeness helps. The chip island was built by many people over many years, one step at a time."
+          ],
+          "paras_zh": [
+            "台灣是一座小島，全世界卻有很多人叫它「晶片島」。手機、電腦、汽車，還有跑 AI 的伺服器，都靠著經過台灣的晶片。這是怎麼來的？不是靠運氣，也不是一下子就發生的。它花了大約五十年，而且是從一個計畫開始的。",
+            "1973 年，政府在新竹成立了一個研究機構，叫做工業技術研究院（工研院）。隔年，一小群官員和工程師開會，討論台灣要怎麼開始做積體電路。1976 年，一批批年輕的工程師被派到美國的 RCA 公司去學。他們回來之後蓋了一座示範工廠，而且做得很成功。",
+            "下一步是把研究變成公司。1980 年，聯華電子（聯電）從工研院獨立出來，成為台灣第一家積體電路公司。同一年，新竹科學園區在兩所大學旁邊成立，讓公司、工程師和學生靠得很近。今天有好幾百家公司把家安在這個園區裡。",
+            "接著是那個重要的點子。那個年代，一家晶片公司什麼都自己來：自己設計晶片，也自己蓋昂貴的工廠來製造。1987 年，張忠謀創辦台積電，只做其中一段：誰有設計，它就幫誰製造，自己不設計晶片。這種公司叫做晶圓代工廠。",
+            "晶圓代工改變了整個產業。從此以後，一個有好點子的小團隊不用蓋工廠也能設計晶片。只做設計的「無廠半導體公司」在世界各地冒出來。而其他幾段，台灣也補上了：做設計的公司，例如新竹的聯發科；做封裝測試的公司，例如高雄的日月光。",
+            "所以一顆晶片的旅程可能是這樣：在一個地方設計，在科學園區製造，到另一個城市封裝測試，然後送往全世界。新竹、台中、台南、高雄都在同一座小島的西岸，這種「近」很有幫助。晶片島是很多人花了很多年，一步一步蓋起來的。"
+          ],
+          "questions": [
+            "What are the three big jobs in making a chip?",
+            "What was new about TSMC in 1987?",
+            "Why does it help that the science parks and companies are close together?"
+          ],
+          "answers": [
+            "Designing the chip, manufacturing it, and packaging and testing it.",
+            "It only manufactured chips for other companies and did not design chips of its own. It was the world's first company of this kind, called a foundry.",
+            "Because a chip has to pass from one company to the next. When they are close, people, wafers, and ideas can move between them quickly."
+          ],
+          "vocab": [
+            {
+              "n": 1,
+              "w": "design",
+              "pos": "v., n.",
+              "zh": "設計",
+              "ex": "She <b>designs</b> video games.",
+              "exzh": "她設計電玩遊戲。"
+            },
+            {
+              "n": 2,
+              "w": "manufacture",
+              "pos": "v.",
+              "zh": "製造",
+              "ex": "This factory <b>manufactures</b> bicycles.",
+              "exzh": "這座工廠製造腳踏車。"
+            },
+            {
+              "n": 3,
+              "w": "foundry",
+              "pos": "n.",
+              "zh": "晶圓代工廠；鑄造廠",
+              "ex": "The <b>foundry</b> makes chips for many companies.",
+              "exzh": "這家晶圓代工廠替很多公司做晶片。"
+            },
+            {
+              "n": 4,
+              "w": "industry",
+              "pos": "n.",
+              "zh": "產業",
+              "ex": "Tourism is a big <b>industry</b> in this town.",
+              "exzh": "觀光是這個小鎮很大的產業。"
+            },
+            {
+              "n": 5,
+              "w": "engineer",
+              "pos": "n.",
+              "zh": "工程師",
+              "ex": "My aunt is an <b>engineer</b> at a chip company.",
+              "exzh": "我阿姨是晶片公司的工程師。"
+            },
+            {
+              "n": 6,
+              "w": "research",
+              "pos": "n.",
+              "zh": "研究",
+              "ex": "Good <b>research</b> takes a lot of time.",
+              "exzh": "好的研究要花很多時間。"
+            },
+            {
+              "n": 7,
+              "w": "science park",
+              "pos": "n.",
+              "zh": "科學園區",
+              "ex": "Many chip companies are in the <b>science park</b>.",
+              "exzh": "很多晶片公司都在科學園區裡。"
+            },
+            {
+              "n": 8,
+              "w": "found",
+              "pos": "v.",
+              "zh": "創立",
+              "ex": "The school was <b>founded</b> in 1950.",
+              "exzh": "這所學校創立於 1950 年。"
+            }
+          ],
+          "quiz": [
+            {
+              "q": "What does a foundry do?",
+              "options": [
+                "Manufactures chips that other companies designed",
+                "Designs chips but has no factory",
+                "Sells phones and computers",
+                "Grows silicon in the ground"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "What is a fabless company?",
+              "options": [
+                "A company that designs chips but has no factory",
+                "A company that only packages chips",
+                "A company with no engineers",
+                "A company that makes cloth"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "When was Hsinchu Science Park established?",
+              "options": [
+                "1980",
+                "1945",
+                "1999",
+                "2010"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "Which step comes last before a chip is shipped?",
+              "options": [
+                "Packaging and testing",
+                "Design",
+                "Printing the circuits on the wafer",
+                "Melting the sand"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "Where did Taiwan's engineers go in 1976 to learn how to make chips?",
+              "options": [
+                "RCA, in the United States",
+                "A school in Kaohsiung",
+                "The South Pole",
+                "A car factory"
+              ],
+              "correct": 0
+            }
+          ],
+          "parts_head": {
+            "eyebrow": "Try It in the Model · 在模型裡試試",
+            "en": "Three jobs and fifty years",
+            "zh": "三段工作與五十年"
+          },
+          "parts": [
+            {
+              "key": "design",
+              "icon": "✏️",
+              "en": "Design",
+              "zh": "設計",
+              "meta_en": "Hsinchu",
+              "meta_zh": "新竹",
+              "demo": "design",
+              "text_en": "The chip starts as a drawing made on computers. No silicon yet, only ideas.",
+              "text_zh": "晶片一開始是電腦上的一張圖。還沒有矽，只有想法。"
+            },
+            {
+              "key": "make",
+              "icon": "🏭",
+              "en": "Manufacture",
+              "zh": "製造",
+              "meta_en": "Hsinchu to Tainan",
+              "meta_zh": "新竹到台南",
+              "demo": "make",
+              "text_en": "The design travels about 200 kilometers south to a wafer fab. Watch the chip fly down the west coast.",
+              "text_zh": "設計圖往南走大約 200 公里，到一座晶圓廠。看晶片沿著西海岸飛下去。"
+            },
+            {
+              "key": "pack",
+              "icon": "📦",
+              "en": "Package and test",
+              "zh": "封裝測試",
+              "meta_en": "Tainan to Kaohsiung",
+              "meta_zh": "台南到高雄",
+              "demo": "pack",
+              "text_en": "A short hop of about 40 kilometers, and the chips are packaged and tested.",
+              "text_zh": "再跳一小段，大約 40 公里，晶片就被封裝、測試。"
+            },
+            {
+              "key": "time",
+              "icon": "📅",
+              "en": "The timeline",
+              "zh": "時間軸",
+              "meta_en": "1973 to 2003",
+              "meta_zh": "1973 到 2003 年",
+              "demo": "time",
+              "text_en": "Watch the years roll by. Notice how long Hsinchu was the only pin on the map.",
+              "text_zh": "看年份一年一年過去。注意新竹有多長一段時間是地圖上唯一的圖釘。"
+            }
+          ],
+          "parts_note_en": "The distances are straight lines between cities. The whole example trip on the island is about 240 kilometers.",
+          "parts_note_zh": "距離是城市之間的直線距離。這趟示例旅程在島上總共大約 240 公里。",
+          "links_head": {
+            "eyebrow": "Go Further · 延伸閱讀",
+            "en": "Look back at the whole series",
+            "zh": "回頭看看整個系列"
+          },
+          "links": [
+            {
+              "href": "/resources/classes/semiconductors/sand-to-chip/",
+              "icon": "🏖️",
+              "k_en": "Chips and Semiconductors · Lesson 3",
+              "k_zh": "晶片與半導體 第三課",
+              "en": "How Does Sand Become a Chip?",
+              "zh": "沙子怎麼變成晶片？",
+              "note_en": "What happens inside the wafer fab in step 2.",
+              "note_zh": "第 2 步的晶圓廠裡發生了什麼事。"
+            },
+            {
+              "href": "/resources/classes/semiconductors/chip-stacking/",
+              "icon": "🧱",
+              "k_en": "Chips and Semiconductors · Lesson 6",
+              "k_zh": "晶片與半導體 第六課",
+              "en": "Why Do We Stack Chips Together?",
+              "zh": "先進封裝：為什麼要把晶片疊在一起？",
+              "note_en": "What happens in packaging and testing in step 3.",
+              "note_zh": "第 3 步的封裝測試在做什麼。"
+            }
+          ],
+          "who": {
+            "eyebrow": "Who Does What? · 誰做哪一段？",
+            "en": "Sort the companies",
+            "zh": "把公司分一分",
+            "lead_en": "Seven well-known chip companies are listed here. For each one, choose the job it is known for: designing chips, manufacturing them for others, or packaging and testing them.",
+            "lead_zh": "這裡有七家有名的晶片公司。替每一家選出它最主要的工作：設計晶片、替別人製造晶片，還是封裝和測試晶片。",
+            "companies": [
+              {
+                "name": "TSMC",
+                "zh": "台積電"
+              },
+              {
+                "name": "MediaTek",
+                "zh": "聯發科"
+              },
+              {
+                "name": "ASE",
+                "zh": "日月光"
+              },
+              {
+                "name": "Nvidia",
+                "zh": "輝達"
+              },
+              {
+                "name": "UMC",
+                "zh": "聯電"
+              },
+              {
+                "name": "Qualcomm",
+                "zh": "高通"
+              },
+              {
+                "name": "AMD",
+                "zh": "超微"
+              }
+            ],
+            "note_en": "The answers follow the examples in Wikipedia's articles on the foundry model, MediaTek, and ASE. Real companies often do a little more than one job; this game asks for the main one.",
+            "note_zh": "答案依維基百科「Foundry model」「MediaTek」「ASE Group」條目裡的例子。真的公司常常不只做一件事，這個遊戲問的是最主要的那一件。",
+            "done_en": "All seven! Notice that the companies that design chips and the companies that manufacture them are different. That split is the foundry model.",
+            "done_zh": "七家全對！注意到了嗎：設計晶片的公司和製造晶片的公司是不同的。這種分工就是晶圓代工模式。"
+          },
+          "facts": {
+            "eyebrow": "The Chip Island by the Numbers · 晶片島的數字",
+            "en": "Fifty years in six numbers",
+            "zh": "六個數字看五十年",
+            "lead_en": "Each of these dates is a step on the way.",
+            "lead_zh": "每一個年份，都是路上的一步。",
+            "items": [
+              {
+                "big": "1973",
+                "unit_en": "ITRI founded",
+                "unit_zh": "工研院成立",
+                "en": "A government research institute is set up to build Taiwan's industrial research.",
+                "zh": "政府成立研究機構，為台灣的產業做研究。"
+              },
+              {
+                "big": "1976",
+                "unit_en": "learning from RCA",
+                "unit_zh": "向 RCA 學習",
+                "en": "Teams of engineers go to the United States to learn chipmaking, then build a demonstration factory at home.",
+                "zh": "一批批工程師到美國學做晶片，回來蓋了示範工廠。"
+              },
+              {
+                "big": "1980",
+                "unit_en": "a company and a park",
+                "unit_zh": "一家公司、一座園區",
+                "en": "UMC becomes Taiwan's first chip company, and Hsinchu Science Park is established.",
+                "zh": "聯電成為台灣第一家積體電路公司，新竹科學園區成立。"
+              },
+              {
+                "big": "1987",
+                "unit_en": "the first foundry",
+                "unit_zh": "第一家晶圓代工",
+                "en": "TSMC is founded as the world's first company that only manufactures chips for others.",
+                "zh": "台積電成立，是全世界第一家專門替別人製造晶片的公司。"
+              },
+              {
+                "big": "3",
+                "unit_en": "jobs",
+                "unit_zh": "段工作",
+                "en": "Design, manufacturing, and packaging and testing. Taiwan has important companies in all three.",
+                "zh": "設計、製造、封裝測試。這三段台灣都有重要的公司。"
+              },
+              {
+                "big": "584",
+                "unit_en": "companies",
+                "unit_zh": "家公司",
+                "en": "The number of companies registered in Hsinchu Science Park at the end of 2024.",
+                "zh": "2024 年底登記在新竹科學園區的公司數目。"
+              }
+            ]
+          },
+          "culture_cards": {
+            "eyebrow": "Chip Island Stories · 晶片島的故事",
+            "title_en": "A meeting, a classroom abroad, a park beside two universities, and one bold idea",
+            "title_zh": "一場會議、一間海外的教室、兩所大學旁的園區、一個大膽的點子",
+            "lead_en": "Four moments that shaped the island.",
+            "lead_zh": "塑造這座島的四個時刻。",
+            "cards": [
+              {
+                "k": "1974",
+                "en": "The meeting",
+                "zh": "那一場會議",
+                "body_en": "In 1974 a small group met to talk about Taiwan's future: the minister of economic affairs, Sun Yun-suan, several other officials, the president of ITRI, and Pan Wen-Yuan, a research director from RCA. They talked about how Taiwan could build a semiconductor industry. Taiwan's chip industry counts its start from that year.",
+                "body_zh": "1974 年，一小群人坐下來談台灣的未來：經濟部長孫運璿、幾位官員、工研院院長，還有 RCA 研究室主任潘文淵。他們討論的是台灣要怎麼發展半導體產業。台灣的半導體產業，就從這一年算起。"
+              },
+              {
+                "k": "1976 · RCA",
+                "en": "Students again",
+                "zh": "再當一次學生",
+                "body_en": "In 1976 RCA agreed to transfer its chipmaking technology. ITRI sent four teams of engineers to train at RCA in the United States. Back home, they built a demonstration factory, and it reached higher yields than RCA's own factories.",
+                "body_zh": "1976 年，RCA 同意把製造晶片的技術轉移過來。工研院派了四組工程師到美國 RCA 受訓。回來之後，他們蓋了一座示範工廠，良率比 RCA 自己的工廠還高。"
+              },
+              {
+                "k": "1980 · 竹科",
+                "en": "A park beside two universities",
+                "zh": "兩所大學旁邊的園區",
+                "body_en": "The idea for Hsinchu Science Park came in 1976: build a place like Silicon Valley, next to National Tsing Hua University and National Chiao Tung University, so that companies and classrooms would be neighbors. The park was established on December 15, 1980.",
+                "body_zh": "新竹科學園區的構想出現在 1976 年：仿照矽谷，把園區蓋在清華大學和交通大學旁邊，讓公司和教室當鄰居。園區在 1980 年 12 月 15 日成立。"
+              },
+              {
+                "k": "1987 · 台積電",
+                "en": "Make chips, design none",
+                "zh": "只製造，不設計",
+                "body_en": "Morris Chang had worked at Texas Instruments for 25 years before he was invited to Taiwan to lead ITRI. In 1987 he founded TSMC as a joint venture of the government, ITRI, and private investors. It would manufacture chips for others and design none of its own. That way of working became a model for the whole industry.",
+                "body_zh": "張忠謀在德州儀器工作了 25 年，之後受邀到台灣擔任工研院院長。1987 年，他創辦台積電，由政府、工研院和民間一起出資。這家公司只替別人製造晶片，自己不設計。這種做法後來成了整個產業的模式。"
+              }
+            ]
+          },
+          "myths": [
+            {
+              "myth_en": "One company makes a chip from start to finish.",
+              "myth_zh": "一顆晶片從頭到尾都是同一家公司做的。",
+              "fact_en": "Usually not. One company designs it, another manufactures it, and often a third packages and tests it.",
+              "fact_zh": "通常不是。一家設計，另一家製造，常常還有第三家負責封裝和測試。"
+            },
+            {
+              "myth_en": "Taiwan's chip industry appeared suddenly a few years ago.",
+              "myth_zh": "台灣的晶片產業是這幾年突然冒出來的。",
+              "fact_en": "It grew step by step over about fifty years, starting with a research institute in 1973.",
+              "fact_zh": "它是花了大約五十年一步一步長大的，從 1973 年的一個研究機構開始。"
+            },
+            {
+              "myth_en": "A foundry designs the chips it makes.",
+              "myth_zh": "晶圓代工廠自己設計它做的晶片。",
+              "fact_en": "A foundry manufactures chips that other companies designed. That is exactly what makes it a foundry.",
+              "fact_zh": "晶圓代工廠製造的是別的公司設計的晶片，這正是「代工」的意思。"
+            },
+            {
+              "myth_en": "Chips made in Taiwan are made only from things found in Taiwan.",
+              "myth_zh": "台灣做的晶片，用的都是台灣自己的東西。",
+              "fact_en": "Chipmaking is a worldwide effort. The machines, materials, designs, and customers come from many countries, as you saw in Lessons 3 and 4.",
+              "fact_zh": "做晶片要靠全世界一起合作。機器、材料、設計和客戶來自很多國家，就像第三、四課看到的那樣。"
+            }
+          ],
+          "tricks": [
+            {
+              "title_en": "Design, make, package",
+              "title_zh": "設計、製造、封測",
+              "body_en": "Three jobs, usually done by three kinds of companies.",
+              "body_zh": "三段工作，通常由三種公司來做。"
+            },
+            {
+              "title_en": "A foundry makes, a fabless company designs",
+              "title_zh": "代工廠製造，無廠公司設計",
+              "body_en": "One has the factory. The other has the idea.",
+              "body_zh": "一個有工廠，一個有點子。"
+            },
+            {
+              "title_en": "Research, then companies, then parks",
+              "title_zh": "先研究、再開公司、再蓋園區",
+              "body_en": "1973, 1980, and onward: each step built on the last.",
+              "body_zh": "1973、1980，一路往後：每一步都踩在前一步上。"
+            },
+            {
+              "title_en": "Close together",
+              "title_zh": "靠得近",
+              "body_en": "Hsinchu, Taichung, Tainan, Kaohsiung: all on one small island.",
+              "body_zh": "新竹、台中、台南、高雄：都在同一座小島上。"
+            }
+          ],
+          "safety": [
+            {
+              "en": "A science park is a workplace, not a playground. Visit only on an arranged tour, and stay with your teacher.",
+              "zh": "科學園區是上班的地方，不是遊樂場。只在安排好的參訪時進去，並且跟緊老師。"
+            },
+            {
+              "en": "When you interview a family member about work, ask first, and do not share anything that their company keeps secret.",
+              "zh": "訪問家人工作上的事情之前要先問過，公司要保密的事情不要寫出來。"
+            },
+            {
+              "en": "Use scissors and pins carefully when you make your map.",
+              "zh": "做地圖的時候，小心使用剪刀和圖釘。"
+            }
+          ],
+          "activities": [
+            {
+              "title_en": "The Chip Relay",
+              "title_zh": "晶片接力賽",
+              "materials": [
+                {
+                  "en": "A sheet of paper and a pencil for each team, and three tables",
+                  "zh": "每隊一張紙和一支鉛筆，還有三張桌子"
+                },
+                {
+                  "en": "Signs for the tables: Design, Manufacture, Package and Test",
+                  "zh": "三張桌子的牌子：設計、製造、封裝測試"
+                }
+              ],
+              "steps": [
+                {
+                  "en": "At the Design table, one student draws a simple pattern of five shapes and passes the paper on.",
+                  "zh": "在「設計」桌，一位同學畫出由五個形狀組成的簡單圖案，再把紙傳下去。"
+                },
+                {
+                  "en": "At the Manufacture table, the next student copies the pattern exactly, four times, on a new sheet (four chips on one wafer).",
+                  "zh": "在「製造」桌，下一位同學把圖案一模一樣地畫四次在新的紙上（一片晶圓上四顆晶片）。"
+                },
+                {
+                  "en": "At the Package and Test table, the last student cuts the four apart, checks each against the design, and throws away any that are wrong.",
+                  "zh": "在「封裝測試」桌，最後一位同學把四顆剪開，一顆一顆對照設計圖檢查，把錯的丟掉。"
+                },
+                {
+                  "en": "Count the good chips. Then talk about it: what happens to the whole team if one table is slow, or far away?",
+                  "zh": "數一數有幾顆好晶片。再討論：如果有一張桌子很慢、或離得很遠，整隊會怎麼樣？"
+                }
+              ],
+              "tip_en": "Nobody at the Manufacture table changes the design. That is the foundry's promise.",
+              "tip_zh": "「製造」桌的人不會去改設計。這就是晶圓代工的承諾。"
+            },
+            {
+              "title_en": "My Chip Map",
+              "title_zh": "我的晶片地圖",
+              "materials": [
+                {
+                  "en": "An outline map of Taiwan, colored pencils, and string",
+                  "zh": "一張台灣輪廓圖、色鉛筆和線"
+                },
+                {
+                  "en": "This lesson's timeline",
+                  "zh": "這一課的時間軸"
+                }
+              ],
+              "steps": [
+                {
+                  "en": "Mark Hsinchu, Taichung, Tainan, and Kaohsiung on your map. Then mark your own town.",
+                  "zh": "在地圖上標出新竹、台中、台南和高雄，再標出你住的地方。"
+                },
+                {
+                  "en": "Use string to show one chip's trip: design, manufacture, package and test.",
+                  "zh": "用線拉出一顆晶片的旅程：設計、製造、封裝測試。"
+                },
+                {
+                  "en": "Beside each city, write one date from the timeline and what happened there.",
+                  "zh": "在每個城市旁邊寫上時間軸裡的一個年份，和那裡發生了什麼事。"
+                },
+                {
+                  "en": "Ask at home: does anyone in your family, or a neighbor, work with chips or electronics? Which of the three jobs is theirs?",
+                  "zh": "回家問問看：家人或鄰居裡，有沒有人做和晶片或電子產品有關的工作？他們做的是三段裡的哪一段？"
+                }
+              ],
+              "tip_en": "From Changhua, Taichung is right next door, and Hsinchu is up the coast to the north. You live in the middle of the chip island.",
+              "tip_zh": "從彰化出發，台中就在隔壁，新竹在北邊的海岸線上。你就住在晶片島的中間。"
+            }
+          ],
+          "sources": [
+            {
+              "en": "Taiwan's semiconductor industry got its start in 1974; in 1976 RCA agreed to transfer technology; ITRI sent four teams of engineers to train at RCA; the demonstration factory achieved higher yields than RCA's fabs",
+              "zh": "台灣半導體產業始於 1974 年；1976 年 RCA 同意技術移轉；工研院派四組工程師赴 RCA 受訓；示範工廠良率高於 RCA 的工廠",
+              "src": "Wikipedia, “Semiconductor industry in Taiwan”",
+              "url": "https://en.wikipedia.org/wiki/Semiconductor_industry_in_Taiwan"
+            },
+            {
+              "en": "ITRI was founded in 1973; the 1974 meeting of Sun Yun-suan, other officials, ITRI's president, and Pan Wen-Yuan of RCA; the 1976 agreement with RCA",
+              "zh": "工研院 1973 年成立；1974 年孫運璿、其他官員、工研院院長與 RCA 潘文淵的會議；1976 年與 RCA 的協議",
+              "src": "Wikipedia, “Industrial Technology Research Institute”",
+              "url": "https://en.wikipedia.org/wiki/Industrial_Technology_Research_Institute"
+            },
+            {
+              "en": "UMC was founded in 1980 as Taiwan's first semiconductor company, a spin-off of ITRI (May 22, 1980)",
+              "zh": "聯電 1980 年成立，是台灣第一家半導體公司，自工研院衍生（1980 年 5 月 22 日）",
+              "src": "Wikipedia, “United Microelectronics Corporation”",
+              "url": "https://en.wikipedia.org/wiki/United_Microelectronics_Corporation"
+            },
+            {
+              "en": "Hsinchu Science Park was established on December 15, 1980; the idea (1976) of a park like Silicon Valley beside Tsing Hua and Chiao Tung universities; 584 companies as of December 2024",
+              "zh": "新竹科學園區 1980 年 12 月 15 日成立；1976 年仿矽谷、設在清華與交大旁的構想；2024 年 12 月有 584 家公司",
+              "src": "Wikipedia, “Hsinchu Science Park”",
+              "url": "https://en.wikipedia.org/wiki/Hsinchu_Science_Park"
+            },
+            {
+              "en": "TSMC was established in 1987 as a joint venture of the government, ITRI, and private investors; founded by Morris Chang; the world's first dedicated semiconductor foundry; headquartered in Hsinchu Science Park",
+              "zh": "台積電 1987 年成立，由政府、工研院與民間合資；張忠謀創辦；全世界第一家專業晶圓代工公司；總部在新竹科學園區",
+              "src": "Wikipedia, “TSMC”",
+              "url": "https://en.wikipedia.org/wiki/TSMC"
+            },
+            {
+              "en": "The foundry model: fabless companies only design, pure-play foundries only manufacture for others; examples of foundries (TSMC, UMC) and fabless companies (AMD, Nvidia, Qualcomm)",
+              "zh": "晶圓代工模式：無廠公司只設計，專業代工廠只替別人製造；代工廠的例子（台積電、聯電）與無廠公司的例子（超微、輝達、高通）",
+              "src": "Wikipedia, “Foundry model”",
+              "url": "https://en.wikipedia.org/wiki/Foundry_model"
+            },
+            {
+              "en": "Morris Chang worked at Texas Instruments for 25 years (1958–1983) and was recruited to lead ITRI",
+              "zh": "張忠謀在德州儀器工作 25 年（1958–1983），後受邀擔任工研院院長",
+              "src": "Wikipedia, “Morris Chang”",
+              "url": "https://en.wikipedia.org/wiki/Morris_Chang"
+            },
+            {
+              "en": "MediaTek: a fabless semiconductor company founded in 1997, headquartered in Hsinchu",
+              "zh": "聯發科：1997 年成立的無廠半導體公司，總部在新竹",
+              "src": "Wikipedia, “MediaTek”",
+              "url": "https://en.wikipedia.org/wiki/MediaTek"
+            },
+            {
+              "en": "ASE: founded in 1984 with its first factory in Kaohsiung; a provider of packaging and testing services",
+              "zh": "日月光：1984 年創立，第一座工廠在高雄；提供封裝與測試服務",
+              "src": "Wikipedia, “ASE Group”",
+              "url": "https://en.wikipedia.org/wiki/ASE_Group"
+            },
+            {
+              "en": "Southern Taiwan Science Park: development plan approved in May 1995; tenants include TSMC and UMC",
+              "zh": "南部科學園區：開發計畫 1995 年 5 月核定；進駐廠商包括台積電與聯電",
+              "src": "Wikipedia, “Southern Taiwan Science Park”",
+              "url": "https://en.wikipedia.org/wiki/Southern_Taiwan_Science_Park"
+            },
+            {
+              "en": "The Central Taiwan Science Park opened in 2003",
+              "zh": "中部科學園區 2003 年啟用",
+              "src": "Wikipedia, “Central Taiwan Science Park”",
+              "url": "https://en.wikipedia.org/wiki/Central_Taiwan_Science_Park"
+            }
+          ]
         }
-      ]
+      ],
+      "planned": []
     }
   ]
 }
