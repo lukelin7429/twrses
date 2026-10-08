@@ -1,0 +1,829 @@
+{
+  "title_en": "Earth and Weather",
+  "title_zh": "地球與天氣",
+  "eyebrow": "Earth and Weather · 地球與天氣",
+  "lead_en": "Taiwan sits where two great plates meet and where typhoons pass in summer. Why does the ground shake? Where does the rain come from? Look inside the Earth, up into the sky, and down a river to the sea.",
+  "lead_zh": "台灣坐落在兩大板塊相接的地方，夏天又有颱風經過。地為什麼會搖？雨是從哪裡來的？往地球裡面看、往天空看，再順著河流一路看到海。",
+  "intro": [
+    {
+      "en": "Every lesson starts with something you have lived through: an earthquake alert on your phone, a typhoon day, a sudden afternoon storm. A 3D model shows what is going on, one idea at a time, and an English reading explains it, with Chinese a tap away.",
+      "zh": "每一課都從你親身經歷過的事開始：手機上的地震警報、颱風天、突然下起來的午後雷陣雨。先用 3D 模型看清楚發生了什麼事，一課只講一個道理；再讀一篇英文短文把它說明白，中文翻譯隨點隨看。"
+    },
+    {
+      "en": "The lessons are grouped into four units: the ground beneath us, the sky above, water and the sea, and a changing Earth. When a lesson touches something already explained in Astronomy or How Things Work, such as the seasons, the tides, or rainbows, it links there instead of explaining it twice.",
+      "zh": "課程分成四個單元：腳下的地、頭上的天、水與海、變動中的地球。遇到「天文教育」或「萬物原理」已經講過的東西，例如四季、潮汐、彩虹，就直接連過去，不重講一次。"
+    },
+    {
+      "en": "Every number is checked against a source listed at the bottom of each lesson, starting with Taiwan's own Central Weather Administration. What to do in an earthquake, a typhoon, or a thunderstorm follows official guidance only.",
+      "zh": "每一個數字都查證過，出處列在每課最下方，並且優先採用中央氣象署的資料。地震、颱風、打雷時該怎麼做，一律只照官方的說明。"
+    }
+  ],
+  "units": [
+    {
+      "key": "ground",
+      "title_en": "The Ground Beneath Us",
+      "title_zh": "腳下的地",
+      "blurb_en": "What is inside the Earth, why Taiwan shakes, how its mountains rose, and how a volcano erupts.",
+      "blurb_zh": "地球裡面有什麼、台灣為什麼會搖、山是怎麼升起來的，以及火山怎麼噴發。",
+      "lessons": [
+        {
+          "n": 2,
+          "slug": "taiwan-earthquakes",
+          "title": "Why Does Taiwan Have So Many Earthquakes?",
+          "title_zh": "台灣為什麼地震這麼多？",
+          "level": "入門 · Beginner",
+          "icon": "🌋",
+          "card": "quake",
+          "blurb_en": "Taiwan records about 40,000 earthquakes a year, and people can feel about 1,000 of them. Why here? In a 3D model, watch one plate push against another until a stuck fault suddenly slips. Then find out why your phone can ring a few seconds before the shaking starts.",
+          "blurb_zh": "台灣每年大約測到四萬次地震，其中人感覺得到的大約有一千次。為什麼偏偏是這裡？在 3D 模型裡，看一塊板塊推著另一塊，直到卡住的斷層突然滑動。再來看看，手機為什麼能在開始搖之前幾秒就響起來。",
+          "big_idea_en": "The Earth's surface is made of huge plates that move a few centimeters a year. Taiwan sits where two of them meet, and one pushes hard against the other. The rock gets stuck, bends, and stores up force. When it can hold no more, it slips all at once. That sudden slip is an earthquake.",
+          "big_idea_zh": "地球的表面是由幾塊巨大的板塊組成的，每年移動幾公分。台灣剛好在兩塊板塊相接的地方，其中一塊用力推著另一塊。岩層卡住、被壓彎，把力存了起來；到了撐不住的時候，就一下子滑動。這突然的一滑，就是地震。",
+          "tricks_head": {
+            "en": "Earthquakes in a sentence",
+            "zh": "一句話記住地震"
+          },
+          "checked": {
+            "en": "October 2026",
+            "zh": "2026 年 10 月"
+          },
+          "lab": {
+            "kind": "quake",
+            "eyebrow": "3D Model · 3D 模型",
+            "title_en": "Stuck, Then Slip",
+            "title_zh": "卡住，然後滑動",
+            "how_en": "Drag to turn the model, and scroll or pinch to zoom. This is a slice of the Earth's crust. The right side is pushed toward the left, but the sloping fault between them is stuck. Watch the rock bend and turn red as the force builds, and watch what happens when the fault gives way. Then choose a fault that is stuck harder and compare.",
+            "how_zh": "拖曳可以旋轉模型，滾輪或雙指可以縮放。這是切開的一塊地殼。右邊一直被往左推，可是中間那條斜的斷層卡住了。看岩層怎麼被壓彎、隨著力的累積變紅，再看斷層撐不住的時候會發生什麼事。接著選一條卡得比較緊的斷層，比一比。",
+            "msgs": {
+              "build-easy": {
+                "en": "The plate keeps pushing, but the fault does not move. The rock is squeezed like a spring. This fault lets go fairly easily, so the force never builds very high.",
+                "zh": "板塊一直在推，斷層卻不動，岩層像彈簧一樣被壓縮。這條斷層比較容易放手，所以力不會累積得太高。"
+              },
+              "build-hard": {
+                "en": "This fault is stuck hard, so it holds on much longer. Look how much the rock bends and how far the land rises before anything happens.",
+                "zh": "這條斷層卡得很緊，所以撐得久得多。看看在出事之前，岩層彎了多少、地面隆起了多少。"
+              },
+              "quake-easy": {
+                "en": "The fault slips, and the stored force goes out as waves. The yellow ring is the P wave, which is fast. The red ring is the S wave, which is slower but shakes harder. This was a smaller earthquake.",
+                "zh": "斷層滑動了，存起來的力變成波傳出去。黃色的圈是 P 波，跑得快；紅色的圈是 S 波，慢一點，可是搖得比較厲害。這是一次比較小的地震。"
+              },
+              "quake-hard": {
+                "en": "After a long wait, the fault slips a long way all at once. The more force that was stored, the bigger the earthquake. Watch the far house: the P wave reaches it first, and the strong S wave comes after.",
+                "zh": "等了很久之後，斷層一次滑了很長一段。存的力越多，地震就越大。注意遠處那間房子：P 波先到，強烈的 S 波後到。"
+              }
+            },
+            "legend": [
+              {
+                "cls": "ewfault",
+                "en": "Yellow line: the fault",
+                "zh": "黃色的線：斷層"
+              },
+              {
+                "cls": "ewstrain",
+                "en": "Redder rock: more force stored",
+                "zh": "岩層越紅：存的力越多"
+              },
+              {
+                "cls": "ewwaves",
+                "en": "Rings: P wave (yellow) and S wave (red)",
+                "zh": "圓圈：P 波（黃）與 S 波（紅）"
+              }
+            ],
+            "scale_en": "A teaching model, not to scale. The push of 7.5 centimeters a year follows the Central Weather Administration's figure of 7 to 8, but everything else is an example: real faults do not slip on a regular schedule, the plate's movement is shared among many faults, and the bending and slipping here are drawn hundreds of times too large so that you can see them. During the earthquake the model switches to slow motion.",
+            "scale_zh": "這是教學用的模型，不是真實比例。每年推 7.5 公分是照中央氣象署「每年約 7 至 8 公分」的數字，其他都是示例：真的斷層不會這麼規律地滑動，板塊的移動也是由很多條斷層一起分擔的；為了讓你看得見，岩層的彎曲和滑動都畫大了好幾百倍。地震發生的那一刻，模型會改成慢動作。",
+            "credit_html": "Model drawn by My Culture Connect as a teaching diagram. The ideas follow the Central Weather Administration's <a href=\"https://scweb.cwa.gov.tw/zh-tw/guidance/faq\" target=\"_blank\" rel=\"noopener\">“100 Questions About Earthquakes”</a> and the other sources listed at the bottom of this page. · 模型由人師教育協會自繪示意；原理依中央氣象署「地震百問」與本頁最下方列出的其他出處。"
+          },
+          "paras": [
+            "Your phone makes a loud sound. A few seconds later, the lamp begins to swing and the floor moves under your feet. If you live in Taiwan, you know this feeling well. Taiwan records about 40,000 earthquakes every year. Most are too small to notice, but people can feel about 1,000 of them. Why does the ground here shake so often?",
+            "The answer begins with the Earth's outer shell. It is not one piece. It is broken into huge slabs of rock called plates, and the plates move very slowly, a few centimeters a year. Taiwan sits right where two plates meet: the Eurasian Plate and the Philippine Sea Plate. The Philippine Sea Plate pushes toward the northwest at about 7 to 8 centimeters a year.",
+            "If the plates slid past each other smoothly, we would feel nothing. But rock is rough, and the plates get stuck along cracks called faults. The plate keeps pushing while the fault stays stuck, so the rock bends, a little like a plastic ruler. All that time, it is storing up force. At last the rock can hold no more. The fault slips suddenly, and the rock springs back. That is an earthquake.",
+            "The slip sends out waves through the ground. The fastest ones, called P waves, arrive first and usually shake gently. The S waves come next, and they shake harder. Instruments near the earthquake catch the first waves, and computers quickly send an alert. For places far enough away, the alert can arrive seconds, or even tens of seconds, before the strong shaking.",
+            "Most of Taiwan's earthquakes happen in the east, where the two plates meet. Yet earthquakes in the west often do more damage. They tend to be shallow, they happen under the land, and many people live there. A strong earthquake under a crowded plain is more dangerous than a stronger one far out at sea.",
+            "Can scientists tell us when the next big one will come? Not yet. No one can predict the time, place, and size of an earthquake. What we can do is be ready. When the ground shakes, drop down, take cover under a strong table, and hold on. The same push that shakes Taiwan also built its high mountains. Earthquakes are part of living on a young, growing island."
+          ],
+          "paras_zh": [
+            "手機發出很大的聲音。幾秒鐘之後，燈開始晃，腳下的地板也動了起來。住在台灣的人，對這種感覺再熟悉不過。台灣每年大約測到四萬次地震，大部分小到沒有人注意，但其中大約有一千次是人感覺得到的。這裡的地為什麼這麼常搖？",
+            "答案要從地球的外殼說起。它不是完整的一塊，而是裂成好幾片巨大的岩石板，叫做板塊。板塊移動得非常慢，每年只有幾公分。台灣剛好在兩塊板塊相接的地方：歐亞板塊和菲律賓海板塊。菲律賓海板塊每年大約以 7 到 8 公分的速度往西北方推擠。",
+            "如果板塊之間可以順順地滑過去，我們什麼都感覺不到。可是岩石很粗糙，板塊會沿著叫做「斷層」的裂縫卡住。板塊繼續推，斷層卻卡著不動，岩層就被壓彎了，有點像一把被折彎的塑膠尺。這段時間裡，它一直在把力存起來。最後岩層撐不住了，斷層突然滑動，岩層彈了回去。這就是地震。",
+            "這一滑，會把波從地底送出去。跑得最快的叫做 P 波，最先到，通常搖得比較輕。接著來的是 S 波，搖得比較厲害。地震附近的儀器收到最早的波，電腦很快算出結果、發出警報。對離得夠遠的地方來說，警報可以比強烈的搖晃早幾秒、甚至幾十秒到。",
+            "台灣的地震大部分發生在東部，也就是兩塊板塊相接的地方。可是西部的地震常常造成比較大的災害：它們通常比較淺、發生在陸地底下，而且那裡住了很多人。一個發生在擁擠平原底下的強震，比遠在外海、規模更大的地震還要危險。",
+            "科學家能不能告訴我們下一次大地震什麼時候來？現在還不行。沒有人能預測地震發生的時間、地點和大小。我們能做的是準備好。地開始搖的時候：趴下、躲到堅固的桌子底下掩護、穩住。推著台灣搖晃的這股力量，也把台灣的高山推了起來。住在一座年輕、還在長大的島上，地震就是生活的一部分。"
+          ],
+          "questions": [
+            "Which two plates meet at Taiwan?",
+            "What happens along a fault before and during an earthquake?",
+            "Why can an earthquake alert arrive before the strong shaking?"
+          ],
+          "answers": [
+            "The Eurasian Plate and the Philippine Sea Plate.",
+            "Before the earthquake, the plate keeps pushing but the fault is stuck, so the rock bends and stores up force. During the earthquake, the fault slips suddenly and the rock springs back.",
+            "Instruments near the earthquake catch the first waves, and the alert is sent out very quickly. In places far enough away, it arrives before the slower, stronger S waves do."
+          ],
+          "vocab": [
+            {
+              "n": 1,
+              "w": "earthquake",
+              "pos": "n.",
+              "zh": "地震",
+              "ex": "The <b>earthquake</b> woke everyone up last night.",
+              "exzh": "昨晚的地震把大家都搖醒了。"
+            },
+            {
+              "n": 2,
+              "w": "plate",
+              "pos": "n.",
+              "zh": "板塊",
+              "ex": "Taiwan sits where two <b>plates</b> meet.",
+              "exzh": "台灣位在兩塊板塊相接的地方。"
+            },
+            {
+              "n": 3,
+              "w": "fault",
+              "pos": "n.",
+              "zh": "斷層",
+              "ex": "The rock broke along a <b>fault</b>.",
+              "exzh": "岩層沿著一條斷層裂開。"
+            },
+            {
+              "n": 4,
+              "w": "stuck",
+              "pos": "adj.",
+              "zh": "卡住的",
+              "ex": "The drawer is <b>stuck</b>. I cannot open it.",
+              "exzh": "抽屜卡住了，我打不開。"
+            },
+            {
+              "n": 5,
+              "w": "slip",
+              "pos": "v.",
+              "zh": "滑動",
+              "ex": "Be careful not to <b>slip</b> on the wet floor.",
+              "exzh": "小心不要在濕地板上滑倒。"
+            },
+            {
+              "n": 6,
+              "w": "shake",
+              "pos": "v.",
+              "zh": "搖晃",
+              "ex": "The windows <b>shake</b> when a truck goes by.",
+              "exzh": "卡車經過的時候窗戶會搖。"
+            },
+            {
+              "n": 7,
+              "w": "alert",
+              "pos": "n.",
+              "zh": "警報",
+              "ex": "My phone showed an earthquake <b>alert</b>.",
+              "exzh": "我的手機跳出地震警報。"
+            },
+            {
+              "n": 8,
+              "w": "predict",
+              "pos": "v.",
+              "zh": "預測",
+              "ex": "Nobody can <b>predict</b> who will win.",
+              "exzh": "沒有人能預測誰會贏。"
+            }
+          ],
+          "quiz": [
+            {
+              "q": "Why does Taiwan have so many earthquakes?",
+              "options": [
+                "It sits where two plates push against each other",
+                "It is a very small island",
+                "It rains a lot",
+                "The sea around it is deep"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "What happens when a stuck fault finally gives way?",
+              "options": [
+                "It slips suddenly, and that is an earthquake",
+                "It slowly melts",
+                "It fills with water",
+                "Nothing at all"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "Which earthquake waves arrive first?",
+              "options": [
+                "P waves",
+                "S waves",
+                "Sea waves",
+                "Sound waves"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "Where do most of Taiwan's earthquakes happen?",
+              "options": [
+                "In the east",
+                "In the west",
+                "In the middle of the Taiwan Strait",
+                "Only in the north"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "What should you do when the ground starts to shake?",
+              "options": [
+                "Drop, cover, and hold on",
+                "Stand by a window and watch",
+                "Take the elevator down",
+                "Keep doing your homework"
+              ],
+              "correct": 0
+            }
+          ],
+          "parts_head": {
+            "eyebrow": "Try It in the Model · 在模型裡試試",
+            "en": "Four things to watch",
+            "zh": "四件值得看的事"
+          },
+          "parts": [
+            {
+              "key": "easy",
+              "icon": "🪶",
+              "en": "A fault that slips easily",
+              "zh": "容易滑動的斷層",
+              "meta_en": "Every 40 years in this model",
+              "meta_zh": "在這個模型裡每 40 年一次",
+              "demo": "easy",
+              "text_en": "The force never builds very high. The earthquakes are smaller, but there are more of them.",
+              "text_zh": "力累積得不高。地震比較小，可是次數比較多。"
+            },
+            {
+              "key": "hard",
+              "icon": "🪨",
+              "en": "A fault that is stuck hard",
+              "zh": "卡得很緊的斷層",
+              "meta_en": "Every 160 years in this model",
+              "meta_zh": "在這個模型裡每 160 年一次",
+              "demo": "hard",
+              "text_en": "A long, quiet wait, and then a very large slip. Quiet does not mean safe.",
+              "text_zh": "安靜地等了很久，然後一次滑很大一段。安靜不代表安全。"
+            },
+            {
+              "key": "waves",
+              "icon": "〰️",
+              "en": "The two waves",
+              "zh": "兩種波",
+              "meta_en": "P first, then S",
+              "meta_zh": "P 波先到，S 波後到",
+              "demo": "waves",
+              "text_en": "Jump to the moment just before the slip. Watch the yellow ring race ahead of the red one.",
+              "text_zh": "直接跳到滑動前的那一刻。看黃色的圈怎麼跑在紅色的圈前面。"
+            },
+            {
+              "key": "again",
+              "icon": "⛰️",
+              "en": "Slip after slip",
+              "zh": "一次又一次",
+              "meta_en": "320 years",
+              "meta_zh": "320 年",
+              "demo": "again",
+              "text_en": "Run the whole story again and watch the land on the right. Each slip lifts it a little higher.",
+              "text_zh": "從頭再看一次，注意右邊的地面。每滑一次，它就被抬高一點。"
+            }
+          ],
+          "parts_note_en": "The 40 and 160 years are examples. Real faults do not keep a schedule, which is one reason earthquakes cannot be predicted.",
+          "parts_note_zh": "40 年和 160 年只是例子。真的斷層不會照時間表來，這也是地震沒辦法預測的原因之一。",
+          "links_head": {
+            "eyebrow": "Go Further · 延伸閱讀",
+            "en": "The same push, two more stories",
+            "zh": "同一股推力的另外兩個故事"
+          },
+          "links": [
+            {
+              "href": "/resources/classes/how-things-work/gps/",
+              "icon": "🛰️",
+              "k_en": "How Things Work · Lesson 7",
+              "k_zh": "萬物原理 第七課",
+              "en": "How Does GPS Know Where You Are?",
+              "zh": "GPS 怎麼知道你在哪裡？",
+              "note_en": "Scientists use satellite positioning to measure how the ground slowly moves and bends.",
+              "note_zh": "科學家就是用衛星定位，量出地面怎麼慢慢移動、變形。"
+            },
+            {
+              "soon": true,
+              "icon": "⛰️",
+              "k_en": "Earth and Weather · Lesson 4",
+              "k_zh": "地球與天氣 第四課",
+              "en": "How Did Taiwan's Mountains Rise?",
+              "zh": "台灣的山是怎麼來的？",
+              "note_en": "The push that causes earthquakes also lifts the land.",
+              "note_zh": "造成地震的那股推力，也把地面往上抬。"
+            }
+          ],
+          "warn": {
+            "eyebrow": "The Earthquake Alert · 地震警報",
+            "en": "How many seconds do you get?",
+            "zh": "你有幾秒鐘？",
+            "lead_en": "An earthquake alert is not a prediction. The earthquake has already begun, and the alert is racing the waves to reach you. Move the slider to change how far you are from the earthquake, and see who wins the race.",
+            "lead_zh": "地震警報不是預測。地震已經發生了，警報是在和地震波賽跑，看誰先到你這裡。拉動滑桿改變你離地震的距離，看看誰贏。",
+            "places": [
+              {
+                "km": 30,
+                "en": "30 km",
+                "zh": "很近"
+              },
+              {
+                "km": 100,
+                "en": "100 km",
+                "zh": "有點距離"
+              },
+              {
+                "km": 180,
+                "en": "180 km",
+                "zh": "遠"
+              },
+              {
+                "km": 250,
+                "en": "250 km",
+                "zh": "很遠"
+              }
+            ],
+            "note_en": "An example with round numbers: P waves at 7 kilometers a second, S waves at 4, and an alert sent 19 seconds after the earthquake begins. The Central Weather Administration says it needs about 15 to 20 seconds to work out where the earthquake is and 1 to 2 more to send the alert. Real waves change speed with the rock and the depth, so real warning times differ.",
+            "note_zh": "這是用整數做的例子：P 波每秒 7 公里、S 波每秒 4 公里，地震發生後 19 秒發出警報。中央氣象署表示，大約需要 15 到 20 秒算出地震的位置，再用 1 到 2 秒發出警報。真的地震波速度會隨著岩層和深度改變，所以實際的預警時間會不一樣。"
+          },
+          "facts": {
+            "eyebrow": "Taiwan's Earthquakes by the Numbers · 台灣地震的數字",
+            "en": "Six numbers from the Central Weather Administration",
+            "zh": "中央氣象署的六個數字",
+            "lead_en": "All six come from the agency that measures Taiwan's earthquakes.",
+            "lead_zh": "這六個數字都來自負責測量台灣地震的機關。",
+            "items": [
+              {
+                "big": "40,000",
+                "unit_en": "earthquakes a year",
+                "unit_zh": "次地震（每年）",
+                "en": "About how many earthquakes Taiwan's instruments record in an ordinary year.",
+                "zh": "平常的年份，台灣的儀器一年大約測到這麼多次地震。"
+              },
+              {
+                "big": "1,000",
+                "unit_en": "you can feel",
+                "unit_zh": "次有感地震",
+                "en": "About how many of them are strong enough for people to feel.",
+                "zh": "其中大約有這麼多次，強到人感覺得到。"
+              },
+              {
+                "big": "7–8",
+                "unit_en": "centimeters a year",
+                "unit_zh": "公分（每年）",
+                "en": "How fast the Philippine Sea Plate pushes toward the northwest against the Eurasian Plate.",
+                "zh": "菲律賓海板塊往西北方推擠歐亞板塊的速度。"
+              },
+              {
+                "big": "15–20",
+                "unit_en": "seconds",
+                "unit_zh": "秒",
+                "en": "About how long it takes, after an earthquake on or near the island begins, to work out where it is.",
+                "zh": "島內或近岸發生地震之後，大約要這麼久才能算出它的位置。"
+              },
+              {
+                "big": "32×",
+                "unit_en": "the energy",
+                "unit_zh": "倍的能量",
+                "en": "Each step up in magnitude means about 32 times more energy. Two steps means about 1,000 times.",
+                "zh": "規模每增加 1，能量大約多 32 倍；增加 2，大約是 1,000 倍。"
+              },
+              {
+                "big": "49,928",
+                "unit_en": "in 1999",
+                "unit_zh": "次（1999 年）",
+                "en": "The most earthquakes recorded in one year, because of the great earthquake of September 21 and those that followed.",
+                "zh": "單一年份測到最多次的紀錄，原因是九二一大地震和它之後的許多地震。"
+              }
+            ]
+          },
+          "culture_cards": {
+            "eyebrow": "Earthquake Stories · 地震的故事",
+            "title_en": "A bent fence line, a night in 1999, a ring around the ocean, and forty-nine seconds",
+            "title_zh": "被扯彎的地面、1999 年的一個夜晚、繞著海洋的一圈，還有四十九秒",
+            "lead_en": "Four stories about how we came to understand earthquakes.",
+            "lead_zh": "四個故事，說的是我們怎麼慢慢弄懂地震。",
+            "cards": [
+              {
+                "k": "1906",
+                "en": "The idea of the spring",
+                "zh": "「彈簧」的想法",
+                "body_en": "After the great San Francisco earthquake of 1906, the American scientist Harry Fielding Reid studied how the ground along a fault had moved in the fifty years before it. He saw that the land had been slowly bending the whole time. His idea, that rock stores force and then springs back, is called elastic rebound. It is still the main way we explain earthquakes.",
+                "body_zh": "1906 年舊金山大地震之後，美國科學家李德研究了斷層兩邊的地面在地震前五十年是怎麼移動的。他發現，這段時間裡地面一直在慢慢彎曲。他的想法是：岩層先把力存起來，再彈回去。這叫做「彈性回彈」，到今天仍然是解釋地震最主要的理論。"
+              },
+              {
+                "k": "1999 · 九二一",
+                "en": "September 21, 1:47 a.m.",
+                "zh": "九月二十一日凌晨 1 點 47 分",
+                "body_en": "The Chi-Chi earthquake of 1999 was caused by the Chelungpu Fault in central Taiwan. The ground broke along a line about 100 kilometers long. In some places one side moved as much as 7 meters sideways and 4 meters up. September 21 is now National Disaster Prevention Day, and on that morning phones across Taiwan receive a practice alert.",
+                "body_zh": "1999 年的集集大地震是車籠埔斷層引起的。地表沿著一條大約 100 公里長的線裂開，有些地方兩側水平錯開最多 7 公尺、垂直最多 4 公尺。現在，9 月 21 日是國家防災日，那天早上全台灣的手機都會收到一則演練用的警報。"
+              },
+              {
+                "k": "The Pacific · 太平洋",
+                "en": "A ring of earthquakes",
+                "zh": "一圈地震帶",
+                "body_en": "If you mark the world's earthquakes on a map, most of them fall along narrow bands. The biggest band runs all the way around the Pacific Ocean: through Japan, the Ryukyu Islands, Taiwan, the Philippines, and Indonesia to New Zealand, and down the west coasts of North and South America. About 90 percent of the world's earthquakes happen along it.",
+                "body_zh": "把全世界的地震標在地圖上，會發現它們大多排成一條條細長的帶子。最大的一條繞了太平洋一整圈：經過日本、琉球、台灣、菲律賓、印尼到紐西蘭，再沿著南北美洲的西岸往下。全世界大約 90% 的地震發生在這一圈上。"
+              },
+              {
+                "k": "2016",
+                "en": "Forty-nine seconds",
+                "zh": "四十九秒",
+                "body_en": "On February 6, 2016, an earthquake struck Meinong in southern Taiwan. About 12 seconds after it began, the Central Weather Administration's system had worked out where it was. For Taipei, far to the north, that meant 49 seconds of warning before the strong shaking arrived. Close to the earthquake, though, there was no time at all.",
+                "body_zh": "2016 年 2 月 6 日，南台灣的美濃發生地震。地震發生後大約 12 秒，中央氣象署的系統就算出了它的位置。對遠在北邊的台北來說，這代表在強烈搖晃到達之前，有 49 秒的預警時間。不過在離地震很近的地方，一點時間都沒有。"
+              }
+            ]
+          },
+          "myths": [
+            {
+              "myth_en": "Scientists can tell us when the next big earthquake will come.",
+              "myth_zh": "科學家可以告訴我們下一次大地震什麼時候來。",
+              "fact_en": "Not yet. No one can predict the time, place, and size of an earthquake. That is why being ready matters.",
+              "fact_zh": "現在還不行。沒有人能預測地震發生的時間、地點和大小。所以平常就要做好準備。"
+            },
+            {
+              "myth_en": "Strange clouds or hot, still weather mean an earthquake is coming.",
+              "myth_zh": "出現奇怪的雲，或天氣又悶又熱，就是要地震了。",
+              "fact_en": "There is no evidence that weather and earthquakes are linked. So-called earthquake clouds are ordinary clouds, and earthquakes start deep underground.",
+              "fact_zh": "沒有證據顯示天氣和地震有關。所謂的「地震雲」只是普通的雲，而地震是從很深的地底開始的。"
+            },
+            {
+              "myth_en": "The alert on my phone predicts the earthquake.",
+              "myth_zh": "手機的警報是在預測地震。",
+              "fact_en": "The earthquake has already started. The alert simply travels faster than the strong waves.",
+              "fact_zh": "地震已經發生了。警報只是跑得比強烈的地震波快。"
+            },
+            {
+              "myth_en": "A place with many small earthquakes is safe from big ones.",
+              "myth_zh": "常常有小地震的地方，就不會有大地震。",
+              "fact_en": "Not so. A big earthquake can still happen there. Each step up in magnitude releases about 32 times more energy, so small ones cannot use it all up.",
+              "fact_zh": "不是這樣。那裡還是可能發生大地震。規模每增加 1，放出的能量大約多 32 倍，小地震沒辦法把力全部用掉。"
+            }
+          ],
+          "tricks": [
+            {
+              "title_en": "Two plates, one island",
+              "title_zh": "兩塊板塊，一座島",
+              "body_en": "The Philippine Sea Plate pushes against the Eurasian Plate.",
+              "body_zh": "菲律賓海板塊推著歐亞板塊。"
+            },
+            {
+              "title_en": "Stuck, bend, slip",
+              "title_zh": "卡住、壓彎、滑動",
+              "body_en": "The rock stores force, then lets it go all at once.",
+              "body_zh": "岩層把力存起來，再一次放掉。"
+            },
+            {
+              "title_en": "P first, then S",
+              "title_zh": "P 波先到，S 波後到",
+              "body_en": "The first wave is the gentle one. The strong one follows.",
+              "body_zh": "先到的搖得輕，後到的搖得重。"
+            },
+            {
+              "title_en": "Drop, cover, hold on",
+              "title_zh": "趴下、掩護、穩住",
+              "body_en": "Do not wait to see how big it is.",
+              "body_zh": "不要等著看它有多大。"
+            }
+          ],
+          "safety_head": {
+            "eyebrow": "Be Ready · 防災要點",
+            "en": "What to do when the ground shakes",
+            "zh": "地震來了怎麼辦",
+            "src": "National Fire Agency, Fire Prevention and Disaster Education Hall",
+            "url": "https://www.tfdp.com.tw/cht/index.php?code=list&flag=detail&ids=52&article_id=123",
+            "src_en": "These points follow Taiwan's official guidance:",
+            "src_zh": "以上要點依內政部消防署「消防防災館」與中央氣象署「地震百問」的官方說明。"
+          },
+          "safety": [
+            {
+              "en": "The most important thing is to protect your head and neck. At once, drop down, take cover, and hold on.",
+              "zh": "最重要的是保護頭部和頸部。馬上趴下、掩護、穩住。"
+            },
+            {
+              "en": "Get under a strong table and hold on to its leg. If the table moves, move with it.",
+              "zh": "躲到堅固的桌子底下，握住桌腳。桌子移動的話，人跟著桌子一起移動。"
+            },
+            {
+              "en": "If you shelter beside a pillar or in a corner instead, watch out for furniture, lights, bookcases, and anything else that could fall.",
+              "zh": "如果是躲在柱子旁邊或牆角，要小心家具、燈具、書櫃和其他可能掉下來的東西。"
+            },
+            {
+              "en": "Stay away from sea walls, riverbanks, and cliffs. If you live near the coast, move to high ground in case of a tsunami.",
+              "zh": "遠離海堤、河堤和山崖。住在海邊的人要往高處移動，以防海嘯。"
+            }
+          ],
+          "activities": [
+            {
+              "title_en": "Stick and Slip",
+              "title_zh": "卡住，然後滑動",
+              "materials": [
+                {
+                  "en": "A heavy book, a long rubber band, and a paper clip or string to hook the band to the book",
+                  "zh": "一本厚重的書、一條長橡皮筋，還有把橡皮筋勾在書上的迴紋針或線"
+                },
+                {
+                  "en": "A rough table or a sheet of sandpaper, and a ruler",
+                  "zh": "粗糙的桌面或一張砂紙，還有一把尺"
+                }
+              ],
+              "steps": [
+                {
+                  "en": "Put the book on the rough surface and hook the rubber band to it.",
+                  "zh": "把書放在粗糙的面上，橡皮筋勾在書上。"
+                },
+                {
+                  "en": "Pull the free end of the rubber band very slowly and steadily. Watch the band stretch while the book stays still.",
+                  "zh": "非常慢、非常穩地拉橡皮筋的另一頭。看橡皮筋越拉越長，書卻沒有動。"
+                },
+                {
+                  "en": "Keep pulling until the book suddenly jumps. Measure how far it moved, then keep going and count the jumps.",
+                  "zh": "繼續拉，直到書突然往前一跳。量量看它移動了多遠，再繼續拉，數一數跳了幾次。"
+                },
+                {
+                  "en": "Put a second book on top and try again. Are the jumps bigger or smaller? Do they come more often or less often?",
+                  "zh": "上面再疊一本書，重做一次。每次跳得比較遠還是比較近？跳得比較常還是比較少？"
+                }
+              ],
+              "tip_en": "Your hand is the plate, the rubber band is the bending rock, and the jump is the earthquake. Could you tell exactly when each jump would happen?",
+              "tip_zh": "你的手是板塊，橡皮筋是被壓彎的岩層，書跳的那一下就是地震。你有辦法準確說出每一次什麼時候跳嗎？"
+            },
+            {
+              "title_en": "The Human Wave",
+              "title_zh": "人體地震波",
+              "materials": [
+                {
+                  "en": "Eight or more students standing in a line, each with hands on the shoulders of the person in front",
+                  "zh": "八位以上的同學排成一排，每個人把手搭在前面同學的肩膀上"
+                },
+                {
+                  "en": "A timer, and a desk for each student to practice under afterward",
+                  "zh": "計時器；之後每人還需要一張可以躲的桌子"
+                }
+              ],
+              "steps": [
+                {
+                  "en": "P wave: the last student gently pushes forward and pulls back. Watch the push travel down the line.",
+                  "zh": "P 波：最後一位同學輕輕往前推、再拉回來。看這一下怎麼沿著隊伍傳下去。"
+                },
+                {
+                  "en": "S wave: the last student sways gently from side to side. Watch the sway travel down the line.",
+                  "zh": "S 波：最後一位同學輕輕左右搖。看搖晃怎麼沿著隊伍傳下去。"
+                },
+                {
+                  "en": "Time both waves from one end to the other. Which one was faster?",
+                  "zh": "兩種波都從頭計時到尾。哪一種比較快？"
+                },
+                {
+                  "en": "Now the drill. When the teacher calls “Alert!”, everyone has ten seconds to drop, take cover under a desk, and hold on.",
+                  "zh": "接著演練。老師喊「警報！」的時候，每個人有十秒鐘趴下、躲到桌子底下掩護、穩住。"
+                }
+              ],
+              "tip_en": "Push and sway gently, and keep your feet still. In the ground, the push wave really is the faster one, so your line of students should show the same thing.",
+              "tip_zh": "推和搖都要輕輕的，腳不要移動。在地底下，「推」的那種波確實跑得比較快，你們的隊伍應該也會看到一樣的結果。"
+            }
+          ],
+          "sources": [
+            {
+              "en": "Taiwan records about 40,000 earthquakes in an ordinary year, about 1,000 of them felt; the record of 49,928 in 1999",
+              "zh": "臺灣常態年均測報約 40,000 次地震，其中有感約 1,000 次；1999 年 49,928 次為歷史最大值",
+              "src": "中央氣象署 地震百問 54",
+              "url": "https://scweb.cwa.gov.tw/zh-TW/Guidance/FAQdetail/55"
+            },
+            {
+              "en": "Taiwan lies on the boundary of the Eurasian Plate and the Philippine Sea Plate; the Philippine Sea Plate pushes northwest at about 7 to 8 centimeters a year; why the east has the most earthquakes",
+              "zh": "臺灣位在歐亞板塊與菲律賓海板塊交界；菲律賓海板塊每年約 7 至 8 公分向西北擠壓；東部地震最多的原因",
+              "src": "中央氣象署 地震百問 56",
+              "url": "https://scweb.cwa.gov.tw/zh-TW/Guidance/FAQdetail/57"
+            },
+            {
+              "en": "Plate tectonics: the lithosphere is divided into plates that move a few centimeters a year relative to one another; most earthquakes happen where plates meet",
+              "zh": "板塊構造：岩石圈分成數個板塊，彼此每年以數公分的相對速度移動；大部分地震發生在板塊交界",
+              "src": "中央氣象署 地震百問 51",
+              "url": "https://scweb.cwa.gov.tw/zh-TW/Guidance/FAQdetail/52"
+            },
+            {
+              "en": "Elastic rebound theory (Harry Fielding Reid): stress builds and the rock deforms, the rock breaks and slips, and the energy is released as it springs back",
+              "zh": "彈性回彈理論（李德）：應力累積、岩層變形，超過極限時破裂位移，回彈時釋放能量",
+              "src": "中央氣象署 地震百問 10",
+              "url": "https://scweb.cwa.gov.tw/zh-TW/Guidance/FAQdetail/10"
+            },
+            {
+              "en": "Reid studied ground movement along the San Andreas Fault in the 50 years before the 1906 San Francisco earthquake",
+              "zh": "李德研究 1906 年舊金山大地震前 50 年聖安地列斯斷層沿線的地表位移",
+              "src": "Wikipedia, “Elastic-rebound theory”",
+              "url": "https://en.wikipedia.org/wiki/Elastic-rebound_theory"
+            },
+            {
+              "en": "P waves are the fastest and arrive first; S waves are next and usually more destructive",
+              "zh": "P 波速度最快、最先抵達；S 波次之，破壞力通常大於 P 波",
+              "src": "中央氣象署 地震百問 21",
+              "url": "https://scweb.cwa.gov.tw/zh-TW/Guidance/FAQdetail/21"
+            },
+            {
+              "en": "Typical P wave speeds in earthquakes are 5 to 8 km/s; P waves travel about 1.7 times as fast as S waves (basis for the example speeds of 7 and 4 km/s)",
+              "zh": "地震 P 波速度一般為每秒 5 至 8 公里；P 波約為 S 波的 1.7 倍（示例取 7 與 4 km/s 的依據）",
+              "src": "Wikipedia, “P wave” and “Earthquake”",
+              "url": "https://en.wikipedia.org/wiki/P_wave"
+            },
+            {
+              "en": "Earthquake early warning: about 15 to 20 seconds to work out the location and 1 to 2 seconds to send it; several to tens of seconds of warning beyond 100 km; the 2016 Meinong earthquake (12 seconds, and 49 seconds of warning for Taipei)",
+              "zh": "強震即時警報：約 15 至 20 秒算出震央、1 至 2 秒對外通報；100 公里以外有數秒至數十秒預警；2016 年美濃地震（12 秒算出，台北有 49 秒）",
+              "src": "中央氣象署 地震百問 84",
+              "url": "https://scweb.cwa.gov.tw/zh-TW/Guidance/FAQdetail/98"
+            },
+            {
+              "en": "Why earthquakes in the west do more damage: shallow, under land, and in crowded areas",
+              "zh": "西部地震災害較嚴重的原因：震源淺、多在陸地、人口密集",
+              "src": "中央氣象署 地震百問 57",
+              "url": "https://scweb.cwa.gov.tw/zh-TW/Guidance/FAQdetail/58"
+            },
+            {
+              "en": "The time, place, and size of an earthquake cannot yet be predicted accurately",
+              "zh": "目前尚無法以科學方式準確預測地震發生的時間、位置及規模",
+              "src": "中央氣象署 地震百問 82",
+              "url": "https://scweb.cwa.gov.tw/zh-TW/Guidance/FAQdetail/96"
+            },
+            {
+              "en": "No evidence links earthquakes to weather or seasons; “earthquake clouds” are ordinary clouds",
+              "zh": "沒有證據顯示地震與天氣或季節有關；「地震雲」是常見的雲",
+              "src": "中央氣象署 地震百問 55",
+              "url": "https://scweb.cwa.gov.tw/zh-TW/Guidance/FAQdetail/56"
+            },
+            {
+              "en": "A place with frequent small earthquakes can still have a large one",
+              "zh": "常有微小地震的地方仍可能發生大地震",
+              "src": "中央氣象署 地震百問 78",
+              "url": "https://scweb.cwa.gov.tw/zh-TW/Guidance/FAQdetail/92"
+            },
+            {
+              "en": "Each step of 1 in magnitude is about 32 times the energy; a step of 2 is about 1,000 times",
+              "zh": "規模每增加 1，能量約 32 倍；增加 2，約 1,000 倍",
+              "src": "中央氣象署 地震百問 29",
+              "url": "https://scweb.cwa.gov.tw/zh-TW/Guidance/FAQdetail/30"
+            },
+            {
+              "en": "The Chi-Chi earthquake: September 21, 1999, 1:47 a.m.; Chelungpu Fault; a surface rupture about 100 km long; up to 7 m of horizontal and 4 m of vertical movement",
+              "zh": "集集大地震：1999 年 9 月 21 日 1 時 47 分；車籠埔斷層；地表破裂帶長約 100 公里；水平位移最大 7 公尺、垂直最大 4 公尺",
+              "src": "中央氣象署 地震百問 70",
+              "url": "https://scweb.cwa.gov.tw/zh-TW/Guidance/FAQdetail/71"
+            },
+            {
+              "en": "September 21 is National Disaster Prevention Day; a drill message is sent to mobile phones that morning",
+              "zh": "9 月 21 日為國家防災日；當天上午對手機發送演練訊息",
+              "src": "Wikipedia, “1999 Jiji earthquake”",
+              "url": "https://en.wikipedia.org/wiki/1999_Jiji_earthquake"
+            },
+            {
+              "en": "The belt of earthquakes around the Pacific and the places it passes through",
+              "zh": "環太平洋地震帶與它經過的地方",
+              "src": "中央氣象署 地震百問 52",
+              "url": "https://scweb.cwa.gov.tw/zh-TW/Guidance/FAQdetail/53"
+            },
+            {
+              "en": "About 90% of the world's earthquakes occur along the Ring of Fire",
+              "zh": "全世界約 90% 的地震發生在環太平洋火環上",
+              "src": "Wikipedia, “Ring of Fire” (citing the USGS)",
+              "url": "https://en.wikipedia.org/wiki/Ring_of_Fire"
+            },
+            {
+              "en": "Protect your head and neck; drop, cover, and hold on; hold the table leg and move with the table; watch for furniture, lights, and bookcases",
+              "zh": "保護頭部、頸部；趴下、掩護、穩住；握住桌腳、隨桌子移動；小心家具、燈具、書櫃",
+              "src": "內政部消防署 消防防災館「地震了！該怎麼辦？」",
+              "url": "https://www.tfdp.com.tw/cht/index.php?code=list&flag=detail&ids=52&article_id=123"
+            },
+            {
+              "en": "Do not shelter near riverbanks, sea walls, or cliffs; coastal residents should move to high ground",
+              "zh": "不可躲在河、海堤或山崖附近；沿海居民應疏遷至高地以防海嘯",
+              "src": "中央氣象署 地震百問 96",
+              "url": "https://scweb.cwa.gov.tw/zh-TW/Guidance/FAQdetail/110"
+            }
+          ]
+        }
+      ],
+      "planned": [
+        {
+          "n": 1,
+          "icon": "🌍",
+          "en": "What Is Inside the Earth?",
+          "zh": "地球裡面有什麼？"
+        },
+        {
+          "n": 3,
+          "icon": "📈",
+          "en": "What Is the Difference Between Magnitude and Intensity?",
+          "zh": "規模和震度有什麼不同？"
+        },
+        {
+          "n": 4,
+          "icon": "⛰️",
+          "en": "How Did Taiwan's Mountains Rise?",
+          "zh": "台灣的山是怎麼來的？"
+        },
+        {
+          "n": 5,
+          "icon": "🌋",
+          "en": "How Does a Volcano Erupt?",
+          "zh": "火山怎麼噴發？"
+        }
+      ]
+    },
+    {
+      "key": "sky",
+      "title_en": "The Sky Above",
+      "title_zh": "頭上的天",
+      "blurb_en": "Where rain and wind come from, how a typhoon grows, what lightning is, and how a forecast is made.",
+      "blurb_zh": "雨和風是從哪裡來的、颱風怎麼長大、閃電是什麼，以及天氣預報是怎麼做出來的。",
+      "lessons": [],
+      "planned": [
+        {
+          "n": 6,
+          "icon": "🌧️",
+          "en": "Why Does It Rain?",
+          "zh": "為什麼會下雨？"
+        },
+        {
+          "n": 7,
+          "icon": "🌬️",
+          "en": "Why Does the Wind Blow?",
+          "zh": "風是怎麼來的？"
+        },
+        {
+          "n": 8,
+          "icon": "🌀",
+          "en": "How Does a Typhoon Form?",
+          "zh": "颱風是怎麼形成的？"
+        },
+        {
+          "n": 9,
+          "icon": "⚡",
+          "en": "What Are Lightning and Thunder?",
+          "zh": "閃電和打雷是怎麼回事？"
+        },
+        {
+          "n": 10,
+          "icon": "🛰️",
+          "en": "How Do We Forecast the Weather?",
+          "zh": "天氣預報是怎麼做出來的？"
+        }
+      ]
+    },
+    {
+      "key": "water",
+      "title_en": "Water and the Sea",
+      "title_zh": "水與海",
+      "blurb_en": "How rivers carry mountains to the sea, what makes a tsunami different, and why the sea is salty.",
+      "blurb_zh": "河流怎麼把山搬到海裡、海嘯哪裡不一樣，以及海水為什麼是鹹的。",
+      "lessons": [],
+      "planned": [
+        {
+          "n": 11,
+          "icon": "🏞️",
+          "en": "How Do Rivers Shape the Land?",
+          "zh": "河流怎麼改變大地？"
+        },
+        {
+          "n": 12,
+          "icon": "🌊",
+          "en": "How Is a Tsunami Different from an Ordinary Wave?",
+          "zh": "海嘯和一般的海浪有什麼不同？"
+        },
+        {
+          "n": 13,
+          "icon": "🧂",
+          "en": "Why Is the Sea Salty?",
+          "zh": "海水為什麼是鹹的？"
+        }
+      ]
+    },
+    {
+      "key": "changing",
+      "title_en": "A Changing Earth",
+      "title_zh": "變動中的地球",
+      "blurb_en": "How fossils form, how we know the age of the Earth, and what the greenhouse effect is.",
+      "blurb_zh": "化石是怎麼形成的、我們怎麼知道地球幾歲，以及溫室效應是什麼。",
+      "lessons": [],
+      "planned": [
+        {
+          "n": 14,
+          "icon": "🦴",
+          "en": "How Do Fossils Form?",
+          "zh": "化石是怎麼形成的？"
+        },
+        {
+          "n": 15,
+          "icon": "⏳",
+          "en": "How Do We Know How Old the Earth Is?",
+          "zh": "我們怎麼知道地球幾歲？"
+        },
+        {
+          "n": 16,
+          "icon": "🌡️",
+          "en": "What Is the Greenhouse Effect?",
+          "zh": "溫室效應是什麼？"
+        }
+      ]
+    }
+  ]
+}

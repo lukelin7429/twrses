@@ -386,6 +386,20 @@
 
 ---
 
+## 地球與天氣 Earth and Weather（/resources/classes/earth/）— 架構照晶片與半導體，加課不用改 build 函式
+
+- 內容：`data/earth.json`：`units[]`（四個單元：腳下的地／頭上的天／水與海／變動中的地球）底下 `lessons[]` 與 `planned[]`（「製作中」卡，做一課就從 planned 移到 lessons）；課次 `n` 全系列連號（1–16），**不是照製作順序**（試作課是第 2 課，課程卡與上下課導覽都照 `n` 排）。課程規劃（每課的 Big idea、3D、鉤子、待查證清單、寫法原則）在 Obsidian：`第二大腦/創作庫/地球與天氣科普課程規劃（twrses）.md`；系列索引 `第二大腦/英文學習/地球與天氣（twrses.org）.md`。
+- 頁面：`build.py` 的 `build_earth_hub()`／`build_earth_lesson()`／`_earth_head()`／`_earth_nav()`。樣式載三個檔：`astro.css`（面板）、`chips.css`（卡片、數字、小工具外框的 `cp-*` 類別，直接沿用）、`earth.css`（本系列多出來的，**前綴 `ew-`**；`ea-` 已被人體探索的耳朵用掉）。
+- **和晶片系列不同：加課只要登記三個表**——`_EARTH_JS`（`lab.kind` → bundle）、`_EARTH_LAB`（`lab.kind` → 3D 面板的 render 函式）、`_EARTH_ICON`（`lesson.card` → 課程卡小圖示）；頁面小工具登記在 `_EARTH_WIDGETS`（`[(JSON 的 key, render 函式)]`）。口訣標題（`tricks_head`）、安全提醒標題（`safety_head`，可帶 `src`／`url`／`src_en`／`src_zh` 註明照哪個官方單位）、查證年月（`checked`）都寫在 JSON。`links` 可放 `soon: true` 的預告卡（沒有 href，虛線框「製作中」）。
+- 3D：原始碼在 `tools/earth/src/`（自己的 `package.json`，three 0.186.1＋esbuild；`common.js` 從 chips 抄來，不要 import 別的 tools 資料夾）。`cd tools/earth && npm ci && npm run build && npm test`。新入口要加進 `package.json` 的 build 與 test。bundle 名 `earth-*`。
+- 錄音：`python3 tools/gen_audio.py --page resources/classes/earth/<slug> --out audio/say-<slug>` → `python3 tools/upload_say_dir.py assets/data/say/earth-<slug>.json audio/say-<slug>`（`gen_audio.py` 的 `SHORT_PAGES` 已加 `resources/classes/earth`）。
+- **寫法原則**：數字首選中央氣象署（地震百問是靜態頁，`https://scweb.cwa.gov.tw/zh-TW/Guidance/FAQdetail/<id>`，id 和題號不完全一樣，出處連結用 id）、消防署消防防災館（`tfdp.com.tw`）；查不到或兩個官方說法不同就不寫。防災要點只照官方。不寫傷亡數字。示例數字在比例說明標明。
+- 第二課地震（`earth-quake.js`，`lab.kind = "quake"`，`data-earthquake-lab`，CSS `ew-qk-`／小工具 `ew-wn-`；單元一，slug `taiwan-earthquakes`；**試作課**）：一個機制——板塊一直推、斷層卡住，岩層被壓彎存力；撐不住就突然滑動（彈性回彈），波往外傳（P 快先到、S 慢搖得大）。
+  - 模型：剖開的地殼，斜的逆斷層（傾角 30°）。左邊（歐亞板塊側）不動；右邊是可變形的格點面（`slab()`：正面有地層顏色的 `PlaneGeometry`＋頂面），位移 `dispOf()`＝靠斷層那端沿斷層滑 `S`、最右端被推 `P`、中間隆起跟 `q = P − S` 成正比，地層顏色隨應變變紅。時間用「年」走（`YEARS_PER_S`），到 `MODES[mode].years` 就滑動並進入 `quake` 階段：慢動作 `QUAKE_S` 秒，P、S 兩個圈在地表擴散（`KM`＝1 單位當 10 公里、`WAVE_X` 倍慢動作），兩間房子在波到時晃動。跑完 `END_YEARS`（320 年）停住，播放鈕變「再跑一次」。相機方位角限制在 ±0.7（背面沒有畫）。
+  - 數字：每年 7.5 公分是氣象署「7 至 8 公分」的中間值；**40／160 年的週期、3／12 公尺的滑動量是示例**（比例說明寫明：真的斷層不規律、板塊移動由很多斷層分擔、彎曲與滑動畫大了幾百倍）。`quakecalc.js` 的 `cycle()`、`stored()`、`warning()`、`blindKm()` 有測試；測試用氣象署的美濃地震例子（12 秒算出、台北 49 秒）核對示例波速的量級。測試用 `__lab.run(秒)`、`restart()`、`nearSlip()`。
+  - 頁面下方「你有幾秒鐘？」（`warn`、`_earth_warn`、`initWarn`）：距離滑桿 → P 到、警報發出、S 到的時間軸與預警秒數；示例 P 7、S 4 km/s，警報 19 秒（氣象署：15–20 秒算出＋1–2 秒通報）；約 76 公里內是盲區。
+  - 查證過（2026-10）：地震百問 10（彈性回彈、李德）、21（P、S 波）、29（規模差 1 能量約 32 倍）、51（板塊）、52（環太平洋地震帶）、54（年均約 40,000 次、有感約 1,000 次、1999 年 49,928 次）、55（與天氣無關、地震雲）、56（菲律賓海板塊每年 7–8 公分向西北、東部最多）、57（西部災害較重）、70（集集：1999-09-21 01:47、車籠埔斷層、破裂帶約 100 公里、水平最大 7 m、垂直最大 4 m）、78（常有小地震仍可能有大地震）、82（無法預測）、84（強震即時警報）、96（遠離河海堤與山崖、沿海往高處）；消防防災館（保護頭頸、趴下掩護穩住、握桌腳）；維基英文 Elastic-rebound theory（1906、50 年）、P wave／Earthquake（5–8 km/s、約 1.7：1）、Ring of Fire（約 90%）、1999 Jiji earthquake（國家防災日與演練訊息）。**沒寫的**：傷亡數字；地震百問 96 的「奔逃至室外」（和消防署「先趴下掩護穩住」的說法不一致，只寫兩邊都同意的）；「躲牆邊」（兩邊說法也不同）；任何一條斷層的再現週期。
+
 ## 書法 Chinese Calligraphy（/resources/classes/calligraphy/）— 架構照晶片與半導體，3D 改成「寫字引擎」
 
 - 內容：`data/calligraphy.json`：`units[]`（三個單元：文房四寶與基本功／字體的演變／書法家與名作）底下 `lessons[]` 與 `planned[]`（「製作中」卡，做一課就從 planned 移到 lessons）；課次 `n` 全系列連號（1–10）。每課欄位同晶片與半導體，多的：`drops`（「一滴墨在不同的紙上」）、`pad`（練字板：`char` 是筆畫資料的 key、`tips`）、`links` 可放 `soon: true` 的預告卡（沒有 href，畫成虛線框「製作中」）。`lab.focus`（右側欄的看法按鈕與說明）、`lab.virtues`（尖齊圓健）、`lab.phases`（起筆／行筆／收筆的說明，3D 標籤與力道曲線共用）。

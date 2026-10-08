@@ -1415,6 +1415,8 @@ def build_reading_hub():
              "Everyday questions with surprising answers, explained in English with 3D models. 生活裡的科學問題，用英文讀懂，再用 3D 模型看它怎麼運作。"),
             ("/resources/classes/semiconductors/", "💿", "Chips and Semiconductors · 晶片與半導體",
              "What is inside a chip? From sand to silicon to the chips behind AI, in English with 3D models. 晶片裡有什麼？從沙子、矽到 AI 晶片，用英文讀懂，再用 3D 模型看清楚。"),
+            ("/resources/classes/earth/", "🌏", "Earth and Weather · 地球與天氣",
+             "Why does the ground shake, and where does the rain come from? Earthquakes, typhoons, and the land under your feet, in English with 3D models. 地為什麼會搖？雨從哪裡來？用英文讀懂地震、颱風和腳下的土地，再用 3D 模型看清楚。"),
             ("/resources/classes/calligraphy/", "🖌️", "Chinese Calligraphy · 書法",
              "Brush, ink, paper, and inkstone: watch a 3D brush write in slow motion, then write it yourself on the practice pad. 文房四寶與毛筆字：先看 3D 毛筆慢動作寫字，再到練字板上自己寫。"),
             ("/resources/classes/computers/", "💻", "How Computers Work · 電腦概論",
@@ -9258,6 +9260,300 @@ def build_chip_hub():
     return CHIP_BASE
 
 
+# ---- 地球與天氣 Earth and Weather（資料驅動，data/earth.json）----
+# 架構照晶片與半導體：系列首頁分單元（單元導覽＋.lc-row 橫向課程卡），課程頁照天文教育。
+# units[].lessons 是做好的課、units[].planned 是製作中。3D 原始碼在 tools/earth/src/（three.js、esbuild，每課一個入口），
+# 打包成 assets/js/earth-*.js。面板沿用 astro.css，卡片、數字、小工具外框沿用 chips.css 的 cp- 類別（所以本系列頁面也載 chips.css），
+# 本系列多出來的在 earth.css（class 前綴 ew-；ea- 已被人體探索的耳朵用掉）。
+# 和晶片系列不同的地方：每課的 3D 面板、小工具、小圖示都用下面三個表登記，口訣標題、安全提醒標題寫在 JSON，加課不用改 build_earth_lesson。
+_earthj = os.path.join(ROOT, "data", "earth.json")
+EARTH = json.load(open(_earthj, encoding="utf-8")) if os.path.exists(_earthj) else None
+EARTH_BASE = "/resources/classes/earth/"
+_EARTH_JS = {"quake": "earth-quake"}   # lab.kind → assets/js/<bundle>.js
+
+def _earth_ver():
+    h = hashlib.md5()
+    for rel in ("assets/css/astro.css", "assets/css/chips.css", "assets/css/earth.css", *(f"assets/js/{j}.js" for j in _EARTH_JS.values())):
+        fp = os.path.join(ROOT, rel)
+        if os.path.exists(fp): h.update(open(fp, "rb").read())
+    return h.hexdigest()[:8]
+
+def _earth_head(js=None):
+    v = _earth_ver()
+    tag = f'<script defer src="/assets/js/{js}.js?v={v}"></script>\n' if js else ""
+    return (f'<link rel="stylesheet" href="/assets/css/astro.css?v={v}">\n'
+            f'<link rel="stylesheet" href="/assets/css/chips.css?v={v}">\n'
+            f'<link rel="stylesheet" href="/assets/css/earth.css?v={v}">\n{tag}')
+
+def earthglobe_svg(size=56):
+    """地球與天氣的系列小圖示：切開一角的地球（看得到裡面一層一層），右上角一朵雲。"""
+    return (f'<svg class="earthglobe-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">'
+            '<circle cx="28" cy="33" r="22" fill="#2f7bd6"/>'
+            '<path d="M14 24c4-5 10-4 12 0s-2 8-6 9-9-4-6-9zM30 44c3-3 8-2 9 2s-4 7-8 5-3-5-1-7z" fill="#4fb873"/>'
+            '<path d="M28 33 L28 11 A22 22 0 0 1 50 33 Z" fill="#7a4a2a"/>'
+            '<path d="M28 33 L28 16 A17 17 0 0 1 45 33 Z" fill="#e0662a"/>'
+            '<path d="M28 33 L28 22.5 A10.5 10.5 0 0 1 38.5 33 Z" fill="#ffb347"/>'
+            '<path d="M28 33 L28 28 A5 5 0 0 1 33 33 Z" fill="#fff1b8"/>'
+            '<path d="M41 14a5 5 0 0 1 9.6-1.6A4.2 4.2 0 0 1 54 20.5H42.5A3.6 3.6 0 0 1 41 14z" fill="#f4f7fb"/></svg>')
+
+def earthquake_svg(size=56):
+    """第二課的課程卡小圖示：兩塊地殼沿一條斜的斷層錯開，上面是地震儀畫出的波形。"""
+    return (f'<svg class="earthquake-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">'
+            '<path d="M3 34 H28 L38 54 H3 Z" fill="#8a7358"/><path d="M3 34 H28 L30 38 H3 Z" fill="#4f9a5a"/>'
+            '<path d="M31 28 H57 V54 H44 Z" fill="#a58a63"/><path d="M31 28 H57 V32 H33 Z" fill="#4f9a5a"/>'
+            '<path d="M27 32 L41 56" stroke="#ffd36e" stroke-width="2.4" stroke-linecap="round"/>'
+            '<path d="M4 15 H16 L19 9 L23 22 L27 4 L31 24 L35 10 L38 17 H56" fill="none" stroke="#ff5a46" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>')
+
+def render_earthquake_lab(lesson):
+    """第二課：斷層卡住、累積、滑動（彈性回彈）與 P 波、S 波（assets/js/earth-quake.js 綁這裡的 class；全部自繪示意）。"""
+    lab = lesson["lab"]
+    msgs = "".join(f'<p class="cp-msg ew-qk-msg" data-msg="{k}" hidden>{html.escape(m["en"])}<span class="zh">{html.escape(m["zh"])}</span></p>' for k, m in lab["msgs"].items())
+    tg = _lab_toggles([("labels", "Labels", "標示", True)])
+    return f'''<div class="astro-lab cp-lab ew-lab ew-qk-lab rvl" data-earthquake-lab>
+  <div class="al-stage">
+    <div class="al-space">
+      <canvas class="al-space-cv" aria-label="3D cutaway of the Earth's crust: one side is pushed against the other along a sloping fault, the rock bends and stores force, and then it slips and sends out earthquake waves · 剖開的地殼 3D 模型：一側被推向另一側，岩層沿著斜的斷層被壓彎、把力存起來，然後突然滑動、送出地震波"></canvas>
+      <div class="al-labels" aria-hidden="true"></div>
+      <p class="al-hint">Drag to turn · 拖曳旋轉　Scroll or pinch to zoom · 滾輪／雙指縮放</p>
+      <button type="button" class="al-home" title="Reset view · 重設視角" aria-label="Reset view · 重設視角">&#8634;</button>
+      <p class="al-nogl-msg">This 3D model needs WebGL, which this browser does not support. The reading and the cards below still explain everything.<br><span class="zh">這個瀏覽器不支援 WebGL，無法顯示 3D 模型；下方的課文與卡片一樣能看懂。</span></p>
+    </div>
+    <aside class="al-sky cp-aside">
+      <p class="al-sky-k">How tightly is the fault stuck? · 斷層卡得多緊？</p>
+      <div class="cp-dope cp-tr-quick ew-qk-modes" role="group" aria-label="Fault · 斷層">
+        <button type="button" data-mode="easy" aria-pressed="true">Slips easily<small>容易滑動</small></button>
+        <button type="button" data-mode="hard" aria-pressed="false">Stuck hard<small>卡得很緊</small></button>
+      </div>
+      <div class="cp-ht-meter"><p class="ew-qk-k">Force stored in the rock · 岩層裡存的力</p><div class="cp-ht-bar ew-qk-bar"><i></i></div><p class="cp-ht-status ew-qk-status"></p></div>
+      <dl class="cp-nums cp-lt-nums ew-nums">
+        <div><dt>Since the last earthquake · 距離上次地震</dt><dd class="ew-qk-years"></dd></div>
+        <div><dt>Plate movement stored · 累積的板塊移動</dt><dd class="ew-qk-stored"></dd></div>
+        <div><dt>Earthquakes so far · 已經發生幾次</dt><dd class="ew-qk-count"></dd></div>
+        <div><dt>The fault slips · 斷層滑動</dt><dd class="ew-qk-slip"></dd></div>
+      </dl>
+      {msgs}
+    </aside>
+  </div>
+  <div class="al-controls">
+    <div class="al-row al-row-main">
+      <button type="button" class="al-play" aria-pressed="true"><span class="al-play-i" aria-hidden="true"></span><span class="al-play-t">Pause · 暫停</span></button>
+      <div class="al-row al-toggles">{tg}</div>
+    </div>
+  </div>
+  {_lab_foot(lab)}
+  <p class="cp-credit">{lab["credit_html"]}</p>
+</div>'''
+
+def _earth_warn(wn):
+    """「警報響了以後，還有幾秒？」（earth-quake.js 的 initWarn；不需要 WebGL）。"""
+    pre = "".join(f'<button type="button" data-km="{p["km"]}" aria-pressed="false">{html.escape(p["en"])}<small>{html.escape(p["zh"])}</small></button>' for p in wn["places"])
+    return (f'<div class="cp-cnt ew-wn rvl" data-earth-warn>'
+            f'<div class="cp-cnt-in">'
+            f'<label class="cp-cnt-l"><span>How far are you from the earthquake? · 你離地震多遠 <output class="ew-wn-km-out">100 km</output></span>'
+            f'<input type="range" class="al-age ew-wn-km" min="10" max="300" step="10" value="100"></label>'
+            f'<div class="cp-dpw-pre ew-wn-pre" role="group" aria-label="Distance · 距離">{pre}</div>'
+            f'<div class="ew-wn-tl" aria-hidden="true"><i class="ew-wn-gap"></i>'
+            f'<b class="ew-wn-p" data-k="P"></b><b class="ew-wn-a" data-k="&#128241;"></b><b class="ew-wn-s" data-k="S"></b></div>'
+            f'<p class="ew-wn-key"><span><i class="p"></i>P wave arrives · P 波到</span><span><i class="a"></i>Alert sent · 警報發出</span><span><i class="s"></i>S wave arrives · S 波到</span></p>'
+            f'<p class="cp-cnt-note">{html.escape(wn["note_en"])}<span class="zh">{html.escape(wn["note_zh"])}</span></p></div>'
+            f'<div class="cp-home-out cp-cnt-out" aria-live="polite">'
+            f'<p class="cp-home-k">Warning time · 預警時間</p>'
+            f'<p class="cp-home-big"><b class="ew-wn-n">0</b> seconds · 秒</p>'
+            f'<p class="cp-home-note"><span class="ew-wn-en"></span><span class="zh ew-wn-zh"></span></p>'
+            f'</div></div>'
+            '<noscript><p class="muted">The calculator works in your browser and needs JavaScript. · 計算在瀏覽器裡進行，需要開啟 JavaScript。</p></noscript>')
+
+_EARTH_LAB = {"quake": render_earthquake_lab}          # lab.kind → 3D 面板
+_EARTH_ICON = {"quake": earthquake_svg}                 # lesson.card → 課程卡小圖示
+_EARTH_WIDGETS = [("warn", _earth_warn)]               # lesson 裡有這個 key 就多一段（照這裡的順序）
+
+def _earth_flat():
+    return [(ui, u, l) for ui, u in enumerate(EARTH["units"]) for l in u["lessons"]]
+
+def _earth_nav(slug):
+    flat = sorted(_earth_flat(), key=lambda x: x[2]["n"])
+    i = next(n for n, (_, _, l) in enumerate(flat) if l["slug"] == slug)
+    def side(item, dirn, label):
+        if not item:
+            return '<span class="pm-nav-x"></span>'
+        l = item[2]
+        arrow = "&larr;" if dirn == "prev" else "&rarr;"
+        return (f'<a class="pm-nav-s pm-nav-{dirn}" href="{EARTH_BASE}{l["slug"]}/">'
+                f'<span class="pm-nav-k">{arrow} {label}</span>'
+                f'<span class="pm-nav-t">{html.escape(l["title"])}</span></a>')
+    prev = flat[i - 1] if i > 0 else None
+    nxt = flat[i + 1] if i < len(flat) - 1 else None
+    return (f'<nav class="pm-nav rvl">{side(prev, "prev", "上一課 · Previous")}'
+            f'<a class="pm-nav-hub" href="{EARTH_BASE}">&#9776; 回地球與天氣 · All Lessons</a>'
+            f'{side(nxt, "next", "下一課 · Next")}</nav>')
+
+def build_earth_lesson(ui, unit, lesson):
+    path = f'{EARTH_BASE}{lesson["slug"]}/'
+    unit_dict = {k: lesson[k] for k in ("title", "paras", "paras_zh", "questions", "answers", "vocab", "quiz")}
+    unit_dict["unit"] = lesson["n"]
+    reading_html = render_basic_unit(1, unit_dict, level="earth", audio_rel="", pdf_rel="")
+    lab = lesson["lab"]
+    kind = lab["kind"]
+    lab_html = _EARTH_LAB[kind](lesson)
+
+    secs = []
+    for key, fn in _EARTH_WIDGETS:
+        if lesson.get(key):
+            w = lesson[key]
+            secs.append((key, w["eyebrow"], w["en"], w["zh"], fn(w), _bi(w["lead_en"], w["lead_zh"], cls="lead rvl d2")))
+    if lesson.get("parts"):
+        cards = "".join(
+            f'<article class="ph-card cp-part rvl">'
+            f'<div class="ph-ico cp-ico" aria-hidden="true">{pt["icon"]}</div>'
+            f'<h3>{html.escape(pt["en"])}<span class="zh">{html.escape(pt["zh"])}</span></h3>'
+            f'<p class="ph-meta"><span>{html.escape(pt["meta_en"])} · {html.escape(pt["meta_zh"])}</span></p>'
+            f'<p class="ph-when">{html.escape(pt["text_en"])}<br><span class="zh">{html.escape(pt["text_zh"])}</span></p>'
+            f'<button type="button" class="ph-go" data-lab-demo="{pt["demo"]}">Try it in 3D · 在模型中試 <i>&uarr;</i></button>'
+            f'</article>' for pt in lesson["parts"])
+        ph = lesson["parts_head"]
+        secs.append(("parts", ph["eyebrow"], ph["en"], ph["zh"], f'<div class="ph-grid stagger">{cards}</div>',
+                     _bi(lesson["parts_note_en"], lesson["parts_note_zh"], cls="lead rvl d2")))
+    if lesson.get("links"):
+        def link(x):
+            inner = (f'<span class="cp-link-ic" aria-hidden="true">{x["icon"]}</span>'
+                     f'<span class="cp-link-b"><span class="cp-link-k">{html.escape(x["k_en"])} · {html.escape(x["k_zh"])}</span>'
+                     f'<b>{html.escape(x["en"])}</b><span class="zh cp-link-zh">{html.escape(x["zh"])}</span>'
+                     f'<span class="cp-link-n">{html.escape(x["note_en"])}<span class="zh">{html.escape(x["note_zh"])}</span></span>')
+            if x.get("soon"):     # 還沒做的課：預告卡，不是連結
+                return f'<div class="cp-link ew-link-soon rvl">{inner}<span class="cp-link-go">Coming soon · 製作中</span></span></div>'
+            return f'<a class="cp-link rvl" href="{html.escape(x["href"])}">{inner}<span class="cp-link-go">Go to the lesson · 前往這一課 <i>&rarr;</i></span></span></a>'
+        lh = lesson["links_head"]
+        secs.append(("more", lh["eyebrow"], lh["en"], lh["zh"], f'<div class="cp-links">{"".join(link(x) for x in lesson["links"])}</div>', ""))
+    if lesson.get("facts"):
+        fx = lesson["facts"]
+        tiles = "".join(
+            f'<div class="cp-fact rvl"><b class="cp-fact-n">{html.escape(it["big"])}</b>'
+            f'<span class="cp-fact-u">{html.escape(it["unit_en"])} · {html.escape(it["unit_zh"])}</span>'
+            f'<p>{html.escape(it["en"])}<span class="zh">{html.escape(it["zh"])}</span></p></div>'
+            for it in fx["items"])
+        secs.append(("facts", fx["eyebrow"], fx["en"], fx["zh"], f'<div class="cp-facts">{tiles}</div>',
+                     _bi(fx["lead_en"], fx["lead_zh"], cls="lead rvl d2")))
+    if lesson.get("culture_cards"):
+        cu = lesson["culture_cards"]
+        cc = "".join(
+            f'<article class="cc-card rvl"><p class="cc-k">{html.escape(c["k"])}</p>'
+            f'<h3>{html.escape(c["en"])}<span class="zh">{html.escape(c["zh"])}</span></h3>'
+            f'{_bi(c["body_en"], c["body_zh"])}</article>'
+            for c in cu["cards"])
+        secs.append(("stories", cu["eyebrow"], cu["title_en"], cu["title_zh"], f'<div class="cc-grid">{cc}</div>',
+                     _bi(cu["lead_en"], cu["lead_zh"], cls="lead rvl d2")))
+    secs.append(("myths", "Myth vs. Fact · 常見迷思", "Four things people get wrong", "四個常見的誤會", _sci_myths(lesson), ""))
+    th = lesson["tricks_head"]
+    secs.append(("tricks", "Remember It · 記憶口訣", th["en"], th["zh"], _sci_tricks(lesson), ""))
+    if lesson.get("safety"):
+        sh = lesson.get("safety_head") or {"eyebrow": "Safety First · 安全提醒", "en": "Before you try anything", "zh": "動手之前先讀"}
+        items = "".join(f'<li class="rvl">{html.escape(s["en"])}<span class="zh">{html.escape(s["zh"])}</span></li>' for s in lesson["safety"])
+        src = ""
+        if sh.get("src"):      # 防災要點要寫明照哪個官方單位
+            src = (f'<p class="ew-safety-src rvl">{html.escape(sh["src_en"])} <a href="{html.escape(sh["url"])}" target="_blank" rel="noopener">{html.escape(sh["src"])} &#8599;</a>'
+                   f'<span class="zh">{html.escape(sh["src_zh"])}</span></p>')
+        secs.append(("safety", sh["eyebrow"], sh["en"], sh["zh"], f'<ul class="cp-safety">{items}</ul>{src}', ""))
+    for n, act in enumerate(lesson["activities"], 1):
+        eb = "Classroom Activity · 課堂活動" if len(lesson["activities"]) == 1 else f"Classroom Activity {n} · 課堂活動{_astro_cn(n)}"
+        secs.append((f"activity{'' if n == 1 else n}", eb, act["title_en"], act["title_zh"], _astro_activity(act), ""))
+    sec_html = "\n".join(_astro_sec(sid, k % 2 == 1, eb, en, zh, inner, lead)
+                         for k, (sid, eb, en, zh, inner, lead) in enumerate(secs))
+    rows = "".join(
+        f'<li><span>{html.escape(s["en"])}<span class="zh">{html.escape(s["zh"])}</span></span>'
+        f'<a href="{html.escape(s["url"])}" target="_blank" rel="noopener">{html.escape(s["src"])} &#8599;</a></li>'
+        for s in lesson["sources"])
+    ck = lesson["checked"]
+    src_html = (f'<div class="cp-sources rvl"><p class="sub-head">Sources · 資料出處</p>'
+                f'<p class="muted">Facts and numbers on this page were checked against these sources ({html.escape(ck["en"])}). · 本頁的事實與數字依下列資料查證（{html.escape(ck["zh"])}）。</p>'
+                f'<ol>{rows}</ol></div>')
+
+    eyebrow = (f'Earth and Weather · Unit {ui + 1} · Lesson {lesson["n"]} · '
+               f'地球與天氣 單元{_htw_cn(ui + 1)} 第{_htw_cn(lesson["n"])}課')
+    lead = f'{html.escape(lesson["blurb_en"])}<br><span class="muted">{html.escape(lesson["blurb_zh"])}</span>'
+    body = f'''
+{page_hero(eyebrow, f'{html.escape(lesson["title"])}<span class="h1-zh">{html.escape(lesson["title_zh"])}</span>', lead, back=(EARTH_BASE, "回地球與天氣 · All Lessons"))}
+<section class="section astro-lab-sec" id="model"><div class="wrap">
+  <div class="big-idea rvl"><span class="big-idea-k">Big idea · 一句話看懂</span>{_bi(lesson["big_idea_en"], lesson["big_idea_zh"])}</div>
+  <p class="eyebrow rvl">{html.escape(lab["eyebrow"])}</p>
+  <h2 class="rvl d1 sweep">{html.escape(lab["title_en"])} <span class="tp-h2-en">{html.escape(lab["title_zh"])}</span></h2>
+  {_bi(lab["how_en"], lab["how_zh"], cls="lead rvl d2 al-how")}
+  {lab_html}
+</div></section>
+<section class="section band" id="reading"><div class="wrap" style="max-width:940px">
+  <p class="eyebrow rvl">Reading · 英文閱讀</p>
+  {reading_html}
+</div></section>
+{sec_html}
+<section class="section"><div class="wrap">
+{src_html}
+{_earth_nav(lesson["slug"])}
+</div></section>
+'''
+    say_slug = f'earth-{lesson["slug"]}'   # tools/gen_audio.py 以路徑末兩段命名
+    has_clips = os.path.exists(os.path.join(ROOT, "assets/data/say", say_slug + ".json"))
+    write(path, layout(path, f'{lesson["title"]} · {lesson["title_zh"]}',
+          f'{lesson["blurb_en"]} {lesson["blurb_zh"]}', body, "resources",
+          say_manifest=say_slug if has_clips else None, extra_head=_earth_head(_EARTH_JS[kind])))
+    return path
+
+def build_earth_hub():
+    # 照晶片與半導體：單元導覽＋每個單元一段橫向課程卡；做好的課可點，planned 是「製作中」卡。
+    unit_sections, nav = [], []
+    done = sum(len(u["lessons"]) for u in EARTH["units"])
+    total = done + sum(len(u.get("planned", [])) for u in EARTH["units"])
+    for idx, u in enumerate(EARTH["units"]):
+        rows = []
+        for l in u["lessons"]:
+            ic = _EARTH_ICON[l["card"]](60) if l.get("card") in _EARTH_ICON else l["icon"]
+            rows.append((l["n"],
+                f'<a class="lc-row rvl" href="{EARTH_BASE}{l["slug"]}/">'
+                f'<span class="lc-ico" aria-hidden="true">{ic}</span>'
+                f'<span class="lc-body">'
+                f'<span class="lc-meta"><b>Lesson {l["n"]} · 第{_htw_cn(l["n"])}課</b><i>{html.escape(l["level"])}</i></span>'
+                f'<h3 class="lc-title">{html.escape(l["title"])}</h3>'
+                f'<span class="lc-zh">{html.escape(l["title_zh"])}</span>'
+                f'<span class="lc-bl">{html.escape(l["blurb_en"])}</span>'
+                f'<span class="lc-bl zh">{html.escape(l["blurb_zh"])}</span>'
+                f'<span class="lc-go">Start the lesson · 開始上課 <i>&rarr;</i></span>'
+                f'</span></a>'))
+        for pl in u.get("planned", []):
+            rows.append((pl["n"],
+                f'<div class="lc-row lc-soon rvl">'
+                f'<span class="lc-ico" aria-hidden="true">{pl["icon"]}</span>'
+                f'<span class="lc-body"><span class="lc-meta"><b>Lesson {pl["n"]} · 第{_htw_cn(pl["n"])}課 · Coming soon 製作中</b></span>'
+                f'<h3 class="lc-title">{html.escape(pl["en"])}</h3><span class="lc-zh">{html.escape(pl["zh"])}</span></span></div>'))
+        rows.sort(key=lambda r: r[0])
+        band = " band" if idx % 2 == 0 else ""
+        uid = f"unit-{idx + 1}"
+        nav.append(f'<a class="unit-nav-link" href="#{uid}"><b>{idx + 1}</b><span>{html.escape(u["title_zh"])}</span></a>')
+        unit_sections.append(
+            f'<section class="section lc-unit{band}" id="{uid}"><div class="wrap">'
+            f'<p class="eyebrow rvl">Unit {idx + 1} · 單元{_htw_cn(idx + 1)}</p>'
+            f'<h2 class="rvl d1 sweep">{html.escape(u["title_en"])} <span class="tp-h2-en">{html.escape(u["title_zh"])}</span></h2>'
+            f'<p class="lead rvl d2" style="max-width:62ch">{html.escape(u["blurb_en"])}<br>'
+            f'<span class="muted">{html.escape(u["blurb_zh"])}</span></p>'
+            f'<div class="lc-list">{"".join(r[1] for r in rows)}</div>'
+            f'</div></section>')
+    unit_nav = (f'<nav class="unit-nav" aria-label="Jump to unit · 單元導覽"><div class="wrap">'
+                f'<span class="unit-nav-label">Jump to unit · 跳到單元</span>'
+                f'<div class="unit-nav-track">{"".join(nav)}</div></div></nav>')
+    intro_html = "".join(_bi(p["en"], p["zh"]) for p in EARTH["intro"])
+    intro_html += _bi(f"{done} of {total} lessons {'is' if done == 1 else 'are'} ready so far; more are on the way.",
+                      f"目前完成 {done} 課（共規劃 {total} 課），持續增加中。", cls="cp-progress")
+    lead = f'{html.escape(EARTH["lead_en"])}<br><span class="muted">{html.escape(EARTH["lead_zh"])}</span>'
+    body = f'''
+{page_hero(EARTH["eyebrow"], f'{EARTH["title_en"]} <span class="h1-zh">{EARTH["title_zh"]}</span>', lead, back=("/resources/reading/", "回閱讀與經典"))}
+<section class="section"><div class="wrap">
+  <div class="prose wide rvl cp-intro"><span class="cp-intro-ic" aria-hidden="true">{earthglobe_svg(76)}</span>{intro_html}</div>
+</div></section>
+{unit_nav}
+{"".join(unit_sections)}
+'''
+    write(EARTH_BASE, layout(EARTH_BASE, f'{EARTH["title_en"]} · {EARTH["title_zh"]}',
+          f'{EARTH["lead_en"]} {EARTH["lead_zh"]}', body, "resources", extra_head=_earth_head() + _lc_head()))
+    return EARTH_BASE
+
+
 # ---- 書法 Chinese Calligraphy（資料驅動，data/calligraphy.json）----
 # 架構照晶片與半導體：系列首頁分單元（單元導覽＋.lc-row 橫向課程卡），課程頁照天文教育
 # （英文 reading＋每課一個 3D 毛筆示範＋延伸段落）。units[].lessons 是做好的課、units[].planned 是製作中。
@@ -13381,6 +13677,10 @@ def main():
         paths.append(build_chip_hub())
         for _ui, _u in enumerate(CHIP["units"]):
             for _l in _u["lessons"]: paths.append(build_chip_lesson(_ui, _u, _l))
+    if EARTH:
+        paths.append(build_earth_hub())
+        for _ui, _u in enumerate(EARTH["units"]):
+            for _l in _u["lessons"]: paths.append(build_earth_lesson(_ui, _u, _l))
     if CAL:
         paths.append(build_cal_hub())
         for _ui, _u in enumerate(CAL["units"]):
