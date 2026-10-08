@@ -55,6 +55,34 @@
 .ew-dg-t { text-align: right; font-variant-numeric: tabular-nums; }
 @media (max-width: 560px) { .ew-dg-rides, .ew-in-stops { grid-template-columns: repeat(2, minmax(0, 1fr)); } .ew-dg-row { grid-template-columns: 4.6rem minmax(0, 1fr) 5.6rem; } }
 
+/* ---------- 第三課：規模和震度有什麼不同？ ---------- */
+@media (min-width: 1021px) { .ew-sk-lab .al-space { min-height: 720px; } }
+.ew-sk-epis { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.ew-sk-msg[hidden] { display: none; }
+.ew-sk-nums { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.ew-sk-list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .3rem .6rem; }
+.ew-sk-list li { display: flex; align-items: center; justify-content: space-between; gap: .4rem; padding: .28rem .5rem; border-radius: 9px; border: 1px solid var(--al-line); font-size: .78rem; font-weight: 700; color: var(--al-text); }
+.ew-sk-list small { margin-left: .35rem; font-family: var(--zh); font-weight: 500; color: var(--al-mute); }
+.ew-sk-list b { min-width: 2.5rem; padding: .08rem .35rem; border-radius: 6px; text-align: center; color: #0b1226; font-family: var(--zh); font-size: .8rem; }
+.al-lab.ew-sk-lb-city { font-size: .74rem; padding: .12rem .45rem; }
+.al-lab.ew-sk-lb-epi { color: #0b1226; background: #fff; border-color: #fff; font-weight: 800; }
+.al-lab.ew-sk-lb-epi small { color: #33415f; }
+.al-lg-ewskcol i { border: 0; height: 11px; margin-top: .3rem; border-radius: 2px; background: linear-gradient(90deg, #cfe8ff, #7cf29a, #ffe27a, #ff8a2a, #d8251a, #a0126a); }
+.al-lg-ewskring i { border: 2px solid #ffe27a; border-radius: 50%; width: 12px; height: 12px; margin: .25rem 6px 0; background: transparent; }
+.al-lg-ewskhypo i { border: 0; border-radius: 50%; width: 10px; height: 10px; margin: .35rem 6px 0; background: #ff5a46; }
+/* 頁面小工具：震度分級表 */
+.ew-sc-lv { display: grid; grid-template-columns: repeat(10, minmax(0, 1fr)); gap: .3rem; margin-bottom: 1rem; }
+.ew-sc-lv button { padding: .5rem 0; border-radius: 10px; border: 2px solid transparent; background: var(--c); color: #0b1226; font: 800 .82rem var(--zh); cursor: pointer; }
+.ew-sc-lv button:nth-child(n+9) { color: #fff; }
+.ew-sc-lv button[aria-pressed="true"] { border-color: var(--ink); box-shadow: 0 0 0 2px #fff inset; transform: translateY(-2px); }
+.ew-sc-row { padding: .6rem 0; border-top: 1px solid var(--line); }
+.ew-sc-k { margin: 0 0 .2rem; font-size: .74rem; font-weight: 800; letter-spacing: .05em; text-transform: uppercase; color: var(--brand); }
+.ew-sc-t { margin: 0; font-size: .95rem; color: var(--ink); }
+.ew-sc-t .zh { display: block; color: var(--ink-soft); font-size: .9rem; }
+.ew-sc .cp-home-big b { font-size: clamp(2.6rem, 6vw, 3.6rem); }
+.ew-sc-zh { display: block; margin-top: .3rem; font-family: var(--zh); }
+@media (max-width: 560px) { .ew-sc-lv { grid-template-columns: repeat(5, minmax(0, 1fr)); } .ew-sk-list { grid-template-columns: 1fr 1fr; } }
+
 /* ---------- 全系列共用 ---------- */
 .cp-link.ew-link-soon { border-style: dashed; opacity: .78; cursor: default; }
 .ew-safety-src { margin: 1rem 0 0; font-size: .86rem; color: var(--ink-soft); }

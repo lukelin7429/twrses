@@ -9412,7 +9412,7 @@ def build_chip_hub():
 _earthj = os.path.join(ROOT, "data", "earth.json")
 EARTH = json.load(open(_earthj, encoding="utf-8")) if os.path.exists(_earthj) else None
 EARTH_BASE = "/resources/classes/earth/"
-_EARTH_JS = {"quake": "earth-quake", "inside": "earth-inside"}   # lab.kind → assets/js/<bundle>.js
+_EARTH_JS = {"quake": "earth-quake", "inside": "earth-inside", "shake": "earth-shake"}   # lab.kind → assets/js/<bundle>.js
 
 def _earth_ver():
     h = hashlib.md5()
@@ -9580,9 +9580,79 @@ def _earth_dig(dg):
             f'</div></div>'
             '<noscript><p class="muted">The calculator works in your browser and needs JavaScript. · 計算在瀏覽器裡進行，需要開啟 JavaScript。</p></noscript>')
 
-_EARTH_LAB = {"quake": render_earthquake_lab, "inside": render_earthinside_lab}          # lab.kind → 3D 面板
-_EARTH_ICON = {"quake": earthquake_svg, "inside": earthglobe_svg}                 # lesson.card → 課程卡小圖示
-_EARTH_WIDGETS = [("warn", _earth_warn), ("dig", _earth_dig)]               # lesson 裡有這個 key 就多一段（照這裡的順序）
+def earthshake_svg(size=56):
+    """第三課的課程卡小圖示：一個震央往外一圈一圈，越外面顏色越淡；旁邊一個「M」。"""
+    rings = "".join(f'<circle cx="24" cy="34" r="{r}" fill="none" stroke="{c}" stroke-width="3.2"/>' for r, c in [(20, "#9fe0c0"), (14, "#ffe27a"), (8, "#ff8a2a")])
+    return (f'<svg class="earthshake-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">'
+            f'{rings}<circle cx="24" cy="34" r="3.4" fill="#d8251a"/>'
+            '<rect x="38" y="4" width="19" height="17" rx="4" fill="#1c2740"/><path d="M42 17 V8 L47.5 14 L53 8 V17" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>')
+
+def render_earthshake_lab(lesson):
+    """第三課：台灣地圖上一個示例地震，調規模與深度看十個城市的震度（assets/js/earth-shake.js 綁這裡的 class；衰減公式是示例）。"""
+    lab = lesson["lab"]
+    msgs = "".join(f'<p class="cp-msg ew-sk-msg" data-msg="{k}" hidden>{html.escape(m["en"])}<span class="zh">{html.escape(m["zh"])}</span></p>' for k, m in lab["msgs"].items())
+    tg = _lab_toggles([("labels", "Labels", "標示", True)])
+    return f'''<div class="astro-lab cp-lab ew-lab ew-sk-lab rvl" data-earthshake-lab>
+  <div class="al-stage">
+    <div class="al-space">
+      <canvas class="al-space-cv" aria-label="3D map of Taiwan with one example earthquake: columns on ten cities show how strongly each one shakes, and rings show the shaking fading with distance · 台灣的 3D 地圖與一個示例地震：十個城市上的柱子顯示各地搖得多厲害，一圈一圈的線顯示搖晃隨距離減弱"></canvas>
+      <div class="al-labels" aria-hidden="true"></div>
+      <p class="al-hint">Drag to turn · 拖曳旋轉　Scroll or pinch to zoom · 滾輪／雙指縮放</p>
+      <button type="button" class="al-home" title="Reset view · 重設視角" aria-label="Reset view · 重設視角">&#8634;</button>
+      <p class="al-nogl-msg">This 3D model needs WebGL, which this browser does not support. The reading and the cards below still explain everything.<br><span class="zh">這個瀏覽器不支援 WebGL，無法顯示 3D 模型；下方的課文與卡片一樣能看懂。</span></p>
+    </div>
+    <aside class="al-sky cp-aside">
+      <p class="al-sky-k">1 · Where is the earthquake? · 地震在哪裡？</p>
+      <div class="cp-dope ew-sk-epis" role="group" aria-label="Epicenter · 震央">
+        <button type="button" data-epi="east" aria-pressed="true">Off the east coast<small>東部外海</small></button>
+        <button type="button" data-epi="central" aria-pressed="false">Central Taiwan<small>中部</small></button>
+        <button type="button" data-epi="southwest" aria-pressed="false">The southwest<small>西南部</small></button>
+      </div>
+      <label class="al-slider cp-is-yrow"><span>2 · Magnitude · 規模 <output class="ew-sk-mag-out">6.5</output></span>
+        <input type="range" class="al-age ew-sk-mag" min="4" max="7.5" step="0.1" value="6.5"></label>
+      <label class="al-slider cp-is-yrow"><span>3 · Depth · 深度 <output class="ew-sk-dep-out">15 km</output></span>
+        <input type="range" class="al-age ew-sk-dep" min="5" max="100" step="5" value="15"></label>
+      <dl class="cp-nums cp-lt-nums ew-nums ew-sk-nums">
+        <div><dt>Magnitude · 規模</dt><dd class="ew-sk-m"></dd></div>
+        <div><dt>Strongest · 最大震度</dt><dd class="ew-sk-max"></dd></div>
+        <div><dt>Energy · 能量</dt><dd class="ew-sk-en"></dd></div>
+      </dl>
+      <ul class="ew-sk-list" aria-label="Intensity in ten cities · 十個城市的震度"></ul>
+      {msgs}
+    </aside>
+  </div>
+  <div class="al-controls">
+    <div class="al-row al-row-main">
+      <button type="button" class="al-play" aria-pressed="true"><span class="al-play-i" aria-hidden="true"></span><span class="al-play-t">Pause · 暫停</span></button>
+      <div class="al-row al-toggles">{tg}</div>
+    </div>
+  </div>
+  {_lab_foot(lab)}
+  <p class="cp-credit">{lab["credit_html"]}</p>
+</div>'''
+
+def _earth_scale10(sc):
+    """「震度分級表」（earth-shake.js 的 initScale；十個級別照中央氣象署的表，英文是本站翻譯）。"""
+    btns = "".join(f'<button type="button" aria-pressed="false">{html.escape(lv["short"])}</button>' for lv in sc["levels"])
+    levels = html.escape(json.dumps(sc["levels"], ensure_ascii=False))
+    row = lambda k, en, zh: (f'<div class="ew-sc-row"><p class="ew-sc-k">{en} · {zh}</p>'
+                             f'<p class="ew-sc-t"><span class="ew-sc-{k}-en"></span><span class="zh ew-sc-{k}-zh"></span></p></div>')
+    return (f'<div class="cp-cnt ew-sc rvl" data-earth-scale10 data-levels="{levels}">'
+            f'<div class="cp-cnt-in">'
+            f'<p class="cp-cnt-l"><span>Choose a level · 選一個級別</span></p>'
+            f'<div class="ew-sc-lv" role="group" aria-label="Intensity levels · 震度級別">{btns}</div>'
+            f'{row("feel", "What people feel", "人的感受")}{row("in", "Indoors", "屋內情形")}{row("out", "Outdoors", "屋外情形")}'
+            f'<p class="cp-cnt-note">{html.escape(sc["note_en"])}<span class="zh">{html.escape(sc["note_zh"])}</span></p></div>'
+            f'<div class="cp-home-out cp-cnt-out" aria-live="polite">'
+            f'<p class="cp-home-k">Intensity · 震度</p>'
+            f'<p class="cp-home-big"><b class="ew-sc-n"></b><span class="ew-sc-zh"></span></p>'
+            f'<p class="cp-home-note">{html.escape(sc["tip_en"])}<span class="zh">{html.escape(sc["tip_zh"])}</span></p>'
+            f'</div></div>'
+            '<noscript><p class="muted">The table works in your browser and needs JavaScript. · 這張表在瀏覽器裡執行，需要開啟 JavaScript。</p></noscript>')
+
+_EARTH_LAB = {"quake": render_earthquake_lab, "inside": render_earthinside_lab, "shake": render_earthshake_lab}          # lab.kind → 3D 面板
+_EARTH_ICON = {"quake": earthquake_svg, "inside": earthglobe_svg, "shake": earthshake_svg}                 # lesson.card → 課程卡小圖示
+_EARTH_WIDGETS = [("warn", _earth_warn), ("dig", _earth_dig), ("scale10", _earth_scale10)]               # lesson 裡有這個 key 就多一段（照這裡的順序）
 
 def _earth_flat():
     return [(ui, u, l) for ui, u in enumerate(EARTH["units"]) for l in u["lessons"]]
