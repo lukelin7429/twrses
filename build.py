@@ -7596,7 +7596,35 @@ def _ph_lab_advisers(lab):
   </div>
 </div>'''
 
+def _ph_lab_ring(lab):
+    """A19：戴上戒指（蓋吉斯的戒指）。四個沒人看見的情境，選做或不做；不做就選最主要的理由；最後看是哪一種理由在起作用。"""
+    payload = html.escape(json.dumps({k: lab[k] for k in ("do", "dont", "why", "reasons", "scenes", "ends")}, ensure_ascii=False), quote=False)
+    def bi(o, cls=""): return f'<p class="{cls}">{_ph_e(o["en"])}</p><p class="ph-zh" lang="zh-Hant">{_ph_e(o["zh"])}</p>'
+    return f'''<div class="ph-el ph-rg rvl" data-ph-ring data-on="0">
+  <script type="application/json" data-rg-data>{payload}</script>
+  <div class="ph-vl-top"><div class="ph-vl-dots" data-rg-dots aria-hidden="true"></div><span class="ph-el-count" data-rg-count></span></div>
+  <div class="ph-el-stage">
+    <div class="ph-rg-top">
+      <svg class="ph-rg-art" viewBox="0 0 220 150" aria-hidden="true">
+        <g class="ph-rg-fig"><circle cx="70" cy="42" r="20"/><path d="M36 140V96c0-20 15-34 34-34s34 14 34 34v44z"/></g>
+        <g class="ph-rg-ring"><ellipse cx="164" cy="92" rx="30" ry="34"/><ellipse cx="164" cy="92" rx="20" ry="24" class="ph-rg-hole"/><path class="ph-rg-gem" d="M164 44l12 12-12 12-12-12z"/></g>
+      </svg>
+      <div class="ph-tp-text"><button type="button" class="ph-vl-next" data-rg-turn>{_ph_e(lab["turn"]["en"])} · <span lang="zh-Hant">{_ph_e(lab["turn"]["zh"])}</span></button>
+        <div data-rg-turned hidden>{bi(lab["turned"], "ph-rm-voice")}</div></div>
+    </div>
+    <div data-rg-body hidden>
+      <div class="ph-tp-text" data-rg-text aria-live="polite"></div>
+      <div class="ph-vl-opts ph-tp-opts" data-rg-opts></div>
+      <div data-rg-why hidden><div class="ph-tp-text"><p class="ph-vl-q"><b>{_ph_e(lab["why"]["en"])}</b><span lang="zh-Hant">{_ph_e(lab["why"]["zh"])}</span></p></div><div class="ph-vl-opts ph-rg-reasons" data-rg-reasons></div></div>
+      <div data-rg-end aria-live="polite"></div>
+    </div>
+    <div class="ph-el-foot"><button type="button" class="ph-el-reset" data-rg-reset>Start again · 重來</button>
+      <button type="button" class="ph-vl-next" data-rg-next hidden>Next · 下一個情境 &rarr;</button></div>
+  </div>
+</div>'''
+
 def _ph_lab(lab):
+    if lab.get("kind") == "ring": return _ph_lab_ring(lab)
     if lab.get("kind") == "advisers": return _ph_lab_advisers(lab)
     if lab.get("kind") == "trolley": return _ph_lab_trolley(lab)
     if lab.get("kind") == "selfhunt": return _ph_lab_selfhunt(lab)

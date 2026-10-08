@@ -966,3 +966,22 @@ main:has(.ph-tools) .wrap { width: min(980px, 92vw); }
 .ph-av-bar i { display: block; height: 100%; border-radius: 99px; background: #ffd36e; transition: width .8s cubic-bezier(.2,.9,.3,1); }
 .ph-av-bar em { font: normal 700 .92rem var(--sans); color: #ffd98a; text-align: right; font-variant-numeric: tabular-nums; }
 @media (max-width: 720px) { .ph-av-grid { grid-template-columns: 1fr; } .ph-av-bar { grid-template-columns: 7.5rem 1fr 2.6rem; } }
+
+/* ---- A19：戴上戒指 ---- */
+.ph-rg [hidden] { display: none !important; }
+.ph-rg-top { display: grid; grid-template-columns: 200px 1fr; gap: 1.4rem; align-items: center; margin-bottom: 1.2rem; }
+.ph-rg-art { width: 100%; height: auto; }
+.ph-rg-fig circle, .ph-rg-fig path { fill: #f3e3b8; stroke: #f3e3b8; stroke-width: 2; transition: fill 1.4s ease, stroke-dasharray 1.4s ease, opacity 1.4s ease; }
+.ph-rg[data-on="1"] .ph-rg-fig circle, .ph-rg[data-on="1"] .ph-rg-fig path { fill: transparent; stroke-dasharray: 4 6; opacity: .55; }
+.ph-rg-ring ellipse { fill: #d9a94a; } .ph-rg-ring .ph-rg-hole { fill: var(--ph-night); }
+.ph-rg-gem { fill: #ffd36e; transform-box: fill-box; transform-origin: center; transition: transform 1s cubic-bezier(.3,1.4,.4,1), fill 1s; }
+.ph-rg[data-on="1"] .ph-rg-gem { transform: translateY(76px) rotate(180deg); fill: #4fd1a5; }
+.ph-rg .ph-rm-voice { font: italic 600 1.25rem/1.45 var(--serif) !important; color: #ffd98a !important; }
+.ph-rg .ph-vl-next span { font-family: var(--zh); }
+.ph-rg-reasons { grid-template-columns: 1fr 1fr; }
+.ph-rg .ph-vl-opt { text-align: left; }
+.ph-rg .ph-vl-opt[disabled] { cursor: default; opacity: .45; } .ph-rg .ph-vl-opt.is-right { opacity: 1; border-color: #ffd36e; background: rgba(255,211,110,.16); }
+.ph-rg [data-rg-why] { margin-top: 1.2rem; animation: ph-rise .45s ease both; }
+.ph-rg .ph-av-bar { grid-template-columns: 13rem 1fr 3rem; }
+@media (max-width: 720px) { .ph-rg-top { grid-template-columns: 110px 1fr; gap: .9rem; } .ph-rg-reasons { grid-template-columns: 1fr; } .ph-rg .ph-av-bar { grid-template-columns: 8.5rem 1fr 2.6rem; } }
+@media (prefers-reduced-motion: reduce) { .ph-rg-fig circle, .ph-rg-fig path, .ph-rg-gem { transition: none; } .ph-rg [data-rg-why] { animation: none; } }

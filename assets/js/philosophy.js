@@ -1103,6 +1103,58 @@
     var m = /[#&]advisers=([ab]{3})/.exec(location.hash); if (m) root.__lab.play(m[1].split(''));
   });
 
+  /* ---- A19：戴上戒指（蓋吉斯的戒指） ---- */
+  $$('[data-ph-ring]').forEach(function (root) {
+    var D;
+    try { D = JSON.parse($('[data-rg-data]', root).textContent); } catch (e) { return; }
+    var turn = $('[data-rg-turn]', root), turned = $('[data-rg-turned]', root), body = $('[data-rg-body]', root), text = $('[data-rg-text]', root), opts = $('[data-rg-opts]', root);
+    var why = $('[data-rg-why]', root), reasons = $('[data-rg-reasons]', root), end = $('[data-rg-end]', root), next = $('[data-rg-next]', root), dots = $('[data-rg-dots]', root), count = $('[data-rg-count]', root);
+    var KEYS = ['did', 'fear', 'conscience', 'self', 'others'], LABEL = { did: { en: 'Did it', zh: '做了' }, fear: { en: 'Fear of discovery', zh: '怕被發現' }, conscience: { en: 'I would know', zh: '我自己會知道' }, self: { en: 'Who I am', zh: '我是什麼人' }, others: { en: 'Someone is wronged', zh: '有人受不義' } };
+    var i, tally, done;
+    function zhp(parent, t) { var z = el('p', 'ph-zh', t); z.lang = 'zh-Hant'; parent.appendChild(z); addTr(z); }
+    function btn(o, fn) { var b = el('button', 'ph-vl-opt'); b.type = 'button'; b.appendChild(el('b', '', o.en)); var z = el('span', '', o.zh); z.lang = 'zh-Hant'; b.appendChild(z); b.addEventListener('click', function () { fn(b); }); return b; }
+    function paint() {
+      var n = D.scenes.length; dots.textContent = '';
+      D.scenes.forEach(function (_, k) { dots.appendChild(el('i', k < i ? 'ok' : k === i ? 'cur' : '')); });
+      count.textContent = root.getAttribute('data-on') === '1' && i < n ? 'Situation ' + (i + 1) + ' of ' + n + ' · 第 ' + (i + 1) + '／' + n + ' 個情境' : '';
+    }
+    function record(k) { tally[k]++; done = true; if (i < D.scenes.length - 1) next.hidden = false; else { i++; paint(); i--; summary(); } }
+    function show() {
+      var c = D.scenes[i]; done = false; text.textContent = ''; opts.textContent = ''; reasons.textContent = ''; why.hidden = true; end.textContent = ''; next.hidden = true;
+      var h = el('h4', '', c.title.en); var hz = el('span', '', c.title.zh); hz.lang = 'zh-Hant'; h.appendChild(hz); text.appendChild(h);
+      text.appendChild(el('p', '', c.text.en)); zhp(text, c.text.zh);
+      opts.appendChild(btn(D.do, function (b) { if (done || !why.hidden) return; lock(opts, b); record('did'); }));
+      opts.appendChild(btn(D.dont, function (b) { if (done || !why.hidden) return; lock(opts, b); why.hidden = false; }));
+      D.reasons.forEach(function (r) { reasons.appendChild(btn(r.t, function (b) { if (done) return; lock(reasons, b); record(r.k); })); });
+      paint();
+    }
+    function lock(box, b) { $$('button', box).forEach(function (x) { x.disabled = true; }); b.classList.add('is-right'); }
+    function verdict() {
+      if (tally.did >= 3) return 'did';
+      var best = 0, who = [];
+      KEYS.slice(1).forEach(function (k) { if (tally[k] > best) { best = tally[k]; who = [k]; } else if (tally[k] === best && best > 0) who.push(k); });
+      return (who.length === 1 && best >= 2) ? who[0] : 'mixed';
+    }
+    function summary() {
+      var e = el('div', 'ph-el-end'); var h = el('h4', '', 'What moved you'); h.appendChild(el('span', '', '推動你的是什麼')); e.appendChild(h);
+      var bars = el('div', 'ph-av-bars');
+      KEYS.forEach(function (k) {
+        var r = el('div', 'ph-av-bar'); r.appendChild(el('b', '', LABEL[k].en + ' ' + LABEL[k].zh));
+        var t = el('span', ''); var f = el('i', ''); f.style.width = (tally[k] / D.scenes.length * 100) + '%'; t.appendChild(f); r.appendChild(t);
+        r.appendChild(el('em', '', tally[k] + ' / ' + D.scenes.length)); bars.appendChild(r);
+      });
+      e.appendChild(bars); var v = D.ends[verdict()]; e.appendChild(el('p', '', v.en)); zhp(e, v.zh); end.appendChild(e);
+    }
+    turn.addEventListener('click', function () { root.setAttribute('data-on', '1'); turn.hidden = true; turned.hidden = false; body.hidden = false; show(); });
+    next.addEventListener('click', function () { i++; show(); });
+    function reset() { i = 0; tally = { did: 0, fear: 0, conscience: 0, self: 0, others: 0 }; done = false; root.setAttribute('data-on', '0'); turn.hidden = false; turned.hidden = true; body.hidden = true; next.hidden = true; end.textContent = ''; paint(); }
+    $('[data-rg-reset]', root).addEventListener('click', reset);
+    reset();
+    root.__lab = { state: function () { return { on: root.getAttribute('data-on'), i: i, tally: tally, verdict: verdict(), ended: !!end.children.length }; },
+      play: function (seq) { reset(); turn.click(); seq.forEach(function (k, n) { if (k === 'did') $$('button', opts)[0].click(); else { $$('button', opts)[1].click(); $$('button', reasons)[['fear', 'conscience', 'self', 'others'].indexOf(k)].click(); } if (n < seq.length - 1) next.click(); }); return verdict(); } };
+    var m = /[#&]ring=([a-z,]+)/.exec(location.hash); if (m) root.__lab.play(m[1].split(','));
+  });
+
   /* ---- A13：去火星三趟（帕菲特的傳送機） ---- */
   $$('[data-ph-teleport]').forEach(function (root) {
     var D;
