@@ -1266,6 +1266,57 @@
     var m = /[#&]machine=([yn]{4})/.exec(location.hash); if (m) root.__lab.play([0, 4, 9], m[1]);
   });
 
+  /* ---- A22：十二件事、三個籃子（控制的分類） ---- */
+  $$('[data-ph-sort]').forEach(function (root) {
+    var D;
+    try { D = JSON.parse($('[data-so-data]', root).textContent); } catch (e) { return; }
+    var play = $('[data-so-play]', root), card = $('[data-so-card]', root), end = $('[data-so-end]', root), dots = $('[data-so-dots]', root), count = $('[data-so-count]', root);
+    var NAME = {}; D.bins.forEach(function (b) { NAME[b.k] = b.t; });
+    var i, picks;
+    function zhp(parent, t) { var z = el('p', 'ph-zh', t); z.lang = 'zh-Hant'; parent.appendChild(z); addTr(z); }
+    function paint() {
+      var n = D.cards.length; dots.textContent = '';
+      D.cards.forEach(function (_, k) { dots.appendChild(el('i', k < i ? 'ok' : k === i ? 'cur' : '')); });
+      count.textContent = i < n ? (i + 1) + ' / ' + n : '';
+      D.bins.forEach(function (b) { $('[data-so-n="' + b.k + '"]', root).textContent = picks.filter(function (p) { return p === b.k; }).length; });
+    }
+    function show() {
+      var c = D.cards[i]; card.textContent = '';
+      card.appendChild(el('b', '', c.t.en)); var z = el('span', '', c.t.zh); z.lang = 'zh-Hant'; card.appendChild(z);
+      card.classList.remove('is-in'); void card.offsetWidth; card.classList.add('is-in'); paint();
+    }
+    function verdict() {
+      var part = 0, wide = 0, narrow = 0;
+      D.cards.forEach(function (c, k) { var p = picks[k]; if (p === 'part') part++; if (p === 'up' && c.e === 'not') wide++; if (p !== 'up' && c.e === 'up') narrow++; });
+      return wide >= 2 ? 'wide' : narrow >= 2 ? 'narrow' : part <= 1 ? 'strict' : 'three';
+    }
+    function cell(k, same) { var td = el('td', 'is-' + k + (same ? ' same' : '')); td.appendChild(el('b', '', NAME[k].en)); var z = el('span', '', NAME[k].zh); z.lang = 'zh-Hant'; td.appendChild(z); return td; }
+    function finish() {
+      play.hidden = true; paint();
+      var e = el('div', 'ph-el-end'); var h = el('h4', '', 'Three ways of sorting'); h.appendChild(el('span', '', '三種分法')); e.appendChild(h);
+      var wrap = el('div', 'ph-so-wrap'), tb = el('table', 'ph-so-table'), hd = el('tr', '');
+      hd.appendChild(el('th', '', ''));
+      ['you', 'e', 'i'].forEach(function (w) { var th = el('th', ''); th.appendChild(el('b', '', D.who[w].en)); var z = el('span', '', D.who[w].zh); z.lang = 'zh-Hant'; th.appendChild(z); hd.appendChild(th); });
+      tb.appendChild(hd);
+      D.cards.forEach(function (c, k) {
+        var tr = el('tr', ''); var th = el('th', ''); th.appendChild(el('b', '', c.t.en)); var z = el('span', '', c.t.zh); z.lang = 'zh-Hant'; th.appendChild(z); tr.appendChild(th);
+        tr.appendChild(cell(picks[k], false)); tr.appendChild(cell(c.e, picks[k] === c.e)); tr.appendChild(cell(c.i, picks[k] === c.i)); tb.appendChild(tr);
+      });
+      wrap.appendChild(tb); e.appendChild(wrap);
+      var ae = 0, ai = 0; D.cards.forEach(function (c, k) { if (picks[k] === c.e) ae++; if (picks[k] === c.i) ai++; });
+      e.appendChild(el('p', 'ph-mc-sum', 'You agree with Epictetus on ' + ae + ' of ' + D.cards.length + ' and with Irvine on ' + ai + '. · 你跟愛比克泰德有 ' + ae + ' 項相同，跟厄文有 ' + ai + ' 項相同。'));
+      var v = D.ends[verdict()]; e.appendChild(el('p', '', v.en)); zhp(e, v.zh); end.appendChild(e);
+    }
+    $$('[data-so-bin]', root).forEach(function (b) { b.addEventListener('click', function () { if (i >= D.cards.length) return; picks[i] = b.getAttribute('data-so-bin'); i++; if (i < D.cards.length) show(); else finish(); }); });
+    function reset() { i = 0; picks = []; play.hidden = false; end.textContent = ''; show(); }
+    $('[data-so-reset]', root).addEventListener('click', reset);
+    reset();
+    root.__lab = { state: function () { return { i: i, picks: picks.slice(), ended: !!end.children.length, verdict: i >= D.cards.length ? verdict() : null }; },
+      play: function (seq) { reset(); seq.forEach(function (k) { $('[data-so-bin="' + k + '"]', root).click(); }); return verdict(); },
+      keys: function (w) { return D.cards.map(function (c) { return c[w]; }); } };
+    var m = /[#&]sort=(\w+)/.exec(location.hash); if (m) root.__lab.play(root.__lab.keys(m[1] === 'e' ? 'e' : 'i'));
+  });
+
   /* ---- A13：去火星三趟（帕菲特的傳送機） ---- */
   $$('[data-ph-teleport]').forEach(function (root) {
     var D;

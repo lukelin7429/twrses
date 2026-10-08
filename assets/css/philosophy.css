@@ -1026,3 +1026,30 @@ main:has(.ph-tools) .wrap { width: min(980px, 92vw); }
 .ph-mc-sum { font: 700 .92rem/1.6 var(--sans) !important; color: #9fc3ea; margin-bottom: .8rem !important; }
 .ph-mc .ph-el-end p.ph-ev-zone { margin-top: 1rem; }
 @media (prefers-reduced-motion: reduce) { .ph-mc-water, .ph-mc-body circle, .ph-mc-body rect, .ph-mc-wire, .ph-mc-lamp { transition: none; } }
+
+/* ---- A22：十二件事、三個籃子 ---- */
+.ph-so [hidden] { display: none !important; }
+.ph-so-dots i { width: 14px; }
+.ph-so-card { max-width: 30rem; min-height: 7rem; margin: .4rem auto 1.4rem; padding: 1.4rem 1.6rem; border-radius: 6px; background: #fbf5e4; color: #1b2a3d; display: grid; place-items: center; gap: .2rem; text-align: center; box-shadow: 0 16px 30px -16px rgba(0,0,0,.85); }
+.ph-so-card.is-in { animation: ph-rise .4s ease both; }
+.ph-so-card b { font: 600 1.5rem/1.3 var(--serif); }
+.ph-so-card span { font: 1rem var(--zh); color: #55606f; }
+.ph-so-bins { display: grid; grid-template-columns: repeat(3, 1fr); gap: .8rem; }
+.ph-so-bin { all: unset; box-sizing: border-box; cursor: pointer; position: relative; text-align: center; padding: 1.1rem .8rem 1.2rem; border-radius: 14px 14px 22px 22px; border: 2px solid rgba(255,255,255,.25); border-top-width: 6px; background: rgba(255,255,255,.06); display: grid; gap: .1rem; transition: transform .2s, background .2s; }
+.ph-so-bin:hover { transform: translateY(-3px); background: rgba(255,255,255,.12); }
+.ph-so-bin:focus-visible { outline: 2px solid #ffd36e; outline-offset: 3px; }
+.ph-so-bin.is-up { border-color: #4fd1a5; } .ph-so-bin.is-part { border-color: #ffd36e; } .ph-so-bin.is-not { border-color: #9fb0c6; }
+.ph-so-bin b { font: 700 1.08rem var(--sans); color: #fff; }
+.ph-so-bin span { font: .9rem var(--zh); color: rgba(255,255,255,.72); }
+.ph-so-bin i { position: absolute; top: .5rem; right: .7rem; font: normal 800 .8rem var(--sans); color: rgba(255,255,255,.6); }
+.ph-so-wrap { overflow-x: auto; margin: .6rem 0 1rem; }
+.ph-so-table { width: 100%; border-collapse: collapse; min-width: 520px; }
+.ph-so-table th, .ph-so-table td { padding: .5rem .6rem; border-bottom: 1px solid rgba(255,255,255,.12); text-align: left; vertical-align: top; }
+.ph-so-table th b { display: block; font: 600 .98rem/1.3 var(--serif); color: #fff; }
+.ph-so-table th span, .ph-so-table td span { display: block; font: .82rem var(--zh); color: rgba(255,255,255,.65); }
+.ph-so-table tr:first-child th b { font: 800 .76rem var(--sans); letter-spacing: .1em; text-transform: uppercase; color: #ffd98a; }
+.ph-so-table td b { font: 700 .86rem var(--sans); }
+.ph-so-table td.is-up b { color: #4fd1a5; } .ph-so-table td.is-part b { color: #ffd36e; } .ph-so-table td.is-not b { color: #b9c6d8; }
+.ph-so-table td.same { background: rgba(255,255,255,.07); }
+@media (max-width: 720px) { .ph-so-bins { grid-template-columns: 1fr; } .ph-so-card b { font-size: 1.25rem; } }
+@media (prefers-reduced-motion: reduce) { .ph-so-card.is-in { animation: none; } .ph-so-bin { transition: none; } }

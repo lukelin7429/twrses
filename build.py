@@ -7735,7 +7735,25 @@ def _ph_lab_machine(lab):
   </div>
 </div>'''
 
+def _ph_lab_sort(lab):
+    """A22：十二件事、三個籃子（在我／部分在我／不在我）。分完之後跟愛比克泰德（兩個籃子）與厄文（三個）對照。"""
+    payload = html.escape(json.dumps({k: lab[k] for k in ("bins", "cards", "who", "ends")}, ensure_ascii=False), quote=False)
+    bins = "".join(f'<button type="button" class="ph-so-bin is-{b["k"]}" data-so-bin="{b["k"]}"><b>{_ph_e(b["t"]["en"])}</b><span lang="zh-Hant">{_ph_e(b["t"]["zh"])}</span><i data-so-n="{b["k"]}">0</i></button>' for b in lab["bins"])
+    return f'''<div class="ph-el ph-so rvl" data-ph-sort>
+  <script type="application/json" data-so-data>{payload}</script>
+  <div class="ph-vl-top"><div class="ph-vl-dots ph-so-dots" data-so-dots aria-hidden="true"></div><span class="ph-el-count" data-so-count></span></div>
+  <div class="ph-el-stage">
+    <div data-so-play>
+      <div class="ph-so-card" data-so-card aria-live="polite"></div>
+      <div class="ph-so-bins">{bins}</div>
+    </div>
+    <div data-so-end aria-live="polite"></div>
+    <div class="ph-el-foot"><button type="button" class="ph-el-reset" data-so-reset>Start again · 重來</button></div>
+  </div>
+</div>'''
+
 def _ph_lab(lab):
+    if lab.get("kind") == "sort": return _ph_lab_sort(lab)
     if lab.get("kind") == "machine": return _ph_lab_machine(lab)
     if lab.get("kind") == "evidence": return _ph_lab_evidence(lab)
     if lab.get("kind") == "ring": return _ph_lab_ring(lab)
