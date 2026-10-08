@@ -6744,15 +6744,596 @@
               "url": "https://en.wikipedia.org/wiki/Amdahl%27s_law"
             }
           ]
+        },
+        {
+          "n": 11,
+          "slug": "fab-water-power",
+          "title": "Why Does a Fab Need So Much Water and Power?",
+          "title_zh": "晶圓廠為什麼需要那麼多水和電？",
+          "level": "入門 · Beginner",
+          "icon": "💧",
+          "card": "fab",
+          "blurb_en": "The lines on a chip are far smaller than a speck of dust, so a chip factory must be cleaner than any place you have ever been. Staying that clean takes water and electricity. In a 3D factory, follow the water from the city pipe to the wafer and back again, then find the three biggest users of power.",
+          "blurb_zh": "晶片上的線路比一粒灰塵小得多，所以晶圓廠必須比你去過的任何地方都乾淨。要維持這麼乾淨，就要用水、用電。在 3D 工廠裡，跟著水從自來水管流到晶圓、再流回來；然後找出三個最會用電的地方。",
+          "big_idea_en": "A chip factory, or fab, uses water and power for one main reason: cleanliness. Wafers are rinsed again and again with ultrapure water, which is much cleaner than drinking water. Fans push filtered air through the cleanroom without stopping, and the machines themselves need a lot of electricity. Because water is precious, fabs clean their used water and use it again.",
+          "big_idea_zh": "晶圓廠用水、用電，最主要的原因只有一個：乾淨。晶圓要用超純水一遍又一遍地沖洗，這種水比飲用水乾淨得多。風扇不停地把過濾過的空氣送進無塵室，機台本身也要用很多電。因為水很珍貴，晶圓廠會把用過的水處理乾淨，再用一次。",
+          "lab": {
+            "kind": "fab",
+            "eyebrow": "3D Model · 3D 模型",
+            "title_en": "Inside a Small Fab",
+            "title_zh": "走進一座小晶圓廠",
+            "how_en": "Drag to turn the model, and scroll or pinch to zoom. In “Water,” follow the drops: city water is made ultrapure, rinses the wafer, and flows to a reclaim tank. Move the slider to change how much is recycled, and watch the fresh water coming in. Then choose “Power” and press the three buttons to see where the electricity goes.",
+            "how_zh": "拖曳可以旋轉模型，滾輪或雙指可以縮放。在「水」的視角，跟著水滴走：自來水變成超純水、沖洗晶圓，再流到回收水槽。拉動滑桿改變回收的比例，看看進來的新水怎麼變。接著選「電」，按三個按鈕，看電用到哪裡去了。",
+            "msgs": {
+              "water": {
+                "en": "Light blue drops are ultrapure water on the way to the wafer. Gray drops are used water. Green drops are cleaned water going back to be used again. The more you recycle, the less city water comes in.",
+                "zh": "淺藍色的水滴是要送去沖晶圓的超純水，灰色是用過的水，綠色是處理乾淨、要回去再用一次的水。回收得越多，進來的自來水就越少。"
+              },
+              "air": {
+                "en": "Fans in the ceiling push air down through very fine filters, and the air leaves through the floor. This never stops, so any particle is swept away before it can land on a wafer.",
+                "zh": "天花板上的風扇把空氣往下吹，穿過很細的濾網，再從地板離開。這件事從不停止，所以微粒還來不及落在晶圓上，就被帶走了。"
+              },
+              "cool": {
+                "en": "The temperature and humidity of the cleanroom are tightly controlled. Equipment on the roof draws in outside air, cleans it, and cools it before it goes inside.",
+                "zh": "無塵室的溫度和濕度都管得很嚴。屋頂上的設備把外面的空氣吸進來，先過濾、冷卻，再送進去。"
+              },
+              "tools": {
+                "en": "The machines need power too. One EUV lithography machine was measured using 1.31 megawatts, about ten times as much as the older kind of machine.",
+                "zh": "機台本身也要用電。一部 EUV 曝光機量到的耗電是 1.31 百萬瓦（MW），大約是舊型機台的十倍。"
+              }
+            },
+            "legend": [
+              {
+                "cls": "cpfbpure",
+                "en": "Drops: ultrapure (light blue), reclaimed (green), used (gray)",
+                "zh": "水滴：超純水（淺藍）、回收水（綠）、用過的水（灰）"
+              },
+              {
+                "cls": "cpfbair",
+                "en": "Blue boxes in the ceiling: fans with filters",
+                "zh": "天花板的藍色盒子：風扇與濾網"
+              },
+              {
+                "cls": "cpfbtool",
+                "en": "Purple machine: an EUV lithography machine",
+                "zh": "紫色機台：EUV 曝光機"
+              }
+            ],
+            "scale_en": "A teaching model, not a real fab. A real fab is far larger and holds many more machines, and its water system has many more steps. The slider is yours to move: it starts at 85% because one chipmaker reports that its systems can reclaim more than 85% of the water used in making chips. The two power numbers are for single lithography machines measured in 2020.",
+            "scale_zh": "這是教學用的模型，不是真的晶圓廠。真的晶圓廠大得多，機台也多得多，水的處理步驟更是複雜得多。滑桿可以自己拉：它從 85% 開始，是因為有一家晶片製造商表示，它的系統可以回收製程用水的 85% 以上。兩個耗電數字是 2020 年量測的單一部曝光機。",
+            "credit_html": "Model drawn by My Culture Connect as a teaching diagram. The ideas follow <a href=\"https://en.wikipedia.org/wiki/Ultrapure_water\" target=\"_blank\" rel=\"noopener\">Wikipedia, “Ultrapure water”</a> and the other sources listed at the bottom of this page. · 模型由人師教育協會自繪示意；原理依維基百科「Ultrapure water」條目與本頁最下方列出的其他出處。"
+          },
+          "paras": [
+            "You already know that the lines on a chip are measured in nanometers. That makes dust a giant. A particle only one fifth as wide as a line can ruin a chip. So the factory where chips are made, called a fab, has one great enemy: dirt. Almost everything unusual about a fab comes from the fight to stay clean.",
+            "Start with water. Making a chip takes many steps with chemicals, and after these steps the wafer is rinsed. Tap water will not do. It carries minerals, tiny particles, and germs, and they would stay on the wafer when the water dried. Fabs use ultrapure water instead: water with almost everything removed except the water itself.",
+            "Ultrapure water is made in stages. First the water is filtered. Then it is pushed through very fine membranes and special materials that pull out the dissolved minerals. Last comes a final polishing just before the water is used. A large modern fab uses several million gallons of this water every day.",
+            "Water is precious, so fabs do not simply throw it away. Used water is collected, cleaned, and sent back to be used again. One chipmaker reports that its systems can reclaim more than 85 percent of the water used in making chips. Some fabs also make their ultrapure water from cleaned city wastewater instead of fresh water.",
+            "Now the electricity. Chips are made in a cleanroom, where fans in the ceiling push air down through very fine filters, and the air is used again and again. The temperature and humidity are tightly controlled as well. Ordinary city air holds about 35 million particles in every cubic meter. The air in a cleanroom may hold a few thousand, or fewer.",
+            "The machines need power too. The newest lithography machines, which print with extreme ultraviolet light, use about ten times as much electricity as the older kind. So the next time you hear that a fab needs a lot of water and power, you will know why. It is the price of being clean enough to build something so small."
+          ],
+          "paras_zh": [
+            "你已經知道，晶片上的線路是用奈米來量的。這樣一來，灰塵就成了巨人。一顆微粒只要有線路寬度的五分之一大，就可能毀掉一顆晶片。所以製造晶片的工廠，也就是晶圓廠，有一個最大的敵人：髒。晶圓廠幾乎所有特別的地方，都是為了保持乾淨。",
+            "先說水。做晶片要經過很多道用到化學藥品的步驟，做完這些步驟要沖洗晶圓。自來水不行，因為裡面有礦物質、細小的微粒和細菌，水乾了以後，這些東西會留在晶圓上。晶圓廠用的是超純水：除了水本身，其他東西幾乎都拿掉了。",
+            "超純水是分階段做出來的。先過濾；接著讓水穿過非常細的薄膜和特殊的材料，把溶在水裡的礦物質抓出來；最後在使用之前再做一次精密的處理。一座大型的現代晶圓廠，每天要用掉好幾百萬加侖這樣的水。",
+            "水很珍貴，所以晶圓廠不會用完就倒掉。用過的水會被收集起來、處理乾淨，再送回去用。有一家晶片製造商表示，它的系統可以回收製程用水的 85% 以上。有些晶圓廠還用處理過的都市廢水來做超純水，而不用乾淨的淡水。",
+            "再說電。晶片是在無塵室裡做的。天花板上的風扇把空氣往下吹，穿過很細的濾網，而且同樣的空氣一遍又一遍地循環使用。溫度和濕度也管得很嚴。一般都市的空氣，每一立方公尺大約有 3,500 萬顆微粒；無塵室裡的空氣可能只有幾千顆，甚至更少。",
+            "機台也要用電。最新的曝光機用極紫外光來印電路，耗電大約是舊型機台的十倍。所以下次聽到「晶圓廠需要很多水和電」，你就知道為什麼了。那是為了乾淨到可以做出這麼小的東西，所要付出的代價。"
+          ],
+          "questions": [
+            "Why is dirt such a big problem in a fab?",
+            "Why can't a fab rinse wafers with tap water?",
+            "Name two things in a fab that use a lot of electricity."
+          ],
+          "answers": [
+            "Because the lines on a chip are so small. A particle only one fifth as wide as a line can ruin a chip.",
+            "Tap water carries minerals, tiny particles, and germs. They would stay on the wafer when the water dried.",
+            "The fans and filters that keep the cleanroom air clean, the equipment that controls temperature and humidity, and the machines themselves, especially EUV lithography machines. (Any two.)"
+          ],
+          "vocab": [
+            {
+              "n": 1,
+              "w": "rinse",
+              "pos": "v.",
+              "zh": "沖洗",
+              "ex": "<b>Rinse</b> the cup with clean water.",
+              "exzh": "用乾淨的水把杯子沖一沖。"
+            },
+            {
+              "n": 2,
+              "w": "recycle",
+              "pos": "v.",
+              "zh": "回收再利用",
+              "ex": "We <b>recycle</b> paper and bottles at school.",
+              "exzh": "我們在學校回收紙和瓶子。"
+            },
+            {
+              "n": 3,
+              "w": "filter",
+              "pos": "n., v.",
+              "zh": "濾網；過濾",
+              "ex": "The <b>filter</b> catches the dirt in the water.",
+              "exzh": "濾網把水裡的髒東西擋下來。"
+            },
+            {
+              "n": 4,
+              "w": "particle",
+              "pos": "n.",
+              "zh": "微粒",
+              "ex": "Tiny <b>particles</b> float in the air.",
+              "exzh": "細小的微粒飄在空氣中。"
+            },
+            {
+              "n": 5,
+              "w": "cleanroom",
+              "pos": "n.",
+              "zh": "無塵室",
+              "ex": "Workers wear special suits in the <b>cleanroom</b>.",
+              "exzh": "工作人員在無塵室裡要穿特別的衣服。"
+            },
+            {
+              "n": 6,
+              "w": "electricity",
+              "pos": "n.",
+              "zh": "電",
+              "ex": "Turn off the lights to save <b>electricity</b>.",
+              "exzh": "把燈關掉可以省電。"
+            },
+            {
+              "n": 7,
+              "w": "factory",
+              "pos": "n.",
+              "zh": "工廠",
+              "ex": "My uncle works in a shoe <b>factory</b>.",
+              "exzh": "我叔叔在鞋子工廠上班。"
+            },
+            {
+              "n": 8,
+              "w": "humid",
+              "pos": "adj.",
+              "zh": "潮濕的",
+              "ex": "Summer in Taiwan is hot and <b>humid</b>.",
+              "exzh": "台灣的夏天又熱又潮濕。"
+            }
+          ],
+          "quiz": [
+            {
+              "q": "What is ultrapure water?",
+              "options": [
+                "Water with almost everything removed except the water itself",
+                "Water with extra minerals added",
+                "Very cold water",
+                "Sea water"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "What is the water mostly used for in a fab?",
+              "options": [
+                "Rinsing wafers",
+                "Drinking",
+                "Watering plants",
+                "Making ice"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "How does a cleanroom keep its air clean?",
+              "options": [
+                "Fans push the air through very fine filters again and again",
+                "People sweep the floor every hour",
+                "The windows are left open",
+                "It is built underground"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "What do many fabs do with used water?",
+              "options": [
+                "Clean it and use it again",
+                "Pour all of it into the sea",
+                "Freeze it",
+                "Sell it as drinking water"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "How does an EUV machine compare with the older kind?",
+              "options": [
+                "It uses about ten times as much electricity",
+                "It uses no electricity",
+                "It uses half as much electricity",
+                "It runs on water"
+              ],
+              "correct": 0
+            }
+          ],
+          "parts_head": {
+            "eyebrow": "Try It in the Model · 在模型裡試試",
+            "en": "Water twice, power twice",
+            "zh": "水看兩次，電看兩次"
+          },
+          "parts": [
+            {
+              "key": "norecycle",
+              "icon": "🚰",
+              "en": "No recycling",
+              "zh": "完全不回收",
+              "meta_en": "100 L in for 100 L used",
+              "meta_zh": "用 100 公升，進 100 公升",
+              "demo": "norecycle",
+              "text_en": "Every drop is used once and leaves. Look how much city water must come in.",
+              "text_zh": "每一滴水只用一次就離開。看看要進來多少自來水。"
+            },
+            {
+              "key": "recycle",
+              "icon": "♻️",
+              "en": "Recycle 85%",
+              "zh": "回收 85%",
+              "meta_en": "15 L in for 100 L used",
+              "meta_zh": "用 100 公升，只進 15 公升",
+              "demo": "recycle",
+              "text_en": "Most of the water goes around again. On average, each drop is used almost seven times.",
+              "text_zh": "大部分的水繞回去再用。平均起來，每一滴水用了將近七次。"
+            },
+            {
+              "key": "air",
+              "icon": "🌬️",
+              "en": "Clean air",
+              "zh": "乾淨的空氣",
+              "meta_en": "Fans and filters",
+              "meta_zh": "風扇與濾網",
+              "demo": "air",
+              "text_en": "Watch the air fall from the ceiling to the floor like a slow, steady rain.",
+              "text_zh": "看空氣從天花板落到地板，像一場又慢又穩的雨。"
+            },
+            {
+              "key": "tools",
+              "icon": "⚡",
+              "en": "The machines",
+              "zh": "機台",
+              "meta_en": "1.31 MW for one EUV machine",
+              "meta_zh": "一部 EUV 曝光機 1.31 MW",
+              "demo": "tools",
+              "text_en": "Compare the two bars. The newest machines are the hungriest.",
+              "text_zh": "比一比那兩條長條。最新的機台，胃口也最大。"
+            }
+          ],
+          "parts_note_en": "The recycling numbers come from simple arithmetic: with 85% recycled, 15 of every 100 liters must be new water.",
+          "parts_note_zh": "回收的數字只是簡單的算術：回收 85%，每 100 公升就有 15 公升要用新的水。",
+          "links_head": {
+            "eyebrow": "Go Further · 延伸閱讀",
+            "en": "What happens inside the fab",
+            "zh": "晶圓廠裡在做什麼"
+          },
+          "links": [
+            {
+              "href": "/resources/classes/semiconductors/sand-to-chip/",
+              "icon": "🏖️",
+              "k_en": "Chips and Semiconductors · Lesson 3",
+              "k_zh": "晶片與半導體 第三課",
+              "en": "How Does Sand Become a Chip?",
+              "zh": "沙子怎麼變成晶片？",
+              "note_en": "The steps that happen in the cleanroom.",
+              "note_zh": "無塵室裡進行的那些步驟。"
+            },
+            {
+              "href": "/resources/classes/semiconductors/lithography/",
+              "icon": "🔦",
+              "k_en": "Chips and Semiconductors · Lesson 4",
+              "k_zh": "晶片與半導體 第四課",
+              "en": "How Do You Draw a Circuit Smaller Than a Virus?",
+              "zh": "怎麼畫出比病毒還小的電路？",
+              "note_en": "Why EUV machines are so special, and so hungry for power.",
+              "note_zh": "EUV 曝光機為什麼這麼特別，又這麼耗電。"
+            }
+          ],
+          "clean": {
+            "eyebrow": "How Clean Is Clean? · 多乾淨才算乾淨？",
+            "en": "Count the particles in the air",
+            "zh": "數一數空氣裡的微粒",
+            "lead_en": "Cleanrooms are sorted into classes by how many particles are allowed in one cubic meter of air. Each step down in class number means ten times fewer particles. Choose a room and see.",
+            "lead_zh": "無塵室是照「一立方公尺的空氣裡最多可以有幾顆微粒」來分等級的。等級的數字每少 1，微粒就要少十倍。選一個房間看看。",
+            "rooms": [
+              {
+                "iso": 9,
+                "en": "City air",
+                "zh": "都市的空氣"
+              },
+              {
+                "iso": 8,
+                "en": "ISO 8",
+                "zh": "ISO 8 級"
+              },
+              {
+                "iso": 7,
+                "en": "ISO 7",
+                "zh": "ISO 7 級"
+              },
+              {
+                "iso": 6,
+                "en": "ISO 6",
+                "zh": "ISO 6 級"
+              },
+              {
+                "iso": 5,
+                "en": "ISO 5",
+                "zh": "ISO 5 級"
+              }
+            ],
+            "note_en": "In the picture, each yellow dot stands for 10,000 particles, so an ISO 5 room has less than one dot. The limits come from the international standard ISO 14644-1 and count particles of 0.5 micrometers or larger. Ordinary city air is about the same as ISO 9. Chip factories often use ISO 7 or ISO 5 rooms.",
+            "note_zh": "圖裡的每一個黃點代表 10,000 顆微粒，所以 ISO 5 級的房間連一個點都不到。這些上限來自國際標準 ISO 14644-1，算的是 0.5 微米以上的微粒。一般都市的空氣大約相當於 ISO 9 級；晶片工廠常用的是 ISO 7 級或 ISO 5 級。"
+          },
+          "facts": {
+            "eyebrow": "Water and Power by the Numbers · 水和電的數字",
+            "en": "Six numbers from the fab",
+            "zh": "晶圓廠的六個數字",
+            "lead_en": "All of them are about staying clean.",
+            "lead_zh": "每一個都和「保持乾淨」有關。",
+            "items": [
+              {
+                "big": "1/5",
+                "unit_en": "of a line",
+                "unit_zh": "線路寬度的五分之一",
+                "en": "A particle only one fifth the size of a feature on a chip can cause a defect that kills the chip.",
+                "zh": "一顆微粒只要有晶片上線路的五分之一大，就可能造成讓晶片報廢的缺陷。"
+              },
+              {
+                "big": "3",
+                "unit_en": "stages",
+                "unit_zh": "個階段",
+                "en": "Ultrapure water is made in three broad stages: pretreatment, primary treatment, and polishing.",
+                "zh": "超純水分三大階段製作：前處理、主要處理、最後的精密處理。"
+              },
+              {
+                "big": "85%",
+                "unit_en": "reclaimed",
+                "unit_zh": "回收",
+                "en": "One chipmaker, TSMC, reports recycling systems that can reclaim more than 85% of the water used in making chips.",
+                "zh": "台積電表示，它的回收系統可以回收製程用水的 85% 以上。"
+              },
+              {
+                "big": "35 million",
+                "unit_en": "particles",
+                "unit_zh": "顆微粒（3,500 萬）",
+                "en": "The number of particles 0.5 micrometers or larger in one cubic meter of ordinary city air.",
+                "zh": "一立方公尺的一般都市空氣裡，0.5 微米以上微粒的數目。"
+              },
+              {
+                "big": "1.31",
+                "unit_en": "megawatts",
+                "unit_zh": "百萬瓦（MW）",
+                "en": "The power used by one EUV lithography machine, measured in 2020. The older kind used 0.13 megawatts.",
+                "zh": "2020 年量到一部 EUV 曝光機的耗電。舊型的機台是 0.13 MW。"
+              },
+              {
+                "big": "1960",
+                "unit_en": "the modern cleanroom",
+                "unit_zh": "現代無塵室",
+                "en": "Willis Whitfield drew up the first plans for a room cleaned by a constant flow of filtered air.",
+                "zh": "威利斯．惠特菲爾德畫出第一份設計圖：用不間斷的過濾氣流來保持乾淨的房間。"
+              }
+            ]
+          },
+          "culture_cards": {
+            "eyebrow": "Stories About Staying Clean · 關於乾淨的故事",
+            "title_en": "A room swept by air, a washing recipe from 1965, water that barely conducts, and water used twice",
+            "title_zh": "用空氣打掃的房間、1965 年的清洗配方、幾乎不導電的水，還有用兩次的水",
+            "lead_en": "Four ideas behind a clean fab.",
+            "lead_zh": "乾淨的晶圓廠背後的四個點子。",
+            "cards": [
+              {
+                "k": "1960",
+                "en": "Swept by air",
+                "zh": "用空氣打掃",
+                "body_en": "Earlier cleanrooms had trouble with particles and with air that moved in unpredictable ways. In 1960 Willis Whitfield, a physicist at Sandia National Laboratories, planned a room with a constant flow of highly filtered air to flush the particles out. The modern cleanroom still works this way.",
+                "body_zh": "早期的無塵室一直有微粒的問題，空氣怎麼流也很難預料。1960 年，桑迪亞國家實驗室的物理學家威利斯．惠特菲爾德設計了一種房間：讓高度過濾的空氣不間斷地流過，把微粒沖出去。現代的無塵室到今天還是這樣運作。"
+              },
+              {
+                "k": "1965 · RCA",
+                "en": "A recipe for washing wafers",
+                "zh": "洗晶圓的配方",
+                "body_en": "In 1965 Werner Kern, working at RCA, developed a standard set of steps for cleaning silicon wafers before they are heated. It is still known as the RCA clean. This is the same RCA where Taiwan's engineers went to learn chipmaking in 1976.",
+                "body_zh": "1965 年，在 RCA 工作的維爾納．克恩發展出一套標準步驟，用來在加熱之前把矽晶圓洗乾淨，到今天還叫做「RCA 清洗」。這家 RCA，就是 1976 年台灣工程師去學做晶片的那一家。"
+              },
+              {
+                "k": "UPW · 超純水",
+                "en": "Water that barely conducts",
+                "zh": "幾乎不導電的水",
+                "body_en": "We learn that water and electricity are a dangerous mix, and with ordinary water that is true. But it is the minerals dissolved in water that carry most of the current. Ultrapure water has almost none, so it conducts electricity very poorly. In fact, fabs check how pure their water is by measuring how poorly it conducts.",
+                "body_zh": "我們都學過水和電碰在一起很危險，對一般的水來說這是真的。不過，帶著電流走的主要是溶在水裡的礦物質。超純水裡幾乎沒有這些東西，所以很不容易導電。事實上，晶圓廠就是靠量「水有多不導電」來檢查水夠不夠純。"
+              },
+              {
+                "k": "Reclaimed · 再生水",
+                "en": "Water used twice",
+                "zh": "用兩次的水",
+                "body_en": "As chipmaking has grown, so has the water it needs. To take less fresh water, some manufacturers have begun to make their ultrapure water from reclaimed wastewater: used water from cities or factories that has been cleaned.",
+                "body_zh": "晶片越做越多，需要的水也越來越多。為了少用一點淡水，有些製造商開始用再生水來做超純水，也就是把都市或工廠用過的水處理乾淨再利用。"
+              }
+            ]
+          },
+          "myths": [
+            {
+              "myth_en": "Wafers are washed with ordinary tap water.",
+              "myth_zh": "晶圓是用一般的自來水洗的。",
+              "fact_en": "They are rinsed with ultrapure water. Tap water would leave minerals and particles behind.",
+              "fact_zh": "晶圓要用超純水沖洗。自來水會留下礦物質和微粒。"
+            },
+            {
+              "myth_en": "A fab uses its water once and throws it away.",
+              "myth_zh": "晶圓廠的水用一次就倒掉。",
+              "fact_en": "Much of it is collected, cleaned, and used again.",
+              "fact_zh": "很大一部分會被收集起來、處理乾淨，再用一次。"
+            },
+            {
+              "myth_en": "The purer the water, the better it conducts electricity.",
+              "myth_zh": "水越純，越容易導電。",
+              "fact_en": "It is the opposite. Dissolved minerals carry the current, and ultrapure water has almost none.",
+              "fact_zh": "正好相反。帶電流的是溶在水裡的礦物質，而超純水裡幾乎沒有。"
+            },
+            {
+              "myth_en": "A cleanroom is clean because people scrub it all day.",
+              "myth_zh": "無塵室很乾淨，是因為有人整天在刷洗。",
+              "fact_en": "It is clean because filtered air flows through it without stopping and carries particles away.",
+              "fact_zh": "它乾淨，是因為過濾過的空氣不停地流過，把微粒帶走。"
+            }
+          ],
+          "tricks": [
+            {
+              "title_en": "Dust is a giant",
+              "title_zh": "灰塵是巨人",
+              "body_en": "One particle can ruin a chip.",
+              "body_zh": "一顆微粒就能毀掉一顆晶片。"
+            },
+            {
+              "title_en": "Water to rinse",
+              "title_zh": "水用來沖洗",
+              "body_en": "Ultrapure, again and again.",
+              "body_zh": "超純水，一遍又一遍。"
+            },
+            {
+              "title_en": "Power to stay clean",
+              "title_zh": "電用來保持乾淨",
+              "body_en": "Fans, filters, cooling, and machines.",
+              "body_zh": "風扇、濾網、空調，還有機台。"
+            },
+            {
+              "title_en": "Use it again",
+              "title_zh": "再用一次",
+              "body_en": "Used water is cleaned and sent back.",
+              "body_zh": "用過的水處理乾淨，再送回去。"
+            }
+          ],
+          "safety": [
+            {
+              "en": "Never drink the water from your homemade filter. It may look clear, but germs can still be in it.",
+              "zh": "自己做的濾水器濾出來的水絕對不要喝。看起來清澈，裡面還是可能有細菌。"
+            },
+            {
+              "en": "Ask an adult to cut the plastic bottle, and cover the cut edge with tape.",
+              "zh": "塑膠瓶請大人幫忙剪，剪開的邊緣用膠帶包起來。"
+            },
+            {
+              "en": "Wash your hands after touching soil, sand, or dirty water.",
+              "zh": "摸過土、沙子或髒水之後要洗手。"
+            }
+          ],
+          "activities": [
+            {
+              "title_en": "A Three-Stage Filter",
+              "title_zh": "三段式濾水器",
+              "materials": [
+                {
+                  "en": "A clear plastic bottle cut in half, cotton balls, clean sand, and small gravel",
+                  "zh": "一個剪成兩半的透明塑膠瓶、棉花球、乾淨的沙子和小石頭"
+                },
+                {
+                  "en": "A cup of water mixed with a spoonful of soil, and a clear cup",
+                  "zh": "一杯水加一匙土攪一攪，還有一個透明的杯子"
+                }
+              ],
+              "steps": [
+                {
+                  "en": "Turn the top half of the bottle upside down like a funnel and set it in the bottom half.",
+                  "zh": "把瓶子的上半部倒過來當漏斗，放進下半部裡。"
+                },
+                {
+                  "en": "Pack cotton into the neck, then add a layer of sand, then a layer of gravel on top.",
+                  "zh": "瓶口塞棉花，上面鋪一層沙子，最上面再鋪一層小石頭。"
+                },
+                {
+                  "en": "Pour the muddy water in slowly. Compare the water that drips out with the water you started with.",
+                  "zh": "把泥水慢慢倒進去。比較滴出來的水和原來的水。"
+                },
+                {
+                  "en": "Pour the filtered water through again. Is it clearer the second time? What do you think is still in it that you cannot see?",
+                  "zh": "把濾過的水再倒一次。第二次有沒有更清？你覺得水裡還有什麼看不見的東西？"
+                }
+              ],
+              "tip_en": "Your filter is only the first stage. Dissolved minerals pass straight through it, which is why a fab needs two more stages. Do not drink the water.",
+              "tip_zh": "你做的只是第一個階段。溶在水裡的礦物質會直接穿過去，所以晶圓廠還需要後面兩個階段。這個水不可以喝。"
+            },
+            {
+              "title_en": "The Dust Trap",
+              "title_zh": "捕捉灰塵",
+              "materials": [
+                {
+                  "en": "Two pieces of black paper and clear sticky tape",
+                  "zh": "兩張黑色的紙和透明膠帶"
+                },
+                {
+                  "en": "A box with a lid, and a magnifying glass",
+                  "zh": "一個有蓋子的盒子，還有放大鏡"
+                }
+              ],
+              "steps": [
+                {
+                  "en": "Put a strip of tape, sticky side up, on each piece of black paper.",
+                  "zh": "兩張黑紙上各貼一段膠帶，黏的那一面朝上。"
+                },
+                {
+                  "en": "Leave one paper on an open shelf. Put the other inside the box and close the lid.",
+                  "zh": "一張放在開放的架子上，另一張放進盒子裡、蓋上蓋子。"
+                },
+                {
+                  "en": "After one day, look at both strips with the magnifying glass and count the specks in a square the size of a stamp.",
+                  "zh": "一天之後，用放大鏡看兩段膠帶，數一數郵票大小的方格裡有幾顆小點。"
+                },
+                {
+                  "en": "Talk about it: where did the specks come from? What would you change to make the box even cleaner?",
+                  "zh": "討論：這些小點是從哪裡來的？要讓盒子裡更乾淨，你會怎麼改？"
+                }
+              ],
+              "tip_en": "The specks you can see are huge next to the lines on a chip. A cleanroom has to stop particles far too small to see.",
+              "tip_zh": "你看得見的小點，和晶片上的線路比起來是龐然大物。無塵室要擋的，是小到根本看不見的微粒。"
+            }
+          ],
+          "sources": [
+            {
+              "en": "The semiconductor industry's water purity requirements are generally the most stringent; ultrapure water is used to rinse wafers after chemicals are applied; it has ions, organic particles, and dissolved gases removed; it is prepared in three broad stages (pretreatment, primary treatment with reverse osmosis or ion exchange, and polishing); purity is indicated by resistivity (18.18 MΩ·cm for absolutely pure water at 25°C); advanced fabs use several million gallons of ultrapure water a day; some manufacturers use reclaimed wastewater as feedstock",
+              "zh": "半導體業對水的純度要求通常最嚴；超純水用來在化學步驟後沖洗晶圓；離子、有機微粒、溶解氣體都要去除；分三大階段製作（前處理、逆滲透或離子交換的主要處理、精密處理）；用電阻率表示純度（絕對純水在 25°C 為 18.18 MΩ·cm）；先進晶圓廠每天用數百萬加侖超純水；部分製造商以再生水為原料",
+              "src": "Wikipedia, “Ultrapure water”",
+              "url": "https://en.wikipedia.org/wiki/Ultrapure_water"
+            },
+            {
+              "en": "A particle needs to be only one fifth the size of a feature to cause a killer defect",
+              "zh": "微粒只要有線路尺寸的五分之一，就會造成致命缺陷",
+              "src": "Wikipedia, “Semiconductor device fabrication”",
+              "url": "https://en.wikipedia.org/wiki/Semiconductor_device_fabrication"
+            },
+            {
+              "en": "Typical urban air contains 35,000,000 particles per cubic meter of 0.5 μm and larger, equal to ISO 9; the ISO 14644-1 class limits (ISO 5: 3,520; ISO 7: 352,000); semiconductor facilities often use level 7 or 5; air is constantly recirculated through fans and HEPA or ULPA filters; temperature and humidity may be tightly controlled; Willis Whitfield of Sandia National Laboratories planned the modern cleanroom in 1960 with a constant, highly filtered airflow",
+              "zh": "一般都市空氣每立方公尺有 3,500 萬顆 0.5 微米以上的微粒，相當於 ISO 9；ISO 14644-1 各級上限（ISO 5：3,520；ISO 7：352,000）；半導體設施常用 7 級或 5 級；空氣經風扇與 HEPA／ULPA 濾網不斷循環；溫濕度嚴格控制；桑迪亞國家實驗室的 Willis Whitfield 於 1960 年設計出以不間斷過濾氣流運作的現代無塵室",
+              "src": "Wikipedia, “Cleanroom”",
+              "url": "https://en.wikipedia.org/wiki/Cleanroom"
+            },
+            {
+              "en": "A fab's roof may hold air handling equipment that draws in, purifies, and cools outside air, which is distributed to fan filter units",
+              "zh": "晶圓廠屋頂的空調設備吸入、淨化並冷卻外氣，再分送到風扇濾網機組",
+              "src": "Wikipedia, “Semiconductor fabrication plant”",
+              "url": "https://en.wikipedia.org/wiki/Semiconductor_fabrication_plant"
+            },
+            {
+              "en": "EUV tools consume at least 10 times more energy than immersion tools: 1.31 MW for an EUV tool and 0.13 MW for a DUV immersion tool (measured 2020)",
+              "zh": "EUV 機台耗能至少是浸潤式機台的 10 倍：EUV 1.31 MW、DUV 浸潤式 0.13 MW（2020 年量測）",
+              "src": "Wikipedia, “EUV lithography”",
+              "url": "https://en.wikipedia.org/wiki/EUV_lithography"
+            },
+            {
+              "en": "TSMC has invested in wastewater recycling systems capable of reclaiming over 85% of water used in fabrication processes",
+              "zh": "台積電投資的廢水回收系統可回收製程用水的 85% 以上",
+              "src": "Wikipedia, “TSMC” (Sustainability)",
+              "url": "https://en.wikipedia.org/wiki/TSMC"
+            },
+            {
+              "en": "The RCA clean: a standard set of wafer cleaning steps developed by Werner Kern in 1965 while working for RCA",
+              "zh": "RCA 清洗：Werner Kern 1965 年在 RCA 任職時發展出的標準晶圓清洗步驟",
+              "src": "Wikipedia, “RCA clean”",
+              "url": "https://en.wikipedia.org/wiki/RCA_clean"
+            }
+          ]
         }
       ],
       "planned": [
-        {
-          "n": 11,
-          "icon": "💧",
-          "en": "Why Does a Fab Need So Much Water and Power?",
-          "zh": "晶圓廠為什麼需要那麼多水和電？"
-        },
         {
           "n": 12,
           "icon": "💡",

@@ -456,3 +456,22 @@
 .cp-amd .al-age::-webkit-slider-thumb { border-color: var(--brand); }
 .cp-amd .al-age::-moz-range-progress { background: var(--brand); }
 .cp-amd-bar { background: linear-gradient(90deg, #58b4ff, #7cf29a); }
+
+/* ---------- 第十一課：晶圓廠為什麼需要那麼多水和電？ ---------- */
+@media (min-width: 1021px) { .cp-fb-lab .al-space { min-height: 640px; } }
+.cp-fb-wbox[hidden], .cp-fb-pbox[hidden], .cp-fb-msg[hidden] { display: none; }
+.cp-fb-nums small { display: block; font-size: .7rem; font-weight: 600; color: var(--al-mute); line-height: 1.3; }
+.cp-fb-mw { padding: .7rem .8rem; border-radius: 14px; border: 1px solid var(--al-line); background: rgba(255,255,255,.03); }
+.cp-fb-mw p { margin: 0 0 .5rem; font-size: .74rem; color: var(--al-mute); }
+.cp-fb-mw div { display: grid; grid-template-columns: 2.4rem minmax(0, 1fr) 4.4rem; gap: .5rem; align-items: center; font-size: .8rem; color: var(--al-text); margin-top: .3rem; }
+.cp-fb-mw i { display: block; height: 10px; width: var(--w); min-width: 4px; border-radius: 99px; background: #58b4ff; }
+.cp-fb-mw i.euv { background: #b48cff; }
+.cp-fb-mw b { text-align: right; font-variant-numeric: tabular-nums; }
+.al-lab.cp-fb-lb-pure { border-color: #bfeaff; } .al-lab.cp-fb-lb-back { border-color: #5fd0c0; }
+.al-lab.cp-fb-lb-pow { border-color: #ffd36e; }
+.al-lg-cpfbpure i { border: 0; border-radius: 50%; width: 9px; height: 9px; margin: .35rem 4px 0; background: #bfeaff; box-shadow: 13px 0 0 #5fd0c0, 26px 0 0 #8c9a86; margin-right: 32px; }
+.al-lg-cpfbair i { border: 0; height: 11px; margin-top: .3rem; border-radius: 2px; background: #58b4ff; }
+.al-lg-cpfbtool i { border: 0; height: 11px; margin-top: .3rem; border-radius: 2px; background: #8a5ad6; }
+.cp-cl-rooms { grid-template-columns: repeat(5, minmax(0, 1fr)); margin-top: 0; }
+.cp-cl-cv { display: block; width: 100%; height: auto; margin-top: .9rem; border-radius: 14px; }
+@media (max-width: 560px) { .cp-cl-rooms { grid-template-columns: repeat(3, minmax(0, 1fr)); } }

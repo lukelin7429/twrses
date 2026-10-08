@@ -7891,7 +7891,7 @@ def build_phil_hub():
 _chipj = os.path.join(ROOT, "data", "semiconductors.json")
 CHIP = json.load(open(_chipj, encoding="utf-8")) if os.path.exists(_chipj) else None
 CHIP_BASE = "/resources/classes/semiconductors/"
-_CHIP_JS = {"doping": "chip-doping", "transistor": "chip-transistor", "wafer": "chip-wafer", "litho": "chip-litho", "scale": "chip-scale", "package": "chip-package", "hbm": "chip-hbm", "island": "chip-island", "heat": "chip-heat", "aichip": "chip-ai"}   # lab.kind → assets/js/<bundle>.js
+_CHIP_JS = {"doping": "chip-doping", "transistor": "chip-transistor", "wafer": "chip-wafer", "litho": "chip-litho", "scale": "chip-scale", "package": "chip-package", "hbm": "chip-hbm", "island": "chip-island", "heat": "chip-heat", "aichip": "chip-ai", "fab": "chip-fab"}   # lab.kind → assets/js/<bundle>.js
 
 def _chip_ver():
     h = hashlib.md5()
@@ -8631,6 +8631,82 @@ def _chip_amd(am):
             f'</div></div>'
             '<noscript><p class="muted">The calculator works in your browser and needs JavaScript. · 計算在瀏覽器裡進行，需要開啟 JavaScript。</p></noscript>')
 
+def chipfab_svg(size=56):
+    """第十一課的課程卡小圖示：一座工廠，左邊一滴水，右邊一道閃電。"""
+    return (f'<svg class="chipfab-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">'
+            '<path d="M14 50 V28 L26 34 V28 L38 34 V22 H46 V50 Z" fill="#8fa6c8"/><rect x="19" y="40" width="5" height="5" fill="#16223f"/><rect x="28" y="40" width="5" height="5" fill="#16223f"/><rect x="37" y="40" width="5" height="5" fill="#16223f"/>'
+            '<path d="M9 8 Q3 17 9 21 Q15 17 9 8 Z" fill="#58b4ff"/><path d="M52 5 L45 16 H50 L47 25 L56 12 H51 Z" fill="#ffd36e"/>'
+            '<rect x="6" y="50" width="48" height="4" rx="1.5" fill="#2f8f5b"/></svg>')
+
+def render_chipfab_lab(lesson):
+    """第十一課：剖開的小晶圓廠，水的迴路（回收率滑桿）與三個用電大戶（assets/js/chip-fab.js 綁這裡的 class；配置是示意）。"""
+    lab = lesson["lab"]
+    msgs = "".join(f'<p class="cp-msg cp-fb-msg" data-msg="{k}" hidden>{html.escape(m["en"])}<span class="zh">{html.escape(m["zh"])}</span></p>' for k, m in lab["msgs"].items())
+    tg = _lab_toggles([("labels", "Labels", "標示", True)])
+    return f'''<div class="astro-lab cp-lab cp-fb-lab rvl" data-chipfab-lab>
+  <div class="al-stage">
+    <div class="al-space">
+      <canvas class="al-space-cv" aria-label="3D cutaway of a small chip factory showing the water loop from city water to ultrapure water to rinsing and back, and the fans, cooling, and machines that use power · 剖開的小晶圓廠 3D 模型：水從自來水、超純水、沖洗晶圓再回收的迴路，以及用電的風扇、空調和機台"></canvas>
+      <div class="al-labels" aria-hidden="true"></div>
+      <div class="cp-view" role="group" aria-label="View · 視角">
+        <button type="button" data-view="water" aria-pressed="true">Water<small>水</small></button>
+        <button type="button" data-view="power" aria-pressed="false">Power<small>電</small></button>
+      </div>
+      <p class="al-hint">Drag to turn · 拖曳旋轉　Scroll or pinch to zoom · 滾輪／雙指縮放</p>
+      <button type="button" class="al-home" title="Reset view · 重設視角" aria-label="Reset view · 重設視角">&#8634;</button>
+      <p class="al-nogl-msg">This 3D model needs WebGL, which this browser does not support. The reading and the cards below still explain everything.<br><span class="zh">這個瀏覽器不支援 WebGL，無法顯示 3D 模型；下方的課文與卡片一樣能看懂。</span></p>
+    </div>
+    <aside class="al-sky cp-aside">
+      <div class="cp-is-jbox cp-fb-wbox">
+        <p class="al-sky-k">How much water is recycled? · 回收多少水？</p>
+        <label class="al-slider cp-is-yrow"><span>Recycled · 回收率 <output class="cp-fb-rec-out">85%</output></span>
+          <input type="range" class="al-age cp-fb-rec" min="0" max="90" step="5" value="85"></label>
+        <dl class="cp-nums cp-lt-nums cp-fb-nums">
+          <div><dt>New water needed · 要補的新水</dt><dd class="cp-fb-fresh"></dd></div>
+          <div><dt>Each drop works · 每滴水</dt><dd class="cp-fb-times"></dd></div>
+        </dl>
+      </div>
+      <div class="cp-is-jbox cp-fb-pbox" hidden>
+        <p class="al-sky-k">Three big users of power · 三個用電大戶</p>
+        <div class="cp-dope cp-fb-users" role="group" aria-label="Power users · 用電大戶">
+          <button type="button" data-user="air" aria-pressed="true">Clean air<small>乾淨的空氣</small></button>
+          <button type="button" data-user="cool" aria-pressed="false">Cooling<small>冷卻與空調</small></button>
+          <button type="button" data-user="tools" aria-pressed="false">Machines<small>機台</small></button>
+        </div>
+        <div class="cp-fb-mw"><p>One lithography machine, measured in 2020 · 一部曝光機（2020 年量測）</p>
+          <div><span>DUV</span><i style="--w:9.9%"></i><b>0.13 MW</b></div>
+          <div><span>EUV</span><i style="--w:100%" class="euv"></i><b>1.31 MW</b></div></div>
+      </div>
+      {msgs}
+    </aside>
+  </div>
+  <div class="al-controls">
+    <div class="al-row al-row-main">
+      <button type="button" class="al-play" aria-pressed="true"><span class="al-play-i" aria-hidden="true"></span><span class="al-play-t">Pause · 暫停</span></button>
+      <div class="al-row al-toggles">{tg}</div>
+    </div>
+  </div>
+  {_lab_foot(lab)}
+  <p class="cp-credit">{lab["credit_html"]}</p>
+</div>'''
+
+def _chip_clean(cl):
+    """「無塵室有多乾淨？」（chip-fab.js 的 initClean；不需要 WebGL）。"""
+    rooms = "".join(f'<button type="button" data-iso="{r["iso"]}" aria-pressed="false">{html.escape(r["en"])}<small>{html.escape(r["zh"])}</small></button>' for r in cl["rooms"])
+    return (f'<div class="cp-cnt cp-cl rvl" data-chip-clean>'
+            f'<div class="cp-cnt-in">'
+            f'<p class="cp-cnt-l"><span>Choose a room · 選一個房間</span></p>'
+            f'<div class="cp-dpw-pre cp-cl-rooms" role="group" aria-label="Rooms · 房間">{rooms}</div>'
+            f'<canvas class="cp-cl-cv" width="560" height="300" aria-hidden="true"></canvas>'
+            f'<p class="cp-cnt-note">{html.escape(cl["note_en"])}<span class="zh">{html.escape(cl["note_zh"])}</span></p></div>'
+            f'<div class="cp-home-out cp-cnt-out" aria-live="polite">'
+            f'<p class="cp-home-k">Particles in one cubic meter of air · 一立方公尺空氣裡的微粒</p>'
+            f'<p class="cp-home-big"><b class="cp-cl-n">0</b> at most · 最多幾顆</p>'
+            f'<p class="cp-home-sub">0.5 micrometers or larger · 0.5 微米以上</p>'
+            f'<p class="cp-home-note"><span class="cp-cl-en"></span><span class="zh cp-cl-zh"></span></p>'
+            f'</div></div>'
+            '<noscript><p class="muted">The picture works in your browser and needs JavaScript. · 這張圖在瀏覽器裡畫，需要開啟 JavaScript。</p></noscript>')
+
 def _chip_sun(sp):
     """「在螢幕上曬一張藍曬圖」（chip-litho.js 的 initSun；2D canvas，不需要 WebGL）。"""
     masks = "".join(f'<button type="button" data-mask="{m["key"]}" aria-pressed="false">{html.escape(m["en"])}<small>{html.escape(m["zh"])}</small></button>' for m in sp["masks"])
@@ -8727,7 +8803,7 @@ def build_chip_lesson(ui, unit, lesson):
     reading_html = render_basic_unit(1, unit_dict, level="chips", audio_rel="", pdf_rel="")
     lab = lesson["lab"]
     kind = lab["kind"]
-    lab_html = {"doping": render_chipdoping_lab, "transistor": render_chiptransistor_lab, "wafer": render_chipwafer_lab, "litho": render_chiplitho_lab, "scale": render_chipscale_lab, "package": render_chippackage_lab, "hbm": render_chiphbm_lab, "island": render_chipisland_lab, "heat": render_chipheat_lab, "aichip": render_chipai_lab}[kind](lesson)
+    lab_html = {"doping": render_chipdoping_lab, "transistor": render_chiptransistor_lab, "wafer": render_chipwafer_lab, "litho": render_chiplitho_lab, "scale": render_chipscale_lab, "package": render_chippackage_lab, "hbm": render_chiphbm_lab, "island": render_chipisland_lab, "heat": render_chipheat_lab, "aichip": render_chipai_lab, "fab": render_chipfab_lab}[kind](lesson)
 
     secs = []
     if lesson.get("home"):
@@ -8739,6 +8815,9 @@ def build_chip_lesson(ui, unit, lesson):
     if lesson.get("dies"):
         dz = lesson["dies"]
         secs.append(("dies", dz["eyebrow"], dz["en"], dz["zh"], _chip_dies(dz), _bi(dz["lead_en"], dz["lead_zh"], cls="lead rvl d2")))
+    if lesson.get("clean"):
+        cl = lesson["clean"]
+        secs.append(("clean", cl["eyebrow"], cl["en"], cl["zh"], _chip_clean(cl), _bi(cl["lead_en"], cl["lead_zh"], cls="lead rvl d2")))
     if lesson.get("amd"):
         am = lesson["amd"]
         secs.append(("amd", am["eyebrow"], am["en"], am["zh"], _chip_amd(am), _bi(am["lead_en"], am["lead_zh"], cls="lead rvl d2")))
@@ -8811,7 +8890,8 @@ def build_chip_lesson(ui, unit, lesson):
                 "hbm": ("HBM in a sentence", "一句話記住 HBM"),
                 "island": ("The chip island in a sentence", "一句話記住晶片島"),
                 "heat": ("Chip heat in a sentence", "一句話記住晶片的熱"),
-                "aichip": ("AI chips in a sentence", "一句話記住 AI 晶片")}[kind]
+                "aichip": ("AI chips in a sentence", "一句話記住 AI 晶片"),
+                "fab": ("Water and power in a sentence", "一句話記住晶圓廠的水和電")}[kind]
     secs.append(("tricks", "Remember It · 記憶口訣", tricks_h[0], tricks_h[1], _sci_tricks(lesson), ""))
     if lesson.get("safety"):
         items = "".join(f'<li class="rvl">{html.escape(s["en"])}<span class="zh">{html.escape(s["zh"])}</span></li>' for s in lesson["safety"])
@@ -8865,7 +8945,7 @@ def build_chip_lesson(ui, unit, lesson):
 def build_chip_hub():
     # 照萬物原理：單元導覽＋每個單元一段橫向課程卡；做好的課可點，planned 是「製作中」卡。
     def icon(l):
-        return chipsilicon_svg(60) if l.get("card") == "silicon" else chiptransistor_svg(60) if l.get("card") == "transistor" else chipwafer_svg(60) if l.get("card") == "wafer" else chiplitho_svg(60) if l.get("card") == "litho" else chipscale_svg(60) if l.get("card") == "scale" else chippackage_svg(60) if l.get("card") == "package" else chiphbm_svg(60) if l.get("card") == "hbm" else chipisland_svg(60) if l.get("card") == "island" else chipheat_svg(60) if l.get("card") == "heat" else chipai_svg(60) if l.get("card") == "aichip" else l["icon"]
+        return chipsilicon_svg(60) if l.get("card") == "silicon" else chiptransistor_svg(60) if l.get("card") == "transistor" else chipwafer_svg(60) if l.get("card") == "wafer" else chiplitho_svg(60) if l.get("card") == "litho" else chipscale_svg(60) if l.get("card") == "scale" else chippackage_svg(60) if l.get("card") == "package" else chiphbm_svg(60) if l.get("card") == "hbm" else chipisland_svg(60) if l.get("card") == "island" else chipheat_svg(60) if l.get("card") == "heat" else chipai_svg(60) if l.get("card") == "aichip" else chipfab_svg(60) if l.get("card") == "fab" else l["icon"]
     unit_sections, nav = [], []
     done = sum(len(u["lessons"]) for u in CHIP["units"])
     total = done + sum(len(u.get("planned", [])) for u in CHIP["units"])
