@@ -14,13 +14,7 @@
       "zh": "每一課也會請你在自己身上量一量、數一數，並附生字、閱讀理解、小測驗和課堂活動。本系列是教育用途，不是醫療建議。"
     }
   ],
-  "planned": [
-    {
-      "icon": "🏃",
-      "en": "What Happens When You Exercise?",
-      "zh": "運動的時候，身體發生什麼事？"
-    }
-  ],
+  "planned": [],
   "lessons": [
     {
       "n": 1,
@@ -8919,6 +8913,462 @@
       },
       "health_en": "This lesson is for learning about the body. It is not medical advice. Tell an adult about any cut that is deep, will not stop bleeding, or gets more red, swollen, or painful after a couple of days. If you think a bone may be broken, keep it still and see a doctor. Never test how a wound heals on purpose.",
       "health_zh": "本課是認識身體的教材，不是醫療建議。如果傷口很深、血止不住，或是過了兩三天反而更紅、更腫、更痛，請告訴大人。如果覺得骨頭可能斷了，請保持不動並且去看醫生。絕對不要為了觀察癒合而故意弄傷自己。"
+    },
+    {
+      "n": 20,
+      "slug": "exercise",
+      "title": "What Happens When You Exercise?",
+      "title_zh": "運動的時候，身體發生什麼事？",
+      "level": "入門 · Beginner",
+      "icon": "🏃",
+      "card": "exercise",
+      "blurb_en": "When you run, your heart, lungs, and muscles all speed up together. Set the pace for a 3D runner, watch the heartbeat and breathing follow, and then take your own pulse before and after.",
+      "blurb_zh": "跑步的時候，心臟、肺和肌肉一起加速。在 3D 裡幫跑者調速度，看心跳和呼吸怎麼跟上來，再量量自己運動前後的脈搏。",
+      "big_idea_en": "Working muscles need more oxygen, so your breathing and your heartbeat speed up to deliver it. With practice, the whole system gets better at the job.",
+      "big_idea_zh": "肌肉工作時需要更多氧氣，所以呼吸和心跳都加快來送貨；常常練習，整套系統就越做越好。",
+      "lab": {
+        "kind": "exercise",
+        "eyebrow": "3D Model · 3D 模型",
+        "title_en": "Set the Pace",
+        "title_zh": "調整速度",
+        "how_en": "The runner is a real skeleton with a heart, two lungs, and leg muscles drawn in. Choose a pace: rest, walk, jog, or sprint. The legs change at once, but watch the two numbers in the panel. The heartbeat and the breathing need a little time to catch up, and when the runner stops, they stay high for a while before they settle. The moving line draws that story for you.",
+        "how_zh": "這位跑者是一副真實的骨架，加上自繪的心臟、兩片肺和腿部肌肉。選一個速度：休息、走路、慢跑或衝刺。腿的動作馬上就變了，但請看面板上的兩個數字：心跳和呼吸要花一點時間才跟得上；跑者停下來之後，它們還會高一陣子才慢慢降下來。那條會動的線，把這段過程畫給你看。",
+        "legend": [
+          {
+            "cls": "exheart",
+            "en": "Red: the heart, beating at the rate shown",
+            "zh": "紅色：心臟，照顯示的速度跳動"
+          },
+          {
+            "cls": "exlung",
+            "en": "Pink: the lungs, breathing at the rate shown",
+            "zh": "粉紅色：肺，照顯示的速度呼吸"
+          },
+          {
+            "cls": "exmus",
+            "en": "Leg muscles: brighter when they need more oxygen",
+            "zh": "腿部肌肉：越亮表示需要越多氧氣"
+          },
+          {
+            "cls": "exblood",
+            "en": "Red dots: blood carrying oxygen to the legs",
+            "zh": "紅點：把氧氣送到腿部的血液"
+          }
+        ],
+        "scale_en": "The skeleton is a real one from BodyParts3D; the heart, lungs, muscles, and blood are our own drawing, and the running motion is a simple sketch. The numbers are for one example child of about ten: real heart rates differ a lot from person to person, so this model cannot tell you whether your own pulse is normal. The body really does take time to speed up and to recover; here that time is shortened so that you can watch it.",
+        "scale_zh": "骨架是 BodyParts3D 的真實骨架；心臟、肺、肌肉和血液是本站自繪的示意圖，跑步的動作也只是簡單的示意。數字是以一個大約十歲的孩子舉例：每個人的心跳差很多，所以這個模型沒辦法告訴你自己的脈搏正不正常。身體加速和恢復確實都需要時間；這裡把時間縮短了，讓你看得到。",
+        "credit_html": "Bone models: <a href=\"https://dbarchive.biosciencedbc.jp/en/bodyparts3d/download.html\" target=\"_blank\" rel=\"noopener\">BodyParts3D</a>, © The Database Center for Life Science, licensed under <a href=\"https://creativecommons.org/licenses/by/4.0/\" target=\"_blank\" rel=\"noopener\">CC BY 4.0</a>. We selected the bones, simplified the shapes, and added joints so that the skeleton can run; the heart, lungs, muscles, and blood are our own drawing. · 骨骼模型來源：BodyParts3D（日本生命科學資料庫中心，CC BY 4.0 授權）；本站挑選骨頭、簡化形狀並加上關節讓骨架能跑，心臟、肺、肌肉與血液為本站自繪示意。",
+        "paces": [
+          {
+            "key": "rest",
+            "icon": "🧍",
+            "en": "Rest",
+            "zh": "休息",
+            "text_en": "At rest. The muscles need little oxygen, so the heart and lungs take it easy.",
+            "text_zh": "休息中。肌肉需要的氧氣很少，心臟和肺都很輕鬆。"
+          },
+          {
+            "key": "walk",
+            "icon": "🚶",
+            "en": "Walk",
+            "zh": "走路",
+            "text_en": "Walking. The leg muscles ask for more oxygen, and the heartbeat and breathing rise a little. You can still talk easily.",
+            "text_zh": "走路。腿部肌肉要更多氧氣，心跳和呼吸稍微上升。你還能輕鬆地說話。"
+          },
+          {
+            "key": "jog",
+            "icon": "🏃",
+            "en": "Jog",
+            "zh": "慢跑",
+            "text_en": "Jogging. The heart beats faster and harder, breathing is deeper, and the body starts to sweat to stay cool. You can talk, but only in short sentences.",
+            "text_zh": "慢跑。心臟跳得更快、更用力，呼吸變深，身體開始流汗來降溫。你還能說話，但只說得出短短的句子。"
+          },
+          {
+            "key": "sprint",
+            "icon": "⚡",
+            "en": "Sprint",
+            "zh": "衝刺",
+            "text_en": "Sprinting. The muscles are using oxygen faster than the blood can bring it. Nobody can keep this up for long, and it is very hard to speak.",
+            "text_zh": "衝刺。肌肉用掉氧氣的速度，比血液送來的還快。沒有人能維持很久，而且幾乎說不出話。"
+          }
+        ],
+        "recover_en": "Stopped, but still breathing hard. The body is paying back the oxygen it borrowed. How fast these numbers fall is a sign of fitness.",
+        "recover_zh": "停下來了，卻還在喘。身體正在把剛才借用的氧氣補回來。這兩個數字降得多快，是體能好不好的一個指標。"
+      },
+      "paras": [
+        "Run across the playground as fast as you can, and then stop. Your heart is pounding, you are breathing hard, and your face is hot. Nothing is wrong. Your body has just done something clever: several of its systems have sped up together to help your muscles.",
+        "It starts in the muscles. A working muscle uses energy many times faster than a resting one, and to get that energy it needs oxygen and fuel. Both arrive in the blood. So when your leg muscles start to work hard, they send out a call for more blood.",
+        "Your lungs and your heart answer the call. You breathe faster and deeper, so more oxygen enters your blood. Your heart beats faster, and each beat pushes out more blood. At rest, the heart of a child about ten years old beats about 60 to 100 times a minute. In a hard run it can beat much faster than that. At the same time, your blood vessels send more of the blood to the muscles that are working and less to places that can wait, such as your stomach.",
+        "All that work makes heat. To keep from getting too hot, your body sends warm blood to the skin, which is why your face turns red, and it makes sweat. As you learned in the lesson about skin, sweat cools you when it dries. That is also why you need to drink water when you exercise.",
+        "When you stop, your heartbeat and breathing do not drop at once. For a few minutes your body keeps working to pay back the oxygen it borrowed and to cool down. The better your fitness, the faster you recover. And fitness can be trained. If you are active often, your heart muscle grows stronger and pushes out more blood with every beat, so it does not have to beat as often. Some top long-distance athletes have a resting heart rate below 50.",
+        "How much is enough? The World Health Organization says that children and teenagers should be active for an average of at least 60 minutes a day, hard enough to make them breathe faster. It does not have to be a sport: fast walking, dancing, cycling, and playing tag all count. In Taiwan, schools also plan at least 150 minutes of activity a week outside of PE class. Now find out what your own heart does: use the pulse card below the model."
+      ],
+      "paras_zh": [
+        "用最快的速度跑過操場，然後停下來。你的心臟怦怦跳，你喘得很厲害，臉也熱熱的。這不是出了什麼問題——你的身體剛剛做了一件很聰明的事：好幾個系統一起加速，來幫助你的肌肉。",
+        "一切從肌肉開始。正在工作的肌肉，使用能量的速度是休息時的好多倍；為了得到這些能量，它需要氧氣和燃料，而這兩樣都是血液送來的。所以當你的腿部肌肉開始用力，它們就會發出訊號：我們需要更多的血！",
+        "肺和心臟回應了這個訊號。你呼吸得更快、更深，讓更多氧氣進入血液；你的心臟跳得更快，而且每一下都打出更多的血。休息的時候，大約十歲孩子的心臟每分鐘大約跳 60 到 100 下；用力跑的時候，可以比這快得多。同時，血管把更多的血送到正在工作的肌肉，把比較少的血送到可以等一等的地方，例如你的胃。",
+        "這麼多的工作會產生熱。為了不要太熱，身體把溫熱的血送到皮膚——所以你的臉會變紅——並且製造汗水。就像你在皮膚那一課學到的，汗水蒸發的時候會幫你降溫。這也是為什麼運動的時候要喝水。",
+        "你停下來的時候，心跳和呼吸並不會馬上降下來。有幾分鐘的時間，身體還在繼續工作，把剛才借用的氧氣補回來，也讓自己涼下來。體能越好，恢復得越快。而體能是可以鍛鍊的：如果你常常活動，心臟的肌肉會變得更強壯，每一下打出更多的血，所以不必跳得那麼頻繁。有些頂尖的長跑選手，休息時的心跳每分鐘不到 50 下。",
+        "要動多少才夠？世界衛生組織說，兒童和青少年平均每天至少要活動 60 分鐘，而且要激烈到會讓呼吸變快。不一定要是某種運動：快走、跳舞、騎腳踏車、玩鬼抓人都算。在台灣，學校也會在體育課之外，安排每週至少 150 分鐘的活動時間。現在來看看你自己的心臟會怎麼做：用模型下方的脈搏卡。"
+      ],
+      "questions": [
+        "Why do your muscles need more blood when you exercise?",
+        "What do your lungs and your heart do to help?",
+        "What happens to your heart if you are active often?"
+      ],
+      "answers": [
+        "Because working muscles use energy much faster, and the oxygen and fuel they need arrive in the blood.",
+        "You breathe faster and deeper, so more oxygen enters the blood. The heart beats faster, and each beat pushes out more blood.",
+        "The heart muscle grows stronger and pushes out more blood with every beat, so it does not have to beat as often."
+      ],
+      "vocab": [
+        {
+          "n": 1,
+          "w": "exercise",
+          "pos": "n.",
+          "zh": "運動",
+          "ex": "<b>Exercise</b> makes your heart stronger.",
+          "exzh": "運動讓你的心臟更強壯。"
+        },
+        {
+          "n": 2,
+          "w": "pulse",
+          "pos": "n.",
+          "zh": "脈搏",
+          "ex": "I can feel my <b>pulse</b> on my wrist.",
+          "exzh": "我在手腕上摸得到脈搏。"
+        },
+        {
+          "n": 3,
+          "w": "breathe",
+          "pos": "v.",
+          "zh": "呼吸",
+          "ex": "<b>Breathe</b> in slowly through your nose.",
+          "exzh": "用鼻子慢慢吸氣。"
+        },
+        {
+          "n": 4,
+          "w": "sweat",
+          "pos": "n.",
+          "zh": "汗水",
+          "ex": "<b>Sweat</b> was running down my face.",
+          "exzh": "汗水從我臉上流下來。"
+        },
+        {
+          "n": 5,
+          "w": "muscle",
+          "pos": "n.",
+          "zh": "肌肉",
+          "ex": "My leg <b>muscles</b> are tired after the race.",
+          "exzh": "賽跑之後，我腿上的肌肉很累。"
+        },
+        {
+          "n": 6,
+          "w": "oxygen",
+          "pos": "n.",
+          "zh": "氧氣",
+          "ex": "Your blood carries <b>oxygen</b> to every part of your body.",
+          "exzh": "血液把氧氣送到身體的每一個地方。"
+        },
+        {
+          "n": 7,
+          "w": "recover",
+          "pos": "v.",
+          "zh": "恢復",
+          "ex": "It took me two minutes to <b>recover</b> after the run.",
+          "exzh": "跑完之後，我花了兩分鐘才恢復。"
+        },
+        {
+          "n": 8,
+          "w": "active",
+          "pos": "adj.",
+          "zh": "活動的；好動的",
+          "ex": "Try to be <b>active</b> for an hour every day.",
+          "exzh": "試著每天活動一個小時。"
+        }
+      ],
+      "quiz": [
+        {
+          "q": "What do working muscles need more of?",
+          "options": [
+            "Oxygen and fuel",
+            "Sleep",
+            "Bones",
+            "Saliva"
+          ],
+          "correct": 0
+        },
+        {
+          "q": "How does oxygen get to your leg muscles?",
+          "options": [
+            "In the blood",
+            "Through the skin of your legs",
+            "Down the nerves",
+            "Through the bones"
+          ],
+          "correct": 0
+        },
+        {
+          "q": "Why does your face turn red when you run?",
+          "options": [
+            "Warm blood is sent to the skin to cool you",
+            "Your skin is getting sunburned",
+            "Your face muscles are working hardest",
+            "You are short of blood"
+          ],
+          "correct": 0
+        },
+        {
+          "q": "What happens to your heartbeat right after you stop running?",
+          "options": [
+            "It stays fast for a while and then slows down",
+            "It stops for a moment",
+            "It drops to normal at once",
+            "It keeps getting faster"
+          ],
+          "correct": 0
+        },
+        {
+          "q": "According to the reading, how much activity should children get?",
+          "options": [
+            "At least 60 minutes a day on average",
+            "10 minutes a week",
+            "Only during PE class",
+            "Three hours every day"
+          ],
+          "correct": 0
+        }
+      ],
+      "kinds_head": {
+        "eyebrow": "The Exercise Team · 運動小隊",
+        "en": "Everyone speeds up together",
+        "zh": "大家一起加速"
+      },
+      "kinds": [
+        {
+          "icon": "💪",
+          "en": "Muscles",
+          "zh": "肌肉",
+          "where_en": "All over your body, most of all in your legs when you run",
+          "where_zh": "全身都有；跑步時最忙的在腿上",
+          "control_en": "Do the work",
+          "control_zh": "負責出力",
+          "text_en": "They use oxygen and fuel to pull on your bones, and they make heat while they do it.",
+          "text_zh": "它們用氧氣和燃料來拉動骨頭，同時也產生熱。"
+        },
+        {
+          "icon": "🫁",
+          "en": "Lungs",
+          "zh": "肺",
+          "where_en": "In your chest",
+          "where_zh": "在胸腔裡",
+          "control_en": "Bring in oxygen",
+          "control_zh": "把氧氣帶進來",
+          "text_en": "They breathe faster and deeper, and they also get rid of the extra carbon dioxide your muscles make.",
+          "text_zh": "它們呼吸得更快、更深，也把肌肉製造的多餘二氧化碳排出去。"
+        },
+        {
+          "icon": "❤️",
+          "en": "Heart",
+          "zh": "心臟",
+          "where_en": "In your chest, between your lungs",
+          "where_zh": "在胸腔裡，兩片肺之間",
+          "control_en": "Pumps the blood",
+          "control_zh": "把血打出去",
+          "text_en": "It beats faster, and each beat pushes out more blood.",
+          "text_zh": "它跳得更快，而且每一下打出更多的血。"
+        },
+        {
+          "icon": "🩸",
+          "en": "Blood vessels",
+          "zh": "血管",
+          "where_en": "Everywhere",
+          "where_zh": "到處都有",
+          "control_en": "Send blood where it is needed",
+          "control_zh": "把血送到需要的地方",
+          "text_en": "They open wider in working muscles and in the skin, and narrow in places that can wait.",
+          "text_zh": "在工作的肌肉和皮膚裡，它們會張開；在可以等一等的地方，它們會變窄。"
+        },
+        {
+          "icon": "💧",
+          "en": "Sweat glands",
+          "zh": "汗腺",
+          "where_en": "In your skin",
+          "where_zh": "在皮膚裡",
+          "control_en": "Cool you down",
+          "control_zh": "幫你降溫",
+          "text_en": "Sweat carries heat away when it dries, so you need to drink water to replace it.",
+          "text_zh": "汗水蒸發時把熱帶走，所以你要喝水把它補回來。"
+        }
+      ],
+      "kinds_note_en": "Think of a restaurant at lunchtime: when the orders pour in, the kitchen cooks faster, the waiters walk faster, and the fans are turned up. No one part can speed up alone.",
+      "kinds_note_zh": "把它想成午餐時間的餐廳：訂單一多，廚房煮得更快，服務生走得更快，電風扇也開大。沒有哪一個部分能自己單獨加速。",
+      "measure": {
+        "title_en": "Before, after, and two minutes later",
+        "title_zh": "運動前、運動後、兩分鐘後",
+        "lead_en": "Take your pulse three times and use the pulse card below the model. You learned how to find your pulse in the lesson about blood: two fingers on the thumb side of your wrist.",
+        "lead_zh": "量三次脈搏，並使用模型下方的脈搏卡。你在血液那一課學過怎麼找脈搏：兩根手指放在手腕靠大拇指的那一側。",
+        "steps": [
+          {
+            "n": "🧍",
+            "en": "At rest",
+            "zh": "休息時",
+            "text_en": "Sit quietly for two minutes. Start the 15-second timer, count the beats, and enter the number.",
+            "text_zh": "安靜地坐兩分鐘。按下 15 秒計時，數一數脈搏跳了幾下，把數字輸入進去。"
+          },
+          {
+            "n": "🤸",
+            "en": "Right after exercise",
+            "zh": "剛運動完",
+            "text_en": "Do jumping jacks for one minute. As soon as you stop, find your pulse and count for 15 seconds again.",
+            "text_zh": "做開合跳一分鐘。一停下來就馬上找到脈搏，再數 15 秒。"
+          },
+          {
+            "n": "⏱",
+            "en": "Two minutes later",
+            "zh": "兩分鐘後",
+            "text_en": "Sit down and rest for two minutes, and then count once more. The card shows how much of the rise is already gone.",
+            "text_zh": "坐下來休息兩分鐘，然後再數一次。卡片會算出上升的部分已經降回了多少。"
+          }
+        ],
+        "action": "test",
+        "action_value": "1",
+        "button_icon": "❤️",
+        "button_en": "Open the pulse card",
+        "button_zh": "打開脈搏卡"
+      },
+      "myths": [
+        {
+          "myth_en": "Sore muscles the next day are caused by lactic acid.",
+          "myth_zh": "隔天肌肉痠痛，是乳酸堆積造成的。",
+          "fact_en": "Lactic acid is gone within about an hour. The soreness a day or two later comes from tiny damage in the muscle fibers, which the body then repairs.",
+          "fact_zh": "乳酸大約一小時內就消失了。隔一兩天才出現的痠痛，是肌肉纖維裡的微小損傷造成的，身體接著會把它修補好。"
+        },
+        {
+          "myth_en": "A slow resting heartbeat means a weak heart.",
+          "myth_zh": "休息時心跳慢，表示心臟比較弱。",
+          "fact_en": "A well-trained heart pushes out more blood with each beat, so it can beat less often. Top endurance athletes often have very slow resting heart rates.",
+          "fact_zh": "鍛鍊過的心臟每一下打出更多的血，所以可以跳得比較少下。頂尖的耐力型運動員，休息時的心跳常常非常慢。"
+        },
+        {
+          "myth_en": "Only sports count as exercise.",
+          "myth_zh": "只有正式的運動項目才算運動。",
+          "fact_en": "Anything that makes you breathe faster counts: fast walking, dancing, cycling, climbing stairs, or playing tag.",
+          "fact_zh": "只要會讓你呼吸變快的都算：快走、跳舞、騎腳踏車、爬樓梯，或是玩鬼抓人。"
+        },
+        {
+          "myth_en": "You should not drink water while you exercise.",
+          "myth_zh": "運動的時候不可以喝水。",
+          "fact_en": "You lose water as sweat, and your body needs it back. Small sips during and after exercise are a good idea.",
+          "fact_zh": "你會隨著汗水流失水分，而身體需要把它補回來。運動中和運動後小口小口地喝水是好習慣。"
+        }
+      ],
+      "tricks": [
+        {
+          "title_en": "Muscles ask, heart and lungs answer",
+          "title_zh": "肌肉開口，心肺回應",
+          "body_en": "Muscles need oxygen. Lungs bring it in, and the heart delivers it.",
+          "body_zh": "肌肉需要氧氣；肺把它帶進來，心臟把它送過去。"
+        },
+        {
+          "title_en": "Red face, wet skin, cool body",
+          "title_zh": "臉紅、流汗、降溫",
+          "body_en": "Warm blood goes to the skin, and sweat carries the heat away.",
+          "body_zh": "溫熱的血流到皮膚，汗水把熱帶走。"
+        },
+        {
+          "title_en": "Fast recovery, fit body",
+          "title_zh": "恢復得快，體能就好",
+          "body_en": "A pulse that comes back down quickly is one sign of a fit body.",
+          "body_zh": "脈搏很快降回來，是體能好的一個跡象。"
+        },
+        {
+          "title_en": "60 a day",
+          "title_zh": "每天 60 分鐘",
+          "body_en": "At least 60 minutes of activity a day, hard enough to make you breathe faster.",
+          "body_zh": "每天至少活動 60 分鐘，而且要激烈到讓你呼吸變快。"
+        }
+      ],
+      "activities": [
+        {
+          "title_en": "Our Class Pulse Graph",
+          "title_zh": "全班的脈搏圖",
+          "materials": [
+            {
+              "en": "A clock or timer that everyone can see",
+              "zh": "一個全班都看得到的時鐘或計時器"
+            },
+            {
+              "en": "Graph paper, or a large chart on the board",
+              "zh": "方格紙，或是黑板上的一大張圖表"
+            }
+          ],
+          "steps": [
+            {
+              "en": "Everyone counts their resting pulse for 15 seconds and multiplies by 4.",
+              "zh": "每個人數休息時的脈搏 15 秒，再乘以 4。"
+            },
+            {
+              "en": "Do jumping jacks together for one minute, and count again right away.",
+              "zh": "全班一起做開合跳一分鐘，馬上再數一次。"
+            },
+            {
+              "en": "Rest for two minutes, and count a third time.",
+              "zh": "休息兩分鐘，數第三次。"
+            },
+            {
+              "en": "Draw your three numbers as a line graph. What shape does almost everyone's line have?",
+              "zh": "把你的三個數字畫成折線圖。幾乎每個人的線，都是什麼形狀？"
+            }
+          ],
+          "tip_en": "Teaching tip: do not compare students' numbers. Resting pulses differ a lot among healthy children, and a higher or lower number does not mean better or worse. Compare the shape instead: up fast, down more slowly. Students who should not do jumping jacks can be the timekeepers, and their flat line is a useful comparison.",
+          "tip_zh": "教學提示：請不要比較學生之間的數字。健康孩子休息時的脈搏本來就差很多，數字高一點或低一點並不代表比較好或比較差。要比的是形狀：上去得快，下來得慢。不適合做開合跳的學生可以負責計時，他們那條平平的線正好是很好的對照。"
+        },
+        {
+          "title_en": "The Talk Test",
+          "title_zh": "說話測試",
+          "materials": [
+            {
+              "en": "A safe place to walk and jog, such as the playground",
+              "zh": "一個可以安全走路和慢跑的地方，例如操場"
+            },
+            {
+              "en": "A short sentence that everyone knows, such as a line from a song",
+              "zh": "一句大家都會的短句子，例如一句歌詞"
+            }
+          ],
+          "steps": [
+            {
+              "en": "Walk slowly and say the sentence out loud. Was it easy?",
+              "zh": "慢慢走，把句子大聲說出來。容易嗎？"
+            },
+            {
+              "en": "Walk fast, and say it again.",
+              "zh": "快走，再說一次。"
+            },
+            {
+              "en": "Jog, and say it again. Then run fast for ten seconds and try once more.",
+              "zh": "慢跑，再說一次。然後快跑十秒鐘，再試一次。"
+            },
+            {
+              "en": "At which speed did you have to stop for a breath in the middle?",
+              "zh": "在哪一種速度，你說到一半就得停下來換氣？"
+            }
+          ],
+          "tip_en": "Teaching tip: speaking uses the same air as breathing, so the talk test is a simple way to feel how hard the body is working without any equipment. “Can talk but not sing” is a common everyday description of moderate activity. Link it to the lesson on voice: no air, no voice.",
+          "tip_zh": "教學提示：說話和呼吸用的是同一口氣，所以不需要任何器材，說話測試就能讓學生感覺到身體有多用力。「還能說話，但沒辦法唱歌」是日常生活中常用來形容中等強度活動的說法。可以連回聲音那一課：沒有空氣，就沒有聲音。"
+        }
+      ],
+      "culture": {
+        "title_en": "Out of Breath",
+        "title_zh": "上氣不接下氣",
+        "body_en": "When you have run too hard, Chinese says 上氣不接下氣 (shàng qì bù jiē xià qì): “the breath above cannot catch the breath below.” English says you are “out of breath.” To loosen up, people say 活動筋骨 (huódòng jīngǔ), “get the tendons and bones moving,” which names the same parts you met in the lessons on muscles and hands. Taiwan's schools have their own number for moving: SH150, which stands for Sports and Health, 150 minutes of activity a week outside of PE class. The name is new, but the idea is very old: a body that moves stays strong.",
+        "body_zh": "跑得太用力的時候，中文說「上氣不接下氣」；英文則說 out of breath（沒氣了）。想舒展一下身體，我們說「活動筋骨」——筋和骨，正好是肌肉和手那幾課認識的東西。台灣的學校有一個屬於自己的數字：SH150，S 是 Sports（運動）、H 是 Health（健康），意思是體育課之外，每週在校活動 150 分鐘。名字是新的，道理卻很老：常常動的身體才會強壯。",
+        "link_en": "More Chinese health words in English",
+        "link_zh": "到中醫養生系列看更多"
+      },
+      "health_en": "This lesson is for learning about the body. It is not medical advice. Everyone's heart rate is different, and the numbers in this lesson are only examples. Stop and tell an adult if you feel dizzy, have pain in your chest, or cannot catch your breath. If a doctor has told you to limit exercise, follow the doctor's advice.",
+      "health_zh": "本課是認識身體的教材，不是醫療建議。每個人的心跳都不一樣，這一課裡的數字只是舉例。如果覺得頭暈、胸口痛，或是一直喘不過氣，請停下來並且告訴大人。如果醫生說過你要限制運動，請照醫生的話做。"
     }
   ]
 }

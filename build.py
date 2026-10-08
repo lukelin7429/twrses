@@ -4317,7 +4317,7 @@ def build_astro_hub():
 # 面板與段落樣式沿用 astro.css，人體專屬的在 body.css；兩者都只載在本系列頁面。
 BODY_BASE = "/resources/classes/human-body/"
 _BODY_JS = {"skeleton": "skeleton", "arm": "arm", "heart": "heart", "lungs": "lungs", "joints": "joints",
-            "digestion": "digestion", "nerves": "nerves", "eyes": "eyes", "ears": "ears", "skin": "skin", "teeth": "teeth", "germs": "germs", "kidneys": "kidneys", "taste": "taste", "sleep": "sleep", "growth": "growth", "voice": "voice", "hands": "hands", "healing": "healing"}   # lab.kind → assets/js/<bundle>.js
+            "digestion": "digestion", "nerves": "nerves", "eyes": "eyes", "ears": "ears", "skin": "skin", "teeth": "teeth", "germs": "germs", "kidneys": "kidneys", "taste": "taste", "sleep": "sleep", "growth": "growth", "voice": "voice", "hands": "hands", "healing": "healing", "exercise": "exercise"}   # lab.kind → assets/js/<bundle>.js
 
 def _body_ver():
     h = hashlib.md5()
@@ -5517,6 +5517,61 @@ def render_healing_lab(lesson):
   <p class="sk-credit">{lab["credit_html"]}</p>
 </div>'''
 
+def render_exercise_lab(lesson):
+    """第二十課：會跑步的真實骨架＋自繪心肺、腿部肌肉與血流（assets/js/exercise.js 綁這裡的 class）；脈搏卡是 2D，不需要 WebGL。"""
+    lab = lesson["lab"]
+    paces_json = html.escape(json.dumps(lab["paces"], ensure_ascii=False))
+    paces = "".join(
+        f'<button type="button" data-pace="{p["key"]}" aria-pressed="{"true" if n == 0 else "false"}"><i aria-hidden="true">{p["icon"]}</i>'
+        f'<span>{html.escape(p["en"])}<small>{html.escape(p["zh"])}</small></span></button>' for n, p in enumerate(lab["paces"]))
+    def cell(icon, en, zh):
+        return (f'<div class="ex-cell"><p class="ex-k"><i aria-hidden="true">{icon}</i>{en}<small>{zh}</small></p>'
+                f'<label><input type="number" class="ex-in" min="5" max="60" step="1" inputmode="numeric" placeholder="—"><span>beats in 15 s<small>15 秒跳幾下</small></span></label>'
+                f'<div class="ex-bar" aria-hidden="true"><i></i></div><p class="ex-out"><b class="ex-bpm">—</b><span>a minute<small>每分鐘</small></span></p></div>')
+    tg = _lab_toggles([("labels", "Labels", "標示", True), ("muscles", "Leg muscles", "腿部肌肉", True), ("blood", "Blood", "血流", True)])
+    return f'''<div class="astro-lab sk-lab ex-lab rvl" data-exercise-lab data-model="{_model_url()}" data-paces="{paces_json}" data-rec-en="{html.escape(lab["recover_en"])}" data-rec-zh="{html.escape(lab["recover_zh"])}">
+  <div class="al-stage">
+    <div class="al-space">
+      <canvas class="al-space-cv" aria-label="3D model of a real skeleton running in place, with a beating heart, breathing lungs, leg muscles, and blood flowing to the legs · 真實骨架原地跑步的 3D 模型，有跳動的心臟、呼吸的肺、腿部肌肉，以及流向腿部的血液"></canvas>
+      <div class="al-labels" aria-hidden="true"></div>
+      <p class="sk-loading">Loading… · 載入中…<span class="sk-bar"><i></i></span></p>
+      <p class="al-hint">Drag to turn · 拖曳旋轉　Scroll or pinch to zoom · 滾輪／雙指縮放</p>
+      <p class="ey-mag">An example child of about ten · 以大約十歲的孩子舉例</p>
+      <button type="button" class="al-home" title="Reset view · 重設視角" aria-label="Reset view · 重設視角">&#8634;</button>
+      <p class="al-nogl-msg">This 3D model needs WebGL, which this browser does not support. The pulse card and the cards below still work.<br><span class="zh">這個瀏覽器不支援 WebGL，無法顯示 3D 模型；下方的脈搏卡和卡片一樣能用。</span></p>
+    </div>
+    <aside class="al-sky sk-aside ex-aside">
+      <div class="ex-two">
+        <p class="ex-big ex-big-h"><b class="ex-hr">82</b><span>&#10084;&#65039; beats a minute<small>心跳（每分鐘）</small></span></p>
+        <p class="ex-big ex-big-b"><b class="ex-br">18</b><span>&#129729; breaths a minute<small>呼吸（每分鐘）</small></span></p>
+      </div>
+      <p class="al-sky-k">The last minute · 最近一分鐘</p>
+      <div class="ex-tracebox"><canvas class="ex-trace" aria-hidden="true"></canvas></div>
+      <p class="ex-key"><i class="ex-key-h"></i>Heartbeat · 心跳　<i class="ex-key-b"></i>Breathing · 呼吸</p>
+      <div class="ex-heat"><span>Body heat and sweat<small>體溫與流汗</small></span><b><i></i></b></div>
+      <p class="ey-status ex-status" aria-live="polite"></p>
+    </aside>
+  </div>
+  <div class="ex-strip">
+    <div class="ex-card">
+      <p class="al-sky-k">My pulse · 我的脈搏</p>
+      <div class="ex-cells">{cell("&#129485;", "At rest", "休息時")}{cell("&#129336;", "Right after", "剛運動完")}{cell("&#9201;", "2 minutes later", "兩分鐘後")}</div>
+    </div>
+    <div class="ex-side">
+      <p class="al-sky-k">15-second timer · 15 秒計時</p>
+      <button type="button" class="ex-timer" aria-pressed="false"><b class="ex-count">15</b><span>Start 15 seconds<small>開始計時 15 秒</small></span></button>
+      <p class="ex-msg" aria-live="polite"></p>
+      <button type="button" class="ex-clear">Clear<small>清除</small></button>
+    </div>
+  </div>
+  <div class="al-controls">
+    <div class="ea-pres ex-paces" role="group" aria-label="Pace · 速度">{paces}</div>
+    <div class="al-row al-toggles">{tg}</div>
+  </div>
+  {_lab_foot(lab)}
+  <p class="sk-credit">{lab["credit_html"]}</p>
+</div>'''
+
 def _body_nav(slug):
     ls = BODY["lessons"]
     i = next(n for n, l in enumerate(ls) if l["slug"] == slug)
@@ -5544,7 +5599,7 @@ def build_body_lesson(lesson):
                 "joints": render_joints_lab, "digestion": render_digestion_lab, "nerves": render_nerves_lab,
                 "eyes": render_eyes_lab, "ears": render_ears_lab, "skin": render_skin_lab,
                 "teeth": render_teeth_lab, "germs": render_germs_lab, "kidneys": render_kidneys_lab,
-                "taste": render_taste_lab, "sleep": render_sleep_lab, "growth": render_growth_lab, "voice": render_voice_lab, "hands": render_hands_lab, "healing": render_healing_lab}[kind](lesson)
+                "taste": render_taste_lab, "sleep": render_sleep_lab, "growth": render_growth_lab, "voice": render_voice_lab, "hands": render_hands_lab, "healing": render_healing_lab, "exercise": render_exercise_lab}[kind](lesson)
 
     secs = []
     if lesson.get("jobs"):
@@ -5656,7 +5711,8 @@ def build_body_lesson(lesson):
                 "growth": ("Growing taller in a sentence", "一句話記住長高"),
                 "voice": ("Your voice in a sentence", "一句話記住聲音"),
                 "hands": ("Your hands in a sentence", "一句話記住手"),
-                "healing": ("Healing in a sentence", "一句話記住癒合")}[kind]
+                "healing": ("Healing in a sentence", "一句話記住癒合"),
+                "exercise": ("Exercise in a sentence", "一句話記住運動")}[kind]
     secs.append(("tricks", "Remember It · 記憶口訣", tricks_h[0], tricks_h[1], _sci_tricks(lesson), ""))
     if lesson.get("culture"):
         cu = lesson["culture"]
