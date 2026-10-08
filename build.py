@@ -7803,7 +7803,7 @@ def build_phil_hub():
 _chipj = os.path.join(ROOT, "data", "semiconductors.json")
 CHIP = json.load(open(_chipj, encoding="utf-8")) if os.path.exists(_chipj) else None
 CHIP_BASE = "/resources/classes/semiconductors/"
-_CHIP_JS = {"doping": "chip-doping", "transistor": "chip-transistor", "wafer": "chip-wafer", "litho": "chip-litho", "scale": "chip-scale"}   # lab.kind → assets/js/<bundle>.js
+_CHIP_JS = {"doping": "chip-doping", "transistor": "chip-transistor", "wafer": "chip-wafer", "litho": "chip-litho", "scale": "chip-scale", "package": "chip-package"}   # lab.kind → assets/js/<bundle>.js
 
 def _chip_ver():
     h = hashlib.md5()
@@ -8178,6 +8178,80 @@ def _chip_nail(nl):
             f'</div></div>'
             '<noscript><p class="muted">The counter works in your browser and needs JavaScript. · 計算在瀏覽器裡進行，需要開啟 JavaScript。</p></noscript>')
 
+def chippackage_svg(size=56):
+    """第六課的課程卡小圖示：基板上一塊中介層，上面一顆運算晶片和一疊記憶體。"""
+    stack = "".join(f'<rect x="36" y="{30 - i * 4}" width="14" height="3.2" rx=".6" fill="{"#8a5ad6" if i % 2 == 0 else "#9a6ae6"}"/>' for i in range(5))
+    return (f'<svg class="chippackage-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">'
+            '<rect x="4" y="42" width="52" height="7" rx="1.5" fill="#2f9a60"/><rect x="9" y="35" width="42" height="4" rx="1" fill="#8fa6c8"/>'
+            '<rect x="11" y="24" width="20" height="9.5" rx="1" fill="#3d6fd8"/>'
+            f'{stack}<g fill="#cfd6e0"><circle cx="11" cy="52.5" r="2"/><circle cx="20.5" cy="52.5" r="2"/><circle cx="30" cy="52.5" r="2"/><circle cx="39.5" cy="52.5" r="2"/><circle cx="49" cy="52.5" r="2"/></g></svg>')
+
+def render_chippackage_lab(lesson):
+    """第六課：三種放法——分開放、並排（2.5D）、疊起來（3D）（assets/js/chip-package.js 綁這裡的 class；全部自繪示意）。"""
+    lab = lesson["lab"]
+    msgs = "".join(f'<p class="cp-msg cp-pk-msg" data-msg="{k}" hidden>{html.escape(m["en"])}<span class="zh">{html.escape(m["zh"])}</span></p>' for k, m in lab["msgs"].items())
+    tg = _lab_toggles([("labels", "Labels", "標示", True)])
+    return f'''<div class="astro-lab cp-lab cp-pk-lab rvl" data-chippackage-lab>
+  <div class="al-stage">
+    <div class="al-space">
+      <canvas class="al-space-cv" aria-label="3D model of three ways to place chips: apart on a circuit board, side by side on an interposer, and stacked · 三種放晶片的方法的 3D 模型：分開焊在電路板上、並排放在中介層上、疊起來"></canvas>
+      <div class="al-labels" aria-hidden="true"></div>
+      <div class="cp-view" role="group" aria-label="Layout · 放法">
+        <button type="button" data-view="board" aria-pressed="true">Apart<small>分開放</small></button>
+        <button type="button" data-view="side" aria-pressed="false">Side by side<small>並排（2.5D）</small></button>
+        <button type="button" data-view="stack" aria-pressed="false">Stacked<small>疊起來（3D）</small></button>
+      </div>
+      <p class="al-hint">Drag to turn · 拖曳旋轉　Scroll or pinch to zoom · 滾輪／雙指縮放</p>
+      <button type="button" class="al-home" title="Reset view · 重設視角" aria-label="Reset view · 重設視角">&#8634;</button>
+      <p class="al-nogl-msg">This 3D model needs WebGL, which this browser does not support. The reading and the cards below still explain everything.<br><span class="zh">這個瀏覽器不支援 WebGL，無法顯示 3D 模型；下方的課文與卡片一樣能看懂。</span></p>
+    </div>
+    <aside class="al-sky cp-aside">
+      <p class="al-sky-k">How far does the data travel? · 資料要走多遠？</p>
+      <dl class="cp-nums cp-pk-nums">
+        <div><dt>Logic chip to memory (example) · 運算晶片到記憶體（示例）</dt><dd class="cp-pk-path"></dd></div>
+        <div><dt>Compared with apart · 和分開放比</dt><dd class="cp-pk-ratio"></dd></div>
+        <div><dt>Chips in one package · 一個封裝裡</dt><dd class="cp-pk-chips"></dd></div>
+      </dl>
+      <div class="cp-pk-bars">
+        <p class="cp-pk-bar cp-pk-bar-board"><span>Apart · 分開放</span><i></i><b></b></p>
+        <p class="cp-pk-bar cp-pk-bar-side"><span>Side by side · 並排</span><i></i><b></b></p>
+        <p class="cp-pk-bar cp-pk-bar-stack"><span>Stacked · 疊起來</span><i></i><b></b></p>
+        <p class="cp-pk-bars-n">Bars are on a compressed scale · 長條是壓縮過的刻度</p>
+      </div>
+      {msgs}
+    </aside>
+  </div>
+  <div class="al-controls">
+    <div class="al-row al-row-main">
+      <button type="button" class="al-play" aria-pressed="true"><span class="al-play-i" aria-hidden="true"></span><span class="al-play-t">Pause · 暫停</span></button>
+      <label class="al-slider cp-sc-zrow"><span>Take it apart · 拆開來看</span>
+        <input type="range" class="al-age cp-pk-explode" min="0" max="1" step="0.01" value="0"></label>
+      <div class="al-row al-toggles">{tg}</div>
+    </div>
+  </div>
+  {_lab_foot(lab)}
+  <p class="cp-credit">{lab["credit_html"]}</p>
+</div>'''
+
+def _chip_pack(pk):
+    """「一個封裝裡有幾顆晶片？」（chip-package.js 的 initPack；2D canvas，不需要 WebGL）。"""
+    layers = "".join(f'<button type="button" data-layers="{n}" aria-pressed="{"true" if n == 8 else "false"}">{n}<small>{n} 層</small></button>' for n in pk["layer_choices"])
+    return (f'<div class="cp-dpw cp-pkw rvl" data-chip-pack>'
+            f'<div class="cp-dpw-pic"><canvas class="cp-dpw-cv cp-pkw-cv" aria-label="Top view of the package you built · 你組出來的封裝的俯視圖"></canvas>'
+            f'<p class="cp-dpw-key">Top view: green is the substrate, gray-blue is the interposer · 俯視圖：綠色是基板，灰藍色是中介層</p></div>'
+            f'<div class="cp-dpw-side"><div class="cp-cnt-in">'
+            f'<p class="cp-cnt-l"><span>1 · Logic chips · 運算晶片</span></p>'
+            f'<div class="cp-dpw-pre cp-pkw-logic" role="group" aria-label="Logic chips · 運算晶片"><button type="button" data-logic="1" aria-pressed="true">1<small>1 顆</small></button><button type="button" data-logic="2" aria-pressed="false">2<small>2 顆</small></button></div>'
+            f'<label class="cp-cnt-l cp-sun-l"><span>2 · Stacks of memory · 幾疊記憶體 <output class="cp-pkw-stacks-out">4</output></span>'
+            f'<input type="range" class="al-age cp-pkw-stacks" min="0" max="8" step="1" value="4"></label>'
+            f'<p class="cp-cnt-l cp-sun-l"><span>3 · Chips in each stack · 每一疊幾層</span></p>'
+            f'<div class="cp-dpw-pre cp-pkw-layers" role="group" aria-label="Layers · 層數">{layers}</div>'
+            f'<p class="cp-nl-ans"><b><span class="cp-pkw-n">0</span> chips in one package</b><span class="zh">一個封裝裡的晶片數</span></p>'
+            f'<p class="cp-cnt-note"><span class="cp-pkw-en"></span><span class="zh cp-pkw-zh"></span></p>'
+            f'<p class="cp-cnt-note">{html.escape(pk["note_en"])}<span class="zh">{html.escape(pk["note_zh"])}</span></p>'
+            f'</div></div></div>'
+            '<noscript><p class="muted">The builder works in your browser and needs JavaScript. · 這個小工具在瀏覽器裡執行，需要開啟 JavaScript。</p></noscript>')
+
 def _chip_sun(sp):
     """「在螢幕上曬一張藍曬圖」（chip-litho.js 的 initSun；2D canvas，不需要 WebGL）。"""
     masks = "".join(f'<button type="button" data-mask="{m["key"]}" aria-pressed="false">{html.escape(m["en"])}<small>{html.escape(m["zh"])}</small></button>' for m in sp["masks"])
@@ -8274,7 +8348,7 @@ def build_chip_lesson(ui, unit, lesson):
     reading_html = render_basic_unit(1, unit_dict, level="chips", audio_rel="", pdf_rel="")
     lab = lesson["lab"]
     kind = lab["kind"]
-    lab_html = {"doping": render_chipdoping_lab, "transistor": render_chiptransistor_lab, "wafer": render_chipwafer_lab, "litho": render_chiplitho_lab, "scale": render_chipscale_lab}[kind](lesson)
+    lab_html = {"doping": render_chipdoping_lab, "transistor": render_chiptransistor_lab, "wafer": render_chipwafer_lab, "litho": render_chiplitho_lab, "scale": render_chipscale_lab, "package": render_chippackage_lab}[kind](lesson)
 
     secs = []
     if lesson.get("home"):
@@ -8286,6 +8360,9 @@ def build_chip_lesson(ui, unit, lesson):
     if lesson.get("dies"):
         dz = lesson["dies"]
         secs.append(("dies", dz["eyebrow"], dz["en"], dz["zh"], _chip_dies(dz), _bi(dz["lead_en"], dz["lead_zh"], cls="lead rvl d2")))
+    if lesson.get("pack"):
+        pk = lesson["pack"]
+        secs.append(("pack", pk["eyebrow"], pk["en"], pk["zh"], _chip_pack(pk), _bi(pk["lead_en"], pk["lead_zh"], cls="lead rvl d2")))
     if lesson.get("nail"):
         nl = lesson["nail"]
         secs.append(("nail", nl["eyebrow"], nl["en"], nl["zh"], _chip_nail(nl), _bi(nl["lead_en"], nl["lead_zh"], cls="lead rvl d2")))
@@ -8338,7 +8415,8 @@ def build_chip_lesson(ui, unit, lesson):
                 "transistor": ("Transistors in a sentence", "一句話記住電晶體"),
                 "wafer": ("From sand to chip in a sentence", "一句話記住沙子變晶片"),
                 "litho": ("Drawing with light in a sentence", "一句話記住用光畫電路"),
-                "scale": ("Nanometers in a sentence", "一句話記住奈米")}[kind]
+                "scale": ("Nanometers in a sentence", "一句話記住奈米"),
+                "package": ("Packaging in a sentence", "一句話記住封裝")}[kind]
     secs.append(("tricks", "Remember It · 記憶口訣", tricks_h[0], tricks_h[1], _sci_tricks(lesson), ""))
     if lesson.get("safety"):
         items = "".join(f'<li class="rvl">{html.escape(s["en"])}<span class="zh">{html.escape(s["zh"])}</span></li>' for s in lesson["safety"])
@@ -8392,7 +8470,7 @@ def build_chip_lesson(ui, unit, lesson):
 def build_chip_hub():
     # 照萬物原理：單元導覽＋每個單元一段橫向課程卡；做好的課可點，planned 是「製作中」卡。
     def icon(l):
-        return chipsilicon_svg(60) if l.get("card") == "silicon" else chiptransistor_svg(60) if l.get("card") == "transistor" else chipwafer_svg(60) if l.get("card") == "wafer" else chiplitho_svg(60) if l.get("card") == "litho" else chipscale_svg(60) if l.get("card") == "scale" else l["icon"]
+        return chipsilicon_svg(60) if l.get("card") == "silicon" else chiptransistor_svg(60) if l.get("card") == "transistor" else chipwafer_svg(60) if l.get("card") == "wafer" else chiplitho_svg(60) if l.get("card") == "litho" else chipscale_svg(60) if l.get("card") == "scale" else chippackage_svg(60) if l.get("card") == "package" else l["icon"]
     unit_sections, nav = [], []
     done = sum(len(u["lessons"]) for u in CHIP["units"])
     total = done + sum(len(u.get("planned", [])) for u in CHIP["units"])

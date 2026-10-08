@@ -3687,14 +3687,586 @@
       "title_zh": "AI 時代的晶片",
       "blurb_en": "Why chips are stacked together, why AI needs fast memory, and how Taiwan became a chip island.",
       "blurb_zh": "晶片為什麼要疊在一起、AI 為什麼需要快速的記憶體，以及台灣怎麼成為晶片島。",
-      "lessons": [],
-      "planned": [
+      "lessons": [
         {
           "n": 6,
+          "slug": "chip-stacking",
+          "title": "Why Do We Stack Chips Together?",
+          "title_zh": "先進封裝：為什麼要把晶片疊在一起？",
+          "level": "入門 · Beginner",
           "icon": "🧱",
-          "en": "Why Do We Stack Chips Together?",
-          "zh": "先進封裝：為什麼要把晶片疊在一起？"
-        },
+          "card": "package",
+          "blurb_en": "One chip cannot be made as big as we like, so engineers put many chips into one package, side by side or stacked like floors in a building. In 3D, compare chips set apart on a board, side by side on an interposer, and stacked, then take the package apart layer by layer.",
+          "blurb_zh": "一顆晶片沒辦法想做多大就做多大，所以工程師把很多顆晶片放進同一個封裝裡：並排，或像大樓的樓層一樣疊起來。在 3D 裡比較三種放法——分開焊在板子上、並排放在中介層上、疊起來——再把封裝一層一層拆開來看。",
+          "big_idea_en": "A chip needs a package to protect it and to connect it to the outside. Advanced packaging goes further: it puts several chips into one package, side by side or stacked, and joins them with very short wires. Shorter paths mean data moves faster and uses less power, like turning scattered houses into one tall building.",
+          "big_idea_zh": "晶片需要封裝來保護它，並把它和外面接起來。先進封裝更進一步：把好幾顆晶片放進同一個封裝，並排或疊起來，用很短的線連在一起。路短了，資料就跑得更快、更省電，就像把分散的房子蓋成一棟大樓。",
+          "lab": {
+            "kind": "package",
+            "eyebrow": "3D Model · 3D 模型",
+            "title_en": "Three Ways to Place Chips",
+            "title_zh": "三種放晶片的方法",
+            "how_en": "Drag to turn the model, and scroll or pinch to zoom. Choose Apart, Side by side, or Stacked at the top left, and watch the yellow dots of data travel from the blue logic chip to the purple memory chips. Then drag “Take it apart” to pull the layers away from one another and see what a package is made of.",
+            "how_zh": "拖曳可以旋轉模型，滾輪或雙指可以縮放。在左上角選「分開放」「並排」或「疊起來」，看黃色的資料小點從藍色的運算晶片跑到紫色的記憶體晶片。再拉「拆開來看」，把每一層上下拉開，看看一個封裝是用什麼做成的。",
+            "msgs": {
+              "board": {
+                "en": "Each chip sits in its own package, and the packages are soldered to a circuit board a few centimeters apart. Data has to leave one package, cross the board, and enter another. For a chip, that is a very long trip.",
+                "zh": "每顆晶片各有自己的封裝，分開焊在電路板上，彼此相隔幾公分。資料要先離開一個封裝、穿過板子、再進到另一個封裝。對晶片來說，這是很遠的路。"
+              },
+              "side": {
+                "en": "Now the bare chips sit side by side on one thin slice of silicon called an interposer. Its wires are far finer than the ones on a circuit board, so the chips can sit very close together. This is called 2.5D packaging.",
+                "zh": "現在把沒有外殼的晶片並排放在同一片薄薄的矽上，這片矽叫做中介層。它上面的線比電路板上的細得多，所以晶片可以靠得非常近。這種做法叫做 2.5D 封裝。"
+              },
+              "stack": {
+                "en": "Here the memory chips are stacked like floors in a building. Tiny copper posts called TSVs run straight up through the chips like elevators. The data only has to go up a few floors. This is 3D packaging.",
+                "zh": "這裡把記憶體晶片像大樓的樓層一樣疊起來。很細的銅柱（矽穿孔，TSV）直直穿過晶片，像電梯一樣。資料只要往上走幾層樓就到了。這就是 3D 封裝。"
+              }
+            },
+            "legend": [
+              {
+                "cls": "cppklogic",
+                "en": "Blue: the logic chip, which does the calculating",
+                "zh": "藍色：運算晶片，負責計算"
+              },
+              {
+                "cls": "cppkmem",
+                "en": "Purple: memory chips, which hold the data",
+                "zh": "紫色：記憶體晶片，負責放資料"
+              },
+              {
+                "cls": "cppkinter",
+                "en": "Gray-blue: the interposer, a slice of silicon with very fine wires",
+                "zh": "灰藍色：中介層，一片佈滿細線的矽"
+              },
+              {
+                "cls": "cppksub",
+                "en": "Green: the package substrate and the circuit board",
+                "zh": "綠色：封裝的基板和電路板"
+              },
+              {
+                "cls": "cppkdot",
+                "en": "Yellow dots: data on its way",
+                "zh": "黃色小點：正在路上的資料"
+              }
+            ],
+            "scale_en": "A teaching diagram, not to scale. The distances (about 3 centimeters, 3 millimeters, and 0.4 millimeters) are example numbers chosen to show the pattern; real products differ. Real packages have thousands of connections where this model shows a few dozen, and real chips are much thinner than they are drawn here.",
+            "scale_zh": "這是教學用的示意圖，不是真實比例。距離（大約 3 公分、3 公釐、0.4 公釐）是為了呈現趨勢所舉的例子，真的產品各有不同。真的封裝有成千上萬個接點，這裡只畫了幾十個；真的晶片也比圖上薄得多。",
+            "credit_html": "Model drawn by My Culture Connect as a teaching diagram. The three layouts follow <a href=\"https://en.wikipedia.org/wiki/2.5D_integrated_circuit\" target=\"_blank\" rel=\"noopener\">Wikipedia, “2.5D integrated circuit”</a> and <a href=\"https://en.wikipedia.org/wiki/Three-dimensional_integrated_circuit\" target=\"_blank\" rel=\"noopener\">“Three-dimensional integrated circuit”</a>. · 模型由人師教育協會自繪示意；三種放法依維基百科「2.5D integrated circuit」與「Three-dimensional integrated circuit」條目。"
+          },
+          "paras": [
+            "Look inside a phone or a computer and you will see small black squares on a green board. Those squares are not the chips themselves. Each one is a package: a tough case with a chip inside. The package protects the thin silicon from bumps, dust, and damp. It also connects the chip's tiny contacts to the much bigger world of the circuit board.",
+            "For a long time, that was the whole job. One chip went into one package, and the packages were soldered onto a board a few centimeters apart. But chips kept getting faster, and the trip between them began to matter. Data from the logic chip, which does the thinking, had to cross the board to reach the memory chip, which holds the data. Every trip took time and energy.",
+            "Why not just make one giant chip with everything on it? Because chips cannot grow without limit. The machine that prints the circuits can only expose an area of about 26 by 33 millimeters at a time. Bigger chips also mean fewer chips on each wafer, and one speck of dust can ruin a bigger piece. So engineers took a different road: keep the chips small, and bring them very close together.",
+            "The first way is to place bare chips side by side on a thin slice of silicon called an interposer. Its wires are far finer than the wires on a circuit board, so the chips can sit almost touching. This is called 2.5D packaging. Designers can mix and match small chips, called chiplets, a little like building with LEGO bricks.",
+            "The second way is to stack chips on top of one another, like floors in a building. Tiny copper posts called through-silicon vias, or TSVs, run straight through the chips like elevators. Now the data travels up a few floors instead of across a city. Shorter wires mean faster signals and less wasted power. But a stack traps heat, so engineers must plan carefully how to keep it cool.",
+            "After packaging, every chip is tested before it leaves the factory. Packaging and testing together are a big industry in Taiwan. ASE, founded in Kaohsiung in 1984, is the world's largest company that packages and tests chips for other companies. So the next time you hear about “advanced packaging,” think of a tall building: many chips, living close together, working as one."
+          ],
+          "paras_zh": [
+            "打開手機或電腦，你會看到綠色的板子上有一個個黑色的小方塊。那些方塊並不是晶片本身，而是封裝：一個堅固的外殼，晶片在裡面。封裝保護薄薄的矽不被碰撞、灰塵和濕氣傷害，也把晶片上很小的接點，接到電路板那個大得多的世界。",
+            "很長一段時間，封裝的工作就只有這些。一顆晶片放進一個封裝，一個個封裝焊在板子上，彼此相隔幾公分。可是晶片越來越快，晶片之間的那段路開始變得重要。負責思考的運算晶片送出資料，要穿過板子才到得了負責放資料的記憶體晶片。每走一趟，都要花時間和電。",
+            "那為什麼不乾脆做一顆很大的晶片，把所有東西都放在上面？因為晶片沒辦法無限制地變大。印電路的機器一次只能曝光大約 26 × 33 公釐的範圍。晶片越大，一片晶圓能做的顆數也越少，而且一粒灰塵就會毀掉更大的一塊。所以工程師走了另一條路：晶片維持小小的，但是讓它們靠得非常近。",
+            "第一種方法，是把沒有外殼的晶片並排放在一片薄薄的矽上，這片矽叫做中介層。它上面的線比電路板上的細得多，所以晶片幾乎可以貼在一起。這種做法叫做 2.5D 封裝。設計的人可以把叫做「小晶片」（chiplet）的小塊自由搭配，有點像玩樂高積木。",
+            "第二種方法，是把晶片一顆疊在另一顆上面，像大樓的樓層。叫做矽穿孔（TSV）的細銅柱直直穿過晶片，像電梯一樣。現在資料只要往上走幾層樓，不必橫越整個城市。線短了，訊號更快，浪費的電也更少。不過疊起來容易悶住熱，所以工程師要仔細規劃怎麼散熱。",
+            "封裝好之後，每一顆晶片都要經過測試才能出廠。封裝和測試合起來（簡稱封測）是台灣很大的產業。1984 年在高雄創立的日月光，是全世界最大的封裝測試代工公司。下次聽到「先進封裝」，就想像一棟高樓：很多顆晶片住得很近，一起工作，像一顆晶片一樣。"
+          ],
+          "questions": [
+            "What two jobs does a chip's package do?",
+            "Why don't engineers simply make one giant chip?",
+            "How is stacking chips like a tall building?"
+          ],
+          "answers": [
+            "It protects the chip from damage, and it connects the chip's tiny contacts to the circuit board.",
+            "The machine that prints circuits can only expose about 26 by 33 millimeters at a time, bigger chips mean fewer per wafer, and one speck of dust ruins a bigger piece.",
+            "The chips are like floors, and the TSVs are like elevators. Data goes up a few floors instead of traveling a long way across a board."
+          ],
+          "vocab": [
+            {
+              "n": 1,
+              "w": "package",
+              "pos": "n.",
+              "zh": "封裝；包裝",
+              "ex": "The chip is sealed inside a black <b>package</b>.",
+              "exzh": "晶片被封在一個黑色的封裝裡。"
+            },
+            {
+              "n": 2,
+              "w": "stack",
+              "pos": "v., n.",
+              "zh": "疊；一疊",
+              "ex": "<b>Stack</b> the books neatly on the desk.",
+              "exzh": "把書整齊地疊在桌上。"
+            },
+            {
+              "n": 3,
+              "w": "connect",
+              "pos": "v.",
+              "zh": "連接",
+              "ex": "This cable <b>connects</b> the screen to the computer.",
+              "exzh": "這條線把螢幕接到電腦。"
+            },
+            {
+              "n": 4,
+              "w": "protect",
+              "pos": "v.",
+              "zh": "保護",
+              "ex": "A case <b>protects</b> your phone when it falls.",
+              "exzh": "手機掉下去的時候，保護殼會保護它。"
+            },
+            {
+              "n": 5,
+              "w": "distance",
+              "pos": "n.",
+              "zh": "距離",
+              "ex": "The <b>distance</b> from my home to school is two kilometers.",
+              "exzh": "我家到學校的距離是兩公里。"
+            },
+            {
+              "n": 6,
+              "w": "vertical",
+              "pos": "adj.",
+              "zh": "垂直的",
+              "ex": "An elevator moves in a <b>vertical</b> line.",
+              "exzh": "電梯是沿著垂直的線移動。"
+            },
+            {
+              "n": 7,
+              "w": "side by side",
+              "pos": "phr.",
+              "zh": "並排",
+              "ex": "The two friends sat <b>side by side</b>.",
+              "exzh": "兩個朋友並排坐著。"
+            },
+            {
+              "n": 8,
+              "w": "test",
+              "pos": "v., n.",
+              "zh": "測試",
+              "ex": "Every chip is <b>tested</b> before it is sold.",
+              "exzh": "每一顆晶片賣出去之前都要測試。"
+            }
+          ],
+          "quiz": [
+            {
+              "q": "What is the black square you see on a circuit board?",
+              "options": [
+                "A package with a chip inside",
+                "The bare chip itself",
+                "A battery",
+                "A magnet"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "What is an interposer?",
+              "options": [
+                "A thin slice of silicon with very fine wires that chips sit on",
+                "A fan that cools the chip",
+                "A kind of memory chip",
+                "The plastic lid of a package"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "What do TSVs do?",
+              "options": [
+                "Carry signals straight up and down through stacked chips",
+                "Print the circuits on the wafer",
+                "Cut the wafer into chips",
+                "Store data when the power is off"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "Why are shorter wires better?",
+              "options": [
+                "Signals arrive faster and less power is wasted",
+                "They are easier to see",
+                "They make the chip heavier",
+                "They stop the chip from working"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "What is one problem with stacking chips?",
+              "options": [
+                "Heat is harder to get out",
+                "The chips become too slow",
+                "The chips need more sunlight",
+                "Nothing can connect them"
+              ],
+              "correct": 0
+            }
+          ],
+          "parts_head": {
+            "eyebrow": "Try It in the Model · 在模型裡試試",
+            "en": "Four views of a package",
+            "zh": "封裝的四個樣子"
+          },
+          "parts": [
+            {
+              "key": "board",
+              "icon": "🏘️",
+              "en": "Apart on a board",
+              "zh": "分開放在板子上",
+              "meta_en": "Scattered houses",
+              "meta_zh": "分散的房子",
+              "demo": "board",
+              "text_en": "Three packages, each with one chip. Follow the yellow dots along the gold lines: it is a long way from the logic chip to the memory.",
+              "text_zh": "三個封裝，各裝一顆晶片。跟著黃色小點沿著金色的線走：從運算晶片到記憶體要走很遠。"
+            },
+            {
+              "key": "side",
+              "icon": "🏠",
+              "en": "Side by side",
+              "zh": "並排",
+              "meta_en": "2.5D",
+              "meta_zh": "2.5D 封裝",
+              "demo": "side",
+              "text_en": "One package, five chips. They sit on an interposer, so close that the trip is ten times shorter in this model.",
+              "text_zh": "一個封裝，五顆晶片。它們放在中介層上，靠得很近，在這個模型裡路程短了十倍。"
+            },
+            {
+              "key": "stack",
+              "icon": "🏢",
+              "en": "Stacked",
+              "zh": "疊起來",
+              "meta_en": "3D",
+              "meta_zh": "3D 封裝",
+              "demo": "stack",
+              "text_en": "The memory chips become two towers, eight floors each. The gold posts are the elevators.",
+              "text_zh": "記憶體晶片變成兩座塔，各有八層樓。金色的柱子就是電梯。"
+            },
+            {
+              "key": "explode",
+              "icon": "🔍",
+              "en": "Take it apart",
+              "zh": "拆開來看",
+              "meta_en": "Layer by layer",
+              "meta_zh": "一層一層",
+              "demo": "explode",
+              "text_en": "From the bottom: circuit board, solder balls, substrate, tiny bumps, interposer, and the chips on top.",
+              "text_zh": "從最下面開始：電路板、錫球、基板、細小的凸塊、中介層，最上面才是晶片。"
+            }
+          ],
+          "parts_note_en": "The distances in the panel are examples, but the pattern is real: each step brings the chips closer together.",
+          "parts_note_zh": "面板上的距離是舉例，但趨勢是真的：每換一種放法，晶片就靠得更近。",
+          "links_head": {
+            "eyebrow": "Go Further · 延伸閱讀",
+            "en": "Where the chips come from, and where the limit comes from",
+            "zh": "晶片從哪裡來，那個上限又是怎麼來的"
+          },
+          "links": [
+            {
+              "href": "/resources/classes/semiconductors/lithography/",
+              "icon": "🔦",
+              "k_en": "Chips and Semiconductors · Lesson 4",
+              "k_zh": "晶片與半導體 第四課",
+              "en": "How Do You Draw a Circuit Smaller Than a Virus?",
+              "zh": "怎麼畫出比病毒還小的電路？",
+              "note_en": "Why one exposure is at most 26 × 33 millimeters.",
+              "note_zh": "為什麼一次曝光最大只有 26 × 33 公釐。"
+            },
+            {
+              "href": "/resources/classes/semiconductors/sand-to-chip/",
+              "icon": "🏖️",
+              "k_en": "Chips and Semiconductors · Lesson 3",
+              "k_zh": "晶片與半導體 第三課",
+              "en": "How Does Sand Become a Chip?",
+              "zh": "沙子怎麼變成晶片？",
+              "note_en": "Why bigger chips mean fewer chips on each wafer.",
+              "note_zh": "為什麼晶片越大，一片晶圓做得出來的顆數越少。"
+            }
+          ],
+          "pack": {
+            "eyebrow": "Build a Package · 組一個封裝",
+            "en": "How many chips are in one package?",
+            "zh": "一個封裝裡有幾顆晶片？",
+            "lead_en": "Put logic chips in the middle, add stacks of memory around them, and choose how many chips are in each stack. Count how many chips end up working as one.",
+            "lead_zh": "把運算晶片放在中間，旁邊加上幾疊記憶體，再選每一疊有幾層。數數看，最後有幾顆晶片像一顆晶片一樣一起工作。",
+            "layer_choices": [
+              1,
+              4,
+              8,
+              12,
+              16
+            ],
+            "max_layers": 16,
+            "note_en": "This is a toy layout, not a real product. Stacks of 16 or more chips have been built. A single chip, by comparison, can be at most about 26 × 33 millimeters, the area of one exposure.",
+            "note_zh": "這是示意的排法，不是哪一個真的產品。現實中已經有疊到 16 層以上的晶片。相比之下，單一顆晶片最大只能大約 26 × 33 公釐，也就是一次曝光的範圍。"
+          },
+          "facts": {
+            "eyebrow": "Packaging by the Numbers · 封裝的數字",
+            "en": "Small chips, close together",
+            "zh": "小小的晶片，靠得很近",
+            "lead_en": "Five numbers and names behind advanced packaging.",
+            "lead_zh": "先進封裝背後的五個數字和名字。",
+            "items": [
+              {
+                "big": "26 × 33",
+                "unit_en": "millimeters",
+                "unit_zh": "公釐",
+                "en": "The largest area one exposure can print. A single chip cannot be bigger than this.",
+                "zh": "一次曝光能印的最大範圍。單一顆晶片不能比這更大。"
+              },
+              {
+                "big": "2.5D",
+                "unit_en": "side by side",
+                "unit_zh": "並排",
+                "en": "Bare chips placed next to one another on a silicon interposer, inside one package.",
+                "zh": "把沒有外殼的晶片並排放在矽中介層上，裝在同一個封裝裡。"
+              },
+              {
+                "big": "16+",
+                "unit_en": "chips in a stack",
+                "unit_zh": "層",
+                "en": "Three-dimensional chips have been made by stacking as many as 16 or more chips.",
+                "zh": "3D 晶片已經做到把 16 顆以上的晶片疊在一起。"
+              },
+              {
+                "big": "1960s",
+                "unit_en": "flip chip",
+                "unit_zh": "覆晶",
+                "en": "IBM began turning chips upside down and joining them with tiny balls of solder instead of wires.",
+                "zh": "IBM 開始把晶片翻過來，用小小的錫球取代金屬線來連接。"
+              },
+              {
+                "big": "1984",
+                "unit_en": "Kaohsiung",
+                "unit_zh": "高雄",
+                "en": "ASE opened its first factory. It is now the world's largest packaging and testing company for other firms.",
+                "zh": "日月光的第一座工廠啟用。現在它是全世界最大的封裝測試代工公司。"
+              }
+            ]
+          },
+          "culture_cards": {
+            "eyebrow": "Packaging Stories · 封裝的故事",
+            "title_en": "An upside-down chip, LEGO bricks, a harbor city, and a long name",
+            "title_zh": "一顆翻過來的晶片、樂高積木、一座港都、一個很長的名字",
+            "lead_en": "Four stories about putting chips together.",
+            "lead_zh": "關於「把晶片放在一起」的四個小故事。",
+            "cards": [
+              {
+                "k": "1960s · IBM",
+                "en": "Flip it over",
+                "zh": "把它翻過來",
+                "body_en": "Early chips were joined to their packages by thin wires around the edges. In the 1960s IBM tried something different for its big computers: put tiny balls of solder on the chip, flip the chip face down, and melt the balls onto the package. This is called a flip chip. It allows many more connections, because the whole face of the chip can be used.",
+                "body_zh": "早期的晶片是用邊緣一圈細細的金屬線接到封裝上。1960 年代，IBM 為了它的大型電腦試了不一樣的做法：在晶片上放小小的錫球，把晶片正面朝下翻過來，再把錫球熔接到封裝上。這叫做覆晶。這樣能做出多很多的接點，因為晶片的整個面都可以用。"
+              },
+              {
+                "k": "Chiplets · 小晶片",
+                "en": "Building with bricks",
+                "zh": "像積木一樣組合",
+                "body_en": "Instead of one big chip that does everything, designers can make several small chips, each good at one job, and place them side by side on an interposer. These small chips are called chiplets. People often compare them to LEGO bricks, because they can be mixed and matched.",
+                "body_zh": "與其做一顆什麼都包的大晶片，設計的人可以做幾顆小晶片，每一顆專門做一件事，再把它們並排放在中介層上。這些小晶片叫做 chiplet。大家常把它們比做樂高積木，因為可以自由搭配。"
+              },
+              {
+                "k": "1984 · 高雄",
+                "en": "A harbor city of packages",
+                "zh": "封裝的港都",
+                "body_en": "ASE was founded in 1984 by two brothers, who opened its first factory in Kaohsiung. Today its headquarters and main operations are still there, and it is the world's largest company that packages and tests chips for others. A chip designed in one country and made in Hsinchu or Tainan may well be packaged in Kaohsiung.",
+                "body_zh": "日月光在 1984 年由一對兄弟創立，第一座工廠就在高雄。今天它的總部和主要的工廠還是在那裡，也是全世界最大的封裝測試代工公司。一顆在別的國家設計、在新竹或台南製造的晶片，很可能是在高雄封裝的。"
+              },
+              {
+                "k": "CoWoS",
+                "en": "Chip on wafer on substrate",
+                "zh": "晶片放在晶圓上、再放在基板上",
+                "body_en": "You may see the word CoWoS in the news. It is TSMC's name for one kind of 2.5D packaging, and it simply describes the layers from top to bottom: Chip on Wafer on Substrate. The “wafer” in the middle is the silicon interposer.",
+                "body_zh": "新聞裡常看到 CoWoS 這個字。它是台積電替一種 2.5D 封裝取的名字，意思就是從上到下的三層：晶片（Chip）放在晶圓（Wafer）上，再放在基板（Substrate）上。中間的那片「晶圓」就是矽中介層。"
+              }
+            ]
+          },
+          "myths": [
+            {
+              "myth_en": "The black square on the circuit board is the chip.",
+              "myth_zh": "電路板上的黑色方塊就是晶片。",
+              "fact_en": "It is the package. The chip is a thin piece of silicon sealed inside it.",
+              "fact_zh": "那是封裝。晶片是封在裡面的一片薄薄的矽。"
+            },
+            {
+              "myth_en": "Packaging is just a box. It does not matter how it is done.",
+              "myth_zh": "封裝只是一個盒子，怎麼做都沒差。",
+              "fact_en": "The package decides how close chips can be and how many connections they have, so it affects speed and power.",
+              "fact_zh": "封裝決定晶片能靠多近、能有多少接點，所以會影響速度和耗電。"
+            },
+            {
+              "myth_en": "If we want more power, we can simply make one chip bigger and bigger.",
+              "myth_zh": "想要更強，把一顆晶片越做越大就好了。",
+              "fact_en": "One exposure covers at most about 26 × 33 millimeters, and bigger chips mean fewer good chips from each wafer.",
+              "fact_zh": "一次曝光最大只有大約 26 × 33 公釐；晶片越大，每片晶圓做得出來的好晶片也越少。"
+            },
+            {
+              "myth_en": "Stacking is always better than placing chips side by side.",
+              "myth_zh": "疊起來一定比並排好。",
+              "fact_en": "Stacking makes the paths shortest, but it traps heat. Placing chips side by side keeps them cooler. Engineers choose what fits the job.",
+              "fact_zh": "疊起來路最短，但容易悶住熱；並排比較好散熱。工程師會看用途來選。"
+            }
+          ],
+          "tricks": [
+            {
+              "title_en": "A package protects and connects",
+              "title_zh": "封裝：保護＋連接",
+              "body_en": "It guards the chip and links it to the board.",
+              "body_zh": "保護晶片，並把它接到電路板上。"
+            },
+            {
+              "title_en": "Houses, row houses, tower",
+              "title_zh": "獨棟、連棟、大樓",
+              "body_en": "Apart on a board, side by side (2.5D), stacked (3D).",
+              "body_zh": "分開放在板子上、並排（2.5D）、疊起來（3D）。"
+            },
+            {
+              "title_en": "TSVs are elevators",
+              "title_zh": "矽穿孔是電梯",
+              "body_en": "They carry signals straight up through the chips.",
+              "body_zh": "它們帶著訊號直直往上穿過晶片。"
+            },
+            {
+              "title_en": "Shorter is faster and cooler",
+              "title_zh": "路越短，越快越省電",
+              "body_en": "But a tall stack needs a way to lose its heat.",
+              "body_zh": "不過疊得高，就要想辦法把熱散掉。"
+            }
+          ],
+          "safety": [
+            {
+              "en": "Do not open phones, computers, or chargers to look for chips. They can hold a dangerous charge, and the parts are sharp.",
+              "zh": "不要為了找晶片去拆手機、電腦或充電器。裡面可能還帶著危險的電，零件也很銳利。"
+            },
+            {
+              "en": "Old circuit boards from a recycling bin may have sharp edges. Ask an adult to check them first, and wash your hands afterward.",
+              "zh": "回收來的舊電路板邊緣可能很利。先請大人檢查過，摸完要洗手。"
+            },
+            {
+              "en": "Small bricks and beads are a choking danger. Keep them away from little children.",
+              "zh": "小積木和珠子可能噎到小小孩，不要讓他們拿到。"
+            },
+            {
+              "en": "Pick up string and bricks from the floor when you finish so that nobody trips.",
+              "zh": "活動結束後，把地上的繩子和積木收好，免得有人絆倒。"
+            }
+          ],
+          "activities": [
+            {
+              "title_en": "Three Cities of Bricks",
+              "title_zh": "用積木蓋三座城市",
+              "materials": [
+                {
+                  "en": "Building bricks in two colors (one color for logic, one for memory) and a large baseplate or a sheet of cardboard",
+                  "zh": "兩種顏色的積木（一種當運算晶片，一種當記憶體），和一塊大底板或厚紙板"
+                },
+                {
+                  "en": "String, scissors, and a ruler",
+                  "zh": "繩子、剪刀和尺"
+                }
+              ],
+              "steps": [
+                {
+                  "en": "City 1: put one logic brick and four memory bricks far apart on the board. Use string to connect the logic brick to each memory brick.",
+                  "zh": "第一座城市：把一塊運算積木和四塊記憶體積木分開放在底板上，用繩子把運算積木和每一塊記憶體積木連起來。"
+                },
+                {
+                  "en": "City 2: place the same five bricks side by side on a small plate. Connect them with string again.",
+                  "zh": "第二座城市：把同樣五塊積木並排放在一塊小板子上，再用繩子連一次。"
+                },
+                {
+                  "en": "City 3: stack the four memory bricks into a tower beside the logic brick, and connect them.",
+                  "zh": "第三座城市：把四塊記憶體積木疊成一座塔，放在運算積木旁邊，再連起來。"
+                },
+                {
+                  "en": "Measure all the string you used for each city. Which city needs the least?",
+                  "zh": "量一量每座城市用掉的繩子總長。哪一座用得最少？"
+                }
+              ],
+              "tip_en": "The string is the wire. Less string means a shorter trip for the data, and less energy spent on the way.",
+              "tip_zh": "繩子就是電線。繩子越短，資料走的路越短，路上花的電也越少。"
+            },
+            {
+              "title_en": "The Message Race",
+              "title_zh": "傳話比賽",
+              "materials": [
+                {
+                  "en": "Ten small cards with numbers on them, and a timer",
+                  "zh": "十張寫著數字的小卡片，和一個計時器"
+                },
+                {
+                  "en": "A classroom with space to move",
+                  "zh": "一間可以走動的教室"
+                }
+              ],
+              "steps": [
+                {
+                  "en": "One student is the logic chip, and another is the memory. First they stand at opposite ends of the classroom.",
+                  "zh": "一位同學當運算晶片，另一位當記憶體。先讓他們站在教室的兩頭。"
+                },
+                {
+                  "en": "The logic chip carries the ten cards to the memory one at a time. Time how long it takes.",
+                  "zh": "運算晶片把十張卡片一張一張送到記憶體那裡。計時看要花多久。"
+                },
+                {
+                  "en": "Now they stand side by side and do it again. Then try it with the memory sitting right in front of the logic chip.",
+                  "zh": "現在讓他們並排站，再做一次。接著讓記憶體就坐在運算晶片的正前方，再試一次。"
+                },
+                {
+                  "en": "Compare the three times. Who got tired? What does that tell you about power?",
+                  "zh": "比較三次的時間。誰累了？這和「耗電」有什麼關係？"
+                }
+              ],
+              "tip_en": "Walk, do not run. The point is the distance, not the speed of the runner.",
+              "tip_zh": "用走的，不要跑。重點是距離，不是跑的人有多快。"
+            }
+          ],
+          "sources": [
+            {
+              "en": "Packaging is the final stage of making a chip: the die is put in a case that prevents damage and corrosion and connects it to the circuit board; packaging is followed by testing",
+              "zh": "封裝是製造晶片的最後階段：把晶粒放進能防止損傷與腐蝕的外殼，並連接到電路板；封裝之後進行測試",
+              "src": "Wikipedia, “Integrated circuit packaging”",
+              "url": "https://en.wikipedia.org/wiki/Integrated_circuit_packaging"
+            },
+            {
+              "en": "2.5D: several dies side by side on a silicon interposer in one package; placing dies side by side reduces heat buildup; chiplets combined LEGO-style; TSMC's CoWoS (Chip-on-Wafer-on-Substrate)",
+              "zh": "2.5D：多顆晶粒並排放在矽中介層上、裝在同一個封裝；並排可減少積熱；小晶片像樂高一樣組合；台積電的 CoWoS",
+              "src": "Wikipedia, “2.5D integrated circuit”",
+              "url": "https://en.wikipedia.org/wiki/2.5D_integrated_circuit"
+            },
+            {
+              "en": "3D: stacking as many as 16 or more chips, connected vertically with through-silicon vias; shorter wires, less power",
+              "zh": "3D：把 16 顆以上的晶片疊起來，用矽穿孔上下連接；線更短、更省電",
+              "src": "Wikipedia, “Three-dimensional integrated circuit”",
+              "url": "https://en.wikipedia.org/wiki/Three-dimensional_integrated_circuit"
+            },
+            {
+              "en": "A through-silicon via is a vertical electrical connection that passes completely through a silicon wafer or die",
+              "zh": "矽穿孔是完全穿過矽晶圓或晶粒的垂直電氣連接",
+              "src": "Wikipedia, “Through-silicon via”",
+              "url": "https://en.wikipedia.org/wiki/Through-silicon_via"
+            },
+            {
+              "en": "An interposer spreads or reroutes connections; it can be made of silicon or organic material",
+              "zh": "中介層用來把接點展開或重新佈線；可以用矽或有機材料製作",
+              "src": "Wikipedia, “Interposer”",
+              "url": "https://en.wikipedia.org/wiki/Interposer"
+            },
+            {
+              "en": "Flip chip: solder bumps on the chip, which is flipped face down; introduced commercially by IBM in the 1960s",
+              "zh": "覆晶：在晶片上做錫球凸塊，再把晶片正面朝下翻過來；1960 年代由 IBM 商業化",
+              "src": "Wikipedia, “Flip chip”",
+              "url": "https://en.wikipedia.org/wiki/Flip_chip"
+            },
+            {
+              "en": "The EUV exposure field is 26 × 33 mm",
+              "zh": "EUV 一次曝光的範圍是 26 × 33 公釐",
+              "src": "Wikipedia, “Extreme ultraviolet lithography”",
+              "url": "https://en.wikipedia.org/wiki/Extreme_ultraviolet_lithography"
+            },
+            {
+              "en": "ASE: founded in 1984 with its first factory in Kaohsiung; headquarters in Kaohsiung; the largest outsourced assembly and test (OSAT) provider according to Gartner",
+              "zh": "日月光：1984 年創立，第一座工廠在高雄；總部在高雄；依 Gartner 是最大的封裝測試代工（OSAT）業者",
+              "src": "Wikipedia, “ASE Group”",
+              "url": "https://en.wikipedia.org/wiki/ASE_Group"
+            }
+          ]
+        }
+      ],
+      "planned": [
         {
           "n": 7,
           "icon": "🛣️",

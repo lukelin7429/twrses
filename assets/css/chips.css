@@ -333,3 +333,28 @@
 }
 .cp-nl .cp-home-zh { font-family: var(--sans); }
 .cp-nl .cp-home-zh .zh { display: block; font-family: var(--zh); margin-top: .2rem; }
+
+/* ---------- 第六課：先進封裝 ---------- */
+@media (min-width: 1021px) { .cp-pk-lab .al-space { min-height: 640px; } }
+.cp-pk-nums > div:first-child { grid-column: 1 / -1; }
+.cp-pk-nums dd { font-size: 1.05rem; }
+.cp-pk-bars { display: grid; gap: .45rem; }
+.cp-pk-bar { margin: 0; display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: .15rem .5rem; align-items: center; font: 700 .72rem var(--sans); color: var(--al-mute); opacity: .65; }
+.cp-pk-bar.on { opacity: 1; color: #fff; }
+.cp-pk-bar i { grid-column: 1 / -1; grid-row: 2; display: block; height: 10px; border-radius: 6px; background: rgba(255,255,255,.08); position: relative; overflow: hidden; }
+.cp-pk-bar i::after { content: ""; position: absolute; inset: 0 auto 0 0; width: var(--w, 0%); border-radius: 6px; background: #e9b949; transition: width .3s; }
+.cp-pk-bar b { color: #fff; font-variant-numeric: tabular-nums; }
+.cp-pk-bars-n { margin: 0; font-size: .66rem; color: var(--al-mute); }
+.cp-pk-msg[hidden] { display: none; }
+.al-lab.cp-pk-lb-logic { color: #cfe0ff; border-color: rgba(61,111,216,.9); }
+.al-lab.cp-pk-lb-mem { color: #e6d8ff; border-color: rgba(138,90,214,.9); }
+.al-lab.cp-pk-lb-inter { color: #e3ecfa; border-color: rgba(143,166,200,.8); }
+.al-lab.cp-pk-lb-gold { color: #ffe9a8; border-color: rgba(233,185,73,.8); }
+.al-lg-cppklogic i { border: 0; height: 10px; margin-top: .3rem; border-radius: 2px; background: #3d6fd8; }
+.al-lg-cppkmem i { border: 0; height: 10px; margin-top: .3rem; border-radius: 2px; background: #8a5ad6; }
+.al-lg-cppkinter i { border: 0; height: 6px; margin-top: .5rem; border-radius: 2px; background: #8fa6c8; }
+.al-lg-cppksub i { border: 0; height: 10px; margin-top: .3rem; border-radius: 2px; background: #2f9a60; }
+.al-lg-cppkdot i { border: 0; border-radius: 50%; width: 8px; height: 8px; margin: .4rem 5px 0; background: #fff2a0; box-shadow: 0 0 6px #fff2a0; }
+.cp-pkw-layers { grid-template-columns: repeat(5, minmax(0, 1fr)); margin-top: 0; }
+.cp-pkw-logic { margin-top: 0; }
+.cp-pkw .cp-nl-ans b span { font: inherit; color: inherit; }
