@@ -985,3 +985,26 @@ main:has(.ph-tools) .wrap { width: min(980px, 92vw); }
 .ph-rg .ph-av-bar { grid-template-columns: 13rem 1fr 3rem; }
 @media (max-width: 720px) { .ph-rg-top { grid-template-columns: 110px 1fr; gap: .9rem; } .ph-rg-reasons { grid-template-columns: 1fr; } .ph-rg .ph-av-bar { grid-template-columns: 8.5rem 1fr 2.6rem; } }
 @media (prefers-reduced-motion: reduce) { .ph-rg-fig circle, .ph-rg-fig path, .ph-rg-gem { transition: none; } .ph-rg [data-rg-why] { animation: none; } }
+
+/* ---- A20：六份證據 ---- */
+.ph-ev [hidden] { display: none !important; }
+.ph-ev-reads { display: grid; grid-template-columns: 1fr 1fr; gap: 0 1rem; }
+.ph-ev-side { align-content: start; } .ph-ev-side.is-g { border-top-color: #4fd1a5; } .ph-ev-side.is-b { border-top-color: var(--ph-terra); }
+.ph-ev .ph-vl-card p { margin: 0; font: 400 1.02rem/1.7 var(--serif); }
+.ph-ev .ph-vl-card .ph-zh { font: 400 .94rem/1.8 var(--zh); color: var(--ink-soft); }
+.ph-ev .ph-vl-card .ph-tr { background: var(--brand-lt); color: var(--brand-dk); }
+.ph-ev-slide { margin-top: 1.4rem; padding: 1rem 1.2rem 1.2rem; border-radius: 16px; background: rgba(0,0,0,.22); border: 1px solid rgba(255,255,255,.12); }
+.ph-ev-slide .ph-md-ends { margin-top: 0; }
+.ph-ev-row { grid-template-columns: 1fr 3rem; border-top: 0; }
+.ph-ev-row input[type=range]::-webkit-slider-runnable-track { background: linear-gradient(90deg, #ff9d7a, #9fb0c6 50%, #4fd1a5); }
+.ph-ev-row input[type=range]::-moz-range-track { background: linear-gradient(90deg, #ff9d7a, #9fb0c6 50%, #4fd1a5); }
+.ph-ev-row input[type=range]::-webkit-slider-thumb { background: #ffd36e; }
+.ph-ev-row input[type=range]::-moz-range-thumb { background: #ffd36e; }
+.ph-ev .ph-vl-next span { font-family: var(--zh); }
+.ph-ev-chart { display: block; width: 100%; max-width: 620px; height: auto; margin: .6rem 0 1.1rem; }
+.ph-ev-chart .grid { stroke: rgba(255,255,255,.14); stroke-width: 1; } .ph-ev-chart .mid { stroke: rgba(255,255,255,.35); stroke-width: 1; stroke-dasharray: 4 5; }
+.ph-ev-chart .ax { font: 700 11px var(--sans); fill: rgba(255,255,255,.65); }
+.ph-ev-chart .line { fill: none; stroke: #ffd36e; stroke-width: 3; stroke-linejoin: round; stroke-linecap: round; }
+.ph-ev-chart .pt { fill: var(--ph-night); stroke: #ffd36e; stroke-width: 3; }
+.ph-ev .ph-el-end p.ph-ev-zone { margin-top: 1rem; }
+@media (max-width: 720px) { .ph-ev-reads { grid-template-columns: 1fr; } }

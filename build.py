@@ -7623,7 +7623,27 @@ def _ph_lab_ring(lab):
   </div>
 </div>'''
 
+def _ph_lab_evidence(lab):
+    """A20：六份證據。先用滑桿表態（性惡↔性善），每讀一份證據就可以調整並記下；最後畫出立場的軌跡，指出哪一份最推得動你。"""
+    payload = html.escape(json.dumps({k: lab[k] for k in ("start", "cards", "ends", "lo", "hi")}, ensure_ascii=False), quote=False)
+    return f'''<div class="ph-el ph-ev rvl" data-ph-evidence>
+  <script type="application/json" data-ev-data>{payload}</script>
+  <div class="ph-vl-top"><div class="ph-vl-dots" data-ev-dots aria-hidden="true"></div><span class="ph-el-count" data-ev-count></span></div>
+  <div class="ph-el-stage">
+    <div class="ph-tp-text" data-ev-text aria-live="polite"></div>
+    <div class="ph-ev-reads" data-ev-reads></div>
+    <div class="ph-ev-slide" data-ev-slide>
+      <div class="ph-md-ends" aria-hidden="true"><span>0 · {_ph_e(lab["lo"]["en"])} <i lang="zh-Hant">{_ph_e(lab["lo"]["zh"])}</i></span><span>{_ph_e(lab["hi"]["en"])} <i lang="zh-Hant">{_ph_e(lab["hi"]["zh"])}</i> · 100</span></div>
+      <div class="ph-md-row ph-ev-row"><input type="range" min="0" max="100" step="1" value="50" data-ev-range aria-label="Human nature: born bad to born good · 人性：性惡到性善"><output data-ev-val>50</output></div>
+      <div class="ph-md-act"><button type="button" class="ph-vl-next" data-ev-rec>{_ph_e(lab["record"]["en"])} · <span lang="zh-Hant">{_ph_e(lab["record"]["zh"])}</span> &rarr;</button></div>
+    </div>
+    <div data-ev-end aria-live="polite"></div>
+    <div class="ph-el-foot"><button type="button" class="ph-el-reset" data-ev-reset>Start again · 重來</button></div>
+  </div>
+</div>'''
+
 def _ph_lab(lab):
+    if lab.get("kind") == "evidence": return _ph_lab_evidence(lab)
     if lab.get("kind") == "ring": return _ph_lab_ring(lab)
     if lab.get("kind") == "advisers": return _ph_lab_advisers(lab)
     if lab.get("kind") == "trolley": return _ph_lab_trolley(lab)

@@ -1155,6 +1155,65 @@
     var m = /[#&]ring=([a-z,]+)/.exec(location.hash); if (m) root.__lab.play(m[1].split(','));
   });
 
+  /* ---- A20：六份證據（性善↔性惡的滑桿軌跡） ---- */
+  $$('[data-ph-evidence]').forEach(function (root) {
+    var D;
+    try { D = JSON.parse($('[data-ev-data]', root).textContent); } catch (e) { return; }
+    var text = $('[data-ev-text]', root), reads = $('[data-ev-reads]', root), slide = $('[data-ev-slide]', root), range = $('[data-ev-range]', root), val = $('[data-ev-val]', root), rec = $('[data-ev-rec]', root), end = $('[data-ev-end]', root), dots = $('[data-ev-dots]', root), count = $('[data-ev-count]', root);
+    var NS = 'http://www.w3.org/2000/svg', i, path;
+    function zhp(parent, t) { var z = el('p', 'ph-zh', t); z.lang = 'zh-Hant'; parent.appendChild(z); addTr(z); }
+    function paint() {
+      var n = D.cards.length; dots.textContent = '';
+      for (var k = 0; k <= n; k++) dots.appendChild(el('i', k < i + 1 ? 'ok' : k === i + 1 ? 'cur' : ''));
+      count.textContent = i < 0 ? 'Your starting point · 你的起點' : i < n ? 'Evidence ' + (i + 1) + ' of ' + n + ' · 第 ' + (i + 1) + '／' + n + ' 份證據' : '';
+    }
+    function side(label, o, cls) { var c = el('div', 'ph-vl-card ph-ev-side ' + cls); c.appendChild(el('small', 'ph-tp-k', label)); c.appendChild(el('p', '', o.en)); zhp(c, o.zh); return c; }
+    function show() {
+      text.textContent = ''; reads.textContent = '';
+      if (i < 0) { var q = el('p', 'ph-vl-q'); q.appendChild(el('b', '', D.start.en)); var qz = el('span', '', D.start.zh); qz.lang = 'zh-Hant'; q.appendChild(qz); text.appendChild(q); }
+      else {
+        var c = D.cards[i]; var h = el('h4', '', (i + 1) + ' · ' + c.t.en); var hz = el('span', '', c.t.zh); hz.lang = 'zh-Hant'; h.appendChild(hz); text.appendChild(h);
+        text.appendChild(el('p', '', c.x.en)); zhp(text, c.x.zh);
+        reads.appendChild(side('Read toward “good” · 往性善讀', c.g, 'is-g')); reads.appendChild(side('Read toward “bad” · 往性惡讀', c.b, 'is-b'));
+      }
+      paint();
+    }
+    function chart() {
+      var W = 560, H = 190, L = 34, R = 14, T = 14, Bm = 34, n = path.length, svg = document.createElementNS(NS, 'svg');
+      svg.setAttribute('viewBox', '0 0 ' + W + ' ' + H); svg.setAttribute('class', 'ph-ev-chart'); svg.setAttribute('role', 'img'); svg.setAttribute('aria-label', 'Your position after each piece of evidence · 每一份證據之後你的立場');
+      function X(k) { return L + (W - L - R) * k / (n - 1); } function Y(v) { return T + (H - T - Bm) * (1 - v / 100); }
+      function add(tag, at, cls, txt) { var e = document.createElementNS(NS, tag); Object.keys(at).forEach(function (a) { e.setAttribute(a, at[a]); }); if (cls) e.setAttribute('class', cls); if (txt != null) e.textContent = txt; svg.appendChild(e); return e; }
+      [0, 50, 100].forEach(function (v) { add('line', { x1: L, x2: W - R, y1: Y(v), y2: Y(v) }, v === 50 ? 'mid' : 'grid'); add('text', { x: L - 6, y: Y(v) + 4, 'text-anchor': 'end' }, 'ax', v); });
+      add('polyline', { points: path.map(function (v, k) { return X(k).toFixed(1) + ',' + Y(v).toFixed(1); }).join(' ') }, 'line');
+      path.forEach(function (v, k) { add('circle', { cx: X(k), cy: Y(v), r: 5.5 }, 'pt'); add('text', { x: X(k), y: H - 12, 'text-anchor': 'middle' }, 'ax', k === 0 ? 'start' : k); });
+      return svg;
+    }
+    function result() {
+      var best = 0, at = -1;
+      for (var k = 1; k < path.length; k++) { var d = Math.abs(path[k] - path[k - 1]); if (d > best) { best = d; at = k; } }
+      var last = path[path.length - 1], zone = last >= 62 ? 'good' : last <= 38 ? 'bad' : 'mid';
+      return { best: best, at: at, zone: zone, dir: at > 0 ? (path[at] > path[at - 1] ? 'hi' : 'lo') : null };
+    }
+    function summary() {
+      slide.hidden = true; text.textContent = ''; reads.textContent = '';
+      var e = el('div', 'ph-el-end'); var h = el('h4', '', 'The path you took'); h.appendChild(el('span', '', '你走過的路徑')); e.appendChild(h);
+      e.appendChild(chart());
+      var r = result(), m;
+      if (r.best < 6) m = D.ends.still;
+      else { var c = D.cards[r.at - 1]; m = { en: D.ends.moved.en.replace('{t}', c.t.en).replace('{n}', r.best).replace('{d}', '“' + D[r.dir].en + '”'), zh: D.ends.moved.zh.replace('{t}', c.t.zh).replace('{n}', r.best).replace('{d}', '「' + D[r.dir].zh + '」') }; }
+      e.appendChild(el('p', '', m.en)); zhp(e, m.zh);
+      var z = D.ends[r.zone]; e.appendChild(el('p', 'ph-ev-zone', z.en)); zhp(e, z.zh); end.appendChild(e);
+    }
+    range.addEventListener('input', function () { val.textContent = range.value; });
+    rec.addEventListener('click', function () { path.push(+range.value); i++; if (i < D.cards.length) show(); else { paint(); summary(); } });
+    function reset() { i = -1; path = []; range.value = 50; val.textContent = '50'; slide.hidden = false; end.textContent = ''; show(); }
+    $('[data-ev-reset]', root).addEventListener('click', reset);
+    reset();
+    root.__lab = { state: function () { return { i: i, path: path.slice(), ended: !!end.children.length, res: path.length > 1 ? result() : null }; },
+      play: function (vals) { reset(); vals.forEach(function (v) { range.value = v; range.dispatchEvent(new Event('input')); rec.click(); }); return result(); } };
+    var m = /[#&]evidence=([\d,]+)/.exec(location.hash); if (m) root.__lab.play(m[1].split(',').map(Number));
+  });
+
   /* ---- A13：去火星三趟（帕菲特的傳送機） ---- */
   $$('[data-ph-teleport]').forEach(function (root) {
     var D;
