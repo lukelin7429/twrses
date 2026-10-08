@@ -4,8 +4,8 @@
   "description": "地球與天氣 Earth and Weather 3D 模型的原始碼與打包設定。產物寫到 assets/js/，npm run build 重新打包。",
   "type": "module",
   "scripts": {
-    "build": "esbuild src/earth-quake.js --bundle --minify --format=iife --target=es2019 --legal-comments=eof --outdir=../../assets/js",
-    "test": "node test/quake.test.mjs"
+    "build": "esbuild src/earth-quake.js src/earth-inside.js --bundle --minify --format=iife --target=es2019 --legal-comments=eof --outdir=../../assets/js",
+    "test": "node test/quake.test.mjs && node test/inside.test.mjs"
   },
   "devDependencies": {
     "esbuild": "0.25.10",

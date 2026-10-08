@@ -9333,7 +9333,7 @@ def build_chip_hub():
 _earthj = os.path.join(ROOT, "data", "earth.json")
 EARTH = json.load(open(_earthj, encoding="utf-8")) if os.path.exists(_earthj) else None
 EARTH_BASE = "/resources/classes/earth/"
-_EARTH_JS = {"quake": "earth-quake"}   # lab.kind → assets/js/<bundle>.js
+_EARTH_JS = {"quake": "earth-quake", "inside": "earth-inside"}   # lab.kind → assets/js/<bundle>.js
 
 def _earth_ver():
     h = hashlib.md5()
@@ -9427,9 +9427,83 @@ def _earth_warn(wn):
             f'</div></div>'
             '<noscript><p class="muted">The calculator works in your browser and needs JavaScript. · 計算在瀏覽器裡進行，需要開啟 JavaScript。</p></noscript>')
 
-_EARTH_LAB = {"quake": render_earthquake_lab}          # lab.kind → 3D 面板
-_EARTH_ICON = {"quake": earthquake_svg}                 # lesson.card → 課程卡小圖示
-_EARTH_WIDGETS = [("warn", _earth_warn)]               # lesson 裡有這個 key 就多一段（照這裡的順序）
+def render_earthinside_lab(lesson):
+    """第一課：切開的地球四層（深度滑桿）與地震波怎麼穿過地球（assets/js/earth-inside.js 綁這裡的 class；全部自繪示意）。"""
+    lab = lesson["lab"]
+    msgs = "".join(f'<p class="cp-msg ew-in-msg" data-msg="{k}" hidden>{html.escape(m["en"])}<span class="zh">{html.escape(m["zh"])}</span></p>' for k, m in lab["msgs"].items())
+    stops = "".join(f'<button type="button" data-layer="{k}" data-km="{km}" aria-pressed="false">{en}<small>{zh}</small></button>'
+                    for k, km, en, zh in [("crust", 10, "Crust", "地殼"), ("mantle", 1500, "Mantle", "地函"), ("outer", 4000, "Outer core", "外核"), ("inner", 6000, "Inner core", "內核")])
+    tg = _lab_toggles([("labels", "Labels", "標示", True)])
+    return f'''<div class="astro-lab cp-lab ew-lab ew-in-lab rvl" data-earthinside-lab>
+  <div class="al-stage">
+    <div class="al-space">
+      <canvas class="al-space-cv" aria-label="3D model of the Earth cut in half, showing the crust, the mantle, the liquid outer core, and the solid inner core, and how earthquake waves pass through them · 切成一半的地球 3D 模型：地殼、地函、液態的外核、固態的內核，以及地震波怎麼穿過它們"></canvas>
+      <div class="al-labels" aria-hidden="true"></div>
+      <div class="cp-view" role="group" aria-label="View · 視角">
+        <button type="button" data-view="layers" aria-pressed="true">Layers<small>四層</small></button>
+        <button type="button" data-view="waves" aria-pressed="false">Earthquake waves<small>地震波</small></button>
+      </div>
+      <p class="al-hint">Drag to turn · 拖曳旋轉　Scroll or pinch to zoom · 滾輪／雙指縮放</p>
+      <button type="button" class="al-home" title="Reset view · 重設視角" aria-label="Reset view · 重設視角">&#8634;</button>
+      <p class="al-nogl-msg">This 3D model needs WebGL, which this browser does not support. The reading and the cards below still explain everything.<br><span class="zh">這個瀏覽器不支援 WebGL，無法顯示 3D 模型；下方的課文與卡片一樣能看懂。</span></p>
+    </div>
+    <aside class="al-sky cp-aside">
+      <div class="cp-is-jbox ew-in-lbox">
+        <p class="al-sky-k">How deep do you want to go? · 你想下去多深？</p>
+        <label class="al-slider cp-is-yrow"><span>Depth · 深度</span>
+          <input type="range" class="al-age ew-in-depth" min="0" max="1000" step="1" value="0" aria-label="Depth · 深度"></label>
+        <div class="cp-dope ew-in-stops" role="group" aria-label="Layers · 四層">{stops}</div>
+        <dl class="cp-nums cp-lt-nums ew-nums">
+          <div><dt>Depth · 深度</dt><dd class="ew-in-d"></dd></div>
+          <div><dt>Layer · 哪一層</dt><dd class="ew-in-layer"></dd></div>
+          <div><dt>How far · 走了多遠</dt><dd class="ew-in-pct"></dd></div>
+          <div><dt>This layer is · 這一層</dt><dd class="ew-in-vol"></dd></div>
+        </dl>
+        {msgs}
+      </div>
+      <div class="cp-is-jbox ew-in-wbox" hidden>
+        <p class="al-sky-k">Listening to the Earth · 聽地球的聲音</p>
+        <p class="cp-msg">{html.escape(lab["waves_en"])}<span class="zh">{html.escape(lab["waves_zh"])}</span></p>
+        <ul class="ew-in-key">
+          <li><i style="background:#ffe27a"></i>P waves · P 波</li><li><i style="background:#ff5a46"></i>S waves · S 波</li>
+          <li><i style="background:#7cf29a"></i>0° to 103°: both arrive · 兩種都收得到</li>
+          <li><i style="background:#5a6478"></i>103° to 143°: shadow zone · 陰影帶</li>
+          <li><i style="background:#ffe27a"></i>Beyond 143°: P waves only · 只有 P 波</li>
+        </ul>
+      </div>
+    </aside>
+  </div>
+  <div class="al-controls">
+    <div class="al-row al-row-main">
+      <button type="button" class="al-play" aria-pressed="false"><span class="al-play-i" aria-hidden="true"></span><span class="al-play-t">Go down · 往下走</span></button>
+      <div class="al-row al-toggles">{tg}</div>
+    </div>
+  </div>
+  {_lab_foot(lab)}
+  <p class="cp-credit">{lab["credit_html"]}</p>
+</div>'''
+
+def _earth_dig(dg):
+    """「一路往下，要走多久？」（earth-inside.js 的 initDig；不需要 WebGL）。"""
+    rides = "".join(f'<button type="button" data-kmh="{r["kmh"]}" aria-pressed="false">{html.escape(r["en"])}<small>{html.escape(r["zh"])}</small></button>' for r in dg["rides"])
+    rows = "".join(f'<div class="ew-dg-row"><span>{en}<small class="zh">{zh}</small></span><span class="ew-dg-bar"><i style="background:{c}"></i></span><span class="ew-dg-t"><b></b><small></small></span></div>'
+                   for en, zh, c in [("Crust", "地殼", "#8a6a4a"), ("Mantle", "地函", "#d9572b"), ("Outer core", "外核", "#ffa62b"), ("Inner core", "內核", "#e8c75a")])
+    return (f'<div class="cp-cnt ew-dg rvl" data-earth-dig>'
+            f'<div class="cp-cnt-in">'
+            f'<p class="cp-cnt-l"><span>Choose your ride · 選一種交通工具</span></p>'
+            f'<div class="cp-dpw-pre ew-dg-rides" role="group" aria-label="Rides · 交通工具">{rides}</div>'
+            f'<div class="ew-dg-rows">{rows}</div>'
+            f'<p class="cp-cnt-note">{html.escape(dg["note_en"])}<span class="zh">{html.escape(dg["note_zh"])}</span></p></div>'
+            f'<div class="cp-home-out cp-cnt-out" aria-live="polite">'
+            f'<p class="cp-home-k">Time to reach the center · 到地心要花</p>'
+            f'<p class="cp-home-big"><b class="ew-dg-n">0</b> <span class="ew-dg-u"></span></p>'
+            f'<p class="cp-home-note"><span class="ew-dg-en"></span><span class="zh ew-dg-zh"></span></p>'
+            f'</div></div>'
+            '<noscript><p class="muted">The calculator works in your browser and needs JavaScript. · 計算在瀏覽器裡進行，需要開啟 JavaScript。</p></noscript>')
+
+_EARTH_LAB = {"quake": render_earthquake_lab, "inside": render_earthinside_lab}          # lab.kind → 3D 面板
+_EARTH_ICON = {"quake": earthquake_svg, "inside": earthglobe_svg}                 # lesson.card → 課程卡小圖示
+_EARTH_WIDGETS = [("warn", _earth_warn), ("dig", _earth_dig)]               # lesson 裡有這個 key 就多一段（照這裡的順序）
 
 def _earth_flat():
     return [(ui, u, l) for ui, u in enumerate(EARTH["units"]) for l in u["lessons"]]

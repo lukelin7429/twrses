@@ -27,6 +27,610 @@
       "blurb_zh": "地球裡面有什麼、台灣為什麼會搖、山是怎麼升起來的，以及火山怎麼噴發。",
       "lessons": [
         {
+          "n": 1,
+          "slug": "inside-the-earth",
+          "title": "What Is Inside the Earth?",
+          "title_zh": "地球裡面有什麼？",
+          "level": "入門 · Beginner",
+          "icon": "🌍",
+          "card": "inside",
+          "blurb_en": "The deepest hole people have ever drilled is about 12 kilometers deep. The center of the Earth is 6,371 kilometers down. So how do we know what is in between? Cut the Earth in half in 3D, travel down through its four layers, and see how earthquake waves show us what no one has ever seen.",
+          "blurb_zh": "人類鑽過最深的洞，大約 12 公里深。地球的中心在 6,371 公里底下。那麼中間有什麼，我們是怎麼知道的？在 3D 裡把地球切成兩半，一路往下穿過四層，再看看地震波怎麼讓我們「看見」從來沒有人看過的地方。",
+          "big_idea_en": "The Earth has four layers. On the outside is a thin, hard crust. Under it is the mantle, thick and solid but able to flow very slowly. Deeper still is the outer core, made of liquid iron and nickel, and at the center is the inner core, a solid ball of iron. No one has been there. We learned it by studying how earthquake waves travel through the Earth.",
+          "big_idea_zh": "地球有四層。最外面是又薄又硬的地殼；底下是地函，很厚，是固體，卻能非常緩慢地流動；再往下是外核，是液態的鐵和鎳；最中心是內核，一顆固態的鐵球。沒有人去過那裡。我們是靠研究地震波怎麼穿過地球，才知道這些的。",
+          "tricks_head": {
+            "en": "The inside of the Earth in a sentence",
+            "zh": "一句話記住地球的內部"
+          },
+          "checked": {
+            "en": "October 2026",
+            "zh": "2026 年 10 月"
+          },
+          "lab": {
+            "kind": "inside",
+            "eyebrow": "3D Model · 3D 模型",
+            "title_en": "Journey to the Center",
+            "title_zh": "地心之旅",
+            "how_en": "Drag to turn the model, and scroll or pinch to zoom. In “Layers,” move the slider or press “Go down” to travel from the surface to the center, and read what each layer is like. Then choose “Earthquake waves” to see how the waves from one earthquake cross the Earth, and where they cannot go.",
+            "how_zh": "拖曳可以旋轉模型，滾輪或雙指可以縮放。在「四層」的視角，拉動滑桿或按「往下走」，從地表一路走到地心，看看每一層是什麼樣子。再選「地震波」，看一個地震的波怎麼穿過地球，又有哪些地方到不了。",
+            "msgs": {
+              "crust": {
+                "en": "The crust is the layer we live on. It is hard rock, anywhere from 5 to 70 kilometers thick and about 17 on average. Compared with the whole Earth, it is thinner than the skin on an apple. The deepest hole ever drilled stops at about 12 kilometers.",
+                "zh": "地殼是我們住的這一層。它是堅硬的岩石，厚度從 5 公里到 70 公里不等，平均大約 17 公里。和整個地球比起來，它比蘋果的皮還薄。人類鑽過最深的洞，大約在 12 公里就停了。"
+              },
+              "mantle": {
+                "en": "The mantle is the thickest layer and makes up most of the Earth. It is solid rock, with temperatures of 2,000 to 3,000°C. Yet over a very long time it flows, slowly, and that slow flow helps move the plates above it.",
+                "zh": "地函是最厚的一層，地球大部分都是它。它是固態的岩石，溫度高達攝氏 2,000 到 3,000 度。可是時間拉得夠長，它會慢慢地流動；這種緩慢的流動，推著上面的板塊移動。"
+              },
+              "outer": {
+                "en": "The outer core is liquid: melted iron and nickel, about 2,220 kilometers thick. The moving metal makes the Earth's magnetic field, the one that turns a compass needle.",
+                "zh": "外核是液體：熔化的鐵和鎳，大約有 2,220 公里厚。這些流動的金屬產生了地球的磁場，就是讓指南針轉動的那個磁場。"
+              },
+              "inner": {
+                "en": "The inner core is a solid ball of iron about 1,251 kilometers in radius. It is thousands of degrees hot, but the weight of the whole Earth presses on it so hard that the iron cannot melt.",
+                "zh": "內核是一顆固態的鐵球，半徑大約 1,251 公里。這裡有好幾千度，可是整個地球的重量壓在它上面，壓力大到鐵沒辦法熔化。"
+              }
+            },
+            "waves_en": "An earthquake at the top sends waves through the whole Earth. S waves cannot travel through liquid, so they stop at the outer core. P waves get through, but the core bends them. That leaves a band on the far side, from 103 to 143 degrees away, where instruments record no direct P waves. This shadow zone told scientists that the Earth has a core, and that part of it is liquid.",
+            "waves_zh": "頂端的地震把波送進整個地球。S 波沒辦法穿過液體，所以到外核就停了。P 波穿得過去，可是會被地核折彎。結果在地球的另一側，距離 103 度到 143 度之間，儀器收不到直接的 P 波。這個「陰影帶」讓科學家知道：地球有一個核心，而且其中一部分是液體。",
+            "legend": [
+              {
+                "cls": "ewin4",
+                "en": "From the edge inward: crust, mantle, outer core, inner core",
+                "zh": "由外到內：地殼、地函、外核、內核"
+              },
+              {
+                "cls": "ewinprobe",
+                "en": "White dot: where you are",
+                "zh": "白點：你現在的位置"
+              },
+              {
+                "cls": "ewinrays",
+                "en": "Lines: P waves (yellow) and S waves (red)",
+                "zh": "線條：P 波（黃）與 S 波（紅）"
+              }
+            ],
+            "scale_en": "The mantle, outer core, and inner core are drawn to scale, using the Central Weather Administration's figures. The crust is not: at its true size it would be thinner than a line on your screen, so it is drawn about ten times too thick. The paths of the earthquake waves are simplified, and the land and sea on the outside are only decoration.",
+            "scale_zh": "地函、外核、內核是照中央氣象署的數字，依真實比例畫的。地殼不是：照真實比例，它會比螢幕上的一條線還細，所以畫厚了大約十倍。地震波的路徑是簡化過的；外面的陸地和海洋只是裝飾。",
+            "credit_html": "Model drawn by My Culture Connect as a teaching diagram. The figures follow the Central Weather Administration's <a href=\"https://scweb.cwa.gov.tw/zh-tw/guidance/faq/1\" target=\"_blank\" rel=\"noopener\">“100 Questions About Earthquakes”</a> and the other sources listed at the bottom of this page. · 模型由人師教育協會自繪示意；數字依中央氣象署「地震百問」與本頁最下方列出的其他出處。"
+          },
+          "paras": [
+            "How far down can people dig? The deepest hole ever drilled is in the far north of Russia. Scientists worked on it for many years, and in 1989 it reached 12,262 meters, a little more than 12 kilometers. That sounds deep. But the center of the Earth is 6,371 kilometers below your feet. The hole did not even get through the outer skin.",
+            "That outer skin is called the crust. It is the hard rock we live on, and it lies under the oceans too. The crust is from 5 to 70 kilometers thick, and about 17 kilometers on average. If the Earth were an apple, the crust would be thinner than the peel.",
+            "Below the crust is the mantle, the thickest layer by far. It reaches down to 2,900 kilometers and makes up more than four fifths of the Earth. The mantle is solid rock, and it is very hot: 2,000 to 3,000 degrees Celsius. Over millions of years it flows, very slowly, and this slow movement helps push the plates of the crust around.",
+            "Under the mantle is the core, and it has two parts. The outer core is a deep ocean of liquid iron and nickel. As this metal moves, it makes the Earth's magnetic field. At the very center is the inner core, a ball of iron about 1,251 kilometers in radius. It is even hotter than the outer core, yet it is solid, because the pressure there is so great.",
+            "But if no one has ever been deeper than 12 kilometers, how do we know any of this? The answer is earthquakes. Earthquake waves travel all the way through the Earth, and they change speed and direction when the rock changes. One kind, the S wave, cannot pass through liquid at all. By recording the waves all over the world, scientists can work out what lies below.",
+            "In 1909 a scientist named Andrija Mohorovičić found the bottom of the crust this way. In 1936 Inge Lehmann studied earthquake records and discovered that the core has a solid center. Every large earthquake still teaches us something. We have never seen the inside of our planet, but we have learned to listen to it."
+          ],
+          "paras_zh": [
+            "人類可以往下挖多深？世界上鑽過最深的洞在俄羅斯的極北地區。科學家花了很多年，1989 年鑽到 12,262 公尺，也就是 12 公里多一點。聽起來很深吧？可是地球的中心在你腳下 6,371 公里的地方。這個洞連最外面那層皮都還沒穿過去。",
+            "那層皮叫做地殼。它是我們居住的堅硬岩石，海洋底下也是地殼。地殼的厚度從 5 公里到 70 公里，平均大約 17 公里。如果把地球想成一顆蘋果，地殼比蘋果皮還要薄。",
+            "地殼底下是地函，它是最厚的一層，而且厚得多。它一路延伸到 2,900 公里深，占了地球的五分之四以上。地函是固態的岩石，而且非常熱：攝氏 2,000 到 3,000 度。經過幾百萬年，它會非常緩慢地流動；這種緩慢的移動，幫忙推著地殼的板塊到處跑。",
+            "地函底下是地核，分成兩個部分。外核是一片很深的液態鐵和鎳的海洋；這些金屬流動的時候，就產生了地球的磁場。最中心是內核，一顆半徑大約 1,251 公里的鐵球。它比外核還熱，卻是固體，因為那裡的壓力太大了。",
+            "可是，既然從來沒有人到過比 12 公里更深的地方，我們怎麼會知道這些？答案是地震。地震波會一路穿過地球，而且岩石一變，波的速度和方向就跟著變。其中一種叫 S 波，完全沒辦法穿過液體。科學家在世界各地記錄這些波，就能推算出底下有什麼。",
+            "1909 年，一位叫莫霍洛維奇的科學家就是用這個方法找到地殼的底部。1936 年，英厄．雷曼研究地震紀錄，發現地核的中心是固體。直到今天，每一次大地震都還在教我們新的東西。我們從來沒有親眼看過這顆行星的內部，但我們學會了怎麼聽它。"
+          ],
+          "questions": [
+            "What are the four layers of the Earth, from the outside in?",
+            "How is the outer core different from the inner core?",
+            "How do scientists know what is inside the Earth?"
+          ],
+          "answers": [
+            "The crust, the mantle, the outer core, and the inner core.",
+            "The outer core is liquid iron and nickel. The inner core is a solid ball of iron, kept solid by the great pressure.",
+            "They record earthquake waves all over the world. The waves change speed and direction in different kinds of rock, and S waves cannot pass through liquid."
+          ],
+          "vocab": [
+            {
+              "n": 1,
+              "w": "layer",
+              "pos": "n.",
+              "zh": "層",
+              "ex": "The cake has three <b>layers</b>.",
+              "exzh": "這個蛋糕有三層。"
+            },
+            {
+              "n": 2,
+              "w": "crust",
+              "pos": "n.",
+              "zh": "地殼；外皮",
+              "ex": "The bread has a hard <b>crust</b>.",
+              "exzh": "這個麵包的外皮很硬。"
+            },
+            {
+              "n": 3,
+              "w": "mantle",
+              "pos": "n.",
+              "zh": "地函",
+              "ex": "The <b>mantle</b> is the thickest layer of the Earth.",
+              "exzh": "地函是地球最厚的一層。"
+            },
+            {
+              "n": 4,
+              "w": "core",
+              "pos": "n.",
+              "zh": "地核；核心",
+              "ex": "Throw the apple <b>core</b> in the trash.",
+              "exzh": "把蘋果核丟進垃圾桶。"
+            },
+            {
+              "n": 5,
+              "w": "solid",
+              "pos": "adj., n.",
+              "zh": "固態的；固體",
+              "ex": "Ice is water in its <b>solid</b> form.",
+              "exzh": "冰是固態的水。"
+            },
+            {
+              "n": 6,
+              "w": "liquid",
+              "pos": "adj., n.",
+              "zh": "液態的；液體",
+              "ex": "Milk is a <b>liquid</b>.",
+              "exzh": "牛奶是液體。"
+            },
+            {
+              "n": 7,
+              "w": "drill",
+              "pos": "v.",
+              "zh": "鑽（洞）",
+              "ex": "They <b>drilled</b> a hole in the wall.",
+              "exzh": "他們在牆上鑽了一個洞。"
+            },
+            {
+              "n": 8,
+              "w": "pressure",
+              "pos": "n.",
+              "zh": "壓力",
+              "ex": "Check the air <b>pressure</b> in the tires.",
+              "exzh": "檢查一下輪胎的氣壓。"
+            }
+          ],
+          "quiz": [
+            {
+              "q": "Which layer of the Earth is the thickest?",
+              "options": [
+                "The mantle",
+                "The crust",
+                "The inner core",
+                "The ocean"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "What is the outer core made of?",
+              "options": [
+                "Liquid iron and nickel",
+                "Solid ice",
+                "Sand and water",
+                "Air"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "Why is the inner core solid even though it is so hot?",
+              "options": [
+                "The pressure is too great for it to melt",
+                "It is made of ice",
+                "It is not really hot",
+                "It is very small"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "How deep is the deepest hole people have drilled?",
+              "options": [
+                "About 12 kilometers",
+                "About 120 kilometers",
+                "About 1,200 kilometers",
+                "All the way to the center"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "How do we know what is deep inside the Earth?",
+              "options": [
+                "By studying earthquake waves",
+                "By taking photographs",
+                "By sending down divers",
+                "By guessing"
+              ],
+              "correct": 0
+            }
+          ],
+          "parts_head": {
+            "eyebrow": "Try It in the Model · 在模型裡試試",
+            "en": "Four stops on the way down",
+            "zh": "往下走的四站"
+          },
+          "parts": [
+            {
+              "key": "crust",
+              "icon": "⛏️",
+              "en": "The deepest hole",
+              "zh": "最深的洞",
+              "meta_en": "12 km down",
+              "meta_zh": "深 12 公里",
+              "demo": "crust",
+              "text_en": "Stop where the drill stopped. You are less than 0.2% of the way to the center.",
+              "text_zh": "停在鑽頭停下來的地方。你走了到地心路程的 0.2% 都不到。"
+            },
+            {
+              "key": "mantle",
+              "icon": "🔥",
+              "en": "Deep in the mantle",
+              "zh": "地函深處",
+              "meta_en": "1,500 km down",
+              "meta_zh": "深 1,500 公里",
+              "demo": "mantle",
+              "text_en": "Solid rock at thousands of degrees, flowing more slowly than you can imagine.",
+              "text_zh": "幾千度的固態岩石，流動得比你想像的還要慢。"
+            },
+            {
+              "key": "core",
+              "icon": "🧲",
+              "en": "The liquid outer core",
+              "zh": "液態的外核",
+              "meta_en": "4,000 km down",
+              "meta_zh": "深 4,000 公里",
+              "demo": "core",
+              "text_en": "A sea of melted metal. Its movement makes the Earth a giant magnet.",
+              "text_zh": "一片熔化的金屬海。它的流動讓地球變成一塊巨大的磁鐵。"
+            },
+            {
+              "key": "waves",
+              "icon": "〰️",
+              "en": "Listen with earthquakes",
+              "zh": "用地震來聽",
+              "meta_en": "The shadow zone",
+              "meta_zh": "陰影帶",
+              "demo": "waves",
+              "text_en": "Watch the red S waves stop at the liquid, and find the gray band where no direct P waves arrive.",
+              "text_zh": "看紅色的 S 波在液體前停下來，再找找那一段收不到直接 P 波的灰色地帶。"
+            }
+          ],
+          "parts_note_en": "The depths of the layers follow the Central Weather Administration: the mantle ends at 2,900 kilometers, and the inner core begins at about 5,120.",
+          "parts_note_zh": "各層的深度依中央氣象署的數字：地函到 2,900 公里為止，內核大約從 5,120 公里開始。",
+          "links_head": {
+            "eyebrow": "Go Further · 延伸閱讀",
+            "en": "What the layers do",
+            "zh": "這幾層做了什麼"
+          },
+          "links": [
+            {
+              "href": "/resources/classes/earth/taiwan-earthquakes/",
+              "icon": "🌋",
+              "k_en": "Earth and Weather · Lesson 2",
+              "k_zh": "地球與天氣 第二課",
+              "en": "Why Does Taiwan Have So Many Earthquakes?",
+              "zh": "台灣為什麼地震這麼多？",
+              "note_en": "The plates of the crust move, get stuck, and slip. Meet the P waves and S waves again.",
+              "note_zh": "地殼的板塊會移動、卡住、滑動。P 波和 S 波在這裡再登場一次。"
+            },
+            {
+              "soon": true,
+              "icon": "🌋",
+              "k_en": "Earth and Weather · Lesson 5",
+              "k_zh": "地球與天氣 第五課",
+              "en": "How Does a Volcano Erupt?",
+              "zh": "火山怎麼噴發？",
+              "note_en": "Sometimes rock from below melts and finds its way up.",
+              "note_zh": "有時候底下的岩石熔化了，就會找路往上跑。"
+            }
+          ],
+          "dig": {
+            "eyebrow": "A Trip to the Center · 到地心的旅程",
+            "en": "How long would it take?",
+            "zh": "要走多久？",
+            "lead_en": "Nobody can really travel to the center of the Earth. But pretend you could go straight down at a steady speed. Choose a ride and see how long each layer takes. Notice how quickly you leave the crust behind.",
+            "lead_zh": "沒有人真的能到地心去。不過假裝你可以用固定的速度一路往下：選一種交通工具，看看每一層要走多久。注意看，你多快就離開地殼了。",
+            "rides": [
+              {
+                "kmh": 5,
+                "en": "Walking",
+                "zh": "走路 5 km/h"
+              },
+              {
+                "kmh": 100,
+                "en": "A car",
+                "zh": "汽車 100 km/h"
+              },
+              {
+                "kmh": 300,
+                "en": "A fast train",
+                "zh": "高速列車 300 km/h"
+              },
+              {
+                "kmh": 900,
+                "en": "A jet",
+                "zh": "噴射機 900 km/h"
+              }
+            ],
+            "note_en": "The speeds are round examples: walking at 5 kilometers an hour, a car at 100, a fast train at 300, and a jet at 900. The distances are the thickness of each layer: 17, 2,883, 2,220, and 1,251 kilometers.",
+            "note_zh": "速度是取整數的例子：走路每小時 5 公里、汽車 100、高速列車 300、噴射機 900。距離是每一層的厚度：17、2,883、2,220、1,251 公里。"
+          },
+          "facts": {
+            "eyebrow": "The Earth by the Numbers · 地球的數字",
+            "en": "Six numbers about the inside of the Earth",
+            "zh": "六個和地球內部有關的數字",
+            "lead_en": "From the surface to the center.",
+            "lead_zh": "從地表到地心。",
+            "items": [
+              {
+                "big": "6,371",
+                "unit_en": "kilometers",
+                "unit_zh": "公里",
+                "en": "The distance from the surface to the center of the Earth.",
+                "zh": "從地表到地球中心的距離。"
+              },
+              {
+                "big": "17",
+                "unit_en": "kilometers",
+                "unit_zh": "公里",
+                "en": "The average thickness of the crust. It ranges from 5 to 70.",
+                "zh": "地殼的平均厚度；最薄 5 公里，最厚 70 公里。"
+              },
+              {
+                "big": "83%",
+                "unit_en": "of the volume",
+                "unit_zh": "的體積",
+                "en": "The share of the Earth that is mantle.",
+                "zh": "地函占整個地球的比例。"
+              },
+              {
+                "big": "12,262",
+                "unit_en": "meters",
+                "unit_zh": "公尺",
+                "en": "The depth of the deepest hole ever drilled, reached in 1989.",
+                "zh": "人類鑽過最深的洞，1989 年鑽到的深度。"
+              },
+              {
+                "big": "1°C",
+                "unit_en": "every 30 meters",
+                "unit_zh": "每 30 公尺",
+                "en": "Near the surface, the rock gets about 1°C hotter for every 30 meters you go down.",
+                "zh": "在地表附近，每往下 30 公尺，岩石大約就熱攝氏 1 度。"
+              },
+              {
+                "big": "103–143",
+                "unit_en": "degrees",
+                "unit_zh": "度",
+                "en": "The shadow zone: the band where no direct P waves from an earthquake arrive.",
+                "zh": "陰影帶：收不到地震直接傳來的 P 波的那一段。"
+              }
+            ]
+          },
+          "culture_cards": {
+            "eyebrow": "Stories from Below · 來自地底的故事",
+            "title_en": "A very deep hole, the bottom of the crust, a solid heart, and a planet that is a magnet",
+            "title_zh": "很深的洞、地殼的底、固態的中心，還有一顆會當磁鐵的行星",
+            "lead_en": "Four discoveries about a place no one has visited.",
+            "lead_zh": "四個發現，說的是一個從來沒有人去過的地方。",
+            "cards": [
+              {
+                "k": "1989",
+                "en": "The deepest hole",
+                "zh": "最深的洞",
+                "body_en": "On the Kola Peninsula in Russia, scientists set out to drill as deep into the crust as they could. In 1979 their hole became the deepest in the world, and in 1989 it reached 12,262 meters. A later attempt had to stop when the rock turned out to be 180°C, much hotter than expected.",
+                "body_zh": "在俄羅斯的科拉半島，科學家想盡可能往地殼深處鑽。1979 年，他們的洞成了全世界最深的；1989 年鑽到 12,262 公尺。後來再往下鑽的時候，發現岩石的溫度高達攝氏 180 度，比原先預期的熱得多，只好停下來。"
+              },
+              {
+                "k": "1909",
+                "en": "The bottom of the crust",
+                "zh": "地殼的底",
+                "body_en": "In 1909 the Croatian scientist Andrija Mohorovičić noticed something odd in his earthquake records: two sets of waves from the same earthquake. One set had come straight through the crust. The other had dipped down into faster rock and come back up. He had found the boundary between the crust and the mantle. It is still called the Moho.",
+                "body_zh": "1909 年，克羅埃西亞的科學家莫霍洛維奇在地震紀錄裡發現一件怪事：同一個地震，竟然有兩組波。一組直接穿過地殼；另一組往下鑽進傳得比較快的岩層，再繞上來。他找到了地殼和地函的交界，到今天這個交界面還叫做「莫霍面」。"
+              },
+              {
+                "k": "1936",
+                "en": "A solid heart",
+                "zh": "固態的中心",
+                "body_en": "Scientists once thought the whole core was liquid. Then the Danish scientist Inge Lehmann studied the records of earthquakes in New Zealand. Some waves seemed to bounce off something deep inside the core. In 1936 she showed that the liquid core has a solid center.",
+                "body_zh": "科學家原本以為整個地核都是液體。後來，丹麥的科學家英厄．雷曼研究了紐西蘭地震的紀錄，發現有些波好像被地核深處的某個東西反彈回來。1936 年，她證明了液態的地核裡面有一個固態的中心。"
+              },
+              {
+                "k": "The compass · 指南針",
+                "en": "A planet that is a magnet",
+                "zh": "會當磁鐵的行星",
+                "body_en": "Why does a compass needle point north? The answer is in the outer core. Heat escaping from the core keeps the liquid iron and nickel moving, and the moving metal carries electric currents. Those currents make the magnetic field that surrounds the whole Earth.",
+                "body_zh": "指南針的針為什麼會指向北方？答案在外核。從地核往外散的熱，讓液態的鐵和鎳不停地流動，流動的金屬帶著電流，這些電流就產生了包住整個地球的磁場。"
+              }
+            ]
+          },
+          "myths": [
+            {
+              "myth_en": "The inside of the Earth is all melted rock.",
+              "myth_zh": "地球裡面全都是熔化的岩漿。",
+              "fact_en": "Most of it is solid. The mantle is solid rock and the inner core is solid iron. Only the outer core is liquid.",
+              "fact_zh": "大部分是固體。地函是固態的岩石，內核是固態的鐵，只有外核是液體。"
+            },
+            {
+              "myth_en": "People have drilled deep into the Earth.",
+              "myth_zh": "人類已經鑽到地球很深的地方了。",
+              "fact_en": "The deepest hole is about 12 kilometers, less than 0.2% of the way to the center.",
+              "fact_zh": "最深的洞大約 12 公里，連到地心路程的 0.2% 都不到。"
+            },
+            {
+              "myth_en": "The center of the Earth is liquid because it is the hottest part.",
+              "myth_zh": "地球的中心最熱，所以是液體。",
+              "fact_en": "It is the hottest part, but it is solid. The pressure is so great that the iron cannot melt.",
+              "fact_zh": "那裡確實最熱，卻是固體。壓力太大了，鐵沒辦法熔化。"
+            },
+            {
+              "myth_en": "Scientists are only guessing about what is down there.",
+              "myth_zh": "底下有什麼，科學家只是用猜的。",
+              "fact_en": "They measure it. Earthquake waves recorded all over the world show where the layers begin and end.",
+              "fact_zh": "他們是量出來的。世界各地記錄到的地震波，顯示出每一層從哪裡開始、到哪裡結束。"
+            }
+          ],
+          "tricks": [
+            {
+              "title_en": "Four layers",
+              "title_zh": "四層",
+              "body_en": "Crust, mantle, outer core, inner core.",
+              "body_zh": "地殼、地函、外核、內核。"
+            },
+            {
+              "title_en": "Solid, solid, liquid, solid",
+              "title_zh": "固、固、液、固",
+              "body_en": "Only the outer core is liquid.",
+              "body_zh": "只有外核是液體。"
+            },
+            {
+              "title_en": "Thinner than an apple's peel",
+              "title_zh": "比蘋果皮還薄",
+              "body_en": "That is the crust we live on.",
+              "body_zh": "那就是我們住的地殼。"
+            },
+            {
+              "title_en": "We listen, we do not look",
+              "title_zh": "用聽的，不是用看的",
+              "body_en": "Earthquake waves are our eyes.",
+              "body_zh": "地震波就是我們的眼睛。"
+            }
+          ],
+          "safety": [
+            {
+              "en": "Ask an adult to cut the fruit or the egg. Do not use a sharp knife by yourself.",
+              "zh": "切水果或水煮蛋請大人幫忙，不要自己用利刀。"
+            },
+            {
+              "en": "Wash your hands before and after you handle food, and do not eat anything that has been on the floor or the desk.",
+              "zh": "碰食物前後都要洗手；掉在地上或放在桌面上的東西不要吃。"
+            },
+            {
+              "en": "Tell your teacher if you are allergic to any food before the activity begins.",
+              "zh": "如果你對某些食物過敏，活動開始前先告訴老師。"
+            }
+          ],
+          "activities": [
+            {
+              "title_en": "An Egg Is a Planet",
+              "title_zh": "一顆蛋就是一顆行星",
+              "materials": [
+                {
+                  "en": "A hard-boiled egg for each group, and a plate",
+                  "zh": "每組一顆水煮蛋，還有一個盤子"
+                },
+                {
+                  "en": "A ruler and a knife (for the adult)",
+                  "zh": "一把尺，還有一把刀（由大人使用）"
+                }
+              ],
+              "steps": [
+                {
+                  "en": "Tap the egg gently so that the shell cracks into several pieces but stays on. These pieces are your plates.",
+                  "zh": "輕輕敲蛋，讓蛋殼裂成好幾片但還留在蛋上。這幾片就是你的「板塊」。"
+                },
+                {
+                  "en": "Ask the adult to cut the egg in half through the shell.",
+                  "zh": "請大人連殼把蛋切成兩半。"
+                },
+                {
+                  "en": "Look at the cut face. Which part is like the crust, which the mantle, and which the core? Measure how thick each one is.",
+                  "zh": "看看切面。哪一部分像地殼？哪一部分像地函？哪一部分像地核？量量看每一層有多厚。"
+                },
+                {
+                  "en": "Talk about it: in what ways is the egg a good model of the Earth? In what ways is it wrong?",
+                  "zh": "討論：這顆蛋有哪些地方很像地球？又有哪些地方不對？"
+                }
+              ],
+              "tip_en": "One thing the egg gets wrong: the yolk is one piece, but the Earth's core has a liquid outer part and a solid center.",
+              "tip_zh": "這顆蛋有一個地方不對：蛋黃是完整的一塊，可是地球的地核外面是液體、中心是固體。"
+            },
+            {
+              "title_en": "What Is in the Box?",
+              "title_zh": "盒子裡有什麼？",
+              "materials": [
+                {
+                  "en": "Several closed boxes or cans, each with something different inside: sand, a marble, water in a small sealed bottle, cotton",
+                  "zh": "幾個蓋好的盒子或罐子，裡面各放不同的東西：沙子、彈珠、裝在密封小瓶裡的水、棉花"
+                },
+                {
+                  "en": "Paper and a pencil",
+                  "zh": "紙和鉛筆"
+                }
+              ],
+              "steps": [
+                {
+                  "en": "Do not open the boxes. Shake each one, tilt it, and tap it, and listen carefully.",
+                  "zh": "不可以打開盒子。把每一個搖一搖、歪一歪、敲一敲，仔細聽。"
+                },
+                {
+                  "en": "Write down what you think is inside each box, and what clue made you think so.",
+                  "zh": "寫下你覺得每個盒子裡是什麼，以及是哪個線索讓你這麼想的。"
+                },
+                {
+                  "en": "Is it solid or liquid? One piece or many? How can you tell without looking?",
+                  "zh": "它是固體還是液體？是一整塊還是很多小塊？不用看，你怎麼知道？"
+                },
+                {
+                  "en": "Open the boxes and check. Which were easy? Which fooled you?",
+                  "zh": "打開盒子對答案。哪些很容易？哪些把你騙了？"
+                }
+              ],
+              "tip_en": "This is how scientists study the Earth. They cannot open it, so they send waves through it and listen to what comes back.",
+              "tip_zh": "科學家就是這樣研究地球的。他們沒辦法把地球打開，所以讓波穿過去，再聽傳回來的是什麼。"
+            }
+          ],
+          "sources": [
+            {
+              "en": "The Earth's layers: crust 5 to 70 km thick, about 17 km on average; mantle down to 2,900 km, 83% of the Earth's volume, solid but able to flow slowly, its convection a cause of plate movement; core from 2,900 km to the center at 6,371 km; outer core about 2,220 km thick, liquid iron and nickel; inner core a solid iron ball 1,251 km in radius",
+              "zh": "地球內部構造：地殼厚 5 至 70 公里，平均約 17 公里；地函至 2,900 公里，占總體積 83%，固體但能緩慢流動，對流是板塊運動的原因之一；地核自 2,900 公里至 6,371 公里的地心；外核厚約 2,220 公里，液態鐵鎳；內核是半徑 1,251 公里的固態鐵球",
+              "src": "中央氣象署 地震百問 2",
+              "url": "https://scweb.cwa.gov.tw/zh-TW/Guidance/FAQdetail/2"
+            },
+            {
+              "en": "Average thickness, mass, and volume of each layer",
+              "zh": "各層的平均厚度、質量與體積",
+              "src": "中央氣象署 地震百問 3",
+              "url": "https://scweb.cwa.gov.tw/zh-TW/Guidance/FAQdetail/3"
+            },
+            {
+              "en": "Near the surface the temperature rises about 1°C for every 30 m; the mantle is at 2,000 to 3,000°C",
+              "zh": "近地表平均每 30 公尺升高約 1°C；地函溫度 2,000 至 3,000°C",
+              "src": "中央氣象署 地震百問 7",
+              "url": "https://scweb.cwa.gov.tw/zh-TW/Guidance/FAQdetail/7"
+            },
+            {
+              "en": "The P wave shadow zone between 103° and 143°, evidence that the Earth has layers",
+              "zh": "P 波陰影帶在 103° 至 143° 之間，是地球內部分層的證據",
+              "src": "中央氣象署 地震百問 24",
+              "url": "https://scweb.cwa.gov.tw/zh-TW/Guidance/FAQdetail/25"
+            },
+            {
+              "en": "S waves are stopped at the liquid outer core; P waves are refracted",
+              "zh": "S 波在液態外核停住；P 波被折射",
+              "src": "Wikipedia, “Shadow zone”",
+              "url": "https://en.wikipedia.org/wiki/Shadow_zone"
+            },
+            {
+              "en": "The Kola Superdeep Borehole: the deepest human-made hole since 1979; 12,262 m reached in 1989; later drilling stopped at higher-than-expected temperatures of 180°C",
+              "zh": "科拉超深鑽孔：1979 年起為最深的人造鑽孔；1989 年達 12,262 公尺；後續鑽探因溫度高於預期（180°C）而停止",
+              "src": "Wikipedia, “Kola Superdeep Borehole”",
+              "url": "https://en.wikipedia.org/wiki/Kola_Superdeep_Borehole"
+            },
+            {
+              "en": "The Mohorovičić discontinuity, first identified in 1909 by Andrija Mohorovičić from two sets of waves on seismograms",
+              "zh": "莫霍面：1909 年由 Andrija Mohorovičić 從地震圖上的兩組波辨認出來",
+              "src": "Wikipedia, “Mohorovičić discontinuity”",
+              "url": "https://en.wikipedia.org/wiki/Mohorovi%C4%8Di%C4%87_discontinuity"
+            },
+            {
+              "en": "The solid inner core, discovered in 1936 by Inge Lehmann from seismograms of earthquakes in New Zealand; the inner core is solid because of its high pressure",
+              "zh": "固態內核：1936 年由 Inge Lehmann 研究紐西蘭地震的地震圖發現；內核因高壓而呈固態",
+              "src": "Wikipedia, “Earth's inner core”",
+              "url": "https://en.wikipedia.org/wiki/Earth%27s_inner_core"
+            },
+            {
+              "en": "The magnetic field is generated by electric currents from the motion of molten iron and nickel in the outer core, driven by heat escaping from the core",
+              "zh": "地球磁場由外核中熔融鐵鎳流動產生的電流所形成，流動的動力來自地核散出的熱",
+              "src": "Wikipedia, “Earth's magnetic field”",
+              "url": "https://en.wikipedia.org/wiki/Earth%27s_magnetic_field"
+            }
+          ]
+        },
+        {
           "n": 2,
           "slug": "taiwan-earthquakes",
           "title": "Why Does Taiwan Have So Many Earthquakes?",
@@ -703,12 +1307,6 @@
         }
       ],
       "planned": [
-        {
-          "n": 1,
-          "icon": "🌍",
-          "en": "What Is Inside the Earth?",
-          "zh": "地球裡面有什麼？"
-        },
         {
           "n": 3,
           "icon": "📈",

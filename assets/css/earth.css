@@ -32,6 +32,29 @@
 .ew-wn-key i { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: .35rem; }
 @media (max-width: 560px) { .ew-wn-pre { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 
+/* ---------- 第一課：地球裡面有什麼？ ---------- */
+@media (min-width: 1021px) { .ew-in-lab .al-space { min-height: 680px; } }
+.ew-in-lbox[hidden], .ew-in-wbox[hidden], .ew-in-msg[hidden] { display: none; }
+.ew-in-stops { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.ew-in-key { list-style: none; margin: 0; padding: 0; display: grid; gap: .35rem; font-size: .8rem; color: var(--al-text); }
+.ew-in-key i { display: inline-block; width: 22px; height: 6px; border-radius: 3px; margin-right: .5rem; vertical-align: middle; }
+.al-lab.ew-in-lb { font-weight: 800; }
+.al-lab.ew-in-lb-here { color: #0b1226; background: #fff; border-color: #fff; font-weight: 800; font-variant-numeric: tabular-nums; }
+.al-lab.ew-in-lb-here small { color: #33415f; }
+.al-lab.ew-in-lb-ok { border-color: #7cf29a; } .al-lab.ew-in-lb-sh { border-color: #9aa4b8; }
+.al-lg-ewin4 i { border: 0; height: 11px; margin-top: .3rem; border-radius: 2px; background: linear-gradient(90deg, #8a6a4a 0 12%, #d9572b 12% 55%, #ffa62b 55% 85%, #fff0a8 85%); }
+.al-lg-ewinprobe i { border: 0; border-radius: 50%; width: 10px; height: 10px; margin: .35rem 6px 0; background: #fff; }
+.al-lg-ewinrays i { border: 0; height: 3px; margin-top: .55rem; background: linear-gradient(90deg, #ffe27a 0 50%, #ff5a46 50%); }
+/* 頁面小工具：一路往下，要走多久？ */
+.ew-dg-rides { grid-template-columns: repeat(4, minmax(0, 1fr)); margin-top: 0; }
+.ew-dg-rows { display: grid; gap: .5rem; margin: 1.1rem 0 .4rem; }
+.ew-dg-row { display: grid; grid-template-columns: 6.2rem minmax(0, 1fr) 7.2rem; gap: .7rem; align-items: center; font-size: .86rem; font-weight: 700; color: var(--ink); }
+.ew-dg-row small { display: block; font-weight: 500; font-size: .76rem; color: var(--ink-soft); }
+.ew-dg-bar { display: block; height: 12px; border-radius: 99px; background: #e5dfd0; overflow: hidden; }
+.ew-dg-bar i { display: block; height: 100%; border-radius: 99px; transition: width .25s; }
+.ew-dg-t { text-align: right; font-variant-numeric: tabular-nums; }
+@media (max-width: 560px) { .ew-dg-rides, .ew-in-stops { grid-template-columns: repeat(2, minmax(0, 1fr)); } .ew-dg-row { grid-template-columns: 4.6rem minmax(0, 1fr) 5.6rem; } }
+
 /* ---------- 全系列共用 ---------- */
 .cp-link.ew-link-soon { border-style: dashed; opacity: .78; cursor: default; }
 .ew-safety-src { margin: 1rem 0 0; font-size: .86rem; color: var(--ink-soft); }
