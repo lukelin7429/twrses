@@ -7952,7 +7952,28 @@ def _ph_lab_friends(lab):
   </div>
 </div>'''
 
+def _ph_lab_pond(lab):
+    """A24：六個池塘。每一步只加一項真實世界的特徵（距離、旁人、規模、不確定、重複），答到第一個「沒有義務」為止，指出是哪一項特徵讓你停下來。"""
+    payload = html.escape(json.dumps({k: lab[k] for k in ("yes", "no", "steps", "ends")}, ensure_ascii=False), quote=False)
+    def bi(o, cls=""): return f'<p class="{cls}">{_ph_e(o["en"])}</p><p class="ph-zh" lang="zh-Hant">{_ph_e(o["zh"])}</p>'
+    chips = "".join(f'<span class="ph-pd-chip" data-pd-chip="{i}"><b>{i + 1}</b>{_ph_e(st["f"]["en"])} <i lang="zh-Hant">{_ph_e(st["f"]["zh"])}</i></span>' for i, st in enumerate(lab["steps"]))
+    voices = "".join(f'<div class="ph-vl-card"><small class="ph-tp-k">{_ph_e(v["who"]["en"])} · <span lang="zh-Hant">{_ph_e(v["who"]["zh"])}</span></small>{bi(v["t"])}</div>' for v in lab["voices"])
+    return f'''<div class="ph-el ph-pd rvl" data-ph-pond>
+  <script type="application/json" data-pd-data>{payload}</script>
+  <div class="ph-el-stage">
+    <div class="ph-pd-ladder" aria-hidden="true">{chips}</div>
+    <div data-pd-ask>
+      <div class="ph-tp-text" data-pd-text aria-live="polite"></div>
+      <div class="ph-vl-opts ph-tp-opts" data-pd-opts></div>
+    </div>
+    <div class="ph-vl-out" data-pd-out aria-live="polite"></div>
+    <div data-pd-voices hidden><p class="ph-el-src ph-md-vh">Where four philosophers draw the line <span lang="zh-Hant">四位哲學家把線劃在哪裡</span></p><div class="ph-md-vgrid">{voices}</div></div>
+    <div class="ph-el-foot"><button type="button" class="ph-el-reset" data-pd-reset>Start again · 重來</button></div>
+  </div>
+</div>'''
+
 def _ph_lab(lab):
+    if lab.get("kind") == "pond": return _ph_lab_pond(lab)
     if lab.get("kind") == "friends": return _ph_lab_friends(lab)
     if lab.get("kind") == "sort": return _ph_lab_sort(lab)
     if lab.get("kind") == "machine": return _ph_lab_machine(lab)

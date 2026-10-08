@@ -1369,6 +1369,38 @@
     var m = /[#&]friends=([yn,]+)/.exec(location.hash); if (m) root.__lab.play(m[1].split(','));
   });
 
+  /* ---- A24：六個池塘（在哪一步停下來） ---- */
+  $$('[data-ph-pond]').forEach(function (root) {
+    var D;
+    try { D = JSON.parse($('[data-pd-data]', root).textContent); } catch (e) { return; }
+    var ask = $('[data-pd-ask]', root), text = $('[data-pd-text]', root), opts = $('[data-pd-opts]', root), out = $('[data-pd-out]', root), voices = $('[data-pd-voices]', root), chips = $$('[data-pd-chip]', root);
+    var i, stop;
+    function zhp(parent, t) { var z = el('p', 'ph-zh', t); z.lang = 'zh-Hant'; parent.appendChild(z); addTr(z); }
+    function paint() { chips.forEach(function (c, k) { c.className = 'ph-pd-chip' + (stop !== null && k === stop ? ' is-stop' : k < i ? ' is-yes' : k === i && stop === null ? ' is-cur' : ''); }); }
+    function show() {
+      var st = D.steps[i]; text.textContent = ''; opts.textContent = '';
+      var h = el('h4', '', 'Pond ' + (i + 1)); var hz = el('span', '', '第 ' + (i + 1) + ' 個池塘'); hz.lang = 'zh-Hant'; h.appendChild(hz); text.appendChild(h);
+      text.appendChild(el('p', '', st.t.en)); zhp(text, st.t.zh);
+      [[true, D.yes], [false, D.no]].forEach(function (p) {
+        var b = el('button', 'ph-vl-opt'); b.type = 'button'; b.appendChild(el('b', '', p[1].en)); var z = el('span', '', p[1].zh); z.lang = 'zh-Hant'; b.appendChild(z);
+        b.addEventListener('click', function () { if (p[0]) { i++; if (i < D.steps.length) show(); else finish('all'); } else { stop = i; finish(D.steps[i].k); } }); opts.appendChild(b);
+      });
+      paint();
+    }
+    function finish(key) {
+      ask.hidden = true; paint();
+      var c = el('div', 'ph-vl-card is-valid'), v = D.ends[key];
+      c.appendChild(el('small', 'ph-tp-k', key === 'all' ? 'You went all the way · 你走到了底' : 'What stopped you: ' + D.steps[stop].f.en + ' · 讓你停下來的：' + D.steps[stop].f.zh));
+      c.appendChild(el('p', '', v.en)); zhp(c, v.zh); out.appendChild(c); voices.hidden = false;
+    }
+    function reset() { i = 0; stop = null; ask.hidden = false; out.textContent = ''; voices.hidden = true; show(); }
+    $('[data-pd-reset]', root).addEventListener('click', reset);
+    reset();
+    root.__lab = { state: function () { return { i: i, stop: stop, ended: !!out.children.length, voices: !voices.hidden }; },
+      play: function (n) { reset(); for (var k = 0; k < n; k++) $$('button', opts)[0].click(); if (n < D.steps.length) $$('button', opts)[1].click(); return stop === null ? 'all' : D.steps[stop].k; } };
+    var m = /[#&]pond=(\d)/.exec(location.hash); if (m) root.__lab.play(+m[1]);
+  });
+
   /* ---- A13：去火星三趟（帕菲特的傳送機） ---- */
   $$('[data-ph-teleport]').forEach(function (root) {
     var D;
