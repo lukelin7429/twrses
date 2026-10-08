@@ -1008,3 +1008,21 @@ main:has(.ph-tools) .wrap { width: min(980px, 92vw); }
 .ph-ev-chart .pt { fill: var(--ph-night); stroke: #ffd36e; stroke-width: 3; }
 .ph-ev .ph-el-end p.ph-ev-zone { margin-top: 1rem; }
 @media (max-width: 720px) { .ph-ev-reads { grid-template-columns: 1fr; } }
+
+/* ---- A21：體驗機 ---- */
+.ph-mc-tank { max-width: 380px; margin: 0 auto 1rem; }
+.ph-mc-tank svg { display: block; width: 100%; height: auto; overflow: visible; }
+.ph-mc-glass { fill: rgba(159,195,234,.08); stroke: #9fc3ea; stroke-width: 2.5; }
+.ph-mc-water { fill: rgba(79,209,165,.0); transition: fill 1.2s ease; }
+.ph-mc-body circle, .ph-mc-body rect { fill: #f3e3b8; opacity: .18; transition: opacity 1.2s ease; }
+.ph-mc-wire { fill: none; stroke: #9fc3ea; stroke-width: 2.5; stroke-dasharray: 5 6; opacity: .3; transition: opacity 1.2s ease, stroke 1.2s ease; }
+.ph-mc-lamp { fill: #55585e; transition: fill 1.2s ease; }
+.ph-mc[data-in="1"] .ph-mc-water { fill: rgba(79,209,165,.28); }
+.ph-mc[data-in="1"] .ph-mc-body circle, .ph-mc[data-in="1"] .ph-mc-body rect { opacity: 1; }
+.ph-mc[data-in="1"] .ph-mc-wire { opacity: 1; stroke: #ffd36e; }
+.ph-mc[data-in="1"] .ph-mc-lamp { fill: #ffd36e; }
+.ph-mc .ph-sh-item[disabled] { opacity: .4; cursor: default; }
+.ph-mc .ph-vl-opt { text-align: left; }
+.ph-mc-sum { font: 700 .92rem/1.6 var(--sans) !important; color: #9fc3ea; margin-bottom: .8rem !important; }
+.ph-mc .ph-el-end p.ph-ev-zone { margin-top: 1rem; }
+@media (prefers-reduced-motion: reduce) { .ph-mc-water, .ph-mc-body circle, .ph-mc-body rect, .ph-mc-wire, .ph-mc-lamp { transition: none; } }

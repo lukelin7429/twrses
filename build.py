@@ -7642,7 +7642,32 @@ def _ph_lab_evidence(lab):
   </div>
 </div>'''
 
+def _ph_lab_machine(lab):
+    """A21：體驗機。先選機器裡的人生（最多五項），再回答四題（一輩子、兩年、反過來、你的孩子），最後判讀你除了感覺好之外還在乎什麼。"""
+    payload = html.escape(json.dumps({k: lab[k] for k in ("qs", "ends")}, ensure_ascii=False), quote=False)
+    menu = "".join(f'<button type="button" class="ph-sh-item" data-mc-item="{i}" aria-pressed="false"><b>{_ph_e(m["en"])}</b><span lang="zh-Hant">{_ph_e(m["zh"])}</span></button>' for i, m in enumerate(lab["menu"]))
+    return f'''<div class="ph-el ph-mc ph-sh rvl" data-ph-machine data-in="0">
+  <script type="application/json" data-mc-data>{payload}</script>
+  <div class="ph-vl-top"><div class="ph-vl-dots" data-mc-dots aria-hidden="true"></div><span class="ph-el-count" data-mc-count></span></div>
+  <div class="ph-el-stage">
+    <div class="ph-mc-tank" aria-hidden="true"><svg viewBox="0 0 320 120"><rect class="ph-mc-glass" x="40" y="14" width="240" height="92" rx="46"/><path class="ph-mc-water" d="M52 60q30-10 60 0t60 0 60 0 36 0v20a34 34 0 0 1-34 34H86a34 34 0 0 1-34-34z"/>
+      <g class="ph-mc-body"><circle cx="110" cy="62" r="13"/><rect x="124" y="54" width="92" height="16" rx="8"/></g><path class="ph-mc-wire" d="M110 49C110 20 150 6 180 6h90"/><circle class="ph-mc-lamp" cx="276" cy="6" r="5"/></svg></div>
+    <div data-mc-pick>
+      <div class="ph-tp-text"><p class="ph-vl-q"><b>{_ph_e(lab["pick"]["en"])}</b><span lang="zh-Hant">{_ph_e(lab["pick"]["zh"])}</span></p></div>
+      <div class="ph-sh-items">{menu}</div>
+      <div class="ph-md-act"><button type="button" class="ph-vl-next" data-mc-ready disabled>{_ph_e(lab["ready"]["en"])} · <span lang="zh-Hant">{_ph_e(lab["ready"]["zh"])}</span> &rarr;</button><span class="ph-el-count" data-mc-n></span></div>
+    </div>
+    <div data-mc-ask hidden>
+      <div class="ph-tp-text" data-mc-text aria-live="polite"></div>
+      <div class="ph-vl-opts ph-tp-opts" data-mc-opts></div>
+    </div>
+    <div data-mc-end aria-live="polite"></div>
+    <div class="ph-el-foot"><button type="button" class="ph-el-reset" data-mc-reset>Start again · 重來</button></div>
+  </div>
+</div>'''
+
 def _ph_lab(lab):
+    if lab.get("kind") == "machine": return _ph_lab_machine(lab)
     if lab.get("kind") == "evidence": return _ph_lab_evidence(lab)
     if lab.get("kind") == "ring": return _ph_lab_ring(lab)
     if lab.get("kind") == "advisers": return _ph_lab_advisers(lab)

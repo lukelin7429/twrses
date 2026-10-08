@@ -1214,6 +1214,58 @@
     var m = /[#&]evidence=([\d,]+)/.exec(location.hash); if (m) root.__lab.play(m[1].split(',').map(Number));
   });
 
+  /* ---- A21：體驗機 ---- */
+  $$('[data-ph-machine]').forEach(function (root) {
+    var D;
+    try { D = JSON.parse($('[data-mc-data]', root).textContent); } catch (e) { return; }
+    var pick = $('[data-mc-pick]', root), items = $$('[data-mc-item]', root), ready = $('[data-mc-ready]', root), nEl = $('[data-mc-n]', root), ask = $('[data-mc-ask]', root), text = $('[data-mc-text]', root), opts = $('[data-mc-opts]', root), end = $('[data-mc-end]', root), dots = $('[data-mc-dots]', root), count = $('[data-mc-count]', root);
+    var MAX = 5, i, ans, chosen;
+    function zhp(parent, t) { var z = el('p', 'ph-zh', t); z.lang = 'zh-Hant'; parent.appendChild(z); addTr(z); }
+    function sel() { return items.filter(function (b) { return b.getAttribute('aria-pressed') === 'true'; }).map(function (b) { return +b.getAttribute('data-mc-item'); }); }
+    function paintPick() { var n = sel().length; ready.disabled = n < 1; nEl.textContent = n + ' / ' + MAX; items.forEach(function (b) { b.disabled = n >= MAX && b.getAttribute('aria-pressed') !== 'true'; }); }
+    items.forEach(function (b) { b.addEventListener('click', function () { b.setAttribute('aria-pressed', b.getAttribute('aria-pressed') === 'true' ? 'false' : 'true'); paintPick(); }); });
+    function paint() {
+      var n = D.qs.length; dots.textContent = '';
+      D.qs.forEach(function (_, k) { dots.appendChild(el('i', k < i ? 'ok' : k === i ? 'cur' : '')); });
+      count.textContent = i >= 0 && i < n ? 'Question ' + (i + 1) + ' of ' + n + ' · 第 ' + (i + 1) + '／' + n + ' 題' : '';
+    }
+    function show() {
+      var q = D.qs[i]; text.textContent = ''; opts.textContent = '';
+      root.setAttribute('data-in', q.key === 'wake' ? '1' : '0');
+      var h = el('h4', '', q.title.en); var hz = el('span', '', q.title.zh); hz.lang = 'zh-Hant'; h.appendChild(hz); text.appendChild(h);
+      text.appendChild(el('p', '', q.text.en)); zhp(text, q.text.zh);
+      q.opts.forEach(function (o) {
+        var b = el('button', 'ph-vl-opt'); b.type = 'button'; b.appendChild(el('b', '', o.t.en)); var z = el('span', '', o.t.zh); z.lang = 'zh-Hant'; b.appendChild(z);
+        b.addEventListener('click', function () { ans[q.key] = o.k; i++; if (i < D.qs.length) show(); else finish(); }); opts.appendChild(b);
+      });
+      paint();
+    }
+    function verdict() {
+      if (ans.life === 'y' && ans.wake === 'n' && ans.child === 'y') return 'hed';
+      if (ans.life === 'n' && ans.wake === 'y') return 'real';
+      if (ans.life === 'n' && ans.wake === 'n') return 'quo';
+      return 'mixed';
+    }
+    function para(e, o, cls) { e.appendChild(el('p', cls || '', o.en)); zhp(e, o.zh); }
+    function finish() {
+      ask.hidden = true; paint(); root.setAttribute('data-in', ans.life === 'y' ? '1' : '0');
+      var e = el('div', 'ph-el-end'); var h = el('h4', '', 'What your answers show'); h.appendChild(el('span', '', '你的答案顯示了什麼')); e.appendChild(h);
+      var yn = function (v, a, b) { return v === 'y' ? a : b; };
+      e.appendChild(el('p', 'ph-mc-sum', 'For life: ' + yn(ans.life, 'plug in', 'stay out') + ' · Two years: ' + yn(ans.trial, 'yes', 'no') + ' · Told you are inside: ' + yn(ans.wake, 'wake', 'stay') + ' · Your child: ' + yn(ans.child, 'plug in', 'do not') + '.'));
+      para(e, D.ends[verdict()]);
+      if (ans.life === 'y' && ans.child === 'n') para(e, D.ends.child_gap, 'ph-ev-zone');
+      if (chosen.indexOf(9) >= 0) para(e, D.ends.peace, 'ph-ev-zone');
+      end.appendChild(e);
+    }
+    ready.addEventListener('click', function () { chosen = sel(); pick.hidden = true; ask.hidden = false; i = 0; show(); });
+    function reset() { i = -1; ans = {}; chosen = []; items.forEach(function (b) { b.setAttribute('aria-pressed', 'false'); b.disabled = false; }); pick.hidden = false; ask.hidden = true; end.textContent = ''; root.setAttribute('data-in', '0'); paintPick(); paint(); }
+    $('[data-mc-reset]', root).addEventListener('click', reset);
+    reset();
+    root.__lab = { state: function () { return { i: i, ans: ans, chosen: chosen, picked: sel().length, verdict: i >= D.qs.length ? verdict() : null, ended: !!end.children.length, tank: root.getAttribute('data-in') }; },
+      play: function (picks, seq) { reset(); picks.forEach(function (k) { items[k].click(); }); ready.click(); seq.split('').forEach(function (c) { $$('button', opts)[c === 'y' ? 0 : 1].click(); }); return verdict(); } };
+    var m = /[#&]machine=([yn]{4})/.exec(location.hash); if (m) root.__lab.play([0, 4, 9], m[1]);
+  });
+
   /* ---- A13：去火星三趟（帕菲特的傳送機） ---- */
   $$('[data-ph-teleport]').forEach(function (root) {
     var D;
