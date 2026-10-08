@@ -7818,7 +7818,26 @@ def _ph_lab_sort(lab):
   </div>
 </div>'''
 
+def _ph_lab_friends(lab):
+    """A23：三位朋友。對每一位回答六題，依亞里斯多德歸成有用／快樂／品格（或還在路上），並標出《論語》益者三友的標記；最後比較。"""
+    payload = html.escape(json.dumps({k: lab[k] for k in ("names", "qs", "yes", "no", "kinds", "marks", "again", "done", "end")}, ensure_ascii=False), quote=False)
+    return f'''<div class="ph-el ph-fr rvl" data-ph-friends>
+  <script type="application/json" data-fr-data>{payload}</script>
+  <div class="ph-vl-top"><div class="ph-vl-dots" data-fr-dots aria-hidden="true"></div><span class="ph-el-count" data-fr-count></span></div>
+  <div class="ph-el-stage">
+    <div data-fr-ask>
+      <div class="ph-tp-text" data-fr-text aria-live="polite"></div>
+      <div class="ph-vl-opts ph-tp-opts" data-fr-opts></div>
+    </div>
+    <div class="ph-vl-out" data-fr-out aria-live="polite"></div>
+    <div class="ph-md-act" data-fr-act hidden><button type="button" class="ph-vl-next" data-fr-again></button><button type="button" class="ph-el-reset" data-fr-done></button></div>
+    <div data-fr-end aria-live="polite"></div>
+    <div class="ph-el-foot"><button type="button" class="ph-el-reset" data-fr-reset>Start again · 重來</button></div>
+  </div>
+</div>'''
+
 def _ph_lab(lab):
+    if lab.get("kind") == "friends": return _ph_lab_friends(lab)
     if lab.get("kind") == "sort": return _ph_lab_sort(lab)
     if lab.get("kind") == "machine": return _ph_lab_machine(lab)
     if lab.get("kind") == "evidence": return _ph_lab_evidence(lab)

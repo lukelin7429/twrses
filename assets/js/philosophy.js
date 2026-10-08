@@ -1317,6 +1317,58 @@
     var m = /[#&]sort=(\w+)/.exec(location.hash); if (m) root.__lab.play(root.__lab.keys(m[1] === 'e' ? 'e' : 'i'));
   });
 
+  /* ---- A23：三位朋友（亞里斯多德的三種友誼＋益者三友） ---- */
+  $$('[data-ph-friends]').forEach(function (root) {
+    var D;
+    try { D = JSON.parse($('[data-fr-data]', root).textContent); } catch (e) { return; }
+    var ask = $('[data-fr-ask]', root), text = $('[data-fr-text]', root), opts = $('[data-fr-opts]', root), out = $('[data-fr-out]', root), act = $('[data-fr-act]', root), again = $('[data-fr-again]', root), done = $('[data-fr-done]', root), end = $('[data-fr-end]', root), dots = $('[data-fr-dots]', root), count = $('[data-fr-count]', root);
+    var f, q, cur, all;
+    function zhp(parent, t) { var z = el('p', 'ph-zh', t); z.lang = 'zh-Hant'; parent.appendChild(z); addTr(z); }
+    function lab2(b, o) { b.textContent = ''; b.appendChild(document.createTextNode(o.en + ' · ')); var z = el('span', '', o.zh); z.lang = 'zh-Hant'; b.appendChild(z); }
+    function kind(a) { return !a.use ? 'use' : !a.fun ? 'fun' : (a.zhi && a.liang && a.glad) ? 'whole' : 'way'; }
+    function paint() {
+      dots.textContent = ''; D.qs.forEach(function (_, k) { dots.appendChild(el('i', k < q ? 'ok' : k === q ? 'cur' : '')); });
+      count.textContent = D.names[f].en + ' · ' + D.names[f].zh + (q < D.qs.length ? '　' + (q + 1) + ' / ' + D.qs.length : '');
+    }
+    function badges(a) { var w = el('div', 'ph-fr-marks'); ['zhi', 'liang', 'wen'].forEach(function (k) { var s = el('span', a[k] ? 'on' : '', D.marks[k].en); w.appendChild(s); }); return w; }
+    function show() {
+      var Q = D.qs[q]; text.textContent = ''; opts.textContent = '';
+      var h = el('h4', '', D.names[f].en); var hz = el('span', '', D.names[f].zh); hz.lang = 'zh-Hant'; h.appendChild(hz); text.appendChild(h);
+      text.appendChild(el('p', '', Q.t.en)); zhp(text, Q.t.zh);
+      [[true, D.yes], [false, D.no]].forEach(function (p) {
+        var b = el('button', 'ph-vl-opt'); b.type = 'button'; b.appendChild(el('b', '', p[1].en)); var z = el('span', '', p[1].zh); z.lang = 'zh-Hant'; b.appendChild(z);
+        b.addEventListener('click', function () { cur[Q.k] = p[0]; q++; if (q < D.qs.length) show(); else result(); }); opts.appendChild(b);
+      });
+      paint();
+    }
+    function result() {
+      ask.hidden = true; paint(); all.push(cur);
+      var k = kind(cur), K = D.kinds[k], c = el('div', 'ph-vl-card is-valid');
+      c.appendChild(el('small', 'ph-tp-k', D.names[f].en + ' · ' + D.names[f].zh));
+      var h = el('h5', 'ph-fr-kind', K.n.en); var hz = el('span', '', K.n.zh); hz.lang = 'zh-Hant'; h.appendChild(hz); c.appendChild(h);
+      c.appendChild(badges(cur)); c.appendChild(el('p', '', K.t.en)); zhp(c, K.t.zh); out.textContent = ''; out.appendChild(c);
+      act.hidden = false; again.hidden = f >= D.names.length - 1; lab2(again, D.again); lab2(done, D.done); done.hidden = all.length < 2;
+    }
+    function compare() {
+      act.hidden = true; out.textContent = '';
+      var e = el('div', 'ph-el-end'); var h = el('h4', '', 'Your friends, side by side'); h.appendChild(el('span', '', '把你的朋友並排來看')); e.appendChild(h);
+      all.forEach(function (a, n) {
+        var r = el('div', 'ph-fr-row'); r.appendChild(el('b', '', D.names[n].en + ' ' + D.names[n].zh));
+        var K = D.kinds[kind(a)].n; var s = el('span', 'ph-fr-k is-' + kind(a), K.en + ' · ' + K.zh); r.appendChild(s); r.appendChild(badges(a)); e.appendChild(r);
+      });
+      e.appendChild(el('p', '', D.end.en)); zhp(e, D.end.zh); end.appendChild(e);
+    }
+    function start(n) { f = n; q = 0; cur = {}; ask.hidden = false; act.hidden = true; out.textContent = ''; show(); }
+    again.addEventListener('click', function () { start(f + 1); });
+    done.addEventListener('click', compare);
+    function reset() { all = []; end.textContent = ''; start(0); }
+    $('[data-fr-reset]', root).addEventListener('click', reset);
+    reset();
+    root.__lab = { state: function () { return { f: f, q: q, n: all.length, kinds: all.map(kind), ended: !!end.children.length }; },
+      play: function (list) { reset(); list.forEach(function (seq, n) { if (n) again.click(); seq.split('').forEach(function (c) { $$('button', opts)[c === 'y' ? 0 : 1].click(); }); }); if (all.length > 1) done.click(); return all.map(kind); } };
+    var m = /[#&]friends=([yn,]+)/.exec(location.hash); if (m) root.__lab.play(m[1].split(','));
+  });
+
   /* ---- A13：去火星三趟（帕菲特的傳送機） ---- */
   $$('[data-ph-teleport]').forEach(function (root) {
     var D;

@@ -1053,3 +1053,25 @@ main:has(.ph-tools) .wrap { width: min(980px, 92vw); }
 .ph-so-table td.same { background: rgba(255,255,255,.07); }
 @media (max-width: 720px) { .ph-so-bins { grid-template-columns: 1fr; } .ph-so-card b { font-size: 1.25rem; } }
 @media (prefers-reduced-motion: reduce) { .ph-so-card.is-in { animation: none; } .ph-so-bin { transition: none; } }
+
+/* ---- A23：三位朋友 ---- */
+.ph-fr [hidden] { display: none !important; }
+.ph-fr .ph-vl-opt[disabled] { opacity: .5; }
+.ph-fr .ph-vl-card p { margin: 0; font: 400 1.04rem/1.7 var(--serif); }
+.ph-fr .ph-vl-card .ph-zh { font: 400 .95rem/1.8 var(--zh); color: var(--ink-soft); }
+.ph-fr .ph-vl-card .ph-tr { background: var(--brand-lt); color: var(--brand-dk); }
+.ph-fr-kind { margin: 0; font: 600 1.5rem/1.2 var(--serif); color: var(--brand-dk); }
+.ph-fr-kind span { font: 600 .68em var(--zh); margin-left: .5em; color: var(--ink-soft); }
+.ph-fr-marks { display: flex; flex-wrap: wrap; gap: .4rem; }
+.ph-fr-marks span { font: 700 .8rem var(--zh); padding: .2rem .7rem; border-radius: 999px; border: 1.5px dashed #b9c2cf; color: #8a94a3; }
+.ph-fr-marks span.on { border-style: solid; border-color: var(--gold); background: #fdf3d6; color: #7a5a12; }
+.ph-fr .ph-el-end .ph-fr-marks span { border-color: rgba(255,255,255,.25); color: rgba(255,255,255,.4); }
+.ph-fr .ph-el-end .ph-fr-marks span.on { border-color: #ffd36e; background: rgba(255,211,110,.14); color: #ffd98a; }
+.ph-fr .ph-vl-next span, .ph-fr .ph-el-reset span { font-family: var(--zh); }
+.ph-fr [data-fr-act] { margin-top: 1.2rem; }
+.ph-fr-row { display: grid; grid-template-columns: 9rem 1fr auto; gap: .6rem 1rem; align-items: center; padding: .7rem 0; border-top: 1px solid rgba(255,255,255,.12); }
+.ph-fr-row b { font: 600 1.02rem var(--serif); color: #fff; }
+.ph-fr-k { font: 700 .92rem var(--sans); }
+.ph-fr-k.is-use { color: #b9c6d8; } .ph-fr-k.is-fun { color: #9fc3ea; } .ph-fr-k.is-way { color: #ffd36e; } .ph-fr-k.is-whole { color: #4fd1a5; }
+.ph-fr .ph-el-end > p:not(.ph-zh) { margin-top: 1rem; }
+@media (max-width: 720px) { .ph-fr-row { grid-template-columns: 1fr; } }
