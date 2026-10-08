@@ -698,3 +698,27 @@ a.cg-link:hover { transform: translateY(-3px); box-shadow: var(--shadow); border
 .cg-sheet-whole { display: grid; grid-template-columns: minmax(0, 360px) minmax(0, 1fr); align-items: start; }
 .cg-sheet-whole img { width: 100%; height: auto; object-fit: contain; background: #c9a55a; }
 @media (max-width: 700px) { .cg-sheet-whole { grid-template-columns: minmax(0, 1fr); } .cg-sheet-whole img { height: auto; max-height: none; } }
+
+/* =====================================================================
+   第十三課：抄經（一格一個字、呼吸圈、下一格在哪裡）
+   ===================================================================== */
+.cg-breath { position: relative; display: grid; place-items: center; height: 96px; margin: .2rem 0 .3rem; }
+.cg-breath-o { position: absolute; width: 84px; height: 84px; border-radius: 50%; background: radial-gradient(circle at 40% 35%, rgba(143,211,234,.5), rgba(143,211,234,.12)); border: 2px solid rgba(143,211,234,.7); animation: cg-breathe 8s ease-in-out infinite; }
+.cg-breath-t { position: relative; font-size: .76rem; font-weight: 800; color: #fff; text-align: center; line-height: 1.2; }
+.cg-breath-t small { display: block; font-family: var(--zh); font-weight: 600; font-size: .72rem; color: var(--al-mute); }
+@keyframes cg-breathe { 0%, 100% { transform: scale(.56); } 50% { transform: scale(1.08); } }
+@media (prefers-reduced-motion: reduce) { .cg-breath-o { animation: none; transform: scale(.85); } }
+.cg-breath-k { margin: 0 0 .7rem; font-size: .74rem; line-height: 1.5; color: var(--al-mute); text-align: center; }
+.cg-breath-k .zh { display: block; font-family: var(--zh); }
+.cg-su-nums dd { font-size: .9rem; }
+.cg-su-ch { font-family: var(--zh); margin-left: .3rem; color: var(--al-sun); }
+.cg-sutra-lab .cg-su-msg { min-height: 6.2em; margin: 0 0 .7rem; }
+
+/* 下一個字寫在哪一格？ */
+.cg-order-paper { padding: 18px; background: #f6f0e1; }
+.cg-order-grid { display: grid; gap: 0; border-top: 4px solid #2a251e; border-bottom: 4px solid #2a251e; border-left: 2px solid #2a251e; }
+.cg-order-grid button { aspect-ratio: 1; border: 0; border-right: 2px solid #2a251e; border-bottom: 1px solid rgba(42,37,30,.18); background: transparent; font-family: var(--serif); font-size: 1.7rem; font-weight: 700; color: #151311; cursor: pointer; transition: background .2s; }
+.cg-order-grid button:hover:not(:disabled) { background: rgba(201,161,74,.18); }
+.cg-order-grid button.ok { background: rgba(47,143,91,.16); color: #1f6b42; cursor: default; }
+.cg-order-grid button.no { background: rgba(214,72,60,.28); }
+@media (max-width: 480px) { .cg-order-paper { padding: 10px; } .cg-order-grid button { font-size: 1.25rem; } }

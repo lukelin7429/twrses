@@ -8535,7 +8535,7 @@ def build_chip_hub():
 _calj = os.path.join(ROOT, "data", "calligraphy.json")
 CAL = json.load(open(_calj, encoding="utf-8")) if os.path.exists(_calj) else None
 CAL_BASE = "/resources/classes/calligraphy/"
-_CAL_JS = {"four": "cal-four", "press": "cal-press", "yong": "cal-yong", "order": "cal-order", "oracle": "cal-oracle", "clerical": "cal-clerical", "speed": "cal-speed", "lanting": "cal-lanting", "styles": "cal-styles", "gallery": "cal-gallery", "couplets": "cal-couplets", "seal": "cal-seal"}   # lab.kind → assets/js/<bundle>.js
+_CAL_JS = {"four": "cal-four", "press": "cal-press", "yong": "cal-yong", "order": "cal-order", "oracle": "cal-oracle", "clerical": "cal-clerical", "speed": "cal-speed", "lanting": "cal-lanting", "styles": "cal-styles", "gallery": "cal-gallery", "couplets": "cal-couplets", "seal": "cal-seal", "sutra": "cal-sutra"}   # lab.kind → assets/js/<bundle>.js
 
 def _cal_ver():
     h = hashlib.md5()
@@ -9758,6 +9758,83 @@ def _cal_sealdesign(sd):
   </div>
 </div>'''
 
+def calsutra_svg(size=56):
+    """第十三課的課程卡小圖示：直行界線的紙上一個「心」（筆畫資料畫的，不用字型）。"""
+    fp = os.path.join(ROOT, "tools/callig/src/strokes/xin.json")
+    strokes = json.load(open(fp, encoding="utf-8"))["strokes"] if os.path.exists(fp) else []
+    dots = ""
+    for st in strokes:
+        P = st["pts"]
+        for a, b in zip(P, P[1:]):
+            n = max(2, int(((b[0] - a[0]) ** 2 + (b[1] - a[1]) ** 2) ** 0.5 / 9))
+            for i in range(n):
+                u = i / n
+                p = a[2] + (b[2] - a[2]) * u
+                if p < 0.03: continue
+                r = (6 + 112 * p ** 1.12) / 2 * 0.034
+                dots += f'<circle cx="{13 + (a[0] + (b[0] - a[0]) * u) * 0.034:.1f}" cy="{11 + (a[1] + (b[1] - a[1]) * u) * 0.034:.1f}" r="{r:.2f}" fill="#151311"/>'
+    return (f'<svg class="calsutra-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">'
+            '<rect x="3" y="3" width="54" height="54" rx="3" fill="#f6f0e1"/>'
+            '<path d="M12 6v48M48 6v48" stroke="#2a251e" stroke-width="1.1"/><path d="M12 6h36M12 54h36" stroke="#2a251e" stroke-width="1.8"/>'
+            f'{dots}</svg>')
+
+_CG_SUTRA = [("xin", "心"), ("se", "色"), ("ji", "即"), ("shi4", "是"), ("kong", "空")]
+
+def render_calsutra_lab(lesson):
+    """第十三課：一格一個字抄〈心經〉的一句（assets/js/cal-sutra.js 綁這裡的 class；全部自繪示意）。"""
+    lab = lesson["lab"]
+    mb = "".join(
+        f'<button type="button" data-mode="{m["key"]}" aria-pressed="{"true" if m["key"] == "steady" else "false"}">'
+        f'<i aria-hidden="true">{html.escape(m["icon"])}</i>{html.escape(m["en"])}<small>{html.escape(m["zh"])}</small></button>'
+        for m in lab["modes"])
+    speeds = [("1", "1×", "原速"), ("2", "2×", "兩倍"), ("4", "4×", "四倍")]
+    spb = "".join(f'<button type="button" data-speed="{k}" aria-pressed="{"true" if k == "1" else "false"}">{en}<small>{zh}</small></button>' for k, en, zh in speeds)
+    cams = [("near", "Close", "近看"), ("top", "Top", "正上方"), ("tip", "Tip", "貼近筆尖")]
+    camb = "".join(f'<button type="button" data-cam="{k}" aria-pressed="{"true" if k == "near" else "false"}">{en}<small>{zh}</small></button>' for k, en, zh in cams)
+    tg = _lab_toggles([("labels", "Labels", "標示", True)])
+    return f'''<div class="astro-lab cg-lab cg-press-lab cg-sutra-lab rvl" data-calsutra-lab data-total="{lab["total"]}">
+  <div class="al-stage">
+    <div class="al-space">
+      <canvas class="al-space-cv" aria-label="3D model of a brush copying one line of the Heart Sutra onto ruled paper, one character in each square, from top to bottom and from right to left · 毛筆在畫了直行界線的紙上抄〈心經〉的一句，一格一個字，由上到下、由右到左的 3D 模型"></canvas>
+      <div class="al-labels" aria-hidden="true"></div>
+      <div class="cg-cams" role="group" aria-label="View · 角度">{camb}</div>
+      <p class="al-hint">Drag to turn · 拖曳旋轉　Scroll or pinch to zoom · 滾輪／雙指縮放</p>
+      <button type="button" class="al-home" title="Reset view · 重設視角" aria-label="Reset view · 重設視角">&#8634;</button>
+      <p class="al-nogl-msg">This 3D model needs WebGL, which this browser does not support. The reading, the cards, the game, and the practice pad below still work.<br><span class="zh">這個瀏覽器不支援 WebGL，無法顯示 3D 模型；下方的課文、卡片、小遊戲和練字板一樣能用。</span></p>
+    </div>
+    <aside class="al-sky cg-aside">
+      <p class="al-sky-k">Two ways to write · 兩種寫法</p>
+      <div class="cg-focus cg-modes cg-modes2" role="group" aria-label="Two ways to write · 兩種寫法">{mb}</div>
+      <div class="cg-breath" aria-hidden="true"><span class="cg-breath-o"></span><span class="cg-breath-t"></span></div>
+      <p class="cg-breath-k">{html.escape(lab["breath_en"])}<span class="zh">{html.escape(lab["breath_zh"])}</span></p>
+      <dl class="cg-nums cg-su-nums"><div><dt>Character · 第幾個字</dt><dd><span class="cg-su-n">0</span> / 8 <span class="cg-su-ch">—</span></dd></div><div><dt>Time · 時間</dt><dd class="cg-su-sec">0 s</dd></div><div><dt>Whole sutra at this pace · 照這個速度抄完整部</dt><dd class="cg-su-whole">—</dd></div><div><dt>Evenness (model) · 整齊度（示意）</dt><dd class="cg-su-even">—</dd></div></dl>
+      <p class="cg-step-t cg-su-msg" aria-live="polite"></p>
+      <div class="cg-seg cg-speeds" role="group" aria-label="Speed · 速度">{spb}</div>
+      <button type="button" class="cg-btn-d cg-again">Write again · 再寫一次</button>
+    </aside>
+  </div>
+  <div class="al-controls">
+    <div class="al-row al-row-main">
+      <button type="button" class="al-play" aria-pressed="true"><span class="al-play-i" aria-hidden="true"></span><span class="al-play-t">Pause · 暫停</span></button>
+      <div class="al-row al-toggles">{tg}</div>
+    </div>
+  </div>
+  {_lab_foot(lab)}
+  <p class="cg-credit">{lab["credit_html"]}</p>
+</div>'''
+
+def _cal_order(od):
+    """第十三課：「下一個字寫在哪一格？」（sutra2d.js 的 initOrder）。"""
+    return f'''<div class="cg-guess cg-order rvl" data-cal-order data-cols="{od["cols"]}" data-rows="{od["rows"]}">
+  <div class="cg-guess-paper cg-order-paper"><div class="cg-order-grid" role="group" aria-label="A sheet of ruled paper · 一張有格子的紙"></div></div>
+  <div class="cg-guess-side">
+    <p class="cg-guess-msg cg-order-msg" aria-live="polite"></p>
+    <p class="cg-guess-sc"><span>Squares filled<span class="zh">寫了幾格</span></span><b class="cg-order-n">0 / {od["cols"] * od["rows"]}</b></p>
+    <div class="cg-pad-btns"><button type="button" class="cg-btn" data-order="reset">&#8630; Start again · 重新開始</button></div>
+    <ol class="cg-pad-tips">{"".join(f'<li>{html.escape(t["en"])}<span class="zh">{html.escape(t["zh"])}</span></li>' for t in od["tips"])}</ol>
+  </div>
+</div>'''
+
 def _cg_evo(key):
     """第五課卡片：甲骨文 → 金文 → 小篆 → 楷書四張小圖（cal-oracle.js 用 scripts2d.js 畫）。"""
     names = [("oracle", "甲骨文"), ("bronze", "金文"), ("seal", "小篆"), ("regular", "楷書")]
@@ -9869,7 +9946,7 @@ def build_cal_lesson(ui, unit, lesson):
     reading_html = render_basic_unit(1, unit_dict, level="callig", audio_rel="", pdf_rel="")
     lab = lesson["lab"]
     kind = lab["kind"]
-    lab_html = {"four": render_calfour_lab, "press": render_calpress_lab, "yong": render_calyong_lab, "order": render_calorder_lab, "oracle": render_caloracle_lab, "clerical": render_calclerical_lab, "speed": render_calspeed_lab, "lanting": render_callanting_lab, "styles": render_calstyles_lab, "gallery": render_calgallery_lab, "couplets": render_calcouplets_lab, "seal": render_calseal_lab}[kind](lesson)
+    lab_html = {"four": render_calfour_lab, "press": render_calpress_lab, "yong": render_calyong_lab, "order": render_calorder_lab, "oracle": render_caloracle_lab, "clerical": render_calclerical_lab, "speed": render_calspeed_lab, "lanting": render_callanting_lab, "styles": render_calstyles_lab, "gallery": render_calgallery_lab, "couplets": render_calcouplets_lab, "seal": render_calseal_lab, "sutra": render_calsutra_lab}[kind](lesson)
 
     secs = []
     if lesson.get("parts"):
@@ -9897,6 +9974,9 @@ def build_cal_lesson(ui, unit, lesson):
     if lesson.get("which"):
         wh = lesson["which"]
         secs.append(("which", wh["eyebrow"], wh["en"], wh["zh"], _cal_which(wh), _bi(wh["lead_en"], wh["lead_zh"], cls="lead rvl d2")))
+    if lesson.get("order"):
+        od = lesson["order"]
+        secs.append(("order", od["eyebrow"], od["en"], od["zh"], _cal_order(od), _bi(od["lead_en"], od["lead_zh"], cls="lead rvl d2")))
     if lesson.get("sealkind"):
         sk = lesson["sealkind"]
         secs.append(("sealkind", sk["eyebrow"], sk["en"], sk["zh"], _cal_sealkind(sk), _bi(sk["lead_en"], sk["lead_zh"], cls="lead rvl d2")))
@@ -9963,7 +10043,8 @@ def build_cal_lesson(ui, unit, lesson):
                 "styles": ("Yan and Liu in a sentence", "一句話記住顏筋柳骨"),
                 "gallery": ("The treasures in a sentence", "一句話記住故宮國寶"),
                 "couplets": ("Spring couplets in a sentence", "一句話記住春聯"),
-                "seal": ("Seals in a sentence", "一句話記住印章")}[kind]
+                "seal": ("Seals in a sentence", "一句話記住印章"),
+                "sutra": ("Copying sutras in a sentence", "一句話記住抄經")}[kind]
     secs.append(("tricks", "Remember It · 記憶口訣", tricks_h[0], tricks_h[1], _sci_tricks(lesson), ""))
     if lesson.get("safety"):
         items = "".join(f'<li class="rvl">{html.escape(s["en"])}<span class="zh">{html.escape(s["zh"])}</span></li>' for s in lesson["safety"])
@@ -10031,7 +10112,7 @@ def build_cal_lesson(ui, unit, lesson):
 def build_cal_hub():
     # 照晶片與半導體：單元導覽＋每個單元一段橫向課程卡；做好的課可點，planned 是「製作中」卡。
     def icon(l):
-        return calfour_svg(60) if l.get("card") == "four" else calpress_svg(60) if l.get("card") == "press" else calyong_svg(60) if l.get("card") == "yong" else calorder_svg(60) if l.get("card") == "order" else caloracle_svg(60) if l.get("card") == "oracle" else calclerical_svg(60) if l.get("card") == "clerical" else calspeed_svg(60) if l.get("card") == "speed" else callanting_svg(60) if l.get("card") == "lanting" else calstyles_svg(60) if l.get("card") == "styles" else calgallery_svg(60) if l.get("card") == "gallery" else calcouplets_svg(60) if l.get("card") == "couplets" else calseal_svg(60) if l.get("card") == "seal" else l["icon"]
+        return calfour_svg(60) if l.get("card") == "four" else calpress_svg(60) if l.get("card") == "press" else calyong_svg(60) if l.get("card") == "yong" else calorder_svg(60) if l.get("card") == "order" else caloracle_svg(60) if l.get("card") == "oracle" else calclerical_svg(60) if l.get("card") == "clerical" else calspeed_svg(60) if l.get("card") == "speed" else callanting_svg(60) if l.get("card") == "lanting" else calstyles_svg(60) if l.get("card") == "styles" else calgallery_svg(60) if l.get("card") == "gallery" else calcouplets_svg(60) if l.get("card") == "couplets" else calseal_svg(60) if l.get("card") == "seal" else calsutra_svg(60) if l.get("card") == "sutra" else l["icon"]
     unit_sections, nav = [], []
     done = sum(len(u["lessons"]) for u in CAL["units"])
     total = done + sum(len(u.get("planned", [])) for u in CAL["units"])

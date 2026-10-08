@@ -8922,14 +8922,14 @@
               "note_zh": "上一課是紅紙黑字，這一課是白紙紅印。"
             },
             {
-              "soon": true,
               "icon": "📿",
-              "k_en": "Lesson 13 · Coming soon",
-              "k_zh": "第十三課・製作中",
+              "k_en": "Next Lesson · Lesson 13",
+              "k_zh": "下一課・第十三課",
               "en": "Why Do People Copy Sutras by Hand?",
               "zh": "抄經：書法與修行",
               "note_en": "Writing slowly, one character at a time, as a way to calm the mind.",
-              "note_zh": "一個字一個字慢慢寫，也是讓心安靜下來的方法。"
+              "note_zh": "一個字一個字慢慢寫，也是讓心安靜下來的方法。",
+              "href": "/resources/classes/calligraphy/copying-sutras/"
             }
           ],
           "culture_cards": {
@@ -9261,15 +9261,652 @@
               }
             ]
           }
+        },
+        {
+          "n": 13,
+          "slug": "copying-sutras",
+          "title": "Why Do People Copy Sutras by Hand?",
+          "title_zh": "抄經：書法與修行",
+          "level": "入門 · Beginner",
+          "icon": "📿",
+          "card": "sutra",
+          "blurb_en": "Before printing, every book was copied by hand, and Buddhist texts called sutras were copied with special care. People still copy them today, slowly, one character in each square. Watch a brush copy a line of the Heart Sutra in 3D, compare slow writing with hurried writing, find the right square, and copy five characters yourself.",
+          "blurb_zh": "還沒有印刷術的時候，每一本書都是用手抄的；佛教的經典抄得特別用心。直到今天還有很多人抄經：慢慢地，一格一個字。在 3D 裡看毛筆抄〈心經〉的一句，比較「慢而勻」和「趕著寫」，找出下一個字該寫的格子，再自己抄五個字。",
+          "big_idea_en": "To copy a sutra is to write out a Buddhist text by hand, slowly and carefully, one character in each square, from top to bottom and from right to left. Long ago this was how books were made. Today many people still do it, as a way to show respect and to practice paying attention.",
+          "big_idea_zh": "抄經就是用手把佛教的經典一個字一個字抄下來：慢慢地、仔細地，一格一個字，由上到下、由右到左。很久以前，書就是這樣做出來的。今天還有很多人抄經，用來表達恭敬，也練習專注。",
+          "lab": {
+            "kind": "sutra",
+            "total": 260,
+            "eyebrow": "3D Model · 3D 模型",
+            "title_en": "One Character in Each Square",
+            "title_zh": "一格一個字",
+            "how_en": "Drag to turn, and scroll or pinch to zoom. The brush copies one line of the Heart Sutra, 色即是空，空即是色: down the first column on the right, then down the next column to its left. Then choose In a hurry and compare the two pages.",
+            "how_zh": "拖曳可以旋轉，滾輪或雙指可以縮放。毛筆抄〈心經〉的一句「色即是空，空即是色」：先寫最右邊那一行，由上往下，再換左邊一行。接著選「趕著寫」，比較兩張紙有什麼不一樣。",
+            "modes": [
+              {
+                "key": "steady",
+                "icon": "勻",
+                "en": "Slow and even",
+                "zh": "慢而勻"
+              },
+              {
+                "key": "rushed",
+                "icon": "趕",
+                "en": "In a hurry",
+                "zh": "趕著寫"
+              }
+            ],
+            "breath_en": "A slow rhythm, four seconds in and four seconds out. Some people like to breathe slowly while they copy.",
+            "breath_zh": "慢慢的節奏：四秒吸氣、四秒吐氣。有些人抄寫的時候喜歡這樣慢慢呼吸。",
+            "legend": [
+              {
+                "cls": "cgt",
+                "en": "Yellow label: where the first character goes",
+                "zh": "黃色標籤：第一個字寫的地方"
+              },
+              {
+                "cls": "cgsg",
+                "en": "Dark lines: the ruled columns of sutra paper",
+                "zh": "深色的線：抄經紙的直行界線"
+              },
+              {
+                "cls": "cgsl",
+                "en": "The circle: a slow rhythm to breathe with",
+                "zh": "圓圈：跟著慢慢呼吸的節奏"
+              }
+            ],
+            "scale_en": "A teaching model. The eight characters are one line of the Heart Sutra in the translation of Xuanzang; the whole text has 260 characters. The characters are our own brush strokes in regular script, with the stroke order of Taiwan's Ministry of Education. The brush is drawn much larger than the small brush used for real sutra copying, and real squares are only a centimeter or two wide. “In a hurry” is our own sketch of what rushing does, and the evenness score only measures how much each character's size, place, and tilt differ from the even page. The minutes are worked out from the model's speed; real people write at many different speeds.",
+            "scale_zh": "這是教學用的示意模型。這八個字是玄奘譯〈心經〉裡的一句；全經正文 260 個字。字是我們自己畫的楷書，筆順依教育部。毛筆畫得比真正抄經用的小楷筆大很多，真的格子也只有一兩公分寬。「趕著寫」是我們自己畫的示意；整齊度只是量每個字的大小、位置、歪斜和「慢而勻」那一頁差多少。幾分鐘是照模型的速度算的，真人寫字的速度各不相同。",
+            "credit_html": "Model, stroke data, and the writing engine are drawn and programmed by My Culture Connect. The line 色即是空，空即是色 is from the Heart Sutra, T08 no. 251, <a href=\"https://cbetaonline.dila.edu.tw/zh/T0251_001\" target=\"_blank\" rel=\"noopener\">CBETA</a>. · 模型、筆畫資料與寫字引擎由人師教育協會自繪、自寫。「色即是空，空即是色」出自《般若波羅蜜多心經》（大正藏第 8 冊 No. 251），經文依 CBETA 電子佛典。"
+          },
+          "paras": [
+            "Imagine a world with no printers and no copy machines. If you wanted a book, someone had to write out every word by hand. For hundreds of years, that is how the Buddhist texts called sutras were passed on. Trained copyists wrote them on long rolls of paper with ruled columns, one small, neat character after another.",
+            "Even after printing was invented, people went on copying sutras by hand, and many still do. The sutras themselves speak of writing them out as a good thing to do. For the people who copy, it is a way to show respect for the words, and a way to practice paying attention.",
+            "The rules are simple. Sit up straight. Write one character in each square. Start at the top of the column on the right, write down to the bottom, and then move one column to the left. Do not hurry. Try to make every character the same size, in the middle of its square.",
+            "The most copied text is probably the Heart Sutra. It is very short: the translation by the Tang dynasty monk Xuanzang has only 260 characters. Its best-known line has eight characters: 色即是空，空即是色, “form is emptiness, emptiness is form.” People have thought about that line for more than a thousand years. In this lesson, we simply write it.",
+            "One famous copyist was Master Hongyi. Before he became a monk in 1918, he was an art and music teacher named Li Shutong. As a monk he gave up most of his arts, but he kept on writing sutras and short sayings to give to people. He said that what his writing shows is calm and quiet.",
+            "You do not have to be Buddhist to try the method. Monks in old Europe copied books by hand too, and so did scribes in many other traditions. Copying any text you care about, slowly and neatly, is good practice for the hand and for the mind."
+          ],
+          "paras_zh": [
+            "想像一個沒有印表機、也沒有影印機的世界。想要一本書，就得有人用手把每一個字抄下來。好幾百年裡，佛教的經典就是這樣流傳的。受過訓練的抄寫人（經生）把經文寫在畫了直行界線的長卷上，一個接一個，又小又整齊。",
+            "印刷術發明以後，人們還是繼續用手抄經，直到今天。經典裡就把「書寫」經文說成一件值得做的事。對抄經的人來說，這是對經文表達恭敬的方式，也是練習專注的方法。",
+            "規矩很簡單。坐正。一格寫一個字。從最右邊那一行的最上面開始，往下寫到底，再往左換一行。不要趕。每個字盡量一樣大，寫在格子的正中間。",
+            "最多人抄的大概是〈心經〉。它非常短：唐朝玄奘法師翻譯的本子只有 260 個字。其中最有名的一句是八個字：「色即是空，空即是色。」一千多年來，人們一直在思考這句話。這一課，我們只是把它寫下來。",
+            "弘一大師是很有名的一位抄經人。1918 年出家以前，他叫李叔同，是美術和音樂老師。出家以後，他放下了大部分的藝術，卻繼續寫經、寫字送給人結緣。他說自己的字要表現的是平淡、恬靜。",
+            "不是佛教徒，也可以試試這個方法。古時候歐洲的修士同樣用手抄書，許多別的傳統也有抄寫經典的人。把一段你珍惜的文字慢慢地、整齊地抄下來，對手和對心都是很好的練習。"
+          ],
+          "questions": [
+            "Before printing, how were sutras passed on?",
+            "On a sutra page, where does the first character go, and which way does the writing move?",
+            "What did Master Hongyi keep doing after he became a monk?"
+          ],
+          "answers": [
+            "Copyists wrote them out by hand on long rolls of paper with ruled columns.",
+            "At the top of the column on the right. The writing goes down each column, and the columns go from right to left.",
+            "He kept on writing sutras and short sayings to give to people."
+          ],
+          "vocab": [
+            {
+              "n": 1,
+              "w": "sutra",
+              "pos": "n.",
+              "zh": "（佛教的）經",
+              "ex": "The monk read a <b>sutra</b> aloud every morning.",
+              "exzh": "那位法師每天早上誦一部經。"
+            },
+            {
+              "n": 2,
+              "w": "column",
+              "pos": "n.",
+              "zh": "直行；欄",
+              "ex": "Write the numbers in the left <b>column</b>.",
+              "exzh": "把數字寫在左邊那一欄。"
+            },
+            {
+              "n": 3,
+              "w": "square",
+              "pos": "n.",
+              "zh": "方格；正方形",
+              "ex": "Color every other <b>square</b> on the board.",
+              "exzh": "把棋盤上的格子每隔一格塗上顏色。"
+            },
+            {
+              "n": 4,
+              "w": "attention",
+              "pos": "n.",
+              "zh": "注意力；專注",
+              "ex": "Please pay <b>attention</b> to the road.",
+              "exzh": "請注意路況。"
+            },
+            {
+              "n": 5,
+              "w": "respect",
+              "pos": "n. / v.",
+              "zh": "尊敬；恭敬",
+              "ex": "We show <b>respect</b> by listening when others speak.",
+              "exzh": "別人說話的時候專心聽，就是表示尊重。"
+            },
+            {
+              "n": 6,
+              "w": "calm",
+              "pos": "adj.",
+              "zh": "平靜的",
+              "ex": "The lake was <b>calm</b> in the early morning.",
+              "exzh": "清晨的湖面很平靜。"
+            },
+            {
+              "n": 7,
+              "w": "monk",
+              "pos": "n.",
+              "zh": "出家人；僧人；修士",
+              "ex": "The <b>monks</b> get up before the sun rises.",
+              "exzh": "出家人在日出以前就起床了。"
+            },
+            {
+              "n": 8,
+              "w": "hurry",
+              "pos": "v. / n.",
+              "zh": "趕；匆忙",
+              "ex": "There is no need to <b>hurry</b>; we have plenty of time.",
+              "exzh": "不用趕，我們時間很多。"
+            }
+          ],
+          "quiz": [
+            {
+              "q": "How were sutras passed on before printing?",
+              "options": [
+                "They were copied by hand",
+                "They were sent by phone",
+                "They were carved on coins",
+                "They were not written down"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "Where does a sutra page begin?",
+              "options": [
+                "At the top right",
+                "At the top left",
+                "At the bottom left",
+                "In the middle"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "How many characters are in Xuanzang's translation of the Heart Sutra?",
+              "options": [
+                "260",
+                "26",
+                "2,600",
+                "26,000"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "What did Li Shutong do before he became Master Hongyi?",
+              "options": [
+                "He taught art and music",
+                "He was a soldier",
+                "He was an emperor",
+                "He was a doctor"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "What is the best way to copy a text in this lesson?",
+              "options": [
+                "Slowly and evenly",
+                "As fast as you can",
+                "With your eyes closed",
+                "With very big characters"
+              ],
+              "correct": 0
+            }
+          ],
+          "pad": {
+            "eyebrow": "Practice Pad · 練字板",
+            "en": "Copy five characters",
+            "zh": "抄五個字",
+            "char": "xin",
+            "curve": false,
+            "order": true,
+            "timer": true,
+            "chars": [
+              {
+                "key": "xin",
+                "glyph": "心"
+              },
+              {
+                "key": "se",
+                "glyph": "色"
+              },
+              {
+                "key": "ji",
+                "glyph": "即"
+              },
+              {
+                "key": "shi4",
+                "glyph": "是"
+              },
+              {
+                "key": "kong",
+                "glyph": "空"
+              }
+            ],
+            "lead_en": "Choose one of the five characters and trace it in the order of the blue numbers. The stopwatch shows how long you took. This time, slower is better: try to match the demo or take even longer.",
+            "lead_zh": "從五個字裡選一個，照藍色數字的順序描寫。碼表會告訴你花了多久。這一次是越慢越好：試試看和示範一樣久，或更久。",
+            "tips": [
+              {
+                "en": "Sit up straight and take one slow breath before the first stroke.",
+                "zh": "坐正，下第一筆以前先慢慢呼吸一次。"
+              },
+              {
+                "en": "Finish each stroke completely before you start the next one.",
+                "zh": "每一筆寫完整了，再寫下一筆。"
+              },
+              {
+                "en": "Write 心 three times. Is the third one the same size as the first?",
+                "zh": "把「心」寫三次。第三個和第一個一樣大嗎？"
+              }
+            ]
+          },
+          "links_head": {
+            "eyebrow": "Read More · 延伸閱讀",
+            "en": "Lessons that help with this one",
+            "zh": "和這一課有關的幾課"
+          },
+          "links": [
+            {
+              "href": "/resources/classes/calligraphy/stroke-order/",
+              "icon": "🔢",
+              "k_en": "Lesson 4",
+              "k_zh": "第四課",
+              "en": "Why Do We Write Strokes in Order?",
+              "zh": "筆順與結構：為什麼要先橫後豎？",
+              "note_en": "Copying well begins with writing each character in the right order.",
+              "note_zh": "抄得好，從每個字照筆順寫開始。"
+            },
+            {
+              "href": "/resources/classes/calligraphy/seals/",
+              "icon": "🔴",
+              "k_en": "Lesson 12",
+              "k_zh": "第十二課",
+              "en": "What Are the Red Seals on a Work of Calligraphy?",
+              "zh": "印章與篆刻：作品上的紅色印章是什麼？",
+              "note_en": "When the last character is written, the copyist signs and adds a seal.",
+              "note_zh": "最後一個字寫完，抄經的人會落款、蓋印。"
+            },
+            {
+              "soon": true,
+              "icon": "✒️",
+              "k_en": "Lesson 14 · Coming soon",
+              "k_zh": "第十四課・製作中",
+              "en": "How Is Chinese Calligraphy Different from Western Calligraphy?",
+              "zh": "中文書法和西洋書法有什麼不同？",
+              "note_en": "Monks in Europe copied books by hand too. How was their writing different?",
+              "note_zh": "歐洲的修士也用手抄書。他們寫的字有什麼不一樣？"
+            }
+          ],
+          "culture_cards": {
+            "eyebrow": "History and Taiwan · 歷史與台灣",
+            "title_en": "Before printing, a sealed cave, a teacher who became a monk, and sutras in Taiwan",
+            "title_zh": "印刷以前、封起來的洞窟、出家的老師，和台灣的寫經",
+            "lead_en": "Where the custom comes from, and where you can meet it today.",
+            "lead_zh": "這個習俗從哪裡來，今天又在哪裡遇得到。",
+            "cards": [
+              {
+                "k": "Before Printing · 印刷以前",
+                "en": "A job called “sutra copyist”",
+                "zh": "一種叫「經生」的工作",
+                "body_en": "A study from National Taiwan University explains that before printing was invented, old books all depended on clerks and copyists, and that Buddhist sutra copyists in the Northern Wei period were called jingsheng. The Diamond Sutra itself praises “writing out, keeping, reading, and reciting” the text.",
+                "body_zh": "臺大的一篇研究說：「印刷術發明以前，古代的典籍都有賴書吏或經生抄寫」，佛教的寫經生在北魏時期就叫「經生」。《金剛經》裡也稱讚「書寫、受持、讀誦、為人解說」這部經。"
+              },
+              {
+                "k": "Dunhuang · 敦煌",
+                "en": "A cave full of hand-copied scrolls",
+                "zh": "裝滿寫本的石室",
+                "body_en": "The dictionary records that a stone chamber at Dunhuang, on the old Silk Road, was found in 1900. Inside were a great many Buddhist texts hand-copied from the Six Dynasties to the Five Dynasties. Many were taken abroad. Taiwan's National Central Library keeps 142 Dunhuang items today.",
+                "body_zh": "教育部辭典記載，絲路上的敦煌石室在清光緒二十六年（1900）被發現，裡面「藏六朝、隋、唐及五代人手寫佛教經典及其他藝術品甚富」，後來許多被帶到國外。今天台灣的國家圖書館藏有敦煌文獻 142 號。"
+              },
+              {
+                "k": "A Monk · 弘一大師",
+                "en": "From Li Shutong to Master Hongyi",
+                "zh": "從李叔同到弘一",
+                "body_en": "Li Shutong (1880–1942) taught art and music. In 1918 he became a monk at Hupao Temple in Hangzhou and took the name Hongyi. The record of his life kept by a society in Taiwan lists sutra after sutra that he copied, and says that in his last year he was still writing for students. His last four characters were 悲欣交集, “sorrow and joy together.”",
+                "body_zh": "李叔同（1880–1942）原本是美術和音樂老師。民國七年（1918）他在杭州虎跑寺出家，號弘一。弘一大師紀念學會的年表記著他抄過一部又一部的經，直到最後一年還「寫字與晉江中學學生結緣」。他最後寫的四個字是「悲欣交集」。"
+              },
+              {
+                "k": "Taiwan · 台灣",
+                "en": "Sutras in the museum, and rooms for copying",
+                "zh": "故宮的寫經，和抄經堂",
+                "body_en": "The National Palace Museum keeps a hand-copied scroll labeled “sutra scroll by a Tang copyist”; the museum notes its seventeen characters to a column, the same layout as Dunhuang sutras. Some temples in Taiwan have quiet rooms for copying. One describes the practice as writing out a sutra with the most respectful heart: sit quietly first, and then copy with a calm mind.",
+                "body_zh": "台北故宮藏有一卷〈唐人寫經〉；館方指出它「每行書寫十七字」，「與敦煌寫經格式相通」。台灣有些道場設有安靜的抄經堂。佛光山這樣介紹：抄經「即是用最虔敬的心來抄寫佛經」，先靜坐，再「靜心虔誠抄經」。"
+              }
+            ]
+          },
+          "myths": [
+            {
+              "myth_en": "Copying a sutra is a handwriting contest: the prettiest page wins.",
+              "myth_zh": "抄經是比賽誰的字漂亮。",
+              "fact_en": "The point is care and attention, not beauty. Neat, even, and complete matters more than fancy.",
+              "fact_zh": "重點是用心和專注，不是漂亮。工整、平均、不漏字，比花俏重要。"
+            },
+            {
+              "myth_en": "A sutra page is written from left to right, like this sentence.",
+              "myth_zh": "抄經和這行字一樣，由左寫到右。",
+              "fact_en": "It is written in columns, from top to bottom, and the columns go from right to left.",
+              "fact_zh": "抄經是直的寫：每一行由上到下，行由右到左。"
+            },
+            {
+              "myth_en": "The Heart Sutra is a very long book.",
+              "myth_zh": "〈心經〉是一部很長的書。",
+              "fact_en": "It is one of the shortest sutras. We counted the main text in Xuanzang's translation: 260 characters. The dictionary says it has “only a few hundred characters.”",
+              "fact_zh": "它是最短的經典之一。我們數過玄奘譯本的正文：260 個字。教育部辭典也說它「僅數百字」。"
+            },
+            {
+              "myth_en": "Only Buddhists copied holy books by hand.",
+              "myth_zh": "只有佛教徒才用手抄經典。",
+              "fact_en": "Many traditions did. Monks in medieval Europe copied books in a writing room called a scriptorium, Jewish scribes write Torah scrolls with a quill on parchment, and for most of Islamic history the Qur'an was kept in manuscript.",
+              "fact_zh": "許多傳統都有。中世紀歐洲的修士在「抄寫室」裡抄書；猶太教的抄寫人用羽毛筆在羊皮紙上寫妥拉；伊斯蘭教的古蘭經，在大部分的歷史裡也是靠手抄本流傳。"
+            }
+          ],
+          "tricks": [
+            {
+              "title_en": "One square, one character",
+              "title_zh": "一格一個字",
+              "body_en": "Same size, in the middle.",
+              "body_zh": "一樣大，寫在正中間。"
+            },
+            {
+              "title_en": "Top to bottom, right to left",
+              "title_zh": "由上到下，由右到左",
+              "body_en": "Start at the top right.",
+              "body_zh": "從右上角開始。"
+            },
+            {
+              "title_en": "Slow and even",
+              "title_zh": "慢而勻",
+              "body_en": "Not fast, not fancy.",
+              "body_zh": "不求快，不求花俏。"
+            },
+            {
+              "title_en": "260 characters",
+              "title_zh": "〈心經〉二百六十字",
+              "body_en": "Short enough to copy in one sitting.",
+              "body_zh": "短到可以一次抄完。"
+            }
+          ],
+          "safety": [
+            {
+              "en": "Ink stains clothes and is very hard to wash out. Wear old clothes or an apron, and roll up your sleeves.",
+              "zh": "墨沾到衣服很難洗掉：穿舊衣服或圍裙，袖子捲起來。"
+            },
+            {
+              "en": "Cover the desk with old newspaper, and keep the ink in a heavy, steady dish so it will not tip over.",
+              "zh": "桌上先鋪舊報紙；墨要裝在重一點、放得穩的碟子裡，免得打翻。"
+            },
+            {
+              "en": "Press gently. Crushing the brush against the paper squashes the hairs and can split or break them.",
+              "zh": "輕輕地按就好：把筆用力壓在紙上，筆毛會擠扁，也可能分岔或折斷。"
+            },
+            {
+              "en": "Do not put the brush, the ink, or the ink stick in your mouth, and do not lick the brush tip to shape it.",
+              "zh": "毛筆、墨汁、墨條都不要放進嘴裡，也不要用嘴巴舔筆尖。"
+            },
+            {
+              "en": "After writing, wash the brush in clean water until the water runs clear, gently shape it into a point, and hang it tip-down or lay it flat to dry. Wash your hands, too.",
+              "zh": "寫完後用清水洗筆，洗到水變清為止；輕輕把筆毛理成尖形，筆尖朝下掛起來或平放晾乾。也要洗手。"
+            }
+          ],
+          "activities": [
+            {
+              "title_en": "Five Quiet Minutes",
+              "title_zh": "安靜的五分鐘",
+              "materials": [
+                {
+                  "en": "Squared paper (squares of about 1.5 cm) and a pencil or a fine brush pen",
+                  "zh": "方格紙（每格大約 1.5 公分）和鉛筆或小楷筆"
+                },
+                {
+                  "en": "A short text: this lesson's eight characters, or a line the class chooses",
+                  "zh": "一段短短的文字：這一課的八個字，或全班選的一句話"
+                },
+                {
+                  "en": "A timer",
+                  "zh": "計時器"
+                }
+              ],
+              "steps": [
+                {
+                  "en": "Sit up straight, feet on the floor. Take three slow breaths.",
+                  "zh": "坐正，腳踩在地上。慢慢呼吸三次。"
+                },
+                {
+                  "en": "For five minutes, copy the text without talking: one character in each square, starting at the top right.",
+                  "zh": "五分鐘內不說話，把那段文字抄下來：一格一個字，從右上角開始。"
+                },
+                {
+                  "en": "When the timer rings, stop, even in the middle of a line.",
+                  "zh": "計時器響了就停，就算一行還沒寫完。"
+                },
+                {
+                  "en": "Look at your page. Are the first character and the last character the same size? How did the five minutes feel?",
+                  "zh": "看看自己的那一頁。第一個字和最後一個字一樣大嗎？這五分鐘感覺怎麼樣？"
+                }
+              ],
+              "tip_en": "Any respectful text works: a poem, a class promise, or a favorite sentence. Students should feel free to choose.",
+              "tip_zh": "抄什麼都可以，只要是值得珍惜的文字：一首詩、班級公約、一句喜歡的話。讓學生自己選。"
+            },
+            {
+              "title_en": "Two Speeds, One Line",
+              "title_zh": "同一句話，兩種速度",
+              "materials": [
+                {
+                  "en": "Two sheets of squared paper for each student",
+                  "zh": "每人兩張方格紙"
+                },
+                {
+                  "en": "A stopwatch",
+                  "zh": "碼表"
+                }
+              ],
+              "steps": [
+                {
+                  "en": "Copy the eight characters as fast as you can. Write down your time.",
+                  "zh": "用最快的速度抄那八個字。記下時間。"
+                },
+                {
+                  "en": "Copy them again, taking at least three times as long.",
+                  "zh": "再抄一次，至少花三倍的時間。"
+                },
+                {
+                  "en": "Put the two pages side by side. Circle any character that left the middle of its square.",
+                  "zh": "把兩張並排。把沒有寫在格子正中間的字圈起來。"
+                },
+                {
+                  "en": "Talk about it: when is fast writing useful, and when is slow writing better?",
+                  "zh": "討論：什麼時候寫快比較有用？什麼時候寫慢比較好？"
+                }
+              ],
+              "tip_en": "Lesson 7 showed that fast scripts have their uses too. Slow is right for this job, not for every job.",
+              "tip_zh": "第七課說過，寫得快的字體也有它的用處。「慢」適合這件事，不是每件事都要慢。"
+            }
+          ],
+          "sources": [
+            {
+              "en": "The Heart Sutra, translated by Xuanzang of the Tang dynasty (Taisho vol. 8, no. 251). We counted the main text: 260 characters. The line 色即是空，空即是色 is quoted from this text.",
+              "zh": "《般若波羅蜜多心經》，「唐三藏法師玄奘譯」（大正藏第 8 冊 No. 251）。正文自「觀自在菩薩」至咒語末字，我們數過是 260 字；「色不異空，空不異色，色即是空，空即是色」引自此本。",
+              "src": "CBETA 電子佛典集成（CC BY-NC-SA 4.0）",
+              "url": "https://cbetaonline.dila.edu.tw/zh/T0251_001"
+            },
+            {
+              "en": "The Heart Sutra: one roll, only a few hundred characters, one of the most widely read sutras",
+              "zh": "般若波羅蜜多心經：「一卷。僅數百字…是漢、藏佛教最流行的經典之一。也稱為『般若心經』、『多心經』、『心經』。」",
+              "src": "教育部《重編國語辭典修訂本》「般若波羅蜜多心經」",
+              "url": "https://dict.revised.moe.edu.tw/dictView.jsp?ID=12954"
+            },
+            {
+              "en": "The Diamond Sutra on writing out, keeping, reading, and reciting the text",
+              "zh": "《金剛般若波羅蜜經》：「何況書寫、受持、讀誦、為人解說。」",
+              "src": "CBETA 電子佛典集成 T08 No. 235",
+              "url": "https://cbetaonline.dila.edu.tw/zh/T0235_001"
+            },
+            {
+              "en": "Before printing, books depended on clerks and copyists; Buddhist sutra copyists in the Northern Wei were called jingsheng",
+              "zh": "「印刷術發明以前，古代的典籍都有賴書吏或經生抄寫」「佛教的寫經生，在北魏時期稱作『經生』」",
+              "src": "崔中慧〈佛教初期寫經坊設置蠡測〉，《臺大佛學研究》第 32 期（2016）",
+              "url": "https://dlbs.liberal.ntu.edu.tw/FT/JA/570607.pdf"
+            },
+            {
+              "en": "The stone chamber at Dunhuang: found in 1900, full of hand-copied Buddhist texts from the Six Dynasties to the Five Dynasties",
+              "zh": "敦煌石室：「內藏六朝、隋、唐及五代人手寫佛教經典及其他藝術品甚富…清光緒二十六年發現，所藏多為英人斯坦因及法人伯希和先後擇要蒐羅而去。」",
+              "src": "教育部《重編國語辭典修訂本》「敦煌石室」",
+              "url": "https://dict.revised.moe.edu.tw/dictView.jsp?ID=48535"
+            },
+            {
+              "en": "Ruled black columns on a scroll (烏絲欄); small regular script (小楷)",
+              "zh": "烏絲欄：「畫於卷冊或織於絹素的黑色界格。」小楷（106786）：「小而端正整齊的楷書。」",
+              "src": "教育部《重編國語辭典修訂本》「烏絲欄」",
+              "url": "https://dict.revised.moe.edu.tw/dictView.jsp?ID=158753"
+            },
+            {
+              "en": "Hongyi (1880–1942): became a monk at Hupao Temple, Hangzhou, in 1918",
+              "zh": "弘一：「（西元1880～1942）…民國七年在杭州從虎跑寺了悟和尚出家」；李叔同（61875）：「法名演音，號弘一」",
+              "src": "教育部《重編國語辭典修訂本》「弘一」",
+              "url": "https://dict.revised.moe.edu.tw/dictView.jsp?ID=86771"
+            },
+            {
+              "en": "Chronology of Master Hongyi: the sutras he copied; writing for students in 1942; his last four characters",
+              "zh": "年表：1920 年「寫經…此年寫《金剛三昧經》、《無常經》、《大乘戒經》等多種經文」；1942 年「依舊寫字與晉江中學學生結緣」；「寫『悲欣交集』（此為最後遺墨）四字」",
+              "src": "中華民國弘一大師紀念學會〈弘一大師年表〉",
+              "url": "http://www.hongyi.org.tw/OnePage.aspx?tid=135"
+            },
+            {
+              "en": "Hongyi on his own writing: what it shows is plainness, quiet, and ease",
+              "zh": "弘一自述其字「所示者平淡、恬靜、沖逸之致」",
+              "src": "《美育》第 183 期（國立臺灣藝術教育館）",
+              "url": "https://ed.arte.gov.tw/uploadfile/periodical/3010_p82-p85.pdf"
+            },
+            {
+              "en": "Sutra scroll by a Tang copyist: seventeen characters to a column, the same layout as Dunhuang sutras",
+              "zh": "〈唐人寫經 卷〉（贈書000128）：「每行書寫十七字等形式看，亦與敦煌寫經格式相通」",
+              "src": "國立故宮博物院典藏資料檢索",
+              "url": "https://digitalarchive.npm.gov.tw/Collection/Detail/17596?dep=P"
+            },
+            {
+              "en": "The National Central Library keeps 142 Dunhuang items",
+              "zh": "「國圖館藏敦煌文獻共 142 號」",
+              "src": "《國家圖書館館刊》108 年第 2 期",
+              "url": "https://nclfile.ncl.edu.tw/files/201912/fef617fd-a869-4a2b-a823-3f7a22a57802.pdf"
+            },
+            {
+              "en": "A temple's description of sutra copying: sit quietly first, then copy with a calm, respectful mind",
+              "zh": "「抄經，有時亦稱爲寫經，即是用最虔敬的心來抄寫佛經」；程序：「抄經前自行靜坐…靜心虔誠抄經」",
+              "src": "佛光山抄經堂",
+              "url": "https://www.fgs.org.tw/cultivation/calligraphy/index.htm"
+            },
+            {
+              "en": "Medieval Europe: “Manuscripts (handmade books) were often written and illuminated by monks in monasteries.”",
+              "zh": "中世紀歐洲：手抄本常由修道院的修士抄寫、彩繪；scriptorium 是「寫字的地方」",
+              "src": "J. Paul Getty Museum, “The Medieval Scriptorium”",
+              "url": "https://www.getty.edu/art/exhibitions/scriptorium/index.html"
+            },
+            {
+              "en": "Judaism: a Torah scroll begins with parchment, ink, a quill, and a scribe",
+              "zh": "猶太教：妥拉經卷由抄寫人用羽毛筆和墨寫在羊皮紙上",
+              "src": "The Contemporary Jewish Museum, San Francisco",
+              "url": "https://www.thecjm.org/exhibitions/60"
+            },
+            {
+              "en": "Islam: “For most of Islamic history, the Qur'an has been preserved in manuscript.”",
+              "zh": "伊斯蘭教：古蘭經在大部分的歷史裡以手抄本保存",
+              "src": "Victoria and Albert Museum, “Calligraphy in Islamic art”",
+              "url": "https://www.vam.ac.uk/articles/calligraphy-in-islamic-art"
+            },
+            {
+              "en": "Stroke order and stroke counts: 心 4, 色 6, 即 7, 是 9, 空 8",
+              "zh": "筆順與筆畫數：心 4 畫、色 6 畫、即 7 畫、是 9 畫、空 8 畫",
+              "src": "教育部《國字標準字體筆順學習網》",
+              "url": "https://stroke-order.learningweb.moe.edu.tw/dictView.jsp?ID=24515"
+            },
+            {
+              "en": "Taiwan curriculum: regular script with a brush as a supplement (4-Ⅲ-5); appreciating the layout and style of calligraphy (4-Ⅳ-5)",
+              "zh": "十二年國教國語文領綱：4-Ⅲ-5「習寫以硬筆字為主，毛筆為輔，掌握楷書形體結構的書寫方法。」4-Ⅳ-5「欣賞書法的行款和布局、行氣及風格。」",
+              "src": "國家教育研究院《十二年國民基本教育課程綱要 語文領域—國語文》",
+              "url": "https://stv.naer.edu.tw/data/course_outline/pta_18510_4703638_59125.pdf"
+            }
+          ],
+          "sheets": {
+            "eyebrow": "Three Hands · 三個人的字",
+            "en": "A master, an unknown copyist, and a monk",
+            "zh": "一位名家、一位無名的經生、一位法師",
+            "lead_en": "Three pieces of real writing, hundreds of years apart. Look at the size of the characters and the spaces between them. Which one looks calmest to you?",
+            "lead_zh": "三件真的墨跡，前後相隔幾百年。看看字的大小和字與字之間的距離。你覺得哪一件看起來最平靜？",
+            "items": [
+              {
+                "img": "/assets/img/calligraphy/sutra-zhao.jpg",
+                "w": 720,
+                "h": 720,
+                "alt_en": "Detail of the Heart Sutra written by Zhao Mengfu",
+                "alt_zh": "趙孟頫書〈心經〉局部",
+                "en": "The Heart Sutra, by Zhao Mengfu",
+                "zh": "趙孟頫書〈心經〉",
+                "text_en": "Zhao Mengfu, one of the four masters from Lesson 9, wrote the Heart Sutra in a flowing hand in the Yuan dynasty. In the column on the left, find 空即是色.",
+                "text_zh": "第九課提過的趙孟頫，在元朝用流暢的行楷寫了〈心經〉。在左邊那一行，找找「空即是色」。",
+                "credit_html": "<a href=\"https://commons.wikimedia.org/wiki/File:Prajnyaapaaramitaa_Hridaya_by_Zhao_Meng_Fu_Main_Part.jpg\" target=\"_blank\" rel=\"noopener\">Wikimedia Commons</a> (public domain; from a published reproduction). · 維基共享資源（公有領域；翻拍自出版品）。"
+              },
+              {
+                "img": "/assets/img/calligraphy/sutra-dunhuang.jpg",
+                "w": 720,
+                "h": 720,
+                "alt_en": "Detail of a Tang dynasty sutra scroll from Dunhuang, in small regular script with ruled columns",
+                "alt_zh": "敦煌出土的唐代寫經局部：小楷，有直行界線",
+                "en": "A sutra scroll from Dunhuang",
+                "zh": "敦煌的寫經卷",
+                "text_en": "No one knows who copied this scroll. It was found among the manuscripts sealed in a cave at Dunhuang and discovered in 1900. Look at the thin ruled lines between the columns, and at how small and even the characters are.",
+                "text_zh": "沒有人知道這一卷是誰抄的。它出自敦煌石室——1900 年發現、封存了大批寫本的洞窟。看看行與行之間細細的界線，還有那些又小又整齊的字。",
+                "credit_html": "Or.8210/S.1609, British Library. Image: International Dunhuang Project, <a href=\"https://commons.wikimedia.org/wiki/File:Lotus_Sutra_Or.8210_S.1609.jpg\" target=\"_blank\" rel=\"noopener\">CC BY 4.0</a> (cropped and resized). · 大英圖書館藏 Or.8210/S.1609；影像：國際敦煌項目，CC BY 4.0（經裁切、縮小）。"
+              },
+              {
+                "img": "/assets/img/calligraphy/sutra-hongyi.jpg",
+                "w": 690,
+                "h": 760,
+                "alt_en": "Detail of a pair of scrolls by Master Hongyi, 1939",
+                "alt_zh": "弘一大師 1939 年對聯局部",
+                "en": "Master Hongyi, 1939",
+                "zh": "弘一大師，1939 年",
+                "text_en": "Two lines he wrote at the age of sixty: 大慈念一切，慧光照十方. The strokes are plain and round, with wide, quiet spaces between the characters.",
+                "text_zh": "他六十歲那年寫的一副對聯：「大慈念一切，慧光照十方。」筆畫樸素、圓潤，字和字之間留著寬寬的、安靜的空白。",
+                "credit_html": "<a href=\"https://commons.wikimedia.org/wiki/File:%E5%BC%98%E4%B8%80_%E6%9B%B8%E6%B3%95%E5%B0%8D%E8%81%AF_%E7%AB%8B%E8%BB%B8_(1939).jpg\" target=\"_blank\" rel=\"noopener\">Wikimedia Commons</a> (public domain). · 維基共享資源（公有領域）。"
+              }
+            ]
+          },
+          "order": {
+            "eyebrow": "Game · 小遊戲",
+            "en": "Which Square Comes Next?",
+            "zh": "下一個字寫在哪一格？",
+            "lead_en": "This sheet has three columns of four squares. Tap the squares in the order a copyist would fill them.",
+            "lead_zh": "這張紙有三行、每行四格。照抄經的順序，一格一格點下去。",
+            "cols": 3,
+            "rows": 4,
+            "tips": [
+              {
+                "en": "Start at the top right.",
+                "zh": "從右上角開始。"
+              },
+              {
+                "en": "Go straight down the column.",
+                "zh": "沿著那一行直直往下。"
+              },
+              {
+                "en": "At the bottom, move one column to the left and start again at the top.",
+                "zh": "寫到底，往左換一行，再從最上面開始。"
+              }
+            ]
+          }
         }
       ],
       "planned": [
-        {
-          "n": 13,
-          "icon": "📿",
-          "en": "Why Do People Copy Sutras by Hand?",
-          "zh": "抄經：書法與修行"
-        },
         {
           "n": 14,
           "icon": "✒️",
