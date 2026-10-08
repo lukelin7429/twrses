@@ -187,8 +187,13 @@
   - **拇指挑戰計時卡是 2D（`initThumb`）**：三件事 × 用拇指／貼住拇指，點格子開始、再點停止，算出慢幾倍；不存檔。
   - 查證：Wikipedia〈Hand〉（27 塊＝腕骨 8＋掌骨 5＋指骨 14、拇指兩節；外在肌的肌腹在前臂、手指本身沒有肌肉；對掌的定義；指尖是全身神經末梢最密的地方之一；power grip／precision grip；食指比較能獨立活動）、〈Handedness〉（全球約 90% 右撇子）。scale 說明寫明：真正的前臂約二十條肌肉、多數手指有兩條屈肌腱、關節軸沒這麼單純。
   - 除錯 `__lab.setPose(名稱)`、`pull('f1'…'f5', bool)`、`setGroup('wrist'|'palm'|'fingers')`、`setBack(bool)`、`F[fk].tgt`（直接寫角度後 `render()`）、`F[fk].tip.getWorldPosition()`、`AX`、`state.hold = true`、`run(秒)`、`render()`。
+- 第十九課修復（`healing.js`，`lab.kind = "healing"`，`data-healing-lab`，CSS 前綴 `hl-`）：真實的右前臂與右手骨頭（照原座標、手臂垂著）。**骨折用 clippingPlanes 做**：橈骨原本的 mesh 只留斷面以上（`up`），複製一份只留斷面以下（`down`），遠端和手骨掛在 `fragG`（一開始歪 0.14 rad、錯開 6 mm，「對齊」後回正）；兩個 Plane 的 `constant` 隨進度改，斷面縫隙最後合起來。**簡化過的骨幹頂點很稀疏**——估斷面中心與粗細要取上下 3.5 公分內的頂點平均（只取 ±8 mm 會得到 0.6 mm 的半徑，骨痂就小到看不見）。自繪：血塊、白血球、骨痂（有起伏的橢球：粉紅變象牙色、長大再被修小）、石膏（半透明圓筒）、左邊浮著的放大皮膚塊（割縫、血塊、痂、白血球、從底下長上來的新組織、合起來的表皮、淡掉的疤）。
+  - 進度 `state.u`（0–4，四個步驟各佔 1：止血／清理／搭補丁／重建），**一切都是 u 的函數**（`apply()`），可來回拖；骨頭和皮膚共用 u、各有時鐘（`boneClock`：小時→天→週→月／年；`skinClock`：分鐘→小時／天→天→週／月）。四個步驟的文字在 `lab.stages`（data-stages，各有 `bone_*`／`skin_*`）。石膏在對齊後出現、硬骨痂長好後消失，可用開關關掉。
+  - **癒合日記是 2D（`initDiary`）**：14 格瘀青顏色（點一下換一種：紅紫→藍紫→綠→黃褐→消失，各有一句成因），存 localStorage（`twrses-bruise-diary`）；指甲生長＝兩次距離與天數換算成每月公釐，對照 3.5。
+  - 查證：Wikipedia〈Bone healing〉（幾小時內形成血腫、發炎約七天、骨痂、重塑三到四週起可長達三到五年、年輕的骨頭癒合較快）、〈Wound healing〉（幾分鐘內血小板與纖維蛋白、嗜中性球一小時內到、增生期、重塑一年以上、疤最多恢復到 80% 強度）、〈Bruise〉（紅藍＝血紅素、綠＝膽綠素、黃＝膽紅素，約兩週）、〈Nail〉（手指甲每月約 3.5 mm、整片長回來三到六個月、死後指甲不會繼續長）。課文**沒有寫**「癒合的骨頭和原來一樣結實」（沒查到可引用的來源）。用語照科學名詞、畫面用示意色塊，不畫真實傷口（Luke 2026-10-09 同意）。
+  - 除錯 `__lab.setU(0–4)`（會暫停）、`setPlaying(bool)`、`boneClock(u)`、`skinClock(u)`、`state.callus`／`castOn`、`state.hold = true`、`run(秒)`、`render()`。
 - **多個 session 同時改這個 repo 時，一律在自己的 git worktree 裡做**（2026-10-09 起）：`git worktree add -b <分支> <scratchpad>/wt origin/main`，把 `tools/<系列>/node_modules`、`audio` 用 symlink 接過來、複製 `tools/.r2_uploaded_cache.txt`；預覽在 vault 的 `.claude/launch.json` 加一筆 `python3 -m http.server <port> --directory <worktree>`；做完 `git fetch && git rebase origin/main && git push origin HEAD:main`。原因：未提交的 `data/*.json` 會讓別的 session 的 `python3 build.py` 直接失敗，共用的 `build.py` 也曾被另一個 session 的腳本誤清空。改檔案的腳本要**先讀完、算好、最後才 `open(p, 'w')`**，不要寫成 `open(p,'w').write(f(open(p).read()))`。
-- 第四批（第 13–16 課：腎臟、味覺與嗅覺、睡眠、長高）規劃在 Obsidian 課程規劃第九節，四課已全部完成（2026-10-05）。第五批（第 17–20 課：說話、手、修復、運動）規劃在第十節，2026-10-09 定案；`planned[]` 放著還沒做的 19–20 課，做一課移掉一筆。
+- 第四批（第 13–16 課：腎臟、味覺與嗅覺、睡眠、長高）規劃在 Obsidian 課程規劃第九節，四課已全部完成（2026-10-05）。第五批（第 17–20 課：說話、手、修復、運動）規劃在第十節，2026-10-09 定案；`planned[]` 放著還沒做的第 20 課，做一課移掉一筆。
 - 網站 `html` 有 smooth scroll：在背景的瀏覽器面板裡捲動會慢好幾秒，截圖前先設 `document.documentElement.style.scrollBehavior='auto'`。
 - 第二課起的共用工具在 `tools/body/src/common.js`（`loadBones`、`labeler`、`lazyBoot`）；卡片上的「在模型中看」按鈕用 `data-lab-<動作>="值"`。
   - 除錯：`document.querySelector('[data-skeleton-lab]').__lab`（`goJob`、`goRegion`、`setApart`、`startCount`、`stepCount(i)`、`render()`）。背景分頁 rAF 會降到每秒一兩格，截圖前用 `stepCount` 直接跳步。

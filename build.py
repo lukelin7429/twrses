@@ -4317,7 +4317,7 @@ def build_astro_hub():
 # 面板與段落樣式沿用 astro.css，人體專屬的在 body.css；兩者都只載在本系列頁面。
 BODY_BASE = "/resources/classes/human-body/"
 _BODY_JS = {"skeleton": "skeleton", "arm": "arm", "heart": "heart", "lungs": "lungs", "joints": "joints",
-            "digestion": "digestion", "nerves": "nerves", "eyes": "eyes", "ears": "ears", "skin": "skin", "teeth": "teeth", "germs": "germs", "kidneys": "kidneys", "taste": "taste", "sleep": "sleep", "growth": "growth", "voice": "voice", "hands": "hands"}   # lab.kind → assets/js/<bundle>.js
+            "digestion": "digestion", "nerves": "nerves", "eyes": "eyes", "ears": "ears", "skin": "skin", "teeth": "teeth", "germs": "germs", "kidneys": "kidneys", "taste": "taste", "sleep": "sleep", "growth": "growth", "voice": "voice", "hands": "hands", "healing": "healing"}   # lab.kind → assets/js/<bundle>.js
 
 def _body_ver():
     h = hashlib.md5()
@@ -5458,6 +5458,65 @@ def render_hands_lab(lesson):
   <p class="sk-credit">{lab["credit_html"]}</p>
 </div>'''
 
+def render_healing_lab(lesson):
+    """第十九課：真實前臂的骨折癒合＋放大的皮膚割傷，同一條進度（assets/js/healing.js 綁這裡的 class）；癒合日記是 2D，不需要 WebGL。"""
+    lab = lesson["lab"]
+    stages_json = html.escape(json.dumps(lab["stages"], ensure_ascii=False))
+    jumps = "".join(
+        f'<button type="button" data-stage="{n}" aria-pressed="{"true" if n == 0 else "false"}"><i aria-hidden="true">{s["icon"]}</i>'
+        f'<span>{n + 1} {html.escape(s["en"])}<small>{html.escape(s["zh"])}</small></span></button>' for n, s in enumerate(lab["stages"]))
+    days = "".join(f'<button type="button" class="hl-day"><i></i><b>{n}</b></button>' for n in range(1, 15))
+    tg = _lab_toggles([("labels", "Labels", "標示", True), ("cast", "Cast", "石膏", True), ("hand", "Hand bones", "手的骨頭", True)])
+    return f'''<div class="astro-lab sk-lab hl-lab rvl" data-healing-lab data-model="{_model_url()}" data-stages="{stages_json}">
+  <div class="al-stage">
+    <div class="al-space">
+      <canvas class="al-space-cv" aria-label="3D model of a real forearm with a healing break in one bone, beside a magnified block of skin with a healing cut · 真實前臂的 3D 模型，其中一根骨頭的骨折正在癒合，旁邊是一小塊放大的皮膚和正在癒合的割傷"></canvas>
+      <div class="al-labels" aria-hidden="true"></div>
+      <p class="sk-loading">Loading… · 載入中…<span class="sk-bar"><i></i></span></p>
+      <p class="al-hint">Drag to turn · 拖曳旋轉　Scroll or pinch to zoom · 滾輪／雙指縮放</p>
+      <p class="ey-mag">Same four steps, two different clocks · 同樣四個步驟，兩個不同的時鐘</p>
+      <button type="button" class="al-home" title="Reset view · 重設視角" aria-label="Reset view · 重設視角">&#8634;</button>
+      <p class="al-nogl-msg">This 3D model needs WebGL, which this browser does not support. The healing diary and the cards below still work.<br><span class="zh">這個瀏覽器不支援 WebGL，無法顯示 3D 模型；下方的癒合日記和卡片一樣能用。</span></p>
+    </div>
+    <aside class="al-sky sk-aside hl-aside">
+      <p class="hl-stage"><b class="hl-step">1</b><span class="hl-name"></span></p>
+      <div class="hl-two">
+        <div class="hl-col hl-col-s"><p class="hl-k">&#129656; Skin · 皮膚</p><p class="hl-clock hl-sc"></p><p class="hl-txt hl-st" aria-live="polite"></p></div>
+        <div class="hl-col hl-col-b"><p class="hl-k">&#129460; Bone · 骨頭</p><p class="hl-clock hl-bc"></p><p class="hl-txt hl-bt" aria-live="polite"></p></div>
+      </div>
+    </aside>
+  </div>
+  <div class="hl-strip">
+    <div class="hl-bruise">
+      <p class="al-sky-k">Bruise diary · 瘀青日記</p>
+      <div class="hl-days" role="group" aria-label="Bruise color day by day · 每天的瘀青顏色">{days}</div>
+      <p class="hl-bmsg" aria-live="polite"></p>
+      <button type="button" class="hl-bclear">Clear the diary<small>清除日記</small></button>
+    </div>
+    <div class="hl-nail">
+      <p class="al-sky-k">How fast is my nail? · 我的指甲長多快？</p>
+      <div class="hl-set">
+        <label>First time<small>第一次量</small><span><input type="number" class="hl-n1" min="0" max="20" step="0.5" inputmode="decimal" placeholder="0"> mm</span></label>
+        <label>Second time<small>第二次量</small><span><input type="number" class="hl-n2" min="0" max="25" step="0.5" inputmode="decimal" placeholder="2.5"> mm</span></label>
+        <label>Days between<small>隔了幾天</small><span><input type="number" class="hl-nd" min="1" max="120" step="1" inputmode="numeric" placeholder="21"></span></label>
+      </div>
+      <p class="hl-big"><b class="hl-nout">—</b><span>a month<small>每個月</small></span></p>
+      <p class="hl-nmsg" aria-live="polite"></p>
+    </div>
+  </div>
+  <div class="al-controls">
+    <div class="ea-pres hl-jumps" role="group" aria-label="The four steps · 四個步驟">{jumps}</div>
+    <div class="al-row al-row-main">
+      <button type="button" class="al-play" aria-pressed="false"><span class="al-play-i" aria-hidden="true"></span><span class="al-play-t">Play · 播放</span></button>
+      <label class="ec-slider hl-row"><span class="ec-slider-k">Healing · 癒合的進度<em>stop the leak &rarr; rebuild · 止血 &rarr; 重建</em></span>
+        <input type="range" class="ec-time hl-slider" min="0" max="400" step="1" value="0"></label>
+    </div>
+    <div class="al-row al-toggles">{tg}</div>
+  </div>
+  {_lab_foot(lab)}
+  <p class="sk-credit">{lab["credit_html"]}</p>
+</div>'''
+
 def _body_nav(slug):
     ls = BODY["lessons"]
     i = next(n for n, l in enumerate(ls) if l["slug"] == slug)
@@ -5485,7 +5544,7 @@ def build_body_lesson(lesson):
                 "joints": render_joints_lab, "digestion": render_digestion_lab, "nerves": render_nerves_lab,
                 "eyes": render_eyes_lab, "ears": render_ears_lab, "skin": render_skin_lab,
                 "teeth": render_teeth_lab, "germs": render_germs_lab, "kidneys": render_kidneys_lab,
-                "taste": render_taste_lab, "sleep": render_sleep_lab, "growth": render_growth_lab, "voice": render_voice_lab, "hands": render_hands_lab}[kind](lesson)
+                "taste": render_taste_lab, "sleep": render_sleep_lab, "growth": render_growth_lab, "voice": render_voice_lab, "hands": render_hands_lab, "healing": render_healing_lab}[kind](lesson)
 
     secs = []
     if lesson.get("jobs"):
@@ -5596,7 +5655,8 @@ def build_body_lesson(lesson):
                 "sleep": ("Sleep in a sentence", "一句話記住睡眠"),
                 "growth": ("Growing taller in a sentence", "一句話記住長高"),
                 "voice": ("Your voice in a sentence", "一句話記住聲音"),
-                "hands": ("Your hands in a sentence", "一句話記住手")}[kind]
+                "hands": ("Your hands in a sentence", "一句話記住手"),
+                "healing": ("Healing in a sentence", "一句話記住癒合")}[kind]
     secs.append(("tricks", "Remember It · 記憶口訣", tricks_h[0], tricks_h[1], _sci_tricks(lesson), ""))
     if lesson.get("culture"):
         cu = lesson["culture"]

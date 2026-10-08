@@ -16,11 +16,6 @@
   ],
   "planned": [
     {
-      "icon": "🩹",
-      "en": "How Does Your Body Fix Itself?",
-      "zh": "身體怎麼修好自己？"
-    },
-    {
       "icon": "🏃",
       "en": "What Happens When You Exercise?",
       "zh": "運動的時候，身體發生什麼事？"
@@ -8457,6 +8452,473 @@
       },
       "health_en": "This lesson is for learning about the body. It is not medical advice. Use paper tape for the thumb challenge, keep it loose, and take it off if anything hurts or tingles. If a finger is swollen, will not bend, or hurts after a fall, tell an adult.",
       "health_zh": "本課是認識身體的教材，不是醫療建議。拇指挑戰請用紙膠帶，貼鬆一點；如果會痛或覺得麻，就馬上撕掉。如果手指腫起來、彎不了，或是跌倒之後會痛，請告訴大人。"
+    },
+    {
+      "n": 19,
+      "slug": "healing",
+      "title": "How Does Your Body Fix Itself?",
+      "title_zh": "身體怎麼修好自己？",
+      "level": "入門 · Beginner",
+      "icon": "🩹",
+      "card": "healing",
+      "blurb_en": "A scab, a bruise, a broken arm in a cast: your body is repairing itself. Watch a real 3D bone knit back together beside a healing cut, and keep a diary of a bruise or a fingernail.",
+      "blurb_zh": "結痂、瘀青、打石膏的手臂——身體正在修補自己。看真實的 3D 骨頭慢慢長回去，旁邊是一道正在癒合的傷口，再幫一塊瘀青或一片指甲寫日記。",
+      "big_idea_en": "Your body repairs itself in the same order every time: stop the leak, clean up, build a quick patch, then slowly rebuild it properly.",
+      "big_idea_zh": "身體修補自己的順序每次都一樣：先止血、再清理、搭一個臨時的補丁，最後慢慢把它重新蓋好。",
+      "lab": {
+        "kind": "healing",
+        "eyebrow": "3D Model · 3D 模型",
+        "title_en": "Two Repairs, One Plan",
+        "title_zh": "兩種修補，同一套計畫",
+        "how_en": "On the right is a real forearm with a break in one bone. On the left is a small block of skin with a cut. Press play, or drag the slider through the four steps. The bone and the skin follow the same plan, but on very different clocks: the cut needs days, and the bone needs months. Watch the two clocks in the panel, and switch the cast on and off.",
+        "how_zh": "右邊是一隻真實的前臂，其中一根骨頭斷了；左邊是一小塊有割傷的皮膚。按播放，或拖動滑桿走過四個步驟。骨頭和皮膚照的是同一套計畫，用的卻是很不一樣的時鐘：割傷只要幾天，骨頭卻要好幾個月。看看面板上的兩個時鐘，也試試把石膏打開、關掉。",
+        "legend": [
+          {
+            "cls": "hlclot",
+            "en": "Dark red: the blood clot",
+            "zh": "暗紅色：血塊"
+          },
+          {
+            "cls": "hlwbc",
+            "en": "White dots: white blood cells cleaning up",
+            "zh": "白點：正在清理的白血球"
+          },
+          {
+            "cls": "hlpatch",
+            "en": "Pink: the quick patch (soft new tissue)",
+            "zh": "粉紅色：臨時的補丁（柔軟的新組織）"
+          },
+          {
+            "cls": "hlbone",
+            "en": "Ivory lump: new bone, later trimmed smooth",
+            "zh": "象牙色的腫塊：新的骨頭，之後會被修平"
+          },
+          {
+            "cls": "hlcast",
+            "en": "White shell: the cast",
+            "zh": "白色的殼：石膏"
+          }
+        ],
+        "scale_en": "The forearm bones are real shapes from BodyParts3D; the break, the clot, the lump of new bone, the cast, and the block of skin are our own drawing. A real break is jagged, and the skin block is greatly magnified. The times are typical ones for a simple break in a forearm and for a small clean cut. Real healing times depend on the injury, the bone, and the person, and children's bones usually heal faster than adults' bones.",
+        "scale_zh": "前臂的骨頭是 BodyParts3D 的真實形狀；斷裂處、血塊、新骨頭的腫塊、石膏和那一小塊皮膚是本站自繪的示意圖。真正的骨折斷面是不規則的，皮膚塊是放大很多倍的示意。時間是前臂單純骨折和乾淨的小割傷的典型情況；實際要多久，要看傷勢、哪一根骨頭和每個人的狀況，而孩子的骨頭通常比大人癒合得快。",
+        "credit_html": "Bone models: <a href=\"https://dbarchive.biosciencedbc.jp/en/bodyparts3d/download.html\" target=\"_blank\" rel=\"noopener\">BodyParts3D</a>, © The Database Center for Life Science, licensed under <a href=\"https://creativecommons.org/licenses/by/4.0/\" target=\"_blank\" rel=\"noopener\">CC BY 4.0</a>. We selected the bones of the right forearm and hand and simplified the shapes; the break, the healing tissue, the cast, and the skin are our own drawing. · 骨骼模型來源：BodyParts3D（日本生命科學資料庫中心，CC BY 4.0 授權）；本站挑選右前臂與右手的骨頭並簡化形狀，斷裂處、癒合中的組織、石膏與皮膚為本站自繪示意。",
+        "stages": [
+          {
+            "key": "leak",
+            "icon": "🛑",
+            "en": "Stop the leak",
+            "zh": "止血",
+            "bone_en": "Blood vessels inside the bone tear, and blood pools around the break. Within a few hours it sets into a clot. A doctor lines the pieces up and puts on a cast.",
+            "bone_zh": "骨頭裡的血管斷了，血積在斷裂處周圍，幾個小時內凝成血塊。醫生把骨頭對齊，打上石膏。",
+            "skin_en": "Within minutes, tiny blood cells called platelets stick together at the cut, and a net of threads glues them into a clot. The top dries into a scab.",
+            "skin_zh": "幾分鐘之內，叫做血小板的小小血球在傷口黏在一起，一張絲線織成的網把它們黏成血塊，表面乾了就變成痂。"
+          },
+          {
+            "key": "clean",
+            "icon": "🧹",
+            "en": "Clean up",
+            "zh": "清理",
+            "bone_en": "White blood cells move in and eat the dead cells and tiny chips of bone. The arm is swollen and sore: that is the cleanup crew at work, and it goes on for about a week.",
+            "bone_zh": "白血球趕來，吃掉死掉的細胞和骨頭碎屑。手臂又腫又痛——那是清潔隊正在工作，大約持續一個星期。",
+            "skin_en": "White blood cells arrive within an hour and swallow germs and dirt. The skin around the cut turns red and warm for a few days.",
+            "skin_zh": "白血球一小時內就到了，吞掉細菌和髒東西。傷口周圍的皮膚會紅紅熱熱的好幾天。"
+          },
+          {
+            "key": "patch",
+            "icon": "🩹",
+            "en": "Build a quick patch",
+            "zh": "搭臨時補丁",
+            "bone_en": "Cells from the bone's outer skin build a soft, rubbery bridge across the gap. In a few weeks, new bone replaces it and makes a hard lump around the break. Now the cast can come off.",
+            "bone_zh": "骨頭外膜的細胞在缺口上搭起一座柔軟、有彈性的橋；幾個星期後，新的骨頭取代它，在斷裂處周圍形成硬硬的一團。這時就可以拆石膏了。",
+            "skin_en": "New blood vessels and soft pink tissue fill the cut from below, and skin cells creep across under the scab. In a week or two, the scab falls off by itself.",
+            "skin_zh": "新的血管和柔軟的粉紅色組織從下面把傷口填滿，皮膚細胞在痂的底下爬過去。一兩個星期後，痂會自己掉下來。"
+          },
+          {
+            "key": "rebuild",
+            "icon": "🏗️",
+            "en": "Rebuild it properly",
+            "zh": "重新蓋好",
+            "bone_en": "The lump is stronger than it needs to be, and bulky. Over months and years, bone cells trim it away and rebuild the bone in its old shape. In the end, even an X-ray may not show where the break was.",
+            "bone_zh": "那一團比需要的還結實，也很笨重。接下來的幾個月到幾年，骨細胞把它慢慢修掉，把骨頭重建成原來的形狀。到最後，連 X 光片都可能看不出哪裡斷過。",
+            "skin_en": "The patch is slowly rebuilt with stronger fibers, for a year or more. A small cut leaves almost no mark. A deep one leaves a scar, which never gets quite as strong as the skin was.",
+            "skin_zh": "補丁被比較強韌的纖維慢慢重建，要一年或更久。小割傷幾乎不留痕跡；深的傷口會留下疤，而疤永遠沒辦法和原來的皮膚一樣強韌。"
+          }
+        ]
+      },
+      "paras": [
+        "Think about the last time you scraped your knee. It bled, it stung, and a week later the scab fell off and showed new pink skin. Nobody had to tell your knee what to do. A broken toy stays broken, but your body repairs itself, and it follows the same plan every time. The plan has four steps.",
+        "Step one: stop the leak. When you are cut, blood vessels are cut too. Within minutes, tiny blood cells called platelets stick to the edges and to one another. Then a net of sticky threads forms and glues everything into a clot. On your skin, the top of the clot dries out and becomes a scab. A scab is your body's own bandage, so try not to pick it.",
+        "Step two: clean up. White blood cells, which you met in the lesson about germs, arrive within an hour. They swallow germs, dirt, and dead cells. More blood flows to the area to bring them, and that is why the skin around a cut is red, warm, and a little swollen for a few days. It does not feel good, but it is a sign that the cleanup crew is working.",
+        "Step three: build a quick patch. Under the scab, new blood vessels grow, and soft pink tissue fills the gap. Skin cells creep across from the edges until they meet. This patch is made fast, and it is not very strong. Step four: rebuild it properly. For months, even a year or more, your body replaces the patch with stronger fibers. A deep cut leaves a scar, and a scar never gets quite as strong as the skin was before.",
+        "Bones follow the same four steps on a slower clock. When a bone breaks, blood pools around the break and forms a clot within a few hours. White blood cells clean up for about a week. Then the body builds a patch: first a soft bridge, like rubber, and then a hard lump of new bone around the break. That takes some weeks, and it is why you wear a cast. The cast does not heal the bone. It only holds the pieces still while the bone heals itself. Finally, over months and years, bone cells trim the lump away until the bone has its old shape again. Young bones do all of this faster than old ones.",
+        "A bruise is a repair you can watch in color. A bump breaks tiny blood vessels under the skin, and blood leaks out, but the skin is not broken. At first the bruise is red, blue, or purple. As your body breaks the old blood down and carries it away, the bruise turns green and then yellow or brown. In about two weeks it is gone. You cannot make these steps go faster, but you can help: wash a cut with clean water, keep it covered, eat and sleep well, and let the scab do its job. Now start a healing diary with the tool below the model."
+      ],
+      "paras_zh": [
+        "想想你上一次膝蓋擦傷的時候：它流血、刺痛，一個星期後痂掉了，露出粉紅色的新皮膚。沒有人需要告訴你的膝蓋該怎麼做。壞掉的玩具就是壞了，但你的身體會自己修補自己，而且每次都照同一套計畫。這套計畫有四個步驟。",
+        "第一步：止血。你被割傷的時候，血管也被割斷了。幾分鐘之內，叫做血小板的小小血球就會黏在傷口邊緣，也彼此黏在一起；接著，一張由黏黏的絲線織成的網形成了，把所有東西黏成一個血塊。在皮膚上，血塊的表面乾掉，就變成了痂。痂是身體自己做的繃帶，所以盡量不要去摳它。",
+        "第二步：清理。你在病菌那一課認識的白血球，一小時內就會趕到。它們吞掉細菌、髒東西和死掉的細胞。為了把它們送過來，更多的血流向這個地方——這就是為什麼傷口周圍的皮膚會紅紅的、熱熱的，還有一點腫，持續好幾天。那種感覺並不舒服，但它表示清潔隊正在工作。",
+        "第三步：搭一個臨時的補丁。在痂的底下，新的血管長出來，柔軟的粉紅色組織把缺口填滿；皮膚細胞從邊緣爬過來，直到在中間會合。這個補丁做得很快，但不怎麼結實。第四步：把它重新蓋好。接下來的幾個月，甚至一年以上，身體會用比較強韌的纖維把補丁換掉。很深的傷口會留下疤，而疤永遠沒辦法和原來的皮膚一樣強韌。",
+        "骨頭照的是同樣的四個步驟，只是時鐘慢得多。骨頭斷掉時，血積在斷裂處周圍，幾個小時內凝成血塊。白血球清理大約一個星期。然後身體開始搭補丁：先是一座像橡皮一樣柔軟的橋，再來是包在斷裂處周圍、硬硬的一團新骨頭。這要花上好幾個星期，這也是你要打石膏的原因。石膏並不會讓骨頭癒合，它只是把骨頭固定住，讓骨頭自己長好。最後，在接下來的幾個月到幾年裡，骨細胞把那一團慢慢修掉，直到骨頭恢復原來的形狀。年輕的骨頭做這一切，都比年老的骨頭快。",
+        "瘀青是一場你可以用顏色觀察的修補。碰撞弄破了皮膚底下的微血管，血流了出來，但皮膚並沒有破。瘀青一開始是紅色、藍色或紫色；當身體把舊的血分解、運走，它就變成綠色，再變成黃色或褐色。大約兩個星期，它就消失了。你沒辦法讓這些步驟變快，但你可以幫忙：用乾淨的水沖洗傷口、把它蓋好、吃好睡好，然後讓痂做它的工作。現在用模型下方的工具，開始寫一份癒合日記吧。"
+      ],
+      "questions": [
+        "What are the four steps your body follows to repair itself?",
+        "What does a cast do for a broken bone?",
+        "Why does a bruise change color?"
+      ],
+      "answers": [
+        "Stop the leak, clean up, build a quick patch, and then rebuild it properly.",
+        "It holds the pieces of the bone still while the bone heals itself. The cast does not heal the bone.",
+        "Because the body breaks down the old blood under the skin and carries it away, and the colors change as it does."
+      ],
+      "vocab": [
+        {
+          "n": 1,
+          "w": "heal",
+          "pos": "v.",
+          "zh": "癒合；痊癒",
+          "ex": "The cut will <b>heal</b> in about a week.",
+          "exzh": "這個傷口大約一個星期就會癒合。"
+        },
+        {
+          "n": 2,
+          "w": "scab",
+          "pos": "n.",
+          "zh": "痂",
+          "ex": "Do not pick the <b>scab</b> on your knee.",
+          "exzh": "不要摳膝蓋上的痂。"
+        },
+        {
+          "n": 3,
+          "w": "bruise",
+          "pos": "n.",
+          "zh": "瘀青",
+          "ex": "I got a <b>bruise</b> when I bumped the table.",
+          "exzh": "我撞到桌子，瘀青了。"
+        },
+        {
+          "n": 4,
+          "w": "clot",
+          "pos": "n.",
+          "zh": "血塊；凝塊",
+          "ex": "A <b>clot</b> stopped the bleeding.",
+          "exzh": "血塊把血止住了。"
+        },
+        {
+          "n": 5,
+          "w": "swollen",
+          "pos": "adj.",
+          "zh": "腫起來的",
+          "ex": "My ankle is <b>swollen</b> after the fall.",
+          "exzh": "跌倒之後，我的腳踝腫起來了。"
+        },
+        {
+          "n": 6,
+          "w": "cast",
+          "pos": "n.",
+          "zh": "石膏",
+          "ex": "She had a <b>cast</b> on her arm for six weeks.",
+          "exzh": "她手臂上打了六個星期的石膏。"
+        },
+        {
+          "n": 7,
+          "w": "scar",
+          "pos": "n.",
+          "zh": "疤",
+          "ex": "He has a small <b>scar</b> on his chin.",
+          "exzh": "他的下巴上有一個小疤。"
+        },
+        {
+          "n": 8,
+          "w": "repair",
+          "pos": "v.",
+          "zh": "修補；修理",
+          "ex": "Your body can <b>repair</b> itself.",
+          "exzh": "你的身體能修補自己。"
+        }
+      ],
+      "quiz": [
+        {
+          "q": "What is the first step when your body repairs a cut?",
+          "options": [
+            "It stops the leak with a clot",
+            "It builds a scar",
+            "It grows new bone",
+            "It removes the scab"
+          ],
+          "correct": 0
+        },
+        {
+          "q": "Why is the skin around a new cut red and warm?",
+          "options": [
+            "More blood is bringing white blood cells",
+            "The scab is too tight",
+            "The skin is growing too fast",
+            "The cut is getting colder"
+          ],
+          "correct": 0
+        },
+        {
+          "q": "What does a cast do?",
+          "options": [
+            "It holds the bone still while it heals",
+            "It makes new bone",
+            "It kills germs in the bone",
+            "It stops the arm from growing"
+          ],
+          "correct": 0
+        },
+        {
+          "q": "What happens to the hard lump around a healed break?",
+          "options": [
+            "Bone cells slowly trim it away",
+            "It stays there forever",
+            "It turns into a scab",
+            "It falls off after a week"
+          ],
+          "correct": 0
+        },
+        {
+          "q": "According to the reading, what colors does a bruise usually turn before it disappears?",
+          "options": [
+            "Green, then yellow or brown",
+            "White, then pink",
+            "Black, then red",
+            "Orange, then blue"
+          ],
+          "correct": 0
+        }
+      ],
+      "kinds_head": {
+        "eyebrow": "The Repair Crew · 修補小隊",
+        "en": "Who does the fixing?",
+        "zh": "是誰在修？"
+      },
+      "kinds": [
+        {
+          "icon": "🩸",
+          "en": "Platelets",
+          "zh": "血小板",
+          "where_en": "In your blood",
+          "where_zh": "在血液裡",
+          "control_en": "Plug the leak",
+          "control_zh": "堵住破洞",
+          "text_en": "Tiny pieces of cells that stick together at a wound within minutes.",
+          "text_zh": "很小的細胞碎片，幾分鐘內就會在傷口黏在一起。"
+        },
+        {
+          "icon": "🕸️",
+          "en": "Clot and scab",
+          "zh": "血塊和痂",
+          "where_en": "Over the wound",
+          "where_zh": "蓋在傷口上",
+          "control_en": "Seal and protect",
+          "control_zh": "封住並保護",
+          "text_en": "A net of sticky threads traps blood cells. When the top dries, it is a scab: your own bandage.",
+          "text_zh": "一張黏黏的絲網把血球困住；表面乾掉就是痂——你自己做的繃帶。"
+        },
+        {
+          "icon": "🧹",
+          "en": "White blood cells",
+          "zh": "白血球",
+          "where_en": "They come out of the blood vessels",
+          "where_zh": "從血管裡鑽出來",
+          "control_en": "Clean up",
+          "control_zh": "清理現場",
+          "text_en": "They swallow germs, dirt, and dead cells. The redness and swelling are signs of their work.",
+          "text_zh": "它們吞掉細菌、髒東西和死掉的細胞；紅和腫就是它們在工作的跡象。"
+        },
+        {
+          "icon": "🧱",
+          "en": "Builder cells",
+          "zh": "建造細胞",
+          "where_en": "In skin, and on the outer skin of a bone",
+          "where_zh": "在皮膚裡，以及骨頭的外膜上",
+          "control_en": "Make the patch",
+          "control_zh": "搭出補丁",
+          "text_en": "They weave fibers in skin and lay down new bone in a break. Fast first, strong later.",
+          "text_zh": "它們在皮膚裡織出纖維，在骨折處鋪上新的骨頭。先求快，再求堅固。"
+        },
+        {
+          "icon": "✂️",
+          "en": "Trimming cells",
+          "zh": "修整細胞",
+          "where_en": "On the surface of bone",
+          "where_zh": "在骨頭表面",
+          "control_en": "Reshape the repair",
+          "control_zh": "把修補處修整好",
+          "text_en": "They nibble away the extra bone, a little at a time, for months or years.",
+          "text_zh": "它們一點一點啃掉多餘的骨頭，持續好幾個月到好幾年。"
+        }
+      ],
+      "kinds_note_en": "Think of a road crew after a storm: first they close the road, then they clear the mess, then they lay a quick patch so traffic can pass, and months later they come back and pave it properly.",
+      "kinds_note_zh": "把它想成颱風過後的修路隊：先封路，再清掉雜物，然後鋪一層臨時的路面讓車子能通行，幾個月後再回來把路好好鋪平。",
+      "measure": {
+        "title_en": "A healing diary",
+        "title_zh": "癒合日記",
+        "lead_en": "Use the diary below the model. You can follow a bruise, day by day, or measure how fast a fingernail grows.",
+        "lead_zh": "用模型下方的日記。你可以一天一天追蹤一塊瘀青，或是量一量指甲長得多快。",
+        "steps": [
+          {
+            "n": "🎨",
+            "en": "Follow a bruise",
+            "zh": "追蹤一塊瘀青",
+            "text_en": "The next time you get a bruise, look at it once a day. Tap that day's box until the color matches. Most bruises go from red or purple to green to yellow in about two weeks.",
+            "text_zh": "下次瘀青的時候，每天看它一次，點當天的格子直到顏色對上。大多數的瘀青會從紅色或紫色變成綠色、再變成黃色，大約兩個星期。"
+          },
+          {
+            "n": "💅",
+            "en": "Mark a nail",
+            "zh": "在指甲上做記號",
+            "text_en": "No bruise? Ask an adult to help you put a small dot of nail polish at the very base of one fingernail. Measure from the skin to the dot.",
+            "text_zh": "沒有瘀青？請大人幫忙，在一片指甲最根部點一小點指甲油，量一量從皮膚到那個點的距離。"
+          },
+          {
+            "n": "📏",
+            "en": "Measure again",
+            "zh": "再量一次",
+            "text_en": "Two or three weeks later, measure again and enter the numbers. The tool works out your nail's speed and compares it with the usual 3.5 millimeters a month.",
+            "text_zh": "兩三個星期後再量一次，把數字輸入進去。工具會算出你的指甲長得多快，並和一般的每個月 3.5 公釐比一比。"
+          }
+        ],
+        "action": "test",
+        "action_value": "1",
+        "button_icon": "🩹",
+        "button_en": "Open the healing diary",
+        "button_zh": "打開癒合日記"
+      },
+      "myths": [
+        {
+          "myth_en": "A cast heals a broken bone.",
+          "myth_zh": "石膏會把骨頭治好。",
+          "fact_en": "The bone heals itself. The cast only keeps the pieces still and lined up while it does.",
+          "fact_zh": "骨頭是自己癒合的；石膏只是讓骨頭保持不動、對齊。"
+        },
+        {
+          "myth_en": "Picking off a scab helps a cut heal faster.",
+          "myth_zh": "把痂摳掉，傷口會好得比較快。",
+          "fact_en": "The scab protects the new skin growing under it. Pick it off, and the body has to start that part again.",
+          "fact_zh": "痂保護著底下正在長的新皮膚。把它摳掉，身體就得把那一段重來一次。"
+        },
+        {
+          "myth_en": "Redness and swelling around a new cut mean something has gone wrong.",
+          "myth_zh": "新的傷口周圍又紅又腫，表示出問題了。",
+          "fact_en": "For the first few days, a little redness and swelling is the cleanup crew at work. Tell an adult if it gets worse instead of better.",
+          "fact_zh": "頭幾天有一點紅腫，是清潔隊正在工作。如果越來越嚴重、沒有好轉，才要告訴大人。"
+        },
+        {
+          "myth_en": "Fingernails keep growing after a person dies.",
+          "myth_zh": "人死了以後，指甲還會繼續長。",
+          "fact_en": "They do not. The skin dries and pulls back, so the nails only look longer.",
+          "fact_zh": "不會。那是皮膚變乾、往後縮，指甲才看起來變長了。"
+        }
+      ],
+      "tricks": [
+        {
+          "title_en": "Stop, clean, patch, rebuild",
+          "title_zh": "止血、清理、補丁、重建",
+          "body_en": "The same four steps for a scraped knee and for a broken arm.",
+          "body_zh": "擦傷的膝蓋和斷掉的手臂，都是同樣的四個步驟。"
+        },
+        {
+          "title_en": "Fast first, strong later",
+          "title_zh": "先求快，再求堅固",
+          "body_en": "The patch is quick and weak. The rebuilding is slow and strong.",
+          "body_zh": "補丁做得快，但不結實；重建很慢，卻很堅固。"
+        },
+        {
+          "title_en": "A scab is a bandage",
+          "title_zh": "痂就是繃帶",
+          "body_en": "Your body made it. Leave it alone until it falls off.",
+          "body_zh": "那是身體自己做的。在它自己掉下來之前，不要去動它。"
+        },
+        {
+          "title_en": "Purple, green, yellow, gone",
+          "title_zh": "紫、綠、黃、不見",
+          "body_en": "A bruise changes color as the old blood is cleared away.",
+          "body_zh": "舊的血被清走的過程中，瘀青會一路變色。"
+        }
+      ],
+      "activities": [
+        {
+          "title_en": "Stitch a Banana",
+          "title_zh": "幫香蕉縫合",
+          "materials": [
+            {
+              "en": "A banana for each pair, and a table knife for the teacher",
+              "zh": "每兩人一根香蕉，以及老師用的餐刀"
+            },
+            {
+              "en": "Paper tape, a marker, and a place to leave the bananas for three days",
+              "zh": "紙膠帶、一枝麥克筆，以及可以把香蕉放三天的地方"
+            }
+          ],
+          "steps": [
+            {
+              "en": "The teacher makes two small cuts in the peel of each banana, about three centimeters long.",
+              "zh": "老師在每根香蕉的皮上劃兩道小切口，大約三公分長。"
+            },
+            {
+              "en": "Close one cut neatly with paper tape, so that the edges touch. Leave the other one open.",
+              "zh": "用紙膠帶把其中一道切口整齊地貼合，讓兩邊碰在一起；另一道不要處理。"
+            },
+            {
+              "en": "Label the two cuts. Look at them every day for three days, and draw what you see.",
+              "zh": "幫兩道切口做記號，連續三天每天觀察，把看到的畫下來。"
+            },
+            {
+              "en": "Which cut changed more? Why do doctors close a deep cut?",
+              "zh": "哪一道變化比較大？醫生為什麼要把很深的傷口縫起來？"
+            }
+          ],
+          "tip_en": "Teaching tip: a banana peel cannot heal, so this is not a model of healing. It is a model of why the edges of a wound are brought together and covered: the open cut dries out, browns, and gapes. Be clear with students about what the model shows and what it does not.",
+          "tip_zh": "教學提示：香蕉皮不會癒合，所以這並不是「癒合」的模型，而是在示範為什麼要把傷口的邊緣拉攏、蓋好：沒有處理的切口會乾掉、變褐、裂得更開。請清楚告訴學生這個模型說明了什麼、沒有說明什麼。"
+        },
+        {
+          "title_en": "Our Class Injury Map",
+          "title_zh": "全班的受傷地圖",
+          "materials": [
+            {
+              "en": "A large outline of a body on paper",
+              "zh": "一張大大的人體輪廓圖"
+            },
+            {
+              "en": "Small stickers in two colors",
+              "zh": "兩種顏色的小貼紙"
+            }
+          ],
+          "steps": [
+            {
+              "en": "Think of one scrape, cut, or bruise you remember. Put a sticker of the first color on that place on the outline.",
+              "zh": "想一個你記得的擦傷、割傷或瘀青，在輪廓圖上的那個位置貼一張第一種顏色的貼紙。"
+            },
+            {
+              "en": "If you have ever broken a bone, add a sticker of the second color. Use the bone names from Lesson 1.",
+              "zh": "如果你骨折過，就再貼一張第二種顏色的貼紙。用第一課學過的骨頭名稱說出是哪一根。"
+            },
+            {
+              "en": "Look at the whole map. Where are most of the stickers?",
+              "zh": "看看整張地圖：貼紙大多集中在哪裡？"
+            },
+            {
+              "en": "Why those places? What could protect them?",
+              "zh": "為什麼是那些地方？有什麼東西可以保護它們？"
+            }
+          ],
+          "tip_en": "Teaching tip: knees, elbows, and hands usually win, which leads naturally to helmets, knee pads, and looking where you are going. Sharing is optional: some children have injuries they do not want to talk about, so let students place stickers without explaining them.",
+          "tip_zh": "教學提示：膝蓋、手肘和手通常貼得最多，可以很自然地帶到安全帽、護膝，以及走路要看路。分享不是必要的：有些孩子的傷不想被問起，請讓學生貼了貼紙就好，不必說明。"
+        }
+      ],
+      "culture": {
+        "title_en": "A Hundred Days for Bone",
+        "title_zh": "傷筋動骨一百天",
+        "body_en": "A Chinese saying goes 傷筋動骨一百天 (shāng jīn dòng gǔ yì bǎi tiān): “hurt a tendon or a bone, and it takes a hundred days.” That is about three months. Long before X-rays, people had noticed how slow bone is: the patching stage alone takes weeks, and the rebuilding takes far longer. In Taiwanese, a bruise is 烏青 (o͘-chheⁿ), “black and green,” which names two of its colors. English says “black and blue.” Both languages noticed that a bruise is a little rainbow of repair.",
+        "body_zh": "中文有句俗話：「傷筋動骨一百天。」一百天大約是三個月。早在有 X 光之前，人們就注意到骨頭好得有多慢：光是「搭補丁」就要好幾個星期，重建還要久得多。台語把瘀青叫做「烏青」，正好說出它的兩種顏色；英文則說 black and blue（又黑又藍）。兩種語言都發現了：瘀青是一道小小的、修補中的彩虹。",
+        "link_en": "More Chinese health words in English",
+        "link_zh": "到中醫養生系列看更多"
+      },
+      "health_en": "This lesson is for learning about the body. It is not medical advice. Tell an adult about any cut that is deep, will not stop bleeding, or gets more red, swollen, or painful after a couple of days. If you think a bone may be broken, keep it still and see a doctor. Never test how a wound heals on purpose.",
+      "health_zh": "本課是認識身體的教材，不是醫療建議。如果傷口很深、血止不住，或是過了兩三天反而更紅、更腫、更痛，請告訴大人。如果覺得骨頭可能斷了，請保持不動並且去看醫生。絕對不要為了觀察癒合而故意弄傷自己。"
     }
   ]
 }
