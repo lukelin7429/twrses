@@ -7494,7 +7494,95 @@ def _ph_lab_room(lab):
   </div>
 </div>'''
 
+def _ph_lab_selfhunt(lab):
+    """A16：把車拆開（《彌蘭王問經》車喻，讀者當彌蘭王），再做休謨的內觀三十秒、勾出找到了什麼。"""
+    C, K = lab["chariot"], lab["look"]
+    def bi(o, cls=""): return f'<p class="{cls}">{_ph_e(o["en"])}</p><p class="ph-zh" lang="zh-Hant">{_ph_e(o["zh"])}</p>'
+    shapes = {
+        "ropes": '<path d="M286 74C220 70 150 104 98 138M286 96C226 96 160 120 102 150" fill="none" stroke-width="3" stroke-dasharray="7 5"/>',
+        "pole": '<path d="M280 128 96 152" fill="none" stroke-width="9" stroke-linecap="round"/>',
+        "yoke": '<path d="M70 132q26-16 26 20t26 20" fill="none" stroke-width="10" stroke-linecap="round"/><path d="M64 150h64" fill="none" stroke-width="7" stroke-linecap="round"/>',
+        "frame": '<path d="M272 58h134v74H272z" stroke-width="5" fill-opacity=".22"/><path d="M272 82h134M306 58v74M340 58v74M374 58v74" fill="none" stroke-width="3"/>',
+        "wheel": '<circle cx="338" cy="162" r="58" fill="none" stroke-width="9"/><path d="M338 104v116M280 162h116M297 121l82 82M379 121l-82 82" fill="none" stroke-width="4"/>',
+        "axle": '<circle cx="338" cy="162" r="13" stroke-width="4"/><path d="M308 162h60" fill="none" stroke-width="7" stroke-linecap="round"/>'}
+    order = ["ropes", "pole", "yoke", "frame", "wheel", "axle"]
+    names = {p["k"]: p["n"] for p in C["parts"]}
+    svg = "".join(f'<g class="ph-sh-part" data-sh-part="{k}" tabindex="0" role="button" aria-label="{_ph_e(names[k]["en"])} · {_ph_e(names[k]["zh"])}">{shapes[k]}</g>' for k in order)
+    chips = "".join(f'<span class="ph-sh-chip" data-sh-chip="{p["k"]}">{_ph_e(p["n"]["en"])} <i lang="zh-Hant">{_ph_e(p["n"]["zh"])}</i></span>' for p in C["parts"])
+    copts = "".join(f'<button type="button" class="ph-vl-opt" data-sh-opt="{o["k"]}" aria-pressed="false"><b>{_ph_e(o["t"]["en"])}</b><span lang="zh-Hant">{_ph_e(o["t"]["zh"])}</span></button>' for o in C["opts"])
+    cvs = "".join(f'<div class="ph-vl-card is-valid" data-sh-v="{o["k"]}" hidden>{bi(o["v"])}</div>' for o in C["opts"])
+    items = "".join(f'<button type="button" class="ph-sh-item" data-sh-item="{it["k"]}" aria-pressed="false"><b>{_ph_e(it["n"]["en"])}</b><span lang="zh-Hant">{_ph_e(it["n"]["zh"])}</span></button>' for it in K["items"])
+    payload = html.escape(json.dumps({"tpl": C["tpl"], "parts": C["parts"], "reads": K["reads"]}, ensure_ascii=False), quote=False)
+    return f'''<div class="ph-el ph-sh rvl" data-ph-selfhunt>
+  <script type="application/json" data-sh-data>{payload}</script>
+  <div class="ph-el-stage">
+    <div class="ph-md-part">
+      <p class="ph-el-src">Part 1 · The chariot <span lang="zh-Hant">第一部分：車</span></p>
+      <div class="ph-tp-text">{bi(C["ask"], "ph-rm-voice")}<p class="ph-rm-hint" data-sh-hint>{_ph_e(C["hint"]["en"])} <span lang="zh-Hant">{_ph_e(C["hint"]["zh"])}</span></p></div>
+      <div class="ph-sh-scene"><svg viewBox="0 0 480 240" role="group" aria-label="A chariot · 一輛車"><path class="ph-sh-ground" d="M20 224h440"/>{svg}</svg></div>
+      <div class="ph-sh-aside"><small>Set aside · 放到一邊的</small><div class="ph-sh-chips">{chips}</div></div>
+      <p class="ph-sh-msg" data-sh-msg aria-live="polite"></p>
+      <div data-sh-end hidden>
+        <div class="ph-tp-text">{bi(C["empty"])}<p class="ph-vl-q"><b>{_ph_e(C["q"]["en"])}</b><span lang="zh-Hant">{_ph_e(C["q"]["zh"])}</span></p></div>
+        <div class="ph-vl-opts ph-tp-opts ph-sh-opts">{copts}</div>
+        <div class="ph-vl-out" aria-live="polite">{cvs}</div>
+      </div>
+    </div>
+    <div class="ph-md-part">
+      <p class="ph-el-src">Part 2 · Hume’s experiment <span lang="zh-Hant">第二部分：休謨的實驗</span></p>
+      <div class="ph-tp-text">{bi(K["intro"])}</div>
+      <div class="ph-md-act ph-sh-act"><button type="button" class="ph-vl-next" data-sh-start>{_ph_e(K["start"]["en"])} · <span lang="zh-Hant">{_ph_e(K["start"]["zh"])}</span></button>
+        <button type="button" class="ph-el-reset" data-sh-skip>{_ph_e(K["skip"]["en"])} · <span lang="zh-Hant">{_ph_e(K["skip"]["zh"])}</span></button></div>
+      <div class="ph-sh-clock" data-sh-clock hidden aria-live="off"><svg viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="52"/><circle class="ph-sh-ring" cx="60" cy="60" r="52" data-sh-ring/></svg><b data-sh-secs>30</b></div>
+      <div data-sh-list hidden>
+        <div class="ph-sh-items">{items}</div>
+        <div class="ph-md-act"><button type="button" class="ph-vl-next" data-sh-go>{_ph_e(K["go"]["en"])} · <span lang="zh-Hant">{_ph_e(K["go"]["zh"])}</span></button></div>
+        <div class="ph-vl-out" data-sh-out aria-live="polite"></div>
+      </div>
+    </div>
+    <div class="ph-el-foot"><button type="button" class="ph-el-reset" data-sh-reset>Start again · 重來</button></div>
+  </div>
+</div>'''
+
+def _ph_lab_trolley(lab):
+    """A17：電車難題五個版本（轉轍器、天橋、環狀軌道、外科醫師、第三條軌道），依序作答，最後判讀答案的樣式。"""
+    payload = html.escape(json.dumps({k: lab[k] for k in ("cases", "patterns", "third")}, ensure_ascii=False), quote=False)
+    def fig(x, y, cls=""): return f'<g class="ph-ty-fig {cls}" transform="translate({x} {y})"><circle cy="-17" r="6.5"/><path d="M-7 12V-4a7 7 0 0 1 14 0v16z"/></g>'
+    five = "".join(fig(x, 190) for x in (486, 506, 526, 546, 566))
+    beds = "".join(f'<g transform="translate({x} 120)"><rect x="-26" y="-14" width="52" height="30" rx="6" class="ph-ty-bed"/><circle cx="-13" cy="1" r="7" class="ph-ty-head"/><path d="M-3 -6h24v14h-24z" class="ph-ty-sheet"/></g>' for x in (130, 200, 270, 340, 410))
+    return f'''<div class="ph-el ph-ty rvl" data-ph-trolley data-scene="switch">
+  <script type="application/json" data-tr-data>{payload}</script>
+  <div class="ph-vl-top"><div class="ph-vl-dots" data-tr-dots aria-hidden="true"></div><span class="ph-el-count" data-tr-count></span></div>
+  <div class="ph-el-stage">
+    <div class="ph-ty-scene" aria-hidden="true"><svg viewBox="0 0 640 300">
+      <g class="ph-ty-tracks">
+        <path class="ph-ty-rail" data-tr-path="main" d="M30 190H610"/>
+        <path class="ph-ty-rail s-switch s-three" data-tr-path="side" d="M250 190C305 190 330 100 400 100H610"/>
+        <path class="ph-ty-rail s-loop" data-tr-path="loop" d="M250 190C305 190 330 96 400 96H560C628 96 628 190 590 190"/>
+        <path class="ph-ty-rail s-three" data-tr-path="right" d="M250 190C305 190 330 276 400 276H610"/>
+        <g class="s-switch s-loop s-three"><circle cx="236" cy="222" r="7" class="ph-ty-knob"/><path d="M236 222l16-26" class="ph-ty-lever"/></g>
+        <g class="s-bridge"><rect x="306" y="120" width="44" height="140" rx="4" class="ph-ty-bridge"/><path d="M306 150h44M306 230h44" class="ph-ty-bline"/></g>
+        <g data-tr-fig="five">{five}</g>
+        <g data-tr-fig="one" class="s-switch s-three">{fig(520, 100)}</g>
+        <g data-tr-fig="lone" class="s-loop">{fig(470, 96, "is-big")}</g>
+        <g data-tr-fig="you" class="s-three">{fig(520, 276, "is-you")}<text x="536" y="258" class="ph-ty-lbl">you · 你</text></g>
+        <g data-tr-fig="big" class="s-bridge">{fig(328, 150, "is-big")}</g>
+        <g class="s-bridge">{fig(328, 232, "is-you")}<text x="356" y="238" class="ph-ty-lbl">you · 你</text></g>
+        <g class="ph-ty-car" data-tr-car><rect x="-26" y="-13" width="52" height="26" rx="6"/><path d="M-14 -13v26M0 -13v26M14 -13v26"/></g>
+      </g>
+      <g class="ph-ty-ward s-ward" transform="translate(0 30)">{beds}{fig(520, 124, "is-you")}<text x="495" y="160" class="ph-ty-lbl">visitor · 訪客</text><text x="270" y="170" text-anchor="middle" class="ph-ty-lbl">five patients · 五位病人</text></g>
+    </svg></div>
+    <div class="ph-tp-text" data-tr-text aria-live="polite"></div>
+    <div class="ph-vl-opts ph-tp-opts ph-ty-opts" data-tr-opts></div>
+    <div class="ph-vl-out" data-tr-out aria-live="polite"></div>
+    <div class="ph-el-foot"><button type="button" class="ph-el-reset" data-tr-reset>Start again · 重來</button>
+      <button type="button" class="ph-vl-next" data-tr-next hidden>Next case · 下一個案例 &rarr;</button></div>
+  </div>
+</div>'''
+
 def _ph_lab(lab):
+    if lab.get("kind") == "trolley": return _ph_lab_trolley(lab)
+    if lab.get("kind") == "selfhunt": return _ph_lab_selfhunt(lab)
     if lab.get("kind") == "room": return _ph_lab_room(lab)
     if lab.get("kind") == "minds": return _ph_lab_minds(lab)
     if lab.get("kind") == "teleport": return _ph_lab_teleport(lab)

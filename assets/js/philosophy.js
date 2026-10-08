@@ -904,6 +904,147 @@
     if (/[#&]room=done/.test(location.hash)) { root.__lab.play(); $('[data-rm-opt="q1:no"]', root).click(); $('[data-rm-opt="q2:yes"]', root).click(); $('[data-rm-more]', root).click(); }
   });
 
+  /* ---- A16：把車拆開＋休謨的內觀 ---- */
+  $$('[data-ph-selfhunt]').forEach(function (root) {
+    var D;
+    try { D = JSON.parse($('[data-sh-data]', root).textContent); } catch (e) { return; }
+    var parts = $$('[data-sh-part]', root), msg = $('[data-sh-msg]', root), end = $('[data-sh-end]', root), hint = $('[data-sh-hint]', root);
+    var clock = $('[data-sh-clock]', root), secs = $('[data-sh-secs]', root), ring = $('[data-sh-ring]', root), list = $('[data-sh-list]', root), out = $('[data-sh-out]', root);
+    var start = $('[data-sh-start]', root), skip = $('[data-sh-skip]', root), items = $$('[data-sh-item]', root);
+    var off, timer = null, picked = null, C = 2 * Math.PI * 52;
+    function name(k) { for (var i = 0; i < D.parts.length; i++) if (D.parts[i].k === k) return D.parts[i].n; }
+    function take(g) {
+      var k = g.getAttribute('data-sh-part'); if (off[k]) return; off[k] = 1;
+      g.classList.add('is-off'); g.setAttribute('aria-disabled', 'true'); g.tabIndex = -1;
+      $('[data-sh-chip="' + k + '"]', root).classList.add('is-on');
+      var n = name(k); hint.hidden = true;
+      msg.textContent = D.tpl.en.split('{p}').join(n.en) + ' ' + D.tpl.zh.split('{p}').join(n.zh);
+      if (Object.keys(off).length === parts.length) { end.hidden = false; }
+    }
+    parts.forEach(function (g) {
+      g.addEventListener('click', function () { take(g); });
+      g.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); take(g); } });
+    });
+    $$('[data-sh-opt]', root).forEach(function (b) {
+      b.addEventListener('click', function () {
+        picked = b.getAttribute('data-sh-opt');
+        $$('[data-sh-opt]', root).forEach(function (x) { var on = x === b; x.classList.toggle('is-right', on); x.setAttribute('aria-pressed', on ? 'true' : 'false'); });
+        $$('[data-sh-v]', root).forEach(function (v) { v.hidden = v.getAttribute('data-sh-v') !== picked; });
+        root.classList.toggle('is-whole', picked === 'name');
+      });
+    });
+    function showList() { if (timer) { clearInterval(timer); timer = null; } clock.hidden = true; list.hidden = false; start.hidden = true; skip.hidden = true; }
+    start.addEventListener('click', function () {
+      var t = 30; clock.hidden = false; start.disabled = true; secs.textContent = t;
+      ring.style.strokeDasharray = C; ring.style.strokeDashoffset = 0;
+      timer = setInterval(function () { t--; secs.textContent = t; ring.style.strokeDashoffset = C * (1 - t / 30); if (t <= 0) showList(); }, 1000);
+    });
+    skip.addEventListener('click', showList);
+    items.forEach(function (b) { b.addEventListener('click', function () { b.setAttribute('aria-pressed', b.getAttribute('aria-pressed') === 'true' ? 'false' : 'true'); }); });
+    function card(label, o) {
+      var c = el('div', 'ph-vl-card is-valid'); c.appendChild(el('small', 'ph-tp-k', label)); c.appendChild(el('p', '', o.en));
+      var z = el('p', 'ph-zh', o.zh); z.lang = 'zh-Hant'; c.appendChild(z); addTr(z); return c;
+    }
+    function read() {
+      out.textContent = '';
+      var on = {}; items.forEach(function (b) { if (b.getAttribute('aria-pressed') === 'true') on[b.getAttribute('data-sh-item')] = 1; });
+      var n = Object.keys(on).length, R = D.reads;
+      out.appendChild(card('Your list · 你的清單', { en: R.count.en.replace('{n}', n), zh: R.count.zh.replace('{n}', n) }));
+      if (on.self) out.appendChild(card('A self apart · 一個在外的「我」', R.self));
+      if (on.watcher) out.appendChild(card('The watcher · 那個觀看者', R.watcher));
+      if (!on.self && !on.watcher) out.appendChild(card('Hume’s result · 休謨的結果', R.plain));
+      return on;
+    }
+    $('[data-sh-go]', root).addEventListener('click', read);
+    function reset() {
+      off = {}; picked = null; if (timer) { clearInterval(timer); timer = null; }
+      parts.forEach(function (g) { g.classList.remove('is-off'); g.removeAttribute('aria-disabled'); g.tabIndex = 0; });
+      $$('[data-sh-chip]', root).forEach(function (c) { c.classList.remove('is-on'); });
+      $$('[data-sh-opt]', root).forEach(function (x) { x.classList.remove('is-right'); x.setAttribute('aria-pressed', 'false'); });
+      $$('[data-sh-v]', root).forEach(function (v) { v.hidden = true; });
+      root.classList.remove('is-whole'); msg.textContent = ''; hint.hidden = false; end.hidden = true;
+      clock.hidden = true; list.hidden = true; start.hidden = false; start.disabled = false; skip.hidden = false; out.textContent = '';
+      items.forEach(function (b) { b.setAttribute('aria-pressed', 'false'); });
+    }
+    $('[data-sh-reset]', root).addEventListener('click', reset);
+    reset();
+    root.__lab = { state: function () { return { off: Object.keys(off).length, end: !end.hidden, picked: picked, whole: root.classList.contains('is-whole'), list: !list.hidden, cards: out.children.length }; }, read: read };
+    var m = /[#&]self=(\w+)/.exec(location.hash);
+    if (m) { parts.forEach(take); if (m[1] !== 'apart') $('[data-sh-opt="name"]', root).click(); showList(); ['sound', 'breath', 'words', 'watcher'].forEach(function (k) { $('[data-sh-item="' + k + '"]', root).click(); }); read(); }
+  });
+
+  /* ---- A17：電車難題五個版本 ---- */
+  $$('[data-ph-trolley]').forEach(function (root) {
+    var D;
+    try { D = JSON.parse($('[data-tr-data]', root).textContent); } catch (e) { return; }
+    var text = $('[data-tr-text]', root), opts = $('[data-tr-opts]', root), out = $('[data-tr-out]', root), next = $('[data-tr-next]', root), dots = $('[data-tr-dots]', root), count = $('[data-tr-count]', root), car = $('[data-tr-car]', root);
+    var STOP = { main: [0.76, 'five'], side: [0.8, 'one'], loop: [0.52, 'lone'], right: [0.8, 'you'], stop: [0.47, 'big'] };
+    var i, ans, raf = 0;
+    function zhp(parent, t) { var z = el('p', 'ph-zh', t); z.lang = 'zh-Hant'; parent.appendChild(z); addTr(z); }
+    function place(pathKey, frac) {
+      var p = $('[data-tr-path="' + pathKey + '"]', root), L = p.getTotalLength(), a = p.getPointAtLength(L * frac), b = p.getPointAtLength(Math.min(L, L * frac + 2));
+      car.setAttribute('transform', 'translate(' + a.x.toFixed(1) + ' ' + a.y.toFixed(1) + ') rotate(' + (Math.atan2(b.y - a.y, b.x - a.x) * 180 / Math.PI).toFixed(1) + ')');
+    }
+    function clearScene() { cancelAnimationFrame(raf); $$('[data-tr-fig]', root).forEach(function (g) { g.classList.remove('is-hit', 'is-down'); }); place('main', 0.04); }
+    function run(key, done) {
+      if (!key) { done(); return; }
+      var path = key === 'stop' ? 'main' : key, end = STOP[key][0], who = STOP[key][1], t0 = null, dur = reduce ? 1 : 1700;
+      if (key === 'stop') $('[data-tr-fig="big"]', root).classList.add('is-down');
+      function step(ts) {
+        if (t0 === null) t0 = ts; var u = Math.min(1, (ts - t0) / dur), e = u * u * (3 - 2 * u);
+        place(path, 0.04 + (end - 0.04) * e);
+        if (u < 1) raf = requestAnimationFrame(step); else { $('[data-tr-fig="' + who + '"]', root).classList.add('is-hit'); done(); }
+      }
+      raf = requestAnimationFrame(step);
+    }
+    function paint() {
+      var n = D.cases.length; dots.textContent = '';
+      D.cases.forEach(function (_, k) { dots.appendChild(el('i', k < i ? 'ok' : k === i ? 'cur' : '')); });
+      count.textContent = i < n ? 'Case ' + (i + 1) + ' of ' + n + ' · 第 ' + (i + 1) + '／' + n + ' 個案例' : '';
+    }
+    function card(label, o, cls) { var c = el('div', 'ph-vl-card ' + (cls || 'is-valid')); c.appendChild(el('small', 'ph-tp-k', label)); c.appendChild(el('p', '', o.en)); zhp(c, o.zh); return c; }
+    function show() {
+      var c = D.cases[i]; out.textContent = ''; next.hidden = true; opts.textContent = ''; text.textContent = '';
+      root.setAttribute('data-scene', c.scene); clearScene();
+      var h = el('h4', '', c.title.en); var hz = el('span', '', c.title.zh); hz.lang = 'zh-Hant'; h.appendChild(hz); text.appendChild(h);
+      text.appendChild(el('p', '', c.text.en)); zhp(text, c.text.zh);
+      c.opts.forEach(function (o) {
+        var b = el('button', 'ph-vl-opt'); b.type = 'button'; b.appendChild(el('b', '', o.t.en)); var z = el('span', '', o.t.zh); z.lang = 'zh-Hant'; b.appendChild(z);
+        b.addEventListener('click', function () { choose(c, o, b); }); opts.appendChild(b);
+      });
+      paint();
+    }
+    function pattern() {
+      var s = ans.s === 'y', f = ans.f === 'y', l = ans.l === 'y', t = ans.t === 'y';
+      if (s && f && l && t) return 'all'; if (!s && !f && !l && !t) return 'none';
+      if (s && !f && !t) return l ? 'common' : 'dde'; if (s && f && !t) return 'push'; return 'mixed';
+    }
+    function summary() {
+      var e = el('div', 'ph-el-end'); var h = el('h4', '', 'Your five answers'); h.appendChild(el('span', '', '你的五個答案')); e.appendChild(h);
+      var yn = function (v) { return v === 'y' ? 'yes' : 'no'; };
+      e.appendChild(el('p', '', 'Switch: ' + yn(ans.s) + ' · Footbridge: ' + yn(ans.f) + ' · Loop: ' + yn(ans.l) + ' · Surgeon: ' + yn(ans.t) + ' · Third track: ' + ({ self: 'yourself', other: 'the stranger', none: 'nothing' })[ans.m] + '.'));
+      out.appendChild(e);
+      out.appendChild(card('The pattern of your first four answers · 你前四個答案的樣式', D.patterns[pattern()]));
+      out.appendChild(card('The third track · 第三條軌道', D.third[ans.m], 'is-sound'));
+    }
+    function choose(c, o, btn) {
+      if (ans[c.key]) return; ans[c.key] = o.k;
+      $$('button', opts).forEach(function (x) { x.disabled = true; }); btn.classList.add('is-right');
+      run(o.path, function () {
+        if (c.note[o.k].en !== 'Noted.') out.appendChild(card('Noted · 記下了', c.note[o.k]));
+        if (i < D.cases.length - 1) next.hidden = false; else { i++; paint(); i--; summary(); }
+      });
+    }
+    next.addEventListener('click', function () { i++; show(); });
+    function reset() { i = 0; ans = {}; show(); }
+    $('[data-tr-reset]', root).addEventListener('click', reset);
+    reset();
+    root.__lab = { state: function () { return { i: i, ans: ans, scene: root.getAttribute('data-scene'), car: car.getAttribute('transform'), pattern: pattern() }; },
+      jump: function (a) { ans = a; i = D.cases.length - 1; root.setAttribute('data-scene', 'three'); clearScene(); out.textContent = ''; opts.textContent = ''; next.hidden = true; i++; paint(); i--; summary(); return pattern(); } };
+    var m = /[#&]trolley=(\w+)/.exec(location.hash);
+    if (m) { if (m[1] === 'end') root.__lab.jump({ s: 'y', f: 'n', l: 'y', t: 'n', m: 'other' }); else { var k = ['switch', 'bridge', 'loop', 'ward', 'three'].indexOf(m[1]); if (k > 0) { i = k; show(); } } }
+  });
+
   /* ---- A13：去火星三趟（帕菲特的傳送機） ---- */
   $$('[data-ph-teleport]').forEach(function (root) {
     var D;
