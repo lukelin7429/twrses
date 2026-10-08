@@ -4,8 +4,8 @@
   "description": "書法 Chinese Calligraphy 的寫字引擎（brush.js 純函式、brush3d.js 三維毛筆與宣紙、pad.js 練字板）與各課 3D 的原始碼。產物寫到 assets/js/cal-*.js，npm run build 重新打包。",
   "type": "module",
   "scripts": {
-    "build": "esbuild src/cal-four.js src/cal-press.js src/cal-yong.js src/cal-order.js src/cal-oracle.js src/cal-clerical.js src/cal-speed.js src/cal-lanting.js src/cal-styles.js src/cal-gallery.js src/cal-couplets.js src/cal-seal.js src/cal-sutra.js --bundle --minify --format=iife --target=es2019 --legal-comments=eof --outdir=../../assets/js",
-    "test": "node test/brush.test.mjs && node test/strokes.test.mjs && node test/ancient.test.mjs && node test/clerical.test.mjs && node test/speed.test.mjs && node test/lanting.test.mjs && node test/styles.test.mjs && node test/gallery.test.mjs && node test/couplet.test.mjs && node test/seal.test.mjs && node test/sutra.test.mjs"
+    "build": "esbuild src/cal-four.js src/cal-press.js src/cal-yong.js src/cal-order.js src/cal-oracle.js src/cal-clerical.js src/cal-speed.js src/cal-lanting.js src/cal-styles.js src/cal-gallery.js src/cal-couplets.js src/cal-seal.js src/cal-sutra.js src/cal-pens.js --bundle --minify --format=iife --target=es2019 --legal-comments=eof --outdir=../../assets/js",
+    "test": "node test/brush.test.mjs && node test/strokes.test.mjs && node test/ancient.test.mjs && node test/clerical.test.mjs && node test/speed.test.mjs && node test/lanting.test.mjs && node test/styles.test.mjs && node test/gallery.test.mjs && node test/couplet.test.mjs && node test/seal.test.mjs && node test/sutra.test.mjs && node test/nib.test.mjs"
   },
   "devDependencies": {
     "esbuild": "0.25.10",

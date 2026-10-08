@@ -9537,14 +9537,14 @@
               "note_zh": "最後一個字寫完，抄經的人會落款、蓋印。"
             },
             {
-              "soon": true,
               "icon": "✒️",
-              "k_en": "Lesson 14 · Coming soon",
-              "k_zh": "第十四課・製作中",
+              "k_en": "Next Lesson · Lesson 14",
+              "k_zh": "下一課・第十四課",
               "en": "How Is Chinese Calligraphy Different from Western Calligraphy?",
               "zh": "中文書法和西洋書法有什麼不同？",
               "note_en": "Monks in Europe copied books by hand too. How was their writing different?",
-              "note_zh": "歐洲的修士也用手抄書。他們寫的字有什麼不一樣？"
+              "note_zh": "歐洲的修士也用手抄書。他們寫的字有什麼不一樣？",
+              "href": "/resources/classes/calligraphy/east-and-west/"
             }
           ],
           "culture_cards": {
@@ -9904,15 +9904,670 @@
               }
             ]
           }
+        },
+        {
+          "n": 14,
+          "slug": "east-and-west",
+          "title": "How Is Chinese Calligraphy Different from Western Calligraphy?",
+          "title_zh": "中文書法和西洋書法有什麼不同？",
+          "level": "入門 · Beginner",
+          "icon": "✒️",
+          "card": "pens",
+          "blurb_en": "Chinese and Western calligraphy are both beautiful writing, but the tools are different, and the tools shape the lines. Watch a soft brush and a stiff broad-edge pen write side by side in 3D, turn the nib and see the thick strokes move, guess which tool made each stroke, and try both on two practice pads.",
+          "blurb_zh": "中文書法和西洋書法都是把字寫得美，可是工具不一樣，而工具會決定線條的樣子。在 3D 裡看軟軟的毛筆和硬硬的平頭筆並排寫字，轉一轉筆嘴、看粗的筆畫跑到哪裡去，猜猜每一筆是哪一種筆寫的，再到兩個練字板上各試一次。",
+          "big_idea_en": "The tool shapes the line. A Chinese brush is soft, so its line gets thicker when the hand presses harder. The broad-edge pen of Western calligraphy is stiff and flat, and it is held at one angle, so its line gets thicker or thinner only when the pen changes direction.",
+          "big_idea_zh": "工具決定線條。中文書法用的毛筆是軟的，手按得越重，線就越粗。西洋書法的平頭筆又硬又扁，寫的時候筆嘴的角度固定，所以只有換方向的時候，線才會變粗或變細。",
+          "lab": {
+            "kind": "pens",
+            "eyebrow": "3D Model · 3D 模型",
+            "title_en": "A Soft Brush and a Stiff Pen",
+            "title_zh": "軟軟的毛筆，硬硬的平頭筆",
+            "how_en": "Drag to turn, and scroll or pinch to zoom. On the left, a brush writes 永. On the right, a broad-edge pen writes n, o, a. Watch the numbers: the brush line follows the pressure, and the pen line follows the direction. Then turn the nib with the slider, or make the pen write 永.",
+            "how_zh": "拖曳可以旋轉，滾輪或雙指可以縮放。左邊，毛筆寫「永」；右邊，平頭筆寫 n、o、a。看看數字：毛筆的線跟著「按多重」變，平頭筆的線跟著「方向」變。再用滑桿轉一轉筆嘴，或讓平頭筆去寫「永」。",
+            "modes": [
+              {
+                "key": "both",
+                "icon": "並",
+                "en": "Side by side",
+                "zh": "一起看"
+              },
+              {
+                "key": "brush",
+                "icon": "毛",
+                "en": "Brush",
+                "zh": "毛筆"
+              },
+              {
+                "key": "pen",
+                "icon": "平",
+                "en": "Pen",
+                "zh": "平頭筆"
+              }
+            ],
+            "rose_en": "The blue shape shows how thick the pen's line is in each direction. Along the gold bar it is thinnest; across the gold bar it is thickest.",
+            "rose_zh": "藍色的形狀表示平頭筆往每個方向走，線會有多粗。順著金色短線走最細，垂直金色短線走最粗。",
+            "legend": [
+              {
+                "cls": "cgsy",
+                "en": "Gold bar: the flat edge of the nib",
+                "zh": "金色的短線：筆嘴那條扁平的邊"
+              },
+              {
+                "cls": "cgsl",
+                "en": "Blue shape: how thick the pen line is in each direction",
+                "zh": "藍色的形狀：往每個方向走，線會多粗"
+              },
+              {
+                "cls": "cgsg",
+                "en": "Red grid: the same 25-cm square on both sheets",
+                "zh": "紅色格線：兩張紙上一樣大的 25 公分方格"
+              }
+            ],
+            "scale_en": "A teaching model. Both sheets have the same 25-cm square. The brush writes 永 with our own stroke data from Lesson 3. The pen's letters n, o, a are our own skeletons, built on a round o, and they are not copies of any historical script. The pen's line width is worked out from one rule: nib width times the sine of the angle between the nib's edge and the direction of travel. Real pens also leave fine hairlines and ink blobs that the model does not show. When the pen writes 永, it follows the center lines of the brush strokes, to show what a stiff nib cannot do.",
+            "scale_zh": "這是教學用的示意模型。兩張紙上的方格一樣大（25 公分）。毛筆寫的「永」是第三課我們自己的筆畫資料。平頭筆寫的 n、o、a 是我們自己畫的骨架，以圓形的 o 為基礎，不是任何一種歷史字體的複製。平頭筆的線寬只用一條規則算：筆嘴寬 × 筆嘴的邊和行進方向夾角的正弦。真的筆還會留下細絲和墨點，模型沒有畫。讓平頭筆寫「永」的時候，它走的是毛筆筆畫的中心線，用來看硬筆嘴做不到的事。",
+            "credit_html": "Model, letter skeletons, stroke data, and the writing engine are drawn and programmed by My Culture Connect. · 模型、字母骨架、筆畫資料與寫字引擎由人師教育協會自繪、自寫。"
+          },
+          "paras": [
+            "The English word calligraphy comes from Greek, and dictionaries trace it to words for beauty and writing. People in many parts of the world have turned writing into an art. In this lesson we compare two traditions: writing Chinese characters with a brush, and writing the Latin alphabet with a broad-edge pen.",
+            "Start with the brush. Its hairs are soft and springy. Press down, and the hairs spread out and the line grows thick. Lift up, and the line grows thin. A calligrapher can change the width anywhere in a stroke, in any direction. You practiced this in Lesson 2.",
+            "Now the broad-edge pen. For more than a thousand years in Europe, the main writing tool was a quill, cut from a feather. Scribes cut the tip flat, like a tiny chisel. The writer holds this flat edge at one angle and keeps it there. Pressing harder does almost nothing, because the tip is stiff.",
+            "So where do the thick and thin lines come from? From direction. When the pen moves across its own edge, it leaves a wide line. When it slides along its edge, it leaves a line as thin as a hair. In a round letter like o, the line swells and thins by itself as the pen goes around.",
+            "The writing moves differently too. Traditional Chinese texts are written in columns from top to bottom, and the columns go from right to left. The Latin alphabet is written in rows from left to right. Chinese is built from thousands of characters, each with its own strokes; English uses twenty-six letters again and again.",
+            "Both traditions ask for the same things: steady hands, patient practice, and a good eye for spacing. In this lesson, watch the two tools write side by side, turn the nib, and then try both yourself."
+          ],
+          "paras_zh": [
+            "英文的 calligraphy 這個字來自希臘文，字典把它追溯到「美」和「寫」這兩個字。世界上很多地方的人，都把寫字變成了一門藝術。這一課比較兩個傳統：用毛筆寫中文字，和用平頭筆寫拉丁字母。",
+            "先看毛筆。筆毛又軟又有彈性。往下按，筆毛散開，線就變粗；提起來，線就變細。寫字的人可以在一筆的任何地方、往任何方向改變粗細。這是第二課練過的。",
+            "再看平頭筆。在歐洲，有一千多年的時間，主要的書寫工具是用羽毛削成的羽毛筆。抄寫的人把筆尖削成平的，像一把很小的鑿子。寫字的時候，這條扁平的邊保持同一個角度不動。再用力按也幾乎沒有用，因為筆尖是硬的。",
+            "那麼粗細是怎麼來的？從方向來。筆往「垂直筆嘴」的方向走，留下寬寬的線；順著筆嘴的方向滑過去，只留下頭髮一樣細的線。像 o 這樣圓圓的字母，筆繞一圈，線就自己由粗變細、再由細變粗。",
+            "寫的方向也不一樣。傳統的中文是直的寫：一行由上到下，行由右到左。拉丁字母是橫的寫：由左到右。中文由幾千個字組成，每個字有自己的筆畫；英文則是把二十六個字母一再重複使用。",
+            "兩個傳統要求的東西其實一樣：穩定的手、耐心的練習，還有對間距的好眼力。這一課，看兩種筆並排寫字，轉一轉筆嘴，再自己兩種都試試看。"
+          ],
+          "questions": [
+            "What makes a brush line thicker?",
+            "What makes a broad-edge pen line thicker or thinner?",
+            "In which directions are traditional Chinese texts and the Latin alphabet written?"
+          ],
+          "answers": [
+            "Pressing down harder: the soft hairs spread out.",
+            "The direction the pen moves. Across its flat edge the line is wide; along its edge the line is very thin.",
+            "Traditional Chinese texts go from top to bottom in columns, and the columns go from right to left. The Latin alphabet goes from left to right in rows."
+          ],
+          "vocab": [
+            {
+              "n": 1,
+              "w": "tool",
+              "pos": "n.",
+              "zh": "工具",
+              "ex": "A ruler is a useful <b>tool</b> for drawing straight lines.",
+              "exzh": "尺是畫直線很有用的工具。"
+            },
+            {
+              "n": 2,
+              "w": "stiff",
+              "pos": "adj.",
+              "zh": "硬的；不易彎的",
+              "ex": "The new shoes felt <b>stiff</b> at first.",
+              "exzh": "新鞋一開始穿起來硬硬的。"
+            },
+            {
+              "n": 3,
+              "w": "edge",
+              "pos": "n.",
+              "zh": "邊；邊緣",
+              "ex": "Do not stand too close to the <b>edge</b> of the pool.",
+              "exzh": "不要站得離游泳池邊太近。"
+            },
+            {
+              "n": 4,
+              "w": "angle",
+              "pos": "n.",
+              "zh": "角度",
+              "ex": "Hold the camera at a different <b>angle</b>.",
+              "exzh": "把相機換一個角度拿。"
+            },
+            {
+              "n": 5,
+              "w": "direction",
+              "pos": "n.",
+              "zh": "方向",
+              "ex": "The wind changed <b>direction</b> in the afternoon.",
+              "exzh": "下午風向變了。"
+            },
+            {
+              "n": 6,
+              "w": "feather",
+              "pos": "n.",
+              "zh": "羽毛",
+              "ex": "We found a white <b>feather</b> on the grass.",
+              "exzh": "我們在草地上撿到一根白色的羽毛。"
+            },
+            {
+              "n": 7,
+              "w": "alphabet",
+              "pos": "n.",
+              "zh": "字母表",
+              "ex": "The English <b>alphabet</b> has twenty-six letters.",
+              "exzh": "英文字母表有二十六個字母。"
+            },
+            {
+              "n": 8,
+              "w": "tradition",
+              "pos": "n.",
+              "zh": "傳統",
+              "ex": "Eating dumplings at New Year is a family <b>tradition</b>.",
+              "exzh": "過年吃水餃是我們家的傳統。"
+            }
+          ],
+          "quiz": [
+            {
+              "q": "What makes a brush line thicker?",
+              "options": [
+                "Pressing harder",
+                "Writing in English",
+                "Using red ink",
+                "Holding the brush still"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "What was a quill made from?",
+              "options": [
+                "A feather",
+                "A bamboo stick",
+                "A piece of stone",
+                "A rabbit's tail"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "What changes the width of a broad-edge pen's line?",
+              "options": [
+                "The direction of the stroke",
+                "How hard you press",
+                "The color of the paper",
+                "The time of day"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "Which way is the Latin alphabet written?",
+              "options": [
+                "From left to right",
+                "From right to left",
+                "From bottom to top",
+                "In a circle"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "What do both traditions need?",
+              "options": [
+                "Steady hands and patient practice",
+                "A computer",
+                "A very large desk",
+                "Only black paper"
+              ],
+              "correct": 0
+            }
+          ],
+          "parts_head": {
+            "eyebrow": "Two Tools · 兩種筆",
+            "en": "What makes the line thick?",
+            "zh": "線為什麼會變粗？"
+          },
+          "parts": [
+            {
+              "key": "brush",
+              "pen": "brush",
+              "demo": "brush",
+              "en": "Brush",
+              "zh": "毛筆",
+              "meta_en": "Soft · width follows pressure",
+              "meta_zh": "軟的・粗細看按多重",
+              "text_en": "The hairs spread when you press. The line can swell or thin anywhere, and its ends are rounded or pointed.",
+              "text_zh": "一按，筆毛就散開。線可以在任何地方變粗變細，頭尾是圓的或尖的。"
+            },
+            {
+              "key": "nib",
+              "pen": "nib",
+              "demo": "pen",
+              "en": "Broad-edge pen",
+              "zh": "平頭筆",
+              "meta_en": "Stiff · width follows direction",
+              "meta_zh": "硬的・粗細看方向",
+              "text_en": "With the nib at 30 degrees, downstrokes are thick and strokes across are thin. The ends of the lines are cut off at a slant.",
+              "text_zh": "筆嘴角度 30 度時，豎的筆畫粗、橫的筆畫細。線的頭尾是斜斜切平的。"
+            },
+            {
+              "key": "nib90",
+              "pen": "nib90",
+              "demo": "nib90",
+              "en": "Turn the nib",
+              "zh": "把筆嘴轉一下",
+              "meta_en": "The same letters at 90 degrees",
+              "meta_zh": "同樣的字母，筆嘴 90 度",
+              "text_en": "Turn the nib upright and everything swaps: now the strokes across are thick and the downstrokes are thin.",
+              "text_zh": "把筆嘴轉成直的，全部反過來：橫的筆畫變粗，豎的筆畫變細。"
+            },
+            {
+              "key": "nibyong",
+              "pen": "nibyong",
+              "demo": "yong",
+              "en": "The pen writes 永",
+              "zh": "平頭筆寫「永」",
+              "meta_en": "The wrong tool for the job",
+              "meta_zh": "工具用錯了",
+              "text_en": "The pen follows the same path as the brush, but it cannot press. The heavy dot and the swelling tail are gone.",
+              "text_zh": "平頭筆走和毛筆一樣的路線，可是它不能提按。那個重重的點、越來越粗的捺都不見了。"
+            }
+          ],
+          "parts_note_en": "All four pictures are drawn by the same model you see in 3D. Tap a card to watch it happen.",
+          "parts_note_zh": "四張圖都是用 3D 裡同一套模型畫出來的。點卡片，在模型裡看它怎麼寫。",
+          "pad": {
+            "eyebrow": "Practice Pad 2 · 練字板二",
+            "en": "And now the brush",
+            "zh": "再換毛筆",
+            "char": "yong",
+            "curve": true,
+            "order": true,
+            "lead_en": "Now write 永 with the brush pad from Lesson 2. Here, slow means thick and fast means thin, or press harder with a stylus. Direction does not matter at all.",
+            "lead_zh": "接著用第二課的毛筆練字板寫「永」。在這裡，寫得慢線就粗、寫得快線就細（用觸控筆的話是越用力越粗）。方向完全沒有關係。",
+            "tips": [
+              {
+                "en": "Draw the same plus sign you drew with the pen. Are the two lines the same width now?",
+                "zh": "畫一個和剛才一樣的加號。這次兩條線一樣粗嗎？"
+              },
+              {
+                "en": "Make one line that starts thin, gets thick, and ends thin. Could the pen do that in a straight line?",
+                "zh": "畫一條「細→粗→細」的線。平頭筆在一條直線上做得到嗎？"
+              },
+              {
+                "en": "Trace 永 and watch your press-and-lift curve.",
+                "zh": "描寫「永」，看看自己的提按曲線。"
+              }
+            ]
+          },
+          "links_head": {
+            "eyebrow": "Read More · 延伸閱讀",
+            "en": "Lessons that help with this one",
+            "zh": "和這一課有關的幾課"
+          },
+          "links": [
+            {
+              "href": "/resources/classes/calligraphy/thick-and-thin/",
+              "icon": "〰️",
+              "k_en": "Lesson 2",
+              "k_zh": "第二課",
+              "en": "How Does a Brush Make Thick and Thin Lines?",
+              "zh": "一枝毛筆怎麼寫出粗細？",
+              "note_en": "Pressing and lifting: the brush's way of changing the line.",
+              "note_zh": "提按：毛筆改變線條粗細的方法。"
+            },
+            {
+              "href": "/resources/classes/calligraphy/copying-sutras/",
+              "icon": "📿",
+              "k_en": "Lesson 13",
+              "k_zh": "第十三課",
+              "en": "Why Do People Copy Sutras by Hand?",
+              "zh": "抄經：書法與修行",
+              "note_en": "Monks in Europe copied books by hand too, with pens like the one in this lesson.",
+              "note_zh": "歐洲的修士也用手抄書——用的就是這一課這種筆。"
+            },
+            {
+              "soon": true,
+              "icon": "✏️",
+              "k_en": "Lesson 15 · Coming soon",
+              "k_zh": "第十五課・製作中",
+              "en": "Does Brush Writing Help Your Pencil Writing?",
+              "zh": "毛筆字和硬筆字",
+              "note_en": "The last lesson: from the brush back to the pencil in your hand.",
+              "note_zh": "最後一課：從毛筆回到你手上的鉛筆。"
+            }
+          ],
+          "culture_cards": {
+            "eyebrow": "History and Taiwan · 歷史與台灣",
+            "title_en": "A feather for a pen, a man who brought it back, the art prized above all, and letters in Taiwan's schools",
+            "title_zh": "用羽毛當筆、把它找回來的人、最被看重的藝術，和台灣學校裡的字母",
+            "lead_en": "Three things from museums and encyclopedias, and one from Taiwan's own curriculum.",
+            "lead_zh": "三件來自博物館和百科全書的事，和一件台灣課綱裡的事。",
+            "cards": [
+              {
+                "k": "The Quill · 羽毛筆",
+                "en": "A feather for a pen",
+                "zh": "用羽毛當筆",
+                "body_en": "An encyclopedia explains that the quill, the hollow barrel of a bird's feather, was the main writing tool in Europe from the 6th century until the middle of the 19th, and that goose feathers were the usual source. A museum that keeps medieval books adds that scribes also used swan feathers.",
+                "body_zh": "大英百科說：羽毛筆（鳥類羽毛中空的羽管）從六世紀到十九世紀中期，一直是歐洲主要的書寫工具，主要用鵝毛。收藏中世紀手抄本的蓋提博物館補充說，抄寫人也用天鵝的羽毛。"
+              },
+              {
+                "k": "A Revival · 復興",
+                "en": "The man who brought the broad pen back",
+                "zh": "把平頭筆找回來的人",
+                "body_en": "By 1900, few people in Britain knew how to write with an edged pen. Edward Johnston (1872–1944) studied old manuscripts, relearned how to cut reeds and quills, and published a famous handbook in 1906. He is credited with starting the modern revival of calligraphy. He also designed the lettering of the London Underground.",
+                "body_zh": "到了 1900 年左右，英國已經很少人會用有「邊」的筆寫字。愛德華・約翰斯頓（1872–1944）研究古老的手抄本，重新學會怎麼削蘆葦筆和羽毛筆，1906 年出版了一本很有名的手冊。大家認為現代書法的復興是從他開始的。倫敦地鐵的字體也是他設計的。"
+              },
+              {
+                "k": "East Asia · 東亞",
+                "en": "The art prized above all others",
+                "zh": "最被看重的藝術",
+                "body_en": "The Metropolitan Museum of Art describes calligraphy as the visual art prized above all others in traditional China. It points to the brush: unlike a rigid tool such as a ballpoint pen, a flexible hair brush lets the width of a stroke change.",
+                "body_zh": "大都會藝術博物館說，在傳統中國，書法是所有視覺藝術裡最被看重的。它特別提到毛筆：和原子筆這類硬的工具不同，有彈性的毛筆能讓一筆的粗細產生變化。"
+              },
+              {
+                "k": "Taiwan · 台灣",
+                "en": "Two directions, two kinds of letters",
+                "zh": "兩種方向，兩種字母",
+                "body_en": "Taiwan's Ministry of Education sets out both ways of writing Chinese: vertical text runs from top to bottom and right to left, and horizontal text runs from left to right. In English class, the curriculum asks elementary students to write the 26 letters in print form; in junior high they learn to recognize joined-up handwriting too.",
+                "body_zh": "教育部規定了中文的兩種寫法：「中文直式書寫及排印，自上而下，自右而左」「中文橫式書寫及排印，自左而右，自上而下」。英語課方面，課綱要求國小「能書寫 26 個印刷體大小寫字母」，國中再學會「辨識連續書寫體大小寫字母」。"
+              }
+            ]
+          },
+          "myths": [
+            {
+              "myth_en": "A broad-edge pen makes thick lines when you press hard.",
+              "myth_zh": "平頭筆用力按，線就會變粗。",
+              "fact_en": "Its tip is stiff. The width depends on direction: wide across the flat edge, thin along it.",
+              "fact_zh": "它的筆尖是硬的。粗細看方向：垂直筆嘴走是寬的，順著筆嘴走是細的。"
+            },
+            {
+              "myth_en": "All Western calligraphy is written with a stiff pen.",
+              "myth_zh": "西洋書法都是用硬筆尖寫的。",
+              "fact_en": "Not all. Later styles such as copperplate use a flexible pointed pen, and there the thick strokes do come from pressure. This lesson is about the older broad-edge pen.",
+              "fact_zh": "不是全部。後來的銅版體（copperplate）這類寫法用的是有彈性的尖頭筆，粗的筆畫就是靠壓力來的。這一課講的是更早的平頭筆。"
+            },
+            {
+              "myth_en": "Calligraphy means Chinese writing with a brush.",
+              "myth_zh": "書法就是用毛筆寫中文字。",
+              "fact_en": "The Chinese word 書法 is defined that way in the dictionary. But the English word calligraphy is used for beautiful writing in any script: Latin, Arabic, and many more.",
+              "fact_zh": "教育部辭典確實把「書法」解釋成「毛筆字書寫的方法」。不過英文的 calligraphy 指的是任何文字的美術書寫：拉丁字母、阿拉伯文和其他很多文字都有。"
+            },
+            {
+              "myth_en": "One tradition is harder or better than the other.",
+              "myth_zh": "其中一種比另一種難，或比較高級。",
+              "fact_en": "They solve different problems with different tools. Both take years of patient practice.",
+              "fact_zh": "它們是用不同的工具解決不同的問題。兩種都需要好幾年耐心的練習。"
+            }
+          ],
+          "tricks": [
+            {
+              "title_en": "The tool shapes the line",
+              "title_zh": "工具決定線條",
+              "body_en": "Soft brush, stiff pen.",
+              "body_zh": "軟的毛筆，硬的平頭筆。"
+            },
+            {
+              "title_en": "Brush: pressure",
+              "title_zh": "毛筆看輕重",
+              "body_en": "Press for thick, lift for thin.",
+              "body_zh": "按下去粗，提起來細。"
+            },
+            {
+              "title_en": "Broad pen: direction",
+              "title_zh": "平頭筆看方向",
+              "body_en": "Wide across the edge, thin along it.",
+              "body_zh": "垂直筆嘴粗，順著筆嘴細。"
+            },
+            {
+              "title_en": "Columns and rows",
+              "title_zh": "直行和橫行",
+              "body_en": "Top to bottom, or left to right.",
+              "body_zh": "由上到下，或由左到右。"
+            }
+          ],
+          "safety": [
+            {
+              "en": "Ink stains clothes and is very hard to wash out. Wear old clothes or an apron, and roll up your sleeves.",
+              "zh": "墨沾到衣服很難洗掉：穿舊衣服或圍裙，袖子捲起來。"
+            },
+            {
+              "en": "Cover the desk with old newspaper, and keep the ink in a heavy, steady dish so it will not tip over.",
+              "zh": "桌上先鋪舊報紙；墨要裝在重一點、放得穩的碟子裡，免得打翻。"
+            },
+            {
+              "en": "Press gently. Crushing the brush against the paper squashes the hairs and can split or break them.",
+              "zh": "輕輕地按就好：把筆用力壓在紙上，筆毛會擠扁，也可能分岔或折斷。"
+            },
+            {
+              "en": "Do not put the brush, the ink, or the ink stick in your mouth, and do not lick the brush tip to shape it.",
+              "zh": "毛筆、墨汁、墨條都不要放進嘴裡，也不要用嘴巴舔筆尖。"
+            },
+            {
+              "en": "After writing, wash the brush in clean water until the water runs clear, gently shape it into a point, and hang it tip-down or lay it flat to dry. Wash your hands, too.",
+              "zh": "寫完後用清水洗筆，洗到水變清為止；輕輕把筆毛理成尖形，筆尖朝下掛起來或平放晾乾。也要洗手。"
+            }
+          ],
+          "activities": [
+            {
+              "title_en": "A Two-Pencil Pen",
+              "title_zh": "兩枝鉛筆做的平頭筆",
+              "materials": [
+                {
+                  "en": "Two sharp pencils and two rubber bands for each student",
+                  "zh": "每人兩枝削尖的鉛筆和兩條橡皮筋"
+                },
+                {
+                  "en": "Plain paper",
+                  "zh": "白紙"
+                }
+              ],
+              "steps": [
+                {
+                  "en": "Hold the two pencils side by side and tie them together with the rubber bands.",
+                  "zh": "把兩枝鉛筆並排，用橡皮筋綁在一起。"
+                },
+                {
+                  "en": "Hold them so that both points touch the paper, with one point a little higher than the other. Keep that angle.",
+                  "zh": "讓兩個筆尖同時碰到紙，其中一個稍微高一點。保持這個角度不要變。"
+                },
+                {
+                  "en": "Draw a line down, a line across, and a circle. The two pencil lines are the two edges of a wide pen stroke.",
+                  "zh": "畫一條直的、一條橫的，再畫一個圓。兩條鉛筆線就是一筆寬線的兩個邊。"
+                },
+                {
+                  "en": "Write your name in big letters. Where are the two lines far apart? Where do they almost touch?",
+                  "zh": "用大大的字母寫自己的名字。兩條線在哪裡離得最遠？在哪裡幾乎碰在一起？"
+                }
+              ],
+              "tip_en": "Do not turn your wrist as you go around a curve. The angle of the two points should stay the same.",
+              "tip_zh": "畫彎的地方手腕不要跟著轉。兩個筆尖的角度要從頭到尾一樣。"
+            },
+            {
+              "title_en": "Same Word, Two Tools",
+              "title_zh": "同一個字，兩種工具",
+              "materials": [
+                {
+                  "en": "A brush with clean water and newspaper, and the two-pencil pen",
+                  "zh": "毛筆、清水和舊報紙，還有兩枝鉛筆做的平頭筆"
+                },
+                {
+                  "en": "A chart with two columns: Brush and Pen",
+                  "zh": "一張兩欄的表格：毛筆、平頭筆"
+                }
+              ],
+              "steps": [
+                {
+                  "en": "With the brush and water, write 大. Then write the letter A.",
+                  "zh": "用毛筆蘸清水寫「大」。再寫字母 A。"
+                },
+                {
+                  "en": "With the two-pencil pen, write the letter A. Then try to write 大.",
+                  "zh": "用兩枝鉛筆的平頭筆寫字母 A。再試著寫「大」。"
+                },
+                {
+                  "en": "In the chart, write what each tool does well and what it cannot do.",
+                  "zh": "在表格裡寫下每一種工具擅長什麼、做不到什麼。"
+                },
+                {
+                  "en": "Share one sentence with the class that begins: “The tool shapes the line because…”",
+                  "zh": "和全班分享一句話，開頭是：「工具決定線條，因為……」"
+                }
+              ],
+              "tip_en": "There is no wrong answer here. The point is to notice what your hand had to do differently.",
+              "tip_zh": "這裡沒有錯的答案。重點是發現自己的手做了哪些不一樣的事。"
+            }
+          ],
+          "sources": [
+            {
+              "en": "A stiff broad-edged pen makes a stroke that tapers from thin to thick to thin; a flexible pen point or brush makes thicks and thins by pressure",
+              "zh": "硬的平頭筆寫出的弧線由細到粗再到細；有彈性的筆尖或毛筆則靠壓力在任何地方做出粗細",
+              "src": "Britannica Kids, “calligraphy”",
+              "url": "https://kids.britannica.com/students/article/calligraphy/273464"
+            },
+            {
+              "en": "Chinese calligraphy as the visual art prized above all others in traditional China; the flexible hair brush; columns read from right to left",
+              "zh": "傳統中國最看重的視覺藝術是書法；有彈性的毛筆能讓筆畫有粗細變化；傳統中文直行、由右至左",
+              "src": "The Metropolitan Museum of Art, “Chinese Calligraphy” (Dawn Delbanco, 2008)",
+              "url": "https://www.metmuseum.org/essays/chinese-calligraphy"
+            },
+            {
+              "en": "Calligraphy: from Greek words for beauty and writing",
+              "zh": "calligraphy：源自希臘文的「美」（kallos）與「寫」",
+              "src": "Merriam-Webster, “calligraphy”",
+              "url": "https://www.merriam-webster.com/dictionary/calligraphy"
+            },
+            {
+              "en": "書法 in the Ministry of Education dictionary: the method of writing with a brush; one of the traditional arts",
+              "zh": "書法：「毛筆字書寫的方法。…是我國傳統藝術之一。」",
+              "src": "教育部《重編國語辭典修訂本》「書法」",
+              "url": "https://dict.revised.moe.edu.tw/dictView.jsp?ID=133149"
+            },
+            {
+              "en": "The quill: the main writing instrument from the 6th to the mid-19th century; goose feathers were the principal source",
+              "zh": "羽毛筆：六世紀到十九世紀中期主要的書寫工具；主要用鵝毛",
+              "src": "Encyclopaedia Britannica, “quill”",
+              "url": "https://www.britannica.com/science/quill-feather"
+            },
+            {
+              "en": "“Scribes used quill pens made from feathers of a goose or swan.”",
+              "zh": "抄寫人用鵝或天鵝的羽毛做的羽毛筆",
+              "src": "J. Paul Getty Museum, “Making a Medieval Manuscript”",
+              "url": "https://www.getty.edu/news/making-a-medieval-manuscript-from-raw-materials-to-illuminated-masterpiece/"
+            },
+            {
+              "en": "Edward Johnston (1872–1944): credited with starting the modern calligraphic revival; Writing & Illuminating, & Lettering (1906); rediscovered how to make and use reeds and quills",
+              "zh": "愛德華・約翰斯頓（1872–1944）：現代書法復興的開創者；1906 年出版《Writing & Illuminating, & Lettering》；重新找回削蘆葦筆與羽毛筆的方法",
+              "src": "Encyclopaedia Britannica, “Edward Johnston”",
+              "url": "https://www.britannica.com/biography/Edward-Johnston"
+            },
+            {
+              "en": "Johnston's own explanation: with the nib's edge parallel to the writing line, the pen makes a horizontal thin stroke and a vertical thick stroke (p. 66)",
+              "zh": "約翰斯頓的說明：筆嘴的邊和書寫的橫線平行時，寫出橫細、豎粗的筆畫（第 66 頁）",
+              "src": "Edward Johnston, Writing & Illuminating, & Lettering (1906), Internet Archive",
+              "url": "https://archive.org/details/writingilluminat00johnrich"
+            },
+            {
+              "en": "Johnston and the lettering of the London Underground",
+              "zh": "約翰斯頓與倫敦地鐵的字體",
+              "src": "London Transport Museum",
+              "url": "https://www.ltmuseum.co.uk/collections/stories/people/edward-johnston-man-behind-londons-lettering"
+            },
+            {
+              "en": "Black letter (Gothic script): used for manuscript books across Europe from the end of the 12th century; uniform vertical strokes and angular lines",
+              "zh": "黑體字（哥德體）：十二世紀末起歐洲手抄本使用的字體；豎畫整齊一致、線條有稜有角",
+              "src": "Encyclopaedia Britannica, “black letter”",
+              "url": "https://www.britannica.com/topic/black-letter"
+            },
+            {
+              "en": "Copperplate: writing made with a flexible, pointed metal pen",
+              "zh": "銅版體（copperplate）：用有彈性的尖頭金屬筆寫的字",
+              "src": "Encyclopaedia Britannica, “round hand script”",
+              "url": "https://www.britannica.com/topic/round-hand-script"
+            },
+            {
+              "en": "The qalam: the reed pen still used in Arabic calligraphy, its tip sliced off at an angle",
+              "zh": "qalam：阿拉伯書法至今仍使用的蘆葦筆，筆尖斜切而成",
+              "src": "Encyclopaedia Britannica, “qalam”",
+              "url": "https://www.britannica.com/technology/qalam"
+            },
+            {
+              "en": "Taiwan's rules for the direction of Chinese text: vertical text top to bottom and right to left; horizontal text left to right",
+              "zh": "「中文直式書寫及排印，自上而下，自右而左。」「中文橫式書寫及排印，自左而右，自上而下。」",
+              "src": "教育部《中文書寫及排印方式統一規定》",
+              "url": "https://edu.law.moe.gov.tw/LawContent.aspx?id=GL000249"
+            },
+            {
+              "en": "Taiwan's English curriculum: write the 26 letters in print form (4-Ⅱ-1); recognize joined-up handwriting (3-Ⅳ-1)",
+              "zh": "十二年國教英語文領綱：4-Ⅱ-1「能書寫 26 個印刷體大小寫字母。」3-Ⅳ-1「能辨識連續書寫體大小寫字母。」",
+              "src": "國家教育研究院《十二年國民基本教育課程綱要 語文領域—英語文》（107 年）",
+              "url": "https://www.naer.edu.tw/upload/1/16/doc/812/(%E7%99%BC%E5%B8%83%E7%89%88)%E5%9C%8B%E6%B0%91%E4%B8%AD%E5%B0%8F%E5%AD%B8%E6%9A%A8%E6%99%AE%E9%80%9A%E5%9E%8B%E9%AB%98%E7%B4%9A%E4%B8%AD%E7%AD%89%E5%AD%B8%E6%A0%A1-%E8%AA%9E%E6%96%87%E9%A0%98%E5%9F%9F-%E8%8B%B1%E8%AA%9E%E6%96%87%E8%AA%B2%E7%A8%8B%E7%B6%B1%E8%A6%81.pdf"
+            }
+          ],
+          "sheets": {
+            "eyebrow": "Flat-Tipped Pens · 扁嘴的筆",
+            "en": "A book of psalms, a teacher's diagram, and a page from another tradition",
+            "zh": "一本詩篇、一位老師的圖解，和另一個傳統的一頁",
+            "lead_en": "Three real pages written or drawn with flat-tipped pens. In each one, look for the thick lines and the thin lines. Do they depend on direction?",
+            "lead_zh": "三頁真的東西，都和扁嘴的筆有關。在每一頁裡找找粗的線和細的線：粗細是不是跟著方向變？",
+            "items": [
+              {
+                "img": "/assets/img/calligraphy/pens-luttrell.jpg",
+                "w": 720,
+                "h": 512,
+                "alt_en": "Detail of a page of the Luttrell Psalter, in Gothic script",
+                "alt_zh": "勒特雷爾詩篇的一頁局部，哥德體",
+                "en": "The Luttrell Psalter, about 1325–1340",
+                "zh": "勒特雷爾詩篇，約 1325–1340 年",
+                "text_en": "A book of psalms made in England, written with a quill in Gothic script, also called black letter. Every downstroke is thick and dark, and the short strokes that join them are thin.",
+                "text_zh": "在英格蘭製作的一本詩篇，用羽毛筆寫的哥德體（又叫黑體字）。每一筆豎畫都又粗又黑，連接它們的短筆畫則很細。",
+                "credit_html": "British Library, Add MS 42130, f. 200r. <a href=\"https://commons.wikimedia.org/wiki/File:Luttrell_Psalter,_Add_MS_42130,_f._200r.png\" target=\"_blank\" rel=\"noopener\">Wikimedia Commons</a> (public domain; cropped). · 大英圖書館藏；維基共享資源（公有領域，經裁切）。"
+              },
+              {
+                "img": "/assets/img/calligraphy/pens-johnston.jpg",
+                "w": 720,
+                "h": 560,
+                "alt_en": "A diagram from Edward Johnston's 1906 book showing a nib and the thin horizontal and thick vertical strokes it makes",
+                "alt_zh": "愛德華・約翰斯頓 1906 年書中的圖解：筆嘴，以及它寫出的細橫線和粗豎線",
+                "en": "Edward Johnston's diagram, 1906",
+                "zh": "愛德華・約翰斯頓的圖解，1906 年",
+                "text_en": "Edward Johnston studied old manuscripts and taught people to cut and use reed and quill pens again. His book explains that when the nib's edge lies along the writing line, it makes a thin stroke across and a thick stroke down.",
+                "text_zh": "愛德華・約翰斯頓研究古老的手抄本，重新教大家怎麼削蘆葦筆和羽毛筆、怎麼用。他在書裡說明：筆嘴的邊和書寫的橫線平行時，橫的筆畫細、豎的筆畫粗。",
+                "credit_html": "Edward Johnston, <i>Writing &amp; Illuminating, &amp; Lettering</i> (1906), p. 66. <a href=\"https://archive.org/details/writingilluminat00johnrich\" target=\"_blank\" rel=\"noopener\">Internet Archive</a> (public domain). · 公有領域。"
+              },
+              {
+                "img": "/assets/img/calligraphy/pens-quran.jpg",
+                "w": 720,
+                "h": 512,
+                "alt_en": "Detail of a page of the Qur'an, 14th century",
+                "alt_zh": "十四世紀古蘭經的一頁局部",
+                "en": "A page of the Qur'an, 14th century",
+                "zh": "古蘭經的一頁，十四世紀",
+                "text_en": "Arabic calligraphy uses a reed pen called a qalam, whose tip is sliced off at an angle. It is an edged pen too, though the script runs from right to left.",
+                "text_zh": "阿拉伯書法用蘆葦削成的筆，叫 qalam，筆尖是斜斜切出來的。它也是一種有「邊」的硬筆，不過字是由右往左寫的。",
+                "credit_html": "The Metropolitan Museum of Art, 57.141. <a href=\"https://commons.wikimedia.org/wiki/File:Folio_Quran_Met_57.141.jpg\" target=\"_blank\" rel=\"noopener\">Wikimedia Commons</a> (public domain; cropped). · 大都會藝術博物館藏；維基共享資源（公有領域，經裁切）。"
+              }
+            ]
+          },
+          "tool": {
+            "eyebrow": "Game · 小遊戲",
+            "en": "Which Tool Made This Stroke?",
+            "zh": "這一筆是哪一種筆寫的？",
+            "lead_en": "Here is one stroke. Was it made with a brush or with a broad-edge pen? Look at the ends of the line, and at where it gets thick.",
+            "lead_zh": "這裡有一筆。它是毛筆寫的，還是平頭筆寫的？看看線的兩頭，再看看它在哪裡變粗。"
+          },
+          "nibpad": {
+            "eyebrow": "Practice Pad 1 · 練字板一",
+            "en": "Try the broad-edge pen",
+            "zh": "試試平頭筆",
+            "lead_en": "On this pad your line works like a broad-edge pen: speed and pressure do nothing, and only direction matters. Trace n, o, a, and then turn the nib with the slider.",
+            "lead_zh": "在這個練字板上，你的線就像平頭筆：快慢和輕重都沒有用，只有方向有用。描一描 n、o、a，再用滑桿轉一轉筆嘴。",
+            "tips": [
+              {
+                "en": "Draw a plus sign. Which line is thicker, the one down or the one across?",
+                "zh": "畫一個加號。直的那一條粗，還是橫的那一條粗？"
+              },
+              {
+                "en": "Draw a circle slowly and watch the line swell and thin by itself.",
+                "zh": "慢慢畫一個圓，看線自己變粗、變細。"
+              },
+              {
+                "en": "Find the direction that gives the thinnest line. It is the direction of the gold bar.",
+                "zh": "找出線最細的那個方向——就是金色短線的方向。"
+              }
+            ]
+          }
         }
       ],
       "planned": [
-        {
-          "n": 14,
-          "icon": "✒️",
-          "en": "How Is Chinese Calligraphy Different from Western Calligraphy?",
-          "zh": "中文書法和西洋書法有什麼不同？"
-        },
         {
           "n": 15,
           "icon": "✏️",

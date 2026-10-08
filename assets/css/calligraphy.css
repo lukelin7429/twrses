@@ -722,3 +722,29 @@ a.cg-link:hover { transform: translateY(-3px); box-shadow: var(--shadow); border
 .cg-order-grid button.ok { background: rgba(47,143,91,.16); color: #1f6b42; cursor: default; }
 .cg-order-grid button.no { background: rgba(214,72,60,.28); }
 @media (max-width: 480px) { .cg-order-paper { padding: 10px; } .cg-order-grid button { font-size: 1.25rem; } }
+
+/* =====================================================================
+   第十四課：中文書法和西洋書法（毛筆與平頭筆、方向 → 粗細、平頭筆練字板）
+   ===================================================================== */
+.cg-pens-live { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .5rem; margin: 0 0 .6rem; }
+.cg-pens-live dl { margin: 0; padding: .5rem .6rem; border-radius: 12px; border: 1px solid var(--al-line); grid-template-columns: minmax(0, 1fr); gap: .3rem; }
+.cg-pens-live .cg-pens-b { border-color: rgba(255,211,110,.5); }
+.cg-pens-live .cg-pens-p { border-color: rgba(143,211,234,.5); }
+.cg-pens-live dd { font-size: .92rem; }
+.cg-pens-rose-w { display: grid; grid-template-columns: 96px minmax(0, 1fr); gap: .7rem; align-items: center; margin: 0 0 .6rem; }
+.cg-pens-rose { display: block; width: 96px; height: 96px; }
+.cg-pens-rose-k { margin: 0; font-size: .74rem; line-height: 1.5; color: var(--al-text); }
+.cg-pens-rose-k .zh { display: block; color: var(--al-mute); font-family: var(--zh); }
+.cg-pens-lab .cg-pens-msg { min-height: 5.6em; }
+.cg-pens-lab .cg-sty-table thead th:first-of-type b { color: #ffd36e; }
+.cg-pens-lab .cg-sty-table thead th:last-of-type b { color: #8fd3ea; }
+/* 平頭筆練字板 */
+.cg-nibpad-deg-w { display: block; margin: .9rem 0 .6rem; font-weight: 800; font-size: .86rem; color: var(--ink); }
+.cg-nibpad-deg-w b { margin-left: .3rem; color: var(--brand-dk); font-variant-numeric: tabular-nums; }
+.cg-nibpad-deg-w input { display: block; width: 100%; margin-top: .4rem; accent-color: var(--brand); }
+.cg-nibpad-live { display: grid; grid-template-columns: 110px minmax(0, 1fr); gap: .9rem; align-items: center; margin: 0 0 .8rem; padding: .7rem .9rem; border-radius: 16px; background: #131b2c; }
+.cg-nibpad-rose { display: block; width: 110px; height: 110px; }
+.cg-nibpad-out { margin: 0; font-size: .9rem; line-height: 1.5; color: #e7ecf6; }
+.cg-nibpad-out b { color: #ffd36e; }
+.cg-nibpad-out .zh { display: block; font-family: var(--zh); color: #aab6cf; }
+@media (max-width: 480px) { .cg-nibpad-live { grid-template-columns: 84px minmax(0, 1fr); } .cg-nibpad-rose { width: 84px; height: 84px; } }
