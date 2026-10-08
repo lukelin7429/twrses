@@ -181,8 +181,14 @@
   - **嗡嗡聲檢查與一口氣碼表是 2D（`initBuzz`）**：sss／zzz／fff／vvv 各選有沒有震動；碼表留最近三次。
   - 查證：Wikipedia〈Vocal cords〉（在喉頭、氣管頂端；呼吸時張開、說話時振動；基頻男約 125 Hz、女約 210 Hz、兒童 300 Hz 以上；長度、大小、張力決定音高；把氣流切成一口一口）、〈Voice (phonetics)〉（s/z、f/v 有聲無聲配對、手指放喉頭可摸到 z 的震動、母音通常有聲）。NIDCD 的頁面只有影片與圖，抓不到文字。課文**沒有寫**「用氣音說話反而傷嗓子」（沒查到可引用的來源）。
   - 除錯 `__lab.setShape('ah'|'ee'|'oo'|'s'|'f')`、`setVoiced(bool)`、`setPitch(0–1)`、`setLoud(0–1)`、`setZoom(bool)`、`synth.on`、`state.hold = true`、`run(秒)`、`render()`。
+- 第十八課手（`hands.js`，`lab.kind = "hands"`，`data-hands-lab`，CSS 前綴 `hd-`）：真實的右前臂（橈骨、尺骨）與右手 27 塊骨頭，其餘骨頭隱藏。骨頭先照原座標放進 `armG` 做關節，再放進 `flip`：`flip.quaternion` 把手的三軸 A（往拇指側）／L（往指尖）／N（手掌朝向）轉到 +X／+Y／+Z、手腕在原點——**三軸是從骨頭算的**（L＝頭狀骨→中指末節、A＝第五掌骨→第二掌骨對 L 正交化、N＝A×L；原始姿勢手是斜垂的，直接繞 Z 轉 180° 手指會朝鏡頭傾 27°）。關節中心＝相鄰兩骨端點（沿骨頭方向最末 15% 頂點平均）的中點；四指三個巢狀 pivot 繞 A 轉正角＝彎曲，大拇指腕掌關節＝繞 −L（對掌）× 繞 N（彎曲）、掌指與指間繞 N。
+  - 肌腱（屈肌橘、伸肌藍）是「掛在各節骨頭／各個 pivot 上的錨點（空的 Object3D）」連成的 CatmullRom 管子，手指一動就重建十條（`rebuildTendons`）；肌肉（前臂掌側、背側、拇指根部）是橢球，`fAct`／`eAct` 讓它變亮變粗（握著＝持續用力，張開的瞬間伸肌亮一下）。
+  - 手勢 `POSES`（open／fist／pinch／point／thumb）與「拉一條肌腱」（`state.pulled`，五根手指各自切換，會把手勢重設為張開）。**捏的角度是在瀏覽器裡用格點搜尋讓拇指尖和食指尖距離最小調出來的**（3 mm）：拇指 [0.97, −0.2, 0, 0.5]、食指 [0.75, 0.65, 0.35]。「數骨頭」三個按鈕把腕骨 8／掌骨 5／指骨 14 上色；「把手翻過來」鏡頭繞著手轉到背面（不直直穿過去）。骨頭數的標籤只在手張開時顯示。
+  - **拇指挑戰計時卡是 2D（`initThumb`）**：三件事 × 用拇指／貼住拇指，點格子開始、再點停止，算出慢幾倍；不存檔。
+  - 查證：Wikipedia〈Hand〉（27 塊＝腕骨 8＋掌骨 5＋指骨 14、拇指兩節；外在肌的肌腹在前臂、手指本身沒有肌肉；對掌的定義；指尖是全身神經末梢最密的地方之一；power grip／precision grip；食指比較能獨立活動）、〈Handedness〉（全球約 90% 右撇子）。scale 說明寫明：真正的前臂約二十條肌肉、多數手指有兩條屈肌腱、關節軸沒這麼單純。
+  - 除錯 `__lab.setPose(名稱)`、`pull('f1'…'f5', bool)`、`setGroup('wrist'|'palm'|'fingers')`、`setBack(bool)`、`F[fk].tgt`（直接寫角度後 `render()`）、`F[fk].tip.getWorldPosition()`、`AX`、`state.hold = true`、`run(秒)`、`render()`。
 - **多個 session 同時改這個 repo 時，一律在自己的 git worktree 裡做**（2026-10-09 起）：`git worktree add -b <分支> <scratchpad>/wt origin/main`，把 `tools/<系列>/node_modules`、`audio` 用 symlink 接過來、複製 `tools/.r2_uploaded_cache.txt`；預覽在 vault 的 `.claude/launch.json` 加一筆 `python3 -m http.server <port> --directory <worktree>`；做完 `git fetch && git rebase origin/main && git push origin HEAD:main`。原因：未提交的 `data/*.json` 會讓別的 session 的 `python3 build.py` 直接失敗，共用的 `build.py` 也曾被另一個 session 的腳本誤清空。改檔案的腳本要**先讀完、算好、最後才 `open(p, 'w')`**，不要寫成 `open(p,'w').write(f(open(p).read()))`。
-- 第四批（第 13–16 課：腎臟、味覺與嗅覺、睡眠、長高）規劃在 Obsidian 課程規劃第九節，四課已全部完成（2026-10-05）。第五批（第 17–20 課：說話、手、修復、運動）規劃在第十節，2026-10-09 定案；`planned[]` 放著還沒做的 18–20 課，做一課移掉一筆。
+- 第四批（第 13–16 課：腎臟、味覺與嗅覺、睡眠、長高）規劃在 Obsidian 課程規劃第九節，四課已全部完成（2026-10-05）。第五批（第 17–20 課：說話、手、修復、運動）規劃在第十節，2026-10-09 定案；`planned[]` 放著還沒做的 19–20 課，做一課移掉一筆。
 - 網站 `html` 有 smooth scroll：在背景的瀏覽器面板裡捲動會慢好幾秒，截圖前先設 `document.documentElement.style.scrollBehavior='auto'`。
 - 第二課起的共用工具在 `tools/body/src/common.js`（`loadBones`、`labeler`、`lazyBoot`）；卡片上的「在模型中看」按鈕用 `data-lab-<動作>="值"`。
   - 除錯：`document.querySelector('[data-skeleton-lab]').__lab`（`goJob`、`goRegion`、`setApart`、`startCount`、`stepCount(i)`、`render()`）。背景分頁 rAF 會降到每秒一兩格，截圖前用 `stepCount` 直接跳步。

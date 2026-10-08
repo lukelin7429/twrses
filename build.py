@@ -4317,7 +4317,7 @@ def build_astro_hub():
 # 面板與段落樣式沿用 astro.css，人體專屬的在 body.css；兩者都只載在本系列頁面。
 BODY_BASE = "/resources/classes/human-body/"
 _BODY_JS = {"skeleton": "skeleton", "arm": "arm", "heart": "heart", "lungs": "lungs", "joints": "joints",
-            "digestion": "digestion", "nerves": "nerves", "eyes": "eyes", "ears": "ears", "skin": "skin", "teeth": "teeth", "germs": "germs", "kidneys": "kidneys", "taste": "taste", "sleep": "sleep", "growth": "growth", "voice": "voice"}   # lab.kind → assets/js/<bundle>.js
+            "digestion": "digestion", "nerves": "nerves", "eyes": "eyes", "ears": "ears", "skin": "skin", "teeth": "teeth", "germs": "germs", "kidneys": "kidneys", "taste": "taste", "sleep": "sleep", "growth": "growth", "voice": "voice", "hands": "hands"}   # lab.kind → assets/js/<bundle>.js
 
 def _body_ver():
     h = hashlib.md5()
@@ -5395,6 +5395,69 @@ def render_voice_lab(lesson):
   <p class="sk-credit">{lab["credit_html"]}</p>
 </div>'''
 
+def render_hands_lab(lesson):
+    """第十八課：真實的右前臂與右手骨頭＋自繪肌腱與肌肉（assets/js/hands.js 綁這裡的 class）；拇指挑戰計時卡是 2D，不需要 WebGL。"""
+    lab = lesson["lab"]
+    poses_json = html.escape(json.dumps(lab["poses"], ensure_ascii=False))
+    poses = "".join(
+        f'<button type="button" data-pose="{p["key"]}" aria-pressed="{"true" if n == 0 else "false"}"><i aria-hidden="true">{p["icon"]}</i>'
+        f'<span>{html.escape(p["en"])}<small>{html.escape(p["zh"])}</small></span></button>' for n, p in enumerate(lab["poses"]))
+    fingers = "".join(
+        f'<button type="button" data-finger="{f["key"]}" data-en="{html.escape(f["en"])}" data-zh="{html.escape(f["zh"])}" aria-pressed="false">{html.escape(f["en"])}<small>{html.escape(f["zh"])}</small></button>'
+        for f in lab["fingers"])
+    groups = "".join(f'<button type="button" data-group="{k}" aria-pressed="false"><b>{n}</b>{en}<small>{zh}</small></button>'
+                     for k, n, en, zh in [("wrist", 8, "wrist", "手腕"), ("palm", 5, "palm", "手掌"), ("fingers", 14, "fingers", "手指")])
+    def task(k, icon, en, zh):
+        cell = lambda c, a, b: (f'<button type="button" class="hd-cell" data-task="{k}" data-cond="{c}" aria-pressed="false" aria-label="{en}: {a} · {zh}：{b}"><b>—</b></button>')
+        return (f'<div class="hd-task" data-task="{k}" data-name="{en}" data-zh="{zh}"><p class="hd-name"><i aria-hidden="true">{icon}</i><span>{en}<small>{zh}</small></span></p>'
+                f'{cell("with", "with thumb", "用大拇指")}{cell("without", "thumb taped", "貼住大拇指")}<p class="hd-x">—</p></div>')
+    tg = _lab_toggles([("labels", "Labels", "標示", True), ("tendons", "Tendons", "肌腱", True), ("muscles", "Muscles", "肌肉", True)])
+    return f'''<div class="astro-lab sk-lab hd-lab rvl" data-hands-lab data-model="{_model_url()}" data-poses="{poses_json}">
+  <div class="al-stage">
+    <div class="al-space">
+      <canvas class="al-space-cv" aria-label="3D model of the real bones of a right hand and forearm, with tendons running from forearm muscles to the fingertips · 真實右手與前臂骨頭的 3D 模型，肌腱從前臂的肌肉一路連到指尖"></canvas>
+      <div class="al-labels" aria-hidden="true"></div>
+      <p class="sk-loading">Loading… · 載入中…<span class="sk-bar"><i></i></span></p>
+      <p class="al-hint">Drag to turn · 拖曳旋轉　Scroll or pinch to zoom · 滾輪／雙指縮放</p>
+      <p class="ey-mag">A right hand, palm toward you · 右手，手掌朝著你</p>
+      <button type="button" class="al-home" title="Reset view · 重設視角" aria-label="Reset view · 重設視角">&#8634;</button>
+      <p class="al-nogl-msg">This 3D model needs WebGL, which this browser does not support. The timer card and the cards below still work.<br><span class="zh">這個瀏覽器不支援 WebGL，無法顯示 3D 模型；下方的計時卡和卡片一樣能用。</span></p>
+    </div>
+    <aside class="al-sky sk-aside hd-aside">
+      <p class="al-sky-k">Count the bones · 數骨頭</p>
+      <div class="hd-groups" role="group" aria-label="Bone groups · 骨頭分組">{groups}</div>
+      <p class="hd-sum">8 + 5 + 14 = <b>27</b> bones in one hand<small>一隻手 27 塊骨頭；點上面的數字，看是哪幾塊</small></p>
+      <p class="al-sky-k">Muscles at work · 正在用力的肌肉</p>
+      <div class="hd-meters">
+        <div class="hd-m hd-m-flex"><span>Bending<small>彎曲（掌側）</small></span><b><i></i></b></div>
+        <div class="hd-m hd-m-ext"><span>Straightening<small>伸直（背側）</small></span><b><i></i></b></div>
+      </div>
+      <p class="ey-status hd-status" aria-live="polite"></p>
+      <button type="button" class="hd-turn" aria-pressed="false"><i aria-hidden="true">&#128260;</i><span>Turn the hand over<small>把手翻過來</small></span></button>
+    </aside>
+  </div>
+  <div class="hd-strip">
+    <div class="hd-card">
+      <p class="al-sky-k">Thumb challenge · 拇指挑戰</p>
+      <div class="hd-head" aria-hidden="true"><span></span><span>&#128077; With thumb<small>用大拇指</small></span><span>&#129657; Thumb taped<small>貼住大拇指</small></span><span>Slower<small>慢幾倍</small></span></div>
+      {task("write", "&#9999;&#65039;", "Write your name", "寫名字")}{task("coins", "&#129689;", "Pick up 5 coins", "撿 5 個硬幣")}{task("button", "&#128085;", "Button one button", "扣一顆鈕扣")}
+      <button type="button" class="hd-clear">Clear<small>清除</small></button>
+    </div>
+    <div class="hd-result">
+      <p class="al-sky-k">What we found · 我們的發現</p>
+      <p class="hd-msg" aria-live="polite"></p>
+      <p class="hd-note">Use paper tape, keep it loose, and take it off if anything hurts or tingles.<span class="zh">請用紙膠帶，貼鬆一點；會痛或覺得麻就馬上撕掉。</span></p>
+    </div>
+  </div>
+  <div class="al-controls">
+    <div class="ea-pres hd-poses" role="group" aria-label="Hand shapes · 手勢">{poses}</div>
+    <div class="hd-pullrow"><p class="hd-pull-k">Pull one tendon · 拉一條肌腱</p><div class="hd-fingers" role="group" aria-label="Pull one tendon · 拉一條肌腱">{fingers}</div></div>
+    <div class="al-row al-toggles">{tg}</div>
+  </div>
+  {_lab_foot(lab)}
+  <p class="sk-credit">{lab["credit_html"]}</p>
+</div>'''
+
 def _body_nav(slug):
     ls = BODY["lessons"]
     i = next(n for n, l in enumerate(ls) if l["slug"] == slug)
@@ -5422,7 +5485,7 @@ def build_body_lesson(lesson):
                 "joints": render_joints_lab, "digestion": render_digestion_lab, "nerves": render_nerves_lab,
                 "eyes": render_eyes_lab, "ears": render_ears_lab, "skin": render_skin_lab,
                 "teeth": render_teeth_lab, "germs": render_germs_lab, "kidneys": render_kidneys_lab,
-                "taste": render_taste_lab, "sleep": render_sleep_lab, "growth": render_growth_lab, "voice": render_voice_lab}[kind](lesson)
+                "taste": render_taste_lab, "sleep": render_sleep_lab, "growth": render_growth_lab, "voice": render_voice_lab, "hands": render_hands_lab}[kind](lesson)
 
     secs = []
     if lesson.get("jobs"):
@@ -5532,7 +5595,8 @@ def build_body_lesson(lesson):
                 "taste": ("Taste and smell in a sentence", "一句話記住味覺和嗅覺"),
                 "sleep": ("Sleep in a sentence", "一句話記住睡眠"),
                 "growth": ("Growing taller in a sentence", "一句話記住長高"),
-                "voice": ("Your voice in a sentence", "一句話記住聲音")}[kind]
+                "voice": ("Your voice in a sentence", "一句話記住聲音"),
+                "hands": ("Your hands in a sentence", "一句話記住手")}[kind]
     secs.append(("tricks", "Remember It · 記憶口訣", tricks_h[0], tricks_h[1], _sci_tricks(lesson), ""))
     if lesson.get("culture"):
         cu = lesson["culture"]

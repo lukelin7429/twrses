@@ -16,11 +16,6 @@
   ],
   "planned": [
     {
-      "icon": "🖐️",
-      "en": "Why Are Your Hands So Clever?",
-      "zh": "手為什麼這麼靈巧？"
-    },
-    {
       "icon": "🩹",
       "en": "How Does Your Body Fix Itself?",
       "zh": "身體怎麼修好自己？"
@@ -7973,6 +7968,495 @@
       },
       "health_en": "This lesson is for learning about the body. It is not medical advice. Be kind to your voice: drink water, and do not shout for a long time. Touch your throat only gently. If your voice stays hoarse for a few weeks, or if it hurts to speak, tell an adult.",
       "health_zh": "本課是認識身體的教材，不是醫療建議。請愛護你的嗓子：多喝水，不要長時間大喊。摸喉嚨的時候只要輕輕地放著。如果聲音沙啞了好幾個星期，或是說話會痛，請告訴大人。"
+    },
+    {
+      "n": 18,
+      "slug": "hands",
+      "title": "Why Are Your Hands So Clever?",
+      "title_zh": "手為什麼這麼靈巧？",
+      "level": "入門 · Beginner",
+      "icon": "🖐️",
+      "card": "hands",
+      "blurb_en": "Each hand has 27 bones, but the muscles that bend your fingers are up in your forearm. Pull the “strings” of a real 3D hand, make a fist and a pinch, and test what your thumb can do.",
+      "blurb_zh": "每隻手有 27 塊骨頭，可是彎手指的肌肉卻在前臂。在 3D 裡拉拉真實手骨的「線」，握拳、捏東西，再測測你的大拇指有多厲害。",
+      "big_idea_en": "Your fingers have no muscles of their own. Muscles in your forearm pull on long tendons, like strings on a puppet, and your thumb can touch every other finger.",
+      "big_idea_zh": "手指裡面沒有肌肉：前臂的肌肉拉著長長的肌腱，像拉木偶的線；而大拇指碰得到其他每一根手指。",
+      "lab": {
+        "kind": "hands",
+        "eyebrow": "3D Model · 3D 模型",
+        "title_en": "Pull the Strings",
+        "title_zh": "拉拉看這些線",
+        "how_en": "This is a real right hand and forearm, held up with the palm toward you. The orange strings are tendons. Each one runs from a muscle in the forearm, through the wrist, and out to a fingertip. Tap a finger to pull its tendon and watch only that finger curl. Then try the hand shapes: a fist, a pinch, a point, and a thumbs-up. Turn the hand over to see the tendons on the back, the ones that open your hand again.",
+        "how_zh": "這是一隻真實的右手和前臂，舉起來、手掌朝著你。橘色的線是肌腱：每一條都從前臂的肌肉出發，穿過手腕，一路到指尖。點一根手指，拉它的肌腱，看看是不是只有那根手指彎起來。然後試試幾個手勢：握拳、捏、指、比讚。把手翻過來，看手背上的肌腱——把手重新張開的就是它們。",
+        "legend": [
+          {
+            "cls": "hdflex",
+            "en": "Orange strings: tendons that bend the fingers",
+            "zh": "橘色的線：彎手指的肌腱"
+          },
+          {
+            "cls": "hdext",
+            "en": "Blue strings: tendons that straighten them",
+            "zh": "藍色的線：伸直手指的肌腱"
+          },
+          {
+            "cls": "hdmus",
+            "en": "Red: muscles (brighter when they pull)",
+            "zh": "紅色：肌肉（用力時變亮）"
+          },
+          {
+            "cls": "hdbone",
+            "en": "Ivory: the real bones",
+            "zh": "象牙色：真實的骨頭"
+          }
+        ],
+        "scale_en": "The bones are real shapes from BodyParts3D; the tendons and muscles are our own drawing, and there are far fewer of them than in a real arm. A real forearm has about twenty muscles, and most fingers have two bending tendons, not one. The small muscles inside the palm are shown only at the base of the thumb. Real finger joints do not bend around one simple line, so the fist here is a little stiffer than yours.",
+        "scale_zh": "骨頭是 BodyParts3D 的真實形狀；肌腱和肌肉是本站自繪的示意圖，數量比真正的手臂少得多：真正的前臂大約有二十條肌肉，大部分的手指有兩條負責彎曲的肌腱，不是一條。手掌裡的小肌肉只畫了大拇指根部那一塊。真正的指關節並不是繞著一條簡單的直線彎，所以這裡的拳頭比你的僵硬一點。",
+        "credit_html": "Bone models: <a href=\"https://dbarchive.biosciencedbc.jp/en/bodyparts3d/download.html\" target=\"_blank\" rel=\"noopener\">BodyParts3D</a>, © The Database Center for Life Science, licensed under <a href=\"https://creativecommons.org/licenses/by/4.0/\" target=\"_blank\" rel=\"noopener\">CC BY 4.0</a>. We selected the bones of the right forearm and hand, simplified the shapes, and added joints so the fingers can bend; the tendons and muscles are our own drawing. · 骨骼模型來源：BodyParts3D（日本生命科學資料庫中心，CC BY 4.0 授權）；本站挑選右前臂與右手的骨頭、簡化形狀，並加上關節讓手指能彎，肌腱與肌肉為本站自繪示意。",
+        "poses": [
+          {
+            "key": "open",
+            "icon": "🖐️",
+            "en": "Open hand",
+            "zh": "張開",
+            "text_en": "Open hand. The muscles on the back of the forearm pull the blue tendons, and the fingers straighten.",
+            "text_zh": "張開手。前臂背面的肌肉拉動藍色的肌腱，手指就伸直了。"
+          },
+          {
+            "key": "fist",
+            "icon": "✊",
+            "en": "Fist",
+            "zh": "握拳",
+            "text_en": "A fist. All the bending muscles pull at once. This is the power grip, the one you use on a bat or a heavy bag.",
+            "text_zh": "握拳。所有負責彎曲的肌肉一起拉。這是「力量型的握法」，握球棒或提重袋子時用的就是它。"
+          },
+          {
+            "key": "pinch",
+            "icon": "🤏",
+            "en": "Pinch",
+            "zh": "捏",
+            "text_en": "A pinch. The thumb swings across the palm to meet the index finger, pad to pad. This is the precision grip, for a pencil, a needle, or a grain of rice.",
+            "text_zh": "捏。大拇指橫過手掌，和食指的指腹碰在一起。這是「精細型的握法」，拿鉛筆、針，或是一粒米時用的。"
+          },
+          {
+            "key": "point",
+            "icon": "👉",
+            "en": "Point",
+            "zh": "指",
+            "text_en": "Pointing. The index finger has more freedom than the others, so it can stay straight while the rest curl.",
+            "text_zh": "用手指。食指比其他手指更能單獨行動，所以其他手指彎起來時，它可以保持伸直。"
+          },
+          {
+            "key": "thumb",
+            "icon": "👍",
+            "en": "Thumbs-up",
+            "zh": "比讚",
+            "text_en": "Thumbs-up. The thumb has its own muscles and its own special joint, so it can do the opposite of the four fingers.",
+            "text_zh": "比讚。大拇指有自己的肌肉和一個特別的關節，所以能做出和其他四根手指相反的動作。"
+          }
+        ],
+        "fingers": [
+          {
+            "key": "f1",
+            "en": "Thumb",
+            "zh": "大拇指"
+          },
+          {
+            "key": "f2",
+            "en": "Index",
+            "zh": "食指"
+          },
+          {
+            "key": "f3",
+            "en": "Middle",
+            "zh": "中指"
+          },
+          {
+            "key": "f4",
+            "en": "Ring",
+            "zh": "無名指"
+          },
+          {
+            "key": "f5",
+            "en": "Little",
+            "zh": "小指"
+          }
+        ]
+      },
+      "paras": [
+        "Wiggle your fingers and watch the back of your hand. Do you see thin cords moving under the skin? Now hold your forearm with your other hand and wiggle again. You can feel muscles working near your elbow, far away from your fingers. Your hand is one of the cleverest tools in nature, and it works a little like a puppet.",
+        "Start with the bones. One hand has 27 of them: 8 small bones in the wrist, 5 in the palm, and 14 in the fingers. Each finger has three bones, but the thumb has only two. With so many bones and joints, your hand can wrap around a ball, fit into a glove, or flatten out to clap.",
+        "Now the surprise. There are no muscles in your fingers. The muscles that bend and straighten them are in your forearm, and they are joined to your finger bones by long, strong cords called tendons. When a forearm muscle gets shorter, it pulls its tendon, and the tendon pulls the finger, like the string of a puppet. That is why your fingers can be thin and quick: the heavy engines are kept somewhere else. The palm does have some small muscles of its own, for spreading the fingers and for moving the thumb.",
+        "The thumb is the star. At its base is a joint shaped like a saddle, which lets the thumb swing across the palm. It can touch the tip of every other finger. This is called an opposable thumb. Try it now: thumb to index finger, middle finger, ring finger, and little finger. Without that move, you could not hold a pencil, turn a key, or button a shirt.",
+        "Your hand has two main ways to hold things. In a power grip, all the fingers wrap around something and squeeze, as when you hold a bat or carry a bucket. In a precision grip, the thumb presses against the fingertips, as when you pick up a coin or thread a needle. Your hand switches between the two without your having to think about it.",
+        "A hand is not only for holding. Your fingertips have more nerve endings packed into them than almost any other part of your body, so they can feel a single hair or read the dots of braille. Most people use one hand more than the other: about nine people in ten are right-handed. Left-handed or right-handed, your hands learn from practice. Now tape down your thumb and try the thumb challenge below the model."
+      ],
+      "paras_zh": [
+        "動一動手指，看看你的手背。有沒有看到皮膚底下有細細的條索在動？現在用另一隻手握住前臂，再動一動手指：你會感覺到靠近手肘的地方有肌肉在用力，離手指好遠。手是大自然裡最靈巧的工具之一，而它運作的方式有點像提線木偶。",
+        "先從骨頭說起。一隻手有 27 塊骨頭：手腕 8 塊小骨頭，手掌 5 塊，手指 14 塊。每根手指有三節骨頭，只有大拇指是兩節。有這麼多骨頭和關節，手才能包住一顆球、套進手套，或是攤平了拍手。",
+        "接下來是驚喜：手指裡面沒有肌肉。負責彎曲和伸直手指的肌肉在前臂，靠著又長又結實的條索連到指骨上，這些條索叫做肌腱。前臂的肌肉一縮短，就拉動它的肌腱，肌腱再拉動手指——就像木偶的線。所以你的手指才能又細又靈活：笨重的引擎放在別的地方。手掌裡倒是有一些自己的小肌肉，負責把手指張開，以及移動大拇指。",
+        "大拇指是主角。它的根部有一個形狀像馬鞍的關節，讓大拇指能橫過手掌，碰到其他每一根手指的指尖——這叫做「可以對掌的拇指」。現在就試試：大拇指碰食指、中指、無名指、小指。少了這個動作，你就沒辦法握鉛筆、轉鑰匙，或是扣鈕扣。",
+        "手拿東西主要有兩種方式。「力量型的握法」是所有手指包住東西、用力握緊，例如握球棒或提水桶。「精細型的握法」是大拇指抵著指尖，例如撿硬幣或穿針。你的手會在這兩種握法之間自動切換，根本不用你去想。",
+        "手不只是用來拿東西。指尖裡擠滿了神經末梢，比身體幾乎任何其他地方都密，所以摸得出一根頭髮，也讀得出點字。大多數人比較常用其中一隻手：大約每十個人裡有九個是右撇子。不管你是左撇子還是右撇子，手都是越練越巧的。現在把大拇指貼起來，試試模型下方的拇指挑戰。"
+      ],
+      "questions": [
+        "How many bones are in one hand, and where are they?",
+        "Where are the muscles that bend your fingers, and how do they reach the fingers?",
+        "What is the difference between a power grip and a precision grip?"
+      ],
+      "answers": [
+        "There are 27: 8 in the wrist, 5 in the palm, and 14 in the fingers.",
+        "They are in the forearm. Long cords called tendons join them to the finger bones.",
+        "In a power grip, all the fingers wrap around something and squeeze. In a precision grip, the thumb presses against the fingertips."
+      ],
+      "vocab": [
+        {
+          "n": 1,
+          "w": "wrist",
+          "pos": "n.",
+          "zh": "手腕",
+          "ex": "She wears a watch on her left <b>wrist</b>.",
+          "exzh": "她把手錶戴在左手腕上。"
+        },
+        {
+          "n": 2,
+          "w": "palm",
+          "pos": "n.",
+          "zh": "手掌",
+          "ex": "Hold the coin in your <b>palm</b>.",
+          "exzh": "把硬幣放在手掌上。"
+        },
+        {
+          "n": 3,
+          "w": "thumb",
+          "pos": "n.",
+          "zh": "大拇指",
+          "ex": "He gave me a <b>thumbs</b>-up.",
+          "exzh": "他對我比了一個讚。"
+        },
+        {
+          "n": 4,
+          "w": "tendon",
+          "pos": "n.",
+          "zh": "肌腱",
+          "ex": "A <b>tendon</b> joins a muscle to a bone.",
+          "exzh": "肌腱把肌肉連到骨頭上。"
+        },
+        {
+          "n": 5,
+          "w": "grip",
+          "pos": "n.",
+          "zh": "握；握法",
+          "ex": "Keep a firm <b>grip</b> on the rope.",
+          "exzh": "把繩子握緊。"
+        },
+        {
+          "n": 6,
+          "w": "pinch",
+          "pos": "v.",
+          "zh": "捏",
+          "ex": "<b>Pinch</b> the clay between your thumb and finger.",
+          "exzh": "用大拇指和手指捏住黏土。"
+        },
+        {
+          "n": 7,
+          "w": "fist",
+          "pos": "n.",
+          "zh": "拳頭",
+          "ex": "Make a <b>fist</b>, and then open your hand.",
+          "exzh": "握拳，然後把手張開。"
+        },
+        {
+          "n": 8,
+          "w": "fingertip",
+          "pos": "n.",
+          "zh": "指尖",
+          "ex": "I can feel the bumps with my <b>fingertips</b>.",
+          "exzh": "我用指尖摸得出那些小突起。"
+        }
+      ],
+      "quiz": [
+        {
+          "q": "How many bones are in one hand?",
+          "options": [
+            "27",
+            "5",
+            "14",
+            "206"
+          ],
+          "correct": 0
+        },
+        {
+          "q": "Where are the muscles that bend your fingers?",
+          "options": [
+            "In your forearm",
+            "Inside each finger",
+            "In your shoulder",
+            "In your fingertips"
+          ],
+          "correct": 0
+        },
+        {
+          "q": "What joins a muscle to a bone?",
+          "options": [
+            "A tendon",
+            "A nerve",
+            "A fingernail",
+            "A growth plate"
+          ],
+          "correct": 0
+        },
+        {
+          "q": "What can an opposable thumb do?",
+          "options": [
+            "Touch the tip of every other finger",
+            "Bend backward to the wrist",
+            "Move without any muscles",
+            "Grow faster than the fingers"
+          ],
+          "correct": 0
+        },
+        {
+          "q": "According to the reading, which is a precision grip?",
+          "options": [
+            "Picking up a coin",
+            "Holding a bat",
+            "Carrying a bucket",
+            "Clapping your hands"
+          ],
+          "correct": 0
+        }
+      ],
+      "kinds_head": {
+        "eyebrow": "Parts of a Hand · 手的零件",
+        "en": "What makes a hand work",
+        "zh": "手靠什麼運作"
+      },
+      "kinds": [
+        {
+          "icon": "🦴",
+          "en": "27 bones",
+          "zh": "27 塊骨頭",
+          "where_en": "8 in the wrist, 5 in the palm, 14 in the fingers",
+          "where_zh": "手腕 8、手掌 5、手指 14",
+          "control_en": "Give the hand its shape",
+          "control_zh": "給手一個形狀",
+          "text_en": "Your two hands hold 54 of your 206 bones, more than a quarter of them.",
+          "text_zh": "兩隻手一共 54 塊骨頭，占了全身 206 塊的四分之一以上。"
+        },
+        {
+          "icon": "🧵",
+          "en": "Tendons",
+          "zh": "肌腱",
+          "where_en": "From the forearm, through the wrist, to the fingers",
+          "where_zh": "從前臂、穿過手腕，到手指",
+          "control_en": "Pull the finger bones",
+          "control_zh": "拉動指骨",
+          "text_en": "Strong cords that do not stretch. You can see some of them on the back of your hand when you spread your fingers.",
+          "text_zh": "結實、不會伸長的條索。把手指張開，在手背上就看得到其中幾條。"
+        },
+        {
+          "icon": "💪",
+          "en": "Forearm muscles",
+          "zh": "前臂的肌肉",
+          "where_en": "Between your elbow and your wrist",
+          "where_zh": "手肘和手腕之間",
+          "control_en": "Bend and straighten the fingers",
+          "control_zh": "彎曲、伸直手指",
+          "text_en": "Muscles on the palm side bend the fingers. Muscles on the back straighten them.",
+          "text_zh": "手掌那一面的肌肉負責彎手指，背面的肌肉負責伸直。"
+        },
+        {
+          "icon": "👍",
+          "en": "Thumb",
+          "zh": "大拇指",
+          "where_en": "On the side of your hand, with a saddle joint at its base",
+          "where_zh": "在手的側邊，根部有一個鞍狀關節",
+          "control_en": "Touches every other finger",
+          "control_zh": "碰得到其他每一根手指",
+          "text_en": "It has only two bones, but its own set of muscles. Most of the ways you hold things need it.",
+          "text_zh": "它只有兩節骨頭，卻有自己的一組肌肉。你拿東西的方式，大部分都少不了它。"
+        },
+        {
+          "icon": "✨",
+          "en": "Fingertips",
+          "zh": "指尖",
+          "where_en": "At the end of each finger",
+          "where_zh": "每根手指的末端",
+          "control_en": "Feel the world",
+          "control_zh": "感覺這個世界",
+          "text_en": "Packed with nerve endings, and backed by a fingernail so that you can press on small things.",
+          "text_zh": "擠滿了神經末梢，背後還有指甲撐著，讓你能壓住很小的東西。"
+        }
+      ],
+      "kinds_note_en": "Think of a puppet: the hands that move it are high above the stage, and thin strings do the rest. Your forearm is the puppeteer, and your fingers are the puppet.",
+      "kinds_note_zh": "把它想成提線木偶：操縱它的手高高在舞台上方，其餘的全靠細細的線。你的前臂是操偶師，手指就是木偶。",
+      "measure": {
+        "title_en": "The thumb challenge",
+        "title_zh": "拇指挑戰",
+        "lead_en": "How much do you need your thumb? Time three small jobs with your thumb, and then with your thumb taped down. Use the timer card below the model.",
+        "lead_zh": "你有多需要大拇指？先正常做三件小事並計時，再把大拇指貼起來做一次。用模型下方的計時卡。",
+        "steps": [
+          {
+            "n": "👍",
+            "en": "With your thumb",
+            "zh": "用大拇指",
+            "text_en": "Do each job as you always do: write your name, pick up five coins one at a time, and button one button. Tap the card to start and stop the timer.",
+            "text_zh": "照平常的方式做每一件事：寫自己的名字、一次一個撿起五個硬幣、扣一顆鈕扣。點卡片開始計時，再點一次停止。"
+          },
+          {
+            "n": "🩹",
+            "en": "Tape it down",
+            "zh": "把它貼起來",
+            "text_en": "Ask a partner to tape your thumb gently against the side of your palm with paper tape. It should not hurt, and it should come off easily.",
+            "text_zh": "請同伴用紙膠帶把你的大拇指輕輕貼在手掌側邊。不應該會痛，也要能輕鬆撕下來。"
+          },
+          {
+            "n": "×",
+            "en": "Compare",
+            "zh": "比一比",
+            "text_en": "Do the same three jobs again and time them. The card shows how many times slower you were. Which job was the hardest?",
+            "text_zh": "同樣的三件事再做一次並計時。卡片會算出你慢了幾倍。哪一件事最難？"
+          }
+        ],
+        "action": "test",
+        "action_value": "1",
+        "button_icon": "👍",
+        "button_en": "Open the timer card",
+        "button_zh": "打開計時卡"
+      },
+      "myths": [
+        {
+          "myth_en": "Your fingers are full of muscles.",
+          "myth_zh": "手指裡面都是肌肉。",
+          "fact_en": "There are no muscles in the fingers. Forearm muscles move them by pulling on tendons, and small muscles in the palm help.",
+          "fact_zh": "手指裡沒有肌肉。前臂的肌肉拉著肌腱來移動它們，手掌裡的小肌肉從旁幫忙。"
+        },
+        {
+          "myth_en": "The thumb is just a short finger.",
+          "myth_zh": "大拇指只是比較短的手指。",
+          "fact_en": "The thumb has two bones instead of three, its own muscles, and a saddle joint that lets it swing across the palm.",
+          "fact_zh": "大拇指只有兩節骨頭（不是三節），有自己的肌肉，還有一個鞍狀關節，讓它能橫過手掌。"
+        },
+        {
+          "myth_en": "Left-handed people are very rare.",
+          "myth_zh": "左撇子非常少見。",
+          "fact_en": "About one person in ten is left-handed. In a class of thirty, that is likely to be about three students.",
+          "fact_zh": "大約每十個人就有一個是左撇子。一個三十人的班級裡，大概會有三位。"
+        },
+        {
+          "myth_en": "Strong hands come from big hands.",
+          "myth_zh": "手大，握力才會大。",
+          "fact_en": "Grip strength comes mostly from the forearm muscles that pull the tendons. That is why climbers have strong forearms.",
+          "fact_zh": "握力主要來自拉動肌腱的前臂肌肉，所以攀岩的人前臂都很結實。"
+        }
+      ],
+      "tricks": [
+        {
+          "title_en": "8, 5, 14",
+          "title_zh": "8、5、14",
+          "body_en": "Wrist 8, palm 5, fingers 14. Together they make 27.",
+          "body_zh": "手腕 8、手掌 5、手指 14，加起來 27。"
+        },
+        {
+          "title_en": "The engine is in the arm",
+          "title_zh": "引擎在手臂上",
+          "body_en": "Finger muscles live in the forearm. Tendons are the strings.",
+          "body_zh": "動手指的肌肉住在前臂，肌腱是那些線。"
+        },
+        {
+          "title_en": "Thumb meets every finger",
+          "title_zh": "拇指碰得到每一根",
+          "body_en": "An opposable thumb can touch the tip of every other finger.",
+          "body_zh": "可以對掌的拇指，碰得到其他每一根手指的指尖。"
+        },
+        {
+          "title_en": "Wrap for power, pinch for precision",
+          "title_zh": "包住是力量，捏住是精細",
+          "body_en": "A bat needs a power grip. A pencil needs a precision grip.",
+          "body_zh": "握球棒用力量型的握法，拿鉛筆用精細型的握法。"
+        }
+      ],
+      "activities": [
+        {
+          "title_en": "String Hand",
+          "title_zh": "拉線手",
+          "materials": [
+            {
+              "en": "Thin cardboard, five drinking straws, and tape",
+              "zh": "薄紙板、五根吸管和膠帶"
+            },
+            {
+              "en": "Five pieces of string, each about 40 centimeters long, and scissors",
+              "zh": "五條大約 40 公分長的棉線，和剪刀"
+            }
+          ],
+          "steps": [
+            {
+              "en": "Trace your hand on the cardboard and cut it out. Fold each finger gently where your own joints are.",
+              "zh": "在紙板上描出自己的手並剪下來。在每根手指上，照自己關節的位置輕輕摺出摺痕。"
+            },
+            {
+              "en": "Cut the straws into short pieces and tape one piece on each part of every finger, with gaps at the folds. Tape a long piece on the palm below each finger.",
+              "zh": "把吸管剪成小段，每一節指節貼一段，摺痕的地方留空；每根手指下方的手掌上各貼一段長的。"
+            },
+            {
+              "en": "Thread a string through the straws of each finger, and tape its end at the fingertip.",
+              "zh": "每根手指穿一條線過那些吸管，線頭用膠帶固定在指尖。"
+            },
+            {
+              "en": "Hold the wrist and pull the strings one at a time. Can you make a fist? A pinch? A thumbs-up?",
+              "zh": "握住手腕，一條一條地拉線。你能讓它握拳嗎？能捏嗎？能比讚嗎？"
+            }
+          ],
+          "tip_en": "Teaching tip: the straws are the bones, the strings are the tendons, and the student's own pulling hand is the forearm muscle. Notice that a string can only pull: to open the hand again, something else has to pull the other way. That is why the back of your hand has its own set of tendons.",
+          "tip_zh": "教學提示：吸管是骨頭，棉線是肌腱，學生拉線的那隻手就是前臂的肌肉。請注意：線只能拉，不能推——要把手重新張開，得有別的東西往反方向拉。這就是手背另外有一組肌腱的原因。"
+        },
+        {
+          "title_en": "Which Hand?",
+          "title_zh": "哪一隻手？",
+          "materials": [
+            {
+              "en": "Paper and a pencil for each student",
+              "zh": "每個學生一張紙和一枝鉛筆"
+            },
+            {
+              "en": "A tally chart on the board",
+              "zh": "黑板上的劃記表"
+            }
+          ],
+          "steps": [
+            {
+              "en": "Write your name with the hand you usually use. Time it.",
+              "zh": "用平常慣用的那隻手寫名字，並計時。"
+            },
+            {
+              "en": "Now write it with your other hand. Time it again, and compare the two.",
+              "zh": "換另一隻手再寫一次並計時，比較這兩次。"
+            },
+            {
+              "en": "On the board, tally how many students write with the right hand and how many with the left.",
+              "zh": "在黑板上劃記：班上有幾個人用右手寫字，幾個人用左手。"
+            },
+            {
+              "en": "Is your class close to nine in ten? Practice with your other hand for a week. Does it get faster?",
+              "zh": "你們班接近十分之九嗎？用另一隻手練習一個星期，有沒有變快？"
+            }
+          ],
+          "tip_en": "Teaching tip: left-handed students should never be made to switch. Use the activity to show that the “other” hand is not weak, only less practiced: the muscles and tendons are the same, and the difference is in the brain's practice. A small class may be far from nine in ten, and that is a good chance to talk about small samples.",
+          "tip_zh": "教學提示：絕對不要要求左撇子的學生改用右手。請用這個活動讓學生明白，「另一隻手」並不是比較弱，只是比較少練習：肌肉和肌腱都一樣，差別在大腦練得多不多。小班級的比例可能離十分之九很遠——這正是討論「樣本太小」的好機會。"
+        }
+      ],
+      "culture": {
+        "title_en": "Ten Fingers, One Heart",
+        "title_zh": "十指連心",
+        "body_en": "Chinese says 十指連心 (shí zhǐ lián xīn), “the ten fingers are joined to the heart”: hurt one finger, and the whole person feels it. Science agrees in its own way, because fingertips are packed with nerve endings. A skillful person is 手巧 (shǒu qiǎo), “hand-clever,” and when a job goes smoothly, people say 得心應手, “what the heart wants, the hand does.” Chinese even measures with the hand: 一把米 is a handful of rice that your fingers close around, and 一捧水 is the water you can carry in two cupped hands. English counts in hands too: a “handful,” a “pinch” of salt, and a horse's height is still measured in “hands.”",
+        "body_zh": "中文說「十指連心」：傷了一根手指，整個人都感覺得到。科學用自己的方式同意這句話——指尖擠滿了神經末梢。手藝好的人叫「手巧」；事情做得順，就說「得心應手」：心裡想的，手就做得到。中文甚至用手來量東西：「一把米」是手指握得住的米，「一捧水」是兩手合起來捧得住的水。英文也用手來數：a handful（一把）、a pinch of salt（一小撮鹽），而馬的身高到今天還是用 hands（掌寬）來量。",
+        "link_en": "More Chinese health words in English",
+        "link_zh": "到中醫養生系列看更多"
+      },
+      "health_en": "This lesson is for learning about the body. It is not medical advice. Use paper tape for the thumb challenge, keep it loose, and take it off if anything hurts or tingles. If a finger is swollen, will not bend, or hurts after a fall, tell an adult.",
+      "health_zh": "本課是認識身體的教材，不是醫療建議。拇指挑戰請用紙膠帶，貼鬆一點；如果會痛或覺得麻，就馬上撕掉。如果手指腫起來、彎不了，或是跌倒之後會痛，請告訴大人。"
     }
   ]
 }
