@@ -7334,7 +7334,46 @@ def _ph_lab_demon(lab):
   {_ph_pick(lab["pick"])}
 </div>'''
 
+def _ph_lab_now(lab):
+    """A12：「現在」有多長？（逐層放大的時間條）＋量一段時間＋A 系列／B 系列的切換。全部在 philosophy.js。"""
+    payload = html.escape(json.dumps({k: lab[k] for k in ("levels", "end", "measure", "series")}, ensure_ascii=False), quote=False)
+    m, sr = lab["measure"], lab["series"]
+    return f'''<div class="ph-el ph-nw rvl" data-ph-now>
+  <script type="application/json" data-nw-data>{payload}</script>
+  <div class="ph-vl-top"><span class="ph-el-count" data-nw-level></span><span class="ph-el-count" data-nw-frac></span></div>
+  <div class="ph-el-stage">
+    <div class="ph-nw-bar" data-nw-bar aria-hidden="true"></div>
+    <div class="ph-nw-legend"><span><i class="p"></i>past · 過去</span><span><i class="n"></i>called “present” · 被稱為「現在」</span><span><i class="f"></i>future · 未來</span></div>
+    <p class="ph-zn-msg" data-nw-msg aria-live="polite"></p>
+    <div class="ph-zn-btns">
+      <button type="button" class="ph-vl-next" data-nw-zoom>Look closer · 再看近一點</button>
+      <button type="button" class="ph-el-reset" data-nw-reset>Start again · 重來</button>
+    </div>
+  </div>
+</div>
+<div class="ph-tests">
+  <h3 class="rvl">Measure a time <span class="ph-h2-zh">量一段時間</span></h3>
+  <div class="ph-own ph-ms rvl" data-ph-measure>
+    {_ph_bi(m["q"], say=False)}
+    <div class="ph-ms-row"><span class="ph-ms-lamp" data-ms-lamp aria-hidden="true"></span>
+      <button type="button" class="ph-ms-start" data-ms-start>Start · 開始</button>
+      <label class="ph-ms-guess" data-ms-guessbox hidden><input type="range" min="1" max="9" step="0.5" value="4" data-ms-range aria-label="Your estimate in seconds · 你估計的秒數"><b data-ms-val>4.0 s</b>
+        <button type="button" data-ms-ok>That long · 就這麼久</button></label></div>
+    <div class="ph-ck-reply" data-ms-out hidden></div>
+  </div>
+  <h3 class="rvl" style="margin-top:2.4rem">Two orderings of the same events <span class="ph-h2-zh">同一串事件的兩種排法</span></h3>
+  <div class="ph-own ph-sr rvl" data-ph-series data-mode="a">
+    {_ph_bi(sr["q"], say=False)}
+    <div class="ph-ml-opts"><button type="button" data-sr="a" aria-pressed="true">Past · present · future　過去・現在・未來</button><button type="button" data-sr="b" aria-pressed="false">Earlier · later　早於・晚於</button></div>
+    <ol class="ph-sr-list" data-sr-list></ol>
+    <div class="ph-sr-note" data-sr-note></div>
+  </div>
+  <h3 class="rvl" style="margin-top:2.4rem">Which picture? <span class="ph-h2-zh">哪一幅圖像？</span></h3>
+  {_ph_pick(lab["pick"])}
+</div>'''
+
 def _ph_lab(lab):
+    if lab.get("kind") == "now": return _ph_lab_now(lab)
     if lab.get("kind") == "demon": return _ph_lab_demon(lab)
     if lab.get("kind") == "river": return _ph_lab_river(lab)
     if lab.get("kind") == "ship": return _ph_lab_ship(lab)

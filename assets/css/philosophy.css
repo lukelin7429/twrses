@@ -655,3 +655,39 @@ main:has(.ph-tools) .wrap { width: min(980px, 92vw); }
 .ph-env-card.is-open { font-size: 1.05rem; transform: rotate(-3deg); background: #fff; border: 2px solid var(--gold); }
 .ph-env .ph-ck-reply p { font-size: 1.04rem; line-height: 1.7; }
 .ph-env-confess { margin-top: .8rem !important; padding-top: .8rem; border-top: 1px dashed var(--ph-terra); }
+
+/* ---------- A12：「現在」有多長、量時間、兩種排序 ---------- */
+.ph-nw-bar { display: flex; gap: 2px; height: 74px; border-radius: 12px; overflow: hidden; background: rgba(255,255,255,.05); padding: 6px; }
+.ph-nw-bar i { flex: 1; border-radius: 3px; min-width: 2px; }
+.ph-nw-bar i.p { background: rgba(255,255,255,.2); }
+.ph-nw-bar i.f { border: 1px dashed rgba(255,255,255,.3); }
+.ph-nw-bar i.n { background: #ffd36e; box-shadow: 0 0 18px rgba(255,211,110,.8); flex: 1.4; }
+.ph-nw-in { animation: ph-nw-zoom .6s cubic-bezier(.2,.8,.3,1) both; transform-origin: 42% 50%; }
+@keyframes ph-nw-zoom { from { transform: scaleX(.06); opacity: .2; } to { transform: none; opacity: 1; } }
+.ph-nw-bar.is-end i.n { flex: .15; }
+.ph-nw-legend { display: flex; flex-wrap: wrap; gap: .4rem 1.2rem; margin: .7rem 0 .2rem; font-size: .84rem; color: rgba(255,255,255,.7); }
+.ph-nw-legend i { display: inline-block; width: 14px; height: 14px; border-radius: 3px; vertical-align: -2px; margin-right: .4rem; }
+.ph-nw-legend i.p { background: rgba(255,255,255,.25); } .ph-nw-legend i.n { background: #ffd36e; } .ph-nw-legend i.f { border: 1px dashed rgba(255,255,255,.5); }
+.ph-ms-row { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem; margin-top: .9rem; }
+.ph-ms-lamp { width: 54px; height: 54px; border-radius: 50%; background: #d9d2c2; border: 3px solid var(--line); transition: background .08s, box-shadow .08s; }
+.ph-ms-lamp.on { background: #ffd36e; box-shadow: 0 0 0 8px rgba(255,211,110,.3), 0 0 34px rgba(255,190,60,.9); border-color: var(--gold); }
+.ph-ms-start, .ph-ms-guess button { all: unset; cursor: pointer; font: 700 .95rem var(--sans); padding: .5rem 1.1rem; border-radius: 999px; background: var(--brand); color: #fff; }
+.ph-ms-start[disabled] { opacity: .4; cursor: default; }
+.ph-ms-start:focus-visible, .ph-ms-guess button:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+.ph-ms-guess { display: flex; flex-wrap: wrap; align-items: center; gap: .8rem; }
+.ph-ms-guess[hidden] { display: none; }
+.ph-ms-guess input { width: 200px; accent-color: var(--brand); }
+.ph-ms-guess b { font: 700 1.1rem ui-monospace, 'SF Mono', Menlo, monospace; min-width: 5ch; }
+.ph-ms .ph-ck-reply p { font-size: 1.04rem; line-height: 1.7; }
+.ph-sr-list { list-style: none; margin: 1rem 0 0; padding: 0; display: grid; gap: .45rem; }
+.ph-sr-list li { display: grid; grid-template-columns: 1fr auto; gap: 0 1rem; align-items: baseline; padding: .6rem .9rem; border: 1px solid var(--line); border-radius: 10px; background: var(--paper); }
+.ph-sr-list li b { font: 600 1rem var(--sans); }
+.ph-sr-list li span { grid-column: 1; font: .88rem var(--zh); color: var(--ink-soft); }
+.ph-sr-list li i { grid-row: 1 / span 2; grid-column: 2; font: normal 700 .84rem ui-monospace, 'SF Mono', Menlo, monospace; color: var(--gold-dk); text-align: right; }
+.ph-sr-list li.f { border-style: dashed; opacity: .75; }
+.ph-sr-list li.now { background: var(--ph-night); border-color: var(--ph-night); justify-items: center; grid-template-columns: 1fr; padding: .25rem; }
+.ph-sr-list li.now b { color: #ffd36e; font-size: .84rem; letter-spacing: .14em; }
+[data-mode="b"] .ph-sr-list li i { color: var(--brand-dk); }
+.ph-sr-note { margin-top: .9rem; border-left: 4px solid var(--gold); padding: .2rem 0 .2rem 1rem; }
+.ph-sr-note p { margin: 0; font-size: 1.02rem; line-height: 1.7; }
+@media (max-width: 640px) { .ph-sr-list li { grid-template-columns: 1fr; } .ph-sr-list li i { grid-row: auto; grid-column: 1; text-align: left; } }

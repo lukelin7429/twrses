@@ -704,6 +704,72 @@
     });
   });
 
+  /* ---- A12：「現在」有多長？＋量一段時間＋A／B 系列 ---- */
+  $$('[data-ph-now]').forEach(function (root) {
+    var D;
+    try { D = JSON.parse($('[data-nw-data]', root).textContent); } catch (e) { return; }
+    var bar = $('[data-nw-bar]', root), msg = $('[data-nw-msg]', root), lvl = $('[data-nw-level]', root), frac = $('[data-nw-frac]', root), zoom = $('[data-nw-zoom]', root), i;
+    function say(o) { msg.textContent = o.en; var z = el('span', '', o.zh); z.lang = 'zh-Hant'; msg.appendChild(z); }
+    function paint() {
+      var L = D.levels[Math.min(i, D.levels.length - 1)], n = L.parts, shown = Math.min(n, 60), now = Math.floor(shown * 0.42);
+      bar.textContent = ''; bar.classList.remove('ph-nw-in'); void bar.offsetWidth; bar.classList.add('ph-nw-in');
+      for (var k = 0; k < shown; k++) bar.appendChild(el('i', k < now ? 'p' : k === now ? 'n' : 'f'));
+      lvl.textContent = 'The “present”: ' + L.u.en + ' · 「現在」：' + L.u.zh;
+      frac.textContent = '1 of ' + n.toLocaleString('en-US') + ' ' + L.pu.en + ' is now · ' + n.toLocaleString('en-US') + ' ' + L.pu.zh + '裡只有 1 是此刻';
+      if (i >= D.levels.length) { say(D.end); zoom.textContent = 'Closer still · 還要更近'; bar.classList.add('is-end'); }
+      else { say(L.say); zoom.textContent = 'Look closer · 再看近一點'; bar.classList.remove('is-end'); }
+    }
+    zoom.addEventListener('click', function () { i = Math.min(i + 1, D.levels.length); paint(); });
+    $('[data-nw-reset]', root).addEventListener('click', function () { i = 0; paint(); });
+    i = 0; paint();
+    root.__lab = { state: function () { return { i: i, levels: D.levels.length, cells: bar.children.length }; }, data: D };
+  });
+  $$('[data-ph-measure]').forEach(function (root) {
+    var now = document.querySelector('[data-ph-now]'); if (!now || !now.__lab) return;
+    var M = now.__lab.data.measure, lamp = $('[data-ms-lamp]', root), start = $('[data-ms-start]', root), box = $('[data-ms-guessbox]', root), range = $('[data-ms-range]', root), val = $('[data-ms-val]', root), out = $('[data-ms-out]', root);
+    var DUR = [2.5, 4.0, 5.5, 3.0, 6.5], n = 0, actual = 0, busy = false;
+    range.addEventListener('input', function () { val.textContent = (+range.value).toFixed(1) + ' s'; });
+    start.addEventListener('click', function () {
+      if (busy) return; busy = true; actual = DUR[n % DUR.length]; n++; out.hidden = true; box.hidden = true; lamp.classList.add('on'); start.disabled = true;
+      setTimeout(function () { lamp.classList.remove('on'); box.hidden = false; busy = false; start.disabled = false; start.textContent = 'Again · 再一次'; }, actual * 1000);
+    });
+    $('[data-ms-ok]', root).addEventListener('click', function () {
+      var g = (+range.value).toFixed(1), a = actual.toFixed(1); out.hidden = false; out.textContent = '';
+      out.appendChild(el('b', '', a + ' s · ' + g + ' s'));
+      out.appendChild(el('p', '', M.after.en.replace('{actual}', a).replace('{guess}', g)));
+      var z = el('p', 'ph-zh', M.after.zh.replace('{actual}', a).replace('{guess}', g)); z.lang = 'zh-Hant'; out.appendChild(z); addTr(z);
+    });
+    root.__lab = { state: function () { return { n: n, actual: actual, busy: busy }; } };
+  });
+  $$('[data-ph-series]').forEach(function (root) {
+    var now = document.querySelector('[data-ph-now]'); if (!now || !now.__lab) return;
+    var S = now.__lab.data.series, list = $('[data-sr-list]', root), note = $('[data-sr-note]', root), opened = Date.now(), mode = 'a';
+    function ago(sec) { return sec < 90 ? Math.round(sec) + ' seconds ago · ' + Math.round(sec) + ' 秒前' : (sec / 60).toFixed(1) + ' minutes ago · ' + (sec / 60).toFixed(1) + ' 分鐘前'; }
+    function paint() {
+      var yr = new Date().getFullYear(), sec = (Date.now() - opened) / 1000;
+      list.textContent = '';
+      S.events.forEach(function (e, k) {
+        var li = el('li'); li.appendChild(el('b', '', e.t.en)); var z = el('span', '', e.t.zh); z.lang = 'zh-Hant'; li.appendChild(z);
+        var tag;
+        if (mode === 'a') {
+          if (e.y === 'open') tag = 'past · 過去 — ' + ago(sec);
+          else if (e.y === 'later') tag = 'future · 未來';
+          else tag = 'past · 過去 — ' + (yr - e.y).toLocaleString('en-US') + ' years ago · ' + (yr - e.y) + ' 年前';
+          if (e.y === 'later') li.className = 'f';
+        } else {
+          tag = k === 0 ? 'the earliest of these · 這幾件裡最早的' : 'later than the one above · 晚於上一件';
+          if (typeof e.y === 'number' && k > 0 && typeof S.events[k - 1].y === 'number') tag += ' — by ' + (e.y - S.events[k - 1].y).toLocaleString('en-US') + ' years · 相隔 ' + (e.y - S.events[k - 1].y) + ' 年';
+        }
+        li.appendChild(el('i', '', tag)); list.appendChild(li);
+      });
+      if (mode === 'a') { var nowLi = el('li', 'now'); nowLi.appendChild(el('b', '', 'NOW · 現在')); list.insertBefore(nowLi, list.lastChild); }
+      var o = mode === 'a' ? S.a : S.b; note.textContent = ''; note.appendChild(el('p', '', o.en)); var z2 = el('p', 'ph-zh', o.zh); z2.lang = 'zh-Hant'; note.appendChild(z2); addTr(z2);
+    }
+    $$('[data-sr]', root).forEach(function (b) { b.addEventListener('click', function () { mode = b.getAttribute('data-sr'); root.setAttribute('data-mode', mode); $$('[data-sr]', root).forEach(function (x) { x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); }); paint(); }); });
+    paint(); setInterval(function () { if (mode === 'a') { var it = list.children[3]; if (it) { var t = it.querySelector('i'); if (t) t.textContent = 'past · 過去 — ' + ago((Date.now() - opened) / 1000); } } }, 1000);
+    root.__lab = { state: function () { return { mode: mode, items: list.children.length, third: list.children[3] && list.children[3].textContent }; } };
+  });
+
   /* ---- 通用：先選邊、再看回應（data-ph-pick） ---- */
   $$('[data-ph-pick]').forEach(function (root) {
     var btns = $$('[data-pick]', root), reps = $$('[data-pick-reply]', root), tried = $('[data-pick-tried]', root), seen = {};
