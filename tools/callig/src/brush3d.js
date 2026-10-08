@@ -156,10 +156,10 @@ export function makePaper({ w = 3.2, h = 3.8, x = 0, y = 0.02, z = 0, ppu = 360,
   const bc = boxCenter || [x, z];
   // 字框 → 畫布像素
   const T = { k: (box * ppu) / BOX, ox: (bc[0] - box / 2 - (x - w / 2)) * ppu, oy: (bc[1] - box / 2 - (z - h / 2)) * ppu };
-  let showGrid = grid;                              // true（米字格）、'mi'、'jiu'（九宮格）或 false
+  let showGrid = grid;                              // true（米字格）、'mi'、'jiu'（九宮格）、'tian'（田字格）或 false
   function drawBase() {
     paperBase(gb, CW, CH, { color, seed: 5, fiber: 0.45, edge: ppu * 0.04 });
-    if (showGrid) drawGrid(gb, T.ox, T.oy, box * ppu, { kind: showGrid === 'jiu' ? 'jiu' : 'mi', lw: Math.max(2, ppu / 110), color: gridColor });
+    if (showGrid) drawGrid(gb, T.ox, T.oy, box * ppu, { kind: showGrid === 'jiu' || showGrid === 'tian' ? showGrid : 'mi', lw: Math.max(2, ppu / 110), color: gridColor });
   }
   function compose() {
     if (diamond) {   // 斗方（第十一課）：紙是轉了 45 度的正方形，字還是正的——只畫菱形裡面，外面透明

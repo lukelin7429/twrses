@@ -41,7 +41,7 @@ export function paperBase(g, w, h, { color = '#f6f0e1', seed = 7, fiber = 0.5, e
   g.restore();
 }
 
-/** 米字格／九宮格：外框實線、裡面虛線（練習紙上常見的紅格子） */
+/** 米字格／九宮格／田字格：外框實線、裡面虛線（練習紙上常見的紅格子） */
 export function drawGrid(g, x, y, s, { kind = 'mi', color = 'rgba(205,62,50,.62)', lw = 2 } = {}) {
   g.save();
   g.strokeStyle = color; g.lineWidth = lw * 1.5;
@@ -50,6 +50,8 @@ export function drawGrid(g, x, y, s, { kind = 'mi', color = 'rgba(205,62,50,.62)
   g.beginPath();
   if (kind === 'jiu') {
     for (const f of [1 / 3, 2 / 3]) { g.moveTo(x + s * f, y); g.lineTo(x + s * f, y + s); g.moveTo(x, y + s * f); g.lineTo(x + s, y + s * f); }
+  } else if (kind === 'tian') {   // 田字格：只有十字（第十五課）
+    g.moveTo(x + s / 2, y); g.lineTo(x + s / 2, y + s); g.moveTo(x, y + s / 2); g.lineTo(x + s, y + s / 2);
   } else {
     g.moveTo(x + s / 2, y); g.lineTo(x + s / 2, y + s); g.moveTo(x, y + s / 2); g.lineTo(x + s, y + s / 2);
     g.moveTo(x, y); g.lineTo(x + s, y + s); g.moveTo(x + s, y); g.lineTo(x, y + s);

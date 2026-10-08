@@ -7685,8 +7685,8 @@
             "eyebrow": "Ten Lessons · 十堂課",
             "en": "Look how far you have come",
             "zh": "回頭看看，你走了多遠",
-            "lead_en": "This is the last lesson in the series. Here are all ten, with one sentence each. Tap any lesson to go back.",
-            "lead_zh": "這是這個系列的最後一課。十堂課各用一句話回顧，點任何一課都可以回去看。",
+            "lead_en": "This is the last lesson of the first ten. Here they are, with one sentence each. Tap any lesson to go back.",
+            "lead_zh": "這是前十課的最後一課。十堂課各用一句話回顧，點任何一課都可以回去看。",
             "items": [
               {
                 "n": 1,
@@ -10215,14 +10215,14 @@
               "note_zh": "歐洲的修士也用手抄書——用的就是這一課這種筆。"
             },
             {
-              "soon": true,
               "icon": "✏️",
-              "k_en": "Lesson 15 · Coming soon",
-              "k_zh": "第十五課・製作中",
+              "k_en": "Next Lesson · Lesson 15",
+              "k_zh": "下一課・第十五課",
               "en": "Does Brush Writing Help Your Pencil Writing?",
               "zh": "毛筆字和硬筆字",
               "note_en": "The last lesson: from the brush back to the pencil in your hand.",
-              "note_zh": "最後一課：從毛筆回到你手上的鉛筆。"
+              "note_zh": "最後一課：從毛筆回到你手上的鉛筆。",
+              "href": "/resources/classes/calligraphy/brush-and-pencil/"
             }
           ],
           "culture_cards": {
@@ -10565,16 +10565,757 @@
               }
             ]
           }
-        }
-      ],
-      "planned": [
+        },
         {
           "n": 15,
+          "slug": "brush-and-pencil",
+          "title": "Does Brush Writing Help Your Pencil Writing?",
+          "title_zh": "毛筆字和硬筆字",
+          "level": "入門 · Beginner",
           "icon": "✏️",
-          "en": "Does Brush Writing Help Your Pencil Writing?",
-          "zh": "毛筆字和硬筆字"
+          "card": "pencil",
+          "blurb_en": "A brush line swells and thins, and a pencil line stays the same width. So what do the two have in common? Watch a brush and a pencil write the same character side by side in 3D, pull a slider to take the thickness away, find the stroke that is off, and write with both tools on one practice pad. This is the last of the fifteen lessons.",
+          "blurb_zh": "毛筆的線有粗有細，鉛筆的線從頭到尾一樣粗。那兩種字有什麼是一樣的？在 3D 裡看毛筆和鉛筆並排寫同一個字，拉動滑桿把粗細拿掉，找出寫歪的那一筆，再用同一個練字板兩種筆都寫寫看。這是十五堂課的最後一課。",
+          "big_idea_en": "A brush and a pencil make different lines, but they build the same character. Take away the thick and thin of the brush, and what is left is the structure: the same strokes, in the same order, in the same places. We could not find a study that proves brush lessons make pencil writing better, so this lesson does not promise that. What it shows is the part the two tools share.",
+          "big_idea_zh": "毛筆和鉛筆寫出來的線不一樣，可是搭起來的是同一個字。把毛筆的粗細拿掉，剩下來的就是結構：一樣的筆畫、一樣的筆順、一樣的位置。我們找不到研究能證明「練毛筆會讓鉛筆字變好」，所以這一課不這樣保證。這一課給你看的，是兩種筆共用的那一部分。",
+          "lab": {
+            "kind": "pencil",
+            "eyebrow": "3D Model · 3D 模型",
+            "title_en": "One Character, Two Tools",
+            "title_zh": "同一個字，兩種筆",
+            "how_en": "Drag to turn, and scroll or pinch to zoom. A brush and a pencil write the same character at the same time, along the same path. Watch the stroke counter and the two line widths. Then turn on the brush shadow to lay the brush character under the pencil one, or pick another character.",
+            "how_zh": "拖曳可以旋轉，滾輪或雙指可以縮放。毛筆和鉛筆同時寫同一個字，走同一條路線。看看現在寫到第幾筆、兩條線各有多寬。再打開「毛筆的影子」，把毛筆字墊在鉛筆字底下，或換一個字試試。",
+            "modes": [
+              {
+                "key": "both",
+                "icon": "並",
+                "en": "Side by side",
+                "zh": "一起看"
+              },
+              {
+                "key": "brush",
+                "icon": "毛",
+                "en": "Brush",
+                "zh": "毛筆"
+              },
+              {
+                "key": "pencil",
+                "icon": "鉛",
+                "en": "Pencil",
+                "zh": "鉛筆"
+              }
+            ],
+            "chars": [
+              {
+                "key": "yong",
+                "glyph": "永",
+                "en": "forever"
+              },
+              {
+                "key": "xin",
+                "glyph": "心",
+                "en": "heart"
+              },
+              {
+                "key": "chun",
+                "glyph": "春",
+                "en": "spring"
+              }
+            ],
+            "legend": [
+              {
+                "cls": "cgsy",
+                "en": "Gold frame: the brush's numbers (its width changes with pressure)",
+                "zh": "金色框：毛筆的數字（線寬跟著按多重變）"
+              },
+              {
+                "cls": "cgsl",
+                "en": "Blue frame: the pencil's numbers (its width does not change)",
+                "zh": "藍色框：鉛筆的數字（線寬不變）"
+              },
+              {
+                "cls": "cgsg",
+                "en": "Red grid: the same 25-cm square on both sheets",
+                "zh": "紅色格線：兩張紙上一樣大的 25 公分方格"
+              }
+            ],
+            "scale_en": "A teaching model. Both sheets have the same 25-cm square, far bigger than a real pencil square, so that you can see the lines. The pencil follows the center line of our own brush stroke data, point for point, and its line is drawn 0.3 cm wide at this size. A real pencil line also gets a little darker when you press, which the model does not show. The numbers come from the model, not from measuring anyone's handwriting.",
+            "scale_zh": "這是教學用的示意模型。兩張紙上的方格一樣大（25 公分），比真的鉛筆格子大很多，這樣才看得清楚線條。鉛筆走的是我們自己的毛筆筆畫資料的中心線，一點一點都對得上；在這個大小下，鉛筆線畫成 0.3 公分寬。真的鉛筆用力按，線會稍微變黑一點，模型沒有表現這個。數字是模型算出來的，不是量誰的字得來的。",
+            "credit_html": "Model, stroke data, and the writing engine are drawn and programmed by My Culture Connect. · 模型、筆畫資料與寫字引擎由人師教育協會自繪、自寫。"
+          },
+          "paras": [
+            "For fourteen lessons you have followed the brush. But on most days you write with a pencil or a pen. Taiwan's curriculum calls this kind of writing 硬筆字, hard-pen writing, because the tip does not bend the way brush hairs do. So here is a fair question for the last lesson: does brush writing help your pencil writing?",
+            "Start with what is different. A brush is soft, so its line swells when you press and thins when you lift. A pencil is hard. Its core is a thin rod of graphite mixed with clay, and it leaves a line of almost the same width from beginning to end. In our model, the brush line in 永 changes from 0.3 to 2.5 centimeters wide. The pencil line stays at 0.3.",
+            "Now look at what is the same. In the model, a brush and a pencil write 永 at the same moment. Both make five strokes. Both follow the same stroke order. Both travel the same path, and every stroke lands in the same position on the grid. Take the width away from the brush character, and you get the pencil character. It looks like a skeleton.",
+            "Writers have a name for this skeleton: structure, or 間架結構 in Chinese. It means where each stroke starts and ends, how long it is, and how the strokes balance one another. Taiwan's curriculum asks students in Grades 3 to 6 to learn this structure and to write correct, neat hard-pen characters. It also says that in those grades hard-pen writing comes first, and the brush is the helper.",
+            "So, does the brush help? Here is an honest answer. We could not find a study that proves brush lessons make pencil writing better, so we will not promise that. What we can say is what the model shows: the two tools share stroke order and structure. A brush character is also big. The curriculum suggests squares of 8 to 12 centimeters for large brush characters, and 1.5 to 2 centimeters for hard-pen writing in Grades 1 and 2, so a stroke in the wrong position is easier to see.",
+            "Now try it yourself. Pull the slider and watch the thickness disappear. Find the stroke that is off in the game. Then write with both tools on the pad. The curriculum's advice is simple: aim for correct first, then upright, then neat, and beautiful last. It also says not to practice too much. Good writing is a habit, and you can build it with any tool."
+          ],
+          "paras_zh": [
+            "前面十四課，我們一直跟著毛筆走。可是平常寫字，你用的多半是鉛筆或原子筆。台灣的課綱把這樣寫的字叫做「硬筆字」，因為筆尖不像筆毛那樣會彎。所以最後一課要問一個很實際的問題：練毛筆字，對鉛筆字有幫助嗎？",
+            "先看不一樣的地方。毛筆是軟的，一按線就變粗，一提線就變細。鉛筆是硬的。筆芯是石墨混合黏土做成的細條，寫出來的線從頭到尾幾乎一樣粗。在我們的模型裡，毛筆寫「永」，線寬從 0.3 公分變到 2.5 公分；鉛筆的線一直是 0.3 公分。",
+            "再看一樣的地方。模型裡，毛筆和鉛筆同時寫「永」。兩個都是五筆，筆順一樣，走的路線一樣，每一筆落在格子裡的位置也一樣。把毛筆字的粗細拿掉，就得到鉛筆字。它看起來像一副骨架。",
+            "寫字的人給這副骨架取了名字：結構，也叫「間架結構」。意思是每一筆從哪裡開始、到哪裡結束、有多長，以及筆畫和筆畫之間怎麼互相平衡。台灣的課綱要三到六年級的學生學會間架結構，寫出正確、工整的硬筆字；課綱也說，這幾個年級「習寫以硬筆字為主，毛筆為輔」。",
+            "那麼，毛筆到底有沒有幫助？老實說：我們找不到研究能證明「練毛筆會讓鉛筆字變好」，所以不這樣保證。我們能說的，是模型給你看到的：兩種筆共用筆順和結構。還有一點，毛筆字很大。課綱建議大楷毛筆字的格子是 8 到 12 公分見方，一、二年級硬筆字的格子只有 1.5 到 2 公分，所以哪一筆的位置跑掉了，在大字裡比較容易看出來。",
+            "現在換你試試。拉動滑桿，看粗細慢慢消失；在小遊戲裡找出寫歪的那一筆；再到練字板上兩種筆都寫寫看。課綱的建議很簡單：先求正確，再求端正，然後工整，最後才是美觀；課綱也提醒，不要練習過度。把字寫好是一種習慣，用哪一種筆都可以養成。"
+          ],
+          "questions": [
+            "What is the biggest difference between a brush line and a pencil line?",
+            "When a brush and a pencil write the same character, what stays the same?",
+            "Does this lesson promise that brush practice will make your pencil writing better? Why or why not?"
+          ],
+          "answers": [
+            "The width. A brush line gets thicker and thinner as the hand presses and lifts. A pencil line stays almost the same width from beginning to end.",
+            "The structure: the number of strokes, the stroke order, and the position and length of every stroke.",
+            "No. We could not find a study that proves it. The lesson only shows what the two tools share, which is stroke order and structure."
+          ],
+          "vocab": [
+            {
+              "n": 1,
+              "w": "pencil",
+              "pos": "n.",
+              "zh": "鉛筆",
+              "ex": "Please write your answers in <b>pencil</b>.",
+              "exzh": "請用鉛筆寫答案。"
+            },
+            {
+              "n": 2,
+              "w": "graphite",
+              "pos": "n.",
+              "zh": "石墨",
+              "ex": "The dark core of a pencil is made of <b>graphite</b> and clay.",
+              "exzh": "鉛筆裡黑黑的筆芯是石墨和黏土做的。"
+            },
+            {
+              "n": 3,
+              "w": "width",
+              "pos": "n.",
+              "zh": "寬度",
+              "ex": "Measure the <b>width</b> of the desk with a ruler.",
+              "exzh": "用尺量一量桌子的寬度。"
+            },
+            {
+              "n": 4,
+              "w": "skeleton",
+              "pos": "n.",
+              "zh": "骨架；骨骼",
+              "ex": "The museum has the <b>skeleton</b> of a whale.",
+              "exzh": "博物館裡有一副鯨魚的骨架。"
+            },
+            {
+              "n": 5,
+              "w": "position",
+              "pos": "n.",
+              "zh": "位置",
+              "ex": "Put the chairs back in the same <b>position</b>.",
+              "exzh": "把椅子放回原來的位置。"
+            },
+            {
+              "n": 6,
+              "w": "balance",
+              "pos": "v.",
+              "zh": "（使）平衡",
+              "ex": "Can you <b>balance</b> on one foot for ten seconds?",
+              "exzh": "你能單腳站十秒不倒嗎？"
+            },
+            {
+              "n": 7,
+              "w": "neat",
+              "pos": "adj.",
+              "zh": "整齊的；工整的",
+              "ex": "Her notebook is always clean and <b>neat</b>.",
+              "exzh": "她的筆記本總是又乾淨又整齊。"
+            },
+            {
+              "n": 8,
+              "w": "habit",
+              "pos": "n.",
+              "zh": "習慣",
+              "ex": "Reading before bed is a good <b>habit</b>.",
+              "exzh": "睡前看書是個好習慣。"
+            }
+          ],
+          "quiz": [
+            {
+              "q": "What is the core of a pencil made of?",
+              "options": [
+                "Graphite and clay",
+                "Lead and iron",
+                "Ink and water",
+                "Soot and glue"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "In the model, what is different between the brush character and the pencil character?",
+              "options": [
+                "The number of strokes",
+                "The stroke order",
+                "The width of the line",
+                "The path of each stroke"
+              ],
+              "correct": 2
+            },
+            {
+              "q": "What does “structure” mean in this lesson?",
+              "options": [
+                "How dark the ink is",
+                "Where the strokes start and end, how long they are, and how they balance",
+                "How fast you write",
+                "Which paper you use"
+              ],
+              "correct": 1
+            },
+            {
+              "q": "In Taiwan's curriculum for Grades 3 to 6, which kind of writing comes first?",
+              "options": [
+                "Brush writing",
+                "Hard-pen writing",
+                "Typing",
+                "Seal carving"
+              ],
+              "correct": 1
+            },
+            {
+              "q": "Which order does the curriculum suggest?",
+              "options": [
+                "Beautiful, then fast, then correct",
+                "Fast first",
+                "Correct, then upright, then neat, then beautiful",
+                "Neat first, correct last"
+              ],
+              "correct": 2
+            }
+          ],
+          "parts_head": {
+            "eyebrow": "Different and the Same · 同與不同",
+            "en": "What is different, and what is the same?",
+            "zh": "哪裡不一樣？哪裡一樣？"
+          },
+          "parts": [
+            {
+              "key": "brush",
+              "pc": "brush",
+              "demo": "brush",
+              "en": "Brush",
+              "zh": "毛筆",
+              "meta_en": "Different · the width follows the pressure",
+              "meta_zh": "不一樣・粗細跟著輕重",
+              "text_en": "In the model, the line in 永 goes from 0.3 to 2.5 cm wide. Press for thick, lift for thin.",
+              "text_zh": "在模型裡，「永」的線從 0.3 公分變到 2.5 公分寬。按下去粗，提起來細。"
+            },
+            {
+              "key": "pencil",
+              "pc": "pencil",
+              "demo": "pencil",
+              "en": "Pencil",
+              "zh": "鉛筆",
+              "meta_en": "Different · one width all the way",
+              "meta_zh": "不一樣・從頭到尾一樣粗",
+              "text_en": "The tip is hard, so the line keeps almost the same width. All that is left to decide is where the line goes.",
+              "text_zh": "筆尖是硬的，所以線幾乎一樣粗。剩下要決定的，只有線放在哪裡。"
+            },
+            {
+              "key": "both",
+              "pc": "both",
+              "demo": "both",
+              "en": "Structure",
+              "zh": "間架結構",
+              "meta_en": "The same · same places, same lengths",
+              "meta_zh": "一樣・位置一樣、長短一樣",
+              "text_en": "Lay the brush character under the pencil one. Every pencil stroke runs down the middle of a brush stroke.",
+              "text_zh": "把毛筆字墊在鉛筆字底下。每一條鉛筆線，都走在毛筆筆畫的正中間。"
+            },
+            {
+              "key": "order",
+              "pc": "order",
+              "demo": "order",
+              "en": "Stroke order",
+              "zh": "筆順",
+              "meta_en": "The same · same first stroke, same last",
+              "meta_zh": "一樣・第一筆、最後一筆都一樣",
+              "text_en": "Both tools write 永 in five strokes, in the same order. You learned why order matters in Lesson 4.",
+              "text_zh": "兩種筆寫「永」都是五筆，順序一樣。為什麼要照筆順，第四課學過。"
+            }
+          ],
+          "parts_note_en": "All four pictures are drawn from the same stroke data as the 3D model. Tap a card to watch it happen.",
+          "parts_note_zh": "四張小圖和 3D 模型用的是同一份筆畫資料。點卡片，就在模型裡看它發生。",
+          "slim": {
+            "eyebrow": "Try It · 動手試",
+            "en": "Take the Thickness Away",
+            "zh": "把粗細拿掉",
+            "lead_en": "Here is a character written with a brush. Pull the slider to the left and its thick parts shrink until every line is as thin as a pencil line. Watch the three numbers: only one of them changes.",
+            "lead_zh": "這是毛筆寫的一個字。把滑桿往左拉，粗的地方會慢慢縮小，直到每一條線都和鉛筆線一樣細。看看下面三個數字：只有一個會變。",
+            "chars": [
+              {
+                "key": "yong",
+                "glyph": "永",
+                "en": "forever"
+              },
+              {
+                "key": "xin",
+                "glyph": "心",
+                "en": "heart"
+              },
+              {
+                "key": "chun",
+                "glyph": "春",
+                "en": "spring"
+              }
+            ]
+          },
+          "spot": {
+            "eyebrow": "Game · 小遊戲",
+            "en": "Which Stroke Is Off?",
+            "zh": "哪一筆寫歪了？",
+            "lead_en": "On the left is a model written with a brush. On the right, someone copied it in pencil, but one stroke is too short, too long, leaning, or in the wrong place. Tap that stroke. The nine-square grid is there to help you compare.",
+            "lead_zh": "左邊是毛筆寫的範字。右邊是用鉛筆照著寫的，可是有一筆太短、太長、斜掉了，或位置跑掉了。把那一筆點出來。九宮格就是用來幫你比位置的。"
+          },
+          "pad": {
+            "eyebrow": "Practice Pad · 練字板",
+            "en": "One pad, two tools",
+            "zh": "一個練字板，兩種筆",
+            "char": "yong",
+            "order": true,
+            "tools": "pencil",
+            "grid": "tian",
+            "chars": [
+              {
+                "key": "yong",
+                "glyph": "永",
+                "en": "forever"
+              },
+              {
+                "key": "xin",
+                "glyph": "心",
+                "en": "heart"
+              },
+              {
+                "key": "chun",
+                "glyph": "春",
+                "en": "spring"
+              }
+            ],
+            "lead_en": "Trace the pale red model, first with the pencil and then with the brush. With the pencil, the line is the same width however you move, so all your attention can go to position. You can also change the grid: a 田 grid, a nine-square grid, or a 米 grid.",
+            "lead_zh": "照著淡紅色的範字描寫，先用鉛筆，再換毛筆。用鉛筆的時候，不管怎麼動，線都一樣粗，所以可以把注意力全部放在位置上。格子也可以換：田字格、九宮格或米字格。",
+            "tips": [
+              {
+                "en": "Before each stroke, look at the grid. Where does the stroke start? Where does it end?",
+                "zh": "每寫一筆之前，先看格線：這一筆從哪裡開始？到哪裡結束？"
+              },
+              {
+                "en": "Write 永 with the pencil. Then switch to the brush and write it again on top. Do your two characters line up?",
+                "zh": "先用鉛筆寫「永」，再換毛筆在上面寫一次。兩個字疊得起來嗎？"
+              },
+              {
+                "en": "Turn the model off and write from memory. Turn it on again and check your positions.",
+                "zh": "把範字關掉，憑記憶寫一次；再打開範字，檢查每一筆的位置。"
+              }
+            ]
+          },
+          "links_head": {
+            "eyebrow": "Read More · 延伸閱讀",
+            "en": "Lessons that help with this one",
+            "zh": "和這一課有關的幾課"
+          },
+          "links": [
+            {
+              "href": "/resources/classes/calligraphy/stroke-order/",
+              "icon": "🔢",
+              "k_en": "Lesson 4",
+              "k_zh": "第四課",
+              "en": "Why Do We Write Strokes in Order?",
+              "zh": "筆順與結構：為什麼要先橫後豎？",
+              "note_en": "Stroke order is one of the things a brush and a pencil share.",
+              "note_zh": "筆順，就是毛筆和鉛筆共用的東西之一。"
+            },
+            {
+              "href": "/resources/classes/calligraphy/east-and-west/",
+              "icon": "✒️",
+              "k_en": "Previous Lesson · Lesson 14",
+              "k_zh": "上一課・第十四課",
+              "en": "How Is Chinese Calligraphy Different from Western Calligraphy?",
+              "zh": "中文書法和西洋書法有什麼不同？",
+              "note_en": "Another pair of tools: a soft brush and a stiff broad-edge pen.",
+              "note_zh": "另一組工具的比較：軟的毛筆和硬的平頭筆。"
+            },
+            {
+              "href": "/resources/classes/calligraphy/four-treasures/",
+              "icon": "🖌️",
+              "k_en": "Back to the Start · Lesson 1",
+              "k_zh": "回到起點・第一課",
+              "en": "What Are the Four Treasures of the Study?",
+              "zh": "文房四寶是什麼？",
+              "note_en": "Where the series began: brush, ink, paper, and inkstone.",
+              "note_zh": "這個系列開始的地方：筆、墨、紙、硯。"
+            }
+          ],
+          "culture_cards": {
+            "eyebrow": "Pencils and Taiwan · 鉛筆與台灣",
+            "title_en": "A pencil with no lead in it, two letters on its side, and writing in Taiwan's schools",
+            "title_zh": "沒有鉛的鉛筆、筆桿上的兩個字母，還有台灣學校裡的寫字課",
+            "lead_en": "Two things about the pencil from an encyclopedia and a pencil maker, and two about writing from Taiwan's own documents.",
+            "lead_zh": "兩件關於鉛筆的事，來自百科全書和鉛筆製造商；兩件關於寫字的事，來自台灣自己的文件。",
+            "cards": [
+              {
+                "k": "The “Lead” · 筆芯",
+                "en": "No lead in a pencil",
+                "zh": "鉛筆裡沒有鉛",
+                "body_en": "An encyclopedia explains that a pencil is a thin rod of graphite, often called the “lead,” though it contains none of that metal. Modern pencils still use a mixture of graphite and clay. Taiwan's Ministry of Education dictionary says the same: a core made of graphite powder and clay.",
+                "body_zh": "大英百科說：鉛筆是一根細細的石墨條，大家常叫它「鉛」，其實裡面完全沒有鉛這種金屬；現在的鉛筆仍然用石墨和黏土的混合物。教育部辭典的說法一樣：「石墨粉和黏土製成的筆心」。"
+              },
+              {
+                "k": "H and B · H 和 B",
+                "en": "The letters on the side",
+                "zh": "筆桿上的字母",
+                "body_en": "One pencil maker explains the letters this way: H is for hard and B is for black, so HB means hard black, a medium-soft grade that the maker calls ideal for writing. The more clay in the core, the harder the pencil. The more graphite, the softer and blacker the line.",
+                "body_zh": "一家鉛筆製造商這樣解釋筆桿上的字母：H 是 hard（硬），B 是 black（黑），所以 HB 是「又硬又黑」，屬於中等偏軟的等級，製造商說它最適合寫字。筆芯裡黏土越多，鉛筆越硬；石墨越多，線就越軟、越黑。"
+              },
+              {
+                "k": "Taiwan's Classrooms · 台灣的教室",
+                "en": "Hard pen first, brush as helper",
+                "zh": "硬筆為主，毛筆為輔",
+                "body_en": "Taiwan's Mandarin curriculum says Grades 1 and 2 practice hard-pen writing, and Grades 3 to 6 also learn the brush. Its teaching notes describe four steps for both tools: tracing over a red model, copying from a model beside you, writing on your own, and using your writing in real life.",
+                "body_zh": "國語文課綱說：一、二年級以習寫硬筆字為主，三到六年級兼習毛筆字。課綱的教學說明還提到，硬筆和毛筆的寫字教學都有四個階段：描紅、臨摹、自運、應用——照著紅字描，看著範本寫，自己寫，最後用在生活裡。"
+              },
+              {
+                "k": "The National Contest · 全國語文競賽",
+                "en": "Fifty characters in fifty minutes",
+                "zh": "五十分鐘，五十個字",
+                "body_en": "In the writing event of Taiwan's National Language Competition, every group writes regular script with a traditional brush: 50 characters in 50 minutes. Students write characters 7 centimeters square. Half of the score is for brushwork. The other half is for structure and layout.",
+                "body_zh": "全國語文競賽的「寫字」項目，各組一律用傳統毛筆寫楷書：50 分鐘寫 50 個字。學生組的字是 7 公分見方。評分一半看筆法，另一半看「結構與章法」。"
+              }
+            ]
+          },
+          "myths": [
+            {
+              "myth_en": "If you practice the brush, your pencil writing will surely get better.",
+              "myth_zh": "練了毛筆字，鉛筆字一定會變好。",
+              "fact_en": "We could not find a study that proves this. What the two tools share is stroke order and structure. Getting better with a pencil still takes practice with a pencil.",
+              "fact_zh": "我們找不到研究能證明這件事。兩種筆共用的是筆順和結構；鉛筆字要進步，還是得用鉛筆練。"
+            },
+            {
+              "myth_en": "The dark core of a pencil is made of lead.",
+              "myth_zh": "鉛筆的筆芯是鉛做的。",
+              "fact_en": "It is graphite mixed with clay. It contains no lead at all.",
+              "fact_zh": "筆芯是石墨混合黏土做的，裡面完全沒有鉛。"
+            },
+            {
+              "myth_en": "Good handwriting means beautiful handwriting.",
+              "myth_zh": "字寫得好，就是寫得漂亮。",
+              "fact_en": "Taiwan's curriculum puts correct first, then upright, then neat. Beautiful comes last.",
+              "fact_zh": "課綱的順序是：先正確，再端正，然後工整，最後才是美觀。"
+            },
+            {
+              "myth_en": "The more times you copy a character, the better.",
+              "myth_zh": "同一個字抄越多遍越好。",
+              "fact_en": "The curriculum says writing practice should be about quality, and it warns against practicing too much.",
+              "fact_zh": "課綱說，寫字的練習「應以質為主要考量，避免過度練習」。"
+            }
+          ],
+          "tricks": [
+            {
+              "title_en": "Take away the thickness",
+              "title_zh": "拿掉粗細",
+              "body_en": "The structure is still there.",
+              "body_zh": "結構還在。"
+            },
+            {
+              "title_en": "Same order, same path",
+              "title_zh": "筆順一樣，路線一樣",
+              "body_en": "Brush or pencil, five strokes for 永.",
+              "body_zh": "毛筆、鉛筆，「永」都是五筆。"
+            },
+            {
+              "title_en": "Start and end on the grid",
+              "title_zh": "起點終點對格線",
+              "body_en": "Look first, then write.",
+              "body_zh": "先看，再寫。"
+            },
+            {
+              "title_en": "Correct, upright, neat, beautiful",
+              "title_zh": "正確、端正、工整、美觀",
+              "body_en": "In that order.",
+              "body_zh": "照這個順序。"
+            }
+          ],
+          "safety": [
+            {
+              "en": "A sharp pencil has a point. Walk with the point down, and never point it at a classmate.",
+              "zh": "削尖的鉛筆有尖端：拿著走路時筆尖朝下，不要對著同學。"
+            },
+            {
+              "en": "Do not chew your pencil or put it in your mouth.",
+              "zh": "不要咬鉛筆，也不要把鉛筆放進嘴裡。"
+            },
+            {
+              "en": "Sit up, and keep your eyes 35 to 45 centimeters from the paper. That is the distance Taiwan's government suggests for children.",
+              "zh": "坐正，眼睛離紙 35 到 45 公分。這是政府給小朋友的護眼建議。"
+            },
+            {
+              "en": "After 30 minutes of close work, rest your eyes for 10 minutes. Make sure the light is bright enough.",
+              "zh": "近距離用眼 30 分鐘，就休息 10 分鐘。光線要充足。"
+            },
+            {
+              "en": "If you use a real brush for the activities, wear old clothes and cover the desk with newspaper.",
+              "zh": "活動如果用真的毛筆：穿舊衣服，桌上先鋪報紙。"
+            }
+          ],
+          "activities": [
+            {
+              "title_en": "Big and Small",
+              "title_zh": "一大一小",
+              "materials": [
+                {
+                  "en": "A brush with clean water and newspaper (or a thick marker) for each pair",
+                  "zh": "每兩人一枝毛筆、清水和舊報紙（或一枝粗的麥克筆）"
+                },
+                {
+                  "en": "A sheet with one 10-cm square and one 2-cm square, each with a cross inside, and a pencil",
+                  "zh": "一張畫了 10 公分方格和 2 公分方格的紙（格子裡都畫十字），還有鉛筆"
+                }
+              ],
+              "steps": [
+                {
+                  "en": "With the brush, write 永 in the big square. Watch the cross: which strokes touch the center line?",
+                  "zh": "用毛筆在大格子裡寫「永」。看著十字線：哪幾筆碰到中線？"
+                },
+                {
+                  "en": "With the pencil, write 永 in the small square, in the same stroke order.",
+                  "zh": "用鉛筆在小格子裡寫「永」，筆順要一樣。"
+                },
+                {
+                  "en": "Mark the start and the end of every stroke with a dot, in both characters.",
+                  "zh": "在兩個字上，把每一筆的起點和終點各點一個點。"
+                },
+                {
+                  "en": "Compare with your partner. Are the dots in the same parts of the two squares?",
+                  "zh": "和同伴比一比：兩個格子裡，那些點是不是落在同樣的地方？"
+                }
+              ],
+              "tip_en": "The two characters do not have to be beautiful. You are checking positions, not beauty.",
+              "tip_zh": "兩個字都不必漂亮。這裡要檢查的是位置，不是美不美。"
+            },
+            {
+              "title_en": "Find My Mistake",
+              "title_zh": "找找我哪裡寫歪了",
+              "materials": [
+                {
+                  "en": "Squared paper, a pencil, and an eraser for each student",
+                  "zh": "每人一張有格子的紙、鉛筆和橡皮擦"
+                },
+                {
+                  "en": "A model character on the board, such as 山, 水, or 春",
+                  "zh": "黑板上的一個範字，例如「山」「水」「春」"
+                }
+              ],
+              "steps": [
+                {
+                  "en": "Copy the model once, as correctly as you can.",
+                  "zh": "先照著範字寫一次，越正確越好。"
+                },
+                {
+                  "en": "Copy it again, and this time change one stroke on purpose: make it too short, too long, or move it.",
+                  "zh": "再寫一次，這次故意把其中一筆改掉：太短、太長，或移個位置。"
+                },
+                {
+                  "en": "Swap papers. Circle the stroke your partner changed, and say what is wrong with it in English.",
+                  "zh": "和同伴交換。把他改掉的那一筆圈起來，用英文說它哪裡不對。"
+                },
+                {
+                  "en": "Useful sentences: “This stroke is too short.” “This stroke is in the wrong position.”",
+                  "zh": "可以用的句子：“This stroke is too short.”、“This stroke is in the wrong position.”"
+                }
+              ],
+              "tip_en": "Small changes are harder to find. Start with big ones.",
+              "tip_zh": "改得越少越難找。先從明顯的開始。"
+            }
+          ],
+          "sources": [
+            {
+              "en": "Mandarin curriculum, Grades 3 to 6: learn the structure and write correct, neat hard-pen characters (4-Ⅱ-6, 4-Ⅲ-4); hard-pen writing first, brush as helper (4-Ⅱ-7, 4-Ⅲ-5)",
+              "zh": "十二年國教國語文領綱：4-Ⅱ-6「掌握偏旁變化和間架結構要領書寫正確及工整的硬筆字」、4-Ⅱ-7「習寫以硬筆字為主，毛筆為輔，掌握楷書筆畫的書寫方法」（4-Ⅲ-4、4-Ⅲ-5 同一方向）",
+              "src": "教育部《國語文課程綱要》（107 年），p. 11",
+              "url": "https://stv.naer.edu.tw/data/course_outline/pta_18510_4703638_59125.pdf"
+            },
+            {
+              "en": "Grades 1 and 2: good posture and tidy writing habits (4-Ⅰ-4); basic strokes and stroke order (4-Ⅰ-5)",
+              "zh": "4-Ⅰ-4「養成良好的書寫姿勢，並保持整潔的書寫習慣」、4-Ⅰ-5「認識基本筆畫、筆順，掌握運筆原則，寫出正確及工整的國字」",
+              "src": "教育部《國語文課程綱要》（107 年），p. 10",
+              "url": "https://stv.naer.edu.tw/data/course_outline/pta_18510_4703638_59125.pdf"
+            },
+            {
+              "en": "Teaching notes: hard pen first, brush as helper; Grades 1 and 2 practice hard-pen writing, and Grades 3 to 6 also learn the brush",
+              "zh": "「寫字應以硬筆為主，毛筆為輔，依序安排基本筆畫、筆順、間架結構等練習……第一學習階段以習寫硬筆字為主，第二、三學習階段兼習毛筆字」",
+              "src": "教育部《國語文課程綱要》實施要點，p. 26",
+              "url": "https://stv.naer.edu.tw/data/course_outline/pta_18510_4703638_59125.pdf"
+            },
+            {
+              "en": "Square sizes: 1.5 to 2 cm for hard-pen writing in Grades 1 and 2; 8 to 12 cm for large brush characters, on a nine-square, 米, or 田 grid",
+              "zh": "「硬筆字之練習，第一學習階段，格子的大小，以1.5-2公分見方為原則……練習大楷毛筆字，格子的大小，以8-12公分見方為原則，可採用九宮格、米字格或田字格」",
+              "src": "教育部《國語文課程綱要》實施要點，p. 50",
+              "url": "https://stv.naer.edu.tw/data/course_outline/pta_18510_4703638_59125.pdf"
+            },
+            {
+              "en": "Quality over quantity; correct first, then upright, then neat, and beautiful last; tracing, copying, writing on your own, and using",
+              "zh": "「寫字的練習應以質為主要考量，避免過度練習。除正確性外，優先考慮形體端正，次之強調工整，最後強調美觀」；「硬筆、毛筆寫字教學，應就描紅、臨摹、自運與應用等不同學習階段，做適切的安排」",
+              "src": "教育部《國語文課程綱要》實施要點，p. 52",
+              "url": "https://stv.naer.edu.tw/data/course_outline/pta_18510_4703638_59125.pdf"
+            },
+            {
+              "en": "間架: the stroke structure of a character",
+              "zh": "間架：「文字的筆畫結構或文章的布局。」",
+              "src": "教育部《重編國語辭典修訂本》「間架」",
+              "url": "https://dict.revised.moe.edu.tw/dictView.jsp?ID=92882"
+            },
+            {
+              "en": "筆順: the order in which strokes are written",
+              "zh": "筆順：「書寫文字時，筆畫先後的順序，稱為『筆順』。」",
+              "src": "教育部《重編國語辭典修訂本》「筆順」",
+              "url": "https://dict.revised.moe.edu.tw/dictView.jsp?ID=17694"
+            },
+            {
+              "en": "九宮格: ruled paper for copying, each square divided into nine; 田 and 米 grids do the same job",
+              "zh": "九宮格：「臨帖所用的界格紙。每一大格用『井』字形劃分為九小格，以便於臨摹時對照範本字形、掌握點劃部位。另有田字格、米字格等，功用相當。」",
+              "src": "教育部《重編國語辭典修訂本》「九宮格」",
+              "url": "https://dict.revised.moe.edu.tw/dictView.jsp?ID=92062"
+            },
+            {
+              "en": "臨摹: two ways to learn, copying with the paper beside a model and tracing with the paper over it",
+              "zh": "臨摹：「學習書法的兩種方法。臨是置紙於旁而模仿碑帖，摹則以紙覆於範帖上而描摹。」",
+              "src": "教育部《重編國語辭典修訂本》「臨摹」",
+              "url": "https://dict.revised.moe.edu.tw/dictView.jsp?ID=64697"
+            },
+            {
+              "en": "描紅: characters printed in red on practice paper, traced stroke by stroke",
+              "zh": "描紅：「用紅色將字套印在習字紙上，用墨筆按照紅字範本一點一畫依樣描寫。」",
+              "src": "教育部《重編國語辭典修訂本》「描紅」",
+              "url": "https://dict.revised.moe.edu.tw/dictView.jsp?ID=31243"
+            },
+            {
+              "en": "鉛筆: a core made of graphite powder and clay",
+              "zh": "鉛筆：「石墨粉和黏土製成的筆心，嵌在木質或其他質料的筆管中，多半為細圓條形。」",
+              "src": "教育部《重編國語辭典修訂本》「鉛筆」",
+              "url": "https://dict.revised.moe.edu.tw/dictView.jsp?ID=100662"
+            },
+            {
+              "en": "A pencil is a slender rod of graphite, often called the “lead,” though it contains none of that metal; modern pencils still use a mixture of graphite and clay",
+              "zh": "鉛筆是細細的石墨條，常被叫做「鉛」，其實不含鉛；現代鉛筆仍用石墨與黏土的混合物",
+              "src": "Encyclopaedia Britannica, “pencil”",
+              "url": "https://www.britannica.com/technology/pencil-writing-implement"
+            },
+            {
+              "en": "B = Black, HB = Hard Black, H = Hard; the more clay, the harder the pencil; the more graphite, the softer and blacker",
+              "zh": "B＝Black、HB＝Hard Black、H＝Hard；黏土越多越硬，石墨越多越軟越黑",
+              "src": "STAEDTLER, “Pencils and accessories”",
+              "url": "https://www.staedtler.com/us/en/products/pencils-and-accessories/"
+            },
+            {
+              "en": "National Language Competition (2026), writing event: traditional brush, regular script, 50 characters in 50 minutes; 7-cm characters for student groups; brushwork 50%, structure and layout 50%",
+              "zh": "「寫字：各組均限50分鐘」「一律以傳統毛筆書寫楷書」「國小學生組、國中學生組、高中學生組均為7公分見方」「各組字數均為50字」；評分「筆法：占50％」「結構與章法：占50％」",
+              "src": "教育部《中華民國115年全國語文競賽實施要點》",
+              "url": "https://language115.eduweb.tw/Module/Pages/Index.php?ID=2"
+            },
+            {
+              "en": "Eye care for children: rest 10 minutes after 30 minutes; sit correctly when writing; keep 35 to 45 cm away",
+              "zh": "「用眼30分鐘，休息10分鐘。」「讀書光線要充足，寫字時的坐姿要正確，閱讀保持35-45公分距離。」",
+              "src": "行政院兒童網「護眼6招」",
+              "url": "https://kids.ey.gov.tw/Page/28ED0DE40B1C2689"
+            },
+            {
+              "en": "Stroke order: 17 basic rules, summed up from the Ministry of Education's handbook",
+              "zh": "「依據教育部《常用國字標準字體筆順手冊》基本法則，歸納的筆順基本法則有17條」",
+              "src": "教育部《國字標準字體筆順學習網》",
+              "url": "https://stroke-order.learningweb.moe.edu.tw/page.jsp?ID=23"
+            }
+          ],
+          "recap": {
+            "eyebrow": "Fifteen Lessons · 十五堂課",
+            "en": "The whole road, from the first brush to your own pencil",
+            "zh": "從第一枝毛筆，走到你手上的鉛筆",
+            "lead_en": "This is the last lesson in the series. Here are all fifteen, with one sentence each. Tap any lesson to go back.",
+            "lead_zh": "這是這個系列的最後一課。十五堂課各用一句話回顧，點任何一課都可以回去看。",
+            "items": [
+              {
+                "n": 1,
+                "en": "Brush, ink, paper, and inkstone: the four tools of writing.",
+                "zh": "筆、墨、紙、硯：寫字的四樣工具。"
+              },
+              {
+                "n": 2,
+                "en": "Press for thick, lift for thin.",
+                "zh": "按下去就粗，提起來就細。"
+              },
+              {
+                "n": 3,
+                "en": "The character 永 holds eight basic strokes.",
+                "zh": "一個「永」字，藏著八種基本筆法。"
+              },
+              {
+                "n": 4,
+                "en": "Stroke order gives everyone the same path through a character.",
+                "zh": "筆順讓每個人用同一條路線寫一個字。"
+              },
+              {
+                "n": 5,
+                "en": "Characters began as pictures on bones and bronze.",
+                "zh": "文字從甲骨和青銅器上的圖畫開始。"
+              },
+              {
+                "n": 6,
+                "en": "Clerical script flattened the curves and added the swallow tail.",
+                "zh": "隸書把彎的拉直，還多了一個燕尾。"
+              },
+              {
+                "n": 7,
+                "en": "Regular, running, and cursive: one character, three speeds.",
+                "zh": "楷、行、草：同一個字，三種速度。"
+              },
+              {
+                "n": 8,
+                "en": "Wang Xizhi wrote 之 twenty times, and no two are alike.",
+                "zh": "王羲之寫了二十個「之」，沒有兩個一樣。"
+              },
+              {
+                "n": 9,
+                "en": "Yan's muscle and Liu's bone: same strokes, different pressure.",
+                "zh": "顏筋柳骨：筆畫一樣，輕重不同。"
+              },
+              {
+                "n": 10,
+                "en": "The treasures are in Taipei, resting in dim light.",
+                "zh": "國寶就在台北，在暗暗的燈光下休息。"
+              },
+              {
+                "n": 11,
+                "en": "A spring couplet has an upper line, a lower line, and a banner across the top.",
+                "zh": "春聯有上聯、下聯，上面還有一張橫批。"
+              },
+              {
+                "n": 12,
+                "en": "A seal is carved backward so that it prints the right way around.",
+                "zh": "印章要反著刻，蓋出來才是正的。"
+              },
+              {
+                "n": 13,
+                "en": "Copying a sutra: one character in each square, slowly and evenly.",
+                "zh": "抄經：一格一個字，慢慢地、均勻地寫。"
+              },
+              {
+                "n": 14,
+                "en": "A brush changes its line by pressure; a broad-edge pen, by direction.",
+                "zh": "毛筆的粗細看輕重，平頭筆的粗細看方向。"
+              },
+              {
+                "n": 15,
+                "en": "Take the thickness away, and the structure is still there.",
+                "zh": "把粗細拿掉，結構還在。"
+              }
+            ]
+          }
         }
-      ]
+      ],
+      "planned": []
     }
   ]
 }

@@ -13,10 +13,13 @@
  *   .cg-pad-score 寫出和示範有多像（brush.js 的 curveFromStamps、curveMatch）。第 n 筆對示範的第 n 筆（照筆順）。
  * 有 [data-pad-char] 按鈕時（第四課）：可以換範字（setChar），換字就清掉重寫。chars＝{ key: 筆畫資料 }。
  * 有 .cg-pad-time 時（第七課）：碼表。從第一筆下筆到最後一筆提筆花了幾秒、寫了幾筆（提筆幾次），和示範比；timing() 回傳數字。
+ * 有 [data-pad-tool] 按鈕時（第十五課）：毛筆／鉛筆兩種筆。鉛筆的線從頭到尾一樣粗（不管快慢、不管壓力），顏色是石墨灰；
+ *   有 [data-pad-grid] 按鈕時可以換格子（mi 米字格、jiu 九宮格、tian 田字格）。
  * 除錯：root.__pad（strokes、render()、clear()、demo()、write(點陣列)、setChar(key)）
  */
 import { BOX, clamp, curveFromStamps, curveMatch, footprint, forceCurve, penPressure, prepStroke, smoothTo, speedToPressure, stamps } from './brush.js';
 import { drawCompare, drawGrid, drawStamps, paperBase } from './ink2d.js';
+import { PENCIL_INK, PENCIL_W } from './pencil.js';
 
 const STEP = 2.5;         // 兩個印子之間的距離（字框單位）
 const LAG = 26;           // 筆尖轉向的慣性（同 brush.js 的 tipTrail）
@@ -28,6 +31,7 @@ export function initPad(root, char, chars = null) {
   const modeEl = root.querySelector('.cg-pad-mode');
   const msg = root.querySelector('.cg-pad-msg');
   const opts = { grid: true, model: true, order: false };
+  let tool = 'brush', gridKind = 'mi';   // 第十五課：'brush' | 'pencil'；格子種類
   root.querySelectorAll('[data-pt]').forEach((el) => { opts[el.getAttribute('data-pt')] = el.checked; });
   let model = char.strokes.map((st) => { const s = prepStroke(st); return { s, sts: stamps(s) }; });
   const strokes = [];          // 使用者寫的：[{ sts: [印子…] }]
@@ -49,7 +53,7 @@ export function initPad(root, char, chars = null) {
       base = document.createElement('canvas'); base.width = S; base.height = S;
       const b = base.getContext('2d');
       paperBase(b, S, S, { seed: 11, fiber: 0.35 });
-      if (opts.grid) drawGrid(b, S * 0.012, S * 0.012, S * 0.976, { lw: Math.max(1, S / 360) });
+      if (opts.grid) drawGrid(b, S * 0.012, S * 0.012, S * 0.976, { kind: gridKind, lw: Math.max(1, S / 360) });
       if (opts.model) model.forEach((m) => drawStamps(b, m.sts, T, { color: 'rgb(214,72,60)', alpha: 0.3 }));
       if (opts.order) model.forEach((m, k) => {   // 筆順數字：藍底白字的小圓
         let x, y;
@@ -70,7 +74,7 @@ export function initPad(root, char, chars = null) {
   function render() {
     if (!S) return;
     drawBase();
-    for (const st of strokes) drawStamps(g, st.sts, T, { soft: S / 420 });
+    for (const st of strokes) drawStamps(g, st.sts, T, st.tool === 'pencil' ? { color: PENCIL_INK } : { soft: S / 420 });
     if (demo) drawDemo();
   }
 
@@ -84,16 +88,16 @@ export function initPad(root, char, chars = null) {
     const pt = toBox(e);
     const pen = e.pointerType === 'pen' && e.pressure > 0;
     if (pen && !usedPen) { usedPen = true; root.classList.add('cg-pad-pen'); }
-    cur = { id: e.pointerId, pen, x: pt.x, y: pt.y, sx: pt.x, sy: pt.y, t: e.timeStamp, t0: e.timeStamp, t1: e.timeStamp, p: pen ? penPressure(e.pressure) : 0.32, a: Math.PI, sts: [] };
+    cur = { id: e.pointerId, pen, x: pt.x, y: pt.y, sx: pt.x, sy: pt.y, t: e.timeStamp, t0: e.timeStamp, t1: e.timeStamp, p: pen ? penPressure(e.pressure) : 0.32, a: Math.PI, sts: [], tool };
     strokes.push(cur);
     put(cur.x, cur.y, cur.p, cur.a);
   }
   function put(x, y, p, a) {
-    const f = footprint(p);
+    const f = cur.tool === 'pencil' ? { hw: PENCIL_W / 2 + 1.5, len: PENCIL_W / 2 + 1.5 } : footprint(p);
     if (!f) return;
     const st = { x, y, a, hw: f.hw, len: f.len, p };
     cur.sts.push(st);
-    drawStamps(g, [st], T, { soft: S / 420 });
+    drawStamps(g, [st], T, cur.tool === 'pencil' ? { color: PENCIL_INK } : { soft: S / 420 });
   }
   function move(e) {
     if (!cur || e.pointerId !== cur.id) return;
@@ -121,7 +125,7 @@ export function initPad(root, char, chars = null) {
       put(cur.x + dx * f, cur.y + dy * f, cur.p + (p1 - cur.p) * f, cur.a);
     }
     cur.x = x; cur.y = y; cur.t = e.timeStamp; cur.p = p1;
-    if (meter) meter.style.width = `${Math.round(clamp(p1) * 100)}%`;
+    if (meter) meter.style.width = `${Math.round(clamp(cur.tool === 'pencil' ? 0.12 : p1) * 100)}%`;
   }
   function end(e) {
     if (!cur || (e && e.pointerId !== cur.id)) return;
@@ -265,6 +269,26 @@ export function initPad(root, char, chars = null) {
   }
   root.querySelectorAll('[data-pad-char]').forEach((b2) => b2.addEventListener('click', () => setChar(b2.getAttribute('data-pad-char'))));
 
+  // ---------- 毛筆／鉛筆、格子種類（第十五課） ----------
+  const toolOut = root.querySelector('.cg-pad-tool-out');
+  function setTool(v) {
+    tool = v === 'pencil' ? 'pencil' : 'brush';
+    root.classList.toggle('cg-pad-pencil', tool === 'pencil');
+    root.querySelectorAll('[data-pad-tool]').forEach((b2) => b2.setAttribute('aria-pressed', b2.getAttribute('data-pad-tool') === tool ? 'true' : 'false'));
+    if (toolOut) toolOut.innerHTML = tool === 'pencil'
+      ? 'Pencil: the line is the same width however fast you go. Only where you put it matters.<span class="zh">鉛筆：不管寫快寫慢，線都一樣粗。重要的只有線放在哪裡。</span>'
+      : 'Brush: slow is thick and fast is thin, or press harder with a stylus.<span class="zh">毛筆：寫得慢就粗、寫得快就細（用觸控筆的話是越用力越粗）。</span>';
+  }
+  function setGrid(v) {
+    gridKind = ['mi', 'jiu', 'tian'].includes(v) ? v : 'mi';
+    root.querySelectorAll('[data-pad-grid]').forEach((b2) => b2.setAttribute('aria-pressed', b2.getAttribute('data-pad-grid') === gridKind ? 'true' : 'false'));
+    base = null; render();
+  }
+  root.querySelectorAll('[data-pad-tool]').forEach((b2) => b2.addEventListener('click', () => setTool(b2.getAttribute('data-pad-tool'))));
+  root.querySelectorAll('[data-pad-grid]').forEach((b2) => b2.addEventListener('click', () => setGrid(b2.getAttribute('data-pad-grid'))));
+  if (root.querySelector('[data-pad-tool]')) setTool(root.getAttribute('data-tool') || 'brush');
+  if (root.querySelector('[data-pad-grid]')) { gridKind = root.getAttribute('data-grid') || 'mi'; setGrid(gridKind); }
+
   new ResizeObserver(size).observe(cv);
   size();
   if (cmpCv) { new ResizeObserver(() => compare()).observe(cmpCv); compare(); }
@@ -272,7 +296,7 @@ export function initPad(root, char, chars = null) {
   showTime();
 
   root.__pad = {
-    strokes, render, clear: () => { strokes.length = 0; render(); compare(); showTime(); }, demo: startDemo, stopDemo, score: () => lastScore, setChar, timing,
+    strokes, render, clear: () => { strokes.length = 0; render(); compare(); showTime(); }, demo: startDemo, stopDemo, score: () => lastScore, setChar, timing, setTool, setGrid, tool: () => tool,
     setDemoTime: (t) => { demo = demo || { t: 0 }; demo.t = t; render(); },
     // 除錯：照點陣列寫一筆 [[x, y, 毫秒], …]（字框座標），走跟真的指標一樣的流程
     write(pts, pointerType = 'mouse', pressure = 0.5) {
