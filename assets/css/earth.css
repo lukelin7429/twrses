@@ -83,6 +83,28 @@
 .ew-sc-zh { display: block; margin-top: .3rem; font-family: var(--zh); }
 @media (max-width: 560px) { .ew-sc-lv { grid-template-columns: repeat(5, minmax(0, 1fr)); } .ew-sk-list { grid-template-columns: 1fr 1fr; } }
 
+/* ---------- 第四課：台灣的山是怎麼來的？ ---------- */
+@media (min-width: 1021px) { .ew-mt-lab .al-space { min-height: 640px; } }
+.ew-mt-push { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.ew-mt-rain { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.ew-mt-msg[hidden] { display: none; }
+.al-lab.ew-mt-lb-peak { color: #0b1226; background: #fff; border-color: #fff; font-weight: 800; font-variant-numeric: tabular-nums; }
+.al-lab.ew-mt-lb-peak small { color: #33415f; }
+.al-lab.ew-mt-lb-plain { border-color: #d9c08a; }
+.al-lg-ewmtyu i { border: 0; height: 3px; margin-top: .55rem; background: #ffd36e; }
+.al-lg-ewmtrain i { border: 0; height: 11px; width: 3px; margin: .3rem 10px 0; background: #9fd0ff; box-shadow: 7px 3px 0 #9fd0ff, -7px 2px 0 #9fd0ff; }
+.al-lg-ewmtsed i { border: 0; border-radius: 50%; width: 10px; height: 10px; margin: .35rem 6px 0; background: #c89a5a; }
+/* 頁面小工具：如果沒有侵蝕 */
+.ew-pk .al-age::-webkit-slider-runnable-track { background: linear-gradient(90deg, var(--brand) 0 var(--p, 16%), #e5dfd0 var(--p, 16%)); }
+.ew-pk .al-age::-webkit-slider-thumb { border-color: var(--brand); }
+.ew-pk .al-age::-moz-range-progress { background: var(--brand); }
+.ew-pk-pre { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.ew-pk-out { display: grid; grid-template-columns: 64px minmax(0, 1fr); gap: 1.2rem; align-items: stretch; }
+.ew-pk-col { position: relative; min-height: 220px; border-radius: 12px; background: rgba(255,255,255,.1); overflow: visible; }
+.ew-pk-bar { position: absolute; left: 0; right: 0; bottom: 0; border-radius: 12px; background: linear-gradient(0deg, #4f9a5a, #8c8478 60%, #f4f7fb); transition: height .2s; }
+.ew-pk-mark { position: absolute; left: -4px; right: -4px; height: 2px; background: #ffd36e; }
+.ew-pk-mark b { position: absolute; left: 0; bottom: 4px; font-size: .64rem; color: #ffd36e; white-space: nowrap; }
+
 /* ---------- 全系列共用 ---------- */
 .cp-link.ew-link-soon { border-style: dashed; opacity: .78; cursor: default; }
 .ew-safety-src { margin: 1rem 0 0; font-size: .86rem; color: var(--ink-soft); }

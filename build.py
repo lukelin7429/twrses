@@ -9468,7 +9468,7 @@ def build_chip_hub():
 _earthj = os.path.join(ROOT, "data", "earth.json")
 EARTH = json.load(open(_earthj, encoding="utf-8")) if os.path.exists(_earthj) else None
 EARTH_BASE = "/resources/classes/earth/"
-_EARTH_JS = {"quake": "earth-quake", "inside": "earth-inside", "shake": "earth-shake"}   # lab.kind → assets/js/<bundle>.js
+_EARTH_JS = {"quake": "earth-quake", "inside": "earth-inside", "shake": "earth-shake", "mountain": "earth-mountain"}   # lab.kind → assets/js/<bundle>.js
 
 def _earth_ver():
     h = hashlib.md5()
@@ -9706,9 +9706,82 @@ def _earth_scale10(sc):
             f'</div></div>'
             '<noscript><p class="muted">The table works in your browser and needs JavaScript. · 這張表在瀏覽器裡執行，需要開啟 JavaScript。</p></noscript>')
 
-_EARTH_LAB = {"quake": render_earthquake_lab, "inside": render_earthinside_lab, "shake": render_earthshake_lab}          # lab.kind → 3D 面板
-_EARTH_ICON = {"quake": earthquake_svg, "inside": earthglobe_svg, "shake": earthshake_svg}                 # lesson.card → 課程卡小圖示
-_EARTH_WIDGETS = [("warn", _earth_warn), ("dig", _earth_dig), ("scale10", _earth_scale10)]               # lesson 裡有這個 key 就多一段（照這裡的順序）
+def earthmountain_svg(size=56):
+    """第四課的課程卡小圖示：被兩邊擠起來的山（看得到彎曲的地層），兩邊各一個往中間推的箭頭。"""
+    return (f'<svg class="earthmountain-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">'
+            '<path d="M4 46 L20 22 L27 30 L36 12 L56 46 Z" fill="#8a7358"/><path d="M36 12 L41 21 L36 19 L31 22 Z" fill="#f4f7fb"/>'
+            '<path d="M10 42 Q22 30 28 36 T46 40" fill="none" stroke="#c9b08a" stroke-width="1.8"/><path d="M14 46 Q24 38 30 42 T50 46" fill="none" stroke="#c9b08a" stroke-width="1.8"/>'
+            '<rect x="2" y="46" width="56" height="5" rx="1.5" fill="#4f9a5a"/>'
+            '<path d="M3 56 H13 M10 53 L13 56 L10 59 M57 56 H47 M50 53 L47 56 L50 59" fill="none" stroke="#ffb347" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>')
+
+def render_earthmountain_lab(lesson):
+    """第四課：擠壓造山與侵蝕的拉鋸（assets/js/earth-mountain.js 綁這裡的 class；高度模型是示例，垂直誇大）。"""
+    lab = lesson["lab"]
+    msgs = "".join(f'<p class="cp-msg ew-mt-msg" data-msg="{k}" hidden>{html.escape(m["en"])}<span class="zh">{html.escape(m["zh"])}</span></p>' for k, m in lab["msgs"].items())
+    tg = _lab_toggles([("labels", "Labels", "標示", True)])
+    return f'''<div class="astro-lab cp-lab ew-lab ew-mt-lab rvl" data-earthmountain-lab>
+  <div class="al-stage">
+    <div class="al-space">
+      <canvas class="al-space-cv" aria-label="3D cutaway of the crust and the sea: mud and sand on the seabed are squeezed and pushed up into mountains while rain and rivers wear them down and carry the sand to a plain · 剖開的地殼與海的 3D 模型：海底的泥沙被擠壓、往上推成山，雨水和河流又把山削下來，把泥沙帶到平原"></canvas>
+      <div class="al-labels" aria-hidden="true"></div>
+      <p class="al-hint">Drag to turn · 拖曳旋轉　Scroll or pinch to zoom · 滾輪／雙指縮放</p>
+      <button type="button" class="al-home" title="Reset view · 重設視角" aria-label="Reset view · 重設視角">&#8634;</button>
+      <p class="al-nogl-msg">This 3D model needs WebGL, which this browser does not support. The reading and the cards below still explain everything.<br><span class="zh">這個瀏覽器不支援 WebGL，無法顯示 3D 模型；下方的課文與卡片一樣能看懂。</span></p>
+    </div>
+    <aside class="al-sky cp-aside">
+      <p class="al-sky-k">1 · How fast is the land pushed up? · 往上推得多快？</p>
+      <div class="cp-dope ew-mt-push" role="group" aria-label="Uplift · 抬升">
+        <button type="button" data-push="off" aria-pressed="false">Stopped<small>停了</small></button>
+        <button type="button" data-push="slow" aria-pressed="false">2.5 mm<small>慢</small></button>
+        <button type="button" data-push="now" aria-pressed="true">5 mm<small>台灣</small></button>
+        <button type="button" data-push="fast" aria-pressed="false">7.5 mm<small>快</small></button>
+      </div>
+      <p class="al-sky-k">2 · How hard do rain and rivers wear it down? · 雨水和河流削得多兇？</p>
+      <div class="cp-dope ew-mt-rain" role="group" aria-label="Erosion · 侵蝕">
+        <button type="button" data-rain="weak" aria-pressed="false">Gently<small>輕</small></button>
+        <button type="button" data-rain="medium" aria-pressed="true">Steadily<small>中</small></button>
+        <button type="button" data-rain="strong" aria-pressed="false">Fiercely<small>兇</small></button>
+      </div>
+      <dl class="cp-nums cp-lt-nums ew-nums">
+        <div><dt>Time · 時間</dt><dd class="ew-mt-t"></dd></div>
+        <div><dt>Highest peak · 最高的山</dt><dd class="ew-mt-h"></dd></div>
+        <div><dt>Pushed up · 推高</dt><dd class="ew-mt-up"></dd></div>
+        <div><dt>Worn away · 削掉</dt><dd class="ew-mt-off"></dd></div>
+      </dl>
+      {msgs}
+      <button type="button" class="cp-wf-tour ew-mt-reset"><span aria-hidden="true">&#8634;</span> <span class="t">Start over · 從頭來</span></button>
+    </aside>
+  </div>
+  <div class="al-controls">
+    <div class="al-row al-row-main">
+      <button type="button" class="al-play" aria-pressed="true"><span class="al-play-i" aria-hidden="true"></span><span class="al-play-t">Pause · 暫停</span></button>
+      <div class="al-row al-toggles">{tg}</div>
+    </div>
+  </div>
+  {_lab_foot(lab)}
+  <p class="cp-credit">{lab["credit_html"]}</p>
+</div>'''
+
+def _earth_peak(pk):
+    """「如果沒有侵蝕，山會有多高？」（earth-mountain.js 的 initPeak；不需要 WebGL）。"""
+    pre = "".join(f'<button type="button" data-y="{m["y"]}" aria-pressed="false">{html.escape(m["en"])}<small>{html.escape(m["zh"])}</small></button>' for m in pk["marks"])
+    return (f'<div class="cp-cnt ew-pk rvl" data-earth-peak>'
+            f'<div class="cp-cnt-in">'
+            f'<label class="cp-cnt-l"><span>How long has the land been rising? · 往上升了多久 <output class="ew-pk-yr-out"></output></span>'
+            f'<input type="range" class="al-age ew-pk-yr" min="0" max="5000000" step="10000" value="790000"></label>'
+            f'<div class="cp-dpw-pre ew-pk-pre" role="group" aria-label="Examples · 例子">{pre}</div>'
+            f'<p class="cp-cnt-note">{html.escape(pk["note_en"])}<span class="zh">{html.escape(pk["note_zh"])}</span></p></div>'
+            f'<div class="cp-home-out cp-cnt-out ew-pk-out" aria-live="polite">'
+            f'<div class="ew-pk-col" aria-hidden="true"><i class="ew-pk-bar"></i><span class="ew-pk-mark"><b>Yushan · 玉山</b></span></div>'
+            f'<div><p class="cp-home-k">Height with no erosion · 沒有侵蝕的高度</p>'
+            f'<p class="cp-home-big"><b class="ew-pk-n">0</b> meters · 公尺</p>'
+            f'<p class="cp-home-note"><span class="ew-pk-en"></span><span class="zh ew-pk-zh"></span></p></div>'
+            f'</div></div>'
+            '<noscript><p class="muted">The calculator works in your browser and needs JavaScript. · 計算在瀏覽器裡進行，需要開啟 JavaScript。</p></noscript>')
+
+_EARTH_LAB = {"quake": render_earthquake_lab, "inside": render_earthinside_lab, "shake": render_earthshake_lab, "mountain": render_earthmountain_lab}          # lab.kind → 3D 面板
+_EARTH_ICON = {"quake": earthquake_svg, "inside": earthglobe_svg, "shake": earthshake_svg, "mountain": earthmountain_svg}                 # lesson.card → 課程卡小圖示
+_EARTH_WIDGETS = [("warn", _earth_warn), ("dig", _earth_dig), ("scale10", _earth_scale10), ("peak", _earth_peak)]               # lesson 裡有這個 key 就多一段（照這裡的順序）
 
 def _earth_flat():
     return [(ui, u, l) for ui, u in enumerate(EARTH["units"]) for l in u["lessons"]]
