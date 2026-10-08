@@ -2640,16 +2640,635 @@
               "url": "https://en.wikipedia.org/wiki/Age_of_Earth"
             }
           ]
-        }
-      ],
-      "planned": [
+        },
         {
           "n": 5,
+          "slug": "volcano",
+          "title": "How Does a Volcano Erupt?",
+          "title_zh": "火山怎麼噴發？",
+          "level": "入門 · Beginner",
           "icon": "🌋",
-          "en": "How Does a Volcano Erupt?",
-          "zh": "火山怎麼噴發？"
+          "card": "volcano",
+          "blurb_en": "Some volcanoes pour out rivers of glowing lava. Others blow their tops off in a cloud of ash. What makes the difference? Cut a volcano open in 3D, choose what the magma is like and how much gas it holds, and watch four kinds of eruption. Then see why a bubble rising from deep underground grows hundreds of times bigger.",
+          "blurb_zh": "有些火山流出一條條發亮的熔岩河，有些卻把山頂整個炸開，噴出一大團火山灰。差別在哪裡？在 3D 裡把火山切開，選一選岩漿是稀是黏、裡面有多少氣體，看四種不同的噴發。再看看，為什麼從地底深處升上來的氣泡會變大好幾百倍。",
+          "big_idea_en": "Deep underground, some rock melts into magma. Magma is lighter than the solid rock around it, so it pushes upward. It also has gas dissolved in it, like a bottle of soda. As the magma rises, the pressure drops and the gas comes out as bubbles that grow and grow. If the magma is runny, the gas escapes and lava flows out. If it is sticky, the gas is trapped until it explodes.",
+          "big_idea_zh": "在很深的地底，有些岩石熔化成岩漿。岩漿比周圍的固態岩石輕，所以往上擠。岩漿裡還溶著氣體，就像一瓶汽水。岩漿越往上，壓力越小，氣體就冒出來變成氣泡，而且越變越大。岩漿稀的話，氣體逃得掉，熔岩就流出來；岩漿黏的話，氣體被困住，最後爆開。",
+          "tricks_head": {
+            "en": "Volcanoes in a sentence",
+            "zh": "一句話記住火山"
+          },
+          "checked": {
+            "en": "October 2026",
+            "zh": "2026 年 10 月"
+          },
+          "lab": {
+            "kind": "volcano",
+            "eyebrow": "3D Model · 3D 模型",
+            "title_en": "Four Ways to Erupt",
+            "title_zh": "四種噴發",
+            "how_en": "Drag to turn the model, and scroll or pinch to zoom. This volcano has been cut in half so that you can see inside. Magma collects in the chamber at the bottom, and the pressure builds until it erupts. Choose runny or sticky magma, and a little gas or a lot. Watch the bubbles in the channel: they are tiny at the bottom and much bigger at the top.",
+            "how_zh": "拖曳可以旋轉模型，滾輪或雙指可以縮放。這座火山被切成兩半，讓你看得到裡面。岩漿聚集在底下的岩漿庫，壓力一直累積，直到噴發。選選看：岩漿是稀的還是黏的？氣體是少還是多？注意看通道裡的氣泡：在底下很小，到了上面大得多。",
+            "msgs": {
+              "flow": {
+                "en": "Runny magma with little gas. The few bubbles slip out easily, and the lava simply wells up and runs down the slopes. This kind of eruption is the calmest.",
+                "zh": "岩漿稀、氣體少。那一點點氣泡很容易就溜走，熔岩只是湧上來，順著山坡往下流。這是最平靜的一種噴發。"
+              },
+              "fountain": {
+                "en": "Runny magma with a lot of gas. The gas rushes out and throws the lava into the air like a fountain, but it does not get trapped, so there is no great explosion.",
+                "zh": "岩漿稀、氣體多。氣體衝出來，把熔岩像噴泉一樣拋到空中；不過氣體沒有被困住，所以不會有大爆炸。"
+              },
+              "dome": {
+                "en": "Sticky magma with little gas. It is too thick to flow far, so it squeezes out slowly and piles up in a lump over the crater.",
+                "zh": "岩漿黏、氣體少。它濃稠得流不遠，只能慢慢擠出來，在火山口上面堆成一團。"
+              },
+              "blast": {
+                "en": "Sticky magma with a lot of gas. The bubbles cannot escape, so the pressure builds and builds. When the magma finally breaks, it is blown to pieces, and a column of ash shoots into the sky. This is the dangerous kind.",
+                "zh": "岩漿黏、氣體多。氣泡逃不出去，壓力越積越高。等到岩漿終於撐不住，就被炸成碎片，一道火山灰柱衝上天空。這是最危險的一種。"
+              }
+            },
+            "legend": [
+              {
+                "cls": "ewvcmag",
+                "en": "Orange: magma, brighter as the pressure builds",
+                "zh": "橘色：岩漿，壓力越高越亮"
+              },
+              {
+                "cls": "ewvcbub",
+                "en": "White circles: gas bubbles, growing as they rise",
+                "zh": "白色圓圈：氣泡，越往上越大"
+              },
+              {
+                "cls": "ewvcash",
+                "en": "Gray dots: ash",
+                "zh": "灰色的點：火山灰"
+              }
+            ],
+            "scale_en": "A teaching model, not a real volcano. Real magma is not simply runny or sticky, and real eruptions do not come on a timer: the four kinds shown here are examples along a range, and one volcano can erupt in different ways at different times. The bubbles grow by the right amount for gas rising from 3 kilometers down, but they are drawn far larger than real ones.",
+            "scale_zh": "這是教學用的模型，不是真的火山。真的岩漿不是只有「稀」和「黏」兩種，真的噴發也不會照時間表來：這裡的四種只是一整個範圍裡的例子，同一座火山在不同的時候，也可能有不同的噴法。氣泡變大的比例是照「氣體從地下 3 公里升上來」算的，不過畫得比真的大很多。",
+            "credit_html": "Model drawn by My Culture Connect as a teaching diagram. The ideas follow <a href=\"https://en.wikipedia.org/wiki/Magma\" target=\"_blank\" rel=\"noopener\">Wikipedia, “Magma”</a> and the other sources listed at the bottom of this page. · 模型由人師教育協會自繪示意；原理依維基百科「Magma」條目與本頁最下方列出的其他出處。"
+          },
+          "paras": [
+            "Shake a bottle of soda and open it. You know what happens next. Before you opened it, the gas was hidden in the drink, held there by pressure. The moment the pressure was gone, the gas rushed out as bubbles and took the soda with it. A volcano works in much the same way.",
+            "It starts deep underground, where some rock is hot enough to melt. Melted rock is called magma. Magma is lighter than the solid rock around it, so it slowly pushes its way up. On the way it may collect in a large space called a magma chamber.",
+            "Like soda, magma has gas dissolved in it, mostly water vapor and carbon dioxide. Deep down, the weight of the rock above keeps the gas in. But as magma rises, the pressure drops, and the gas comes out as bubbles. The higher the bubbles rise, the bigger they grow. The magma swells, and it needs more room.",
+            "What happens next depends on the magma. Some magma is runny, a little like syrup. Bubbles slip out of it easily, and the lava flows quietly down the mountain. Other magma is thick and sticky, because it has more of a material called silica in it. Bubbles cannot escape from sticky magma. The pressure builds until the magma is blown apart into ash and broken rock.",
+            "Most volcanoes are found where plates meet, and many stand in a ring around the Pacific Ocean. Taiwan is on that ring. In the north, beside Taipei, is the Tatun Volcanic Group. Steam and gas still rise from the ground there, and scientists think magma may still lie below. Off the coast of Yilan, Guishan Island is a volcano too.",
+            "Volcanoes can be dangerous, but they also give us things. Water heated underground comes up as hot springs. Ash breaks down into rich soil. And scientists watch volcanoes closely, measuring small earthquakes, gases, and the swelling of the ground, so that people can be warned in time. A quiet volcano is not always a dead one."
+          ],
+          "paras_zh": [
+            "把一瓶汽水搖一搖，再打開。接下來會怎樣，你很清楚。打開之前，氣體藏在飲料裡，被壓力關在裡面。壓力一消失，氣體馬上變成氣泡衝出來，還把汽水一起帶出來。火山的道理也差不多。",
+            "事情從很深的地底開始。那裡有些岩石熱到熔化了；熔化的岩石叫做岩漿。岩漿比周圍的固態岩石輕，所以會慢慢地往上擠。途中，它可能聚集在一個很大的空間裡，叫做岩漿庫。",
+            "跟汽水一樣，岩漿裡也溶著氣體，主要是水蒸氣和二氧化碳。在很深的地方，上面岩石的重量把氣體壓在裡面。可是岩漿越往上，壓力越小，氣體就冒出來變成氣泡。氣泡升得越高，變得越大。岩漿膨脹起來，需要更多空間。",
+            "接下來會怎樣，要看岩漿是哪一種。有些岩漿是稀的，有點像糖漿，氣泡很容易溜出去，熔岩就靜靜地順著山往下流。有些岩漿又濃又黏，因為裡面含有比較多叫做「二氧化矽」的成分；氣泡沒辦法從黏稠的岩漿裡逃出來，壓力越積越高，最後把岩漿炸成火山灰和碎石。",
+            "大部分的火山都在板塊相接的地方，有很多排成一圈，圍著太平洋。台灣就在這一圈上。北部的台北旁邊有大屯火山群，那裡的地面到現在還冒著蒸氣和氣體，科學家認為底下可能還有岩漿。宜蘭外海的龜山島，也是一座火山。",
+            "火山可能很危險，但它也帶給我們一些東西。在地底下被加熱的水冒出地面，就是溫泉。火山灰會慢慢變成肥沃的土壤。科學家也嚴密地監測火山，量測小地震、氣體和地面的隆起，好讓人們來得及收到警告。安靜的火山，不一定是死的火山。"
+          ],
+          "questions": [
+            "Why does magma rise toward the surface?",
+            "What happens to the gas in magma as the magma rises?",
+            "Why do some volcanoes explode while others only pour out lava?"
+          ],
+          "answers": [
+            "Because it is lighter than the solid rock around it.",
+            "The pressure drops, so the gas comes out of the magma as bubbles, and the bubbles grow bigger as they rise.",
+            "It depends on the magma. Gas escapes easily from runny magma, so the lava flows out. In thick, sticky magma the gas is trapped, and the pressure builds until it explodes."
+          ],
+          "vocab": [
+            {
+              "n": 1,
+              "w": "volcano",
+              "pos": "n.",
+              "zh": "火山",
+              "ex": "The <b>volcano</b> has been quiet for a long time.",
+              "exzh": "這座火山已經安靜很久了。"
+            },
+            {
+              "n": 2,
+              "w": "erupt",
+              "pos": "v.",
+              "zh": "噴發",
+              "ex": "Nobody knows when it will <b>erupt</b> again.",
+              "exzh": "沒有人知道它什麼時候會再噴發。"
+            },
+            {
+              "n": 3,
+              "w": "magma",
+              "pos": "n.",
+              "zh": "岩漿",
+              "ex": "<b>Magma</b> is melted rock under the ground.",
+              "exzh": "岩漿是地底下熔化的岩石。"
+            },
+            {
+              "n": 4,
+              "w": "lava",
+              "pos": "n.",
+              "zh": "熔岩",
+              "ex": "Red <b>lava</b> ran down the mountain.",
+              "exzh": "紅色的熔岩順著山流下來。"
+            },
+            {
+              "n": 5,
+              "w": "bubble",
+              "pos": "n.",
+              "zh": "氣泡",
+              "ex": "There are <b>bubbles</b> in my soda.",
+              "exzh": "我的汽水裡有氣泡。"
+            },
+            {
+              "n": 6,
+              "w": "ash",
+              "pos": "n.",
+              "zh": "灰；火山灰",
+              "ex": "<b>Ash</b> from the fire covered the ground.",
+              "exzh": "火燒完的灰蓋滿了地面。"
+            },
+            {
+              "n": 7,
+              "w": "explode",
+              "pos": "v.",
+              "zh": "爆炸",
+              "ex": "The balloon <b>exploded</b> with a loud bang.",
+              "exzh": "氣球砰的一聲爆掉了。"
+            },
+            {
+              "n": 8,
+              "w": "hot spring",
+              "pos": "n.",
+              "zh": "溫泉",
+              "ex": "We sat in the <b>hot spring</b> on a cold night.",
+              "exzh": "我們在寒冷的夜晚泡溫泉。"
+            }
+          ],
+          "quiz": [
+            {
+              "q": "What is magma?",
+              "options": [
+                "Melted rock under the ground",
+                "Very hot water",
+                "A kind of gas",
+                "Burning wood"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "Why do the gas bubbles in magma grow as they rise?",
+              "options": [
+                "Because the pressure gets lower",
+                "Because the magma gets colder",
+                "Because it starts to rain",
+                "Because they eat the rock"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "Which magma is most likely to cause an explosion?",
+              "options": [
+                "Sticky magma with a lot of gas",
+                "Runny magma with little gas",
+                "Magma with no gas at all",
+                "Cold magma"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "Where are most volcanoes found?",
+              "options": [
+                "Where plates meet",
+                "In the middle of deserts",
+                "Only at the North Pole",
+                "Under big cities"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "What is a hot spring?",
+              "options": [
+                "Water heated underground that comes to the surface",
+                "A river in summer",
+                "Rain from a volcano",
+                "A swimming pool with a heater"
+              ],
+              "correct": 0
+            }
+          ],
+          "parts_head": {
+            "eyebrow": "Try It in the Model · 在模型裡試試",
+            "en": "Four eruptions",
+            "zh": "四種噴發"
+          },
+          "parts": [
+            {
+              "key": "flow",
+              "icon": "🟠",
+              "en": "A river of lava",
+              "zh": "熔岩河",
+              "meta_en": "Runny, little gas",
+              "meta_zh": "稀、氣體少",
+              "demo": "flow",
+              "text_en": "The gentlest eruption. The lava wells up and runs downhill.",
+              "text_zh": "最溫和的噴發。熔岩湧上來，往山下流。"
+            },
+            {
+              "key": "fountain",
+              "icon": "⛲",
+              "en": "A lava fountain",
+              "zh": "熔岩噴泉",
+              "meta_en": "Runny, a lot of gas",
+              "meta_zh": "稀、氣體多",
+              "demo": "fountain",
+              "text_en": "Escaping gas throws the lava high into the air.",
+              "text_zh": "衝出來的氣體把熔岩高高拋到空中。"
+            },
+            {
+              "key": "dome",
+              "icon": "🍮",
+              "en": "A sticky lump",
+              "zh": "黏稠的一團",
+              "meta_en": "Sticky, little gas",
+              "meta_zh": "黏、氣體少",
+              "demo": "dome",
+              "text_en": "Too thick to flow, the lava piles up over the crater.",
+              "text_zh": "濃稠得流不動，熔岩在火山口上面堆起來。"
+            },
+            {
+              "key": "blast",
+              "icon": "💥",
+              "en": "An explosion",
+              "zh": "大爆炸",
+              "meta_en": "Sticky, a lot of gas",
+              "meta_zh": "黏、氣體多",
+              "demo": "blast",
+              "text_en": "Trapped gas blows the magma apart. Watch how long the pressure builds first.",
+              "text_zh": "被困住的氣體把岩漿炸開。注意看，在這之前壓力累積了多久。"
+            }
+          ],
+          "parts_note_en": "In each case, compare the bubbles near the bottom of the channel with the ones near the top.",
+          "parts_note_zh": "每一種都比比看：通道底部附近的氣泡，和接近山頂的氣泡，差多少？",
+          "links_head": {
+            "eyebrow": "Go Further · 延伸閱讀",
+            "en": "Where the heat comes from",
+            "zh": "熱是從哪裡來的"
+          },
+          "links": [
+            {
+              "href": "/resources/classes/earth/inside-the-earth/",
+              "icon": "🌍",
+              "k_en": "Earth and Weather · Lesson 1",
+              "k_zh": "地球與天氣 第一課",
+              "en": "What Is Inside the Earth?",
+              "zh": "地球裡面有什麼？",
+              "note_en": "Most of the mantle is solid. Magma forms only in certain places.",
+              "note_zh": "地函大部分是固體，岩漿只在某些地方形成。"
+            },
+            {
+              "href": "/resources/classes/earth/taiwan-mountains/",
+              "icon": "⛰️",
+              "k_en": "Earth and Weather · Lesson 4",
+              "k_zh": "地球與天氣 第四課",
+              "en": "How Did Taiwan's Mountains Rise?",
+              "zh": "台灣的山是怎麼來的？",
+              "note_en": "Most of Taiwan's high mountains are not volcanoes. See how they were made.",
+              "note_zh": "台灣大部分的高山不是火山。看看它們是怎麼來的。"
+            }
+          ],
+          "bubble": {
+            "eyebrow": "The Soda Bottle · 汽水瓶的道理",
+            "en": "How much does a bubble grow on the way up?",
+            "zh": "氣泡往上升的時候會變多大？",
+            "lead_en": "Squeeze a gas and it shrinks. Let go and it grows. Deep underground, the rock above squeezes very hard. Choose how deep a bubble of gas starts, and see how much bigger it is when it reaches the top.",
+            "lead_zh": "氣體被壓就會縮小，放開就會變大。在很深的地底，上面的岩石壓得非常用力。選一選氣泡從多深的地方出發，看它到達地表的時候變大多少。",
+            "depths": [
+              {
+                "km10": 1,
+                "en": "100 m",
+                "zh": "100 公尺"
+              },
+              {
+                "km10": 10,
+                "en": "1 km",
+                "zh": "1 公里"
+              },
+              {
+                "km10": 30,
+                "en": "3 km",
+                "zh": "3 公里"
+              },
+              {
+                "km10": 50,
+                "en": "5 km",
+                "zh": "5 公里"
+              }
+            ],
+            "note_en": "This uses Boyle's law: when the pressure on a gas falls to a fraction of what it was, its volume grows by the same number of times. The pressure is an example worked out for rock about 2.7 times as dense as water, which adds about 265 atmospheres for every kilometer of depth. Real gas in magma also cools and stays partly dissolved, so real numbers differ.",
+            "note_zh": "這裡用的是波以耳定律：氣體受到的壓力變成原來的幾分之一，體積就變成原來的幾倍。壓力是用「岩石的密度大約是水的 2.7 倍」算出來的例子，也就是每深 1 公里，大約多 265 個大氣壓。真的岩漿裡，氣體還會降溫，也有一部分一直溶在裡面，所以實際的數字會不一樣。"
+          },
+          "facts": {
+            "eyebrow": "Volcanoes by the Numbers · 火山的數字",
+            "en": "Six numbers about volcanoes",
+            "zh": "六個和火山有關的數字",
+            "lead_en": "From the temperature of lava to the height of a volcano in Taipei.",
+            "lead_zh": "從熔岩的溫度，到台北一座火山的高度。",
+            "items": [
+              {
+                "big": "800–1,200",
+                "unit_en": "°C",
+                "unit_zh": "°C",
+                "en": "The usual temperature of lava when it erupts.",
+                "zh": "熔岩噴發時通常的溫度。"
+              },
+              {
+                "big": "0–8",
+                "unit_en": "on the scale",
+                "unit_zh": "級",
+                "en": "The volcanic explosivity index, made in 1982, measures how big an explosive eruption is.",
+                "zh": "1982 年訂出的「火山爆發指數」，用來表示一次爆炸式噴發有多大。"
+              },
+              {
+                "big": "2",
+                "unit_en": "main gases",
+                "unit_zh": "種主要的氣體",
+                "en": "Water vapor and carbon dioxide are the main gases that come out of volcanoes, along with sulfur gases.",
+                "zh": "火山噴出的氣體主要是水蒸氣和二氧化碳，另外還有含硫的氣體。"
+              },
+              {
+                "big": "800×",
+                "unit_en": "the volume",
+                "unit_zh": "倍的體積",
+                "en": "In our example, a bubble that rises from 3 kilometers down grows to about 800 times its volume.",
+                "zh": "在我們的例子裡，從地下 3 公里升上來的氣泡，體積大約變成 800 倍。"
+              },
+              {
+                "big": "1,120",
+                "unit_en": "meters",
+                "unit_zh": "公尺",
+                "en": "The height of Qixing Mountain in Taipei, the tallest volcano of the Tatun Volcanic Group.",
+                "zh": "台北七星山的高度，它是大屯火山群裡最高的一座。"
+              },
+              {
+                "big": "361",
+                "unit_en": "meters",
+                "unit_zh": "公尺",
+                "en": "The height of Guishan Island, a volcano that rises from the sea off Yilan.",
+                "zh": "龜山島的高度，它是一座從宜蘭外海冒出來的火山。"
+              }
+            ]
+          },
+          "culture_cards": {
+            "eyebrow": "Volcano Stories · 火山的故事",
+            "title_en": "A volcano beside a city, a turtle in the sea, warm water from the ground, and a ring of fire",
+            "title_zh": "城市旁邊的火山、海上的烏龜、地底冒出來的熱水，還有一圈火環",
+            "lead_en": "Four reasons volcanoes matter in Taiwan.",
+            "lead_zh": "火山和台灣有關的四件事。",
+            "cards": [
+              {
+                "k": "Tatun · 大屯",
+                "en": "A volcano beside a city",
+                "zh": "城市旁邊的火山",
+                "body_en": "The Tatun Volcanic Group rises at the northern edge of Taipei. Because it has not had a major eruption in more than a thousand years, many people thought it was extinct. But steam and gas still come out of the ground, and studies suggest that magma chambers probably still exist below. Today the Taiwan Volcano Observatory watches the group closely.",
+                "body_zh": "大屯火山群就在台北的北邊。因為它已經一千多年沒有大噴發，很多人以為它是死火山。可是地面到現在還在冒蒸氣和氣體，研究也顯示底下很可能還有岩漿庫。現在，大屯火山觀測站嚴密地監測著這一群火山。"
+              },
+              {
+                "k": "Guishan · 龜山島",
+                "en": "A turtle in the sea",
+                "zh": "海上的烏龜",
+                "body_en": "From the coast of Yilan you can see an island shaped like a turtle. Guishan Island is a volcano, 361 meters high. The Central Weather Administration notes that the earthquake zone in northeastern Taiwan often comes with heat from the ground and shallow volcanic activity, as around this island.",
+                "body_zh": "從宜蘭的海邊，看得到一座形狀像烏龜的島。龜山島是一座火山，高 361 公尺。中央氣象署提到，台灣東北部的地震帶常常伴隨著地熱和淺層的火山活動，龜山島附近就是這樣的地方。"
+              },
+              {
+                "k": "Hot springs · 溫泉",
+                "en": "Warm water from the ground",
+                "zh": "地底冒出來的熱水",
+                "body_en": "A hot spring is groundwater that has been heated inside the Earth and has found its way back up. The heat can come from a body of magma not far below, or from water that sinks along cracks to hot rock deep in the crust and rises again.",
+                "body_zh": "溫泉是在地球內部被加熱、又找到路回到地面的地下水。熱可能來自不太深的一團岩漿；也可能是水沿著裂縫往下滲，碰到地殼深處的熱岩石，再冒上來。"
+              },
+              {
+                "k": "The Pacific · 太平洋",
+                "en": "The Ring of Fire",
+                "zh": "火環",
+                "body_en": "Volcanoes are most often found where plates pull apart or push together. Around the Pacific Ocean, plate after plate pushes together, so volcanoes line its edges all the way around. This is the same ring that has most of the world's earthquakes, which you met in Lesson 2.",
+                "body_zh": "火山最常出現在板塊分開或相擠的地方。太平洋的周圍，一塊又一塊的板塊擠在一起，所以火山沿著它的邊緣排了一整圈。這和第二課提到的、全世界大部分地震發生的那一圈，是同一圈。"
+              }
+            ]
+          },
+          "myths": [
+            {
+              "myth_en": "Lava comes from the center of the Earth.",
+              "myth_zh": "熔岩是從地球的中心來的。",
+              "fact_en": "Magma forms in the crust or the upper part of the mantle, far above the core.",
+              "fact_zh": "岩漿是在地殼或地函的上部形成的，離地核還很遠。"
+            },
+            {
+              "myth_en": "All volcanoes erupt with a great explosion.",
+              "myth_zh": "火山噴發一定是大爆炸。",
+              "fact_en": "Many only pour out lava. Whether a volcano explodes depends on how sticky the magma is and how much gas it holds.",
+              "fact_zh": "很多火山只是流出熔岩。會不會爆炸，要看岩漿有多黏、裡面有多少氣體。"
+            },
+            {
+              "myth_en": "A volcano that has been quiet for centuries is dead.",
+              "myth_zh": "安靜了好幾百年的火山就是死火山。",
+              "fact_en": "Not always. Scientists found signs that the Tatun volcanoes near Taipei may still be active, even after more than a thousand quiet years.",
+              "fact_zh": "不一定。台北旁邊的大屯火山群安靜了一千多年，科學家還是發現它可能仍然是活的。"
+            },
+            {
+              "myth_en": "The smoke from a volcano is like smoke from a fire.",
+              "myth_zh": "火山冒的煙和燒東西的煙一樣。",
+              "fact_en": "Nothing is burning. The cloud is steam, other gases, and ash, which is rock broken into tiny pieces.",
+              "fact_zh": "沒有東西在燃燒。那團東西是水蒸氣、其他氣體，還有火山灰，也就是碎成很小很小的岩石。"
+            }
+          ],
+          "tricks": [
+            {
+              "title_en": "Light rock rises",
+              "title_zh": "輕的岩石往上跑",
+              "body_en": "Magma is lighter than the solid rock around it.",
+              "body_zh": "岩漿比周圍的固態岩石輕。"
+            },
+            {
+              "title_en": "Less pressure, bigger bubbles",
+              "title_zh": "壓力越小，氣泡越大",
+              "body_en": "Just like a bottle of soda.",
+              "body_zh": "就像一瓶汽水。"
+            },
+            {
+              "title_en": "Runny flows, sticky blows",
+              "title_zh": "稀的流，黏的爆",
+              "body_en": "Trapped gas makes the explosion.",
+              "body_zh": "被困住的氣體造成爆炸。"
+            },
+            {
+              "title_en": "Quiet is not dead",
+              "title_zh": "安靜不等於死了",
+              "body_en": "That is why scientists keep watching.",
+              "body_zh": "所以科學家要一直看著它。"
+            }
+          ],
+          "safety": [
+            {
+              "en": "Do the soda experiment outdoors, point the bottle away from everyone, and wear goggles if you have them.",
+              "zh": "汽水實驗要在戶外做，瓶口不要對著任何人；有護目鏡的話戴上。"
+            },
+            {
+              "en": "At hot springs and steaming vents, stay on the paths and behind the fences. The water and steam can be hot enough to burn, and the gases can be harmful.",
+              "zh": "在溫泉和冒蒸氣的噴氣口，要走在步道上、待在圍欄後面。那裡的水和蒸氣可能燙到讓人燙傷，氣體也可能有害。"
+            },
+            {
+              "en": "Do not taste or breathe in anything from a science experiment.",
+              "zh": "科學實驗用的東西，不要嘗，也不要用力聞。"
+            }
+          ],
+          "activities": [
+            {
+              "title_en": "The Soda Volcano",
+              "title_zh": "汽水火山",
+              "materials": [
+                {
+                  "en": "Two small bottles of the same soda, one kept still and one gently shaken",
+                  "zh": "兩小瓶一樣的汽水，一瓶放著不動，一瓶輕輕搖過"
+                },
+                {
+                  "en": "A tray or an open space outdoors, and a towel",
+                  "zh": "一個托盤或戶外的空地，還有一條毛巾"
+                }
+              ],
+              "steps": [
+                {
+                  "en": "Look closely at both closed bottles. Can you see any bubbles?",
+                  "zh": "仔細看兩瓶還沒開的汽水。看得到氣泡嗎？"
+                },
+                {
+                  "en": "Open the still bottle slowly. Watch where the bubbles appear and how they change as they rise.",
+                  "zh": "慢慢打開沒搖過的那一瓶。看氣泡從哪裡冒出來、往上升的時候有什麼變化。"
+                },
+                {
+                  "en": "Now open the shaken bottle over the tray, pointing it away from everyone.",
+                  "zh": "接著在托盤上打開搖過的那一瓶，瓶口不要對著人。"
+                },
+                {
+                  "en": "Talk about it: where was the gas before you opened the bottle? What changed when you opened it?",
+                  "zh": "討論：打開之前，氣體在哪裡？打開的那一刻，什麼東西變了？"
+                }
+              ],
+              "tip_en": "The cap is like the rock above the magma. Take the pressure away, and the gas that was hidden in the liquid comes out all at once.",
+              "tip_zh": "瓶蓋就像岩漿上面的岩石。把壓力拿掉，原本藏在液體裡的氣體就一下子全跑出來。"
+            },
+            {
+              "title_en": "Runny or Sticky?",
+              "title_zh": "稀的還是黏的？",
+              "materials": [
+                {
+                  "en": "Two clear cups, water, and something thick such as honey or thick syrup",
+                  "zh": "兩個透明的杯子、水，還有一種濃稠的東西，例如蜂蜜或濃糖漿"
+                },
+                {
+                  "en": "Two straws and a timer",
+                  "zh": "兩根吸管和一個計時器"
+                }
+              ],
+              "steps": [
+                {
+                  "en": "Fill one cup halfway with water and the other halfway with honey.",
+                  "zh": "一個杯子裝半杯水，另一個裝半杯蜂蜜。"
+                },
+                {
+                  "en": "Blow gently through a straw into the water. How quickly do the bubbles reach the top? What do they do there?",
+                  "zh": "用吸管輕輕往水裡吹氣。氣泡多快到達水面？到了水面之後怎麼樣？"
+                },
+                {
+                  "en": "Blow just as gently into the honey. Time one bubble from the bottom to the top.",
+                  "zh": "用一樣輕的力氣往蜂蜜裡吹。計時一顆氣泡從底部升到表面要多久。"
+                },
+                {
+                  "en": "Talk about it: in which cup is the gas trapped longer? Which one is more like an explosive volcano?",
+                  "zh": "討論：哪一杯裡的氣體被困得比較久？哪一杯比較像會爆炸的火山？"
+                }
+              ],
+              "tip_en": "Blow, do not suck, and use your own straw. In the honey the bubbles rise slowly, swell at the surface, and burst with a pop.",
+              "tip_zh": "只能吹、不能吸，而且每個人用自己的吸管。在蜂蜜裡，氣泡升得很慢，到了表面鼓起來，然後啵的一聲破掉。"
+            }
+          ],
+          "sources": [
+            {
+              "en": "Magma rises because it is less dense than the rock it formed from; it may collect in magma chambers; as it nears the surface and the pressure drops, dissolved gases bubble out; when a great deal of gas comes out as magma rises, the eruption is usually explosive",
+              "zh": "岩漿因密度比來源岩石低而上升；可能聚集在岩漿庫；接近地表、壓力下降時，溶解的氣體冒出成氣泡；岩漿上升時若大量氣體析出，噴發通常是爆炸式的",
+              "src": "Wikipedia, “Magma”",
+              "url": "https://en.wikipedia.org/wiki/Magma"
+            },
+            {
+              "en": "Lava high in silica is much more viscous than lava low in silica; because of their very high viscosity, such lavas usually erupt explosively; lava erupts at about 800 to 1,200°C",
+              "zh": "二氧化矽含量高的熔岩比含量低的黏得多；黏度很高的熔岩通常以爆炸方式噴發；熔岩噴發溫度約 800 至 1,200°C",
+              "src": "Wikipedia, “Lava”",
+              "url": "https://en.wikipedia.org/wiki/Lava"
+            },
+            {
+              "en": "Explosive eruptions are driven by gas; effusive eruptions pour out lava without a significant explosion",
+              "zh": "爆炸式噴發由氣體驅動；溢流式噴發流出熔岩而沒有明顯的爆炸",
+              "src": "Wikipedia, “Volcanic eruption”",
+              "url": "https://en.wikipedia.org/wiki/Volcanic_eruption"
+            },
+            {
+              "en": "A volcano is a vent in the crust that lets lava, ash, and gases escape from a magma chamber; volcanoes are most often found where plates are diverging or converging, as around the Pacific Ring of Fire; volcanoes are called active, dormant, or extinct",
+              "zh": "火山是地殼上讓熔岩、火山灰與氣體從岩漿庫逸出的開口；最常出現在板塊分離或聚合處，例如環太平洋火環；火山分為活火山、休火山、死火山",
+              "src": "Wikipedia, “Volcano”",
+              "url": "https://en.wikipedia.org/wiki/Volcano"
+            },
+            {
+              "en": "The principal volcanic gases are water vapor, carbon dioxide, and sulfur gases",
+              "zh": "火山氣體的主要成分是水蒸氣、二氧化碳與含硫氣體",
+              "src": "Wikipedia, “Volcanic gas”",
+              "url": "https://en.wikipedia.org/wiki/Volcanic_gas"
+            },
+            {
+              "en": "The volcanic explosivity index, devised in 1982; the largest eruptions are given a value of 8 and non-explosive ones 0",
+              "zh": "火山爆發指數於 1982 年訂定；最大的噴發為 8，非爆炸式為 0",
+              "src": "Wikipedia, “Volcanic explosivity index”",
+              "url": "https://en.wikipedia.org/wiki/Volcanic_explosivity_index"
+            },
+            {
+              "en": "The Tatun Volcanic Group: no major eruption in more than a thousand years; fumaroles and geothermal activity; magma chambers probably still exist; it may be an active volcano system; monitored by the Taiwan Volcano Observatory; Qixing Mountain is the tallest, at 1,120 m",
+              "zh": "大屯火山群：一千多年沒有大噴發；有噴氣孔與地熱活動；岩漿庫很可能仍存在；可能是活火山系統；由大屯火山觀測站監測；七星山最高，1,120 公尺",
+              "src": "Wikipedia, “Tatun Volcanic Group”",
+              "url": "https://en.wikipedia.org/wiki/Tatun_Volcanic_Group"
+            },
+            {
+              "en": "Guishan Island: a stratovolcano 361 m high, off Yilan",
+              "zh": "龜山島：高 361 公尺的層狀火山，位於宜蘭外海",
+              "src": "Wikipedia, “Guishan Island (Yilan)”",
+              "url": "https://en.wikipedia.org/wiki/Guishan_Island_(Yilan)"
+            },
+            {
+              "en": "The northeastern earthquake zone often comes with marked geothermal and shallow volcanic activity, as around Guishan Island",
+              "zh": "東北部地震帶常伴隨顯著的地熱與淺層火山活動現象（如龜山島周邊）",
+              "src": "中央氣象署 地震百問 53",
+              "url": "https://scweb.cwa.gov.tw/zh-TW/Guidance/FAQdetail/54"
+            },
+            {
+              "en": "A hot spring is groundwater heated by shallow bodies of magma or by circulating through faults to hot rock deep in the crust",
+              "zh": "溫泉是被淺層岩漿加熱，或沿斷層循環到地殼深處熱岩而加熱的地下水",
+              "src": "Wikipedia, “Hot spring”",
+              "url": "https://en.wikipedia.org/wiki/Hot_spring"
+            },
+            {
+              "en": "Volcanic ash and weathered volcanic rock produce some of the most fertile soil in the world",
+              "zh": "火山灰與風化的火山岩形成世界上最肥沃的土壤之一",
+              "src": "Wikipedia, “Volcano”",
+              "url": "https://en.wikipedia.org/wiki/Volcano"
+            },
+            {
+              "en": "Volcanoes are monitored through their earthquakes, their gases, and the deformation of the ground",
+              "zh": "監測火山的方法包括地震、氣體與地表變形",
+              "src": "Wikipedia, “Prediction of volcanic activity”",
+              "url": "https://en.wikipedia.org/wiki/Prediction_of_volcanic_activity"
+            },
+            {
+              "en": "Volcanic ash consists of fragments of rock, mineral crystals, and volcanic glass",
+              "zh": "火山灰由岩石碎片、礦物晶體與火山玻璃組成",
+              "src": "Wikipedia, “Volcanic ash”",
+              "url": "https://en.wikipedia.org/wiki/Volcanic_ash"
+            }
+          ]
         }
-      ]
+      ],
+      "planned": []
     },
     {
       "key": "sky",

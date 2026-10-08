@@ -9489,7 +9489,7 @@ def build_chip_hub():
 _earthj = os.path.join(ROOT, "data", "earth.json")
 EARTH = json.load(open(_earthj, encoding="utf-8")) if os.path.exists(_earthj) else None
 EARTH_BASE = "/resources/classes/earth/"
-_EARTH_JS = {"quake": "earth-quake", "inside": "earth-inside", "shake": "earth-shake", "mountain": "earth-mountain"}   # lab.kind → assets/js/<bundle>.js
+_EARTH_JS = {"quake": "earth-quake", "inside": "earth-inside", "shake": "earth-shake", "mountain": "earth-mountain", "volcano": "earth-volcano"}   # lab.kind → assets/js/<bundle>.js
 
 def _earth_ver():
     h = hashlib.md5()
@@ -9800,9 +9800,77 @@ def _earth_peak(pk):
             f'</div></div>'
             '<noscript><p class="muted">The calculator works in your browser and needs JavaScript. · 計算在瀏覽器裡進行，需要開啟 JavaScript。</p></noscript>')
 
-_EARTH_LAB = {"quake": render_earthquake_lab, "inside": render_earthinside_lab, "shake": render_earthshake_lab, "mountain": render_earthmountain_lab}          # lab.kind → 3D 面板
-_EARTH_ICON = {"quake": earthquake_svg, "inside": earthglobe_svg, "shake": earthshake_svg, "mountain": earthmountain_svg}                 # lesson.card → 課程卡小圖示
-_EARTH_WIDGETS = [("warn", _earth_warn), ("dig", _earth_dig), ("scale10", _earth_scale10), ("peak", _earth_peak)]               # lesson 裡有這個 key 就多一段（照這裡的順序）
+def earthvolcano_svg(size=56):
+    """第五課的課程卡小圖示：切開的火山，底下是岩漿庫，一條通道通到山頂，山頂冒出熔岩和煙。"""
+    return (f'<svg class="earthvolcano-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">'
+            '<path d="M4 46 L24 20 H36 L56 46 Z" fill="#857466"/><rect x="2" y="46" width="56" height="12" rx="2" fill="#6b5a4a"/>'
+            '<ellipse cx="30" cy="52" rx="13" ry="4.2" fill="#ff7a1a"/><rect x="28.3" y="20" width="3.4" height="30" fill="#ff7a1a"/>'
+            '<path d="M24 20 Q30 14 36 20 Z" fill="#ffd23c"/><circle cx="24" cy="10" r="4.5" fill="#8b8f99"/><circle cx="32" cy="7" r="5.5" fill="#a3a7b1"/><circle cx="40" cy="11" r="4" fill="#8b8f99"/></svg>')
+
+def render_earthvolcano_lab(lesson):
+    """第五課：切開的火山，岩漿稀或黏、氣體少或多，四種噴發（assets/js/earth-volcano.js 綁這裡的 class；全部自繪示意）。"""
+    lab = lesson["lab"]
+    msgs = "".join(f'<p class="cp-msg ew-vc-msg" data-msg="{k}" hidden>{html.escape(m["en"])}<span class="zh">{html.escape(m["zh"])}</span></p>' for k, m in lab["msgs"].items())
+    tg = _lab_toggles([("labels", "Labels", "標示", True)])
+    return f'''<div class="astro-lab cp-lab ew-lab ew-vc-lab rvl" data-earthvolcano-lab>
+  <div class="al-stage">
+    <div class="al-space">
+      <canvas class="al-space-cv" aria-label="3D cutaway of a volcano: a magma chamber below, a channel up to the crater, gas bubbles that grow as they rise, and four kinds of eruption · 切開的火山 3D 模型：底下的岩漿庫、通到火山口的通道、越往上越大的氣泡，以及四種噴發"></canvas>
+      <div class="al-labels" aria-hidden="true"></div>
+      <p class="al-hint">Drag to turn · 拖曳旋轉　Scroll or pinch to zoom · 滾輪／雙指縮放</p>
+      <button type="button" class="al-home" title="Reset view · 重設視角" aria-label="Reset view · 重設視角">&#8634;</button>
+      <p class="al-nogl-msg">This 3D model needs WebGL, which this browser does not support. The reading and the cards below still explain everything.<br><span class="zh">這個瀏覽器不支援 WebGL，無法顯示 3D 模型；下方的課文與卡片一樣能看懂。</span></p>
+    </div>
+    <aside class="al-sky cp-aside">
+      <p class="al-sky-k">1 · What is the magma like? · 岩漿是什麼樣子？</p>
+      <div class="cp-dope cp-tr-quick ew-vc-magma" role="group" aria-label="Magma · 岩漿">
+        <button type="button" data-magma="runny" aria-pressed="true">Runny<small>稀，像糖漿</small></button>
+        <button type="button" data-magma="sticky" aria-pressed="false">Sticky<small>黏，像麥芽糖</small></button>
+      </div>
+      <p class="al-sky-k">2 · How much gas is in it? · 裡面有多少氣體？</p>
+      <div class="cp-dope cp-tr-quick ew-vc-gas" role="group" aria-label="Gas · 氣體">
+        <button type="button" data-gas="low" aria-pressed="true">A little gas<small>氣體少</small></button>
+        <button type="button" data-gas="high" aria-pressed="false">A lot of gas<small>氣體多</small></button>
+      </div>
+      <div class="cp-ht-meter"><p class="ew-qk-k">Pressure under the volcano · 火山底下的壓力</p><div class="cp-ht-bar ew-qk-bar ew-vc-bar"><i></i></div><p class="cp-ht-status ew-vc-status"></p></div>
+      <dl class="cp-nums cp-lt-nums ew-nums">
+        <div><dt>This eruption · 這種噴發</dt><dd class="ew-vc-style"></dd></div>
+        <div><dt>Count · 次數</dt><dd class="ew-vc-count"></dd></div>
+      </dl>
+      {msgs}
+    </aside>
+  </div>
+  <div class="al-controls">
+    <div class="al-row al-row-main">
+      <button type="button" class="al-play" aria-pressed="true"><span class="al-play-i" aria-hidden="true"></span><span class="al-play-t">Pause · 暫停</span></button>
+      <div class="al-row al-toggles">{tg}</div>
+    </div>
+  </div>
+  {_lab_foot(lab)}
+  <p class="cp-credit">{lab["credit_html"]}</p>
+</div>'''
+
+def _earth_bubble(bb):
+    """「氣泡往上升會變多大？」（earth-volcano.js 的 initBubble；波以耳定律；不需要 WebGL）。"""
+    pre = "".join(f'<button type="button" data-km="{d["km10"]}" aria-pressed="false">{html.escape(d["en"])}<small>{html.escape(d["zh"])}</small></button>' for d in bb["depths"])
+    return (f'<div class="cp-cnt ew-bb rvl" data-earth-bubble>'
+            f'<div class="cp-cnt-in">'
+            f'<label class="cp-cnt-l"><span>How deep does the bubble start? · 氣泡從多深出發 <output class="ew-bb-km-out">3.0 km</output></span>'
+            f'<input type="range" class="al-age ew-bb-km" min="0" max="50" step="1" value="30"></label>'
+            f'<div class="cp-dpw-pre ew-bb-pre" role="group" aria-label="Depth · 深度">{pre}</div>'
+            f'<p class="cp-cnt-note">{html.escape(bb["note_en"])}<span class="zh">{html.escape(bb["note_zh"])}</span></p></div>'
+            f'<div class="cp-home-out cp-cnt-out ew-bb-out" aria-live="polite">'
+            f'<div class="ew-bb-pic" aria-hidden="true"><span class="ew-bb-top"></span><span class="ew-bb-marker"><i class="ew-bb-deep"></i></span></div>'
+            f'<div><p class="cp-home-k">The gas grows to · 氣體膨脹成</p>'
+            f'<p class="cp-home-big"><b class="ew-bb-n">1</b> times the volume · 倍的體積</p>'
+            f'<p class="cp-home-sub">Pressure where it starts: <b class="ew-bb-atm">1</b> atmospheres · 出發地的壓力（大氣壓）</p>'
+            f'<p class="cp-home-note"><span class="ew-bb-en"></span><span class="zh ew-bb-zh"></span></p></div>'
+            f'</div></div>'
+            '<noscript><p class="muted">The calculator works in your browser and needs JavaScript. · 計算在瀏覽器裡進行，需要開啟 JavaScript。</p></noscript>')
+
+_EARTH_LAB = {"quake": render_earthquake_lab, "inside": render_earthinside_lab, "shake": render_earthshake_lab, "mountain": render_earthmountain_lab, "volcano": render_earthvolcano_lab}          # lab.kind → 3D 面板
+_EARTH_ICON = {"quake": earthquake_svg, "inside": earthglobe_svg, "shake": earthshake_svg, "mountain": earthmountain_svg, "volcano": earthvolcano_svg}                 # lesson.card → 課程卡小圖示
+_EARTH_WIDGETS = [("warn", _earth_warn), ("dig", _earth_dig), ("scale10", _earth_scale10), ("peak", _earth_peak), ("bubble", _earth_bubble)]               # lesson 裡有這個 key 就多一段（照這裡的順序）
 
 def _earth_flat():
     return [(ui, u, l) for ui, u in enumerate(EARTH["units"]) for l in u["lessons"]]

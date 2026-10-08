@@ -105,6 +105,25 @@
 .ew-pk-mark { position: absolute; left: -4px; right: -4px; height: 2px; background: #ffd36e; }
 .ew-pk-mark b { position: absolute; left: 0; bottom: 4px; font-size: .64rem; color: #ffd36e; white-space: nowrap; }
 
+/* ---------- 第五課：火山怎麼噴發？ ---------- */
+@media (min-width: 1021px) { .ew-vc-lab .al-space { min-height: 680px; } }
+.ew-vc-msg[hidden] { display: none; }
+.al-lab.ew-vc-lb-bub { border-color: #fff; }
+.al-lg-ewvcmag i { border: 0; height: 11px; margin-top: .3rem; border-radius: 2px; background: linear-gradient(90deg, #ff7a1a, #ffd23c); }
+.al-lg-ewvcbub i { border: 0; border-radius: 50%; width: 5px; height: 5px; margin: .45rem 3px 0; background: #fff; box-shadow: 9px -1px 0 1px #fff, 21px -2px 0 3px #fff; margin-right: 30px; }
+.al-lg-ewvcash i { border: 0; border-radius: 50%; width: 10px; height: 10px; margin: .35rem 6px 0; background: #8b8f99; }
+/* 頁面小工具：氣泡 */
+.ew-bb .al-age::-webkit-slider-runnable-track { background: linear-gradient(90deg, var(--brand) 0 var(--p, 60%), #e5dfd0 var(--p, 60%)); }
+.ew-bb .al-age::-webkit-slider-thumb { border-color: var(--brand); }
+.ew-bb .al-age::-moz-range-progress { background: var(--brand); }
+.ew-bb-pre { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.ew-bb-out { display: grid; grid-template-columns: 130px minmax(0, 1fr); gap: 1.2rem; align-items: stretch; }
+.ew-bb-pic { position: relative; min-height: 240px; margin-top: 60px; border-radius: 0 0 12px 12px; background: linear-gradient(180deg, #7a4a2a, #d9572b); }
+.ew-bb-top { position: absolute; left: 50%; top: -60px; width: 120px; height: 120px; margin-left: -60px; border-radius: 50%; background: rgba(255,255,255,.9); }
+.ew-bb-marker { position: absolute; left: 0; right: 0; height: 0; border-top: 1px dashed rgba(255,255,255,.6); }
+.ew-bb-deep { position: absolute; left: 50%; top: 0; transform: translate(-50%, -50%); border-radius: 50%; background: #fff; }
+@media (max-width: 560px) { .ew-bb-pre { grid-template-columns: repeat(2, minmax(0, 1fr)); } .ew-bb-out { grid-template-columns: 1fr; } .ew-bb-pic { max-width: 130px; margin-left: auto; margin-right: auto; width: 100%; } }
+
 /* ---------- 全系列共用 ---------- */
 .cp-link.ew-link-soon { border-style: dashed; opacity: .78; cursor: default; }
 .ew-safety-src { margin: 1rem 0 0; font-size: .86rem; color: var(--ink-soft); }
