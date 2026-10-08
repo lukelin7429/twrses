@@ -175,7 +175,14 @@
   - **早晚身高與臂展是 2D（`initMeasure`）**：早上減晚上的差（> 3 cm 或負值請學生重量）、臂展是身高的百分之幾；不存檔。
   - 查證：NIAMS（生長板在長骨兩端附近、每根長骨至少兩片、是骨頭最後變硬也最脆弱的部分、青春期某個時候閉合成實心骨頭）、Wikipedia〈Epiphyseal plate〉（軟骨細胞分裂堆疊、老的細胞被骨頭取代、閉合後留下骨骺線）、〈Human height〉（100 個孩子從早上起床到下午 4–5 點平均矮 1.54 公分；身高差異 60–80% 來自遺傳）、MedlinePlus（2–10 歲穩定成長、最後一次快速成長在 9–15 歲之間開始）。課文**沒有寫每年長幾公分的數字**（查不到適合直接引用的來源），也沒寫男女閉合年齡。
   - 除錯 `__lab.setAge(歲)`（會暫停）、`setXray(bool)`、`setKnee(bool)`、`setPlaying(bool)`、`heightAt(a)`、`speedAt(a)`、`openAt(a)`、`plates`、`state.hold = true`、`run(秒)`、`render()`。
-- 第四批（第 13–16 課：腎臟、味覺與嗅覺、睡眠、長高）規劃在 Obsidian 課程規劃第九節，**四課已全部完成（2026-10-05），`planned[]` 目前是空的**；要再加課，先在課程規劃定題，再放進 `planned[]`。
+- 第十七課說話（`voice.js`，`lab.kind = "voice"`，`data-voice-lab`，CSS 前綴 `vc-`；第五批第一課）：沿用第十四課的**剖開頭骨**（頸椎到 T1 也顯示）＋真實舌頭，加上**真實氣管**（organs.glb 新增第七個節點 `trachea`，檔案 37 KB；第十三課腎臟頁要把它隱藏）。下頷骨掛在顳顎關節 pivot（`rotation.x` 正值＝張嘴），舌頭的 pivot 再掛在下巴上（位移＋傾斜，**舌頭不會變形，只是粗略示意**，頁面有註明）；臉的輪廓每次嘴型改變都重建 TubeGeometry（下半部跟著下巴轉、嘴唇嘟起或咬住）。喉頭、會厭、側面的聲帶是自繪（BodyParts3D 沒有喉部軟骨）；脖子前方浮著「從上面看聲帶」的放大圖（兩片在前端相連，無聲時張開、有聲時合起來慢動作振動、音高越高拉得越長）。空氣粒子沿 `path`（氣管中心線是真實氣管頂點切片的平均）走，`P.uG` 是聲帶在路徑上的位置：以上在有聲時變黃並擠成一口一口的；s、f 在牙齒／嘴唇處變成白色亂跳的嘶嘶聲。
+  - 五個嘴型 `SHAPES`（ah／ee／oo、s、f）與「聲音」開關：s ↔ z、f ↔ v 只差開關；母音關掉＝氣音。文字在 `lab.shapes`（data-shapes，`on`／`off` 是右欄顯示的音）。音高滑桿 `hzOf(p)`＝90–400 Hz。
+  - **「聽聽看」是 WebAudio 合成**（`makeSynth`）：鋸齒波 → 三個並聯帶通（共振峰取 Catford 2001 男聲平均：i 240/2400、u 250/595、ɑ 750/940）；s、f 用帶通雜訊，氣音用雜訊走共振峰。主增益寫死 0.05、按一次最多 5 秒、模型捲出畫面就靜音。
+  - **嗡嗡聲檢查與一口氣碼表是 2D（`initBuzz`）**：sss／zzz／fff／vvv 各選有沒有震動；碼表留最近三次。
+  - 查證：Wikipedia〈Vocal cords〉（在喉頭、氣管頂端；呼吸時張開、說話時振動；基頻男約 125 Hz、女約 210 Hz、兒童 300 Hz 以上；長度、大小、張力決定音高；把氣流切成一口一口）、〈Voice (phonetics)〉（s/z、f/v 有聲無聲配對、手指放喉頭可摸到 z 的震動、母音通常有聲）。NIDCD 的頁面只有影片與圖，抓不到文字。課文**沒有寫**「用氣音說話反而傷嗓子」（沒查到可引用的來源）。
+  - 除錯 `__lab.setShape('ah'|'ee'|'oo'|'s'|'f')`、`setVoiced(bool)`、`setPitch(0–1)`、`setLoud(0–1)`、`setZoom(bool)`、`synth.on`、`state.hold = true`、`run(秒)`、`render()`。
+- **多個 session 同時改這個 repo 時，一律在自己的 git worktree 裡做**（2026-10-09 起）：`git worktree add -b <分支> <scratchpad>/wt origin/main`，把 `tools/<系列>/node_modules`、`audio` 用 symlink 接過來、複製 `tools/.r2_uploaded_cache.txt`；預覽在 vault 的 `.claude/launch.json` 加一筆 `python3 -m http.server <port> --directory <worktree>`；做完 `git fetch && git rebase origin/main && git push origin HEAD:main`。原因：未提交的 `data/*.json` 會讓別的 session 的 `python3 build.py` 直接失敗，共用的 `build.py` 也曾被另一個 session 的腳本誤清空。改檔案的腳本要**先讀完、算好、最後才 `open(p, 'w')`**，不要寫成 `open(p,'w').write(f(open(p).read()))`。
+- 第四批（第 13–16 課：腎臟、味覺與嗅覺、睡眠、長高）規劃在 Obsidian 課程規劃第九節，四課已全部完成（2026-10-05）。第五批（第 17–20 課：說話、手、修復、運動）規劃在第十節，2026-10-09 定案；`planned[]` 放著還沒做的 18–20 課，做一課移掉一筆。
 - 網站 `html` 有 smooth scroll：在背景的瀏覽器面板裡捲動會慢好幾秒，截圖前先設 `document.documentElement.style.scrollBehavior='auto'`。
 - 第二課起的共用工具在 `tools/body/src/common.js`（`loadBones`、`labeler`、`lazyBoot`）；卡片上的「在模型中看」按鈕用 `data-lab-<動作>="值"`。
   - 除錯：`document.querySelector('[data-skeleton-lab]').__lab`（`goJob`、`goRegion`、`setApart`、`startCount`、`stepCount(i)`、`render()`）。背景分頁 rAF 會降到每秒一兩格，截圖前用 `stepCount` 直接跳步。

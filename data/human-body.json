@@ -14,7 +14,23 @@
       "zh": "每一課也會請你在自己身上量一量、數一數，並附生字、閱讀理解、小測驗和課堂活動。本系列是教育用途，不是醫療建議。"
     }
   ],
-  "planned": [],
+  "planned": [
+    {
+      "icon": "🖐️",
+      "en": "Why Are Your Hands So Clever?",
+      "zh": "手為什麼這麼靈巧？"
+    },
+    {
+      "icon": "🩹",
+      "en": "How Does Your Body Fix Itself?",
+      "zh": "身體怎麼修好自己？"
+    },
+    {
+      "icon": "🏃",
+      "en": "What Happens When You Exercise?",
+      "zh": "運動的時候，身體發生什麼事？"
+    }
+  ],
   "lessons": [
     {
       "n": 1,
@@ -7480,6 +7496,483 @@
       },
       "health_en": "This lesson is for learning about the body. It is not medical advice. Everyone grows at a different time and at a different speed, and being taller or shorter does not make anyone better. Doctors follow each child's growth on a growth chart. If you have a question about your own growth, or if a joint hurts or swells after a fall, tell an adult. Do not use any product that promises to make you taller.",
       "health_zh": "本課是認識身體的教材，不是醫療建議。每個人長高的時間和速度都不一樣，長得高或矮並不會讓誰比較好。醫生會用生長曲線追蹤每個孩子的成長。如果你對自己的成長有疑問，或是跌倒之後關節會痛、會腫，請告訴大人。不要使用任何宣稱能讓你長高的產品。"
+    },
+    {
+      "n": 17,
+      "slug": "voice",
+      "title": "How Do You Speak?",
+      "title_zh": "聲音是怎麼發出來的？",
+      "level": "入門 · Beginner",
+      "icon": "🗣️",
+      "card": "voice",
+      "blurb_en": "Your voice starts as a buzz in your throat, and your tongue and lips shape it into words. Watch the vocal folds open and close in 3D, change the pitch and the mouth shape, and feel the difference between “sss” and “zzz.”",
+      "blurb_zh": "聲音一開始只是喉嚨裡的嗡嗡聲，舌頭和嘴唇再把它捏成一個個字。在 3D 裡看聲帶一開一合，改變音高和嘴型，再摸摸喉嚨，感覺 sss 和 zzz 的差別。",
+      "big_idea_en": "Your voice is made in three steps: air from your lungs, a buzz from your vocal folds, and a shape from your tongue, lips, and jaw.",
+      "big_idea_zh": "聲音分三步：肺送出空氣，聲帶把它變成嗡嗡聲，舌頭、嘴唇和下巴再把它捏出形狀。",
+      "lab": {
+        "kind": "voice",
+        "eyebrow": "3D Model · 3D 模型",
+        "title_en": "Air, Buzz, Shape",
+        "title_zh": "空氣、嗡嗡聲、形狀",
+        "how_en": "The head is cut down the middle again. Air comes up the real windpipe and passes between the vocal folds. Switch the voice on, and the folds close and buzz; switch it off, and they stay open. Slide the pitch and watch the folds stretch. Then pick a mouth shape: “ah,” “ee,” and “oo” use the same buzz with a different tongue and jaw. For “sss” and “fff,” the voice switch is the only difference from “zzz” and “vvv.” Press Listen to hear a simple computer voice do the same thing.",
+        "how_zh": "頭又從正中間剖開了。空氣沿著真實的氣管往上，穿過兩片聲帶之間。把「聲音」打開，聲帶就合起來、嗡嗡地振動；關掉，聲帶就一直開著。拉動音高，看聲帶被拉長。然後選一個嘴型：ah、ee、oo 用的是同一個嗡嗡聲，只是舌頭和下巴的位置不同。sss 和 zzz、fff 和 vvv 之間唯一的差別，就是聲音的開關。按「聽聽看」，聽電腦合成的簡單聲音做同樣的事。",
+        "legend": [
+          {
+            "cls": "vcfold",
+            "en": "Pale bands: the vocal folds, seen from above",
+            "zh": "淡色的兩片：從上面看的聲帶"
+          },
+          {
+            "cls": "vcair",
+            "en": "Light blue dots: air from the lungs",
+            "zh": "淡藍色的點：從肺來的空氣"
+          },
+          {
+            "cls": "vcbuzz",
+            "en": "Yellow dots: air carrying the buzz",
+            "zh": "黃色的點：帶著嗡嗡聲的空氣"
+          },
+          {
+            "cls": "tongue",
+            "en": "Pink: the real tongue",
+            "zh": "粉紅色：真實的舌頭"
+          },
+          {
+            "cls": "vctube",
+            "en": "Light tube: the real windpipe",
+            "zh": "淺色的管子：真實的氣管"
+          }
+        ],
+        "scale_en": "The skull bones, the tongue, and the windpipe are real shapes from BodyParts3D, in their real places; the face outline, the voice box, the vocal folds, and the air are our own drawing. The real tongue changes its shape for every sound; here it only moves and tilts, so the mouth shapes are rough sketches. Real vocal folds open and close more than a hundred times a second, far too fast to see, so the model shows them in slow motion. The Listen button plays a very simple computer voice at a low volume: a buzz and a few filters, not a recording of a person.",
+        "scale_zh": "頭骨、舌頭和氣管是 BodyParts3D 的真實形狀，位置也是真的；臉的輪廓、喉頭、聲帶和空氣是本站自繪的示意圖。真正的舌頭每發一個音都會改變形狀；這裡的舌頭只會移動和傾斜，所以嘴型只是大概的樣子。真正的聲帶每秒開合一百多次，快到看不見，所以模型用慢動作呈現。「聽聽看」播放的是音量很小、非常簡單的電腦合成聲音：一個嗡嗡聲加上幾個濾波器，不是真人的錄音。",
+        "credit_html": "Bone and organ models: <a href=\"https://dbarchive.biosciencedbc.jp/en/bodyparts3d/download.html\" target=\"_blank\" rel=\"noopener\">BodyParts3D</a>, © The Database Center for Life Science, licensed under <a href=\"https://creativecommons.org/licenses/by/4.0/\" target=\"_blank\" rel=\"noopener\">CC BY 4.0</a>. We selected the skull bones, the tongue, and the windpipe, simplified the shapes, turned the model upright, and cut the skull down the middle; the face outline, voice box, and vocal folds are our own drawing. · 骨骼與器官模型來源：BodyParts3D（日本生命科學資料庫中心，CC BY 4.0 授權）；本站挑選頭骨、舌頭與氣管，簡化形狀、轉正方向並從正中剖開，臉的輪廓、喉頭與聲帶為本站自繪示意。",
+        "shapes": [
+          {
+            "key": "ah",
+            "icon": "😮",
+            "on": "ah",
+            "off": "(whispered ah)",
+            "en": "“ah” as in father",
+            "zh": "ah：嘴巴張大",
+            "text_en": "Jaw wide open, tongue low and back. The doctor asks for this sound because it gets the tongue out of the way.",
+            "text_zh": "下巴張得很開，舌頭又低又後面。醫生請你說「啊」，就是因為這樣舌頭不會擋住視線。"
+          },
+          {
+            "key": "ee",
+            "icon": "😁",
+            "on": "ee",
+            "off": "(whispered ee)",
+            "en": "“ee” as in see",
+            "zh": "ee：嘴角往兩邊",
+            "text_en": "Jaw almost closed, tongue high and forward, lips spread. The space in front of the tongue is small, so the sound is bright.",
+            "text_zh": "下巴幾乎合起來，舌頭又高又前面，嘴角往兩邊拉。舌頭前面的空間很小，所以聲音聽起來很亮。"
+          },
+          {
+            "key": "oo",
+            "icon": "😗",
+            "on": "oo",
+            "off": "(whispered oo)",
+            "en": "“oo” as in moon",
+            "zh": "oo：嘴唇嘟起來",
+            "text_en": "Tongue high and back, lips pushed forward into a small circle. The mouth becomes a longer tube, so the sound is darker.",
+            "text_zh": "舌頭又高又後面，嘴唇往前嘟成一個小圓圈。嘴巴變成比較長的管子，所以聲音聽起來比較暗。"
+          },
+          {
+            "key": "s",
+            "icon": "🐍",
+            "on": "zzz",
+            "off": "sss",
+            "en": "“sss” or “zzz”",
+            "zh": "sss 或 zzz",
+            "text_en": "The tip of the tongue comes close to the ridge behind the upper teeth, and air hisses through the narrow gap. With the voice off, it is “sss.” With the voice on, it is “zzz.”",
+            "text_zh": "舌尖靠近上排牙齒後面的突起，空氣從窄窄的縫隙嘶嘶地擠過去。聲音關掉是 sss，打開就是 zzz。"
+          },
+          {
+            "key": "f",
+            "icon": "🦷",
+            "on": "vvv",
+            "off": "fff",
+            "en": "“fff” or “vvv”",
+            "zh": "fff 或 vvv",
+            "text_en": "The lower lip touches the upper teeth, and air squeezes out between them. With the voice off, it is “fff.” With the voice on, it is “vvv.”",
+            "text_zh": "下嘴唇碰到上排牙齒，空氣從中間擠出去。聲音關掉是 fff，打開就是 vvv。"
+          }
+        ]
+      },
+      "paras": [
+        "Put two fingers gently on the front of your throat and say “ahh.” Do you feel a buzz? Now whisper “ahh.” The buzz is gone. That buzz is your voice being made. Your body does it in three steps, and you can remember them with three words: air, buzz, and shape.",
+        "The first step is air. To speak, you breathe out. Your lungs push air up your windpipe, the tube that you met in the lesson about breathing. Without moving air, there is no voice at all. Try to speak while you hold your breath, and you will see.",
+        "The second step is the buzz. At the top of your windpipe is your voice box, which is also called the larynx. Inside it are two small folds of soft tissue called the vocal folds, or vocal cords. When you breathe, they stay open, and air passes between them without a sound. When you speak, they close. The air pushes them apart, and they snap back together, again and again, chopping the stream of air into tiny puffs. That is the buzz you felt with your fingers.",
+        "How fast do the vocal folds open and close? Much faster than you can see. In a man's voice, they do it about 125 times every second. In a woman's voice, it is about 210 times, and in a child's voice, more than 300. Faster means a higher sound. To sing a high note, tiny muscles stretch your vocal folds longer and tighter, like a rubber band pulled tight. Children have high voices because their vocal folds are short. As you grow, they get longer, and your voice gets lower.",
+        "The third step is the shape. A buzz is not a word yet. The sound travels up through your throat and your mouth, and you change it by moving your tongue, your lips, and your jaw. Say “ah,” “ee,” and “oo” on one note. The buzz stays the same, but your mouth makes a different shape for each one, and you hear three different vowels.",
+        "Some sounds use no buzz at all. Put your fingers on your throat again and say a long “sss,” and then a long “zzz.” Your mouth does exactly the same thing for both. The only difference is that your vocal folds buzz for “zzz” and rest for “sss.” The same is true for “fff” and “vvv.” English is full of pairs like these, and getting the buzz right is a big part of a clear accent. Now try the buzz check below the model."
+      ],
+      "paras_zh": [
+        "把兩根手指輕輕放在喉嚨前面，說「啊——」。有沒有感覺到震動？現在用氣音悄悄地說「啊——」，震動不見了。那個嗡嗡的震動，就是你的聲音正在被製造出來。身體分三個步驟來做這件事，你可以用三個詞記住：空氣、嗡嗡聲、形狀。",
+        "第一步是空氣。說話的時候，你是在吐氣：肺把空氣往上推進氣管——就是呼吸那一課認識的那條管子。沒有流動的空氣，就完全沒有聲音。憋住氣試著說話，你就知道了。",
+        "第二步是嗡嗡聲。氣管的頂端是喉頭，英文也叫 voice box（聲音盒）。喉頭裡面有兩片小小的、柔軟的組織，叫做聲帶。呼吸的時候，聲帶是打開的，空氣從中間通過，沒有聲音。說話的時候，聲帶合起來；空氣把它們推開，它們又彈回去，一次又一次，把一整道氣流切成一小口一小口的。這就是你用手指摸到的嗡嗡聲。",
+        "聲帶開合得多快？快到你根本看不見。男人說話時，聲帶每秒大約開合 125 次；女人大約 210 次；小孩超過 300 次。越快，聲音就越高。要唱高音的時候，細小的肌肉會把聲帶拉得更長、更緊，就像把橡皮筋拉緊一樣。小孩的聲音高，是因為聲帶短；隨著你長大，聲帶變長，聲音也就變低了。",
+        "第三步是形狀。嗡嗡聲還不是一個字。聲音往上經過喉嚨和嘴巴，你移動舌頭、嘴唇和下巴來改變它。用同一個音高說 ah、ee、oo：嗡嗡聲沒有變，但嘴巴為每一個音擺出不同的形狀，於是你聽到三個不同的母音。",
+        "有些音完全不用嗡嗡聲。再把手指放在喉嚨上，拉長說 sss，再拉長說 zzz。這兩個音，嘴巴做的事一模一樣；唯一的差別是：說 zzz 的時候聲帶在振動，說 sss 的時候聲帶在休息。fff 和 vvv 也是這樣。英文裡到處都是這種成對的音，把「有沒有嗡嗡聲」做對，是發音清楚的一大關鍵。現在試試模型下方的嗡嗡聲檢查吧。"
+      ],
+      "questions": [
+        "What are the three steps your body uses to make your voice?",
+        "What do the vocal folds do when you breathe, and what do they do when you speak?",
+        "What is the difference between “sss” and “zzz”?"
+      ],
+      "answers": [
+        "Air from the lungs, a buzz from the vocal folds, and a shape from the tongue, lips, and jaw.",
+        "When you breathe, they stay open. When you speak, they close and open again and again, chopping the air into tiny puffs.",
+        "The mouth does the same thing for both, but the vocal folds buzz for “zzz” and rest for “sss.”"
+      ],
+      "vocab": [
+        {
+          "n": 1,
+          "w": "voice",
+          "pos": "n.",
+          "zh": "聲音；嗓音",
+          "ex": "She has a soft <b>voice</b>.",
+          "exzh": "她的聲音很輕柔。"
+        },
+        {
+          "n": 2,
+          "w": "throat",
+          "pos": "n.",
+          "zh": "喉嚨",
+          "ex": "My <b>throat</b> hurts when I swallow.",
+          "exzh": "我吞東西的時候喉嚨會痛。"
+        },
+        {
+          "n": 3,
+          "w": "windpipe",
+          "pos": "n.",
+          "zh": "氣管",
+          "ex": "Air goes down your <b>windpipe</b> to your lungs.",
+          "exzh": "空氣沿著氣管往下進到肺。"
+        },
+        {
+          "n": 4,
+          "w": "vocal folds",
+          "pos": "n.",
+          "zh": "聲帶",
+          "ex": "Your <b>vocal folds</b> buzz when you sing.",
+          "exzh": "唱歌的時候，你的聲帶會振動。"
+        },
+        {
+          "n": 5,
+          "w": "buzz",
+          "pos": "n.",
+          "zh": "嗡嗡聲；震動",
+          "ex": "I can feel a <b>buzz</b> in my throat.",
+          "exzh": "我感覺到喉嚨裡有震動。"
+        },
+        {
+          "n": 6,
+          "w": "whisper",
+          "pos": "v.",
+          "zh": "小聲說；用氣音說",
+          "ex": "Please <b>whisper</b> in the library.",
+          "exzh": "在圖書館請小聲說話。"
+        },
+        {
+          "n": 7,
+          "w": "pitch",
+          "pos": "n.",
+          "zh": "音高",
+          "ex": "A small bird sings at a high <b>pitch</b>.",
+          "exzh": "小鳥唱歌的音高很高。"
+        },
+        {
+          "n": 8,
+          "w": "vowel",
+          "pos": "n.",
+          "zh": "母音",
+          "ex": "The word “see” has a long <b>vowel</b>.",
+          "exzh": "see 這個字有一個長母音。"
+        }
+      ],
+      "quiz": [
+        {
+          "q": "Where are your vocal folds?",
+          "options": [
+            "In the voice box, at the top of the windpipe",
+            "On the tip of your tongue",
+            "Inside your lungs",
+            "Behind your nose"
+          ],
+          "correct": 0
+        },
+        {
+          "q": "What do the vocal folds do when you speak?",
+          "options": [
+            "They close and buzz",
+            "They stay wide open",
+            "They move up into the mouth",
+            "They stop the air completely"
+          ],
+          "correct": 0
+        },
+        {
+          "q": "Why do children have higher voices than adults?",
+          "options": [
+            "Their vocal folds are shorter",
+            "Their lungs are stronger",
+            "Their tongues are longer",
+            "They breathe more slowly"
+          ],
+          "correct": 0
+        },
+        {
+          "q": "What changes when you go from “ah” to “ee” on the same note?",
+          "options": [
+            "The shape of your mouth",
+            "The speed of your vocal folds",
+            "The amount of air in your lungs",
+            "Nothing at all"
+          ],
+          "correct": 0
+        },
+        {
+          "q": "According to the reading, which sound is made with a buzz in the throat?",
+          "options": [
+            "zzz",
+            "sss",
+            "fff",
+            "a whispered “ahh”"
+          ],
+          "correct": 0
+        }
+      ],
+      "kinds_head": {
+        "eyebrow": "Your Voice Team · 聲音小隊",
+        "en": "From breath to word",
+        "zh": "從一口氣到一個字"
+      },
+      "kinds": [
+        {
+          "icon": "🫁",
+          "en": "Lungs",
+          "zh": "肺",
+          "where_en": "In your chest",
+          "where_zh": "在胸腔裡",
+          "control_en": "Push the air",
+          "control_zh": "把空氣推出來",
+          "text_en": "You speak while you breathe out. More air makes a louder voice.",
+          "text_zh": "你是在吐氣的時候說話的；空氣推得越多，聲音越大。"
+        },
+        {
+          "icon": "🧵",
+          "en": "Windpipe",
+          "zh": "氣管",
+          "where_en": "From your lungs up to your throat",
+          "where_zh": "從肺往上到喉嚨",
+          "control_en": "Carries the air up",
+          "control_zh": "把空氣往上送",
+          "text_en": "A tube held open by rings of cartilage. You can feel the rings low on the front of your neck.",
+          "text_zh": "一條靠軟骨環撐開的管子；在脖子前面下方可以摸到一圈一圈的。"
+        },
+        {
+          "icon": "🎸",
+          "en": "Vocal folds",
+          "zh": "聲帶",
+          "where_en": "Inside the voice box, at the top of the windpipe",
+          "where_zh": "在喉頭裡，氣管的頂端",
+          "control_en": "Make the buzz",
+          "control_zh": "製造嗡嗡聲",
+          "text_en": "Two small folds. Open for breathing, closed and buzzing for voice. Stretched tight for high notes.",
+          "text_zh": "兩片小小的組織：呼吸時打開，發聲時合起來振動，唱高音時被拉緊。"
+        },
+        {
+          "icon": "👅",
+          "en": "Tongue and jaw",
+          "zh": "舌頭和下巴",
+          "where_en": "In your mouth",
+          "where_zh": "在嘴巴裡",
+          "control_en": "Shape the vowels",
+          "control_zh": "捏出母音",
+          "text_en": "High or low, front or back: every vowel has its own tongue position.",
+          "text_zh": "高或低、前或後：每個母音都有自己的舌頭位置。"
+        },
+        {
+          "icon": "👄",
+          "en": "Lips and teeth",
+          "zh": "嘴唇和牙齒",
+          "where_en": "At the front of your mouth",
+          "where_zh": "在嘴巴最前面",
+          "control_en": "Make hisses and pops",
+          "control_zh": "發出嘶嘶聲和爆破聲",
+          "text_en": "They squeeze or stop the air for sounds like f, v, p, b, and m.",
+          "text_zh": "它們擠住或擋住空氣，發出 f、v、p、b、m 這些音。"
+        }
+      ],
+      "kinds_note_en": "Think of a guitar: your lungs are the hand that plucks, your vocal folds are the string, and your mouth is the hollow body that gives the sound its color.",
+      "kinds_note_zh": "把它想成一把吉他：肺是撥弦的手，聲帶是琴弦，嘴巴是讓聲音有音色的那個空心琴身。",
+      "measure": {
+        "title_en": "The buzz check",
+        "title_zh": "嗡嗡聲檢查",
+        "lead_en": "Use the buzz check below the model. Put two fingers gently on the front of your throat for every sound.",
+        "lead_zh": "用模型下方的嗡嗡聲檢查。每發一個音，都把兩根手指輕輕放在喉嚨前面。",
+        "steps": [
+          {
+            "n": "✌️",
+            "en": "Find the spot",
+            "zh": "找到位置",
+            "text_en": "Rest two fingers lightly on the front of your throat. Hum “mmm” to find where the buzz is strongest.",
+            "text_zh": "把兩根手指輕輕放在喉嚨前面。哼一聲 mmm，找出震動最明顯的地方。"
+          },
+          {
+            "n": "🐝",
+            "en": "Buzz or no buzz?",
+            "zh": "有震動，還是沒有？",
+            "text_en": "Say each sound for three seconds: sss, zzz, fff, vvv. For each one, tap Buzz or No buzz, and the card will tell you what scientists call it.",
+            "text_zh": "每個音拉長三秒：sss、zzz、fff、vvv。每一個都點「有震動」或「沒有震動」，卡片會告訴你科學家怎麼稱呼它。"
+          },
+          {
+            "n": "⏱",
+            "en": "One breath",
+            "zh": "一口氣",
+            "text_en": "Take a breath and say “ahh” at a comfortable volume for as long as you can. Use the stopwatch, and try three times.",
+            "text_zh": "吸一口氣，用舒服的音量說「啊——」，能拉多長就拉多長。用碼表計時，試三次。"
+          }
+        ],
+        "action": "test",
+        "action_value": "1",
+        "button_icon": "🐝",
+        "button_en": "Open the buzz check",
+        "button_zh": "打開嗡嗡聲檢查"
+      },
+      "myths": [
+        {
+          "myth_en": "Your voice is made in your mouth.",
+          "myth_zh": "聲音是在嘴巴裡發出來的。",
+          "fact_en": "The sound starts in the voice box, in your throat. Your mouth only shapes it.",
+          "fact_zh": "聲音是從喉嚨裡的喉頭開始的，嘴巴只是把它捏出形狀。"
+        },
+        {
+          "myth_en": "The vocal cords are strings, like the strings of a guitar.",
+          "myth_zh": "聲帶是一條一條的線，像吉他的弦。",
+          "fact_en": "They are two soft folds of tissue. That is why scientists now prefer the name “vocal folds.”",
+          "fact_zh": "它們是兩片柔軟的組織，所以科學家現在比較喜歡叫它們 vocal folds（聲褶）。"
+        },
+        {
+          "myth_en": "To speak louder, your vocal folds have to move faster.",
+          "myth_zh": "要說得更大聲，聲帶就要動得更快。",
+          "fact_en": "Faster makes your voice higher, not louder. For a louder voice, your lungs push more air.",
+          "fact_zh": "聲帶動得更快，聲音是變高，不是變大。要大聲，是肺推出更多的空氣。"
+        },
+        {
+          "myth_en": "“S” and “z” are made in different parts of the mouth.",
+          "myth_zh": "s 和 z 是嘴巴裡不同的地方發出來的。",
+          "fact_en": "The tongue and lips are in exactly the same place. Only the buzz is different.",
+          "fact_zh": "舌頭和嘴唇的位置完全一樣，只差有沒有嗡嗡聲。"
+        }
+      ],
+      "tricks": [
+        {
+          "title_en": "Air, buzz, shape",
+          "title_zh": "空氣、嗡嗡聲、形狀",
+          "body_en": "Lungs push the air, vocal folds make the buzz, and the mouth gives it a shape.",
+          "body_zh": "肺推空氣，聲帶做出嗡嗡聲，嘴巴捏出形狀。"
+        },
+        {
+          "title_en": "Fingers on your throat",
+          "title_zh": "手指放在喉嚨上",
+          "body_en": "Buzz means voiced: z, v, and all the vowels. No buzz means voiceless: s and f.",
+          "body_zh": "有震動就是有聲音：z、v 和所有的母音；沒有震動就是無聲音：s 和 f。"
+        },
+        {
+          "title_en": "Tight and short is high",
+          "title_zh": "又緊又短，聲音就高",
+          "body_en": "Like a rubber band: pull it tighter, and the note goes up.",
+          "body_zh": "像橡皮筋一樣：拉得越緊，音就越高。"
+        },
+        {
+          "title_en": "Same buzz, new shape",
+          "title_zh": "嗡嗡聲一樣，形狀不同",
+          "body_en": "“Ah,” “ee,” and “oo” are one buzz in three different mouth shapes.",
+          "body_zh": "ah、ee、oo 是同一個嗡嗡聲，配上三種不同的嘴型。"
+        }
+      ],
+      "activities": [
+        {
+          "title_en": "Rubber Band Guitar",
+          "title_zh": "橡皮筋吉他",
+          "materials": [
+            {
+              "en": "An empty tissue box or a plastic cup",
+              "zh": "一個空的面紙盒或塑膠杯"
+            },
+            {
+              "en": "Three rubber bands of different thicknesses, and two pencils",
+              "zh": "三條粗細不同的橡皮筋，和兩枝鉛筆"
+            }
+          ],
+          "steps": [
+            {
+              "en": "Stretch the rubber bands around the box, over the opening. Slide a pencil under them at each end.",
+              "zh": "把橡皮筋套在盒子上、跨過開口，兩端各塞一枝鉛筆墊高。"
+            },
+            {
+              "en": "Pluck each band. Which one makes the lowest sound? Which makes the highest?",
+              "zh": "撥一撥每一條。哪一條聲音最低？哪一條最高？"
+            },
+            {
+              "en": "Pull one band tighter and pluck it again. What happens to the pitch?",
+              "zh": "把其中一條拉緊一點再撥。音高有什麼變化？"
+            },
+            {
+              "en": "Press a finger on the middle of a band to make it shorter. What happens now?",
+              "zh": "用手指按住橡皮筋的中間，讓它變短。現在呢？"
+            }
+          ],
+          "tip_en": "Teaching tip: thinner, tighter, and shorter all give a higher note. Vocal folds follow the same rules, and that is why a child's short folds make a high voice. Ask students to watch a band closely as it sounds: the blur is the vibration. The box matters too: pluck a band in the air, and it is much quieter, just as a buzz without a mouth would be.",
+          "tip_zh": "教學提示：越細、越緊、越短，音就越高。聲帶也遵守同樣的規則，所以小孩短短的聲帶發出高高的聲音。請學生仔細看發出聲音的橡皮筋：模糊的那一片就是振動。盒子也很重要：在空中撥橡皮筋，聲音小得多——就像只有嗡嗡聲、沒有嘴巴一樣。"
+        },
+        {
+          "title_en": "Buzz Pairs",
+          "title_zh": "成對的音",
+          "materials": [
+            {
+              "en": "Word cards in pairs: sip / zip, fan / van, Sue / zoo, fine / vine",
+              "zh": "成對的單字卡：sip／zip、fan／van、Sue／zoo、fine／vine"
+            },
+            {
+              "en": "A small mirror for each pair of students",
+              "zh": "每兩個學生一面小鏡子"
+            }
+          ],
+          "steps": [
+            {
+              "en": "Work in pairs. One student reads a card with two fingers on the throat.",
+              "zh": "兩人一組。一個學生把兩根手指放在喉嚨上，念出一張卡片。"
+            },
+            {
+              "en": "Stretch the first sound: “sssip,” “zzzip.” Buzz or no buzz?",
+              "zh": "把第一個音拉長：sssip、zzzip。有沒有震動？"
+            },
+            {
+              "en": "Look in the mirror while you say both words. Does your mouth look different?",
+              "zh": "照著鏡子說這兩個字。嘴巴看起來有沒有不同？"
+            },
+            {
+              "en": "Now your partner says one word of a pair without showing the card. Can you tell which one it was?",
+              "zh": "現在同伴不給你看卡片，只念出一對裡面的其中一個字。你聽得出是哪一個嗎？"
+            }
+          ],
+          "tip_en": "Teaching tip: Mandarin has an “s” and an “f,” but it has no “z” as in “zoo” and no “v,” so many students in Taiwan say “sue” for “zoo” and “fan” for “van.” The finger test gives them something they can feel, not just hear. Praise the buzz, not the accent.",
+          "tip_zh": "教學提示：華語有 s 和 f，卻沒有 zoo 的 z，也沒有 v，所以台灣很多學生會把 zoo 說成 sue、把 van 說成 fan。手指測試讓他們有東西可以「摸到」，而不只是用聽的。請稱讚那個震動，不要評論口音。"
+        }
+      ],
+      "culture": {
+        "title_en": "Round Sounds and Clear Words",
+        "title_zh": "字正腔圓",
+        "body_en": "Chinese has a four-character phrase for good speaking: 字正腔圓 (zì zhèng qiāng yuán), “the words are correct and the tone is round.” It comes from the world of traditional opera, where singers train for years to shape every sound. Notice the two halves: 字, the word, is made by the tongue and lips, and 腔, the tone, is made by the voice. That is the same split you learned in this lesson: the shape and the buzz. Chinese adds one more job for the vocal folds. In Mandarin and Taiwanese, the pitch of a syllable changes its meaning, so the folds are busy stretching and relaxing in every word. English uses pitch too, but for feeling and for questions, not to tell one word from another.",
+        "body_zh": "中文用四個字形容說話說得好：「字正腔圓」。這個詞來自傳統戲曲，演員要花很多年練習把每個音發好。注意這四個字分成兩半：「字」靠舌頭和嘴唇，「腔」靠嗓音——正好就是這一課學到的兩件事：形狀和嗡嗡聲。中文還多給聲帶一份工作：華語和台語裡，一個音節的高低會改變它的意思，所以每說一個字，聲帶都忙著拉緊、放鬆。英文也用音高，但用來表達情緒和問句，不是用來分辨不同的字。",
+        "link_en": "More Chinese health words in English",
+        "link_zh": "到中醫養生系列看更多"
+      },
+      "health_en": "This lesson is for learning about the body. It is not medical advice. Be kind to your voice: drink water, and do not shout for a long time. Touch your throat only gently. If your voice stays hoarse for a few weeks, or if it hurts to speak, tell an adult.",
+      "health_zh": "本課是認識身體的教材，不是醫療建議。請愛護你的嗓子：多喝水，不要長時間大喊。摸喉嚨的時候只要輕輕地放著。如果聲音沙啞了好幾個星期，或是說話會痛，請告訴大人。"
     }
   ]
 }

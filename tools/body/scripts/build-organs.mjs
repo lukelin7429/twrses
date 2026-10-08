@@ -5,7 +5,7 @@
  *   cd tools/body && npm run model:organs
  *
  * 只挑「單一檔案、形狀完整」的器官（肝、心、腦在這份資料裡是幾十個碎片，不用）：
- *   r-kidney / l-kidney 腎臟、r-ureter / l-ureter 輸尿管、bladder 膀胱、tongue 舌頭（第十四課用）。
+ *   r-kidney / l-kidney 腎臟、r-ureter / l-ureter 輸尿管、bladder 膀胱、tongue 舌頭（第十四課用）、trachea 氣管（第十七課用）。
  * 座標與 skeleton.glb 完全對齊：同樣轉成公尺、Y 朝上、臉朝 +Z；
  * 骨架當初把腳底貼齊 y = 0，這裡拿 skeleton.glb 裡幾塊大骨頭的包圍盒和原始資料比，量出同一個位移再套用。
  */
@@ -31,6 +31,7 @@ export const ORGANS = [
   { id: 'r-kidney', src: 'right kidney' }, { id: 'l-kidney', src: 'left kidney' },
   { id: 'r-ureter', src: 'right ureter' }, { id: 'l-ureter', src: 'left ureter' },
   { id: 'bladder', src: 'urinary bladder' }, { id: 'tongue', src: 'tongue' },
+  { id: 'trachea', src: 'trachea' },                               // 第十七課（說話）用
 ];
 const RATIO = 0.5, MIN_TRIS = 500, MAX_ERR = 0.003;
 

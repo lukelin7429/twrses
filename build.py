@@ -4313,7 +4313,7 @@ def build_astro_hub():
 # 面板與段落樣式沿用 astro.css，人體專屬的在 body.css；兩者都只載在本系列頁面。
 BODY_BASE = "/resources/classes/human-body/"
 _BODY_JS = {"skeleton": "skeleton", "arm": "arm", "heart": "heart", "lungs": "lungs", "joints": "joints",
-            "digestion": "digestion", "nerves": "nerves", "eyes": "eyes", "ears": "ears", "skin": "skin", "teeth": "teeth", "germs": "germs", "kidneys": "kidneys", "taste": "taste", "sleep": "sleep", "growth": "growth"}   # lab.kind → assets/js/<bundle>.js
+            "digestion": "digestion", "nerves": "nerves", "eyes": "eyes", "ears": "ears", "skin": "skin", "teeth": "teeth", "germs": "germs", "kidneys": "kidneys", "taste": "taste", "sleep": "sleep", "growth": "growth", "voice": "voice"}   # lab.kind → assets/js/<bundle>.js
 
 def _body_ver():
     h = hashlib.md5()
@@ -5325,6 +5325,72 @@ def render_growth_lab(lesson):
   <p class="sk-credit">{lab["credit_html"]}</p>
 </div>'''
 
+def render_voice_lab(lesson):
+    """第十七課：剖開的頭＋真實舌頭與氣管，自繪喉頭與聲帶（assets/js/voice.js 綁這裡的 class）；嗡嗡聲檢查與碼表是 2D，不需要 WebGL。"""
+    lab = lesson["lab"]
+    shapes_json = html.escape(json.dumps(lab["shapes"], ensure_ascii=False))
+    shapes = "".join(
+        f'<button type="button" data-shape="{s["key"]}" aria-pressed="{"true" if n == 0 else "false"}"><i aria-hidden="true">{s["icon"]}</i>'
+        f'<span>{html.escape(s["en"])}<small>{html.escape(s["zh"])}</small></span></button>'
+        for n, s in enumerate(lab["shapes"]))
+    def row(k, voiced, label):
+        return (f'<div class="vc-row" data-sound="{k}" data-voiced="{1 if voiced else 0}"><p class="vc-snd">{label}</p>'
+                f'<div class="vc-btns"><button type="button" data-a="1" aria-pressed="false">&#128029; Buzz<small>有震動</small></button>'
+                f'<button type="button" data-a="0" aria-pressed="false">&#128168; No buzz<small>沒有震動</small></button></div>'
+                f'<p class="vc-fb" aria-live="polite"></p></div>')
+    tg = _lab_toggles([("labels", "Labels", "標示", True), ("skull", "Skull", "頭骨", True), ("face", "Face outline", "臉的輪廓", True)])
+    return f'''<div class="astro-lab sk-lab vc-lab rvl" data-voice-lab data-model="{_model_url()}" data-organs="{_organs_url()}" data-shapes="{shapes_json}">
+  <div class="al-stage">
+    <div class="al-space">
+      <canvas class="al-space-cv" aria-label="3D model of a head and neck cut down the middle, with the real tongue and windpipe, the vocal folds, and air moving out through the mouth · 從正中剖開的頭頸 3D 模型，有真實的舌頭與氣管、聲帶，以及從嘴巴流出去的空氣"></canvas>
+      <div class="al-labels" aria-hidden="true"></div>
+      <p class="sk-loading">Loading… · 載入中…<span class="sk-bar"><i></i></span></p>
+      <p class="al-hint">Drag to turn · 拖曳旋轉　Scroll or pinch to zoom · 滾輪／雙指縮放</p>
+      <p class="ey-mag">Head cut down the middle, seen from the left · 頭從正中剖開，從左邊看</p>
+      <button type="button" class="al-home" title="Reset view · 重設視角" aria-label="Reset view · 重設視角">&#8634;</button>
+      <p class="al-nogl-msg">This 3D model needs WebGL, which this browser does not support. The buzz check and the cards below still work.<br><span class="zh">這個瀏覽器不支援 WebGL，無法顯示 3D 模型；下方的嗡嗡聲檢查和卡片一樣能用。</span></p>
+    </div>
+    <aside class="al-sky sk-aside vc-aside">
+      <p class="al-sky-k">The model is saying · 模型正在說</p>
+      <p class="vc-say" aria-live="polite">ah</p>
+      <div class="vc-step vc-s1"><b>1</b><label class="ec-slider"><span class="ec-slider-k">Air · 空氣<em>soft &harr; loud · 小聲 &harr; 大聲</em></span>
+        <input type="range" class="ec-time vc-loud" min="0" max="100" step="1" value="60"></label></div>
+      <div class="vc-step vc-s2"><b>2</b><div class="vc-s2in">
+        <button type="button" class="vc-voice" aria-pressed="true"><i aria-hidden="true">&#128029;</i><span>Voice: ON<small>聲音：開</small></span></button>
+        <label class="ec-slider"><span class="ec-slider-k">Pitch · 音高 <strong class="vc-hz">—</strong><em>low &harr; high · 低 &harr; 高</em></span>
+        <input type="range" class="ec-time vc-pitch" min="0" max="100" step="1" value="55"></label></div></div>
+      <div class="vc-step vc-s3"><b>3</b><p class="vc-s3t">Shape: pick a mouth shape under the model<small>形狀：在模型下方選一個嘴型</small></p></div>
+      <p class="ey-status vc-status" aria-live="polite"></p>
+      <div class="ey-more vc-more">
+        <button type="button" class="vc-listen" aria-pressed="false"><i aria-hidden="true">&#128266;</i><span>Listen (quiet)<small>聽聽看（小聲）</small></span></button>
+        <button type="button" class="vc-zoom" aria-pressed="false"><i aria-hidden="true">&#128269;</i><span>Zoom: vocal folds<small>靠近看聲帶</small></span></button>
+      </div>
+    </aside>
+  </div>
+  <div class="vc-strip">
+    <div class="vc-check">
+      <p class="al-sky-k">Buzz check · 嗡嗡聲檢查</p>
+      <p class="vc-how">Two fingers gently on your throat. Say each sound for three seconds.<span class="zh">兩根手指輕輕放在喉嚨上，每個音拉長三秒。</span></p>
+      {row("s", False, "sss")}{row("z", True, "zzz")}{row("f", False, "fff")}{row("v", True, "vvv")}
+      <p class="vc-score" aria-live="polite"><b>0 / 4</b><span class="zh">答對 0 個</span></p>
+    </div>
+    <div class="vc-breath">
+      <p class="al-sky-k">One breath · 一口氣</p>
+      <p class="vc-big"><b class="vc-sec">0.0 s</b><span>of “ahh”<small>說「啊——」的時間</small></span></p>
+      <div class="vc-tools"><button type="button" class="vc-go" aria-pressed="false"><i aria-hidden="true">&#9201;</i><span>Start<small>開始</small></span></button>
+        <button type="button" class="vc-clear">Clear<small>清除</small></button></div>
+      <ol class="vc-tries"></ol>
+      <p class="vc-best" aria-live="polite"></p>
+    </div>
+  </div>
+  <div class="al-controls">
+    <div class="ea-pres vc-shapes" role="group" aria-label="Mouth shapes · 嘴型">{shapes}</div>
+    <div class="al-row al-toggles">{tg}</div>
+  </div>
+  {_lab_foot(lab)}
+  <p class="sk-credit">{lab["credit_html"]}</p>
+</div>'''
+
 def _body_nav(slug):
     ls = BODY["lessons"]
     i = next(n for n, l in enumerate(ls) if l["slug"] == slug)
@@ -5352,7 +5418,7 @@ def build_body_lesson(lesson):
                 "joints": render_joints_lab, "digestion": render_digestion_lab, "nerves": render_nerves_lab,
                 "eyes": render_eyes_lab, "ears": render_ears_lab, "skin": render_skin_lab,
                 "teeth": render_teeth_lab, "germs": render_germs_lab, "kidneys": render_kidneys_lab,
-                "taste": render_taste_lab, "sleep": render_sleep_lab, "growth": render_growth_lab}[kind](lesson)
+                "taste": render_taste_lab, "sleep": render_sleep_lab, "growth": render_growth_lab, "voice": render_voice_lab}[kind](lesson)
 
     secs = []
     if lesson.get("jobs"):
@@ -5461,7 +5527,8 @@ def build_body_lesson(lesson):
                 "kidneys": ("Your kidneys in a sentence", "一句話記住腎臟"),
                 "taste": ("Taste and smell in a sentence", "一句話記住味覺和嗅覺"),
                 "sleep": ("Sleep in a sentence", "一句話記住睡眠"),
-                "growth": ("Growing taller in a sentence", "一句話記住長高")}[kind]
+                "growth": ("Growing taller in a sentence", "一句話記住長高"),
+                "voice": ("Your voice in a sentence", "一句話記住聲音")}[kind]
     secs.append(("tricks", "Remember It · 記憶口訣", tricks_h[0], tricks_h[1], _sci_tricks(lesson), ""))
     if lesson.get("culture"):
         cu = lesson["culture"]
