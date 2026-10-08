@@ -579,9 +579,9 @@
 ## 電腦概論 How Computers Work（/resources/classes/computers/）— 架構照書法，3D 是「位元引擎」
 
 - 內容：`data/computers.json`：`units[]`（四個單元：電腦的語言 0 和 1／機器裡面／軟體／連線、安全與 AI）底下 `lessons[]` 與 `planned[]`（「製作中」卡，做一課就從 planned 移到 lessons）；課次 `n` 全系列連號（1–16），系列首頁自己算「x of 16」。每課欄位同書法，不同的：`parts[].bits`（卡片小圖的一排燈，例如 `"0111"`）、`fingers`／`guess`／`levels`（三個不需要 WebGL 的小互動，各有 `eyebrow/en/zh/lead_en/lead_zh`）、`tricks_head`、`safety_head`、`sources_note_en/zh`（標題文字放資料，不寫死在 build.py）。`links` 可放 `soon: true` 的預告卡。
-- 頁面：`build.py`「電腦概論」區塊的 `build_comp_hub()`（單元導覽＋`.lc-row` 橫向課程卡；系列小圖示 `comphub_svg()`＝螢幕上兩排小燈，第一課卡 `compbits_svg()`；`_COMP_CARD` 把 `card` 對到圖示函式）/ `build_comp_lesson()`；reading、迷思、口訣、活動沿用 `render_basic_unit()`、`_sci_myths()`、`_sci_tricks()`、`_astro_activity()`。「閱讀與經典」頁有入口卡（💻）。段落順序：3D → 英文閱讀 → 模型卡 → 五根手指 → 猜猜這是多少 → 十種亮度 → 打字看編號 → 8 × 8 像素畫 → 聲音取樣 → 文化卡 → 迷思 → 口訣 → 動手之前 → 活動 → 延伸閱讀 → 資料出處。
+- 頁面：`build.py`「電腦概論」區塊的 `build_comp_hub()`（單元導覽＋`.lc-row` 橫向課程卡；系列小圖示 `comphub_svg()`＝螢幕上兩排小燈，第一課卡 `compbits_svg()`；`_COMP_CARD` 把 `card` 對到圖示函式）/ `build_comp_lesson()`；reading、迷思、口訣、活動沿用 `render_basic_unit()`、`_sci_myths()`、`_sci_tricks()`、`_astro_activity()`。「閱讀與經典」頁有入口卡（💻）。段落順序：3D → 英文閱讀 → 模型卡 → 五根手指 → 猜猜這是多少 → 十種亮度 → 打字看編號 → 8 × 8 像素畫 → 聲音取樣 → 把閘接起來 → 換你當邏輯閘 → 文化卡 → 迷思 → 口訣 → 動手之前 → 活動 → 延伸閱讀 → 資料出處。
 - 樣式：共用 `assets/css/astro.css`，本系列專屬的在 `assets/css/computers.css`（**class 前綴一律 `cp-`**；晶片的 chips.css 也用 `cp-`，兩支只各自載在自己的系列，不會同時出現——不要把其中一支載到另一個系列的頁面）；`_comp_head()` 只在本系列頁面載入。
-- 3D：**原始碼在 `tools/computers/src/`**（自己的 package.json，three 0.186.1、esbuild 0.25.10），bundle 一律 `comp-*`；`lab.kind` → bundle 對照在 `build.py` 的 `_COMP_JS`（`bits` → `comp-bits`、`pixels` → `comp-pixels`）。`labeler`、`lazyBoot`、`canvasTex` 在 `tools/computers/src/common.js`（從 tools/callig 抄來）。**不要 import tools/callig、tools/chips、tools/science、tools/astro 的檔案**（esbuild 會打包進第二份 three.js）。新增一課＝`src/comp-<名>.js`＋package.json 的 build 加入口＋`_COMP_JS` 加一筆＋`build_comp_lesson()` 的 `lab_html` 對照加一筆。
+- 3D：**原始碼在 `tools/computers/src/`**（自己的 package.json，three 0.186.1、esbuild 0.25.10），bundle 一律 `comp-*`；`lab.kind` → bundle 對照在 `build.py` 的 `_COMP_JS`（`bits` → `comp-bits`、`pixels` → `comp-pixels`、`logic` → `comp-logic`）。`labeler`、`lazyBoot`、`canvasTex` 在 `tools/computers/src/common.js`（從 tools/callig 抄來）。**不要 import tools/callig、tools/chips、tools/science、tools/astro 的檔案**（esbuild 會打包進第二份 three.js）。新增一課＝`src/comp-<名>.js`＋package.json 的 build 加入口＋`_COMP_JS` 加一筆＋`build_comp_lesson()` 的 `lab_html` 對照加一筆。
   ```
   cd tools/computers && npm ci && npm run build && npm test
   ```
@@ -604,6 +604,16 @@
   - `src/codes2d.js`：`initChars`（`[data-cp-chars]`，最多八個字）、`initDraw`（`[data-cp-draw]`，8 × 8、可拖曳塗）、`initSound`（`[data-cp-sound]`，SVG）。除錯：`el.__chars.set('永')`、`el.__draw.set([8 個數])`／`.bytes()`、`el.__sound.set(次數, 位元)`。
   - 除錯：`document.querySelector('[data-comppixels-lab]').__lab`（`select(i)`、`setChan(0|1|2)`、`setValue(n)`、`setRGB(k, v)`、`setView('far'|'all'|'wall', 立刻?)`、`reset()`、`demo(...)`、`run(秒)`、`goCam()`、`render()`）。
   - 查證時改掉的：CD「兩個聲道」沒有開得到的出處 → 只寫每秒 44,100 次 × 16 位元；「大部分中文字 3 個位元組」改成「像『永』這樣的常用中文字」（RFC 3629 的範圍表＋Unihan）；Unicode 字元數寫當時最新版（18.0，172,808，**之後出新版要改課文與文化卡**）；Big5（1984、資策會、13,053 字，「五大」是五套軟體不是五家公司）查到了但沒放進課文。
+- 第三課邏輯閘（`comp-logic.js`，`lab.kind = "logic"`，`data-complogic-lab`；slug `logic-gates`）：一個機制——**幾個開關接起來，就能回答「而且、或者、不是」**。
+  - 場景：木板上左邊電池、右邊燈泡，中間三種接法（`LAYOUT`：每種接法的銅線折線、開關位置、光點走的路徑與「哪些開關要通」）。`and`＝兩個閘刀開關串聯；`or`＝並聯（上下兩條支路）；`not`＝一個**蹺蹺板開關**（把手壓下去，另一頭的接點翹起來＝斷）。**輸入 1＝把手壓下去**（三種接法一致）。換接法時 `build()` 重建 `gateGroup`。路通了才有光點（一批共用的 Sprite）和燈亮；開關還在動的時候燈不亮。
+  - **NOT 不用「開關並聯在燈泡兩端」來做**（那是短路，不能教）；也沒有用繼電器（太複雜）。蹺蹺板是純機械的反相，課文與模型說明都寫了「真的閘是電晶體做的」。
+  - 右側欄：`data-gate` 三選一、這個閘的一句話（`lab.gates[].rule_en/zh`，經 `data-rules` 傳給 JS）、`data-in="a|b"` 兩個輸入按鈕（NOT 時 B 藏起來）、輸出、真值表（現在那一列亮起來；NOT 的表補兩列看不見的空列，免得切換時版面跳動）。`.al-play`＝「每一列都試一次」（`tour`）。
+  - 四張卡 `data-lab-demo`：`and`、`or`、`not`（各自把每一列跑一遍）、`wiring`（A＝1、B＝0 不動，只把線從 AND 換成 OR 再換回來）。
+  - `src/logic.js`（純函式，`test/logic.test.mjs`）：`AND/OR/NOT/XOR`、`truthTable`、`evalCircuit`／`circuitTable`（AND 或 OR＋每個輸入前可加 NOT，共八種電路、八張不同的真值表）、`PUZZLES`（六題，每題的 `answer` 有測試）、`makeQuestion`（八題：AND ×2、OR ×2、NOT ×1、兩個閘 ×3）。測試裡還驗了笛摩根定律與「只用 NAND 做得出三種基本閘」（課文沒寫 NAND，留給之後）。
+  - `src/logic2d.js`：`initWire`（`[data-cp-wire]`，題目文字在資料的 `wire.puzzles`，以 `key` 對到 `PUZZLES`；一開始故意給錯的閘）、`initQuiz`（`[data-cp-lquiz]`，沿用 `.cp-guess` 的深色卡樣式）。除錯：`el.__wire.go(i)／set(spec)／solve()`、`el.__lquiz.start(seed)／answer()／next()`。
+  - 除錯：`document.querySelector('[data-complogic-lab]').__lab`（`setGate('and'|'or'|'not', 保留輸入?)`、`setIn(a, b)`、`toggle('a'|'b')`、`setPlaying(bool)`、`demo(...)`、`run(秒)`、`goCam()`、`render()`、`out()`）。
+  - 名詞：邏輯閘、及閘、或閘、反閘、真值表、布林代數、互斥或（樂詞網的高中以下資訊名詞／電子計算機名詞）；Britannica 的 “logic gate” 頁是 AI 摘要，**不拿來當出處**，改引 “Boolean algebra”、“truth table” 兩篇。課綱沒有直接列邏輯閘，寫的是「支援資 S-IV-2」。
+- **預覽伺服器名額被別的 session 占滿時**（preview_start 回 Maximum 5 dev servers）：不要去停別人的，也不要用 Bash 跑伺服器。把 shot.mjs 的副本加一段 CDP `Fetch.enable`，攔截 `http://twrses.test/*` 直接從 worktree 讀檔回應（環境變數 `SHOT_ROOT`），不經過任何伺服器就能截圖、看 console 錯誤。
 - 查證過的事（出處在每課 `sources`）與**沒寫的事**記在 Obsidian 的系列索引；名詞一律台灣用語（位元、位元組、二進位、處理器、記憶體、電晶體），不用「比特、字節、內存」。
 - 和既有系列互相連結：第一課的 `links` 連晶片第二課 `/resources/classes/semiconductors/transistor/`（開關本身）與萬物原理第八課 `/resources/classes/how-things-work/computer-memory/`（0 和 1 存在哪裡），再放下一課的預告卡（`soon: true`）。
 - 🔊 錄音：`python3 tools/gen_audio.py --page resources/classes/computers/<slug> --out audio/say-<slug>` → `python3 tools/upload_say_dir.py assets/data/say/computers-<slug>.json audio/say-<slug>`（manifest 命名 `computers-<slug>`；`gen_audio.py` 的 SHORT_PAGES 已加本系列）。worktree 裡先把 `~/Developer/repos/twrses/tools/.r2_uploaded_cache.txt` 複製過來，做完 `sort -u` 合併回去。

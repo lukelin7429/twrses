@@ -11830,7 +11830,7 @@ def build_cal_hub():
 _compj = os.path.join(ROOT, "data", "computers.json")
 COMP = json.load(open(_compj, encoding="utf-8")) if os.path.exists(_compj) else None
 COMP_BASE = "/resources/classes/computers/"
-_COMP_JS = {"bits": "comp-bits", "pixels": "comp-pixels"}   # lab.kind → assets/js/<bundle>.js
+_COMP_JS = {"bits": "comp-bits", "pixels": "comp-pixels", "logic": "comp-logic"}   # lab.kind → assets/js/<bundle>.js
 
 def _comp_ver():
     h = hashlib.md5()
@@ -12084,6 +12084,92 @@ def _comp_sound(sd):
   <p class="cp-lv-note">{html.escape(sd["note_en"])}<span class="zh">{html.escape(sd["note_zh"])}</span></p>
 </div>'''
 
+def complogic_svg(size=56):
+    """第三課的課程卡小圖示：兩個開關排成一排，接到一盞亮著的燈。"""
+    return (f'<svg class="complogic-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">'
+            '<path d="M5 38h9M24 38h8M42 38h6" stroke="#c98a4b" stroke-width="3" stroke-linecap="round"/>'
+            '<path d="M14 38 23.5 37.5M32 38 41.5 37.5" stroke="#f0c48a" stroke-width="3" stroke-linecap="round"/>'
+            '<circle cx="14" cy="38" r="3" fill="#b9bec8"/><circle cx="24" cy="38" r="3" fill="#b9bec8"/><circle cx="32" cy="38" r="3" fill="#b9bec8"/><circle cx="42" cy="38" r="3" fill="#b9bec8"/>'
+            '<circle cx="50" cy="24" r="12" fill="#ffd36e" opacity=".28"/><circle cx="50" cy="24" r="7" fill="#ffd36e" stroke="#fff3c9" stroke-width="1.2"/>'
+            '<rect x="46.5" y="30" width="7" height="9" rx="1.5" fill="#b9bec8"/>'
+            '<text x="19" y="26" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="800" fill="#7ef0e3">A</text>'
+            '<text x="37" y="26" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="800" fill="#7ef0e3">B</text></svg>')
+
+_COMP_CARD["logic"] = complogic_svg
+
+def render_complogic_lab(lesson):
+    """第三課：電池、開關與燈泡的三種接法（assets/js/comp-logic.js 綁這裡的 class；全部自繪示意）。"""
+    lab = lesson["lab"]
+    gb = "".join(
+        f'<button type="button" data-gate="{g["key"]}" aria-pressed="{"true" if g["key"] == "and" else "false"}">'
+        f'{html.escape(g["en"])}<small>{html.escape(g["zh"])}</small></button>' for g in lab["gates"])
+    rules = html.escape(json.dumps({g["key"]: {"en": g["rule_en"], "zh": g["rule_zh"]} for g in lab["gates"]}, ensure_ascii=False))
+    tg = _lab_toggles([("flow", "Moving dots", "光點", True), ("labels", "Labels", "標示", True)])
+    return f'''<div class="astro-lab cp-lab cp-lg-lab rvl" data-complogic-lab data-rules="{rules}">
+  <div class="al-stage">
+    <div class="al-space">
+      <canvas class="al-space-cv" aria-label="3D model of a battery, switches, and a light bulb wired three different ways: in a row, side by side, and with a seesaw switch · 電池、開關和燈泡的三種接法（排成一排、一上一下、蹺蹺板開關）的 3D 模型"></canvas>
+      <div class="al-labels" aria-hidden="true"></div>
+      <p class="al-hint">Tap a switch · 點一下開關　Drag to turn · 拖曳旋轉　Scroll or pinch to zoom · 滾輪／雙指縮放</p>
+      <button type="button" class="al-home" title="Reset view · 重設視角" aria-label="Reset view · 重設視角">&#8634;</button>
+      <p class="al-nogl-msg">This 3D model needs WebGL, which this browser does not support. The A and B buttons and the truth table below still work, and so do the reading and the games.<br><span class="zh">這個瀏覽器不支援 WebGL，無法顯示 3D 模型；下面的 A、B 按鈕和真值表照樣能用，課文和小遊戲也都能用。</span></p>
+    </div>
+    <aside class="al-sky cp-aside">
+      <p class="al-sky-k">How are the switches wired? · 開關怎麼接</p>
+      <div class="cp-seg cp-lg-gates" role="group" aria-label="Wiring · 接法">{gb}</div>
+      <p class="cp-lg-rule"></p>
+      <p class="al-sky-k cp-k2">Inputs and output · 輸入與輸出</p>
+      <div class="cp-lg-io">
+        <button type="button" class="cp-lg-in" data-in="a" aria-pressed="false" aria-label="Input A · 輸入 A"><small>A</small><b>0</b></button>
+        <button type="button" class="cp-lg-in" data-in="b" aria-pressed="false" aria-label="Input B · 輸入 B"><small>B</small><b>0</b></button>
+        <span class="cp-lg-arrow" aria-hidden="true">&rarr;</span>
+        <p class="cp-lg-out" aria-live="polite"></p>
+      </div>
+      <p class="al-sky-k cp-k2">Truth table · 真值表</p>
+      <table class="cp-lg-table"><thead></thead><tbody></tbody></table>
+      <p class="cp-msg" aria-live="polite"></p>
+    </aside>
+  </div>
+  <div class="al-controls">
+    <div class="al-row al-row-main">
+      <button type="button" class="al-play" aria-pressed="false"><span class="al-play-i" aria-hidden="true"></span><span class="al-play-t">Try every row · 每一列都試一次</span></button>
+      <div class="al-row al-toggles">{tg}</div>
+    </div>
+  </div>
+  {_lab_foot(lab)}
+  <p class="cp-credit">{lab["credit_html"]}</p>
+</div>'''
+
+def _comp_wire(wr):
+    data = html.escape(json.dumps({p["key"]: {k: p[k] for k in ("en", "zh", "a_en", "a_zh", "b_en", "b_zh", "out_en", "out_zh")} for p in wr["puzzles"]}, ensure_ascii=False))
+    tips = "".join(f'<li>{html.escape(t["en"])}<span class="zh">{html.escape(t["zh"])}</span></li>' for t in wr["tips"])
+    return f'''<div class="cp-wire rvl" data-cp-wire data-puzzles="{data}">
+  <div class="cp-gs-top"><p class="cp-gs-k cp-wr-k"></p><p class="cp-gs-sc">Solved · 已完成 <b class="cp-gs-score cp-wr-score">0 / 6</b></p></div>
+  <p class="cp-wr-q"></p>
+  <div class="cp-wr-build">
+    <div class="cp-wr-ins">
+      <div class="cp-wr-in"><span class="cp-wr-lab cp-wr-a"></span><button type="button" class="cp-wr-not" data-not="a" aria-pressed="false" aria-label="Put NOT in front of A · 在 A 前面加 NOT">NOT<small>不是</small></button></div>
+      <div class="cp-wr-in"><span class="cp-wr-lab cp-wr-b"></span><button type="button" class="cp-wr-not" data-not="b" aria-pressed="false" aria-label="Put NOT in front of B · 在 B 前面加 NOT">NOT<small>不是</small></button></div>
+    </div>
+    <div class="cp-wr-gate" role="group" aria-label="Choose a gate · 選一種閘"><button type="button" data-wgate="and" aria-pressed="true">AND<small>而且</small></button><button type="button" data-wgate="or" aria-pressed="false">OR<small>或者</small></button></div>
+    <div class="cp-wr-outw"><span class="cp-wr-bulb" aria-hidden="true"></span><span class="cp-wr-out"></span></div>
+  </div>
+  <p class="cp-wr-exprw">Your circuit · 你接的電路 <code class="cp-wr-expr"></code></p>
+  <table class="cp-wr-table"><thead><tr><th>A</th><th>B</th><th>Wanted<small>要的</small></th><th>Yours<small>你接的</small></th><th></th></tr></thead><tbody></tbody></table>
+  <p class="cp-wr-msg" aria-live="polite"></p>
+  <button type="button" class="cp-btn cp-btn-gold cp-wr-next" hidden>Next puzzle · 下一題</button>
+</div>
+<ul class="cp-tips rvl">{tips}</ul>'''
+
+def _comp_lquiz(lq):
+    return f'''<div class="cp-guess cp-lquiz rvl" data-cp-lquiz>
+  <div class="cp-gs-top"><p class="cp-gs-k"></p><p class="cp-gs-sc">Right on the first try · 第一次就答對 <b class="cp-gs-score">0 / 0</b></p></div>
+  <p class="cp-lq-q"></p>
+  <div class="cp-gs-opts cp-lq-opts" role="group" aria-label="Choose 0 or 1 · 選 0 或 1"></div>
+  <p class="cp-gs-msg" aria-live="polite"></p>
+  <div class="cp-gs-foot"><span></span><button type="button" class="cp-btn cp-btn-gold cp-gs-next" hidden>Next · 下一題</button></div>
+</div>'''
+
 def _comp_flat():
     return [(ui, u, l) for ui, u in enumerate(COMP["units"]) for l in u["lessons"]]
 
@@ -12111,7 +12197,7 @@ def build_comp_lesson(ui, unit, lesson):
     reading_html = render_basic_unit(1, unit_dict, level="comp", audio_rel="", pdf_rel="")
     lab = lesson["lab"]
     kind = lab["kind"]
-    lab_html = {"bits": render_compbits_lab, "pixels": render_comppixels_lab}[kind](lesson)
+    lab_html = {"bits": render_compbits_lab, "pixels": render_comppixels_lab, "logic": render_complogic_lab}[kind](lesson)
 
     def sec(key, fn):
         d = lesson[key]
@@ -12135,6 +12221,8 @@ def build_comp_lesson(ui, unit, lesson):
     if lesson.get("chars"): secs.append(sec("chars", _comp_chars))
     if lesson.get("draw"): secs.append(sec("draw", _comp_draw))
     if lesson.get("sound"): secs.append(sec("sound", _comp_sound))
+    if lesson.get("wire"): secs.append(sec("wire", _comp_wire))
+    if lesson.get("lquiz"): secs.append(sec("lquiz", _comp_lquiz))
     if lesson.get("culture_cards"):
         cu = lesson["culture_cards"]
         cc = "".join(
