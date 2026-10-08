@@ -368,10 +368,14 @@
   - 模型：剖開的小晶圓廠。`PATHS` 五條水路（intake／pure／used／back／drain），每條最多 `PER` 滴，顯示幾滴由 `frac(r)` 決定（intake 與 drain ∝ 1−r，back ∝ r）；回收率滑桿 0–90%（預設 85%，出自維基 TSMC 條目的「可回收 85% 以上」，比例說明寫明是一家公司的說法）。「電」視角：空氣微粒由天花板落到地板（層流示意），三個按鈕（air／cool／tools）讓對應的零件發亮；右欄 DUV 0.13 MW 對 EUV 1.31 MW 的長條。
   - 頁面下方「多乾淨才算乾淨？」（`clean`、`_chip_clean`、`initClean`）：ISO 14644-1 的 0.5 微米上限表（`fabcalc.js` 的 `ISO`，9 級到 3 級），canvas 畫點（一點＝10,000 顆，ISO 9 畫 3,520 點）。
   - 查證過（2026-10，維基英文）：Ultrapure water（半導體要求最嚴、沖洗晶圓、三階段、電阻率 18.18 MΩ·cm、先進廠每天數百萬加侖、再生水當原料）；Semiconductor device fabrication（微粒只要線寬 1/5 就是致命缺陷）；Cleanroom（都市空氣 3,500 萬顆／m³＝ISO 9、ISO 表、半導體常用 7 或 5 級、HEPA／ULPA 循環、Whitfield 1960）；Semiconductor fabrication plant（屋頂空調、FFU）；EUV lithography（1.31 MW 對 0.13 MW，2020 量測）；TSMC（回收 85% 以上）；RCA clean（Werner Kern 1965）。**沒寫的**：任何一座廠或一家公司的總用水量、總用電量、占全台比例（數字會變、也容易變成爭議）；「足球場大」「幾百部機台」「24 小時運轉」（沒查到出處，寫了又刪）；缺水、限電等時事。
+- 第十二課 LED（`chip-led.js`，`lab.kind = "led"`，`data-chipled-lab`，CSS `cp-ld-`／小工具 `cp-rgb-`；單元四第四課，slug `led`）：一個機制——LED 是會發光的 p–n 接面：順向接電，n 型的電子和 p 型的電洞被推到接面相遇，電子掉進電洞、多出來的能量變成光子；能量落差（能隙）越大光越藍。反過來接不亮（二極體）。白光＝藍光 LED＋黃色螢光粉。**第二批 9–12 課到此完成，全系列 12 課。**
+  - 模型：放大的晶粒（下 n 型、上 p 型、中間接面）＋電池與兩條線。電子／電洞／光子都是 InstancedMesh，位置只由 `clock` 與 `mode`（on／reverse／off）決定；亮度 `state.k` 緩變。白光模式多一個半球螢光粉罩，一半的光子飛出罩外變黃。右欄：四個顏色、三種接法、小燈（CSS 發光）、波長／光子能量（`ledcalc.js` 的 `eV = 1239.84/nm`）／材料。波長 630／525／465 nm 是落在維基範圍內的**示例**（測試鎖住範圍）。窄螢幕上 p、n 標籤改放晶粒正面上下，接面標籤不顯示。
+  - 頁面下方「三顆 LED，一個像素」（`rgb`、`_chip_rgb`、`initRgb`）：三條滑桿加法混色，`mixName` 以 50% 為界給八種說明（文字在 JSON 的 `rgb.names`，測試檢查 presets 的 key 與 mixName 一致）。
+  - 查證過（2026-10，維基英文）：Light-emitting diode（原理、能隙決定顏色、各色波長範圍與材料、Losev 1927、早期只有紅光當指示燈、藍光 LED 與 2014 諾貝爾獎、白光兩種做法、比白熾燈省電）；Nick Holonyak（1962，GE）；Shuji Nakamura；Diode；RGB color model；LED lamp。**沒寫的**：為什麼矽不適合做 LED（沒查到適合引用的句子）、LED 的發光效率數字與壽命小時數、任何廠商與市占；H. J. Round 1907 只在資訊框出現，沒寫進課文；「比沙粒小」「每秒幾十億顆光子」寫了又刪。
 - 共用工具 `tools/chips/src/common.js`：`labeler`、`lazyBoot`、`canvasTex`、`glowTex`、`polyline`（電線裡的電子沿弧長走）、`tube`。第一課的 chip-doping.js 還是自己寫一份（沒改動），新課用 common.js 的。新入口要加進 `package.json` 的 build 與 test。
 - 和萬物原理互相連結：第一課的 `links` 連第三課太陽能板（電子與電洞）；第二課連萬物原理第八課（computer-memory，0 與 1、DRAM），不重講。
 - 🔊 錄音：`python3 tools/gen_audio.py --page resources/classes/semiconductors/<slug> --out audio/say-<slug>` → `python3 tools/upload_say_dir.py assets/data/say/semiconductors-<slug>.json audio/say-<slug>`（manifest 命名 `semiconductors-<slug>`；`gen_audio.py` 的 SHORT_PAGES 已加本系列）。worktree 裡先把 `~/Developer/repos/twrses/tools/.r2_uploaded_cache.txt` 複製過來，做完 `sort -u` 合併回去。
-- 課程規劃在 Obsidian：`第二大腦/創作庫/半導體科普課程規劃（twrses）.md`（三單元八課＋第二批單元四的 9–12 課、待查證清單、交接指令）；系列索引 `第二大腦/英文學習/晶片與半導體（twrses.org）.md`。
+- 課程規劃在 Obsidian：`第二大腦/創作庫/半導體科普課程規劃（twrses）.md`（四單元十二課：第一批 1–8、第二批單元四 9–12，2026-10-08 全部完成；待查證清單、交接指令）；系列索引 `第二大腦/英文學習/晶片與半導體（twrses.org）.md`。
 
 ---
 

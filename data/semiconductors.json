@@ -7331,16 +7331,631 @@
               "url": "https://en.wikipedia.org/wiki/RCA_clean"
             }
           ]
-        }
-      ],
-      "planned": [
+        },
         {
           "n": 12,
+          "slug": "led",
+          "title": "What Do LEDs Have to Do with Semiconductors?",
+          "title_zh": "LED 和半導體有什麼關係？",
+          "level": "入門 · Beginner",
           "icon": "💡",
-          "en": "What Do LEDs Have to Do with Semiconductors?",
-          "zh": "LED 和半導體有什麼關係？"
+          "card": "led",
+          "blurb_en": "The lights in your classroom, the screen at the train station, and the little light on a charger are all LEDs, and an LED is a semiconductor. In a 3D model, connect a battery and watch electrons and holes meet and turn into light. Change the color, turn the battery around, and then mix three LEDs into one pixel.",
+          "blurb_zh": "教室的燈、火車站的大螢幕、充電器上的小燈，都是 LED，而 LED 就是一種半導體。在 3D 模型裡接上電池，看電子和電洞相遇、變成光。換個顏色、把電池反過來接，最後用三顆 LED 混出一個像素。",
+          "big_idea_en": "An LED is a semiconductor that turns electricity straight into light. It has two layers: n-type, with spare electrons, and p-type, with holes. When a battery pushes them together, an electron drops into a hole and gives off its extra energy as light. The size of that energy step sets the color, and different semiconductor materials have different steps.",
+          "big_idea_zh": "LED 是一種把電直接變成光的半導體。它有兩層：有多餘電子的 n 型，和有電洞的 p 型。電池把它們推在一起的時候，電子掉進電洞，多出來的能量就變成光放出來。這一步能量落差有多大，決定了光的顏色；不同的半導體材料，落差也不一樣。",
+          "lab": {
+            "kind": "led",
+            "eyebrow": "3D Model · 3D 模型",
+            "title_en": "Where the Light Comes From",
+            "title_zh": "光是從哪裡來的",
+            "how_en": "Drag to turn the model, and scroll or pinch to zoom. This is the tiny chip inside an LED, greatly magnified. Blue dots are electrons and pink dots are holes. With the battery connected forward, watch them meet in the middle and send out light. Try the other colors, then connect the battery backward and see what changes.",
+            "how_zh": "拖曳可以旋轉模型，滾輪或雙指可以縮放。這是 LED 裡面那顆小小的晶粒，放大了很多倍。藍色的點是電子，粉紅色的點是電洞。電池順向接上的時候，看它們在中間相遇、把光送出來。試試別的顏色，再把電池反過來接，看看有什麼不一樣。",
+            "msgs": {
+              "on": {
+                "en": "The battery pushes electrons up from the n-type layer and holes down from the p-type layer. Where they meet, each electron drops into a hole and gives off one tiny packet of light, called a photon.",
+                "zh": "電池把 n 型那層的電子往上推，把 p 型那層的電洞往下推。它們相遇的地方，每個電子掉進一個電洞，放出一小包光，叫做光子。"
+              },
+              "reverse": {
+                "en": "Connected backward, the battery pulls the electrons and the holes away from the junction. They never meet, so there is no light. A diode lets current flow in one direction only.",
+                "zh": "反過來接的時候，電池把電子和電洞都從接面拉開。它們碰不到面，所以沒有光。二極體只讓電流往一個方向走。"
+              },
+              "off": {
+                "en": "With no battery, the electrons stay in their layer and the holes stay in theirs. Nothing pushes them together, and the LED is dark.",
+                "zh": "沒有接電池的時候，電子待在自己那一層，電洞也待在自己那一層。沒有東西把它們推在一起，LED 是暗的。"
+              },
+              "white": {
+                "en": "There is no white LED chip. This is a blue LED under a layer of yellow phosphor. The phosphor turns part of the blue light into yellow, and blue and yellow together look white to our eyes.",
+                "zh": "其實沒有「白光」的 LED 晶粒。這是一顆藍光 LED，上面蓋了一層黃色的螢光粉。螢光粉把一部分藍光變成黃光，藍光和黃光混在一起，我們的眼睛看起來就是白色。"
+              }
+            },
+            "legend": [
+              {
+                "cls": "cpldn",
+                "en": "Blue dots: electrons in the n-type layer",
+                "zh": "藍色的點：n 型層裡的電子"
+              },
+              {
+                "cls": "cpldp",
+                "en": "Pink dots: holes in the p-type layer",
+                "zh": "粉紅色的點：p 型層裡的電洞"
+              },
+              {
+                "cls": "cpldph",
+                "en": "Colored dots flying out: light",
+                "zh": "往外飛的彩色點：光"
+              }
+            ],
+            "scale_en": "A teaching model, not to scale. A real LED chip is tiny, its layers are far thinner than shown, and the electrons, holes, and light are much too small and fast to see. The wavelengths (630, 525, and 465 nanometers) are examples inside the usual ranges for red, green, and blue LEDs.",
+            "scale_zh": "這是教學用的模型，不是真實比例。真的 LED 晶粒非常小，每一層也比圖上薄得多，電子、電洞和光更是小到、快到根本看不見。波長（630、525、465 奈米）是落在紅、綠、藍光 LED 常見範圍裡的例子。",
+            "credit_html": "Model drawn by My Culture Connect as a teaching diagram. The ideas follow <a href=\"https://en.wikipedia.org/wiki/Light-emitting_diode\" target=\"_blank\" rel=\"noopener\">Wikipedia, “Light-emitting diode”</a> and the other sources listed at the bottom of this page. · 模型由人師教育協會自繪示意；原理依維基百科「Light-emitting diode」條目與本頁最下方列出的其他出處。"
+          },
+          "paras": [
+            "Look around you. The lights on the ceiling, the traffic light at the corner, the big screen at the station, and the tiny light that tells you a charger is working are probably all LEDs. LED stands for light-emitting diode. And here is the surprise: an LED is a semiconductor, a close cousin of the chips in this series.",
+            "In Lesson 1 you saw that adding a few other atoms to a semiconductor changes it. One kind of atom gives spare electrons and makes n-type material. Another kind leaves empty places called holes and makes p-type material. An LED is simply a layer of n-type and a layer of p-type joined together. The place where they touch is called the junction.",
+            "Connect a battery the right way, and it pushes the electrons and the holes toward the junction. When an electron meets a hole, it drops in. As it drops, it gives up some energy, and that energy leaves as a tiny packet of light called a photon. A huge number of these, one after another, make the glow you see.",
+            "What about the color? It depends on how big the energy step is. A bigger step makes bluer light, and a smaller step makes redder light. The size of the step is fixed by the material, so engineers choose different semiconductors for different colors. The plastic cover does not decide the color. The crystal inside does.",
+            "Red LEDs came first, in the 1960s. Blue was much harder, and it took until the early 1990s. That mattered a great deal. With red, green, and blue together, a screen can show every color. And a blue LED covered with a yellow material called phosphor gives white light, the kind that now lights our homes.",
+            "An old light bulb works by making a thin wire so hot that it glows, and most of its energy is lost as heat. An LED turns electricity into light directly, so it uses less power, makes less waste heat, and lasts longer. The next time you switch on a lamp, remember: you are using a semiconductor."
+          ],
+          "paras_zh": [
+            "看看四周。天花板上的燈、路口的紅綠燈、車站的大螢幕，還有告訴你充電器正在工作的那顆小燈，很可能全都是 LED。LED 的意思是「發光二極體」。讓人意外的是：LED 就是一種半導體，和這個系列講的晶片是近親。",
+            "在第一課你看過，在半導體裡加進一點點別的原子，它就會不一樣。有一種原子會多出電子，做成 n 型材料；另一種原子會留下叫做「電洞」的空位，做成 p 型材料。LED 其實就是一層 n 型和一層 p 型接在一起。它們碰在一起的地方，叫做接面。",
+            "電池接對方向的時候，會把電子和電洞都往接面推。電子遇到電洞，就掉進去。往下掉的時候，它會放出一些能量，這些能量變成一小包光離開，叫做光子。數也數不清的光子一個接一個出來，就成了你看到的亮光。",
+            "那顏色呢？要看這一步能量落差有多大。落差大，光就偏藍；落差小，光就偏紅。落差的大小是材料決定的，所以工程師要用不同的半導體來做不同的顏色。決定顏色的不是外面的塑膠殼，而是裡面的晶體。",
+            "紅光 LED 最早出現，是在 1960 年代。藍光難得多，一直到 1990 年代初期才做出來。這件事非常重要：有了紅、綠、藍三種光，螢幕就能顯示所有的顏色；而藍光 LED 蓋上一層叫做螢光粉的黃色材料，就會發出白光，也就是現在照亮我們家裡的那種光。",
+            "舊式的燈泡是把一條細細的金屬絲加熱到發亮，大部分的能量都變成熱浪費掉了。LED 直接把電變成光，所以比較省電、廢熱比較少，也用得比較久。下次開燈的時候，別忘了：你正在用一個半導體。"
+          ],
+          "questions": [
+            "What two layers is an LED made of?",
+            "How does an LED make light?",
+            "What decides the color of an LED?"
+          ],
+          "answers": [
+            "A layer of n-type semiconductor, which has spare electrons, and a layer of p-type semiconductor, which has holes.",
+            "A battery pushes electrons and holes to the junction. When an electron drops into a hole, it gives off its extra energy as a photon of light.",
+            "The size of the energy step in the semiconductor material. A bigger step gives bluer light, and a smaller step gives redder light."
+          ],
+          "vocab": [
+            {
+              "n": 1,
+              "w": "diode",
+              "pos": "n.",
+              "zh": "二極體",
+              "ex": "A <b>diode</b> lets electricity flow only one way.",
+              "exzh": "二極體只讓電往一個方向流。"
+            },
+            {
+              "n": 2,
+              "w": "emit",
+              "pos": "v.",
+              "zh": "發出（光、熱）",
+              "ex": "The sun <b>emits</b> light and heat.",
+              "exzh": "太陽發出光和熱。"
+            },
+            {
+              "n": 3,
+              "w": "glow",
+              "pos": "v., n.",
+              "zh": "發亮；微光",
+              "ex": "The fireflies <b>glow</b> in the dark.",
+              "exzh": "螢火蟲在黑暗中發亮。"
+            },
+            {
+              "n": 4,
+              "w": "bulb",
+              "pos": "n.",
+              "zh": "燈泡",
+              "ex": "We need a new <b>bulb</b> for this lamp.",
+              "exzh": "這盞燈要換一顆新燈泡。"
+            },
+            {
+              "n": 5,
+              "w": "photon",
+              "pos": "n.",
+              "zh": "光子",
+              "ex": "A <b>photon</b> is a tiny packet of light.",
+              "exzh": "光子是一小包光。"
+            },
+            {
+              "n": 6,
+              "w": "junction",
+              "pos": "n.",
+              "zh": "接面；交會處",
+              "ex": "The two roads meet at a <b>junction</b>.",
+              "exzh": "兩條路在交會處相接。"
+            },
+            {
+              "n": 7,
+              "w": "mix",
+              "pos": "v.",
+              "zh": "混合",
+              "ex": "<b>Mix</b> blue and yellow paint to make green.",
+              "exzh": "把藍色和黃色顏料混在一起會變成綠色。"
+            },
+            {
+              "n": 8,
+              "w": "bright",
+              "pos": "adj.",
+              "zh": "明亮的",
+              "ex": "The screen is too <b>bright</b> at night.",
+              "exzh": "晚上螢幕太亮了。"
+            }
+          ],
+          "quiz": [
+            {
+              "q": "What is an LED?",
+              "options": [
+                "A semiconductor that turns electricity into light",
+                "A very small flame",
+                "A wire that glows when it is hot",
+                "A kind of mirror"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "What happens at the junction when an LED is lit?",
+              "options": [
+                "Electrons drop into holes and give off light",
+                "Water turns into steam",
+                "The plastic melts",
+                "Nothing happens"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "What decides the color of an LED's light?",
+              "options": [
+                "The semiconductor material inside",
+                "The color of the plastic cover",
+                "The size of the battery",
+                "The length of the wires"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "How do most white LEDs make white light?",
+              "options": [
+                "A blue LED shines through yellow phosphor",
+                "They use white electricity",
+                "They are painted white",
+                "They burn a white wire"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "What happens if you connect an LED backward?",
+              "options": [
+                "It does not light",
+                "It shines twice as bright",
+                "It changes color",
+                "It becomes a battery"
+              ],
+              "correct": 0
+            }
+          ],
+          "parts_head": {
+            "eyebrow": "Try It in the Model · 在模型裡試試",
+            "en": "Four things to try",
+            "zh": "試試這四件事"
+          },
+          "parts": [
+            {
+              "key": "red",
+              "icon": "🔴",
+              "en": "A red LED",
+              "zh": "紅光 LED",
+              "meta_en": "630 nm, a small step",
+              "meta_zh": "630 奈米，落差小",
+              "demo": "red",
+              "text_en": "The first color people learned to make. Each photon carries about 2 electron volts of energy.",
+              "text_zh": "人類最早做出來的顏色。每顆光子帶著大約 2 電子伏特的能量。"
+            },
+            {
+              "key": "blue",
+              "icon": "🔵",
+              "en": "A blue LED",
+              "zh": "藍光 LED",
+              "meta_en": "465 nm, a bigger step",
+              "meta_zh": "465 奈米，落差大",
+              "demo": "blue",
+              "text_en": "A different material with a bigger energy step. It took thirty more years to make.",
+              "text_zh": "換一種材料，能量落差比較大。它多花了三十年才做出來。"
+            },
+            {
+              "key": "reverse",
+              "icon": "🔁",
+              "en": "Battery backward",
+              "zh": "電池反過來接",
+              "meta_en": "No light",
+              "meta_zh": "沒有光",
+              "demo": "reverse",
+              "text_en": "Watch the electrons and holes pull apart. The junction goes dark.",
+              "text_zh": "看電子和電洞被拉開，接面暗了下來。"
+            },
+            {
+              "key": "white",
+              "icon": "⚪",
+              "en": "A white LED",
+              "zh": "白光 LED",
+              "meta_en": "Blue plus yellow phosphor",
+              "meta_zh": "藍光加黃色螢光粉",
+              "demo": "white",
+              "text_en": "Look for the dots that turn yellow as they pass through the dome.",
+              "text_zh": "找找看哪些光點穿過圓罩的時候變成了黃色。"
+            }
+          ],
+          "parts_note_en": "A photon's energy in electron volts is about 1,240 divided by its wavelength in nanometers: 1,240 ÷ 630 is about 2.0, and 1,240 ÷ 465 is about 2.7.",
+          "parts_note_zh": "光子的能量（電子伏特）大約等於 1,240 除以波長（奈米）：1,240 ÷ 630 大約是 2.0，1,240 ÷ 465 大約是 2.7。",
+          "links_head": {
+            "eyebrow": "Go Further · 延伸閱讀",
+            "en": "The same junction, used two other ways",
+            "zh": "同一種接面的另外兩種用法"
+          },
+          "links": [
+            {
+              "href": "/resources/classes/semiconductors/what-is-a-semiconductor/",
+              "icon": "💿",
+              "k_en": "Chips and Semiconductors · Lesson 1",
+              "k_zh": "晶片與半導體 第一課",
+              "en": "What Is a Semiconductor?",
+              "zh": "什麼是半導體？",
+              "note_en": "Where n-type and p-type come from.",
+              "note_zh": "n 型和 p 型是怎麼來的。"
+            },
+            {
+              "href": "/resources/classes/how-things-work/solar-panel/",
+              "icon": "☀️",
+              "k_en": "How Things Work · Lesson 3",
+              "k_zh": "萬物原理 第三課",
+              "en": "How Does a Solar Panel Turn Light into Electricity?",
+              "zh": "太陽能板怎麼把光變成電？",
+              "note_en": "An LED turns electricity into light. A solar panel does the opposite, with the same kind of junction.",
+              "note_zh": "LED 把電變成光；太陽能板正好相反，用的是同一種接面。"
+            }
+          ],
+          "rgb": {
+            "eyebrow": "Three LEDs, One Pixel · 三顆 LED，一個像素",
+            "en": "Mix red, green, and blue light",
+            "zh": "把紅光、綠光、藍光混在一起",
+            "lead_en": "A full-color LED screen has no yellow LEDs, no white ones, and no pink ones. Each pixel has just three: red, green, and blue. From far away their light blends, and by changing how bright each one is, the screen can make a broad range of colors. Try it.",
+            "lead_zh": "全彩的 LED 螢幕裡沒有黃色的 LED，也沒有白色或粉紅色的。每個像素只有三顆：紅、綠、藍。從遠處看，它們的光會混在一起；只要改變每一顆有多亮，螢幕就能做出各式各樣的顏色。試試看。",
+            "presets": [
+              {
+                "key": "yellow",
+                "r": 100,
+                "g": 100,
+                "b": 0,
+                "en": "Yellow",
+                "zh": "黃"
+              },
+              {
+                "key": "cyan",
+                "r": 0,
+                "g": 100,
+                "b": 100,
+                "en": "Cyan",
+                "zh": "青"
+              },
+              {
+                "key": "magenta",
+                "r": 100,
+                "g": 0,
+                "b": 100,
+                "en": "Magenta",
+                "zh": "洋紅"
+              },
+              {
+                "key": "white",
+                "r": 100,
+                "g": 100,
+                "b": 100,
+                "en": "White",
+                "zh": "白"
+              }
+            ],
+            "names": {
+              "black": {
+                "en": "All three are dim, so the pixel looks dark.",
+                "zh": "三顆都很暗，所以這個像素看起來是黑的。"
+              },
+              "red": {
+                "en": "Mostly red light.",
+                "zh": "主要是紅光。"
+              },
+              "green": {
+                "en": "Mostly green light.",
+                "zh": "主要是綠光。"
+              },
+              "blue": {
+                "en": "Mostly blue light.",
+                "zh": "主要是藍光。"
+              },
+              "yellow": {
+                "en": "Red light and green light together look yellow.",
+                "zh": "紅光加綠光，看起來是黃色。"
+              },
+              "cyan": {
+                "en": "Green light and blue light together look cyan.",
+                "zh": "綠光加藍光，看起來是青色。"
+              },
+              "magenta": {
+                "en": "Red light and blue light together look magenta.",
+                "zh": "紅光加藍光，看起來是洋紅色。"
+              },
+              "white": {
+                "en": "All three together look white.",
+                "zh": "三種光一起亮，看起來是白色。"
+              }
+            },
+            "note_en": "Mixing light is different from mixing paint. Light adds up, so more colors make the result brighter, and all three together make white. This is called the RGB color model. Your screen shows the mix only roughly.",
+            "note_zh": "混光和混顏料不一樣。光是加起來的，所以顏色越多越亮，三種一起就是白色。這叫做 RGB 色彩模型。你的螢幕只能大致顯示混出來的顏色。"
+          },
+          "facts": {
+            "eyebrow": "LEDs by the Numbers · LED 的數字",
+            "en": "Six numbers about LEDs",
+            "zh": "六個和 LED 有關的數字",
+            "lead_en": "A short history, and a little physics.",
+            "lead_zh": "一點歷史，加一點物理。",
+            "items": [
+              {
+                "big": "1927",
+                "unit_en": "an early LED",
+                "unit_zh": "很早的一顆 LED",
+                "en": "The Soviet inventor Oleg Losev created an LED from silicon carbide.",
+                "zh": "蘇聯發明家奧列格．洛謝夫用碳化矽做出了 LED。"
+              },
+              {
+                "big": "1962",
+                "unit_en": "visible light",
+                "unit_zh": "看得見的光",
+                "en": "Nick Holonyak, at General Electric, demonstrated a semiconductor device that gave off visible light. It led to the first commercial LEDs.",
+                "zh": "在奇異公司工作的尼克．何倫亞克展示了會發出可見光的半導體元件，後來發展成第一批商用 LED。"
+              },
+              {
+                "big": "1990s",
+                "unit_en": "blue at last",
+                "unit_zh": "終於有了藍光",
+                "en": "In the early 1990s, Shuji Nakamura, Hiroshi Amano, and Isamu Akasaki developed blue LEDs.",
+                "zh": "1990 年代初期，中村修二、天野浩和赤崎勇開發出藍光 LED。"
+              },
+              {
+                "big": "2014",
+                "unit_en": "Nobel Prize",
+                "unit_zh": "諾貝爾獎",
+                "en": "The three won the Nobel Prize in Physics for the blue LED.",
+                "zh": "這三位因為藍光 LED 獲得諾貝爾物理學獎。"
+              },
+              {
+                "big": "3",
+                "unit_en": "colors",
+                "unit_zh": "種顏色",
+                "en": "Red, green, and blue light can be added together to make a broad range of colors.",
+                "zh": "紅、綠、藍三種光加在一起，可以做出各式各樣的顏色。"
+              },
+              {
+                "big": "2",
+                "unit_en": "ways to make white",
+                "unit_zh": "種做出白光的方法",
+                "en": "Mix red, green, and blue LEDs, or, more often, cover a blue LED with phosphor.",
+                "zh": "把紅、綠、藍三種 LED 混在一起；或是更常見的做法：在藍光 LED 上面蓋一層螢光粉。"
+              }
+            ]
+          },
+          "culture_cards": {
+            "eyebrow": "Stories About LEDs · LED 的故事",
+            "title_en": "A glowing crystal, a red light, the blue that took thirty years, and how to make white",
+            "title_zh": "發光的晶體、一顆紅燈、等了三十年的藍，還有白光是怎麼來的",
+            "lead_en": "Four steps from a strange glow to the lamp on your desk.",
+            "lead_zh": "從一道奇怪的微光，到你書桌上的檯燈，一共四步。",
+            "cards": [
+              {
+                "k": "1927",
+                "en": "A glowing crystal",
+                "zh": "發光的晶體",
+                "body_en": "Long before anyone used the word LED, the Soviet inventor Oleg Losev created one from silicon carbide in 1927. Light that comes from a material when electricity passes through it is called electroluminescence, and it is how every LED works.",
+                "body_zh": "早在有人使用「LED」這個詞之前，蘇聯發明家奧列格．洛謝夫就在 1927 年用碳化矽做出了一顆。電流通過材料時發出的光，叫做「電致發光」，所有的 LED 都是靠這個原理。"
+              },
+              {
+                "k": "1962",
+                "en": "A red light",
+                "zh": "一顆紅燈",
+                "body_en": "In 1962 Nick Holonyak was working at a General Electric laboratory when he demonstrated a semiconductor device that gave off visible light. It was the forerunner of the first commercial LEDs. Those early LEDs were dim and came only in red, and they were used as small indicator lights.",
+                "body_zh": "1962 年，尼克．何倫亞克在奇異公司的實驗室裡，展示了一個會發出可見光的半導體元件，它是第一批商用 LED 的前身。早期的 LED 很暗，而且只有紅色，被拿來當作小小的指示燈。"
+              },
+              {
+                "k": "1990s · 藍光",
+                "en": "The blue that took thirty years",
+                "zh": "等了三十年的藍",
+                "body_en": "Blue needed a different material, and it was very hard to make well. In the early 1990s three scientists from Japan, Isamu Akasaki, Hiroshi Amano, and Shuji Nakamura, finally developed blue LEDs. Their work brought white lighting and full-color LED displays into practical use, and in 2014 they won the Nobel Prize in Physics.",
+                "body_zh": "藍光需要另一種材料，而且很難做得好。1990 年代初期，三位來自日本的科學家赤崎勇、天野浩和中村修二，終於開發出藍光 LED。他們的成果讓白光照明和全彩 LED 顯示器真正派上用場；2014 年，三人獲得諾貝爾物理學獎。"
+              },
+              {
+                "k": "White · 白光",
+                "en": "How to make white",
+                "zh": "白光是怎麼來的",
+                "body_en": "No single LED chip makes white light. One way is to mix red, green, and blue LEDs. The more common way is to put a phosphor over a blue LED. The phosphor turns part of the blue light into yellow, and the mix looks white.",
+                "body_zh": "沒有哪一顆 LED 晶粒能自己發出白光。一種做法是把紅、綠、藍三種 LED 混在一起；更常見的做法是在藍光 LED 上面蓋一層螢光粉。螢光粉把一部分藍光變成黃光，混起來看就是白色。"
+              }
+            ]
+          },
+          "myths": [
+            {
+              "myth_en": "The colored plastic decides the color of an LED.",
+              "myth_zh": "LED 的顏色是外面那層有顏色的塑膠決定的。",
+              "fact_en": "The semiconductor material inside decides it. A clear LED can still shine red, green, or blue.",
+              "fact_zh": "是裡面的半導體材料決定的。外殼透明的 LED，一樣可以發出紅光、綠光或藍光。"
+            },
+            {
+              "myth_en": "An LED is a tiny light bulb with a wire that gets hot.",
+              "myth_zh": "LED 就是一顆很小的燈泡，裡面有一條會發熱的金屬絲。",
+              "fact_en": "There is no glowing wire. Light comes from electrons dropping into holes in a semiconductor.",
+              "fact_zh": "裡面沒有發亮的金屬絲。光是半導體裡的電子掉進電洞時放出來的。"
+            },
+            {
+              "myth_en": "A white LED has a white chip inside.",
+              "myth_zh": "白光 LED 裡面有一顆白色的晶粒。",
+              "fact_en": "It usually has a blue chip covered with phosphor.",
+              "fact_zh": "裡面通常是一顆藍光晶粒，上面蓋著螢光粉。"
+            },
+            {
+              "myth_en": "It does not matter which way you connect an LED.",
+              "myth_zh": "LED 怎麼接都可以。",
+              "fact_en": "It does. An LED is a diode, so it lights only when it is connected the right way.",
+              "fact_zh": "有差別。LED 是二極體，接對方向才會亮。"
+            }
+          ],
+          "tricks": [
+            {
+              "title_en": "Two layers, one junction",
+              "title_zh": "兩層，一個接面",
+              "body_en": "n-type has electrons. p-type has holes.",
+              "body_zh": "n 型有電子，p 型有電洞。"
+            },
+            {
+              "title_en": "They meet, light comes out",
+              "title_zh": "相遇，就發光",
+              "body_en": "An electron drops into a hole and gives off a photon.",
+              "body_zh": "電子掉進電洞，放出一顆光子。"
+            },
+            {
+              "title_en": "Bigger step, bluer light",
+              "title_zh": "落差越大，光越藍",
+              "body_en": "The material sets the color.",
+              "body_zh": "材料決定顏色。"
+            },
+            {
+              "title_en": "One way only",
+              "title_zh": "只走一個方向",
+              "body_en": "Backward, a diode stays dark.",
+              "body_zh": "反過來接，二極體不會亮。"
+            }
+          ],
+          "safety": [
+            {
+              "en": "Use only small batteries, such as a 3-volt coin cell, for LED experiments. Never connect an LED or any homemade circuit to a wall socket.",
+              "zh": "做 LED 實驗只能用小電池，例如 3 伏特的鈕扣電池。絕對不要把 LED 或任何自己做的電路接到牆上的插座。"
+            },
+            {
+              "en": "Coin cells are dangerous if swallowed. Keep them away from small children, and tell an adult right away if one is missing.",
+              "zh": "鈕扣電池吞下去非常危險。不要讓小小孩拿到；如果少了一顆，馬上告訴大人。"
+            },
+            {
+              "en": "Do not stare into a bright LED or a flashlight, and never shine one into anyone's eyes.",
+              "zh": "不要盯著很亮的 LED 或手電筒看，也不要拿來照別人的眼睛。"
+            }
+          ],
+          "activities": [
+            {
+              "title_en": "Which Way Does It Light?",
+              "title_zh": "哪一邊接才會亮？",
+              "materials": [
+                {
+                  "en": "A small LED with two legs and a 3-volt coin cell battery",
+                  "zh": "一顆有兩隻腳的小 LED，和一顆 3 伏特的鈕扣電池"
+                },
+                {
+                  "en": "A piece of tape, and an adult to help",
+                  "zh": "一小段膠帶，還要請一位大人幫忙"
+                }
+              ],
+              "steps": [
+                {
+                  "en": "Look closely at the LED. One leg is longer than the other.",
+                  "zh": "仔細看 LED，有一隻腳比另一隻長。"
+                },
+                {
+                  "en": "Slide the battery between the legs so that the long leg touches the side marked +. Does it light?",
+                  "zh": "把電池夾在兩隻腳中間，讓長腳碰到標著「+」的那一面。它亮了嗎？"
+                },
+                {
+                  "en": "Turn the battery around so that the long leg touches the other side. What happens now?",
+                  "zh": "把電池轉過來，讓長腳碰到另一面。現在呢？"
+                },
+                {
+                  "en": "Draw what you saw. Add arrows to show which way the battery connection lets the LED light.",
+                  "zh": "把你看到的畫下來，用箭頭標出電池怎麼接 LED 才會亮。"
+                }
+              ],
+              "tip_en": "You have just seen what the word diode means: one way works, and the other way does not.",
+              "tip_zh": "你剛剛親眼看到了「二極體」這個詞的意思：一個方向可以，另一個方向不行。"
+            },
+            {
+              "title_en": "Pixel Hunt",
+              "title_zh": "尋找像素",
+              "materials": [
+                {
+                  "en": "A phone, tablet, or computer screen showing a white page",
+                  "zh": "一個顯示白色畫面的手機、平板或電腦螢幕"
+                },
+                {
+                  "en": "A magnifying glass, or a small drop of clean water on a clear plastic sheet laid over the screen",
+                  "zh": "放大鏡；或是在螢幕上鋪一張透明塑膠片，上面滴一小滴乾淨的水"
+                }
+              ],
+              "steps": [
+                {
+                  "en": "Look at a white part of the screen through the magnifying glass or the water drop. What colors do you see?",
+                  "zh": "透過放大鏡或水滴看螢幕上白色的地方。你看到哪些顏色？"
+                },
+                {
+                  "en": "Now look at a yellow picture. Which of the three colors is missing or dim?",
+                  "zh": "再看一張黃色的圖。三種顏色裡，哪一種不見了或變暗了？"
+                },
+                {
+                  "en": "Try red, green, blue, and black, and write down what you see each time.",
+                  "zh": "試試紅、綠、藍和黑色，每一次都記下你看到的。"
+                },
+                {
+                  "en": "Compare your notes with the mixer on this page.",
+                  "zh": "把你的紀錄和這一頁的混色工具比一比。"
+                }
+              ],
+              "tip_en": "Put the water on the plastic sheet, not on the screen itself, and wipe everything dry afterward. Not every screen uses LEDs for its pixels, but nearly all of them mix red, green, and blue.",
+              "tip_zh": "水要滴在塑膠片上，不要直接滴在螢幕上，做完全部擦乾。不是每一種螢幕的像素都是 LED，不過幾乎都是用紅、綠、藍三色來混。"
+            }
+          ],
+          "sources": [
+            {
+              "en": "An LED uses a semiconductor to emit light when current flows through it; electrons recombine with electron holes, releasing energy as photons; the color is determined by the energy required for electrons to cross the band gap; wavelength ranges and materials for red (610–760 nm), green (500–570 nm), and blue (450–500 nm) LEDs; Oleg Losev created a silicon carbide LED in 1927; the first visible-light LEDs were of low intensity and limited to red and were used as indicator lamps; Nakamura, Amano, and Akasaki developed blue LEDs in the early 1990s and won the 2014 Nobel Prize in Physics; two ways to make white light, the more common using a phosphor on a blue LED; advantages over incandescent light (lower power consumption, reduced waste heat, longer lifetime)",
+              "zh": "LED 用半導體在電流通過時發光；電子與電洞復合，以光子釋放能量；顏色由電子跨越能隙所需的能量決定；紅（610–760 nm）、綠（500–570 nm）、藍（450–500 nm）LED 的波長範圍與材料；Oleg Losev 1927 年做出碳化矽 LED；最早的可見光 LED 亮度低且只有紅色，用作指示燈；中村修二、天野浩、赤崎勇於 1990 年代初期開發藍光 LED，獲 2014 年諾貝爾物理學獎；白光的兩種做法，較常見的是藍光 LED 加螢光粉；比白熾燈省電、廢熱少、壽命長",
+              "src": "Wikipedia, “Light-emitting diode”",
+              "url": "https://en.wikipedia.org/wiki/Light-emitting_diode"
+            },
+            {
+              "en": "Nick Holonyak is noted for his 1962 invention and first demonstration of a semiconductor device that emitted visible light, the forerunner of the first generation of commercial LEDs; he was then working at a General Electric research laboratory",
+              "zh": "Nick Holonyak 以 1962 年發明並首次展示發出可見光的半導體元件著稱，是第一代商用 LED 的前身；當時任職於奇異公司的研究實驗室",
+              "src": "Wikipedia, “Nick Holonyak”",
+              "url": "https://en.wikipedia.org/wiki/Nick_Holonyak"
+            },
+            {
+              "en": "The blue light of a gallium nitride LED, when partially converted to yellow by a phosphor coating, gives white light",
+              "zh": "氮化鎵 LED 的藍光，一部分被螢光粉轉成黃光後，就成為白光",
+              "src": "Wikipedia, “Shuji Nakamura”",
+              "url": "https://en.wikipedia.org/wiki/Shuji_Nakamura"
+            },
+            {
+              "en": "A diode is a two-terminal electronic component that conducts electric current primarily in one direction",
+              "zh": "二極體是有兩個端點的電子元件，主要只讓電流往一個方向流",
+              "src": "Wikipedia, “Diode”",
+              "url": "https://en.wikipedia.org/wiki/Diode"
+            },
+            {
+              "en": "The RGB color model is an additive color model in which red, green, and blue light are added together to reproduce a broad array of colors",
+              "zh": "RGB 色彩模型是加法混色：把紅、綠、藍三種光加在一起，重現各式各樣的顏色",
+              "src": "Wikipedia, “RGB color model”",
+              "url": "https://en.wikipedia.org/wiki/RGB_color_model"
+            },
+            {
+              "en": "LED lamps are significantly more energy-efficient than equivalent incandescent lamps",
+              "zh": "LED 燈比同等的白熾燈省電得多",
+              "src": "Wikipedia, “LED lamp”",
+              "url": "https://en.wikipedia.org/wiki/LED_lamp"
+            }
+          ]
         }
-      ]
+      ],
+      "planned": []
     }
   ]
 }

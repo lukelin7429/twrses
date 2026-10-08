@@ -475,3 +475,33 @@
 .cp-cl-rooms { grid-template-columns: repeat(5, minmax(0, 1fr)); margin-top: 0; }
 .cp-cl-cv { display: block; width: 100%; height: auto; margin-top: .9rem; border-radius: 14px; }
 @media (max-width: 560px) { .cp-cl-rooms { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+
+/* ---------- 第十二課：LED 和半導體有什麼關係？ ---------- */
+@media (min-width: 1021px) { .cp-ld-lab .al-space { min-height: 660px; } }
+.cp-ld-colors { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.cp-ld-msg[hidden] { display: none; }
+.cp-ld-lampbox { display: flex; justify-content: center; padding: .7rem; border-radius: 14px; border: 1px solid var(--al-line); background: rgba(0,0,0,.25); }
+.cp-ld-lamp { width: 46px; height: 46px; border-radius: 50%; background: var(--c, #2a3654); transition: background .3s, box-shadow .3s; }
+.cp-ld-lamp.on { box-shadow: 0 0 22px 8px var(--c), 0 0 60px 18px color-mix(in srgb, var(--c) 45%, transparent); }
+.cp-ld-nums { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.cp-ld-nums small { display: block; font-size: .68rem; font-weight: 600; color: var(--al-mute); line-height: 1.3; }
+.cp-ld-nums dd { font-size: .95rem; }
+.al-lab.cp-ld-lb-p { border-color: #ff9ac0; } .al-lab.cp-ld-lb-n { border-color: #7fd0ff; }
+.al-lab.cp-ld-lb-jun { color: #2a1d00; background: #ffd36e; border-color: #ffd36e; font-weight: 800; }
+.al-lab.cp-ld-lb-jun small { color: #4a3400; }
+.al-lab.cp-ld-lb-ph { border-color: #ffd23c; }
+.al-lab.cp-ld-lb-pole { font-weight: 900; font-size: 1.05rem; padding: .05rem .5rem; }
+.al-lg-cpldn i { border: 0; border-radius: 50%; width: 10px; height: 10px; margin: .35rem 6px 0; background: #7fd0ff; }
+.al-lg-cpldp i { border: 0; border-radius: 50%; width: 10px; height: 10px; margin: .35rem 6px 0; background: #ffc1d6; }
+.al-lg-cpldph i { border: 0; border-radius: 50%; width: 10px; height: 10px; margin: .35rem 4px 0; background: #ff3b30; box-shadow: 13px 0 0 #34d058, 26px 0 0 #2f7bff; margin-right: 32px; }
+.cp-rgb .al-age::-webkit-slider-runnable-track { background: linear-gradient(90deg, var(--brand) 0 var(--p, 50%), #e5dfd0 var(--p, 50%)); }
+.cp-rgb .al-age::-webkit-slider-thumb { border-color: var(--brand); }
+.cp-rgb .al-age::-moz-range-progress { background: var(--brand); }
+.cp-rgb-pre { grid-template-columns: repeat(4, minmax(0, 1fr)); margin-top: 0; }
+.cp-rgb-view { display: flex; align-items: center; justify-content: center; gap: 1rem; margin: 1rem 0 .4rem; }
+.cp-rgb-dots { display: grid; grid-template-columns: repeat(3, 26px); gap: 6px; padding: 12px; border-radius: 14px; background: #000; }
+.cp-rgb-dots i { display: block; height: 70px; border-radius: 13px; }
+.cp-rgb-dot-r { background: #ff2a1f; } .cp-rgb-dot-g { background: #1fe04a; } .cp-rgb-dot-b { background: #2a5cff; }
+.cp-rgb-arrow { font-size: 1.6rem; color: #c9d3e8; }
+.cp-rgb-px { width: 96px; height: 96px; border-radius: 18px; border: 2px solid rgba(255,255,255,.25); }
+@media (max-width: 560px) { .cp-rgb-pre { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
