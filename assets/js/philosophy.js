@@ -843,6 +843,67 @@
     if (/[#&]minds=open/.test(location.hash)) { root.__lab.readAll(); open(); pick('concept'); root.__lab.set({ friend: 100, stranger: 96, newborn: 88, dog: 84, bat: 70, octopus: 55, bee: 20, ai: 12, thermostat: 0 }); read(); }
   });
 
+  /* ---- A15：坐進房間（瑟爾的中文房間，改用喬治亞文） ---- */
+  $$('[data-ph-room]').forEach(function (root) {
+    var D;
+    try { D = JSON.parse($('[data-rm-data]', root).textContent); } catch (e) { return; }
+    var slip = $('[data-rm-in]', root), msg = $('[data-rm-msg]', root), dots = $('[data-rm-dots]', root), count = $('[data-rm-count]', root);
+    var desk = $('[data-rm-desk]', root), end = $('[data-rm-end]', root), cards = $$('[data-rm-card]', root), replies = $('[data-rm-replies]', root);
+    var i, tries, ans;
+    function paint() {
+      var n = D.rounds.length;
+      dots.textContent = ''; D.rounds.forEach(function (_, k) { dots.appendChild(el('i', k < i ? 'ok' : k === i ? 'cur' : '')); });
+      count.textContent = i < n ? 'Slip ' + (i + 1) + ' of ' + n + ' · 第 ' + (i + 1) + '／' + n + ' 張紙條' : '';
+    }
+    function show() {
+      msg.textContent = ''; slip.textContent = '';
+      var k = el('span', 'ph-ka', D.rules[D.rounds[i]].i); k.lang = 'ka'; slip.appendChild(k);
+      slip.classList.remove('is-in'); void slip.offsetWidth; slip.classList.add('is-in');
+      paint();
+    }
+    function finish() { desk.classList.add('is-done'); end.hidden = false; slip.textContent = ''; msg.textContent = ''; paint(); }
+    cards.forEach(function (c) {
+      c.addEventListener('click', function () {
+        if (i >= D.rounds.length) return;
+        if (+c.getAttribute('data-rm-card') !== D.rounds[i]) {
+          tries++; msg.textContent = D.wrong.en + ' ' + D.wrong.zh; c.classList.remove('is-no'); void c.offsetWidth; c.classList.add('is-no'); return;
+        }
+        c.classList.add('is-out'); c.disabled = true; i++;
+        if (i < D.rounds.length) setTimeout(show, reduce ? 0 : 450); else setTimeout(finish, reduce ? 0 : 450);
+        paint();
+      });
+    });
+    $$('[data-rm-opt]', root).forEach(function (b) {
+      b.addEventListener('click', function () {
+        var kv = b.getAttribute('data-rm-opt').split(':'), key = kv[0];
+        ans[key] = kv[1];
+        $$('[data-rm-opt^="' + key + ':"]', root).forEach(function (x) { var on = x === b; x.classList.toggle('is-right', on); x.setAttribute('aria-pressed', on ? 'true' : 'false'); });
+        $$('[data-rm-v^="' + key + ':"]', root).forEach(function (v) { v.hidden = v.getAttribute('data-rm-v') !== key + ':' + kv[1]; });
+        if (key === 'q1') $('[data-rm-ask="q2"]', root).hidden = false;
+        if (key === 'q2') replies.hidden = false;
+      });
+    });
+    $$('[data-rm-more]', root).forEach(function (b) {
+      b.addEventListener('click', function () { var s = b.nextElementSibling; s.hidden = !s.hidden; b.setAttribute('aria-expanded', s.hidden ? 'false' : 'true'); });
+    });
+    function reset() {
+      i = 0; tries = 0; ans = {};
+      cards.forEach(function (c) { c.classList.remove('is-out', 'is-no'); c.disabled = false; });
+      desk.classList.remove('is-done'); end.hidden = true; replies.hidden = true; $('[data-rm-ask="q2"]', root).hidden = true;
+      $$('[data-rm-v]', root).forEach(function (v) { v.hidden = true; });
+      $$('[data-rm-opt]', root).forEach(function (x) { x.classList.remove('is-right'); x.setAttribute('aria-pressed', 'false'); });
+      $$('[data-rm-more]', root).forEach(function (b) { b.nextElementSibling.hidden = true; b.setAttribute('aria-expanded', 'false'); });
+      show();
+    }
+    $('[data-rm-reset]', root).addEventListener('click', reset);
+    reset();
+    root.__lab = {
+      state: function () { return { i: i, tries: tries, ans: ans, done: !end.hidden, q2: !$('[data-rm-ask="q2"]', root).hidden, replies: !replies.hidden }; },
+      play: function () { i = D.rounds.length; cards.forEach(function (c) { if (D.rounds.indexOf(+c.getAttribute('data-rm-card')) >= 0) { c.classList.add('is-out'); c.disabled = true; } }); finish(); }
+    };
+    if (/[#&]room=done/.test(location.hash)) { root.__lab.play(); $('[data-rm-opt="q1:no"]', root).click(); $('[data-rm-opt="q2:yes"]', root).click(); $('[data-rm-more]', root).click(); }
+  });
+
   /* ---- A13：去火星三趟（帕菲特的傳送機） ---- */
   $$('[data-ph-teleport]').forEach(function (root) {
     var D;

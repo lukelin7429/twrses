@@ -154,7 +154,8 @@
        "n": "A15",
        "en": "Can a Machine Think?",
        "zh": "機器會思考嗎？",
-       "note": "The Chinese Room · 中文房間"
+       "note": "The Chinese Room · 中文房間",
+       "slug": "machine-thinking"
       },
       {
        "n": "A16",
@@ -927,7 +928,8 @@
        "n": "",
        "en": "G. W. Leibniz",
        "zh": "萊布尼茲",
-       "note": "1646–1716"
+       "note": "1646–1716",
+       "slug": "philosophers/leibniz"
       },
       {
        "n": "",
@@ -10016,6 +10018,664 @@
     "zhuangzi",
     "descartes"
    ]
+  },
+  {
+   "slug": "machine-thinking",
+   "shelf": "questions",
+   "n": "A15",
+   "unit_en": "Mind and Self",
+   "unit_zh": "心靈與自我",
+   "title": "Can a Machine Think?",
+   "title_zh": "機器會思考嗎？",
+   "level": "Advanced · 高級",
+   "minutes": 25,
+   "blurb_en": "Turing’s imitation game, Leibniz’s mill, a mechanical performer at the court of King Mu, and a room in which you will hold a conversation in a language you cannot read.",
+   "blurb_zh": "圖靈的模仿遊戲、萊布尼茲的磨坊、周穆王宮廷裡的機關倡者，還有一個房間：你會在裡面用一種你看不懂的語言，跟人對話一場。",
+   "big_en": "The question hides three others: whether a machine can do what thinkers do, whether it understands what it is doing, and whether it feels anything. They come apart, and most confusion about artificial intelligence comes from answering one of them and believing one has answered another.",
+   "big_zh": "這個問題底下藏著另外三個：機器能不能做到思考者做的事？它懂不懂自己在做什麼？它有沒有任何感受？這三者是分得開的；關於人工智慧的混亂，多半來自回答了其中一個，卻以為自己回答了另一個。",
+   "essay": [
+    {
+     "h_en": "The question Turing declined to answer",
+     "h_zh": "圖靈不肯回答的問題",
+     "paras": [
+      {
+       "en": "In 1950 the English mathematician Alan Turing opened a paper with the sentence “I propose to consider the question, ‘Can machines think?’” He then declined to consider it. The words “machine” and “think,” he said, are too vague for the question to be settled by argument, and he replaced it with a test. An interrogator exchanges typed messages with two hidden parties, a human being and a machine, and must decide which is which. If the machine is taken for the human about as often as a human would be, it has passed. Turing called this the imitation game. He expected machines to play it well within fifty years, and he made a second prediction that has attracted less notice: “at the end of the century the use of words and general educated opinion will have altered so much that one will be able to speak of machines thinking without expecting to be contradicted.”",
+       "zh": "1950 年，英國數學家圖靈用這樣一句話為一篇論文開頭：「我打算考慮這個問題：『機器能思考嗎？』」接著他就不肯考慮它了。他說，「機器」與「思考」這兩個詞太模糊，這個問題沒辦法靠論證解決；他用一個測驗取代了它。一位提問者用打字的訊息，跟兩個藏起來的對象交談，一個是人，一個是機器，然後必須判定誰是誰。如果機器被當成人的頻率，跟一個人被當成人的頻率差不多，它就通過了。圖靈稱之為「模仿遊戲」。他預期五十年內機器就能把這個遊戲玩得很好；他還做了第二個比較少人注意的預測：「到本世紀末，字詞的用法與一般受過教育者的意見將會改變到這個地步：人們談論機器在思考，而不必預期會遭到反駁。」"
+      }
+     ]
+    },
+    {
+     "h_en": "Reckoning",
+     "h_zh": "計算",
+     "paras": [
+      {
+       "en": "The idea behind the test was three centuries old. “Reason,” wrote Thomas Hobbes in 1651, “is nothing but Reckoning (that is, Adding and Substracting)” of the consequences of names. If thinking is calculation, then anything that calculates thinks, and what it is made of is irrelevant. Leibniz, who built one of the first machines that could multiply, dreamed of a notation in which every dispute could be settled as accountants settle theirs: “Let us calculate.” The modern version of the idea is called functionalism. A mental state, it says, is defined by what it does, by its causes and effects within a system, in the way that a program is defined by its steps and can run on machines of quite different construction. On this view the mind stands to the brain as software stands to hardware, and a suitably programmed computer would not merely imitate thinking. It would think.",
+       "zh": "這個測驗背後的想法，已經有三個世紀之久。霍布斯在 1651 年寫道：「理性不過就是計算（也就是加與減）」，計算的是名稱之間的推論。如果思考就是計算，那麼任何會計算的東西都在思考，而它是什麼材料做的並不相干。萊布尼茲造出了最早能做乘法的機器之一；他夢想有一套記號，讓每一場爭論都可以像會計師解決帳目那樣解決：「我們來算一算吧。」這個想法的現代版本叫作功能論。它說，一個心理狀態是由它「做什麼」來界定的，也就是由它在一個系統之內的原因與結果來界定；就像一個程式是由它的步驟界定的，可以在構造完全不同的機器上執行。照這個看法，心靈之於腦，就像軟體之於硬體；而一台程式寫得恰當的電腦，就不只是在模仿思考。它是在思考。"
+      }
+     ]
+    },
+    {
+     "h_en": "The performer at King Mu’s court",
+     "h_zh": "周穆王宮廷裡的倡者",
+     "paras": [
+      {
+       "en": "The opposite intuition is as old. The Daoist book Liezi tells how an artificer named Yan Shi presented King Mu of Zhou with a performer he had made. It walked, bowed, and looked about, “truly a human being.” When its chin was touched it sang in tune, and when its hand was lifted it danced in time. The king took it for a real person, until at the end of the show it winked at his concubines. He was furious and would have had the maker executed on the spot. Yan Shi at once took the figure apart, and it proved to be an assembly of leather, wood, glue, and lacquer, colored white, black, red, and blue. Every organ was there. The king removed the heart, and the mouth could not speak. He removed the liver, and the eyes could not see. Delighted, he asked: “Can human skill really equal the work of the Maker of things?” The story records the two reactions people still have. While the performance lasts we see a person, and when the case is opened we see parts.",
+       "zh": "相反的直覺一樣古老。道家的《列子》記載，一位名叫偃師的工匠，把自己造的一個倡者獻給周穆王。它行走、俯仰、顧盼，「信人也」。碰它的下巴，它就合著音律唱歌；抬它的手，它就應著節拍起舞。穆王把它當成真人，直到表演快結束時，它對王的侍妾拋了個眼色。王大怒，當場就要殺掉偃師。偃師立刻把那個人形拆開；原來它是皮革、木頭、膠、漆拼合而成的，塗著白、黑、紅、青的顏色。每一個器官都齊全。王拿掉它的心，口就不能說話；拿掉它的肝，眼就不能看。王高興了，問道：「人之巧乃可與造化者同功乎？」這個故事記下了人們至今仍有的兩種反應。表演進行的時候，我們看見一個人；外殼打開的時候，我們看見零件。"
+      }
+     ]
+    },
+    {
+     "h_en": "The mill",
+     "h_zh": "磨坊",
+     "paras": [
+      {
+       "en": "Leibniz gave the second reaction the form of an argument, and he gave it against his own machines. Suppose, he wrote in 1714, that there were a machine “so constructed as to think, feel, and have perception.” Imagine it enlarged until one could walk into it “as into a mill.” Inside “we should, on examining its interior, find only parts which work one upon another, and never anything by which to explain a perception.” A century later Ada Lovelace, describing the Analytical Engine that Charles Babbage had designed, added a different limit. The engine, she wrote, “has no pretensions whatever to originate anything. It can do whatever we know how to order it to perform.” Leibniz’s objection concerns experience and Lovelace’s concerns originality. They have been confused with each other ever since.",
+       "zh": "萊布尼茲把第二種反應寫成了論證，而且他是對著自己造的機器提出的。他在 1714 年寫道：假設有一台機器，「被造得能夠思考、感受、擁有知覺」。想像它被放大，大到人可以走進去，「像走進一座磨坊」。在裡面，「我們檢視它的內部，只會發現一個推動一個的零件，永遠找不到任何可以用來解釋一個知覺的東西」。一個世紀之後，勒芙蕾絲在描述巴貝奇設計的分析機時，加上了另一種限制。她寫道，這台機器「絲毫沒有『創始』任何事物的自命。凡是我們知道怎麼命令它去做的事，它都能做」。萊布尼茲的反駁關乎經驗，勒芙蕾絲的反駁關乎原創。此後這兩者一直被混在一起。"
+      }
+     ]
+    },
+    {
+     "h_en": "The Chinese room",
+     "h_zh": "中文房間",
+     "paras": [
+      {
+       "en": "In 1980 the American philosopher John Searle turned the mill into a room and put himself inside it. He imagined a program that passes the Turing test in Chinese, a language of which he knew not a word. He is locked in a room with baskets of Chinese characters and a rule book in English. Slips of paper covered in characters are pushed under the door. He looks up their shapes in the book, which tells him which characters to push back. To the people outside, the replies are those of a fluent speaker. Searle has done everything the computer does: he has run the program. And he understands nothing. He does not know whether the slips are about the weather or about his mother. His conclusion is that carrying out a program, however good, is not sufficient for understanding. A program is defined by its syntax, the rules for moving symbols according to their shapes. Understanding requires semantics, knowing what the symbols mean, and no amount of shuffling will supply it.",
+       "zh": "1980 年，美國哲學家瑟爾把那座磨坊變成了一個房間，並且把自己放了進去。他設想有一個程式，用中文通過了圖靈測驗；而中文他一個字也不懂。他被鎖在一個房間裡，裡面有一籃一籃的中文字，以及一本用英文寫的規則書。寫滿了字的紙條從門縫底下塞進來。他在書裡查那些字的形狀，書告訴他該把哪些字塞回去。對外面的人來說，那些回覆是一個流利的說話者寫的。瑟爾做了電腦所做的一切：他執行了那個程式。而他什麼也不懂。他不知道那些紙條談的是天氣，還是他的母親。他的結論是：執行一個程式，不管程式多好，並不足以構成理解。程式是由它的「語法」界定的，也就是依照符號的形狀搬動符號的規則。理解需要「語意」，也就是知道那些符號是什麼意思；而不管怎麼搬來搬去，都搬不出語意來。"
+      },
+      {
+       "en": "Searle chose Chinese because he could not read it. A reader who can should substitute a language that is closed to him, and the exercise below does so.",
+       "zh": "瑟爾選中文，是因為他看不懂。看得懂中文的讀者，應該換成一種對自己關閉的語言；下面的練習就是這樣做的。"
+      }
+     ]
+    },
+    {
+     "h_en": "Who is in the room?",
+     "h_zh": "房間裡的是誰？",
+     "paras": [
+      {
+       "en": "The paper drew more replies than almost any other in the field. The systems reply grants that the man does not understand and says that he is only one component: the understanding belongs to the whole system of man, book, and baskets, as it belongs to a brain and to no single neuron. Searle answered that he could memorize the book and do the work in his head, and he would still understand nothing. The robot reply says that the symbols mean nothing because they are connected to nothing: give the system cameras and limbs, so that its word for “tea” is caused by tea, and meaning will follow. Searle answered that the camera’s signals would reach him as more symbols. The brain simulator reply imagines a program that copies, neuron by neuron, the brain of a Chinese speaker. Searle answered that a simulation of a storm leaves everyone dry. Each exchange ends in a clash of intuitions about the same point, and no decisive move has been found by either side.",
+       "zh": "這篇論文招來的回應，幾乎比這個領域裡任何別的論文都多。「系統回應」承認那個人不懂，並且說他只是一個零件：理解屬於由人、書、籃子組成的整個系統，正如理解屬於一個腦，而不屬於任何單一的神經元。瑟爾回答：他可以把整本書背下來，在腦子裡做這件工作，而他仍然什麼也不懂。「機器人回應」說，那些符號沒有意義，是因為它們什麼也沒連上：給這個系統裝上攝影機與肢體，讓它那個代表「茶」的詞是由茶引起的，意義就會隨之而來。瑟爾回答：攝影機的訊號到了他這裡，只是更多的符號。「腦模擬回應」設想一個程式，一個神經元一個神經元地複製一位中文使用者的腦。瑟爾回答：模擬一場暴風雨，誰也不會淋濕。每一回合都以對同一點的直覺衝突收場，而雙方都還沒有找到決定性的一著。"
+      }
+     ]
+    },
+    {
+     "h_en": "After the test was passed",
+     "h_zh": "測驗被通過之後",
+     "paras": [
+      {
+       "en": "For seventy years the debate concerned imaginary machines. It now concerns real ones. Systems trained on enormous quantities of human writing carry on conversations that most people cannot tell from a person’s, and they were built by neither of the methods the philosophers had in mind. Nobody wrote their rule book. They adjust billions of numerical settings until they predict text well, and what goes on inside them is only partly understood by the people who make them. One camp sees the Chinese room come true: a system that has learned which strings of words follow which, with no access to the world the words are about. Another replies that to predict what a physicist will say next one must model a good deal of physics, and that understanding may come in degrees and consist in such abilities. Lovelace’s limit is equally unsettled, since these systems produce things nobody ordered them to produce.",
+       "zh": "七十年來，這場辯論談的是想像中的機器。現在談的是真實的機器。用巨量的人類文字訓練出來的系統，能進行多數人分辨不出是不是真人的對話；而它們並不是用哲學家心裡想的那兩種方法造出來的。沒有人替它們寫規則書。它們調整數十億個數值設定，直到能把文字預測得很好；而它們內部發生的事，連製造它們的人也只懂一部分。有一派看到的是中文房間成真了：一個系統學會了哪些字串跟在哪些字串後面，卻接觸不到這些字所談的那個世界。另一派回答：要預測一位物理學家接下來會說什麼，就必須對不少物理學建立模型；而且，理解也許有程度之分，也許就是由這類能力構成的。勒芙蕾絲的那條界線同樣懸而未決，因為這些系統會產出沒有人命令它們產出的東西。"
+      },
+      {
+       "en": "Turing’s second prediction, at least, has come true. People speak of machines thinking, and few bother to contradict them. Whether the usage records a discovery or only a habit is the question he set aside in 1950. It helps to keep three things apart. A machine may match us at tasks, and that can be measured. It may or may not understand, and here the room is still the best test of what we mean by the word. And it may or may not feel, which was the subject of the last lesson. “We can only see a short distance ahead,” Turing ended his paper, “but we can see plenty there that needs to be done.”",
+       "zh": "至少，圖靈的第二個預測成真了。人們談論機器在思考，而很少有人費事去反駁。這個用法記錄的是一項發現，還是只是一種習慣？這正是他在 1950 年擱到一邊的那個問題。把三件事分開會有幫助。一台機器在各種任務上可能跟我們並駕齊驅，這是量得出來的。它可能懂、也可能不懂；在這一點上，那個房間仍然是檢驗「我們說『懂』是什麼意思」的最好辦法。它可能有感受、也可能沒有；那是上一課的主題。圖靈在論文的結尾寫道：「我們只能看到前方不遠的地方，但我們看得到那裡有許多需要做的事。」"
+      }
+     ]
+    }
+   ],
+   "lab": {
+    "kind": "room",
+    "title_en": "Try it: sit in the room",
+    "title_zh": "親手做一次：坐進房間",
+    "lead_en": "Searle did not read Chinese. You do, so the room has been moved to Georgia. Slips will come through the slot. Find each one in the rule book and pass out the reply it prescribes. You are not expected to understand anything.",
+    "lead_zh": "瑟爾看不懂中文。你看得懂，所以這個房間搬到了喬治亞。紙條會從門縫送進來。在規則書裡找到每一張，把書上規定的回覆遞出去。沒有人指望你懂任何東西。",
+    "rules": [
+     {
+      "i": "რა გქვია?",
+      "o": "მე მქვია ნინო.",
+      "i_en": "What is your name?",
+      "o_en": "My name is Nino.",
+      "i_zh": "你叫什麼名字？",
+      "o_zh": "我叫妮諾。"
+     },
+     {
+      "i": "გამარჯობა! როგორ ხარ?",
+      "o": "კარგად, მადლობა.",
+      "i_en": "Hello! How are you?",
+      "o_en": "Fine, thank you.",
+      "i_zh": "你好！你好嗎？",
+      "o_zh": "很好，謝謝。"
+     },
+     {
+      "i": "სად ცხოვრობ?",
+      "o": "თბილისში.",
+      "i_en": "Where do you live?",
+      "o_en": "In Tbilisi.",
+      "i_zh": "你住在哪裡？",
+      "o_zh": "在提比里斯。"
+     },
+     {
+      "i": "გიყვარს ჩაი?",
+      "o": "დიახ, ძალიან.",
+      "i_en": "Do you like tea?",
+      "o_en": "Yes, very much.",
+      "i_zh": "你喜歡茶嗎？",
+      "o_zh": "喜歡，非常喜歡。"
+     },
+     {
+      "i": "გესმის ქართული?",
+      "o": "დიახ, რა თქმა უნდა.",
+      "i_en": "Do you understand Georgian?",
+      "o_en": "Yes, of course.",
+      "i_zh": "你懂喬治亞語嗎？",
+      "o_zh": "懂，當然。"
+     }
+    ],
+    "rounds": [
+     1,
+     3,
+     4
+    ],
+    "tray": [
+     2,
+     4,
+     0,
+     1,
+     3
+    ],
+    "wrong": {
+     "en": "That is not what the book prescribes. Compare the shapes again.",
+     "zh": "書上規定的不是這一張。再比對一次形狀。"
+    },
+    "outside": {
+     "en": "A voice from outside the door: “Your Georgian is excellent.”",
+     "zh": "門外傳來一個聲音：「你的喬治亞語說得真好。」"
+    },
+    "reveal": {
+     "en": "Here is the conversation you just had.",
+     "zh": "這是你剛才進行的對話。"
+    },
+    "q1": {
+     "q": {
+      "en": "Did you understand Georgian while you were doing this?",
+      "zh": "你剛才做這件事的時候，懂喬治亞語嗎？"
+     },
+     "opts": [
+      {
+       "k": "no",
+       "t": {
+        "en": "No. I matched shapes.",
+        "zh": "不懂。我只是在比對形狀。"
+       }
+      },
+      {
+       "k": "yes",
+       "t": {
+        "en": "Yes, in some sense.",
+        "zh": "懂，在某種意義上。"
+       }
+      }
+     ],
+     "v": {
+      "no": {
+       "en": "That is Searle’s first premise, and almost everyone grants it. Notice the last exchange. You were asked whether you understand Georgian, and you answered “Yes, of course.” The answer was fluent and it was false.",
+       "zh": "這是瑟爾的第一個前提，幾乎每個人都承認。留意最後一回合。你被問到懂不懂喬治亞語，而你回答了「懂，當然」。這個回答很流利，而且是假的。"
+      },
+      "yes": {
+       "en": "Then ask what your understanding consisted in. You could not have said what any slip was about, or told a question from an insult. If that counts as understanding, the word has been stretched to cover any reliable matching of outputs to inputs. Some philosophers accept that. Look at the last exchange before you join them: you asserted, in Georgian, that you understand Georgian.",
+       "zh": "那麼問問自己：你的「懂」是由什麼構成的？你說不出任何一張紙條在談什麼，也分不出一個問句與一句辱罵。如果這也算懂，那麼這個詞已經被拉長到涵蓋任何「可靠地把輸出配上輸入」的事了。有些哲學家接受這一點。在你加入他們之前，看看最後一回合：你用喬治亞語斷言了你懂喬治亞語。"
+      }
+     }
+    },
+    "q2": {
+     "q": {
+      "en": "Did anything in the room understand: you, the book, and the cards, taken together?",
+      "zh": "房間裡有任何東西懂嗎：你、書、卡片，合在一起？"
+     },
+     "opts": [
+      {
+       "k": "no",
+       "t": {
+        "en": "No. Nothing here understood.",
+        "zh": "沒有。這裡沒有任何東西懂。"
+       }
+      },
+      {
+       "k": "yes",
+       "t": {
+        "en": "Yes. The whole system did.",
+        "zh": "有。整個系統懂。"
+       }
+      }
+     ],
+     "v": {
+      "no": {
+       "en": "You agree with Searle. The burden is now on you to say what the room lacks that a brain has, since a brain is also made of parts none of which understands. Searle’s answer was that brains have causal powers which programs lack, and he never said what those powers are.",
+       "zh": "你同意瑟爾。現在舉證的責任落在你身上：你得說出這個房間缺了什麼是腦有的，因為腦也是由一個個不懂任何事的零件構成的。瑟爾的回答是：腦具有程式所缺乏的因果力；而他始終沒有說出那些因果力是什麼。"
+      },
+      "yes": {
+       "en": "This is the systems reply. It has the odd consequence that a book and some cards, plus a clerk who understands nothing, add up to a mind that speaks Georgian, and that this mind came into existence when you sat down. Its defenders accept the consequence. They point out that the real rule book would be unimaginably larger than five lines, and that our intuitions about so vast a system are not to be trusted.",
+       "zh": "這是「系統回應」。它有一個古怪的後果：一本書、幾張卡片，加上一個什麼都不懂的辦事員，合起來成了一個會說喬治亞語的心靈；而這個心靈是在你坐下的那一刻開始存在的。為它辯護的人接受這個後果。他們指出：真正的規則書會比五行字龐大到無法想像；對於這麼龐大的系統，我們的直覺是靠不住的。"
+      }
+     }
+    },
+    "replies": [
+     {
+      "n": {
+       "en": "The systems reply",
+       "zh": "系統回應"
+      },
+      "t": {
+       "en": "The man is a part. The whole system understands.",
+       "zh": "那個人只是零件。懂的是整個系統。"
+      },
+      "s": {
+       "en": "Searle: let the man memorize the book and work in his head. Now he is the whole system, and he still understands nothing.",
+       "zh": "瑟爾：讓那個人把書背下來，在腦子裡作業。現在他就是整個系統了，而他仍然什麼也不懂。"
+      }
+     },
+     {
+      "n": {
+       "en": "The robot reply",
+       "zh": "機器人回應"
+      },
+      "t": {
+       "en": "Connect the symbols to the world with cameras and limbs, and they will mean something.",
+       "zh": "用攝影機與肢體把符號連到世界上，它們就會有意義。"
+      },
+      "s": {
+       "en": "Searle: the camera’s output arrives in the room as more slips. Nothing has changed for the man inside.",
+       "zh": "瑟爾：攝影機的輸出到了房間裡，只是更多的紙條。對裡面的人來說，什麼都沒變。"
+      }
+     },
+     {
+      "n": {
+       "en": "The brain simulator reply",
+       "zh": "腦模擬回應"
+      },
+      "t": {
+       "en": "Let the program copy a Georgian speaker’s brain, neuron by neuron.",
+       "zh": "讓程式一個神經元一個神經元地複製一位喬治亞語使用者的腦。"
+      },
+      "s": {
+       "en": "Searle: a simulated storm makes nothing wet. Simulating the brain’s form does not reproduce its powers.",
+       "zh": "瑟爾：模擬出來的暴風雨不會弄濕任何東西。模擬腦的形式，並沒有複製它的能力。"
+      }
+     },
+     {
+      "n": {
+       "en": "The other minds reply",
+       "zh": "他心回應"
+      },
+      "t": {
+       "en": "You judge that other people understand only by their behavior. The room behaves the same.",
+       "zh": "你判斷別人懂，憑的也只是他們的行為。這個房間的行為一模一樣。"
+      },
+      "s": {
+       "en": "Searle: the question is what I am attributing when I attribute understanding, and in my own case I know it is more than behavior.",
+       "zh": "瑟爾：問題在於，當我說某物「懂」的時候，我歸給它的是什麼；而就我自己而言，我知道那不只是行為。"
+      }
+     }
+    ]
+   },
+   "argument": {
+    "title_en": "The argument, laid out",
+    "title_zh": "論證攤開來",
+    "lead_en": "Searle later reduced the Chinese room to three premises and a conclusion. Click a step to see what can be said against it.",
+    "lead_zh": "瑟爾後來把中文房間濃縮成三個前提與一個結論。點任何一步，看看別人可以怎麼反對它。",
+    "steps": [
+     {
+      "k": "P1",
+      "en": "Programs are purely formal. They are defined by rules for manipulating symbols according to their shapes.",
+      "zh": "程式是純形式的。它們是由「依照符號的形狀來操弄符號」的規則界定的。",
+      "ob_en": "True of programs as written. Critics note that a running program is also a physical process with causes and effects, and that the argument slides between the two.",
+      "ob_zh": "就寫下來的程式而言是真的。批評者指出：執行中的程式同時也是一個有因有果的物理過程；而這個論證在兩者之間滑來滑去。"
+     },
+     {
+      "k": "P2",
+      "en": "Minds have contents. A thought is about something.",
+      "zh": "心靈是有內容的。一個想法是「關於」某個東西的。",
+      "ob_en": "Rarely denied. The technical word for this aboutness is intentionality.",
+      "ob_zh": "很少有人否認。這種「關於性」的術語叫作意向性。"
+     },
+     {
+      "k": "P3",
+      "en": "Symbol manipulation by itself is neither the same as having contents nor enough to produce them.",
+      "zh": "符號操弄本身，既不等於擁有內容，也不足以產生內容。",
+      "ob_en": "The room is offered as the proof of this premise, and every reply attacks it here. Paul and Patricia Churchland compared it to a man waving a magnet in a dark room and concluding that electromagnetism can never produce light. He has simply not waved it fast enough.",
+      "ob_zh": "那個房間就是被拿來當作這個前提的證明的；而每一種回應都是在這裡進攻。邱奇蘭夫婦把它比作一個人在暗室裡揮動一塊磁鐵，然後斷定電磁永遠產生不了光。他只是揮得不夠快而已。",
+      "weak": true
+     },
+     {
+      "k": "C",
+      "en": "Therefore running a program is not sufficient for having a mind.",
+      "zh": "所以，執行一個程式，並不足以擁有心靈。",
+      "ob_en": "Note what the conclusion leaves open. Searle did not say that no machine could think. He held that the brain is a machine and that it thinks. His claim is that it does not do so by running a program.",
+      "ob_zh": "留意這個結論沒有排除什麼。瑟爾並沒有說任何機器都不能思考。他主張腦就是一台機器，而且它思考。他的論點是：它不是靠執行程式來思考的。"
+     }
+    ]
+   },
+   "source": {
+    "title_en": "In their own words",
+    "title_zh": "原典怎麼說",
+    "work": "Descartes, Discourse on the Method (1637), Part V; Leibniz, Monadology (1714), §17",
+    "work_zh": "笛卡兒《方法論》第五部；萊布尼茲《單子論》第 17 節",
+    "tr": "tr. John Veitch; tr. Robert Latta (both public domain; original spelling kept)",
+    "lead_en": "Two passages written before there was any machine to argue about. Descartes states a test, and Leibniz explains why passing it would not be enough.",
+    "lead_zh": "這兩段文字，寫在還沒有任何機器可供爭論的時候。笛卡兒陳述了一項檢驗；萊布尼茲說明了為什麼通過它還不夠。",
+    "passages": [
+     {
+      "ref": "Discourse on the Method, Part V",
+      "en": "…if there were machines bearing the image of our bodies, and capable of imitating our actions as far as it is morally possible, there would still remain two most certain tests whereby to know that they were not therefore really men. Of these the first is that they could never use words or other signs arranged in such a manner as is competent to us in order to declare our thoughts to others: for we may easily conceive a machine to be so constructed that it emits vocables… but not that it should arrange them variously so as appositely to reply to what is said in its presence, as men of the lowest grade of intellect can do.",
+      "zh": "……假如有一些機器，具有我們身體的形象，並且能夠在實際可能的範圍內模仿我們的動作，仍然會有兩個最確定的檢驗，可以藉以知道它們並不因此就真的是人。其中第一個是：它們永遠無法像我們這樣，把字詞或其他記號安排起來，向別人表明我們的想法。因為我們很容易設想一台機器被造得能發出字音……卻無法設想它能把字詞作各種不同的安排，以便恰當地回應在它面前說的話，而這是智力最低的人也做得到的。",
+      "note_en": "This is the Turing test, proposed three hundred years early and with the opposite expectation. Descartes takes flexible conversation to be the mark of reason because he thinks no mechanism could produce it: a machine needs “a particular arrangement for each particular action,” and conversation has no end of particular occasions. (“Morally possible” means possible for practical purposes.) He treats the test as decisive. The question he never raises is what we should conclude if a machine passed.",
+      "note_zh": "這就是圖靈測驗，早了三百年提出，預期卻正好相反。笛卡兒把靈活的對話當作理性的標記，是因為他認為沒有任何機構產生得了它：一台機器「每一個特定的動作，都需要一種特定的安排」，而對話有無窮無盡的特定場合。（morally possible 的意思是：就實際的目的而言是可能的。）他把這項檢驗當作決定性的。他從來沒有提出的問題是：假如有一台機器通過了，我們該下什麼結論？"
+     },
+     {
+      "ref": "Monadology, §17",
+      "en": "Moreover, it must be confessed that perception and that which depends upon it are inexplicable on mechanical grounds, that is to say, by means of figures and motions. And supposing there were a machine, so constructed as to think, feel, and have perception, it might be conceived as increased in size, while keeping the same proportions, so that one might go into it as into a mill. That being so, we should, on examining its interior, find only parts which work one upon another, and never anything by which to explain a perception.",
+      "zh": "此外，必須承認：知覺以及依賴於知覺的東西，是無法用機械的理由來解釋的，也就是說，無法用形狀與運動來解釋。假設有一台機器，被造得能夠思考、感受、擁有知覺；我們可以設想它按照原來的比例放大，大到人可以走進去，像走進一座磨坊。既然如此，我們檢視它的內部，只會發現一個推動一個的零件，永遠找不到任何可以用來解釋一個知覺的東西。",
+      "note_en": "Leibniz grants for the sake of argument what Descartes denied, a machine that behaves as though it thinks, and says that the real question would remain. Searle’s room is this mill with a man placed inside to report that he finds no understanding there. The standard reply applies to both. If you were shrunk and walked through a living brain you would also see only parts pushing parts, so either the argument proves that brains do not think or it proves nothing about machines. Leibniz accepted the first horn: he concluded that perception belongs to a simple, immaterial substance.",
+      "note_zh": "笛卡兒否認的東西（一台表現得好像在思考的機器），萊布尼茲為了論證而姑且承認；然後他說，真正的問題仍然還在。瑟爾的房間就是這座磨坊，只是在裡面放了一個人，讓他回報「這裡找不到理解」。標準的回應對兩者都適用：假如你被縮小、走進一個活的腦，你同樣只會看見零件推動零件；所以這個論證要嘛證明了腦不思考，要嘛對機器什麼也沒證明。萊布尼茲接受了前一個選項：他的結論是，知覺屬於一個單純的、非物質的實體。"
+     }
+    ]
+   },
+   "objections": {
+    "title_en": "Objections and replies",
+    "title_zh": "反駁與回應",
+    "items": [
+     {
+      "o_en": "A machine can only do what it has been told to do. Whatever comes out was put in by its makers.",
+      "o_zh": "機器只能做它被吩咐去做的事。不管出來的是什麼，都是製造者放進去的。",
+      "r_en": "This is Lovelace’s objection, and Turing answered it in 1950. Machines, he said, surprise him constantly, because knowing the rules does not tell you the consequences. He proposed building a machine that learns as a child does, so that its later behavior would be fixed by its experience and not by its instructions. That is roughly how present systems are built. He added that the objection proves too much. A human being’s abilities are also the product of heredity and teaching, and we do not conclude that people originate nothing.",
+      "r_zh": "這是勒芙蕾絲的反駁；圖靈在 1950 年就回答了。他說，機器經常讓他吃驚，因為知道規則並不等於知道後果。他提議造一台像小孩那樣學習的機器，這樣它後來的行為，就是由它的經驗、而不是由它的指令決定的。現在的系統大致就是這樣造出來的。他還補充：這個反駁證明得太多了。一個人的能力，同樣是遺傳與教導的產物；而我們並不因此就斷定人什麼也沒有創始。"
+     },
+     {
+      "o_en": "The Turing test measures the ability to deceive. A system could pass by trickery and understand nothing.",
+      "o_zh": "圖靈測驗量的是欺騙的能力。一個系統可以靠伎倆通過，卻什麼也不懂。",
+      "r_en": "The philosopher Ned Block made the point with an imaginary machine that stores a sensible reply to every possible conversation of a given length and merely looks each one up. It would pass, and it is plainly a filing cabinet. So passing cannot be what thinking consists in. Turing may have agreed: he offered the game as a replacement for a question he found hopeless, and as evidence that would be unreasonable to ignore. The lasting lesson of Block’s machine is that it matters how the answers are produced, and for present systems that is the part we understand least.",
+      "r_zh": "哲學家布洛克用一台想像的機器說明了這一點：它為每一場在某個長度以內的可能對話，都預存了一個合理的回覆，然後只是逐一查表。它會通過；而它顯然只是一個檔案櫃。所以「通過」不可能是思考的本質所在。圖靈也許會同意：他提出這個遊戲，是用來取代一個他認為沒有指望的問題，並且當作一種「不理會它就不合理」的證據。布洛克那台機器留下的教訓是：答案是「怎麼產生的」很要緊；而對於現在的系統，那正是我們懂得最少的部分。"
+     },
+     {
+      "o_en": "Thinking is something living bodies do. A thing with no needs, no fear of death, and nothing at stake does not think. It processes.",
+      "o_zh": "思考是活著的身體做的事。一個沒有需要、不怕死、沒有任何利害的東西，並不思考。它只是在處理。",
+      "r_en": "This is the most serious of the three, and it comes in two strengths. The weaker form says that thought grows out of a body acting in a world, and that a system fed only on text is missing the roots. That is a claim about what is needed, and it could in principle be met by building differently. The stronger form says that only living tissue can do it. Then one must say which property of tissue matters and why nothing else could have it, and the claim risks becoming a definition. The dispute cannot be settled by examining machines until we know which features of ourselves to look for in them.",
+      "r_zh": "這是三個當中最嚴肅的一個，而它有兩種強度。較弱的形式說：思想是從一個在世界中行動的身體長出來的；一個只餵文字的系統，缺了根。這是一個關於「需要什麼」的主張，原則上可以靠著換一種方式建造來滿足。較強的形式說：只有活的組織才做得到。那麼就必須說出組織的哪一項性質要緊、為什麼別的東西不可能有它；而這個主張有淪為定義的風險。在我們知道該在機器身上尋找「我們自己的哪些特徵」之前，這場爭論沒辦法靠檢查機器來解決。"
+     }
+    ]
+   },
+   "said": {
+    "claim": "“The question of whether machines can think is about as relevant as the question of whether submarines can swim.” (Edsger Dijkstra)",
+    "claim_zh": "「機器能不能思考這個問題，跟潛水艇會不會游泳這個問題差不多一樣切題。」（戴克斯特拉）",
+    "verdict_en": "Authentic, 1984",
+    "verdict_zh": "是真的，1984 年",
+    "en": "The Dutch computer scientist wrote it in a 1984 note, “The threats to computing science,” where he says that Turing “thought about criteria to settle the question of whether Machines Can Think, a question of which we now know that it is about as relevant as the question of whether Submarines Can Swim.” His point is close to Turing’s own. A submarine moves through water faster than any fish, and whether we call that swimming is a decision about a word. Dijkstra thought the same of “think.” The reply is that with thinking something does seem to hang on the answer, namely how the thing should be treated.",
+    "zh": "這位荷蘭電腦科學家在 1984 年的一篇筆記〈計算機科學面臨的威脅〉裡寫下了這句話；他在那裡說，圖靈「思索過用什麼標準來解決『機器能不能思考』這個問題；而我們現在知道，這個問題跟『潛水艇會不會游泳』差不多一樣切題」。他的意思很接近圖靈自己的。潛水艇在水裡前進得比任何魚都快；我們要不要把那叫作游泳，是一個關於字詞的決定。戴克斯特拉認為「思考」也一樣。可以這樣回應他：就思考而言，似乎確實有某件事取決於答案，那就是這個東西應該被怎麼對待。"
+   },
+   "terms": [
+    {
+     "t": "the Turing test",
+     "o": "after Alan Turing (1912–1954)",
+     "zh": "圖靈測驗",
+     "d_en": "A test in which a machine passes if its typed conversation cannot be told from a human being’s.",
+     "d_zh": "一種測驗：如果機器的打字對話無法與人的對話分辨，它就通過。"
+    },
+    {
+     "t": "algorithm",
+     "o": "from al-Khwārizmī, 9th-century mathematician",
+     "zh": "演算法",
+     "d_en": "A finite set of exact instructions that can be carried out step by step without insight.",
+     "d_zh": "一組有限而精確的指令，可以一步一步執行，不需要任何洞察。"
+    },
+    {
+     "t": "syntax and semantics",
+     "o": "Gk. syntaxis ‘arrangement’; sēmantikos ‘significant’",
+     "zh": "語法與語意",
+     "d_en": "The rules for arranging symbols by their form, as against what the symbols mean.",
+     "d_zh": "依形式安排符號的規則，相對於符號的意思。"
+    },
+    {
+     "t": "intentionality",
+     "o": "L. intendere ‘to aim at’",
+     "zh": "意向性",
+     "d_en": "The property of being about something. Thoughts have it. Whether symbols in a machine have it is the question.",
+     "d_zh": "「關於某物」這種性質。想法具有它。機器裡的符號有沒有它，正是問題所在。"
+    },
+    {
+     "t": "strong AI",
+     "o": "",
+     "zh": "強人工智慧",
+     "d_en": "Searle’s name for the thesis that an appropriately programmed computer literally has a mind.",
+     "d_zh": "瑟爾為這個論點取的名字：一台程式寫得恰當的電腦，真的就有一個心靈。"
+    },
+    {
+     "t": "multiple realizability",
+     "o": "",
+     "zh": "多重可實現性",
+     "d_en": "The claim that the same mental state could be carried by systems made of different materials.",
+     "d_zh": "主張同一個心理狀態，可以由不同材料構成的系統來承載。"
+    },
+    {
+     "t": "symbol grounding",
+     "o": "",
+     "zh": "符號接地",
+     "d_en": "The problem of how symbols come to be connected with the things they stand for.",
+     "d_zh": "符號如何與它們所代表的東西連結起來的問題。"
+    },
+    {
+     "t": "automaton",
+     "o": "Gk. automatos ‘acting of itself’",
+     "zh": "自動機",
+     "d_en": "A machine that moves by its own mechanism. Plural: automata.",
+     "d_zh": "靠自身機構運動的機器。複數為 automata。"
+    }
+   ],
+   "vocab": [
+    {
+     "w": "decline to",
+     "pos": "v.",
+     "zh": "不肯、婉拒",
+     "eg": "He then declined to consider it.",
+     "eg_zh": "接著他就不肯考慮它了。"
+    },
+    {
+     "w": "be taken for",
+     "pos": "v. phr.",
+     "zh": "被當成",
+     "eg": "The machine is taken for the human.",
+     "eg_zh": "機器被當成了人。"
+    },
+    {
+     "w": "on the spot",
+     "pos": "adv. phr.",
+     "zh": "當場",
+     "eg": "He would have had the maker executed on the spot.",
+     "eg_zh": "他當場就要處死那個製造者。"
+    },
+    {
+     "w": "prove to be",
+     "pos": "v. phr.",
+     "zh": "原來是",
+     "eg": "It proved to be an assembly of leather, wood, glue, and lacquer.",
+     "eg_zh": "原來它是皮革、木頭、膠、漆拼合而成的。"
+    },
+    {
+     "w": "pretensions",
+     "pos": "n. pl.",
+     "zh": "自命、自許",
+     "eg": "The engine has no pretensions whatever to originate anything.",
+     "eg_zh": "這台機器絲毫沒有「創始」任何事物的自命。"
+    },
+    {
+     "w": "not a word",
+     "pos": "n. phr.",
+     "zh": "一個字也不",
+     "eg": "A language of which he knew not a word.",
+     "eg_zh": "一種他一個字也不懂的語言。"
+    },
+    {
+     "w": "supply",
+     "pos": "v.",
+     "zh": "提供、補上",
+     "eg": "No amount of shuffling will supply it.",
+     "eg_zh": "不管怎麼搬來搬去，都搬不出它來。"
+    },
+    {
+     "w": "come true",
+     "pos": "v. phr.",
+     "zh": "成真",
+     "eg": "One camp sees the Chinese room come true.",
+     "eg_zh": "有一派看到的是中文房間成真了。"
+    },
+    {
+     "w": "at stake",
+     "pos": "adv. phr.",
+     "zh": "攸關利害",
+     "eg": "A thing with nothing at stake does not think.",
+     "eg_zh": "一個沒有任何利害的東西，並不思考。"
+    },
+    {
+     "w": "set aside",
+     "pos": "phr. v.",
+     "zh": "擱到一邊",
+     "eg": "The question he set aside in 1950.",
+     "eg_zh": "他在 1950 年擱到一邊的那個問題。"
+    }
+   ],
+   "quiz": [
+    {
+     "q": "Why did Turing replace the question “Can machines think?” with a test?",
+     "options": [
+      "He thought the words were too vague for the question to be settled by argument.",
+      "He was sure that machines could not think.",
+      "He wanted to sell computers.",
+      "He believed thinking was impossible to observe in humans."
+     ],
+     "correct": 0
+    },
+    {
+     "q": "What does Leibniz’s mill argument claim?",
+     "options": [
+      "Inspecting the parts of a mechanism would never reveal anything that explains perception.",
+      "Mills are more complex than brains.",
+      "Machines cannot multiply.",
+      "Perception is a kind of motion."
+     ],
+     "correct": 0
+    },
+    {
+     "q": "What is the Chinese room meant to show?",
+     "options": [
+      "Following a program, however well, is not sufficient for understanding.",
+      "Chinese is harder than English.",
+      "Computers will never pass the Turing test.",
+      "Brains do not think."
+     ],
+     "correct": 0
+    },
+    {
+     "q": "What does the systems reply say?",
+     "options": [
+      "The man is only a part, and understanding belongs to the whole system.",
+      "The man secretly understands.",
+      "The rule book is badly written.",
+      "No system can understand anything."
+     ],
+     "correct": 0
+    },
+    {
+     "q": "Which three questions does the lesson ask you to keep apart?",
+     "options": [
+      "Whether a machine can do the tasks, whether it understands, and whether it feels.",
+      "Whether a machine is fast, cheap, and reliable.",
+      "Who built it, who owns it, and who uses it.",
+      "Whether it speaks English, Chinese, or Georgian."
+     ],
+     "correct": 0
+    }
+   ],
+   "write": [
+    {
+     "en": "After doing the exercise, which reply to Searle do you find strongest, and why? Answer in about 150 words.",
+     "zh": "做完上面的練習之後，你覺得對瑟爾的哪一種回應最有力？為什麼？用大約 150 個英文字回答。"
+    },
+    {
+     "en": "Describe a time when you used a word, a formula, or a procedure correctly without understanding it. What changed when you did come to understand?",
+     "zh": "描述一次你正確地用了一個字、一個公式或一套程序，卻並不懂它的經驗。等你真的懂了，有什麼改變？"
+    },
+    {
+     "en": "A student hands in an essay written by a machine and says, “It understands the topic better than I do.” Is the claim true? Does it matter for how you grade the essay?",
+     "zh": "一位學生交來一篇由機器寫的作文，並且說：「它比我更懂這個題目。」這句話是真的嗎？這對你怎麼評這篇作文有影響嗎？"
+    }
+   ],
+   "dharma": {
+    "title_en": "A view from the Dharma",
+    "title_zh": "佛法怎麼看",
+    "paras": [
+     {
+      "en": "Buddhist thought divides the question at a different joint. What makes something a sentient being, a sattva, is the capacity to feel, to be pleased and pained, and the tradition does not rank beings by how cleverly they reason. A god who reasons superbly and an insect that cannot reason at all are both within the scope of compassion, because both can suffer. So the Buddhist question about a machine is the one this lesson put third. Whether it calculates is plain, and whether it understands is of secondary interest. Whether there is feeling there decides everything, including whether the first precept applies to it.",
+      "zh": "佛教思想是在另一個關節上切開這個問題的。使某物成為「有情」（sattva，眾生）的，是感受的能力，是會樂、會苦；這個傳統並不依照「推理得多聰明」來為眾生排等級。一位推理極為高明的天神，與一隻完全不會推理的昆蟲，都在慈悲的範圍之內，因為兩者都會受苦。所以，佛教對一台機器要問的，是這一課排在第三的那個問題。它會不會計算，是明擺著的；它懂不懂，是次要的。那裡有沒有感受，決定了一切，包括第一條戒適不適用於它。"
+     },
+     {
+      "en": "On what feeling requires, the tradition gives two hints that point in different directions. The Abhidharma analyzes a mind into momentary events defined by what they do and what they condition, with no owner behind them, which is closer to functionalism than anything in ancient Western thought. Yet the early discourses also insist that consciousness never occurs alone. It depends on “name-and-form,” the living body with its feeling and perception, and that in turn depends on consciousness: the two stand, says Sāriputta, like “two sheaves of reeds leaning up against each other,” and if one is pulled away the other falls. And a being, in the traditional account, arrives in a new life carrying a stream of consciousness from a previous one. A device that is assembled and switched on has no place in that account, and the texts, composed long before such devices, are silent. Buddhist teachers asked about it today give different answers (Dharma and the West, D3 and D12).",
+      "zh": "至於感受需要什麼，這個傳統給了兩個指向不同方向的提示。阿毘達磨把一個心分析成剎那剎那的事件，每一個事件由它做什麼、它作為什麼的緣來界定，背後沒有擁有者；這比古代西方思想裡的任何東西都更接近功能論。然而早期經典也堅持：識從來不是單獨出現的。它依賴「名色」，也就是帶著受與想的活的身體；而名色又反過來依賴識。舍利弗說，兩者就像「兩捆蘆葦互相倚靠而立」，抽掉一捆，另一捆就倒了。再者，照傳統的說法，一個眾生來到新的一生，是帶著前一生的識之流而來的。一個被組裝起來、接上電源的裝置，在那套說法裡沒有位置；而這些經典寫成的時候離這種裝置還很遠，對此沒有說話。今天被問到這件事的佛教老師，給的答案並不一樣（佛法與西方哲學 D3、D12）。"
+     }
+    ],
+    "terms": [
+     [
+      "有情",
+      "satta / sattva",
+      "sentient being"
+     ],
+     [
+      "受",
+      "vedanā",
+      "feeling"
+     ],
+     [
+      "名色",
+      "nāmarūpa",
+      "name-and-form"
+     ],
+     [
+      "識",
+      "viññāṇa / vijñāna",
+      "consciousness"
+     ]
+    ]
+   },
+   "further": [
+    {
+     "t": "Alan Turing, “Computing Machinery and Intelligence,” Mind 59 (1950)",
+     "url": "",
+     "n_en": "Witty and readable. Sections 1, 2, and 6 are enough for a first reading.",
+     "n_zh": "機智而好讀。第一次讀，看第 1、2、6 節就夠了。"
+    },
+    {
+     "t": "John Searle, “Minds, Brains, and Programs,” Behavioral and Brain Sciences 3 (1980)",
+     "url": "",
+     "n_en": "The Chinese room, with replies from twenty-seven critics printed after it.",
+     "n_zh": "中文房間；後面附印了二十七位批評者的回應。"
+    },
+    {
+     "t": "René Descartes, Discourse on the Method, Part V",
+     "url": "https://www.gutenberg.org/ebooks/59",
+     "n_en": "",
+     "n_zh": ""
+    },
+    {
+     "t": "G. W. Leibniz, The Monadology, translated by Robert Latta",
+     "url": "https://en.wikisource.org/wiki/Monadology_(Leibniz,_tr._Latta)",
+     "n_en": "Ninety short paragraphs. The mill is §17.",
+     "n_zh": "九十個短段落。磨坊在第 17 節。"
+    },
+    {
+     "t": "Liezi, chapter 5, “The Questions of Tang”",
+     "url": "https://ctext.org/liezi/tang-wen",
+     "n_en": "The story of Yan Shi and King Mu.",
+     "n_zh": "偃師與周穆王的故事。"
+    },
+    {
+     "t": "Stanford Encyclopedia of Philosophy, “The Chinese Room Argument”",
+     "url": "https://plato.stanford.edu/entries/chinese-room/",
+     "n_en": "",
+     "n_zh": ""
+    }
+   ],
+   "people": [
+    "leibniz",
+    "descartes"
+   ]
   }
  ],
  "dharma": [
@@ -13640,6 +14300,329 @@
     "other-minds",
     "dreaming",
     "personal-identity"
+   ]
+  },
+  {
+   "slug": "leibniz",
+   "mono": "L",
+   "name": "G. W. Leibniz",
+   "name_zh": "萊布尼茲",
+   "greek": "Gottfried Wilhelm Leibniz",
+   "dates": "1646–1716",
+   "place_en": "Leipzig and Hanover",
+   "place_zh": "萊比錫與漢諾威",
+   "era_en": "The Early Modern Age",
+   "era_zh": "近代早期",
+   "tag_en": "A court librarian who invented the calculus, built a calculating machine, read the Book of Changes as binary arithmetic, and argued that no machine could perceive.",
+   "tag_zh": "一位宮廷圖書館員：他發明了微積分，造了一台計算機，把《易經》讀成二進位算術，並且論證沒有任何機器能夠知覺。",
+   "facts": [
+    [
+     "Born",
+     "出生",
+     "July 1, 1646, Leipzig, Saxony"
+    ],
+    [
+     "Died",
+     "去世",
+     "November 14, 1716, Hanover"
+    ],
+    [
+     "Employment",
+     "職業",
+     "Counselor, librarian, and historian to the dukes of Hanover, from 1676"
+    ],
+    [
+     "Invented",
+     "發明",
+     "The calculus (independently of Newton); a machine that multiplies; binary arithmetic"
+    ],
+    [
+     "Main works",
+     "主要著作",
+     "Discourse on Metaphysics (1686); Theodicy (1710); Monadology (1714)"
+    ],
+    [
+     "Wrote in",
+     "寫作語言",
+     "Latin, French, and German; most of it left unpublished"
+    ]
+   ],
+   "life": [
+    {
+     "h_en": "The boy in his father’s library",
+     "h_zh": "父親書房裡的男孩",
+     "paras": [
+      {
+       "en": "Leibniz was born in Leipzig in 1646, two years before the end of the Thirty Years’ War, which had killed perhaps a third of the population of the German lands. His father, a professor of moral philosophy, died when he was six and left a library. The boy was given the run of it at eight, taught himself Latin from an illustrated history, and by his teens had read the ancient authors and the medieval logicians. He took a doctorate in law at twenty and was offered a professorship, which he refused. He wanted, he said, a larger sphere of action, and he entered the service of a prince.",
+       "zh": "萊布尼茲 1646 年生於萊比錫，兩年後三十年戰爭才結束；那場戰爭也許奪走了德意志地區三分之一的人口。他的父親是道德哲學教授，在他六歲時去世，留下了一間藏書室。這個男孩八歲時獲准在裡面自由出入，靠著一本有插圖的史書自學了拉丁文；到十幾歲，他已經讀過古代作家與中世紀的邏輯學家。他二十歲取得法學博士學位，並且得到一個教授職位，他回絕了。他說，他想要一個更大的活動範圍；於是他進入一位君主的幕下服務。"
+      },
+      {
+       "en": "A diplomatic errand took him to Paris in 1672, and the four years he spent there made him a mathematician. He arrived knowing little of the subject. Under the guidance of the Dutch physicist Christiaan Huygens he mastered it, and in the autumn of 1675 he worked out the differential and integral calculus, with the notation, dx and the long S of the integral sign, that is still used. Newton had reached the same results a decade earlier by another route and had published nothing. On a visit to London in 1673 Leibniz showed the Royal Society a wooden model of a machine that could multiply and divide by means of a stepped drum, and was elected a fellow.",
+       "zh": "1672 年，一趟外交差事把他帶到了巴黎；他在那裡度過的四年，使他成為數學家。他到的時候對這門學問所知甚少。在荷蘭物理學家惠更斯的指引下，他掌握了它；1675 年秋天，他推演出了微分與積分，連同那套沿用至今的記號：dx，以及積分號那個拉長的 S。牛頓早十年就用另一條路得到了同樣的結果，卻什麼也沒發表。1673 年造訪倫敦時，萊布尼茲向皇家學會展示了一台機器的木製模型，它靠一個階梯狀的滾筒就能做乘法與除法；他因此當選為會員。"
+      }
+     ]
+    },
+    {
+     "h_en": "Forty years in Hanover",
+     "h_zh": "漢諾威的四十年",
+     "paras": [
+      {
+       "en": "No post could be found for him in Paris, and in 1676 he accepted one at the small court of Hanover, where he remained for the rest of his life. His duties were to keep the library and to write the history of the ruling family. Around them he pursued a range of projects that has never been matched. He designed windmills to drain the silver mines of the Harz mountains. He worked for the reunion of the Catholic and Protestant churches. He founded the academy of sciences in Berlin, and he studied fossils, Chinese philosophy, and the origins of languages. He corresponded with more than a thousand people. Very little of his philosophy was printed. It lay in letters and in drafts, and scholars are still editing them.",
+       "zh": "巴黎找不到給他的職位；1676 年，他接受了漢諾威那個小宮廷的一個職位，此後終身留在那裡。他的職責是管理圖書館，以及為統治家族撰寫家史。圍繞著這些職責，他推動了範圍之廣至今無人能及的種種計畫。他設計風車，要為哈茨山的銀礦排水。他為天主教會與新教教會的重新合一而奔走。他創立了柏林的科學院；他研究化石、中國哲學與語言的起源。他跟一千多人通信。他的哲學付印的非常少。它躺在信件與草稿裡，學者至今還在整理。"
+      },
+      {
+       "en": "His curiosity about China was unusual for his time and was free of condescension. In 1697 he published a collection of reports from the Jesuit mission, in the preface of which he proposes that China should send missionaries to Europe to teach the practice of ethics. In 1701 the Jesuit Joachim Bouvet sent him from Beijing a diagram of the sixty-four hexagrams of the Book of Changes. Leibniz had recently devised a way of writing every number with only the signs 0 and 1, and he saw at once that if a broken line is read as 0 and an unbroken line as 1, the hexagrams in that arrangement count from 0 to 63. He concluded that the ancient Chinese had possessed his binary arithmetic and later forgotten it. He was wrong about the history. The notation is the one on which every computer now runs.",
+       "zh": "他對中國的好奇，在他的時代是不尋常的，而且沒有居高臨下的態度。1697 年，他出版了一部耶穌會傳教團報告的彙編；在序言裡，他提議中國應該派傳教士到歐洲來，教導倫理的實踐。1701 年，耶穌會士白晉從北京寄給他一張《易經》六十四卦的圖。萊布尼茲不久前才設計出一種只用 0 與 1 兩個記號就能寫出每一個數的方法；他立刻看出，如果把陰爻讀作 0、陽爻讀作 1，那個排列裡的卦就是從 0 數到 63。他的結論是：古代的中國人曾經擁有他的二進位算術，後來忘了。就歷史而言他錯了。而那套記號，就是今天每一台電腦賴以運作的那一套。"
+      }
+     ]
+    },
+    {
+     "h_en": "The quarrel and the empty funeral",
+     "h_zh": "爭端與冷清的葬禮",
+     "paras": [
+      {
+       "en": "His last years were poisoned by the dispute over the calculus. Newton’s followers accused him of having stolen the idea during his London visits, and in 1712 a committee of the Royal Society, whose report Newton himself secretly drafted, found against him. Historians now agree that the two discoveries were independent. In 1714 his employer became King George I of Great Britain and moved the court to London. Leibniz asked to follow and was told to stay in Hanover and finish the family history, which had reached the year 1005. He died there in November 1716. A friend recorded that he was buried more like a robber than like what he was, the ornament of his country. Of the whole court, only his secretary attended the funeral.",
+       "zh": "他的晚年被微積分的爭端毒害了。牛頓的追隨者指控他在造訪倫敦期間偷了這個想法；1712 年，皇家學會的一個委員會作出了對他不利的裁定，而那份報告是牛頓本人暗中起草的。歷史學家現在一致認為，這兩項發現是各自獨立的。1714 年，他的雇主成了大不列顛國王喬治一世，把宮廷遷到了倫敦。萊布尼茲請求隨行，得到的答覆是留在漢諾威，把那部家史寫完；當時它才寫到西元 1005 年。1716 年 11 月，他在那裡去世。一位朋友記載：他下葬的樣子，比較像個盜賊，而不像他實際上的身分，也就是他的國家的光彩。整個宮廷，只有他的秘書出席了葬禮。"
+      }
+     ]
+    }
+   ],
+   "timeline": [
+    [
+     "1646",
+     "Born in Leipzig",
+     "生於萊比錫"
+    ],
+    [
+     "1673",
+     "Shows his calculating machine in London",
+     "在倫敦展示計算機"
+    ],
+    [
+     "1675",
+     "Works out the calculus in Paris",
+     "在巴黎推演出微積分"
+    ],
+    [
+     "1676",
+     "Enters the service of Hanover",
+     "進入漢諾威宮廷"
+    ],
+    [
+     "1703",
+     "Paper on binary arithmetic and the hexagrams",
+     "發表二進位算術與卦象的論文"
+    ],
+    [
+     "1710",
+     "Theodicy",
+     "《神義論》"
+    ],
+    [
+     "1714",
+     "Monadology",
+     "《單子論》"
+    ],
+    [
+     "1716",
+     "Dies in Hanover",
+     "卒於漢諾威"
+    ]
+   ],
+   "idea": {
+    "title_en": "The central idea: Nothing is without a reason",
+    "title_zh": "核心觀念：沒有任何事是沒有理由的",
+    "paras": [
+     {
+      "en": "Leibniz said that all our reasoning rests on two principles. The first is that a contradiction cannot be true. The second, which he made his own, is the principle of sufficient reason: “there can be no fact real or existing, no statement true, unless there be a sufficient reason, why it should be so and not otherwise, although these reasons usually cannot be known by us.” Nothing simply happens to be the case. From this one demand he drew a whole account of the world. If there must be a reason why this universe exists and no other, the reason can only be that it is the best of those that were possible, and that a perfect being chose it for that reason. If two things were exactly alike in every respect, there could be no reason for one to be here and the other there, so no two things are exactly alike.",
+      "zh": "萊布尼茲說，我們一切的推理都建立在兩條原理上。第一條是：矛盾不可能為真。第二條是他使之成為自己的招牌的，就是充足理由律：「若沒有一個充足的理由說明它為什麼是這樣而不是別樣，就不可能有任何事實是真實的或存在的，也不可能有任何陳述是真的，儘管這些理由通常不能為我們所知。」沒有任何事情只是「剛好如此」。從這一個要求，他引出了一整套對世界的說明。如果必須有一個理由說明為什麼存在的是這個宇宙、而不是別的宇宙，那個理由只能是：它是所有可能的宇宙當中最好的，而一位完美的存在者正是為此選擇了它。如果兩個東西在每一方面都完全相同，就不可能有理由說明為什麼一個在這裡、另一個在那裡；所以沒有兩個東西是完全相同的。"
+     },
+     {
+      "en": "The strangest consequence concerns what the world is made of. Anything extended in space can be divided, and what can be divided is a collection and depends on its parts. The ultimate constituents must therefore be simple, without parts, and so without extension. Leibniz called them monads. Since a thing without parts cannot be pushed or altered from outside, “the Monads have no windows, through which anything could come in or go out.” Each unfolds its own states from within, as a mind does, and what a monad has is perception, in degrees that run from the dim stirrings of what we call matter to the clear awareness of a rational soul. Each perceives the whole universe from its own position and is “a perpetual living mirror of the universe.” No monad acts on any other. They agree with one another because they were set in order together at the creation, like clocks made so well that they keep the same time forever. He called this the pre-established harmony.",
+      "zh": "最奇特的後果，關乎世界是由什麼構成的。任何在空間中有廣延的東西都可以分割；而可以分割的東西是一個集合，依賴於它的部分。所以，最終的構成者必須是單純的，沒有部分，因而也沒有廣延。萊布尼茲稱它們為「單子」。由於沒有部分的東西無法從外面被推動或改變，「單子沒有窗戶，沒有任何東西可以經由窗戶進出」。每一個單子都從內部展開它自己的狀態，就像一個心那樣；單子所擁有的是知覺，程度不等，從我們稱為物質的那種昏暗的擾動，一直到理性靈魂清楚的覺察。每一個單子都從自己的位置知覺整個宇宙，是「宇宙的一面永恆的活鏡子」。沒有任何單子作用於別的單子。它們彼此一致，是因為它們在創世時就被一起安排妥當了，像是造得精良到永遠走得一樣準的鐘。他稱之為「預定和諧」。"
+     }
+    ]
+   },
+   "quote": {
+    "en": "…there can be no fact real or existing, no statement true, unless there be a sufficient reason, why it should be so and not otherwise, although these reasons usually cannot be known by us.",
+    "zh": "……若沒有一個充足的理由說明它為什麼是這樣而不是別樣，就不可能有任何事實是真實的或存在的，也不可能有任何陳述是真的，儘管這些理由通常不能為我們所知。",
+    "ref": "Leibniz, Monadology §32, tr. Robert Latta",
+    "note_en": "The principle of sufficient reason, in the form he gave it two years before his death.",
+    "note_zh": "充足理由律；這是他去世前兩年給它的表述。"
+   },
+   "objection": {
+    "title_en": "The strongest objection: The best of all possible worlds",
+    "title_zh": "最強的反駁：所有可能世界中最好的一個",
+    "paras": [
+     {
+      "en": "On November 1, 1755, an earthquake destroyed Lisbon while the churches were full for All Saints’ Day, and tens of thousands died. Four years later Voltaire published Candide, in which the tutor Pangloss, a disciple of Leibniz, passes through war, shipwreck, the earthquake, and the Inquisition explaining at each disaster that all is for the best. The satire is unfair in one respect. Leibniz did not say that everything in the world is good. He said that a world with free creatures and regular laws could not have had less evil in total without being worse in some other way, and that we, who see a fragment, are in no position to judge the whole. But the unfairness does not remove the difficulty. A claim that would be equally consistent with any amount of suffering explains none of it, and it is hard to say to the parents of a drowned child that the alternative worlds were worse.",
+      "zh": "1755 年 11 月 1 日，一場地震摧毀了里斯本，當時各教堂正因為諸聖節而坐滿了人；數以萬計的人喪生。四年後，伏爾泰出版了《憨第德》：書裡的家庭教師潘格羅斯是萊布尼茲的信徒，他一路經歷戰爭、船難、那場地震與宗教裁判所，每逢一場災難就解釋說，一切都是為了最好的結果。這部諷刺作品在一點上是不公平的。萊布尼茲並沒有說世界上的每一件事都是好的。他說的是：一個有自由的受造者、有規律的法則的世界，如果總體上的惡要再少一些，就不可能不在別的某方面變得更糟；而我們只看到一個片段，沒有資格評判整體。然而，這份不公平並沒有消除困難。一個不論苦難有多少都同樣說得通的主張，並沒有解釋任何苦難；而且，很難對一個孩子溺死了的父母說：別的可能世界更糟。"
+     },
+     {
+      "en": "A second objection is aimed at the principle itself. If everything has a sufficient reason, then everything that happens could not have been otherwise, including each human choice and God’s choice of this world, and freedom disappears. Leibniz replied that reasons “incline without necessitating.” His contemporaries were not persuaded, and the charge that his system is Spinoza’s necessity in more pious language has followed it ever since.",
+      "zh": "第二個反駁針對的是那條原理本身。如果每一件事都有充足的理由，那麼發生的每一件事都不可能是別的樣子，包括人的每一個選擇，以及上帝對這個世界的選擇；自由就消失了。萊布尼茲回答：理由「使人傾向，而不使人必然」。他同時代的人並沒有被說服；而「他的體系不過是用更虔誠的語言說出來的史賓諾莎式必然」這項指控，此後一直跟著它。"
+     }
+    ]
+   },
+   "problem": {
+    "title_en": "A philosophy left in the drawer",
+    "title_zh": "留在抽屜裡的哲學",
+    "paras": [
+     {
+      "en": "Leibniz published one philosophical book in his lifetime, the Theodicy, a long and courtly defense of the goodness of God. The works on which his reputation now rests were not written for print. The Discourse on Metaphysics of 1686 was a private summary. The Monadology was composed in 1714 for a few correspondents and appeared only after his death, and its title was supplied by an editor. His reply to Locke, the New Essays, he withheld because Locke had died, and it was printed in 1765. The rest is in some fifteen thousand letters and a mass of notes. As a result there were for two centuries several Leibnizes. The eighteenth century knew the optimist of the Theodicy. Bertrand Russell, reading the logical papers around 1900, argued that the public system was a façade and that the real philosophy was a logic kept in the desk. The complete edition of his writings, begun in 1923, is expected to take many more decades.",
+      "zh": "萊布尼茲生前只出版過一本哲學書，《神義論》；那是一部冗長而帶著宮廷氣的著作，為上帝的善辯護。他今天的名聲所依靠的那些作品，都不是為了付印而寫的。1686 年的《形上學論》是一份私人的摘要。《單子論》是 1714 年為幾位通信者寫的，在他死後才面世，書名還是編者加的。他對洛克的回應《人類理解新論》，因為洛克已經去世而被他壓了下來，到 1765 年才印行。其餘的都在大約一萬五千封信與成堆的筆記裡。結果是，有兩個世紀之久，存在著好幾個萊布尼茲。十八世紀認識的是《神義論》裡的那位樂觀主義者。羅素在 1900 年前後讀了那些邏輯文稿，主張公開的體系只是門面，真正的哲學是鎖在書桌裡的一套邏輯。他的著作全集從 1923 年開始編纂，預計還要好幾十年才能完成。"
+     }
+    ]
+   },
+   "said": {
+    "claim": "“This is the best of all possible worlds.” (Leibniz)",
+    "claim_zh": "「這是所有可能世界中最好的一個。」（萊布尼茲）",
+    "verdict_en": "His doctrine, Voltaire’s tone",
+    "verdict_zh": "是他的學說，語氣卻是伏爾泰的",
+    "en": "The thesis is his. The Monadology says that among the infinite number of possible universes God must have had a sufficient reason to choose one, and that the reason can only lie in “the degrees of perfection, that these worlds possess.” What most people hear in the sentence, a cheerful assurance that things are fine, comes from Candide, where the phrase is repeated as a refrain amid catastrophes. Leibniz meant a claim about the total and never denied that particular evils are real. The word “optimism” was coined in the 1730s to describe his view, from optimum, “the best.” It did not then mean a sunny temperament.",
+    "zh": "這個論點是他的。《單子論》說：在無限多個可能的宇宙當中，上帝必定有一個充足的理由選擇其中之一；而那個理由只能在於「這些世界所具有的完美程度」。多數人在這句話裡聽到的東西，也就是一種「事情都很好」的愉快保證，來自《憨第德》；在那本書裡，這句話在一場場災禍當中像副歌一樣反覆出現。萊布尼茲指的是一個關於「總體」的主張，而他從來沒有否認個別的惡是真實的。optimism（樂觀主義）這個詞是 1730 年代為了描述他的看法而造的，來自 optimum，「最好的」。它當時指的並不是開朗的性情。"
+   },
+   "dharma": {
+    "title_en": "Leibniz and the Buddha",
+    "title_zh": "萊布尼茲與佛陀",
+    "paras": [
+     {
+      "en": "One image in Leibniz has a famous Buddhist twin. Each monad, he says, is a living mirror that reflects the entire universe from its own point of view. The Huayan school of Chinese Buddhism describes the net of the god Indra, which stretches without limit in every direction and has a jewel at every knot. Each jewel reflects all the others, and in each reflection all the others are reflected again. The Huayan masters used the net to teach that every phenomenon contains and is contained by every other. The two images arose with no contact between them, and they are put to opposite uses. Leibniz’s mirrors are substances: each monad is a self-contained thing that could exist if no other did, and it only represents the rest. A jewel in Indra’s net is nothing apart from the others. It exists by interdependence, and that is what the Buddhist means by calling it empty.",
+      "zh": "萊布尼茲的一個意象，在佛教裡有一個著名的孿生兄弟。他說，每一個單子都是一面活的鏡子，從自己的觀點映照整個宇宙。中國佛教的華嚴宗描述了因陀羅網（帝釋天的網）：它往每一個方向無限延伸，每一個網結上都有一顆寶珠。每一顆寶珠都映照出所有其他的寶珠；而在每一個映像裡，所有其他的寶珠又再被映照出來。華嚴的祖師用這張網來教導：每一個現象都含攝其他一切現象，也被其他一切現象所含攝。這兩個意象是在彼此毫無接觸的情況下各自出現的，用途卻相反。萊布尼茲的鏡子是實體：每一個單子都是自足的東西，即使別的單子都不存在，它也能存在；它只是「表象」其餘的一切。因陀羅網上的一顆寶珠，離開了其他的寶珠就什麼也不是。它是靠相依而存在的；佛教徒說它是「空」的，指的就是這個。"
+     },
+     {
+      "en": "The principle of sufficient reason has a nearer relative in dependent origination: “when this exists, that comes to be.” Both deny that anything arises without conditions. They differ on where the series ends. Leibniz argues that the chain of reasons must terminate in a being that contains the reason for its own existence, and that this is God. The Buddha declined to posit a first cause and described a web of conditions with no beginning that can be found. The problem that occupied Leibniz for forty years, how a good creator could permit evil, therefore does not arise in Buddhism in that form. Suffering is explained by craving and ignorance, with no one having chosen the arrangement (Dharma and the West, D4).",
+      "zh": "充足理由律在緣起裡有一個更近的親戚：「此有故彼有。」兩者都否認有任何東西是不依條件而生起的。它們的差別在於這個系列在哪裡結束。萊布尼茲論證：理由的鏈條必須終止於一個「自身就包含了自己存在的理由」的存在者，而那就是上帝。佛陀拒絕設定第一因；他描述的是一張因緣之網，找不到開端。因此，那個佔據了萊布尼茲四十年的問題（一位善的造物主怎麼會容許惡），在佛教裡並不以那種形式出現。苦是由渴愛與無明來說明的，並沒有誰選擇了這樣的安排（佛法與西方哲學 D4）。"
+     }
+    ],
+    "terms": [
+     [
+      "因陀羅網",
+      "Indrajāla",
+      "Indra’s net"
+     ],
+     [
+      "緣起",
+      "paṭiccasamuppāda / pratītyasamutpāda",
+      "dependent origination"
+     ],
+     [
+      "事事無礙",
+      "—",
+      "the mutual non-obstruction of all phenomena"
+     ],
+     [
+      "自性",
+      "svabhāva",
+      "intrinsic existence"
+     ]
+    ]
+   },
+   "terms": [
+    {
+     "t": "principle of sufficient reason",
+     "o": "L. principium rationis sufficientis",
+     "zh": "充足理由律",
+     "d_en": "Nothing is the case without a reason why it is so and not otherwise.",
+     "d_zh": "沒有任何事情是沒有「為什麼如此而不是別樣」的理由的。"
+    },
+    {
+     "t": "monad",
+     "o": "Gk. monas ‘unit’",
+     "zh": "單子",
+     "d_en": "A simple substance without parts, whose only states are perceptions.",
+     "d_zh": "沒有部分的單純實體；它唯一的狀態是知覺。"
+    },
+    {
+     "t": "pre-established harmony",
+     "o": "",
+     "zh": "預定和諧",
+     "d_en": "The agreement of all substances with one another, arranged at the creation, without any acting on any other.",
+     "d_zh": "一切實體彼此之間的一致；它是在創世時安排好的，沒有任何實體作用於另一個。"
+    },
+    {
+     "t": "identity of indiscernibles",
+     "o": "",
+     "zh": "不可分辨者的同一",
+     "d_en": "If two things share every property, they are one thing.",
+     "d_zh": "如果兩個東西的一切性質都相同，它們就是同一個東西。"
+    },
+    {
+     "t": "possible world",
+     "o": "",
+     "zh": "可能世界",
+     "d_en": "A complete way that things might have been. The actual world is one of them.",
+     "d_zh": "事物「本來可以是」的一種完整的樣子。現實世界是其中之一。"
+    },
+    {
+     "t": "theodicy",
+     "o": "Gk. theos ‘god’ + dikē ‘justice’; coined by Leibniz",
+     "zh": "神義論",
+     "d_en": "A defense of the justice of God in the face of evil.",
+     "d_zh": "面對惡的存在，為上帝的公義所作的辯護。"
+    }
+   ],
+   "quiz": [
+    {
+     "q": "What does the principle of sufficient reason assert?",
+     "options": [
+      "Nothing is the case without a reason why it is so and not otherwise.",
+      "Only what can be seen is real.",
+      "Human beings can know the reason for everything.",
+      "Reasons are habits of the mind."
+     ],
+     "correct": 0
+    },
+    {
+     "q": "Why do monads “have no windows”?",
+     "options": [
+      "A thing without parts cannot be altered from outside, so nothing passes in or out.",
+      "They are too small to see.",
+      "They are made of glass.",
+      "God forbids them to communicate."
+     ],
+     "correct": 0
+    },
+    {
+     "q": "In what respect is Voltaire’s satire unfair to Leibniz?",
+     "options": [
+      "Leibniz claimed that the world as a whole is the best possible, not that each event in it is good.",
+      "Leibniz never wrote about evil.",
+      "Leibniz believed the world was the worst possible.",
+      "Voltaire had not read any philosophy."
+     ],
+     "correct": 0
+    }
+   ],
+   "further": [
+    {
+     "t": "G. W. Leibniz, The Monadology, translated by Robert Latta (1898)",
+     "url": "https://en.wikisource.org/wiki/Monadology_(Leibniz,_tr._Latta)",
+     "n_en": "Ninety numbered paragraphs; the whole system in an hour.",
+     "n_zh": "九十個編號段落；一小時讀完整個體系。"
+    },
+    {
+     "t": "Voltaire, Candide (1759)",
+     "url": "https://www.gutenberg.org/ebooks/19942",
+     "n_en": "The most effective reply ever made to a philosopher, and not an argument.",
+     "n_zh": "對一位哲學家所作過最有效的回應，而它並不是一個論證。"
+    },
+    {
+     "t": "Maria Rosa Antognazza, Leibniz: An Intellectual Biography (2009)",
+     "url": "",
+     "n_en": "The standard life.",
+     "n_zh": "標準的傳記。"
+    },
+    {
+     "t": "Stanford Encyclopedia of Philosophy, “Gottfried Wilhelm Leibniz”",
+     "url": "https://plato.stanford.edu/entries/leibniz/",
+     "n_en": "",
+     "n_zh": ""
+    }
+   ],
+   "lessons": [
+    "machine-thinking",
+    "time"
    ]
   }
  ]

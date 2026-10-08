@@ -7451,7 +7451,51 @@ def _ph_lab_minds(lab):
   </div>
 </div>'''
 
+def _ph_lab_room(lab):
+    """A15：坐進房間（瑟爾的中文房間，改用喬治亞文）。照規則書比對形狀遞卡片，三回合後揭曉對話內容，再問兩題、看四種回應。"""
+    R = lab["rules"]
+    def bi(o, cls=""): return f'<p class="{cls}">{_ph_e(o["en"])}</p><p class="ph-zh" lang="zh-Hant">{_ph_e(o["zh"])}</p>'
+    def ka(t): return f'<span class="ph-ka" lang="ka">{_ph_e(t)}</span>'
+    book = "".join(f'<div class="ph-rm-rule" data-rm-rule="{i}">{ka(r["i"])}<i aria-hidden="true">&rarr;</i>{ka(r["o"])}</div>' for i, r in enumerate(R))
+    tray = "".join(f'<button type="button" class="ph-rm-card" data-rm-card="{i}">{ka(R[i]["o"])}</button>' for i in lab["tray"])
+    talk = "".join(
+        f'<div class="ph-rm-line"><small>They wrote · 對方寫的</small>{ka(R[i]["i"])}<b>{_ph_e(R[i]["i_en"])}</b><span lang="zh-Hant">{_ph_e(R[i]["i_zh"])}</span></div>'
+        f'<div class="ph-rm-line is-you"><small>You answered · 你回的</small>{ka(R[i]["o"])}<b>{_ph_e(R[i]["o_en"])}</b><span lang="zh-Hant">{_ph_e(R[i]["o_zh"])}</span></div>' for i in lab["rounds"])
+    def ask(key, q, hidden=""):
+        opts = "".join(f'<button type="button" class="ph-vl-opt" data-rm-opt="{key}:{o["k"]}"><b>{_ph_e(o["t"]["en"])}</b><span lang="zh-Hant">{_ph_e(o["t"]["zh"])}</span></button>' for o in q["opts"])
+        vs = "".join(f'<div class="ph-vl-card is-valid" data-rm-v="{key}:{k}" hidden>{bi(v)}</div>' for k, v in q["v"].items())
+        return (f'<div class="ph-rm-ask" data-rm-ask="{key}" {hidden}><div class="ph-tp-text"><p class="ph-vl-q"><b>{_ph_e(q["q"]["en"])}</b><span lang="zh-Hant">{_ph_e(q["q"]["zh"])}</span></p></div>'
+                f'<div class="ph-vl-opts ph-tp-opts">{opts}</div><div class="ph-vl-out" aria-live="polite">{vs}</div></div>')
+    replies = "".join(
+        f'<div class="ph-vl-card"><small class="ph-tp-k">{_ph_e(r["n"]["en"])} · <span lang="zh-Hant">{_ph_e(r["n"]["zh"])}</span></small>{bi(r["t"])}'
+        f'<button type="button" class="ph-rm-more" data-rm-more aria-expanded="false">Searle’s answer · 瑟爾怎麼回 ▾</button>'
+        f'<div class="ph-rm-searle" hidden>{bi(r["s"])}</div></div>' for r in lab["replies"])
+    payload = html.escape(json.dumps({"rules": [{"i": r["i"]} for r in R], "rounds": lab["rounds"], "wrong": lab["wrong"]}, ensure_ascii=False), quote=False)
+    return f'''<div class="ph-el ph-rm rvl" data-ph-room>
+  <script type="application/json" data-rm-data>{payload}</script>
+  <div class="ph-vl-top"><div class="ph-vl-dots" data-rm-dots aria-hidden="true"></div><span class="ph-el-count" data-rm-count></span></div>
+  <div class="ph-el-stage">
+    <div class="ph-rm-desk" data-rm-desk>
+      <div class="ph-rm-slot"><small>Through the slot · 門縫送進來的</small><div class="ph-rm-slip" data-rm-in aria-live="polite"></div>
+        <p class="ph-rm-hint">Find these shapes in the rule book. <span lang="zh-Hant">在規則書裡找出這些形狀。</span></p></div>
+      <div class="ph-rm-book"><small>Rule book · 規則書</small><p class="ph-rm-hint">If the slip shows the shapes on the left, pass out the card on the right. <span lang="zh-Hant">紙條上是左邊的形狀，就遞出右邊那張卡片。</span></p>{book}</div>
+      <div class="ph-rm-tray"><small>Your cards · 你手上的卡片</small><div class="ph-rm-cards">{tray}</div></div>
+    </div>
+    <p class="ph-rm-msg" data-rm-msg aria-live="polite"></p>
+    <div data-rm-end hidden>
+      <div class="ph-tp-text ph-rm-outside">{bi(lab["outside"], "ph-rm-voice")}</div>
+      <div class="ph-tp-text">{bi(lab["reveal"])}</div>
+      <div class="ph-rm-talk">{talk}</div>
+      {ask("q1", lab["q1"])}
+      {ask("q2", lab["q2"], "hidden")}
+      <div data-rm-replies hidden><p class="ph-el-src ph-md-vh">Four replies to Searle <span lang="zh-Hant">對瑟爾的四種回應</span></p><div class="ph-md-vgrid">{replies}</div></div>
+    </div>
+    <div class="ph-el-foot"><button type="button" class="ph-el-reset" data-rm-reset>Start again · 重來</button></div>
+  </div>
+</div>'''
+
 def _ph_lab(lab):
+    if lab.get("kind") == "room": return _ph_lab_room(lab)
     if lab.get("kind") == "minds": return _ph_lab_minds(lab)
     if lab.get("kind") == "teleport": return _ph_lab_teleport(lab)
     if lab.get("kind") == "now": return _ph_lab_now(lab)
