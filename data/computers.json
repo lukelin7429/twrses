@@ -529,9 +529,9 @@
               "k_zh": "下一課・第二課",
               "en": "How Do 0s and 1s Become Words, Pictures, and Sound?",
               "zh": "0 和 1 怎麼變成文字、圖片和聲音？",
-              "note_en": "A row of bits is only a number. Next time: how everyone agreed on a table that turns numbers into letters, colors, and sounds.",
-              "note_zh": "一排位元只是一個數。下一課要看：大家怎麼約好一張對照表，把數變成字、顏色和聲音。",
-              "soon": true
+              "note_en": "A row of bits is only a number. Next: how everyone agreed on tables that turn numbers into letters, colors, and sounds.",
+              "note_zh": "一排位元只是一個數。下一課要看：大家怎麼約好幾張對照表，把數變成字、顏色和聲音。",
+              "href": "/resources/classes/computers/words-pictures-sound/"
             }
           ],
           "sources_note_en": "Names, dates, and facts on this page were checked against these sources (October 2026); the numbers in the model are computed and tested",
@@ -640,15 +640,651 @@
               "url": "https://github.com/lukelin7429/twrses/blob/main/tools/computers/test/bits.test.mjs"
             }
           ]
+        },
+        {
+          "n": 2,
+          "slug": "words-pictures-sound",
+          "title": "How Do 0s and 1s Become Words, Pictures, and Sound?",
+          "title_zh": "0 和 1 怎麼變成文字、圖片和聲音？",
+          "level": "入門 · Beginner",
+          "icon": "🖼️",
+          "card": "pixels",
+          "blurb_en": "Walk up to a wall of pixels in 3D, read the three numbers behind one colored square, and change its color with the eight switches from Lesson 1. Type a character to see its number, draw a picture with 64 bits, and turn a sound wave into a list of numbers.",
+          "blurb_zh": "在 3D 裡走近一面像素牆，讀出一個彩色方塊背後的三個數，再用第一課的八個開關改它的顏色。打一個字看它的編號、用 64 個位元畫一張圖，再把一段聲波變成一串數。",
+          "big_idea_en": "Bits can only make numbers. To turn numbers into words, pictures, and sound, people agree on codes: tables that say which number stands for which letter, which color, or how high a sound wave is. The same bits mean different things under different codes.",
+          "big_idea_zh": "位元只能組成數。要把數變成文字、圖片和聲音，靠的是大家約好的「編碼」：一張對照表，規定哪個數代表哪個字、哪個顏色，或聲波有多高。同樣的位元，照不同的表來讀，意思就不一樣。",
+          "lab": {
+            "kind": "pixels",
+            "eyebrow": "3D Model · 3D 模型",
+            "title_en": "A Wall of Pixels",
+            "title_zh": "像素牆",
+            "how_en": "The wall is a picture made of 256 squares, called pixels. Tap any square to pick it. The three bars show the three numbers that make its color: how much red, green, and blue, each from 0 to 255. The eight switches in front are the ones from Lesson 1, and they hold one of those numbers. Flip a switch and the pixel changes color. Use Far and Close to see the wall as a picture or as squares.",
+            "how_zh": "這面牆是一張由 256 個方塊拼成的圖，每個方塊叫做一個像素。點任何一個方塊就選到它。三根柱子是組成它顏色的三個數：紅、綠、藍各有多少，各從 0 到 255。前面的八個開關就是第一課那八個，存著其中一個數；撥一個開關，像素的顏色就跟著變。按「遠看」和「近看」，看看這面牆什麼時候像一張圖、什麼時候是一格一格的方塊。",
+            "total_en": "This picture: 16 × 16 = 256 pixels × 3 numbers × 8 bits = 6,144 bits (768 bytes).",
+            "total_zh": "這張圖：16 × 16＝256 個像素 × 3 個數 × 8 個位元＝6,144 個位元（768 個位元組）。",
+            "legend": [
+              {
+                "cls": "cppx",
+                "en": "One square on the wall: one pixel, one flat color",
+                "zh": "牆上的一個方塊：一個像素，只有一種顏色"
+              },
+              {
+                "cls": "cprgb",
+                "en": "Three bars: the pixel’s red, green, and blue, each a number from 0 to 255",
+                "zh": "三根柱子：這個像素的紅、綠、藍，各是 0 到 255 的一個數"
+              },
+              {
+                "cls": "cpon",
+                "en": "Eight switches: the eight bits of the number you chose",
+                "zh": "八個開關：你選的那個數的八個位元"
+              },
+              {
+                "cls": "cpsel",
+                "en": "White frame and white line: the pixel you picked, and the color its three numbers mix into",
+                "zh": "白框與白線：你選的像素，以及它的三個數混出來的顏色"
+              }
+            ],
+            "scale_en": "A teaching model. The picture is tiny on purpose: 256 pixels, where a phone screen has millions. A real pixel is not a painted square; on a screen, each pixel is made of three small dots that give off red, green, and blue light, and the numbers set how brightly each one glows. The bars and switches are drawings that show the numbers; inside a computer they are bits in memory. The arithmetic is exact, and the colors are the ones a web browser shows for the same three numbers.",
+            "scale_zh": "這是教學用的示意模型。圖故意做得很小：只有 256 個像素，手機螢幕則有幾百萬個。真正的像素不是塗上顏色的方塊；在螢幕上，每個像素由三個會發出紅、綠、藍光的小點組成，那三個數決定每個小點多亮。柱子和開關是把數畫出來的示意，在電腦裡它們是記憶體裡的位元。算術是精確的，顏色也就是瀏覽器遇到同樣三個數時顯示的顏色。",
+            "credit_html": "Model, picture, and code are drawn and programmed by My Culture Connect. The codes and counts are tested in <code>tools/computers/test/codes.test.mjs</code>.<br><span class=\"zh\">模型、圖與程式由人師教育協會自行繪製、撰寫；編號與數量有自動測試（<code>tools/computers/test/codes.test.mjs</code>）。</span>"
+          },
+          "paras": [
+            "In Lesson 1, a row of switches could show a number, and nothing else. But a computer shows you words and photos, and it plays music. How can numbers do all that? The answer is an agreement. People decide that a certain number will stand for a certain thing, and they write the agreement down in a table. Such a table is called a code. Once everyone uses the same code, any computer can turn numbers back into the same letters, colors, and sounds.",
+            "Start with letters. In 1963, American computer makers agreed on a code called ASCII. It uses seven bits, so it has room for 128 characters: the English letters, the digits, punctuation marks, and a few signals for machines. In ASCII, the capital letter A is number 65, B is 66, and a lowercase a is 97. When you press A on a keyboard, the computer does not store the shape of the letter. It stores 65, which in bits is 1000001.",
+            "But 128 characters are not enough for the world. For years, different places made their own codes, and the same number could mean different characters on different computers. Text opened with the wrong code turned into nonsense. Unicode fixes this with one giant table for every writing system. The 2026 version, Unicode 18.0, lists 172,808 characters. The Chinese character 永 is number 27,704, usually written U+6C38. Most web pages store these numbers with a method called UTF-8, which uses one byte for an English letter and three bytes for a common Chinese character such as 永.",
+            "Pictures work the same way. A picture on a screen is a grid of tiny squares called pixels, and each pixel has just one color. That color is stored as three numbers: how much red, how much green, and how much blue. Each number usually gets one byte, so it runs from 0 to 255. Red 255, green 0, blue 0 is pure red. Three bytes give 16,777,216 possible colors. A photo 4,000 pixels wide and 3,000 pixels tall has 12 million pixels, so before any shrinking it needs 36 million bytes.",
+            "Sound becomes numbers, too. A microphone turns sound into an electrical wave that rises and falls. A computer measures the height of that wave again and again, at equal steps of time, and writes down each measurement as a number. This is called sampling. For a music CD, the wave is measured 44,100 times every second, and each measurement is a 16-bit number. To play the music, the computer reads the numbers back in order and a speaker rebuilds the wave.",
+            "Here is the surprising part: the bits themselves do not say what they are. The eight bits 01000001 can be the number 65, the letter A, or a dim shade of red. Nothing in the bits tells you which. The meaning comes from the code that the computer uses to read them. That is why a photo opened as if it were text looks like nonsense. Everything in a computer is numbers, plus an agreement about what the numbers mean."
+          ],
+          "paras_zh": [
+            "在第一課，一排開關能表示一個數，也只能表示一個數。可是電腦會顯示文字和照片，還會播放音樂。數怎麼做得到這些事？答案是「約定」。人們決定某個數代表某樣東西，並且把這個約定寫成一張表。這樣的表叫做「編碼」。只要大家都用同一套編碼，任何一台電腦都能把數變回同樣的字、顏色和聲音。",
+            "先說字。1963 年，美國的電腦廠商約定了一套叫 ASCII 的編碼。它用七個位元，所以容得下 128 個字元：英文字母、數字、標點符號，還有幾個給機器用的訊號。在 ASCII 裡，大寫的 A 是 65 號，B 是 66 號，小寫的 a 是 97 號。你在鍵盤上按 A 的時候，電腦存的不是這個字母的形狀，而是 65，寫成位元就是 1000001。",
+            "可是 128 個字元不夠全世界用。有很多年，不同的地方各自訂了自己的編碼，同一個數在不同的電腦上可能代表不同的字；用錯編碼打開的文字，就變成一堆看不懂的亂碼。Unicode 的解決辦法是：替所有的文字做一張超大的表。2026 年的版本 Unicode 18.0 收了 172,808 個字元。中文的「永」是 27,704 號，通常寫成 U+6C38。大多數的網頁用一種叫 UTF-8 的方法來存這些編號：一個英文字母用一個位元組，像「永」這樣的常用中文字用三個位元組。",
+            "圖片也是同樣的道理。螢幕上的一張圖是由很多小方格排成的，這些小方格叫做「像素」，每個像素只有一種顏色。這個顏色存成三個數：紅有多少、綠有多少、藍有多少。每個數通常用一個位元組，所以是 0 到 255。紅 255、綠 0、藍 0 就是純紅。三個位元組一共可以表示 16,777,216 種顏色。一張寬 4,000 像素、高 3,000 像素的照片有 1,200 萬個像素，還沒縮小之前就需要 3,600 萬個位元組。",
+            "聲音也會變成數。麥克風把聲音變成一條上上下下的電波。電腦每隔一小段相等的時間，就量一次這條波有多高，把每一次量到的結果記成一個數。這叫做「取樣」。音樂 CD 每一秒要量 44,100 次，每一次記成一個 16 位元的數。要播放音樂時，電腦照順序把這些數讀出來，喇叭再把波重新做出來。",
+            "最讓人意外的是：位元自己並沒有說它是什麼。01000001 這八個位元，可以是數 65，可以是字母 A，也可以是一種暗暗的紅色。位元裡沒有任何東西告訴你是哪一種。意思來自電腦用哪一套編碼去讀它。所以把一張照片當成文字打開，看到的就是一堆亂碼。電腦裡的一切都是數，再加上一個「這些數代表什麼」的約定。"
+          ],
+          "questions": [
+            "What is a code, and why does everyone need to use the same one?",
+            "How is the color of one pixel stored?",
+            "The bits 01000001 can mean 65, the letter A, or a shade of red. How does a computer know which one is meant?"
+          ],
+          "answers": [
+            "A code is a table that says which number stands for which thing, such as a letter. If two computers use different codes, the same numbers turn into different characters, and the text becomes nonsense.",
+            "It is stored as three numbers: how much red, how much green, and how much blue. Each number is usually one byte, from 0 to 255.",
+            "The bits do not say. The meaning comes from the code the computer uses to read them: read as a number they are 65, read with ASCII they are A, and read as a color they are an amount of red."
+          ],
+          "vocab": [
+            {
+              "n": 1,
+              "w": "code",
+              "pos": "n.",
+              "zh": "編碼；代碼",
+              "ex": "Morse <b>code</b> uses dots and dashes to stand for letters.",
+              "exzh": "摩斯電碼用點和線來代表字母。"
+            },
+            {
+              "n": 2,
+              "w": "character",
+              "pos": "n.",
+              "zh": "字元",
+              "ex": "A password should have at least eight <b>characters</b>.",
+              "exzh": "密碼至少要有八個字元。"
+            },
+            {
+              "n": 3,
+              "w": "standard",
+              "pos": "n.",
+              "zh": "標準",
+              "ex": "All the chargers follow the same <b>standard</b>, so any one of them fits my phone.",
+              "exzh": "這些充電器都照同一個標準，所以每一個都插得進我的手機。"
+            },
+            {
+              "n": 4,
+              "w": "represent",
+              "pos": "v.",
+              "zh": "代表；表示",
+              "ex": "On this map, the blue lines <b>represent</b> rivers.",
+              "exzh": "在這張地圖上，藍色的線代表河流。"
+            },
+            {
+              "n": 5,
+              "w": "pixel",
+              "pos": "n.",
+              "zh": "像素",
+              "ex": "If you zoom in far enough, you can see every <b>pixel</b> in the photo.",
+              "exzh": "放大到夠大，就能看見照片裡的每一個像素。"
+            },
+            {
+              "n": 6,
+              "w": "measure",
+              "pos": "v.",
+              "zh": "測量",
+              "ex": "The nurse <b>measured</b> my height and weight.",
+              "exzh": "護理師量了我的身高和體重。"
+            },
+            {
+              "n": 7,
+              "w": "sample",
+              "pos": "v.",
+              "zh": "取樣",
+              "ex": "The recorder <b>samples</b> the sound thousands of times each second.",
+              "exzh": "錄音機每秒對聲音取樣好幾千次。"
+            },
+            {
+              "n": 8,
+              "w": "agreement",
+              "pos": "n.",
+              "zh": "約定；協議",
+              "ex": "The two teams made an <b>agreement</b> to share the field.",
+              "exzh": "兩隊約定好一起用這個場地。"
+            }
+          ],
+          "quiz": [
+            {
+              "q": "In ASCII, which number stands for the capital letter A?",
+              "options": [
+                "1",
+                "26",
+                "65",
+                "97"
+              ],
+              "correct": 2
+            },
+            {
+              "q": "Why was Unicode needed?",
+              "options": [
+                "ASCII had too many characters.",
+                "The world’s writing systems need far more than 128 characters, in one shared table.",
+                "Computers could not store numbers above 128.",
+                "Pictures needed more colors."
+              ],
+              "correct": 1
+            },
+            {
+              "q": "Which three numbers are stored for the color of one pixel?",
+              "options": [
+                "Height, width, and depth",
+                "Red, green, and blue",
+                "Black, white, and gray",
+                "Row, column, and size"
+              ],
+              "correct": 1
+            },
+            {
+              "q": "What does a computer do when it samples a sound?",
+              "options": [
+                "It makes the sound louder.",
+                "It measures the height of the sound wave again and again.",
+                "It removes the noise.",
+                "It turns the sound into letters."
+              ],
+              "correct": 1
+            },
+            {
+              "q": "According to the reading, what gives a row of bits its meaning?",
+              "options": [
+                "The color of the bits",
+                "How fast the computer is",
+                "The code used to read them",
+                "The size of the screen"
+              ],
+              "correct": 2
+            }
+          ],
+          "parts_head": {
+            "eyebrow": "Try It in the Model · 在模型裡試試",
+            "en": "Four things to watch",
+            "zh": "四件值得看的事"
+          },
+          "parts": [
+            {
+              "key": "far",
+              "icon": "🔍",
+              "en": "A picture is made of squares",
+              "zh": "圖是一格一格拼成的",
+              "meta_en": "16 × 16 = 256 pixels",
+              "meta_zh": "16 × 16＝256 個像素",
+              "demo": "far",
+              "text_en": "From far away you see an apple. Walk up to the wall and count how the picture turns into squares.",
+              "text_zh": "遠遠看是一顆蘋果。走近這面牆，看圖怎麼變成一格一格的方塊。"
+            },
+            {
+              "key": "rgb",
+              "icon": "🎨",
+              "en": "One pixel is three numbers",
+              "zh": "一個像素是三個數",
+              "meta_en": "Red, green, blue: 0 to 255",
+              "meta_zh": "紅、綠、藍：0 到 255",
+              "demo": "rgb",
+              "text_en": "Read the three numbers of a red pixel on the apple, then of a green pixel on the leaf.",
+              "text_zh": "先讀蘋果上一個紅色像素的三個數，再讀葉子上一個綠色像素的。"
+            },
+            {
+              "key": "switch",
+              "icon": "🎚️",
+              "en": "Eight switches set the red",
+              "zh": "八個開關決定有多紅",
+              "meta_en": "All off is 0, all on is 255",
+              "meta_zh": "全關是 0，全開是 255",
+              "demo": "switch",
+              "text_en": "The switches from Lesson 1 turn all the way off, then all the way on. Watch the pixel.",
+              "text_zh": "第一課的開關先全部關掉，再全部打開。看那個像素怎麼變。"
+            },
+            {
+              "key": "same",
+              "icon": "🔤",
+              "en": "Same bits, three meanings",
+              "zh": "同樣的位元，三種意思",
+              "meta_en": "0100 0001 = 65 = A",
+              "meta_zh": "0100 0001＝65＝A",
+              "demo": "same",
+              "text_en": "Set the switches to 0100 0001 and read them as a number, as a letter, and as a color.",
+              "text_zh": "把開關設成 0100 0001，分別當成數、當成字、當成顏色來讀。"
+            }
+          ],
+          "parts_note_en": "Then make your own color: pick a pixel and try to turn it yellow. Which two of the three numbers have to be high?",
+          "parts_note_zh": "接著自己調一個顏色：選一個像素，試著把它變成黃色。三個數裡面，哪兩個要很大？",
+          "chars": {
+            "eyebrow": "Try It · 動手試試",
+            "en": "Type a Character, See Its Number",
+            "zh": "打一個字，看它的編號",
+            "lead_en": "Type anything: English, Chinese, or an emoji. For each character you will see its number in the Unicode table and the bytes that a web page stores for it in UTF-8.",
+            "lead_zh": "隨便打：英文、中文或表情符號都可以。每個字都會列出它在 Unicode 表上的編號，以及網頁用 UTF-8 存它的時候用到的位元組。",
+            "start": "Hi 永",
+            "quick": [
+              "A",
+              "a",
+              "Taiwan",
+              "永",
+              "😀",
+              "0"
+            ],
+            "tips": [
+              {
+                "en": "A is 65 and a is 97. Every lowercase English letter is exactly 32 more than its capital.",
+                "zh": "A 是 65，a 是 97。每個小寫英文字母都剛好比大寫多 32。"
+              },
+              {
+                "en": "The character “0” is number 48, not zero. A digit you type is a character, not yet a number.",
+                "zh": "字元「0」是 48 號，不是零。你打的數字是「字元」，還不是「數」。"
+              },
+              {
+                "en": "In UTF-8, an English letter takes 1 byte, a common Chinese character such as 永 takes 3, and the emoji 😀 takes 4.",
+                "zh": "在 UTF-8 裡，一個英文字母用 1 個位元組，像「永」這樣的常用中文字用 3 個，表情符號 😀 用 4 個。"
+              }
+            ]
+          },
+          "draw": {
+            "eyebrow": "Try It · 動手試試",
+            "en": "Draw a Picture with 64 Bits",
+            "zh": "用 64 個位元畫一張圖",
+            "lead_en": "The simplest picture has only two colors, so each pixel needs just one bit: 1 for dark, 0 for light. Tap or drag on the grid to draw. Each row of eight squares is one byte, so the whole picture is eight numbers.",
+            "lead_zh": "最簡單的圖只有兩種顏色，所以每個像素只要一個位元：1 是深色，0 是淺色。在格子上點或拖曳來畫。每一列八格就是一個位元組，所以整張圖就是八個數。",
+            "tips": [
+              {
+                "en": "Read a row like the lights in Lesson 1: the left square is worth 128 and the right square is worth 1.",
+                "zh": "讀一列的方法和第一課的燈一樣：最左邊那格代表 128，最右邊那格代表 1。"
+              },
+              {
+                "en": "Send a friend only the eight numbers. Can they draw your picture without seeing it?",
+                "zh": "只把那八個數傳給朋友。對方沒看到圖，能不能把它畫出來？"
+              },
+              {
+                "en": "Try to draw the picture for these numbers: 24, 60, 126, 255, 255, 126, 60, 24.",
+                "zh": "試著畫出這八個數代表的圖：24、60、126、255、255、126、60、24。"
+              }
+            ]
+          },
+          "sound": {
+            "eyebrow": "See How · 看看怎麼做",
+            "en": "Turn a Sound Wave into Numbers",
+            "zh": "把聲波變成一串數",
+            "lead_en": "The smooth line is one wave of sound. The computer measures its height at equal steps and keeps only the numbers. Slide to measure more often, and choose how many bits each measurement gets. Watch the steps get closer to the wave.",
+            "lead_zh": "那條平滑的線是聲音的一個波。電腦每隔一段相等的時間量一次它的高度，只把數留下來。拉滑桿讓它量得更密，再選每一次用幾個位元來記。看那些階梯怎麼越來越貼近原來的波。",
+            "note_en": "This is an illustration; the wave is drawn, not recorded. The sounds people can hear have up to about 20,000 waves every second, which is why a CD takes 44,100 measurements a second. At 16 bits each, that is 705,600 bits for every second of sound.",
+            "note_zh": "這是示意，這條波是畫出來的，不是錄下來的。人聽得到的聲音，每秒最多大約有兩萬個波，所以 CD 每秒要量 44,100 次。每次 16 個位元，每一秒的聲音就是 705,600 個位元。"
+          },
+          "culture_cards": {
+            "eyebrow": "Stories Behind the Codes · 編碼的故事",
+            "title_en": "A table from 1963, one table for the world, three bytes of color, and a shiny disc",
+            "title_zh": "1963 年的一張表、全世界共用的表、三個位元組的顏色、一張亮亮的光碟",
+            "lead_en": "Four short stories about the agreements behind your screen and speakers.",
+            "lead_zh": "螢幕和喇叭背後的四個「約定」。",
+            "cards": [
+              {
+                "k": "1963 · ASCII",
+                "en": "When computers could not talk to each other",
+                "zh": "電腦之間講不通的年代",
+                "body_en": "Before ASCII, each computer maker represented letters and digits in its own way; IBM alone used nine different character sets. A committee of computer makers worked out a common code, and ASCII was approved as the American standard on June 17, 1963. The name stands for American Standard Code for Information Interchange. With seven bits it has 128 codes: 1010000 is a capital P, and 1110000 is a lowercase p.",
+                "body_zh": "在 ASCII 之前，每家電腦廠商各用各的方法表示字母和數字，光是 IBM 一家就用了九套不同的字元集。電腦廠商組成的委員會訂出一套共同的編碼，1963 年 6 月 17 日，ASCII 獲准成為美國標準。ASCII 是 American Standard Code for Information Interchange（美國資訊交換標準碼）的縮寫。它用七個位元，有 128 個編號：1010000 是大寫的 P，1110000 是小寫的 p。"
+              },
+              {
+                "k": "Unicode · 萬國碼",
+                "en": "One table for every writing system",
+                "zh": "所有文字共用的一張表",
+                "body_en": "Unicode gives every character a number of its own, whatever the language. The table keeps growing: version 18.0, released on September 16, 2026, added 13,007 characters for a total of 172,808. The way most web pages store those numbers, UTF-8, was designed by Ken Thompson. His colleague Rob Pike recalled that it happened “on a placemat in a New Jersey diner one night in September or so 1992.”",
+                "body_zh": "不管是哪一種語言，Unicode 都給每個字元一個自己的編號。這張表一直在長大：2026 年 9 月 16 日發布的 18.0 版新增 13,007 個字元，總共 172,808 個。大多數網頁存這些編號的方法 UTF-8，是肯・湯普遜（Ken Thompson）設計的。他的同事羅布・派克（Rob Pike）回憶，那是「1992 年 9 月左右的一個晚上，在紐澤西一家小餐館的餐墊紙上」寫出來的。"
+              },
+              {
+                "k": "RGB · 三原色光",
+                "en": "Why three numbers are enough",
+                "zh": "為什麼三個數就夠了",
+                "body_en": "A screen makes colors by adding light. Look at a screen through a magnifying glass and you will see that each pixel is made of three small dots: one gives off red light, one green, and one blue. Red and green light together look yellow, and all three together look white. With one byte for each of the three, there are 256 × 256 × 256 = 16,777,216 possible colors.",
+                "body_zh": "螢幕是用「把光加在一起」的方法做出顏色的。用放大鏡看螢幕，會看到每個像素由三個小點組成：一個發紅光，一個發綠光，一個發藍光。紅光加綠光看起來是黃色，三種光全開看起來是白色。三個小點各用一個位元組，就有 256 × 256 × 256＝16,777,216 種可能的顏色。"
+              },
+              {
+                "k": "1982 · CD",
+                "en": "Music as a list of numbers",
+                "zh": "音樂變成一串數",
+                "body_en": "The compact disc was invented together by Philips and Sony and went on sale in 1982. It was how most people first owned music stored as numbers. People can hear sounds up to about 20,000 waves a second, and to catch a wave you must measure it at least twice. So a CD samples a little more than twice that fast: 44,100 times a second.",
+                "body_zh": "CD（光碟）由飛利浦和索尼共同發明，1982 年上市。對大多數人來說，這是第一次擁有「存成數字」的音樂。人最高大約能聽到每秒兩萬個波的聲音，而要抓住一個波，至少得量它兩次。所以 CD 取樣的速度比兩倍再快一點：每秒 44,100 次。"
+              }
+            ]
+          },
+          "myths": [
+            {
+              "myth_en": "A computer stores the letter A as a tiny picture of an A.",
+              "myth_zh": "電腦把字母 A 存成一個小小的 A 的圖。",
+              "fact_en": "It stores a number, 65. The shape you see comes from a font, which is a separate file that tells the screen how to draw each numbered character.",
+              "fact_zh": "它存的是一個數：65。你看到的形狀來自「字型」，那是另一個檔案，告訴螢幕每個編號的字要怎麼畫。"
+            },
+            {
+              "myth_en": "A row of bits knows whether it is a letter, a color, or a sound.",
+              "myth_zh": "一排位元自己知道它是字、是顏色，還是聲音。",
+              "fact_en": "It does not. 01000001 is 65, or A, or a shade of red, depending on the code used to read it. Open a file with the wrong code and you get nonsense.",
+              "fact_zh": "它不知道。01000001 是 65、是 A、還是某種紅，要看用哪一套編碼去讀。用錯編碼打開檔案，看到的就是亂碼。"
+            },
+            {
+              "myth_en": "An emoji is a small picture that is sent to your friend.",
+              "myth_zh": "表情符號是一張小圖，傳給了朋友。",
+              "fact_en": "An emoji is a character with a number in Unicode, like a letter. Only the number is sent. Each phone or computer maker draws its own picture for that number, so the same emoji can look different on a friend’s screen.",
+              "fact_zh": "表情符號和字母一樣，是 Unicode 裡有編號的字元。傳出去的只有編號；每家手機或電腦廠商各自替這個編號畫圖，所以同一個表情符號在朋友的螢幕上可能長得不一樣。"
+            },
+            {
+              "myth_en": "The character “5” and the number 5 are the same thing to a computer.",
+              "myth_zh": "對電腦來說，字元「5」和數 5 是同一個東西。",
+              "fact_en": "The character “5” is stored as number 53. A program has to convert the character into the number 5 before it can do arithmetic with it.",
+              "fact_zh": "字元「5」存起來是 53 號。程式要先把這個字元轉成數 5，才能拿它來計算。"
+            }
+          ],
+          "tricks_head": {
+            "en": "Codes in a sentence",
+            "zh": "一句話記住編碼"
+          },
+          "tricks": [
+            {
+              "title_en": "Numbers plus an agreement",
+              "title_zh": "數，加上約定",
+              "body_en": "Bits make numbers. A code says what the numbers mean.",
+              "body_zh": "位元組成數；編碼規定這些數代表什麼。"
+            },
+            {
+              "title_en": "A is 65",
+              "title_zh": "A 是 65",
+              "body_en": "A letter is stored as its number in a table, not as its shape.",
+              "body_zh": "字存的是它在表上的編號，不是它的形狀。"
+            },
+            {
+              "title_en": "Red, green, blue",
+              "title_zh": "紅、綠、藍",
+              "body_en": "One pixel, three numbers, each from 0 to 255.",
+              "body_zh": "一個像素、三個數，每個數從 0 到 255。"
+            },
+            {
+              "title_en": "Measure, measure, measure",
+              "title_zh": "量、量、量",
+              "body_en": "Sound is a wave measured many times a second: 44,100 times on a CD.",
+              "body_zh": "聲音是每秒量很多次的一條波：CD 每秒量 44,100 次。"
+            }
+          ],
+          "safety_head": {
+            "eyebrow": "Before You Start · 動手之前",
+            "en": "A few reminders",
+            "zh": "幾個提醒"
+          },
+          "safety": [
+            {
+              "en": "The developer console is a powerful tool. Type only what this lesson shows, and never paste in code that a stranger or a website tells you to paste: it could give away your account.",
+              "zh": "開發人員主控台是很強的工具。只輸入這一課寫的那幾行；陌生人或網站叫你貼進去的程式碼絕對不要貼，那可能會讓你的帳號被盜。"
+            },
+            {
+              "en": "Changes you make with Inspect are only on your own screen. They disappear when you reload, and they do not change the real website.",
+              "zh": "用「檢查」改的東西只在你自己的螢幕上，重新整理就不見了，不會改到真正的網站。"
+            },
+            {
+              "en": "Use a school or family computer only with permission, and do not change its settings.",
+              "zh": "用學校或家裡的電腦要先得到同意，也不要更改設定。"
+            },
+            {
+              "en": "Look away from the screen every 20 minutes and let your eyes rest.",
+              "zh": "每看 20 分鐘螢幕，就把視線移開，讓眼睛休息一下。"
+            }
+          ],
+          "activities": [
+            {
+              "title_en": "Secret Messages in ASCII",
+              "title_zh": "用 ASCII 傳密碼信",
+              "materials": [
+                {
+                  "en": "A code table on the board: A = 65, B = 66, C = 67 … Z = 90",
+                  "zh": "黑板上的對照表：A＝65、B＝66、C＝67……Z＝90"
+                },
+                {
+                  "en": "Paper and a pencil for each pair",
+                  "zh": "每組一張紙、一枝鉛筆"
+                },
+                {
+                  "en": "Eight small cards or coins (optional), to use as switches",
+                  "zh": "八張小卡片或硬幣（可有可無），當成開關"
+                }
+              ],
+              "steps": [
+                {
+                  "en": "With a partner, choose a secret word of three or four capital letters. Do not show it to other pairs.",
+                  "zh": "兩人一組，選一個三到四個大寫字母的祕密單字，不要讓別組看到。"
+                },
+                {
+                  "en": "Look up the number of each letter in the table. For example, CAT is 67, 65, 84.",
+                  "zh": "在表上查出每個字母的編號。例如 CAT 是 67、65、84。"
+                },
+                {
+                  "en": "Write each number as eight bits, the way you learned in Lesson 1. 65 is 0100 0001.",
+                  "zh": "用第一課學的方法，把每個數寫成八個位元。65 是 0100 0001。"
+                },
+                {
+                  "en": "Trade papers with another pair. Turn their bits back into numbers, and the numbers back into letters.",
+                  "zh": "和另一組交換。把對方的位元變回數，再把數變回字母。"
+                }
+              ],
+              "tip_en": "Then ask: what if one pair had used a different table, with A = 1? The same bits would spell a different word, or nothing at all. That is what happens when a file is opened with the wrong code. In Taiwan’s junior high Information Technology curriculum, this lesson fits “Data representation, processing, and analysis” (資 D-IV-1 and 資 D-IV-2; the notes list sampling and the idea of encoding).",
+              "tip_zh": "接著問：如果有一組用的是另一張表（A＝1），會怎樣？同樣的位元會拼出另一個字，或者什麼都不是。這就是用錯編碼打開檔案時發生的事。對照十二年國教國中「資訊科技」的學習內容，這一課屬於「資料表示、處理及分析」（資 D-IV-1、資 D-IV-2；附錄的說明列有「取樣、量化」與「編碼的概念」）。"
+            },
+            {
+              "title_en": "Check It on Your Own Computer",
+              "title_zh": "在自己的電腦上驗證",
+              "materials": [
+                {
+                  "en": "A computer with a web browser such as Chrome, Edge, Firefox, or Safari",
+                  "zh": "一台有瀏覽器的電腦（Chrome、Edge、Firefox 或 Safari）"
+                },
+                {
+                  "en": "This page",
+                  "zh": "這一頁"
+                }
+              ],
+              "steps": [
+                {
+                  "en": "Open the browser’s developer tools and choose the Console tab. In Chrome, press Command+Option+J on a Mac, or Control+Shift+J on Windows.",
+                  "zh": "打開瀏覽器的開發人員工具，選「Console」（主控台）分頁。Chrome：Mac 按 Command＋Option＋J，Windows 按 Control＋Shift＋J。"
+                },
+                {
+                  "en": "Type 'A'.charCodeAt(0) and press Enter. The browser answers 65.",
+                  "zh": "輸入 'A'.charCodeAt(0) 再按 Enter，瀏覽器會回答 65。"
+                },
+                {
+                  "en": "Type '永'.codePointAt(0) and press Enter. It answers 27704. Now go the other way: String.fromCodePoint(27704).",
+                  "zh": "輸入 '永'.codePointAt(0) 再按 Enter，它會回答 27704。再反過來試：String.fromCodePoint(27704)。"
+                },
+                {
+                  "en": "Now find a color. Right-click any colored part of this page and choose Inspect. In the Styles panel, look for a color written as rgb(…) or as # followed by six characters.",
+                  "zh": "接著找一個顏色。在這一頁任何有顏色的地方按右鍵，選「檢查」。在 Styles（樣式）面板裡找寫成 rgb(…)，或是 # 後面接六個字元的顏色。"
+                }
+              ],
+              "tip_en": "A color written as #d62828 is the same three numbers in another form: d6 is 214, 28 is 40, and 28 is 40. That is the red of the apple in the model. Web developers read these numbers every day. In Safari you must first turn on the developer tools in Settings, and menu names differ a little between browsers.",
+              "tip_zh": "寫成 #d62828 的顏色，是同樣三個數的另一種寫法：d6 是 214，28 是 40，28 是 40——就是模型裡蘋果的紅。寫網站的人每天都在讀這些數。Safari 要先在設定裡打開開發人員工具；各家瀏覽器的選單名稱略有不同。"
+            }
+          ],
+          "links_head": {
+            "eyebrow": "Go Further · 延伸閱讀",
+            "en": "Where the bits came from, the character 永, and what comes next",
+            "zh": "位元從哪裡來、「永」這個字，以及下一課"
+          },
+          "links": [
+            {
+              "icon": "💡",
+              "k_en": "Previous Lesson · Lesson 1",
+              "k_zh": "上一課・第一課",
+              "en": "Why Do Computers Use Only 0 and 1?",
+              "zh": "電腦為什麼只用 0 和 1？",
+              "note_en": "The eight switches in this lesson come from here: how a row of on-and-off switches counts from 0 to 255.",
+              "note_zh": "這一課的八個開關就是從這裡來的：一排開和關的開關怎麼從 0 數到 255。",
+              "href": "/resources/classes/computers/zeros-and-ones/"
+            },
+            {
+              "icon": "🖌️",
+              "k_en": "Chinese Calligraphy · Lesson 3",
+              "k_zh": "書法・第三課",
+              "en": "Can One Character Teach You Every Stroke?",
+              "zh": "永字八法：一個字學會所有筆畫？",
+              "note_en": "To a computer, 永 is number 27,704. To a calligrapher, it is five strokes that hold eight ways of moving the brush.",
+              "note_zh": "對電腦來說，「永」是 27,704 號；對寫書法的人來說，它是五筆、裡面藏著八種用筆的方法。",
+              "href": "/resources/classes/calligraphy/eight-principles/"
+            },
+            {
+              "icon": "📷",
+              "k_en": "How Things Work · Lesson 12",
+              "k_zh": "萬物原理・第十二課",
+              "en": "How Does a Camera Take a Picture?",
+              "zh": "相機怎麼拍下照片？",
+              "note_en": "Where do a photo’s pixels come from? Follow the light through the lens to the sensor.",
+              "note_zh": "照片的像素是從哪裡來的？跟著光穿過鏡頭，走到感光元件。",
+              "href": "/resources/classes/how-things-work/camera/"
+            },
+            {
+              "icon": "🚦",
+              "k_en": "Next Lesson · Lesson 3",
+              "k_zh": "下一課・第三課",
+              "en": "How Does a Computer Make a Decision?",
+              "zh": "電腦怎麼做決定？",
+              "note_en": "So far the switches only hold numbers. Next: how a few switches wired together can answer AND, OR, and NOT.",
+              "note_zh": "到目前為止，開關只是用來存數。下一課要看：幾個開關接在一起，怎麼回答「而且」「或者」「不是」。",
+              "soon": true
+            }
+          ],
+          "sources_note_en": "Names, dates, and facts on this page were checked against these sources (October 2026); the numbers in the model are computed and tested",
+          "sources_note_zh": "本頁的人名、年代與事實依下列資料查證（2026 年 10 月）；模型裡的數字是自己算的，並有測試",
+          "sources": [
+            {
+              "en": "ASCII approved as the American standard on June 17, 1963; IBM alone used nine character sets; seven bits, 128 characters; 1010000 is P and 1110000 is p",
+              "zh": "ASCII 於 1963 年 6 月 17 日獲准成為美國標準；IBM 一家就用了九套字元集；七個位元、128 個字元；1010000 是 P、1110000 是 p",
+              "src": "Encyclopaedia Britannica, “ASCII”",
+              "url": "https://www.britannica.com/topic/ASCII"
+            },
+            {
+              "en": "“Unicode 18.0 adds 13,007 characters, for a total of 172,808 characters” (released September 16, 2026)",
+              "zh": "「Unicode 18.0 新增 13,007 個字元，總共 172,808 個字元」（2026 年 9 月 16 日發布）",
+              "src": "The Unicode Consortium, “Unicode 18.0.0”",
+              "url": "https://www.unicode.org/versions/Unicode18.0.0/"
+            },
+            {
+              "en": "A character encoding is a set of mappings between bytes and characters; the wrong encoding gives garbled text; UTF-8 is the most widely used way to represent Unicode text in web pages",
+              "zh": "字元編碼是位元組與字元之間的一組對應；用錯編碼會出現亂碼；UTF-8 是網頁上最常用的 Unicode 表示法",
+              "src": "W3C Internationalization, “Character encodings for beginners”",
+              "url": "https://www.w3.org/International/questions/qa-what-is-encoding"
+            },
+            {
+              "en": "“UTF-8 was designed, in front of my eyes, on a placemat in a New Jersey diner one night in September or so 1992”; “Ken designed it”",
+              "zh": "UTF-8 是 1992 年 9 月左右，在紐澤西一家小餐館的餐墊紙上設計出來的；設計者是 Ken Thompson",
+              "src": "Rob Pike, “UTF-8 history” (email of April 30, 2003), hosted by Markus Kuhn, University of Cambridge",
+              "url": "https://www.cl.cam.ac.uk/~mgk25/ucs/utf-8-history.txt"
+            },
+            {
+              "en": "UTF-8 uses sequences of 1 to 4 bytes; ASCII characters take one byte; characters from U+0800 to U+FFFF, which include 永 (U+6C38), take three",
+              "zh": "UTF-8 用 1 到 4 個位元組；ASCII 字元用一個；U+0800 到 U+FFFF 的字元（包含「永」U+6C38）用三個",
+              "src": "IETF, RFC 3629, “UTF-8, a transformation format of ISO 10646”",
+              "url": "https://www.rfc-editor.org/rfc/rfc3629"
+            },
+            {
+              "en": "永 is U+6C38 (decimal 27704; UTF-8 bytes E6 B0 B8)",
+              "zh": "「永」是 U+6C38（十進位 27704；UTF-8 位元組 E6 B0 B8）",
+              "src": "The Unicode Consortium, Unihan Database, U+6C38",
+              "url": "https://www.unicode.org/cgi-bin/GetUnihanData.pl?codepoint=6C38"
+            },
+            {
+              "en": "A pixel is the smallest unit of a video image with its own brightness and color; from a distance the pixels appear as a continuous image",
+              "zh": "像素是影像中有自己的亮度和顏色的最小單位；從遠處看，像素連成一張連續的圖",
+              "src": "Encyclopaedia Britannica, “pixel”",
+              "url": "https://www.britannica.com/technology/pixel"
+            },
+            {
+              "en": "The RGB model adds red, green, and blue light; red and green make yellow, all three make white; each pixel on a screen comprises three small dots",
+              "zh": "RGB 是把紅、綠、藍光加在一起；紅加綠是黃、三種全開是白；螢幕上每個像素由三個小點組成",
+              "src": "Encyclopaedia Britannica, “RGB color model”",
+              "url": "https://www.britannica.com/science/RGB-color-model"
+            },
+            {
+              "en": "On web pages, each of R, G, and B can be a number between 0 and 255",
+              "zh": "在網頁上，R、G、B 各可以是 0 到 255 之間的數",
+              "src": "MDN Web Docs, “rgb()”",
+              "url": "https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/rgb"
+            },
+            {
+              "en": "The CD was coinvented by Philips and Sony and introduced commercially in 1982; sampling means taking measurements of the wave; 44,100 times per second guarantees at least two measurements of any audible wave; the industry standard is 16 bits",
+              "zh": "CD 由飛利浦與索尼共同發明，1982 年上市；取樣就是對波做量測；每秒 44,100 次，保證人耳聽得到的每個波至少量到兩次；業界標準是 16 位元",
+              "src": "Encyclopaedia Britannica, “compact disc”",
+              "url": "https://www.britannica.com/technology/compact-disc"
+            },
+            {
+              "en": "Digital recording samples the wave at equal time intervals; to keep sounds up to 20 kilohertz, the limit of human hearing, it must sample at slightly above twice that frequency",
+              "zh": "數位錄音在相等的時間間隔對波取樣；要保留到 20 千赫（人耳聽力的上限），取樣頻率要比它的兩倍再高一點",
+              "src": "Encyclopaedia Britannica, “digital sound recording”",
+              "url": "https://www.britannica.com/technology/digital-sound-recording"
+            },
+            {
+              "en": "Emoji are “picture characters”; the Unicode Consortium has no control over how emoji appear on vendors’ platforms",
+              "zh": "表情符號是「圖畫字元」；各平台用什麼圖，Unicode 聯盟並不管",
+              "src": "The Unicode Consortium, “Emoji and Pictographs” FAQ",
+              "url": "https://www.unicode.org/faq/emoji_dingbats.html"
+            },
+            {
+              "en": "charCodeAt and codePointAt return a character’s number; “To inspect, right-click an element on a page and select Inspect”",
+              "zh": "charCodeAt 與 codePointAt 會回傳字元的編號；在頁面上的元素按右鍵選「檢查」（Inspect）",
+              "src": "MDN Web Docs, “String.prototype.codePointAt()”; Chrome for Developers, “Open Chrome DevTools”",
+              "url": "https://developer.chrome.com/docs/devtools/open"
+            },
+            {
+              "en": "Taiwan terms: pixel 像素, encoding 編碼, character 字元, sampling 取樣, resolution 解析度 (K–12 information terms)",
+              "zh": "台灣用語：pixel 像素、encoding 編碼、character 字元、sampling 取樣、resolution 解析度（高中以下資訊名詞等）",
+              "src": "國家教育研究院《樂詞網》",
+              "url": "https://terms.naer.edu.tw/search/?query_term=pixel&query_field=title&query_op=&match_type=phrase"
+            },
+            {
+              "en": "The six topics of Information Technology learning content (p. 10); 資 D-IV-1 and 資 D-IV-2 (pp. 10–11); the notes list sampling, quantization, and the idea of encoding (p. 43)",
+              "zh": "資訊科技學習內容的六個主題（第 10 頁）；資 D-IV-1 資料數位化之原理與方法、資 D-IV-2 數位資料的表示方法（第 10–11 頁）；附錄三的說明列有「取樣、量化」與「編碼的概念」（第 43 頁）",
+              "src": "教育部《十二年國民基本教育課程綱要 國民中學暨普通型高級中等學校 科技領域》（2018）",
+              "url": "https://www.naer.edu.tw/upload/1/16/doc/816/十二年國民基本教育課程綱要國民中學暨普通型高級中等學校-科技領域.pdf"
+            },
+            {
+              "en": "A = 65, a = 97, “0” = 48, “5” = 53; 永 = 27,704 = U+6C38, three bytes in UTF-8; 256 × 256 × 256 = 16,777,216; a 4,000 × 3,000 photo = 12,000,000 pixels = 36,000,000 bytes; 16 × 16 × 3 × 8 = 6,144 bits; 44,100 × 16 = 705,600 bits a second; #d62828 = 214, 40, 40",
+              "zh": "A＝65、a＝97、「0」＝48、「5」＝53；永＝27,704＝U+6C38，UTF-8 用三個位元組；256 × 256 × 256＝16,777,216；4,000 × 3,000 的照片＝1,200 萬個像素＝3,600 萬個位元組；16 × 16 × 3 × 8＝6,144 個位元；44,100 × 16＝每秒 705,600 個位元；#d62828＝214、40、40",
+              "src": "Our own arithmetic, checked by tools/computers/test/codes.test.mjs",
+              "url": "https://github.com/lukelin7429/twrses/blob/main/tools/computers/test/codes.test.mjs"
+            }
+          ]
         }
       ],
       "planned": [
-        {
-          "n": 2,
-          "icon": "🖼️",
-          "en": "How Do 0s and 1s Become Words, Pictures, and Sound?",
-          "zh": "0 和 1 怎麼變成文字、圖片和聲音？"
-        },
         {
           "n": 3,
           "icon": "🚦",

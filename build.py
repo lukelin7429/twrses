@@ -11478,7 +11478,7 @@ def build_cal_hub():
 _compj = os.path.join(ROOT, "data", "computers.json")
 COMP = json.load(open(_compj, encoding="utf-8")) if os.path.exists(_compj) else None
 COMP_BASE = "/resources/classes/computers/"
-_COMP_JS = {"bits": "comp-bits"}   # lab.kind → assets/js/<bundle>.js
+_COMP_JS = {"bits": "comp-bits", "pixels": "comp-pixels"}   # lab.kind → assets/js/<bundle>.js
 
 def _comp_ver():
     h = hashlib.md5()
@@ -11618,6 +11618,120 @@ def _comp_levels(lv):
   <p class="cp-lv-note">{html.escape(lv["note_en"])}<span class="zh">{html.escape(lv["note_zh"])}</span></p>
 </div>'''
 
+def comppixels_svg(size=56):
+    """第二課的課程卡小圖示：一格一格的像素（蘋果的一角），右下角一個字母 A。"""
+    cells = ["..gg.", ".rrg.", "rhrrr", "rrrrR", ".rrR."]
+    colr = {"r": "#d62828", "R": "#961820", "h": "#ff8c82", "g": "#38a048"}
+    out = []
+    for y, row in enumerate(cells):
+        for x, c in enumerate(row):
+            if c != ".":
+                out.append(f'<rect x="{6 + x * 8}" y="{6 + y * 8}" width="7" height="7" rx="1" fill="{colr[c]}"/>')
+    return (f'<svg class="comppixels-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">{"".join(out)}'
+            '<rect x="34" y="34" width="22" height="22" rx="5" fill="#f4ecd8"/>'
+            '<path d="M39.5 51 45 39l5.5 12M41.6 47h6.8" fill="none" stroke="#1b2440" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>')
+
+_COMP_CARD["pixels"] = comppixels_svg
+
+def render_comppixels_lab(lesson):
+    """第二課：像素牆、三根柱子與八個開關（assets/js/comp-pixels.js 綁這裡的 class；全部自繪示意）。"""
+    lab = lesson["lab"]
+    strip = "".join(
+        f'<button type="button" data-bit="{i}" aria-pressed="false" aria-label="Switch worth {2 ** i} · 代表 {2 ** i} 的開關">'
+        f'<small>{2 ** i}</small><b>0</b></button>' for i in range(7, -1, -1))
+    chans = [("0", "R", "Red", "紅"), ("1", "G", "Green", "綠"), ("2", "B", "Blue", "藍")]
+    rows = "".join(
+        f'<div class="cp-chrow cp-chrow-{k.lower()}"><button type="button" data-chan="{i}" aria-pressed="{"true" if i == "0" else "false"}" '
+        f'aria-label="Show the switches for {en.lower()} · 開關顯示{zh}色">{k}<small>{zh}</small></button>'
+        f'<input type="range" min="0" max="255" step="1" value="0" data-rgb="{i}" aria-label="{en}, 0 to 255 · {zh}，0 到 255">'
+        f'<b class="cp-ch-v">0</b></div>' for i, k, en, zh in chans)
+    views = [("far", "Far", "遠看"), ("all", "All", "全景"), ("wall", "Close", "近看")]
+    vb = "".join(f'<button type="button" data-view="{k}" aria-pressed="{"true" if k == "all" else "false"}">{en}<small>{zh}</small></button>' for k, en, zh in views)
+    tg = _lab_toggles([("labels", "Labels", "標示", True)])
+    return f'''<div class="astro-lab cp-lab cp-px-lab rvl" data-comppixels-lab>
+  <div class="al-stage">
+    <div class="al-space">
+      <canvas class="al-space-cv" aria-label="3D model of a wall of 256 colored squares that make a picture of an apple, three bars for the red, green, and blue of one square, and eight switches · 256 個彩色方塊拼成一顆蘋果的像素牆、代表其中一格紅綠藍的三根柱子，以及八個開關的 3D 模型"></canvas>
+      <div class="al-labels" aria-hidden="true"></div>
+      <div class="cp-cams" role="group" aria-label="View · 角度">{vb}</div>
+      <p class="al-hint">Tap a square, a bar, or a switch · 點方塊、柱子或開關　Drag to turn · 拖曳旋轉</p>
+      <button type="button" class="al-home" title="Reset view · 重設視角" aria-label="Reset view · 重設視角">&#8634;</button>
+      <p class="al-nogl-msg">This 3D model needs WebGL, which this browser does not support. The small picture, the sliders, and the switch buttons below still work, and so do the reading and the activities.<br><span class="zh">這個瀏覽器不支援 WebGL，無法顯示 3D 模型；下面的小圖、滑桿和開關按鈕照樣能用，課文和活動也都能用。</span></p>
+    </div>
+    <aside class="al-sky cp-aside">
+      <p class="al-sky-k">Pick a pixel · 選一個像素</p>
+      <div class="cp-px-top">
+        <canvas class="cp-px-map" width="192" height="192" tabindex="0" aria-label="The picture, 16 by 16 pixels. Click a square or use the arrow keys to pick a pixel · 16 × 16 像素的圖，點一格或用方向鍵選一個像素"></canvas>
+        <div class="cp-px-info"><span class="cp-px-sw" aria-hidden="true"></span><p class="cp-px-pos"></p><p class="cp-px-hex"></p></div>
+      </div>
+      <div class="cp-chrows">{rows}</div>
+      <p class="al-sky-k cp-k2">Eight switches for <span class="cp-chan-name">red</span> · <span class="cp-chan-name zh">紅</span>色的八個開關</p>
+      <div class="cp-strip" role="group" aria-label="Eight switches; the rightmost is worth 1 · 八個開關，最右邊代表 1">{strip}</div>
+      <p class="cp-binw"><span>The same eight bits · 同樣八個位元</span><b class="cp-bin">0000 0000</b></p>
+      <dl class="cp-three">
+        <div><dt>As a number · 當成數</dt><dd class="cp-as-num">0</dd></div>
+        <div><dt>As a letter (ASCII) · 當成字</dt><dd class="cp-as-char"></dd></div>
+        <div><dt>As a color · 當成顏色</dt><dd class="cp-as-amt"></dd></div>
+      </dl>
+      <p class="cp-msg" aria-live="polite"></p>
+      <div class="cp-btns"><button type="button" class="cp-btn-d cp-reset">Reset the picture · 還原整張圖</button></div>
+    </aside>
+  </div>
+  <div class="al-controls">
+    <div class="al-row al-row-main">
+      <p class="cp-total">{html.escape(lab["total_en"])}<span class="zh">{html.escape(lab["total_zh"])}</span></p>
+      <div class="al-row al-toggles">{tg}</div>
+    </div>
+  </div>
+  {_lab_foot(lab)}
+  <p class="cp-credit">{lab["credit_html"]}</p>
+</div>'''
+
+def _comp_chars(ch):
+    quick = "".join(f'<button type="button" class="cp-btn" data-text="{html.escape(t)}">{html.escape(t)}</button>' for t in ch["quick"])
+    tips = "".join(f'<li>{html.escape(t["en"])}<span class="zh">{html.escape(t["zh"])}</span></li>' for t in ch["tips"])
+    return f'''<div class="cp-chars rvl" data-cp-chars>
+  <label class="cp-ch-in"><span>Type up to eight characters · 打幾個字（最多八個）</span>
+    <input type="text" class="cp-ch-input" value="{html.escape(ch["start"])}" maxlength="24" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false"></label>
+  <div class="cp-btns cp-ch-quick"><span class="cp-k">Try · 試試</span>{quick}</div>
+  <div class="cp-ch-list" aria-live="polite"></div>
+  <p class="cp-ch-msg"></p>
+</div>
+<ul class="cp-tips rvl">{tips}</ul>'''
+
+def _comp_draw(dr):
+    arts = [("heart", "Heart", "愛心"), ("smile", "Smile", "笑臉"), ("letterA", "Letter A", "字母 A")]
+    ab = "".join(f'<button type="button" class="cp-btn" data-art="{k}">{en} · {zh}</button>' for k, en, zh in arts)
+    tips = "".join(f'<li>{html.escape(t["en"])}<span class="zh">{html.escape(t["zh"])}</span></li>' for t in dr["tips"])
+    return f'''<div class="cp-draw rvl" data-cp-draw>
+  <div class="cp-dr-left">
+    <div class="cp-dr-grid" role="group" aria-label="An 8 by 8 grid; tap or drag to turn squares on and off · 8 × 8 的格子，點或拖曳來塗黑或擦掉"></div>
+    <div class="cp-btns">{ab}<button type="button" class="cp-btn cp-dr-inv">Invert · 反白</button><button type="button" class="cp-btn cp-dr-clear">Clear · 清空</button></div>
+  </div>
+  <div class="cp-dr-right">
+    <p class="cp-k">Each row is one byte · 每一列是一個位元組</p>
+    <ol class="cp-dr-rows"></ol>
+    <p class="cp-dr-msg" aria-live="polite"></p>
+  </div>
+</div>
+<ul class="cp-tips rvl">{tips}</ul>'''
+
+def _comp_sound(sd):
+    bits = [("1", "1 bit", "2 種高度"), ("2", "2 bits", "4 種"), ("3", "3 bits", "8 種"), ("4", "4 bits", "16 種"), ("8", "8 bits", "256 種")]
+    bb = "".join(f'<button type="button" data-sbits="{k}" aria-pressed="{"true" if k == "3" else "false"}">{en}<small>{zh}</small></button>' for k, en, zh in bits)
+    return f'''<div class="cp-sound rvl" data-cp-sound>
+  <svg class="cp-sd-svg" viewBox="0 0 640 240" role="img" aria-label="A smooth sound wave with the measured samples drawn as steps · 一條平滑的聲波，上面疊著量到的階梯"></svg>
+  <ul class="cp-lv-key"><li><i class="k-wave"></i>The real wave · 真正的波</li><li><i class="k-step"></i>What the computer keeps · 電腦記下來的</li></ul>
+  <div class="cp-sd-ctl">
+    <label class="cp-lv-ctl"><span>Measurements in this wave · 這個波量幾次 <b class="cp-sd-nout">16</b></span>
+      <input type="range" class="cp-sd-n cp-lv-noise" min="4" max="64" step="1" value="16" aria-label="How many times to measure this wave · 這個波量幾次"></label>
+    <div><p class="cp-k">Bits for each measurement · 每次用幾個位元記</p><div class="cp-seg-l" role="group" aria-label="Bits for each measurement · 每次用幾個位元記">{bb}</div></div>
+  </div>
+  <p class="cp-sd-list"><span>The numbers that are saved · 存下來的數</span><code class="cp-sd-nums"></code></p>
+  <p class="cp-lv-msg cp-sd-msg" aria-live="polite"></p>
+  <p class="cp-lv-note">{html.escape(sd["note_en"])}<span class="zh">{html.escape(sd["note_zh"])}</span></p>
+</div>'''
+
 def _comp_flat():
     return [(ui, u, l) for ui, u in enumerate(COMP["units"]) for l in u["lessons"]]
 
@@ -11645,7 +11759,7 @@ def build_comp_lesson(ui, unit, lesson):
     reading_html = render_basic_unit(1, unit_dict, level="comp", audio_rel="", pdf_rel="")
     lab = lesson["lab"]
     kind = lab["kind"]
-    lab_html = {"bits": render_compbits_lab}[kind](lesson)
+    lab_html = {"bits": render_compbits_lab, "pixels": render_comppixels_lab}[kind](lesson)
 
     def sec(key, fn):
         d = lesson[key]
@@ -11654,7 +11768,7 @@ def build_comp_lesson(ui, unit, lesson):
     if lesson.get("parts"):
         cards = "".join(
             f'<article class="ph-card cp-part rvl">'
-            f'<div class="ph-ico cp-ico" aria-hidden="true"><canvas class="cp-mini" data-bits="{pt["bits"]}"></canvas></div>'
+            f'<div class="ph-ico cp-ico" aria-hidden="true">{f'<canvas class="cp-mini" data-bits="{pt["bits"]}"></canvas>' if pt.get("bits") else pt["icon"]}</div>'
             f'<h3>{html.escape(pt["en"])}<span class="zh">{html.escape(pt["zh"])}</span></h3>'
             f'<p class="ph-meta"><span>{html.escape(pt["meta_en"])} · {html.escape(pt["meta_zh"])}</span></p>'
             f'<p class="ph-when">{html.escape(pt["text_en"])}<br><span class="zh">{html.escape(pt["text_zh"])}</span></p>'
@@ -11666,6 +11780,9 @@ def build_comp_lesson(ui, unit, lesson):
     if lesson.get("fingers"): secs.append(sec("fingers", _comp_fingers))
     if lesson.get("guess"): secs.append(sec("guess", _comp_guess))
     if lesson.get("levels"): secs.append(sec("levels", _comp_levels))
+    if lesson.get("chars"): secs.append(sec("chars", _comp_chars))
+    if lesson.get("draw"): secs.append(sec("draw", _comp_draw))
+    if lesson.get("sound"): secs.append(sec("sound", _comp_sound))
     if lesson.get("culture_cards"):
         cu = lesson["culture_cards"]
         cc = "".join(

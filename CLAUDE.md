@@ -555,9 +555,9 @@
 ## 電腦概論 How Computers Work（/resources/classes/computers/）— 架構照書法，3D 是「位元引擎」
 
 - 內容：`data/computers.json`：`units[]`（四個單元：電腦的語言 0 和 1／機器裡面／軟體／連線、安全與 AI）底下 `lessons[]` 與 `planned[]`（「製作中」卡，做一課就從 planned 移到 lessons）；課次 `n` 全系列連號（1–16），系列首頁自己算「x of 16」。每課欄位同書法，不同的：`parts[].bits`（卡片小圖的一排燈，例如 `"0111"`）、`fingers`／`guess`／`levels`（三個不需要 WebGL 的小互動，各有 `eyebrow/en/zh/lead_en/lead_zh`）、`tricks_head`、`safety_head`、`sources_note_en/zh`（標題文字放資料，不寫死在 build.py）。`links` 可放 `soon: true` 的預告卡。
-- 頁面：`build.py`「電腦概論」區塊的 `build_comp_hub()`（單元導覽＋`.lc-row` 橫向課程卡；系列小圖示 `comphub_svg()`＝螢幕上兩排小燈，第一課卡 `compbits_svg()`；`_COMP_CARD` 把 `card` 對到圖示函式）/ `build_comp_lesson()`；reading、迷思、口訣、活動沿用 `render_basic_unit()`、`_sci_myths()`、`_sci_tricks()`、`_astro_activity()`。「閱讀與經典」頁有入口卡（💻）。段落順序：3D → 英文閱讀 → 模型卡 → 五根手指 → 猜猜這是多少 → 十種亮度 → 文化卡 → 迷思 → 口訣 → 動手之前 → 活動 → 延伸閱讀 → 資料出處。
+- 頁面：`build.py`「電腦概論」區塊的 `build_comp_hub()`（單元導覽＋`.lc-row` 橫向課程卡；系列小圖示 `comphub_svg()`＝螢幕上兩排小燈，第一課卡 `compbits_svg()`；`_COMP_CARD` 把 `card` 對到圖示函式）/ `build_comp_lesson()`；reading、迷思、口訣、活動沿用 `render_basic_unit()`、`_sci_myths()`、`_sci_tricks()`、`_astro_activity()`。「閱讀與經典」頁有入口卡（💻）。段落順序：3D → 英文閱讀 → 模型卡 → 五根手指 → 猜猜這是多少 → 十種亮度 → 打字看編號 → 8 × 8 像素畫 → 聲音取樣 → 文化卡 → 迷思 → 口訣 → 動手之前 → 活動 → 延伸閱讀 → 資料出處。
 - 樣式：共用 `assets/css/astro.css`，本系列專屬的在 `assets/css/computers.css`（**class 前綴一律 `cp-`**；晶片的 chips.css 也用 `cp-`，兩支只各自載在自己的系列，不會同時出現——不要把其中一支載到另一個系列的頁面）；`_comp_head()` 只在本系列頁面載入。
-- 3D：**原始碼在 `tools/computers/src/`**（自己的 package.json，three 0.186.1、esbuild 0.25.10），bundle 一律 `comp-*`；`lab.kind` → bundle 對照在 `build.py` 的 `_COMP_JS`（`bits` → `comp-bits`）。`labeler`、`lazyBoot`、`canvasTex` 在 `tools/computers/src/common.js`（從 tools/callig 抄來）。**不要 import tools/callig、tools/chips、tools/science、tools/astro 的檔案**（esbuild 會打包進第二份 three.js）。新增一課＝`src/comp-<名>.js`＋package.json 的 build 加入口＋`_COMP_JS` 加一筆＋`build_comp_lesson()` 的 `lab_html` 對照加一筆。
+- 3D：**原始碼在 `tools/computers/src/`**（自己的 package.json，three 0.186.1、esbuild 0.25.10），bundle 一律 `comp-*`；`lab.kind` → bundle 對照在 `build.py` 的 `_COMP_JS`（`bits` → `comp-bits`、`pixels` → `comp-pixels`）。`labeler`、`lazyBoot`、`canvasTex` 在 `tools/computers/src/common.js`（從 tools/callig 抄來）。**不要 import tools/callig、tools/chips、tools/science、tools/astro 的檔案**（esbuild 會打包進第二份 three.js）。新增一課＝`src/comp-<名>.js`＋package.json 的 build 加入口＋`_COMP_JS` 加一筆＋`build_comp_lesson()` 的 `lab_html` 對照加一筆。
   ```
   cd tools/computers && npm ci && npm run build && npm test
   ```
@@ -572,6 +572,14 @@
   - 相機距離用 `fit(w, h)` 依畫面比例算；手機上 3D 區是 16:10。
   - 除錯：`document.querySelector('[data-compbits-lab]').__lab`（`set(n, 立刻?)`、`toggle(i)`、`addOne()`、`setPlaying(bool)`、`setSpeed(0.5|1|4)`、`demo('one'|'places'|'carry'|'max')`、`run(秒)` 直接把時間往前推、`goCam()`、`render()`、`value()`）。
   - 五根手指：拇指＝1 在右邊（右手、手心朝自己），和燈的方向一致。**二進位的 4 是只舉中指**，所以課文與「動手之前」都寫「手平放桌上、手指稍微翹起來」，畫面上的手也不是寫實的手勢。
+- 第二課編碼（`comp-pixels.js`，`lab.kind = "pixels"`，`data-comppixels-lab`；slug `words-pictures-sound`）：一個機制——**大家約好一張對照表（編碼）**：同一排位元，照不同的表讀，就是數、字或顏色。
+  - 場景：左後方像素牆（16 × 16 的 `InstancedMesh`，**MeshBasicMaterial**＝顏色不受燈光影響，`setRGB(…, 'srgb')`；圖是 `codes.js` 的 `PICTURE`＋`PALETTE`，自己畫的蘋果）、右後方三根柱子（高度＝0–255）＋一塊色塊（三個數混出來的顏色，白線連到被選的像素）、前面是第一課的 `makeBitRow`（顯示被選像素、被選那一色的八個位元；撥開關就改顏色）。
+  - 右側欄：小地圖（2D canvas，點或方向鍵選像素——沒有 WebGL 也能用）、三條滑桿（`data-rgb`）、`data-chan` 選開關顯示哪一色、位元列、「同樣八個位元，三種讀法」（當成數／當成 ASCII 字／當成顏色的百分比）。`data-view="far|all|wall"`。
+  - 四張卡 `data-lab-demo`：`far`（遠看 → 走近變成方塊）、`rgb`（蘋果的紅 214/40/40、葉子的綠 56/160/72）、`switch`（紅 0 → 255 → 214）、`same`（設成 65＝0100 0001＝A＝25% 紅）。卡片小圖用資料裡的 `icon`（emoji），第一課的卡用 `bits`。
+  - `src/codes.js`（純函式，`test/codes.test.mjs`）：`charInfo`（**照碼位走，不是照 UTF-16 單位**；UTF-8 位元組用 TextEncoder）、`asciiChar`、`parsePicture`、`pictureBits`（16 × 16 × 3 × 8＝6,144）、`colorCount`（16,777,216）、`rgbHex`、`rowsToBytes`／`bytesToRows`（最左邊那格是 128）、`ART`（愛心、笑臉、字母 A）、`wave`／`sampleWave`（示意的聲波，不是錄音）、`audioBits`。課文裡的數字（A＝65、永＝27704＝U+6C38＝3 個位元組、#d62828＝214/40/40、4000 × 3000 ＝ 3,600 萬位元組、44,100 × 16＝705,600）都在測試裡。
+  - `src/codes2d.js`：`initChars`（`[data-cp-chars]`，最多八個字）、`initDraw`（`[data-cp-draw]`，8 × 8、可拖曳塗）、`initSound`（`[data-cp-sound]`，SVG）。除錯：`el.__chars.set('永')`、`el.__draw.set([8 個數])`／`.bytes()`、`el.__sound.set(次數, 位元)`。
+  - 除錯：`document.querySelector('[data-comppixels-lab]').__lab`（`select(i)`、`setChan(0|1|2)`、`setValue(n)`、`setRGB(k, v)`、`setView('far'|'all'|'wall', 立刻?)`、`reset()`、`demo(...)`、`run(秒)`、`goCam()`、`render()`）。
+  - 查證時改掉的：CD「兩個聲道」沒有開得到的出處 → 只寫每秒 44,100 次 × 16 位元；「大部分中文字 3 個位元組」改成「像『永』這樣的常用中文字」（RFC 3629 的範圍表＋Unihan）；Unicode 字元數寫當時最新版（18.0，172,808，**之後出新版要改課文與文化卡**）；Big5（1984、資策會、13,053 字，「五大」是五套軟體不是五家公司）查到了但沒放進課文。
 - 查證過的事（出處在每課 `sources`）與**沒寫的事**記在 Obsidian 的系列索引；名詞一律台灣用語（位元、位元組、二進位、處理器、記憶體、電晶體），不用「比特、字節、內存」。
 - 和既有系列互相連結：第一課的 `links` 連晶片第二課 `/resources/classes/semiconductors/transistor/`（開關本身）與萬物原理第八課 `/resources/classes/how-things-work/computer-memory/`（0 和 1 存在哪裡），再放下一課的預告卡（`soon: true`）。
 - 🔊 錄音：`python3 tools/gen_audio.py --page resources/classes/computers/<slug> --out audio/say-<slug>` → `python3 tools/upload_say_dir.py assets/data/say/computers-<slug>.json audio/say-<slug>`（manifest 命名 `computers-<slug>`；`gen_audio.py` 的 SHORT_PAGES 已加本系列）。worktree 裡先把 `~/Developer/repos/twrses/tools/.r2_uploaded_cache.txt` 複製過來，做完 `sort -u` 合併回去。
