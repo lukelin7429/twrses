@@ -532,6 +532,34 @@
 
 ---
 
+## 電腦概論 How Computers Work（/resources/classes/computers/）— 架構照書法，3D 是「位元引擎」
+
+- 內容：`data/computers.json`：`units[]`（四個單元：電腦的語言 0 和 1／機器裡面／軟體／連線、安全與 AI）底下 `lessons[]` 與 `planned[]`（「製作中」卡，做一課就從 planned 移到 lessons）；課次 `n` 全系列連號（1–16），系列首頁自己算「x of 16」。每課欄位同書法，不同的：`parts[].bits`（卡片小圖的一排燈，例如 `"0111"`）、`fingers`／`guess`／`levels`（三個不需要 WebGL 的小互動，各有 `eyebrow/en/zh/lead_en/lead_zh`）、`tricks_head`、`safety_head`、`sources_note_en/zh`（標題文字放資料，不寫死在 build.py）。`links` 可放 `soon: true` 的預告卡。
+- 頁面：`build.py`「電腦概論」區塊的 `build_comp_hub()`（單元導覽＋`.lc-row` 橫向課程卡；系列小圖示 `comphub_svg()`＝螢幕上兩排小燈，第一課卡 `compbits_svg()`；`_COMP_CARD` 把 `card` 對到圖示函式）/ `build_comp_lesson()`；reading、迷思、口訣、活動沿用 `render_basic_unit()`、`_sci_myths()`、`_sci_tricks()`、`_astro_activity()`。「閱讀與經典」頁有入口卡（💻）。段落順序：3D → 英文閱讀 → 模型卡 → 五根手指 → 猜猜這是多少 → 十種亮度 → 文化卡 → 迷思 → 口訣 → 動手之前 → 活動 → 延伸閱讀 → 資料出處。
+- 樣式：共用 `assets/css/astro.css`，本系列專屬的在 `assets/css/computers.css`（**class 前綴一律 `cp-`**；晶片的 chips.css 也用 `cp-`，兩支只各自載在自己的系列，不會同時出現——不要把其中一支載到另一個系列的頁面）；`_comp_head()` 只在本系列頁面載入。
+- 3D：**原始碼在 `tools/computers/src/`**（自己的 package.json，three 0.186.1、esbuild 0.25.10），bundle 一律 `comp-*`；`lab.kind` → bundle 對照在 `build.py` 的 `_COMP_JS`（`bits` → `comp-bits`）。`labeler`、`lazyBoot`、`canvasTex` 在 `tools/computers/src/common.js`（從 tools/callig 抄來）。**不要 import tools/callig、tools/chips、tools/science、tools/astro 的檔案**（esbuild 會打包進第二份 three.js）。新增一課＝`src/comp-<名>.js`＋package.json 的 build 加入口＋`_COMP_JS` 加一筆＋`build_comp_lesson()` 的 `lab_html` 對照加一筆。
+  ```
+  cd tools/computers && npm ci && npm run build && npm test
+  ```
+- **位元引擎（第一～四課共用，只換幾位、擺在哪裡）**：
+  - `src/bits.js`（純函式，`test/bits.test.mjs`）：**位元陣列索引 0＝最右邊那一位**。`placeValue`、`toBits`／`fromBits`、`maxValue`（8 位＝255、5 位＝31、10 位＝1023）、`countStates`、`terms`／`sumText`（「8 + 4 + 1 = 13」，第二個參數換加號，中文用「＋」）、`bitString`（「0000 1101」）、`rippleSteps`／`increment`（加一：由右往左一位一位，是 1 就變 0 並進位、是 0 就變 1 結束；全 1 時 `overflow`）、`mulberry32`（可重現亂數）、`makeRound`（小測驗的一題：答案＋四個不重複選項，干擾項是「左右讀反」「只數亮幾盞」「差一位」）、`levelValues`／`margin`／`readLevel`／`countMisreads`（十段亮度 vs 開關的雜訊示意）。**課文裡的每個數字都寫進測試**（255、256、31、1023、65535、2³²、從 0 數到 255 各位翻幾次＝255/127/63/31/15/7/3/1）。
+  - `src/bits3d.js`：`makeBitRow({ n, spacing, plates })` → 一塊木板上 n 組「燈泡（後）＋撥桿開關（前）＋位值牌（最前，canvas 貼圖）」。`set(i, on, instant)`、`get(i)`、`hit(raycaster)`（每一位有一個看不見的大方塊，手指點得到）、`hover(i)`、`carry(i, 秒)`（青色小球從第 i 位跳到 i+1；i＝n−1 時往左飛出去＝溢位）、`carryAt`（小球現在的位置，標籤用）、`setPlates(v)`、`update(dt)`。撥桿往後倒（朝燈泡）＝開、紅鈕變綠。
+  - `src/bits2d.js`：`initFingers`（`[data-cp-fingers]`）、`initGuess`（`[data-cp-guess]`，八題：4 位 ×3、5 位 ×3、8 位 ×2，記第一次就答對的題數）、`initLevels`（`[data-cp-levels]`，兩條線用同一顆亂數種子＝同樣的雜訊）、`drawMinis`（`canvas.cp-mini[data-bits]`）。除錯：`el.__fingers.set(n)`、`el.__guess.start(seed)／answer()／next()`、`el.__levels.set(百分比)`。
+- 第一課 0 和 1（`comp-bits.js`，`lab.kind = "bits"`，`data-compbits-lab`；slug `zeros-and-ones`）：一個機制——**開和關最不容易弄錯；一排開關就能數很大的數**。八組開關與燈泡，最右邊是 1，往左 2、4、8…128。
+  - **控制器不靠 WebGL**：`state.bits`、進位的時間軸（`ripple`）、自動往上數、卡片劇本（`script`）都在 `step(dt)` 裡；3D（`make3D()`）只是其中一個畫面。瀏覽器沒有 WebGL 時 `view` 是 null、加 `al-nogl`，右邊的數字、位元列按鈕（`.cp-strip [data-bit]`）、+1、往上數照樣能用（computers.css 把 astro.css「al-nogl 時藏起側欄與控制列」的規則蓋回來）。
+  - 加一時數字先不變（`.cp-carrying` 變淡）、等進位傳完（`settle()`）才更新並說明「動了幾個開關」；`HOP`＝1 倍速時傳一位 0.45 秒、`GAP`＝自動數時兩次加一之間 0.75 秒；速度 0.5／1／4。使用者一動手（點開關、+1、歸零）就取消自動數與卡片劇本。
+  - 四張卡 `data-lab-demo`：`one`（最右邊開、關、開）、`places`（由右往左一次亮一盞）、`carry`（127 → 慢動作加一，八個開關全動）、`max`（255 → 加一溢位）。
+  - 相機距離用 `fit(w, h)` 依畫面比例算；手機上 3D 區是 16:10。
+  - 除錯：`document.querySelector('[data-compbits-lab]').__lab`（`set(n, 立刻?)`、`toggle(i)`、`addOne()`、`setPlaying(bool)`、`setSpeed(0.5|1|4)`、`demo('one'|'places'|'carry'|'max')`、`run(秒)` 直接把時間往前推、`goCam()`、`render()`、`value()`）。
+  - 五根手指：拇指＝1 在右邊（右手、手心朝自己），和燈的方向一致。**二進位的 4 是只舉中指**，所以課文與「動手之前」都寫「手平放桌上、手指稍微翹起來」，畫面上的手也不是寫實的手勢。
+- 查證過的事（出處在每課 `sources`）與**沒寫的事**記在 Obsidian 的系列索引；名詞一律台灣用語（位元、位元組、二進位、處理器、記憶體、電晶體），不用「比特、字節、內存」。
+- 和既有系列互相連結：第一課的 `links` 連晶片第二課 `/resources/classes/semiconductors/transistor/`（開關本身）與萬物原理第八課 `/resources/classes/how-things-work/computer-memory/`（0 和 1 存在哪裡），再放下一課的預告卡（`soon: true`）。
+- 🔊 錄音：`python3 tools/gen_audio.py --page resources/classes/computers/<slug> --out audio/say-<slug>` → `python3 tools/upload_say_dir.py assets/data/say/computers-<slug>.json audio/say-<slug>`（manifest 命名 `computers-<slug>`；`gen_audio.py` 的 SHORT_PAGES 已加本系列）。worktree 裡先把 `~/Developer/repos/twrses/tools/.r2_uploaded_cache.txt` 複製過來，做完 `sort -u` 合併回去。
+- 截圖：`tools/astro/scripts/shot.mjs` 寫死啟動系統的 Google Chrome；Luke 的機器上要改用 `~/.local/bin/headless-chrome`（複製一份到 scratchpad、把路徑換掉再跑），不要直接啟動 `/Applications/Google Chrome.app`。
+- 課程規劃在 Obsidian：`第二大腦/創作庫/電腦概論課程規劃（twrses）.md`（四單元十六課、待查證清單）；系列索引 `第二大腦/英文學習/電腦概論（twrses.org）.md`（課程清單、維護備忘、下一課的交接指令）。
+
+---
+
 ## Build / Deploy
 ```
 python3 build.py        # BASE=/twrses → 服務於 lukelin7429.github.io/twrses/ 或 www.twrses.org

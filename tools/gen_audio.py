@@ -39,7 +39,7 @@ EN_ONLY_PAGES = ("resources/classes/poetry",)
 # enough context, and it is the voice chosen for them.
 SHORT_PAGES = ("resources/classes/philosophy", "resources/booklets", "resources/classes/astronomy", "resources/classes/human-body",
                "resources/classes/how-things-work", "resources/classes/semiconductors",
-               "resources/classes/calligraphy")
+               "resources/classes/calligraphy", "resources/classes/computers")
 SHORT_WORDS = 3
 
 

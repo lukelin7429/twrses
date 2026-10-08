@@ -1,0 +1,769 @@
+{
+  "title_en": "How Computers Work",
+  "title_zh": "電腦概論",
+  "eyebrow": "How Computers Work · 電腦概論",
+  "lead_en": "We use computers every day, but how do they really do it? This series starts with a single switch and climbs, one question at a time, to programs, the internet, and AI.",
+  "lead_zh": "電腦天天在用，可是它到底怎麼做到的？這個系列從一個開關講起，一次回答一個問題，一路講到程式、網路和 AI。",
+  "intro": [
+    {
+      "en": "The whole series is one building that goes up floor by floor: bits, then logic, then the machine, then programs, then networks and AI. Each lesson stands on the one before it and explains a single idea, with a 3D model you can play with and a short English reading, with Chinese a tap away.",
+      "zh": "整個系列像一棟一層一層往上蓋的樓：位元、邏輯、機器、程式，再到網路與 AI。每一課都站在上一課上面，只講清楚一件事：有一個可以動手玩的 3D 模型，再讀一篇英文短文把它說明白，中文翻譯隨點隨看。"
+    },
+    {
+      "en": "Every lesson also has one thing you can check on your own computer, so you can see that what the lesson says is real. Names, dates, and numbers are checked against the sources listed at the bottom of each lesson, and the models say plainly where a real computer is different.",
+      "zh": "每一課還有一件可以在自己電腦上動手驗證的事，親眼看到課文講的是真的。人名、年代和數字都依每課最下方列出的資料查證；模型和真的電腦哪裡不一樣，也會說清楚。"
+    }
+  ],
+  "units": [
+    {
+      "key": "bits",
+      "title_en": "The Language of Computers: 0 and 1",
+      "title_zh": "電腦的語言：0 和 1",
+      "blurb_en": "Why a computer uses only two digits, how those digits turn into words, pictures, and sound, and how a few simple switches can make decisions and add numbers.",
+      "blurb_zh": "電腦為什麼只用兩個數字、這兩個數字怎麼變成文字、圖片和聲音，以及幾個簡單的開關怎麼做決定、做加法。",
+      "lessons": [
+        {
+          "n": 1,
+          "slug": "zeros-and-ones",
+          "title": "Why Do Computers Use Only 0 and 1?",
+          "title_zh": "電腦為什麼只用 0 和 1？",
+          "level": "入門 · Beginner",
+          "icon": "💡",
+          "card": "bits",
+          "blurb_en": "Flip eight switches in 3D and watch a row of light bulbs count from 0 to 255. Count to 31 on one hand, read numbers written in lights, and see why on and off are so hard to mix up.",
+          "blurb_zh": "在 3D 裡撥八個開關，看一排燈泡從 0 數到 255。用一隻手數到 31、讀出用燈寫的數字，再看看為什麼「開」和「關」最不容易弄錯。",
+          "big_idea_en": "A computer is built from switches that are either off (0) or on (1). Two states are the hardest to mix up, and a row of switches can still count to very large numbers, because each switch is worth twice the one to its right.",
+          "big_idea_zh": "電腦是用開關做成的，每個開關不是關（0）就是開（1）。兩種狀態最不容易弄錯；而一排開關照樣能數到很大的數，因為每個開關代表的數都是右邊那一個的兩倍。",
+          "lab": {
+            "kind": "bits",
+            "eyebrow": "3D Model · 3D 模型",
+            "title_en": "Eight Switches, Eight Lights",
+            "title_zh": "八個開關，八盞燈",
+            "how_en": "Tap any switch to flip it, and its light turns on or off. The switch on the far right is worth 1, and each one to the left is worth double: 2, 4, 8, and on up to 128. The panel adds up the lights that are on. Press +1 to add one, or Count up to keep adding, and watch the carry jump from right to left like falling dominoes.",
+            "how_zh": "點任何一個開關把它撥過去，它的燈就亮或滅。最右邊的開關代表 1，往左每一個加倍：2、4、8，一直到 128。右邊會把亮著的燈加起來。按「+1」加一，或按「往上數」一直加，看進位像骨牌一樣從右往左跳過去。",
+            "legend": [
+              {
+                "cls": "cpon",
+                "en": "Light on: this place counts (1)",
+                "zh": "燈亮：這一位算進去（1）"
+              },
+              {
+                "cls": "cpoff",
+                "en": "Light off: this place does not count (0)",
+                "zh": "燈滅：這一位不算（0）"
+              },
+              {
+                "cls": "cpsw",
+                "en": "Switch lever: red knob toward you is off, green knob toward the bulb is on",
+                "zh": "撥桿：紅色朝你這邊是關，綠色倒向燈泡是開"
+              },
+              {
+                "cls": "cpcarry",
+                "en": "Teal ball: a carry moving one place to the left",
+                "zh": "青色小球：往左進一位"
+              }
+            ],
+            "scale_en": "A teaching model. A real computer has no light bulbs and nobody flips its switches by hand: the switches are transistors on a chip, far too small to see, and they are turned on and off by electricity. The carry is slowed down here so that you can watch it. The numbers are exact: eight switches show every whole number from 0 to 255.",
+            "scale_zh": "這是教學用的示意模型。真的電腦裡沒有燈泡，也沒有人用手去撥開關：那些開關是晶片上的電晶體，小到看不見，由電來控制開和關。這裡把進位放慢了，好讓你看得見。數字是精確的：八個開關可以表示 0 到 255 的每一個整數。",
+            "credit_html": "Model and code are drawn and programmed by My Culture Connect. The counting rules are tested in <code>tools/computers/test/bits.test.mjs</code>.<br><span class=\"zh\">模型與程式由人師教育協會自行繪製、撰寫；數數的規則有自動測試（<code>tools/computers/test/bits.test.mjs</code>）。</span>"
+          },
+          "paras": [
+            "Your phone or computer can show photos, play songs, and send messages around the world. But if you could look deep inside its chips, you would not find any pictures, sounds, or letters. You would find switches: billions of them on a single chip, each one far too small to see. Every switch can be in only one of two states, off or on. We write off as 0 and on as 1. Everything a computer does, from games to video calls, is built out of these two digits.",
+            "One switch holds the smallest piece of information there is: a single 0 or 1. It is called a bit, which is short for “binary digit.” Binary means “made of two parts.” The mathematician John Tukey suggested the word, and Claude Shannon used it in 1948 in a famous paper about sending messages. One bit cannot say much. It can answer only one yes-or-no question: Is the light on? Is the door open?",
+            "A row of bits can say much more. Think about how we normally count. We have ten digits, 0 to 9. When we run out, we carry into a new place, and each place is worth ten times the one to its right: ones, tens, hundreds. Binary works the same way with only two digits, so each place is worth two times the one to its right: 1, 2, 4, 8, 16, and so on. To read a row of switches, add up the places that are on. The row 1101 means 8 + 4 + 1, which is 13.",
+            "Counting up is simple, too. To add one, flip the switch on the far right. If it was off, it turns on, and you are done. If it was already on, it turns off and passes a carry to the switch on its left, which does the same thing. The carry can run down the row like falling dominoes: 0111 is 7, and one more makes 1000, which is 8. With eight switches you can count from 0 to 255. Eight bits together are called a byte. Every switch you add doubles how far you can count.",
+            "Why two states and not ten? A computer could try to use ten levels of voltage, one for each digit. But electrical signals are never perfectly steady. There is always a little unwanted wobble, called noise. With ten levels packed close together, a small wobble could make a 6 look like a 7. With only two levels, far apart, the signal has to change a lot before off could be mistaken for on. Engineers have tried other ways: ENIAC, an early American computer, counted in tens, and a Soviet computer called Setun used three states. Nearly every computer today uses two.",
+            "The idea is much older than computers. The German thinker Gottfried Leibniz had worked out binary numbers by 1679, and in 1703 he wrote an article explaining how to do arithmetic with only 0 and 1. In it he also described something a French missionary in Beijing, Joachim Bouvet, had noticed: the six-line figures in the ancient Chinese Book of Changes match binary numbers, if a whole line is read as 1 and a broken line as 0. Much later, as a student at MIT, Claude Shannon showed that circuits made of switches could carry out logic. Today those switches are transistors on a chip. They are tiny and fast, but each one still does what the lights in the model do: off or on, 0 or 1."
+          ],
+          "paras_zh": [
+            "你的手機或電腦可以顯示照片、播放歌曲，還能把訊息傳到世界各地。可是如果你能看進晶片的最裡面，你不會找到任何圖片、聲音或文字。你會找到開關：一顆晶片上就有幾十億個，每一個都小到看不見。每個開關只有兩種狀態，不是關就是開。我們把關寫成 0，把開寫成 1。電腦做的每一件事，從遊戲到視訊通話，都是用這兩個數字搭起來的。",
+            "一個開關存的是最小的一份資訊：一個 0 或一個 1。它叫做「位元」（bit），是 binary digit（二進位數字）的縮寫。binary 的意思是「由兩個部分組成」。這個詞是數學家約翰・圖基（John Tukey）建議的，克勞德・夏農（Claude Shannon）1948 年在一篇談怎麼傳送訊息的著名論文裡用了它。一個位元說不了多少事，它只能回答一個「是或不是」的問題：燈亮著嗎？門開著嗎？",
+            "一排位元能說的就多得多了。想想我們平常怎麼數數。我們有十個數字，0 到 9；用完了就進到新的一位，每一位代表的數是右邊那一位的十倍：個位、十位、百位。二進位的道理一樣，只是數字只有兩個，所以每一位代表的數是右邊那一位的兩倍：1、2、4、8、16……要讀一排開關，把開著的那幾位加起來就好。1101 這一排是 8＋4＋1，也就是 13。",
+            "往上數也很簡單。要加一，就去撥最右邊的開關。它本來是關的，就打開，結束。它本來就開著，就關掉，並且向左邊的開關進一位，左邊的開關再照同樣的規則做。進位可以像骨牌一樣一路傳下去：0111 是 7，再加一變成 1000，就是 8。八個開關可以從 0 數到 255。八個位元合起來叫做一個「位元組」（byte）。每多一個開關，能數的範圍就加倍。",
+            "為什麼是兩種狀態，不是十種？電腦可以試著用十種高低不同的電壓，每一種代表一個數字。可是電的訊號從來不會完全平穩，總是有一點不想要的晃動，叫做「雜訊」。十種電壓擠在一起時，一點點晃動就可能讓 6 看起來像 7。只有兩種、而且離得很遠時，訊號要變很多，才可能把關看成開。工程師也試過別的做法：美國早期的電腦 ENIAC 用十進位計數，蘇聯有一台叫 Setun 的電腦用三種狀態。今天幾乎所有的電腦都用兩種。",
+            "這個想法比電腦老得多。德國學者萊布尼茲（Gottfried Leibniz）在 1679 年就已經把二進位弄清楚了，1703 年寫了一篇文章，說明怎麼只用 0 和 1 做算術。他在文章裡也提到在北京的法國傳教士白晉（Joachim Bouvet）注意到的一件事：中國古老的《易經》裡六條線組成的卦，和二進位的數對得起來：把完整的線讀成 1，斷開的線讀成 0。很久以後，克勞德・夏農在麻省理工學院當學生時證明，用開關接成的電路可以做邏輯運算。今天這些開關是晶片上的電晶體，又小又快，但每一個做的事還是和模型裡的燈一樣：關或開，0 或 1。"
+          ],
+          "questions": [
+            "What is a bit, and what two values can it have?",
+            "How do you find the number that a row of switches shows?",
+            "Why is it safer for a computer to use two levels of electricity than ten?"
+          ],
+          "answers": [
+            "A bit is the smallest piece of information, held by one switch. It is short for “binary digit,” and it can be only 0 (off) or 1 (on).",
+            "The place on the far right is worth 1, and each place to the left is worth double. Add up the places whose switches are on. For example, 1101 is 8 + 4 + 1 = 13.",
+            "Electrical signals always have a little noise. Ten levels are close together, so a small wobble can turn one digit into another. Two levels are far apart, so a small wobble does not change off into on."
+          ],
+          "vocab": [
+            {
+              "n": 1,
+              "w": "switch",
+              "pos": "n.",
+              "zh": "開關",
+              "ex": "Flip the <b>switch</b> by the door to turn on the light.",
+              "exzh": "撥一下門邊的開關，把燈打開。"
+            },
+            {
+              "n": 2,
+              "w": "binary",
+              "pos": "adj.",
+              "zh": "二進位的",
+              "ex": "In <b>binary</b> counting, there are only two digits: 0 and 1.",
+              "exzh": "二進位的數法只有兩個數字：0 和 1。"
+            },
+            {
+              "n": 3,
+              "w": "digit",
+              "pos": "n.",
+              "zh": "數字；數位",
+              "ex": "The number 255 has three <b>digits</b>.",
+              "exzh": "255 這個數有三個數字。"
+            },
+            {
+              "n": 4,
+              "w": "bit",
+              "pos": "n.",
+              "zh": "位元",
+              "ex": "A <b>bit</b> is either 0 or 1, and nothing in between.",
+              "exzh": "一個位元不是 0 就是 1，沒有中間的。"
+            },
+            {
+              "n": 5,
+              "w": "byte",
+              "pos": "n.",
+              "zh": "位元組",
+              "ex": "One <b>byte</b> is made of eight bits.",
+              "exzh": "一個位元組由八個位元組成。"
+            },
+            {
+              "n": 6,
+              "w": "carry",
+              "pos": "v.",
+              "zh": "進位",
+              "ex": "When you add 9 and 1, you <b>carry</b> a one into the tens place.",
+              "exzh": "9 加 1 的時候，要進一位到十位。"
+            },
+            {
+              "n": 7,
+              "w": "signal",
+              "pos": "n.",
+              "zh": "訊號",
+              "ex": "The phone lost its <b>signal</b> inside the tunnel.",
+              "exzh": "手機在隧道裡收不到訊號。"
+            },
+            {
+              "n": 8,
+              "w": "noise",
+              "pos": "n.",
+              "zh": "雜訊",
+              "ex": "Electrical <b>noise</b> made the old radio hiss.",
+              "exzh": "電的雜訊讓那台舊收音機發出嘶嘶聲。"
+            }
+          ],
+          "quiz": [
+            {
+              "q": "What is “bit” short for?",
+              "options": [
+                "Binary digit",
+                "Big item",
+                "Basic input",
+                "Built-in tool"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "In a row of switches, the one on the far right is worth 1. What is the fourth switch from the right worth?",
+              "options": [
+                "4",
+                "6",
+                "8",
+                "16"
+              ],
+              "correct": 2
+            },
+            {
+              "q": "What number does the row 1101 show?",
+              "options": [
+                "4",
+                "11",
+                "13",
+                "1,101"
+              ],
+              "correct": 2
+            },
+            {
+              "q": "What is the largest number that eight switches can show?",
+              "options": [
+                "8",
+                "128",
+                "255",
+                "256"
+              ],
+              "correct": 2
+            },
+            {
+              "q": "According to the reading, why do computers use two states instead of ten?",
+              "options": [
+                "Two states are harder to mix up when there is noise.",
+                "Ten states would use too many colors.",
+                "People can only count to two.",
+                "Light bulbs come in only two sizes."
+              ],
+              "correct": 0
+            }
+          ],
+          "parts_head": {
+            "eyebrow": "Try It in the Model · 在模型裡試試",
+            "en": "Four things to watch",
+            "zh": "四件值得看的事"
+          },
+          "parts": [
+            {
+              "key": "one",
+              "bits": "1",
+              "en": "One switch, two states",
+              "zh": "一個開關，兩種狀態",
+              "meta_en": "Off is 0, on is 1",
+              "meta_zh": "關是 0，開是 1",
+              "demo": "one",
+              "text_en": "Watch the rightmost switch flip off, on, off, on. That is everything one bit can say.",
+              "text_zh": "看最右邊的開關關、開、關、開。一個位元能說的就這麼多。"
+            },
+            {
+              "key": "places",
+              "bits": "0100",
+              "en": "Each place is worth double",
+              "zh": "每一位都是兩倍",
+              "meta_en": "1, 2, 4, 8, 16, 32, 64, 128",
+              "meta_zh": "1、2、4、8、16、32、64、128",
+              "demo": "places",
+              "text_en": "One light at a time, from right to left. How much is each switch worth by itself?",
+              "text_zh": "由右往左，一次只亮一盞。每個開關自己代表多少？"
+            },
+            {
+              "key": "carry",
+              "bits": "0111",
+              "en": "The carry runs like dominoes",
+              "zh": "進位像骨牌",
+              "meta_en": "127 + 1 = 128",
+              "meta_zh": "127＋1＝128",
+              "demo": "carry",
+              "text_en": "Seven lights are on. Add one in slow motion and count how many switches have to move.",
+              "text_zh": "七盞燈亮著。用慢動作加一，數數看有幾個開關要動。"
+            },
+            {
+              "key": "max",
+              "bits": "11111111",
+              "en": "All on, and one more",
+              "zh": "全開，再加一",
+              "meta_en": "255 is the limit of eight switches",
+              "meta_zh": "八個開關最多到 255",
+              "demo": "max",
+              "text_en": "All eight on makes 255. What happens when you add one more and there is no ninth switch?",
+              "text_zh": "八個全開是 255。再加一，可是沒有第九個開關，會怎樣？"
+            }
+          ],
+          "parts_note_en": "Then press Count up and let the row run. Which light changes every single time, and which one almost never does?",
+          "parts_note_zh": "最後按「往上數」讓它自己跑。哪一盞燈每一次都在變？哪一盞幾乎不動？",
+          "fingers": {
+            "eyebrow": "Try It · 動手試試",
+            "en": "Count to 31 on One Hand",
+            "zh": "用五根手指數到 31",
+            "lead_en": "Counting the usual way, one hand gets you to 5. Counting in binary, each finger is a switch: the thumb is worth 1, then 2, 4, 8, and 16. Tap the fingers to raise or lower them. All five up is 16 + 8 + 4 + 2 + 1 = 31.",
+            "lead_zh": "照平常的數法，一隻手只能數到 5。用二進位來數，每根手指就是一個開關：拇指代表 1，接著是 2、4、8、16。點手指把它舉起來或放下。五根全舉起來是 16＋8＋4＋2＋1＝31。",
+            "hand_en": "A right hand with the palm facing you: the thumb, worth 1, is on the right, just like the row of lights.",
+            "hand_zh": "右手，手心朝自己：代表 1 的拇指在右邊，和那一排燈一樣。",
+            "tips": [
+              {
+                "en": "Five fingers make 32 different patterns, from 0 (a fist) to 31.",
+                "zh": "五根手指有 32 種比法，從 0（握拳）到 31。"
+              },
+              {
+                "en": "With both hands you have ten switches: 0 to 1,023.",
+                "zh": "兩隻手就有十個開關：0 到 1,023。"
+              },
+              {
+                "en": "In class, lay your hand flat on the desk and lift fingers a little. It is easier, and nobody mistakes a number for a gesture.",
+                "zh": "上課時把手平放在桌上，手指稍微翹起來就好：比較好比，也不會有人把數字看成手勢。"
+              }
+            ]
+          },
+          "guess": {
+            "eyebrow": "Game · 小遊戲",
+            "en": "What Number Is This?",
+            "zh": "猜猜這是多少",
+            "lead_en": "Eight rows of lights, from four lights up to eight. Choose the number each row shows. The game counts how many you get right on the first try.",
+            "lead_zh": "八排燈，從四盞到八盞。選出每一排代表的數；遊戲會記下你第一次就答對幾題。"
+          },
+          "levels": {
+            "eyebrow": "See Why · 看看為什麼",
+            "en": "Why Not Ten Levels of Brightness?",
+            "zh": "為什麼不用十種亮度？",
+            "lead_en": "Imagine sending the digits 0 to 9 as ten levels of brightness, and sending 0 and 1 as just off and on. Each dot is one signal after a little random noise has pushed it left or right. A signal is read as whichever level it lands closest to. Slide the noise up and compare.",
+            "lead_zh": "想像用十段亮度來送 0 到 9，另一邊只用關和開來送 0 和 1。每個點是一個訊號，被一點隨機的雜訊往左或往右推了一下；它落在離哪一段最近，就被讀成哪一段。把雜訊往上拉，比比看。",
+            "note_en": "This is an illustration, not a measurement of a real circuit. The noise here is random and evenly spread, and both rows get exactly the same noise. With ten levels, each level sits 1/18 of the full range (about 5.6%) from its border; with two levels, each sits one half (50%) away, nine times as far.",
+            "note_zh": "這是示意，不是真實電路的量測。這裡的雜訊是均勻的隨機數，兩排受到的雜訊完全相同。十段時，每一段離界線是全幅的 1/18（約 5.6%）；兩段時是一半（50%），是前者的九倍。"
+          },
+          "culture_cards": {
+            "eyebrow": "Stories Behind 0 and 1 · 0 和 1 的故事",
+            "title_en": "A new word, an old book, eight bits, and two exceptions",
+            "title_zh": "一個新詞、一本古書、八個位元、兩個例外",
+            "lead_en": "Four short stories about where binary came from.",
+            "lead_zh": "關於二進位從哪裡來的四個小故事。",
+            "cards": [
+              {
+                "k": "A New Word · 一個新詞",
+                "en": "Who named the bit?",
+                "zh": "「位元」是誰取的名字？",
+                "body_en": "In 1948 Claude Shannon, an engineer at Bell Labs, published “A Mathematical Theory of Communication.” In it he wrote that units of information measured in base 2 “may be called binary digits, or more briefly bits, a word suggested by J. W. Tukey.” Tukey was a statistician who worked with him. The next sentence of the paper could describe the model on this page: a device with two stable positions can store one bit.",
+                "body_zh": "1948 年，貝爾實驗室的工程師克勞德・夏農發表〈通訊的數學理論〉。他在文中寫道，以 2 為底來量資訊時，單位「可以叫做 binary digits，或更簡短地叫 bits，這個詞是 J. W. Tukey 建議的」。圖基是和他共事的統計學家。論文的下一句簡直就是在講這一頁的模型：一個有兩種穩定位置的裝置，可以存一個位元。"
+              },
+              {
+                "k": "An Old Book · 一本古書",
+                "en": "Leibniz, Bouvet, and the Book of Changes",
+                "zh": "萊布尼茲、白晉與《易經》",
+                "body_en": "People often say that binary came from the Book of Changes (Yijing, or I Ching). The order was the other way around. Leibniz had worked out binary numbers by March 1679. In February 1701 he explained them in a letter to Joachim Bouvet, a Jesuit missionary in China. Bouvet wrote back from Beijing in November 1701 that the hexagrams matched Leibniz’s numbers, and sent a chart of all 64. In his 1703 article, Leibniz explained how to read them: a whole line means 1, and a broken line means 0. The article was printed in 1705.",
+                "body_zh": "常有人說二進位是從《易經》來的，其實先後順序正好相反。萊布尼茲在 1679 年 3 月就已經把二進位的數弄清楚了。1701 年 2 月，他寫信給在中國的耶穌會傳教士白晉（Joachim Bouvet），說明自己的二進位。白晉 1701 年 11 月從北京回信，說卦和萊布尼茲的數對得起來，還附上六十四卦的圖。萊布尼茲在 1703 年的文章裡說明怎麼讀：一條完整的線代表 1，一條斷開的線代表 0。這篇文章 1705 年印行。"
+              },
+              {
+                "k": "Eight Bits · 八個位元",
+                "en": "Why is a byte eight bits?",
+                "zh": "為什麼一個位元組是八個位元？",
+                "body_en": "It was not always so. At first, a byte meant any short string of bits that made up one simple piece of information, such as a single character, and there were four-bit and six-bit bytes. In time the standard settled on eight. Eight bits give 256 patterns, so one byte can stand for a number from 0 to 255, exactly what the eight switches in the model show.",
+                "body_zh": "並不是一開始就這樣。起初，byte 指的是組成一小份資訊（例如一個字元）的一小串位元，有四個位元的，也有六個位元的；後來標準才定在八個。八個位元有 256 種排法，所以一個位元組可以代表 0 到 255 的一個數，正好就是模型裡那八個開關能表示的範圍。"
+              },
+              {
+                "k": "Two Exceptions · 兩個例外",
+                "en": "Computers that did not count in twos",
+                "zh": "不用二進位的電腦",
+                "body_en": "ENIAC, built at the University of Pennsylvania and formally dedicated on February 15, 1946, worked in base 10, not base 2. At Moscow State University, a small computer named Setun was finished in December 1958. It was built on three-valued logic instead of two, and about 50 were made before production stopped in 1965. Both machines worked. Two-state designs still became the standard.",
+                "body_zh": "在賓州大學建造、1946 年 2 月 15 日正式啟用的 ENIAC，用的是十進位，不是二進位。在莫斯科大學，一台叫 Setun 的小型電腦於 1958 年 12 月完成，它用的是三值邏輯而不是二值，一共造了大約 50 台，1965 年停產。這兩種機器都能運作，但後來成為標準的還是兩種狀態的設計。"
+              }
+            ]
+          },
+          "myths": [
+            {
+              "myth_en": "There are tiny 0s and 1s written inside a computer.",
+              "myth_zh": "電腦裡面寫著一個一個小小的 0 和 1。",
+              "fact_en": "There are no numerals inside. 0 and 1 are our names for two states of a switch. In computer memory, for example, a 1 is a high voltage and a 0 is a low voltage.",
+              "fact_zh": "裡面沒有數字。0 和 1 是我們替開關的兩種狀態取的名字；以電腦的記憶體來說，1 是高電壓，0 是低電壓。"
+            },
+            {
+              "myth_en": "With only 0 and 1, a computer can handle only small numbers.",
+              "myth_zh": "只有 0 和 1，電腦只能處理很小的數。",
+              "fact_en": "Every extra bit doubles the count. Eight bits reach 255, sixteen bits reach 65,535, and thirty-two bits give more than four billion patterns (4,294,967,296).",
+              "fact_zh": "每多一個位元，能數的範圍就加倍。8 個位元數到 255，16 個位元數到 65,535，32 個位元有四十多億種排法（4,294,967,296）。"
+            },
+            {
+              "myth_en": "Binary is a different kind of math.",
+              "myth_zh": "二進位是另一種數學。",
+              "fact_en": "It is the same numbers, written a different way. Thirteen is still thirteen whether you write 13 or 1101, and adding works by the same rule: when a place is full, carry to the left.",
+              "fact_zh": "數還是同樣的數，只是寫法不同。十三不管寫成 13 還是 1101 都是十三；加法的規則也一樣：這一位滿了，就往左進位。"
+            },
+            {
+              "myth_en": "Binary was copied from the Book of Changes.",
+              "myth_zh": "二進位是從《易經》抄來的。",
+              "fact_en": "Leibniz had worked out binary numbers by 1679. The link to the hexagrams was pointed out to him by Joachim Bouvet, in a letter written in Beijing in 1701 that reached him in 1703.",
+              "fact_zh": "萊布尼茲 1679 年就已經把二進位弄清楚了。卦和二進位的關聯，是白晉 1701 年從北京寫信告訴他的，信到 1703 年才收到。"
+            }
+          ],
+          "tricks_head": {
+            "en": "Bits in a sentence",
+            "zh": "一句話記住位元"
+          },
+          "tricks": [
+            {
+              "title_en": "Off is 0, on is 1",
+              "title_zh": "關是 0，開是 1",
+              "body_en": "One switch, two states, one bit.",
+              "body_zh": "一個開關、兩種狀態，就是一個位元。"
+            },
+            {
+              "title_en": "Start at one, then double",
+              "title_zh": "從 1 開始，一路加倍",
+              "body_en": "From the right: 1, 2, 4, 8, 16, 32, 64, 128.",
+              "body_zh": "從右邊數過來：1、2、4、8、16、32、64、128。"
+            },
+            {
+              "title_en": "Add up what is on",
+              "title_zh": "亮的加起來",
+              "body_en": "1101 is 8 + 4 + 1 = 13. Skip the places that are off.",
+              "body_zh": "1101 就是 8＋4＋1＝13，沒亮的那一位跳過。"
+            },
+            {
+              "title_en": "One more switch, twice as far",
+              "title_zh": "多一個開關，多一倍",
+              "body_en": "Five switches reach 31, eight reach 255, and ten reach 1,023.",
+              "body_zh": "五個開關數到 31，八個數到 255，十個數到 1,023。"
+            }
+          ],
+          "safety_head": {
+            "eyebrow": "Before You Start · 動手之前",
+            "en": "A few reminders",
+            "zh": "幾個提醒"
+          },
+          "safety": [
+            {
+              "en": "The switches in the model are drawings. Never open a wall switch, a socket, or a plugged-in device to look inside: household electricity can kill.",
+              "zh": "模型裡的開關是畫出來的。千萬不要拆開牆上的開關、插座或插著電的電器來看：家裡的電會致命。"
+            },
+            {
+              "en": "If your class builds a real circuit with a bulb and a switch, use small batteries only, and never the wall socket.",
+              "zh": "如果班上要用燈泡和開關接真的電路，只能用小電池，絕對不要用牆上的插座。"
+            },
+            {
+              "en": "When you count on your fingers, keep your hand flat on the desk and lift the fingers just a little, so that a number is not mistaken for a gesture.",
+              "zh": "用手指數數時，把手平放在桌上，手指稍微翹起來就好，免得數字被看成手勢。"
+            },
+            {
+              "en": "In the computer activity, you only open the calculator and look. You do not need to change any settings or install anything.",
+              "zh": "電腦上的活動只要打開計算機來看，不需要改任何設定，也不用安裝任何東西。"
+            }
+          ],
+          "activities": [
+            {
+              "title_en": "The Human Binary Counter",
+              "title_zh": "人體二進位計數器",
+              "materials": [
+                {
+                  "en": "Five large cards with the numbers 16, 8, 4, 2, and 1",
+                  "zh": "五張大卡片，分別寫 16、8、4、2、1"
+                },
+                {
+                  "en": "Five chairs in a row at the front of the room",
+                  "zh": "教室前面排成一排的五張椅子"
+                },
+                {
+                  "en": "A tally sheet on the board",
+                  "zh": "黑板上的一張計數表"
+                }
+              ],
+              "steps": [
+                {
+                  "en": "Five students sit facing the class and hold the cards so that the class reads 16, 8, 4, 2, 1 from left to right. Sitting means off (0). Standing means on (1).",
+                  "zh": "五位同學面向全班坐好，拿著卡片，讓全班從左到右看到 16、8、4、2、1。坐著是關（0），站著是開（1）。"
+                },
+                {
+                  "en": "The teacher calls a number from 0 to 31. The five students stand or sit to show it, and the class adds up the standing cards to check.",
+                  "zh": "老師說一個 0 到 31 的數，五位同學用站或坐把它比出來，全班把站著的卡片加起來檢查。"
+                },
+                {
+                  "en": "Now start from 0 and count up one at a time. The student holding 1 changes on every count. Everyone else follows one rule: change only when the neighbor holding the smaller card sits down.",
+                  "zh": "接著從 0 開始，一次加一往上數。拿 1 的同學每數一次就變一次；其他人只守一條規則：拿比你小的那張卡的鄰居坐下的時候，你才變。"
+                },
+                {
+                  "en": "Count all the way to 31. On the board, tally how many times each student stood up or sat down.",
+                  "zh": "一路數到 31。在黑板上記下每位同學站起來或坐下一共幾次。"
+                }
+              ],
+              "tip_en": "The tally should come out as 31, 15, 7, 3, and 1, from the 1 card to the 16 card: each place changes half as often as the one before it. Each student watches only one neighbor, and that is all a carry is. In Taiwan’s junior high Information Technology curriculum, this lesson fits the topic “Data representation, processing, and analysis” (learning content 資 D-IV-2, whose notes list binary data representation).",
+              "tip_zh": "記下來應該是 31、15、7、3、1（從拿 1 的到拿 16 的）：每一位變的次數大約是前一位的一半。每個人只要看一位鄰居，這就是進位。對照十二年國教國中「資訊科技」的學習內容，這一課屬於「資料表示、處理及分析」主題（資 D-IV-2 數位資料的表示方法；附錄的學習內容說明列有「二進位資料表示法」）。"
+            },
+            {
+              "title_en": "Check It on Your Own Computer",
+              "title_zh": "在自己的電腦上驗證",
+              "materials": [
+                {
+                  "en": "A Windows or Mac computer",
+                  "zh": "一台 Windows 或 Mac 電腦"
+                },
+                {
+                  "en": "The Calculator app that comes with it",
+                  "zh": "電腦內建的「計算機」"
+                },
+                {
+                  "en": "This page, open at the 3D model",
+                  "zh": "這一頁，捲到 3D 模型"
+                }
+              ],
+              "steps": [
+                {
+                  "en": "Open Calculator and switch to the programmer calculator. On a Mac, choose View > Programmer (or press Command-3), then click Show Binary. On Windows, open the menu at the top left of Calculator and choose Programmer.",
+                  "zh": "打開「計算機」，切換到程式設計人員用的計算機。Mac：選「顯示方式」＞「程式設計」（或按 Command-3），再按「顯示二進位」。Windows：打開計算機左上角的選單，選「程式設計人員」。"
+                },
+                {
+                  "en": "Make sure it is set to decimal (DEC, or 10 on a Mac), and type 13. Read the binary line: it should say 1101. Set the model to 13 and compare the lights.",
+                  "zh": "確定它設在十進位（DEC；Mac 上是 10），輸入 13。看二進位那一行，應該是 1101。把模型也撥成 13，比一比燈。"
+                },
+                {
+                  "en": "Type 255. How many 1s do you see? Then type 256. What changed?",
+                  "zh": "輸入 255，你看到幾個 1？再輸入 256，哪裡變了？"
+                },
+                {
+                  "en": "Pick three numbers of your own. Write each one in binary on paper first, then check your answer with the calculator.",
+                  "zh": "自己選三個數，先在紙上寫出二進位，再用計算機對答案。"
+                }
+              ],
+              "tip_en": "255 is eight 1s, and 256 is a 1 followed by eight 0s: the calculator has a ninth switch, and the model does not. For a second check, open any web browser’s developer console, type (13).toString(2), and press Enter. It answers “1101.” The names of the menus may differ a little in other versions of Windows and macOS.",
+              "tip_zh": "255 是八個 1；256 是一個 1 後面接八個 0：計算機有第九個開關，模型沒有。還有第二種驗證法：打開任何瀏覽器的開發人員主控台，輸入 (13).toString(2) 再按 Enter，它會回答 \"1101\"。不同版本的 Windows 和 macOS，選單的名稱可能略有不同。"
+            }
+          ],
+          "links_head": {
+            "eyebrow": "Go Further · 延伸閱讀",
+            "en": "The switch itself, where bits are kept, and what comes next",
+            "zh": "開關本身、位元存在哪裡，以及下一課"
+          },
+          "links": [
+            {
+              "icon": "💿",
+              "k_en": "Chips and Semiconductors · Lesson 2",
+              "k_zh": "晶片與半導體・第二課",
+              "en": "What Does a Transistor Do?",
+              "zh": "電晶體在做什麼？",
+              "note_en": "The switches in a real computer are transistors. See how a tiny voltage turns one on and off, with nothing moving at all.",
+              "note_zh": "真的電腦裡的開關是電晶體。看看一個小小的電壓怎麼讓它開和關，而且沒有任何東西在動。",
+              "href": "/resources/classes/semiconductors/transistor/"
+            },
+            {
+              "icon": "🔋",
+              "k_en": "How Things Work · Lesson 8",
+              "k_zh": "萬物原理・第八課",
+              "en": "How Does a Computer Remember Things?",
+              "zh": "電腦怎麼記住東西？",
+              "note_en": "Once you have 0s and 1s, where do you keep them? Follow the bits into memory chips and drives.",
+              "note_zh": "有了 0 和 1，要存在哪裡？跟著位元走進記憶體晶片和硬碟。",
+              "href": "/resources/classes/how-things-work/computer-memory/"
+            },
+            {
+              "icon": "🖼️",
+              "k_en": "Next Lesson · Lesson 2",
+              "k_zh": "下一課・第二課",
+              "en": "How Do 0s and 1s Become Words, Pictures, and Sound?",
+              "zh": "0 和 1 怎麼變成文字、圖片和聲音？",
+              "note_en": "A row of bits is only a number. Next time: how everyone agreed on a table that turns numbers into letters, colors, and sounds.",
+              "note_zh": "一排位元只是一個數。下一課要看：大家怎麼約好一張對照表，把數變成字、顏色和聲音。",
+              "soon": true
+            }
+          ],
+          "sources_note_en": "Names, dates, and facts on this page were checked against these sources (October 2026); the numbers in the model are computed and tested",
+          "sources_note_zh": "本頁的人名、年代與事實依下列資料查證（2026 年 10 月）；模型裡的數字是自己算的，並有測試",
+          "sources": [
+            {
+              "en": "“Bit” is shortened from “binary digit”; in computer memory, 1 is a high voltage and 0 is a low voltage",
+              "zh": "bit 是 binary digit 的縮寫；在電腦記憶體裡 1 是高電壓、0 是低電壓",
+              "src": "Encyclopaedia Britannica, “bit”",
+              "url": "https://www.britannica.com/technology/bit-communications"
+            },
+            {
+              "en": "“…binary digits, or more briefly bits, a word suggested by J. W. Tukey”; a device with two stable positions stores one bit (1948)",
+              "zh": "「bits，這個詞是 J. W. Tukey 建議的」；有兩種穩定位置的裝置可以存一個位元（1948）",
+              "src": "C. E. Shannon, “A Mathematical Theory of Communication,” Bell System Technical Journal 27 (1948), p. 1 of the reprint",
+              "url": "https://people.math.harvard.edu/~ctm/home/text/others/shannon/entropy/entropy.pdf"
+            },
+            {
+              "en": "Shannon’s 1948 paper appears to contain the first published use of “bit”; his MIT master’s thesis used Boolean algebra to lay the foundations of digital circuits",
+              "zh": "夏農 1948 年的論文看來是 bit 一詞最早的發表用例；他在麻省理工的碩士論文用布林代數奠定數位電路的基礎",
+              "src": "Encyclopaedia Britannica, “Claude Shannon”",
+              "url": "https://www.britannica.com/biography/Claude-Shannon"
+            },
+            {
+              "en": "A byte is 8 bits; early bytes had four or six bits before the standard settled on eight; a byte can represent a number from 0 to 255",
+              "zh": "一個位元組是 8 個位元；早期有 4 或 6 個位元的 byte，後來標準定為 8；一個位元組可以表示 0 到 255",
+              "src": "Encyclopaedia Britannica, “byte”",
+              "url": "https://www.britannica.com/technology/byte"
+            },
+            {
+              "en": "The binary system needs only the two symbols 0 and 1; it matters to computing because 0s and 1s can be represented compactly and reliably by two-state devices (“on-off”)",
+              "zh": "二進位只需要 0 和 1 兩個符號；它對電腦重要，是因為 0 和 1 可以用兩種狀態的裝置（開／關）精簡而可靠地表示",
+              "src": "Encyclopaedia Britannica, “binary number system”",
+              "url": "https://www.britannica.com/science/binary-number-system"
+            },
+            {
+              "en": "Telling many closely spaced voltage levels apart is impractical because of noise, which is why digital systems use bits",
+              "zh": "要分辨很多個靠得很近的電壓並不實際（有雜訊），所以數位系統用位元",
+              "src": "MIT OpenCourseWare, 6.004 Computation Structures (Spring 2017), “The Digital Abstraction,” annotated slides",
+              "url": "https://ocw.mit.edu/courses/6-004-computation-structures-spring-2017/pages/c2/c2s1/"
+            },
+            {
+              "en": "Leibniz’s 1703 article in English: “I use no other characters in it bar 0 and 1”; “a whole line means unity, or 1,” and “a broken line means zero, or 0”; Bouvet recognized “the key to the figures of Fuxi”",
+              "zh": "萊布尼茲 1703 年文章的英譯：只用 0 和 1 兩個符號；完整的線代表 1、斷開的線代表 0；白晉認出這是伏羲卦圖的鑰匙",
+              "src": "G. W. Leibniz, “Explanation of Binary Arithmetic” (1703), translated by Lloyd Strickland, Leibniz Translations",
+              "url": "https://www.leibniz-translations.com/binary"
+            },
+            {
+              "en": "“In March 1679 he perfected the binary system of numeration”",
+              "zh": "「1679 年 3 月，他完成了二進位記數法」",
+              "src": "Encyclopaedia Britannica, “Gottfried Wilhelm Leibniz”",
+              "url": "https://www.britannica.com/biography/Gottfried-Wilhelm-Leibniz"
+            },
+            {
+              "en": "Leibniz’s binary manuscript of March 15, 1679; his letter to Bouvet of February 15, 1701; Bouvet’s reply from Beijing in November 1701, received April 1, 1703; the “Explication de l’arithmétique binaire,” printed in 1705",
+              "zh": "萊布尼茲 1679 年 3 月 15 日的二進位手稿；1701 年 2 月 15 日致白晉的信；白晉 1701 年 11 月自北京的回信（1703 年 4 月 1 日收到）；〈二進位算術的解說〉1705 年印行",
+              "src": "Jeremy Norman, HistoryofInformation.com, “Leibniz Expounds on Binary Arithmetic for Computing”",
+              "url": "https://historyofinformation.com/detail.php?id=395"
+            },
+            {
+              "en": "ENIAC’s architecture was base 10, not base 2; formally dedicated at the Moore School on February 15, 1946",
+              "zh": "ENIAC 的架構是十進位而非二進位；1946 年 2 月 15 日在摩爾學院正式啟用",
+              "src": "Engineering and Technology History Wiki (ETHW), “ENIAC”",
+              "url": "https://ethw.org/ENIAC"
+            },
+            {
+              "en": "Setun: designed at Moscow State University from 1956, completed by December 1958, based on ternary (three-valued) logic; 50 were produced",
+              "zh": "Setun：1956 年起在莫斯科大學設計，1958 年 12 月完成，採用三值邏輯，共生產 50 台",
+              "src": "Russian Virtual Computer Museum, “Development of ternary computers at Moscow State University”",
+              "url": "https://computer-museum.ru/english/setun.htm"
+            },
+            {
+              "en": "“M4 consists of 28 billion transistors” (an example of billions of switches on one chip, 2024)",
+              "zh": "「M4 由 280 億個電晶體組成」（一顆晶片上有幾十億個開關的例子，2024 年）",
+              "src": "Apple Newsroom, “Apple introduces M4 chip,” May 7, 2024",
+              "url": "https://www.apple.com/newsroom/2024/05/apple-introduces-m4-chip/"
+            },
+            {
+              "en": "Taiwan terms: bit 位元, byte 位元組, binary digit 二進位元／位元 (K–12 information terms)",
+              "zh": "台灣用語：bit 位元、byte 位元組、binary digit 二進位元／位元（高中以下資訊名詞）",
+              "src": "國家教育研究院《樂詞網》",
+              "url": "https://terms.naer.edu.tw/search/?query_term=byte&query_field=title&query_op=&match_type=phrase"
+            },
+            {
+              "en": "The six topics of Information Technology learning content (p. 10); items 資 D-IV-1 and 資 D-IV-2 (pp. 10–11); the notes to 資 D-IV-2 list binary data representation (p. 43)",
+              "zh": "資訊科技學習內容的六個主題：「演算法」、「程式設計」、「系統平台」、「資料表示、處理及分析」、「資訊科技應用」以及「資訊科技與人類社會」（第 10 頁）；資 D-IV-1、資 D-IV-2（第 10–11 頁）；附錄三資 D-IV-2 的說明列有「二進位資料表示法」（第 43 頁）",
+              "src": "教育部《十二年國民基本教育課程綱要 國民中學暨普通型高級中等學校 科技領域》（2018）",
+              "url": "https://www.naer.edu.tw/upload/1/16/doc/816/十二年國民基本教育課程綱要國民中學暨普通型高級中等學校-科技領域.pdf"
+            },
+            {
+              "en": "Mac: View > Programmer (Command-3), then Show Binary",
+              "zh": "Mac：「顯示方式」＞「程式設計」（Command-3），再按「顯示二進位」",
+              "src": "Apple Support, “Use the programmer calculator on Mac”",
+              "url": "https://support.apple.com/guide/calculator/calc8990e3ee/mac"
+            },
+            {
+              "en": "Windows Calculator has a Programmer mode that converts between common bases",
+              "zh": "Windows 計算機有「程式設計人員」模式，可以在常用的進位之間轉換",
+              "src": "Microsoft, Windows Calculator (project README)",
+              "url": "https://github.com/microsoft/calculator"
+            },
+            {
+              "en": "8 switches reach 255 and have 256 patterns; 5 reach 31; 10 reach 1,023; 16 reach 65,535; 32 switches have 4,294,967,296 patterns; counting from 0 to 31, the five places change 31, 15, 7, 3, and 1 times",
+              "zh": "8 個開關數到 255、有 256 種排法；5 個數到 31；10 個數到 1,023；16 個數到 65,535；32 個有 4,294,967,296 種排法；從 0 數到 31，五個位各變 31、15、7、3、1 次",
+              "src": "Our own arithmetic, checked by tools/computers/test/bits.test.mjs",
+              "url": "https://github.com/lukelin7429/twrses/blob/main/tools/computers/test/bits.test.mjs"
+            }
+          ]
+        }
+      ],
+      "planned": [
+        {
+          "n": 2,
+          "icon": "🖼️",
+          "en": "How Do 0s and 1s Become Words, Pictures, and Sound?",
+          "zh": "0 和 1 怎麼變成文字、圖片和聲音？"
+        },
+        {
+          "n": 3,
+          "icon": "🚦",
+          "en": "How Does a Computer Make a Decision?",
+          "zh": "電腦怎麼做決定？"
+        },
+        {
+          "n": 4,
+          "icon": "➕",
+          "en": "How Does a Computer Add?",
+          "zh": "電腦怎麼做加法？"
+        }
+      ]
+    },
+    {
+      "key": "machine",
+      "title_en": "Inside the Machine",
+      "title_zh": "機器裡面",
+      "blurb_en": "Open the case: what each part does, what a processor is busy with all day, why there are two kinds of memory, and what happens when you press one key.",
+      "blurb_zh": "打開機殼：每個零件各做什麼、處理器整天在忙什麼、為什麼要有兩種記憶，以及按下一個鍵之後發生了什麼。",
+      "lessons": [],
+      "planned": [
+        {
+          "n": 5,
+          "icon": "🖥️",
+          "en": "What Is Inside a Computer?",
+          "zh": "打開電腦，裡面有什麼？"
+        },
+        {
+          "n": 6,
+          "icon": "⚙️",
+          "en": "What Does a Processor Do All Day?",
+          "zh": "處理器整天在忙什麼？"
+        },
+        {
+          "n": 7,
+          "icon": "🗄️",
+          "en": "Why Does a Computer Need Two Kinds of Memory?",
+          "zh": "電腦為什麼要有兩種記憶？"
+        },
+        {
+          "n": 8,
+          "icon": "⌨️",
+          "en": "What Happens When You Press a Key?",
+          "zh": "按下一個鍵，發生了什麼？"
+        }
+      ]
+    },
+    {
+      "key": "software",
+      "title_en": "Software: Telling the Computer What to Do",
+      "title_zh": "軟體：告訴電腦做什麼",
+      "blurb_en": "What a program is, why one method can be far faster than another, how one processor serves many programs, and how a file can get smaller.",
+      "blurb_zh": "程式是什麼、為什麼同一件事換個方法會快很多、一個處理器怎麼同時服務很多程式，以及檔案為什麼可以變小。",
+      "lessons": [],
+      "planned": [
+        {
+          "n": 9,
+          "icon": "🤖",
+          "en": "What Is a Program?",
+          "zh": "程式是什麼？"
+        },
+        {
+          "n": 10,
+          "icon": "🧮",
+          "en": "What Is an Algorithm?",
+          "zh": "演算法是什麼？"
+        },
+        {
+          "n": 11,
+          "icon": "🧑‍🍳",
+          "en": "What Does an Operating System Do?",
+          "zh": "作業系統在做什麼？"
+        },
+        {
+          "n": 12,
+          "icon": "🗜️",
+          "en": "How Can a File Get Smaller?",
+          "zh": "檔案為什麼可以變小？"
+        }
+      ]
+    },
+    {
+      "key": "network",
+      "title_en": "Networks, Security, and AI",
+      "title_zh": "連線、安全與 AI",
+      "blurb_en": "What happens when you open a web page, how a computer keeps a secret, how a computer “learns,” and how computers got so small.",
+      "blurb_zh": "打開一個網頁時發生了什麼、電腦怎麼保守祕密、電腦怎麼「學習」，以及電腦怎麼越變越小。",
+      "lessons": [],
+      "planned": [
+        {
+          "n": 13,
+          "icon": "🌐",
+          "en": "What Happens When You Open a Web Page?",
+          "zh": "打開一個網頁，發生了什麼？"
+        },
+        {
+          "n": 14,
+          "icon": "🔐",
+          "en": "How Does a Computer Keep a Secret?",
+          "zh": "電腦怎麼保守祕密？"
+        },
+        {
+          "n": 15,
+          "icon": "🧠",
+          "en": "How Does a Computer Learn?",
+          "zh": "電腦怎麼「學習」？"
+        },
+        {
+          "n": 16,
+          "icon": "📱",
+          "en": "How Did Computers Get So Small?",
+          "zh": "電腦怎麼越變越小？"
+        }
+      ]
+    }
+  ]
+}
