@@ -770,6 +770,49 @@
     root.__lab = { state: function () { return { mode: mode, items: list.children.length, third: list.children[3] && list.children[3].textContent }; } };
   });
 
+  /* ---- A13：去火星三趟（帕菲特的傳送機） ---- */
+  $$('[data-ph-teleport]').forEach(function (root) {
+    var D;
+    try { D = JSON.parse($('[data-tp-data]', root).textContent); } catch (e) { return; }
+    var text = $('[data-tp-text]', root), opts = $('[data-tp-opts]', root), out = $('[data-tp-out]', root), next = $('[data-tp-next]', root), dots = $('[data-tp-dots]', root), count = $('[data-tp-count]', root);
+    var i, ans;
+    function zhp(parent, t) { var z = el('p', 'ph-zh', t); z.lang = 'zh-Hant'; parent.appendChild(z); addTr(z); }
+    function paint() {
+      dots.textContent = ''; D.stages.forEach(function (_, k) { dots.appendChild(el('i', k < i ? 'ok' : k === i ? 'cur' : '')); });
+      count.textContent = i < D.stages.length ? 'Trip ' + (i + 1) + ' of ' + D.stages.length + ' · 第 ' + (i + 1) + '／' + D.stages.length + ' 趟' : '';
+    }
+    function card(label, o, cls) { var c = el('div', 'ph-vl-card ' + (cls || '')); c.appendChild(el('small', 'ph-tp-k', label)); c.appendChild(el('p', '', o.en)); zhp(c, o.zh); return c; }
+    function show() {
+      var st = D.stages[i]; out.textContent = ''; next.hidden = true; opts.textContent = ''; text.textContent = '';
+      root.setAttribute('data-scene', 'idle'); void root.offsetWidth; root.setAttribute('data-scene', st.scene);
+      var h = el('h4', '', st.title.en); var hz = el('span', '', st.title.zh); hz.lang = 'zh-Hant'; h.appendChild(hz); text.appendChild(h);
+      text.appendChild(el('p', '', st.text.en)); zhp(text, st.text.zh);
+      var q = el('p', 'ph-vl-q'); q.appendChild(el('b', '', st.q.en)); var qz = el('span', '', st.q.zh); qz.lang = 'zh-Hant'; q.appendChild(qz); text.appendChild(q);
+      st.opts.forEach(function (o) {
+        var b = el('button', 'ph-vl-opt'); b.type = 'button'; b.appendChild(el('b', '', o.t.en)); var z = el('span', '', o.t.zh); z.lang = 'zh-Hant'; b.appendChild(z);
+        b.addEventListener('click', function () { choose(st, o, b); }); opts.appendChild(b);
+      });
+      paint();
+    }
+    function choose(st, o, btn) {
+      if (ans[st.key]) return; ans[st.key] = o.k;
+      $$('button', opts).forEach(function (x) { x.disabled = true; }); btn.classList.add('is-right');
+      if (st.key === 'q2') out.appendChild(card('What your two answers commit you to · 你的兩個答案讓你必須承擔什麼', D.verdicts[ans.q1 + '-' + ans.q2], 'is-valid'));
+      if (st.key === 'q3') { out.appendChild(card('Parfit’s comment · 帕菲特的評論', D.q3[o.k], 'is-sound')); }
+      if (st.key === 'q1') out.appendChild(card('Noted · 記下了', o.k === 'yes' ? { en: 'Hold on to that answer. The next trip will test it.', zh: '記住這個答案。下一趟會考驗它。' } : { en: 'Hold on to that answer. The next trip will ask what, exactly, was lost.', zh: '記住這個答案。下一趟會問：失去的到底是什麼？' }));
+      if (i < D.stages.length - 1) { next.hidden = false; next.textContent = 'Next trip · 下一趟 →'; }
+      else { var e = el('div', 'ph-el-end'); var h = el('h4', '', 'Your three answers'); h.appendChild(el('span', '', '你的三個答案')); e.appendChild(h);
+        e.appendChild(el('p', '', 'Trip 1: ' + ans.q1 + ' · Trip 2: ' + ans.q2 + ' · Trip 3: ' + (ans.q3 === 'death' ? 'death' : 'as good as survival') + '. Parfit’s own answers were: it does not matter whether we call it “me”; neither is strictly me and that is not a loss; as good as survival.'));
+        zhp(e, '帕菲特自己的答案是：叫不叫它「我」並不重要；嚴格說兩個都不是我，而這並不是損失；跟存活差不多一樣好。'); out.appendChild(e); }
+      i++; paint(); i--;
+    }
+    next.addEventListener('click', function () { i++; show(); });
+    function reset() { i = 0; ans = {}; show(); }
+    $('[data-tp-reset]', root).addEventListener('click', reset);
+    reset();
+    root.__lab = { state: function () { return { i: i, ans: ans, scene: root.getAttribute('data-scene') }; } };
+  });
+
   /* ---- 通用：先選邊、再看回應（data-ph-pick） ---- */
   $$('[data-ph-pick]').forEach(function (root) {
     var btns = $$('[data-pick]', root), reps = $$('[data-pick-reply]', root), tried = $('[data-pick-tried]', root), seen = {};

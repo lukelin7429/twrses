@@ -691,3 +691,76 @@ main:has(.ph-tools) .wrap { width: min(980px, 92vw); }
 .ph-sr-note { margin-top: .9rem; border-left: 4px solid var(--gold); padding: .2rem 0 .2rem 1rem; }
 .ph-sr-note p { margin: 0; font-size: 1.02rem; line-height: 1.7; }
 @media (max-width: 640px) { .ph-sr-list li { grid-template-columns: 1fr; } .ph-sr-list li i { grid-row: auto; grid-column: 1; text-align: left; } }
+
+/* ---------- A13：傳送機 ---------- */
+.ph-tp-scene { display: grid; grid-template-columns: 1fr 1.4fr 1fr; align-items: end; gap: .6rem; max-width: 640px; margin: 0 auto 1.2rem; }
+.ph-tp-pod { position: relative; height: 170px; border-radius: 90px 90px 16px 16px; border: 2px solid rgba(255,255,255,.28); background: rgba(255,255,255,.05); display: grid; place-items: end center; padding-bottom: 1.9rem; overflow: hidden; }
+.ph-tp-pod small { position: absolute; bottom: .45rem; font: 800 .74rem var(--sans); letter-spacing: .08em; color: rgba(255,255,255,.75); }
+.ph-tp-mars { border-color: rgba(255,157,122,.6); background: rgba(181,84,47,.16); }
+.ph-tp-fig svg { width: 58px; height: 106px; fill: #f3e3b8; transition: opacity 1.2s ease, fill 1.2s ease, transform 1.2s ease; }
+.ph-tp-mars .ph-tp-fig svg { opacity: 0; fill: #ffd36e; }
+.ph-tp-beam { display: flex; justify-content: space-between; align-items: center; height: 170px; padding: 0 .4rem; }
+.ph-tp-beam i { width: 12px; height: 12px; border-radius: 50%; background: #9fc3ea; opacity: .15; }
+[data-scene="destroy"] .ph-tp-beam i, [data-scene="both"] .ph-tp-beam i { animation: ph-tp-beam 1.2s ease-in-out 2; }
+.ph-tp-beam i:nth-child(2) { animation-delay: .2s !important; } .ph-tp-beam i:nth-child(3) { animation-delay: .4s !important; }
+@keyframes ph-tp-beam { 50% { opacity: 1; transform: scale(1.5); } }
+[data-scene="destroy"] .ph-tp-earth .ph-tp-fig svg { opacity: .08; transform: scale(.85); transition-delay: .5s; }
+[data-scene="destroy"] .ph-tp-mars .ph-tp-fig svg, [data-scene="both"] .ph-tp-mars .ph-tp-fig svg, [data-scene="heart"] .ph-tp-mars .ph-tp-fig svg { opacity: 1; transition-delay: 1.4s; }
+[data-scene="heart"] .ph-tp-earth .ph-tp-fig svg { fill: #ff9d7a; animation: ph-tp-heart 1.1s ease-in-out infinite; }
+[data-scene="heart"] .ph-tp-mars .ph-tp-fig svg { transition-delay: 0s; }
+@keyframes ph-tp-heart { 50% { opacity: .5; } }
+.ph-tp-text h4 { margin: 0 0 .5rem; font: 600 1.45rem var(--serif); color: #ffd98a; }
+.ph-tp-text h4 span { font: 600 .65em var(--zh); color: rgba(255,255,255,.7); margin-left: .5em; }
+.ph-tp-text > p { margin: 0; font: 400 1.08rem/1.7 var(--serif); color: #eef2f8; max-width: 66ch; }
+.ph-tp-text .ph-zh { font: 400 .95rem/1.8 var(--zh); color: rgba(255,255,255,.72); }
+.ph-tp-text .ph-vl-q { margin-top: 1.1rem; }
+.ph-tp-opts { margin-top: .8rem; }
+.ph-tp-opts .ph-vl-opt { text-align: left; }
+.ph-tp-k { display: block; font: 800 .72rem var(--sans); letter-spacing: .1em; text-transform: uppercase; color: var(--gold-dk); }
+.ph-tp .ph-vl-card p { margin: 0; font-size: 1.04rem; line-height: 1.7; }
+@media (max-width: 560px) { .ph-tp-pod { height: 130px; } .ph-tp-beam { height: 130px; } .ph-tp-fig svg { width: 42px; height: 78px; } }
+@media (prefers-reduced-motion: reduce) { .ph-tp-fig svg { transition: none; } .ph-tp-beam i { animation: none !important; } }
+
+/* ---------- 書架 D：佛法與西方哲學對照 ---------- */
+.ph-dlink { margin-top: 1.6rem; }
+.ph-dw-term { display: flex; align-items: center; gap: 1.4rem; margin-bottom: 1.2rem; }
+.ph-dw-term > span { font: 700 clamp(3rem, 9vw, 5rem)/1 var(--zh); color: var(--brand-dk); }
+.ph-dw-term i { font: italic 1.25rem 'Times New Roman', Times, serif; color: var(--gold-dk); }
+.ph-dw-term small { font: 700 .7rem var(--sans); letter-spacing: .1em; text-transform: uppercase; color: var(--ink-soft); }
+.ph-dw-term b { display: block; font: 600 1.5rem var(--serif); color: var(--ink); }
+.ph-dw-cards { display: grid; gap: 1.1rem; }
+.ph-dw-card { background: #fff; border: 1px solid var(--line); border-left: 6px solid var(--gold); border-radius: 0 16px 16px 0; padding: 1.2rem 1.5rem 1rem; box-shadow: var(--shadow-sm); }
+.ph-dw-card:first-child { border-left-color: var(--ph-terra); }
+.ph-dw-card:last-child { border-left-color: var(--brand); }
+.ph-dw-role { margin: 0; font: 800 .74rem var(--sans); letter-spacing: .1em; text-transform: uppercase; color: var(--gold-dk); }
+.ph-dw-card h3 { margin: .2rem 0 .7rem; font: 600 1.5rem var(--serif); color: var(--brand-dk); display: flex; flex-wrap: wrap; align-items: baseline; gap: .1em .5em; }
+.ph-dw-card h3 a { color: inherit; text-decoration-color: var(--gold); text-underline-offset: 4px; }
+.ph-dw-card h3 i { font: normal 700 .85rem var(--sans); color: var(--ink-soft); margin-left: auto; }
+.ph-dw-card .ph-p { margin: 0; }
+.ph-dw-card .ph-en { font: 400 1.1rem/1.75 var(--serif); }
+.ph-dw-tablewrap { overflow-x: auto; border-radius: 14px; border: 1px solid var(--line); background: #fff; }
+.ph-dw-table { width: 100%; border-collapse: collapse; min-width: 720px; }
+.ph-dw-table th, .ph-dw-table td { text-align: left; vertical-align: top; padding: .8rem 1rem; border-bottom: 1px solid var(--line); font-size: .98rem; line-height: 1.5; }
+.ph-dw-table thead th { background: var(--ph-night); color: #fff; font: 700 .95rem var(--sans); }
+.ph-dw-table thead th:nth-child(2) { background: var(--brand-dk); }
+.ph-dw-table tbody th { font-weight: 700; color: var(--brand-dk); width: 20%; background: var(--cream); }
+.ph-dw-table tbody td:nth-child(2) { background: var(--brand-lt); }
+.ph-dw-table span { display: block; font: 400 .86rem/1.5 var(--zh); color: var(--ink-soft); margin-top: .15rem; }
+.ph-dw-table thead th span { color: rgba(255,255,255,.75); }
+.ph-dw-terms { min-width: 560px; }
+.ph-dw-terms td:first-child { font: 700 1.15rem var(--zh); color: var(--brand-dk); }
+.ph-dw-terms td i { font: italic 1.05rem 'Times New Roman', Times, serif; color: var(--gold-dk); }
+.ph-dw-terms tbody td:nth-child(2) { background: none; }
+.ph-dw-sub { margin: 2.2rem 0 .8rem; font: 600 1.4rem var(--serif); color: var(--brand-dk); }
+.ph-dw-lines { list-style: none; counter-reset: dw; padding: 0; margin: 0; display: grid; gap: .7rem; }
+.ph-dw-lines li { counter-increment: dw; position: relative; background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 1rem 1.2rem 1rem 3.6rem; }
+.ph-dw-lines li::before { content: counter(dw); position: absolute; left: 1rem; top: 1rem; width: 32px; height: 32px; border-radius: 50%; background: var(--brand); color: #fff; display: grid; place-items: center; font: 800 .9rem var(--sans); }
+.ph-dw-lines .ph-p { margin: 0; }
+.ph-dw-lines .ph-en { font: 500 1.15rem/1.6 var(--serif); }
+.ph-dw-lines .ph-p .ph-spk { position: static; float: right; margin: 0 0 .3rem .8rem; opacity: .8; }
+.ph-dw-avoid { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: .8rem; }
+.ph-dw-avoid > div { background: #fbf1ec; border: 1px solid #f0d6c8; border-radius: 14px; padding: .9rem 1.1rem; }
+.ph-dw-x { margin: 0 0 .3rem; font: 600 1.1rem var(--serif); color: var(--ph-terra); text-decoration: line-through; text-decoration-thickness: 1.5px; }
+.ph-dw-x span { display: block; font: 400 .9rem var(--zh); text-decoration: none; }
+.ph-dw-avoid .ph-p { margin: 0; }
+.ph-dw-avoid .ph-en { font: 400 1rem/1.6 var(--sans); }
