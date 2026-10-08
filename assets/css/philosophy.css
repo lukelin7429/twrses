@@ -1090,3 +1090,28 @@ main:has(.ph-tools) .wrap { width: min(980px, 92vw); }
 .ph-pd .ph-vl-card .ph-tr { background: var(--brand-lt); color: var(--brand-dk); }
 .ph-pd .ph-el-src span { font: 700 .95em var(--zh); letter-spacing: .02em; margin-left: .5em; color: rgba(255,255,255,.75); text-transform: none; }
 .ph-pd .ph-md-vgrid .ph-vl-card { align-content: start; }
+
+/* ---- A25：公共的鍋 ---- */
+.ph-cm [hidden] { display: none !important; }
+.ph-cm-chart svg { display: block; width: 100%; max-width: 620px; height: auto; margin: 0 auto .8rem; }
+.ph-cm-chart .ax { stroke: rgba(255,255,255,.3); stroke-width: 1; } .ph-cm-chart .sep { stroke: rgba(255,211,110,.6); stroke-width: 1.5; stroke-dasharray: 4 4; }
+.ph-cm-chart .lb { font: 700 10.5px var(--sans); fill: rgba(255,255,255,.7); }
+.ph-cm-chart .b0 { fill: rgba(255,255,255,.07); } .ph-cm-chart .b1 { fill: #9fc3ea; } .ph-cm-chart .b2 { fill: #4fd1a5; }
+.ph-cm-table { display: grid; gap: .3rem; margin-bottom: 1.1rem; }
+.ph-cm-p { display: grid; grid-template-columns: 7rem 1fr 1.2fr 3.6rem auto; gap: .5rem .8rem; align-items: center; padding: .5rem .8rem; border-radius: 10px; background: rgba(255,255,255,.05); }
+.ph-cm-p.is-you { background: rgba(255,211,110,.12); border: 1px solid rgba(255,211,110,.4); }
+.ph-cm-p b { font: 600 1rem var(--serif); color: #fff; }
+.ph-cm-c, .ph-cm-e { font: .86rem var(--sans); color: rgba(255,255,255,.75); }
+.ph-cm-p em { font: normal 800 1rem var(--sans); color: #ffd98a; text-align: right; font-variant-numeric: tabular-nums; }
+.ph-cm-fine { all: unset; cursor: pointer; font: 800 .76rem var(--sans); color: #ffd0bf; border: 1.5px solid #ff9d7a; padding: .2rem .7rem; border-radius: 999px; }
+.ph-cm-fine:hover { background: rgba(255,157,122,.18); } .ph-cm-fine:focus-visible { outline: 2px solid #ffd36e; outline-offset: 2px; }
+.ph-cm-fine span { font-family: var(--zh); }
+.ph-cm-row input[type=range]::-webkit-slider-runnable-track { background: linear-gradient(90deg, #44546b, #ffd36e); }
+.ph-cm-row input[type=range]::-moz-range-track { background: linear-gradient(90deg, #44546b, #ffd36e); }
+.ph-cm .ph-vl-next span { font-family: var(--zh); }
+.ph-cm .ph-vl-card p { margin: 0; font: 400 1.04rem/1.7 var(--serif); }
+.ph-cm .ph-vl-card .ph-zh { font: 400 .95rem/1.8 var(--zh); color: var(--ink-soft); }
+.ph-cm .ph-vl-card .ph-tr { background: var(--brand-lt); color: var(--brand-dk); }
+.ph-cm .ph-el-end .ph-vl-q { margin-top: 1.4rem; }
+.ph-cm .ph-el-end p.ph-ev-zone:first-of-type { margin-top: 0; }
+@media (max-width: 720px) { .ph-cm-p { grid-template-columns: 1fr 3.6rem; } .ph-cm-c, .ph-cm-e { grid-column: 1 / -1; } }

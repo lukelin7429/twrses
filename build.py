@@ -7972,7 +7972,30 @@ def _ph_lab_pond(lab):
   </div>
 </div>'''
 
+def _ph_lab_commons(lab):
+    """A25：公共的鍋（公共財遊戲）。你與三位電腦玩家，前五輪沒有規則、後五輪可以彼此罰款；畫出十輪的平均投入，再問要不要把懲罰交給第五個人。"""
+    payload = html.escape(json.dumps({k: lab[k] for k in ("names", "phase", "ask", "put", "next", "fine", "fineNote", "mid", "ends", "q", "qopts")}, ensure_ascii=False), quote=False)
+    return f'''<div class="ph-el ph-cm rvl" data-ph-commons>
+  <script type="application/json" data-cm-data>{payload}</script>
+  <div class="ph-vl-top"><div class="ph-vl-dots ph-so-dots" data-cm-dots aria-hidden="true"></div><span class="ph-el-count" data-cm-count></span></div>
+  <div class="ph-el-stage">
+    <div class="ph-cm-chart" data-cm-chart aria-hidden="true"></div>
+    <div class="ph-cm-table" data-cm-table></div>
+    <div data-cm-play>
+      <div class="ph-tp-text" data-cm-text aria-live="polite"></div>
+      <div class="ph-ev-slide" data-cm-in>
+        <div class="ph-md-row ph-ev-row ph-cm-row"><input type="range" min="0" max="10" step="1" value="5" data-cm-range aria-label="Tokens to contribute · 要投入的代幣數"><output data-cm-val>5</output></div>
+        <div class="ph-md-act"><button type="button" class="ph-vl-next" data-cm-put></button></div>
+      </div>
+      <div class="ph-md-act" data-cm-after hidden><button type="button" class="ph-vl-next" data-cm-next></button><span class="ph-el-count" data-cm-note></span></div>
+    </div>
+    <div data-cm-end aria-live="polite"></div>
+    <div class="ph-el-foot"><button type="button" class="ph-el-reset" data-cm-reset>Start again · 重來</button></div>
+  </div>
+</div>'''
+
 def _ph_lab(lab):
+    if lab.get("kind") == "commons": return _ph_lab_commons(lab)
     if lab.get("kind") == "pond": return _ph_lab_pond(lab)
     if lab.get("kind") == "friends": return _ph_lab_friends(lab)
     if lab.get("kind") == "sort": return _ph_lab_sort(lab)
