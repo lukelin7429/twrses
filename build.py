@@ -7803,7 +7803,7 @@ def build_phil_hub():
 _chipj = os.path.join(ROOT, "data", "semiconductors.json")
 CHIP = json.load(open(_chipj, encoding="utf-8")) if os.path.exists(_chipj) else None
 CHIP_BASE = "/resources/classes/semiconductors/"
-_CHIP_JS = {"doping": "chip-doping", "transistor": "chip-transistor", "wafer": "chip-wafer", "litho": "chip-litho", "scale": "chip-scale", "package": "chip-package", "hbm": "chip-hbm", "island": "chip-island"}   # lab.kind → assets/js/<bundle>.js
+_CHIP_JS = {"doping": "chip-doping", "transistor": "chip-transistor", "wafer": "chip-wafer", "litho": "chip-litho", "scale": "chip-scale", "package": "chip-package", "hbm": "chip-hbm", "island": "chip-island", "heat": "chip-heat"}   # lab.kind → assets/js/<bundle>.js
 
 def _chip_ver():
     h = hashlib.md5()
@@ -8401,6 +8401,75 @@ def _chip_who(wh):
             f'</div></div>'
             '<noscript><p class="muted">The game works in your browser and needs JavaScript. · 這個小遊戲在瀏覽器裡執行，需要開啟 JavaScript。</p></noscript>')
 
+def chipheat_svg(size=56):
+    """第九課的課程卡小圖示：一顆發燙的晶片，上面是散熱片，熱往上冒。"""
+    fins = "".join(f'<rect x="{14 + i * 5.6}" y="18" width="2.6" height="16" rx=".8" fill="#b9c2d0"/>' for i in range(6))
+    waves = "".join(f'<path d="M{18 + i * 12} 14 q-3 -3 0 -6 q3 -3 0 -6" fill="none" stroke="#ff8a2a" stroke-width="1.8" stroke-linecap="round"/>' for i in range(3))
+    return (f'<svg class="chipheat-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">'
+            '<rect x="4" y="48" width="52" height="6" rx="1.5" fill="#1f7a4a"/><rect x="18" y="40" width="24" height="8" rx="1.5" fill="#e0461a"/>'
+            f'<rect x="11" y="34" width="38" height="5" rx="1.2" fill="#b9c2d0"/>{fins}{waves}</svg>')
+
+def render_chipheat_lab(lesson):
+    """第九課：一顆晶片配三種散熱、三種工作量，看溫度與降速（assets/js/chip-heat.js 綁這裡的 class；溫度是簡化模型的示例）。"""
+    lab = lesson["lab"]
+    loads = [("idle", "Idle", "待機"), ("video", "Video", "看影片"), ("game", "Game", "玩遊戲")]
+    coolers = [("none", "Bare chip", "沒有散熱"), ("sink", "Heat sink", "散熱片"), ("fan", "Sink + fan", "散熱片＋風扇")]
+    lb = "".join(f'<button type="button" data-load="{k}" aria-pressed="false">{en}<small>{zh}</small></button>' for k, en, zh in loads)
+    cb = "".join(f'<button type="button" data-cooler="{k}" aria-pressed="false">{en}<small>{zh}</small></button>' for k, en, zh in coolers)
+    msgs = "".join(f'<p class="cp-msg cp-ht-msg" data-msg="{k}" hidden>{html.escape(m["en"])}<span class="zh">{html.escape(m["zh"])}</span></p>' for k, m in lab["msgs"].items())
+    tg = _lab_toggles([("labels", "Labels", "標示", True)])
+    return f'''<div class="astro-lab cp-lab cp-ht-lab rvl" data-chipheat-lab>
+  <div class="al-stage">
+    <div class="al-space">
+      <canvas class="al-space-cv" aria-label="3D model of a chip on a circuit board that changes color as it heats up, with a heat sink and a fan that can be added · 電路板上一顆晶片的 3D 模型：晶片越熱顏色越紅，可以加上散熱片和風扇"></canvas>
+      <div class="al-labels" aria-hidden="true"></div>
+      <p class="al-hint">Drag to turn · 拖曳旋轉　Scroll or pinch to zoom · 滾輪／雙指縮放</p>
+      <button type="button" class="al-home" title="Reset view · 重設視角" aria-label="Reset view · 重設視角">&#8634;</button>
+      <p class="al-nogl-msg">This 3D model needs WebGL, which this browser does not support. The reading and the cards below still explain everything.<br><span class="zh">這個瀏覽器不支援 WebGL，無法顯示 3D 模型；下方的課文與卡片一樣能看懂。</span></p>
+    </div>
+    <aside class="al-sky cp-aside">
+      <p class="al-sky-k">1 · How hard is the chip working? · 晶片有多忙？</p>
+      <div class="cp-dope cp-ht-loads" role="group" aria-label="Workload · 工作量">{lb}</div>
+      <p class="al-sky-k">2 · How is it cooled? · 怎麼散熱？</p>
+      <div class="cp-dope cp-ht-coolers" role="group" aria-label="Cooling · 散熱">{cb}</div>
+      <div class="cp-ht-meter"><p class="cp-ht-temp" aria-live="off"></p><div class="cp-ht-bar"><i></i><span title="Limit · 上限"></span></div><p class="cp-ht-status"></p></div>
+      <dl class="cp-nums cp-lt-nums">
+        <div><dt>Power (heat made) · 功率（發的熱）</dt><dd class="cp-ht-pw"></dd></div>
+        <div><dt>Speed · 速度</dt><dd class="cp-ht-sp"></dd></div>
+      </dl>
+      {msgs}
+    </aside>
+  </div>
+  <div class="al-controls">
+    <div class="al-row al-row-main">
+      <button type="button" class="al-play" aria-pressed="true"><span class="al-play-i" aria-hidden="true"></span><span class="al-play-t">Pause · 暫停</span></button>
+      <div class="al-row al-toggles">{tg}</div>
+    </div>
+  </div>
+  {_lab_foot(lab)}
+  <p class="cp-credit">{lab["credit_html"]}</p>
+</div>'''
+
+def _chip_vf(vf):
+    """「電壓和速度怎麼影響耗電？」（chip-heat.js 的 initVf；不需要 WebGL）。"""
+    pre = "".join(f'<button type="button" data-v="{p["v"]}" data-f="{p["f"]}">{html.escape(p["en"])}<small>{html.escape(p["zh"])}</small></button>' for p in vf["presets"])
+    return (f'<div class="cp-cnt cp-vf rvl" data-chip-vf>'
+            f'<div class="cp-cnt-in">'
+            f'<label class="cp-cnt-l"><span>1 · Voltage · 電壓 <output class="cp-vf-v-out">100%</output></span>'
+            f'<input type="range" class="al-age cp-vf-v" min="50" max="130" step="5" value="100"></label>'
+            f'<label class="cp-cnt-l cp-sun-l"><span>2 · Speed (switches each second) · 速度（每秒開關幾次） <output class="cp-vf-f-out">100%</output></span>'
+            f'<input type="range" class="al-age cp-vf-f" min="50" max="150" step="5" value="100"></label>'
+            f'<p class="cp-cnt-l cp-sun-l"><span>Or try one of these · 或試試這幾種</span></p>'
+            f'<div class="cp-dpw-pre cp-vf-pre" role="group" aria-label="Examples · 例子">{pre}</div>'
+            f'<p class="cp-cnt-note">{html.escape(vf["note_en"])}<span class="zh">{html.escape(vf["note_zh"])}</span></p></div>'
+            f'<div class="cp-home-out cp-cnt-out" aria-live="polite">'
+            f'<p class="cp-home-k">Switching power · 開關所用的功率</p>'
+            f'<p class="cp-home-big"><b class="cp-vf-n">100%</b> of the starting power · 原來的百分之幾</p>'
+            f'<div class="cp-vf-track"><i class="cp-vf-bar"></i><span></span></div>'
+            f'<p class="cp-home-note"><span class="cp-vf-en"></span><span class="zh cp-vf-zh"></span></p>'
+            f'</div></div>'
+            '<noscript><p class="muted">The calculator works in your browser and needs JavaScript. · 計算在瀏覽器裡進行，需要開啟 JavaScript。</p></noscript>')
+
 def _chip_sun(sp):
     """「在螢幕上曬一張藍曬圖」（chip-litho.js 的 initSun；2D canvas，不需要 WebGL）。"""
     masks = "".join(f'<button type="button" data-mask="{m["key"]}" aria-pressed="false">{html.escape(m["en"])}<small>{html.escape(m["zh"])}</small></button>' for m in sp["masks"])
@@ -8497,7 +8566,7 @@ def build_chip_lesson(ui, unit, lesson):
     reading_html = render_basic_unit(1, unit_dict, level="chips", audio_rel="", pdf_rel="")
     lab = lesson["lab"]
     kind = lab["kind"]
-    lab_html = {"doping": render_chipdoping_lab, "transistor": render_chiptransistor_lab, "wafer": render_chipwafer_lab, "litho": render_chiplitho_lab, "scale": render_chipscale_lab, "package": render_chippackage_lab, "hbm": render_chiphbm_lab, "island": render_chipisland_lab}[kind](lesson)
+    lab_html = {"doping": render_chipdoping_lab, "transistor": render_chiptransistor_lab, "wafer": render_chipwafer_lab, "litho": render_chiplitho_lab, "scale": render_chipscale_lab, "package": render_chippackage_lab, "hbm": render_chiphbm_lab, "island": render_chipisland_lab, "heat": render_chipheat_lab}[kind](lesson)
 
     secs = []
     if lesson.get("home"):
@@ -8509,6 +8578,9 @@ def build_chip_lesson(ui, unit, lesson):
     if lesson.get("dies"):
         dz = lesson["dies"]
         secs.append(("dies", dz["eyebrow"], dz["en"], dz["zh"], _chip_dies(dz), _bi(dz["lead_en"], dz["lead_zh"], cls="lead rvl d2")))
+    if lesson.get("vf"):
+        vf = lesson["vf"]
+        secs.append(("vf", vf["eyebrow"], vf["en"], vf["zh"], _chip_vf(vf), _bi(vf["lead_en"], vf["lead_zh"], cls="lead rvl d2")))
     if lesson.get("who"):
         wh = lesson["who"]
         secs.append(("who", wh["eyebrow"], wh["en"], wh["zh"], _chip_who(wh), _bi(wh["lead_en"], wh["lead_zh"], cls="lead rvl d2")))
@@ -8573,7 +8645,8 @@ def build_chip_lesson(ui, unit, lesson):
                 "scale": ("Nanometers in a sentence", "一句話記住奈米"),
                 "package": ("Packaging in a sentence", "一句話記住封裝"),
                 "hbm": ("HBM in a sentence", "一句話記住 HBM"),
-                "island": ("The chip island in a sentence", "一句話記住晶片島")}[kind]
+                "island": ("The chip island in a sentence", "一句話記住晶片島"),
+                "heat": ("Chip heat in a sentence", "一句話記住晶片的熱")}[kind]
     secs.append(("tricks", "Remember It · 記憶口訣", tricks_h[0], tricks_h[1], _sci_tricks(lesson), ""))
     if lesson.get("safety"):
         items = "".join(f'<li class="rvl">{html.escape(s["en"])}<span class="zh">{html.escape(s["zh"])}</span></li>' for s in lesson["safety"])
@@ -8627,7 +8700,7 @@ def build_chip_lesson(ui, unit, lesson):
 def build_chip_hub():
     # 照萬物原理：單元導覽＋每個單元一段橫向課程卡；做好的課可點，planned 是「製作中」卡。
     def icon(l):
-        return chipsilicon_svg(60) if l.get("card") == "silicon" else chiptransistor_svg(60) if l.get("card") == "transistor" else chipwafer_svg(60) if l.get("card") == "wafer" else chiplitho_svg(60) if l.get("card") == "litho" else chipscale_svg(60) if l.get("card") == "scale" else chippackage_svg(60) if l.get("card") == "package" else chiphbm_svg(60) if l.get("card") == "hbm" else chipisland_svg(60) if l.get("card") == "island" else l["icon"]
+        return chipsilicon_svg(60) if l.get("card") == "silicon" else chiptransistor_svg(60) if l.get("card") == "transistor" else chipwafer_svg(60) if l.get("card") == "wafer" else chiplitho_svg(60) if l.get("card") == "litho" else chipscale_svg(60) if l.get("card") == "scale" else chippackage_svg(60) if l.get("card") == "package" else chiphbm_svg(60) if l.get("card") == "hbm" else chipisland_svg(60) if l.get("card") == "island" else chipheat_svg(60) if l.get("card") == "heat" else l["icon"]
     unit_sections, nav = [], []
     done = sum(len(u["lessons"]) for u in CHIP["units"])
     total = done + sum(len(u.get("planned", [])) for u in CHIP["units"])

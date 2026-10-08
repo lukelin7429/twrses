@@ -356,10 +356,14 @@
   - 頁面下方「誰做哪一段？」（`who`，`data-chip-who`，`initWho()`）：七家公司選設計／製造／封裝測試（台積電、聯電＝製造；聯發科、輝達、高通、超微＝設計；日月光＝封測），全對顯示說明。
   - 查證過（2026-10，皆 Wikipedia）：工研院 1973；1974 年孫運璿、潘文淵等人的會議；1976 RCA 技轉、四組工程師受訓、示範工廠良率高於 RCA；聯電 1980/5/22、台灣第一家半導體公司；竹科 1980/12/15、1976 年仿矽谷的構想、2024/12 有 584 家；台積電 1987、政府＋工研院＋民間合資、第一家專業晶圓代工；張忠謀在德儀 25 年；聯發科 1997 新竹、fabless；南科計畫 1995/5 核定（進駐廠商有台積電、聯電）；中科 2003 啟用。**沒寫**：任何市占百分比、產值、股價、地緣政治；「那批工程師後來當了老闆」「很多人不看好」「不和客戶競爭」這類沒有在出處裡的說法；車程時間。
   - 卡片 `demo`：design／make／pack／time。除錯：`document.querySelector('[data-chipisland-lab]').__lab`（`setView('journey'|'time')`、`setStep(0–3, 立即?)`、`setTour(bool)`、`setYear(1970–2005)`、`run(秒)`、`render()`）；小遊戲 `document.querySelector('[data-chip-who]').__who`。
+- 第九課晶片發熱（`chip-heat.js`，`lab.kind = "heat"`，`data-chipheat-lab`，CSS `cp-ht-`／小工具 `cp-vf-`；**單元四「真實世界裡的晶片」（`key: "world"`，第二批 9–12 課）第一課**，slug `chip-heat`）：一個機制——電晶體每開關一次都花一點能量，電能全變成熱；越忙越熱，熱要靠散熱片（鰭片＝大表面）和風扇（把熱空氣吹走）帶走，帶不走晶片就自己降速。
+  - 模型：電路板上一顆晶片，顏色＝溫度（`RAMP` 藍→紅），橘色小點＝熱（InstancedMesh，數量跟功率走；有散熱片時走在鰭片之間，有風扇時在頂端被吹散）。右欄選工作量（idle／video／game）與散熱（none／sink／fan）。溫度與降速用 `heatcalc.js` 的一階模型：`steadyTemp = 25 + 功率 × COOLERS`、時間常數 `TAU`、超過 `LIMIT`（95°C）速度往下掉（−0.7/s）、涼了慢慢回升（+0.06/s）。**全部是示例數字**（比例說明寫明），不是任何真實晶片。模型時間走 3 倍快。測試用 `__lab.run(秒)` 快轉。
+  - 頁面下方「電壓與速度」（`vf`、`_chip_vf`、`initVf`，不需要 WebGL）：兩條滑桿＋三個例子，`relPower = V² × f`（維基 Processor power dissipation 的 P = C·V²·f；漏電沒算，註記寫明）。
+  - 查證過（2026-10，全部維基英文）：Processor power dissipation（電能變熱、P=CV²f、三種耗電、降頻與自動關機）；Heat sink（表面積、鋁或銅）；Thermal paste（填空氣縫隙）；Computer cooling（風扇排熱空氣、手機幾乎沒有主動散熱而用降頻、Cray-1 115 kW、Cray-2 泡 Fluorinert）；Dennard scaling（1974 論文、約 2005 功耗牆、轉向多核心）；Voltage and frequency scaling（省電、延長電池）；Junction temperature（上限寫在規格書）。**沒寫的**：任何實際晶片的溫度上限或瓦數、時脈 GHz 數字（沒有要用就不查）。
 - 共用工具 `tools/chips/src/common.js`：`labeler`、`lazyBoot`、`canvasTex`、`glowTex`、`polyline`（電線裡的電子沿弧長走）、`tube`。第一課的 chip-doping.js 還是自己寫一份（沒改動），新課用 common.js 的。新入口要加進 `package.json` 的 build 與 test。
 - 和萬物原理互相連結：第一課的 `links` 連第三課太陽能板（電子與電洞）；第二課連萬物原理第八課（computer-memory，0 與 1、DRAM），不重講。
 - 🔊 錄音：`python3 tools/gen_audio.py --page resources/classes/semiconductors/<slug> --out audio/say-<slug>` → `python3 tools/upload_say_dir.py assets/data/say/semiconductors-<slug>.json audio/say-<slug>`（manifest 命名 `semiconductors-<slug>`；`gen_audio.py` 的 SHORT_PAGES 已加本系列）。worktree 裡先把 `~/Developer/repos/twrses/tools/.r2_uploaded_cache.txt` 複製過來，做完 `sort -u` 合併回去。
-- 課程規劃在 Obsidian：`第二大腦/創作庫/半導體科普課程規劃（twrses）.md`（三單元八課、待查證清單、交接指令）；系列索引 `第二大腦/英文學習/晶片與半導體（twrses.org）.md`。
+- 課程規劃在 Obsidian：`第二大腦/創作庫/半導體科普課程規劃（twrses）.md`（三單元八課＋第二批單元四的 9–12 課、待查證清單、交接指令）；系列索引 `第二大腦/英文學習/晶片與半導體（twrses.org）.md`。
 
 ---
 

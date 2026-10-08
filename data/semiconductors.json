@@ -10,8 +10,8 @@
       "zh": "每一課都從一個新聞裡、餐桌上會聽到的問題開始：先用 3D 模型看答案，一課只講清楚一個道理；再讀一篇英文短文把它說明白，中文翻譯隨點隨看。"
     },
     {
-      "en": "The lessons are grouped into three units: what a semiconductor is, how chips are made, and the chips behind AI. When a lesson touches an idea already explained in How Things Work, such as solar panels or computer memory, it links there instead of explaining it twice.",
-      "zh": "課程分成三個單元：半導體是什麼、晶片怎麼做出來、AI 時代的晶片。遇到「萬物原理」已經講過的東西，例如太陽能板、電腦記憶體，就直接連過去，不重講一次。"
+      "en": "The lessons are grouped into four units: what a semiconductor is, how chips are made, the chips behind AI, and chips in the real world. When a lesson touches an idea already explained in How Things Work, such as solar panels or computer memory, it links there instead of explaining it twice.",
+      "zh": "課程分成四個單元：半導體是什麼、晶片怎麼做出來、AI 時代的晶片、真實世界裡的晶片。遇到「萬物原理」已經講過的東西，例如太陽能板、電腦記憶體，就直接連過去，不重講一次。"
     },
     {
       "en": "Every number is checked against a source listed at the bottom of each lesson. Company names appear only to explain how chips are made, never as advice about stocks or investing.",
@@ -5571,6 +5571,615 @@
         }
       ],
       "planned": []
+    },
+    {
+      "key": "world",
+      "title_en": "Chips in the Real World",
+      "title_zh": "真實世界裡的晶片",
+      "blurb_en": "Why chips get hot, how an AI chip differs from an ordinary one, why a fab needs so much water and power, and what an LED has to do with semiconductors.",
+      "blurb_zh": "晶片為什麼會發熱、AI 晶片和一般的 CPU 哪裡不一樣、晶圓廠為什麼需要那麼多水和電，以及 LED 和半導體有什麼關係。",
+      "lessons": [
+        {
+          "n": 9,
+          "slug": "chip-heat",
+          "title": "Why Do Chips Get Hot?",
+          "title_zh": "晶片為什麼會發熱？",
+          "level": "入門 · Beginner",
+          "icon": "🔥",
+          "card": "heat",
+          "blurb_en": "Your phone warms up when you play a game, and a laptop sometimes roars with its fan. Where does the heat come from? In a 3D model, give a chip more work, then add a heat sink and a fan, and watch its temperature and speed. Then use two sliders to see why a little less voltage saves a lot of power.",
+          "blurb_zh": "玩遊戲的時候手機會變燙，筆電的風扇有時候呼呼地轉。這些熱是從哪裡來的？在 3D 模型裡給晶片更多工作，再加上散熱片和風扇，看它的溫度和速度怎麼變。接著拉兩條滑桿，看看為什麼電壓只降一點點，就能省下很多電。",
+          "big_idea_en": "A chip turns the electrical energy it uses into heat. Every time a transistor switches, a tiny bit of energy is spent, and a chip has billions of transistors switching billions of times a second. The harder the chip works, the more heat it makes. That heat must be carried away, or the chip protects itself by slowing down.",
+          "big_idea_zh": "晶片用掉的電能，會變成熱。電晶體每開關一次，就花掉一點點能量；而一顆晶片有幾十億個電晶體，每秒開關幾十億次。晶片越忙，發的熱越多。這些熱一定要帶走，不然晶片就會放慢速度來保護自己。",
+          "lab": {
+            "kind": "heat",
+            "eyebrow": "3D Model · 3D 模型",
+            "title_en": "Keep the Chip Cool",
+            "title_zh": "幫晶片降溫",
+            "how_en": "Drag to turn the model, and scroll or pinch to zoom. First choose how hard the chip is working: idle, playing a video, or running a game. Then choose how it is cooled: nothing at all, a heat sink, or a heat sink with a fan. The chip changes color as it warms up, and the orange dots show heat leaving. Watch what happens to the speed when the chip gets too hot.",
+            "how_zh": "拖曳可以旋轉模型，滾輪或雙指可以縮放。先選晶片有多忙：待機、看影片，還是玩遊戲。再選怎麼散熱：什麼都不裝、裝散熱片，或是散熱片加風扇。晶片越熱，顏色就越紅；橘色的小點代表正在離開的熱。注意看晶片太熱的時候，速度會怎麼樣。",
+            "msgs": {
+              "none": {
+                "en": "With nothing on top, heat can leave only from the chip's own small surface. That is fine for light work, but not for heavy work.",
+                "zh": "上面什麼都沒有的時候，熱只能從晶片自己小小的表面離開。工作輕的時候沒問題，工作重就不行了。"
+              },
+              "sink": {
+                "en": "A heat sink is a piece of metal with many fins. The fins give the heat far more surface from which to pass into the air.",
+                "zh": "散熱片是一塊有很多鰭片的金屬。鰭片讓熱有大得多的表面可以傳到空氣裡。"
+              },
+              "fan": {
+                "en": "The fan does not make cold. It pushes the warmed air away, so cooler air can take its place and carry off more heat.",
+                "zh": "風扇不會製造冷氣。它把被加熱的空氣吹走，讓比較涼的空氣補進來，帶走更多的熱。"
+              },
+              "throttle": {
+                "en": "Too hot! The chip slows itself down so that it makes less heat. This is called thermal throttling, and it protects the chip from damage.",
+                "zh": "太熱了！晶片自己放慢速度，好讓發的熱少一點。這叫做過熱降頻，是為了保護晶片不被燒壞。"
+              }
+            },
+            "legend": [
+              {
+                "cls": "cphtdie",
+                "en": "Chip color: blue is cool, red is hot",
+                "zh": "晶片的顏色：藍色是涼，紅色是燙"
+              },
+              {
+                "cls": "cphtdot",
+                "en": "Orange dots: heat leaving the chip",
+                "zh": "橘色小點：離開晶片的熱"
+              },
+              {
+                "cls": "cphtsink",
+                "en": "Gray fins: the heat sink",
+                "zh": "灰色鰭片：散熱片"
+              }
+            ],
+            "scale_en": "A teaching model, not a real chip. The temperatures, the 95°C limit, the three workloads, and the three cooling strengths are example numbers chosen to show the idea; real chips have their own limits, which the maker lists in the datasheet. Heat is invisible, so the orange dots are only a picture of it, and the model runs faster than real time.",
+            "scale_zh": "這是教學用的模型，不是真的晶片。溫度、95°C 的上限、三種工作量和三種散熱能力，都是為了說明道理而選的示例數字；真的晶片各有自己的上限，由製造商寫在規格書裡。熱是看不見的，橘色小點只是把它畫出來；模型的時間也比真實的快。",
+            "credit_html": "Model drawn by My Culture Connect as a teaching diagram. The ideas follow <a href=\"https://en.wikipedia.org/wiki/Processor_power_dissipation\" target=\"_blank\" rel=\"noopener\">Wikipedia, “Processor power dissipation”</a> and the other sources listed at the bottom of this page. · 模型由人師教育協會自繪示意；原理依維基百科「Processor power dissipation」條目與本頁最下方列出的其他出處。"
+          },
+          "paras": [
+            "Play a game on a phone for a while, and the back of the phone grows warm. Open many programs on a laptop, and a fan inside begins to spin loudly. Nothing is burning, and nothing is broken. The heat comes from the chip, and making heat is a normal part of a chip's work.",
+            "Remember that a chip is made of transistors, which are tiny switches. Each time a switch turns on or off, a little electric charge has to move, and moving it takes a little energy. That energy does not disappear. It turns into heat. One switch makes almost no heat at all, but a chip has billions of switches, and they can switch billions of times every second.",
+            "So the harder a chip works, the hotter it gets. When your phone is only showing the clock, few transistors are switching, and the chip stays cool. When you play a game, the chip must draw a new picture many times a second. Many more transistors switch, the chip uses more power, and it makes more heat.",
+            "The heat has to go somewhere. In a computer, a piece of metal called a heat sink sits on top of the chip. It has many thin fins, so it has a very large surface that touches the air. Heat moves from the chip into the metal and from the metal into the air. A fan then blows the warm air away so that cooler air can take its place.",
+            "A phone has no room for a fan, so it spreads the heat through its body and lets it leave from the surface. That is why you feel the warmth in your hand. If a chip still gets too hot, it protects itself: it slows down so that it makes less heat. You may notice a game becoming less smooth. If slowing down is not enough, the device shuts itself off.",
+            "Engineers work hard to make chips that waste less energy. The best trick is lowering the voltage, because a small drop in voltage saves a lot of power. Chips also rest whenever they can, which makes a battery last longer. For the biggest computers, air is not enough, and some are cooled with liquid instead. A cooler chip is a faster and longer-lasting chip."
+          ],
+          "paras_zh": [
+            "用手機玩一陣子遊戲，手機背面就會變熱。在筆電上開很多程式，裡面的風扇就開始大聲地轉。沒有東西燒起來，也沒有東西壞掉。熱是從晶片來的，而發熱本來就是晶片工作的一部分。",
+            "還記得嗎？晶片是電晶體做成的，電晶體就是很小很小的開關。開關每開一次或關一次，都要搬動一點點電荷，而搬動它要花一點點能量。這些能量不會消失，它變成了熱。一個開關發的熱少到幾乎沒有，可是一顆晶片有幾十億個開關，每秒還可以開關幾十億次。",
+            "所以晶片越忙，就越熱。手機只顯示時鐘的時候，沒有多少電晶體在開關，晶片是涼的。玩遊戲的時候，晶片每秒要畫出好多張新的畫面，開關的電晶體多了很多，晶片用的電變多，發的熱也變多。",
+            "熱一定要有地方去。在電腦裡，晶片上面壓著一塊叫做散熱片的金屬。它有很多薄薄的鰭片，所以有很大的表面可以碰到空氣。熱從晶片傳到金屬，再從金屬傳到空氣。接著風扇把熱空氣吹走，讓比較涼的空氣補進來。",
+            "手機裡放不下風扇，所以它把熱分散到整個機身，再從表面散出去，你的手才會感覺到溫溫的。如果晶片還是太熱，它會保護自己：放慢速度，讓發的熱少一點。這時候你可能會發現遊戲變得不太順。要是放慢了還不夠，裝置就會自己關機。",
+            "工程師很努力地讓晶片少浪費一點能量。最有效的辦法是降低電壓，因為電壓只要降一點點，就能省下很多電。晶片也會一有空就休息，電池因此可以用得更久。對最大的電腦來說，光靠空氣還不夠，有些會改用液體來冷卻。晶片涼一點，就跑得更快，也用得更久。"
+          ],
+          "questions": [
+            "Where does the heat in a chip come from?",
+            "How do a heat sink and a fan work together?",
+            "What does a chip do when it gets too hot, and why?"
+          ],
+          "answers": [
+            "From the energy the transistors use each time they switch. That electrical energy turns into heat, and billions of transistors switch billions of times a second.",
+            "The heat sink's fins give the heat a large surface from which to pass into the air. The fan blows the warmed air away so cooler air can take its place.",
+            "It slows itself down so that it makes less heat. This protects it from damage. If that is not enough, the device shuts off."
+          ],
+          "vocab": [
+            {
+              "n": 1,
+              "w": "heat",
+              "pos": "n.",
+              "zh": "熱",
+              "ex": "The <b>heat</b> from the stove warmed the kitchen.",
+              "exzh": "爐子的熱讓廚房暖了起來。"
+            },
+            {
+              "n": 2,
+              "w": "temperature",
+              "pos": "n.",
+              "zh": "溫度",
+              "ex": "The <b>temperature</b> today is thirty degrees.",
+              "exzh": "今天的溫度是三十度。"
+            },
+            {
+              "n": 3,
+              "w": "energy",
+              "pos": "n.",
+              "zh": "能量",
+              "ex": "Running uses a lot of <b>energy</b>.",
+              "exzh": "跑步要用很多能量。"
+            },
+            {
+              "n": 4,
+              "w": "cool",
+              "pos": "v., adj.",
+              "zh": "使冷卻；涼的",
+              "ex": "Let the soup <b>cool</b> before you eat it.",
+              "exzh": "湯放涼一點再喝。"
+            },
+            {
+              "n": 5,
+              "w": "fan",
+              "pos": "n.",
+              "zh": "風扇",
+              "ex": "Please turn on the <b>fan</b>. It is hot in here.",
+              "exzh": "請開風扇，這裡好熱。"
+            },
+            {
+              "n": 6,
+              "w": "surface",
+              "pos": "n.",
+              "zh": "表面",
+              "ex": "The <b>surface</b> of the table is smooth.",
+              "exzh": "桌子的表面很光滑。"
+            },
+            {
+              "n": 7,
+              "w": "overheat",
+              "pos": "v.",
+              "zh": "過熱",
+              "ex": "The car <b>overheated</b> on the mountain road.",
+              "exzh": "車子在山路上過熱了。"
+            },
+            {
+              "n": 8,
+              "w": "slow down",
+              "pos": "v.",
+              "zh": "慢下來",
+              "ex": "<b>Slow down</b>! You are walking too fast.",
+              "exzh": "慢一點！你走太快了。"
+            }
+          ],
+          "quiz": [
+            {
+              "q": "Why does a chip get hot?",
+              "options": [
+                "The energy used by its switching transistors turns into heat",
+                "It has a small fire inside",
+                "The battery leaks hot water",
+                "Sunlight gets trapped in the screen"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "Why does a heat sink have many fins?",
+              "options": [
+                "To have a large surface that touches the air",
+                "To make it look nice",
+                "To make it heavier",
+                "To keep dust out"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "What does the fan do?",
+              "options": [
+                "Blows the warm air away",
+                "Makes cold air",
+                "Gives the chip more electricity",
+                "Makes the chip bigger"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "What does a chip do when it gets too hot?",
+              "options": [
+                "It slows down to make less heat",
+                "It works faster",
+                "It turns blue",
+                "It grows more transistors"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "When does a phone's chip make the most heat?",
+              "options": [
+                "When it runs a game",
+                "When it only shows the clock",
+                "When it is turned off",
+                "When it is in a bag"
+              ],
+              "correct": 0
+            }
+          ],
+          "parts_head": {
+            "eyebrow": "Try It in the Model · 在模型裡試試",
+            "en": "Four ways to treat a chip",
+            "zh": "對待晶片的四種方式"
+          },
+          "parts": [
+            {
+              "key": "idle",
+              "icon": "😴",
+              "en": "Idle, no cooling",
+              "zh": "待機，沒有散熱",
+              "meta_en": "Light work",
+              "meta_zh": "工作很輕",
+              "demo": "idle",
+              "text_en": "Few transistors are switching, so little heat is made. The bare chip stays cool.",
+              "text_zh": "沒有多少電晶體在開關，發的熱很少。什麼都不裝，晶片也是涼的。"
+            },
+            {
+              "key": "hot",
+              "icon": "🥵",
+              "en": "A game, no cooling",
+              "zh": "玩遊戲，沒有散熱",
+              "meta_en": "Heavy work",
+              "meta_zh": "工作很重",
+              "demo": "hot",
+              "text_en": "The chip turns red and reaches its limit. Watch the speed fall as it protects itself.",
+              "text_zh": "晶片變紅，碰到上限。看它為了保護自己，速度怎麼往下掉。"
+            },
+            {
+              "key": "sink",
+              "icon": "🧊",
+              "en": "Add a heat sink",
+              "zh": "加上散熱片",
+              "meta_en": "More surface",
+              "meta_zh": "更大的表面",
+              "demo": "sink",
+              "text_en": "Better, but in this model the fins alone cannot quite keep up with a game.",
+              "text_zh": "好一些了，可是在這個模型裡，光靠鰭片還是有點跟不上遊戲。"
+            },
+            {
+              "key": "fan",
+              "icon": "🌀",
+              "en": "Add a fan",
+              "zh": "再加風扇",
+              "meta_en": "Moving air",
+              "meta_zh": "流動的空氣",
+              "demo": "fan",
+              "text_en": "Now the warm air is blown away. The chip runs the game at full speed.",
+              "text_zh": "熱空氣被吹走了。晶片可以用全速跑遊戲。"
+            }
+          ],
+          "parts_note_en": "All the temperatures here are example numbers from a simple model. A real chip's limit is set by its maker.",
+          "parts_note_zh": "這裡的溫度都是簡化模型算出來的示例數字。真的晶片上限是多少，由製造商決定。",
+          "links_head": {
+            "eyebrow": "Go Further · 延伸閱讀",
+            "en": "Where the switches come from",
+            "zh": "那些開關是怎麼來的"
+          },
+          "links": [
+            {
+              "href": "/resources/classes/semiconductors/transistor/",
+              "icon": "🔀",
+              "k_en": "Chips and Semiconductors · Lesson 2",
+              "k_zh": "晶片與半導體 第二課",
+              "en": "What Is a Transistor?",
+              "zh": "電晶體是什麼？",
+              "note_en": "The tiny switch that makes a little heat every time it flips.",
+              "note_zh": "每切換一次就發一點點熱的那個小開關。"
+            },
+            {
+              "href": "/resources/classes/semiconductors/chip-stacking/",
+              "icon": "🧱",
+              "k_en": "Chips and Semiconductors · Lesson 6",
+              "k_zh": "晶片與半導體 第六課",
+              "en": "Why Do We Stack Chips Together?",
+              "zh": "先進封裝：為什麼要把晶片疊在一起？",
+              "note_en": "Stacked chips are harder to cool. Now you know why that matters.",
+              "note_zh": "疊起來的晶片更難散熱。現在你知道這為什麼重要了。"
+            }
+          ],
+          "vf": {
+            "eyebrow": "Voltage and Speed · 電壓與速度",
+            "en": "Why a little less voltage saves a lot",
+            "zh": "為什麼電壓降一點點，就省很多",
+            "lead_en": "The power a chip spends on switching depends on its voltage and on how many times it switches each second. Voltage counts twice: the power goes with voltage times voltage. Move the sliders and see.",
+            "lead_zh": "晶片花在開關上的功率，要看電壓，也要看每秒開關幾次。其中電壓要算兩次：功率跟「電壓乘以電壓」成正比。拉拉滑桿看看。",
+            "presets": [
+              {
+                "v": 80,
+                "f": 70,
+                "en": "Save the battery",
+                "zh": "省電模式"
+              },
+              {
+                "v": 100,
+                "f": 100,
+                "en": "Normal",
+                "zh": "一般"
+              },
+              {
+                "v": 120,
+                "f": 130,
+                "en": "Push hard",
+                "zh": "全力衝刺"
+              }
+            ],
+            "note_en": "This follows the rule for switching power: power = C × V² × f, where V is the voltage and f is how often the transistors switch. The three settings are examples, not real products. A real chip also loses some power through small leakage currents, which this calculator leaves out.",
+            "note_zh": "這是依照開關功率的公式：功率＝C × V² × f，V 是電壓，f 是電晶體每秒開關的次數。三個設定只是例子，不是真的產品。真的晶片還會因為微小的漏電流多耗一些電，這個計算沒有算進去。"
+          },
+          "facts": {
+            "eyebrow": "Chip Heat by the Numbers · 晶片發熱的數字",
+            "en": "Six numbers about heat",
+            "zh": "六個和熱有關的數字",
+            "lead_en": "Some come from the rule for switching power, and some from the history of computers.",
+            "lead_zh": "有些來自開關功率的公式，有些來自電腦的歷史。",
+            "items": [
+              {
+                "big": "V²",
+                "unit_en": "voltage counts twice",
+                "unit_zh": "電壓算兩次",
+                "en": "Switching power goes with voltage times voltage. Twice the voltage would mean four times the power.",
+                "zh": "開關功率跟電壓的平方成正比。電壓變兩倍，功率就變四倍。"
+              },
+              {
+                "big": "3",
+                "unit_en": "ways a chip uses power",
+                "unit_zh": "種耗電的方式",
+                "en": "Switching, brief short circuits while a gate changes, and small leakage currents that flow all the time.",
+                "zh": "開關、邏輯閘切換瞬間短暫的短路，還有一直在流的微小漏電流。"
+              },
+              {
+                "big": "1974",
+                "unit_en": "Dennard's rule",
+                "unit_zh": "丹納德的規則",
+                "en": "A paper co-written by Robert Dennard showed that as transistors shrink, the power used by each area of chip can stay the same.",
+                "zh": "羅伯特．丹納德和同事的論文指出：電晶體縮小時，晶片每單位面積用的電可以維持不變。"
+              },
+              {
+                "big": "2005",
+                "unit_en": "the power wall",
+                "unit_zh": "功耗牆",
+                "en": "Around this year the old way of scaling ended, because it became too difficult to keep chips cool.",
+                "zh": "大約在這一年，舊的微縮方式走到盡頭，因為晶片實在太難保持涼爽了。"
+              },
+              {
+                "big": "115",
+                "unit_en": "kilowatts",
+                "unit_zh": "千瓦",
+                "en": "The most power used by the Cray-1 supercomputer, designed in 1976. It needed a special cooling system.",
+                "zh": "1976 年設計的 Cray-1 超級電腦最多用這麼多電，需要特別的冷卻系統。"
+              },
+              {
+                "big": "2",
+                "unit_en": "safeguards",
+                "unit_zh": "道保護",
+                "en": "Throttling first, then automatic shutdown. Together they protect a processor from overheating.",
+                "zh": "先降頻，再自動關機。這兩道保護讓處理器不會因為過熱而損壞。"
+              }
+            ]
+          },
+          "culture_cards": {
+            "eyebrow": "Stories About Heat · 關於熱的故事",
+            "title_en": "A rule that worked for thirty years, a wall, a computer in a bath, and the phone in your hand",
+            "title_zh": "一條管用三十年的規則、一道牆、泡在液體裡的電腦，還有你手上的手機",
+            "lead_en": "Heat has shaped how computers are built.",
+            "lead_zh": "熱，一直在決定電腦該怎麼做。",
+            "cards": [
+              {
+                "k": "1974",
+                "en": "Dennard's rule",
+                "zh": "丹納德的規則",
+                "body_en": "In 1974 Robert Dennard and his coworkers wrote a paper about shrinking transistors. It showed that when transistors get smaller, the voltage and current can shrink too, so each area of the chip uses about the same power as before. Chips could hold more and more transistors without growing hotter.",
+                "body_zh": "1974 年，羅伯特．丹納德和同事寫了一篇關於縮小電晶體的論文。它指出：電晶體變小的時候，電壓和電流也可以跟著變小，所以晶片上同樣大小的面積，用的電和以前差不多。晶片可以裝進越來越多電晶體，卻不會越來越燙。"
+              },
+              {
+                "k": "2005",
+                "en": "The power wall",
+                "zh": "功耗牆",
+                "body_en": "The rule stopped working around 2005. Chips had become too difficult to keep cool, and engineers call this the power wall. Clock speeds could no longer climb quickly. Most makers turned to another idea instead: putting several processor cores on one chip.",
+                "body_zh": "這條規則大約在 2005 年不再管用。晶片變得太難保持涼爽，工程師把這件事叫做「功耗牆」。時脈速度再也沒辦法快速往上衝，大部分的製造商於是改走另一條路：在一顆晶片裡放進好幾個處理器核心。"
+              },
+              {
+                "k": "Cray-2",
+                "en": "A computer in a bath",
+                "zh": "泡在液體裡的電腦",
+                "body_en": "The Cray-2 supercomputer was so hard to cool that its designer filled the whole machine with a liquid called Fluorinert. The liquid does not disturb electronic parts. It soaked up the heat and was then pumped out to be cooled with chilled water.",
+                "body_zh": "Cray-2 超級電腦實在太難冷卻，設計者乾脆把整部機器灌滿一種叫 Fluorinert 的液體。這種液體不會干擾電子零件。它把熱吸走，再被抽到機器外面，用冰水降溫。"
+              },
+              {
+                "k": "Phones · 手機",
+                "en": "No fan in your pocket",
+                "zh": "口袋裡沒有風扇",
+                "body_en": "In phones and tablets the parts are packed tightly together, with little or no active cooling, and your hand adds warmth too. So phones often manage their temperature by throttling: the chip slows down for a while until it cools.",
+                "body_zh": "手機和平板裡的零件擠得很緊，幾乎沒有主動的散熱裝置，你的手還會再加上一點溫度。所以手機常常用降頻來控制溫度：晶片先慢下來一陣子，等涼了再說。"
+              }
+            ]
+          },
+          "myths": [
+            {
+              "myth_en": "If my phone feels warm, something is broken.",
+              "myth_zh": "手機摸起來熱熱的，就是壞掉了。",
+              "fact_en": "All chips make heat when they work. Warmth during a game or a video call is normal.",
+              "fact_zh": "所有的晶片工作時都會發熱。玩遊戲或視訊時溫溫的，是正常的。"
+            },
+            {
+              "myth_en": "A fan makes cold air.",
+              "myth_zh": "風扇會製造冷空氣。",
+              "fact_en": "A fan only moves air. It cools a chip by carrying the warm air away.",
+              "fact_zh": "風扇只是讓空氣流動。它靠把熱空氣帶走來幫晶片降溫。"
+            },
+            {
+              "myth_en": "When a hot phone becomes slow, the chip is wearing out.",
+              "myth_zh": "手機變燙之後變慢，是晶片快壞了。",
+              "fact_en": "The chip is slowing down on purpose to make less heat. When it cools, it speeds up again.",
+              "fact_zh": "那是晶片故意放慢，好讓發的熱少一點。涼下來之後，它又會快起來。"
+            },
+            {
+              "myth_en": "Smaller transistors always mean a cooler chip.",
+              "myth_zh": "電晶體越小，晶片一定越涼。",
+              "fact_en": "For many years shrinking did keep power in check, but around 2005 chips became too hard to keep cool. Heat is now one of a designer's main worries.",
+              "fact_zh": "有很多年，縮小確實讓耗電受到控制；可是大約在 2005 年，晶片變得太難保持涼爽。現在，熱是設計者最傷腦筋的問題之一。"
+            }
+          ],
+          "tricks": [
+            {
+              "title_en": "Every switch makes a little heat",
+              "title_zh": "每一次開關，都有一點點熱",
+              "body_en": "Billions of switches, billions of times a second.",
+              "body_zh": "幾十億個開關，每秒幾十億次。"
+            },
+            {
+              "title_en": "More work, more heat",
+              "title_zh": "越忙越熱",
+              "body_en": "A game heats a chip far more than a clock does.",
+              "body_zh": "玩遊戲比顯示時鐘熱得多。"
+            },
+            {
+              "title_en": "Fins spread it, fans move it",
+              "title_zh": "鰭片把熱攤開，風扇把熱帶走",
+              "body_en": "A big surface, then moving air.",
+              "body_zh": "先要有大的表面，再要有流動的空氣。"
+            },
+            {
+              "title_en": "Too hot? Slow down",
+              "title_zh": "太熱？就慢一點",
+              "body_en": "The chip protects itself by doing less.",
+              "body_zh": "晶片用「少做一點」來保護自己。"
+            }
+          ],
+          "safety": [
+            {
+              "en": "Never open a phone, a computer, or a charger to look at the chip. Parts inside can hurt you, and batteries can be dangerous if they are damaged.",
+              "zh": "不要為了看晶片而拆開手機、電腦或充電器。裡面的零件可能會傷到你，電池受損也很危險。"
+            },
+            {
+              "en": "Do not cover a laptop's air vents with a blanket or a pillow, and do not leave a phone in a hot car or under a pillow while it charges.",
+              "zh": "不要用棉被或枕頭蓋住筆電的出風口；手機充電時不要放在很熱的車裡或枕頭底下。"
+            },
+            {
+              "en": "If a device becomes too hot to hold, or its battery looks swollen, stop using it and tell an adult.",
+              "zh": "如果裝置燙到拿不住，或是電池看起來鼓起來了，就不要再用，並且告訴大人。"
+            }
+          ],
+          "activities": [
+            {
+              "title_en": "Warm or Cool? A Phone Survey",
+              "title_zh": "溫的還是涼的？手機小調查",
+              "materials": [
+                {
+                  "en": "A phone or tablet that an adult lets you use",
+                  "zh": "大人同意你用的手機或平板"
+                },
+                {
+                  "en": "A timer, paper, and a pencil",
+                  "zh": "計時器、紙和鉛筆"
+                }
+              ],
+              "steps": [
+                {
+                  "en": "Leave the device alone for ten minutes. Touch the back and write down how it feels: cool, a little warm, or warm.",
+                  "zh": "先把裝置放著十分鐘不要用。摸摸背面，寫下感覺：涼的、有一點溫，還是溫的。"
+                },
+                {
+                  "en": "Play a video for five minutes. Touch the back again and write down what you feel.",
+                  "zh": "播五分鐘影片。再摸一次背面，寫下感覺。"
+                },
+                {
+                  "en": "Play a game for five minutes, if an adult agrees. Touch the back once more.",
+                  "zh": "如果大人同意，玩五分鐘遊戲。再摸一次背面。"
+                },
+                {
+                  "en": "Find the warmest spot. The chip is probably near it. Which activity made the most heat, and why?",
+                  "zh": "找找看哪裡最熱，晶片大概就在那附近。哪一種活動發的熱最多？為什麼？"
+                }
+              ],
+              "tip_en": "Use only your hand, and stop if the device feels hot. This is a test of warm and cool, not of how hot it can get.",
+              "tip_zh": "只用手摸；如果裝置變得很燙就停下來。這是比較溫和涼的實驗，不是要看它能多燙。"
+            },
+            {
+              "title_en": "Fins Against No Fins",
+              "title_zh": "有鰭片對沒鰭片",
+              "materials": [
+                {
+                  "en": "Two equal sheets of aluminum foil",
+                  "zh": "兩張一樣大的鋁箔紙"
+                },
+                {
+                  "en": "Two equal cups of warm water from the faucet (not hot), and a thermometer if you have one",
+                  "zh": "兩杯一樣多的溫自來水（不要用熱水），有溫度計更好"
+                }
+              ],
+              "steps": [
+                {
+                  "en": "Fold one sheet of foil into a small, tight square. Fold the other back and forth like a paper fan, so that it has many fins.",
+                  "zh": "把一張鋁箔摺成又小又緊的方塊。另一張像摺扇子一樣來回摺，讓它有很多鰭片。"
+                },
+                {
+                  "en": "Stand one piece in each cup so that part is in the water and part is in the air.",
+                  "zh": "兩個杯子各放一塊，讓一部分泡在水裡、一部分露在空氣中。"
+                },
+                {
+                  "en": "After ten minutes, compare the water in the two cups with the thermometer or with a clean finger.",
+                  "zh": "十分鐘後，用溫度計或乾淨的手指比較兩杯水。"
+                },
+                {
+                  "en": "Now blow gently across the fins for a minute, or use a hand fan. Talk about it: which part of the model is the foil, and which part is your breath?",
+                  "zh": "再對著鰭片輕輕吹一分鐘，或用扇子搧。討論：鋁箔是模型裡的哪個部分？你吹的氣又是哪個部分？"
+                }
+              ],
+              "tip_en": "The difference may be small. That is an honest result too. Real heat sinks are thick metal pressed tightly against the chip, with paste filling the tiny air gaps between them.",
+              "tip_zh": "差別可能很小，這也是誠實的實驗結果。真正的散熱片是厚厚的金屬，緊緊壓在晶片上，中間還塗了散熱膏，把微小的空氣縫隙填滿。"
+            }
+          ],
+          "sources": [
+            {
+              "en": "Processors consume electrical energy and dissipate it as heat; switching power P = C·V²·f; the three sources of power use (dynamic, short-circuit, leakage); processors are protected by throttling and automatic shutdown",
+              "zh": "處理器消耗電能並以熱的形式散出；開關功率 P = C·V²·f；三種耗電來源（動態、短路、漏電）；處理器靠降頻與自動關機保護",
+              "src": "Wikipedia, “Processor power dissipation”",
+              "url": "https://en.wikipedia.org/wiki/Processor_power_dissipation"
+            },
+            {
+              "en": "A heat sink is designed to maximize its surface area in contact with the air; generally, the more surface area, the better it performs; usually made of aluminum or copper; thermal paste fills the air gaps",
+              "zh": "散熱片的設計是讓接觸空氣的表面積最大；一般來說表面積越大效果越好；通常用鋁或銅製作；散熱膏填滿空氣縫隙",
+              "src": "Wikipedia, “Heat sink”",
+              "url": "https://en.wikipedia.org/wiki/Heat_sink"
+            },
+            {
+              "en": "The main role of thermal paste is to eliminate air gaps, which act as thermal insulation",
+              "zh": "散熱膏的主要功能是消除空氣縫隙（空氣是隔熱的）",
+              "src": "Wikipedia, “Thermal paste”",
+              "url": "https://en.wikipedia.org/wiki/Thermal_paste"
+            },
+            {
+              "en": "Fans reduce temperature by exhausting hot air; all modern processors reduce their voltage or clock speed above a set temperature (thermal throttling); throttling is common in smartphones and tablets, which have little or no active cooling; the Cray-1 (designed 1976) consumed up to 115 kilowatts; the Cray-2 was filled with Fluorinert, which was pumped out to a chilled-water heat exchanger",
+              "zh": "風扇靠排出熱空氣降溫；現代處理器超過設定溫度就會降低電壓或時脈（過熱降頻）；手機與平板幾乎沒有主動散熱，常用降頻；Cray-1（1976 年設計）最高耗電 115 千瓦；Cray-2 整機灌滿 Fluorinert，再抽到冰水熱交換器",
+              "src": "Wikipedia, “Computer cooling”",
+              "url": "https://en.wikipedia.org/wiki/Computer_cooling"
+            },
+            {
+              "en": "Dennard scaling: as transistors get smaller, their power density stays constant; based on a 1974 paper co-authored by Robert H. Dennard; the regime ended around 2005 at the “power wall,” when it was too difficult to keep the chip cool; most makers turned to multicore processors",
+              "zh": "丹納德微縮：電晶體變小時功率密度不變；出自 1974 年羅伯特．丹納德合著的論文；約 2005 年在「功耗牆」結束，因為晶片太難保持涼爽；多數製造商轉向多核心處理器",
+              "src": "Wikipedia, “Dennard scaling”",
+              "url": "https://en.wikipedia.org/wiki/Dennard_scaling"
+            },
+            {
+              "en": "Dynamic frequency scaling adjusts a processor's speed to conserve power and reduce heat, and helps preserve the battery on mobile devices",
+              "zh": "動態頻率調整會改變處理器的速度來省電、減少發熱，並延長行動裝置的電池續航",
+              "src": "Wikipedia, “Voltage and frequency scaling”",
+              "url": "https://en.wikipedia.org/wiki/Voltage_and_frequency_scaling"
+            },
+            {
+              "en": "The maximum junction temperature of a part is specified in its datasheet",
+              "zh": "元件的最高接面溫度寫在它的規格書裡",
+              "src": "Wikipedia, “Junction temperature”",
+              "url": "https://en.wikipedia.org/wiki/Junction_temperature"
+            }
+          ]
+        }
+      ],
+      "planned": [
+        {
+          "n": 10,
+          "icon": "🧠",
+          "en": "How Is an AI Chip Different from a CPU?",
+          "zh": "AI 晶片和一般 CPU 有什麼不同？"
+        },
+        {
+          "n": 11,
+          "icon": "💧",
+          "en": "Why Does a Fab Need So Much Water and Power?",
+          "zh": "晶圓廠為什麼需要那麼多水和電？"
+        },
+        {
+          "n": 12,
+          "icon": "💡",
+          "en": "What Do LEDs Have to Do with Semiconductors?",
+          "zh": "LED 和半導體有什麼關係？"
+        }
+      ]
     }
   ]
 }
