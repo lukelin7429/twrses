@@ -7580,7 +7580,24 @@ def _ph_lab_trolley(lab):
   </div>
 </div>'''
 
+def _ph_lab_advisers(lab):
+    """A18：三個兩難、四位顧問（彌爾、康德、亞里斯多德、孔子）。先自己選，再看四人的建議與理由，最後統計最常跟誰一致。"""
+    payload = html.escape(json.dumps({k: lab[k] for k in ("who", "cases", "end")}, ensure_ascii=False), quote=False)
+    return f'''<div class="ph-el ph-av rvl" data-ph-advisers>
+  <script type="application/json" data-av-data>{payload}</script>
+  <div class="ph-vl-top"><div class="ph-vl-dots" data-av-dots aria-hidden="true"></div><span class="ph-el-count" data-av-count></span></div>
+  <div class="ph-el-stage">
+    <div class="ph-tp-text" data-av-text aria-live="polite"></div>
+    <div class="ph-vl-opts ph-tp-opts" data-av-opts></div>
+    <div class="ph-av-grid" data-av-out aria-live="polite"></div>
+    <div data-av-end></div>
+    <div class="ph-el-foot"><button type="button" class="ph-el-reset" data-av-reset>Start again · 重來</button>
+      <button type="button" class="ph-vl-next" data-av-next hidden>Next case · 下一個案例 &rarr;</button></div>
+  </div>
+</div>'''
+
 def _ph_lab(lab):
+    if lab.get("kind") == "advisers": return _ph_lab_advisers(lab)
     if lab.get("kind") == "trolley": return _ph_lab_trolley(lab)
     if lab.get("kind") == "selfhunt": return _ph_lab_selfhunt(lab)
     if lab.get("kind") == "room": return _ph_lab_room(lab)

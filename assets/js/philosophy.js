@@ -1045,6 +1045,64 @@
     if (m) { if (m[1] === 'end') root.__lab.jump({ s: 'y', f: 'n', l: 'y', t: 'n', m: 'other' }); else { var k = ['switch', 'bridge', 'loop', 'ward', 'three'].indexOf(m[1]); if (k > 0) { i = k; show(); } } }
   });
 
+  /* ---- A18：三個兩難、四位顧問 ---- */
+  $$('[data-ph-advisers]').forEach(function (root) {
+    var D;
+    try { D = JSON.parse($('[data-av-data]', root).textContent); } catch (e) { return; }
+    var text = $('[data-av-text]', root), opts = $('[data-av-opts]', root), out = $('[data-av-out]', root), end = $('[data-av-end]', root), next = $('[data-av-next]', root), dots = $('[data-av-dots]', root), count = $('[data-av-count]', root);
+    var ORDER = ['mill', 'kant', 'ari', 'kong'], i, tally, picks;
+    function zhp(parent, t) { var z = el('p', 'ph-zh', t); z.lang = 'zh-Hant'; parent.appendChild(z); addTr(z); }
+    function paint() {
+      var n = D.cases.length; dots.textContent = '';
+      D.cases.forEach(function (_, k) { dots.appendChild(el('i', k < i ? 'ok' : k === i ? 'cur' : '')); });
+      count.textContent = i < n ? 'Case ' + (i + 1) + ' of ' + n + ' · 第 ' + (i + 1) + '／' + n + ' 個案例' : '';
+    }
+    function show() {
+      var c = D.cases[i]; out.textContent = ''; end.textContent = ''; next.hidden = true; opts.textContent = ''; text.textContent = '';
+      var h = el('h4', '', c.title.en); var hz = el('span', '', c.title.zh); hz.lang = 'zh-Hant'; h.appendChild(hz); text.appendChild(h);
+      text.appendChild(el('p', '', c.text.en)); zhp(text, c.text.zh);
+      c.opts.forEach(function (o) {
+        var b = el('button', 'ph-vl-opt'); b.type = 'button'; b.appendChild(el('b', '', o.t.en)); var z = el('span', '', o.t.zh); z.lang = 'zh-Hant'; b.appendChild(z);
+        b.addEventListener('click', function () { choose(c, o, b); }); opts.appendChild(b);
+      });
+      paint();
+    }
+    function choose(c, o, btn) {
+      if (picks[i]) return; picks[i] = o.k;
+      $$('button', opts).forEach(function (x) { x.disabled = true; }); btn.classList.add('is-right');
+      c.adv.forEach(function (a) {
+        var same = a.p === o.k; if (same) tally[a.w]++;
+        var card = el('div', 'ph-vl-card ph-av-card' + (same ? ' is-with' : ''));
+        var k = el('small', 'ph-tp-k', D.who[a.w].en + ' · ' + D.who[a.w].zh); card.appendChild(k);
+        card.appendChild(el('em', 'ph-av-tag', same ? 'agrees with you · 跟你一致' : 'advises otherwise · 建議不同'));
+        card.appendChild(el('p', '', a.t.en)); zhp(card, a.t.zh); out.appendChild(card);
+      });
+      if (i < D.cases.length - 1) next.hidden = false; else { i++; paint(); i--; summary(); }
+    }
+    function top() {
+      var best = -1, who = [];
+      ORDER.forEach(function (w) { if (tally[w] > best) { best = tally[w]; who = [w]; } else if (tally[w] === best) who.push(w); });
+      return who.length === 1 ? who[0] : (who.length === 2 && who[0] === 'ari' && who[1] === 'kong') ? 'virtue' : 'tie';
+    }
+    function summary() {
+      var e = el('div', 'ph-el-end'); var h = el('h4', '', 'Whose advice you followed'); h.appendChild(el('span', '', '你聽了誰的建議')); e.appendChild(h);
+      var bars = el('div', 'ph-av-bars');
+      ORDER.forEach(function (w) {
+        var r = el('div', 'ph-av-bar'); r.appendChild(el('b', '', D.who[w].en + ' ' + D.who[w].zh));
+        var t = el('span', ''); var f = el('i', ''); f.style.width = (tally[w] / D.cases.length * 100) + '%'; t.appendChild(f); r.appendChild(t);
+        r.appendChild(el('em', '', tally[w] + ' / ' + D.cases.length)); bars.appendChild(r);
+      });
+      e.appendChild(bars); var v = D.end[top()]; e.appendChild(el('p', '', v.en)); zhp(e, v.zh); end.appendChild(e);
+    }
+    next.addEventListener('click', function () { i++; show(); });
+    function reset() { i = 0; tally = { mill: 0, kant: 0, ari: 0, kong: 0 }; picks = {}; show(); }
+    $('[data-av-reset]', root).addEventListener('click', reset);
+    reset();
+    root.__lab = { state: function () { return { i: i, tally: tally, picks: picks, top: top(), cards: out.children.length, ended: !!end.children.length }; },
+      play: function (seq) { reset(); seq.forEach(function (k, n) { var bs = $$('button', opts); bs[k === 'a' ? 0 : 1].click(); if (n < seq.length - 1) next.click(); }); return top(); } };
+    var m = /[#&]advisers=([ab]{3})/.exec(location.hash); if (m) root.__lab.play(m[1].split(''));
+  });
+
   /* ---- A13：去火星三趟（帕菲特的傳送機） ---- */
   $$('[data-ph-teleport]').forEach(function (root) {
     var D;
