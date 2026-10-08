@@ -7398,7 +7398,61 @@ def _ph_lab_teleport(lab):
   </div>
 </div>'''
 
+def _ph_lab_minds(lab):
+    """A14：瑪麗的房間（讀完四份檔案 → 開門看見紅色 → 四種回應），再加心靈的階梯（九條滑桿 → 判讀你用的標準）。"""
+    M, S = lab["mary"], lab["scale"]
+    def bi(o, cls=""): return f'<p class="{cls}">{_ph_e(o["en"])}</p><p class="ph-zh" lang="zh-Hant">{_ph_e(o["zh"])}</p>'
+    facts = "".join(
+        f'<button type="button" class="ph-md-fact" data-md-fact><small>{_ph_e(f["k"]["en"])} · <span lang="zh-Hant">{_ph_e(f["k"]["zh"])}</span></small>'
+        f'<b>{_ph_e(f["t"]["en"])}</b><span lang="zh-Hant">{_ph_e(f["t"]["zh"])}</span><i aria-hidden="true">✓</i></button>' for f in M["facts"])
+    mopts = "".join(
+        f'<button type="button" class="ph-vl-opt" data-md-opt="{o["k"]}" aria-pressed="false"><b>{_ph_e(o["t"]["en"])}</b><span lang="zh-Hant">{_ph_e(o["t"]["zh"])}</span></button>' for o in M["opts"])
+    mv = "".join(
+        f'<div class="ph-vl-card is-valid" data-md-v="{o["k"]}" hidden><small class="ph-tp-k">{_ph_e(o["who"])}</small>{bi(o["v"])}</div>' for o in M["opts"])
+    rows = "".join(
+        f'<label class="ph-md-row"><span class="ph-md-name"><b>{_ph_e(it["n"]["en"])}</b><i lang="zh-Hant">{_ph_e(it["n"]["zh"])}</i></span>'
+        f'<input type="range" min="0" max="100" step="1" value="50" data-md-range="{it["k"]}" aria-label="{_ph_e(it["n"]["en"])} · {_ph_e(it["n"]["zh"])}">'
+        f'<output data-md-val="{it["k"]}">?</output></label>' for it in S["items"])
+    voices = "".join(
+        f'<div class="ph-vl-card"><small class="ph-tp-k">{_ph_e(v["who"]["en"])} · <span lang="zh-Hant">{_ph_e(v["who"]["zh"])}</span></small>{bi(v["t"])}</div>' for v in S["voices"])
+    payload = html.escape(json.dumps({"reads": S["reads"], "items": [{"k": it["k"], "en": it["n"]["en"], "zh": it["n"]["zh"]} for it in S["items"]]}, ensure_ascii=False), quote=False)
+    tomato = ('<svg viewBox="0 0 120 120" aria-hidden="true"><ellipse cx="60" cy="70" rx="44" ry="38" fill="#d92b1f"/><ellipse cx="44" cy="58" rx="12" ry="8" fill="#f06a55" opacity=".7"/>'
+              '<path d="M60 36c-8-10-20-8-26-2 9 0 14 3 18 8-8 0-14 4-16 10 8-5 16-5 24-2 8-3 16-3 24 2-2-6-8-10-16-10 4-5 9-8 18-8-6-6-18-8-26 2z" fill="#2f8f4e"/><path d="M60 38V24" stroke="#2f6f3e" stroke-width="5" stroke-linecap="round"/></svg>')
+    return f'''<div class="ph-el ph-md rvl" data-ph-minds>
+  <script type="application/json" data-md-data>{payload}</script>
+  <div class="ph-el-stage">
+    <div class="ph-md-part" data-md-mary>
+      <p class="ph-el-src">Part 1 · Mary’s room <span lang="zh-Hant">第一部分：瑪麗的房間</span></p>
+      <div class="ph-tp-text">{bi(M["intro"])}</div>
+      <div class="ph-md-room" data-md-room data-open="0">
+        <div class="ph-md-screen">{facts}</div>
+        <div class="ph-md-win"><div class="ph-md-out">{tomato}</div><div class="ph-md-door" aria-hidden="true"><span></span></div></div>
+      </div>
+      <div class="ph-md-act"><button type="button" class="ph-vl-next" data-md-door disabled>{_ph_e(M["door"]["en"])} · <span lang="zh-Hant">{_ph_e(M["door"]["zh"])}</span> &rarr;</button>
+        <span class="ph-el-count" data-md-count></span></div>
+      <div data-md-after hidden>
+        <div class="ph-tp-text"><h4>{_ph_e(M["after"]["en"])}<span lang="zh-Hant">{_ph_e(M["after"]["zh"])}</span></h4>
+          <p class="ph-vl-q"><b>{_ph_e(M["q"]["en"])}</b><span lang="zh-Hant">{_ph_e(M["q"]["zh"])}</span></p></div>
+        <div class="ph-vl-opts ph-tp-opts">{mopts}</div>
+        <div class="ph-vl-out" aria-live="polite">{mv}</div>
+      </div>
+    </div>
+    <div class="ph-md-part" data-md-scale>
+      <p class="ph-el-src">Part 2 · The ladder of minds <span lang="zh-Hant">第二部分：心靈的階梯</span></p>
+      <div class="ph-tp-text">{bi(S["intro"])}</div>
+      <div class="ph-md-ends" aria-hidden="true"><span>0 · {_ph_e(S["lo"]["en"])} <i lang="zh-Hant">{_ph_e(S["lo"]["zh"])}</i></span><span>{_ph_e(S["hi"]["en"])} <i lang="zh-Hant">{_ph_e(S["hi"]["zh"])}</i> · 100</span></div>
+      <div class="ph-md-rows">{rows}</div>
+      <div class="ph-md-act"><button type="button" class="ph-vl-next" data-md-go disabled>{_ph_e(S["go"]["en"])} · <span lang="zh-Hant">{_ph_e(S["go"]["zh"])}</span></button>
+        <span class="ph-el-count" data-md-left></span></div>
+      <div class="ph-vl-out" data-md-out aria-live="polite"></div>
+      <div data-md-voices hidden><p class="ph-el-src ph-md-vh">What four philosophers would say <span lang="zh-Hant">四位哲學家會怎麼說</span></p><div class="ph-md-vgrid">{voices}</div></div>
+    </div>
+    <div class="ph-el-foot"><button type="button" class="ph-el-reset" data-md-reset>Start again · 重來</button></div>
+  </div>
+</div>'''
+
 def _ph_lab(lab):
+    if lab.get("kind") == "minds": return _ph_lab_minds(lab)
     if lab.get("kind") == "teleport": return _ph_lab_teleport(lab)
     if lab.get("kind") == "now": return _ph_lab_now(lab)
     if lab.get("kind") == "demon": return _ph_lab_demon(lab)

@@ -770,6 +770,79 @@
     root.__lab = { state: function () { return { mode: mode, items: list.children.length, third: list.children[3] && list.children[3].textContent }; } };
   });
 
+  /* ---- A14：瑪麗的房間＋心靈的階梯 ---- */
+  $$('[data-ph-minds]').forEach(function (root) {
+    var D;
+    try { D = JSON.parse($('[data-md-data]', root).textContent); } catch (e) { return; }
+    var room = $('[data-md-room]', root), door = $('[data-md-door]', root), after = $('[data-md-after]', root), count = $('[data-md-count]', root);
+    var facts = $$('[data-md-fact]', root), mopts = $$('[data-md-opt]', root), mv = $$('[data-md-v]', root);
+    var ranges = $$('[data-md-range]', root), go = $('[data-md-go]', root), left = $('[data-md-left]', root), out = $('[data-md-out]', root), voices = $('[data-md-voices]', root);
+    var touched = {}, picked = null;
+    function paintFacts() {
+      var n = facts.filter(function (f) { return f.classList.contains('is-read'); }).length;
+      door.disabled = n < facts.length;
+      count.textContent = n < facts.length ? 'Read all four files first · 先讀完四份檔案（' + n + '／' + facts.length + '）' : '';
+    }
+    facts.forEach(function (f) { f.addEventListener('click', function () { f.classList.add('is-read'); paintFacts(); }); });
+    function open() { room.setAttribute('data-open', '1'); after.hidden = false; door.hidden = true; count.textContent = ''; }
+    door.addEventListener('click', open);
+    function pick(k) {
+      picked = k;
+      mopts.forEach(function (b) { var on = b.getAttribute('data-md-opt') === k; b.setAttribute('aria-pressed', on ? 'true' : 'false'); b.classList.toggle('is-right', on); });
+      mv.forEach(function (c) { c.hidden = c.getAttribute('data-md-v') !== k; });
+    }
+    mopts.forEach(function (b) { b.addEventListener('click', function () { pick(b.getAttribute('data-md-opt')); }); });
+
+    function val(k) { return +$('[data-md-range="' + k + '"]', root).value; }
+    function paintLeft() {
+      var n = ranges.length - Object.keys(touched).length;
+      go.disabled = n > 0;
+      left.textContent = n > 0 ? n + ' still to set · 還有 ' + n + ' 條沒拉' : '';
+    }
+    ranges.forEach(function (r) {
+      var k = r.getAttribute('data-md-range'), o = $('[data-md-val="' + k + '"]', root);
+      function touch() { touched[k] = 1; o.textContent = r.value; r.classList.add('is-set'); paintLeft(); }
+      r.addEventListener('input', touch); r.addEventListener('change', touch);
+      r.addEventListener('pointerdown', touch); r.addEventListener('keydown', function () { setTimeout(touch, 0); });
+    });
+    function lc(s) { return s.charAt(0).toLowerCase() + s.slice(1); }
+    function card(label, o) {
+      var c = el('div', 'ph-vl-card is-valid'); c.appendChild(el('small', 'ph-tp-k', label)); c.appendChild(el('p', '', o.en));
+      var z = el('p', 'ph-zh', o.zh); z.lang = 'zh-Hant'; c.appendChild(z); addTr(z); return c;
+    }
+    function read() {
+      out.textContent = '';
+      var R = D.reads, it = D.items, v = it.map(function (x) { return val(x.k); });
+      out.appendChild(card('Your closest friend · 你最好的朋友', v[0] >= 98 ? R.friend_sure : R.friend_unsure));
+      var best = 0, at = -1;
+      for (var i = 0; i < v.length - 1; i++) { var d = v[i] - v[i + 1]; if (d > best) { best = d; at = i; } }
+      if (best < 12) out.appendChild(card('Your steepest drop · 你掉得最陡的地方', R.flat));
+      else out.appendChild(card('Your steepest drop · 你掉得最陡的地方', {
+        en: R.drop.en.replace('{a}', lc(it[at].en)).replace('{b}', lc(it[at + 1].en)),
+        zh: R.drop.zh.replace('{a}', '「' + it[at].zh + '」').replace('{b}', '「' + it[at + 1].zh + '」') }));
+      var diff = val('ai') - val('octopus');
+      out.appendChild(card('The octopus and the machine · 章魚與機器', diff > 10 ? R.ai_over : diff < -10 ? R.ai_under : R.ai_same));
+      voices.hidden = false;
+      return { at: at, best: best, diff: diff };
+    }
+    go.addEventListener('click', read);
+    function reset() {
+      facts.forEach(function (f) { f.classList.remove('is-read'); });
+      room.setAttribute('data-open', '0'); after.hidden = true; door.hidden = false; pick(null);
+      touched = {}; ranges.forEach(function (r) { r.value = 50; r.classList.remove('is-set'); $('[data-md-val="' + r.getAttribute('data-md-range') + '"]', root).textContent = '?'; });
+      out.textContent = ''; voices.hidden = true; paintFacts(); paintLeft();
+    }
+    $('[data-md-reset]', root).addEventListener('click', reset);
+    reset();
+    root.__lab = {
+      state: function () { return { open: room.getAttribute('data-open'), picked: picked, touched: Object.keys(touched).length, cards: out.children.length, voices: !voices.hidden }; },
+      readAll: function () { facts.forEach(function (f) { f.click(); }); },
+      set: function (o) { Object.keys(o).forEach(function (k) { var r = $('[data-md-range="' + k + '"]', root); r.value = o[k]; r.dispatchEvent(new Event('input')); }); },
+      read: read
+    };
+    if (/[#&]minds=open/.test(location.hash)) { root.__lab.readAll(); open(); pick('concept'); root.__lab.set({ friend: 100, stranger: 96, newborn: 88, dog: 84, bat: 70, octopus: 55, bee: 20, ai: 12, thermostat: 0 }); read(); }
+  });
+
   /* ---- A13：去火星三趟（帕菲特的傳送機） ---- */
   $$('[data-ph-teleport]').forEach(function (root) {
     var D;
