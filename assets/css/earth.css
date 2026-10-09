@@ -124,6 +124,28 @@
 .ew-bb-deep { position: absolute; left: 50%; top: 0; transform: translate(-50%, -50%); border-radius: 50%; background: #fff; }
 @media (max-width: 560px) { .ew-bb-pre { grid-template-columns: repeat(2, minmax(0, 1fr)); } .ew-bb-out { grid-template-columns: 1fr; } .ew-bb-pic { max-width: 130px; margin-left: auto; margin-right: auto; width: 100%; } }
 
+/* ---------- 第六課：為什麼會下雨？ ---------- */
+@media (min-width: 1021px) { .ew-rn-lab .al-space { min-height: 640px; } }
+.ew-rn-msg[hidden] { display: none; }
+.ew-rn-lab .al-age:disabled { opacity: .35; }
+.al-lab.ew-rn-lb-base { color: #0b1226; background: #fff; border-color: #fff; font-weight: 800; }
+.al-lab.ew-rn-lb-base small { color: #33415f; }
+.al-lab.ew-rn-lb-t { font-weight: 800; font-variant-numeric: tabular-nums; padding: .1rem .5rem; }
+.al-lab.ew-rn-lb-rain { border-color: #9fd0ff; }
+.al-lg-ewrnair i { border: 0; border-radius: 50%; width: 9px; height: 9px; margin: .35rem 4px 0; background: #9fd8ff; box-shadow: 13px 0 0 #fff, 26px 0 0 #ffb36b; margin-right: 32px; }
+.al-lg-ewrncloud i { border: 0; height: 11px; margin-top: .3rem; border-radius: 6px; background: #fff; }
+.al-lg-ewrnrain i { border: 0; height: 11px; width: 3px; margin: .3rem 10px 0; background: #9fd0ff; box-shadow: 7px 3px 0 #9fd0ff, -7px 2px 0 #9fd0ff; }
+/* 頁面小工具：這場雨有多少水？ */
+.ew-gg .al-age::-webkit-slider-runnable-track { background: linear-gradient(90deg, var(--brand) 0 var(--p, 13%), #e5dfd0 var(--p, 13%)); }
+.ew-gg .al-age::-webkit-slider-thumb { border-color: var(--brand); }
+.ew-gg .al-age::-moz-range-progress { background: var(--brand); }
+.ew-gg-pre { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+.ew-gg-areas { grid-template-columns: repeat(4, minmax(0, 1fr)); margin-top: .4rem; }
+.ew-gg-out { display: grid; grid-template-columns: 46px minmax(0, 1fr); gap: 1.2rem; align-items: stretch; }
+.ew-gg-tube { position: relative; min-height: 220px; border-radius: 8px 8px 14px 14px; border: 2px solid rgba(255,255,255,.5); border-top: 0; overflow: hidden; }
+.ew-gg-fill { position: absolute; left: 0; right: 0; bottom: 0; background: linear-gradient(0deg, #2a6fc9, #7fc4ff); transition: height .2s; }
+@media (max-width: 560px) { .ew-gg-pre { grid-template-columns: repeat(3, minmax(0, 1fr)); } .ew-gg-areas { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
 /* ---------- 全系列共用 ---------- */
 .cp-link.ew-link-soon { border-style: dashed; opacity: .78; cursor: default; }
 .ew-safety-src { margin: 1rem 0 0; font-size: .86rem; color: var(--ink-soft); }

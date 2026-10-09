@@ -9530,7 +9530,7 @@ def build_chip_hub():
 _earthj = os.path.join(ROOT, "data", "earth.json")
 EARTH = json.load(open(_earthj, encoding="utf-8")) if os.path.exists(_earthj) else None
 EARTH_BASE = "/resources/classes/earth/"
-_EARTH_JS = {"quake": "earth-quake", "inside": "earth-inside", "shake": "earth-shake", "mountain": "earth-mountain", "volcano": "earth-volcano"}   # lab.kind → assets/js/<bundle>.js
+_EARTH_JS = {"quake": "earth-quake", "inside": "earth-inside", "shake": "earth-shake", "mountain": "earth-mountain", "volcano": "earth-volcano", "rain": "earth-rain"}   # lab.kind → assets/js/<bundle>.js
 
 def _earth_ver():
     h = hashlib.md5()
@@ -9909,9 +9909,87 @@ def _earth_bubble(bb):
             f'</div></div>'
             '<noscript><p class="muted">The calculator works in your browser and needs JavaScript. · 計算在瀏覽器裡進行，需要開啟 JavaScript。</p></noscript>')
 
-_EARTH_LAB = {"quake": render_earthquake_lab, "inside": render_earthinside_lab, "shake": render_earthshake_lab, "mountain": render_earthmountain_lab, "volcano": render_earthvolcano_lab}          # lab.kind → 3D 面板
-_EARTH_ICON = {"quake": earthquake_svg, "inside": earthglobe_svg, "shake": earthshake_svg, "mountain": earthmountain_svg, "volcano": earthvolcano_svg}                 # lesson.card → 課程卡小圖示
-_EARTH_WIDGETS = [("warn", _earth_warn), ("dig", _earth_dig), ("scale10", _earth_scale10), ("peak", _earth_peak), ("bubble", _earth_bubble)]               # lesson 裡有這個 key 就多一段（照這裡的順序）
+def earthrain_svg(size=56):
+    """第六課的課程卡小圖示：一朵雲靠在山的一側下雨，山的另一側是晴天。"""
+    drops = "".join(f'<path d="M{12 + i * 5} {30 + (i % 2) * 3} l-2 6" stroke="#58b4ff" stroke-width="2.2" stroke-linecap="round"/>' for i in range(4))
+    return (f'<svg class="earthrain-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">'
+            '<path d="M6 54 L34 20 L56 54 Z" fill="#4f8a55"/><path d="M34 20 L56 54 H40 Z" fill="#c9a95a"/>'
+            '<circle cx="14" cy="18" r="7" fill="#f4f7fb"/><circle cx="23" cy="14" r="8.5" fill="#f4f7fb"/><circle cx="31" cy="19" r="6" fill="#f4f7fb"/><rect x="10" y="19" width="24" height="7" rx="3.5" fill="#f4f7fb"/>'
+            f'{drops}<circle cx="50" cy="12" r="5" fill="#ffd36e"/></svg>')
+
+def render_earthrain_lab(lesson):
+    """第六課：一座島（海、山、海）的剖面，潮溼的空氣被山抬升成雲降雨、背風面乾熱（assets/js/earth-rain.js 綁這裡的 class；全部自繪示意）。"""
+    lab = lesson["lab"]
+    msgs = "".join(f'<p class="cp-msg ew-rn-msg" data-msg="{k}" hidden>{html.escape(m["en"])}<span class="zh">{html.escape(m["zh"])}</span></p>' for k, m in lab["msgs"].items())
+    tg = _lab_toggles([("labels", "Labels", "標示", True)])
+    return f'''<div class="astro-lab cp-lab ew-lab ew-rn-lab rvl" data-earthrain-lab>
+  <div class="al-stage">
+    <div class="al-space">
+      <canvas class="al-space-cv" aria-label="3D cutaway of an island with a mountain between two seas: moist air from the sea is pushed up the mountain, cools, and turns into cloud and rain, then sinks dry and warm on the far side · 一座島的 3D 剖面，山的兩邊都是海：海上來的潮溼空氣被山抬高、變冷，成雲降雨，翻過山之後又乾又熱地下沉"></canvas>
+      <div class="al-labels" aria-hidden="true"></div>
+      <p class="al-hint">Drag to turn · 拖曳旋轉　Scroll or pinch to zoom · 滾輪／雙指縮放</p>
+      <button type="button" class="al-home" title="Reset view · 重設視角" aria-label="Reset view · 重設視角">&#8634;</button>
+      <p class="al-nogl-msg">This 3D model needs WebGL, which this browser does not support. The reading and the cards below still explain everything.<br><span class="zh">這個瀏覽器不支援 WebGL，無法顯示 3D 模型；下方的課文與卡片一樣能看懂。</span></p>
+    </div>
+    <aside class="al-sky cp-aside">
+      <p class="al-sky-k">1 · Where does the wind come from? · 風從哪裡來？</p>
+      <div class="cp-dope cp-tr-quick ew-rn-wind" role="group" aria-label="Wind · 風向">
+        <button type="button" data-wind="west" aria-pressed="true">From the west<small>從西邊的海上來</small></button>
+        <button type="button" data-wind="east" aria-pressed="false">From the east<small>從東邊的海上來</small></button>
+      </div>
+      <p class="al-sky-k">2 · How high is the mountain? · 山有多高？</p>
+      <div class="cp-dope cp-tr-quick ew-rn-hill" role="group" aria-label="Mountain · 山">
+        <button type="button" data-hill="low" aria-pressed="false">A low hill<small>矮丘 600 公尺</small></button>
+        <button type="button" data-hill="high" aria-pressed="true">A high mountain<small>高山 2,500 公尺</small></button>
+      </div>
+      <label class="al-slider cp-is-yrow"><span>3 · Temperature by the sea · 海邊的氣溫 <output class="ew-rn-temp-out">28°C</output></span>
+        <input type="range" class="al-age ew-rn-temp" min="15" max="34" step="1" value="28"></label>
+      <label class="al-slider cp-is-yrow"><span>4 · Humidity of the sea air · 海上空氣的溼度 <output class="ew-rn-hum-out">80%</output></span>
+        <input type="range" class="al-age ew-rn-hum" min="50" max="100" step="5" value="80"></label>
+      <dl class="cp-nums cp-lt-nums ew-nums">
+        <div><dt>Dew point · 露點</dt><dd class="ew-rn-dew"></dd></div>
+        <div><dt>Cloud base · 雲底</dt><dd class="ew-rn-base"></dd></div>
+        <div><dt>Mountain top · 山頂</dt><dd class="ew-rn-top"></dd></div>
+        <div><dt>Far side · 山的另一邊</dt><dd class="ew-rn-lee"></dd></div>
+      </dl>
+      {msgs}
+    </aside>
+  </div>
+  <div class="al-controls">
+    <div class="al-row al-row-main">
+      <button type="button" class="al-play" aria-pressed="true"><span class="al-play-i" aria-hidden="true"></span><span class="al-play-t">Pause · 暫停</span></button>
+      <div class="al-row al-toggles">{tg}</div>
+    </div>
+  </div>
+  {_lab_foot(lab)}
+  <p class="cp-credit">{lab["credit_html"]}</p>
+</div>'''
+
+def _earth_gauge(gg):
+    """「這場雨有多少水？」（earth-rain.js 的 initGauge；雨量 × 面積，附中央氣象署的雨量分級；不需要 WebGL）。"""
+    areas = "".join(f'<button type="button" data-m2="{a["m2"]}" aria-pressed="false">{html.escape(a["en"])}<small>{html.escape(a["zh"])}</small></button>' for a in gg["areas"])
+    pre = "".join(f'<button type="button" data-mm="{mm}">{mm} mm</button>' for mm in (10, 80, 200, 350, 500))
+    classes = html.escape(json.dumps(gg["classes"], ensure_ascii=False))
+    return (f'<div class="cp-cnt ew-gg rvl" data-earth-gauge data-classes="{classes}">'
+            f'<div class="cp-cnt-in">'
+            f'<label class="cp-cnt-l"><span>1 · Rain in 24 hours · 24 小時的雨量 <output class="ew-gg-mm-out">80 mm</output></span>'
+            f'<input type="range" class="al-age ew-gg-mm" min="0" max="600" step="5" value="80"></label>'
+            f'<div class="cp-dpw-pre ew-gg-pre" role="group" aria-label="Rainfall · 雨量">{pre}</div>'
+            f'<p class="cp-cnt-l cp-sun-l"><span>2 · Falling on · 下在哪裡</span></p>'
+            f'<div class="cp-dpw-pre ew-gg-areas" role="group" aria-label="Area · 面積">{areas}</div>'
+            f'<p class="cp-cnt-note">{html.escape(gg["note_en"])}<span class="zh">{html.escape(gg["note_zh"])}</span></p></div>'
+            f'<div class="cp-home-out cp-cnt-out ew-gg-out" aria-live="polite">'
+            f'<div class="ew-gg-tube" aria-hidden="true"><i class="ew-gg-fill"></i></div>'
+            f'<div><p class="cp-home-k">That is · 這麼多水</p>'
+            f'<p class="cp-home-big"><b class="ew-gg-n">0</b> liters · 公升</p>'
+            f'<p class="cp-home-sub">About <b class="ew-gg-b">0</b> large bottles of 1.5 liters · 大約這麼多瓶 1.5 公升的寶特瓶</p>'
+            f'<p class="cp-home-note">The Central Weather Administration calls this: <b class="ew-gg-cls"></b><span class="zh">中央氣象署的分級：<b class="ew-gg-cls-zh"></b></span></p></div>'
+            f'</div></div>'
+            '<noscript><p class="muted">The calculator works in your browser and needs JavaScript. · 計算在瀏覽器裡進行，需要開啟 JavaScript。</p></noscript>')
+
+_EARTH_LAB = {"quake": render_earthquake_lab, "inside": render_earthinside_lab, "shake": render_earthshake_lab, "mountain": render_earthmountain_lab, "volcano": render_earthvolcano_lab, "rain": render_earthrain_lab}          # lab.kind → 3D 面板
+_EARTH_ICON = {"quake": earthquake_svg, "inside": earthglobe_svg, "shake": earthshake_svg, "mountain": earthmountain_svg, "volcano": earthvolcano_svg, "rain": earthrain_svg}                 # lesson.card → 課程卡小圖示
+_EARTH_WIDGETS = [("warn", _earth_warn), ("dig", _earth_dig), ("scale10", _earth_scale10), ("peak", _earth_peak), ("bubble", _earth_bubble), ("gauge", _earth_gauge)]               # lesson 裡有這個 key 就多一段（照這裡的順序）
 
 def _earth_flat():
     return [(ui, u, l) for ui, u in enumerate(EARTH["units"]) for l in u["lessons"]]

@@ -3276,14 +3276,654 @@
       "title_zh": "頭上的天",
       "blurb_en": "Where rain and wind come from, how a typhoon grows, what lightning is, and how a forecast is made.",
       "blurb_zh": "雨和風是從哪裡來的、颱風怎麼長大、閃電是什麼，以及天氣預報是怎麼做出來的。",
-      "lessons": [],
-      "planned": [
+      "lessons": [
         {
           "n": 6,
+          "slug": "why-it-rains",
+          "title": "Why Does It Rain?",
+          "title_zh": "為什麼會下雨？",
+          "level": "入門 · Beginner",
           "icon": "🌧️",
-          "en": "Why Does It Rain?",
-          "zh": "為什麼會下雨？"
-        },
+          "card": "rain",
+          "blurb_en": "The water that falls on your umbrella was in the sea not long ago. How did it get into the sky, and why does it fall on one side of a mountain and not the other? In a 3D model, send moist air from the sea up a mountain, watch a cloud form, and find the hot, dry wind on the far side. Then work out how much water one storm really brings.",
+          "blurb_zh": "落在你雨傘上的水，不久之前還在海裡。它是怎麼跑到天上去的？又為什麼只下在山的這一邊，不下在另一邊？在 3D 模型裡，把海上來的潮溼空氣送上一座山，看雲怎麼形成，再找找山的另一邊那股又乾又熱的風。最後算算看，一場雨到底帶來多少水。",
+          "big_idea_en": "The sun turns water from the sea into a gas we cannot see, called water vapor. Warm air can hold a lot of it. When that air rises, it cools, and cool air cannot hold as much. The extra vapor turns back into tiny drops of water, and millions of them make a cloud. When the drops grow too heavy to float, they fall as rain.",
+          "big_idea_zh": "太陽把海裡的水變成一種看不見的氣體，叫做水氣。溫暖的空氣可以容納很多水氣。空氣一上升就會變冷，冷空氣裝不了那麼多，多出來的水氣就變回很小很小的水滴；幾百萬顆小水滴聚在一起，就是雲。水滴大到浮不住的時候，就掉下來變成雨。",
+          "tricks_head": {
+            "en": "Rain in a sentence",
+            "zh": "一句話記住下雨"
+          },
+          "checked": {
+            "en": "October 2026",
+            "zh": "2026 年 10 月"
+          },
+          "lab": {
+            "kind": "rain",
+            "eyebrow": "3D Model · 3D 模型",
+            "title_en": "Over the Mountain",
+            "title_zh": "翻過一座山",
+            "how_en": "Drag to turn the model, and scroll or pinch to zoom. This is an island seen from the side, with the sea on both sides and a mountain in the middle. The small dots are air, moving with the wind. Follow them from the sea, up the mountain, and down the other side, and read the three temperatures. Then change the height of the mountain and how warm and how humid the air is. Can you make the rain stop? Last, turn the wind around.",
+            "how_zh": "拖曳可以旋轉模型，滾輪或雙指可以縮放。這是從側面看的一座島：兩邊是海，中間是山。那些小點是跟著風走的空氣。跟著它們從海上出發、爬上山、再從另一邊下去，並注意三個地方的溫度。接著改改看山有多高、空氣有多暖、多潮溼：你能讓雨停下來嗎？最後，把風向反過來。",
+            "msgs": {
+              "rain": {
+                "en": "Moist air from the sea is pushed up the slope and cools. At the cloud base it reaches its dew point, and the vapor turns into cloud. Rain falls on this side of the mountain, the windward side.",
+                "zh": "海上來的潮溼空氣被推上山坡、變冷。到了雲底的高度，它降到露點，水氣變成了雲。雨下在山的這一邊，也就是迎風面。"
+              },
+              "heavy": {
+                "en": "This air is almost full of water vapor, so it has to rise only a little before cloud forms. The cloud sits low, and it rains hard on the windward side.",
+                "zh": "這團空氣裡的水氣幾乎已經裝滿了，所以只要稍微上升一點就成雲。雲壓得很低，迎風面下得很大。"
+              },
+              "dry": {
+                "en": "This air does not rise high enough. It would have to climb above the top of the hill before any cloud formed, so it crosses with no cloud and no rain. Try a higher mountain, or more humid air.",
+                "zh": "這團空氣升得不夠高。它得爬到比山頂還高才會開始成雲，所以翻過去的時候沒有雲、也沒有雨。換一座高一點的山，或是讓空氣更潮溼，再試試看。"
+              },
+              "east": {
+                "en": "Now the wind comes from the sea on the other side. The same mountain, the same moist air, but the rain has moved to the eastern slope, and the west is dry and warm. This is why the rainy side of Taiwan changes with the season.",
+                "zh": "現在風從另一邊的海上吹來。山還是同一座，空氣一樣潮溼，可是雨跑到東邊的山坡去了，西邊變得又乾又熱。台灣哪一邊多雨會隨著季節改變，就是這個道理。"
+              }
+            },
+            "legend": [
+              {
+                "cls": "ewrnair",
+                "en": "Air: moist (blue), in the cloud (white), dry and warm (orange)",
+                "zh": "空氣：潮溼（藍）、在雲裡（白）、乾熱（橘）"
+              },
+              {
+                "cls": "ewrncloud",
+                "en": "White puffs: cloud",
+                "zh": "白色的團塊：雲"
+              },
+              {
+                "cls": "ewrnrain",
+                "en": "Blue streaks: rain",
+                "zh": "藍色短線：雨"
+              }
+            ],
+            "scale_en": "A teaching model. The mountain (600 meters or 2,500 meters high) is drawn much steeper than a real one. The temperatures use the Central Weather Administration's simple figures: air cools about 6.5°C for every kilometer it rises and warms about 1°C for every 100 meters it sinks. The cloud base and the dew point use rules of thumb. Real weather is much less tidy.",
+            "scale_zh": "這是教學用的模型。山（600 公尺或 2,500 公尺高）畫得比真的山陡得多。溫度用的是中央氣象署的簡化數字：空氣每上升 1 公里大約降 6.5°C，每下沉 100 公尺大約升 1°C。雲底高度和露點用的是簡易的估算法。真的天氣沒有這麼整齊。",
+            "credit_html": "Model drawn by My Culture Connect as a teaching diagram. The ideas follow the Central Weather Administration's <a href=\"https://www.cwa.gov.tw/V8/C/K/Encyclopedia/nous/index.html\" target=\"_blank\" rel=\"noopener\">weather knowledge pages</a> and the other sources listed at the bottom of this page. · 模型由人師教育協會自繪示意；原理依中央氣象署「氣象常識」與本頁最下方列出的其他出處。"
+          },
+          "paras": [
+            "Rain seems simple: water falls from the sky. But how did the water get up there? The sky has no pipes and no tanks. The answer is that the water rose by itself, as a gas that you cannot see.",
+            "When the sun warms the sea, some of the water turns into water vapor and mixes with the air. Most of the water vapor in the air comes from the oceans. There is never very much of it, only about one part in a hundred on average, but it makes almost all of our weather.",
+            "Warm air can hold more water vapor than cold air. If air gets about 11 degrees warmer, it can hold about twice as much. This also works the other way. When air cools, it can hold less, and at a certain temperature it is full. That temperature is called the dew point.",
+            "So the secret of rain is rising air. Air cools as it rises, about 6.5 degrees for every kilometer. When it has cooled to its dew point, the extra water vapor turns into tiny drops of liquid water. A cloud is a huge crowd of these tiny drops. Inside the cloud the drops bump together and grow, and when they are too heavy to float, they fall.",
+            "What makes air rise? A mountain is one answer. When moist wind from the sea meets a mountain, the air has nowhere to go but up. Clouds form on that side, the windward side, and the rain falls there. By the time the air crosses the top, it has lost much of its water. It sinks down the other side dry and warm.",
+            "Taiwan shows this very well. A high wall of mountains runs down the island, and the wind changes with the seasons. In winter the northeast wind brings steady rain to the northeast, while the center and south are mostly sunny. In summer the wind turns, and the south gets most of its rain. The same mountains, the same sea: only the wind has changed."
+          ],
+          "paras_zh": [
+            "下雨好像很簡單：水從天上掉下來。可是水是怎麼上去的？天上沒有水管，也沒有水塔。答案是：水是自己升上去的，而且是變成一種你看不見的氣體升上去的。",
+            "太陽把海水曬暖，一部分的水就變成水氣，混進空氣裡。空氣中的水氣，主要來自海洋。它的量一向不多，平均只占大氣的百分之一左右，可是我們幾乎所有的天氣變化都是它造成的。",
+            "溫暖的空氣能容納的水氣，比冷空氣多。溫度大約升高 11 度，能裝的水氣就多一倍。這件事反過來也成立：空氣變冷，能裝的就變少；降到某一個溫度，它就滿了。這個溫度叫做露點。",
+            "所以，下雨的祕密在於空氣往上升。空氣越往上越冷，每升高 1 公里大約降 6.5 度。冷到露點的時候，多出來的水氣就變成很小很小的水滴。雲，就是一大群這樣的小水滴。在雲裡，小水滴互相碰撞、越變越大；重到浮不住的時候，就掉下來。",
+            "是什麼讓空氣往上升？山是其中一個答案。從海上吹來的潮溼的風遇到山，空氣無處可去，只能往上爬。雲在這一邊（迎風面）形成，雨也下在這一邊。等空氣翻過山頂，水氣已經掉了大半；它順著另一邊往下沉，又乾又熱。",
+            "台灣把這件事表現得非常清楚。一道高高的山脈縱貫全島，而風向隨著季節改變。冬天，東北風替東北部帶來綿綿不斷的雨，中部和南部卻大多是晴天。到了夏天，風向一轉，南部一年大部分的雨都在這時候下。同樣的山、同樣的海，變的只有風。"
+          ],
+          "questions": [
+            "How does water get from the sea into the sky?",
+            "Why does rising air make clouds?",
+            "Why is one side of a mountain often wetter than the other?"
+          ],
+          "answers": [
+            "The sun warms the sea, and some of the water turns into water vapor, a gas we cannot see, which mixes with the air.",
+            "Air cools as it rises. Cool air cannot hold as much water vapor, so the extra vapor turns into tiny drops of water, and the drops make a cloud.",
+            "Moist wind is forced up the windward side, so clouds form and rain falls there. The air that crosses the top has lost much of its water, so the far side is drier."
+          ],
+          "vocab": [
+            {
+              "n": 1,
+              "w": "water vapor",
+              "pos": "n.",
+              "zh": "水氣；水蒸氣",
+              "ex": "<b>Water vapor</b> is water in the form of a gas.",
+              "exzh": "水氣是氣體狀態的水。"
+            },
+            {
+              "n": 2,
+              "w": "cloud",
+              "pos": "n.",
+              "zh": "雲",
+              "ex": "A dark <b>cloud</b> covered the sun.",
+              "exzh": "一朵烏雲遮住了太陽。"
+            },
+            {
+              "n": 3,
+              "w": "evaporate",
+              "pos": "v.",
+              "zh": "蒸發",
+              "ex": "The puddle <b>evaporated</b> in the sun.",
+              "exzh": "水窪在太陽下蒸發了。"
+            },
+            {
+              "n": 4,
+              "w": "humid",
+              "pos": "adj.",
+              "zh": "潮溼的",
+              "ex": "It is hot and <b>humid</b> before a storm.",
+              "exzh": "暴風雨來之前，天氣又熱又潮溼。"
+            },
+            {
+              "n": 5,
+              "w": "droplet",
+              "pos": "n.",
+              "zh": "小水滴",
+              "ex": "Tiny <b>droplets</b> covered the cold glass.",
+              "exzh": "冰涼的玻璃杯上佈滿了小水滴。"
+            },
+            {
+              "n": 6,
+              "w": "float",
+              "pos": "v.",
+              "zh": "飄浮；漂浮",
+              "ex": "A leaf <b>floated</b> on the pond.",
+              "exzh": "一片葉子漂在池塘上。"
+            },
+            {
+              "n": 7,
+              "w": "windward",
+              "pos": "adj.",
+              "zh": "迎風的",
+              "ex": "The <b>windward</b> side of the hill gets more rain.",
+              "exzh": "山丘迎風的那一面雨比較多。"
+            },
+            {
+              "n": 8,
+              "w": "umbrella",
+              "pos": "n.",
+              "zh": "雨傘",
+              "ex": "Take an <b>umbrella</b>. It may rain.",
+              "exzh": "帶把傘吧，可能會下雨。"
+            }
+          ],
+          "quiz": [
+            {
+              "q": "What is water vapor?",
+              "options": [
+                "Water in the form of a gas that we cannot see",
+                "Very small pieces of ice",
+                "The white part of a cloud",
+                "Dirty water"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "What happens to air as it rises?",
+              "options": [
+                "It gets cooler",
+                "It gets warmer",
+                "It gets heavier",
+                "It turns into water"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "What is a cloud made of?",
+              "options": [
+                "Tiny drops of water",
+                "Smoke",
+                "Cotton",
+                "Water vapor that we can see"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "On which side of a mountain does most of the rain fall?",
+              "options": [
+                "The windward side, where the air is pushed up",
+                "The far side, where the air sinks",
+                "Only on the very top",
+                "Both sides equally, always"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "Where does most of the water vapor in the air come from?",
+              "options": [
+                "The oceans",
+                "Factories",
+                "Clouds",
+                "The moon"
+              ],
+              "correct": 0
+            }
+          ],
+          "parts_head": {
+            "eyebrow": "Try It in the Model · 在模型裡試試",
+            "en": "Four things to try",
+            "zh": "試試這四件事"
+          },
+          "parts": [
+            {
+              "key": "moist",
+              "icon": "🌦️",
+              "en": "Moist sea air",
+              "zh": "潮溼的海風",
+              "meta_en": "28°C, 80% humidity",
+              "meta_zh": "28°C，溼度 80%",
+              "demo": "moist",
+              "text_en": "The cloud begins about 500 meters up, and it rains on the windward slope.",
+              "text_zh": "雲大約從 500 公尺高的地方開始，迎風的山坡在下雨。"
+            },
+            {
+              "key": "soaked",
+              "icon": "⛈️",
+              "en": "Nearly full",
+              "zh": "幾乎裝滿了",
+              "meta_en": "28°C, 95% humidity",
+              "meta_zh": "28°C，溼度 95%",
+              "demo": "soaked",
+              "text_en": "The cloud almost touches the ground. This is the air that brings very heavy rain.",
+              "text_zh": "雲幾乎碰到地面了。帶來大雨的就是這種空氣。"
+            },
+            {
+              "key": "dry",
+              "icon": "☀️",
+              "en": "A low hill",
+              "zh": "一座矮丘",
+              "meta_en": "600 m high, 60% humidity",
+              "meta_zh": "高 600 公尺，溼度 60%",
+              "demo": "dry",
+              "text_en": "No cloud at all. The air is not lifted high enough to reach its dew point.",
+              "text_zh": "完全沒有雲。空氣被抬得不夠高，降不到露點。"
+            },
+            {
+              "key": "east",
+              "icon": "🔄",
+              "en": "Turn the wind around",
+              "zh": "把風向反過來",
+              "meta_en": "Wind from the east",
+              "meta_zh": "風從東邊來",
+              "demo": "east",
+              "text_en": "The rain moves to the other slope. The wet side and the dry side change places.",
+              "text_zh": "雨跑到另一邊的山坡去了。溼的那一邊和乾的那一邊互換。"
+            }
+          ],
+          "parts_note_en": "When it rains, compare the temperature by the sea with the temperature on the far side. The air comes down warmer than it went up.",
+          "parts_note_zh": "下雨的時候，比一比海邊的溫度和山另一邊的溫度。空氣下山的時候，比上山之前還熱。",
+          "links_head": {
+            "eyebrow": "Go Further · 延伸閱讀",
+            "en": "Light and water in the sky",
+            "zh": "天空裡的光和水"
+          },
+          "links": [
+            {
+              "href": "/resources/classes/how-things-work/rainbow/",
+              "icon": "🌈",
+              "k_en": "How Things Work · Lesson 10",
+              "k_zh": "萬物原理 第十課",
+              "en": "How Does a Rainbow Form?",
+              "zh": "彩虹是怎麼形成的？",
+              "note_en": "What sunlight does inside a raindrop.",
+              "note_zh": "陽光在雨滴裡做了什麼。"
+            },
+            {
+              "href": "/resources/classes/earth/taiwan-mountains/",
+              "icon": "⛰️",
+              "k_en": "Earth and Weather · Lesson 4",
+              "k_zh": "地球與天氣 第四課",
+              "en": "How Did Taiwan's Mountains Rise?",
+              "zh": "台灣的山是怎麼來的？",
+              "note_en": "The rain in this lesson is the same rain that wears the mountains down.",
+              "note_zh": "這一課的雨，就是把山削下來的那些雨。"
+            }
+          ],
+          "gauge": {
+            "eyebrow": "Read the Forecast · 讀懂氣象報告",
+            "en": "How much water is in one storm?",
+            "zh": "一場雨有多少水？",
+            "lead_en": "Rain is measured by how deep the water would be if none of it ran away: 1 millimeter of rain on 1 square meter is exactly 1 liter. Choose how much rain falls in a day and what it falls on. Watch the name that the Central Weather Administration gives to that much rain.",
+            "lead_zh": "雨量量的是「如果水都不流走，會積多深」：1 毫米的雨落在 1 平方公尺上，剛好是 1 公升。選一選一天下了多少雨、下在什麼地方，並注意看中央氣象署怎麼稱呼這麼大的雨。",
+            "areas": [
+              {
+                "m2": 1,
+                "en": "1 square meter",
+                "zh": "1 平方公尺"
+              },
+              {
+                "m2": 60,
+                "en": "A classroom roof",
+                "zh": "一間教室的屋頂"
+              },
+              {
+                "m2": 420,
+                "en": "A basketball court",
+                "zh": "一座籃球場"
+              },
+              {
+                "m2": 10000,
+                "en": "One hectare",
+                "zh": "一公頃"
+              }
+            ],
+            "classes": {
+              "none": {
+                "en": "no special name",
+                "zh": "還沒有到「大雨」"
+              },
+              "heavy": {
+                "en": "heavy rain",
+                "zh": "大雨"
+              },
+              "extreme": {
+                "en": "extremely heavy rain",
+                "zh": "豪雨"
+              },
+              "torrential": {
+                "en": "torrential rain",
+                "zh": "大豪雨"
+              },
+              "super": {
+                "en": "extremely torrential rain",
+                "zh": "超大豪雨"
+              }
+            },
+            "note_en": "The names follow the Central Weather Administration: 80 millimeters or more in 24 hours is heavy rain, 200 or more is extremely heavy rain, 350 or more is torrential rain, and 500 or more is extremely torrential rain. Shorter, sharper bursts count too: 40 millimeters in one hour is already heavy rain. The classroom roof (60 square meters) and the basketball court (420 square meters) are examples.",
+            "note_zh": "分級依中央氣象署：24 小時累積雨量達 80 毫米以上是大雨，200 毫米以上是豪雨，350 毫米以上是大豪雨，500 毫米以上是超大豪雨。短時間的強降雨也算：1 小時 40 毫米就已經是大雨。教室屋頂（60 平方公尺）和籃球場（420 平方公尺）是舉例的面積。"
+          },
+          "facts": {
+            "eyebrow": "Rain by the Numbers · 雨的數字",
+            "en": "Six numbers about rain",
+            "zh": "六個和雨有關的數字",
+            "lead_en": "From a single drop to a whole year.",
+            "lead_zh": "從一滴雨，到一整年。",
+            "items": [
+              {
+                "big": "1.1%",
+                "unit_en": "of the air",
+                "unit_zh": "的空氣",
+                "en": "On average, water vapor makes up only about 1.1% of the atmosphere. It ranges from 0.01% to about 4%.",
+                "zh": "平均來說，水氣大約只占大氣的 1.1%，少的時候 0.01%，多的時候 3% 到 4%。"
+              },
+              {
+                "big": "11°C",
+                "unit_en": "warmer",
+                "unit_zh": "升高",
+                "en": "Air that is 11°C warmer can hold about twice as much water vapor.",
+                "zh": "空氣的溫度升高 11°C，能容納的水氣大約多一倍。"
+              },
+              {
+                "big": "6.5°C",
+                "unit_en": "per kilometer",
+                "unit_zh": "每公里",
+                "en": "On average, the air gets this much colder for every kilometer you go up.",
+                "zh": "平均每往上 1 公里，氣溫就降低這麼多。"
+              },
+              {
+                "big": "1 km",
+                "unit_en": "cloud base",
+                "unit_zh": "雲底",
+                "en": "In Taiwan, the puffy white clouds of a fine day usually have their bases about one kilometer up.",
+                "zh": "在台灣，好天氣常見的那種一朵朵的白雲，雲底大約在一公里高。"
+              },
+              {
+                "big": "2,600",
+                "unit_en": "millimeters a year",
+                "unit_zh": "毫米（每年）",
+                "en": "About how much rain falls on Taiwan in an average year.",
+                "zh": "台灣平均一年的雨量大約是這麼多。"
+              },
+              {
+                "big": "1 L",
+                "unit_en": "per square meter",
+                "unit_zh": "每平方公尺",
+                "en": "One millimeter of rain puts exactly one liter of water on every square meter.",
+                "zh": "1 毫米的雨，剛好在每 1 平方公尺上留下 1 公升的水。"
+              }
+            ]
+          },
+          "culture_cards": {
+            "eyebrow": "Rain Stories · 雨的故事",
+            "title_en": "The rainy corner, the hot wind, the afternoon storm, and the shape of a raindrop",
+            "title_zh": "多雨的角落、火燒風、西北雨，還有雨滴的形狀",
+            "lead_en": "Four things about rain that you can check for yourself.",
+            "lead_zh": "四件和雨有關、你可以自己驗證的事。",
+            "cards": [
+              {
+                "k": "Winter · 冬天",
+                "en": "The rainy corner",
+                "zh": "多雨的角落",
+                "body_en": "From about November to March, the wind over Taiwan blows from the northeast. It has crossed the sea, so it is full of water vapor, and the first thing it meets is the mountains of the northeast. During these months the northeast gets steady rain, while the central and southern parts of the island are mostly sunny.",
+                "body_zh": "大約從 11 月到隔年 3 月，台灣吹的是東北風。這股風剛越過海面，帶著滿滿的水氣，最先碰到的就是東北部的山。這幾個月，東北部陰雨綿綿，中部和南部卻大多是晴天。"
+              },
+              {
+                "k": "焚風",
+                "en": "The hot wind",
+                "zh": "火燒風",
+                "body_en": "Air that has dropped its rain on one side of the mountains comes down the other side dry, and it warms as it sinks. The result is a hot, dry wind that people in Taiwan call the fire wind. It happens most often around Taitung, when a typhoon or a low passes north of the island and strong west winds blow across the mountains.",
+                "body_zh": "在山的一邊把雨下完的空氣，從另一邊下來的時候是乾的，而且越往下沉越熱。結果就是一股又乾又熱的風，叫做焚風，台灣俗稱「火燒風」。當颱風或低氣壓從台灣北部通過、吹起強勁的西風時，最常在台東一帶發生。"
+              },
+              {
+                "k": "Summer · 夏天",
+                "en": "The afternoon storm",
+                "zh": "午後的雷雨",
+                "body_en": "A mountain is not the only thing that makes air rise. On a hot, humid summer afternoon, the ground heats the air above it, and the air shoots upward by itself. Tall, dark clouds can grow from 1 kilometer to 6 kilometers high in about ten minutes, and then the rain pours down.",
+                "body_zh": "會讓空氣上升的不只有山。在悶熱潮溼的夏天午後，地面把上面的空氣加熱，空氣自己就往上衝。高聳灰暗的雲，大約十分鐘就可以從 1 公里長到 6 公里高，接著大雨就倒下來。"
+              },
+              {
+                "k": "A raindrop · 雨滴",
+                "en": "Not a teardrop",
+                "zh": "不是淚滴的形狀",
+                "body_en": "We draw raindrops with a point on top, but real raindrops never look like that. Small ones are almost perfect balls. Bigger ones are pushed flat on the bottom by the air as they fall, like a hamburger bun. Very big ones break apart into smaller drops.",
+                "body_zh": "我們畫雨滴的時候，都會在上面畫一個尖尖的角，可是真的雨滴從來不是那個樣子。小的雨滴幾乎是圓球；大一點的，落下的時候底部被空氣壓扁，像一個漢堡麵包；非常大的，會碎成比較小的雨滴。"
+              }
+            ]
+          },
+          "myths": [
+            {
+              "myth_en": "Clouds are made of water vapor.",
+              "myth_zh": "雲是水氣做的。",
+              "fact_en": "Water vapor is a gas, and you cannot see it. A cloud is made of tiny drops of liquid water, or tiny crystals of ice.",
+              "fact_zh": "水氣是氣體，看不見。雲是很小很小的液態水滴，或是很小的冰晶。"
+            },
+            {
+              "myth_en": "Rain falls when clouds bump into each other.",
+              "myth_zh": "雲撞在一起就會下雨。",
+              "fact_en": "Rain falls when the drops inside a cloud grow too heavy to stay up.",
+              "fact_zh": "雲裡面的水滴長大到浮不住的時候，才會下雨。"
+            },
+            {
+              "myth_en": "Raindrops are shaped like teardrops.",
+              "myth_zh": "雨滴是淚滴的形狀。",
+              "fact_en": "Small raindrops are round, and bigger ones are flattened on the bottom. None are pointed.",
+              "fact_zh": "小的雨滴是圓的，大一點的底部是扁的，沒有尖尖的。"
+            },
+            {
+              "myth_en": "A rainy place is rainy because it is near the sea.",
+              "myth_zh": "一個地方雨多，是因為它靠海。",
+              "fact_en": "The sea gives the water, but the air must also rise. Places where moist wind is pushed up a mountain get the most rain.",
+              "fact_zh": "海提供了水，可是空氣還得往上升才行。潮溼的風被山抬高的地方，雨才最多。"
+            }
+          ],
+          "tricks": [
+            {
+              "title_en": "Up as a gas",
+              "title_zh": "變成氣體升上去",
+              "body_en": "The sun lifts water out of the sea as vapor.",
+              "body_zh": "太陽把海水變成水氣帶上去。"
+            },
+            {
+              "title_en": "Rising air cools",
+              "title_zh": "空氣上升就變冷",
+              "body_en": "About 6.5 degrees for every kilometer.",
+              "body_zh": "每公里大約降 6.5 度。"
+            },
+            {
+              "title_en": "Cool air lets go",
+              "title_zh": "冷空氣裝不下",
+              "body_en": "The extra vapor turns into cloud, and then rain.",
+              "body_zh": "多出來的水氣變成雲，再變成雨。"
+            },
+            {
+              "title_en": "Wet side, dry side",
+              "title_zh": "一邊溼，一邊乾",
+              "body_en": "Rain on the windward side. Warm, dry air on the other.",
+              "body_zh": "迎風面下雨，另一邊又乾又熱。"
+            }
+          ],
+          "safety_head": {
+            "eyebrow": "Be Ready · 防災要點",
+            "en": "When heavy rain is forecast",
+            "zh": "預報有大雨的時候",
+            "src": "Central Weather Administration, Heavy Rain Advisories",
+            "url": "https://www.cwa.gov.tw/V8/C/P/Warning/W26.html",
+            "src_en": "The rain levels follow the Central Weather Administration:",
+            "src_zh": "雨量分級依中央氣象署「豪（大）雨特報」。"
+          },
+          "safety": [
+            {
+              "en": "Check the forecast before you go out. A heavy rain or extremely heavy rain advisory means a lot of water in a short time.",
+              "zh": "出門前先看氣象預報。發布大雨或豪雨特報，代表短時間內會有很多水。"
+            },
+            {
+              "en": "Stay away from streams, riverbeds, and steep slopes during and after heavy rain. Water can rise quickly, and rocks can fall.",
+              "zh": "大雨的時候和大雨過後，遠離溪流、河床和陡坡。溪水可能很快暴漲，也可能有落石。"
+            },
+            {
+              "en": "For the experiments, use warm water from the faucet, not boiling water, and wipe up spills.",
+              "zh": "做實驗用溫的自來水就好，不要用滾水；潑出來的水要擦乾。"
+            }
+          ],
+          "activities": [
+            {
+              "title_en": "A Cloud in a Jar",
+              "title_zh": "瓶子裡的雲",
+              "materials": [
+                {
+                  "en": "A clear jar, warm water, and a plate with ice cubes on it",
+                  "zh": "一個透明的瓶子、溫水，還有一個放了冰塊的盤子"
+                },
+                {
+                  "en": "A dark piece of paper to hold behind the jar",
+                  "zh": "一張深色的紙，用來墊在瓶子後面"
+                }
+              ],
+              "steps": [
+                {
+                  "en": "Pour warm water into the jar until it is about a quarter full. Wait one minute.",
+                  "zh": "把溫水倒進瓶子，大約四分之一滿。等一分鐘。"
+                },
+                {
+                  "en": "Put the plate of ice on top of the jar, like a lid.",
+                  "zh": "把放了冰塊的盤子蓋在瓶口，當蓋子。"
+                },
+                {
+                  "en": "Hold the dark paper behind the jar and watch the space just under the plate.",
+                  "zh": "把深色的紙墊在瓶子後面，注意看盤子正下方的空間。"
+                },
+                {
+                  "en": "Look at the bottom of the plate after five minutes. What has formed there? Where did it come from?",
+                  "zh": "五分鐘後看看盤子的底部。上面出現了什麼？它是從哪裡來的？"
+                }
+              ],
+              "tip_en": "The warm water is the sea, the air in the jar is the sky, and the cold plate is the high, cold air. The drops under the plate are your rain.",
+              "tip_zh": "溫水是海，瓶子裡的空氣是天空，冰冷的盤子是高空的冷空氣。盤子底下的水滴，就是你的雨。"
+            },
+            {
+              "title_en": "Make a Rain Gauge",
+              "title_zh": "做一個雨量計",
+              "materials": [
+                {
+                  "en": "A straight-sided clear container, such as a jar or a cut plastic bottle",
+                  "zh": "一個直筒狀的透明容器，例如玻璃瓶或剪開的寶特瓶"
+                },
+                {
+                  "en": "A ruler, tape, and a notebook",
+                  "zh": "一把尺、膠帶和一本筆記本"
+                }
+              ],
+              "steps": [
+                {
+                  "en": "Tape the ruler to the outside of the container with zero at the bottom.",
+                  "zh": "把尺貼在容器外面，0 的那一頭對齊底部。"
+                },
+                {
+                  "en": "Put the container in an open place, away from trees and roofs.",
+                  "zh": "把容器放在空曠的地方，不要在樹下或屋簷下。"
+                },
+                {
+                  "en": "After each rainy day, read how many millimeters of water are in it, write it down, and empty it.",
+                  "zh": "每個下雨天過後，讀一讀裡面的水有幾毫米，記下來，再把水倒掉。"
+                },
+                {
+                  "en": "Compare your number with the rainfall reported for your town. Then work out how many liters fell on your classroom roof.",
+                  "zh": "把你的數字和氣象報告裡你們鄉鎮的雨量比一比。再算算看，教室屋頂上總共落下了幾公升的水。"
+                }
+              ],
+              "tip_en": "The container must have straight sides. If it is wider at the top than at the bottom, it will catch too much rain and your reading will be too high.",
+              "tip_zh": "容器一定要是直筒的。如果口比底寬，接到的雨水會太多，讀出來的數字就偏高。"
+            }
+          ],
+          "sources": [
+            {
+              "en": "Water vapor makes up from 0.01% to 3–4% of the atmosphere, about 1.1% on average; its main source is the oceans; air 11°C warmer can hold about twice as much; cooling air becomes saturated and the vapor condenses; the dew point",
+              "zh": "水氣占大氣 0.01% 至 3–4%，平均約 1.1%；主要來源為海洋；溫度增加 11°C，容納水氣的能力約增加一倍；降溫可使空氣飽和並凝結；露點",
+              "src": "中央氣象署 氣象常識「大氣中之水氣」",
+              "url": "https://www.cwa.gov.tw/V8/C/K/Encyclopedia/nous/overview_list.html#overview-06"
+            },
+            {
+              "en": "In the lowest layer of the atmosphere the temperature falls about 6.5°C for every kilometer of height; clouds, rain, and snow happen in this layer",
+              "zh": "對流層內氣溫平均每增高 1 公里約降低 6.5°C；雲、霧、雨、雪都發生在這一層",
+              "src": "中央氣象署 氣象常識「大氣之垂直溫度變化」",
+              "url": "https://www.cwa.gov.tw/V8/C/K/Encyclopedia/nous/overview_list.html#overview-01"
+            },
+            {
+              "en": "Fair-weather clouds in Taiwan have bases about 1 km up; summer afternoon storm clouds can rise at up to 600 m a minute and reach 6,000 m in about ten minutes",
+              "zh": "台灣晴天積雲雲底約在 1 公里；夏天午後積雨雲上升速度每分鐘最高可達 600 公尺，不到十分鐘可伸展至 6,000 公尺",
+              "src": "中央氣象署 氣象常識「雲與天氣」",
+              "url": "https://www.cwa.gov.tw/V8/C/K/Encyclopedia/nous/overview_list.html#overview-07"
+            },
+            {
+              "en": "Foehn wind: air forced up a mountain cools (about 0.65°C per 100 m) and drops its rain on the windward side, then sinks dry on the far side and warms (about 1°C per 100 m); called the fire wind in Taiwan; common around Taitung when a typhoon or low passes to the north",
+              "zh": "焚風：氣流受山阻擋抬升冷卻（每 100 公尺約 0.65°C），在迎風面成雲降雨，翻山後乾燥下降增溫（每 100 公尺約 1°C）；台灣俗稱火燒風；颱風或低氣壓通過北部時常見於台東一帶",
+              "src": "中央氣象署 氣象常識「焚風」",
+              "url": "https://www.cwa.gov.tw/V8/C/K/Encyclopedia/nous/weather_list.html#weather-07"
+            },
+            {
+              "en": "The water cycle: the sun's energy moves water from the sea and land into the air by evaporation; the vapor condenses into clouds and returns as rain",
+              "zh": "水循環：太陽的能量使水經蒸發從海洋與地面進入大氣，水氣凝結成雲，再藉降雨回到地面",
+              "src": "中央氣象署 氣候百問「什麼是水循環？」",
+              "url": "https://www.cwa.gov.tw/V8/C/K/Encyclopedia/climate/index.html#climate-04"
+            },
+            {
+              "en": "Rain levels: heavy rain is 80 mm or more in 24 hours or 40 mm in one hour; extremely heavy rain 200 mm in 24 hours or 100 mm in 3 hours; torrential rain 350 mm in 24 hours or 200 mm in 3 hours; extremely torrential rain 500 mm in 24 hours",
+              "zh": "雨量分級：大雨為 24 小時累積 80 毫米以上或時雨量 40 毫米以上；豪雨 24 小時 200 毫米以上或 3 小時 100 毫米以上；大豪雨 24 小時 350 毫米以上或 3 小時 200 毫米以上；超大豪雨 24 小時 500 毫米以上",
+              "src": "中央氣象署「豪（大）雨特報」",
+              "url": "https://www.cwa.gov.tw/V8/C/P/Warning/W26.html"
+            },
+            {
+              "en": "Taiwan's average rainfall is about 2,600 mm a year; in winter the northeast has steady rain while the center and south are mostly sunny; the summer monsoon brings 90% of the year's rain in the south",
+              "zh": "台灣年平均雨量約 2,600 毫米；冬季東北部持續降雨而中南部多晴；夏季季風帶來南部全年 90% 的雨量",
+              "src": "Wikipedia, “Climate of Taiwan”",
+              "url": "https://en.wikipedia.org/wiki/Climate_of_Taiwan"
+            },
+            {
+              "en": "The cloud base rises about 125 m for every 1°C between the air temperature and the dew point",
+              "zh": "氣溫與露點每差 1°C，雲底約高 125 公尺",
+              "src": "Wikipedia, “Cloud base”",
+              "url": "https://en.wikipedia.org/wiki/Cloud_base"
+            },
+            {
+              "en": "A rule of thumb for the dew point: it is 1°C below the air temperature for every 5% that the relative humidity is under 100% (accurate above 50%)",
+              "zh": "露點的簡易估算：相對溼度每低於 100% 5 個百分點，露點比氣溫低 1°C（相對溼度 50% 以上才準）",
+              "src": "Wikipedia, “Dew point”",
+              "url": "https://en.wikipedia.org/wiki/Dew_point"
+            },
+            {
+              "en": "Raindrops are never teardrop-shaped: small ones are nearly round, larger ones are flattened on the bottom, and very large ones break up",
+              "zh": "雨滴從來不是淚滴形：小的近乎圓球，較大的底部被壓扁，非常大的會碎裂",
+              "src": "Wikipedia, “Rain”",
+              "url": "https://en.wikipedia.org/wiki/Rain"
+            },
+            {
+              "en": "Rainfall in millimeters is the same as liters per square meter",
+              "zh": "以毫米表示的雨量，等於每平方公尺幾公升",
+              "src": "Wikipedia, “Rain gauge”",
+              "url": "https://en.wikipedia.org/wiki/Rain_gauge"
+            }
+          ]
+        }
+      ],
+      "planned": [
         {
           "n": 7,
           "icon": "🌬️",
