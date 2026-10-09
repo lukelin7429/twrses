@@ -13017,7 +13017,7 @@ def build_cal_hub():
 _compj = os.path.join(ROOT, "data", "computers.json")
 COMP = json.load(open(_compj, encoding="utf-8")) if os.path.exists(_compj) else None
 COMP_BASE = "/resources/classes/computers/"
-_COMP_JS = {"bits": "comp-bits", "pixels": "comp-pixels", "logic": "comp-logic", "adder": "comp-adder", "pc": "comp-pc", "cpu": "comp-cpu"}   # lab.kind → assets/js/<bundle>.js
+_COMP_JS = {"bits": "comp-bits", "pixels": "comp-pixels", "logic": "comp-logic", "adder": "comp-adder", "pc": "comp-pc", "cpu": "comp-cpu", "desk": "comp-desk"}   # lab.kind → assets/js/<bundle>.js
 
 def _comp_ver():
     h = hashlib.md5()
@@ -13628,6 +13628,85 @@ def _comp_pred(pd):
   <div class="cp-gs-foot"><span></span><button type="button" class="cp-btn cp-btn-gold cp-gs-next" hidden>Next · 下一題</button></div>
 </div>'''
 
+def compdesk_svg(size=56):
+    """第七課的課程卡小圖示：左邊一座書櫃（很多本書），右邊一張小桌子（上面只有一本）。"""
+    cols = ["#4f9dff", "#d4574a", "#ffb04a", "#7ee0aa", "#c7a6ff", "#3ac7b0"]
+    books = "".join(f'<rect x="{8 + (i % 3) * 6.2}" y="{12 if i < 3 else 31}" width="4.6" height="14" rx="1" fill="{c}"/>' for i, c in enumerate(cols))
+    return (f'<svg class="compdesk-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">'
+            '<rect x="5" y="8" width="24" height="44" rx="2" fill="none" stroke="#c9a47a" stroke-width="2.4"/><path d="M5 28.5h24" stroke="#c9a47a" stroke-width="2.4"/>'
+            f'{books}'
+            '<path d="M35 36h21" stroke="#c9a47a" stroke-width="3" stroke-linecap="round"/><path d="M38 37v14M53 37v14" stroke="#c9a47a" stroke-width="2.4" stroke-linecap="round"/>'
+            '<rect x="40" y="30.5" width="11" height="4" rx="1" fill="#ffd36e"/></svg>')
+
+_COMP_CARD["desk"] = compdesk_svg
+
+def render_compdesk_lab(lesson):
+    """第七課：書桌與書櫃（assets/js/comp-desk.js 綁這裡的 class；全部自繪示意）。"""
+    lab = lesson["lab"]
+    ib = "".join(
+        f'<button type="button" data-item="{i["key"]}" aria-pressed="false"><span aria-hidden="true">{i["emoji"]}</span>{html.escape(i["en"])}<small>{html.escape(i["zh"])}</small></button>'
+        for i in lab["items"])
+    items = html.escape(json.dumps({i["key"]: {k: i[k] for k in ("emoji", "en", "zh")} for i in lab["items"]}, ensure_ascii=False))
+    tg = _lab_toggles([("labels", "Labels", "標示", True)])
+    return f'''<div class="astro-lab cp-lab cp-dk-lab rvl" data-compdesk-lab data-items="{items}">
+  <div class="al-stage">
+    <div class="al-space">
+      <canvas class="al-space-cv" aria-label="3D model of a bookcase holding eight books and a desk with room for four, with a desk lamp that shows whether the power is on · 放著八本書的書櫃和只放得下四樣東西的書桌的 3D 模型；檯燈亮著表示有電"></canvas>
+      <div class="al-labels" aria-hidden="true"></div>
+      <p class="al-hint">Tap a book or something on the desk · 點書或桌上的東西　Drag to turn · 拖曳旋轉</p>
+      <button type="button" class="al-home" title="Reset view · 重設視角" aria-label="Reset view · 重設視角">&#8634;</button>
+      <p class="al-nogl-msg">This 3D model needs WebGL, which this browser does not support. The list of things and the buttons below still work, and so do the reading and the games.<br><span class="zh">這個瀏覽器不支援 WebGL，無法顯示 3D 模型；下面的清單和按鈕照樣能用，課文和小遊戲也都能用。</span></p>
+    </div>
+    <aside class="al-sky cp-aside">
+      <p class="al-sky-k">Open or use · 打開或拿來用</p>
+      <div class="cp-dk-items" role="group" aria-label="Eight things in the bookcase · 書櫃裡的八樣東西">{ib}</div>
+      <p class="cp-dk-key"><i class="k-desk"></i>on the desk · 在桌上　<i class="k-dirty"></i>not saved · 還沒存</p>
+      <div class="cp-btns">
+        <button type="button" class="cp-btn-d cp-dk-edit" disabled>Change it · 改一改</button>
+        <button type="button" class="cp-btn-d cp-dk-save" disabled>Save · 存檔</button>
+        <button type="button" class="cp-btn-d cp-reset">Reset · 重來</button>
+      </div>
+      <dl class="cp-dk-nums">
+        <div><dt>On the desk · 桌上</dt><dd class="cp-dk-used">0 / 4</dd></div>
+        <div><dt>Walks to the bookcase · 走到書櫃</dt><dd class="cp-dk-trips">0</dd></div>
+        <div><dt>Taken straight from the desk · 直接從桌上拿</dt><dd class="cp-dk-uses">0</dd></div>
+      </dl>
+      <p class="cp-msg" aria-live="polite"></p>
+    </aside>
+  </div>
+  <div class="al-controls">
+    <div class="al-row al-row-main">
+      <button type="button" class="al-play cp-dk-power" aria-pressed="false"><span class="cp-dk-pi" aria-hidden="true">&#9211;</span><span class="al-play-t">Switch off · 關機</span></button>
+      <div class="al-row al-toggles">{tg}</div>
+    </div>
+  </div>
+  {_lab_foot(lab)}
+  <p class="cp-credit">{lab["credit_html"]}</p>
+</div>'''
+
+def _comp_where(wh):
+    return f'''<div class="cp-guess cp-jobs cp-where rvl" data-cp-where data-tasks="{html.escape(json.dumps(wh["tasks"], ensure_ascii=False))}">
+  <div class="cp-gs-top"><p class="cp-gs-k"></p><p class="cp-gs-sc">Right on the first try · 第一次就答對 <b class="cp-gs-score">0 / 0</b></p></div>
+  <p class="cp-jb-q" aria-live="polite"></p>
+  <div class="cp-gs-opts cp-wh-opts" role="group" aria-label="Memory or storage · 記憶體還是儲存裝置"></div>
+  <p class="cp-gs-msg" aria-live="polite"></p>
+  <div class="cp-gs-foot"><span></span><button type="button" class="cp-btn cp-btn-gold cp-gs-next" hidden>Next · 下一題</button></div>
+</div>'''
+
+def _comp_full(fl):
+    ab = "".join(f'<button type="button" data-app="{a["key"]}" aria-pressed="false"><span aria-hidden="true">{a["emoji"]}</span>{html.escape(a["en"])}<small>{html.escape(a["zh"])}</small><i></i></button>' for a in fl["apps"])
+    tips = "".join(f'<li>{html.escape(t["en"])}<span class="zh">{html.escape(t["zh"])}</span></li>' for t in fl["tips"])
+    return f'''<div class="cp-full rvl" data-cp-full>
+  <p class="cp-k">Open or close an app · 打開或關掉 App</p>
+  <div class="cp-fl-apps" role="group" aria-label="Apps · App">{ab}</div>
+  <p class="cp-fl-top"><span>Memory in use · 記憶體用量</span><b class="cp-fl-num"></b></p>
+  <div class="cp-fl-track" aria-hidden="true"><span class="cp-fl-bar"></span></div>
+  <div class="cp-fl-track cp-fl-track2" aria-hidden="true"><span class="cp-fl-over" hidden></span><em>does not fit: moved to storage and back · 放不下：在儲存裝置之間搬來搬去</em></div>
+  <p class="cp-lv-msg cp-fl-msg" aria-live="polite"></p>
+  <p class="cp-lv-note">{html.escape(fl["note_en"])}<span class="zh">{html.escape(fl["note_zh"])}</span></p>
+</div>
+<ul class="cp-tips rvl">{tips}</ul>'''
+
 def _comp_flat():
     return [(ui, u, l) for ui, u in enumerate(COMP["units"]) for l in u["lessons"]]
 
@@ -13655,7 +13734,7 @@ def build_comp_lesson(ui, unit, lesson):
     reading_html = render_basic_unit(1, unit_dict, level="comp", audio_rel="", pdf_rel="")
     lab = lesson["lab"]
     kind = lab["kind"]
-    lab_html = {"bits": render_compbits_lab, "pixels": render_comppixels_lab, "logic": render_complogic_lab, "adder": render_compadder_lab, "pc": render_comppc_lab, "cpu": render_compcpu_lab}[kind](lesson)
+    lab_html = {"bits": render_compbits_lab, "pixels": render_comppixels_lab, "logic": render_complogic_lab, "adder": render_compadder_lab, "pc": render_comppc_lab, "cpu": render_compcpu_lab, "desk": render_compdesk_lab}[kind](lesson)
 
     def sec(key, fn):
         d = lesson[key]
@@ -13687,6 +13766,8 @@ def build_comp_lesson(ui, unit, lesson):
     if lesson.get("fits"): secs.append(sec("fits", _comp_fits))
     if lesson.get("prog"): secs.append(sec("prog", _comp_prog))
     if lesson.get("pred"): secs.append(sec("pred", _comp_pred))
+    if lesson.get("where"): secs.append(sec("where", _comp_where))
+    if lesson.get("full"): secs.append(sec("full", _comp_full))
     if lesson.get("culture_cards"):
         cu = lesson["culture_cards"]
         cc = "".join(

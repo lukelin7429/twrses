@@ -4,8 +4,8 @@
   "description": "電腦概論 How Computers Work 的位元引擎（bits.js 純函式、bits3d.js 一排開關與燈泡、bits2d.js 不需要 WebGL 的小互動）、第二課的編碼（codes.js 純函式、codes2d.js 小互動）與各課 3D 的原始碼。產物寫到 assets/js/comp-*.js，npm run build 重新打包。",
   "type": "module",
   "scripts": {
-    "build": "esbuild src/comp-bits.js src/comp-pixels.js src/comp-logic.js src/comp-adder.js src/comp-pc.js src/comp-cpu.js --bundle --minify --format=iife --target=es2019 --legal-comments=eof --outdir=../../assets/js",
-    "test": "node test/bits.test.mjs && node test/codes.test.mjs && node test/logic.test.mjs && node test/adder.test.mjs && node test/parts.test.mjs && node test/cpu.test.mjs"
+    "build": "esbuild src/comp-bits.js src/comp-pixels.js src/comp-logic.js src/comp-adder.js src/comp-pc.js src/comp-cpu.js src/comp-desk.js --bundle --minify --format=iife --target=es2019 --legal-comments=eof --outdir=../../assets/js",
+    "test": "node test/bits.test.mjs && node test/codes.test.mjs && node test/logic.test.mjs && node test/adder.test.mjs && node test/parts.test.mjs && node test/cpu.test.mjs && node test/memory.test.mjs"
   },
   "devDependencies": {
     "esbuild": "0.25.10",

@@ -671,6 +671,13 @@
   - `src/cpu2d.js`：`initProg`（`[data-cp-prog]`，四個 `<select>` 排程式，按執行列出每條指令後 A 是多少與錯在哪裡）、`initPred`（`[data-cp-pred]`，八題）。除錯：`el.__prog.set([0, 3, 4, 7])`（CARDS 的索引，回傳 checkAdd 的結果）、`el.__pred.start(seed)／answer()／next()`。
   - 除錯：`document.querySelector('[data-compcpu-lab]').__lab`（`load('add34'|'count')`、`stepOnce()`、`setPlaying(bool)`、`setSpeed(n)`、`demo(...)`、`run(秒)`、`goCam()`、`render()`、`sim()`）。
   - 查證：指令的「拿、解讀」引 Britannica 的 CPU 條目（控制單元那一句）；時脈引 Intel（GHz＝每秒幾十億個週期；**一個週期不等於一條指令**）；馮紐曼 1945 與曼徹斯特 Baby 1948/6/21（十七條指令）引 Computer History Museum 的年表。規劃檔寫「四種指令」，實作是五種（多了 JUMP，才有迴圈）。
+- 第七課兩種記憶（`comp-desk.js`，`lab.kind = "desk"`，`data-compdesk-lab`；slug `memory-and-storage`）：一個機制——**沒有一種記憶又快又大又留得住，所以用兩種**：記憶體＝書桌（快、小、斷電就忘），儲存裝置＝書櫃（慢、大、留得住）。
+  - `src/memory.js`（純函式，`test/memory.test.mjs`）：`makeDesk(4)`、`use`（回 `events`：`hit`／`evict`／`fetch`；滿了送走**最久沒用**的那一樣，沒存的修改跟著留在桌上那一份、送走時暫放）、`edit`、`save`、`powerOff`（回 `lost`）、`powerOn`；小工具用的 `APPS`（GB 是**自己訂的示意數字**，頁面有寫明）與 `usage(8, open)`。
+  - 場景：左書櫃八本書（`lab.items`，key 要和 memory.js 的 `ITEMS` 一致）、右書桌四格、檯燈＝電源；打開＝一份副本從書櫃飛到桌上（書留在架上），存檔＝青色小球飛回書櫃。標籤 `cp-lb-book`／`cp-lb-copy`。
+  - 右側欄：`[data-item]` 八顆按鈕、`.cp-dk-edit`／`.cp-dk-save`／`.cp-reset`、三個計數（桌上幾樣、走到書櫃幾趟、直接從桌上拿幾次）、`.cp-dk-power`。四張卡 `data-lab-demo`：`open`、`fast`、`full`、`off`。
+  - `src/desk2d.js`：`initWhere`（`[data-cp-where]`，八題「在記憶體還是儲存裝置」）、`initFull`（`[data-cp-full]`，8 GB 的用量條）。除錯：`el.__where`、`el.__full.set(['browser','game','call'])`。
+  - 除錯：`document.querySelector('[data-compdesk-lab]').__lab`（`open(id)`、`editSel()`、`saveSel()`、`setPower(bool)`、`reset()`、`demo(...)`、`run(秒)`、`goCam()`、`render()`）。
+  - 查證：記憶階層與虛擬記憶體引 Britannica「computer memory › Memory hierarchy」；記憶體壓力綠黃紅與「空著的記憶體效能不見得比較好」引 Apple 活動監視器說明。**沒寫**：速度差幾倍的數字、自動儲存、Windows 分頁檔（都沒查到可引的原文）。
 - **預覽伺服器名額被別的 session 占滿時**（preview_start 回 Maximum 5 dev servers）：不要去停別人的，也不要用 Bash 跑伺服器。把 shot.mjs 的副本加一段 CDP `Fetch.enable`，攔截 `http://twrses.test/*` 直接從 worktree 讀檔回應（環境變數 `SHOT_ROOT`），不經過任何伺服器就能截圖、看 console 錯誤。
 - 查證過的事（出處在每課 `sources`）與**沒寫的事**記在 Obsidian 的系列索引；名詞一律台灣用語（位元、位元組、二進位、處理器、記憶體、電晶體），不用「比特、字節、內存」。
 - 和既有系列互相連結：第一課的 `links` 連晶片第二課 `/resources/classes/semiconductors/transistor/`（開關本身）與萬物原理第八課 `/resources/classes/how-things-work/computer-memory/`（0 和 1 存在哪裡），再放下一課的預告卡（`soon: true`）。

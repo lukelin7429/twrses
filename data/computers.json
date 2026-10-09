@@ -3898,7 +3898,7 @@
               "zh": "電腦為什麼要有兩種記憶？",
               "note_en": "The processor fetches from memory billions of times a second. Next: why that memory has to be fast, and why it cannot also be the place where your files are kept.",
               "note_zh": "處理器每秒要去記憶體拿東西幾十億次。下一課要看：為什麼記憶體一定要快，又為什麼它不能同時是存放檔案的地方。",
-              "soon": true
+              "href": "/resources/classes/computers/memory-and-storage/"
             }
           ],
           "sources_note_en": "Names, dates, and facts on this page were checked against these sources (October 2026); the model’s processor is our own design, and its simulator is tested",
@@ -3965,15 +3965,731 @@
               "url": "https://github.com/lukelin7429/twrses/blob/main/tools/computers/test/cpu.test.mjs"
             }
           ]
+        },
+        {
+          "n": 7,
+          "slug": "memory-and-storage",
+          "title": "Why Does a Computer Need Two Kinds of Memory?",
+          "title_zh": "電腦為什麼要有兩種記憶？",
+          "level": "入門 · Beginner",
+          "icon": "🗄️",
+          "card": "desk",
+          "blurb_en": "A desk and a bookcase in 3D: open things, fill the desk, change something without saving, and switch off the power to see what survives. Then sort eight things into memory or storage, and watch what happens when memory fills up.",
+          "blurb_zh": "3D 裡的一張書桌和一座書櫃：把東西打開、把桌子放滿、改了不存檔，再把電關掉，看看什麼留得下來。接著把八樣東西分到記憶體或儲存裝置，再看記憶體滿了會怎樣。",
+          "big_idea_en": "No single kind of memory is fast, large, cheap, and lasting all at once. So a computer uses two that work together. Memory is fast but small, and it forgets when the power goes off. Storage is slower but large, and it keeps things without power.",
+          "big_idea_zh": "沒有哪一種記憶能同時又快、又大、又便宜、又留得住。所以電腦用兩種，搭配著用。記憶體很快，可是小，而且一斷電就忘光；儲存裝置比較慢，可是大，而且沒有電也留得住。",
+          "lab": {
+            "kind": "desk",
+            "eyebrow": "3D Model · 3D 模型",
+            "title_en": "The Desk and the Bookcase",
+            "title_zh": "書桌與書櫃",
+            "how_en": "The bookcase is storage: it holds everything, and it keeps it when the power is off. The desk is memory: there is room for only four things, but whatever is on it is right at hand. Tap a book to open it and watch a copy being carried to the desk. Tap something on the desk to use it at once. Then change something, save it or not, and switch off the power.",
+            "how_zh": "書櫃是儲存裝置：什麼都放在這裡，關了電也都還在。書桌是記憶體：只放得下四樣東西，可是放在上面的伸手就拿得到。點一本書把它打開，看一份副本被搬到桌上；點桌上的東西，馬上就能用。接著改一改某樣東西，存檔或不存檔，然後把電關掉。",
+            "items": [
+              {
+                "key": "essay",
+                "emoji": "📝",
+                "en": "Essay",
+                "zh": "作文"
+              },
+              {
+                "key": "game",
+                "emoji": "🎮",
+                "en": "Game",
+                "zh": "遊戲"
+              },
+              {
+                "key": "music",
+                "emoji": "🎵",
+                "en": "Music",
+                "zh": "音樂"
+              },
+              {
+                "key": "browser",
+                "emoji": "🌐",
+                "en": "Browser",
+                "zh": "瀏覽器"
+              },
+              {
+                "key": "photos",
+                "emoji": "📷",
+                "en": "Photos",
+                "zh": "照片"
+              },
+              {
+                "key": "video",
+                "emoji": "🎬",
+                "en": "Video",
+                "zh": "影片"
+              },
+              {
+                "key": "slides",
+                "emoji": "📊",
+                "en": "Slides",
+                "zh": "簡報"
+              },
+              {
+                "key": "chat",
+                "emoji": "💬",
+                "en": "Chat",
+                "zh": "聊天"
+              }
+            ],
+            "legend": [
+              {
+                "cls": "cpshelf",
+                "en": "Books in the bookcase: programs and files in storage",
+                "zh": "書櫃裡的書：放在儲存裝置裡的程式和檔案"
+              },
+              {
+                "cls": "cpdesk",
+                "en": "The desk: memory, with room for four things",
+                "zh": "書桌：記憶體，只放得下四樣東西"
+              },
+              {
+                "cls": "cplamp",
+                "en": "The lamp: on means the power is on",
+                "zh": "檯燈：亮著表示有電"
+              },
+              {
+                "cls": "cpcarry",
+                "en": "Teal ball: a saved copy going back to the bookcase",
+                "zh": "青色小球：存檔時抄回書櫃的那一份"
+              }
+            ],
+            "scale_en": "A teaching model. Real memory is a set of chips, not a desk, and it holds billions of bytes, not four things. The walk to the bookcase stands for the extra time storage takes; the real difference in speed is not shown to scale. Opening a program copies it into memory, and the original stays in storage, just as the book stays on the shelf here. When real memory fills up, the computer does something like what you see: it moves what is not being used to storage and brings it back when needed.",
+            "scale_zh": "這是教學用的示意模型。真的記憶體是一組晶片，不是一張桌子；它放的是幾十億個位元組，不是四樣東西。走到書櫃的那一趟，代表儲存裝置多花的時間，但真正的速度差距並沒有照比例畫。打開程式是把它抄一份到記憶體，原來那一份還留在儲存裝置，就像這裡書還留在架上一樣。真的記憶體滿了的時候，電腦做的事也和你看到的類似：把暫時沒在用的東西移到儲存裝置，需要時再搬回來。",
+            "credit_html": "Model and code are drawn and programmed by My Culture Connect. The rules of the desk are tested in <code>tools/computers/test/memory.test.mjs</code>.<br><span class=\"zh\">模型與程式由人師教育協會自行繪製、撰寫；書桌的規則有自動測試（<code>tools/computers/test/memory.test.mjs</code>）。</span>"
+          },
+          "paras": [
+            "In Lesson 5 you met two parts that both keep things: memory and storage. That seems wasteful. Why not build one kind of memory that is fast, holds everything, and never forgets? Engineers would love to. The trouble is that no single kind of memory can do all of that. The fast kinds are small and expensive. The large, cheap kinds are slow. So a computer uses two, and lets each do what it is good at.",
+            "Think of a desk and a bookcase. The bookcase holds hundreds of books, but to use one you have to get up and fetch it. The desk holds only a few things, but they are right in front of you. Storage is the bookcase. Memory is the desk. In Lesson 6 you saw that the processor fetches from memory again and again without stopping, so memory has to be the fast one.",
+            "When you open a program, the computer copies it from storage into memory. The first time is the slow part, like walking to the bookcase. After that, the processor works with the copy in memory, which is quick. The original stays in storage. When you change a file, you are changing only the copy in memory. Saving means copying the new version back to storage.",
+            "Memory has one more weakness: it needs power to hold on to anything. Switch the computer off, and everything in memory is gone. Storage does not lose its contents when the power is turned off. That is why work you have not saved can disappear, and why a computer needs a little time to start up: it has to copy what it needs from storage into memory all over again.",
+            "What if you open more than memory can hold? The computer does not simply give up. It takes something you are not using at the moment and moves it out of memory onto storage, to make room. When you go back to it, the computer has to move it in again. Everything still works, but storage is slower, so the computer feels slow. That is the usual reason a computer with too many things open drags.",
+            "So the two kinds of memory are a team. Storage is large and lasting. Memory is fast and close to the processor. A typical computer has many times more storage than memory, because storage is the cheaper of the two. In fact a computer has more than two levels: from tiny, very fast memory inside the processor itself, to memory, to storage, each one larger and slower than the one before it."
+          ],
+          "paras_zh": [
+            "在第五課，你認識了兩個都是用來「放東西」的零件：記憶體和儲存裝置。這看起來很浪費。為什麼不做一種又快、什麼都放得下、又永遠不會忘的記憶就好？工程師也很想。問題是，沒有哪一種記憶做得到全部：快的那幾種又小又貴，又大又便宜的那幾種很慢。所以電腦用兩種，讓它們各做自己擅長的事。",
+            "想像一張書桌和一座書櫃。書櫃放得下幾百本書，可是要用哪一本，都得站起來去拿。書桌只放得下幾樣東西，可是它們就在你面前。儲存裝置是書櫃，記憶體是書桌。第六課說過，處理器一刻不停地從記憶體拿東西，所以記憶體一定得是快的那一個。",
+            "你打開一個程式的時候，電腦會把它從儲存裝置抄一份到記憶體。第一次是慢的那一段，就像走到書櫃去拿。之後處理器用的是記憶體裡那一份，很快。原來那一份還留在儲存裝置。你修改一個檔案的時候，改的只是記憶體裡的那一份；「存檔」就是把新的版本抄回儲存裝置。",
+            "記憶體還有一個弱點：它要有電才留得住東西。電腦一關，記憶體裡的東西就全部不見了。儲存裝置在斷電之後不會失去內容。這就是為什麼沒存檔的東西會消失，也是為什麼電腦開機要花一點時間：它得把需要的東西重新從儲存裝置抄進記憶體。",
+            "如果你打開的東西比記憶體放得下的還多呢？電腦不會就這樣放棄。它會把你這時候沒在用的某樣東西，從記憶體移到儲存裝置，把位置空出來。等你回頭要用它，電腦又得把它搬回來。東西都還能用，可是儲存裝置比較慢，所以電腦用起來就慢。開太多東西的電腦會拖拖拉拉，通常就是這個原因。",
+            "所以這兩種記憶是一個團隊。儲存裝置又大又留得住；記憶體又快，又離處理器近。一般的電腦，儲存空間是記憶體的好多倍，因為儲存裝置是比較便宜的那一種。其實電腦不只兩層：從處理器裡面非常小、非常快的記憶，到記憶體，再到儲存裝置，每一層都比前一層更大、也更慢。"
+          ],
+          "questions": [
+            "Why does a computer not use just one kind of memory?",
+            "What happens to a file when you open it, change it, and save it?",
+            "Why does a computer get slow when too many things are open?"
+          ],
+          "answers": [
+            "Because no single kind is fast, large, cheap, and lasting all at once. The fast kinds are small and expensive, and the large, cheap kinds are slow. Using two lets each do what it is good at.",
+            "Opening it copies it from storage into memory. Changing it changes only the copy in memory. Saving it copies the new version back to storage, where it stays even when the power is off.",
+            "Memory fills up, so the computer moves things you are not using out to storage and has to move them back in when you return to them. Storage is slower than memory, so everything takes longer."
+          ],
+          "vocab": [
+            {
+              "n": 1,
+              "w": "temporary",
+              "pos": "adj.",
+              "zh": "暫時的",
+              "ex": "Memory is only a <b>temporary</b> home for your work.",
+              "exzh": "記憶體只是你的工作暫時待的地方。"
+            },
+            {
+              "n": 2,
+              "w": "permanent",
+              "pos": "adj.",
+              "zh": "永久的；長期的",
+              "ex": "Save the file to keep a <b>permanent</b> copy.",
+              "exzh": "把檔案存起來，才留得下一份長期的副本。"
+            },
+            {
+              "n": 3,
+              "w": "capacity",
+              "pos": "n.",
+              "zh": "容量",
+              "ex": "This drive has a <b>capacity</b> of 512 gigabytes.",
+              "exzh": "這顆硬碟的容量是 512 GB。"
+            },
+            {
+              "n": 4,
+              "w": "copy",
+              "pos": "v.",
+              "zh": "複製；抄一份",
+              "ex": "Please <b>copy</b> these notes into your notebook.",
+              "exzh": "請把這些筆記抄到你的筆記本上。"
+            },
+            {
+              "n": 5,
+              "w": "save",
+              "pos": "v.",
+              "zh": "存檔；儲存",
+              "ex": "Remember to <b>save</b> your essay before you close it.",
+              "exzh": "關掉作文之前，記得先存檔。"
+            },
+            {
+              "n": 6,
+              "w": "expensive",
+              "pos": "adj.",
+              "zh": "昂貴的",
+              "ex": "Fast memory is more <b>expensive</b> than slow storage.",
+              "exzh": "快的記憶體比慢的儲存裝置貴。"
+            },
+            {
+              "n": 7,
+              "w": "limited",
+              "pos": "adj.",
+              "zh": "有限的",
+              "ex": "Space on the desk is <b>limited</b>, so put away what you do not need.",
+              "exzh": "桌上的空間有限，所以用不到的東西要收起來。"
+            },
+            {
+              "n": 8,
+              "w": "disappear",
+              "pos": "v.",
+              "zh": "消失",
+              "ex": "The unsaved work <b>disappeared</b> when the power went out.",
+              "exzh": "停電的時候，沒存檔的東西就消失了。"
+            }
+          ],
+          "quiz": [
+            {
+              "q": "In the desk-and-bookcase picture, what is the desk?",
+              "options": [
+                "Storage",
+                "Memory",
+                "The processor",
+                "The screen"
+              ],
+              "correct": 1
+            },
+            {
+              "q": "Why can a computer not use one kind of memory for everything?",
+              "options": [
+                "Because programs are too colorful",
+                "Because no single kind is fast, large, cheap, and lasting all at once",
+                "Because memory chips are round",
+                "Because storage cannot hold photos"
+              ],
+              "correct": 1
+            },
+            {
+              "q": "What does saving a file do?",
+              "options": [
+                "It deletes the old file from the screen.",
+                "It copies the new version from memory back to storage.",
+                "It makes the processor faster.",
+                "It turns off the computer."
+              ],
+              "correct": 1
+            },
+            {
+              "q": "What happens to the contents of memory when the power goes off?",
+              "options": [
+                "They are gone.",
+                "They move to the screen.",
+                "They become larger.",
+                "They are sent to the printer."
+              ],
+              "correct": 0
+            },
+            {
+              "q": "According to the reading, why does a computer feel slow with too many things open?",
+              "options": [
+                "The screen gets tired.",
+                "It has to keep moving things between memory and the slower storage.",
+                "The fan blows too hard.",
+                "The programs become longer."
+              ],
+              "correct": 1
+            }
+          ],
+          "parts_head": {
+            "eyebrow": "Try It in the Model · 在模型裡試試",
+            "en": "Four things to watch",
+            "zh": "四件值得看的事"
+          },
+          "parts": [
+            {
+              "key": "open",
+              "icon": "📖",
+              "en": "Open something",
+              "zh": "打開一樣東西",
+              "meta_en": "A slow trip from the bookcase",
+              "meta_zh": "從書櫃慢慢走一趟",
+              "demo": "open",
+              "text_en": "Watch the essay travel from the shelf to the desk. Is the book still on the shelf afterward?",
+              "text_zh": "看「作文」從架上走到桌上。走完之後，架上那一本還在嗎？"
+            },
+            {
+              "key": "fast",
+              "icon": "⚡",
+              "en": "Use it again",
+              "zh": "再用一次",
+              "meta_en": "On the desk: no trip at all",
+              "meta_zh": "在桌上：一步都不用走",
+              "demo": "fast",
+              "text_en": "The essay is used three more times. Watch the two counters. Which one goes up?",
+              "text_zh": "「作文」又被用了三次。看那兩個計數，哪一個在增加？"
+            },
+            {
+              "key": "full",
+              "icon": "📚",
+              "en": "Fill the desk",
+              "zh": "把桌子放滿",
+              "meta_en": "A fifth thing, room for four",
+              "meta_zh": "第五樣東西，只有四個位置",
+              "demo": "full",
+              "text_en": "Four things fill the desk. When a fifth is opened, which one has to leave, and how many trips does it take?",
+              "text_zh": "四樣東西把桌子放滿。打開第五樣時，哪一樣要離開？一共走了幾趟？"
+            },
+            {
+              "key": "off",
+              "icon": "⏻",
+              "en": "Switch off without saving",
+              "zh": "沒存檔就關機",
+              "meta_en": "The desk is wiped; the bookcase is not",
+              "meta_zh": "桌面清空，書櫃不變",
+              "demo": "off",
+              "text_en": "The essay is changed but not saved, and then the power goes off. What comes back when it is opened again?",
+              "text_zh": "改了「作文」卻沒存檔，然後電就關了。再打開的時候，回來的是什麼？"
+            }
+          ],
+          "parts_note_en": "Then do it the safe way yourself: open the essay, change it, save it, switch off, and open it again.",
+          "parts_note_zh": "接著自己用安全的方法做一次：打開作文、改一改、存檔、關機，再打開。",
+          "where": {
+            "eyebrow": "Game · 小遊戲",
+            "en": "Desk or Bookcase?",
+            "zh": "放桌上還是放書櫃？",
+            "lead_en": "Eight things. For each one, decide where it is at this moment: in memory, like something on the desk, or in storage, like a book in the bookcase. The game counts how many you get right on the first try.",
+            "lead_zh": "一共八樣東西。每一樣都想一想它「現在」在哪裡：在記憶體（像桌上的東西），還是在儲存裝置（像書櫃裡的書）。遊戲會記下你第一次就答對幾題。",
+            "tasks": [
+              {
+                "en": "The changes you just typed in an essay and have not saved yet",
+                "zh": "你剛在作文裡打的、還沒存檔的修改",
+                "answer": "ram",
+                "why_en": "Until you save, the new words exist only in memory.",
+                "why_zh": "存檔之前，新打的字只在記憶體裡。"
+              },
+              {
+                "en": "Photos you took last year",
+                "zh": "你去年拍的照片",
+                "answer": "ssd",
+                "why_en": "They have to last with the power off, so they are in storage.",
+                "why_zh": "它們關了電也要留著，所以在儲存裝置裡。"
+              },
+              {
+                "en": "The game you are playing at this very moment",
+                "zh": "你這一刻正在玩的遊戲",
+                "answer": "ram",
+                "why_en": "A running program has been copied into memory.",
+                "why_zh": "正在執行的程式已經被抄進記憶體了。"
+              },
+              {
+                "en": "A movie you downloaded but have not opened",
+                "zh": "下載好了、還沒打開的電影",
+                "answer": "ssd",
+                "why_en": "Nothing has copied it into memory yet. It is waiting in storage.",
+                "why_zh": "還沒有人把它抄進記憶體，它在儲存裝置裡等著。"
+              },
+              {
+                "en": "The numbers the processor is adding right now",
+                "zh": "處理器現在正在加的那幾個數",
+                "answer": "ram",
+                "why_en": "The processor works with what is in memory.",
+                "why_zh": "處理器用的是記憶體裡的東西。"
+              },
+              {
+                "en": "An app you installed last week and have never opened",
+                "zh": "上星期裝好、從來沒打開過的 App",
+                "answer": "ssd",
+                "why_en": "Installing puts a program into storage. Opening it copies it into memory.",
+                "why_zh": "安裝是把程式放進儲存裝置；打開它，才會抄進記憶體。"
+              },
+              {
+                "en": "A drawing you saved and closed an hour ago",
+                "zh": "一小時前存好檔、已經關掉的那張圖",
+                "answer": "ssd",
+                "why_en": "Saving copied it to storage, and it stays there.",
+                "why_zh": "存檔把它抄回儲存裝置，它就留在那裡。"
+              },
+              {
+                "en": "The web page you are looking at now",
+                "zh": "你現在正在看的網頁",
+                "answer": "ram",
+                "why_en": "What is open and in use is in memory.",
+                "why_zh": "打開著、正在用的東西在記憶體裡。"
+              }
+            ]
+          },
+          "full": {
+            "eyebrow": "See Why · 看看為什麼",
+            "en": "When Memory Fills Up",
+            "zh": "記憶體滿了會怎樣",
+            "lead_en": "This computer has 8 GB of memory. Open and close the apps and watch the bar. When the apps want more than 8 GB, the extra does not fit, and the computer has to keep moving things to storage and back.",
+            "lead_zh": "這台電腦有 8 GB 的記憶體。把 App 打開、關掉，看看用量條。當這些 App 要的超過 8 GB，多出來的放不下，電腦就得一直把東西搬到儲存裝置、再搬回來。",
+            "apps": [
+              {
+                "key": "browser",
+                "emoji": "🌐",
+                "en": "Browser",
+                "zh": "瀏覽器"
+              },
+              {
+                "key": "game",
+                "emoji": "🎮",
+                "en": "Game",
+                "zh": "遊戲"
+              },
+              {
+                "key": "call",
+                "emoji": "📹",
+                "en": "Video call",
+                "zh": "視訊通話"
+              },
+              {
+                "key": "music",
+                "emoji": "🎵",
+                "en": "Music",
+                "zh": "音樂"
+              },
+              {
+                "key": "photos",
+                "emoji": "📷",
+                "en": "Photo editor",
+                "zh": "修圖"
+              },
+              {
+                "key": "chat",
+                "emoji": "💬",
+                "en": "Chat",
+                "zh": "聊天"
+              }
+            ],
+            "note_en": "The sizes here are made up for the example. Real apps use different amounts, and the amounts change as you use them. A real computer also has other ways to save memory. To see the real numbers for your own computer, try the second activity below.",
+            "note_zh": "這裡的大小是為了舉例自己訂的。真的 App 用量各不相同，而且用著用著還會變；真的電腦也有其他節省記憶體的辦法。想看自己電腦真正的數字，試試下面的第二個活動。",
+            "tips": [
+              {
+                "en": "Closing an app you are not using gives its memory back.",
+                "zh": "把沒在用的 App 關掉，它占的記憶體就還回來了。"
+              },
+              {
+                "en": "A nearly full bar is not a problem by itself. Trouble starts only when things no longer fit.",
+                "zh": "用量條快滿了，本身不是問題；放不下的時候才會出問題。"
+              },
+              {
+                "en": "Nothing is lost when memory overflows. The computer is only slower, because storage is slower.",
+                "zh": "記憶體不夠時，東西不會不見，只是電腦變慢，因為儲存裝置比較慢。"
+              }
+            ]
+          },
+          "culture_cards": {
+            "eyebrow": "Stories Behind the Two Memories · 兩種記憶的故事",
+            "title_en": "A staircase of memories, a trick called virtual memory, a colored graph, and a habit",
+            "title_zh": "一道記憶的階梯、一招叫虛擬記憶體、一張有顏色的圖、一個習慣",
+            "lead_en": "Four short stories about memory and storage.",
+            "lead_zh": "關於記憶體和儲存裝置的四個小故事。",
+            "cards": [
+              {
+                "k": "Hierarchy · 階層",
+                "en": "Not two levels, but a staircase",
+                "zh": "不只兩層，而是一道階梯",
+                "body_en": "This lesson talks about two kinds of memory, but Britannica describes a whole hierarchy. At the top are very small, fast, and expensive registers inside the processor. Next comes small, fast cache memory, then the larger main memory, then very large hard disks, and finally slow, inexpensive backup storage. Each step down is bigger and slower than the one above. The counter and the box called A in Lesson 6 were registers.",
+                "body_zh": "這一課講的是兩種記憶，但大英百科描述的是一整個階層。最上面是處理器裡非常小、非常快、也很貴的暫存器；接著是小而快的快取記憶體，再來是比較大的主記憶體，然後是非常大的硬碟，最後是又慢又便宜的備份儲存。每往下一階，都比上面那一階更大、更慢。第六課的計數器和那個叫 A 的格子，就是暫存器。"
+              },
+              {
+                "k": "Virtual memory · 虛擬記憶體",
+                "en": "Pretending there is more room",
+                "zh": "假裝位置比較多",
+                "body_en": "What you saw when the desk filled up has a name: virtual memory. Britannica explains that it gives each program a portion of main memory and stores the rest of its code and data on a hard disk, automatically copying blocks to and from main memory as needed. The program does not have to know. It works as if it had all the memory it wanted, and the computer does the fetching and carrying.",
+                "body_zh": "桌子滿了的時候你看到的那件事，有個名字：虛擬記憶體。大英百科的解釋是：它給每個程式一部分的主記憶體，把程式其餘的程式碼和資料放在硬碟上，需要的時候再自動把一塊一塊的內容在兩邊抄來抄去。程式本身不需要知道這些，它照樣工作，好像想要多少記憶體都有，搬來搬去的事由電腦負責。"
+              },
+              {
+                "k": "Green, yellow, red",
+                "en": "A graph that shows the squeeze",
+                "zh": "一張看得出擠不擠的圖",
+                "body_en": "A Mac shows this in its Activity Monitor app. The Memory pane displays how much memory the Mac is using and how often it is swapping memory between RAM and the startup disk. A graph called Memory Pressure is green when the computer is using its RAM efficiently, yellow when it might eventually need more, and red when it needs more RAM.",
+                "body_zh": "Mac 在「活動監視器」這個 App 裡把這件事顯示出來。「記憶體」那一頁會顯示 Mac 用了多少記憶體，以及它多常在 RAM 和開機磁碟之間交換記憶體。有一張叫「記憶體壓力」的圖：電腦有效率地使用 RAM 時是綠色，之後可能需要更多時是黃色，需要更多 RAM 時是紅色。"
+              },
+              {
+                "k": "Save · 存檔",
+                "en": "Why “save” exists at all",
+                "zh": "為什麼會有「存檔」這回事",
+                "body_en": "Saving is not a ceremony. It is the moment your work is copied from the fast memory that forgets to the slower storage that remembers. Everything in this lesson explains that one button: you work in memory because it is fast, and you save to storage because it lasts. However an app handles saving, the rule underneath is the same: what is only in memory is gone when the power goes off.",
+                "body_zh": "存檔不是一個儀式。它是把你的工作，從「很快但會忘」的記憶體，抄到「比較慢但記得住」的儲存裝置的那一刻。這一課講的所有事情，都在解釋這一個按鈕：在記憶體裡工作，因為它快；存到儲存裝置，因為它留得住。不管 App 怎麼處理存檔，底下的規則都一樣：只在記憶體裡的東西，斷電就沒了。"
+              }
+            ]
+          },
+          "myths": [
+            {
+              "myth_en": "Opening a file moves it out of storage.",
+              "myth_zh": "打開檔案，就是把它從儲存裝置搬走。",
+              "fact_en": "Opening copies it. The original stays in storage, which is why closing a file without saving leaves the old version untouched.",
+              "fact_zh": "打開是「抄一份」。原來那一份還在儲存裝置裡，所以不存檔就關掉，舊的版本還是原封不動。"
+            },
+            {
+              "myth_en": "More storage makes a computer faster.",
+              "myth_zh": "儲存空間越大，電腦就越快。",
+              "fact_en": "More storage lets you keep more. It is more memory that lets you keep more things open at once without the slow trips to storage.",
+              "fact_zh": "儲存空間大，是能「放」更多東西。能同時開更多東西而不用一直慢慢跑去儲存裝置的，是比較多的記憶體。"
+            },
+            {
+              "myth_en": "When memory is full, the computer starts losing things.",
+              "myth_zh": "記憶體滿了，電腦就開始丟東西。",
+              "fact_en": "It does not lose them. It moves what is not being used to storage and brings it back when needed. The cost is speed, not your work.",
+              "fact_zh": "它不會把東西丟掉，而是把暫時沒在用的移到儲存裝置，需要時再搬回來。代價是速度，不是你的東西。"
+            },
+            {
+              "myth_en": "Free memory is good, so a computer should keep its memory as empty as possible.",
+              "myth_zh": "記憶體空著比較好，所以應該盡量讓它空著。",
+              "fact_en": "Apple’s guide says that free or unused memory does not necessarily improve performance. A computer does best by making good use of all the memory it has.",
+              "fact_zh": "Apple 的說明寫道，有空著沒用的記憶體，效能不見得比較好。電腦把手上所有的記憶體都好好用上，表現才最好。"
+            }
+          ],
+          "tricks_head": {
+            "en": "Two memories in a sentence",
+            "zh": "一句話記住兩種記憶"
+          },
+          "tricks": [
+            {
+              "title_en": "Desk and bookcase",
+              "title_zh": "書桌和書櫃",
+              "body_en": "Memory is the desk. Storage is the bookcase.",
+              "body_zh": "記憶體是書桌，儲存裝置是書櫃。"
+            },
+            {
+              "title_en": "Fast forgets, slow keeps",
+              "title_zh": "快的會忘，慢的留得住",
+              "body_en": "Memory is wiped without power. Storage is not.",
+              "body_zh": "記憶體沒電就清空；儲存裝置不會。"
+            },
+            {
+              "title_en": "Open copies in, save copies back",
+              "title_zh": "打開是抄進來，存檔是抄回去",
+              "body_en": "The original never leaves storage.",
+              "body_zh": "原來那一份從來沒有離開儲存裝置。"
+            },
+            {
+              "title_en": "Too much open, lots of trips",
+              "title_zh": "開太多，就一直跑",
+              "body_en": "A full memory means slow trips to storage.",
+              "body_zh": "記憶體滿了，就得慢慢地一趟一趟跑儲存裝置。"
+            }
+          ],
+          "safety_head": {
+            "eyebrow": "Before You Start · 動手之前",
+            "en": "A few reminders",
+            "zh": "幾個提醒"
+          },
+          "safety": [
+            {
+              "en": "Do not switch a real computer off at the wall or hold the power button to see what is lost. Shut it down the normal way.",
+              "zh": "不要為了看看什麼會不見，就直接拔真電腦的插頭或長按電源鍵。請用正常的方式關機。"
+            },
+            {
+              "en": "Save your work before you try anything in the second activity, and save often in general.",
+              "zh": "做第二個活動之前，先把手上的東西存檔；平常也要常常存檔。"
+            },
+            {
+              "en": "In Activity Monitor or Task Manager, only look. Do not quit or end anything in the list.",
+              "zh": "在「活動監視器」或「工作管理員」裡只要看就好，不要結束清單裡的任何東西。"
+            },
+            {
+              "en": "Use a school or family computer only with permission, and do not change its settings.",
+              "zh": "用學校或家裡的電腦要先得到同意，也不要更改設定。"
+            }
+          ],
+          "activities": [
+            {
+              "title_en": "The Desk Game",
+              "title_zh": "書桌遊戲",
+              "materials": [
+                {
+                  "en": "A table at the front of the room: the desk, with four spaces marked in tape",
+                  "zh": "教室前面的一張桌子當書桌，用膠帶標出四個位置"
+                },
+                {
+                  "en": "A shelf or box at the back of the room: the bookcase",
+                  "zh": "教室後面的一個架子或箱子當書櫃"
+                },
+                {
+                  "en": "Eight folders, each holding one sheet of paper, with two photocopies of each sheet",
+                  "zh": "八個資料夾，每個裡面放一張紙，每張紙另外影印兩份"
+                },
+                {
+                  "en": "A pencil and a stopwatch",
+                  "zh": "一枝鉛筆和一個碼錶"
+                }
+              ],
+              "steps": [
+                {
+                  "en": "The folders stay in the bookcase at all times. One student is the processor and sits at the desk. Another is the runner. A third keeps time.",
+                  "zh": "資料夾永遠留在書櫃裡。一位同學當處理器，坐在書桌前；一位當跑腿的；一位負責計時。"
+                },
+                {
+                  "en": "The teacher calls out a folder. If a copy is on the desk, the processor touches it and says “Got it!” If not, the runner walks to the bookcase and brings back a photocopy. Time both.",
+                  "zh": "老師喊一個資料夾的名字。桌上有它的影本，處理器就摸一下說「拿到了！」；沒有的話，跑腿的走到書櫃拿一份影本回來。兩種情況都計時。"
+                },
+                {
+                  "en": "When the desk already has four copies and a fifth is called, the runner must first carry one copy back to the bookcase. Which one should go?",
+                  "zh": "桌上已經有四份影本、老師又喊第五樣的時候，跑腿的得先把一份影本送回書櫃。該送哪一份回去？"
+                },
+                {
+                  "en": "Write on one of the copies with the pencil. Then the teacher says “Power off!” and sweeps everything off the desk. Look in the bookcase: is your writing there?",
+                  "zh": "用鉛筆在其中一份影本上寫字。接著老師說「停電！」，把桌上的東西全部掃掉。去書櫃看看：你寫的字在那裡嗎？"
+                }
+              ],
+              "tip_en": "Compare the times: touching a copy on the desk against a walk across the room. Then play again, and this time carry the written copy back to the bookcase before the power goes off. That walk is saving. In Taiwan’s junior high Information Technology curriculum, this lesson matches the topic “System platforms”: 資 S-IV-2, whose notes list memory.",
+              "tip_zh": "比一比時間：摸一下桌上的影本，和走過整間教室。接著再玩一次，這次在停電之前，把寫了字的那一份送回書櫃。那一趟路就是存檔。對照十二年國教國中「資訊科技」的學習內容，這一課對應「系統平台」主題：資 S-IV-2 系統平台之組成架構與基本運作原理（附錄的說明列有記憶體）。"
+            },
+            {
+              "title_en": "Check It on Your Own Computer",
+              "title_zh": "在自己的電腦上驗證",
+              "materials": [
+                {
+                  "en": "A Windows or Mac computer",
+                  "zh": "一台 Windows 或 Mac 電腦"
+                },
+                {
+                  "en": "The numbers you wrote down in Lesson 5, or the steps from that lesson",
+                  "zh": "第五課寫下來的那幾個數字，或照那一課的步驟再查一次"
+                },
+                {
+                  "en": "Paper and a pencil",
+                  "zh": "紙和鉛筆"
+                }
+              ],
+              "steps": [
+                {
+                  "en": "Find how much memory your computer has and how much storage it has, both in gigabytes. Lesson 5 shows where to look.",
+                  "zh": "找出你的電腦有多少記憶體、多少儲存空間，單位都是 GB。在哪裡看，第五課有教。"
+                },
+                {
+                  "en": "Divide the storage by the memory. How many times bigger is the bookcase than the desk?",
+                  "zh": "把儲存空間除以記憶體。書櫃是書桌的幾倍大？"
+                },
+                {
+                  "en": "On a Mac, open Activity Monitor and click Memory. On Windows, open Task Manager, select the Performance tab, and look for Memory. How much memory is in use right now?",
+                  "zh": "Mac：打開「活動監視器」，按「記憶體」（Memory）。Windows：打開「工作管理員」，選 Performance（效能）分頁，找到 Memory（記憶體）。現在用了多少記憶體？"
+                },
+                {
+                  "en": "Open a few more apps, look again, then close them and look once more. On a Mac, watch the color of the Memory Pressure graph.",
+                  "zh": "多開幾個 App，再看一次；把它們關掉，再看一次。Mac 上可以注意「記憶體壓力」那張圖的顏色。"
+                }
+              ],
+              "tip_en": "A computer with 16 GB of memory and 512 GB of storage has 32 times as much storage as memory. A computer with 8 GB and 1 TB has 125 times as much. Whatever your numbers are, the bookcase is far bigger than the desk. The names of menus differ a little between versions of Windows and macOS.",
+              "tip_zh": "記憶體 16 GB、儲存空間 512 GB 的電腦，儲存空間是記憶體的 32 倍；8 GB 配 1 TB 的電腦是 125 倍。不管你的數字是多少，書櫃都比書桌大得多。不同版本的 Windows 和 macOS，選單的名稱會略有不同。"
+            }
+          ],
+          "links_head": {
+            "eyebrow": "Go Further · 延伸閱讀",
+            "en": "Inside the chips, the processor that waits, and what comes next",
+            "zh": "晶片的裡面、在等的處理器，以及下一課"
+          },
+          "links": [
+            {
+              "icon": "⚙️",
+              "k_en": "Previous Lesson · Lesson 6",
+              "k_zh": "上一課・第六課",
+              "en": "What Does a Processor Do All Day?",
+              "zh": "處理器整天在忙什麼？",
+              "note_en": "The processor fetches from memory at every step. That is why memory has to be the fast one.",
+              "note_zh": "處理器每一步都要從記憶體拿東西，所以記憶體一定得是快的那一個。",
+              "href": "/resources/classes/computers/processor/"
+            },
+            {
+              "icon": "🔋",
+              "k_en": "How Things Work · Lesson 8",
+              "k_zh": "萬物原理・第八課",
+              "en": "How Does a Computer Remember Things?",
+              "zh": "電腦怎麼記住東西？",
+              "note_en": "Why does memory forget and storage remember? Look inside the chips: one kind of cell leaks its charge, and the other locks it in.",
+              "note_zh": "為什麼記憶體會忘、儲存裝置記得住？到晶片裡面看看：一種小格子的電荷會漏掉，另一種把電荷鎖在裡面。",
+              "href": "/resources/classes/how-things-work/computer-memory/"
+            },
+            {
+              "icon": "🖥️",
+              "k_en": "Lesson 5",
+              "k_zh": "第五課",
+              "en": "What Is Inside a Computer?",
+              "zh": "打開電腦，裡面有什麼？",
+              "note_en": "Find the memory sticks and the solid-state drive in the 3D computer, and check how many gigabytes fit on a drive.",
+              "note_zh": "在 3D 主機裡找出那兩條記憶體和固態硬碟，再算算一顆硬碟裝得下多少東西。",
+              "href": "/resources/classes/computers/inside-a-computer/"
+            },
+            {
+              "icon": "⌨️",
+              "k_en": "Next Lesson · Lesson 8",
+              "k_zh": "下一課・第八課",
+              "en": "What Happens When You Press a Key?",
+              "zh": "按下一個鍵，發生了什麼？",
+              "note_en": "Now put the whole machine together. Next: follow one letter from the keyboard, through memory and the processor, to the screen.",
+              "note_zh": "現在把整台機器接起來。下一課要跟著一個字母，從鍵盤出發，經過記憶體和處理器，一路走到螢幕。",
+              "soon": true
+            }
+          ],
+          "sources_note_en": "Facts on this page were checked against these sources (October 2026); the desk model is our own illustration, and its rules are tested",
+          "sources_note_zh": "本頁的事實依下列資料查證（2026 年 10 月）；書桌模型是我們自己的示意，規則有測試",
+          "sources": [
+            {
+              "en": "Memory forms a hierarchy, from very small, fast, and expensive registers in the CPU, to cache, to larger DRAM, to very large hard disks, to slow and inexpensive nonvolatile backup storage; virtual memory gives each program a portion of main memory and stores the rest on a hard disk, copying blocks to and from main memory as needed",
+              "zh": "記憶體形成一個階層：從 CPU 裡非常小、快而貴的暫存器，到快取、較大的 DRAM、非常大的硬碟，再到慢而便宜的非揮發性備份儲存；虛擬記憶體給每個程式一部分主記憶體，其餘放在硬碟，需要時自動在兩邊複製",
+              "src": "David Hemmendinger, “computer memory: Memory hierarchy,” Encyclopaedia Britannica",
+              "url": "https://www.britannica.com/technology/computer-memory/Memory-hierarchy"
+            },
+            {
+              "en": "Main memory holds instructions and data when a program is executing; auxiliary memory holds programs and data for future use; nonvolatile memories, unlike SRAM and DRAM, do not lose their contents when power is turned off",
+              "zh": "主記憶體放正在執行的程式的指令與資料；輔助記憶放以後要用的程式與資料；非揮發性記憶體和 SRAM、DRAM 不同，斷電後不會失去內容",
+              "src": "David Hemmendinger, “computer memory,” Encyclopaedia Britannica",
+              "url": "https://www.britannica.com/technology/computer-memory"
+            },
+            {
+              "en": "“Application data is first loaded into RAM from permanent storage before the CPU processes it”",
+              "zh": "應用程式的資料會先從永久的儲存裝置載入 RAM，處理器才去處理它",
+              "src": "Encyclopaedia Britannica, “RAM”",
+              "url": "https://www.britannica.com/technology/RAM-computing"
+            },
+            {
+              "en": "Opening a file transfers its data from storage to RAM for short-term use; storage remembers files even when the device is off",
+              "zh": "打開檔案時，資料從儲存裝置傳到 RAM 供短期使用；儲存裝置在關機時也記得檔案",
+              "src": "Crucial (Micron), “What is an SSD?”",
+              "url": "https://www.crucial.com/articles/about-ssd/what-is-an-ssd"
+            },
+            {
+              "en": "The Memory pane shows how much memory a Mac is using and how often it is swapping memory between RAM and the startup disk; free or unused memory does not necessarily improve performance; Memory Pressure is green, yellow, or red",
+              "zh": "「記憶體」面板顯示 Mac 用了多少記憶體、多常在 RAM 與開機磁碟之間交換記憶體；有空著沒用的記憶體，效能不見得比較好；「記憶體壓力」有綠、黃、紅三種顏色",
+              "src": "Apple Support, “Check if your Mac needs more RAM in Activity Monitor”",
+              "url": "https://support.apple.com/guide/activity-monitor/check-if-your-mac-needs-more-ram-actmntr34865/mac"
+            },
+            {
+              "en": "Task Manager’s Performance tab shows how a Windows device’s hardware is being used",
+              "zh": "工作管理員的 Performance 分頁顯示 Windows 裝置的硬體使用情形",
+              "src": "Microsoft Support, “Find out how many cores a processor on a Windows device has”",
+              "url": "https://support.microsoft.com/en-us/windows/experience/compatibility/find-out-how-many-cores-a-processor-on-a-windows-device-has"
+            },
+            {
+              "en": "Taiwan terms: memory 記憶體, storage device 儲存裝置, volatile memory 揮發性記憶體, main memory 主記憶體, flash memory 快閃記憶體, virtual memory 虛擬記憶體, cache memory 快取記憶體",
+              "zh": "台灣用語：memory 記憶體、storage device 儲存裝置、volatile memory 揮發性記憶體、main memory 主記憶體、flash memory 快閃記憶體、virtual memory 虛擬記憶體、cache memory 快取記憶體",
+              "src": "國家教育研究院《樂詞網》",
+              "url": "https://terms.naer.edu.tw/search/?query_term=volatile+memory&query_field=title&query_op=&match_type=phrase"
+            },
+            {
+              "en": "資 S-IV-2, how system platforms are built and basically work (p. 10); the notes list the operating system, CPU, memory, and input and output (p. 43)",
+              "zh": "資 S-IV-2 系統平台之組成架構與基本運作原理（第 10 頁）；附錄三的說明：「系統軟硬體架構與運作原理：作業系統、CPU、記憶體、輸入輸出」（第 43 頁）",
+              "src": "教育部《十二年國民基本教育課程綱要 國民中學暨普通型高級中等學校 科技領域》（2018）",
+              "url": "https://www.naer.edu.tw/upload/1/16/doc/816/十二年國民基本教育課程綱要國民中學暨普通型高級中等學校-科技領域.pdf"
+            },
+            {
+              "en": "The desk model: room for four; a full desk sends back the thing unused for the longest time; opening a fifth thing takes two trips; unsaved changes are lost at power-off and saved ones are not; 512 ÷ 16 = 32 and 1,000 ÷ 8 = 125",
+              "zh": "書桌模型：放得下四樣；滿了就把最久沒用的那一樣放回去；開第五樣要走兩趟；沒存的修改關機就不見、存過的不會；512 ÷ 16＝32，1,000 ÷ 8＝125",
+              "src": "Our own illustration, checked by tools/computers/test/memory.test.mjs",
+              "url": "https://github.com/lukelin7429/twrses/blob/main/tools/computers/test/memory.test.mjs"
+            }
+          ]
         }
       ],
       "planned": [
-        {
-          "n": 7,
-          "icon": "🗄️",
-          "en": "Why Does a Computer Need Two Kinds of Memory?",
-          "zh": "電腦為什麼要有兩種記憶？"
-        },
         {
           "n": 8,
           "icon": "⌨️",
