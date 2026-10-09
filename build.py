@@ -8234,7 +8234,26 @@ def _ph_lab_tragedy(lab):
   </div>
 </div>"""
 
+def _ph_lab_copies(lab):
+    """A32：原作還是複本？八個案例各選「原作比較有價值／兩者相等」，每題看哲學家怎麼說；結尾指出你的答案假定作品是什麼。"""
+    payload = html.escape(json.dumps({k: lab[k] for k in ("orig", "same", "next", "finish", "cases", "heads", "score", "views", "close")}, ensure_ascii=False), quote=False)
+    return f"""<div class="ph-el ph-cp rvl" data-ph-copies>
+  <script type="application/json" data-cp-data>{payload}</script>
+  <div class="ph-vl-top"><div class="ph-vl-dots ph-so-dots" data-cp-dots aria-hidden="true"></div><span class="ph-el-count" data-cp-count></span></div>
+  <div class="ph-el-stage">
+    <div data-cp-play>
+      <div class="ph-tp-text" data-cp-text aria-live="polite"></div>
+      <div class="ph-cp-btns" data-cp-btns></div>
+      <div class="ph-vl-out" data-cp-out aria-live="polite"></div>
+      <div class="ph-md-act" data-cp-act hidden><button type="button" class="ph-vl-next" data-cp-next></button></div>
+    </div>
+    <div data-cp-end aria-live="polite"></div>
+    <div class="ph-el-foot"><button type="button" class="ph-el-reset" data-cp-reset>Start again · 重來</button></div>
+  </div>
+</div>"""
+
 def _ph_lab(lab):
+    if lab.get("kind") == "copies": return _ph_lab_copies(lab)
     if lab.get("kind") == "tragedy": return _ph_lab_tragedy(lab)
     if lab.get("kind") == "taste": return _ph_lab_taste(lab)
     if lab.get("kind") == "curator": return _ph_lab_curator(lab)

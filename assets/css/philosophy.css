@@ -1255,3 +1255,19 @@ main:has(.ph-tools) .wrap { width: min(980px, 92vw); }
 .ph-tg .ph-el-end .ph-vl-q { margin-top: 1.4rem; }
 @media (max-width: 820px) { .ph-tg-whys { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 520px) { .ph-tg-whys { grid-template-columns: 1fr; } }
+
+/* ---- A32：原作還是複本？ ---- */
+.ph-cp [hidden] { display: none !important; }
+.ph-cp-btns { display: grid; grid-template-columns: 1fr 1fr; gap: .8rem; margin: 1.1rem 0 .4rem; max-width: 640px; }
+.ph-cp-btn { all: unset; box-sizing: border-box; cursor: pointer; text-align: center; padding: .85rem 1rem; border-radius: 12px; font: 800 1rem var(--sans); color: #fff; border: 1.5px solid rgba(255,255,255,.28); background: rgba(255,255,255,.06); transition: background .15s, border-color .15s, transform .15s; }
+.ph-cp-btn span { font-family: var(--zh); font-weight: 700; }
+.ph-cp-btn:not(:disabled):hover { border-color: #ffd36e; background: rgba(255,211,110,.14); transform: translateY(-2px); }
+.ph-cp-btn:focus-visible { outline: 2px solid #ffd36e; outline-offset: 3px; }
+.ph-cp-btn:disabled { cursor: default; opacity: .45; }
+.ph-cp-btn.is-mine { opacity: 1; border-color: #ffd36e; background: rgba(255,211,110,.16); }
+.ph-cp .ph-vl-dots i.no { background: #9fc3ea; }
+.ph-cp .ph-vl-card p { margin: 0; font: 400 1.04rem/1.7 var(--serif); }
+.ph-cp .ph-vl-card .ph-zh { font: 400 .95rem/1.8 var(--zh); color: var(--ink-soft); }
+.ph-cp .ph-vl-card .ph-tr { background: var(--brand-lt); color: var(--brand-dk); }
+.ph-cp .ph-vl-next span { font-family: var(--zh); }
+@media (max-width: 520px) { .ph-cp-btns { grid-template-columns: 1fr; } }

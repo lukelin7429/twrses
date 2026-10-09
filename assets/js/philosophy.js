@@ -1833,6 +1833,41 @@
     var m = /[#&]tragedy=([a-z,\-]+)/.exec(location.hash); if (m) { var a = m[1].split(','); root.__lab.play(a.slice(0, 3), a[3]); }
   });
 
+  /* ---- A32：原作還是複本？（八個案例） ---- */
+  $$('[data-ph-copies]').forEach(function (root) {
+    var D;
+    try { D = JSON.parse($('[data-cp-data]', root).textContent); } catch (e) { return; }
+    var play = $('[data-cp-play]', root), text = $('[data-cp-text]', root), btns = $('[data-cp-btns]', root), out = $('[data-cp-out]', root), act = $('[data-cp-act]', root), next = $('[data-cp-next]', root), end = $('[data-cp-end]', root), dots = $('[data-cp-dots]', root), count = $('[data-cp-count]', root);
+    var N = D.cases.length, i, ans;
+    function zhp(parent, t) { var z = el('p', 'ph-zh', t); z.lang = 'zh-Hant'; parent.appendChild(z); addTr(z); }
+    function lab2(b, o, arrow) { b.textContent = ''; b.appendChild(document.createTextNode(o.en + ' · ')); var z = el('span', '', o.zh); z.lang = 'zh-Hant'; b.appendChild(z); if (arrow) b.appendChild(document.createTextNode(' →')); }
+    function paint() { dots.textContent = ''; for (var k = 0; k < N; k++) dots.appendChild(el('i', k < ans.length ? (ans[k] ? 'ok' : 'no') : k === i ? 'cur' : '')); count.textContent = i < N ? (i + 1) + ' / ' + N : ''; }
+    function show() {
+      var c = D.cases[i]; paint(); text.textContent = ''; out.textContent = ''; btns.textContent = ''; act.hidden = true;
+      var q = el('p', 'ph-vl-q'); q.appendChild(el('b', '', c.t.en)); var qz = el('span', '', c.t.zh); qz.lang = 'zh-Hant'; q.appendChild(qz); text.appendChild(q);
+      [['orig', 1], ['same', 0]].forEach(function (p) { var b = el('button', 'ph-cp-btn'); b.type = 'button'; b.setAttribute('data-k', p[0]); lab2(b, D[p[0]]); b.addEventListener('click', function () { answer(p[1], b); }); btns.appendChild(b); });
+    }
+    function answer(v, b) {
+      if (ans.length > i) return;
+      ans.push(v); paint(); $$('button', btns).forEach(function (x) { x.disabled = true; x.classList.toggle('is-mine', x === b); });
+      var c = D.cases[i], card = el('div', 'ph-vl-card is-valid'); card.appendChild(el('p', '', c.why.en)); zhp(card, c.why.zh); out.appendChild(card);
+      act.hidden = false; lab2(next, i === N - 1 ? D.finish : D.next, true);
+    }
+    function finish() {
+      play.hidden = true; paint();
+      var n = ans.reduce(function (a, b) { return a + b; }, 0), e = el('div', 'ph-el-end'); var h = el('h4', '', D.heads.en); h.appendChild(el('span', '', D.heads.zh)); e.appendChild(h);
+      function para(o, rep) { var en = o.en, zh = o.zh; Object.keys(rep || {}).forEach(function (k) { en = en.replace('{' + k + '}', rep[k]); zh = zh.replace('{' + k + '}', rep[k]); }); e.appendChild(el('p', 'ph-ev-zone', en)); zhp(e, zh); }
+      para(D.score, { n: n }); para(D.views[n <= 1 ? 'look' : n >= 7 ? 'hist' : 'mixed']); para(D.close); end.appendChild(e);
+    }
+    next.addEventListener('click', function () { i++; if (i < N) show(); else finish(); });
+    function reset() { i = 0; ans = []; play.hidden = false; end.textContent = ''; show(); }
+    $('[data-cp-reset]', root).addEventListener('click', reset);
+    reset();
+    root.__lab = { state: function () { return { i: i, ans: ans.slice(), ended: !!end.children.length }; },
+      play: function (str) { reset(); str.split('').forEach(function (c) { var b = $('.ph-cp-btn[data-k="' + (c === 'o' ? 'orig' : 'same') + '"]', root); if (b && i < N) { b.click(); next.click(); } }); return this.state(); } };
+    var m = /[#&]copies=([os]+)/.exec(location.hash); if (m) root.__lab.play(m[1]);
+  });
+
   /* ---- A13：去火星三趟（帕菲特的傳送機） ---- */
   $$('[data-ph-teleport]').forEach(function (root) {
     var D;
