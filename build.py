@@ -7994,7 +7994,25 @@ def _ph_lab_commons(lab):
   </div>
 </div>'''
 
+def _ph_lab_veil(lab):
+    """A26：在知道之前先選（無知之幕）。四種分配方案、五個位置；知道自己在頂層選一次、在底層選一次、在幕後選一次，再抽籤揭曉位置。"""
+    payload = html.escape(json.dumps({k: lab[k] for k in ("unit", "pos", "plans", "avg", "steps", "draw", "heads", "rowlab", "moved", "same", "verdicts", "lift", "nozick")}, ensure_ascii=False), quote=False)
+    return f"""<div class="ph-el ph-vi rvl" data-ph-veil>
+  <script type="application/json" data-vi-data>{payload}</script>
+  <div class="ph-vl-top"><div class="ph-vl-dots ph-so-dots" data-vi-dots aria-hidden="true"></div><span class="ph-el-count" data-vi-count></span></div>
+  <div class="ph-el-stage">
+    <div data-vi-play>
+      <div class="ph-tp-text" data-vi-text aria-live="polite"></div>
+      <div class="ph-vi-plans" data-vi-plans></div>
+      <div class="ph-md-act" data-vi-act hidden><button type="button" class="ph-vl-next" data-vi-draw></button></div>
+    </div>
+    <div data-vi-end aria-live="polite"></div>
+    <div class="ph-el-foot"><button type="button" class="ph-el-reset" data-vi-reset>Start again · 重來</button></div>
+  </div>
+</div>"""
+
 def _ph_lab(lab):
+    if lab.get("kind") == "veil": return _ph_lab_veil(lab)
     if lab.get("kind") == "commons": return _ph_lab_commons(lab)
     if lab.get("kind") == "pond": return _ph_lab_pond(lab)
     if lab.get("kind") == "friends": return _ph_lab_friends(lab)

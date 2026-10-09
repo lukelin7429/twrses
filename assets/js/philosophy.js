@@ -1499,6 +1499,80 @@
     var m = /[#&]commons=([\d,]+)/.exec(location.hash); if (m) root.__lab.play(m[1].split(',').map(Number), [6]);
   });
 
+  /* ---- A26：在知道之前先選（無知之幕） ---- */
+  $$('[data-ph-veil]').forEach(function (root) {
+    var D;
+    try { D = JSON.parse($('[data-vi-data]', root).textContent); } catch (e) { return; }
+    var play = $('[data-vi-play]', root), text = $('[data-vi-text]', root), plans = $('[data-vi-plans]', root), act = $('[data-vi-act]', root), draw = $('[data-vi-draw]', root), end = $('[data-vi-end]', root), dots = $('[data-vi-dots]', root), count = $('[data-vi-count]', root);
+    var NS = 'http://www.w3.org/2000/svg', MAX = 222, step, picks, pos;
+    function zhp(parent, t) { var z = el('p', 'ph-zh', t); z.lang = 'zh-Hant'; parent.appendChild(z); addTr(z); }
+    function bars(v, mark, veiled) {
+      var W = 200, H = 118, svg = document.createElementNS(NS, 'svg'); svg.setAttribute('viewBox', '0 0 ' + W + ' ' + H); svg.setAttribute('aria-hidden', 'true');
+      v.forEach(function (x, k) {
+        var h = Math.max(3, x / MAX * 88), r = document.createElementNS(NS, 'rect');
+        r.setAttribute('x', 8 + k * 38); r.setAttribute('y', 104 - h); r.setAttribute('width', 30); r.setAttribute('height', h); r.setAttribute('rx', 3);
+        r.setAttribute('class', k === mark ? 'me' : veiled ? 'vd' : 'b'); svg.appendChild(r);
+        var t = document.createElementNS(NS, 'text'); t.setAttribute('x', 23 + k * 38); t.setAttribute('y', 100 - h); t.setAttribute('text-anchor', 'middle'); t.setAttribute('class', k === mark ? 'lb me' : 'lb'); t.textContent = x; svg.appendChild(t);
+      });
+      var ln = document.createElementNS(NS, 'line'); ln.setAttribute('x1', 4); ln.setAttribute('x2', W - 4); ln.setAttribute('y1', 104.5); ln.setAttribute('y2', 104.5); ln.setAttribute('class', 'ax'); svg.appendChild(ln);
+      return svg;
+    }
+    function mean(v) { return v.reduce(function (a, b) { return a + b; }, 0) / v.length; }
+    function paint() {
+      dots.textContent = ''; for (var k = 0; k < 3; k++) dots.appendChild(el('i', k < step ? 'ok' : k === step ? 'cur' : ''));
+      count.textContent = step < 3 ? D.steps[step].tag.en + ' · ' + D.steps[step].tag.zh.split(' · ').pop() : '';
+    }
+    function show() {
+      paint(); text.textContent = ''; plans.textContent = ''; act.hidden = true;
+      if (step >= 3) {
+        var q0 = el('p', 'ph-vl-q'); q0.appendChild(el('b', '', D.steps[2].q.en.split('. ')[0] + '.')); text.appendChild(q0);
+        act.hidden = false; draw.textContent = ''; draw.appendChild(document.createTextNode(D.draw.en + ' · ')); var z = el('span', '', D.draw.zh); z.lang = 'zh-Hant'; draw.appendChild(z); draw.appendChild(document.createTextNode(' →'));
+        return;
+      }
+      var q = el('p', 'ph-vl-q'); q.appendChild(el('b', '', D.steps[step].q.en)); var qz = el('span', '', D.steps[step].q.zh); qz.lang = 'zh-Hant'; q.appendChild(qz); text.appendChild(q);
+      var mark = step === 0 ? 4 : step === 1 ? 0 : -1;
+      D.plans.forEach(function (p) {
+        var b = el('button', 'ph-vi-plan'); b.type = 'button'; b.setAttribute('data-k', p.k);
+        b.appendChild(el('b', '', p.name.en)); var nz = el('span', 'ph-vi-zh', p.name.zh); nz.lang = 'zh-Hant'; b.appendChild(nz);
+        b.appendChild(bars(p.v, mark, step === 2));
+        b.appendChild(el('em', '', D.avg.en + ' ' + mean(p.v).toFixed(0) + ' · ' + D.avg.zh + ' ' + mean(p.v).toFixed(0)));
+        b.appendChild(el('span', 'ph-vi-d', p.d.en)); var dz = el('span', 'ph-vi-d ph-vi-zh', p.d.zh); dz.lang = 'zh-Hant'; b.appendChild(dz);
+        b.addEventListener('click', function () { picks[step] = p.k; step++; show(); });
+        plans.appendChild(b);
+      });
+    }
+    function plan(k) { return D.plans.filter(function (p) { return p.k === k; })[0]; }
+    function finish(forced) {
+      pos = forced != null ? forced : Math.floor(Math.random() * 5);
+      play.hidden = true;
+      var e = el('div', 'ph-el-end'); var h = el('h4', '', D.heads.en); h.appendChild(el('span', '', D.heads.zh)); e.appendChild(h);
+      var tb = el('div', 'ph-vi-rows'), at = [4, 0, pos];
+      picks.forEach(function (k, i) {
+        var p = plan(k), row = el('div', 'ph-vi-row' + (i === 2 ? ' is-veil' : ''));
+        var a = el('span', 'ph-vi-when', D.rowlab[i].en); var az = el('span', '', D.rowlab[i].zh); az.lang = 'zh-Hant'; a.appendChild(az); row.appendChild(a);
+        var nm = el('b', '', p.name.en + ' '); var nz = el('span', '', p.name.zh); nz.lang = 'zh-Hant'; nm.appendChild(nz); row.appendChild(nm);
+        row.appendChild(bars(p.v, at[i], false));
+        tb.appendChild(row);
+      });
+      e.appendChild(tb);
+      function para(o, rep) { var en = o.en, zh = o.zh; Object.keys(rep || {}).forEach(function (k) { en = en.replace('{' + k + '}', rep[k].en != null ? rep[k].en : rep[k]); zh = zh.replace('{' + k + '}', rep[k].zh != null ? rep[k].zh : rep[k]); }); e.appendChild(el('p', 'ph-ev-zone', en)); zhp(e, zh); }
+      var mine = plan(picks[2]);
+      para(D.lift, { pos: { en: D.pos[pos].en.toLowerCase(), zh: D.pos[pos].zh }, x: mine.v[pos], m: plan('maximin').v[pos], t: plan('total').v[pos] });
+      para(picks[0] === picks[1] && picks[1] === picks[2] ? D.same : D.moved);
+      para(D.verdicts[picks[2]]);
+      para(D.nozick);
+      end.appendChild(e);
+    }
+    draw.addEventListener('click', function () { finish(); });
+    function reset() { step = 0; picks = []; pos = null; play.hidden = false; end.textContent = ''; show(); }
+    $('[data-vi-reset]', root).addEventListener('click', reset);
+    reset();
+    root.__lab = { state: function () { return { step: step, picks: picks.slice(), pos: pos, ended: !!end.children.length }; },
+      play: function (ks, p) { reset(); ks.forEach(function (k) { var b = $('.ph-vi-plan[data-k="' + k + '"]', root); if (b) b.click(); }); if (p != null && step >= 3) finish(p); return this.state(); } };
+    var m = /[#&]veil=([a-d]{1,3})([1-5])?/.exec(location.hash);
+    if (m) root.__lab.play(m[1].split('').map(function (c) { return D.plans['abcd'.indexOf(c)].k; }), m[2] ? +m[2] - 1 : null);
+  });
+
   /* ---- A13：去火星三趟（帕菲特的傳送機） ---- */
   $$('[data-ph-teleport]').forEach(function (root) {
     var D;
