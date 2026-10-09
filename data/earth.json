@@ -8214,14 +8214,614 @@
       "title_zh": "變動中的地球",
       "blurb_en": "How fossils form, how we know the age of the Earth, and what the greenhouse effect is.",
       "blurb_zh": "化石是怎麼形成的、我們怎麼知道地球幾歲，以及溫室效應是什麼。",
-      "lessons": [],
-      "planned": [
+      "lessons": [
         {
           "n": 14,
+          "slug": "how-fossils-form",
+          "title": "How Do Fossils Form?",
+          "title_zh": "化石是怎麼形成的？",
+          "level": "入門 · Beginner",
           "icon": "🦴",
-          "en": "How Do Fossils Form?",
-          "zh": "化石是怎麼形成的？"
-        },
+          "card": "fossil",
+          "blurb_en": "A fossil is a message from a world that is gone. But most living things leave no message at all. In a 3D model, follow one fish through six steps: it dies, it is buried, the mud above it turns to rock, its bones turn to stone, the land rises, and at last the rock wears away. Then learn to read a cliff like a book, and meet the rhinoceros that once lived in Taiwan.",
+          "blurb_zh": "化石是一個已經消失的世界留下來的訊息。可是絕大多數的生物，什麼訊息也沒留下。在 3D 模型裡，跟著一條魚走過六個步驟：牠死了、被埋住、上面的泥沙變成岩石、骨頭變成石頭、地層被抬升，最後岩石被削掉。接著學會像讀書一樣讀一面懸崖，再認識一下曾經住在台灣的犀牛。",
+          "big_idea_en": "To become a fossil, a living thing must be buried quickly after it dies, usually by mud or sand under water. More layers pile on top and press the mud into rock. Water in the ground slowly carries minerals into the bones or shell and turns them to stone. Much later, the land may rise, and rain and rivers wear the rock away until the fossil shows. Every step is unlikely, so fossils are rare.",
+          "big_idea_zh": "生物要變成化石，死後必須很快被埋住，通常是被水底的泥沙蓋住。上面一層一層地疊上去，把泥沙壓成岩石。地下的水慢慢把礦物質帶進骨頭或外殼，把它們變成石頭。很久很久以後，地層可能被抬升，雨水和河流把岩石削掉，化石才露出來。每一步都不容易發生，所以化石很稀少。",
+          "tricks_head": {
+            "en": "A fossil in a sentence",
+            "zh": "一句話記住化石"
+          },
+          "checked": {
+            "en": "October 2026",
+            "zh": "2026 年 10 月"
+          },
+          "lab": {
+            "kind": "fossil",
+            "eyebrow": "3D Model · 3D 模型",
+            "title_en": "Six Steps to a Fossil",
+            "title_zh": "變成化石的六個步驟",
+            "how_en": "Drag to turn the model, and scroll or pinch to zoom. You are looking at a slice of the seabed. Let it play, or move the time slider yourself. Watch the fish, the layers above it, and the sea. Press the numbers 1 to 6 to jump to the end of each step. At which step do the bones change color? At which step does the sea disappear?",
+            "how_zh": "拖曳可以旋轉模型，滾輪或雙指可以縮放。你看到的是海底的一塊剖面。可以讓它自己播放，也可以自己撥動時間滑桿。注意看那條魚、牠上面的地層，還有海。按 1 到 6 的數字，可以跳到每個步驟的結尾。骨頭是在哪一步變色的？海是在哪一步不見的？",
+            "msgs": {
+              "die": {
+                "en": "A fish dies and sinks to the bottom of the sea. Most dead animals are eaten, or they rot away and leave nothing. This one has come to rest in a quiet place where mud is settling.",
+                "zh": "一條魚死了，沉到海底。大部分死掉的動物會被吃掉，或是腐爛到什麼都不剩。這一條剛好落在一個安靜的、泥沙正在沉積的地方。"
+              },
+              "bury": {
+                "en": "Mud and sand cover the fish before anything can carry it off. The soft parts still rot away, but the hard bones are left, safe under the mud.",
+                "zh": "在牠被帶走之前，泥沙先把牠蓋住了。柔軟的部分還是會爛掉，可是堅硬的骨頭留了下來，安全地埋在泥裡。"
+              },
+              "press": {
+                "en": "More mud and sand keep arriving, layer after layer. The weight presses the lower layers together, and slowly they harden into rock.",
+                "zh": "泥沙繼續沉下來，一層又一層。重量把下面的地層越壓越緊，慢慢地硬化成岩石。"
+              },
+              "stone": {
+                "en": "Water moves slowly through the rock, and it carries dissolved minerals. The minerals fill the tiny spaces in the bones and take their place, bit by bit. The shape stays the same, but the bones are now made of stone.",
+                "zh": "水在岩石裡緩慢地流動，裡面溶著礦物質。這些礦物質一點一點地填滿骨頭裡細小的空隙、取代原來的骨頭。形狀沒有變，可是骨頭現在是石頭做的了。"
+              },
+              "rise": {
+                "en": "The land is pushed up, and the sea drains away. Rock that formed on the seabed is now inside a hill. The fossil is still hidden deep in the rock.",
+                "zh": "地層被往上推，海水退去。在海底形成的岩石，現在變成一座山丘的一部分。化石還深深藏在岩石裡。"
+              },
+              "find": {
+                "en": "Rain and rivers wear the rock away, layer by layer. One day the fossil reaches the surface. If someone finds it before the weather destroys it, we learn about an animal that lived long ago.",
+                "zh": "雨水和河流把岩石一層一層削掉。有一天，化石到了地表。如果在它被風雨毀掉之前剛好有人發現，我們就多認識了一種很久以前的動物。"
+              }
+            },
+            "legend": [
+              {
+                "cls": "ewfobone",
+                "en": "Pale: bone",
+                "zh": "淺色：骨頭"
+              },
+              {
+                "cls": "ewfostone",
+                "en": "Dark brown: bone that has turned to stone",
+                "zh": "深褐色：已經變成石頭的骨頭"
+              },
+              {
+                "cls": "ewfolayer",
+                "en": "Bands: layers of mud and sand that become rock",
+                "zh": "一條一條的色帶：會變成岩石的泥沙層"
+              }
+            ],
+            "scale_en": "A teaching model. The six steps are in the right order, but the time is only a picture. In nature, burial may take days, while turning to stone, rising, and wearing away take from tens of thousands to many millions of years. The fish is drawn on the front face of the block so that you can always see it; in a real rock it would be completely hidden. Real fossils form in many other ways too.",
+            "scale_zh": "這是教學用的模型。六個步驟的順序是對的，但時間只是示意：在自然界，掩埋可能只要幾天，而變成石頭、抬升和侵蝕，要花上幾萬年到幾百萬年以上。魚是畫在這塊地層的正面，讓你一直看得到；在真的岩石裡，它是完全被包住的。真的化石還有很多其他的形成方式。",
+            "credit_html": "Model drawn by My Culture Connect as a teaching diagram. The ideas follow the sources listed at the bottom of this page. · 模型由人師教育協會自繪示意；原理依本頁最下方列出的出處。"
+          },
+          "paras": [
+            "In a museum you may have seen the bones of an animal that died long before there were any people. How can a bone last that long? The truth is that it did not. What you saw was a fossil, a copy of the bone made of stone. And it took a very special chain of events to make it.",
+            "It starts with a quick burial. When an animal dies, other animals usually eat it, and what is left rots away. To be saved, the body must be covered up soon, and this happens most easily under water, where mud and sand are always settling. Even then the soft parts rot. Usually only the hard parts, such as bones, teeth, and shells, are left.",
+            "Then come the layers. Year after year, more mud and sand settle on top. Their weight presses the lower layers together until they harden into rock. In a pile of layers that has not been turned over, the oldest layer is always at the bottom and the youngest is at the top.",
+            "Inside the rock, something slow and quiet happens. Water seeps through the ground, and it carries dissolved minerals. These minerals fill the tiny spaces inside the bone, and little by little they take the place of the bone itself. In the end, the bone has kept its shape, but it has turned to stone.",
+            "Now the fossil is deep underground, where nobody can see it. It may stay there forever. But sometimes the land is slowly pushed up, and the old seabed becomes a hill or a mountain. Then rain and rivers begin to wear the rock away, and after a very long time the fossil reaches the surface.",
+            "That is why Taiwan has fossils. Much of the island was once under the sea, and its rocks have been lifted and worn away. In the hills of Zuozhen, in Tainan, heavy rain often washes fossils out of the banks of the Cailiao River. People there have found the teeth and bones of elephants, deer, and even a rhinoceros that lived in Taiwan hundreds of thousands of years ago."
+          ],
+          "paras_zh": [
+            "你也許在博物館看過一種動物的骨頭，牠在人類出現以前很久就死了。骨頭怎麼可能保存那麼久？其實它並沒有。你看到的是化石，也就是用石頭做成的、骨頭的複製品。而要做出這樣一件東西，需要一連串非常特別的事情。",
+            "第一件事是很快被埋住。動物死了以後，通常會被別的動物吃掉，剩下的也會腐爛。要保存下來，屍體必須很快被蓋住；這在水底最容易發生，因為那裡一直有泥沙在沉積。就算這樣，柔軟的部分還是會爛掉，通常只剩下堅硬的部分，像骨頭、牙齒和貝殼。",
+            "接下來是地層。一年又一年，更多的泥沙沉在上面。它們的重量把下面的地層越壓越緊，最後硬化成岩石。一疊沒有被翻動過的地層裡，最老的一定在最下面，最年輕的在最上面。",
+            "在岩石裡面，有一件又慢又安靜的事正在發生。水在地下慢慢地滲流，裡面溶著礦物質。這些礦物質填滿骨頭裡細小的空隙，再一點一點地取代骨頭本身。到最後，骨頭的形狀還在，可是它已經變成石頭了。",
+            "這時候化石深深埋在地下，沒有人看得到，也可能永遠留在那裡。不過有時候，地層會慢慢被往上推，古老的海底變成山丘或高山。接著雨水和河流開始把岩石削掉，經過非常久的時間，化石才來到地表。",
+            "台灣有化石，就是這個原因。這座島有很大一部分曾經在海底，它的岩石被抬升上來，又被削掉。在台南左鎮的丘陵，大雨過後，菜寮溪的溪岸常常沖出化石。人們在那裡找到過古象、鹿的牙齒和骨頭，甚至還有幾十萬年前住在台灣的犀牛。"
+          ],
+          "questions": [
+            "What must happen soon after an animal dies if it is going to become a fossil?",
+            "How do bones turn to stone?",
+            "In a pile of rock layers that has not been turned over, where is the oldest layer?"
+          ],
+          "answers": [
+            "It must be buried quickly, usually by mud or sand under water, before it is eaten or rots away.",
+            "Water in the ground carries dissolved minerals into the tiny spaces in the bones. The minerals slowly fill the spaces and take the place of the bone.",
+            "At the bottom. The youngest layer is at the top."
+          ],
+          "vocab": [
+            {
+              "n": 1,
+              "w": "fossil",
+              "pos": "n.",
+              "zh": "化石",
+              "ex": "We found a <b>fossil</b> of a shell in the rock.",
+              "exzh": "我們在岩石裡找到一個貝殼的化石。"
+            },
+            {
+              "n": 2,
+              "w": "bury",
+              "pos": "v.",
+              "zh": "掩埋",
+              "ex": "Mud <b>buried</b> the bones.",
+              "exzh": "泥巴把骨頭埋了起來。"
+            },
+            {
+              "n": 3,
+              "w": "bone",
+              "pos": "n.",
+              "zh": "骨頭",
+              "ex": "The dog found an old <b>bone</b>.",
+              "exzh": "狗找到一根舊骨頭。"
+            },
+            {
+              "n": 4,
+              "w": "shell",
+              "pos": "n.",
+              "zh": "貝殼；外殼",
+              "ex": "She picked up a <b>shell</b> on the beach.",
+              "exzh": "她在海灘上撿起一個貝殼。"
+            },
+            {
+              "n": 5,
+              "w": "rot",
+              "pos": "v.",
+              "zh": "腐爛",
+              "ex": "The fruit began to <b>rot</b>.",
+              "exzh": "水果開始腐爛了。"
+            },
+            {
+              "n": 6,
+              "w": "ancient",
+              "pos": "adj.",
+              "zh": "古老的",
+              "ex": "This is the tooth of an <b>ancient</b> elephant.",
+              "exzh": "這是一頭古代大象的牙齒。"
+            },
+            {
+              "n": 7,
+              "w": "museum",
+              "pos": "n.",
+              "zh": "博物館",
+              "ex": "The <b>museum</b> has a room full of fossils.",
+              "exzh": "博物館裡有一整間化石。"
+            },
+            {
+              "n": 8,
+              "w": "discover",
+              "pos": "v.",
+              "zh": "發現",
+              "ex": "A student <b>discovered</b> the tooth in the river.",
+              "exzh": "一個學生在溪裡發現了那顆牙齒。"
+            }
+          ],
+          "quiz": [
+            {
+              "q": "What is a fossil?",
+              "options": [
+                "The remains or traces of a living thing from long ago, kept in rock",
+                "Any very old rock",
+                "A bone that is one year old",
+                "A kind of metal"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "What has to happen first for a fossil to form?",
+              "options": [
+                "The dead animal is buried quickly",
+                "The dead animal is left in the sun",
+                "The land rises",
+                "Someone digs a hole"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "Which parts of an animal are most likely to become fossils?",
+              "options": [
+                "Hard parts, such as bones, teeth, and shells",
+                "Soft parts, such as skin and muscle",
+                "The blood",
+                "The breath"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "What turns a buried bone into stone?",
+              "options": [
+                "Minerals carried by water in the ground",
+                "The heat of the sun",
+                "The weight of the sea alone",
+                "Lightning"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "In layers of rock that have not been turned over, which layer is the oldest?",
+              "options": [
+                "The bottom layer",
+                "The top layer",
+                "The middle layer",
+                "They are all the same age"
+              ],
+              "correct": 0
+            }
+          ],
+          "parts_head": {
+            "eyebrow": "Try It in the Model · 在模型裡試試",
+            "en": "Four moments",
+            "zh": "四個時刻"
+          },
+          "parts": [
+            {
+              "key": "bury",
+              "icon": "🐟",
+              "en": "Buried",
+              "zh": "被埋住了",
+              "meta_en": "End of step 2",
+              "meta_zh": "第 2 步結束",
+              "demo": "bury",
+              "text_en": "The soft parts are gone. Only the bones are left under the mud.",
+              "text_zh": "柔軟的部分不見了，泥裡只剩下骨頭。"
+            },
+            {
+              "key": "stone",
+              "icon": "🪨",
+              "en": "Turning to stone",
+              "zh": "正在變成石頭",
+              "meta_en": "Step 4",
+              "meta_zh": "第 4 步",
+              "demo": "stone",
+              "text_en": "Five layers lie on top, and the bones are changing color.",
+              "text_zh": "上面壓著五層地層，骨頭的顏色正在改變。"
+            },
+            {
+              "key": "rise",
+              "icon": "⛰️",
+              "en": "Lifted up",
+              "zh": "被抬升了",
+              "meta_en": "End of step 5",
+              "meta_zh": "第 5 步結束",
+              "demo": "rise",
+              "text_en": "The sea is gone. The fossil is inside a hill, and nobody knows it is there.",
+              "text_zh": "海不見了。化石在一座山丘裡面，沒有人知道它在那裡。"
+            },
+            {
+              "key": "find",
+              "icon": "🔍",
+              "en": "Uncovered",
+              "zh": "露出來了",
+              "meta_en": "End of step 6",
+              "meta_zh": "第 6 步結束",
+              "demo": "find",
+              "text_en": "The layers above have worn away, and someone has found it.",
+              "text_zh": "上面的地層被削掉了，有人發現了它。"
+            }
+          ],
+          "parts_note_en": "Think about each step. What could go wrong? If the answer at any step is yes, there is no fossil. That is why they are rare.",
+          "parts_note_zh": "想一想每一個步驟：有什麼事可能出差錯？只要其中一步出了差錯，就不會有化石。這就是化石稀少的原因。",
+          "links_head": {
+            "eyebrow": "Go Further · 延伸閱讀",
+            "en": "The two things that uncover a fossil",
+            "zh": "讓化石露出來的兩件事"
+          },
+          "links": [
+            {
+              "href": "/resources/classes/earth/taiwan-mountains/",
+              "icon": "⛰️",
+              "k_en": "Earth and Weather · Lesson 4",
+              "k_zh": "地球與天氣 第四課",
+              "en": "How Did Taiwan's Mountains Rise?",
+              "zh": "台灣的山是怎麼來的？",
+              "note_en": "How rock from the seabed ends up high above the sea.",
+              "note_zh": "海底的岩石是怎麼跑到高高的地方去的。"
+            },
+            {
+              "href": "/resources/classes/earth/rivers-shape-the-land/",
+              "icon": "🏞️",
+              "k_en": "Earth and Weather · Lesson 11",
+              "k_zh": "地球與天氣 第十一課",
+              "en": "How Do Rivers Shape the Land?",
+              "zh": "河流怎麼改變大地？",
+              "note_en": "Rivers lay down the layers, and later they cut them open again.",
+              "note_zh": "地層是河流鋪出來的，後來又是河流把它切開的。"
+            }
+          ],
+          "strata": {
+            "eyebrow": "Read the Rocks · 讀懂岩石",
+            "en": "Which layer is older?",
+            "zh": "哪一層比較老？",
+            "lead_en": "Here is a cliff with five layers, and each one holds a different kind of fossil. Tap a layer to see how old it is compared with the others.",
+            "lead_zh": "這是一面有五層地層的懸崖，每一層裡有不同的化石。點一點任何一層，看看它和其他幾層比起來有多老。",
+            "layers": [
+              {
+                "icon": "🦌",
+                "en": "Layer E, with a deer antler",
+                "zh": "E 層，有鹿角",
+                "note_en": "This layer was laid down last. Whatever is in it lived most recently.",
+                "note_zh": "這一層是最後鋪上去的。裡面的生物，生活的年代離現在最近。"
+              },
+              {
+                "icon": "🐾",
+                "en": "Layer D, with footprints",
+                "zh": "D 層，有腳印",
+                "note_en": "Footprints are fossils too. They are called trace fossils, because they show what an animal did, not its body.",
+                "note_zh": "腳印也是化石。這種化石叫做「生痕化石」，因為它留下的不是動物的身體，而是牠做過的事。"
+              },
+              {
+                "icon": "🍃",
+                "en": "Layer C, with a leaf",
+                "zh": "C 層，有葉子",
+                "note_en": "A leaf pressed in fine mud can leave its shape in the rock. Land plants here mean that this place was not always under the sea.",
+                "note_zh": "葉子壓在細泥裡，可以把形狀留在岩石上。這裡有陸地上的植物，表示這個地方並不是一直在海底。"
+              },
+              {
+                "icon": "🐟",
+                "en": "Layer B, with a fish",
+                "zh": "B 層，有魚",
+                "note_en": "A fish means water. When this layer formed, this place was under a sea or a lake.",
+                "note_zh": "有魚就表示有水。這一層形成的時候，這個地方在海底或湖底。"
+              },
+              {
+                "icon": "🐚",
+                "en": "Layer A, with shells",
+                "zh": "A 層，有貝殼",
+                "note_en": "This layer was laid down first, so everything above it is younger.",
+                "note_zh": "這一層是最先鋪下來的，所以它上面的每一層都比它年輕。"
+              }
+            ],
+            "note_en": "The rule is called the law of superposition: in layers that have not been turned over, the oldest is at the bottom. It tells you which layer is older, but not how many years old it is. The next lesson shows how scientists find the number. This cliff is an example that we made up.",
+            "note_zh": "這條規則叫做「疊置定律」：沒有被翻動過的地層，最老的在最下面。它只能告訴你哪一層比較老，不能告訴你它是幾歲；下一課會說明科學家怎麼找出那個數字。這面懸崖是我們自己編的例子。"
+          },
+          "facts": {
+            "eyebrow": "Fossils by the Numbers · 化石的數字",
+            "en": "Six numbers about fossils",
+            "zh": "六個和化石有關的數字",
+            "lead_en": "From the oldest fossils on Earth to a small museum in Tainan.",
+            "lead_zh": "從地球上最古老的化石，到台南的一座小博物館。",
+            "items": [
+              {
+                "big": "6",
+                "unit_en": "steps",
+                "unit_zh": "個步驟",
+                "en": "Death, burial, pressing, turning to stone, lifting, and uncovering. If any one fails, there is no fossil to find.",
+                "zh": "死亡、掩埋、壓實、石化、抬升、露出。只要其中一步沒有發生，就不會有化石可以找。"
+              },
+              {
+                "big": "10,000",
+                "unit_en": "years",
+                "unit_zh": "年",
+                "en": "Remains are usually called fossils only if they are older than about this.",
+                "zh": "通常要比這個年代更久遠的遺骸，才叫做化石。"
+              },
+              {
+                "big": "3.48",
+                "unit_en": "billion years",
+                "unit_zh": "十億年",
+                "en": "The oldest known fossils are about this old. They are traces of tiny living things, far too small to see.",
+                "zh": "已知最古老的化石大約有這麼老。它們是極小的生物留下的痕跡，小到肉眼看不見。"
+              },
+              {
+                "big": "900,000–450,000",
+                "unit_en": "years ago",
+                "unit_zh": "年前",
+                "en": "The Hayasaka rhinoceros, whose fossils were dug up at Zuozhen in Tainan, lived in Taiwan during this time.",
+                "zh": "在台南左鎮挖出化石的早坂犀牛，就生活在這段時間的台灣。"
+              },
+              {
+                "big": "1981",
+                "unit_en": "the year",
+                "unit_zh": "年",
+                "en": "The Cailiao Fossil Museum opened in Zuozhen to keep the fossils found along the river. It was rebuilt and reopened as the Tainan Zuojhen Fossil Park in 2019.",
+                "zh": "菜寮化石館在左鎮成立，收藏溪邊找到的化石。它在 2019 年重建成為臺南左鎮化石園區，重新開幕。"
+              },
+              {
+                "big": "2",
+                "unit_en": "kinds",
+                "unit_zh": "種",
+                "en": "Body fossils are parts of the living thing itself, such as bones and shells. Trace fossils are marks it left behind, such as footprints and burrows.",
+                "zh": "「實體化石」是生物身體的一部分，像骨頭和貝殼；「生痕化石」是牠留下的痕跡，像腳印和洞穴。"
+              }
+            ]
+          },
+          "culture_cards": {
+            "eyebrow": "Fossil Stories · 化石的故事",
+            "title_en": "The river of fossils, Taiwan's rhinoceros, the fossil hunter, and the insect in amber",
+            "title_zh": "沖出化石的溪、台灣的犀牛、找化石的人，還有琥珀裡的昆蟲",
+            "lead_en": "Two stories from Tainan, and two from far away.",
+            "lead_zh": "兩個來自台南的故事，兩個來自遠方的故事。",
+            "cards": [
+              {
+                "k": "Tainan · 台南",
+                "en": "The river of fossils",
+                "zh": "沖出化石的溪",
+                "body_en": "The Cailiao River runs through the soft hills of Zuozhen, in Tainan. After heavy rain, people there often find fossils lying in the riverbed, washed out of the layers in the banks. A Japanese professor who studied the area asked a local man, Chen Chun-mu, to help him collect them. Mr. Chen went on collecting for the rest of his life, and people came to call him Grandpa Fossil.",
+                "body_zh": "菜寮溪流過台南左鎮鬆軟的丘陵。大雨過後，人們常常在河床上發現從溪岸的地層裡沖出來的化石。一位在這裡做調查的日本教授，請當地的陳春木先生幫忙採集。陳先生後來採集了一輩子的化石，大家都叫他「化石爺爺」。"
+              },
+              {
+                "k": "Taiwan · 台灣",
+                "en": "A rhinoceros in Taiwan",
+                "zh": "台灣的犀牛",
+                "body_en": "There are no rhinoceroses in Taiwan today, but there once were. In 1971, an elementary school student in Zuozhen, Chen Shih-ching, found several rhinoceros teeth in the bed of the Cailiao River. A fossil collector guessed that they had been washed out of the mudstone beside the river, and that more of the animal might still be inside. Scientists from Taiwan and Japan then dug up a skeleton that was unusually complete. It is named the Hayasaka rhinoceros, and you can see it in museums in Taipei and Tainan.",
+                "body_zh": "今天的台灣沒有犀牛，但是以前有。1971 年，左鎮的小學生陳世卿在菜寮溪的河床上找到幾塊犀牛牙齒的化石。一位化石收藏家推測，這些牙齒是從河床邊的泥岩層裡沖出來的，岩層裡可能還藏著這隻動物其他的部分。台灣和日本的學者接著挖出一副完整度很高的骨架。牠被命名為「早坂犀牛」，在台北和台南的博物館都看得到。"
+              },
+              {
+                "k": "England · 英國",
+                "en": "The girl who found sea monsters",
+                "zh": "找到海怪的女孩",
+                "body_en": "Mary Anning was born in 1799 in Lyme Regis, a small town on the south coast of England. The sea cliffs there are full of fossils, and her family was poor, so she collected fossils to sell. She became one of the most skilled fossil collectors of her time. Because she was a woman and had little schooling, the scientists who used her finds often did not give her credit. Today she is remembered as a pioneer.",
+                "body_zh": "瑪麗．安寧 1799 年出生在英國南部海邊的小鎮萊姆里吉斯。那裡的海崖裡滿是化石，而她家境貧窮，所以她採集化石來賣。她成了那個時代最厲害的化石採集者之一。可是因為她是女性、又沒有受過多少教育，使用她的發現的科學家常常沒有提到她的功勞。今天，人們把她當作這個領域的先驅。"
+              },
+              {
+                "k": "Amber · 琥珀",
+                "en": "Caught in tree sap",
+                "zh": "被樹脂黏住",
+                "body_en": "Not every fossil is made of stone. Some trees give out a sticky liquid called resin. Sometimes an insect was caught in it. Over a very long time the resin hardened into amber, a clear golden material, with the insect still inside. Amber can keep even the thin wings and tiny hairs that rock almost never keeps.",
+                "body_zh": "不是每一種化石都是石頭做的。有些樹會流出黏黏的樹脂，有時候昆蟲被黏在裡面。經過非常久的時間，樹脂硬化成琥珀，一種透明的金黃色物質，昆蟲還留在裡面。琥珀連薄薄的翅膀和細小的毛都能保存下來，這是岩石幾乎做不到的。"
+              }
+            ]
+          },
+          "myths": [
+            {
+              "myth_en": "A fossil is an old bone.",
+              "myth_zh": "化石就是很老的骨頭。",
+              "fact_en": "In most fossils the bone itself is gone. Minerals have taken its place and kept its shape, so the fossil is made of stone.",
+              "fact_zh": "大部分的化石裡，原來的骨頭已經不在了。礦物質取代了它、保留了它的形狀，所以化石是石頭做的。"
+            },
+            {
+              "myth_en": "Every animal that dies becomes a fossil.",
+              "myth_zh": "每一隻死掉的動物都會變成化石。",
+              "fact_en": "Almost none do. Most are eaten or rot away. A fossil needs quick burial and a great deal of luck.",
+              "fact_zh": "幾乎都不會。大部分被吃掉或爛掉了。要變成化石，得很快被埋住，還要有非常好的運氣。"
+            },
+            {
+              "myth_en": "All fossils are dinosaurs.",
+              "myth_zh": "化石都是恐龍。",
+              "fact_en": "Fossils of many kinds of living things have been found: shells, fish, leaves, wood, footprints, and insects in amber.",
+              "fact_zh": "人們找到過各式各樣生物的化石：貝殼、魚、葉子、木頭、腳印，還有琥珀裡的昆蟲。"
+            },
+            {
+              "myth_en": "Fossils are found only in deserts far away.",
+              "myth_zh": "只有很遠的沙漠裡才找得到化石。",
+              "fact_en": "Taiwan has fossils too. The hills of Zuozhen in Tainan are famous for them.",
+              "fact_zh": "台灣也有化石。台南左鎮的丘陵就以化石聞名。"
+            }
+          ],
+          "tricks": [
+            {
+              "title_en": "Buried quickly",
+              "title_zh": "很快被埋住",
+              "body_en": "Before it is eaten or rots.",
+              "body_zh": "在被吃掉或爛掉之前。"
+            },
+            {
+              "title_en": "Pressed into rock",
+              "title_zh": "壓成岩石",
+              "body_en": "Layer after layer on top.",
+              "body_zh": "上面一層又一層。"
+            },
+            {
+              "title_en": "Turned to stone",
+              "title_zh": "變成石頭",
+              "body_en": "Minerals take the bone's place.",
+              "body_zh": "礦物質取代了骨頭。"
+            },
+            {
+              "title_en": "Lifted and uncovered",
+              "title_zh": "抬升、露出來",
+              "body_en": "Then someone has to find it.",
+              "body_zh": "然後還要有人發現它。"
+            }
+          ],
+          "activities": [
+            {
+              "title_en": "Make a Fossil Print",
+              "title_zh": "做一個化石印模",
+              "materials": [
+                {
+                  "en": "Modeling clay or soft dough, and a shell, a leaf, or a small toy animal",
+                  "zh": "黏土或軟麵團，還有一個貝殼、一片葉子或一隻小玩具動物"
+                },
+                {
+                  "en": "Plaster of Paris and water (ask an adult to mix it), and a paper cup",
+                  "zh": "石膏粉和水（請大人幫忙調），還有一個紙杯"
+                }
+              ],
+              "steps": [
+                {
+                  "en": "Press the clay flat in the bottom of the cup. Push the shell firmly into it, and then lift the shell out carefully.",
+                  "zh": "把黏土壓平在紙杯底部。把貝殼用力壓進去，再小心地拿起來。"
+                },
+                {
+                  "en": "Look at the hollow that the shell left. Scientists call this a mold.",
+                  "zh": "看看貝殼留下的凹洞。科學家把這個叫做「模」。"
+                },
+                {
+                  "en": "Ask an adult to pour plaster into the hollow. Wait until it is hard.",
+                  "zh": "請大人把調好的石膏倒進凹洞裡。等它變硬。"
+                },
+                {
+                  "en": "Tear the cup away and peel off the clay. What you are holding is called a cast.",
+                  "zh": "把紙杯撕開，再把黏土剝掉。你手上的東西叫做「鑄型」。"
+                }
+              ],
+              "tip_en": "The clay is the mud, and the plaster is the minerals that filled the space. Your cast has the shape of the shell, but it is not the shell. That is exactly what many fossils are. Never pour plaster down a sink.",
+              "tip_zh": "黏土就是泥沙，石膏就是後來填進空隙的礦物質。你的鑄型有貝殼的形狀，但它不是貝殼——很多化石就是這樣的東西。石膏千萬不要倒進水槽。"
+            },
+            {
+              "title_en": "Layers in a Jar",
+              "title_zh": "瓶子裡的地層",
+              "materials": [
+                {
+                  "en": "A tall clear jar, and three or four materials of different colors, such as sand, soil, flour, and fine gravel",
+                  "zh": "一個透明的高瓶子，還有三四種顏色不同的材料，例如沙、土、麵粉和細碎石"
+                },
+                {
+                  "en": "A few small things to be the fossils, such as buttons or dry beans",
+                  "zh": "幾樣當作化石的小東西，例如鈕扣或乾豆子"
+                }
+              ],
+              "steps": [
+                {
+                  "en": "Pour in one material to make the first layer. Drop one “fossil” against the glass so that you can see it.",
+                  "zh": "倒進一種材料，做成第一層。把一個「化石」貼著玻璃放進去，讓自己看得到。"
+                },
+                {
+                  "en": "Add a second layer of a different color, with a different fossil. Keep going until the jar is nearly full.",
+                  "zh": "再倒一層不同顏色的，放一個不同的化石。一直做到瓶子快要滿。"
+                },
+                {
+                  "en": "Ask a friend who did not watch: which fossil is the oldest? Which is the youngest? How do you know?",
+                  "zh": "問一個剛才沒有看的朋友：哪一個化石最老？哪一個最年輕？你是怎麼知道的？"
+                },
+                {
+                  "en": "Now tip the jar gently on its side. Is the rule still easy to use?",
+                  "zh": "現在把瓶子輕輕地橫放。這條規則還那麼好用嗎？"
+                }
+              ],
+              "tip_en": "Your friend can tell the order but not the number of minutes between the layers. Real rock layers are the same: they give the order, and other methods are needed for the age in years.",
+              "tip_zh": "你的朋友說得出順序，卻說不出每一層之間隔了幾分鐘。真的地層也一樣：它告訴我們先後順序，要知道是幾年前，還得用別的方法。"
+            }
+          ],
+          "sources": [
+            {
+              "en": "What fossils are and how they form; remains are usually counted as fossils if older than about 10,000 years; the oldest fossils are about 3.48 billion years old",
+              "zh": "化石的定義與形成；通常超過約一萬年的遺骸才算化石；最古老的化石約 34.8 億年",
+              "src": "Wikipedia, “Fossil”",
+              "url": "https://en.wikipedia.org/wiki/Fossil"
+            },
+            {
+              "en": "Minerals carried by water fill the spaces inside bones and other tissue; the original material can be replaced by minerals",
+              "zh": "水帶來的礦物質填滿骨頭等組織內部的空隙；原來的物質可以被礦物質取代",
+              "src": "Wikipedia, “Permineralization” and “Petrifaction”",
+              "url": "https://en.wikipedia.org/wiki/Permineralization"
+            },
+            {
+              "en": "In layers that have not been overturned, the oldest are at the bottom and the youngest at the top",
+              "zh": "未經翻動的地層，最老的在最下面，最年輕的在最上面",
+              "src": "Wikipedia, “Law of superposition”",
+              "url": "https://en.wikipedia.org/wiki/Law_of_superposition"
+            },
+            {
+              "en": "Footprints, burrows, and similar marks are trace fossils",
+              "zh": "腳印、洞穴等痕跡屬於生痕化石",
+              "src": "Wikipedia, “Trace fossil”",
+              "url": "https://en.wikipedia.org/wiki/Trace_fossil"
+            },
+            {
+              "en": "Amber is fossilized tree resin and can hold insects",
+              "zh": "琥珀是樹脂的化石，裡面可以保存昆蟲",
+              "src": "Wikipedia, “Amber”",
+              "url": "https://en.wikipedia.org/wiki/Amber"
+            },
+            {
+              "en": "Mary Anning, born in Lyme Regis in 1799, fossil collector",
+              "zh": "瑪麗．安寧，1799 年生於萊姆里吉斯，化石採集者",
+              "src": "Wikipedia, “Mary Anning”",
+              "url": "https://en.wikipedia.org/wiki/Mary_Anning"
+            },
+            {
+              "en": "Zuozhen: fossils are washed out of the layers along the Cailiao River after heavy rain; Professor Hayasaka Ichiro and Chen Chun-mu, “Grandpa Fossil”; the rhinoceros lived about 900,000 to 450,000 years ago; the Cailiao Fossil Museum opened in 1981 and reopened as the fossil park in 2019",
+              "zh": "左鎮：大雨過後菜寮溪河床常出現從地層沖刷出的化石；早坂一郎教授與「化石爺爺」陳春木；早坂犀牛生存在約 90 萬至 45 萬年前；菜寮化石館 1981 年成立，2019 年改建為化石園區開幕",
+              "src": "維基百科「臺南左鎮化石園區」",
+              "url": "https://zh.wikipedia.org/zh-tw/臺南左鎮化石園區"
+            },
+            {
+              "en": "The Hayasaka rhinoceros: fossils from Zuozhen and from Daxi in Taoyuan; skeletons on display at the National Taiwan Museum and at the fossil park",
+              "zh": "早坂犀：化石出土於台南左鎮與桃園大溪；骨架在國立臺灣博物館與左鎮化石園區展出",
+              "src": "維基百科「早坂犀」",
+              "url": "https://zh.wikipedia.org/zh-tw/早坂犀"
+            }
+          ]
+        }
+      ],
+      "planned": [
         {
           "n": 15,
           "icon": "⏳",

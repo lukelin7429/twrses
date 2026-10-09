@@ -9697,7 +9697,7 @@ def build_chip_hub():
 _earthj = os.path.join(ROOT, "data", "earth.json")
 EARTH = json.load(open(_earthj, encoding="utf-8")) if os.path.exists(_earthj) else None
 EARTH_BASE = "/resources/classes/earth/"
-_EARTH_JS = {"quake": "earth-quake", "inside": "earth-inside", "shake": "earth-shake", "mountain": "earth-mountain", "volcano": "earth-volcano", "rain": "earth-rain", "wind": "earth-wind", "typhoon": "earth-typhoon", "lightning": "earth-lightning", "forecast": "earth-forecast", "river": "earth-river", "tsunami": "earth-tsunami", "salt": "earth-salt"}   # lab.kind → assets/js/<bundle>.js
+_EARTH_JS = {"quake": "earth-quake", "inside": "earth-inside", "shake": "earth-shake", "mountain": "earth-mountain", "volcano": "earth-volcano", "rain": "earth-rain", "wind": "earth-wind", "typhoon": "earth-typhoon", "lightning": "earth-lightning", "forecast": "earth-forecast", "river": "earth-river", "tsunami": "earth-tsunami", "salt": "earth-salt", "fossil": "earth-fossil"}   # lab.kind → assets/js/<bundle>.js
 
 def _earth_ver():
     h = hashlib.md5()
@@ -10626,9 +10626,72 @@ def _earth_saltpan(sp):
             f'</div></div>'
             '<noscript><p class="muted">The calculator works in your browser and needs JavaScript. · 計算在瀏覽器裡進行，需要開啟 JavaScript。</p></noscript>')
 
-_EARTH_LAB = {"quake": render_earthquake_lab, "inside": render_earthinside_lab, "shake": render_earthshake_lab, "mountain": render_earthmountain_lab, "volcano": render_earthvolcano_lab, "rain": render_earthrain_lab, "wind": render_earthwind_lab, "typhoon": render_earthtyphoon_lab, "lightning": render_earthlightning_lab, "forecast": render_earthforecast_lab, "river": render_earthriver_lab, "tsunami": render_earthtsunami_lab, "salt": render_earthsalt_lab}          # lab.kind → 3D 面板
-_EARTH_ICON = {"quake": earthquake_svg, "inside": earthglobe_svg, "shake": earthshake_svg, "mountain": earthmountain_svg, "volcano": earthvolcano_svg, "rain": earthrain_svg, "wind": earthwind_svg, "typhoon": earthtyphoon_svg, "lightning": earthlightning_svg, "forecast": earthforecast_svg, "river": earthriver_svg, "tsunami": earthtsunami_svg, "salt": earthsalt_svg}                 # lesson.card → 課程卡小圖示
-_EARTH_WIDGETS = [("warn", _earth_warn), ("dig", _earth_dig), ("scale10", _earth_scale10), ("peak", _earth_peak), ("bubble", _earth_bubble), ("gauge", _earth_gauge), ("beaufort", _earth_beaufort), ("eyepass", _earth_eyepass), ("count", _earth_count), ("skyword", _earth_skyword), ("carry", _earth_carry), ("wavespeed", _earth_wavespeed), ("saltpan", _earth_saltpan)]               # lesson 裡有這個 key 就多一段（照這裡的順序）
+def earthfossil_svg(size=56):
+    """第十四課的課程卡小圖示：幾層地層，中間一條魚的骨架。"""
+    ribs = "".join(f'<path d="M{22 + i * 4} 27 V37" stroke="#f2ecdc" stroke-width="1.6" stroke-linecap="round"/>' for i in range(5))
+    return (f'<svg class="earthfossil-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">'
+            '<rect x="4" y="8" width="52" height="12" fill="#c9b48a"/><rect x="4" y="20" width="52" height="24" fill="#8f7d62"/><rect x="4" y="44" width="52" height="10" fill="#b39a6f"/>'
+            '<path d="M14 32 H42" stroke="#f2ecdc" stroke-width="2.4" stroke-linecap="round"/><circle cx="14" cy="32" r="4" fill="#f2ecdc"/><path d="M42 32 L49 27 V37 Z" fill="#f2ecdc"/>'
+            f'{ribs}</svg>')
+
+def render_earthfossil_lab(lesson):
+    """第十四課：一條魚從死亡、掩埋、壓實、石化、抬升到被侵蝕露出來（assets/js/earth-fossil.js 綁這裡的 class；全部自繪示意）。"""
+    lab = lesson["lab"]
+    msgs = "".join(f'<p class="cp-msg ew-fo-msg" data-msg="{k}" hidden>{html.escape(m["en"])}<span class="zh">{html.escape(m["zh"])}</span></p>' for k, m in lab["msgs"].items())
+    steps = "".join(f'<button type="button" aria-pressed="false">{i + 1}<small>{zh}</small></button>' for i, zh in enumerate(("死亡", "掩埋", "壓實", "石化", "抬升", "露出")))
+    tg = _lab_toggles([("labels", "Labels", "標示", True)])
+    return f'''<div class="astro-lab cp-lab ew-lab ew-fo-lab rvl" data-earthfossil-lab>
+  <div class="al-stage">
+    <div class="al-space">
+      <canvas class="al-space-cv" aria-label="3D cutaway of the seabed: a fish dies and sinks, mud buries it, layers pile up and turn to rock, minerals turn the bones to stone, the land rises, and erosion uncovers the fossil · 海底的 3D 剖面：一條魚死後沉到海底，被泥沙埋住，地層一層層疊上去變成岩石，礦物質把骨頭變成石頭，地層抬升，最後侵蝕讓化石露出來"></canvas>
+      <div class="al-labels" aria-hidden="true"></div>
+      <p class="al-hint">Drag to turn · 拖曳旋轉　Scroll or pinch to zoom · 滾輪／雙指縮放</p>
+      <button type="button" class="al-home" title="Reset view · 重設視角" aria-label="Reset view · 重設視角">&#8634;</button>
+      <p class="al-nogl-msg">This 3D model needs WebGL, which this browser does not support. The reading and the cards below still explain everything.<br><span class="zh">這個瀏覽器不支援 WebGL，無法顯示 3D 模型；下方的課文與卡片一樣能看懂。</span></p>
+    </div>
+    <aside class="al-sky cp-aside">
+      <p class="al-sky-k">Six steps to a fossil · 變成化石的六個步驟</p>
+      <div class="ew-fo-steps" role="group" aria-label="Step · 步驟">{steps}</div>
+      <label class="al-slider cp-is-yrow"><span>Time · 時間 <output class="ew-fo-t-out"></output></span>
+        <input type="range" class="al-age ew-fo-t" min="0" max="600" step="1" value="0"></label>
+      <dl class="cp-nums cp-lt-nums ew-nums">
+        <div><dt>Layers on top · 上面的地層</dt><dd class="ew-fo-above"></dd></div>
+        <div><dt>Turned to stone · 石化</dt><dd class="ew-fo-stone"></dd></div>
+        <div><dt>Where it is · 它在哪裡</dt><dd class="ew-fo-where"></dd></div>
+      </dl>
+      {msgs}
+    </aside>
+  </div>
+  <div class="al-controls">
+    <div class="al-row al-row-main">
+      <button type="button" class="al-play" aria-pressed="true"><span class="al-play-i" aria-hidden="true"></span><span class="al-play-t">Pause · 暫停</span></button>
+      <div class="al-row al-toggles">{tg}</div>
+    </div>
+  </div>
+  {_lab_foot(lab)}
+  <p class="cp-credit">{lab["credit_html"]}</p>
+</div>'''
+
+def _earth_strata(st):
+    """「哪一層比較老？」（earth-fossil.js 的 initStrata；疊置定律：沒被翻動的地層，越下面越老；不需要 WebGL）。"""
+    layers = html.escape(json.dumps(st["layers"], ensure_ascii=False))
+    rows = "".join(f'<button type="button" class="ew-ly-row ew-ly-{i}" aria-pressed="false"><i>{html.escape(l["icon"])}</i><b>{html.escape(l["en"])}</b><span class="zh">{html.escape(l["zh"])}</span></button>' for i, l in enumerate(st["layers"]))
+    return (f'<div class="cp-cnt ew-ly rvl" data-earth-strata data-layers="{layers}">'
+            f'<div class="cp-cnt-in">'
+            f'<p class="cp-cnt-l cp-sun-l"><span>Tap a layer of the cliff · 點一點懸崖上的地層</span></p>'
+            f'<div class="ew-ly-cliff" role="group" aria-label="Layers · 地層">{rows}</div>'
+            f'<p class="cp-cnt-note">{html.escape(st["note_en"])}<span class="zh">{html.escape(st["note_zh"])}</span></p></div>'
+            f'<div class="cp-home-out cp-cnt-out ew-ly-out" aria-live="polite">'
+            f'<p class="cp-home-k">This layer · 這一層</p>'
+            f'<p class="cp-home-big"><span class="ew-ly-name"></span> · <span class="ew-ly-name-zh"></span></p>'
+            f'<p class="cp-home-sub">It is <b class="ew-ly-rank"></b>.<span class="zh ew-ly-rank-zh"></span></p>'
+            f'<p class="cp-home-note"><span class="ew-ly-en"></span><span class="zh ew-ly-zh"></span></p>'
+            f'</div></div>'
+            '<noscript><p class="muted">This tool works in your browser and needs JavaScript. · 這個小工具在瀏覽器裡運作，需要開啟 JavaScript。</p></noscript>')
+
+_EARTH_LAB = {"quake": render_earthquake_lab, "inside": render_earthinside_lab, "shake": render_earthshake_lab, "mountain": render_earthmountain_lab, "volcano": render_earthvolcano_lab, "rain": render_earthrain_lab, "wind": render_earthwind_lab, "typhoon": render_earthtyphoon_lab, "lightning": render_earthlightning_lab, "forecast": render_earthforecast_lab, "river": render_earthriver_lab, "tsunami": render_earthtsunami_lab, "salt": render_earthsalt_lab, "fossil": render_earthfossil_lab}          # lab.kind → 3D 面板
+_EARTH_ICON = {"quake": earthquake_svg, "inside": earthglobe_svg, "shake": earthshake_svg, "mountain": earthmountain_svg, "volcano": earthvolcano_svg, "rain": earthrain_svg, "wind": earthwind_svg, "typhoon": earthtyphoon_svg, "lightning": earthlightning_svg, "forecast": earthforecast_svg, "river": earthriver_svg, "tsunami": earthtsunami_svg, "salt": earthsalt_svg, "fossil": earthfossil_svg}                 # lesson.card → 課程卡小圖示
+_EARTH_WIDGETS = [("warn", _earth_warn), ("dig", _earth_dig), ("scale10", _earth_scale10), ("peak", _earth_peak), ("bubble", _earth_bubble), ("gauge", _earth_gauge), ("beaufort", _earth_beaufort), ("eyepass", _earth_eyepass), ("count", _earth_count), ("skyword", _earth_skyword), ("carry", _earth_carry), ("wavespeed", _earth_wavespeed), ("saltpan", _earth_saltpan), ("strata", _earth_strata)]               # lesson 裡有這個 key 就多一段（照這裡的順序）
 
 def _earth_flat():
     return [(ui, u, l) for ui, u in enumerate(EARTH["units"]) for l in u["lessons"]]

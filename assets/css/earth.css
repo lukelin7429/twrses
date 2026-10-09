@@ -293,6 +293,27 @@
 .ew-sp-pile { position: absolute; left: 6%; right: 6%; bottom: 0; height: var(--h, 7%); min-height: 3px; background: #fff; clip-path: polygon(0 100%, 50% 0, 100% 100%); transition: height .25s; }
 @media (max-width: 560px) { .ew-sp-out { grid-template-columns: 64px minmax(0, 1fr); } }
 
+/* ---------- 第十四課：化石是怎麼形成的？ ---------- */
+@media (min-width: 1021px) { .ew-fo-lab .al-space { min-height: 620px; } }
+.ew-fo-msg[hidden] { display: none; }
+.ew-fo-steps { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 4px; margin-bottom: .7rem; }
+.ew-fo-steps button { padding: .38rem .1rem; border-radius: 10px; border: 1px solid var(--al-line); background: rgba(255,255,255,.04); color: var(--al-text); font-family: var(--sans); font-weight: 800; font-size: .86rem; cursor: pointer; }
+.ew-fo-steps button small { display: block; font-family: var(--zh); font-weight: 600; font-size: .66rem; color: var(--al-mute); }
+.ew-fo-steps button[aria-pressed="true"] { border-color: var(--al-sun); background: #22345f; }
+.ew-fo-steps button[aria-pressed="true"] small { color: var(--al-sun); }
+.al-lg-ewfobone i { border: 0; height: 5px; margin-top: .55rem; border-radius: 3px; background: #f2ecdc; }
+.al-lg-ewfostone i { border: 0; height: 5px; margin-top: .55rem; border-radius: 3px; background: #6b4a32; box-shadow: 0 0 0 1px rgba(255,255,255,.35); }
+.al-lg-ewfolayer i { border: 0; height: 12px; margin-top: .25rem; border-radius: 2px; background: linear-gradient(180deg, #c9b48a 0 34%, #8f7d62 34% 67%, #b9a37a 67%); }
+/* 頁面小工具：哪一層比較老？ */
+.ew-ly-cliff { display: grid; gap: 3px; margin: .6rem 0 .5rem; }
+.ew-ly-row { display: grid; grid-template-columns: 2.2rem auto minmax(0, 1fr); gap: .5rem; align-items: center; padding: .55rem .7rem; border: 2px solid transparent; border-radius: 8px; color: #2a2118; font-family: var(--sans); font-size: .86rem; text-align: left; cursor: pointer; }
+.ew-ly-row i { font-style: normal; font-size: 1.2rem; text-align: center; }
+.ew-ly-row .zh { font-size: .8rem; color: #4a3d2e; }
+.ew-ly-0 { background: #d9c8a2; } .ew-ly-1 { background: #c2ad85; } .ew-ly-2 { background: #cfb98f; } .ew-ly-3 { background: #a9946f; } .ew-ly-4 { background: #b8a27b; }
+.ew-ly-row[aria-pressed="true"] { border-color: var(--brand); box-shadow: 0 0 0 2px #fff inset; }
+.ew-ly-out .cp-home-big { font-size: 1.3rem; }
+.ew-ly-out .cp-home-sub .zh { display: block; }
+
 /* ---------- 全系列共用 ---------- */
 .cp-link.ew-link-soon { border-style: dashed; opacity: .78; cursor: default; }
 .ew-safety-src { margin: 1rem 0 0; font-size: .86rem; color: var(--ink-soft); }
