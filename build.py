@@ -9530,7 +9530,7 @@ def build_chip_hub():
 _earthj = os.path.join(ROOT, "data", "earth.json")
 EARTH = json.load(open(_earthj, encoding="utf-8")) if os.path.exists(_earthj) else None
 EARTH_BASE = "/resources/classes/earth/"
-_EARTH_JS = {"quake": "earth-quake", "inside": "earth-inside", "shake": "earth-shake", "mountain": "earth-mountain", "volcano": "earth-volcano", "rain": "earth-rain", "wind": "earth-wind", "typhoon": "earth-typhoon"}   # lab.kind → assets/js/<bundle>.js
+_EARTH_JS = {"quake": "earth-quake", "inside": "earth-inside", "shake": "earth-shake", "mountain": "earth-mountain", "volcano": "earth-volcano", "rain": "earth-rain", "wind": "earth-wind", "typhoon": "earth-typhoon", "lightning": "earth-lightning"}   # lab.kind → assets/js/<bundle>.js
 
 def _earth_ver():
     h = hashlib.md5()
@@ -10124,9 +10124,75 @@ def _earth_eyepass(ep):
             f'</div></div>'
             '<noscript><p class="muted">This walk-through works in your browser and needs JavaScript. · 這段說明在瀏覽器裡運作，需要開啟 JavaScript。</p></noscript>')
 
-_EARTH_LAB = {"quake": render_earthquake_lab, "inside": render_earthinside_lab, "shake": render_earthshake_lab, "mountain": render_earthmountain_lab, "volcano": render_earthvolcano_lab, "rain": render_earthrain_lab, "wind": render_earthwind_lab, "typhoon": render_earthtyphoon_lab}          # lab.kind → 3D 面板
-_EARTH_ICON = {"quake": earthquake_svg, "inside": earthglobe_svg, "shake": earthshake_svg, "mountain": earthmountain_svg, "volcano": earthvolcano_svg, "rain": earthrain_svg, "wind": earthwind_svg, "typhoon": earthtyphoon_svg}                 # lesson.card → 課程卡小圖示
-_EARTH_WIDGETS = [("warn", _earth_warn), ("dig", _earth_dig), ("scale10", _earth_scale10), ("peak", _earth_peak), ("bubble", _earth_bubble), ("gauge", _earth_gauge), ("beaufort", _earth_beaufort), ("eyepass", _earth_eyepass)]               # lesson 裡有這個 key 就多一段（照這裡的順序）
+def earthlightning_svg(size=56):
+    """第九課的課程卡小圖示：一朵深色的雲和一道閃電。"""
+    return (f'<svg class="earthlightning-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">'
+            '<circle cx="20" cy="22" r="10" fill="#5b6785"/><circle cx="33" cy="17" r="12" fill="#6c7896"/><circle cx="44" cy="24" r="8" fill="#5b6785"/><rect x="12" y="22" width="40" height="10" rx="5" fill="#5b6785"/>'
+            '<path d="M33 30 L24 44 H31 L27 56 L41 39 H33 L38 30 Z" fill="#ffd84a"/></svg>')
+
+def render_earthlightning_lab(lesson):
+    """第九課：雷雨雲充電、放電，聲音的圈照真實速度傳到房子（assets/js/earth-lightning.js 綁這裡的 class；全部自繪示意）。"""
+    lab = lesson["lab"]
+    msgs = "".join(f'<p class="cp-msg ew-lt-msg" data-msg="{k}" hidden>{html.escape(m["en"])}<span class="zh">{html.escape(m["zh"])}</span></p>' for k, m in lab["msgs"].items())
+    tg = _lab_toggles([("labels", "Labels", "標示", True)])
+    return f'''<div class="astro-lab cp-lab ew-lab ew-lt-lab rvl" data-earthlightning-lab>
+  <div class="al-stage">
+    <div class="al-space">
+      <canvas class="al-space-cv" aria-label="3D model of a thundercloud, a tree, and a house: electric charge builds up in the cloud, lightning jumps, and a ring of sound spreads out and reaches the house a few seconds later · 雷雨雲、一棵樹和一間房子的 3D 模型：雲裡的電越積越多，閃電放電，聲音的圈往外擴，幾秒之後才傳到房子"></canvas>
+      <div class="al-labels" aria-hidden="true"></div>
+      <p class="al-hint">Drag to turn · 拖曳旋轉　Scroll or pinch to zoom · 滾輪／雙指縮放</p>
+      <button type="button" class="al-home" title="Reset view · 重設視角" aria-label="Reset view · 重設視角">&#8634;</button>
+      <p class="al-nogl-msg">This 3D model needs WebGL, which this browser does not support. The reading and the cards below still explain everything.<br><span class="zh">這個瀏覽器不支援 WebGL，無法顯示 3D 模型；下方的課文與卡片一樣能看懂。</span></p>
+    </div>
+    <aside class="al-sky cp-aside">
+      <p class="al-sky-k">1 · Where does it jump? · 閃電打在哪裡？</p>
+      <div class="cp-dope cp-tr-quick ew-lt-kind" role="group" aria-label="Kind of lightning · 閃電的種類">
+        <button type="button" data-kind="ground" aria-pressed="true">Cloud to ground<small>從雲打到地面</small></button>
+        <button type="button" data-kind="cloud" aria-pressed="false">Inside the cloud<small>在雲裡面</small></button>
+      </div>
+      <label class="al-slider cp-is-yrow"><span>2 · How far away are you? · 你離閃電多遠？ <output class="ew-lt-d-out">2 km</output></span>
+        <input type="range" class="al-age ew-lt-d" min="1" max="5" step="0.5" value="2"></label>
+      <div class="cp-ht-meter"><p class="ew-qk-k">Charge in the cloud · 雲裡累積的電</p><div class="cp-ht-bar"><i class="ew-lt-bar"></i></div><p class="cp-ht-status ew-lt-status"></p></div>
+      <button type="button" class="cp-btn ew-lt-strike">⚡ Strike now · 現在就放電</button>
+      <dl class="cp-nums cp-lt-nums ew-nums">
+        <div><dt>Light · 光</dt><dd class="ew-lt-light"></dd></div>
+        <div><dt>Thunder · 雷聲</dt><dd class="ew-lt-delay"></dd></div>
+        <div><dt>Timer · 計時</dt><dd class="ew-lt-timer"></dd></div>
+      </dl>
+      {msgs}
+    </aside>
+  </div>
+  <div class="al-controls">
+    <div class="al-row al-row-main">
+      <button type="button" class="al-play" aria-pressed="true"><span class="al-play-i" aria-hidden="true"></span><span class="al-play-t">Pause · 暫停</span></button>
+      <div class="al-row al-toggles">{tg}</div>
+    </div>
+  </div>
+  {_lab_foot(lab)}
+  <p class="cp-credit">{lab["credit_html"]}</p>
+</div>'''
+
+def _earth_count(ct):
+    """「這道閃電離我多遠？」（earth-lightning.js 的 initCount；秒數 × 每秒 340 公尺；不需要 WebGL）。"""
+    return (f'<div class="cp-cnt ew-th rvl" data-earth-count>'
+            f'<div class="cp-cnt-in">'
+            f'<label class="cp-cnt-l"><span>Seconds between the flash and the thunder · 閃電和雷聲隔了幾秒 <output class="ew-th-s-out">3 s</output></span>'
+            f'<input type="range" class="al-age ew-th-s" min="0" max="30" step="1" value="3"></label>'
+            f'<div class="ew-th-sky" data-state="idle"><p class="ew-th-say">Press the button, then count. · 按下按鈕，然後開始數。</p></div>'
+            f'<button type="button" class="cp-btn ew-th-go">⚡ Test me · 考考我</button>'
+            f'<p class="ew-th-ans" hidden></p>'
+            f'<p class="cp-cnt-note">{html.escape(ct["note_en"])}<span class="zh">{html.escape(ct["note_zh"])}</span></p></div>'
+            f'<div class="cp-home-out cp-cnt-out ew-th-out" aria-live="polite">'
+            f'<p class="cp-home-k">The lightning was about · 這道閃電大約在</p>'
+            f'<p class="cp-home-big"><b class="ew-th-m">1,020</b> meters away · 公尺外</p>'
+            f'<p class="cp-home-sub">That is about <b class="ew-th-km">1.0</b> kilometers. · 大約是這麼多公里。</p>'
+            f'<p class="cp-home-note">{html.escape(ct["rule_en"])}<span class="zh">{html.escape(ct["rule_zh"])}</span></p>'
+            f'</div></div>'
+            '<noscript><p class="muted">The calculator works in your browser and needs JavaScript. · 計算在瀏覽器裡進行，需要開啟 JavaScript。</p></noscript>')
+
+_EARTH_LAB = {"quake": render_earthquake_lab, "inside": render_earthinside_lab, "shake": render_earthshake_lab, "mountain": render_earthmountain_lab, "volcano": render_earthvolcano_lab, "rain": render_earthrain_lab, "wind": render_earthwind_lab, "typhoon": render_earthtyphoon_lab, "lightning": render_earthlightning_lab}          # lab.kind → 3D 面板
+_EARTH_ICON = {"quake": earthquake_svg, "inside": earthglobe_svg, "shake": earthshake_svg, "mountain": earthmountain_svg, "volcano": earthvolcano_svg, "rain": earthrain_svg, "wind": earthwind_svg, "typhoon": earthtyphoon_svg, "lightning": earthlightning_svg}                 # lesson.card → 課程卡小圖示
+_EARTH_WIDGETS = [("warn", _earth_warn), ("dig", _earth_dig), ("scale10", _earth_scale10), ("peak", _earth_peak), ("bubble", _earth_bubble), ("gauge", _earth_gauge), ("beaufort", _earth_beaufort), ("eyepass", _earth_eyepass), ("count", _earth_count)]               # lesson 裡有這個 key 就多一段（照這裡的順序）
 
 def _earth_flat():
     return [(ui, u, l) for ui, u in enumerate(EARTH["units"]) for l in u["lessons"]]

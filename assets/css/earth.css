@@ -188,6 +188,31 @@
 .ew-ep-dir { font-size: 1.3rem; line-height: 1; color: #ffd36e; }
 @media (max-width: 560px) { .ew-ep-steps button small { font-size: .66rem; } }
 
+/* ---------- 第九課：閃電和打雷是怎麼回事？ ---------- */
+@media (min-width: 1021px) { .ew-lt-lab .al-space { min-height: 640px; } }
+.ew-lt-msg[hidden] { display: none; }
+.ew-lt-bar { width: 0; background: linear-gradient(90deg, #58b4ff, #ffd84a) !important; }
+.ew-lt-status small { display: block; font-family: var(--zh); font-weight: 600; font-size: .8rem; color: var(--al-mute); }
+.ew-lt-strike { width: 100%; margin: .2rem 0 .3rem; padding: .6rem .8rem; border-radius: 12px; border: 1px solid #ffd84a; background: rgba(255,216,74,.12); color: #ffe9a0; font-family: var(--sans); font-weight: 800; font-size: .9rem; cursor: pointer; }
+.ew-lt-strike:hover { background: rgba(255,216,74,.22); }
+.al-lab.ew-lt-lb-p { border-color: #ff6b5e; }
+.al-lab.ew-lt-lb-n { border-color: #58b4ff; }
+.al-lg-ewltpos i { border: 0; border-radius: 50%; width: 10px; height: 10px; margin: .35rem 10px 0; background: #ff6b5e; }
+.al-lg-ewltneg i { border: 0; border-radius: 50%; width: 10px; height: 10px; margin: .35rem 10px 0; background: #58b4ff; }
+.al-lg-ewltbolt i { border: 0; height: 4px; margin-top: .6rem; border-radius: 2px; background: #fff7c2; box-shadow: 0 0 6px #ffd84a; }
+.al-lg-ewltring i { height: 11px; margin-top: .3rem; border: 2px solid #ffd36e; border-radius: 50%; background: transparent; }
+/* 頁面小工具：這道閃電離我多遠？ */
+.ew-th .al-age::-webkit-slider-runnable-track { background: linear-gradient(90deg, var(--brand) 0 var(--p, 10%), #e5dfd0 var(--p, 10%)); }
+.ew-th .al-age::-webkit-slider-thumb { border-color: var(--brand); }
+.ew-th .al-age::-moz-range-progress { background: var(--brand); }
+.ew-th-sky { display: grid; place-items: center; min-height: 92px; margin: .9rem 0 .6rem; padding: .6rem; border-radius: 14px; background: #1a2338; color: #dfe6f5; text-align: center; transition: background .5s; }
+.ew-th-sky[data-state="flash"] { background: #f4f1c8; color: #1a2338; transition: none; }
+.ew-th-sky[data-state="boom"] { background: #3a2a55; color: #ffd36e; }
+.ew-th-say { margin: 0; font-weight: 800; }
+.ew-th-go { width: 100%; padding: .6rem .8rem; border-radius: 12px; border: 1px solid var(--brand); background: var(--brand); color: #fff; font-family: var(--sans); font-weight: 800; font-size: .9rem; cursor: pointer; }
+.ew-th-ans { margin: .6rem 0 0; font-weight: 700; }
+@media (prefers-reduced-motion: reduce) { .ew-th-sky[data-state="flash"] { background: #1a2338; color: #ffd36e; } }
+
 /* ---------- 全系列共用 ---------- */
 .cp-link.ew-link-soon { border-style: dashed; opacity: .78; cursor: default; }
 .ew-safety-src { margin: 1rem 0 0; font-size: .86rem; color: var(--ink-soft); }
