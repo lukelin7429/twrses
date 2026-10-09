@@ -4317,7 +4317,7 @@ def build_astro_hub():
 # 面板與段落樣式沿用 astro.css，人體專屬的在 body.css；兩者都只載在本系列頁面。
 BODY_BASE = "/resources/classes/human-body/"
 _BODY_JS = {"skeleton": "skeleton", "arm": "arm", "heart": "heart", "lungs": "lungs", "joints": "joints",
-            "digestion": "digestion", "nerves": "nerves", "eyes": "eyes", "ears": "ears", "skin": "skin", "teeth": "teeth", "germs": "germs", "kidneys": "kidneys", "taste": "taste", "sleep": "sleep", "growth": "growth", "voice": "voice", "hands": "hands", "healing": "healing", "exercise": "exercise", "energy": "energy"}   # lab.kind → assets/js/<bundle>.js
+            "digestion": "digestion", "nerves": "nerves", "eyes": "eyes", "ears": "ears", "skin": "skin", "teeth": "teeth", "germs": "germs", "kidneys": "kidneys", "taste": "taste", "sleep": "sleep", "growth": "growth", "voice": "voice", "hands": "hands", "healing": "healing", "exercise": "exercise", "energy": "energy", "temperature": "temperature"}   # lab.kind → assets/js/<bundle>.js
 
 def _body_ver():
     h = hashlib.md5()
@@ -5639,6 +5639,66 @@ def render_energy_lab(lesson):
   <p class="sk-credit">{lab["credit_html"]}</p>
 </div>'''
 
+def render_temperature_lab(lesson):
+    """第二十二課：真實骨架外包一層會變色的身體＋放大的皮膚塊，氣溫、運動、發燒（assets/js/temperature.js 綁這裡的 class）；體溫日記是 2D，不需要 WebGL。"""
+    lab = lesson["lab"]
+    notes_json = html.escape(json.dumps(lab["notes"], ensure_ascii=False))
+    def bar(cls, en, zh):
+        return f'<div class="tm-bar tm-bar-{cls}"><span>{en}<small>{zh}</small></span><b><i></i></b></div>'
+    head = "".join(f'<span class="tm-th">{en}<small>{zh}</small></span>' for en, zh in [("Morning", "早上"), ("Noon", "中午"), ("Evening", "傍晚")])
+    rows = "".join(
+        f'<div class="tm-d"><span class="tm-dk"><i style="background:{c}"></i>Day {n}<small>第 {n} 天</small></span>'
+        + "".join(f'<input type="number" class="tm-in" data-d="{n - 1}" data-m="{m}" min="34" max="42" step="0.1" inputmode="decimal" placeholder="—" aria-label="Day {n}, {mn} · 第 {n} 天{mz}">'
+                  for m, mn, mz in [(0, "morning", "早上"), (1, "noon", "中午"), (2, "evening", "傍晚")])
+        + '</div>' for n, c in enumerate(["#ffd36e", "#7ddc9a", "#9fd8ff", "#ff9a9a", "#c9a8ff"], 1))
+    tg = _lab_toggles([("labels", "Labels", "標示", True), ("skel", "Bones", "骨頭", True)])
+    return f'''<div class="astro-lab sk-lab tm-lab rvl" data-temperature-lab data-model="{_model_url()}" data-notes="{notes_json}">
+  <div class="al-stage">
+    <div class="al-space">
+      <canvas class="al-space-cv" aria-label="3D model of a body around a real skeleton, colored by how warm each part is, with a magnified block of skin that sweats, flushes, and gets goose bumps · 包在真實骨架外面的身體 3D 模型，用顏色表示每個部位有多暖，旁邊是一塊會流汗、變紅、起雞皮疙瘩的放大皮膚"></canvas>
+      <div class="al-labels" aria-hidden="true"></div>
+      <p class="sk-loading">Loading… · 載入中…<span class="sk-bar"><i></i></span></p>
+      <p class="al-hint">Drag to turn · 拖曳旋轉　Scroll or pinch to zoom · 滾輪／雙指縮放</p>
+      <p class="ey-mag">Colors show the pattern, not measured temperatures · 顏色是示意，不是實際量到的溫度</p>
+      <button type="button" class="al-home" title="Reset view · 重設視角" aria-label="Reset view · 重設視角">&#8634;</button>
+      <p class="al-nogl-msg">This 3D model needs WebGL, which this browser does not support. The temperature diary and the cards below still work.<br><span class="zh">這個瀏覽器不支援 WebGL，無法顯示 3D 模型；下方的體溫日記和卡片一樣能用。</span></p>
+    </div>
+    <aside class="al-sky sk-aside tm-aside">
+      <div class="tm-two">
+        <p class="tm-big tm-big-c"><b class="tm-core">37.0</b><span>&deg;C in the middle of the body<small>身體中間的溫度</small></span></p>
+        <p class="tm-big tm-big-s"><b class="tm-set">37.0</b><span>&deg;C thermostat setting<small>恆溫器的設定</small></span></p>
+      </div>
+      {bar("flow", "Blood to the skin", "流到皮膚的血")}{bar("sweat", "Sweat", "流汗")}{bar("shiver", "Shivering", "發抖")}{bar("limb", "Warmth of hands and feet", "手腳的溫暖")}
+      <p class="ey-status tm-status" aria-live="polite"></p>
+    </aside>
+  </div>
+  <div class="tm-strip">
+    <div class="tm-diary">
+      <p class="al-sky-k">My temperature diary · 我的體溫日記（&deg;C）</p>
+      <div class="tm-grid"><div class="tm-d tm-head"><span></span>{head}</div>{rows}</div>
+    </div>
+    <div class="tm-side">
+      <p class="al-sky-k">My daily wave · 我每天的波浪</p>
+      <div class="tm-chartbox"><canvas class="tm-chart" aria-hidden="true"></canvas></div>
+      <p class="tm-msg" aria-live="polite"></p>
+      <button type="button" class="tm-clear">Clear the diary<small>清除日記</small></button>
+    </div>
+  </div>
+  <div class="al-controls">
+    <div class="al-row al-row-main">
+      <label class="ec-slider tm-row"><span class="ec-slider-k">Air temperature · 氣溫<em class="tm-air-t">24 &deg;C</em></span>
+        <input type="range" class="ec-time tm-slider" min="5" max="38" step="1" value="24"></label>
+    </div>
+    <div class="ea-pres tm-modes" role="group" aria-label="Exercise and fever · 運動與發燒">
+      <button type="button" class="tm-ex" aria-pressed="false"><i aria-hidden="true">&#127939;</i><span>Exercising<small>正在運動</small></span></button>
+      <button type="button" class="tm-fever" aria-pressed="false"><i aria-hidden="true">&#129298;</i><span>Fever<small>發燒</small></span></button>
+    </div>
+    <div class="al-row al-toggles">{tg}</div>
+  </div>
+  {_lab_foot(lab)}
+  <p class="sk-credit">{lab["credit_html"]}</p>
+</div>'''
+
 def _body_nav(slug):
     ls = BODY["lessons"]
     i = next(n for n, l in enumerate(ls) if l["slug"] == slug)
@@ -5666,7 +5726,7 @@ def build_body_lesson(lesson):
                 "joints": render_joints_lab, "digestion": render_digestion_lab, "nerves": render_nerves_lab,
                 "eyes": render_eyes_lab, "ears": render_ears_lab, "skin": render_skin_lab,
                 "teeth": render_teeth_lab, "germs": render_germs_lab, "kidneys": render_kidneys_lab,
-                "taste": render_taste_lab, "sleep": render_sleep_lab, "growth": render_growth_lab, "voice": render_voice_lab, "hands": render_hands_lab, "healing": render_healing_lab, "exercise": render_exercise_lab, "energy": render_energy_lab}[kind](lesson)
+                "taste": render_taste_lab, "sleep": render_sleep_lab, "growth": render_growth_lab, "voice": render_voice_lab, "hands": render_hands_lab, "healing": render_healing_lab, "exercise": render_exercise_lab, "energy": render_energy_lab, "temperature": render_temperature_lab}[kind](lesson)
 
     secs = []
     if lesson.get("jobs"):
@@ -5780,7 +5840,8 @@ def build_body_lesson(lesson):
                 "hands": ("Your hands in a sentence", "一句話記住手"),
                 "healing": ("Healing in a sentence", "一句話記住癒合"),
                 "exercise": ("Exercise in a sentence", "一句話記住運動"),
-                "energy": ("Energy in a sentence", "一句話記住能量")}[kind]
+                "energy": ("Energy in a sentence", "一句話記住能量"),
+                "temperature": ("Body heat in a sentence", "一句話記住體溫")}[kind]
     secs.append(("tricks", "Remember It · 記憶口訣", tricks_h[0], tricks_h[1], _sci_tricks(lesson), ""))
     if lesson.get("culture"):
         cu = lesson["culture"]

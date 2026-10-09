@@ -201,6 +201,10 @@
   - 模擬全部是 `model(meal, t)` 的函數（meal＝`meal`／`drink`／`none`，t＝早餐後 0–5 小時）：血糖 `g`（平常＝1，**沒有單位**）、胰島素、肝臟存糖、吸收量、胃裡剩多少。小點的流動用真實時間，和 t 無關，所以暫停看到的是「那個時刻的流量」。右欄的血糖曲線是 2D canvas，三種早餐一起畫（選中的粗、其餘淡，可關）。吞嚥（食團沿真實食道的中心線往下）用真實時間 1.6 秒，選早餐或從頭播放時觸發。
   - **內容界線（Luke 2026-10-09 定案）**：只講「食物 → 能量」和均衡，**不算熱量、不談體重與節食**；含糖飲料只用血糖曲線說明。「含糖飲料之後血糖掉到平常以下」只寫成「有些人會」（依據：Wyatt 2021 的餐後血糖下降研究），沒有寫任何血糖數值。大腦用掉約五分之一能量寫明是**大人休息時**。
   - **餐盤工具是 2D（`initPlate`）**：國健署「我的餐盤」六大類 × 三餐的勾選格，顯示今天吃到幾類、還缺哪幾類和對應的口訣；不打分數。localStorage 鍵 `twrses-body-plate`（只留當天，try/catch）。旁邊固定一行：有人因過敏或家裡的飲食習慣不是每類都吃。
+- 第二十二課體溫（`temperature.js`，`lab.kind = "temperature"`，`data-temperature-lab`，CSS 前綴 `tm-`）：真實骨架外面包一層**會變色的身體**——軀幹與頭是橢球、四肢與手腳是 `CapsuleGeometry`（端點用骨頭上下 8% 的頂點平均），每個零件一個材質和一個 k（0 核心 … 1 手腳），顏色＝`lerp(核心暖度, 手腳暖度, k)` 走藍→橘→紅。腦裡一顆黃點是恆溫器。旁邊浮著**放大的皮膚塊**（放大 3 倍的 group，引線接左前臂）：表皮、深處血管、靠近表面的微血管圈（血點數量與亮度跟著皮膚血流）、汗腺與汗滴、一根掛在 pivot 上的毛＋豎毛肌＋雞皮疙瘩。
+  - 模擬 `drives(air, ex, err)`：氣溫 5–38 °C、運動、`err = core − set`（發燒＝`set` 調到 38.5，只是舉例）→ hot／cold 兩個驅動量 → 皮膚血流、流汗、發抖、雞皮疙瘩、手腳的溫暖。**氣溫再冷，核心都不變**；發燒剛開始 err < 0 所以發抖、退燒時 err > 0 所以流汗。核心用一階延遲（4 秒）追上設定。發抖是整個身體和骨架左右抖 4 毫米。
+  - **內容界線（Luke 2026-10-09 定案）**：發燒只講「恆溫器設定值調高」的原理，**不談退燒藥、不寫幾度要就醫**；健康提醒只寫告訴大人、依照醫師指示。「捂汗」沒查證，沒寫。
+  - **體溫日記是 2D（`initDiary`）**：5 天 × 早中晚的輸入格＋折線圖，算「傍晚平均比早上高幾度」；訊息固定寫「不能告訴你有沒有生病」。localStorage 鍵 `twrses-body-tempdiary`。
 - **多個 session 同時改這個 repo 時，一律在自己的 git worktree 裡做**（2026-10-09 起）：`git worktree add -b <分支> <scratchpad>/wt origin/main`，把 `tools/<系列>/node_modules`、`audio` 用 symlink 接過來、複製 `tools/.r2_uploaded_cache.txt`；預覽在 vault 的 `.claude/launch.json` 加一筆 `python3 -m http.server <port> --directory <worktree>`；做完 `git fetch && git rebase origin/main && git push origin HEAD:main`。原因：未提交的 `data/*.json` 會讓別的 session 的 `python3 build.py` 直接失敗，共用的 `build.py` 也曾被另一個 session 的腳本誤清空。改檔案的腳本要**先讀完、算好、最後才 `open(p, 'w')`**，不要寫成 `open(p,'w').write(f(open(p).read()))`。
 - 第四批（第 13–16 課：腎臟、味覺與嗅覺、睡眠、長高）規劃在 Obsidian 課程規劃第九節，四課已全部完成（2026-10-05）。第五批（第 17–20 課：說話、手、修復、運動）規劃在第十節，**四課已全部完成（2026-10-09），人體探索共 20 課，`planned[]` 目前是空的**；要再加課，先在課程規劃定題。
 - 網站 `html` 有 smooth scroll：在背景的瀏覽器面板裡捲動會慢好幾秒，截圖前先設 `document.documentElement.style.scrollBehavior='auto'`。
