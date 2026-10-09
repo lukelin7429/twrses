@@ -235,6 +235,32 @@
 .ew-sw-grid i.on { background: #f4f7fb; }
 .ew-sw-out .cp-home-big b { display: inline-block; margin-right: .5rem; font-size: clamp(2rem, 5vw, 2.8rem); }
 
+/* ---------- 第十一課：河流怎麼改變大地？ ---------- */
+@media (min-width: 1021px) { .ew-rv-lab .al-space { min-height: 620px; } }
+.ew-rv-msg[hidden] { display: none; }
+.ew-rv-water { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .4rem; }
+.ew-rv-bar { width: 0; background: linear-gradient(90deg, #4fd6a8, #e2c275) !important; }
+.ew-rv-status small { display: block; font-family: var(--zh); font-weight: 600; font-size: .8rem; color: var(--al-mute); }
+.ew-rv-reset { border-color: var(--al-line); background: rgba(255,255,255,.05); color: var(--al-text); }
+.al-lg-ewrvgravel i { border: 0; border-radius: 50%; width: 12px; height: 12px; margin: .3rem 9px 0; background: #8d8778; }
+.al-lg-ewrvsand i { border: 0; border-radius: 50%; width: 9px; height: 9px; margin: .38rem 10px 0; background: #e2c275; }
+.al-lg-ewrvmud i { border: 0; border-radius: 50%; width: 6px; height: 6px; margin: .45rem 12px 0; background: #6a4a2f; box-shadow: 0 0 0 1px rgba(255,255,255,.4); }
+.al-lg-ewrvwater i { border: 0; height: 9px; margin-top: .35rem; border-radius: 4px; background: linear-gradient(90deg, #3f8fe0, #9a7448); }
+/* 頁面小工具：這樣的水帶得動什麼？ */
+.ew-cy .al-age::-webkit-slider-runnable-track { background: linear-gradient(90deg, var(--brand) 0 var(--p, 50%), #e5dfd0 var(--p, 50%)); }
+.ew-cy .al-age::-webkit-slider-thumb { border-color: var(--brand); }
+.ew-cy .al-age::-moz-range-progress { background: var(--brand); }
+.ew-cy-items { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: .5rem; margin: 1rem 0 .4rem; }
+.ew-cy-item { display: grid; justify-items: center; gap: .15rem; padding: .7rem .2rem .6rem; border-radius: 12px; border: 1px solid var(--line); background: var(--cream); font-size: .8rem; text-align: center; opacity: .55; transition: opacity .2s, border-color .2s, background .2s; }
+.ew-cy-item i { display: block; border-radius: 50%; background: #8d8778; margin-bottom: .2rem; }
+.ew-cy-mud i { width: 6px; height: 6px; background: #6a4a2f; margin-top: 20px; } .ew-cy-sand i { width: 11px; height: 11px; background: #e2c275; margin-top: 15px; }
+.ew-cy-pebble i { width: 18px; height: 18px; margin-top: 8px; } .ew-cy-boulder i { width: 26px; height: 26px; background: #6f6a5e; }
+.ew-cy-item.moving { opacity: 1; border-color: #3f8fe0; background: #e8f2fd; }
+.ew-cy-item.moving i { animation: ew-cy-roll .7s linear infinite alternate; }
+@keyframes ew-cy-roll { from { transform: translateX(-7px); } to { transform: translateX(7px); } }
+@media (prefers-reduced-motion: reduce) { .ew-cy-item.moving i { animation: none; } }
+.ew-cy-out .cp-home-big { font-size: 1.3rem; }
+
 /* ---------- 全系列共用 ---------- */
 .cp-link.ew-link-soon { border-style: dashed; opacity: .78; cursor: default; }
 .ew-safety-src { margin: 1rem 0 0; font-size: .86rem; color: var(--ink-soft); }

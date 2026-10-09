@@ -9577,7 +9577,7 @@ def build_chip_hub():
 _earthj = os.path.join(ROOT, "data", "earth.json")
 EARTH = json.load(open(_earthj, encoding="utf-8")) if os.path.exists(_earthj) else None
 EARTH_BASE = "/resources/classes/earth/"
-_EARTH_JS = {"quake": "earth-quake", "inside": "earth-inside", "shake": "earth-shake", "mountain": "earth-mountain", "volcano": "earth-volcano", "rain": "earth-rain", "wind": "earth-wind", "typhoon": "earth-typhoon", "lightning": "earth-lightning", "forecast": "earth-forecast"}   # lab.kind → assets/js/<bundle>.js
+_EARTH_JS = {"quake": "earth-quake", "inside": "earth-inside", "shake": "earth-shake", "mountain": "earth-mountain", "volcano": "earth-volcano", "rain": "earth-rain", "wind": "earth-wind", "typhoon": "earth-typhoon", "lightning": "earth-lightning", "forecast": "earth-forecast", "river": "earth-river"}   # lab.kind → assets/js/<bundle>.js
 
 def _earth_ver():
     h = hashlib.md5()
@@ -10308,9 +10308,74 @@ def _earth_skyword(sw):
             f'</div></div>'
             '<noscript><p class="muted">This tool works in your browser and needs JavaScript. · 這個小工具在瀏覽器裡運作，需要開啟 JavaScript。</p></noscript>')
 
-_EARTH_LAB = {"quake": render_earthquake_lab, "inside": render_earthinside_lab, "shake": render_earthshake_lab, "mountain": render_earthmountain_lab, "volcano": render_earthvolcano_lab, "rain": render_earthrain_lab, "wind": render_earthwind_lab, "typhoon": render_earthtyphoon_lab, "lightning": render_earthlightning_lab, "forecast": render_earthforecast_lab}          # lab.kind → 3D 面板
-_EARTH_ICON = {"quake": earthquake_svg, "inside": earthglobe_svg, "shake": earthshake_svg, "mountain": earthmountain_svg, "volcano": earthvolcano_svg, "rain": earthrain_svg, "wind": earthwind_svg, "typhoon": earthtyphoon_svg, "lightning": earthlightning_svg, "forecast": earthforecast_svg}                 # lesson.card → 課程卡小圖示
-_EARTH_WIDGETS = [("warn", _earth_warn), ("dig", _earth_dig), ("scale10", _earth_scale10), ("peak", _earth_peak), ("bubble", _earth_bubble), ("gauge", _earth_gauge), ("beaufort", _earth_beaufort), ("eyepass", _earth_eyepass), ("count", _earth_count), ("skyword", _earth_skyword)]               # lesson 裡有這個 key 就多一段（照這裡的順序）
+def earthriver_svg(size=56):
+    """第十一課的課程卡小圖示：一條河從山上彎彎地流到海。"""
+    return (f'<svg class="earthriver-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">'
+            '<path d="M4 40 L18 14 L30 34 L38 22 L56 40 V56 H4 Z" fill="#6fa35c"/><path d="M4 40 L18 14 L24 24 L14 40 Z" fill="#7d8a70"/>'
+            '<path d="M19 18 C22 30 12 34 20 42 C28 50 40 44 56 52" fill="none" stroke="#3f8fe0" stroke-width="5" stroke-linecap="round"/>'
+            '<circle cx="24" cy="45" r="2" fill="#e2c275"/><circle cx="34" cy="49" r="1.6" fill="#e2c275"/></svg>')
+
+def render_earthriver_lab(lesson):
+    """第十一課：一條從山到海的河，侵蝕、搬運、堆積（assets/js/earth-river.js 綁這裡的 class；全部自繪示意）。"""
+    lab = lesson["lab"]
+    msgs = "".join(f'<p class="cp-msg ew-rv-msg" data-msg="{k}" hidden>{html.escape(m["en"])}<span class="zh">{html.escape(m["zh"])}</span></p>' for k, m in lab["msgs"].items())
+    tg = _lab_toggles([("labels", "Labels", "標示", True)])
+    return f'''<div class="astro-lab cp-lab ew-lab ew-rv-lab rvl" data-earthriver-lab>
+  <div class="al-stage">
+    <div class="al-space">
+      <canvas class="al-space-cv" aria-label="3D model of a river running from steep mountains across a plain to the sea: fast water cuts into the mountains, gravel stops at the foot of the mountains, sand settles on the plain, and mud reaches the sea · 一條河從陡峭的山區流過平原到海的 3D 模型：快的水切進山裡，礫石停在山腳，沙沉在平原上，泥一路到海"></canvas>
+      <div class="al-labels" aria-hidden="true"></div>
+      <p class="al-hint">Drag to turn · 拖曳旋轉　Scroll or pinch to zoom · 滾輪／雙指縮放</p>
+      <button type="button" class="al-home" title="Reset view · 重設視角" aria-label="Reset view · 重設視角">&#8634;</button>
+      <p class="al-nogl-msg">This 3D model needs WebGL, which this browser does not support. The reading and the cards below still explain everything.<br><span class="zh">這個瀏覽器不支援 WebGL，無法顯示 3D 模型；下方的課文與卡片一樣能看懂。</span></p>
+    </div>
+    <aside class="al-sky cp-aside">
+      <p class="al-sky-k">How much water is in the river? · 河裡有多少水？</p>
+      <div class="cp-dope ew-rv-water" role="group" aria-label="Water · 水量">
+        <button type="button" data-water="dry" aria-pressed="false">Dry season<small>枯水期</small></button>
+        <button type="button" data-water="normal" aria-pressed="true">Normal<small>平常</small></button>
+        <button type="button" data-water="flood" aria-pressed="false">Typhoon flood<small>颱風大水</small></button>
+      </div>
+      <div class="cp-ht-meter"><p class="ew-qk-k">Time passing · 經過的時間</p><div class="cp-ht-bar"><i class="ew-rv-bar"></i></div><p class="cp-ht-status ew-rv-status"></p></div>
+      <button type="button" class="ew-lt-strike ew-rv-reset">↺ Start over · 重新開始</button>
+      <dl class="cp-nums cp-lt-nums ew-nums">
+        <div><dt>Gravel stops · 礫石停在</dt><dd class="ew-rv-gravel"></dd></div>
+        <div><dt>Sand stops · 沙停在</dt><dd class="ew-rv-sand"></dd></div>
+        <div><dt>Mud stops · 泥停在</dt><dd class="ew-rv-mud"></dd></div>
+      </dl>
+      {msgs}
+    </aside>
+  </div>
+  <div class="al-controls">
+    <div class="al-row al-row-main">
+      <button type="button" class="al-play" aria-pressed="true"><span class="al-play-i" aria-hidden="true"></span><span class="al-play-t">Pause · 暫停</span></button>
+      <div class="al-row al-toggles">{tg}</div>
+    </div>
+  </div>
+  {_lab_foot(lab)}
+  <p class="cp-credit">{lab["credit_html"]}</p>
+</div>'''
+
+def _earth_carry(cy):
+    """「這樣的水帶得動什麼？」（earth-river.js 的 initCarry；水越快帶得動越大的顆粒，只講順序不講數字；不需要 WebGL）。"""
+    levels = html.escape(json.dumps(cy["levels"], ensure_ascii=False))
+    items = "".join(f'<div class="ew-cy-item ew-cy-{it["key"]}"><i></i><b>{html.escape(it["en"])}</b><span class="zh">{html.escape(it["zh"])}</span></div>' for it in cy["items"])
+    return (f'<div class="cp-cnt ew-cy rvl" data-earth-carry data-levels="{levels}">'
+            f'<div class="cp-cnt-in">'
+            f'<label class="cp-cnt-l"><span>How fast is the water? · 水流有多快？</span>'
+            f'<input type="range" class="al-age ew-cy-f" min="0" max="4" step="1" value="2" aria-label="Speed of the water · 水流的快慢"></label>'
+            f'<div class="ew-cy-items" aria-hidden="true">{items}</div>'
+            f'<p class="cp-cnt-note">{html.escape(cy["note_en"])}<span class="zh">{html.escape(cy["note_zh"])}</span></p></div>'
+            f'<div class="cp-home-out cp-cnt-out ew-cy-out" aria-live="polite">'
+            f'<p class="cp-home-k">The water is · 現在的水</p>'
+            f'<p class="cp-home-big"><span class="ew-cy-en"></span> · <span class="ew-cy-zh"></span></p>'
+            f'<p class="cp-home-note"><span class="ew-cy-t"></span><span class="zh ew-cy-t-zh"></span></p>'
+            f'</div></div>'
+            '<noscript><p class="muted">This tool works in your browser and needs JavaScript. · 這個小工具在瀏覽器裡運作，需要開啟 JavaScript。</p></noscript>')
+
+_EARTH_LAB = {"quake": render_earthquake_lab, "inside": render_earthinside_lab, "shake": render_earthshake_lab, "mountain": render_earthmountain_lab, "volcano": render_earthvolcano_lab, "rain": render_earthrain_lab, "wind": render_earthwind_lab, "typhoon": render_earthtyphoon_lab, "lightning": render_earthlightning_lab, "forecast": render_earthforecast_lab, "river": render_earthriver_lab}          # lab.kind → 3D 面板
+_EARTH_ICON = {"quake": earthquake_svg, "inside": earthglobe_svg, "shake": earthshake_svg, "mountain": earthmountain_svg, "volcano": earthvolcano_svg, "rain": earthrain_svg, "wind": earthwind_svg, "typhoon": earthtyphoon_svg, "lightning": earthlightning_svg, "forecast": earthforecast_svg, "river": earthriver_svg}                 # lesson.card → 課程卡小圖示
+_EARTH_WIDGETS = [("warn", _earth_warn), ("dig", _earth_dig), ("scale10", _earth_scale10), ("peak", _earth_peak), ("bubble", _earth_bubble), ("gauge", _earth_gauge), ("beaufort", _earth_beaufort), ("eyepass", _earth_eyepass), ("count", _earth_count), ("skyword", _earth_skyword), ("carry", _earth_carry)]               # lesson 裡有這個 key 就多一段（照這裡的順序）
 
 def _earth_flat():
     return [(ui, u, l) for ui, u in enumerate(EARTH["units"]) for l in u["lessons"]]
