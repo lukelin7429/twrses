@@ -164,6 +164,30 @@
 @media (prefers-reduced-motion: reduce) { .ew-bf-flag { animation: none; } }
 .ew-bf-out .cp-home-big b { display: inline-block; margin-right: .5rem; }
 
+/* ---------- 第八課：颱風是怎麼形成的？ ---------- */
+@media (min-width: 1021px) { .ew-ty-lab .al-space { min-height: 640px; } }
+.ew-ty-msg[hidden] { display: none; }
+.ew-ty-bar { width: 0; transition: width .2s linear; }
+.ew-ty-cat small { display: block; font-family: var(--zh); font-weight: 600; font-size: .8rem; color: var(--al-mute); }
+.al-lab.ew-ty-lb-g { font-weight: 800; }
+.al-lg-ewtycloud i { border: 0; height: 11px; margin-top: .3rem; border-radius: 6px; background: #fff; }
+.al-lg-ewtyin i { border: 0; border-radius: 50%; width: 9px; height: 9px; margin: .35rem 4px 0; background: #9fd8ff; box-shadow: 13px 0 0 #9fd8ff; margin-right: 19px; }
+.al-lg-ewtysink i { border: 0; border-radius: 50%; width: 9px; height: 9px; margin: .35rem 10px 0; background: #ffb36b; }
+/* 頁面小工具：颱風眼經過你家 */
+.ew-ep-map { position: relative; height: 150px; border-radius: 14px; background: #1f5fae; overflow: hidden; }
+.ew-ep-storm { position: absolute; left: 50%; top: 50%; width: 88%; aspect-ratio: 1; transform: translate(-50%, -50%); border-radius: 50%;
+  background: radial-gradient(circle, #1f5fae 0 6%, #fff 7% 13%, rgba(255,255,255,.75) 14% 26%, rgba(255,255,255,.35) 27% 44%, rgba(255,255,255,0) 50%); }
+.ew-ep-town { position: absolute; top: 50%; left: 6%; width: 14px; height: 14px; margin: -7px 0 0 -7px; border-radius: 50%; background: #e0261a; border: 2px solid #fff; transition: left .5s ease; }
+@media (prefers-reduced-motion: reduce) { .ew-ep-town { transition: none; } }
+.ew-ep-cap { margin: .4rem 0 0; font-size: .8rem; color: var(--ink-soft); }
+.ew-ep-steps { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+.ew-ep-out .cp-home-big { font-size: 1.25rem; }
+.ew-ep-meter { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: .7rem; align-items: center; margin: .9rem 0 .2rem; font-weight: 800; font-size: .84rem; }
+.ew-ep-track { height: 10px; border-radius: 99px; background: rgba(255,255,255,.14); overflow: hidden; }
+.ew-ep-wind { display: block; height: 100%; width: 0; border-radius: 99px; background: linear-gradient(90deg, #4fd6a8, #ffd84a 55%, #e0261a); transition: width .3s; }
+.ew-ep-dir { font-size: 1.3rem; line-height: 1; color: #ffd36e; }
+@media (max-width: 560px) { .ew-ep-steps button small { font-size: .66rem; } }
+
 /* ---------- 全系列共用 ---------- */
 .cp-link.ew-link-soon { border-style: dashed; opacity: .78; cursor: default; }
 .ew-safety-src { margin: 1rem 0 0; font-size: .86rem; color: var(--ink-soft); }

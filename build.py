@@ -9530,7 +9530,7 @@ def build_chip_hub():
 _earthj = os.path.join(ROOT, "data", "earth.json")
 EARTH = json.load(open(_earthj, encoding="utf-8")) if os.path.exists(_earthj) else None
 EARTH_BASE = "/resources/classes/earth/"
-_EARTH_JS = {"quake": "earth-quake", "inside": "earth-inside", "shake": "earth-shake", "mountain": "earth-mountain", "volcano": "earth-volcano", "rain": "earth-rain", "wind": "earth-wind"}   # lab.kind → assets/js/<bundle>.js
+_EARTH_JS = {"quake": "earth-quake", "inside": "earth-inside", "shake": "earth-shake", "mountain": "earth-mountain", "volcano": "earth-volcano", "rain": "earth-rain", "wind": "earth-wind", "typhoon": "earth-typhoon"}   # lab.kind → assets/js/<bundle>.js
 
 def _earth_ver():
     h = hashlib.md5()
@@ -10053,9 +10053,80 @@ def _earth_beaufort(bf):
             f'</div></div>'
             '<noscript><p class="muted">The wind scale works in your browser and needs JavaScript. · 風級表在瀏覽器裡運作，需要開啟 JavaScript。</p></noscript>')
 
-_EARTH_LAB = {"quake": render_earthquake_lab, "inside": render_earthinside_lab, "shake": render_earthshake_lab, "mountain": render_earthmountain_lab, "volcano": render_earthvolcano_lab, "rain": render_earthrain_lab, "wind": render_earthwind_lab}          # lab.kind → 3D 面板
-_EARTH_ICON = {"quake": earthquake_svg, "inside": earthglobe_svg, "shake": earthshake_svg, "mountain": earthmountain_svg, "volcano": earthvolcano_svg, "rain": earthrain_svg, "wind": earthwind_svg}                 # lesson.card → 課程卡小圖示
-_EARTH_WIDGETS = [("warn", _earth_warn), ("dig", _earth_dig), ("scale10", _earth_scale10), ("peak", _earth_peak), ("bubble", _earth_bubble), ("gauge", _earth_gauge), ("beaufort", _earth_beaufort)]               # lesson 裡有這個 key 就多一段（照這裡的順序）
+def earthtyphoon_svg(size=56):
+    """第八課的課程卡小圖示：從上面看的颱風（兩條螺旋雲帶，中間一個眼）。"""
+    return (f'<svg class="earthtyphoon-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">'
+            '<circle cx="30" cy="30" r="27" fill="#1f5fae"/>'
+            '<path d="M30 30 m0 -9 a9 9 0 1 0 9 9 c0 -12 -10 -20 -24 -18 c8 -8 26 -6 30 10" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round"/>'
+            '<path d="M30 39 c-12 0 -20 10 -14 16 c10 6 26 0 30 -12" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round" opacity=".9"/>'
+            '<circle cx="30" cy="30" r="4.5" fill="#1f5fae"/></svg>')
+
+def render_earthtyphoon_lab(lesson):
+    """第八課：一團雲從散亂長成有螺旋、有眼的颱風，登陸後減弱（assets/js/earth-typhoon.js 綁這裡的 class；全部自繪示意）。"""
+    lab = lesson["lab"]
+    msgs = "".join(f'<p class="cp-msg ew-ty-msg" data-msg="{k}" hidden>{html.escape(m["en"])}<span class="zh">{html.escape(m["zh"])}</span></p>' for k, m in lab["msgs"].items())
+    tg = _lab_toggles([("labels", "Labels", "標示", True)])
+    return f'''<div class="astro-lab cp-lab ew-lab ew-ty-lab rvl" data-earthtyphoon-lab>
+  <div class="al-stage">
+    <div class="al-space">
+      <canvas class="al-space-cv" aria-label="3D model of a typhoon over the sea: bands of cloud spiral counterclockwise around a clear eye, and the model can be cut open to show air rising around the eye and sinking inside it · 海面上的颱風 3D 模型：雲帶以逆時針方向繞著無雲的颱風眼旋轉，剖開可以看到空氣在眼的四周上升、在眼裡下沉"></canvas>
+      <div class="al-labels" aria-hidden="true"></div>
+      <div class="cp-view" role="group" aria-label="View · 視角">
+        <button type="button" data-view="top" aria-pressed="true">From above<small>從上面看</small></button>
+        <button type="button" data-view="cut" aria-pressed="false">Cut open<small>剖開看</small></button>
+      </div>
+      <p class="al-hint">Drag to turn · 拖曳旋轉　Scroll or pinch to zoom · 滾輪／雙指縮放</p>
+      <button type="button" class="al-home" title="Reset view · 重設視角" aria-label="Reset view · 重設視角">&#8634;</button>
+      <p class="al-nogl-msg">This 3D model needs WebGL, which this browser does not support. The reading and the cards below still explain everything.<br><span class="zh">這個瀏覽器不支援 WebGL，無法顯示 3D 模型；下方的課文與卡片一樣能看懂。</span></p>
+    </div>
+    <aside class="al-sky cp-aside">
+      <p class="al-sky-k">1 · Where is the storm? · 風暴在哪裡？</p>
+      <div class="cp-dope cp-tr-quick ew-ty-place" role="group" aria-label="Place · 位置">
+        <button type="button" data-place="sea" aria-pressed="true">Over warm sea<small>在溫暖的海面上</small></button>
+        <button type="button" data-place="land" aria-pressed="false">Over land<small>登陸了</small></button>
+      </div>
+      <label class="al-slider cp-is-yrow"><span>2 · Wind near the center · 近中心最大風速 <output class="ew-ty-v-out">22 m/s</output></span>
+        <input type="range" class="al-age ew-ty-v" min="10" max="60" step="1" value="22"></label>
+      <div class="cp-ht-meter"><p class="ew-qk-k">Strength · 強度</p><div class="cp-ht-bar"><i class="ew-ty-bar"></i></div><p class="cp-ht-status ew-ty-cat"></p></div>
+      <dl class="cp-nums cp-lt-nums ew-nums">
+        <div><dt>Wind · 風速</dt><dd class="ew-ty-kmh"></dd></div>
+        <div><dt>Wind scale · 風級</dt><dd class="ew-ty-bf"></dd></div>
+        <div><dt>The eye · 颱風眼</dt><dd class="ew-ty-eye"></dd></div>
+      </dl>
+      {msgs}
+    </aside>
+  </div>
+  <div class="al-controls">
+    <div class="al-row al-row-main">
+      <button type="button" class="al-play" aria-pressed="true"><span class="al-play-i" aria-hidden="true"></span><span class="al-play-t">Pause · 暫停</span></button>
+      <div class="al-row al-toggles">{tg}</div>
+    </div>
+  </div>
+  {_lab_foot(lab)}
+  <p class="cp-credit">{lab["credit_html"]}</p>
+</div>'''
+
+def _earth_eyepass(ep):
+    """「颱風眼經過你家」（earth-typhoon.js 的 initEyepass；五個階段，依中央氣象署颱風百問；不需要 WebGL）。"""
+    steps = html.escape(json.dumps(ep["steps"], ensure_ascii=False))
+    btns = "".join(f'<button type="button" aria-pressed="false">{i + 1}<small>{html.escape(st["k_zh"])}</small></button>' for i, st in enumerate(ep["steps"]))
+    return (f'<div class="cp-cnt ew-ep rvl" data-earth-eyepass data-steps="{steps}">'
+            f'<div class="cp-cnt-in">'
+            f'<div class="ew-ep-map" aria-hidden="true"><i class="ew-ep-storm"></i><i class="ew-ep-town"></i></div>'
+            f'<p class="ew-ep-cap">The red dot is your town. · 紅點是你住的地方。</p>'
+            f'<div class="cp-dpw-pre ew-ep-steps" role="group" aria-label="Stage · 階段">{btns}</div>'
+            f'<p class="cp-cnt-note">{html.escape(ep["note_en"])}<span class="zh">{html.escape(ep["note_zh"])}</span></p></div>'
+            f'<div class="cp-home-out cp-cnt-out ew-ep-out" aria-live="polite">'
+            f'<p class="cp-home-k">Stage <span class="ew-ep-k"></span> · 階段</p>'
+            f'<p class="cp-home-big"><span class="ew-ep-t"></span> · <span class="ew-ep-t-zh"></span></p>'
+            f'<div class="ew-ep-meter"><span>Wind · 風</span><div class="ew-ep-track"><i class="ew-ep-wind"></i></div><b class="ew-ep-dir"></b></div>'
+            f'<p class="cp-home-note"><span class="ew-ep-en"></span><span class="zh ew-ep-zh"></span></p>'
+            f'</div></div>'
+            '<noscript><p class="muted">This walk-through works in your browser and needs JavaScript. · 這段說明在瀏覽器裡運作，需要開啟 JavaScript。</p></noscript>')
+
+_EARTH_LAB = {"quake": render_earthquake_lab, "inside": render_earthinside_lab, "shake": render_earthshake_lab, "mountain": render_earthmountain_lab, "volcano": render_earthvolcano_lab, "rain": render_earthrain_lab, "wind": render_earthwind_lab, "typhoon": render_earthtyphoon_lab}          # lab.kind → 3D 面板
+_EARTH_ICON = {"quake": earthquake_svg, "inside": earthglobe_svg, "shake": earthshake_svg, "mountain": earthmountain_svg, "volcano": earthvolcano_svg, "rain": earthrain_svg, "wind": earthwind_svg, "typhoon": earthtyphoon_svg}                 # lesson.card → 課程卡小圖示
+_EARTH_WIDGETS = [("warn", _earth_warn), ("dig", _earth_dig), ("scale10", _earth_scale10), ("peak", _earth_peak), ("bubble", _earth_bubble), ("gauge", _earth_gauge), ("beaufort", _earth_beaufort), ("eyepass", _earth_eyepass)]               # lesson 裡有這個 key 就多一段（照這裡的順序）
 
 def _earth_flat():
     return [(ui, u, l) for ui, u in enumerate(EARTH["units"]) for l in u["lessons"]]
