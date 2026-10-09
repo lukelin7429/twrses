@@ -5822,16 +5822,599 @@
               "url": "https://en.wikipedia.org/wiki/Benjamin_Franklin"
             }
           ]
-        }
-      ],
-      "planned": [
+        },
         {
           "n": 10,
-          "icon": "🛰️",
-          "en": "How Do We Forecast the Weather?",
-          "zh": "天氣預報是怎麼做出來的？"
+          "slug": "weather-forecast",
+          "title": "How Do We Forecast the Weather?",
+          "title_zh": "天氣預報是怎麼做出來的？",
+          "level": "入門 · Beginner",
+          "icon": "🌦️",
+          "card": "forecast",
+          "blurb_en": "The forecast says there is a 70% chance of rain tomorrow. Where does that number come from, and what does it really mean? In a 3D model, send a band of rain toward a small town and run the forecast once, then ten times. Watch the ten answers drift apart as you look further into the future. Then learn the exact words that forecasters in Taiwan use for the sky.",
+          "blurb_zh": "氣象預報說明天的降雨機率是 70%。這個數字是怎麼來的？它到底是什麼意思？在 3D 模型裡，讓一條雨帶移向一個小鎮，先把預報算一次，再算十次。看得越遠，十次的答案就分得越開。最後，學會台灣的預報員描述天空時用的那幾個詞。",
+          "big_idea_en": "To forecast the weather, people first measure what the air is doing right now, all over the world. Then computers use the rules of nature to work out what the air will do next, step by step. But nobody can measure the air perfectly, and small mistakes grow with time. So a forecast for tomorrow can be quite sure, a forecast for next week is less sure, and an honest forecast tells you how sure it is.",
+          "big_idea_zh": "要預報天氣，人們先量出全世界的空氣「現在」是什麼狀況，再讓電腦依照自然的規則，一步一步算出空氣接下來會怎麼變。可是沒有人能把空氣量得完全準確，而小小的誤差會隨著時間越變越大。所以明天的預報可以相當有把握，下星期的預報就沒那麼有把握；一份誠實的預報，會告訴你它有多少把握。",
+          "tricks_head": {
+            "en": "A forecast in a sentence",
+            "zh": "一句話記住天氣預報"
+          },
+          "checked": {
+            "en": "October 2026",
+            "zh": "2026 年 10 月"
+          },
+          "lab": {
+            "kind": "forecast",
+            "eyebrow": "3D Model · 3D 模型",
+            "title_en": "One Forecast, or Ten?",
+            "title_zh": "算一次，還是算十次？",
+            "how_en": "Drag to turn the model, and scroll or pinch to zoom. A band of rain is moving toward a town on a small island. Move the hours and watch when it arrives. The six boxes are the forecast for the town, one box for every 12 hours. Now choose Ten runs. Each run starts with a speed that is only a little different. Do the ten bands stay together? Try a band that is half a day away, and then one that is two days away.",
+            "how_zh": "拖曳可以旋轉模型，滾輪或雙指可以縮放。一條雨帶正移向小島上的一個小鎮。撥動時間，看它什麼時候到。那六個格子就是小鎮的預報，每 12 小時一格。接著選「算十次」：每一次計算，雨帶的速度都只差一點點。十條雨帶會一直走在一起嗎？先試試半天後就到的雨帶，再試試兩天後才到的。",
+            "msgs": {
+              "one": {
+                "en": "This is one run of the forecast. It gives a clear answer for every period: rain, or no rain. But it cannot tell you how sure that answer is. Choose Ten runs to find out.",
+                "zh": "這是只算一次的預報。每個時段它都給你一個明確的答案：下雨，或是不下雨。可是它沒辦法告訴你這個答案有多少把握。選「算十次」看看。"
+              },
+              "dry": {
+                "en": "In this period, none of the ten runs brings rain to the town. The forecast is 0%.",
+                "zh": "在這個時段裡，十次計算沒有任何一次讓小鎮下雨。預報是 0%。"
+              },
+              "maybe": {
+                "en": "Only a few of the ten runs bring rain in this period. It probably will not rain, but it might. A chance like this does not mean the forecast is wrong if it rains.",
+                "zh": "十次計算裡，只有少數幾次在這個時段下雨。大概不會下，但也有可能下。這種機率的預報，就算真的下了雨，也不代表預報錯了。"
+              },
+              "likely": {
+                "en": "At least half of the runs bring rain in this period, but not all of them. Rain is likely. The runs do not agree because the band is still far away, and small differences have had time to grow.",
+                "zh": "十次計算裡，至少有一半在這個時段下雨，但不是全部。很可能會下雨。它們的答案不一樣，是因為雨帶還很遠，小小的差別有足夠的時間變大。"
+              },
+              "sure": {
+                "en": "All ten runs bring rain in this period. The band is close, so the small differences have not had time to grow. The forecast is 100%.",
+                "zh": "十次計算在這個時段全都下雨。雨帶已經很近了，小小的差別還來不及變大。預報是 100%。"
+              }
+            },
+            "legend": [
+              {
+                "cls": "ewfcmain",
+                "en": "White band: the most likely run",
+                "zh": "白色的雨帶：最可能的那一次計算"
+              },
+              {
+                "cls": "ewfcghost",
+                "en": "Gray bands: the other nine runs",
+                "zh": "灰色的雨帶：其他九次計算"
+              },
+              {
+                "cls": "ewfcrain",
+                "en": "Short lines: rain",
+                "zh": "短線：雨"
+              }
+            ],
+            "scale_en": "A teaching model, and every number in it is an example. The island, the town, the speed of the band, and the small differences between the ten runs were all chosen to show the idea. Real forecast centers do run their computer models many times with slightly different starting points, but the models are far more complicated than a band moving in a straight line, and forecasters also use their own judgment before they announce a chance of rain.",
+            "scale_zh": "這是教學用的模型，裡面每一個數字都是示例。小島、小鎮、雨帶的速度，還有十次計算之間的小差別，都是為了說明原理而設定的。真的預報中心確實會用稍微不同的起始資料，把電腦模式跑很多次；不過真的模式比「一條直線前進的雨帶」複雜得多，而且預報員在發布降雨機率之前，還會加上自己的研判。",
+            "credit_html": "Model drawn by My Culture Connect as a teaching diagram. The ideas follow the Central Weather Administration's <a href=\"https://www.cwa.gov.tw/V8/C/K/Encyclopedia/nous/index.html#introduction-06\" target=\"_blank\" rel=\"noopener\">weather knowledge pages</a> and the other sources listed at the bottom of this page. · 模型由人師教育協會自繪示意；原理依中央氣象署「氣象常識」與本頁最下方列出的其他出處。"
+          },
+          "paras": [
+            "Every evening, the weather report tells you about a day that has not happened yet. It says how hot tomorrow will be, and whether you will need an umbrella. How can anyone know the future? Nobody can know it for certain. But the air follows rules, and that makes a good guess possible.",
+            "A forecast begins with measuring. All day and all night, weather stations on the ground measure the temperature, the air pressure, the wind, and the rain. Balloons carry small instruments high into the sky, and hundreds of them are sent up around the world every day. Radar sees where rain is falling, and satellites look down at the clouds from space. Together they give a picture of the air right now.",
+            "Next comes the computing. The air follows the rules of nature: warm air rises, wind blows from high pressure to low pressure, and water vapor turns into cloud. Scientists have written these rules as mathematics. A very powerful computer starts with the picture of the air right now and works out what it will be like a few minutes later, and then a few minutes after that, again and again, until it reaches tomorrow and the days after.",
+            "But there is a problem. Nobody can measure the air perfectly. There are not enough instruments, and each one is a little bit wrong. These small mistakes do not stay small. They grow as the computer works its way into the future. So a forecast for tomorrow is usually good, and a forecast for next week is much less sure. Scientists think that about two weeks is the limit.",
+            "Forecasters have a clever way to deal with this. They run the computer many times, and each time they change the starting picture just a little. If almost every run brings rain, rain is very likely. If only a few runs bring rain, it is less likely. In the end, the forecaster studies all the information and gives the chance of rain as a number.",
+            "Now you can read that number. In Taiwan, a 70% chance of rain for Taipei means there are seven chances in ten that rain will fall in Taipei during that period. It does not mean that it will rain for 70% of the day or on 70% of the city. And if it stays dry on a 70% day, the forecast was not wrong. Three times in ten, that is exactly what should happen."
+          ],
+          "paras_zh": [
+            "每天晚上，氣象報告都在告訴你一個還沒有發生的日子：明天會多熱，要不要帶傘。怎麼可能有人知道未來的事？沒有人能百分之百知道。但是空氣會照著規則走，所以我們可以做出很好的推測。",
+            "預報是從「量」開始的。不分白天黑夜，地面上的氣象站一直在量氣溫、氣壓、風和雨。氣球把小小的儀器帶到高空，全世界每天要放好幾百顆。雷達看得到哪裡正在下雨，衛星從太空往下看雲。把這些合起來，就是一張「空氣現在的樣子」。",
+            "接下來是「算」。空氣照著自然的規則走：暖空氣會上升，風從高氣壓吹向低氣壓，水氣會變成雲。科學家把這些規則寫成了數學。一部非常強大的電腦，從「空氣現在的樣子」出發，算出幾分鐘之後會變成什麼樣子，再算出下一個幾分鐘，這樣一遍又一遍，一直算到明天、後天。",
+            "可是有一個問題：沒有人能把空氣量得完全準確。儀器不夠多，而且每一個都有一點點誤差。這些小誤差不會一直那麼小；電腦越往未來算，它們就變得越大。所以明天的預報通常很好，下星期的預報就沒那麼有把握。科學家認為，大約兩個星期就是極限了。",
+            "預報員有一個聰明的辦法來面對這件事。他們讓電腦算很多次，每一次都把起點的資料改動一點點。如果幾乎每一次都下雨，那就很可能會下雨；如果只有少數幾次下雨，可能性就比較低。最後，預報員研判所有的資料，把下雨的機會用一個數字說出來。",
+            "現在你會讀這個數字了。在台灣，預報台北市的降雨機率是 70%，意思是在那個時段裡，台北有七成的機會出現降雨。它不是說一天裡有 70% 的時間在下雨，也不是說 70% 的地方會下雨。而且，就算 70% 的那一天沒有下雨，預報也沒有錯：十次裡面本來就應該有三次是這樣。"
+          ],
+          "questions": [
+            "What are the two main steps in making a weather forecast?",
+            "Why is a forecast for next week less sure than a forecast for tomorrow?",
+            "What does a 70% chance of rain mean?"
+          ],
+          "answers": [
+            "First, people measure what the air is doing right now, with stations, balloons, radar, and satellites. Then a computer uses the rules of nature to work out what the air will do next.",
+            "Nobody can measure the air perfectly, and the small mistakes grow as the computer works further into the future.",
+            "It means there are seven chances in ten that rain will fall in that place during that period. It does not tell you how long it will rain or how much of the place will get wet."
+          ],
+          "vocab": [
+            {
+              "n": 1,
+              "w": "forecast",
+              "pos": "n.",
+              "zh": "預報",
+              "ex": "The <b>forecast</b> says it will be sunny tomorrow.",
+              "exzh": "預報說明天是晴天。"
+            },
+            {
+              "n": 2,
+              "w": "chance",
+              "pos": "n.",
+              "zh": "機會；可能性",
+              "ex": "There is a small <b>chance</b> of rain tonight.",
+              "exzh": "今天晚上有一點點下雨的機會。"
+            },
+            {
+              "n": 3,
+              "w": "measure",
+              "pos": "v.",
+              "zh": "測量",
+              "ex": "We <b>measure</b> the temperature every hour.",
+              "exzh": "我們每小時量一次氣溫。"
+            },
+            {
+              "n": 4,
+              "w": "satellite",
+              "pos": "n.",
+              "zh": "衛星",
+              "ex": "A <b>satellite</b> takes pictures of the clouds.",
+              "exzh": "衛星拍下雲的照片。"
+            },
+            {
+              "n": 5,
+              "w": "radar",
+              "pos": "n.",
+              "zh": "雷達",
+              "ex": "<b>Radar</b> shows where it is raining now.",
+              "exzh": "雷達可以顯示現在哪裡在下雨。"
+            },
+            {
+              "n": 6,
+              "w": "balloon",
+              "pos": "n.",
+              "zh": "氣球",
+              "ex": "The weather <b>balloon</b> rose high into the sky.",
+              "exzh": "探空氣球升上了高空。"
+            },
+            {
+              "n": 7,
+              "w": "accurate",
+              "pos": "adj.",
+              "zh": "準確的",
+              "ex": "Tomorrow's forecast is usually <b>accurate</b>.",
+              "exzh": "明天的預報通常很準確。"
+            },
+            {
+              "n": 8,
+              "w": "percent",
+              "pos": "n.",
+              "zh": "百分之…",
+              "ex": "The chance of rain is thirty <b>percent</b>.",
+              "exzh": "降雨機率是百分之三十。"
+            }
+          ],
+          "quiz": [
+            {
+              "q": "What is the first step in making a forecast?",
+              "options": [
+                "Measuring what the air is doing right now",
+                "Looking at last year's weather",
+                "Asking people what they think",
+                "Waiting to see what happens"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "Which of these looks down at the clouds from space?",
+              "options": [
+                "A satellite",
+                "A weather balloon",
+                "A radar on the ground",
+                "A thermometer"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "Why does a forecast become less sure the further ahead it looks?",
+              "options": [
+                "Small mistakes in the measurements grow with time",
+                "Computers get tired",
+                "The weather stops following rules",
+                "Forecasters stop working on weekends"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "The chance of rain is 70%. What does that mean?",
+              "options": [
+                "There are seven chances in ten that it will rain there in that period",
+                "It will rain for 70% of the day",
+                "It will rain on 70% of the city",
+                "It will rain 70 millimeters"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "The forecast said 30%, and it rained. Was the forecast wrong?",
+              "options": [
+                "No. About three times in ten, it should rain",
+                "Yes. 30% means no rain",
+                "Yes. It should have said 100%",
+                "No. Forecasts are never about rain"
+              ],
+              "correct": 0
+            }
+          ],
+          "parts_head": {
+            "eyebrow": "Try It in the Model · 在模型裡試試",
+            "en": "Four forecasts",
+            "zh": "四份預報"
+          },
+          "parts": [
+            {
+              "key": "one",
+              "icon": "1️⃣",
+              "en": "One run",
+              "zh": "只算一次",
+              "meta_en": "Rain, or no rain",
+              "meta_zh": "下雨，或不下雨",
+              "demo": "one",
+              "text_en": "A single run sounds very sure of itself. Is it?",
+              "text_zh": "只算一次的預報，聽起來很有把握。真的是這樣嗎？"
+            },
+            {
+              "key": "near",
+              "icon": "☔",
+              "en": "Half a day away",
+              "zh": "半天後就到",
+              "meta_en": "Ten runs",
+              "meta_zh": "算十次",
+              "demo": "near",
+              "text_en": "The ten bands are still close together. All ten agree: 100%.",
+              "text_zh": "十條雨帶還靠得很近。十次全都同意：100%。"
+            },
+            {
+              "key": "far",
+              "icon": "🌦️",
+              "en": "Two days away",
+              "zh": "兩天後才到",
+              "meta_en": "Ten runs",
+              "meta_zh": "算十次",
+              "demo": "far",
+              "text_en": "Now the bands have spread out. Some arrive early, and some arrive late.",
+              "text_zh": "這一次雨帶散開了。有的早到，有的晚到。"
+            },
+            {
+              "key": "spread",
+              "icon": "↔️",
+              "en": "Before it arrives",
+              "zh": "快要到之前",
+              "meta_en": "Look at the six boxes",
+              "meta_zh": "看那六個格子",
+              "demo": "spread",
+              "text_en": "The chance of rain is shared out over three periods. No period reaches 100%.",
+              "text_zh": "降雨的機率分散在三個時段裡，沒有任何一個時段是 100%。"
+            }
+          ],
+          "parts_note_en": "Compare the highest number in the six boxes for the near band and for the far band. That difference is why a forecast for tomorrow is surer than a forecast for the day after.",
+          "parts_note_zh": "比一比：近的雨帶和遠的雨帶，六個格子裡最高的數字各是多少？這個差別，就是明天的預報比後天的預報更有把握的原因。",
+          "links_head": {
+            "eyebrow": "Go Further · 延伸閱讀",
+            "en": "What the forecast is forecasting",
+            "zh": "預報在預報的東西"
+          },
+          "links": [
+            {
+              "href": "/resources/classes/earth/why-it-rains/",
+              "icon": "🌧️",
+              "k_en": "Earth and Weather · Lesson 6",
+              "k_zh": "地球與天氣 第六課",
+              "en": "Why Does It Rain?",
+              "zh": "為什麼會下雨？",
+              "note_en": "The names for heavy rain that you hear in the forecast.",
+              "note_zh": "預報裡常聽到的大雨、豪雨是多少雨。"
+            },
+            {
+              "href": "/resources/classes/earth/how-typhoons-form/",
+              "icon": "🌀",
+              "k_en": "Earth and Weather · Lesson 8",
+              "k_zh": "地球與天氣 第八課",
+              "en": "How Does a Typhoon Form?",
+              "zh": "颱風是怎麼形成的？",
+              "note_en": "The forecast that people in Taiwan watch most closely.",
+              "note_zh": "台灣人最關心的一種預報。"
+            }
+          ],
+          "skyword": {
+            "eyebrow": "Read the Forecast · 讀懂氣象報告",
+            "en": "Sunny, cloudy, or overcast?",
+            "zh": "晴、多雲，還是陰？",
+            "lead_en": "Forecasters in Taiwan do not choose these words by feeling. They imagine the whole sky cut into ten equal parts and count how many parts are covered by cloud. Move the slider and see which word they use.",
+            "lead_zh": "台灣的預報員不是憑感覺選這幾個詞的。他們把整個天空想成十等分，再數一數有幾分被雲遮住。撥動滑桿，看看他們會用哪一個詞。",
+            "words": {
+              "sunny": {
+                "en": "Sunny",
+                "zh": "晴",
+                "rule_en": "Cloud covers 0 to 4 tenths of the sky.",
+                "rule_zh": "雲量占全天空的 0 到 4/10。"
+              },
+              "cloudy": {
+                "en": "Cloudy",
+                "zh": "多雲",
+                "rule_en": "Cloud covers 5 to 8 tenths of the sky.",
+                "rule_zh": "雲量占全天空的 5/10 到 8/10。"
+              },
+              "overcast": {
+                "en": "Overcast",
+                "zh": "陰",
+                "rule_en": "Cloud covers 9 or 10 tenths of the sky.",
+                "rule_zh": "雲量占全天空的 9/10 到 10/10。"
+              }
+            },
+            "note_en": "This follows the Central Weather Administration. Thin cloud and thick cloud both count. When a forecast joins two words, such as sunny at times cloudy (晴時多雲), the first word is the one expected for at least half of the period. The English words are our translations.",
+            "note_zh": "分法依中央氣象署。不管是薄而透光的雲，還是濃厚的雲，都要算進去。預報把兩個詞連在一起的時候，例如「晴時多雲」，前面那個詞是預計會占一半以上時間的天空狀況。英文是我們的翻譯。"
+          },
+          "facts": {
+            "eyebrow": "Forecasts by the Numbers · 預報的數字",
+            "en": "Six numbers about forecasts",
+            "zh": "六個和預報有關的數字",
+            "lead_en": "From the first idea to the forecast on your phone.",
+            "lead_zh": "從最早的想法，到你手機裡的預報。",
+            "items": [
+              {
+                "big": "4",
+                "unit_en": "times a day",
+                "unit_zh": "每天",
+                "en": "The Central Weather Administration gives the chance of rain for each area four times a day: at 5 and 11 in the morning, and at 5 and 11 in the evening.",
+                "zh": "中央氣象署一天發布 4 次各地的降雨機率：5 時、11 時、17 時和 23 時。"
+              },
+              {
+                "big": "22",
+                "unit_en": "areas",
+                "unit_zh": "區",
+                "en": "The daily forecasts cover Taiwan, Kinmen, and Matsu in 22 areas, each with its weather, its high and low temperatures, and its chance of rain.",
+                "zh": "每天的天氣預報把臺灣及金馬分成 22 區，各有天氣、最高最低氣溫和降雨機率。"
+              },
+              {
+                "big": "1922",
+                "unit_en": "the year",
+                "unit_zh": "年",
+                "en": "The English scientist Lewis Fry Richardson published the idea of forecasting the weather by calculation, long before there were computers fast enough to do it.",
+                "zh": "英國科學家理查森發表了「用計算來預報天氣」的構想；那時候還沒有夠快的電腦可以做這件事。"
+              },
+              {
+                "big": "1950",
+                "unit_en": "the year",
+                "unit_zh": "年",
+                "en": "An early computer called ENIAC made the first computer weather forecast. It needed almost 24 hours to work out a forecast for the next 24 hours.",
+                "zh": "早期的電腦 ENIAC 做出了第一份電腦天氣預報；它花了將近 24 小時，才算出未來 24 小時的預報。"
+              },
+              {
+                "big": "Hundreds",
+                "unit_en": "a day",
+                "unit_zh": "每天",
+                "en": "Around the world, hundreds of balloons carry instruments into the sky every day to measure the air high above the ground.",
+                "zh": "全世界每天有好幾百顆氣球把儀器帶上天，去量高空的空氣。"
+              },
+              {
+                "big": "14",
+                "unit_en": "days",
+                "unit_zh": "天",
+                "en": "Scientists think this is about as far ahead as the weather can be forecast accurately, even with perfect measurements and a perfect computer.",
+                "zh": "科學家認為，就算有完美的測量和完美的電腦，天氣能準確預報的極限也大約只有這麼遠。"
+              }
+            ]
+          },
+          "culture_cards": {
+            "eyebrow": "Forecast Stories · 預報的故事",
+            "title_en": "The dream, the slow computer, the butterfly, and the cold wave",
+            "title_zh": "一個夢想、一部很慢的電腦、一隻蝴蝶，還有寒流",
+            "lead_en": "How forecasting grew up, and one word from the winter forecast.",
+            "lead_zh": "天氣預報是怎麼長大的，還有冬天預報裡的一個詞。",
+            "cards": [
+              {
+                "k": "1922",
+                "en": "A hall full of people",
+                "zh": "坐滿了人的大廳",
+                "body_en": "Lewis Fry Richardson believed that the weather could be worked out with mathematics. But there were no computers. So he imagined a huge round hall, like a theater, filled with people. Each person would do the sums for one small part of the world and pass the answer to the next. It was only a dream, but the method he described is the one that computers use today.",
+                "body_zh": "理查森相信，天氣是可以用數學算出來的。可是那時候沒有電腦。於是他想像了一個像劇院一樣的巨大圓形大廳，裡面坐滿了人；每個人負責計算世界上的一小塊地方，再把答案傳給旁邊的人。這只是一個夢想，但他描述的方法，就是今天電腦在用的方法。"
+              },
+              {
+                "k": "1950",
+                "en": "A forecast that came too late",
+                "zh": "來得太晚的預報",
+                "body_en": "In 1950, an early computer named ENIAC made the first weather forecast by computer. The forecast was for the next 24 hours, and the machine needed almost 24 hours to finish it. By the time the answer came out, the weather had already happened! But it worked, and Richardson, who was still alive, called it an enormous scientific advance.",
+                "body_zh": "1950 年，一部叫做 ENIAC 的早期電腦，做出了第一份用電腦算出來的天氣預報。它預報的是未來 24 小時，而機器本身就花了將近 24 小時才算完。答案出來的時候，那天的天氣都已經發生過了！不過這個方法是行得通的。當時還在世的理查森說，這是科學上的巨大進步。"
+              },
+              {
+                "k": "Chaos · 混沌",
+                "en": "The butterfly",
+                "zh": "那隻蝴蝶",
+                "body_en": "The scientist Edward Lorenz found that a tiny change at the start of a weather calculation could lead to a completely different result later. To explain it, he used a picture that became famous: a butterfly flapping its wings could, weeks later, change where and when a storm forms. He did not mean that butterflies cause storms. He meant that we can never measure the air well enough to be sure about the far future.",
+                "body_zh": "科學家羅倫茲發現，天氣的計算裡，起點只要有一點點不同，後來的結果就可能完全不一樣。為了說明這件事，他用了一個後來很有名的比喻：一隻蝴蝶拍動翅膀，幾個星期之後，可能改變一場風暴形成的時間和地點。他的意思不是蝴蝶會造成風暴，而是我們永遠沒辦法把空氣量得夠準，準到能確定很遠以後的事。"
+              },
+              {
+                "k": "Taiwan · 台灣",
+                "en": "When is it a cold wave?",
+                "zh": "什麼時候才叫寒流？",
+                "body_en": "Winter forecasts in Taiwan use three phrases, and each one has a rule. If the lowest temperature in Taipei is expected to fall to 10°C or below, it is a cold wave (寒流). If it is expected to fall to 12°C or below, the forecast says a strong continental cold air mass. Between 12°C and 14°C, it says a continental cold air mass. Above that, it says only that the northeast monsoon is growing stronger.",
+                "body_zh": "台灣冬天的預報有三種說法，每一種都有標準。預測台北的日最低溫會降到 10°C 或以下，就叫「寒流」；預測會降到 12°C 或以下，說的是「強烈大陸冷氣團」；在 12°C 到 14°C 之間，是「大陸冷氣團」；如果不會降到 14°C，就只說「東北季風增強」。"
+              }
+            ]
+          },
+          "myths": [
+            {
+              "myth_en": "A 70% chance of rain means it will rain for 70% of the day.",
+              "myth_zh": "降雨機率 70%，就是一天裡有 70% 的時間在下雨。",
+              "fact_en": "The number has nothing to do with how long it rains or how much of the area gets wet. It means seven chances in ten that rain will fall there in that period.",
+              "fact_zh": "這個數字和下多久、下多大的範圍都沒有關係。它的意思是：那個時段裡，那個地方有七成的機會出現降雨。"
+            },
+            {
+              "myth_en": "The forecast said 20%, and it rained, so the forecast was wrong.",
+              "myth_zh": "預報說 20%，結果下雨了，所以預報不準。",
+              "fact_en": "A 20% chance means that it should rain about two times in ten. This was one of those times.",
+              "fact_zh": "20% 的意思是十次裡面大約有兩次會下雨。這一次剛好就是其中一次。"
+            },
+            {
+              "myth_en": "With a fast enough computer, we could forecast the weather for any day next year.",
+              "myth_zh": "只要電腦夠快，明年任何一天的天氣都可以預報。",
+              "fact_en": "The limit is not the speed of the computer. Small mistakes in measuring the air grow with time, and about two weeks is as far as an accurate forecast can go.",
+              "fact_zh": "極限不在電腦的速度。量空氣時的小誤差會隨時間變大，準確的預報大約只能做到兩個星期。"
+            },
+            {
+              "myth_en": "Forecasters decide by looking out of the window.",
+              "myth_zh": "預報員是看看窗外的天空來決定的。",
+              "fact_en": "They use measurements from stations, balloons, radar, and satellites, and the results of computer models, and then they add their own judgment.",
+              "fact_zh": "他們用的是氣象站、氣球、雷達和衛星的觀測資料，加上電腦模式算出來的結果，最後再加上自己的研判。"
+            }
+          ],
+          "tricks": [
+            {
+              "title_en": "Measure now",
+              "title_zh": "先量現在",
+              "body_en": "Stations, balloons, radar, satellites.",
+              "body_zh": "氣象站、氣球、雷達、衛星。"
+            },
+            {
+              "title_en": "Compute forward",
+              "title_zh": "再往後算",
+              "body_en": "Step by step, with the rules of nature.",
+              "body_zh": "照著自然的規則，一步一步算。"
+            },
+            {
+              "title_en": "Small errors grow",
+              "title_zh": "小誤差會變大",
+              "body_en": "So the far future is less sure.",
+              "body_zh": "所以越遠越沒把握。"
+            },
+            {
+              "title_en": "Give the chance",
+              "title_zh": "說出機率",
+              "body_en": "70% means seven chances in ten.",
+              "body_zh": "70% 就是十次裡有七次。"
+            }
+          ],
+          "activities": [
+            {
+              "title_en": "Keep Score on the Forecast",
+              "title_zh": "幫氣象預報打分數",
+              "materials": [
+                {
+                  "en": "A notebook, and the weather forecast for your town",
+                  "zh": "一本筆記本，還有你住的地方的天氣預報"
+                },
+                {
+                  "en": "Ten days",
+                  "zh": "十天的時間"
+                }
+              ],
+              "steps": [
+                {
+                  "en": "Every evening, write down tomorrow's chance of rain for your town.",
+                  "zh": "每天晚上，記下明天你住的地方的降雨機率。"
+                },
+                {
+                  "en": "The next evening, write down whether it rained that day: yes or no.",
+                  "zh": "隔天晚上，記下那一天有沒有下雨：有，或沒有。"
+                },
+                {
+                  "en": "After ten days, look at the days when the chance was 70% or more. On how many of them did it rain?",
+                  "zh": "十天之後，找出降雨機率在 70% 以上的那幾天：其中有幾天真的下雨了？"
+                },
+                {
+                  "en": "Now look at the days when the chance was 30% or less. On how many of them did it rain?",
+                  "zh": "再找出降雨機率在 30% 以下的那幾天：其中有幾天下雨了？"
+                }
+              ],
+              "tip_en": "You cannot judge a forecast by one day. A good forecaster is one whose 70% days are rainy about seven times in ten. Ten days is only a start, so keep going if you can.",
+              "tip_zh": "只看一天，沒辦法判斷預報準不準。好的預報，是「說 70% 的日子裡，十次大約有七次真的下雨」。十天只是開始，可以的話就繼續記下去。"
+            },
+            {
+              "title_en": "Be the Sky Observer",
+              "title_zh": "當一次天空觀測員",
+              "materials": [
+                {
+                  "en": "A place outside where you can see most of the sky",
+                  "zh": "一個看得到大部分天空的戶外地點"
+                },
+                {
+                  "en": "Paper and a pen",
+                  "zh": "紙和筆"
+                }
+              ],
+              "steps": [
+                {
+                  "en": "Look at the whole sky. Never look straight at the sun.",
+                  "zh": "看看整個天空。絕對不要直視太陽。"
+                },
+                {
+                  "en": "Imagine pushing all the clouds together into one corner. How many tenths of the sky would they cover?",
+                  "zh": "想像把所有的雲都推到同一個角落：它們會遮住天空的十分之幾？"
+                },
+                {
+                  "en": "Write down your number, and the word that goes with it: sunny, cloudy, or overcast.",
+                  "zh": "寫下你的數字，還有對應的詞：晴、多雲，或是陰。"
+                },
+                {
+                  "en": "Do this at the same time for five days. Then compare your words with the words in the forecast.",
+                  "zh": "連續五天，在同一個時間做一次。然後把你的用詞和預報的用詞比一比。"
+                }
+              ],
+              "tip_en": "Two people looking at the same sky often choose numbers that differ by one or two. That is a small example of why no measurement of the air is perfect.",
+              "tip_zh": "兩個人看同一片天空，常常會差個一兩分。這就是一個小小的例子：對空氣的測量，沒有一種是完美的。"
+            }
+          ],
+          "sources": [
+            {
+              "en": "A chance of rain is the forecaster's estimate, after studying all the data, of the chance that rain will fall in an area during the forecast period; it has nothing to do with how long or how widely it rains; 70% for Taipei means seven chances in ten; issued four times a day at 5, 11, 17, and 23 hours",
+              "zh": "降雨機率是預報人員整理、分析、研判各種氣象資料後，預測某一地區在預報時段內降雨機會的百分數，和降水時間及面積無關；台北市 70% 指有 7 成的機會出現降雨；1 天 4 次（5、11、17、23 時）發布",
+              "src": "中央氣象署 氣象常識「何謂降水機率預報？」",
+              "url": "https://www.cwa.gov.tw/V8/C/K/Encyclopedia/nous/index.html#introduction-06"
+            },
+            {
+              "en": "Sky words by cloud cover in tenths: 0–4 sunny, 5–8 cloudy, 9–10 overcast; thin and thick cloud both count; how two words are joined; the daily forecasts cover 22 areas of Taiwan, Kinmen, and Matsu",
+              "zh": "天空狀況用詞：雲量占全天空 0–4/10 晴、5/10–8/10 多雲、9/10–10/10 陰；薄雲厚雲都列入計算；「晴時多雲」等用法；當天與明天天氣預報分臺灣及金馬共 22 區",
+              "src": "中央氣象署 氣象常識「常見的天氣預報用詞？」",
+              "url": "https://www.cwa.gov.tw/V8/C/K/Encyclopedia/nous/index.html#introduction-05"
+            },
+            {
+              "en": "Cold wave: Taipei's lowest temperature expected to fall to 10°C or below; strong continental cold air mass: 12°C or below; continental cold air mass: 12–14°C; otherwise the northeast monsoon is said to strengthen",
+              "zh": "寒流：預測台北日最低溫降到 10°C 或以下；強烈大陸冷氣團：12°C 或以下；大陸冷氣團：12–14°C；否則只說東北季風增強",
+              "src": "中央氣象署 氣象常識「影響天氣變化的名詞及相關用語？」",
+              "url": "https://www.cwa.gov.tw/V8/C/K/Encyclopedia/nous/index.html#introduction-04"
+            },
+            {
+              "en": "Wind blows from high pressure toward low pressure",
+              "zh": "空氣自高氣壓流向低氣壓而形成風",
+              "src": "中央氣象署 颱風百問「颱風是如何生成的？」",
+              "url": "https://www.cwa.gov.tw/V8/C/K/Encyclopedia/typhoon/index.html#typhoon-02"
+            },
+            {
+              "en": "Computer models of the atmosphere start from current observations sent in by balloon instruments, satellites, and other systems; they need some of the most powerful computers in the world; small errors grow with time, and accurate forecasts are thought to be limited to about 14 days",
+              "zh": "數值天氣預報以探空儀、氣象衛星等觀測系統傳來的現況為起點；需要世界上最強大的超級電腦；小誤差隨時間增長，準確預報的極限被認為大約是 14 天",
+              "src": "Wikipedia, “Numerical weather prediction”",
+              "url": "https://en.wikipedia.org/wiki/Numerical_weather_prediction"
+            },
+            {
+              "en": "Hundreds of balloon instruments are launched around the world every day",
+              "zh": "全世界每天施放數百個探空儀",
+              "src": "Wikipedia, “Radiosonde”",
+              "url": "https://en.wikipedia.org/wiki/Radiosonde"
+            },
+            {
+              "en": "Forecast centers run a model many times from slightly different starting conditions, because small errors at the start are amplified",
+              "zh": "預報中心用略為不同的初始條件把模式跑很多次，因為起始的小誤差會被放大",
+              "src": "Wikipedia, “Ensemble forecasting”",
+              "url": "https://en.wikipedia.org/wiki/Ensemble_forecasting"
+            },
+            {
+              "en": "Richardson published Weather Prediction by Numerical Process in 1922 and imagined a hall of human computers; the first computer forecast was made on ENIAC in 1950, and a 24-hour forecast took nearly 24 hours; Richardson called it an enormous scientific advance",
+              "zh": "理查森 1922 年出版《用數值方法預報天氣》，並想像一座坐滿計算人員的大廳；1950 年 ENIAC 完成第一份電腦天氣預報，24 小時的預報花了將近 24 小時；理查森稱之為巨大的科學進步",
+              "src": "Wikipedia, “Lewis Fry Richardson”",
+              "url": "https://en.wikipedia.org/wiki/Lewis_Fry_Richardson"
+            },
+            {
+              "en": "Edward Lorenz and the butterfly effect: a small change at the start can lead to a large difference later",
+              "zh": "羅倫茲與蝴蝶效應：起點的微小變化可以造成後來很大的差異",
+              "src": "Wikipedia, “Butterfly effect”",
+              "url": "https://en.wikipedia.org/wiki/Butterfly_effect"
+            }
+          ]
         }
-      ]
+      ],
+      "planned": []
     },
     {
       "key": "water",

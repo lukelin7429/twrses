@@ -213,6 +213,28 @@
 .ew-th-ans { margin: .6rem 0 0; font-weight: 700; }
 @media (prefers-reduced-motion: reduce) { .ew-th-sky[data-state="flash"] { background: #1a2338; color: #ffd36e; } }
 
+/* ---------- 第十課：天氣預報是怎麼做出來的？ ---------- */
+@media (min-width: 1021px) { .ew-fc-lab .al-space { min-height: 640px; } }
+.ew-fc-msg[hidden] { display: none; }
+.ew-fc-k2 { margin-top: .9rem; }
+.ew-fc-table { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 4px; margin: .5rem 0 .7rem; }
+.ew-fc-cell { position: relative; overflow: hidden; padding: .4rem .1rem .45rem; border-radius: 9px; border: 1px solid var(--al-line); background: rgba(255,255,255,.04); color: var(--al-text); font-family: var(--sans); cursor: pointer; text-align: center; }
+.ew-fc-cell::before { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: var(--f, 0%); background: rgba(88,180,255,.38); transition: height .2s; }
+.ew-fc-cell span { position: relative; display: block; font-size: .6rem; font-weight: 700; color: var(--al-mute); white-space: nowrap; }
+.ew-fc-cell b { position: relative; display: block; margin-top: .15rem; font-size: .86rem; font-variant-numeric: tabular-nums; }
+.ew-fc-cell.is-now { border-color: var(--al-sun); box-shadow: 0 0 0 1px var(--al-sun) inset; }
+.al-lg-ewfcmain i { border: 0; height: 11px; margin-top: .3rem; border-radius: 6px; background: #fff; }
+.al-lg-ewfcghost i { border: 0; height: 11px; margin-top: .3rem; border-radius: 6px; background: #b9c6da; }
+.al-lg-ewfcrain i { border: 0; height: 11px; width: 3px; margin: .3rem 10px 0; background: #cfe6ff; box-shadow: 7px 3px 0 #cfe6ff, -7px 2px 0 #cfe6ff; }
+/* 頁面小工具：晴、多雲還是陰？ */
+.ew-sw .al-age::-webkit-slider-runnable-track { background: linear-gradient(90deg, var(--brand) 0 var(--p, 60%), #e5dfd0 var(--p, 60%)); }
+.ew-sw .al-age::-webkit-slider-thumb { border-color: var(--brand); }
+.ew-sw .al-age::-moz-range-progress { background: var(--brand); }
+.ew-sw-grid { display: grid; grid-template-columns: repeat(10, minmax(0, 1fr)); gap: 3px; margin: .9rem 0 .3rem; padding: 6px; border-radius: 12px; background: #6fa8e6; }
+.ew-sw-grid i { aspect-ratio: 1; border-radius: 6px; background: rgba(255,255,255,.12); transition: background .2s; }
+.ew-sw-grid i.on { background: #f4f7fb; }
+.ew-sw-out .cp-home-big b { display: inline-block; margin-right: .5rem; font-size: clamp(2rem, 5vw, 2.8rem); }
+
 /* ---------- 全系列共用 ---------- */
 .cp-link.ew-link-soon { border-style: dashed; opacity: .78; cursor: default; }
 .ew-safety-src { margin: 1rem 0 0; font-size: .86rem; color: var(--ink-soft); }

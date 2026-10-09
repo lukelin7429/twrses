@@ -9549,7 +9549,7 @@ def build_chip_hub():
 _earthj = os.path.join(ROOT, "data", "earth.json")
 EARTH = json.load(open(_earthj, encoding="utf-8")) if os.path.exists(_earthj) else None
 EARTH_BASE = "/resources/classes/earth/"
-_EARTH_JS = {"quake": "earth-quake", "inside": "earth-inside", "shake": "earth-shake", "mountain": "earth-mountain", "volcano": "earth-volcano", "rain": "earth-rain", "wind": "earth-wind", "typhoon": "earth-typhoon", "lightning": "earth-lightning"}   # lab.kind → assets/js/<bundle>.js
+_EARTH_JS = {"quake": "earth-quake", "inside": "earth-inside", "shake": "earth-shake", "mountain": "earth-mountain", "volcano": "earth-volcano", "rain": "earth-rain", "wind": "earth-wind", "typhoon": "earth-typhoon", "lightning": "earth-lightning", "forecast": "earth-forecast"}   # lab.kind → assets/js/<bundle>.js
 
 def _earth_ver():
     h = hashlib.md5()
@@ -10209,9 +10209,80 @@ def _earth_count(ct):
             f'</div></div>'
             '<noscript><p class="muted">The calculator works in your browser and needs JavaScript. · 計算在瀏覽器裡進行，需要開啟 JavaScript。</p></noscript>')
 
-_EARTH_LAB = {"quake": render_earthquake_lab, "inside": render_earthinside_lab, "shake": render_earthshake_lab, "mountain": render_earthmountain_lab, "volcano": render_earthvolcano_lab, "rain": render_earthrain_lab, "wind": render_earthwind_lab, "typhoon": render_earthtyphoon_lab, "lightning": render_earthlightning_lab}          # lab.kind → 3D 面板
-_EARTH_ICON = {"quake": earthquake_svg, "inside": earthglobe_svg, "shake": earthshake_svg, "mountain": earthmountain_svg, "volcano": earthvolcano_svg, "rain": earthrain_svg, "wind": earthwind_svg, "typhoon": earthtyphoon_svg, "lightning": earthlightning_svg}                 # lesson.card → 課程卡小圖示
-_EARTH_WIDGETS = [("warn", _earth_warn), ("dig", _earth_dig), ("scale10", _earth_scale10), ("peak", _earth_peak), ("bubble", _earth_bubble), ("gauge", _earth_gauge), ("beaufort", _earth_beaufort), ("eyepass", _earth_eyepass), ("count", _earth_count)]               # lesson 裡有這個 key 就多一段（照這裡的順序）
+def earthforecast_svg(size=56):
+    """第十課的課程卡小圖示：太陽半遮在雲後面，旁邊寫著 70%。"""
+    return (f'<svg class="earthforecast-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">'
+            '<circle cx="40" cy="18" r="9" fill="#ffd36e"/>'
+            '<circle cx="18" cy="26" r="8" fill="#f4f7fb"/><circle cx="28" cy="21" r="10" fill="#f4f7fb"/><circle cx="38" cy="27" r="7" fill="#f4f7fb"/><rect x="12" y="26" width="32" height="9" rx="4.5" fill="#f4f7fb"/>'
+            '<text x="30" y="52" text-anchor="middle" font-family="Manrope, sans-serif" font-weight="800" font-size="14" fill="#2a6fc9">70%</text></svg>')
+
+def render_earthforecast_lab(lesson):
+    """第十課：一條雨帶移向小鎮，同樣的計算跑一次或十次（assets/js/earth-forecast.js 綁這裡的 class；全部自繪示意）。"""
+    lab = lesson["lab"]
+    msgs = "".join(f'<p class="cp-msg ew-fc-msg" data-msg="{k}" hidden>{html.escape(m["en"])}<span class="zh">{html.escape(m["zh"])}</span></p>' for k, m in lab["msgs"].items())
+    cells = "".join(f'<button type="button" class="ew-fc-cell"><span>+{i * 12}–{(i + 1) * 12} h</span><b></b></button>' for i in range(6))
+    tg = _lab_toggles([("labels", "Labels", "標示", True)])
+    return f'''<div class="astro-lab cp-lab ew-lab ew-fc-lab rvl" data-earthforecast-lab>
+  <div class="al-stage">
+    <div class="al-space">
+      <canvas class="al-space-cv" aria-label="3D model of a band of rain moving across the sea toward a small island town: the same forecast is run once or ten times, and the ten answers spread apart as time goes on · 一條雨帶越過海面移向小島上的小鎮的 3D 模型：同樣的預報計算跑一次或十次，時間越久，十次的答案分得越開"></canvas>
+      <div class="al-labels" aria-hidden="true"></div>
+      <div class="cp-view" role="group" aria-label="Runs · 計算次數">
+        <button type="button" data-view="one" aria-pressed="true">One run<small>算一次</small></button>
+        <button type="button" data-view="ten" aria-pressed="false">Ten runs<small>算十次</small></button>
+      </div>
+      <p class="al-hint">Drag to turn · 拖曳旋轉　Scroll or pinch to zoom · 滾輪／雙指縮放</p>
+      <button type="button" class="al-home" title="Reset view · 重設視角" aria-label="Reset view · 重設視角">&#8634;</button>
+      <p class="al-nogl-msg">This 3D model needs WebGL, which this browser does not support. The reading and the cards below still explain everything.<br><span class="zh">這個瀏覽器不支援 WebGL，無法顯示 3D 模型；下方的課文與卡片一樣能看懂。</span></p>
+    </div>
+    <aside class="al-sky cp-aside">
+      <p class="al-sky-k">1 · How far away is the rain? · 雨帶還有多遠？</p>
+      <div class="cp-dope cp-tr-quick ew-fc-lead" role="group" aria-label="Distance · 距離">
+        <button type="button" data-lead="near" aria-pressed="false">Half a day away<small>大約半天後到</small></button>
+        <button type="button" data-lead="far" aria-pressed="true">Two days away<small>大約兩天後到</small></button>
+      </div>
+      <label class="al-slider cp-is-yrow"><span>2 · Hours from now · 幾小時後 <output class="ew-fc-h-out">+0 h</output></span>
+        <input type="range" class="al-age ew-fc-h" min="0" max="72" step="1" value="0"></label>
+      <p class="al-sky-k ew-fc-k2">The forecast for the town · 小鎮的預報</p>
+      <div class="ew-fc-table" role="group" aria-label="Forecast periods · 預報時段">{cells}</div>
+      <dl class="cp-nums cp-lt-nums ew-nums">
+        <div><dt>This period · 這個時段</dt><dd class="ew-fc-period"></dd></div>
+        <div><dt>Runs with rain · 下雨的次數</dt><dd class="ew-fc-runs"></dd></div>
+        <div><dt>Forecast · 預報</dt><dd class="ew-fc-pop"></dd></div>
+      </dl>
+      {msgs}
+    </aside>
+  </div>
+  <div class="al-controls">
+    <div class="al-row al-row-main">
+      <button type="button" class="al-play" aria-pressed="true"><span class="al-play-i" aria-hidden="true"></span><span class="al-play-t">Pause · 暫停</span></button>
+      <div class="al-row al-toggles">{tg}</div>
+    </div>
+  </div>
+  {_lab_foot(lab)}
+  <p class="cp-credit">{lab["credit_html"]}</p>
+</div>'''
+
+def _earth_skyword(sw):
+    """「晴、多雲還是陰？」（earth-forecast.js 的 initSky；中央氣象署的天空狀況用詞，雲量十分位；不需要 WebGL）。"""
+    words = html.escape(json.dumps(sw["words"], ensure_ascii=False))
+    grid = "".join("<i></i>" for _ in range(10))
+    return (f'<div class="cp-cnt ew-sw rvl" data-earth-skyword data-words="{words}">'
+            f'<div class="cp-cnt-in">'
+            f'<label class="cp-cnt-l"><span>How much of the sky is covered by cloud? · 天空有多少被雲遮住？</span>'
+            f'<input type="range" class="al-age ew-sw-f" min="0" max="10" step="1" value="6" aria-label="Cloud cover in tenths · 雲量（十分位）"></label>'
+            f'<div class="ew-sw-grid" aria-hidden="true">{grid}</div>'
+            f'<p class="cp-cnt-note">{html.escape(sw["note_en"])}<span class="zh">{html.escape(sw["note_zh"])}</span></p></div>'
+            f'<div class="cp-home-out cp-cnt-out ew-sw-out" aria-live="polite">'
+            f'<p class="cp-home-k">Cloud cover · 雲量 <span class="ew-sw-n"></span></p>'
+            f'<p class="cp-home-big"><b class="ew-sw-en"></b> <span class="ew-sw-zh"></span></p>'
+            f'<p class="cp-home-note"><span class="ew-sw-rule"></span><span class="zh ew-sw-rule-zh"></span></p>'
+            f'</div></div>'
+            '<noscript><p class="muted">This tool works in your browser and needs JavaScript. · 這個小工具在瀏覽器裡運作，需要開啟 JavaScript。</p></noscript>')
+
+_EARTH_LAB = {"quake": render_earthquake_lab, "inside": render_earthinside_lab, "shake": render_earthshake_lab, "mountain": render_earthmountain_lab, "volcano": render_earthvolcano_lab, "rain": render_earthrain_lab, "wind": render_earthwind_lab, "typhoon": render_earthtyphoon_lab, "lightning": render_earthlightning_lab, "forecast": render_earthforecast_lab}          # lab.kind → 3D 面板
+_EARTH_ICON = {"quake": earthquake_svg, "inside": earthglobe_svg, "shake": earthshake_svg, "mountain": earthmountain_svg, "volcano": earthvolcano_svg, "rain": earthrain_svg, "wind": earthwind_svg, "typhoon": earthtyphoon_svg, "lightning": earthlightning_svg, "forecast": earthforecast_svg}                 # lesson.card → 課程卡小圖示
+_EARTH_WIDGETS = [("warn", _earth_warn), ("dig", _earth_dig), ("scale10", _earth_scale10), ("peak", _earth_peak), ("bubble", _earth_bubble), ("gauge", _earth_gauge), ("beaufort", _earth_beaufort), ("eyepass", _earth_eyepass), ("count", _earth_count), ("skyword", _earth_skyword)]               # lesson 裡有這個 key 就多一段（照這裡的順序）
 
 def _earth_flat():
     return [(ui, u, l) for ui, u in enumerate(EARTH["units"]) for l in u["lessons"]]
