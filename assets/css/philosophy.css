@@ -1141,3 +1141,24 @@ main:has(.ph-tools) .wrap { width: min(980px, 92vw); }
 .ph-vi .ph-vl-next span { font-family: var(--zh); }
 @media (max-width: 900px) { .ph-vi-plans { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 560px) { .ph-vi-rows { grid-template-columns: 1fr; } .ph-vi-row svg { max-width: 240px; } }
+
+/* ---- A27：你來立法 ---- */
+.ph-lb [hidden] { display: none !important; }
+.ph-lb-btns { display: grid; grid-template-columns: 1fr 1fr; gap: .8rem; margin: 1.1rem 0 .4rem; max-width: 560px; }
+.ph-lb-btn { all: unset; box-sizing: border-box; cursor: pointer; text-align: center; padding: .85rem 1rem; border-radius: 12px; font: 800 1rem var(--sans); color: #fff; border: 1.5px solid rgba(255,255,255,.28); background: rgba(255,255,255,.06); transition: background .15s, border-color .15s, transform .15s; }
+.ph-lb-btn span { font-family: var(--zh); font-weight: 700; }
+.ph-lb-btn.is-ban:not(:disabled):hover { border-color: #ff9d7a; background: rgba(255,157,122,.16); transform: translateY(-2px); }
+.ph-lb-btn.is-allow:not(:disabled):hover { border-color: #4fd1a5; background: rgba(79,209,165,.16); transform: translateY(-2px); }
+.ph-lb-btn:focus-visible { outline: 2px solid #ffd36e; outline-offset: 3px; }
+.ph-lb-btn:disabled { cursor: default; opacity: .5; }
+.ph-lb-btn.is-mine { opacity: 1; border-color: #ffd36e; background: rgba(255,211,110,.16); }
+.ph-lb-btn.is-mill::after { content: " ✓ Mill"; font: 800 .72rem var(--sans); letter-spacing: .05em; color: #9be8cd; }
+.ph-lb-btn.is-mill { opacity: 1; }
+.ph-lb .ph-vl-dots i.no { background: #ff9d7a; }
+.ph-lb .ph-vl-card p { margin: 0; font: 400 1.04rem/1.7 var(--serif); }
+.ph-lb .ph-vl-card .ph-zh { font: 400 .95rem/1.8 var(--zh); color: var(--ink-soft); }
+.ph-lb .ph-vl-card .ph-tr { background: var(--brand-lt); color: var(--brand-dk); }
+.ph-lb .ph-vl-card p.ph-lb-tag { font: 800 .8rem var(--sans); letter-spacing: .05em; text-transform: uppercase; margin-bottom: .3rem; }
+.ph-lb-tag span { font: 700 .86rem var(--zh); letter-spacing: 0; margin-left: .6rem; text-transform: none; }
+.ph-lb .ph-vl-next span { font-family: var(--zh); }
+@media (max-width: 480px) { .ph-lb-btns { grid-template-columns: 1fr; } }

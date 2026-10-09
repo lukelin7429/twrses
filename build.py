@@ -8011,7 +8011,26 @@ def _ph_lab_veil(lab):
   </div>
 </div>"""
 
+def _ph_lab_liberty(lab):
+    """A27：你來立法。九個案例，各選「禁止／不去管」，每題之後看彌爾怎麼判；結尾指出你實際在用的原則（家長主義、冒犯、道德主義、比彌爾更放任）。"""
+    payload = html.escape(json.dumps({k: lab[k] for k in ("ban", "allow", "next", "finish", "mill", "you", "cases", "score", "flags", "close")}, ensure_ascii=False), quote=False)
+    return f"""<div class="ph-el ph-lb rvl" data-ph-liberty>
+  <script type="application/json" data-lb-data>{payload}</script>
+  <div class="ph-vl-top"><div class="ph-vl-dots ph-so-dots" data-lb-dots aria-hidden="true"></div><span class="ph-el-count" data-lb-count></span></div>
+  <div class="ph-el-stage">
+    <div data-lb-play>
+      <div class="ph-tp-text" data-lb-text aria-live="polite"></div>
+      <div class="ph-lb-btns" data-lb-btns></div>
+      <div class="ph-vl-out" data-lb-out aria-live="polite"></div>
+      <div class="ph-md-act" data-lb-act hidden><button type="button" class="ph-vl-next" data-lb-next></button></div>
+    </div>
+    <div data-lb-end aria-live="polite"></div>
+    <div class="ph-el-foot"><button type="button" class="ph-el-reset" data-lb-reset>Start again · 重來</button></div>
+  </div>
+</div>"""
+
 def _ph_lab(lab):
+    if lab.get("kind") == "liberty": return _ph_lab_liberty(lab)
     if lab.get("kind") == "veil": return _ph_lab_veil(lab)
     if lab.get("kind") == "commons": return _ph_lab_commons(lab)
     if lab.get("kind") == "pond": return _ph_lab_pond(lab)

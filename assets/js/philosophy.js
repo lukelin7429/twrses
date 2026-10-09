@@ -1573,6 +1573,52 @@
     if (m) root.__lab.play(m[1].split('').map(function (c) { return D.plans['abcd'.indexOf(c)].k; }), m[2] ? +m[2] - 1 : null);
   });
 
+  /* ---- A27：你來立法（彌爾的傷害原則，九個案例） ---- */
+  $$('[data-ph-liberty]').forEach(function (root) {
+    var D;
+    try { D = JSON.parse($('[data-lb-data]', root).textContent); } catch (e) { return; }
+    var play = $('[data-lb-play]', root), text = $('[data-lb-text]', root), btns = $('[data-lb-btns]', root), out = $('[data-lb-out]', root), act = $('[data-lb-act]', root), next = $('[data-lb-next]', root), end = $('[data-lb-end]', root), dots = $('[data-lb-dots]', root), count = $('[data-lb-count]', root);
+    var N = D.cases.length, i, ans;
+    function zhp(parent, t) { var z = el('p', 'ph-zh', t); z.lang = 'zh-Hant'; parent.appendChild(z); addTr(z); }
+    function lab2(b, o, arrow) { b.textContent = ''; b.appendChild(document.createTextNode(o.en + ' · ')); var z = el('span', '', o.zh); z.lang = 'zh-Hant'; b.appendChild(z); if (arrow) b.appendChild(document.createTextNode(' →')); }
+    function paint() {
+      dots.textContent = ''; for (var k = 0; k < N; k++) dots.appendChild(el('i', k < ans.length ? (ans[k] === D.cases[k].m ? 'ok' : 'no') : k === i ? 'cur' : ''));
+      count.textContent = i < N ? (i + 1) + ' / ' + N : '';
+    }
+    function show() {
+      var c = D.cases[i]; paint(); text.textContent = ''; out.textContent = ''; btns.textContent = ''; act.hidden = true;
+      var q = el('p', 'ph-vl-q'); q.appendChild(el('b', '', c.t.en)); var qz = el('span', '', c.t.zh); qz.lang = 'zh-Hant'; q.appendChild(qz); text.appendChild(q);
+      ['ban', 'allow'].forEach(function (k) { var b = el('button', 'ph-lb-btn is-' + k); b.type = 'button'; b.setAttribute('data-k', k); lab2(b, D[k]); b.addEventListener('click', function () { answer(k); }); btns.appendChild(b); });
+    }
+    function answer(k) {
+      if (ans.length > i) return;
+      var c = D.cases[i]; ans.push(k); paint();
+      $$('button', btns).forEach(function (b) { b.disabled = true; b.classList.toggle('is-mine', b.getAttribute('data-k') === k); b.classList.toggle('is-mill', b.getAttribute('data-k') === c.m); });
+      var card = el('div', 'ph-vl-card ' + (k === c.m ? 'is-valid' : 'is-invalid'));
+      var tag = el('p', 'ph-lb-tag'); tag.appendChild(el('b', '', D.mill.en + ': ' + D[c.m].en)); var tz = el('span', '', D.mill.zh + '：' + D[c.m].zh); tz.lang = 'zh-Hant'; tag.appendChild(tz); card.appendChild(tag);
+      card.appendChild(el('p', '', c.why.en)); zhp(card, c.why.zh); out.appendChild(card);
+      act.hidden = false; lab2(next, i === N - 1 ? D.finish : D.next, true);
+    }
+    function finish() {
+      play.hidden = true; paint();
+      var n = 0, f = {}; D.cases.forEach(function (c, k) { if (ans[k] === c.m) n++; else if (ans[k] === 'ban') f[c.g] = 1; else f.lib = 1; });
+      var e = el('div', 'ph-el-end'); var h = el('h4', '', 'Your principles'); h.appendChild(el('span', '', '你的原則')); e.appendChild(h);
+      function para(o, rep) { var en = o.en, zh = o.zh; Object.keys(rep || {}).forEach(function (k) { en = en.replace('{' + k + '}', rep[k]); zh = zh.replace('{' + k + '}', rep[k]); }); e.appendChild(el('p', 'ph-ev-zone', en)); zhp(e, zh); }
+      para(D.score, { n: n });
+      var any = false; ['pat', 'off', 'mor', 'lib'].forEach(function (k) { if (f[k]) { any = true; para(D.flags[k]); } });
+      if (!any) para(D.flags.mill);
+      para(D.close); end.appendChild(e);
+      return { n: n, flags: Object.keys(f) };
+    }
+    next.addEventListener('click', function () { i++; if (i < N) show(); else finish(); });
+    function reset() { i = 0; ans = []; play.hidden = false; end.textContent = ''; show(); }
+    $('[data-lb-reset]', root).addEventListener('click', reset);
+    reset();
+    root.__lab = { state: function () { return { i: i, ans: ans.slice(), ended: !!end.children.length }; },
+      play: function (list) { reset(); list.forEach(function (k) { var b = $('.ph-lb-btn[data-k="' + k + '"]', root); if (b) { b.click(); next.click(); } }); return this.state(); } };
+    var m = /[#&]liberty=([ba]+)/.exec(location.hash); if (m) root.__lab.play(m[1].split('').map(function (c) { return c === 'b' ? 'ban' : 'allow'; }));
+  });
+
   /* ---- A13：去火星三趟（帕菲特的傳送機） ---- */
   $$('[data-ph-teleport]').forEach(function (root) {
     var D;
