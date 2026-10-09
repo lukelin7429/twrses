@@ -8819,15 +8819,629 @@
               "url": "https://zh.wikipedia.org/zh-tw/早坂犀"
             }
           ]
+        },
+        {
+          "n": 15,
+          "slug": "how-old-is-the-earth",
+          "title": "How Do We Know How Old the Earth Is?",
+          "title_zh": "我們怎麼知道地球幾歲？",
+          "level": "入門 · Beginner",
+          "icon": "⏳",
+          "card": "age",
+          "blurb_en": "The Earth is about 4.54 billion years old. Nobody was there to write down its birthday, so how can anyone know? The answer is hidden inside rocks, in atoms that change at a steady pace like the ticking of a clock. In a 3D model, watch 400 atoms change one by one, and learn to read the time from how many are left. Then squeeze the whole history of the Earth into a single day.",
+          "blurb_zh": "地球大約 45.4 億歲。它出生的時候沒有人在場記下日期，那怎麼會有人知道？答案藏在岩石裡：有些原子會用固定的步調改變，就像時鐘在滴答走。在 3D 模型裡，看 400 顆原子一顆一顆地變，學會從「還剩幾顆」讀出時間。然後把地球整段歷史縮成一天來看。",
+          "big_idea_en": "Some kinds of atoms slowly change into other kinds, and they do it at a pace that never speeds up or slows down. The time it takes for half of them to change is called a half-life. So a rock carries its own clock. If we count how many of the old atoms are left and how many new ones have appeared, we can work out how long ago the rock formed.",
+          "big_idea_zh": "有些種類的原子會慢慢變成別種原子，而且步調永遠不會變快、也不會變慢。其中一半變掉所需要的時間，叫做「半衰期」。所以岩石身上自己就帶著一座鐘。只要數一數原來的原子還剩多少、新的原子出現了多少，就能算出這塊岩石是多久以前形成的。",
+          "tricks_head": {
+            "en": "Reading a rock's age in a sentence",
+            "zh": "一句話記住怎麼讀岩石的年齡"
+          },
+          "checked": {
+            "en": "October 2026",
+            "zh": "2026 年 10 月"
+          },
+          "lab": {
+            "kind": "age",
+            "eyebrow": "3D Model · 3D 模型",
+            "title_en": "A Clock Made of Atoms",
+            "title_zh": "用原子做的鐘",
+            "how_en": "Drag to turn the model, and scroll or pinch to zoom. This is a tiny piece of rock with 400 atoms in it. Green atoms have not changed yet. Gray atoms have changed. Let it play, and watch the green ones disappear. How many are left after one half-life? After two? Then choose a different clock. The pattern is the same, but the number of years is very different.",
+            "how_zh": "拖曳可以旋轉模型，滾輪或雙指可以縮放。這是一小塊岩石，裡面有 400 顆原子。綠色的是還沒變的，灰色的是已經變過的。讓它播放，看綠色的怎麼越來越少。過了一個半衰期，還剩幾顆？兩個半衰期呢？接著換一座鐘：變化的樣子一模一樣，可是換算出來的年數差得非常多。",
+            "msgs": {
+              "fresh": {
+                "en": "The rock has just formed. Almost all of its atoms are still the old kind. Nobody can say which atom will change next, but with so many atoms, the pace of the whole crowd is very steady.",
+                "zh": "這塊岩石才剛形成，裡面的原子幾乎都還是原來的那一種。沒有人說得出下一顆變的是哪一顆；不過原子的數量這麼多，整體改變的步調是非常穩定的。"
+              },
+              "half": {
+                "en": "About one half-life has passed, and about half of the old atoms have changed. If you found a rock like this, with about as many new atoms as old ones, you would know that it is about one half-life old.",
+                "zh": "大約過了一個半衰期，原來的原子大約有一半變掉了。如果你找到一塊像這樣的岩石，新的原子和舊的差不多一樣多，就知道它的年齡大約是一個半衰期。"
+              },
+              "old": {
+                "en": "After two half-lives a quarter is left, and after three, an eighth. Each half-life takes away half of what remains, so the old atoms get fewer and fewer but never quite run out. When very few are left, the clock becomes hard to read.",
+                "zh": "兩個半衰期之後剩下四分之一，三個之後剩下八分之一。每過一個半衰期，剩下的再少一半，所以原來的原子越來越少，卻不會完全用完。剩得太少的時候，這座鐘就不容易讀了。"
+              }
+            },
+            "legend": [
+              {
+                "cls": "ewagparent",
+                "en": "Green: atoms that have not changed yet",
+                "zh": "綠色：還沒變的原子"
+              },
+              {
+                "cls": "ewagchild",
+                "en": "Gray: atoms that have changed into another kind",
+                "zh": "灰色：已經變成另一種的原子"
+              }
+            ],
+            "scale_en": "A teaching model. The half-lives are real figures: about 4.47 billion years for uranium-238, about 710 million years for uranium-235, and about 5,730 years for carbon-14. Everything else is a picture. A real grain of rock holds far more atoms than 400, and they are not lined up in rows. With only 400 atoms, the count in the model wanders a little from the exact half, quarter, and eighth, so the model shows both numbers.",
+            "scale_zh": "這是教學用的模型。半衰期是真的數字：鈾 238 大約 44.7 億年，鈾 235 大約 7.1 億年，碳 14 大約 5,730 年。其他都是示意。真的一粒岩石裡的原子比 400 顆多得太多了，也不會排成整齊的格子。因為只有 400 顆，模型裡數到的顆數會和「剛好一半、四分之一、八分之一」差一點點，所以兩個數字都列出來。",
+            "credit_html": "Model drawn by My Culture Connect as a teaching diagram. The ideas follow the sources listed at the bottom of this page. · 模型由人師教育協會自繪示意；原理依本頁最下方列出的出處。"
+          },
+          "paras": [
+            "How old are you? That is easy, because someone wrote down the day you were born. How old is a tree? You can count its rings. But how old is the Earth? Nobody was there at the beginning, and there are no rings to count. For a long time people could only guess.",
+            "The answer turned out to be inside rocks. Everything is made of atoms, and most atoms stay the same forever. But a few kinds are not steady. Sooner or later, an atom of one of these kinds changes into a different kind of atom. Uranium, for example, slowly changes into lead.",
+            "Nobody can tell when one single atom will change. But a rock holds a huge number of atoms, and for a huge number the pace is perfectly regular. After a certain length of time, half of the atoms will have changed. This length of time is called the half-life. After one more half-life, half of what was left will have changed, so a quarter remains. Heat, cold, and pressure do not change the pace.",
+            "This gives us a clock. Suppose a rock had uranium in it when it formed, but no lead. Today we measure it and find just as much lead as uranium. Half of the uranium has changed, so one half-life has passed. The half-life of the most common kind of uranium is about 4.47 billion years. This rock is very old indeed.",
+            "The oldest rocks of the Earth itself have been melted, crushed, and worn away, so scientists looked for something that formed at the same time and has not changed since. They found it in meteorites, pieces of rock from space that formed along with the planets. In 1956, an American scientist named Clair Patterson measured the uranium and lead in meteorites and got an age of about 4.55 billion years.",
+            "Today the age of the Earth is given as about 4.54 billion years, and other clues agree. The oldest grains of mineral ever found on Earth are about 4.4 billion years old, and the oldest rocks from the Moon are about as old as that too. A number that big is hard to imagine. One way is to squeeze the whole story into one day. On that clock, our own kind of human arrives less than six seconds before midnight."
+          ],
+          "paras_zh": [
+            "你幾歲？這很簡單，因為有人把你出生的日子記下來了。一棵樹幾歲？可以數它的年輪。可是地球幾歲？它剛開始的時候沒有人在場，也沒有年輪可以數。很長一段時間，人們只能用猜的。",
+            "後來才知道，答案就在岩石裡面。所有的東西都是原子組成的，大部分的原子永遠不會變。可是有少數幾種並不穩定：這種原子遲早會變成另一種原子。例如鈾，會慢慢地變成鉛。",
+            "沒有人說得出某一顆原子什麼時候會變。可是一塊岩石裡有數量龐大的原子，而數量一大，整體的步調就非常規律。過了一段固定的時間，會有一半的原子變掉；這段時間叫做「半衰期」。再過一個半衰期，剩下的又有一半變掉，所以只剩四分之一。熱、冷和壓力都不會改變這個步調。",
+            "這樣我們就有了一座鐘。假設一塊岩石形成的時候裡面有鈾、沒有鉛。今天我們去量，發現鉛和鈾一樣多。有一半的鈾變掉了，所以時間過了一個半衰期。最常見的那一種鈾，半衰期大約是 44.7 億年。這塊岩石真的非常老。",
+            "地球本身最古老的岩石，早就被熔化、壓碎、削掉了。所以科學家要找一種和地球同時形成、之後就沒有再變過的東西。他們在隕石裡找到了：隕石是從太空來的石頭，和行星是同一個時候形成的。1956 年，美國科學家派特森測量了隕石裡的鈾和鉛，得到大約 45.5 億年的年齡。",
+            "今天，地球的年齡公認大約是 45.4 億年，其他的線索也都對得上：在地球上找到的最古老的礦物顆粒大約有 44 億年；月球上最古老的岩石，年紀也差不多。這麼大的數字很難想像。有一個辦法是把整段故事縮成一天：在這座鐘上，我們這種人類是在午夜前不到六秒才出現的。"
+          ],
+          "questions": [
+            "What is a half-life?",
+            "A rock holds just as much lead as uranium. What does that tell us?",
+            "Why did scientists use meteorites to find the age of the Earth?"
+          ],
+          "answers": [
+            "It is the time it takes for half of the atoms of an unsteady kind to change into another kind.",
+            "Half of the uranium has changed into lead, so about one half-life has passed since the rock formed.",
+            "The oldest rocks of the Earth itself have been melted and worn away. Meteorites formed at the same time as the planets and have not changed since."
+          ],
+          "vocab": [
+            {
+              "n": 1,
+              "w": "atom",
+              "pos": "n.",
+              "zh": "原子",
+              "ex": "Everything is made of <b>atoms</b>.",
+              "exzh": "所有的東西都是原子組成的。"
+            },
+            {
+              "n": 2,
+              "w": "age",
+              "pos": "n.",
+              "zh": "年齡；年代",
+              "ex": "What is the <b>age</b> of this rock?",
+              "exzh": "這塊岩石的年齡是多少？"
+            },
+            {
+              "n": 3,
+              "w": "billion",
+              "pos": "n.",
+              "zh": "十億",
+              "ex": "The Earth is about 4.5 <b>billion</b> years old.",
+              "exzh": "地球大約 45 億歲。"
+            },
+            {
+              "n": 4,
+              "w": "million",
+              "pos": "n.",
+              "zh": "百萬",
+              "ex": "Dinosaurs lived many <b>million</b> years ago.",
+              "exzh": "恐龍生活在好幾百萬年以前。"
+            },
+            {
+              "n": 5,
+              "w": "half",
+              "pos": "n.",
+              "zh": "一半",
+              "ex": "<b>Half</b> of the atoms have changed.",
+              "exzh": "有一半的原子變掉了。"
+            },
+            {
+              "n": 6,
+              "w": "meteorite",
+              "pos": "n.",
+              "zh": "隕石",
+              "ex": "A <b>meteorite</b> is a rock that fell from space.",
+              "exzh": "隕石是從太空掉下來的石頭。"
+            },
+            {
+              "n": 7,
+              "w": "clock",
+              "pos": "n.",
+              "zh": "時鐘",
+              "ex": "The <b>clock</b> on the wall is slow.",
+              "exzh": "牆上的鐘慢了。"
+            },
+            {
+              "n": 8,
+              "w": "steady",
+              "pos": "adj.",
+              "zh": "穩定的；固定的",
+              "ex": "The atoms change at a <b>steady</b> pace.",
+              "exzh": "原子用穩定的步調改變。"
+            }
+          ],
+          "quiz": [
+            {
+              "q": "About how old is the Earth?",
+              "options": [
+                "4.54 billion years",
+                "4.54 million years",
+                "454,000 years",
+                "10,000 years"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "What is a half-life?",
+              "options": [
+                "The time it takes for half of the atoms to change",
+                "Half of the life of an animal",
+                "The time it takes for all of the atoms to change",
+                "Half of a year"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "After two half-lives, how much of the old kind of atom is left?",
+              "options": [
+                "One quarter",
+                "One half",
+                "None",
+                "All of it"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "What did Clair Patterson measure to find the age of the Earth?",
+              "options": [
+                "Uranium and lead in meteorites",
+                "The rings of a very old tree",
+                "The depth of the sea",
+                "The number of fossils"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "If the history of the Earth were one day, when would our kind of human appear?",
+              "options": [
+                "A few seconds before midnight",
+                "At noon",
+                "At six in the morning",
+                "One hour before midnight"
+              ],
+              "correct": 0
+            }
+          ],
+          "parts_head": {
+            "eyebrow": "Try It in the Model · 在模型裡試試",
+            "en": "Four readings of the clock",
+            "zh": "讀四次鐘"
+          },
+          "parts": [
+            {
+              "key": "one",
+              "icon": "½",
+              "en": "One half-life",
+              "zh": "一個半衰期",
+              "meta_en": "Half are left",
+              "meta_zh": "剩下一半",
+              "demo": "one",
+              "text_en": "About 200 green atoms are left. With uranium-238, that is about 4.47 billion years.",
+              "text_zh": "大約剩下 200 顆綠色的原子。用鈾 238 來算，大約是 44.7 億年。"
+            },
+            {
+              "key": "two",
+              "icon": "¼",
+              "en": "Two half-lives",
+              "zh": "兩個半衰期",
+              "meta_en": "A quarter are left",
+              "meta_zh": "剩下四分之一",
+              "demo": "two",
+              "text_en": "About 100 are left. This is older than the Earth, so no rock on Earth looks like this.",
+              "text_zh": "大約剩下 100 顆。這比地球還老，所以地球上沒有長這樣的岩石。"
+            },
+            {
+              "key": "earth",
+              "icon": "🌍",
+              "en": "As old as the Earth",
+              "zh": "和地球一樣老",
+              "meta_en": "4.54 billion years",
+              "meta_zh": "45.4 億年",
+              "demo": "earth",
+              "text_en": "Just under half of the uranium-238 is left. The Earth is about one half-life old.",
+              "text_zh": "鈾 238 還剩下將近一半。地球的年齡大約就是一個半衰期。"
+            },
+            {
+              "key": "bone",
+              "icon": "🦴",
+              "en": "An old bone",
+              "zh": "一根古老的骨頭",
+              "meta_en": "Carbon-14",
+              "meta_zh": "碳 14",
+              "demo": "bone",
+              "text_en": "The same picture, but with a different clock it means only about 11,460 years.",
+              "text_zh": "畫面一模一樣，可是換一座鐘，它代表的只有大約 11,460 年。"
+            }
+          ],
+          "parts_note_en": "A slow clock is good for very old things, and a fast clock is good for young things. Why would carbon-14 be useless for finding the age of the Earth?",
+          "parts_note_zh": "走得慢的鐘適合量很老的東西，走得快的鐘適合量年輕的東西。為什麼碳 14 沒辦法用來量地球的年齡？",
+          "links_head": {
+            "eyebrow": "Go Further · 延伸閱讀",
+            "en": "Order first, then the number",
+            "zh": "先知道順序，再知道數字"
+          },
+          "links": [
+            {
+              "href": "/resources/classes/earth/how-fossils-form/",
+              "icon": "🦴",
+              "k_en": "Earth and Weather · Lesson 14",
+              "k_zh": "地球與天氣 第十四課",
+              "en": "How Do Fossils Form?",
+              "zh": "化石是怎麼形成的？",
+              "note_en": "Layers tell us which is older. This lesson adds how many years.",
+              "note_zh": "地層告訴我們誰比較老；這一課再告訴我們是多少年。"
+            },
+            {
+              "href": "/resources/classes/earth/inside-the-earth/",
+              "icon": "🌍",
+              "k_en": "Earth and Weather · Lesson 1",
+              "k_zh": "地球與天氣 第一課",
+              "en": "What Is Inside the Earth?",
+              "zh": "地球裡面有什麼？",
+              "note_en": "The same planet, looked at in space, not in time.",
+              "note_zh": "同一顆行星，那一課看的是空間，這一課看的是時間。"
+            }
+          ],
+          "oneday": {
+            "eyebrow": "Feel the Number · 感受這個數字",
+            "en": "The history of the Earth in one day",
+            "zh": "把地球的歷史縮成一天",
+            "lead_en": "Imagine that the Earth formed at midnight and that right now is the next midnight, 24 hours later. Tap each event to see what time it happened.",
+            "lead_zh": "想像地球是在午夜十二點形成的，而「現在」是 24 小時之後的下一個午夜。點一點每一件事，看看它發生在幾點。",
+            "events": [
+              {
+                "ma": 4540,
+                "en": "The Earth forms",
+                "zh": "地球形成",
+                "note_en": "The clock starts. This is 4.54 billion years ago.",
+                "note_zh": "鐘開始走。這是 45.4 億年前。"
+              },
+              {
+                "ma": 4404,
+                "en": "The oldest mineral grains we have found",
+                "zh": "目前找到最古老的礦物顆粒",
+                "note_en": "Tiny crystals from Western Australia, at least 4.4 billion years old. The Earth already had solid rock.",
+                "note_zh": "來自澳洲西部的細小晶體，至少有 44 億年。那時候地球已經有堅硬的岩石了。"
+              },
+              {
+                "ma": 3480,
+                "en": "The oldest fossils we have found",
+                "zh": "目前找到最古老的化石",
+                "note_en": "Traces of tiny living things, about 3.48 billion years old. For most of the day, all life is too small to see.",
+                "note_zh": "微小生物留下的痕跡，大約 34.8 億年。這一天大部分的時間裡，所有的生命都小到看不見。"
+              },
+              {
+                "ma": 538.8,
+                "en": "Many kinds of animals appear",
+                "zh": "各式各樣的動物出現",
+                "note_en": "About 539 million years ago, the rocks suddenly begin to hold fossils of many kinds of animals. It is already after nine at night.",
+                "note_zh": "大約 5.39 億年前，岩石裡突然開始出現各式各樣動物的化石。這時候已經是晚上九點多了。"
+              },
+              {
+                "ma": 233,
+                "en": "The first dinosaurs",
+                "zh": "最早的恐龍",
+                "note_en": "About 233 million years ago. The dinosaurs do not arrive until a quarter to eleven at night.",
+                "note_zh": "大約 2.33 億年前。恐龍要到晚上十點四十五分左右才登場。"
+              },
+              {
+                "ma": 66,
+                "en": "The dinosaurs die out, except the birds",
+                "zh": "恐龍消失，只剩下鳥類",
+                "note_en": "About 66 million years ago, twenty-one minutes before midnight.",
+                "note_zh": "大約 6,600 萬年前，離午夜只剩二十一分鐘。"
+              },
+              {
+                "ma": 0.3,
+                "en": "Our kind of human appears",
+                "zh": "我們這種人類出現",
+                "note_en": "About 300,000 years ago. All of human history fits into the last six seconds of the day.",
+                "note_zh": "大約 30 萬年前。人類全部的歷史，都擠在這一天的最後六秒鐘裡。"
+              }
+            ],
+            "note_en": "The times are worked out from the ages, with the age of the Earth taken as 4.54 billion years. The ages are rounded, and scientists keep improving them, so a time on this clock may shift by a little.",
+            "note_zh": "這些時刻是從年代換算出來的，地球的年齡以 45.4 億年計。年代都取了整數，而且科學家還在不斷修正，所以鐘上的時間可能會有一點點出入。"
+          },
+          "facts": {
+            "eyebrow": "Deep Time by the Numbers · 很久很久的數字",
+            "en": "Six numbers about the age of the Earth",
+            "zh": "六個和地球年齡有關的數字",
+            "lead_en": "Three ages, two half-lives, and one very short moment.",
+            "lead_zh": "三個年齡、兩個半衰期，還有一個很短的瞬間。",
+            "items": [
+              {
+                "big": "4.54",
+                "unit_en": "billion years",
+                "unit_zh": "十億年",
+                "en": "The age of the Earth, give or take about 50 million years.",
+                "zh": "地球的年齡，也就是大約 45.4 億年，誤差大約 5,000 萬年。"
+              },
+              {
+                "big": "4.47",
+                "unit_en": "billion years",
+                "unit_zh": "十億年",
+                "en": "The half-life of uranium-238, which slowly changes into lead. It is almost the same as the age of the Earth.",
+                "zh": "鈾 238 的半衰期（大約 44.7 億年）；它會慢慢變成鉛。這個數字和地球的年齡差不多。"
+              },
+              {
+                "big": "5,730",
+                "unit_en": "years",
+                "unit_zh": "年",
+                "en": "The half-life of carbon-14. It is used for things that were once alive, back to about 50,000 years.",
+                "zh": "碳 14 的半衰期。它用來測曾經活著的東西，最遠大約可以測到 5 萬年前。"
+              },
+              {
+                "big": "4.4",
+                "unit_en": "billion years",
+                "unit_zh": "十億年",
+                "en": "The age of the oldest mineral grains found on Earth so far, tiny crystals from the Jack Hills of Western Australia.",
+                "zh": "目前在地球上找到最古老的礦物顆粒的年齡（大約 44 億年），是澳洲西部傑克山的細小晶體。"
+              },
+              {
+                "big": "1956",
+                "unit_en": "the year",
+                "unit_zh": "年",
+                "en": "Clair Patterson published the age of the Earth that he had measured from meteorites: about 4.55 billion years.",
+                "zh": "派特森發表了他用隕石測出來的地球年齡：大約 45.5 億年。"
+              },
+              {
+                "big": "6",
+                "unit_en": "seconds",
+                "unit_zh": "秒",
+                "en": "If the Earth's history were one day, our kind of human would appear less than six seconds before midnight.",
+                "zh": "如果把地球的歷史縮成一天，我們這種人類是在午夜前不到六秒才出現的。"
+              }
+            ]
+          },
+          "culture_cards": {
+            "eyebrow": "Stories of Deep Time · 很久很久的故事",
+            "title_en": "The meteorite, the oldest grains, the Moon, and the fast clock",
+            "title_zh": "一顆隕石、最古老的顆粒、月球，還有一座走得快的鐘",
+            "lead_en": "How four different clues point to the same answer.",
+            "lead_zh": "四條不同的線索，怎麼指向同一個答案。",
+            "cards": [
+              {
+                "k": "1956",
+                "en": "The man who dated the Earth",
+                "zh": "幫地球算出年齡的人",
+                "body_en": "Clair Patterson wanted to measure the tiny amounts of lead in a meteorite, a piece of iron that had fallen in the Arizona desert long ago. The work was very hard, because lead from the air and from his own tools kept getting into his samples. He had to build one of the cleanest laboratories in the world before the numbers made sense. In 1956 he published the result: about 4.55 billion years. It has hardly changed since.",
+                "body_zh": "派特森想要測量一顆隕石裡極少量的鉛；那是很久以前掉在美國亞利桑那州沙漠裡的一塊鐵。這件事非常困難，因為空氣裡的鉛、工具上的鉛，一直跑進他的樣本裡。他得先蓋出一間全世界數一數二乾淨的實驗室，數字才說得通。1956 年他發表了結果：大約 45.5 億年。這個數字後來幾乎沒有再變過。"
+              },
+              {
+                "k": "Australia · 澳洲",
+                "en": "The oldest grains",
+                "zh": "最古老的顆粒",
+                "body_en": "In the Jack Hills of Western Australia there are tiny crystals of a mineral called zircon. They are smaller than a grain of sand, and very tough. The rocks they first formed in are long gone, but the crystals survived and ended up in younger rocks. Some of them are at least 4.4 billion years old. They are the oldest pieces of the Earth that anyone has found.",
+                "body_zh": "在澳洲西部的傑克山，有一種叫做「鋯石」的礦物的細小晶體。它們比一粒沙還小，卻非常堅韌。最初包著它們的岩石早就不在了，這些晶體卻保存了下來，後來落在比較年輕的岩石裡。其中有些至少有 44 億年，是目前人類找到的、地球上最古老的東西。"
+              },
+              {
+                "k": "Moon · 月球",
+                "en": "The Moon agrees",
+                "zh": "月球也這麼說",
+                "body_en": "The Moon has no rain, no rivers, and no moving plates, so its old rocks have not been worn away or melted down like the Earth's. Astronauts brought some of them home. The oldest are about as old as the oldest grains on Earth, a little younger than the meteorites. Three different places give ages that fit together.",
+                "body_zh": "月球上沒有雨、沒有河流，也沒有移動的板塊，所以它古老的岩石不像地球上的那樣被削掉或重新熔化。太空人帶了一些回來。其中最老的，年紀和地球上最古老的顆粒差不多，比隕石年輕一點點。三個不同的地方，得到的年齡彼此吻合。"
+              },
+              {
+                "k": "Carbon-14 · 碳 14",
+                "en": "A clock for young things",
+                "zh": "量年輕東西的鐘",
+                "body_en": "Uranium is far too slow to tell the age of a wooden boat or an old bone. For those, scientists use carbon-14, which living things take in while they are alive. Its half-life is only about 5,730 years. After about 50,000 years there is too little left to measure, so this clock cannot reach back to the dinosaurs. Every clock has a range that it is good for.",
+                "body_zh": "要知道一艘木船或一根古老的骨頭有多老，鈾實在太慢了。這種時候科學家用的是碳 14：生物活著的時候會把它吸收進身體。它的半衰期只有大約 5,730 年。過了大約 5 萬年，剩下的就少到量不出來了，所以這座鐘沒辦法量到恐龍的年代。每一座鐘都有它適合的範圍。"
+              }
+            ]
+          },
+          "myths": [
+            {
+              "myth_en": "Scientists found a rock on Earth that is 4.54 billion years old.",
+              "myth_zh": "科學家在地球上找到一塊 45.4 億年的石頭。",
+              "fact_en": "The oldest grains found on Earth are about 4.4 billion years old. The age of the Earth itself comes mainly from meteorites, which formed at the same time.",
+              "fact_zh": "在地球上找到的最古老的顆粒大約 44 億年。地球本身的年齡，主要是從和它同時形成的隕石量出來的。"
+            },
+            {
+              "myth_en": "After two half-lives, all the atoms have changed.",
+              "myth_zh": "過了兩個半衰期，原子就全部變完了。",
+              "fact_en": "After one half-life, half are left. After two, a quarter are left. Each half-life removes half of what remains.",
+              "fact_zh": "一個半衰期後剩一半，兩個半衰期後剩四分之一。每過一個半衰期，是「剩下的」再少一半。"
+            },
+            {
+              "myth_en": "Carbon dating tells us the age of the Earth.",
+              "myth_zh": "地球的年齡是用碳 14 測出來的。",
+              "fact_en": "Carbon-14 works only back to about 50,000 years. The age of the Earth was measured with uranium and lead.",
+              "fact_zh": "碳 14 最遠只能測到大約 5 萬年前。地球的年齡是用鈾和鉛量出來的。"
+            },
+            {
+              "myth_en": "We know the age of the Earth exactly.",
+              "myth_zh": "我們確切知道地球幾歲。",
+              "fact_en": "The figure is 4.54 billion years, give or take about 50 million. That is very close, but it is still a measurement.",
+              "fact_zh": "這個數字是 45.4 億年，誤差大約 5,000 萬年。已經很接近了，但它仍然是一個測量值。"
+            }
+          ],
+          "tricks": [
+            {
+              "title_en": "Some atoms change",
+              "title_zh": "有些原子會變",
+              "body_en": "Uranium slowly becomes lead.",
+              "body_zh": "鈾會慢慢變成鉛。"
+            },
+            {
+              "title_en": "At a steady pace",
+              "title_zh": "步調固定",
+              "body_en": "Half change in each half-life.",
+              "body_zh": "每個半衰期變掉一半。"
+            },
+            {
+              "title_en": "Count old and new",
+              "title_zh": "數舊的和新的",
+              "body_en": "The ratio tells the time.",
+              "body_zh": "比例就是時間。"
+            },
+            {
+              "title_en": "Meteorites give the answer",
+              "title_zh": "隕石給出答案",
+              "body_en": "About 4.54 billion years.",
+              "body_zh": "大約 45.4 億年。"
+            }
+          ],
+          "activities": [
+            {
+              "title_en": "A Half-Life with Coins",
+              "title_zh": "用硬幣做半衰期",
+              "materials": [
+                {
+                  "en": "100 coins of the same kind (or 100 paper squares marked on one side) and a box with a lid",
+                  "zh": "100 枚相同的硬幣（或 100 張一面做了記號的小紙片），還有一個有蓋的盒子"
+                },
+                {
+                  "en": "Paper and a pen for a table and a graph",
+                  "zh": "紙和筆，用來畫表格和圖"
+                }
+              ],
+              "steps": [
+                {
+                  "en": "Put all the coins in the box. Close the lid and shake it well.",
+                  "zh": "把硬幣全部放進盒子，蓋上蓋子，用力搖一搖。"
+                },
+                {
+                  "en": "Open the box. Take out every coin that shows heads. These atoms have “changed.” Count the coins that are left and write the number down.",
+                  "zh": "打開盒子，把正面朝上的硬幣全部拿出來：這些原子「變掉了」。數一數還剩幾枚，記下來。"
+                },
+                {
+                  "en": "Close the lid and shake again. Each shake is one half-life. Keep going until no coins are left.",
+                  "zh": "蓋上蓋子再搖。每搖一次就是一個半衰期。一直做到硬幣全部拿完。"
+                },
+                {
+                  "en": "Draw a graph: the number of shakes along the bottom, and the number of coins left up the side. What shape is the line?",
+                  "zh": "畫一張圖：橫的是搖了幾次，直的是剩下幾枚。這條線是什麼形狀？"
+                }
+              ],
+              "tip_en": "You could not say which coin would come up heads, yet about half left on every shake. Now cover the table and show a friend only how many coins are left. Can your friend tell how many shakes you have done? That is how a rock is dated.",
+              "tip_zh": "你沒辦法說哪一枚硬幣會出現正面，可是每搖一次，大約就有一半離開。現在把表格遮起來，只讓朋友看剩下幾枚：他說得出你搖了幾次嗎？岩石的年齡就是這樣量出來的。"
+            },
+            {
+              "title_en": "A Timeline You Can Walk",
+              "title_zh": "一條可以走的時間線",
+              "materials": [
+                {
+                  "en": "A long corridor or a playground, a tape measure, and chalk or sticky notes",
+                  "zh": "一條長走廊或操場、一把捲尺，還有粉筆或便利貼"
+                },
+                {
+                  "en": "The events and ages from the one-day clock above",
+                  "zh": "上面「一天的鐘」裡的那些事件和年代"
+                }
+              ],
+              "steps": [
+                {
+                  "en": "Measure a line 45.4 meters long. One end is the birth of the Earth, and the other end is today. Each meter is 100 million years.",
+                  "zh": "量出一條 45.4 公尺長的線。一端是地球誕生，另一端是今天；每一公尺代表一億年。"
+                },
+                {
+                  "en": "Mark the oldest fossils 34.8 meters from the “today” end, and the first dinosaurs 2.33 meters from it.",
+                  "zh": "在離「今天」那一端 34.8 公尺的地方標上「最古老的化石」，2.33 公尺的地方標上「最早的恐龍」。"
+                },
+                {
+                  "en": "Mark the end of the dinosaurs 66 centimeters from today.",
+                  "zh": "在離今天 66 公分的地方，標上「恐龍消失」。"
+                },
+                {
+                  "en": "Now mark our own kind of human. How far from the end should it be? Work it out before you look at the answer below.",
+                  "zh": "現在標上我們這種人類。它應該離終點多遠？先自己算算看，再看下面的答案。"
+                }
+              ],
+              "tip_en": "The answer is 3 millimeters, about the thickness of two coins. Walk the whole line slowly from the beginning, and notice how long you walk before anything large is alive.",
+              "tip_zh": "答案是 3 公釐，大約兩枚硬幣疊起來的厚度。從起點慢慢走完整條線，注意你要走多久，才會遇到任何大型的生物。"
+            }
+          ],
+          "sources": [
+            {
+              "en": "The age of the Earth is 4.54 ± 0.05 billion years, based on dating of meteorites and consistent with the oldest Earth minerals and Moon rocks; the oldest zircon crystals, from the Jack Hills of Western Australia, are at least 4.404 billion years old; Clair Patterson's result of about 4.55 billion years from meteorites, including the Canyon Diablo meteorite, was published in 1956",
+              "zh": "地球年齡為 45.4 ± 0.5 億年，依據隕石的定年，並與地球最古老的礦物及月球岩石相符；澳洲西部傑克山的鋯石至少 44.04 億年；派特森以隕石（包括代亞布羅峽谷隕石）測得約 45.5 億年，1956 年發表",
+              "src": "Wikipedia, “Age of Earth”",
+              "url": "https://en.wikipedia.org/wiki/Age_of_Earth"
+            },
+            {
+              "en": "A half-life is the time needed for a quantity to fall to half its starting value; after n half-lives, 1/2ⁿ remains",
+              "zh": "半衰期是數量減少到原來一半所需的時間；經過 n 個半衰期後剩下 1/2ⁿ",
+              "src": "Wikipedia, “Half-life”",
+              "url": "https://en.wikipedia.org/wiki/Half-life"
+            },
+            {
+              "en": "The pace of radioactive decay is not affected by temperature, pressure, or chemical surroundings",
+              "zh": "放射性衰變的速率不受溫度、壓力或化學環境影響",
+              "src": "Wikipedia, “Radiometric dating”",
+              "url": "https://en.wikipedia.org/wiki/Radiometric_dating"
+            },
+            {
+              "en": "Uranium-238 changes to lead-206 with a half-life of 4.47 billion years, and uranium-235 to lead-207 with a half-life of 710 million years; the ratio of lead to uranium gives the age",
+              "zh": "鈾 238 衰變為鉛 206，半衰期 44.7 億年；鈾 235 衰變為鉛 207，半衰期 7.1 億年；由鉛與鈾的比例可以算出年齡",
+              "src": "Wikipedia, “Uranium–lead dating”",
+              "url": "https://en.wikipedia.org/wiki/Uranium%E2%80%93lead_dating"
+            },
+            {
+              "en": "Carbon-14 has a half-life of about 5,730 years and can date material back to about 50,000 years",
+              "zh": "碳 14 的半衰期約 5,730 年，最遠可測到約 5 萬年前",
+              "src": "Wikipedia, “Radiocarbon dating”",
+              "url": "https://en.wikipedia.org/wiki/Radiocarbon_dating"
+            },
+            {
+              "en": "Clair Patterson measured lead in the Canyon Diablo meteorite and calculated an age for the Earth of 4.55 billion years; contamination by lead was a major difficulty",
+              "zh": "派特森測量代亞布羅峽谷隕石裡的鉛，算出地球年齡約 45.5 億年；鉛的污染是最大的困難",
+              "src": "Wikipedia, “Clair Patterson”",
+              "url": "https://en.wikipedia.org/wiki/Clair_Patterson"
+            },
+            {
+              "en": "The Jack Hills zircons formed about 4.4 billion years ago and are the oldest material of Earth origin found so far",
+              "zh": "傑克山的鋯石約 44 億年前形成，是目前找到最古老的地球物質",
+              "src": "Wikipedia, “Jack Hills”",
+              "url": "https://en.wikipedia.org/wiki/Jack_Hills"
+            },
+            {
+              "en": "The oldest fossils are about 3.48 billion years old",
+              "zh": "最古老的化石約 34.8 億年",
+              "src": "Wikipedia, “Fossil”",
+              "url": "https://en.wikipedia.org/wiki/Fossil"
+            },
+            {
+              "en": "Many kinds of animals appear in the fossil record from about 538.8 million years ago",
+              "zh": "約 5.388 億年前起，化石紀錄中出現各式各樣的動物",
+              "src": "Wikipedia, “Cambrian explosion”",
+              "url": "https://en.wikipedia.org/wiki/Cambrian_explosion"
+            },
+            {
+              "en": "Dinosaurs first appeared about 233 million years ago; birds are living dinosaurs",
+              "zh": "恐龍最早出現在約 2.33 億年前；鳥類是現存的恐龍",
+              "src": "Wikipedia, “Dinosaur”",
+              "url": "https://en.wikipedia.org/wiki/Dinosaur"
+            },
+            {
+              "en": "Our species appeared about 300,000 years ago",
+              "zh": "我們這個物種約在 30 萬年前出現",
+              "src": "Wikipedia, “Human”",
+              "url": "https://en.wikipedia.org/wiki/Human"
+            }
+          ]
         }
       ],
       "planned": [
-        {
-          "n": 15,
-          "icon": "⏳",
-          "en": "How Do We Know How Old the Earth Is?",
-          "zh": "我們怎麼知道地球幾歲？"
-        },
         {
           "n": 16,
           "icon": "🌡️",
