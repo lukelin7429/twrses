@@ -261,6 +261,20 @@
 @media (prefers-reduced-motion: reduce) { .ew-cy-item.moving i { animation: none; } }
 .ew-cy-out .cp-home-big { font-size: 1.3rem; }
 
+/* ---------- 第十二課：海嘯和一般的海浪有什麼不同？ ---------- */
+@media (min-width: 1021px) { .ew-ts-lab .al-space { min-height: 600px; } }
+.ew-ts-msg[hidden] { display: none; }
+.ew-ts-go:disabled { opacity: .4; cursor: default; }
+.al-lg-ewtsmove i { border: 0; border-radius: 50%; width: 10px; height: 10px; margin: .35rem 10px 0; background: #ffd84a; }
+.al-lg-ewtsstill i { border: 0; border-radius: 50%; width: 10px; height: 10px; margin: .35rem 10px 0; background: #dfeaf7; }
+.al-lg-ewtssea i { border: 0; height: 11px; margin-top: .3rem; border-radius: 3px; background: #2f7fd6; }
+/* 頁面小工具：海嘯跑多快？ */
+.ew-tw .al-age::-webkit-slider-runnable-track { background: linear-gradient(90deg, var(--brand) 0 var(--p, 67%), #e5dfd0 var(--p, 67%)); }
+.ew-tw .al-age::-webkit-slider-thumb { border-color: var(--brand); }
+.ew-tw .al-age::-moz-range-progress { background: var(--brand); }
+.ew-tw-pre { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+@media (max-width: 560px) { .ew-tw-pre { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
 /* ---------- 全系列共用 ---------- */
 .cp-link.ew-link-soon { border-style: dashed; opacity: .78; cursor: default; }
 .ew-safety-src { margin: 1rem 0 0; font-size: .86rem; color: var(--ink-soft); }

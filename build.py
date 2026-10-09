@@ -9645,7 +9645,7 @@ def build_chip_hub():
 _earthj = os.path.join(ROOT, "data", "earth.json")
 EARTH = json.load(open(_earthj, encoding="utf-8")) if os.path.exists(_earthj) else None
 EARTH_BASE = "/resources/classes/earth/"
-_EARTH_JS = {"quake": "earth-quake", "inside": "earth-inside", "shake": "earth-shake", "mountain": "earth-mountain", "volcano": "earth-volcano", "rain": "earth-rain", "wind": "earth-wind", "typhoon": "earth-typhoon", "lightning": "earth-lightning", "forecast": "earth-forecast", "river": "earth-river"}   # lab.kind → assets/js/<bundle>.js
+_EARTH_JS = {"quake": "earth-quake", "inside": "earth-inside", "shake": "earth-shake", "mountain": "earth-mountain", "volcano": "earth-volcano", "rain": "earth-rain", "wind": "earth-wind", "typhoon": "earth-typhoon", "lightning": "earth-lightning", "forecast": "earth-forecast", "river": "earth-river", "tsunami": "earth-tsunami"}   # lab.kind → assets/js/<bundle>.js
 
 def _earth_ver():
     h = hashlib.md5()
@@ -10441,9 +10441,73 @@ def _earth_carry(cy):
             f'</div></div>'
             '<noscript><p class="muted">This tool works in your browser and needs JavaScript. · 這個小工具在瀏覽器裡運作，需要開啟 JavaScript。</p></noscript>')
 
-_EARTH_LAB = {"quake": render_earthquake_lab, "inside": render_earthinside_lab, "shake": render_earthshake_lab, "mountain": render_earthmountain_lab, "volcano": render_earthvolcano_lab, "rain": render_earthrain_lab, "wind": render_earthwind_lab, "typhoon": render_earthtyphoon_lab, "lightning": render_earthlightning_lab, "forecast": render_earthforecast_lab, "river": render_earthriver_lab}          # lab.kind → 3D 面板
-_EARTH_ICON = {"quake": earthquake_svg, "inside": earthglobe_svg, "shake": earthshake_svg, "mountain": earthmountain_svg, "volcano": earthvolcano_svg, "rain": earthrain_svg, "wind": earthwind_svg, "typhoon": earthtyphoon_svg, "lightning": earthlightning_svg, "forecast": earthforecast_svg, "river": earthriver_svg}                 # lesson.card → 課程卡小圖示
-_EARTH_WIDGETS = [("warn", _earth_warn), ("dig", _earth_dig), ("scale10", _earth_scale10), ("peak", _earth_peak), ("bubble", _earth_bubble), ("gauge", _earth_gauge), ("beaufort", _earth_beaufort), ("eyepass", _earth_eyepass), ("count", _earth_count), ("skyword", _earth_skyword), ("carry", _earth_carry)]               # lesson 裡有這個 key 就多一段（照這裡的順序）
+def earthtsunami_svg(size=56):
+    """第十二課的課程卡小圖示：海的剖面，一道從海面到海底的波往岸邊推。"""
+    return (f'<svg class="earthtsunami-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">'
+            '<path d="M4 54 V40 L30 48 L44 30 L56 26 V54 Z" fill="#cdb98a"/>'
+            '<path d="M4 26 C12 26 14 14 22 14 C30 14 30 26 44 28 V30 L30 48 L4 40 Z" fill="#2f7fd6"/>'
+            '<path d="M20 20 V40 M14 24 V38 M26 22 V44" stroke="#fff" stroke-width="2" stroke-linecap="round" opacity=".8"/>'
+            '<rect x="47" y="19" width="6" height="6" fill="#e6d7b8"/><path d="M46 19 L50 15 L54 19 Z" fill="#a5523a"/></svg>')
+
+def render_earthtsunami_lab(lesson):
+    """第十二課：海的剖面，風浪只動表層、海嘯動整層，靠岸變慢變高（assets/js/earth-tsunami.js 綁這裡的 class；全部自繪示意）。"""
+    lab = lesson["lab"]
+    msgs = "".join(f'<p class="cp-msg ew-ts-msg" data-msg="{k}" hidden>{html.escape(m["en"])}<span class="zh">{html.escape(m["zh"])}</span></p>' for k, m in lab["msgs"].items())
+    tg = _lab_toggles([("labels", "Labels", "標示", True)])
+    return f'''<div class="astro-lab cp-lab ew-lab ew-ts-lab rvl" data-earthtsunami-lab>
+  <div class="al-stage">
+    <div class="al-space">
+      <canvas class="al-space-cv" aria-label="3D cutaway of the sea from the deep ocean to a town on the shore: an ordinary wave moves only the water near the surface, while a tsunami moves the whole depth of water, slows down in shallow water, and grows taller · 從深海到岸邊小鎮的海洋 3D 剖面：一般的浪只動到靠近海面的水，海嘯則推動整層海水，到了淺水變慢、變高"></canvas>
+      <div class="al-labels" aria-hidden="true"></div>
+      <div class="cp-view" role="group" aria-label="Kind of wave · 哪一種浪">
+        <button type="button" data-view="wind" aria-pressed="false">Wind waves<small>風吹的浪</small></button>
+        <button type="button" data-view="tsunami" aria-pressed="true">Tsunami<small>海嘯</small></button>
+      </div>
+      <p class="al-hint">Drag to turn · 拖曳旋轉　Scroll or pinch to zoom · 滾輪／雙指縮放</p>
+      <button type="button" class="al-home" title="Reset view · 重設視角" aria-label="Reset view · 重設視角">&#8634;</button>
+      <p class="al-nogl-msg">This 3D model needs WebGL, which this browser does not support. The reading and the cards below still explain everything.<br><span class="zh">這個瀏覽器不支援 WebGL，無法顯示 3D 模型；下方的課文與卡片一樣能看懂。</span></p>
+    </div>
+    <aside class="al-sky cp-aside">
+      <p class="al-sky-k">Follow the wave · 跟著這道波</p>
+      <button type="button" class="ew-lt-strike ew-ts-go">🌊 Start a new tsunami · 再來一次海嘯</button>
+      <dl class="cp-nums cp-lt-nums ew-nums">
+        <div><dt>Water depth · 水深</dt><dd class="ew-ts-depth"></dd></div>
+        <div><dt>Speed · 速度</dt><dd class="ew-ts-speed"></dd></div>
+        <div><dt>Height · 高度</dt><dd class="ew-ts-height"></dd></div>
+      </dl>
+      {msgs}
+    </aside>
+  </div>
+  <div class="al-controls">
+    <div class="al-row al-row-main">
+      <button type="button" class="al-play" aria-pressed="true"><span class="al-play-i" aria-hidden="true"></span><span class="al-play-t">Pause · 暫停</span></button>
+      <div class="al-row al-toggles">{tg}</div>
+    </div>
+  </div>
+  {_lab_foot(lab)}
+  <p class="cp-credit">{lab["credit_html"]}</p>
+</div>'''
+
+def _earth_wavespeed(ws):
+    """「海嘯跑多快？」（earth-tsunami.js 的 initSpeed；V = √(g h)，中央氣象署地震百問；不需要 WebGL）。"""
+    pre = "".join(f'<button type="button" data-d="{dd}" aria-pressed="false">{dd:,} m</button>' for dd in (10, 100, 1000, 4000))
+    return (f'<div class="cp-cnt ew-tw rvl" data-earth-wavespeed>'
+            f'<div class="cp-cnt-in">'
+            f'<label class="cp-cnt-l"><span>How deep is the sea? · 海有多深？ <output class="ew-tw-d-out">4,000 m</output></span>'
+            f'<input type="range" class="al-age ew-tw-d" min="0" max="6000" step="10" value="4000"></label>'
+            f'<div class="cp-dpw-pre ew-tw-pre" role="group" aria-label="Depth · 水深">{pre}</div>'
+            f'<p class="cp-cnt-note">{html.escape(ws["note_en"])}<span class="zh">{html.escape(ws["note_zh"])}</span></p></div>'
+            f'<div class="cp-home-out cp-cnt-out ew-tw-out" aria-live="polite">'
+            f'<p class="cp-home-k">A tsunami travels at about · 海嘯的速度大約是</p>'
+            f'<p class="cp-home-big"><b class="ew-tw-kmh">713</b> km/h · 公里／時</p>'
+            f'<p class="cp-home-sub">That is <b class="ew-tw-ms">198</b> meters every second. · 也就是每秒這麼多公尺。</p>'
+            f'<p class="cp-home-note">At this speed it crosses 100 kilometers in about <b class="ew-tw-min">8</b> minutes.<span class="zh">用這個速度走 100 公里，大約只要這麼多分鐘。</span></p>'
+            f'</div></div>'
+            '<noscript><p class="muted">The calculator works in your browser and needs JavaScript. · 計算在瀏覽器裡進行，需要開啟 JavaScript。</p></noscript>')
+
+_EARTH_LAB = {"quake": render_earthquake_lab, "inside": render_earthinside_lab, "shake": render_earthshake_lab, "mountain": render_earthmountain_lab, "volcano": render_earthvolcano_lab, "rain": render_earthrain_lab, "wind": render_earthwind_lab, "typhoon": render_earthtyphoon_lab, "lightning": render_earthlightning_lab, "forecast": render_earthforecast_lab, "river": render_earthriver_lab, "tsunami": render_earthtsunami_lab}          # lab.kind → 3D 面板
+_EARTH_ICON = {"quake": earthquake_svg, "inside": earthglobe_svg, "shake": earthshake_svg, "mountain": earthmountain_svg, "volcano": earthvolcano_svg, "rain": earthrain_svg, "wind": earthwind_svg, "typhoon": earthtyphoon_svg, "lightning": earthlightning_svg, "forecast": earthforecast_svg, "river": earthriver_svg, "tsunami": earthtsunami_svg}                 # lesson.card → 課程卡小圖示
+_EARTH_WIDGETS = [("warn", _earth_warn), ("dig", _earth_dig), ("scale10", _earth_scale10), ("peak", _earth_peak), ("bubble", _earth_bubble), ("gauge", _earth_gauge), ("beaufort", _earth_beaufort), ("eyepass", _earth_eyepass), ("count", _earth_count), ("skyword", _earth_skyword), ("carry", _earth_carry), ("wavespeed", _earth_wavespeed)]               # lesson 裡有這個 key 就多一段（照這裡的順序）
 
 def _earth_flat():
     return [(ui, u, l) for ui, u in enumerate(EARTH["units"]) for l in u["lessons"]]

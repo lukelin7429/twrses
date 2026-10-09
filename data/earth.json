@@ -7036,15 +7036,604 @@
               "url": "https://zh.wikipedia.org/zh-tw/彰化平原"
             }
           ]
+        },
+        {
+          "n": 12,
+          "slug": "tsunami",
+          "title": "How Is a Tsunami Different from an Ordinary Wave?",
+          "title_zh": "海嘯和一般的海浪有什麼不同？",
+          "level": "入門 · Beginner",
+          "icon": "🌊",
+          "card": "tsunami",
+          "blurb_en": "The waves at the beach come and go all day and do no harm. A tsunami is something else. Out at sea it is so low that a ship may not notice it, yet it crosses the ocean as fast as a jet. In a 3D cutaway of the sea, compare the two kinds of waves, and follow a tsunami from deep water to the shore as it slows down and rises. Then learn the signs that tell you to move to high ground at once.",
+          "blurb_zh": "海邊的浪整天來來去去，不會傷人。海嘯卻是完全不同的東西。它在外海矮到船上的人可能根本沒發現，卻用噴射機的速度橫越大洋。在海的 3D 剖面裡，比一比這兩種浪，再跟著一道海嘯從深海走到岸邊，看它怎麼變慢、變高。最後，學會哪些徵兆是在告訴你：馬上往高處走。",
+          "big_idea_en": "An ordinary wave is made by the wind, and it moves only the water near the surface. A tsunami usually begins when the seabed suddenly jumps up or drops down in a great earthquake. That pushes the whole depth of water, from the bottom to the top. In deep water a tsunami is very fast and very low. Near the shore the water is shallow, so the front slows down, the water behind catches up, and the sea piles up high.",
+          "big_idea_zh": "一般的浪是風吹出來的，只動到靠近海面的水。海嘯通常是大地震的時候，海底突然抬升或陷落所造成的；這一下推動的是從海底到海面的整層海水。在深海，海嘯跑得非常快，卻非常矮。到了岸邊水變淺，前面慢了下來，後面的水追上來，海水就堆高了。",
+          "tricks_head": {
+            "en": "A tsunami in a sentence",
+            "zh": "一句話記住海嘯"
+          },
+          "checked": {
+            "en": "October 2026",
+            "zh": "2026 年 10 月"
+          },
+          "lab": {
+            "kind": "tsunami",
+            "eyebrow": "3D Model · 3D 模型",
+            "title_en": "Two Kinds of Waves",
+            "title_zh": "兩種浪",
+            "how_en": "Drag to turn the model, and scroll or pinch to zoom. You are looking at the sea from the side, with deep ocean on the left and a town on the right. The dots are bits of water, and they turn yellow when they move. First choose Wind waves and see which dots move. Then choose Tsunami and compare. Follow the tsunami toward the shore and watch its speed and its height.",
+            "how_zh": "拖曳可以旋轉模型，滾輪或雙指可以縮放。你是從側面看海：左邊是深海，右邊是一個小鎮。那些小點是一小團一小團的海水，在動的時候會變成黃色。先選「風吹的浪」，看看哪些點在動；再選「海嘯」比一比。跟著海嘯往岸邊走，注意它的速度和高度。",
+            "msgs": {
+              "wind": {
+                "en": "These are ordinary waves, made by the wind. Only the water near the surface moves, in small circles. A little way down, the water hardly moves at all. The waves break gently on the beach, one after another.",
+                "zh": "這是風吹出來的一般的浪。只有靠近海面的水在動，繞著小小的圈。往下一點點，水就幾乎不動了。這些浪一道接一道，輕輕地打在沙灘上。"
+              },
+              "deep": {
+                "en": "The seabed has moved, and the whole depth of water has been pushed. In the deep ocean, this wave travels as fast as a jet plane, but it is very low and very long. A ship above it would hardly feel it.",
+                "zh": "海底動了，整層海水都被推動。在深海裡，這道波跑得和噴射機一樣快，卻很矮、很長。在它上面的船幾乎感覺不到。"
+              },
+              "shoal": {
+                "en": "The water is getting shallow, so the front of the wave is slowing down. The water behind is still coming fast. It catches up and piles on top, and the wave grows taller and taller.",
+                "zh": "水越來越淺，所以波的前端慢了下來。後面的水還是來得很快，追上來、疊上去，這道波就越來越高。"
+              },
+              "land": {
+                "en": "The sea does not break and fall back like an ordinary wave. It keeps coming, like a river running onto the land, because all the water behind is still pushing. More waves may follow, so the danger is not over.",
+                "zh": "海水不像一般的浪那樣打上來就退回去。它一直湧進來，像一條河流上了陸地，因為後面整片海水都還在推。接下來可能還有好幾波，所以危險還沒有結束。"
+              }
+            },
+            "legend": [
+              {
+                "cls": "ewtsmove",
+                "en": "Yellow dots: water that is moving",
+                "zh": "黃色的點：正在動的海水"
+              },
+              {
+                "cls": "ewtsstill",
+                "en": "Pale dots: water that is still",
+                "zh": "淺色的點：沒有動的海水"
+              },
+              {
+                "cls": "ewtssea",
+                "en": "Blue: the sea, seen from the side",
+                "zh": "藍色：從側面看的海"
+              }
+            ],
+            "scale_en": "A teaching model. The speeds are real: they come from the rule used by the Central Weather Administration, in which the speed depends only on the depth of the water. The shape of the seabed is an example, and so is the number that shows how much taller the wave becomes. On a real coast that depends strongly on the shape of the shore. The picture is squeezed: the real ocean is far wider and far flatter, and a real tsunami in deep water is hundreds of kilometers long and less than a meter high.",
+            "scale_zh": "這是教學用的模型。速度是真的：用的是中央氣象署採用的公式，速度只和水深有關。海底的形狀是示例；「變高幾倍」的數字也是示意，真的海岸要看當地的地形。畫面被壓縮過：真的海洋寬得多、也平得多，真的海嘯在深海裡有好幾百公里長，卻不到一公尺高。",
+            "credit_html": "Model drawn by My Culture Connect as a teaching diagram. The ideas follow the Central Weather Administration's <a href=\"https://scweb.cwa.gov.tw/zh-TW/Guidance/FAQdetail/64\" target=\"_blank\" rel=\"noopener\">questions and answers on earthquakes and tsunamis</a> and the other sources listed at the bottom of this page. · 模型由人師教育協會自繪示意；原理依中央氣象署「地震百問」與本頁最下方列出的其他出處。"
+          },
+          "paras": [
+            "Stand on a beach and watch the waves. Each one rises, curls over, breaks, and slides back. A minute later you have seen ten of them. These waves are made by the wind blowing across the sea. They look strong, but they move only the water near the top. A diver a little way down hardly feels them.",
+            "A tsunami is not made by the wind. Most tsunamis begin with a great earthquake under the sea. If the seabed suddenly jumps up or drops down, it lifts or lowers all the water above it, from the bottom of the sea to the top. That huge push spreads outward in every direction. A landslide under the sea or a volcano erupting in the sea can do the same thing.",
+            "Out in the deep ocean, a tsunami is hard to notice. It may be less than a meter high, and the distance from one crest to the next can be hundreds of kilometers, so a ship simply rises and falls a little. But it is moving very fast. Its speed depends on the depth of the water. In the open ocean it travels 500 to 1,000 kilometers an hour, about as fast as a jet plane.",
+            "Everything changes near the land. The water becomes shallow, so the front of the tsunami slows down. The water behind it is still in deeper water and still moving fast. It catches up and piles on top. The tsunami grows from something a ship cannot feel into a wall of water.",
+            "When it reaches the shore, a tsunami does not behave like a beach wave. It does not break and slide back in a few seconds. The whole sea keeps pouring onto the land for minutes, and it carries boats, cars, and pieces of buildings with it. Then it drains back out, just as strongly. There is usually more than one wave.",
+            "Sometimes the sea gives a warning. Before a tsunami arrives, the water may suddenly pull far back from the shore and leave the seabed bare. This does not always happen. So the rule is simple. If you are near the sea and you feel a strong earthquake, or you see the water draw back, or you hear a tsunami warning, do not wait and do not watch. Go to high ground at once."
+          ],
+          "paras_zh": [
+            "站在沙灘上看浪。每一道浪升起來、捲過去、碎掉，再滑回去；一分鐘裡你就看了十道。這些浪是風吹過海面造成的。它們看起來很有力，其實只動到最上面的水；潛到底下一點點的人，幾乎感覺不到。",
+            "海嘯不是風吹出來的。大部分的海嘯，是從海底的大地震開始的。海底如果突然抬升或陷落，就會把它上面的水全部抬高或放低，從海底一直到海面。這一下巨大的推力，朝四面八方傳出去。海底的山崩、海裡的火山噴發，也可能造成同樣的事。",
+            "在外海的深水裡，海嘯很難察覺。它可能不到一公尺高，而兩個波峰之間的距離可以有好幾百公里，所以船只是稍微升高、又降下來一點點。可是它跑得非常快。它的速度看的是水深：在廣闊的大洋裡，每小時可以跑 500 到 1,000 公里，和噴射客機差不多快。",
+            "一靠近陸地，情況就完全不同了。水變淺，海嘯的前端慢了下來；後面的水還在比較深的地方，跑得還是很快，就追上來、疊上去。海嘯就從船上感覺不到的小起伏，長成一道水牆。",
+            "到了岸邊，海嘯的樣子也不像沙灘上的浪。它不會打上來、幾秒鐘就退回去；而是整片海水持續好幾分鐘往陸地上灌，把船、車子和房屋的碎片一起帶著走。然後它再用同樣大的力量退回去。而且通常不只一波。",
+            "有時候，大海會先給一個警告：海嘯到達之前，海水可能突然退得很遠，露出海底。但不是每一次都會這樣。所以規則很簡單：在海邊感覺到強烈的地震、看到海水突然退去，或是聽到海嘯警報，不要等，也不要看，馬上往高處走。"
+          ],
+          "questions": [
+            "What makes ordinary waves, and what makes most tsunamis?",
+            "Why is a tsunami hard to notice in the deep ocean?",
+            "Why does a tsunami grow taller near the shore?"
+          ],
+          "answers": [
+            "Ordinary waves are made by the wind. Most tsunamis are made when the seabed suddenly moves up or down in a great earthquake.",
+            "In deep water it may be less than a meter high, and its crests are hundreds of kilometers apart, so a ship only rises and falls a little.",
+            "The water is shallow there, so the front slows down. The water behind is still moving fast, so it catches up and piles on top."
+          ],
+          "vocab": [
+            {
+              "n": 1,
+              "w": "tsunami",
+              "pos": "n.",
+              "zh": "海嘯",
+              "ex": "A <b>tsunami</b> can cross an ocean in a few hours.",
+              "exzh": "海嘯可以在幾個小時之內橫越一片大洋。"
+            },
+            {
+              "n": 2,
+              "w": "wave",
+              "pos": "n.",
+              "zh": "波浪",
+              "ex": "The <b>waves</b> were small this morning.",
+              "exzh": "今天早上的浪很小。"
+            },
+            {
+              "n": 3,
+              "w": "ocean",
+              "pos": "n.",
+              "zh": "海洋；大洋",
+              "ex": "The Pacific is the largest <b>ocean</b>.",
+              "exzh": "太平洋是最大的海洋。"
+            },
+            {
+              "n": 4,
+              "w": "surface",
+              "pos": "n.",
+              "zh": "表面；海面",
+              "ex": "A leaf floated on the <b>surface</b> of the water.",
+              "exzh": "一片葉子浮在水面上。"
+            },
+            {
+              "n": 5,
+              "w": "seabed",
+              "pos": "n.",
+              "zh": "海底；海床",
+              "ex": "The earthquake lifted the <b>seabed</b>.",
+              "exzh": "地震把海底抬高了。"
+            },
+            {
+              "n": 6,
+              "w": "shore",
+              "pos": "n.",
+              "zh": "岸邊",
+              "ex": "We walked along the <b>shore</b>.",
+              "exzh": "我們沿著岸邊散步。"
+            },
+            {
+              "n": 7,
+              "w": "rush",
+              "pos": "v.",
+              "zh": "急速流動；衝",
+              "ex": "Water <b>rushed</b> into the street.",
+              "exzh": "水衝進了街道。"
+            },
+            {
+              "n": 8,
+              "w": "escape",
+              "pos": "v.",
+              "zh": "逃離；避難",
+              "ex": "They <b>escaped</b> to the top of the hill.",
+              "exzh": "他們逃到了山丘頂上。"
+            }
+          ],
+          "quiz": [
+            {
+              "q": "What makes ordinary waves at the beach?",
+              "options": [
+                "The wind",
+                "Earthquakes",
+                "The moon only",
+                "Ships"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "What starts most tsunamis?",
+              "options": [
+                "A sudden movement of the seabed in a great earthquake",
+                "A strong wind far out at sea",
+                "A very high tide",
+                "Heavy rain"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "How much of the water does a tsunami move?",
+              "options": [
+                "The whole depth, from the seabed to the surface",
+                "Only the top meter",
+                "Only the water near the shore",
+                "Only the water at the bottom"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "What happens to a tsunami when it reaches shallow water?",
+              "options": [
+                "It slows down and grows taller",
+                "It speeds up and gets lower",
+                "It stops and disappears",
+                "It turns around"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "You are at the beach and feel a strong earthquake. What should you do?",
+              "options": [
+                "Go to high ground at once",
+                "Wait to see if the sea changes",
+                "Go closer to look at the water",
+                "Get into a boat"
+              ],
+              "correct": 0
+            }
+          ],
+          "parts_head": {
+            "eyebrow": "Try It in the Model · 在模型裡試試",
+            "en": "Four moments",
+            "zh": "四個時刻"
+          },
+          "parts": [
+            {
+              "key": "wind",
+              "icon": "🏖️",
+              "en": "Wind waves",
+              "zh": "風吹的浪",
+              "meta_en": "Only the top moves",
+              "meta_zh": "只有上層在動",
+              "demo": "wind",
+              "text_en": "Count the rows of yellow dots. The deep water is still.",
+              "text_zh": "數一數有幾排黃色的點。深處的水沒有動。"
+            },
+            {
+              "key": "deep",
+              "icon": "✈️",
+              "en": "A tsunami in the deep ocean",
+              "zh": "深海裡的海嘯",
+              "meta_en": "About 700 km/h",
+              "meta_zh": "大約每小時 700 公里",
+              "demo": "deep",
+              "text_en": "Low, long, and very fast. Every dot under it is moving.",
+              "text_zh": "又矮又長，而且非常快。它底下每一個點都在動。"
+            },
+            {
+              "key": "shoal",
+              "icon": "📈",
+              "en": "Reaching shallow water",
+              "zh": "進入淺水",
+              "meta_en": "Slower and taller",
+              "meta_zh": "變慢、變高",
+              "demo": "shoal",
+              "text_en": "The speed has dropped, and the wave has grown.",
+              "text_zh": "速度掉下來了，波卻長高了。"
+            },
+            {
+              "key": "land",
+              "icon": "⛰️",
+              "en": "Coming ashore",
+              "zh": "上岸",
+              "meta_en": "The sea keeps coming",
+              "meta_zh": "海水一直湧進來",
+              "demo": "land",
+              "text_en": "The water runs onto the land toward the town. High ground is the safe place.",
+              "text_zh": "海水往陸地上流，朝小鎮過去。高的地方才安全。"
+            }
+          ],
+          "parts_note_en": "Press Start a new tsunami and watch the speed. In which part of the trip does the number fall the fastest?",
+          "parts_note_zh": "按「再來一次海嘯」，盯著速度看。這趟路的哪一段，數字掉得最快？",
+          "links_head": {
+            "eyebrow": "Go Further · 延伸閱讀",
+            "en": "Where tsunamis begin",
+            "zh": "海嘯是從哪裡開始的"
+          },
+          "links": [
+            {
+              "href": "/resources/classes/earth/taiwan-earthquakes/",
+              "icon": "🌏",
+              "k_en": "Earth and Weather · Lesson 2",
+              "k_zh": "地球與天氣 第二課",
+              "en": "Why Does Taiwan Have So Many Earthquakes?",
+              "zh": "台灣為什麼地震這麼多？",
+              "note_en": "The same moving plates that shake the land can also move the seabed.",
+              "note_zh": "讓陸地搖晃的那些板塊，也會讓海底移動。"
+            },
+            {
+              "href": "/resources/classes/earth/magnitude-and-intensity/",
+              "icon": "📏",
+              "k_en": "Earth and Weather · Lesson 3",
+              "k_zh": "地球與天氣 第三課",
+              "en": "Magnitude and Intensity",
+              "zh": "規模和震度哪裡不一樣？",
+              "note_en": "What magnitude 7.0 and a shallow earthquake mean in a tsunami warning.",
+              "note_zh": "海嘯警報裡說的「規模 7.0」和「淺層地震」是什麼意思。"
+            }
+          ],
+          "wavespeed": {
+            "eyebrow": "Work It Out · 算算看",
+            "en": "How fast is a tsunami?",
+            "zh": "海嘯跑多快？",
+            "lead_en": "The speed of a tsunami depends on only one thing: how deep the water is. Choose a depth and see. Then make the water shallower, as it is near a coast.",
+            "lead_zh": "海嘯的速度只看一件事：水有多深。選一個水深看看。然後把水調淺，就像靠近海岸的時候那樣。",
+            "note_en": "The speed is the square root of the depth times the pull of gravity (9.8), the rule given by the Central Weather Administration. A slower tsunami is not a safer one. As it slows down, it grows taller, and even near the shore it is far faster than a person can run.",
+            "note_zh": "速度＝（重力加速度 9.8 × 水深）開根號，這是中央氣象署採用的公式。海嘯變慢並不代表比較安全：它一邊變慢、一邊變高，而且就算到了岸邊，還是比人跑的速度快得多。"
+          },
+          "facts": {
+            "eyebrow": "Tsunamis by the Numbers · 海嘯的數字",
+            "en": "Six numbers about tsunamis",
+            "zh": "六個和海嘯有關的數字",
+            "lead_en": "All six come from the Central Weather Administration.",
+            "lead_zh": "這六個數字都來自中央氣象署。",
+            "items": [
+              {
+                "big": "500–1,000",
+                "unit_en": "km/h",
+                "unit_zh": "公里／時",
+                "en": "The speed of a tsunami in the deep, open ocean. That is about as fast as a jet plane.",
+                "zh": "海嘯在深而廣闊的大洋裡的速度，和噴射客機差不多。"
+              },
+              {
+                "big": "30–60 cm",
+                "unit_en": "high",
+                "unit_zh": "高",
+                "en": "In the deep ocean, a tsunami may be no higher than this. Ships do not notice it.",
+                "zh": "在深海裡，海嘯的浪高可能不超過這麼多，海面上的船不會注意到。"
+              },
+              {
+                "big": "500–650 km",
+                "unit_en": "long",
+                "unit_zh": "長",
+                "en": "The distance from one crest of a tsunami to the next can be this great.",
+                "zh": "海嘯相鄰兩個波峰之間的距離，可以這麼遠。"
+              },
+              {
+                "big": "7.0",
+                "unit_en": "magnitude",
+                "unit_zh": "規模",
+                "en": "A tsunami warning is issued when an earthquake of magnitude 7.0 or more, less than 35 kilometers deep, happens in the seas near Taiwan.",
+                "zh": "臺灣近海發生規模 7.0 以上、震源深度淺於 35 公里的地震，中央氣象署就會發布海嘯警報。"
+              },
+              {
+                "big": "30 cm",
+                "unit_en": "is enough",
+                "unit_zh": "就夠了",
+                "en": "A tsunami only 30 centimeters deep can carry away a car. From 30 centimeters up, a person may be swept away.",
+                "zh": "只有 30 公分高的海嘯就可以沖走汽車。從 30 公分起，人就有可能被沖走。"
+              },
+              {
+                "big": "6",
+                "unit_en": "zones",
+                "unit_zh": "個分區",
+                "en": "The coasts of Taiwan, Penghu, Kinmen, and Matsu are divided into six zones for tsunami warnings.",
+                "zh": "臺澎金馬的沿海地區劃分成 6 個海嘯警戒分區。"
+              }
+            ]
+          },
+          "culture_cards": {
+            "eyebrow": "Tsunami Stories · 海嘯的故事",
+            "title_en": "The word, Keelung in 1867, a strange day in 1781, and why some earthquakes make no tsunami",
+            "title_zh": "這個詞、1867 年的基隆、1781 年奇怪的一天，還有為什麼有些地震不會有海嘯",
+            "lead_en": "Four things worth knowing if you live on an island.",
+            "lead_zh": "住在島上的人值得知道的四件事。",
+            "cards": [
+              {
+                "k": "Word · 字源",
+                "en": "A wave in the harbor",
+                "zh": "港口裡的浪",
+                "body_en": "The word tsunami is Japanese, and it means harbor wave. People once called tsunamis tidal waves, but that name is misleading. Tides are caused by the pull of the moon and the sun. A tsunami has nothing to do with them.",
+                "body_zh": "tsunami 這個詞來自日文的「津波」，意思是「港口的浪」。以前有人把海嘯叫做「潮汐波」（tidal wave），但這個名字容易讓人誤會：潮汐是月亮和太陽的引力造成的，海嘯和它們一點關係也沒有。"
+              },
+              {
+                "k": "1867",
+                "en": "Keelung",
+                "zh": "基隆",
+                "body_en": "On December 18, 1867, a strong earthquake shook northern Taiwan. Records say that the water in Keelung harbor flowed out to sea until the bottom of the harbor lay bare. A moment later, great waves rolled in and carried boats into the town. Of the possible tsunamis in Taiwan's old records, this is the one that scientists are most sure was caused by an earthquake near the island.",
+                "body_zh": "1867 年 12 月 18 日，臺灣北部發生強烈地震。記載說，基隆港的海水向外海流出，港內的海底都露了出來；一瞬間，巨浪又捲進來，把船隻沖進市內。在臺灣歷史上幾次疑似海嘯的紀錄裡，這一次最能確定是臺灣近海的地震引起的。"
+              },
+              {
+                "k": "1781",
+                "en": "Fish in the fields",
+                "zh": "田裡都是魚",
+                "body_en": "An old record from southern Taiwan, near today's Jiadong in Pingtung, describes a clear day in 1781. Suddenly the sea roared like thunder and rose over the village. People climbed up the bamboo to escape. Soon the water drained away, and the fields and ditches were full of fish and shrimp. Nobody had felt an earthquake, so the tsunami may have come from far away.",
+                "body_zh": "一份清代的紀錄寫到臺灣南部（今天屏東佳冬附近）1781 年的一個大晴天：海水忽然像打雷一樣怒吼，漲起來淹過了村子，居民爬到竹子上逃命。沒多久水就退了，田園和水溝裡到處都是魚蝦。當時沒有人感覺到地震，所以這次海嘯可能是很遠的地方的地震引起的。"
+              },
+              {
+                "k": "Science · 科學",
+                "en": "Not every earthquake makes one",
+                "zh": "不是每一次地震都有海嘯",
+                "body_en": "An earthquake under the sea does not always cause a tsunami. The seabed has to move up or down, so that it lifts or drops the water above it. If the two sides only slide past each other sideways, a large tsunami is very unlikely. The shape of the coast matters too. In a bay shaped like a funnel, the water is squeezed together and rises much higher.",
+                "body_zh": "海底的地震不一定會引起海嘯。海底必須有上下的錯動，才會把上面的水抬高或放低；如果兩邊只是水平地互相錯開，就很難引發大海嘯。海岸的形狀也有關係：在像漏斗一樣的海灣裡，海水被擠在一起，會升得高出許多。"
+              }
+            ]
+          },
+          "myths": [
+            {
+              "myth_en": "A tsunami is just a very big beach wave.",
+              "myth_zh": "海嘯只是特別大的海浪。",
+              "fact_en": "A beach wave moves only the top of the sea and is gone in seconds. A tsunami moves the whole depth of water and keeps pouring in for minutes.",
+              "fact_zh": "沙灘上的浪只動到海的表層，幾秒鐘就過去了。海嘯推動的是整層海水，會持續好幾分鐘往岸上灌。"
+            },
+            {
+              "myth_en": "You can see a tsunami coming from far out at sea.",
+              "myth_zh": "海嘯從很遠的外海就看得到。",
+              "fact_en": "In deep water it is less than a meter high. It becomes tall only when it reaches shallow water near the shore.",
+              "fact_zh": "在深海裡它不到一公尺高，要到岸邊的淺水才會變高。"
+            },
+            {
+              "myth_en": "The sea always pulls back before a tsunami.",
+              "myth_zh": "海嘯來之前，海水一定會先退。",
+              "fact_en": "Sometimes it does, and then you must leave at once. But not every tsunami gives this warning, so do not wait for it.",
+              "fact_zh": "有時候會，這時候一定要馬上離開。但不是每一次海嘯都會先退水，所以不要等這個徵兆。"
+            },
+            {
+              "myth_en": "After the first wave, the danger is over.",
+              "myth_zh": "第一波過了，就沒事了。",
+              "fact_en": "A tsunami usually comes as several waves. Stay on high ground until the warning is lifted.",
+              "fact_zh": "海嘯通常有好幾波。要留在高處，直到警報解除。"
+            }
+          ],
+          "tricks": [
+            {
+              "title_en": "The seabed moves",
+              "title_zh": "海底動了",
+              "body_en": "Up or down, in a great earthquake.",
+              "body_zh": "在大地震裡突然升降。"
+            },
+            {
+              "title_en": "All the water is pushed",
+              "title_zh": "整層水被推動",
+              "body_en": "From the bottom to the top.",
+              "body_zh": "從海底到海面。"
+            },
+            {
+              "title_en": "Fast and low in deep water",
+              "title_zh": "深海裡又快又矮",
+              "body_en": "As fast as a jet plane.",
+              "body_zh": "和噴射機一樣快。"
+            },
+            {
+              "title_en": "Slow and tall near shore",
+              "title_zh": "岸邊變慢變高",
+              "body_en": "So go to high ground.",
+              "body_zh": "所以要往高處走。"
+            }
+          ],
+          "safety_head": {
+            "eyebrow": "Be Ready · 防災要點",
+            "en": "If a tsunami may be coming",
+            "zh": "海嘯可能要來的時候",
+            "src": "Central Weather Administration, How to Avoid Tsunami Disasters",
+            "url": "https://scweb.cwa.gov.tw/zh-TW/Guidance/FAQdetail/107",
+            "src_en": "These points follow the Central Weather Administration:",
+            "src_zh": "以下要點依中央氣象署 地震百問「應如何避免海嘯災難？」。"
+          },
+          "safety": [
+            {
+              "en": "If you are at the seaside and feel a strong earthquake or hear a tsunami warning, leave the water and go to high ground at once. Do not wait for anyone to confirm it.",
+              "zh": "在海邊感覺到強烈搖晃的地震，或聽到海嘯警報，要立刻離開水域、往高處避難，不要等待確認。"
+            },
+            {
+              "en": "If the sea suddenly pulls back and the seabed shows, never stay to look. You may have only seconds.",
+              "zh": "看到海水突然退去、海底露出來，千萬不可以駐足觀看，可能只剩下幾秒到幾十秒的時間。"
+            },
+            {
+              "en": "Go up, or go inland. Look for a hill. If the land is flat, get as far from the shore as you can.",
+              "zh": "往高處，或往內陸。找附近的高地或山坡；如果附近很平坦，就盡量遠離海岸線。"
+            },
+            {
+              "en": "If you cannot reach high ground in time, go to the third floor or higher of a strong building. If you are already there, stay, and keep away from the windows that face the sea.",
+              "zh": "來不及到遠處的高地，就找附近 3 樓以上的堅固建築。如果已經在 3 樓以上，就留在原地，並遠離面向海邊的門窗。"
+            },
+            {
+              "en": "Do not try to escape by car. Roads jam, and a tsunami only 30 centimeters deep can carry a car away. Go on foot.",
+              "zh": "不要開車逃離。路上會塞車，而且 30 公分高的海嘯就能沖走汽車。用跑的往高處移動。"
+            },
+            {
+              "en": "Do not stop on a bridge or at a river mouth to watch.",
+              "zh": "不要因為好奇，停留在河口或橋上觀看。"
+            }
+          ],
+          "activities": [
+            {
+              "title_en": "A Wave That Grows",
+              "title_zh": "會長高的波",
+              "materials": [
+                {
+                  "en": "A long, clear plastic box or a baking pan, and water",
+                  "zh": "一個長形的透明塑膠盒或烤盤，還有水"
+                },
+                {
+                  "en": "A thin board or a plastic lid to make a slope at one end, and a flat piece of plastic to push the water",
+                  "zh": "一片薄板或塑膠蓋，用來在一端做出斜坡；還有一片平的塑膠片，用來推水"
+                }
+              ],
+              "steps": [
+                {
+                  "en": "Put the board in one end of the box so that it makes a gentle slope, like a beach. Add water until half of the slope is covered.",
+                  "zh": "把薄板放在盒子的一端，斜斜地像沙灘一樣。加水，讓斜坡有一半泡在水裡。"
+                },
+                {
+                  "en": "At the deep end, blow gently across the surface. Watch the small ripples reach the slope.",
+                  "zh": "在水深的那一端，輕輕地朝水面吹氣。看那些小波紋怎麼到達斜坡。"
+                },
+                {
+                  "en": "Now put the flat piece of plastic straight down into the deep end and give the water one slow, firm push toward the slope.",
+                  "zh": "接著把塑膠片直直地放進水深的那一端，慢慢地、穩穩地朝斜坡的方向推一下。"
+                },
+                {
+                  "en": "Watch from the side. How far up the slope does each kind of wave go? Which one moved more of the water?",
+                  "zh": "從側面看。兩種波各衝上斜坡多遠？哪一種推動的水比較多？"
+                }
+              ],
+              "tip_en": "Blowing moves only the top of the water. Pushing moves all of it, from the bottom up, and that is why it runs so much farther up your beach.",
+              "tip_zh": "吹氣只動到水的表面；用板子推，動的是從底到頂的整層水，所以它衝上「沙灘」的距離遠得多。"
+            },
+            {
+              "title_en": "Where Would We Go?",
+              "title_zh": "我們要往哪裡跑？",
+              "materials": [
+                {
+                  "en": "A map of a seaside place that your family visits",
+                  "zh": "一張你們家會去的海邊的地圖"
+                },
+                {
+                  "en": "A pen, and an adult to plan with",
+                  "zh": "一支筆，還有一位一起規劃的大人"
+                }
+              ],
+              "steps": [
+                {
+                  "en": "Mark the beach or harbor on the map.",
+                  "zh": "在地圖上把那個海灘或港口標出來。"
+                },
+                {
+                  "en": "Look for the nearest high ground, or the nearest strong building with at least three floors. Mark it.",
+                  "zh": "找出最近的高地，或是最近的、至少有三層樓的堅固建築，標出來。"
+                },
+                {
+                  "en": "Draw the way you would walk there. Do not plan to drive.",
+                  "zh": "畫出你們走過去的路線。不要計畫開車。"
+                },
+                {
+                  "en": "The next time you visit, look for the tsunami evacuation signs, and walk part of your route.",
+                  "zh": "下一次去的時候，找找看海嘯避難的指示牌，並實際走一段你們的路線。"
+                }
+              ],
+              "tip_en": "A plan made on a calm day takes only a few minutes. On the day you need it, there will be no time to make one.",
+              "tip_zh": "在平靜的日子裡做計畫，只要幾分鐘。真正需要它的那一天，是沒有時間現想的。"
+            }
+          ],
+          "sources": [
+            {
+              "en": "Causes of tsunamis: a large shallow earthquake moves the seabed and disturbs the water, as can undersea landslides, eruptions, and meteorite impacts; a tsunami, unlike a wind-driven surface wave, is a movement of the whole water column down to the seabed; crests can be 500 to 650 km apart",
+              "zh": "海嘯成因：海底大規模淺層地震造成海底地形變動而擾動水體，海底山崩、火山噴發、隕石撞擊亦可引發；海嘯與受風力吹拂的表面海浪不同，屬於深及海床的整體水柱運動；相鄰兩浪頭距離可達 500 至 650 公里",
+              "src": "中央氣象署 地震百問 62「發生海嘯之原因為何？」",
+              "url": "https://scweb.cwa.gov.tw/zh-TW/Guidance/FAQdetail/63"
+            },
+            {
+              "en": "How a tsunami travels: its speed depends on the depth of the sea, V = √(g h); about 500 to 1,000 km/h in the deep ocean, where it may be no more than 30 to 60 cm high; near the coast it slows and the water behind piles up",
+              "zh": "海嘯的傳播：速度視海洋深度而定，V＝(gh)^1/2；在深而廣闊的海洋約每小時 500 至 1,000 公里，浪高也許不超過 30 至 60 公分；接近沿岸時速率減小，後浪往前堆積",
+              "src": "中央氣象署 地震百問 63「海嘯之傳播情形如何？」",
+              "url": "https://scweb.cwa.gov.tw/zh-TW/Guidance/FAQdetail/64"
+            },
+            {
+              "en": "Not every undersea earthquake causes a tsunami: the seabed must move vertically; funnel-shaped bays concentrate the wave",
+              "zh": "並非所有海底地震都能產生海嘯：需要明顯的垂直錯動；漏斗狀海灣會使能量集中",
+              "src": "中央氣象署 地震百問 65「是否所有的海嘯都能造成災害？」",
+              "url": "https://scweb.cwa.gov.tw/zh-TW/Guidance/FAQdetail/66"
+            },
+            {
+              "en": "Possible tsunamis in Taiwan's historical records since 1661, including Jiadong in 1781 and Keelung on December 18, 1867",
+              "zh": "臺灣自 1661 年起的疑似海嘯紀錄，包括 1781 年佳冬附近與 1867 年 12 月 18 日基隆",
+              "src": "中央氣象署 地震百問 66「臺灣過去是否有海嘯災害？」",
+              "url": "https://scweb.cwa.gov.tw/zh-TW/Guidance/FAQdetail/67"
+            },
+            {
+              "en": "Tsunami warnings: issued for an earthquake of magnitude 7.0 or more, shallower than 35 km, in the seas near Taiwan; forecast height levels and their effects (from 0.3 m a person may be swept away)",
+              "zh": "海嘯警報：臺灣近海發生規模 7.0 以上、震源深度淺於 35 公里之地震時發布；海嘯預估波高分級與影響（0.3 公尺以上人有機率被沖走）",
+              "src": "中央氣象署 地震百問 67「中央氣象署海嘯資訊發布作業之程序為何？」",
+              "url": "https://scweb.cwa.gov.tw/zh-TW/Guidance/FAQdetail/68"
+            },
+            {
+              "en": "Six tsunami warning zones for the coasts of Taiwan, Penghu, Kinmen, and Matsu",
+              "zh": "臺澎金馬沿海地區劃分為 6 個海嘯警戒分區",
+              "src": "中央氣象署 地震百問 68「中央氣象署海嘯警戒區域如何劃分？」",
+              "url": "https://scweb.cwa.gov.tw/zh-TW/Guidance/FAQdetail/69"
+            },
+            {
+              "en": "What to do: move to high ground at once after a strong earthquake or a warning; never stay to watch the sea draw back, which does not always happen; go to the third floor or higher of a strong building if needed; do not drive, since 30 cm of tsunami can carry away a car",
+              "zh": "應變：感受到劇烈地震或聽到警報應迅速遠離海岸至高處；海水突然退去千萬不可駐足觀賞，且不見得每次都會退去；必要時到 3 樓以上的堅固建築；不要開車，30 公分高的海嘯即可沖走汽車",
+              "src": "中央氣象署 地震百問 93「應如何避免海嘯災難？」",
+              "url": "https://scweb.cwa.gov.tw/zh-TW/Guidance/FAQdetail/107"
+            },
+            {
+              "en": "The word tsunami is Japanese for harbor wave; the older name tidal wave is misleading because tsunamis are not caused by tides",
+              "zh": "tsunami 一詞是日文「津波」（港口的浪）；舊稱 tidal wave 容易誤導，因為海嘯與潮汐無關",
+              "src": "Wikipedia, “Tsunami”",
+              "url": "https://en.wikipedia.org/wiki/Tsunami"
+            }
+          ]
         }
       ],
       "planned": [
-        {
-          "n": 12,
-          "icon": "🌊",
-          "en": "How Is a Tsunami Different from an Ordinary Wave?",
-          "zh": "海嘯和一般的海浪有什麼不同？"
-        },
         {
           "n": 13,
           "icon": "🧂",
