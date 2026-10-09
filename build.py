@@ -9645,7 +9645,7 @@ def build_chip_hub():
 _earthj = os.path.join(ROOT, "data", "earth.json")
 EARTH = json.load(open(_earthj, encoding="utf-8")) if os.path.exists(_earthj) else None
 EARTH_BASE = "/resources/classes/earth/"
-_EARTH_JS = {"quake": "earth-quake", "inside": "earth-inside", "shake": "earth-shake", "mountain": "earth-mountain", "volcano": "earth-volcano", "rain": "earth-rain", "wind": "earth-wind", "typhoon": "earth-typhoon", "lightning": "earth-lightning", "forecast": "earth-forecast", "river": "earth-river", "tsunami": "earth-tsunami"}   # lab.kind → assets/js/<bundle>.js
+_EARTH_JS = {"quake": "earth-quake", "inside": "earth-inside", "shake": "earth-shake", "mountain": "earth-mountain", "volcano": "earth-volcano", "rain": "earth-rain", "wind": "earth-wind", "typhoon": "earth-typhoon", "lightning": "earth-lightning", "forecast": "earth-forecast", "river": "earth-river", "tsunami": "earth-tsunami", "salt": "earth-salt"}   # lab.kind → assets/js/<bundle>.js
 
 def _earth_ver():
     h = hashlib.md5()
@@ -10505,9 +10505,78 @@ def _earth_wavespeed(ws):
             f'</div></div>'
             '<noscript><p class="muted">The calculator works in your browser and needs JavaScript. · 計算在瀏覽器裡進行，需要開啟 JavaScript。</p></noscript>')
 
-_EARTH_LAB = {"quake": render_earthquake_lab, "inside": render_earthinside_lab, "shake": render_earthshake_lab, "mountain": render_earthmountain_lab, "volcano": render_earthvolcano_lab, "rain": render_earthrain_lab, "wind": render_earthwind_lab, "typhoon": render_earthtyphoon_lab, "lightning": render_earthlightning_lab, "forecast": render_earthforecast_lab, "river": render_earthriver_lab, "tsunami": render_earthtsunami_lab}          # lab.kind → 3D 面板
-_EARTH_ICON = {"quake": earthquake_svg, "inside": earthglobe_svg, "shake": earthshake_svg, "mountain": earthmountain_svg, "volcano": earthvolcano_svg, "rain": earthrain_svg, "wind": earthwind_svg, "typhoon": earthtyphoon_svg, "lightning": earthlightning_svg, "forecast": earthforecast_svg, "river": earthriver_svg, "tsunami": earthtsunami_svg}                 # lesson.card → 課程卡小圖示
-_EARTH_WIDGETS = [("warn", _earth_warn), ("dig", _earth_dig), ("scale10", _earth_scale10), ("peak", _earth_peak), ("bubble", _earth_bubble), ("gauge", _earth_gauge), ("beaufort", _earth_beaufort), ("eyepass", _earth_eyepass), ("count", _earth_count), ("skyword", _earth_skyword), ("carry", _earth_carry), ("wavespeed", _earth_wavespeed)]               # lesson 裡有這個 key 就多一段（照這裡的順序）
+def earthsalt_svg(size=56):
+    """第十三課的課程卡小圖示：海面上水氣往上、海裡有白色的鹽粒留下來。"""
+    return (f'<svg class="earthsalt-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">'
+            '<rect x="4" y="30" width="52" height="26" rx="4" fill="#2f7fd6"/>'
+            '<path d="M18 26 V12 M30 26 V8 M42 26 V12" stroke="#9fd8ff" stroke-width="3" stroke-linecap="round" stroke-dasharray="2 5"/>'
+            '<path d="M14 14 L18 9 L22 14 M26 10 L30 5 L34 10 M38 14 L42 9 L46 14" fill="none" stroke="#9fd8ff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>'
+            + "".join(f'<rect x="{x}" y="{y}" width="5" height="5" fill="#fff"/>' for x, y in ((12, 38), (24, 46), (34, 37), (44, 45), (20, 34), (38, 48))) + '</svg>')
+
+def render_earthsalt_lab(lesson):
+    """第十三課：水循環的一圈，水一直繞、鹽只進不出；海 vs 有出口的湖（assets/js/earth-salt.js 綁這裡的 class；全部自繪示意）。"""
+    lab = lesson["lab"]
+    msgs = "".join(f'<p class="cp-msg ew-sa-msg" data-msg="{k}" hidden>{html.escape(m["en"])}<span class="zh">{html.escape(m["zh"])}</span></p>' for k, m in lab["msgs"].items())
+    tg = _lab_toggles([("labels", "Labels", "標示", True)])
+    return f'''<div class="astro-lab cp-lab ew-lab ew-sa-lab rvl" data-earthsalt-lab>
+  <div class="al-stage">
+    <div class="al-space">
+      <canvas class="al-space-cv" aria-label="3D model of the water cycle: rain falls on a mountain, a river carries a little dissolved salt down to the sea, and the water rises again as vapor while the salt stays behind · 水循環的 3D 模型：雨落在山上，河流把溶出來的一點點鹽帶到海裡，水又變成水氣升上去，鹽卻留了下來"></canvas>
+      <div class="al-labels" aria-hidden="true"></div>
+      <p class="al-hint">Drag to turn · 拖曳旋轉　Scroll or pinch to zoom · 滾輪／雙指縮放</p>
+      <button type="button" class="al-home" title="Reset view · 重設視角" aria-label="Reset view · 重設視角">&#8634;</button>
+      <p class="al-nogl-msg">This 3D model needs WebGL, which this browser does not support. The reading and the cards below still explain everything.<br><span class="zh">這個瀏覽器不支援 WebGL，無法顯示 3D 模型；下方的課文與卡片一樣能看懂。</span></p>
+    </div>
+    <aside class="al-sky cp-aside">
+      <p class="al-sky-k">1 · Where does the river end? · 河流流到哪裡？</p>
+      <div class="cp-dope cp-tr-quick ew-sa-mode" role="group" aria-label="Basin · 水流到哪裡">
+        <button type="button" data-mode="sea" aria-pressed="true">The sea<small>海（沒有出口）</small></button>
+        <button type="button" data-mode="lake" aria-pressed="false">A lake with a way out<small>有出口的湖</small></button>
+      </div>
+      <label class="al-slider cp-is-yrow"><span>2 · Time · 時間 <output class="ew-sa-t-out"></output></span>
+        <input type="range" class="al-age ew-sa-t" min="0" max="100" step="1" value="2"></label>
+      <div class="cp-ht-meter"><p class="ew-qk-k">Salt in the water · 水裡的鹽</p><div class="cp-ht-bar"><i class="ew-sa-bar"></i></div><p class="cp-ht-status ew-sa-status"></p></div>
+      <dl class="cp-nums cp-lt-nums ew-nums">
+        <div><dt>Salt · 鹽</dt><dd class="ew-sa-pct"></dd></div>
+        <div><dt>In one liter · 一公升裡</dt><dd class="ew-sa-g"></dd></div>
+        <div><dt>Water leaves · 水怎麼離開</dt><dd class="ew-sa-way"></dd></div>
+      </dl>
+      {msgs}
+    </aside>
+  </div>
+  <div class="al-controls">
+    <div class="al-row al-row-main">
+      <button type="button" class="al-play" aria-pressed="true"><span class="al-play-i" aria-hidden="true"></span><span class="al-play-t">Pause · 暫停</span></button>
+      <div class="al-row al-toggles">{tg}</div>
+    </div>
+  </div>
+  {_lab_foot(lab)}
+  <p class="cp-credit">{lab["credit_html"]}</p>
+</div>'''
+
+def _earth_saltpan(sp):
+    """「曬乾之後剩多少鹽？」（earth-salt.js 的 initPan；公升 × 鹽度 → 公克；不需要 WebGL）。"""
+    waters = html.escape(json.dumps(sp["waters"], ensure_ascii=False))
+    btns = "".join(f'<button type="button" data-w="{k}" aria-pressed="false">{html.escape(w["en"])}<small>{html.escape(w["zh"])}</small></button>' for k, w in sp["waters"].items())
+    return (f'<div class="cp-cnt ew-sp rvl" data-earth-saltpan data-waters="{waters}">'
+            f'<div class="cp-cnt-in">'
+            f'<p class="cp-cnt-l cp-sun-l"><span>1 · Which water? · 哪一種水？</span></p>'
+            f'<div class="cp-dpw-pre ew-sp-w" role="group" aria-label="Water · 水">{btns}</div>'
+            f'<label class="cp-cnt-l"><span>2 · How much water do you dry up? · 曬乾多少水？ <output class="ew-sp-l-out">1 L</output></span>'
+            f'<input type="range" class="al-age ew-sp-l" min="1" max="20" step="1" value="1"></label>'
+            f'<p class="cp-cnt-note">{html.escape(sp["note_en"])}<span class="zh">{html.escape(sp["note_zh"])}</span></p></div>'
+            f'<div class="cp-home-out cp-cnt-out ew-sp-out" aria-live="polite">'
+            f'<div class="ew-sp-pan" aria-hidden="true"><i class="ew-sp-pile"></i></div>'
+            f'<div><p class="cp-home-k">Left in the pan · 盤子裡剩下</p>'
+            f'<p class="cp-home-big"><b class="ew-sp-g">35</b> grams of salt · 公克的鹽</p>'
+            f'<p class="cp-home-sub">About <b class="ew-sp-spoon">6</b> teaspoons · 大約這麼多茶匙</p>'
+            f'<p class="cp-home-note"><span class="ew-sp-en"></span><span class="zh ew-sp-zh"></span></p></div>'
+            f'</div></div>'
+            '<noscript><p class="muted">The calculator works in your browser and needs JavaScript. · 計算在瀏覽器裡進行，需要開啟 JavaScript。</p></noscript>')
+
+_EARTH_LAB = {"quake": render_earthquake_lab, "inside": render_earthinside_lab, "shake": render_earthshake_lab, "mountain": render_earthmountain_lab, "volcano": render_earthvolcano_lab, "rain": render_earthrain_lab, "wind": render_earthwind_lab, "typhoon": render_earthtyphoon_lab, "lightning": render_earthlightning_lab, "forecast": render_earthforecast_lab, "river": render_earthriver_lab, "tsunami": render_earthtsunami_lab, "salt": render_earthsalt_lab}          # lab.kind → 3D 面板
+_EARTH_ICON = {"quake": earthquake_svg, "inside": earthglobe_svg, "shake": earthshake_svg, "mountain": earthmountain_svg, "volcano": earthvolcano_svg, "rain": earthrain_svg, "wind": earthwind_svg, "typhoon": earthtyphoon_svg, "lightning": earthlightning_svg, "forecast": earthforecast_svg, "river": earthriver_svg, "tsunami": earthtsunami_svg, "salt": earthsalt_svg}                 # lesson.card → 課程卡小圖示
+_EARTH_WIDGETS = [("warn", _earth_warn), ("dig", _earth_dig), ("scale10", _earth_scale10), ("peak", _earth_peak), ("bubble", _earth_bubble), ("gauge", _earth_gauge), ("beaufort", _earth_beaufort), ("eyepass", _earth_eyepass), ("count", _earth_count), ("skyword", _earth_skyword), ("carry", _earth_carry), ("wavespeed", _earth_wavespeed), ("saltpan", _earth_saltpan)]               # lesson 裡有這個 key 就多一段（照這裡的順序）
 
 def _earth_flat():
     return [(ui, u, l) for ui, u in enumerate(EARTH["units"]) for l in u["lessons"]]

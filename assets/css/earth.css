@@ -275,6 +275,24 @@
 .ew-tw-pre { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 @media (max-width: 560px) { .ew-tw-pre { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 
+/* ---------- 第十三課：海水為什麼是鹹的？ ---------- */
+@media (min-width: 1021px) { .ew-sa-lab .al-space { min-height: 640px; } }
+.ew-sa-msg[hidden] { display: none; }
+.ew-sa-bar { width: 0; background: linear-gradient(90deg, #2f7fd6, #fff) !important; transition: width .2s linear; }
+.ew-sa-status small { display: block; font-family: var(--zh); font-weight: 600; font-size: .8rem; color: var(--al-mute); }
+.al-lg-ewsawater i { border: 0; border-radius: 50%; width: 9px; height: 9px; margin: .35rem 10px 0; background: #9fd8ff; }
+.al-lg-ewsasalt i { border: 0; width: 9px; height: 9px; margin: .35rem 10px 0; background: #fff; }
+.al-lg-ewsavapor i { border: 0; border-radius: 50%; width: 7px; height: 7px; margin: .42rem 12px 0; background: #7fa9d8; }
+/* 頁面小工具：曬乾之後剩多少鹽？ */
+.ew-sp .al-age::-webkit-slider-runnable-track { background: linear-gradient(90deg, var(--brand) 0 var(--p, 5%), #e5dfd0 var(--p, 5%)); }
+.ew-sp .al-age::-webkit-slider-thumb { border-color: var(--brand); }
+.ew-sp .al-age::-moz-range-progress { background: var(--brand); }
+.ew-sp-w { grid-template-columns: repeat(3, minmax(0, 1fr)); margin-bottom: .9rem; }
+.ew-sp-out { display: grid; grid-template-columns: 96px minmax(0, 1fr); gap: 1.2rem; align-items: end; }
+.ew-sp-pan { position: relative; height: 150px; border-bottom: 6px solid #cdb98a; border-radius: 0 0 10px 10px; }
+.ew-sp-pile { position: absolute; left: 6%; right: 6%; bottom: 0; height: var(--h, 7%); min-height: 3px; background: #fff; clip-path: polygon(0 100%, 50% 0, 100% 100%); transition: height .25s; }
+@media (max-width: 560px) { .ew-sp-out { grid-template-columns: 64px minmax(0, 1fr); } }
+
 /* ---------- 全系列共用 ---------- */
 .cp-link.ew-link-soon { border-style: dashed; opacity: .78; cursor: default; }
 .ew-safety-src { margin: 1rem 0 0; font-size: .86rem; color: var(--ink-soft); }
