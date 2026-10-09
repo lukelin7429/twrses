@@ -9439,16 +9439,594 @@
               "url": "https://en.wikipedia.org/wiki/Human"
             }
           ]
-        }
-      ],
-      "planned": [
+        },
         {
           "n": 16,
+          "slug": "greenhouse-effect",
+          "title": "What Is the Greenhouse Effect?",
+          "title_zh": "溫室效應是什麼？",
+          "level": "入門 · Beginner",
           "icon": "🌡️",
-          "en": "What Is the Greenhouse Effect?",
-          "zh": "溫室效應是什麼？"
+          "card": "greenhouse",
+          "blurb_en": "Without its air, the Earth would be a frozen ball. A few gases in the air act like a thin blanket and keep the planet warm enough to live on. In a 3D model, follow sunlight down to the ground and follow the heat on its way back out, and see what the gases do to it. Then compare three worlds, and find out why a clear night is colder than a cloudy one.",
+          "blurb_zh": "要是沒有空氣，地球會是一顆結冰的球。空氣裡有少數幾種氣體，像一條薄薄的毯子，讓這顆行星暖到可以住。在 3D 模型裡，跟著陽光來到地面，再跟著熱往外走，看看這些氣體對它做了什麼。接著比一比三個世界，再找出答案：為什麼晴朗的夜晚比多雲的夜晚冷？",
+          "big_idea_en": "Sunlight passes through the air and warms the ground. The warm ground sends heat back toward space, but this heat is a different kind of light, one that we cannot see. Some gases in the air let sunlight through but catch this heat. They send part of it back down, so the ground stays warmer than it would without them. This is the greenhouse effect. Without it the Earth would be too cold, and with too much it would be too hot.",
+          "big_idea_zh": "陽光穿過空氣，把地面曬熱。溫暖的地面再把熱往太空送出去，不過這種熱是另一種我們看不見的光。空氣裡有些氣體會讓陽光通過，卻會把這種熱攔下來，再把其中一部分送回地面；所以地面比沒有這些氣體的時候暖。這就是溫室效應。沒有它，地球會太冷；太多了，又會太熱。",
+          "tricks_head": {
+            "en": "The greenhouse effect in a sentence",
+            "zh": "一句話記住溫室效應"
+          },
+          "checked": {
+            "en": "October 2026",
+            "zh": "2026 年 10 月"
+          },
+          "lab": {
+            "kind": "greenhouse",
+            "eyebrow": "3D Model · 3D 模型",
+            "title_en": "Light In, Heat Out",
+            "title_zh": "光進來，熱出去",
+            "how_en": "Drag to turn the model, and scroll or pinch to zoom. Yellow dots are sunlight coming down. Red dots are heat leaving the ground. The gray balls are greenhouse gases. Watch one red dot at a time. Does it go straight out to space, or does something catch it and send it back? Then choose None, and then Much more, and watch the red dots again.",
+            "how_zh": "拖曳可以旋轉模型，滾輪或雙指可以縮放。黃色的點是往下的陽光，紅色的點是離開地面的熱，灰色的小球是溫室氣體。一次盯著一顆紅點看：它是直接跑到太空，還是被什麼東西攔住、又送回來？接著選「完全沒有」，再選「多很多」，重新觀察那些紅點。",
+            "msgs": {
+              "none": {
+                "en": "With no greenhouse gases, every bit of heat that leaves the ground goes straight out to space. Nothing comes back. On a planet like this, the average temperature at the surface would be about −18°C, and the sea would freeze.",
+                "zh": "沒有溫室氣體的時候，離開地面的熱全部直接跑到太空，什麼都不會回來。這樣的行星，地表平均溫度大約是零下 18°C，海會結冰。"
+              },
+              "today": {
+                "en": "This is the Earth we live on. The gases let the sunlight through, but they catch some of the heat on its way out. A gas that catches heat sends it out again in every direction, so part of it comes back down. The average temperature at the surface is about 15°C.",
+                "zh": "這是我們住的地球。這些氣體讓陽光通過，卻把一部分正要離開的熱攔下來。攔到熱的氣體會再把它往四面八方送出去，所以有一部分又回到地面。地表的平均溫度大約是 15°C。"
+              },
+              "more": {
+                "en": "With much more greenhouse gas, heat is caught more often, and more of it comes back down. The ground has to become warmer before as much heat leaves as arrives. The planet next to us, Venus, has air that is almost all carbon dioxide, and its surface is hotter than an oven.",
+                "zh": "溫室氣體多很多的時候，熱更常被攔下來，回到地面的也更多。地面得變得更暖，離開的熱才會和進來的一樣多。我們隔壁的行星金星，空氣幾乎全是二氧化碳，地表比烤箱還燙。"
+              }
+            },
+            "legend": [
+              {
+                "cls": "ewghsun",
+                "en": "Yellow dots: sunlight",
+                "zh": "黃色的點：陽光"
+              },
+              {
+                "cls": "ewghheat",
+                "en": "Red dots: heat sent out by the ground",
+                "zh": "紅色的點：地面送出去的熱"
+              },
+              {
+                "cls": "ewghgas",
+                "en": "Gray balls: greenhouse gases",
+                "zh": "灰色小球：溫室氣體"
+              }
+            ],
+            "scale_en": "A teaching model. Two of its numbers are real: about −18°C for an Earth with no greenhouse effect, and about 15°C for the Earth today. About one third of the sunlight is sent back to space, as in the model. Everything else is a picture. Real greenhouse gases are spread all through the air, not gathered in one layer, and the chance that a dot of heat is caught was chosen to make the difference easy to see. The percentage in the panel is counted from the dots on the screen. It is not a measurement of the real Earth.",
+            "scale_zh": "這是教學用的模型。裡面有兩個數字是真的：沒有溫室效應的地球大約零下 18°C，今天的地球大約 15°C。陽光大約有三分之一被反射回太空，模型也是這樣畫的。其他都是示意：真的溫室氣體散布在整個大氣裡，不是集中在一層；紅點被攔下來的機率，是為了讓差別看得清楚而設定的。側欄的百分比是從畫面上的小點數出來的，不是真實地球的測量值。",
+            "credit_html": "Model drawn by My Culture Connect as a teaching diagram. The ideas follow the Central Weather Administration's <a href=\"https://www.cwa.gov.tw/V8/C/K/Encyclopedia/nous/overview_list.html#overview-02\" target=\"_blank\" rel=\"noopener\">weather knowledge pages</a> and the other sources listed at the bottom of this page. · 模型由人師教育協會自繪示意；原理依中央氣象署「氣象常識」與本頁最下方列出的其他出處。"
+          },
+          "paras": [
+            "Have you ever opened the door of a car that has been standing in the sun? The air inside is much hotter than the air outside. Sunlight went in through the windows and warmed the seats, and the heat could not get out again. Something a little like this happens to the whole Earth, and it is a good thing that it does.",
+            "Start with the sunlight. Light from the sun passes easily through the air. About one third of it is bounced back to space by clouds, by the air, and by the ground. The rest is taken in, most of it by the ground and the sea, and it warms them.",
+            "Anything warm gives off heat, and the Earth is no different. The warm ground sends its heat back toward space. But this heat travels as a kind of light that our eyes cannot see, and the air treats it differently from sunlight.",
+            "Most of the air is nitrogen and oxygen, and they let this heat pass. But a few gases catch it. The most important one is water vapor. Carbon dioxide is another, and although it is only a tiny part of the air, it matters a great deal. A gas that catches heat sends it out again in all directions, so some of it comes back down to the ground. Clouds do the same thing. That is why a cloudy night stays warmer than a clear one.",
+            "Scientists call this the greenhouse effect, and the gases that do it are called greenhouse gases. Without them, the average temperature at the surface of the Earth would be about −18°C. With them, it is about 15°C. That difference of 33 degrees is the reason we have liquid water, green plants, and a place to live.",
+            "So the greenhouse effect is not a bad thing. It is a blanket, and the Earth needs one. But the thickness of the blanket matters. The planet Venus has air that is almost entirely carbon dioxide, and its surface is about 464°C. On Earth, the amount of carbon dioxide in the air has been measured carefully every year since 1958, and it has been rising. That is why scientists watch this number so closely."
+          ],
+          "paras_zh": [
+            "你有沒有打開過一輛在太陽下停了很久的車？車裡的空氣比外面熱得多。陽光從車窗照進去，把座椅曬熱，熱卻出不來。整個地球身上也發生著有點類似的事，而且幸好有這件事。",
+            "先從陽光說起。太陽的光很容易穿過空氣。其中大約三分之一被雲、空氣和地面反射回太空；剩下的被吸收，大部分是被地面和海洋吸收，把它們曬暖。",
+            "任何溫暖的東西都會放出熱，地球也一樣。溫暖的地面會把熱往太空送回去。不過這種熱是用一種我們眼睛看不見的光在傳遞，空氣對待它的方式和對待陽光並不一樣。",
+            "空氣裡大部分是氮和氧，它們會讓這種熱通過。但有少數幾種氣體會把它攔下來。其中最重要的是水氣；二氧化碳是另一種，它在空氣裡只占很小很小的一部分，影響卻很大。攔到熱的氣體會再把熱往四面八方送出去，所以有一部分又回到地面。雲也會做同樣的事，所以多雲的夜晚比晴朗的夜晚暖。",
+            "科學家把這件事叫做「溫室效應」，做這件事的氣體叫做「溫室氣體」。沒有它們，地球表面的平均溫度大約會是零下 18°C；有了它們，大約是 15°C。這 33 度的差別，就是我們有液態的水、有綠色的植物、有地方可以住的原因。",
+            "所以溫室效應並不是壞事。它是一條毯子，而地球需要一條毯子。不過毯子的厚薄很重要。金星的空氣幾乎全是二氧化碳，它的地表大約有 464°C。在地球上，空氣裡的二氧化碳從 1958 年起每年都有人仔細測量，它一直在增加。這就是科學家那麼仔細盯著這個數字的原因。"
+          ],
+          "questions": [
+            "What happens to sunlight when it reaches the Earth?",
+            "What do greenhouse gases do to the heat that leaves the ground?",
+            "What would the Earth be like with no greenhouse effect at all?"
+          ],
+          "answers": [
+            "About one third is bounced back to space. The rest is taken in, mostly by the ground and the sea, and warms them.",
+            "They catch some of it and send it out again in all directions, so part of it comes back down to the ground.",
+            "The average temperature at the surface would be about −18°C, much too cold for liquid water and for life as we know it."
+          ],
+          "vocab": [
+            {
+              "n": 1,
+              "w": "greenhouse",
+              "pos": "n.",
+              "zh": "溫室",
+              "ex": "The farmer grows tomatoes in a <b>greenhouse</b>.",
+              "exzh": "那位農夫在溫室裡種番茄。"
+            },
+            {
+              "n": 2,
+              "w": "gas",
+              "pos": "n.",
+              "zh": "氣體",
+              "ex": "Air is a mix of several <b>gases</b>.",
+              "exzh": "空氣是好幾種氣體混在一起。"
+            },
+            {
+              "n": 3,
+              "w": "heat",
+              "pos": "n.",
+              "zh": "熱",
+              "ex": "The <b>heat</b> from the road rose into the air.",
+              "exzh": "路面的熱往空中散上去。"
+            },
+            {
+              "n": 4,
+              "w": "sunlight",
+              "pos": "n.",
+              "zh": "陽光",
+              "ex": "<b>Sunlight</b> came in through the window.",
+              "exzh": "陽光從窗戶照進來。"
+            },
+            {
+              "n": 5,
+              "w": "carbon dioxide",
+              "pos": "n.",
+              "zh": "二氧化碳",
+              "ex": "We breathe out <b>carbon dioxide</b>.",
+              "exzh": "我們呼出二氧化碳。"
+            },
+            {
+              "n": 6,
+              "w": "blanket",
+              "pos": "n.",
+              "zh": "毯子",
+              "ex": "A <b>blanket</b> keeps you warm at night.",
+              "exzh": "毯子讓你晚上保暖。"
+            },
+            {
+              "n": 7,
+              "w": "temperature",
+              "pos": "n.",
+              "zh": "溫度",
+              "ex": "The <b>temperature</b> fell after sunset.",
+              "exzh": "太陽下山後溫度下降了。"
+            },
+            {
+              "n": 8,
+              "w": "trap",
+              "pos": "v.",
+              "zh": "困住；攔住",
+              "ex": "The closed car <b>trapped</b> the heat inside.",
+              "exzh": "關著的車子把熱困在裡面。"
+            }
+          ],
+          "quiz": [
+            {
+              "q": "What warms the ground?",
+              "options": [
+                "Sunlight",
+                "The wind",
+                "The greenhouse gases",
+                "The clouds"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "What do greenhouse gases catch?",
+              "options": [
+                "Heat leaving the ground",
+                "Sunlight coming in",
+                "Rain",
+                "Dust"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "What would the average temperature of the Earth's surface be with no greenhouse effect?",
+              "options": [
+                "About −18°C",
+                "About 15°C",
+                "About 33°C",
+                "About 464°C"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "Which gas is the most important greenhouse gas in the Earth's air?",
+              "options": [
+                "Water vapor",
+                "Oxygen",
+                "Nitrogen",
+                "Helium"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "Why is a cloudy night usually warmer than a clear night?",
+              "options": [
+                "Clouds send some of the ground's heat back down",
+                "Clouds are hot",
+                "The moon is hidden",
+                "The wind stops"
+              ],
+              "correct": 0
+            }
+          ],
+          "parts_head": {
+            "eyebrow": "Try It in the Model · 在模型裡試試",
+            "en": "Three kinds of air",
+            "zh": "三種空氣"
+          },
+          "parts": [
+            {
+              "key": "none",
+              "icon": "🧊",
+              "en": "No greenhouse gases",
+              "zh": "沒有溫室氣體",
+              "meta_en": "About −18°C",
+              "meta_zh": "大約零下 18°C",
+              "demo": "none",
+              "text_en": "Every red dot goes straight out. The ground stays cold.",
+              "text_zh": "每一顆紅點都直接跑出去。地面一直很冷。"
+            },
+            {
+              "key": "today",
+              "icon": "🌍",
+              "en": "The Earth today",
+              "zh": "今天的地球",
+              "meta_en": "About 15°C",
+              "meta_zh": "大約 15°C",
+              "demo": "today",
+              "text_en": "Some red dots are caught, and some of those come back.",
+              "text_zh": "有些紅點被攔住，其中一部分又回來了。"
+            },
+            {
+              "key": "more",
+              "icon": "🔥",
+              "en": "Much more gas",
+              "zh": "氣體多很多",
+              "meta_en": "Warmer",
+              "meta_zh": "更暖",
+              "demo": "more",
+              "text_en": "Most red dots are caught at least once. The ground turns warmer.",
+              "text_zh": "大部分的紅點至少被攔住一次。地面變得更暖。"
+            },
+            {
+              "key": "today2",
+              "icon": "☀️",
+              "en": "Watch the yellow dots",
+              "zh": "看黃色的點",
+              "meta_en": "Sunlight",
+              "meta_zh": "陽光",
+              "demo": "today",
+              "text_en": "The gases do not stop the sunlight. About one dot in three bounces back.",
+              "text_zh": "溫室氣體不會擋住陽光。大約每三顆有一顆被反射回去。"
+            }
+          ],
+          "parts_note_en": "The yellow dots behave the same way in all three kinds of air. Only the red dots change. That is the whole idea of the greenhouse effect.",
+          "parts_note_zh": "在這三種空氣裡，黃色的點走法都一樣，只有紅色的點不一樣。溫室效應的道理就在這裡。",
+          "links_head": {
+            "eyebrow": "Go Further · 延伸閱讀",
+            "en": "Air, water, and time",
+            "zh": "空氣、水和時間"
+          },
+          "links": [
+            {
+              "href": "/resources/classes/earth/why-it-rains/",
+              "icon": "🌧️",
+              "k_en": "Earth and Weather · Lesson 6",
+              "k_zh": "地球與天氣 第六課",
+              "en": "Why Does It Rain?",
+              "zh": "為什麼會下雨？",
+              "note_en": "Water vapor, the most important greenhouse gas, is also where rain comes from.",
+              "note_zh": "最重要的溫室氣體水氣，也是雨的來源。"
+            },
+            {
+              "href": "/resources/classes/earth/how-old-is-the-earth/",
+              "icon": "⏳",
+              "k_en": "Earth and Weather · Lesson 15",
+              "k_zh": "地球與天氣 第十五課",
+              "en": "How Do We Know How Old the Earth Is?",
+              "zh": "我們怎麼知道地球幾歲？",
+              "note_en": "The Earth has kept liquid water for a very long time.",
+              "note_zh": "地球保有液態的水，已經非常非常久了。"
+            }
+          ],
+          "blanket": {
+            "eyebrow": "Compare · 比一比",
+            "en": "Three worlds, three temperatures",
+            "zh": "三個世界，三種溫度",
+            "lead_en": "The same sun shines on all three. What changes is the blanket of gas.",
+            "lead_zh": "照在它們身上的是同一顆太陽，不一樣的是那一層氣體毯子。",
+            "worlds": [
+              {
+                "en": "Earth with no greenhouse effect",
+                "zh": "沒有溫室效應的地球",
+                "temp": -18,
+                "note_en": "An imaginary Earth. Its heat would escape straight to space, and the average temperature would be far below freezing.",
+                "note_zh": "這是想像中的地球。它的熱會直接逃到太空，平均溫度遠低於冰點。"
+              },
+              {
+                "en": "Earth today",
+                "zh": "今天的地球",
+                "temp": 15,
+                "note_en": "The real Earth. Greenhouse gases, mainly water vapor and carbon dioxide, keep it 33 degrees warmer than the imaginary one.",
+                "note_zh": "真實的地球。溫室氣體（主要是水氣和二氧化碳）讓它比想像中的那一個暖了 33 度。"
+              },
+              {
+                "en": "Venus",
+                "zh": "金星",
+                "temp": 464,
+                "note_en": "The air on Venus is 96.5% carbon dioxide and very thick. Its surface is far hotter than a kitchen oven.",
+                "note_zh": "金星的空氣有 96.5% 是二氧化碳，而且非常濃厚。它的地表比廚房的烤箱還燙得多。"
+              }
+            ],
+            "note_en": "Venus is also closer to the sun than the Earth is, and its air is far thicker, so this is not a fair test of carbon dioxide alone. It does show how much a blanket of gas can do.",
+            "note_zh": "金星比地球更靠近太陽，空氣也濃厚得多，所以這並不是只比較二氧化碳的公平實驗。不過它確實讓我們看到，一層氣體毯子可以有多大的作用。"
+          },
+          "facts": {
+            "eyebrow": "The Blanket by the Numbers · 毯子的數字",
+            "en": "Six numbers about the greenhouse effect",
+            "zh": "六個和溫室效應有關的數字",
+            "lead_en": "From the temperature of the ground to a number that is measured every day.",
+            "lead_zh": "從地面的溫度，到一個天天都有人在量的數字。",
+            "items": [
+              {
+                "big": "33°C",
+                "unit_en": "warmer",
+                "unit_zh": "暖這麼多",
+                "en": "The greenhouse effect makes the Earth's surface about this much warmer: from about −18°C to about 15°C.",
+                "zh": "溫室效應讓地球表面暖了大約這麼多：從大約零下 18°C，變成大約 15°C。"
+              },
+              {
+                "big": "1/3",
+                "unit_en": "bounced back",
+                "unit_zh": "被反射",
+                "en": "About one third of the sunlight that reaches the Earth is sent straight back to space by the air, the clouds, and the ground.",
+                "zh": "到達地球的陽光，大約有三分之一被大氣、雲和地面直接反射回太空。"
+              },
+              {
+                "big": "99%",
+                "unit_en": "of the air",
+                "unit_zh": "的空氣",
+                "en": "Nitrogen (about 78%) and oxygen (about 21%) make up nearly all of the air, and they are not greenhouse gases.",
+                "zh": "氮（約 78%）和氧（約 21%）幾乎占了空氣的全部，而它們並不是溫室氣體。"
+              },
+              {
+                "big": "0.04%",
+                "unit_en": "of the air",
+                "unit_zh": "的空氣",
+                "en": "Carbon dioxide is only about this much of the air: 432 parts in every million, measured in 2026.",
+                "zh": "二氧化碳大約只占空氣的這麼一點點：2026 年量到的是每一百萬份裡有 432 份。"
+              },
+              {
+                "big": "280 → 432",
+                "unit_en": "parts per million",
+                "unit_zh": "百萬分之幾",
+                "en": "The amount of carbon dioxide in the air was about 280 parts per million before the middle of the 1700s. In 2026 it reached 432.",
+                "zh": "十八世紀中葉以前，空氣裡的二氧化碳大約是百萬分之 280；2026 年達到百萬分之 432。"
+              },
+              {
+                "big": "464°C",
+                "unit_en": "on Venus",
+                "unit_zh": "金星地表",
+                "en": "The average temperature at the surface of Venus, where the air is 96.5% carbon dioxide.",
+                "zh": "金星地表的平均溫度；那裡的空氣有 96.5% 是二氧化碳。"
+              }
+            ]
+          },
+          "culture_cards": {
+            "eyebrow": "Stories of Warm Air · 暖空氣的故事",
+            "title_en": "The glass tubes, the real greenhouse, the mountain in Hawaii, and the cold clear night",
+            "title_zh": "玻璃管、真正的溫室、夏威夷的山，還有晴朗寒冷的夜晚",
+            "lead_en": "How people found the blanket, and how you can feel it yourself.",
+            "lead_zh": "人們怎麼發現這條毯子，還有你自己怎麼感覺到它。",
+            "cards": [
+              {
+                "k": "1856",
+                "en": "Eunice Foote's glass tubes",
+                "zh": "富特的玻璃管",
+                "body_en": "In 1856, an American scientist named Eunice Newton Foote filled glass tubes with different gases and set them in the sun. The tube of carbon dioxide grew hotter than the others. She wrote that if the air held more of this gas, the Earth would be warmer. Three years later, in 1859, John Tyndall in England showed in his laboratory how carbon dioxide and water vapor take in heat.",
+                "body_zh": "1856 年，美國科學家富特把幾支玻璃管裝進不同的氣體，放在太陽下曬。裝二氧化碳的那一支比其他的都熱。她寫道，如果空氣裡這種氣體比較多，地球就會比較暖。三年後的 1859 年，英國的丁達爾在實驗室裡證明了二氧化碳和水氣會吸收熱。"
+              },
+              {
+                "k": "Name · 名稱",
+                "en": "A real greenhouse works differently",
+                "zh": "真正的溫室其實不太一樣",
+                "body_en": "The name comes from the glass houses where farmers grow plants in cold weather. Both keep in the heat of the sun, but not in the same way. A real greenhouse is warm mainly because its glass stops the warm air inside from blowing away. So does a car parked in the sun. The Earth has no glass roof. Its gases catch heat that is traveling as invisible light. The name is a comparison, not an exact description.",
+                "body_zh": "這個名稱來自農夫在冷天種植物用的玻璃屋。兩者都把太陽的熱留住，方法卻不一樣。真正的溫室之所以暖，主要是因為玻璃擋住了裡面的暖空氣，不讓它被吹走；停在太陽下的車子也是這樣。地球沒有玻璃屋頂，它的氣體攔住的是用看不見的光在傳遞的熱。所以這個名稱只是一個比喻，不是精確的描述。"
+              },
+              {
+                "k": "1958",
+                "en": "A mountain in Hawaii",
+                "zh": "夏威夷的一座山",
+                "body_en": "In March 1958, measurements of the carbon dioxide in the air began at an observatory high on the mountain Mauna Loa in Hawaii, far from cities and factories. The first reading was 313 parts per million. The measuring has never stopped, and the number has climbed year after year. The line it makes on a graph is called the Keeling Curve, after the scientist who started the work.",
+                "body_zh": "1958 年 3 月，人們開始在夏威夷茂納羅亞山高處的觀測站測量空氣裡的二氧化碳；那裡離城市和工廠都很遠。第一次量到的是百萬分之 313。這項測量從來沒有中斷，數字也一年一年往上爬。它在圖上畫出來的那條線，用開始這項工作的科學家的名字命名，叫做「基林曲線」。"
+              },
+              {
+                "k": "Taiwan · 台灣",
+                "en": "The cold, clear night",
+                "zh": "晴朗寒冷的夜晚",
+                "body_en": "You can feel the blanket yourself in winter. When a cold air mass reaches Taiwan and the sky clears, the ground sends its heat out all night with no cloud to send any back. The temperature falls quickly, and the coldest moment comes just before sunrise. Weather forecasters call this radiation cooling. On a cloudy night the clouds act as an extra blanket, and the morning is milder.",
+                "body_zh": "冬天的時候，你自己就感覺得到這條毯子。冷氣團來到台灣、天空放晴的夜裡，地面整夜把熱往外送，卻沒有雲把熱送回來。氣溫降得很快，最冷的時候就在日出之前。氣象預報把這叫做「輻射冷卻」。多雲的夜晚，雲就像多蓋了一條毯子，早上就沒那麼冷。"
+              }
+            ]
+          },
+          "myths": [
+            {
+              "myth_en": "The greenhouse effect is a bad thing.",
+              "myth_zh": "溫室效應是壞東西。",
+              "fact_en": "Without it the Earth would average about −18°C. The greenhouse effect is what makes the planet warm enough to live on. What matters is how strong it is.",
+              "fact_zh": "沒有它，地球平均大約只有零下 18°C。是溫室效應讓這顆行星暖到可以住人。重要的是它有多強。"
+            },
+            {
+              "myth_en": "Greenhouse gases block the sunlight.",
+              "myth_zh": "溫室氣體會擋住陽光。",
+              "fact_en": "They let sunlight through. What they catch is the heat that the ground sends back out.",
+              "fact_zh": "它們會讓陽光通過。它們攔下來的，是地面往外送的熱。"
+            },
+            {
+              "myth_en": "Carbon dioxide is most of the air.",
+              "myth_zh": "空氣裡大部分是二氧化碳。",
+              "fact_en": "It is only about 0.04% of the air. Nitrogen and oxygen make up about 99%, and they are not greenhouse gases.",
+              "fact_zh": "它大約只占空氣的 0.04%。氮和氧占了大約 99%，它們並不是溫室氣體。"
+            },
+            {
+              "myth_en": "The Earth works just like a glass greenhouse.",
+              "myth_zh": "地球保暖的方式和玻璃溫室一模一樣。",
+              "fact_en": "A glass greenhouse mainly stops warm air from blowing away. The Earth's gases catch heat that travels as invisible light.",
+              "fact_zh": "玻璃溫室主要是擋住暖空氣、不讓它被吹走。地球的氣體攔住的，是用看不見的光傳遞的熱。"
+            }
+          ],
+          "tricks": [
+            {
+              "title_en": "Sunlight comes in",
+              "title_zh": "陽光進來",
+              "body_en": "It passes through the air.",
+              "body_zh": "它穿得過空氣。"
+            },
+            {
+              "title_en": "The ground sends heat out",
+              "title_zh": "地面把熱送出去",
+              "body_en": "As light we cannot see.",
+              "body_zh": "用我們看不見的光。"
+            },
+            {
+              "title_en": "Some gases catch it",
+              "title_zh": "有些氣體把它攔住",
+              "body_en": "And send part of it back.",
+              "body_zh": "再把一部分送回來。"
+            },
+            {
+              "title_en": "A blanket of the right thickness",
+              "title_zh": "厚薄剛好的毯子",
+              "body_en": "Thirty-three degrees warmer.",
+              "body_zh": "暖了 33 度。"
+            }
+          ],
+          "activities": [
+            {
+              "title_en": "Two Jars in the Sun",
+              "title_zh": "太陽下的兩個瓶子",
+              "materials": [
+                {
+                  "en": "Two clear jars of the same size, two thermometers, and clear plastic wrap",
+                  "zh": "兩個一樣大的透明瓶子、兩支溫度計，還有保鮮膜"
+                },
+                {
+                  "en": "A sunny windowsill and a clock",
+                  "zh": "一個曬得到太陽的窗台，還有時鐘"
+                }
+              ],
+              "steps": [
+                {
+                  "en": "Put a thermometer in each jar. Cover one jar tightly with plastic wrap, and leave the other open.",
+                  "zh": "兩個瓶子裡各放一支溫度計。一個用保鮮膜緊緊封住，另一個不封。"
+                },
+                {
+                  "en": "Stand both jars side by side in the sun.",
+                  "zh": "把兩個瓶子並排放在太陽下。"
+                },
+                {
+                  "en": "Read both thermometers every five minutes for half an hour, and write the numbers down.",
+                  "zh": "每五分鐘讀一次兩支溫度計，讀半個小時，把數字記下來。"
+                },
+                {
+                  "en": "Which jar became warmer? What did the plastic wrap stop?",
+                  "zh": "哪一個瓶子比較暖？保鮮膜擋住了什麼？"
+                }
+              ],
+              "tip_en": "Be honest about what this shows. The covered jar is warmer mainly because the warm air cannot escape, which is how a real greenhouse and a parked car work. The Earth's blanket of gas does a different job: it catches heat that travels as invisible light. The result is alike, and the reason is not.",
+              "tip_zh": "要老實說這個實驗證明了什麼：封住的瓶子比較暖，主要是因為暖空氣跑不掉——真正的溫室和停著的車子就是這樣。地球的氣體毯子做的是另一件事：攔住用看不見的光傳遞的熱。結果很像，原因並不一樣。"
+            },
+            {
+              "title_en": "Cloudy Night, Clear Night",
+              "title_zh": "多雲的夜晚，晴朗的夜晚",
+              "materials": [
+                {
+                  "en": "The weather forecast or a weather website for your town",
+                  "zh": "你住的地方的氣象預報或氣象網站"
+                },
+                {
+                  "en": "A notebook, for two weeks in the cooler part of the year",
+                  "zh": "一本筆記本，在比較涼的季節記錄兩個星期"
+                }
+              ],
+              "steps": [
+                {
+                  "en": "Each evening, look at the sky and write down whether it is clear or cloudy.",
+                  "zh": "每天晚上看看天空，記下是晴朗還是多雲。"
+                },
+                {
+                  "en": "The next morning, write down the lowest temperature of the night.",
+                  "zh": "隔天早上，記下前一晚的最低氣溫。"
+                },
+                {
+                  "en": "After two weeks, sort your nights into two groups: clear and cloudy.",
+                  "zh": "兩個星期之後，把這些夜晚分成兩組：晴朗的和多雲的。"
+                },
+                {
+                  "en": "Which group has the colder nights? By how many degrees, on average?",
+                  "zh": "哪一組的夜晚比較冷？平均差了幾度？"
+                }
+              ],
+              "tip_en": "Other things change the temperature too, such as wind and a new mass of cold air, so two weeks will not give a perfect answer. Look for the pattern, and say how sure you are.",
+              "tip_zh": "風、新來的冷氣團這些因素也會影響氣溫，所以兩個星期不會得到完美的答案。找出大致的趨勢，並說說你有多少把握。"
+            }
+          ],
+          "sources": [
+            {
+              "en": "Sunlight reaches the ground as shortwave radiation, and the ground sends longwave radiation back; water vapor, clouds, and dust in the air take it in and keep the surface from losing heat without limit, like a glass plant house; clouds reduce the loss of heat at night; radiation cooling on clear nights after a cold air mass arrives",
+              "zh": "太陽能以短波輻射到達地面，地面以長波向天空輻射；大氣中的水氣、雲層及微塵吸收長波輻射，使地表熱量不致無止境散失，如同玻璃花房；雲層遮蔽時更可防止地面熱量散逸；冷氣團影響、天空放晴的夜晚出現輻射冷卻",
+              "src": "中央氣象署 氣象常識「大氣的溫室效應和冷卻現象」",
+              "url": "https://www.cwa.gov.tw/V8/C/K/Encyclopedia/nous/overview_list.html#overview-02"
+            },
+            {
+              "en": "About one third of sunlight is reflected back to space; much of the heat released by the surface is absorbed by water vapor, carbon dioxide, other greenhouse gases, and clouds, and the warmed air radiates heat toward the ground and toward space",
+              "zh": "太陽輻射約三分之一被大氣和地球直接反射回太空；地表釋放的熱量有很多被大氣中的水氣、二氧化碳等溫室氣體和雲吸收，空氣變暖後熱能還會向地面和太空繼續輻射",
+              "src": "中央氣象署 氣候百問「氣候和地球的輻射能量平衡有關嗎？」",
+              "url": "https://www.cwa.gov.tw/V8/C/K/Encyclopedia/climate/index.html#climate-03"
+            },
+            {
+              "en": "The air is about 78% nitrogen and 21% oxygen; water vapor is the most important greenhouse gas and keeps the surface temperature in a range fit for life",
+              "zh": "大氣中氮約占 78%、氧約占 21%；水氣是最重要的溫室氣體，讓地表溫度維持在適合生物生存的範圍",
+              "src": "中央氣象署 氣候百問「什麼是地球氣候系統？」「水在我們地球氣候系統中的角色為何？」",
+              "url": "https://www.cwa.gov.tw/V8/C/K/Encyclopedia/climate/index.html#climate-02"
+            },
+            {
+              "en": "Without the greenhouse effect the Earth's average surface temperature would be about −18°C; it is about 15°C, a difference of 33°C; real greenhouses keep heat mainly by blocking the movement of air",
+              "zh": "沒有溫室效應，地球表面平均溫度約 −18°C；實際約 15°C，相差 33°C；真正的溫室主要靠阻擋空氣流動來保溫",
+              "src": "Wikipedia, “Greenhouse effect”",
+              "url": "https://en.wikipedia.org/wiki/Greenhouse_effect"
+            },
+            {
+              "en": "Carbon dioxide reached 432 parts per million (0.0432%) in 2026, up from 280 parts per million before the mid-18th century",
+              "zh": "2026 年大氣二氧化碳濃度達 432 ppm（0.0432%），十八世紀中葉以前為 280 ppm",
+              "src": "Wikipedia, “Carbon dioxide in the atmosphere of Earth”",
+              "url": "https://en.wikipedia.org/wiki/Carbon_dioxide_in_the_atmosphere_of_Earth"
+            },
+            {
+              "en": "Measurements at Mauna Loa Observatory began in March 1958 at 313 parts per million and have risen steadily",
+              "zh": "茂納羅亞觀測站自 1958 年 3 月開始測量，當時為 313 ppm，之後穩定上升",
+              "src": "Wikipedia, “Keeling Curve”",
+              "url": "https://en.wikipedia.org/wiki/Keeling_Curve"
+            },
+            {
+              "en": "Venus: an average surface temperature of 464°C and an atmosphere that is 96.5% carbon dioxide",
+              "zh": "金星：地表平均溫度 464°C，大氣 96.5% 為二氧化碳",
+              "src": "Wikipedia, “Venus”",
+              "url": "https://en.wikipedia.org/wiki/Venus"
+            },
+            {
+              "en": "Eunice Newton Foote showed in 1856 that carbon dioxide grows hotter in sunlight and suggested that more of it would warm the climate",
+              "zh": "富特在 1856 年發表二氧化碳在陽光下升溫較多的實驗，並推測它的多寡會影響氣候",
+              "src": "Wikipedia, “Eunice Newton Foote”",
+              "url": "https://en.wikipedia.org/wiki/Eunice_Newton_Foote"
+            },
+            {
+              "en": "John Tyndall showed in 1859 the connection between carbon dioxide in the air and what is now called the greenhouse effect",
+              "zh": "丁達爾在 1859 年證明大氣中二氧化碳與今日所稱溫室效應的關聯",
+              "src": "Wikipedia, “John Tyndall”",
+              "url": "https://en.wikipedia.org/wiki/John_Tyndall"
+            }
+          ]
         }
-      ]
+      ],
+      "planned": []
     }
   ]
 }

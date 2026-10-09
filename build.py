@@ -9842,7 +9842,7 @@ def build_chip_hub():
 _earthj = os.path.join(ROOT, "data", "earth.json")
 EARTH = json.load(open(_earthj, encoding="utf-8")) if os.path.exists(_earthj) else None
 EARTH_BASE = "/resources/classes/earth/"
-_EARTH_JS = {"quake": "earth-quake", "inside": "earth-inside", "shake": "earth-shake", "mountain": "earth-mountain", "volcano": "earth-volcano", "rain": "earth-rain", "wind": "earth-wind", "typhoon": "earth-typhoon", "lightning": "earth-lightning", "forecast": "earth-forecast", "river": "earth-river", "tsunami": "earth-tsunami", "salt": "earth-salt", "fossil": "earth-fossil", "age": "earth-age"}   # lab.kind → assets/js/<bundle>.js
+_EARTH_JS = {"quake": "earth-quake", "inside": "earth-inside", "shake": "earth-shake", "mountain": "earth-mountain", "volcano": "earth-volcano", "rain": "earth-rain", "wind": "earth-wind", "typhoon": "earth-typhoon", "lightning": "earth-lightning", "forecast": "earth-forecast", "river": "earth-river", "tsunami": "earth-tsunami", "salt": "earth-salt", "fossil": "earth-fossil", "age": "earth-age", "greenhouse": "earth-greenhouse"}   # lab.kind → assets/js/<bundle>.js
 
 def _earth_ver():
     h = hashlib.md5()
@@ -10901,9 +10901,74 @@ def _earth_oneday(od):
             f'</div></div>'
             '<noscript><p class="muted">This tool works in your browser and needs JavaScript. · 這個小工具在瀏覽器裡運作，需要開啟 JavaScript。</p></noscript>')
 
-_EARTH_LAB = {"quake": render_earthquake_lab, "inside": render_earthinside_lab, "shake": render_earthshake_lab, "mountain": render_earthmountain_lab, "volcano": render_earthvolcano_lab, "rain": render_earthrain_lab, "wind": render_earthwind_lab, "typhoon": render_earthtyphoon_lab, "lightning": render_earthlightning_lab, "forecast": render_earthforecast_lab, "river": render_earthriver_lab, "tsunami": render_earthtsunami_lab, "salt": render_earthsalt_lab, "fossil": render_earthfossil_lab, "age": render_earthage_lab}          # lab.kind → 3D 面板
-_EARTH_ICON = {"quake": earthquake_svg, "inside": earthglobe_svg, "shake": earthshake_svg, "mountain": earthmountain_svg, "volcano": earthvolcano_svg, "rain": earthrain_svg, "wind": earthwind_svg, "typhoon": earthtyphoon_svg, "lightning": earthlightning_svg, "forecast": earthforecast_svg, "river": earthriver_svg, "tsunami": earthtsunami_svg, "salt": earthsalt_svg, "fossil": earthfossil_svg, "age": earthage_svg}                 # lesson.card → 課程卡小圖示
-_EARTH_WIDGETS = [("warn", _earth_warn), ("dig", _earth_dig), ("scale10", _earth_scale10), ("peak", _earth_peak), ("bubble", _earth_bubble), ("gauge", _earth_gauge), ("beaufort", _earth_beaufort), ("eyepass", _earth_eyepass), ("count", _earth_count), ("skyword", _earth_skyword), ("carry", _earth_carry), ("wavespeed", _earth_wavespeed), ("saltpan", _earth_saltpan), ("strata", _earth_strata), ("oneday", _earth_oneday)]               # lesson 裡有這個 key 就多一段（照這裡的順序）
+def earthgreenhouse_svg(size=56):
+    """第十六課的課程卡小圖示：陽光進來（黃箭頭），地面的熱往上，被一層空氣攔下一部分又送回來（紅箭頭）。"""
+    return (f'<svg class="earthgreenhouse-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">'
+            '<rect x="4" y="46" width="52" height="10" rx="3" fill="#5f9a5a"/><rect x="4" y="18" width="52" height="12" rx="6" fill="#6fb0ff" opacity=".35"/>'
+            '<path d="M14 6 L22 42" stroke="#ffe27a" stroke-width="3.4" stroke-linecap="round"/><path d="M22 42 l-6 -4 m6 4 l1 -7" stroke="#ffe27a" stroke-width="3.4" stroke-linecap="round"/>'
+            '<path d="M38 44 V26 C38 20 48 20 48 26 V40" fill="none" stroke="#ff5a4a" stroke-width="3.4" stroke-linecap="round"/><path d="M48 40 l-4 -5 m4 5 l4 -5" stroke="#ff5a4a" stroke-width="3.4" stroke-linecap="round"/></svg>')
+
+def render_earthgreenhouse_lab(lesson):
+    """第十六課：陽光進來、地面的熱出去，溫室氣體攔下一部分再送回地面（assets/js/earth-greenhouse.js 綁這裡的 class；全部自繪示意）。"""
+    lab = lesson["lab"]
+    msgs = "".join(f'<p class="cp-msg ew-gh-msg" data-msg="{k}" hidden>{html.escape(m["en"])}<span class="zh">{html.escape(m["zh"])}</span></p>' for k, m in lab["msgs"].items())
+    tg = _lab_toggles([("labels", "Labels", "標示", True)])
+    return f'''<div class="astro-lab cp-lab ew-lab ew-gh-lab rvl" data-earthgreenhouse-lab>
+  <div class="al-stage">
+    <div class="al-space">
+      <canvas class="al-space-cv" aria-label="3D model of the ground and the air above it: yellow dots of sunlight come down, red dots of heat rise from the ground, and gases in the air catch some of the heat and send part of it back down · 地面和上方空氣的 3D 模型：黃色的陽光小點往下，紅色的熱從地面往上，空氣裡的氣體攔下一部分的熱，其中一些又送回地面"></canvas>
+      <div class="al-labels" aria-hidden="true"></div>
+      <p class="al-hint">Drag to turn · 拖曳旋轉　Scroll or pinch to zoom · 滾輪／雙指縮放</p>
+      <button type="button" class="al-home" title="Reset view · 重設視角" aria-label="Reset view · 重設視角">&#8634;</button>
+      <p class="al-nogl-msg">This 3D model needs WebGL, which this browser does not support. The reading and the cards below still explain everything.<br><span class="zh">這個瀏覽器不支援 WebGL，無法顯示 3D 模型；下方的課文與卡片一樣能看懂。</span></p>
+    </div>
+    <aside class="al-sky cp-aside">
+      <p class="al-sky-k">How much greenhouse gas is in the air? · 空氣裡有多少溫室氣體？</p>
+      <div class="cp-dope ew-gh-mode" role="group" aria-label="Greenhouse gases · 溫室氣體">
+        <button type="button" data-mode="none" aria-pressed="false">None<small>完全沒有</small></button>
+        <button type="button" data-mode="today" aria-pressed="true">Earth today<small>今天的地球</small></button>
+        <button type="button" data-mode="more" aria-pressed="false">Much more<small>多很多</small></button>
+      </div>
+      <div class="cp-ht-meter"><p class="ew-qk-k">Heat coming back to the ground · 回到地面的熱</p><div class="cp-ht-bar"><i class="ew-gh-bar"></i></div><p class="cp-ht-status ew-gh-status"></p></div>
+      <dl class="cp-nums cp-lt-nums ew-nums">
+        <div><dt>Ground · 地面的溫度</dt><dd class="ew-gh-temp"></dd></div>
+        <div><dt>Sent back · 送回來</dt><dd class="ew-gh-back"></dd></div>
+        <div><dt>Gases · 溫室氣體</dt><dd class="ew-gh-gas"></dd></div>
+      </dl>
+      {msgs}
+    </aside>
+  </div>
+  <div class="al-controls">
+    <div class="al-row al-row-main">
+      <button type="button" class="al-play" aria-pressed="true"><span class="al-play-i" aria-hidden="true"></span><span class="al-play-t">Pause · 暫停</span></button>
+      <div class="al-row al-toggles">{tg}</div>
+    </div>
+  </div>
+  {_lab_foot(lab)}
+  <p class="cp-credit">{lab["credit_html"]}</p>
+</div>'''
+
+def _earth_blanket(bk):
+    """「三個世界的溫度」（earth-greenhouse.js 的 initBlanket；−18°C、15°C、464°C 都有出處；不需要 WebGL）。"""
+    worlds = html.escape(json.dumps(bk["worlds"], ensure_ascii=False))
+    btns = "".join(f'<button type="button" aria-pressed="false">{html.escape(w["en"])}<small>{html.escape(w["zh"])}</small></button>' for w in bk["worlds"])
+    return (f'<div class="cp-cnt ew-bk rvl" data-earth-blanket data-worlds="{worlds}">'
+            f'<div class="cp-cnt-in">'
+            f'<p class="cp-cnt-l cp-sun-l"><span>Choose a world · 選一個世界</span></p>'
+            f'<div class="cp-dpw-pre ew-bk-w" role="group" aria-label="World · 世界">{btns}</div>'
+            f'<p class="cp-cnt-note">{html.escape(bk["note_en"])}<span class="zh">{html.escape(bk["note_zh"])}</span></p></div>'
+            f'<div class="cp-home-out cp-cnt-out ew-bk-out" aria-live="polite">'
+            f'<div class="ew-bk-tube" aria-hidden="true"><i class="ew-bk-fill"></i></div>'
+            f'<div><p class="cp-home-k">Average temperature at the surface · 地表的平均溫度</p>'
+            f'<p class="cp-home-big"><b class="ew-bk-t">15°C</b></p>'
+            f'<p class="cp-home-sub"><span class="ew-bk-name"></span><span class="zh ew-bk-name-zh"></span></p>'
+            f'<p class="cp-home-note"><span class="ew-bk-en"></span><span class="zh ew-bk-zh"></span></p></div>'
+            f'</div></div>'
+            '<noscript><p class="muted">This tool works in your browser and needs JavaScript. · 這個小工具在瀏覽器裡運作，需要開啟 JavaScript。</p></noscript>')
+
+_EARTH_LAB = {"quake": render_earthquake_lab, "inside": render_earthinside_lab, "shake": render_earthshake_lab, "mountain": render_earthmountain_lab, "volcano": render_earthvolcano_lab, "rain": render_earthrain_lab, "wind": render_earthwind_lab, "typhoon": render_earthtyphoon_lab, "lightning": render_earthlightning_lab, "forecast": render_earthforecast_lab, "river": render_earthriver_lab, "tsunami": render_earthtsunami_lab, "salt": render_earthsalt_lab, "fossil": render_earthfossil_lab, "age": render_earthage_lab, "greenhouse": render_earthgreenhouse_lab}          # lab.kind → 3D 面板
+_EARTH_ICON = {"quake": earthquake_svg, "inside": earthglobe_svg, "shake": earthshake_svg, "mountain": earthmountain_svg, "volcano": earthvolcano_svg, "rain": earthrain_svg, "wind": earthwind_svg, "typhoon": earthtyphoon_svg, "lightning": earthlightning_svg, "forecast": earthforecast_svg, "river": earthriver_svg, "tsunami": earthtsunami_svg, "salt": earthsalt_svg, "fossil": earthfossil_svg, "age": earthage_svg, "greenhouse": earthgreenhouse_svg}                 # lesson.card → 課程卡小圖示
+_EARTH_WIDGETS = [("warn", _earth_warn), ("dig", _earth_dig), ("scale10", _earth_scale10), ("peak", _earth_peak), ("bubble", _earth_bubble), ("gauge", _earth_gauge), ("beaufort", _earth_beaufort), ("eyepass", _earth_eyepass), ("count", _earth_count), ("skyword", _earth_skyword), ("carry", _earth_carry), ("wavespeed", _earth_wavespeed), ("saltpan", _earth_saltpan), ("strata", _earth_strata), ("oneday", _earth_oneday), ("blanket", _earth_blanket)]               # lesson 裡有這個 key 就多一段（照這裡的順序）
 
 def _earth_flat():
     return [(ui, u, l) for ui, u in enumerate(EARTH["units"]) for l in u["lessons"]]

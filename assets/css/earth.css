@@ -338,6 +338,24 @@
 .ew-dy-out .cp-home-sub .zh { display: block; }
 @media (max-width: 560px) { .ew-dy-out { grid-template-columns: 76px minmax(0, 1fr); } .ew-dy-face { width: 76px; } }
 
+/* ---------- 第十六課：溫室效應是什麼？ ---------- */
+@media (min-width: 1021px) { .ew-gh-lab .al-space { min-height: 620px; } }
+.ew-gh-msg[hidden] { display: none; }
+.ew-gh-bar { width: 0; background: linear-gradient(90deg, #ffb36b, #ff5a4a) !important; transition: width .3s; }
+.ew-gh-status small { display: block; font-family: var(--zh); font-weight: 600; font-size: .8rem; color: var(--al-mute); }
+.al-lab.ew-gh-lb-s { border-color: #ffe27a; } .al-lab.ew-gh-lb-h { border-color: #ff5a4a; }
+.al-lg-ewghsun i { border: 0; border-radius: 50%; width: 9px; height: 9px; margin: .35rem 10px 0; background: #ffe27a; }
+.al-lg-ewghheat i { border: 0; border-radius: 50%; width: 9px; height: 9px; margin: .35rem 10px 0; background: #ff5a4a; }
+.al-lg-ewghgas i { border: 0; border-radius: 50%; width: 12px; height: 12px; margin: .28rem 8px 0; background: #b9c6da; }
+/* 頁面小工具：三個世界的溫度 */
+.ew-bk-w { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.ew-bk-out { display: grid; grid-template-columns: 40px minmax(0, 1fr); gap: 1.2rem; align-items: stretch; }
+.ew-bk-tube { position: relative; min-height: 200px; border-radius: 20px; border: 2px solid rgba(255,255,255,.5); overflow: hidden; }
+.ew-bk-fill { position: absolute; left: 0; right: 0; bottom: 0; height: var(--h, 10%); background: #ffb36b; transition: height .4s, background .4s; }
+.ew-bk-fill[data-k="cold"] { background: #7fc4ff; } .ew-bk-fill[data-k="hot"] { background: #e0261a; }
+.ew-bk-out .cp-home-sub .zh { display: block; }
+@media (max-width: 560px) { .ew-bk-w { grid-template-columns: 1fr; } }
+
 /* ---------- 全系列共用 ---------- */
 .cp-link.ew-link-soon { border-style: dashed; opacity: .78; cursor: default; }
 .ew-safety-src { margin: 1rem 0 0; font-size: .86rem; color: var(--ink-soft); }
