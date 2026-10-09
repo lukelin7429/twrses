@@ -4317,7 +4317,7 @@ def build_astro_hub():
 # 面板與段落樣式沿用 astro.css，人體專屬的在 body.css；兩者都只載在本系列頁面。
 BODY_BASE = "/resources/classes/human-body/"
 _BODY_JS = {"skeleton": "skeleton", "arm": "arm", "heart": "heart", "lungs": "lungs", "joints": "joints",
-            "digestion": "digestion", "nerves": "nerves", "eyes": "eyes", "ears": "ears", "skin": "skin", "teeth": "teeth", "germs": "germs", "kidneys": "kidneys", "taste": "taste", "sleep": "sleep", "growth": "growth", "voice": "voice", "hands": "hands", "healing": "healing", "exercise": "exercise"}   # lab.kind → assets/js/<bundle>.js
+            "digestion": "digestion", "nerves": "nerves", "eyes": "eyes", "ears": "ears", "skin": "skin", "teeth": "teeth", "germs": "germs", "kidneys": "kidneys", "taste": "taste", "sleep": "sleep", "growth": "growth", "voice": "voice", "hands": "hands", "healing": "healing", "exercise": "exercise", "energy": "energy"}   # lab.kind → assets/js/<bundle>.js
 
 def _body_ver():
     h = hashlib.md5()
@@ -5572,6 +5572,73 @@ def render_exercise_lab(lesson):
   <p class="sk-credit">{lab["credit_html"]}</p>
 </div>'''
 
+def render_energy_lab(lesson):
+    """第二十一課：真實的食道、胃、十二指腸＋自繪肝臟、胰臟、小腸與血流，跟著糖走（assets/js/energy.js 綁這裡的 class）；餐盤工具是 2D，不需要 WebGL。"""
+    lab = lesson["lab"]
+    meals_json = html.escape(json.dumps(lab["meals"], ensure_ascii=False))
+    notes_json = html.escape(json.dumps(lab["notes"], ensure_ascii=False))
+    groups_json = html.escape(json.dumps(lab["groups"], ensure_ascii=False))
+    meals = "".join(
+        f'<button type="button" data-meal="{m["key"]}" aria-pressed="{"true" if n == 0 else "false"}"><i aria-hidden="true">{m["icon"]}</i>'
+        f'<span>{html.escape(m["en"])}<small>{html.escape(m["zh"])}</small></span></button>' for n, m in enumerate(lab["meals"]))
+    def bar(cls, en, zh):
+        return f'<div class="fu-bar fu-bar-{cls}"><span>{en}<small>{zh}</small></span><b><i></i></b></div>'
+    head = "".join(f'<span class="fu-th">{en}<small>{zh}</small></span>' for en, zh in [("Breakfast", "早餐"), ("Lunch", "午餐"), ("Dinner", "晚餐")])
+    rows = "".join(
+        f'<div class="fu-g" data-g="{g["key"]}"><p class="fu-gk"><i aria-hidden="true">{g["icon"]}</i><span>{html.escape(g["en"])}<small>{html.escape(g["zh"])}</small></span>'
+        f'<em>{html.escape(g["eg_en"])}<small>{html.escape(g["eg_zh"])}</small></em></p>'
+        + "".join(f'<button type="button" class="fu-tick" data-m="{m}" aria-pressed="false" aria-label="{html.escape(g["en"])}, {mn} · {html.escape(g["zh"])}，{mz}"></button>'
+                  for m, mn, mz in [(0, "breakfast", "早餐"), (1, "lunch", "午餐"), (2, "dinner", "晚餐")])
+        + '</div>' for g in lab["groups"])
+    chips = "".join(f'<span class="fu-chip" data-g="{g["key"]}"><i aria-hidden="true">{g["icon"]}</i>{html.escape(g["zh"])}</span>' for g in lab["groups"])
+    tg = _lab_toggles([("labels", "Labels", "標示", True), ("skel", "Bones", "骨頭", True), ("compare", "Compare the lines", "比較三條曲線", True)])
+    return f'''<div class="astro-lab sk-lab fu-lab rvl" data-energy-lab data-model="{_model_url()}" data-organs="{_organs_url()}" data-meals="{meals_json}" data-notes="{notes_json}" data-groups="{groups_json}">
+  <div class="al-stage">
+    <div class="al-space">
+      <canvas class="al-space-cv" aria-label="3D model of a real stomach and esophagus inside a faint skeleton, with a drawn liver, pancreas, and small intestine, and dots of sugar traveling in the blood to the brain and a leg muscle · 淡淡的骨架裡有真實的胃和食道，加上自繪的肝臟、胰臟和小腸，一顆顆的糖隨著血液送到大腦和腿部肌肉的 3D 模型"></canvas>
+      <div class="al-labels" aria-hidden="true"></div>
+      <p class="sk-loading">Loading… · 載入中…<span class="sk-bar"><i></i></span></p>
+      <p class="al-hint">Drag to turn · 拖曳旋轉　Scroll or pinch to zoom · 滾輪／雙指縮放</p>
+      <p class="ey-mag">A drawing of the usual pattern, not a measurement · 畫的是常見的樣子，不是實際測量</p>
+      <button type="button" class="al-home" title="Reset view · 重設視角" aria-label="Reset view · 重設視角">&#8634;</button>
+      <p class="al-nogl-msg">This 3D model needs WebGL, which this browser does not support. The plate tool and the cards below still work.<br><span class="zh">這個瀏覽器不支援 WebGL，無法顯示 3D 模型；下方的餐盤工具和卡片一樣能用。</span></p>
+    </div>
+    <aside class="al-sky sk-aside fu-aside">
+      <p class="fu-clock"><b class="fu-t">7:00</b><span class="fu-since">Breakfast time<small>早餐時間</small></span></p>
+      <p class="al-sky-k">Sugar in the blood · 血液裡的糖</p>
+      <div class="fu-chartbox"><canvas class="fu-chart" aria-hidden="true"></canvas></div>
+      <p class="fu-key"><i></i>Usual level · 平常的高度</p>
+      {bar("ins", "Insulin", "胰島素")}{bar("store", "Sugar stored in the liver", "肝臟裡存的糖")}{bar("stom", "Food left in the stomach", "胃裡還剩的食物")}
+      <p class="ey-status fu-status" aria-live="polite"></p>
+    </aside>
+  </div>
+  <div class="fu-strip">
+    <div class="fu-plate">
+      <p class="al-sky-k">My plate today · 今天我的餐盤</p>
+      <div class="fu-grid"><div class="fu-g fu-head"><span></span>{head}</div>{rows}</div>
+    </div>
+    <div class="fu-side">
+      <p class="al-sky-k">Six food groups · 六大類食物</p>
+      <div class="fu-chips">{chips}</div>
+      <p class="fu-big"><b class="fu-n">0</b><span>of 6 groups so far<small>目前吃到的類別（共 6 類）</small></span></p>
+      <p class="fu-msg" aria-live="polite"></p>
+      <button type="button" class="fu-clear">Start a new day<small>重新開始一天</small></button>
+      <p class="fu-note">Some people do not eat every group, because of an allergy or their family's way of eating. Other foods can fill the gap: ask an adult.<span class="zh">有些人因為過敏或家裡的飲食習慣，不是每一類都吃；可以用別的食物補上，請問問大人。</span></p>
+    </div>
+  </div>
+  <div class="al-controls">
+    <div class="ea-pres fu-meals" role="group" aria-label="Breakfast · 早餐">{meals}</div>
+    <div class="al-row al-row-main">
+      <button type="button" class="al-play" aria-pressed="false"><span class="al-play-i" aria-hidden="true"></span><span class="al-play-t">Play · 播放</span></button>
+      <label class="ec-slider fu-row"><span class="ec-slider-k">Time since breakfast · 早餐後過了多久<em>0 &rarr; 5 hours · 0 &rarr; 5 小時</em></span>
+        <input type="range" class="ec-time fu-slider" min="0" max="500" step="1" value="0"></label>
+    </div>
+    <div class="al-row al-toggles">{tg}</div>
+  </div>
+  {_lab_foot(lab)}
+  <p class="sk-credit">{lab["credit_html"]}</p>
+</div>'''
+
 def _body_nav(slug):
     ls = BODY["lessons"]
     i = next(n for n, l in enumerate(ls) if l["slug"] == slug)
@@ -5599,7 +5666,7 @@ def build_body_lesson(lesson):
                 "joints": render_joints_lab, "digestion": render_digestion_lab, "nerves": render_nerves_lab,
                 "eyes": render_eyes_lab, "ears": render_ears_lab, "skin": render_skin_lab,
                 "teeth": render_teeth_lab, "germs": render_germs_lab, "kidneys": render_kidneys_lab,
-                "taste": render_taste_lab, "sleep": render_sleep_lab, "growth": render_growth_lab, "voice": render_voice_lab, "hands": render_hands_lab, "healing": render_healing_lab, "exercise": render_exercise_lab}[kind](lesson)
+                "taste": render_taste_lab, "sleep": render_sleep_lab, "growth": render_growth_lab, "voice": render_voice_lab, "hands": render_hands_lab, "healing": render_healing_lab, "exercise": render_exercise_lab, "energy": render_energy_lab}[kind](lesson)
 
     secs = []
     if lesson.get("jobs"):
@@ -5712,7 +5779,8 @@ def build_body_lesson(lesson):
                 "voice": ("Your voice in a sentence", "一句話記住聲音"),
                 "hands": ("Your hands in a sentence", "一句話記住手"),
                 "healing": ("Healing in a sentence", "一句話記住癒合"),
-                "exercise": ("Exercise in a sentence", "一句話記住運動")}[kind]
+                "exercise": ("Exercise in a sentence", "一句話記住運動"),
+                "energy": ("Energy in a sentence", "一句話記住能量")}[kind]
     secs.append(("tricks", "Remember It · 記憶口訣", tricks_h[0], tricks_h[1], _sci_tricks(lesson), ""))
     if lesson.get("culture"):
         cu = lesson["culture"]

@@ -133,7 +133,7 @@ function initLab(root) {
     const K = (n) => parts.get(n);
     for (const n of ['r-kidney', 'l-kidney']) { K(n).mat.color.setHex(0x9c3a2e); K(n).mat.roughness = 0.5; }
     for (const n of ['r-ureter', 'l-ureter']) { K(n).mat.color.setHex(0xe9c9a0); K(n).mat.transparent = true; K(n).mat.opacity = 0.75; }
-    K('tongue').mesh.visible = false; if (K('trachea')) K('trachea').mesh.visible = false;      // 別課用的器官
+    for (const [n, part] of parts) if (!['r-kidney', 'l-kidney', 'r-ureter', 'l-ureter', 'bladder'].includes(n)) part.mesh.visible = false;      // 別課用的器官
     // 膀胱：掛在底部的 pivot 上，裝得越滿越大；裡面一顆黃色的「尿」
     const bl = K('bladder');
     bl.mat.color.setHex(0xf0a8a0); bl.mat.transparent = true; bl.mat.opacity = 0.5; bl.mat.depthWrite = false; bl.mat.side = DoubleSide;

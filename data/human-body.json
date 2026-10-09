@@ -14,7 +14,23 @@
       "zh": "每一課也會請你在自己身上量一量、數一數，並附生字、閱讀理解、小測驗和課堂活動。本系列是教育用途，不是醫療建議。"
     }
   ],
-  "planned": [],
+  "planned": [
+    {
+      "icon": "🌡️",
+      "en": "Why Is Your Body Always Warm?",
+      "zh": "身體為什麼總是暖暖的？"
+    },
+    {
+      "icon": "🎒",
+      "en": "Why Does Your Back Need Care?",
+      "zh": "背為什麼需要照顧？"
+    },
+    {
+      "icon": "🔬",
+      "en": "What Are You Made Of?",
+      "zh": "你是什麼做成的？"
+    }
+  ],
   "lessons": [
     {
       "n": 1,
@@ -9369,6 +9385,543 @@
       },
       "health_en": "This lesson is for learning about the body. It is not medical advice. Everyone's heart rate is different, and the numbers in this lesson are only examples. Stop and tell an adult if you feel dizzy, have pain in your chest, or cannot catch your breath. If a doctor has told you to limit exercise, follow the doctor's advice.",
       "health_zh": "本課是認識身體的教材，不是醫療建議。每個人的心跳都不一樣，這一課裡的數字只是舉例。如果覺得頭暈、胸口痛，或是一直喘不過氣，請停下來並且告訴大人。如果醫生說過你要限制運動，請照醫生的話做。"
+    },
+    {
+      "n": 21,
+      "slug": "energy",
+      "title": "Where Does Your Energy Come From?",
+      "title_zh": "你的力氣從哪裡來？",
+      "level": "入門 · Beginner",
+      "icon": "🍚",
+      "card": "energy",
+      "blurb_en": "Food is fuel. Follow the sugar from a bowl of rice into your blood and out to your muscles and brain in 3D, compare two breakfasts, and sort one day of your own meals.",
+      "blurb_zh": "食物就是燃料。在 3D 裡跟著一碗飯裡的糖進到血液、送到肌肉和大腦，比較兩種早餐，再把你自己一天吃的東西分分類。",
+      "big_idea_en": "Food is fuel. Your body breaks it down into sugar, sends the sugar around in your blood, and your cells burn it with oxygen to make energy.",
+      "big_idea_zh": "食物就是燃料：身體把它分解成糖，讓糖隨著血液到處送，細胞再用氧氣把它「燒」掉，換成能量。",
+      "lab": {
+        "kind": "energy",
+        "eyebrow": "3D Model · 3D 模型",
+        "title_en": "Follow the Fuel",
+        "title_zh": "跟著燃料走",
+        "how_en": "Pick a breakfast and press play. Food goes down into the real stomach and on into the small intestine, where it becomes sugar: the gold dots. The sugar enters the blood and goes first to the liver, which stores some of it. The rest travels to the muscles and the brain. Watch the pancreas: when the blood has a lot of sugar, it sends out blue insulin, the signal to put sugar away. Then compare the lines for the two breakfasts, and see what happens if you eat nothing at all.",
+        "how_zh": "選一種早餐，按播放。食物往下進到真實的胃，再進到小腸，在那裡變成糖——金色的小點。糖進入血液，先到肝臟，肝臟會把一部分存起來；其餘的送到肌肉和大腦。注意看胰臟：血液裡的糖一多，它就送出藍色的胰島素，那是「把糖收起來」的訊號。然後比較兩種早餐的曲線，也看看什麼都不吃會怎麼樣。",
+        "legend": [
+          {
+            "cls": "fusugar",
+            "en": "Gold dots: sugar from the food",
+            "zh": "金色的點：食物變成的糖"
+          },
+          {
+            "cls": "fuins",
+            "en": "Blue dots: insulin from the pancreas",
+            "zh": "藍色的點：胰臟送出的胰島素"
+          },
+          {
+            "cls": "fuliver",
+            "en": "Brown: the liver, your sugar bank",
+            "zh": "褐色：肝臟，身體的糖銀行"
+          },
+          {
+            "cls": "fustom",
+            "en": "Pink: the real stomach and the tubes around it",
+            "zh": "粉紅色：真實的胃和周圍的管子"
+          },
+          {
+            "cls": "fumus",
+            "en": "Red: a leg muscle using the fuel",
+            "zh": "紅色：正在使用燃料的腿部肌肉"
+          }
+        ],
+        "scale_en": "The bones, the esophagus, the stomach, the first part of the small intestine, and the gallbladder are real shapes from BodyParts3D, in their real places; the liver, the pancreas, the rest of the intestine, the blood vessels, and the dots are our own drawing. The lines show the usual pattern, not a measurement: how fast and how high blood sugar rises depends on the food, the amount, and the person. Real meals also contain fat and protein, which this model leaves out to keep the story of sugar clear.",
+        "scale_zh": "骨頭、食道、胃、小腸的第一段（十二指腸）和膽囊是 BodyParts3D 的真實形狀，位置也是真的；肝臟、胰臟、其餘的小腸、血管和小點是本站自繪的示意圖。曲線畫的是常見的樣子，不是實際測量：血糖升得多快、多高，要看吃了什麼、吃了多少，也因人而異。真正的一餐還有脂肪和蛋白質，為了把「糖」的故事講清楚，模型裡沒有畫。",
+        "credit_html": "Bone and organ models: <a href=\"https://dbarchive.biosciencedbc.jp/en/bodyparts3d/download.html\" target=\"_blank\" rel=\"noopener\">BodyParts3D</a>, © The Database Center for Life Science, licensed under <a href=\"https://creativecommons.org/licenses/by/4.0/\" target=\"_blank\" rel=\"noopener\">CC BY 4.0</a>. We selected the bones, the esophagus, the stomach, the duodenum, and the gallbladder, simplified the shapes, and turned the model upright; the liver, pancreas, intestine, and blood vessels are our own drawing. · 骨骼與器官模型來源：BodyParts3D（日本生命科學資料庫中心，CC BY 4.0 授權）；本站挑選骨頭、食道、胃、十二指腸與膽囊，簡化形狀並轉正方向，肝臟、胰臟、小腸與血管為本站自繪示意。",
+        "meals": [
+          {
+            "key": "meal",
+            "icon": "🍚",
+            "en": "Rice, egg, and vegetables",
+            "zh": "飯、蛋和青菜"
+          },
+          {
+            "key": "drink",
+            "icon": "🧋",
+            "en": "A sweet drink only",
+            "zh": "只喝一杯含糖飲料"
+          },
+          {
+            "key": "none",
+            "icon": "🚫",
+            "en": "No breakfast",
+            "zh": "沒吃早餐"
+          }
+        ],
+        "groups": [
+          {
+            "key": "grain",
+            "icon": "🍚",
+            "en": "Whole grains",
+            "zh": "全穀雜糧",
+            "eg_en": "rice, noodles, bread, sweet potato",
+            "eg_zh": "飯、麵、麵包、地瓜",
+            "rhyme_en": "As much rice as vegetables",
+            "rhyme_zh": "飯跟蔬菜一樣多"
+          },
+          {
+            "key": "protein",
+            "icon": "🥚",
+            "en": "Protein foods",
+            "zh": "豆魚蛋肉",
+            "eg_en": "tofu, fish, eggs, meat",
+            "eg_zh": "豆腐、魚、蛋、肉",
+            "rhyme_en": "Beans, fish, eggs, and meat: one palm",
+            "rhyme_zh": "豆魚蛋肉一掌心"
+          },
+          {
+            "key": "veg",
+            "icon": "🥬",
+            "en": "Vegetables",
+            "zh": "蔬菜",
+            "eg_en": "greens, carrots, mushrooms",
+            "eg_zh": "青菜、紅蘿蔔、菇類",
+            "rhyme_en": "A little more vegetables than fruit",
+            "rhyme_zh": "菜比水果多一點"
+          },
+          {
+            "key": "fruit",
+            "icon": "🍊",
+            "en": "Fruit",
+            "zh": "水果",
+            "eg_en": "guava, banana, orange",
+            "eg_zh": "芭樂、香蕉、柳丁",
+            "rhyme_en": "Fruit the size of your fist at every meal",
+            "rhyme_zh": "每餐水果拳頭大"
+          },
+          {
+            "key": "dairy",
+            "icon": "🥛",
+            "en": "Dairy",
+            "zh": "乳品",
+            "eg_en": "milk, yogurt, cheese",
+            "eg_zh": "牛奶、優格、起司",
+            "rhyme_en": "A cup of milk, morning and evening",
+            "rhyme_zh": "每天早晚一杯奶"
+          },
+          {
+            "key": "nuts",
+            "icon": "🥜",
+            "en": "Nuts and seeds",
+            "zh": "堅果種子",
+            "eg_en": "peanuts, sesame, almonds",
+            "eg_zh": "花生、芝麻、杏仁",
+            "rhyme_en": "A teaspoon of nuts and seeds",
+            "rhyme_zh": "堅果種子一茶匙"
+          }
+        ],
+        "notes": {
+          "meal_rise": {
+            "en": "The meal is being broken down a little at a time. Sugar enters the blood slowly, the pancreas sends out some insulin, and the liver and muscles put some sugar away.",
+            "zh": "這一餐正一點一點地被分解。糖慢慢進入血液，胰臟送出一些胰島素，肝臟和肌肉把一部分的糖收起來。"
+          },
+          "meal_steady": {
+            "en": "Still digesting. The blood sugar is back near its usual level, and it stays there: fuel keeps arriving for hours.",
+            "zh": "還在消化。血糖回到平常的高度附近，而且穩穩地待在那裡：燃料連續好幾個小時不斷送來。"
+          },
+          "drink_spike": {
+            "en": "The sugar was already dissolved, so it rushes into the blood. The pancreas answers with a lot of insulin, and sugar is put away fast.",
+            "zh": "糖本來就是溶開的，所以一下子衝進血液。胰臟送出大量的胰島素回應，糖很快就被收走。"
+          },
+          "drink_dip": {
+            "en": "The rush is over. Nothing else is coming from the stomach, and the blood sugar is dropping fast. In some people it even slips a little below the usual level. Hungry again already?",
+            "zh": "那一陣衝刺結束了。胃裡沒有別的東西接著來，血糖掉得很快，有些人甚至會滑到比平常低一點的地方。是不是又餓了？"
+          },
+          "drink_after": {
+            "en": "The liver has stepped in and let out some of its stored sugar, and the level is steady again. But the stomach has been empty for a long time.",
+            "zh": "肝臟出面了：它放出一些存糧，血糖又穩住了。但是胃已經空了好一陣子。"
+          },
+          "none": {
+            "en": "Nothing is coming in. The liver lets out sugar from its store, a little at a time, so the brain and muscles still get fuel. The store is going down, and the stomach is growling.",
+            "zh": "沒有東西進來。肝臟把存糧一點一點地放出來，所以大腦和肌肉還是有燃料。只是存糧越來越少，肚子也咕嚕咕嚕叫了。"
+          },
+          "done": {
+            "en": "Hours later. Breakfast has been used or stored, and the liver is feeding sugar back into the blood. It is nearly time to eat again.",
+            "zh": "幾個小時過去了。早餐不是用掉，就是存起來了，現在換肝臟把糖放回血液裡。差不多該再吃東西了。"
+          }
+        }
+      },
+      "paras": [
+        "Have you ever felt weak and grumpy just before lunch, and then much better after eating? Food is your fuel. A car burns gasoline, and a phone runs on its battery. You run on rice, noodles, eggs, vegetables, and fruit. But how does a bowl of rice turn into a kick of a ball?",
+        "First, your body breaks the food down. You learned in the lesson about lunch that digestion starts in your mouth and goes on in your stomach and small intestine. Rice, bread, and noodles are mostly starch, and starch is made of long chains of sugar. Your body cuts the chains into single pieces of a sugar called glucose. Glucose is small enough to pass through the wall of the small intestine and into your blood.",
+        "From the intestine, the blood goes first to your liver. The liver is your sugar bank. When a lot of sugar arrives, a small organ behind your stomach, the pancreas, sends out a signal called insulin. Insulin tells your liver and your muscles to take sugar out of the blood and store it. Hours later, when no food is coming in, the liver lets its stored sugar back out, a little at a time. That is how your blood sugar stays steady between meals, and even while you sleep.",
+        "The blood carries the glucose to every cell. Inside the cell, glucose meets the oxygen you breathed in, and the cell “burns” the sugar slowly, without a flame, to get energy. What is left over is water and carbon dioxide, which you breathe out. So eating and breathing are two halves of one job. Your muscles use this energy to move. Your brain is a big user, too: an adult's brain takes about a fifth of the energy the body uses at rest. And your body uses energy all night just to stay warm and keep your heart beating.",
+        "Not every food gives up its sugar at the same speed. In a sweet drink, the sugar is already dissolved, so it rushes into your blood. Your blood sugar shoots up, a lot of insulin follows, and soon the sugar is put away and you feel hungry again. A meal with rice, an egg, and vegetables is broken down slowly, so the sugar arrives little by little, and the energy lasts all morning.",
+        "Your body needs more than sugar, of course. It needs protein to build muscles, calcium for bones, and many other things, and no single food has them all. That is why Taiwan's Health Promotion Administration draws a plate with six food groups: whole grains, protein foods, vegetables, fruit, dairy, and nuts and seeds. It even has a rhyme, and one line says that you should have as much rice as vegetables. Now use the plate tool below the model: which groups did you eat today?"
+      ],
+      "paras_zh": [
+        "你有沒有過這種經驗：午餐前全身沒力、脾氣也不好，吃完飯就好多了？食物就是你的燃料。汽車燒汽油，手機靠電池，而你靠的是飯、麵、蛋、青菜和水果。可是，一碗飯是怎麼變成踢球的那一腳的呢？",
+        "首先，身體要把食物分解。你在午餐那一課學過，消化從嘴巴開始，在胃和小腸繼續。飯、麵包和麵條大部分是澱粉，而澱粉是由一長串的糖接起來的。身體把這些長鏈剪成一個一個的糖，這種糖叫做葡萄糖。葡萄糖夠小，可以穿過小腸的壁，進到血液裡。",
+        "離開小腸的血，會先流到肝臟。肝臟是你的糖銀行。當很多糖一起送到時，胃後面一個小小的器官——胰臟——會送出一種叫做胰島素的訊號。胰島素告訴肝臟和肌肉：把血液裡的糖拿出來存好。幾個小時後，沒有食物進來了，肝臟再把存起來的糖一點一點放回血液。這就是為什麼兩餐之間、甚至你睡覺的時候，血糖都能保持穩定。",
+        "血液把葡萄糖送到每一個細胞。在細胞裡，葡萄糖遇上你吸進來的氧氣，細胞就把糖慢慢地「燒」掉——沒有火焰——換成能量。剩下來的是水和二氧化碳，二氧化碳再被你呼出去。所以吃東西和呼吸，其實是同一件工作的兩半。肌肉用這些能量來運動；大腦也是用電大戶：大人休息的時候，大腦就用掉全身大約五分之一的能量。而身體整個晚上都在用能量，只為了保持溫暖、讓心臟繼續跳。",
+        "不是每一種食物都用同樣的速度把糖交出來。含糖飲料裡的糖本來就是溶開的，所以一下子就衝進血液：血糖飆高，大量的胰島素跟著出動，沒多久糖就被收走，你又餓了。有飯、有蛋、有青菜的一餐會被慢慢分解，糖一點一點地到，能量可以撐一整個早上。",
+        "當然，身體需要的不只是糖。它需要蛋白質來造肌肉、需要鈣來長骨頭，還需要很多別的東西，而沒有任何一種食物樣樣都有。所以國民健康署畫了一個盤子，上面有六大類食物：全穀雜糧、豆魚蛋肉、蔬菜、水果、乳品、堅果種子，還編了口訣，其中一句是「飯跟蔬菜一樣多」。現在用模型下方的餐盤工具看一看：今天你吃到了哪幾類？"
+      ],
+      "questions": [
+        "What does your body turn rice, bread, and noodles into?",
+        "What does the liver do with sugar?",
+        "Why does a meal with rice, an egg, and vegetables give longer-lasting energy than a sweet drink?"
+      ],
+      "answers": [
+        "Into a sugar called glucose, which is small enough to pass into the blood.",
+        "It stores sugar when a lot arrives, and it lets the sugar back out into the blood, a little at a time, when no food is coming in.",
+        "Because the meal is broken down slowly, so the sugar arrives little by little. The sugar in a drink is already dissolved and rushes in all at once."
+      ],
+      "vocab": [
+        {
+          "n": 1,
+          "w": "energy",
+          "pos": "n.",
+          "zh": "能量；力氣",
+          "ex": "I have no <b>energy</b> before breakfast.",
+          "exzh": "吃早餐之前，我一點力氣也沒有。"
+        },
+        {
+          "n": 2,
+          "w": "fuel",
+          "pos": "n.",
+          "zh": "燃料",
+          "ex": "Food is the <b>fuel</b> for your body.",
+          "exzh": "食物是身體的燃料。"
+        },
+        {
+          "n": 3,
+          "w": "sugar",
+          "pos": "n.",
+          "zh": "糖",
+          "ex": "This drink has a lot of <b>sugar</b> in it.",
+          "exzh": "這杯飲料裡有很多糖。"
+        },
+        {
+          "n": 4,
+          "w": "liver",
+          "pos": "n.",
+          "zh": "肝臟",
+          "ex": "Your <b>liver</b> stores sugar for later.",
+          "exzh": "你的肝臟把糖存起來，留著以後用。"
+        },
+        {
+          "n": 5,
+          "w": "store",
+          "pos": "v.",
+          "zh": "儲存",
+          "ex": "Squirrels <b>store</b> nuts for the winter.",
+          "exzh": "松鼠儲存堅果準備過冬。"
+        },
+        {
+          "n": 6,
+          "w": "hungry",
+          "pos": "adj.",
+          "zh": "餓的",
+          "ex": "I am always <b>hungry</b> after swimming.",
+          "exzh": "我每次游完泳都很餓。"
+        },
+        {
+          "n": 7,
+          "w": "meal",
+          "pos": "n.",
+          "zh": "一餐",
+          "ex": "Breakfast is the first <b>meal</b> of the day.",
+          "exzh": "早餐是一天的第一餐。"
+        },
+        {
+          "n": 8,
+          "w": "vegetable",
+          "pos": "n.",
+          "zh": "蔬菜",
+          "ex": "Which <b>vegetable</b> do you like best?",
+          "exzh": "你最喜歡哪一種蔬菜？"
+        }
+      ],
+      "quiz": [
+        {
+          "q": "What is glucose?",
+          "options": [
+            "A kind of sugar that your cells use for fuel",
+            "A kind of bone",
+            "A signal from the pancreas",
+            "A part of the stomach"
+          ],
+          "correct": 0
+        },
+        {
+          "q": "Where does blood from the intestine go first?",
+          "options": [
+            "To the liver",
+            "To the legs",
+            "To the lungs",
+            "To the kidneys"
+          ],
+          "correct": 0
+        },
+        {
+          "q": "What does insulin tell the liver and muscles to do?",
+          "options": [
+            "Take sugar out of the blood and store it",
+            "Make more blood",
+            "Stop digesting food",
+            "Send sugar to the stomach"
+          ],
+          "correct": 0
+        },
+        {
+          "q": "What do cells need, along with glucose, to make energy?",
+          "options": [
+            "Oxygen",
+            "Saliva",
+            "Sweat",
+            "Sunlight"
+          ],
+          "correct": 0
+        },
+        {
+          "q": "According to the reading, why do you soon feel hungry again after only a sweet drink?",
+          "options": [
+            "The sugar rushes in and is put away quickly",
+            "The drink has no sugar in it",
+            "The stomach cannot hold a drink",
+            "The liver refuses to store it"
+          ],
+          "correct": 0
+        }
+      ],
+      "kinds_head": {
+        "eyebrow": "The Fuel Team · 燃料小隊",
+        "en": "From a bowl of rice to a kick of a ball",
+        "zh": "從一碗飯到踢球的那一腳"
+      },
+      "kinds": [
+        {
+          "icon": "🌀",
+          "en": "Small intestine",
+          "zh": "小腸",
+          "where_en": "Coiled up in your belly",
+          "where_zh": "盤在肚子裡",
+          "control_en": "Lets sugar into the blood",
+          "control_zh": "讓糖進入血液",
+          "text_en": "Here starch is cut into single glucose pieces, which pass through the wall into the blood.",
+          "text_zh": "澱粉在這裡被剪成一個一個的葡萄糖，穿過腸壁進到血液裡。"
+        },
+        {
+          "icon": "🏦",
+          "en": "Liver",
+          "zh": "肝臟",
+          "where_en": "Under your ribs on the right side",
+          "where_zh": "右邊肋骨的下方",
+          "control_en": "Stores sugar and gives it back",
+          "control_zh": "把糖存起來、再放出來",
+          "text_en": "Your sugar bank. It saves sugar after a meal and pays it out between meals and while you sleep.",
+          "text_zh": "你的糖銀行：飯後把糖存進去，兩餐之間和睡覺的時候再提出來。"
+        },
+        {
+          "icon": "🔑",
+          "en": "Pancreas",
+          "zh": "胰臟",
+          "where_en": "Behind your stomach",
+          "where_zh": "在胃的後面",
+          "control_en": "Sends out insulin",
+          "control_zh": "送出胰島素",
+          "text_en": "Insulin is like a key: it tells the liver and muscles to open up and take sugar in.",
+          "text_zh": "胰島素像一把鑰匙：它叫肝臟和肌肉把門打開、把糖收進去。"
+        },
+        {
+          "icon": "💪",
+          "en": "Muscles",
+          "zh": "肌肉",
+          "where_en": "All over your body",
+          "where_zh": "全身都有",
+          "control_en": "Burn fuel to move",
+          "control_zh": "燃燒燃料來運動",
+          "text_en": "They keep their own store of sugar, ready for the moment you start to run.",
+          "text_zh": "它們自己也存著一份糖，等你一開始跑就能用。"
+        },
+        {
+          "icon": "🧠",
+          "en": "Brain",
+          "zh": "大腦",
+          "where_en": "Inside your skull",
+          "where_zh": "在頭顱裡",
+          "control_en": "Needs a steady supply",
+          "control_zh": "需要穩定的供應",
+          "text_en": "An adult's brain takes about a fifth of the body's resting energy. It has almost no store of its own, so it depends on your blood.",
+          "text_zh": "大人的大腦用掉身體休息時大約五分之一的能量，自己卻幾乎沒有存糧，所以全靠血液供應。"
+        }
+      ],
+      "kinds_note_en": "Think of pocket money: when a lot comes in, you put some in the bank. On days when none comes in, you take a little out. Your liver does the same thing with sugar, all day long.",
+      "kinds_note_zh": "把它想成零用錢：一次進來很多，就把一些存進銀行；沒有收入的日子，再領一點出來。你的肝臟對糖做的就是這件事，一整天都在做。",
+      "measure": {
+        "title_en": "What is on my plate today?",
+        "title_zh": "今天我的盤子裡有什麼？",
+        "lead_en": "Use the plate tool below the model. It follows the six food groups of Taiwan's “My Plate.” There are no scores and no calories: the only question is which groups you have had.",
+        "lead_zh": "用模型下方的餐盤工具。它照的是國民健康署「我的餐盤」的六大類食物。這裡不打分數、也不算熱量，只問一件事：哪幾類你今天吃到了？",
+        "steps": [
+          {
+            "n": "🍽",
+            "en": "Think back",
+            "zh": "回想一下",
+            "text_en": "What did you eat for breakfast, lunch, and dinner? Count snacks with the meal they were closest to.",
+            "text_zh": "早餐、午餐、晚餐各吃了什麼？點心就算在最接近的那一餐。"
+          },
+          {
+            "n": "✅",
+            "en": "Tap the groups",
+            "zh": "點食物類別",
+            "text_en": "For each meal, tap every food group that was in it. Rice is a grain, tofu and eggs are protein foods, and milk is dairy.",
+            "text_zh": "每一餐裡有哪幾類食物，就把它點起來。飯是全穀雜糧，豆腐和蛋是豆魚蛋肉，牛奶是乳品。"
+          },
+          {
+            "n": "🔍",
+            "en": "Find the gap",
+            "zh": "找出空的那一類",
+            "text_en": "Which group is still empty? The tool shows the line of the plate rhyme for it. Could you add it to your next meal?",
+            "text_zh": "哪一類還是空的？工具會顯示那一類的餐盤口訣。下一餐可以把它補上嗎？"
+          }
+        ],
+        "action": "test",
+        "action_value": "1",
+        "button_icon": "🍽",
+        "button_en": "Open the plate tool",
+        "button_zh": "打開餐盤工具"
+      },
+      "myths": [
+        {
+          "myth_en": "A sweet drink gives you energy that lasts.",
+          "myth_zh": "喝含糖飲料，可以讓你有力氣很久。",
+          "fact_en": "The sugar arrives fast and is put away fast. A meal that is digested slowly keeps you going much longer.",
+          "fact_zh": "那些糖來得快，也被收得快。慢慢消化的一餐，才能讓你撐得久。"
+        },
+        {
+          "myth_en": "You only use energy when you move.",
+          "myth_zh": "只有在動的時候才會用到能量。",
+          "fact_en": "Your brain, your heart, and keeping warm all use energy, every minute, even while you sleep.",
+          "fact_zh": "大腦、心臟，還有保持體溫，每一分鐘都在用能量——連睡覺的時候也是。"
+        },
+        {
+          "myth_en": "Everything you eat is used right away.",
+          "myth_zh": "吃下去的東西，馬上就全部用掉了。",
+          "fact_en": "Your liver and muscles store sugar after a meal, and the liver gives it back for hours afterward.",
+          "fact_zh": "飯後，肝臟和肌肉會把糖存起來；接下來的好幾個小時，肝臟再把它放回來。"
+        },
+        {
+          "myth_en": "Fat in food is always bad for you.",
+          "myth_zh": "食物裡的油脂一定對身體不好。",
+          "fact_en": "Your body needs some fat. That is why “My Plate” includes a teaspoon of nuts and seeds.",
+          "fact_zh": "身體需要一些油脂，所以「我的餐盤」裡有一茶匙的堅果種子。"
+        }
+      ],
+      "tricks": [
+        {
+          "title_en": "Food in, sugar out, energy on",
+          "title_zh": "食物進來、糖出來、能量就有了",
+          "body_en": "Food is cut into glucose, the blood delivers it, and cells burn it with oxygen.",
+          "body_zh": "食物被剪成葡萄糖，血液負責送貨，細胞用氧氣把它燒掉。"
+        },
+        {
+          "title_en": "The liver is a bank",
+          "title_zh": "肝臟是銀行",
+          "body_en": "It saves sugar after meals and pays it out between them.",
+          "body_zh": "飯後存糖，兩餐之間再領出來。"
+        },
+        {
+          "title_en": "Slow fuel lasts",
+          "title_zh": "慢慢來的燃料撐得久",
+          "body_en": "A real meal feeds you for hours. A sweet drink is gone in one.",
+          "body_zh": "好好吃一餐可以撐好幾個小時；一杯含糖飲料，一小時就沒了。"
+        },
+        {
+          "title_en": "Rice and vegetables, half and half",
+          "title_zh": "飯跟蔬菜一樣多",
+          "body_en": "A line from Taiwan's plate rhyme: your vegetables should take up about as much room as your rice.",
+          "body_zh": "「我的餐盤」口訣裡的一句：蔬菜和飯差不多一樣多。"
+        }
+      ],
+      "activities": [
+        {
+          "title_en": "Our Class Breakfast Chart",
+          "title_zh": "全班的早餐圖",
+          "materials": [
+            {
+              "en": "Six columns on the board, one for each food group",
+              "zh": "黑板上畫六欄，每一類食物一欄"
+            },
+            {
+              "en": "One small sticky note for each student",
+              "zh": "每個學生幾張小便利貼"
+            }
+          ],
+          "steps": [
+            {
+              "en": "Think about what you had for breakfast today. No names are needed.",
+              "zh": "想一想你今天早餐吃了什麼。不必寫名字。"
+            },
+            {
+              "en": "Put a sticky note in the column of every food group that was in your breakfast.",
+              "zh": "你的早餐裡有哪幾類食物，就在那幾欄各貼一張便利貼。"
+            },
+            {
+              "en": "Look at the chart. Which group has the most notes? Which has the fewest?",
+              "zh": "看看這張圖：哪一類的便利貼最多？哪一類最少？"
+            },
+            {
+              "en": "Plan one breakfast for the class that covers at least four groups.",
+              "zh": "為全班設計一份早餐，至少要包含四類食物。"
+            }
+          ],
+          "tip_en": "Teaching tip: keep it anonymous, and do not comment on any one child's breakfast. What a child eats in the morning depends on the family's time and money, not on the child. Talk about the class pattern, and about small changes that are possible, such as adding a piece of fruit.",
+          "tip_zh": "教學提示：請保持匿名，也不要評論任何一個孩子的早餐。孩子早上吃什麼，取決於家裡的時間和經濟，不是孩子自己能決定的。請談全班的整體情況，以及做得到的小改變，例如多加一份水果。"
+        },
+        {
+          "title_en": "Chew the Rice",
+          "title_zh": "嚼一嚼白飯",
+          "materials": [
+            {
+              "en": "A spoonful of plain cooked rice for each student",
+              "zh": "每個學生一湯匙白飯"
+            },
+            {
+              "en": "A clock with a second hand",
+              "zh": "有秒針的時鐘"
+            }
+          ],
+          "steps": [
+            {
+              "en": "Put the rice in your mouth. What does it taste like at first?",
+              "zh": "把飯放進嘴裡。一開始是什麼味道？"
+            },
+            {
+              "en": "Chew slowly for one full minute without swallowing.",
+              "zh": "慢慢嚼滿一分鐘，不要吞下去。"
+            },
+            {
+              "en": "What does it taste like now?",
+              "zh": "現在是什麼味道？"
+            },
+            {
+              "en": "Where did the new taste come from?",
+              "zh": "新的味道是哪裡來的？"
+            }
+          ],
+          "tip_en": "Teaching tip: the rice turns a little sweet, because saliva begins to cut the starch chains into sugar. This is the first step of the journey in the 3D model, and students can taste it. Check for food allergies first, as in every tasting activity.",
+          "tip_zh": "教學提示：飯會變得有一點甜，因為口水開始把澱粉的長鏈剪成糖——這正是 3D 模型裡那趟旅程的第一步，而且學生可以親口嚐到。和所有試吃活動一樣，請先確認有沒有人對食物過敏。"
+        }
+      ],
+      "culture": {
+        "title_en": "Full First, Then Strong",
+        "title_zh": "吃飽了才有力氣",
+        "body_en": "Chinese has a word for the strength you feel in your body: 力氣 (lìqi). Parents say 吃飽了才有力氣, “eat your fill, and then you will have strength,” and science agrees: no fuel, no energy. An old saying goes even further: 民以食為天, “to the people, food is heaven.” Notice the greeting, too. For generations, people in Taiwan have said hello with 吃飽了沒？ or, in Taiwanese, 食飽未？ (chia̍h-pá-bōe), “Have you eaten yet?” English speakers ask “How are you?” Both are really asking the same thing: is your body all right?",
+        "body_zh": "中文用「力氣」來說身體裡感覺到的那股勁。爸媽常說「吃飽了才有力氣」，科學也同意：沒有燃料，就沒有能量。古話說得更重：「民以食為天。」再看看打招呼的方式：好幾代以來，台灣人見面就問「吃飽了沒？」，台語說「食飽未？」；說英文的人則問 How are you?（你好嗎？）。兩種問法，問的其實是同一件事：你的身體還好嗎？",
+        "link_en": "More Chinese health words in English",
+        "link_zh": "到中醫養生系列看更多"
+      },
+      "health_en": "This lesson is for learning about the body. It is not medical advice, and it is not about anyone's weight or shape. Bodies come in many sizes, and children should not go on diets unless a doctor says so. If you often feel dizzy, very thirsty, or very tired, tell an adult.",
+      "health_zh": "本課是認識身體的教材，不是醫療建議，也不是在談任何人的體重或身材。每個人的身體本來就不一樣，除非醫生說要，小朋友不應該節食。如果你常常頭暈、非常口渴，或是非常疲倦，請告訴大人。"
     }
   ]
 }
