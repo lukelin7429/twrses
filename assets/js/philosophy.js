@@ -1691,6 +1691,148 @@
     if (m) { m[1].split(',').forEach(function (t) { var a = t.split('-').map(Number); root.__lab.set(a[0], a[1], a[2] || 0); }); hold(); }
   });
 
+  /* ---- A29：你來策展（十樣東西，四個藝術的定義） ---- */
+  $$('[data-ph-curator]').forEach(function (root) {
+    var D;
+    try { D = JSON.parse($('[data-cu-data]', root).textContent); } catch (e) { return; }
+    var play = $('[data-cu-play]', root), text = $('[data-cu-text]', root), btns = $('[data-cu-btns]', root), end = $('[data-cu-end]', root), dots = $('[data-cu-dots]', root), count = $('[data-cu-count]', root);
+    var N = D.items.length, i, ans;
+    function zhp(parent, t) { var z = el('p', 'ph-zh', t); z.lang = 'zh-Hant'; parent.appendChild(z); addTr(z); }
+    function lab2(b, o) { b.textContent = ''; b.appendChild(document.createTextNode(o.en + ' · ')); var z = el('span', '', o.zh); z.lang = 'zh-Hant'; b.appendChild(z); }
+    function paint() { dots.textContent = ''; for (var k = 0; k < N; k++) dots.appendChild(el('i', k < ans.length ? (ans[k] ? 'ok' : 'no') : k === i ? 'cur' : '')); count.textContent = i < N ? (i + 1) + ' / ' + N : ''; }
+    function show() {
+      var c = D.items[i]; paint(); text.textContent = ''; btns.textContent = '';
+      var q = el('p', 'ph-vl-q'); q.appendChild(el('b', '', c.t.en)); var qz = el('span', '', c.t.zh); qz.lang = 'zh-Hant'; q.appendChild(qz); text.appendChild(q);
+      [['yes', 1], ['no', 0]].forEach(function (p) { var b = el('button', 'ph-lb-btn ' + (p[1] ? 'is-allow' : 'is-ban')); b.type = 'button'; b.setAttribute('data-k', p[0]); lab2(b, D[p[0]]); b.addEventListener('click', function () { ans.push(p[1]); i++; if (i < N) show(); else finish(); }); btns.appendChild(b); });
+    }
+    function finish() {
+      play.hidden = true; paint();
+      var sc = D.theories.map(function (t, ti) { var n = 0, miss = []; D.items.forEach(function (it, k) { if (it.v[ti] === ans[k]) n++; else miss.push(k); }); return { t: t, n: n, miss: miss }; });
+      var top = sc.slice().sort(function (a, b) { return b.n - a.n; })[0];
+      var e = el('div', 'ph-el-end'); var h = el('h4', '', D.heads.en); h.appendChild(el('span', '', D.heads.zh)); e.appendChild(h);
+      var tb = el('div', 'ph-cu-rows');
+      sc.forEach(function (x) {
+        var row = el('div', 'ph-cu-row' + (x === top && top.n > 6 ? ' is-top' : '')); var nm = el('b', '', x.t.name.en + ' '); var nz = el('span', '', x.t.name.zh); nz.lang = 'zh-Hant'; nm.appendChild(nz); row.appendChild(nm);
+        row.appendChild(el('span', 'ph-cu-who', x.t.who.en)); var bar = el('div', 'ph-cu-bar'); var u = el('u'); u.style.width = (x.n * 10) + '%'; bar.appendChild(u); row.appendChild(bar); row.appendChild(el('em', '', x.n + ' / 10'));
+        var d = el('span', 'ph-cu-d', x.t.d.en); row.appendChild(d); var dz = el('span', 'ph-cu-d ph-cu-zh', x.t.d.zh); dz.lang = 'zh-Hant'; row.appendChild(dz);
+        tb.appendChild(row);
+      });
+      e.appendChild(tb);
+      function para(o, rep) { var en = o.en, zh = o.zh; Object.keys(rep || {}).forEach(function (k) { en = en.replace('{' + k + '}', rep[k].en != null ? rep[k].en : rep[k]); zh = zh.replace('{' + k + '}', rep[k].zh != null ? rep[k].zh : rep[k]); }); e.appendChild(el('p', 'ph-ev-zone', en)); zhp(e, zh); }
+      if (top.n <= 6) para(D.none);
+      else {
+        para(D.best, { name: { en: top.t.name.en + ' (' + top.n + ' of 10)', zh: top.t.name.zh + '（10 項當中的 ' + top.n + ' 項）' } });
+        if (top.miss.length) {
+          var ul = el('ul', 'ph-cu-miss'); e.appendChild(el('p', 'ph-ev-zone', D.miss.en.replace(' {list}.', ''))); zhp(e, D.miss.zh.replace('{list}。', ''));
+          top.miss.forEach(function (k) { var li = el('li', '', D.items[k].t.en + ' — ' + (ans[k] ? D.yes.en : D.no.en)); var z = el('span', '', D.items[k].t.zh + '——' + (ans[k] ? D.yes.zh : D.no.zh)); z.lang = 'zh-Hant'; li.appendChild(z); ul.appendChild(li); });
+          e.appendChild(ul);
+        } else para(D.nomiss);
+        para(top.t.trouble);
+      }
+      para(D.close); end.appendChild(e);
+    }
+    function reset() { i = 0; ans = []; play.hidden = false; end.textContent = ''; show(); }
+    $('[data-cu-reset]', root).addEventListener('click', reset);
+    reset();
+    root.__lab = { state: function () { return { i: i, ans: ans.slice(), ended: !!end.children.length }; },
+      play: function (str) { reset(); str.split('').forEach(function (c) { var b = $('.ph-lb-btn[data-k="' + (c === 'y' ? 'yes' : 'no') + '"]', root); if (b && i < N) b.click(); }); return this.state(); } };
+    var m = /[#&]curator=([yn]+)/.exec(location.hash); if (m) root.__lab.play(m[1]);
+  });
+
+  /* ---- A30：測測你的眼睛（細膩度、比例、誰錯了） ---- */
+  $$('[data-ph-taste]').forEach(function (root) {
+    var D;
+    try { D = JSON.parse($('[data-ts-data]', root).textContent); } catch (e) { return; }
+    var play = $('[data-ts-play]', root), text = $('[data-ts-text]', root), area = $('[data-ts-area]', root), end = $('[data-ts-end]', root), dots = $('[data-ts-dots]', root), count = $('[data-ts-count]', root);
+    var DELTA = [10, 7, 5, 3, 2], TOTAL = 9, step, hits, rect, ans, odd;
+    function zhp(parent, t) { var z = el('p', 'ph-zh', t); z.lang = 'zh-Hant'; parent.appendChild(z); addTr(z); }
+    function lab2(b, o) { b.textContent = ''; b.appendChild(document.createTextNode(o.en + ' · ')); var z = el('span', '', o.zh); z.lang = 'zh-Hant'; b.appendChild(z); }
+    function head(tag, q) {
+      dots.textContent = ''; for (var k = 0; k < TOTAL; k++) dots.appendChild(el('i', k < step ? 'ok' : k === step ? 'cur' : ''));
+      count.textContent = tag ? tag.en + ' · ' + tag.zh.split(' · ').pop() : '';
+      text.textContent = ''; area.textContent = ''; area.className = 'ph-ts-area';
+      if (q) { var p = el('p', 'ph-vl-q'); p.appendChild(el('b', '', q.en)); var z = el('span', '', q.zh); z.lang = 'zh-Hant'; p.appendChild(z); text.appendChild(p); }
+    }
+    function show() {
+      if (step < 5) {
+        head(D.p1.tag, D.p1.q); area.classList.add('is-sq');
+        var hue = Math.floor(Math.random() * 360), L = 46 + Math.floor(Math.random() * 10), d = DELTA[step] * (Math.random() < 0.5 ? 1 : -1); odd = Math.floor(Math.random() * 4);
+        for (var k = 0; k < 4; k++) (function (k) {
+          var b = el('button', 'ph-ts-sq'); b.type = 'button'; b.setAttribute('aria-label', 'Square ' + (k + 1)); b.style.background = 'hsl(' + hue + ',52%,' + (L + (k === odd ? d : 0)) + '%)';
+          b.addEventListener('click', function () { hits.push(k === odd ? 1 : 0); step++; show(); }); area.appendChild(b);
+        })(k);
+      } else if (step === 5) {
+        head(D.p2.tag, D.p2.q); area.classList.add('is-rc');
+        D.p2.ratios.forEach(function (o, k) {
+          var w = Math.sqrt(7000 * o.r), h = 7000 / w, b = el('button', 'ph-ts-rc'); b.type = 'button'; b.setAttribute('aria-label', 'Rectangle ' + (k + 1));
+          var i = el('i'); i.style.width = w.toFixed(0) + 'px'; i.style.height = h.toFixed(0) + 'px'; b.appendChild(i);
+          b.addEventListener('click', function () { rect = k; step++; show(); }); area.appendChild(b);
+        });
+      } else if (step < 9) {
+        head(D.p3.tag, D.p3.items[step - 6]); area.classList.add('is-yn');
+        [['yes', 1], ['no', 0]].forEach(function (p) { var b = el('button', 'ph-ts-yn'); b.type = 'button'; b.setAttribute('data-k', p[0]); lab2(b, D[p[0]]); b.addEventListener('click', function () { ans.push(p[1]); step++; show(); }); area.appendChild(b); });
+      } else finish();
+    }
+    function finish() {
+      head(null, null); play.hidden = true;
+      var n = hits.reduce(function (a, b) { return a + b; }, 0), e = el('div', 'ph-el-end'); var h = el('h4', '', D.heads.en); h.appendChild(el('span', '', D.heads.zh)); e.appendChild(h);
+      function para(o, rep) { var en = o.en, zh = o.zh; Object.keys(rep || {}).forEach(function (k) { en = en.replace('{' + k + '}', rep[k]); zh = zh.replace('{' + k + '}', rep[k]); }); e.appendChild(el('p', 'ph-ev-zone', en)); zhp(e, zh); }
+      para(n >= 4 ? D.delic.high : D.delic.low, { n: n });
+      para(rect === 3 ? D.rect.golden : D.rect.other, { r: D.p2.ratios[rect].n });
+      var key = !ans[0] ? 'skeptic' : !ans[1] && !ans[2] ? 'subj' : !ans[1] && ans[2] ? 'mid' : ans[1] && ans[2] ? 'obj' : 'odd';
+      para(D.pos[key]); para(D.close); end.appendChild(e);
+      return key;
+    }
+    function reset() { step = 0; hits = []; rect = null; ans = []; play.hidden = false; end.textContent = ''; show(); }
+    $('[data-ts-reset]', root).addEventListener('click', reset);
+    reset();
+    root.__lab = { state: function () { return { step: step, hits: hits.slice(), rect: rect, ans: ans.slice(), odd: odd, ended: !!end.children.length }; },
+      play: function (sq, rc, yn) { reset(); (sq || '').split('').forEach(function (c) { var bs = $$('.ph-ts-sq', root); if (bs.length) bs[c === 'c' ? odd : (odd + 1) % 4].click(); }); if (rc != null && step === 5) $$('.ph-ts-rc', root)[rc].click(); (yn || '').split('').forEach(function (c) { var b = $('.ph-ts-yn[data-k="' + (c === 'y' ? 'yes' : 'no') + '"]', root); if (b) b.click(); }); return this.state(); } };
+    var m = /[#&]taste=([cw]*)(?:,(\d))?(?:,([yn]*))?/.exec(location.hash); if (m) root.__lab.play(m[1], m[2] != null ? +m[2] : null, m[3]);
+  });
+
+  /* ---- A31：搭一齣悲劇（主角、結局、原因；為什麼會有人想看） ---- */
+  $$('[data-ph-tragedy]').forEach(function (root) {
+    var D;
+    try { D = JSON.parse($('[data-tg-data]', root).textContent); } catch (e) { return; }
+    var play = $('[data-tg-play]', root), text = $('[data-tg-text]', root), opts = $('[data-tg-opts]', root), picksEl = $('[data-tg-picks]', root), end = $('[data-tg-end]', root), dots = $('[data-tg-dots]', root), count = $('[data-tg-count]', root);
+    var step, picks;
+    function zhp(parent, t) { var z = el('p', 'ph-zh', t); z.lang = 'zh-Hant'; parent.appendChild(z); addTr(z); }
+    function optBtn(o, sub) { var b = el('button', 'ph-vl-opt'); b.type = 'button'; b.setAttribute('data-k', o.k); b.appendChild(el('b', '', o.t.en)); var z = el('span', '', o.t.zh); z.lang = 'zh-Hant'; b.appendChild(z); if (sub) b.appendChild(el('i', 'ph-tg-who', sub)); return b; }
+    function paint() {
+      dots.textContent = ''; for (var k = 0; k < 4; k++) dots.appendChild(el('i', k < step ? 'ok' : k === step ? 'cur' : ''));
+      count.textContent = step < 3 ? D.steps[step].tag.en + ' · ' + D.steps[step].tag.zh.split(' · ').pop() : '';
+      picksEl.textContent = '';
+      picks.forEach(function (k, i) { var o = D.steps[i].opts.filter(function (x) { return x.k === k; })[0], c = el('span', 'ph-tg-chip', o.t.en + ' '); var z = el('i', '', o.t.zh); z.lang = 'zh-Hant'; c.appendChild(z); picksEl.appendChild(c); });
+    }
+    function show() {
+      paint(); text.textContent = ''; opts.textContent = '';
+      if (step >= 3) return verdict();
+      var s = D.steps[step], q = el('p', 'ph-vl-q'); q.appendChild(el('b', '', s.q.en)); var qz = el('span', '', s.q.zh); qz.lang = 'zh-Hant'; q.appendChild(qz); text.appendChild(q);
+      s.opts.forEach(function (o) { var b = optBtn(o); b.addEventListener('click', function () { picks.push(o.k); step++; show(); }); opts.appendChild(b); });
+    }
+    function verdict() {
+      play.hidden = true; end.textContent = '';
+      var e = el('div', 'ph-el-end'); var h = el('h4', '', D.heads.en); h.appendChild(el('span', '', D.heads.zh)); e.appendChild(h);
+      function para(o) { e.appendChild(el('p', 'ph-ev-zone', o.en)); zhp(e, o.zh); }
+      para(D.verdicts[picks[0] + '-' + picks[1]]); if (picks[1] === 'ruin') para(D.causes[picks[2]]);
+      var q = el('p', 'ph-vl-q'); q.appendChild(el('b', '', D.whyq.en)); var qz = el('span', '', D.whyq.zh); qz.lang = 'zh-Hant'; q.appendChild(qz); e.appendChild(q);
+      var box = el('div', 'ph-vl-opts ph-tg-opts ph-tg-whys'), out = el('div', 'ph-vl-out');
+      D.whys.forEach(function (o) {
+        var b = optBtn(o);
+        b.addEventListener('click', function () { if (step < 4) { step = 4; paint(); } $$('button', box).forEach(function (x) { x.classList.toggle('is-right', x === b); }); out.textContent = ''; var c = el('div', 'ph-vl-card is-valid'); var tag = el('p', 'ph-tg-tag'); tag.appendChild(el('b', '', o.who.en)); var tz = el('span', '', o.who.zh); tz.lang = 'zh-Hant'; tag.appendChild(tz); c.appendChild(tag); c.appendChild(el('p', '', o.v.en)); zhp(c, o.v.zh); out.appendChild(c); });
+        box.appendChild(b);
+      });
+      e.appendChild(box); e.appendChild(out); end.appendChild(e);
+    }
+    function reset() { step = 0; picks = []; play.hidden = false; end.textContent = ''; show(); }
+    $('[data-tg-reset]', root).addEventListener('click', reset);
+    reset();
+    root.__lab = { state: function () { return { step: step, picks: picks.slice(), ended: !!end.children.length }; },
+      play: function (ks, why) { reset(); ks.forEach(function (k) { var b = $('[data-tg-opts] .ph-vl-opt[data-k="' + k + '"]', play); if (b) b.click(); }); if (why) { var w = $('.ph-tg-whys .ph-vl-opt[data-k="' + why + '"]', root); if (w) w.click(); } return this.state(); } };
+    var m = /[#&]tragedy=([a-z,\-]+)/.exec(location.hash); if (m) { var a = m[1].split(','); root.__lab.play(a.slice(0, 3), a[3]); }
+  });
+
   /* ---- A13：去火星三趟（帕菲特的傳送機） ---- */
   $$('[data-ph-teleport]').forEach(function (root) {
     var D;

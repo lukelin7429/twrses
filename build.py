@@ -8124,7 +8124,59 @@ def _ph_lab_jury(lab):
   </div>
 </div>'''
 
+def _ph_lab_curator(lab):
+    """A29：你來策展。十樣東西各選「是藝術／不是」；結尾比對四個定義（模仿、表現、形式、藝術界）各跟你一致幾項，指出最符合的那一個與它解釋不了的答案。"""
+    payload = html.escape(json.dumps({k: lab[k] for k in ("yes", "no", "items", "theories", "heads", "agree", "best", "miss", "nomiss", "none", "close")}, ensure_ascii=False), quote=False)
+    return f"""<div class="ph-el ph-cu rvl" data-ph-curator>
+  <script type="application/json" data-cu-data>{payload}</script>
+  <div class="ph-vl-top"><div class="ph-vl-dots ph-so-dots" data-cu-dots aria-hidden="true"></div><span class="ph-el-count" data-cu-count></span></div>
+  <div class="ph-el-stage">
+    <div data-cu-play>
+      <div class="ph-tp-text" data-cu-text aria-live="polite"></div>
+      <div class="ph-lb-btns" data-cu-btns></div>
+    </div>
+    <div data-cu-end aria-live="polite"></div>
+    <div class="ph-el-foot"><button type="button" class="ph-el-reset" data-cu-reset>Start again · 重來</button></div>
+  </div>
+</div>"""
+
+def _ph_lab_taste(lab):
+    """A30：測測你的眼睛。第一關找出深淺不同的方塊（有正確答案）；第二關選最順眼的長方形（沒有）；第三關三句「誰錯了」；結尾把讀者放在莊子與畢達哥拉斯之間。"""
+    payload = html.escape(json.dumps({k: lab[k] for k in ("p1", "p2", "p3", "yes", "no", "heads", "delic", "rect", "pos", "close")}, ensure_ascii=False), quote=False)
+    return f"""<div class="ph-el ph-ts rvl" data-ph-taste>
+  <script type="application/json" data-ts-data>{payload}</script>
+  <div class="ph-vl-top"><div class="ph-vl-dots ph-so-dots" data-ts-dots aria-hidden="true"></div><span class="ph-el-count" data-ts-count></span></div>
+  <div class="ph-el-stage">
+    <div data-ts-play>
+      <div class="ph-tp-text" data-ts-text aria-live="polite"></div>
+      <div class="ph-ts-area" data-ts-area></div>
+    </div>
+    <div data-ts-end aria-live="polite"></div>
+    <div class="ph-el-foot"><button type="button" class="ph-el-reset" data-ts-reset>Start again · 重來</button></div>
+  </div>
+</div>"""
+
+def _ph_lab_tragedy(lab):
+    """A31：搭一齣悲劇。選主角、結局、原因，看亞里斯多德的裁決；再選「為什麼會有人想看」的六種解釋。"""
+    payload = html.escape(json.dumps({k: lab[k] for k in ("steps", "heads", "verdicts", "causes", "whyq", "whys")}, ensure_ascii=False), quote=False)
+    return f"""<div class="ph-el ph-tg rvl" data-ph-tragedy>
+  <script type="application/json" data-tg-data>{payload}</script>
+  <div class="ph-vl-top"><div class="ph-vl-dots ph-so-dots" data-tg-dots aria-hidden="true"></div><span class="ph-el-count" data-tg-count></span></div>
+  <div class="ph-el-stage">
+    <div class="ph-tg-picks" data-tg-picks aria-live="polite"></div>
+    <div data-tg-play>
+      <div class="ph-tp-text" data-tg-text aria-live="polite"></div>
+      <div class="ph-vl-opts ph-tg-opts" data-tg-opts></div>
+    </div>
+    <div data-tg-end aria-live="polite"></div>
+    <div class="ph-el-foot"><button type="button" class="ph-el-reset" data-tg-reset>Start again · 重來</button></div>
+  </div>
+</div>"""
+
 def _ph_lab(lab):
+    if lab.get("kind") == "tragedy": return _ph_lab_tragedy(lab)
+    if lab.get("kind") == "taste": return _ph_lab_taste(lab)
+    if lab.get("kind") == "curator": return _ph_lab_curator(lab)
     if lab.get("kind") == "jury": return _ph_lab_jury(lab)
     if lab.get("kind") == "liberty": return _ph_lab_liberty(lab)
     if lab.get("kind") == "veil": return _ph_lab_veil(lab)
