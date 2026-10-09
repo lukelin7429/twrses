@@ -1845,7 +1845,7 @@
     function show() {
       var c = D.cases[i]; paint(); text.textContent = ''; out.textContent = ''; btns.textContent = ''; act.hidden = true;
       var q = el('p', 'ph-vl-q'); q.appendChild(el('b', '', c.t.en)); var qz = el('span', '', c.t.zh); qz.lang = 'zh-Hant'; q.appendChild(qz); text.appendChild(q);
-      [['orig', 1], ['same', 0]].forEach(function (p) { var b = el('button', 'ph-cp-btn'); b.type = 'button'; b.setAttribute('data-k', p[0]); lab2(b, D[p[0]]); b.addEventListener('click', function () { answer(p[1], b); }); btns.appendChild(b); });
+      [['orig', 1], ['same', 0]].forEach(function (p) { var b = el('button', 'ph-cp-btn'); b.type = 'button'; b.setAttribute('data-k', p[0]); lab2(b, (p[1] ? c.o : c.s) || D[p[0]]); b.addEventListener('click', function () { answer(p[1], b); }); btns.appendChild(b); });
     }
     function answer(v, b) {
       if (ans.length > i) return;
