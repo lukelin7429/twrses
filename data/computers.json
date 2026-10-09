@@ -2460,7 +2460,7 @@
               "zh": "打開電腦，裡面有什麼？",
               "note_en": "Unit 1 built numbers, codes, gates, and an adder. Next, open the case and see where they all live.",
               "note_zh": "單元一做出了數、編碼、邏輯閘和加法器。接下來打開機殼，看看它們都住在哪裡。",
-              "soon": true
+              "href": "/resources/classes/computers/inside-a-computer/"
             }
           ],
           "sources_note_en": "Names, dates, and facts on this page were checked against these sources (October 2026); every sum in the model is computed from gates and tested against real addition",
@@ -2561,14 +2561,829 @@
       "title_zh": "機器裡面",
       "blurb_en": "Open the case: what each part does, what a processor is busy with all day, why there are two kinds of memory, and what happens when you press one key.",
       "blurb_zh": "打開機殼：每個零件各做什麼、處理器整天在忙什麼、為什麼要有兩種記憶，以及按下一個鍵之後發生了什麼。",
-      "lessons": [],
-      "planned": [
+      "lessons": [
         {
           "n": 5,
+          "slug": "inside-a-computer",
+          "title": "What Is Inside a Computer?",
+          "title_zh": "打開電腦，裡面有什麼？",
+          "level": "入門 · Beginner",
           "icon": "🖥️",
-          "en": "What Is Inside a Computer?",
-          "zh": "打開電腦，裡面有什麼？"
-        },
+          "card": "pc",
+          "blurb_en": "Take the side off a desktop computer in 3D and pull out its parts one by one: motherboard, processor, memory, storage, graphics card, and power supply. Press the power button and follow the data from part to part.",
+          "blurb_zh": "在 3D 裡拿掉桌上型電腦的側板，把零件一個一個拉出來看：主機板、處理器、記憶體、儲存裝置、顯示卡和電源供應器。再按下電源，跟著資料從一個零件走到另一個零件。",
+          "big_idea_en": "A computer is a small team of parts, and each part has one job. The processor carries out instructions, memory holds what is in use right now, storage keeps things when the power is off, the graphics card makes the picture, the power supply feeds them all, and the motherboard connects everything.",
+          "big_idea_zh": "電腦是一小隊零件，每個零件只做一件事。處理器執行指令，記憶體放現在正在用的東西，儲存裝置在關機後把東西留住，顯示卡把畫面做出來，電源供應器供電給大家，主機板把所有零件連在一起。",
+          "lab": {
+            "kind": "pc",
+            "eyebrow": "3D Model · 3D 模型",
+            "title_en": "A Computer with Its Side Off",
+            "title_zh": "拿掉側板的電腦",
+            "how_en": "This is a desktop computer with one side panel removed. Tap any part to light it up and read what it does, or use the slider to pull the parts out of the case. Then press the power button to watch four steps: power goes to every part, a program is copied from storage into memory, the processor does its work, and the graphics card draws the picture for the screen.",
+            "how_zh": "這是一台拿掉一片側板的桌上型電腦。點任何一個零件，它會亮起來，右邊說明它做什麼；也可以拉滑桿，把零件從機殼裡拉出來。接著按下電源，看四個步驟：電送到每個零件、程式從儲存裝置複製到記憶體、處理器開始工作、顯示卡把畫面畫出來給螢幕顯示。",
+            "parts": [
+              {
+                "key": "board",
+                "short_en": "Motherboard",
+                "short_zh": "主機板",
+                "en": "Motherboard",
+                "zh": "主機板",
+                "job_en": "The largest board in the case. Every other part plugs into it, and the thin copper lines on it connect the parts so that they can pass data to one another.",
+                "job_zh": "機殼裡最大的一塊板子。其他每個零件都插在它上面，板子上細細的銅線把零件連起來，讓它們能互相傳資料。",
+                "note_en": "It is like the streets of a town: it does none of the work itself, but nothing can reach anything else without it. Unlike streets, its paths are fixed when it is made, and each part fits only the socket built for it.",
+                "note_zh": "它像一座城鎮的街道：自己不做事，可是沒有它，誰也到不了誰那裡。和街道不同的是，它的路在製造時就固定了，每個零件只能插進為它做的那個插槽。"
+              },
+              {
+                "key": "cpu",
+                "short_en": "Processor",
+                "short_zh": "處理器",
+                "en": "Processor (CPU)",
+                "zh": "處理器（CPU，中央處理單元）",
+                "job_en": "Carries out the instructions of programs, one after another. The adding and deciding from Lessons 3 and 4 happen inside this small square.",
+                "job_zh": "一條接一條地執行程式的指令。第三課的「做決定」和第四課的「做加法」，就發生在這一小片方形的東西裡。",
+                "note_en": "People call it the brain of the computer. Unlike a brain, it does not think or understand. It follows instructions exactly, very fast.",
+                "note_zh": "大家常說它是電腦的大腦。和大腦不同的是，它不會思考、也不懂意思，只是一字不差地照指令做，而且做得非常快。"
+              },
+              {
+                "key": "cooler",
+                "short_en": "Cooler",
+                "short_zh": "散熱器",
+                "en": "Processor cooler",
+                "zh": "處理器的散熱器",
+                "job_en": "A block of metal fins with a fan. It carries heat away from the processor so that the processor does not get too hot.",
+                "job_zh": "一塊金屬鰭片加上一個風扇，把處理器的熱帶走，讓處理器不會太燙。",
+                "note_en": "When people open a computer, this is the big thing they notice, and many take it for the processor. The processor is the small square hidden underneath.",
+                "note_zh": "打開電腦時，大家最先注意到的就是這一大塊，很多人以為它就是處理器。處理器其實是藏在它底下的那一小片。"
+              },
+              {
+                "key": "ram",
+                "short_en": "Memory",
+                "short_zh": "記憶體",
+                "en": "Memory (RAM)",
+                "zh": "記憶體（RAM）",
+                "job_en": "Holds the programs and data that are in use right now, where the processor can reach them quickly. It is wiped when the power goes off.",
+                "job_zh": "放著現在正在用的程式和資料，處理器可以很快拿到。電一關，裡面的東西就清空。",
+                "note_en": "It is like the top of your desk: quick to reach, but limited, and cleared at the end of the day. Unlike a desk, it empties the instant the power is gone.",
+                "note_zh": "它像你的桌面：伸手就拿得到，可是放不多，放學就要收乾淨。和桌面不同的是，電一斷，它一瞬間就空了。"
+              },
+              {
+                "key": "ssd",
+                "short_en": "Storage",
+                "short_zh": "儲存裝置",
+                "en": "Storage (solid-state drive)",
+                "zh": "儲存裝置（固態硬碟，SSD）",
+                "job_en": "Keeps programs and files even when the power is off. This one is a solid-state drive, which stores data in chips and has no moving parts.",
+                "job_zh": "就算關了電，也把程式和檔案留著。這一個是固態硬碟，把資料存在晶片裡，沒有任何會動的零件。",
+                "note_en": "It is like a bookcase: it holds far more than the desk, but fetching from it takes longer. Some computers use a hard disk drive, with spinning disks inside, for the same job.",
+                "note_zh": "它像書櫃：放得比桌面多得多，可是去拿要花比較久。有些電腦用的是硬碟，裡面有會轉的碟片，做的是同一件事。"
+              },
+              {
+                "key": "gpu",
+                "short_en": "Graphics card",
+                "short_zh": "顯示卡",
+                "en": "Graphics card (GPU)",
+                "zh": "顯示卡（GPU）",
+                "job_en": "Draws the picture that the screen shows. In many computers this job is done by graphics built into the processor, with no separate card.",
+                "job_zh": "把螢幕要顯示的畫面畫出來。很多電腦沒有獨立的顯示卡，這件事由內建在處理器裡的顯示功能來做。",
+                "note_en": "Lesson 2 said a picture is a grid of pixels, each with three numbers. This is the part that works those numbers out for the whole screen.",
+                "note_zh": "第二課說過，一張圖是一格一格的像素，每個像素有三個數。替整個螢幕把這些數算出來的，就是這個零件。"
+              },
+              {
+                "key": "psu",
+                "short_en": "Power supply",
+                "short_zh": "電源供應器",
+                "en": "Power supply",
+                "zh": "電源供應器",
+                "job_en": "Changes the electricity from the wall socket into the low voltages the parts need, such as 12, 5, and 3.3 volts, and sends it to them.",
+                "job_zh": "把牆上插座來的電，變成零件需要的低電壓（例如 12、5、3.3 伏特），再送給各個零件。",
+                "note_en": "It is the one part that takes wall electricity directly, at 100 to 240 volts. It is a sealed box, and it is not meant to be opened. Leave it closed.",
+                "note_zh": "它是唯一直接接牆上的電（100 到 240 伏特）的零件。它是一個封起來的盒子，本來就不是要讓人打開的。不要去拆它。"
+              }
+            ],
+            "boot": [
+              {
+                "key": "power",
+                "short_en": "Power",
+                "short_zh": "供電",
+                "en": "The power supply changes the electricity from the wall into low voltages and sends it to the parts.",
+                "zh": "電源供應器把牆上來的電變成低電壓，送給各個零件。"
+              },
+              {
+                "key": "load",
+                "short_en": "Storage to memory",
+                "short_zh": "載入記憶體",
+                "en": "The program you asked for is copied from storage into memory, where the processor can reach it quickly.",
+                "zh": "你要用的程式從儲存裝置複製到記憶體，處理器在那裡才拿得快。"
+              },
+              {
+                "key": "run",
+                "short_en": "Processor works",
+                "short_zh": "處理器工作",
+                "en": "The processor takes instructions from memory one after another, carries them out, and puts the results back. The cooler carries its heat away.",
+                "zh": "處理器從記憶體一條一條拿出指令、照著做，再把結果放回去。散熱器把它的熱帶走。"
+              },
+              {
+                "key": "show",
+                "short_en": "Picture to screen",
+                "short_zh": "畫面送到螢幕",
+                "en": "The results go to the graphics card, which draws the picture, pixel by pixel, for the screen to show.",
+                "zh": "結果送到顯示卡，顯示卡一個像素一個像素把畫面畫出來，交給螢幕顯示。"
+              }
+            ],
+            "legend": [
+              {
+                "cls": "cppart",
+                "en": "A lit part: the one you picked, or one that is busy in this step",
+                "zh": "亮起來的零件：你選的那一個，或這一步正在忙的零件"
+              },
+              {
+                "cls": "cpboard",
+                "en": "Green board at the back: the motherboard, which everything plugs into",
+                "zh": "後面那塊綠色的板子：主機板，所有零件都插在它上面"
+              },
+              {
+                "cls": "cpflow",
+                "en": "Moving dots: power (gold) or data (teal) going from one part to another",
+                "zh": "會動的光點：從一個零件送到另一個零件的電（金色）或資料（青色）"
+              },
+              {
+                "cls": "cpscreen",
+                "en": "Screen beside the case: lights up when the picture arrives",
+                "zh": "機殼旁邊的螢幕：畫面送到時亮起來"
+              }
+            ],
+            "scale_en": "A teaching model, not a picture of any real product. Real parts come in many shapes and sizes, and a real case is crowded with cables, which are left out here. In a real computer the data travels through copper lines inside the motherboard, not through the air, and far too fast to see. A real start-up also has many more steps than these four. What each part does is real.",
+            "scale_zh": "這是教學用的示意模型，不是任何一個真實產品的樣子。真的零件有各種形狀和大小，真的機殼裡還擠滿了線，這裡都省略了。在真的電腦裡，資料是走主機板裡面的銅線，不是在空中飛，而且快到看不見。真的開機過程也比這四個步驟多得多。但每個零件做的事是真的。",
+            "credit_html": "Model and code are drawn and programmed by My Culture Connect. The model is generic and does not show any maker’s product.<br><span class=\"zh\">模型與程式由人師教育協會自行繪製、撰寫。模型是通用的示意，不代表任何廠牌的產品。</span>"
+          },
+          "paras": [
+            "In Unit 1 you built the ideas a computer runs on: switches, numbers, codes, logic gates, and an adder. Now it is time to open the box and see where those ideas live. You might expect something mysterious inside. What you find is a small team of parts. Each part has one job, and one big board holds them all together.",
+            "That board is the motherboard. It is the largest board inside the case, and every other part plugs into it. Thin copper lines run across it and connect the parts, so that they can pass data to one another. The motherboard does not do any calculating itself. Its job is to connect.",
+            "The most important part plugged into the motherboard is the processor, also called the CPU. It carries out the instructions of programs, one after another. All the adding and deciding you saw in Lessons 3 and 4 happens here, on one small chip. Its transistors turn electrical energy into heat as they work, so a block of metal fins and a fan sit on top of the processor to carry the heat away.",
+            "A computer has two places to keep things, and they are easy to mix up. Memory, or RAM, holds the programs and data that are in use right now. It is fast, but it loses everything when the power is turned off. Storage keeps your programs and files even when the computer is off. In many computers today the storage is a solid-state drive, which keeps data in chips and has no moving parts. Others use a hard disk, with disks that spin.",
+            "Two more parts finish the team. The graphics card draws the picture that you see, working out the color of every pixel. In many computers this job is done by graphics built into the processor, with no separate card. The power supply takes electricity from the wall socket and changes it into the low voltages that the other parts need.",
+            "Now watch the team work. When you open an app, it is copied from storage into memory. The processor takes its instructions from memory and carries them out. The graphics card draws the result as a picture for the screen. The power supply keeps every part running, and the motherboard connects them all. A laptop has the same kinds of parts, only smaller and packed closer together. Some chips even combine the processor, the graphics, and more in a single piece, called a system on a chip."
+          ],
+          "paras_zh": [
+            "在單元一，你把電腦運作靠的幾個想法都做出來了：開關、數、編碼、邏輯閘，還有加法器。現在該打開箱子，看看這些想法住在哪裡。你也許以為裡面會是什麼神祕的東西，結果看到的是一小隊零件。每個零件只做一件事，一塊大板子把它們全部連在一起。",
+            "那塊板子就是主機板。它是機殼裡最大的一塊板子，其他每個零件都插在它上面。板子上有細細的銅線把零件連起來，讓它們能互相傳資料。主機板自己不做任何計算，它的工作是「連接」。",
+            "插在主機板上最重要的零件是處理器，也叫 CPU。它一條接一條地執行程式的指令。第三課和第四課看到的那些「做決定」和「做加法」，全都發生在這裡，一片小小的晶片上。它裡面的電晶體工作時會把電能變成熱，所以處理器上面壓著一塊金屬鰭片和一個風扇，把熱帶走。",
+            "電腦有兩個放東西的地方，很容易搞混。記憶體（RAM）放的是現在正在用的程式和資料。它很快，可是電一關，裡面的東西就全部不見了。儲存裝置則是在電腦關機的時候，也把你的程式和檔案留住。現在很多電腦的儲存裝置是固態硬碟，把資料存在晶片裡，沒有任何會動的零件；也有的用硬碟，裡面有會轉的碟片。",
+            "還有兩個零件，這一隊才算到齊。顯示卡把你看到的畫面畫出來，每個像素的顏色都是它算的。很多電腦沒有獨立的顯示卡，這件事由內建在處理器裡的顯示功能來做。電源供應器從牆上的插座取電，把它變成其他零件需要的低電壓。",
+            "現在看看這一隊怎麼合作。你打開一個 App，它就從儲存裝置複製到記憶體。處理器從記憶體拿出它的指令，一條一條照著做。顯示卡把結果畫成畫面，交給螢幕。電源供應器讓每個零件都有電，主機板把它們全部連在一起。筆記型電腦裡也有同樣這幾種零件，只是比較小、擠得比較近。有些晶片甚至把處理器、顯示功能和更多東西做在同一顆裡面，叫做「系統單晶片」。"
+          ],
+          "questions": [
+            "What is the job of the motherboard?",
+            "How is memory different from storage?",
+            "What happens, step by step, when you open an app?"
+          ],
+          "answers": [
+            "It is the largest board in the case. Every other part plugs into it, and its copper lines connect the parts so that they can pass data to one another. It does not do any calculating itself.",
+            "Memory holds the programs and data in use right now. It is fast, but it loses everything when the power is turned off. Storage keeps programs and files even when the computer is off.",
+            "The app is copied from storage into memory. The processor takes its instructions from memory and carries them out. The graphics card draws the result as a picture for the screen."
+          ],
+          "vocab": [
+            {
+              "n": 1,
+              "w": "component",
+              "pos": "n.",
+              "zh": "零件；元件",
+              "ex": "The engine is the most expensive <b>component</b> of the car.",
+              "exzh": "引擎是這輛車最貴的零件。"
+            },
+            {
+              "n": 2,
+              "w": "motherboard",
+              "pos": "n.",
+              "zh": "主機板",
+              "ex": "Every part of the computer plugs into the <b>motherboard</b>.",
+              "exzh": "電腦的每個零件都插在主機板上。"
+            },
+            {
+              "n": 3,
+              "w": "processor",
+              "pos": "n.",
+              "zh": "處理器",
+              "ex": "A faster <b>processor</b> can carry out more instructions each second.",
+              "exzh": "比較快的處理器每秒能執行比較多的指令。"
+            },
+            {
+              "n": 4,
+              "w": "memory",
+              "pos": "n.",
+              "zh": "記憶體；記憶",
+              "ex": "With too many apps open, the computer runs out of <b>memory</b>.",
+              "exzh": "開太多 App，電腦的記憶體就不夠用了。"
+            },
+            {
+              "n": 5,
+              "w": "storage",
+              "pos": "n.",
+              "zh": "儲存空間；儲存裝置",
+              "ex": "My phone has no <b>storage</b> left for new photos.",
+              "exzh": "我的手機沒有空間存新照片了。"
+            },
+            {
+              "n": 6,
+              "w": "graphics",
+              "pos": "n.",
+              "zh": "圖形；繪圖",
+              "ex": "The game has beautiful <b>graphics</b>.",
+              "exzh": "這個遊戲的畫面很漂亮。"
+            },
+            {
+              "n": 7,
+              "w": "supply",
+              "pos": "v.",
+              "zh": "供應",
+              "ex": "The river <b>supplies</b> water to the whole city.",
+              "exzh": "這條河供應整座城市的用水。"
+            },
+            {
+              "n": 8,
+              "w": "temporary",
+              "pos": "adj.",
+              "zh": "暫時的",
+              "ex": "The classroom is only a <b>temporary</b> home for the library books.",
+              "exzh": "這間教室只是圖書館的書暫時放的地方。"
+            }
+          ],
+          "quiz": [
+            {
+              "q": "Which part do all the other parts plug into?",
+              "options": [
+                "The processor",
+                "The motherboard",
+                "The power supply",
+                "The screen"
+              ],
+              "correct": 1
+            },
+            {
+              "q": "What does the processor do?",
+              "options": [
+                "It keeps your files when the power is off.",
+                "It carries out the instructions of programs.",
+                "It changes wall electricity into low voltages.",
+                "It blows air through the case."
+              ],
+              "correct": 1
+            },
+            {
+              "q": "What happens to the contents of memory (RAM) when the power goes off?",
+              "options": [
+                "They are copied to the screen.",
+                "They stay exactly as they were.",
+                "They disappear.",
+                "They move to the processor."
+              ],
+              "correct": 2
+            },
+            {
+              "q": "Which part draws the picture that the screen shows?",
+              "options": [
+                "The graphics card",
+                "The cooler",
+                "The storage drive",
+                "The motherboard"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "According to the reading, what is a system on a chip?",
+              "options": [
+                "A chip that needs no electricity",
+                "A single chip that combines the processor, the graphics, and more",
+                "A motherboard with no parts on it",
+                "A very large hard disk"
+              ],
+              "correct": 1
+            }
+          ],
+          "parts_head": {
+            "eyebrow": "Try It in the Model · 在模型裡試試",
+            "en": "Four things to watch",
+            "zh": "四件值得看的事"
+          },
+          "parts": [
+            {
+              "key": "open",
+              "icon": "🧰",
+              "en": "Take it apart",
+              "zh": "把它拆開",
+              "meta_en": "Seven parts on one board",
+              "meta_zh": "一塊板子上的七個零件",
+              "demo": "open",
+              "text_en": "Watch the parts come out of the case. What are they all attached to?",
+              "text_zh": "看零件從機殼裡被拉出來。它們全都接在什麼東西上？"
+            },
+            {
+              "key": "cpu",
+              "icon": "🧊",
+              "en": "The cooler is not the processor",
+              "zh": "散熱器不是處理器",
+              "meta_en": "Big fins, small chip",
+              "meta_zh": "大大的鰭片，小小的晶片",
+              "demo": "cpu",
+              "text_en": "The biggest thing on the board is only there to carry heat away. Find the small square under it.",
+              "text_zh": "板子上最大的那個東西，只是用來把熱帶走的。找找它底下那一小片。"
+            },
+            {
+              "key": "memory",
+              "icon": "🗄️",
+              "en": "Two places to keep things",
+              "zh": "兩個放東西的地方",
+              "meta_en": "Memory forgets, storage keeps",
+              "meta_zh": "記憶體會忘，儲存裝置留得住",
+              "demo": "memory",
+              "text_en": "See memory and storage one after the other. Which one is wiped when the power goes off?",
+              "text_zh": "先看記憶體，再看儲存裝置。哪一個在關電之後會清空？"
+            },
+            {
+              "key": "boot",
+              "icon": "⏻",
+              "en": "Press the power button",
+              "zh": "按下電源",
+              "meta_en": "Four steps, from socket to screen",
+              "meta_zh": "四個步驟，從插座到螢幕",
+              "demo": "boot",
+              "text_en": "Follow the dots: power first, then data from storage to memory, to the processor, and out to the screen.",
+              "text_zh": "跟著光點走：先是電，接著資料從儲存裝置到記憶體、到處理器，最後送到螢幕。"
+            }
+          ],
+          "parts_note_en": "Then test yourself: with the labels switched off, can you name all seven parts?",
+          "parts_note_zh": "接著考考自己：把標示關掉，你說得出七個零件的名字嗎？",
+          "jobs": {
+            "eyebrow": "Game · 小遊戲",
+            "en": "Whose Job Is It?",
+            "zh": "這個工作是誰做的？",
+            "lead_en": "Eight jobs, seven parts. Read each job and choose the part that does it. The game counts how many you get right on the first try.",
+            "lead_zh": "八件工作，七個零件。讀一讀每件工作，選出做這件事的零件。遊戲會記下你第一次就答對幾題。",
+            "tasks": [
+              {
+                "en": "It keeps your photos after the computer is switched off.",
+                "zh": "電腦關機以後，它還留著你的照片。",
+                "answer": "ssd",
+                "why_en": "Storage keeps files without power.",
+                "why_zh": "儲存裝置不用電也留得住檔案。"
+              },
+              {
+                "en": "It carries out the instructions of a program, such as adding 3 and 4.",
+                "zh": "它執行程式的指令，例如把 3 和 4 加起來。",
+                "answer": "cpu",
+                "why_en": "Carrying out instructions is the processor’s job.",
+                "why_zh": "執行指令是處理器的工作。"
+              },
+              {
+                "en": "It holds the app you are using right now, and loses it when the power goes off.",
+                "zh": "它放著你現在正在用的 App，電一關就不見了。",
+                "answer": "ram",
+                "why_en": "Memory holds what is in use, and it is wiped without power.",
+                "why_zh": "記憶體放正在用的東西，沒電就清空。"
+              },
+              {
+                "en": "It draws the picture that the screen shows.",
+                "zh": "它把螢幕要顯示的畫面畫出來。",
+                "answer": "gpu",
+                "why_en": "The graphics card draws the picture.",
+                "why_zh": "畫面是顯示卡畫出來的。"
+              },
+              {
+                "en": "It changes electricity from the wall into the kind the parts can use.",
+                "zh": "它把牆上來的電，變成零件能用的電。",
+                "answer": "psu",
+                "why_en": "That is the power supply.",
+                "why_zh": "這是電源供應器。"
+              },
+              {
+                "en": "It connects all the other parts so that they can pass data to one another.",
+                "zh": "它把其他所有零件連起來，讓它們能互相傳資料。",
+                "answer": "board",
+                "why_en": "The motherboard connects everything.",
+                "why_zh": "把所有零件連在一起的是主機板。"
+              },
+              {
+                "en": "It carries heat away from the processor.",
+                "zh": "它把處理器的熱帶走。",
+                "answer": "cooler",
+                "why_en": "The cooler’s fins and fan move the heat away.",
+                "why_zh": "散熱器的鰭片和風扇把熱帶走。"
+              },
+              {
+                "en": "When you install a game, this is where it is kept.",
+                "zh": "安裝一個遊戲的時候，遊戲就是放在這裡。",
+                "answer": "ssd",
+                "why_en": "Installed programs live in storage until you open them.",
+                "why_zh": "安裝好的程式住在儲存裝置裡，打開時才載入記憶體。"
+              }
+            ]
+          },
+          "fits": {
+            "eyebrow": "Try It · 動手試試",
+            "en": "How Much Fits?",
+            "zh": "裝得下多少？",
+            "lead_en": "The size of a drive is given in gigabytes (GB) or terabytes (TB). One gigabyte is one billion bytes, and a byte is eight of the switches from Lesson 1. Choose a drive and something to put on it.",
+            "lead_zh": "儲存裝置的大小用 GB 或 TB 來表示。1 GB 是十億個位元組，而一個位元組就是第一課的八個開關。選一顆固態硬碟的大小，再選要放什麼。",
+            "items": [
+              {
+                "key": "letter",
+                "btn_en": "Letters",
+                "btn_zh": "英文字母",
+                "en": "letters of English text",
+                "zh": "個英文字母",
+                "size_en": "One English letter takes 1 byte (Lesson 2).",
+                "size_zh": "一個英文字母占 1 個位元組（第二課）。"
+              },
+              {
+                "key": "photo",
+                "btn_en": "Photos",
+                "btn_zh": "照片",
+                "en": "photos, 4,000 by 3,000 pixels, not compressed",
+                "zh": "張 4,000 × 3,000 像素、沒有壓縮的照片",
+                "size_en": "One such photo takes 36,000,000 bytes: 12 million pixels, 3 bytes each (Lesson 2). Real photo files are compressed and much smaller, as you will see in Lesson 12.",
+                "size_zh": "這樣一張照片占 36,000,000 個位元組：1,200 萬個像素，每個 3 個位元組（第二課）。真正的照片檔會壓縮，小得多，第十二課會講。"
+              },
+              {
+                "key": "minute",
+                "btn_en": "Minutes of sound",
+                "btn_zh": "幾分鐘的聲音",
+                "en": "minutes of CD-quality sound, one channel",
+                "zh": "分鐘 CD 規格的聲音（一個聲道）",
+                "size_en": "One minute takes 5,292,000 bytes: 44,100 measurements a second, 2 bytes each, for 60 seconds (Lesson 2).",
+                "size_zh": "一分鐘占 5,292,000 個位元組：每秒量 44,100 次、每次 2 個位元組，共 60 秒（第二課）。"
+              }
+            ],
+            "note_en": "A computer may show a smaller number for the same drive. Windows, for example, counts in units of 1,073,741,824 bytes (2 to the 30th power) and still writes “GB.” Counted that way, this drive is",
+            "note2_en": "of those units. No space is missing; it is the same number of bytes, counted in bigger units.",
+            "note_zh": "電腦顯示的數字可能比較小。例如 Windows 用 1,073,741,824 個位元組（2 的 30 次方）當一個單位，卻一樣寫「GB」。用這種算法，這顆硬碟是",
+            "tips": [
+              {
+                "en": "Kilo, mega, giga, tera: each step is a thousand times bigger. 1 TB is 1,000 GB.",
+                "zh": "KB、MB、GB、TB：每一級是前一級的一千倍。1 TB 是 1,000 GB。"
+              },
+              {
+                "en": "A 512 GB drive holds 4,096,000,000,000 bits. That is more than four trillion of the switches from Lesson 1.",
+                "zh": "512 GB 的硬碟有 4,096,000,000,000 個位元，也就是四兆多個第一課的開關。"
+              },
+              {
+                "en": "Memory is measured in gigabytes too, but a computer has much less memory than storage.",
+                "zh": "記憶體也是用 GB 來量，只是一台電腦的記憶體比儲存空間少得多。"
+              }
+            ],
+            "note2_zh": "個這樣的單位。空間沒有不見：位元組一樣多，只是用比較大的單位來數。"
+          },
+          "culture_cards": {
+            "eyebrow": "Stories Behind the Parts · 零件的故事",
+            "title_en": "A processor on one chip, a drive with nothing moving, two kinds of gigabyte, and a coffee shop in Taipei",
+            "title_zh": "一顆晶片上的處理器、沒有東西在動的硬碟、兩種 GB、台北的一家咖啡店",
+            "lead_en": "Four short stories about the parts inside the case.",
+            "lead_zh": "機殼裡這些零件的四個小故事。",
+            "cards": [
+              {
+                "k": "1971 · Intel 4004",
+                "en": "The processor on a single chip",
+                "zh": "做在一顆晶片上的處理器",
+                "body_en": "Early computers needed many separate parts to do the work of a processor. In 1971 Intel introduced the 4004, which became the first general-purpose microprocessor: a processor on one chip. Today’s processors do the same basic job of interpreting and carrying out program instructions, with vastly more transistors. The chip lessons on this site tell that part of the story.",
+                "body_zh": "早期的電腦要用很多分開的零件，才做得了處理器的工作。1971 年，英特爾推出 4004，它成為第一顆通用的微處理器：做在一顆晶片上的處理器。今天的處理器做的還是同一件基本的事（看懂並執行程式的指令），只是電晶體多了非常非常多。這一段故事，本站的晶片系列有講。"
+              },
+              {
+                "k": "SSD · 固態硬碟",
+                "en": "A drive with nothing moving",
+                "zh": "沒有東西在動的硬碟",
+                "body_en": "A hard disk drive stores data on a spinning platter, with an arm that moves across it. A solid-state drive stores data in chips of flash memory instead, so it does not rely on any moving parts. Both do the same job for the computer: they are its long-term storage, remembering files even when the device is off.",
+                "body_zh": "硬碟把資料存在會轉的碟片上，還有一支讀寫臂在碟片上移動。固態硬碟改用快閃記憶體晶片來存資料，所以不靠任何會動的零件。對電腦來說，兩者做的是同一件事：當它長期存放東西的地方，就算關機也記得檔案。"
+              },
+              {
+                "k": "GB · GiB",
+                "en": "Why a 1 TB drive shows as 931 GB",
+                "zh": "為什麼 1 TB 的硬碟顯示成 931 GB",
+                "body_en": "Drive makers count in tens: one gigabyte is 1,000,000,000 bytes. But some software counts in twos and treats a “gigabyte” as 1,073,741,824 bytes. To end the confusion, a standard approved in 1998 gave the binary units their own names, such as gibibyte (GiB). Seagate notes that people are often confused when a 1 TB drive is reported as only about 931 gigabytes. Nothing is missing: 1,000,000,000,000 bytes is about 931 GiB.",
+                "body_zh": "硬碟廠商用十進位來數：1 GB 是 1,000,000,000 個位元組。可是有些軟體用二進位來數，把「1 GB」當成 1,073,741,824 個位元組。為了不再混淆，1998 年通過的一項標準替二進位的單位另外取了名字，例如 gibibyte（GiB）。希捷（Seagate）提到，1 TB 的硬碟被顯示成只有大約 931 GB 時，很多人會搞不清楚。其實什麼都沒少：1,000,000,000,000 個位元組，大約就是 931 GiB。"
+              },
+              {
+                "k": "1989 · Taipei 台北",
+                "en": "Motherboards from Taiwan",
+                "zh": "從台灣出發的主機板",
+                "body_en": "ASUS, one of the best-known makers of motherboards, was established in 1989. By the company’s own account, the idea began with a conversation among engineers in a coffee shop in Taipei, and within eight months they had built their first two motherboards. ASUS says that the success of those early boards helped make Taiwan known around the world as a place for high-quality computer products.",
+                "body_zh": "華碩（ASUS）是最有名的主機板廠商之一，成立於 1989 年。照華碩自己的說法，這家公司的構想來自幾位工程師在台北一家咖啡店裡的一次談話，八個月內他們就做出了最早的兩款主機板。華碩說，這些早期主機板的成功，讓世界開始知道台灣能做出高品質的電腦產品。"
+              }
+            ]
+          },
+          "myths": [
+            {
+              "myth_en": "Memory and storage are the same thing.",
+              "myth_zh": "記憶體和儲存空間是同一個東西。",
+              "fact_en": "They are two different parts. Memory holds what is in use right now and is wiped when the power goes off. Storage keeps your files without power. “My phone is out of memory” usually means it is out of storage.",
+              "fact_zh": "它們是兩個不同的零件。記憶體放現在正在用的東西，電一關就清空；儲存裝置不用電也留得住檔案。大家說「手機記憶體滿了」，通常指的其實是儲存空間滿了。"
+            },
+            {
+              "myth_en": "The screen is the computer.",
+              "myth_zh": "螢幕就是電腦。",
+              "fact_en": "A screen only shows the picture that is sent to it. The work is done by the parts on the motherboard. In a laptop or an all-in-one computer, those parts are simply behind or under the screen.",
+              "fact_zh": "螢幕只是把送來的畫面顯示出來，工作是主機板上那些零件做的。筆記型電腦或一體成型的電腦，只是把那些零件放在螢幕的後面或下面。"
+            },
+            {
+              "myth_en": "The big metal block with a fan is the processor.",
+              "myth_zh": "那一大塊有風扇的金屬就是處理器。",
+              "fact_en": "That is the cooler. The processor is the small flat square underneath it.",
+              "fact_zh": "那是散熱器。處理器是它底下那一小片扁扁的方形晶片。"
+            },
+            {
+              "myth_en": "A laptop works in a completely different way from a desktop computer.",
+              "myth_zh": "筆記型電腦和桌上型電腦的運作方式完全不同。",
+              "fact_en": "It has the same kinds of parts doing the same jobs. They are smaller and closer together, and some are combined: a system on a chip puts the processor, the graphics, and more on one chip.",
+              "fact_zh": "它有同樣那幾種零件，做同樣的事，只是比較小、擠得比較近，有的還合在一起：「系統單晶片」把處理器、顯示功能和更多東西做在同一顆晶片上。"
+            }
+          ],
+          "tricks_head": {
+            "en": "The parts in a sentence",
+            "zh": "一句話記住每個零件"
+          },
+          "tricks": [
+            {
+              "title_en": "The board connects",
+              "title_zh": "主機板負責連接",
+              "body_en": "Everything plugs into the motherboard.",
+              "body_zh": "每個零件都插在主機板上。"
+            },
+            {
+              "title_en": "The processor does",
+              "title_zh": "處理器負責做",
+              "body_en": "It carries out instructions, one after another.",
+              "body_zh": "它一條接一條地執行指令。"
+            },
+            {
+              "title_en": "Memory is now, storage is later",
+              "title_zh": "記憶體管現在，儲存管以後",
+              "body_en": "Memory forgets when the power goes off. Storage keeps.",
+              "body_zh": "記憶體關電就忘；儲存裝置留得住。"
+            },
+            {
+              "title_en": "Power in, picture out",
+              "title_zh": "電進來，畫面出去",
+              "body_en": "The power supply feeds every part. The graphics card feeds the screen.",
+              "body_zh": "電源供應器供電給每個零件；顯示卡把畫面送給螢幕。"
+            }
+          ],
+          "safety_head": {
+            "eyebrow": "Before You Start · 動手之前",
+            "en": "Looking inside a real computer",
+            "zh": "要看真的電腦裡面之前"
+          },
+          "safety": [
+            {
+              "en": "Do not open a computer on your own. Ask a teacher or a parent, and use only a machine you have permission to open.",
+              "zh": "不要自己拆電腦。先問老師或家長，而且只能拆有得到同意的那一台。"
+            },
+            {
+              "en": "Before anyone opens the case, the computer must be shut down completely and its power cable unplugged from the wall socket.",
+              "zh": "任何人打開機殼之前，電腦一定要完全關機，並把電源線從牆上的插座拔掉。"
+            },
+            {
+              "en": "Static electricity can permanently damage the parts, even from a spark too small to feel. Touch an unpainted metal surface first, or wear an anti-static wrist strap.",
+              "zh": "靜電會讓零件永久損壞，就算是小到你感覺不到的火花也一樣。先摸一下沒有上漆的金屬表面，或戴上防靜電手環。"
+            },
+            {
+              "en": "Leave the power supply closed. It is a sealed box that takes wall electricity directly, and it is not meant to be opened.",
+              "zh": "不要拆電源供應器。它是一個直接接牆上的電、封起來的盒子，本來就不是要讓人打開的。"
+            }
+          ],
+          "activities": [
+            {
+              "title_en": "Be the Computer",
+              "title_zh": "全班當一台電腦",
+              "materials": [
+                {
+                  "en": "Six signs: Storage, Memory, Processor, Graphics, Screen, Power",
+                  "zh": "六張牌子：儲存裝置、記憶體、處理器、顯示卡、螢幕、電源"
+                },
+                {
+                  "en": "A stack of cards with one simple instruction on each, such as “draw a circle” or “add 3 and 4”",
+                  "zh": "一疊卡片，每張寫一個簡單的指令，例如「畫一個圓」「把 3 和 4 加起來」"
+                },
+                {
+                  "en": "A whiteboard for the Screen",
+                  "zh": "一塊白板，當作螢幕"
+                }
+              ],
+              "steps": [
+                {
+                  "en": "Six students take the signs and stand in order: Storage, Memory, Processor, Graphics, Screen. Power stands to one side. The rest of the class is the motherboard and passes things along.",
+                  "zh": "六位同學拿牌子，照順序站好：儲存裝置、記憶體、處理器、顯示卡、螢幕；電源站在旁邊。其他同學當主機板，負責傳東西。"
+                },
+                {
+                  "en": "Power says “On.” Storage holds the whole stack of cards. To open an app, Storage hands a copy of five cards to Memory.",
+                  "zh": "電源說「開」。儲存裝置拿著整疊卡片。要打開一個 App 時，儲存裝置把其中五張的副本交給記憶體。"
+                },
+                {
+                  "en": "Processor takes one card at a time from Memory, does exactly what it says, and tells Graphics the result. Graphics draws it on the whiteboard, the Screen.",
+                  "zh": "處理器一次從記憶體拿一張卡片，一字不差地照著做，把結果告訴顯示卡。顯示卡把它畫在白板（螢幕）上。"
+                },
+                {
+                  "en": "Power says “Off.” Memory drops all its cards. Storage still has the full stack. Start again and see what was lost.",
+                  "zh": "電源說「關」。記憶體把手上的卡片全部丟掉，儲存裝置手上那一疊還在。再開一次，看看什麼不見了。"
+                }
+              ],
+              "tip_en": "The moment Memory drops its cards is the point of the game: anything that was not handed back to Storage is gone. That is why you save your work. In Taiwan’s junior high Information Technology curriculum, this lesson matches the topic “System platforms”: 資 S-IV-2, whose notes list the CPU, memory, and input and output.",
+              "tip_zh": "記憶體把卡片丟掉的那一刻，就是這個遊戲的重點：沒有交回給儲存裝置的東西，就不見了。這就是為什麼作業要記得存檔。對照十二年國教國中「資訊科技」的學習內容，這一課對應「系統平台」主題：資 S-IV-2 系統平台之組成架構與基本運作原理（附錄的說明列有 CPU、記憶體、輸入輸出）。"
+            },
+            {
+              "title_en": "Check It on Your Own Computer",
+              "title_zh": "在自己的電腦上驗證",
+              "materials": [
+                {
+                  "en": "A Windows or Mac computer (you do not open the case)",
+                  "zh": "一台 Windows 或 Mac 電腦（不用打開機殼）"
+                },
+                {
+                  "en": "Paper and a pencil",
+                  "zh": "紙和鉛筆"
+                }
+              ],
+              "steps": [
+                {
+                  "en": "On a Mac, open the Apple menu and choose About This Mac. On Windows, right-click Start, choose Settings, select System, and pick About.",
+                  "zh": "Mac：打開蘋果選單，選「關於這台 Mac」（About This Mac）。Windows：在「開始」上按右鍵，選「設定」（Settings），再選「系統」（System）裡的 About 那一頁。"
+                },
+                {
+                  "en": "Find the processor. A Mac shows the chip or processor. Windows lists the processor type under Device specifications. Write its name down.",
+                  "zh": "找出處理器。Mac 會顯示晶片或處理器；Windows 在「裝置規格」（Device specifications）下面列出處理器的型號。把它的名字寫下來。"
+                },
+                {
+                  "en": "Find the memory. A Mac shows the amount of memory. Windows shows the amount of RAM installed. How many gigabytes?",
+                  "zh": "找出記憶體。Mac 會顯示記憶體有多少；Windows 會顯示安裝了多少 RAM。是幾 GB？"
+                },
+                {
+                  "en": "Find the storage. On Windows, go back to System and pick Storage. On a Mac, open System Settings, click General, then About, and look for Storage. How many gigabytes, and how many are free?",
+                  "zh": "找出儲存空間。Windows：回到「系統」，選 Storage（儲存空間）。Mac：打開「系統設定」，按「一般」（General），再按 About，找到儲存空間那一行。一共幾 GB？還剩多少？"
+                }
+              ],
+              "tip_en": "You should now have three facts about your own computer: its processor, its memory, and its storage. Notice that storage is many times larger than memory. Use “How Much Fits?” above to see what your storage could hold. The names of menus differ a little between versions of Windows and macOS.",
+              "tip_zh": "現在你手上有自己電腦的三件事：處理器、記憶體、儲存空間。注意儲存空間比記憶體大了好多倍。用上面的「裝得下多少？」看看你的儲存空間能放多少東西。不同版本的 Windows 和 macOS，選單的名稱會略有不同。"
+            }
+          ],
+          "links_head": {
+            "eyebrow": "Go Further · 延伸閱讀",
+            "en": "Chips, heat, memory, and what comes next",
+            "zh": "晶片、熱、記憶，以及下一課"
+          },
+          "links": [
+            {
+              "icon": "➕",
+              "k_en": "Previous Lesson · Lesson 4",
+              "k_zh": "上一課・第四課",
+              "en": "How Does a Computer Add?",
+              "zh": "電腦怎麼做加法？",
+              "note_en": "The adder you built from gates lives inside the processor you just found.",
+              "note_zh": "你用邏輯閘做出來的加法器，就住在你剛才找到的處理器裡。",
+              "href": "/resources/classes/computers/binary-adder/"
+            },
+            {
+              "icon": "🌡️",
+              "k_en": "Chips and Semiconductors · Lesson 9",
+              "k_zh": "晶片與半導體・第九課",
+              "en": "Why Do Chips Get Hot?",
+              "zh": "晶片為什麼會發熱？",
+              "note_en": "Why does the processor need that big cooler? Follow the heat from the transistors to the fins.",
+              "note_zh": "處理器為什麼需要那麼大的散熱器？跟著熱從電晶體一路走到鰭片。",
+              "href": "/resources/classes/semiconductors/chip-heat/"
+            },
+            {
+              "icon": "🔋",
+              "k_en": "How Things Work · Lesson 8",
+              "k_zh": "萬物原理・第八課",
+              "en": "How Does a Computer Remember Things?",
+              "zh": "電腦怎麼記住東西？",
+              "note_en": "What is actually inside a memory chip and a drive? See where each 0 and 1 is kept.",
+              "note_zh": "記憶體晶片和硬碟裡面到底是什麼？看看每一個 0 和 1 存在哪裡。",
+              "href": "/resources/classes/how-things-work/computer-memory/"
+            },
+            {
+              "icon": "⚙️",
+              "k_en": "Next Lesson · Lesson 6",
+              "k_zh": "下一課・第六課",
+              "en": "What Does a Processor Do All Day?",
+              "zh": "處理器整天在忙什麼？",
+              "note_en": "Next, zoom in on the small square under the cooler: fetch an instruction, work out what it means, do it, and fetch the next.",
+              "note_zh": "下一課要放大散熱器底下那一小片：拿一條指令、看懂它、照著做，再拿下一條。",
+              "soon": true
+            }
+          ],
+          "sources_note_en": "Facts on this page were checked against these sources (October 2026); the sizes in “How Much Fits?” are computed and tested",
+          "sources_note_zh": "本頁的事實依下列資料查證（2026 年 10 月）；「裝得下多少？」裡的數字是自己算的，並有測試",
+          "sources": [
+            {
+              "en": "The motherboard is the printed circuit board that connects all components of a computer; it is the largest board in the case; thin lines of copper or aluminum, called traces, run across it; the CPU, RAM, and expansion cards go into its slots",
+              "zh": "主機板是把電腦所有零件連在一起的印刷電路板，是機殼裡最大的一塊板子；上面有細細的銅或鋁的線路；處理器、記憶體和擴充卡插在它的插槽上",
+              "src": "Adam Volle, “motherboard,” Encyclopaedia Britannica",
+              "url": "https://www.britannica.com/technology/motherboard"
+            },
+            {
+              "en": "A microprocessor can “interpret and execute program instructions”; the first microprocessor was the Intel 4004, introduced in 1971",
+              "zh": "微處理器能看懂並執行程式的指令；第一顆微處理器是 1971 年推出的 Intel 4004",
+              "src": "Encyclopaedia Britannica, “microprocessor”",
+              "url": "https://www.britannica.com/technology/microprocessor"
+            },
+            {
+              "en": "The Intel 4004 “became the first general-purpose microprocessor”",
+              "zh": "Intel 4004「成為第一顆通用微處理器」",
+              "src": "Intel, “Announcing a New Era of Integrated Electronics” (Intel history)",
+              "url": "https://www.intel.com/content/www/us/en/history/virtual-vault/articles/the-intel-4004.html"
+            },
+            {
+              "en": "Main memory holds instructions and data when a program is executing; nonvolatile memories, unlike SRAM and DRAM, do not lose their contents when power is turned off; auxiliary memory holds programs and data for future use",
+              "zh": "主記憶體放正在執行的程式的指令與資料；非揮發性記憶體和 SRAM、DRAM 不同，斷電後不會失去內容；輔助記憶（儲存裝置）放以後要用的程式與資料",
+              "src": "David Hemmendinger, “computer memory,” Encyclopaedia Britannica",
+              "url": "https://www.britannica.com/technology/computer-memory"
+            },
+            {
+              "en": "“Application data is first loaded into RAM from permanent storage before the CPU processes it”",
+              "zh": "應用程式的資料會先從永久的儲存裝置載入 RAM，處理器才去處理它",
+              "src": "Encyclopaedia Britannica, “RAM”",
+              "url": "https://www.britannica.com/technology/RAM-computing"
+            },
+            {
+              "en": "SSDs use NAND flash memory and do not rely on any moving parts; a hard drive has a spinning platter and a moving arm; storage remembers files even when the device is off; opening a file transfers its data from storage to RAM",
+              "zh": "固態硬碟用 NAND 快閃記憶體，不靠任何會動的零件；硬碟有會轉的碟片和會動的讀寫臂；儲存裝置在關機時也記得檔案；打開檔案時，資料從儲存裝置傳到 RAM",
+              "src": "Crucial (Micron), “What is an SSD?”",
+              "url": "https://www.crucial.com/articles/about-ssd/what-is-an-ssd"
+            },
+            {
+              "en": "A GPU is a specialized processor designed to accelerate graphics rendering; GPUs may be integrated into the CPU or offered as a discrete unit; a graphics card is an add-in board that carries the GPU",
+              "zh": "GPU 是為了加速繪圖而設計的處理器；可以內建在 CPU 裡，也可以是獨立的硬體；顯示卡是裝著 GPU 的擴充卡",
+              "src": "Intel, “What Is a GPU?”",
+              "url": "https://www.intel.com/content/www/us/en/products/docs/processors/what-is-a-gpu.html"
+            },
+            {
+              "en": "The transistors inside a CPU convert electrical energy into heat; a heat sink absorbs the heat and a fan pushes the warm air away",
+              "zh": "CPU 裡的電晶體把電能變成熱；散熱片吸收熱，風扇把熱空氣吹走",
+              "src": "Intel, “CPU Cooler: Liquid Cooling vs. Air Cooling”",
+              "url": "https://www.intel.com/content/www/us/en/gaming/resources/cpu-cooler-liquid-cooling-vs-air-cooling.html"
+            },
+            {
+              "en": "A computer power supply: AC input 100–240 V; outputs of +12 V, +5 V, and +3.3 V",
+              "zh": "電腦的電源供應器：輸入交流 100–240 V；輸出 +12 V、+5 V、+3.3 V",
+              "src": "Corsair, HXi Series power supply manual (rating label)",
+              "url": "https://assets.corsair.com/image/upload/v1701372411/documents/49_002658_AA_WW_HXi_Series_QSG_Web.pdf"
+            },
+            {
+              "en": "“As a system on a chip (SoC), M1 combines numerous powerful technologies into a single chip”",
+              "zh": "「M1 是系統單晶片（SoC），把多種強大的技術合在一顆晶片上」",
+              "src": "Apple Newsroom, “Apple unleashes M1,” November 10, 2020",
+              "url": "https://www.apple.com/newsroom/2020/11/apple-unleashes-m1/"
+            },
+            {
+              "en": "1 GB = 1,000,000,000 bytes and 1 GiB = 1,073,741,824 bytes; the binary prefixes were approved as an IEC standard in December 1998",
+              "zh": "1 GB＝1,000,000,000 位元組，1 GiB＝1,073,741,824 位元組；二進位前綴在 1998 年 12 月通過成為 IEC 標準",
+              "src": "NIST, “Prefixes for binary multiples”",
+              "url": "https://physics.nist.gov/cuu/Units/binary.html"
+            },
+            {
+              "en": "The storage industry displays capacity in decimal; an operating system may report a 1 TB drive as only about 931 gigabytes",
+              "zh": "儲存業界用十進位標示容量；作業系統可能把 1 TB 的硬碟顯示成只有大約 931 GB",
+              "src": "Seagate, “Storage capacity measurement standards”",
+              "url": "https://www.seagate.com/support/kb/storage-capacity-measurement-standards-194563en/"
+            },
+            {
+              "en": "Shut down completely and unplug the power cable; ESD can permanently damage components; touch an unpainted metal surface or use an ESD wrist strap",
+              "zh": "完全關機並拔掉電源線；靜電放電會讓零件永久損壞；先摸沒有上漆的金屬表面，或使用防靜電手環",
+              "src": "Dell, “Electrical Safety for Dell Product Repair: ESD Protection and Precautions”",
+              "url": "https://www.dell.com/support/kbdoc/en-us/000137973/safety-precautions-when-working-with-electrical-equipment"
+            },
+            {
+              "en": "“Established in 1989, ASUS is a multinational company known for the world’s best motherboards”; the idea began in a coffee shop in Taipei; first two boards within eight months (the company’s own account)",
+              "zh": "華碩成立於 1989 年，以主機板聞名；構想始於台北的一家咖啡店；八個月內做出最早的兩款主機板（公司自己的說法）",
+              "src": "ASUS, “About ASUS: History”",
+              "url": "https://www.asus.com/content/about_asus_history/"
+            },
+            {
+              "en": "Mac: About This Mac shows the type of processor or chip and the amount of memory. Windows: right-click Start, Settings, System, About (processor type, amount of RAM installed) and System, Storage",
+              "zh": "Mac：「關於這台 Mac」顯示處理器或晶片的種類與記憶體大小。Windows：在「開始」按右鍵＞設定＞系統＞About（處理器型號、已安裝的 RAM），以及系統＞Storage",
+              "src": "Apple Support, “What’s in the Apple menu on Mac?”; Microsoft Support, “Find information about your Windows device”",
+              "url": "https://support.microsoft.com/en-us/windows/experience/find-information-about-your-windows-device"
+            },
+            {
+              "en": "Taiwan terms: motherboard 主機板, CPU 中央處理單元, processor 處理器, memory 記憶體, solid state disk 固態硬碟, hard disk 硬碟, display card 顯示卡, storage device 儲存裝置, volatile memory 揮發性記憶體, flash memory 快閃記憶體",
+              "zh": "台灣用語：motherboard 主機板、CPU 中央處理單元、processor 處理器、memory 記憶體、solid state disk 固態硬碟、hard disk 硬碟、display card 顯示卡、storage device 儲存裝置、volatile memory 揮發性記憶體、flash memory 快閃記憶體",
+              "src": "國家教育研究院《樂詞網》",
+              "url": "https://terms.naer.edu.tw/search/?query_term=motherboard&query_field=title&query_op=&match_type=phrase"
+            },
+            {
+              "en": "資 S-IV-2, how system platforms are built and basically work (p. 10); the notes list the operating system, CPU, memory, and input and output (p. 43)",
+              "zh": "資 S-IV-2 系統平台之組成架構與基本運作原理（第 10 頁）；附錄三的說明：「系統軟硬體架構與運作原理：作業系統、CPU、記憶體、輸入輸出」（第 43 頁）",
+              "src": "教育部《十二年國民基本教育課程綱要 國民中學暨普通型高級中等學校 科技領域》（2018）",
+              "url": "https://www.naer.edu.tw/upload/1/16/doc/816/十二年國民基本教育課程綱要國民中學暨普通型高級中等學校-科技領域.pdf"
+            },
+            {
+              "en": "512 GB = 512,000,000,000 bytes = 4,096,000,000,000 bits; it holds 14,222 photos of 36,000,000 bytes or 96,749 minutes of sound at 5,292,000 bytes a minute; 1 TB is about 931.3 GiB and 512 GB about 476.8 GiB",
+              "zh": "512 GB＝512,000,000,000 位元組＝4,096,000,000,000 位元；裝得下 14,222 張 36,000,000 位元組的照片，或 96,749 分鐘、每分鐘 5,292,000 位元組的聲音；1 TB 約 931.3 GiB、512 GB 約 476.8 GiB",
+              "src": "Our own arithmetic, checked by tools/computers/test/parts.test.mjs",
+              "url": "https://github.com/lukelin7429/twrses/blob/main/tools/computers/test/parts.test.mjs"
+            }
+          ]
+        }
+      ],
+      "planned": [
         {
           "n": 6,
           "icon": "⚙️",

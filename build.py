@@ -12359,7 +12359,7 @@ def build_cal_hub():
 _compj = os.path.join(ROOT, "data", "computers.json")
 COMP = json.load(open(_compj, encoding="utf-8")) if os.path.exists(_compj) else None
 COMP_BASE = "/resources/classes/computers/"
-_COMP_JS = {"bits": "comp-bits", "pixels": "comp-pixels", "logic": "comp-logic", "adder": "comp-adder"}   # lab.kind → assets/js/<bundle>.js
+_COMP_JS = {"bits": "comp-bits", "pixels": "comp-pixels", "logic": "comp-logic", "adder": "comp-adder", "pc": "comp-pc"}   # lab.kind → assets/js/<bundle>.js
 
 def _comp_ver():
     h = hashlib.md5()
@@ -12796,6 +12796,94 @@ def _comp_addq(aq):
   <div class="cp-gs-foot"><span></span><button type="button" class="cp-btn cp-btn-gold cp-gs-next" hidden>Next problem · 下一題</button></div>
 </div>'''
 
+def comppc_svg(size=56):
+    """第五課的課程卡小圖示：一台打開的主機，裡面一塊板子、一顆晶片、兩條記憶體、一張卡。"""
+    return (f'<svg class="comppc-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">'
+            '<rect x="9" y="5" width="42" height="50" rx="4" fill="#1b2440" stroke="#9fb0cf" stroke-width="2"/>'
+            '<rect x="15" y="11" width="30" height="27" rx="2" fill="#14503f"/>'
+            '<rect x="19" y="15" width="10" height="10" rx="1.5" fill="#c9ced8"/><rect x="21.5" y="17.5" width="5" height="5" fill="#ffd36e"/>'
+            '<rect x="33" y="14" width="2.6" height="13" fill="#7ee0aa"/><rect x="38" y="14" width="2.6" height="13" fill="#7ee0aa"/>'
+            '<rect x="17" y="30" width="24" height="5" rx="1" fill="#c7a6ff"/>'
+            '<rect x="15" y="42" width="16" height="9" rx="1.5" fill="#ff8a8a"/><circle cx="23" cy="46.5" r="2.6" fill="#1b2440"/></svg>')
+
+_COMP_CARD["pc"] = comppc_svg
+
+def render_comppc_lab(lesson):
+    """第五課：可以拆開的主機（assets/js/comp-pc.js 綁這裡的 class；全部自繪示意）。"""
+    lab = lesson["lab"]
+    pb = "".join(
+        f'<button type="button" data-part="{p["key"]}" aria-pressed="false">{html.escape(p["short_en"])}<small>{html.escape(p["short_zh"])}</small></button>'
+        for p in lab["parts"])
+    parts = html.escape(json.dumps({p["key"]: {k: p[k] for k in ("short_en", "short_zh", "en", "zh", "job_en", "job_zh", "note_en", "note_zh")} for p in lab["parts"]}, ensure_ascii=False))
+    boot = html.escape(json.dumps([{"en": b["en"], "zh": b["zh"]} for b in lab["boot"]], ensure_ascii=False))
+    steps = "".join(f'<li tabindex="0" role="button">{html.escape(b["short_en"])}<small>{html.escape(b["short_zh"])}</small></li>' for b in lab["boot"])
+    tg = _lab_toggles([("labels", "Labels", "標示", True)])
+    return f'''<div class="astro-lab cp-lab cp-pc-lab rvl" data-comppc-lab data-parts="{parts}" data-boot="{boot}">
+  <div class="al-stage">
+    <div class="al-space">
+      <canvas class="al-space-cv" aria-label="3D model of a desktop computer with its side panel off: a motherboard, a processor under its cooler, memory, a solid-state drive, a graphics card, and a power supply, next to a screen · 拿掉側板的桌上型電腦 3D 模型：主機板、散熱器底下的處理器、記憶體、固態硬碟、顯示卡和電源供應器，旁邊有一台螢幕"></canvas>
+      <div class="al-labels" aria-hidden="true"></div>
+      <p class="al-hint">Tap a part · 點一個零件　Drag to turn · 拖曳旋轉　Scroll or pinch to zoom · 滾輪／雙指縮放</p>
+      <button type="button" class="al-home" title="Reset view · 重設視角" aria-label="Reset view · 重設視角">&#8634;</button>
+      <p class="al-nogl-msg">This 3D model needs WebGL, which this browser does not support. The list of parts and the four power-on steps below still work, and so do the reading and the games.<br><span class="zh">這個瀏覽器不支援 WebGL，無法顯示 3D 模型；下面的零件清單和開機四步驟照樣能用，課文和小遊戲也都能用。</span></p>
+    </div>
+    <aside class="al-sky cp-aside">
+      <p class="al-sky-k">Parts · 零件</p>
+      <div class="cp-pc-parts" role="group" aria-label="Parts · 零件">{pb}</div>
+      <div class="cp-pc-card" aria-live="polite">
+        <h3 class="cp-pc-name"></h3>
+        <p class="cp-pc-job"></p>
+        <p class="cp-pc-note"></p>
+      </div>
+      <label class="cp-pc-sl"><span>Pull the parts out · 把零件拉出來</span>
+        <input type="range" class="cp-pc-explode" min="0" max="100" step="1" value="0" aria-label="Pull the parts out, from assembled to taken apart · 把零件拉出來（從裝好到拆開）"></label>
+      <p class="al-sky-k cp-k2">After you press the power button · 按下電源之後</p>
+      <ol class="cp-pc-steps">{steps}</ol>
+      <p class="cp-msg" aria-live="polite"></p>
+    </aside>
+  </div>
+  <div class="al-controls">
+    <div class="al-row al-row-main">
+      <button type="button" class="al-play" aria-pressed="false"><span class="al-play-i" aria-hidden="true"></span><span class="al-play-t">Press the power button · 按下電源</span></button>
+      <div class="al-row al-toggles">{tg}</div>
+    </div>
+  </div>
+  {_lab_foot(lab)}
+  <p class="cp-credit">{lab["credit_html"]}</p>
+</div>'''
+
+def _comp_jobs(jb, lesson):
+    names = {p["key"]: {"en": p["short_en"], "zh": p["short_zh"]} for p in lesson["lab"]["parts"]}
+    tasks = html.escape(json.dumps(jb["tasks"], ensure_ascii=False))
+    return f'''<div class="cp-guess cp-jobs rvl" data-cp-jobs data-tasks="{tasks}" data-names="{html.escape(json.dumps(names, ensure_ascii=False))}">
+  <div class="cp-gs-top"><p class="cp-gs-k"></p><p class="cp-gs-sc">Right on the first try · 第一次就答對 <b class="cp-gs-score">0 / 0</b></p></div>
+  <p class="cp-jb-q" aria-live="polite"></p>
+  <div class="cp-gs-opts cp-jb-opts" role="group" aria-label="Choose a part · 選一個零件"></div>
+  <p class="cp-gs-msg" aria-live="polite"></p>
+  <div class="cp-gs-foot"><span></span><button type="button" class="cp-btn cp-btn-gold cp-gs-next" hidden>Next · 下一題</button></div>
+</div>'''
+
+def _comp_fits(ft):
+    drives = [("256", "256 GB"), ("512", "512 GB"), ("1000", "1 TB"), ("2000", "2 TB")]
+    db = "".join(f'<button type="button" data-drive="{k}" aria-pressed="{"true" if k == "512" else "false"}">{t}</button>' for k, t in drives)
+    ib = "".join(f'<button type="button" data-item="{i["key"]}" aria-pressed="{"true" if i["key"] == "photo" else "false"}">{html.escape(i["btn_en"])}<small>{html.escape(i["btn_zh"])}</small></button>' for i in ft["items"])
+    items = html.escape(json.dumps({i["key"]: {k: i[k] for k in ("en", "zh", "size_en", "size_zh")} for i in ft["items"]}, ensure_ascii=False))
+    tips = "".join(f'<li>{html.escape(t["en"])}<span class="zh">{html.escape(t["zh"])}</span></li>' for t in ft["tips"])
+    return f'''<div class="cp-fits rvl" data-cp-fits data-items="{items}">
+  <div class="cp-ft-ctl">
+    <div><p class="cp-k">Size of the drive · 固態硬碟的大小</p><div class="cp-seg-l cp-ft-drives" role="group" aria-label="Size of the drive · 固態硬碟的大小">{db}</div></div>
+    <div><p class="cp-k">What to store · 要放什麼</p><div class="cp-seg-l cp-ft-items" role="group" aria-label="What to store · 要放什麼">{ib}</div></div>
+  </div>
+  <dl class="cp-ft-nums">
+    <div><dt>Bytes · 位元組</dt><dd class="cp-ft-bytes"></dd></div>
+    <div><dt>Bits (the switches of Lesson 1) · 位元（第一課的開關）</dt><dd class="cp-ft-bits"></dd></div>
+  </dl>
+  <p class="cp-ft-big" aria-live="polite"><span>It holds · 裝得下</span><b class="cp-ft-count"></b><span class="cp-ft-what"></span></p>
+  <p class="cp-lv-msg cp-ft-msg"></p>
+  <p class="cp-lv-note">{html.escape(ft["note_en"])} <b class="cp-ft-gib"></b> {html.escape(ft["note2_en"])}<span class="zh">{html.escape(ft["note_zh"])} <b class="cp-ft-gib"></b> {html.escape(ft["note2_zh"])}</span></p>
+</div>
+<ul class="cp-tips rvl">{tips}</ul>'''
+
 def _comp_flat():
     return [(ui, u, l) for ui, u in enumerate(COMP["units"]) for l in u["lessons"]]
 
@@ -12823,7 +12911,7 @@ def build_comp_lesson(ui, unit, lesson):
     reading_html = render_basic_unit(1, unit_dict, level="comp", audio_rel="", pdf_rel="")
     lab = lesson["lab"]
     kind = lab["kind"]
-    lab_html = {"bits": render_compbits_lab, "pixels": render_comppixels_lab, "logic": render_complogic_lab, "adder": render_compadder_lab}[kind](lesson)
+    lab_html = {"bits": render_compbits_lab, "pixels": render_comppixels_lab, "logic": render_complogic_lab, "adder": render_compadder_lab, "pc": render_comppc_lab}[kind](lesson)
 
     def sec(key, fn):
         d = lesson[key]
@@ -12851,6 +12939,8 @@ def build_comp_lesson(ui, unit, lesson):
     if lesson.get("lquiz"): secs.append(sec("lquiz", _comp_lquiz))
     if lesson.get("half"): secs.append(sec("half", _comp_half))
     if lesson.get("addq"): secs.append(sec("addq", _comp_addq))
+    if lesson.get("jobs"): secs.append(sec("jobs", lambda d: _comp_jobs(d, lesson)))
+    if lesson.get("fits"): secs.append(sec("fits", _comp_fits))
     if lesson.get("culture_cards"):
         cu = lesson["culture_cards"]
         cc = "".join(

@@ -458,3 +458,56 @@ a.cp-link:hover { transform: translateY(-3px); box-shadow: var(--shadow); border
 .cp-aq-opt small { display: block; margin-top: .2rem; font-family: var(--sans), var(--zh); font-size: .68rem; font-weight: 600; line-height: 1.3; color: #9fb0cf; }
 @media (max-width: 860px) { .cp-half { grid-template-columns: 1fr; } }
 @media (max-width: 560px) { .cp-half { padding: 1.1rem; } .cp-aq-row { grid-template-columns: 3.6rem repeat(5, 2.1rem); } .cp-aq-row span { height: 2.2rem; font-size: 1.25rem; } .cp-hf-eq { font-size: 1.25rem; } }
+
+/* ══ 第五課：可以拆開的主機（comp-pc）═════════════════════════════════ */
+@media (min-width: 1001px) { .cp-pc-lab .al-space { min-height: 700px; } }
+.al-lab.cp-lb-part { font-size: .72rem; line-height: 1.2; text-align: center; padding: .14rem .55rem; color: #dfe7f7; }
+.al-lab.cp-lb-part.is-on { color: #1b1405; background: rgba(255,211,110,.95); border-color: #ffd36e; }
+.al-lab.cp-lb-part.is-on small { color: #4a3608; }
+.cp-pc-parts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .3rem; }
+.cp-pc-parts button { padding: .36rem .15rem; border-radius: 10px; border: 1px solid var(--al-line); background: rgba(255,255,255,.03); color: var(--al-text); font-family: var(--sans); font-weight: 800; font-size: .68rem; line-height: 1.2; cursor: pointer; }
+.cp-pc-parts button small { display: block; font-family: var(--zh); font-weight: 600; font-size: .66rem; color: var(--al-mute); }
+.cp-pc-parts button[aria-pressed="true"] { border-color: var(--al-sun); background: rgba(255,211,110,.16); box-shadow: 0 0 0 1px var(--al-sun) inset; }
+.cp-pc-card { padding: .7rem .8rem; border-radius: 12px; border: 1px solid var(--al-line); background: rgba(255,255,255,.03); min-height: 19em; }
+.cp-pc-name { margin: 0 0 .3rem; font-family: var(--serif); font-size: 1.12rem; line-height: 1.25; color: #fff; }
+.cp-pc-name .zh { display: block; font-size: .9rem; font-weight: 600; color: var(--al-sun); }
+.cp-pc-job, .cp-pc-note { margin: 0; font-size: .82rem; line-height: 1.55; color: var(--al-text); }
+.cp-pc-job .zh, .cp-pc-note .zh { display: block; margin-top: .2rem; color: var(--al-mute); }
+.cp-pc-note { margin-top: .5rem; padding-top: .5rem; border-top: 1px dashed var(--al-line); font-size: .78rem; }
+.cp-pc-note[hidden] { display: none; }
+.cp-pc-sl { display: grid; gap: .3rem; font-size: .76rem; font-weight: 800; color: var(--al-mute); }
+.cp-pc-sl input { width: 100%; accent-color: #ffd36e; }
+.cp-pc-steps { list-style: none; counter-reset: st; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .3rem; }
+.cp-pc-steps li { counter-increment: st; padding: .4rem .5rem .4rem 1.9rem; position: relative; border-radius: 10px; border: 1px solid var(--al-line); background: rgba(255,255,255,.03); font-size: .72rem; font-weight: 800; line-height: 1.25; color: var(--al-text); cursor: pointer; }
+.cp-pc-steps li::before { content: counter(st); position: absolute; left: .5rem; top: .45rem; width: 1.1rem; height: 1.1rem; display: grid; place-items: center; border-radius: 50%; background: #22345f; color: #fff; font-size: .68rem; }
+.cp-pc-steps li small { display: block; font-family: var(--zh); font-weight: 600; font-size: .68rem; color: var(--al-mute); }
+.cp-pc-steps li.is-cur { border-color: #7ef0e3; background: rgba(126,240,227,.14); }
+.cp-pc-steps li.is-cur::before { background: #7ef0e3; color: #052421; }
+.cp-pc-lab .cp-msg { min-height: 6.4em; }
+.al-lg-cppart i { border: 0; border-radius: 4px; background: #ffd36e; }
+.al-lg-cpboard i { border: 0; border-radius: 3px; background: #14503f; box-shadow: 0 0 0 1px #2f8f73 inset; }
+.al-lg-cpscreen i { border: 2px solid #1b2130; border-radius: 3px; background: #9fe3ff; }
+@media (max-width: 1000px) { .cp-pc-lab .al-space { aspect-ratio: 4 / 3; min-height: 400px; } .cp-pc-card { min-height: 10em; } }
+@media (max-width: 620px) { .cp-pc-lab .al-space { aspect-ratio: 1 / 1; min-height: 0; } .cp-pc-lab .cp-msg { min-height: 8em; } .cp-pc-card { min-height: 14em; } }
+
+/* ── 這個工作是誰做的 ─────────────────────────────────────────────────── */
+.cp-jb-q { margin: 1.3rem 0 1.1rem; min-height: 3.6em; text-align: center; font-family: var(--serif); font-size: 1.35rem; line-height: 1.35; color: #fff; }
+.cp-jb-q small { display: block; margin-top: .2rem; font-family: var(--zh); font-size: 1rem; font-weight: 600; color: #9fb0cf; }
+.cp-jb-opts { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.cp-jb-opt { font-family: var(--sans) !important; font-size: .86rem !important; line-height: 1.25; padding: .7rem .3rem !important; }
+.cp-jb-opt small { display: block; margin-top: .15rem; font-family: var(--zh); font-size: .78rem; font-weight: 600; color: #9fb0cf; }
+
+/* ── 裝得下多少 ───────────────────────────────────────────────────────── */
+.cp-fits { margin-top: 1.5rem; padding: 1.5rem 1.6rem; background: #fff; border: 1px solid var(--line); border-radius: 20px; box-shadow: var(--shadow-sm); max-width: 900px; }
+.cp-ft-ctl { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr); gap: 1rem 2rem; }
+.cp-ft-drives { grid-template-columns: repeat(4, minmax(0, 1fr)); } .cp-ft-items { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.cp-ft-nums { margin: 1.2rem 0 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .7rem 1.4rem; }
+.cp-ft-nums dt { font-size: .74rem; font-weight: 800; color: var(--ink-soft); }
+.cp-ft-nums dd { margin: .1rem 0 0; font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; font-size: 1.15rem; color: var(--ink); overflow-wrap: anywhere; }
+.cp-ft-big { margin: 1.2rem 0 0; display: flex; flex-wrap: wrap; align-items: baseline; gap: .3rem .9rem; padding: 1rem 1.2rem; border-radius: 16px; background: #10182e; color: #e8edf7; }
+.cp-ft-big > span:first-child { font-size: .8rem; font-weight: 800; color: #9fb0cf; }
+.cp-ft-count { font-family: var(--serif); font-size: 2.4rem; line-height: 1; color: #ffd36e; font-variant-numeric: tabular-nums; }
+.cp-ft-what { font-size: .98rem; font-weight: 700; } .cp-ft-what small { display: block; font-family: var(--zh); font-weight: 600; font-size: .86rem; color: #9fb0cf; }
+.cp-ft-gib { color: var(--brand-dk); font-variant-numeric: tabular-nums; }
+@media (max-width: 860px) { .cp-ft-ctl { grid-template-columns: 1fr; } .cp-jb-opts { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 560px) { .cp-fits { padding: 1.1rem; } .cp-ft-nums { grid-template-columns: 1fr; } .cp-ft-count { font-size: 1.9rem; } .cp-jb-q { font-size: 1.15rem; } }
