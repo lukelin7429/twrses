@@ -9530,7 +9530,7 @@ def build_chip_hub():
 _earthj = os.path.join(ROOT, "data", "earth.json")
 EARTH = json.load(open(_earthj, encoding="utf-8")) if os.path.exists(_earthj) else None
 EARTH_BASE = "/resources/classes/earth/"
-_EARTH_JS = {"quake": "earth-quake", "inside": "earth-inside", "shake": "earth-shake", "mountain": "earth-mountain", "volcano": "earth-volcano", "rain": "earth-rain"}   # lab.kind → assets/js/<bundle>.js
+_EARTH_JS = {"quake": "earth-quake", "inside": "earth-inside", "shake": "earth-shake", "mountain": "earth-mountain", "volcano": "earth-volcano", "rain": "earth-rain", "wind": "earth-wind"}   # lab.kind → assets/js/<bundle>.js
 
 def _earth_ver():
     h = hashlib.md5()
@@ -9987,9 +9987,75 @@ def _earth_gauge(gg):
             f'</div></div>'
             '<noscript><p class="muted">The calculator works in your browser and needs JavaScript. · 計算在瀏覽器裡進行，需要開啟 JavaScript。</p></noscript>')
 
-_EARTH_LAB = {"quake": render_earthquake_lab, "inside": render_earthinside_lab, "shake": render_earthshake_lab, "mountain": render_earthmountain_lab, "volcano": render_earthvolcano_lab, "rain": render_earthrain_lab}          # lab.kind → 3D 面板
-_EARTH_ICON = {"quake": earthquake_svg, "inside": earthglobe_svg, "shake": earthshake_svg, "mountain": earthmountain_svg, "volcano": earthvolcano_svg, "rain": earthrain_svg}                 # lesson.card → 課程卡小圖示
-_EARTH_WIDGETS = [("warn", _earth_warn), ("dig", _earth_dig), ("scale10", _earth_scale10), ("peak", _earth_peak), ("bubble", _earth_bubble), ("gauge", _earth_gauge)]               # lesson 裡有這個 key 就多一段（照這裡的順序）
+def earthwind_svg(size=56):
+    """第七課的課程卡小圖示：海和陸地，一支從海上吹向陸地的風的箭頭。"""
+    return (f'<svg class="earthwind-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">'
+            '<rect x="4" y="42" width="26" height="12" rx="2" fill="#2a6fc9"/><rect x="30" y="38" width="26" height="16" rx="2" fill="#4f8a55"/>'
+            '<circle cx="46" cy="12" r="6" fill="#ffd36e"/>'
+            '<path d="M8 30 H40" stroke="#fff" stroke-width="4" stroke-linecap="round"/><path d="M36 23 L46 30 L36 37 Z" fill="#fff"/>'
+            '<path d="M10 20 H26 M14 12 H24" stroke="#9fd8ff" stroke-width="3" stroke-linecap="round"/></svg>')
+
+def render_earthwind_lab(lesson):
+    """第七課：海岸的剖面，一天的海風陸風、一年的季風（assets/js/earth-wind.js 綁這裡的 class；全部自繪示意）。"""
+    lab = lesson["lab"]
+    msgs = "".join(f'<p class="cp-msg ew-wd-msg" data-msg="{k}" hidden>{html.escape(m["en"])}<span class="zh">{html.escape(m["zh"])}</span></p>' for k, m in lab["msgs"].items())
+    tg = _lab_toggles([("labels", "Labels", "標示", True)])
+    return f'''<div class="astro-lab cp-lab ew-lab ew-wd-lab rvl" data-earthwind-lab>
+  <div class="al-stage">
+    <div class="al-space">
+      <canvas class="al-space-cv" aria-label="3D cutaway of a coast, with the sea on the left and the land on the right: air rises over the warmer side, and cooler air moves in along the ground to replace it · 海岸的 3D 剖面，左邊是海、右邊是陸地：比較熱的那一邊空氣上升，比較涼的空氣貼著地面補過來"></canvas>
+      <div class="al-labels" aria-hidden="true"></div>
+      <div class="cp-view" role="group" aria-label="View · 視角">
+        <button type="button" data-view="day" aria-pressed="true">One day<small>一天</small></button>
+        <button type="button" data-view="year" aria-pressed="false">One year<small>一年</small></button>
+      </div>
+      <p class="al-hint">Drag to turn · 拖曳旋轉　Scroll or pinch to zoom · 滾輪／雙指縮放</p>
+      <button type="button" class="al-home" title="Reset view · 重設視角" aria-label="Reset view · 重設視角">&#8634;</button>
+      <p class="al-nogl-msg">This 3D model needs WebGL, which this browser does not support. The reading and the cards below still explain everything.<br><span class="zh">這個瀏覽器不支援 WebGL，無法顯示 3D 模型；下方的課文與卡片一樣能看懂。</span></p>
+    </div>
+    <aside class="al-sky cp-aside">
+      <p class="al-sky-k">Which side is warmer? · 哪一邊比較熱？</p>
+      <label class="al-slider cp-is-yrow"><span><span class="ew-wd-x-lab">Time of day · 幾點</span> <output class="ew-wd-x-out">15:00</output></span>
+        <input type="range" class="al-age ew-wd-x" min="0" max="23.5" step="0.5" value="15"></label>
+      <dl class="cp-nums cp-lt-nums ew-nums">
+        <div><dt>Land · 陸地</dt><dd class="ew-wd-land"></dd></div>
+        <div><dt>Sea · 海</dt><dd class="ew-wd-sea"></dd></div>
+        <div><dt>Wind · 風向</dt><dd class="ew-wd-wind"></dd></div>
+        <div><dt>Strength · 風力</dt><dd class="ew-wd-speed"></dd></div>
+      </dl>
+      {msgs}
+    </aside>
+  </div>
+  <div class="al-controls">
+    <div class="al-row al-row-main">
+      <button type="button" class="al-play" aria-pressed="true"><span class="al-play-i" aria-hidden="true"></span><span class="al-play-t">Pause · 暫停</span></button>
+      <div class="al-row al-toggles">{tg}</div>
+    </div>
+  </div>
+  {_lab_foot(lab)}
+  <p class="cp-credit">{lab["credit_html"]}</p>
+</div>'''
+
+def _earth_beaufort(bf):
+    """「這是幾級風？」（earth-wind.js 的 initBeaufort；中央氣象署陸上應用之蒲福風級表 0–12 級；不需要 WebGL）。"""
+    levels = html.escape(json.dumps(bf["levels"], ensure_ascii=False))
+    return (f'<div class="cp-cnt ew-bf rvl" data-earth-beaufort data-levels="{levels}">'
+            f'<div class="cp-cnt-in">'
+            f'<label class="cp-cnt-l"><span>Wind force · 風力</span>'
+            f'<input type="range" class="al-age ew-bf-f" min="0" max="12" step="1" value="3" aria-label="Beaufort force · 蒲福風級"></label>'
+            f'<div class="ew-bf-pic" aria-hidden="true"><i class="ew-bf-pole"></i><i class="ew-bf-flag"></i></div>'
+            f'<p class="cp-cnt-note">{html.escape(bf["note_en"])}<span class="zh">{html.escape(bf["note_zh"])}</span></p></div>'
+            f'<div class="cp-home-out cp-cnt-out ew-bf-out" aria-live="polite">'
+            f'<p class="cp-home-k">Beaufort force · 蒲福風級</p>'
+            f'<p class="cp-home-big"><b class="ew-bf-n">3</b> <span class="ew-bf-name"></span> · <span class="ew-bf-name-zh"></span></p>'
+            f'<p class="cp-home-sub"><b class="ew-bf-ms"></b> meters a second · 公尺／秒　<b class="ew-bf-kmh"></b> km/h · 公里／時</p>'
+            f'<p class="cp-home-note"><span class="ew-bf-en"></span><span class="zh ew-bf-zh"></span></p>'
+            f'</div></div>'
+            '<noscript><p class="muted">The wind scale works in your browser and needs JavaScript. · 風級表在瀏覽器裡運作，需要開啟 JavaScript。</p></noscript>')
+
+_EARTH_LAB = {"quake": render_earthquake_lab, "inside": render_earthinside_lab, "shake": render_earthshake_lab, "mountain": render_earthmountain_lab, "volcano": render_earthvolcano_lab, "rain": render_earthrain_lab, "wind": render_earthwind_lab}          # lab.kind → 3D 面板
+_EARTH_ICON = {"quake": earthquake_svg, "inside": earthglobe_svg, "shake": earthshake_svg, "mountain": earthmountain_svg, "volcano": earthvolcano_svg, "rain": earthrain_svg, "wind": earthwind_svg}                 # lesson.card → 課程卡小圖示
+_EARTH_WIDGETS = [("warn", _earth_warn), ("dig", _earth_dig), ("scale10", _earth_scale10), ("peak", _earth_peak), ("bubble", _earth_bubble), ("gauge", _earth_gauge), ("beaufort", _earth_beaufort)]               # lesson 裡有這個 key 就多一段（照這裡的順序）
 
 def _earth_flat():
     return [(ui, u, l) for ui, u in enumerate(EARTH["units"]) for l in u["lessons"]]

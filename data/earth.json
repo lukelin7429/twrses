@@ -3921,15 +3921,663 @@
               "url": "https://en.wikipedia.org/wiki/Rain_gauge"
             }
           ]
+        },
+        {
+          "n": 7,
+          "slug": "why-wind-blows",
+          "title": "Why Does the Wind Blow?",
+          "title_zh": "風是怎麼來的？",
+          "level": "入門 · Beginner",
+          "icon": "🌬️",
+          "card": "wind",
+          "blurb_en": "You cannot see the wind, but you can feel it push. Where does it come from, and why does it change direction between day and night? In a 3D model of a coast, move the clock and watch the sea breeze turn into a land breeze. Then move the calendar and watch the same thing happen across a whole year. Last, learn to tell the strength of the wind just by looking at the trees.",
+          "blurb_zh": "風看不見，可是你感覺得到它在推你。它是從哪裡來的？為什麼白天和晚上的風向會不一樣？在一個海岸的 3D 模型裡，撥動時鐘，看海風怎麼變成陸風；再撥動月曆，看同一件事怎麼在一整年裡發生。最後，學會只看樹就說出現在是幾級風。",
+          "big_idea_en": "Wind is moving air, and the sun is what moves it. The sun does not heat every place the same. Land warms up quickly, and water warms up slowly. Over the warmer place, the air gets lighter and rises. Cooler air from the other place slides in along the ground to take its place. That sliding air is the wind.",
+          "big_idea_zh": "風就是流動的空氣，而推動它的是太陽。太陽不會把每個地方曬得一樣熱：陸地熱得快，水熱得慢。比較熱的地方，空氣變輕、往上升；另一邊比較涼的空氣就貼著地面流過來補位。這股流過來的空氣，就是風。",
+          "tricks_head": {
+            "en": "Wind in a sentence",
+            "zh": "一句話記住風"
+          },
+          "checked": {
+            "en": "October 2026",
+            "zh": "2026 年 10 月"
+          },
+          "lab": {
+            "kind": "wind",
+            "eyebrow": "3D Model · 3D 模型",
+            "title_en": "A Day and a Year at the Coast",
+            "title_zh": "海邊的一天和一年",
+            "how_en": "Drag to turn the model, and scroll or pinch to zoom. The sea is on the left, and the land is on the right. The small dots are air. Press Pause, then move the clock. Read the two temperatures, and watch which way the white arrow points. When does it turn around? Then choose One year and move the month. The same loop appears, but now it takes a whole year.",
+            "how_zh": "拖曳可以旋轉模型，滾輪或雙指可以縮放。左邊是海，右邊是陸地，那些小點是空氣。先按暫停，再撥動時間。看看兩邊的溫度，並注意白色箭頭指向哪一邊：它什麼時候會掉頭？接著選「一年」，改撥月份。同樣的一圈循環又出現了，只是這一次要花上一整年。",
+            "msgs": {
+              "onshore": {
+                "en": "The land is warmer than the sea. Air rises over the land, and cooler air from the sea moves in along the ground. This is a sea breeze.",
+                "zh": "陸地比海熱。陸地上的空氣上升，海上比較涼的空氣貼著地面補過來。這就是海風。"
+              },
+              "offshore": {
+                "en": "Now the land is cooler than the sea. Air rises over the sea, and air from the land moves out along the ground. This is a land breeze. It is weaker than the sea breeze.",
+                "zh": "現在陸地比海涼。海上的空氣上升，陸地上的空氣貼著地面流出去。這就是陸風，它比海風弱。"
+              },
+              "calm": {
+                "en": "The land and the sea are almost the same temperature. Nothing pushes the air either way, so the breeze stops for a while before it turns around.",
+                "zh": "陸地和海的溫度差不多。沒有什麼東西推著空氣往哪一邊走，所以風會先停一下，然後才掉頭。"
+              },
+              "monsoon": {
+                "en": "This is the same loop, but far bigger and far slower. In winter the continent is colder than the ocean, so the wind blows from the land. In summer the continent is hotter, so the wind blows from the ocean. A wind that turns with the seasons is called a monsoon.",
+                "zh": "這是同樣的一圈循環，只是大得多、也慢得多。冬天大陸比海洋冷，風從陸地吹出來；夏天大陸比較熱，風從海洋吹進去。這種跟著季節轉向的風，叫做季風。"
+              }
+            },
+            "legend": [
+              {
+                "cls": "ewwdair",
+                "en": "Air: over the warmer side (orange), over the cooler side (blue)",
+                "zh": "空氣：在比較熱的那一邊（橘）、在比較涼的那一邊（藍）"
+              },
+              {
+                "cls": "ewwdarrow",
+                "en": "White arrow: the wind near the ground",
+                "zh": "白色箭頭：靠近地面的風"
+              },
+              {
+                "cls": "ewwdground",
+                "en": "Sea and land: their color turns warmer or cooler with the temperature",
+                "zh": "海和陸地：顏色會跟著溫度偏暖或偏冷"
+              }
+            ],
+            "scale_en": "A teaching model. The temperatures are example curves that we drew to show the idea: the land changes a lot and the sea changes a little. They are not measurements from any real place. The wind strengths in One day follow the Central Weather Administration (a sea breeze of about force 3 to 4, a land breeze of about force 1 to 2); the wind strengths in One year are examples. A real sea breeze loop is only a few hundred meters high, and a real monsoon covers a whole continent, so the two views are not drawn to the same scale. Real wind is also turned by the spinning of the Earth, which this model leaves out.",
+            "scale_zh": "這是教學用的模型。溫度是我們為了說明原理畫的示意曲線：陸地變化大、海變化小，不是任何地方的實測值。「一天」裡的風力依中央氣象署的說明（海風大約 3 到 4 級，陸風大約 1 到 2 級）；「一年」裡的風力是示例。真的海風環流只有幾百公尺高，真的季風卻涵蓋整個大陸，所以兩個畫面的比例並不相同。真的風還會被地球自轉帶偏，這個模型沒有畫出來。",
+            "credit_html": "Model drawn by My Culture Connect as a teaching diagram. The ideas follow the Central Weather Administration's <a href=\"https://www.cwa.gov.tw/V8/C/K/Encyclopedia/nous/index.html\" target=\"_blank\" rel=\"noopener\">weather knowledge pages</a> and the other sources listed at the bottom of this page. · 模型由人師教育協會自繪示意；原理依中央氣象署「氣象常識」與本頁最下方列出的其他出處。"
+          },
+          "paras": [
+            "Hold your hand out of a window on a breezy day. Something pushes against it, but you cannot see anything there. That something is air. Air is real stuff, and when it moves from one place to another, we call it wind.",
+            "What makes the air move? The answer starts with the sun. Sunshine does not heat every place the same. Land warms up quickly, and it cools down quickly too. Water is slower. It takes a long time to warm up and a long time to cool down.",
+            "Think about a beach on a sunny day. By the afternoon, the land is warmer than the sea. The air over the land warms up, gets lighter, and rises. Cooler air from over the sea moves in along the ground to take its place. That is a sea breeze. It usually begins at about ten or eleven in the morning and is strongest at about two or three in the afternoon.",
+            "After the sun goes down, the land cools quickly, but the sea stays almost as warm as before. Now the land is the cooler side, so the air near the ground flows the other way, from the land out to the sea. That is a land breeze. It is weaker than the sea breeze.",
+            "The same thing happens on a much bigger scale across a whole year. In winter, the great continent of Asia becomes much colder than the ocean, and cold, dry air flows out from the land. In summer, the continent becomes much hotter than the ocean, and moist air flows in from the sea. A wind that changes direction with the seasons is called a monsoon. Taiwan lies inside one of the strongest monsoon regions in the world.",
+            "People name a wind for the direction it comes from. A north wind comes from the north, and a sea breeze comes from the sea. We measure its speed in meters a second, or we give it a number from 0 to 12 on a scale that sailors began to use more than two hundred years ago. So the next time the wind pushes your hand, you will know what is happening: somewhere, air is rising, and this air is on its way to take its place."
+          ],
+          "paras_zh": [
+            "起風的日子，把手伸出窗外。有個東西推著你的手，可是那裡什麼也看不見。那個東西就是空氣。空氣是真實存在的東西，它從一個地方流到另一個地方的時候，我們就叫它「風」。",
+            "是什麼讓空氣流動？答案要從太陽說起。陽光不會把每個地方曬得一樣熱。陸地熱得快，涼得也快；水就慢多了，要很久才會變熱，也要很久才會變涼。",
+            "想像一個大晴天的海邊。到了下午，陸地比海熱。陸地上的空氣變暖、變輕，往上升；海面上比較涼的空氣就貼著地面流過來補位。這就是海風。海風大多從上午十點、十一點開始，下午兩三點最強。",
+            "太陽下山以後，陸地很快就涼了，海卻幾乎和原來一樣暖。這時候陸地變成比較涼的一邊，所以靠近地面的空氣反過來流，從陸地流向海上。這就是陸風，它比海風弱。",
+            "同樣的事情，放大到一整年也會發生。冬天，廣大的亞洲大陸變得比海洋冷得多，又冷又乾的空氣從陸地往外流。夏天，大陸變得比海洋熱得多，潮溼的空氣從海上流進來。這種跟著季節改變方向的風，叫做季風。台灣就位在全世界季風最明顯的地區之一。",
+            "風的名字，是用它「從哪裡來」取的。北風從北邊來，海風從海上來。風的速度可以用「每秒幾公尺」來量，也可以用 0 到 12 的級數來表示；這套級數是兩百多年前航海的人開始使用的。所以下一次風推著你的手的時候，你就知道發生了什麼事：某個地方的空氣正在上升，而這些空氣正趕著去補它的位置。"
+          ],
+          "questions": [
+            "Why is the land warmer than the sea on a sunny afternoon?",
+            "Which way does a sea breeze blow, and why?",
+            "What is a monsoon?"
+          ],
+          "answers": [
+            "Land warms up quickly in the sun, but water warms up slowly, so by the afternoon the land is the warmer one.",
+            "It blows from the sea toward the land. The warm air over the land rises, and cooler air from the sea moves in along the ground to take its place.",
+            "A monsoon is a wind that changes direction with the seasons. In winter it blows from the cold continent to the ocean, and in summer it blows from the ocean to the hot continent."
+          ],
+          "vocab": [
+            {
+              "n": 1,
+              "w": "wind",
+              "pos": "n.",
+              "zh": "風",
+              "ex": "The <b>wind</b> blew my hat off.",
+              "exzh": "風把我的帽子吹掉了。"
+            },
+            {
+              "n": 2,
+              "w": "breeze",
+              "pos": "n.",
+              "zh": "微風；（海、陸）風",
+              "ex": "A cool <b>breeze</b> came in from the sea.",
+              "exzh": "一陣涼風從海上吹來。"
+            },
+            {
+              "n": 3,
+              "w": "monsoon",
+              "pos": "n.",
+              "zh": "季風",
+              "ex": "The winter <b>monsoon</b> brings cold air from the north.",
+              "exzh": "冬季季風從北方帶來冷空氣。"
+            },
+            {
+              "n": 4,
+              "w": "direction",
+              "pos": "n.",
+              "zh": "方向",
+              "ex": "The wind changed <b>direction</b> at night.",
+              "exzh": "風在晚上改變了方向。"
+            },
+            {
+              "n": 5,
+              "w": "season",
+              "pos": "n.",
+              "zh": "季節",
+              "ex": "Which <b>season</b> do you like best?",
+              "exzh": "你最喜歡哪一個季節？"
+            },
+            {
+              "n": 6,
+              "w": "coast",
+              "pos": "n.",
+              "zh": "海岸",
+              "ex": "We drove along the <b>coast</b>.",
+              "exzh": "我們沿著海岸開車。"
+            },
+            {
+              "n": 7,
+              "w": "sink",
+              "pos": "v.",
+              "zh": "下沉",
+              "ex": "Cool air <b>sinks</b>, and warm air rises.",
+              "exzh": "冷空氣下沉，暖空氣上升。"
+            },
+            {
+              "n": 8,
+              "w": "continent",
+              "pos": "n.",
+              "zh": "大陸；洲",
+              "ex": "Asia is the largest <b>continent</b>.",
+              "exzh": "亞洲是最大的一洲。"
+            }
+          ],
+          "quiz": [
+            {
+              "q": "What is wind?",
+              "options": [
+                "Moving air",
+                "Moving clouds",
+                "Cold water in the sky",
+                "The sound of the trees"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "Which warms up faster in the sun?",
+              "options": [
+                "Land",
+                "The sea",
+                "They warm up at the same speed",
+                "Neither one warms up"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "On a sunny afternoon at the beach, which way does the wind near the ground usually blow?",
+              "options": [
+                "From the sea to the land",
+                "From the land to the sea",
+                "Straight down",
+                "It does not move"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "What is a north wind?",
+              "options": [
+                "A wind that comes from the north",
+                "A wind that blows toward the north",
+                "Any cold wind",
+                "A wind high in the sky"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "What is a monsoon?",
+              "options": [
+                "A wind that changes direction with the seasons",
+                "A very strong storm",
+                "A wind that blows only at night",
+                "A kind of cloud"
+              ],
+              "correct": 0
+            }
+          ],
+          "parts_head": {
+            "eyebrow": "Try It in the Model · 在模型裡試試",
+            "en": "Four winds",
+            "zh": "四種風"
+          },
+          "parts": [
+            {
+              "key": "afternoon",
+              "icon": "🏖️",
+              "en": "Three in the afternoon",
+              "zh": "下午三點",
+              "meta_en": "Sea breeze",
+              "meta_zh": "海風",
+              "demo": "afternoon",
+              "text_en": "The land is at its hottest, and the sea breeze is at its strongest.",
+              "text_zh": "陸地最熱的時候，海風也最強。"
+            },
+            {
+              "key": "night",
+              "icon": "🌙",
+              "en": "Three in the morning",
+              "zh": "凌晨三點",
+              "meta_en": "Land breeze",
+              "meta_zh": "陸風",
+              "demo": "night",
+              "text_en": "The land has cooled. The loop now turns the other way, but more gently.",
+              "text_zh": "陸地涼下來了。這一圈循環現在反過來轉，不過比較弱。"
+            },
+            {
+              "key": "winter",
+              "icon": "❄️",
+              "en": "January",
+              "zh": "一月",
+              "meta_en": "Winter monsoon",
+              "meta_zh": "冬季季風",
+              "demo": "winter",
+              "text_en": "The continent is far colder than the ocean. Wind pours out from the land.",
+              "text_zh": "大陸比海洋冷得多，風從陸地往外吹。"
+            },
+            {
+              "key": "summer",
+              "icon": "☀️",
+              "en": "July",
+              "zh": "七月",
+              "meta_en": "Summer monsoon",
+              "meta_zh": "夏季季風",
+              "demo": "summer",
+              "text_en": "The continent is hotter than the ocean. Moist wind comes in from the sea.",
+              "text_zh": "大陸比海洋熱，潮溼的風從海上吹進來。"
+            }
+          ],
+          "parts_note_en": "In every case, find the warmer side first. The wind near the ground always blows toward it.",
+          "parts_note_zh": "不管是哪一種，都先找出比較熱的那一邊：靠近地面的風，永遠是朝它吹過去的。",
+          "links_head": {
+            "eyebrow": "Go Further · 延伸閱讀",
+            "en": "What the wind carries",
+            "zh": "風帶來了什麼"
+          },
+          "links": [
+            {
+              "href": "/resources/classes/earth/why-it-rains/",
+              "icon": "🌧️",
+              "k_en": "Earth and Weather · Lesson 6",
+              "k_zh": "地球與天氣 第六課",
+              "en": "Why Does It Rain?",
+              "zh": "為什麼會下雨？",
+              "note_en": "What happens when a moist wind from the sea meets a mountain.",
+              "note_zh": "從海上來的潮溼的風碰到一座山，會發生什麼事。"
+            },
+            {
+              "soon": true,
+              "icon": "🌀",
+              "k_en": "Earth and Weather · Lesson 8",
+              "k_zh": "地球與天氣 第八課",
+              "en": "How Does a Typhoon Form?",
+              "zh": "颱風是怎麼形成的？",
+              "note_en": "The strongest storms that reach Taiwan, and where they get their energy.",
+              "note_zh": "侵襲台灣最強的風暴，還有它的能量是從哪裡來的。"
+            }
+          ],
+          "beaufort": {
+            "eyebrow": "Read the Forecast · 讀懂氣象報告",
+            "en": "How strong is this wind?",
+            "zh": "這是幾級風？",
+            "lead_en": "Weather reports in Taiwan give the strength of the wind as a number, such as force 6. The numbers come from the Beaufort scale, which tells the strength of the wind from what it does to smoke, flags, and trees. Move the slider and read what each number looks like.",
+            "lead_zh": "台灣的氣象報告會用「幾級」來說風有多強，例如 6 級風。這些數字來自蒲福風級：它是看風對煙、旗子和樹做了什麼，來判斷風有多強。撥動滑桿，看看每一級是什麼樣子。",
+            "levels": [
+              {
+                "en": "Calm",
+                "zh": "無風",
+                "ms": "under 0.3",
+                "kmh": "under 1",
+                "see_en": "Smoke rises straight up.",
+                "see_zh": "煙直直往上。"
+              },
+              {
+                "en": "Light air",
+                "zh": "軟風",
+                "ms": "0.3–1.5",
+                "kmh": "1–5",
+                "see_en": "Smoke drifts and shows the wind's direction, but a wind vane does not turn.",
+                "see_zh": "只有煙能看出風向，風標還轉不動。"
+              },
+              {
+                "en": "Light breeze",
+                "zh": "輕風",
+                "ms": "1.6–3.3",
+                "kmh": "6–11",
+                "see_en": "You feel the wind on your face. Leaves move, and a wind vane turns.",
+                "see_zh": "臉上感覺得到風，樹葉搖動，風標會轉。"
+              },
+              {
+                "en": "Gentle breeze",
+                "zh": "微風",
+                "ms": "3.4–5.4",
+                "kmh": "12–19",
+                "see_en": "Leaves and small twigs keep moving. Flags open out.",
+                "see_zh": "樹葉和小樹枝搖個不停，旗子飄開了。"
+              },
+              {
+                "en": "Moderate breeze",
+                "zh": "和風",
+                "ms": "5.5–7.9",
+                "kmh": "20–28",
+                "see_en": "Dust and loose paper are lifted. Small branches move.",
+                "see_zh": "塵土和碎紙被吹起來，樹的分枝搖動。"
+              },
+              {
+                "en": "Fresh breeze",
+                "zh": "清風",
+                "ms": "8.0–10.7",
+                "kmh": "29–38",
+                "see_en": "Small trees with leaves begin to sway.",
+                "see_zh": "有葉子的小樹開始搖擺。"
+              },
+              {
+                "en": "Strong breeze",
+                "zh": "強風",
+                "ms": "10.8–13.8",
+                "kmh": "39–49",
+                "see_en": "Large branches move, wires whistle, and it is hard to hold an umbrella.",
+                "see_zh": "大樹枝搖動，電線呼呼作響，撐傘很困難。"
+              },
+              {
+                "en": "Near gale",
+                "zh": "疾風",
+                "ms": "13.9–17.1",
+                "kmh": "50–61",
+                "see_en": "Whole trees move. It is hard to walk against the wind.",
+                "see_zh": "整棵樹都在搖，逆著風走很吃力。"
+              },
+              {
+                "en": "Gale",
+                "zh": "大風",
+                "ms": "17.2–20.7",
+                "kmh": "62–74",
+                "see_en": "Small twigs break off. You cannot walk forward.",
+                "see_zh": "小樹枝被吹斷，人沒辦法往前走。"
+              },
+              {
+                "en": "Strong gale",
+                "zh": "烈風",
+                "ms": "20.8–24.4",
+                "kmh": "75–88",
+                "see_en": "Buildings are damaged, and chimneys are blown down.",
+                "see_zh": "建築物受損，煙囪被吹倒。"
+              },
+              {
+                "en": "Storm",
+                "zh": "狂風",
+                "ms": "24.5–28.4",
+                "kmh": "89–102",
+                "see_en": "Trees are pulled up by the roots. Buildings are badly damaged.",
+                "see_zh": "樹被連根拔起，建築物有相當的破壞。"
+              },
+              {
+                "en": "Violent storm",
+                "zh": "暴風",
+                "ms": "28.5–32.6",
+                "kmh": "103–117",
+                "see_en": "Very rare. When it happens, it causes great damage.",
+                "see_zh": "非常少見；一旦出現，一定有重大災害。"
+              },
+              {
+                "en": "Hurricane",
+                "zh": "颶風",
+                "ms": "32.7–36.9",
+                "kmh": "118–133",
+                "see_en": "Wind strong enough to cause a disaster.",
+                "see_zh": "會造成災害的強風。"
+              }
+            ],
+            "note_en": "The names, the descriptions, and the speeds follow the Central Weather Administration's Beaufort table for use on land. The table goes on to force 17, but above force 12 the levels have no names. The flag is only a picture.",
+            "note_zh": "名稱、敘述和風速都依中央氣象署「陸上應用之蒲福風級表」。這張表一直排到 17 級，不過 12 級以上就沒有另外的名稱了。旗子只是示意圖。"
+          },
+          "facts": {
+            "eyebrow": "Wind by the Numbers · 風的數字",
+            "en": "Six numbers about wind",
+            "zh": "六個和風有關的數字",
+            "lead_en": "From a breeze at the beach to a scale used around the world.",
+            "lead_zh": "從海邊的一陣風，到全世界通用的風級。",
+            "items": [
+              {
+                "big": "10–11",
+                "unit_en": "in the morning",
+                "unit_zh": "上午",
+                "en": "The sea breeze usually begins at about ten or eleven in the morning. At first it is weak.",
+                "zh": "海風大多從上午十點到十一點開始，剛開始的時候很弱。"
+              },
+              {
+                "big": "3–4",
+                "unit_en": "force",
+                "unit_zh": "級",
+                "en": "At about two or three in the afternoon, when the day is hottest, the sea breeze often reaches force 3 or 4. The land breeze is usually only force 1 or 2.",
+                "zh": "下午兩三點、氣溫最高的時候，海風常常可以到 3 至 4 級。陸風通常只有 1 至 2 級。"
+              },
+              {
+                "big": "20 km",
+                "unit_en": "inland",
+                "unit_zh": "深入陸地",
+                "en": "A sea breeze usually reaches only about 20 kilometers inland, and 25 kilometers at most.",
+                "zh": "海風通常只能深入陸地大約 20 公里，最多也不過 25 公里。"
+              },
+              {
+                "big": "200–300 m",
+                "unit_en": "high",
+                "unit_zh": "高",
+                "en": "Sea and land breezes are shallow. They usually reach only 200 to 300 meters above the ground, and never more than 600.",
+                "zh": "海陸風影響的高度不大，通常只有 200 到 300 公尺，最高不會超過 600 公尺。"
+              },
+              {
+                "big": "3.6",
+                "unit_en": "km/h",
+                "unit_zh": "公里／時",
+                "en": "A wind of 1 meter a second is the same as 3.6 kilometers an hour.",
+                "zh": "每秒 1 公尺的風，等於每小時 3.6 公里。"
+              },
+              {
+                "big": "1805",
+                "unit_en": "the year",
+                "unit_zh": "年",
+                "en": "A British navy officer named Beaufort made the first version of the wind scale in this year. It was used at sea first and on land later.",
+                "zh": "英國海軍的蒲福在這一年首創了風力分級的標準；先用在海上，後來也用在陸地上。"
+              }
+            ]
+          },
+          "culture_cards": {
+            "eyebrow": "Wind Stories · 風的故事",
+            "title_en": "The doctor, the winter wind, the valley wind, and the trade winds",
+            "title_zh": "叫做「醫生」的風、冬天的風、山谷裡的風，還有貿易風",
+            "lead_en": "Four winds, and the same idea behind each one.",
+            "lead_zh": "四種風，背後都是同一個道理。",
+            "cards": [
+              {
+                "k": "Afternoon · 午後",
+                "en": "A wind called the doctor",
+                "zh": "叫做「醫生」的風",
+                "body_en": "Sea breezes are strongest in the hot parts of the world. On the coast of the Gulf of Guinea in Africa, a cool breeze comes in from the sea at about two in the afternoon, just when the day is most uncomfortable. People there call this breeze “the doctor,” because it makes the heat easier to bear.",
+                "body_zh": "海風在熱帶地區最明顯。在非洲幾內亞灣的沿岸，每天下午兩點左右、天氣最悶熱的時候，常有涼快的海風從海上吹來。當地人把這種海風叫做「醫生」，因為它能讓悶熱的天氣變涼。"
+              },
+              {
+                "k": "Winter · 冬天",
+                "en": "The northeast monsoon",
+                "zh": "東北季風",
+                "body_en": "In winter, cold air builds up over the continent of Asia and flows out toward the ocean. When it reaches the seas around Taiwan, it arrives as a northeast wind, and it is often quite strong. During this season, the north and northeast of Taiwan are often gray, with light rain.",
+                "body_zh": "冬天，冷空氣在亞洲大陸上累積，然後往海洋流出去。它到達台灣附近的海面時，吹的是東北風，而且風力常常相當強。在這個季節裡，台灣的北部和東北部經常是陰陰的天氣，下著小雨。"
+              },
+              {
+                "k": "Mountains · 山區",
+                "en": "Valley wind and mountain wind",
+                "zh": "谷風和山風",
+                "body_en": "Mountains have a daily wind of their own. By day, the sun warms the slopes, and air climbs from the valley up the mountainside. This valley wind often carries water vapor to the top, where it forms a cap of cloud. At night, the slopes cool quickly, and cold air flows back down into the valley. That is why valleys are often misty just before sunrise.",
+                "body_zh": "山區也有自己的一天一輪的風。白天，太陽把山坡曬熱，空氣從山谷沿著山坡往上爬；這股「谷風」常把水氣送到山頂，凝結成一頂雲帽。到了晚上，山坡很快變涼，冷空氣順著山坡流回谷裡，這是「山風」。所以山谷在日出之前，常常起霧。"
+              },
+              {
+                "k": "Oceans · 大洋",
+                "en": "The trade winds",
+                "zh": "貿易風",
+                "body_en": "The biggest loop of all starts at the equator, where the sun is strongest and warm air rises. That air sinks again at about 30 degrees north and south, and part of it flows back toward the equator along the surface. These winds blow from almost the same direction all year. In the days of sailing ships, traders crossing from Europe to the Americas depended on them, so they are called the trade winds.",
+                "body_zh": "最大的一圈循環從赤道開始：那裡的陽光最強，暖空氣往上升。這些空氣到了南北緯 30 度附近又沉降下來，其中一部分貼著地面流回赤道。這種風的方向一整年幾乎都不變。在帆船的時代，從歐洲開往新大陸的商船主要就靠它，所以叫做「貿易風」。"
+              }
+            ]
+          },
+          "myths": [
+            {
+              "myth_en": "A north wind blows toward the north.",
+              "myth_zh": "北風是往北邊吹的風。",
+              "fact_en": "A wind is named for where it comes from. A north wind comes from the north and blows toward the south.",
+              "fact_zh": "風是用「從哪裡來」命名的。北風從北邊來，往南邊吹。"
+            },
+            {
+              "myth_en": "At the beach, the wind always blows from the sea.",
+              "myth_zh": "海邊的風永遠是從海上吹來的。",
+              "fact_en": "By day it usually does. After sunset, the land becomes cooler than the sea, and the breeze turns around.",
+              "fact_zh": "白天通常是這樣。太陽下山以後，陸地變得比海涼，風就掉頭了。"
+            },
+            {
+              "myth_en": "Wind only moves along the ground.",
+              "myth_zh": "風只會貼著地面吹。",
+              "fact_en": "When air near the ground flows one way, the air above it flows back the other way. Together they make a loop.",
+              "fact_zh": "靠近地面的空氣往一邊流的時候，它上面的空氣會往反方向流回去，合起來是一圈循環。"
+            },
+            {
+              "myth_en": "A sea breeze can cool a whole country.",
+              "myth_zh": "海風可以吹涼一整個國家。",
+              "fact_en": "A sea breeze is a local wind. It usually reaches only about 20 kilometers inland.",
+              "fact_zh": "海風是小範圍的風，通常只能深入陸地大約 20 公里。"
+            }
+          ],
+          "tricks": [
+            {
+              "title_en": "The sun heats unevenly",
+              "title_zh": "太陽曬得不一樣熱",
+              "body_en": "Land changes fast. Water changes slowly.",
+              "body_zh": "陸地變得快，水變得慢。"
+            },
+            {
+              "title_en": "Warm air rises",
+              "title_zh": "暖空氣上升",
+              "body_en": "It gets lighter and goes up.",
+              "body_zh": "它變輕了，就往上跑。"
+            },
+            {
+              "title_en": "Cool air moves in",
+              "title_zh": "涼空氣來補位",
+              "body_en": "That moving air is the wind.",
+              "body_zh": "這股流動的空氣就是風。"
+            },
+            {
+              "title_en": "Named for where it starts",
+              "title_zh": "用來的方向取名字",
+              "body_en": "A sea breeze comes from the sea.",
+              "body_zh": "海風是從海上來的。"
+            }
+          ],
+          "activities": [
+            {
+              "title_en": "Land and Sea in Two Cups",
+              "title_zh": "兩個杯子裡的陸地和海",
+              "materials": [
+                {
+                  "en": "Two cups of the same size, one filled with dry sand or soil and one filled with water",
+                  "zh": "兩個一樣大的杯子，一個裝乾的沙子或土，一個裝水"
+                },
+                {
+                  "en": "A thermometer, a sunny place, a shady place, and a clock",
+                  "zh": "一支溫度計、一個曬得到太陽的地方、一個陰涼的地方，還有時鐘"
+                }
+              ],
+              "steps": [
+                {
+                  "en": "Leave both cups indoors for an hour so that they start at the same temperature. Measure each one and write the numbers down.",
+                  "zh": "先把兩個杯子在室內放一個小時，讓它們從一樣的溫度開始。各量一次溫度，記下來。"
+                },
+                {
+                  "en": "Put both cups in the sun. Measure them again every ten minutes for half an hour.",
+                  "zh": "把兩個杯子都拿到太陽下。每十分鐘量一次，量半個小時。"
+                },
+                {
+                  "en": "Move both cups into the shade. Keep measuring every ten minutes for another half hour.",
+                  "zh": "再把兩個杯子都移到陰涼的地方，繼續每十分鐘量一次，再量半個小時。"
+                },
+                {
+                  "en": "Which cup warmed up faster? Which one cooled down faster? Which cup is the land, and which is the sea?",
+                  "zh": "哪一杯熱得比較快？哪一杯涼得比較快？哪一杯是陸地，哪一杯是海？"
+                }
+              ],
+              "tip_en": "Measure just under the surface each time, and wipe the thermometer between cups. Your numbers are the reason the breeze turns around every evening.",
+              "tip_zh": "每次都量表面下面一點點的地方，換杯子之前把溫度計擦乾。你記下來的數字，就是每天傍晚風會掉頭的原因。"
+            },
+            {
+              "title_en": "Make a Wind Vane",
+              "title_zh": "做一個風向標",
+              "materials": [
+                {
+                  "en": "A drinking straw, stiff paper, scissors, and tape",
+                  "zh": "一根吸管、厚紙、剪刀和膠帶"
+                },
+                {
+                  "en": "A pin, a pencil with an eraser on the end, and a compass (a phone compass is fine)",
+                  "zh": "一根大頭針、一支尾端有橡皮擦的鉛筆，還有指南針（手機的也可以）"
+                }
+              ],
+              "steps": [
+                {
+                  "en": "Cut a small triangle and a larger tail from the paper. Tape the triangle to one end of the straw and the tail to the other end.",
+                  "zh": "用厚紙剪一個小三角形和一片比較大的尾翼。把三角形貼在吸管的一端，尾翼貼在另一端。"
+                },
+                {
+                  "en": "Ask an adult to help you push the pin through the middle of the straw and into the eraser. The straw should spin easily.",
+                  "zh": "請大人幫忙，把大頭針穿過吸管的中間，再插進橡皮擦裡。吸管要能輕鬆地轉動。"
+                },
+                {
+                  "en": "Take it outside to an open place, away from walls. Hold the pencil straight up.",
+                  "zh": "拿到戶外空曠、離牆壁遠一點的地方，把鉛筆拿直。"
+                },
+                {
+                  "en": "Use the compass to read where the triangle points. Write down the direction at three different times of day.",
+                  "zh": "用指南針看看三角形指向哪一邊。在一天裡三個不同的時間，各記錄一次。"
+                }
+              ],
+              "tip_en": "The big tail is pushed away by the wind, so the small triangle points to where the wind comes from. That direction is the wind's name.",
+              "tip_zh": "大片的尾翼會被風推開，所以小三角形指的是風「來」的方向，那個方向就是這陣風的名字。"
+            }
+          ],
+          "sources": [
+            {
+              "en": "The sea warms and cools more slowly than the land; by day air flows from the cooler sea to the warmer land (sea breeze), and at night from the land to the sea (land breeze); the upper air flows the opposite way and makes a loop; the same difference across the seasons makes the monsoon; Taiwan lies in a marked monsoon region",
+              "zh": "海水溫度變化比陸地慢；白天空氣從較冷的海面流向較暖的陸地（海風），晚上從陸地流向海面（陸風）；上層空氣反向流動形成環流；延伸到季節就是季風；台灣位在顯著的季風區",
+              "src": "中央氣象署 氣象常識「季風與局部環流」",
+              "url": "https://www.cwa.gov.tw/V8/C/K/Encyclopedia/nous/introduction_list.html#introduction-02"
+            },
+            {
+              "en": "The sea breeze begins at about 10–11 a.m., is strongest at about 2–3 p.m. (often force 3–4), reaches about 20 km inland (25 km at most); the land breeze is usually force 1–2; the breezes are usually 200–300 m deep, never more than 600 m; the sea breeze called “the doctor” on the Gulf of Guinea",
+              "zh": "海風約上午 10–11 時開始，下午 14–15 時最強（常達 3–4 級），通常深入陸地 20 公里、至多 25 公里；陸風通常 1–2 級；影響高度通常 200–300 公尺、最高不超過 600 公尺；幾內亞灣沿岸把海風叫做「醫生」",
+              "src": "中央氣象署 氣象常識「海陸風」",
+              "url": "https://www.cwa.gov.tw/V8/C/K/Encyclopedia/nous/weather_list.html#weather-09"
+            },
+            {
+              "en": "In winter the continent is colder than the ocean and the wind blows from the land; in summer it is the reverse; the northeast monsoon reaches Taiwan with strong winds, and the north and northeast are often overcast with light rain",
+              "zh": "冬季大陸較海洋寒冷，風從大陸吹向海洋；夏季相反；東北季風到達台灣附近時風力常相當強勁，北部及東北部經常陰霾有小雨",
+              "src": "中央氣象署 氣象常識「季風的成因」",
+              "url": "https://www.cwa.gov.tw/V8/C/K/Encyclopedia/nous/climate_list.html#climate-03"
+            },
+            {
+              "en": "Wind direction means the direction the wind comes from; 1 meter a second equals 3.6 kilometers an hour; the trade winds and why they have that name",
+              "zh": "氣象上以風的來向為風向；1 公尺／秒＝3.60 公里／時；信風（貿易風）的成因與名稱由來",
+              "src": "中央氣象署 氣象常識「風與地球上的風系」",
+              "url": "https://www.cwa.gov.tw/V8/C/K/Encyclopedia/nous/overview_list.html#overview-08"
+            },
+            {
+              "en": "The Beaufort scale: first made in 1805 by Beaufort of the British navy, used at sea first and later on land; the table of names, descriptions, and speeds for use on land",
+              "zh": "蒲福風級：英國海軍蒲福氏於 1805 年首創，先用於海上、後亦用於陸上；陸上應用之蒲福風級表（稱謂、一般敘述、風速）",
+              "src": "中央氣象署 氣象常識「蒲福風級」",
+              "url": "https://www.cwa.gov.tw/V8/C/K/Encyclopedia/nous/overview_list.html#overview-09"
+            },
+            {
+              "en": "Valley wind by day and mountain wind at night; cloud caps on summits and fog in valleys before sunrise",
+              "zh": "白天的谷風與夜晚的山風；山頂的雲與日出前山谷的雲霧",
+              "src": "中央氣象署 氣象常識「山風和谷風」",
+              "url": "https://www.cwa.gov.tw/V8/C/K/Encyclopedia/nous/weather_list.html#weather-10"
+            }
+          ]
         }
       ],
       "planned": [
-        {
-          "n": 7,
-          "icon": "🌬️",
-          "en": "Why Does the Wind Blow?",
-          "zh": "風是怎麼來的？"
-        },
         {
           "n": 8,
           "icon": "🌀",

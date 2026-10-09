@@ -146,6 +146,24 @@
 .ew-gg-fill { position: absolute; left: 0; right: 0; bottom: 0; background: linear-gradient(0deg, #2a6fc9, #7fc4ff); transition: height .2s; }
 @media (max-width: 560px) { .ew-gg-pre { grid-template-columns: repeat(3, minmax(0, 1fr)); } .ew-gg-areas { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 
+/* ---------- 第七課：風是怎麼來的？ ---------- */
+@media (min-width: 1021px) { .ew-wd-lab .al-space { min-height: 600px; } }
+.ew-wd-msg[hidden] { display: none; }
+.al-lab.ew-wd-lb-t { font-weight: 800; font-variant-numeric: tabular-nums; padding: .1rem .5rem; }
+.al-lg-ewwdair i { border: 0; border-radius: 50%; width: 9px; height: 9px; margin: .35rem 4px 0; background: #ffb38a; box-shadow: 13px 0 0 #b0dbff; margin-right: 19px; }
+.al-lg-ewwdarrow i { border: 0; height: 5px; margin-top: .55rem; border-radius: 3px; background: #fff; }
+.al-lg-ewwdground i { border: 0; height: 11px; margin-top: .3rem; border-radius: 3px; background: linear-gradient(90deg, #2a6fc9 50%, #4f8a55 50%); }
+/* 頁面小工具：這是幾級風？ */
+.ew-bf .al-age::-webkit-slider-runnable-track { background: linear-gradient(90deg, var(--brand) 0 var(--p, 25%), #e5dfd0 var(--p, 25%)); }
+.ew-bf .al-age::-webkit-slider-thumb { border-color: var(--brand); }
+.ew-bf .al-age::-moz-range-progress { background: var(--brand); }
+.ew-bf-pic { position: relative; height: 96px; margin: .9rem 0 .2rem; }
+.ew-bf-pole { position: absolute; left: 28px; top: 4px; bottom: 0; width: 5px; border-radius: 3px; background: #8a7a5c; }
+.ew-bf-flag { position: absolute; left: 33px; top: 8px; width: 74px; height: 40px; background: var(--brand); border-radius: 0 6px 6px 0; transform-origin: 0 0; transform: rotate(calc(88deg - var(--a, 27deg))) skewY(0deg); animation: ew-bf-wave var(--d, 1s) ease-in-out infinite alternate; }
+@keyframes ew-bf-wave { from { transform: rotate(calc(88deg - var(--a, 27deg))) skewY(-5deg); } to { transform: rotate(calc(88deg - var(--a, 27deg))) skewY(5deg); } }
+@media (prefers-reduced-motion: reduce) { .ew-bf-flag { animation: none; } }
+.ew-bf-out .cp-home-big b { display: inline-block; margin-right: .5rem; }
+
 /* ---------- 全系列共用 ---------- */
 .cp-link.ew-link-soon { border-style: dashed; opacity: .78; cursor: default; }
 .ew-safety-src { margin: 1rem 0 0; font-size: .86rem; color: var(--ink-soft); }
