@@ -1,7 +1,7 @@
 /*
  * 電腦概論 · 位元引擎的 3D 部分：一排「開關＋燈泡」（全部自繪示意；第一～四課共用，只換幾位、擺在哪裡）。
  *
- *   makeBitRow({ n, spacing, plates }) → {
+ *   makeBitRow({ n, spacing, plates, levers }) → {      levers: false＝不畫撥桿（只當顯示用的一排燈）
  *     group,                 整排（加進 scene）
  *     n, spacing, width,     幾位、間距、整排寬度
  *     x(i),                  第 i 位的 x（i = 0 是最右邊那一位）
@@ -47,7 +47,7 @@ function plateTex(text) {
   }, 256, 144);
 }
 
-export function makeBitRow({ n = 8, spacing = 1.25, plates = true } = {}) {
+export function makeBitRow({ n = 8, spacing = 1.25, plates = true, levers = true } = {}) {
   const group = new Group();
   const x = (i) => ((n - 1) / 2 - i) * spacing;
   const width = n * spacing;
@@ -99,7 +99,8 @@ export function makeBitRow({ n = 8, spacing = 1.25, plates = true } = {}) {
     const pad = new Mesh(new BoxGeometry(spacing * 0.96, 1.5, 2.4), new MeshBasicMaterial({ visible: false }));
     pad.position.y = 0.6; pad.userData.bit = i;
 
-    u.add(base, socket, glass, halo, light, wire, house, pivot, plate, pad);
+    u.add(base, socket, glass, halo, light, plate, pad);
+    if (levers) u.add(wire, house, pivot);   // levers: false＝只有燈和位值牌（第四課的答案那一排）
     group.add(u);
     units.push({ u, glassM, halo, light, pivot, knobM, plate, pad, base, on: 0, k: 0, hover: 0 });
   }

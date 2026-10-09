@@ -1868,7 +1868,7 @@
               "zh": "電腦怎麼做加法？",
               "note_en": "Gates only answer yes or no. Next: how a handful of them, wired the right way, add two numbers and pass the carry along.",
               "note_zh": "邏輯閘只會回答是或不是。下一課要看：幾個閘用對的方法接起來，怎麼把兩個數加起來，還會進位。",
-              "soon": true
+              "href": "/resources/classes/computers/binary-adder/"
             }
           ],
           "sources_note_en": "Names, dates, and facts on this page were checked against these sources (October 2026); the truth tables and puzzles are computed and tested",
@@ -1965,16 +1965,595 @@
               "url": "https://github.com/lukelin7429/twrses/blob/main/tools/computers/test/logic.test.mjs"
             }
           ]
-        }
-      ],
-      "planned": [
+        },
         {
           "n": 4,
+          "slug": "binary-adder",
+          "title": "How Does a Computer Add?",
+          "title_zh": "電腦怎麼做加法？",
+          "level": "入門 · Beginner",
           "icon": "➕",
-          "en": "How Does a Computer Add?",
-          "zh": "電腦怎麼做加法？"
+          "card": "adder",
+          "blurb_en": "Set two numbers with switches and watch a four-bit adder work in 3D, one column at a time, as the carry hops from right to left. See the two gates inside a half adder, then be the adder yourself.",
+          "blurb_zh": "用開關設好兩個數，在 3D 裡看一台四位元加法器一位一位地算，進位從右邊跳到左邊。看看半加器裡面的兩個閘，再換你自己當加法器。",
+          "big_idea_en": "A few logic gates wired together can add. For one column, an XOR gate gives the sum and an AND gate gives the carry. Put one adder in every column, pass each carry to the column on its left, and the circuit adds whole numbers.",
+          "big_idea_zh": "幾個邏輯閘接起來就能做加法。只看一位的話，XOR 閘算出「和」，AND 閘算出「進位」。每一位放一個加法器，把進位傳給左邊那一位，整個電路就能把兩個數加起來。",
+          "lab": {
+            "kind": "adder",
+            "eyebrow": "3D Model · 3D 模型",
+            "title_en": "A Four-Bit Adder",
+            "title_zh": "四位元加法器",
+            "how_en": "The two back rows are the numbers A and B: tap their switches to set them. The front row is the answer. Each block marked + adds one column: a bit of A, a bit of B, and the carry from the block on its right. The answer changes the moment you flip a switch. Press Watch it add to clear the answer and see it worked out one column at a time, from right to left.",
+            "how_zh": "後面兩排是 A 和 B 兩個數：點它們的開關來設定。最前面一排是答案。每個標著「＋」的方塊負責一位：A 的一個位元、B 的一個位元，加上右邊方塊傳過來的進位。你一撥開關，答案馬上跟著變。按「看它怎麼加」，答案會先清掉，再由右往左一位一位算給你看。",
+            "legend": [
+              {
+                "cls": "cpon",
+                "en": "Back rows: the numbers A and B, set by switches (light on = 1)",
+                "zh": "後面兩排：用開關設定的 A 和 B（燈亮＝1）"
+              },
+              {
+                "cls": "cpbox",
+                "en": "A block marked +: one full adder, for one column",
+                "zh": "標著「＋」的方塊：一個全加器，負責一位"
+              },
+              {
+                "cls": "cpcarry",
+                "en": "Teal ball: a carry going to the next column on the left",
+                "zh": "青色小球：進到左邊那一位的進位"
+              },
+              {
+                "cls": "cpoff",
+                "en": "Front row: the answer, with a fifth light worth 16 for the last carry",
+                "zh": "最前面一排：答案；第五盞燈代表 16，用來放最後的進位"
+              }
+            ],
+            "scale_en": "A teaching model. In a real chip there are no bulbs and no balls: each block is a handful of transistors, and a carry is just a wire that is on or off. The model shows the columns one after another so you can follow them; in a real adder every column works at once, and only the carries have to wait for the column on their right. This adder is four bits wide. Real processors use the same idea on much longer rows of bits. The arithmetic is exact for every pair of numbers from 0 to 15.",
+            "scale_zh": "這是教學用的示意模型。真的晶片裡沒有燈泡也沒有小球：每個方塊是幾個電晶體，進位只是一條「有電或沒電」的線。模型把每一位排隊做給你看；真的加法器每一位是同時在算的，只有進位得等右邊那一位算好。這台加法器只有四位，真的處理器用同樣的想法處理長得多的一排位元。0 到 15 的每一對數，模型算出來的都是精確的。",
+            "credit_html": "Model and code are drawn and programmed by My Culture Connect. The adder is built only from the AND, OR, and XOR of Lesson 3 and is checked against real addition in <code>tools/computers/test/adder.test.mjs</code>.<br><span class=\"zh\">模型與程式由人師教育協會自行繪製、撰寫。加法器只用第三課的 AND、OR、XOR 做成，並在 <code>tools/computers/test/adder.test.mjs</code> 裡和真正的加法逐一核對。</span>"
+          },
+          "paras": [
+            "Lesson 3 ended with a promise: logic gates, which only answer yes or no, can add. That sounds odd. AND, OR, and NOT know nothing about numbers. But Lesson 1 showed that a number is only a row of switches, and adding is a job you can do one column at a time. If gates can handle one column, a row of them can handle the whole sum.",
+            "Start with the smallest problem: add two bits. There are only four cases. 0 + 0 is 0, 0 + 1 is 1, 1 + 0 is 1, and 1 + 1 is two, which in binary is written 10: write 0 and carry 1. Now look at what you write down in each case: 0, 1, 1, 0. That is the table for XOR. Look at the carry: 0, 0, 0, 1. That is the table for AND. So one XOR gate and one AND gate, side by side, add two bits. This small circuit is called a half adder.",
+            "A half adder is enough for the column on the far right. Every other column has a third number to add: the carry coming in from its right. A circuit that adds three bits is called a full adder. It can be built from two half adders and an OR gate. Its hardest case is 1 + 1 + 1, which is three, written 11 in binary: write 1 and carry 1.",
+            "Now give every column its own full adder, and connect each carry out to the carry in of the column on its left. That is a complete adding machine. Try 0111 + 0001 in the model. The right column makes a carry, the next column passes it on, and so does the next, until it lands in the fourth column: 1000. This is the same falling-domino carry you saw in Lesson 1. Because the carry ripples along, engineers call this a ripple-carry adder.",
+            "People built adding machines long before electronics. About 1642, the French mathematician Blaise Pascal designed one that added by turning wheels, to help his father, a tax collector. Nearly three hundred years later, George Stibitz of Bell Laboratories took two telephone relays, which are switches worked by electricity, some flashlight bulbs, and strips cut from a tobacco can, and made a circuit that added two binary digits. He built it at home on his kitchen table, so it became known as the Model K.",
+            "The adder inside a processor today works on many more bits at once than our four: 16, 32, or 64, depending on the computer. Its designers also use clever circuits that work out the carries ahead of time, so the answer does not have to wait for a long ripple. The idea has not changed. This is also the end of Unit 1. You started with one switch, on or off. A row of switches became a number. Codes turned numbers into words, pictures, and sound. Gates answered questions, and now gates add. Everything else a computer does is built from these few ideas."
+          ],
+          "paras_zh": [
+            "第三課最後留下一句話：只會回答「是或不是」的邏輯閘，可以做加法。聽起來很奇怪，AND、OR、NOT 根本不懂什麼是數。可是第一課說過，一個數只不過是一排開關；而加法是一件可以一位一位做的事。只要邏輯閘處理得了一位，一排邏輯閘就處理得了整個加法。",
+            "先從最小的問題開始：把兩個位元加起來。一共只有四種情況：0＋0 是 0，0＋1 是 1，1＋0 是 1，1＋1 是二，二進位寫成 10，也就是寫 0、進 1。現在看看每一種情況你寫下來的那個數字：0、1、1、0，這正是 XOR 的真值表。再看進位：0、0、0、1，這正是 AND 的真值表。所以一個 XOR 閘和一個 AND 閘並排，就能把兩個位元加起來。這個小電路叫做「半加器」。",
+            "最右邊那一位用半加器就夠了。其他每一位都多了第三個數要加：從右邊進過來的進位。能把三個位元加起來的電路叫做「全加器」，它可以用兩個半加器和一個 OR 閘做出來。它最難的一種情況是 1＋1＋1，也就是三，二進位寫成 11：寫 1、進 1。",
+            "現在給每一位一個自己的全加器，再把每一位的「進位出去」接到左邊那一位的「進位進來」，就是一台完整的加法機了。在模型裡試試 0111＋0001：最右邊那一位產生進位，下一位把它傳下去，再下一位也一樣，最後落在第四位，得到 1000。這就是第一課看過的、像骨牌一樣倒過去的進位。因為進位是像漣漪一樣一位一位傳過去的，工程師把這種電路叫做「漣波進位加法器」。",
+            "早在有電子零件之前，人們就做過加法機。大約 1642 年，法國數學家巴斯卡為了幫當稅務官的父親，設計了一台轉動輪子來做加法的機器。將近三百年後，貝爾實驗室的喬治・史提比茲（George Stibitz）拿了兩個電話用的繼電器（用電來控制的開關）、幾個手電筒燈泡，還有從菸草罐上剪下來的金屬片，做出一個能把兩個二進位數字加起來的電路。他是在自家廚房的桌子上做的，所以後來大家叫它「K 型」（K 就是 kitchen，廚房）。",
+            "今天處理器裡的加法器，一次處理的位元比我們這四位多得多：16、32 或 64 位，看是哪一種電腦。設計的人還用了聰明的電路，事先把進位算出來，答案就不必等一長串的進位慢慢傳完。但想法沒有變。單元一也到這裡結束。你從一個開關開始，它不是開就是關；一排開關變成一個數；編碼把數變成文字、圖片和聲音；邏輯閘會回答問題，現在邏輯閘還會做加法。電腦做的其他每一件事，都是用這幾個想法搭起來的。"
+          ],
+          "questions": [
+            "Which two gates make a half adder, and what does each one give?",
+            "Why does every column except the rightmost need a full adder instead of a half adder?",
+            "What happens when you add 0111 and 0001, and why is it called a ripple?"
+          ],
+          "answers": [
+            "An XOR gate and an AND gate. The XOR gives the sum digit to write down, and the AND gives the carry.",
+            "Because those columns have three bits to add: one from each number and the carry coming in from the column on the right. A half adder can add only two.",
+            "The right column makes a carry, and each column passes a carry to the next until it reaches the fourth column, giving 1000. The carry moves along one column at a time, like a ripple or a row of falling dominoes."
+          ],
+          "vocab": [
+            {
+              "n": 1,
+              "w": "sum",
+              "pos": "n.",
+              "zh": "和；總和",
+              "ex": "The <b>sum</b> of 5 and 3 is 8.",
+              "exzh": "5 和 3 的和是 8。"
+            },
+            {
+              "n": 2,
+              "w": "column",
+              "pos": "n.",
+              "zh": "（直）行；欄",
+              "ex": "Add the right <b>column</b> first, then move to the left.",
+              "exzh": "先加最右邊那一行，再往左邊做。"
+            },
+            {
+              "n": 3,
+              "w": "adder",
+              "pos": "n.",
+              "zh": "加法器",
+              "ex": "An <b>adder</b> is a circuit that adds binary numbers.",
+              "exzh": "加法器是把二進位的數加起來的電路。"
+            },
+            {
+              "n": 4,
+              "w": "ripple",
+              "pos": "v.",
+              "zh": "像漣漪一樣傳開",
+              "ex": "The news <b>rippled</b> through the school in minutes.",
+              "exzh": "這個消息幾分鐘內就傳遍了全校。"
+            },
+            {
+              "n": 5,
+              "w": "connect",
+              "pos": "v.",
+              "zh": "連接",
+              "ex": "<b>Connect</b> the printer to the computer with this cable.",
+              "exzh": "用這條線把印表機接到電腦上。"
+            },
+            {
+              "n": 6,
+              "w": "relay",
+              "pos": "n.",
+              "zh": "繼電器",
+              "ex": "A <b>relay</b> is a switch that is turned on and off by electricity.",
+              "exzh": "繼電器是用電來控制開和關的開關。"
+            },
+            {
+              "n": 7,
+              "w": "mechanical",
+              "pos": "adj.",
+              "zh": "機械的",
+              "ex": "Before batteries, clocks were <b>mechanical</b> and had to be wound.",
+              "exzh": "在有電池以前，鐘是機械的，要上發條。"
+            },
+            {
+              "n": 8,
+              "w": "calculate",
+              "pos": "v.",
+              "zh": "計算",
+              "ex": "Can you <b>calculate</b> how much change I should get?",
+              "exzh": "你可以算出該找我多少錢嗎？"
+            }
+          ],
+          "quiz": [
+            {
+              "q": "In binary, what is 1 + 1?",
+              "options": [
+                "1",
+                "2",
+                "10",
+                "11"
+              ],
+              "correct": 2
+            },
+            {
+              "q": "In a half adder, which gate gives the carry?",
+              "options": [
+                "AND",
+                "OR",
+                "NOT",
+                "XOR"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "How many bits does a full adder add together?",
+              "options": [
+                "One",
+                "Two",
+                "Three",
+                "Four"
+              ],
+              "correct": 2
+            },
+            {
+              "q": "What is 0111 + 0001?",
+              "options": [
+                "0110",
+                "0112",
+                "1000",
+                "1111"
+              ],
+              "correct": 2
+            },
+            {
+              "q": "According to the reading, where did George Stibitz build his relay adder?",
+              "options": [
+                "In a bank",
+                "On his kitchen table",
+                "In a watch factory",
+                "On a ship"
+              ],
+              "correct": 1
+            }
+          ],
+          "parts_head": {
+            "eyebrow": "Try It in the Model · 在模型裡試試",
+            "en": "Four sums to watch",
+            "zh": "四個值得看的加法"
+          },
+          "parts": [
+            {
+              "key": "simple",
+              "bits": "0101",
+              "en": "No carry at all",
+              "zh": "完全不用進位",
+              "meta_en": "0101 + 0010 = 0111",
+              "meta_zh": "5＋2＝7",
+              "demo": "simple",
+              "text_en": "No column has two 1s. Watch each block work alone, with nothing passed along.",
+              "text_zh": "沒有哪一位同時有兩個 1。看每個方塊各算各的，什麼都不用傳。"
+            },
+            {
+              "key": "one",
+              "bits": "0001",
+              "en": "One plus one",
+              "zh": "一加一",
+              "meta_en": "0001 + 0001 = 0010",
+              "meta_zh": "1＋1＝2",
+              "demo": "one",
+              "text_en": "The smallest sum that needs a carry. Where does the 1 end up?",
+              "text_zh": "需要進位的最小的加法。那個 1 最後跑到哪裡去了？"
+            },
+            {
+              "key": "ripple",
+              "bits": "0111",
+              "en": "The carry ripples",
+              "zh": "進位一路傳過去",
+              "meta_en": "0111 + 0001 = 1000",
+              "meta_zh": "7＋1＝8",
+              "demo": "ripple",
+              "text_en": "In slow motion, count how many blocks the carry passes through.",
+              "text_zh": "用慢動作看，數數進位經過了幾個方塊。"
+            },
+            {
+              "key": "overflow",
+              "bits": "1111",
+              "en": "Too big for four lights",
+              "zh": "四盞燈裝不下",
+              "meta_en": "1111 + 0001 = 10000",
+              "meta_zh": "15＋1＝16",
+              "demo": "overflow",
+              "text_en": "Fifteen plus one. Watch the last carry leave the fourth block. Where can it go?",
+              "text_zh": "十五加一。看最後的進位離開第四個方塊：它能去哪裡？"
+            }
+          ],
+          "parts_note_en": "Then set your own numbers. What is the biggest answer this adder can give, and how many lights does it take?",
+          "parts_note_zh": "接著自己設兩個數。這台加法器最大能算出多少？需要幾盞燈來顯示？",
+          "half": {
+            "eyebrow": "Look Inside · 打開來看",
+            "en": "Inside One Adder Block",
+            "zh": "一個加法方塊的裡面",
+            "lead_en": "Tap A and B to set them to 0 or 1 and watch the two outputs. Then switch to the full adder, which has a third input for the carry coming in. The table shows every possible case, and the row you are on is highlighted.",
+            "lead_zh": "點 A 和 B，把它們設成 0 或 1，看兩個輸出怎麼變。再切到全加器，它多了第三個輸入：進來的進位。表格列出每一種可能的情況，你現在在哪一列會亮起來。",
+            "tips": [
+              {
+                "en": "Read the two outputs together as one binary number: carry first, then sum. 10 is two, and 11 is three.",
+                "zh": "把兩個輸出合起來當成一個二進位的數來讀：先進位、再和。10 是二，11 是三。"
+              },
+              {
+                "en": "A half adder uses 2 gates and a full adder uses 5. The four-bit adder in the model uses 4 full adders: 20 gates.",
+                "zh": "半加器用 2 個閘，全加器用 5 個閘。模型裡的四位元加法器用了 4 個全加器，一共 20 個閘。"
+              },
+              {
+                "en": "In a full adder, the carry is 1 whenever at least two of the three inputs are 1.",
+                "zh": "在全加器裡，三個輸入中只要至少有兩個是 1，進位就是 1。"
+              }
+            ]
+          },
+          "addq": {
+            "eyebrow": "Game · 小遊戲",
+            "en": "Be the Adder",
+            "zh": "自己當加法器",
+            "lead_en": "Two sums, four columns each. Start at the right. For each column, add the two bits and the carry, then choose what to write and what to carry. The game counts how many columns you get right on the first try.",
+            "lead_zh": "兩道加法，每道四位。從最右邊開始。每一位把兩個位元和進位加起來，再選要寫什麼、進什麼。遊戲會記下你第一次就答對幾格。"
+          },
+          "culture_cards": {
+            "eyebrow": "Stories of Adding Machines · 加法機的故事",
+            "title_en": "Gears for a tax collector, a kitchen table, one gate for everything, and the adder’s home",
+            "title_zh": "替稅務官做的齒輪、一張廚房的桌子、一種閘做出全部、加法器住的地方",
+            "lead_en": "Four short stories about machines that add.",
+            "lead_zh": "關於會做加法的機器的四個小故事。",
+            "cards": [
+              {
+                "k": "1642–1644 · Pascaline",
+                "en": "An adding machine with wheels",
+                "zh": "用輪子做的加法機",
+                "body_en": "Blaise Pascal designed and built his machine between 1642 and 1644 for his father, a tax collector. Numbers were entered by turning its dials, and it could only add and subtract. Britannica calls it the first calculator or adding machine to be produced in any quantity and actually used: Pascal built 50 of them over the next ten years. It counted in tens, not twos, and it was made of moving parts, not switches.",
+                "body_zh": "巴斯卡在 1642 到 1644 年之間，為當稅務官的父親設計並製造了這台機器。用轉盤把數撥進去，它只會加和減。大英百科說，它是第一種有一定產量、而且真的有人使用的計算機：之後十年間巴斯卡造了 50 台。它用的是十進位，不是二進位；裡面是會動的機械零件，不是開關。"
+              },
+              {
+                "k": "1937 · Model K",
+                "en": "The adder on the kitchen table",
+                "zh": "廚房桌上的加法器",
+                "body_en": "One weekend at home, George Stibitz of Bell Laboratories fastened two relays from the laboratory’s scrap pile to a piece of plywood, added flashlight bulbs and strips cut from a tobacco can, and had a one-digit binary adder. It was named the Model K, for the kitchen table it was built on. Most accounts date it to 1937; some say 1936. The Computer History Museum says it proved that Boolean logic could be used to design computers.",
+                "body_zh": "某個週末，貝爾實驗室的喬治・史提比茲在家裡，把兩個從實驗室廢料堆撿來的繼電器釘在一塊夾板上，加上手電筒燈泡和從菸草罐剪下來的金屬片，做出一個一位的二進位加法器。它叫做 Model K，K 就是它誕生的那張廚房（kitchen）桌子。大多數資料說這是 1937 年的事，也有說 1936 年的。電腦歷史博物館說，它證明了布林邏輯可以用來設計電腦。"
+              },
+              {
+                "k": "NAND",
+                "en": "One kind of gate is enough",
+                "zh": "只要一種閘就夠了",
+                "body_en": "The adder in this lesson uses three kinds of gates: AND, OR, and XOR. Surprisingly, a chip does not need three kinds. A NAND gate is an AND followed by a NOT, and every other gate can be built out of NAND gates alone. So a whole adder, and in principle a whole computer, can be made by repeating one tiny part again and again.",
+                "body_zh": "這一課的加法器用了三種閘：AND、OR、XOR。讓人意外的是，晶片並不需要三種。NAND 閘就是 AND 後面接一個 NOT，而其他每一種閘都可以只用 NAND 閘做出來。所以一整個加法器，原則上連一整台電腦，都可以靠同一個小零件一再重複做出來。"
+              },
+              {
+                "k": "ALU",
+                "en": "Where the adder lives",
+                "zh": "加法器住在哪裡",
+                "body_en": "Inside a processor, the adder is part of a section called the arithmetic logic unit, or ALU. The same section also holds the circuits for the logic of Lesson 3. When a program adds two numbers, compares them, or combines them with AND or OR, the work is done here. You will meet the rest of the processor in Unit 2.",
+                "body_zh": "在處理器裡，加法器屬於一個叫做「算術邏輯單元」（ALU）的部分，第三課的邏輯運算電路也在這裡。程式要把兩個數加起來、比大小，或用 AND、OR 把它們合起來的時候，工作就是在這裡做的。處理器其他的部分，單元二會看到。"
+              }
+            ]
+          },
+          "myths": [
+            {
+              "myth_en": "A computer looks up the answer to a sum, the way you remember that 7 + 8 is 15.",
+              "myth_zh": "電腦是用「查」的，就像你背得出 7＋8＝15。",
+              "fact_en": "There is nothing to remember. The answer falls out of the wiring: each column’s gates produce a sum bit and a carry, every time, for any two numbers.",
+              "fact_zh": "它沒有背任何東西。答案是從接線裡自己跑出來的：每一位的閘都會算出一個和、一個進位，不管是哪兩個數，每次都一樣。"
+            },
+            {
+              "myth_en": "In binary, 1 + 1 = 10 means one plus one is ten.",
+              "myth_zh": "二進位的 1＋1＝10，意思是一加一等於十。",
+              "fact_en": "The amount is still two. “10” is how two is written with binary digits: one in the twos place and zero in the ones place.",
+              "fact_zh": "數量還是二。「10」只是二用二進位寫出來的樣子：「二」那一位是 1，「一」那一位是 0。"
+            },
+            {
+              "myth_en": "The adder works on one column at a time, like a person with a pencil.",
+              "myth_zh": "加法器跟拿筆算的人一樣，一次只做一位。",
+              "fact_en": "All the columns are wired up at once, and every block starts working as soon as its inputs arrive. Only the carries have to wait, because each one depends on the column to its right.",
+              "fact_zh": "每一位的線路都是同時接好的，輸入一到，每個方塊就開始工作。要等的只有進位，因為每個進位都得看右邊那一位的結果。"
+            },
+            {
+              "myth_en": "Adding bigger numbers needs a smarter kind of circuit.",
+              "myth_zh": "要加更大的數，就需要更聰明的電路。",
+              "fact_en": "It needs more of the same. Each extra column is one more full adder, and each extra column doubles the largest number the adder can take.",
+              "fact_zh": "需要的是更多同樣的東西。每多一位就多一個全加器，而每多一位，加法器能處理的最大的數就加倍。"
+            }
+          ],
+          "tricks_head": {
+            "en": "Adding in a sentence",
+            "zh": "一句話記住加法器"
+          },
+          "tricks": [
+            {
+              "title_en": "Sum is XOR, carry is AND",
+              "title_zh": "和是 XOR，進位是 AND",
+              "body_en": "Two gates add two bits: a half adder.",
+              "body_zh": "兩個閘就能加兩個位元：半加器。"
+            },
+            {
+              "title_en": "Three in, two out",
+              "title_zh": "三個進，兩個出",
+              "body_en": "A full adder adds A, B, and the carry in. It gives a sum and a carry out.",
+              "body_zh": "全加器把 A、B 和進來的進位加起來，給出一個和、一個出去的進位。"
+            },
+            {
+              "title_en": "Carry to the left",
+              "title_zh": "進位往左傳",
+              "body_en": "Each column hands its carry to the next, like falling dominoes.",
+              "body_zh": "每一位把進位交給下一位，像骨牌一樣倒過去。"
+            },
+            {
+              "title_en": "Count the 1s",
+              "title_zh": "數有幾個 1",
+              "body_en": "In one column: none is 0, one is 1, two is 10, three is 11.",
+              "body_zh": "只看一位：沒有是 0，一個是 1，兩個是 10，三個是 11。"
+            }
+          ],
+          "safety_head": {
+            "eyebrow": "Before You Start · 動手之前",
+            "en": "A few reminders",
+            "zh": "幾個提醒"
+          },
+          "safety": [
+            {
+              "en": "If your class builds an adder with real switches and bulbs, use only small batteries, and never the wall socket.",
+              "zh": "如果班上要用真的開關和燈泡做加法器，只能用小電池，絕對不要用牆上的插座。"
+            },
+            {
+              "en": "Never join the two ends of a battery directly with a wire. The wire and the battery can get hot very quickly.",
+              "zh": "絕對不要用一條線直接把電池的兩頭接在一起，電線和電池會很快變燙。"
+            },
+            {
+              "en": "In the developer console, type only what this lesson shows, and never paste in code that someone else tells you to paste.",
+              "zh": "在開發人員主控台裡，只輸入這一課寫的那幾行；別人叫你貼的程式碼絕對不要貼。"
+            },
+            {
+              "en": "Use a school or family computer only with permission, and do not change its settings.",
+              "zh": "用學校或家裡的電腦要先得到同意，也不要更改設定。"
+            }
+          ],
+          "activities": [
+            {
+              "title_en": "The Human Adder",
+              "title_zh": "人體加法器",
+              "materials": [
+                {
+                  "en": "Eight cards showing 0 on one side and 1 on the other",
+                  "zh": "八張卡片，一面寫 0、一面寫 1"
+                },
+                {
+                  "en": "Four small balls or beanbags, to be the carries",
+                  "zh": "四顆小球或沙包，當作進位"
+                },
+                {
+                  "en": "Space for four students to stand in a row facing the class",
+                  "zh": "讓四位同學面向全班站成一排的空間"
+                }
+              ],
+              "steps": [
+                {
+                  "en": "Four students stand in a row. Each one is the adder for one column: 8, 4, 2, and 1, as the class sees them from left to right.",
+                  "zh": "四位同學站成一排，每人負責一位。從全班看過去，由左到右是 8、4、2、1。"
+                },
+                {
+                  "en": "The teacher gives each student two cards, one bit of A and one bit of B. For example, 0111 and 0001.",
+                  "zh": "老師發給每位同學兩張卡片：A 的一個位元和 B 的一個位元。例如 0111 和 0001。"
+                },
+                {
+                  "en": "Start with the student on the class’s right. Count your 1s, including a ball if someone hands you one. With two or three 1s, pass a ball to the student on your left.",
+                  "zh": "從全班看過去最右邊的同學開始。數數自己有幾個 1（有人交球給你的話，球也算一個）。有兩個或三個 1，就把一顆球交給自己左邊的同學。"
+                },
+                {
+                  "en": "Then show your answer: raise a hand if your count was one or three, and keep it down if it was zero or two. The class reads the four hands as a binary number.",
+                  "zh": "接著比出自己的答案：數到一個或三個就舉手，零個或兩個就不舉。全班把四隻手當成一個二進位的數讀出來。"
+                }
+              ],
+              "tip_en": "Nobody in the row knows what the whole sum is. Each student only counts to three and follows two rules, and the right answer still appears. That is exactly how the adder in a chip works. Try 1111 + 0001 and ask where the last ball should go. In Taiwan’s junior high Information Technology curriculum, adders are not listed by name; this lesson supports the topic “System platforms” (資 S-IV-2, how system platforms are built and basically work).",
+              "tip_zh": "這一排人沒有一個知道整個加法是多少。每個人只數到三、照兩條規則做，正確答案還是出現了。晶片裡的加法器就是這樣工作的。試試 1111＋0001，問問大家最後那顆球該交給誰。十二年國教國中「資訊科技」的學習內容沒有直接列出加法器；這一課可以用來支援「系統平台」主題（資 S-IV-2 系統平台之組成架構與基本運作原理）。"
+            },
+            {
+              "title_en": "Check It on Your Own Computer",
+              "title_zh": "在自己的電腦上驗證",
+              "materials": [
+                {
+                  "en": "A Windows or Mac computer with its Calculator app",
+                  "zh": "一台 Windows 或 Mac 電腦，以及內建的「計算機」"
+                },
+                {
+                  "en": "Paper and a pencil",
+                  "zh": "紙和鉛筆"
+                }
+              ],
+              "steps": [
+                {
+                  "en": "On paper, add 0101 and 0011 in binary, one column at a time from the right. Write the carries above the columns.",
+                  "zh": "先在紙上用二進位算 0101＋0011，從右邊開始一位一位加，把進位寫在每一位的上面。"
+                },
+                {
+                  "en": "Open Calculator in programmer mode, as you did in Lesson 1. On a Mac, choose View > Programmer and click Show Binary. On Windows, choose Programmer from the menu.",
+                  "zh": "照第一課的方法，把「計算機」切換到程式設計的模式。Mac：選「顯示方式」＞「程式設計」，再按「顯示二進位」。Windows：在選單裡選「程式設計人員」。"
+                },
+                {
+                  "en": "Type 5 + 3 and press =. Read the binary line and compare it with your paper.",
+                  "zh": "輸入 5＋3 再按 =。看二進位那一行，和你紙上的答案比一比。"
+                },
+                {
+                  "en": "Try 7 + 1, and then 15 + 1. Find the carry in each answer.",
+                  "zh": "再試 7＋1，然後 15＋1。在每個答案裡找出進位。"
+                }
+              ],
+              "tip_en": "The answers are 1000, 1000, and 10000. For a second check, open a browser’s developer console and type (0b0101 + 0b0011).toString(2). In JavaScript, a number that starts with 0b is written in binary. The console answers \"1000\".",
+              "tip_zh": "答案分別是 1000、1000、10000。還有第二種驗證法：打開瀏覽器的開發人員主控台，輸入 (0b0101 + 0b0011).toString(2)。在 JavaScript 裡，0b 開頭的數就是用二進位寫的。主控台會回答 \"1000\"。"
+            }
+          ],
+          "links_head": {
+            "eyebrow": "Go Further · 延伸閱讀",
+            "en": "The gates, the carry, and the next unit",
+            "zh": "邏輯閘、進位，以及下一個單元"
+          },
+          "links": [
+            {
+              "icon": "🚦",
+              "k_en": "Previous Lesson · Lesson 3",
+              "k_zh": "上一課・第三課",
+              "en": "How Does a Computer Make a Decision?",
+              "zh": "電腦怎麼做決定？",
+              "note_en": "The AND, OR, and XOR inside every adder block come from here.",
+              "note_zh": "每個加法方塊裡的 AND、OR、XOR，都是從這一課來的。",
+              "href": "/resources/classes/computers/logic-gates/"
+            },
+            {
+              "icon": "💡",
+              "k_en": "Lesson 1",
+              "k_zh": "第一課",
+              "en": "Why Do Computers Use Only 0 and 1?",
+              "zh": "電腦為什麼只用 0 和 1？",
+              "note_en": "Go back and press Count up. Adding one, again and again, is the same carry you just built out of gates.",
+              "note_zh": "回去按一次「往上數」。一次又一次地加一，就是你剛才用邏輯閘做出來的那個進位。",
+              "href": "/resources/classes/computers/zeros-and-ones/"
+            },
+            {
+              "icon": "🖥️",
+              "k_en": "Unit 2 · Lesson 5",
+              "k_zh": "單元二・第五課",
+              "en": "What Is Inside a Computer?",
+              "zh": "打開電腦，裡面有什麼？",
+              "note_en": "Unit 1 built numbers, codes, gates, and an adder. Next, open the case and see where they all live.",
+              "note_zh": "單元一做出了數、編碼、邏輯閘和加法器。接下來打開機殼，看看它們都住在哪裡。",
+              "soon": true
+            }
+          ],
+          "sources_note_en": "Names, dates, and facts on this page were checked against these sources (October 2026); every sum in the model is computed from gates and tested against real addition",
+          "sources_note_zh": "本頁的人名、年代與事實依下列資料查證（2026 年 10 月）；模型裡的每一個加法都是用邏輯閘算的，並和真正的加法核對過",
+          "sources": [
+            {
+              "en": "Half adder: adds two bits; its sum and carry are identical to the Xor and And functions. Full adder: adds three bits, and can be built from two half adders and one more gate. An n-bit adder is an array of n full adders that passes the carries up",
+              "zh": "半加器：把兩個位元相加，「和」與「進位」正好就是 XOR 與 AND。全加器：把三個位元相加，可以用兩個半加器再加一個閘做成。n 位元加法器是 n 個全加器排成一排，把進位往上傳",
+              "src": "Noam Nisan and Shimon Schocken, The Elements of Computing Systems, chapter 2, “Boolean Arithmetic”",
+              "url": "https://www.nand2tetris.org/_files/ugd/44046b_f0eaab042ba042dcb58f3e08b46bb4d7.pdf"
+            },
+            {
+              "en": "A full adder “can be built out of two half-adders and an OR gate”",
+              "zh": "全加器「可以用兩個半加器和一個 OR 閘做出來」",
+              "src": "Justin Wyss-Gallifent, “CMSC 250: Adder Circuits,” University of Maryland",
+              "url": "https://www.math.umd.edu/~immortal/CMSC250/notes/adders.pdf"
+            },
+            {
+              "en": "“The carry ‘ripples’ from one bit to the next,” so the time needed grows with the number of bits; faster adders such as carry lookahead exist",
+              "zh": "進位從一位「漣漪般」傳到下一位，所以位數越多越花時間；另有進位前瞻等更快的加法器",
+              "src": "Allan Gottlieb, Computer Architecture class notes, New York University",
+              "url": "https://cs.nyu.edu/~gottlieb/courses/2000s/2000-01-fall/arch/lectures/lecture-10.html"
+            },
+            {
+              "en": "Computers handle n-bit patterns, “n being 16, 32, 64, and so forth”; carry look-ahead techniques ease the delay of the carry; every Boolean function can be constructed from Nand operations alone (chapter 1)",
+              "zh": "電腦處理 n 位元的資料，n 是 16、32、64 等等；進位前瞻的技巧可以減少等進位的時間；每一個布林函數都可以只用 NAND 做出來（第一章）",
+              "src": "Nisan and Schocken, The Elements of Computing Systems, chapters 1 and 2",
+              "url": "https://www.nand2tetris.org/_files/ugd/44046b_f2c9e41f0b204a34ab78be0ae4953128.pdf"
+            },
+            {
+              "en": "The Pascaline: designed and built by Blaise Pascal between 1642 and 1644 for his father, a tax collector; it could only add and subtract; the first calculator produced in any quantity and actually used; he built 50 over the next 10 years",
+              "zh": "Pascaline：巴斯卡在 1642 到 1644 年間為當稅務官的父親設計製造；只會加和減；第一種有一定產量且真正被使用的計算機；之後十年造了 50 台",
+              "src": "Encyclopaedia Britannica, “Pascaline”",
+              "url": "https://www.britannica.com/technology/Pascaline"
+            },
+            {
+              "en": "Stibitz fastened two relays from the Bell Labs scrap pile to plywood, with strips from a tobacco can and flashlight bulbs, to make a one-digit binary adder, one weekend at home in 1937; called the Model K for the kitchen table",
+              "zh": "史提比茲 1937 年某個週末在家，把兩個貝爾實驗室廢料堆的繼電器釘在夾板上，加上菸草罐的金屬片與手電筒燈泡，做出一位的二進位加法器；因廚房桌子而稱 Model K",
+              "src": "IEEE Computer Society, Computer Pioneers, “George Robert Stibitz”",
+              "url": "https://history.computer.org/pioneers/stibitz.html"
+            },
+            {
+              "en": "The “Model K” adder, named for his kitchen table, proved the concept of applying Boolean logic to the design of computers (the museum’s replica page gives 1936 for the original)",
+              "zh": "Model K 加法器因廚房桌子得名，證明了布林邏輯可以用來設計電腦（博物館的複製品頁面寫原件是 1936 年）",
+              "src": "Computer History Museum, Timeline of Computer History, 1937",
+              "url": "https://www.computerhistory.org/timeline/1937/"
+            },
+            {
+              "en": "The arithmetic logic unit is the part of the processor that performs arithmetic and logic operations on binary numbers",
+              "zh": "算術邏輯單元是處理器裡對二進位的數做算術與邏輯運算的部分",
+              "src": "Encyclopaedia Britannica, “arithmetic logic unit”",
+              "url": "https://www.britannica.com/technology/Arithmetic-Logic-Unit"
+            },
+            {
+              "en": "In JavaScript, a number starting with 0b is written in binary; toString(2) writes a number in binary",
+              "zh": "在 JavaScript 裡，0b 開頭的數是二進位寫法；toString(2) 把數寫成二進位",
+              "src": "MDN Web Docs, “Lexical grammar” and “Number.prototype.toString()”",
+              "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Lexical_grammar"
+            },
+            {
+              "en": "Mac: View > Programmer, then Show Binary; Windows Calculator has a Programmer mode",
+              "zh": "Mac：「顯示方式」＞「程式設計」，再按「顯示二進位」；Windows 計算機有「程式設計人員」模式",
+              "src": "Apple Support, “Use the programmer calculator on Mac”; Microsoft, Windows Calculator",
+              "url": "https://support.apple.com/guide/calculator/calc8990e3ee/mac"
+            },
+            {
+              "en": "A short circuit across a battery generates high heat",
+              "zh": "電池短路會產生高熱",
+              "src": "Energizer, Alkaline Manganese Dioxide Handbook and Application Manual",
+              "url": "https://data.energizer.com/pdfs/alkaline_appman.pdf"
+            },
+            {
+              "en": "Taiwan terms: half adder 半加器, full adder 全加器, adder 加法器, carry 進位, overflow 溢位, ripple carry adder 漣波進位加法器, arithmetic logic unit 算術邏輯單元, relay 繼電器",
+              "zh": "台灣用語：half adder 半加器、full adder 全加器、adder 加法器、carry 進位、overflow 溢位、ripple carry adder 漣波進位加法器、arithmetic logic unit 算術邏輯單元、relay 繼電器（電子計算機名詞等）",
+              "src": "國家教育研究院《樂詞網》",
+              "url": "https://terms.naer.edu.tw/search/?query_term=full+adder&query_field=title&query_op=&match_type=phrase"
+            },
+            {
+              "en": "資 S-IV-2, how system platforms are built and basically work (p. 10); adders are not listed by name",
+              "zh": "資 S-IV-2 系統平台之組成架構與基本運作原理（第 10 頁）；學習內容沒有直接列出加法器",
+              "src": "教育部《十二年國民基本教育課程綱要 國民中學暨普通型高級中等學校 科技領域》（2018）",
+              "url": "https://www.naer.edu.tw/upload/1/16/doc/816/十二年國民基本教育課程綱要國民中學暨普通型高級中等學校-科技領域.pdf"
+            },
+            {
+              "en": "The four cases of a half adder and the eight of a full adder; all 256 sums of two numbers from 0 to 15; 2 gates in a half adder, 5 in a full adder, 20 in the model; the examples 0101 + 0010, 0111 + 0001, and 1111 + 0001",
+              "zh": "半加器的四種情況、全加器的八種情況；0 到 15 兩兩相加的 256 種結果；半加器 2 個閘、全加器 5 個、模型 20 個；例子 0101＋0010、0111＋0001、1111＋0001",
+              "src": "Our own work, checked by tools/computers/test/adder.test.mjs",
+              "url": "https://github.com/lukelin7429/twrses/blob/main/tools/computers/test/adder.test.mjs"
+            }
+          ]
         }
-      ]
+      ],
+      "planned": []
     },
     {
       "key": "machine",

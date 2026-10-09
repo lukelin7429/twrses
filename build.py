@@ -11942,7 +11942,7 @@ def build_cal_hub():
 _compj = os.path.join(ROOT, "data", "computers.json")
 COMP = json.load(open(_compj, encoding="utf-8")) if os.path.exists(_compj) else None
 COMP_BASE = "/resources/classes/computers/"
-_COMP_JS = {"bits": "comp-bits", "pixels": "comp-pixels", "logic": "comp-logic"}   # lab.kind → assets/js/<bundle>.js
+_COMP_JS = {"bits": "comp-bits", "pixels": "comp-pixels", "logic": "comp-logic", "adder": "comp-adder"}   # lab.kind → assets/js/<bundle>.js
 
 def _comp_ver():
     h = hashlib.md5()
@@ -12282,6 +12282,103 @@ def _comp_lquiz(lq):
   <div class="cp-gs-foot"><span></span><button type="button" class="cp-btn cp-btn-gold cp-gs-next" hidden>Next · 下一題</button></div>
 </div>'''
 
+def compadder_svg(size=56):
+    """第四課的課程卡小圖示：兩排小燈相加，下面一排是答案（0101 + 0011 = 1000）。"""
+    return (f'<svg class="compadder-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">'
+            f'{_comp_lamps("0101", 20, 11, 10.5, 3.6)}{_comp_lamps("0011", 20, 25, 10.5, 3.6)}'
+            '<path d="M7 25h7M10.5 21.5v7" stroke="#7ef0e3" stroke-width="2.6" stroke-linecap="round"/>'
+            '<path d="M6 35.5h49" stroke="#c9d3e8" stroke-width="2" stroke-linecap="round"/>'
+            f'{_comp_lamps("1000", 20, 47, 10.5, 3.6)}</svg>')
+
+_COMP_CARD["adder"] = compadder_svg
+
+def render_compadder_lab(lesson):
+    """第四課：兩排開關、四個全加器方塊、一排答案（assets/js/comp-adder.js 綁這裡的 class；全部自繪示意）。"""
+    lab = lesson["lab"]
+    def strip(row, en, zh):
+        bs = "".join(
+            f'<button type="button" data-bit="{i}" aria-pressed="false" aria-label="{en}, switch worth {2 ** i} · {zh}，代表 {2 ** i} 的開關">'
+            f'<small>{2 ** i}</small><b>0</b></button>' for i in range(3, -1, -1))
+        return f'<div class="cp-strip cp-strip4" data-row="{row}" role="group" aria-label="{en} · {zh}">{bs}</div>'
+    speeds = [("0.5", "½×", "慢"), ("1", "1×", "原速"), ("3", "3×", "快")]
+    sb = "".join(f'<button type="button" data-speed="{k}" aria-pressed="{"true" if k == "1" else "false"}">{en}<small>{zh}</small></button>' for k, en, zh in speeds)
+    tg = _lab_toggles([("labels", "Labels", "標示", True)])
+    return f'''<div class="astro-lab cp-lab cp-ad-lab rvl" data-compadder-lab>
+  <div class="al-stage">
+    <div class="al-space">
+      <canvas class="al-space-cv" aria-label="3D model of a four-bit adder: two rows of four switches with lights for the numbers A and B, four adder blocks, and a row of five lights for the answer · 四位元加法器的 3D 模型：兩排各四個開關與燈（A 和 B）、四個加法方塊，以及一排五盞燈的答案"></canvas>
+      <div class="al-labels" aria-hidden="true"></div>
+      <p class="al-hint">Tap a switch in the two back rows · 點後面兩排的開關　Drag to turn · 拖曳旋轉</p>
+      <button type="button" class="al-home" title="Reset view · 重設視角" aria-label="Reset view · 重設視角">&#8634;</button>
+      <p class="al-nogl-msg">This 3D model needs WebGL, which this browser does not support. The switch buttons and the step-by-step sum below still work, and so do the reading and the games.<br><span class="zh">這個瀏覽器不支援 WebGL，無法顯示 3D 模型；下面的開關按鈕和一位一位的直式照樣能用，課文和小遊戲也都能用。</span></p>
+    </div>
+    <aside class="al-sky cp-aside">
+      <p class="al-sky-k">The sum · 直式</p>
+      <table class="cp-ad-sumt" aria-live="polite"><tbody>
+        <tr><th scope="row">A</th><td class="cp-ad-a"></td><td class="cp-ad-ad"></td></tr>
+        <tr><th scope="row">+ B</th><td class="cp-ad-b"></td><td class="cp-ad-bd"></td></tr>
+        <tr class="cp-ad-line"><th scope="row">=</th><td class="cp-ad-s"></td><td class="cp-ad-sd"></td></tr>
+      </tbody></table>
+      <p class="al-sky-k cp-k2">A · 上面的數</p>
+      {strip("a", "Number A", "A")}
+      <p class="al-sky-k cp-k2">B · 下面的數</p>
+      {strip("b", "Number B", "B")}
+      <p class="cp-ad-col"></p>
+      <div class="cp-btns">
+        <button type="button" class="cp-btn-d cp-step">One column · 算一位</button>
+        <button type="button" class="cp-btn-d cp-reset">Reset · 歸零</button>
+      </div>
+      <p class="cp-msg" aria-live="polite"></p>
+      <p class="al-sky-k cp-k2">Speed · 速度</p>
+      <div class="cp-seg" role="group" aria-label="Speed · 速度">{sb}</div>
+    </aside>
+  </div>
+  <div class="al-controls">
+    <div class="al-row al-row-main">
+      <button type="button" class="al-play" aria-pressed="false"><span class="al-play-i" aria-hidden="true"></span><span class="al-play-t">Watch it add · 看它怎麼加</span></button>
+      <div class="al-row al-toggles">{tg}</div>
+    </div>
+  </div>
+  {_lab_foot(lab)}
+  <p class="cp-credit">{lab["credit_html"]}</p>
+</div>'''
+
+def _comp_half(hf):
+    tips = "".join(f'<li>{html.escape(t["en"])}<span class="zh">{html.escape(t["zh"])}</span></li>' for t in hf["tips"])
+    return f'''<div class="cp-half rvl" data-cp-half>
+  <div class="cp-hf-left">
+    <div class="cp-seg-l cp-hf-modes" role="group" aria-label="Half adder or full adder · 半加器或全加器">
+      <button type="button" data-hmode="half" aria-pressed="true">Half adder<small>半加器：兩個輸入</small></button>
+      <button type="button" data-hmode="full" aria-pressed="false">Full adder<small>全加器：三個輸入</small></button>
+    </div>
+    <div class="cp-hf-ins">
+      <button type="button" class="cp-hf-in" data-hin="a" aria-pressed="true" aria-label="Input A · 輸入 A"><small>A</small><b>1</b></button>
+      <button type="button" class="cp-hf-in" data-hin="b" aria-pressed="true" aria-label="Input B · 輸入 B"><small>B</small><b>1</b></button>
+      <button type="button" class="cp-hf-in cp-hf-cin" data-hin="c" aria-pressed="false" aria-label="Carry in · 進來的進位" hidden><small>Carry in<br>進來的進位</small><b>0</b></button>
+    </div>
+    <p class="cp-hf-eq" aria-live="polite"></p>
+    <div class="cp-hf-outs">
+      <p><span>Carry · 進位</span><b class="cp-hf-carry">0</b><code class="cp-hf-gc"></code></p>
+      <p><span>Sum · 和</span><b class="cp-hf-sum">0</b><code class="cp-hf-gs"></code></p>
+    </div>
+  </div>
+  <div class="cp-hf-right">
+    <table class="cp-hf-table"><thead></thead><tbody></tbody></table>
+    <p class="cp-hf-note"></p>
+  </div>
+</div>
+<ul class="cp-tips rvl">{tips}</ul>'''
+
+def _comp_addq(aq):
+    return f'''<div class="cp-guess cp-addq rvl" data-cp-addq>
+  <div class="cp-gs-top"><p class="cp-gs-k"></p><p class="cp-gs-sc">Right on the first try · 第一次就答對 <b class="cp-gs-score">0 / 0</b></p></div>
+  <div class="cp-aq-grid" aria-hidden="true"></div>
+  <p class="cp-aq-q" aria-live="polite"></p>
+  <div class="cp-gs-opts" role="group" aria-label="Choose what to write and what to carry · 選要寫什麼、進什麼"></div>
+  <p class="cp-gs-msg" aria-live="polite"></p>
+  <div class="cp-gs-foot"><span></span><button type="button" class="cp-btn cp-btn-gold cp-gs-next" hidden>Next problem · 下一題</button></div>
+</div>'''
+
 def _comp_flat():
     return [(ui, u, l) for ui, u in enumerate(COMP["units"]) for l in u["lessons"]]
 
@@ -12309,7 +12406,7 @@ def build_comp_lesson(ui, unit, lesson):
     reading_html = render_basic_unit(1, unit_dict, level="comp", audio_rel="", pdf_rel="")
     lab = lesson["lab"]
     kind = lab["kind"]
-    lab_html = {"bits": render_compbits_lab, "pixels": render_comppixels_lab, "logic": render_complogic_lab}[kind](lesson)
+    lab_html = {"bits": render_compbits_lab, "pixels": render_comppixels_lab, "logic": render_complogic_lab, "adder": render_compadder_lab}[kind](lesson)
 
     def sec(key, fn):
         d = lesson[key]
@@ -12335,6 +12432,8 @@ def build_comp_lesson(ui, unit, lesson):
     if lesson.get("sound"): secs.append(sec("sound", _comp_sound))
     if lesson.get("wire"): secs.append(sec("wire", _comp_wire))
     if lesson.get("lquiz"): secs.append(sec("lquiz", _comp_lquiz))
+    if lesson.get("half"): secs.append(sec("half", _comp_half))
+    if lesson.get("addq"): secs.append(sec("addq", _comp_addq))
     if lesson.get("culture_cards"):
         cu = lesson["culture_cards"]
         cc = "".join(

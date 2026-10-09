@@ -583,9 +583,9 @@
 ## 電腦概論 How Computers Work（/resources/classes/computers/）— 架構照書法，3D 是「位元引擎」
 
 - 內容：`data/computers.json`：`units[]`（四個單元：電腦的語言 0 和 1／機器裡面／軟體／連線、安全與 AI）底下 `lessons[]` 與 `planned[]`（「製作中」卡，做一課就從 planned 移到 lessons）；課次 `n` 全系列連號（1–16），系列首頁自己算「x of 16」。每課欄位同書法，不同的：`parts[].bits`（卡片小圖的一排燈，例如 `"0111"`）、`fingers`／`guess`／`levels`（三個不需要 WebGL 的小互動，各有 `eyebrow/en/zh/lead_en/lead_zh`）、`tricks_head`、`safety_head`、`sources_note_en/zh`（標題文字放資料，不寫死在 build.py）。`links` 可放 `soon: true` 的預告卡。
-- 頁面：`build.py`「電腦概論」區塊的 `build_comp_hub()`（單元導覽＋`.lc-row` 橫向課程卡；系列小圖示 `comphub_svg()`＝螢幕上兩排小燈，第一課卡 `compbits_svg()`；`_COMP_CARD` 把 `card` 對到圖示函式）/ `build_comp_lesson()`；reading、迷思、口訣、活動沿用 `render_basic_unit()`、`_sci_myths()`、`_sci_tricks()`、`_astro_activity()`。「閱讀與經典」頁有入口卡（💻）。段落順序：3D → 英文閱讀 → 模型卡 → 五根手指 → 猜猜這是多少 → 十種亮度 → 打字看編號 → 8 × 8 像素畫 → 聲音取樣 → 把閘接起來 → 換你當邏輯閘 → 文化卡 → 迷思 → 口訣 → 動手之前 → 活動 → 延伸閱讀 → 資料出處。
+- 頁面：`build.py`「電腦概論」區塊的 `build_comp_hub()`（單元導覽＋`.lc-row` 橫向課程卡；系列小圖示 `comphub_svg()`＝螢幕上兩排小燈，第一課卡 `compbits_svg()`；`_COMP_CARD` 把 `card` 對到圖示函式）/ `build_comp_lesson()`；reading、迷思、口訣、活動沿用 `render_basic_unit()`、`_sci_myths()`、`_sci_tricks()`、`_astro_activity()`。「閱讀與經典」頁有入口卡（💻）。段落順序：3D → 英文閱讀 → 模型卡 → 五根手指 → 猜猜這是多少 → 十種亮度 → 打字看編號 → 8 × 8 像素畫 → 聲音取樣 → 把閘接起來 → 換你當邏輯閘 → 半加器／全加器 → 自己當加法器 → 文化卡 → 迷思 → 口訣 → 動手之前 → 活動 → 延伸閱讀 → 資料出處。
 - 樣式：共用 `assets/css/astro.css`，本系列專屬的在 `assets/css/computers.css`（**class 前綴一律 `cp-`**；晶片的 chips.css 也用 `cp-`，兩支只各自載在自己的系列，不會同時出現——不要把其中一支載到另一個系列的頁面）；`_comp_head()` 只在本系列頁面載入。
-- 3D：**原始碼在 `tools/computers/src/`**（自己的 package.json，three 0.186.1、esbuild 0.25.10），bundle 一律 `comp-*`；`lab.kind` → bundle 對照在 `build.py` 的 `_COMP_JS`（`bits` → `comp-bits`、`pixels` → `comp-pixels`、`logic` → `comp-logic`）。`labeler`、`lazyBoot`、`canvasTex` 在 `tools/computers/src/common.js`（從 tools/callig 抄來）。**不要 import tools/callig、tools/chips、tools/science、tools/astro 的檔案**（esbuild 會打包進第二份 three.js）。新增一課＝`src/comp-<名>.js`＋package.json 的 build 加入口＋`_COMP_JS` 加一筆＋`build_comp_lesson()` 的 `lab_html` 對照加一筆。
+- 3D：**原始碼在 `tools/computers/src/`**（自己的 package.json，three 0.186.1、esbuild 0.25.10），bundle 一律 `comp-*`；`lab.kind` → bundle 對照在 `build.py` 的 `_COMP_JS`（`bits` → `comp-bits`、`pixels` → `comp-pixels`、`logic` → `comp-logic`、`adder` → `comp-adder`）。`labeler`、`lazyBoot`、`canvasTex` 在 `tools/computers/src/common.js`（從 tools/callig 抄來）。**不要 import tools/callig、tools/chips、tools/science、tools/astro 的檔案**（esbuild 會打包進第二份 three.js）。新增一課＝`src/comp-<名>.js`＋package.json 的 build 加入口＋`_COMP_JS` 加一筆＋`build_comp_lesson()` 的 `lab_html` 對照加一筆。
   ```
   cd tools/computers && npm ci && npm run build && npm test
   ```
@@ -617,6 +617,15 @@
   - `src/logic2d.js`：`initWire`（`[data-cp-wire]`，題目文字在資料的 `wire.puzzles`，以 `key` 對到 `PUZZLES`；一開始故意給錯的閘）、`initQuiz`（`[data-cp-lquiz]`，沿用 `.cp-guess` 的深色卡樣式）。除錯：`el.__wire.go(i)／set(spec)／solve()`、`el.__lquiz.start(seed)／answer()／next()`。
   - 除錯：`document.querySelector('[data-complogic-lab]').__lab`（`setGate('and'|'or'|'not', 保留輸入?)`、`setIn(a, b)`、`toggle('a'|'b')`、`setPlaying(bool)`、`demo(...)`、`run(秒)`、`goCam()`、`render()`、`out()`）。
   - 名詞：邏輯閘、及閘、或閘、反閘、真值表、布林代數、互斥或（樂詞網的高中以下資訊名詞／電子計算機名詞）；Britannica 的 “logic gate” 頁是 AI 摘要，**不拿來當出處**，改引 “Boolean algebra”、“truth table” 兩篇。課綱沒有直接列邏輯閘，寫的是「支援資 S-IV-2」。
+- 第四課加法器（`comp-adder.js`，`lab.kind = "adder"`，`data-compadder-lab`；slug `binary-adder`；**單元一最後一課，`units[0].planned` 已清空**）：一個機制——**幾個邏輯閘接起來就是加法器**：一位的和是 XOR、進位是 AND（半加器）；每一位一個全加器，進位從右邊一位一位傳到左邊（漣波進位加法器）。
+  - 場景（由後到前）：A 的四個開關與燈、B 的四個開關與燈（都是 `makeBitRow({ n: 4, spacing: 1.5 })`）、四個「＋」方塊（全加器）、答案的五盞燈（`makeBitRow({ n: 5, levers: false })`——**bits3d.js 新增 `levers` 參數**，false＝不畫撥桿；整排往左移半格，讓同一直行對齊同一位）。
+  - **撥開關，答案立刻跟著變**（真的加法器沒有「按等號」）；`.al-play`「看它怎麼加」＝答案先清掉、`reveal()` 由右往左一位一位算，進位小球從這個方塊跳到左邊那個（最後一個進位跳到第五盞燈）；`.cp-step` 一次一位。`state.shown`＝已經算出幾位（N＋1＝全部顯示）。
+  - 右側欄：直式（A、B、答案的二進位與十進位）、兩排位元按鈕（`[data-row="a|b"] [data-bit]`）、這一位的算式（`1 + 1 + 0 = 10`，寫幾、進幾）。
+  - 四張卡 `data-lab-demo`：`simple`（5＋2，沒有進位）、`one`（1＋1）、`ripple`（7＋1，進位連傳三位）、`overflow`（15＋1，第五盞燈）。
+  - `src/adder.js`（純函式，`test/adder.test.mjs`）：`halfAdder`、`fullAdder`（**只用 logic.js 的 AND／OR／XOR，不用加號**）、`addBits`（逐位步驟、答案多一位、`overflow`）、`columnText`、`carryRun`、`makeProblem`（一定至少進位一次）。測試把 0–15 的 256 種和 0–255 的 65,536 種全部對過真正的加法。
+  - `src/adder2d.js`：`initHalf`（`[data-cp-half]`，半加器／全加器切換，真值表跟著亮）、`initAddQ`（`[data-cp-addq]`，兩題 × 四位＝八格，沿用 `.cp-guess` 深色卡）。除錯：`el.__half.set('full', 1, 1, 1)`、`el.__addq.start(seed)／answer()／next()`。
+  - 除錯：`document.querySelector('[data-compadder-lab]').__lab`（`set(a, b)`、`toggle('a'|'b', i)`、`watch()`、`stepOnce()`、`setPlaying(bool)`、`setSpeed(0.5|1|3)`、`demo(...)`、`run(秒)`、`goCam()`、`render()`、`sum()`）。
+  - 查證時改掉的：巴斯卡的機器不寫「齒輪」（Britannica 只說轉盤與輪子），年代寫 Britannica 的 1642–1644（電腦歷史博物館寫 1645）；史提比茲的 Model K 各家年份不一（1936／1937／1939），課文不寫年份、文化卡寫「多數說 1937，也有說 1936」；處理器「一次 64 位」沒有好出處，改引 Nand2Tetris 的「16、32、64」。
 - **預覽伺服器名額被別的 session 占滿時**（preview_start 回 Maximum 5 dev servers）：不要去停別人的，也不要用 Bash 跑伺服器。把 shot.mjs 的副本加一段 CDP `Fetch.enable`，攔截 `http://twrses.test/*` 直接從 worktree 讀檔回應（環境變數 `SHOT_ROOT`），不經過任何伺服器就能截圖、看 console 錯誤。
 - 查證過的事（出處在每課 `sources`）與**沒寫的事**記在 Obsidian 的系列索引；名詞一律台灣用語（位元、位元組、二進位、處理器、記憶體、電晶體），不用「比特、字節、內存」。
 - 和既有系列互相連結：第一課的 `links` 連晶片第二課 `/resources/classes/semiconductors/transistor/`（開關本身）與萬物原理第八課 `/resources/classes/how-things-work/computer-memory/`（0 和 1 存在哪裡），再放下一課的預告卡（`soon: true`）。
