@@ -12625,7 +12625,7 @@ def build_cal_hub():
 _compj = os.path.join(ROOT, "data", "computers.json")
 COMP = json.load(open(_compj, encoding="utf-8")) if os.path.exists(_compj) else None
 COMP_BASE = "/resources/classes/computers/"
-_COMP_JS = {"bits": "comp-bits", "pixels": "comp-pixels", "logic": "comp-logic", "adder": "comp-adder", "pc": "comp-pc"}   # lab.kind → assets/js/<bundle>.js
+_COMP_JS = {"bits": "comp-bits", "pixels": "comp-pixels", "logic": "comp-logic", "adder": "comp-adder", "pc": "comp-pc", "cpu": "comp-cpu"}   # lab.kind → assets/js/<bundle>.js
 
 def _comp_ver():
     h = hashlib.md5()
@@ -13150,6 +13150,92 @@ def _comp_fits(ft):
 </div>
 <ul class="cp-tips rvl">{tips}</ul>'''
 
+def compcpu_svg(size=56):
+    """第六課的課程卡小圖示：一顆晶片，中間三個箭頭繞成一圈（拿、看懂、照做）。"""
+    pins = "".join(f'<rect x="{13 + i * 8.5}" y="5" width="3" height="6" fill="#c9ced8"/><rect x="{13 + i * 8.5}" y="49" width="3" height="6" fill="#c9ced8"/>'
+                   f'<rect x="5" y="{13 + i * 8.5}" width="6" height="3" fill="#c9ced8"/><rect x="49" y="{13 + i * 8.5}" width="6" height="3" fill="#c9ced8"/>' for i in range(5))
+    return (f'<svg class="compcpu-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">{pins}'
+            '<rect x="11" y="11" width="38" height="38" rx="5" fill="#1b2440" stroke="#9fb0cf" stroke-width="2"/>'
+            '<path d="M30 20a10 10 0 0 1 9.4 6.6" fill="none" stroke="#ffd36e" stroke-width="3" stroke-linecap="round"/><path d="M41.8 23.2 39.6 28l-4.6-2.4z" fill="#ffd36e"/>'
+            '<path d="M38.7 35a10 10 0 0 1-12.4 4.3" fill="none" stroke="#7ef0e3" stroke-width="3" stroke-linecap="round"/><path d="M27 42.6 22.6 39.4 27 36z" fill="#7ef0e3"/>'
+            '<path d="M21.3 35a10 10 0 0 1 3-13.4" fill="none" stroke="#ff8a8a" stroke-width="3" stroke-linecap="round"/><path d="M21 22.6 26.4 21.6 25.2 26.6z" fill="#ff8a8a"/></svg>')
+
+_COMP_CARD["cpu"] = compcpu_svg
+
+def render_compcpu_lab(lesson):
+    """第六課：只有五種指令的小處理器（assets/js/comp-cpu.js 綁這裡的 class；全部自繪示意）。"""
+    lab = lesson["lab"]
+    pb = "".join(f'<button type="button" data-prog="{p["key"]}" aria-pressed="{"true" if i == 0 else "false"}">{html.escape(p["en"])}<small>{html.escape(p["zh"])}</small></button>' for i, p in enumerate(lab["programs"]))
+    speeds = [("0.5", "½×", "慢"), ("1", "1×", "原速"), ("4", "4×", "快")]
+    sb = "".join(f'<button type="button" data-speed="{k}" aria-pressed="{"true" if k == "1" else "false"}">{en}<small>{zh}</small></button>' for k, en, zh in speeds)
+    tg = _lab_toggles([("labels", "Labels", "標示", True)])
+    return f'''<div class="astro-lab cp-lab cp-cpu-lab rvl" data-compcpu-lab>
+  <div class="al-stage">
+    <div class="al-space">
+      <canvas class="al-space-cv" aria-label="3D model of a tiny teaching processor: a column of eight memory cells on the left, and on the right a counter, an instruction register, a register called A, and an adder · 教學用小處理器的 3D 模型：左邊一排八格記憶體，右邊是計數器、指令暫存器、暫存器 A 和加法器"></canvas>
+      <div class="al-labels" aria-hidden="true"></div>
+      <p class="al-hint">Press Step below · 按下面的「下一步」　Drag to turn · 拖曳旋轉　Scroll or pinch to zoom · 滾輪／雙指縮放</p>
+      <button type="button" class="al-home" title="Reset view · 重設視角" aria-label="Reset view · 重設視角">&#8634;</button>
+      <p class="al-nogl-msg">This 3D model needs WebGL, which this browser does not support. The registers, the memory list, and the Step button below still work, and so do the reading and the games.<br><span class="zh">這個瀏覽器不支援 WebGL，無法顯示 3D 模型；下面的暫存器、記憶體清單和「下一步」按鈕照樣能用，課文和小遊戲也都能用。</span></p>
+    </div>
+    <aside class="al-sky cp-aside">
+      <p class="al-sky-k">Program · 程式</p>
+      <div class="cp-seg cp-seg2" role="group" aria-label="Program · 程式">{pb}</div>
+      <div class="cp-cpu-phases" aria-hidden="true"><span data-ph="fetch">1 Fetch<small>拿</small></span><span data-ph="decode">2 Decode<small>看懂</small></span><span data-ph="execute">3 Execute<small>照做</small></span></div>
+      <dl class="cp-cpu-regs" aria-live="polite">
+        <div><dt>Counter · 計數器</dt><dd class="cp-cpu-pc">0</dd></div>
+        <div><dt>Instruction · 指令</dt><dd class="cp-cpu-ir">—</dd></div>
+        <div><dt>A · 手上的數</dt><dd class="cp-cpu-a">0</dd></div>
+      </dl>
+      <p class="al-sky-k cp-k2">Memory · 記憶體</p>
+      <ol class="cp-cpu-mem" aria-label="Memory cells 0 to 7 · 記憶體第 0 到 7 格"></ol>
+      <div class="cp-btns">
+        <button type="button" class="cp-btn-d cp-add cp-step">Step · 下一步</button>
+        <button type="button" class="cp-btn-d cp-reset">Reset · 重來</button>
+      </div>
+      <p class="cp-msg" aria-live="polite"></p>
+      <p class="cp-cpu-dn">Instructions carried out · 已經執行 <b class="cp-cpu-done">0</b> 條</p>
+      <div class="cp-seg" role="group" aria-label="Speed · 速度">{sb}</div>
+    </aside>
+  </div>
+  <div class="al-controls">
+    <div class="al-row al-row-main">
+      <button type="button" class="al-play" aria-pressed="false"><span class="al-play-i" aria-hidden="true"></span><span class="al-play-t">Run · 執行</span></button>
+      <div class="al-row al-toggles">{tg}</div>
+    </div>
+  </div>
+  {_lab_foot(lab)}
+  <p class="cp-credit">{lab["credit_html"]}</p>
+</div>'''
+
+def _comp_prog(pg):
+    slots = "".join(f'<li class="cp-pg-slot"><i>{i}</i><select aria-label="Instruction in cell {i} · 第 {i} 格的指令"></select></li>' for i in range(4))
+    data = "".join(f'<li><i>{i}</i><b data-pgcell>{v}</b></li>' for i, v in ((5, 3), (6, 4), (7, 0)))
+    tips = "".join(f'<li>{html.escape(t["en"])}<span class="zh">{html.escape(t["zh"])}</span></li>' for t in pg["tips"])
+    return f'''<div class="cp-prog rvl" data-cp-prog>
+  <div class="cp-pg-left">
+    <p class="cp-k">Your program, cells 0 to 3 · 你的程式（第 0 到 3 格）</p>
+    <ol class="cp-pg-slots">{slots}</ol>
+    <p class="cp-k">Numbers, cells 5 to 7 · 數（第 5 到 7 格）</p>
+    <ul class="cp-pg-data">{data}</ul>
+    <div class="cp-btns"><button type="button" class="cp-btn cp-btn-gold cp-pg-run">Run · 執行</button><button type="button" class="cp-btn cp-pg-clear">Clear · 清空</button></div>
+  </div>
+  <div class="cp-pg-right">
+    <p class="cp-pg-msg" aria-live="polite"></p>
+    <ol class="cp-pg-trace"></ol>
+  </div>
+</div>
+<ul class="cp-tips rvl">{tips}</ul>'''
+
+def _comp_pred(pd):
+    return f'''<div class="cp-guess cp-pred rvl" data-cp-pred>
+  <div class="cp-gs-top"><p class="cp-gs-k"></p><p class="cp-gs-sc">Right on the first try · 第一次就答對 <b class="cp-gs-score">0 / 0</b></p></div>
+  <p class="cp-pd-q" aria-live="polite"></p>
+  <div class="cp-gs-opts" role="group" aria-label="Choose a number · 選一個數"></div>
+  <p class="cp-gs-msg" aria-live="polite"></p>
+  <div class="cp-gs-foot"><span></span><button type="button" class="cp-btn cp-btn-gold cp-gs-next" hidden>Next · 下一題</button></div>
+</div>'''
+
 def _comp_flat():
     return [(ui, u, l) for ui, u in enumerate(COMP["units"]) for l in u["lessons"]]
 
@@ -13177,7 +13263,7 @@ def build_comp_lesson(ui, unit, lesson):
     reading_html = render_basic_unit(1, unit_dict, level="comp", audio_rel="", pdf_rel="")
     lab = lesson["lab"]
     kind = lab["kind"]
-    lab_html = {"bits": render_compbits_lab, "pixels": render_comppixels_lab, "logic": render_complogic_lab, "adder": render_compadder_lab, "pc": render_comppc_lab}[kind](lesson)
+    lab_html = {"bits": render_compbits_lab, "pixels": render_comppixels_lab, "logic": render_complogic_lab, "adder": render_compadder_lab, "pc": render_comppc_lab, "cpu": render_compcpu_lab}[kind](lesson)
 
     def sec(key, fn):
         d = lesson[key]
@@ -13207,6 +13293,8 @@ def build_comp_lesson(ui, unit, lesson):
     if lesson.get("addq"): secs.append(sec("addq", _comp_addq))
     if lesson.get("jobs"): secs.append(sec("jobs", lambda d: _comp_jobs(d, lesson)))
     if lesson.get("fits"): secs.append(sec("fits", _comp_fits))
+    if lesson.get("prog"): secs.append(sec("prog", _comp_prog))
+    if lesson.get("pred"): secs.append(sec("pred", _comp_pred))
     if lesson.get("culture_cards"):
         cu = lesson["culture_cards"]
         cc = "".join(
