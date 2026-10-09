@@ -4317,7 +4317,7 @@ def build_astro_hub():
 # 面板與段落樣式沿用 astro.css，人體專屬的在 body.css；兩者都只載在本系列頁面。
 BODY_BASE = "/resources/classes/human-body/"
 _BODY_JS = {"skeleton": "skeleton", "arm": "arm", "heart": "heart", "lungs": "lungs", "joints": "joints",
-            "digestion": "digestion", "nerves": "nerves", "eyes": "eyes", "ears": "ears", "skin": "skin", "teeth": "teeth", "germs": "germs", "kidneys": "kidneys", "taste": "taste", "sleep": "sleep", "growth": "growth", "voice": "voice", "hands": "hands", "healing": "healing", "exercise": "exercise", "energy": "energy", "temperature": "temperature"}   # lab.kind → assets/js/<bundle>.js
+            "digestion": "digestion", "nerves": "nerves", "eyes": "eyes", "ears": "ears", "skin": "skin", "teeth": "teeth", "germs": "germs", "kidneys": "kidneys", "taste": "taste", "sleep": "sleep", "growth": "growth", "voice": "voice", "hands": "hands", "healing": "healing", "exercise": "exercise", "energy": "energy", "temperature": "temperature", "back": "back"}   # lab.kind → assets/js/<bundle>.js
 
 def _body_ver():
     h = hashlib.md5()
@@ -5699,6 +5699,70 @@ def render_temperature_lab(lesson):
   <p class="sk-credit">{lab["credit_html"]}</p>
 </div>'''
 
+def render_back_lab(lesson):
+    """第二十三課：真實脊柱＋真實椎間盤＋自繪脊髓與書包，書包重量、背法、低頭角度（assets/js/back.js 綁這裡的 class）；書包檢查是 2D，不需要 WebGL。"""
+    lab = lesson["lab"]
+    notes_json = html.escape(json.dumps(lab["notes"], ensure_ascii=False))
+    styles = "".join(
+        f'<button type="button" data-style="{s["key"]}" aria-pressed="{"true" if n == 0 else "false"}"><i aria-hidden="true">{s["icon"]}</i>'
+        f'<span>{html.escape(s["en"])}<small>{html.escape(s["zh"])}</small></span></button>' for n, s in enumerate(lab["styles"]))
+    def bar(cls, en, zh):
+        return f'<div class="bp-bar bp-bar-{cls}"><span>{en}<small>{zh}</small></span><b><i></i></b></div>'
+    wall = "".join(
+        f'<button type="button" class="bp-wall" aria-pressed="false"><i aria-hidden="true">{ic}</i><span>{en}<small>{zh}</small></span></button>'
+        for ic, en, zh in [("&#129462;", "Heels", "腳跟"), ("&#129681;", "Bottom", "屁股"), ("&#129463;", "Shoulder blades", "肩胛骨"), ("&#128100;", "Back of the head", "後腦勺")])
+    tg = _lab_toggles([("labels", "Labels", "標示", True), ("cord", "Spinal cord", "脊髓", False), ("skel", "Other bones", "其他骨頭", True)])
+    return f'''<div class="astro-lab sk-lab bp-lab rvl" data-back-lab data-model="{_model_url()}" data-organs="{_organs_url()}" data-notes="{notes_json}">
+  <div class="al-stage">
+    <div class="al-space">
+      <canvas class="al-space-cv" aria-label="3D model of a real spine seen from the side, with real discs between the bones, a spinal cord inside, and a backpack whose weight can be changed · 從側面看的真實脊柱 3D 模型，骨頭之間有真實的椎間盤、裡面有脊髓，還有一個可以改變重量的書包"></canvas>
+      <div class="al-labels" aria-hidden="true"></div>
+      <p class="sk-loading">Loading… · 載入中…<span class="sk-bar"><i></i></span></p>
+      <p class="al-hint">Drag to turn · 拖曳旋轉　Scroll or pinch to zoom · 滾輪／雙指縮放</p>
+      <p class="ey-mag">Disc colors show a pattern, not measured pressure · 椎間盤的顏色是示意，不是實際量到的壓力</p>
+      <button type="button" class="al-home" title="Reset view · 重設視角" aria-label="Reset view · 重設視角">&#8634;</button>
+      <p class="al-nogl-msg">This 3D model needs WebGL, which this browser does not support. The bag check and the cards below still work.<br><span class="zh">這個瀏覽器不支援 WebGL，無法顯示 3D 模型；下方的書包檢查和卡片一樣能用。</span></p>
+    </div>
+    <aside class="al-sky sk-aside bp-aside">
+      <p class="bp-big"><b class="bp-pct">0%</b><span>of body weight in the bag<small>書包占體重的比例</small></span></p>
+      <div class="bp-gauge" aria-hidden="true"><i class="bp-gauge-f"></i><b class="bp-gauge-m"><span>1/8</span></b></div>
+      <p class="bp-key">The line: one eighth, the Ministry of Education's guideline · 那條線：八分之一，教育部的建議</p>
+      {bar("low", "Load on the lower back", "下背的負擔")}{bar("neck", "Load on the neck", "脖子的負擔")}{bar("lean", "Leaning to balance", "為了平衡而傾斜")}
+      <p class="ey-status bp-status" aria-live="polite"></p>
+    </aside>
+  </div>
+  <div class="bp-strip">
+    <div class="bp-check">
+      <p class="al-sky-k">My bag check · 我的書包檢查</p>
+      <div class="bp-set">
+        <label>My school bag<small>我的書包</small><span><input type="number" class="bp-bag" min="0" max="30" step="0.1" inputmode="decimal" placeholder="—"> kg</span></label>
+        <label>My body weight<small>我的體重</small><span><input type="number" class="bp-kg" min="10" max="150" step="0.5" inputmode="decimal" placeholder="—"> kg</span></label>
+      </div>
+      <div class="bp-gauge bp-gauge2" aria-hidden="true"><i class="bp-gauge-f"></i><b class="bp-gauge-m"><span>1/8</span></b></div>
+      <p class="bp-msg" aria-live="polite"></p>
+      <p class="bp-note">These numbers stay on this screen. They are not saved or sent anywhere.<span class="zh">這些數字只留在這個畫面上，不會儲存，也不會傳到任何地方。</span></p>
+    </div>
+    <div class="bp-side">
+      <p class="al-sky-k">Wall check · 靠牆站一站</p>
+      <p class="bp-lead">Stand with your back to a wall, heels a few centimeters from it. Which parts touch the wall without straining? Tap them.<span class="zh">背對牆壁站好，腳跟離牆幾公分。哪些地方不必用力就碰得到牆？點一點。</span></p>
+      <div class="bp-walls">{wall}</div>
+      <p class="bp-wmsg" aria-live="polite"></p>
+    </div>
+  </div>
+  <div class="al-controls">
+    <div class="ea-pres bp-styles" role="group" aria-label="How the bag is worn · 書包怎麼背">{styles}</div>
+    <div class="al-row al-row-main bp-rows">
+      <label class="ec-slider bp-row"><span class="ec-slider-k">Weight of the bag · 書包的重量<em class="bp-load-t">0%</em></span>
+        <input type="range" class="ec-time bp-load" min="0" max="25" step="0.5" value="0"></label>
+      <label class="ec-slider bp-row"><span class="ec-slider-k">Head tilted forward · 頭往前低<em class="bp-tilt-t">0&deg;</em></span>
+        <input type="range" class="ec-time bp-tilt" min="0" max="60" step="1" value="0"></label>
+    </div>
+    <div class="al-row al-toggles">{tg}</div>
+  </div>
+  {_lab_foot(lab)}
+  <p class="sk-credit">{lab["credit_html"]}</p>
+</div>'''
+
 def _body_nav(slug):
     ls = BODY["lessons"]
     i = next(n for n, l in enumerate(ls) if l["slug"] == slug)
@@ -5726,7 +5790,7 @@ def build_body_lesson(lesson):
                 "joints": render_joints_lab, "digestion": render_digestion_lab, "nerves": render_nerves_lab,
                 "eyes": render_eyes_lab, "ears": render_ears_lab, "skin": render_skin_lab,
                 "teeth": render_teeth_lab, "germs": render_germs_lab, "kidneys": render_kidneys_lab,
-                "taste": render_taste_lab, "sleep": render_sleep_lab, "growth": render_growth_lab, "voice": render_voice_lab, "hands": render_hands_lab, "healing": render_healing_lab, "exercise": render_exercise_lab, "energy": render_energy_lab, "temperature": render_temperature_lab}[kind](lesson)
+                "taste": render_taste_lab, "sleep": render_sleep_lab, "growth": render_growth_lab, "voice": render_voice_lab, "hands": render_hands_lab, "healing": render_healing_lab, "exercise": render_exercise_lab, "energy": render_energy_lab, "temperature": render_temperature_lab, "back": render_back_lab}[kind](lesson)
 
     secs = []
     if lesson.get("jobs"):
@@ -5841,7 +5905,8 @@ def build_body_lesson(lesson):
                 "healing": ("Healing in a sentence", "一句話記住癒合"),
                 "exercise": ("Exercise in a sentence", "一句話記住運動"),
                 "energy": ("Energy in a sentence", "一句話記住能量"),
-                "temperature": ("Body heat in a sentence", "一句話記住體溫")}[kind]
+                "temperature": ("Body heat in a sentence", "一句話記住體溫"),
+                "back": ("The spine in a sentence", "一句話記住脊柱")}[kind]
     secs.append(("tricks", "Remember It · 記憶口訣", tricks_h[0], tricks_h[1], _sci_tricks(lesson), ""))
     if lesson.get("culture"):
         cu = lesson["culture"]

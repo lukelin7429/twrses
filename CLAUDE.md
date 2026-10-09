@@ -205,6 +205,11 @@
   - 模擬 `drives(air, ex, err)`：氣溫 5–38 °C、運動、`err = core − set`（發燒＝`set` 調到 38.5，只是舉例）→ hot／cold 兩個驅動量 → 皮膚血流、流汗、發抖、雞皮疙瘩、手腳的溫暖。**氣溫再冷，核心都不變**；發燒剛開始 err < 0 所以發抖、退燒時 err > 0 所以流汗。核心用一階延遲（4 秒）追上設定。發抖是整個身體和骨架左右抖 4 毫米。
   - **內容界線（Luke 2026-10-09 定案）**：發燒只講「恆溫器設定值調高」的原理，**不談退燒藥、不寫幾度要就醫**；健康提醒只寫告訴大人、依照醫師指示。「捂汗」沒查證，沒寫。
   - **體溫日記是 2D（`initDiary`）**：5 天 × 早中晚的輸入格＋折線圖，算「傍晚平均比早上高幾度」；訊息固定寫「不能告訴你有沒有生病」。localStorage 鍵 `twrses-body-tempdiary`。
+- 第二十三課背（`back.js`，`lab.kind = "back"`，`data-back-lab`，CSS 前綴 `bp-`（`bk-` 是 science.css 的））：**從側面看的真實脊柱**（其餘骨頭淡淡的）＋**真實椎間盤** `disc-01`…`disc-22`（01–06 是 C2–C3 … C7–T1，07–17 是 T1–T2 … T11–T12，18–22 是 L1–L2 … L5–S1；**原始資料缺 T12–L1 那一片**，照上下兩片的大小畫一個扁球補上，頁面有說明）＋自繪脊髓與書包。鏡頭在 +X（身體左側）：螢幕右邊＝背後（−Z）。
+  - 會動的結構：`trunk`（pivot 在 L5–S1 椎間盤）用 `attach` 掛著骨盆以上所有骨頭、椎間盤、脊髓、書包；頸部六層巢狀 pivot（各在一片頸椎椎間盤的中心），每層轉「低頭角度 ÷ 6」，頭骨掛最上層。標籤和脊髓的控制點都是掛在骨頭父層上的 `Object3D` 錨點（`getWorldPosition`），低頭時脊髓的 `TubeGeometry` 重建。「脊髓」開關把脊椎骨調成半透明。
+  - 模擬（示意）：L＝書包占體重的比例 ÷ 25%，背法倍數 two 1／one 1.15／low 1.3；前傾 L × 9°（背太低 16°），只背一邊另外側彎 L × 8°；`pressure()` 給每片椎間盤一個 0–1，顏色淺藍 → 橘 → 紅。滑桿直接是「占體重的百分比」，所以模型裡不出現任何體重。
+  - **內容界線（Luke 2026-10-09 定案）**：只算書包占體重的比例、不評論體重、全班統計匿名（活動寫明「只秤書包，不秤人」）。書包上限用**教育部「不超過體重八分之一」**（1999 年書包減重計畫）。低頭的負擔只講槓桿原理，**沒寫「低頭幾度等於幾公斤」那類數字**。
+  - **書包檢查是 2D（`initBag`）**：書包公斤 ÷ 體重公斤 → 百分比和八分之一的線；**數字不存 localStorage**，頁面上明講。旁邊是「靠牆站」四個勾選（腳跟、屁股、肩胛骨、後腦勺）。
 - **多個 session 同時改這個 repo 時，一律在自己的 git worktree 裡做**（2026-10-09 起）：`git worktree add -b <分支> <scratchpad>/wt origin/main`，把 `tools/<系列>/node_modules`、`audio` 用 symlink 接過來、複製 `tools/.r2_uploaded_cache.txt`；預覽在 vault 的 `.claude/launch.json` 加一筆 `python3 -m http.server <port> --directory <worktree>`；做完 `git fetch && git rebase origin/main && git push origin HEAD:main`。原因：未提交的 `data/*.json` 會讓別的 session 的 `python3 build.py` 直接失敗，共用的 `build.py` 也曾被另一個 session 的腳本誤清空。改檔案的腳本要**先讀完、算好、最後才 `open(p, 'w')`**，不要寫成 `open(p,'w').write(f(open(p).read()))`。
 - 第四批（第 13–16 課：腎臟、味覺與嗅覺、睡眠、長高）規劃在 Obsidian 課程規劃第九節，四課已全部完成（2026-10-05）。第五批（第 17–20 課：說話、手、修復、運動）規劃在第十節，**四課已全部完成（2026-10-09），人體探索共 20 課，`planned[]` 目前是空的**；要再加課，先在課程規劃定題。
 - 網站 `html` 有 smooth scroll：在背景的瀏覽器面板裡捲動會慢好幾秒，截圖前先設 `document.documentElement.style.scrollBehavior='auto'`。

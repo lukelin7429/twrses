@@ -16,11 +16,6 @@
   ],
   "planned": [
     {
-      "icon": "🎒",
-      "en": "Why Does Your Back Need Care?",
-      "zh": "背為什麼需要照顧？"
-    },
-    {
       "icon": "🔬",
       "en": "What Are You Made Of?",
       "zh": "你是什麼做成的？"
@@ -10380,6 +10375,481 @@
       },
       "health_en": "This lesson is for learning about the body. It is not medical advice, and the diary cannot tell you whether you are sick. If you feel feverish or unwell, tell an adult, and follow your doctor's advice. On hot days, drink water often. If you feel dizzy or sick in the heat, stop, move to the shade, and tell an adult right away.",
       "health_zh": "本課是認識身體的教材，不是醫療建議；體溫日記也不能告訴你有沒有生病。如果覺得發燒或不舒服，請告訴大人，並依照醫師的指示。天氣熱的時候要常喝水；如果在大熱天覺得頭暈或想吐，請馬上停下來、到陰涼的地方，並且立刻告訴大人。"
+    },
+    {
+      "n": 23,
+      "slug": "back",
+      "title": "Why Does Your Back Need Care?",
+      "title_zh": "背為什麼需要照顧？",
+      "level": "入門 · Beginner",
+      "icon": "🎒",
+      "card": "back",
+      "blurb_en": "Your spine is a tower of bones and soft cushions that holds you up all day. Load a backpack onto a real 3D spine, tilt the head toward a phone, and check your own school bag.",
+      "blurb_zh": "脊柱是一座由骨頭和軟墊疊成的塔，撐住你一整天。在 3D 裡幫真實的脊柱背上書包、讓頭低下去看手機，再檢查一下你自己的書包。",
+      "big_idea_en": "Your spine is a stack of bones with soft discs between them. Its gentle curves work like a spring, and it stays healthy when the load is light, close, and balanced.",
+      "big_idea_zh": "脊柱是一塊一塊疊起來的骨頭，中間夾著軟軟的椎間盤。它微微的彎度像彈簧一樣；背的東西輕一點、貼近一點、兩邊平均，它就能保持健康。",
+      "lab": {
+        "kind": "back",
+        "eyebrow": "3D Model · 3D 模型",
+        "title_en": "Load the Spine",
+        "title_zh": "幫脊柱加上重量",
+        "how_en": "You are looking at a real spine from the side. Find its curves: in at the neck, out at the upper back, in again at the lower back. The colored cushions between the bones are the discs. Now slide the weight of the backpack up, and watch the discs in the lower back change color as they are pressed harder. Try one strap, and try wearing the bag too low. Then put the bag down and tilt the head forward, the way you look at a phone.",
+        "how_zh": "你現在是從側面看一條真實的脊柱。找找它的彎：脖子往前凹、上背往後凸、下背又往前凹。骨頭之間有顏色的軟墊就是椎間盤。現在把書包的重量往上拉，看下背的椎間盤被壓得越重、顏色變得越深。試試只背一邊，再試試把書包背得太低。最後把書包放下，讓頭往前低，就像你看手機的樣子。",
+        "legend": [
+          {
+            "cls": "bpbone",
+            "en": "Ivory: the real bones of the spine",
+            "zh": "象牙色：脊柱的真實骨頭"
+          },
+          {
+            "cls": "bpcalm",
+            "en": "Light blue disc: lightly pressed",
+            "zh": "淺藍色的椎間盤：壓力小"
+          },
+          {
+            "cls": "bphot",
+            "en": "Orange and red disc: pressed hard",
+            "zh": "橘色和紅色的椎間盤：壓力大"
+          },
+          {
+            "cls": "bpcord",
+            "en": "Yellow: the spinal cord inside",
+            "zh": "黃色：裡面的脊髓"
+          },
+          {
+            "cls": "bpbag",
+            "en": "Blue box: the backpack",
+            "zh": "藍色的盒子：書包"
+          }
+        ],
+        "scale_en": "The bones and 22 of the discs are real shapes from BodyParts3D, in their real places; the data has no file for one disc, so we drew that one, along with the spinal cord and the backpack. The colors of the discs show a pattern, not measured pressure, and the lean of the body is a drawing of what people tend to do under a load. How a real back responds depends on the person, the bag, and how long it is carried.",
+        "scale_zh": "骨頭和其中 22 片椎間盤是 BodyParts3D 的真實形狀，位置也是真的；資料裡少了一片椎間盤的檔案，那一片和脊髓、書包一樣，是本站自繪的。椎間盤的顏色畫的是「哪裡壓力大」的樣子，不是實際量到的壓力；身體往前傾的角度，畫的是人背重物時常見的姿勢。真實的背會怎麼反應，要看每個人、看書包，也看背了多久。",
+        "credit_html": "Bone and disc models: <a href=\"https://dbarchive.biosciencedbc.jp/en/bodyparts3d/download.html\" target=\"_blank\" rel=\"noopener\">BodyParts3D</a>, © The Database Center for Life Science, licensed under <a href=\"https://creativecommons.org/licenses/by/4.0/\" target=\"_blank\" rel=\"noopener\">CC BY 4.0</a>. We selected the bones and the intervertebral discs, simplified the shapes, and turned the model upright; one disc, the spinal cord, and the backpack are our own drawing. · 骨骼與椎間盤模型來源：BodyParts3D（日本生命科學資料庫中心，CC BY 4.0 授權）；本站挑選骨頭與椎間盤、簡化形狀並轉正方向，其中一片椎間盤、脊髓與書包為本站自繪示意。",
+        "styles": [
+          {
+            "key": "two",
+            "icon": "🎒",
+            "en": "Both straps, high and snug",
+            "zh": "雙肩背，高而貼身"
+          },
+          {
+            "key": "one",
+            "icon": "↘️",
+            "en": "One strap only",
+            "zh": "只背一邊"
+          },
+          {
+            "key": "low",
+            "icon": "⬇️",
+            "en": "Worn too low",
+            "zh": "背得太低"
+          }
+        ],
+        "notes": {
+          "none": {
+            "en": "No bag. The spine carries the head, the arms, and the upper body, and its curves share the work like a spring. The discs lower down carry more, because more of the body sits above them.",
+            "zh": "沒有背書包。脊柱撐著頭、手臂和上半身，幾個彎像彈簧一樣一起分擔。越下面的椎間盤負擔越大，因為在它上面的身體越多。"
+          },
+          "light": {
+            "en": "A light bag, close to the back, on both shoulders. The discs are pressed a little more, and the body hardly leans. This is the way to carry it.",
+            "zh": "書包不重、貼著背、兩邊肩膀一起背。椎間盤多受一點點壓力，身體幾乎不必往前傾。這就是對的背法。"
+          },
+          "heavy": {
+            "en": "A heavy bag. To keep from tipping backward, the body leans forward, and the discs of the lower back are pressed hard. What could stay at school or at home?",
+            "zh": "書包很重。為了不往後倒，身體往前傾，下背的椎間盤被壓得很用力。有什麼東西可以留在學校或家裡？"
+          },
+          "one": {
+            "en": "One strap. All the weight hangs from one shoulder, so the spine bends sideways to balance it, and the muscles on one side do most of the work.",
+            "zh": "只背一邊。所有的重量都掛在一邊肩膀上，脊柱只好往旁邊彎來平衡，一邊的肌肉做了大部分的工作。"
+          },
+          "low": {
+            "en": "Too low. The bag hangs far from the back and pulls backward like a long lever, so the body has to lean farther forward. Tighten the straps so that it sits high and snug.",
+            "zh": "背得太低。書包離背很遠，像一根長長的槓桿把你往後拉，身體只好更往前傾。把肩帶拉緊，讓書包又高又貼身。"
+          },
+          "phone": {
+            "en": "Head forward. Your head is heavy, and the farther forward it hangs, the harder the muscles and discs of the neck must work to hold it. Lift the phone up to your eyes instead.",
+            "zh": "頭往前低。頭很重，越往前伸，脖子的肌肉和椎間盤就要越用力才撐得住。把手機舉高到眼睛的高度吧。"
+          }
+        }
+      },
+      "paras": [
+        "Reach behind you and run a finger down the middle of your back. Do you feel a row of bumps? Each bump is the back of one bone of your spine. The spine is the tower that holds you up, from your hips to your head, all day long.",
+        "The tower is not one bone but many. Each one is called a vertebra. There are seven in your neck, twelve in your upper back, and five in your lower back. Below them, five more are joined together into one bone called the sacrum, and at the very bottom is the little tailbone. Altogether a baby starts with about 33, and 24 of them stay separate so that you can bend and twist.",
+        "Between the separate bones lie 23 soft cushions called discs. A disc has a tough ring on the outside and a soft gel in the middle, a little like a jelly doughnut. The discs let your spine bend, and they soak up the bumps when you run and jump. Do you remember that you are a little taller in the morning than at night? During the day your discs are squeezed, and at night, when you lie down, they fill up again.",
+        "Look at a spine from the side, and you will see that it is not straight. It curves in at the neck, out at the upper back, and in again at the lower back. A newborn baby has only one long curve. The neck curve forms when the baby learns to hold up its head, and the lower curve forms when the child learns to walk. These curves make the spine stronger and springier, like the bends in a spring.",
+        "The spine has a second job. Every vertebra has a hole in it, and the holes line up to make a long tunnel. Inside the tunnel runs your spinal cord, the thick bundle of nerves that carries messages between your brain and your body. You met it in the lesson about the brain. The bones of your spine are its armor.",
+        "So how do you take care of your back? Keep the load light: Taiwan's Ministry of Education suggests that a school bag should weigh no more than one eighth of your body weight. Wear both straps, and pull them snug so that the bag sits high and close. Put the heaviest books next to your back. Lift your phone or book up instead of dropping your head. And move! Your back likes changing position much more than it likes sitting still. Now check your own school bag with the tool below the model."
+      ],
+      "paras_zh": [
+        "把手伸到背後，用手指沿著背的正中間往下摸。有沒有摸到一排一粒一粒的突起？每一粒都是一塊脊椎骨的後端。脊柱就是那座把你撐起來的塔，從屁股到頭，撐一整天。",
+        "這座塔不是一根骨頭，而是很多塊。每一塊叫做一節脊椎骨：脖子有七節，上背有十二節，下背有五節。再往下，有五節合在一起變成一塊叫做薦骨的骨頭，最底下是小小的尾骨。嬰兒一開始總共大約有 33 節，其中 24 節一直保持分開，所以你才能彎腰、轉身。",
+        "分開的骨頭之間，夾著 23 片軟墊，叫做椎間盤。椎間盤外面是一圈堅韌的環，中間是軟軟的膠，有點像包果醬的甜甜圈。它們讓脊柱可以彎，也在你跑跳的時候吸收震動。還記得你早上比晚上高一點點嗎？白天椎間盤被壓扁，晚上躺下來，它們又重新吸飽水。",
+        "從側面看脊柱，你會發現它不是直的：脖子那裡往前凹，上背往後凸，下背又往前凹。剛出生的嬰兒只有一個長長的彎；脖子的彎，是寶寶學會把頭抬起來的時候出現的；下背的彎，是孩子學會走路的時候出現的。這些彎讓脊柱更強壯、更有彈性，就像彈簧的彎。",
+        "脊柱還有第二個工作。每一節脊椎骨上都有一個洞，這些洞排成一條長長的隧道。隧道裡面就是脊髓——那一大束在大腦和身體之間傳遞訊息的神經，你在大腦那一課見過它。脊椎骨就是它的盔甲。",
+        "那麼，要怎麼照顧自己的背呢？讓負擔輕一點：教育部建議，書包的重量不要超過體重的八分之一。兩邊肩帶都背，並且拉緊，讓書包又高又貼身；最重的書放在最靠近背的地方。把手機或書本舉高，而不是把頭低下去。還有——要動！比起一直坐著不動，你的背更喜歡常常換姿勢。現在用模型下方的工具，檢查一下你自己的書包吧。"
+      ],
+      "questions": [
+        "What lies between the separate bones of your spine, and what does it do?",
+        "What are the two jobs of the spine?",
+        "Name three ways to take care of your back when you carry a school bag."
+      ],
+      "answers": [
+        "Soft cushions called discs. They let the spine bend, and they soak up bumps.",
+        "It holds your body up, and it protects the spinal cord inside it.",
+        "Keep the bag light (no more than one eighth of your body weight), wear both straps and pull them snug, and put the heaviest books next to your back."
+      ],
+      "vocab": [
+        {
+          "n": 1,
+          "w": "back",
+          "pos": "n.",
+          "zh": "背",
+          "ex": "My <b>back</b> is tired after the long hike.",
+          "exzh": "走了很長的山路，我的背很累。"
+        },
+        {
+          "n": 2,
+          "w": "spine",
+          "pos": "n.",
+          "zh": "脊柱；脊椎",
+          "ex": "Your <b>spine</b> holds your body up.",
+          "exzh": "脊柱把你的身體撐起來。"
+        },
+        {
+          "n": 3,
+          "w": "backpack",
+          "pos": "n.",
+          "zh": "背包；書包",
+          "ex": "My <b>backpack</b> is full of books.",
+          "exzh": "我的書包裡裝滿了書。"
+        },
+        {
+          "n": 4,
+          "w": "heavy",
+          "pos": "adj.",
+          "zh": "重的",
+          "ex": "This box is too <b>heavy</b> for me.",
+          "exzh": "這個箱子對我來說太重了。"
+        },
+        {
+          "n": 5,
+          "w": "carry",
+          "pos": "v.",
+          "zh": "背；提；搬",
+          "ex": "Can you help me <b>carry</b> these bags?",
+          "exzh": "你可以幫我提這些袋子嗎？"
+        },
+        {
+          "n": 6,
+          "w": "bend",
+          "pos": "v.",
+          "zh": "彎曲",
+          "ex": "<b>Bend</b> your knees when you lift something.",
+          "exzh": "搬東西的時候要彎膝蓋。"
+        },
+        {
+          "n": 7,
+          "w": "straight",
+          "pos": "adj.",
+          "zh": "直的",
+          "ex": "Draw a <b>straight</b> line with a ruler.",
+          "exzh": "用尺畫一條直線。"
+        },
+        {
+          "n": 8,
+          "w": "curve",
+          "pos": "n.",
+          "zh": "彎；曲線",
+          "ex": "The road has a big <b>curve</b> ahead.",
+          "exzh": "前面的路有一個大彎。"
+        }
+      ],
+      "quiz": [
+        {
+          "q": "How many separate bones in your spine let you bend and twist?",
+          "options": [
+            "24",
+            "7",
+            "100",
+            "1"
+          ],
+          "correct": 0
+        },
+        {
+          "q": "What is a disc like?",
+          "options": [
+            "A tough ring with soft gel in the middle",
+            "A hard bone with a hole in it",
+            "A long nerve",
+            "A strong muscle"
+          ],
+          "correct": 0
+        },
+        {
+          "q": "What does the spine look like from the side?",
+          "options": [
+            "It has gentle curves",
+            "It is perfectly straight",
+            "It is a circle",
+            "It is shaped like a T"
+          ],
+          "correct": 0
+        },
+        {
+          "q": "What runs through the tunnel inside the spine?",
+          "options": [
+            "The spinal cord",
+            "The food tube",
+            "The windpipe",
+            "The biggest vein"
+          ],
+          "correct": 0
+        },
+        {
+          "q": "According to Taiwan's Ministry of Education, how heavy should a school bag be at most?",
+          "options": [
+            "One eighth of your body weight",
+            "Half of your body weight",
+            "The same as your body weight",
+            "One quarter of your body weight"
+          ],
+          "correct": 0
+        }
+      ],
+      "kinds_head": {
+        "eyebrow": "The Tower · 這座塔",
+        "en": "Five parts of the spine, from top to bottom",
+        "zh": "脊柱的五段，從上到下"
+      },
+      "kinds": [
+        {
+          "icon": "🦒",
+          "en": "Neck",
+          "zh": "頸椎",
+          "where_en": "7 bones",
+          "where_zh": "7 節",
+          "control_en": "Holds and turns the head",
+          "control_zh": "撐住頭、轉動頭",
+          "text_en": "The smallest and most movable bones. A giraffe has seven of them too, only much longer.",
+          "text_zh": "最小、最靈活的幾節。長頸鹿也是七節，只是每一節長得多。"
+        },
+        {
+          "icon": "🫁",
+          "en": "Upper back",
+          "zh": "胸椎",
+          "where_en": "12 bones",
+          "where_zh": "12 節",
+          "control_en": "Holds the ribs",
+          "control_zh": "連接肋骨",
+          "text_en": "Each one is joined to a pair of ribs. Together they make the cage around your heart and lungs.",
+          "text_zh": "每一節都接著一對肋骨，一起組成保護心臟和肺的籠子。"
+        },
+        {
+          "icon": "🏋️",
+          "en": "Lower back",
+          "zh": "腰椎",
+          "where_en": "5 bones",
+          "where_zh": "5 節",
+          "control_en": "Carries the most weight",
+          "control_zh": "承受最多重量",
+          "text_en": "The biggest and thickest bones, because everything above rests on them.",
+          "text_zh": "最大、最厚的幾節，因為上面所有的重量都壓在它們身上。"
+        },
+        {
+          "icon": "🔺",
+          "en": "Sacrum",
+          "zh": "薦骨",
+          "where_en": "5 bones joined into 1",
+          "where_zh": "5 節合成 1 塊",
+          "control_en": "Joins the spine to the hips",
+          "control_zh": "把脊柱接到骨盆",
+          "text_en": "It passes the weight of your upper body to your hip bones and legs.",
+          "text_zh": "它把上半身的重量交給骨盆和雙腿。"
+        },
+        {
+          "icon": "🐒",
+          "en": "Tailbone",
+          "zh": "尾骨",
+          "where_en": "About 4 tiny bones, joined",
+          "where_zh": "大約 4 小節，合在一起",
+          "control_en": "A place for muscles to attach",
+          "control_zh": "讓肌肉附著的地方",
+          "text_en": "All that is left of a tail, at the very end of the tower.",
+          "text_zh": "尾巴只剩下這麼一點點，就在這座塔的最末端。"
+        }
+      ],
+      "kinds_note_en": "Why a stack and not one long bone? One bone could not bend. A stack with cushions in between can bend a little at every level, and all those little bends add up to touching your toes.",
+      "kinds_note_zh": "為什麼是一疊，而不是一根長骨頭？一根骨頭沒辦法彎。一疊骨頭、中間夾著軟墊，每一層都能彎一點點；這些一點點加起來，你就摸得到腳趾了。",
+      "measure": {
+        "title_en": "How heavy is my school bag?",
+        "title_zh": "我的書包有多重？",
+        "lead_en": "Use the bag check below the model. You need a scale. The numbers stay on your screen: nothing is saved or sent anywhere. The tool looks only at the bag.",
+        "lead_zh": "用模型下方的書包檢查工具。你需要一台體重計。數字只留在你的螢幕上，不會儲存，也不會傳到任何地方。這個工具只看書包。",
+        "steps": [
+          {
+            "n": "⚖️",
+            "en": "Weigh the bag",
+            "zh": "秤書包",
+            "text_en": "Put your packed school bag on the scale. If the scale cannot read something so light, stand on it with the bag and without it, and subtract.",
+            "text_zh": "把裝好的書包放到體重計上。如果東西太輕、體重計量不出來，就先背著書包站上去，再放下書包站上去，兩個數字相減。"
+          },
+          {
+            "n": "🧮",
+            "en": "Find the share",
+            "zh": "算出比例",
+            "text_en": "Type the two numbers into the tool. It shows what share of your body weight the bag is, next to the one-eighth line.",
+            "text_zh": "把兩個數字輸入工具。它會顯示書包占體重的幾分之幾，旁邊畫著八分之一的那條線。"
+          },
+          {
+            "n": "📚",
+            "en": "Lighten it",
+            "zh": "幫書包減重",
+            "text_en": "Over the line? Take everything out. What do you really need today? What could stay at school?",
+            "text_zh": "超過那條線了嗎？把東西全部拿出來：今天真的用得到的有哪些？哪些可以留在學校？"
+          }
+        ],
+        "action": "test",
+        "action_value": "1",
+        "button_icon": "🎒",
+        "button_en": "Open the bag check",
+        "button_zh": "打開書包檢查"
+      },
+      "myths": [
+        {
+          "myth_en": "A healthy spine is perfectly straight.",
+          "myth_zh": "健康的脊柱是筆直的。",
+          "fact_en": "Seen from the side, a healthy spine has curves. They make it stronger and springier.",
+          "fact_zh": "從側面看，健康的脊柱是有彎度的。這些彎讓它更強壯、更有彈性。"
+        },
+        {
+          "myth_en": "The spine and the spinal cord are the same thing.",
+          "myth_zh": "脊柱和脊髓是同一個東西。",
+          "fact_en": "The spine is bone. The spinal cord is a bundle of nerves that runs inside it.",
+          "fact_zh": "脊柱是骨頭；脊髓是在它裡面的一束神經。"
+        },
+        {
+          "myth_en": "It does not matter how you carry a bag, only how heavy it is.",
+          "myth_zh": "書包怎麼背都沒關係，只要不重就好。",
+          "fact_en": "Both matter. The same bag pulls harder when it hangs low or from one shoulder.",
+          "fact_zh": "兩件事都重要。同一個書包，背得太低或只背一邊，拉扯的力量都更大。"
+        },
+        {
+          "myth_en": "Sitting very still and very straight is the best thing for your back.",
+          "myth_zh": "坐得直挺挺、一動也不動，對背最好。",
+          "fact_en": "Your back likes to move. Change your position often, and get up and stretch.",
+          "fact_zh": "你的背喜歡動。常常換姿勢，站起來伸展一下。"
+        }
+      ],
+      "tricks": [
+        {
+          "title_en": "7, 12, 5",
+          "title_zh": "7、12、5",
+          "body_en": "Seven bones in the neck, twelve in the upper back, five in the lower back: 24 that move.",
+          "body_zh": "脖子七節、上背十二節、下背五節：會動的一共 24 節。"
+        },
+        {
+          "title_en": "In, out, in",
+          "title_zh": "凹、凸、凹",
+          "body_en": "Neck in, upper back out, lower back in. Curves make a spring.",
+          "body_zh": "脖子凹、上背凸、下背凹。有彎，才是彈簧。"
+        },
+        {
+          "title_en": "One eighth",
+          "title_zh": "八分之一",
+          "body_en": "A school bag should weigh no more than one eighth of your body weight.",
+          "body_zh": "書包的重量不要超過體重的八分之一。"
+        },
+        {
+          "title_en": "Two straps, high and snug",
+          "title_zh": "雙肩背，高而貼身",
+          "body_en": "Both shoulders, straps pulled snug, heavy books next to your back.",
+          "body_zh": "兩邊肩膀一起背、肩帶拉緊、重的書靠近背。"
+        }
+      ],
+      "activities": [
+        {
+          "title_en": "Build a Spine",
+          "title_zh": "疊一條脊柱",
+          "materials": [
+            {
+              "en": "Eight empty thread spools or thick slices of a cardboard tube",
+              "zh": "八個空線軸，或切成厚片的紙筒"
+            },
+            {
+              "en": "Eight pieces of kitchen sponge with a hole in the middle",
+              "zh": "八片中間有洞的菜瓜布海綿"
+            },
+            {
+              "en": "A piece of string, 50 centimeters long",
+              "zh": "一條 50 公分長的繩子"
+            }
+          ],
+          "steps": [
+            {
+              "en": "Thread the spools onto the string with nothing between them, and tie the ends. Try to bend the tower.",
+              "zh": "只把線軸串在繩子上，中間什麼都不放，兩端打結。試著把這座塔彎一彎。"
+            },
+            {
+              "en": "Now take it apart and build it again, with a piece of sponge between every two spools.",
+              "zh": "現在拆開重新串一次，每兩個線軸之間夾一片海綿。"
+            },
+            {
+              "en": "Bend the new tower. What is different?",
+              "zh": "把新的塔彎一彎。有什麼不一樣？"
+            },
+            {
+              "en": "Press down on the top. What happens to the sponges?",
+              "zh": "從上面往下壓。海綿怎麼了？"
+            }
+          ],
+          "tip_en": "Teaching tip: hard pieces alone grind against each other and hardly bend. Hard and soft together bend smoothly and spring back. Pressing down shows the discs being squeezed, which is why we are a little shorter by evening. The string stands for the spinal cord.",
+          "tip_zh": "教學提示：只有硬的零件，會互相摩擦、幾乎彎不動；硬的和軟的交替，就彎得順，也彈得回來。往下壓可以看到「椎間盤」被壓扁——這就是我們到了傍晚會矮一點點的原因。那條繩子代表脊髓。"
+        },
+        {
+          "title_en": "The School Bag Survey",
+          "title_zh": "書包大調查",
+          "materials": [
+            {
+              "en": "A bathroom scale or a luggage scale",
+              "zh": "一台體重計或行李秤"
+            },
+            {
+              "en": "A chart on the board",
+              "zh": "黑板上畫一張圖表"
+            }
+          ],
+          "steps": [
+            {
+              "en": "Weigh every school bag in the class. Weigh only the bags, not the students.",
+              "zh": "把全班的書包都秤一秤。只秤書包，不秤人。"
+            },
+            {
+              "en": "Mark each weight with an X on the chart. No names are needed.",
+              "zh": "每個重量在圖表上畫一個 X，不必寫名字。"
+            },
+            {
+              "en": "What is the lightest bag? The heaviest? What weight is the most common?",
+              "zh": "最輕的書包多重？最重的呢？哪一個重量最常見？"
+            },
+            {
+              "en": "Empty one heavy bag together. What is in it that could stay at school?",
+              "zh": "一起把一個很重的書包倒出來看看：裡面有哪些東西可以留在學校？"
+            }
+          ],
+          "tip_en": "Teaching tip: weigh the bags only, and keep the chart anonymous. Children do not need to share their body weight with anyone; they can use the tool on this page privately at home. The useful discussion is about the bags: water bottles, books for other days, and what the class could keep in the classroom.",
+          "tip_zh": "教學提示：只秤書包，圖表保持匿名。孩子不需要告訴任何人自己的體重；想算比例的話，可以回家自己用這一頁的工具。值得討論的是書包本身：水壺、別天才用到的課本，還有哪些東西全班可以一起放在教室。"
+        }
+      ],
+      "culture": {
+        "title_en": "Backbone and Dragon Bone",
+        "title_zh": "脊梁與龍骨",
+        "body_en": "In English, to say that someone is brave and will not give in, you say she “has backbone.” Chinese uses the same picture: a person who stands up for what is right is said to 挺直腰桿 (tǐngzhí yāogǎn), “straighten the back,” and the people a country depends on are called its 脊梁 (jǐliang), its spine. In Taiwanese, the spine has an even grander name: 龍骨 (lêng-kut), the “dragon bone.” The long central beam at the bottom of a ship is also called 龍骨 in Chinese, and “keel” in English. A ship and a person are built the same way: one strong line down the middle, and everything else hangs from it.",
+        "body_zh": "英文說一個人勇敢、不肯屈服，會說她 has backbone（有脊梁骨）。中文用的是同一個畫面：為對的事站出來，叫「挺直腰桿」；國家所倚靠的人，叫做「脊梁」。台語給脊柱取了一個更氣派的名字：「龍骨」。船底正中間那根長長的大梁，中文也叫龍骨，英文叫 keel。船和人的造法是一樣的：正中間一條結實的主幹，其他的一切都掛在它上面。",
+        "link_en": "More Chinese health words in English",
+        "link_zh": "到中醫養生系列看更多"
+      },
+      "health_en": "This lesson is for learning about the body. It is not medical advice, and it is not about anyone's weight: the tool looks only at the bag. If your back, neck, or shoulders hurt often, or if you feel numbness or tingling in your arms or legs, tell an adult and see a doctor.",
+      "health_zh": "本課是認識身體的教材，不是醫療建議，也不是在談任何人的體重：工具只看書包。如果你的背、脖子或肩膀常常痛，或是手腳覺得麻麻、刺刺的，請告訴大人，並且去看醫生。"
     }
   ]
 }
