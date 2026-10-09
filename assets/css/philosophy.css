@@ -1162,3 +1162,38 @@ main:has(.ph-tools) .wrap { width: min(980px, 92vw); }
 .ph-lb-tag span { font: 700 .86rem var(--zh); letter-spacing: 0; margin-left: .6rem; text-transform: none; }
 .ph-lb .ph-vl-next span { font-family: var(--zh); }
 @media (max-width: 480px) { .ph-lb-btns { grid-template-columns: 1fr; } }
+
+/* ---- A28：孔多塞的陪審團 ---- */
+.ph-jy [hidden] { display: none !important; }
+.ph-jy-top { display: grid; grid-template-columns: 1.1fr 1fr; gap: 1.6rem 2.2rem; align-items: start; }
+.ph-jy-ctls { display: grid; gap: 1rem; }
+.ph-jy-ctl { display: grid; grid-template-columns: 1fr 4.2rem; gap: .2rem .8rem; align-items: center; }
+.ph-jy-ctl span { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: .1rem .6rem; align-items: baseline; }
+.ph-jy-ctl b, .ph-jy-bar b { font: 800 .86rem var(--sans); color: #fff; letter-spacing: .02em; }
+.ph-jy-ctl i, .ph-jy-bar i { font: normal .84rem var(--zh); color: rgba(255,255,255,.65); }
+.ph-jy-ctl input[type=range] { width: 100%; accent-color: #ffd36e; }
+.ph-jy-ctl output { font: 800 1.05rem var(--sans); color: #ffd98a; text-align: right; font-variant-numeric: tabular-nums; }
+.ph-jy-bars { display: grid; gap: 1.1rem; padding: 1.1rem 1.2rem; border-radius: 14px; background: rgba(0,0,0,.22); border: 1px solid rgba(255,255,255,.1); }
+.ph-jy-bar { display: grid; grid-template-columns: 1fr 5rem; gap: .35rem .8rem; align-items: center; }
+.ph-jy-bar span { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: .1rem .6rem; align-items: baseline; }
+.ph-jy-bar div { height: 14px; border-radius: 999px; background: rgba(255,255,255,.1); overflow: hidden; }
+.ph-jy-bar u { display: block; height: 100%; width: 0; border-radius: 999px; background: #9fc3ea; transition: width .25s ease; text-decoration: none; }
+.ph-jy-bar.is-maj u { background: #ffd36e; }
+.ph-jy-bar em { font: normal 800 1.15rem var(--sans); color: #fff; text-align: right; font-variant-numeric: tabular-nums; }
+.ph-jy-bar.is-maj em { color: #ffd98a; font-size: 1.4rem; }
+.ph-jy-dots svg { display: block; width: 100%; height: auto; margin: 1rem 0 .2rem; }
+.ph-jy-dots .ok { fill: #4fd1a5; } .ph-jy-dots .no { fill: #ff9d7a; }
+.ph-jy-finds { margin-top: 1.6rem; display: grid; gap: .7rem; }
+.ph-jy-h { margin: 0; font: 800 .78rem var(--sans); letter-spacing: .1em; text-transform: uppercase; color: #ffd98a; }
+.ph-jy-h span { font: 700 .86rem var(--zh); letter-spacing: 0; margin-left: .5rem; }
+.ph-jy-find { padding: .7rem .9rem; border-radius: 12px; background: rgba(255,255,255,.05); border: 1px dashed rgba(255,255,255,.2); }
+.ph-jy-find.is-found { border: 1px solid rgba(79,209,165,.55); background: rgba(79,209,165,.08); }
+.ph-jy-t { margin: 0; display: flex; flex-direction: column; gap: .1rem; }
+.ph-jy-t b { font: 600 1.02rem var(--serif); color: #fff; } .ph-jy-t span { font: .88rem var(--zh); color: rgba(255,255,255,.68); }
+.ph-jy .ph-vl-card { margin-top: .7rem; }
+.ph-jy .ph-vl-card p { margin: 0; font: 400 1.04rem/1.7 var(--serif); }
+.ph-jy .ph-vl-card .ph-zh { font: 400 .95rem/1.8 var(--zh); color: var(--ink-soft); }
+.ph-jy .ph-vl-card .ph-tr { background: var(--brand-lt); color: var(--brand-dk); }
+.ph-jy .ph-vl-next span { font-family: var(--zh); }
+.ph-jy .ph-el-end { margin-top: 1.4rem; }
+@media (max-width: 760px) { .ph-jy-top { grid-template-columns: 1fr; } }

@@ -1619,6 +1619,78 @@
     var m = /[#&]liberty=([ba]+)/.exec(location.hash); if (m) root.__lab.play(m[1].split('').map(function (c) { return c === 'b' ? 'ban' : 'allow'; }));
   });
 
+  /* ---- A28：孔多塞的陪審團（多數決什麼時候可靠） ---- */
+  $$('[data-ph-jury]').forEach(function (root) {
+    var D;
+    try { D = JSON.parse($('[data-jy-data]', root).textContent); } catch (e) { return; }
+    var NS = [1, 3, 11, 51, 101, 501, 1001], NSVG = 'http://www.w3.org/2000/svg';
+    var ip = $('[data-jy-p]', root), inn = $('[data-jy-n]', root), ic = $('[data-jy-c]', root), op = $('[data-jy-p-out]', root), on = $('[data-jy-n-out]', root), oc = $('[data-jy-c-out]', root);
+    var b1 = $('[data-jy-b1]', root), b2 = $('[data-jy-b2]', root), v1 = $('[data-jy-v1]', root), v2 = $('[data-jy-v2]', root), vote = $('[data-jy-vote]', root), res = $('[data-jy-res]', root), dots = $('[data-jy-dots]', root), finds = $('[data-jy-finds]', root), end = $('[data-jy-end]', root);
+    var found;
+    function zhp(parent, t) { var z = el('p', 'ph-zh', t); z.lang = 'zh-Hant'; parent.appendChild(z); addTr(z); }
+    function lgam(x) { var c = [76.18009172947146, -86.50532032941677, 24.01409824083091, -1.231739572450155, 0.001208650973866179, -0.000005395239384953], y = x, t = x + 5.5, s = 1.000000000190015; t -= (x + 0.5) * Math.log(t); for (var j = 0; j < 6; j++) s += c[j] / ++y; return -t + Math.log(2.5066282746310005 * s / x); }
+    function maj(n, q) {
+      if (q <= 0) return 0; if (q >= 1) return 1;
+      var s = 0, lq = Math.log(q), l1 = Math.log(1 - q);
+      for (var k = (n + 1) / 2; k <= n; k++) s += Math.exp(lgam(n + 1) - lgam(k + 1) - lgam(n - k + 1) + k * lq + (n - k) * l1);
+      return Math.min(1, s);
+    }
+    function vals() { return { p: +ip.value / 100, n: NS[+inn.value], c: +ic.value / 100 }; }
+    function prob(v) { return v.p * maj(v.n, v.c + (1 - v.c) * v.p) + (1 - v.p) * maj(v.n, (1 - v.c) * v.p); }
+    function pct(x) { return x > 0.999 ? '>99.9%' : x < 0.001 ? '<0.1%' : (x * 100).toFixed(1) + '%'; }
+    function drawFinds() {
+      finds.textContent = ''; var h = el('h4', 'ph-jy-h', D.todo.en + ' '); var hz = el('span', '', D.todo.zh); hz.lang = 'zh-Hant'; h.appendChild(hz); finds.appendChild(h);
+      D.finds.forEach(function (f) {
+        var it = el('div', 'ph-jy-find' + (found[f.k] ? ' is-found' : '')); var t = el('p', 'ph-jy-t'); t.appendChild(el('b', '', (found[f.k] ? '✓ ' : '○ ') + f.t.en)); var tz = el('span', '', f.t.zh); tz.lang = 'zh-Hant'; t.appendChild(tz); it.appendChild(t);
+        if (found[f.k]) { var c = el('div', 'ph-vl-card is-valid'); c.appendChild(el('p', '', f.v.en)); zhp(c, f.v.zh); it.appendChild(c); }
+        finds.appendChild(it);
+      });
+    }
+    function drawEnd() {
+      end.textContent = ''; if (!(found.up && found.down && found.copy)) return;
+      var e = el('div', 'ph-el-end'); var q = el('p', 'ph-vl-q'); q.appendChild(el('b', '', D.q.en)); var qz = el('span', '', D.q.zh); qz.lang = 'zh-Hant'; q.appendChild(qz); e.appendChild(q);
+      var box = el('div', 'ph-vl-opts ph-tp-opts'), out = el('div', 'ph-vl-out');
+      D.qopts.forEach(function (o) {
+        var bt = el('button', 'ph-vl-opt'); bt.type = 'button'; bt.appendChild(el('b', '', o.t.en)); var z = el('span', '', o.t.zh); z.lang = 'zh-Hant'; bt.appendChild(z);
+        bt.addEventListener('click', function () { $$('button', box).forEach(function (x) { x.classList.toggle('is-right', x === bt); }); out.textContent = ''; var c = el('div', 'ph-vl-card is-valid'); c.appendChild(el('p', '', o.v.en)); zhp(c, o.v.zh); out.appendChild(c); });
+        box.appendChild(bt);
+      });
+      e.appendChild(box); e.appendChild(out); end.appendChild(e);
+    }
+    function update() {
+      var v = vals(), P = prob(v);
+      op.textContent = Math.round(v.p * 100) + '%'; on.textContent = v.n; oc.textContent = Math.round(v.c * 100) + '%';
+      b1.style.width = (v.p * 100) + '%'; v1.textContent = pct(v.p); b2.style.width = (P * 100) + '%'; v2.textContent = pct(P);
+      var was = Object.keys(found).length;
+      if (v.p > 0.5 && v.p <= 0.6 && v.c <= 0.1 && P >= 0.95) found.up = 1;
+      if (v.p < 0.5 && v.p >= 0.4 && v.c <= 0.1 && P <= 0.05) found.down = 1;
+      if (v.p >= 0.6 && v.n >= 101 && v.c >= 0.6) found.copy = 1;
+      if (Object.keys(found).length !== was) { drawFinds(); drawEnd(); }
+      return P;
+    }
+    function hold(seed) {
+      var v = vals(), lead = Math.random() < v.p, r = 0, svg = document.createElementNS(NSVG, 'svg'), cols = v.n <= 11 ? v.n : v.n <= 101 ? 26 : 56, sz = v.n <= 101 ? 14 : 8, gap = v.n <= 101 ? 4 : 2, rows = Math.ceil(v.n / cols);
+      svg.setAttribute('viewBox', '0 0 ' + (cols * (sz + gap)) + ' ' + (rows * (sz + gap))); svg.style.maxWidth = (cols * (sz + gap)) + 'px';
+      for (var k = 0; k < v.n; k++) {
+        var ok = Math.random() < v.c ? lead : Math.random() < v.p; if (ok) r++;
+        var c = document.createElementNS(NSVG, 'rect'); c.setAttribute('x', (k % cols) * (sz + gap)); c.setAttribute('y', Math.floor(k / cols) * (sz + gap)); c.setAttribute('width', sz); c.setAttribute('height', sz); c.setAttribute('rx', sz / 4); c.setAttribute('class', ok ? 'ok' : 'no'); svg.appendChild(c);
+      }
+      dots.textContent = ''; dots.appendChild(svg);
+      var o = r > v.n / 2 ? D.res_ok : D.res_no; res.textContent = o.en.replace('{r}', r).replace('{w}', v.n - r) + ' ' + o.zh.replace('{r}', r).replace('{w}', v.n - r);
+      return r;
+    }
+    [ip, inn, ic].forEach(function (i) { i.addEventListener('input', function () { update(); dots.textContent = ''; res.textContent = ''; }); });
+    vote.addEventListener('click', function () { hold(); });
+    vote.textContent = ''; vote.appendChild(document.createTextNode(D.vote.en + ' · ')); (function () { var z = el('span', '', D.vote.zh); z.lang = 'zh-Hant'; vote.appendChild(z); })();
+    function reset() { found = {}; ip.value = 50; inn.value = 2; ic.value = 0; dots.textContent = ''; res.textContent = ''; drawFinds(); drawEnd(); update(); }
+    $('[data-jy-reset]', root).addEventListener('click', reset);
+    reset();
+    root.__lab = { state: function () { var v = vals(); return { p: v.p, n: v.n, c: v.c, P: +prob(v).toFixed(4), found: Object.keys(found), ended: !!end.children.length }; },
+      set: function (p, n, c) { ip.value = p; inn.value = NS.indexOf(n); ic.value = c; update(); return this.state(); }, vote: hold, maj: maj };
+    var m = /[#&]jury=([\d,\-]+)/.exec(location.hash);
+    if (m) { m[1].split(',').forEach(function (t) { var a = t.split('-').map(Number); root.__lab.set(a[0], a[1], a[2] || 0); }); hold(); }
+  });
+
   /* ---- A13：去火星三趟（帕菲特的傳送機） ---- */
   $$('[data-ph-teleport]').forEach(function (root) {
     var D;

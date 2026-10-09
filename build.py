@@ -8029,7 +8029,35 @@ def _ph_lab_liberty(lab):
   </div>
 </div>"""
 
+def _ph_lab_jury(lab):
+    """A28：孔多塞的陪審團。調每人答對的機率、人數、跟風的比例，看多數決答對的機率；找出三件事之後回答最後一題。"""
+    payload = html.escape(json.dumps({k: lab[k] for k in ("lp", "ln", "lc", "one", "maj", "vote", "res_ok", "res_no", "todo", "finds", "q", "qopts")}, ensure_ascii=False), quote=False)
+    def row(key, attrs, lab_):
+        return f'''<label class="ph-jy-ctl"><span><b>{html.escape(lab_["en"])}</b><i lang="zh-Hant">{html.escape(lab_["zh"])}</i></span><input type="range" {attrs} data-jy-{key}><output data-jy-{key}-out></output></label>'''
+    return f'''<div class="ph-el ph-jy rvl" data-ph-jury>
+  <script type="application/json" data-jy-data>{payload}</script>
+  <div class="ph-el-stage">
+    <div class="ph-jy-top">
+      <div class="ph-jy-ctls">
+        {row("p", 'min="30" max="90" step="1" value="50"', lab["lp"])}
+        {row("n", 'min="0" max="6" step="1" value="2"', lab["ln"])}
+        {row("c", 'min="0" max="100" step="10" value="0"', lab["lc"])}
+      </div>
+      <div class="ph-jy-bars" aria-live="polite">
+        <div class="ph-jy-bar"><span><b>{html.escape(lab["one"]["en"])}</b><i lang="zh-Hant">{html.escape(lab["one"]["zh"])}</i></span><div><u data-jy-b1></u></div><em data-jy-v1></em></div>
+        <div class="ph-jy-bar is-maj"><span><b>{html.escape(lab["maj"]["en"])}</b><i lang="zh-Hant">{html.escape(lab["maj"]["zh"])}</i></span><div><u data-jy-b2></u></div><em data-jy-v2></em></div>
+      </div>
+    </div>
+    <div class="ph-md-act"><button type="button" class="ph-vl-next" data-jy-vote></button><span class="ph-el-count" data-jy-res aria-live="polite"></span></div>
+    <div class="ph-jy-dots" data-jy-dots aria-hidden="true"></div>
+    <div class="ph-jy-finds" data-jy-finds></div>
+    <div data-jy-end aria-live="polite"></div>
+    <div class="ph-el-foot"><button type="button" class="ph-el-reset" data-jy-reset>Start again · 重來</button></div>
+  </div>
+</div>'''
+
 def _ph_lab(lab):
+    if lab.get("kind") == "jury": return _ph_lab_jury(lab)
     if lab.get("kind") == "liberty": return _ph_lab_liberty(lab)
     if lab.get("kind") == "veil": return _ph_lab_veil(lab)
     if lab.get("kind") == "commons": return _ph_lab_commons(lab)
