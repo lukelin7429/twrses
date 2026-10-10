@@ -8431,7 +8431,30 @@ def _ph_lab_wason(lab):
   </div>
 </div>"""
 
+def _ph_lab_epicycle(lab):
+    """A35：火星的那個圈。地心模式下調本輪的大小與週期去貼合觀測到的逆行軌跡；切到日心模式，同一個圈不必添加任何東西就出現。"""
+    payload = html.escape(json.dumps({k: lab[k] for k in ("modes", "lr", "lp", "yr", "fit", "deg", "legend", "ptol", "cop", "q", "qopts")}, ensure_ascii=False), quote=False)
+    return f"""<div class="ph-el ph-ep rvl" data-ph-epicycle>
+  <script type="application/json" data-ep-data>{payload}</script>
+  <div class="ph-el-stage">
+    <div class="ph-ep-modes" role="group" data-ep-modes></div>
+    <div class="ph-ep-grid">
+      <figure class="ph-ep-fig"><svg viewBox="-150 -150 300 300" data-ep-sky aria-hidden="true"></svg><figcaption data-ep-cap1></figcaption></figure>
+      <figure class="ph-ep-fig"><svg viewBox="-150 -150 300 300" data-ep-model aria-hidden="true"></svg><figcaption data-ep-cap2></figcaption></figure>
+    </div>
+    <div class="ph-ep-ctls" data-ep-ctls>
+      <label class="ph-jy-ctl"><span><b data-ep-lr></b></span><input type="range" min="0" max="1.6" step="0.02" value="0" data-ep-r><output data-ep-r-out></output></label>
+      <label class="ph-jy-ctl"><span><b data-ep-lp></b></span><input type="range" min="0.5" max="2" step="0.01" value="1.6" data-ep-p><output data-ep-p-out></output></label>
+    </div>
+    <div class="ph-ep-meter" aria-live="polite"><b data-ep-fit></b><div><u data-ep-bar></u></div><em data-ep-val></em></div>
+    <div class="ph-tp-text" data-ep-text aria-live="polite"></div>
+    <div data-ep-end aria-live="polite"></div>
+    <div class="ph-el-foot"><button type="button" class="ph-el-reset" data-ep-reset>Start again · 重來</button></div>
+  </div>
+</div>"""
+
 def _ph_lab(lab):
+    if lab.get("kind") == "epicycle": return _ph_lab_epicycle(lab)
     if lab.get("kind") == "wason": return _ph_lab_wason(lab)
     if lab.get("kind") == "beetle": return _ph_lab_beetle(lab)
     if lab.get("kind") == "copies": return _ph_lab_copies(lab)
@@ -8682,11 +8705,11 @@ def build_phil_person(P):
 {_ph_sec("sources", "Sources", "How we know · 史料", P["problem"]["title_en"], P["problem"]["title_zh"],
          f'<div class="ph-essay">{"".join(_ph_bi(p) for p in P["problem"]["paras"])}</div>' + _ph_said(P["said"]), band=True)}
 {_ph_sec("dharma", "Dharma", "Dharma and the West · 佛法與西方哲學", P["dharma"]["title_en"], P["dharma"]["title_zh"], _ph_dharma(P["dharma"]))}
-{_ph_sec("terms", "Terms", "Terms of art · 哲學術語", "Words that come with him", "跟著他一起來的詞", _ph_terms(P["terms"]), band=True)}
+{_ph_sec("terms", "Terms", "Terms of art · 哲學術語", "Words that come with her" if P.get("she") else "Words that come with him", "跟著她一起來的詞" if P.get("she") else "跟著他一起來的詞", _ph_terms(P["terms"]), band=True)}
 {_ph_sec("quiz", "Check", "Reading check · 理解測驗", "Did it land?", "讀懂了嗎", _ph_quiz(P["quiz"], P["slug"]))}
 <section class="section band ph-sec" id="more" data-ph-toc-label="More"><div class="wrap">
   <p class="eyebrow rvl">Go further · 延伸</p>
-  <h2 class="rvl d1 sweep">Where he appears <span class="ph-h2-zh">他出現在哪幾課</span></h2>
+  <h2 class="rvl d1 sweep">Where {"she" if P.get("she") else "he"} appears <span class="ph-h2-zh">{"她" if P.get("she") else "他"}出現在哪幾課</span></h2>
   <div class="ph-pcards">{lessons}</div>
   {_ph_further(P["further"])}
   {_ph_nav()}

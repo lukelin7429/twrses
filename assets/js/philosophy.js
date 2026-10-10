@@ -1974,6 +1974,83 @@
     if (m) root.__lab.play(m[1] ? m[1].split(',').map(function (t) { return t.split('_').map(Number); }) : [], m[2]);
   });
 
+  /* ---- A35：火星的那個圈（本輪 vs. 日心） ---- */
+  $$('[data-ph-epicycle]').forEach(function (root) {
+    var D;
+    try { D = JSON.parse($('[data-ep-data]', root).textContent); } catch (e) { return; }
+    var NS = 'http://www.w3.org/2000/svg', AM = 1.524, WE = 2 * Math.PI, WM = 2 * Math.PI / 1.881, T0 = -1.07, T1 = 1.07, STEPS = 240;
+    var sky = $('[data-ep-sky]', root), mdl = $('[data-ep-model]', root), modes = $('[data-ep-modes]', root), ctls = $('[data-ep-ctls]', root), ir = $('[data-ep-r]', root), ip = $('[data-ep-p]', root), or_ = $('[data-ep-r-out]', root), op = $('[data-ep-p-out]', root), bar = $('[data-ep-bar]', root), val = $('[data-ep-val]', root), text = $('[data-ep-text]', root), end = $('[data-ep-end]', root), cap1 = $('[data-ep-cap1]', root), cap2 = $('[data-ep-cap2]', root);
+    var mode, fitted, seenSun, tNow = 0, timer = null, reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    function zhp(parent, t) { var z = el('p', 'ph-zh', t); z.lang = 'zh-Hant'; parent.appendChild(z); addTr(z); }
+    function bi(elm, o) { elm.textContent = ''; elm.appendChild(document.createTextNode(o.en + ' ')); var z = el('i', '', o.zh); z.lang = 'zh-Hant'; elm.appendChild(z); }
+    function obs(t) { return [AM * Math.cos(WM * t) - Math.cos(WE * t), AM * Math.sin(WM * t) - Math.sin(WE * t)]; }
+    function mod(t, r, p) { var a = 2 * Math.PI * t / p + Math.PI; return [AM * Math.cos(WM * t) + r * Math.cos(a), AM * Math.sin(WM * t) + r * Math.sin(a)]; }
+    function misfit(r, p) {
+      var s = 0; for (var k = 0; k <= STEPS; k++) { var t = T0 + (T1 - T0) * k / STEPS, a = obs(t), b = mod(t, r, p), d = Math.atan2(a[1], a[0]) - Math.atan2(b[1], b[0]); d = Math.atan2(Math.sin(d), Math.cos(d)); s += d * d; }
+      return Math.sqrt(s / (STEPS + 1)) * 180 / Math.PI;
+    }
+    function path(fn, sc) { var d = ''; for (var k = 0; k <= STEPS; k++) { var t = T0 + (T1 - T0) * k / STEPS, q = fn(t); d += (k ? 'L' : 'M') + (q[0] * sc).toFixed(1) + ' ' + (-q[1] * sc).toFixed(1); } return d; }
+    function add(svg, tag, at, cls) { var e = document.createElementNS(NS, tag); Object.keys(at).forEach(function (a) { e.setAttribute(a, at[a]); }); if (cls) e.setAttribute('class', cls); svg.appendChild(e); return e; }
+    function vals() { return { r: +ir.value, p: +ip.value }; }
+    function draw() {
+      var v = vals(), SC = 52, sun = mode === 'sun';
+      sky.textContent = ''; add(sky, 'path', { d: path(obs, SC) }, 'obs');
+      add(sky, 'path', { d: path(sun ? obs : function (t) { return mod(t, v.r, v.p); }, SC) }, 'mod');
+      add(sky, 'circle', { cx: 0, cy: 0, r: 5 }, 'earth');
+      var q = sun ? obs(tNow) : mod(tNow, v.r, v.p); add(sky, 'circle', { cx: q[0] * SC, cy: -q[1] * SC, r: 4.5 }, 'mars');
+      mdl.textContent = '';
+      if (sun) {
+        var S2 = 80; add(mdl, 'circle', { cx: 0, cy: 0, r: S2 }, 'ep-orb'); add(mdl, 'circle', { cx: 0, cy: 0, r: AM * S2 }, 'ep-orb'); add(mdl, 'circle', { cx: 0, cy: 0, r: 8 }, 'sun');
+        var e = [Math.cos(WE * tNow) * S2, -Math.sin(WE * tNow) * S2], m = [AM * Math.cos(WM * tNow) * S2, -AM * Math.sin(WM * tNow) * S2];
+        add(mdl, 'line', { x1: e[0], y1: e[1], x2: e[0] + (m[0] - e[0]) * 2.2, y2: e[1] + (m[1] - e[1]) * 2.2 }, 'sight'); add(mdl, 'circle', { cx: e[0], cy: e[1], r: 5 }, 'earth'); add(mdl, 'circle', { cx: m[0], cy: m[1], r: 4.5 }, 'mars');
+      } else {
+        var S3 = 52, c = [AM * Math.cos(WM * tNow) * S3, -AM * Math.sin(WM * tNow) * S3], a = 2 * Math.PI * tNow / v.p + Math.PI, pm = [c[0] + v.r * Math.cos(a) * S3, c[1] - v.r * Math.sin(a) * S3];
+        add(mdl, 'circle', { cx: 0, cy: 0, r: AM * S3 }, 'ep-orb'); if (v.r > 0) add(mdl, 'circle', { cx: c[0], cy: c[1], r: v.r * S3 }, 'epi');
+        add(mdl, 'line', { x1: c[0], y1: c[1], x2: pm[0], y2: pm[1] }, 'sight'); add(mdl, 'circle', { cx: 0, cy: 0, r: 5 }, 'earth'); add(mdl, 'circle', { cx: pm[0], cy: pm[1], r: 4.5 }, 'mars');
+      }
+    }
+    function update() {
+      var v = vals(), mf = mode === 'sun' ? 0 : misfit(v.r, v.p);
+      or_.textContent = v.r.toFixed(2); op.textContent = v.p.toFixed(2) + ' ' + D.yr.en;
+      bar.style.width = Math.max(2, 100 - Math.min(100, mf * 2.5)) + '%'; bar.className = mf < 2 ? 'is-ok' : ''; val.textContent = mf.toFixed(1) + '°';
+      ctls.hidden = mode === 'sun';
+      text.textContent = '';
+      var o = mode === 'sun' ? D.cop : mf < 2 ? D.ptol.done : v.r < 0.15 ? D.ptol.start : mf < 8 ? D.ptol.near : D.ptol.far;
+      if (mode !== 'sun' && mf < 2) fitted = true;
+      text.appendChild(el('p', '', o.en)); zhp(text, o.zh);
+      $$('button', modes).forEach(function (b) { b.setAttribute('aria-pressed', b.getAttribute('data-k') === mode ? 'true' : 'false'); });
+      draw(); drawEnd(); return mf;
+    }
+    function drawEnd() {
+      if (!seenSun) { end.textContent = ''; return; }
+      if (end.children.length) return;
+      var e = el('div', 'ph-el-end'); var q = el('p', 'ph-vl-q'); q.appendChild(el('b', '', D.q.en)); var qz = el('span', '', D.q.zh); qz.lang = 'zh-Hant'; q.appendChild(qz); e.appendChild(q);
+      var box = el('div', 'ph-vl-opts ph-tp-opts ph-ep-opts'), out = el('div', 'ph-vl-out');
+      D.qopts.forEach(function (o) {
+        var bt = el('button', 'ph-vl-opt'); bt.type = 'button'; bt.setAttribute('data-k', o.k); bt.appendChild(el('b', '', o.t.en)); var z = el('span', '', o.t.zh); z.lang = 'zh-Hant'; bt.appendChild(z);
+        bt.addEventListener('click', function () { $$('button', box).forEach(function (x) { x.classList.toggle('is-right', x === bt); }); out.textContent = ''; var c = el('div', 'ph-vl-card is-valid'); c.appendChild(el('p', '', o.v.en)); zhp(c, o.v.zh); out.appendChild(c); });
+        box.appendChild(bt);
+      });
+      e.appendChild(box); e.appendChild(out); end.appendChild(e);
+    }
+    function setMode(k) { mode = k; if (k === 'sun') seenSun = true; update(); }
+    modes.textContent = '';
+    [['earth', 0], ['sun', 1]].forEach(function (p) { var b = el('button', 'ph-ep-mode'); b.type = 'button'; b.setAttribute('data-k', p[0]); b.appendChild(document.createTextNode(D.modes[p[1]].en + ' · ')); var z = el('span', '', D.modes[p[1]].zh); z.lang = 'zh-Hant'; b.appendChild(z); b.addEventListener('click', function () { setMode(p[0]); }); modes.appendChild(b); });
+    bi($('[data-ep-lr]', root), D.lr); bi($('[data-ep-lp]', root), D.lp); bi($('[data-ep-fit]', root), D.fit);
+    cap1.textContent = ''; [['obs', 0], ['mod', 1]].forEach(function (p) { var s = el('span', 'k-' + p[0], D.legend[p[1]].en + ' '); var z = el('i', '', D.legend[p[1]].zh); z.lang = 'zh-Hant'; s.appendChild(z); cap1.appendChild(s); });
+    [ir, ip].forEach(function (i) { i.addEventListener('input', update); });
+    function tick() { tNow += 0.012; if (tNow > T1) tNow = T0; draw(); }
+    function start() { if (reduce || timer) return; timer = setInterval(tick, 50); }
+    function stop() { if (timer) { clearInterval(timer); timer = null; } }
+    if ('IntersectionObserver' in window) new IntersectionObserver(function (es) { es.forEach(function (x) { if (x.isIntersecting) start(); else stop(); }); }).observe(root); else start();
+    function reset() { mode = 'earth'; fitted = false; seenSun = false; ir.value = 0; ip.value = 1.6; tNow = 0; end.textContent = ''; update(); }
+    $('[data-ep-reset]', root).addEventListener('click', reset);
+    reset();
+    root.__lab = { state: function () { var v = vals(); return { mode: mode, r: v.r, p: v.p, misfit: +(mode === 'sun' ? 0 : misfit(v.r, v.p)).toFixed(2), fitted: fitted, asked: !!end.children.length }; },
+      set: function (r, p, m) { if (m) mode = m; ir.value = r; ip.value = p; if (m === 'sun') seenSun = true; update(); return this.state(); }, misfit: misfit, freeze: function (t) { stop(); tNow = t; draw(); } };
+    var m = /[#&]epicycle=([\d.]+)-([\d.]+)(?:,(sun|earth))?/.exec(location.hash); if (m) { root.__lab.set(+m[1], +m[2], m[3] || 'earth'); root.__lab.freeze(0.25); }
+  });
+
   /* ---- A13：去火星三趟（帕菲特的傳送機） ---- */
   $$('[data-ph-teleport]').forEach(function (root) {
     var D;
