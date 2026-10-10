@@ -1386,3 +1386,45 @@ main:has(.ph-tools) .wrap { width: min(980px, 92vw); }
 .ph-ag-opts { grid-template-columns: repeat(3, 1fr); }
 .ph-ag .ph-el-end { margin-top: 1.4rem; }
 @media (max-width: 720px) { .ph-ag-grid { grid-template-columns: 1fr; gap: 1rem; } .ph-ag-opts { grid-template-columns: 1fr; } }
+
+/* ---- A37：你的線畫在哪裡 ---- */
+.ph-ci [hidden] { display: none !important; }
+.ph-ci-step { margin: 0 0 .8rem; font: 800 .95rem var(--sans); color: #ffd98a; }
+.ph-ci-step i { display: block; font: normal .9rem var(--zh); color: rgba(255,255,255,.7); margin-top: .1rem; }
+.ph-ci-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: .7rem; }
+.ph-ci-card { all: unset; box-sizing: border-box; cursor: pointer; display: grid; gap: .15rem; padding: .85rem .8rem .7rem; border-radius: 14px; border: 1.5px dashed rgba(255,255,255,.28); background: rgba(255,255,255,.04); text-align: center; transition: background .2s, border-color .2s, transform .2s; }
+.ph-ci-card b { font: 800 .95rem var(--sans); color: rgba(255,255,255,.8); }
+.ph-ci-card span { font: .9rem var(--zh); color: rgba(255,255,255,.6); }
+.ph-ci-card em { font: normal 800 .68rem var(--sans); letter-spacing: .05em; text-transform: uppercase; color: rgba(255,255,255,.45); margin-top: .3rem; }
+.ph-ci-card em i { font: normal .72rem var(--zh); letter-spacing: 0; }
+.ph-ci-card.is-in { border: 1.5px solid #ffd36e; background: rgba(255,211,110,.16); }
+.ph-ci-card.is-in b { color: #fff; } .ph-ci-card.is-in span { color: rgba(255,255,255,.85); } .ph-ci-card.is-in em { color: #ffd36e; }
+.ph-ci-card:hover { transform: translateY(-2px); } .ph-ci-card:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
+.ph-ci-count { margin: .7rem 0 0; font: .8rem var(--sans); color: rgba(255,255,255,.6); font-variant-numeric: tabular-nums; }
+.ph-ci-next { all: unset; cursor: pointer; margin-top: 1rem; padding: .6rem 1.3rem; border-radius: 999px; background: #ffd36e; color: #1a2440; font: 800 .9rem var(--sans); }
+.ph-ci-next i { font: normal .9rem var(--zh); margin-left: .2rem; }
+.ph-ci-next:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
+.ph-ci [data-ci-two] { margin-top: 1.6rem; }
+.ph-ci-reasons { display: grid; grid-template-columns: repeat(5, 1fr); gap: .7rem; }
+.ph-ci-reasons .ph-vl-opt b { font: 800 .92rem var(--sans); color: #fff; } .ph-ci-reasons .ph-vl-opt span { font: .86rem var(--zh); color: rgba(255,255,255,.7); }
+.ph-ci-table { display: grid; gap: 2px; margin: .6rem 0 1rem; max-width: 30rem; }
+.ph-ci-row { display: grid; grid-template-columns: 1fr 5.5rem 5.5rem; align-items: center; padding: .32rem .7rem; border-radius: 8px; background: rgba(255,255,255,.05); }
+.ph-ci-row.hd { background: none; font: 800 .72rem var(--sans); color: rgba(255,255,255,.6); }
+.ph-ci-row.hd .cell { font: 800 .7rem var(--sans); white-space: nowrap; color: rgba(255,255,255,.6); }
+.ph-ci-row .nm b { font: 700 .9rem var(--sans); color: #fff; } .ph-ci-row .nm span { font: .84rem var(--zh); color: rgba(255,255,255,.65); margin-left: .45rem; }
+.ph-ci-row .cell { text-align: center; font: 800 .95rem var(--sans); color: rgba(255,255,255,.4); }
+.ph-ci-row .cell.in { color: #ffd36e; }
+.ph-ci-row.is-bad { background: rgba(255,125,92,.2); outline: 1px solid rgba(255,125,92,.6); }
+.ph-ci-row.is-q .cell:last-child { color: #9fc3ea; }
+.ph-ci-list { margin: .35rem 0; font: .92rem/1.6 var(--sans); color: rgba(255,255,255,.9); }
+.ph-ci-list b { color: #ff9d82; } .ph-ci-list.is-unsure b { color: #9fc3ea; }
+.ph-ci-list span { display: block; font: .88rem/1.7 var(--zh); color: rgba(255,255,255,.7); }
+.ph-ci .ph-vl-card { margin-top: 1rem; }
+.ph-ci .ph-vl-card p { margin: 0; font: 400 1.04rem/1.7 var(--serif); }
+.ph-ci .ph-vl-card .ph-ci-who { font: 800 .76rem var(--sans); letter-spacing: .05em; text-transform: uppercase; color: var(--brand-dk); margin-bottom: .4rem; }
+.ph-ci .ph-vl-card .ph-zh { font: 400 .95rem/1.8 var(--zh); color: var(--ink-soft); }
+.ph-ci .ph-vl-card .ph-tr { background: var(--brand-lt); color: var(--brand-dk); }
+.ph-ci-coda p { margin: 1rem 0 0; font: italic 400 1rem/1.7 var(--serif); color: rgba(255,255,255,.9); }
+.ph-ci-coda .ph-zh { font: normal .92rem/1.8 var(--zh); color: rgba(255,255,255,.7); margin-top: .2rem; }
+@media (max-width: 860px) { .ph-ci-reasons { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 720px) { .ph-ci-grid { grid-template-columns: repeat(2, 1fr); } .ph-ci-reasons { grid-template-columns: 1fr; } .ph-ci-row { grid-template-columns: 1fr 3.4rem 5rem; } .ph-ci-row .nm span { white-space: nowrap; } }

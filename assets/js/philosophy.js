@@ -2144,6 +2144,73 @@
     var hm = /[#&]angles=(\d+)-(\d+)/.exec(location.hash); if (hm) root.__lab.set(+hm[1], +hm[2]);
   });
 
+  /* ---- A37：你的線畫在哪裡（圈內圈外 vs. 理由） ---- */
+  $$('[data-ph-circle]').forEach(function (root) {
+    var D;
+    try { D = JSON.parse($('[data-ci-data]', root).textContent); } catch (e) { return; }
+    var grid = $('[data-ci-grid]', root), count = $('[data-ci-count]', root), next = $('[data-ci-next]', root), two = $('[data-ci-two]', root), rbox = $('[data-ci-reasons]', root), out = $('[data-ci-out]', root);
+    var inside, reason, drawn;
+    function zhp(parent, t) { var z = el('p', 'ph-zh', t); z.lang = 'zh-Hant'; parent.appendChild(z); addTr(z); }
+    function bi(elm, o) { elm.textContent = ''; elm.appendChild(document.createTextNode(o.en + ' ')); var z = el('i', '', o.zh); z.lang = 'zh-Hant'; elm.appendChild(z); }
+    function pair(tag, cls, o) { var e = el(tag, cls); e.appendChild(el('b', '', o.en)); var z = el('span', '', o.zh); z.lang = 'zh-Hant'; e.appendChild(z); return e; }
+    function drawGrid() {
+      grid.textContent = '';
+      D.beings.forEach(function (b) {
+        var on = !!inside[b.k], bt = pair('button', 'ph-ci-card' + (on ? ' is-in' : ''), b); bt.type = 'button'; bt.setAttribute('aria-pressed', on ? 'true' : 'false'); bt.setAttribute('data-k', b.k);
+        var tag = el('em', '', (on ? D.inl : D.outl).en + ' · '); var tz = el('i', '', (on ? D.inl : D.outl).zh); tz.lang = 'zh-Hant'; tag.appendChild(tz); bt.appendChild(tag);
+        bt.addEventListener('click', function () { inside[b.k] = !inside[b.k]; drawGrid(); if (reason) result(); });
+        grid.appendChild(bt);
+      });
+      var n = D.beings.filter(function (b) { return inside[b.k]; }).length;
+      count.textContent = D.inl.en + ' ' + n + ' · ' + D.outl.en + ' ' + (D.beings.length - n);
+    }
+    function compare(r) {
+      var add = [], drop = [], unsure = [];
+      D.beings.forEach(function (b) { var s = r.set[b.k] || 0; if (s === 2) unsure.push(b); else if (s === 1 && !inside[b.k]) add.push(b); else if (s === 0 && inside[b.k]) drop.push(b); });
+      return { add: add, drop: drop, unsure: unsure };
+    }
+    function names(list, zh) { return list.map(function (b) { return zh ? b.zh : b.en.replace(/^An? /, '').toLowerCase(); }).join(zh ? '、' : ', '); }
+    function result() {
+      var r = D.reasons.filter(function (x) { return x.k === reason; })[0]; if (!r) return;
+      var c = compare(r), n = c.add.length + c.drop.length;
+      out.textContent = '';
+      var e = el('div', 'ph-el-end ph-ci-res'), head = n ? D.res.gap : D.res.fit;
+      var q = el('p', 'ph-vl-q'); q.appendChild(el('b', '', head.en.replace('{n} place(s)', n + (n === 1 ? ' place' : ' places')))); var qz = el('span', '', head.zh.replace('{n}', n)); qz.lang = 'zh-Hant'; q.appendChild(qz); e.appendChild(q);
+      var tb = el('div', 'ph-ci-table');
+      D.beings.forEach(function (b) {
+        var s = r.set[b.k] || 0, mine = !!inside[b.k], bad = s !== 2 && (s === 1) !== mine, row = el('div', 'ph-ci-row' + (bad ? ' is-bad' : s === 2 ? ' is-q' : ''));
+        row.appendChild(pair('span', 'nm', b));
+        var a = el('span', 'cell' + (mine ? ' in' : ''), mine ? '●' : '○'), z = el('span', 'cell' + (s === 1 ? ' in' : ''), s === 2 ? '?' : s === 1 ? '●' : '○');
+        row.appendChild(a); row.appendChild(z); tb.appendChild(row);
+      });
+      var hd = el('div', 'ph-ci-row hd'); hd.appendChild(el('span', 'nm', '')); hd.appendChild(el('span', 'cell', 'You · 你')); hd.appendChild(el('span', 'cell', 'Reason · 理由')); tb.insertBefore(hd, tb.firstChild);
+      e.appendChild(tb);
+      [['add', c.add], ['drop', c.drop], ['unsure', c.unsure]].forEach(function (p) {
+        if (!p[1].length) return;
+        var li = el('p', 'ph-ci-list is-' + p[0]); li.appendChild(el('b', '', D.res[p[0]].en + ' ')); li.appendChild(document.createTextNode(names(p[1], false) + '. ')); var z = el('span', '', D.res[p[0]].zh + names(p[1], true) + '。'); z.lang = 'zh-Hant'; li.appendChild(z); e.appendChild(li);
+      });
+      var card = el('div', 'ph-vl-card is-valid'); card.appendChild(el('p', 'ph-ci-who', r.who.en + ' · ' + r.who.zh)); card.appendChild(el('p', '', r.v.en)); zhp(card, r.v.zh); e.appendChild(card);
+      var coda = el('div', 'ph-ci-coda'); coda.appendChild(el('p', '', D.res.coda.en)); zhp(coda, D.res.coda.zh); e.appendChild(coda);
+      out.appendChild(e);
+      $$('button', rbox).forEach(function (x) { x.classList.toggle('is-right', x.getAttribute('data-k') === reason); });
+    }
+    function showTwo() { drawn = true; two.hidden = false; next.hidden = true; }
+    rbox.textContent = '';
+    D.reasons.forEach(function (r) {
+      var bt = pair('button', 'ph-vl-opt', r.t); bt.type = 'button'; bt.setAttribute('data-k', r.k);
+      bt.addEventListener('click', function () { reason = r.k; result(); });
+      rbox.appendChild(bt);
+    });
+    bi($('[data-ci-step1]', root), D.step1); bi($('[data-ci-step2]', root), D.step2); bi(next, D.next);
+    next.addEventListener('click', showTwo);
+    function reset() { inside = {}; D.start.forEach(function (k) { inside[k] = true; }); reason = null; drawn = false; two.hidden = true; next.hidden = false; out.textContent = ''; $$('button', rbox).forEach(function (x) { x.classList.remove('is-right'); }); drawGrid(); }
+    $('[data-ci-reset]', root).addEventListener('click', reset);
+    reset();
+    root.__lab = { state: function () { var r = reason && D.reasons.filter(function (x) { return x.k === reason; })[0], c = r ? compare(r) : null; return { inside: D.beings.filter(function (b) { return inside[b.k]; }).map(function (b) { return b.k; }), drawn: drawn, reason: reason, add: c ? c.add.map(function (b) { return b.k; }) : null, drop: c ? c.drop.map(function (b) { return b.k; }) : null, unsure: c ? c.unsure.map(function (b) { return b.k; }) : null }; },
+      set: function (list, r) { inside = {}; list.forEach(function (k) { inside[k] = true; }); drawGrid(); showTwo(); if (r) { reason = r; result(); } return this.state(); } };
+    var hm = /[#&]circle=([a-z.]*)(?:,([a-z]+))?/.exec(location.hash); if (hm) root.__lab.set(hm[1] ? hm[1].split('.') : [], hm[2]);
+  });
+
   /* ---- A13：去火星三趟（帕菲特的傳送機） ---- */
   $$('[data-ph-teleport]').forEach(function (root) {
     var D;

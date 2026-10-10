@@ -8542,7 +8542,27 @@ def _ph_lab_angles(lab):
   </div>
 </div>"""
 
+def _ph_lab_circle(lab):
+    """A37：你的線畫在哪裡。先把十個存在者分到圈內圈外，再選一個理由；比對這個理由涵蓋的範圍與自己畫的線。"""
+    payload = html.escape(json.dumps({k: lab[k] for k in ("step1", "step2", "inl", "outl", "next", "beings", "start", "reasons", "res")}, ensure_ascii=False), quote=False)
+    return f"""<div class="ph-el ph-ci rvl" data-ph-circle>
+  <script type="application/json" data-ci-data>{payload}</script>
+  <div class="ph-el-stage">
+    <p class="ph-ci-step" data-ci-step1></p>
+    <div class="ph-ci-grid" data-ci-grid></div>
+    <div class="ph-ci-count" data-ci-count aria-live="polite"></div>
+    <button type="button" class="ph-ci-next" data-ci-next></button>
+    <div data-ci-two hidden>
+      <p class="ph-ci-step" data-ci-step2></p>
+      <div class="ph-ci-reasons" data-ci-reasons></div>
+    </div>
+    <div data-ci-out aria-live="polite"></div>
+    <div class="ph-el-foot"><button type="button" class="ph-el-reset" data-ci-reset>Start again · 重來</button></div>
+  </div>
+</div>"""
+
 def _ph_lab(lab):
+    if lab.get("kind") == "circle": return _ph_lab_circle(lab)
     if lab.get("kind") == "angles": return _ph_lab_angles(lab)
     if lab.get("kind") == "epicycle": return _ph_lab_epicycle(lab)
     if lab.get("kind") == "wason": return _ph_lab_wason(lab)
