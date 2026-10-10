@@ -11494,7 +11494,7 @@ def build_earth_hub():
 _lifej = os.path.join(ROOT, "data", "life.json")
 LIFE = json.load(open(_lifej, encoding="utf-8")) if os.path.exists(_lifej) else None
 LIFE_BASE = "/resources/classes/life/"
-_LIFE_JS = {"leaf": "life-leaf", "cell": "life-cell", "dna": "life-dna", "germ": "life-germ", "seed": "life-seed"}   # lab.kind → assets/js/<bundle>.js
+_LIFE_JS = {"leaf": "life-leaf", "cell": "life-cell", "dna": "life-dna", "germ": "life-germ", "seed": "life-seed", "flower": "life-flower"}   # lab.kind → assets/js/<bundle>.js
 
 def _life_ver():
     h = hashlib.md5()
@@ -11848,9 +11848,77 @@ def _life_waker(wk):
             f'</div></div>'
             '<noscript><p class="muted">This tool works in your browser and needs JavaScript. · 這個小工具在瀏覽器裡運作，需要開啟 JavaScript。</p></noscript>')
 
-_LIFE_LAB = {"leaf": render_lifeleaf_lab, "cell": render_lifecell_lab, "dna": render_lifedna_lab, "germ": render_lifegerm_lab, "seed": render_lifeseed_lab}          # lab.kind → 3D 面板
-_LIFE_ICON = {"leaf": lifeleaf_svg, "cell": lifecell_svg, "dna": lifedna_svg, "germ": lifegerm_svg, "seed": lifeseed_svg}                 # lesson.card → 課程卡小圖示
-_LIFE_WIDGETS = [("recipe", _life_recipe), ("sorter", _life_sorter), ("coder", _life_coder), ("ruler", _life_ruler), ("waker", _life_waker)]               # lesson 裡有這個 key 就多一段（照這裡的順序）
+def lifeflower_svg(size=56):
+    """第六課的課程卡小圖示：一朵五瓣的花，中間是黃色的花心，旁邊一粒花粉。"""
+    petals = "".join(f'<ellipse cx="30" cy="15" rx="8" ry="12" fill="#f58fb5" transform="rotate({a} 30 30)"/>' for a in (0, 72, 144, 216, 288))
+    return (f'<svg class="lifeflower-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">'
+            f'{petals}<circle cx="30" cy="30" r="8" fill="#f4c531"/><circle cx="30" cy="30" r="3.2" fill="#9fd27a"/>'
+            '<circle cx="50" cy="9" r="3" fill="#ffd84a"/><circle cx="54" cy="16" r="2" fill="#ffd84a"/></svg>')
+
+def render_lifeflower_lab(lesson):
+    """第六課：切開的花；蜜蜂送／風送兩個視角共用一支滑桿，花粉到柱頭 → 花粉管 → 種子和果實（assets/js/life-flower.js 綁這裡的 class；全部自繪示意）。"""
+    lab = lesson["lab"]
+    msgs = "".join(f'<p class="cp-msg lf-fl-msg" data-msg="{k}" hidden>{html.escape(m["en"])}<span class="zh">{html.escape(m["zh"])}</span></p>' for k, m in lab["msgs"].items())
+    tg = _lab_toggles([("labels", "Labels", "標示", True)])
+    return f'''<div class="astro-lab cp-lab lf-lab lf-fl-lab rvl" data-lifeflower-lab>
+  <div class="al-stage">
+    <div class="al-space">
+      <canvas class="al-space-cv" aria-label="3D model of a flower cut open: pollen arrives on a bee or on the wind, lands on the stigma, grows a tube down to an ovule, and the ovary swells into a fruit with a seed inside · 切開的花的 3D 模型：花粉由蜜蜂或風送來，落在柱頭上，長出一條花粉管通到胚珠，子房膨大成為果實，裡面有種子"></canvas>
+      <div class="al-labels" aria-hidden="true"></div>
+      <div class="cp-view" role="group" aria-label="Who carries the pollen · 誰送花粉">
+        <button type="button" data-view="bee" aria-pressed="true">By bee<small>蜜蜂送</small></button>
+        <button type="button" data-view="wind" aria-pressed="false">By wind<small>風送</small></button>
+      </div>
+      <p class="al-hint">Drag to turn · 拖曳旋轉　Scroll or pinch to zoom · 滾輪／雙指縮放</p>
+      <button type="button" class="al-home" title="Reset view · 重設視角" aria-label="Reset view · 重設視角">&#8634;</button>
+      <p class="al-nogl-msg">This 3D model needs WebGL, which this browser does not support. The reading and the cards below still explain everything.<br><span class="zh">這個瀏覽器不支援 WebGL，無法顯示 3D 模型；下方的課文與卡片一樣能看懂。</span></p>
+    </div>
+    <aside class="al-sky cp-aside">
+      <p class="al-sky-k">Follow the pollen · 跟著花粉走</p>
+      <label class="al-slider cp-is-yrow"><span>Step · 階段 <output class="lf-fl-t-out">1 of 4</output></span>
+        <input type="range" class="al-age lf-fl-t" min="0" max="100" step="1" value="0"></label>
+      <div class="cp-ht-meter"><p class="lf-k">From pollen to fruit · 從花粉到果實</p><div class="cp-ht-bar"><i class="lf-fl-bar"></i></div><p class="cp-ht-status lf-fl-status"></p></div>
+      <dl class="cp-nums cp-lt-nums lf-nums">
+        <div><dt>Carried by · 誰送的</dt><dd class="lf-fl-step"></dd></div>
+        <div><dt>Reached the stigma · 到了柱頭</dt><dd class="lf-fl-sent"></dd></div>
+        <div><dt>What the plant pays · 植物付的報酬</dt><dd class="lf-fl-pay"></dd></div>
+      </dl>
+      {msgs}
+    </aside>
+  </div>
+  <div class="al-controls">
+    <div class="al-row al-row-main">
+      <button type="button" class="al-play" aria-pressed="true"><span class="al-play-i" aria-hidden="true"></span><span class="al-play-t">Pause · 暫停</span></button>
+      <div class="al-row al-toggles">{tg}</div>
+    </div>
+  </div>
+  {_lab_foot(lab)}
+  <p class="cp-credit">{lab["credit_html"]}</p>
+</div>'''
+
+def _life_guesser(gs):
+    """「誰來送花粉？」（life-flower.js 的 initGuesser；勾選花的三個特徵，猜它靠動物還是靠風；不需要 WebGL）。"""
+    kinds = html.escape(json.dumps(gs["kinds"], ensure_ascii=False))
+    sw = "".join(f'<label class="lf-gs-sw"><input type="checkbox" data-k="{k}"{" checked" if on else ""}><span>{en}<small>{zh}</small></span></label>'
+                 for k, en, zh, on in (("petals", "Large, bright petals", "又大又鮮豔的花瓣", True), ("nectar", "A sweet smell or nectar", "有香味或花蜜", True), ("dust", "Clouds of light, dry pollen", "一大堆又輕又乾的花粉", False)))
+    return (f'<div class="cp-cnt lf-gs rvl" data-life-guesser data-kinds="{kinds}">'
+            f'<div class="cp-cnt-in">'
+            f'<p class="cp-cnt-l cp-sun-l"><span>What is the flower like? · 這朵花長什麼樣子？</span></p>'
+            f'<div class="lf-gs-sws">{sw}</div>'
+            f'<div class="lf-gs-pic" aria-hidden="true"><i class="lf-gs-p p1"></i><i class="lf-gs-p p2"></i><i class="lf-gs-p p3"></i><i class="lf-gs-p p4"></i><i class="lf-gs-p p5"></i><i class="lf-gs-c"></i><i class="lf-gs-n"></i>'
+            f'<i class="lf-gs-d d1"></i><i class="lf-gs-d d2"></i><i class="lf-gs-d d3"></i><i class="lf-gs-d d4"></i><i class="lf-gs-d d5"></i><i class="lf-gs-d d6"></i></div>'
+            f'<p class="cp-cnt-note">{html.escape(gs["note_en"])}<span class="zh">{html.escape(gs["note_zh"])}</span></p></div>'
+            f'<div class="cp-home-out cp-cnt-out lf-gs-out" aria-live="polite">'
+            f'<p class="cp-home-k">Its pollen is probably carried by · 它的花粉大概是靠</p>'
+            f'<p class="cp-home-big"><span class="lf-gs-en"></span></p>'
+            f'<p class="cp-home-sub"><span class="zh lf-gs-zh"></span></p>'
+            f'<p class="cp-home-note"><span class="lf-gs-note"></span><span class="zh lf-gs-note-zh"></span></p>'
+            f'</div></div>'
+            '<noscript><p class="muted">This tool works in your browser and needs JavaScript. · 這個小工具在瀏覽器裡運作，需要開啟 JavaScript。</p></noscript>')
+
+_LIFE_LAB = {"leaf": render_lifeleaf_lab, "cell": render_lifecell_lab, "dna": render_lifedna_lab, "germ": render_lifegerm_lab, "seed": render_lifeseed_lab, "flower": render_lifeflower_lab}          # lab.kind → 3D 面板
+_LIFE_ICON = {"leaf": lifeleaf_svg, "cell": lifecell_svg, "dna": lifedna_svg, "germ": lifegerm_svg, "seed": lifeseed_svg, "flower": lifeflower_svg}                 # lesson.card → 課程卡小圖示
+_LIFE_WIDGETS = [("recipe", _life_recipe), ("sorter", _life_sorter), ("coder", _life_coder), ("ruler", _life_ruler), ("waker", _life_waker), ("guesser", _life_guesser)]               # lesson 裡有這個 key 就多一段（照這裡的順序）
 
 def _life_flat():
     return [(ui, u, l) for ui, u in enumerate(LIFE["units"]) for l in u["lessons"]]
