@@ -2211,6 +2211,66 @@
     var hm = /[#&]circle=([a-z.]*)(?:,([a-z]+))?/.exec(location.hash); if (hm) root.__lab.set(hm[1] ? hm[1].split('.') : [], hm[2]);
   });
 
+  /* ---- A38：定一個折現率（多遠的人算多少） ---- */
+  $$('[data-ph-discount]').forEach(function (root) {
+    var D;
+    try { D = JSON.parse($('[data-dc-data]', root).textContent); } catch (e) { return; }
+    var ir = $('[data-dc-r]', root), or_ = $('[data-dc-r-out]', root), marks = $('[data-dc-marks]', root), rows = $('[data-dc-rows]', root), text = $('[data-dc-text]', root), end = $('[data-dc-end]', root);
+    var touched;
+    function zhp(parent, t) { var z = el('p', 'ph-zh', t); z.lang = 'zh-Hant'; parent.appendChild(z); addTr(z); }
+    function bi(elm, o) { elm.textContent = ''; elm.appendChild(document.createTextNode(o.en + ' ')); var z = el('i', '', o.zh); z.lang = 'zh-Hant'; elm.appendChild(z); }
+    function need(r, y) { return Math.pow(1 + r / 100, y); }
+    function fmt(n) {
+      if (n < 9.95) return n.toFixed(n < 1.005 ? 0 : 1);
+      if (n < 1e6) return Math.round(n).toLocaleString('en-US');
+      if (n < 1e9) return (n / 1e6).toFixed(n < 1e7 ? 1 : 0) + ' million';
+      if (n < 1e12) return (n / 1e9).toFixed(n < 1e10 ? 1 : 0) + ' billion';
+      return (n / 1e12).toFixed(n < 1e13 ? 1 : 0) + ' trillion';
+    }
+    function update() {
+      var r = +ir.value;
+      or_.textContent = r.toFixed(1) + '%';
+      rows.textContent = '';
+      D.rows.forEach(function (w) {
+        var n = need(r, w.y), row = el('div', 'ph-dc-row');
+        var nm = el('span', 'nm'); nm.appendChild(el('b', '', w.t.en)); var z = el('i', '', w.t.zh); z.lang = 'zh-Hant'; nm.appendChild(z); row.appendChild(nm);
+        var bar = el('span', 'bar'), u = el('u'); u.style.width = Math.max(1.2, 100 / n) + '%'; if (100 / n < 1) u.className = 'is-gone'; bar.appendChild(u); row.appendChild(bar);
+        var num = el('span', 'num'); num.appendChild(el('b', '', fmt(n))); num.appendChild(document.createTextNode(' ' + (fmt(n) === '1' ? 'person' : D.unit.en) + ' ')); var uz = el('i', '', D.unit.zh); uz.lang = 'zh-Hant'; num.appendChild(uz); row.appendChild(num);
+        rows.appendChild(row);
+      });
+      var o = r === 0 ? D.notes.zero : r <= 0.5 ? D.notes.low : r <= 3.5 ? D.notes.mid : D.notes.high;
+      if (text.getAttribute('data-k') !== o.en) { text.setAttribute('data-k', o.en); text.textContent = ''; text.appendChild(el('p', '', o.en)); zhp(text, o.zh); }
+      $$('button', marks).forEach(function (b) { b.setAttribute('aria-pressed', +b.getAttribute('data-r') === r ? 'true' : 'false'); });
+      drawEnd();
+    }
+    function drawEnd() {
+      if (!touched) { end.textContent = ''; return; }
+      if (end.children.length) return;
+      var e = el('div', 'ph-el-end'); var q = el('p', 'ph-vl-q'); q.appendChild(el('b', '', D.q.en)); var qz = el('span', '', D.q.zh); qz.lang = 'zh-Hant'; q.appendChild(qz); e.appendChild(q);
+      var box = el('div', 'ph-vl-opts ph-tp-opts ph-dc-opts'), out = el('div', 'ph-vl-out');
+      D.qopts.forEach(function (o) {
+        var bt = el('button', 'ph-vl-opt'); bt.type = 'button'; bt.setAttribute('data-k', o.k); bt.appendChild(el('b', '', o.t.en)); var z = el('span', '', o.t.zh); z.lang = 'zh-Hant'; bt.appendChild(z);
+        bt.addEventListener('click', function () { $$('button', box).forEach(function (x) { x.classList.toggle('is-right', x === bt); }); out.textContent = ''; var c = el('div', 'ph-vl-card is-valid'); c.appendChild(el('p', '', o.v.en)); zhp(c, o.v.zh); out.appendChild(c); });
+        box.appendChild(bt);
+      });
+      e.appendChild(box); e.appendChild(out); end.appendChild(e);
+    }
+    marks.textContent = '';
+    D.marks.forEach(function (m) {
+      var b = el('button', 'ph-dc-mark'); b.type = 'button'; b.setAttribute('data-r', m.r); b.appendChild(el('b', '', m.r + '%')); b.appendChild(document.createTextNode(' ' + m.t.en + ' ')); var z = el('i', '', m.t.zh); z.lang = 'zh-Hant'; b.appendChild(z);
+      b.addEventListener('click', function () { ir.value = m.r; touched = true; update(); });
+      marks.appendChild(b);
+    });
+    bi($('[data-dc-lr]', root), D.rate); bi($('[data-dc-head]', root), D.head);
+    ir.addEventListener('input', function () { touched = true; update(); });
+    function reset() { touched = false; ir.value = 3; end.textContent = ''; text.removeAttribute('data-k'); update(); }
+    $('[data-dc-reset]', root).addEventListener('click', reset);
+    reset();
+    root.__lab = { state: function () { var r = +ir.value; return { rate: r, need: D.rows.map(function (w) { return +need(r, w.y).toPrecision(4); }), shown: D.rows.map(function (w) { return fmt(need(r, w.y)); }), asked: !!end.children.length }; },
+      set: function (r) { ir.value = r; touched = true; update(); return this.state(); } };
+    var hm = /[#&]discount=([\d.]+)/.exec(location.hash); if (hm) root.__lab.set(+hm[1]);
+  });
+
   /* ---- A13：去火星三趟（帕菲特的傳送機） ---- */
   $$('[data-ph-teleport]').forEach(function (root) {
     var D;

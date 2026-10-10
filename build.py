@@ -8624,7 +8624,24 @@ def _ph_lab_circle(lab):
   </div>
 </div>"""
 
+def _ph_lab_discount(lab):
+    """A38：定一個折現率。滑桿選年率，每一列顯示那麼遠的未來要多少人受害才抵得上今天一個人；再問這個比率憑什麼。"""
+    payload = html.escape(json.dumps({k: lab[k] for k in ("rate", "head", "unit", "now", "rows", "marks", "notes", "q", "qopts")}, ensure_ascii=False), quote=False)
+    return f"""<div class="ph-el ph-dc rvl" data-ph-discount>
+  <script type="application/json" data-dc-data>{payload}</script>
+  <div class="ph-el-stage">
+    <label class="ph-dc-ctl"><span><b data-dc-lr></b></span><input type="range" min="0" max="7" step="0.1" value="3" data-dc-r><output data-dc-r-out></output></label>
+    <div class="ph-dc-marks" data-dc-marks></div>
+    <p class="ph-dc-head" data-dc-head></p>
+    <div class="ph-dc-rows" data-dc-rows aria-live="polite"></div>
+    <div class="ph-tp-text" data-dc-text aria-live="polite"></div>
+    <div data-dc-end aria-live="polite"></div>
+    <div class="ph-el-foot"><button type="button" class="ph-el-reset" data-dc-reset>Start again · 重來</button></div>
+  </div>
+</div>"""
+
 def _ph_lab(lab):
+    if lab.get("kind") == "discount": return _ph_lab_discount(lab)
     if lab.get("kind") == "circle": return _ph_lab_circle(lab)
     if lab.get("kind") == "angles": return _ph_lab_angles(lab)
     if lab.get("kind") == "epicycle": return _ph_lab_epicycle(lab)
