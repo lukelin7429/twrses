@@ -11304,7 +11304,7 @@ def build_earth_hub():
 _lifej = os.path.join(ROOT, "data", "life.json")
 LIFE = json.load(open(_lifej, encoding="utf-8")) if os.path.exists(_lifej) else None
 LIFE_BASE = "/resources/classes/life/"
-_LIFE_JS = {"leaf": "life-leaf"}   # lab.kind → assets/js/<bundle>.js
+_LIFE_JS = {"leaf": "life-leaf", "cell": "life-cell"}   # lab.kind → assets/js/<bundle>.js
 
 def _life_ver():
     h = hashlib.md5()
@@ -11390,9 +11390,77 @@ def _life_recipe(rc):
             f'</div></div>'
             '<noscript><p class="muted">The calculator works in your browser and needs JavaScript. · 計算在瀏覽器裡進行，需要開啟 JavaScript。</p></noscript>')
 
-_LIFE_LAB = {"leaf": render_lifeleaf_lab}          # lab.kind → 3D 面板
-_LIFE_ICON = {"leaf": lifeleaf_svg}                 # lesson.card → 課程卡小圖示
-_LIFE_WIDGETS = [("recipe", _life_recipe)]               # lesson 裡有這個 key 就多一段（照這裡的順序）
+def lifecell_svg(size=56):
+    """第一課的課程卡小圖示：一個圓圓的細胞，裡面有細胞核和幾顆粒線體。"""
+    return (f'<svg class="lifecell-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">'
+            '<circle cx="30" cy="30" r="25" fill="#ffe3d0" stroke="#f2a6b8" stroke-width="4"/>'
+            '<circle cx="26" cy="29" r="9" fill="#8a63c9"/><circle cx="28" cy="27" r="3" fill="#c9b3ee"/>'
+            '<ellipse cx="43" cy="22" rx="5" ry="2.6" fill="#ff9a4a" transform="rotate(30 43 22)"/><ellipse cx="42" cy="41" rx="5" ry="2.6" fill="#ff9a4a" transform="rotate(-35 42 41)"/>'
+            '<ellipse cx="17" cy="44" rx="5" ry="2.6" fill="#ff9a4a" transform="rotate(20 17 44)"/></svg>')
+
+def render_lifecell_lab(lesson):
+    """第一課：切開的動物細胞與植物細胞，點一個部分看它做什麼（assets/js/life-cell.js 綁這裡的 class；全部自繪示意）。"""
+    lab = lesson["lab"]
+    msgs = "".join(f'<p class="cp-msg lf-ce-msg" data-msg="{k}" hidden>{html.escape(m["en"])}<span class="zh">{html.escape(m["zh"])}</span></p>' for k, m in lab["msgs"].items())
+    names = [("wall", "Cell wall", "細胞壁"), ("membrane", "Membrane", "細胞膜"), ("nucleus", "Nucleus", "細胞核"), ("mito", "Mitochondria", "粒線體"),
+             ("chloroplast", "Chloroplasts", "葉綠體"), ("vacuole", "Vacuole", "液泡"), ("cytoplasm", "Cytoplasm", "細胞質")]
+    parts = "".join(f'<button type="button" data-part="{k}" aria-pressed="false"><i class="lf-ce-dot lf-ce-{k}"></i>{en}<small>{zh}</small></button>' for k, en, zh in names)
+    tg = _lab_toggles([("labels", "Labels", "標示", True)])
+    return f'''<div class="astro-lab cp-lab lf-lab lf-ce-lab rvl" data-lifecell-lab>
+  <div class="al-stage">
+    <div class="al-space">
+      <canvas class="al-space-cv" aria-label="3D model of a cell cut open: an animal cell with its membrane, nucleus, and mitochondria, or a plant cell that also has a wall, chloroplasts, and a large vacuole · 切開的細胞 3D 模型：動物細胞有細胞膜、細胞核和粒線體；植物細胞另外還有細胞壁、葉綠體和一個大液泡"></canvas>
+      <div class="al-labels" aria-hidden="true"></div>
+      <div class="cp-view" role="group" aria-label="Kind of cell · 哪一種細胞">
+        <button type="button" data-view="animal" aria-pressed="true">Animal cell<small>動物細胞</small></button>
+        <button type="button" data-view="plant" aria-pressed="false">Plant cell<small>植物細胞</small></button>
+      </div>
+      <p class="al-hint">Drag to turn · 拖曳旋轉　Scroll or pinch to zoom · 滾輪／雙指縮放</p>
+      <button type="button" class="al-home" title="Reset view · 重設視角" aria-label="Reset view · 重設視角">&#8634;</button>
+      <p class="al-nogl-msg">This 3D model needs WebGL, which this browser does not support. The reading and the cards below still explain everything.<br><span class="zh">這個瀏覽器不支援 WebGL，無法顯示 3D 模型；下方的課文與卡片一樣能看懂。</span></p>
+    </div>
+    <aside class="al-sky cp-aside">
+      <p class="al-sky-k">Choose a part · 選一個部分</p>
+      <div class="lf-ce-parts" role="group" aria-label="Parts of the cell · 細胞的各部分">{parts}</div>
+      <dl class="cp-nums cp-lt-nums lf-nums">
+        <div><dt>This part · 這個部分</dt><dd class="lf-ce-name"></dd></div>
+        <div><dt>Found in · 哪裡有</dt><dd class="lf-ce-only"></dd></div>
+      </dl>
+      {msgs}
+    </aside>
+  </div>
+  <div class="al-controls">
+    <div class="al-row al-row-main">
+      <button type="button" class="al-play" aria-pressed="true"><span class="al-play-i" aria-hidden="true"></span><span class="al-play-t">Pause · 暫停</span></button>
+      <div class="al-row al-toggles">{tg}</div>
+    </div>
+  </div>
+  {_lab_foot(lab)}
+  <p class="cp-credit">{lab["credit_html"]}</p>
+</div>'''
+
+def _life_sorter(so):
+    """「這是哪一種細胞？」（life-cell.js 的 initSorter；細胞壁／葉綠體／大液泡三個開關；不需要 WebGL）。"""
+    kinds = html.escape(json.dumps(so["kinds"], ensure_ascii=False))
+    sw = "".join(f'<label class="lf-so-sw"><input type="checkbox" data-k="{k}"><span>{en}<small>{zh}</small></span></label>'
+                 for k, en, zh in (("wall", "It has a cell wall", "有細胞壁"), ("chloroplast", "It has chloroplasts", "有葉綠體"), ("vacuole", "It has one large vacuole", "有一個大液泡")))
+    return (f'<div class="cp-cnt lf-so rvl" data-life-sorter data-kinds="{kinds}">'
+            f'<div class="cp-cnt-in">'
+            f'<p class="cp-cnt-l cp-sun-l"><span>What can you see under the microscope? · 顯微鏡下看到了什麼？</span></p>'
+            f'<div class="lf-so-sws">{sw}</div>'
+            f'<div class="lf-so-pic" aria-hidden="true"><i class="lf-so-vac"></i><i class="lf-so-nuc"></i><i class="lf-so-c c1"></i><i class="lf-so-c c2"></i><i class="lf-so-c c3"></i></div>'
+            f'<p class="cp-cnt-note">{html.escape(so["note_en"])}<span class="zh">{html.escape(so["note_zh"])}</span></p></div>'
+            f'<div class="cp-home-out cp-cnt-out lf-so-out" aria-live="polite">'
+            f'<p class="cp-home-k">It is probably · 它大概是</p>'
+            f'<p class="cp-home-big"><span class="lf-so-en"></span></p>'
+            f'<p class="cp-home-sub"><span class="zh lf-so-zh"></span></p>'
+            f'<p class="cp-home-note"><span class="lf-so-note"></span><span class="zh lf-so-note-zh"></span></p>'
+            f'</div></div>'
+            '<noscript><p class="muted">This tool works in your browser and needs JavaScript. · 這個小工具在瀏覽器裡運作，需要開啟 JavaScript。</p></noscript>')
+
+_LIFE_LAB = {"leaf": render_lifeleaf_lab, "cell": render_lifecell_lab}          # lab.kind → 3D 面板
+_LIFE_ICON = {"leaf": lifeleaf_svg, "cell": lifecell_svg}                 # lesson.card → 課程卡小圖示
+_LIFE_WIDGETS = [("recipe", _life_recipe), ("sorter", _life_sorter)]               # lesson 裡有這個 key 就多一段（照這裡的順序）
 
 def _life_flat():
     return [(ui, u, l) for ui, u in enumerate(LIFE["units"]) for l in u["lessons"]]

@@ -24,6 +24,34 @@
 .lf-rc-out .cp-home-sub { margin: .15rem 0; font-size: 1rem; } .lf-rc-out .cp-home-sub b { font-size: 1.5rem; margin-right: .35rem; font-variant-numeric: tabular-nums; }
 .lf-rc-k2 { margin-top: .9rem; }
 
+/* ---------- 第一課：細胞是什麼？ ---------- */
+@media (min-width: 1021px) { .lf-ce-lab .al-space { min-height: 600px; } }
+.lf-ce-msg[hidden] { display: none; }
+.lf-ce-parts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .35rem; margin-bottom: .8rem; }
+.lf-ce-parts button { display: grid; grid-template-columns: auto minmax(0, 1fr); column-gap: .5rem; align-items: center; padding: .45rem .6rem; border-radius: 12px; border: 1px solid var(--al-line); background: rgba(255,255,255,.03); color: var(--al-text); font-family: var(--sans); font-weight: 800; font-size: .8rem; text-align: left; cursor: pointer; }
+.lf-ce-parts button[hidden] { display: none; }
+.lf-ce-parts button small { grid-column: 2; font-family: var(--zh); font-weight: 600; font-size: .72rem; color: var(--al-mute); }
+.lf-ce-parts button[aria-pressed="true"] { border-color: var(--al-sun); background: #22345f; }
+.lf-ce-dot { grid-row: span 2; width: 13px; height: 13px; border-radius: 50%; }
+.lf-ce-membrane { background: #f2a6b8; } .lf-ce-nucleus { background: #8a63c9; } .lf-ce-mito { background: #ff9a4a; } .lf-ce-cytoplasm { background: #ffe9c9; }
+.lf-ce-wall { background: #6fae4f; border-radius: 3px; } .lf-ce-chloroplast { background: #2f9a3f; } .lf-ce-vacuole { background: #6fc4f0; }
+.al-lg-lfcem i, .al-lg-lfcen i, .al-lg-lfceo i, .al-lg-lfceg i, .al-lg-lfcev i { border: 0; border-radius: 50%; width: 12px; height: 12px; margin: .28rem 9px 0; }
+.al-lg-lfcem i { background: #f2a6b8; } .al-lg-lfcen i { background: #8a63c9; } .al-lg-lfceo i { background: #ff9a4a; } .al-lg-lfceg i { background: #4fa64a; border-radius: 3px; } .al-lg-lfcev i { background: #6fc4f0; }
+/* 頁面小工具：這是哪一種細胞？ */
+.lf-so-sws { display: grid; gap: .4rem; margin: .5rem 0 .9rem; }
+.lf-so-sw { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: .7rem; align-items: center; padding: .55rem .8rem; border-radius: 12px; border: 1px solid var(--line); background: var(--cream); font-weight: 800; font-size: .9rem; cursor: pointer; }
+.lf-so-sw input { width: 1.15rem; height: 1.15rem; accent-color: var(--brand); }
+.lf-so-sw small { display: block; font-family: var(--zh); font-weight: 600; font-size: .8rem; color: var(--ink-soft); }
+.lf-so-pic { position: relative; width: 170px; height: 120px; margin: 0 auto .6rem; background: #ffe3d0; border: 4px solid #f2a6b8; border-radius: 50%; transition: border-radius .3s, border-color .3s, border-width .3s; }
+.lf-so-pic[data-wall="1"] { border-radius: 12px; border-color: #6fae4f; border-width: 8px; }
+.lf-so-nuc { position: absolute; left: 22%; top: 30%; width: 34px; height: 34px; border-radius: 50%; background: #8a63c9; }
+.lf-so-vac { position: absolute; left: 38%; top: 16%; width: 54%; height: 66%; border-radius: 45%; background: #a9dcf6; opacity: 0; transition: opacity .3s; }
+.lf-so-pic[data-vac="1"] .lf-so-vac { opacity: 1; } .lf-so-pic[data-vac="1"] .lf-so-nuc { left: 8%; top: 12%; width: 26px; height: 26px; }
+.lf-so-c { position: absolute; width: 20px; height: 11px; border-radius: 50%; background: #2f9a3f; opacity: 0; transition: opacity .3s; }
+.lf-so-c.c1 { left: 10%; bottom: 12%; } .lf-so-c.c2 { left: 44%; bottom: 4%; transform: rotate(20deg); } .lf-so-c.c3 { right: 6%; top: 6%; transform: rotate(-30deg); }
+.lf-so-pic[data-chl="1"] .lf-so-c { opacity: 1; }
+.lf-so-out .cp-home-big { font-size: 1.35rem; }
+
 /* ---------- 全系列共用 ---------- */
 .lf-k { margin: 0 0 .1rem; font-size: .74rem; font-weight: 700; letter-spacing: .04em; color: var(--al-mute); }
 .lf-nums small { display: block; font-size: .7rem; font-weight: 600; color: var(--al-mute); line-height: 1.3; }

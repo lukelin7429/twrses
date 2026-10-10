@@ -27,6 +27,620 @@
       "blurb_zh": "所有生物是用什麼蓋成的、食物最初從哪裡來，還有每個細胞裡的那份說明書。",
       "lessons": [
         {
+          "n": 1,
+          "slug": "what-is-a-cell",
+          "title": "What Is a Cell?",
+          "title_zh": "細胞是什麼？",
+          "level": "入門 · Beginner",
+          "icon": "🔬",
+          "card": "cell",
+          "blurb_en": "A whale, a mushroom, a blade of grass, and you are all built from the same kind of tiny living block. It is called a cell. In a 3D model, cut one open and tap each part to see what it does. Then switch to a plant cell and find the three things it has that yours do not. Last, learn to tell what kind of cell you are looking at.",
+          "blurb_zh": "鯨魚、香菇、一根小草，還有你，都是用同一種很小很小的、活的積木蓋成的。它叫做細胞。在 3D 模型裡把一個細胞切開，點一點每個部分，看它在做什麼。接著換成植物細胞，找出它有、你的細胞卻沒有的三樣東西。最後，學會分辨眼前看到的是哪一種細胞。",
+          "big_idea_en": "Every living thing is made of cells. A cell is a tiny bag of jelly with a thin skin around it. Inside, a control center holds the instructions, and small power stations turn food into energy. Plant cells have three extra things: a stiff wall, green parts that make food from sunlight, and a big bag of water. Some living things are a single cell. You are about thirty trillion of them, working together.",
+          "big_idea_zh": "所有的生物都是細胞組成的。細胞是一個很小的袋子，外面包著一層薄薄的皮，裡面裝著膠狀的東西。裡面有一個指揮中心保管著說明書，還有一些小小的發電廠把食物變成能量。植物的細胞多了三樣東西：一道硬硬的牆、用陽光做食物的綠色小東西，還有一大袋水。有些生物只有一個細胞；你則是大約三十兆個細胞一起合作的結果。",
+          "tricks_head": {
+            "en": "A cell in a sentence",
+            "zh": "一句話記住細胞"
+          },
+          "checked": {
+            "en": "October 2026",
+            "zh": "2026 年 10 月"
+          },
+          "lab": {
+            "kind": "cell",
+            "eyebrow": "3D Model · 3D 模型",
+            "title_en": "Open a Cell",
+            "title_zh": "打開一個細胞",
+            "how_en": "Drag to turn the model, and scroll or pinch to zoom. The cell has been cut open so you can see inside. Tap a part in the list. It lights up in the model, and you can read what it does. When you have tried them all, choose Plant cell. Which parts are new? Which part takes up most of the room?",
+            "how_zh": "拖曳可以旋轉模型，滾輪或雙指可以縮放。這個細胞被切開了，讓你看得到裡面。在清單裡點一個部分，它會在模型裡亮起來，並說明它在做什麼。全部試過之後，選「植物細胞」：多了哪些部分？哪一個部分占掉最多的空間？",
+            "msgs": {
+              "wall": {
+                "en": "The cell wall is a stiff box around a plant cell. It is built mostly of a tough material called cellulose. It gives the cell its shape and holds the plant up. A tree can stand tall with no bones because it has billions of these little boxes.",
+                "zh": "細胞壁是包在植物細胞外面的一個硬盒子，主要是用一種很堅韌的材料「纖維素」做成的。它讓細胞有固定的形狀，也把植物撐起來。樹沒有骨頭卻站得那麼高，就是因為它有幾十億個這樣的小盒子。"
+              },
+              "membrane": {
+                "en": "The cell membrane is the thin skin of the cell. It keeps the inside in and the outside out, but it is not a wall. It lets some things through and stops others, so the cell can take in what it needs and send out its waste.",
+                "zh": "細胞膜是細胞那層薄薄的皮。它把裡面的東西留在裡面、把外面的擋在外面，不過它並不是一道牆：有些東西它放行，有些它擋住，所以細胞可以把需要的東西收進來，把廢物送出去。"
+              },
+              "nucleus": {
+                "en": "The nucleus is the control center. It holds almost all of the cell's instructions, written in a long molecule called DNA. The instructions tell the cell what to make and when. Lesson 3 looks inside it.",
+                "zh": "細胞核是指揮中心。細胞的說明書幾乎都保管在這裡，是寫在一種很長的分子「DNA」上面的。這份說明書告訴細胞要做什麼、什麼時候做。第三課會打開它來看。"
+              },
+              "mito": {
+                "en": "Mitochondria are the power stations. They take in food and oxygen and turn them into a kind of energy that the rest of the cell can use. A cell that works hard, such as a muscle cell, has a great many of them.",
+                "zh": "粒線體是發電廠。它們把食物和氧氣變成細胞其他部分可以使用的能量。工作量大的細胞，例如肌肉細胞，裡面的粒線體特別多。"
+              },
+              "chloroplast": {
+                "en": "Chloroplasts are the green parts where a plant makes its food. They catch sunlight and use it to turn carbon dioxide and water into sugar. Animal cells have none, which is why you have to eat. Lesson 2 shows them at work.",
+                "zh": "葉綠體是植物做食物的地方，也是它綠色的來源。它們抓住陽光，用它把二氧化碳和水變成糖。動物的細胞沒有葉綠體，所以你必須吃東西。第二課可以看到它們怎麼工作。"
+              },
+              "vacuole": {
+                "en": "The vacuole is a large bag of water in the middle of a plant cell. When it is full, it presses outward against the wall and makes the cell firm. When a plant has too little water, the bags shrink, the cells go soft, and the plant droops.",
+                "zh": "液泡是植物細胞中間的一大袋水。它裝滿的時候，會往外頂住細胞壁，讓細胞硬挺。植物缺水的時候，這些袋子縮小，細胞變軟，整株植物就垂下來了。"
+              },
+              "cytoplasm": {
+                "en": "The cytoplasm is the jelly that fills the cell. Everything else floats in it. It is mostly water, and a great deal of the cell's work goes on there.",
+                "zh": "細胞質是填滿細胞的那團膠狀物，其他的東西都浮在裡面。它大部分是水，細胞有很多工作就是在這裡進行的。"
+              }
+            },
+            "legend": [
+              {
+                "cls": "lfcem",
+                "en": "Pink: cell membrane",
+                "zh": "粉紅色：細胞膜"
+              },
+              {
+                "cls": "lfcen",
+                "en": "Purple: nucleus",
+                "zh": "紫色：細胞核"
+              },
+              {
+                "cls": "lfceo",
+                "en": "Orange: mitochondria",
+                "zh": "橘色：粒線體"
+              },
+              {
+                "cls": "lfceg",
+                "en": "Green: cell wall (box) and chloroplasts (ovals), in plants only",
+                "zh": "綠色：細胞壁（盒子）和葉綠體（橢圓），只有植物有"
+              },
+              {
+                "cls": "lfcev",
+                "en": "Blue: the large vacuole, in plants only",
+                "zh": "藍色：大液泡，只有植物有"
+              }
+            ],
+            "scale_en": "A teaching model. Real cells are not these colors. Most of a cell is almost clear, and scientists add dyes to see the parts. Real cells also come in many shapes, and they hold other parts that this model leaves out to keep it simple. The parts are not drawn to scale: mitochondria and chloroplasts are drawn larger than they should be so that you can see them.",
+            "scale_zh": "這是教學用的模型。真的細胞不是這些顏色：細胞大部分幾乎是透明的，科學家要加染料才看得出各個部分。真的細胞有各式各樣的形狀，裡面還有別的構造，這個模型為了簡單沒有畫出來。各部分也沒有照比例：粒線體和葉綠體畫得比實際大，這樣你才看得到。",
+            "credit_html": "Model drawn by My Culture Connect as a teaching diagram. The ideas follow the sources listed at the bottom of this page. · 模型由人師教育協會自繪示意；原理依本頁最下方列出的出處。"
+          },
+          "paras": [
+            "Look closely at the back of your hand. It seems smooth and solid. But if you could look much, much closer, you would find that your skin is built of tiny separate pieces, packed together like bricks in a wall. Each piece is alive. Each one is called a cell.",
+            "Cells were first seen in 1665. An English scientist named Robert Hooke looked at a thin slice of cork through a microscope and saw rows of little empty boxes. They reminded him of the small rooms that monks lived in, which were called cells, so that is the name he gave them. About 170 years later, scientists came to understand that every plant and every animal is made of cells.",
+            "A cell is like a very small bag. Its skin is called the cell membrane, and it decides what may come in and what may go out. The bag is filled with a watery jelly. Floating in the jelly is the nucleus, which keeps the cell's instructions. There are also many tiny power stations, called mitochondria, which turn food into energy that the cell can use.",
+            "Plant cells have all of these, and three things more. Around the membrane there is a stiff wall, which gives the plant its strength. Inside there are green chloroplasts, which make food from sunlight. And in the middle there is a large bag of water, called a vacuole, which keeps the cell firm.",
+            "Some living things are just one cell, alone. A drop of pond water is full of them. Larger living things are made of a great many cells. An adult human body has about thirty trillion. They are not all alike. Nerve cells, muscle cells, skin cells, and blood cells each have a different shape because each has a different job.",
+            "Where do new cells come from? Always from other cells. A cell grows, copies its instructions, and divides into two. That is how you grew from a single cell into the person you are, and it is how your skin mends itself after a cut. Every cell alive today came from a cell that lived before it."
+          ],
+          "paras_zh": [
+            "仔細看看你的手背。它看起來又平滑又完整。可是如果你能湊得非常非常近去看，就會發現皮膚是由一小塊一小塊分開的東西排在一起組成的，像牆上的磚頭一樣。每一小塊都是活的。每一塊都叫做細胞。",
+            "人類第一次看見細胞是在 1665 年。英國科學家虎克用顯微鏡觀察一片薄薄的軟木，看到一排排小小的空格子。這讓他想到修道士住的小房間，那種房間就叫 cell，所以他用這個字來稱呼它們。大約 170 年以後，科學家才明白：每一種植物、每一種動物，都是細胞組成的。",
+            "細胞就像一個非常小的袋子。它的皮叫做細胞膜，由它決定什麼可以進來、什麼可以出去。袋子裡裝滿了含水的膠狀物。浮在膠狀物裡的有細胞核，它保管著細胞的說明書；還有許多小小的發電廠，叫做粒線體，把食物變成細胞可以使用的能量。",
+            "這些植物細胞全都有，另外還多三樣。細胞膜外面有一道硬硬的牆，讓植物有力氣站著。裡面有綠色的葉綠體，用陽光做出食物。中間還有一大袋水，叫做液泡，讓細胞保持硬挺。",
+            "有些生物就只是一個細胞，獨自生活；一滴池塘的水裡就有很多。比較大的生物是很多很多細胞組成的。一個成年人的身體大約有三十兆個細胞。它們並不是都長得一樣：神經細胞、肌肉細胞、皮膚細胞和血球，形狀各不相同，因為各有各的工作。",
+            "新的細胞是從哪裡來的？永遠是從別的細胞來的。一個細胞長大、把說明書複製一份，然後分裂成兩個。你就是這樣從一個細胞長成現在的你；割傷之後皮膚會自己長好，也是這個道理。今天活著的每一個細胞，都來自在它之前活著的細胞。"
+          ],
+          "questions": [
+            "Why did Robert Hooke call them cells?",
+            "What three things does a plant cell have that an animal cell does not?",
+            "Where do new cells come from?"
+          ],
+          "answers": [
+            "The little boxes he saw in a slice of cork reminded him of the small rooms that monks lived in, which were called cells.",
+            "A stiff cell wall, green chloroplasts that make food from sunlight, and a large vacuole filled with water.",
+            "From other cells. A cell grows, copies its instructions, and divides into two."
+          ],
+          "vocab": [
+            {
+              "n": 1,
+              "w": "cell",
+              "pos": "n.",
+              "zh": "細胞",
+              "ex": "Your body is made of trillions of <b>cells</b>.",
+              "exzh": "你的身體是幾十兆個細胞組成的。"
+            },
+            {
+              "n": 2,
+              "w": "microscope",
+              "pos": "n.",
+              "zh": "顯微鏡",
+              "ex": "We looked at onion skin under a <b>microscope</b>.",
+              "exzh": "我們用顯微鏡觀察洋蔥皮。"
+            },
+            {
+              "n": 3,
+              "w": "tiny",
+              "pos": "adj.",
+              "zh": "極小的",
+              "ex": "A cell is too <b>tiny</b> to see with your eyes.",
+              "exzh": "細胞小到用眼睛看不見。"
+            },
+            {
+              "n": 4,
+              "w": "nucleus",
+              "pos": "n.",
+              "zh": "細胞核",
+              "ex": "The <b>nucleus</b> holds the cell's instructions.",
+              "exzh": "細胞核保管著細胞的說明書。"
+            },
+            {
+              "n": 5,
+              "w": "membrane",
+              "pos": "n.",
+              "zh": "膜",
+              "ex": "A thin <b>membrane</b> covers the cell.",
+              "exzh": "一層薄薄的膜包著細胞。"
+            },
+            {
+              "n": 6,
+              "w": "wall",
+              "pos": "n.",
+              "zh": "牆；壁",
+              "ex": "A plant cell has a stiff <b>wall</b>.",
+              "exzh": "植物細胞有一道硬硬的壁。"
+            },
+            {
+              "n": 7,
+              "w": "divide",
+              "pos": "v.",
+              "zh": "分裂；分開",
+              "ex": "One cell <b>divides</b> into two.",
+              "exzh": "一個細胞分裂成兩個。"
+            },
+            {
+              "n": 8,
+              "w": "living",
+              "pos": "adj.",
+              "zh": "活的；有生命的",
+              "ex": "Every <b>living</b> thing is made of cells.",
+              "exzh": "所有的生物都是細胞組成的。"
+            }
+          ],
+          "quiz": [
+            {
+              "q": "What is a cell?",
+              "options": [
+                "The tiny living unit that all living things are made of",
+                "A kind of small animal",
+                "A piece of rock",
+                "A drop of water"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "Which part of a cell holds its instructions?",
+              "options": [
+                "The nucleus",
+                "The cell wall",
+                "The vacuole",
+                "The cell membrane"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "What do mitochondria do?",
+              "options": [
+                "They turn food into energy the cell can use",
+                "They make the cell green",
+                "They hold the cell's water",
+                "They keep the cell in a box shape"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "Which of these is found only in plant cells?",
+              "options": [
+                "Chloroplasts",
+                "A nucleus",
+                "A cell membrane",
+                "Mitochondria"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "Where does a new cell come from?",
+              "options": [
+                "From another cell that divides",
+                "From water",
+                "From the air",
+                "From food"
+              ],
+              "correct": 0
+            }
+          ],
+          "parts_head": {
+            "eyebrow": "Try It in the Model · 在模型裡試試",
+            "en": "Four parts to find",
+            "zh": "找出四個部分"
+          },
+          "parts": [
+            {
+              "key": "nucleus",
+              "icon": "🟣",
+              "en": "The control center",
+              "zh": "指揮中心",
+              "meta_en": "Nucleus",
+              "meta_zh": "細胞核",
+              "demo": "nucleus",
+              "text_en": "The purple ball that holds the instructions. Both kinds of cell have one.",
+              "text_zh": "保管說明書的那顆紫色的球。兩種細胞都有。"
+            },
+            {
+              "key": "mito",
+              "icon": "🟠",
+              "en": "The power stations",
+              "zh": "發電廠",
+              "meta_en": "Mitochondria",
+              "meta_zh": "粒線體",
+              "demo": "mito",
+              "text_en": "The small orange shapes. Count how many you can see.",
+              "text_zh": "那些橘色的小東西。數數看你看得到幾個。"
+            },
+            {
+              "key": "wall",
+              "icon": "🟩",
+              "en": "The stiff box",
+              "zh": "硬硬的盒子",
+              "meta_en": "Cell wall",
+              "meta_zh": "細胞壁",
+              "demo": "wall",
+              "text_en": "Only plant cells have it. Notice how it gives the cell straight sides.",
+              "text_zh": "只有植物細胞有。注意它怎麼讓細胞有平直的邊。"
+            },
+            {
+              "key": "vacuole",
+              "icon": "💧",
+              "en": "The bag of water",
+              "zh": "一袋水",
+              "meta_en": "Vacuole",
+              "meta_zh": "液泡",
+              "demo": "vacuole",
+              "text_en": "It fills most of the plant cell and pushes everything else to the edges.",
+              "text_zh": "它占掉植物細胞大部分的空間，把其他東西都擠到邊上。"
+            }
+          ],
+          "parts_note_en": "Switch between the two cells a few times. Everything in the animal cell is in the plant cell too. The plant cell simply has more.",
+          "parts_note_zh": "在兩種細胞之間多切換幾次。動物細胞有的，植物細胞全都有；植物細胞只是多了幾樣。",
+          "links_head": {
+            "eyebrow": "Go Further · 延伸閱讀",
+            "en": "Zoom out, and zoom in",
+            "zh": "往外看，往裡看"
+          },
+          "links": [
+            {
+              "href": "/resources/classes/human-body/cells/",
+              "icon": "🔬",
+              "k_en": "The Human Body · Lesson 24",
+              "k_zh": "人體探索 第二十四課",
+              "en": "What Are You Made Of?",
+              "zh": "你是什麼做成的？",
+              "note_en": "Zoom from your whole body down to a cell, and then further.",
+              "note_zh": "從整個身體一路放大到細胞，再繼續放大。"
+            },
+            {
+              "href": "/resources/classes/life/how-leaves-make-food/",
+              "icon": "🍃",
+              "k_en": "Living Things · Lesson 2",
+              "k_zh": "生命與生態 第二課",
+              "en": "How Does a Leaf Make Food from Sunlight?",
+              "zh": "葉子怎麼用陽光做出食物？",
+              "note_en": "See what the chloroplasts in a plant cell are busy doing.",
+              "note_zh": "看看植物細胞裡的葉綠體在忙什麼。"
+            }
+          ],
+          "sorter": {
+            "eyebrow": "Be the Scientist · 當一次科學家",
+            "en": "What kind of cell is this?",
+            "zh": "這是哪一種細胞？",
+            "lead_en": "Imagine that you are looking down a microscope. Tick what you can see, and find out what kind of cell it probably is.",
+            "lead_zh": "想像你正在看顯微鏡。把你看到的打勾，看看它大概是哪一種細胞。",
+            "kinds": {
+              "animal": {
+                "en": "An animal cell",
+                "zh": "動物的細胞",
+                "note_en": "No wall, no chloroplasts, and no large vacuole. It could be a cell from your cheek, from a fish, or from a fly.",
+                "note_zh": "沒有細胞壁、沒有葉綠體，也沒有大液泡。它可能是你臉頰內側的細胞，也可能來自一條魚或一隻蒼蠅。"
+              },
+              "green": {
+                "en": "A green plant cell",
+                "zh": "綠色的植物細胞",
+                "note_en": "It has all three. This is a cell from a part of a plant that lives in the light, such as a leaf.",
+                "note_zh": "三樣都有。這是植物照得到光的部分的細胞，例如葉子。"
+              },
+              "root": {
+                "en": "A plant cell that lives in the dark",
+                "zh": "不見光的植物細胞",
+                "note_en": "It has a wall and a vacuole but no chloroplasts. Cells in a root are like this. They cannot make food, so the leaves send sugar down to them.",
+                "note_zh": "有細胞壁和液泡，卻沒有葉綠體。根裡面的細胞就是這樣。它們沒辦法自己做食物，要靠葉子把糖送下來。"
+              },
+              "odd": {
+                "en": "An unusual mix",
+                "zh": "不常見的組合",
+                "note_en": "Plants and animals do not usually have cells like this. Look again. In a plant cell the wall, the chloroplasts, and the vacuole usually come together.",
+                "note_zh": "植物和動物通常沒有這樣的細胞。再看一次吧：在植物細胞裡，細胞壁、葉綠體和液泡通常是一起出現的。"
+              }
+            },
+            "note_en": "This is a simple guide for the cells of plants and animals. Fungi and bacteria have walls too, but they are different kinds of living things, and Lesson 4 looks at bacteria.",
+            "note_zh": "這是分辨動物和植物細胞的簡單方法。真菌和細菌也有細胞壁，不過牠們是另外幾類生物；第四課會談細菌。"
+          },
+          "facts": {
+            "eyebrow": "Cells by the Numbers · 細胞的數字",
+            "en": "Six numbers about cells",
+            "zh": "六個和細胞有關的數字",
+            "lead_en": "From the first look to the cells in your own body.",
+            "lead_zh": "從人類第一次看見細胞，到你自己身體裡的細胞。",
+            "items": [
+              {
+                "big": "1665",
+                "unit_en": "the year",
+                "unit_zh": "年",
+                "en": "Robert Hooke saw the little boxes in a slice of cork and named them cells.",
+                "zh": "虎克在一片軟木裡看到一格一格的小格子，把它們命名為 cell。"
+              },
+              {
+                "big": "1838–39",
+                "unit_en": "the years",
+                "unit_zh": "年",
+                "en": "Matthias Schleiden and Theodor Schwann put forward the idea that all plants and animals are made of cells.",
+                "zh": "許來登和許旺提出：所有的植物和動物都是細胞組成的。"
+              },
+              {
+                "big": "30",
+                "unit_en": "trillion",
+                "unit_zh": "兆",
+                "en": "A typical adult human body has about this many cells.",
+                "zh": "一個成年人的身體大約有這麼多個細胞。"
+              },
+              {
+                "big": "2 m",
+                "unit_en": "of DNA",
+                "unit_zh": "的 DNA",
+                "en": "Each human cell holds roughly two meters of DNA, folded up inside a nucleus far too small to see.",
+                "zh": "人的每一個細胞裡大約有兩公尺長的 DNA，摺疊在小到看不見的細胞核裡。"
+              },
+              {
+                "big": "3",
+                "unit_en": "extras",
+                "unit_zh": "樣",
+                "en": "Plant cells have three things that animal cells lack: a wall, chloroplasts, and a large vacuole.",
+                "zh": "植物細胞比動物細胞多三樣東西：細胞壁、葉綠體和大液泡。"
+              },
+              {
+                "big": "1",
+                "unit_en": "cell",
+                "unit_zh": "個細胞",
+                "en": "Many living things are a single cell, and every one of us began as a single cell.",
+                "zh": "很多生物只有一個細胞；我們每一個人，最初也都只是一個細胞。"
+              }
+            ]
+          },
+          "culture_cards": {
+            "eyebrow": "Cell Stories · 細胞的故事",
+            "title_en": "The cork, the little animals, the rule, and two strange cells",
+            "title_zh": "一片軟木、小小的動物、一條規則，還有兩種奇特的細胞",
+            "lead_en": "How people found cells, and a few that break the pattern.",
+            "lead_zh": "人們是怎麼發現細胞的，還有幾種不照常理來的細胞。",
+            "cards": [
+              {
+                "k": "1665",
+                "en": "A slice of cork",
+                "zh": "一片軟木",
+                "body_en": "Robert Hooke built his own microscope and looked at everything he could find: a flea, a snowflake, the point of a needle. In a thin slice of cork he saw rows of tiny boxes and called them cells. What he saw were not living cells. Cork is dead bark, and the boxes were the empty walls that the cells had left behind.",
+                "body_zh": "虎克自己做了顯微鏡，拿它觀察所有找得到的東西：跳蚤、雪花、針尖。在一片薄薄的軟木裡，他看到一排排小格子，把它們叫做 cell。其實他看到的並不是活的細胞：軟木是死掉的樹皮，那些格子是細胞留下來的空牆。"
+              },
+              {
+                "k": "Delft · 台夫特",
+                "en": "The little animals",
+                "zh": "小小的動物",
+                "body_en": "At about the same time, a cloth seller in the Netherlands named Antonie van Leeuwenhoek was grinding tiny lenses of his own. Through them he saw things that nobody had seen before: living creatures swimming in a drop of water. He called them little animals. He was the first person to see living things made of a single cell.",
+                "body_zh": "差不多同一個時候，荷蘭有一位布商雷文霍克，自己磨出了很小的鏡片。透過這些鏡片，他看到了從來沒有人看過的東西：在一滴水裡游來游去的小生物。他把牠們叫做「小動物」。他是第一個看見單細胞生物的人。"
+              },
+              {
+                "k": "Rule · 規則",
+                "en": "Cells come from cells",
+                "zh": "細胞來自細胞",
+                "body_en": "By the middle of the 1800s, scientists had agreed on a few simple statements. All living things are made of cells. The cell is the smallest unit of life. And every cell comes from a cell that lived before it. Together these are called cell theory, and nobody has found a living thing that breaks them.",
+                "body_zh": "到了十九世紀中葉，科學家對幾句簡單的話有了共識：所有的生物都是細胞組成的；細胞是生命最小的單位；每一個細胞都來自在它之前活著的細胞。這幾句話合起來叫做「細胞學說」，到現在還沒有人找到違反它的生物。"
+              },
+              {
+                "k": "Your body · 你的身體",
+                "en": "Two strange cells",
+                "zh": "兩種奇特的細胞",
+                "body_en": "Your red blood cells break one of the rules in this lesson. When they are fully grown they have no nucleus at all. They throw it out to make more room for carrying oxygen. And although most cells are far too small to see, a human egg cell is one of the largest cells in the body, just big enough to see without a microscope.",
+                "body_zh": "你的紅血球打破了這一課裡的一條規則：它們長成熟以後，完全沒有細胞核——把細胞核丟掉，騰出更多空間來載運氧氣。另外，雖然大部分的細胞小到看不見，人的卵細胞卻是身體裡最大的細胞之一，剛好大到不用顯微鏡也看得到。"
+              }
+            ]
+          },
+          "myths": [
+            {
+              "myth_en": "Cells are flat, like the pictures in a book.",
+              "myth_zh": "細胞是扁平的，像書上的圖那樣。",
+              "fact_en": "Cells are solid shapes, like balls, boxes, and long threads. A picture shows only one slice.",
+              "fact_zh": "細胞是立體的，像球、盒子或長長的線。圖片畫出來的只是其中一個切面。"
+            },
+            {
+              "myth_en": "Only animals are made of cells.",
+              "myth_zh": "只有動物是細胞組成的。",
+              "fact_en": "Plants, mushrooms, and tiny living things in pond water are all made of cells too.",
+              "fact_zh": "植物、香菇，還有池塘水裡的微小生物，也都是細胞組成的。"
+            },
+            {
+              "myth_en": "All the cells in your body are the same.",
+              "myth_zh": "你身體裡的細胞都長得一樣。",
+              "fact_en": "They come in many shapes for many jobs. A nerve cell is long and thin, and a red blood cell is a small disk.",
+              "fact_zh": "它們為了不同的工作，有各式各樣的形狀。神經細胞又細又長，紅血球是小小的圓盤。"
+            },
+            {
+              "myth_en": "Plant cells have a wall instead of a membrane.",
+              "myth_zh": "植物細胞只有細胞壁，沒有細胞膜。",
+              "fact_en": "They have both. The membrane lies just inside the wall.",
+              "fact_zh": "它們兩樣都有，細胞膜就貼在細胞壁的裡面。"
+            }
+          ],
+          "tricks": [
+            {
+              "title_en": "A bag with a skin",
+              "title_zh": "有一層皮的袋子",
+              "body_en": "The membrane chooses what goes in and out.",
+              "body_zh": "細胞膜決定誰進誰出。"
+            },
+            {
+              "title_en": "A control center",
+              "title_zh": "一個指揮中心",
+              "body_en": "The nucleus holds the instructions.",
+              "body_zh": "細胞核保管說明書。"
+            },
+            {
+              "title_en": "Power stations",
+              "title_zh": "幾座發電廠",
+              "body_en": "Mitochondria turn food into energy.",
+              "body_zh": "粒線體把食物變成能量。"
+            },
+            {
+              "title_en": "Plants add three",
+              "title_zh": "植物多三樣",
+              "body_en": "A wall, chloroplasts, and a vacuole.",
+              "body_zh": "細胞壁、葉綠體和液泡。"
+            }
+          ],
+          "activities": [
+            {
+              "title_en": "See Real Cells",
+              "title_zh": "看真正的細胞",
+              "materials": [
+                {
+                  "en": "A school microscope, a glass slide, a cover slip, and a dropper of water",
+                  "zh": "學校的顯微鏡、載玻片、蓋玻片，還有一支裝了水的滴管"
+                },
+                {
+                  "en": "A piece of onion, and tweezers",
+                  "zh": "一小塊洋蔥，還有鑷子"
+                }
+              ],
+              "steps": [
+                {
+                  "en": "Break a layer of the onion and peel off the thin, clear skin from its inner side with the tweezers.",
+                  "zh": "把洋蔥的一層鱗片折斷，用鑷子從內側撕下那層又薄又透明的皮。"
+                },
+                {
+                  "en": "Lay the skin flat in a drop of water on the slide, and lower the cover slip onto it gently.",
+                  "zh": "把這層皮平鋪在載玻片上的一滴水裡，再輕輕蓋上蓋玻片。"
+                },
+                {
+                  "en": "Look through the microscope, starting with the lowest power. Draw what you see.",
+                  "zh": "從最低倍率開始，用顯微鏡觀察。把你看到的畫下來。"
+                },
+                {
+                  "en": "Which parts from the model can you find? Which parts are missing, and why might that be?",
+                  "zh": "模型裡的哪些部分你找得到？哪些找不到？可能是什麼原因？"
+                }
+              ],
+              "tip_en": "You should see rows of boxes, each with a wall. You will not see any green chloroplasts, because this part of an onion grows in the dark. Ask your teacher before you use any stain, and handle glass slides with care.",
+              "tip_zh": "你應該會看到一排排有牆的格子。你找不到綠色的葉綠體，因為洋蔥的這個部分是長在暗處的。要用染劑之前先問老師，拿玻片的時候要小心。"
+            },
+            {
+              "title_en": "A Cell in a Bag",
+              "title_zh": "袋子裡的細胞",
+              "materials": [
+                {
+                  "en": "A zip-top bag, clear jelly or hair gel, and a small box that the bag just fits into",
+                  "zh": "一個夾鏈袋、透明的果凍或髮膠，還有一個剛好裝得下袋子的小盒子"
+                },
+                {
+                  "en": "Small things to be the parts: a grape, a few beans, green peas, and a small balloon filled with water",
+                  "zh": "當作各個部分的小東西：一顆葡萄、幾顆豆子、青豆，還有一個裝了水的小氣球"
+                }
+              ],
+              "steps": [
+                {
+                  "en": "Fill the bag halfway with the jelly. This is the cytoplasm, and the bag is the membrane.",
+                  "zh": "把果凍裝到袋子的一半。這是細胞質，袋子就是細胞膜。"
+                },
+                {
+                  "en": "Add the grape for the nucleus and the beans for the mitochondria. Seal the bag. You have made an animal cell.",
+                  "zh": "放進葡萄當細胞核、豆子當粒線體，把袋子封好。你做出了一個動物細胞。"
+                },
+                {
+                  "en": "Now make a second bag. This time add green peas for chloroplasts and the water balloon for the vacuole, and put the bag inside the box.",
+                  "zh": "再做第二袋。這一次多放青豆當葉綠體、水球當液泡，然後把袋子放進盒子裡。"
+                },
+                {
+                  "en": "Press gently on each one. Which keeps its shape better? What does the box stand for?",
+                  "zh": "輕輕壓一壓這兩個細胞。哪一個比較不容易變形？盒子代表的是什麼？"
+                }
+              ],
+              "tip_en": "The box is the cell wall. Stack several boxes, and you will see how plants can build something tall and strong out of soft, wet cells. Do not eat anything from the model.",
+              "tip_zh": "盒子就是細胞壁。把幾個盒子疊起來，你就會明白植物怎麼用又軟又溼的細胞蓋出又高又堅固的東西。模型裡的東西不要吃。"
+            }
+          ],
+          "sources": [
+            {
+              "en": "Cells were discovered by Robert Hooke in 1665, who named them after the cells of a monastery; cell theory was developed through the work of Schleiden in 1838 and Schwann in 1839; a typical adult human body has about 30 trillion cells; living things can be single-celled or made of many cells of different types",
+              "zh": "細胞由虎克於 1665 年發現，並以修道院的小房間命名；細胞學說經許來登（1838）與許旺（1839）的研究建立；成年人體約有 30 兆個細胞；生物可以是單細胞或由許多不同類型的細胞組成",
+              "src": "Wikipedia, “Cell (biology)”",
+              "url": "https://en.wikipedia.org/wiki/Cell_(biology)"
+            },
+            {
+              "en": "Cell theory: all living things are made of cells, the cell is the basic unit of life, and all cells come from cells that already exist",
+              "zh": "細胞學說：所有生物都由細胞組成；細胞是生命的基本單位；所有細胞都來自既有的細胞",
+              "src": "Wikipedia, “Cell theory”",
+              "url": "https://en.wikipedia.org/wiki/Cell_theory"
+            },
+            {
+              "en": "The cell membrane separates the inside of the cell from the outside and lets only some things pass",
+              "zh": "細胞膜把細胞內部與外界分開，並且只讓部分物質通過（半透膜）",
+              "src": "Wikipedia, “Cell membrane”",
+              "url": "https://en.wikipedia.org/wiki/Cell_membrane"
+            },
+            {
+              "en": "The nucleus contains nearly all of the cell's DNA; each human cell holds roughly two meters of it",
+              "zh": "細胞核含有細胞幾乎全部的 DNA；每個人類細胞約有兩公尺長的 DNA",
+              "src": "Wikipedia, “Cell nucleus”",
+              "url": "https://en.wikipedia.org/wiki/Cell_nucleus"
+            },
+            {
+              "en": "Mitochondria produce the chemical energy that the cell uses, and are nicknamed the powerhouse of the cell",
+              "zh": "粒線體製造細胞使用的化學能，有「細胞的發電廠」之稱",
+              "src": "Wikipedia, “Mitochondria”",
+              "url": "https://en.wikipedia.org/wiki/Mitochondria"
+            },
+            {
+              "en": "Plant cells have walls containing cellulose, parts that carry out photosynthesis, and a large vacuole that keeps the cell firm",
+              "zh": "植物細胞的特徵：含纖維素的細胞壁、能行光合作用的構造、調節膨壓的大液泡",
+              "src": "Wikipedia, “Plant cell”",
+              "url": "https://en.wikipedia.org/wiki/Plant_cell"
+            },
+            {
+              "en": "Antonie van Leeuwenhoek was the first to observe single-celled living things, with lenses he made himself",
+              "zh": "雷文霍克用自己製作的單片鏡顯微鏡，最早觀察到微生物",
+              "src": "Wikipedia, “Antonie van Leeuwenhoek”",
+              "url": "https://en.wikipedia.org/wiki/Antonie_van_Leeuwenhoek"
+            },
+            {
+              "en": "Mature human red blood cells have no nucleus",
+              "zh": "人類成熟的紅血球沒有細胞核",
+              "src": "Wikipedia, “Red blood cell”",
+              "url": "https://en.wikipedia.org/wiki/Red_blood_cell"
+            },
+            {
+              "en": "The human egg cell is one of the largest cells in the body and can be seen without a microscope",
+              "zh": "人類的卵細胞是體內最大的細胞之一，不用顯微鏡就看得到",
+              "src": "Wikipedia, “Egg cell”",
+              "url": "https://en.wikipedia.org/wiki/Egg_cell"
+            }
+          ]
+        },
+        {
           "n": 2,
           "slug": "how-leaves-make-food",
           "title": "How Does a Leaf Make Food from Sunlight?",
@@ -609,12 +1223,6 @@
         }
       ],
       "planned": [
-        {
-          "n": 1,
-          "icon": "🔬",
-          "en": "What Is a Cell?",
-          "zh": "細胞是什麼？"
-        },
         {
           "n": 3,
           "icon": "🧬",
