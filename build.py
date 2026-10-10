@@ -8453,7 +8453,32 @@ def _ph_lab_epicycle(lab):
   </div>
 </div>"""
 
+def _ph_lab_angles(lab):
+    """A36：把內角加起來。平面上拖三個角，內角和恆為 180°；球面上（頂點在北極的等腰三角形）內角和隨三角形變大而超過 180°。"""
+    payload = html.escape(json.dumps({k: lab[k] for k in ("modes", "sum", "lw", "lh", "shuffle", "flat", "globe", "q", "qopts")}, ensure_ascii=False), quote=False)
+    return f"""<div class="ph-el ph-ag rvl" data-ph-angles>
+  <script type="application/json" data-ag-data>{payload}</script>
+  <div class="ph-el-stage">
+    <div class="ph-ag-modes" role="group" data-ag-modes></div>
+    <div class="ph-ag-grid">
+      <figure class="ph-ag-fig"><svg viewBox="0 0 400 300" data-ag-svg role="img" aria-label="A triangle with its three angles marked"></svg></figure>
+      <div class="ph-ag-side">
+        <div class="ph-ag-sum" aria-live="polite"><span data-ag-suml></span><b data-ag-sumv></b><em data-ag-parts></em></div>
+        <div class="ph-ag-ctls" data-ag-ctls>
+          <label class="ph-jy-ctl"><span><b data-ag-lw></b></span><input type="range" min="10" max="170" step="1" value="40" data-ag-w><output data-ag-w-out></output></label>
+          <label class="ph-jy-ctl"><span><b data-ag-lh></b></span><input type="range" min="10" max="90" step="1" value="20" data-ag-h><output data-ag-h-out></output></label>
+        </div>
+        <button type="button" class="ph-ag-shuffle" data-ag-shuffle></button>
+      </div>
+    </div>
+    <div class="ph-tp-text" data-ag-text aria-live="polite"></div>
+    <div data-ag-end aria-live="polite"></div>
+    <div class="ph-el-foot"><button type="button" class="ph-el-reset" data-ag-reset>Start again · 重來</button></div>
+  </div>
+</div>"""
+
 def _ph_lab(lab):
+    if lab.get("kind") == "angles": return _ph_lab_angles(lab)
     if lab.get("kind") == "epicycle": return _ph_lab_epicycle(lab)
     if lab.get("kind") == "wason": return _ph_lab_wason(lab)
     if lab.get("kind") == "beetle": return _ph_lab_beetle(lab)

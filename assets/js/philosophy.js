@@ -2051,6 +2051,99 @@
     var m = /[#&]epicycle=([\d.]+)-([\d.]+)(?:,(sun|earth))?/.exec(location.hash); if (m) { root.__lab.set(+m[1], +m[2], m[3] || 'earth'); root.__lab.freeze(0.25); }
   });
 
+  /* ---- A36：把內角加起來（平面 vs. 球面） ---- */
+  $$('[data-ph-angles]').forEach(function (root) {
+    var D;
+    try { D = JSON.parse($('[data-ag-data]', root).textContent); } catch (e) { return; }
+    var NS = 'http://www.w3.org/2000/svg', DEG = 180 / Math.PI, CX = 200, CY = 158, R = 128, TILT = 38 / DEG;
+    var svg = $('[data-ag-svg]', root), modes = $('[data-ag-modes]', root), ctls = $('[data-ag-ctls]', root), iw = $('[data-ag-w]', root), ih = $('[data-ag-h]', root), ow = $('[data-ag-w-out]', root), oh = $('[data-ag-h-out]', root), sumv = $('[data-ag-sumv]', root), parts = $('[data-ag-parts]', root), text = $('[data-ag-text]', root), end = $('[data-ag-end]', root), shuf = $('[data-ag-shuffle]', root);
+    var mode, seenGlobe, P, drag = -1, START = [[90, 235], [320, 215], [170, 60]];
+    var SETS = [[[60, 250], [350, 250], [60, 70]], [[40, 150], [360, 170], [200, 130]], [[150, 260], [250, 260], [200, 40]], [[50, 60], [340, 100], [120, 270]], [[180, 200], [240, 190], [215, 140]]], si = 0;
+    function zhp(parent, t) { var z = el('p', 'ph-zh', t); z.lang = 'zh-Hant'; parent.appendChild(z); addTr(z); }
+    function bi(elm, o) { elm.textContent = ''; elm.appendChild(document.createTextNode(o.en + ' ')); var z = el('i', '', o.zh); z.lang = 'zh-Hant'; elm.appendChild(z); }
+    function add(tag, at, cls, txt) { var e = document.createElementNS(NS, tag); Object.keys(at).forEach(function (a) { e.setAttribute(a, at[a]); }); if (cls) e.setAttribute('class', cls); if (txt != null) e.textContent = txt; svg.appendChild(e); return e; }
+    function flatAngles() {
+      return [0, 1, 2].map(function (i) { var a = P[i], b = P[(i + 1) % 3], c = P[(i + 2) % 3], u = [b[0] - a[0], b[1] - a[1]], v = [c[0] - a[0], c[1] - a[1]], n = Math.hypot(u[0], u[1]) * Math.hypot(v[0], v[1]); return n ? Math.acos(Math.max(-1, Math.min(1, (u[0] * v[0] + u[1] * v[1]) / n))) * DEG : 0; });
+    }
+    function globeAngles() { var w = +iw.value, h = +ih.value / DEG, b = Math.atan2(1, Math.cos(h) * Math.tan(w / 2 / DEG)) * DEG; return [w, b, b]; }
+    function proj(th, ph) { var x = Math.sin(th) * Math.sin(ph), y = Math.cos(th), z = Math.sin(th) * Math.cos(ph); return [CX + R * x, CY - R * (y * Math.cos(TILT) - z * Math.sin(TILT)), y * Math.sin(TILT) + z * Math.cos(TILT)]; }
+    function proj3(v) { return [CX + R * v[0], CY - R * (v[1] * Math.cos(TILT) - v[2] * Math.sin(TILT)), v[1] * Math.sin(TILT) + v[2] * Math.cos(TILT)]; }
+    function line(fn, n) { var d = '', pen = false; for (var k = 0; k <= n; k++) { var q = fn(k / n); if (q[2] < 0) { pen = false; continue; } d += (pen ? 'L' : 'M') + q[0].toFixed(1) + ' ' + q[1].toFixed(1); pen = true; } return d; }
+    function labels(pts, ang, off) {
+      var g = [(pts[0][0] + pts[1][0] + pts[2][0]) / 3, (pts[0][1] + pts[1][1] + pts[2][1]) / 3];
+      pts.forEach(function (p, i) { var dx = p[0] - g[0], dy = p[1] - g[1], n = Math.hypot(dx, dy) || 1, x = Math.max(22, Math.min(378, p[0] + dx / n * off)), y = Math.max(14, Math.min(292, p[1] + dy / n * off + 4)); add('text', { x: x.toFixed(1), y: y.toFixed(1), 'text-anchor': 'middle' }, 'lab', ang[i].toFixed(1) + '°'); });
+    }
+    function draw() {
+      svg.textContent = '';
+      var ang;
+      if (mode === 'flat') {
+        for (var gx = 40; gx < 400; gx += 40) add('line', { x1: gx, y1: 0, x2: gx, y2: 300 }, 'grid');
+        for (var gy = 30; gy < 300; gy += 40) add('line', { x1: 0, y1: gy, x2: 400, y2: gy }, 'grid');
+        ang = flatAngles();
+        add('polygon', { points: P.map(function (p) { return p[0].toFixed(1) + ',' + p[1].toFixed(1); }).join(' ') }, 'tri');
+        P.forEach(function (p, i) { add('circle', { cx: p[0], cy: p[1], r: 11, 'data-i': i }, 'knob'); });
+        labels(P, ang, 32);
+      } else {
+        var w = +iw.value / DEG, h = +ih.value / DEG;
+        add('circle', { cx: CX, cy: CY, r: R }, 'ball');
+        [30, 60, 90].forEach(function (c) { add('path', { d: line(function (u) { return proj(c / DEG, u * 2 * Math.PI - Math.PI); }, 96) }, c === 90 ? 'eq' : 'grat'); });
+        for (var m = -150; m <= 180; m += 30) (function (m) { add('path', { d: line(function (u) { return proj(u * Math.PI / 2, m / DEG); }, 30) }, 'grat'); })(m);
+        var b3 = [Math.sin(h) * Math.sin(-w / 2), Math.cos(h), Math.sin(h) * Math.cos(-w / 2)], c3 = [Math.sin(h) * Math.sin(w / 2), Math.cos(h), Math.sin(h) * Math.cos(w / 2)];
+        var om = Math.acos(Math.max(-1, Math.min(1, b3[0] * c3[0] + b3[1] * c3[1] + b3[2] * c3[2]))), so = Math.sin(om) || 1;
+        function base(u) { var a = Math.sin((1 - u) * om) / so, c = Math.sin(u * om) / so; return proj3([a * b3[0] + c * c3[0], a * b3[1] + c * c3[1], a * b3[2] + c * c3[2]]); }
+        var d = '', k, q;
+        for (k = 0; k <= 30; k++) { q = proj(h * k / 30, -w / 2); d += (k ? 'L' : 'M') + q[0].toFixed(1) + ' ' + q[1].toFixed(1); }
+        for (k = 1; k <= 40; k++) { q = base(k / 40); d += 'L' + q[0].toFixed(1) + ' ' + q[1].toFixed(1); }
+        for (k = 29; k >= 0; k--) { q = proj(h * k / 30, w / 2); d += 'L' + q[0].toFixed(1) + ' ' + q[1].toFixed(1); }
+        add('path', { d: d + 'Z' }, 'tri');
+        ang = globeAngles();
+        var pts = [proj(0, 0), proj(h, -w / 2), proj(h, w / 2)];
+        labels(pts, ang, 22);
+        pts.forEach(function (p) { add('circle', { cx: p[0], cy: p[1], r: 4 }, 'dot'); });
+      }
+      return ang;
+    }
+    function update() {
+      var ang = draw(), s = ang[0] + ang[1] + ang[2], ex = s - 180;
+      sumv.textContent = s.toFixed(1) + '°'; sumv.className = ex > 0.05 ? 'is-over' : '';
+      parts.textContent = ang.map(function (a) { return a.toFixed(1) + '°'; }).join(' + ') + (ex > 0.05 ? '  (180° + ' + ex.toFixed(1) + '°)' : '');
+      ow.textContent = iw.value + '°'; oh.textContent = ih.value + '°';
+      ctls.hidden = mode !== 'globe'; shuf.hidden = mode !== 'flat';
+      var o = mode === 'flat' ? D.flat : +ih.value >= 88 ? D.globe.big : ex < 8 ? D.globe.small : D.globe.mid;
+      if (text.getAttribute('data-k') !== o.en) { text.setAttribute('data-k', o.en); text.textContent = ''; text.appendChild(el('p', '', o.en)); zhp(text, o.zh); }
+      $$('button', modes).forEach(function (b) { b.setAttribute('aria-pressed', b.getAttribute('data-k') === mode ? 'true' : 'false'); });
+      drawEnd(); return s;
+    }
+    function drawEnd() {
+      if (!seenGlobe) { end.textContent = ''; return; }
+      if (end.children.length) return;
+      var e = el('div', 'ph-el-end'); var q = el('p', 'ph-vl-q'); q.appendChild(el('b', '', D.q.en)); var qz = el('span', '', D.q.zh); qz.lang = 'zh-Hant'; q.appendChild(qz); e.appendChild(q);
+      var box = el('div', 'ph-vl-opts ph-tp-opts ph-ag-opts'), out = el('div', 'ph-vl-out');
+      D.qopts.forEach(function (o) {
+        var bt = el('button', 'ph-vl-opt'); bt.type = 'button'; bt.setAttribute('data-k', o.k); bt.appendChild(el('b', '', o.t.en)); var z = el('span', '', o.t.zh); z.lang = 'zh-Hant'; bt.appendChild(z);
+        bt.addEventListener('click', function () { $$('button', box).forEach(function (x) { x.classList.toggle('is-right', x === bt); }); out.textContent = ''; var c = el('div', 'ph-vl-card is-valid'); c.appendChild(el('p', '', o.v.en)); zhp(c, o.v.zh); out.appendChild(c); });
+        box.appendChild(bt);
+      });
+      e.appendChild(box); e.appendChild(out); end.appendChild(e);
+    }
+    function setMode(k) { mode = k; if (k === 'globe') seenGlobe = true; update(); }
+    function pt(ev) { var m = svg.getScreenCTM(); if (!m) return null; var p = svg.createSVGPoint(); p.x = ev.clientX; p.y = ev.clientY; p = p.matrixTransform(m.inverse()); return [Math.max(12, Math.min(388, p.x)), Math.max(12, Math.min(288, p.y))]; }
+    svg.addEventListener('pointerdown', function (ev) { if (mode !== 'flat') return; var q = pt(ev); if (!q) return; var best = -1, bd = 1e9; P.forEach(function (p, i) { var d = Math.hypot(p[0] - q[0], p[1] - q[1]); if (d < bd) { bd = d; best = i; } }); if (bd > 40) return; drag = best; try { svg.setPointerCapture(ev.pointerId); } catch (e) {} ev.preventDefault(); });
+    svg.addEventListener('pointermove', function (ev) { if (drag < 0) return; var q = pt(ev); if (!q) return; P[drag] = q; update(); });
+    ['pointerup', 'pointercancel'].forEach(function (n) { svg.addEventListener(n, function () { drag = -1; }); });
+    modes.textContent = '';
+    [['flat', 0], ['globe', 1]].forEach(function (p) { var b = el('button', 'ph-ag-mode'); b.type = 'button'; b.setAttribute('data-k', p[0]); b.appendChild(document.createTextNode(D.modes[p[1]].en + ' · ')); var z = el('span', '', D.modes[p[1]].zh); z.lang = 'zh-Hant'; b.appendChild(z); b.addEventListener('click', function () { setMode(p[0]); }); modes.appendChild(b); });
+    bi($('[data-ag-lw]', root), D.lw); bi($('[data-ag-lh]', root), D.lh); bi($('[data-ag-suml]', root), D.sum); bi(shuf, D.shuffle);
+    [iw, ih].forEach(function (i) { i.addEventListener('input', update); });
+    shuf.addEventListener('click', function () { P = SETS[si % SETS.length].map(function (p) { return p.slice(); }); si++; update(); });
+    function reset() { mode = 'flat'; seenGlobe = false; si = 0; P = START.map(function (p) { return p.slice(); }); iw.value = 40; ih.value = 20; end.textContent = ''; text.removeAttribute('data-k'); update(); }
+    $('[data-ag-reset]', root).addEventListener('click', reset);
+    reset();
+    root.__lab = { state: function () { var a = mode === 'flat' ? flatAngles() : globeAngles(); return { mode: mode, angles: a.map(function (x) { return +x.toFixed(2); }), sum: +(a[0] + a[1] + a[2]).toFixed(2), w: +iw.value, h: +ih.value, asked: !!end.children.length }; },
+      set: function (w, h) { iw.value = w; ih.value = h; setMode('globe'); return this.state(); }, move: function (i, x, y) { P[i] = [x, y]; setMode('flat'); return this.state(); }, shuffle: function () { shuf.click(); return this.state(); } };
+    var hm = /[#&]angles=(\d+)-(\d+)/.exec(location.hash); if (hm) root.__lab.set(+hm[1], +hm[2]);
+  });
+
   /* ---- A13：去火星三趟（帕菲特的傳送機） ---- */
   $$('[data-ph-teleport]').forEach(function (root) {
     var D;
