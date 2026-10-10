@@ -11569,7 +11569,7 @@ def build_earth_hub():
 _lifej = os.path.join(ROOT, "data", "life.json")
 LIFE = json.load(open(_lifej, encoding="utf-8")) if os.path.exists(_lifej) else None
 LIFE_BASE = "/resources/classes/life/"
-_LIFE_JS = {"leaf": "life-leaf", "cell": "life-cell", "dna": "life-dna", "germ": "life-germ", "seed": "life-seed", "flower": "life-flower", "tree": "life-tree"}   # lab.kind → assets/js/<bundle>.js
+_LIFE_JS = {"leaf": "life-leaf", "cell": "life-cell", "dna": "life-dna", "germ": "life-germ", "seed": "life-seed", "flower": "life-flower", "tree": "life-tree", "autumn": "life-autumn"}   # lab.kind → assets/js/<bundle>.js
 
 def _life_ver():
     h = hashlib.md5()
@@ -12057,9 +12057,75 @@ def _life_climber(cl):
             f'</div></div>'
             '<noscript><p class="muted">This tool works in your browser and needs JavaScript. · 這個小工具在瀏覽器裡運作，需要開啟 JavaScript。</p></noscript>')
 
-_LIFE_LAB = {"leaf": render_lifeleaf_lab, "cell": render_lifecell_lab, "dna": render_lifedna_lab, "germ": render_lifegerm_lab, "seed": render_lifeseed_lab, "flower": render_lifeflower_lab, "tree": render_lifetree_lab}          # lab.kind → 3D 面板
-_LIFE_ICON = {"leaf": lifeleaf_svg, "cell": lifecell_svg, "dna": lifedna_svg, "germ": lifegerm_svg, "seed": lifeseed_svg, "flower": lifeflower_svg, "tree": lifetree_svg}                 # lesson.card → 課程卡小圖示
-_LIFE_WIDGETS = [("recipe", _life_recipe), ("sorter", _life_sorter), ("coder", _life_coder), ("ruler", _life_ruler), ("waker", _life_waker), ("guesser", _life_guesser), ("climber", _life_climber)]               # lesson 裡有這個 key 就多一段（照這裡的順序）
+def lifeautumn_svg(size=56):
+    """第八課的課程卡小圖示：一片葉子，左半綠、右半由黃轉紅。"""
+    return (f'<svg class="lifeautumn-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">'
+            '<defs><linearGradient id="lfau-g" x1="0" x2="1"><stop offset="0" stop-color="#4fae45"/><stop offset=".5" stop-color="#f2c23a"/><stop offset="1" stop-color="#d04a2f"/></linearGradient></defs>'
+            '<path d="M30 6l5 10 9-5-2 11 12 1-9 8 7 8-12 1-3 8-7-6-7 6-3-8-12-1 7-8-9-8 12-1-2-11 9 5z" fill="url(#lfau-g)"/>'
+            '<path d="M30 20v36" stroke="#6b4a32" stroke-width="3" stroke-linecap="round"/></svg>')
+
+def render_lifeautumn_lab(lesson):
+    """第八課：一片葉子＋放大鏡裡的三種色素；季節滑桿、變黃／變紅的樹、白天晴朗夜裡涼的開關（assets/js/life-autumn.js 綁這裡的 class；全部自繪示意）。"""
+    lab = lesson["lab"]
+    msgs = "".join(f'<p class="cp-msg lf-au-msg" data-msg="{k}" hidden>{html.escape(m["en"])}<span class="zh">{html.escape(m["zh"])}</span></p>' for k, m in lab["msgs"].items())
+    tg = _lab_toggles([("bright", "Bright days, cool nights", "白天晴朗、夜裡涼", True), ("labels", "Labels", "標示", True)])
+    meter = lambda k, en, zh: (f'<div class="lf-au-m lf-au-m-{k}"><span>{en}<small>{zh}</small></span><div class="lf-au-track"><i class="lf-au-m{k}"></i></div><b class="lf-au-v{k}"></b></div>')
+    return f'''<div class="astro-lab cp-lab lf-lab lf-au-lab rvl" data-lifeautumn-lab>
+  <div class="al-stage">
+    <div class="al-space">
+      <canvas class="al-space-cv" aria-label="3D model of a leaf on a branch beside a magnified view of its pigments: green dots fade as autumn comes, the yellow dots underneath show through, and in some trees red dots appear; at the end the leaf falls · 樹枝上一片葉子的 3D 模型，旁邊是放大的色素：秋天來時綠點慢慢消失，底下的黃點露出來，有些樹還會長出紅點；最後葉子掉落"></canvas>
+      <div class="al-labels" aria-hidden="true"></div>
+      <div class="cp-view" role="group" aria-label="Kind of tree · 哪一種樹">
+        <button type="button" data-view="red" aria-pressed="true">A tree that turns red<small>會變紅的樹</small></button>
+        <button type="button" data-view="yellow" aria-pressed="false">A tree that turns yellow<small>會變黃的樹</small></button>
+      </div>
+      <p class="al-hint">Drag to turn · 拖曳旋轉　Scroll or pinch to zoom · 滾輪／雙指縮放</p>
+      <button type="button" class="al-home" title="Reset view · 重設視角" aria-label="Reset view · 重設視角">&#8634;</button>
+      <p class="al-nogl-msg">This 3D model needs WebGL, which this browser does not support. The reading and the cards below still explain everything.<br><span class="zh">這個瀏覽器不支援 WebGL，無法顯示 3D 模型；下方的課文與卡片一樣能看懂。</span></p>
+    </div>
+    <aside class="al-sky cp-aside">
+      <p class="al-sky-k">Move through the year · 讓季節往前走</p>
+      <label class="al-slider cp-is-yrow"><span>Season · 季節 <output class="lf-au-s-out">Summer · 夏天</output></span>
+        <input type="range" class="al-age lf-au-s" min="0" max="100" step="1" value="0"></label>
+      <p class="lf-k lf-au-k">The three pigments in the leaf · 葉子裡的三種色素</p>
+      <div class="lf-au-meters">{meter("g", "Green · chlorophyll", "綠色 · 葉綠素")}{meter("y", "Yellow and orange · carotenoids", "黃和橘 · 類胡蘿蔔素")}{meter("r", "Red · anthocyanins", "紅色 · 花青素")}</div>
+      <p class="lf-k lf-au-k">What we see · 我們看到的顏色</p>
+      <div class="lf-au-sw"></div>
+      {msgs}
+    </aside>
+  </div>
+  <div class="al-controls">
+    <div class="al-row al-row-main">
+      <button type="button" class="al-play" aria-pressed="true"><span class="al-play-i" aria-hidden="true"></span><span class="al-play-t">Pause · 暫停</span></button>
+      <div class="al-row al-toggles">{tg}</div>
+    </div>
+  </div>
+  {_lab_foot(lab)}
+  <p class="cp-credit">{lab["credit_html"]}</p>
+</div>'''
+
+def _life_mixer(mx):
+    """「調調看色素」（life-autumn.js 的 initMixer；三支滑桿各調一種色素，用和模型同一個混色函式算出葉子的顏色；不需要 WebGL）。"""
+    looks = html.escape(json.dumps(mx["looks"], ensure_ascii=False))
+    row = lambda k, en, zh, v: (f'<label class="lf-mx-row lf-mx-row-{k}"><span>{en}<small>{zh}</small> <output class="lf-mx-{k}-out">{v}%</output></span>'
+                                f'<input type="range" class="lf-mx-{k}" min="0" max="100" step="1" value="{v}"></label>')
+    return (f'<div class="cp-cnt lf-mx rvl" data-life-mixer data-looks="{looks}">'
+            f'<div class="cp-cnt-in">'
+            f'<p class="cp-cnt-l cp-sun-l"><span>How much of each pigment? · 每種色素各有多少？</span></p>'
+            f'{row("g", "Green", "綠色（葉綠素）", 100)}{row("y", "Yellow and orange", "黃和橘（類胡蘿蔔素）", 100)}{row("r", "Red", "紅色（花青素）", 0)}'
+            f'<p class="cp-cnt-note">{html.escape(mx["note_en"])}<span class="zh">{html.escape(mx["note_zh"])}</span></p></div>'
+            f'<div class="cp-home-out cp-cnt-out lf-mx-out" aria-live="polite">'
+            f'<p class="cp-home-k">The leaf looks · 這片葉子看起來</p>'
+            f'<div class="lf-mx-leaf" aria-hidden="true"></div>'
+            f'<p class="cp-home-big"><span class="lf-mx-en"></span></p>'
+            f'<p class="cp-home-sub"><span class="zh lf-mx-zh"></span></p>'
+            f'<p class="cp-home-note"><span class="lf-mx-note"></span><span class="zh lf-mx-note-zh"></span></p>'
+            f'</div></div>'
+            '<noscript><p class="muted">This tool works in your browser and needs JavaScript. · 這個小工具在瀏覽器裡運作，需要開啟 JavaScript。</p></noscript>')
+
+_LIFE_LAB = {"leaf": render_lifeleaf_lab, "cell": render_lifecell_lab, "dna": render_lifedna_lab, "germ": render_lifegerm_lab, "seed": render_lifeseed_lab, "flower": render_lifeflower_lab, "tree": render_lifetree_lab, "autumn": render_lifeautumn_lab}          # lab.kind → 3D 面板
+_LIFE_ICON = {"leaf": lifeleaf_svg, "cell": lifecell_svg, "dna": lifedna_svg, "germ": lifegerm_svg, "seed": lifeseed_svg, "flower": lifeflower_svg, "tree": lifetree_svg, "autumn": lifeautumn_svg}                 # lesson.card → 課程卡小圖示
+_LIFE_WIDGETS = [("recipe", _life_recipe), ("sorter", _life_sorter), ("coder", _life_coder), ("ruler", _life_ruler), ("waker", _life_waker), ("guesser", _life_guesser), ("climber", _life_climber), ("mixer", _life_mixer)]               # lesson 裡有這個 key 就多一段（照這裡的順序）
 
 def _life_flat():
     return [(ui, u, l) for ui, u in enumerate(LIFE["units"]) for l in u["lessons"]]

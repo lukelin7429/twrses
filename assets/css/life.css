@@ -161,6 +161,29 @@
 .lf-cl-cap { position: absolute; left: 44px; bottom: -1.5rem; font-size: .68rem; font-weight: 800; color: var(--ink-soft); white-space: nowrap; }
 .lf-cl-out .cp-home-big { font-size: 2rem; }
 
+/* ---------- 第八課：葉子為什麼會變色？ ---------- */
+@media (min-width: 1021px) { .lf-au-lab .al-space { min-height: 600px; } }
+.lf-au-msg[hidden] { display: none; }
+.lf-au-k { margin-top: 1rem; }
+.lf-au-meters { display: grid; gap: .55rem; margin: .4rem 0 .2rem; }
+.lf-au-m { display: grid; grid-template-columns: minmax(0, 1fr) 2.8rem; gap: .2rem .6rem; align-items: center; font-size: .78rem; font-weight: 800; color: var(--al-text); }
+.lf-au-m span small { display: block; font-family: var(--zh); font-weight: 600; font-size: .7rem; color: var(--al-mute); }
+.lf-au-m b { grid-row: span 2; text-align: right; font-size: .9rem; }
+.lf-au-track { height: 9px; border-radius: 99px; background: rgba(255,255,255,.12); overflow: hidden; }
+.lf-au-track i { display: block; height: 100%; border-radius: 99px; transition: width .2s; }
+.lf-au-mg { background: #3f9f48; } .lf-au-my { background: #f2c23a; } .lf-au-mr { background: #d04a2f; }
+.lf-au-sw { height: 34px; margin: .35rem 0 .9rem; border-radius: 10px; border: 1px solid var(--al-line); background: #6ca744; transition: background .2s; }
+.al-lg-lfaug i, .al-lg-lfauy i, .al-lg-lfaur i, .al-lg-lfauc i { border: 0; border-radius: 50%; width: 12px; height: 12px; margin: .28rem 9px 0; }
+.al-lg-lfaug i { background: #3f9f48; } .al-lg-lfauy i { background: #f2c23a; } .al-lg-lfaur i { background: #c82c2c; } .al-lg-lfauc i { background: #8a6a44; }
+/* 頁面小工具：調調看色素 */
+.lf-mx-row { display: grid; gap: .25rem; margin: .7rem 0; font-weight: 800; font-size: .9rem; }
+.lf-mx-row small { margin-left: .35rem; font-family: var(--zh); font-weight: 600; font-size: .8rem; color: var(--ink-soft); }
+.lf-mx-row output { float: right; font-variant-numeric: tabular-nums; }
+.lf-mx-row input { width: 100%; }
+.lf-mx-row-g input { accent-color: #3f9f48; } .lf-mx-row-y input { accent-color: #d9a520; } .lf-mx-row-r input { accent-color: #c82c2c; }
+.lf-mx-leaf { width: 96px; height: 96px; margin: .5rem 0 .8rem; border-radius: 4px 60% 4px 60%; border: 2px solid rgba(255,255,255,.35); background: #6ca744; transition: background .2s; }
+.lf-mx-out .cp-home-big { font-size: 1.5rem; }
+
 /* ---------- 全系列共用 ---------- */
 .lf-k { margin: 0 0 .1rem; font-size: .74rem; font-weight: 700; letter-spacing: .04em; color: var(--al-mute); }
 .lf-nums small { display: block; font-size: .7rem; font-weight: 600; color: var(--al-mute); line-height: 1.3; }
