@@ -682,6 +682,13 @@
   - `src/desk2d.js`：`initWhere`（`[data-cp-where]`，八題「在記憶體還是儲存裝置」）、`initFull`（`[data-cp-full]`，8 GB 的用量條）。除錯：`el.__where`、`el.__full.set(['browser','game','call'])`。
   - 除錯：`document.querySelector('[data-compdesk-lab]').__lab`（`open(id)`、`editSel()`、`saveSel()`、`setPower(bool)`、`reset()`、`demo(...)`、`run(秒)`、`goCam()`、`render()`）。
   - 查證：記憶階層與虛擬記憶體引 Britannica「computer memory › Memory hierarchy」；記憶體壓力綠黃紅與「空著的記憶體效能不見得比較好」引 Apple 活動監視器說明。**沒寫**：速度差幾倍的數字、自動儲存、Windows 分頁檔（都沒查到可引的原文）。
+- 第八課按下一個鍵（`comp-key.js`，`lab.kind = "key"`，`data-compkey-lab`；slug `press-a-key`；**單元二最後一課**）：一個機制——**輸入 → 處理 → 輸出，一路都是 0 和 1**；同一次按鍵換五種樣子（開關 → 鍵的編號 → 字元的編號 → 八個位元 → 像素）。
+  - `src/keypath.js`（純函式，`test/keypath.test.mjs`）：`KEYS`（KeyA／Digit1／Space，`usage` 是 **USB HID Usage Tables 1.5 第 10 章的真編號** 0x04／0x1E／0x2C）、`trace(keyId, shift)` 回每一站的樣子（`usage`、`char`、`code`、`bits`、`rows` 5×7 點陣、`lit`）、`diff(a, b)`。**鍵的編號不受 Shift 影響**（標準的註 7）；查成字元固定用美式配置；5×7 字形是自己畫的。
+  - 場景：左鍵盤（1、A、Shift、Space 四個鍵，`KEYPOS` 是 `[x, z, 寬]`）→ 線 → 電路板（處理器、八格記憶體）→ 線 → 螢幕（35 格像素）；光點沿 `STOPS(keyId)` 走。標籤 `cp-lb-end`（站名，窄螢幕只留編號）、`cp-lb-val`（那一站的值，窄螢幕只顯示目前那一站）、`cp-lb-cap`（鍵帽上的字）。
+  - 右側欄：`[data-key]` 三個鍵＋`.cp-ky-shift`、五站清單 `[data-st]`（點了跳到那一站）；控制列 `.al-play`（按下去、自動走完，每站 `DUR` 秒）、`.cp-step`（一站一站走）、`.cp-reset`。四張卡 `data-lab-demo`：`press`、`shift`、`one`、`space`。走到最後一站時，若上一次是同一個鍵但 Shift 不同，說明會多一句比較。
+  - `src/key2d.js`：`initChoice`（`[data-cp-choice]`，**通用的選項題**：`data-opts` 是 `[[key, en, zh], …]`、`data-tasks` 的 `answer` 是選項 key；build.py 的 `_comp_choice`，這一課用在 `stages` 與 `io` 兩段，之後的課可以直接用）、`initLive`（`[data-cp-live]`，顯示 `KeyboardEvent.code` 與 `key`；不擋 Tab 與快速鍵）。除錯：`el.__choice.answer()`／`next()`、`el.__live.show('KeyA', 'a')`。
+  - 除錯：`document.querySelector('[data-compkey-lab]').__lab`（`press(keyId)`、`setShift(bool)`、`pick(keyId)`、`next()`、`jump(n)`、`reset()`、`demo(...)`、`run(秒)`、`goCam()`、`render()`、`cur()`）。
+  - 查證：鍵的編號與 Y／Z 的例子引 USB HID Usage Tables 1.5；掃描碼與「按下、放開各一個」引 Microsoft Learn；code 與 key 引 MDN；輸入／輸出裝置引 Britannica「peripheral device」；打字機與 Shift 引 Britannica「typewriter」；字型與字形引 Unicode 詞彙表。**沒寫**：「QWERTY 是為了避免卡鍵／讓人打慢」（成人版 Britannica 沒有這句）、鍵盤怎麼掃描按鍵矩陣、延遲幾毫秒。觸控螢幕「兩種都是」是自己舉的例子，頁面有寫明。
 - **預覽伺服器名額被別的 session 占滿時**（preview_start 回 Maximum 5 dev servers）：不要去停別人的，也不要用 Bash 跑伺服器。把 shot.mjs 的副本加一段 CDP `Fetch.enable`，攔截 `http://twrses.test/*` 直接從 worktree 讀檔回應（環境變數 `SHOT_ROOT`），不經過任何伺服器就能截圖、看 console 錯誤。
 - 查證過的事（出處在每課 `sources`）與**沒寫的事**記在 Obsidian 的系列索引；名詞一律台灣用語（位元、位元組、二進位、處理器、記憶體、電晶體），不用「比特、字節、內存」。
 - 和既有系列互相連結：第一課的 `links` 連晶片第二課 `/resources/classes/semiconductors/transistor/`（開關本身）與萬物原理第八課 `/resources/classes/how-things-work/computer-memory/`（0 和 1 存在哪裡），再放下一課的預告卡（`soon: true`）。

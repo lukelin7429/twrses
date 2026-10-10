@@ -13084,7 +13084,7 @@ def build_cal_hub():
 _compj = os.path.join(ROOT, "data", "computers.json")
 COMP = json.load(open(_compj, encoding="utf-8")) if os.path.exists(_compj) else None
 COMP_BASE = "/resources/classes/computers/"
-_COMP_JS = {"bits": "comp-bits", "pixels": "comp-pixels", "logic": "comp-logic", "adder": "comp-adder", "pc": "comp-pc", "cpu": "comp-cpu", "desk": "comp-desk"}   # lab.kind → assets/js/<bundle>.js
+_COMP_JS = {"bits": "comp-bits", "pixels": "comp-pixels", "logic": "comp-logic", "adder": "comp-adder", "pc": "comp-pc", "cpu": "comp-cpu", "desk": "comp-desk", "key": "comp-key"}   # lab.kind → assets/js/<bundle>.js
 
 def _comp_ver():
     h = hashlib.md5()
@@ -13774,6 +13774,84 @@ def _comp_full(fl):
 </div>
 <ul class="cp-tips rvl">{tips}</ul>'''
 
+def compkey_svg(size=56):
+    """第八課的課程卡小圖示：左邊一個鍵（A），箭頭，右邊一個小螢幕上亮著幾格像素。"""
+    return (f'<svg class="compkey-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">'
+            '<rect x="4" y="22" width="20" height="20" rx="4" fill="#e9edf5"/><rect x="4" y="38" width="20" height="5" rx="2" fill="#aab4c8"/>'
+            '<path d="M9.5 36 14 25l4.5 11M11.3 32.2h5.4" fill="none" stroke="#1d2a44" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>'
+            '<path d="M27 32h7m-3-3 3 3-3 3" fill="none" stroke="#ffd36e" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>'
+            '<rect x="37" y="16" width="20" height="26" rx="3" fill="#10192e" stroke="#8a93a6" stroke-width="2"/>'
+            '<path d="M44 46h6M47 42v4" stroke="#8a93a6" stroke-width="2" stroke-linecap="round"/>'
+            '<g fill="#eaf6ff"><rect x="45" y="21" width="4" height="4"/><rect x="41" y="25.5" width="4" height="4"/><rect x="49" y="25.5" width="4" height="4"/>'
+            '<rect x="41" y="30" width="12" height="4"/><rect x="41" y="34.5" width="4" height="4"/><rect x="49" y="34.5" width="4" height="4"/></g></svg>')
+
+_COMP_CARD["key"] = compkey_svg
+
+def render_compkey_lab(lesson):
+    """第八課：跟著一個鍵從鍵盤走到螢幕（assets/js/comp-key.js 綁這裡的 class；全部自繪示意）。"""
+    lab = lesson["lab"]
+    kb = "".join(
+        f'<button type="button" data-key="{k["key"]}" aria-pressed="false"><b>{html.escape(k["cap"])}</b><small>{html.escape(k["zh"])}</small></button>'
+        for k in lab["keys"])
+    rows = "".join(
+        f'<li><button type="button" data-st="{i}"><i>{i + 1}</i><span>{html.escape(s["en"])}<small>{html.escape(s["zh"])}</small></span><b class="cp-ky-v">…</b></button></li>'
+        for i, s in enumerate(lab["stops"]))
+    tg = _lab_toggles([("labels", "Labels", "標示", True)])
+    return f'''<div class="astro-lab cp-lab cp-ky-lab rvl" data-compkey-lab>
+  <div class="al-stage">
+    <div class="al-space">
+      <canvas class="al-space-cv" aria-label="3D model of a keyboard with four keys, a circuit board with a processor and eight memory cells, and a screen made of 35 pixels, joined by cables · 四個鍵的鍵盤、有處理器和八格記憶體的電路板、35 個像素的螢幕，用線連在一起的 3D 模型"></canvas>
+      <div class="al-labels" aria-hidden="true"></div>
+      <p class="al-hint">Tap a key · 點一個鍵　Drag to turn · 拖曳旋轉</p>
+      <button type="button" class="al-home" title="Reset view · 重設視角" aria-label="Reset view · 重設視角">&#8634;</button>
+      <p class="al-nogl-msg">This 3D model needs WebGL, which this browser does not support. The keys and the five stops below still work, and so do the reading and the games.<br><span class="zh">這個瀏覽器不支援 WebGL，無法顯示 3D 模型；下面的按鍵和五站清單照樣能用，課文和小遊戲也都能用。</span></p>
+    </div>
+    <aside class="al-sky cp-aside">
+      <p class="al-sky-k">Choose a key · 選一個鍵</p>
+      <div class="cp-ky-keys" role="group" aria-label="Keys · 按鍵">{kb}<button type="button" class="cp-ky-shift" aria-pressed="false"><b>Shift</b><small>按住</small></button></div>
+      <p class="al-sky-k">What it is at each stop · 每一站它是什麼樣子</p>
+      <ol class="cp-ky-stops">{rows}</ol>
+      <p class="cp-msg" aria-live="polite"></p>
+    </aside>
+  </div>
+  <div class="al-controls">
+    <div class="al-row al-row-main">
+      <button type="button" class="al-play" aria-pressed="false"><span class="al-play-t">Press A · 按下 A</span></button>
+      <button type="button" class="cp-btn-d cp-step">One stop at a time · 一站一站走</button>
+      <button type="button" class="cp-btn-d cp-reset">Reset · 重來</button>
+      <div class="al-row al-toggles">{tg}</div>
+    </div>
+  </div>
+  {_lab_foot(lab)}
+  <p class="cp-credit">{lab["credit_html"]}</p>
+</div>'''
+
+def _comp_choice(ch):
+    """選項題（第八課用兩次）：tasks＝題目（answer 是選項的 key）、opts＝[[key, en, zh], …]。"""
+    n = len(ch["opts"])
+    return f'''<div class="cp-guess cp-jobs cp-choice rvl" data-cp-choice data-ask="{html.escape(ch["ask_en"])}|{html.escape(ch["ask_zh"])}" data-opts="{html.escape(json.dumps(ch["opts"], ensure_ascii=False))}" data-tasks="{html.escape(json.dumps(ch["tasks"], ensure_ascii=False))}">
+  <div class="cp-gs-top"><p class="cp-gs-k"></p><p class="cp-gs-sc">Right on the first try · 第一次就答對 <b class="cp-gs-score">0 / 0</b></p></div>
+  <p class="cp-jb-q" aria-live="polite"></p>
+  <div class="cp-gs-opts cp-ch-opts cp-ch-{n}" role="group" aria-label="{html.escape(ch["en"])} · {html.escape(ch["zh"])}"></div>
+  <p class="cp-gs-msg" aria-live="polite"></p>
+  <div class="cp-gs-foot"><span></span><button type="button" class="cp-btn cp-btn-gold cp-gs-next" hidden>Next · 下一題</button></div>
+</div>''' + (f'<p class="cp-lv-note rvl">{html.escape(ch["note_en"])}<span class="zh">{html.escape(ch["note_zh"])}</span></p>' if ch.get("note_en") else "")
+
+def _comp_live(lv):
+    tips = "".join(f'<li>{html.escape(t["en"])}<span class="zh">{html.escape(t["zh"])}</span></li>' for t in lv["tips"])
+    return f'''<div class="cp-full cp-live rvl" data-cp-live>
+  <button type="button" class="cp-lv2-pad"><b>Click here, then press any key</b><small>先點這裡，再按鍵盤上的任何一個鍵</small></button>
+  <dl class="cp-lv2-out">
+    <div><dt>Which key · 哪一個鍵<small>KeyboardEvent.code</small></dt><dd class="cp-lv2-code">—</dd></div>
+    <div><dt>What it typed · 打出什麼<small>KeyboardEvent.key</small></dt><dd class="cp-lv2-key">—</dd></div>
+    <div><dt>Character number · 字元的編號</dt><dd class="cp-lv2-num">—</dd></div>
+    <div><dt>As eight bits · 八個位元</dt><dd class="cp-lv2-bits">—</dd></div>
+  </dl>
+  <p class="cp-lv-msg cp-lv2-msg" aria-live="polite">Nothing pressed yet. This needs a keyboard with real keys.<span class="zh">還沒有按任何鍵。這個小工具需要有實體按鍵的鍵盤。</span></p>
+  <p class="cp-lv-note">{html.escape(lv["note_en"])}<span class="zh">{html.escape(lv["note_zh"])}</span></p>
+</div>
+<ul class="cp-tips rvl">{tips}</ul>'''
+
 def _comp_flat():
     return [(ui, u, l) for ui, u in enumerate(COMP["units"]) for l in u["lessons"]]
 
@@ -13801,7 +13879,7 @@ def build_comp_lesson(ui, unit, lesson):
     reading_html = render_basic_unit(1, unit_dict, level="comp", audio_rel="", pdf_rel="")
     lab = lesson["lab"]
     kind = lab["kind"]
-    lab_html = {"bits": render_compbits_lab, "pixels": render_comppixels_lab, "logic": render_complogic_lab, "adder": render_compadder_lab, "pc": render_comppc_lab, "cpu": render_compcpu_lab, "desk": render_compdesk_lab}[kind](lesson)
+    lab_html = {"bits": render_compbits_lab, "pixels": render_comppixels_lab, "logic": render_complogic_lab, "adder": render_compadder_lab, "pc": render_comppc_lab, "cpu": render_compcpu_lab, "desk": render_compdesk_lab, "key": render_compkey_lab}[kind](lesson)
 
     def sec(key, fn):
         d = lesson[key]
@@ -13835,6 +13913,9 @@ def build_comp_lesson(ui, unit, lesson):
     if lesson.get("pred"): secs.append(sec("pred", _comp_pred))
     if lesson.get("where"): secs.append(sec("where", _comp_where))
     if lesson.get("full"): secs.append(sec("full", _comp_full))
+    if lesson.get("stages"): secs.append(sec("stages", _comp_choice))
+    if lesson.get("io"): secs.append(sec("io", _comp_choice))
+    if lesson.get("live"): secs.append(sec("live", _comp_live))
     if lesson.get("culture_cards"):
         cu = lesson["culture_cards"]
         cc = "".join(
