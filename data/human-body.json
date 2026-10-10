@@ -14,7 +14,23 @@
       "zh": "每一課也會請你在自己身上量一量、數一數，並附生字、閱讀理解、小測驗和課堂活動。本系列是教育用途，不是醫療建議。"
     }
   ],
-  "planned": [],
+  "planned": [
+    {
+      "icon": "🤧",
+      "en": "Why Do You Sneeze, Hiccup, and Yawn?",
+      "zh": "為什麼會打噴嚏、打嗝、打呵欠？"
+    },
+    {
+      "icon": "🩸",
+      "en": "What Is in a Drop of Blood?",
+      "zh": "一滴血裡有什麼？"
+    },
+    {
+      "icon": "🧠",
+      "en": "How Do You Remember?",
+      "zh": "你是怎麼記住東西的？"
+    }
+  ],
   "lessons": [
     {
       "n": 1,
@@ -11385,6 +11401,479 @@
       },
       "health_en": "This lesson is for learning about the body. It is not medical advice. The numbers of cells are scientists' estimates for an adult and are different for every person. Be careful with glass slides and cover slips, and ask an adult before using a microscope.",
       "health_zh": "本課是認識身體的教材，不是醫療建議。細胞的數目是科學家對成年人的估計，每個人都不一樣。使用載玻片和蓋玻片要小心，用顯微鏡之前請先問過大人。"
+    },
+    {
+      "n": 25,
+      "slug": "walking",
+      "title": "How Do You Walk?",
+      "title_zh": "你是怎麼走路的？",
+      "level": "入門 · Beginner",
+      "icon": "🚶",
+      "card": "walking",
+      "blurb_en": "Every step is a controlled fall. Watch real foot bones roll from heel to toe in 3D, see the arch work as a spring, and measure your own step.",
+      "blurb_zh": "每一步都是一次「控制好的跌倒」。在 3D 裡看真實的腳骨從腳跟滾到腳尖、足弓像彈簧一樣工作，再量一量自己的一步有多長。",
+      "big_idea_en": "Walking is falling forward and catching yourself, again and again. Your foot is built for it: 26 bones make an arch that bends like a spring.",
+      "big_idea_zh": "走路就是一次又一次地往前倒、再接住自己。腳就是為這件事設計的：26 塊骨頭組成一個像彈簧一樣會彎的足弓。",
+      "lab": {
+        "kind": "walking",
+        "eyebrow": "3D Model · 3D 模型",
+        "title_en": "One Step, Slowed Down",
+        "title_zh": "把一步放慢來看",
+        "how_en": "A real skeleton is walking on the spot, and the floor slides under it. Follow the left leg, the gold one. Its foot lands on the heel, rolls flat, and pushes off from the toes. Drag the slider to move through one step by hand. The orange patch on the floor shows where the foot is pressing hardest, and the gold line under the foot is the spring of the arch. Watch the yellow ball above the hips: it rises and falls with every step. Then switch to running. What is different?",
+        "how_zh": "一副真實的骨架正在原地走路，地板從它腳下滑過去。請跟著左腿——金色的那一條——看：腳用腳跟著地，整個腳掌滾平，再用腳趾把自己推出去。拖動滑桿，可以用手一格一格地走完一步。地板上橘色的那一塊，是腳壓得最用力的地方；腳底那條金色的線，是足弓的彈簧。注意看屁股上方那顆黃色的球：每走一步，它就升高再降低一次。然後換成跑步——有什麼不一樣？",
+        "legend": [
+          {
+            "cls": "wkleg",
+            "en": "Gold bones: the left leg we are following",
+            "zh": "金色的骨頭：我們跟著看的左腿"
+          },
+          {
+            "cls": "wkpress",
+            "en": "Orange patch: where the foot presses hardest",
+            "zh": "橘色的一塊：腳壓得最用力的地方"
+          },
+          {
+            "cls": "wkspring",
+            "en": "Gold line: the spring under the arch",
+            "zh": "金色的線：足弓下面的彈簧"
+          },
+          {
+            "cls": "wkball",
+            "en": "Yellow ball: the middle of the body's weight",
+            "zh": "黃色的球：身體重量的中心"
+          },
+          {
+            "cls": "wkfloor",
+            "en": "Stripes: the floor sliding back",
+            "zh": "條紋：往後滑的地板"
+          }
+        ],
+        "scale_en": "The bones are real shapes from BodyParts3D, moved at the hips, knees, ankles, and toes. The movement is a simplified drawing of an average walk, not a recording of a real person: real hips also tilt and turn, the arms and spine twist, and every person walks a little differently. The orange patch and the gold spring show a pattern, not measured forces.",
+        "scale_zh": "骨頭是 BodyParts3D 的真實形狀，在髖、膝、腳踝和腳趾的地方轉動。動作是把「一般人走路」簡化之後畫出來的，不是真人的動作紀錄：真正走路時骨盆還會傾斜和轉動，手臂和脊柱也會扭轉，而且每個人走路的樣子都有一點不同。橘色的那一塊和金色的彈簧畫的是大致的樣子，不是實際量到的力量。",
+        "credit_html": "Bone model: <a href=\"https://dbarchive.biosciencedbc.jp/en/bodyparts3d/download.html\" target=\"_blank\" rel=\"noopener\">BodyParts3D</a>, © The Database Center for Life Science, licensed under <a href=\"https://creativecommons.org/licenses/by/4.0/\" target=\"_blank\" rel=\"noopener\">CC BY 4.0</a>. We selected the bones, simplified the shapes, turned the model upright, and added the joints; the floor, the spring, and the markers are our own drawing. · 骨骼模型來源：BodyParts3D（日本生命科學資料庫中心，CC BY 4.0 授權）；本站挑選骨頭、簡化形狀、轉正方向並加上關節，地板、彈簧與標記為本站自繪示意。",
+        "phases": [
+          {
+            "key": "strike",
+            "en": "Heel strike",
+            "zh": "腳跟著地",
+            "note_en": "The heel touches down first. A thick pad of fat under the heel bone softens the bump, and the leg begins to take the body's weight.",
+            "note_zh": "腳跟最先著地。跟骨下面一層厚厚的脂肪墊緩和了這一下撞擊，這條腿開始接住身體的重量。"
+          },
+          {
+            "key": "flat",
+            "en": "Foot flat",
+            "zh": "腳掌放平",
+            "note_en": "The whole foot rolls down onto the floor. The arch flattens a little, like a spring being pressed, and soaks up the shock.",
+            "note_zh": "整個腳掌滾下來貼到地板。足弓稍微被壓平，像彈簧被壓下去一樣，把震動吸收掉。"
+          },
+          {
+            "key": "mid",
+            "en": "Midstance",
+            "zh": "單腳支撐",
+            "note_en": "All of your weight is on this one leg, and the body passes over the top of it like a pole vaulter going over the bar. The yellow ball is at its highest.",
+            "note_zh": "全身的重量都在這一條腿上，身體像撐竿跳選手越過橫竿那樣，從它的正上方通過。黃色的球升到最高。"
+          },
+          {
+            "key": "heeloff",
+            "en": "Heel off",
+            "zh": "腳跟離地",
+            "note_en": "You are falling forward now. The heel lifts, the toes bend, and the stretched spring of the arch starts to snap back.",
+            "note_zh": "現在你正在往前倒。腳跟抬起來、腳趾彎起來，被拉緊的足弓彈簧開始彈回去。"
+          },
+          {
+            "key": "toeoff",
+            "en": "Toe off",
+            "zh": "腳尖推出",
+            "note_en": "The big toe gives the last push. The other foot has already landed to catch you: for a moment both feet are on the ground.",
+            "note_zh": "大腳趾做最後一推。另一隻腳已經先著地把你接住——有一瞬間，兩隻腳都在地上。"
+          },
+          {
+            "key": "swing",
+            "en": "Swing",
+            "zh": "擺盪",
+            "note_en": "The leg is in the air. The knee bends so the toes clear the floor, and the leg swings forward like a pendulum, ready for the next heel strike.",
+            "note_zh": "這條腿在空中。膝蓋彎起來，讓腳趾不會刮到地板；整條腿像鐘擺一樣往前盪，準備下一次腳跟著地。"
+          }
+        ],
+        "run_note": {
+          "en": "Running: you land with a bent knee and push off hard, and between steps both feet are off the ground. That moment in the air is what makes it running.",
+          "zh": "跑步：落地的時候膝蓋是彎的，然後用力蹬出去；兩步之間，兩隻腳同時離開地面。有這一段「騰空」，才叫做跑步。"
+        }
+      },
+      "paras": [
+        "Stand up and take one slow step. It feels like the easiest thing in the world. But watch closely: as you step, you lean forward and begin to fall. Then your front foot lands and catches you. Walking is falling forward and catching yourself, over and over. It took you about a year of practice as a baby just to begin, and by about the age of three most children walk the way adults do.",
+        "Each foot has 26 bones. Together your two feet hold 52 of the 206 bones in your body: that is about one quarter! Seven bones make up the back half of the foot, including the heel bone, which is the largest. Five long bones run through the middle, and fourteen small ones make the toes.",
+        "These bones do not lie flat. They are built into an arch, like a little stone bridge, held up by strong bands called ligaments and by tendons and muscles. When your foot presses down, the arch flattens a little and stretches those bands. When you lift your foot, they spring back. Your arch is a spring that soaks up the bump of every step and gives some of the energy back.",
+        "Now follow one foot through a step. First the heel lands, on a thick pad of fat. Then the whole foot rolls flat, and your body passes over the top of that leg. Next the heel lifts, the toes bend, and the big toe gives a last push. Finally the leg swings forward through the air. Each leg spends about three fifths of the time on the ground and two fifths in the air.",
+        "When you walk, at least one foot is always on the ground, and for a moment in every step, both are. When you run, there is a moment when both feet are off the ground and you are flying! Your body also moves up and down. In the middle of each walking step, you rise as you pass over your straight leg, and then you drop again. The model shows this with a yellow ball.",
+        "Your feet carry you thousands of steps every day, so be kind to them. Wear shoes that fit, with room for your toes to wiggle. Go barefoot on safe ground sometimes, and let your toes spread. And walk! Now measure your own step with the tool below the model, and look at the shape of your footprint."
+      ],
+      "paras_zh": [
+        "站起來，慢慢跨出一步。這好像是全世界最簡單的事。可是仔細看：你跨出去的時候，身體往前傾，開始倒下去；然後前面那隻腳落地，把你接住。走路就是往前倒、再接住自己，一次又一次。你還是嬰兒的時候，光是要「開始」走，就練習了大約一年；到三歲左右，大部分的孩子走路的方式才和大人一樣。",
+        "每隻腳有 26 塊骨頭。兩隻腳加起來是 52 塊，而你全身一共 206 塊——差不多占了四分之一！腳的後半段由七塊骨頭組成，其中最大的是跟骨（腳跟的骨頭）；中間有五根長長的骨頭；腳趾則是十四塊小骨頭。",
+        "這些骨頭不是平平地排在一起，而是搭成一個拱，像一座小石橋，由結實的帶子（韌帶）、肌腱和肌肉撐起來。腳往下踩的時候，足弓會稍微變平，把這些帶子拉長；腳抬起來，它們又彈回去。足弓就是一個彈簧：吸收每一步的震動，再把一部分的能量還給你。",
+        "現在跟著一隻腳走完一步。先是腳跟著地，踩在一層厚厚的脂肪墊上；接著整個腳掌滾平，身體從那條腿的正上方通過；然後腳跟抬起來、腳趾彎起來，大腳趾做最後一推；最後，整條腿在空中往前盪。每條腿大約有五分之三的時間在地上，五分之二的時間在空中。",
+        "走路的時候，至少有一隻腳在地上，而且每一步都有一瞬間是兩隻腳同時在地上。跑步的時候，卻有一瞬間兩隻腳都離開地面——你在飛！你的身體也會上下移動：每走一步，在通過那條伸直的腿上方時升高，然後又降下來。模型裡用一顆黃色的球把它畫出來。",
+        "你的腳每天載著你走幾千步，所以要對它們好一點。穿合腳的鞋，讓腳趾有地方可以動；有時候在安全的地面上打赤腳，讓腳趾張開。還有——多走路！現在用模型下方的工具量一量自己的一步有多長，也看看自己腳印的形狀。"
+      ],
+      "questions": [
+        "Why can walking be called “falling and catching yourself”?",
+        "What does the arch of your foot do?",
+        "What is the difference between walking and running?"
+      ],
+      "answers": [
+        "Because with each step you lean and fall forward, and then your front foot lands and catches you.",
+        "It works like a spring: it flattens a little to soak up the bump of each step, and then it springs back.",
+        "In walking, at least one foot is always on the ground. In running, there is a moment when both feet are in the air."
+      ],
+      "vocab": [
+        {
+          "n": 1,
+          "w": "step",
+          "pos": "n.",
+          "zh": "一步；腳步",
+          "ex": "The baby took her first <b>step</b> today.",
+          "exzh": "寶寶今天跨出了第一步。"
+        },
+        {
+          "n": 2,
+          "w": "foot",
+          "pos": "n.",
+          "zh": "腳（複數 feet）",
+          "ex": "My left <b>foot</b> is a little bigger than my right.",
+          "exzh": "我的左腳比右腳大一點點。"
+        },
+        {
+          "n": 3,
+          "w": "heel",
+          "pos": "n.",
+          "zh": "腳跟",
+          "ex": "Your <b>heel</b> touches the ground first.",
+          "exzh": "你的腳跟最先碰到地面。"
+        },
+        {
+          "n": 4,
+          "w": "toe",
+          "pos": "n.",
+          "zh": "腳趾",
+          "ex": "I hurt my big <b>toe</b> on the table leg.",
+          "exzh": "我的大腳趾撞到了桌腳。"
+        },
+        {
+          "n": 5,
+          "w": "arch",
+          "pos": "n.",
+          "zh": "足弓；拱",
+          "ex": "The <b>arch</b> of your foot works like a spring.",
+          "exzh": "你的足弓像彈簧一樣工作。"
+        },
+        {
+          "n": 6,
+          "w": "ground",
+          "pos": "n.",
+          "zh": "地面",
+          "ex": "One foot is always on the <b>ground</b> when you walk.",
+          "exzh": "走路的時候，總有一隻腳在地上。"
+        },
+        {
+          "n": 7,
+          "w": "swing",
+          "pos": "v.",
+          "zh": "擺動；盪",
+          "ex": "Your arms <b>swing</b> when you walk.",
+          "exzh": "走路的時候，你的手臂會擺動。"
+        },
+        {
+          "n": 8,
+          "w": "push",
+          "pos": "v.",
+          "zh": "推",
+          "ex": "<b>Push</b> off with your toes.",
+          "exzh": "用腳趾把自己推出去。"
+        }
+      ],
+      "quiz": [
+        {
+          "q": "How many bones are in one foot?",
+          "options": [
+            "26",
+            "5",
+            "12",
+            "206"
+          ],
+          "correct": 0
+        },
+        {
+          "q": "Which part of the foot touches the ground first in a walking step?",
+          "options": [
+            "The heel",
+            "The big toe",
+            "The arch",
+            "The little toe"
+          ],
+          "correct": 0
+        },
+        {
+          "q": "What is the arch of the foot like?",
+          "options": [
+            "A spring",
+            "A wheel",
+            "A hook",
+            "A flat board"
+          ],
+          "correct": 0
+        },
+        {
+          "q": "What makes running different from walking?",
+          "options": [
+            "For a moment, both feet are off the ground",
+            "You use your arms",
+            "Your heel never touches down",
+            "You stop breathing"
+          ],
+          "correct": 0
+        },
+        {
+          "q": "What gives the last push at the end of a step?",
+          "options": [
+            "The big toe",
+            "The heel",
+            "The knee",
+            "The hip"
+          ],
+          "correct": 0
+        }
+      ],
+      "kinds_head": {
+        "eyebrow": "One Step · 一步",
+        "en": "Five moments on the ground, and one in the air",
+        "zh": "在地上的五個瞬間，和在空中的一段"
+      },
+      "kinds": [
+        {
+          "icon": "🦶",
+          "en": "Heel strike",
+          "zh": "腳跟著地",
+          "where_en": "The heel",
+          "where_zh": "腳跟",
+          "control_en": "Lands and catches you",
+          "control_zh": "落地、接住你",
+          "text_en": "The heel bone is the largest bone in the foot, and it sits on a pad of fat.",
+          "text_zh": "跟骨是腳上最大的一塊骨頭，下面墊著一層脂肪。"
+        },
+        {
+          "icon": "⬇️",
+          "en": "Foot flat",
+          "zh": "腳掌放平",
+          "where_en": "The whole sole",
+          "where_zh": "整個腳底",
+          "control_en": "Soaks up the shock",
+          "control_zh": "吸收震動",
+          "text_en": "The arch flattens a little, like a spring being pressed.",
+          "text_zh": "足弓稍微變平，像彈簧被壓下去。"
+        },
+        {
+          "icon": "🧍",
+          "en": "Midstance",
+          "zh": "單腳支撐",
+          "where_en": "Over one straight leg",
+          "where_zh": "在伸直的那條腿上方",
+          "control_en": "Carries all your weight",
+          "control_zh": "承受全身的重量",
+          "text_en": "Your body is at its highest point here, balanced on one leg.",
+          "text_zh": "這時候身體升到最高，靠一條腿保持平衡。"
+        },
+        {
+          "icon": "⤴️",
+          "en": "Heel off",
+          "zh": "腳跟離地",
+          "where_en": "The ball of the foot",
+          "where_zh": "前腳掌",
+          "control_en": "Starts the push",
+          "control_zh": "開始推",
+          "text_en": "The toes bend, and the spring of the arch begins to snap back.",
+          "text_zh": "腳趾彎起來，足弓的彈簧開始彈回去。"
+        },
+        {
+          "icon": "👣",
+          "en": "Toe off",
+          "zh": "腳尖推出",
+          "where_en": "The big toe",
+          "where_zh": "大腳趾",
+          "control_en": "Gives the last push",
+          "control_zh": "做最後一推",
+          "text_en": "Then the leg swings forward through the air for the next step.",
+          "text_zh": "然後這條腿在空中往前盪，準備下一步。"
+        }
+      ],
+      "kinds_note_en": "Try it in slow motion. Walk across the room as slowly as you can and say the five moments out loud: heel, flat, over, lift, push.",
+      "kinds_note_zh": "用慢動作試試看。用你能走的最慢速度走過教室，一邊把這五個瞬間唸出來：腳跟、放平、越過、抬起、推。",
+      "measure": {
+        "title_en": "How long is my step?",
+        "title_zh": "我的一步有多長？",
+        "lead_en": "You will need a tape measure and some floor. Then try the footprint: every foot leaves its own shape.",
+        "lead_zh": "你需要一條捲尺和一段地板。量完之後，再試試腳印：每一隻腳都會留下自己的形狀。",
+        "steps": [
+          {
+            "n": "📏",
+            "en": "Mark 10 meters",
+            "zh": "量出 10 公尺",
+            "text_en": "Mark a start line and a finish line 10 meters apart. A hallway is perfect.",
+            "text_zh": "畫一條起點線和一條終點線，相隔 10 公尺。走廊最適合。"
+          },
+          {
+            "n": "🚶",
+            "en": "Walk and count",
+            "zh": "邊走邊數",
+            "text_en": "Walk the way you usually walk, and count your steps from one line to the other.",
+            "text_zh": "照你平常走路的樣子走，數一數從一條線走到另一條線一共幾步。"
+          },
+          {
+            "n": "👣",
+            "en": "Make a footprint",
+            "zh": "印一個腳印",
+            "text_en": "Wet the bottom of one bare foot, step onto a sheet of dark paper or dry concrete, and look at the shape you leave.",
+            "text_zh": "把一隻光腳的腳底沾濕，踩在一張深色的紙或乾的水泥地上，看看留下來的形狀。"
+          }
+        ],
+        "action": "test",
+        "action_value": "1",
+        "button_icon": "👣",
+        "button_en": "Open the step tool",
+        "button_zh": "打開步伐工具"
+      },
+      "myths": [
+        {
+          "myth_en": "Your foot is one solid piece.",
+          "myth_zh": "腳是實心的一整塊。",
+          "fact_en": "Each foot has 26 bones and 33 joints, so it can bend and fit the ground.",
+          "fact_zh": "每隻腳有 26 塊骨頭、33 個關節，所以它能彎、能配合地面。"
+        },
+        {
+          "myth_en": "Walking is so simple that you were born knowing how.",
+          "myth_zh": "走路很簡單，一生下來就會。",
+          "fact_en": "It takes a baby about a year to begin, and most children are about three before they walk the way adults do.",
+          "fact_zh": "嬰兒要大約一年才開始走；大部分的孩子要到三歲左右，走路的方式才和大人一樣。"
+        },
+        {
+          "myth_en": "Running is just fast walking.",
+          "myth_zh": "跑步只是走得比較快。",
+          "fact_en": "In running, both feet leave the ground at once. In walking, that never happens.",
+          "fact_zh": "跑步的時候，兩隻腳會同時離開地面；走路永遠不會。"
+        },
+        {
+          "myth_en": "When you walk, your head moves along in a straight line.",
+          "myth_zh": "走路的時候，頭是沿著一條直線前進的。",
+          "fact_en": "Your whole body rises and falls a little with every step.",
+          "fact_zh": "每走一步，整個身體都會稍微升高再降低一次。"
+        }
+      ],
+      "tricks": [
+        {
+          "title_en": "Fall and catch",
+          "title_zh": "倒下、接住",
+          "body_en": "Every step is a small fall that your front foot catches.",
+          "body_zh": "每一步都是一次小小的跌倒，由前面那隻腳接住。"
+        },
+        {
+          "title_en": "26 bones, one spring",
+          "title_zh": "26 塊骨頭，一個彈簧",
+          "body_en": "The bones of each foot make an arch that flattens and springs back.",
+          "body_zh": "每隻腳的骨頭搭成一個足弓，壓平了再彈回來。"
+        },
+        {
+          "title_en": "Heel, flat, over, lift, push",
+          "title_zh": "腳跟、放平、越過、抬起、推",
+          "body_en": "The five moments of one foot on the ground.",
+          "body_zh": "一隻腳在地上的五個瞬間。"
+        },
+        {
+          "title_en": "Walk: one foot down. Run: fly",
+          "title_zh": "走路：總有一腳在地上。跑步：騰空",
+          "body_en": "Running has a moment with both feet in the air.",
+          "body_zh": "跑步有一瞬間，兩隻腳都在空中。"
+        }
+      ],
+      "activities": [
+        {
+          "title_en": "The Paper Bridge",
+          "title_zh": "紙橋",
+          "materials": [
+            {
+              "en": "Two sheets of paper and two piles of books of the same height",
+              "zh": "兩張紙，和兩疊一樣高的書"
+            },
+            {
+              "en": "A handful of coins",
+              "zh": "一把硬幣"
+            }
+          ],
+          "steps": [
+            {
+              "en": "Set the two piles of books a hand's width apart. Lay one sheet flat across the gap.",
+              "zh": "把兩疊書隔開一個手掌的寬度，把一張紙平平地放在中間的空隙上。"
+            },
+            {
+              "en": "Put coins on the middle of the paper, one at a time. How many can it hold?",
+              "zh": "把硬幣一枚一枚放在紙的中間。它撐得住幾枚？"
+            },
+            {
+              "en": "Now curve the second sheet into an arch and wedge it between the piles.",
+              "zh": "現在把第二張紙彎成一個拱，卡在兩疊書之間。"
+            },
+            {
+              "en": "Lay the first sheet on top of the arch and add coins again. How many now?",
+              "zh": "把第一張紙鋪在拱上面，再放硬幣。這次撐得住幾枚？"
+            }
+          ],
+          "tip_en": "Teaching tip: the arch holds many more coins, because it passes the load sideways into the books instead of bending in the middle. The foot uses the same shape. Ask: what holds the paper arch in place? The books. In the foot, ligaments, tendons, and muscles do that job.",
+          "tip_zh": "教學提示：拱撐得住的硬幣多得多，因為它把重量往兩邊傳到書上，而不是從中間彎下去。腳用的就是同一種形狀。可以問學生：是什麼讓紙拱不會攤開？是兩邊的書。在腳上，做這件事的是韌帶、肌腱和肌肉。"
+        },
+        {
+          "title_en": "The Slow-Motion Walk",
+          "title_zh": "慢動作走路",
+          "materials": [
+            {
+              "en": "A clear stretch of floor",
+              "zh": "一段沒有障礙物的地板"
+            },
+            {
+              "en": "A partner",
+              "zh": "一位同伴"
+            }
+          ],
+          "steps": [
+            {
+              "en": "Walk five steps as slowly as you can while your partner watches your feet.",
+              "zh": "用你能走的最慢速度走五步，請同伴看你的腳。"
+            },
+            {
+              "en": "Say each moment out loud: heel, flat, over, lift, push.",
+              "zh": "把每個瞬間唸出來：腳跟、放平、越過、抬起、推。"
+            },
+            {
+              "en": "Now try to walk with your feet landing flat, with no heel first. How does it feel?",
+              "zh": "現在試著讓腳「整個平平地」落地，不要腳跟先著地。感覺怎麼樣？"
+            },
+            {
+              "en": "Stand on one leg and close your eyes. What do you feel your foot doing?",
+              "zh": "單腳站著、閉上眼睛。你感覺到腳在做什麼？"
+            }
+          ],
+          "tip_en": "Teaching tip: walking flat-footed feels heavy and jerky, because the roll from heel to toe is what makes a step smooth. On one leg, students feel many tiny corrections in the foot and ankle: the foot is busy even when it seems to be standing still. Clear the floor first, and have partners stand close for the eyes-closed part.",
+          "tip_zh": "教學提示：整個腳掌平平地落地，走起來又重又頓，因為讓一步變得順暢的，正是從腳跟滾到腳尖的那個動作。單腳站的時候，學生會感覺到腳和腳踝不停地做很小的修正——腳看起來站著不動，其實一直在忙。活動前先把地板清空；閉眼的那一步，請同伴站近一點。"
+        }
+      ],
+      "culture": {
+        "title_en": "A Journey of a Thousand Miles",
+        "title_zh": "千里之行，始於足下",
+        "body_en": "You may have heard the English saying “A journey of a thousand miles begins with a single step.” It is a translation from Chinese! It comes from the Dao De Jing, a book more than two thousand years old that is linked with the thinker Laozi: 千里之行，始於足下 (qiānlǐ zhī xíng, shǐ yú zú xià). The Chinese words say something even more exact than the English: the journey begins 足下, “beneath the foot.” Chinese also praises a careful, honest worker as 腳踏實地 (jiǎo tà shídì), “feet stepping on solid ground.” And in Taiwanese, to walk is 行路 (kiâⁿ-lō͘), “to travel the road.”",
+        "body_zh": "你可能聽過一句英文諺語：A journey of a thousand miles begins with a single step（千里的旅程從一步開始）。它其實是從中文翻譯過去的！原文出自兩千多年前、相傳是老子所寫的《道德經》：「千里之行，始於足下。」中文說得比英文還要精確：旅程是從「足下」——腳底下——開始的。中文也用「腳踏實地」稱讚做事踏實的人；台語則把走路叫做「行路」。",
+        "link_en": "More Chinese health words in English",
+        "link_zh": "到中醫養生系列看更多"
+      },
+      "health_en": "This lesson is for learning about the body. It is not medical advice. Feet and footprints come in many shapes, and this page does not judge any of them. If your feet, ankles, or knees hurt often, tell an adult and see a doctor.",
+      "health_zh": "本課是認識身體的教材，不是醫療建議。腳和腳印有很多種形狀，這一頁不評斷任何一種。如果你的腳、腳踝或膝蓋常常痛，請告訴大人，並且去看醫生。"
     }
   ]
 }

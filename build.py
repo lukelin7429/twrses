@@ -4319,7 +4319,7 @@ def build_astro_hub():
 # 面板與段落樣式沿用 astro.css，人體專屬的在 body.css；兩者都只載在本系列頁面。
 BODY_BASE = "/resources/classes/human-body/"
 _BODY_JS = {"skeleton": "skeleton", "arm": "arm", "heart": "heart", "lungs": "lungs", "joints": "joints",
-            "digestion": "digestion", "nerves": "nerves", "eyes": "eyes", "ears": "ears", "skin": "skin", "teeth": "teeth", "germs": "germs", "kidneys": "kidneys", "taste": "taste", "sleep": "sleep", "growth": "growth", "voice": "voice", "hands": "hands", "healing": "healing", "exercise": "exercise", "energy": "energy", "temperature": "temperature", "back": "back", "cells": "cells"}   # lab.kind → assets/js/<bundle>.js
+            "digestion": "digestion", "nerves": "nerves", "eyes": "eyes", "ears": "ears", "skin": "skin", "teeth": "teeth", "germs": "germs", "kidneys": "kidneys", "taste": "taste", "sleep": "sleep", "growth": "growth", "voice": "voice", "hands": "hands", "healing": "healing", "exercise": "exercise", "energy": "energy", "temperature": "temperature", "back": "back", "cells": "cells", "walking": "walking"}   # lab.kind → assets/js/<bundle>.js
 
 def _body_ver():
     h = hashlib.md5()
@@ -5831,6 +5831,70 @@ def render_cells_lab(lesson):
   <p class="sk-credit">{lab["credit_html"]}</p>
 </div>'''
 
+def render_walking_lab(lesson):
+    """第二十五課：真實骨架原地走路／跑步，髖、膝、踝、趾四層關節（assets/js/walking.js 綁這裡的 class）；步伐與腳印工具是 2D，不需要 WebGL。"""
+    lab = lesson["lab"]
+    phases_json = html.escape(json.dumps(lab["phases"], ensure_ascii=False))
+    run_json = html.escape(json.dumps(lab["run_note"], ensure_ascii=False))
+    def shape(k, en, zh, mid):
+        return (f'<button type="button" class="wk-shape" data-k="{k}" aria-pressed="false"><svg viewBox="0 0 60 110" aria-hidden="true">'
+                f'<ellipse cx="30" cy="92" rx="15" ry="14"/><rect x="{46 - mid}" y="40" width="{mid}" height="44" rx="5"/><ellipse cx="31" cy="34" rx="18" ry="13"/>'
+                f'<circle cx="14" cy="16" r="5.5"/><circle cx="25" cy="10" r="5"/><circle cx="35" cy="9" r="4.6"/><circle cx="44" cy="12" r="4.2"/><circle cx="51" cy="18" r="3.8"/></svg>'
+                f'<span>{en}<small>{zh}</small></span></button>')
+    shapes = shape("narrow", "Narrow in the middle", "中間很窄", 9) + shape("medium", "In between", "中等", 18) + shape("wide", "Wide in the middle", "中間很寬", 30)
+    views = "".join(f'<button type="button" data-view="{k}" aria-pressed="{"true" if n == 0 else "false"}"><i aria-hidden="true">{ic}</i><span>{en}<small>{zh}</small></span></button>'
+                    for n, (k, ic, en, zh) in enumerate([("body", "&#129485;", "Whole body", "全身"), ("foot", "&#129462;", "The foot, close up", "近看腳"), ("under", "&#128099;", "From under the floor", "從地板下面看")]))
+    tg = _lab_toggles([("labels", "Labels", "標示", True), ("trail", "Path of the ball", "黃球的軌跡", True), ("run", "Run", "跑步", False)])
+    return f'''<div class="astro-lab sk-lab wk-lab rvl" data-walking-lab data-model="{_model_url()}" data-phases="{phases_json}" data-run="{run_json}">
+  <div class="al-stage">
+    <div class="al-space">
+      <canvas class="al-space-cv" aria-label="3D model of a real skeleton walking on the spot, with the left leg in gold, the foot rolling from heel to toe, and a ball showing how the body rises and falls · 真實骨架原地走路的 3D 模型：左腿是金色的，腳從腳跟滾到腳尖，還有一顆球顯示身體怎麼上下起伏"></canvas>
+      <div class="al-labels" aria-hidden="true"></div>
+      <p class="sk-loading">Loading… · 載入中…<span class="sk-bar"><i></i></span></p>
+      <p class="al-hint">Drag to turn · 拖曳旋轉　Scroll or pinch to zoom · 滾輪／雙指縮放</p>
+      <p class="ey-mag">A simplified average walk, slowed down · 簡化過的一般走路方式，放慢了</p>
+      <button type="button" class="al-home" title="Reset view · 重設視角" aria-label="Reset view · 重設視角">&#8634;</button>
+      <p class="al-nogl-msg">This 3D model needs WebGL, which this browser does not support. The step tool and the cards below still work.<br><span class="zh">這個瀏覽器不支援 WebGL，無法顯示 3D 模型；下方的步伐工具和卡片一樣能用。</span></p>
+    </div>
+    <aside class="al-sky sk-aside wk-aside">
+      <p class="al-sky-k">The left foot is now at · 左腳現在在</p>
+      <p class="wk-phase"><b class="wk-ph-en"></b><span class="wk-ph-zh"></span></p>
+      <div class="wk-cycle" aria-hidden="true"><i class="wk-cy-st">On the ground · 在地上</i><i class="wk-cy-sw">In the air · 在空中</i><b class="wk-cy-m"></b></div>
+      <p class="wk-feet"><b class="wk-nfeet">2</b><span>feet on the ground<small>隻腳在地上</small></span></p>
+      <p class="al-sky-k">Under the left foot · 左腳的腳底</p>
+      <div class="wk-solebox"><canvas class="wk-sole" aria-hidden="true"></canvas></div>
+      <p class="ey-status wk-status" aria-live="polite"></p>
+    </aside>
+  </div>
+  <div class="wk-strip">
+    <div class="wk-steps">
+      <p class="al-sky-k">How long is my step? · 我的一步有多長？</p>
+      <div class="wk-set">
+        <label>I walked<small>我走了</small><span><input type="number" class="wk-m" min="1" max="100" step="0.5" inputmode="decimal" value="10"> m</span></label>
+        <label>in this many steps<small>一共幾步</small><span><input type="number" class="wk-n" min="1" max="400" step="1" inputmode="numeric" placeholder="—"></span></label>
+      </div>
+      <p class="wk-big"><b class="wk-len">—</b><span>cm for one step<small>一步的長度（公分）</small></span></p>
+      <p class="wk-msg wk-smsg" aria-live="polite"></p>
+    </div>
+    <div class="wk-print">
+      <p class="al-sky-k">My footprint looks most like · 我的腳印最像</p>
+      <div class="wk-shapes" role="group" aria-label="Footprint shapes · 腳印的形狀">{shapes}</div>
+      <p class="wk-msg wk-pmsg" aria-live="polite"></p>
+    </div>
+  </div>
+  <div class="al-controls">
+    <div class="ea-pres wk-views" role="group" aria-label="View · 視角">{views}</div>
+    <div class="al-row al-row-main">
+      <button type="button" class="al-play" aria-pressed="true"><span class="al-play-i" aria-hidden="true"></span><span class="al-play-t">Pause · 暫停</span></button>
+      <label class="ec-slider wk-row"><span class="ec-slider-k">One step of the left leg · 左腿的一步<em>heel strike &rarr; swing · 腳跟著地 &rarr; 擺盪</em></span>
+        <input type="range" class="ec-time wk-slider" min="0" max="100" step="1" value="0"></label>
+    </div>
+    <div class="al-row al-toggles">{tg}</div>
+  </div>
+  {_lab_foot(lab)}
+  <p class="sk-credit">{lab["credit_html"]}</p>
+</div>'''
+
 def _body_nav(slug):
     ls = BODY["lessons"]
     i = next(n for n, l in enumerate(ls) if l["slug"] == slug)
@@ -5858,7 +5922,7 @@ def build_body_lesson(lesson):
                 "joints": render_joints_lab, "digestion": render_digestion_lab, "nerves": render_nerves_lab,
                 "eyes": render_eyes_lab, "ears": render_ears_lab, "skin": render_skin_lab,
                 "teeth": render_teeth_lab, "germs": render_germs_lab, "kidneys": render_kidneys_lab,
-                "taste": render_taste_lab, "sleep": render_sleep_lab, "growth": render_growth_lab, "voice": render_voice_lab, "hands": render_hands_lab, "healing": render_healing_lab, "exercise": render_exercise_lab, "energy": render_energy_lab, "temperature": render_temperature_lab, "back": render_back_lab, "cells": render_cells_lab}[kind](lesson)
+                "taste": render_taste_lab, "sleep": render_sleep_lab, "growth": render_growth_lab, "voice": render_voice_lab, "hands": render_hands_lab, "healing": render_healing_lab, "exercise": render_exercise_lab, "energy": render_energy_lab, "temperature": render_temperature_lab, "back": render_back_lab, "cells": render_cells_lab, "walking": render_walking_lab}[kind](lesson)
 
     secs = []
     if lesson.get("jobs"):
@@ -5975,7 +6039,8 @@ def build_body_lesson(lesson):
                 "energy": ("Energy in a sentence", "一句話記住能量"),
                 "temperature": ("Body heat in a sentence", "一句話記住體溫"),
                 "back": ("The spine in a sentence", "一句話記住脊柱"),
-                "cells": ("Cells in a sentence", "一句話記住細胞")}[kind]
+                "cells": ("Cells in a sentence", "一句話記住細胞"),
+                "walking": ("Walking in a sentence", "一句話記住走路")}[kind]
     secs.append(("tricks", "Remember It · 記憶口訣", tricks_h[0], tricks_h[1], _sci_tricks(lesson), ""))
     if lesson.get("culture"):
         cu = lesson["culture"]
