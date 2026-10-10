@@ -27,6 +27,6 @@ console.log(`skeleton: ${bones.length} bones OK, glb ${(glb.length / 1024).toFix
 const og = fs.readFileSync(new URL('../../../assets/models/organs.glb', import.meta.url));
 const ojson = JSON.parse(og.subarray(20, 20 + og.readUInt32LE(12)).toString('utf8'));
 const onodes = new Set(ojson.nodes.map((n) => n.name));
-for (const id of ['r-kidney', 'l-kidney', 'r-ureter', 'l-ureter', 'bladder', 'tongue', 'trachea', 'esophagus', 'stomach', 'duodenum', 'gallbladder', 'disc-01', 'disc-22']) assert.ok(onodes.has(id), `organs.glb 缺 ${id}`);
+for (const id of ['r-kidney', 'l-kidney', 'r-ureter', 'l-ureter', 'bladder', 'tongue', 'trachea', 'esophagus', 'stomach', 'duodenum', 'gallbladder', 'disc-01', 'disc-22', 'diaphragm', 'brainstem']) assert.ok(onodes.has(id), `organs.glb 缺 ${id}`);
 assert.match(ojson.asset.copyright, /BodyParts3D.*CC Attribution 4\.0/);
 console.log(`organs: ${onodes.size} nodes OK, glb ${(og.length / 1024).toFixed(0)} KB`);

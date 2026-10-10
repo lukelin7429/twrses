@@ -6,7 +6,8 @@
  *
  * 只挑「單一檔案、形狀完整」的器官（肝、心、腦在這份資料裡是幾十個碎片，不用）：
  *   r-kidney / l-kidney 腎臟、r-ureter / l-ureter 輸尿管、bladder 膀胱、tongue 舌頭（第十四課用）、trachea 氣管（第十七課用）、
- *   esophagus 食道、stomach 胃、duodenum 十二指腸、gallbladder 膽囊（第二十一課用）、disc-01…22 椎間盤（第二十三課用）。
+ *   esophagus 食道、stomach 胃、duodenum 十二指腸、gallbladder 膽囊（第二十一課用）、disc-01…22 椎間盤（第二十三課用）、
+ *   diaphragm 橫膈膜、brainstem 腦幹（第二十六課用）。
  * 座標與 skeleton.glb 完全對齊：同樣轉成公尺、Y 朝上、臉朝 +Z；
  * 骨架當初把腳底貼齊 y = 0，這裡拿 skeleton.glb 裡幾塊大骨頭的包圍盒和原始資料比，量出同一個位移再套用。
  */
@@ -35,6 +36,7 @@ export const ORGANS = [
   { id: 'trachea', src: 'trachea' },                               // 第十七課（說話）用
   // 第二十一課（能量）用
   { id: 'esophagus', src: 'esophagus' }, { id: 'stomach', src: 'stomach' }, { id: 'duodenum', src: 'duodenum' }, { id: 'gallbladder', src: 'gallbladder' },
+  { id: 'diaphragm', src: 'diaphragm', tris: 5000 }, { id: 'brainstem', src: 'brainstem', tris: 3000 },   // 第二十六課（反射）用；原始形狀很細，用 tris 指定上限
   // 第二十三課（背）用：22 個椎間盤（由上到下 disc-01 … disc-22；原始資料拼成 intervertebral disk）。
   // 「spinal cord」那個檔案只有頸部 3.6 公分的一小段，不能用，脊髓照第七課自繪。
   { id: 'disc-01', src: 'intervertebral disk of axis' },
@@ -122,8 +124,8 @@ for (const o of ORGANS) {
   const { pos, idx } = rawOf([o.src]);
   if (!idx.length) throw new Error(`找不到 ${o.src}`);
   const P = new Float32Array(pos), I = new Uint32Array(idx);
-  const target = Math.max((SMALL.test(o.id) ? 140 : MIN_TRIS) * 3, Math.floor((I.length * (SMALL.test(o.id) ? 0.07 : RATIO)) / 3) * 3);
-  const [Sx] = target < I.length ? MeshoptSimplifier.simplify(I, P, 3, target, SMALL.test(o.id) ? 0.25 : MAX_ERR) : [I];
+  const target = o.tris ? o.tris * 3 : Math.max((SMALL.test(o.id) ? 140 : MIN_TRIS) * 3, Math.floor((I.length * (SMALL.test(o.id) ? 0.07 : RATIO)) / 3) * 3);
+  const [Sx] = target < I.length ? MeshoptSimplifier.simplify(I, P, 3, target, o.tris ? 0.05 : SMALL.test(o.id) ? 0.25 : MAX_ERR) : [I];
   before += I.length / 3; after += Sx.length / 3;
   const remap = new Map(), outP = [], outI = new Uint32Array(Sx.length);
   for (let k = 0; k < Sx.length; k++) {

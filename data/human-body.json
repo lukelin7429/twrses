@@ -16,11 +16,6 @@
   ],
   "planned": [
     {
-      "icon": "🤧",
-      "en": "Why Do You Sneeze, Hiccup, and Yawn?",
-      "zh": "為什麼會打噴嚏、打嗝、打呵欠？"
-    },
-    {
       "icon": "🩸",
       "en": "What Is in a Drop of Blood?",
       "zh": "一滴血裡有什麼？"
@@ -11874,6 +11869,533 @@
       },
       "health_en": "This lesson is for learning about the body. It is not medical advice. Feet and footprints come in many shapes, and this page does not judge any of them. If your feet, ankles, or knees hurt often, tell an adult and see a doctor.",
       "health_zh": "本課是認識身體的教材，不是醫療建議。腳和腳印有很多種形狀，這一頁不評斷任何一種。如果你的腳、腳踝或膝蓋常常痛，請告訴大人，並且去看醫生。"
+    },
+    {
+      "n": 26,
+      "slug": "reflexes",
+      "title": "Why Do You Sneeze, Hiccup, and Yawn?",
+      "title_zh": "為什麼會打噴嚏、打嗝、打呵欠？",
+      "level": "入門 · Beginner",
+      "icon": "🤧",
+      "card": "reflexes",
+      "blurb_en": "Three things your body does without asking you. See the real diaphragm jump in 3D, step through a sneeze in slow motion, and count your blinks.",
+      "blurb_zh": "三件身體不問你就自己做的事。在 3D 裡看真實的橫膈膜跳一下、用慢動作走完一次噴嚏，再數數自己眨了幾次眼。",
+      "big_idea_en": "Some jobs are too important to wait for you to decide. Your brainstem runs them for you, by squeezing or jolting the muscles that move air.",
+      "big_idea_zh": "有些工作太重要，不能等你決定。腦幹替你處理——靠的是擠壓或抽動那些負責推動空氣的肌肉。",
+      "lab": {
+        "kind": "reflexes",
+        "eyebrow": "3D Model · 3D 模型",
+        "title_en": "Three Reflexes in Slow Motion",
+        "title_zh": "慢動作看三個反射",
+        "how_en": "Choose a sneeze, a hiccup, or a yawn, and press play. Each one takes less than a few seconds in real life, so the model slows it down. Watch three things. The brainstem, at the bottom of the brain, lights up when it gives the order. The diaphragm, the dome of muscle under the lungs, pulls down to suck air in. And the gate in the throat opens and shuts. Drag the slider to move through one reflex by hand, and compare the three: which one snaps, which one blasts, and which one takes its time?",
+        "how_zh": "選打噴嚏、打嗝或打呵欠，然後按播放。這三件事在真實生活裡都只要幾秒鐘，所以模型把它們放慢了。請看三個地方：腦的最下方的腦幹，下命令的時候會亮起來；肺下面那片圓頂狀的肌肉——橫膈膜——往下拉，把空氣吸進來；還有喉嚨裡的那道門，一開一關。拖動滑桿，可以用手一格一格走完一個反射。比較一下這三個：哪一個是「啪」地一下、哪一個是猛力噴出、哪一個慢慢來？",
+        "legend": [
+          {
+            "cls": "rxstem",
+            "en": "Glowing stalk: the real brainstem",
+            "zh": "發亮的那一段：真實的腦幹"
+          },
+          {
+            "cls": "rxdia",
+            "en": "Red dome: the real diaphragm",
+            "zh": "紅色的圓頂：真實的橫膈膜"
+          },
+          {
+            "cls": "rxlung",
+            "en": "Pink: the lungs",
+            "zh": "粉紅色：肺"
+          },
+          {
+            "cls": "rxsig",
+            "en": "Moving dots: messages in the nerves",
+            "zh": "移動的小點：神經裡的訊息"
+          },
+          {
+            "cls": "rxair",
+            "en": "Pale puffs: air",
+            "zh": "淡色的小團：空氣"
+          }
+        ],
+        "scale_en": "The bones, the diaphragm, the brainstem, the windpipe, and the stomach are real shapes from BodyParts3D, in their real places; the lungs, the gate in the throat, the nerve paths, and the puffs of air are our own drawing. The timing is stretched: a real hiccup is over in a fraction of a second. Real nerves take longer routes than our straight lines, and many more muscles join in than the diaphragm alone.",
+        "scale_zh": "骨頭、橫膈膜、腦幹、氣管和胃是 BodyParts3D 的真實形狀，位置也是真的；肺、喉嚨裡的那道門、神經的路線和一團團的空氣是本站自繪的示意圖。時間被拉長了：真正的打嗝不到一秒就結束。真正的神經走的路比這裡畫的直線繞得多，參與的肌肉也不只橫膈膜一條。",
+        "credit_html": "Bone and organ models: <a href=\"https://dbarchive.biosciencedbc.jp/en/bodyparts3d/download.html\" target=\"_blank\" rel=\"noopener\">BodyParts3D</a>, © The Database Center for Life Science, licensed under <a href=\"https://creativecommons.org/licenses/by/4.0/\" target=\"_blank\" rel=\"noopener\">CC BY 4.0</a>. We selected the bones, the diaphragm, the brainstem, the trachea, and the stomach, simplified the shapes, and turned the model upright; the lungs, nerve paths, and air are our own drawing. · 骨骼與器官模型來源：BodyParts3D（日本生命科學資料庫中心，CC BY 4.0 授權）；本站挑選骨頭、橫膈膜、腦幹、氣管與胃，簡化形狀並轉正方向，肺、神經路線與空氣為本站自繪示意。",
+        "reflexes": [
+          {
+            "key": "sneeze",
+            "icon": "🤧",
+            "en": "Sneeze",
+            "zh": "打噴嚏",
+            "stages": [
+              {
+                "en": "A tickle",
+                "zh": "鼻子癢癢的",
+                "note_en": "Dust lands inside the nose. Nerve endings there send a message to the brainstem: something is in here!",
+                "note_zh": "灰塵落在鼻子裡。那裡的神經末梢向腦幹發出訊息：這裡有東西！"
+              },
+              {
+                "en": "A deep breath",
+                "zh": "深深吸一口氣",
+                "note_en": "The brainstem gives its orders. The diaphragm pulls down hard, and the lungs fill with air. You could not stop now if you tried.",
+                "note_zh": "腦幹下命令了。橫膈膜用力往下拉，肺裡灌滿空氣。這時候就算你想停，也停不下來。"
+              },
+              {
+                "en": "The gate shuts",
+                "zh": "門關上",
+                "note_en": "For an instant the gate in the throat closes, and the chest squeezes the trapped air. The pressure builds.",
+                "note_zh": "喉嚨裡的那道門關上一瞬間，胸部用力擠壓關在裡面的空氣，壓力越來越大。"
+              },
+              {
+                "en": "Achoo!",
+                "zh": "哈啾！",
+                "note_en": "The gate bursts open. Air blasts out through the nose and mouth, carrying the dust away in thousands of tiny droplets. Cover it with your elbow!",
+                "note_zh": "門猛然打開。空氣從鼻子和嘴巴噴出去，把灰塵裹在成千上萬顆小飛沫裡帶走。記得用手肘遮住！"
+              }
+            ]
+          },
+          {
+            "key": "hiccup",
+            "icon": "🫢",
+            "en": "Hiccup",
+            "zh": "打嗝",
+            "stages": [
+              {
+                "en": "A full stomach",
+                "zh": "胃撐起來了",
+                "note_en": "You ate too fast, or drank a soda. The stretched stomach sends a message up to the brainstem.",
+                "note_zh": "你吃得太快，或是喝了有氣泡的飲料。被撐大的胃把訊息往上送到腦幹。"
+              },
+              {
+                "en": "The jolt",
+                "zh": "一抽",
+                "note_en": "The diaphragm jerks down all at once, and a gulp of air rushes in.",
+                "note_zh": "橫膈膜突然往下一抽，一口空氣衝了進來。"
+              },
+              {
+                "en": "Hic!",
+                "zh": "嗝！",
+                "note_en": "About 35 thousandths of a second later, the gate in the throat slams shut on the rushing air. That is the “hic.”",
+                "note_zh": "大約千分之三十五秒之後，喉嚨裡的那道門「啪」地關上，擋住正衝進來的空氣。這就是那一聲「嗝」。"
+              },
+              {
+                "en": "And again",
+                "zh": "再來一次",
+                "note_en": "The diaphragm relaxes, and the whole thing repeats. Nobody is sure what hiccups are for, and no cure has been proved to work. They usually stop on their own within half an hour.",
+                "note_zh": "橫膈膜放鬆，然後整件事再來一次。沒有人確定打嗝有什麼用，也沒有哪一種止嗝的方法被證實有效；它通常半小時之內就會自己停。"
+              }
+            ]
+          },
+          {
+            "key": "yawn",
+            "icon": "🥱",
+            "en": "Yawn",
+            "zh": "打呵欠",
+            "stages": [
+              {
+                "en": "It begins",
+                "zh": "開始了",
+                "note_en": "You are tired, or bored, or you just saw someone else yawn. The brainstem starts the pattern.",
+                "note_zh": "你累了、無聊了，或是剛剛看到別人打呵欠。腦幹啟動了這一套動作。"
+              },
+              {
+                "en": "A long, slow breath in",
+                "zh": "又長又慢地吸氣",
+                "note_en": "The jaw drops wide, the throat opens to several times its usual size, and the diaphragm pulls down slowly.",
+                "note_zh": "下巴大大地張開，喉嚨撐開到平常的好幾倍，橫膈膜慢慢往下拉。"
+              },
+              {
+                "en": "The stretch",
+                "zh": "伸展",
+                "note_en": "At the top, the muscles of the face, the jaw, and often the arms stretch for a moment.",
+                "note_zh": "吸到最滿的時候，臉、下巴的肌肉——常常連手臂——都伸展一下。"
+              },
+              {
+                "en": "A quick breath out",
+                "zh": "很快地呼氣",
+                "note_en": "Then the air goes out fast and the jaw closes. Scientists have about twenty ideas about why we yawn and do not agree on any of them.",
+                "note_zh": "然後空氣很快地呼出去，下巴合起來。我們為什麼要打呵欠？科學家大約有二十種說法，到現在還沒有共識。"
+              }
+            ]
+          }
+        ],
+        "idle": {
+          "en": "Quiet breathing. About once every few seconds the diaphragm pulls down a little and lets go. You do not have to think about this either: the brainstem keeps the rhythm.",
+          "zh": "平靜地呼吸。每隔幾秒鐘，橫膈膜往下拉一點點，再放鬆。這件事你同樣不必去想：腦幹替你打著拍子。"
+        }
+      },
+      "paras": [
+        "You are sitting quietly in class when, without warning: Achoo! You did not decide to sneeze. Your body did it for you. A sneeze, a hiccup, and a yawn are all things your body does on its own. Actions like these are called reflexes. Why does your body have them, and how do they work?",
+        "A reflex needs no thinking. A message travels along a nerve to the brainstem, the stalk at the bottom of your brain. The brainstem answers at once by sending orders to your muscles. It is the same part that keeps you breathing all night. Most of the muscles in this lesson are breathing muscles, and the biggest is the diaphragm, a dome of muscle under your lungs. When it pulls down, air rushes in.",
+        "A sneeze is a cleaning job. When dust or pollen tickles the inside of your nose, nerve endings there send a message to the brainstem. You take a deep breath, a gate in your throat shuts for an instant, your chest squeezes, and then the air blasts out, carrying the dust with it. One sneeze can spray about 40,000 tiny droplets, and they can fly several meters. That is why you cover a sneeze with your elbow or a tissue.",
+        "A hiccup is a mistake in the rhythm. Your diaphragm suddenly jerks down, and air rushes in. A tiny moment later, the gate in your throat slams shut, and the air hitting it makes the sound: hic! Eating too fast or drinking soda can start hiccups. Babies even hiccup before they are born. Nobody is sure what hiccups are for.",
+        "A yawn is the slow one. Your jaw opens wide, you take a long breath in, your muscles stretch, and then you breathe out fast. People once thought a yawn brings in extra oxygen, but tests do not support that idea. It may help to cool the brain or to wake you up. And yawns are catching! From about the age of six, seeing someone yawn can make you yawn too. Dogs and chimpanzees catch yawns as well.",
+        "Here is one more reflex, and you are doing it right now: blinking. Each blink spreads tears across your eye and wipes it clean, and it lasts only about a tenth of a second. A grown-up blinks about 17 times a minute. But when people read or stare at a screen, they blink only 4 or 5 times a minute, and their eyes get dry and tired. Try the blink counter below the model with a partner."
+      ],
+      "paras_zh": [
+        "你正安安靜靜地坐在教室裡，突然毫無預警地：哈啾！你並沒有「決定」要打噴嚏，是身體替你做的。打噴嚏、打嗝、打呵欠，都是身體自己會做的事。像這樣的動作，叫做反射。身體為什麼要有這些反射？它們又是怎麼運作的？",
+        "反射不需要思考。訊息沿著神經傳到腦幹——大腦最下方的那一段；腦幹立刻回應，向肌肉發出命令。讓你整個晚上持續呼吸的，也是同一個地方。這一課裡出場的肌肉，大部分都是呼吸用的肌肉，其中最大的一條是橫膈膜：肺下面一片圓頂狀的肌肉。它往下一拉，空氣就衝進來。",
+        "打噴嚏是清潔工作。灰塵或花粉讓鼻子裡面發癢的時候，那裡的神經末梢向腦幹發出訊息。你深深吸一口氣，喉嚨裡的一道門關上一瞬間，胸部用力一擠，然後空氣猛力噴出去，把灰塵一起帶走。一個噴嚏可以噴出大約四萬顆小飛沫，而且能飛好幾公尺遠——所以打噴嚏要用手肘或衛生紙遮住。",
+        "打嗝是節奏出了錯。橫膈膜突然往下一抽，空氣衝進來；極短的一瞬間之後，喉嚨裡的那道門「啪」地關上，空氣撞上去，就發出那個聲音：嗝！吃得太快或喝有氣泡的飲料，都可能引起打嗝。寶寶甚至在出生以前就會打嗝了。沒有人確定打嗝到底有什麼用。",
+        "打呵欠是慢的那一個。下巴大大地張開，你長長地吸一口氣，肌肉伸展一下，然後很快地把氣呼出去。以前的人以為打呵欠是為了多吸一點氧氣，但是實驗並不支持這個說法。它也許能幫大腦降溫，或是讓你清醒一點。而且呵欠會傳染！大約從六歲開始，看到別人打呵欠，你也會跟著打。狗和黑猩猩也會被傳染。",
+        "還有一個反射，你現在就正在做：眨眼。每眨一次眼，就把淚水抹過整個眼球、把它擦乾淨，而且只花大約十分之一秒。大人每分鐘大約眨 17 次眼。可是，人在閱讀或盯著螢幕的時候，每分鐘只眨 4、5 次，眼睛就會變得又乾又累。找一位同伴，用模型下方的眨眼計數器試試看。"
+      ],
+      "questions": [
+        "What is a reflex?",
+        "What happens in your body when you hiccup?",
+        "Why do your eyes get tired when you look at a screen for a long time?"
+      ],
+      "answers": [
+        "Something your body does on its own, without thinking. A message goes to the brainstem, and the brainstem sends orders to the muscles at once.",
+        "The diaphragm jerks down and air rushes in, and a moment later the gate in the throat slams shut. That makes the “hic” sound.",
+        "Because you blink much less, only 4 or 5 times a minute instead of about 17, so your eyes dry out."
+      ],
+      "vocab": [
+        {
+          "n": 1,
+          "w": "sneeze",
+          "pos": "v.",
+          "zh": "打噴嚏",
+          "ex": "Pepper makes me <b>sneeze</b>.",
+          "exzh": "胡椒會讓我打噴嚏。"
+        },
+        {
+          "n": 2,
+          "w": "hiccup",
+          "pos": "n.",
+          "zh": "打嗝",
+          "ex": "I got the <b>hiccups</b> after drinking soda.",
+          "exzh": "我喝了汽水之後開始打嗝。"
+        },
+        {
+          "n": 3,
+          "w": "yawn",
+          "pos": "v.",
+          "zh": "打呵欠",
+          "ex": "The sleepy cat began to <b>yawn</b>.",
+          "exzh": "那隻想睡的貓開始打呵欠。"
+        },
+        {
+          "n": 4,
+          "w": "blink",
+          "pos": "v.",
+          "zh": "眨眼",
+          "ex": "You <b>blink</b> many times every minute.",
+          "exzh": "你每分鐘眨很多次眼。"
+        },
+        {
+          "n": 5,
+          "w": "reflex",
+          "pos": "n.",
+          "zh": "反射",
+          "ex": "Blinking is a <b>reflex</b>.",
+          "exzh": "眨眼是一種反射。"
+        },
+        {
+          "n": 6,
+          "w": "cover",
+          "pos": "v.",
+          "zh": "遮住；蓋住",
+          "ex": "<b>Cover</b> your mouth when you cough.",
+          "exzh": "咳嗽的時候要遮住嘴巴。"
+        },
+        {
+          "n": 7,
+          "w": "tissue",
+          "pos": "n.",
+          "zh": "衛生紙；面紙",
+          "ex": "May I have a <b>tissue</b>, please?",
+          "exzh": "可以給我一張面紙嗎？"
+        },
+        {
+          "n": 8,
+          "w": "sudden",
+          "pos": "adj.",
+          "zh": "突然的",
+          "ex": "A <b>sudden</b> noise made us jump.",
+          "exzh": "突然的一聲巨響把我們嚇了一跳。"
+        }
+      ],
+      "quiz": [
+        {
+          "q": "Which part of the brain runs these reflexes?",
+          "options": [
+            "The brainstem",
+            "The front of the brain",
+            "The eyes",
+            "The skull"
+          ],
+          "correct": 0
+        },
+        {
+          "q": "What is the diaphragm?",
+          "options": [
+            "A dome of muscle under the lungs",
+            "A bone in the chest",
+            "A tube in the throat",
+            "A part of the nose"
+          ],
+          "correct": 0
+        },
+        {
+          "q": "What is a sneeze for?",
+          "options": [
+            "To blast dust and other things out of the nose",
+            "To cool the body",
+            "To help you sleep",
+            "To make your voice louder"
+          ],
+          "correct": 0
+        },
+        {
+          "q": "What makes the “hic” sound in a hiccup?",
+          "options": [
+            "The gate in the throat slamming shut",
+            "The stomach growling",
+            "The teeth clicking",
+            "The lungs popping"
+          ],
+          "correct": 0
+        },
+        {
+          "q": "According to the reading, how often do people blink when they stare at a screen?",
+          "options": [
+            "Only 4 or 5 times a minute",
+            "About 17 times a minute",
+            "About 60 times a minute",
+            "Never"
+          ],
+          "correct": 0
+        }
+      ],
+      "kinds_head": {
+        "eyebrow": "Four Reflexes · 四種反射",
+        "en": "Each one has its own speed and its own job",
+        "zh": "每一種都有自己的速度、自己的工作"
+      },
+      "kinds": [
+        {
+          "icon": "🤧",
+          "en": "Sneeze",
+          "zh": "打噴嚏",
+          "where_en": "Starts in the nose",
+          "where_zh": "從鼻子開始",
+          "control_en": "Cleans the nose",
+          "control_zh": "清理鼻子",
+          "text_en": "A deep breath, a closed gate, and a blast. About 40,000 droplets fly out.",
+          "text_zh": "深吸一口氣、門關上、猛力噴出。大約四萬顆飛沫飛出去。"
+        },
+        {
+          "icon": "🫢",
+          "en": "Hiccup",
+          "zh": "打嗝",
+          "where_en": "Starts at the diaphragm",
+          "where_zh": "從橫膈膜開始",
+          "control_en": "Nobody is sure",
+          "control_zh": "沒有人確定",
+          "text_en": "A jolt, and the gate slams shut 35 thousandths of a second later.",
+          "text_zh": "一抽，千分之三十五秒之後門「啪」地關上。"
+        },
+        {
+          "icon": "🥱",
+          "en": "Yawn",
+          "zh": "打呵欠",
+          "where_en": "The jaw, throat, and chest",
+          "where_zh": "下巴、喉嚨和胸部",
+          "control_en": "Still a puzzle",
+          "control_zh": "還是個謎",
+          "text_en": "A slow breath in with a stretch, and a quick breath out. It spreads from person to person.",
+          "text_zh": "慢慢吸氣加上伸展，再很快呼氣。它會在人和人之間傳染。"
+        },
+        {
+          "icon": "👁️",
+          "en": "Blink",
+          "zh": "眨眼",
+          "where_en": "The eyelids",
+          "where_zh": "眼皮",
+          "control_en": "Wipes and wets the eye",
+          "control_zh": "擦拭、濕潤眼睛",
+          "text_en": "About a tenth of a second, about 17 times a minute, and far fewer when you stare at a screen.",
+          "text_zh": "大約十分之一秒一次，每分鐘約 17 次；盯著螢幕的時候少得多。"
+        },
+        {
+          "icon": "🫁",
+          "en": "Breathing",
+          "zh": "呼吸",
+          "where_en": "The diaphragm and ribs",
+          "where_zh": "橫膈膜和肋骨",
+          "control_en": "Keeps you alive",
+          "control_zh": "讓你活著",
+          "text_en": "The quiet rhythm underneath all the others. The brainstem keeps it going, awake or asleep.",
+          "text_zh": "其他所有反射底下那個安靜的節奏。不管醒著還是睡著，腦幹都替你維持著。"
+        }
+      ],
+      "kinds_note_en": "You can hold your breath or hold back a blink for a little while, but not for long. The brainstem always takes the job back.",
+      "kinds_note_zh": "你可以憋一下氣，或是忍住一下不眨眼，但是撐不久。腦幹一定會把工作接回去。",
+      "measure": {
+        "title_en": "How often do I blink?",
+        "title_zh": "我多久眨一次眼？",
+        "lead_en": "Work with a partner. One of you is the counter, and the other just acts normally. Use the blink counter below the model. Then swap.",
+        "lead_zh": "兩個人一組。一個人負責數，另一個人照平常的樣子就好。用模型下方的眨眼計數器，數完再交換。",
+        "steps": [
+          {
+            "n": "💬",
+            "en": "Round 1: chatting",
+            "zh": "第一回合：聊天",
+            "text_en": "Start the one-minute timer and chat. The counter taps the button each time the partner blinks.",
+            "text_zh": "按下一分鐘計時，然後開始聊天。同伴每眨一次眼，負責數的人就點一下按鈕。"
+          },
+          {
+            "n": "📖",
+            "en": "Round 2: reading",
+            "zh": "第二回合：閱讀",
+            "text_en": "Now the partner reads a book or looks at a screen for one minute. Count again.",
+            "text_zh": "現在同伴看書或看螢幕一分鐘。再數一次。"
+          },
+          {
+            "n": "👀",
+            "en": "Compare",
+            "zh": "比較",
+            "text_en": "Which round had fewer blinks? Compare your own two numbers, not your number with your partner's.",
+            "text_zh": "哪一回合眨得比較少？請比較自己的兩個數字，不是拿自己的和同伴的比。"
+          }
+        ],
+        "action": "test",
+        "action_value": "1",
+        "button_icon": "👁️",
+        "button_en": "Open the blink counter",
+        "button_zh": "打開眨眼計數器"
+      },
+      "myths": [
+        {
+          "myth_en": "You cannot sneeze with your eyes open.",
+          "myth_zh": "打噴嚏的時候，眼睛不可能是張開的。",
+          "fact_en": "Your eyes usually close by reflex, but it is possible to sneeze with them open.",
+          "fact_zh": "眼睛通常會反射性地閉上，但是張著眼睛打噴嚏是做得到的。"
+        },
+        {
+          "myth_en": "A yawn means you need more oxygen.",
+          "myth_zh": "打呵欠是因為需要更多氧氣。",
+          "fact_en": "Tests do not support that idea. Scientists still do not agree on what a yawn is for.",
+          "fact_zh": "實驗並不支持這個說法。打呵欠到底有什麼用，科學家到現在還沒有共識。"
+        },
+        {
+          "myth_en": "A scare, holding your breath, or a glass of water will always stop hiccups.",
+          "myth_zh": "嚇一跳、憋氣或喝一杯水，一定可以止住打嗝。",
+          "fact_en": "No cure has been proved to work. Most hiccups simply stop on their own.",
+          "fact_zh": "沒有哪一種方法被證實有效。大部分的打嗝會自己停下來。"
+        },
+        {
+          "myth_en": "A sneeze only reaches as far as your hand.",
+          "myth_zh": "噴嚏最遠只會噴到手掌那麼遠。",
+          "fact_en": "The droplets can travel several meters. Cover your sneeze with your elbow or a tissue, and wash your hands.",
+          "fact_zh": "飛沫可以飛好幾公尺遠。打噴嚏要用手肘或衛生紙遮住，然後洗手。"
+        }
+      ],
+      "tricks": [
+        {
+          "title_en": "No thinking needed",
+          "title_zh": "不必思考",
+          "body_en": "A reflex goes to the brainstem and straight back to the muscles.",
+          "body_zh": "反射的訊息送到腦幹，就直接回到肌肉。"
+        },
+        {
+          "title_en": "Sneeze: breath, gate, blast",
+          "title_zh": "噴嚏：吸氣、關門、噴出",
+          "body_en": "A cleaning job for the nose. Cover it!",
+          "body_zh": "替鼻子做的清潔工作。記得遮住！"
+        },
+        {
+          "title_en": "Hiccup: jolt, then hic",
+          "title_zh": "打嗝：一抽，然後「嗝」",
+          "body_en": "The diaphragm jerks, and the gate slams shut.",
+          "body_zh": "橫膈膜一抽，門「啪」地關上。"
+        },
+        {
+          "title_en": "Screens make you forget to blink",
+          "title_zh": "看螢幕會忘記眨眼",
+          "body_en": "About 17 blinks a minute drops to 4 or 5. Look away and blink.",
+          "body_zh": "每分鐘 17 次掉到 4、5 次。把視線移開，眨眨眼。"
+        }
+      ],
+      "activities": [
+        {
+          "title_en": "Does a Yawn Spread?",
+          "title_zh": "呵欠會傳染嗎？",
+          "materials": [
+            {
+              "en": "A short video of people or animals yawning",
+              "zh": "一段人或動物打呵欠的短片"
+            },
+            {
+              "en": "A tally sheet for the teacher",
+              "zh": "老師用的一張記錄表"
+            }
+          ],
+          "steps": [
+            {
+              "en": "Do not tell the class what the experiment is about. Just say you will watch a short video.",
+              "zh": "先不要告訴全班這個實驗在做什麼，只說要看一段短片。"
+            },
+            {
+              "en": "Play the video. The teacher quietly counts how many students yawn during it and in the two minutes after.",
+              "zh": "播放影片。老師悄悄數一數，影片播放時和之後的兩分鐘裡，有幾位學生打了呵欠。"
+            },
+            {
+              "en": "Now tell the class the secret, and type the two numbers into the tool on this page.",
+              "zh": "現在把祕密告訴全班，再把兩個數字輸入這一頁的工具。"
+            },
+            {
+              "en": "Did reading the word “yawn” just now make anyone yawn?",
+              "zh": "剛才讀到「呵欠」這兩個字，有沒有人因此打了呵欠？"
+            }
+          ],
+          "tip_en": "Teaching tip: count yawns for the class as a whole, not by name. Not everyone catches yawns, and that is normal: in studies, only some of the people watching yawn. The real lesson is about method: why did we keep the purpose secret until the end?",
+          "tip_zh": "教學提示：只數全班一共幾個，不要記名字。不是每個人都會被呵欠傳染，這很正常——研究裡也只有一部分的觀看者會跟著打。真正值得討論的是方法：為什麼要等到最後才說出實驗的目的？"
+        },
+        {
+          "title_en": "Find Your Diaphragm",
+          "title_zh": "找到你的橫膈膜",
+          "materials": [
+            {
+              "en": "A book",
+              "zh": "一本書"
+            },
+            {
+              "en": "A place to lie down, or a chair",
+              "zh": "一個可以躺下的地方，或一張椅子"
+            }
+          ],
+          "steps": [
+            {
+              "en": "Lie on your back and put the book on your belly, just below your ribs.",
+              "zh": "仰躺，把書放在肚子上、肋骨的正下方。"
+            },
+            {
+              "en": "Breathe in slowly through your nose. What does the book do?",
+              "zh": "用鼻子慢慢吸氣。書怎麼了？"
+            },
+            {
+              "en": "Breathe out. What does it do now?",
+              "zh": "呼氣。現在它又怎麼了？"
+            },
+            {
+              "en": "Sit up and say “ha!” sharply with a hand on the same spot. What do you feel?",
+              "zh": "坐起來，把手放在同一個地方，短促地說一聲「哈！」。你感覺到什麼？"
+            }
+          ],
+          "tip_en": "Teaching tip: the book rises as the diaphragm pulls down and pushes the belly out, and it sinks as the diaphragm relaxes. The sharp “ha!” is a small jolt of the same muscle, a little like half of a hiccup. Students who play wind instruments or sing may already know this muscle well.",
+          "tip_zh": "教學提示：橫膈膜往下拉、把肚子往外推，書就升高；橫膈膜放鬆，書就下降。短促的「哈！」是同一條肌肉的小小一抽，有點像半個打嗝。吹管樂器或唱歌的學生，可能早就很熟悉這條肌肉了。"
+        }
+      ],
+      "culture": {
+        "title_en": "Bless You! Someone Is Thinking of You",
+        "title_zh": "Bless you！有人在想你",
+        "body_en": "When someone sneezes, English speakers say “Bless you!” It is an old habit, and people say it today simply to be polite. Chinese speakers have a playful saying instead: 一想二罵三感冒 (yī xiǎng, èr mà, sān gǎnmào). One sneeze means someone is thinking of you, two mean someone is scolding you, and three mean you have caught a cold! The words for these reflexes are fun, too. A yawn is 打呵欠 (dǎ hēqian) in Mandarin and 哈唏 (hah-hì) in Taiwanese, and both sound like a yawn. English “hiccup” and Mandarin 嗝 (gé) both copy the sound of a hiccup. Try saying them: does your mouth make the shape of the reflex?",
+        "body_zh": "有人打噴嚏的時候，說英文的人會說 Bless you!（祝福你）。這是很古老的習慣，現在的人說它只是出於禮貌。說中文的人則有一句好玩的俗話：「一想二罵三感冒」——打一個噴嚏是有人在想你，兩個是有人在罵你，三個就是感冒了！這些反射的名字也很有趣：國語的「呵欠」和台語的「哈唏」，聽起來都像在打呵欠；英文的 hiccup 和中文的「嗝」，都是在模仿打嗝的聲音。唸唸看：你的嘴巴是不是做出了那個反射的形狀？",
+        "link_en": "More Chinese health words in English",
+        "link_zh": "到中醫養生系列看更多"
+      },
+      "health_en": "This lesson is for learning about the body. It is not medical advice. Cover sneezes and coughs with your elbow or a tissue, and wash your hands afterward. Hiccups almost always stop on their own. If they go on for days, or if you often have trouble breathing, tell an adult and see a doctor.",
+      "health_zh": "本課是認識身體的教材，不是醫療建議。打噴嚏和咳嗽要用手肘或衛生紙遮住，之後記得洗手。打嗝幾乎都會自己停；如果連續好幾天都不停，或是常常覺得呼吸困難，請告訴大人，並且去看醫生。"
     }
   ]
 }

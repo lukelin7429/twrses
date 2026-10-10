@@ -4319,7 +4319,7 @@ def build_astro_hub():
 # 面板與段落樣式沿用 astro.css，人體專屬的在 body.css；兩者都只載在本系列頁面。
 BODY_BASE = "/resources/classes/human-body/"
 _BODY_JS = {"skeleton": "skeleton", "arm": "arm", "heart": "heart", "lungs": "lungs", "joints": "joints",
-            "digestion": "digestion", "nerves": "nerves", "eyes": "eyes", "ears": "ears", "skin": "skin", "teeth": "teeth", "germs": "germs", "kidneys": "kidneys", "taste": "taste", "sleep": "sleep", "growth": "growth", "voice": "voice", "hands": "hands", "healing": "healing", "exercise": "exercise", "energy": "energy", "temperature": "temperature", "back": "back", "cells": "cells", "walking": "walking"}   # lab.kind → assets/js/<bundle>.js
+            "digestion": "digestion", "nerves": "nerves", "eyes": "eyes", "ears": "ears", "skin": "skin", "teeth": "teeth", "germs": "germs", "kidneys": "kidneys", "taste": "taste", "sleep": "sleep", "growth": "growth", "voice": "voice", "hands": "hands", "healing": "healing", "exercise": "exercise", "energy": "energy", "temperature": "temperature", "back": "back", "cells": "cells", "walking": "walking", "reflexes": "reflexes"}   # lab.kind → assets/js/<bundle>.js
 
 def _body_ver():
     h = hashlib.md5()
@@ -5895,6 +5895,68 @@ def render_walking_lab(lesson):
   <p class="sk-credit">{lab["credit_html"]}</p>
 </div>'''
 
+def render_reflexes_lab(lesson):
+    """第二十六課：真實的橫膈膜與腦幹，慢動作看打噴嚏、打嗝、打呵欠（assets/js/reflexes.js 綁這裡的 class）；眨眼計數與呵欠統計是 2D，不需要 WebGL。"""
+    lab = lesson["lab"]
+    data_json = html.escape(json.dumps({"reflexes": lab["reflexes"], "idle": lab["idle"]}, ensure_ascii=False))
+    btns = "".join(
+        f'<button type="button" data-reflex="{r["key"]}" aria-pressed="false"><i aria-hidden="true">{r["icon"]}</i>'
+        f'<span>{html.escape(r["en"])}<small>{html.escape(r["zh"])}</small></span></button>' for r in lab["reflexes"])
+    def bar(cls, en, zh):
+        return f'<div class="rx-bar rx-bar-{cls}"><span>{en}<small>{zh}</small></span><b><i></i></b></div>'
+    def rnd(n, ic, en, zh):
+        return (f'<div class="rx-round" data-r="{n}"><p class="rx-rk"><i aria-hidden="true">{ic}</i>{en}<small>{zh}</small></p>'
+                f'<p class="rx-rn"><b>0</b><span>blinks<small>次</small></span></p>'
+                f'<button type="button" class="rx-go">Start 60 seconds<small>開始 60 秒</small></button></div>')
+    tg = _lab_toggles([("labels", "Labels", "標示", True), ("lungs", "Lungs", "肺", True), ("skel", "Bones", "骨頭", True)])
+    return f'''<div class="astro-lab sk-lab rx-lab rvl" data-reflexes-lab data-model="{_model_url()}" data-organs="{_organs_url()}" data-reflexes="{data_json}">
+  <div class="al-stage">
+    <div class="al-space">
+      <canvas class="al-space-cv" aria-label="3D model of a chest and head with a real diaphragm and brainstem, showing a sneeze, a hiccup, and a yawn in slow motion · 有真實橫膈膜和腦幹的胸部與頭部 3D 模型，用慢動作呈現打噴嚏、打嗝和打呵欠"></canvas>
+      <div class="al-labels" aria-hidden="true"></div>
+      <p class="sk-loading">Loading… · 載入中…<span class="sk-bar"><i></i></span></p>
+      <p class="al-hint">Drag to turn · 拖曳旋轉　Scroll or pinch to zoom · 滾輪／雙指縮放</p>
+      <p class="ey-mag">Slow motion: the real thing is much faster · 慢動作：真實的速度快得多</p>
+      <button type="button" class="al-home" title="Reset view · 重設視角" aria-label="Reset view · 重設視角">&#8634;</button>
+      <p class="al-nogl-msg">This 3D model needs WebGL, which this browser does not support. The blink counter and the cards below still work.<br><span class="zh">這個瀏覽器不支援 WebGL，無法顯示 3D 模型；下方的眨眼計數器和卡片一樣能用。</span></p>
+    </div>
+    <aside class="al-sky sk-aside rx-aside">
+      <p class="rx-stage"><b class="rx-step">&middot;</b><span class="rx-name"></span></p>
+      {bar("dia", "Diaphragm pulling down", "橫膈膜往下拉")}{bar("air", "Air in the lungs", "肺裡的空氣")}
+      <p class="rx-gate"><span>Gate in the throat<small>喉嚨裡的門</small></span><b class="rx-gate-t">open · 開</b></p>
+      <p class="ey-status rx-status" aria-live="polite"></p>
+    </aside>
+  </div>
+  <div class="rx-strip">
+    <div class="rx-blink">
+      <p class="al-sky-k">Blink counter · 眨眼計數器</p>
+      <div class="rx-rounds">{rnd(0, "&#128172;", "Chatting", "聊天")}{rnd(1, "&#128214;", "Reading or a screen", "閱讀或看螢幕")}</div>
+      <button type="button" class="rx-tap" disabled>Tap for each blink<small>每眨一次點一下</small></button>
+      <p class="rx-msg rx-bmsg" aria-live="polite"></p>
+    </div>
+    <div class="rx-yawn">
+      <p class="al-sky-k">Did the yawn spread? · 呵欠傳染了嗎？</p>
+      <div class="rx-set">
+        <label>People watching<small>觀看的人數</small><span><input type="number" class="rx-all" min="1" max="200" step="1" inputmode="numeric" placeholder="—"></span></label>
+        <label>People who yawned<small>打呵欠的人數</small><span><input type="number" class="rx-yn" min="0" max="200" step="1" inputmode="numeric" placeholder="—"></span></label>
+      </div>
+      <div class="rx-dots" aria-hidden="true"></div>
+      <p class="rx-msg rx-ymsg" aria-live="polite"></p>
+    </div>
+  </div>
+  <div class="al-controls">
+    <div class="ea-pres rx-btns" role="group" aria-label="Choose a reflex · 選一個反射">{btns}</div>
+    <div class="al-row al-row-main">
+      <button type="button" class="al-play" aria-pressed="false"><span class="al-play-i" aria-hidden="true"></span><span class="al-play-t">Play · 播放</span></button>
+      <label class="ec-slider rx-row"><span class="ec-slider-k">Step through it · 一格一格看<em>start &rarr; finish · 開始 &rarr; 結束</em></span>
+        <input type="range" class="ec-time rx-slider" min="0" max="100" step="1" value="0"></label>
+    </div>
+    <div class="al-row al-toggles">{tg}</div>
+  </div>
+  {_lab_foot(lab)}
+  <p class="sk-credit">{lab["credit_html"]}</p>
+</div>'''
+
 def _body_nav(slug):
     ls = BODY["lessons"]
     i = next(n for n, l in enumerate(ls) if l["slug"] == slug)
@@ -5922,7 +5984,7 @@ def build_body_lesson(lesson):
                 "joints": render_joints_lab, "digestion": render_digestion_lab, "nerves": render_nerves_lab,
                 "eyes": render_eyes_lab, "ears": render_ears_lab, "skin": render_skin_lab,
                 "teeth": render_teeth_lab, "germs": render_germs_lab, "kidneys": render_kidneys_lab,
-                "taste": render_taste_lab, "sleep": render_sleep_lab, "growth": render_growth_lab, "voice": render_voice_lab, "hands": render_hands_lab, "healing": render_healing_lab, "exercise": render_exercise_lab, "energy": render_energy_lab, "temperature": render_temperature_lab, "back": render_back_lab, "cells": render_cells_lab, "walking": render_walking_lab}[kind](lesson)
+                "taste": render_taste_lab, "sleep": render_sleep_lab, "growth": render_growth_lab, "voice": render_voice_lab, "hands": render_hands_lab, "healing": render_healing_lab, "exercise": render_exercise_lab, "energy": render_energy_lab, "temperature": render_temperature_lab, "back": render_back_lab, "cells": render_cells_lab, "walking": render_walking_lab, "reflexes": render_reflexes_lab}[kind](lesson)
 
     secs = []
     if lesson.get("jobs"):
@@ -6040,7 +6102,8 @@ def build_body_lesson(lesson):
                 "temperature": ("Body heat in a sentence", "一句話記住體溫"),
                 "back": ("The spine in a sentence", "一句話記住脊柱"),
                 "cells": ("Cells in a sentence", "一句話記住細胞"),
-                "walking": ("Walking in a sentence", "一句話記住走路")}[kind]
+                "walking": ("Walking in a sentence", "一句話記住走路"),
+                "reflexes": ("Reflexes in a sentence", "一句話記住反射")}[kind]
     secs.append(("tricks", "Remember It · 記憶口訣", tricks_h[0], tricks_h[1], _sci_tricks(lesson), ""))
     if lesson.get("culture"):
         cu = lesson["culture"]
