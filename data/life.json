@@ -1220,15 +1220,633 @@
               "url": "https://zh.wikipedia.org/zh-tw/彰化縣"
             }
           ]
+        },
+        {
+          "n": 3,
+          "slug": "what-is-dna",
+          "title": "What Is DNA?",
+          "title_zh": "DNA 是什麼？",
+          "level": "入門 · Beginner",
+          "icon": "🧬",
+          "card": "dna",
+          "blurb_en": "Inside almost every one of your cells there is a set of instructions for building you. It is written with only four letters. In a 3D model, unzip a piece of DNA and watch each half build itself a new partner, until one molecule has become two that match. Then change a single letter and see where the change goes. Last, write a code of your own and count how many different codes four letters can make.",
+          "blurb_zh": "你身上幾乎每一個細胞裡，都有一套把你做出來的說明書。它只用四個字母寫成。在 3D 模型裡把一段 DNA 解開，看兩邊各自補上新的搭檔，一個分子變成一模一樣的兩個。接著換掉一個字母，看看這個改變會跑到哪裡去。最後自己寫一段密碼，算一算四個字母能排出多少種不同的密碼。",
+          "big_idea_en": "DNA is a very long molecule shaped like a twisted ladder. Each rung of the ladder is a pair of chemical letters, and there are only four letters: A, T, C, and G. A always pairs with T, and C always pairs with G. The order of the letters is the message. Because of the pairing rule, a cell can pull the ladder apart and rebuild both halves, so every new cell gets its own full copy.",
+          "big_idea_zh": "DNA 是一種非常長的分子，形狀像一條扭起來的梯子。梯子的每一根橫槓是一對化學字母，而字母總共只有四個：A、T、C、G。A 一定配 T，C 一定配 G。字母排列的順序，就是訊息的內容。因為有這條配對規則，細胞可以把梯子從中間拉開，再把兩半各自補齊，所以每一個新的細胞都拿得到完整的一份。",
+          "tricks_head": {
+            "en": "DNA in a sentence",
+            "zh": "一句話記住 DNA"
+          },
+          "checked": {
+            "en": "October 2026",
+            "zh": "2026 年 10 月"
+          },
+          "lab": {
+            "kind": "dna",
+            "eyebrow": "3D Model · 3D 模型",
+            "title_en": "Unzip and Copy",
+            "title_zh": "解開，再複製",
+            "how_en": "Drag to turn the model, and scroll or pinch to zoom. Press Pause, and then move the slider slowly from 0 to 100. The ladder opens from the top like a zipper, and new letters join each half. Look at which letter joins which. Then tap any letter in the row under the slider to change it, and copy the ladder again. Do both copies carry your change?",
+            "how_zh": "拖曳可以旋轉模型，滾輪或雙指可以縮放。先按「暫停」，再把滑桿從 0 慢慢拉到 100。梯子會像拉鍊一樣從上面打開，新的字母接到兩邊。注意看哪個字母接上哪個字母。接著在滑桿下面那一排字母裡點任何一個，把它換掉，再複製一次。兩份都帶著你改的那個字母嗎？",
+            "msgs": {
+              "closed": {
+                "en": "This is a short piece of DNA with twelve rungs. Each rung is a pair of letters. Look closely: A is always joined to T, and C is always joined to G. Move the slider to unzip it.",
+                "zh": "這是一小段 DNA，有十二根橫槓。每一根橫槓是一對字母。仔細看：A 永遠和 T 接在一起，C 永遠和 G 接在一起。拉動滑桿把它解開。"
+              },
+              "opening": {
+                "en": "The two strands are coming apart. Each loose letter can take only one partner, so each old strand works as a pattern for a new one. The new strands are drawn in orange.",
+                "zh": "兩股正在分開。每一個落單的字母都只能接受一種搭檔，所以每一股舊的都成了新的一股的樣板。新的那一股用橘色畫出來。"
+              },
+              "done": {
+                "en": "Now there are two ladders, and they read exactly the same. Each one has one old strand and one new strand. This is how a cell copies its instructions before it divides.",
+                "zh": "現在有兩條梯子了，而且讀起來一模一樣。每一條都是一股舊的加一股新的。細胞在分裂之前，就是這樣把說明書複製一份。"
+              },
+              "changed": {
+                "en": "You changed a letter, and its partner changed with it, because the pairing rule still holds. A change in the letters of DNA is called a mutation. Now unzip the ladder and see what happens to your change.",
+                "zh": "你換了一個字母，它的搭檔也跟著換了，因為配對規則還是一樣。DNA 的字母發生改變，叫做突變。現在把梯子解開，看看這個改變會怎麼樣。"
+              },
+              "donechanged": {
+                "en": "Both copies carry your change. The copying follows the letters that are there. It does not know what they used to be. This is why a change in DNA is passed on to every cell that comes from this one.",
+                "zh": "兩份都帶著你改的地方。複製的時候只照著眼前的字母，並不知道它原本是什麼。所以 DNA 一旦改變，就會傳給這個細胞之後分裂出來的每一個細胞。"
+              }
+            },
+            "legend": [
+              {
+                "cls": "lfdna",
+                "en": "Green: the letter A",
+                "zh": "綠色：字母 A"
+              },
+              {
+                "cls": "lfdnt",
+                "en": "Red: the letter T, the partner of A",
+                "zh": "紅色：字母 T，A 的搭檔"
+              },
+              {
+                "cls": "lfdnc",
+                "en": "Blue: the letter C",
+                "zh": "藍色：字母 C"
+              },
+              {
+                "cls": "lfdng",
+                "en": "Yellow: the letter G, the partner of C",
+                "zh": "黃色：字母 G，C 的搭檔"
+              },
+              {
+                "cls": "lfdnold",
+                "en": "Pale beads: the two old strands",
+                "zh": "淺色的珠子：原來的兩股"
+              },
+              {
+                "cls": "lfdnnew",
+                "en": "Orange beads: the two new strands",
+                "zh": "橘色的珠子：新接上的兩股"
+              }
+            ],
+            "scale_en": "A teaching model. The twelve letters are an example and are not taken from a real gene. Real DNA has no colors, and its letters are groups of atoms, not printed letters. The ladder turns once in about ten rungs, as real DNA does, but the two sides are drawn evenly spaced to keep the picture simple. In a cell, copying is done by many helper molecules that the model does not show, and one set of human DNA has about 3.1 billion rungs, not twelve.",
+            "scale_zh": "這是教學用的模型。這十二個字母是舉例，並不是取自哪一個真的基因。真的 DNA 沒有顏色，它的「字母」是一小群原子，不是印出來的字。梯子大約每十根橫槓轉一圈，這一點和真的 DNA 一樣；不過為了畫面簡單，兩邊畫成等距。在細胞裡，複製是靠許多幫忙的分子完成的，模型沒有畫出來；而人的一套 DNA 大約有三十一億根橫槓，不是十二根。",
+            "credit_html": "Model drawn by My Culture Connect as a teaching diagram. The ideas follow the sources listed at the bottom of this page. · 模型由人師教育協會自繪示意；原理依本頁最下方列出的出處。"
+          },
+          "paras": [
+            "Identical twins can look so much alike that even their friends mix them up. Why? Both of them grew from the same single cell, so both carry almost exactly the same set of instructions. Those instructions are written in a molecule called DNA.",
+            "DNA is very long and very thin, and it is shaped like a ladder that has been twisted. Scientists call this shape a double helix. The two sides of the ladder are long strands. The rungs between them are made of four small chemical parts, which we call by their first letters: A, T, C, and G.",
+            "The letters follow one simple rule. A always pairs with T, and C always pairs with G. So each rung is a pair, and if you know the letters along one side of the ladder, you can work out the letters along the other side.",
+            "This rule is what lets a cell copy its DNA. Before a cell divides, the ladder unzips down the middle. Each loose letter picks up a new partner, A with T and C with G, until there are two ladders where there was one. They read the same, and each has one old strand and one new strand.",
+            "The order of the letters is the message. A stretch of DNA that carries the instructions for one job is called a gene. People have about 19,000 to 20,000 genes that tell cells how to build proteins. One full set of human DNA has about 3.1 billion pairs of letters, and it is packed into 23 pairs of bundles called chromosomes.",
+            "Now and then a letter is changed. This is called a mutation. Many mutations make no difference at all, and some change how a living thing is built. Every living thing we know, from a mushroom to an orchid to you, writes its instructions with the same four letters. Only the order is different."
+          ],
+          "paras_zh": [
+            "同卵雙胞胎可以長得非常像，連朋友都會認錯。為什麼？因為他們兩個是從同一個細胞長出來的，所以身上帶著幾乎一模一樣的一套說明書。這套說明書寫在一種叫做 DNA 的分子裡。",
+            "DNA 非常長，也非常細，形狀像一條被扭轉過的梯子。科學家把這種形狀叫做雙螺旋。梯子的兩邊是兩股長長的鏈子，中間的橫槓由四種小小的化學零件組成，我們用它們英文名字的第一個字母來稱呼：A、T、C、G。",
+            "這些字母遵守一條簡單的規則：A 一定和 T 配對，C 一定和 G 配對。所以每一根橫槓都是一對；只要知道梯子其中一邊的字母，就能推出另一邊的字母。",
+            "細胞能複製 DNA，靠的就是這條規則。細胞分裂之前，梯子會從中間像拉鍊一樣解開。每一個落單的字母都接上一個新的搭檔，A 配 T、C 配 G，直到原來的一條梯子變成兩條。這兩條讀起來一樣，而且每一條都是一股舊的加一股新的。",
+            "字母的順序就是訊息。DNA 上面負責一件工作的那一段說明，叫做基因。人類大約有一萬九千到兩萬個基因，告訴細胞怎麼製造蛋白質。人的一整套 DNA 大約有三十一億對字母，收在二十三對叫做染色體的小捆裡。",
+            "偶爾會有一個字母被換掉，這叫做突變。很多突變一點影響也沒有，有些則會改變生物長出來的樣子。我們知道的每一種生物，從香菇、蘭花到你，都用同樣的四個字母寫說明書，不一樣的只有順序。"
+          ],
+          "questions": [
+            "What shape is DNA?",
+            "What is the pairing rule for the four letters?",
+            "How does a cell copy its DNA?"
+          ],
+          "answers": [
+            "It is shaped like a twisted ladder. Scientists call this shape a double helix.",
+            "A always pairs with T, and C always pairs with G.",
+            "The ladder unzips down the middle, and each loose letter picks up a new partner, until there are two ladders that read the same."
+          ],
+          "vocab": [
+            {
+              "n": 1,
+              "w": "twin",
+              "pos": "n.",
+              "zh": "雙胞胎之一",
+              "ex": "My <b>twin</b> and I have the same birthday.",
+              "exzh": "我和我的雙胞胎兄弟同一天生日。"
+            },
+            {
+              "n": 2,
+              "w": "instruction",
+              "pos": "n.",
+              "zh": "指示；說明",
+              "ex": "DNA holds the <b>instructions</b> for building a body.",
+              "exzh": "DNA 保管著建造身體的說明。"
+            },
+            {
+              "n": 3,
+              "w": "ladder",
+              "pos": "n.",
+              "zh": "梯子",
+              "ex": "DNA looks like a twisted <b>ladder</b>.",
+              "exzh": "DNA 看起來像一條扭起來的梯子。"
+            },
+            {
+              "n": 4,
+              "w": "pair",
+              "pos": "n. / v.",
+              "zh": "一對；配對",
+              "ex": "A always <b>pairs</b> with T.",
+              "exzh": "A 一定和 T 配對。"
+            },
+            {
+              "n": 5,
+              "w": "letter",
+              "pos": "n.",
+              "zh": "字母",
+              "ex": "The code has only four <b>letters</b>.",
+              "exzh": "這套密碼只有四個字母。"
+            },
+            {
+              "n": 6,
+              "w": "copy",
+              "pos": "n. / v.",
+              "zh": "複製；一份",
+              "ex": "The cell makes a <b>copy</b> of its DNA.",
+              "exzh": "細胞把它的 DNA 複製一份。"
+            },
+            {
+              "n": 7,
+              "w": "gene",
+              "pos": "n.",
+              "zh": "基因",
+              "ex": "A <b>gene</b> is one piece of the instructions.",
+              "exzh": "一個基因是說明書裡的一段。"
+            },
+            {
+              "n": 8,
+              "w": "code",
+              "pos": "n.",
+              "zh": "密碼；代碼",
+              "ex": "Scientists learned to read the <b>code</b>.",
+              "exzh": "科學家學會了讀這套密碼。"
+            }
+          ],
+          "quiz": [
+            {
+              "q": "What does DNA hold?",
+              "options": [
+                "The instructions for building a living thing",
+                "The energy a cell needs",
+                "The water inside a cell",
+                "The color of a leaf"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "What shape is a DNA molecule?",
+              "options": [
+                "A twisted ladder",
+                "A flat circle",
+                "A cube",
+                "A straight stick"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "Which letter always pairs with A?",
+              "options": [
+                "T",
+                "C",
+                "G",
+                "A"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "What does a cell do to its DNA before it divides?",
+              "options": [
+                "It copies it",
+                "It throws it away",
+                "It turns it into sugar",
+                "It paints it green"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "What is a change in the letters of DNA called?",
+              "options": [
+                "A mutation",
+                "A membrane",
+                "A microscope",
+                "A chromosome"
+              ],
+              "correct": 0
+            }
+          ],
+          "parts_head": {
+            "eyebrow": "Try It in the Model · 在模型裡試試",
+            "en": "Four things to watch",
+            "zh": "四件值得看的事"
+          },
+          "parts": [
+            {
+              "key": "closed",
+              "icon": "🪜",
+              "en": "The twisted ladder",
+              "zh": "扭起來的梯子",
+              "meta_en": "Double helix",
+              "meta_zh": "雙螺旋",
+              "demo": "closed",
+              "text_en": "Twelve rungs, each one a pair. Check every rung against the rule.",
+              "text_zh": "十二根橫槓，每一根都是一對。把每一根都拿規則對一對。"
+            },
+            {
+              "key": "half",
+              "icon": "🤐",
+              "en": "Halfway open",
+              "zh": "解開一半",
+              "meta_en": "Unzipping",
+              "meta_zh": "解開",
+              "demo": "half",
+              "text_en": "The top is open and the bottom is still closed. Find the place where new letters are joining.",
+              "text_zh": "上面打開了，下面還合著。找出新的字母正在接上去的地方。"
+            },
+            {
+              "key": "done",
+              "icon": "👯",
+              "en": "Two that match",
+              "zh": "一模一樣的兩份",
+              "meta_en": "Copied",
+              "meta_zh": "複製完成",
+              "demo": "done",
+              "text_en": "Read the two ladders from top to bottom. Each has one pale strand and one orange strand.",
+              "text_zh": "把兩條梯子從上往下讀一遍。每一條都有一股淺色的、一股橘色的。"
+            },
+            {
+              "key": "change",
+              "icon": "✏️",
+              "en": "Change one letter",
+              "zh": "換一個字母",
+              "meta_en": "Mutation",
+              "meta_zh": "突變",
+              "demo": "change",
+              "text_en": "One letter is changed, and then the ladder is copied. Look for the change in both copies.",
+              "text_zh": "換掉一個字母，然後把梯子複製一次。在兩份裡找找那個改變。"
+            }
+          ],
+          "parts_note_en": "Try to break the rule. However you change the letters, an A never ends up joined to a C. The shapes of the real letters only fit together in these two ways.",
+          "parts_note_zh": "試試看能不能打破規則。不管你怎麼換字母，A 都不會和 C 接在一起。真正的那些「字母」，形狀就只有這兩種接法合得起來。",
+          "links_head": {
+            "eyebrow": "Go Further · 延伸閱讀",
+            "en": "Two other codes",
+            "zh": "另外兩種密碼"
+          },
+          "links": [
+            {
+              "href": "/resources/classes/computers/zeros-and-ones/",
+              "icon": "💻",
+              "k_en": "How Computers Work · Lesson 1",
+              "k_zh": "電腦概論 第一課",
+              "en": "Why Do Computers Use Only 0 and 1?",
+              "zh": "電腦為什麼只用 0 和 1？",
+              "note_en": "A computer writes everything with two symbols. A cell uses four.",
+              "note_zh": "電腦用兩個符號寫下所有的東西；細胞用四個。"
+            },
+            {
+              "href": "/resources/classes/life/what-is-a-cell/",
+              "icon": "🔬",
+              "k_en": "Living Things · Lesson 1",
+              "k_zh": "生命與生態 第一課",
+              "en": "What Is a Cell?",
+              "zh": "細胞是什麼？",
+              "note_en": "Go back and find the nucleus, where a cell keeps its DNA.",
+              "note_zh": "回去找一找細胞核——細胞保管 DNA 的地方。"
+            }
+          ],
+          "coder": {
+            "eyebrow": "Write in DNA · 用 DNA 寫字",
+            "en": "How much can four letters say?",
+            "zh": "四個字母能說多少事？",
+            "lead_en": "Press the letters to write one strand. Its partner strand appears underneath, and the number shows how many different codes of that length there could be.",
+            "lead_zh": "按字母寫出其中一股，它的搭檔會出現在下面；右邊的數字告訴你，這個長度一共可以寫出多少種不同的密碼。",
+            "start": "CATTAG",
+            "note_en": "Each place can hold any of the four letters, so every letter you add makes four times as many possible codes.",
+            "note_zh": "每一個位置都可以放四個字母裡的任何一個，所以每多加一個字母，可能的密碼就變成四倍。",
+            "out_en": "A cell reads its DNA three letters at a time, and three letters can be arranged in 64 ways. One set of human DNA is about 3.1 billion pairs of letters long.",
+            "out_zh": "細胞一次讀三個字母，而三個字母有 64 種排法。人的一套 DNA 大約有三十一億對字母那麼長。"
+          },
+          "facts": {
+            "eyebrow": "DNA by the Numbers · DNA 的數字",
+            "en": "Six numbers about DNA",
+            "zh": "六個和 DNA 有關的數字",
+            "lead_en": "From four letters to three billion.",
+            "lead_zh": "從四個字母到三十億。",
+            "items": [
+              {
+                "big": "4",
+                "unit_en": "letters",
+                "unit_zh": "個字母",
+                "en": "A, T, C, and G. Every living thing we know uses the same four.",
+                "zh": "A、T、C、G。我們知道的每一種生物，用的都是這四個。"
+              },
+              {
+                "big": "1869",
+                "unit_en": "the year",
+                "unit_zh": "年",
+                "en": "Friedrich Miescher first separated DNA from cells. He did not yet know what it was for.",
+                "zh": "米歇爾第一次把 DNA 從細胞裡分離出來。當時他還不知道它有什麼用。"
+              },
+              {
+                "big": "1953",
+                "unit_en": "the year",
+                "unit_zh": "年",
+                "en": "James Watson and Francis Crick published the double helix shape of DNA.",
+                "zh": "華生和克里克發表了 DNA 的雙螺旋結構。"
+              },
+              {
+                "big": "3.1",
+                "unit_en": "billion pairs",
+                "unit_zh": "十億對",
+                "en": "About this many pairs of letters make up one set of human DNA.",
+                "zh": "人的一套 DNA，大約由這麼多對字母組成。"
+              },
+              {
+                "big": "23",
+                "unit_en": "pairs",
+                "unit_zh": "對",
+                "en": "Human cells carry their DNA in 23 pairs of chromosomes, 46 in all.",
+                "zh": "人的細胞把 DNA 收在 23 對染色體裡，一共 46 條。"
+              },
+              {
+                "big": "64",
+                "unit_en": "three-letter words",
+                "unit_zh": "種三字組合",
+                "en": "Cells read DNA three letters at a time. Four letters taken three at a time give 64 combinations.",
+                "zh": "細胞一次讀三個字母。四個字母每次取三個，有 64 種組合。"
+              }
+            ]
+          },
+          "culture_cards": {
+            "eyebrow": "DNA Stories · DNA 的故事",
+            "title_en": "Bandages, a photograph, a very long book, and an orchid",
+            "title_zh": "繃帶、一張照片、一本很長的書，還有一種蘭花",
+            "lead_en": "How people found DNA, saw its shape, and learned to read it.",
+            "lead_zh": "人們怎麼找到 DNA、看出它的形狀，又怎麼學會讀它。",
+            "cards": [
+              {
+                "k": "1869",
+                "en": "Found on old bandages",
+                "zh": "在用過的繃帶上發現的",
+                "body_en": "A young Swiss doctor named Friedrich Miescher wanted to know what cells are made of. He collected used bandages from a hospital, because the pus on them was full of cells. In the nuclei of those cells he found a substance that nobody had described before. He called it nuclein. Today we call it DNA.",
+                "body_zh": "年輕的瑞士醫生米歇爾想知道細胞是什麼東西做的。他從醫院收集用過的繃帶，因為上面的膿含有大量的細胞。在這些細胞的細胞核裡，他找到一種從來沒有人描述過的物質，把它叫做「核素」。今天我們叫它 DNA。"
+              },
+              {
+                "k": "1952–1953",
+                "en": "Photo 51",
+                "zh": "第 51 號照片",
+                "body_en": "On May 2, 1952, at King's College London, Raymond Gosling took an X-ray picture of DNA while working under Rosalind Franklin. It is known as Photo 51, and it became an important piece of evidence for the shape of DNA. On April 25, 1953, James Watson and Francis Crick published the double helix in the journal Nature. Watson, Crick, and Maurice Wilkins shared a Nobel Prize in 1962. Franklin had died in 1958.",
+                "body_zh": "1952 年 5 月 2 日，在倫敦國王學院，葛斯林在富蘭克林的指導下拍下一張 DNA 的 X 光照片，後來被稱為「第 51 號照片」，成為判斷 DNA 形狀的重要證據。1953 年 4 月 25 日，華生和克里克在《自然》期刊發表了雙螺旋結構。1962 年，華生、克里克和威爾金斯共同獲得諾貝爾獎；富蘭克林已經在 1958 年過世。"
+              },
+              {
+                "k": "1990–2022",
+                "en": "Reading the whole book",
+                "zh": "把整本書讀完",
+                "body_en": "In 1990, scientists in many countries began the Human Genome Project. Their aim was to read every letter of human DNA. The project was declared complete on April 14, 2003, with about 92 percent of the letters read. The parts that were hardest to read took much longer. A complete sequence with no gaps was reported in 2022.",
+                "body_zh": "1990 年，許多國家的科學家展開「人類基因體計畫」，目標是把人類 DNA 的每一個字母都讀出來。這個計畫在 2003 年 4 月 14 日宣布完成，當時讀出了大約 92% 的字母。最難讀的那些部分又花了很久，直到 2022 年，才有沒有缺口的完整序列發表。"
+              },
+              {
+                "k": "Taiwan · 台灣",
+                "en": "An orchid's instructions",
+                "zh": "一種蘭花的說明書",
+                "body_en": "Phalaenopsis equestris is a small moth orchid that is native to Taiwan and the Philippines, and growers often use it as a parent when they breed new orchids. In 2014, a team of scientists that included researchers at National Cheng Kung University in Tainan published its genome in the journal Nature Genetics. They counted 29,431 predicted genes for building proteins.",
+                "body_zh": "桃紅蝴蝶蘭（又叫姬蝴蝶蘭）是一種小型的蝴蝶蘭，原生於台灣和菲律賓，也是育種者培育新品種時常用的親本。2014 年，一個包含台南國立成功大學研究人員在內的科學團隊，在《自然—遺傳學》期刊發表了它的基因體。他們預測出 29,431 個製造蛋白質的基因。"
+              }
+            ]
+          },
+          "myths": [
+            {
+              "myth_en": "DNA is found only in blood.",
+              "myth_zh": "只有血液裡才有 DNA。",
+              "fact_en": "It is in the cells of every part of you, such as your skin, your hair roots, and the inside of your cheek.",
+              "fact_zh": "你身體每個部位的細胞裡都有，例如皮膚、髮根，還有臉頰內側。"
+            },
+            {
+              "myth_en": "Only people and animals have DNA.",
+              "myth_zh": "只有人和動物才有 DNA。",
+              "fact_en": "Plants, mushrooms, and bacteria have it too, written with the same four letters.",
+              "fact_zh": "植物、香菇和細菌也都有，而且用的是同樣的四個字母。"
+            },
+            {
+              "myth_en": "A change in DNA is always harmful.",
+              "myth_zh": "DNA 只要改變就一定有害。",
+              "fact_en": "Many changes make no difference. Some do harm, and a few turn out to be useful.",
+              "fact_zh": "很多改變完全沒有影響；有些有害，也有少數後來反而有用。"
+            },
+            {
+              "myth_en": "Identical twins are the same in every way.",
+              "myth_zh": "同卵雙胞胎每一個地方都一樣。",
+              "fact_en": "Their DNA is nearly identical, but they are two different people. Even their fingerprints are not the same.",
+              "fact_zh": "他們的 DNA 幾乎一樣，卻是兩個不同的人，連指紋都不相同。"
+            }
+          ],
+          "tricks": [
+            {
+              "title_en": "A twisted ladder",
+              "title_zh": "一條扭起來的梯子",
+              "body_en": "Two strands with rungs between them.",
+              "body_zh": "兩股鏈子，中間是橫槓。"
+            },
+            {
+              "title_en": "Four letters",
+              "title_zh": "四個字母",
+              "body_en": "A, T, C, and G, in a long row.",
+              "body_zh": "A、T、C、G，排成長長的一列。"
+            },
+            {
+              "title_en": "One rule",
+              "title_zh": "一條規則",
+              "body_en": "A pairs with T, and C pairs with G.",
+              "body_zh": "A 配 T，C 配 G。"
+            },
+            {
+              "title_en": "Unzip to copy",
+              "title_zh": "解開就能複製",
+              "body_en": "Each half rebuilds its partner.",
+              "body_zh": "兩半各自補回搭檔。"
+            }
+          ],
+          "activities": [
+            {
+              "title_en": "A Paper Zipper",
+              "title_zh": "紙做的拉鍊",
+              "materials": [
+                {
+                  "en": "Paper in four colors, scissors, and a pen",
+                  "zh": "四種顏色的紙、剪刀和一支筆"
+                },
+                {
+                  "en": "A long table or a clear space on the floor",
+                  "zh": "一張長桌，或地上的一塊空位"
+                }
+              ],
+              "steps": [
+                {
+                  "en": "Cut about twenty small cards of each color. Write A on one color, T on the next, and then C and G.",
+                  "zh": "每種顏色各剪大約二十張小卡。在一種顏色上寫 A，另一種寫 T，其餘兩種寫 C 和 G。"
+                },
+                {
+                  "en": "Lay ten cards in a column, in any order you like. Beside each one, place its partner. You have made a ladder.",
+                  "zh": "隨意排十張卡，排成一直行。在每一張旁邊放上它的搭檔。你做出了一條梯子。"
+                },
+                {
+                  "en": "Slide the two columns apart. Now give every card a new partner from the cards that are left.",
+                  "zh": "把兩行往兩邊拉開。接著用剩下的卡片，替每一張卡找一個新的搭檔。"
+                },
+                {
+                  "en": "Read the two ladders from top to bottom. Are they the same? Which cards in each ladder are the old ones?",
+                  "zh": "把兩條梯子從上往下讀一遍。它們一樣嗎？每一條梯子裡，哪些卡是原來的？"
+                }
+              ],
+              "tip_en": "Ask a friend to swap one card while you look away, before you slide the columns apart. After copying, can you find the change in both ladders?",
+              "tip_zh": "在把兩行拉開之前，請朋友趁你沒看的時候偷偷換掉一張卡。複製完以後，你能在兩條梯子裡都找到那個改變嗎？"
+            },
+            {
+              "title_en": "A Three-Letter Code",
+              "title_zh": "三個字母的密碼",
+              "materials": [
+                {
+                  "en": "Paper and a pencil",
+                  "zh": "紙和鉛筆"
+                },
+                {
+                  "en": "A partner to send a message to",
+                  "zh": "一位可以互傳訊息的夥伴"
+                }
+              ],
+              "steps": [
+                {
+                  "en": "Make a code table together. Give each letter of the alphabet its own three-letter word made only of A, T, C, and G, such as AAA for a and AAT for b.",
+                  "zh": "兩個人一起做一張密碼表。替每一個英文字母指定一組只用 A、T、C、G 排成的三字組合，例如 AAA 代表 a、AAT 代表 b。"
+                },
+                {
+                  "en": "Write a short word in your code, as one long row of letters with no spaces.",
+                  "zh": "用你們的密碼寫一個短短的英文字，寫成一長串、中間不留空格。"
+                },
+                {
+                  "en": "Trade messages, and read your partner's message three letters at a time.",
+                  "zh": "互相交換訊息，然後一次讀三個字母，把對方的訊息解出來。"
+                },
+                {
+                  "en": "Now change one letter in the row, and read it again. What happens to the word?",
+                  "zh": "現在把那一串裡的一個字母換掉，再讀一次。那個字變成什麼了？"
+                }
+              ],
+              "tip_en": "There are 64 three-letter words and only 26 letters in the alphabet, so you have plenty to spare. Cells have spare ones too. Their 64 words stand for only about 20 building blocks, so several words can mean the same thing.",
+              "tip_zh": "三字組合一共有 64 種，英文字母只有 26 個，所以綽綽有餘。細胞也一樣有多的：它的 64 種組合只代表大約 20 種積木，所以好幾種組合可以是同一個意思。"
+            }
+          ],
+          "sources": [
+            {
+              "en": "DNA is made of two strands that coil around each other in a double helix; it carries the genetic instructions of all known living things; its four bases are cytosine (C), guanine (G), adenine (A), and thymine (T); Friedrich Miescher first isolated it in 1869, from pus on discarded surgical bandages, and called it nuclein",
+              "zh": "DNA 由兩股互相纏繞成雙螺旋的鏈組成，攜帶所有已知生物的遺傳指令；四種鹼基為 C、G、A、T；米歇爾 1869 年從廢棄手術繃帶上的膿首次分離出 DNA，稱為核素（nuclein）",
+              "src": "Wikipedia, “DNA”",
+              "url": "https://en.wikipedia.org/wiki/DNA"
+            },
+            {
+              "en": "A pairs with T through two hydrogen bonds, and G pairs with C through three",
+              "zh": "A 與 T 以兩個氫鍵配對，G 與 C 以三個氫鍵配對",
+              "src": "Wikipedia, “Base pair”",
+              "url": "https://en.wikipedia.org/wiki/Base_pair"
+            },
+            {
+              "en": "In DNA replication each original strand serves as a template for a new partner strand, so each new molecule has one old strand and one new strand",
+              "zh": "DNA 複製時，原來的每一股各自作為模板合成互補的新股，所以每個新分子都是一股舊的加一股新的（半保留複製）",
+              "src": "Wikipedia, “DNA replication”",
+              "url": "https://en.wikipedia.org/wiki/DNA_replication"
+            },
+            {
+              "en": "The most common form of DNA is a right-handed double helix with about 10 to 10.5 base pairs in each turn",
+              "zh": "最常見的 B 型 DNA 是右旋的雙螺旋，每轉一圈約 10 到 10.5 個鹼基對",
+              "src": "Wikipedia, “Nucleic acid double helix”",
+              "url": "https://en.wikipedia.org/wiki/Nucleic_acid_double_helix"
+            },
+            {
+              "en": "The human reference genome contains approximately 3.1 billion base pairs and between 19,000 and 20,000 protein-coding genes; a complete sequence of a human genome was reported in 2022",
+              "zh": "人類參考基因體約有 31 億個鹼基對、約 19,000 到 20,000 個蛋白質編碼基因；2022 年發表完整的人類基因體序列",
+              "src": "Wikipedia, “Human genome”",
+              "url": "https://en.wikipedia.org/wiki/Human_genome"
+            },
+            {
+              "en": "Human cells have 23 pairs of chromosomes, 46 in all",
+              "zh": "人類細胞有 23 對、共 46 條染色體",
+              "src": "Wikipedia, “Chromosome”",
+              "url": "https://en.wikipedia.org/wiki/Chromosome"
+            },
+            {
+              "en": "The genetic code is read three letters at a time and can be written as a table with 64 entries, which stand for the 20 standard amino acids",
+              "zh": "遺傳密碼一次讀三個核苷酸，可以寫成一張 64 格的表，對應 20 種標準胺基酸",
+              "src": "Wikipedia, “Genetic code”",
+              "url": "https://en.wikipedia.org/wiki/Genetic_code"
+            },
+            {
+              "en": "Photo 51 was taken by Raymond Gosling, working under Rosalind Franklin at King's College London, on May 2, 1952",
+              "zh": "第 51 號照片由葛斯林在富蘭克林指導下，於 1952 年 5 月 2 日在倫敦國王學院拍攝",
+              "src": "Wikipedia, “Photo 51”",
+              "url": "https://en.wikipedia.org/wiki/Photo_51"
+            },
+            {
+              "en": "Watson and Crick published the double helix structure in Nature on April 25, 1953",
+              "zh": "華生與克里克的雙螺旋論文刊於 1953 年 4 月 25 日的《自然》",
+              "src": "Wikipedia, “Molecular Structure of Nucleic Acids: A Structure for Deoxyribose Nucleic Acid”",
+              "url": "https://en.wikipedia.org/wiki/Molecular_Structure_of_Nucleic_Acids:_A_Structure_for_Deoxyribose_Nucleic_Acid"
+            },
+            {
+              "en": "Crick, Watson, and Wilkins shared the Nobel Prize in Physiology or Medicine in 1962; Rosalind Franklin died on April 16, 1958",
+              "zh": "克里克、華生、威爾金斯於 1962 年共同獲得諾貝爾生理學或醫學獎；富蘭克林於 1958 年 4 月 16 日過世",
+              "src": "Wikipedia, “Rosalind Franklin”",
+              "url": "https://en.wikipedia.org/wiki/Rosalind_Franklin"
+            },
+            {
+              "en": "The Human Genome Project officially launched in 1990 and was declared complete on April 14, 2003, when it included about 92% of the genome",
+              "zh": "人類基因體計畫 1990 年正式啟動，2003 年 4 月 14 日宣布完成，當時涵蓋約 92% 的基因體",
+              "src": "Wikipedia, “Human Genome Project”",
+              "url": "https://en.wikipedia.org/wiki/Human_Genome_Project"
+            },
+            {
+              "en": "Identical twins develop from one fertilized egg and are genetically nearly identical; they do not have the same fingerprints",
+              "zh": "同卵雙胞胎由同一個受精卵發育而來，基因幾乎相同；兩人的指紋並不相同",
+              "src": "Wikipedia, “Twin”",
+              "url": "https://en.wikipedia.org/wiki/Twin"
+            },
+            {
+              "en": "Mutations in genes can have no effect, can alter what the gene makes, or can stop the gene from working properly",
+              "zh": "基因的突變可能沒有影響，可能改變基因的產物，也可能使基因無法正常運作",
+              "src": "Wikipedia, “Mutation”",
+              "url": "https://en.wikipedia.org/wiki/Mutation"
+            },
+            {
+              "en": "The genome of the orchid Phalaenopsis equestris, a frequently used parent species for orchid breeding, contains 29,431 predicted protein-coding genes; the authors include researchers at National Cheng Kung University (published online November 24, 2014)",
+              "zh": "桃紅蝴蝶蘭（姬蝴蝶蘭；育種常用的親本）的基因體含 29,431 個預測的蛋白質編碼基因；作者群包含國立成功大學的研究人員（2014 年 11 月 24 日線上發表）",
+              "src": "Cai et al., “The genome sequence of the orchid Phalaenopsis equestris,” Nature Genetics",
+              "url": "https://www.nature.com/articles/ng.3149"
+            },
+            {
+              "en": "Phalaenopsis equestris is native to the Philippines and Taiwan",
+              "zh": "桃紅蝴蝶蘭（姬蝴蝶蘭）原生於菲律賓與台灣",
+              "src": "Wikipedia, “Phalaenopsis equestris”",
+              "url": "https://en.wikipedia.org/wiki/Phalaenopsis_equestris"
+            }
+          ]
         }
       ],
       "planned": [
-        {
-          "n": 3,
-          "icon": "🧬",
-          "en": "What Is DNA?",
-          "zh": "DNA 是什麼？"
-        },
         {
           "n": 4,
           "icon": "🦠",

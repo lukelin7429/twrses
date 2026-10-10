@@ -11394,7 +11394,7 @@ def build_earth_hub():
 _lifej = os.path.join(ROOT, "data", "life.json")
 LIFE = json.load(open(_lifej, encoding="utf-8")) if os.path.exists(_lifej) else None
 LIFE_BASE = "/resources/classes/life/"
-_LIFE_JS = {"leaf": "life-leaf", "cell": "life-cell"}   # lab.kind → assets/js/<bundle>.js
+_LIFE_JS = {"leaf": "life-leaf", "cell": "life-cell", "dna": "life-dna"}   # lab.kind → assets/js/<bundle>.js
 
 def _life_ver():
     h = hashlib.md5()
@@ -11548,9 +11548,76 @@ def _life_sorter(so):
             f'</div></div>'
             '<noscript><p class="muted">This tool works in your browser and needs JavaScript. · 這個小工具在瀏覽器裡運作，需要開啟 JavaScript。</p></noscript>')
 
-_LIFE_LAB = {"leaf": render_lifeleaf_lab, "cell": render_lifecell_lab}          # lab.kind → 3D 面板
-_LIFE_ICON = {"leaf": lifeleaf_svg, "cell": lifecell_svg}                 # lesson.card → 課程卡小圖示
-_LIFE_WIDGETS = [("recipe", _life_recipe), ("sorter", _life_sorter)]               # lesson 裡有這個 key 就多一段（照這裡的順序）
+def lifedna_svg(size=56):
+    """第三課的課程卡小圖示：一小段扭起來的梯子，橫槓是四種顏色。"""
+    return (f'<svg class="lifedna-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">'
+            '<g stroke-width="3.2" stroke-linecap="round"><path d="M22 10H38" stroke="#4caf6a"/><path d="M27 20H33" stroke="#e8625a"/><path d="M24 30H36" stroke="#4f9df0"/><path d="M27 40H33" stroke="#f2c14e"/><path d="M22 50H38" stroke="#4caf6a"/></g>'
+            '<g fill="none" stroke-width="4" stroke-linecap="round"><path d="M18 5C18 18 42 22 42 30S18 42 18 55" stroke="#5b6f9c"/><path d="M42 5C42 18 18 22 18 30S42 42 42 55" stroke="#ffa64d"/></g></svg>')
+
+def render_lifedna_lab(lesson):
+    """第三課：12 對字母的雙螺旋，一支滑桿把它解開並複製；側欄的字母可以點來換（assets/js/life-dna.js 綁這裡的 class；全部自繪示意）。"""
+    lab = lesson["lab"]
+    msgs = "".join(f'<p class="cp-msg lf-dn-msg" data-msg="{k}" hidden>{html.escape(m["en"])}<span class="zh">{html.escape(m["zh"])}</span></p>' for k, m in lab["msgs"].items())
+    tg = _lab_toggles([("labels", "Labels", "標示", True)])
+    return f'''<div class="astro-lab cp-lab lf-lab lf-dn-lab rvl" data-lifedna-lab>
+  <div class="al-stage">
+    <div class="al-space">
+      <canvas class="al-space-cv" aria-label="3D model of a short piece of DNA: a twisted ladder of twelve pairs of letters that unzips from the top, while new letters pair onto each half to make two identical copies · 一小段 DNA 的 3D 模型：十二對字母組成的扭轉梯子從上面解開，新的字母配到兩邊，變成一模一樣的兩份"></canvas>
+      <div class="al-labels" aria-hidden="true"></div>
+      <p class="al-hint">Drag to turn · 拖曳旋轉　Scroll or pinch to zoom · 滾輪／雙指縮放</p>
+      <button type="button" class="al-home" title="Reset view · 重設視角" aria-label="Reset view · 重設視角">&#8634;</button>
+      <p class="al-nogl-msg">This 3D model needs WebGL, which this browser does not support. The reading and the cards below still explain everything.<br><span class="zh">這個瀏覽器不支援 WebGL，無法顯示 3D 模型；下方的課文與卡片一樣能看懂。</span></p>
+    </div>
+    <aside class="al-sky cp-aside">
+      <p class="al-sky-k">Unzip it, and change a letter · 把它解開，再換一個字母</p>
+      <label class="al-slider cp-is-yrow"><span>Unzip and copy · 解開並複製 <output class="lf-dn-pct-out">0%</output></span>
+        <input type="range" class="al-age lf-dn-pct" min="0" max="100" step="1" value="0"></label>
+      <div class="cp-ht-meter"><p class="lf-k">How far the copy has gone · 複製到哪裡了</p><div class="cp-ht-bar"><i class="lf-dn-bar"></i></div><p class="cp-ht-status lf-dn-status"></p></div>
+      <p class="lf-k lf-dn-k">Tap a letter to change it · 點一個字母換掉它</p>
+      <div class="lf-dn-seq" role="group" aria-label="The letters on one strand · 其中一股的字母"></div>
+      <div class="lf-dn-mate" aria-hidden="true"></div>
+      <p class="lf-dn-cap">Top: one strand. Bottom: its partner. · 上排是其中一股，下排是它的搭檔。 <button type="button" class="lf-dn-reset">Reset letters · 字母還原</button></p>
+      <dl class="cp-nums cp-lt-nums lf-nums">
+        <div><dt>Unzipped · 已解開</dt><dd class="lf-dn-open"></dd></div>
+        <div><dt>Now there is · 現在有</dt><dd class="lf-dn-copies"></dd></div>
+        <div><dt>Letters changed · 換過的字母</dt><dd class="lf-dn-chg"></dd></div>
+      </dl>
+      {msgs}
+    </aside>
+  </div>
+  <div class="al-controls">
+    <div class="al-row al-row-main">
+      <button type="button" class="al-play" aria-pressed="true"><span class="al-play-i" aria-hidden="true"></span><span class="al-play-t">Pause · 暫停</span></button>
+      <div class="al-row al-toggles">{tg}</div>
+    </div>
+  </div>
+  {_lab_foot(lab)}
+  <p class="cp-credit">{lab["credit_html"]}</p>
+</div>'''
+
+def _life_coder(cd):
+    """「用四個字母寫密碼」（life-dna.js 的 initCoder；按 A／T／C／G 寫一股，下面自動配出搭檔，並算出這麼多個字母有幾種排法；不需要 WebGL）。"""
+    keys = "".join(f'<button type="button" class="lf-cd-key" data-add="{c}" style="--c:{col}">{c}</button>' for c, col in (("A", "#4caf6a"), ("T", "#e8625a"), ("C", "#4f9df0"), ("G", "#f2c14e")))
+    return (f'<div class="cp-cnt lf-cd rvl" data-life-coder data-start="{html.escape(cd["start"])}">'
+            f'<div class="cp-cnt-in">'
+            f'<p class="cp-cnt-l cp-sun-l"><span>Write a code with four letters · 用四個字母寫一段密碼</span></p>'
+            f'<div class="lf-cd-keys">{keys}<button type="button" class="lf-cd-key lf-cd-fn" data-del aria-label="Delete the last letter · 刪掉最後一個字母">&#9003;</button>'
+            f'<button type="button" class="lf-cd-key lf-cd-fn" data-clear>Clear<small>清空</small></button></div>'
+            f'<p class="lf-cd-cap">Your strand · 你寫的這一股</p><div class="lf-cd-row lf-cd-top"></div>'
+            f'<div class="lf-cd-row lf-cd-bot"></div><p class="lf-cd-cap">Its partner · 它的搭檔</p>'
+            f'<p class="lf-cd-full" hidden>Twelve letters is the most this tool can hold.<span class="zh">這個小工具最多放十二個字母。</span></p>'
+            f'<p class="cp-cnt-note">{html.escape(cd["note_en"])}<span class="zh">{html.escape(cd["note_zh"])}</span></p></div>'
+            f'<div class="cp-home-out cp-cnt-out lf-cd-out" aria-live="polite">'
+            f'<p class="cp-home-k">With <b class="lf-cd-n"></b> letters you could write · 用這麼多個字母可以寫出</p>'
+            f'<p class="cp-home-big"><span class="lf-cd-combos"></span></p>'
+            f'<p class="cp-home-sub">different codes<span class="zh"> · 種不同的密碼</span></p>'
+            f'<p class="cp-home-note">{html.escape(cd["out_en"])}<span class="zh">{html.escape(cd["out_zh"])}</span></p>'
+            f'</div></div>'
+            '<noscript><p class="muted">This tool works in your browser and needs JavaScript. · 這個小工具在瀏覽器裡運作，需要開啟 JavaScript。</p></noscript>')
+
+_LIFE_LAB = {"leaf": render_lifeleaf_lab, "cell": render_lifecell_lab, "dna": render_lifedna_lab}          # lab.kind → 3D 面板
+_LIFE_ICON = {"leaf": lifeleaf_svg, "cell": lifecell_svg, "dna": lifedna_svg}                 # lesson.card → 課程卡小圖示
+_LIFE_WIDGETS = [("recipe", _life_recipe), ("sorter", _life_sorter), ("coder", _life_coder)]               # lesson 裡有這個 key 就多一段（照這裡的順序）
 
 def _life_flat():
     return [(ui, u, l) for ui, u in enumerate(LIFE["units"]) for l in u["lessons"]]

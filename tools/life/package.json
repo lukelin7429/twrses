@@ -4,8 +4,8 @@
   "description": "生命與生態 Living Things 3D 模型的原始碼與打包設定。產物寫到 assets/js/，npm run build 重新打包。",
   "type": "module",
   "scripts": {
-    "build": "esbuild src/life-leaf.js src/life-cell.js --bundle --minify --format=iife --target=es2019 --legal-comments=eof --outdir=../../assets/js",
-    "test": "node test/photo.test.mjs && node test/cell.test.mjs"
+    "build": "esbuild src/life-leaf.js src/life-cell.js src/life-dna.js --bundle --minify --format=iife --target=es2019 --legal-comments=eof --outdir=../../assets/js",
+    "test": "node test/photo.test.mjs && node test/cell.test.mjs && node test/dna.test.mjs"
   },
   "devDependencies": {
     "esbuild": "0.25.10",
