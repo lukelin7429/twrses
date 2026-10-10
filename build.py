@@ -11414,7 +11414,7 @@ def build_earth_hub():
 _lifej = os.path.join(ROOT, "data", "life.json")
 LIFE = json.load(open(_lifej, encoding="utf-8")) if os.path.exists(_lifej) else None
 LIFE_BASE = "/resources/classes/life/"
-_LIFE_JS = {"leaf": "life-leaf", "cell": "life-cell", "dna": "life-dna", "germ": "life-germ"}   # lab.kind → assets/js/<bundle>.js
+_LIFE_JS = {"leaf": "life-leaf", "cell": "life-cell", "dna": "life-dna", "germ": "life-germ", "seed": "life-seed"}   # lab.kind → assets/js/<bundle>.js
 
 def _life_ver():
     h = hashlib.md5()
@@ -11702,9 +11702,75 @@ def _life_ruler(ru):
             f'</div></div>'
             '<noscript><p class="muted">This tool works in your browser and needs JavaScript. · 這個小工具在瀏覽器裡運作，需要開啟 JavaScript。</p></noscript>')
 
-_LIFE_LAB = {"leaf": render_lifeleaf_lab, "cell": render_lifecell_lab, "dna": render_lifedna_lab, "germ": render_lifegerm_lab}          # lab.kind → 3D 面板
-_LIFE_ICON = {"leaf": lifeleaf_svg, "cell": lifecell_svg, "dna": lifedna_svg, "germ": lifegerm_svg}                 # lesson.card → 課程卡小圖示
-_LIFE_WIDGETS = [("recipe", _life_recipe), ("sorter", _life_sorter), ("coder", _life_coder), ("ruler", _life_ruler)]               # lesson 裡有這個 key 就多一段（照這裡的順序）
+def lifeseed_svg(size=56):
+    """第五課的課程卡小圖示：土裡的一顆種子，根往下、芽往上冒出兩片葉子。"""
+    return (f'<svg class="lifeseed-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">'
+            '<path d="M4 30H56" stroke="#8a6a44" stroke-width="3" stroke-linecap="round"/>'
+            '<path d="M30 40V16" stroke="#7fc65a" stroke-width="3.5" stroke-linecap="round" fill="none"/>'
+            '<path d="M30 18c-9 1-12-4-12-8 8-1 12 3 12 8zM30 18c9 1 12-4 12-8-8-1-12 3-12 8z" fill="#4fae45"/>'
+            '<ellipse cx="30" cy="42" rx="9" ry="6" fill="#ead9a4" stroke="#8a5a2b" stroke-width="2.5"/>'
+            '<path d="M30 48c0 5 4 5 3 9M30 50c-3 2-5 2-6 5" stroke="#f3ead2" stroke-width="2.5" stroke-linecap="round" fill="none"/></svg>')
+
+def render_lifeseed_lab(lesson):
+    """第五課：土壤剖面裡的一顆種子；水、溫度、生長三支滑桿，倒過來放／放在暗處兩個開關（assets/js/life-seed.js 綁這裡的 class；全部自繪示意）。"""
+    lab = lesson["lab"]
+    msgs = "".join(f'<p class="cp-msg lf-sd-msg" data-msg="{k}" hidden>{html.escape(m["en"])}<span class="zh">{html.escape(m["zh"])}</span></p>' for k, m in lab["msgs"].items())
+    tg = _lab_toggles([("flip", "Upside down", "倒過來放", False), ("dark", "In the dark", "放在暗處", False), ("labels", "Labels", "標示", True)])
+    return f'''<div class="astro-lab cp-lab lf-lab lf-sd-lab rvl" data-lifeseed-lab>
+  <div class="al-stage">
+    <div class="al-space">
+      <canvas class="al-space-cv" aria-label="3D cutaway of soil with one seed in it: when the water and the warmth are right, the seed swells, sends a root down, then a shoot up, and opens its first leaves above the ground · 土壤的 3D 剖面，裡面有一顆種子：水和溫度對了，種子就膨脹，先往下長根、再往上長芽，在地面上展開最早的葉子"></canvas>
+      <div class="al-labels" aria-hidden="true"></div>
+      <p class="al-hint">Drag to turn · 拖曳旋轉　Scroll or pinch to zoom · 滾輪／雙指縮放</p>
+      <button type="button" class="al-home" title="Reset view · 重設視角" aria-label="Reset view · 重設視角">&#8634;</button>
+      <p class="al-nogl-msg">This 3D model needs WebGL, which this browser does not support. The reading and the cards below still explain everything.<br><span class="zh">這個瀏覽器不支援 WebGL，無法顯示 3D 模型；下方的課文與卡片一樣能看懂。</span></p>
+    </div>
+    <aside class="al-sky cp-aside">
+      <p class="al-sky-k">What the seed is waiting for · 種子在等什麼</p>
+      <label class="al-slider cp-is-yrow"><span>1 · Water · 水 <output class="lf-sd-water-out">60%</output></span>
+        <input type="range" class="al-age lf-sd-water" min="0" max="100" step="1" value="60"></label>
+      <label class="al-slider cp-is-yrow"><span>2 · Warmth · 溫度 <output class="lf-sd-temp-out">25 °C</output></span>
+        <input type="range" class="al-age lf-sd-temp" min="0" max="40" step="1" value="25"></label>
+      <label class="al-slider cp-is-yrow"><span>3 · Growth · 生長 <output class="lf-sd-g-out">0%</output></span>
+        <input type="range" class="al-age lf-sd-g" min="0" max="100" step="1" value="0"></label>
+      <div class="cp-ht-meter"><p class="lf-k">Packed lunch left in the seed · 種子裡的便當還剩多少</p><div class="cp-ht-bar"><i class="lf-sd-bar"></i></div><p class="cp-ht-status lf-sd-status"></p></div>
+      <dl class="cp-nums cp-lt-nums lf-nums">
+        <div><dt>The seed is · 種子現在</dt><dd class="lf-sd-state"></dd></div>
+        <div><dt>It has grown · 已經長出</dt><dd class="lf-sd-part"></dd></div>
+      </dl>
+      {msgs}
+    </aside>
+  </div>
+  <div class="al-controls">
+    <div class="al-row al-row-main">
+      <button type="button" class="al-play" aria-pressed="true"><span class="al-play-i" aria-hidden="true"></span><span class="al-play-t">Pause · 暫停</span></button>
+      <div class="al-row al-toggles">{tg}</div>
+    </div>
+  </div>
+  {_lab_foot(lab)}
+  <p class="cp-credit">{lab["credit_html"]}</p>
+</div>'''
+
+def _life_waker(wk):
+    """「它會不會醒？」（life-seed.js 的 initWaker；選一個放種子的地方，用同一套門檻判斷它醒不醒、缺什麼；不需要 WebGL）。"""
+    items = html.escape(json.dumps(wk["items"], ensure_ascii=False)); verdict = html.escape(json.dumps(wk["verdict"], ensure_ascii=False))
+    picks = "".join(f'<button type="button" data-k="{it["key"]}" aria-pressed="false"><span class="lf-wk-ic" aria-hidden="true">{it["icon"]}</span>{html.escape(it["en"])}<small>{html.escape(it["zh"])}</small></button>' for it in wk["items"])
+    return (f'<div class="cp-cnt lf-wk rvl" data-life-waker data-start="{wk["start"]}" data-items="{items}" data-verdict="{verdict}">'
+            f'<div class="cp-cnt-in">'
+            f'<p class="cp-cnt-l cp-sun-l"><span>Where do you put the seed? · 你把種子放在哪裡？</span></p>'
+            f'<div class="lf-wk-pick" role="group" aria-label="Where the seed is · 種子放在哪裡">{picks}</div>'
+            f'<p class="cp-cnt-note">{html.escape(wk["note_en"])}<span class="zh">{html.escape(wk["note_zh"])}</span></p></div>'
+            f'<div class="cp-home-out cp-cnt-out lf-wk-out" aria-live="polite">'
+            f'<p class="cp-home-k">Will it wake up? · 它會醒嗎？</p>'
+            f'<p class="cp-home-big"><span class="lf-wk-en"></span></p>'
+            f'<p class="cp-home-sub"><span class="zh lf-wk-zh"></span></p>'
+            f'<p class="cp-home-note"><span class="lf-wk-note"></span><span class="zh lf-wk-note-zh"></span></p>'
+            f'</div></div>'
+            '<noscript><p class="muted">This tool works in your browser and needs JavaScript. · 這個小工具在瀏覽器裡運作，需要開啟 JavaScript。</p></noscript>')
+
+_LIFE_LAB = {"leaf": render_lifeleaf_lab, "cell": render_lifecell_lab, "dna": render_lifedna_lab, "germ": render_lifegerm_lab, "seed": render_lifeseed_lab}          # lab.kind → 3D 面板
+_LIFE_ICON = {"leaf": lifeleaf_svg, "cell": lifecell_svg, "dna": lifedna_svg, "germ": lifegerm_svg, "seed": lifeseed_svg}                 # lesson.card → 課程卡小圖示
+_LIFE_WIDGETS = [("recipe", _life_recipe), ("sorter", _life_sorter), ("coder", _life_coder), ("ruler", _life_ruler), ("waker", _life_waker)]               # lesson 裡有這個 key 就多一段（照這裡的順序）
 
 def _life_flat():
     return [(ui, u, l) for ui, u in enumerate(LIFE["units"]) for l in u["lessons"]]

@@ -2507,14 +2507,690 @@
       "title_zh": "植物",
       "blurb_en": "How a seed wakes up, why flowers bloom, and how water climbs to the top of a tree.",
       "blurb_zh": "種子怎麼醒過來、花為什麼要開，還有水怎麼爬到樹頂。",
-      "lessons": [],
-      "planned": [
+      "lessons": [
         {
           "n": 5,
+          "slug": "how-a-seed-grows",
+          "title": "How Does a Seed Know When to Grow?",
+          "title_zh": "種子怎麼知道什麼時候該發芽？",
+          "level": "入門 · Beginner",
           "icon": "🌱",
-          "en": "How Does a Seed Know When to Grow?",
-          "zh": "種子怎麼知道什麼時候該發芽？"
-        },
+          "card": "seed",
+          "blurb_en": "A seed can lie in a paper packet for years and do nothing. Put it in damp soil, and within days it is a plant. In a 3D model, give a seed water and warmth and watch it wake: first a root going down, then a shoot going up. Turn the seed upside down and see whether it gets confused. Grow it in the dark and see what goes wrong. Last, decide which seeds in four different places will wake up.",
+          "blurb_zh": "種子放在紙袋裡，可以好幾年一點動靜也沒有；把它放進溼溼的土裡，幾天之內就變成一株植物。在 3D 模型裡給種子水和溫度，看它醒過來：先是一條根往下，再是一根芽往上。把種子倒過來放，看它會不會搞錯方向。把它放在暗處，看看會出什麼問題。最後判斷看看：放在四個不同地方的種子，哪幾顆會醒？",
+          "big_idea_en": "A seed is a baby plant, asleep, packed together with its lunch inside a tough coat. It stays asleep until it has water, the right warmth, and air. Then it swells and splits its coat. The root comes out first and grows down, and the shoot follows and grows up. The young plant lives on its packed lunch until its leaves reach the light and it can make food for itself.",
+          "big_idea_zh": "種子是一株睡著的小植物，和它的便當一起包在一層堅韌的種皮裡。它會一直睡，直到有了水、合適的溫度和空氣。這時它吸水膨脹，把種皮撐破。根最先出來，往下長；芽跟在後面，往上長。小植物靠著便當過日子，直到葉子碰到陽光、能夠自己做食物為止。",
+          "tricks_head": {
+            "en": "A seed in a sentence",
+            "zh": "一句話記住種子"
+          },
+          "checked": {
+            "en": "October 2026",
+            "zh": "2026 年 10 月"
+          },
+          "lab": {
+            "kind": "seed",
+            "eyebrow": "3D Model · 3D 模型",
+            "title_en": "Wake a Seed",
+            "title_zh": "叫醒一顆種子",
+            "how_en": "Drag to turn the model, and scroll or pinch to zoom. You are looking at a slice of soil with one seed in it. First pull the Water slider all the way down. Does the seed grow? Bring the water back, and try making it very cold. Then let the seed grow and watch what comes out first. Last, switch on Upside down, and then In the dark.",
+            "how_zh": "拖曳可以旋轉模型，滾輪或雙指可以縮放。你看到的是土壤的一個切面，裡面有一顆種子。先把「水」的滑桿拉到最低，種子會長嗎？把水加回來，再試試讓它變得很冷。接著讓種子生長，看最先出來的是什麼。最後打開「倒過來放」，再打開「放在暗處」。",
+            "msgs": {
+              "dry": {
+                "en": "Too dry. Without water a seed stays asleep, and it can stay that way for a very long time. A dry seed is not dead. It is waiting. If it has already started to grow, it stops.",
+                "zh": "太乾了。沒有水，種子就繼續睡，而且可以這樣睡上很久很久。乾的種子並沒有死，它在等。要是已經開始長了，這時候也會停下來。"
+              },
+              "drowned": {
+                "en": "Too much water. The soil is flooded, and there is no air left between its grains. A waking seed needs oxygen to turn its stored food into energy, so it cannot grow here.",
+                "zh": "水太多了。土壤被淹沒，土粒之間沒有空氣了。醒來的種子需要氧氣，才能把存好的養分變成能量，所以在這裡它長不了。"
+              },
+              "cold": {
+                "en": "Too cold. There is water, but the seed still waits. Each kind of seed has a range of temperatures it will wake in. For many seeds, cold means winter, and winter is a bad time to be a small plant.",
+                "zh": "太冷了。雖然有水，種子還是繼續等。每一種種子都有自己願意醒來的溫度範圍。對很多種子來說，冷代表冬天，而冬天不是當一株小苗的好時候。"
+              },
+              "hot": {
+                "en": "Too hot. There is water, but the seed does not start. Each kind of seed has an upper limit as well as a lower one.",
+                "zh": "太熱了。雖然有水，種子還是不動。每一種種子願意醒來的溫度，有下限，也有上限。"
+              },
+              "sleep": {
+                "en": "Water, warmth, and air are all right. Inside the coat are a tiny plant and two thick halves full of stored food. Press Play, or move the Growth slider, and watch it wake.",
+                "zh": "水、溫度和空氣都對了。種皮裡面有一株很小的植物，還有兩片厚厚的、裝滿養分的便當。按「播放」或拉動「生長」滑桿，看它醒來。"
+              },
+              "swell": {
+                "en": "The seed is drinking. It soaks up water and swells until the coat splits. Inside, the tiny plant starts using its stored food.",
+                "zh": "種子正在喝水。它吸飽了水，脹到把種皮撐破。裡面那株小植物開始動用存好的養分。"
+              },
+              "root": {
+                "en": "The root comes first. It grows down, where the water is, and holds the plant in place. Look at the lunch meter. The plant has no leaves yet, so everything it builds comes out of the seed.",
+                "zh": "最先出來的是根。它往下長，那裡有水，也能把植物固定住。看看便當的量表：植物還沒有葉子，所以它長出來的每一樣東西，用的都是種子裡的養分。"
+              },
+              "shoot": {
+                "en": "Now the shoot grows up toward the surface. It has never seen the light, and yet it goes the right way. A plant can feel which way is down, and its shoot grows away from it.",
+                "zh": "現在芽往上長，朝地面去。它從來沒有見過光，卻走對了方向。植物感覺得出哪邊是下面，而芽會背著那個方向長。"
+              },
+              "leaves": {
+                "en": "The leaves open in the light and turn green. From now on the plant makes its own food from sunlight, air, and water. It got here just as the lunch ran out.",
+                "zh": "葉子在陽光下展開，變成綠色。從現在起，植物用陽光、空氣和水自己做食物。它趕在便當吃完的時候走到了這一步。"
+              },
+              "pale": {
+                "en": "In the dark, the shoot grows long, thin, and pale, and the leaves stay small and yellow. The plant is spending all its lunch on reaching for light. If it finds none before the lunch runs out, it cannot go on.",
+                "zh": "在暗處，芽長得又長、又細、又白，葉子又小又黃。植物把便當全花在往上找光。要是便當吃完之前還找不到光，它就撐不下去了。"
+              }
+            },
+            "legend": [
+              {
+                "cls": "lfsdc",
+                "en": "Brown: the seed coat",
+                "zh": "咖啡色：種皮"
+              },
+              {
+                "cls": "lfsdf",
+                "en": "Cream: the stored food, which shrinks as it is used",
+                "zh": "米色：存好的養分（便當），用掉就變小"
+              },
+              {
+                "cls": "lfsdr",
+                "en": "White: the root",
+                "zh": "白色：根"
+              },
+              {
+                "cls": "lfsds",
+                "en": "Green: the shoot and leaves in the light",
+                "zh": "綠色：照到光的芽和葉子"
+              },
+              {
+                "cls": "lfsdp",
+                "en": "Pale yellow: a shoot and leaves grown in the dark",
+                "zh": "淡黃色：在暗處長出來的芽和葉子"
+              }
+            ],
+            "scale_en": "A teaching model. The numbers for water and warmth are examples chosen for the model. Real seeds differ a great deal: some wake just above freezing, and some need light or darkness as well. The lunch meter is also an example. In many beans the two food halves are lifted above the ground with the shoot. Here they stay where they are, to keep the picture simple. The growth shown would take days, not seconds.",
+            "scale_zh": "這是教學用的模型。水和溫度的數字是為了模型選的例子；真的種子差別很大：有些剛過冰點就會醒，有些還需要光，或是需要黑暗。便當的量表也是示意。很多豆子的兩片便當會跟著芽一起被抬到地面上；這裡為了畫面簡單，讓它們留在原地。畫面裡的生長，實際上要花好幾天，不是幾秒鐘。",
+            "credit_html": "Model drawn by My Culture Connect as a teaching diagram. The ideas follow the sources listed at the bottom of this page. · 模型由人師教育協會自繪示意；原理依本頁最下方列出的出處。"
+          },
+          "paras": [
+            "A dry bean looks like a small stone. You can keep it in a jar for a year, and nothing will happen. Then you put it on wet cotton, and in a few days it has a root. How did it know that the time had come?",
+            "A seed has three parts. On the outside is a tough coat. Inside is a very small plant, already formed, with the start of a root and the start of a shoot. The rest is stored food. In a bean, the food fills the two thick halves that you can pull apart with your fingers.",
+            "The little plant is alive, but it is asleep. It will stay asleep until three things are right: water, warmth, and air. Some kinds of seed need light or darkness too. Waiting keeps a seed from starting to grow in a dry month or in the middle of winter.",
+            "When the time is right, the seed soaks up water and swells until its coat splits. The root comes out first and grows down. Then the shoot grows up. It does not matter which way up the seed is lying. A plant can feel the pull of gravity, so its root grows toward the pull and its shoot grows away from it.",
+            "Until its leaves open, the young plant cannot make food. It lives on what is packed in the seed, and it needs oxygen from the air to use that food. This is a race. The shoot has to reach the light before the packed lunch is gone.",
+            "Bean sprouts show what happens without light. They are grown in the shade, so the plant keeps stretching upward, long and pale, and it does not turn green. In the light, the same plant would stay short, open green leaves, and begin to feed itself."
+          ],
+          "paras_zh": [
+            "一顆乾的豆子看起來像一粒小石頭。你把它放在罐子裡一整年，什麼事也不會發生。然後你把它放在溼棉花上，幾天之後它就長出了根。它是怎麼知道時候到了的？",
+            "種子有三個部分。最外面是一層堅韌的種皮。裡面有一株非常小的植物，已經成形了，有根的開頭，也有芽的開頭。其餘的部分是存好的養分。以豆子來說，養分就裝在你用手指掰得開的那兩片厚厚的豆瓣裡。",
+            "這株小植物是活的，只是睡著了。它會一直睡，直到三件事都對了：水、溫度和空氣。有些種類的種子還需要光，或是需要黑暗。這樣等待，種子才不會在乾旱的月份或嚴冬裡開始生長。",
+            "時候到了，種子吸水膨脹，把種皮撐破。根最先出來，往下長；接著芽往上長。種子是正著放還是倒著放都沒有關係。植物感覺得到重力，所以根順著重力的方向長，芽背著重力的方向長。",
+            "在葉子展開之前，小植物沒辦法做食物。它靠種子裡裝好的養分過活，而且需要空氣裡的氧氣才能使用這些養分。這是一場賽跑：芽必須在便當吃完之前碰到陽光。",
+            "豆芽讓我們看到沒有光會怎麼樣。豆芽是在遮光的地方種的，所以它一直往上伸，又長又白，不會變綠。要是在有光的地方，同一株植物會長得矮矮的，展開綠色的葉子，開始自己養活自己。"
+          ],
+          "questions": [
+            "What are the three parts of a seed?",
+            "What three things does a seed wait for?",
+            "Which part comes out of the seed first, and which way does it grow?"
+          ],
+          "answers": [
+            "A tough coat on the outside, a very small plant inside, and stored food.",
+            "Water, warmth, and air.",
+            "The root comes out first, and it grows down."
+          ],
+          "vocab": [
+            {
+              "n": 1,
+              "w": "seed",
+              "pos": "n.",
+              "zh": "種子",
+              "ex": "A <b>seed</b> holds a baby plant.",
+              "exzh": "種子裡有一株小植物。"
+            },
+            {
+              "n": 2,
+              "w": "sprout",
+              "pos": "n. / v.",
+              "zh": "芽；發芽",
+              "ex": "The beans began to <b>sprout</b> after three days.",
+              "exzh": "豆子三天後開始發芽。"
+            },
+            {
+              "n": 3,
+              "w": "soil",
+              "pos": "n.",
+              "zh": "土壤",
+              "ex": "Plant the seed in damp <b>soil</b>.",
+              "exzh": "把種子種在潮溼的土裡。"
+            },
+            {
+              "n": 4,
+              "w": "shoot",
+              "pos": "n.",
+              "zh": "嫩芽；苗",
+              "ex": "A green <b>shoot</b> pushed up through the ground.",
+              "exzh": "一根綠色的嫩芽從地面鑽出來。"
+            },
+            {
+              "n": 5,
+              "w": "warmth",
+              "pos": "n.",
+              "zh": "溫暖",
+              "ex": "Seeds need water and <b>warmth</b>.",
+              "exzh": "種子需要水和溫暖。"
+            },
+            {
+              "n": 6,
+              "w": "store",
+              "pos": "v.",
+              "zh": "儲存",
+              "ex": "The seed <b>stores</b> food for the baby plant.",
+              "exzh": "種子替小植物存了養分。"
+            },
+            {
+              "n": 7,
+              "w": "asleep",
+              "pos": "adj.",
+              "zh": "睡著的",
+              "ex": "The plant inside the seed is <b>asleep</b>.",
+              "exzh": "種子裡的植物睡著了。"
+            },
+            {
+              "n": 8,
+              "w": "gravity",
+              "pos": "n.",
+              "zh": "重力；地心引力",
+              "ex": "Roots grow down because of <b>gravity</b>.",
+              "exzh": "根會往下長，是因為重力。"
+            }
+          ],
+          "quiz": [
+            {
+              "q": "What is inside a seed?",
+              "options": [
+                "A tiny plant and stored food",
+                "Only water",
+                "A small stone",
+                "A leaf and a flower"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "What does a seed need before it will wake up?",
+              "options": [
+                "Water, warmth, and air",
+                "Sunlight and wind",
+                "Salt and sugar",
+                "Nothing at all"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "Which part comes out of a seed first?",
+              "options": [
+                "The root",
+                "The leaves",
+                "The flower",
+                "The fruit"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "A seed is planted upside down. What happens?",
+              "options": [
+                "The root still grows down and the shoot still grows up",
+                "The root grows up into the air",
+                "The seed cannot grow",
+                "The plant grows sideways forever"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "Why are bean sprouts white?",
+              "options": [
+                "They are grown without light",
+                "They are grown in milk",
+                "They are a white kind of bean",
+                "They are washed many times"
+              ],
+              "correct": 0
+            }
+          ],
+          "parts_head": {
+            "eyebrow": "Try It in the Model · 在模型裡試試",
+            "en": "Four things to try",
+            "zh": "四件可以試的事"
+          },
+          "parts": [
+            {
+              "key": "dry",
+              "icon": "🏜️",
+              "en": "A seed with no water",
+              "zh": "沒有水的種子",
+              "meta_en": "Asleep",
+              "meta_zh": "還在睡",
+              "demo": "dry",
+              "text_en": "Nothing moves. Now add water slowly and find the point where the seed wakes.",
+              "text_zh": "什麼都沒有動。現在慢慢加水，找出種子醒來的那一點。"
+            },
+            {
+              "key": "root",
+              "icon": "⬇️",
+              "en": "Root first",
+              "zh": "先長根",
+              "meta_en": "Early growth",
+              "meta_zh": "剛開始長",
+              "demo": "root",
+              "text_en": "The root is out, and there is no shoot yet. Why might a plant need its root first?",
+              "text_zh": "根出來了，芽還沒有。植物為什麼要先有根？"
+            },
+            {
+              "key": "flip",
+              "icon": "🙃",
+              "en": "Upside down",
+              "zh": "倒過來放",
+              "meta_en": "Gravity",
+              "meta_zh": "重力",
+              "demo": "flip",
+              "text_en": "The seed is turned over. Watch the root bend around and still go down.",
+              "text_zh": "種子被翻過來了。看根怎麼繞個彎，還是往下走。"
+            },
+            {
+              "key": "dark",
+              "icon": "🌑",
+              "en": "Grown in the dark",
+              "zh": "在暗處長大",
+              "meta_en": "No light",
+              "meta_zh": "沒有光",
+              "demo": "dark",
+              "text_en": "A long pale shoot and small yellow leaves. Switch the light back on and compare.",
+              "text_zh": "又長又白的芽，又小又黃的葉子。把光打開再比一比。"
+            }
+          ],
+          "parts_note_en": "Notice the order. The seed checks the water and the warmth before it does anything. After that, the root always comes before the shoot, and the leaves come last.",
+          "parts_note_zh": "注意順序。種子先確認水和溫度，然後才有動作。之後永遠是根先、芽後，葉子最後。",
+          "links_head": {
+            "eyebrow": "Go Further · 延伸閱讀",
+            "en": "What the seed carries, and what the leaves do next",
+            "zh": "種子帶著什麼，葉子接下來做什麼"
+          },
+          "links": [
+            {
+              "href": "/resources/classes/life/how-leaves-make-food/",
+              "icon": "🍃",
+              "k_en": "Living Things · Lesson 2",
+              "k_zh": "生命與生態 第二課",
+              "en": "How Does a Leaf Make Food from Sunlight?",
+              "zh": "葉子怎麼用陽光做出食物？",
+              "note_en": "See what the first leaves start doing as soon as they open.",
+              "note_zh": "看看最早的葉子一展開就開始做的事。"
+            },
+            {
+              "href": "/resources/classes/life/what-is-dna/",
+              "icon": "🧬",
+              "k_en": "Living Things · Lesson 3",
+              "k_zh": "生命與生態 第三課",
+              "en": "What Is DNA?",
+              "zh": "DNA 是什麼？",
+              "note_en": "The baby plant already carries the full instructions for a whole plant.",
+              "note_zh": "那株小植物身上，已經帶著長成一整棵植物的完整說明書。"
+            }
+          ],
+          "waker": {
+            "eyebrow": "Be the Gardener · 當一次園丁",
+            "en": "Will it wake up?",
+            "zh": "它會不會醒？",
+            "lead_en": "Here are four places to put a bean. Choose one, decide what you think will happen, and then read the answer.",
+            "lead_zh": "這裡有四個可以放豆子的地方。選一個，先想想會怎麼樣，再看答案。",
+            "start": "packet",
+            "items": [
+              {
+                "key": "packet",
+                "icon": "✉️",
+                "water": 5,
+                "temp": 25,
+                "result": "dry",
+                "en": "In a paper packet in a drawer",
+                "zh": "抽屜裡的紙袋中",
+                "note_en": "It is warm enough and there is air, but there is no water. The seed keeps waiting, which is why packets of seeds can be sold in shops.",
+                "note_zh": "夠溫暖，也有空氣，可是沒有水。種子繼續等——所以種子才能一包一包擺在店裡賣。"
+              },
+              {
+                "key": "fridge",
+                "icon": "🧊",
+                "water": 60,
+                "temp": 4,
+                "result": "cold",
+                "en": "On wet cotton in the fridge",
+                "zh": "冰箱裡的溼棉花上",
+                "note_en": "There is water and air, but for a bean it is too cold. Some other kinds of seed do wake in the cold.",
+                "note_zh": "有水、有空氣，但是對豆子來說太冷了。別的種類的種子，有些在低溫下反而會醒。"
+              },
+              {
+                "key": "room",
+                "icon": "🪟",
+                "water": 60,
+                "temp": 25,
+                "result": "go",
+                "en": "On wet cotton in a warm room",
+                "zh": "溫暖房間裡的溼棉花上",
+                "note_en": "Water, warmth, and air are all there. Expect a root within a few days.",
+                "note_zh": "水、溫度、空氣都有了。幾天之內應該就會看到根。"
+              },
+              {
+                "key": "jar",
+                "icon": "🫙",
+                "water": 100,
+                "temp": 25,
+                "result": "drowned",
+                "en": "At the bottom of a jar of water",
+                "zh": "一罐水的最底下",
+                "note_en": "There is plenty of water and it is warm, but very little oxygen reaches the seed. It may swell, and then it stops.",
+                "note_zh": "水很多，也夠溫暖，可是幾乎沒有氧氣到得了種子那裡。它可能會脹起來，然後就停住了。"
+              }
+            ],
+            "verdict": {
+              "dry": {
+                "en": "No. It is too dry.",
+                "zh": "不會，太乾了。"
+              },
+              "cold": {
+                "en": "No. It is too cold.",
+                "zh": "不會，太冷了。"
+              },
+              "hot": {
+                "en": "No. It is too hot.",
+                "zh": "不會，太熱了。"
+              },
+              "drowned": {
+                "en": "No. It has no air.",
+                "zh": "不會，沒有空氣。"
+              },
+              "go": {
+                "en": "Yes. It wakes up.",
+                "zh": "會，它醒了。"
+              }
+            },
+            "note_en": "These answers are for an ordinary bean, and they use the same simple rules as the model. Different plants have different needs.",
+            "note_zh": "這些答案說的是一般的豆子，用的是和模型同一套簡單的規則。不同的植物，需要的條件不一樣。"
+          },
+          "facts": {
+            "eyebrow": "Seeds by the Numbers · 種子的數字",
+            "en": "Six numbers about seeds",
+            "zh": "六個和種子有關的數字",
+            "lead_en": "How many things they need, how small they can be, and how long they can wait.",
+            "lead_zh": "它們需要幾樣東西、可以多小、可以等多久。",
+            "items": [
+              {
+                "big": "3",
+                "unit_en": "parts",
+                "unit_zh": "個部分",
+                "en": "A coat, a tiny plant, and stored food.",
+                "zh": "種皮、一株小植物，還有存好的養分。"
+              },
+              {
+                "big": "3",
+                "unit_en": "needs",
+                "unit_zh": "樣東西",
+                "en": "Water, the right warmth, and air. Some seeds also need light or darkness.",
+                "zh": "水、合適的溫度和空氣。有些種子還需要光，或需要黑暗。"
+              },
+              {
+                "big": "1st",
+                "unit_en": "the root",
+                "unit_zh": "先長根",
+                "en": "The root is the first part to come out of a seed.",
+                "zh": "從種子裡最先出來的是根。"
+              },
+              {
+                "big": "1,000,000",
+                "unit_en": "per gram",
+                "unit_zh": "顆一公克",
+                "en": "Orchid seeds are the smallest of all. They are like dust, and about a million of them weigh one gram.",
+                "zh": "蘭花的種子是所有種子裡最小的，像灰塵一樣，大約一百萬顆才一公克重。"
+              },
+              {
+                "big": "1,300",
+                "unit_en": "years",
+                "unit_zh": "年",
+                "en": "A sacred lotus seed this old, found in a dry lake bed in northeastern China, was still able to grow.",
+                "zh": "在中國東北一處乾涸的湖底找到的一顆古蓮子，這麼老了還能發芽生長。"
+              },
+              {
+                "big": "2,000",
+                "unit_en": "years",
+                "unit_zh": "年",
+                "en": "A date palm seed about this old was sprouted by scientists in 2005.",
+                "zh": "2005 年，科學家讓一顆大約這麼老的椰棗種子發了芽。"
+              }
+            ]
+          },
+          "culture_cards": {
+            "eyebrow": "Seed Stories · 種子的故事",
+            "title_en": "An old jar, a tilted pot, a white vegetable, and a cold room in Taichung",
+            "title_zh": "一個古老的罐子、一盆放倒的植物、一種白色的蔬菜，還有台中的一間冷房",
+            "lead_en": "What seeds can wait for, and what people have learned from them.",
+            "lead_zh": "種子等得了什麼，人們又從它們身上學到了什麼。",
+            "cards": [
+              {
+                "k": "2005",
+                "en": "Two thousand years asleep",
+                "zh": "睡了兩千年",
+                "body_en": "In the 1960s, people digging at Masada, an ancient palace in a very dry part of Israel, found date palm seeds in an old jar. Tests showed that the seeds were about two thousand years old. In 2005, a team of scientists planted one, and it sprouted. The palm that grew from it was named Methuselah.",
+                "body_zh": "1960 年代，考古人員在以色列非常乾燥的地區挖掘古代宮殿馬薩達，在一個古老的罐子裡發現了椰棗的種子。檢驗的結果顯示，這些種子大約有兩千年那麼老。2005 年，一組科學家種下其中一顆，它發芽了。長出來的那棵椰棗樹被取名為「瑪土撒拉」。"
+              },
+              {
+                "k": "Darwin · 達爾文",
+                "en": "Which way is down?",
+                "zh": "哪邊是下面？",
+                "body_en": "Charles Darwin was one of the first people to study this carefully, and he wrote that roots grow toward the pull of gravity while stems grow away from it. You can see it with a potted plant. Lay the pot on its side, and in time the growing tip of the stem turns and points up again. Inside the tip of a root, tiny heavy grains of starch settle to the low side and tell the root which way is down.",
+                "body_zh": "達爾文是最早仔細研究這件事的人之一。他記錄下：根順著重力的方向長，莖背著重力的方向長。用一盆植物就看得到：把花盆放倒，過一陣子，莖正在生長的頂端會轉個彎，重新朝上。在根的尖端裡面，有一些又小又重的澱粉粒會沉到低的那一邊，告訴根哪邊是下面。"
+              },
+              {
+                "k": "Kitchen · 廚房",
+                "en": "Why bean sprouts are white",
+                "zh": "豆芽為什麼是白的",
+                "body_en": "Bean sprouts are mung beans that have been sprouted in the shade and watered until the stem grows long. A seedling kept from the light does not make the green substance in its leaves. It puts everything into a long, pale stem. In nature this helps a buried seedling to reach the surface. In the kitchen, it gives us a crisp white vegetable.",
+                "body_zh": "豆芽是在遮光的地方發芽的綠豆，一直澆水，直到莖長得長長的。見不到光的小苗不會製造葉子裡那種綠色的物質，而是把力氣全用在一根又長又白的莖上。在野外，這能幫助埋在土裡的小苗鑽到地面；在廚房裡，它給了我們一種又脆又白的蔬菜。"
+              },
+              {
+                "k": "Taiwan · 台灣",
+                "en": "A library of sleeping seeds",
+                "zh": "一座沉睡種子的圖書館",
+                "body_en": "In Wufeng, Taichung, the Taiwan Agricultural Research Institute keeps the National Plant Genetic Resources Center, which began work in October 1993. Seeds are dried first and then sealed and kept cold and dry. The long-term storeroom is held at 12 degrees below zero Celsius. By the end of 2005 the center was keeping 68,211 samples of crop plants, ready to be woken when someone needs them.",
+                "body_zh": "在台中霧峰，農業試驗所設有「國家作物種原中心」，1993 年 10 月開始運作。種子先經過乾燥，再密封起來，存放在又冷又乾的地方；長期庫的溫度保持在攝氏零下 12 度。到 2005 年底，中心保存的作物種原有 68,211 份，等到有人需要的時候，再把它們叫醒。"
+              }
+            ]
+          },
+          "myths": [
+            {
+              "myth_en": "A dry seed is dead.",
+              "myth_zh": "乾的種子是死的。",
+              "fact_en": "It is alive and asleep. Given water, warmth, and air, it can grow.",
+              "fact_zh": "它是活的，只是睡著了。有了水、溫度和空氣，它就能生長。"
+            },
+            {
+              "myth_en": "A seed needs sunlight to start growing.",
+              "myth_zh": "種子要曬到太陽才會開始長。",
+              "fact_en": "Many seeds start in the dark, under the soil. The light is needed later, by the leaves.",
+              "fact_zh": "很多種子在土裡、在黑暗中就能開始長。光是後來葉子才需要的。"
+            },
+            {
+              "myth_en": "You must plant a seed the right way up.",
+              "myth_zh": "種子一定要擺正了種。",
+              "fact_en": "The root finds its way down and the shoot finds its way up, however the seed lies.",
+              "fact_zh": "不管種子怎麼躺，根都會自己往下，芽都會自己往上。"
+            },
+            {
+              "myth_en": "The more water, the better.",
+              "myth_zh": "水愈多愈好。",
+              "fact_en": "A seed under water gets too little oxygen. It needs damp soil with air in it.",
+              "fact_zh": "泡在水裡的種子得不到足夠的氧氣。它需要的是潮溼、而且含有空氣的土。"
+            }
+          ],
+          "tricks": [
+            {
+              "title_en": "A baby plant with lunch",
+              "title_zh": "帶著便當的小植物",
+              "body_en": "Coat, tiny plant, stored food.",
+              "body_zh": "種皮、小植物、存好的養分。"
+            },
+            {
+              "title_en": "It waits for three things",
+              "title_zh": "它在等三樣東西",
+              "body_en": "Water, warmth, and air.",
+              "body_zh": "水、溫度和空氣。"
+            },
+            {
+              "title_en": "Root down, shoot up",
+              "title_zh": "根往下，芽往上",
+              "body_en": "Gravity tells it which is which.",
+              "body_zh": "重力告訴它哪邊是哪邊。"
+            },
+            {
+              "title_en": "A race to the light",
+              "title_zh": "和光賽跑",
+              "body_en": "Leaves must open before the lunch is gone.",
+              "body_zh": "便當吃完之前，葉子要展開。"
+            }
+          ],
+          "activities": [
+            {
+              "title_en": "Beans in a Jar",
+              "title_zh": "罐子裡的豆子",
+              "materials": [
+                {
+                  "en": "A clear jar, paper towels, and water",
+                  "zh": "一個透明的罐子、幾張紙巾和水"
+                },
+                {
+                  "en": "Four dried beans, such as mung beans or red beans",
+                  "zh": "四顆乾豆子，例如綠豆或紅豆"
+                }
+              ],
+              "steps": [
+                {
+                  "en": "Roll the paper towels and line the inside of the jar. Wet them well, and pour away any water that collects at the bottom.",
+                  "zh": "把紙巾捲起來，貼在罐子的內壁上。把紙巾澆溼，再把積在底部的水倒掉。"
+                },
+                {
+                  "en": "Push the beans down between the paper and the glass, each one lying a different way: up, down, and sideways.",
+                  "zh": "把豆子塞進紙巾和玻璃之間，每一顆擺的方向都不一樣：朝上、朝下、橫著放。"
+                },
+                {
+                  "en": "Keep the paper damp. Draw each bean every day for a week.",
+                  "zh": "讓紙巾一直保持潮溼。連續一個星期，每天把每一顆豆子畫下來。"
+                },
+                {
+                  "en": "Which part came out first? Which way did the roots go? Did it matter how the bean was lying?",
+                  "zh": "最先出來的是哪個部分？根往哪個方向長？豆子怎麼擺有沒有差別？"
+                }
+              ],
+              "tip_en": "When the roots are a few centimeters long, turn the whole jar on its side and leave it for two more days. Watch what the tips of the roots do. Do not eat the beans from this activity.",
+              "tip_zh": "等根長到幾公分長，把整個罐子放倒，再放兩天，看根的尖端會怎麼做。這個活動用過的豆子不要吃。"
+            },
+            {
+              "title_en": "Light and Dark",
+              "title_zh": "有光和沒光",
+              "materials": [
+                {
+                  "en": "Two small cups with damp cotton or soil, and six mung beans",
+                  "zh": "兩個小杯子，裝上溼棉花或土，還有六顆綠豆"
+                },
+                {
+                  "en": "A cardboard box that covers one cup completely",
+                  "zh": "一個可以把其中一杯完全罩住的紙箱"
+                }
+              ],
+              "steps": [
+                {
+                  "en": "Put three beans in each cup and keep both cups damp.",
+                  "zh": "每個杯子放三顆豆子，兩杯都保持潮溼。"
+                },
+                {
+                  "en": "Leave one cup by a bright window. Cover the other with the box.",
+                  "zh": "一杯放在明亮的窗邊，另一杯用紙箱罩起來。"
+                },
+                {
+                  "en": "After a week, measure the tallest plant in each cup, and write down the color of its stem and leaves.",
+                  "zh": "一個星期之後，量一量每一杯裡最高的那一株，並記下莖和葉子的顏色。"
+                },
+                {
+                  "en": "Which plants are taller? Which look healthier? Are those the same plants?",
+                  "zh": "哪一杯的植物比較高？哪一杯看起來比較健康？是同一杯嗎？"
+                }
+              ],
+              "tip_en": "The plants in the dark will probably be taller, and that does not mean they are doing better. Now put them by the window too, and see how many days it takes for them to turn green.",
+              "tip_zh": "暗處的植物很可能比較高，但這不代表它們長得比較好。現在把它們也移到窗邊，看看要幾天才會變綠。"
+            }
+          ],
+          "sources": [
+            {
+              "en": "A seed is a plant structure containing an embryo and stored nutrients in a protective coat; orchid seeds are the smallest, with about one million seeds per gram",
+              "zh": "種子是在保護性種皮內含有胚與儲存養分的植物構造；蘭花種子最小，每公克約一百萬顆",
+              "src": "Wikipedia, “Seed”",
+              "url": "https://en.wikipedia.org/wiki/Seed"
+            },
+            {
+              "en": "The most important outside factors for germination are the right temperature, water, oxygen or air, and sometimes light or darkness; the uptake of water swells the seed and breaks the coat; seeds have a temperature range within which they will germinate; oxygen is used in respiration, the seedling's main source of energy until it grows leaves; a seed buried too deeply or in waterlogged soil can be starved of oxygen",
+              "zh": "發芽最重要的外在條件是合適的溫度、水、氧氣（空氣），有時還要光或黑暗；吸水使種子膨脹、種皮破裂；種子各有願意發芽的溫度範圍；在長出葉子之前，幼苗主要靠需要氧氣的呼吸作用取得能量；埋得太深或土壤積水的種子會缺氧",
+              "src": "Wikipedia, “Germination”",
+              "url": "https://en.wikipedia.org/wiki/Germination"
+            },
+            {
+              "en": "The radicle, the embryonic root, is the first part of a seedling to emerge from the seed, and it grows downward",
+              "zh": "胚根是幼苗最先從種子冒出來的部分，並且往下生長",
+              "src": "Wikipedia, “Radicle”",
+              "url": "https://en.wikipedia.org/wiki/Radicle"
+            },
+            {
+              "en": "The cotyledons hold the stored food of the seed; as it is used up they may turn green or wither as the first true leaves take over",
+              "zh": "子葉儲存種子的養分；養分用完後，子葉可能變綠行光合作用，或在真葉接手後枯萎",
+              "src": "Wikipedia, “Cotyledon”",
+              "url": "https://en.wikipedia.org/wiki/Cotyledon"
+            },
+            {
+              "en": "Seed dormancy prevents seeds from germinating during unsuitable conditions",
+              "zh": "種子休眠使種子不會在不適合的環境條件下發芽",
+              "src": "Wikipedia, “Seed dormancy”",
+              "url": "https://en.wikipedia.org/wiki/Seed_dormancy"
+            },
+            {
+              "en": "Charles Darwin was one of the first to document that roots grow toward gravity and stems away from it; a potted plant laid on its side turns its growing stem upward; dense starch-filled statoliths in the root cap are one way plants sense gravity",
+              "zh": "達爾文是最早以科學方式記錄「根向地、莖背地」的人之一；橫放的盆栽，莖的生長部位會轉向上方；根冠裡沉降的澱粉體（平衡石）是植物感知重力的方式之一",
+              "src": "Wikipedia, “Gravitropism”",
+              "url": "https://en.wikipedia.org/wiki/Gravitropism"
+            },
+            {
+              "en": "Seedlings grown without light have long, weak stems and a pale yellow color and lack chlorophyll; this raises the chance of reaching a light source from under the soil",
+              "zh": "在無光下生長的幼苗莖細長、顏色淡黃、缺少葉綠素（黃化）；這能提高從土裡伸到有光處的機會",
+              "src": "Wikipedia, “Etiolation”",
+              "url": "https://en.wikipedia.org/wiki/Etiolation"
+            },
+            {
+              "en": "Mung bean sprouts are grown by watering sprouted beans in the shade until the stems grow long",
+              "zh": "綠豆芽的種法：把發芽的綠豆放在遮蔭處持續澆水，直到下胚軸伸長",
+              "src": "Wikipedia, “Mung bean sprout”",
+              "url": "https://en.wikipedia.org/wiki/Mung_bean_sprout"
+            },
+            {
+              "en": "Date palm seeds found in a jar at Masada in 1963–1965 were radiocarbon dated to between 155 BC and 64 CE; one was sprouted in 2005 and the palm was named Methuselah",
+              "zh": "1963–1965 年在馬薩達一個罐子裡發現的椰棗種子，碳十四定年為西元前 155 年到西元 64 年之間；2005 年其中一顆成功發芽，取名瑪土撒拉",
+              "src": "Wikipedia, “Judean date palm”",
+              "url": "https://en.wikipedia.org/wiki/Judean_date_palm"
+            },
+            {
+              "en": "A 1,300-year-old sacred lotus seed recovered from a dry lake bed in northeastern China was grown in 1995",
+              "zh": "中國東北乾涸湖床出土、約 1,300 年的古蓮子，於 1995 年的研究中成功發芽",
+              "src": "Wikipedia, “Oldest viable seed”",
+              "url": "https://en.wikipedia.org/wiki/Oldest_viable_seed"
+            },
+            {
+              "en": "The National Plant Genetic Resources Center began operating in October 1993; by the end of 2005 it held 68,211 accessions; seeds are dried, sealed, and stored cold and dry, with the long-term store at −12 °C",
+              "zh": "國家作物種原中心於民國 82 年 10 月開始營運；94 年底保存作物種原 68,211 份；種子乾燥後密封，在低溫低濕下存放，長期庫為 −12 ℃",
+              "src": "農業部〈國家作物種原中心及水稻功能基因研究種原之保存〉（農業試驗所） Ministry of Agriculture, Taiwan",
+              "url": "https://www.moa.gov.tw/ws.php?id=12434"
+            }
+          ]
+        }
+      ],
+      "planned": [
         {
           "n": 6,
           "icon": "🌸",
