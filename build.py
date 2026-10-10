@@ -13881,7 +13881,7 @@ def build_cal_hub():
 _compj = os.path.join(ROOT, "data", "computers.json")
 COMP = json.load(open(_compj, encoding="utf-8")) if os.path.exists(_compj) else None
 COMP_BASE = "/resources/classes/computers/"
-_COMP_JS = {"bits": "comp-bits", "pixels": "comp-pixels", "logic": "comp-logic", "adder": "comp-adder", "pc": "comp-pc", "cpu": "comp-cpu", "desk": "comp-desk", "key": "comp-key", "robot": "comp-robot", "search": "comp-search"}   # lab.kind → assets/js/<bundle>.js
+_COMP_JS = {"bits": "comp-bits", "pixels": "comp-pixels", "logic": "comp-logic", "adder": "comp-adder", "pc": "comp-pc", "cpu": "comp-cpu", "desk": "comp-desk", "key": "comp-key", "robot": "comp-robot", "search": "comp-search", "sched": "comp-sched"}   # lab.kind → assets/js/<bundle>.js
 
 def _comp_ver():
     h = hashlib.md5()
@@ -14805,6 +14805,75 @@ def _comp_grow(gw):
   <p class="cp-lv-note">{html.escape(gw["note_en"])}<span class="zh">{html.escape(gw["note_zh"])}</span></p>
 </div>'''
 
+def compsched_svg(size=56):
+    """第十一課的課程卡小圖示：一頂廚師帽，下面三張點單的進度條（輪流前進）。"""
+    bars = "".join(f'<rect x="8" y="{36 + i * 7}" width="44" height="4.4" rx="2.2" fill="#2a3550"/><rect x="8" y="{36 + i * 7}" width="{w}" height="4.4" rx="2.2" fill="{c}"/>' for i, (w, c) in enumerate(((30, "#c7a6ff"), (22, "#ffd36e"), (14, "#3ac7b0"))))
+    return (f'<svg class="compsched-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">'
+            '<path d="M19 26c-5-1-7-5-5-9 2-3 6-4 9-2 1-4 5-6 9-5 3 1 5 3 5 6 4-1 7 2 7 5s-3 5-6 5z" fill="#fff"/><rect x="19" y="25" width="23" height="6" rx="1.5" fill="#e9edf5"/>'
+            f'{bars}</svg>')
+
+_COMP_CARD["sched"] = compsched_svg
+
+def render_compsched_lab(lesson):
+    """第十一課：一位廚師輪流做很多張點單（assets/js/comp-sched.js 綁這裡的 class；全部自繪示意）。"""
+    lab = lesson["lab"]
+    jb = "".join(f'<button type="button" data-jobs="{n}" aria-pressed="false"><b>{n}</b><small>{"order · 張" if n == 1 else "orders · 張"}</small></button>' for n in (1, 2, 3, 4))
+    sb = "".join(f'<button type="button" data-slice="{k}" aria-pressed="false"><b>{k}</b><small>{"beat · 拍" if k == 1 else "beats · 拍"}</small></button>' for k in (1, 3, 6, 12))
+    bars = "".join(f'<li data-bar="{i["key"]}"><span>{i["emoji"]} {html.escape(i["en"])} <small>{html.escape(i["zh"])}</small></span><b>0 / 12</b><em><i></i></em></li>' for i in lab["items"])
+    items = html.escape(json.dumps({i["key"]: {k: i[k] for k in ("emoji", "en", "zh")} for i in lab["items"]}, ensure_ascii=False))
+    tg = _lab_toggles([("labels", "Labels", "標示", True)])
+    return f'''<div class="astro-lab cp-lab cp-sc-lab rvl" data-compsched-lab data-items="{items}">
+  <div class="al-stage">
+    <div class="al-space">
+      <canvas class="al-space-cv" aria-label="3D model of one chef behind a long counter with up to four orders, each with a progress bar; the chef works on one order at a time and walks between them · 一位廚師站在長檯後面、檯上最多四張點單、各有一根進度柱的 3D 模型；廚師一次只做一張，在點單之間走來走去"></canvas>
+      <div class="al-labels" aria-hidden="true"></div>
+      <p class="al-hint">Drag to turn · 拖曳旋轉</p>
+      <button type="button" class="al-home" title="Reset view · 重設視角" aria-label="Reset view · 重設視角">&#8634;</button>
+      <p class="al-nogl-msg">This 3D model needs WebGL, which this browser does not support. The buttons, the progress bars, and the counters below still work, and so do the reading and the games.<br><span class="zh">這個瀏覽器不支援 WebGL，無法顯示 3D 模型；下面的按鈕、進度條和計數照樣能用，課文和小遊戲也都能用。</span></p>
+    </div>
+    <aside class="al-sky cp-aside">
+      <p class="al-sky-k">How many orders · 幾張點單</p>
+      <div class="cp-ky-keys" role="group" aria-label="How many orders · 幾張點單">{jb}</div>
+      <p class="al-sky-k">Work on each one for · 每張一次做</p>
+      <div class="cp-ky-keys" role="group" aria-label="Length of a turn · 一次做多久">{sb}</div>
+      <ul class="cp-sc-bars">{bars}</ul>
+      <dl class="cp-dk-nums cp-sc-nums">
+        <div><dt>Beat · 第幾拍</dt><dd class="cp-sc-t">0</dd></div>
+        <div><dt>Beats spent switching · 花在換手</dt><dd class="cp-sc-sw">0</dd></div>
+        <div><dt>Orders finished · 做完幾張</dt><dd class="cp-sc-fin">0</dd></div>
+      </dl>
+      <p class="cp-msg" aria-live="polite"></p>
+    </aside>
+  </div>
+  <div class="al-controls">
+    <div class="al-row al-row-main">
+      <button type="button" class="al-play" aria-pressed="false"><span class="al-play-t">Start cooking · 開始做</span></button>
+      <button type="button" class="cp-btn-d cp-reset">Start over · 重新開始</button>
+      <div class="al-row al-toggles">{tg}</div>
+    </div>
+  </div>
+  {_lab_foot(lab)}
+  <p class="cp-credit">{lab["credit_html"]}</p>
+</div>'''
+
+def _comp_slice(sl):
+    tips = "".join(f'<li>{html.escape(t["en"])}<span class="zh">{html.escape(t["zh"])}</span></li>' for t in sl["tips"])
+    return f'''<div class="cp-full cp-sl rvl" data-cp-slice>
+  <label class="cp-sl-lab" for="cp-sl-range">Each program’s turn · 每個程式一次做 <b class="cp-sl-val">3</b> beats · 拍</label>
+  <input id="cp-sl-range" class="cp-sl-range" type="range" min="0" max="7" step="1" value="2">
+  <p class="cp-sl-ends"><span>short turns · 短</span><span>long turns · 長</span></p>
+  <div class="cp-sl-strip" aria-hidden="true"></div>
+  <p class="cp-sl-key"><i class="is-download"></i>Download · 下載　<i class="is-essay"></i>Essay · 作文　<i class="is-music"></i>Music · 音樂　<i class="is-sw"></i>switching · 換手</p>
+  <dl class="cp-lv2-out cp-sl-out">
+    <div><dt>All finished at beat · 全部做完是第幾拍</dt><dd class="cp-sl-total">0</dd></div>
+    <div><dt>Longest wait for the music · 音樂等最久的一次</dt><dd class="cp-sl-gap">0</dd></div>
+    <div><dt>Time spent switching · 花在換手的時間</dt><dd class="cp-sl-sw">0%</dd></div>
+  </dl>
+  <p class="cp-lv-msg cp-sl-msg" aria-live="polite"></p>
+  <p class="cp-lv-note">{html.escape(sl["note_en"])}<span class="zh">{html.escape(sl["note_zh"])}</span></p>
+</div>
+<ul class="cp-tips rvl">{tips}</ul>'''
+
 def _comp_flat():
     return [(ui, u, l) for ui, u in enumerate(COMP["units"]) for l in u["lessons"]]
 
@@ -14832,7 +14901,7 @@ def build_comp_lesson(ui, unit, lesson):
     reading_html = render_basic_unit(1, unit_dict, level="comp", audio_rel="", pdf_rel="")
     lab = lesson["lab"]
     kind = lab["kind"]
-    lab_html = {"bits": render_compbits_lab, "pixels": render_comppixels_lab, "logic": render_complogic_lab, "adder": render_compadder_lab, "pc": render_comppc_lab, "cpu": render_compcpu_lab, "desk": render_compdesk_lab, "key": render_compkey_lab, "robot": render_comprobot_lab, "search": render_compsearch_lab}[kind](lesson)
+    lab_html = {"bits": render_compbits_lab, "pixels": render_comppixels_lab, "logic": render_complogic_lab, "adder": render_compadder_lab, "pc": render_comppc_lab, "cpu": render_compcpu_lab, "desk": render_compdesk_lab, "key": render_compkey_lab, "robot": render_comprobot_lab, "search": render_compsearch_lab, "sched": render_compsched_lab}[kind](lesson)
 
     def sec(key, fn):
         d = lesson[key]
@@ -14874,6 +14943,8 @@ def build_comp_lesson(ui, unit, lesson):
     if lesson.get("guessnum"): secs.append(sec("guessnum", _comp_guessnum))
     if lesson.get("grow"): secs.append(sec("grow", _comp_grow))
     if lesson.get("which"): secs.append(sec("which", _comp_choice))
+    if lesson.get("slice"): secs.append(sec("slice", _comp_slice))
+    if lesson.get("whose"): secs.append(sec("whose", _comp_choice))
     if lesson.get("culture_cards"):
         cu = lesson["culture_cards"]
         cc = "".join(

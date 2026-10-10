@@ -770,3 +770,39 @@ a.cp-link:hover { transform: translateY(-3px); box-shadow: var(--shadow); border
 .cp-gw-rows .cp-fl-track { grid-column: 1 / -1; margin-top: .3rem; height: 22px; }
 .cp-gw-bar-l, .cp-gw-bar-b { display: block; height: 100%; transition: width .35s; } .cp-gw-bar-l { background: #d98a2b; } .cp-gw-bar-b { background: #2f9e63; min-width: 3px; }
 @media (max-width: 720px) { .cp-gw-sizes { grid-template-columns: repeat(3, minmax(0, 1fr)); } .cp-gn-count { margin-left: 0; width: 100%; } }
+
+/* ── 第十一課：輪流（cp-sc-、小工具 cp-sl-）──────────────────────── */
+@media (min-width: 1001px) { .cp-sc-lab .al-space { min-height: 640px; } }
+.cp-sc-bars { list-style: none; margin: 0; padding: 0; display: grid; gap: .28rem; }
+.cp-sc-bars li { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: baseline; column-gap: .5rem; padding: .3rem .55rem .4rem; border-radius: 10px; border: 1px solid var(--al-line); background: rgba(255,255,255,.03); font-size: .78rem; font-weight: 700; color: var(--al-text); }
+.cp-sc-bars li[hidden] { display: none; }
+.cp-sc-bars li small { font-family: var(--zh); font-weight: 600; font-size: .68rem; color: var(--al-mute); }
+.cp-sc-bars li b { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; font-size: .72rem; color: var(--al-mute); }
+.cp-sc-bars li em { grid-column: 1 / -1; display: block; height: 6px; margin-top: .25rem; border-radius: 3px; background: rgba(255,255,255,.1); overflow: hidden; }
+.cp-sc-bars li em i { display: block; height: 100%; width: 0; background: var(--al-sun); }
+.cp-sc-bars li.is-on { border-color: var(--al-sun); background: rgba(255,211,110,.14); }
+.cp-sc-bars li.is-done em i { background: #38c778; } .cp-sc-bars li.is-done b { color: #6fe0a1; }
+.cp-sc-nums { grid-template-columns: 1.2fr 1fr 1fr; } .cp-sc-nums dd { font-size: 1.25rem; }
+.cp-sc-lab .cp-msg { min-height: 8.4em; }
+.al-lg-cpchef i { border: 0; border-radius: 50% 50% 3px 3px; background: #fff; }
+.al-lg-cpplate i { border: 0; border-radius: 50%; height: 8px; margin-top: .45rem; background: #e9edf5; }
+.al-lg-cpprog i { border: 0; border-radius: 2px; background: linear-gradient(0deg, #c7a6ff 0 60%, #1c2947 60%); }
+.al-lg-cpmark i { border: 0; width: 0; height: 0; margin: .35rem 3px 0; background: transparent; border-left: 7px solid transparent; border-right: 7px solid transparent; border-top: 12px solid #ffd36e; border-radius: 0; }
+@media (max-width: 1000px) { .cp-sc-lab .al-space { aspect-ratio: 16 / 10; min-height: 340px; } }
+@media (max-width: 620px) { .cp-sc-lab .al-space { aspect-ratio: 4 / 3; min-height: 0; } .cp-sc-lab .cp-msg { min-height: 11em; } }
+.cp-sl-lab { display: block; font-weight: 800; font-size: 1rem; margin-bottom: .5rem; }
+.cp-sl-lab b { font-family: var(--serif); font-size: 1.6rem; color: var(--brand-dk); margin: 0 .2rem; }
+.cp-sl-range { width: 100%; accent-color: var(--brand); }
+.cp-sl-ends { display: flex; justify-content: space-between; margin: .1rem 0 1rem; font-size: .76rem; font-weight: 700; color: var(--ink-soft); }
+.cp-sl-strip { display: flex; height: 44px; border-radius: 10px; overflow: hidden; border: 1px solid var(--line); background: var(--cream); }
+.cp-sl-strip i { display: block; min-width: 1px; }
+.cp-sl-strip .is-download, .cp-sl-key .is-download { background: #3ac7b0; } .cp-sl-strip .is-essay, .cp-sl-key .is-essay { background: #e0b75a; }
+.cp-sl-strip .is-music, .cp-sl-key .is-music { background: #9a6ee8; } .cp-sl-strip .is-sw, .cp-sl-key .is-sw { background: #2a3550; }
+.cp-sl-key { margin: .5rem 0 0; font-size: .78rem; font-weight: 700; color: var(--ink-soft); }
+.cp-sl-key i { display: inline-block; width: 12px; height: 12px; border-radius: 3px; margin-right: .3rem; vertical-align: -1px; }
+.cp-sl-out { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.cp-sl[data-zone="stutter"] .cp-sl-gap, .cp-sl[data-zone="waste"] .cp-sl-sw { color: #d64545; }
+.cp-sl[data-zone="ok"] .cp-sl-gap, .cp-sl[data-zone="ok"] .cp-sl-sw { color: #2f9e63; }
+@media (max-width: 720px) { .cp-sl-out { grid-template-columns: 1fr; } .cp-sl-out dt { min-height: 0; } }
+.cp-sc-lab .al-lab.cp-lb-copy b { color: #7ef0e3; font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; }
+.cp-sc-lab .al-lab.cp-lb-copy.is-on b { color: #3a2c05; }

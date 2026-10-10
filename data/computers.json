@@ -6778,7 +6778,7 @@
               "zh": "作業系統在做什麼？",
               "note_en": "Many programs are open at once, but there are only a few processors. Next: how they take turns so quickly that you do not notice.",
               "note_zh": "同時開著很多程式，處理器卻只有幾個。下一課：它們怎麼輪流，快到你察覺不到。",
-              "soon": true
+              "href": "/resources/classes/computers/operating-system/"
             }
           ],
           "sources_note_en": "Facts on this page were checked against these sources (October 2026); the box model is our own illustration, and every count is tested",
@@ -6815,15 +6815,673 @@
               "url": "https://github.com/lukelin7429/twrses/blob/main/tools/computers/test/search.test.mjs"
             }
           ]
+        },
+        {
+          "n": 11,
+          "slug": "operating-system",
+          "title": "What Does an Operating System Do?",
+          "title_zh": "作業系統在做什麼？",
+          "level": "入門 · Beginner",
+          "icon": "🧑‍🍳",
+          "card": "sched",
+          "blurb_en": "One chef, four orders, and a rule: work on one for a moment, then move to the next. Watch the chef take turns in 3D, change how long each turn lasts, and see what it costs to switch. Then tune the turns for three programs so the music never breaks up, and decide which jobs belong to the operating system.",
+          "blurb_zh": "一位廚師、四張點單，還有一條規則：每張做一下，就換下一張。在 3D 裡看廚師怎麼輪流，改一改每一輪做多久，看看換手要付出什麼代價。接著替三個程式調出剛好的長短，讓音樂不會斷斷續續，再分辨哪些工作是作業系統的。",
+          "big_idea_en": "A processor can do only one thing at a time. The operating system is the program that lets many programs share it: each one gets a short turn, then waits while the others have theirs. The turns come around so quickly that everything seems to run at once. The operating system also shares out memory, files, and devices.",
+          "big_idea_zh": "處理器一次只能做一件事。作業系統是讓很多程式共用處理器的那個程式：每個程式輪到一小段時間，然後等別的程式輪完。輪得夠快，看起來就像全部同時在跑。作業系統也負責分配記憶體、檔案和各種裝置。",
+          "lab": {
+            "kind": "sched",
+            "eyebrow": "3D Model · 3D 模型",
+            "title_en": "One Chef, Many Orders",
+            "title_zh": "一位廚師，很多張點單",
+            "how_en": "The chef is the processor. The orders on the counter are programs, and each one needs 12 beats of work. The chef can work on only one order at a time. Choose how many orders there are and how many beats the chef spends on each before moving on, then press Start. Watch the bars rise, and watch what happens while the chef is walking from one order to the next.",
+            "how_zh": "廚師是處理器。檯上的點單是程式，每張要做 12 拍。廚師一次只能做一張。選好有幾張點單、廚師每張做幾拍就換下一張，然後按「開始做」。看進度柱往上長，也注意看廚師從一張走到下一張的那段時間發生了什麼。",
+            "items": [
+              {
+                "key": "music",
+                "emoji": "🎵",
+                "en": "Music",
+                "zh": "音樂"
+              },
+              {
+                "key": "essay",
+                "emoji": "📝",
+                "en": "Essay",
+                "zh": "作文"
+              },
+              {
+                "key": "browser",
+                "emoji": "🌐",
+                "en": "Browser",
+                "zh": "瀏覽器"
+              },
+              {
+                "key": "download",
+                "emoji": "⬇️",
+                "en": "Download",
+                "zh": "下載"
+              }
+            ],
+            "legend": [
+              {
+                "cls": "cpchef",
+                "en": "The chef: the processor",
+                "zh": "廚師：處理器"
+              },
+              {
+                "cls": "cpplate",
+                "en": "Each plate: one program",
+                "zh": "每一個盤子：一個程式"
+              },
+              {
+                "cls": "cpprog",
+                "en": "The bar behind a plate: how much of that program’s work is done",
+                "zh": "盤子後面的柱子：那個程式的工作做了多少"
+              },
+              {
+                "cls": "cpmark",
+                "en": "Gold pointer: the chef is working. No pointer: the chef is switching",
+                "zh": "金色箭頭：廚師正在做。沒有箭頭：廚師在換手"
+              }
+            ],
+            "scale_en": "A teaching model. A “beat” here is just a unit for counting; it is not a real length of time. In a real computer each turn is very short, and the encyclopedia says only that it may be a fraction of a second. The rule that decides the turns belongs to the operating system, which is itself a program. Real programs also spend much of their time waiting, for a key or for data, and while they wait they do not need the processor. And many computers have several processor cores, so a few things really can happen at once.",
+            "scale_zh": "這是教學用的示意模型。這裡的「拍」只是用來數的單位，不是真正的時間長度。真的電腦裡，每一輪都很短，百科全書只說它可能是幾分之一秒。決定怎麼輪的規則屬於作業系統，而作業系統自己也是一個程式。真的程式還有很多時間是在等——等你按鍵、等資料——等的時候不需要處理器。另外，很多電腦有好幾個處理器核心，所以真的有幾件事可以同時進行。",
+            "credit_html": "Model and code are drawn and programmed by My Culture Connect. Every number on this page is checked in <code>tools/computers/test/sched.test.mjs</code>.<br><span class=\"zh\">模型與程式由人師教育協會自行繪製、撰寫；這一頁出現的每一個數字都有自動測試（<code>tools/computers/test/sched.test.mjs</code>）。</span>"
+          },
+          "paras": [
+            "Right now a computer near you may be playing music, showing a web page, and waiting for someone to type. Yet in Lesson 6 you saw that a processor carries out one instruction at a time. So how can it do three things at once? The answer is that it does not. It only looks that way.",
+            "There is one program in charge of all the others: the operating system. An encyclopedia describes it as a program that manages a computer’s resources, especially the way they are shared among other programs. The resources are the processor, the memory, the storage, and the devices. Windows, Android, and iOS are operating systems.",
+            "Think of one chef with four orders. The chef cannot cook them all at once, so the chef works on one for a moment, puts it down, and moves to the next. The operating system does the same with the processor. Each program is allowed to use it for a limited time, perhaps a fraction of a second. Then it must give up control and wait for its next turn. The turns come around so quickly that every program seems to be running all the time.",
+            "Switching is not free. While the chef is putting one order down and picking up the next, nothing is being cooked. In the same way, switching between programs uses the processor too. If the turns are very long, a program at the back of the line waits a long time, and music would break up. If the turns are very short, too much time goes to switching. The operating system has to find a balance.",
+            "Sharing the processor is only one of its jobs. The operating system also decides which program gets which part of memory, and it keeps programs from interfering with each other. When memory fills up, it is the operating system that moves things out to storage, as you saw in Lesson 7. It keeps track of where every file is. And it stands between programs and devices: in Lesson 8, it was the operating system that turned a key number into a character.",
+            "Most programs finish a task and stop. An operating system keeps running until the computer is turned off. The first computers had none: they ran one program at a time, and a human operator looked after everything else. Today many computers have several processor cores, so a few things really can happen at the same moment. But there are usually many more programs than cores, so taking turns is still how it works."
+          ],
+          "paras_zh": [
+            "這一刻，你附近的某台電腦可能正在放音樂、顯示一個網頁，同時等著有人打字。可是第六課說過，處理器一次只執行一條指令。那它怎麼能同時做三件事？答案是：它並沒有。只是看起來像。",
+            "有一個程式負責管理其他所有的程式，它就是作業系統（operating system）。百科全書對它的描述是：管理電腦資源的程式，特別是負責把這些資源分配給其他程式。資源指的是處理器、記憶體、儲存空間和各種裝置。Windows、Android、iOS 都是作業系統。",
+            "想像一位廚師有四張點單。廚師沒辦法四張一起做，所以先做其中一張一下子，放下，再換下一張。作業系統對處理器做的是同樣的事。每個程式只能用處理器一段有限的時間，可能只有幾分之一秒，然後就得交出控制權，等下一次輪到它。因為輪得很快，每個程式看起來都像一直在跑。",
+            "換手不是免費的。廚師放下一張點單、拿起下一張的那段時間，沒有任何菜在做。同樣地，在程式之間切換，也要用到處理器。如果每一輪很長，排在後面的程式要等很久，音樂就會斷斷續續。如果每一輪很短，又有太多時間花在換手上。作業系統得在兩者之間找到平衡。",
+            "分配處理器只是它的工作之一。作業系統還決定哪個程式用哪一塊記憶體，並且不讓程式互相干擾。記憶體滿了的時候，把東西移到儲存裝置的就是作業系統，這在第七課看過。它記著每一個檔案放在哪裡。它也站在程式和裝置之間：第八課裡，把鍵的編號變成字元的，就是作業系統。",
+            "大部分的程式做完一件事就結束。作業系統卻一直執行，直到電腦關機為止。最早的電腦沒有作業系統：它們一次只跑一個程式，其他的事都由一位操作員照料。今天很多電腦有好幾個處理器核心，所以真的有幾件事可以在同一刻進行。但是程式的數目通常比核心多得多，所以它還是靠輪流。"
+          ],
+          "questions": [
+            "How can a computer seem to do several things at once when the processor does one thing at a time?",
+            "What goes wrong if the turns are very long? What goes wrong if they are very short?",
+            "Name three things, besides sharing the processor, that an operating system looks after."
+          ],
+          "answers": [
+            "The operating system gives each program a short turn with the processor and then switches to the next. The turns come around so quickly that every program seems to be running all the time.",
+            "With very long turns, a program at the back of the line waits a long time, so something like music would break up. With very short turns, too much time goes to switching and too little to real work.",
+            "For example: it shares out memory and keeps programs from interfering with each other, it keeps track of where files are, and it stands between programs and devices such as the keyboard."
+          ],
+          "vocab": [
+            {
+              "n": 1,
+              "w": "manage",
+              "pos": "v.",
+              "zh": "管理",
+              "ex": "The librarian <b>manages</b> thousands of books.",
+              "exzh": "圖書館員管理幾千本書。"
+            },
+            {
+              "n": 2,
+              "w": "resource",
+              "pos": "n.",
+              "zh": "資源",
+              "ex": "Time is a <b>resource</b> that everyone has to share.",
+              "exzh": "時間是每個人都得分著用的資源。"
+            },
+            {
+              "n": 3,
+              "w": "share",
+              "pos": "v.",
+              "zh": "共用；分享",
+              "ex": "Four students <b>share</b> one microscope.",
+              "exzh": "四個學生共用一台顯微鏡。"
+            },
+            {
+              "n": 4,
+              "w": "turn",
+              "pos": "n.",
+              "zh": "輪到的一次",
+              "ex": "Wait until it is your <b>turn</b>.",
+              "exzh": "等到輪到你的時候。"
+            },
+            {
+              "n": 5,
+              "w": "switch",
+              "pos": "v.",
+              "zh": "切換；換",
+              "ex": "She <b>switched</b> from one task to another.",
+              "exzh": "她從一件工作換到另一件。"
+            },
+            {
+              "n": 6,
+              "w": "wait",
+              "pos": "v.",
+              "zh": "等",
+              "ex": "The other programs <b>wait</b> for their turn.",
+              "exzh": "其他的程式等著輪到自己。"
+            },
+            {
+              "n": 7,
+              "w": "balance",
+              "pos": "n.",
+              "zh": "平衡",
+              "ex": "You need a <b>balance</b> between work and rest.",
+              "exzh": "工作和休息之間要取得平衡。"
+            },
+            {
+              "n": 8,
+              "w": "interfere",
+              "pos": "v.",
+              "zh": "干擾",
+              "ex": "Please do not <b>interfere</b> with someone else’s work.",
+              "exzh": "請不要干擾別人的工作。"
+            }
+          ],
+          "quiz": [
+            {
+              "q": "What is an operating system?",
+              "options": [
+                "A part inside the computer",
+                "A program that manages the computer’s resources and shares them among other programs",
+                "A kind of memory",
+                "A very fast processor"
+              ],
+              "correct": 1
+            },
+            {
+              "q": "How does one processor seem to run many programs at once?",
+              "options": [
+                "It grows more processors.",
+                "Each program gets a short turn, and the turns come around very quickly.",
+                "It runs only the smallest program.",
+                "It stops the clock."
+              ],
+              "correct": 1
+            },
+            {
+              "q": "What happens while the processor is switching from one program to another?",
+              "options": [
+                "Every program runs faster.",
+                "Neither program moves forward, because switching takes time too.",
+                "The memory is wiped.",
+                "The screen turns off."
+              ],
+              "correct": 1
+            },
+            {
+              "q": "According to the reading, what goes wrong when turns are very long?",
+              "options": [
+                "Too much time goes to switching.",
+                "A program at the back of the line waits a long time.",
+                "The processor gets cold.",
+                "Files are lost."
+              ],
+              "correct": 1
+            },
+            {
+              "q": "Which of these is a job of the operating system?",
+              "options": [
+                "Checking the spelling in your essay",
+                "Deciding which program gets the processor next",
+                "Choosing the next song you like",
+                "Drawing your picture for you"
+              ],
+              "correct": 1
+            }
+          ],
+          "parts_head": {
+            "eyebrow": "Try It in the Model · 在模型裡試試",
+            "en": "Four ways to run the kitchen",
+            "zh": "四種管廚房的方法"
+          },
+          "parts": [
+            {
+              "key": "long",
+              "icon": "🐢",
+              "en": "One at a time",
+              "zh": "一張做完再做下一張",
+              "meta_en": "Turns of 12 beats: done at beat 51",
+              "meta_zh": "一次做 12 拍：第 51 拍做完",
+              "demo": "long",
+              "text_en": "The chef finishes each order before starting the next. How long does the last order wait before anything happens to it?",
+              "text_zh": "廚師把一張做完才開始下一張。最後那一張要等多久，才開始有進展？"
+            },
+            {
+              "key": "short",
+              "icon": "🔄",
+              "en": "Short turns",
+              "zh": "每張做一小段",
+              "meta_en": "Turns of 3 beats: done at beat 63",
+              "meta_zh": "一次做 3 拍：第 63 拍做完",
+              "demo": "short",
+              "text_en": "Now every bar rises a little at a time. Everything finishes later than before. What did the chef gain in return?",
+              "text_zh": "現在每根柱子都一點一點往上長。全部做完的時間比剛才晚。廚師換來了什麼？"
+            },
+            {
+              "key": "tiny",
+              "icon": "🏃",
+              "en": "Turns that are too short",
+              "zh": "每一輪太短",
+              "meta_en": "Turns of 1 beat: done at beat 95",
+              "meta_zh": "一次做 1 拍：第 95 拍做完",
+              "demo": "tiny",
+              "text_en": "Watch the “spent switching” counter. About how much of the chef’s time goes to walking?",
+              "text_zh": "注意看「花在換手」的計數。廚師大約有多少時間花在走路上？"
+            },
+            {
+              "key": "one",
+              "icon": "☝️",
+              "en": "Only one order",
+              "zh": "只有一張點單",
+              "meta_en": "No switching: done at beat 12",
+              "meta_zh": "不用換手：第 12 拍做完",
+              "demo": "one",
+              "text_en": "With one program there is nothing to switch to. How many beats are lost?",
+              "text_zh": "只有一個程式，就沒有別的可以換。浪費了幾拍？"
+            }
+          ],
+          "parts_note_en": "Then try two or three orders with turns of 6 beats, and guess the finishing beat before you press Start.",
+          "parts_note_zh": "接著試試兩張或三張點單、一次做 6 拍，按「開始做」之前先猜猜第幾拍做完。",
+          "slice": {
+            "eyebrow": "Try It · 自己試試",
+            "en": "Find the Right Length for a Turn",
+            "zh": "調出剛好的長短",
+            "lead_en": "Three programs share one processor: a download, an essay, and music. Music is special: if it waits too long for its turn, the sound breaks up. Move the slider to change how long each turn lasts, and look at the colored strip, which shows who has the processor from start to finish.",
+            "lead_zh": "三個程式共用一個處理器：下載、作文、音樂。音樂比較特別：如果等太久才輪到，聲音就會斷斷續續。拉動滑桿，改變每一輪的長短，再看那條彩色的時間軸——它顯示從頭到尾，處理器在誰手上。",
+            "note_en": "The numbers here are made up for the example: the beats, the work each program needs, and the rule that music breaks up after a wait of more than 10 beats. A real operating system uses more complicated rules than simple turns. The trade-off is real, though: shorter turns mean shorter waits and more switching.",
+            "note_zh": "這裡的數字是為了舉例自己訂的：拍、每個程式需要的工作量，還有「音樂等超過 10 拍就會斷」這條規則。真的作業系統用的規則比單純輪流複雜。但這個取捨是真的：每一輪越短，等的時間越短，換手也越多。",
+            "tips": [
+              {
+                "en": "The dark slivers in the strip are switching. Count how many there are at each setting.",
+                "zh": "時間軸上深色的細條就是換手。數一數每一種設定有幾條。"
+              },
+              {
+                "en": "With the longest turns, the music does not start until the other two have finished.",
+                "zh": "每一輪最長的時候，音樂要等另外兩個都做完才開始。"
+              },
+              {
+                "en": "There is more than one good setting. Which is the best for the download?",
+                "zh": "好的設定不只一個。對「下載」來說，哪一個最好？"
+              }
+            ]
+          },
+          "whose": {
+            "eyebrow": "Game · 小遊戲",
+            "en": "Whose Job Is It?",
+            "zh": "這是誰的工作？",
+            "lead_en": "Eight jobs. Some are done by an ordinary program, the kind you open and use. Others are done by the operating system, working behind them all. Decide which is which.",
+            "lead_zh": "一共八件工作。有些是一般的程式做的，就是你打開來用的那種；有些是作業系統做的，它在所有程式的背後工作。分分看。",
+            "ask_en": "Who does this?",
+            "ask_zh": "這是誰做的？",
+            "opts": [
+              [
+                "app",
+                "A program you open",
+                "你打開的程式"
+              ],
+              [
+                "os",
+                "The operating system",
+                "作業系統"
+              ]
+            ],
+            "tasks": [
+              {
+                "en": "Deciding which program gets the processor next",
+                "zh": "決定下一個輪到哪個程式用處理器",
+                "answer": "os",
+                "why_en": "Sharing out the processor is the operating system’s most delicate job.",
+                "why_zh": "分配處理器，是作業系統最細緻的一件工作。"
+              },
+              {
+                "en": "Checking the spelling in your essay",
+                "zh": "檢查你作文裡的拼字",
+                "answer": "app",
+                "why_en": "That is what a writing program is for.",
+                "why_zh": "這是文書程式該做的事。"
+              },
+              {
+                "en": "Keeping one program from interfering with another program’s memory",
+                "zh": "不讓一個程式干擾另一個程式的記憶體",
+                "answer": "os",
+                "why_en": "The operating system shares out memory and guards it.",
+                "why_zh": "作業系統負責分配記憶體，也負責看守。"
+              },
+              {
+                "en": "Choosing the next song in your playlist",
+                "zh": "從播放清單選出下一首歌",
+                "answer": "app",
+                "why_en": "The music program does that.",
+                "why_zh": "這是音樂程式做的。"
+              },
+              {
+                "en": "Keeping track of where each file is in storage",
+                "zh": "記住每個檔案放在儲存裝置的哪裡",
+                "answer": "os",
+                "why_en": "The operating system keeps the tables that say where files are.",
+                "why_zh": "作業系統保管著「檔案在哪裡」的那些表。"
+              },
+              {
+                "en": "Drawing the pieces in a chess game",
+                "zh": "畫出西洋棋遊戲裡的棋子",
+                "answer": "app",
+                "why_en": "The game decides what to draw. It asks the operating system to put it on the screen.",
+                "why_zh": "要畫什麼由遊戲決定；它再請作業系統把畫面送上螢幕。"
+              },
+              {
+                "en": "Turning a key number from the keyboard into a character",
+                "zh": "把鍵盤送來的鍵的編號變成字元",
+                "answer": "os",
+                "why_en": "You saw this in Lesson 8: the operating system does the lookup.",
+                "why_zh": "第八課看過：查表的是作業系統。"
+              },
+              {
+                "en": "Moving things from memory to storage when memory is full",
+                "zh": "記憶體滿了的時候，把東西移到儲存裝置",
+                "answer": "os",
+                "why_en": "You saw this in Lesson 7. It is the operating system that decides what to move.",
+                "why_zh": "第七課看過：決定要移走什麼的，就是作業系統。"
+              }
+            ]
+          },
+          "culture_cards": {
+            "eyebrow": "Stories Behind Operating Systems · 作業系統的故事",
+            "title_en": "Computers without one, many people on one machine, a student’s project, and the one in a home appliance",
+            "title_zh": "沒有作業系統的電腦、很多人共用一台機器、一個學生的計畫、家電裡的那一個",
+            "lead_en": "Four short stories about the program behind the programs.",
+            "lead_zh": "關於「程式背後的那個程式」的四個小故事。",
+            "cards": [
+              {
+                "k": "Mid-1950s · 1950 年代中期",
+                "en": "At first there was none",
+                "zh": "一開始並沒有",
+                "body_en": "According to Britannica, the first digital computers had no operating systems. They ran one program at a time, that program had command of everything, and a human operator provided whatever else was needed. The first operating systems were developed in the mid-1950s. They were small “supervisor programs” that handled basic input and output, such as controlling punch card readers and printers, and kept accounts of how much processor time each job used, for billing.",
+                "body_zh": "根據大英百科，最早的數位電腦沒有作業系統。它們一次只跑一個程式，那個程式掌管一切，其他需要的事由一位操作員來做。最早的作業系統出現在 1950 年代中期，是一些小小的「監督程式」，處理基本的輸入和輸出（例如控制打孔卡片閱讀機和印表機），還替每個工作記下用了多少處理器時間，好用來算帳。"
+              },
+              {
+                "k": "1960s · 1960 年代",
+                "en": "Many people, one computer",
+                "zh": "很多人，一台電腦",
+                "body_en": "In the 1960s computers were very expensive, and many people wanted to use the same one. The answer was time-sharing: a system that let many users share one computer by switching rapidly between them. Britannica names two early time-sharing systems: CTSS, developed at the Massachusetts Institute of Technology, and the Dartmouth College Basic System. Each user had a turn so often that the computer seemed to belong to that person alone.",
+                "body_zh": "1960 年代的電腦非常貴，很多人都想用同一台。解決的辦法叫分時（time-sharing）：系統在很多使用者之間快速切換，讓大家共用一台電腦。大英百科舉出兩個早期的分時系統：麻省理工學院開發的 CTSS，以及達特茅斯學院的 BASIC 系統。每個使用者都很頻繁地輪到，所以感覺那台電腦好像是自己一個人的。"
+              },
+              {
+                "k": "UNIX, Linux",
+                "en": "From a lab to your pocket",
+                "zh": "從實驗室到口袋",
+                "body_en": "Britannica calls UNIX the most important operating system of the 1970s. It was developed by AT&T and became widely used in the 1980s, in part because it was free to universities. Later came Linux, an open-source version of UNIX developed in part by a group led by the Finnish computer science student Linus Torvalds and in part by a group led by the American programmer Richard Stallman. For phones and tablets, Britannica names two prominent operating systems: Apple’s iOS and Google’s Android.",
+                "body_zh": "大英百科說，UNIX 是 1970 年代最重要的作業系統。它由 AT&T 開發，1980 年代被廣泛使用，原因之一是大學可以免費使用。後來出現了 Linux，它是 UNIX 的開放原始碼版本，一部分由芬蘭的資訊科系學生托瓦茲（Linus Torvalds）帶領的團隊開發，一部分由美國程式設計師史托曼（Richard Stallman）帶領的團隊開發。至於手機和平板，大英百科舉出兩個主要的作業系統：Apple 的 iOS 和 Google 的 Android。"
+              },
+              {
+                "k": "Real time · 即時",
+                "en": "Not only in computers",
+                "zh": "不只在電腦裡",
+                "body_en": "Operating systems are not only for the machines on your desk. Britannica notes that special-purpose operating systems run on small computers that control assembly lines, aircraft, and even home appliances. They are called real-time systems, and they are designed to respond rapidly to sensors and to use what the sensors report to control machinery. A machine like that cannot keep its sensors waiting for a long turn.",
+                "body_zh": "作業系統不只用在書桌上的電腦。大英百科提到，有些特殊用途的作業系統，跑在控制生產線、飛機、甚至家用電器的小電腦上。它們叫做即時系統（real-time system），設計的目標是對感測器迅速做出反應，再根據感測器回報的資料控制機器。這樣的機器，可不能讓感測器等上很長的一輪。"
+              }
+            ]
+          },
+          "myths": [
+            {
+              "myth_en": "A computer does many things at exactly the same moment.",
+              "myth_zh": "電腦在同一個瞬間做很多件事。",
+              "fact_en": "One processor core does one thing at a time. The operating system switches between programs so quickly that it looks like all at once. Extra cores help, but there are usually more programs than cores.",
+              "fact_zh": "一個處理器核心一次只做一件事。作業系統在程式之間切換得很快，所以看起來像同時。多幾個核心有幫助，但程式通常比核心多。"
+            },
+            {
+              "myth_en": "The operating system is the desktop: the picture, the icons, and the windows.",
+              "myth_zh": "作業系統就是桌面：那張圖、那些圖示和視窗。",
+              "fact_en": "That is the part you can see. Most of the work is out of sight: sharing the processor, the memory, the files, and the devices among programs.",
+              "fact_zh": "那只是你看得到的部分。大部分的工作在看不到的地方：把處理器、記憶體、檔案和裝置分配給各個程式。"
+            },
+            {
+              "myth_en": "Switching between programs costs nothing.",
+              "myth_zh": "在程式之間切換不花任何代價。",
+              "fact_en": "Britannica notes that switching between processes must itself use the processor. In the model, turns of 1 beat spend almost half the time on switching.",
+              "fact_zh": "大英百科指出，在行程之間切換，本身就要用到處理器。在模型裡，每一輪只做 1 拍的話，將近一半的時間都花在換手。"
+            },
+            {
+              "myth_en": "Only computers and phones have operating systems.",
+              "myth_zh": "只有電腦和手機有作業系統。",
+              "fact_en": "Special-purpose operating systems run on the small computers that control assembly lines, aircraft, and even home appliances.",
+              "fact_zh": "控制生產線、飛機、甚至家用電器的小電腦，上面也跑著特殊用途的作業系統。"
+            }
+          ],
+          "tricks_head": {
+            "en": "An operating system in a sentence",
+            "zh": "一句話記住作業系統"
+          },
+          "tricks": [
+            {
+              "title_en": "One chef, many orders",
+              "title_zh": "一位廚師，很多張點單",
+              "body_en": "One processor, many programs, taking turns.",
+              "body_zh": "一個處理器，很多程式，輪流來。"
+            },
+            {
+              "title_en": "Fast turns look like “at once”",
+              "title_zh": "輪得快，看起來像同時",
+              "body_en": "It only looks that way.",
+              "body_zh": "只是看起來像。"
+            },
+            {
+              "title_en": "Switching costs time",
+              "title_zh": "換手要花時間",
+              "body_en": "Too long, and others wait. Too short, and time is wasted.",
+              "body_zh": "太長，別人等；太短，白白浪費。"
+            },
+            {
+              "title_en": "The manager behind the programs",
+              "title_zh": "程式背後的管理員",
+              "body_en": "Processor, memory, files, devices.",
+              "body_zh": "處理器、記憶體、檔案、裝置。"
+            }
+          ],
+          "safety_head": {
+            "eyebrow": "Before You Start · 動手之前",
+            "en": "A few reminders",
+            "zh": "幾個提醒"
+          },
+          "safety": [
+            {
+              "en": "In Activity Monitor or Task Manager, only look. Do not quit or end anything in the list: some of those items are parts of the operating system itself.",
+              "zh": "在「活動監視器」或「工作管理員」裡只要看就好。不要結束清單裡的任何東西：其中有些就是作業系統自己的一部分。"
+            },
+            {
+              "en": "Never switch a computer off at the wall to “stop a program.” Shut it down the normal way.",
+              "zh": "不要為了「讓程式停下來」而直接拔插頭。請用正常的方式關機。"
+            },
+            {
+              "en": "In the classroom kitchen, the chef walks. It is a count of beats, not a race.",
+              "zh": "玩教室廚房的時候，廚師用走的。這是在數拍子，不是比賽跑。"
+            },
+            {
+              "en": "Use a school or family computer only with permission, and do not change its settings.",
+              "zh": "用學校或家裡的電腦要先得到同意，也不要更改設定。"
+            }
+          ],
+          "activities": [
+            {
+              "title_en": "The One-Chef Kitchen",
+              "title_zh": "一位廚師的廚房",
+              "materials": [
+                {
+                  "en": "Four desks in a row, each with a sheet of paper",
+                  "zh": "排成一排的四張桌子，每張桌上一張紙"
+                },
+                {
+                  "en": "One marker, which only the chef may hold",
+                  "zh": "一枝麥克筆，只有廚師可以拿"
+                },
+                {
+                  "en": "A sentence of 12 words on the board, for example: The quick brown fox jumps over the lazy dog near the river.",
+                  "zh": "黑板上一句 12 個字的英文句子，例如：The quick brown fox jumps over the lazy dog near the river."
+                },
+                {
+                  "en": "A student to clap a steady beat, and one to keep count",
+                  "zh": "一位同學穩定地打拍子，一位負責數"
+                }
+              ],
+              "steps": [
+                {
+                  "en": "One student is the chef. The job at each desk is to copy the sentence: one word on each beat. Walking from one desk to the next costs one beat, and nothing is written during it.",
+                  "zh": "一位同學當廚師。每張桌子的工作是把那個句子抄一遍：一拍寫一個字。從一張桌子走到下一張要花一拍，這一拍什麼都不寫。"
+                },
+                {
+                  "en": "Round 1: the chef finishes the whole sentence at one desk before moving on. Count the beats until all four are done. When does the last desk get its first word?",
+                  "zh": "第一回合：廚師在一張桌子把整句抄完，才換下一張。數一數四張都抄完要幾拍。最後一張桌子在第幾拍才寫下第一個字？"
+                },
+                {
+                  "en": "Round 2: the chef writes three words at a desk, then moves on, around and around. Count again.",
+                  "zh": "第二回合：廚師在一張桌子寫三個字就換下一張，一圈一圈輪下去。再數一次。"
+                },
+                {
+                  "en": "Round 3: one word at each desk. How many beats this time, and how many of them were spent walking?",
+                  "zh": "第三回合：每張桌子只寫一個字就換。這次一共幾拍？其中有幾拍花在走路？"
+                }
+              ],
+              "tip_en": "The counts should match the model: 51 beats, then 63, then 95, with 3, 15, and 47 beats of walking. Ask which round the students at the last desk liked best, and which round finished first. In Taiwan’s junior high Information Technology curriculum, this lesson matches the topic “System platforms”: 資 S-IV-2, whose notes list the operating system.",
+              "tip_zh": "數出來應該和模型一樣：51 拍、63 拍、95 拍，其中走路分別是 3、15、47 拍。問問坐在最後一張桌子的同學最喜歡哪一回合，再問哪一回合最早全部做完。對照十二年國教國中「資訊科技」的學習內容，這一課對應「系統平台」主題：資 S-IV-2 系統平台之組成架構與基本運作原理（附錄的說明列有作業系統）。"
+            },
+            {
+              "title_en": "Check It on Your Own Computer",
+              "title_zh": "在自己的電腦上驗證",
+              "materials": [
+                {
+                  "en": "A Windows or Mac computer",
+                  "zh": "一台 Windows 或 Mac 電腦"
+                },
+                {
+                  "en": "Paper and a pencil",
+                  "zh": "紙和鉛筆"
+                }
+              ],
+              "steps": [
+                {
+                  "en": "On a Mac, open Activity Monitor and click CPU. On Windows, open Task Manager and select the Performance tab.",
+                  "zh": "Mac：打開「活動監視器」，按 CPU。Windows：打開「工作管理員」，選 Performance（效能）分頁。"
+                },
+                {
+                  "en": "On a Mac, find three numbers at the bottom of the window: System, User, and Idle. Write them down. What do they add up to?",
+                  "zh": "Mac：在視窗最下面找到三個數字：System（系統）、User（使用者）、Idle（閒置）。把它們記下來。加起來是多少？"
+                },
+                {
+                  "en": "Look at the list of what is running. Without ending anything, count roughly how many items there are. Is it more than the number of apps you opened?",
+                  "zh": "看看正在執行的東西的清單。什麼都不要結束，大概數一數有幾項。比你自己打開的 App 多嗎？"
+                },
+                {
+                  "en": "Open one more app, wait a moment, and look at the numbers again.",
+                  "zh": "再多開一個 App，等一下，再看一次那些數字。"
+                }
+              ],
+              "tip_en": "Apple explains the three numbers: System is the share of the processor used by processes that belong to macOS, User is the share used by apps you opened, and Idle is the share not being used. Apple also says that most of the time the processor uses only a small percentage of its power. So the operating system needs turns of its own, and most of the time there is plenty to go around.",
+              "tip_zh": "Apple 對這三個數字的說明是：System 是屬於 macOS 的行程用掉的處理器比例，User 是你打開的 App 用掉的比例，Idle 是沒有在用的比例。Apple 還說，大部分時候處理器只用到一小部分的能力。也就是說，作業系統自己也要輪到；而大部分時候，處理器的時間綽綽有餘。"
+            }
+          ],
+          "links_head": {
+            "eyebrow": "Go Further · 延伸閱讀",
+            "en": "The method, the memory, the processor, and what comes next",
+            "zh": "方法、記憶體、處理器，以及下一課"
+          },
+          "links": [
+            {
+              "icon": "🧮",
+              "k_en": "Previous Lesson · Lesson 10",
+              "k_zh": "上一課・第十課",
+              "en": "What Is an Algorithm?",
+              "zh": "演算法是什麼？",
+              "note_en": "Taking turns is an algorithm too: a clear rule for deciding who goes next.",
+              "note_zh": "輪流也是一個演算法：一條決定「下一個換誰」的清楚規則。",
+              "href": "/resources/classes/computers/what-is-an-algorithm/"
+            },
+            {
+              "icon": "🗄️",
+              "k_en": "Lesson 7",
+              "k_zh": "第七課",
+              "en": "Why Does a Computer Need Two Kinds of Memory?",
+              "zh": "電腦為什麼要有兩種記憶？",
+              "note_en": "When the desk was full, something decided what to send back to the bookcase. That was the operating system.",
+              "note_zh": "書桌滿了的時候，有人決定把什麼送回書櫃。那就是作業系統。",
+              "href": "/resources/classes/computers/memory-and-storage/"
+            },
+            {
+              "icon": "⚙️",
+              "k_en": "Lesson 6",
+              "k_zh": "第六課",
+              "en": "What Does a Processor Do All Day?",
+              "zh": "處理器整天在忙什麼？",
+              "note_en": "The chef in this lesson is that processor: fetch, decode, execute, one instruction at a time.",
+              "note_zh": "這一課的廚師就是那個處理器：拿、看懂、照做，一次一條指令。",
+              "href": "/resources/classes/computers/processor/"
+            },
+            {
+              "icon": "🗜️",
+              "k_en": "Next Lesson · Lesson 12",
+              "k_zh": "下一課・第十二課",
+              "en": "How Can a File Get Smaller?",
+              "zh": "檔案為什麼可以變小？",
+              "note_en": "The same photo can take up a lot of room or a little. Next: how a file is squeezed, and what is lost.",
+              "note_zh": "同一張照片，可以占很多空間，也可以占很少。下一課：檔案是怎麼被壓小的，又失去了什麼。",
+              "soon": true
+            }
+          ],
+          "sources_note_en": "Facts on this page were checked against these sources (October 2026); the kitchen model is our own illustration, and every number is tested",
+          "sources_note_zh": "本頁的事實依下列資料查證（2026 年 10 月）；廚房模型是我們自己的示意，每一個數字都有測試",
+          "sources": [
+            {
+              "en": "An operating system is a “program that manages a computer’s resources, especially the allocation of those resources among other programs”; resources include the CPU, memory, file storage, input/output devices, and network connections; it “runs indefinitely and terminates only when the computer is turned off”; “each process is allowed to use the CPU for a limited time, which may be a fraction of a second, and then must give up control and become suspended until its next turn. Switching between processes must itself use the CPU”; virtual memory helps to prevent programs from interfering with each other; the first digital computers had no operating systems; the first were developed in the mid-1950s; CTSS and the Dartmouth College Basic System; UNIX, Linux, iOS, and Android; real-time systems for assembly lines, aircraft, and home appliances",
+              "zh": "作業系統是「管理電腦資源的程式，特別是把這些資源分配給其他程式」；資源包括 CPU、記憶體、檔案儲存、輸入輸出裝置與網路連線；它「一直執行，只有電腦關機時才結束」；「每個行程只能使用 CPU 一段有限的時間（可能是幾分之一秒），然後必須交出控制權、暫停到下一次輪到。在行程之間切換本身也必須用到 CPU」；虛擬記憶體有助於防止程式互相干擾；最早的數位電腦沒有作業系統；最早的作業系統出現在 1950 年代中期；CTSS 與達特茅斯學院 BASIC 系統；UNIX、Linux、iOS、Android；用於生產線、飛機、家電的即時系統",
+              "src": "David Hemmendinger, “operating system,” Encyclopaedia Britannica",
+              "url": "https://www.britannica.com/technology/operating-system"
+            },
+            {
+              "en": "Multitasking is “the running of multiple programs … in one computer at the same time,” controlled by the operating system; “a computer’s microprocessors switch their attention back and forth between different programs in fractions of seconds”",
+              "zh": "多工是在一台電腦上同時執行多個程式，由作業系統控制；電腦的微處理器在不同程式之間來回切換注意力，每次只有幾分之一秒",
+              "src": "The Editors of Encyclopaedia Britannica, “multitasking” (revised by Erik Gregersen)",
+              "url": "https://www.britannica.com/technology/multitasking"
+            },
+            {
+              "en": "Time-sharing: multiple users with different programs interact nearly simultaneously with the CPU; it was developed during the late 1950s and early 1960s to make more efficient use of expensive processor time",
+              "zh": "分時：多位使用者帶著不同的程式，幾乎同時和 CPU 互動；它在 1950 年代後期到 1960 年代初期發展出來，為的是更有效率地使用昂貴的處理器時間",
+              "src": "The Editors of Encyclopaedia Britannica, “time-sharing” (revised by Erik Gregersen)",
+              "url": "https://www.britannica.com/technology/time-sharing"
+            },
+            {
+              "en": "“Most of the time, the processor on your Mac uses only a small percentage of its processing power”; in Activity Monitor, click CPU; System is the percentage used by processes that belong to macOS, User the percentage used by apps you opened, and Idle the percentage not being used",
+              "zh": "大部分時候，Mac 的處理器只用到一小部分的處理能力；在「活動監視器」按 CPU；System 是屬於 macOS 的行程用掉的比例，User 是你打開的 App 用掉的比例，Idle 是沒有在用的比例",
+              "src": "Apple Support, “View CPU activity in Activity Monitor on Mac”",
+              "url": "https://support.apple.com/guide/activity-monitor/view-cpu-activity-actmntr43452/mac"
+            },
+            {
+              "en": "“Open Task Manager, then select the Performance tab to see how many cores and logical processors” a Windows device has",
+              "zh": "打開工作管理員，選 Performance 分頁，可以看到 Windows 裝置有幾個核心與邏輯處理器",
+              "src": "Microsoft Support, “Find out how many cores a processor on a Windows device has”",
+              "url": "https://support.microsoft.com/en-us/windows/experience/compatibility/find-out-how-many-cores-a-processor-on-a-windows-device-has"
+            },
+            {
+              "en": "Taiwan terms: time sharing 分時, scheduling 排程, process 行程. For multitasking the term bank gives 多任務 or 多工作業; this page uses 多工, the usual wording in Taiwan",
+              "zh": "台灣用語：time sharing 分時、scheduling 排程、process 行程。multitasking 樂詞網作「多任務」「多工作業」；本頁用台灣常見的「多工」",
+              "src": "國家教育研究院《樂詞網》",
+              "url": "https://terms.naer.edu.tw/search/?query_term=time+sharing&query_field=title&query_op=&match_type=exact"
+            },
+            {
+              "en": "資 S-IV-2, how system platforms are built and basically work (p. 10); the notes list the operating system, CPU, memory, and input and output (p. 43)",
+              "zh": "資 S-IV-2 系統平台之組成架構與基本運作原理（第 10 頁）；附錄三的說明：「系統軟硬體架構與運作原理：作業系統、CPU、記憶體、輸入輸出」（第 43 頁）",
+              "src": "教育部《十二年國民基本教育課程綱要 國民中學暨普通型高級中等學校 科技領域》（2018）",
+              "url": "https://www.naer.edu.tw/upload/1/16/doc/816/十二年國民基本教育課程綱要國民中學暨普通型高級中等學校-科技領域.pdf"
+            },
+            {
+              "en": "The kitchen model: four orders of 12 beats each, 1 beat to switch. Turns of 12 beats finish at beat 51 with 3 beats of switching (6%), and the last order waits 39 beats. Turns of 3 beats finish at beat 63 with 15 beats of switching (24%). Turns of 1 beat finish at beat 95 with 47 beats of switching (49%). One order alone finishes at beat 12. The numbers in “Find the Right Length for a Turn” come from the same rules",
+              "zh": "廚房模型：四張點單各 12 拍，換手 1 拍。一次做 12 拍：第 51 拍做完，換手 3 拍（6%），最後一張等了 39 拍。一次做 3 拍：第 63 拍做完，換手 15 拍（24%）。一次做 1 拍：第 95 拍做完，換手 47 拍（49%）。只有一張點單：第 12 拍做完。「調出剛好的長短」裡的數字用的是同一套規則",
+              "src": "Our own illustration, checked by tools/computers/test/sched.test.mjs",
+              "url": "https://github.com/lukelin7429/twrses/blob/main/tools/computers/test/sched.test.mjs"
+            }
+          ]
         }
       ],
       "planned": [
-        {
-          "n": 11,
-          "icon": "🧑‍🍳",
-          "en": "What Does an Operating System Do?",
-          "zh": "作業系統在做什麼？"
-        },
         {
           "n": 12,
           "icon": "🗜️",

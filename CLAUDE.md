@@ -726,6 +726,14 @@
   - `src/search2d.js`：`initGuessNum`（`[data-cp-guessnum]`，猜 1 到 100）、`initGrow`（`[data-cp-grow]`，10 到 100 萬個箱子兩種方法最多各開幾個；兩條長條同一個比例尺）。「該用哪一種找法」用通用選項題（`which` 段）。除錯：`el.__guessnum.start(73)`／`guess(50)`、`el.__grow.set(5)`。
   - 除錯：`document.querySelector('[data-compsearch-lab]').__lab`（`setN(n)`、`setWhere('first'|'last'|'random'|索引)`、`setMixed(bool)`、`stepOnce()`、`setPlaying(bool)`、`reset()`、`demo(...)`、`run(秒)`、`goCam()`、`render()`、`sim()`）。
   - 查證：演算法的定義、花拉子米、歐幾里得、直式除法、圖靈引 Britannica「algorithm」與「al-Khwārizmī」。課綱：國中資 A-IV-1、A-IV-3（第 10、42 頁）；**「循序搜尋與二元搜尋」的名稱在高中資 A-V-6（第 14 頁）**，頁面有分開寫。**沒寫**：任何秒數或「快幾倍」的實測、排序演算法的名字（bubble sort、quicksort）、大 O 記號。「二十個問題」與字典、抽屜等生活例子是自己的算術與比方，頁面有寫明。
+- 第十一課作業系統（`comp-sched.js`，`lab.kind = "sched"`，`data-compsched-lab`；slug `operating-system`；資料在 `units[2]`）：一個機制——**一個處理器一次只做一件事；作業系統讓很多程式輪流用它，換手本身也要花時間**。
+  - `src/sched.js`（純函式，`test/sched.test.mjs`）：`roundRobin(jobs, slice, sw)` 回 `{ segs, finish, firstStart, maxGap, total, work, switchTime, switchShare, turns }`（`segs` 的 `id: null`＝換手；只剩一個程式或同一個程式連續做就不換手）、`at(sim, t)`、`done(sim, id, t)`、`worstGap(sim)`。**時間單位是示意的「拍」，不是毫秒**；頁面不給真的時間片長度。
+  - 模型的數字（四張點單各 12 拍、換手 1 拍）：一次 12 拍→第 51 拍做完、換手 3 拍（6%）、最後一張等 39 拍；一次 3 拍→63、15（24%）、等最久 13；一次 1 拍→95、47（49%）、等最久 7；一張點單→12。小工具 `APPS3`＝下載 24、作文 12、**音樂 12 排最後**（排第一就不用等，示範不出「時間片太長音樂會卡」）；`STUTTER = 10`、`WASTE = 0.4` 是示意門檻，頁面有寫明。
+  - 場景：長檯、四個盤子（`lab.items`，key 要和 sched.js 的 `ORDERS` 一致）各有一根進度柱、廚師（處理器）在檯後；做的時候頭上有金色箭頭，換手時沿著檯子走。模擬時間 `state.t` 連續前進（`SPEED` 拍／秒），每一段換的時候更新說明。
+  - 右側欄：`[data-jobs]` 1–4、`[data-slice]` 1／3／6／12、`[data-bar]` 四條進度、三個計數（第幾拍、花在換手、做完幾張）。四張卡 `data-lab-demo`：`long`、`short`、`tiny`、`one`。
+  - `src/sched2d.js`：`initSlice`（`[data-cp-slice]`，滑桿選 `WIDGET_SLICES` 的索引，時間軸是一排 flex 色塊，`data-zone` = waste／ok／stutter）。「這是誰的工作」用通用選項題（`whose` 段）。除錯：`el.__slice.set(i)`／`state()`。
+  - 除錯：`document.querySelector('[data-compsched-lab]').__lab`（`setJobs(n)`、`setSlice(k)`、`setPlaying(bool)`、`seek(t)`、`reset()`、`demo(...)`、`run(秒)`、`goCam()`、`render()`、`sim()`）。
+  - 查證：作業系統的定義、「每個行程只能用 CPU 一段有限的時間（可能是幾分之一秒）」「切換本身也要用 CPU」、歷史（1950 年代中期、CTSS、UNIX、Linux、iOS、Android、即時系統）全部引 Hemmendinger 的 Britannica「operating system」；多工、分時各引 Britannica 條目；System／User／Idle 引 Apple 活動監視器說明。**沒寫**：時間片實際幾毫秒、context switch 這個詞、Linux 1991 年、優先權排程。multitasking 樂詞網作「多任務／多工作業」，頁面用「多工」並註明；process 用「行程」。
 - **預覽伺服器名額被別的 session 占滿時**（preview_start 回 Maximum 5 dev servers）：不要去停別人的，也不要用 Bash 跑伺服器。把 shot.mjs 的副本加一段 CDP `Fetch.enable`，攔截 `http://twrses.test/*` 直接從 worktree 讀檔回應（環境變數 `SHOT_ROOT`），不經過任何伺服器就能截圖、看 console 錯誤。
 - 查證過的事（出處在每課 `sources`）與**沒寫的事**記在 Obsidian 的系列索引；名詞一律台灣用語（位元、位元組、二進位、處理器、記憶體、電晶體），不用「比特、字節、內存」。
 - 和既有系列互相連結：第一課的 `links` 連晶片第二課 `/resources/classes/semiconductors/transistor/`（開關本身）與萬物原理第八課 `/resources/classes/how-things-work/computer-memory/`（0 和 1 存在哪裡），再放下一課的預告卡（`soon: true`）。
