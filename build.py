@@ -13131,7 +13131,7 @@ def build_cal_hub():
 _compj = os.path.join(ROOT, "data", "computers.json")
 COMP = json.load(open(_compj, encoding="utf-8")) if os.path.exists(_compj) else None
 COMP_BASE = "/resources/classes/computers/"
-_COMP_JS = {"bits": "comp-bits", "pixels": "comp-pixels", "logic": "comp-logic", "adder": "comp-adder", "pc": "comp-pc", "cpu": "comp-cpu", "desk": "comp-desk", "key": "comp-key"}   # lab.kind → assets/js/<bundle>.js
+_COMP_JS = {"bits": "comp-bits", "pixels": "comp-pixels", "logic": "comp-logic", "adder": "comp-adder", "pc": "comp-pc", "cpu": "comp-cpu", "desk": "comp-desk", "key": "comp-key", "robot": "comp-robot"}   # lab.kind → assets/js/<bundle>.js
 
 def _comp_ver():
     h = hashlib.md5()
@@ -13899,6 +13899,80 @@ def _comp_live(lv):
 </div>
 <ul class="cp-tips rvl">{tips}</ul>'''
 
+def comprobot_svg(size=56):
+    """第九課的課程卡小圖示：一台小機器人，旁邊三條指令（箭頭）。"""
+    return (f'<svg class="comprobot-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">'
+            '<rect x="8" y="26" width="24" height="20" rx="4" fill="#ffd36e"/><rect x="12" y="12" width="16" height="12" rx="3" fill="#e9edf5"/>'
+            '<circle cx="17" cy="18" r="1.8" fill="#1d2a44"/><circle cx="23" cy="18" r="1.8" fill="#1d2a44"/><path d="M20 12V7" stroke="#e9edf5" stroke-width="2" stroke-linecap="round"/><circle cx="20" cy="6" r="2" fill="#7ef0e3"/>'
+            '<path d="M13 46v5M27 46v5" stroke="#c9a47a" stroke-width="3" stroke-linecap="round"/>'
+            '<g fill="none" stroke="#7ef0e3" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">'
+            '<path d="M46 20v-9m-3.5 3.5L46 11l3.5 3.5"/><path d="M41 33h9v-6m-3 3 3-3 3 3" /><path d="M46 50v-9m-3.5 3.5L46 41l3.5 3.5"/></g></svg>')
+
+_COMP_CARD["robot"] = comprobot_svg
+
+def render_comprobot_lab(lesson):
+    """第九課：走格子的小機器人（assets/js/comp-robot.js 綁這裡的 class；全部自繪示意）。"""
+    lab = lesson["lab"]
+    pb = "".join(
+        f'<button type="button" data-prog="{p["key"]}" aria-pressed="false"><b>{html.escape(p["en"])}</b><small>{html.escape(p["zh"])}</small></button>'
+        for p in lab["progs"])
+    tg = _lab_toggles([("labels", "Labels", "標示", True)])
+    return f'''<div class="astro-lab cp-lab cp-rb-lab rvl" data-comprobot-lab>
+  <div class="al-stage">
+    <div class="al-space">
+      <canvas class="al-space-cv" aria-label="3D model of a small robot on a floor of six by six squares, with walls and a flag · 六乘六格子地板上的小機器人、牆和一面旗子的 3D 模型"></canvas>
+      <div class="al-labels" aria-hidden="true"></div>
+      <p class="al-hint">Drag to turn · 拖曳旋轉</p>
+      <button type="button" class="al-home" title="Reset view · 重設視角" aria-label="Reset view · 重設視角">&#8634;</button>
+      <p class="al-nogl-msg">This 3D model needs WebGL, which this browser does not support. The program list and the buttons below still work, and so do the reading and the games.<br><span class="zh">這個瀏覽器不支援 WebGL，無法顯示 3D 模型；下面的程式清單和按鈕照樣能用，課文和小遊戲也都能用。</span></p>
+    </div>
+    <aside class="al-sky cp-aside">
+      <p class="al-sky-k">Choose a program · 選一個程式</p>
+      <div class="cp-rb-progs" role="group" aria-label="Programs · 程式">{pb}</div>
+      <button type="button" class="cp-btn-d cp-rb-room" hidden>Same program, another room · 同一個程式，換一個房間</button>
+      <p class="al-sky-k">The program · 程式</p>
+      <ol class="cp-rb-code" aria-label="The program, line by line · 程式，一行一行"></ol>
+      <dl class="cp-dk-nums cp-rb-nums">
+        <div><dt>Instructions written · 寫了幾條指令</dt><dd class="cp-rb-n">0</dd></div>
+        <div><dt>Steps taken · 走了幾步</dt><dd class="cp-rb-steps">0</dd></div>
+      </dl>
+      <p class="cp-msg" aria-live="polite"></p>
+    </aside>
+  </div>
+  <div class="al-controls">
+    <div class="al-row al-row-main">
+      <button type="button" class="al-play" aria-pressed="false"><span class="al-play-t">Run · 執行</span></button>
+      <button type="button" class="cp-btn-d cp-step">One step · 一次一步</button>
+      <button type="button" class="cp-btn-d cp-reset">Back to the start · 回到起點</button>
+      <div class="al-row al-toggles">{tg}</div>
+    </div>
+  </div>
+  {_lab_foot(lab)}
+  <p class="cp-credit">{lab["credit_html"]}</p>
+</div>'''
+
+def _comp_maze(mz):
+    tabs = "".join(f'<button type="button" data-lv="{i}" aria-pressed="false"><i>{i + 1}</i>{html.escape(l["en"])}<small>{html.escape(l["zh"])}</small></button>' for i, l in enumerate(mz["levels"]))
+    tips = "".join(f'<li>{html.escape(t["en"])}<span class="zh">{html.escape(t["zh"])}</span></li>' for t in mz["tips"])
+    return f'''<div class="cp-full cp-maze rvl" data-cp-maze data-levels="{html.escape(json.dumps(mz["levels"], ensure_ascii=False))}">
+  <div class="cp-mz-tabs" role="group" aria-label="Levels · 關卡">{tabs}</div>
+  <p class="cp-mz-hint"></p>
+  <div class="cp-mz-main">
+    <div class="cp-mz-grid" aria-hidden="true"></div>
+    <div class="cp-mz-side">
+      <p class="cp-k">Your program · 你的程式 <span class="cp-mz-c">(<b class="cp-mz-count">0</b> instructions · 條指令)</span></p>
+      <div class="cp-mz-rep" hidden><span>repeat · 重複</span><button type="button" data-d="-1" aria-label="Fewer times · 少一次">&minus;</button><b class="cp-mz-n">2</b><button type="button" data-d="1" aria-label="More times · 多一次">+</button><span>times: · 次：</span></div>
+      <ol class="cp-mz-prog"></ol>
+      <p class="cp-k">Blocks · 積木</p>
+      <div class="cp-mz-tokens"></div>
+      <div class="cp-mz-btns"><button type="button" class="cp-btn cp-btn-gold cp-mz-run">Run · 執行</button><button type="button" class="cp-btn cp-mz-clear">Clear · 清空</button></div>
+    </div>
+  </div>
+  <p class="cp-lv-msg cp-mz-msg" aria-live="polite"></p>
+  <p class="cp-lv-note">{html.escape(mz["note_en"])}<span class="zh">{html.escape(mz["note_zh"])}</span></p>
+</div>
+<ul class="cp-tips rvl">{tips}</ul>'''
+
 def _comp_flat():
     return [(ui, u, l) for ui, u in enumerate(COMP["units"]) for l in u["lessons"]]
 
@@ -13926,7 +14000,7 @@ def build_comp_lesson(ui, unit, lesson):
     reading_html = render_basic_unit(1, unit_dict, level="comp", audio_rel="", pdf_rel="")
     lab = lesson["lab"]
     kind = lab["kind"]
-    lab_html = {"bits": render_compbits_lab, "pixels": render_comppixels_lab, "logic": render_complogic_lab, "adder": render_compadder_lab, "pc": render_comppc_lab, "cpu": render_compcpu_lab, "desk": render_compdesk_lab, "key": render_compkey_lab}[kind](lesson)
+    lab_html = {"bits": render_compbits_lab, "pixels": render_comppixels_lab, "logic": render_complogic_lab, "adder": render_compadder_lab, "pc": render_comppc_lab, "cpu": render_compcpu_lab, "desk": render_compdesk_lab, "key": render_compkey_lab, "robot": render_comprobot_lab}[kind](lesson)
 
     def sec(key, fn):
         d = lesson[key]
@@ -13963,6 +14037,8 @@ def build_comp_lesson(ui, unit, lesson):
     if lesson.get("stages"): secs.append(sec("stages", _comp_choice))
     if lesson.get("io"): secs.append(sec("io", _comp_choice))
     if lesson.get("live"): secs.append(sec("live", _comp_live))
+    if lesson.get("maze"): secs.append(sec("maze", _comp_maze))
+    if lesson.get("facing"): secs.append(sec("facing", _comp_choice))
     if lesson.get("culture_cards"):
         cu = lesson["culture_cards"]
         cc = "".join(

@@ -5409,7 +5409,7 @@
               "zh": "程式是什麼？",
               "note_en": "Unit 2 ends here: you have seen the whole machine. Unit 3 is about software, the instructions that tell the machine what to do.",
               "note_zh": "單元二到這裡結束：整台機器你都看過了。單元三要講軟體，也就是告訴機器該做什麼的那些指令。",
-              "soon": true
+              "href": "/resources/classes/computers/what-is-a-program/"
             }
           ],
           "sources_note_en": "Facts on this page were checked against these sources (October 2026); the model and its small letter shapes are our own illustration, and its rules are tested",
@@ -5486,14 +5486,707 @@
       "title_zh": "軟體：告訴電腦做什麼",
       "blurb_en": "What a program is, why one method can be far faster than another, how one processor serves many programs, and how a file can get smaller.",
       "blurb_zh": "程式是什麼、為什麼同一件事換個方法會快很多、一個處理器怎麼同時服務很多程式，以及檔案為什麼可以變小。",
-      "lessons": [],
-      "planned": [
+      "lessons": [
         {
           "n": 9,
+          "slug": "what-is-a-program",
+          "title": "What Is a Program?",
+          "title_zh": "程式是什麼？",
+          "level": "入門 · Beginner",
           "icon": "🤖",
-          "en": "What Is a Program?",
-          "zh": "程式是什麼？"
-        },
+          "card": "robot",
+          "blurb_en": "A small robot on a floor of squares does exactly what its program says, one instruction at a time. Watch it walk a staircase in fifteen instructions, then in five. Leave one instruction out and see where it ends up. Then write your own programs for three levels: in order, with a repeat, and with a question.",
+          "blurb_zh": "格子地板上的一台小機器人，完全照程式說的做，一次一條指令。看它用十五條指令走一段階梯，再看它只用五條；漏掉一條，看它最後停在哪裡。接著自己寫程式闖三關：照順序、用重複、會問問題。",
+          "big_idea_en": "A program is a list of instructions, in order, with nothing left unclear. The computer does exactly what the program says. It does not guess what you meant. Three ideas are enough to build one: do things in order, repeat things, and choose what to do by asking a question.",
+          "big_idea_zh": "程式是一串照順序排好、沒有任何含糊地方的指令。電腦完全照程式說的做，不會去猜你的意思。組出一個程式只需要三個觀念：照順序做、重複做、先問一個問題再決定做什麼。",
+          "lab": {
+            "kind": "robot",
+            "eyebrow": "3D Model · 3D 模型",
+            "title_en": "The Robot That Does Exactly What It Is Told",
+            "title_zh": "說什麼就做什麼的機器人",
+            "how_en": "The robot understands only a few instructions: forward, turn left, turn right, repeat, and “if there is a wall ahead.” Choose one of the four programs on the right and press Run. The line the robot is carrying out lights up. Compare the first two programs: they do the same walk. Then run the third, which has one line missing, and the fourth, which works in two different rooms.",
+            "how_zh": "機器人只聽得懂幾種指令：前進、左轉、右轉、重複，還有「如果前面是牆」。在右邊四個程式裡選一個，按「執行」，機器人正在做的那一行會亮起來。比一比前兩個程式：它們走的是同一段路。再跑第三個（漏了一行），和第四個（在兩個不同的房間都走得到）。",
+            "progs": [
+              {
+                "key": "seq",
+                "en": "In order",
+                "zh": "照順序"
+              },
+              {
+                "key": "loop",
+                "en": "With a repeat",
+                "zh": "用重複"
+              },
+              {
+                "key": "bug",
+                "en": "One line missing",
+                "zh": "漏了一行"
+              },
+              {
+                "key": "cond",
+                "en": "With a question",
+                "zh": "會問問題"
+              }
+            ],
+            "legend": [
+              {
+                "cls": "cprobot",
+                "en": "The robot",
+                "zh": "機器人"
+              },
+              {
+                "cls": "cpnose",
+                "en": "Teal pointer: the way the robot is facing",
+                "zh": "青色箭頭：機器人面向哪一邊"
+              },
+              {
+                "cls": "cpwall",
+                "en": "Walls: the robot cannot pass",
+                "zh": "牆：機器人過不去"
+              },
+              {
+                "cls": "cpflag",
+                "en": "The flag: where the program should take the robot",
+                "zh": "旗子：程式要把機器人帶到的地方"
+              },
+              {
+                "cls": "cpseen",
+                "en": "Green squares: where the robot has been",
+                "zh": "綠色的格子：機器人走過的地方"
+              }
+            ],
+            "scale_en": "A teaching model. The robot’s instructions are a tiny language we made up for this lesson; it is not a real programming language. Real programs are written in languages such as Python and are then translated, in several stages, into machine instructions like the ones in Lesson 6. In the model a mistake is easy to see, because the robot ends up in the wrong place. In a real program a mistake can be much harder to notice.",
+            "scale_zh": "這是教學用的示意模型。機器人的指令是我們為這一課自己設計的小語言，不是真的程式語言。真的程式是用 Python 這類語言寫的，再分好幾個階段翻譯成第六課那種機器指令。在模型裡，錯誤很容易看出來，因為機器人停在不對的地方；真的程式裡，錯誤可能難發現得多。",
+            "credit_html": "Model and code are drawn and programmed by My Culture Connect. The robot’s rules and every program on this page are tested in <code>tools/computers/test/robot.test.mjs</code>.<br><span class=\"zh\">模型與程式由人師教育協會自行繪製、撰寫；機器人的規則和這一頁每一個程式都有自動測試（<code>tools/computers/test/robot.test.mjs</code>）。</span>"
+          },
+          "paras": [
+            "In Lesson 6 you watched a processor fetch an instruction, carry it out, and fetch the next one. But where do the instructions come from? People write them. A list of instructions written for a computer is called a program. An encyclopedia describes a program as an unambiguous, ordered sequence of instructions. Two words there matter most: ordered, and unambiguous.",
+            "Think of a small robot on a floor of squares. It understands only three instructions: forward, turn left, and turn right. To send it to a flag, you write the instructions one under another, and the robot carries them out from top to bottom. The order matters. “Forward, then turn left” and “turn left, then forward” end on different squares.",
+            "The robot does exactly what is written. If you leave out one “turn right,” it does not notice. It carries on and finishes somewhere else. If you tell it to go forward when a wall is in the way, it walks into the wall. A mistake in a program is called a bug, and finding and fixing it is called debugging. When a program goes wrong, it is usually because the computer did just what it was told.",
+            "Often a program does the same thing again and again. To climb four stairs, the robot does “forward, turn left, forward, turn right” over and over. Written out one by one, that is a long list. It is better to write those four once and say “repeat 4 times.” This is called a loop. The program becomes shorter, and it is easier to read and to change.",
+            "Sometimes the right move depends on what the robot finds. So a program can ask a question: “If there is a wall ahead, turn left.” The robot checks, and it does the inside part only when the answer is yes. A program with a question in it can work in rooms its writer has never seen. In the same way, a real program can wait to see which key you press.",
+            "These are the three building blocks: doing things in order, repeating, and choosing. Real programs are written in programming languages such as Python, and then they are translated, in several stages, into the machine language of Lesson 6. A game or a web browser may have millions of lines. But line by line, it is still someone’s instructions, carried out exactly."
+          ],
+          "paras_zh": [
+            "在第六課，你看過處理器拿一條指令、照著做、再拿下一條。可是這些指令是哪裡來的？是人寫的。寫給電腦的一串指令，就叫做程式。百科全書對程式的描述是：一串沒有含糊之處、照順序排好的指令。這裡面最重要的是兩個詞：照順序，以及沒有含糊之處。",
+            "想像格子地板上有一台小機器人。它只聽得懂三種指令：前進、左轉、右轉。要讓它走到旗子，你把指令一條一條往下寫，機器人就從上到下照著做。順序很重要。「先前進再左轉」和「先左轉再前進」，最後停在不同的格子。",
+            "機器人完全照寫的做。你漏寫一條「右轉」，它不會發現，繼續做下去，最後停在別的地方。前面明明有牆，你還叫它前進，它就撞上去。程式裡的錯誤叫做 bug（程式錯誤），把它找出來、改掉叫做除錯（debugging）。程式出問題的時候，通常正是因為電腦完全照著指示做了。",
+            "程式常常要把同一件事做很多遍。要爬四級階梯，機器人得把「前進、左轉、前進、右轉」做了又做。一條一條寫出來，是很長的一串。比較好的寫法是：這四條只寫一次，然後說「重複 4 次」。這叫做迴圈（loop）。程式變短了，也比較好讀、好改。",
+            "有時候該怎麼走，要看機器人遇到什麼。所以程式可以問一個問題：「如果前面是牆，就左轉。」機器人會去檢查，答案是「是」才做裡面的事。帶著問題的程式，連寫的人從來沒看過的房間都走得通。同樣的道理，真正的程式可以等著看你按的是哪一個鍵。",
+            "這就是三種積木：照順序做、重複、選擇。真的程式是用 Python 這類程式語言寫的，再分好幾個階段翻譯成第六課的機器語言。一個遊戲或一個瀏覽器可能有幾百萬行。可是一行一行看，它仍然是某個人寫下的指令，被一絲不差地執行。"
+          ],
+          "questions": [
+            "What is a program, and which two words in the encyclopedia’s description matter most?",
+            "The robot ends up in the wrong place. Whose mistake is it, and why?",
+            "What are the three building blocks of a program? Give an example of each from the robot."
+          ],
+          "answers": [
+            "A program is a list of instructions written for a computer. The two words are “ordered” (the instructions are carried out in order) and “unambiguous” (each one has only one meaning).",
+            "It is the mistake of the person who wrote the program. The robot did exactly what was written. It cannot guess what the writer meant.",
+            "Doing things in order: forward, then turn left. Repeating: “repeat 4 times” around four instructions. Choosing: “if there is a wall ahead, turn left.”"
+          ],
+          "vocab": [
+            {
+              "n": 1,
+              "w": "program",
+              "pos": "n.",
+              "zh": "程式",
+              "ex": "She wrote a short <b>program</b> to draw a square.",
+              "exzh": "她寫了一個短短的程式來畫正方形。"
+            },
+            {
+              "n": 2,
+              "w": "instruction",
+              "pos": "n.",
+              "zh": "指令；指示",
+              "ex": "Read each <b>instruction</b> before you begin.",
+              "exzh": "開始之前，把每一條指示都讀一遍。"
+            },
+            {
+              "n": 3,
+              "w": "order",
+              "pos": "n.",
+              "zh": "順序",
+              "ex": "Put the steps in the right <b>order</b>.",
+              "exzh": "把步驟照正確的順序排好。"
+            },
+            {
+              "n": 4,
+              "w": "repeat",
+              "pos": "v.",
+              "zh": "重複",
+              "ex": "<b>Repeat</b> the last two steps three times.",
+              "exzh": "把最後兩個步驟重複三次。"
+            },
+            {
+              "n": 5,
+              "w": "condition",
+              "pos": "n.",
+              "zh": "條件",
+              "ex": "The door opens only on one <b>condition</b>: you must know the code.",
+              "exzh": "門只在一個條件下才會開：你得知道密碼。"
+            },
+            {
+              "n": 6,
+              "w": "bug",
+              "pos": "n.",
+              "zh": "程式錯誤；bug",
+              "ex": "There is a <b>bug</b> in my program, so the robot hits the wall.",
+              "exzh": "我的程式有一個 bug，所以機器人撞到牆。"
+            },
+            {
+              "n": 7,
+              "w": "exactly",
+              "pos": "adv.",
+              "zh": "完全地；一絲不差地",
+              "ex": "The robot did <b>exactly</b> what I wrote.",
+              "exzh": "機器人完全照我寫的做了。"
+            },
+            {
+              "n": 8,
+              "w": "guess",
+              "pos": "v.",
+              "zh": "猜",
+              "ex": "A computer cannot <b>guess</b> what you mean.",
+              "exzh": "電腦沒辦法猜你的意思。"
+            }
+          ],
+          "quiz": [
+            {
+              "q": "What is a program?",
+              "options": [
+                "A part inside the computer",
+                "An ordered list of instructions for a computer",
+                "A kind of memory",
+                "A picture on the screen"
+              ],
+              "correct": 1
+            },
+            {
+              "q": "You leave out one instruction. What does the robot do?",
+              "options": [
+                "It guesses the missing step.",
+                "It carries on and does exactly what is written.",
+                "It asks you a question.",
+                "It goes back to the start."
+              ],
+              "correct": 1
+            },
+            {
+              "q": "What is a loop for?",
+              "options": [
+                "Making the robot faster",
+                "Doing the same instructions again and again without writing them many times",
+                "Finding bugs",
+                "Turning the robot around"
+              ],
+              "correct": 1
+            },
+            {
+              "q": "“If there is a wall ahead, turn left.” When does the robot turn left?",
+              "options": [
+                "Every time",
+                "Never",
+                "Only when there is a wall ahead",
+                "Only at the flag"
+              ],
+              "correct": 2
+            },
+            {
+              "q": "What is debugging?",
+              "options": [
+                "Writing a longer program",
+                "Finding and fixing mistakes in a program",
+                "Cleaning the keyboard",
+                "Repeating instructions"
+              ],
+              "correct": 1
+            }
+          ],
+          "parts_head": {
+            "eyebrow": "Try It in the Model · 在模型裡試試",
+            "en": "Four programs to run",
+            "zh": "四個值得跑一跑的程式"
+          },
+          "parts": [
+            {
+              "key": "seq",
+              "icon": "📜",
+              "en": "In order",
+              "zh": "照順序",
+              "meta_en": "15 instructions, top to bottom",
+              "meta_zh": "15 條指令，從上到下",
+              "demo": "seq",
+              "text_en": "Watch the lit line move down the program. Do you see a group of four instructions that keeps coming back?",
+              "text_zh": "看亮起來的那一行一路往下走。你有沒有發現，有四條指令一直重複出現？"
+            },
+            {
+              "key": "loop",
+              "icon": "🔁",
+              "en": "With a repeat",
+              "zh": "用重複",
+              "meta_en": "The same walk in 5 instructions",
+              "meta_zh": "同一段路，只要 5 條指令",
+              "demo": "loop",
+              "text_en": "The robot takes the same fifteen steps. How many instructions did someone have to write this time?",
+              "text_zh": "機器人走的是一樣的十五步。這一次，寫的人要寫幾條指令？"
+            },
+            {
+              "key": "bug",
+              "icon": "🐞",
+              "en": "One line missing",
+              "zh": "漏了一行",
+              "meta_en": "The robot does not notice",
+              "meta_zh": "機器人不會發現",
+              "demo": "bug",
+              "text_en": "One “turn right” was left out. Where does the robot finish? Can you tell which line is missing?",
+              "text_zh": "有一條「右轉」被漏掉了。機器人最後停在哪裡？你看得出漏的是哪一行嗎？"
+            },
+            {
+              "key": "cond",
+              "icon": "❓",
+              "en": "With a question",
+              "zh": "會問問題",
+              "meta_en": "One program, two rooms",
+              "meta_zh": "一個程式，兩個房間",
+              "demo": "cond",
+              "text_en": "Before each step the robot checks for a wall. After it reaches the flag, send the same program into the other room.",
+              "text_zh": "機器人每走一步之前都先看看有沒有牆。它走到旗子之後，把同一個程式換到另一個房間再跑一次。"
+            }
+          ],
+          "parts_note_en": "Use “One step” to go through any program slowly, one instruction at a time.",
+          "parts_note_zh": "想慢慢看的話，用「一次一步」，一條指令一條指令地走。",
+          "maze": {
+            "eyebrow": "Game · 小遊戲",
+            "en": "Write the Program",
+            "zh": "換你寫程式",
+            "lead_en": "Three levels, one for each building block. Tap the blocks to add instructions to your program. Tap an instruction in your program to take it out. Then press Run and watch the robot do exactly what you wrote.",
+            "lead_zh": "一共三關，三種積木各一關。點積木，把指令加進你的程式；點程式裡的指令，可以把它拿掉。然後按「執行」，看機器人完全照你寫的做。",
+            "levels": [
+              {
+                "key": "seq",
+                "en": "In order",
+                "zh": "照順序",
+                "hint_en": "Level 1. Get the robot to the flag. The robot starts facing up.",
+                "hint_zh": "第一關。把機器人帶到旗子。機器人一開始面向上方。"
+              },
+              {
+                "key": "loop",
+                "en": "Repeat",
+                "zh": "重複",
+                "hint_en": "Level 2. A staircase. Your instructions go inside a repeat, and there is room for only four. Choose how many times to repeat. The robot starts facing right.",
+                "hint_zh": "第二關。一段階梯。你的指令放在「重複」裡面，而且只放得下四條。自己決定要重複幾次。機器人一開始面向右邊。"
+              },
+              {
+                "key": "cond",
+                "en": "Ask a question",
+                "zh": "問問題",
+                "hint_en": "Level 3. There is room for only two instructions inside the repeat. You will need a block that asks about the wall. The robot starts facing right.",
+                "hint_zh": "第三關。「重複」裡面只放得下兩條指令。你會用到問「前面是不是牆」的積木。機器人一開始面向右邊。"
+              }
+            ],
+            "note_en": "The robot stops as soon as it reaches the flag, so repeating a few more times than needed does no harm. If it walks into a wall, the whole program stops there.",
+            "note_zh": "機器人一走到旗子就會停下來，所以重複的次數比需要的多幾次沒有關係。如果它撞到牆，整個程式就停在那裡。",
+            "tips": [
+              {
+                "en": "Stuck? Run a program that is not finished. Seeing where the robot goes wrong tells you what to fix.",
+                "zh": "卡住了？把還沒寫完的程式先跑跑看。看到機器人在哪裡出錯，就知道要改什麼。"
+              },
+              {
+                "en": "In Level 2, look for the small group of moves that climbs one stair.",
+                "zh": "第二關：找出「爬一級階梯」的那一小組動作。"
+              },
+              {
+                "en": "In Level 3, the question comes first and the step comes second.",
+                "zh": "第三關：先問問題，再走一步。"
+              }
+            ]
+          },
+          "facing": {
+            "eyebrow": "Game · 小遊戲",
+            "en": "Which Way Is It Facing?",
+            "zh": "它最後面向哪一邊？",
+            "lead_en": "Be the computer. Eight tiny programs made only of turns. Carry out each one in your head, exactly as written, and say which way the robot faces at the end.",
+            "lead_zh": "換你當電腦。八個只有轉彎的小程式。在腦子裡一條一條照著做，說出機器人最後面向哪一邊。",
+            "ask_en": "Which way does it face at the end?",
+            "ask_zh": "它最後面向哪一邊？",
+            "opts": [
+              [
+                "N",
+                "North",
+                "北"
+              ],
+              [
+                "E",
+                "East",
+                "東"
+              ],
+              [
+                "S",
+                "South",
+                "南"
+              ],
+              [
+                "W",
+                "West",
+                "西"
+              ]
+            ],
+            "tasks": [
+              {
+                "en": "Facing north. Program: turn right.",
+                "zh": "面向北。程式：右轉。",
+                "answer": "E",
+                "why_en": "One turn to the right from north is east.",
+                "why_zh": "從北邊右轉一次是東。"
+              },
+              {
+                "en": "Facing north. Program: turn left, turn left.",
+                "zh": "面向北。程式：左轉、左轉。",
+                "answer": "S",
+                "why_en": "Two turns the same way point it backward.",
+                "why_zh": "往同一邊轉兩次，就是向後轉。"
+              },
+              {
+                "en": "Facing east. Program: turn right, turn left.",
+                "zh": "面向東。程式：右轉、左轉。",
+                "answer": "E",
+                "why_en": "The second turn undoes the first.",
+                "why_zh": "第二次轉彎把第一次抵銷了。"
+              },
+              {
+                "en": "Facing north. Program: repeat 4 times: turn right.",
+                "zh": "面向北。程式：重複 4 次：右轉。",
+                "answer": "N",
+                "why_en": "Four turns the same way bring it all the way around.",
+                "why_zh": "往同一邊轉四次，剛好轉一整圈。"
+              },
+              {
+                "en": "Facing north. Program: repeat 3 times: turn left.",
+                "zh": "面向北。程式：重複 3 次：左轉。",
+                "answer": "E",
+                "why_en": "North, west, south, east. Three lefts are the same as one right.",
+                "why_zh": "北、西、南、東。左轉三次等於右轉一次。"
+              },
+              {
+                "en": "Facing south. Program: turn right, turn right, turn right.",
+                "zh": "面向南。程式：右轉、右轉、右轉。",
+                "answer": "E",
+                "why_en": "South, west, north, east.",
+                "why_zh": "南、西、北、東。"
+              },
+              {
+                "en": "Facing west. Program: repeat 2 times: turn left, turn left.",
+                "zh": "面向西。程式：重複 2 次：左轉、左轉。",
+                "answer": "W",
+                "why_en": "That is four left turns in all: a full circle.",
+                "why_zh": "一共左轉四次，轉了一整圈。"
+              },
+              {
+                "en": "Facing east. Program: repeat 3 times: turn right, turn right.",
+                "zh": "面向東。程式：重複 3 次：右轉、右轉。",
+                "answer": "W",
+                "why_en": "Six right turns. Four make a full circle, and the two left over point it backward.",
+                "why_zh": "一共右轉六次。四次是一整圈，剩下兩次就是向後轉。"
+              }
+            ]
+          },
+          "culture_cards": {
+            "eyebrow": "Stories Behind Programs · 程式的故事",
+            "title_en": "A program before computers, a turtle, a moth, and a translator",
+            "title_zh": "電腦出現之前的程式、一隻海龜、一隻飛蛾、一位翻譯",
+            "lead_en": "Four short stories about writing instructions for machines.",
+            "lead_zh": "關於「寫指令給機器」的四個小故事。",
+            "cards": [
+              {
+                "k": "1843",
+                "en": "A program for a machine that was never finished",
+                "zh": "寫給一台沒有造完的機器的程式",
+                "body_en": "In 1843 the English mathematician Ada Lovelace translated an article about Charles Babbage’s Analytical Engine and added long notes of her own. According to Britannica, they included a description of how the machine could be programmed to compute a series of numbers called Bernoulli numbers. Babbage built only a small part of the engine, but Lovelace has been called the first computer programmer, and a programming language, Ada, was named for her.",
+                "body_zh": "1843 年，英國數學家愛達・勒芙蕾絲（Ada Lovelace）翻譯了一篇介紹巴貝奇「分析機」的文章，還加上自己寫的長篇註解。根據大英百科，註解裡描述了怎麼替這台機器寫程式，算出一串叫做白努利數的數。巴貝奇只造出分析機的一小部分，但勒芙蕾絲被稱為第一位電腦程式設計師，後來還有一種程式語言以她的名字命名，叫 Ada。"
+              },
+              {
+                "k": "Logo",
+                "en": "Forward, left 90",
+                "zh": "前進、左轉 90",
+                "body_en": "The robot in this lesson has a famous ancestor. Britannica explains that the language Logo began in the late 1960s, and that Seymour Papert and others used it at MIT to teach mathematical thinking to schoolchildren. It featured “turtle graphics”: an object was moved around the screen by commands such as “left 90” and “forward,” which describe moves from where the turtle is and the way it is facing. The name came from an early project to program a turtle-like robot.",
+                "body_zh": "這一課的機器人有個有名的前輩。大英百科說，Logo 這種語言誕生於 1960 年代後期，派普特（Seymour Papert）等人在麻省理工學院用它教小學生數學思考。它的特色是「海龜繪圖」：用「left 90」「forward」這樣的指令讓一個東西在螢幕上移動，這些指令說的是從海龜現在的位置、面向的方向出發要怎麼動。這個名字來自早期一個替像海龜的機器人寫程式的計畫。"
+              },
+              {
+                "k": "September 9, 1947",
+                "en": "A real bug",
+                "zh": "一隻真的蟲",
+                "body_en": "The Computer History Museum tells this story. On September 9, 1947, a team working on the Harvard Mark II computer found a moth caught between the contacts of a relay. They taped it into the logbook, and someone wrote beside it: “First actual case of bug being found.” The programmer Grace Hopper was there and later made the story famous in her lectures. The word was not new: the museum notes that “bug” had been used for a fault in a machine since the 1800s.",
+                "body_zh": "這個故事出自電腦歷史博物館。1947 年 9 月 9 日，操作哈佛馬克二號電腦的團隊發現一隻飛蛾卡在繼電器的接點之間。他們把牠用膠帶貼進工作日誌，旁邊有人寫了一句：「第一次真的找到蟲（bug）。」程式設計師葛麗絲・霍普（Grace Hopper）當時在場，後來在演講裡把這個故事講得家喻戶曉。這個詞並不是那時才有的：博物館指出，用 bug 來稱呼機器的毛病，從 1800 年代就開始了。"
+              },
+              {
+                "k": "Translation · 翻譯",
+                "en": "From your words to the machine’s",
+                "zh": "從你的話，到機器的話",
+                "body_en": "A processor understands only machine language, the kind of simple instructions you met in Lesson 6. Britannica explains that a program is first written in a language suited to the task, and is then translated, commonly in several stages, into a coded program the computer can carry out directly. The translating is done by other programs. There are even programs called debuggers, which run a program a little at a time so that the programmer can check whether it is working correctly.",
+                "body_zh": "處理器只懂機器語言，也就是第六課那種簡單的指令。大英百科說，程式會先用適合那件工作的語言寫出來，再翻譯（通常分好幾個階段）成電腦可以直接執行的編碼程式。做翻譯的，是別的程式。甚至還有一種叫除錯器（debugger）的程式，可以把一個程式一小段一小段地執行，讓程式設計師檢查它運作得對不對。"
+              }
+            ]
+          },
+          "myths": [
+            {
+              "myth_en": "A computer understands what you mean.",
+              "myth_zh": "電腦懂你的意思。",
+              "fact_en": "It carries out the instructions it is given, exactly. That is why a program has to be unambiguous: every instruction must have only one meaning.",
+              "fact_zh": "它只是一絲不差地執行拿到的指令。所以程式不能有含糊的地方：每一條指令都只能有一個意思。"
+            },
+            {
+              "myth_en": "When a program gives the wrong result, the computer made a mistake.",
+              "myth_zh": "程式的結果不對，是電腦弄錯了。",
+              "fact_en": "Usually the computer did just what it was told, and the mistake is in the instructions. That is what a bug is.",
+              "fact_zh": "通常是電腦完全照指示做了，錯在指令本身。這就是 bug。"
+            },
+            {
+              "myth_en": "A longer program is a better program.",
+              "myth_zh": "程式越長越厲害。",
+              "fact_en": "The robot’s staircase takes fifteen instructions written out one by one, and five with a repeat. The short one is easier to read, to check, and to change.",
+              "fact_zh": "機器人走階梯，一條一條寫要十五條指令，用「重複」只要五條。短的那個比較好讀、好檢查、也好改。"
+            },
+            {
+              "myth_en": "Programs began with electronic computers.",
+              "myth_zh": "有了電子電腦，才有程式。",
+              "fact_en": "Ada Lovelace described how to program a machine in 1843, about a hundred years before electronic computers. A program is an idea: ordered, unambiguous instructions.",
+              "fact_zh": "愛達・勒芙蕾絲在 1843 年就描述了怎麼替一台機器寫程式，比電子電腦早了大約一百年。程式是一個觀念：照順序、不含糊的指令。"
+            }
+          ],
+          "tricks_head": {
+            "en": "A program in a sentence",
+            "zh": "一句話記住程式"
+          },
+          "tricks": [
+            {
+              "title_en": "Exactly, not nearly",
+              "title_zh": "一絲不差，不是差不多",
+              "body_en": "The computer does what you wrote, not what you meant.",
+              "body_zh": "電腦做的是你寫的，不是你想的。"
+            },
+            {
+              "title_en": "Order, repeat, choose",
+              "title_zh": "順序、重複、選擇",
+              "body_en": "Three building blocks.",
+              "body_zh": "三種積木。"
+            },
+            {
+              "title_en": "Write once, repeat",
+              "title_zh": "寫一次，重複做",
+              "body_en": "A loop saves writing the same lines again.",
+              "body_zh": "迴圈讓你不必把同樣的幾行再寫一遍。"
+            },
+            {
+              "title_en": "Wrong place? Check the program",
+              "title_zh": "停錯地方？檢查程式",
+              "body_en": "A bug is in the instructions, not in the machine.",
+              "body_zh": "bug 在指令裡，不在機器裡。"
+            }
+          ],
+          "safety_head": {
+            "eyebrow": "Before You Start · 動手之前",
+            "en": "A few reminders",
+            "zh": "幾個提醒"
+          },
+          "safety": [
+            {
+              "en": "For the human robot game, clear the floor first. Mark walls with tape or paper, not with chairs or desks.",
+              "zh": "玩真人機器人之前，先把地板清空。牆用膠帶或紙來標示，不要用椅子或桌子。"
+            },
+            {
+              "en": "The human robot keeps their eyes open and walks slowly. “Walking into a wall” means stopping at the tape and saying “Bump!”",
+              "zh": "當機器人的同學眼睛要張開、慢慢走。「撞牆」的意思是：走到膠帶前停下來，喊一聲「碰！」"
+            },
+            {
+              "en": "When a program goes wrong, laugh at the program, not at the person who wrote it or the person who walked it. Every programmer writes bugs.",
+              "zh": "程式出錯的時候，笑的是程式，不是寫的人，也不是走的人。每個寫程式的人都會寫出 bug。"
+            },
+            {
+              "en": "Use a school or family computer only with permission.",
+              "zh": "用學校或家裡的電腦要先得到同意。"
+            }
+          ],
+          "activities": [
+            {
+              "title_en": "The Human Robot",
+              "title_zh": "真人機器人",
+              "materials": [
+                {
+                  "en": "Tape to mark a grid of 5 by 5 squares on the floor, each big enough to stand in",
+                  "zh": "膠帶，在地板上貼出 5 × 5 的格子，每格要站得下一個人"
+                },
+                {
+                  "en": "Sheets of paper for walls, and one for the flag",
+                  "zh": "幾張紙當作牆，一張當作旗子"
+                },
+                {
+                  "en": "Cards that say FORWARD, TURN LEFT, TURN RIGHT, REPEAT __ TIMES, and IF WALL AHEAD",
+                  "zh": "指令卡：FORWARD（前進）、TURN LEFT（左轉）、TURN RIGHT（右轉）、REPEAT __ TIMES（重複 __ 次）、IF WALL AHEAD（如果前面是牆）"
+                }
+              ],
+              "steps": [
+                {
+                  "en": "One student is the robot and waits outside the room. The others lay out walls and a flag, and lay the cards in a row as a program.",
+                  "zh": "一位同學當機器人，先到教室外面等。其他人擺好牆和旗子，再把指令卡排成一列，當作程式。"
+                },
+                {
+                  "en": "The robot comes in. A reader reads the cards aloud, one at a time, in English. The robot does exactly what each card says, and nothing else. No one may help or change a card.",
+                  "zh": "機器人進來。一位同學用英文把卡片一張一張唸出來，機器人完全照卡片做，別的都不做。誰都不可以幫忙，也不可以改卡片。"
+                },
+                {
+                  "en": "If the robot bumps or misses the flag, find the bug together. Change one card and run the whole program again from the start.",
+                  "zh": "如果機器人撞牆或沒走到旗子，大家一起找 bug。改一張卡片，再從頭把整個程式跑一次。"
+                },
+                {
+                  "en": "Now make the program shorter with a REPEAT card. Then move one wall and see whether an IF WALL AHEAD card can make one program work for both rooms.",
+                  "zh": "接著用 REPEAT 卡把程式變短。然後移動一面牆，看看加上 IF WALL AHEAD 卡，能不能讓同一個程式在兩種房間都走得到。"
+                }
+              ],
+              "tip_en": "The rule that makes this work is that the robot may not think. Students quickly find how much they leave unsaid when they give instructions. In Taiwan’s junior high Information Technology curriculum, this lesson matches “Program design”: 資 P-IV-1, basic concepts of programming languages, and 資 P-IV-2, structured programming, whose notes list sequence, selection, and repetition.",
+              "tip_zh": "這個活動成立的關鍵，是機器人「不可以動腦」。學生很快會發現，自己下指令的時候有多少話沒說出口。對照十二年國教國中「資訊科技」的學習內容，這一課對應「程式設計」主題：資 P-IV-1 程式語言基本概念、功能及應用，以及資 P-IV-2 結構化程式設計（說明列有循序、選擇結構與重複結構）。"
+            },
+            {
+              "title_en": "Swap Programs with a Friend",
+              "title_zh": "和朋友交換程式",
+              "materials": [
+                {
+                  "en": "Squared paper and a pencil for each student",
+                  "zh": "每人一張方格紙和一枝鉛筆"
+                },
+                {
+                  "en": "A coin or small counter to be the robot",
+                  "zh": "一枚硬幣或小棋子，當作機器人"
+                },
+                {
+                  "en": "The “Write the Program” game on this page, for checking",
+                  "zh": "這一頁的「換你寫程式」小遊戲，用來對照"
+                }
+              ],
+              "steps": [
+                {
+                  "en": "Draw a 5 by 5 room. Shade three or four squares as walls, mark a start with an arrow, and mark a flag.",
+                  "zh": "畫一個 5 × 5 的房間。把三、四格塗黑當牆，用箭頭標出起點和面向，再標一面旗子。"
+                },
+                {
+                  "en": "On another sheet, write a program for your room: one instruction on each line.",
+                  "zh": "在另一張紙上替你的房間寫一個程式：一行一條指令。"
+                },
+                {
+                  "en": "Swap rooms and programs with a friend. Move the coin exactly as your friend’s program says. Does it reach the flag?",
+                  "zh": "和朋友交換房間和程式。完全照朋友的程式移動硬幣。走得到旗子嗎？"
+                },
+                {
+                  "en": "Count the instructions. Can either of you make your program shorter with a repeat?",
+                  "zh": "數一數有幾條指令。你們誰能用「重複」把程式變短？"
+                }
+              ],
+              "tip_en": "If the coin goes wrong, do not explain what you meant. Fix the program on the paper and let your friend run it again. That is debugging. Then play Level 2 on this page and compare: a staircase takes 5 instructions with a repeat.",
+              "tip_zh": "硬幣走錯的時候，不要用嘴巴解釋你的意思。把紙上的程式改好，請朋友再跑一次——這就是除錯。接著玩這一頁的第二關比一比：階梯用「重複」只要 5 條指令。"
+            }
+          ],
+          "links_head": {
+            "eyebrow": "Go Further · 延伸閱讀",
+            "en": "The instructions underneath, a machine that chooses, and what comes next",
+            "zh": "底下的指令、會選擇的機器，以及下一課"
+          },
+          "links": [
+            {
+              "icon": "⌨️",
+              "k_en": "Previous Lesson · Lesson 8",
+              "k_zh": "上一課・第八課",
+              "en": "What Happens When You Press a Key?",
+              "zh": "按下一個鍵，發生了什麼？",
+              "note_en": "The lookup that turned a key into a character was done by a program.",
+              "note_zh": "把一個鍵查成一個字元的那一步，就是程式做的。",
+              "href": "/resources/classes/computers/press-a-key/"
+            },
+            {
+              "icon": "⚙️",
+              "k_en": "Lesson 6",
+              "k_zh": "第六課",
+              "en": "What Does a Processor Do All Day?",
+              "zh": "處理器整天在忙什麼？",
+              "note_en": "Machine language: the five simple instructions that a program is finally translated into. JUMP is how a loop is made.",
+              "note_zh": "機器語言：程式最後被翻譯成的那五種簡單指令。迴圈就是用 JUMP 做出來的。",
+              "href": "/resources/classes/computers/processor/"
+            },
+            {
+              "icon": "🔀",
+              "k_en": "Lesson 3",
+              "k_zh": "第三課",
+              "en": "How Does a Computer Make a Decision?",
+              "zh": "電腦怎麼做決定？",
+              "note_en": "A question like “is there a wall ahead?” has a yes-or-no answer: one bit. Logic gates are how the machine acts on it.",
+              "note_zh": "「前面是牆嗎？」這種問題的答案只有是或不是，也就是一個位元。機器靠邏輯閘來根據它行動。",
+              "href": "/resources/classes/computers/logic-gates/"
+            },
+            {
+              "icon": "🧮",
+              "k_en": "Next Lesson · Lesson 10",
+              "k_zh": "下一課・第十課",
+              "en": "What Is an Algorithm?",
+              "zh": "演算法是什麼？",
+              "note_en": "Two programs can do the same job, and one can be far faster. Next: why the method matters.",
+              "note_zh": "兩個程式可以做同一件事，其中一個卻快得多。下一課：為什麼方法很重要。",
+              "soon": true
+            }
+          ],
+          "sources_note_en": "Facts on this page were checked against these sources (October 2026); the robot and its small language are our own, and every program on the page is tested",
+          "sources_note_zh": "本頁的事實依下列資料查證（2026 年 10 月）；機器人和它的小語言是我們自己設計的，頁面上每一個程式都有測試",
+          "sources": [
+            {
+              "en": "A computer program is a “detailed plan or procedure for solving a problem with a computer; more specifically, an unambiguous, ordered sequence of computational instructions”; a program is expressed in a computer language and translated, commonly in several stages, into machine language; principal languages include C, Python, and C++; debuggers execute a program piecemeal so the programmer can check whether it is correct",
+              "zh": "電腦程式是「用電腦解決問題的詳細計畫或步驟；更明確地說，是一串不含糊、有順序的運算指令」；程式用某種電腦語言寫出，再（通常分幾個階段）翻譯成機器語言；主要的語言有 C、Python、C++；除錯器把程式一小段一小段執行，讓程式設計師檢查對不對",
+              "src": "The Editors of Encyclopaedia Britannica, “computer program” (revised by Erik Gregersen)",
+              "url": "https://www.britannica.com/technology/computer-program"
+            },
+            {
+              "en": "Ada Lovelace translated and annotated Menabrea’s article in 1843; her notes described how the Analytical Engine could be programmed to compute Bernoulli numbers; she has been called the first computer programmer; Babbage built only a small part of the engine; the language Ada was named for her",
+              "zh": "愛達・勒芙蕾絲 1843 年翻譯並註解梅納布雷亞的文章；註解描述怎麼替分析機寫程式計算白努利數；她被稱為第一位電腦程式設計師；巴貝奇只造出分析機的一小部分；Ada 語言以她命名",
+              "src": "The Editors of Encyclopaedia Britannica, “Ada Lovelace”",
+              "url": "https://www.britannica.com/biography/Ada-Lovelace"
+            },
+            {
+              "en": "Logo originated in the late 1960s; Seymour Papert and others used it at MIT to teach mathematical thinking to schoolchildren; turtle graphics moved an object with commands such as “left 90” and “forward”; the name came from an early project to program a turtlelike robot",
+              "zh": "Logo 誕生於 1960 年代後期；派普特等人在麻省理工學院用它教小學生數學思考；海龜繪圖用「left 90」「forward」這類指令移動物件；名字來自早期一個替像海龜的機器人寫程式的計畫",
+              "src": "David Hemmendinger, “computer programming language,” Encyclopaedia Britannica",
+              "url": "https://www.britannica.com/technology/computer-programming-language"
+            },
+            {
+              "en": "On September 9, 1947, a team reported a moth caught between the relay contacts of the Harvard Mark II; they taped it into the logbook with the words “First actual case of bug being found”; Grace Hopper was present and made the incident famous in her lectures; the term “bug” originated in the 1800s",
+              "zh": "1947 年 9 月 9 日，團隊回報一隻飛蛾卡在哈佛馬克二號的繼電器接點之間；他們把牠貼進日誌，寫上「First actual case of bug being found」；葛麗絲・霍普在場，後來在演講中讓這件事出名；bug 這個說法起於 1800 年代",
+              "src": "Computer History Museum, “This Day in History: September 9”",
+              "url": "https://www.computerhistory.org/tdih/september/9/"
+            },
+            {
+              "en": "The operators “put out the word that they had debugged the machine”",
+              "zh": "操作人員對外說他們替機器「除了蟲」（debugged）",
+              "src": "U.S. Naval History and Heritage Command, photograph NH 96566-KN, “The First ‘Computer Bug’”",
+              "url": "https://www.history.navy.mil/our-collections/photography/numerical-list-of-images/nhhc-series/nh-series/NH-96000/NH-96566-KN.html"
+            },
+            {
+              "en": "資 P-IV-1, basic concepts, functions, and uses of programming languages; 資 P-IV-2, structured programming: sequence and selection structures, repetition structures (p. 10; notes on p. 42)",
+              "zh": "資 P-IV-1 程式語言基本概念、功能及應用；資 P-IV-2 結構化程式設計：循序與選擇結構、重複結構（第 10 頁；附錄三的說明在第 42 頁）",
+              "src": "教育部《十二年國民基本教育課程綱要 國民中學暨普通型高級中等學校 科技領域》（2018）",
+              "url": "https://www.naer.edu.tw/upload/1/16/doc/816/十二年國民基本教育課程綱要國民中學暨普通型高級中等學校-科技領域.pdf"
+            },
+            {
+              "en": "Taiwan terms: debug 除錯, machine language 機器語言, program 程式, instruction 指令. For loop, this page uses 迴圈, the word in Taiwan’s curriculum (p. 42)",
+              "zh": "台灣用語：debug 除錯、machine language 機器語言、program 程式、instruction 指令。loop 本頁用課綱的用詞「迴圈」（第 42 頁）",
+              "src": "國家教育研究院《樂詞網》",
+              "url": "https://terms.naer.edu.tw/search/?query_term=debug&query_field=title&query_op=&match_type=phrase"
+            },
+            {
+              "en": "The robot: the staircase takes 15 instructions in order and 5 with a repeat, and both take 15 steps; with one “turn right” missing the robot finishes on another square; the question program reaches the flag in both rooms; all three game levels can be solved, in 5, 5, and 4 instructions; the eight facing answers",
+              "zh": "機器人：階梯照順序寫要 15 條指令、用重複要 5 條，兩種都走 15 步；漏掉一條「右轉」機器人停在別的格子；會問問題的程式在兩個房間都走得到旗子；小遊戲三關都解得出來（5、5、4 條指令）；八題面向的答案",
+              "src": "Our own illustration, checked by tools/computers/test/robot.test.mjs",
+              "url": "https://github.com/lukelin7429/twrses/blob/main/tools/computers/test/robot.test.mjs"
+            }
+          ]
+        }
+      ],
+      "planned": [
         {
           "n": 10,
           "icon": "🧮",

@@ -672,3 +672,61 @@ a.cp-link:hover { transform: translateY(-3px); box-shadow: var(--shadow); border
 .cp-lv2-out dt small { display: block; font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; font-weight: 600; font-size: .66rem; opacity: .8; }
 .cp-lv2-out dd { margin: .2rem 0 0; font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; font-size: 1.25rem; font-weight: 700; color: var(--brand-dk); overflow-wrap: anywhere; }
 @media (max-width: 720px) { .cp-lv2-out { grid-template-columns: repeat(2, minmax(0, 1fr)); } .cp-ch-opts.cp-ch-3 { grid-template-columns: 1fr; } }
+
+/* ── 第九課：走格子的小機器人（cp-rb-、小遊戲 cp-mz-）───────────── */
+@media (min-width: 1001px) { .cp-rb-lab .al-space { min-height: 640px; } }
+.cp-rb-progs { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .3rem; }
+.cp-rb-progs button { padding: .4rem .5rem; border-radius: 10px; border: 1px solid var(--al-line); background: rgba(255,255,255,.04); color: var(--al-text); font-family: var(--sans); cursor: pointer; text-align: left; line-height: 1.25; }
+.cp-rb-progs button b { display: block; font-size: .8rem; }
+.cp-rb-progs button small { font-family: var(--zh); font-weight: 600; font-size: .68rem; color: var(--al-mute); }
+.cp-rb-progs button[aria-pressed="true"] { border-color: var(--al-sun); background: rgba(255,211,110,.16); }
+.cp-rb-room { justify-content: center; font-size: .76rem; }
+.cp-rb-room[hidden] { display: none; }
+.cp-rb-code { list-style: none; margin: 0; padding: .35rem; max-height: 15.5rem; overflow-y: auto; border-radius: 12px; border: 1px solid var(--al-line); background: rgba(0,0,0,.25); font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; font-size: .76rem; counter-reset: ln; }
+.cp-rb-code li { position: relative; counter-increment: ln; padding: .16rem .5rem .16rem calc(2rem + var(--d) * 1.1rem); border-radius: 6px; color: var(--al-mute); line-height: 1.35; }
+.cp-rb-code li::before { content: counter(ln); position: absolute; left: .4rem; width: 1.2rem; text-align: right; font-size: .62rem; opacity: .55; }
+.cp-rb-code li small { margin-left: .5rem; font-family: var(--zh); font-weight: 600; font-size: .68rem; opacity: .85; }
+.cp-rb-code li.is-in { color: #ffe3a3; }
+.cp-rb-code li.is-on { color: #1b1405; background: var(--al-sun); }
+.cp-rb-round { float: right; font-family: var(--sans); font-size: .64rem; font-weight: 800; color: #7ef0e3; }
+.cp-rb-nums { grid-template-columns: 1fr 1fr; } .cp-rb-nums dt { min-height: 0; }
+.cp-rb-lab .cp-msg { min-height: 8.4em; }
+.al-lg-cprobot i { border: 0; border-radius: 3px; background: #ffd36e; }
+.al-lg-cpnose i { border: 0; width: 0; height: 0; margin: .3rem 3px 0; background: transparent; border-left: 7px solid transparent; border-right: 7px solid transparent; border-bottom: 13px solid #7ef0e3; border-radius: 0; }
+.al-lg-cpwall i { border: 0; border-radius: 2px; background: #8a93a6; }
+.al-lg-cpflag i { border: 0; border-radius: 1px; background: #d4574a; }
+.al-lg-cpseen i { border: 0; border-radius: 2px; background: #2f8f86; }
+@media (max-width: 1000px) { .cp-rb-lab .al-space { aspect-ratio: 4 / 3; min-height: 360px; } }
+@media (max-width: 620px) { .cp-rb-lab .al-space { aspect-ratio: 1 / 1; min-height: 0; } .cp-rb-lab .cp-msg { min-height: 10.4em; } }
+.cp-maze { max-width: 980px; }
+.cp-mz-tabs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .5rem; }
+.cp-mz-tabs button { display: grid; grid-template-columns: 1.7rem minmax(0, 1fr); column-gap: .5rem; align-items: center; text-align: left; padding: .55rem .8rem; border-radius: 14px; border: 2px solid var(--line); background: var(--cream); color: var(--ink); font-family: var(--sans); font-weight: 800; font-size: .92rem; cursor: pointer; }
+.cp-mz-tabs button i { grid-row: span 2; width: 1.7rem; height: 1.7rem; line-height: 1.7rem; text-align: center; border-radius: 50%; background: #fff; border: 1px solid var(--line); font-style: normal; font-size: .82rem; }
+.cp-mz-tabs button small { font-family: var(--zh); font-weight: 600; font-size: .82rem; color: var(--ink-soft); }
+.cp-mz-tabs button[aria-pressed="true"] { background: var(--brand); border-color: var(--brand); color: #fff; } .cp-mz-tabs button[aria-pressed="true"] small { color: rgba(255,255,255,.88); } .cp-mz-tabs button[aria-pressed="true"] i { color: var(--brand-dk); }
+.cp-mz-tabs button.is-done i { background: #2f9e63; border-color: #2f9e63; color: #fff; font-size: 0; } .cp-mz-tabs button.is-done i::after { content: "✓"; font-size: .9rem; }
+.cp-mz-hint { margin: 1rem 0; font-size: .98rem; line-height: 1.6; } .cp-mz-hint .zh { display: block; color: var(--ink-soft); }
+.cp-mz-main { display: grid; grid-template-columns: minmax(0, 340px) minmax(0, 1fr); gap: 1.4rem; align-items: start; }
+.cp-mz-grid { position: relative; display: grid; grid-template-columns: repeat(var(--n), 1fr); gap: 0; aspect-ratio: 1 / 1; border-radius: 14px; overflow: hidden; border: 2px solid #1d2a44; background: #24324f; }
+.cp-mz-grid > i { display: flex; align-items: center; justify-content: center; box-shadow: 0 0 0 1px rgba(255,255,255,.08) inset; font-style: normal; font-size: 1.6rem; color: #ff7a66; transition: background .25s; }
+.cp-mz-grid > i.is-wall { background: #8a93a6; } .cp-mz-grid > i.is-seen { background: #2f8f86; }
+.cp-mz-bot { position: absolute; left: 0; top: 0; width: calc(100% / var(--n)); height: calc(100% / var(--n)); display: flex; align-items: center; justify-content: center; transition: transform .28s ease; pointer-events: none; }
+.cp-mz-bot b { display: block; width: 62%; height: 62%; border-radius: 22%; background: #ffd36e; color: #1d2a44; display: flex; align-items: center; justify-content: center; font-size: 1.05rem; line-height: 1; transition: transform .28s ease; box-shadow: 0 3px 8px rgba(0,0,0,.4); }
+.cp-mz-bot.is-bump b { background: #ff7a66; }
+.cp-mz-c { font-weight: 700; letter-spacing: 0; text-transform: none; color: var(--ink-soft); }
+.cp-mz-rep { display: flex; align-items: center; gap: .4rem; margin: .3rem 0; font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; font-size: .92rem; font-weight: 700; color: var(--brand-dk); }
+.cp-mz-rep[hidden] { display: none; }
+.cp-mz-rep button { width: 1.9rem; height: 1.9rem; border-radius: 50%; border: 1px solid var(--line); background: #fff; font-size: 1.05rem; font-weight: 800; color: var(--brand-dk); cursor: pointer; }
+.cp-mz-rep b { min-width: 1.6em; text-align: center; font-size: 1.15rem; }
+.cp-mz-prog { list-style: none; margin: 0 0 1rem; padding: .5rem; min-height: 3.4rem; display: flex; flex-wrap: wrap; gap: .35rem; border-radius: 14px; border: 2px dashed var(--line); background: var(--cream); }
+.cp-mz-rep:not([hidden]) + .cp-mz-prog { margin-left: 1.2rem; border-left: 4px solid var(--brand); border-style: solid; border-width: 0 0 0 4px; border-radius: 0 14px 14px 0; }
+.cp-mz-prog li.is-empty { font-size: .86rem; color: var(--ink-soft); line-height: 1.5; padding: .2rem .4rem; } .cp-mz-prog li.is-empty .zh { display: block; }
+.cp-mz-prog button, .cp-mz-tokens button { display: inline-grid; grid-template-columns: auto auto; column-gap: .4rem; align-items: center; padding: .35rem .65rem; border-radius: 10px; border: 1px solid var(--line); background: #fff; color: var(--ink); font-family: var(--sans); font-size: .82rem; font-weight: 700; cursor: pointer; text-align: left; line-height: 1.2; }
+.cp-mz-prog button i, .cp-mz-tokens button i { grid-row: span 2; font-style: normal; font-size: 1.05rem; color: var(--brand); }
+.cp-mz-prog button small, .cp-mz-tokens button small { font-family: var(--zh); font-weight: 600; font-size: .74rem; color: var(--ink-soft); }
+.cp-mz-prog button.is-on { background: var(--gold); border-color: var(--gold-dk); }
+.cp-mz-tokens { display: flex; flex-wrap: wrap; gap: .4rem; margin-bottom: 1rem; }
+.cp-mz-tokens button { border-color: var(--brand); } .cp-mz-tokens button:disabled { opacity: .4; cursor: default; }
+.cp-mz-btns { display: flex; gap: .6rem; flex-wrap: wrap; }
+.cp-mz-run:disabled { opacity: .5; }
+@media (max-width: 760px) { .cp-mz-main { grid-template-columns: 1fr; } .cp-mz-grid { max-width: 340px; margin: 0 auto; width: 100%; } .cp-mz-tabs button { grid-template-columns: 1fr; padding: .5rem; font-size: .8rem; } .cp-mz-tabs button i { display: none; } }
