@@ -1,0 +1,34 @@
+/* 生命與生態 Living Things：本系列多出來的樣式（class 前綴 lf-）。
+   面板用 astro.css 的 .astro-lab／.al-*，卡片、數字、小工具外框用 chips.css 的 cp-*，三個檔一起載。 */
+
+/* ---------- 第二課：葉子怎麼用陽光做出食物？ ---------- */
+@media (min-width: 1021px) { .lf-ph-lab .al-space { min-height: 640px; } }
+.lf-ph-msg[hidden] { display: none; }
+.lf-ph-bar { width: 0; background: linear-gradient(90deg, #4fae5a, #ffd84a) !important; transition: width .2s linear; }
+.lf-ph-status small { display: block; font-family: var(--zh); font-weight: 600; font-size: .8rem; color: var(--al-mute); }
+.al-lab.lf-ph-lb-l { border-color: #ffe27a; } .al-lab.lf-ph-lb-o { border-color: #7df0e0; } .al-lab.lf-ph-lb-w { border-color: #58b4ff; }
+.al-lg-lfphlight i, .al-lg-lfphco2 i, .al-lg-lfphwater i, .al-lg-lfpho2 i { border: 0; border-radius: 50%; width: 10px; height: 10px; margin: .35rem 10px 0; }
+.al-lg-lfphlight i { background: #ffe27a; } .al-lg-lfphco2 i { background: #b9c2d0; } .al-lg-lfphwater i { background: #58b4ff; } .al-lg-lfpho2 i { background: #7df0e0; }
+.al-lg-lfphsugar i { border: 0; width: 10px; height: 10px; margin: .35rem 10px 0; background: #ffa24a; }
+.al-lg-lfphchl i { border: 0; border-radius: 50%; width: 12px; height: 12px; margin: .28rem 9px 0; background: #1f8a3a; box-shadow: 0 0 0 2px #7dff6a55; }
+/* 頁面小工具：做糖的配方 */
+.lf-rc .al-age::-webkit-slider-runnable-track { background: linear-gradient(90deg, var(--brand) 0 var(--p, 0%), #e5dfd0 var(--p, 0%)); }
+.lf-rc .al-age::-webkit-slider-thumb { border-color: var(--brand); }
+.lf-rc .al-age::-moz-range-progress { background: var(--brand); }
+.lf-rc-k { margin: .9rem 0 .3rem; font-size: .74rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-soft); }
+.lf-rc-dots { display: flex; flex-wrap: wrap; gap: 4px; min-height: 30px; padding: .5rem; border-radius: 12px; background: #f3efe3; }
+.lf-rc-dots i, .lf-rc-key { display: inline-block; width: 11px; height: 11px; border-radius: 50%; flex: none; }
+.lf-rc-dots i.c, .lf-rc-key.c { background: #8b93a6; } .lf-rc-dots i.w, .lf-rc-key.w { background: #58b4ff; } .lf-rc-dots i.o, .lf-rc-key.o { background: #3fd0bd; }
+.lf-rc-dots i.s, .lf-rc-key.s { background: #ffa24a; border-radius: 2px; width: 14px; height: 14px; }
+.lf-rc-key { margin-right: .5rem; vertical-align: -1px; }
+.lf-rc-out .cp-home-sub { margin: .15rem 0; font-size: 1rem; } .lf-rc-out .cp-home-sub b { font-size: 1.5rem; margin-right: .35rem; font-variant-numeric: tabular-nums; }
+.lf-rc-k2 { margin-top: .9rem; }
+
+/* ---------- 全系列共用 ---------- */
+.lf-k { margin: 0 0 .1rem; font-size: .74rem; font-weight: 700; letter-spacing: .04em; color: var(--al-mute); }
+.lf-nums small { display: block; font-size: .7rem; font-weight: 600; color: var(--al-mute); line-height: 1.3; }
+.al-lab.lf-lb-push { color: #2a1d00; background: #ffb347; border-color: #ffb347; font-weight: 800; }
+.al-lab.lf-lb-push small { color: #4a3400; }
+.cp-link.lf-link-soon { border-style: dashed; opacity: .78; cursor: default; }
+.lf-safety-src { margin: 1rem 0 0; font-size: .86rem; color: var(--ink-soft); }
+.lf-safety-src .zh { display: block; }

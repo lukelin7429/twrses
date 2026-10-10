@@ -466,6 +466,16 @@
   - 頁面下方「你有幾秒鐘？」（`warn`、`_earth_warn`、`initWarn`）：距離滑桿 → P 到、警報發出、S 到的時間軸與預警秒數；示例 P 7、S 4 km/s，警報 19 秒（氣象署：15–20 秒算出＋1–2 秒通報）；約 76 公里內是盲區。
   - 查證過（2026-10）：地震百問 10（彈性回彈、李德）、21（P、S 波）、29（規模差 1 能量約 32 倍）、51（板塊）、52（環太平洋地震帶）、54（年均約 40,000 次、有感約 1,000 次、1999 年 49,928 次）、55（與天氣無關、地震雲）、56（菲律賓海板塊每年 7–8 公分向西北、東部最多）、57（西部災害較重）、70（集集：1999-09-21 01:47、車籠埔斷層、破裂帶約 100 公里、水平最大 7 m、垂直最大 4 m）、78（常有小地震仍可能有大地震）、82（無法預測）、84（強震即時警報）、96（遠離河海堤與山崖、沿海往高處）；消防防災館（保護頭頸、趴下掩護穩住、握桌腳）；維基英文 Elastic-rebound theory（1906、50 年）、P wave／Earthquake（5–8 km/s、約 1.7：1）、Ring of Fire（約 90%）、1999 Jiji earthquake（國家防災日與演練訊息）。**沒寫的**：傷亡數字；地震百問 96 的「奔逃至室外」（和消防署「先趴下掩護穩住」的說法不一致，只寫兩邊都同意的）；「躲牆邊」（兩邊說法也不同）；任何一條斷層的再現週期。
 
+## 生命與生態 Living Things（/resources/classes/life/）— 架構照地球與天氣
+
+- 資料 `data/life.json`（`units[]`：`cells`／`plants`／`animals`／`together`，各有 `lessons[]` 與 `planned[]`，課次 `n` 全系列連號 1–16）；`build.py` 的 `build_life_hub()`／`build_life_lesson()`／`_life_head()` 是從地球系列那一段照抄改名的（2026-10-10），欄位格式完全一樣。
+- **加一課＝登記四張表**：`_LIFE_JS`（lab.kind → bundle）、`_LIFE_LAB`（kind → 面板函式）、`_LIFE_ICON`（card → 小圖示）、`_LIFE_WIDGETS`（JSON key → 小工具函式）；新函式放在 `_LIFE_LAB = {` 那一行前面。另外改 `tools/life/package.json` 的 build／test 兩行。
+- CSS `assets/css/life.css`（前綴 **`lf-`**；每課再加兩個字母，例如第二課 `lf-ph-`、小工具 `lf-rc-`）。頁面載 astro.css＋chips.css＋life.css，**不載 earth.css**：共用的幾條規則在 life.css 最下面「全系列共用」（`lf-k`、`lf-nums`、`lf-lb-push`、`lf-link-soon`、`lf-safety-src`），新一課的樣式插在那一段前面。
+- 3D 原始碼 `tools/life/src/`（自己的 package.json、`npm ci`；bundle `life-*`；`data-life*-lab`；`common.js` 是從 `tools/earth/src/` 複製的，不跨資料夾 import）。測試 `tools/life/test/*.test.mjs`。`tools/life/node_modules/` 已在 `.gitignore`。
+- 錄音：`tools/gen_audio.py` 的 `SHORT_PAGES` 已加 `resources/classes/life`；manifest 檔名 `assets/data/say/life-<slug>.json`。**錄音單獨跑、確認 26 段再往下**。
+- 寫法原則（詳見 Luke 的 Obsidian 規劃筆記）：演化照科學共識平實地寫；保育只講機制與官方紀錄、不呼籲；不把動物擬人；不給醫療建議；戶外課的安全提醒改成觀察守則；每課至少一張故事卡寫台灣並附出處；流傳很廣但找不到原始出處的數字不寫。
+- 第二課光合作用（`life-leaf.js`，`lab.kind = "leaf"`，`data-lifeleaf-lab`，CSS `lf-ph-`／小工具 `lf-rc-`；**試作課，單元一**，slug `how-leaves-make-food`）：一個機制——葉子用光把二氧化碳和水做成糖、放出氧氣；三樣缺一不可，最缺的那一樣決定快慢。場景是一片葉子的側面剖面（上表皮、柵狀細胞與葉綠體、海綿組織、下表皮兩個氣孔、一條葉脈），五種小點各走一條固定的路（`path.*`），顯示的顆數照各自的量。三支滑桿光／二氧化碳／水（0–100，**只代表多寡，不是測量值**）。`photocalc.js`：`rate()` 取三者最小值（水不夠時 `stomata()` 讓氣孔關小、進得來的二氧化碳也變少），`holding()` 回傳被什麼卡住（`go/light/co2/water/dark`，對應五則訊息），`stomataOpen()` 天黑也關氣孔。**配方 6 CO₂＋6 H₂O → 1 糖＋6 O₂ 是真的**（側欄的糖與氧氣計數、頁面小工具 `recipe` 都照它）。台灣的故事卡是彰化「臺灣米倉」（中文維基引《田中鎮志》）。
+
 ## 書法 Chinese Calligraphy（/resources/classes/calligraphy/）— 架構照晶片與半導體，3D 改成「寫字引擎」
 
 - 內容：`data/calligraphy.json`：`units[]`（三個單元：文房四寶與基本功／字體的演變／書法家與名作）底下 `lessons[]` 與 `planned[]`（「製作中」卡，做一課就從 planned 移到 lessons）；課次 `n` 全系列連號（1–10）。每課欄位同晶片與半導體，多的：`drops`（「一滴墨在不同的紙上」）、`pad`（練字板：`char` 是筆畫資料的 key、`tips`）、`links` 可放 `soon: true` 的預告卡（沒有 href，畫成虛線框「製作中」）。`lab.focus`（右側欄的看法按鈕與說明）、`lab.virtues`（尖齊圓健）、`lab.phases`（起筆／行筆／收筆的說明，3D 標籤與力道曲線共用）。

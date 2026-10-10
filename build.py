@@ -1417,6 +1417,8 @@ def build_reading_hub():
              "What is inside a chip? From sand to silicon to the chips behind AI, in English with 3D models. 晶片裡有什麼？從沙子、矽到 AI 晶片，用英文讀懂，再用 3D 模型看清楚。"),
             ("/resources/classes/earth/", "🌏", "Earth and Weather · 地球與天氣",
              "Why does the ground shake, and where does the rain come from? Earthquakes, typhoons, and the land under your feet, in English with 3D models. 地為什麼會搖？雨從哪裡來？用英文讀懂地震、颱風和腳下的土地，再用 3D 模型看清楚。"),
+            ("/resources/classes/life/", "🌱", "Living Things · 生命與生態",
+             "How does a leaf make food from sunlight? Cells, plants, animals, and how they live together, in English with 3D models. 葉子怎麼用陽光做出食物？用英文讀懂細胞、植物、動物和牠們怎麼一起生活，再用 3D 模型看清楚。"),
             ("/resources/classes/calligraphy/", "🖌️", "Chinese Calligraphy · 書法",
              "Brush, ink, paper, and inkstone: watch a 3D brush write in slow motion, then write it yourself on the practice pad. 文房四寶與毛筆字：先看 3D 毛筆慢動作寫字，再到練字板上自己寫。"),
             ("/resources/classes/computers/", "💻", "How Computers Work · 電腦概論",
@@ -11271,6 +11273,290 @@ def build_earth_hub():
     return EARTH_BASE
 
 
+
+# ---- 生命與生態 Living Things（資料驅動，data/life.json）----
+# 架構照「地球與天氣」：units[].lessons 是做好的課、units[].planned 是製作中。3D 原始碼在 tools/life/src/（three.js、esbuild，每課一個入口），
+# 打包成 assets/js/life-*.js。面板沿用 astro.css，卡片、數字、小工具外框沿用 chips.css 的 cp- 類別（所以本系列頁面也載 chips.css）；
+# 本系列多出來的在 life.css（class 前綴 lf-）。加一課＝在下面四張表各登記一筆（_LIFE_JS／_LIFE_LAB／_LIFE_ICON／_LIFE_WIDGETS）。
+_lifej = os.path.join(ROOT, "data", "life.json")
+LIFE = json.load(open(_lifej, encoding="utf-8")) if os.path.exists(_lifej) else None
+LIFE_BASE = "/resources/classes/life/"
+_LIFE_JS = {"leaf": "life-leaf"}   # lab.kind → assets/js/<bundle>.js
+
+def _life_ver():
+    h = hashlib.md5()
+    for rel in ("assets/css/astro.css", "assets/css/chips.css", "assets/css/life.css", *(f"assets/js/{j}.js" for j in _LIFE_JS.values())):
+        fp = os.path.join(ROOT, rel)
+        if os.path.exists(fp): h.update(open(fp, "rb").read())
+    return h.hexdigest()[:8]
+
+def _life_head(js=None):
+    v = _life_ver()
+    tag = f'<script defer src="/assets/js/{js}.js?v={v}"></script>\n' if js else ""
+    return (f'<link rel="stylesheet" href="/assets/css/astro.css?v={v}">\n'
+            f'<link rel="stylesheet" href="/assets/css/chips.css?v={v}">\n'
+            f'<link rel="stylesheet" href="/assets/css/life.css?v={v}">\n{tag}')
+
+def lifeleaf_svg(size=56):
+    """系列小圖示，也是第二課的課程卡小圖示：一片葉子，太陽在左上角。"""
+    return (f'<svg class="lifeleaf-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">'
+            '<circle cx="13" cy="13" r="7" fill="#ffd84a"/>'
+            '<path d="M52 10 C30 8 12 22 12 44 C12 48 13 51 14 53 C36 54 52 40 52 10 Z" fill="#4fae5a"/>'
+            '<path d="M14 53 C22 38 34 26 48 16" fill="none" stroke="#e9f7d8" stroke-width="2.4" stroke-linecap="round"/>'
+            '<path d="M24 40 L22 30 M31 33 L30 23 M38 26 L38 18 M27 37 L37 39 M34 30 L44 31" stroke="#e9f7d8" stroke-width="1.6" stroke-linecap="round"/></svg>')
+
+def render_lifeleaf_lab(lesson):
+    """第二課：切開的葉子，光、二氧化碳、水三支滑桿，最缺的那一樣決定做糖的快慢（assets/js/life-leaf.js 綁這裡的 class；全部自繪示意）。"""
+    lab = lesson["lab"]
+    msgs = "".join(f'<p class="cp-msg lf-ph-msg" data-msg="{k}" hidden>{html.escape(m["en"])}<span class="zh">{html.escape(m["zh"])}</span></p>' for k, m in lab["msgs"].items())
+    tg = _lab_toggles([("labels", "Labels", "標示", True)])
+    return f'''<div class="astro-lab cp-lab lf-lab lf-ph-lab rvl" data-lifeleaf-lab>
+  <div class="al-stage">
+    <div class="al-space">
+      <canvas class="al-space-cv" aria-label="3D cutaway of a leaf: sunlight comes in from above, carbon dioxide enters through small holes underneath, water arrives along a vein, and the green cells make sugar and give off oxygen · 一片葉子的 3D 剖面：陽光從上面照進來，二氧化碳從底下的小孔進來，水沿著葉脈送到，綠色的細胞做出糖，並放出氧氣"></canvas>
+      <div class="al-labels" aria-hidden="true"></div>
+      <p class="al-hint">Drag to turn · 拖曳旋轉　Scroll or pinch to zoom · 滾輪／雙指縮放</p>
+      <button type="button" class="al-home" title="Reset view · 重設視角" aria-label="Reset view · 重設視角">&#8634;</button>
+      <p class="al-nogl-msg">This 3D model needs WebGL, which this browser does not support. The reading and the cards below still explain everything.<br><span class="zh">這個瀏覽器不支援 WebGL，無法顯示 3D 模型；下方的課文與卡片一樣能看懂。</span></p>
+    </div>
+    <aside class="al-sky cp-aside">
+      <p class="al-sky-k">Three things a leaf needs · 葉子需要的三樣東西</p>
+      <label class="al-slider cp-is-yrow"><span>1 · Light · 光 <output class="lf-ph-light-out">80%</output></span>
+        <input type="range" class="al-age lf-ph-light" min="0" max="100" step="1" value="80"></label>
+      <label class="al-slider cp-is-yrow"><span>2 · Carbon dioxide · 二氧化碳 <output class="lf-ph-co2-out">80%</output></span>
+        <input type="range" class="al-age lf-ph-co2" min="0" max="100" step="1" value="80"></label>
+      <label class="al-slider cp-is-yrow"><span>3 · Water · 水 <output class="lf-ph-water-out">80%</output></span>
+        <input type="range" class="al-age lf-ph-water" min="0" max="100" step="1" value="80"></label>
+      <div class="cp-ht-meter"><p class="lf-k">How fast the leaf is making sugar · 葉子做糖的速度</p><div class="cp-ht-bar"><i class="lf-ph-bar"></i></div><p class="cp-ht-status lf-ph-status"></p></div>
+      <dl class="cp-nums cp-lt-nums lf-nums">
+        <div><dt>Held back by · 被什麼卡住</dt><dd class="lf-ph-hold"></dd></div>
+        <div><dt>Stomata · 氣孔</dt><dd class="lf-ph-stoma"></dd></div>
+        <div><dt>Sugar made · 糖</dt><dd class="lf-ph-sugar"></dd></div>
+        <div><dt>Oxygen given off · 氧氣</dt><dd class="lf-ph-o2"></dd></div>
+      </dl>
+      {msgs}
+    </aside>
+  </div>
+  <div class="al-controls">
+    <div class="al-row al-row-main">
+      <button type="button" class="al-play" aria-pressed="true"><span class="al-play-i" aria-hidden="true"></span><span class="al-play-t">Pause · 暫停</span></button>
+      <div class="al-row al-toggles">{tg}</div>
+    </div>
+  </div>
+  {_lab_foot(lab)}
+  <p class="cp-credit">{lab["credit_html"]}</p>
+</div>'''
+
+def _life_recipe(rc):
+    """「做糖的配方」（life-leaf.js 的 initRecipe；每個葡萄糖要 6 個二氧化碳、6 個水，放出 6 個氧氣；不需要 WebGL）。"""
+    return (f'<div class="cp-cnt lf-rc rvl" data-life-recipe>'
+            f'<div class="cp-cnt-in">'
+            f'<label class="cp-cnt-l"><span>How many sugars do you want to make? · 想做幾顆糖？ <output class="lf-rc-n-out">1</output></span>'
+            f'<input type="range" class="al-age lf-rc-n" min="1" max="10" step="1" value="1"></label>'
+            f'<p class="lf-rc-k">Goes in · 放進去</p><div class="lf-rc-dots lf-rc-in" aria-hidden="true"></div>'
+            f'<p class="lf-rc-k">Comes out · 做出來</p><div class="lf-rc-dots lf-rc-made" aria-hidden="true"></div>'
+            f'<p class="cp-cnt-note">{html.escape(rc["note_en"])}<span class="zh">{html.escape(rc["note_zh"])}</span></p></div>'
+            f'<div class="cp-home-out cp-cnt-out lf-rc-out" aria-live="polite">'
+            f'<p class="cp-home-k">The leaf needs · 葉子需要</p>'
+            f'<p class="cp-home-sub"><i class="lf-rc-key c"></i><b class="lf-rc-co2">6</b> carbon dioxide · 二氧化碳</p>'
+            f'<p class="cp-home-sub"><i class="lf-rc-key w"></i><b class="lf-rc-water">6</b> water · 水</p>'
+            f'<p class="cp-home-k lf-rc-k2">And it makes · 做出</p>'
+            f'<p class="cp-home-sub"><i class="lf-rc-key s"></i><b class="lf-rc-sugar">1</b> sugar · 糖（葡萄糖）</p>'
+            f'<p class="cp-home-sub"><i class="lf-rc-key o"></i><b class="lf-rc-o2">6</b> oxygen · 氧氣</p>'
+            f'<p class="cp-home-note">{html.escape(rc["rule_en"])}<span class="zh">{html.escape(rc["rule_zh"])}</span></p>'
+            f'</div></div>'
+            '<noscript><p class="muted">The calculator works in your browser and needs JavaScript. · 計算在瀏覽器裡進行，需要開啟 JavaScript。</p></noscript>')
+
+_LIFE_LAB = {"leaf": render_lifeleaf_lab}          # lab.kind → 3D 面板
+_LIFE_ICON = {"leaf": lifeleaf_svg}                 # lesson.card → 課程卡小圖示
+_LIFE_WIDGETS = [("recipe", _life_recipe)]               # lesson 裡有這個 key 就多一段（照這裡的順序）
+
+def _life_flat():
+    return [(ui, u, l) for ui, u in enumerate(LIFE["units"]) for l in u["lessons"]]
+
+def _life_nav(slug):
+    flat = sorted(_life_flat(), key=lambda x: x[2]["n"])
+    i = next(n for n, (_, _, l) in enumerate(flat) if l["slug"] == slug)
+    def side(item, dirn, label):
+        if not item:
+            return '<span class="pm-nav-x"></span>'
+        l = item[2]
+        arrow = "&larr;" if dirn == "prev" else "&rarr;"
+        return (f'<a class="pm-nav-s pm-nav-{dirn}" href="{LIFE_BASE}{l["slug"]}/">'
+                f'<span class="pm-nav-k">{arrow} {label}</span>'
+                f'<span class="pm-nav-t">{html.escape(l["title"])}</span></a>')
+    prev = flat[i - 1] if i > 0 else None
+    nxt = flat[i + 1] if i < len(flat) - 1 else None
+    return (f'<nav class="pm-nav rvl">{side(prev, "prev", "上一課 · Previous")}'
+            f'<a class="pm-nav-hub" href="{LIFE_BASE}">&#9776; 回生命與生態 · All Lessons</a>'
+            f'{side(nxt, "next", "下一課 · Next")}</nav>')
+
+def build_life_lesson(ui, unit, lesson):
+    path = f'{LIFE_BASE}{lesson["slug"]}/'
+    unit_dict = {k: lesson[k] for k in ("title", "paras", "paras_zh", "questions", "answers", "vocab", "quiz")}
+    unit_dict["unit"] = lesson["n"]
+    reading_html = render_basic_unit(1, unit_dict, level="life", audio_rel="", pdf_rel="")
+    lab = lesson["lab"]
+    kind = lab["kind"]
+    lab_html = _LIFE_LAB[kind](lesson)
+
+    secs = []
+    for key, fn in _LIFE_WIDGETS:
+        if lesson.get(key):
+            w = lesson[key]
+            secs.append((key, w["eyebrow"], w["en"], w["zh"], fn(w), _bi(w["lead_en"], w["lead_zh"], cls="lead rvl d2")))
+    if lesson.get("parts"):
+        cards = "".join(
+            f'<article class="ph-card cp-part rvl">'
+            f'<div class="ph-ico cp-ico" aria-hidden="true">{pt["icon"]}</div>'
+            f'<h3>{html.escape(pt["en"])}<span class="zh">{html.escape(pt["zh"])}</span></h3>'
+            f'<p class="ph-meta"><span>{html.escape(pt["meta_en"])} · {html.escape(pt["meta_zh"])}</span></p>'
+            f'<p class="ph-when">{html.escape(pt["text_en"])}<br><span class="zh">{html.escape(pt["text_zh"])}</span></p>'
+            f'<button type="button" class="ph-go" data-lab-demo="{pt["demo"]}">Try it in 3D · 在模型中試 <i>&uarr;</i></button>'
+            f'</article>' for pt in lesson["parts"])
+        ph = lesson["parts_head"]
+        secs.append(("parts", ph["eyebrow"], ph["en"], ph["zh"], f'<div class="ph-grid stagger">{cards}</div>',
+                     _bi(lesson["parts_note_en"], lesson["parts_note_zh"], cls="lead rvl d2")))
+    if lesson.get("links"):
+        def link(x):
+            inner = (f'<span class="cp-link-ic" aria-hidden="true">{x["icon"]}</span>'
+                     f'<span class="cp-link-b"><span class="cp-link-k">{html.escape(x["k_en"])} · {html.escape(x["k_zh"])}</span>'
+                     f'<b>{html.escape(x["en"])}</b><span class="zh cp-link-zh">{html.escape(x["zh"])}</span>'
+                     f'<span class="cp-link-n">{html.escape(x["note_en"])}<span class="zh">{html.escape(x["note_zh"])}</span></span>')
+            if x.get("soon"):     # 還沒做的課：預告卡，不是連結
+                return f'<div class="cp-link lf-link-soon rvl">{inner}<span class="cp-link-go">Coming soon · 製作中</span></span></div>'
+            return f'<a class="cp-link rvl" href="{html.escape(x["href"])}">{inner}<span class="cp-link-go">Go to the lesson · 前往這一課 <i>&rarr;</i></span></span></a>'
+        lh = lesson["links_head"]
+        secs.append(("more", lh["eyebrow"], lh["en"], lh["zh"], f'<div class="cp-links">{"".join(link(x) for x in lesson["links"])}</div>', ""))
+    if lesson.get("facts"):
+        fx = lesson["facts"]
+        tiles = "".join(
+            f'<div class="cp-fact rvl"><b class="cp-fact-n">{html.escape(it["big"])}</b>'
+            f'<span class="cp-fact-u">{html.escape(it["unit_en"])} · {html.escape(it["unit_zh"])}</span>'
+            f'<p>{html.escape(it["en"])}<span class="zh">{html.escape(it["zh"])}</span></p></div>'
+            for it in fx["items"])
+        secs.append(("facts", fx["eyebrow"], fx["en"], fx["zh"], f'<div class="cp-facts">{tiles}</div>',
+                     _bi(fx["lead_en"], fx["lead_zh"], cls="lead rvl d2")))
+    if lesson.get("culture_cards"):
+        cu = lesson["culture_cards"]
+        cc = "".join(
+            f'<article class="cc-card rvl"><p class="cc-k">{html.escape(c["k"])}</p>'
+            f'<h3>{html.escape(c["en"])}<span class="zh">{html.escape(c["zh"])}</span></h3>'
+            f'{_bi(c["body_en"], c["body_zh"])}</article>'
+            for c in cu["cards"])
+        secs.append(("stories", cu["eyebrow"], cu["title_en"], cu["title_zh"], f'<div class="cc-grid">{cc}</div>',
+                     _bi(cu["lead_en"], cu["lead_zh"], cls="lead rvl d2")))
+    secs.append(("myths", "Myth vs. Fact · 常見迷思", "Four things people get wrong", "四個常見的誤會", _sci_myths(lesson), ""))
+    th = lesson["tricks_head"]
+    secs.append(("tricks", "Remember It · 記憶口訣", th["en"], th["zh"], _sci_tricks(lesson), ""))
+    if lesson.get("safety"):
+        sh = lesson.get("safety_head") or {"eyebrow": "Safety First · 安全提醒", "en": "Before you try anything", "zh": "動手之前先讀"}
+        items = "".join(f'<li class="rvl">{html.escape(s["en"])}<span class="zh">{html.escape(s["zh"])}</span></li>' for s in lesson["safety"])
+        src = ""
+        if sh.get("src"):      # 防災要點要寫明照哪個官方單位
+            src = (f'<p class="lf-safety-src rvl">{html.escape(sh["src_en"])} <a href="{html.escape(sh["url"])}" target="_blank" rel="noopener">{html.escape(sh["src"])} &#8599;</a>'
+                   f'<span class="zh">{html.escape(sh["src_zh"])}</span></p>')
+        secs.append(("safety", sh["eyebrow"], sh["en"], sh["zh"], f'<ul class="cp-safety">{items}</ul>{src}', ""))
+    for n, act in enumerate(lesson["activities"], 1):
+        eb = "Classroom Activity · 課堂活動" if len(lesson["activities"]) == 1 else f"Classroom Activity {n} · 課堂活動{_astro_cn(n)}"
+        secs.append((f"activity{'' if n == 1 else n}", eb, act["title_en"], act["title_zh"], _astro_activity(act), ""))
+    sec_html = "\n".join(_astro_sec(sid, k % 2 == 1, eb, en, zh, inner, lead)
+                         for k, (sid, eb, en, zh, inner, lead) in enumerate(secs))
+    rows = "".join(
+        f'<li><span>{html.escape(s["en"])}<span class="zh">{html.escape(s["zh"])}</span></span>'
+        f'<a href="{html.escape(s["url"])}" target="_blank" rel="noopener">{html.escape(s["src"])} &#8599;</a></li>'
+        for s in lesson["sources"])
+    ck = lesson["checked"]
+    src_html = (f'<div class="cp-sources rvl"><p class="sub-head">Sources · 資料出處</p>'
+                f'<p class="muted">Facts and numbers on this page were checked against these sources ({html.escape(ck["en"])}). · 本頁的事實與數字依下列資料查證（{html.escape(ck["zh"])}）。</p>'
+                f'<ol>{rows}</ol></div>')
+
+    eyebrow = (f'Living Things · Unit {ui + 1} · Lesson {lesson["n"]} · '
+               f'生命與生態 單元{_htw_cn(ui + 1)} 第{_htw_cn(lesson["n"])}課')
+    lead = f'{html.escape(lesson["blurb_en"])}<br><span class="muted">{html.escape(lesson["blurb_zh"])}</span>'
+    body = f'''
+{page_hero(eyebrow, f'{html.escape(lesson["title"])}<span class="h1-zh">{html.escape(lesson["title_zh"])}</span>', lead, back=(LIFE_BASE, "回生命與生態 · All Lessons"))}
+<section class="section astro-lab-sec" id="model"><div class="wrap">
+  <div class="big-idea rvl"><span class="big-idea-k">Big idea · 一句話看懂</span>{_bi(lesson["big_idea_en"], lesson["big_idea_zh"])}</div>
+  <p class="eyebrow rvl">{html.escape(lab["eyebrow"])}</p>
+  <h2 class="rvl d1 sweep">{html.escape(lab["title_en"])} <span class="tp-h2-en">{html.escape(lab["title_zh"])}</span></h2>
+  {_bi(lab["how_en"], lab["how_zh"], cls="lead rvl d2 al-how")}
+  {lab_html}
+</div></section>
+<section class="section band" id="reading"><div class="wrap" style="max-width:940px">
+  <p class="eyebrow rvl">Reading · 英文閱讀</p>
+  {reading_html}
+</div></section>
+{sec_html}
+<section class="section"><div class="wrap">
+{src_html}
+{_life_nav(lesson["slug"])}
+</div></section>
+'''
+    say_slug = f'life-{lesson["slug"]}'   # tools/gen_audio.py 以路徑末兩段命名
+    has_clips = os.path.exists(os.path.join(ROOT, "assets/data/say", say_slug + ".json"))
+    write(path, layout(path, f'{lesson["title"]} · {lesson["title_zh"]}',
+          f'{lesson["blurb_en"]} {lesson["blurb_zh"]}', body, "resources",
+          say_manifest=say_slug if has_clips else None, extra_head=_life_head(_LIFE_JS[kind])))
+    return path
+
+def build_life_hub():
+    # 照地球與天氣：單元導覽＋每個單元一段橫向課程卡；做好的課可點，planned 是「製作中」卡。
+    unit_sections, nav = [], []
+    done = sum(len(u["lessons"]) for u in LIFE["units"])
+    total = done + sum(len(u.get("planned", [])) for u in LIFE["units"])
+    for idx, u in enumerate(LIFE["units"]):
+        rows = []
+        for l in u["lessons"]:
+            ic = _LIFE_ICON[l["card"]](60) if l.get("card") in _LIFE_ICON else l["icon"]
+            rows.append((l["n"],
+                f'<a class="lc-row rvl" href="{LIFE_BASE}{l["slug"]}/">'
+                f'<span class="lc-ico" aria-hidden="true">{ic}</span>'
+                f'<span class="lc-body">'
+                f'<span class="lc-meta"><b>Lesson {l["n"]} · 第{_htw_cn(l["n"])}課</b><i>{html.escape(l["level"])}</i></span>'
+                f'<h3 class="lc-title">{html.escape(l["title"])}</h3>'
+                f'<span class="lc-zh">{html.escape(l["title_zh"])}</span>'
+                f'<span class="lc-bl">{html.escape(l["blurb_en"])}</span>'
+                f'<span class="lc-bl zh">{html.escape(l["blurb_zh"])}</span>'
+                f'<span class="lc-go">Start the lesson · 開始上課 <i>&rarr;</i></span>'
+                f'</span></a>'))
+        for pl in u.get("planned", []):
+            rows.append((pl["n"],
+                f'<div class="lc-row lc-soon rvl">'
+                f'<span class="lc-ico" aria-hidden="true">{pl["icon"]}</span>'
+                f'<span class="lc-body"><span class="lc-meta"><b>Lesson {pl["n"]} · 第{_htw_cn(pl["n"])}課 · Coming soon 製作中</b></span>'
+                f'<h3 class="lc-title">{html.escape(pl["en"])}</h3><span class="lc-zh">{html.escape(pl["zh"])}</span></span></div>'))
+        rows.sort(key=lambda r: r[0])
+        band = " band" if idx % 2 == 0 else ""
+        uid = f"unit-{idx + 1}"
+        nav.append(f'<a class="unit-nav-link" href="#{uid}"><b>{idx + 1}</b><span>{html.escape(u["title_zh"])}</span></a>')
+        unit_sections.append(
+            f'<section class="section lc-unit{band}" id="{uid}"><div class="wrap">'
+            f'<p class="eyebrow rvl">Unit {idx + 1} · 單元{_htw_cn(idx + 1)}</p>'
+            f'<h2 class="rvl d1 sweep">{html.escape(u["title_en"])} <span class="tp-h2-en">{html.escape(u["title_zh"])}</span></h2>'
+            f'<p class="lead rvl d2" style="max-width:62ch">{html.escape(u["blurb_en"])}<br>'
+            f'<span class="muted">{html.escape(u["blurb_zh"])}</span></p>'
+            f'<div class="lc-list">{"".join(r[1] for r in rows)}</div>'
+            f'</div></section>')
+    unit_nav = (f'<nav class="unit-nav" aria-label="Jump to unit · 單元導覽"><div class="wrap">'
+                f'<span class="unit-nav-label">Jump to unit · 跳到單元</span>'
+                f'<div class="unit-nav-track">{"".join(nav)}</div></div></nav>')
+    intro_html = "".join(_bi(p["en"], p["zh"]) for p in LIFE["intro"])
+    intro_html += _bi(f"{done} of {total} lessons {'is' if done == 1 else 'are'} ready so far; more are on the way.",
+                      f"目前完成 {done} 課（共規劃 {total} 課），持續增加中。", cls="cp-progress")
+    lead = f'{html.escape(LIFE["lead_en"])}<br><span class="muted">{html.escape(LIFE["lead_zh"])}</span>'
+    body = f'''
+{page_hero(LIFE["eyebrow"], f'{LIFE["title_en"]} <span class="h1-zh">{LIFE["title_zh"]}</span>', lead, back=("/resources/reading/", "回閱讀與經典"))}
+<section class="section"><div class="wrap">
+  <div class="prose wide rvl cp-intro"><span class="cp-intro-ic" aria-hidden="true">{lifeleaf_svg(76)}</span>{intro_html}</div>
+</div></section>
+{unit_nav}
+{"".join(unit_sections)}
+'''
+    write(LIFE_BASE, layout(LIFE_BASE, f'{LIFE["title_en"]} · {LIFE["title_zh"]}',
+          f'{LIFE["lead_en"]} {LIFE["lead_zh"]}', body, "resources", extra_head=_life_head() + _lc_head()))
+    return LIFE_BASE
+
 # ---- 書法 Chinese Calligraphy（資料驅動，data/calligraphy.json）----
 # 架構照晶片與半導體：系列首頁分單元（單元導覽＋.lc-row 橫向課程卡），課程頁照天文教育
 # （英文 reading＋每課一個 3D 毛筆示範＋延伸段落）。units[].lessons 是做好的課、units[].planned 是製作中。
@@ -16118,6 +16404,10 @@ def main():
         paths.append(build_earth_hub())
         for _ui, _u in enumerate(EARTH["units"]):
             for _l in _u["lessons"]: paths.append(build_earth_lesson(_ui, _u, _l))
+    if LIFE:
+        paths.append(build_life_hub())
+        for _ui, _u in enumerate(LIFE["units"]):
+            for _l in _u["lessons"]: paths.append(build_life_lesson(_ui, _u, _l))
     if CAL:
         paths.append(build_cal_hub())
         for _ui, _u in enumerate(CAL["units"]):
