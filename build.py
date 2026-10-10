@@ -14255,7 +14255,7 @@ def build_cal_hub():
 _compj = os.path.join(ROOT, "data", "computers.json")
 COMP = json.load(open(_compj, encoding="utf-8")) if os.path.exists(_compj) else None
 COMP_BASE = "/resources/classes/computers/"
-_COMP_JS = {"bits": "comp-bits", "pixels": "comp-pixels", "logic": "comp-logic", "adder": "comp-adder", "pc": "comp-pc", "cpu": "comp-cpu", "desk": "comp-desk", "key": "comp-key", "robot": "comp-robot", "search": "comp-search", "sched": "comp-sched", "rle": "comp-rle"}   # lab.kind → assets/js/<bundle>.js
+_COMP_JS = {"bits": "comp-bits", "pixels": "comp-pixels", "logic": "comp-logic", "adder": "comp-adder", "pc": "comp-pc", "cpu": "comp-cpu", "desk": "comp-desk", "key": "comp-key", "robot": "comp-robot", "search": "comp-search", "sched": "comp-sched", "rle": "comp-rle", "web": "comp-web"}   # lab.kind → assets/js/<bundle>.js
 
 def _comp_ver():
     h = hashlib.md5()
@@ -15334,6 +15334,84 @@ def _comp_lossy(ls):
   <p class="cp-lv-note">{html.escape(ls["note_en"])}<span class="zh">{html.escape(ls["note_zh"])}</span></p>
 </div>'''
 
+def compweb_svg(size=56):
+    """第十三課的課程卡小圖示：左邊一台筆電、右邊一台伺服器，中間一去一回兩個箭頭。"""
+    return (f'<svg class="compweb-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">'
+            '<rect x="5" y="22" width="18" height="13" rx="2" fill="#10192e" stroke="#aab4c8" stroke-width="2"/><path d="M3 38h22" stroke="#aab4c8" stroke-width="2.6" stroke-linecap="round"/>'
+            '<rect x="42" y="12" width="13" height="34" rx="2.5" fill="#2a3550" stroke="#8a93a6" stroke-width="2"/><path d="M45.5 19h6M45.5 25h6M45.5 31h6" stroke="#38c778" stroke-width="2" stroke-linecap="round"/>'
+            '<path d="M27 22h11m-3.5-3.5L38 22l-3.5 3.5" fill="none" stroke="#ffd36e" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>'
+            '<path d="M38 33H27m3.5-3.5L27 33l3.5 3.5" fill="none" stroke="#7ef0e3" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>')
+
+_COMP_CARD["web"] = compweb_svg
+
+def render_compweb_lab(lesson):
+    """第十三課：一次問答的來回（assets/js/comp-web.js 綁這裡的 class；全部自繪示意）。"""
+    lab = lesson["lab"]
+    ub = "".join(f'<button type="button" data-url="{u["key"]}" aria-pressed="false"><b>{html.escape(u["url"])}</b><small>{html.escape(u["en"])} · {html.escape(u["zh"])}</small></button>' for u in lab["urls"])
+    rows = "".join(
+        f'<li><button type="button" data-st="{i}"><i>{i + 1}</i><span>{html.escape(s["en"])}<small>{html.escape(s["zh"])}</small></span><b class="cp-ky-v">…</b></button></li>'
+        for i, s in enumerate(lab["stops"]))
+    tg = _lab_toggles([("labels", "Labels", "標示", True)])
+    return f'''<div class="astro-lab cp-lab cp-wb-lab rvl" data-compweb-lab>
+  <div class="al-stage">
+    <div class="al-space">
+      <canvas class="al-space-cv" aria-label="3D model of a laptop on the left, an address book standing for the DNS in the middle, and a server on the right, joined by cables · 左邊一台筆電、中間一本代表 DNS 的地址簿、右邊一台伺服器，用線連在一起的 3D 模型"></canvas>
+      <div class="al-labels" aria-hidden="true"></div>
+      <p class="al-hint">Drag to turn · 拖曳旋轉</p>
+      <button type="button" class="al-home" title="Reset view · 重設視角" aria-label="Reset view · 重設視角">&#8634;</button>
+      <p class="al-nogl-msg">This 3D model needs WebGL, which this browser does not support. The addresses and the six stops below still work, and so do the reading and the games.<br><span class="zh">這個瀏覽器不支援 WebGL，無法顯示 3D 模型；下面的網址和六站清單照樣能用，課文和小遊戲也都能用。</span></p>
+    </div>
+    <aside class="al-sky cp-aside">
+      <p class="al-sky-k">Choose an address · 選一個網址</p>
+      <div class="cp-wb-urls" role="group" aria-label="Addresses · 網址">{ub}</div>
+      <p class="cp-wb-bar" aria-hidden="true"></p>
+      <p class="al-sky-k">What is sent at each stop · 每一站送的是什麼</p>
+      <ol class="cp-ky-stops">{rows}</ol>
+      <p class="cp-msg" aria-live="polite"></p>
+    </aside>
+  </div>
+  <div class="al-controls">
+    <div class="al-row al-row-main">
+      <button type="button" class="al-play" aria-pressed="false"><span class="al-play-t">Go · 前往</span></button>
+      <button type="button" class="cp-btn-d cp-step">One stop at a time · 一站一站走</button>
+      <button type="button" class="cp-btn-d cp-reset">Reset · 重來</button>
+      <div class="al-row al-toggles">{tg}</div>
+    </div>
+  </div>
+  {_lab_foot(lab)}
+  <p class="cp-credit">{lab["credit_html"]}</p>
+</div>'''
+
+def _comp_html(hm):
+    tips = "".join(f'<li>{html.escape(t["en"])}<span class="zh">{html.escape(t["zh"])}</span></li>' for t in hm["tips"])
+    return f'''<div class="cp-full cp-hm rvl" data-cp-html>
+  <div class="cp-hm-main">
+    <div>
+      <label class="cp-k" for="cp-hm-src">The file the server sends · 伺服器送來的檔案</label>
+      <textarea id="cp-hm-src" class="cp-hm-src" rows="7" spellcheck="false" autocapitalize="off" autocomplete="off">{html.escape(hm["start"])}</textarea>
+      <div class="cp-mz-btns"><button type="button" class="cp-btn cp-hm-reset">Start again · 回到一開始</button></div>
+    </div>
+    <div>
+      <p class="cp-k">What the browser draws · 瀏覽器畫出來的樣子</p>
+      <div class="cp-hm-win"><div class="cp-hm-chrome" aria-hidden="true"><i></i><i></i><i></i></div><div class="cp-hm-out cp-page" aria-live="polite"></div></div>
+    </div>
+  </div>
+  <p class="cp-lv-msg cp-hm-msg" aria-live="polite"></p>
+  <p class="cp-lv-note">{html.escape(hm["note_en"])}<span class="zh">{html.escape(hm["note_zh"])}</span></p>
+</div>
+<ul class="cp-tips rvl">{tips}</ul>'''
+
+def _comp_urlparts(up):
+    ub = "".join(f'<button type="button" data-u="{html.escape(u)}" aria-pressed="false">{html.escape(u)}</button>' for u in up["urls"])
+    return f'''<div class="cp-full cp-up rvl" data-cp-urlparts>
+  <p class="cp-k">Choose an address · 選一個網址</p>
+  <div class="cp-up-pick" role="group" aria-label="Addresses · 網址">{ub}</div>
+  <p class="cp-up-line" aria-label="The address, in three parts · 分成三段的網址"></p>
+  <p class="cp-up-key"><i class="is-scheme"></i>protocol · 協定　<i class="is-host"></i>domain name · 網域名稱　<i class="is-path"></i>path · 路徑</p>
+  <p class="cp-lv-msg cp-up-msg" aria-live="polite"></p>
+  <p class="cp-lv-note">{html.escape(up["note_en"])}<span class="zh">{html.escape(up["note_zh"])}</span></p>
+</div>'''
+
 def _comp_flat():
     return [(ui, u, l) for ui, u in enumerate(COMP["units"]) for l in u["lessons"]]
 
@@ -15361,7 +15439,7 @@ def build_comp_lesson(ui, unit, lesson):
     reading_html = render_basic_unit(1, unit_dict, level="comp", audio_rel="", pdf_rel="")
     lab = lesson["lab"]
     kind = lab["kind"]
-    lab_html = {"bits": render_compbits_lab, "pixels": render_comppixels_lab, "logic": render_complogic_lab, "adder": render_compadder_lab, "pc": render_comppc_lab, "cpu": render_compcpu_lab, "desk": render_compdesk_lab, "key": render_compkey_lab, "robot": render_comprobot_lab, "search": render_compsearch_lab, "sched": render_compsched_lab, "rle": render_comprle_lab}[kind](lesson)
+    lab_html = {"bits": render_compbits_lab, "pixels": render_comppixels_lab, "logic": render_complogic_lab, "adder": render_compadder_lab, "pc": render_comppc_lab, "cpu": render_compcpu_lab, "desk": render_compdesk_lab, "key": render_compkey_lab, "robot": render_comprobot_lab, "search": render_compsearch_lab, "sched": render_compsched_lab, "rle": render_comprle_lab, "web": render_compweb_lab}[kind](lesson)
 
     def sec(key, fn):
         d = lesson[key]
@@ -15408,6 +15486,9 @@ def build_comp_lesson(ui, unit, lesson):
     if lesson.get("rledraw"): secs.append(sec("rledraw", _comp_rledraw))
     if lesson.get("lossy"): secs.append(sec("lossy", _comp_lossy))
     if lesson.get("keepall"): secs.append(sec("keepall", _comp_choice))
+    if lesson.get("htmlfile"): secs.append(sec("htmlfile", _comp_html))
+    if lesson.get("urlparts"): secs.append(sec("urlparts", _comp_urlparts))
+    if lesson.get("whoasks"): secs.append(sec("whoasks", _comp_choice))
     if lesson.get("culture_cards"):
         cu = lesson["culture_cards"]
         cc = "".join(

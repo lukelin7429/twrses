@@ -8095,7 +8095,7 @@
               "zh": "打開一個網頁，發生了什麼？",
               "note_en": "Unit 3 ends here. Unit 4 leaves your own computer: next, one computer asks, and another one far away answers.",
               "note_zh": "單元三到這裡結束。單元四要離開你自己的電腦：下一課，一台電腦發問，遠方的另一台回答。",
-              "soon": true
+              "href": "/resources/classes/computers/open-a-web-page/"
             }
           ],
           "sources_note_en": "Facts on this page were checked against these sources (October 2026); the picture wall is our own illustration, and every number is tested",
@@ -8160,14 +8160,740 @@
       "title_zh": "連線、安全與 AI",
       "blurb_en": "What happens when you open a web page, how a computer keeps a secret, how a computer “learns,” and how computers got so small.",
       "blurb_zh": "打開一個網頁時發生了什麼、電腦怎麼保守祕密、電腦怎麼「學習」，以及電腦怎麼越變越小。",
-      "lessons": [],
-      "planned": [
+      "lessons": [
         {
           "n": 13,
+          "slug": "open-a-web-page",
+          "title": "What Happens When You Open a Web Page?",
+          "title_zh": "打開一個網頁，發生了什麼？",
+          "level": "入門 · Beginner",
           "icon": "🌐",
-          "en": "What Happens When You Open a Web Page?",
-          "zh": "打開一個網頁，發生了什麼？"
-        },
+          "card": "web",
+          "blurb_en": "Opening a web page is a conversation between two computers. Follow it in 3D: your computer asks an address book for a number, sends a request to a server far away, and gets back a few lines of text, which the browser draws as a page. Then edit a page’s text yourself, take a web address apart, and decide who is asking and who is answering.",
+          "blurb_zh": "打開一個網頁，是兩台電腦之間的一段對話。在 3D 裡跟著走一趟：你的電腦先向地址簿問一個數字，再向遠方的伺服器送出請求，拿回幾行文字，瀏覽器把它畫成頁面。接著自己改一改網頁的文字、把一個網址拆開來看，再分辨誰在問、誰在答。",
+          "big_idea_en": "A web page does not live on your computer. Your browser asks another computer, called a server, to send it. The server sends back a file of text, and the browser turns that text into the page you see. Before it can ask, the browser has to turn the site’s name into a number, and it does that by asking the DNS.",
+          "big_idea_zh": "網頁並不放在你的電腦裡。你的瀏覽器向另一台叫做伺服器的電腦提出請求，請它把網頁送過來。伺服器送回一份文字檔，瀏覽器再把這份文字變成你看到的頁面。提出請求之前，瀏覽器得先把網站的名字換成一個數字，這件事要去問 DNS。",
+          "lab": {
+            "kind": "web",
+            "eyebrow": "3D Model · 3D 模型",
+            "title_en": "One Question, One Answer",
+            "title_zh": "一問一答",
+            "how_en": "On the left is your computer, with a web browser. On the right is a server, a computer that stores web pages. At the back is the DNS, the address book that turns names into numbers. Choose an address and press Go, then follow the glowing dot. The list on the right fills in what is being sent at each stop. Try all four addresses: two pages that exist, one page that does not, and one name that does not exist at all.",
+            "how_zh": "左邊是你的電腦，上面有瀏覽器。右邊是伺服器，一台存放網頁的電腦。後面是 DNS，把名字換成數字的地址簿。選一個網址，按「前往」，跟著光點走。右邊的清單會填上每一站送的是什麼。四個網址都試試：兩個存在的網頁、一個不存在的網頁，還有一個根本不存在的名字。",
+            "urls": [
+              {
+                "key": "home",
+                "url": "https://example.com/",
+                "en": "a page that exists",
+                "zh": "存在的網頁"
+              },
+              {
+                "key": "pets",
+                "url": "https://example.com/pets",
+                "en": "another page, same server",
+                "zh": "同一台伺服器的另一頁"
+              },
+              {
+                "key": "missing",
+                "url": "https://example.com/dragons",
+                "en": "no such page",
+                "zh": "沒有這一頁"
+              },
+              {
+                "key": "noname",
+                "url": "https://no-such-site.example/",
+                "en": "no such name",
+                "zh": "沒有這個名字"
+              }
+            ],
+            "stops": [
+              {
+                "en": "You type the address",
+                "zh": "你打好網址"
+              },
+              {
+                "en": "Ask the DNS",
+                "zh": "問 DNS：名字"
+              },
+              {
+                "en": "The DNS answers",
+                "zh": "DNS 回答：數字"
+              },
+              {
+                "en": "Ask the server",
+                "zh": "向伺服器請求"
+              },
+              {
+                "en": "The server answers",
+                "zh": "伺服器回應"
+              },
+              {
+                "en": "The browser draws",
+                "zh": "瀏覽器畫出來"
+              }
+            ],
+            "legend": [
+              {
+                "cls": "cplaptop",
+                "en": "Your computer and its browser: the client",
+                "zh": "你的電腦和上面的瀏覽器：用戶端"
+              },
+              {
+                "cls": "cpdns",
+                "en": "The DNS: an address book that turns names into numbers",
+                "zh": "DNS：把名字換成數字的地址簿"
+              },
+              {
+                "cls": "cpserver",
+                "en": "The server: a computer that stores web pages",
+                "zh": "伺服器：存放網頁的電腦"
+              },
+              {
+                "cls": "cpnode",
+                "en": "Teal dots: other machines the messages pass through",
+                "zh": "青色圓點：訊息途中經過的其他機器"
+              },
+              {
+                "cls": "cpcarry2",
+                "en": "Glowing dot: the message that is traveling now",
+                "zh": "光點：現在正在路上的那則訊息"
+              }
+            ],
+            "scale_en": "A teaching model. The names, numbers, and pages here are made up for the example: example.com is a name set aside for use in examples, and the numbers come from ranges reserved for documentation, so none of them is a real site’s address. A real page usually needs many trips, one for each picture and each file. The data travels in small chunks called packets, through many machines along the way. The DNS is not one book but many servers. And today most of this conversation is kept secret from anyone in between, which is the subject of the next lesson.",
+            "scale_zh": "這是教學用的示意模型。這裡的名字、數字和網頁都是為了舉例編的：example.com 是保留給舉例用的名字，那些數字出自保留給文件使用的區段，所以它們都不是任何真實網站的地址。真的網頁通常要來回很多趟，每張圖、每個檔案各一趟。資料會切成一小塊一小塊的「封包」，途中經過很多台機器。DNS 也不是一本簿子，而是很多台伺服器。還有，今天這段對話大多會對中途的人保密——那是下一課的主題。",
+            "credit_html": "Model and code are drawn and programmed by My Culture Connect. Every step of the four trips is tested in <code>tools/computers/test/web.test.mjs</code>.<br><span class=\"zh\">模型與程式由人師教育協會自行繪製、撰寫；四趟路程的每一步都有自動測試（<code>tools/computers/test/web.test.mjs</code>）。</span>"
+          },
+          "paras": [
+            "You type an address, press Enter, and a page appears. It feels as if the page were already inside your computer. It is not. It is stored on another computer, perhaps in another country, and your computer has to ask for it. Opening a web page is a short conversation between two machines.",
+            "The two machines have names. Yours is the client: your computer or phone, and the web browser on it. The other is a server: a computer that stores web pages and sends them out when asked. The client asks. The server answers. That is the pattern of the whole web.",
+            "First there is a small problem. You typed a name, such as example.com, but computers find each other by number. So the browser asks the Domain Name System, or DNS. It works like an address book: give it a name, and it gives back a number called an IP address, which looks something like 192.0.2.10. Now the browser knows where to send its question.",
+            "Next, the browser sends the server a request. It is a short message that says, in effect, “please send me this page.” The server answers with a code and, if all is well, the page. The code 200 means OK. The code 404 means “not found”: the server is there, but it has no page at that address.",
+            "And what is the page? It is a file of text, written in a language called HTML. Tags in the text say what each piece is: this is a heading, that is a paragraph. The browser reads the text and draws the page from it. If the page has pictures, the browser asks for each of them in the same way, one request after another.",
+            "The web is not the same thing as the internet. The internet is the worldwide network that connects the computers, and the web is one of the services that run on it. Email and instant messaging are others. Each time you tap a link, the same conversation happens again: a name, a number, a request, an answer, and a page drawn from text."
+          ],
+          "paras_zh": [
+            "你打好網址，按下 Enter，一個網頁就出現了。感覺好像這個網頁本來就在你的電腦裡。其實不是。它存放在另一台電腦上，也許在另一個國家，你的電腦得去把它要過來。打開一個網頁，是兩台機器之間一段很短的對話。",
+            "這兩台機器各有名稱。你這一邊叫用戶端（client）：你的電腦或手機，以及上面的瀏覽器。另一邊叫伺服器（server）：一台存放網頁、有人要就送出去的電腦。用戶端發問，伺服器回答。整個全球資訊網都是照這個模式運作的。",
+            "一開始有個小問題。你打的是一個名字，例如 example.com，可是電腦是靠數字找到彼此的。所以瀏覽器先去問網域名稱系統（Domain Name System，簡稱 DNS）。它像一本地址簿：給它一個名字，它還你一個數字，叫做 IP 位址，長得像 192.0.2.10 這樣。現在瀏覽器知道問題該往哪裡送了。",
+            "接下來，瀏覽器向伺服器送出一個請求。那是一則很短的訊息，意思就是「請把這一頁給我」。伺服器回一個代碼；一切順利的話，還有那個網頁。代碼 200 表示「好」。代碼 404 表示「找不到」：伺服器在，只是那個位置沒有網頁。",
+            "那網頁又是什麼？它是一份文字檔，用一種叫 HTML 的語言寫成。文字裡的標籤（tag）說明每一塊是什麼：這是標題，那是一段話。瀏覽器讀了這份文字，照著把網頁畫出來。如果網頁裡有圖片，瀏覽器會用同樣的方式一張一張去要，一個請求接著一個請求。",
+            "全球資訊網（Web）和網際網路（Internet）不是同一件事。網際網路是把電腦連在一起的全球性網路，全球資訊網是在它上面運作的服務之一；電子郵件和即時通訊是另外幾種。你每點一次連結，同一段對話就再發生一次：一個名字、一個數字、一個請求、一個回答，然後一個用文字畫出來的網頁。"
+          ],
+          "questions": [
+            "Which computer is the client and which is the server? What does each one do?",
+            "Why does the browser ask the DNS before it asks the server?",
+            "What does a server send back, and what does the browser do with it?"
+          ],
+          "answers": [
+            "The client is your computer or phone and its browser. It asks for a page. The server is a computer that stores web pages. It answers by sending the page.",
+            "You type a name, but computers find each other by number. The DNS turns the name into the server’s number, its IP address, so the browser knows where to send the request.",
+            "It sends a code, such as 200 for OK or 404 for not found, and a file of text written in HTML. The browser reads the text and draws the page from it."
+          ],
+          "vocab": [
+            {
+              "n": 1,
+              "w": "request",
+              "pos": "n.",
+              "zh": "請求",
+              "ex": "The browser sends a <b>request</b> to the server.",
+              "exzh": "瀏覽器向伺服器送出一個請求。"
+            },
+            {
+              "n": 2,
+              "w": "respond",
+              "pos": "v.",
+              "zh": "回應",
+              "ex": "The server <b>responds</b> with a page of text.",
+              "exzh": "伺服器用一頁文字來回應。"
+            },
+            {
+              "n": 3,
+              "w": "address",
+              "pos": "n.",
+              "zh": "地址；位址",
+              "ex": "Type the web <b>address</b> into the bar at the top.",
+              "exzh": "把網址打進上面那一列。"
+            },
+            {
+              "n": 4,
+              "w": "server",
+              "pos": "n.",
+              "zh": "伺服器",
+              "ex": "The page is stored on a <b>server</b> far away.",
+              "exzh": "這個網頁存放在很遠的一台伺服器上。"
+            },
+            {
+              "n": 5,
+              "w": "browser",
+              "pos": "n.",
+              "zh": "瀏覽器",
+              "ex": "Open your <b>browser</b> and go to the library’s site.",
+              "exzh": "打開瀏覽器，連到圖書館的網站。"
+            },
+            {
+              "n": 6,
+              "w": "link",
+              "pos": "n.",
+              "zh": "連結",
+              "ex": "Tap the <b>link</b> to read the next page.",
+              "exzh": "點那個連結，就可以讀下一頁。"
+            },
+            {
+              "n": 7,
+              "w": "store",
+              "pos": "v.",
+              "zh": "存放",
+              "ex": "A server <b>stores</b> web pages and sends them out.",
+              "exzh": "伺服器存放網頁，再把它們送出去。"
+            },
+            {
+              "n": 8,
+              "w": "network",
+              "pos": "n.",
+              "zh": "網路",
+              "ex": "The internet is a worldwide <b>network</b> of computers.",
+              "exzh": "網際網路是全世界電腦連成的網路。"
+            }
+          ],
+          "quiz": [
+            {
+              "q": "Where is a web page stored before you open it?",
+              "options": [
+                "Inside your screen",
+                "On a server, another computer",
+                "In your keyboard",
+                "Nowhere; it is made new each time by your phone"
+              ],
+              "correct": 1
+            },
+            {
+              "q": "What does the DNS do?",
+              "options": [
+                "It draws the page.",
+                "It turns a site’s name into a number.",
+                "It stores all the web pages.",
+                "It makes the internet faster."
+              ],
+              "correct": 1
+            },
+            {
+              "q": "What does the code 404 mean?",
+              "options": [
+                "The page was sent correctly.",
+                "The server could not find the page you asked for.",
+                "Your computer is broken.",
+                "The internet is switched off."
+              ],
+              "correct": 1
+            },
+            {
+              "q": "What is a web page made of when it leaves the server?",
+              "options": [
+                "A photograph of the page",
+                "A file of text with tags",
+                "A sound",
+                "A list of key numbers"
+              ],
+              "correct": 1
+            },
+            {
+              "q": "According to the reading, how are the web and the internet related?",
+              "options": [
+                "They are two names for the same thing.",
+                "The internet is the network, and the web is one service that runs on it.",
+                "The web is older than the internet.",
+                "The internet is a kind of browser."
+              ],
+              "correct": 1
+            }
+          ],
+          "parts_head": {
+            "eyebrow": "Try It in the Model · 在模型裡試試",
+            "en": "Four trips to follow",
+            "zh": "四趟值得跟著走的路"
+          },
+          "parts": [
+            {
+              "key": "home",
+              "icon": "✅",
+              "en": "A page that exists",
+              "zh": "存在的網頁",
+              "meta_en": "Six stops, and a page at the end",
+              "meta_zh": "六站，最後是一個網頁",
+              "demo": "home",
+              "text_en": "Follow the dot all the way. How many times does a message leave your computer before the page appears?",
+              "text_zh": "跟著光點走完全程。網頁出現之前，有幾則訊息從你的電腦送出去？"
+            },
+            {
+              "key": "pets",
+              "icon": "📄",
+              "en": "Another page on the same server",
+              "zh": "同一台伺服器的另一頁",
+              "meta_en": "Same number, different request",
+              "meta_zh": "數字一樣，請求不一樣",
+              "demo": "pets",
+              "text_en": "Compare with the first trip. Which stop shows exactly the same thing, and which one changes?",
+              "text_zh": "和第一趟比一比。哪一站的內容一模一樣？哪一站不一樣？"
+            },
+            {
+              "key": "missing",
+              "icon": "❓",
+              "en": "No such page",
+              "zh": "沒有這一頁",
+              "meta_en": "The server answers: 404",
+              "meta_zh": "伺服器回答：404",
+              "demo": "missing",
+              "text_en": "The server is found, and it replies. So what exactly could not be found?",
+              "text_zh": "伺服器找到了，它也回話了。那到底是什麼找不到？"
+            },
+            {
+              "key": "noname",
+              "icon": "🚫",
+              "en": "No such name",
+              "zh": "沒有這個名字",
+              "meta_en": "The trip ends at the address book",
+              "meta_zh": "這一趟停在地址簿",
+              "demo": "noname",
+              "text_en": "This time the dot never reaches a server. Why not?",
+              "text_zh": "這一次，光點根本沒有到達任何伺服器。為什麼？"
+            }
+          ],
+          "parts_note_en": "Use “One stop at a time” to go slowly, or tap any row in the list to jump to that stop.",
+          "parts_note_zh": "想慢慢看就用「一站一站走」，也可以點清單裡的任何一站直接跳過去。",
+          "htmlfile": {
+            "eyebrow": "Try It · 自己試試",
+            "en": "A Web Page Is Text",
+            "zh": "網頁是一份文字",
+            "lead_en": "On the left is the kind of file a server sends: plain text with tags. On the right is what a browser draws from it. Change the words between the tags. Then change the color, or add another line of your own.",
+            "lead_zh": "左邊是伺服器送來的那種檔案：帶著標籤的純文字。右邊是瀏覽器照著它畫出來的樣子。改一改標籤中間的字，再改改顏色，或自己多加一行。",
+            "start": "<h1 color=\"teal\">My First Page</h1>\n<p>A browser turned this text into a page.</p>\n<p color=\"red\">Change me!</p>",
+            "note_en": "This little browser understands only two tags, <h1> for a heading and <p> for a paragraph, and one setting, color, with these values: black, red, green, blue, orange, purple, teal, and brown. Real HTML has many more tags, and real pages set colors in a separate language called CSS. Nothing you type here is sent anywhere.",
+            "note_zh": "這個小瀏覽器只懂兩種標籤：<h1> 是標題、<p> 是一段話；只懂一個設定 color，可以用的值是 black、red、green、blue、orange、purple、teal、brown。真的 HTML 有多得多的標籤，真的網頁則用另一種叫 CSS 的語言來設定顏色。你在這裡打的東西不會送到任何地方。",
+            "tips": [
+              {
+                "en": "Every opening tag needs its closing tag: <p> and then </p>. Leave one out and see what happens.",
+                "zh": "每個開頭的標籤都要配一個結尾的標籤：<p> 配 </p>。漏掉一個，看看會怎樣。"
+              },
+              {
+                "en": "The tags themselves never show on the page. They are instructions to the browser.",
+                "zh": "標籤本身不會出現在網頁上。它們是給瀏覽器看的指示。"
+              },
+              {
+                "en": "This is the lesson of Lesson 9 again: the browser does exactly what the text says.",
+                "zh": "這又是第九課的道理：瀏覽器完全照文字寫的做。"
+              }
+            ]
+          },
+          "urlparts": {
+            "eyebrow": "See Why · 看看為什麼",
+            "en": "Reading a Web Address",
+            "zh": "讀懂一個網址",
+            "lead_en": "A web address is called a URL. It looks like one long word, but it has parts, and each part is used at a different stop on the trip. Choose an address, then tap each colored part.",
+            "lead_zh": "網址的正式名稱是 URL。它看起來像一個很長的字，其實分成幾個部分，每一部分在路程的不同站派上用場。選一個網址，再點一點每個彩色的部分。",
+            "urls": [
+              "https://example.com/pets",
+              "https://twrses.org/resources/classes/computers/",
+              "https://example.org/"
+            ],
+            "note_en": "Real addresses can have more parts than these three. The second address is the real address of this course.",
+            "note_zh": "真的網址還可以有這三段以外的部分。第二個網址是這門課真正的網址。"
+          },
+          "whoasks": {
+            "eyebrow": "Game · 小遊戲",
+            "en": "Who Does This?",
+            "zh": "這是誰做的？",
+            "lead_en": "Eight jobs from the trip. Each one is done by the client (your computer and its browser), by the server, or by the DNS. Decide which.",
+            "lead_zh": "路程中的八件事。每一件不是用戶端（你的電腦和瀏覽器）做的，就是伺服器或 DNS 做的。分分看。",
+            "ask_en": "Who does this?",
+            "ask_zh": "這是誰做的？",
+            "opts": [
+              [
+                "client",
+                "The client",
+                "用戶端"
+              ],
+              [
+                "server",
+                "The server",
+                "伺服器"
+              ],
+              [
+                "dns",
+                "The DNS",
+                "DNS"
+              ]
+            ],
+            "tasks": [
+              {
+                "en": "Turns the name example.com into a number",
+                "zh": "把 example.com 這個名字換成一個數字",
+                "answer": "dns",
+                "why_en": "The DNS is the address book: names in, numbers out.",
+                "why_zh": "DNS 是地址簿：給名字，還數字。"
+              },
+              {
+                "en": "Sends the request “please send me this page”",
+                "zh": "送出「請把這一頁給我」的請求",
+                "answer": "client",
+                "why_en": "The client is the one that asks.",
+                "why_zh": "發問的是用戶端。"
+              },
+              {
+                "en": "Stores the page until someone asks for it",
+                "zh": "把網頁存放著，等有人來要",
+                "answer": "server",
+                "why_en": "Servers are computers that store web pages.",
+                "why_zh": "伺服器就是存放網頁的電腦。"
+              },
+              {
+                "en": "Answers “404 Not Found”",
+                "zh": "回答「404 Not Found」",
+                "answer": "server",
+                "why_en": "Only the server knows whether it has that page.",
+                "why_zh": "只有伺服器知道自己有沒有那一頁。"
+              },
+              {
+                "en": "Reads the text and draws the page on the screen",
+                "zh": "讀那份文字，把網頁畫在螢幕上",
+                "answer": "client",
+                "why_en": "Drawing is the browser’s job, and the browser is on your computer.",
+                "why_zh": "畫網頁是瀏覽器的工作，而瀏覽器在你的電腦上。"
+              },
+              {
+                "en": "Says “there is no such name”",
+                "zh": "說「沒有這個名字」",
+                "answer": "dns",
+                "why_en": "If the name is not in the address book, the trip ends there.",
+                "why_zh": "名字不在地址簿裡，這一趟就停在那裡。"
+              },
+              {
+                "en": "Asks again for each picture on the page",
+                "zh": "為網頁上的每一張圖再去要一次",
+                "answer": "client",
+                "why_en": "The browser sends one request after another.",
+                "why_zh": "瀏覽器一個請求接著一個請求地送。"
+              },
+              {
+                "en": "Sends back a file of text written in HTML",
+                "zh": "送回一份用 HTML 寫的文字檔",
+                "answer": "server",
+                "why_en": "That file is the server’s answer.",
+                "why_zh": "那份檔案就是伺服器的回答。"
+              }
+            ]
+          },
+          "culture_cards": {
+            "eyebrow": "Stories Behind the Web · 全球資訊網的故事",
+            "title_en": "A project at a physics lab, a browser with pictures, a number that became famous, and a page that is not there",
+            "title_zh": "物理實驗室裡的一個計畫、有圖片的瀏覽器、一個出了名的數字、一個不存在的網頁",
+            "lead_en": "Four short stories about asking and answering.",
+            "lead_zh": "關於「發問和回答」的四個小故事。",
+            "cards": [
+              {
+                "k": "1989",
+                "en": "It began at a physics laboratory",
+                "zh": "它從一間物理實驗室開始",
+                "body_en": "According to Britannica, the development of the World Wide Web was begun in 1989 by Tim Berners-Lee and his colleagues at CERN, an international scientific organization based in Geneva, Switzerland. They created a protocol called HTTP, which standardized communication between servers and clients, and their text-based web browser was made available for general release in January 1992. The request in this lesson’s model, “GET /pets,” is written in that protocol.",
+                "body_zh": "根據大英百科，全球資訊網的開發始於 1989 年，由提姆・柏內茲－李（Tim Berners-Lee）和他在 CERN 的同事著手進行；CERN 是設在瑞士日內瓦的國際科學組織。他們訂出一套叫 HTTP 的協定，把伺服器和用戶端之間的溝通方式統一起來；他們那個只有文字的瀏覽器，在 1992 年 1 月開放給大眾使用。這一課模型裡的請求「GET /pets」，就是照這套協定寫的。"
+              },
+              {
+                "k": "1993",
+                "en": "Point and click",
+                "zh": "用點的",
+                "body_en": "The first browsers showed text. Britannica says the web gained rapid acceptance with a browser called Mosaic, developed by Marc Andreessen and others at the University of Illinois and released in September 1993. Mosaic let people use the same point-and-click actions they already knew from personal computers. By the middle of the 1990s the World Wide Web had millions of active users.",
+                "body_zh": "最早的瀏覽器顯示的是文字。大英百科說，全球資訊網迅速被大家接受，靠的是一個叫 Mosaic 的瀏覽器；它由馬克・安德森（Marc Andreessen）等人在伊利諾大學開發，1993 年 9 月發布。Mosaic 讓人用在個人電腦上早已熟悉的「用滑鼠點一下」來操作。到了 1990 年代中期，全球資訊網已經有幾百萬名活躍的使用者。"
+              },
+              {
+                "k": "192.0.2.10",
+                "en": "Numbers that belong to nobody",
+                "zh": "不屬於任何人的數字",
+                "body_en": "Every address in this lesson’s model was chosen on purpose so that it belongs to no real site. The organization that looks after internet names keeps example.com and example.org for use as examples in documents. And an internet standard sets aside three blocks of numbers, beginning 192.0.2, 198.51.100, and 203.0.113, for use in documentation. So a textbook can print an address without pointing its readers at somebody’s real computer.",
+                "body_zh": "這一課模型裡的每一個地址都是特意挑的，好讓它不屬於任何真實的網站。管理網際網路名稱的機構保留了 example.com 和 example.org，專門給文件舉例用。另外有一份網際網路標準，保留了三個區段的數字（開頭是 192.0.2、198.51.100、203.0.113）給文件使用。這樣一來，課本印出一個地址，就不會把讀者引到某個人真正的電腦上。"
+              },
+              {
+                "k": "404",
+                "en": "The page that is not there",
+                "zh": "那個不存在的網頁",
+                "body_en": "Mozilla’s reference explains that 404 means the server cannot find what was asked for, and that links leading to a 404 are often called broken or dead links. While this lesson was being written, we asked CERN’s website for a page that turned out not to exist. CERN’s “page not found” page answered with a small joke: “Talking of web servers, this is a picture of the world’s first web server,” Tim Berners-Lee’s machine at CERN.",
+                "body_zh": "Mozilla 的參考文件說，404 表示伺服器找不到被要求的東西，而通往 404 的連結常被稱為壞掉的連結或死連結。寫這一課的時候，我們向 CERN 的網站要了一個後來發現不存在的網頁。CERN 的「找不到網頁」頁面用一個小玩笑回答：「說到網頁伺服器，這是世界上第一台網頁伺服器的照片」——柏內茲－李在 CERN 用的那一台機器。"
+              }
+            ]
+          },
+          "myths": [
+            {
+              "myth_en": "The web and the internet are the same thing.",
+              "myth_zh": "全球資訊網和網際網路是同一件事。",
+              "fact_en": "The internet is the worldwide network of computers. The web is one service that runs on it; Britannica calls it the leading information retrieval service of the internet.",
+              "fact_zh": "網際網路是全世界電腦連成的網路。全球資訊網是在它上面運作的一種服務；大英百科稱它是網際網路上最主要的資訊檢索服務。"
+            },
+            {
+              "myth_en": "A web page is a picture that the server sends.",
+              "myth_zh": "網頁是伺服器送來的一張圖。",
+              "fact_en": "The server sends text, written in HTML. The browser on your computer draws the page from that text.",
+              "fact_zh": "伺服器送來的是用 HTML 寫的文字。網頁是你電腦上的瀏覽器照著那份文字畫出來的。"
+            },
+            {
+              "myth_en": "404 means the internet is not working.",
+              "myth_zh": "404 表示網路壞了。",
+              "fact_en": "It means the opposite: your request reached the server and the server replied. It just has no page at that address.",
+              "fact_zh": "恰恰相反：你的請求到了伺服器，伺服器也回話了，只是那個位置沒有網頁。"
+            },
+            {
+              "myth_en": "The name you type is the server’s address.",
+              "myth_zh": "你打的名字就是伺服器的地址。",
+              "fact_en": "The name is for people. The real address is a number, and the DNS looks it up for the browser.",
+              "fact_zh": "名字是給人看的。真正的地址是一個數字，由 DNS 替瀏覽器查出來。"
+            }
+          ],
+          "tricks_head": {
+            "en": "Opening a page in a sentence",
+            "zh": "一句話記住打開網頁"
+          },
+          "tricks": [
+            {
+              "title_en": "Client asks, server answers",
+              "title_zh": "用戶端問，伺服器答",
+              "body_en": "That is the whole web.",
+              "body_zh": "整個全球資訊網就是這樣。"
+            },
+            {
+              "title_en": "Name first, then number",
+              "title_zh": "先名字，再數字",
+              "body_en": "The DNS is the address book.",
+              "body_zh": "DNS 是地址簿。"
+            },
+            {
+              "title_en": "200 here it is, 404 not here",
+              "title_zh": "200 給你，404 沒有",
+              "body_en": "Two answers a server can give.",
+              "body_zh": "伺服器的兩種回答。"
+            },
+            {
+              "title_en": "The page is text",
+              "title_zh": "網頁是文字",
+              "body_en": "The browser does the drawing.",
+              "body_zh": "畫的是瀏覽器。"
+            }
+          ],
+          "safety_head": {
+            "eyebrow": "Before You Start · 動手之前",
+            "en": "A few reminders",
+            "zh": "幾個提醒"
+          },
+          "safety": [
+            {
+              "en": "Looking at a page’s source only shows you the text. It does not change the real page, and you should not try to change other people’s sites.",
+              "zh": "看網頁的原始碼，只是看那份文字。它不會改到真正的網頁，你也不該去動別人的網站。"
+            },
+            {
+              "en": "Read a web address before you tap it. The domain name tells you whose server you are about to ask.",
+              "zh": "點連結之前，先讀一讀網址。網域名稱會告訴你，你即將去問的是誰的伺服器。"
+            },
+            {
+              "en": "Do not type addresses you do not know just to see what happens. Ask a teacher or a parent.",
+              "zh": "不要為了看看會怎樣，就亂打不認識的網址。先問老師或家長。"
+            },
+            {
+              "en": "Use a school or family computer only with permission.",
+              "zh": "用學校或家裡的電腦要先得到同意。"
+            }
+          ],
+          "activities": [
+            {
+              "title_en": "The Paper Web",
+              "title_zh": "紙上的全球資訊網",
+              "materials": [
+                {
+                  "en": "Three desks labeled Client, DNS, and Server",
+                  "zh": "三張桌子，分別標上 Client（用戶端）、DNS、Server（伺服器）"
+                },
+                {
+                  "en": "A DNS sheet: two made-up site names, each with a desk number",
+                  "zh": "一張 DNS 表：兩個自己編的網站名稱，各配一個桌號"
+                },
+                {
+                  "en": "At each Server desk, a folder of “pages”: sheets of text with <h1> and <p> tags",
+                  "zh": "每張 Server 桌上放一個「網頁」資料夾：幾張寫著 <h1>、<p> 標籤的文字"
+                },
+                {
+                  "en": "Slips of paper for messages, and blank paper for drawing",
+                  "zh": "寫訊息用的小紙條，和畫圖用的白紙"
+                }
+              ],
+              "steps": [
+                {
+                  "en": "The Client writes a site name on a slip and carries it to the DNS desk. The DNS looks it up and writes the desk number on the slip. If the name is not on the sheet, the DNS writes “no such name.”",
+                  "zh": "Client 在紙條上寫一個網站名稱，拿到 DNS 那一桌。DNS 查表，把桌號寫在紙條上。如果表上沒有這個名字，DNS 就寫「no such name」。"
+                },
+                {
+                  "en": "The Client carries a new slip to that desk. It says, in English, “GET” and the name of a page.",
+                  "zh": "Client 拿一張新紙條到那個桌號的桌子，上面用英文寫「GET」和一個網頁的名字。"
+                },
+                {
+                  "en": "The Server looks in the folder. If the page is there, the Server writes “200 OK” and hands over a copy of the text. If not, the Server writes “404 Not Found.”",
+                  "zh": "Server 在資料夾裡找。有那一頁，就寫「200 OK」並交出那份文字的副本；沒有，就寫「404 Not Found」。"
+                },
+                {
+                  "en": "Back at the Client desk, another student is the browser: read the tags and draw the page on blank paper. Big letters for <h1>, ordinary writing for <p>.",
+                  "zh": "回到 Client 那一桌，另一位同學當瀏覽器：讀標籤，在白紙上把網頁畫出來。<h1> 寫成大字，<p> 寫成一般的字。"
+                }
+              ],
+              "tip_en": "Count the trips: two round trips for one page. Then put a picture on a page, kept in a separate folder, and count again. In Taiwan’s junior high Information Technology curriculum, this lesson matches the topic “System platforms”: 資 S-IV-3, concepts of network technology, and 資 S-IV-4, concepts of network services, whose notes name the World Wide Web as an internet service.",
+              "tip_zh": "數一數走了幾趟：一個網頁要來回兩趟。接著在網頁裡放一張圖（圖放在另一個資料夾），再數一次。對照十二年國教國中「資訊科技」的學習內容，這一課對應「系統平台」主題：資 S-IV-3 網路技術的概念與介紹、資 S-IV-4 網路服務的概念與介紹（附錄的說明把全球資訊網列為網際網路服務之一）。"
+            },
+            {
+              "title_en": "Check It on Your Own Computer",
+              "title_zh": "在自己的電腦上驗證",
+              "materials": [
+                {
+                  "en": "A computer with the Firefox browser, or another browser",
+                  "zh": "一台有 Firefox 瀏覽器的電腦，或其他瀏覽器"
+                },
+                {
+                  "en": "This lesson’s page",
+                  "zh": "這一課的網頁"
+                },
+                {
+                  "en": "Paper and a pencil",
+                  "zh": "紙和鉛筆"
+                }
+              ],
+              "steps": [
+                {
+                  "en": "Look at the address bar. Write down the address of this page and mark its three parts: protocol, domain name, and path.",
+                  "zh": "看網址列。把這一頁的網址抄下來，標出三個部分：協定、網域名稱、路徑。"
+                },
+                {
+                  "en": "In Firefox, right-click an empty part of the page and choose View Page Source. A new tab opens with the text the server sent.",
+                  "zh": "Firefox：在網頁空白的地方按右鍵，選 View Page Source。會開一個新分頁，裡面就是伺服器送來的文字。"
+                },
+                {
+                  "en": "Find one <h1> tag and one <p> tag in the text. What words are between them? Find the same words on the page.",
+                  "zh": "在文字裡找一個 <h1> 標籤和一個 <p> 標籤。它們中間是什麼字？在網頁上找出同樣的字。"
+                },
+                {
+                  "en": "Now change the end of the address to a page that surely does not exist, such as /no-such-page/, and press Enter. What does the server say?",
+                  "zh": "接著把網址的結尾改成一個肯定不存在的頁面，例如 /no-such-page/，按 Enter。伺服器說什麼？"
+                }
+              ],
+              "tip_en": "Other browsers have a similar command, and the name differs a little from one to another. The real page is much longer than the model’s, with many more kinds of tags, but it is the same kind of thing: text. And the last step should give you a real 404.",
+              "tip_zh": "其他瀏覽器也有類似的指令，名稱各家略有不同。真的網頁比模型裡的長得多，標籤的種類也多得多，但它是同一種東西：文字。最後一步，你應該會拿到一個真正的 404。"
+            }
+          ],
+          "links_head": {
+            "eyebrow": "Go Further · 延伸閱讀",
+            "en": "The wires underneath, one key press, and what comes next",
+            "zh": "底下的線路、一次按鍵，以及下一課"
+          },
+          "links": [
+            {
+              "icon": "🗜️",
+              "k_en": "Previous Lesson · Lesson 12",
+              "k_zh": "上一課・第十二課",
+              "en": "How Can a File Get Smaller?",
+              "zh": "檔案為什麼可以變小？",
+              "note_en": "A smaller file reaches you sooner. That is one reason files are compressed before they travel.",
+              "note_zh": "檔案小一點，就早一點送到。這是檔案上路之前要先壓縮的原因之一。",
+              "href": "/resources/classes/computers/file-compression/"
+            },
+            {
+              "icon": "🌍",
+              "k_en": "How Things Work · Lesson 5",
+              "k_zh": "萬物原理・第五課",
+              "en": "How Does the Internet Work?",
+              "zh": "網際網路是怎麼運作的？",
+              "note_en": "This lesson followed the conversation. That one follows the road: how the messages actually get from one computer to another.",
+              "note_zh": "這一課跟著的是「對話」。那一課跟著的是「路」：訊息到底怎麼從一台電腦到另一台。",
+              "href": "/resources/classes/how-things-work/internet/"
+            },
+            {
+              "icon": "⌨️",
+              "k_en": "Lesson 8",
+              "k_zh": "第八課",
+              "en": "What Happens When You Press a Key?",
+              "zh": "按下一個鍵，發生了什麼？",
+              "note_en": "Input, processing, output inside one computer. Now the processing happens on a second computer far away.",
+              "note_zh": "一台電腦裡的輸入、處理、輸出。現在，處理這一步發生在遠方的第二台電腦上。",
+              "href": "/resources/classes/computers/press-a-key/"
+            },
+            {
+              "icon": "🔐",
+              "k_en": "Next Lesson · Lesson 14",
+              "k_zh": "下一課・第十四課",
+              "en": "How Does a Computer Keep a Secret?",
+              "zh": "電腦怎麼保守祕密？",
+              "note_en": "Your messages pass through many machines on the way. Next: how to make sure only the right one can read them.",
+              "note_zh": "你的訊息在路上會經過很多台機器。下一課：怎麼確保只有該看的那一台看得懂。",
+              "soon": true
+            }
+          ],
+          "sources_note_en": "Facts on this page were checked against these sources (October 2026); the model’s names, numbers, and pages are made up for the example, and every step is tested",
+          "sources_note_zh": "本頁的事實依下列資料查證（2026 年 10 月）；模型裡的名字、數字和網頁都是為了舉例編的，每一步都有測試",
+          "sources": [
+            {
+              "en": "Clients are the web user’s internet-connected devices and the web-accessing software on them, usually a browser; “Servers are computers that store webpages, sites, or apps”; the DNS “is like an address book for websites”; real web addresses are numbers called IP addresses; the browser goes to the DNS, then sends an HTTP request, and the server answers “200 OK” and sends the site’s files as small chunks called packets; websites are built primarily from HTML, CSS, and JavaScript",
+              "zh": "用戶端是使用者連上網際網路的裝置和上面用來上網的軟體（通常是瀏覽器）；伺服器是存放網頁、網站或應用程式的電腦；DNS 像網站的地址簿；真正的網址是叫 IP 位址的數字；瀏覽器先找 DNS、再送出 HTTP 請求，伺服器回「200 OK」並把網站的檔案切成叫封包的小塊送出；網站主要由 HTML、CSS、JavaScript 構成",
+              "src": "MDN Web Docs, “How the web works”",
+              "url": "https://developer.mozilla.org/en-US/docs/Learn_web_development/Getting_started/Web_standards/How_the_web_works"
+            },
+            {
+              "en": "A URL (Uniform Resource Locator) is the address of a unique resource on the internet; the first part is the scheme, which indicates the protocol the browser must use; the domain indicates which web server is being requested",
+              "zh": "URL（統一資源定位符）是網際網路上某個資源的位址；第一部分是 scheme，指出瀏覽器要用哪一種協定；網域指出要向哪一台網頁伺服器請求",
+              "src": "MDN Web Docs, “What is a URL?”",
+              "url": "https://developer.mozilla.org/en-US/docs/Learn_web_development/Howto/Web_mechanics/What_is_a_URL"
+            },
+            {
+              "en": "“The HTTP 404 Not Found client error response status code indicates that the server cannot find the requested resource. Links that lead to a 404 page are often called broken or dead links”; 200 OK “indicates that a request has succeeded”",
+              "zh": "HTTP 404 Not Found 表示伺服器找不到被請求的資源，通往 404 頁面的連結常被稱為壞掉的或死掉的連結；200 OK 表示請求成功",
+              "src": "MDN Web Docs, “404 Not Found” and “200 OK”",
+              "url": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status/404"
+            },
+            {
+              "en": "The World Wide Web is “the leading information retrieval service of the Internet (the worldwide computer network)”; servers store and transmit documents when asked, and clients request them; a hypertext document is written in HTML and is assigned an address called a URL; development was begun in 1989 by Tim Berners-Lee and his colleagues at CERN; they created HTTP; their text-based browser was released generally in January 1992; Mosaic was released in September 1993; by the mid-1990s the Web had millions of active users",
+              "zh": "全球資訊網是「網際網路（全球性的電腦網路）上最主要的資訊檢索服務」；伺服器在被要求時儲存並傳送文件，用戶端提出請求；超文件用 HTML 寫成，並有一個叫 URL 的位址；1989 年由柏內茲－李與 CERN 的同事開始開發；他們訂出 HTTP；他們的文字瀏覽器 1992 年 1 月公開發布；Mosaic 1993 年 9 月發布；1990 年代中期已有數百萬活躍使用者",
+              "src": "The Editors of Encyclopaedia Britannica, “World Wide Web”",
+              "url": "https://www.britannica.com/topic/World-Wide-Web"
+            },
+            {
+              "en": "“A number of domains such as example.com and example.org are maintained for documentation purposes”",
+              "zh": "example.com、example.org 等網域是為了文件用途而保留的",
+              "src": "IANA, “Example Domains”",
+              "url": "https://www.iana.org/help/example-domains"
+            },
+            {
+              "en": "The blocks 192.0.2.0/24, 198.51.100.0/24, and 203.0.113.0/24 are provided for use in documentation; the name “.example” is recommended for use in documentation or as examples",
+              "zh": "192.0.2.0/24、198.51.100.0/24、203.0.113.0/24 三個區段供文件使用；「.example」建議用於文件或舉例",
+              "src": "IETF, RFC 5737, “IPv4 Address Blocks Reserved for Documentation,” and RFC 2606, “Reserved Top Level DNS Names”",
+              "url": "https://www.rfc-editor.org/rfc/rfc5737"
+            },
+            {
+              "en": "“View Source lets you look at the HTML or XML source for the page you’re viewing”: context-click in the page and select View Page Source",
+              "zh": "View Source 讓你查看目前網頁的 HTML 或 XML 原始碼：在網頁上按右鍵，選 View Page Source",
+              "src": "Firefox Source Docs, “View Source”",
+              "url": "https://firefox-source-docs.mozilla.org/devtools-user/view_source/index.html"
+            },
+            {
+              "en": "CERN’s “page not found” page: “Talking of web servers, this is a picture of the world’s first web server, Tim Berners-Lee’s NeXT machine at CERN” (seen October 10, 2026, when a page we asked for did not exist)",
+              "zh": "CERN 的「找不到網頁」頁面：「說到網頁伺服器，這是世界上第一台網頁伺服器的照片，柏內茲－李在 CERN 的 NeXT 電腦」（2026 年 10 月 10 日，我們要的網頁不存在時看到的）",
+              "src": "CERN, home.cern",
+              "url": "https://home.cern/science/computing/birth-web"
+            },
+            {
+              "en": "資 S-IV-3, concepts of network technology; 資 S-IV-4, concepts of network services: “internet services (such as email, the World Wide Web, instant messaging, and video on demand)” (p. 10; notes on p. 43)",
+              "zh": "資 S-IV-3 網路技術的概念與介紹；資 S-IV-4 網路服務的概念與介紹：「網際網路服務（如電子郵件、全球資訊網、即時通訊、隨選視訊等）」（第 10 頁；附錄三的說明在第 43 頁）",
+              "src": "教育部《十二年國民基本教育課程綱要 國民中學暨普通型高級中等學校 科技領域》（2018）",
+              "url": "https://www.naer.edu.tw/upload/1/16/doc/816/十二年國民基本教育課程綱要國民中學暨普通型高級中等學校-科技領域.pdf"
+            },
+            {
+              "en": "Taiwan terms: server 伺服器, browser 瀏覽器, domain name 網域名稱 (K–12 information terms); 網際網路 and 全球資訊網 are the curriculum’s own words. For client, this page uses 用戶端",
+              "zh": "台灣用語：server 伺服器、browser 瀏覽器、domain name 網域名稱（高中以下資訊名詞）；「網際網路」「全球資訊網」是課綱的用詞。client 本頁用「用戶端」",
+              "src": "國家教育研究院《樂詞網》",
+              "url": "https://terms.naer.edu.tw/search/?query_term=domain+name&query_field=title&query_op=&match_type=exact"
+            }
+          ]
+        }
+      ],
+      "planned": [
         {
           "n": 14,
           "icon": "🔐",
