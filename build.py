@@ -11651,7 +11651,7 @@ def build_earth_hub():
 _lifej = os.path.join(ROOT, "data", "life.json")
 LIFE = json.load(open(_lifej, encoding="utf-8")) if os.path.exists(_lifej) else None
 LIFE_BASE = "/resources/classes/life/"
-_LIFE_JS = {"leaf": "life-leaf", "cell": "life-cell", "dna": "life-dna", "germ": "life-germ", "seed": "life-seed", "flower": "life-flower", "tree": "life-tree", "autumn": "life-autumn", "bird": "life-bird"}   # lab.kind → assets/js/<bundle>.js
+_LIFE_JS = {"leaf": "life-leaf", "cell": "life-cell", "dna": "life-dna", "germ": "life-germ", "seed": "life-seed", "flower": "life-flower", "tree": "life-tree", "autumn": "life-autumn", "bird": "life-bird", "gill": "life-gill"}   # lab.kind → assets/js/<bundle>.js
 
 def _life_ver():
     h = hashlib.md5()
@@ -12275,9 +12275,76 @@ def _life_wings(wg):
             f'</div></div>'
             '<noscript><p class="muted">This tool works in your browser and needs JavaScript. · 這個小工具在瀏覽器裡運作，需要開啟 JavaScript。</p></noscript>')
 
-_LIFE_LAB = {"leaf": render_lifeleaf_lab, "cell": render_lifecell_lab, "dna": render_lifedna_lab, "germ": render_lifegerm_lab, "seed": render_lifeseed_lab, "flower": render_lifeflower_lab, "tree": render_lifetree_lab, "autumn": render_lifeautumn_lab, "bird": render_lifebird_lab}          # lab.kind → 3D 面板
-_LIFE_ICON = {"leaf": lifeleaf_svg, "cell": lifecell_svg, "dna": lifedna_svg, "germ": lifegerm_svg, "seed": lifeseed_svg, "flower": lifeflower_svg, "tree": lifetree_svg, "autumn": lifeautumn_svg, "bird": lifebird_svg}                 # lesson.card → 課程卡小圖示
-_LIFE_WIDGETS = [("recipe", _life_recipe), ("sorter", _life_sorter), ("coder", _life_coder), ("ruler", _life_ruler), ("waker", _life_waker), ("guesser", _life_guesser), ("climber", _life_climber), ("mixer", _life_mixer), ("wings", _life_wings)]               # lesson 裡有這個 key 就多一段（照這裡的順序）
+def lifegill_svg(size=56):
+    """第十課的課程卡小圖示：一條魚，鰓蓋的位置是紅色的，嘴邊有幾顆水泡。"""
+    return (f'<svg class="lifegill-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">'
+            '<path d="M6 30c8-12 22-14 34-6l12-8-3 14 3 14-12-8c-12 8-26 6-34-6z" fill="#f0a23c"/>'
+            '<path d="M22 21c4 5 4 13 0 18" stroke="#e0453a" stroke-width="3.5" stroke-linecap="round" fill="none"/>'
+            '<circle cx="13" cy="27" r="2" fill="#111"/><circle cx="6" cy="14" r="2.5" fill="#8fd6ff"/><circle cx="12" cy="8" r="1.8" fill="#8fd6ff"/></svg>')
+
+def render_lifegill_lab(lesson):
+    """第十課：一條魚＋鰓的放大（上層水、下層血）；逆流／順流兩個視角，一支滑桿沿著鰓看各處的氧氣（assets/js/life-gill.js 綁這裡的 class；全部自繪示意）。"""
+    lab = lesson["lab"]
+    msgs = "".join(f'<p class="cp-msg lf-gl-msg" data-msg="{k}" hidden>{html.escape(m["en"])}<span class="zh">{html.escape(m["zh"])}</span></p>' for k, m in lab["msgs"].items())
+    tg = _lab_toggles([("labels", "Labels", "標示", True)])
+    meter = lambda k, en, zh: (f'<div class="lf-gl-m"><span>{en}<small>{zh}</small></span><div class="lf-gl-track"><i class="lf-gl-m{k}"></i></div><b class="lf-gl-v{k}"></b></div>')
+    return f'''<div class="astro-lab cp-lab lf-lab lf-gl-lab rvl" data-lifegill-lab>
+  <div class="al-stage">
+    <div class="al-space">
+      <canvas class="al-space-cv" aria-label="3D model of a fish and a magnified strip of its gill: water flows through the upper layer and blood through the lower one, with a thin wall between; bright dots are oxygen crossing from the water into the blood · 一條魚和牠的鰓的放大圖：水流過上層、血流過下層，中間隔著一層薄膜；亮點是從水裡跑到血裡的氧氣"></canvas>
+      <div class="al-labels" aria-hidden="true"></div>
+      <div class="cp-view" role="group" aria-label="Direction of the blood · 血的流向">
+        <button type="button" data-view="counter" aria-pressed="true">Opposite ways<small>方向相反（真的鰓）</small></button>
+        <button type="button" data-view="same" aria-pressed="false">The same way<small>方向相同（假設）</small></button>
+      </div>
+      <p class="al-hint">Drag to turn · 拖曳旋轉　Scroll or pinch to zoom · 滾輪／雙指縮放</p>
+      <button type="button" class="al-home" title="Reset view · 重設視角" aria-label="Reset view · 重設視角">&#8634;</button>
+      <p class="al-nogl-msg">This 3D model needs WebGL, which this browser does not support. The reading and the cards below still explain everything.<br><span class="zh">這個瀏覽器不支援 WebGL，無法顯示 3D 模型；下方的課文與卡片一樣能看懂。</span></p>
+    </div>
+    <aside class="al-sky cp-aside">
+      <p class="al-sky-k">Look along the gill · 沿著鰓看過去</p>
+      <label class="al-slider cp-is-yrow"><span>Where the yellow ring is · 黃色圓環的位置 <output class="lf-gl-x-out">30%</output></span>
+        <input type="range" class="al-age lf-gl-x" min="0" max="100" step="1" value="30"></label>
+      <p class="lf-k lf-gl-k">Oxygen at the ring · 圓環那裡的氧氣</p>
+      <div class="lf-gl-meters">{meter("w", "In the water", "水裡")}{meter("b", "In the blood", "血裡")}</div>
+      <div class="cp-ht-meter"><p class="lf-k">Oxygen the blood carries away · 血帶走的氧氣</p><div class="cp-ht-bar"><i class="lf-gl-bar"></i></div><p class="cp-ht-status lf-gl-status"></p></div>
+      <dl class="cp-nums cp-lt-nums lf-nums">
+        <div><dt>Is oxygen still crossing here? · 這裡還有氧氣過去嗎？</dt><dd class="lf-gl-go"></dd></div>
+        <div><dt>The blood ends up with · 血最後拿到</dt><dd class="lf-gl-taken"></dd></div>
+      </dl>
+      {msgs}
+    </aside>
+  </div>
+  <div class="al-controls">
+    <div class="al-row al-row-main">
+      <button type="button" class="al-play" aria-pressed="true"><span class="al-play-i" aria-hidden="true"></span><span class="al-play-t">Pause · 暫停</span></button>
+      <div class="al-row al-toggles">{tg}</div>
+    </div>
+  </div>
+  {_lab_foot(lab)}
+  <p class="cp-credit">{lab["credit_html"]}</p>
+</div>'''
+
+def _life_breathers(br):
+    """「四種呼吸的辦法」（life-gill.js 的 initBreathers；選一種魚，看牠怎麼讓水流過鰓、或怎麼改用空氣；不需要 WebGL）。"""
+    items = html.escape(json.dumps(br["items"], ensure_ascii=False))
+    picks = "".join(f'<button type="button" data-k="{it["key"]}" aria-pressed="false"><span class="lf-br-ic" aria-hidden="true">{it["icon"]}</span>{html.escape(it["en"])}<small>{html.escape(it["zh"])}</small></button>' for it in br["items"])
+    return (f'<div class="cp-cnt lf-br rvl" data-life-breathers data-start="{br["start"]}" data-items="{items}">'
+            f'<div class="cp-cnt-in">'
+            f'<p class="cp-cnt-l cp-sun-l"><span>Choose a fish · 選一種魚</span></p>'
+            f'<div class="lf-br-pick" role="group" aria-label="Which fish · 哪一種魚">{picks}</div>'
+            f'<p class="cp-cnt-note">{html.escape(br["note_en"])}<span class="zh">{html.escape(br["note_zh"])}</span></p></div>'
+            f'<div class="cp-home-out cp-cnt-out lf-br-out" aria-live="polite">'
+            f'<p class="cp-home-k">How it gets its oxygen · 牠怎麼得到氧氣</p>'
+            f'<p class="cp-home-big"><span class="lf-br-en"></span></p>'
+            f'<p class="cp-home-sub"><span class="zh lf-br-zh"></span></p>'
+            f'<p class="cp-home-note"><span class="lf-br-note"></span><span class="zh lf-br-note-zh"></span></p>'
+            f'</div></div>'
+            '<noscript><p class="muted">This tool works in your browser and needs JavaScript. · 這個小工具在瀏覽器裡運作，需要開啟 JavaScript。</p></noscript>')
+
+_LIFE_LAB = {"leaf": render_lifeleaf_lab, "cell": render_lifecell_lab, "dna": render_lifedna_lab, "germ": render_lifegerm_lab, "seed": render_lifeseed_lab, "flower": render_lifeflower_lab, "tree": render_lifetree_lab, "autumn": render_lifeautumn_lab, "bird": render_lifebird_lab, "gill": render_lifegill_lab}          # lab.kind → 3D 面板
+_LIFE_ICON = {"leaf": lifeleaf_svg, "cell": lifecell_svg, "dna": lifedna_svg, "germ": lifegerm_svg, "seed": lifeseed_svg, "flower": lifeflower_svg, "tree": lifetree_svg, "autumn": lifeautumn_svg, "bird": lifebird_svg, "gill": lifegill_svg}                 # lesson.card → 課程卡小圖示
+_LIFE_WIDGETS = [("recipe", _life_recipe), ("sorter", _life_sorter), ("coder", _life_coder), ("ruler", _life_ruler), ("waker", _life_waker), ("guesser", _life_guesser), ("climber", _life_climber), ("mixer", _life_mixer), ("wings", _life_wings), ("breathers", _life_breathers)]               # lesson 裡有這個 key 就多一段（照這裡的順序）
 
 def _life_flat():
     return [(ui, u, l) for ui, u in enumerate(LIFE["units"]) for l in u["lessons"]]

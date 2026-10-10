@@ -5689,15 +5689,605 @@
               "url": "https://www.trimt-nsa.gov.tw/bagua-bird-watching/zh-tw/about/"
             }
           ]
+        },
+        {
+          "n": 10,
+          "slug": "how-fish-breathe",
+          "title": "How Does a Fish Breathe Under Water?",
+          "title_zh": "魚怎麼在水裡呼吸？",
+          "level": "入門 · Beginner",
+          "icon": "🐟",
+          "card": "gill",
+          "blurb_en": "A fish needs oxygen just as you do, and there is oxygen in water, but only a little. In a 3D model, look inside a gill, where water and blood slide past each other on two sides of a very thin wall. Watch the oxygen cross over. Then turn the blood around so that it flows the same way as the water, and see how much the fish would lose. Last, meet four fish that breathe in four different ways.",
+          "blurb_zh": "魚和你一樣需要氧氣。水裡有氧氣，只是很少。在 3D 模型裡看看鰓的內部：水和血隔著一層很薄的膜，從兩邊擦身而過。看氧氣怎麼跑過去。接著把血掉頭，讓它和水往同一個方向流，看看魚會少拿到多少。最後認識四種魚，牠們各有各的呼吸辦法。",
+          "big_idea_en": "Water holds oxygen, but far less than air does. A fish keeps water flowing over its gills, which are packed with thin plates full of blood. Oxygen moves from the water into the blood through a very thin wall. The clever part is the direction. The blood flows the opposite way to the water, so all along the gill the water still has a little more oxygen than the blood beside it. That lets a fish take most of the oxygen out of the water.",
+          "big_idea_zh": "水裡有氧氣，但是比空氣裡少得多。魚讓水不停地流過鰓；鰓裡排滿了充滿血液的薄片，氧氣穿過一層很薄的膜，從水裡跑進血裡。巧妙的地方在於方向：血的流向和水相反，所以沿著整個鰓，水裡的氧氣永遠都比旁邊的血多一點點。這樣魚就能把水裡大部分的氧氣都拿走。",
+          "tricks_head": {
+            "en": "Gills in a sentence",
+            "zh": "一句話記住鰓"
+          },
+          "checked": {
+            "en": "October 2026",
+            "zh": "2026 年 10 月"
+          },
+          "lab": {
+            "kind": "gill",
+            "eyebrow": "3D Model · 3D 模型",
+            "title_en": "Inside a Gill",
+            "title_zh": "鰓的裡面",
+            "how_en": "Drag to turn the model, and scroll or pinch to zoom. The fish at the top shows where the water goes. The long strip below is a tiny piece of gill, drawn very large. Water runs through the top layer and blood through the bottom one. Slide the yellow ring from one end to the other and read the two bars. Then choose The same way, and slide the ring again. Where does the oxygen stop crossing?",
+            "how_zh": "拖曳可以旋轉模型，滾輪或雙指可以縮放。上面那條魚告訴你水往哪裡流；下面那一長條是鰓的一小段，畫得非常大。水流過上層，血流過下層。把黃色的圓環從一頭滑到另一頭，看那兩條量表。接著選「方向相同」，再滑一次。氧氣是在哪裡停止過去的？",
+            "msgs": {
+              "c_start": {
+                "en": "Here the water has just come in, and it is full of oxygen. The blood beside it is about to leave the gill and is nearly full too, but it still has a little less than the water. So oxygen keeps crossing into it. The blood leaves almost as rich in oxygen as the water that came in.",
+                "zh": "這裡的水剛流進來，氧氣滿滿的。旁邊的血就要離開鰓了，也已經快滿了，可是還是比水少一點點，所以氧氣繼續跑過去。血離開的時候，氧氣幾乎和剛進來的水一樣多。"
+              },
+              "c_end": {
+                "en": "Here the water is about to leave, and most of its oxygen is gone. But the blood beside it has only just arrived and has even less. So oxygen is still crossing, right to the end. Because the two flow in opposite directions, the water is always a little ahead.",
+                "zh": "這裡的水就要流出去了，氧氣大部分都沒了。可是旁邊的血才剛到，氧氣更少，所以一直到最後，氧氣都還在跑過去。因為兩邊的方向相反，水永遠領先一點點。"
+              },
+              "s_start": {
+                "en": "Now the blood flows the same way as the water. At the start the difference is huge, and oxygen rushes across. But look at the two bars as you slide the ring along. They are closing in on each other fast.",
+                "zh": "現在血和水往同一個方向流。一開始兩邊差很多，氧氣大量湧過去。不過你把圓環往前滑的時候，注意那兩條量表：它們很快就要靠在一起了。"
+              },
+              "s_stuck": {
+                "en": "The water and the blood now hold the same amount, so nothing more crosses. The rest of the gill is wasted, and half of the oxygen leaves with the water. Flowing the same way, the blood can never get more than half. No real gill is built like this.",
+                "zh": "水和血現在的氧氣一樣多，所以再也沒有氧氣過去了。鰓剩下的部分白白浪費，有一半的氧氣跟著水流走。往同一個方向流，血永遠拿不到超過一半。真的鰓沒有長成這樣的。"
+              }
+            },
+            "legend": [
+              {
+                "cls": "lfglo",
+                "en": "Bright blue dots: oxygen",
+                "zh": "亮藍色的小點：氧氣"
+              },
+              {
+                "cls": "lfglw",
+                "en": "Blue layer: water",
+                "zh": "藍色的那一層：水"
+              },
+              {
+                "cls": "lfglb",
+                "en": "Blood cells: dark with little oxygen, bright red with a lot",
+                "zh": "血球：氧氣少時顏色暗，氧氣多時鮮紅"
+              },
+              {
+                "cls": "lfglr",
+                "en": "Yellow ring: the place you are measuring",
+                "zh": "黃色圓環：你正在測量的位置"
+              }
+            ],
+            "scale_en": "A teaching model. The numbers are examples, with the oxygen in the incoming water counted as 100. Real gills have thousands of thin plates, and the model shows one short strip of one of them. A real gill can take more than 80 percent of the oxygen from the water passing through it. Oxygen is a gas dissolved in the water, and it cannot be seen. The fish is drawn as a simple shape.",
+            "scale_zh": "這是教學用的模型。數字是示意，把流進來的水裡的氧氣當作 100。真的鰓有成千上萬片薄片，模型只畫了其中一片的一小段。真的鰓可以把流過的水裡超過八成的氧氣拿走。氧氣是溶在水裡的氣體，其實是看不見的。魚畫成了簡單的形狀。",
+            "credit_html": "Model drawn by My Culture Connect as a teaching diagram. The ideas follow the sources listed at the bottom of this page. · 模型由人師教育協會自繪示意；原理依本頁最下方列出的出處。"
+          },
+          "paras": [
+            "Watch a fish in a tank. Its mouth opens and closes all day long, as if it were drinking. What it is really doing is breathing. Each gulp sends water across its gills and out through a slit behind its head.",
+            "Fish need oxygen for the same reason that you do. Their cells use it to get energy from food. There is oxygen dissolved in water, but not much. A liter of fresh water holds only about 8 cubic centimeters of oxygen, and a liter of air holds about 210. Water is also much heavier and thicker than air, so it is hard work to move.",
+            "Gills are built to make the most of that little bit. Under the gill cover there are rows of soft red threads. Each thread carries many thin plates, and each plate is full of tiny blood vessels. Together they give the water a very large surface to touch, and the wall between the water and the blood is extremely thin.",
+            "Oxygen always moves from where there is more of it to where there is less. So when water rich in oxygen passes blood that is poor in oxygen, the oxygen crosses the wall into the blood.",
+            "Here is the clever part. In a gill, the blood flows in the opposite direction to the water. Fresh water first meets blood that is nearly full, and gives it a little more. As the water moves on, it meets blood that is emptier and emptier. All the way along, the water has slightly more oxygen than the blood beside it, so the oxygen never stops crossing.",
+            "This is why a fish dies in air, even though air has much more oxygen. Out of the water, the soft plates of the gills collapse and stick together, and almost no surface is left for the oxygen to cross."
+          ],
+          "paras_zh": [
+            "看看魚缸裡的魚。牠的嘴整天一開一合，好像在喝水。其實牠是在呼吸。每一口都把水送過鰓，再從頭後面的一道縫流出去。",
+            "魚需要氧氣的原因和你一樣：細胞要用氧氣從食物裡取得能量。水裡溶有氧氣，但是不多。一公升的淡水只含大約 8 立方公分的氧氣，一公升的空氣卻有大約 210 立方公分。水又比空氣重得多、稠得多，要推動它很費力。",
+            "鰓的構造，就是為了把這一點點氧氣用到極致。鰓蓋底下有一排排柔軟的紅色細絲；每一條細絲上有許多薄片，每一片薄片裡佈滿了微小的血管。它們加起來，讓水有非常大的表面可以接觸，而水和血之間的那層膜又極薄。",
+            "氧氣永遠是從多的地方往少的地方移動。所以含氧多的水流過含氧少的血的時候，氧氣就穿過那層膜，進到血裡。",
+            "接下來是巧妙的地方。在鰓裡，血的流向和水相反。新鮮的水最先遇到的是快要裝滿的血，再給它補上一點；水繼續往前，遇到的血愈來愈空。一路上，水裡的氧氣都比旁邊的血多一點點，所以氧氣一直在過去，沒有停過。",
+            "這也是魚離開水會死的原因——雖然空氣裡的氧氣多得多。離開水以後，鰓那些柔軟的薄片會塌下來、黏在一起，幾乎沒有表面可以讓氧氣通過了。"
+          ],
+          "questions": [
+            "Why does a fish keep opening and closing its mouth?",
+            "Which way does the blood in a gill flow, compared with the water?",
+            "Why does a fish die in air?"
+          ],
+          "answers": [
+            "It is breathing. Each gulp sends water across its gills.",
+            "In the opposite direction.",
+            "Out of the water, the thin plates of its gills collapse and stick together, so there is almost no surface for oxygen to cross."
+          ],
+          "vocab": [
+            {
+              "n": 1,
+              "w": "fish",
+              "pos": "n.",
+              "zh": "魚",
+              "ex": "A <b>fish</b> breathes with its gills.",
+              "exzh": "魚用鰓呼吸。"
+            },
+            {
+              "n": 2,
+              "w": "gill",
+              "pos": "n.",
+              "zh": "鰓",
+              "ex": "Water flows over the <b>gills</b>.",
+              "exzh": "水流過鰓。"
+            },
+            {
+              "n": 3,
+              "w": "breathe",
+              "pos": "v.",
+              "zh": "呼吸",
+              "ex": "We <b>breathe</b> air, and fish breathe water.",
+              "exzh": "我們呼吸空氣，魚呼吸水。"
+            },
+            {
+              "n": 4,
+              "w": "blood",
+              "pos": "n.",
+              "zh": "血液",
+              "ex": "<b>Blood</b> carries oxygen around the body.",
+              "exzh": "血液把氧氣帶到全身。"
+            },
+            {
+              "n": 5,
+              "w": "flow",
+              "pos": "v. / n.",
+              "zh": "流動",
+              "ex": "The water <b>flows</b> one way and the blood the other.",
+              "exzh": "水往一邊流，血往另一邊流。"
+            },
+            {
+              "n": 6,
+              "w": "opposite",
+              "pos": "adj.",
+              "zh": "相反的",
+              "ex": "They move in <b>opposite</b> directions.",
+              "exzh": "它們往相反的方向移動。"
+            },
+            {
+              "n": 7,
+              "w": "thin",
+              "pos": "adj.",
+              "zh": "薄的",
+              "ex": "Only a <b>thin</b> wall separates water and blood.",
+              "exzh": "水和血之間只隔著一層薄薄的膜。"
+            },
+            {
+              "n": 8,
+              "w": "dissolve",
+              "pos": "v.",
+              "zh": "溶解",
+              "ex": "A little oxygen <b>dissolves</b> in water.",
+              "exzh": "有一點點氧氣溶在水裡。"
+            }
+          ],
+          "quiz": [
+            {
+              "q": "What is a fish doing when it opens and closes its mouth?",
+              "options": [
+                "Sending water over its gills",
+                "Drinking",
+                "Chewing",
+                "Calling other fish"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "How much oxygen does water hold, compared with air?",
+              "options": [
+                "Far less",
+                "Far more",
+                "Exactly the same",
+                "None at all"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "In a gill, which way does the blood flow?",
+              "options": [
+                "Opposite to the water",
+                "The same way as the water",
+                "It does not move",
+                "In circles"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "Why is the opposite direction better?",
+              "options": [
+                "Oxygen keeps crossing all the way along the gill",
+                "The blood moves faster",
+                "The water gets warmer",
+                "The fish swims faster"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "What happens to gills in air?",
+              "options": [
+                "The thin plates collapse and stick together",
+                "They grow larger",
+                "They turn into lungs",
+                "They work better"
+              ],
+              "correct": 0
+            }
+          ],
+          "parts_head": {
+            "eyebrow": "Try It in the Model · 在模型裡試試",
+            "en": "Four places to measure",
+            "zh": "四個可以測量的地方"
+          },
+          "parts": [
+            {
+              "key": "counter",
+              "icon": "🔁",
+              "en": "Where the water comes in",
+              "zh": "水流進來的地方",
+              "meta_en": "Opposite ways",
+              "meta_zh": "方向相反",
+              "demo": "counter",
+              "text_en": "Both bars are high, and the water bar is a little higher. Oxygen is crossing.",
+              "text_zh": "兩條量表都很高，水的那一條高一點點。氧氣正在過去。"
+            },
+            {
+              "key": "end",
+              "icon": "🏁",
+              "en": "Where the water leaves",
+              "zh": "水流出去的地方",
+              "meta_en": "Opposite ways",
+              "meta_zh": "方向相反",
+              "demo": "end",
+              "text_en": "Both bars are low now. Which one is still higher? Is oxygen still crossing?",
+              "text_zh": "現在兩條量表都很低。哪一條還是比較高？氧氣還在過去嗎？"
+            },
+            {
+              "key": "same",
+              "icon": "➡️",
+              "en": "The same way, at the start",
+              "zh": "方向相同，開頭",
+              "meta_en": "Imagined",
+              "meta_zh": "假設",
+              "demo": "same",
+              "text_en": "A huge difference, and a rush of oxygen. It looks like a great start.",
+              "text_zh": "差距很大，氧氣大量湧過去。看起來是個很棒的開始。"
+            },
+            {
+              "key": "stuck",
+              "icon": "⏸️",
+              "en": "The same way, near the end",
+              "zh": "方向相同，接近尾端",
+              "meta_en": "Imagined",
+              "meta_zh": "假設",
+              "demo": "stuck",
+              "text_en": "The bars have met in the middle. Count the bright dots still leaving in the water.",
+              "text_zh": "兩條量表在中間碰頭了。數數看還有多少亮點跟著水流出去。"
+            }
+          ],
+          "parts_note_en": "Compare the long red bar in the two versions. With the flows opposite, the blood ends up with most of the oxygen. With the flows the same, it can never pass half.",
+          "parts_note_zh": "比一比兩種情況下那條長長的紅色量表。方向相反，血最後拿到大部分的氧氣；方向相同，永遠過不了一半。",
+          "links_head": {
+            "eyebrow": "Go Further · 延伸閱讀",
+            "en": "Your own way of doing the same job",
+            "zh": "你自己做同一件事的方法"
+          },
+          "links": [
+            {
+              "href": "/resources/classes/human-body/lungs/",
+              "icon": "🫁",
+              "k_en": "The Human Body · Lesson 4",
+              "k_zh": "人體探索 第四課",
+              "en": "How Does Air Get into Your Blood?",
+              "zh": "空氣怎麼進到血液裡？",
+              "note_en": "See how your lungs take oxygen from air, across a thin wall, into blood.",
+              "note_zh": "看你的肺怎麼隔著一層薄膜，把空氣裡的氧氣送進血液。"
+            },
+            {
+              "href": "/resources/classes/life/how-birds-fly/",
+              "icon": "🐦",
+              "k_en": "Living Things · Lesson 9",
+              "k_zh": "生命與生態 第九課",
+              "en": "How Does a Bird Fly?",
+              "zh": "鳥為什麼會飛？",
+              "note_en": "Another animal whose whole body is shaped by the stuff it moves through.",
+              "note_zh": "另一種動物：牠的整個身體，也是被牠所穿越的東西塑造出來的。"
+            }
+          ],
+          "breathers": {
+            "eyebrow": "Four Ways to Breathe · 四種呼吸的辦法",
+            "en": "Not every fish does it the same way",
+            "zh": "不是每一種魚都用同一招",
+            "lead_en": "All fish need water to cross their gills, or some other way to get oxygen. Choose a fish and find out how it manages.",
+            "lead_zh": "所有的魚都得讓水流過鰓，不然就得另外想辦法取得氧氣。選一種魚，看牠怎麼辦到。",
+            "start": "pump",
+            "items": [
+              {
+                "key": "pump",
+                "icon": "🐠",
+                "en": "A goldfish",
+                "zh": "金魚",
+                "how_en": "It pumps water with its mouth and gill covers",
+                "how_zh": "用嘴和鰓蓋把水打過去",
+                "note_en": "Most bony fish do this. The mouth takes water in, and the gill cover helps to push it across the gills, so the fish can breathe while staying still.",
+                "note_zh": "大部分的硬骨魚都是這樣。嘴把水吸進來，鰓蓋幫忙把水推過鰓，所以魚停著不動也能呼吸。"
+              },
+              {
+                "key": "ram",
+                "icon": "🦈",
+                "en": "A fast shark",
+                "zh": "游得很快的鯊魚",
+                "how_en": "It swims forward with its mouth open",
+                "how_zh": "張著嘴往前游",
+                "note_en": "Most sharks force water over their gills by swimming. Some kinds can breathe no other way, and must keep moving all their lives.",
+                "note_zh": "大部分的鯊魚靠游泳讓水沖過鰓。有些種類沒有別的辦法呼吸，一輩子都得不停地游。"
+              },
+              {
+                "key": "skin",
+                "icon": "🐸",
+                "en": "A mudskipper",
+                "zh": "彈塗魚",
+                "how_en": "Out of the water, it breathes through its wet skin and mouth",
+                "how_zh": "離開水的時候，用溼溼的皮膚和口腔呼吸",
+                "note_en": "It also carries water in its large gill chambers when it comes out onto the mud. It has to stay damp, or this stops working.",
+                "note_zh": "牠爬到泥灘上的時候，寬大的鰓腔裡還裝著水。牠必須保持溼潤，不然這一招就不靈了。"
+              },
+              {
+                "key": "lung",
+                "icon": "🫧",
+                "en": "An African lungfish",
+                "zh": "非洲肺魚",
+                "how_en": "It comes up and breathes air with lungs",
+                "how_zh": "浮上來，用肺呼吸空氣",
+                "note_en": "It must breathe air from time to time, or it suffocates. When its pond dries up, it can burrow into the mud and wait out the dry season.",
+                "note_zh": "牠每隔一陣子就得呼吸空氣，不然會窒息。池塘乾掉的時候，牠可以鑽進泥裡，等乾季過去。"
+              }
+            ],
+            "note_en": "These are four examples. Many other fish have their own ways of getting extra oxygen.",
+            "note_zh": "這只是四個例子。還有很多魚各有取得額外氧氣的方法。"
+          },
+          "facts": {
+            "eyebrow": "Gills by the Numbers · 鰓的數字",
+            "en": "Six numbers about breathing water",
+            "zh": "六個和在水裡呼吸有關的數字",
+            "lead_en": "Why it is hard, and how well gills do it anyway.",
+            "lead_zh": "為什麼這件事很難，而鰓又做得多好。",
+            "items": [
+              {
+                "big": "8",
+                "unit_en": "cm³ per liter",
+                "unit_zh": "立方公分／公升",
+                "en": "The oxygen in a liter of fresh water. The same amount of air holds about 210.",
+                "zh": "一公升淡水裡的氧氣。同樣體積的空氣大約有 210。"
+              },
+              {
+                "big": "777×",
+                "unit_en": "denser",
+                "unit_zh": "倍的密度",
+                "en": "Water is this many times denser than air, and about 100 times thicker to push through.",
+                "zh": "水的密度是空氣的這麼多倍，而且大約黏稠一百倍，推動起來費力得多。"
+              },
+              {
+                "big": "80%",
+                "unit_en": "and more",
+                "unit_zh": "以上",
+                "en": "Gills can take more than this share of the oxygen out of the water that passes over them.",
+                "zh": "流過鰓的水，裡面的氧氣可以被拿走超過這個比例。"
+              },
+              {
+                "big": "50%",
+                "unit_en": "at most",
+                "unit_zh": "最多",
+                "en": "If blood and water flowed the same way, no more than half could ever be taken.",
+                "zh": "要是血和水往同一個方向流，最多永遠只拿得到一半。"
+              },
+              {
+                "big": "10,000×",
+                "unit_en": "slower",
+                "unit_zh": "分之一的速度",
+                "en": "Oxygen spreads this many times more slowly through water than through air.",
+                "zh": "氧氣在水裡擴散的速度，只有在空氣裡的這麼多分之一。"
+              },
+              {
+                "big": "25",
+                "unit_en": "kinds",
+                "unit_zh": "種",
+                "en": "There are this many kinds of mudskipper, fish that spend much of their time out of the water.",
+                "zh": "彈塗魚有這麼多種——牠們有很多時間都待在水面以上。"
+              }
+            ]
+          },
+          "culture_cards": {
+            "eyebrow": "Fish Stories · 魚的故事",
+            "title_en": "A trick used twice, sharks that cannot stop, a fish in a cocoon of mud, and the flower jumpers of the west coast",
+            "title_zh": "同一招用兩次、停不下來的鯊魚、泥繭裡的魚，還有西海岸的花跳",
+            "lead_en": "Four more things that follow from breathing water.",
+            "lead_zh": "在水裡呼吸這件事，還牽出四個故事。",
+            "cards": [
+              {
+                "k": "Engineering · 工程",
+                "en": "A trick used twice",
+                "zh": "同一招用兩次",
+                "body_en": "Two streams flowing in opposite directions can pass almost everything from one to the other. Gills use this for oxygen. Birds that stand in cold water use it for heat. Warm blood going down the leg runs beside cold blood coming back up and warms it, so the heat stays in the body and is not lost through the feet.",
+                "body_zh": "兩股往相反方向流的東西，可以把幾乎全部的內容物從一邊交給另一邊。鰓用這一招來傳氧氣；站在冷水裡的鳥用這一招來留住熱：往腳流下去的溫血，緊貼著往回流的冷血，把它重新加熱，所以熱留在身體裡，不會從腳散掉。"
+              },
+              {
+                "k": "Sharks · 鯊魚",
+                "en": "Swim, or stop breathing",
+                "zh": "不游，就沒辦法呼吸",
+                "body_en": "A goldfish can rest on the bottom and still breathe, because it pumps water over its gills with its mouth and gill covers. Most sharks do it another way. They swim forward with the mouth a little open and let the water rush through. Some kinds have no other method, and would probably suffocate if they could not keep moving.",
+                "body_zh": "金魚可以停在水底休息，照樣呼吸，因為牠用嘴和鰓蓋把水打過鰓。大部分的鯊魚用的是另一招：嘴微微張開往前游，讓水自己沖進來。有些種類沒有別的辦法，要是不能一直游動，很可能就會窒息。"
+              },
+              {
+                "k": "Africa · 非洲",
+                "en": "A fish that waits in the mud",
+                "zh": "在泥裡等待的魚",
+                "body_en": "Lungfish have lungs as well as gills, and African lungfish must come up for air or they suffocate. That sounds like a weakness in a fish. But when the dry season comes and the pond turns to cracked mud, the lungfish burrows in and waits, breathing air, until the rain returns.",
+                "body_zh": "肺魚除了鰓還有肺，而非洲肺魚一定得浮上來呼吸空氣，不然會窒息。對一條魚來說，這聽起來像是弱點。可是乾季來臨、池塘變成龜裂的泥地時，肺魚鑽進泥裡，呼吸著空氣等待，直到雨季回來。"
+              },
+              {
+                "k": "Taiwan · 台灣",
+                "en": "The flower jumpers of the mudflats",
+                "zh": "泥灘上的花跳",
+                "body_en": "On the mudflats of Taiwan's west coast, small fish with eyes on top of their heads skip across the mud at low tide. People call them flower jumpers. They are mudskippers. Taiwan's Ministry of Agriculture explains that their skin and gill chambers let them breathe in air as well as in water. A mudskipper first fills its gill chambers with water to keep its throat wet, and then it breathes air through the lining of its mouth and throat.",
+                "body_zh": "在台灣西海岸的泥灘上，退潮的時候，有一種眼睛長在頭頂的小魚在泥地上跳來跳去。大家叫牠「花跳」，牠就是彈塗魚。農業部的農業知識入口網說明：彈塗魚的皮膚和鰓腔，讓牠在水裡和空氣裡都能呼吸。牠會先讓鰓腔裝滿水，保持咽喉溼潤，再用口腔內壁和咽喉呼吸空氣。"
+              }
+            ]
+          },
+          "myths": [
+            {
+              "myth_en": "Fish breathe water the way we breathe air, in and out.",
+              "myth_zh": "魚呼吸水，就像我們呼吸空氣，一進一出。",
+              "fact_en": "Water goes one way only: in through the mouth, over the gills, and out behind the gill covers.",
+              "fact_zh": "水只往一個方向走：從嘴進來，流過鰓，從鰓蓋後面出去。"
+            },
+            {
+              "myth_en": "Fish do not need oxygen.",
+              "myth_zh": "魚不需要氧氣。",
+              "fact_en": "They need it as much as we do. They take it from the water.",
+              "fact_zh": "牠們和我們一樣需要氧氣，只是從水裡取得。"
+            },
+            {
+              "myth_en": "A fish dies in air because air has no oxygen it can use.",
+              "myth_zh": "魚離開水會死，是因為空氣裡沒有牠能用的氧氣。",
+              "fact_en": "Air has plenty. The gills collapse without water to hold them open.",
+              "fact_zh": "空氣裡的氧氣很多；是鰓沒有水撐著，塌掉了。"
+            },
+            {
+              "myth_en": "All fish breathe only with gills.",
+              "myth_zh": "所有的魚都只用鰓呼吸。",
+              "fact_en": "Some also use their skin or the lining of the mouth, and lungfish have lungs.",
+              "fact_zh": "有些魚還會用皮膚或口腔內壁；肺魚甚至有肺。"
+            }
+          ],
+          "tricks": [
+            {
+              "title_en": "Water holds little oxygen",
+              "title_zh": "水裡的氧氣很少",
+              "body_en": "So a fish must move a lot of water.",
+              "body_zh": "所以魚得讓很多水流過。"
+            },
+            {
+              "title_en": "One way through",
+              "title_zh": "單行道",
+              "body_en": "In at the mouth, out past the gills.",
+              "body_zh": "從嘴進，經過鰓出去。"
+            },
+            {
+              "title_en": "A thin wall, a huge surface",
+              "title_zh": "很薄的膜，很大的面",
+              "body_en": "Thousands of plates full of blood.",
+              "body_zh": "成千上萬片充滿血的薄片。"
+            },
+            {
+              "title_en": "Blood goes the other way",
+              "title_zh": "血往反方向流",
+              "body_en": "So oxygen crosses all the way along.",
+              "body_zh": "所以氧氣一路都在過去。"
+            }
+          ],
+          "activities": [
+            {
+              "title_en": "The Bead Trains",
+              "title_zh": "珠子列車",
+              "materials": [
+                {
+                  "en": "Ten paper cups and fifty beads, beans, or paper clips",
+                  "zh": "十個紙杯，還有五十顆珠子、豆子或迴紋針"
+                },
+                {
+                  "en": "A long table, and a notebook",
+                  "zh": "一張長桌和一本筆記本"
+                }
+              ],
+              "steps": [
+                {
+                  "en": "Make a water train: five cups in a row with ten beads in each. Beside it make a blood train: five empty cups.",
+                  "zh": "排一列「水列車」：五個杯子，每杯十顆珠子。旁邊排一列「血列車」：五個空杯子。"
+                },
+                {
+                  "en": "The rule: whenever two cups are side by side, the fuller one gives beads to the other until they hold the same number, or differ by one.",
+                  "zh": "規則：只要兩個杯子並排，比較滿的那一杯就把珠子分給另一杯，直到兩杯一樣多（或只差一顆）。"
+                },
+                {
+                  "en": "Same way: the trains travel together, so each cup stays beside the same partner. Apply the rule, and count the beads in the blood train.",
+                  "zh": "同方向：兩列車一起走，每個杯子的鄰居都不變。照規則做完，數一數血列車裡有幾顆珠子。"
+                },
+                {
+                  "en": "Opposite ways: start again. This time slide the trains past each other, one cup at a time, from end to end. Apply the rule at every step, and count again.",
+                  "zh": "反方向：重新開始。這次讓兩列車從頭到尾交錯而過，一次移動一個杯子的距離，每一步都照規則做。最後再數一次。"
+                }
+              ],
+              "tip_en": "Traveling together, the blood train ends with 25 of the 50 beads and can never get more. Passing in opposite directions, it ends with more than half. That is the whole secret of a gill.",
+              "tip_zh": "一起走的時候，血列車最後有五十顆裡的二十五顆，再多也不可能了。交錯而過的時候，它拿到的會超過一半。鰓的祕密就是這個。"
+            },
+            {
+              "title_en": "Count the Breaths",
+              "title_zh": "數呼吸",
+              "materials": [
+                {
+                  "en": "A fish in a tank or a pond that you can watch without disturbing it",
+                  "zh": "魚缸或池塘裡一條可以觀察、又不會被你打擾的魚"
+                },
+                {
+                  "en": "A watch or a timer, and a notebook",
+                  "zh": "一支手錶或計時器，還有筆記本"
+                }
+              ],
+              "steps": [
+                {
+                  "en": "Find the gill cover, the flap behind the eye. Watch it open and close.",
+                  "zh": "找到鰓蓋——眼睛後面那片會動的蓋子。看它一開一合。"
+                },
+                {
+                  "en": "Count how many times it opens in one minute while the fish is resting.",
+                  "zh": "魚在休息的時候，數一數鰓蓋一分鐘開幾次。"
+                },
+                {
+                  "en": "Count again just after the fish has been swimming fast, for example at feeding time.",
+                  "zh": "在魚剛快速游動過之後（例如餵食的時候）再數一次。"
+                },
+                {
+                  "en": "Is the number different? Why might a busy fish need to move more water?",
+                  "zh": "數字不一樣嗎？忙碌的魚為什麼需要讓更多的水流過？"
+                }
+              ],
+              "tip_en": "Do not tap on the glass, and do not take the fish out of the water. Watching quietly gives the best numbers.",
+              "tip_zh": "不要敲玻璃，也不要把魚撈出水面。安安靜靜地看，數字最準。"
+            }
+          ],
+          "sources": [
+            {
+              "en": "Fish breathe by pulling water in through the mouth and pumping it over the gills; gill filaments carry plates with a capillary network that gives a large surface; blood in them flows in the opposite direction to the water (countercurrent exchange), so the gills can extract over 80% of the oxygen in the water; a liter of fresh water holds 8 cm³ of oxygen compared with 210 in the same volume of air; water is 777 times denser than air and 100 times more viscous; oxygen diffuses 10,000 times faster in air than in water; out of water the gills collapse and lie on top of each other; most sharks rely on ram ventilation; African lungfish must breathe air or they suffocate",
+              "zh": "魚從口吸入水、打過鰓來呼吸；鰓絲上的薄片佈滿微血管，表面積很大；血流方向與水流相反（逆流交換），因此鰓可以取得水中 80% 以上的氧；一公升淡水含氧 8 立方公分，同體積空氣為 210；水的密度是空氣的 777 倍、黏度 100 倍；氧在空氣中的擴散速率是水中的一萬倍；離水後鰓會塌陷、彼此貼在一起；多數鯊魚靠衝壓換氣；非洲肺魚必須呼吸空氣，否則會窒息",
+              "src": "Wikipedia, “Fish gill”",
+              "url": "https://en.wikipedia.org/wiki/Fish_gill"
+            },
+            {
+              "en": "With flows in the same direction, an exchanger can move at most half of a property from one stream to the other; fish use countercurrent exchange in their gills, and birds use it between the blood vessels in their legs to keep heat in the body",
+              "zh": "同向流動的交換最多只能把一半轉移到另一股；魚的鰓利用逆流交換取得氧氣，鳥類腿部的血管利用逆流交換把熱留在體內",
+              "src": "Wikipedia, “Countercurrent exchange”",
+              "url": "https://en.wikipedia.org/wiki/Countercurrent_exchange"
+            },
+            {
+              "en": "Some sharks are obligate ram ventilators and would presumably asphyxiate if unable to move; the gill cover lets bony fish ventilate their gills without constant motion",
+              "zh": "有些鯊魚只能靠衝壓換氣，若無法游動推測會窒息；鰓蓋讓硬骨魚不必不停游動也能讓水流過鰓",
+              "src": "Wikipedia, “Fish physiology”",
+              "url": "https://en.wikipedia.org/wiki/Fish_physiology"
+            },
+            {
+              "en": "African and South American lungfish survive the drying of their habitats by burrowing into mud through the dry season",
+              "zh": "非洲與南美肺魚在棲地乾涸時鑽入泥中度過乾季",
+              "src": "Wikipedia, “Lungfish”",
+              "url": "https://en.wikipedia.org/wiki/Lungfish"
+            },
+            {
+              "en": "There are 25 living species of mudskipper; they can breathe through their skin and the lining of the mouth and throat when wet, and they carry water in their large gill chambers on land",
+              "zh": "彈塗魚現存 25 種；身體溼潤時能用皮膚與口腔、咽喉內壁呼吸，上陸時寬大的鰓腔裡帶著水",
+              "src": "Wikipedia, “Mudskipper”",
+              "url": "https://en.wikipedia.org/wiki/Mudskipper"
+            },
+            {
+              "en": "The mudskipper's skin and gill chambers let it breathe in water and in air; it first fills the gill chambers with water to keep the throat moist, and then breathes air through the lining of the mouth and throat",
+              "zh": "彈塗魚的皮膚和鰓腔使牠能在水中呼吸也能在空氣中呼吸；先讓鰓腔充滿水以保持咽喉溼潤，再以口腔內壁和咽喉進行空氣呼吸",
+              "src": "農業部 農業知識入口網 潮間帶主題館〈神懷絕技的彈塗魚〉 Ministry of Agriculture, Taiwan",
+              "url": "https://kmweb.moa.gov.tw/subject/subject.php?id=35584"
+            }
+          ]
         }
       ],
       "planned": [
-        {
-          "n": 10,
-          "icon": "🐟",
-          "en": "How Does a Fish Breathe Under Water?",
-          "zh": "魚怎麼在水裡呼吸？"
-        },
         {
           "n": 11,
           "icon": "🦋",
