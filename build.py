@@ -11651,7 +11651,7 @@ def build_earth_hub():
 _lifej = os.path.join(ROOT, "data", "life.json")
 LIFE = json.load(open(_lifej, encoding="utf-8")) if os.path.exists(_lifej) else None
 LIFE_BASE = "/resources/classes/life/"
-_LIFE_JS = {"leaf": "life-leaf", "cell": "life-cell", "dna": "life-dna", "germ": "life-germ", "seed": "life-seed", "flower": "life-flower", "tree": "life-tree", "autumn": "life-autumn", "bird": "life-bird", "gill": "life-gill"}   # lab.kind → assets/js/<bundle>.js
+_LIFE_JS = {"leaf": "life-leaf", "cell": "life-cell", "dna": "life-dna", "germ": "life-germ", "seed": "life-seed", "flower": "life-flower", "tree": "life-tree", "autumn": "life-autumn", "bird": "life-bird", "gill": "life-gill", "meta": "life-meta"}   # lab.kind → assets/js/<bundle>.js
 
 def _life_ver():
     h = hashlib.md5()
@@ -12342,9 +12342,72 @@ def _life_breathers(br):
             f'</div></div>'
             '<noscript><p class="muted">This tool works in your browser and needs JavaScript. · 這個小工具在瀏覽器裡運作，需要開啟 JavaScript。</p></noscript>')
 
-_LIFE_LAB = {"leaf": render_lifeleaf_lab, "cell": render_lifecell_lab, "dna": render_lifedna_lab, "germ": render_lifegerm_lab, "seed": render_lifeseed_lab, "flower": render_lifeflower_lab, "tree": render_lifetree_lab, "autumn": render_lifeautumn_lab, "bird": render_lifebird_lab, "gill": render_lifegill_lab}          # lab.kind → 3D 面板
-_LIFE_ICON = {"leaf": lifeleaf_svg, "cell": lifecell_svg, "dna": lifedna_svg, "germ": lifegerm_svg, "seed": lifeseed_svg, "flower": lifeflower_svg, "tree": lifetree_svg, "autumn": lifeautumn_svg, "bird": lifebird_svg, "gill": lifegill_svg}                 # lesson.card → 課程卡小圖示
-_LIFE_WIDGETS = [("recipe", _life_recipe), ("sorter", _life_sorter), ("coder", _life_coder), ("ruler", _life_ruler), ("waker", _life_waker), ("guesser", _life_guesser), ("climber", _life_climber), ("mixer", _life_mixer), ("wings", _life_wings), ("breathers", _life_breathers)]               # lesson 裡有這個 key 就多一段（照這裡的順序）
+def lifemeta_svg(size=56):
+    """第十一課的課程卡小圖示：一隻橘色的蝴蝶，下面一條綠色的毛毛蟲。"""
+    return (f'<svg class="lifemeta-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">'
+            '<path d="M30 22C22 6 6 8 8 20c1 7 9 9 22 6C43 29 51 27 52 20 54 8 38 6 30 22z" fill="#f08a2c"/>'
+            '<path d="M30 26c-8 2-13 8-9 13 4 4 8-2 9-9 1 7 5 13 9 9 4-5-1-11-9-13z" fill="#c9661a"/>'
+            '<rect x="28.3" y="16" width="3.4" height="24" rx="1.7" fill="#3a2a22"/>'
+            '<g fill="#9fd04a"><circle cx="14" cy="52" r="4"/><circle cx="21" cy="50" r="4"/><circle cx="28" cy="52" r="4"/><circle cx="35" cy="50" r="4"/><circle cx="42" cy="52" r="4"/></g><circle cx="47" cy="50" r="3.2" fill="#2a2a2a"/></svg>')
+
+def render_lifemeta_lab(lesson):
+    """第十一課：卵 → 毛毛蟲 → 蛹 → 蝴蝶，一支時間滑桿；「看蛹裡面」（assets/js/life-meta.js 綁這裡的 class；全部自繪示意）。"""
+    lab = lesson["lab"]
+    msgs = "".join(f'<p class="cp-msg lf-mt-msg" data-msg="{k}" hidden>{html.escape(m["en"])}<span class="zh">{html.escape(m["zh"])}</span></p>' for k, m in lab["msgs"].items())
+    tg = _lab_toggles([("inside", "See inside the chrysalis", "看蛹裡面", False), ("labels", "Labels", "標示", True)])
+    return f'''<div class="astro-lab cp-lab lf-lab lf-mt-lab rvl" data-lifemeta-lab>
+  <div class="al-stage">
+    <div class="al-space">
+      <canvas class="al-space-cv" aria-label="3D model of one insect through its four stages: an egg on a leaf, a caterpillar that grows, a chrysalis hanging from a twig, and a butterfly whose wings slowly open · 同一隻昆蟲四個階段的 3D 模型：葉子上的卵、長大的毛毛蟲、掛在樹枝上的蛹，還有翅膀慢慢撐開的蝴蝶"></canvas>
+      <div class="al-labels" aria-hidden="true"></div>
+      <p class="al-hint">Drag to turn · 拖曳旋轉　Scroll or pinch to zoom · 滾輪／雙指縮放</p>
+      <button type="button" class="al-home" title="Reset view · 重設視角" aria-label="Reset view · 重設視角">&#8634;</button>
+      <p class="al-nogl-msg">This 3D model needs WebGL, which this browser does not support. The reading and the cards below still explain everything.<br><span class="zh">這個瀏覽器不支援 WebGL，無法顯示 3D 模型；下方的課文與卡片一樣能看懂。</span></p>
+    </div>
+    <aside class="al-sky cp-aside">
+      <p class="al-sky-k">One animal, four stages · 同一隻動物，四個階段</p>
+      <label class="al-slider cp-is-yrow"><span>Time · 時間 <output class="lf-mt-t-out">Egg · 卵</output></span>
+        <input type="range" class="al-age lf-mt-t" min="0" max="100" step="1" value="0"></label>
+      <div class="cp-ht-meter"><p class="lf-k">Through its life · 這一生走到哪裡</p><div class="cp-ht-bar"><i class="lf-mt-bar"></i></div><p class="cp-ht-status lf-mt-status"></p></div>
+      <dl class="cp-nums cp-lt-nums lf-nums">
+        <div><dt>It is now · 現在是</dt><dd class="lf-mt-what"></dd></div>
+        <div><dt>Its job · 牠的工作</dt><dd class="lf-mt-job"></dd></div>
+        <div><dt>Progress · 進度</dt><dd class="lf-mt-size"></dd></div>
+      </dl>
+      {msgs}
+    </aside>
+  </div>
+  <div class="al-controls">
+    <div class="al-row al-row-main">
+      <button type="button" class="al-play" aria-pressed="true"><span class="al-play-i" aria-hidden="true"></span><span class="al-play-t">Pause · 暫停</span></button>
+      <div class="al-row al-toggles">{tg}</div>
+    </div>
+  </div>
+  {_lab_foot(lab)}
+  <p class="cp-credit">{lab["credit_html"]}</p>
+</div>'''
+
+def _life_cycles(cy):
+    """「四個階段，還是三個？」（life-meta.js 的 initCycles；選一種昆蟲，看牠是完全變態還是不完全變態；不需要 WebGL）。"""
+    items = html.escape(json.dumps(cy["items"], ensure_ascii=False)); names = html.escape(json.dumps(cy["names"], ensure_ascii=False))
+    picks = "".join(f'<button type="button" data-k="{it["key"]}" aria-pressed="false"><span class="lf-cy-ic" aria-hidden="true">{it["icon"]}</span>{html.escape(it["en"])}<small>{html.escape(it["zh"])}</small></button>' for it in cy["items"])
+    return (f'<div class="cp-cnt lf-cy rvl" data-life-cycles data-start="{cy["start"]}" data-items="{items}" data-names="{names}">'
+            f'<div class="cp-cnt-in">'
+            f'<p class="cp-cnt-l cp-sun-l"><span>Choose an insect · 選一種昆蟲</span></p>'
+            f'<div class="lf-cy-pick" role="group" aria-label="Which insect · 哪一種昆蟲">{picks}</div>'
+            f'<ol class="lf-cy-steps"></ol>'
+            f'<p class="cp-cnt-note">{html.escape(cy["note_en"])}<span class="zh">{html.escape(cy["note_zh"])}</span></p></div>'
+            f'<div class="cp-home-out cp-cnt-out lf-cy-out" aria-live="polite">'
+            f'<p class="cp-home-k">Stages in its life · 一生有幾個階段</p>'
+            f'<p class="cp-home-big"><span class="lf-cy-n"></span></p>'
+            f'<p class="cp-home-sub"><span class="lf-cy-en"></span><span class="zh lf-cy-zh"></span></p>'
+            f'<p class="cp-home-note"><span class="lf-cy-note"></span><span class="zh lf-cy-note-zh"></span></p>'
+            f'</div></div>'
+            '<noscript><p class="muted">This tool works in your browser and needs JavaScript. · 這個小工具在瀏覽器裡運作，需要開啟 JavaScript。</p></noscript>')
+
+_LIFE_LAB = {"leaf": render_lifeleaf_lab, "cell": render_lifecell_lab, "dna": render_lifedna_lab, "germ": render_lifegerm_lab, "seed": render_lifeseed_lab, "flower": render_lifeflower_lab, "tree": render_lifetree_lab, "autumn": render_lifeautumn_lab, "bird": render_lifebird_lab, "gill": render_lifegill_lab, "meta": render_lifemeta_lab}          # lab.kind → 3D 面板
+_LIFE_ICON = {"leaf": lifeleaf_svg, "cell": lifecell_svg, "dna": lifedna_svg, "germ": lifegerm_svg, "seed": lifeseed_svg, "flower": lifeflower_svg, "tree": lifetree_svg, "autumn": lifeautumn_svg, "bird": lifebird_svg, "gill": lifegill_svg, "meta": lifemeta_svg}                 # lesson.card → 課程卡小圖示
+_LIFE_WIDGETS = [("recipe", _life_recipe), ("sorter", _life_sorter), ("coder", _life_coder), ("ruler", _life_ruler), ("waker", _life_waker), ("guesser", _life_guesser), ("climber", _life_climber), ("mixer", _life_mixer), ("wings", _life_wings), ("breathers", _life_breathers), ("cycles", _life_cycles)]               # lesson 裡有這個 key 就多一段（照這裡的順序）
 
 def _life_flat():
     return [(ui, u, l) for ui, u in enumerate(LIFE["units"]) for l in u["lessons"]]
