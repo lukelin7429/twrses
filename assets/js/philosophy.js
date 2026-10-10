@@ -2330,6 +2330,59 @@
     var hm = /[#&]rulebook=([a-z]+)(?:,([01]{5}))?/.exec(location.hash); if (hm && R(hm[1])) { if (hm[2]) root.__lab.run(hm[1], hm[2]); else choose(hm[1]); }
   });
 
+  /* ---- A40：八個人生（你的答案最接近哪一種意義理論） ---- */
+  $$('[data-ph-lives]').forEach(function (root) {
+    var D;
+    try { D = JSON.parse($('[data-lv-data]', root).textContent); } catch (e) { return; }
+    var grid = $('[data-lv-grid]', root), count = $('[data-lv-count]', root), out = $('[data-lv-out]', root), votes;
+    var PRED = { sub: function (l) { return !!l.f; }, obj: function (l) { return !!l.w; }, hyb: function (l) { return !!(l.f && l.w); }, leg: function (l) { return !!l.l; } };
+    function zhp(parent, t) { var z = el('p', 'ph-zh', t); z.lang = 'zh-Hant'; parent.appendChild(z); addTr(z); }
+    function pair(tag, cls, o) { var e = el(tag, cls); e.appendChild(el('b', '', o.en)); var z = el('span', '', o.zh); z.lang = 'zh-Hant'; e.appendChild(z); return e; }
+    function left() { return D.lives.filter(function (l) { return votes[l.k] == null; }).length; }
+    function scores() { var s = {}; D.theories.forEach(function (t) { s[t.k] = D.lives.filter(function (l) { return PRED[t.k](l) === votes[l.k]; }).length; }); return s; }
+    function drawGrid() {
+      grid.textContent = '';
+      D.lives.forEach(function (l, i) {
+        var card = el('div', 'ph-lv-card' + (votes[l.k] === true ? ' is-yes' : votes[l.k] === false ? ' is-no' : ''));
+        var h = el('p', 'ph-lv-h'); h.appendChild(el('em', '', String(i + 1))); h.appendChild(el('b', '', l.t.en)); var hz = el('span', '', l.t.zh); hz.lang = 'zh-Hant'; h.appendChild(hz); card.appendChild(h);
+        card.appendChild(el('p', 'ph-lv-s', l.s.en)); zhp(card, l.s.zh);
+        var bt = el('div', 'ph-lv-vote');
+        [[true, D.yes, 'yes'], [false, D.no, 'no']].forEach(function (p) {
+          var b = pair('button', 'ph-lv-btn is-' + p[2], p[1]); b.type = 'button'; b.setAttribute('aria-pressed', votes[l.k] === p[0] ? 'true' : 'false');
+          b.addEventListener('click', function () { votes[l.k] = p[0]; drawGrid(); result(); });
+          bt.appendChild(b);
+        });
+        card.appendChild(bt); grid.appendChild(card);
+      });
+      var n = left(); count.textContent = ''; if (n) { count.appendChild(document.createTextNode(n + ' ' + D.left.en + ' · ')); var z = el('i', '', n + ' ' + D.left.zh); z.lang = 'zh-Hant'; count.appendChild(z); }
+    }
+    function cell(v, bad) { return el('span', 'cell' + (v ? ' in' : '') + (bad ? ' bad' : ''), v ? '●' : '○'); }
+    function result() {
+      out.textContent = ''; if (left()) return;
+      var s = scores(), max = 0; D.theories.forEach(function (t) { if (s[t.k] > max) max = s[t.k]; });
+      var best = D.theories.filter(function (t) { return s[t.k] === max; });
+      var e = el('div', 'ph-el-end'), q = el('p', 'ph-vl-q'), en, zh;
+      if (max <= 5) { en = D.res.none.en; zh = D.res.none.zh; }
+      else if (best.length > 1) { en = D.res.tie.en.replace('{n}', max) + ' ' + best.map(function (t) { return t.t.en.replace(/^The /, 'the '); }).join(' and ') + '.'; zh = D.res.tie.zh.replace('{n}', max) + best.map(function (t) { return t.t.zh; }).join('、') + '。'; }
+      else { en = D.res.fit.en.replace('{t}', best[0].t.en.replace(/^The /, 'the ')).replace('{n}', max); zh = D.res.fit.zh.replace('{t}', best[0].t.zh).replace('{n}', max); }
+      q.appendChild(el('b', '', en)); var qz = el('span', '', zh); qz.lang = 'zh-Hant'; q.appendChild(qz); e.appendChild(q);
+      var tb = el('div', 'ph-lv-table'), hd = el('div', 'ph-lv-row hd'); hd.appendChild(el('span', 'nm', ''));
+      ['you', 'sub', 'obj', 'hyb', 'leg'].forEach(function (k) { var c = el('span', 'cell'); c.appendChild(document.createTextNode(D.cols[k].en)); var z = el('i', '', D.cols[k].zh); z.lang = 'zh-Hant'; c.appendChild(z); hd.appendChild(c); }); tb.appendChild(hd);
+      D.lives.forEach(function (l) { var row = el('div', 'ph-lv-row'); row.appendChild(pair('span', 'nm', l.t)); row.appendChild(cell(votes[l.k], false)); D.theories.forEach(function (t) { var p = PRED[t.k](l); row.appendChild(cell(p, p !== votes[l.k])); }); tb.appendChild(row); });
+      var ft = el('div', 'ph-lv-row ft'); ft.appendChild(el('span', 'nm', '')); ft.appendChild(el('span', 'cell', '')); D.theories.forEach(function (t) { ft.appendChild(el('span', 'cell' + (s[t.k] === max && max > 5 ? ' top' : ''), s[t.k] + ' / ' + D.lives.length)); }); tb.appendChild(ft);
+      e.appendChild(tb);
+      if (max > 5) best.slice(0, 2).forEach(function (t) { var card = el('div', 'ph-vl-card is-valid'); card.appendChild(el('p', 'ph-lv-who', t.t.en + ' · ' + t.t.zh + ' — ' + t.who.en + ' · ' + t.who.zh)); card.appendChild(el('p', '', t.v.en)); zhp(card, t.v.zh); e.appendChild(card); });
+      var coda = el('div', 'ph-lv-coda'); coda.appendChild(el('p', '', D.res.coda.en)); zhp(coda, D.res.coda.zh); e.appendChild(coda);
+      out.appendChild(e);
+    }
+    function reset() { votes = {}; out.textContent = ''; drawGrid(); }
+    $('[data-lv-reset]', root).addEventListener('click', reset);
+    reset();
+    root.__lab = { state: function () { return { votes: D.lives.map(function (l) { return votes[l.k] == null ? null : votes[l.k]; }), left: left(), scores: left() ? null : scores() }; },
+      run: function (pattern) { D.lives.forEach(function (l, i) { votes[l.k] = pattern.charAt(i) === '1'; }); drawGrid(); result(); return this.state(); } };
+    var hm = /[#&]lives=([01]{8})/.exec(location.hash); if (hm) root.__lab.run(hm[1]);
+  });
+
   /* ---- A13：去火星三趟（帕菲特的傳送機） ---- */
   $$('[data-ph-teleport]').forEach(function (root) {
     var D;

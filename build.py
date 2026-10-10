@@ -8796,7 +8796,21 @@ def _ph_lab_rulebook(lab):
   </div>
 </div>"""
 
+def _ph_lab_lives(lab):
+    """A40：八個人生。每一個判斷有沒有意義；八個都判完，比對主觀論、客觀論、混合論、留名論，看答案最接近哪一種。"""
+    payload = html.escape(json.dumps({k: lab[k] for k in ("yes", "no", "left", "lives", "cols", "theories", "res")}, ensure_ascii=False), quote=False)
+    return f"""<div class="ph-el ph-lv rvl" data-ph-lives>
+  <script type="application/json" data-lv-data>{payload}</script>
+  <div class="ph-el-stage">
+    <div class="ph-lv-grid" data-lv-grid></div>
+    <div class="ph-lv-count" data-lv-count aria-live="polite"></div>
+    <div data-lv-out aria-live="polite"></div>
+    <div class="ph-el-foot"><button type="button" class="ph-el-reset" data-lv-reset>Start again · 重來</button></div>
+  </div>
+</div>"""
+
 def _ph_lab(lab):
+    if lab.get("kind") == "lives": return _ph_lab_lives(lab)
     if lab.get("kind") == "rulebook": return _ph_lab_rulebook(lab)
     if lab.get("kind") == "discount": return _ph_lab_discount(lab)
     if lab.get("kind") == "circle": return _ph_lab_circle(lab)
