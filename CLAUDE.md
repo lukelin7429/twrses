@@ -223,6 +223,9 @@
   - **內容界線（Luke 2026-10-10 定案）**：不寫止嗝偏方（只在迷思裡寫「沒有哪一種被證實有效」）；打嗝有什麼用、為什麼打呵欠，都照實寫「沒有人確定」「科學家沒有共識」。健康提醒：打噴嚏用手肘或衛生紙遮住、洗手；打嗝連續好幾天要看醫生。
   - **2D 工具（`initTools`）**：眨眼計數器（兩回合各 60 秒：聊天 vs 閱讀或看螢幕；大按鈕每眨一次點一下）＋呵欠傳染統計（觀看人數、打呵欠人數 → 圓點圖和百分比）。不儲存。
   - 預覽注意：瀏覽器面板隱藏時 `lazyBoot` 的 IntersectionObserver 可能一直不觸發（模型停在 Loading）；在 console 點一下 `[data-lab-test]` 按鈕就會強制初始化。
+- 第二十七課一滴血（slug `blood-drop`，但 `lab.kind = "drop"`、`drop.js`、`data-drop-lab`，CSS 前綴 `bd-`；尺寸讀數與跳站按鈕沿用第二十四課的 `ce-size`／`ce-cmp`／`ce-jumps`）：**沿用第二十四課的十倍放大引擎**，五個站——手與載玻片（10 cm）→ 一滴血（1 cm）→ 只有紅色（1 mm）→ 一大群紅血球漂在血漿裡（0.1 mm，`InstancedMesh` 280 個）→ 三種血球（10 µm）。只有手骨是真實形狀。最後一站四個模式（`modeG`）：三種擺在一起／紅血球接氧氣（暗紅 ↔ 鮮紅）／白血球吞細菌／血小板堵住血管上的洞再長出纖維絲；動畫用 `state.clock` 循環（7、8、10 秒），切換模式時歸零。右欄有一根 CSS 畫的試管（血漿 55%、細線、紅血球 45%）。
+  - **內容界線（Luke 2026-10-10 定案）**：畫面不出現傷口或針（血滴放在載玻片上；「漏洞」是抽象的血管壁）；血型只寫「輸血前要檢查」，不講遺傳；「血型決定個性」列為迷思。捐血年齡的規定近年改過（17 歲下修到有條件 16 歲），課文不寫年齡，只引標語「捐血一袋，救人一命」。
+  - **2D 工具（`initTools`）**：血量——體重可以不填（不填顯示大人的 5 公升）；填了用每公斤 70–75 毫升估算、換成 600 毫升寶特瓶，**不儲存**，頁面明講。血球數——針頭大的一小滴（1 µL）／一滴（50 µL）／一茶匙（5 mL），用每微升 500 萬、7,000、30 萬估算，中英文各顯示一種大數說法（million／billion vs 萬／億）。規劃時說的「照年齡的血量範圍」沒有做——沒查到可引用的按年齡數字。
 - **多個 session 同時改這個 repo 時，一律在自己的 git worktree 裡做**（2026-10-09 起）：`git worktree add -b <分支> <scratchpad>/wt origin/main`，把 `tools/<系列>/node_modules`、`audio` 用 symlink 接過來、複製 `tools/.r2_uploaded_cache.txt`；預覽在 vault 的 `.claude/launch.json` 加一筆 `python3 -m http.server <port> --directory <worktree>`；做完 `git fetch && git rebase origin/main && git push origin HEAD:main`。原因：未提交的 `data/*.json` 會讓別的 session 的 `python3 build.py` 直接失敗，共用的 `build.py` 也曾被另一個 session 的腳本誤清空。改檔案的腳本要**先讀完、算好、最後才 `open(p, 'w')`**，不要寫成 `open(p,'w').write(f(open(p).read()))`。
 - 第四批（第 13–16 課：腎臟、味覺與嗅覺、睡眠、長高）規劃在 Obsidian 課程規劃第九節，四課已全部完成（2026-10-05）。第五批（第 17–20 課：說話、手、修復、運動）規劃在第十節，**四課已全部完成（2026-10-09），人體探索共 20 課，`planned[]` 目前是空的**；要再加課，先在課程規劃定題。
 - 網站 `html` 有 smooth scroll：在背景的瀏覽器面板裡捲動會慢好幾秒，截圖前先設 `document.documentElement.style.scrollBehavior='auto'`。

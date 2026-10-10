@@ -4319,7 +4319,7 @@ def build_astro_hub():
 # 面板與段落樣式沿用 astro.css，人體專屬的在 body.css；兩者都只載在本系列頁面。
 BODY_BASE = "/resources/classes/human-body/"
 _BODY_JS = {"skeleton": "skeleton", "arm": "arm", "heart": "heart", "lungs": "lungs", "joints": "joints",
-            "digestion": "digestion", "nerves": "nerves", "eyes": "eyes", "ears": "ears", "skin": "skin", "teeth": "teeth", "germs": "germs", "kidneys": "kidneys", "taste": "taste", "sleep": "sleep", "growth": "growth", "voice": "voice", "hands": "hands", "healing": "healing", "exercise": "exercise", "energy": "energy", "temperature": "temperature", "back": "back", "cells": "cells", "walking": "walking", "reflexes": "reflexes"}   # lab.kind → assets/js/<bundle>.js
+            "digestion": "digestion", "nerves": "nerves", "eyes": "eyes", "ears": "ears", "skin": "skin", "teeth": "teeth", "germs": "germs", "kidneys": "kidneys", "taste": "taste", "sleep": "sleep", "growth": "growth", "voice": "voice", "hands": "hands", "healing": "healing", "exercise": "exercise", "energy": "energy", "temperature": "temperature", "back": "back", "cells": "cells", "walking": "walking", "reflexes": "reflexes", "drop": "drop"}   # lab.kind → assets/js/<bundle>.js
 
 def _body_ver():
     h = hashlib.md5()
@@ -5957,6 +5957,80 @@ def render_reflexes_lab(lesson):
   <p class="sk-credit">{lab["credit_html"]}</p>
 </div>'''
 
+def render_drop_lab(lesson):
+    """第二十七課：每一步放大十倍，潛進一滴血；最後一站看三種血球各做各的工作（assets/js/drop.js 綁這裡的 class）；血量與血球數工具是 2D，不需要 WebGL。"""
+    lab = lesson["lab"]
+    stops_json = html.escape(json.dumps(lab["stops"], ensure_ascii=False))
+    modes_json = html.escape(json.dumps(lab["modes"], ensure_ascii=False))
+    jumps = "".join(
+        f'<button type="button" data-stop="{n}" aria-pressed="{"true" if n == 0 else "false"}"><b>{html.escape(s["size"])}</b><small>{html.escape(s["size_zh"])}</small></button>'
+        for n, s in enumerate(lab["stops"]))
+    modes = "".join(
+        f'<button type="button" data-mode="{m["key"]}" aria-pressed="{"true" if n == 0 else "false"}"><i aria-hidden="true">{m["icon"]}</i>'
+        f'<span>{html.escape(m["en"])}<small>{html.escape(m["zh"])}</small></span></button>' for n, m in enumerate(lab["modes"]))
+    def row(cls, ic, en, zh):
+        return f'<p class="bd-cnt bd-cnt-{cls}"><i aria-hidden="true">{ic}</i><b>—</b><span>{en}<small>{zh}</small></span></p>'
+    tg = _lab_toggles([("labels", "Labels", "標示", True), ("spin", "Slow spin", "慢慢旋轉", True)])
+    return f'''<div class="astro-lab sk-lab bd-lab rvl" data-drop-lab data-model="{_model_url()}" data-stops="{stops_json}" data-modes="{modes_json}">
+  <div class="al-stage">
+    <div class="al-space">
+      <canvas class="al-space-cv" aria-label="3D model that zooms ten times closer at every step, from a hand and a glass slide into one drop of blood, down to red blood cells, a white blood cell, and platelets · 每一步放大十倍的 3D 模型：從手和載玻片鑽進一滴血，直到看見紅血球、白血球和血小板"></canvas>
+      <div class="al-labels" aria-hidden="true"></div>
+      <p class="sk-loading">Loading… · 載入中…<span class="sk-bar"><i></i></span></p>
+      <p class="al-hint">Drag to turn · 拖曳旋轉　Scroll or pinch to zoom · 滾輪／雙指縮放</p>
+      <p class="ey-mag ce-mag">Magnified <b class="bd-x">1</b> times · 放大 <b class="bd-x2">1</b> 倍</p>
+      <button type="button" class="al-home" title="Reset view · 重設視角" aria-label="Reset view · 重設視角">&#8634;</button>
+      <p class="al-nogl-msg">This 3D model needs WebGL, which this browser does not support. The blood tool and the cards below still work.<br><span class="zh">這個瀏覽器不支援 WebGL，無法顯示 3D 模型；下方的血量工具和卡片一樣能用。</span></p>
+    </div>
+    <aside class="al-sky sk-aside bd-aside">
+      <div class="bd-top">
+        <div class="bd-ruler">
+          <p class="al-sky-k">The yellow bar is this long · 黃色的橫條有這麼長</p>
+          <p class="ce-size"><b class="bd-w">10 cm</b><span class="bd-wz">10 公分</span></p>
+          <p class="ce-cmp"><span>About the size of<small>差不多是</small></span><b class="bd-cmp-t"></b></p>
+        </div>
+        <div class="bd-tube" aria-label="Blood left to settle in a tube: plasma on top, a thin pale line, red cells below · 靜置在試管裡的血液：上面是血漿，中間一條淡色的細線，下面是紅血球">
+          <i class="bd-t-p"><span>Plasma<small>血漿</small><em>55%</em></span></i><i class="bd-t-w"></i><i class="bd-t-r"><span>Red cells<small>紅血球</small><em>45%</em></span></i>
+          <p>The thin line: white cells and platelets, less than 1%<small>那條細線：白血球和血小板，不到 1%</small></p>
+        </div>
+      </div>
+      <p class="ey-status bd-status" aria-live="polite"></p>
+    </aside>
+  </div>
+  <div class="bd-strip">
+    <div class="bd-vol">
+      <p class="al-sky-k">How much blood? · 有多少血？</p>
+      <label class="bd-kgl">My weight (optional)<small>我的體重（可以不填）</small><span><input type="number" class="bd-kg" min="5" max="150" step="0.5" inputmode="decimal" placeholder="—"> kg</span></label>
+      <p class="bd-big"><b class="bd-l">5</b><span>liters of blood<small>公升的血</small></span></p>
+      <div class="bd-bottles" aria-hidden="true"></div>
+      <p class="bd-msg bd-vmsg" aria-live="polite"></p>
+      <p class="bd-note">This number stays on this screen. It is not saved or sent anywhere.<span class="zh">這個數字只留在這個畫面上，不會儲存，也不會傳到任何地方。</span></p>
+    </div>
+    <div class="bd-count">
+      <p class="al-sky-k">How many cells? · 有多少血球？</p>
+      <div class="bd-amts" role="group" aria-label="Amount of blood · 血的量">
+        <button type="button" class="bd-amt" data-ul="1" aria-pressed="false">A pinhead<small>針頭大的一小滴</small></button>
+        <button type="button" class="bd-amt" data-ul="50" aria-pressed="true">One drop<small>一滴</small></button>
+        <button type="button" class="bd-amt" data-ul="5000" aria-pressed="false">A teaspoon<small>一茶匙</small></button>
+      </div>
+      {row("r", "&#128308;", "red blood cells", "個紅血球")}{row("w", "&#9898;", "white blood cells", "個白血球")}{row("p", "&#129657;", "platelets", "片血小板")}
+      <p class="bd-msg bd-cmsg" aria-live="polite"></p>
+    </div>
+  </div>
+  <div class="al-controls">
+    <div class="ce-jumps bd-jumps" role="group" aria-label="Jump to a size · 跳到某個大小">{jumps}</div>
+    <div class="al-row al-row-main">
+      <button type="button" class="al-play" aria-pressed="false"><span class="al-play-i" aria-hidden="true"></span><span class="al-play-t">Zoom in · 拉近</span></button>
+      <label class="ec-slider ce-row"><span class="ec-slider-k">Zoom · 放大<em>each step is 10 times closer · 每一步近十倍</em></span>
+        <input type="range" class="ec-time ce-slider bd-slider" min="0" max="400" step="1" value="0"></label>
+    </div>
+    <div class="ea-pres bd-modes" role="group" aria-label="Jobs of the blood cells · 血球的工作">{modes}</div>
+    <div class="al-row al-toggles">{tg}</div>
+  </div>
+  {_lab_foot(lab)}
+  <p class="sk-credit">{lab["credit_html"]}</p>
+</div>'''
+
 def _body_nav(slug):
     ls = BODY["lessons"]
     i = next(n for n, l in enumerate(ls) if l["slug"] == slug)
@@ -5984,7 +6058,7 @@ def build_body_lesson(lesson):
                 "joints": render_joints_lab, "digestion": render_digestion_lab, "nerves": render_nerves_lab,
                 "eyes": render_eyes_lab, "ears": render_ears_lab, "skin": render_skin_lab,
                 "teeth": render_teeth_lab, "germs": render_germs_lab, "kidneys": render_kidneys_lab,
-                "taste": render_taste_lab, "sleep": render_sleep_lab, "growth": render_growth_lab, "voice": render_voice_lab, "hands": render_hands_lab, "healing": render_healing_lab, "exercise": render_exercise_lab, "energy": render_energy_lab, "temperature": render_temperature_lab, "back": render_back_lab, "cells": render_cells_lab, "walking": render_walking_lab, "reflexes": render_reflexes_lab}[kind](lesson)
+                "taste": render_taste_lab, "sleep": render_sleep_lab, "growth": render_growth_lab, "voice": render_voice_lab, "hands": render_hands_lab, "healing": render_healing_lab, "exercise": render_exercise_lab, "energy": render_energy_lab, "temperature": render_temperature_lab, "back": render_back_lab, "cells": render_cells_lab, "walking": render_walking_lab, "reflexes": render_reflexes_lab, "drop": render_drop_lab}[kind](lesson)
 
     secs = []
     if lesson.get("jobs"):
@@ -6103,7 +6177,8 @@ def build_body_lesson(lesson):
                 "back": ("The spine in a sentence", "一句話記住脊柱"),
                 "cells": ("Cells in a sentence", "一句話記住細胞"),
                 "walking": ("Walking in a sentence", "一句話記住走路"),
-                "reflexes": ("Reflexes in a sentence", "一句話記住反射")}[kind]
+                "reflexes": ("Reflexes in a sentence", "一句話記住反射"),
+                "drop": ("Blood in a sentence", "一句話記住血液")}[kind]
     secs.append(("tricks", "Remember It · 記憶口訣", tricks_h[0], tricks_h[1], _sci_tricks(lesson), ""))
     if lesson.get("culture"):
         cu = lesson["culture"]
