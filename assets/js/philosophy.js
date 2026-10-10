@@ -1925,6 +1925,55 @@
     var m = /[#&]beetle=([a-z,]+)/.exec(location.hash); if (m) root.__lab.play(m[1].split(','));
   });
 
+  /* ---- A34：2–4–6 遊戲（華生的規則發現實驗） ---- */
+  $$('[data-ph-wason]').forEach(function (root) {
+    var D;
+    try { D = JSON.parse($('[data-ws-data]', root).textContent); } catch (e) { return; }
+    var play = $('[data-ws-play]', root), form = $('[data-ws-form]', root), ins = $$('[data-ws-n]', root), testB = $('[data-ws-test]', root), log = $('[data-ws-log]', root), ready = $('[data-ws-ready]', root), guess = $('[data-ws-guess]', root), qEl = $('[data-ws-q]', root), opts = $('[data-ws-opts]', root), end = $('[data-ws-end]', root);
+    var tests;
+    function zhp(parent, t) { var z = el('p', 'ph-zh', t); z.lang = 'zh-Hant'; parent.appendChild(z); addTr(z); }
+    function lab2(b, o, arrow) { b.textContent = ''; b.appendChild(document.createTextNode(o.en + ' · ')); var z = el('span', '', o.zh); z.lang = 'zh-Hant'; b.appendChild(z); if (arrow) b.appendChild(document.createTextNode(' →')); }
+    function fits(a) { return a[0] < a[1] && a[1] < a[2]; }
+    function row(a, ok, seed) {
+      var r = el('div', 'ph-ws-row ' + (ok ? 'is-ok' : 'is-no')); r.appendChild(el('b', '', a.join(', ')));
+      var s = el('span', '', (ok ? '✓ ' + D.fits.en : '✗ ' + D.nofit.en) + (seed ? ' (' + D.seed.en + ')' : '')); r.appendChild(s);
+      var z = el('i', '', (ok ? D.fits.zh : D.nofit.zh) + (seed ? '（' + D.seed.zh + '）' : '')); z.lang = 'zh-Hant'; r.appendChild(z); return r;
+    }
+    function drawLog() {
+      log.textContent = ''; var h = el('p', 'ph-ws-h', D.log.en + ' '); var hz = el('span', '', D.log.zh); hz.lang = 'zh-Hant'; h.appendChild(hz); log.appendChild(h);
+      log.appendChild(row([2, 4, 6], true, true)); tests.forEach(function (t) { log.appendChild(row(t.a, t.ok)); });
+    }
+    function doTest(a) { if (a.some(function (x) { return isNaN(x); })) return false; tests.push({ a: a, ok: fits(a) }); drawLog(); return true; }
+    form.addEventListener('submit', function (ev) { ev.preventDefault(); if (doTest(ins.map(function (i) { return parseFloat(i.value); }))) { ins.forEach(function (i) { i.value = ''; }); ins[0].focus(); } });
+    ready.addEventListener('click', function () { guess.hidden = false; ready.hidden = true; });
+    function finish(k) {
+      play.hidden = true;
+      var y = tests.filter(function (t) { return t.ok; }).length, x = tests.length - y, g = D.rules.filter(function (r) { return r.k === k; })[0];
+      var e = el('div', 'ph-el-end'); var h = el('h4', '', D.heads.en); h.appendChild(el('span', '', D.heads.zh)); e.appendChild(h);
+      function para(o, rep) { var en = o.en, zh = o.zh; Object.keys(rep || {}).forEach(function (kk) { en = en.replace('{' + kk + '}', rep[kk].en != null ? rep[kk].en : rep[kk]); zh = zh.replace('{' + kk + '}', rep[kk].zh != null ? rep[kk].zh : rep[kk]); }); e.appendChild(el('p', 'ph-ev-zone', en)); zhp(e, zh); }
+      para(D.answer);
+      if (k === 'rise') para(D.ends.right); else para(D.ends.wrong, { g: { en: g.t.en, zh: g.t.zh } });
+      para(D.ends.stats, { n: tests.length, y: y, x: x });
+      var plain = tests.every(function (t) { return t.a[1] - t.a[0] === 2 && t.a[2] - t.a[1] === 2; });
+      para(tests.length < 3 ? D.ends.few : plain ? D.ends.noneg : x === 0 ? D.ends.pos : D.ends.neg);
+      para(D.close); end.appendChild(e);
+      var lg = el('div', 'ph-ws-log'); lg.appendChild(row([2, 4, 6], true, true)); tests.forEach(function (t) { lg.appendChild(row(t.a, t.ok)); }); end.insertBefore(lg, e);
+    }
+    function reset() {
+      tests = []; play.hidden = false; guess.hidden = true; ready.hidden = false; end.textContent = ''; ins.forEach(function (i) { i.value = ''; });
+      lab2(testB, D.test); lab2(ready, D.ready, true); drawLog();
+      qEl.textContent = ''; var q = el('p', 'ph-vl-q'); q.appendChild(el('b', '', D.guessq.en)); var qz = el('span', '', D.guessq.zh); qz.lang = 'zh-Hant'; q.appendChild(qz); qEl.appendChild(q);
+      opts.textContent = '';
+      D.rules.forEach(function (r) { var b = el('button', 'ph-vl-opt'); b.type = 'button'; b.setAttribute('data-k', r.k); b.appendChild(el('b', '', r.t.en)); var z = el('span', '', r.t.zh); z.lang = 'zh-Hant'; b.appendChild(z); b.addEventListener('click', function () { finish(r.k); }); opts.appendChild(b); });
+    }
+    $('[data-ws-reset]', root).addEventListener('click', reset);
+    reset();
+    root.__lab = { state: function () { return { tests: tests.map(function (t) { return t.a.join('-') + (t.ok ? '+' : '-'); }), guessing: !guess.hidden, ended: !!end.children.length }; },
+      play: function (sets, k) { reset(); sets.forEach(function (a) { doTest(a); }); if (k) { ready.click(); finish(k); } return this.state(); } };
+    var m = /[#&]wason=([\d.,;_\-]*?)(?:;([a-z0-9]+))?$/.exec(location.hash);
+    if (m) root.__lab.play(m[1] ? m[1].split(',').map(function (t) { return t.split('_').map(Number); }) : [], m[2]);
+  });
+
   /* ---- A13：去火星三趟（帕菲特的傳送機） ---- */
   $$('[data-ph-teleport]').forEach(function (root) {
     var D;

@@ -8404,7 +8404,33 @@ def _ph_lab_beetle(lab):
   </div>
 </div>"""
 
+def _ph_lab_wason(lab):
+    """A34：2–4–6 遊戲（華生 1960）。輸入三個數測試是否符合隱藏的規則（遞增）；猜規則；結尾統計有沒有測過「預期會失敗」的例子。"""
+    payload = html.escape(json.dumps({k: lab[k] for k in ("test", "fits", "nofit", "log", "seed", "ready", "guessq", "rules", "heads", "answer", "ends", "close")}, ensure_ascii=False), quote=False)
+    return f"""<div class="ph-el ph-ws rvl" data-ph-wason>
+  <script type="application/json" data-ws-data>{payload}</script>
+  <div class="ph-el-stage">
+    <div data-ws-play>
+      <form class="ph-ws-form" data-ws-form>
+        <input type="number" step="any" inputmode="decimal" aria-label="First number" data-ws-n required>
+        <input type="number" step="any" inputmode="decimal" aria-label="Second number" data-ws-n required>
+        <input type="number" step="any" inputmode="decimal" aria-label="Third number" data-ws-n required>
+        <button type="submit" class="ph-vl-next" data-ws-test></button>
+      </form>
+      <div class="ph-ws-log" data-ws-log aria-live="polite"></div>
+      <div class="ph-md-act"><button type="button" class="ph-el-reset ph-ws-ready" data-ws-ready></button></div>
+      <div data-ws-guess hidden>
+        <div class="ph-tp-text" data-ws-q></div>
+        <div class="ph-vl-opts ph-ws-opts" data-ws-opts></div>
+      </div>
+    </div>
+    <div data-ws-end aria-live="polite"></div>
+    <div class="ph-el-foot"><button type="button" class="ph-el-reset" data-ws-reset>Start again · 重來</button></div>
+  </div>
+</div>"""
+
 def _ph_lab(lab):
+    if lab.get("kind") == "wason": return _ph_lab_wason(lab)
     if lab.get("kind") == "beetle": return _ph_lab_beetle(lab)
     if lab.get("kind") == "copies": return _ph_lab_copies(lab)
     if lab.get("kind") == "tragedy": return _ph_lab_tragedy(lab)
