@@ -11651,7 +11651,7 @@ def build_earth_hub():
 _lifej = os.path.join(ROOT, "data", "life.json")
 LIFE = json.load(open(_lifej, encoding="utf-8")) if os.path.exists(_lifej) else None
 LIFE_BASE = "/resources/classes/life/"
-_LIFE_JS = {"leaf": "life-leaf", "cell": "life-cell", "dna": "life-dna", "germ": "life-germ", "seed": "life-seed", "flower": "life-flower", "tree": "life-tree", "autumn": "life-autumn"}   # lab.kind → assets/js/<bundle>.js
+_LIFE_JS = {"leaf": "life-leaf", "cell": "life-cell", "dna": "life-dna", "germ": "life-germ", "seed": "life-seed", "flower": "life-flower", "tree": "life-tree", "autumn": "life-autumn", "bird": "life-bird"}   # lab.kind → assets/js/<bundle>.js
 
 def _life_ver():
     h = hashlib.md5()
@@ -12205,9 +12205,79 @@ def _life_mixer(mx):
             f'</div></div>'
             '<noscript><p class="muted">This tool works in your browser and needs JavaScript. · 這個小工具在瀏覽器裡運作，需要開啟 JavaScript。</p></noscript>')
 
-_LIFE_LAB = {"leaf": render_lifeleaf_lab, "cell": render_lifecell_lab, "dna": render_lifedna_lab, "germ": render_lifegerm_lab, "seed": render_lifeseed_lab, "flower": render_lifeflower_lab, "tree": render_lifetree_lab, "autumn": render_lifeautumn_lab}          # lab.kind → 3D 面板
-_LIFE_ICON = {"leaf": lifeleaf_svg, "cell": lifecell_svg, "dna": lifedna_svg, "germ": lifegerm_svg, "seed": lifeseed_svg, "flower": lifeflower_svg, "tree": lifetree_svg, "autumn": lifeautumn_svg}                 # lesson.card → 課程卡小圖示
-_LIFE_WIDGETS = [("recipe", _life_recipe), ("sorter", _life_sorter), ("coder", _life_coder), ("ruler", _life_ruler), ("waker", _life_waker), ("guesser", _life_guesser), ("climber", _life_climber), ("mixer", _life_mixer)]               # lesson 裡有這個 key 就多一段（照這裡的順序）
+def lifebird_svg(size=56):
+    """第九課的課程卡小圖示：一隻張開翅膀的鳥，下面一支往上的升力箭頭。"""
+    return (f'<svg class="lifebird-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">'
+            '<path d="M4 22c9-8 17-6 24 4 3-10 12-16 28-12-10 2-15 8-17 16l8 3-9 2c-3 5-9 7-15 5l-8 6 2-9c-5-3-9-8-13-15z" fill="#e9dcc6"/>'
+            '<circle cx="42" cy="27" r="1.8" fill="#111"/>'
+            '<path d="M30 56V44M25 49l5-6 5 6" stroke="#6fe3ff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>')
+
+def render_lifebird_lab(lesson):
+    """第九課：一隻鳥，拍翅／滑翔／乘著熱氣流三個視角；四支力的箭頭；「看裡面」顯示龍骨與飛行肌（assets/js/life-bird.js 綁這裡的 class；全部自繪示意）。"""
+    lab = lesson["lab"]
+    msgs = "".join(f'<p class="cp-msg lf-bd-msg" data-msg="{k}" hidden>{html.escape(m["en"])}<span class="zh">{html.escape(m["zh"])}</span></p>' for k, m in lab["msgs"].items())
+    tg = _lab_toggles([("inside", "See inside", "看裡面", False), ("labels", "Labels", "標示", True)])
+    meter = lambda k, en, zh: (f'<div class="lf-bd-m"><span>{en}<small>{zh}</small></span><div class="lf-bd-track"><i class="lf-bd-m{k}"></i></div></div>')
+    return f'''<div class="astro-lab cp-lab lf-lab lf-bd-lab rvl" data-lifebird-lab>
+  <div class="al-stage">
+    <div class="al-space">
+      <canvas class="al-space-cv" aria-label="3D model of a bird in flight with four arrows for lift, weight, thrust, and drag: the wings push down and then fold a little as they lift, or are held out still to glide or to ride warm rising air · 飛行中的鳥的 3D 模型，四支箭頭代表升力、重量、推力和阻力：翅膀往下拍，再稍微收起來往上舉；或是張開不動，滑翔或乘著上升的熱空氣"></canvas>
+      <div class="al-labels" aria-hidden="true"></div>
+      <div class="cp-view" role="group" aria-label="Way of flying · 飛行的方式">
+        <button type="button" data-view="flap" aria-pressed="true">Flapping<small>拍翅</small></button>
+        <button type="button" data-view="glide" aria-pressed="false">Gliding<small>滑翔</small></button>
+        <button type="button" data-view="soar" aria-pressed="false">Riding warm air<small>乘著熱氣流</small></button>
+      </div>
+      <p class="al-hint">Drag to turn · 拖曳旋轉　Scroll or pinch to zoom · 滾輪／雙指縮放</p>
+      <button type="button" class="al-home" title="Reset view · 重設視角" aria-label="Reset view · 重設視角">&#8634;</button>
+      <p class="al-nogl-msg">This 3D model needs WebGL, which this browser does not support. The reading and the cards below still explain everything.<br><span class="zh">這個瀏覽器不支援 WebGL，無法顯示 3D 模型；下方的課文與卡片一樣能看懂。</span></p>
+    </div>
+    <aside class="al-sky cp-aside">
+      <p class="al-sky-k">One beat of the wings · 拍一下翅膀</p>
+      <label class="al-slider cp-is-yrow"><span>Wingbeat · 拍翅 <output class="lf-bd-p-out">Downstroke · 下拍</output></span>
+        <input type="range" class="al-age lf-bd-p" min="0" max="100" step="1" value="10"></label>
+      <p class="lf-k lf-bd-k">The four forces · 四個力</p>
+      <div class="lf-bd-meters">{meter("lift", "Lift, up", "升力，往上")}{meter("weight", "Weight, down", "重量，往下")}{meter("thrust", "Thrust, forward", "推力，往前")}{meter("drag", "Drag, backward", "阻力，往後")}</div>
+      <dl class="cp-nums cp-lt-nums lf-nums">
+        <div><dt>The wings are · 翅膀正在</dt><dd class="lf-bd-wings"></dd></div>
+        <div><dt>The bird is · 這隻鳥</dt><dd class="lf-bd-path"></dd></div>
+        <div><dt>Effort · 費不費力</dt><dd class="lf-bd-effort"></dd></div>
+      </dl>
+      {msgs}
+    </aside>
+  </div>
+  <div class="al-controls">
+    <div class="al-row al-row-main">
+      <button type="button" class="al-play" aria-pressed="true"><span class="al-play-i" aria-hidden="true"></span><span class="al-play-t">Pause · 暫停</span></button>
+      <div class="al-row al-toggles">{tg}</div>
+    </div>
+  </div>
+  {_lab_foot(lab)}
+  <p class="cp-credit">{lab["credit_html"]}</p>
+</div>'''
+
+def _life_wings(wg):
+    """「四種翅膀」（life-bird.js 的 initWings；選一種翅膀的形狀，看它擅長什麼、哪些鳥有；形狀是 CSS 畫的示意；不需要 WebGL）。"""
+    items = html.escape(json.dumps(wg["items"], ensure_ascii=False))
+    picks = "".join(f'<button type="button" data-k="{it["key"]}" aria-pressed="false">{html.escape(it["en"])}<small>{html.escape(it["zh"])}</small></button>' for it in wg["items"])
+    return (f'<div class="cp-cnt lf-wg rvl" data-life-wings data-start="{wg["start"]}" data-items="{items}">'
+            f'<div class="cp-cnt-in">'
+            f'<p class="cp-cnt-l cp-sun-l"><span>Choose a wing · 選一種翅膀</span></p>'
+            f'<div class="lf-wg-pick" role="group" aria-label="Wing shape · 翅膀的形狀">{picks}</div>'
+            f'<div class="lf-wg-pic" aria-hidden="true"><i class="lf-wg-shape"></i></div>'
+            f'<p class="cp-cnt-note">{html.escape(wg["note_en"])}<span class="zh">{html.escape(wg["note_zh"])}</span></p></div>'
+            f'<div class="cp-home-out cp-cnt-out lf-wg-out" aria-live="polite">'
+            f'<p class="cp-home-k">This wing is good for · 這種翅膀擅長</p>'
+            f'<p class="cp-home-big"><span class="lf-wg-en"></span></p>'
+            f'<p class="cp-home-sub"><span class="zh lf-wg-zh"></span></p>'
+            f'<p class="cp-home-note"><b class="lf-wg-birds"></b><span class="zh lf-wg-birds-zh"></span></p>'
+            f'<p class="cp-home-note"><span class="lf-wg-note"></span><span class="zh lf-wg-note-zh"></span></p>'
+            f'</div></div>'
+            '<noscript><p class="muted">This tool works in your browser and needs JavaScript. · 這個小工具在瀏覽器裡運作，需要開啟 JavaScript。</p></noscript>')
+
+_LIFE_LAB = {"leaf": render_lifeleaf_lab, "cell": render_lifecell_lab, "dna": render_lifedna_lab, "germ": render_lifegerm_lab, "seed": render_lifeseed_lab, "flower": render_lifeflower_lab, "tree": render_lifetree_lab, "autumn": render_lifeautumn_lab, "bird": render_lifebird_lab}          # lab.kind → 3D 面板
+_LIFE_ICON = {"leaf": lifeleaf_svg, "cell": lifecell_svg, "dna": lifedna_svg, "germ": lifegerm_svg, "seed": lifeseed_svg, "flower": lifeflower_svg, "tree": lifetree_svg, "autumn": lifeautumn_svg, "bird": lifebird_svg}                 # lesson.card → 課程卡小圖示
+_LIFE_WIDGETS = [("recipe", _life_recipe), ("sorter", _life_sorter), ("coder", _life_coder), ("ruler", _life_ruler), ("waker", _life_waker), ("guesser", _life_guesser), ("climber", _life_climber), ("mixer", _life_mixer), ("wings", _life_wings)]               # lesson 裡有這個 key 就多一段（照這裡的順序）
 
 def _life_flat():
     return [(ui, u, l) for ui, u in enumerate(LIFE["units"]) for l in u["lessons"]]

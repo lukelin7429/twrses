@@ -184,6 +184,35 @@
 .lf-mx-leaf { width: 96px; height: 96px; margin: .5rem 0 .8rem; border-radius: 4px 60% 4px 60%; border: 2px solid rgba(255,255,255,.35); background: #6ca744; transition: background .2s; }
 .lf-mx-out .cp-home-big { font-size: 1.5rem; }
 
+/* ---------- 第九課：鳥為什麼會飛？ ---------- */
+@media (min-width: 1021px) { .lf-bd-lab .al-space { min-height: 620px; } }
+.lf-bd-msg[hidden] { display: none; }
+.lf-bd-k { margin-top: 1rem; }
+.lf-bd-meters { display: grid; gap: .5rem; margin: .4rem 0 .9rem; }
+.lf-bd-m { display: grid; gap: .2rem; font-size: .78rem; font-weight: 800; color: var(--al-text); }
+.lf-bd-m span small { margin-left: .4rem; font-family: var(--zh); font-weight: 600; font-size: .7rem; color: var(--al-mute); }
+.lf-bd-track { height: 9px; border-radius: 99px; background: rgba(255,255,255,.12); overflow: hidden; }
+.lf-bd-track i { display: block; height: 100%; border-radius: 99px; transition: width .12s; }
+.lf-bd-mlift { background: #6fe3ff; } .lf-bd-mweight { background: #fff; } .lf-bd-mthrust { background: #ffa64d; } .lf-bd-mdrag { background: #b8c2d6; }
+.lf-bd-lab .lf-bd-p:disabled { opacity: .35; }
+.al-lg-lfbdl i, .al-lg-lfbdw i, .al-lg-lfbdt i, .al-lg-lfbdd i, .al-lg-lfbdm i, .al-lg-lfbds i { border: 0; border-radius: 3px; width: 16px; height: 6px; margin: .48rem 7px 0; }
+.al-lg-lfbdl i { background: #6fe3ff; } .al-lg-lfbdw i { background: #fff; } .al-lg-lfbdt i { background: #ffa64d; } .al-lg-lfbdd i { background: #b8c2d6; }
+.al-lg-lfbdm i { background: #c0392b; border-radius: 50%; width: 12px; height: 12px; margin: .28rem 9px 0; } .al-lg-lfbds i { background: #e58aa0; border-radius: 50%; width: 12px; height: 12px; margin: .28rem 9px 0; }
+/* 頁面小工具：四種翅膀 */
+.lf-wg-pick { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .45rem; margin: .5rem 0 1rem; }
+.lf-wg-pick button { padding: .55rem .75rem; border-radius: 12px; border: 1px solid var(--line); background: var(--cream); color: var(--ink); font-family: var(--sans); font-weight: 800; font-size: .86rem; text-align: left; cursor: pointer; }
+.lf-wg-pick button small { display: block; font-family: var(--zh); font-weight: 600; font-size: .78rem; color: var(--ink-soft); }
+.lf-wg-pick button[aria-pressed="true"] { border-color: var(--brand); box-shadow: 0 0 0 2px var(--brand) inset; }
+.lf-wg-pic { display: grid; place-items: center; height: 110px; margin-bottom: .6rem; border-radius: 14px; background: linear-gradient(#cfe4ff, #eef6ff); }
+.lf-wg-shape { display: block; background: #6f5a48; transition: all .35s; }
+.lf-wg-shape[data-k="round"] { width: 120px; height: 62px; border-radius: 12px 70% 70% 12px / 12px 100% 100% 12px; }
+.lf-wg-shape[data-k="fast"] { width: 150px; height: 46px; clip-path: polygon(0 0, 40% 0, 100% 78%, 96% 100%, 30% 62%, 0 70%); border-radius: 6px; }
+.lf-wg-shape[data-k="long"] { width: 250px; height: 26px; border-radius: 6px 90% 90% 6px / 6px 100% 100% 6px; }
+.lf-wg-shape[data-k="slot"] { width: 190px; height: 70px; border-radius: 10px 0 0 10px; clip-path: polygon(0 0, 72% 0, 100% 4%, 76% 14%, 100% 24%, 76% 34%, 100% 46%, 76% 54%, 100% 68%, 74% 74%, 96% 92%, 60% 100%, 0 100%); }
+.lf-wg-out .cp-home-big { font-size: 1.35rem; }
+.lf-wg-out .lf-wg-birds { display: block; font-weight: 800; }
+@media (max-width: 520px) { .lf-wg-pick { grid-template-columns: minmax(0, 1fr); } .lf-wg-shape[data-k="long"] { width: 210px; } }
+
 /* ---------- 全系列共用 ---------- */
 .lf-k { margin: 0 0 .1rem; font-size: .74rem; font-weight: 700; letter-spacing: .04em; color: var(--al-mute); }
 .lf-nums small { display: block; font-size: .7rem; font-weight: 600; color: var(--al-mute); line-height: 1.3; }
