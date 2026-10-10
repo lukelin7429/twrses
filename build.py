@@ -13508,7 +13508,7 @@ def build_cal_hub():
 _compj = os.path.join(ROOT, "data", "computers.json")
 COMP = json.load(open(_compj, encoding="utf-8")) if os.path.exists(_compj) else None
 COMP_BASE = "/resources/classes/computers/"
-_COMP_JS = {"bits": "comp-bits", "pixels": "comp-pixels", "logic": "comp-logic", "adder": "comp-adder", "pc": "comp-pc", "cpu": "comp-cpu", "desk": "comp-desk", "key": "comp-key", "robot": "comp-robot"}   # lab.kind → assets/js/<bundle>.js
+_COMP_JS = {"bits": "comp-bits", "pixels": "comp-pixels", "logic": "comp-logic", "adder": "comp-adder", "pc": "comp-pc", "cpu": "comp-cpu", "desk": "comp-desk", "key": "comp-key", "robot": "comp-robot", "search": "comp-search"}   # lab.kind → assets/js/<bundle>.js
 
 def _comp_ver():
     h = hashlib.md5()
@@ -14350,6 +14350,88 @@ def _comp_maze(mz):
 </div>
 <ul class="cp-tips rvl">{tips}</ul>'''
 
+def compsearch_svg(size=56):
+    """第十課的課程卡小圖示：一排箱子，中間那個打開，左半邊淡掉（砍一半）。"""
+    bx = "".join(f'<rect x="{5 + i * 10.4}" y="30" width="8.4" height="12" rx="1.6" fill="{"#3a4666" if i < 2 else "#ffe3a3" if i == 2 else "#c9a47a"}"/>' for i in range(5))
+    return (f'<svg class="compsearch-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">'
+            f'{bx}<rect x="24.6" y="19" width="10.4" height="4" rx="1.4" fill="#8a6a48" transform="rotate(-22 30 21)"/>'
+            '<path d="M5 48h20" stroke="#ff7a66" stroke-width="2.4" stroke-linecap="round"/><path d="M12 45l6 6m0-6-6 6" stroke="#ff7a66" stroke-width="2" stroke-linecap="round"/>'
+            '<circle cx="45" cy="15" r="6" fill="none" stroke="#7ef0e3" stroke-width="2.4"/><path d="m49.5 19.5 5 5" stroke="#7ef0e3" stroke-width="2.6" stroke-linecap="round"/></svg>')
+
+_COMP_CARD["search"] = compsearch_svg
+
+def render_compsearch_lab(lesson):
+    """第十課：兩排箱子、兩種找法（assets/js/comp-search.js 綁這裡的 class；全部自繪示意）。"""
+    lab = lesson["lab"]
+    nb = "".join(f'<button type="button" data-n="{n}" aria-pressed="false"><b>{n}</b><small>boxes · 個</small></button>' for n in (8, 16, 32))
+    wb = "".join(f'<button type="button" data-where="{k}" aria-pressed="false"><b>{en}</b><small>{zh}</small></button>' for k, en, zh in (("first", "First box", "第一個"), ("last", "Last box", "最後一個"), ("random", "Somewhere", "隨便一個")))
+    tg = _lab_toggles([("labels", "Labels", "標示", True)])
+    return f'''<div class="astro-lab cp-lab cp-sr-lab rvl" data-compsearch-lab>
+  <div class="al-stage">
+    <div class="al-space">
+      <canvas class="al-space-cv" aria-label="3D model of two rows of closed boxes holding the same numbers in order; one row is opened one box at a time and the other by halving · 兩排蓋著的箱子的 3D 模型，裡面是一樣的數、照順序排好；一排一個一個打開，另一排每次砍一半"></canvas>
+      <div class="al-labels" aria-hidden="true"></div>
+      <p class="al-hint">Drag to turn · 拖曳旋轉</p>
+      <button type="button" class="al-home" title="Reset view · 重設視角" aria-label="Reset view · 重設視角">&#8634;</button>
+      <p class="al-nogl-msg">This 3D model needs WebGL, which this browser does not support. The buttons and the two counters below still work, and so do the reading and the games.<br><span class="zh">這個瀏覽器不支援 WebGL，無法顯示 3D 模型；下面的按鈕和兩個計數照樣能用，課文和小遊戲也都能用。</span></p>
+    </div>
+    <aside class="al-sky cp-aside">
+      <p class="al-sky-k">How many boxes · 幾個箱子</p>
+      <div class="cp-ky-keys cp-sr-ns" role="group" aria-label="How many boxes · 幾個箱子">{nb}</div>
+      <p class="al-sky-k">Where the number hides · 那個數藏在哪</p>
+      <div class="cp-ky-keys cp-sr-wh" role="group" aria-label="Where the number hides · 那個數藏在哪">{wb}</div>
+      <button type="button" class="cp-btn-d cp-sr-mix" aria-pressed="false">Mix up the boxes · 把箱子弄亂</button>
+      <p class="cp-sr-look">Looking for · 要找的數 <b class="cp-sr-target">0</b></p>
+      <dl class="cp-dk-nums cp-sr-nums">
+        <div><dt>One by one opened · 一個一個找，開了</dt><dd class="cp-sr-l">0</dd><p class="cp-sr-ls"></p></div>
+        <div><dt>Halving opened · 每次砍一半，開了</dt><dd class="cp-sr-b">0</dd><p class="cp-sr-bs"></p></div>
+      </dl>
+      <p class="cp-msg" aria-live="polite"></p>
+    </aside>
+  </div>
+  <div class="al-controls">
+    <div class="al-row al-row-main">
+      <button type="button" class="al-play" aria-pressed="false"><span class="al-play-t">Search · 開始找</span></button>
+      <button type="button" class="cp-btn-d cp-step">One box each · 各開一個</button>
+      <button type="button" class="cp-btn-d cp-reset">Close the boxes · 全部蓋回去</button>
+      <div class="al-row al-toggles">{tg}</div>
+    </div>
+  </div>
+  {_lab_foot(lab)}
+  <p class="cp-credit">{lab["credit_html"]}</p>
+</div>'''
+
+def _comp_guessnum(gn):
+    tips = "".join(f'<li>{html.escape(t["en"])}<span class="zh">{html.escape(t["zh"])}</span></li>' for t in gn["tips"])
+    return f'''<div class="cp-full cp-gn rvl" data-cp-guessnum>
+  <form class="cp-gn-form" autocomplete="off">
+    <label for="cp-gn-in">Your guess · 你猜</label>
+    <input id="cp-gn-in" class="cp-gn-in" type="number" inputmode="numeric" min="1" max="100" step="1" placeholder="1–100">
+    <button type="submit" class="cp-btn cp-btn-gold">Guess · 猜</button>
+    <button type="button" class="cp-btn cp-gn-new">New number · 換一個數</button>
+    <p class="cp-gn-count">Guesses · 猜了 <b class="cp-gn-n">0</b></p>
+  </form>
+  <p class="cp-k">What is still possible · 還有可能的範圍：<b class="cp-gn-lo">1</b> – <b class="cp-gn-hi">100</b></p>
+  <div class="cp-gn-track" aria-hidden="true"><span class="cp-gn-bar"></span></div>
+  <ol class="cp-gn-log" aria-label="Your guesses so far · 你猜過的數"></ol>
+  <p class="cp-lv-msg cp-gn-msg" aria-live="polite"></p>
+  <p class="cp-lv-note">{html.escape(gn["note_en"])}<span class="zh">{html.escape(gn["note_zh"])}</span></p>
+</div>
+<ul class="cp-tips rvl">{tips}</ul>'''
+
+def _comp_grow(gw):
+    sb = "".join(f'<button type="button" data-size="{i}" aria-pressed="false"></button>' for i in range(6))
+    return f'''<div class="cp-full cp-gw rvl" data-cp-grow>
+  <p class="cp-k">How many boxes · 幾個箱子</p>
+  <div class="cp-gw-sizes" role="group" aria-label="How many boxes · 幾個箱子">{sb}</div>
+  <div class="cp-gw-rows">
+    <div><p>One by one, at most · 一個一個找，最多要開</p><b class="cp-gw-lin">0</b><div class="cp-fl-track" aria-hidden="true"><span class="cp-gw-bar-l"></span></div></div>
+    <div><p>Halving, at most · 每次砍一半，最多要開</p><b class="cp-gw-bin">0</b><div class="cp-fl-track" aria-hidden="true"><span class="cp-gw-bar-b"></span></div></div>
+  </div>
+  <p class="cp-lv-msg cp-gw-msg" aria-live="polite"></p>
+  <p class="cp-lv-note">{html.escape(gw["note_en"])}<span class="zh">{html.escape(gw["note_zh"])}</span></p>
+</div>'''
+
 def _comp_flat():
     return [(ui, u, l) for ui, u in enumerate(COMP["units"]) for l in u["lessons"]]
 
@@ -14377,7 +14459,7 @@ def build_comp_lesson(ui, unit, lesson):
     reading_html = render_basic_unit(1, unit_dict, level="comp", audio_rel="", pdf_rel="")
     lab = lesson["lab"]
     kind = lab["kind"]
-    lab_html = {"bits": render_compbits_lab, "pixels": render_comppixels_lab, "logic": render_complogic_lab, "adder": render_compadder_lab, "pc": render_comppc_lab, "cpu": render_compcpu_lab, "desk": render_compdesk_lab, "key": render_compkey_lab, "robot": render_comprobot_lab}[kind](lesson)
+    lab_html = {"bits": render_compbits_lab, "pixels": render_comppixels_lab, "logic": render_complogic_lab, "adder": render_compadder_lab, "pc": render_comppc_lab, "cpu": render_compcpu_lab, "desk": render_compdesk_lab, "key": render_compkey_lab, "robot": render_comprobot_lab, "search": render_compsearch_lab}[kind](lesson)
 
     def sec(key, fn):
         d = lesson[key]
@@ -14416,6 +14498,9 @@ def build_comp_lesson(ui, unit, lesson):
     if lesson.get("live"): secs.append(sec("live", _comp_live))
     if lesson.get("maze"): secs.append(sec("maze", _comp_maze))
     if lesson.get("facing"): secs.append(sec("facing", _comp_choice))
+    if lesson.get("guessnum"): secs.append(sec("guessnum", _comp_guessnum))
+    if lesson.get("grow"): secs.append(sec("grow", _comp_grow))
+    if lesson.get("which"): secs.append(sec("which", _comp_choice))
     if lesson.get("culture_cards"):
         cu = lesson["culture_cards"]
         cc = "".join(

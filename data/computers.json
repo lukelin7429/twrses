@@ -6129,7 +6129,7 @@
               "zh": "演算法是什麼？",
               "note_en": "Two programs can do the same job, and one can be far faster. Next: why the method matters.",
               "note_zh": "兩個程式可以做同一件事，其中一個卻快得多。下一課：為什麼方法很重要。",
-              "soon": true
+              "href": "/resources/classes/computers/what-is-an-algorithm/"
             }
           ],
           "sources_note_en": "Facts on this page were checked against these sources (October 2026); the robot and its small language are our own, and every program on the page is tested",
@@ -6184,15 +6184,640 @@
               "url": "https://github.com/lukelin7429/twrses/blob/main/tools/computers/test/robot.test.mjs"
             }
           ]
+        },
+        {
+          "n": 10,
+          "slug": "what-is-an-algorithm",
+          "title": "What Is an Algorithm?",
+          "title_zh": "演算法是什麼？",
+          "level": "入門 · Beginner",
+          "icon": "🧮",
+          "card": "search",
+          "blurb_en": "Two rows of closed boxes, one number to find, and two ways to look: open the boxes one by one, or open the middle one and throw away half. Watch both at once and count. Then double the boxes, mix them up, play a number-guessing game, and see what happens with a million boxes.",
+          "blurb_zh": "兩排蓋著的箱子、一個要找的數、兩種找法：一個一個打開，或是打開中間那個、把一半丟掉。兩種同時進行，數數看各開了幾個。接著把箱子加倍、把箱子弄亂、玩猜數字，再看看一百萬個箱子會怎樣。",
+          "big_idea_en": "An algorithm is a clear, step-by-step method for solving a problem. The same problem can have more than one algorithm, and some take far fewer steps than others. The more things there are to deal with, the bigger the difference becomes.",
+          "big_idea_zh": "演算法是解決問題的一套清楚的、一步一步的方法。同一個問題可以有不只一種演算法，有的要做的步數比別的少得多。要處理的東西越多，差別就越大。",
+          "lab": {
+            "kind": "search",
+            "eyebrow": "3D Model · 3D 模型",
+            "title_en": "Two Ways to Find a Number",
+            "title_zh": "找一個數的兩種方法",
+            "how_en": "Both rows hold the same numbers, in order from small to large, and both are looking for the same one. The back row opens its boxes one by one. The front row opens the middle box, sees whether the number there is too small or too big, and rules out half of the boxes at once. Press Search and watch the two counters. Then change how many boxes there are and where the number hides, and at the end mix the boxes up.",
+            "how_zh": "兩排箱子裡是一樣的數，由小到大排好，兩排要找的也是同一個數。後面那一排一個一個打開。前面那一排先打開中間那個，看裡面的數是太小還是太大，然後一口氣排除一半的箱子。按「開始找」，注意看兩個計數。接著改一改箱子的數目、那個數藏的地方，最後把箱子弄亂試試。",
+            "legend": [
+              {
+                "cls": "cpbox",
+                "en": "A closed box: nobody knows what is inside yet",
+                "zh": "蓋著的箱子：還沒有人知道裡面是什麼"
+              },
+              {
+                "cls": "cpboxopen",
+                "en": "An opened box, with its number",
+                "zh": "打開的箱子，上面是裡面的數"
+              },
+              {
+                "cls": "cpboxdrop",
+                "en": "Dark boxes: ruled out without being opened",
+                "zh": "暗掉的箱子：不用打開就排除了"
+              },
+              {
+                "cls": "cpboxhit",
+                "en": "Green: the number was found here",
+                "zh": "綠色：在這裡找到了"
+              }
+            ],
+            "scale_en": "A teaching model. A real computer does not open boxes: it compares numbers kept in memory, and it does so extremely quickly. That is why the counters here show how many boxes were opened, not seconds. With 16 or 32 things, any method is quick on a real computer. The difference matters when there are millions, and you can see that in “More and More Boxes” below. The two methods have names: sequential search and binary search.",
+            "scale_zh": "這是教學用的示意模型。真的電腦不是打開箱子，而是比較記憶體裡的數，而且比得非常快。所以這裡的計數是「打開了幾個」，不是秒數。只有 16 或 32 樣東西時，真的電腦用哪一種方法都很快；東西多到幾百萬時，差別才要緊——下面的「箱子越來越多」可以看到。這兩種方法有正式的名字：循序搜尋（sequential search）和二元搜尋（binary search）。",
+            "credit_html": "Model and code are drawn and programmed by My Culture Connect. Every count on this page is checked in <code>tools/computers/test/search.test.mjs</code>.<br><span class=\"zh\">模型與程式由人師教育協會自行繪製、撰寫；這一頁出現的每一個步數都有自動測試（<code>tools/computers/test/search.test.mjs</code>）。</span>"
+          },
+          "paras": [
+            "In Lesson 9 you saw that a program is a list of exact instructions. But before anyone can write the instructions, they need a method. A clear, step-by-step method that reaches the answer in a limited number of steps is called an algorithm. You already know some. The long division you learned at school is an algorithm.",
+            "Here is a problem. A row of closed boxes each holds a number, and you want to find the box that holds 48. One algorithm is very simple: open the first box, then the second, then the third, and go on until you find it. This always works. But with 16 boxes you may have to open all 16.",
+            "Now suppose the numbers are in order, from small to large. Then there is another algorithm. Open the box in the middle. If its number is too small, the one you want must be to the right, so you can forget the whole left half without opening it. Do the same again with the boxes that are left. With 16 boxes, you never need to open more than 5.",
+            "The real surprise comes when the boxes increase. Double them, and the first method may need twice as many tries. The second method needs only one more. With a million boxes, opening them one by one could take a million tries. Halving never takes more than 20.",
+            "There is a catch. Halving works only when the boxes are in order. Mix them up, and it throws away the half where your number is hiding. That is why a dictionary is kept in alphabetical order. Putting things in order is called sorting, and it takes work too. Also, the simple method sometimes wins by luck, when the number happens to be in the first box. So we compare methods by the most steps they could ever need.",
+            "This is why programmers care so much about algorithms. A computer that is twice as fast can only cut the time in half. A better method can turn a million steps into twenty. The method comes first. Then a program is written to tell the computer how to carry it out."
+          ],
+          "paras_zh": [
+            "在第九課你看到，程式是一串分毫不差的指令。可是在動手寫指令之前，得先有一個方法。一套清楚的、一步一步的、在有限步數內得到答案的方法，就叫做演算法（algorithm）。你其實已經會幾個了。學校教的直式除法，就是一個演算法。",
+            "來看一個問題。一排蓋著的箱子，每個裡面有一個數，你要找出裝著 48 的那一個。有一個演算法非常簡單：打開第一個，再打開第二個、第三個，一直開到找到為止。這個方法一定找得到。可是如果有 16 個箱子，你可能 16 個都得打開。",
+            "現在假設這些數是照順序排好的，由小到大。那就有另一個演算法。打開中間那個箱子。如果裡面的數太小，你要的那個一定在右邊，所以左邊那一半連開都不用開，可以整個不管。剩下的箱子再照同樣的做法來一次。16 個箱子，最多只要開 5 個。",
+            "真正讓人驚訝的，是箱子變多的時候。箱子加倍，第一種方法最多要開的數目也加倍；第二種方法只多開一個。一百萬個箱子，一個一個開可能要開一百萬個；每次砍一半，最多不超過 20 個。",
+            "可是有一個條件。每次砍一半的方法，只有在箱子照順序排好的時候才管用。把箱子弄亂，它就會把藏著那個數的那一半丟掉。字典要照字母順序排，就是這個道理。把東西排好順序叫做排序（sorting），這也是要花工夫的。另外，簡單的方法有時候會靠運氣贏，例如那個數剛好在第一個箱子。所以我們比較方法時，比的是「最多可能要幾步」。",
+            "這就是寫程式的人那麼在乎演算法的原因。電腦快一倍，時間只能省一半；換一個比較好的方法，卻可以把一百萬步變成二十步。先有方法，然後才寫程式，告訴電腦怎麼照這個方法做。"
+          ],
+          "questions": [
+            "What is an algorithm? Give one example that has nothing to do with computers.",
+            "Describe the two ways of finding a number in a row of boxes. Which one needs the boxes to be in order?",
+            "Why does the difference between the two methods grow when there are more boxes?"
+          ],
+          "answers": [
+            "An algorithm is a clear, step-by-step method that reaches the answer in a limited number of steps. Long division is one example.",
+            "One way is to open the boxes one by one from the start. The other is to open the middle box and rule out half of the boxes each time. The second way works only when the boxes are in order.",
+            "Opening one by one may need as many tries as there are boxes, so doubling the boxes doubles the tries. Halving needs only one more try each time the boxes are doubled."
+          ],
+          "vocab": [
+            {
+              "n": 1,
+              "w": "algorithm",
+              "pos": "n.",
+              "zh": "演算法",
+              "ex": "Long division is an <b>algorithm</b> you learned at school.",
+              "exzh": "直式除法是你在學校學過的一個演算法。"
+            },
+            {
+              "n": 2,
+              "w": "method",
+              "pos": "n.",
+              "zh": "方法",
+              "ex": "There is a quicker <b>method</b> for finding the page.",
+              "exzh": "要找到那一頁，有一個比較快的方法。"
+            },
+            {
+              "n": 3,
+              "w": "search",
+              "pos": "v.",
+              "zh": "搜尋；找",
+              "ex": "She <b>searched</b> every box for the missing key.",
+              "exzh": "她每個箱子都找過，要找那把不見的鑰匙。"
+            },
+            {
+              "n": 4,
+              "w": "sort",
+              "pos": "v.",
+              "zh": "排序；整理",
+              "ex": "<b>Sort</b> the cards from the smallest number to the largest.",
+              "exzh": "把卡片從最小的數排到最大的數。"
+            },
+            {
+              "n": 5,
+              "w": "middle",
+              "pos": "n.",
+              "zh": "中間",
+              "ex": "Open the book in the <b>middle</b>.",
+              "exzh": "把書從中間翻開。"
+            },
+            {
+              "n": 6,
+              "w": "half",
+              "pos": "n.",
+              "zh": "一半",
+              "ex": "<b>Half</b> of the boxes can be ruled out at once.",
+              "exzh": "一半的箱子可以一口氣排除。"
+            },
+            {
+              "n": 7,
+              "w": "compare",
+              "pos": "v.",
+              "zh": "比較",
+              "ex": "<b>Compare</b> the two numbers. Which is larger?",
+              "exzh": "比較這兩個數。哪一個比較大？"
+            },
+            {
+              "n": 8,
+              "w": "double",
+              "pos": "v.",
+              "zh": "加倍",
+              "ex": "If you <b>double</b> 16, you get 32.",
+              "exzh": "把 16 加倍，就是 32。"
+            }
+          ],
+          "quiz": [
+            {
+              "q": "What is an algorithm?",
+              "options": [
+                "A very fast computer",
+                "A clear, step-by-step method for solving a problem",
+                "A kind of box",
+                "A mistake in a program"
+              ],
+              "correct": 1
+            },
+            {
+              "q": "With 16 boxes in order, how many does the halving method need to open at most?",
+              "options": [
+                "5",
+                "8",
+                "16",
+                "20"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "When does the halving method work?",
+              "options": [
+                "Always",
+                "Only when the boxes are in order",
+                "Only with 16 boxes",
+                "Only when the number is in the first box"
+              ],
+              "correct": 1
+            },
+            {
+              "q": "The boxes are doubled from 16 to 32. What happens to the most tries each method could need?",
+              "options": [
+                "Both double.",
+                "One by one doubles; halving needs one more.",
+                "Both need one more.",
+                "Nothing changes."
+              ],
+              "correct": 1
+            },
+            {
+              "q": "According to the reading, why do programmers care about algorithms?",
+              "options": [
+                "Because algorithms make the screen brighter",
+                "Because a better method can save far more steps than a faster computer",
+                "Because algorithms are easy to draw",
+                "Because computers cannot count"
+              ],
+              "correct": 1
+            }
+          ],
+          "parts_head": {
+            "eyebrow": "Try It in the Model · 在模型裡試試",
+            "en": "Four searches to watch",
+            "zh": "四次值得看的搜尋"
+          },
+          "parts": [
+            {
+              "key": "last",
+              "icon": "🏁",
+              "en": "Hidden in the last box",
+              "zh": "藏在最後一個",
+              "meta_en": "16 boxes: 16 tries against 5",
+              "meta_zh": "16 個箱子：16 次對 5 次",
+              "demo": "last",
+              "text_en": "The worst case for opening one by one. Count the dark boxes in the front row: how many were never opened?",
+              "text_zh": "這是「一個一個找」最慘的情況。數一數前面那排暗掉的箱子：有幾個根本沒被打開？"
+            },
+            {
+              "key": "double",
+              "icon": "✖️",
+              "en": "Twice as many boxes",
+              "zh": "箱子加倍",
+              "meta_en": "32 boxes: 32 tries against 6",
+              "meta_zh": "32 個箱子：32 次對 6 次",
+              "demo": "double",
+              "text_en": "The boxes have doubled. How many more tries does each row need than before?",
+              "text_zh": "箱子變成兩倍。和剛才比，兩排各多開了幾個？"
+            },
+            {
+              "key": "first",
+              "icon": "🍀",
+              "en": "Hidden in the first box",
+              "zh": "藏在第一個",
+              "meta_en": "Luck: 1 try against 4",
+              "meta_zh": "運氣：1 次對 4 次",
+              "demo": "first",
+              "text_en": "This time the simple method wins. Is it a better method, or was it lucky?",
+              "text_zh": "這一次簡單的方法贏了。是它比較好，還是它運氣好？"
+            },
+            {
+              "key": "mixed",
+              "icon": "🔀",
+              "en": "Boxes mixed up",
+              "zh": "箱子弄亂了",
+              "meta_en": "Halving fails",
+              "meta_zh": "砍一半的方法失靈",
+              "demo": "mixed",
+              "text_en": "The numbers are no longer in order. Watch which half the front row throws away, and where the number really was.",
+              "text_zh": "裡面的數不再照順序了。看前面那一排把哪一半丟掉，而那個數其實在哪裡。"
+            }
+          ],
+          "parts_note_en": "Use “One box each” to go slowly, and try “Somewhere” a few times to see ordinary cases, not only the best and the worst.",
+          "parts_note_zh": "想慢慢看就用「各開一個」；多按幾次「隨便一個」，看看不是最好也不是最壞的普通情況。",
+          "guessnum": {
+            "eyebrow": "Game · 小遊戲",
+            "en": "Guess My Number",
+            "zh": "猜猜我想的數",
+            "lead_en": "The computer picks a whole number from 1 to 100. After each guess it tells you only one thing: too big or too small. How few guesses can you manage? The green bar shows what is still possible.",
+            "lead_zh": "電腦挑一個 1 到 100 的整數。你每猜一次，它只告訴你一件事：太大，還是太小。你最少幾次猜得到？綠色的長條是還有可能的範圍。",
+            "note_en": "This is the halving method again. Every guess in the middle of what is left cuts the possibilities in half, so 100 numbers never need more than 7 guesses.",
+            "note_zh": "這就是「每次砍一半」的方法。每次都猜剩下範圍的中間，可能性就少一半，所以 100 個數最多只要猜 7 次。",
+            "tips": [
+              {
+                "en": "Guessing 1, 2, 3, and so on also works. In the worst case it takes 100 guesses.",
+                "zh": "從 1、2、3 一路猜下去也行，只是最慘要猜 100 次。"
+              },
+              {
+                "en": "The best first guess is 50. It leaves the fewest possibilities, whichever answer you get.",
+                "zh": "第一次最好猜 50。不管電腦回答什麼，剩下的可能性都最少。"
+              },
+              {
+                "en": "Play with a friend: one thinks of a number, the other guesses by halving and counts.",
+                "zh": "和朋友玩：一個人想一個數，另一個人用砍一半的方法猜，數數看幾次。"
+              }
+            ]
+          },
+          "grow": {
+            "eyebrow": "See Why · 看看為什麼",
+            "en": "More and More Boxes",
+            "zh": "箱子越來越多",
+            "lead_en": "The model has room for 32 boxes. Here you can go up to a million. Choose a number of boxes and compare the most tries each method could need.",
+            "lead_zh": "模型裡最多放 32 個箱子。這裡可以一路加到一百萬個。選一個箱子的數目，比一比兩種方法最多各要開幾個。",
+            "note_en": "These are worst cases: the most boxes each method could ever have to open. The green bar is drawn to the same scale as the orange one. From 1,000 boxes on, it is too short to see.",
+            "note_zh": "這裡比的是最壞的情況：每一種方法「最多」要開幾個箱子。綠色的長條和橘色的是同一個比例尺；從 1,000 個箱子開始，它短到幾乎看不見。"
+          },
+          "which": {
+            "eyebrow": "Game · 小遊戲",
+            "en": "Which Way Would You Search?",
+            "zh": "該用哪一種找法？",
+            "lead_en": "Eight situations. For each one, decide which method fits: going through things one by one, or halving. Remember what halving needs.",
+            "lead_zh": "一共八個情況。每一個都想一想，該用哪一種方法：一個一個找，還是每次砍一半。別忘了砍一半的方法需要什麼條件。",
+            "ask_en": "Which method fits?",
+            "ask_zh": "哪一種方法適合？",
+            "opts": [
+              [
+                "seq",
+                "One by one",
+                "一個一個找"
+              ],
+              [
+                "bin",
+                "Halving",
+                "每次砍一半"
+              ]
+            ],
+            "tasks": [
+              {
+                "en": "Finding a word in a paper dictionary",
+                "zh": "在紙本字典裡找一個字",
+                "answer": "bin",
+                "why_en": "The words are in order, so each look can rule out half of what is left.",
+                "why_zh": "字是照順序排的，所以每翻一次都可以排除剩下的一半。"
+              },
+              {
+                "en": "Finding one sock in a messy drawer",
+                "zh": "在亂七八糟的抽屜裡找一隻襪子",
+                "answer": "seq",
+                "why_en": "Nothing is in order, so there is no half to rule out.",
+                "why_zh": "沒有任何順序，所以沒有哪一半可以排除。"
+              },
+              {
+                "en": "Opening a book to page 200",
+                "zh": "把書翻到第 200 頁",
+                "answer": "bin",
+                "why_en": "Page numbers are in order: too far, go back; not far enough, go on.",
+                "why_zh": "頁碼是照順序的：翻過頭就往回，還沒到就往後。"
+              },
+              {
+                "en": "Finding a friend’s face in a class photo",
+                "zh": "在班級合照裡找朋友的臉",
+                "answer": "seq",
+                "why_en": "Faces are not sorted. You look at them one after another.",
+                "why_zh": "臉沒有照什麼順序排，只能一張一張看。"
+              },
+              {
+                "en": "Guessing a number when you are told “too big” or “too small”",
+                "zh": "猜數字，對方會說「太大」或「太小」",
+                "answer": "bin",
+                "why_en": "Each answer lets you rule out half of the numbers.",
+                "why_zh": "每一次回答，都讓你排除一半的數。"
+              },
+              {
+                "en": "Finding a name on a list written in no order",
+                "zh": "在一份沒有照順序寫的名單上找一個名字",
+                "answer": "seq",
+                "why_en": "With no order, the name could be anywhere, so you read down the list.",
+                "why_zh": "沒有順序，名字可能在任何地方，只能從頭往下讀。"
+              },
+              {
+                "en": "The method that needs things to be sorted first",
+                "zh": "要先把東西排好才能用的方法",
+                "answer": "bin",
+                "why_en": "Halving depends on knowing which side the answer must be on.",
+                "why_zh": "砍一半的方法，靠的是知道答案一定在哪一邊。"
+              },
+              {
+                "en": "The method that may have to look at every single thing",
+                "zh": "最慘的時候每一樣都得看過的方法",
+                "answer": "seq",
+                "why_en": "If what you want is last, or is not there at all, one by one checks everything.",
+                "why_zh": "要找的東西如果在最後一個，或根本不在裡面，一個一個找就得全部看完。"
+              }
+            ],
+            "note_en": "These everyday examples are our own comparisons. People do not halve as exactly as a computer does, but the idea is the same.",
+            "note_zh": "這些生活裡的例子是我們自己的比方。人不會像電腦那樣精確地對半切，但道理是一樣的。"
+          },
+          "culture_cards": {
+            "eyebrow": "Stories Behind Algorithms · 演算法的故事",
+            "title_en": "A name from Baghdad, a method 2,300 years old, a machine made of an idea, and twenty questions",
+            "title_zh": "來自巴格達的名字、兩千三百年前的方法、用想法造出來的機器、二十個問題",
+            "lead_en": "Four short stories about step-by-step methods.",
+            "lead_zh": "關於「一步一步的方法」的四個小故事。",
+            "cards": [
+              {
+                "k": "al-Khwārizmī · 花拉子米",
+                "en": "The word is a person’s name",
+                "zh": "這個字是一個人的名字",
+                "body_en": "According to Britannica, the mathematician al-Khwārizmī was born about 780 and died about 850. He worked in Baghdad at the House of Wisdom. One of his books introduced Hindu-Arabic numerals and their arithmetic to the West. It survives only in a Latin translation, Algoritmi de numero Indorum, and from the Latin form of his name, Algoritmi, came the word algorithm. The title of another of his books gave us the word algebra.",
+                "body_zh": "根據大英百科，數學家花拉子米（al-Khwārizmī）大約生於 780 年、卒於 850 年，在巴格達的「智慧宮」工作。他有一本書把印度－阿拉伯數字和它的算術介紹到西方，現在只留下拉丁文譯本《Algoritmi de numero Indorum》。他的名字在拉丁文裡寫成 Algoritmi，algorithm（演算法）這個字就是這樣來的。他另一本書的書名，則給了我們 algebra（代數）這個字。"
+              },
+              {
+                "k": "About 300 BCE · 約西元前 300 年",
+                "en": "Algorithms are older than computers",
+                "zh": "演算法比電腦老得多",
+                "body_en": "Britannica notes that Euclid’s Elements, published about 300 BCE, contained an algorithm for finding the greatest common divisor of two whole numbers. It also points out that every elementary-school student is drilled in long division, which is an algorithm too: a fixed set of steps that, followed carefully, always gives the quotient and the remainder.",
+                "body_zh": "大英百科指出，歐幾里得的《幾何原本》大約在西元前 300 年問世，裡面就有一個演算法：求兩個自然數的最大公因數。它還提到，每個小學生都反覆練習的直式除法也是一個演算法：一套固定的步驟，只要仔細照做，一定得到商和餘數。"
+              },
+              {
+                "k": "Alan Turing · 圖靈",
+                "en": "What exactly is an algorithm?",
+                "zh": "演算法到底是什麼？",
+                "body_en": "For centuries people used algorithms without saying precisely what one was. Britannica explains that the English mathematician Alan Turing rigorously defined the loosely understood concept of an algorithm, and that his description of a general-purpose algorithm machine, the Turing machine, became the foundation of computer science. Britannica calls a computer program “a special type of algorithm.”",
+                "body_zh": "好幾百年來，大家都在用演算法，卻沒有人精確地說出它到底是什麼。大英百科說，英國數學家圖靈（Alan Turing）替這個原本只是大略理解的概念下了嚴格的定義；他所描述的通用演算法機器，也就是圖靈機，成了電腦科學的基礎。大英百科把電腦程式稱為「一種特別的演算法」。"
+              },
+              {
+                "k": "2 × 2 × 2 …",
+                "en": "Twenty questions, a million things",
+                "zh": "二十個問題，一百萬樣東西",
+                "body_en": "This one is our own arithmetic. Each time you halve, you answer one yes-or-no question: is it in this half? One question separates 2 things, two questions 4, three questions 8. Twenty questions separate 1,048,576 things, which is why a million boxes need at most 20 tries. It is the doubling from Lesson 1 run backward: every extra bit doubles what you can count, and every question halves what is left.",
+                "body_zh": "這一則是我們自己算的。每砍一半，就是回答一個「是或不是」的問題：它在這一半裡嗎？一個問題分得出 2 樣東西，兩個問題 4 樣，三個問題 8 樣。二十個問題分得出 1,048,576 樣東西，所以一百萬個箱子最多只要開 20 個。這是把第一課的「加倍」倒過來走：每多一個位元，能數的數目加倍；每多一個問題，剩下的少一半。"
+              }
+            ]
+          },
+          "myths": [
+            {
+              "myth_en": "Algorithms are something only computers use.",
+              "myth_zh": "演算法是電腦才用的東西。",
+              "fact_en": "Long division is an algorithm, and Euclid wrote one down about 300 BCE. An algorithm is a method. A computer is one thing that can carry it out.",
+              "fact_zh": "直式除法就是演算法，歐幾里得在大約西元前 300 年就寫下了一個。演算法是方法；電腦只是能照著做的其中一樣東西。"
+            },
+            {
+              "myth_en": "To make a program faster, you need a faster computer.",
+              "myth_zh": "要讓程式變快，就得換一台更快的電腦。",
+              "fact_en": "A computer twice as fast halves the time. Changing the method can turn a million steps into twenty.",
+              "fact_zh": "電腦快一倍，時間省一半。換一個方法，卻可以把一百萬步變成二十步。"
+            },
+            {
+              "myth_en": "The halving method always works.",
+              "myth_zh": "每次砍一半的方法永遠管用。",
+              "fact_en": "It works only when things are in order. On boxes that are mixed up, it rules out the half where the answer is hiding.",
+              "fact_zh": "它只有在東西照順序排好時才管用。箱子弄亂之後，它會把藏著答案的那一半排除掉。"
+            },
+            {
+              "myth_en": "The cleverer method is quicker every single time.",
+              "myth_zh": "比較聰明的方法，每一次都比較快。",
+              "fact_en": "If the number is in the first box, opening one by one takes 1 try and halving takes 4. Methods are compared by the most steps they could need, not by one lucky case.",
+              "fact_zh": "如果那個數剛好在第一個箱子，一個一個找只要 1 次，砍一半要 4 次。比較方法，比的是最多可能要幾步，不是某一次的運氣。"
+            }
+          ],
+          "tricks_head": {
+            "en": "An algorithm in a sentence",
+            "zh": "一句話記住演算法"
+          },
+          "tricks": [
+            {
+              "title_en": "Method first, program second",
+              "title_zh": "先有方法，再寫程式",
+              "body_en": "An algorithm is the method. A program tells the computer how to follow it.",
+              "body_zh": "演算法是方法；程式是告訴電腦怎麼照做。"
+            },
+            {
+              "title_en": "Open the middle",
+              "title_zh": "打開中間那個",
+              "body_en": "Each look rules out half.",
+              "body_zh": "每看一次，排除一半。"
+            },
+            {
+              "title_en": "In order first",
+              "title_zh": "先排好順序",
+              "body_en": "Halving needs sorted things.",
+              "body_zh": "砍一半的方法，東西要先排好。"
+            },
+            {
+              "title_en": "Double the boxes, one more try",
+              "title_zh": "箱子加倍，只多一次",
+              "body_en": "A million boxes: at most 20.",
+              "body_zh": "一百萬個箱子：最多 20 次。"
+            }
+          ],
+          "safety_head": {
+            "eyebrow": "Before You Start · 動手之前",
+            "en": "A few reminders",
+            "zh": "幾個提醒"
+          },
+          "safety": [
+            {
+              "en": "In the card race, the two searchers take turns. It is a count of flips, not a speed race, so there is no need to grab.",
+              "zh": "翻牌比賽時，兩位同學輪流翻。比的是翻了幾張，不是手快，所以不用搶。"
+            },
+            {
+              "en": "Turn the pages of a dictionary gently. Halving means opening it in the middle, not bending it backward.",
+              "zh": "翻字典的時候動作輕一點。砍一半是從中間翻開，不是把書往後折。"
+            },
+            {
+              "en": "The simple method is not a wrong method. Do not laugh at a classmate who searches one by one; ask when that way is the right one.",
+              "zh": "簡單的方法不是錯的方法。同學一個一個找，不要笑他；想一想什麼時候那樣找才是對的。"
+            },
+            {
+              "en": "Use a school or family computer only with permission.",
+              "zh": "用學校或家裡的電腦要先得到同意。"
+            }
+          ],
+          "activities": [
+            {
+              "title_en": "The Face-Down Card Race",
+              "title_zh": "蓋牌比賽",
+              "materials": [
+                {
+                  "en": "Two sets of 16 cards, each with a different number, the same numbers in both sets",
+                  "zh": "兩組各 16 張的數字卡，每張數字都不同，兩組的數字一樣"
+                },
+                {
+                  "en": "A table long enough for two rows of 16 cards",
+                  "zh": "一張放得下兩排各 16 張卡片的長桌"
+                },
+                {
+                  "en": "Paper to keep score",
+                  "zh": "記分用的紙"
+                }
+              ],
+              "steps": [
+                {
+                  "en": "Lay both sets face down in two rows, in order from the smallest number to the largest.",
+                  "zh": "把兩組卡片面朝下排成兩排，都由最小的數排到最大的數。"
+                },
+                {
+                  "en": "The teacher calls a number. Student A turns cards one by one from the left. Student B always turns the middle card of what is left. They take turns, one card each.",
+                  "zh": "老師喊一個數。A 同學從左邊一張一張翻；B 同學每次都翻剩下範圍中間的那一張。兩人輪流，一次各翻一張。"
+                },
+                {
+                  "en": "Count how many cards each one turned. Do it five times with different numbers and write down the counts.",
+                  "zh": "數一數兩人各翻了幾張。換不同的數做五次，把次數記下來。"
+                },
+                {
+                  "en": "Now shuffle both rows and play once more. What happens to student B?",
+                  "zh": "接著把兩排都洗亂，再玩一次。B 同學會怎麼樣？"
+                }
+              ],
+              "tip_en": "With 16 cards in order, student B never needs more than 5 turns, and student A may need 16. Ask the class when A wins. In Taiwan’s junior high Information Technology curriculum, this lesson matches “Algorithms”: 資 A-IV-1, basic concepts of algorithms, and 資 A-IV-3, an introduction to basic algorithms: searching and sorting. Sequential search and binary search are named in the senior high curriculum.",
+              "tip_zh": "16 張照順序排好的卡片，B 同學最多翻 5 張，A 同學可能要翻 16 張。問問全班：什麼時候 A 會贏？對照十二年國教國中「資訊科技」的學習內容，這一課對應「演算法」主題：資 A-IV-1 演算法基本概念，以及資 A-IV-3 基本演算法的介紹（搜尋、排序）。「循序搜尋與二元搜尋」這兩個名稱出現在高中階段的課綱。"
+            },
+            {
+              "title_en": "Check It with a Dictionary",
+              "title_zh": "用字典驗證",
+              "materials": [
+                {
+                  "en": "A paper dictionary (English or Chinese) for each pair",
+                  "zh": "每兩人一本紙本字典（英文或中文都可以）"
+                },
+                {
+                  "en": "A list of five words to look up",
+                  "zh": "要查的五個字"
+                },
+                {
+                  "en": "Paper and a pencil",
+                  "zh": "紙和鉛筆"
+                }
+              ],
+              "steps": [
+                {
+                  "en": "One student looks up a word by halving: open the dictionary in the middle of what is left, decide whether the word comes before or after, and repeat.",
+                  "zh": "一位同學用砍一半的方法查字：從剩下範圍的中間翻開，判斷要查的字在前面還是後面，再重複。"
+                },
+                {
+                  "en": "The partner counts how many times the dictionary is opened before the right page is found.",
+                  "zh": "另一位同學數一數，翻到正確的那一頁之前，一共翻開了幾次。"
+                },
+                {
+                  "en": "Do all five words and write down each count. What is the largest?",
+                  "zh": "五個字都查完，把每次的次數記下來。最多的是幾次？"
+                },
+                {
+                  "en": "Look at the last page number. How many openings would it take to go through the dictionary one page at a time?",
+                  "zh": "看一下最後一頁的頁碼。如果一頁一頁翻，要翻幾次？"
+                }
+              ],
+              "tip_en": "For 1,000 pages, exact halving never needs more than 10 openings; going page by page could take 1,000. Your hands are not exact, so your counts may be a little higher. Then play “Guess My Number” on this page and see whether you can always finish within 7 guesses.",
+              "tip_zh": "1,000 頁的字典，精確地對半切最多只要翻 10 次；一頁一頁翻可能要 1,000 次。手沒辦法切得那麼準，所以你們的次數可能多一點。接著玩這一頁的「猜猜我想的數」，看看能不能每次都在 7 次以內猜到。"
+            }
+          ],
+          "links_head": {
+            "eyebrow": "Go Further · 延伸閱讀",
+            "en": "From method to program, the power of doubling, and what comes next",
+            "zh": "從方法到程式、加倍的力量，以及下一課"
+          },
+          "links": [
+            {
+              "icon": "🤖",
+              "k_en": "Previous Lesson · Lesson 9",
+              "k_zh": "上一課・第九課",
+              "en": "What Is a Program?",
+              "zh": "程式是什麼？",
+              "note_en": "An algorithm is the method. A program is the method written out as exact instructions: in order, with repeats and questions.",
+              "note_zh": "演算法是方法；程式是把方法寫成分毫不差的指令：照順序、會重複、會問問題。",
+              "href": "/resources/classes/computers/what-is-a-program/"
+            },
+            {
+              "icon": "💡",
+              "k_en": "Lesson 1",
+              "k_zh": "第一課",
+              "en": "Why Do Computers Use Only 0 and 1?",
+              "zh": "電腦為什麼只用 0 和 1？",
+              "note_en": "Every extra switch doubles how far you can count. Halving is the same idea run backward.",
+              "note_zh": "每多一個開關，能數的數目就加倍。「每次砍一半」是同一個道理倒過來走。",
+              "href": "/resources/classes/computers/zeros-and-ones/"
+            },
+            {
+              "icon": "⚙️",
+              "k_en": "Lesson 6",
+              "k_zh": "第六課",
+              "en": "What Does a Processor Do All Day?",
+              "zh": "處理器整天在忙什麼？",
+              "note_en": "Each step of an algorithm becomes a few of the processor’s tiny instructions. Fewer steps mean fewer trips around its loop.",
+              "note_zh": "演算法的每一步，都會變成處理器的幾條小指令。步數少，它繞的圈就少。",
+              "href": "/resources/classes/computers/processor/"
+            },
+            {
+              "icon": "🧑‍🍳",
+              "k_en": "Next Lesson · Lesson 11",
+              "k_zh": "下一課・第十一課",
+              "en": "What Does an Operating System Do?",
+              "zh": "作業系統在做什麼？",
+              "note_en": "Many programs are open at once, but there are only a few processors. Next: how they take turns so quickly that you do not notice.",
+              "note_zh": "同時開著很多程式，處理器卻只有幾個。下一課：它們怎麼輪流，快到你察覺不到。",
+              "soon": true
+            }
+          ],
+          "sources_note_en": "Facts on this page were checked against these sources (October 2026); the box model is our own illustration, and every count is tested",
+          "sources_note_zh": "本頁的事實依下列資料查證（2026 年 10 月）；箱子模型是我們自己的示意，每一個步數都有測試",
+          "sources": [
+            {
+              "en": "An algorithm is a “systematic procedure that produces—in a finite number of steps—the answer to a question or the solution of a problem”; the name derives from the Latin translation, Algoritmi de numero Indorum, of al-Khwārizmī’s arithmetic treatise; Euclid’s Elements, published about 300 BCE, contained an algorithm for the greatest common divisor; long division is an algorithm; Alan Turing rigorously defined the concept, and the Turing machine became the foundation of computer science; a computer program is “a special type of algorithm”",
+              "zh": "演算法是「在有限步數內得出問題的答案或解法的一套有系統的步驟」；這個名稱來自花拉子米算術著作的拉丁文譯本《Algoritmi de numero Indorum》；歐幾里得《幾何原本》（約西元前 300 年）有求最大公因數的演算法；直式除法是演算法；圖靈替這個概念下了嚴格定義，圖靈機成為電腦科學的基礎；電腦程式是「一種特別的演算法」",
+              "src": "The Editors of Encyclopaedia Britannica, “algorithm” (revised by Erik Gregersen)",
+              "url": "https://www.britannica.com/science/algorithm"
+            },
+            {
+              "en": "Al-Khwārizmī, born c. 780, died c. 850; lived in Baghdad and worked at the House of Wisdom; a work preserved only in the Latin translation Algoritmi de numero Indorum introduced Hindu-Arabic numerals and their arithmetic to the West; from Algoritmi came the term algorithm, and from a book title the term algebra",
+              "zh": "花拉子米約生於 780 年、卒於 850 年；住在巴格達，在智慧宮工作；一部只留下拉丁文譯本《Algoritmi de numero Indorum》的著作把印度－阿拉伯數字與算術介紹到西方；algorithm 一詞出自 Algoritmi，algebra 一詞出自他另一本書的書名",
+              "src": "The Editors of Encyclopaedia Britannica, “al-Khwārizmī”",
+              "url": "https://www.britannica.com/biography/al-Khwarizmi"
+            },
+            {
+              "en": "資 A-IV-1, basic concepts of algorithms; 資 A-IV-3, an introduction to basic algorithms: searching and sorting (p. 10; notes on p. 42). Senior high: 資 A-V-6, analyzing and comparing the performance of algorithms, which lists sequential search and binary search (p. 14)",
+              "zh": "資 A-IV-1 演算法基本概念；資 A-IV-3 基本演算法的介紹：搜尋、排序（第 10 頁；附錄三的說明在第 42 頁）。高中：資 A-V-6 演算法效能分析與比較，列有「循序搜尋與二元搜尋演算法」（第 14 頁）",
+              "src": "教育部《十二年國民基本教育課程綱要 國民中學暨普通型高級中等學校 科技領域》（2018）",
+              "url": "https://www.naer.edu.tw/upload/1/16/doc/816/十二年國民基本教育課程綱要國民中學暨普通型高級中等學校-科技領域.pdf"
+            },
+            {
+              "en": "Taiwan terms: algorithm 演算法, sequential search 循序搜尋, binary search 二元搜尋 (K–12 information terms)",
+              "zh": "台灣用語：algorithm 演算法、sequential search 循序搜尋、binary search 二元搜尋（高中以下資訊名詞）",
+              "src": "國家教育研究院《樂詞網》",
+              "url": "https://terms.naer.edu.tw/search/?query_term=binary+search&query_field=title&query_op=&match_type=exact"
+            },
+            {
+              "en": "The counts: with 16 boxes in order, one by one needs at most 16 tries and halving at most 5; with 32 boxes, 32 and 6; hidden in the first of 16 boxes, 1 try against 4; with the boxes mixed up, halving fails; for 10, 100, 1,000, 10,000, 100,000, and 1,000,000 boxes, halving needs at most 4, 7, 10, 14, 17, and 20 tries; 2 to the 20th power is 1,048,576; any number from 1 to 100 can be guessed in 7 tries or fewer",
+              "zh": "步數：16 個排好的箱子，一個一個找最多 16 次、砍一半最多 5 次；32 個箱子是 32 次與 6 次；藏在 16 個箱子的第一個，1 次對 4 次；箱子弄亂後砍一半的方法找不到；10、100、1,000、10,000、100,000、1,000,000 個箱子，砍一半最多 4、7、10、14、17、20 次；2 的 20 次方是 1,048,576；1 到 100 的任何一個數最多猜 7 次",
+              "src": "Our own arithmetic, checked by tools/computers/test/search.test.mjs",
+              "url": "https://github.com/lukelin7429/twrses/blob/main/tools/computers/test/search.test.mjs"
+            }
+          ]
         }
       ],
       "planned": [
-        {
-          "n": 10,
-          "icon": "🧮",
-          "en": "What Is an Algorithm?",
-          "zh": "演算法是什麼？"
-        },
         {
           "n": 11,
           "icon": "🧑‍🍳",
