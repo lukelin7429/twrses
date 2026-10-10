@@ -11394,7 +11394,7 @@ def build_earth_hub():
 _lifej = os.path.join(ROOT, "data", "life.json")
 LIFE = json.load(open(_lifej, encoding="utf-8")) if os.path.exists(_lifej) else None
 LIFE_BASE = "/resources/classes/life/"
-_LIFE_JS = {"leaf": "life-leaf", "cell": "life-cell", "dna": "life-dna"}   # lab.kind → assets/js/<bundle>.js
+_LIFE_JS = {"leaf": "life-leaf", "cell": "life-cell", "dna": "life-dna", "germ": "life-germ"}   # lab.kind → assets/js/<bundle>.js
 
 def _life_ver():
     h = hashlib.md5()
@@ -11615,9 +11615,76 @@ def _life_coder(cd):
             f'</div></div>'
             '<noscript><p class="muted">This tool works in your browser and needs JavaScript. · 這個小工具在瀏覽器裡運作，需要開啟 JavaScript。</p></noscript>')
 
-_LIFE_LAB = {"leaf": render_lifeleaf_lab, "cell": render_lifecell_lab, "dna": render_lifedna_lab}          # lab.kind → 3D 面板
-_LIFE_ICON = {"leaf": lifeleaf_svg, "cell": lifecell_svg, "dna": lifedna_svg}                 # lesson.card → 課程卡小圖示
-_LIFE_WIDGETS = [("recipe", _life_recipe), ("sorter", _life_sorter), ("coder", _life_coder)]               # lesson 裡有這個 key 就多一段（照這裡的順序）
+def lifegerm_svg(size=56):
+    """第四課的課程卡小圖示：一個桿狀的細菌，旁邊一個小小的病毒。"""
+    return (f'<svg class="lifegerm-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">'
+            '<rect x="5" y="26" width="38" height="20" rx="10" fill="#58c9a0" stroke="#2f8f6c" stroke-width="3" transform="rotate(-18 24 36)"/>'
+            '<ellipse cx="24" cy="36" rx="9" ry="4" fill="none" stroke="#ffd84a" stroke-width="2.5" transform="rotate(-18 24 36)"/>'
+            '<path d="M47 8l6 3.5v7L47 22l-6-3.5v-7z" fill="#c77be8"/><path d="M47 22v7M47 29l-4 4M47 29l4 4" stroke="#c77be8" stroke-width="2" stroke-linecap="round" fill="none"/></svg>')
+
+def render_lifegerm_lab(lesson):
+    """第四課：細菌自己一分為二／病毒要靠細胞替它做，兩個視角共用一支滑桿（assets/js/life-germ.js 綁這裡的 class；全部自繪示意）。"""
+    lab = lesson["lab"]
+    msgs = "".join(f'<p class="cp-msg lf-gm-msg" data-msg="{k}" hidden>{html.escape(m["en"])}<span class="zh">{html.escape(m["zh"])}</span></p>' for k, m in lab["msgs"].items())
+    tg = _lab_toggles([("labels", "Labels", "標示", True)])
+    return f'''<div class="astro-lab cp-lab lf-lab lf-gm-lab rvl" data-lifegerm-lab>
+  <div class="al-stage">
+    <div class="al-space">
+      <canvas class="al-space-cv" aria-label="3D model with two views: a rod-shaped bacterium that grows and splits in two again and again, and a virus that lands on a cell, sends its instructions inside, and leaves the cell to build new viruses · 兩個視角的 3D 模型：一個桿狀的細菌長大、一次又一次一分為二；一個病毒落在細胞上，把說明書送進去，讓細胞替它做出新的病毒"></canvas>
+      <div class="al-labels" aria-hidden="true"></div>
+      <div class="cp-view" role="group" aria-label="Which one · 看哪一個">
+        <button type="button" data-view="bacteria" aria-pressed="true">A bacterium<small>細菌</small></button>
+        <button type="button" data-view="virus" aria-pressed="false">A virus<small>病毒</small></button>
+      </div>
+      <p class="al-hint">Drag to turn · 拖曳旋轉　Scroll or pinch to zoom · 滾輪／雙指縮放</p>
+      <button type="button" class="al-home" title="Reset view · 重設視角" aria-label="Reset view · 重設視角">&#8634;</button>
+      <p class="al-nogl-msg">This 3D model needs WebGL, which this browser does not support. The reading and the cards below still explain everything.<br><span class="zh">這個瀏覽器不支援 WebGL，無法顯示 3D 模型；下方的課文與卡片一樣能看懂。</span></p>
+    </div>
+    <aside class="al-sky cp-aside">
+      <p class="al-sky-k">How does it make more of itself? · 它怎麼變多？</p>
+      <label class="al-slider cp-is-yrow"><span><span class="lf-gm-t-name">Time · 時間</span> <output class="lf-gm-t-out">0 min</output></span>
+        <input type="range" class="al-age lf-gm-t" min="0" max="100" step="1" value="0"></label>
+      <div class="cp-ht-meter"><p class="lf-k">How far along · 進行到哪裡</p><div class="cp-ht-bar"><i class="lf-gm-bar"></i></div><p class="cp-ht-status lf-gm-status"></p></div>
+      <dl class="cp-nums cp-lt-nums lf-nums">
+        <div><dt>How many · 數量</dt><dd class="lf-gm-n"></dd></div>
+        <div><dt class="lf-gm-time-k">Divisions so far · 分裂了幾次</dt><dd class="lf-gm-time"></dd></div>
+        <div><dt>How it multiplies · 怎麼變多</dt><dd class="lf-gm-how"></dd></div>
+      </dl>
+      {msgs}
+    </aside>
+  </div>
+  <div class="al-controls">
+    <div class="al-row al-row-main">
+      <button type="button" class="al-play" aria-pressed="true"><span class="al-play-i" aria-hidden="true"></span><span class="al-play-t">Pause · 暫停</span></button>
+      <div class="al-row al-toggles">{tg}</div>
+    </div>
+  </div>
+  {_lab_foot(lab)}
+  <p class="cp-credit">{lab["credit_html"]}</p>
+</div>'''
+
+def _life_ruler(ru):
+    """「一毫米可以排幾個？」（life-germ.js 的 initRuler；選一個大小，算出排滿一毫米要幾個；不需要 WebGL）。"""
+    items = html.escape(json.dumps(ru["items"], ensure_ascii=False))
+    picks = "".join(f'<button type="button" data-k="{it["key"]}" aria-pressed="false"><i class="lf-ru-i lf-ru-{it["kind"]}"></i>{html.escape(it["en"])}<small>{html.escape(it["zh"])}</small></button>' for it in ru["items"])
+    return (f'<div class="cp-cnt lf-ru rvl" data-life-ruler data-start="{ru["start"]}" data-items="{items}">'
+            f'<div class="cp-cnt-in">'
+            f'<p class="cp-cnt-l cp-sun-l"><span>Choose one · 選一個</span></p>'
+            f'<div class="lf-ru-pick" role="group" aria-label="What to measure · 要量哪一個">{picks}</div>'
+            f'<div class="lf-ru-scale" aria-hidden="true"><div class="lf-ru-line"><i class="lf-ru-dot"></i></div>'
+            f'<div class="lf-ru-ticks"><span>10 nm</span><span>100 nm</span><span>1 µm</span><span>10 µm</span></div></div>'
+            f'<p class="cp-cnt-note">{html.escape(ru["note_en"])}<span class="zh">{html.escape(ru["note_zh"])}</span></p></div>'
+            f'<div class="cp-home-out cp-cnt-out lf-ru-out" aria-live="polite">'
+            f'<p class="cp-home-k">To cross one millimeter you need · 排滿一毫米需要</p>'
+            f'<p class="cp-home-big"><span class="lf-ru-n"></span></p>'
+            f'<p class="cp-home-sub">in a row, each one <b class="lf-ru-size"></b> across<span class="zh"> · 個排成一列（每個這麼寬）</span></p>'
+            f'<p class="cp-home-note"><span class="lf-ru-en"></span><span class="zh lf-ru-zh"></span></p>'
+            f'</div></div>'
+            '<noscript><p class="muted">This tool works in your browser and needs JavaScript. · 這個小工具在瀏覽器裡運作，需要開啟 JavaScript。</p></noscript>')
+
+_LIFE_LAB = {"leaf": render_lifeleaf_lab, "cell": render_lifecell_lab, "dna": render_lifedna_lab, "germ": render_lifegerm_lab}          # lab.kind → 3D 面板
+_LIFE_ICON = {"leaf": lifeleaf_svg, "cell": lifecell_svg, "dna": lifedna_svg, "germ": lifegerm_svg}                 # lesson.card → 課程卡小圖示
+_LIFE_WIDGETS = [("recipe", _life_recipe), ("sorter", _life_sorter), ("coder", _life_coder), ("ruler", _life_ruler)]               # lesson 裡有這個 key 就多一段（照這裡的順序）
 
 def _life_flat():
     return [(ui, u, l) for ui, u in enumerate(LIFE["units"]) for l in u["lessons"]]
