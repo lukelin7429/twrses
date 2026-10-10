@@ -4319,7 +4319,7 @@ def build_astro_hub():
 # 面板與段落樣式沿用 astro.css，人體專屬的在 body.css；兩者都只載在本系列頁面。
 BODY_BASE = "/resources/classes/human-body/"
 _BODY_JS = {"skeleton": "skeleton", "arm": "arm", "heart": "heart", "lungs": "lungs", "joints": "joints",
-            "digestion": "digestion", "nerves": "nerves", "eyes": "eyes", "ears": "ears", "skin": "skin", "teeth": "teeth", "germs": "germs", "kidneys": "kidneys", "taste": "taste", "sleep": "sleep", "growth": "growth", "voice": "voice", "hands": "hands", "healing": "healing", "exercise": "exercise", "energy": "energy", "temperature": "temperature", "back": "back", "cells": "cells", "walking": "walking", "reflexes": "reflexes", "drop": "drop"}   # lab.kind → assets/js/<bundle>.js
+            "digestion": "digestion", "nerves": "nerves", "eyes": "eyes", "ears": "ears", "skin": "skin", "teeth": "teeth", "germs": "germs", "kidneys": "kidneys", "taste": "taste", "sleep": "sleep", "growth": "growth", "voice": "voice", "hands": "hands", "healing": "healing", "exercise": "exercise", "energy": "energy", "temperature": "temperature", "back": "back", "cells": "cells", "walking": "walking", "reflexes": "reflexes", "drop": "drop", "remember": "remember"}   # lab.kind → assets/js/<bundle>.js
 
 def _body_ver():
     h = hashlib.md5()
@@ -6031,6 +6031,71 @@ def render_drop_lab(lesson):
   <p class="sk-credit">{lab["credit_html"]}</p>
 </div>'''
 
+def render_remember_lab(lesson):
+    """第二十八課：真實的海馬迴、小腦、腦幹＋自繪大腦外形，養一條記憶（assets/js/remember.js 綁這裡的 class；函式名避開萬物原理的 render_memory_lab）；單字實驗是 2D，不需要 WebGL。"""
+    lab = lesson["lab"]
+    data_json = html.escape(json.dumps({"kinds": lab["kinds"], "notes": lab["notes"]}, ensure_ascii=False))
+    kinds = "".join(
+        f'<button type="button" data-mkind="{k["key"]}" aria-pressed="{"true" if n == 0 else "false"}"><i aria-hidden="true">{k["icon"]}</i>'
+        f'<span>{html.escape(k["en"])}<small>{html.escape(k["zh"])}</small></span></button>' for n, k in enumerate(lab["kinds"]))
+    k0 = lab["kinds"][0]
+    def act(a, ic, en, zh):
+        return f'<button type="button" class="mr-act" data-act="{a}"><i aria-hidden="true">{ic}</i><span><b>{html.escape(en)}</b><small>{html.escape(zh)}</small></span></button>'
+    acts = (act("learn", "&#128214;", k0["learn"]["en"], k0["learn"]["zh"]) + act("again", "&#128064;", k0["again"]["en"], k0["again"]["zh"])
+            + act("recall", "&#129504;", k0["recall"]["en"], k0["recall"]["zh"]) + act("night", "&#127769;", "A night's sleep", "睡一晚，過一天"))
+    def bar(cls, en, zh):
+        return f'<div class="mr-bar mr-bar-{cls}"><span>{en}<small>{zh}</small></span><b><i></i></b></div>'
+    words_a = [("anchor", "錨"), ("feather", "羽毛"), ("ladder", "梯子"), ("pillow", "枕頭"), ("whistle", "哨子"), ("candle", "蠟燭")]
+    words_b = [("bucket", "水桶"), ("compass", "指南針"), ("blanket", "毯子"), ("lantern", "燈籠"), ("needle", "針"), ("saddle", "馬鞍")]
+    def chips(ws, lst):
+        return "".join(f'<button type="button" class="mr-w" data-l="{lst}" aria-pressed="false"><b>{e}</b><small>{z}</small></button>' for e, z in ws)
+    tg = _lab_toggles([("labels", "Labels", "標示", True), ("skull", "Skull", "頭骨", True), ("spin", "Slow spin", "慢慢旋轉", True)])
+    return f'''<div class="astro-lab sk-lab mr-lab rvl" data-remember-lab data-model="{_model_url()}" data-organs="{_organs_url()}" data-memory="{data_json}">
+  <div class="al-stage">
+    <div class="al-space">
+      <canvas class="al-space-cv" aria-label="3D model of a head with a see-through brain, two real hippocampi, the cerebellum, and the brainstem, with lines that show a memory growing stronger or fading · 頭部的 3D 模型：半透明的大腦裡有兩個真實的海馬迴、小腦和腦幹，線條顯示一條記憶變強或變淡"></canvas>
+      <div class="al-labels" aria-hidden="true"></div>
+      <p class="sk-loading">Loading… · 載入中…<span class="sk-bar"><i></i></span></p>
+      <p class="al-hint">Drag to turn · 拖曳旋轉　Scroll or pinch to zoom · 滾輪／雙指縮放</p>
+      <p class="ey-mag">A simple model of a pattern, not a picture of a real memory · 這是規律的簡單模型，不是真實記憶的照片</p>
+      <button type="button" class="al-home" title="Reset view · 重設視角" aria-label="Reset view · 重設視角">&#8634;</button>
+      <p class="al-nogl-msg">This 3D model needs WebGL, which this browser does not support. The word experiment and the cards below still work.<br><span class="zh">這個瀏覽器不支援 WebGL，無法顯示 3D 模型；下方的單字實驗和卡片一樣能用。</span></p>
+    </div>
+    <aside class="al-sky sk-aside mr-aside">
+      <p class="mr-day"><b class="mr-dn">Day 1</b><span class="mr-dz">第 1 天</span></p>
+      {bar("s", "Strength of the memory", "記憶的強度")}{bar("c", "Saved in the outer brain", "存到大腦外層的部分")}
+      <p class="al-sky-k">The story so far · 到目前為止</p>
+      <div class="mr-chartbox"><canvas class="mr-chart" aria-hidden="true"></canvas></div>
+      <p class="ey-status mr-status" aria-live="polite"></p>
+    </aside>
+  </div>
+  <div class="mr-strip">
+    <p class="al-sky-k">The word experiment · 單字實驗</p>
+    <div class="mr-exp">
+      <div class="mr-panel">
+        <p class="mr-step"><b class="mr-sn">1</b><span class="mr-st"></span></p>
+        <div class="mr-timer" aria-hidden="true"><i></i></div>
+        <div class="mr-list mr-list-a">{chips(words_a, "a")}</div>
+        <div class="mr-list mr-list-b">{chips(words_b, "b")}</div>
+        <p class="mr-msg" aria-live="polite"></p>
+        <div class="mr-btns"><button type="button" class="mr-next">Start<small>開始</small></button><button type="button" class="mr-reset">Start over<small>重新開始</small></button></div>
+      </div>
+      <div class="mr-score">
+        <p class="mr-sc"><span>List A: read again and again<small>A 表：一直讀</small></span><b class="mr-sa">—</b></p>
+        <p class="mr-sc"><span>List B: cover and recall<small>B 表：蓋起來回想</small></span><b class="mr-sb">—</b></p>
+        <p class="mr-note">Compare your own two scores. One try is only one try: do it again another day with new words and see whether the pattern holds.<span class="zh">請比較自己的兩個分數。做一次只是一次：改天換一批新單字再做，看看結果是不是一樣。</span></p>
+      </div>
+    </div>
+  </div>
+  <div class="al-controls">
+    <div class="ea-pres mr-kinds" role="group" aria-label="Kind of memory · 記憶的種類">{kinds}</div>
+    <div class="mr-acts" role="group" aria-label="What to do next · 接下來做什麼">{acts}</div>
+    <div class="al-row al-toggles"><button type="button" class="mr-clear">Start a new memory<small>重新開始一條記憶</small></button>{tg}</div>
+  </div>
+  {_lab_foot(lab)}
+  <p class="sk-credit">{lab["credit_html"]}</p>
+</div>'''
+
 def _body_nav(slug):
     ls = BODY["lessons"]
     i = next(n for n, l in enumerate(ls) if l["slug"] == slug)
@@ -6058,7 +6123,7 @@ def build_body_lesson(lesson):
                 "joints": render_joints_lab, "digestion": render_digestion_lab, "nerves": render_nerves_lab,
                 "eyes": render_eyes_lab, "ears": render_ears_lab, "skin": render_skin_lab,
                 "teeth": render_teeth_lab, "germs": render_germs_lab, "kidneys": render_kidneys_lab,
-                "taste": render_taste_lab, "sleep": render_sleep_lab, "growth": render_growth_lab, "voice": render_voice_lab, "hands": render_hands_lab, "healing": render_healing_lab, "exercise": render_exercise_lab, "energy": render_energy_lab, "temperature": render_temperature_lab, "back": render_back_lab, "cells": render_cells_lab, "walking": render_walking_lab, "reflexes": render_reflexes_lab, "drop": render_drop_lab}[kind](lesson)
+                "taste": render_taste_lab, "sleep": render_sleep_lab, "growth": render_growth_lab, "voice": render_voice_lab, "hands": render_hands_lab, "healing": render_healing_lab, "exercise": render_exercise_lab, "energy": render_energy_lab, "temperature": render_temperature_lab, "back": render_back_lab, "cells": render_cells_lab, "walking": render_walking_lab, "reflexes": render_reflexes_lab, "drop": render_drop_lab, "remember": render_remember_lab}[kind](lesson)
 
     secs = []
     if lesson.get("jobs"):
@@ -6178,7 +6243,8 @@ def build_body_lesson(lesson):
                 "cells": ("Cells in a sentence", "一句話記住細胞"),
                 "walking": ("Walking in a sentence", "一句話記住走路"),
                 "reflexes": ("Reflexes in a sentence", "一句話記住反射"),
-                "drop": ("Blood in a sentence", "一句話記住血液")}[kind]
+                "drop": ("Blood in a sentence", "一句話記住血液"),
+                "remember": ("Memory in a sentence", "一句話記住記憶")}[kind]
     secs.append(("tricks", "Remember It · 記憶口訣", tricks_h[0], tricks_h[1], _sci_tricks(lesson), ""))
     if lesson.get("culture"):
         cu = lesson["culture"]

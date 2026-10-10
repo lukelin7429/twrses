@@ -7,7 +7,8 @@
  * 只挑「單一檔案、形狀完整」的器官（肝、心、腦在這份資料裡是幾十個碎片，不用）：
  *   r-kidney / l-kidney 腎臟、r-ureter / l-ureter 輸尿管、bladder 膀胱、tongue 舌頭（第十四課用）、trachea 氣管（第十七課用）、
  *   esophagus 食道、stomach 胃、duodenum 十二指腸、gallbladder 膽囊（第二十一課用）、disc-01…22 椎間盤（第二十三課用）、
- *   diaphragm 橫膈膜、brainstem 腦幹（第二十六課用）。
+ *   diaphragm 橫膈膜、brainstem 腦幹（第二十六課用）、
+ *   l-hippocampus / r-hippocampus 海馬迴、cerebellum 小腦（第二十八課用）。
  * 座標與 skeleton.glb 完全對齊：同樣轉成公尺、Y 朝上、臉朝 +Z；
  * 骨架當初把腳底貼齊 y = 0，這裡拿 skeleton.glb 裡幾塊大骨頭的包圍盒和原始資料比，量出同一個位移再套用。
  */
@@ -37,6 +38,7 @@ export const ORGANS = [
   // 第二十一課（能量）用
   { id: 'esophagus', src: 'esophagus' }, { id: 'stomach', src: 'stomach' }, { id: 'duodenum', src: 'duodenum' }, { id: 'gallbladder', src: 'gallbladder' },
   { id: 'diaphragm', src: 'diaphragm', tris: 5000 }, { id: 'brainstem', src: 'brainstem', tris: 3000 },   // 第二十六課（反射）用；原始形狀很細，用 tris 指定上限
+  { id: 'l-hippocampus', src: 'left hippocampus', tris: 1500 }, { id: 'r-hippocampus', src: 'right hippocampus', tris: 1500 }, { id: 'cerebellum', src: 'cerebellum', tris: 4500 },   // 第二十八課（記憶）用
   // 第二十三課（背）用：22 個椎間盤（由上到下 disc-01 … disc-22；原始資料拼成 intervertebral disk）。
   // 「spinal cord」那個檔案只有頸部 3.6 公分的一小段，不能用，脊髓照第七課自繪。
   { id: 'disc-01', src: 'intervertebral disk of axis' },

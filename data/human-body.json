@@ -14,13 +14,7 @@
       "zh": "每一課也會請你在自己身上量一量、數一數，並附生字、閱讀理解、小測驗和課堂活動。本系列是教育用途，不是醫療建議。"
     }
   ],
-  "planned": [
-    {
-      "icon": "🧠",
-      "en": "How Do You Remember?",
-      "zh": "你是怎麼記住東西的？"
-    }
-  ],
+  "planned": [],
   "lessons": [
     {
       "n": 1,
@@ -12896,6 +12890,543 @@
       },
       "health_en": "This lesson is for learning about the body. It is not medical advice. The amount of blood shown by the tool is an estimate for learning, not a medical measurement. Never touch another person's blood: tell an adult instead. If a cut will not stop bleeding, press on it with a clean cloth and get an adult's help right away.",
       "health_zh": "本課是認識身體的教材，不是醫療建議。工具算出來的血量只是學習用的估計，不是醫學上的測量。絕對不要碰別人的血——請告訴大人。如果傷口一直止不住血，用乾淨的布壓住，並且馬上請大人幫忙。"
+    },
+    {
+      "n": 28,
+      "slug": "memory",
+      "title": "How Do You Remember?",
+      "title_zh": "你是怎麼記住東西的？",
+      "level": "入門 · Beginner",
+      "icon": "🧠",
+      "card": "remember",
+      "blurb_en": "A memory is a path in your brain that gets stronger each time you use it. Follow one in 3D, watch it fade and come back, and test the best way to learn new words.",
+      "blurb_zh": "記憶是大腦裡的一條路，每用一次就更牢固。在 3D 裡跟著一條記憶走，看它變淡又回來，再親自試試哪種方法最能記住新單字。",
+      "big_idea_en": "You remember what you use. Each time you pull a memory back out, its path grows stronger, and sleep helps to save it.",
+      "big_idea_zh": "用過的才記得住。每一次把記憶「拿出來」，那條路就更牢固一點；睡覺則幫忙把它存好。",
+      "lab": {
+        "kind": "remember",
+        "eyebrow": "3D Model · 3D 模型",
+        "title_en": "Grow a Memory",
+        "title_zh": "養一條記憶",
+        "how_en": "Inside this head are two real hippocampi, the small gold shapes deep in the middle, and the real cerebellum and brainstem below. Press “Learn it” to store a new English word. Lines light up between the hippocampus and four places on the outside of the brain: that is the new memory. Now let a night pass, and watch it fade. Try two ways to bring it back: read it again, or cover it and recall it. Which one makes the path stronger? Keep going for a week, and watch the lines on the surface of the brain grow thick. Then switch to a skill, such as riding a bike.",
+        "how_zh": "這顆頭裡面有兩個真實的海馬迴——深處中間那兩個金色的小東西——下面還有真實的小腦和腦幹。按「學起來」，存入一個新的英文單字：海馬迴和大腦表面的四個地方之間，會亮起幾條線，這就是新的記憶。現在讓一個晚上過去，看它變淡。試試兩種把它找回來的方法：再讀一次，或是蓋起來自己回想。哪一種讓這條路變得更牢固？繼續做一個星期，看大腦表面的那幾條線越變越粗。然後換成一項技能，例如騎腳踏車。",
+        "legend": [
+          {
+            "cls": "mrhip",
+            "en": "Gold: the two real hippocampi",
+            "zh": "金色：兩個真實的海馬迴"
+          },
+          {
+            "cls": "mrcer",
+            "en": "Purple: the real cerebellum",
+            "zh": "紫色：真實的小腦"
+          },
+          {
+            "cls": "mrnew",
+            "en": "Thin blue lines: a new memory, held by the hippocampus",
+            "zh": "細細的藍線：新的記憶，靠海馬迴維持"
+          },
+          {
+            "cls": "mrold",
+            "en": "Thick green lines: a memory saved in the outer brain",
+            "zh": "粗粗的綠線：存到大腦外層的記憶"
+          },
+          {
+            "cls": "mrnode",
+            "en": "Dots: places that hold parts of the memory",
+            "zh": "圓點：存放記憶各個部分的地方"
+          }
+        ],
+        "scale_en": "The skull, the two hippocampi, the cerebellum, and the brainstem are real shapes from BodyParts3D, in their real places; the outline of the brain, the dots, and the lines are our own drawing. A real memory is not a few lines: it is a pattern across a huge number of nerve cells, and nobody can point to one. The numbers are a simple model of the pattern scientists have found (use it and it grows, leave it and it fades), not a measurement of anyone's brain.",
+        "scale_zh": "頭骨、兩個海馬迴、小腦和腦幹是 BodyParts3D 的真實形狀，位置也是真的；大腦的外形、圓點和線條是本站自繪的示意圖。真正的記憶不是幾條線，而是分布在數量龐大的神經細胞之間的一種連結方式，沒有人能指出「就是這裡」。畫面上的數字是照科學家發現的規律（用了就變強、放著就變淡）做的簡單模型，不是任何人大腦的測量結果。",
+        "credit_html": "Bone and organ models: <a href=\"https://dbarchive.biosciencedbc.jp/en/bodyparts3d/download.html\" target=\"_blank\" rel=\"noopener\">BodyParts3D</a>, © The Database Center for Life Science, licensed under <a href=\"https://creativecommons.org/licenses/by/4.0/\" target=\"_blank\" rel=\"noopener\">CC BY 4.0</a>. We selected the skull, the hippocampi, the cerebellum, and the brainstem, simplified the shapes, and turned the model upright; the outline of the brain and the memory paths are our own drawing. · 骨骼與器官模型來源：BodyParts3D（日本生命科學資料庫中心，CC BY 4.0 授權）；本站挑選頭骨、海馬迴、小腦與腦幹，簡化形狀並轉正方向，大腦外形與記憶路線為本站自繪示意。",
+        "kinds": [
+          {
+            "key": "word",
+            "icon": "🔤",
+            "en": "A fact: a new word",
+            "zh": "一項知識：一個新單字",
+            "learn": {
+              "en": "Learn it",
+              "zh": "學起來"
+            },
+            "again": {
+              "en": "Read it again",
+              "zh": "再讀一次"
+            },
+            "recall": {
+              "en": "Cover it and recall",
+              "zh": "蓋起來回想"
+            },
+            "nodes": [
+              {
+                "en": "how it looks",
+                "zh": "看起來的樣子"
+              },
+              {
+                "en": "how it sounds",
+                "zh": "聽起來的聲音"
+              },
+              {
+                "en": "how to say it",
+                "zh": "怎麼說出來"
+              },
+              {
+                "en": "what it means",
+                "zh": "它的意思"
+              }
+            ]
+          },
+          {
+            "key": "skill",
+            "icon": "🚲",
+            "en": "A skill: riding a bike",
+            "zh": "一項技能：騎腳踏車",
+            "learn": {
+              "en": "Try it",
+              "zh": "試一次"
+            },
+            "again": {
+              "en": "Watch someone do it",
+              "zh": "看別人做一次"
+            },
+            "recall": {
+              "en": "Practice it yourself",
+              "zh": "自己練習"
+            },
+            "nodes": [
+              {
+                "en": "what you see",
+                "zh": "看到的東西"
+              },
+              {
+                "en": "your balance",
+                "zh": "身體的平衡"
+              },
+              {
+                "en": "moving your legs",
+                "zh": "腿的動作"
+              },
+              {
+                "en": "steering",
+                "zh": "轉動把手"
+              }
+            ]
+          }
+        ],
+        "notes": {
+          "start": {
+            "en": "Nothing is stored yet. Press the first button to begin.",
+            "zh": "還沒有存任何東西。按第一個按鈕開始。"
+          },
+          "learn_word": {
+            "en": "A new memory! Seeing, hearing, saying, and meaning are held in different places, and the hippocampus ties them together. The path is still weak.",
+            "zh": "一條新的記憶！「看」「聽」「說」和「意思」存在不同的地方，由海馬迴把它們綁在一起。這條路還很弱。"
+          },
+          "learn_skill": {
+            "en": "A first wobbly try. For a skill, the cerebellum does the tying together: it compares what you meant to do with what happened.",
+            "zh": "搖搖晃晃的第一次。技能是由小腦負責把各部分綁在一起：它會比較「你想做的」和「實際發生的」。"
+          },
+          "again": {
+            "en": "Looking again helps a little. It feels easy, which is exactly the problem: your brain did not have to work.",
+            "zh": "再看一次有一點幫助。它感覺很輕鬆——而問題就在這裡：大腦根本不必出力。"
+          },
+          "recall": {
+            "en": "You pulled it out of your own head. That was harder, and it made the path much stronger. Using a memory is what builds it.",
+            "zh": "你是靠自己把它從腦子裡拿出來的。這比較費力，卻讓這條路牢固了許多。記憶就是靠「用」建起來的。"
+          },
+          "recall_fail": {
+            "en": "You reach for it, and it is not there. The path has faded too far. Learn it again: the second time is quicker.",
+            "zh": "你想把它找出來，可是它不在了——這條路已經淡得太多。重新學一次吧：第二次會比較快。"
+          },
+          "night": {
+            "en": "A night's sleep, and a day goes by. While you slept, the brain replayed the day and moved part of this memory to the outer brain. Then, with no use, the path faded a little.",
+            "zh": "睡了一晚，又過了一天。你睡覺的時候，大腦把白天的事重播一遍，把這條記憶的一部分搬到大腦外層；之後因為沒有用到，這條路又淡了一點。"
+          },
+          "night_weak": {
+            "en": "A day goes by, and the memory has nearly vanished. New memories fade fastest in the first days.",
+            "zh": "一天過去，這條記憶幾乎消失了。新的記憶在最初的幾天淡得最快。"
+          },
+          "strong": {
+            "en": "Look at the thick green lines. This memory now lives in the outer brain and hardly needs the hippocampus. It will last a long time.",
+            "zh": "看看那幾條粗粗的綠線。這條記憶現在住在大腦外層，幾乎不需要海馬迴了。它可以維持很久。"
+          }
+        }
+      },
+      "paras": [
+        "What did you have for breakfast today? What is your best friend's name? How do you ride a bike? You answered all three in a moment, but each answer was stored in a different way. Remembering feels like one simple thing. It is really several things, and you can get better at all of them.",
+        "Deep inside your brain, one on each side, lie two small curved parts called the hippocampus. Each is about five centimeters long and shaped a little like a seahorse, and that is what the name means. When something new happens, the sight is handled in one part of your brain, the sound in another, and the meaning in another. The hippocampus ties these pieces together into one memory.",
+        "A new memory is weak. More than a hundred years ago, a German scientist named Hermann Ebbinghaus memorized lists of nonsense words and then tested himself again and again. He found that forgetting is fastest at the start. Much of a new memory can be gone within days, unless you do something about it.",
+        "What can you do? Use it. Every time you pull a memory out of your own head, the path gets stronger. That is why covering the page and testing yourself works better than reading the page again. Reading again feels easy, but your brain does little work. Recalling feels hard, and the hard work is what makes the memory stay. It also helps to spread your practice out: ten minutes on each of three days beats thirty minutes in one night.",
+        "Sleep does the rest. While you sleep, your brain replays what you learned, and little by little the memory is moved out to the outer layer of the brain for long-term keeping. You learned in the lesson about sleep that a good night after studying helps you remember. Staying up late to study steals the very time your brain needs to save the work.",
+        "Riding a bike is a different kind of memory. You cannot explain it in words, and you do not forget it for years. Skills like this depend on other parts of the brain, including the cerebellum at the back, and they grow by doing, not by reading. So here is how to learn anything, including English words: use it, spread it out, sleep on it, and do it again. Try the word experiment below the model and see for yourself."
+      ],
+      "paras_zh": [
+        "你今天早餐吃了什麼？你最好的朋友叫什麼名字？腳踏車要怎麼騎？這三個問題你一下子就答出來了，可是每一個答案的儲存方式都不一樣。「記得」感覺上是很單純的一件事，其實是好幾件事——而且每一件你都可以越做越好。",
+        "在大腦的深處，左右各有一個小小的、彎彎的部分，叫做海馬迴。每一個大約五公分長，形狀有點像海馬，它的名字就是這樣來的。有新的事情發生時，「看到的」由大腦的一個地方處理，「聽到的」由另一個地方處理，「意思」又在另一個地方。海馬迴把這些片段綁在一起，變成一條記憶。",
+        "新的記憶是很弱的。一百多年前，德國科學家艾賓浩斯（Hermann Ebbinghaus）背了一串串沒有意義的音節，然後一次又一次地考自己。他發現：遺忘在一開始最快。如果什麼都不做，一條新的記憶可能在幾天之內就不見了一大半。",
+        "那可以怎麼做？用它。每一次靠自己把記憶從腦子裡拿出來，那條路就更牢固一點。所以把書蓋起來考自己，比把同一頁再讀一次更有效。再讀一次感覺很輕鬆，可是大腦沒做什麼事；回想感覺很費力，而正是這份費力，讓記憶留了下來。把練習分散開來也有幫助：三天各練十分鐘，勝過一個晚上練三十分鐘。",
+        "剩下的交給睡眠。你睡覺的時候，大腦會把學過的東西重播一遍，一點一點地把記憶搬到大腦的外層，長期保存。你在睡眠那一課學過：讀完書之後好好睡一覺，會記得比較牢。熬夜讀書，偷走的正是大腦用來存檔的時間。",
+        "騎腳踏車是另一種記憶。你沒辦法用話把它說清楚，而且過了很多年也不會忘。像這樣的技能，靠的是大腦的其他部分，包括後面的小腦；它是「做」出來的，不是「讀」出來的。所以，不管要學什麼——包括英文單字——方法都一樣：用它、分散開來、睡一覺，然後再來一次。用模型下方的單字實驗，親自試試看吧。"
+      ],
+      "questions": [
+        "What does the hippocampus do?",
+        "Why does testing yourself work better than reading the page again?",
+        "How does sleep help you remember?"
+      ],
+      "answers": [
+        "It ties the pieces of a new experience (the sight, the sound, the meaning) together into one memory.",
+        "Because pulling a memory out of your own head is hard work for the brain, and that work makes the path stronger. Reading again is easy and does little.",
+        "While you sleep, the brain replays what you learned and moves the memory to the outer brain for long-term keeping."
+      ],
+      "vocab": [
+        {
+          "n": 1,
+          "w": "remember",
+          "pos": "v.",
+          "zh": "記得；想起",
+          "ex": "I <b>remember</b> my first day of school.",
+          "exzh": "我記得第一天上學的情形。"
+        },
+        {
+          "n": 2,
+          "w": "forget",
+          "pos": "v.",
+          "zh": "忘記",
+          "ex": "Do not <b>forget</b> your umbrella.",
+          "exzh": "別忘了帶傘。"
+        },
+        {
+          "n": 3,
+          "w": "memory",
+          "pos": "n.",
+          "zh": "記憶；記性",
+          "ex": "That trip is my happiest <b>memory</b>.",
+          "exzh": "那趟旅行是我最快樂的回憶。"
+        },
+        {
+          "n": 4,
+          "w": "review",
+          "pos": "v.",
+          "zh": "複習",
+          "ex": "Let's <b>review</b> the new words before lunch.",
+          "exzh": "午餐前我們來複習新單字吧。"
+        },
+        {
+          "n": 5,
+          "w": "practice",
+          "pos": "v.",
+          "zh": "練習",
+          "ex": "I <b>practice</b> the piano every day.",
+          "exzh": "我每天練鋼琴。"
+        },
+        {
+          "n": 6,
+          "w": "recall",
+          "pos": "v.",
+          "zh": "回想",
+          "ex": "Close the book and try to <b>recall</b> the list.",
+          "exzh": "把書闔上，試著回想那張清單。"
+        },
+        {
+          "n": 7,
+          "w": "repeat",
+          "pos": "v.",
+          "zh": "重複",
+          "ex": "Please <b>repeat</b> the word after me.",
+          "exzh": "請跟著我再唸一次這個字。"
+        },
+        {
+          "n": 8,
+          "w": "path",
+          "pos": "n.",
+          "zh": "小路；路徑",
+          "ex": "We followed the <b>path</b> through the trees.",
+          "exzh": "我們沿著樹林裡的小路走。"
+        }
+      ],
+      "quiz": [
+        {
+          "q": "Which part of the brain ties a new memory together?",
+          "options": [
+            "The hippocampus",
+            "The skull",
+            "The eye",
+            "The tongue"
+          ],
+          "correct": 0
+        },
+        {
+          "q": "What did Hermann Ebbinghaus discover?",
+          "options": [
+            "Forgetting is fastest at the start",
+            "The brain is in the head",
+            "Sleep is a waste of time",
+            "Bikes are hard to ride"
+          ],
+          "correct": 0
+        },
+        {
+          "q": "According to the reading, which way of studying works better?",
+          "options": [
+            "Cover the page and test yourself",
+            "Read the same page again",
+            "Study all night",
+            "Look at the page quickly"
+          ],
+          "correct": 0
+        },
+        {
+          "q": "What does your brain do with memories while you sleep?",
+          "options": [
+            "It replays them and saves them",
+            "It erases all of them",
+            "It turns them into dreams only",
+            "Nothing at all"
+          ],
+          "correct": 0
+        },
+        {
+          "q": "Which part of the brain is important for skills such as riding a bike?",
+          "options": [
+            "The cerebellum",
+            "The hippocampus only",
+            "The nose",
+            "The teeth"
+          ],
+          "correct": 0
+        }
+      ],
+      "kinds_head": {
+        "eyebrow": "The Memory Team · 記憶小隊",
+        "en": "Three places and two helpers",
+        "zh": "三個地方，兩個幫手"
+      },
+      "kinds": [
+        {
+          "icon": "🌊",
+          "en": "Hippocampus",
+          "zh": "海馬迴",
+          "where_en": "Deep in the brain, one on each side",
+          "where_zh": "大腦深處，左右各一個",
+          "control_en": "Makes new memories",
+          "control_zh": "建立新的記憶",
+          "text_en": "It ties the pieces of an experience together. Its name means “seahorse.”",
+          "text_zh": "它把一段經驗的各個片段綁在一起。它的名字意思就是「海馬」。"
+        },
+        {
+          "icon": "🧠",
+          "en": "Outer brain",
+          "zh": "大腦外層",
+          "where_en": "The wrinkled surface of the brain",
+          "where_zh": "大腦皺皺的表面",
+          "control_en": "Keeps memories for years",
+          "control_zh": "把記憶保存好多年",
+          "text_en": "Over time, memories move here and no longer depend on the hippocampus.",
+          "text_zh": "時間久了，記憶會搬到這裡，不再依賴海馬迴。"
+        },
+        {
+          "icon": "🚲",
+          "en": "Cerebellum",
+          "zh": "小腦",
+          "where_en": "At the back, under the brain",
+          "where_zh": "後面，大腦的下方",
+          "control_en": "Learns skills",
+          "control_zh": "學習技能",
+          "text_en": "It fine-tunes movements until they are smooth: riding, writing, playing an instrument.",
+          "text_zh": "它把動作一點一點修到流暢：騎車、寫字、彈樂器。"
+        },
+        {
+          "icon": "🔁",
+          "en": "Recalling",
+          "zh": "回想",
+          "where_en": "Any time, anywhere",
+          "where_zh": "隨時隨地",
+          "control_en": "Strengthens the path",
+          "control_zh": "讓那條路更牢固",
+          "text_en": "Pulling a memory out is the best way to keep it in.",
+          "text_zh": "把記憶「拿出來」，是把它「留下來」的最好方法。"
+        },
+        {
+          "icon": "🌙",
+          "en": "Sleep",
+          "zh": "睡眠",
+          "where_en": "Every night",
+          "where_zh": "每個晚上",
+          "control_en": "Saves the day's work",
+          "control_zh": "把當天的成果存檔",
+          "text_en": "The brain replays what you learned and stores it for the long term.",
+          "text_zh": "大腦把你學到的東西重播一遍，存起來長期保存。"
+        }
+      ],
+      "kinds_note_en": "Think of a path across a grass field. Walk it once, and you can hardly see it. Walk it every day, and it becomes a clear trail. Stop walking, and the grass grows back.",
+      "kinds_note_zh": "想像草地上的一條小路。走一次，幾乎看不出來；每天走，就變成一條清楚的小徑；不再走了，草又長回來。",
+      "measure": {
+        "title_en": "Which way of studying works better for me?",
+        "title_zh": "哪一種讀書方法對我比較有效？",
+        "lead_en": "Run the word experiment below the model. You will learn two short lists of English words in two different ways and then test yourself on both. Compare your own two scores. This is not a contest, and nobody else needs to see the numbers.",
+        "lead_zh": "用模型下方的單字實驗。你會用兩種不同的方法學兩張短短的英文單字表，然後兩張都考一次。請比較自己的兩個分數——這不是比賽，數字也不必給別人看。",
+        "steps": [
+          {
+            "n": "👀",
+            "en": "List A: read",
+            "zh": "A 表：一直讀",
+            "text_en": "Read the first list again and again until the timer ends.",
+            "text_zh": "第一張表一直讀、反覆讀，讀到計時結束。"
+          },
+          {
+            "n": "🙈",
+            "en": "List B: cover and recall",
+            "zh": "B 表：蓋起來回想",
+            "text_en": "Read the second list once. When it hides, write down every word you can. Then check, and do it once more.",
+            "text_zh": "第二張表只讀一次。它藏起來之後，把想得起來的字都寫下來；對一次答案，再做一次。"
+          },
+          {
+            "n": "⏳",
+            "en": "Wait, then test",
+            "zh": "等一等，再測驗",
+            "text_en": "Do something else for at least five minutes, or come back tomorrow. Then write down both lists from memory and count.",
+            "text_zh": "先去做別的事至少五分鐘，或是明天再回來。然後憑記憶把兩張表都寫下來，數一數各記得幾個。"
+          }
+        ],
+        "action": "test",
+        "action_value": "1",
+        "button_icon": "🔤",
+        "button_en": "Open the word experiment",
+        "button_zh": "打開單字實驗"
+      },
+      "myths": [
+        {
+          "myth_en": "Memory works like a video camera.",
+          "myth_zh": "記憶就像錄影機。",
+          "fact_en": "A memory is rebuilt from pieces each time you recall it, so it can change, and it can be wrong.",
+          "fact_zh": "每一次回想，記憶都是用片段重新拼起來的，所以它會改變，也可能出錯。"
+        },
+        {
+          "myth_en": "Reading your notes again and again is the best way to study.",
+          "myth_zh": "把筆記一讀再讀，是最好的讀書方法。",
+          "fact_en": "Testing yourself works better. Close the book and see what you can pull out.",
+          "fact_zh": "考自己的效果更好。把書闔上，看看自己拿得出多少。"
+        },
+        {
+          "myth_en": "Studying all night before a test is the way to remember more.",
+          "myth_zh": "考前熬夜讀書可以記得更多。",
+          "fact_en": "Short sessions spread over several days work better, and sleep is when your brain saves what you learned.",
+          "fact_zh": "分散在幾天的短時間練習效果更好；而睡覺，正是大腦把學到的東西存檔的時候。"
+        },
+        {
+          "myth_en": "We use only ten percent of our brains.",
+          "myth_zh": "我們只用了百分之十的大腦。",
+          "fact_en": "You use all of your brain. Different parts are busy at different times.",
+          "fact_zh": "整個大腦你都在用，只是不同的部分在不同的時候忙。"
+        }
+      ],
+      "tricks": [
+        {
+          "title_en": "Use it or lose it",
+          "title_zh": "用了才留得住",
+          "body_en": "A memory you never use fades. One you use grows.",
+          "body_zh": "從來不用的記憶會變淡；常用的會變強。"
+        },
+        {
+          "title_en": "Cover and recall",
+          "title_zh": "蓋起來，自己想",
+          "body_en": "Testing yourself beats reading again.",
+          "body_zh": "考自己，勝過再讀一次。"
+        },
+        {
+          "title_en": "A little, often",
+          "title_zh": "少量、多次",
+          "body_en": "Three short sessions on three days beat one long night.",
+          "body_zh": "三天各練一小段，勝過一個晚上拼到底。"
+        },
+        {
+          "title_en": "Sleep on it",
+          "title_zh": "睡一覺",
+          "body_en": "Sleep is when the brain saves the day's work.",
+          "body_zh": "睡覺的時候，大腦在替你存檔。"
+        }
+      ],
+      "activities": [
+        {
+          "title_en": "I Went to the Market",
+          "title_zh": "我去市場買了⋯⋯",
+          "materials": [
+            {
+              "en": "A circle of students",
+              "zh": "學生圍成一圈"
+            },
+            {
+              "en": "Nothing else",
+              "zh": "不需要其他東西"
+            }
+          ],
+          "steps": [
+            {
+              "en": "The first student says, “I went to the market and bought an apple.”",
+              "zh": "第一位學生說：「I went to the market and bought an apple.」"
+            },
+            {
+              "en": "The next student repeats the sentence and adds one more thing.",
+              "zh": "下一位學生把這個句子重複一遍，再加上一樣東西。"
+            },
+            {
+              "en": "Keep going around the circle. How long can the list get?",
+              "zh": "繞著圈子繼續下去。這張清單可以變多長？"
+            },
+            {
+              "en": "At the end of the day, try to say the whole list again. What happened to it?",
+              "zh": "放學前再試著把整張清單說一次。它怎麼了？"
+            }
+          ],
+          "tip_en": "Teaching tip: every turn is a round of recall, so the early items are practiced the most and are remembered best. When someone gets stuck, let the group whisper a hint instead of ending the game: a hint followed by recall is still good practice. Nobody is out.",
+          "tip_zh": "教學提示：每輪到一個人，就是一次回想，所以越前面的東西被練習得越多、記得越牢。有人卡住的時候，請讓大家小聲提示，不要讓遊戲結束——有提示之後的回想，依然是很好的練習。沒有人出局。"
+        },
+        {
+          "title_en": "My Forgetting Curve",
+          "title_zh": "我的遺忘曲線",
+          "materials": [
+            {
+              "en": "Ten new English words",
+              "zh": "十個新的英文單字"
+            },
+            {
+              "en": "A sheet of graph paper for each student",
+              "zh": "每個學生一張方格紙"
+            }
+          ],
+          "steps": [
+            {
+              "en": "Learn the ten words on Monday and test yourself right away. Mark your score.",
+              "zh": "星期一學這十個字，馬上考自己一次，把分數標上去。"
+            },
+            {
+              "en": "Test yourself again on Tuesday, on Thursday, and on the next Monday, without looking first.",
+              "zh": "星期二、星期四和下星期一各再考一次，考之前不要先看。"
+            },
+            {
+              "en": "After each test, check your answers and study the words you missed.",
+              "zh": "每次考完對答案，把錯的字再學一次。"
+            },
+            {
+              "en": "Join the marks with a line. What shape does it make?",
+              "zh": "把這些點連成一條線。它是什麼形狀？"
+            }
+          ],
+          "tip_en": "Teaching tip: because each test is itself practice, most students' lines dip and then climb back, a picture of the lesson in their own handwriting. Keep the graphs private; the point is each student's own line, not a comparison between students.",
+          "tip_zh": "教學提示：每一次測驗本身就是練習，所以大部分學生的線會先往下、再爬回來——這一課的內容，由他們自己親手畫了出來。圖表請讓學生自己保留；重點是每個人自己的那條線，不是學生之間的比較。"
+        }
+      ],
+      "culture": {
+        "title_en": "Review the Old to Know the New",
+        "title_zh": "溫故知新",
+        "body_en": "Two and a half thousand years ago, Confucius gave two pieces of advice that today's memory scientists would cheer. The first is 學而時習之 (xué ér shí xí zhī): “Learn, and practice what you have learned again and again.” The second is 溫故而知新 (wēn gù ér zhī xīn): “Go back over the old, and you will understand the new.” English and Chinese also agree, wrongly, about where memories are kept. In English you learn a poem “by heart.” In Chinese you 記在心裡 (jì zài xīnlǐ), “keep it in your heart.” Both languages chose the heart. Now you know that it is really the brain.",
+        "body_zh": "兩千五百年前，孔子說過兩句話，今天研究記憶的科學家聽了都會鼓掌。第一句是「學而時習之」：學了之後，要時常拿出來練習。第二句是「溫故而知新」：把舊的重溫一遍，就會懂得新的。另外，英文和中文還不約而同地搞錯了記憶放在哪裡：英文說把一首詩 learn by heart（用心背下來），中文說「記在心裡」。兩種語言都選了心臟——現在你知道，其實是大腦。",
+        "link_en": "More Chinese health words in English",
+        "link_zh": "到中醫養生系列看更多"
+      },
+      "health_en": "This lesson is for learning about the body. It is not medical advice, and the word experiment is not a test of how good anyone's memory is. Everybody forgets: that is how memory works. Compare your scores only with your own.",
+      "health_zh": "本課是認識身體的教材，不是醫療建議；單字實驗也不是在測驗誰的記憶力好不好。每個人都會忘記——記憶本來就是這樣運作的。分數只和自己的比。"
     }
   ]
 }
