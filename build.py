@@ -11569,7 +11569,7 @@ def build_earth_hub():
 _lifej = os.path.join(ROOT, "data", "life.json")
 LIFE = json.load(open(_lifej, encoding="utf-8")) if os.path.exists(_lifej) else None
 LIFE_BASE = "/resources/classes/life/"
-_LIFE_JS = {"leaf": "life-leaf", "cell": "life-cell", "dna": "life-dna", "germ": "life-germ", "seed": "life-seed", "flower": "life-flower"}   # lab.kind → assets/js/<bundle>.js
+_LIFE_JS = {"leaf": "life-leaf", "cell": "life-cell", "dna": "life-dna", "germ": "life-germ", "seed": "life-seed", "flower": "life-flower", "tree": "life-tree"}   # lab.kind → assets/js/<bundle>.js
 
 def _life_ver():
     h = hashlib.md5()
@@ -11991,9 +11991,75 @@ def _life_guesser(gs):
             f'</div></div>'
             '<noscript><p class="muted">This tool works in your browser and needs JavaScript. · 這個小工具在瀏覽器裡運作，需要開啟 JavaScript。</p></noscript>')
 
-_LIFE_LAB = {"leaf": render_lifeleaf_lab, "cell": render_lifecell_lab, "dna": render_lifedna_lab, "germ": render_lifegerm_lab, "seed": render_lifeseed_lab, "flower": render_lifeflower_lab}          # lab.kind → 3D 面板
-_LIFE_ICON = {"leaf": lifeleaf_svg, "cell": lifecell_svg, "dna": lifedna_svg, "germ": lifegerm_svg, "seed": lifeseed_svg, "flower": lifeflower_svg}                 # lesson.card → 課程卡小圖示
-_LIFE_WIDGETS = [("recipe", _life_recipe), ("sorter", _life_sorter), ("coder", _life_coder), ("ruler", _life_ruler), ("waker", _life_waker), ("guesser", _life_guesser)]               # lesson 裡有這個 key 就多一段（照這裡的順序）
+def lifetree_svg(size=56):
+    """第七課的課程卡小圖示：一棵樹，樹幹裡一串藍色的水珠往上走。"""
+    return (f'<svg class="lifetree-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">'
+            '<circle cx="30" cy="20" r="16" fill="#3f9f48"/><circle cx="17" cy="27" r="9" fill="#3f9f48"/><circle cx="43" cy="27" r="9" fill="#3f9f48"/>'
+            '<rect x="25" y="28" width="10" height="26" rx="3" fill="#8a5a3a"/>'
+            '<circle cx="30" cy="50" r="2.4" fill="#4fb4ff"/><circle cx="30" cy="43" r="2.4" fill="#4fb4ff"/><circle cx="30" cy="36" r="2.4" fill="#4fb4ff"/><circle cx="30" cy="29" r="2.4" fill="#4fb4ff"/>'
+            '<path d="M30 22v-9M26 17l4-5 4 5" stroke="#d7ecff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>')
+
+def render_lifetree_lab(lesson):
+    """第七課：一棵樹的剖面，水珠一串從根到葉；陽光、空氣溼度、土裡的水三支滑桿決定水走多快（assets/js/life-tree.js 綁這裡的 class；全部自繪示意）。"""
+    lab = lesson["lab"]
+    msgs = "".join(f'<p class="cp-msg lf-tr-msg" data-msg="{k}" hidden>{html.escape(m["en"])}<span class="zh">{html.escape(m["zh"])}</span></p>' for k, m in lab["msgs"].items())
+    tg = _lab_toggles([("labels", "Labels", "標示", True)])
+    return f'''<div class="astro-lab cp-lab lf-lab lf-tr-lab rvl" data-lifetree-lab>
+  <div class="al-stage">
+    <div class="al-space">
+      <canvas class="al-space-cv" aria-label="3D cutaway of a tree: a thread of water drops runs from the roots up through the trunk to the leaves, where it leaves as vapor; the sun, the dampness of the air, and the water in the soil set how fast it moves · 一棵樹的 3D 剖面：一串水珠從根經過樹幹到葉子，在葉子變成水氣散出去；陽光、空氣的溼度和土裡的水決定它走多快"></canvas>
+      <div class="al-labels" aria-hidden="true"></div>
+      <p class="al-hint">Drag to turn · 拖曳旋轉　Scroll or pinch to zoom · 滾輪／雙指縮放</p>
+      <button type="button" class="al-home" title="Reset view · 重設視角" aria-label="Reset view · 重設視角">&#8634;</button>
+      <p class="al-nogl-msg">This 3D model needs WebGL, which this browser does not support. The reading and the cards below still explain everything.<br><span class="zh">這個瀏覽器不支援 WebGL，無法顯示 3D 模型；下方的課文與卡片一樣能看懂。</span></p>
+    </div>
+    <aside class="al-sky cp-aside">
+      <p class="al-sky-k">What sets the pull · 什麼決定拉力</p>
+      <label class="al-slider cp-is-yrow"><span>1 · Sunlight · 陽光 <output class="lf-tr-sun-out">80%</output></span>
+        <input type="range" class="al-age lf-tr-sun" min="0" max="100" step="1" value="80"></label>
+      <label class="al-slider cp-is-yrow"><span>2 · Dampness of the air · 空氣的溼度 <output class="lf-tr-humid-out">40%</output></span>
+        <input type="range" class="al-age lf-tr-humid" min="0" max="100" step="1" value="40"></label>
+      <label class="al-slider cp-is-yrow"><span>3 · Water in the soil · 土裡的水 <output class="lf-tr-soil-out">80%</output></span>
+        <input type="range" class="al-age lf-tr-soil" min="0" max="100" step="1" value="80"></label>
+      <div class="cp-ht-meter"><p class="lf-k">How fast the water is rising · 水上升的速度</p><div class="cp-ht-bar"><i class="lf-tr-bar"></i></div><p class="cp-ht-status lf-tr-status"></p></div>
+      <dl class="cp-nums cp-lt-nums lf-nums">
+        <div><dt>Pores in the leaves · 葉子上的氣孔</dt><dd class="lf-tr-pores"></dd></div>
+        <div><dt>Held back by · 被什麼卡住</dt><dd class="lf-tr-hold"></dd></div>
+      </dl>
+      {msgs}
+    </aside>
+  </div>
+  <div class="al-controls">
+    <div class="al-row al-row-main">
+      <button type="button" class="al-play" aria-pressed="true"><span class="al-play-i" aria-hidden="true"></span><span class="al-play-t">Pause · 暫停</span></button>
+      <div class="al-row al-toggles">{tg}</div>
+    </div>
+  </div>
+  {_lab_foot(lab)}
+  <p class="cp-credit">{lab["credit_html"]}</p>
+</div>'''
+
+def _life_climber(cl):
+    """「這棵樹有幾根吸管那麼高？」（life-tree.js 的 initClimber；選一棵樹，和「從上面吸最多約 10 公尺」比；不需要 WebGL）。"""
+    items = html.escape(json.dumps(cl["items"], ensure_ascii=False))
+    picks = "".join(f'<button type="button" data-k="{it["key"]}" aria-pressed="false">{html.escape(it["en"])}<small>{html.escape(it["zh"])}</small></button>' for it in cl["items"])
+    return (f'<div class="cp-cnt lf-cl rvl" data-life-climber data-start="{cl["start"]}" data-items="{items}">'
+            f'<div class="cp-cnt-in">'
+            f'<p class="cp-cnt-l cp-sun-l"><span>Choose a tree · 選一棵樹</span></p>'
+            f'<div class="lf-cl-wrap"><div class="lf-cl-pick" role="group" aria-label="Which tree · 哪一棵樹">{picks}</div>'
+            f'<div class="lf-cl-pic" aria-hidden="true"><i class="lf-cl-tree"></i><i class="lf-cl-limit"></i><span class="lf-cl-cap">10 m</span></div></div>'
+            f'<p class="cp-cnt-note">{html.escape(cl["note_en"])}<span class="zh">{html.escape(cl["note_zh"])}</span></p></div>'
+            f'<div class="cp-home-out cp-cnt-out lf-cl-out" aria-live="polite">'
+            f'<p class="cp-home-k">This tree is · 這棵樹的高度是</p>'
+            f'<p class="cp-home-big"><span class="lf-cl-n"></span> ×</p>'
+            f'<p class="cp-home-sub">the height that suction alone can lift water, at <b class="lf-cl-h"></b> tall<span class="zh"> · 「只靠吸」能把水抬高的高度的這麼多倍</span></p>'
+            f'<p class="cp-home-note"><span class="lf-cl-en"></span><span class="zh lf-cl-zh"></span></p>'
+            f'</div></div>'
+            '<noscript><p class="muted">This tool works in your browser and needs JavaScript. · 這個小工具在瀏覽器裡運作，需要開啟 JavaScript。</p></noscript>')
+
+_LIFE_LAB = {"leaf": render_lifeleaf_lab, "cell": render_lifecell_lab, "dna": render_lifedna_lab, "germ": render_lifegerm_lab, "seed": render_lifeseed_lab, "flower": render_lifeflower_lab, "tree": render_lifetree_lab}          # lab.kind → 3D 面板
+_LIFE_ICON = {"leaf": lifeleaf_svg, "cell": lifecell_svg, "dna": lifedna_svg, "germ": lifegerm_svg, "seed": lifeseed_svg, "flower": lifeflower_svg, "tree": lifetree_svg}                 # lesson.card → 課程卡小圖示
+_LIFE_WIDGETS = [("recipe", _life_recipe), ("sorter", _life_sorter), ("coder", _life_coder), ("ruler", _life_ruler), ("waker", _life_waker), ("guesser", _life_guesser), ("climber", _life_climber)]               # lesson 裡有這個 key 就多一段（照這裡的順序）
 
 def _life_flat():
     return [(ui, u, l) for ui, u in enumerate(LIFE["units"]) for l in u["lessons"]]
