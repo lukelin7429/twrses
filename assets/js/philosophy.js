@@ -2271,6 +2271,65 @@
     var hm = /[#&]discount=([\d.]+)/.exec(location.hash); if (hm) root.__lab.set(+hm[1]);
   });
 
+  /* ---- A39：寫一本規則書（一條規則走過五個情境） ---- */
+  $$('[data-ph-rulebook]').forEach(function (root) {
+    var D;
+    try { D = JSON.parse($('[data-ru-data]', root).textContent); } catch (e) { return; }
+    var rbox = $('[data-ru-rules]', root), cbox = $('[data-ru-cases]', root), out = $('[data-ru-out]', root), triedBox = $('[data-ru-tried]', root);
+    var rule, votes, tried;
+    function zhp(parent, t) { var z = el('p', 'ph-zh', t); z.lang = 'zh-Hant'; parent.appendChild(z); addTr(z); }
+    function bi(elm, o) { elm.textContent = ''; elm.appendChild(document.createTextNode(o.en + ' ')); var z = el('i', '', o.zh); z.lang = 'zh-Hant'; elm.appendChild(z); }
+    function pair(tag, cls, o) { var e = el(tag, cls); e.appendChild(el('b', '', o.en)); var z = el('span', '', o.zh); z.lang = 'zh-Hant'; e.appendChild(z); return e; }
+    function R(k) { return D.rules.filter(function (x) { return x.k === k; })[0]; }
+    function count() { return D.cases.filter(function (c) { return votes[c.k] === true; }).length; }
+    function done() { return D.cases.every(function (c) { return votes[c.k] != null; }); }
+    function drawCases() {
+      cbox.textContent = ''; if (!rule) return;
+      var shown = 0;
+      D.cases.forEach(function (c, i) {
+        if (i > 0 && votes[D.cases[i - 1].k] == null) return;
+        shown++;
+        var card = el('div', 'ph-ru-case' + (votes[c.k] === true ? ' is-ok' : votes[c.k] === false ? ' is-no' : ''));
+        var h = el('p', 'ph-ru-h'); h.appendChild(el('em', '', (i + 1) + ' / ' + D.cases.length)); h.appendChild(el('b', '', c.t.en)); var hz = el('span', '', c.t.zh); hz.lang = 'zh-Hant'; h.appendChild(hz); card.appendChild(h);
+        card.appendChild(el('p', 'ph-ru-s', c.s.en)); zhp(card, c.s.zh);
+        var act = el('div', 'ph-ru-act'); var lab = el('p', 'ph-ru-l'); bi(lab, D.does); act.appendChild(lab);
+        act.appendChild(el('p', 'ph-ru-a', '… ' + c.a[rule].en)); zhp(act, '……' + c.a[rule].zh); card.appendChild(act);
+        var bt = el('div', 'ph-ru-vote');
+        [[true, D.ok, 'ok'], [false, D.no, 'no']].forEach(function (p) {
+          var b = pair('button', 'ph-ru-btn is-' + p[2], p[1]); b.type = 'button'; b.setAttribute('aria-pressed', votes[c.k] === p[0] ? 'true' : 'false');
+          b.addEventListener('click', function () { votes[c.k] = p[0]; drawCases(); result(); });
+          bt.appendChild(b);
+        });
+        card.appendChild(bt); cbox.appendChild(card);
+      });
+    }
+    function result() {
+      out.textContent = ''; if (!rule || !done()) { drawTried(); return; }
+      var n = count(), r = R(rule); tried[rule] = n;
+      var e = el('div', 'ph-el-end'); var q = el('p', 'ph-vl-q'); q.appendChild(el('b', '', D.res.score.en.replace('{n}', n))); var qz = el('span', '', D.res.score.zh.replace('{n}', n)); qz.lang = 'zh-Hant'; q.appendChild(qz); e.appendChild(q);
+      var card = el('div', 'ph-vl-card is-valid'); card.appendChild(el('p', 'ph-ru-who', r.who.en + ' · ' + r.who.zh)); card.appendChild(el('p', '', r.v.en)); zhp(card, r.v.zh); e.appendChild(card);
+      if (Object.keys(tried).length === D.rules.length) { var all = el('div', 'ph-ru-all'); all.appendChild(el('p', '', D.res.all.en)); zhp(all, D.res.all.zh); e.appendChild(all); }
+      out.appendChild(e); drawTried();
+    }
+    function drawTried() {
+      var ks = D.rules.filter(function (r) { return tried[r.k] != null; });
+      triedBox.hidden = !ks.length; triedBox.textContent = ''; if (!ks.length) return;
+      var h = el('p', 'ph-ru-th'); bi(h, D.res.tried); triedBox.appendChild(h);
+      ks.forEach(function (r) { var row = el('div', 'ph-ru-tr'); row.appendChild(pair('span', 'nm', r.t)); var s = el('span', 'sc'); for (var i = 0; i < D.cases.length; i++) s.appendChild(el('u', i < tried[r.k] ? 'on' : '')); s.appendChild(el('b', '', tried[r.k] + ' / ' + D.cases.length)); row.appendChild(s); triedBox.appendChild(row); });
+      $$('button', rbox).forEach(function (x) { x.classList.toggle('is-done', tried[x.getAttribute('data-k')] != null); });
+    }
+    function choose(k) { rule = k; votes = {}; out.textContent = ''; $$('button', rbox).forEach(function (x) { x.classList.toggle('is-right', x.getAttribute('data-k') === k); }); drawCases(); drawTried(); }
+    rbox.textContent = '';
+    D.rules.forEach(function (r) { var bt = pair('button', 'ph-vl-opt', r.t); bt.type = 'button'; bt.setAttribute('data-k', r.k); bt.addEventListener('click', function () { choose(r.k); }); rbox.appendChild(bt); });
+    bi($('[data-ru-pick]', root), D.pick);
+    function reset() { rule = null; votes = {}; tried = {}; cbox.textContent = ''; out.textContent = ''; $$('button', rbox).forEach(function (x) { x.classList.remove('is-right'); x.classList.remove('is-done'); }); drawTried(); }
+    $('[data-ru-reset]', root).addEventListener('click', reset);
+    reset();
+    root.__lab = { state: function () { return { rule: rule, votes: D.cases.map(function (c) { return votes[c.k] == null ? null : votes[c.k]; }), done: !!rule && done(), score: rule && done() ? count() : null, tried: JSON.parse(JSON.stringify(tried)) }; },
+      run: function (k, pattern) { choose(k); D.cases.forEach(function (c, i) { votes[c.k] = pattern.charAt(i) === '1'; }); drawCases(); result(); return this.state(); } };
+    var hm = /[#&]rulebook=([a-z]+)(?:,([01]{5}))?/.exec(location.hash); if (hm && R(hm[1])) { if (hm[2]) root.__lab.run(hm[1], hm[2]); else choose(hm[1]); }
+  });
+
   /* ---- A13：去火星三趟（帕菲特的傳送機） ---- */
   $$('[data-ph-teleport]').forEach(function (root) {
     var D;

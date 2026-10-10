@@ -8715,7 +8715,23 @@ def _ph_lab_discount(lab):
   </div>
 </div>"""
 
+def _ph_lab_rulebook(lab):
+    """A39：寫一本規則書。選一條規則，機器人照它走過五個情境；每個情境由讀者判斷能不能接受。四條都試過之後給總結。"""
+    payload = html.escape(json.dumps({k: lab[k] for k in ("pick", "does", "ok", "no", "rules", "cases", "res")}, ensure_ascii=False), quote=False)
+    return f"""<div class="ph-el ph-ru rvl" data-ph-rulebook>
+  <script type="application/json" data-ru-data>{payload}</script>
+  <div class="ph-el-stage">
+    <p class="ph-ru-step" data-ru-pick></p>
+    <div class="ph-ru-rules" data-ru-rules></div>
+    <div class="ph-ru-cases" data-ru-cases aria-live="polite"></div>
+    <div data-ru-out aria-live="polite"></div>
+    <div class="ph-ru-tried" data-ru-tried hidden></div>
+    <div class="ph-el-foot"><button type="button" class="ph-el-reset" data-ru-reset>Start again · 重來</button></div>
+  </div>
+</div>"""
+
 def _ph_lab(lab):
+    if lab.get("kind") == "rulebook": return _ph_lab_rulebook(lab)
     if lab.get("kind") == "discount": return _ph_lab_discount(lab)
     if lab.get("kind") == "circle": return _ph_lab_circle(lab)
     if lab.get("kind") == "angles": return _ph_lab_angles(lab)

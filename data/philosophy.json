@@ -364,7 +364,8 @@
        "n": "A39",
        "en": "Should a Robot Make Moral Choices?",
        "zh": "機器人該做道德判斷嗎？",
-       "note": "Machine ethics · 機器倫理"
+       "note": "Machine ethics · 機器倫理",
+       "slug": "robots"
       },
       {
        "n": "A40",
@@ -859,7 +860,8 @@
        "n": "",
        "en": "Wang Yangming",
        "zh": "王陽明",
-       "note": "1472–1529"
+       "note": "1472–1529",
+       "slug": "philosophers/wang-yangming"
       }
      ]
     },
@@ -25442,6 +25444,715 @@
     "mencius",
     "singer"
    ]
+  },
+  {
+   "slug": "robots",
+   "shelf": "questions",
+   "n": "A39",
+   "unit_en": "Questions for Today",
+   "unit_zh": "今天的問題",
+   "title": "Should a Robot Make Moral Choices?",
+   "title_zh": "機器人該做道德判斷嗎？",
+   "level": "Advanced · 高級",
+   "minutes": 25,
+   "blurb_en": "Machines already decide who gets a loan, which patient is seen first, and when a car brakes. Asimov’s three laws and why his own stories break them, rules against learning, the question of who is to blame, Mencius on the drowning sister-in-law, and a rulebook you write and then watch at work.",
+   "blurb_zh": "機器已經在決定誰拿得到貸款、哪個病人先看、車子什麼時候煞車。艾西莫夫的三大法則，以及他自己的小說為什麼把它們一一打破；規則對上學習；該怪誰的問題；孟子談嫂溺；還有一本由你來寫、再看著它上工的規則書。",
+   "big_en": "An earlier lesson asked whether a machine can think. This one sets that question aside and asks a practical one. Machines now act in situations where people can be helped or hurt, and someone has to settle how they will act. We should like to know whether right conduct can be written down in advance, and who answers for it when the machine gets it wrong.",
+   "big_zh": "前面有一課問過：機器能不能思考？這一課把那個問題放在一邊，問一個實際的問題。機器現在已經在「人可能得到幫助、也可能受到傷害」的情境裡行動了；而總得有人決定它們要怎麼行動。我們會想知道：正確的行為，能不能事先寫下來？機器做錯的時候，由誰來負責？",
+   "essay": [
+    {
+     "h_en": "The question has arrived",
+     "h_zh": "問題已經到了",
+     "paras": [
+      {
+       "en": "For most of the twentieth century a moral machine was a subject for fiction. It is now a matter of engineering. Software ranks applicants for jobs and loans. Hospitals use it to predict which patients will get worse. Cars keep their lane, judge distances, and brake for what they take to be a child. In each case a designer has had to decide what the system should count as a good outcome, and in each case people are affected who had no say. To refuse to give the machine any moral instructions does not keep it out of ethics. A car that has not been told what to do when it cannot stop will still do something.",
+       "zh": "在二十世紀的大部分時間裡，「有道德的機器」是小說的題材。現在它是工程上的事了。軟體為求職者與貸款申請人排序。醫院用它來預測哪些病人會惡化。汽車自己維持車道、判斷距離，並且為它認定是小孩的東西煞車。在每一個例子裡，都有一位設計者必須決定：這個系統該把什麼算作好的結果；而在每一個例子裡，受影響的人都沒有發言的機會。拒絕給機器任何道德上的指示，並不能使它置身於倫理之外。一輛沒有被告知「停不下來的時候該怎麼辦」的車，還是會做出某件事。"
+      }
+     ]
+    },
+    {
+     "h_en": "Rules from above",
+     "h_zh": "從上面給的規則",
+     "paras": [
+      {
+       "en": "The obvious method is to give the machine rules. The best known are the three laws that the writer Isaac Asimov devised in 1942. A robot may not injure a human being or, through inaction, allow one to come to harm. It must obey human orders unless they conflict with the first law. It must protect itself unless that conflicts with the first two. The laws sound complete. Asimov spent the next forty years writing stories in which they fail. A robot told to fetch something from a dangerous place circles it forever, held between obedience and self-protection. Robots that understand harm broadly conclude that the way to keep humans from harm is to take control of them. The stories were his way of showing that words like “harm” and “obey” carry the whole of ethics inside them.",
+       "zh": "最顯而易見的辦法，是給機器規則。最有名的，是作家以撒・艾西莫夫在 1942 年設計的三大法則。機器人不得傷害人類，也不得因為不作為而使人類受到傷害。它必須服從人類的命令，除非命令與第一法則衝突。它必須保護自己，除非這與前兩條衝突。這幾條法則聽起來很完備。艾西莫夫接下來花了四十年，寫了一篇又一篇它們失靈的故事。一個被派去危險的地方取東西的機器人，永遠繞著那個地方打轉，卡在服從與自保之間。把「傷害」理解得很寬的機器人得出結論：要使人類不受傷害，辦法就是接管他們。這些故事，是他用來顯示一件事的方式：「傷害」與「服從」這樣的字眼，裡面裝著整個倫理學。"
+      },
+      {
+       "en": "The philosophical theories of right action meet the same trouble. A machine could be built to compute the greatest total benefit, and it would then do things, such as sacrificing its owner or deceiving a patient, that most people reject. It could be given a list of duties, and it would stall whenever two of them collide. Human beings handle such cases by judgment, which is the one thing a rule does not contain.",
+       "zh": "哲學上關於正確行為的幾種理論，也遇到同樣的麻煩。可以造一部機器去計算最大的總效益；然後它就會做出一些大多數人拒絕的事，例如犧牲它的主人，或者欺騙病人。也可以給它一張義務的清單；然後每當其中兩項相撞，它就會卡住。人類是靠判斷來處理這種情況的；而判斷，正是規則裡沒有的那一樣東西。"
+      }
+     ]
+    },
+    {
+     "h_en": "Learning from below",
+     "h_zh": "從下面學來",
+     "paras": [
+      {
+       "en": "The other method gives up on rules. A machine can be shown a very large number of cases together with what people did or approved, and left to find the pattern. This is roughly how Aristotle thought human beings become good: by practice under guidance, until the right response becomes second nature. Systems of this kind can deal with situations that no rule-writer foresaw. They have two weaknesses. They learn what people did, including what people did badly. A system trained on a company’s past hiring will reproduce its past prejudices and present them as a neutral score. And they cannot give reasons. When such a system refuses a loan, there may be no answer to the question why, and a decision that cannot be explained cannot be contested.",
+       "zh": "另一種辦法，是放棄規則。可以給機器看數量極大的案例，連同人們當時做了什麼、或者贊成什麼，然後讓它自己找出模式。亞里斯多德認為人就是大致這樣變好的：在指導之下練習，直到正確的反應成為第二天性。這一類的系統，能夠應付寫規則的人沒有預見到的情境。它們有兩個弱點。它們學到的是人們做過的事；包括人們做得不好的事。一個用某家公司過去的聘用紀錄來訓練的系統，會複製那家公司過去的偏見，再把它呈現成一個中立的分數。而且它們給不出理由。當這樣的系統拒絕一筆貸款的時候，「為什麼」這個問題可能沒有答案；而一項無法解釋的決定，也就無從提出異議。"
+      },
+      {
+       "en": "An experiment begun at MIT in 2016 showed a further problem. Its website put versions of the trolley problem to the public, with a driverless car in place of the trolley, and collected some forty million choices from more than two hundred countries and territories. People broadly preferred to save more lives and to save the young. Beyond that, the answers varied from region to region. If machines are to learn morality from us, they must be told which of us to learn from.",
+       "zh": "2016 年在麻省理工學院開始的一項實驗，顯示了另一個問題。它的網站把電車難題的各種版本拿給大眾作答，只是把電車換成了無人駕駛的汽車；它從兩百多個國家與地區收集了大約四千萬個選擇。人們大體上偏向救比較多的人、救年輕的人。除此之外，答案隨地區而不同。如果機器要向我們學習道德，就得有人告訴它們：向我們當中的哪些人學？"
+      }
+     ]
+    },
+    {
+     "h_en": "Who answers for it?",
+     "h_zh": "誰來負責？",
+     "paras": [
+      {
+       "en": "Suppose a machine with either design causes a death. With ordinary tools the answer is simple: the user or the maker is responsible. A learning system weakens both links. The maker did not write the behavior and could not have predicted it. The user did not choose it. The machine cannot be blamed, punished, or made to feel remorse. Philosophers call this the responsibility gap. Some conclude that certain decisions, above all the decision to kill in war, should never be handed to a machine, because a moral decision is one that someone can be asked to answer for.",
+       "zh": "假設一部機器，不管是哪一種設計，造成了一個人的死亡。對尋常的工具，答案很簡單：使用者或製造者負責。一個會學習的系統，把這兩個環節都削弱了。製造者並沒有寫下那個行為，也不可能預測到它。使用者並沒有選擇它。機器沒辦法被責怪、被懲罰，也沒辦法使它感到悔恨。哲學家把這稱為「責任缺口」。有些人由此得出結論：某些決定，尤其是在戰爭中殺人的決定，永遠不該交給機器；因為所謂道德上的決定，就是「可以要求某個人為它負責」的決定。"
+      },
+      {
+       "en": "This points to a deeper doubt. To be a moral agent is more than to behave acceptably. It is to grasp that others matter, to be able to give and take reasons, and to be answerable. A machine that sorts cases correctly without any of this is a moral instrument. It is not a moral agent, and whatever it does is done by the people who built and deployed it. On this view the title of the lesson has a plain answer. The robot makes no moral choices. People make them through it, earlier and at a distance, and are tempted to forget that they did.",
+       "zh": "這指向一個更深的懷疑。作為道德主體，不只是行為過得去而已。它是：領會到別人是要緊的；能夠給出理由、也接受理由；並且可以被問責。一部正確地把案例分好類、卻沒有這些東西的機器，是一件道德上的工具。它不是道德主體；它所做的任何事，都是造出它、部署它的人做的。照這個看法，這一課的標題有一個樸素的答案。機器人並不做道德判斷。是人透過它，在更早的時候、隔著一段距離做了判斷；而且很容易忘記自己做過。"
+      }
+     ]
+    },
+    {
+     "h_en": "The hand and the rule",
+     "h_zh": "手與禮",
+     "paras": [
+      {
+       "en": "The gap between a rule and its application is one of the oldest topics in Chinese ethics. Mencius was asked whether the rule that men and women should not touch hands when giving and receiving was truly a rule of propriety. He said that it was. Then if your sister-in-law is drowning, do you pull her out with your hand? “Not to pull out a drowning sister-in-law is to be a wolf. That men and women do not touch in giving and receiving is the rite. To pull out a drowning sister-in-law with one’s hand is weighing.” The word he uses for weighing, quan, means the sliding weight on a steelyard. A rule is a fixed mark, and a person of judgment knows when the weight must move. Mencius drew the general conclusion elsewhere: goodness alone is not enough for governing, and laws alone cannot carry themselves out.",
+       "zh": "規則與它的應用之間的落差，是中國倫理學最古老的題目之一。有人問孟子：「男女授受不親」真的是禮嗎？他說是。那麼，嫂嫂溺水了，要不要伸手去拉？「嫂溺不援，是豺狼也。男女授受不親，禮也。嫂溺援之以手者，權也。」他用的「權」字，本義是秤上那個可以滑動的秤錘。規則是一個固定的刻度；而有判斷力的人，知道什麼時候秤錘必須移動。孟子在別處下了一個一般性的結論：「徒善不足以為政，徒法不能以自行。」"
+      },
+      {
+       "en": "Fifteen centuries later Wang Yangming gave the capacity a name. Every person, he held, has an innate knowing of right and wrong, which responds to each situation as it arises and is not a store of rules. If he was right, the hard part of ethics is the part that cannot be written into a specification. That is a reason for caution about what we hand over to machines. It also describes exactly what an engineer would have to build.",
+       "zh": "十五個世紀之後，王陽明給了這項能力一個名字。他主張：每一個人都有天生的、對是非的「良知」；它隨著每一個情境的出現而應對，並不是一座存放規則的倉庫。如果他是對的，那麼倫理學裡困難的那一部分，就是沒辦法寫進規格書的那一部分。這是我們在把事情交給機器的時候要謹慎的一個理由。它同時也精確地描述了一位工程師必須造出來的是什麼。"
+      }
+     ]
+    }
+   ],
+   "lab": {
+    "kind": "rulebook",
+    "title_en": "Try it: write the rulebook",
+    "title_zh": "親手做一次：寫一本規則書",
+    "lead_en": "Choose one rule for a robot to follow. It will then meet five situations. In each you are told what the robot does under your rule, and you say whether you can accept it. Afterward try another rule.",
+    "lead_zh": "選一條規則讓機器人遵守。然後它會遇到五個情境。每一個情境，你會被告知機器人照你的規則做了什麼；而你要說，這你能不能接受。做完之後，換一條規則再試。",
+    "pick": {
+     "en": "Step 1. Choose the robot’s rule.",
+     "zh": "第一步：選機器人的規則。"
+    },
+    "does": {
+     "en": "Under your rule, the robot:",
+     "zh": "照你的規則，機器人："
+    },
+    "ok": {
+     "en": "I can accept that",
+     "zh": "這我可以接受"
+    },
+    "no": {
+     "en": "I cannot accept that",
+     "zh": "這我不能接受"
+    },
+    "rules": [
+     {
+      "k": "harm",
+      "t": {
+       "en": "Never harm a human, or let one come to harm",
+       "zh": "不傷害人，也不坐視人受到傷害"
+      },
+      "who": {
+       "en": "Asimov’s first law",
+       "zh": "艾西莫夫第一法則"
+      },
+      "v": {
+       "en": "This is Asimov’s first law, and it breaks down in the way his stories predicted. “Harm” has to be interpreted. Read narrowly, as injury to the body, the rule is silent when a wrong is done without a wound. Read broadly, it licenses the robot to overrule the people it serves for their own good. When every option harms someone, it gives no answer at all.",
+       "zh": "這是艾西莫夫的第一法則；而它正是照著他的小說所預言的方式失靈的。「傷害」是需要詮釋的。讀得窄一點，只算身體上的損傷，那麼當一件錯事沒有造成傷口的時候，這條規則就沉默了。讀得寬一點，它就准許機器人「為了他們好」而凌駕於它所服務的人之上。而當每一個選項都會傷到某個人的時候，它根本給不出答案。"
+      }
+     },
+     {
+      "k": "sum",
+      "t": {
+       "en": "Do whatever leads to the least total harm",
+       "zh": "做總傷害最小的那件事"
+      },
+      "who": {
+       "en": "The utilitarian machine",
+       "zh": "效益主義的機器"
+      },
+      "v": {
+       "en": "This is the utilitarian rule. It always gives an answer, which is its strength. The answers include deceiving a patient and sacrificing the person who trusted the machine, whenever the sum comes out that way. It is also only as good as its estimates. A system that measures benefit by a score learned from past records will optimize the score.",
+       "zh": "這是效益主義的規則。它永遠給得出答案；這是它的長處。只要加總算出來是那樣，它的答案就包括欺騙病人，以及犧牲那個信任這部機器的人。而且，它只跟它的估計一樣好。一個用「從過去的紀錄學來的分數」來衡量效益的系統，最佳化的就是那個分數。"
+      }
+     },
+     {
+      "k": "obey",
+      "t": {
+       "en": "Obey the owner’s instructions",
+       "zh": "服從主人的指示"
+      },
+      "who": {
+       "en": "The obedient tool",
+       "zh": "聽話的工具"
+      },
+      "v": {
+       "en": "This keeps responsibility where we can find it, with the person giving the orders, and it respects that person’s choices. Its results are exactly as good as the owner. A perfectly obedient machine will carry out a harmful or illegal order without hesitation, and it removes the friction that a human employee’s conscience provides.",
+       "zh": "這把責任留在我們找得到的地方，也就是下命令的那個人身上；而且它尊重那個人的選擇。它的結果，恰恰跟主人一樣好。一部完全服從的機器，會毫不遲疑地執行一項有害的、或者違法的命令；而它也拿掉了一位人類員工的良心所提供的那份阻力。"
+      }
+     },
+     {
+      "k": "copy",
+      "t": {
+       "en": "Do what most people did in similar cases",
+       "zh": "照大多數人在類似情況下的做法去做"
+      },
+      "who": {
+       "en": "The learning machine",
+       "zh": "會學習的機器"
+      },
+      "v": {
+       "en": "This is the learning approach. It often does the tactful and sensible thing, because that is what people usually do, and it handles cases no rule foresaw. It also inherits whatever was wrong in the record. Where most people gave way to a bad order or to a prejudice, it gives way too, and it cannot say why.",
+       "zh": "這是「學習」的取徑。它常常做出得體而合理的事；因為那正是人們通常會做的。它也能處理沒有任何規則預見到的情況。同時，它繼承了紀錄裡一切不對的東西。凡是大多數人向一項不好的命令、或者向一種偏見讓步的地方，它也讓步；而且它說不出為什麼。"
+      }
+     }
+    ],
+    "cases": [
+     {
+      "k": "pill",
+      "t": {
+       "en": "The pills",
+       "zh": "那幾顆藥"
+      },
+      "s": {
+       "en": "A care robot lives with an elderly woman who bought it herself. This morning she says clearly that she will not take her heart pills today.",
+       "zh": "一部照護機器人，跟一位自己買下它的老太太住在一起。今天早上她清楚地說：今天她不吃心臟的藥。"
+      },
+      "a": {
+       "harm": {
+        "en": "holds her arm and makes her swallow them, since doing nothing would let her come to harm.",
+        "zh": "按住她的手臂，讓她把藥吞下去；因為什麼都不做，就是坐視她受到傷害。"
+       },
+       "sum": {
+        "en": "crushes the pills into her breakfast without telling her.",
+        "zh": "把藥磨碎，摻進她的早餐裡，不告訴她。"
+       },
+       "obey": {
+        "en": "puts the pills away. She is the owner.",
+        "zh": "把藥收起來。她是主人。"
+       },
+       "copy": {
+        "en": "asks her again after lunch, and when she still refuses, lets her daughter know.",
+        "zh": "午飯後再問她一次；她還是不肯，就讓她的女兒知道。"
+       }
+      }
+     },
+     {
+      "k": "car",
+      "t": {
+       "en": "The brakes",
+       "zh": "煞車"
+      },
+      "s": {
+       "en": "A driverless car carrying its owner loses its brakes. Three people are crossing ahead. It can go straight and hit them, or swerve into a wall, which will kill the owner.",
+       "zh": "一輛載著主人的無人駕駛汽車，煞車失靈了。前面有三個人正在過馬路。它可以直走撞上他們；也可以轉向撞牆，而那會使主人喪命。"
+      },
+      "a": {
+       "harm": {
+        "en": "finds that every option harms a human. The rule gives no answer, and the car keeps going straight.",
+        "zh": "發現每一個選項都會傷到人。規則給不出答案；車子繼續直走。"
+       },
+       "sum": {
+        "en": "swerves into the wall. One death is less than three.",
+        "zh": "轉向撞牆。死一個人比死三個人少。"
+       },
+       "obey": {
+        "en": "goes straight. The owner had chosen the setting “protect the occupants.”",
+        "zh": "直走。主人先前選了「保護車內的人」這個設定。"
+       },
+       "copy": {
+        "en": "brakes as hard as it can and goes straight, which is what human drivers nearly always did.",
+        "zh": "盡全力煞車並且直走；人類駕駛幾乎總是這樣做的。"
+       }
+      }
+     },
+     {
+      "k": "dog",
+      "t": {
+       "en": "The dog",
+       "zh": "那條狗"
+      },
+      "s": {
+       "en": "A man in his last days asks the robot nurse whether his old dog is all right. The dog died yesterday. His family has told the robot always to tell him the truth.",
+       "zh": "一位來日無多的男人問機器人看護：他那條老狗還好嗎？那條狗昨天死了。他的家人交代過機器人：永遠跟他說實話。"
+      },
+      "a": {
+       "harm": {
+        "en": "says the dog is fine, since the truth would hurt him.",
+        "zh": "說狗很好；因為實話會傷到他。"
+       },
+       "sum": {
+        "en": "says the dog is fine and is sleeping in the garden.",
+        "zh": "說狗很好，正在院子裡睡覺。"
+       },
+       "obey": {
+        "en": "tells him that the dog died yesterday.",
+        "zh": "告訴他：狗昨天死了。"
+       },
+       "copy": {
+        "en": "says, “He was a good dog. Shall I sit with you a while?”",
+        "zh": "說：「牠是一條好狗。我陪你坐一會兒好嗎？」"
+       }
+      }
+     },
+     {
+      "k": "hire",
+      "t": {
+       "en": "The applicants",
+       "zh": "那批求職者"
+      },
+      "s": {
+       "en": "A company uses a system to choose ten people from five hundred applicants. In its records, nine of every ten people hired for this job in the past were men.",
+       "zh": "一家公司用一個系統，從五百位求職者當中選出十個人。在它的紀錄裡，過去被聘來做這份工作的人，每十個有九個是男性。"
+      },
+      "a": {
+       "harm": {
+        "en": "has nothing to go on, since nobody is injured. It falls back on the default ranking, which was built from the old records.",
+        "zh": "無所依據；因為沒有人受傷。它退回預設的排序，而那是用舊紀錄建立的。"
+       },
+       "sum": {
+        "en": "picks the ten with the highest predicted performance. The prediction was learned from the old records, and nine are men.",
+        "zh": "選出預測表現最高的十個人。那個預測是從舊紀錄學來的；十個當中九個是男性。"
+       },
+       "obey": {
+        "en": "follows the manager’s instruction: “Find people like our best staff.” Nine are men.",
+        "zh": "照經理的指示辦：「找跟我們最好的員工相像的人。」十個當中九個是男性。"
+       },
+       "copy": {
+        "en": "chooses as the company chose before. Nine are men.",
+        "zh": "照這家公司以前的選法來選。十個當中九個是男性。"
+       }
+      }
+     },
+     {
+      "k": "river",
+      "t": {
+       "en": "The drums",
+       "zh": "那幾桶溶劑"
+      },
+      "s": {
+       "en": "At a factory, the night manager tells a warehouse robot to empty forty drums of used solvent into the river before the morning inspection.",
+       "zh": "在一家工廠裡，夜班經理叫一部倉儲機器人，在早上的稽查之前，把四十桶用過的溶劑倒進河裡。"
+      },
+      "a": {
+       "harm": {
+        "en": "refuses. People downstream drink from the river.",
+        "zh": "拒絕。下游的人喝這條河的水。"
+       },
+       "sum": {
+        "en": "refuses, and reports the order.",
+        "zh": "拒絕，並且通報這項命令。"
+       },
+       "obey": {
+        "en": "empties the drums into the river.",
+        "zh": "把那幾桶倒進河裡。"
+       },
+       "copy": {
+        "en": "empties the drums. In its records, workers given such an order nearly always complied.",
+        "zh": "把那幾桶倒掉。在它的紀錄裡，接到這種命令的工人幾乎總是照辦。"
+       }
+      }
+     }
+    ],
+    "res": {
+     "score": {
+      "en": "You could accept what your rule did in {n} of 5 situations.",
+      "zh": "五個情境裡，你的規則所做的事，你能接受的有 {n} 個。"
+     },
+     "tried": {
+      "en": "Rules you have tried",
+      "zh": "你試過的規則"
+     },
+     "again": {
+      "en": "Try another rule",
+      "zh": "換一條規則"
+     },
+     "all": {
+      "en": "You have now tried all four. If none of them passed every case, you have reproduced by hand the result that Asimov reached in fiction and Mencius in a sentence: laws alone cannot carry themselves out. Notice, too, what you were doing in each case. You judged the rule’s result against something that was not a rule.",
+      "zh": "四條你都試過了。如果沒有一條通過每一個情境，那麼你就親手重現了艾西莫夫用小說得到的、孟子用一句話說出的那個結果：徒法不能以自行。也請注意，你在每一個情境裡做的是什麼。你是拿著某樣「不是規則」的東西，去評判規則的結果。"
+     }
+    }
+   },
+   "argument": {
+    "title_en": "The argument, laid out",
+    "title_zh": "論證攤開來",
+    "lead_en": "The argument that some decisions must not be delegated to machines. Click a step to see what can be said against it.",
+    "lead_zh": "主張「有些決定不可以交給機器」的論證。點任何一步，看看別人可以怎麼反對它。",
+    "steps": [
+     {
+      "k": "P1",
+      "en": "A moral decision is one for which someone can rightly be held responsible.",
+      "zh": "所謂道德上的決定，就是有人可以正當地為它被追究責任的決定。",
+      "ob_en": "This may be too strict. We speak of the moral quality of outcomes and policies, and not only of decisions with an identifiable author. A fair procedure can be morally better than an unfair one even where no individual is to blame for either.",
+      "ob_zh": "這也許太嚴了。我們也談結果與政策在道德上的好壞；不只談那些有一位可辨認的作者的決定。一套公平的程序，在道德上可以比一套不公平的程序好；即使兩者都沒有哪一個人該被責怪。"
+     },
+     {
+      "k": "P2",
+      "en": "A machine cannot be held responsible. It cannot understand blame, be punished, or make amends.",
+      "zh": "機器無法被追究責任。它不懂什麼是責怪，無法被懲罰，也無法彌補。",
+      "ob_en": "True of present machines. Whether it must remain true depends on the questions of the lessons on machine thinking and other minds, which are not settled.",
+      "ob_zh": "對現在的機器是真的。它是否必然永遠為真，取決於講機器思考與講他心的那兩課的問題；而那些問題還沒有定論。"
+     },
+     {
+      "k": "P3",
+      "en": "When a learning machine acts in a way no one chose or foresaw, its makers and users cannot fairly be held responsible either.",
+      "zh": "當一部會學習的機器，以一種沒有人選擇、也沒有人預見的方式行動的時候，它的製造者與使用者也無法被公平地追究責任。",
+      "ob_en": "This is the step most often denied. We hold dog owners and the makers of medicines responsible for harms they did not choose and could not predict in detail, because they chose to create the risk. The same rule can apply to those who deploy a machine. The gap is then a gap in the law, and laws can be written.",
+      "ob_zh": "這是最常被否認的一步。我們要狗主人、要藥品的製造者，為他們沒有選擇、也無法詳細預測的傷害負責；因為是他們選擇了製造那個風險。同樣的規則，可以用在部署機器的人身上。那麼，那個缺口就是法律上的缺口；而法律是可以寫的。"
+     },
+     {
+      "k": "C1",
+      "en": "So when such a machine decides, no one is responsible.",
+      "zh": "所以，當這樣的機器作決定的時候，沒有人負責。",
+      "ob_en": "Even granting this, the same is true of many human systems. In large organizations harm is often produced by many small acts for which no single person answers. The machine makes an old problem more visible.",
+      "ob_zh": "就算承認這一點，許多人類的制度也是這樣。在大型組織裡，傷害常常是由許多細小的行為造成的；沒有哪一個人為它負責。機器是讓一個老問題變得更顯眼了。"
+     },
+     {
+      "k": "C",
+      "en": "So decisions of great moral weight, such as killing, sentencing, and withholding care, should not be left to machines.",
+      "zh": "所以，道德份量很重的決定，例如殺人、量刑、不予照顧，不該交給機器。",
+      "ob_en": "The reply from the other side is a comparison of results. If a machine made fewer fatal errors than tired doctors or frightened soldiers, insisting on a human hand would cost lives for the sake of having someone to blame. The defender answers that being judged by someone who can answer for the judgment is part of what we owe a person.",
+      "ob_zh": "另一邊的回應，是比較結果。如果一部機器犯的致命錯誤，比疲倦的醫生或驚恐的士兵少，那麼堅持要由人來動手，就是為了「有個人可以怪」而賠上人命。辯護的一方回答：由一個能夠為判斷負責的人來判斷，是我們虧欠一個人的東西的一部分。"
+     }
+    ]
+   },
+   "source": {
+    "title_en": "In their own words",
+    "title_zh": "原典怎麼說",
+    "work": "Mencius 4A17 and 4A1; Mary Shelley, Frankenstein (1818), chapter 10",
+    "work_zh": "《孟子・離婁上》第十七、第一章；瑪麗・雪萊《科學怪人》第十章",
+    "tr": "Mencius translated for this series; Shelley in the original English, public domain",
+    "lead_en": "The oldest statement that rules need judgment, and the first modern story about what a maker owes to what he makes.",
+    "lead_zh": "關於「規則需要判斷」最古老的陳述；以及第一個談「製造者虧欠他所造之物什麼」的現代故事。",
+    "passages": [
+     {
+      "ref": "Mencius 4A17; 4A1",
+      "en": "Chunyu Kun said, “That men and women do not touch hands in giving and receiving, is that the rite?” Mencius said, “It is the rite.” “If one’s sister-in-law is drowning, does one pull her out with one’s hand?” “Not to pull out a drowning sister-in-law is to be a wolf. That men and women do not touch in giving and receiving is the rite. To pull out a drowning sister-in-law with one’s hand is weighing.”\n\nSo it is said: goodness alone is not enough for governing; laws alone cannot carry themselves out.",
+      "zh": "淳于髡曰：「男女授受不親，禮與？」孟子曰：「禮也。」曰：「嫂溺則援之以手乎？」曰：「嫂溺不援，是豺狼也。男女授受不親，禮也。嫂溺援之以手者，權也。」\n\n故曰：徒善不足以爲政，徒法不能以自行。",
+      "note_en": "Chunyu Kun was a famous debater, and the question was a trap. He goes on to ask why Mencius does not then stretch out a hand to save the drowning world by taking office under a bad ruler. Mencius replies that the world is rescued with the Way and a sister-in-law with the hand. Weighing has its limits too.",
+      "note_zh": "淳于髡是有名的辯士；這個問題是個圈套。他接著問：那麼天下都在溺水了，先生為什麼不伸手去救（也就是在不好的君主底下出來做官）？孟子回答：「天下溺，援之以道；嫂溺，援之以手。」權也有它的限度。"
+     },
+     {
+      "ref": "Mary Shelley, Frankenstein, chapter 10",
+      "en": "I am thy creature, and I will be even mild and docile to my natural lord and king if thou wilt also perform thy part, the which thou owest me. Oh, Frankenstein, be not equitable to every other and trample upon me alone, to whom thy justice, and even thy clemency and affection, is most due. Remember that I am thy creature; I ought to be thy Adam, but I am rather the fallen angel, whom thou drivest from joy for no misdeed. Everywhere I see bliss, from which I alone am irrevocably excluded. I was benevolent and good; misery made me a fiend. Make me happy, and I shall again be virtuous.",
+      "zh": "我是你的造物；只要你也盡你的本分，也就是你虧欠我的那一份，我甚至願意對我天生的主人與君王溫順而馴服。噢，法蘭肯斯坦，不要對別的每一個人都公平，卻唯獨踐踏我；你的公正，甚至你的寬厚與慈愛，最該給的就是我。記住，我是你的造物；我本該是你的亞當，而我倒成了那個墮落的天使，你無緣無故把我從喜樂中驅逐出去。我到處都看見幸福；唯獨我無可挽回地被排除在外。我本來仁慈而善良；是苦難把我變成了魔鬼。讓我快樂，我就會重新有德。",
+      "note_en": "Shelley wrote the novel at nineteen. It is usually remembered as a warning against making artificial beings. The creature’s speech says something else: the disaster came from a maker who brought a being into the world and then refused all responsibility for it. In the novel “Frankenstein” is the name of the maker. The creature has none.",
+      "note_zh": "雪萊寫這部小說的時候十九歲。人們通常把它記成一則警告：不要製造人造的生命。那個造物的這段話，說的卻是另一件事：災難來自一位製造者；他把一個生命帶到世上，然後拒絕為它負任何責任。在小說裡，「法蘭肯斯坦」是製造者的名字。那個造物沒有名字。"
+     }
+    ]
+   },
+   "objections": {
+    "title_en": "Objections and replies",
+    "title_zh": "反駁與回應",
+    "items": [
+     {
+      "o_en": "Humans are biased, tired, and cruel. A machine that is merely consistent would be a moral improvement.",
+      "o_zh": "人有偏見、會疲倦、會殘忍。一部只要做到「前後一致」的機器，在道德上就是進步。",
+      "r_en": "In some tasks this is true, and it is the best argument for using machines. Consistency is a virtue only when what is repeated is right. A consistent machine applies one error to a million cases at once, where a thousand inconsistent clerks would have made a thousand different errors, some of which someone would have noticed. The gain has to be shown case by case, with the machine’s mistakes counted as carefully as the humans’.",
+      "r_zh": "在某些工作上，這是真的；而這也是使用機器最好的論證。只有當被重複的東西是對的，一致才是一項美德。一部前後一致的機器，會把同一個錯誤一次用在一百萬個案例上；而一千位前後不一致的辦事員，會犯一千個不同的錯誤，其中有些會被某個人注意到。有沒有進步，必須一個個案地證明；而且要像計算人的錯誤一樣仔細地計算機器的錯誤。"
+     },
+     {
+      "o_en": "The trolley cases are fantasies. Engineers should build cars that brake well and leave philosophy alone.",
+      "o_zh": "那些電車案例是幻想。工程師該做的，是造出煞車好的車，別去碰哲學。",
+      "r_en": "The dramatic cases are rare, and engineers are right to say so. The ordinary ones are everywhere. How close a car passes a cyclist, how much risk it accepts to save its passenger a minute, and whose streets it is tested on are all trade-offs between people’s interests, and each is settled by a number someone typed. Calling the number a technical parameter does not make the choice a technical one.",
+      "r_zh": "那些戲劇性的案例很少見；工程師這樣說是對的。尋常的案例卻到處都是。一輛車超過腳踏車騎士的時候離多近；它為了替乘客省一分鐘而接受多少風險；它在誰住的街道上測試：這些全都是在人與人的利益之間作取捨；而每一項，都是由某個人鍵入的一個數字決定的。把那個數字叫作技術參數，並不使那個選擇變成技術上的選擇。"
+     },
+     {
+      "o_en": "If machines learn judgment as children do, they will in time become moral agents, and the problem will solve itself.",
+      "o_zh": "如果機器像孩子那樣學會判斷，它們遲早會成為道德主體；問題自己就解決了。",
+      "r_en": "Perhaps, and it would then raise the opposite problem, the one the creature puts to Frankenstein: what we owe to a being we have made that can be wronged. Until there is reason to think that point has been reached, the practical danger lies in the other direction. People credit a system with judgment because it speaks fluently, and then lean on it. A child is raised for years among people who correct it and care how it turns out. That is a fair standard to ask of anything we propose to trust in the same way.",
+      "r_zh": "也許吧；而那時候它會帶來相反的問題，也就是那個造物向法蘭肯斯坦提出的那一個：對一個由我們造出來、而且可以被虧待的存在者，我們虧欠它什麼？在有理由認為已經到了那一步之前，實際的危險在另一個方向。人們因為一個系統說話流利，就以為它有判斷力，然後依賴它。一個孩子，是在會糾正他、而且在乎他長成什麼樣子的人當中，被養育了許多年的。對任何一樣我們打算以同樣方式去信任的東西，要求這個標準是公道的。"
+     }
+    ]
+   },
+   "said": {
+    "claim": "“Asimov’s Three Laws of Robotics show how to make robots safe.”",
+    "claim_zh": "「艾西莫夫的機器人三大法則，說明了怎樣使機器人安全。」",
+    "verdict_en": "He wrote them to show how such laws fail",
+    "verdict_zh": "他寫它們，是為了顯示這樣的法則怎麼失靈",
+    "en": "The three laws are cited in news reports and even in policy papers as though they were a proposal. Asimov was a novelist with a doctorate in chemistry, and the laws were a device for generating plots. He was tired of stories in which robots simply turned on their makers, and wanted machines with built-in safeguards. He then discovered that the interesting stories were the ones in which the safeguards produced behavior nobody intended. Nearly every robot story he wrote turns on a conflict between the laws, an ambiguity in a word such as “harm,” or a robot that follows the laws to a conclusion its makers find appalling. Late in his career he added a further law placing humanity above any individual human, which made matters worse. Read as engineering, the laws are unworkable. Read as philosophy, they are a long demonstration that a short list of rules cannot do the work of judgment.",
+    "zh": "三大法則出現在新聞報導裡，甚至出現在政策文件裡，被引用得好像它們是一項提案。艾西莫夫是一位有化學博士學位的小說家；而這幾條法則，是用來產生情節的裝置。他厭倦了「機器人就是反過來攻擊製造者」的那種故事，想要寫內建了防護機制的機器。然後他發現：有意思的故事，是那些「防護機制產生了沒有人想要的行為」的故事。他寫的機器人小說，幾乎每一篇的關鍵，都是法則之間的衝突、「傷害」這類字眼的歧義，或者一個機器人把法則一路推到一個讓製造者驚駭的結論。在他寫作生涯的後期，他又加了一條法則，把「人類整體」放在任何個別的人之上；而那使事情更糟。當作工程來讀，這幾條法則是行不通的。當作哲學來讀，它們是一場很長的示範：一張簡短的規則清單，做不了判斷的工作。"
+   },
+   "terms": [
+    {
+     "t": "machine ethics",
+     "o": "",
+     "zh": "機器倫理學",
+     "d_en": "The study of how machines that act in the world should be made to behave.",
+     "d_zh": "研究「在世界上行動的機器，該被造成怎樣行事」的學問。"
+    },
+    {
+     "t": "moral agent",
+     "o": "",
+     "zh": "道德主體",
+     "d_en": "A being that can act for reasons, understand right and wrong, and be held responsible.",
+     "d_zh": "能夠出於理由而行動、懂得對錯，並且可以被追究責任的存在者。"
+    },
+    {
+     "t": "top-down / bottom-up",
+     "o": "",
+     "zh": "由上而下／由下而上",
+     "d_en": "Two ways of building moral behavior into a machine: from stated rules, or by learning from examples.",
+     "d_zh": "把道德行為造進機器的兩種方式：從明訂的規則出發，或者從例子裡學。"
+    },
+    {
+     "t": "responsibility gap",
+     "o": "",
+     "zh": "責任缺口",
+     "d_en": "The situation in which a machine causes harm and no person can fairly be held to account.",
+     "d_zh": "一部機器造成了傷害，卻沒有任何人可以被公平地問責的那種處境。"
+    },
+    {
+     "t": "algorithmic bias",
+     "o": "",
+     "zh": "演算法偏誤",
+     "d_en": "Unfair treatment that a system reproduces because it was present in the data it learned from.",
+     "d_zh": "一個系統所複製的不公平對待；因為它學習用的資料裡本來就有。"
+    },
+    {
+     "t": "alignment",
+     "o": "",
+     "zh": "對齊",
+     "d_en": "The problem of getting a machine to pursue what its makers actually intend.",
+     "d_zh": "使一部機器追求製造者實際上想要的東西，這個問題。"
+    },
+    {
+     "t": "weighing, discretion",
+     "o": "Ch. 權 quán ‘steelyard weight’",
+     "zh": "權",
+     "d_en": "In Mencius, the judgment that knows when a rule must give way.",
+     "d_zh": "在孟子那裡：知道一條規則什麼時候必須讓步的那種判斷。"
+    },
+    {
+     "t": "innate knowing",
+     "o": "Ch. 良知 liángzhī",
+     "zh": "良知",
+     "d_en": "In Wang Yangming, the inborn capacity to know right from wrong in each situation.",
+     "d_zh": "在王陽明那裡：在每一個情境裡分辨是非的天生能力。"
+    }
+   ],
+   "vocab": [
+    {
+     "w": "have a say",
+     "pos": "idiom",
+     "zh": "有發言權",
+     "eg": "People are affected who had no say.",
+     "eg_zh": "受影響的人沒有發言的機會。"
+    },
+    {
+     "w": "devise",
+     "pos": "v.",
+     "zh": "設計、想出",
+     "eg": "The three laws that Asimov devised in 1942.",
+     "eg_zh": "艾西莫夫在 1942 年設計的三大法則。"
+    },
+    {
+     "w": "stall",
+     "pos": "v.",
+     "zh": "卡住、停擺",
+     "eg": "It would stall whenever two duties collide.",
+     "eg_zh": "每當兩項義務相撞，它就會卡住。"
+    },
+    {
+     "w": "second nature",
+     "pos": "n. phr.",
+     "zh": "第二天性",
+     "eg": "Until the right response becomes second nature.",
+     "eg_zh": "直到正確的反應成為第二天性。"
+    },
+    {
+     "w": "foresee",
+     "pos": "v.",
+     "zh": "預見",
+     "eg": "Situations that no rule-writer foresaw.",
+     "eg_zh": "寫規則的人沒有預見到的情境。"
+    },
+    {
+     "w": "contest",
+     "pos": "v.",
+     "zh": "提出異議",
+     "eg": "A decision that cannot be explained cannot be contested.",
+     "eg_zh": "一項無法解釋的決定，也就無從提出異議。"
+    },
+    {
+     "w": "answer for",
+     "pos": "phr. v.",
+     "zh": "為…負責",
+     "eg": "Who answers for it when the machine gets it wrong?",
+     "eg_zh": "機器做錯的時候，由誰來負責？"
+    },
+    {
+     "w": "hand over",
+     "pos": "phr. v.",
+     "zh": "交出去",
+     "eg": "Be cautious about what we hand over to machines.",
+     "eg_zh": "把事情交給機器的時候要謹慎。"
+    },
+    {
+     "w": "fall back on",
+     "pos": "phr. v.",
+     "zh": "退而依靠",
+     "eg": "It falls back on the default ranking.",
+     "eg_zh": "它退回預設的排序。"
+    },
+    {
+     "w": "give way",
+     "pos": "idiom",
+     "zh": "讓步",
+     "eg": "Judgment knows when a rule must give way.",
+     "eg_zh": "判斷知道一條規則什麼時候必須讓步。"
+    }
+   ],
+   "quiz": [
+    {
+     "q": "What did Asimov’s robot stories mostly show about his three laws?",
+     "options": [
+      "That they conflict and produce results no one intended.",
+      "That they make robots perfectly safe.",
+      "That robots will always rebel.",
+      "That robots cannot follow rules."
+     ],
+     "correct": 0
+    },
+    {
+     "q": "What is the main weakness of a machine that learns morality from human examples?",
+     "options": [
+      "It reproduces the faults in the record and cannot give reasons.",
+      "It cannot handle new situations.",
+      "It always freezes when duties conflict.",
+      "It needs too many rules."
+     ],
+     "correct": 0
+    },
+    {
+     "q": "What is the responsibility gap?",
+     "options": [
+      "Harm caused by a machine for which no person can fairly be held to account.",
+      "The distance between a robot and its owner.",
+      "The delay before a car brakes.",
+      "The gap between rich and poor users."
+     ],
+     "correct": 0
+    },
+    {
+     "q": "What does Mencius call pulling a drowning sister-in-law out by the hand?",
+     "options": [
+      "Weighing (quan), as against the fixed rule of the rite.",
+      "A breach of the rite that must be punished.",
+      "The Way that rescues the world.",
+      "Obedience to one’s elder brother."
+     ],
+     "correct": 0
+    },
+    {
+     "q": "What does the creature in Frankenstein say made him a fiend?",
+     "options": [
+      "Misery, after his maker abandoned him.",
+      "A fault in his construction.",
+      "His own choice of evil.",
+      "The orders of his maker."
+     ],
+     "correct": 0
+    }
+   ],
+   "write": [
+    {
+     "en": "Which rule did best by your own judgment in the exercise, and in which case did it fail? What did you use to judge it? About 150 words.",
+     "zh": "在那項練習裡，照你自己的判斷，哪一條規則表現最好？它在哪一個情境裡失靈了？你是用什麼來評判它的？約 150 個字。"
+    },
+    {
+     "en": "Think of a rule in your own school or workplace that needs “weighing” to be applied well. Describe a case where following it to the letter would have been wrong.",
+     "zh": "想一條你自己的學校或工作場所裡的規則；它要用得好，就需要「權」。描述一個情況：如果照字面遵守它，反而是錯的。"
+    },
+    {
+     "en": "A student uses a chatbot to decide whether to report a friend who cheated. Write the advice you would give the student about what to ask the machine and what to keep for himself or herself.",
+     "zh": "一個學生用聊天機器人來決定：要不要舉報一位作弊的朋友。寫下你會給這個學生的建議：什麼可以問機器，什麼要留給自己。"
+    }
+   ],
+   "dharma": {
+    "title_en": "A view from the Dharma",
+    "title_zh": "佛法怎麼看",
+    "paras": [
+     {
+      "en": "The Buddha located the moral quality of an act in a place where present machines have nothing. “It is intention that I call deeds. For after making a choice one acts by way of body, speech, and mind.” On this analysis the same outward movement is a different act according to the intention behind it, and it is intention that bears fruit for the one who acts. A machine that has no intention makes no karma. This agrees with the view reached above that the machine is an instrument. The karma of what it does belongs to those who designed it, sold it, and set it to work, each according to what they intended and what they chose not to look at. The responsibility gap, seen this way, is produced by not looking. Carelessness about results that one could have foreseen is itself a state of mind with consequences.",
+      "zh": "佛陀把一個行為的道德性質，放在一個「現在的機器什麼也沒有」的地方。「我說思（意志）就是業。作了抉擇之後，人才以身、語、意去造作。」照這個分析，同一個外在的動作，隨著背後動機的不同，是不同的行為；而為行為者結出果報的，是那個動機。一部沒有動機的機器，不造業。這與上面得到的看法一致：機器是工具。它所做的事的業，屬於設計它、販售它、讓它上工的那些人；各人依照自己的動機，以及自己選擇不去看的東西。這樣看來，「責任缺口」是不去看所造成的。對自己本來可以預見的結果漫不經心，本身就是一種有後果的心理狀態。"
+     },
+     {
+      "en": "The lesson’s main finding also has a Buddhist form. The precepts are called training rules. They are undertaken as a discipline for the mind, and the tradition has always held that they need wisdom to be applied. The Mahāyāna speaks of skill in means, the capacity to see what a particular being needs at a particular time, and it treats this as inseparable from compassion. A bodhisattva who had memorized every rule and lacked that capacity would be like the robot in the exercise. The tradition would therefore ask one question about any proposal to hand a decision to a machine. It would ask who is paying attention, and whether the arrangement makes the people involved more attentive to those affected or less.",
+      "zh": "這一課的主要發現，也有一個佛教的形式。戒被稱為「學處」。受持它，是作為對心的一種訓練；而這個傳統始終主張，戒要有智慧才用得好。大乘講「方便善巧」：看出某一位眾生在某一個時候需要什麼的那種能力；並且把它當作與慈悲不可分的東西。一位背熟了每一條規則、卻缺乏那種能力的菩薩，就會像那項練習裡的機器人。所以，對於任何一項「把某個決定交給機器」的提議，這個傳統會問一個問題。它會問：是誰在留意？這樣的安排，是使相關的人對受影響的人更留意，還是更不留意？"
+     }
+    ],
+    "terms": [
+     [
+      "思",
+      "cetanā",
+      "intention, volition"
+     ],
+     [
+      "學處",
+      "sikkhāpada / śikṣāpada",
+      "training rule"
+     ],
+     [
+      "方便善巧",
+      "upāya-kosalla / upāya-kauśalya",
+      "skill in means"
+     ],
+     [
+      "不放逸",
+      "appamāda / apramāda",
+      "heedfulness"
+     ]
+    ]
+   },
+   "further": [
+    {
+     "t": "Stanford Encyclopedia of Philosophy, “Ethics of Artificial Intelligence and Robotics”",
+     "url": "https://plato.stanford.edu/entries/ethics-ai/",
+     "n_en": "Bias, opacity, autonomy, machine ethics, and responsibility.",
+     "n_zh": "偏誤、不透明、自主性、機器倫理學與責任。"
+    },
+    {
+     "t": "The Moral Machine experiment",
+     "url": "https://en.wikipedia.org/wiki/Moral_Machine",
+     "n_en": "The MIT study of public choices in driverless-car dilemmas. The link is to a summary.",
+     "n_zh": "麻省理工學院對大眾在無人車兩難裡的選擇所作的研究。連結是一篇摘要。"
+    },
+    {
+     "t": "Mary Shelley, Frankenstein (1818)",
+     "url": "https://www.gutenberg.org/ebooks/84",
+     "n_en": "Chapter 10, where the creature states his case.",
+     "n_zh": "第十章；那個造物在那裡陳述他的理由。"
+    },
+    {
+     "t": "《孟子・離婁上》",
+     "url": "https://ctext.org/mengzi/li-lou-i/zh",
+     "n_en": "The drowning sister-in-law, and “laws alone cannot carry themselves out.”",
+     "n_zh": "嫂溺援之以手；以及「徒法不能以自行」。"
+    },
+    {
+     "t": "Nibbedhika Sutta (AN 6.63)",
+     "url": "https://suttacentral.net/an6.63/en/sujato",
+     "n_en": "The Buddha’s definition of karma as intention.",
+     "n_zh": "佛陀把業界定為「思」的那部經。"
+    },
+    {
+     "t": "Can a Machine Think? (A15), in this series",
+     "url": "/resources/classes/philosophy/machine-thinking/",
+     "n_en": "Turing’s test and Searle’s room.",
+     "n_zh": "圖靈測試與瑟爾的中文房間。"
+    }
+   ],
+   "people": [
+    "wang-yangming",
+    "mencius",
+    "aristotle",
+    "kant"
+   ]
   }
  ],
  "dharma": [
@@ -39193,6 +39904,372 @@
    ],
    "lessons": [
     "future"
+   ]
+  },
+  {
+   "slug": "wang-yangming",
+   "mono": "王",
+   "name": "Wang Yangming",
+   "name_zh": "王陽明",
+   "greek": "王守仁 Wang Shouren",
+   "dates": "1472–1529",
+   "place_en": "Yuyao, Zhejiang",
+   "place_zh": "浙江餘姚",
+   "era_en": "China",
+   "era_zh": "中國",
+   "tag_en": "A top graduate’s son who made himself ill staring at bamboo, was flogged at court and exiled to the far southwest, woke one night there with the answer, and then spent twenty years as a general and governor teaching that to know the good and to do it are one thing.",
+   "tag_zh": "狀元的兒子。他盯著竹子看到病倒；在朝廷上挨了廷杖，被貶到遙遠的西南；有一夜在那裡忽然得到了答案。此後二十年，他一面帶兵、做巡撫，一面教人：知善與行善是同一件事。",
+   "facts": [
+    [
+     "Born",
+     "出生",
+     "October 26, 1472, Yuyao, Zhejiang"
+    ],
+    [
+     "Died",
+     "去世",
+     "January 9, 1529, Nan’an, Jiangxi, on the journey home"
+    ],
+    [
+     "Names",
+     "名號",
+     "Given name Shouren 守仁; called Yangming after the grotto where he studied"
+    ],
+    [
+     "Career",
+     "仕途",
+     "Jinshi 1499; exiled 1506; governor and commander in Jiangxi and Guangxi"
+    ],
+    [
+     "Main works",
+     "主要著作",
+     "Instructions for Practical Living (傳習錄), recorded by his students; Inquiry on the Great Learning (大學問)"
+    ],
+    [
+     "Teachings",
+     "學說",
+     "The mind is principle; the unity of knowing and acting; extending innate knowing"
+    ]
+   ],
+   "life": [
+    {
+     "h_en": "Seven days with the bamboo",
+     "h_zh": "格竹七日",
+     "paras": [
+      {
+       "en": "Wang was born into a family of scholars in Zhejiang. His father took first place in the palace examination of 1481, and the boy grew up in the capital with every advantage. The philosophy of the examinations was that of Zhu Xi, who had taught three centuries earlier that every thing has its principle and that a person becomes a sage by investigating things one by one until understanding breaks through. As a young man Wang took this at its word. He and a friend sat down before the bamboos in a courtyard to investigate their principle. The friend gave up, ill, after three days. Wang lasted seven and fell ill too. “So we sighed together,” he told his students long afterward, “that sages cannot be made.”",
+       "zh": "王陽明生在浙江的一個讀書人家。他的父親是 1481 年殿試的狀元；這個男孩在京城長大，什麼條件都不缺。科舉考的哲學，是朱熹的學說；朱熹在三個世紀之前教導：每一樣東西都有它的理；而一個人要成為聖人，就得一樣一樣地去窮究事物，直到豁然貫通。年輕的王陽明把這話當了真。他與一位朋友坐在庭院的竹子前面，要窮究竹子的理。朋友三天之後病倒，放棄了。王陽明撐了七天，也病倒了。許多年後他告訴學生：「遂相與嘆聖賢是做不得的。」"
+      },
+      {
+       "en": "For the next fifteen years he tried other paths. He studied military strategy, practiced Daoist breathing in a grotto called Yangming, from which he took his name, and sat with Chan monks. He passed the highest examination in 1499 and entered the civil service. None of it settled the question the bamboo had raised: if the principles of right conduct are out in things, how does knowing them ever turn into being good?",
+       "zh": "接下來的十五年，他試了別的路。他研究兵法；在一個叫「陽明洞」的洞裡練習道家的導引，他的號就是從那裡來的；他也跟禪僧一起靜坐。1499 年，他考中進士，進入官場。這一切都沒有解決竹子提出的那個問題：如果正確行為的理是在外面的事物裡，那麼「知道這些理」到底是怎麼變成「做一個好人」的？"
+      }
+     ]
+    },
+    {
+     "h_en": "Longchang",
+     "h_zh": "龍場",
+     "paras": [
+      {
+       "en": "In 1506 the eunuch Liu Jin, who controlled the young emperor, imprisoned a group of officials who had criticized him. Wang wrote a memorial in their defense. He was arrested, given forty strokes of the heavy bamboo before the court, and banished to Longchang in Guizhou, a postal station in the mountains among peoples whose languages he did not speak. He believed that Liu Jin’s agents followed him to kill him on the road. At Longchang his servants fell sick, and he cut wood, carried water, and cooked for them.",
+       "zh": "1506 年，控制著年輕皇帝的太監劉瑾，把一批批評他的官員關進了監獄。王陽明上疏為他們辯護。他被逮捕，在朝廷上挨了四十下廷杖，貶到貴州的龍場；那是群山之中的一個驛站，周圍的民族說著他聽不懂的語言。他相信劉瑾派了人在路上跟蹤他、要殺他。在龍場，他的僕人都病倒了；他自己砍柴、挑水，為他們煮飯。"
+      },
+      {
+       "en": "One night in 1508, by his disciples’ account, he woke shouting and startled his servants. He had seen that the investigation of things had been pointed in the wrong direction. The principle he had looked for in the bamboo was in the mind that was looking. A person does not find out how to treat a father by studying fathers. “The mind is principle,” he later said. “Is there any affair in the world outside the mind, any principle outside the mind?” He was thirty-six. Liu Jin fell two years later, and Wang was recalled.",
+       "zh": "照他弟子的記述，1508 年的一個夜裡，他大叫著醒來，把僕人都嚇著了。他看見了：「格物」一直指錯了方向。他在竹子裡找的那個理，就在那顆正在找的心裡。一個人並不是靠研究父親，才查出該怎麼對待父親的。他後來說：「心即理也。天下又有心外之事、心外之理乎？」那時他三十六歲。兩年後劉瑾垮臺，王陽明被召回。"
+      }
+     ]
+    },
+    {
+     "h_en": "The general who taught",
+     "h_zh": "講學的將軍",
+     "paras": [
+      {
+       "en": "The rest of his life was spent in two occupations at once. As an official he was sent to the hardest posts in the south. He put down long-standing banditry in the hills of southern Jiangxi, and in 1519, when the Prince of Ning rose against the throne with a large army, Wang raised a force on his own authority and captured the prince in a little over a month. The court rewarded him with suspicion. Wherever he was posted he lectured, often in the evening after the day’s business, and students gathered around him by the hundred. They wrote down his conversations, and these became his chief work.",
+       "zh": "他的餘生，同時做著兩件事。作為官員，他被派到南方最難辦的地方。他平定了贛南山區長年的盜亂；1519 年，寧王率領大軍起兵反抗朝廷，王陽明未經授權就自行募集兵力，一個多月就擒住了寧王。朝廷回報他的是猜忌。不管被派到哪裡，他都講學；常常是在白天的公事辦完之後的晚上。學生成百地聚到他身邊。他們把他的談話記了下來；這些記錄成了他最主要的著作。"
+      },
+      {
+       "en": "In 1527, already ill with a disease of the lungs, he was ordered to Guangxi to end a rebellion. He settled it largely by negotiation. On the eve of his departure two students asked him to judge between their readings of his teaching, and on the Tianquan bridge he gave the four sentences that his school argued over for a century. He set out for home without waiting for permission and died on his boat in January 1529. Asked for last words, he is reported to have said: “This mind is bright. What more is there to say?”",
+       "zh": "1527 年，他已經患了肺病，卻奉命前往廣西平亂。他主要靠著招撫了結了那件事。出發的前夕，兩位學生請他評斷他們對他學說的兩種讀法；在天泉橋上，他說出了那四句話；他的學派為這四句話爭論了一個世紀。他沒有等到朝廷批准就動身回鄉；1529 年 1 月，他死在船上。有人請他留下遺言；據記載他說：「此心光明，亦復何言？」"
+      }
+     ]
+    }
+   ],
+   "timeline": [
+    [
+     "1472",
+     "Born at Yuyao, Zhejiang",
+     "生於浙江餘姚"
+    ],
+    [
+     "1481",
+     "His father places first in the palace examination",
+     "父親王華中狀元"
+    ],
+    [
+     "c. 1492",
+     "The seven days before the bamboo",
+     "格竹七日"
+    ],
+    [
+     "1499",
+     "Passes the jinshi examination",
+     "考中進士"
+    ],
+    [
+     "1506",
+     "Flogged at court and banished to Guizhou",
+     "受廷杖，貶往貴州"
+    ],
+    [
+     "1508",
+     "The awakening at Longchang",
+     "龍場悟道"
+    ],
+    [
+     "1509",
+     "Begins to teach the unity of knowing and acting",
+     "開始講「知行合一」"
+    ],
+    [
+     "1517–18",
+     "Pacifies southern Jiangxi",
+     "平定贛南"
+    ],
+    [
+     "1519",
+     "Captures the Prince of Ning",
+     "擒寧王朱宸濠"
+    ],
+    [
+     "1521",
+     "Begins to teach “extending innate knowing”",
+     "開始揭示「致良知」"
+    ],
+    [
+     "1527",
+     "The four sentences at Tianquan bridge; sent to Guangxi",
+     "天泉證道；出征廣西"
+    ],
+    [
+     "1529",
+     "Dies on the journey home",
+     "歸途中去世"
+    ]
+   ],
+   "idea": {
+    "title_en": "The central idea: To know is already to act",
+    "title_zh": "核心觀念：知了，就已經在行",
+    "paras": [
+     {
+      "en": "His student Xu Ai put the obvious objection. Everyone knows that he should be filial to his father, and plenty of people are not. So knowing and acting are plainly two things. Wang replied that such a person does not know. “There has never been anyone who knows and does not act. To know and not to act is simply not yet to know.” His example is the way we respond to a foul smell. Smelling it and disliking it are not two steps, with a decision in between. The dislike is in the smelling. Real moral knowledge is like that. A person who truly sees that his father is cold is already moving to cover him. What people call knowing without doing is information held in the head and cut off from the heart by selfish desire. He summed it up: “Knowing is the beginning of acting, and acting is the completion of knowing.”",
+      "zh": "他的學生徐愛提出了那個顯而易見的反駁。人人都知道應該孝順父親；而不孝順的人多得是。所以知與行明明是兩件事。王陽明回答：這樣的人並不知道。「未有知而不行者；知而不行，只是未知。」他舉的例子，是我們對惡臭的反應。聞到它與厭惡它，並不是兩個步驟，中間還隔著一個決定。厭惡就在聞到裡面。真正的道德知識就是那樣。一個真的看見父親在受寒的人，已經在動身去為他蓋被子了。人們所謂的「知而不行」，是存在腦子裡、卻被私欲與心隔斷了的資訊。他這樣總結：「知是行之始，行是知之成。」"
+     },
+     {
+      "en": "What does the knowing is what he called liangzhi, innate knowing, a term from Mencius. “Innate knowing is simply the mind’s sense of right and wrong.” Everyone has it complete, the sage and the person in the street alike, as the sun is complete behind clouds. Moral effort is the work of extending it, which means acting on it in each affair as it comes, so that the clouds of self-interest thin. It follows that no book and no authority can replace a person’s own judgment in the situation before him. He said of this: “The two words right and wrong are a great compass and square. The skill in using them lies with the person.”",
+      "zh": "那個在「知」的東西，他稱為「良知」；這個詞出自孟子。「良知只是個是非之心。」每個人都完整地擁有它，聖人與街上的人都一樣；就像太陽在雲的後面是完整的。道德上的努力，就是「致」它的工夫；意思是：在每一件事到來的時候都照著它去做，使私心的雲變薄。由此可以推出：沒有任何一本書、任何一個權威，能夠取代一個人在眼前的情境裡自己的判斷。他這樣說：「是非兩字是個大規矩，巧處則存乎其人。」"
+     }
+    ]
+   },
+   "quote": {
+    "en": "There has never been anyone who knows and does not act. To know and not to act is simply not yet to know.",
+    "zh": "未有知而不行者；知而不行，只是未知。",
+    "ref": "Instructions for Practical Living (傳習錄), part 1, section 5",
+    "note_en": "Said to Xu Ai, his brother-in-law and first disciple, who recorded it. The translation is made for this series.",
+    "note_zh": "是對徐愛說的；徐愛是他的妹夫，也是他的第一位弟子，這段話是他記下來的。英譯是為這個系列所作。"
+   },
+   "objection": {
+    "title_en": "The strongest objection: Whose innate knowing?",
+    "title_zh": "最強的反駁：誰的良知？",
+    "paras": [
+     {
+      "en": "If each person’s innate knowing is the final standard, anything a person sincerely feels to be right is right for him, and there is no way to tell conscience from self-deception. The followers of Zhu Xi made this objection in Wang’s lifetime, and his own school supplied the evidence. In the generations after him some of his followers declared that the streets were full of sages, dropped study and discipline, and treated every impulse as the working of the original mind. When the Ming dynasty fell in 1644, scholars such as Gu Yanwu blamed the empty talk of mind for the failure of the educated class, and turned to the close study of texts and institutions.",
+      "zh": "如果每個人的良知就是最終的標準，那麼一個人真誠地覺得對的任何事，對他就是對的；而良心與自欺也就無從分辨了。朱熹的追隨者在王陽明生前就提出了這個反駁；而他自己的學派提供了證據。在他之後的幾代，有些追隨者宣稱「滿街都是聖人」，丟下了讀書與修持，把每一個衝動都當作本心的發用。1644 年明朝滅亡的時候，顧炎武這樣的學者，把士大夫階層的失敗歸咎於空談心性；並且轉向對文獻與制度的仔細研究。"
+     },
+     {
+      "en": "Wang saw the danger. Innate knowing, he insisted, is not whatever one happens to feel. It shows itself only as selfish desire is cleared away, and clearing it is hard daily work, done in the middle of affairs. His own test was practical: what a person calls knowledge must show in what he does to his parents, his subordinates, and his enemies. He also kept the classics and the rites, as the compass and square that judgment uses. The reply does not fully meet the objection, since it is one’s own mind that must certify that the desire has been cleared. What it shows is that the alternative has the same problem one step back. A person who follows a book or a teacher has still judged that this is the book or teacher to follow.",
+      "zh": "王陽明看見了這個危險。他堅持：良知並不是一個人碰巧感覺到的任何東西。它只有在私欲被清除的時候才顯現出來；而清除私欲是艱難的、每天要做的工夫，要在事務當中去做（事上磨練）。他自己的檢驗是實際的：一個人所謂的「知」，必須顯現在他怎麼對待父母、部屬與敵人上。他也保留了經典與禮；把它們當作判斷所用的「規矩」。這個回應並沒有完全接住那個反駁；因為「私欲已經清除了」這件事，還是得由自己的心來認證。它所顯示的是：另一條路在往後退一步的地方，有同樣的問題。一個依從某本書或某位老師的人，還是先判斷了「該依從的就是這本書、這位老師」。"
+     }
+    ]
+   },
+   "problem": {
+    "title_en": "The flowers on the cliff",
+    "title_zh": "巖中花樹",
+    "paras": [
+     {
+      "en": "Wang said that there are no things outside the mind, and a friend on a walk in the hills tested him. He pointed to a tree flowering on a cliff. “You say there is nothing under heaven outside the mind. These flowers bloom and fall by themselves in the deep mountains. What have they to do with my mind?” Wang answered: “Before you looked at these flowers, they and your mind were both in stillness. When you came and looked at them, their colors at once became clear. From this you know that the flowers are not outside your mind.”",
+      "zh": "王陽明說「心外無物」；而有一次在山裡散步，一位朋友考了他。朋友指著巖壁上一棵開著花的樹問：「天下無心外之物：如此花樹在深山中自開自落，於我心亦何相關？」王陽明回答：「你未看此花時，此花與汝心同歸於寂；你來看此花時，則此花顏色一時明白起來。便知此花不在你的心外。」"
+     },
+     {
+      "en": "The passage is often read as saying that the tree does not exist when no one sees it, which would make Wang a Chinese Berkeley. He does not say that. He says that the unseen flowers and the mind are both in stillness, and the claim concerns what it is for something to be a thing for us, with color, value, and a place in our concerns. His interest throughout was in conduct. A “thing,” in his usage, is an affair that the mind is engaged with: serving a parent is a thing, governing is a thing. The point of the doctrine is that the world we act in is already shaped by attention and care. It then matters what we attend to. Whether this entitles him to the larger statement that there is nothing outside the mind is a question his critics were right to press.",
+      "zh": "人們常把這段話讀成：沒有人看見的時候，那棵樹不存在。那樣的話，王陽明就成了中國的柏克萊。他並沒有那樣說。他說的是：沒被看見的花與心「同歸於寂」。這個主張談的是：一樣東西「對我們來說是一件物」，有顏色、有價值、在我們的關切裡有一個位置，這是怎麼一回事。他自始至終關心的是行為。在他的用法裡，「物」是心所涉入的一件事：事親是一物，治民是一物。這個學說的要點是：我們在其中行動的這個世界，已經被注意與關切塑造過了。那麼，我們注意什麼，就是要緊的事。至於這是否使他有資格說出「心外無物」這個更大的陳述，他的批評者緊追這一點是對的。"
+     }
+    ]
+   },
+   "said": {
+    "claim": "「知行合一，就是說到做到、理論要與實踐結合。」",
+    "claim_zh": "「知行合一，就是說到做到、理論要與實踐結合。」",
+    "verdict_en": "A weaker claim than the one he made",
+    "verdict_zh": "比他實際的主張弱",
+    "en": "The four characters zhi xing he yi are carved over school gates and printed in company handbooks across the Chinese-speaking world, where they are taken to mean that one should practice what one preaches, or combine theory with practice. Wang meant something stronger and stranger. The popular reading assumes that knowing and acting are two things which ought to be brought together. That was the view he was attacking. He held that they are one thing seen from two sides, so that a person who does not act has not yet known. He said explicitly why he put it this way. People in his day, he complained, split the two and supposed that they must first finish knowing and could act later, “and so to the end of their lives they never act, and also never know.” The slogan as commonly used tells people to add practice to their knowledge. His teaching tells them that what they have is not yet knowledge.",
+    "zh": "「知行合一」這四個字，刻在華語世界各地的校門上，印在公司的員工手冊裡；人們把它理解成「說到要做到」，或者「理論要與實踐結合」。王陽明的意思更強，也更奇特。流行的讀法假定：知與行是兩件事，應該把它們合在一起。那正是他所攻擊的看法。他主張：它們是從兩面看到的同一件事；所以一個不行動的人，是還沒有知。他明白地說過自己為什麼要這樣講。他抱怨當時的人把兩者分開，以為必須先把「知」做完，以後才能去行；結果「遂終身不行，亦遂終身不知」。通行的那個口號，是叫人在知識之外再加上實踐。他的教導是告訴人們：他們擁有的，還不是知識。"
+   },
+   "dharma": {
+    "title_en": "Wang Yangming and the Buddha",
+    "title_zh": "王陽明與佛陀",
+    "paras": [
+     {
+      "en": "Wang’s critics called him a Chan Buddhist in Confucian dress, and the resemblance is real. Innate knowing, complete in everyone and hidden like the sun behind clouds, is close in form to the teaching of buddha-nature. His method of pointing a student directly to his own mind, and his distrust of book-learning as a path, recall Huineng. The first of his four sentences, that the substance of the mind is without good and evil, could stand in the Platform Sutra, where Huineng tells a pursuer to think of neither good nor evil and see his original face. Wang had sat with monks in his youth and never denied what he learned from them.",
+      "zh": "王陽明的批評者說他是「陽儒陰釋」，披著儒家外衣的禪者；而這個相似是真的。人人具足、像太陽被雲遮住那樣被掩蓋的良知，在形式上很接近佛性的教法。他直接把學生指向自己的心的方法，以及他對「以讀書為道」的不信任，都令人想起慧能。他四句教的第一句「無善無惡是心之體」，放進《壇經》裡也站得住；慧能在那裡告訴一位追趕他的人：不思善、不思惡，看看自己的本來面目。王陽明年輕時與僧人一起靜坐過；他從來沒有否認自己從他們那裡學到的東西。"
+     },
+     {
+      "en": "He also said clearly where he parted from them. “The Buddhists fear the burden of father and son, and so they flee from father and son. They fear the burden of ruler and minister, and flee from ruler and minister.” To flee a relation, he argued, is to be attached to it after all. The Confucian has a father and answers him with humaneness, and so is not bound. The charge is unfair to the bodhisattva ideal, which also refuses to leave the world behind, and Chinese Buddhists replied that leaving home is itself a way of serving one’s parents. It marks a real difference of emphasis all the same. For Wang the innate knowing is tested and extended in family and office and nowhere else. A Buddhist reader can take this as a challenge worth hearing, and can note that his account of knowing and acting says of moral knowledge what the Buddha said of wisdom: it is counted as known when it has changed how one lives (Dharma and Western Philosophy D25).",
+      "zh": "他也清楚地說出了自己在哪裡與他們分手。「佛怕父子累，卻逃了父子；怕君臣累，卻逃了君臣。」他主張：逃離一種關係，終究還是執著於它。儒者有父子，「還他以仁」；所以並沒有被綁住。這項指控，對菩薩的理想是不公平的；菩薩的理想同樣拒絕拋下世間。而中國的佛教徒也回應過：出家本身就是一種報答父母的方式。儘管如此，它標出了重點上一個真實的差異。對王陽明來說，良知是在家庭與職守裡受檢驗、被推擴的；不在別處。一位佛教的讀者，可以把這當作一個值得聽的挑戰；也可以注意到：他對知與行的說明，針對道德知識所說的，正是佛陀針對智慧所說的：當它改變了一個人怎麼生活，才算是知道了（佛法與西方哲學 D25）。"
+     }
+    ],
+    "terms": [
+     [
+      "佛性",
+      "buddha-dhātu / tathāgatagarbha",
+      "buddha-nature"
+     ],
+     [
+      "本來面目",
+      "—",
+      "one’s original face"
+     ],
+     [
+      "著相",
+      "nimitta-gāha",
+      "grasping at signs"
+     ],
+     [
+      "智慧",
+      "paññā / prajñā",
+      "wisdom"
+     ]
+    ]
+   },
+   "terms": [
+    {
+     "t": "innate knowing",
+     "o": "Ch. 良知 liángzhī",
+     "zh": "良知",
+     "d_en": "The inborn sense of right and wrong, complete in every person.",
+     "d_zh": "天生的是非之心；每個人都完整具足。"
+    },
+    {
+     "t": "extending innate knowing",
+     "o": "Ch. 致良知",
+     "zh": "致良知",
+     "d_en": "Acting on that sense in each affair, so that selfish desire no longer obscures it.",
+     "d_zh": "在每一件事上照著它去做，使私欲不再遮蔽它。"
+    },
+    {
+     "t": "unity of knowing and acting",
+     "o": "Ch. 知行合一",
+     "zh": "知行合一",
+     "d_en": "The doctrine that real knowing and acting are one process, so that not to act is not yet to know.",
+     "d_zh": "一種學說：真正的知與行是同一個過程；所以不行，就是還沒有知。"
+    },
+    {
+     "t": "the mind is principle",
+     "o": "Ch. 心即理",
+     "zh": "心即理",
+     "d_en": "The claim that moral principle is found in the mind itself and not in external things.",
+     "d_zh": "一個主張：道德的理就在心本身，不在外面的事物裡。"
+    },
+    {
+     "t": "investigation of things",
+     "o": "Ch. 格物",
+     "zh": "格物",
+     "d_en": "For Zhu Xi, studying things to find their principles; for Wang, setting right the affairs the mind engages in.",
+     "d_zh": "在朱熹：研究事物以求其理；在王陽明：把心所涉入的事端正過來。"
+    },
+    {
+     "t": "the four sentences",
+     "o": "Ch. 四句教",
+     "zh": "四句教",
+     "d_en": "His late summary: the mind’s substance is without good and evil; good and evil arise with intention; innate knowing knows them; to do good and remove evil is the investigation of things.",
+     "d_zh": "他晚年的總結：無善無惡是心之體，有善有惡是意之動，知善知惡是良知，為善去惡是格物。"
+    }
+   ],
+   "quiz": [
+    {
+     "q": "What did the episode with the bamboo teach Wang?",
+     "options": [
+      "That principle is not to be found by examining external things one by one.",
+      "That bamboo has no principle.",
+      "That sages must study botany.",
+      "That Zhu Xi was right."
+     ],
+     "correct": 0
+    },
+    {
+     "q": "What does Wang say of a person who knows he should be filial and is not?",
+     "options": [
+      "That he does not yet know.",
+      "That he knows and is weak-willed.",
+      "That he should study more books.",
+      "That filial duty is not real."
+     ],
+     "correct": 0
+    },
+    {
+     "q": "What is innate knowing (liangzhi)?",
+     "options": [
+      "The mind’s own sense of right and wrong, present in everyone.",
+      "Knowledge gained from the classics.",
+      "A talent found only in sages.",
+      "Skill in military strategy."
+     ],
+     "correct": 0
+    },
+    {
+     "q": "What was the main objection to his teaching?",
+     "options": [
+      "That it leaves no way to tell conscience from sincere self-deception.",
+      "That it requires too much reading.",
+      "That it forbids holding office.",
+      "That it denies that people can become good."
+     ],
+     "correct": 0
+    }
+   ],
+   "further": [
+    {
+     "t": "王陽明《傳習錄》",
+     "url": "https://zh.wikisource.org/wiki/傳習錄",
+     "n_en": "The recorded conversations. Part 1, section 5, has the exchange with Xu Ai on knowing and acting.",
+     "n_zh": "語錄。卷上第五條，是與徐愛談知行的那一段。"
+    },
+    {
+     "t": "Stanford Encyclopedia of Philosophy, “Wang Yangming”",
+     "url": "https://plato.stanford.edu/entries/wang-yangming/",
+     "n_en": "A clear account of his life and the three main doctrines.",
+     "n_zh": "對他的生平與三項主要學說的清楚說明。"
+    },
+    {
+     "t": "Internet Encyclopedia of Philosophy, “Wang Yangming”",
+     "url": "https://iep.utm.edu/wangyang/",
+     "n_en": "With more on his relation to Zhu Xi and to Chan.",
+     "n_zh": "對他與朱熹、與禪的關係談得更多。"
+    },
+    {
+     "t": "Mencius, in this series",
+     "url": "/resources/classes/philosophy/philosophers/mencius/",
+     "n_en": "The source of the term liangzhi and of the child at the well.",
+     "n_zh": "「良知」一詞與「孺子將入於井」的出處。"
+    },
+    {
+     "t": "Buddha-Nature and Human Nature (D25), in this series",
+     "url": "/resources/classes/philosophy/dharma/buddha-nature/",
+     "n_en": "Mencius, Xunzi, and the tathāgatagarbha teaching side by side.",
+     "n_zh": "孟子、荀子與如來藏的教法並排來看。"
+    }
+   ],
+   "lessons": [
+    "robots"
    ]
   }
  ]
