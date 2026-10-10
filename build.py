@@ -14107,7 +14107,7 @@ def build_cal_hub():
 _compj = os.path.join(ROOT, "data", "computers.json")
 COMP = json.load(open(_compj, encoding="utf-8")) if os.path.exists(_compj) else None
 COMP_BASE = "/resources/classes/computers/"
-_COMP_JS = {"bits": "comp-bits", "pixels": "comp-pixels", "logic": "comp-logic", "adder": "comp-adder", "pc": "comp-pc", "cpu": "comp-cpu", "desk": "comp-desk", "key": "comp-key", "robot": "comp-robot", "search": "comp-search", "sched": "comp-sched"}   # lab.kind → assets/js/<bundle>.js
+_COMP_JS = {"bits": "comp-bits", "pixels": "comp-pixels", "logic": "comp-logic", "adder": "comp-adder", "pc": "comp-pc", "cpu": "comp-cpu", "desk": "comp-desk", "key": "comp-key", "robot": "comp-robot", "search": "comp-search", "sched": "comp-sched", "rle": "comp-rle"}   # lab.kind → assets/js/<bundle>.js
 
 def _comp_ver():
     h = hashlib.md5()
@@ -15100,6 +15100,92 @@ def _comp_slice(sl):
 </div>
 <ul class="cp-tips rvl">{tips}</ul>'''
 
+def comprle_svg(size=56):
+    """第十二課的課程卡小圖示：上面一排五個同色方塊，箭頭，下面收成一塊寫著 5。"""
+    sq = "".join(f'<rect x="{6 + i * 10}" y="10" width="8" height="8" rx="1.6" fill="#ff7a66"/>' for i in range(5))
+    return (f'<svg class="comprle-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">{sq}'
+            '<path d="M30 22v9m-4-4 4 4 4-4" fill="none" stroke="#ffd36e" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>'
+            '<rect x="14" y="36" width="32" height="14" rx="3" fill="#ff7a66"/>'
+            '<path d="M33.5 39.5h-6v3.6c4-1.2 6.6.2 6.6 2.4 0 2-2.4 3-6.6 1.8" fill="none" stroke="#1b1405" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>')
+
+_COMP_CARD["rle"] = comprle_svg
+
+def render_comprle_lab(lesson):
+    """第十二課：把像素牆一列一列壓起來（assets/js/comp-rle.js 綁這裡的 class；全部自繪示意）。"""
+    lab = lesson["lab"]
+    pb = "".join(f'<button type="button" data-pic="{p["key"]}" aria-pressed="false"><b>{html.escape(p["en"])}</b><small>{html.escape(p["zh"])}</small></button>' for p in lab["pics"])
+    tg = _lab_toggles([("labels", "Labels", "標示", True)])
+    return f'''<div class="astro-lab cp-lab cp-rl-lab rvl" data-comprle-lab>
+  <div class="al-stage">
+    <div class="al-space">
+      <canvas class="al-space-cv" aria-label="3D model of a wall of 16 by 16 colored squares; when packed, squares of the same color next to each other in a row join into one bar marked with a count · 16 乘 16 格彩色方塊牆的 3D 模型；壓縮時，同一列裡相鄰的同色方塊合成一長條，上面標著格數"></canvas>
+      <div class="al-labels" aria-hidden="true"></div>
+      <p class="al-hint">Drag to turn · 拖曳旋轉</p>
+      <button type="button" class="al-home" title="Reset view · 重設視角" aria-label="Reset view · 重設視角">&#8634;</button>
+      <p class="al-nogl-msg">This 3D model needs WebGL, which this browser does not support. The buttons and the two counters below still work, and so do the reading and the games.<br><span class="zh">這個瀏覽器不支援 WebGL，無法顯示 3D 模型；下面的按鈕和兩個計數照樣能用，課文和小遊戲也都能用。</span></p>
+    </div>
+    <aside class="al-sky cp-aside">
+      <p class="al-sky-k">Choose a picture · 選一張圖</p>
+      <div class="cp-rb-progs cp-rl-pics" role="group" aria-label="Pictures · 圖">{pb}</div>
+      <div class="cp-rl-count">
+        <p><span>As it is · 原來要記</span><b class="cp-rl-orig">256</b></p>
+        <div class="cp-rl-track" aria-hidden="true"><span class="cp-rl-bar-o"></span></div>
+        <p><span>Packed so far · 壓到現在要記</span><b class="cp-rl-now">256</b></p>
+        <div class="cp-rl-track" aria-hidden="true"><span class="cp-rl-bar-n"></span></div>
+        <p class="cp-rl-unit">numbers · 個數</p>
+      </div>
+      <p class="cp-rl-line" aria-hidden="true"></p>
+      <p class="cp-msg" aria-live="polite"></p>
+    </aside>
+  </div>
+  <div class="al-controls">
+    <div class="al-row al-row-main">
+      <button type="button" class="al-play" aria-pressed="false"><span class="al-play-t">Pack it · 壓縮</span></button>
+      <button type="button" class="cp-btn-d cp-step">One row · 一次一列</button>
+      <button type="button" class="cp-btn-d cp-reset">Back to the picture · 回到原圖</button>
+      <div class="al-row al-toggles">{tg}</div>
+    </div>
+  </div>
+  {_lab_foot(lab)}
+  <p class="cp-credit">{lab["credit_html"]}</p>
+</div>'''
+
+def _comp_rledraw(rd):
+    tips = "".join(f'<li>{html.escape(t["en"])}<span class="zh">{html.escape(t["zh"])}</span></li>' for t in rd["tips"])
+    return f'''<div class="cp-full cp-rd rvl" data-cp-rledraw>
+  <div class="cp-rd-main">
+    <div>
+      <p class="cp-k">Your picture · 你的圖</p>
+      <div class="cp-rd-grid" role="group" aria-label="Drawing grid, 8 by 8 · 8 乘 8 的畫格"></div>
+      <div class="cp-rd-pal" role="group" aria-label="Colors · 顏色"></div>
+      <div class="cp-mz-btns"><button type="button" class="cp-btn" data-pre="clear">Clear · 清空</button><button type="button" class="cp-btn" data-pre="rows">Stripes · 橫條</button><button type="button" class="cp-btn" data-pre="checker">Checkerboard · 棋盤</button></div>
+    </div>
+    <div>
+      <p class="cp-k">Packed, row by row · 壓縮後，一列一列</p>
+      <ol class="cp-rd-rows" aria-label="Each row as counts and colors · 每一列的「幾個＋顏色」"></ol>
+      <p class="cp-fl-top"><span>As it is: 64 numbers. Packed · 原來 64 個數，壓縮後</span><b class="cp-rd-now">0</b></p>
+      <div class="cp-fl-track" aria-hidden="true"><span class="cp-rd-bar"></span><em class="cp-rd-mark"></em></div>
+    </div>
+  </div>
+  <p class="cp-lv-msg cp-rd-msg" aria-live="polite"></p>
+  <p class="cp-lv-note">{html.escape(rd["note_en"])}<span class="zh">{html.escape(rd["note_zh"])}</span></p>
+</div>
+<ul class="cp-tips rvl">{tips}</ul>'''
+
+def _comp_lossy(ls):
+    kb = "".join(f'<button type="button" data-k="{k}" aria-pressed="false"><b>{k} × {k}</b><small>{html.escape(zh)}</small></button>' for k, zh in ((1, "不丟"), (2, "四格變一格"), (4, "十六格變一格"), (8, "六十四格變一格")))
+    return f'''<div class="cp-full cp-ls rvl" data-cp-lossy>
+  <p class="cp-k">Make every block one color · 把每一塊變成同一個顏色</p>
+  <div class="cp-ls-ks" role="group" aria-label="Block size · 方塊大小">{kb}</div>
+  <div class="cp-ls-pair">
+    <figure><div class="cp-ls-pic cp-ls-a" aria-hidden="true"></div><figcaption>The picture · 原圖<small>256 numbers · 個數</small></figcaption></figure>
+    <figure><div class="cp-ls-pic cp-ls-b" aria-hidden="true"></div><figcaption>After throwing detail away · 丟掉細節之後<small><b class="cp-ls-kept">256</b> numbers kept · 留下的數　<b class="cp-ls-ch">0</b> squares changed · 格變了</small></figcaption></figure>
+  </div>
+  <div class="cp-mz-btns"><button type="button" class="cp-btn cp-btn-gold cp-ls-back" disabled>Try to get it back · 試著還原</button></div>
+  <p class="cp-lv-msg cp-ls-msg" aria-live="polite"></p>
+  <p class="cp-lv-note">{html.escape(ls["note_en"])}<span class="zh">{html.escape(ls["note_zh"])}</span></p>
+</div>'''
+
 def _comp_flat():
     return [(ui, u, l) for ui, u in enumerate(COMP["units"]) for l in u["lessons"]]
 
@@ -15127,7 +15213,7 @@ def build_comp_lesson(ui, unit, lesson):
     reading_html = render_basic_unit(1, unit_dict, level="comp", audio_rel="", pdf_rel="")
     lab = lesson["lab"]
     kind = lab["kind"]
-    lab_html = {"bits": render_compbits_lab, "pixels": render_comppixels_lab, "logic": render_complogic_lab, "adder": render_compadder_lab, "pc": render_comppc_lab, "cpu": render_compcpu_lab, "desk": render_compdesk_lab, "key": render_compkey_lab, "robot": render_comprobot_lab, "search": render_compsearch_lab, "sched": render_compsched_lab}[kind](lesson)
+    lab_html = {"bits": render_compbits_lab, "pixels": render_comppixels_lab, "logic": render_complogic_lab, "adder": render_compadder_lab, "pc": render_comppc_lab, "cpu": render_compcpu_lab, "desk": render_compdesk_lab, "key": render_compkey_lab, "robot": render_comprobot_lab, "search": render_compsearch_lab, "sched": render_compsched_lab, "rle": render_comprle_lab}[kind](lesson)
 
     def sec(key, fn):
         d = lesson[key]
@@ -15171,6 +15257,9 @@ def build_comp_lesson(ui, unit, lesson):
     if lesson.get("which"): secs.append(sec("which", _comp_choice))
     if lesson.get("slice"): secs.append(sec("slice", _comp_slice))
     if lesson.get("whose"): secs.append(sec("whose", _comp_choice))
+    if lesson.get("rledraw"): secs.append(sec("rledraw", _comp_rledraw))
+    if lesson.get("lossy"): secs.append(sec("lossy", _comp_lossy))
+    if lesson.get("keepall"): secs.append(sec("keepall", _comp_choice))
     if lesson.get("culture_cards"):
         cu = lesson["culture_cards"]
         cc = "".join(

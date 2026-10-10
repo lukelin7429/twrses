@@ -7424,7 +7424,7 @@
               "zh": "檔案為什麼可以變小？",
               "note_en": "The same photo can take up a lot of room or a little. Next: how a file is squeezed, and what is lost.",
               "note_zh": "同一張照片，可以占很多空間，也可以占很少。下一課：檔案是怎麼被壓小的，又失去了什麼。",
-              "soon": true
+              "href": "/resources/classes/computers/file-compression/"
             }
           ],
           "sources_note_en": "Facts on this page were checked against these sources (October 2026); the kitchen model is our own illustration, and every number is tested",
@@ -7479,16 +7479,680 @@
               "url": "https://github.com/lukelin7429/twrses/blob/main/tools/computers/test/sched.test.mjs"
             }
           ]
-        }
-      ],
-      "planned": [
+        },
         {
           "n": 12,
+          "slug": "file-compression",
+          "title": "How Can a File Get Smaller?",
+          "title_zh": "檔案為什麼可以變小？",
+          "level": "入門 · Beginner",
           "icon": "🗜️",
-          "en": "How Can a File Get Smaller?",
-          "zh": "檔案為什麼可以變小？"
+          "card": "rle",
+          "blurb_en": "A wall of 256 colored squares is packed row by row in 3D: squares of the same color in a row join into one bar with a number on it. Watch one picture shrink to a fraction of its size and another grow to twice its size. Then draw your own picture to pack, throw detail away and try to get it back, and decide what must never be lost.",
+          "blurb_zh": "在 3D 裡把一面 256 格的彩色方塊牆一列一列壓起來：同一列裡相鄰的同色方塊合成一長條，上面寫著格數。看一張圖縮到原來的幾分之一，另一張卻變成兩倍大。接著自己畫一張圖來壓、把細節丟掉再試著還原，並分辨哪些東西一點都不能少。",
+          "big_idea_en": "A file gets smaller when its repetition is written in a shorter way: not “red, red, red, red, red,” but “5 red.” That kind of compression loses nothing, and the file can be unpacked exactly as it was. Another kind goes further and throws away detail that people hardly notice. It makes files much smaller, but what is thrown away cannot come back.",
+          "big_idea_zh": "把檔案裡重複的地方用比較短的方式寫下來，檔案就變小了：不寫「紅、紅、紅、紅、紅」，而寫「5 個紅」。這種壓縮什麼都不會丟，解開來和原來一模一樣。另一種壓縮更進一步，把人不太注意得到的細節丟掉。檔案會小得多，可是丟掉的拿不回來。",
+          "lab": {
+            "kind": "rle",
+            "eyebrow": "3D Model · 3D 模型",
+            "title_en": "Packing a Picture",
+            "title_zh": "把一張圖壓起來",
+            "how_en": "The wall is a picture of 16 by 16 squares, like the pixel wall in Lesson 2. To store it as it is, the computer keeps one number for every square: 256 numbers. Press Pack it. Row by row, squares of the same color that sit side by side join into one bar, and the bar is stored as just two numbers: how many, and which color. Watch the counter on the right. Then try the other pictures, and press Unpack to get every square back.",
+            "how_zh": "這面牆是一張 16 × 16 格的圖，就像第二課的像素牆。照原樣存，電腦要替每一格記一個數，一共 256 個數。按「壓縮」。一列接一列，並排的同色方塊合成一長條，而一長條只要記兩個數：幾格、什麼顏色。注意看右邊的計數。接著試試其他幾張圖，再按「解開」，讓每一格都回來。",
+            "pics": [
+              {
+                "key": "apple",
+                "en": "Apple",
+                "zh": "蘋果"
+              },
+              {
+                "key": "sky",
+                "en": "Sky and grass",
+                "zh": "天空與草地"
+              },
+              {
+                "key": "hstripes",
+                "en": "Stripes across",
+                "zh": "橫條紋"
+              },
+              {
+                "key": "vstripes",
+                "en": "Stripes down",
+                "zh": "直條紋"
+              },
+              {
+                "key": "noise",
+                "en": "Scrambled",
+                "zh": "雜亂"
+              }
+            ],
+            "legend": [
+              {
+                "cls": "cppx",
+                "en": "A square: one number, its color",
+                "zh": "一格：一個數，就是它的顏色"
+              },
+              {
+                "cls": "cpbar",
+                "en": "A bar: squares of one color joined together, stored as two numbers",
+                "zh": "一長條：同色的格子合在一起，只記兩個數"
+              },
+              {
+                "cls": "cpnum",
+                "en": "The number on a bar: how many squares it stands for",
+                "zh": "長條上的數字：它代表幾格"
+              }
+            ],
+            "scale_en": "A teaching model. The method here is the simplest one there is, called run-length encoding, and it looks only along each row. The compression inside real formats such as ZIP is far more clever: it can also spot patterns that repeat further apart. Counting each color as one number is a simplification too. What carries over to the real thing is the idea: repetition can be written in a shorter way, and where there is no repetition, there is nothing to save.",
+            "scale_zh": "這是教學用的示意模型。這裡用的是最簡單的一種方法，叫運行長度編碼（run-length encoding），而且只沿著每一列看。ZIP 這類真的格式裡的壓縮聰明得多，隔得比較遠的重複也找得出來。把每個顏色算成一個數，也是簡化過的。真正相通的是這個道理：重複的地方可以寫短；沒有重複，就沒有東西可以省。",
+            "credit_html": "Model and code are drawn and programmed by My Culture Connect. Every picture is tested to unpack exactly, and every number on this page is checked, in <code>tools/computers/test/rle.test.mjs</code>.<br><span class=\"zh\">模型與程式由人師教育協會自行繪製、撰寫；每一張圖都測過「解開後一格不差」，頁面上每一個數字也都有自動測試（<code>tools/computers/test/rle.test.mjs</code>）。</span>"
+          },
+          "paras": [
+            "In Lesson 2 you saw that a picture is a long list of numbers, and that a photo from a phone holds millions of them. Yet the photo files on a phone are often far smaller than that. Songs and videos are smaller than you would expect too. Something is making them shrink. It is called data compression: reducing the amount of data needed to store a piece of information or to send it.",
+            "The first idea is repetition. Suppose a row of a picture has sixteen squares, all of them red. You could write “red” sixteen times. Or you could write “16 red.” That is two numbers instead of sixteen, and nothing has been lost. A picture with large areas of one color, such as a blue sky above green grass, shrinks a great deal this way.",
+            "But it does not always work. Take a picture where no two squares next to each other are the same color. Now every square has to be written as “1 of this color,” which is two numbers instead of one. The file gets bigger, not smaller. Compression is not magic. It finds patterns, and where there is no pattern, there is nothing to save.",
+            "Compression of this kind is called lossless. When the file is unpacked, every number comes back exactly as it was. That matters for text, where every character is important, and for programs. ZIP files work this way, with cleverer methods than counting. English text can generally be compressed to one-half or one-third of its original size.",
+            "For photos and music there is a second kind, called lossy compression. It throws away detail that people hardly notice. The JPEG format for photos discards what the human eye cannot see. The MP3 format for music discards sounds that the ear is least likely to miss. The files become very much smaller. But the detail that was thrown away is gone, and no program can bring it back.",
+            "So there is a choice to make. An essay must come back letter for letter, so it needs lossless compression. A photo to share with friends can lose a little. Either way, a smaller file takes up less storage and travels more quickly to another computer. And a file that has already been compressed, such as a JPEG photo, will hardly shrink at all if you compress it again."
+          ],
+          "paras_zh": [
+            "第二課說過，一張圖是很長的一串數，手機拍的一張照片就有好幾百萬個數。可是手機裡的照片檔，常常比這小得多。歌曲和影片也比你以為的小。有什麼東西讓它們縮小了。這叫做資料壓縮（data compression）：減少儲存或傳送一份資訊所需要的資料量。",
+            "第一個想法是「重複」。假設圖裡有一列是十六格，全部都是紅色。你可以把「紅」寫十六次，也可以寫「16 個紅」。這樣只要兩個數，不用十六個，而且什麼都沒有丟掉。有大片同色的圖，例如綠草地上方一片藍天，用這個方法可以縮小很多。",
+            "可是它不是每次都管用。拿一張圖，裡面沒有任何相鄰的兩格同色。這時候每一格都得寫成「1 個這種顏色」，原來一個數，現在變成兩個數。檔案不但沒變小，反而變大。壓縮不是魔法。它找的是規律；沒有規律，就沒有東西可以省。",
+            "這一種壓縮叫做無失真壓縮（lossless）。把檔案解開，每一個數都原封不動地回來。這對文字很重要，因為每一個字元都不能錯；對程式也一樣。ZIP 檔就是這一種，只是用的方法比數個數聰明得多。英文的文字，一般可以壓到原來的二分之一到三分之一。",
+            "照片和音樂還有第二種，叫做失真壓縮（lossy）。它把人不太注意得到的細節丟掉。照片用的 JPEG 格式，丟掉的是人眼看不出來的部分；音樂用的 MP3 格式，丟掉的是耳朵最不容易察覺少了的聲音。檔案會小非常多。可是丟掉的細節就是沒了，沒有任何程式能把它找回來。",
+            "所以要做一個選擇。作文必須一個字母都不差地回來，所以要用無失真壓縮。要分享給朋友的照片，少一點點沒關係。不管哪一種，檔案變小了，占的儲存空間就比較少，傳到另一台電腦也比較快。還有，已經壓縮過的檔案（例如 JPEG 照片），再壓一次幾乎不會變小。"
+          ],
+          "questions": [
+            "How can “16 red” replace sixteen squares without losing anything?",
+            "Why does a picture with no repetition get bigger when it is packed this way?",
+            "What is the difference between lossless and lossy compression? Give one thing that needs each."
+          ],
+          "answers": [
+            "All sixteen squares are the same, so it is enough to say how many there are and which color they are. From those two numbers, all sixteen can be written out again exactly.",
+            "Every square is different from its neighbor, so each one has to be written as “1 of this color.” That takes two numbers for each square instead of one.",
+            "Lossless compression gives back exactly what went in; an essay or a program needs it. Lossy compression throws away detail that people hardly notice, and that detail cannot come back; it is acceptable for a photo or a song."
+          ],
+          "vocab": [
+            {
+              "n": 1,
+              "w": "compress",
+              "pos": "v.",
+              "zh": "壓縮",
+              "ex": "You can <b>compress</b> the folder before you send it.",
+              "exzh": "寄出之前，可以先把資料夾壓縮起來。"
+            },
+            {
+              "n": 2,
+              "w": "pattern",
+              "pos": "n.",
+              "zh": "規律；圖案",
+              "ex": "Do you see a <b>pattern</b> in these numbers?",
+              "exzh": "你看得出這些數字有什麼規律嗎？"
+            },
+            {
+              "n": 3,
+              "w": "detail",
+              "pos": "n.",
+              "zh": "細節",
+              "ex": "The small photo has less <b>detail</b>.",
+              "exzh": "小張的照片細節比較少。"
+            },
+            {
+              "n": 4,
+              "w": "original",
+              "pos": "adj.",
+              "zh": "原來的；原始的",
+              "ex": "Keep the <b>original</b> file in a safe place.",
+              "exzh": "把原始的檔案放在安全的地方。"
+            },
+            {
+              "n": 5,
+              "w": "exactly",
+              "pos": "adv.",
+              "zh": "一模一樣地；精確地",
+              "ex": "The copy is <b>exactly</b> the same as the first one.",
+              "exzh": "這份副本和第一份一模一樣。"
+            },
+            {
+              "n": 6,
+              "w": "shrink",
+              "pos": "v.",
+              "zh": "縮小",
+              "ex": "The file <b>shrinks</b> when you compress it.",
+              "exzh": "檔案壓縮之後會縮小。"
+            },
+            {
+              "n": 7,
+              "w": "notice",
+              "pos": "v.",
+              "zh": "注意到；察覺",
+              "ex": "Most people do not <b>notice</b> the difference.",
+              "exzh": "大部分的人不會注意到差別。"
+            },
+            {
+              "n": 8,
+              "w": "discard",
+              "pos": "v.",
+              "zh": "丟棄",
+              "ex": "The program <b>discards</b> what you cannot hear.",
+              "exzh": "這個程式把你聽不到的部分丟掉。"
+            }
+          ],
+          "quiz": [
+            {
+              "q": "What does data compression do?",
+              "options": [
+                "It makes the screen brighter.",
+                "It reduces the amount of data needed to store or send something.",
+                "It makes the processor faster.",
+                "It deletes old files."
+              ],
+              "correct": 1
+            },
+            {
+              "q": "Which picture shrinks the most when same-colored squares in a row are counted?",
+              "options": [
+                "One where every square differs from its neighbor",
+                "One with large areas of a single color",
+                "One with thin stripes running down",
+                "Any picture shrinks the same amount"
+              ],
+              "correct": 1
+            },
+            {
+              "q": "What is true of lossless compression?",
+              "options": [
+                "The unpacked file is exactly the same as the original.",
+                "Some detail is always thrown away.",
+                "It works only on music.",
+                "It makes files bigger."
+              ],
+              "correct": 0
+            },
+            {
+              "q": "What does lossy compression do?",
+              "options": [
+                "It gives back every number exactly.",
+                "It throws away detail that people hardly notice.",
+                "It adds extra detail.",
+                "It turns pictures into text."
+              ],
+              "correct": 1
+            },
+            {
+              "q": "According to the reading, what happens if you compress a JPEG photo again?",
+              "options": [
+                "It becomes ten times smaller.",
+                "It hardly shrinks at all.",
+                "It turns back into the original.",
+                "It becomes a song."
+              ],
+              "correct": 1
+            }
+          ],
+          "parts_head": {
+            "eyebrow": "Try It in the Model · 在模型裡試試",
+            "en": "Four pictures to pack",
+            "zh": "四張值得壓壓看的圖"
+          },
+          "parts": [
+            {
+              "key": "apple",
+              "icon": "🍎",
+              "en": "The apple",
+              "zh": "蘋果",
+              "meta_en": "256 numbers become 156",
+              "meta_zh": "256 個數變成 156 個",
+              "demo": "apple",
+              "text_en": "The apple from Lesson 2. Which rows shrink the most, and which hardly shrink at all?",
+              "text_zh": "第二課的那顆蘋果。哪幾列縮得最多？哪幾列幾乎沒縮？"
+            },
+            {
+              "key": "hstripes",
+              "icon": "🟰",
+              "en": "Stripes across",
+              "zh": "橫條紋",
+              "meta_en": "256 numbers become 32",
+              "meta_zh": "256 個數變成 32 個",
+              "demo": "hstripes",
+              "text_en": "Every row is a single color. How many numbers does each row need now?",
+              "text_zh": "每一列都只有一種顏色。現在每一列要記幾個數？"
+            },
+            {
+              "key": "vstripes",
+              "icon": "🚧",
+              "en": "The same stripes, turned",
+              "zh": "同樣的條紋，轉個方向",
+              "meta_en": "256 numbers become 512",
+              "meta_zh": "256 個數變成 512 個",
+              "demo": "vstripes",
+              "text_en": "It is the same picture turned on its side, yet it doubles in size. What changed?",
+              "text_zh": "這是同一張圖轉了九十度，壓完卻變成兩倍大。是什麼不一樣了？"
+            },
+            {
+              "key": "noise",
+              "icon": "🎲",
+              "en": "Scrambled",
+              "zh": "雜亂",
+              "meta_en": "256 numbers become 512",
+              "meta_zh": "256 個數變成 512 個",
+              "demo": "noise",
+              "text_en": "No two neighbors are the same. Is there anything here for the method to shorten?",
+              "text_zh": "沒有任何相鄰的兩格同色。這張圖有什麼地方可以讓這個方法寫短嗎？"
+            }
+          ],
+          "parts_note_en": "Then pack “Sky and grass,” and after each picture press Unpack to check that nothing was lost.",
+          "parts_note_zh": "接著壓壓看「天空與草地」；每張圖壓完都按一次「解開」，確認什麼都沒有少。",
+          "rledraw": {
+            "eyebrow": "Try It · 自己試試",
+            "en": "Draw a Picture and Pack It",
+            "zh": "畫一張圖，把它壓起來",
+            "lead_en": "Choose a color and paint on the grid of 8 by 8 squares. On the right, each row is written as counts and colors, and the bar shows how many numbers your picture needs when packed. As it is, it always needs 64. Can you draw a picture that packs into 16 numbers? One that needs 128?",
+            "lead_zh": "選一個顏色，在 8 × 8 的格子上畫。右邊會把每一列寫成「幾個＋顏色」，長條顯示你的圖壓縮後要記幾個數。照原樣存一定是 64 個。你畫得出只要 16 個數的圖嗎？要 128 個數的呢？",
+            "note_en": "The black line on the bar marks 64, the size of the picture as it is. A green bar to the left of the line means the packed picture is smaller. A red bar to the right means it is bigger.",
+            "note_zh": "長條上的黑線標的是 64，也就是原圖的大小。綠色長條在黑線左邊，表示壓縮後變小；紅色長條超過黑線，表示壓縮後反而變大。",
+            "tips": [
+              {
+                "en": "A picture you would call “simple” usually packs small. A picture you would call “busy” does not.",
+                "zh": "你會說「很簡單」的圖，通常壓得很小；你會說「很花」的圖就不行。"
+              },
+              {
+                "en": "Press Checkerboard. It looks very regular, yet it is the worst case for this method. Why?",
+                "zh": "按「棋盤」。它看起來非常規則，卻是這個方法最慘的情況。為什麼？"
+              },
+              {
+                "en": "This method looks only along rows. A cleverer one could notice that every row of a checkerboard is one of just two patterns.",
+                "zh": "這個方法只沿著每一列看。聰明一點的方法會發現：棋盤的每一列，只有兩種樣子。"
+              }
+            ]
+          },
+          "lossy": {
+            "eyebrow": "See Why · 看看為什麼",
+            "en": "Throwing Detail Away",
+            "zh": "把細節丟掉",
+            "lead_en": "This is the other kind of compression. Choose a block size, and every block of squares becomes a single color: the one that most of its squares had. Fewer numbers need to be kept. Compare the two pictures, and then press the button to try to get the original back.",
+            "lead_zh": "這是另一種壓縮。選一個方塊大小，每一塊裡的格子就都變成同一個顏色——原來那一塊裡最多的那個顏色。要記的數變少了。比一比兩張圖，再按按鈕，試著把原圖要回來。",
+            "note_en": "This is only a picture of the idea. Real lossy formats such as JPEG are far more careful about which details they throw away, so that the eye hardly notices. The rule is the same, though: what was not kept cannot be brought back.",
+            "note_zh": "這只是用來說明道理的示意。JPEG 這類真的失真格式，在「丟掉哪些細節」上講究得多，所以眼睛幾乎看不出來。但規則是一樣的：沒有留下來的，就拿不回來。"
+          },
+          "keepall": {
+            "eyebrow": "Game · 小遊戲",
+            "en": "May Anything Be Lost?",
+            "zh": "可以丟掉一點嗎？",
+            "lead_en": "Eight things to compress. For each one, decide: must it come back exactly as it was, or is it all right to lose a little detail?",
+            "lead_zh": "一共八樣要壓縮的東西。每一樣都想一想：它一定要原封不動地回來，還是少一點細節沒關係？",
+            "ask_en": "Which kind of compression fits?",
+            "ask_zh": "適合哪一種壓縮？",
+            "opts": [
+              [
+                "lossless",
+                "Nothing may be lost",
+                "一點都不能少"
+              ],
+              [
+                "lossy",
+                "A little may go",
+                "可以丟掉一點"
+              ]
+            ],
+            "tasks": [
+              {
+                "en": "An essay you wrote",
+                "zh": "你寫的一篇作文",
+                "answer": "lossless",
+                "why_en": "In text, every character is important.",
+                "why_zh": "文字裡每一個字元都重要。"
+              },
+              {
+                "en": "A holiday photo to share online",
+                "zh": "要放上網路分享的旅遊照片",
+                "answer": "lossy",
+                "why_en": "JPEG discards what the eye cannot see, and the file becomes much smaller.",
+                "why_zh": "JPEG 丟掉眼睛看不出來的部分，檔案小很多。"
+              },
+              {
+                "en": "A computer program",
+                "zh": "一個電腦程式",
+                "answer": "lossless",
+                "why_en": "You saw in Lesson 9 what one missing instruction does.",
+                "why_zh": "第九課看過，少一條指令會怎樣。"
+              },
+              {
+                "en": "A song to listen to on your phone",
+                "zh": "放在手機裡聽的一首歌",
+                "answer": "lossy",
+                "why_en": "MP3 discards sounds the ear is least likely to miss.",
+                "why_zh": "MP3 丟掉耳朵最不容易察覺少了的聲音。"
+              },
+              {
+                "en": "A table of exam scores",
+                "zh": "一張考試成績表",
+                "answer": "lossless",
+                "why_en": "A score that is nearly right is wrong.",
+                "why_zh": "「差不多對」的分數就是錯的。"
+              },
+              {
+                "en": "A voice on a telephone call",
+                "zh": "電話裡的說話聲",
+                "answer": "lossy",
+                "why_en": "Telephones have long cut off the high sounds, and speech is still understood.",
+                "why_zh": "電話一直以來都把高音切掉，話還是聽得懂。"
+              },
+              {
+                "en": "A ZIP file of your homework folder",
+                "zh": "把作業資料夾壓成的 ZIP 檔",
+                "answer": "lossless",
+                "why_en": "ZIP uses lossless compression, so every file comes out as it went in.",
+                "why_zh": "ZIP 用的是無失真壓縮，所以每個檔案解開都和放進去時一樣。"
+              },
+              {
+                "en": "A video to watch online",
+                "zh": "在網路上看的影片",
+                "answer": "lossy",
+                "why_en": "Video formats throw detail away so that the video can travel over the network.",
+                "why_zh": "影片格式會丟掉細節，影片才傳得過網路。"
+              }
+            ],
+            "note_en": "These answers follow Britannica’s article on data compression, except the program and the exam scores, which are our own examples of things where every character matters.",
+            "note_zh": "這些答案依照大英百科「資料壓縮」條目；只有「電腦程式」和「成績表」是我們自己舉的例子，用來說明「每個字元都重要」的東西。"
+          },
+          "culture_cards": {
+            "eyebrow": "Stories Behind Compression · 壓縮的故事",
+            "title_en": "Dots and dashes, a rat and a tart, the eye and the ear, and a dictionary made of the text itself",
+            "title_zh": "點和線、老鼠和水果塔、眼睛和耳朵、用文章自己當字典",
+            "lead_en": "Four short stories about writing things in less space.",
+            "lead_zh": "關於「用比較少的空間寫東西」的四個小故事。",
+            "cards": [
+              {
+                "k": "Morse Code · 摩斯電碼",
+                "en": "Older than computers",
+                "zh": "比電腦還早",
+                "body_en": "Britannica points out that compression is older than digital technology. Morse Code assigned the shortest codes to the most common characters, so that a message took less time to send. And telephones cut off the high frequencies of the voice, which is an early example of lossy compression: some of the sound is thrown away, and the words are still understood.",
+                "body_zh": "大英百科指出，壓縮比數位科技還早。摩斯電碼把最短的碼分給最常用的字元，這樣發一則訊息花的時間就比較少。電話則把人聲裡的高頻切掉，這是很早的失真壓縮：聲音的一部分被丟掉了，話還是聽得懂。"
+              },
+              {
+                "k": "36 → 32",
+                "en": "A rat ate a tart at a tea",
+                "zh": "A rat ate a tart at a tea",
+                "body_en": "Britannica gives an example with only four letters: a, e, r, and t. With four letters, each one needs two bits, so the eighteen letters of “A rat ate a tart at a tea” take 36 bits. But a is the most common letter here and t the next. Give a the code 0, t the code 10, r the code 110, and e the code 111, and the same sentence takes only 32 bits. Short codes for common things: the Morse idea again, in bits.",
+                "body_zh": "大英百科舉了一個只有四個字母的例子：a、e、r、t。四個字母，每個要用兩個位元，所以「A rat ate a tart at a tea」這十八個字母要 36 個位元。可是這裡 a 最常出現，t 第二。讓 a 的碼是 0、t 是 10、r 是 110、e 是 111，同一句話就只要 32 個位元。常用的給短碼——又是摩斯電碼的想法，只是換成位元。"
+              },
+              {
+                "k": "JPEG, MP3",
+                "en": "What the eye and the ear will not miss",
+                "zh": "眼睛和耳朵不會發現少了的東西",
+                "body_en": "According to Britannica, the Joint Photographic Experts Group was formed in 1986 to create a standard that used data compression to keep picture files small. The JPEG standard works by averaging color variation and discarding what the human eye cannot see. The MP3 format, part of a standard released in 1993, did the same for music: it reduced the size of a CD audio file by discarding certain sounds, based on what the ear is least likely to miss. Britannica adds that the data lost in an MP3 is not reversible.",
+                "body_zh": "根據大英百科，聯合圖像專家小組（Joint Photographic Experts Group）在 1986 年成立，目的是訂出一套用資料壓縮讓圖檔變小的標準。JPEG 標準的做法是把顏色的變化平均掉，丟掉人眼看不出來的部分。MP3 格式屬於 1993 年發布的一套標準，它對音樂做了同樣的事：根據耳朵最不容易察覺少了什麼，丟掉某些聲音，把 CD 音訊檔變小。大英百科還說，MP3 壓縮時丟掉的資料是無法復原的。"
+              },
+              {
+                "k": "Lempel, Ziv",
+                "en": "The text is its own dictionary",
+                "zh": "文章自己就是字典",
+                "body_en": "The model on this page can only count squares that sit side by side. Real compression programs do better. Britannica describes the Lempel-Ziv algorithm, invented by the Israeli computer scientists Abraham Lempel and Jacob Ziv. It uses the text itself as a dictionary: when a string of characters appears again, it is replaced by numbers that say where it appeared before and how long it was. Britannica notes that Zip uses variations of this algorithm.",
+                "body_zh": "這一頁的模型只會數並排的格子。真的壓縮程式厲害得多。大英百科介紹了 Lempel-Ziv 演算法，由以色列電腦科學家倫佩爾（Abraham Lempel）和立夫（Jacob Ziv）發明。它把文章自己當成字典：一串字元再次出現時，就換成幾個數，說明它之前出現在哪裡、有多長。大英百科提到，Zip 用的就是這個演算法的變化版本。"
+              }
+            ]
+          },
+          "myths": [
+            {
+              "myth_en": "Compression always makes a file smaller.",
+              "myth_zh": "壓縮一定會讓檔案變小。",
+              "fact_en": "Not when there is nothing to shorten. In the model, the scrambled picture grows from 256 numbers to 512.",
+              "fact_zh": "沒有東西可以寫短的時候就不會。在模型裡，那張雜亂的圖從 256 個數變成 512 個。"
+            },
+            {
+              "myth_en": "Compressing a file always loses some quality.",
+              "myth_zh": "壓縮一定會損失一點品質。",
+              "fact_en": "Lossless compression can be reversed to give back the original data exactly. ZIP is lossless.",
+              "fact_zh": "無失真壓縮可以完全還原成原來的資料。ZIP 就是無失真的。"
+            },
+            {
+              "myth_en": "If a photo was saved with too much compression, you can get the detail back later.",
+              "myth_zh": "照片壓得太過頭，之後還能把細節救回來。",
+              "fact_en": "Lossy compression throws detail away, and what was not kept cannot be brought back.",
+              "fact_zh": "失真壓縮是把細節丟掉；沒有留下來的，就拿不回來。"
+            },
+            {
+              "myth_en": "Putting photos in a ZIP file makes them much smaller.",
+              "myth_zh": "把照片放進 ZIP 檔，就會小很多。",
+              "fact_en": "Microsoft notes that JPEG images are already highly compressed, so a zipped folder of them is about the same size as the pictures were.",
+              "fact_zh": "Microsoft 的說明提到，JPEG 圖片本來就已經高度壓縮，所以把它們壓成一個資料夾，大小和原來那些照片差不多。"
+            }
+          ],
+          "tricks_head": {
+            "en": "Compression in a sentence",
+            "zh": "一句話記住壓縮"
+          },
+          "tricks": [
+            {
+              "title_en": "Say it once, with a count",
+              "title_zh": "說一次，加上「幾個」",
+              "body_en": "Not “red, red, red.” Just “3 red.”",
+              "body_zh": "不說「紅、紅、紅」，說「3 個紅」。"
+            },
+            {
+              "title_en": "No pattern, no saving",
+              "title_zh": "沒有規律，就省不了",
+              "body_en": "Compression needs repetition.",
+              "body_zh": "壓縮要靠重複。"
+            },
+            {
+              "title_en": "Lossless comes back",
+              "title_zh": "無失真，回得來",
+              "body_en": "Every number, exactly.",
+              "body_zh": "每一個數，分毫不差。"
+            },
+            {
+              "title_en": "Lossy does not",
+              "title_zh": "失真，回不來",
+              "body_en": "Smaller, but the detail is gone for good.",
+              "body_zh": "比較小，可是細節永遠沒了。"
+            }
+          ],
+          "safety_head": {
+            "eyebrow": "Before You Start · 動手之前",
+            "en": "A few reminders",
+            "zh": "幾個提醒"
+          },
+          "safety": [
+            {
+              "en": "Compressing makes a new file and leaves the original alone. Do not delete the original until you have opened the new one and checked it.",
+              "zh": "壓縮會做出一個新檔案，原來的檔案還在。打開新檔案確認過之前，不要把原來的刪掉。"
+            },
+            {
+              "en": "Practice on copies of your own files, never on someone else’s work.",
+              "zh": "用自己檔案的副本來練習，不要拿別人的作業來試。"
+            },
+            {
+              "en": "Do not open a compressed file from someone you do not know. Ask a teacher or a parent first.",
+              "zh": "不認識的人傳來的壓縮檔不要打開。先問老師或家長。"
+            },
+            {
+              "en": "Use a school or family computer only with permission.",
+              "zh": "用學校或家裡的電腦要先得到同意。"
+            }
+          ],
+          "activities": [
+            {
+              "title_en": "Read Me a Picture",
+              "title_zh": "把圖唸給我聽",
+              "materials": [
+                {
+                  "en": "Squared paper with grids of 8 by 8 squares",
+                  "zh": "畫好 8 × 8 格子的方格紙"
+                },
+                {
+                  "en": "Colored pencils in four colors",
+                  "zh": "四種顏色的色鉛筆"
+                },
+                {
+                  "en": "A folder or book to stand between two partners",
+                  "zh": "一個資料夾或一本書，立在兩位同學之間擋住視線"
+                }
+              ],
+              "steps": [
+                {
+                  "en": "Student A colors a picture on a grid without letting B see it. Large shapes work best to begin with.",
+                  "zh": "A 同學在格子上畫一張圖，不要讓 B 看到。一開始先畫大塊的形狀。"
+                },
+                {
+                  "en": "A reads the picture to B one square at a time, in English: “red, red, red, blue …” B colors what B hears. Count the words A says for one row.",
+                  "zh": "A 用英文一格一格把圖唸給 B 聽：「red, red, red, blue …」B 照聽到的塗。數一數 A 唸一列說了幾個字。"
+                },
+                {
+                  "en": "On a new grid, A reads the same picture with counts: “three red, one blue, four white.” Count the words again.",
+                  "zh": "換一張新的格子，A 用「幾個」來唸同一張圖：「three red, one blue, four white」。再數一次說了幾個字。"
+                },
+                {
+                  "en": "Compare B’s two copies with A’s picture. Are they exactly the same? Then swap, and let B draw the hardest picture B can think of.",
+                  "zh": "拿 B 的兩張和 A 的原圖比一比。一模一樣嗎？接著交換，讓 B 畫一張他想得到最難唸的圖。"
+                }
+              ],
+              "tip_en": "Reading with counts is lossless compression: B’s copy should match square for square. Ask which pictures took fewer words and which took more. In Taiwan’s junior high Information Technology curriculum, this lesson builds on “Data representation, processing, and analysis”: 資 D-IV-1 and 資 D-IV-2, on how pictures and sound are turned into digital data. Compression itself is not named in the junior high content.",
+              "tip_zh": "用「幾個」來唸，就是無失真壓縮：B 的那一張應該一格不差。問問大家，哪些圖說的字比較少，哪些反而比較多。對照十二年國教國中「資訊科技」的學習內容，這一課延伸自「資料表示、處理及分析」主題的資 D-IV-1 資料數位化之原理與方法、資 D-IV-2 數位資料的表示方法；國中的學習內容並沒有直接列出「壓縮」。"
+            },
+            {
+              "title_en": "Check It on Your Own Computer",
+              "title_zh": "在自己的電腦上驗證",
+              "materials": [
+                {
+                  "en": "A Windows or Mac computer",
+                  "zh": "一台 Windows 或 Mac 電腦"
+                },
+                {
+                  "en": "A copy of a long text file you made, and a copy of a JPEG photo you took",
+                  "zh": "一份你自己做的長文字檔的副本，和一張你自己拍的 JPEG 照片的副本"
+                },
+                {
+                  "en": "Paper and a pencil",
+                  "zh": "紙和鉛筆"
+                }
+              ],
+              "steps": [
+                {
+                  "en": "Write down the size of each file before you start.",
+                  "zh": "開始之前，先把兩個檔案的大小記下來。"
+                },
+                {
+                  "en": "On a Mac, Control-click the file and choose Compress. On Windows, right-click the file and select Show more options, then Send to, then Compressed (zipped) folder.",
+                  "zh": "Mac：按住 Control 鍵點一下檔案，選 Compress。Windows：在檔案上按右鍵，依序選 Show more options、Send to、Compressed (zipped) folder。（中文介面的選單名稱會不一樣，找意思相同的那一項。）"
+                },
+                {
+                  "en": "Write down the size of each new .zip file. Which file shrank more?",
+                  "zh": "把兩個新的 .zip 檔的大小記下來。哪一個縮得比較多？"
+                },
+                {
+                  "en": "Unzip the text file and open it. Is every word still there?",
+                  "zh": "把文字檔解壓縮，打開來看。每一個字都還在嗎？"
+                }
+              ],
+              "tip_en": "The text file should shrink a good deal. The photo should stay about the same size, because a JPEG has already been compressed. Menu names differ a little between versions of Windows and macOS. Measure for yourself: the exact numbers depend on your files.",
+              "tip_zh": "文字檔應該會縮小不少。照片的大小應該差不多，因為 JPEG 本來就已經壓縮過了。不同版本的 Windows 和 macOS，選單的名稱會略有不同。請自己量量看：實際的數字要看你的檔案。"
+            }
+          ],
+          "links_head": {
+            "eyebrow": "Go Further · 延伸閱讀",
+            "en": "Pictures as numbers, sizes of files, and what comes next",
+            "zh": "圖就是數、檔案的大小，以及下一課"
+          },
+          "links": [
+            {
+              "icon": "🧑‍🍳",
+              "k_en": "Previous Lesson · Lesson 11",
+              "k_zh": "上一課・第十一課",
+              "en": "What Does an Operating System Do?",
+              "zh": "作業系統在做什麼？",
+              "note_en": "Packing and unpacking are done by programs, and the operating system gives them their turns.",
+              "note_zh": "壓縮和解壓縮都是程式在做，由作業系統安排它們輪流。",
+              "href": "/resources/classes/computers/operating-system/"
+            },
+            {
+              "icon": "🔤",
+              "k_en": "Lesson 2",
+              "k_zh": "第二課",
+              "en": "How Do 0s and 1s Become Words, Pictures, and Sound?",
+              "zh": "0 和 1 怎麼變成文字、圖片和聲音？",
+              "note_en": "Where the apple came from, and why a picture is a list of numbers in the first place.",
+              "note_zh": "那顆蘋果的出處，以及為什麼一張圖本來就是一串數。",
+              "href": "/resources/classes/computers/words-pictures-sound/"
+            },
+            {
+              "icon": "🖥️",
+              "k_en": "Lesson 5",
+              "k_zh": "第五課",
+              "en": "What Is Inside a Computer?",
+              "zh": "打開電腦，裡面有什麼？",
+              "note_en": "How many photos fit on a drive depends on how big each file is, and compression decides that.",
+              "note_zh": "一顆硬碟裝得下幾張照片，要看每個檔案多大——而這是壓縮決定的。",
+              "href": "/resources/classes/computers/inside-a-computer/"
+            },
+            {
+              "icon": "🌐",
+              "k_en": "Next Lesson · Lesson 13",
+              "k_zh": "下一課・第十三課",
+              "en": "What Happens When You Open a Web Page?",
+              "zh": "打開一個網頁，發生了什麼？",
+              "note_en": "Unit 3 ends here. Unit 4 leaves your own computer: next, one computer asks, and another one far away answers.",
+              "note_zh": "單元三到這裡結束。單元四要離開你自己的電腦：下一課，一台電腦發問，遠方的另一台回答。",
+              "soon": true
+            }
+          ],
+          "sources_note_en": "Facts on this page were checked against these sources (October 2026); the picture wall is our own illustration, and every number is tested",
+          "sources_note_zh": "本頁的事實依下列資料查證（2026 年 10 月）；像素牆是我們自己的示意，每一個數字都有測試",
+          "sources": [
+            {
+              "en": "Data compression is “the process of reducing the amount of data needed for the storage or transmission of a given piece of information”; Morse Code assigned the shortest codes to the most common characters, and telephony cuts off high frequencies; “A rat ate a tart at a tea” takes 36 bits at two bits a letter and 32 bits with the codes a: 0, t: 10, r: 110, e: 111; lossless compression can be reversed to yield the original data, while lossy compression loses detail; lossless compression is necessary for text; Zip uses lossless compression; run-length encoding replaces repetitive data by a count and one copy of the repeated item; the Lempel-Ziv algorithm, and Zip’s use of variations of it; JPEG and MPEG use both lossless and lossy techniques; English text can generally be compressed to one-half or one-third of its original size",
+              "zh": "資料壓縮是「減少儲存或傳送一份資訊所需資料量的過程」；摩斯電碼把最短的碼分給最常用的字元，電話切掉高頻；「A rat ate a tart at a tea」每個字母兩個位元要 36 個位元，用 a: 0、t: 10、r: 110、e: 111 只要 32 個；無失真壓縮可以還原出原來的資料，失真壓縮會失去細節；文字必須用無失真壓縮；Zip 用無失真壓縮；運行長度編碼把重複的資料換成「次數＋一份」；Lempel-Ziv 演算法，以及 Zip 使用它的變化版本；JPEG 與 MPEG 同時使用無失真與失真的技術；英文文字一般可以壓到原來的二分之一到三分之一",
+              "src": "David Hemmendinger, “data compression,” Encyclopaedia Britannica",
+              "url": "https://www.britannica.com/technology/data-compression"
+            },
+            {
+              "en": "The Joint Photographic Experts Group was formed in 1986; the JPEG standard “works by averaging colour variation and discarding what the human eye cannot see, a process known as ‘lossy’ compression”",
+              "zh": "聯合圖像專家小組 1986 年成立；JPEG 標準把顏色變化平均掉，丟掉人眼看不出來的部分，這個過程稱為「失真」壓縮",
+              "src": "The Editors of Encyclopaedia Britannica, “JPEG” (revised by Erik Gregersen)",
+              "url": "https://www.britannica.com/technology/JPEG"
+            },
+            {
+              "en": "The MPEG-1 standard was released in 1993; MP3 encoding reduced the size of a CD audio file “by discarding certain sounds based on assumptions of what the ear is least likely to miss”; “the data loss from compression was not reversible”",
+              "zh": "MPEG-1 標準 1993 年發布；MP3 編碼根據「耳朵最不容易察覺少了什麼」丟掉某些聲音，把 CD 音訊檔變小；壓縮造成的資料損失無法復原",
+              "src": "The Editors of Encyclopaedia Britannica, “MP3”",
+              "url": "https://www.britannica.com/technology/MP3"
+            },
+            {
+              "en": "“Zipped (compressed) files take up less storage space and can be transferred to other computers more quickly than uncompressed files”; right-click the file, select Show more options > Send to > Compressed (zipped) folder; “Some types of files, like JPEG images, are already highly compressed,” so a zipped folder of them is about the same size",
+              "zh": "壓縮（zip）過的檔案占的儲存空間比較少，傳到其他電腦也比較快；在檔案上按右鍵，選 Show more options > Send to > Compressed (zipped) folder；JPEG 圖片這類檔案本來就已經高度壓縮，壓成資料夾後大小差不多",
+              "src": "Microsoft Support, “Zip and unzip files”",
+              "url": "https://support.microsoft.com/en-us/windows/zip-and-unzip-files-8d28fa72-f2f9-712f-67df-f80cf89fd4e5"
+            },
+            {
+              "en": "“Compressed files take up less disk space than uncompressed files”; to compress a file or folder, Control-click it, then choose Compress",
+              "zh": "壓縮過的檔案占的磁碟空間比較少；要壓縮檔案或資料夾，按住 Control 鍵點一下，選 Compress",
+              "src": "Apple Support, “Zip and unzip files and folders on Mac”",
+              "url": "https://support.apple.com/guide/mac-help/zip-and-unzip-files-and-folders-on-mac-mchlp2528/mac"
+            },
+            {
+              "en": "Taiwan terms: run length encoding 運行長度編碼. For lossless and lossy compression the term bank gives 無損壓縮／不失真壓縮 and 有損壓縮／失真壓縮; this page uses 無失真壓縮 and 失真壓縮, the wording common in Taiwan’s textbooks",
+              "zh": "台灣用語：run length encoding 運行長度編碼。lossless／lossy compression 樂詞網作「無損壓縮／不失真壓縮」「有損壓縮／失真壓縮」；本頁用台灣教科書常見的「無失真壓縮」「失真壓縮」",
+              "src": "國家教育研究院《樂詞網》",
+              "url": "https://terms.naer.edu.tw/search/?query_term=lossy+compression&query_field=title&query_op=&match_type=exact"
+            },
+            {
+              "en": "資 D-IV-1, principles and methods of digitizing data, and 資 D-IV-2, ways of representing digital data (pp. 10–11; notes on p. 43). The word “compression” does not appear in the curriculum text",
+              "zh": "資 D-IV-1 資料數位化之原理與方法、資 D-IV-2 數位資料的表示方法（第 10–11 頁；附錄三的說明在第 43 頁）。課綱全文沒有出現「壓縮」一詞",
+              "src": "教育部《十二年國民基本教育課程綱要 國民中學暨普通型高級中等學校 科技領域》（2018）",
+              "url": "https://www.naer.edu.tw/upload/1/16/doc/816/十二年國民基本教育課程綱要國民中學暨普通型高級中等學校-科技領域.pdf"
+            },
+            {
+              "en": "The picture wall: 16 × 16 = 256 squares. Packed, the apple needs 156 numbers, sky and grass 48, stripes across 32, stripes down 512, and the scrambled picture 512; every picture unpacks exactly. Throwing detail away: blocks of 2 × 2, 4 × 4, and 8 × 8 keep 64, 16, and 4 numbers and change 41, 74, and 116 squares",
+              "zh": "像素牆：16 × 16＝256 格。壓縮後，蘋果要 156 個數、天空與草地 48、橫條紋 32、直條紋 512、雜亂 512；每一張圖解開都一格不差。丟掉細節：2 × 2、4 × 4、8 × 8 的方塊各留下 64、16、4 個數，改掉 41、74、116 格",
+              "src": "Our own illustration, checked by tools/computers/test/rle.test.mjs",
+              "url": "https://github.com/lukelin7429/twrses/blob/main/tools/computers/test/rle.test.mjs"
+            }
+          ]
         }
-      ]
+      ],
+      "planned": []
     },
     {
       "key": "network",
