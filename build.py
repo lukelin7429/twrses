@@ -8384,7 +8384,28 @@ def _ph_lab_copies(lab):
   </div>
 </div>"""
 
+def _ph_lab_beetle(lab):
+    """A33：盒子村（維根斯坦的盒中甲蟲）。五位村民各有一個別人看不到的盒子；聽他們談話、答三題、中途把盒子打開。"""
+    payload = html.escape(json.dumps({k: lab[k] for k in ("names", "word", "talk", "inside", "open", "steps", "heads", "ends")}, ensure_ascii=False), quote=False)
+    return f"""<div class="ph-el ph-bt rvl" data-ph-beetle>
+  <script type="application/json" data-bt-data>{payload}</script>
+  <div class="ph-vl-top"><div class="ph-vl-dots ph-so-dots" data-bt-dots aria-hidden="true"></div><span class="ph-el-count" data-bt-count></span></div>
+  <div class="ph-el-stage">
+    <div class="ph-bt-boxes" data-bt-boxes></div>
+    <div class="ph-bt-talk" data-bt-talk></div>
+    <div data-bt-play>
+      <div class="ph-tp-text" data-bt-text aria-live="polite"></div>
+      <div class="ph-vl-opts ph-bt-opts" data-bt-opts></div>
+      <div class="ph-vl-out" data-bt-out aria-live="polite"></div>
+      <div class="ph-md-act" data-bt-act hidden><button type="button" class="ph-vl-next" data-bt-next></button></div>
+    </div>
+    <div data-bt-end aria-live="polite"></div>
+    <div class="ph-el-foot"><button type="button" class="ph-el-reset" data-bt-reset>Start again · 重來</button></div>
+  </div>
+</div>"""
+
 def _ph_lab(lab):
+    if lab.get("kind") == "beetle": return _ph_lab_beetle(lab)
     if lab.get("kind") == "copies": return _ph_lab_copies(lab)
     if lab.get("kind") == "tragedy": return _ph_lab_tragedy(lab)
     if lab.get("kind") == "taste": return _ph_lab_taste(lab)

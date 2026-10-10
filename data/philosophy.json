@@ -315,7 +315,8 @@
        "n": "A33",
        "en": "How Do Words Get Their Meaning?",
        "zh": "字的意思從哪裡來？",
-       "note": "Wittgenstein; 名可名非常名"
+       "note": "Wittgenstein; 名可名非常名",
+       "slug": "meaning"
       },
       {
        "n": "A34",
@@ -1066,7 +1067,8 @@
        "n": "",
        "en": "Ludwig Wittgenstein",
        "zh": "維根斯坦",
-       "note": "1889–1951"
+       "note": "1889–1951",
+       "slug": "philosophers/wittgenstein"
       },
       {
        "n": "",
@@ -21745,6 +21747,668 @@
     "plato",
     "zhuangzi"
    ]
+  },
+  {
+   "slug": "meaning",
+   "shelf": "questions",
+   "n": "A33",
+   "unit_en": "Language and Science",
+   "unit_zh": "語言與科學",
+   "title": "How Do Words Get Their Meaning?",
+   "title_zh": "字的意思從哪裡來？",
+   "level": "Advanced · 高級",
+   "minutes": 25,
+   "blurb_en": "A child points and says “dog,” and somehow the noise comes to mean the animal. Augustine’s picture of how that happens, Locke’s ideas in the head, Frege’s two stars, Wittgenstein’s beetle in a box, and Xunzi on names fixed by agreement.",
+   "blurb_zh": "一個孩子指著說「狗」，然後不知怎麼地，那個聲音就有了「那種動物」的意思。奧古斯丁對這件事的描繪、洛克說的腦袋裡的觀念、弗雷格的兩顆星、維根斯坦的盒中甲蟲，以及荀子的「約定俗成」。",
+   "big_en": "Every earlier lesson in this series was conducted in words, and assumed that we understood them. This lesson, the first of a unit on language and science, asks what that understanding consists in. A sound or a mark is a physical thing like any other. What has to be added for it to mean something?",
+   "big_zh": "這個系列前面的每一課，都是用字詞進行的，並且假定了我們懂得它們。這一課是「語言與科學」單元的第一課；它問的是：那個「懂」是由什麼構成的？一個聲音或一個記號，是跟別的東西一樣的物理事物。要加上什麼，它才有意思？",
+   "essay": [
+    {
+     "h_en": "Pointing and naming",
+     "h_zh": "指著，叫出名字",
+     "paras": [
+      {
+       "en": "The most natural answer was given by Augustine, remembering how he learned to speak. “When they named any thing, and as they spoke turned towards it, I saw and remembered that they called what they would point out by the name they uttered.” Words are names, and each name stands for an object. To learn a language is to learn which name goes with which thing, and a sentence is a string of such names.",
+       "zh": "最自然的答案是奧古斯丁給的；他回憶自己是怎麼學會說話的。「當他們叫出某樣東西的名字，並且一邊說一邊轉向它的時候，我看見了，也記住了：他們用發出的那個名字，來稱呼他們要指出的東西。」字詞是名字；每一個名字代表一樣東西。學一種語言，就是學會哪個名字配哪樣東西；而一個句子，是這樣的名字串成的一串。"
+      },
+      {
+       "en": "The picture fits “dog” and “table.” It fits less well when we try other words. Nothing can be pointed at for “five,” “because,” “perhaps,” or “hello.” And pointing itself has to be understood. If I point at a rabbit running past and say “gavagai,” you cannot tell from the gesture whether I am naming the animal, its color, its running, the number one, or the act of pointing. A child who learns from pointing must already know a good deal about what kind of thing is likely to be meant.",
+       "zh": "這個圖像很適合「狗」與「桌子」。換別的字試試看，它就沒那麼適合了。「五」、「因為」、「也許」、「哈囉」，都沒有東西可以指。而且「指」本身也需要被理解。如果我指著一隻跑過去的兔子說「gavagai」，你無法從這個手勢看出：我是在叫那隻動物、牠的顏色、牠的奔跑、數字「一」，還是「指」這個動作的名字。一個從別人的指點裡學習的孩子，必定已經相當知道，對方多半是指哪一類的東西。"
+      }
+     ]
+    },
+    {
+     "h_en": "Ideas in the head",
+     "h_zh": "腦袋裡的觀念",
+     "paras": [
+      {
+       "en": "John Locke moved meaning indoors. “Words, in their primary or immediate signification, stand for nothing but the ideas in the mind of him that uses them.” I have an idea of gold, I attach the sound “gold” to it, and when I speak, the sound calls up the matching idea in you. The link between sound and idea is “perfectly arbitrary,” which is why there are many languages. This explains how words for absent or imaginary things can have meaning. It leaves a difficulty that Locke saw. I can never look into your mind to check that your idea matches mine. If meaning is a private item, no one can know that anyone else means what he means.",
+       "zh": "約翰・洛克把意義搬到了室內。「字詞，就其原初或直接的意指而言，代表的不是別的，就是使用它的人心裡的觀念。」我有一個「金子」的觀念；我把「金子」這個聲音繫在它上面；當我說話的時候，那個聲音在你心裡喚起相配的觀念。聲音與觀念之間的連結是「完全任意的」；這就是為什麼有許多種語言。這解釋了：指稱不在場或想像中的事物的字詞，怎麼能有意義。它也留下了一個洛克自己看到的困難。我永遠無法看進你的心裡，去核對你的觀念跟我的相不相配。如果意義是一件私人的東西，就沒有人能知道別人的意思跟自己的一樣。"
+      },
+      {
+       "en": "In 1892 the logician Gottlob Frege showed that meaning cannot simply be the thing named either. The morning star and the evening star are one object, the planet Venus. Yet “the morning star is the evening star” was a discovery of astronomy, while “the morning star is the morning star” tells us nothing. Two names for one thing can differ in meaning. Frege concluded that a name has a sense, a way in which it presents its object, as well as a reference. Sense, he insisted, is public. It is what a whole community grasps, and no one keeps it in his head as a private image.",
+       "zh": "1892 年，邏輯學家戈特洛布・弗雷格指出：意義也不可能單單就是被叫到名字的那樣東西。晨星與暮星是同一個對象，也就是金星。然而「晨星就是暮星」是天文學的一項發現；而「晨星就是晨星」什麼也沒告訴我們。同一樣東西的兩個名字，意義可以不同。弗雷格的結論是：一個名字除了有「指稱」，還有「意義」，也就是它呈現其對象的方式。他堅持，意義是公共的。它是一整個社群所掌握的東西；並沒有哪一個人把它當作私人的意象，收在自己的腦袋裡。"
+      }
+     ]
+    },
+    {
+     "h_en": "The beetle in the box",
+     "h_zh": "盒子裡的甲蟲",
+     "paras": [
+      {
+       "en": "Ludwig Wittgenstein began his last book by quoting Augustine’s account of learning to speak, and spent the book taking it apart. He asked his readers to stop looking for the thing a word stands for and to look at what people do with it. “For a large class of cases,” he wrote, “the meaning of a word is its use in the language.” Words are like the tools in a toolbox, a hammer, a ruler, a pot of glue, and are as various in their work. To know what “five” means is to be able to count, and to know what “hello” means is to know when to say it.",
+       "zh": "路德維希・維根斯坦在他最後一本書的開頭，引了奧古斯丁對學說話的那段描述；然後用整本書把它拆開。他請讀者不要再去找一個字「代表」的東西，而去看人們拿它做什麼。他寫道：「在很大一類的情況裡，一個字的意義就是它在語言中的用法。」字詞就像工具箱裡的工具：一把鎚子、一把尺、一罐膠水；它們的工作也同樣五花八門。知道「五」是什麼意思，就是會數數；知道「哈囉」是什麼意思，就是知道什麼時候說它。"
+      },
+      {
+       "en": "Against Locke he offered a small story. Suppose everyone has a box with something in it, which we call a beetle. No one can look into anyone else’s box, and each says that he knows what a beetle is only from his own. It would be quite possible for everyone to have something different in his box, or for the thing to keep changing, or for a box to be empty. The word “beetle” would go on being used all the same. The thing in the box, Wittgenstein says, “has no place in the language-game at all.” It drops out as irrelevant. If the meaning of “pain” were a private object that only I can inspect, the same would follow for pain. Since we plainly do talk about pain and understand one another, the word must get its meaning elsewhere, from the cries, the winces, the comforting, and the shared life in which it is used.",
+       "zh": "針對洛克，他講了一個小故事。假設每個人都有一個盒子，裡面有某樣東西，我們叫它「甲蟲」。誰也不能看進別人的盒子；而每個人都說，他只從自己的那一隻知道甲蟲是什麼。很有可能每個人的盒子裡是不同的東西；或者那樣東西不停地在變；或者有一個盒子是空的。「甲蟲」這個詞還是會照樣被使用。維根斯坦說，盒子裡的那樣東西「在這個語言遊戲裡根本沒有位置」。它作為不相干的東西，被消掉了。如果「痛」的意義是一個只有我能檢視的私人對象，那麼對痛也會得出同樣的結論。既然我們顯然確實在談論痛、也彼此聽得懂，這個詞的意義必定來自別處：來自叫喊、皺眉、安慰，以及使用它的那個共同的生活。"
+      }
+     ]
+    },
+    {
+     "h_en": "Fixed by agreement",
+     "h_zh": "約定俗成",
+     "paras": [
+      {
+       "en": "Chinese philosophers had argued about names for two centuries before the first empire. The logician Gongsun Long defended the claim that “a white horse is not a horse,” on the ground that “horse” names a shape and “white” a color, so that the two terms do not mean the same. Thinkers who wanted language to serve government found such puzzles dangerous. Xunzi replied with the clearest statement of conventionalism in the ancient world: “Names have no fixed rightness. They are fixed by agreement. When the agreement is settled and the custom formed, they are called right, and what departs from the agreement is called wrong.” A name is correct because a community uses it so. For Xunzi it follows that keeping names stable is a public duty, and that those who play with them unsettle everything built on them.",
+       "zh": "在第一個帝國之前，中國的哲學家已經為「名」爭論了兩個世紀。名家的公孫龍為「白馬非馬」這個主張辯護；理由是「馬」命名的是形，「白」命名的是色，所以這兩個詞的意思並不相同。希望語言為治理服務的思想家，覺得這樣的難題很危險。荀子的回應，是古代世界對約定論最清楚的陳述：「名無固宜，約之以命，約定俗成謂之宜，異於約則謂之不宜。」一個名之所以正確，是因為一個社群這樣用它。對荀子來說，由此可以推出：保持名的穩定是一項公共的責任；而玩弄名的人，動搖了建立在它們之上的一切。"
+      },
+      {
+       "en": "The Daoists drew the opposite lesson from the same fact. If names are our arrangement and nothing more, they cannot reach what was there before any arrangement. The Daodejing opens: “The name that can be named is not the constant name.” Zhuangzi put it as an image. “The fish trap exists for the sake of the fish. Once you have the fish, you can forget the trap. Words exist for the sake of meaning. Once you have the meaning, you can forget the words. Where can I find a man who has forgotten words, so that I can have a word with him?”",
+       "zh": "道家從同一個事實裡，引出了相反的教訓。如果名只是我們的安排、別無其他，它們就搆不到任何安排之前就已經在那裡的東西。《道德經》開頭就說：「名可名，非常名。」莊子把它說成一個意象：「荃者所以在魚，得魚而忘荃……言者所以在意，得意而忘言。吾安得夫忘言之人而與之言哉？」"
+      }
+     ]
+    },
+    {
+     "h_en": "What use leaves open",
+     "h_zh": "「用法」沒有回答的",
+     "paras": [
+      {
+       "en": "“Meaning is use” is closer to a direction for looking than to a theory, and it has costs. If a word means whatever a community does with it, it becomes hard to say how a whole community could use a word wrongly, and yet people once applied “fish” to whales. In the 1970s Saul Kripke and Hilary Putnam argued that some words are tied to the world in a way that use does not capture. “Water” named a certain stuff long before anyone knew its chemistry, and what the word meant all along depended on what that stuff really is. Meanings, as Putnam put it, are not entirely in the head, and on his account they are not entirely in our practices either. The present view is a division of labor. Use and agreement explain most words, and the world itself helps to fix the meaning of some. Almost no one now defends the private image in the mind that Locke began with.",
+       "zh": "「意義即用法」與其說是一個理論，不如說是一個「往哪裡看」的指示；而它是有代價的。如果一個字的意思，就是一個社群拿它做的任何事；那就很難說明，一整個社群怎麼可能把一個字用錯。然而人們確實曾經把鯨魚叫做「魚」。1970 年代，索爾・克里普克與希拉蕊・普特南主張：有些字與世界連結的方式，是「用法」捕捉不到的。早在任何人懂得它的化學成分之前，「水」就已經是某一種東西的名字了；而這個字一直以來的意思，取決於那種東西實際上是什麼。照普特南的說法，意義並不完全在腦袋裡；而照他的講法，它們也不完全在我們的實踐裡。目前的看法是一種分工。用法與約定解釋了大多數的字；而世界本身，幫忙固定了其中一些字的意義。洛克當初拿來當起點的那個「心裡的私人意象」，現在幾乎沒有人為它辯護了。"
+      }
+     ]
+    }
+   ],
+   "lab": {
+    "kind": "beetle",
+    "title_en": "Try it: the village of boxes",
+    "title_zh": "親手做一次：盒子村",
+    "lead_en": "Five villagers each carry a small box. No one may look into another’s. Everyone calls what is in his own box a “beetle.” Listen to them talk, answer three questions, and then open the boxes.",
+    "lead_zh": "五位村民，各自帶著一個小盒子。誰也不可以看別人的盒子。每個人都把自己盒子裡的東西叫做「甲蟲」。聽聽他們說話，回答三個問題，然後把盒子打開。",
+    "names": [
+     "Ana",
+     "Bo",
+     "Chen",
+     "Dee",
+     "Eli"
+    ],
+    "word": {
+     "en": "beetle",
+     "zh": "甲蟲"
+    },
+    "talk": [
+     {
+      "en": "Ana: My beetle is restless today.",
+      "zh": "安娜：我的甲蟲今天很不安分。"
+     },
+     {
+      "en": "Bo: Mine too. It must be the weather.",
+      "zh": "阿博：我的也是。一定是天氣的關係。"
+     },
+     {
+      "en": "Chen: Take good care of your beetle, Dee.",
+      "zh": "阿辰：小蒂，要好好照顧你的甲蟲。"
+     },
+     {
+      "en": "Dee: I always do. Eli, is yours any better?",
+      "zh": "小蒂：我一向都是。伊萊，你的好一點了嗎？"
+     },
+     {
+      "en": "Eli: Much better, thank you.",
+      "zh": "伊萊：好多了，謝謝。"
+     }
+    ],
+    "inside": [
+     {
+      "en": "a beetle",
+      "zh": "一隻甲蟲"
+     },
+     {
+      "en": "a pebble",
+      "zh": "一顆小石頭"
+     },
+     {
+      "en": "a button",
+      "zh": "一顆鈕扣"
+     },
+     {
+      "en": "something that keeps changing",
+      "zh": "一樣不停在變的東西"
+     },
+     {
+      "en": "nothing at all",
+      "zh": "什麼也沒有"
+     }
+    ],
+    "open": {
+     "en": "Open the boxes",
+     "zh": "打開盒子"
+    },
+    "steps": [
+     {
+      "tag": {
+       "en": "Question 1 of 3",
+       "zh": "第一題"
+      },
+      "scene": "closed",
+      "q": {
+       "en": "The conversation went smoothly. What does “beetle” mean in this village?",
+       "zh": "這段對話進行得很順利。在這個村子裡，「甲蟲」是什麼意思？"
+      },
+      "opts": [
+       {
+        "k": "thing",
+        "t": {
+         "en": "The kind of thing that is in the boxes",
+         "zh": "盒子裡的那一種東西"
+        },
+        "v": {
+         "en": "This is Augustine’s picture: a word names a kind of object. Hold on to your answer until the boxes are opened.",
+         "zh": "這是奧古斯丁的圖像：一個字是某一種東西的名字。請先保留你的答案，等盒子打開。"
+        }
+       },
+       {
+        "k": "idea",
+        "t": {
+         "en": "For each speaker, whatever is in his own box",
+         "zh": "對每一位說話的人來說，就是他自己盒子裡的東西"
+        },
+        "v": {
+         "en": "This is Locke’s picture: each person’s word stands for his own private item. Notice that on this view the five villagers may be using five different words that happen to sound alike.",
+         "zh": "這是洛克的圖像：每個人的字，代表他自己的那件私人的東西。請留意：照這個看法，五位村民用的可能是五個不同的字，只是碰巧聽起來一樣。"
+        }
+       },
+       {
+        "k": "use",
+        "t": {
+         "en": "Its part in the way they talk and act",
+         "zh": "它在他們說話與行動的方式裡所扮演的角色"
+        },
+        "v": {
+         "en": "This is Wittgenstein’s answer. You have located the meaning in something all five can see and hear.",
+         "zh": "這是維根斯坦的答案。你把意義定位在五個人都看得見、聽得到的東西上。"
+        }
+       }
+      ]
+     },
+     {
+      "tag": {
+       "en": "Question 2 of 3",
+       "zh": "第二題"
+      },
+      "scene": "open",
+      "q": {
+       "en": "The boxes held five different things, and one held nothing. Nobody in the village knows this, and their talk goes on as before. Was the word’s meaning the thing in the box?",
+       "zh": "盒子裡是五樣不同的東西，而且有一個是空的。村子裡沒有人知道；他們的談話照舊進行。這個詞的意思，是盒子裡的那樣東西嗎？"
+      },
+      "opts": [
+       {
+        "k": "thing",
+        "t": {
+         "en": "Yes. They have been misunderstanding one another all along",
+         "zh": "是。他們一直以來都在互相誤解"
+        },
+        "v": {
+         "en": "Then no one in the village has ever understood anyone, and no one could find out. Wittgenstein thinks that a misunderstanding which can never show itself in anything said or done is not a misunderstanding. You may still hold your ground. Locke would.",
+         "zh": "那麼村子裡從來沒有人懂過任何人；而且誰也查不出來。維根斯坦認為：一個永遠不會在任何言行裡顯露出來的誤解，不算誤解。你還是可以堅持你的立場。洛克會。"
+        }
+       },
+       {
+        "k": "use",
+        "t": {
+         "en": "No. The contents made no difference to what was said",
+         "zh": "不是。盒子裡的東西，對說出來的話沒有任何影響"
+        },
+        "v": {
+         "en": "That is the point of the story. Whatever is in the box “drops out of consideration as irrelevant.” The word had work to do in the village, and it did that work with an empty box as well as a full one.",
+         "zh": "這就是這個故事的重點。盒子裡不管是什麼，都「作為不相干的東西被消掉了」。這個詞在村子裡有工作要做；而盒子是空的還是滿的，它都照樣把工作做完了。"
+        }
+       }
+      ]
+     },
+     {
+      "tag": {
+       "en": "Question 3 of 3",
+       "zh": "第三題"
+      },
+      "scene": "pain",
+      "q": {
+       "en": "Now change one word. Each villager has a pain that no one else can feel, and they talk about it in the same way. Is “pain” like “beetle”?",
+       "zh": "現在換一個詞。每位村民都有一種別人感覺不到的痛；而他們用同樣的方式談論它。「痛」跟「甲蟲」一樣嗎？"
+      },
+      "opts": [
+       {
+        "k": "use",
+        "t": {
+         "en": "Yes. “Pain” gets its meaning from crying, wincing, and being comforted",
+         "zh": "一樣。「痛」的意義來自哭喊、皺眉與被安慰"
+        },
+        "v": {
+         "en": "You have followed Wittgenstein to his conclusion. He would add a warning against going too far. He does not deny that pain is felt. A sensation, he says, “is not a something, but not a nothing either.” What he denies is that the word means what it does by naming a private object.",
+         "zh": "你跟著維根斯坦走到了他的結論。他會補一句警告，要你別走過頭。他並不否認痛是被感覺到的。他說，一種感覺「不是一個什麼東西，但也不是什麼都沒有」。他否認的是：這個詞是靠著「為一個私人對象命名」才有了它的意思。"
+        }
+       },
+       {
+        "k": "idea",
+        "t": {
+         "en": "No. I know what pain is from my own case, whatever others do",
+         "zh": "不一樣。不管別人怎麼做，我是從我自己的情況知道痛是什麼的"
+        },
+        "v": {
+         "en": "This is the natural reply and many philosophers defend it. Its difficulty is the one the boxes showed. If you know what “pain” means only from your own case, you have no way of knowing that anyone else means the same, or that you mean today what you meant yesterday, since you have nothing but your memory to check your memory against.",
+         "zh": "這是很自然的回答；有許多哲學家為它辯護。它的困難，就是那些盒子顯示出來的那一個。如果你只從自己的情況知道「痛」是什麼意思，你就無從知道別人的意思是否相同；也無從知道你今天的意思跟昨天的是否相同，因為除了記憶，你沒有別的東西可以拿來核對記憶。"
+        }
+       }
+      ]
+     }
+    ],
+    "heads": {
+     "en": "Where you put the meaning",
+     "zh": "你把意義放在哪裡"
+    },
+    "ends": {
+     "use": {
+      "en": "In all three answers you put meaning in what people do together. This is Wittgenstein’s view, and close to Xunzi’s: a word is right when it is used as the community has settled. The question you now face is Putnam’s. Could the whole village be wrong about what a beetle is?",
+      "zh": "三個答案裡，你都把意義放在人們一起做的事情上。這是維根斯坦的看法；也接近荀子的：一個字照著社群約定的方式來用，就是對的。你現在面對的問題是普特南的。整個村子有沒有可能都搞錯了「甲蟲」是什麼？"
+     },
+     "inner": {
+      "en": "You held throughout that a word means the thing or the idea it stands for. This is the view of Augustine and Locke, and of common sense. The village is a difficulty for it, since there the thing stood for made no difference at all. You might answer that “beetle” in the village is a defective word, and that real words are not like that.",
+      "zh": "你從頭到尾都主張：一個字的意思，是它所代表的東西或觀念。這是奧古斯丁與洛克的看法，也是常識的看法。那個村子對它是個難題；因為在那裡，被代表的那樣東西完全沒有造成任何差別。你也許可以回答：村子裡的「甲蟲」是一個有缺陷的詞，真正的字不是那樣的。"
+     },
+     "mixed": {
+      "en": "Your answers changed between the cases. Most people’s do, and usually at the third question. It is easy to give up the beetle and hard to give up the pain. Wittgenstein expected this. He thought the pull of the inner picture so strong that it could not be argued away at one stroke. It could only be loosened case by case.",
+      "zh": "你的答案在不同的案例之間變了。大多數人都會；而且通常是在第三題。放棄甲蟲很容易，放棄痛很難。維根斯坦料到了這一點。他認為「內在圖像」的拉力非常強，不可能一下子就用論證消除。只能一個案例一個案例地把它鬆開。"
+     }
+    }
+   },
+   "argument": {
+    "title_en": "The argument, laid out",
+    "title_zh": "論證攤開來",
+    "lead_en": "The argument against a private language, as it is usually reconstructed from Philosophical Investigations §§243–315. Click a step to see what can be said against it.",
+    "lead_zh": "反對「私人語言」的論證；這是人們通常從《哲學研究》第 243 到 315 節重建出來的樣子。點任何一步，看看別人可以怎麼反對它。",
+    "steps": [
+     {
+      "k": "P1",
+      "en": "Suppose a word got its meaning by naming a sensation that only the speaker can know.",
+      "zh": "假設一個字是靠著「為一種只有說話者能知道的感覺命名」而得到意義的。",
+      "ob_en": "This is the supposition to be reduced to absurdity. Locke and Descartes would say that it describes our actual situation.",
+      "ob_zh": "這是準備被歸謬的那個假設。洛克與笛卡兒會說，它描述的就是我們實際的處境。"
+     },
+     {
+      "k": "P2",
+      "en": "To use a word with meaning is to follow a rule for its use, and a rule can be followed correctly or incorrectly.",
+      "zh": "有意義地使用一個字，就是遵循它的使用規則；而規則可以被正確地、也可以被不正確地遵循。",
+      "ob_en": "Few deny this. A sound made at random means nothing.",
+      "ob_zh": "很少有人否認這一點。隨便發出的一個聲音，什麼意思也沒有。"
+     },
+     {
+      "k": "P3",
+      "en": "In the private case nothing could distinguish following the rule from merely seeming to follow it.",
+      "zh": "在私人的情況裡，沒有任何東西能把「遵循規則」與「只是好像在遵循規則」區分開來。",
+      "ob_en": "The key step, and the most disputed. Critics say that memory can serve as a check, as it does in ordinary life. Wittgenstein replies that checking one memory against another is like buying a second copy of the newspaper to confirm what the first one says.",
+      "ob_zh": "這是關鍵的一步，也是爭議最大的一步。批評者說，記憶可以充當查核，就像它在日常生活裡那樣。維根斯坦回答：拿一份記憶去核對另一份記憶，就像買第二份同樣的報紙，來確認第一份上面寫的。"
+     },
+     {
+      "k": "P4",
+      "en": "Where there is no difference between being right and seeming right, there is no rule and so no meaning.",
+      "zh": "在「對」與「好像對」沒有差別的地方，就沒有規則；所以也沒有意義。",
+      "ob_en": "A. J. Ayer objected that this proves too much. Public checks also rest in the end on someone’s trusting his own senses and memory, so that if private checking is worthless, public checking is too.",
+      "ob_zh": "艾耶爾反對說：這證明得太多了。公共的查核，到頭來也得靠某個人信任自己的感官與記憶；所以如果私人的查核一文不值，公共的查核也是。"
+     },
+     {
+      "k": "C",
+      "en": "So words for sensations do not get their meaning by naming private objects.",
+      "zh": "所以，表示感覺的字，並不是靠著為私人對象命名而得到意義的。",
+      "ob_en": "Some accept the conclusion and worry about its cost. If the meaning of “pain” lies in public behavior, it may seem that the feeling itself has been left out. Wittgenstein denied that he was a behaviorist, and his readers still disagree about whether he escaped the charge.",
+      "ob_zh": "有些人接受這個結論，而擔心它的代價。如果「痛」的意義在於公共的行為，那麼感覺本身似乎被漏掉了。維根斯坦否認自己是行為主義者；而他的讀者對於他是否擺脫了這個指控，至今意見不一。"
+     }
+    ]
+   },
+   "source": {
+    "title_en": "In their own words",
+    "title_zh": "原典怎麼說",
+    "work": "Augustine, Confessions, Book I, chapter 8; Xunzi, chapter 22, “Rectifying Names”; Zhuangzi, chapter 26",
+    "work_zh": "奧古斯丁《懺悔錄》卷一第八章；《荀子・正名》；《莊子・外物》",
+    "tr": "Augustine translated by E. B. Pusey (public domain); Xunzi and Zhuangzi translated for this series",
+    "lead_en": "The passage with which Wittgenstein opens the Investigations, and two Chinese texts that begin from convention and end in opposite places.",
+    "lead_zh": "維根斯坦用來為《哲學研究》開場的那一段；以及從「約定」出發、卻走到相反兩端的兩段中國文本。",
+    "passages": [
+     {
+      "ref": "Confessions I.8",
+      "en": "When they named any thing, and as they spoke turned towards it, I saw and remembered that they called what they would point out by the name they uttered. And that they meant this thing and no other was plain from the motion of their body, the natural language, as it were, of all nations, expressed by the countenance, glances of the eye, gestures of the limbs, and tones of the voice, indicating the affections of the mind, as it pursues, possesses, rejects, or shuns. And thus by constantly hearing words, as they occurred in various sentences, I collected gradually for what they stood.",
+      "zh": "當他們叫出某樣東西的名字，並且一邊說一邊轉向它的時候，我看見了，也記住了：他們用發出的那個名字，來稱呼他們要指出的東西。而他們指的是這樣東西、不是別的，從他們身體的動作看得很清楚；那可以說是一切民族共通的自然語言：以表情、眼神、肢體的姿勢與聲音的語調來表達，顯示出心在追求、擁有、拒絕或迴避時的種種情感。就這樣，我不斷地聽到字詞出現在各種句子裡，漸漸歸納出它們代表什麼。",
+      "note_en": "Wittgenstein remarks that Augustine describes the learning of language as if the child already had a language and only lacked this one, as a foreigner would. Notice also how much of what Augustine reports is not pointing: faces, tones, pursuing and shunning. The passage contains the materials of Wittgenstein’s own view.",
+      "note_zh": "維根斯坦評論說：奧古斯丁描述學語言的方式，好像那個孩子已經有了一種語言，只是還不會這一種；就像一個外國人那樣。也請留意：奧古斯丁所記述的，有多少並不是「指」：臉、語調、追求與迴避。這段話裡，其實含著維根斯坦自己那個看法的材料。"
+     },
+     {
+      "ref": "Xunzi 22; Zhuangzi 26",
+      "en": "Names have no fixed rightness. They are fixed by agreement. When the agreement is settled and the custom formed, they are called right, and what departs from the agreement is called wrong. Names have no fixed object. An object is fixed for them by agreement, and when the agreement is settled and the custom formed, they are called the names of those objects.\n\nThe fish trap exists for the sake of the fish. Once you have the fish, you can forget the trap. The snare exists for the sake of the rabbit. Once you have the rabbit, you can forget the snare. Words exist for the sake of meaning. Once you have the meaning, you can forget the words. Where can I find a man who has forgotten words, so that I can have a word with him?",
+      "zh": "名無固宜，約之以命，約定俗成謂之宜，異於約則謂之不宜。名無固實，約之以命實，約定俗成，謂之實名。\n\n荃者所以在魚，得魚而忘荃。蹄者所以在兔，得兔而忘蹄。言者所以在意，得意而忘言。吾安得夫忘言之人而與之言哉？",
+      "note_en": "Xunzi’s phrase 約定俗成, “fixed by agreement and formed by custom,” is still the ordinary Chinese expression for convention. Zhuangzi’s last sentence is a joke that makes his point: he needs words to say that he wants someone who is done with them.",
+      "note_zh": "荀子的「約定俗成」，至今仍是中文裡表示「慣例」的日常說法。莊子的最後一句是一個笑話，而它正好說明了他的意思：他需要用言語，才能說出他想找一個已經不需要言語的人。"
+     }
+    ]
+   },
+   "objections": {
+    "title_en": "Objections and replies",
+    "title_zh": "反駁與回應",
+    "items": [
+     {
+      "o_en": "If meaning is use, then to know the meaning of a word I would have to know every way it is ever used. No one does.",
+      "o_zh": "如果意義就是用法，那麼要知道一個字的意義，我就得知道它被使用的每一種方式。沒有人知道。",
+      "r_en": "Knowing how to use a word is a skill, like knowing how to ride a bicycle, and skills come in degrees. A child who can ask for milk knows something of what “milk” means, and a dairy chemist knows more. Putnam added that we lean on one another. I can use “elm” correctly without being able to tell an elm from a beech, because others in my community can. He called this the division of linguistic labor.",
+      "r_zh": "知道怎麼用一個字是一種技能，就像知道怎麼騎腳踏車；而技能是有程度之分的。一個會要牛奶喝的孩子，知道一些「牛奶」的意思；一位乳品化學家知道得更多。普特南補充說：我們彼此倚靠。我分不出榆樹與山毛櫸，卻能正確地使用「榆樹」這個詞；因為我的社群裡有別人分得出來。他把這叫做「語言的分工」。"
+     },
+     {
+      "o_en": "Xunzi’s view makes truth a matter of agreement. If we all agreed to call the deer a horse, it would be one.",
+      "o_zh": "荀子的看法使真理成了約定的事。如果我們全都同意把鹿叫做馬，牠就是馬了。",
+      "r_en": "Convention fixes which sound goes with which kind of thing. It does not fix the facts about the thing. If we swapped the words, the sentence “that is a horse,” said of a deer, would become true, and the animal would still have antlers. Xunzi is clear on this. He says in the same chapter that names are made in order to point at realities and mark their differences. The story of the minister who called a deer a horse to see who would dare to contradict him is a story about power corrupting usage, and Xunzi’s demand that names be kept correct is aimed at exactly that.",
+      "r_zh": "約定決定的是：哪一個聲音配哪一種東西。它並不決定關於那樣東西的事實。如果我們把這兩個詞對調，那麼指著一頭鹿說「那是一匹馬」這個句子，就會變成真的；而那隻動物照樣長著鹿角。荀子在這一點上很清楚。他在同一篇裡說，制名是為了指稱實、辨別同異。那位大臣指鹿為馬、看看誰敢反駁他的故事，講的是權力敗壞了用法；而荀子要求「正名」，針對的正是這種事。"
+     },
+     {
+      "o_en": "Some things cannot be put into words at all. A theory that ties meaning to public use has no room for them.",
+      "o_zh": "有些東西根本無法用言語表達。一個把意義綁在公共用法上的理論，沒有位置給它們。",
+      "r_en": "Wittgenstein agreed that there are such things and spent his early book marking the limit: “Whereof one cannot speak, thereof one must be silent.” The later view does not deny what Laozi and Zhuangzi say. It gives it a different description. Words are tools for shared activities, and where an experience is tied to no shared activity, the tools have nothing to grip. Much of the tradition of pointing, silence, paradox, and the fish trap can be read as a set of techniques for that situation.",
+      "r_zh": "維根斯坦同意有這樣的東西；而他早年的那本書，就是在標出那條界線：「凡是不可說的，就必須保持沉默。」後期的看法並不否認老子與莊子所說的。它給了另一種描述。字詞是用於共同活動的工具；當一種經驗不與任何共同的活動相連時，這些工具就沒有東西可以抓。指點、沉默、弔詭與「筌」的那個傳統，有很大一部分可以讀成一套針對這種處境的技巧。"
+     }
+    ]
+   },
+   "said": {
+    "claim": "“The limits of my language mean the limits of my world.” (Wittgenstein, on why you should learn more words)",
+    "claim_zh": "「我的語言的界限，意味著我的世界的界限。」（維根斯坦：所以你該多學一些字）",
+    "verdict_en": "His sentence, and not about vocabulary",
+    "verdict_zh": "是他的句子；但談的不是字彙量",
+    "en": "The line is proposition 5.6 of the Tractatus Logico-Philosophicus (1921), and it appears on posters in language schools as advice to enlarge one’s vocabulary. In its place it means something stranger. The Tractatus holds that language pictures facts, and that whatever can be the case can be said. The “limits of language” are the limits of what can be said in any language whatever, which he takes to be the limits of logic. The remark belongs to a discussion of solipsism, the view that only I and my experience exist, and the “my” is doing philosophical work. Learning Spanish does not move the limit he had in mind. He later rejected the theory of language behind the remark. The poster’s sentiment is harmless, and it is closer to the later Wittgenstein, for whom to learn a language is to learn a form of life.",
+    "zh": "這句話是《邏輯哲學論》（1921）的命題 5.6；它出現在語言學校的海報上，當作一句勸人擴充字彙的話。在它原來的位置上，它的意思奇怪得多。《邏輯哲學論》主張：語言描繪事實；凡是可能成立的情況，都可以被說出來。所謂「語言的界限」，是任何一種語言裡「可以被說出來的東西」的界限；他認為那就是邏輯的界限。這句話屬於一段關於唯我論的討論（唯我論主張只有我與我的經驗存在）；而那個「我的」，是有哲學上的作用的。學會西班牙文，並不會移動他心裡想的那條界限。他後來放棄了這句話背後的那個語言理論。海報上的那個想法無傷大雅；而它其實更接近後期的維根斯坦：對後期的他來說，學一種語言，就是學一種生活形式。"
+   },
+   "terms": [
+    {
+     "t": "reference",
+     "o": "G. Bedeutung (Frege)",
+     "zh": "指稱",
+     "d_en": "The thing a word or phrase stands for.",
+     "d_zh": "一個字或詞組所代表的那樣東西。"
+    },
+    {
+     "t": "sense",
+     "o": "G. Sinn (Frege)",
+     "zh": "意義（涵義）",
+     "d_en": "The way a word presents what it stands for. Two names for one thing can differ in sense.",
+     "d_zh": "一個字呈現其所指的方式。同一樣東西的兩個名字，涵義可以不同。"
+    },
+    {
+     "t": "ostensive definition",
+     "o": "L. ostendere ‘to show’",
+     "zh": "實指定義",
+     "d_en": "Explaining a word by pointing at an example.",
+     "d_zh": "藉著指出一個例子來解釋一個字。"
+    },
+    {
+     "t": "language-game",
+     "o": "G. Sprachspiel",
+     "zh": "語言遊戲",
+     "d_en": "Wittgenstein’s term for an activity in which words are used, such as giving orders, telling jokes, or praying.",
+     "d_zh": "維根斯坦的用語：使用字詞的一種活動，例如下命令、說笑話或祈禱。"
+    },
+    {
+     "t": "private language",
+     "o": "",
+     "zh": "私人語言",
+     "d_en": "A language whose words refer to what only the speaker can know. Wittgenstein argued that there could be no such thing.",
+     "d_zh": "一種語言，其中的字詞指的是只有說話者能知道的東西。維根斯坦論證說，不可能有這樣的東西。"
+    },
+    {
+     "t": "convention",
+     "o": "L. convenire ‘to come together’",
+     "zh": "約定、慣例",
+     "d_en": "A practice that holds because people follow it and expect others to.",
+     "d_zh": "一種做法；它之所以成立，是因為人們遵循它，並且預期別人也會。"
+    },
+    {
+     "t": "rectifying names",
+     "o": "Ch. 正名 zhèngmíng",
+     "zh": "正名",
+     "d_en": "The Confucian demand that names be used so as to fit the realities they are meant to mark.",
+     "d_zh": "儒家的要求：名的使用，要與它們所要標示的實相符。"
+    },
+    {
+     "t": "School of Names",
+     "o": "Ch. 名家 míngjiā",
+     "zh": "名家",
+     "d_en": "The early Chinese thinkers, such as Gongsun Long and Hui Shi, who studied paradoxes of language.",
+     "d_zh": "中國早期研究語言弔詭的思想家，例如公孫龍與惠施。"
+    }
+   ],
+   "vocab": [
+    {
+     "w": "stand for",
+     "pos": "phr. v.",
+     "zh": "代表",
+     "eg": "Each name stands for an object.",
+     "eg_zh": "每一個名字代表一樣東西。"
+    },
+    {
+     "w": "call up",
+     "pos": "phr. v.",
+     "zh": "喚起",
+     "eg": "The sound calls up the matching idea in you.",
+     "eg_zh": "那個聲音在你心裡喚起相配的觀念。"
+    },
+    {
+     "w": "take apart",
+     "pos": "phr. v.",
+     "zh": "拆開、逐點駁斥",
+     "eg": "He spent the book taking Augustine’s account apart.",
+     "eg_zh": "他用整本書把奧古斯丁的說法拆開。"
+    },
+    {
+     "w": "all the same",
+     "pos": "adv. phr.",
+     "zh": "照樣、儘管如此",
+     "eg": "The word would go on being used all the same.",
+     "eg_zh": "這個詞還是會照樣被使用。"
+    },
+    {
+     "w": "drop out",
+     "pos": "phr. v.",
+     "zh": "被消掉、退出",
+     "eg": "The thing in the box drops out as irrelevant.",
+     "eg_zh": "盒子裡的那樣東西，作為不相干的東西被消掉了。"
+    },
+    {
+     "w": "on the ground that",
+     "pos": "conj. phr.",
+     "zh": "以…為理由",
+     "eg": "He defended the claim on the ground that “horse” names a shape.",
+     "eg_zh": "他為這個主張辯護，理由是「馬」命名的是形。"
+    },
+    {
+     "w": "hold one’s ground",
+     "pos": "idiom",
+     "zh": "堅持立場",
+     "eg": "You may still hold your ground. Locke would.",
+     "eg_zh": "你還是可以堅持你的立場。洛克會。"
+    },
+    {
+     "w": "at one stroke",
+     "pos": "idiom",
+     "zh": "一下子、一舉",
+     "eg": "The picture cannot be argued away at one stroke.",
+     "eg_zh": "那個圖像不可能一下子就用論證消除。"
+    },
+    {
+     "w": "lean on",
+     "pos": "phr. v.",
+     "zh": "倚靠",
+     "eg": "In using words we lean on one another.",
+     "eg_zh": "在使用字詞上，我們彼此倚靠。"
+    },
+    {
+     "w": "have a word with",
+     "pos": "idiom",
+     "zh": "跟…說句話",
+     "eg": "Where can I find such a man, so that I can have a word with him?",
+     "eg_zh": "我到哪裡去找這樣的人，好跟他說句話？"
+    }
+   ],
+   "quiz": [
+    {
+     "q": "What is wrong with the idea that every word is the name of an object?",
+     "options": [
+      "Many words, such as “five,” “because,” and “hello,” name nothing, and even pointing has to be interpreted.",
+      "Objects do not exist.",
+      "Children cannot see objects.",
+      "Names are always proper nouns."
+     ],
+     "correct": 0
+    },
+    {
+     "q": "What does Frege’s example of the morning star and the evening star show?",
+     "options": [
+      "Two names for the same thing can differ in meaning, so meaning is more than the thing named.",
+      "Venus is two planets.",
+      "Astronomy is uncertain.",
+      "Names have no meaning."
+     ],
+     "correct": 0
+    },
+    {
+     "q": "What is the point of the beetle in the box?",
+     "options": [
+      "If meaning were a private object, it would play no part in how the word is used.",
+      "Beetles should be kept in boxes.",
+      "No one can ever understand anyone else.",
+      "Words for insects are vague."
+     ],
+     "correct": 0
+    },
+    {
+     "q": "What does Xunzi say makes a name right?",
+     "options": [
+      "Agreement settled into custom.",
+      "A natural resemblance between the sound and the thing.",
+      "The decree of Heaven.",
+      "The oldest dictionary."
+     ],
+     "correct": 0
+    },
+    {
+     "q": "What did Putnam mean by saying that meanings are not entirely in the head?",
+     "options": [
+      "What a word like “water” means depends partly on what the stuff in the world really is.",
+      "People do not think.",
+      "Dictionaries are stored in libraries.",
+      "Words are written on paper."
+     ],
+     "correct": 0
+    }
+   ],
+   "write": [
+    {
+     "en": "Choose a word in Chinese or Taiwanese that has no good English translation. Explain its meaning to an English speaker by describing how and when it is used, without giving a definition. About 150 words.",
+     "zh": "選一個中文或台語裡沒有好的英文翻譯的詞。向一位說英文的人解釋它的意思；方法是描述它怎麼用、什麼時候用，而不要下定義。約 150 個字。"
+    },
+    {
+     "en": "You cannot feel anyone else’s pain. In 150 words, say how you know what your friend means when she says that her tooth hurts.",
+     "zh": "你感覺不到任何別人的痛。用 150 個字說明：當你的朋友說她牙痛的時候，你是怎麼知道她的意思的？"
+    },
+    {
+     "en": "Xunzi wants names kept stable. Zhuangzi wants to forget them. Which attitude would you want in a judge, and which in a poet? Give reasons.",
+     "zh": "荀子要名保持穩定。莊子要把它們忘掉。你希望一位法官有哪一種態度？一位詩人呢？說明理由。"
+    }
+   ],
+   "dharma": {
+    "title_en": "A view from the Dharma",
+    "title_zh": "佛法怎麼看",
+    "paras": [
+     {
+      "en": "The Buddha treated words as tools and warned against two ways of misusing them. One discourse puts the rule briefly: “Don’t insist on popular definitions and don’t overstep normal labels.” The same thing, it explains, is called a cup in one district and a bowl, a jar, or a dish in others. A person who insists on his own word and says, “This is the only truth, anything else is futile,” has made the first mistake. The right course is to speak as the people there speak, thinking, “It seems that the venerables are referring to this.” The second mistake is to throw away ordinary usage because one has seen through it. The Buddha held that words like “I” and “person” name nothing lasting, and he went on using them. A verse says of the awakened that “skillful, understanding the world’s labels, they’d use these terms as mere expressions.”",
+      "zh": "佛陀把字詞當作工具，並且警告人不要以兩種方式誤用它們。有一部經把這條規則說得很簡短：「不要執著於地方的說法；也不要逾越通行的名稱。」經裡解釋：同一樣東西，在一個地方叫杯，在別的地方叫碗、叫罐、叫盤。一個人堅持自己的那個字，說「只有這個才是真的，其他都是虛妄」，就犯了第一種錯。正確的做法，是照著當地人的說法來說，心裡想：「這幾位尊者指的似乎是這個。」第二種錯，是因為自己看穿了日常的用法，就把它丟掉。佛陀主張「我」與「人」這樣的字，並不指稱任何持久的東西；而他照樣使用它們。有一首偈這樣說覺悟的人：「善巧的人，了解世間的名稱；他們只把這些詞當作說法來用。」"
+     },
+     {
+      "en": "This is close to Wittgenstein and goes a step beyond him. Both hold that a word has meaning through its use in a shared practice and that trouble starts when we take the word to name a hidden thing. For Wittgenstein the trouble is philosophical confusion. For the Buddha it is suffering. To hear “I” and suppose a fixed owner of experience behind it is, in his analysis, the root of craving and fear. The later tradition made this into a doctrine. Things exist as dependent designations: “chariot” is a name applied to wheels, axle, and frame, and “person” a name applied to body and mind, and neither names an extra thing (Dharma and Western Philosophy D3). Zhuangzi’s fish trap has its Buddhist twins in the raft that is left on the shore and the finger that points at the moon.",
+      "zh": "這很接近維根斯坦，而且比他多走了一步。兩人都主張：一個字是經由它在共同實踐裡的使用而有意義的；而當我們以為那個字是某樣隱藏的東西的名字時，麻煩就開始了。對維根斯坦來說，那個麻煩是哲學上的混亂。對佛陀來說，它是苦。照他的分析，聽到「我」就認定它背後有一個固定的經驗擁有者，是渴愛與恐懼的根源。後來的傳統把這變成了一個教義。事物是作為「依緣的假名」而存在的：「車」是加在輪、軸與車架上的一個名稱；「人」是加在身與心上的一個名稱；而兩者都不是另外一樣東西的名字（佛法與西方哲學 D3）。莊子的筌，在佛教裡有它的孿生兄弟：留在岸邊的筏，以及指著月亮的手指。"
+     }
+    ],
+    "terms": [
+     [
+      "假名",
+      "paññatti / prajñapti",
+      "designation, concept"
+     ],
+     [
+      "世俗諦",
+      "sammuti-sacca / saṃvṛti-satya",
+      "conventional truth"
+     ],
+     [
+      "言說",
+      "vohāra / vyavahāra",
+      "conventional expression, usage"
+     ],
+     [
+      "無諍",
+      "araṇa",
+      "freedom from conflict"
+     ]
+    ]
+   },
+   "further": [
+    {
+     "t": "Augustine, Confessions, Book I (tr. E. B. Pusey)",
+     "url": "https://www.gutenberg.org/ebooks/3296",
+     "n_en": "Chapter 8 is the passage on learning to speak.",
+     "n_zh": "第八章是談學說話的那一段。"
+    },
+    {
+     "t": "John Locke, An Essay Concerning Human Understanding, Book III, chapters 1–2",
+     "url": "https://www.gutenberg.org/ebooks/10616",
+     "n_en": "“Of Words or Language in General” and “Of the Signification of Words.”",
+     "n_zh": "〈泛論字詞或語言〉與〈論字詞的意指〉。"
+    },
+    {
+     "t": "Ludwig Wittgenstein, Philosophical Investigations (1953), §§1–43 and 243–315",
+     "url": "https://plato.stanford.edu/entries/private-language/",
+     "n_en": "The opening on Augustine, and the private language sections. The link is to an overview of the argument.",
+     "n_zh": "談奧古斯丁的開頭，以及私人語言的那幾節。連結是這個論證的概述。"
+    },
+    {
+     "t": "Stanford Encyclopedia of Philosophy, “Gottlob Frege”",
+     "url": "https://plato.stanford.edu/entries/frege/",
+     "n_en": "Sense and reference are in section 3.",
+     "n_zh": "涵義與指稱在第三節。"
+    },
+    {
+     "t": "《荀子・正名》",
+     "url": "https://ctext.org/xunzi/zheng-ming/zh",
+     "n_en": "The fullest ancient Chinese discussion of names.",
+     "n_zh": "古代中國對「名」最完整的討論。"
+    },
+    {
+     "t": "Araṇavibhaṅga Sutta, MN 139",
+     "url": "https://suttacentral.net/mn139/en/sujato",
+     "n_en": "On not insisting on local words.",
+     "n_zh": "談不執著於地方的說法。"
+    }
+   ],
+   "people": [
+    "wittgenstein",
+    "augustine",
+    "locke",
+    "xunzi",
+    "zhuangzi"
+   ]
   }
  ],
  "dharma": [
@@ -33373,6 +34037,352 @@
    ],
    "lessons": [
     "copies"
+   ]
+  },
+  {
+   "slug": "wittgenstein",
+   "mono": "W",
+   "name": "Ludwig Wittgenstein",
+   "name_zh": "維根斯坦",
+   "greek": "Ludwig Josef Johann Wittgenstein",
+   "dates": "1889–1951",
+   "place_en": "Vienna and Cambridge",
+   "place_zh": "維也納與劍橋",
+   "era_en": "The 1900s to Today",
+   "era_zh": "二十世紀以後",
+   "tag_en": "The heir to a great fortune who gave it away, wrote one book in the trenches and thought he had finished philosophy, became a village schoolmaster, and came back to take his own work apart.",
+   "tag_zh": "一筆龐大財產的繼承人；他把財產送掉，在戰壕裡寫了一本書，以為自己把哲學做完了，去當了鄉村小學教師，後來又回來把自己的著作拆掉。",
+   "facts": [
+    [
+     "Born",
+     "出生",
+     "April 26, 1889, Vienna, the youngest of eight surviving children"
+    ],
+    [
+     "Died",
+     "去世",
+     "April 29, 1951, Cambridge"
+    ],
+    [
+     "Trained as",
+     "所學",
+     "An aeronautical engineer, in Berlin and Manchester"
+    ],
+    [
+     "Posts",
+     "職位",
+     "Village schoolteacher in Lower Austria, 1920–26; professor of philosophy at Cambridge, 1939–47"
+    ],
+    [
+     "Published in his lifetime",
+     "生前出版",
+     "One book of seventy-five pages, one article, one book review, and a spelling dictionary for children"
+    ],
+    [
+     "Main works",
+     "主要著作",
+     "Tractatus Logico-Philosophicus (1921), Philosophical Investigations (1953)"
+    ]
+   ],
+   "life": [
+    {
+     "h_en": "The palace in Vienna",
+     "h_zh": "維也納的宮邸",
+     "paras": [
+      {
+       "en": "Ludwig Wittgenstein was born in 1889 into one of the richest families in Europe. His father Karl had built the Austrian steel industry. Brahms and Mahler came to the house to play, and it held seven grand pianos. It was also an unhappy house. Karl wanted his five sons to follow him into business, and three of them killed themselves. A fourth, Paul, became a concert pianist, lost his right arm in the war, and went on performing with his left. Ludwig was the youngest. He thought of suicide for much of his youth.",
+       "zh": "路德維希・維根斯坦 1889 年生在歐洲最富有的家庭之一。他的父親卡爾一手建立了奧地利的鋼鐵工業。布拉姆斯與馬勒到他們家來演奏；家裡有七架平台鋼琴。那也是一個不快樂的家。卡爾要他的五個兒子跟著他從商；其中三個自殺了。第四個，保羅，成了音樂會鋼琴家；他在戰爭中失去了右臂，之後繼續用左手演出。路德維希是最小的。他年輕時有很長一段時間想著自殺。"
+      },
+      {
+       "en": "He was trained as an engineer, and went to Manchester in 1908 to work on aircraft engines and propellers. The mathematics of propellers led him to the foundations of mathematics, and those led him to the logician Frege, who told him to go to Cambridge and study with Bertrand Russell. He arrived in 1911. Within a year Russell was saying that he had nothing left to teach him. In 1913 his father died and he inherited a fortune. When war came the following summer he enlisted in the Austrian army as a private.",
+       "zh": "他受的是工程師的訓練；1908 年到曼徹斯特，研究飛機引擎與螺旋槳。螺旋槳的數學把他引向了數學的基礎；而數學的基礎把他引向了邏輯學家弗雷格。弗雷格要他去劍橋，跟伯特蘭・羅素學。他在 1911 年抵達。不到一年，羅素就說自己沒有什麼可以再教他的了。1913 年他父親去世，他繼承了一大筆財產。隔年夏天戰爭爆發，他以二等兵的身分加入了奧地利軍隊。"
+      }
+     ]
+    },
+    {
+     "h_en": "A book from the front",
+     "h_zh": "一本從前線帶回來的書",
+     "paras": [
+      {
+       "en": "He served for the whole war, asked for the most dangerous posts, and was decorated several times for courage. In his pack he carried notebooks, and in them he wrote the Tractatus Logico-Philosophicus. He finished it in 1918 and was a prisoner of war in Italy when he sent it to Russell. The book is seventy-five pages of numbered propositions. It argues that language pictures the facts of the world, that the limits of what can be pictured are the limits of what can be said, and that ethics, religion, and the meaning of life lie outside those limits. Its last sentence is: “Whereof one cannot speak, thereof one must be silent.” He believed that he had solved the problems of philosophy, and he acted on the belief by leaving the subject.",
+       "zh": "他服役了整場戰爭，主動要求最危險的崗位，並且因為勇敢好幾次獲得勳章。他的背包裡帶著筆記本；他在上面寫下了《邏輯哲學論》。他在 1918 年完成它；把它寄給羅素的時候，他是義大利的戰俘。這本書是七十五頁編了號的命題。它主張：語言描繪世界裡的事實；能被描繪的東西的界限，就是能被說出來的東西的界限；而倫理、宗教與人生的意義，都在那些界限之外。它的最後一句是：「凡是不可說的，就必須保持沉默。」他相信自己已經解決了哲學的問題；而他照著這個信念行事，離開了這門學問。"
+      },
+      {
+       "en": "He gave his entire inheritance to his brother and sisters, trained as a teacher, and from 1920 taught in poor mountain villages south of Vienna. His sister said that it was like using a precision instrument to open crates. He was a demanding and impatient teacher who took the brightest children far beyond the syllabus and struck the slow ones. In 1926, after a boy he had hit collapsed, he resigned. He worked for a time as a gardener in a monastery and then spent two years designing a house for one of his sisters, with every door handle and radiator made to his own measurements.",
+       "zh": "他把全部的遺產給了他的哥哥與姐姐們，受了師範訓練，從 1920 年起在維也納以南貧窮的山村裡教書。他的姐姐說，這就像用一件精密儀器來開木箱。他是一位要求很高、沒有耐心的老師：他把最聰明的孩子帶到遠遠超出課綱的地方，並且打學得慢的孩子。1926 年，一個被他打的男孩昏倒了；他辭了職。他在一座修道院當了一陣子園丁，然後花了兩年為他的一位姐姐設計一棟房子；每一個門把、每一個暖氣片，都照他自己的尺寸訂做。"
+      }
+     ]
+    },
+    {
+     "h_en": "Starting again",
+     "h_zh": "從頭再來",
+     "paras": [
+      {
+       "en": "Conversations with philosophers in Vienna persuaded him that his book had left things unsettled, and in 1929 he went back to Cambridge. He needed a degree in order to teach, so he submitted the Tractatus as a doctoral thesis. Russell and G. E. Moore examined him. The story goes that he ended the examination by clapping them on the shoulder and saying, “Don’t worry, I know you’ll never understand it.” For the next eighteen years he taught in his rooms, without notes, thinking aloud before a small group and often falling silent or cursing his own stupidity. He came to reject the central idea of his first book, that language has one essential function. He published nothing. During the Second World War he left his chair to work as a hospital porter in London.",
+       "zh": "與維也納的哲學家們的談話，使他相信他的書還有沒解決的東西；1929 年，他回到了劍橋。要教書，他需要一個學位；於是他把《邏輯哲學論》當作博士論文交了上去。考他的是羅素與摩爾。傳說口試結束時，他拍了拍兩人的肩膀說：「別擔心，我知道你們永遠不會懂的。」接下來的十八年，他在自己的房間裡教書，不用講稿，在一小群人面前把思考說出聲來；常常陷入沉默，或者咒罵自己愚蠢。他後來拒絕了第一本書的核心觀念，也就是「語言有一個本質的功能」。他什麼也沒出版。第二次世界大戰期間，他離開教席，到倫敦的一家醫院當搬運工。"
+      },
+      {
+       "en": "He resigned his professorship in 1947 to write, and lived for a while alone in a cottage on the west coast of Ireland. Cancer was diagnosed in 1949. He spent his last weeks in the house of his doctor in Cambridge, working until two days before the end. When the doctor’s wife told him that his friends would arrive the next day, he said: “Tell them I’ve had a wonderful life.” The Philosophical Investigations, on which he had worked for sixteen years, appeared two years after his death.",
+       "zh": "1947 年，他為了寫作辭去教授職位，在愛爾蘭西海岸的一間小屋裡獨自住了一陣子。1949 年，他被診斷出癌症。他最後的幾個星期，是在劍橋他的醫生家裡度過的；他一直工作到臨終的前兩天。醫生的妻子告訴他，他的朋友們第二天會到；他說：「告訴他們，我度過了美好的一生。」他寫了十六年的《哲學研究》，在他死後兩年問世。"
+      }
+     ]
+    }
+   ],
+   "timeline": [
+    [
+     "1889",
+     "Born in Vienna",
+     "生於維也納"
+    ],
+    [
+     "1908",
+     "Studies aeronautics at Manchester",
+     "在曼徹斯特研究航空工程"
+    ],
+    [
+     "1911",
+     "Arrives in Cambridge to study with Russell",
+     "到劍橋跟羅素學"
+    ],
+    [
+     "1914–18",
+     "Serves in the Austrian army; writes the Tractatus",
+     "在奧地利軍中服役；寫《邏輯哲學論》"
+    ],
+    [
+     "1919",
+     "Gives away his fortune",
+     "把財產送掉"
+    ],
+    [
+     "1920–26",
+     "Village schoolteacher",
+     "鄉村小學教師"
+    ],
+    [
+     "1929",
+     "Returns to Cambridge",
+     "回到劍橋"
+    ],
+    [
+     "1939",
+     "Professor of philosophy",
+     "任哲學教授"
+    ],
+    [
+     "1947",
+     "Resigns to write",
+     "辭職專心寫作"
+    ],
+    [
+     "1951",
+     "Dies in Cambridge",
+     "在劍橋去世"
+    ],
+    [
+     "1953",
+     "Philosophical Investigations published",
+     "《哲學研究》出版"
+    ]
+   ],
+   "idea": {
+    "title_en": "The central idea: Look and see",
+    "title_zh": "核心觀念：去看",
+    "paras": [
+     {
+      "en": "Wittgenstein held two philosophies, and the second is a criticism of the first. What they share is a view of what philosophy is. It is not a science and discovers no new facts. Philosophical problems arise, he thought, when language is misunderstood, when a form of words that works in one setting is carried into another and “goes on holiday.” We ask “What is time?” as we might ask “What is copper?” and expect the same kind of answer. The philosopher’s task is to trace the confusion to its source so that the problem disappears. He called the aim “to show the fly the way out of the fly-bottle.”",
+      "zh": "維根斯坦有過兩套哲學；第二套是對第一套的批評。它們共有的，是對「哲學是什麼」的看法。哲學不是一門科學，也不發現任何新的事實。他認為，哲學問題是在語言被誤解的時候產生的：一種在某個場合行得通的說法，被搬到了另一個場合，然後「放假去了」。我們問「時間是什麼？」，就像我們問「銅是什麼？」，並且期待同一種答案。哲學家的任務，是把混亂追溯到它的源頭，使問題消失。他把這個目標稱為：「給蒼蠅指出飛出捕蠅瓶的路。」"
+     },
+     {
+      "en": "In the later work the method is to describe how words are actually used. He distrusts general theories and asks for examples. Consider the things we call games, he says: board games, card games, ball games, a child throwing a ball against a wall. If you look for what is common to all, you find nothing. You find “a complicated network of similarities overlapping and criss-crossing,” like the resemblances among the members of a family. His instruction is: “don’t think, but look!” Applied to “meaning,” “understanding,” “pain,” and “following a rule,” the method yields the conclusions for which he is known. Meaning lies in use. Understanding is an ability and not an inner event. And a rule cannot be followed by one person in private.",
+      "zh": "在後期的著作裡，方法是描述字詞實際上怎麼被使用。他不信任一般性的理論，而要求舉例。他說：想想我們稱為「遊戲」的那些東西：棋類、牌類、球類，一個孩子把球丟到牆上再接住。如果你去找所有這些東西共同的地方，你什麼也找不到。你找到的是「一張由互相交疊、交錯的相似之處構成的複雜的網」，就像一個家族的成員之間的相像。他的指示是：「不要想，而要看！」把這個方法用在「意義」、「理解」、「痛」與「遵循規則」上，就得出了他為人所知的那些結論。意義在於用法。理解是一種能力，而不是一個內在的事件。而一條規則不可能被一個人私下遵循。"
+     }
+    ]
+   },
+   "quote": {
+    "en": "Whereof one cannot speak, thereof one must be silent.",
+    "zh": "凡是不可說的，就必須保持沉默。",
+    "ref": "Tractatus Logico-Philosophicus (1921), proposition 7, tr. C. K. Ogden",
+    "note_en": "The whole of the book’s seventh and last section. He told a publisher that the book’s point was ethical and that the part that mattered was the part he had not written.",
+    "note_zh": "這是這本書第七部分、也是最後一部分的全文。他對一位出版商說過：這本書的要旨是倫理的；而要緊的那一部分，是他沒有寫出來的那一部分。"
+   },
+   "objection": {
+    "title_en": "The strongest objection: Does he leave everything as it is?",
+    "title_zh": "最強的反駁：他是不是讓一切都維持原樣？",
+    "paras": [
+     {
+      "en": "Wittgenstein wrote that philosophy “leaves everything as it is.” It may describe language and may not reform it. Critics from Russell onward thought this an abdication. Russell said of the later work that it seemed to him to have abandoned serious thinking and to have invented a doctrine that would make such thinking unnecessary. If philosophical problems are only knots in language, then the questions people have asked about justice, knowledge, and the mind were mistakes, and the right response to them is therapy. Many philosophers find this incredible. Some of the questions have turned into sciences, and others have guided how people live.",
+      "zh": "維根斯坦寫道：哲學「讓一切都維持原樣」。它可以描述語言，而不可以改革語言。從羅素以來的批評者，認為這是棄守。羅素談到他後期的著作時說：在他看來，那似乎是放棄了嚴肅的思考，並且發明了一套會使這種思考變得不必要的學說。如果哲學問題只是語言裡的結，那麼人們對正義、知識與心靈所問過的那些問題就都是錯誤，而對它們的正確回應是治療。許多哲學家覺得這難以置信。那些問題當中，有一些已經變成了科學；另一些引導了人們怎麼生活。"
+     },
+     {
+      "en": "Karl Popper pressed the same point to his face. At a meeting in Cambridge in 1946, Popper read a paper claiming that there are real philosophical problems and not merely puzzles. Witnesses disagree about what followed. Wittgenstein, who was holding the poker from the fireplace, is said to have demanded an example of a moral rule, and Popper to have replied: “Not to threaten visiting lecturers with pokers.” Wittgenstein left the room. His defenders say that he never denied that the problems are deep. He located the depth in us, in how hard it is to see what lies in plain view.",
+      "zh": "卡爾・波普當著他的面，緊追同一點。1946 年在劍橋的一次聚會上，波普宣讀了一篇論文，主張有真正的哲學問題，而不只是謎題。接下來發生了什麼，目擊者說法不一。據說，當時手裡拿著壁爐火鉗的維根斯坦，要求對方舉一條道德規則的例子；而波普回答：「不要用火鉗威脅來訪的講者。」維根斯坦離開了房間。為他辯護的人說：他從來沒有否認那些問題是深的。他把那份深度定位在我們身上：要看見明擺在眼前的東西，有多麼困難。"
+     }
+    ]
+   },
+   "problem": {
+    "title_en": "One Wittgenstein or two?",
+    "title_zh": "一個維根斯坦，還是兩個？",
+    "paras": [
+     {
+      "en": "He is the only philosopher to have founded two schools that opposed each other. The Tractatus inspired the logical positivists of Vienna, who took it to show that only the statements of science have meaning and that the rest is nonsense. Wittgenstein thought they had misread him. For him the things that cannot be said were the most important, and at their meetings he sometimes turned his back and read poetry aloud. The Investigations inspired the philosophers of ordinary language at Oxford, who examined the everyday use of words with a patience he might have found tedious.",
+      "zh": "他是唯一創立了兩個互相對立的學派的哲學家。《邏輯哲學論》啟發了維也納的邏輯實證論者；他們認為這本書顯示了：只有科學的陳述才有意義，其餘的都是無意義的話。維根斯坦認為他們誤讀了他。對他來說，那些不能說的東西才是最重要的；在他們的聚會上，他有時候會背過身去，大聲朗讀詩。《哲學研究》啟發了牛津的日常語言哲學家；他們以一種他也許會覺得乏味的耐心，檢視字詞的日常用法。"
+     },
+     {
+      "en": "Readers still argue about how deep the break between the two books goes. Some see a complete reversal, from language as a mirror of the world to language as a set of activities. Others stress what did not change: the conviction that philosophy is a struggle against confusion and yields no doctrine, the interest in what can only be shown, and the moral seriousness with which he treated every sentence. He himself asked that the two books be printed together, so that the new thoughts could be seen in the right light against the old.",
+      "zh": "讀者至今仍在爭論：這兩本書之間的斷裂有多深？有些人看到的是徹底的翻轉：從「語言是世界的鏡子」到「語言是一組活動」。另一些人強調沒有改變的東西：他深信哲學是一場與混亂的搏鬥，不產出任何學說；他對「只能被顯示的東西」的關注；以及他對待每一個句子時的那種道德上的嚴肅。他自己要求把這兩本書印在一起，好讓新的想法在舊想法的映襯之下，被放在正確的光線裡看。"
+     }
+    ]
+   },
+   "said": {
+    "claim": "“If a lion could talk, we could not understand him.” (Wittgenstein)",
+    "claim_zh": "「就算獅子會說話，我們也聽不懂牠。」（維根斯坦）",
+    "verdict_en": "His, and it means what it says",
+    "verdict_zh": "是他的；而且意思就是字面上的意思",
+    "en": "The sentence is in the second part of the Philosophical Investigations, and unlike most famous quotations it is usually quoted correctly. It is often taken as a remark about animals. Its subject is meaning. If meaning lay in a dictionary of words matched to things, a talking lion would be easy to understand once we had the dictionary. Wittgenstein’s claim is that to understand speech one must share enough of the speaker’s way of living, what he wants, fears, finds funny, and takes for granted, and that a lion’s form of life is too far from ours. A line just before it makes the same point about people: one human being can be a complete enigma to another, even when we have mastered the country’s language. Critics reply that lions are hungry, tired, and protective of their young, as we are, and that this may be overlap enough.",
+    "zh": "這個句子在《哲學研究》的第二部分；而它跟大多數的名言不同，通常被引得很正確。人們常把它當成一句關於動物的話。它的主題是意義。如果意義在於一本「字詞對應事物」的詞典，那麼只要有了那本詞典，一頭會說話的獅子就很容易懂。維根斯坦的主張是：要聽懂話，必須與說話者共享足夠多的生活方式：他想要什麼、怕什麼、覺得什麼好笑、把什麼視為理所當然；而獅子的生活形式離我們太遠了。就在這句話的前面，有一行對人說了同樣的話：一個人對另一個人來說，可以是一個徹底的謎，即使我們已經掌握了那個國家的語言。批評者回答：獅子會餓、會累、會保護幼獅，跟我們一樣；而這也許已經是足夠的交集了。"
+   },
+   "dharma": {
+    "title_en": "Wittgenstein and the Buddha",
+    "title_zh": "維根斯坦與佛陀",
+    "paras": [
+     {
+      "en": "Wittgenstein compared his method to therapy and his early book to a ladder that must be thrown away once it has been climbed. A Buddhist reader recognizes both images. The Buddha called himself a physician, declined to answer questions about the beginning of the world or the fate of a saint after death on the ground that the answers do not lead to release, and described his teaching as a raft to be left on the far shore. Both men thought that some questions should be dissolved and not answered, and that the cause of our trouble is a picture that holds us captive. For both, the chief example is the self. Wittgenstein argued that “I” does not name an inner object, and that the idea of a private owner of experiences comes from misreading the grammar of the word. The Buddha taught that no such owner is found in body, feeling, perception, intention, or consciousness.",
+      "zh": "維根斯坦把自己的方法比作治療，把早年的那本書比作一架梯子：爬上去之後就必須丟掉。一位佛教徒讀者，兩個意象都認得出來。佛陀自稱醫者；對於世界的開端、聖者死後的去處這類問題，他拒絕回答，理由是答案並不導向解脫；他並且把自己的教法描述成一艘到了彼岸就該留下的筏。兩人都認為：有些問題應該被消解，而不是被回答；而我們的麻煩，起因於一幅把我們困住的圖像。對兩人來說，首要的例子都是「自我」。維根斯坦論證：「我」並不是一個內在對象的名字；而「經驗有一個私人的擁有者」這個想法，來自誤讀了這個字的文法。佛陀教導：在色、受、想、行、識當中，找不到這樣的擁有者。"
+     },
+     {
+      "en": "They differ in what the dissolving is for and in how it is done. Wittgenstein’s treatment is intellectual. He works on a confusion until it lets go, and he promises only that the philosopher will be able to stop doing philosophy when he wants to. He had no method for the suffering he himself knew well. The Buddha’s treatment includes ethics and the training of attention, since on his account the picture of a self is held in place by craving and cannot be removed by argument alone. And where Wittgenstein fell silent about what lies beyond language, the Buddhist tradition, which agrees that it cannot be said, went on to say a good deal about how to get there (Dharma and Western Philosophy D2, D3).",
+      "zh": "他們的不同，在於「消解」是為了什麼，以及怎麼做。維根斯坦的療法是智性的。他處理一個混亂，直到它鬆手；而他只承諾：哲學家在想停的時候，能夠停止做哲學。對於他自己很熟悉的那種苦，他沒有方法。佛陀的療法包括了倫理與注意力的訓練；因為照他的說法，「自我」的那幅圖像是被渴愛固定住的，單靠論證拿不掉。此外，維根斯坦對語言之外的東西保持沉默；而佛教的傳統雖然同意那是不可說的，卻接著說了很多關於「怎麼到那裡」的話（佛法與西方哲學 D2、D3）。"
+     }
+    ],
+    "terms": [
+     [
+      "十四無記",
+      "avyākata",
+      "the questions left undeclared"
+     ],
+     [
+      "筏喻",
+      "kullūpamā",
+      "the simile of the raft"
+     ],
+     [
+      "我見",
+      "sakkāya-diṭṭhi",
+      "the view of a self in what is personal"
+     ],
+     [
+      "戲論",
+      "papañca / prapañca",
+      "conceptual proliferation"
+     ]
+    ]
+   },
+   "terms": [
+    {
+     "t": "picture theory",
+     "o": "",
+     "zh": "圖像論",
+     "d_en": "The early view that a sentence has meaning by picturing a possible fact.",
+     "d_zh": "早期的看法：一個句子藉著描繪一個可能的事實而有意義。"
+    },
+    {
+     "t": "saying and showing",
+     "o": "",
+     "zh": "說與顯示",
+     "d_en": "The early distinction between what language can state and what can only be made manifest.",
+     "d_zh": "早期的區分：語言能陳述的東西，與只能被顯示出來的東西。"
+    },
+    {
+     "t": "language-game",
+     "o": "G. Sprachspiel",
+     "zh": "語言遊戲",
+     "d_en": "An activity in which words are used, with its own rules and point.",
+     "d_zh": "使用字詞的一種活動；有它自己的規則與目的。"
+    },
+    {
+     "t": "family resemblance",
+     "o": "G. Familienähnlichkeit",
+     "zh": "家族相似",
+     "d_en": "The overlapping likenesses that link the things a word covers when no feature is common to all.",
+     "d_zh": "一個字所涵蓋的事物之間互相交疊的相似；其中沒有任何一個特徵是全體共有的。"
+    },
+    {
+     "t": "form of life",
+     "o": "G. Lebensform",
+     "zh": "生活形式",
+     "d_en": "The shared ways of acting and reacting on which a language rests.",
+     "d_zh": "一種語言所立足的、共同的行動與反應方式。"
+    },
+    {
+     "t": "rule-following",
+     "o": "",
+     "zh": "遵循規則",
+     "d_en": "The problem of what makes one way of going on with a word or a series correct.",
+     "d_zh": "一個問題：是什麼使某一種「把一個字或一個數列接下去」的方式成為正確的？"
+    }
+   ],
+   "quiz": [
+    {
+     "q": "What did the Tractatus claim about language?",
+     "options": [
+      "That sentences picture facts, and that what cannot be pictured cannot be said.",
+      "That language is a set of games.",
+      "That all meaning is private.",
+      "That logic is a matter of taste."
+     ],
+     "correct": 0
+    },
+    {
+     "q": "What does Wittgenstein find when he looks for what all games have in common?",
+     "options": [
+      "No single feature, only a network of overlapping similarities.",
+      "That all games have winners.",
+      "That all games use balls.",
+      "That all games are played by children."
+     ],
+     "correct": 0
+    },
+    {
+     "q": "What, for the later Wittgenstein, is the task of philosophy?",
+     "options": [
+      "To clear up confusions that arise from misunderstanding how language works.",
+      "To discover new facts about the world.",
+      "To build a complete system.",
+      "To reform ordinary speech."
+     ],
+     "correct": 0
+    }
+   ],
+   "further": [
+    {
+     "t": "Ludwig Wittgenstein, Philosophical Investigations (1953), §§1–88",
+     "url": "https://plato.stanford.edu/entries/wittgenstein/",
+     "n_en": "Augustine, the builders, games, and family resemblance. The link is to an overview of his work.",
+     "n_zh": "奧古斯丁、建築工人、遊戲與家族相似。連結是他的著作概述。"
+    },
+    {
+     "t": "Ludwig Wittgenstein, Tractatus Logico-Philosophicus (tr. C. K. Ogden, 1922)",
+     "url": "https://en.wikisource.org/wiki/Tractatus_Logico-Philosophicus",
+     "n_en": "Read the preface, propositions 1 to 2.1, and 6.4 to 7.",
+     "n_zh": "讀序言、命題 1 到 2.1，以及 6.4 到 7。"
+    },
+    {
+     "t": "Ray Monk, Ludwig Wittgenstein: The Duty of Genius (1990)",
+     "url": "https://en.wikipedia.org/wiki/Ray_Monk",
+     "n_en": "The standard life, and one of the best biographies of any philosopher.",
+     "n_zh": "標準的傳記；也是所有哲學家傳記當中最好的之一。"
+    },
+    {
+     "t": "Stanford Encyclopedia of Philosophy, “Private Language”",
+     "url": "https://plato.stanford.edu/entries/private-language/",
+     "n_en": "The argument of the companion lesson, step by step.",
+     "n_zh": "相配的那一課裡的論證，一步一步說明。"
+    }
+   ],
+   "lessons": [
+    "meaning",
+    "art"
    ]
   }
  ]

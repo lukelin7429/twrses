@@ -1271,3 +1271,26 @@ main:has(.ph-tools) .wrap { width: min(980px, 92vw); }
 .ph-cp .ph-vl-card .ph-tr { background: var(--brand-lt); color: var(--brand-dk); }
 .ph-cp .ph-vl-next span { font-family: var(--zh); }
 @media (max-width: 520px) { .ph-cp-btns { grid-template-columns: 1fr; } }
+
+/* ---- A33：盒子村 ---- */
+.ph-bt [hidden] { display: none !important; }
+.ph-bt-boxes { display: grid; grid-template-columns: repeat(5, 1fr); gap: .7rem; margin-bottom: 1rem; }
+.ph-bt-box { display: flex; flex-direction: column; align-items: center; gap: .25rem; padding: .7rem .4rem .8rem; border-radius: 12px; background: rgba(255,255,255,.05); text-align: center; }
+.ph-bt-box b { font: 800 .84rem var(--sans); color: #fff; letter-spacing: .03em; }
+.ph-bt-lid { width: 64px; height: 52px; border-radius: 8px; display: grid; place-items: center; background: #6b5334; border: 2px solid #a98656; box-shadow: inset 0 -8px 0 rgba(0,0,0,.22); transition: background .3s, border-color .3s; }
+.ph-bt-lid i { font: normal 800 1.5rem var(--sans); color: #f0dcb8; }
+.ph-bt-boxes.is-open .ph-bt-lid { background: #1c2740; border-color: #ffd36e; box-shadow: none; }
+.ph-bt-boxes.is-pain .ph-bt-lid { background: #5a2f3a; border-color: #ff9d7a; }
+.ph-bt-cap { font: .8rem/1.35 var(--sans); color: rgba(255,255,255,.82); }
+.ph-bt-cap.ph-bt-zh { font: .78rem/1.4 var(--zh); color: rgba(255,255,255,.6); }
+.ph-bt-talk { display: grid; gap: .3rem; margin: 0 0 1.1rem; padding: .9rem 1.1rem; border-left: 3px solid rgba(255,211,110,.6); background: rgba(0,0,0,.18); border-radius: 0 10px 10px 0; }
+.ph-bt-talk:empty { display: none; }
+.ph-bt-talk p { margin: 0; font: 400 1rem/1.5 var(--serif); color: #fff; }
+.ph-bt-talk p span { display: block; font: .84rem/1.5 var(--zh); color: rgba(255,255,255,.6); }
+.ph-bt-opts { margin-top: 1rem; }
+.ph-bt .ph-vl-opt:disabled { cursor: default; opacity: .5; } .ph-bt .ph-vl-opt.is-right { opacity: 1; }
+.ph-bt .ph-vl-card p { margin: 0; font: 400 1.04rem/1.7 var(--serif); }
+.ph-bt .ph-vl-card .ph-zh { font: 400 .95rem/1.8 var(--zh); color: var(--ink-soft); }
+.ph-bt .ph-vl-card .ph-tr { background: var(--brand-lt); color: var(--brand-dk); }
+.ph-bt .ph-vl-next span { font-family: var(--zh); }
+@media (max-width: 600px) { .ph-bt-boxes { gap: .3rem; } .ph-bt-lid { width: 46px; height: 40px; } .ph-bt-lid i { font-size: 1.1rem; } .ph-bt-cap { font-size: .68rem; } .ph-bt-cap.ph-bt-zh { font-size: .68rem; } .ph-bt-box { padding: .5rem .15rem; } }
