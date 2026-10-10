@@ -11651,7 +11651,7 @@ def build_earth_hub():
 _lifej = os.path.join(ROOT, "data", "life.json")
 LIFE = json.load(open(_lifej, encoding="utf-8")) if os.path.exists(_lifej) else None
 LIFE_BASE = "/resources/classes/life/"
-_LIFE_JS = {"leaf": "life-leaf", "cell": "life-cell", "dna": "life-dna", "germ": "life-germ", "seed": "life-seed", "flower": "life-flower", "tree": "life-tree", "autumn": "life-autumn", "bird": "life-bird", "gill": "life-gill", "meta": "life-meta"}   # lab.kind → assets/js/<bundle>.js
+_LIFE_JS = {"leaf": "life-leaf", "cell": "life-cell", "dna": "life-dna", "germ": "life-germ", "seed": "life-seed", "flower": "life-flower", "tree": "life-tree", "autumn": "life-autumn", "bird": "life-bird", "gill": "life-gill", "meta": "life-meta", "migrate": "life-migrate"}   # lab.kind → assets/js/<bundle>.js
 
 def _life_ver():
     h = hashlib.md5()
@@ -12405,9 +12405,78 @@ def _life_cycles(cy):
             f'</div></div>'
             '<noscript><p class="muted">This tool works in your browser and needs JavaScript. · 這個小工具在瀏覽器裡運作，需要開啟 JavaScript。</p></noscript>')
 
-_LIFE_LAB = {"leaf": render_lifeleaf_lab, "cell": render_lifecell_lab, "dna": render_lifedna_lab, "germ": render_lifegerm_lab, "seed": render_lifeseed_lab, "flower": render_lifeflower_lab, "tree": render_lifetree_lab, "autumn": render_lifeautumn_lab, "bird": render_lifebird_lab, "gill": render_lifegill_lab, "meta": render_lifemeta_lab}          # lab.kind → 3D 面板
-_LIFE_ICON = {"leaf": lifeleaf_svg, "cell": lifecell_svg, "dna": lifedna_svg, "germ": lifegerm_svg, "seed": lifeseed_svg, "flower": lifeflower_svg, "tree": lifetree_svg, "autumn": lifeautumn_svg, "bird": lifebird_svg, "gill": lifegill_svg, "meta": lifemeta_svg}                 # lesson.card → 課程卡小圖示
-_LIFE_WIDGETS = [("recipe", _life_recipe), ("sorter", _life_sorter), ("coder", _life_coder), ("ruler", _life_ruler), ("waker", _life_waker), ("guesser", _life_guesser), ("climber", _life_climber), ("mixer", _life_mixer), ("wings", _life_wings), ("breathers", _life_breathers), ("cycles", _life_cycles)]               # lesson 裡有這個 key 就多一段（照這裡的順序）
+def lifemigrate_svg(size=56):
+    """第十二課的課程卡小圖示：一個羅盤，上面一隻飛過的鳥。"""
+    return (f'<svg class="lifemigrate-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">'
+            '<circle cx="30" cy="34" r="20" fill="#16305e" stroke="#dfe8ff" stroke-width="3"/>'
+            '<path d="M30 18l5 16-5 16-5-16z" fill="#dfe8ff"/><path d="M30 18l5 16H25z" fill="#e0453a"/><circle cx="30" cy="34" r="2.4" fill="#16305e"/>'
+            '<path d="M6 10c5-5 9-4 12 1 3-5 7-6 12-1" stroke="#ffd84a" stroke-width="3" stroke-linecap="round" fill="none"/></svg>')
+
+def render_lifemigrate_lab(lesson):
+    """第十二課：示意的海與三塊陸地，一隻鳥沿路線飛；白天／夜晚、雲、四種感覺可以各自關掉（assets/js/life-migrate.js 綁這裡的 class；全部自繪示意）。"""
+    lab = lesson["lab"]
+    msgs = "".join(f'<p class="cp-msg lf-mg-msg" data-msg="{k}" hidden>{html.escape(m["en"])}<span class="zh">{html.escape(m["zh"])}</span></p>' for k, m in lab["msgs"].items())
+    tg = _lab_toggles([("cloud", "Clouds", "雲", False), ("labels", "Labels", "標示", True)])
+    senses = "".join(f'<button type="button" data-k="{k}" aria-pressed="true"><i class="lf-mg-dot lf-mg-{k}"></i>{en}<small>{zh}</small><em></em></button>'
+                     for k, en, zh in (("sun", "The Sun", "太陽"), ("stars", "The stars", "星星"), ("magnet", "Earth’s magnetism", "地球的磁場"), ("land", "Landmarks", "地標")))
+    return f'''<div class="astro-lab cp-lab lf-lab lf-mg-lab rvl" data-lifemigrate-lab>
+  <div class="al-stage">
+    <div class="al-space">
+      <canvas class="al-space-cv" aria-label="3D model of a migrating bird flying a route across the sea from a northern land, past Taiwan, to a southern land, with the Sun or the stars above, clouds that can cover them, and the lines of the magnetic field of the Earth · 候鳥遷徙的 3D 模型：一隻鳥沿著路線飛過海洋，從北方的陸地經過台灣到南方的陸地；上面有太陽或星星，雲可以把它們遮住，還有地球磁場的方向線"></canvas>
+      <div class="al-labels" aria-hidden="true"></div>
+      <div class="cp-view" role="group" aria-label="Time of day · 白天或夜晚">
+        <button type="button" data-view="day" aria-pressed="true">Day<small>白天</small></button>
+        <button type="button" data-view="night" aria-pressed="false">Night<small>夜晚</small></button>
+      </div>
+      <p class="al-hint">Drag to turn · 拖曳旋轉　Scroll or pinch to zoom · 滾輪／雙指縮放</p>
+      <button type="button" class="al-home" title="Reset view · 重設視角" aria-label="Reset view · 重設視角">&#8634;</button>
+      <p class="al-nogl-msg">This 3D model needs WebGL, which this browser does not support. The reading and the cards below still explain everything.<br><span class="zh">這個瀏覽器不支援 WebGL，無法顯示 3D 模型；下方的課文與卡片一樣能看懂。</span></p>
+    </div>
+    <aside class="al-sky cp-aside">
+      <p class="al-sky-k">What the bird can steer by · 這隻鳥靠什麼認方向</p>
+      <label class="al-slider cp-is-yrow"><span>Journey · 旅程 <output class="lf-mg-j-out">Over land · 在陸地上空</output></span>
+        <input type="range" class="al-age lf-mg-j" min="0" max="100" step="1" value="10"></label>
+      <p class="lf-k lf-mg-k">Tap one to switch that sense off · 點一下，把那一種感覺關掉</p>
+      <div class="lf-mg-senses" role="group" aria-label="The bird’s four clues · 鳥的四種線索">{senses}</div>
+      <div class="cp-ht-meter"><p class="lf-k">Clues it can use right now · 現在用得上的線索</p><div class="cp-ht-bar"><i class="lf-mg-bar"></i></div><p class="cp-ht-status lf-mg-status"></p></div>
+      <dl class="cp-nums cp-lt-nums lf-nums">
+        <div><dt>How many · 幾種</dt><dd class="lf-mg-n"></dd></div>
+        <div><dt>Which ones · 哪幾種</dt><dd class="lf-mg-where"></dd></div>
+      </dl>
+      {msgs}
+    </aside>
+  </div>
+  <div class="al-controls">
+    <div class="al-row al-row-main">
+      <button type="button" class="al-play" aria-pressed="true"><span class="al-play-i" aria-hidden="true"></span><span class="al-play-t">Pause · 暫停</span></button>
+      <div class="al-row al-toggles">{tg}</div>
+    </div>
+  </div>
+  {_lab_foot(lab)}
+  <p class="cp-credit">{lab["credit_html"]}</p>
+</div>'''
+
+def _life_trips(tp):
+    """「這段路有幾個台灣那麼長？」（life-migrate.js 的 initTrips；選一段旅程，換算成台灣南北長度的倍數；不需要 WebGL）。"""
+    items = html.escape(json.dumps(tp["items"], ensure_ascii=False))
+    picks = "".join(f'<button type="button" data-k="{it["key"]}" aria-pressed="false">{html.escape(it["en"])}<small>{html.escape(it["zh"])}</small></button>' for it in tp["items"])
+    return (f'<div class="cp-cnt lf-tp rvl" data-life-trips data-start="{tp["start"]}" data-items="{items}">'
+            f'<div class="cp-cnt-in">'
+            f'<p class="cp-cnt-l cp-sun-l"><span>Choose a journey · 選一段旅程</span></p>'
+            f'<div class="lf-tp-pick" role="group" aria-label="Which journey · 哪一段旅程">{picks}</div>'
+            f'<div class="lf-tp-track" aria-hidden="true"><i class="lf-tp-fill"></i></div>'
+            f'<p class="cp-cnt-note">{html.escape(tp["note_en"])}<span class="zh">{html.escape(tp["note_zh"])}</span></p></div>'
+            f'<div class="cp-home-out cp-cnt-out lf-tp-out" aria-live="polite">'
+            f'<p class="cp-home-k">That is as far as · 這段路相當於</p>'
+            f'<p class="cp-home-big"><span class="lf-tp-n"></span> ×</p>'
+            f'<p class="cp-home-sub">the length of Taiwan, a distance of <b class="lf-tp-km"></b><span class="zh"> · 個台灣的南北長度</span></p>'
+            f'<p class="cp-home-note"><span class="lf-tp-note"></span><span class="zh lf-tp-note-zh"></span></p>'
+            f'</div></div>'
+            '<noscript><p class="muted">This tool works in your browser and needs JavaScript. · 這個小工具在瀏覽器裡運作，需要開啟 JavaScript。</p></noscript>')
+
+_LIFE_LAB = {"leaf": render_lifeleaf_lab, "cell": render_lifecell_lab, "dna": render_lifedna_lab, "germ": render_lifegerm_lab, "seed": render_lifeseed_lab, "flower": render_lifeflower_lab, "tree": render_lifetree_lab, "autumn": render_lifeautumn_lab, "bird": render_lifebird_lab, "gill": render_lifegill_lab, "meta": render_lifemeta_lab, "migrate": render_lifemigrate_lab}          # lab.kind → 3D 面板
+_LIFE_ICON = {"leaf": lifeleaf_svg, "cell": lifecell_svg, "dna": lifedna_svg, "germ": lifegerm_svg, "seed": lifeseed_svg, "flower": lifeflower_svg, "tree": lifetree_svg, "autumn": lifeautumn_svg, "bird": lifebird_svg, "gill": lifegill_svg, "meta": lifemeta_svg, "migrate": lifemigrate_svg}                 # lesson.card → 課程卡小圖示
+_LIFE_WIDGETS = [("recipe", _life_recipe), ("sorter", _life_sorter), ("coder", _life_coder), ("ruler", _life_ruler), ("waker", _life_waker), ("guesser", _life_guesser), ("climber", _life_climber), ("mixer", _life_mixer), ("wings", _life_wings), ("breathers", _life_breathers), ("cycles", _life_cycles), ("trips", _life_trips)]               # lesson 裡有這個 key 就多一段（照這裡的順序）
 
 def _life_flat():
     return [(ui, u, l) for ui, u in enumerate(LIFE["units"]) for l in u["lessons"]]
