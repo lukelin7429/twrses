@@ -4317,7 +4317,7 @@ def build_astro_hub():
 # 面板與段落樣式沿用 astro.css，人體專屬的在 body.css；兩者都只載在本系列頁面。
 BODY_BASE = "/resources/classes/human-body/"
 _BODY_JS = {"skeleton": "skeleton", "arm": "arm", "heart": "heart", "lungs": "lungs", "joints": "joints",
-            "digestion": "digestion", "nerves": "nerves", "eyes": "eyes", "ears": "ears", "skin": "skin", "teeth": "teeth", "germs": "germs", "kidneys": "kidneys", "taste": "taste", "sleep": "sleep", "growth": "growth", "voice": "voice", "hands": "hands", "healing": "healing", "exercise": "exercise", "energy": "energy", "temperature": "temperature", "back": "back"}   # lab.kind → assets/js/<bundle>.js
+            "digestion": "digestion", "nerves": "nerves", "eyes": "eyes", "ears": "ears", "skin": "skin", "teeth": "teeth", "germs": "germs", "kidneys": "kidneys", "taste": "taste", "sleep": "sleep", "growth": "growth", "voice": "voice", "hands": "hands", "healing": "healing", "exercise": "exercise", "energy": "energy", "temperature": "temperature", "back": "back", "cells": "cells"}   # lab.kind → assets/js/<bundle>.js
 
 def _body_ver():
     h = hashlib.md5()
@@ -5763,6 +5763,72 @@ def render_back_lab(lesson):
   <p class="sk-credit">{lab["credit_html"]}</p>
 </div>'''
 
+def render_cells_lab(lesson):
+    """第二十四課：每一步放大十倍，從整副骨架到 DNA（assets/js/cells.js 綁這裡的 class）；數細胞與量紙工具是 2D，不需要 WebGL。"""
+    lab = lesson["lab"]
+    stops_json = html.escape(json.dumps(lab["stops"], ensure_ascii=False))
+    types_json = html.escape(json.dumps(lab["types"], ensure_ascii=False))
+    jumps = "".join(
+        f'<button type="button" data-stop="{n}" aria-pressed="{"true" if n == 0 else "false"}"><b>{html.escape(s["size"])}</b><small>{html.escape(s["size_zh"])}</small></button>'
+        for n, s in enumerate(lab["stops"]))
+    types = "".join(
+        f'<button type="button" data-ctype="{t["key"]}" aria-pressed="{"true" if n == 0 else "false"}"><i aria-hidden="true">{t["icon"]}</i>'
+        f'<span>{html.escape(t["en"])}<small>{html.escape(t["zh"])}</small></span></button>' for n, t in enumerate(lab["types"]))
+    speeds = "".join(f'<button type="button" class="ce-sp" data-v="{v}" aria-pressed="{"true" if v == 1 else "false"}">{v}<small>a second · 每秒</small></button>' for v in (1, 2, 5))
+    tg = _lab_toggles([("labels", "Labels", "標示", True), ("spin", "Slow spin", "慢慢旋轉", True)])
+    return f'''<div class="astro-lab sk-lab ce-lab rvl" data-cells-lab data-model="{_model_url()}" data-stops="{stops_json}" data-types="{types_json}">
+  <div class="al-stage">
+    <div class="al-space">
+      <canvas class="al-space-cv" aria-label="3D model that zooms ten times closer at every step, from a whole skeleton to the hand, the skin, a layer of cells, one cell, its nucleus, and the DNA double helix · 每一步放大十倍的 3D 模型：從整副骨架到手、皮膚、一層細胞、一個細胞、細胞核，最後是 DNA 雙螺旋"></canvas>
+      <div class="al-labels" aria-hidden="true"></div>
+      <p class="sk-loading">Loading… · 載入中…<span class="sk-bar"><i></i></span></p>
+      <p class="al-hint">Drag to turn · 拖曳旋轉　Scroll or pinch to zoom · 滾輪／雙指縮放</p>
+      <p class="ey-mag ce-mag">Magnified <b class="ce-x">1</b> times · 放大 <b class="ce-x2">1</b> 倍</p>
+      <button type="button" class="al-home" title="Reset view · 重設視角" aria-label="Reset view · 重設視角">&#8634;</button>
+      <p class="al-nogl-msg">This 3D model needs WebGL, which this browser does not support. The counting and paper tools and the cards below still work.<br><span class="zh">這個瀏覽器不支援 WebGL，無法顯示 3D 模型；下方的數細胞、量紙工具和卡片一樣能用。</span></p>
+    </div>
+    <aside class="al-sky sk-aside ce-aside">
+      <p class="al-sky-k">The yellow bar is this long · 黃色的橫條有這麼長</p>
+      <p class="ce-size"><b class="ce-w">1 m</b><span class="ce-wz">1 公尺</span></p>
+      <div class="ce-ruler" aria-hidden="true"><i></i></div>
+      <p class="ce-cmp"><span>About the size of<small>差不多是</small></span><b class="ce-cmp-t"></b></p>
+      <p class="ey-status ce-status" aria-live="polite"></p>
+      <p class="ce-tnote" hidden>Try the four kinds of cells with the buttons below the slider.<span class="zh">用滑桿下面的按鈕，試試四種不同的細胞。</span></p>
+    </aside>
+  </div>
+  <div class="ce-strip">
+    <div class="ce-count">
+      <p class="al-sky-k">Count your cells · 數一數你的細胞</p>
+      <p class="ce-lead">About 30 trillion cells. How fast can you count?<span class="zh">大約 30 兆個細胞。你數得多快？</span></p>
+      <div class="ce-sps" role="group" aria-label="Counting speed · 數的速度">{speeds}</div>
+      <p class="ce-big"><b class="ce-years">—</b><span>years to count them all<small>年才數得完</small></span></p>
+      <p class="ce-msg ce-cmsg" aria-live="polite"></p>
+      <p class="ce-live">While this page has been open, a grown-up's body has made about <b class="ce-rbc">0</b> new red blood cells.<span class="zh">這一頁打開到現在，一個大人的身體大約已經造了 <b class="ce-rbc2">0</b> 個新的紅血球。</span></p>
+    </div>
+    <div class="ce-paper">
+      <p class="al-sky-k">How thick is one sheet? · 一張紙有多厚？</p>
+      <div class="ce-set">
+        <label>Sheets in the stack<small>這一疊有幾張</small><span><input type="number" class="ce-n" min="10" max="1000" step="10" inputmode="numeric" value="100"></span></label>
+        <label>Thickness of the stack<small>這一疊有多厚</small><span><input type="number" class="ce-mm" min="0" max="200" step="0.5" inputmode="decimal" placeholder="—"> mm</span></label>
+      </div>
+      <p class="ce-big"><b class="ce-one">—</b><span>mm for one sheet<small>一張紙的厚度（公釐）</small></span></p>
+      <p class="ce-msg ce-pmsg" aria-live="polite"></p>
+    </div>
+  </div>
+  <div class="al-controls">
+    <div class="ce-jumps" role="group" aria-label="Jump to a size · 跳到某個大小">{jumps}</div>
+    <div class="al-row al-row-main">
+      <button type="button" class="al-play" aria-pressed="false"><span class="al-play-i" aria-hidden="true"></span><span class="al-play-t">Zoom in · 拉近</span></button>
+      <label class="ec-slider ce-row"><span class="ec-slider-k">Zoom · 放大<em>each step is 10 times closer · 每一步近十倍</em></span>
+        <input type="range" class="ec-time ce-slider" min="0" max="800" step="1" value="0"></label>
+    </div>
+    <div class="ea-pres ce-types" role="group" aria-label="Kinds of cells · 細胞的種類">{types}</div>
+    <div class="al-row al-toggles">{tg}</div>
+  </div>
+  {_lab_foot(lab)}
+  <p class="sk-credit">{lab["credit_html"]}</p>
+</div>'''
+
 def _body_nav(slug):
     ls = BODY["lessons"]
     i = next(n for n, l in enumerate(ls) if l["slug"] == slug)
@@ -5790,7 +5856,7 @@ def build_body_lesson(lesson):
                 "joints": render_joints_lab, "digestion": render_digestion_lab, "nerves": render_nerves_lab,
                 "eyes": render_eyes_lab, "ears": render_ears_lab, "skin": render_skin_lab,
                 "teeth": render_teeth_lab, "germs": render_germs_lab, "kidneys": render_kidneys_lab,
-                "taste": render_taste_lab, "sleep": render_sleep_lab, "growth": render_growth_lab, "voice": render_voice_lab, "hands": render_hands_lab, "healing": render_healing_lab, "exercise": render_exercise_lab, "energy": render_energy_lab, "temperature": render_temperature_lab, "back": render_back_lab}[kind](lesson)
+                "taste": render_taste_lab, "sleep": render_sleep_lab, "growth": render_growth_lab, "voice": render_voice_lab, "hands": render_hands_lab, "healing": render_healing_lab, "exercise": render_exercise_lab, "energy": render_energy_lab, "temperature": render_temperature_lab, "back": render_back_lab, "cells": render_cells_lab}[kind](lesson)
 
     secs = []
     if lesson.get("jobs"):
@@ -5906,7 +5972,8 @@ def build_body_lesson(lesson):
                 "exercise": ("Exercise in a sentence", "一句話記住運動"),
                 "energy": ("Energy in a sentence", "一句話記住能量"),
                 "temperature": ("Body heat in a sentence", "一句話記住體溫"),
-                "back": ("The spine in a sentence", "一句話記住脊柱")}[kind]
+                "back": ("The spine in a sentence", "一句話記住脊柱"),
+                "cells": ("Cells in a sentence", "一句話記住細胞")}[kind]
     secs.append(("tricks", "Remember It · 記憶口訣", tricks_h[0], tricks_h[1], _sci_tricks(lesson), ""))
     if lesson.get("culture"):
         cu = lesson["culture"]

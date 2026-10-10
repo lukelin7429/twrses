@@ -1577,3 +1577,66 @@ button.bc-row:hover { transform: translateY(-2px); border-color: var(--gold); bo
   .bp-strip { grid-template-columns: 1fr; }
   .bp-styles { grid-template-columns: 1fr; }
 }
+
+/* =========================================================
+   第二十四課：細胞（data-cells-lab；前綴 ce-）
+   ========================================================= */
+.ce-lab .al-space { min-height: 700px; }
+.ce-aside { gap: .25rem; }
+.ce-mag b { color: #ffd23a; font-size: 1.05em; font-variant-numeric: tabular-nums; }
+.ce-size { display: flex; align-items: baseline; flex-wrap: wrap; gap: .2rem .7rem; margin: 0; }
+.ce-size b { font-family: var(--serif); font-size: 2.3rem; line-height: 1.05; color: #ffd23a; font-variant-numeric: tabular-nums; word-break: break-all; }
+.ce-size span { font-family: var(--zh); font-size: .9rem; font-weight: 700; color: #fff; }
+.ce-ruler { position: relative; height: 12px; margin: .4rem 0 .7rem; border-left: 2px solid #ffd23a; border-right: 2px solid #ffd23a; }
+.ce-ruler i { position: absolute; left: 0; right: 0; top: 5px; height: 2px; background: #ffd23a; }
+.ce-cmp { display: flex; flex-direction: column; gap: .15rem; margin: 0; padding: .5rem .6rem; border-radius: 12px; background: rgba(255,255,255,.04); border-left: 3px solid #ffd23a; }
+.ce-cmp span { font-size: .68rem; font-weight: 800; color: var(--al-mute); line-height: 1.2; }
+.ce-cmp b { font-size: 1rem; font-weight: 800; color: #fff; line-height: 1.25; }
+.ce-cmp small, .ce-jumps small, .ce-sp small, .ce-big small, .ce-set small { display: block; font-family: var(--zh); font-weight: 600; font-size: .68rem; color: var(--al-mute); }
+.ce-cmp span small { display: inline; margin-left: .5em; }
+.ce-status { min-height: 9.5em; margin-top: .7rem; }
+.ce-tnote { margin: .2rem 0 0; padding: .45rem .6rem; border-radius: 10px; background: rgba(138,90,208,.14); border: 1px solid rgba(180,140,255,.4); font-size: .78rem; line-height: 1.45; color: var(--al-text); }
+.ce-tnote .zh, .ce-msg .zh, .ce-lead .zh, .ce-live .zh { display: block; color: var(--al-mute); font-family: var(--zh); }
+.ce-jumps { display: grid; grid-template-columns: repeat(9, minmax(0, 1fr)); gap: .25rem; margin-bottom: .7rem; }
+.ce-jumps button { padding: .4rem .1rem; border-radius: 10px; border: 1px solid var(--al-line); background: rgba(255,255,255,.03); color: #fff; font: 800 .68rem var(--sans); line-height: 1.2; cursor: pointer; overflow: hidden; }
+.ce-jumps b { display: block; font-weight: 800; white-space: nowrap; }
+.ce-jumps small { font-size: .58rem; white-space: nowrap; }
+.ce-jumps button[aria-pressed="true"] { border-color: #ffd23a; background: rgba(255,210,58,.12); box-shadow: 0 0 0 1px #ffd23a inset; }
+.ce-row { flex: 1 1 260px; margin: 0; }
+.ce-slider::-webkit-slider-runnable-track { background: linear-gradient(90deg, #ffd23a 0 var(--p, 0%), rgba(255,255,255,.12) var(--p, 0%)); }
+.ce-slider::-moz-range-progress { height: 6px; border-radius: 999px; background: #ffd23a; }
+.ce-types { grid-template-columns: repeat(4, minmax(0, 1fr)); margin: .7rem 0; opacity: .75; }
+.ce-at-cell .ce-types { opacity: 1; }
+.ce-types button[aria-pressed="true"] { border-color: #b48cff; background: rgba(180,140,255,.14); box-shadow: 0 0 0 1px #b48cff inset; }
+.al-lg-cemem i { border: 2px solid #ffb6c8; background: rgba(255,182,200,.2); border-radius: 50%; }
+.al-lg-cenuc i { border: 0; background: #8a5ad0; border-radius: 50%; }
+.al-lg-cemito i { border: 0; background: #ff9a3c; border-radius: 999px; transform: scaleY(.55); }
+.al-lg-cespool i { border: 0; background: radial-gradient(circle, #f2c14a 0 45%, transparent 50%); }
+.al-lg-cedna i { border: 0; background: repeating-linear-gradient(90deg, #4fd0c0 0 3px, transparent 3px 6px); border-top: 2px solid #4fd0c0; border-bottom: 2px solid #3a9ad0; border-radius: 0; }
+.ce-strip { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 1rem 1.8rem; align-items: start; padding: 1rem 1.2rem 1.1rem; border-top: 1px solid var(--al-line); background: rgba(10,16,34,.6); }
+.ce-strip .al-sky-k { margin: 0 0 .5rem; }
+.ce-lead { margin: 0 0 .6rem; font-size: .8rem; line-height: 1.5; color: var(--al-text); }
+.ce-sps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .3rem; }
+.ce-sp { padding: .45rem .3rem; border-radius: 12px; border: 1px solid var(--al-line); background: rgba(255,255,255,.03); color: #fff; font: 800 1.1rem var(--sans); line-height: 1.15; cursor: pointer; }
+.ce-sp[aria-pressed="true"] { border-color: #ffd23a; background: rgba(255,210,58,.12); }
+.ce-big { display: flex; align-items: baseline; flex-wrap: wrap; gap: .2rem .6rem; margin: .7rem 0 0; }
+.ce-big b { font-family: var(--serif); font-size: 2.2rem; line-height: 1; color: #ffd23a; font-variant-numeric: tabular-nums; }
+.ce-big span { font-size: .74rem; font-weight: 800; color: #fff; line-height: 1.2; }
+.ce-msg { margin: .5rem 0; font-size: .82rem; line-height: 1.5; color: var(--al-text); }
+.ce-pmsg { min-height: 5.5em; }
+.ce-live { margin: .6rem 0 0; padding: .5rem .6rem; border-radius: 10px; background: rgba(212,42,48,.12); border: 1px solid rgba(255,107,107,.35); font-size: .78rem; line-height: 1.5; color: var(--al-text); }
+.ce-live b { color: #ff8a8a; font-variant-numeric: tabular-nums; }
+.ce-set { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .6rem; }
+.ce-set label { font-size: .78rem; font-weight: 800; color: #fff; line-height: 1.2; }
+.ce-set span { display: flex; align-items: center; gap: .4rem; margin-top: .3rem; font-weight: 700; color: var(--al-mute); }
+.ce-set input { width: 100%; min-width: 0; padding: .5rem .4rem; border-radius: 10px; border: 1px solid var(--al-line); background: rgba(255,255,255,.06); color: #fff; font: 700 1.05rem var(--sans); text-align: center; }
+@media (max-width: 1020px) {
+  .ce-lab .al-space { aspect-ratio: 1 / 1; min-height: 380px; max-height: 80vh; }
+  .ce-lab .ce-aside { display: block; }
+}
+@media (max-width: 640px) {
+  .ce-lab .al-space { aspect-ratio: 4 / 5; min-height: 340px; }
+  .ce-strip { grid-template-columns: 1fr; }
+  .ce-jumps { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .ce-types { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
