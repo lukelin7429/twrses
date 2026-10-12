@@ -17505,7 +17505,7 @@ def build_geo_hub():
 _artj = os.path.join(ROOT, "data", "art.json")
 ART = json.load(open(_artj, encoding="utf-8")) if os.path.exists(_artj) else None
 ART_BASE = "/resources/classes/art/"
-_ART_JS = {"lights": "art-lights"}   # lab.kind → assets/js/<bundle>.js
+_ART_JS = {"lights": "art-lights", "wheel": "art-wheel"}   # lab.kind → assets/js/<bundle>.js
 
 def _art_ver():
     h = hashlib.md5()
@@ -17535,7 +17535,18 @@ def artlights_svg(size=56):
             '<circle cx="37" cy="36" r="15" fill="#00ff00" style="mix-blend-mode:screen"/>'
             '<circle cx="30" cy="24" r="15" fill="#0000ff" style="mix-blend-mode:screen"/></svg>')
 
-_ART_CARD = {"lights": artlights_svg}
+def artwheel_svg(size=56):
+    """第二課的課程卡小圖示：十二格的色相環。"""
+    import math
+    cols = ["#fe2712", "#fd5308", "#fb9902", "#fabc02", "#fefe33", "#d0ea2b", "#66b032", "#0a9aa0", "#0247fe", "#3d01a4", "#8601af", "#a7194b"]
+    segs = "".join(
+        f'<path d="M30 30L{30 + 24 * math.sin(math.radians(i * 30 - 15)):.2f} {30 - 24 * math.cos(math.radians(i * 30 - 15)):.2f}'
+        f'A24 24 0 0 1 {30 + 24 * math.sin(math.radians(i * 30 + 15)):.2f} {30 - 24 * math.cos(math.radians(i * 30 + 15)):.2f}Z" fill="{c}"/>'
+        for i, c in enumerate(cols))
+    return (f'<svg class="arwheel-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">{segs}'
+            '<circle cx="30" cy="30" r="10" fill="#05070d"/></svg>')
+
+_ART_CARD = {"lights": artlights_svg, "wheel": artwheel_svg}
 
 def render_artlights_lab(lesson):
     """第一課：暗房裡的三盞燈／三片顏料（assets/js/art-lights.js 綁這裡的 class；右邊欄的字由程式依模式填入）。"""
@@ -17596,6 +17607,98 @@ def render_artlights_lab(lesson):
   </div>
   <p class="ar-credit">{lab["credit_html"]}</p>
 </div>'''
+
+def render_artwheel_lab(lesson):
+    """第二課：色相環與同一張圖（assets/js/art-wheel.js 綁這裡的 class；SVG，不需要 WebGL）。"""
+    lab = lesson["lab"]
+    schemes = "".join(
+        f'<button type="button" data-scheme="{k}" aria-pressed="{"true" if k == "analogous" else "false"}"><i aria-hidden="true">{m}</i><b>{en}</b><small>{zh}</small></button>'
+        for k, m, en, zh in [("analogous", "&#9670;", "Neighbors", "類似色（相鄰的顏色）"), ("complementary", "&#9650;", "Opposites", "對面的顏色（互補色）"), ("triad", "&#9632;", "Three evenly spaced", "三等分")])
+    notes = "".join(f'<li>{html.escape(n["en"])}<span class="zh">{html.escape(n["zh"])}</span></li>' for n in lab["notes"])
+    return f'''<div class="astro-lab ar-wlab rvl" data-artwheel-lab data-wheel="ryb">
+  <div class="ar-wh-top">
+    <div class="ar-wh-pick" role="group" aria-label="Which color wheel · 哪一個色相環">
+      <button type="button" data-wheel-pick="ryb" aria-pressed="true"><b>Painter's wheel</b><small>畫家的色相環（紅、黃、藍）</small></button>
+      <button type="button" data-wheel-pick="rgb" aria-pressed="false"><b>Screen wheel</b><small>螢幕的色相環（紅、綠、藍）</small></button>
+    </div>
+    <div class="ar-wh-schemes" role="group" aria-label="Color scheme · 配色方式">{schemes}</div>
+  </div>
+  <div class="ar-wh-grid">
+    <figure class="ar-wh-wheelbox">
+      <svg class="ar-wh-svg" role="group" aria-label="A color wheel with twelve numbered steps. Choose a step to make it the main color · 十二格、有編號的色相環；點一格，把它設成主色"></svg>
+      <div class="ar-wh-turn">
+        <button type="button" class="ar-btn" data-turn="-1" aria-label="Move the main color one step back · 主色往回一格">&larr; One step · 往回一格</button>
+        <button type="button" class="ar-btn" data-turn="1" aria-label="Move the main color one step on · 主色往前一格">One step · 往前一格 &rarr;</button>
+      </div>
+      <p class="ar-wh-wnote"></p>
+    </figure>
+    <figure class="ar-wh-picbox">
+      <svg class="ar-wh-pic" role="img" aria-label="A simple drawing of a house, two hills, and a sun, colored with the scheme chosen on the wheel · 一張簡單的圖：小屋、兩座山丘和太陽，用色相環上選的配色上色"></svg>
+      <figcaption>The drawing never changes. Only its colors do.<span class="zh">圖從頭到尾是同一張，換的只有顏色。</span></figcaption>
+    </figure>
+    <aside class="ar-wh-side">
+      <p class="al-sky-k">Colors in this scheme · 這個配色的顏色</p>
+      <ul class="ar-mixes ar-wh-chips"></ul>
+      <div class="ar-wh-diff"><span>How far the main color is from the others · 主色和其他顏色差多少</span><span class="ar-zm-track"><i></i></span><b>0</b></div>
+      <p class="ar-wh-diffn">Black and white are 100 apart on this scale. Two vivid colors can be farther apart than that.<span class="zh">在這個尺度上，黑和白相差 100；兩個很鮮豔的顏色可以差得比這更多。</span></p>
+      <p class="ar-msg" aria-live="polite"></p>
+    </aside>
+  </div>
+  <div class="ar-wh-foot">
+    <p class="al-sky-k">The twelve steps · 十二格的名稱</p>
+    <ol class="ar-wh-list"></ol>
+    <label class="ar-check"><input type="checkbox" data-t="warm" checked><span>Mark warm colors (solid arc) and cool colors (dashed arc) · 標出暖色（實線）與冷色（虛線）</span></label>
+  </div>
+  <div class="ar-note">
+    <p class="ar-note-h">{html.escape(lab["note_head_en"])} <span class="zh">{html.escape(lab["note_head_zh"])}</span></p>
+    <ul>{notes}</ul>
+    <p class="ar-note-end">{html.escape(lab["note_end_en"])}<span class="zh">{html.escape(lab["note_end_zh"])}</span></p>
+  </div>
+  <p class="ar-credit">{lab["credit_html"]}</p>
+</div>'''
+
+def _ar_gray(d):
+    pairs = "".join(
+        f'<button type="button" class="ar-zm-c" data-pair="{k}" aria-pressed="{"true" if k == "bw" else "false"}"><b>{en}</b><small>{zh}</small></button>'
+        for k, en, zh in [("bw", "Black and white", "黑與白"), ("yb", "Yellow and blue", "黃與藍"), ("rg", "Red and green", "紅與綠")])
+    return f'''<div class="ar-gray rvl" data-ar-gray>
+  <div class="ar-zm-colors" role="group" aria-label="Backgrounds · 底色">{pairs}</div>
+  <div class="ar-gy-stage">
+    <div class="ar-gy-half ar-gy-a"><span class="ar-gy-tag">Left background · 左邊的底色: <b class="ar-gy-an"></b></span><div class="ar-gy-sq"></div></div>
+    <div class="ar-gy-half ar-gy-b"><span class="ar-gy-tag">Right background · 右邊的底色: <b class="ar-gy-bn"></b></span><div class="ar-gy-sq"></div></div>
+  </div>
+  <p class="ar-gy-read" aria-live="polite"></p>
+  <div class="ar-gy-ctl">
+    <button type="button" class="ar-btn ar-btn-gold ar-gy-join" aria-pressed="false">Slide the squares together · 把兩塊移到一起</button>
+    <button type="button" class="ar-btn ar-gy-bare" aria-pressed="false">Same background on both sides · 兩邊換成一樣的底色</button>
+    <label class="ar-zm-sl ar-gy-sl"><span>How dark the gray is · 灰色的深淺 <b class="ar-gy-lv">50%</b></span><input type="range" class="ar-gy-level" min="20" max="80" step="5" value="50" aria-label="Brightness of both gray squares · 兩塊灰色的亮度"></label>
+  </div>
+  <p class="ar-zm-msg ar-gy-msg" aria-live="polite"></p>
+  <p class="ar-fine">{html.escape(d["note_en"])}<span class="zh">{html.escape(d["note_zh"])}</span></p>
+</div>'''
+
+def _ar_pick(d):
+    return f'''<div class="ar-match ar-pick rvl" data-ar-pick>
+  <div class="ar-mt-top"><p class="ar-mt-k ar-pk-k">Question 1 of 6 · 第 1 題（共 6 題）</p><p class="ar-mt-sc">Right on the first try · 第一次就答對 <b class="ar-mt-score ar-pk-score">0 / 0</b></p></div>
+  <div class="ar-mt-steps ar-pk-steps" aria-hidden="true"></div>
+  <p class="ar-pk-ask"></p>
+  <div class="ar-pk-opts"></div>
+  <p class="ar-mt-msg ar-pk-msg" aria-live="polite"></p>
+  <div class="ar-mt-foot"><button type="button" class="ar-btn ar-btn-gold ar-pk-next" hidden>Next question · 下一題</button></div>
+  <p class="ar-fine">{html.escape(d["note_en"])}<span class="zh">{html.escape(d["note_zh"])}</span></p>
+</div>'''
+
+def _ar_wheels(d):
+    def sw(c):
+        return f'<span class="ar-tw-sw"><i style="background:{c["hex"]}"></i><b>{html.escape(c["en"])}</b><small>{html.escape(c["zh"])}</small></span>'
+    rows = "".join(
+        f'<tr><th scope="row">{sw(r["of"])}</th><td>{sw(r["ryb"])}</td><td>{sw(r["rgb"])}</td></tr>' for r in d["rows"])
+    pts = "".join(f'<li class="rvl">{html.escape(p["en"])}<span class="zh">{html.escape(p["zh"])}</span></li>' for p in d["points"])
+    return (f'<div class="ar-tw-wrap rvl"><table class="ar-tw"><thead><tr><th scope="col">Start from · 從這個顏色出發</th>'
+            f'<th scope="col">Across the painter\'s wheel · 畫家的色相環對面</th><th scope="col">Across the screen wheel · 螢幕的色相環對面</th></tr></thead>'
+            f'<tbody>{rows}</tbody></table></div>'
+            f'<p class="ar-fine ar-fine-out rvl">{html.escape(d["swatch_note_en"])}<span class="zh">{html.escape(d["swatch_note_zh"])}</span></p>'
+            f'<ul class="ar-points">{pts}</ul>')
 
 def _ar_match(d):
     rows = "".join(
@@ -17694,7 +17797,7 @@ def build_art_lesson(ui, unit, lesson):
     reading_html = render_basic_unit(1, unit_dict, level="art", audio_rel="", pdf_rel="")
     lab = lesson["lab"]
     kind = lab["kind"]
-    lab_html = {"lights": render_artlights_lab}[kind](lesson)
+    lab_html = {"lights": render_artlights_lab, "wheel": render_artwheel_lab}[kind](lesson)
 
     def sec(key, fn):
         d = lesson[key]
@@ -17712,6 +17815,9 @@ def build_art_lesson(ui, unit, lesson):
         ph = lesson["parts_head"]
         secs.append(("parts", ph["eyebrow"], ph["en"], ph["zh"], f'<div class="ph-grid stagger">{cards}</div>',
                      _bi(lesson["parts_note_en"], lesson["parts_note_zh"], cls="lead rvl d2")))
+    if lesson.get("gray"): secs.append(sec("gray", _ar_gray))
+    if lesson.get("pick"): secs.append(sec("pick", _ar_pick))
+    if lesson.get("wheels"): secs.append(sec("wheels", _ar_wheels))
     if lesson.get("match"): secs.append(sec("match", _ar_match))
     if lesson.get("zoom"): secs.append(sec("zoom", _ar_zoom))
     if lesson.get("primaries"): secs.append(sec("primaries", _ar_primaries))
