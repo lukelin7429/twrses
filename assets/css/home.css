@@ -1,0 +1,241 @@
+/*
+ * 家政 Life Skills at Home（/resources/classes/home/）專屬樣式；class 前綴一律 hm-。
+ * 面板、迷思、口訣、活動沿用 astro.css；這裡只放本系列多出來的：
+ *   流理台的右側欄、食譜卡（換單位／放大縮小）、誰的一杯、怎麼唸、生活英語、今天回家做。
+ * 中文只用系統字體（var(--zh)），不載任何中文網路字型。
+ */
+
+/* ── 共用按鈕 ───────────────────────────────────────────────────────── */
+.hm-btn { display: inline-flex; flex-direction: column; align-items: center; justify-content: center; gap: .1rem; padding: .5rem 1rem; border-radius: 999px; border: 1px solid var(--line); background: #fff; color: var(--brand-dk); font-family: var(--sans); font-weight: 800; font-size: .86rem; line-height: 1.3; cursor: pointer; transition: background .2s, border-color .2s, transform .2s; }
+.hm-btn .zh { font-size: .76rem; font-weight: 700; opacity: .85; }
+.hm-btn:hover:not(:disabled) { border-color: var(--gold); transform: translateY(-1px); }
+.hm-btn:disabled { opacity: .45; cursor: default; }
+.hm-btn-gold { background: var(--gold); border-color: var(--gold); color: #1b1405; }
+.hm-btn-gold:hover:not(:disabled) { background: var(--gold-dk); color: #fff; }
+
+/* ── 3D 模型：流理台 ─────────────────────────────────────────────────── */
+.hm-lab .al-stage { grid-template-columns: minmax(0, 1fr) 372px; }
+.hm-lab .al-space { min-height: 560px; background: radial-gradient(70% 60% at 50% 40%, rgba(255,201,74,.08), transparent 70%); }
+.hm-lab .al-space-cv { touch-action: pan-y; }
+.al-lab.hm-lb { font-size: .74rem; font-weight: 800; line-height: 1.25; padding: .1rem .5rem; color: #e8edf7; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.al-lab.hm-lb i { font-style: normal; font-weight: 700; margin-left: .35rem; color: var(--al-mute); font-family: var(--zh); }
+.al-lab.hm-lb-jar { color: #ffe3a3; border-color: rgba(201,161,74,.5); }
+.al-lab.hm-lb-sp { font-size: .66rem; color: #cfd8ee; padding: .04rem .4rem; }
+.al-lab.hm-lb-read { font-size: .95rem; color: #1b1405; background: rgba(255,211,110,.96); border-color: #ffd36e; padding: .12rem .7rem; }
+.al-lab.hm-lb[hidden] { display: none; }
+.hm-narrow .al-lab.hm-lb { font-size: .66rem; padding: .04rem .35rem; }
+.hm-narrow .al-lab.hm-lb-read { font-size: .8rem; }
+
+.hm-aside { display: flex; flex-direction: column; gap: .55rem; }
+.hm-aside > * { min-width: 0; }
+.hm-aside .al-sky-k { margin-bottom: 0; }
+.hm-aside .zh { font-family: var(--zh); }
+.hm-read-g { margin: 0; font-family: var(--serif); font-size: 3.3rem; font-weight: 700; line-height: 1; color: #fff; font-variant-numeric: tabular-nums; }
+.hm-read-g small { font-size: 1.3rem; font-weight: 700; color: var(--al-mute); font-family: var(--sans); }
+.hm-read-what { margin: 0; min-height: 2.9em; font-size: .9rem; font-weight: 700; line-height: 1.45; color: var(--al-sun); }
+.hm-read-what .zh { display: block; font-size: .84rem; color: var(--al-mute); font-weight: 600; }
+.hm-foods { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: .3rem; }
+.hm-foods button, .hm-amounts button, .hm-pack button { appearance: none; border: 1px solid var(--al-line); background: rgba(255,255,255,.05); color: var(--al-text); border-radius: 12px; font-family: var(--sans); cursor: pointer; transition: background .2s, border-color .2s, color .2s; }
+.hm-foods button { display: flex; flex-direction: column; align-items: center; gap: .12rem; padding: .45rem .1rem .4rem; }
+.hm-foods button i { width: 22px; height: 22px; border-radius: 50%; border: 2px solid rgba(255,255,255,.55); }
+.hm-foods button b { font-size: .78rem; font-weight: 800; }
+.hm-foods button small { font-size: .74rem; color: var(--al-mute); font-family: var(--zh); }
+.hm-amounts { display: flex; align-items: center; gap: .3rem; }
+.hm-amounts > span { font-size: .7rem; font-weight: 700; letter-spacing: .03em; color: var(--al-mute); margin-right: auto; }
+.hm-amounts button { min-width: 2.6rem; padding: .3rem .35rem; font-size: .84rem; font-weight: 800; font-variant-numeric: tabular-nums; }
+.hm-pack { display: grid; grid-template-columns: 1fr 1fr; gap: .3rem; }
+.hm-pack[hidden] { display: none; }
+.hm-pack button { padding: .35rem .3rem; font-size: .8rem; font-weight: 800; line-height: 1.25; }
+.hm-pack button small { display: block; font-size: .74rem; font-weight: 600; color: var(--al-mute); font-family: var(--zh); }
+.hm-foods button:hover, .hm-amounts button:hover, .hm-pack button:hover { border-color: rgba(255,211,110,.6); }
+.hm-foods button[aria-pressed="true"], .hm-amounts button[aria-pressed="true"], .hm-pack button[aria-pressed="true"] { background: rgba(255,211,110,.18); border-color: var(--al-sun); color: #fff; }
+.hm-pack button[aria-pressed="true"] small, .hm-foods button[aria-pressed="true"] small { color: #ffe3a3; }
+.hm-facts { margin: .1rem 0 0; padding-top: .5rem; border-top: 1px solid var(--al-line); display: grid; gap: .3rem; }
+.hm-facts div { display: flex; justify-content: space-between; align-items: baseline; gap: .8rem; }
+.hm-facts dt { font-size: .7rem; font-weight: 700; letter-spacing: .03em; color: var(--al-mute); }
+.hm-facts dd { margin: 0; font-size: .98rem; font-weight: 800; color: #fff; font-variant-numeric: tabular-nums; text-align: right; }
+.hm-facts dd small { font-size: .7rem; color: var(--al-mute); font-weight: 700; display: block; }
+.hm-bars-k { margin: .2rem 0 0; padding-top: .5rem; border-top: 1px solid var(--al-line); font-size: .7rem; font-weight: 700; letter-spacing: .03em; color: var(--al-mute); }
+.hm-bars-k b, .hm-bars-k .hm-bars-zh { color: var(--al-sun); }
+.hm-bars { list-style: none; margin: 0; padding: 0; display: grid; gap: .22rem; }
+.hm-bars li { display: grid; grid-template-columns: 5.6rem minmax(0, 1fr) 3.3rem; align-items: center; gap: .4rem; font-size: .74rem; color: var(--al-mute); }
+.hm-bars li > span:first-child { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.hm-bar { height: 9px; border-radius: 99px; background: rgba(255,255,255,.07); overflow: hidden; }
+.hm-bar i { display: block; height: 100%; border-radius: 99px; transition: width .45s cubic-bezier(.2,.7,.2,1); opacity: .8; }
+.hm-bars b { text-align: right; font-size: .8rem; font-weight: 800; color: #dfe7f7; font-variant-numeric: tabular-nums; }
+.hm-bars li.is-on { color: #fff; }
+.hm-bars li.is-on .hm-bar i { opacity: 1; box-shadow: 0 0 10px rgba(255,211,110,.6); }
+.hm-bars li.is-on b { color: var(--al-sun); }
+.hm-acts { display: grid; grid-template-columns: 1fr 1fr; gap: .4rem; margin-top: .15rem; }
+.hm-aside .hm-btn { padding: .45rem .5rem; font-size: .78rem; text-align: center; background: rgba(255,211,110,.14); border-color: rgba(255,211,110,.5); color: var(--al-sun); border-radius: 14px; }
+.hm-aside .hm-btn-gold { background: var(--al-sun); border-color: var(--al-sun); color: #1b1405; }
+.hm-aside .hm-btn .zh { font-size: .72rem; }
+.hm-msg { margin: 0; min-height: 4.6em; font-size: .82rem; line-height: 1.5; color: var(--al-text); }
+.hm-msg .zh { display: block; margin-top: .15rem; color: var(--al-mute); font-size: .8rem; }
+.hm-credit { margin: 0; padding: 0 1.3rem 1.1rem; font-size: .74rem; line-height: 1.6; color: #7f90b0; }
+.al-lg-hm-water i { background: #8fc4ff; border-color: #cfe6ff; }
+.al-lg-hm-flour i { background: #f6f1e4; border-color: #fff; }
+.al-lg-hm-sugar i { background: #fdfcf8; border-color: #9fc0ea; }
+.al-lg-hm-rice i { background: #e9e0c9; border-color: #9cc487; }
+.al-lg-hm-oil i { background: #f0c53a; border-color: #ffe08a; }
+.hm-lab.al-nogl .al-sky { display: flex; }
+.hm-lab.al-nogl .al-controls { display: none; }
+.hm-lab.al-nogl .al-space { min-height: 150px; aspect-ratio: auto; border-right: 0; border-bottom: 1px solid var(--al-line); }
+@media (max-width: 1000px) {
+  .hm-lab .al-stage { grid-template-columns: minmax(0, 1fr); }
+  .hm-lab .al-space { aspect-ratio: 16 / 10; min-height: 320px; max-height: 80vh; border-right: 0; border-bottom: 1px solid var(--al-line); }
+  .hm-msg { min-height: 3.2em; }
+}
+@media (max-width: 620px) {
+  .hm-lab .al-space { aspect-ratio: 4 / 3.4; min-height: 0; max-height: 70vh; }
+  .hm-lab .al-hint { display: none; }
+  .hm-read-g { font-size: 2.7rem; }
+}
+
+/* ── 卡片與首頁 ─────────────────────────────────────────────────────── */
+.hm-ico { background: radial-gradient(circle at 50% 40%, #fff8e3, #f1dfae); font-size: 2.2rem; }
+.hm-lc-ico { background: radial-gradient(circle at 50% 38%, #1b2f5c, #070b17); }
+.hm-progress { font-weight: 700; color: var(--brand-dk); }
+.hm-intro-ic { float: right; margin: 0 0 .8rem 1.2rem; display: grid; place-items: center; width: 104px; height: 104px; border-radius: 26px; background: radial-gradient(circle at 50% 38%, #1b2f5c, #070b17); box-shadow: 0 14px 30px -18px rgba(6,12,30,.9); }
+
+/* ── 這樣唸 ─────────────────────────────────────────────────────────── */
+.hm-readit { list-style: none; margin: 1.4rem 0 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: .8rem; }
+.hm-rd { display: flex; flex-direction: column; gap: .35rem; padding: 1rem 1.1rem; background: #fff; border: 1px solid var(--line); border-radius: 16px; box-shadow: var(--shadow-sm); min-width: 0; }
+.hm-rd-w { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 1.25rem; font-weight: 700; color: var(--brand-dk); padding-bottom: .35rem; border-bottom: 2px dashed var(--line); }
+.hm-rd-say { display: flex; align-items: flex-start; gap: .45rem; font-size: 1rem; font-weight: 700; line-height: 1.4; }
+.hm-rd-say .spk { flex: none; }
+.hm-rd .zh { font-family: var(--zh); font-size: .92rem; color: var(--ink-soft); }
+.hm-rd-note { margin-top: 1.1rem; font-size: .95rem; max-width: 72ch; }
+@media (max-width: 900px) { .hm-readit { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 460px) { .hm-readit { grid-template-columns: 1fr; } }
+
+/* ── 食譜卡：換單位／放大縮小 ───────────────────────────────────────── */
+.hm-recipe { margin-top: 1.4rem; max-width: 980px; padding: 1.4rem 1.5rem 1.5rem; background: #fffdf7; border: 1px solid #ead9b0; border-radius: 20px; box-shadow: var(--shadow-sm); }
+.hm-rc-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: .3rem 1.2rem; padding-bottom: .8rem; margin-bottom: .4rem; border-bottom: 2px solid #ead9b0; }
+.hm-rc-head h3 { margin: 0; font-family: var(--serif); font-size: 1.5rem; }
+.hm-rc-head h3 .zh { margin-left: .6rem; font-family: var(--zh); font-size: 1.1rem; font-weight: 700; color: var(--ink-soft); }
+.hm-rc-head p { margin: 0; font-size: .9rem; font-weight: 700; color: var(--gold-dk); }
+.hm-rc-head p .zh { margin-left: .6rem; font-family: var(--zh); color: var(--ink-soft); font-weight: 600; }
+.hm-cv-list, .hm-sc-list { list-style: none; margin: 0; padding: 0; }
+.hm-cv-row { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, .9fr) auto minmax(0, 1fr); align-items: center; gap: .3rem 1rem; padding: .7rem 0; border-bottom: 1px dashed #e3d3ac; }
+.hm-sc-row { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, .8fr) 1.4rem minmax(0, 1.2fr); align-items: center; gap: .3rem .9rem; padding: .7rem 0; border-bottom: 1px dashed #e3d3ac; }
+.hm-rc-name { font-size: 1rem; font-weight: 700; line-height: 1.35; }
+.hm-rc-name em { font-style: normal; font-weight: 500; color: var(--ink-soft); font-size: .9rem; }
+.hm-rc-name .zh, .hm-cv-us .zh, .hm-sc-out .zh { display: block; font-family: var(--zh); font-size: .88rem; font-weight: 500; color: var(--ink-soft); }
+.hm-cv-us, .hm-sc-base { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 1.02rem; font-weight: 700; color: var(--brand-dk); }
+.hm-sc-base { color: var(--ink-soft); }
+.hm-sc-arrow { color: var(--gold-dk); font-weight: 800; }
+.hm-cv-go { flex-direction: row; gap: .4rem; padding: .35rem .8rem; font-size: .8rem; white-space: nowrap; }
+.hm-cv-m { font-size: 1.05rem; color: #b9a67a; font-variant-numeric: tabular-nums; }
+.hm-cv-m b { font-size: 1.2rem; color: var(--brand-dk); }
+.hm-cv-m .zh { display: block; font-family: var(--zh); font-size: .86rem; color: var(--ink-soft); }
+.hm-cv-row.is-done .hm-cv-m { color: var(--ink); }
+.hm-cv-how, .hm-sc-how { grid-column: 1 / -1; font-size: .86rem; line-height: 1.5; color: var(--ink-soft); font-variant-numeric: tabular-nums; }
+.hm-cv-how:empty, .hm-sc-how:empty { display: none; }
+.hm-cv-how .zh, .hm-sc-how .zh { display: block; font-family: var(--zh); }
+.hm-cv-row.is-done { animation: hm-pop .35s ease-out; }
+@keyframes hm-pop { from { background: rgba(255,211,110,.35); } to { background: transparent; } }
+.hm-sc-out b { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 1.12rem; color: var(--brand-dk); }
+.hm-sc-row.is-changed .hm-sc-out b { color: #a8541a; }
+.hm-sc-row.is-unit .hm-sc-out b { background: linear-gradient(transparent 62%, rgba(255,211,110,.7) 62%); }
+.hm-sc-chips { display: flex; flex-wrap: wrap; gap: .5rem; margin: .9rem 0 .4rem; }
+.hm-sc-chips button, .hm-cq-btns button { appearance: none; display: flex; flex-direction: column; align-items: center; min-width: 4.6rem; padding: .45rem .9rem; border-radius: 14px; border: 1px solid var(--line); background: #fff; color: var(--ink); font-family: var(--sans); cursor: pointer; transition: background .2s, border-color .2s, transform .2s; }
+.hm-sc-chips button b { font-size: 1.3rem; font-family: var(--serif); line-height: 1.1; }
+.hm-sc-chips button small, .hm-cq-btns button small { font-size: .74rem; color: var(--ink-soft); font-family: var(--zh); }
+.hm-sc-chips button:hover, .hm-cq-btns button:hover { border-color: var(--gold); transform: translateY(-1px); }
+.hm-sc-chips button[aria-pressed="true"], .hm-cq-btns button[aria-pressed="true"] { background: var(--brand-dk); border-color: var(--brand-dk); color: #fff; }
+.hm-sc-chips button[aria-pressed="true"] small, .hm-cq-btns button[aria-pressed="true"] small { color: #cfdcf5; }
+.hm-rc-foot { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: 1rem; }
+.hm-rc-foot .hm-btn { flex-direction: row; }
+.hm-rc-msg { margin: .9rem 0 0; padding: .7rem 1rem; border-radius: 12px; background: var(--brand-lt); font-size: .95rem; font-weight: 600; line-height: 1.55; }
+.hm-rc-msg .zh, .hm-rc-steps .zh, .hm-rc-note .zh { display: block; margin-top: .2rem; font-family: var(--zh); font-weight: 500; color: var(--ink-soft); }
+.hm-rc-steps { margin: .9rem 0 0; font-size: .95rem; line-height: 1.6; }
+.hm-rc-note { margin: .7rem 0 0; padding: .6rem .9rem; border-left: 4px solid var(--sunset); background: #fff6ef; border-radius: 0 10px 10px 0; font-size: .86rem; line-height: 1.55; }
+@media (max-width: 720px) {
+  .hm-recipe { padding: 1.1rem 1rem 1.2rem; }
+  .hm-cv-row { grid-template-columns: minmax(0, 1fr) auto; }
+  .hm-cv-row .hm-rc-name { grid-column: 1 / -1; }
+  .hm-cv-row .hm-cv-m { grid-column: 1 / -1; }
+  .hm-sc-row { grid-template-columns: minmax(0, 1fr) 1.2rem minmax(0, 1.3fr); }
+  .hm-sc-row .hm-rc-name { grid-column: 1 / -1; }
+}
+
+/* ── 誰的一杯 ───────────────────────────────────────────────────────── */
+.hm-cupsq { margin-top: 1.4rem; max-width: 900px; display: grid; grid-template-columns: 260px minmax(0, 1fr); gap: 1.4rem 2rem; align-items: center; padding: 1.4rem 1.5rem; background: #fff; border: 1px solid var(--line); border-radius: 20px; box-shadow: var(--shadow-sm); }
+.hm-cq-pic svg { width: 100%; height: auto; display: block; }
+.hm-cq-fill, .hm-cq-over { transition: y .5s cubic-bezier(.2,.7,.2,1), height .5s cubic-bezier(.2,.7,.2,1); }
+.hm-cq-t { font: 800 13px var(--sans); fill: #d8402f; }
+.hm-cq-t2 { font-size: 11px; }
+.hm-cq-btns { display: flex; flex-wrap: wrap; gap: .45rem; }
+.hm-cq-btns button { min-width: 0; padding: .4rem .8rem; }
+.hm-cq-btns button b { font-size: .88rem; font-weight: 800; }
+.hm-cq-ml { margin: 1rem 0 0; font-family: var(--serif); font-size: 2.8rem; font-weight: 700; line-height: 1; color: var(--brand-dk); font-variant-numeric: tabular-nums; }
+.hm-cq-ml i { font: 700 1rem var(--sans); color: var(--ink-soft); }
+.hm-cq-ml small { font-size: 1.1rem; font-family: var(--sans); color: var(--ink-soft); }
+.hm-cq-out { margin: .6rem 0 0; min-height: 6.4em; font-size: .98rem; line-height: 1.6; }
+.hm-cq-out .zh { display: block; margin-top: .3rem; font-family: var(--zh); color: var(--ink-soft); font-size: .93rem; }
+.hm-cq-key { margin: .6rem 0 0; font-size: .78rem; color: var(--ink-soft); }
+.hm-cq-key i { display: inline-block; width: 12px; height: 12px; border-radius: 3px; margin-right: .35rem; vertical-align: -1px; }
+.hm-cq-key .is-in { background: #8fc4ff; }
+.hm-cq-key .is-over { background: #ff9f6b; }
+@media (max-width: 700px) { .hm-cupsq { grid-template-columns: 1fr; padding: 1.1rem 1rem; } .hm-cq-pic { max-width: 220px; margin: 0 auto; } }
+
+/* ── 課綱、安全、延伸閱讀、出處（照音樂系列的寫法）────────────────────── */
+.hm-curric { list-style: none; margin: 1.4rem 0 0; padding: 0; display: grid; gap: .9rem; max-width: 900px; }
+.hm-cur { padding: 1.1rem 1.3rem; background: #fff; border: 1px solid var(--line); border-left: 5px solid var(--gold); border-radius: 14px; box-shadow: var(--shadow-sm); }
+.hm-cur-k { margin: 0; display: flex; flex-wrap: wrap; gap: .2rem .8rem; align-items: baseline; font-size: .82rem; color: var(--ink-soft); }
+.hm-cur-k b { font-size: 1rem; color: var(--brand-dk); font-variant-numeric: tabular-nums; }
+.hm-cur-q { margin: .4rem 0 0; font-size: 1rem; line-height: 1.7; font-family: var(--zh); }
+.hm-cur-n { margin: .5rem 0 0; font-size: .88rem; line-height: 1.6; color: var(--ink-soft); }
+.hm-cur-n .zh { display: block; }
+.hm-safety { list-style: none; margin: 1.4rem 0 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .9rem 1.1rem; }
+.hm-safety li { position: relative; padding: 1rem 1.2rem 1rem 3.1rem; background: #fff; border: 1px solid #f0c9b8; border-radius: 14px; font-size: .98rem; line-height: 1.65; box-shadow: var(--shadow-sm); }
+.hm-safety li::before { content: "\26A0"; position: absolute; left: 1.05rem; top: .95rem; font-size: 1.2rem; color: var(--sunset); }
+.hm-safety li .zh { display: block; margin-top: .3rem; color: var(--ink-soft); font-size: .93rem; }
+.hm-links { display: grid; gap: 1rem; margin-top: 1.4rem; max-width: 860px; }
+.hm-link { display: flex; gap: 1.1rem; align-items: flex-start; padding: 1.2rem 1.4rem; border-radius: 18px; background: #fff; border: 1px solid var(--line); box-shadow: var(--shadow-sm); color: var(--ink); transition: transform .25s, box-shadow .25s, border-color .25s; }
+a.hm-link:hover { transform: translateY(-3px); box-shadow: var(--shadow); border-color: var(--gold); color: var(--ink); }
+.hm-link-soon { border-style: dashed; background: linear-gradient(120deg, #fff, var(--cream)); }
+.hm-link-ic { flex: none; display: grid; place-items: center; width: 64px; height: 64px; border-radius: 18px; background: radial-gradient(circle at 50% 38%, #1b2f5c, #070b17); font-size: 2rem; }
+.hm-link-b { display: flex; flex-direction: column; gap: .15rem; min-width: 0; }
+.hm-link-k { font-size: .74rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: var(--gold-dk); }
+.hm-link-b b { font-family: var(--serif); font-size: 1.2rem; line-height: 1.3; }
+.hm-link-zh { font-size: 1rem; font-weight: 600; color: var(--ink-soft); }
+.hm-link-n { margin-top: .4rem; font-size: .92rem; line-height: 1.6; }
+.hm-link-n .zh { display: block; margin-top: .2rem; color: var(--ink-soft); }
+.hm-link-go { align-self: flex-start; margin-top: .6rem; font-weight: 800; font-size: .82rem; color: var(--brand-dk); background: var(--brand-lt); border-radius: 999px; padding: .38rem .85rem; }
+.hm-link-soon .hm-link-go { color: var(--ink-soft); background: var(--cream); border: 1px solid var(--line); }
+.hm-sources { margin: 0 0 2.4rem; padding: 1.3rem 1.5rem; border: 1px solid var(--line); border-radius: 16px; background: var(--cream); }
+.hm-sources .sub-head { margin-top: 0; }
+.hm-sources > .muted { margin: .2rem 0 .8rem; font-size: .9rem; }
+.hm-sources ol { margin: 0; padding-left: 1.3em; display: grid; gap: .55rem; }
+.hm-sources li { font-size: .92rem; line-height: 1.55; }
+.hm-sources li > span { display: block; }
+.hm-sources li .zh { display: inline; margin-left: .4rem; color: var(--ink-soft); font-size: .88rem; }
+.hm-sources a { font-weight: 700; font-size: .86rem; color: var(--brand-dk); overflow-wrap: anywhere; }
+@media (max-width: 760px) { .hm-safety { grid-template-columns: 1fr; } }
+
+/* ── 每課都有：生活英語 ─────────────────────────────────────────────── */
+.hm-phrases { list-style: none; margin: 1.4rem 0 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .7rem 1rem; max-width: 1000px; }
+.hm-ph { display: flex; align-items: flex-start; gap: .7rem; padding: .9rem 1.1rem; background: #fff; border: 1px solid var(--line); border-radius: 16px; box-shadow: var(--shadow-sm); min-width: 0; }
+.hm-ph-n { flex: none; display: grid; place-items: center; width: 1.7rem; height: 1.7rem; border-radius: 50%; background: var(--brand-lt); color: var(--brand-dk); font-size: .8rem; font-weight: 800; }
+.hm-ph .spk { flex: none; }
+.hm-ph-b { display: flex; flex-direction: column; gap: .15rem; min-width: 0; }
+.hm-ph-en { font-size: 1.06rem; font-weight: 700; line-height: 1.4; }
+.hm-ph-say { font-size: .84rem; font-style: italic; color: var(--gold-dk); }
+.hm-ph .zh { font-family: var(--zh); font-size: .94rem; color: var(--ink-soft); }
+@media (max-width: 760px) { .hm-phrases { grid-template-columns: 1fr; } }
+
+/* ── 每課都有：今天回家做 ───────────────────────────────────────────── */
+.hm-task { margin-top: 1.4rem; max-width: 860px; padding: 1.4rem 1.5rem; border-radius: 20px; background: linear-gradient(135deg, #fff9e9, #fff); border: 2px solid var(--gold); box-shadow: var(--shadow-sm); }
+.hm-task-adult { margin: 0 0 1rem; display: flex; flex-wrap: wrap; align-items: baseline; gap: .4rem .9rem; font-size: .92rem; line-height: 1.5; }
+.hm-task-adult b { padding: .3rem .8rem; border-radius: 999px; font-size: .84rem; white-space: nowrap; }
+.hm-task-adult.is-no b { background: #e3f4e4; color: #1f6b2c; }
+.hm-task-adult.is-yes b { background: #ffe6d8; color: #a8401a; }
+.hm-task-adult .zh { display: block; font-family: var(--zh); color: var(--ink-soft); }
+.hm-task-steps { margin: 0; padding-left: 1.4em; display: grid; gap: .65rem; font-size: 1.02rem; line-height: 1.6; }
+.hm-task-steps .zh { display: block; font-family: var(--zh); font-size: .95rem; color: var(--ink-soft); }
+.hm-task-ask { margin: 1.1rem 0 0; padding: .8rem 1rem; border-radius: 14px; background: var(--brand-lt); font-size: .98rem; line-height: 1.6; }
+.hm-task-ask b { display: block; font-size: .78rem; letter-spacing: .08em; text-transform: uppercase; color: var(--brand-dk); margin-bottom: .2rem; }
+.hm-task-ask .zh { display: block; margin-top: .2rem; font-family: var(--zh); color: var(--ink-soft); }
+@media (max-width: 620px) { .hm-task { padding: 1.1rem 1rem; } .hm-task-adult b { white-space: normal; } }

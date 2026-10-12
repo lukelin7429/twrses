@@ -972,6 +972,35 @@
 
 ---
 
+## 家政 Life Skills at Home（/resources/classes/home/）— 架構照音樂與書法，3D 是一張每堂廚房課共用的「流理台」
+
+- 內容：`data/home.json`：`units[]`（七個單元：廚房的基本功／吃得聰明／衣／住／錢與時間／台灣味／一起生活）底下 `lessons[]` 與 `planned[]`（「製作中」卡，做一課就從 planned 移到 lessons）；課次 `n` 全系列連號（1–28，大綱在 vault 的 `創作庫/家政課程規劃（twrses）.md`）。每課欄位同音樂（`paras`、`vocab`、`quiz`、`parts`、`culture_cards`、`curric`、`myths`、`tricks`、`safety`、`activities`、`links`、`sources`），多的：
+  - **每課都有的兩張卡**：`phrases`（「生活英語」8 句；`say` 是唸法，和畫面寫法不同時才給，例如畫面 `Add 1/2 cup of oats.`、錄音 `Add half a cup of oats.`）與 `home_task`（「今天回家做」；`adult: "no"|"yes"` 決定徽章是「可以自己做」還是「要有家裡的大人在旁邊」，另有 `ask_en/zh` 請學生回家問家人）。
+  - 第一課專屬：`readit`（食譜上的數字和縮寫怎麼唸）、`recipe`（一份食譜，`convert` 與 `resize` 兩個小互動共用）、`cupsq`（誰的一杯）。
+  - `say_as`：`[[畫面上的句子, 錄音唸的句子], …]`，只替換英文閱讀那一段的 `data-say`（畫面不變）。課文裡有 `1/2 cup`、`tsp`、`°F` 這類 TTS 會唸錯的寫法時用。
+  - `lab.foods`：模型裡每種食材的 `g_cup`（美制一杯大約幾公克；麵粉另有 `g_cup_packed`）。**數字只寫在這裡**，build.py 用 `data-foods` 傳給模型，`tools/home/test/data.test.mjs` 檢查它和課文、出處一致。
+- 頁面：`build.py` 的 `build_home_hub()`／`build_home_lesson()`（`HOME_BASE`、`_HOME_JS`、`_home_head()`、`_HOME_CARD`；系列小圖示 `hmhub_svg()`，第一課卡 `hmcups_svg()`）；段落順序：3D → 英文閱讀 → 模型卡 → 這樣唸 → 幫食譜換單位 → 放大縮小 → 誰的一杯 → 文化卡 → 對應課綱 → 迷思 → 口訣 → **生活英語** → 安全提醒 → 活動 → **今天回家做** → 延伸閱讀 → 出處。「閱讀與經典」頁有入口卡（🥣，放在體育後面、哲學前面）。朗讀 manifest 叫 `home-<slug>`（`tools/gen_audio.py` 的 `SHORT_PAGES` 已加 `resources/classes/home`）。
+- 樣式：共用 `assets/css/astro.css`，本系列專屬的在 `assets/css/home.css`（**class 前綴一律 `hm-`**；注意 computers.css 有 `cp-hm-*`、music.css 有 `mu-hm-*`，是別人的）。
+- 原始碼在 `tools/home/src/`（自己的 package.json，three 0.186.1、esbuild 0.25.10），bundle 一律 `home-*`（`lab.kind` → bundle 對照在 `_HOME_JS`；目前只有 `cups` → `home-cups`）。**不要 import 別的系列的 tools 目錄**；`common.js` 是從 tools/music 抄來的。
+  ```
+  cd tools/home && npm ci && npm run build && npm test
+  ```
+- **每課共用的引擎（只換資料與道具）**：
+  - `units.js`（純函式，`test/units.test.mjs`）：`ML`（cup 236.5882365、floz、tbsp、tsp；由 1 gallon = 231 立方英寸推出）、`LABEL_ML`（美國營養標示的 240／30／15／5）、`G`（lb 453.59237、oz）、`toMl`／`fromMl`／`toGrams`／`fromGrams`／`fToC`／`cToF`／`cupsToGrams`；分數 `frac`／`parseAmount("1 1/2")`／`formatMixed`／`scaleAmount`；`kitchenParts()` 把算出來的量改寫成量得出來的樣子（1/6 杯 → `2 tbsp + 2 tsp`、4 湯匙 → `1/4 cup`、半湯匙 → `1 1/2 tsp`）；`sayAmount()`（1/2 cup → `half a cup`）。
+  - `recipe.js`（純函式）：`toMetric(item)`（乾的換公克、液體與小匙換毫升，附算式）、`ovenMetric()`、`scaleItem()`、`servingFactor()`。
+  - `counter.js`：`createCounter({ canvas, wrap, labels })` 回傳舞台（檯面 y = 0、x −6…6、z −2.2…2.2；木檯面、磁磚牆、櫃子、燈、OrbitControls；鏡頭依寬高比自動取景 `fitW`）；`makeTweens()` 是不靠 WebGL 的補間佇列。
+  - `props.js`：`makeMeasuringCup()`（`userData.setFill(幾杯, food, packed)`）、`makeScale()`（`setReading('125 g')`）、`makeSpoon(key)`、`makeBowl()`、`makeJar(food)`、`makeStream()`。**全部自繪，沒有品牌、商標、包裝。** 之後的鍋子、砧板、電鍋也加在這裡。
+  - 控制器不靠 WebGL：沒有 WebGL 時 3D 不畫，右欄的讀數、長條圖、按鈕照樣能用。
+- **第一課 `cups-and-grams`**（`home-cups.js`）：選食材 → 罐子倒進量杯 → 量杯放上秤 → 讀數。除錯 `document.querySelector('[data-homecups-lab]').__lab`：`reading()`（秤上顯示的公克數）、`target()`、`setFood(key)`、`setAmount('3/4')`、`setPacked(bool)`、`setOnScale(bool)`、`spoons()`、`demo('same'|'pack'|'spoons'|'steps')`、`run(秒)`；2D：`[data-hm-convert].__convert`、`[data-hm-scale].__scale`、`[data-hm-cups].__cups`。
+  - 數字的出處：水 237、中筋麵粉 125、白砂糖 200、生長粒白米 185、大豆油 218（USDA FoodData Central 的「1 cup」）；壓實麵粉「最多約 160」出自 King Arthur Baking（同一家的表把刮平的一杯列為 120，和 USDA 的 125 不同，頁面出處有寫）。食譜的燕麥 81、香蕉泥 225、葡萄乾 145 也是 USDA。FDC 的 API 用 DEMO_KEY 很快就 OVER_RATE_LIMIT，改用瀏覽器面板開 `fdc.nal.usda.gov/food-details/<id>/measures`。
+  - 量米杯「約 180 毫升」只引百科（Wikipedia 的 Ge (unit)、日文版〈合〉），**沒有台灣官方來源**；課文寫「大約」並請學生自己量。台灣只找得到廠商的電子鍋說明書寫「每杯約 0.18 升」，Luke 2026-10-13 決定不引廠商文件。台灣烘焙量杯是 225／240／250 毫升的說法互相矛盾、沒有官方依據，**沒寫**。
+- **全系列的原則（每一課都適用）**：
+  - **實作一律全素**：食譜、示範、例句、圖示都不用肉、魚、海鮮、蛋、奶（蔥蒜可用）；公開理由只寫「人人能吃，也最安全（不必處理生肉）」，不談宗教、不評論吃肉、不勸人吃素。官方知識（六大類、過敏原、生熟食分開）照實寫。emoji 也要看：🍳 是煎蛋、🍱 裡有魚，不要用。`data.test.mjs` 有英文與中文的禁用字檢查（「肉桂」例外）。
+  - 刀、火、熱油、漂白水、瓦斯的步驟寫「要有家裡的大人在旁邊」；食品安全與居家安全只引官方說法；過敏一律「問家裡的大人、看標示」；不談體重、熱量、節食。
+  - 家務不分性別、不預設家裡有誰；每家做法不同，寫「一種常見的做法」並請學生回家問家人。
+  - 台灣味四課（21–24）的食譜要有人實際試做才上線；第一課的香蕉燕麥餅乾是換單位的練習題，頁面上註明「還沒有實際試烤過」。
+- 查證習慣：美制單位引 NIST（SP 811 附錄 B.8、Handbook 44 附錄 C、Metric Kitchen）與 21 CFR 101.9(b)(5)(viii)；NIST 明說「美國沒採用公制」是不正確的說法（美國兩種都用），不要寫「全世界只有三個國家不用公制」。課綱引國教院的綜合活動領域 PDF（家政的學習內容在附錄，國小階段沒有「家」開頭的條目）。
+
 ## Build / Deploy
 ```
 python3 build.py        # BASE=/twrses → 服務於 lukelin7429.github.io/twrses/ 或 www.twrses.org

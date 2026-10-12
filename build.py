@@ -1433,6 +1433,8 @@ def build_reading_hub():
              "Why is every flat map wrong? Peel a 3D globe open, flatten it five ways, and see what each map keeps and what it gives up. 為什麼每一張平面地圖都是「錯」的？把 3D 地球儀剝開，用五種方法攤平，看每一種地圖保住什麼、犧牲什麼。"),
             ("/resources/classes/pe/", "🤸", "Sports and Movement · 體育",
              "Why does a wide, low stance keep you on your feet? Lean a 3D figure until it tips, then take the classroom English for PE out to the field. 為什麼腳張開、蹲低就站得穩？讓 3D 人偶歪到倒下去，再把體育課的課室英語帶到操場上用。"),
+            ("/resources/classes/home/", "🥣", "Life Skills at Home · 家政",
+             "Why does an American recipe say cups? Measure, cook, mend, sort, and budget in English, with a 3D kitchen counter and one thing to try at home after every lesson. 美國的食譜為什麼寫「幾杯」？用英文學量、煮、補、分類和記帳：3D 流理台，加上每課一件今天回家就能做的事。"),
             ("/resources/classes/philosophy/", "🦉", "Philosophy · 哲學",
              "Advanced reading: the big questions, the people who asked them, and where the Dharma meets Western thought. 高級閱讀：哲學的大問題、問這些問題的人，以及佛法與西方哲學的對照。"),
             ("/resources/grandfather/", "🌅", "Grandfather · 落日餘暉",
@@ -18464,6 +18466,424 @@ def build_pe_hub():
 
 
 
+# ──────────────────────────────────────────────────────────────────
+# 家政 Life Skills at Home（/resources/classes/home/）
+# 架構照音樂、書法：data/home.json 的 units[].lessons 是做好的課、units[].planned 是「製作中」卡。
+# 樣式 assets/css/home.css（class 前綴 hm-，只載在本系列）；原始碼 tools/home/src/，bundle 一律 home-*。
+# 每課共用：3D 流理台（counter.js＋props.js）、單位換算（units.js）、「生活英語」卡（phrases）、「今天回家做」卡（home_task）。
+# 全系列的實作一律全素；刀、火、熱油、漂白水、瓦斯的步驟都寫「要有家裡的大人在旁邊」。
+# ──────────────────────────────────────────────────────────────────
+_homej = os.path.join(ROOT, "data", "home.json")
+HOME = json.load(open(_homej, encoding="utf-8")) if os.path.exists(_homej) else None
+HOME_BASE = "/resources/classes/home/"
+_HOME_JS = {"cups": "home-cups"}   # lab.kind → assets/js/<bundle>.js
+
+def _home_ver():
+    h = hashlib.md5()
+    for rel in ("assets/css/astro.css", "assets/css/home.css", *(f"assets/js/{j}.js" for j in _HOME_JS.values())):
+        fp = os.path.join(ROOT, rel)
+        if os.path.exists(fp): h.update(open(fp, "rb").read())
+    return h.hexdigest()[:8]
+
+def _home_head(js=None):
+    v = _home_ver()
+    tag = f'<script defer src="/assets/js/{js}.js?v={v}"></script>\n' if js else ""
+    return (f'<link rel="stylesheet" href="/assets/css/astro.css?v={v}">\n'
+            f'<link rel="stylesheet" href="/assets/css/home.css?v={v}">\n{tag}')
+
+def hmhub_svg(size=56):
+    """家政系列的小圖示：一個有紅色刻度的玻璃量杯（裝了半杯），旁邊一支量匙。"""
+    return (f'<svg class="hmhub-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">'
+            '<path d="M14 12h26l-2.5 36a3 3 0 0 1-3 2.8H19.5a3 3 0 0 1-3-2.8Z" fill="#cfe6ff" fill-opacity=".18" stroke="#e8edf7" stroke-width="2" stroke-linejoin="round"/>'
+            '<path d="M15.4 31h23.2l-1.2 17a3 3 0 0 1-3 2.8H19.6a3 3 0 0 1-3-2.8Z" fill="#ffd36e" fill-opacity=".85"/>'
+            '<path d="M40 18h5a5 5 0 0 1 5 5v6a5 5 0 0 1-5 5h-6" fill="none" stroke="#e8edf7" stroke-width="2" stroke-linecap="round"/>'
+            '<path d="M19 20h8M19 26h5M19 31h8M19 37h5M19 43h8" stroke="#ff7a66" stroke-width="1.8" stroke-linecap="round"/>'
+            '<ellipse cx="50" cy="46" rx="5" ry="3.4" fill="#c9d0da"/><path d="M45 46 34 55" stroke="#c9d0da" stroke-width="2.4" stroke-linecap="round"/></svg>')
+
+def hmcups_svg(size=56):
+    """第一課卡：秤上放著一個量杯，秤的螢幕亮著。"""
+    return (f'<svg class="hmhub-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">'
+            '<rect x="8" y="42" width="44" height="11" rx="3" fill="#f1f3f6"/><rect x="21" y="45" width="18" height="5.5" rx="1.2" fill="#c7d9c2"/>'
+            '<path d="M24.5 49.2h2.2M28.6 49.2h2.2M33 46.6v3.4" stroke="#18251c" stroke-width="1.2" stroke-linecap="round"/>'
+            '<rect x="13" y="38.5" width="34" height="3.5" rx="1.75" fill="#c9d0da"/>'
+            '<path d="M20 12h20l-1.6 24.5a2 2 0 0 1-2 1.9H23.6a2 2 0 0 1-2-1.9Z" fill="#cfe6ff" fill-opacity=".18" stroke="#e8edf7" stroke-width="1.8" stroke-linejoin="round"/>'
+            '<path d="M21 22h18l-.9 14.5a2 2 0 0 1-2 1.9H23.9a2 2 0 0 1-2-1.9Z" fill="#f6f1e4"/>'
+            '<path d="M40 16h3.5a4 4 0 0 1 4 4v4a4 4 0 0 1-4 4H39" fill="none" stroke="#e8edf7" stroke-width="1.8" stroke-linecap="round"/>'
+            '<path d="M24 17h6M24 22h4M24 27h6M24 32h4" stroke="#ff7a66" stroke-width="1.5" stroke-linecap="round"/></svg>')
+
+_HOME_CARD = {"cups": hmcups_svg}
+
+def _hm_frac(s):
+    from fractions import Fraction
+    return sum((Fraction(p) for p in str(s).split()), Fraction(0))
+
+def _hm_amt(item):
+    """食譜一項的美式寫法："1 1/2 cups"、"2 tbsp"、"a pinch"（和 tools/home/src/units.js 的 formatAmount 一致）。"""
+    if item.get("pinch"): return "a pinch"
+    u = item["unit"]
+    return f'{item["amount"]} {"cups" if u == "cup" and _hm_frac(item["amount"]) > 1 else u}'
+
+_HM_UNIT_ZH = {"cup": "杯", "tbsp": "湯匙", "tsp": "茶匙"}
+def _hm_amt_zh(item):
+    return "一小撮" if item.get("pinch") else f'{item["amount"]} {_HM_UNIT_ZH[item["unit"]]}'
+
+def render_homecups_lab(lesson):
+    """第一課：流理台上的量杯、量匙與電子秤（assets/js/home-cups.js 綁這裡的 class；全部自繪示意）。"""
+    lab = lesson["lab"]
+    foods = lab["foods"]
+    fb = "".join(f'<button type="button" data-food="{f["key"]}" aria-pressed="false"><i style="background:{f["color"]}"></i>'
+                 f'<b>{html.escape(f["en"])}</b><small>{html.escape(f["zh"])}</small></button>' for f in foods)
+    ab = "".join(f'<button type="button" data-amount="{a}" aria-pressed="{"true" if a == "1" else "false"}">{a}</button>' for a in lab["amounts"])
+    mx = max(f.get("g_cup_packed", f["g_cup"]) for f in foods)
+    bars = "".join(
+        f'<li data-bar="{f["key"]}"><span>{html.escape(f["en"])} · {html.escape(f["zh"])}</span>'
+        f'<span class="hm-bar"><i style="width:{f["g_cup"] / mx * 100:.1f}%;background:{f["color"]}"></i></span><b>{f["g_cup"]} g</b></li>' for f in foods)
+    tg = _lab_toggles([("labels", "Labels", "標示名稱", True)])
+    fj = html.escape(json.dumps(foods, ensure_ascii=False, separators=(",", ":")))
+    return f'''<div class="astro-lab hm-lab rvl" data-homecups-lab data-foods="{fj}">
+  <div class="al-stage">
+    <div class="al-space">
+      <canvas class="al-space-cv" aria-label="3D model of a kitchen counter with a measuring cup, a digital scale, measuring spoons, and five ingredients; the same cup of different foods shows different weights · 流理台的 3D 模型：量杯、電子秤、量匙與五種食材；同樣一杯，不同的食材在秤上的重量不一樣"></canvas>
+      <div class="al-labels" aria-hidden="true"></div>
+      <p class="al-hint">Drag to turn · 拖曳旋轉　Scroll or pinch to zoom · 滾輪／雙指縮放</p>
+      <button type="button" class="al-home" title="Reset view · 重設視角" aria-label="Reset view · 重設視角">&#8634;</button>
+      <p class="al-nogl-msg">This 3D model needs WebGL, which this browser does not support. The numbers, the bar chart, and the buttons on this page still work, and so do the reading, the cards, and the activities.<br><span class="zh">這個瀏覽器不支援 WebGL，無法顯示 3D 模型；頁面上的讀數、長條圖與按鈕照樣能用，課文、卡片和小互動也都能用。</span></p>
+    </div>
+    <aside class="al-sky hm-aside">
+      <p class="al-sky-k">On the scale · 秤上的讀數</p>
+      <p class="hm-read-g" aria-live="polite">0 <small>g</small></p>
+      <p class="hm-read-what">The cup is empty. Pick something to pour in.<span class="zh">量杯是空的。選一樣東西倒進去。</span></p>
+      <div class="hm-foods" role="group" aria-label="Choose what to pour · 選要倒的東西">{fb}</div>
+      <div class="hm-amounts" role="group" aria-label="How many cups · 幾杯"><span>Cups · 杯</span>{ab}</div>
+      <div class="hm-pack" role="group" aria-label="How the flour is put in · 麵粉怎麼裝" hidden>
+        <button type="button" data-pack="loose" aria-pressed="true">Spooned loosely<small>鬆鬆地舀</small></button>
+        <button type="button" data-pack="packed" aria-pressed="false">Packed down<small>壓實</small></button>
+      </div>
+      <dl class="hm-facts">
+        <div><dt>Volume · 體積</dt><dd class="hm-vol">1 cup = 237 mL</dd></div>
+        <div><dt>Weight · 重量</dt><dd class="hm-wt">&mdash;</dd></div>
+        <div><dt>Compared with water · 和水比</dt><dd class="hm-vs">&mdash;</dd></div>
+      </dl>
+      <p class="hm-bars-k">The same <b>1 cup</b> of each · 同樣 <span class="hm-bars-zh">1 杯</span>，各幾公克</p>
+      <ul class="hm-bars">{bars}</ul>
+      <div class="hm-acts">
+        <button type="button" class="hm-btn hm-onoff" disabled>Put the cup on the scale<span class="zh">把量杯放上秤</span></button>
+        <button type="button" class="hm-btn hm-btn-gold hm-spoons">3 tsp = 1 tbsp<span class="zh">三茶匙＝一湯匙</span></button>
+      </div>
+      <p class="hm-msg" aria-live="polite"></p>
+    </aside>
+  </div>
+  <div class="al-controls">
+    <div class="al-row al-row-main">
+      <div class="al-row al-toggles">{tg}</div>
+    </div>
+  </div>
+  {_lab_foot(lab)}
+  <p class="hm-credit">{lab["credit_html"]}</p>
+</div>'''
+
+def _hm_readit(d):
+    rows = "".join(
+        f'<li class="hm-rd rvl"><span class="hm-rd-w">{html.escape(x["w"])}</span>'
+        f'<span class="hm-rd-say"><button class="spk" data-say="{html.escape(x["say"])}" aria-label="Say it · 唸出來">🔊</button><span>{html.escape(x["say"])}</span></span>'
+        f'<span class="zh">{html.escape(x["zh"])}</span></li>' for x in d["items"])
+    return f'<ul class="hm-readit">{rows}</ul>{_bi(d["note_en"], d["note_zh"], cls="hm-rd-note rvl")}'
+
+def _hm_recipe_attr(r):
+    return html.escape(json.dumps(r, ensure_ascii=False, separators=(",", ":")))
+
+def _hm_recipe_head(r):
+    return (f'<div class="hm-rc-head"><h3>{html.escape(r["title_en"])}<span class="zh">{html.escape(r["title_zh"])}</span></h3>'
+            f'<p>Serves {r["serves"]} · makes about {r["yield"]} {html.escape(r["yield_en"])}<span class="zh">{r["serves"]} 人份・大約 {r["yield"]} {html.escape(r["yield_zh"])}</span></p></div>')
+
+def _hm_item_name(it):
+    note = f' <em>({html.escape(it["note_en"])})</em>' if it.get("note_en") else ""
+    note_zh = f'（{html.escape(it["note_zh"])}）' if it.get("note_zh") else ""
+    return f'<span class="hm-rc-name">{html.escape(it["en"])}{note}<span class="zh">{html.escape(it["zh"])}{note_zh}</span></span>'
+
+def _hm_convert(d, r):
+    rows = "".join(
+        f'<li class="hm-cv-row" data-i="{i}">{_hm_item_name(it)}<span class="hm-cv-us">{_hm_amt(it)}<span class="zh">{_hm_amt_zh(it)}</span></span>'
+        f'<button type="button" class="hm-btn hm-cv-go" aria-label="Change {html.escape(it["en"])} to metric · 換成公制">&rarr; metric<span class="zh">換公制</span></button>'
+        f'<span class="hm-cv-m" aria-live="polite">?</span><span class="hm-cv-how"></span></li>' for i, it in enumerate(r["items"]))
+    rows += (f'<li class="hm-cv-row hm-cv-oven" data-i="oven"><span class="hm-rc-name">oven temperature<span class="zh">烤箱溫度</span></span>'
+             f'<span class="hm-cv-us">{r["oven_f"]}°F<span class="zh">華氏 {r["oven_f"]} 度</span></span>'
+             f'<button type="button" class="hm-btn hm-cv-go" aria-label="Change the oven temperature to Celsius · 換成攝氏">&rarr; °C<span class="zh">換攝氏</span></button>'
+             f'<span class="hm-cv-m" aria-live="polite">?</span><span class="hm-cv-how"></span></li>')
+    return f'''<div class="hm-recipe hm-convert rvl" data-hm-convert data-recipe="{_hm_recipe_attr(r)}">
+  {_hm_recipe_head(r)}
+  <ul class="hm-cv-list">{rows}</ul>
+  <div class="hm-rc-foot">
+    <button type="button" class="hm-btn hm-btn-gold hm-cv-all">Change everything · 全部換成公制</button>
+    <button type="button" class="hm-btn hm-cv-reset">Start over · 重來</button>
+  </div>
+  <p class="hm-rc-msg hm-cv-msg" aria-live="polite"></p>
+  <p class="hm-rc-steps">{html.escape(r["steps_en"])}<span class="zh">{html.escape(r["steps_zh"])}</span></p>
+  <p class="hm-rc-note">{html.escape(r["note_en"])}<span class="zh">{html.escape(r["note_zh"])}</span></p>
+</div>'''
+
+def _hm_scale(d, r):
+    chips = "".join(f'<button type="button" data-serves="{n}" aria-pressed="{"true" if n == r["serves"] else "false"}"><b>{n}</b><small>servings · 人份</small></button>' for n in d["serves"])
+    rows = "".join(
+        f'<li class="hm-sc-row" data-i="{i}">{_hm_item_name(it)}<span class="hm-sc-base">{_hm_amt(it)}</span>'
+        f'<span class="hm-sc-arrow" aria-hidden="true">&rarr;</span>'
+        f'<span class="hm-sc-out" aria-live="polite"><b>{_hm_amt(it)}</b><span class="zh">{_hm_amt_zh(it)}</span></span><span class="hm-sc-how"></span></li>'
+        for i, it in enumerate(r["items"]))
+    return f'''<div class="hm-recipe hm-scale rvl" data-hm-scale data-recipe="{_hm_recipe_attr(r)}">
+  {_hm_recipe_head(r)}
+  <div class="hm-sc-chips" role="group" aria-label="How many servings · 幾人份">{chips}</div>
+  <ul class="hm-sc-list">{rows}</ul>
+  <p class="hm-rc-msg hm-sc-sum" aria-live="polite"></p>
+</div>'''
+
+def _hm_cups(d):
+    Y0, PX, X0, X1 = 236, 0.68, 78, 190                       # 杯底的 y、每毫升幾個像素、杯子的左右
+    y = lambda ml: Y0 - ml * PX
+    line = y(236.5882365)
+    marks = "".join(
+        f'<line x1="{X0 + 8}" x2="{X0 + (40 if big else 24)}" y1="{y(236.5882365 * c):.1f}" y2="{y(236.5882365 * c):.1f}" stroke="#d8402f" stroke-width="{2.4 if big else 1.6}"/>'
+        + (f'<text x="{X0 + 46}" y="{y(236.5882365 * c) + 4:.1f}" class="hm-cq-t">{t}</text>' if t else "")
+        for c, t, big in ((0.25, "1/4", True), (0.5, "1/2", True), (0.75, "3/4", True), (1, "1 CUP", True), (0.125, "", False), (0.375, "", False), (0.625, "", False), (0.875, "", False)))
+    btns = "".join(f'<button type="button" data-cup="{c["key"]}" aria-pressed="false"><b>{html.escape(c["label_en"])}</b><small>{html.escape(c["label_zh"])}</small></button>' for c in d["cups"])
+    cj = html.escape(json.dumps(d["cups"], ensure_ascii=False, separators=(",", ":")))
+    return f'''<div class="hm-cupsq rvl" data-hm-cups data-cups="{cj}">
+  <div class="hm-cq-pic">
+    <svg viewBox="0 0 240 250" role="img" aria-label="A US measuring cup being filled with the chosen cup of water · 一個美制量杯，裝進所選的那一杯水">
+      <rect class="hm-cq-fill" x="{X0 + 2}" width="{X1 - X0 - 4}" y="{line:.1f}" height="{Y0 - line:.1f}" data-y0="{Y0}" data-px="{PX}" fill="#8fc4ff"/>
+      <rect class="hm-cq-over" x="{X0 + 2}" width="{X1 - X0 - 4}" y="{line:.1f}" height="0" fill="#ff9f6b"/>
+      <path d="M{X0} 22V{Y0 - 4}a6 6 0 0 0 6 6H{X1 - 6}a6 6 0 0 0 6-6V22" fill="none" stroke="#5b6b8c" stroke-width="3" stroke-linejoin="round"/>
+      <path d="M{X1} 70h16a14 14 0 0 1 14 14v52a14 14 0 0 1-14 14h-16" fill="none" stroke="#5b6b8c" stroke-width="3"/>
+      {marks}
+      <line x1="{X0 - 44}" x2="{X0 - 4}" y1="{line:.1f}" y2="{line:.1f}" stroke="#d8402f" stroke-width="1.2" stroke-dasharray="5 4"/>
+      <text x="{X0 - 6}" y="{line - 6:.1f}" class="hm-cq-t hm-cq-t2" text-anchor="end">236.6 mL</text>
+    </svg>
+  </div>
+  <div class="hm-cq-side">
+    <div class="hm-cq-btns" role="group" aria-label="Choose a cup · 選一種杯子">{btns}</div>
+    <p class="hm-cq-ml" aria-live="polite">236.6 <small>mL</small></p>
+    <p class="hm-cq-out" aria-live="polite"></p>
+    <p class="hm-cq-key"><i class="is-in"></i>inside the US cup · 在美制量杯裡　<i class="is-over"></i>over the 1-cup line · 超過 1 杯刻度</p>
+  </div>
+</div>'''
+
+def _hm_curric(d):
+    rows = "".join(
+        f'<li class="hm-cur rvl"><p class="hm-cur-k"><b>{html.escape(c["code"])}</b><span>{html.escape(c["area"])} · {html.escape(c["area_en"])}</span></p>'
+        f'<p class="hm-cur-q">{html.escape(c["text"])}</p>'
+        f'<p class="hm-cur-n">{html.escape(c["note_en"])}<span class="zh">{html.escape(c["note_zh"])}</span></p></li>'
+        for c in d["items"])
+    return f'<ul class="hm-curric">{rows}</ul>'
+
+def _hm_phrases(d):
+    """每課都有的「生活英語」卡：8 句，中英對照，每句有 🔊（say 是唸法，和畫面上的寫法不同時才給）。"""
+    rows = "".join(
+        f'<li class="hm-ph rvl"><span class="hm-ph-n">{i}</span>'
+        f'<button class="spk" data-say="{html.escape(x.get("say", x["en"]))}" aria-label="Say this sentence · 唸這句">🔊</button>'
+        f'<span class="hm-ph-b"><span class="hm-ph-en">{html.escape(x["en"])}</span>'
+        + (f'<span class="hm-ph-say">Say: {html.escape(x["say"])}</span>' if x.get("say") else "")
+        + f'<span class="zh">{html.escape(x["zh"])}</span></span></li>'
+        for i, x in enumerate(d["items"], 1))
+    return f'<ol class="hm-phrases">{rows}</ol>'
+
+def _hm_task(d):
+    """每課都有的「今天回家做」卡：一項任務，寫清楚需不需要大人陪（adult: "no" | "yes"）。"""
+    yes = d["adult"] == "yes"
+    badge = ("An adult at home must be beside you", "要有家裡的大人在旁邊") if yes else ("You can do this on your own", "可以自己做")
+    steps = "".join(f'<li>{html.escape(s["en"])}<span class="zh">{html.escape(s["zh"])}</span></li>' for s in d["steps"])
+    return (f'<div class="hm-task rvl"><p class="hm-task-adult {"is-yes" if yes else "is-no"}"><b>{badge[0]} · {badge[1]}</b>'
+            f'<span>{html.escape(d["adult_en"])}<span class="zh">{html.escape(d["adult_zh"])}</span></span></p>'
+            f'<ol class="hm-task-steps">{steps}</ol>'
+            f'<p class="hm-task-ask"><b>Ask at home · 回家問一問</b>{html.escape(d["ask_en"])}<span class="zh">{html.escape(d["ask_zh"])}</span></p></div>')
+
+def _home_flat():
+    return [(ui, u, l) for ui, u in enumerate(HOME["units"]) for l in u["lessons"]]
+
+def _home_nav(slug):
+    flat = _home_flat()
+    i = next(n for n, (_, _, l) in enumerate(flat) if l["slug"] == slug)
+    def side(item, dirn, label):
+        if not item:
+            return '<span class="pm-nav-x"></span>'
+        l = item[2]
+        arrow = "&larr;" if dirn == "prev" else "&rarr;"
+        return (f'<a class="pm-nav-s pm-nav-{dirn}" href="{HOME_BASE}{l["slug"]}/">'
+                f'<span class="pm-nav-k">{arrow} {label}</span>'
+                f'<span class="pm-nav-t">{html.escape(l["title"])}</span></a>')
+    prev = flat[i - 1] if i > 0 else None
+    nxt = flat[i + 1] if i < len(flat) - 1 else None
+    return (f'<nav class="pm-nav rvl">{side(prev, "prev", "上一課 · Previous")}'
+            f'<a class="pm-nav-hub" href="{HOME_BASE}">&#9776; 回家政 · All Lessons</a>'
+            f'{side(nxt, "next", "下一課 · Next")}</nav>')
+
+def build_home_lesson(ui, unit, lesson):
+    path = f'{HOME_BASE}{lesson["slug"]}/'
+    unit_dict = {k: lesson[k] for k in ("title", "paras", "paras_zh", "questions", "answers", "vocab", "quiz")}
+    unit_dict["unit"] = lesson["n"]
+    reading_html = render_basic_unit(1, unit_dict, level="home", audio_rel="", pdf_rel="")
+    if lesson.get("say_as"):
+        # 朗讀時的唸法：只改 data-say（錄音用的文字），畫面上的寫法不動。例如畫面是「1/2 cup」，錄音唸 one half cup。
+        def _say(m):
+            t = m.group(1)
+            for written, spoken in lesson["say_as"]: t = t.replace(html.escape(written), html.escape(spoken))
+            return f'data-say="{t}"'
+        reading_html = re.sub(r'data-say="([^"]*)"', _say, reading_html)
+    lab = lesson["lab"]
+    kind = lab["kind"]
+    lab_html = {"cups": render_homecups_lab}[kind](lesson)
+
+    def sec(key, fn, sid=None):
+        d = lesson[key]
+        return (sid or key, d["eyebrow"], d["en"], d["zh"], fn(d), _bi(d["lead_en"], d["lead_zh"], cls="lead rvl d2"))
+    secs = []
+    if lesson.get("parts"):
+        cards = "".join(
+            f'<article class="ph-card hm-part rvl">'
+            f'<div class="ph-ico hm-ico" aria-hidden="true">{pt["icon"]}</div>'
+            f'<h3>{html.escape(pt["en"])}<span class="zh">{html.escape(pt["zh"])}</span></h3>'
+            f'<p class="ph-meta"><span>{html.escape(pt["meta_en"])} · {html.escape(pt["meta_zh"])}</span></p>'
+            f'<p class="ph-when">{html.escape(pt["text_en"])}<br><span class="zh">{html.escape(pt["text_zh"])}</span></p>'
+            f'<button type="button" class="ph-go" data-lab-demo="{pt["demo"]}">Watch it in the model · 在模型中看 <i>&uarr;</i></button>'
+            f'</article>' for pt in lesson["parts"])
+        ph = lesson["parts_head"]
+        secs.append(("parts", ph["eyebrow"], ph["en"], ph["zh"], f'<div class="ph-grid stagger">{cards}</div>',
+                     _bi(lesson["parts_note_en"], lesson["parts_note_zh"], cls="lead rvl d2")))
+    if lesson.get("readit"): secs.append(sec("readit", _hm_readit))
+    if lesson.get("convert"): secs.append(sec("convert", lambda d: _hm_convert(d, lesson["recipe"])))
+    if lesson.get("resize"): secs.append(sec("resize", lambda d: _hm_scale(d, lesson["recipe"])))
+    if lesson.get("cupsq"): secs.append(sec("cupsq", _hm_cups))
+    if lesson.get("culture_cards"):
+        cu = lesson["culture_cards"]
+        cc = "".join(
+            f'<article class="cc-card rvl"><p class="cc-k">{html.escape(c["k"])}</p>'
+            f'<h3>{html.escape(c["en"])}<span class="zh">{html.escape(c["zh"])}</span></h3>'
+            f'{_bi(c["body_en"], c["body_zh"])}</article>'
+            for c in cu["cards"])
+        secs.append(("stories", cu["eyebrow"], cu["title_en"], cu["title_zh"], f'<div class="cc-grid">{cc}</div>',
+                     _bi(cu["lead_en"], cu["lead_zh"], cls="lead rvl d2")))
+    if lesson.get("curric"): secs.append(sec("curric", _hm_curric))
+    secs.append(("myths", "Myth vs. Fact · 常見迷思", "Four things people get wrong", "四個常見的誤會", _sci_myths(lesson), ""))
+    th = lesson["tricks_head"]
+    secs.append(("tricks", "Remember It · 記憶口訣", th["en"], th["zh"], _sci_tricks(lesson), ""))
+    if lesson.get("phrases"): secs.append(sec("phrases", _hm_phrases))
+    if lesson.get("safety"):
+        sh = lesson["safety_head"]
+        items = "".join(f'<li class="rvl">{html.escape(s["en"])}<span class="zh">{html.escape(s["zh"])}</span></li>' for s in lesson["safety"])
+        secs.append(("safety", sh["eyebrow"], sh["en"], sh["zh"], f'<ul class="hm-safety">{items}</ul>', ""))
+    acts = lesson.get("activities") or []
+    for n, act in enumerate(acts, 1):
+        eb = "Classroom Activity · 課堂活動" if len(acts) == 1 else f"Classroom Activity {n} · 課堂活動{_astro_cn(n)}"
+        secs.append((f"activity{'' if n == 1 else n}", eb, act["title_en"], act["title_zh"], _astro_activity(act), ""))
+    if lesson.get("home_task"): secs.append(sec("home_task", _hm_task, sid="at-home"))
+    if lesson.get("links"):
+        def link(x):
+            body = (f'<span class="hm-link-ic" aria-hidden="true">{x["icon"]}</span>'
+                    f'<span class="hm-link-b"><span class="hm-link-k">{html.escape(x["k_en"])} · {html.escape(x["k_zh"])}</span>'
+                    f'<b>{html.escape(x["en"])}</b><span class="zh hm-link-zh">{html.escape(x["zh"])}</span>'
+                    f'<span class="hm-link-n">{html.escape(x["note_en"])}<span class="zh">{html.escape(x["note_zh"])}</span></span>')
+            if x.get("soon"):
+                return f'<div class="hm-link hm-link-soon rvl">{body}<span class="hm-link-go">Coming soon · 製作中</span></span></div>'
+            return f'<a class="hm-link rvl" href="{html.escape(x["href"])}">{body}<span class="hm-link-go">Go to the lesson · 前往這一課 <i>&rarr;</i></span></span></a>'
+        lh = lesson.get("links_head") or {"eyebrow": "Go Further · 延伸閱讀", "en": "Read more", "zh": "延伸閱讀"}
+        secs.append(("more", lh["eyebrow"], lh["en"], lh["zh"], f'<div class="hm-links">{"".join(link(x) for x in lesson["links"])}</div>', ""))
+    sec_html = "\n".join(_astro_sec(sid, k % 2 == 1, eb, en, zh, inner, lead)
+                         for k, (sid, eb, en, zh, inner, lead) in enumerate(secs))
+    src_html = ""
+    if lesson.get("sources"):
+        rows = "".join(
+            f'<li><span>{html.escape(s["en"])}<span class="zh">{html.escape(s["zh"])}</span></span>'
+            f'<a href="{html.escape(s["url"])}" target="_blank" rel="noopener">{html.escape(s["src"])} &#8599;</a></li>'
+            for s in lesson["sources"])
+        src_html = (f'<div class="hm-sources rvl"><p class="sub-head">Sources · 資料出處</p>'
+                    f'<p class="muted">{html.escape(lesson["sources_note_en"])} · {html.escape(lesson["sources_note_zh"])}</p>'
+                    f'<ol>{rows}</ol></div>')
+
+    eyebrow = (f'Life Skills at Home · Unit {ui + 1} · Lesson {lesson["n"]} · '
+               f'家政 單元{_htw_cn(ui + 1)} 第{_htw_cn(lesson["n"])}課')
+    lead = f'{html.escape(lesson["blurb_en"])}<br><span class="muted">{html.escape(lesson["blurb_zh"])}</span>'
+    body = f'''
+{page_hero(eyebrow, f'{html.escape(lesson["title"])}<span class="h1-zh">{html.escape(lesson["title_zh"])}</span>', lead, back=(HOME_BASE, "回家政 · All Lessons"))}
+<section class="section astro-lab-sec" id="model"><div class="wrap">
+  <div class="big-idea rvl"><span class="big-idea-k">Big idea · 一句話看懂</span>{_bi(lesson["big_idea_en"], lesson["big_idea_zh"])}</div>
+  <p class="eyebrow rvl">{html.escape(lab["eyebrow"])}</p>
+  <h2 class="rvl d1 sweep">{html.escape(lab["title_en"])} <span class="tp-h2-en">{html.escape(lab["title_zh"])}</span></h2>
+  {_bi(lab["how_en"], lab["how_zh"], cls="lead rvl d2 al-how")}
+  {lab_html}
+</div></section>
+<section class="section band" id="reading"><div class="wrap" style="max-width:940px">
+  <p class="eyebrow rvl">Reading · 英文閱讀</p>
+  {reading_html}
+</div></section>
+{sec_html}
+<section class="section"><div class="wrap">
+{src_html}
+{_home_nav(lesson["slug"])}
+</div></section>
+'''
+    say_slug = f'home-{lesson["slug"]}'   # tools/gen_audio.py 以路徑末兩段命名
+    has_clips = os.path.exists(os.path.join(ROOT, "assets/data/say", say_slug + ".json"))
+    write(path, layout(path, f'{lesson["title"]} · {lesson["title_zh"]}',
+          f'{lesson["blurb_en"]} {lesson["blurb_zh"]}', body, "resources",
+          say_manifest=say_slug if has_clips else None, extra_head=_home_head(_HOME_JS[kind])))
+    return path
+
+def build_home_hub():
+    def icon(l):
+        return _HOME_CARD[l["card"]](60) if l.get("card") in _HOME_CARD else l["icon"]
+    unit_sections, nav = [], []
+    done = sum(len(u["lessons"]) for u in HOME["units"])
+    total = done + sum(len(u.get("planned", [])) for u in HOME["units"])
+    for idx, u in enumerate(HOME["units"]):
+        rows = []
+        for l in u["lessons"]:
+            rows.append((l["n"],
+                f'<a class="lc-row rvl" href="{HOME_BASE}{l["slug"]}/">'
+                f'<span class="lc-ico hm-lc-ico" aria-hidden="true">{icon(l)}</span>'
+                f'<span class="lc-body">'
+                f'<span class="lc-meta"><b>Lesson {l["n"]} · 第{_htw_cn(l["n"])}課</b><i>{html.escape(l["level"])}</i></span>'
+                f'<h3 class="lc-title">{html.escape(l["title"])}</h3>'
+                f'<span class="lc-zh">{html.escape(l["title_zh"])}</span>'
+                f'<span class="lc-bl">{html.escape(l["blurb_en"])}</span>'
+                f'<span class="lc-bl zh">{html.escape(l["blurb_zh"])}</span>'
+                f'<span class="lc-go">Start the lesson · 開始上課 <i>&rarr;</i></span>'
+                f'</span></a>'))
+        for p in u.get("planned", []):
+            rows.append((p["n"],
+                f'<div class="lc-row lc-soon rvl">'
+                f'<span class="lc-ico" aria-hidden="true">{p["icon"]}</span>'
+                f'<span class="lc-body"><span class="lc-meta"><b>Lesson {p["n"]} · 第{_htw_cn(p["n"])}課 · Coming soon 製作中</b></span>'
+                f'<h3 class="lc-title">{html.escape(p["en"])}</h3><span class="lc-zh">{html.escape(p["zh"])}</span></span></div>'))
+        rows.sort(key=lambda r: r[0])
+        band = " band" if idx % 2 == 0 else ""
+        uid = f"unit-{idx + 1}"
+        nav.append(f'<a class="unit-nav-link" href="#{uid}"><b>{idx + 1}</b><span>{html.escape(u["title_zh"])}</span></a>')
+        unit_sections.append(
+            f'<section class="section lc-unit{band}" id="{uid}"><div class="wrap">'
+            f'<p class="eyebrow rvl">Unit {idx + 1} · 單元{_htw_cn(idx + 1)}</p>'
+            f'<h2 class="rvl d1 sweep">{html.escape(u["title_en"])} <span class="tp-h2-en">{html.escape(u["title_zh"])}</span></h2>'
+            f'<p class="lead rvl d2" style="max-width:62ch">{html.escape(u["blurb_en"])}<br>'
+            f'<span class="muted">{html.escape(u["blurb_zh"])}</span></p>'
+            f'<div class="lc-list">{"".join(r[1] for r in rows)}</div>'
+            f'</div></section>')
+    unit_nav = (f'<nav class="unit-nav" aria-label="Jump to unit · 單元導覽"><div class="wrap">'
+                f'<span class="unit-nav-label">Jump to unit · 跳到單元</span>'
+                f'<div class="unit-nav-track">{"".join(nav)}</div></div></nav>')
+    intro_html = "".join(_bi(p["en"], p["zh"]) for p in HOME["intro"])
+    intro_html += _bi(f"{done} of {total} lessons {'is' if done == 1 else 'are'} ready so far; more are on the way.",
+                      f"目前完成 {done} 課（共規劃 {total} 課），持續增加中。", cls="hm-progress")
+    lead = f'{html.escape(HOME["lead_en"])}<br><span class="muted">{html.escape(HOME["lead_zh"])}</span>'
+    body = f'''
+{page_hero(HOME["eyebrow"], f'{HOME["title_en"]} <span class="h1-zh">{HOME["title_zh"]}</span>', lead, back=("/resources/reading/", "回閱讀與經典"))}
+<section class="section"><div class="wrap">
+  <div class="prose wide rvl hm-intro"><span class="hm-intro-ic" aria-hidden="true">{hmhub_svg(76)}</span>{intro_html}</div>
+</div></section>
+{unit_nav}
+{"".join(unit_sections)}
+'''
+    write(HOME_BASE, layout(HOME_BASE, f'{HOME["title_en"]} · {HOME["title_zh"]}',
+          f'{HOME["lead_en"]} {HOME["lead_zh"]}', body, "resources", extra_head=_home_head() + _lc_head()))
+    return HOME_BASE
+
+
 def build_poetry_hub():
     cards = []
     for pm in POEMS["poems"]:
@@ -20428,6 +20848,10 @@ def main():
         paths.append(build_mus_hub())
         for _ui, _u in enumerate(MUS["units"]):
             for _l in _u["lessons"]: paths.append(build_mus_lesson(_ui, _u, _l))
+    if HOME:
+        paths.append(build_home_hub())
+        for _ui, _u in enumerate(HOME["units"]):
+            for _l in _u["lessons"]: paths.append(build_home_lesson(_ui, _u, _l))
     if ART:
         paths.append(build_art_hub())
         for _ui, _u in enumerate(ART["units"]):

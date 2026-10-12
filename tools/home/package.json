@@ -1,0 +1,14 @@
+{
+  "name": "twrses-home",
+  "private": true,
+  "description": "家政 Life Skills at Home 的共用引擎（units.js 單位換算與分數的純函式、counter.js 3D 流理台、props.js 量杯／量匙／電子秤／碗／食材罐、convert2d.js／scale2d.js／cups2d.js 不需要 WebGL 的小互動）與各課 3D 的原始碼。產物寫到 assets/js/home-*.js，npm run build 重新打包。",
+  "type": "module",
+  "scripts": {
+    "build": "esbuild src/home-cups.js --bundle --minify --format=iife --target=es2019 --legal-comments=eof --outdir=../../assets/js",
+    "test": "node test/units.test.mjs && node test/data.test.mjs"
+  },
+  "devDependencies": {
+    "esbuild": "0.25.10",
+    "three": "0.186.1"
+  }
+}
