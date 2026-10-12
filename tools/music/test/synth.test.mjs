@@ -15,8 +15,9 @@ function makeWin() {
     suspend() { this.state = 'suspended'; }
     createGain() { return { gain: param('gain'), connect() {}, disconnect() {} }; }
     createDynamicsCompressor() { return { connect() {} }; }
-    createBuffer() { return {}; }
-    createBufferSource() { return { connect() {}, start() { log.push(['silent', 'start']); } }; }
+    createBuffer(ch, n) { const data = new Float32Array(n || 1); return { getChannelData() { return data; } }; }
+    createBiquadFilter() { return { type: 'lowpass', frequency: param('filterfreq'), Q: param('filterq'), connect() {}, disconnect() {} }; }
+    createBufferSource() { const b = { connect() {}, disconnect() {}, start(at) { log.push(['silent', 'start', at]); }, stop(at) { log.push(['src', 'stop', at]); } }; return b; }
     createOscillator() { const o = { type: 'sine', frequency: param('freq'), connect() {}, disconnect() {}, start() { log.push(['osc', 'start', o.type]); }, stop(at) { log.push(['osc', 'stop', at]); } }; return o; }
   }
   const handlers = {};
@@ -131,5 +132,40 @@ function makeWin() {
   assert.ok(n >= 2);
   off();
   const before = n; s.setVolume(0.6); assert.equal(n, before);
+}
+// 不諧波的音：每個成分的頻率是 freq × ratio；高成分衰減較快；尖峰縮到 1；未解鎖不響
+{
+  const { win, log } = makeWin();
+  const s = createSynth({ win });
+  assert.equal(s.toneInharmonic(200, [1, 2.76], [1, 0.5]), null, 'locked → null');
+  assert.equal(s.noiseBurst({ freq: 800 }), null, 'locked → null');
+  s.unlock();
+  const v = s.toneInharmonic(200, [1, 2.76, 5.4], [1, 0.5, 0.25], { dur: 2 });
+  assert.ok(v);
+  const freqs = log.filter((e) => e[0] === 'freq' && e[1] === 'set').map((e) => e[2]);
+  assert.ok(freqs.includes(200) && freqs.some((f) => Math.abs(f - 552) < 1e-9) && freqs.some((f) => Math.abs(f - 1080) < 1e-9));
+  assert.deepEqual(s.nowPlaying(), [{ freq: 200, kind: 'tone', ratios: [1, 2.76, 5.4], partials: [1, 0.5, 0.25] }]);
+  // 高成分的時間常數較短
+  const taus = log.filter((e) => e[0] === 'gain' && e[1] === 'target' && e[2] === 0.0001).map((e) => e[4]);
+  assert.equal(taus.length, 3);
+  assert.ok(taus[0] > taus[1] && taus[1] > taus[2], 'higher partials die faster');
+  // 各成分增益加起來 = 1（尖峰不超過 1）
+  const sets = log.filter((e) => e[0] === 'gain' && e[1] === 'set' && e[2] > 0 && e[2] <= 1).map((e) => e[2]);
+  assert.ok(Math.abs(sets.reduce((a, b) => a + b, 0) - 1) < 1e-9);
+  s.stopAll();
+  assert.equal(s.nowPlaying().length, 0);
+}
+// 噪音：算一個聲音，kind 'noise'，濾波器中心頻率，靜音／離開分頁會停
+{
+  const { win, log, handlers, doc } = makeWin();
+  const s = createSynth({ win });
+  s.unlock();
+  const v = s.noiseBurst({ freq: 900, q: 2, dur: 0.3 });
+  assert.ok(v);
+  assert.deepEqual(s.nowPlaying(), [{ freq: 900, kind: 'noise' }]);
+  assert.ok(log.some((e) => e[0] === 'filterfreq' && e[2] === 900));
+  assert.ok(log.some((e) => e[0] === 'src' && e[1] === 'stop'), 'source is stopped at the end');
+  s.setMuted(true);
+  assert.equal(s.nowPlaying().length, 0);
 }
 console.log('synth.test.mjs ok');

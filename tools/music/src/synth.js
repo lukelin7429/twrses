@@ -160,6 +160,75 @@ export function createSynth({ win = typeof window !== 'undefined' ? window : nul
     clicks.clear();
   }
 
+  /**
+   * 不諧波的音（鐘、鼓、棒、板）：每個成分是一個正弦波，頻率 freq × ratios[i]，相對振幅 amps[i]（加起來縮到尖峰 1）。
+   * 高的成分衰減得比較快：成分 i 的時間常數 = (dur / 3) / (1 + damp × (ratios[i] − 1))。dur 秒後收音。
+   * 沒解鎖、靜音時回傳 null；算一個聲音（MAX_VOICES）。
+   */
+  function toneInharmonic(freq, ratios, amps, { dur = 2, gain = 1, attack = 0.004, damp = 0.6, at = 0 } = {}) {
+    if (!state.unlocked || !ctx || !(freq > 0) || !ratios || !ratios.length) return null;
+    if (voices.size >= MAX_VOICES) { const oldest = [...voices].sort((a, b) => a.order - b.order)[0]; retire(oldest, now()); }
+    const t = Math.max(at, now());
+    const sum = amps.reduce((x, y) => x + y, 0) || 1;
+    const top = freq * Math.max(...ratios.filter((r, i) => amps[i] > 0));
+    const env = ctx.createGain();
+    env.gain.setValueAtTime(0, t);
+    env.gain.linearRampToValueAtTime(VOICE_PEAK * gain * safeScale(top), t + Math.max(0.002, attack));
+    env.connect(master);
+    const oscs = ratios.map((r, i) => {
+      const o = ctx.createOscillator(), g = ctx.createGain();
+      o.type = 'sine';
+      o.frequency.setValueAtTime(freq * r, t);
+      g.gain.setValueAtTime(amps[i] / sum, t);
+      g.gain.setTargetAtTime(0.0001, t + attack, Math.max(0.01, dur / 3 / (1 + damp * (r - 1))));
+      o.connect(g); g.connect(env); o.start(t);
+      return o;
+    });
+    const comp = { stop(at2) { oscs.forEach((o) => { try { o.stop(at2); } catch (e) { /* ignore */ } }); } };
+    const v = { osc: comp, env, freq, kind: 'tone', order: ++order, gain, start: t, endAt: t + dur, partials: amps.slice(), ratios: ratios.slice(), top,
+      setFreq() {}, release() { if (voices.has(v)) { retire(v, now()); emit(); } } };
+    voices.add(v);
+    oscs[0].onended = () => { voices.delete(v); try { env.disconnect(); } catch (e) { /* ignore */ } emit(); };
+    emit();
+    v.timer = setTimeout(() => v.release(), Math.max(30, (v.endAt - now()) * 1000 + 40));
+    const rel = v.release;
+    v.release = () => { clearTimeout(v.timer); rel(); };
+    return v;
+  }
+
+  /**
+   * 一小段噪音（鼓皮的「碰」、吹氣聲、沙鈴）：白噪音經過濾波器（type：'bandpass'｜'lowpass'｜'highpass'，中心／截止 freq，q），
+   * 2 ms 起音、之後指數衰減，dur 秒後收音。回傳 voice（kind: 'noise'，freq 是濾波器的中心頻率）。
+   */
+  function noiseBurst({ freq = 1000, q = 1, dur = 0.25, gain = 1, type = 'bandpass', at = 0 } = {}) {
+    if (!state.unlocked || !ctx || !(freq > 0)) return null;
+    if (voices.size >= MAX_VOICES) { const oldest = [...voices].sort((a, b) => a.order - b.order)[0]; retire(oldest, now()); }
+    const t = Math.max(at, now()), sr = ctx.sampleRate || 44100;
+    const n = Math.max(1, Math.ceil(sr * (dur + 0.05)));
+    const buf = ctx.createBuffer(1, n, sr);
+    const ch = buf.getChannelData ? buf.getChannelData(0) : null;
+    if (ch) for (let i = 0; i < n; i++) ch[i] = Math.random() * 2 - 1;
+    const src = ctx.createBufferSource();
+    src.buffer = buf;
+    const filt = ctx.createBiquadFilter ? ctx.createBiquadFilter() : null;
+    const env = ctx.createGain();
+    if (filt) { filt.type = type; filt.frequency.setValueAtTime(freq, t); if (filt.Q) filt.Q.setValueAtTime(q, t); src.connect(filt); filt.connect(env); } else src.connect(env);
+    env.gain.setValueAtTime(0, t);
+    env.gain.linearRampToValueAtTime(VOICE_PEAK * gain * safeScale(freq), t + 0.002);
+    env.gain.setTargetAtTime(0.0001, t + 0.002, Math.max(0.01, dur / 4));
+    env.connect(master);
+    src.start(t); src.stop(t + dur + 0.05);
+    const v = { osc: src, env, freq, kind: 'noise', order: ++order, gain, start: t, endAt: t + dur, partials: null, top: freq,
+      setFreq() {}, release() { if (voices.has(v)) { retire(v, now()); emit(); } } };
+    voices.add(v);
+    src.onended = () => { voices.delete(v); try { src.disconnect(); env.disconnect(); } catch (e) { /* ignore */ } emit(); };
+    emit();
+    v.timer = setTimeout(() => v.release(), Math.max(30, (v.endAt - now()) * 1000 + 80));
+    const rel = v.release;
+    v.release = () => { clearTimeout(v.timer); rel(); };
+    return v;
+  }
+
   /** 持續的音：按住時一直響，放開（release）才收 */
   function hold(freq, opts = {}) {
     return make(freq, { ...opts, kind: 'hold' });
@@ -187,7 +256,7 @@ export function createSynth({ win = typeof window !== 'undefined' ? window : nul
   function nowPlaying() {
     const t = now();
     const cl = [...clicks].filter((c) => c.when <= t && t < c.end).map((c) => ({ freq: c.freq, kind: 'click' }));
-    return cl.concat([...voices].filter((v) => v.start <= t + 1e-9).sort((a, b) => a.order - b.order).map((v) => (v.partials ? { freq: v.freq, kind: v.kind, partials: v.partials } : { freq: v.freq, kind: v.kind })));
+    return cl.concat([...voices].filter((v) => v.start <= t + 1e-9).sort((a, b) => a.order - b.order).map((v) => (v.ratios ? { freq: v.freq, kind: v.kind, ratios: v.ratios, partials: v.partials } : v.partials ? { freq: v.freq, kind: v.kind, partials: v.partials } : { freq: v.freq, kind: v.kind })));
   }
   const hz = () => { const l = nowPlaying(); return l.length ? l[l.length - 1].freq : 0; };
 
@@ -200,7 +269,7 @@ export function createSynth({ win = typeof window !== 'undefined' ? window : nul
   }
 
   return {
-    state, unlock, tone, toneComplex, hold, click, cancelClicks, clock: () => now(), running: () => !!(ctx && ctx.state === 'running'), stopAll, setVolume, setMuted, nowPlaying, hz,
+    state, unlock, tone, toneComplex, toneInharmonic, noiseBurst, hold, click, cancelClicks, clock: () => now(), running: () => !!(ctx && ctx.state === 'running'), stopAll, setVolume, setMuted, nowPlaying, hz,
     subscribe: (fn) => { listeners.add(fn); return () => listeners.delete(fn); },
     get context() { return ctx; },
   };

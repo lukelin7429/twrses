@@ -611,3 +611,45 @@ a.mu-link:hover { transform: translateY(-3px); box-shadow: var(--shadow); border
 @media (max-width: 560px) { .mu-hm, .mu-chord, .mu-chordq { padding: 1rem; } .mu-hm-cv { height: 210px; } }
 .mu-hm-read .mu-st-k { display: block; margin-bottom: .2rem; }
 .mu-hm-read b { display: block; }
+
+/* ── 第九課：樂器怎麼發出聲音 ─────────────────────────────────────── */
+.mu-fams { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .4rem; margin-top: .4rem; }
+.mu-fams button { display: flex; flex-direction: column; align-items: flex-start; padding: .45rem .6rem; border-radius: 12px; border: 1px solid rgba(255,255,255,.18); background: rgba(255,255,255,.06); color: inherit; font-family: var(--sans); cursor: pointer; text-align: left; }
+.mu-fams button b { font-size: .9rem; }
+.mu-fams button small { font-size: .7rem; opacity: .75; }
+.mu-fams button[aria-pressed="true"] { border-color: var(--al-sun); background: rgba(255,211,110,.16); }
+.mu-fam-card { margin-top: .8rem; }
+.mu-fam-card .al-sky-k small { text-transform: none; letter-spacing: 0; opacity: .8; font-weight: 600; }
+.mu-fam-dl { margin: .4rem 0 0; font-size: .8rem; line-height: 1.5; }
+.mu-fam-dl dt { margin-top: .5rem; font-size: .66rem; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; color: var(--al-sun); }
+.mu-fam-dl dd { margin: .1rem 0 0; }
+.mu-fam-dl dd .zh { display: block; opacity: .75; }
+.mu-fam-ratio { font-family: var(--serif); font-size: 1rem; font-weight: 700; font-variant-numeric: tabular-nums; }
+.mu-pitchup, .mu-famq { margin-top: 1.5rem; padding: 1.3rem 1.4rem; background: #fff; border: 1px solid var(--line); border-radius: 20px; box-shadow: var(--shadow-sm); max-width: 1000px; }
+.mu-pu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: .8rem; }
+.mu-pu { padding: .8rem .9rem; border-radius: 14px; background: var(--cream); border: 1px solid var(--line); }
+.mu-pu-h { margin: 0 0 .5rem; font-size: .9rem; }
+.mu-pu-h span { color: var(--ink-soft); font-weight: 600; }
+.mu-pu .mu-slide { display: block; font-size: .76rem; font-weight: 700; color: var(--ink-soft); }
+.mu-pu input[type=range] { width: 100%; margin-top: .3rem; accent-color: var(--brand); }
+.mu-pu-out { margin: .5rem 0 0; font-variant-numeric: tabular-nums; }
+.mu-pu-out b { font-family: var(--serif); font-size: 1.15rem; color: var(--brand-dk); }
+.mu-pu-out small { display: block; color: var(--ink-soft); font-weight: 700; }
+.mu-pu-law { margin: .3rem 0 .6rem; font-size: .76rem; color: var(--ink-soft); }
+.mu-fq-k { margin: 0; font-size: .78rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--gold-dk); }
+.mu-fq-opts { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: .5rem; margin-top: 1rem; }
+.mu-fq-opt { display: flex; flex-direction: column; align-items: center; padding: .8rem .2rem; border-radius: 12px; border: 1px solid var(--line); background: #fff; font-family: var(--sans); cursor: pointer; color: var(--ink); transition: transform .12s, border-color .12s; }
+.mu-fq-opt:hover:not(:disabled) { border-color: var(--gold); transform: translateY(-2px); }
+.mu-fq-opt b { font-size: .92rem; }
+.mu-fq-opt small { font-size: .72rem; color: var(--ink-soft); font-weight: 700; }
+.mu-fq-opt.is-right { border-color: #2f9e63; background: #eefaf2; }
+.mu-fq-opt.is-wrong { border-color: #e08a8a; background: #fdf0f0; opacity: .7; }
+.mu-fq-opt:disabled { cursor: default; color: var(--ink); }
+.mu-famq .mu-hg-sc { color: var(--ink-soft); }
+.mu-famq .mu-q-msg { color: var(--ink); margin: .8rem 0 0; min-height: 3.4em; font-size: .86rem; line-height: 1.6; }
+.mu-famq .mu-q-msg .zh { display: block; color: var(--ink-soft); }
+.mu-famq .mu-btn-gold, .mu-pitchup .mu-btn { background: #fff; }
+.mu-famq .mu-btn-gold { background: var(--gold); border-color: var(--gold); }
+.mu-fq-pat { margin: .8rem 0 0; }
+.mu-fq-pat b { font-family: var(--serif); font-size: 1.1rem; color: var(--brand-dk); }
+@media (max-width: 560px) { .mu-pitchup, .mu-famq { padding: 1rem; } .mu-fq-opts { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
