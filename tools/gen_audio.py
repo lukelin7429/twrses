@@ -40,7 +40,8 @@ EN_ONLY_PAGES = ("resources/classes/poetry",)
 SHORT_PAGES = ("resources/classes/philosophy", "resources/booklets", "resources/classes/astronomy", "resources/classes/human-body",
                "resources/classes/how-things-work", "resources/classes/semiconductors", "resources/classes/earth", "resources/classes/life",
                "resources/classes/calligraphy", "resources/classes/computers", "resources/classes/music", "resources/classes/art", "resources/classes/math",
-               "resources/classes/geography")
+               "resources/classes/geography",
+               "resources/classes/pe")
 SHORT_WORDS = 3
 
 

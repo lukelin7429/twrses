@@ -1,0 +1,14 @@
+{
+  "name": "twrses-pe",
+  "private": true,
+  "description": "體育 Sports and Movement 的人偶引擎（body.js 人偶的關節與重心、balance.js 支撐範圍與傾倒角——都是純函式；figure3d.js 三維人偶、figure2d.js 剪影）與各課 3D 的原始碼。產物寫到 assets/js/pe-*.js，npm run build 重新打包。",
+  "type": "module",
+  "scripts": {
+    "build": "esbuild src/pe-balance.js --bundle --minify --format=iife --target=es2019 --legal-comments=eof --outdir=../../assets/js",
+    "test": "node test/balance.test.mjs && node test/body.test.mjs && node test/sim.test.mjs"
+  },
+  "devDependencies": {
+    "esbuild": "0.25.10",
+    "three": "0.186.1"
+  }
+}

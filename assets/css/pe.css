@@ -1,0 +1,220 @@
+/*
+ * 體育 Sports and Movement（/resources/classes/pe/）專屬樣式。
+ * 共用的版面在 astro.css（.astro-lab、.al-*、.ph-card、.cc-card、.myth、.trick、.act）；這裡的 class 前綴一律 pe-。
+ * 只載在本系列的頁面（build.py 的 _pe_head()）。中文一律系統字（var(--zh)），不載中文網頁字型。
+ */
+
+/* ── 3D 模型：人偶 ───────────────────────────────────────────────────── */
+.pe-lab .al-stage { grid-template-columns: minmax(0, 1fr) 372px; }
+.pe-lab .al-space { min-height: 640px; background: radial-gradient(70% 60% at 50% 45%, rgba(67,201,138,.10), transparent 70%); }
+.pe-lab .al-space-cv { touch-action: pan-y; }
+.pe-lab.pe-dragging .al-space-cv { cursor: grabbing; touch-action: none; }
+.pe-lab .al-hint { left: 1rem; right: 1rem; }
+.pe-flat { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.pe-flat-on .al-space-cv, .pe-flat-on .al-hint, .pe-flat-on .al-home { display: none; }
+.al-lab.pe-lb { font-size: .76rem; font-weight: 800; line-height: 1.2; padding: .16rem .6rem; text-align: center; white-space: nowrap; }
+.al-lab.pe-lb small { display: block; font-family: var(--zh); font-size: .72rem; font-weight: 700; letter-spacing: .06em; color: inherit; opacity: .85; }
+.al-lab.pe-lb-cog { color: #1b1405; background: rgba(255,211,110,.95); border-color: #ffd36e; }
+.al-lab.pe-lb-base { color: #06281a; background: rgba(125,255,185,.92); border-color: #7dffb9; }
+
+.pe-views { position: absolute; left: .8rem; top: .8rem; display: inline-flex; padding: 3px; border-radius: 999px; background: rgba(12,20,40,.8); border: 1px solid var(--al-line); z-index: 3; }
+.pe-views button { border: 0; background: transparent; color: var(--al-mute); font-family: var(--sans); font-weight: 800; font-size: .8rem; line-height: 1.2; padding: .34rem .85rem; border-radius: 999px; cursor: pointer; }
+.pe-views button small { display: block; font-family: var(--zh); font-weight: 600; font-size: .7rem; }
+.pe-views button[aria-pressed="true"] { background: var(--al-sun); color: #1b1405; }
+.pe-fell { display: none; position: absolute; left: 50%; top: 22%; transform: translateX(-50%); z-index: 4; padding: .7rem 1.3rem; border-radius: 999px; border: 2px solid #ffb0a6; background: rgba(120,28,20,.92); color: #fff; font-family: var(--sans); font-weight: 800; font-size: .95rem; line-height: 1.3; cursor: pointer; box-shadow: 0 14px 34px -14px rgba(255,107,92,.9); animation: pePop .35s ease-out; }
+.pe-fell small { display: block; font-family: var(--zh); font-weight: 700; font-size: .84rem; }
+.pe-is-fallen .pe-fell { display: block; }
+@keyframes pePop { from { opacity: 0; transform: translateX(-50%) scale(.8); } to { opacity: 1; transform: translateX(-50%) scale(1); } }
+
+.pe-aside { display: flex; flex-direction: column; gap: .55rem; }
+.pe-aside > * { min-width: 0; }
+.pe-aside .al-sky-k { margin-bottom: 0; }
+.pe-k-note { font-weight: 600; letter-spacing: 0; text-transform: none; color: var(--al-mute); margin-left: .4rem; }
+.pe-poses { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .3rem; }
+.pe-poses button, .pe-pad button { padding: .42rem .2rem; border-radius: 11px; border: 1px solid var(--al-line); background: rgba(255,255,255,.03); color: var(--al-text); font-family: var(--sans); font-size: .76rem; line-height: 1.25; cursor: pointer; transition: background .15s, border-color .15s, transform .15s; }
+.pe-poses button:hover, .pe-pad button:hover { background: rgba(255,255,255,.09); }
+.pe-poses button b, .pe-pad button b { display: block; font-weight: 800; }
+.pe-poses button small, .pe-pad button small { display: block; font-family: var(--zh); font-weight: 600; color: var(--al-mute); }
+.pe-poses button[aria-pressed="true"] { border-color: var(--al-sun); background: rgba(255,211,110,.14); box-shadow: 0 0 0 1px var(--al-sun) inset; }
+.pe-facts { margin: .2rem 0 0; padding-top: .55rem; border-top: 1px solid var(--al-line); display: grid; gap: .4rem; }
+.pe-facts dt { font-size: .7rem; font-weight: 700; letter-spacing: .03em; color: var(--al-mute); }
+.pe-facts dd { margin: 0; font-size: 1.12rem; font-weight: 800; line-height: 1.3; color: #fff; font-variant-numeric: tabular-nums; }
+.pe-facts dd small { font-size: .72rem; color: var(--al-mute); font-weight: 700; }
+.pe-meter { height: 8px; border-radius: 4px; background: rgba(255,255,255,.1); overflow: hidden; }
+.pe-meter i { display: block; height: 100%; width: 0; border-radius: 4px; background: #43c98a; transition: width .12s linear, background .2s; }
+.pe-meter i.is-mid { background: #ffd36e; }
+.pe-meter i.is-low { background: #ff6b5c; }
+.pe-pad { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); grid-template-areas: ". b ." "r u l" ". f ."; gap: .3rem; }
+.pe-pad-b { grid-area: b; } .pe-pad-r { grid-area: r; } .pe-pad-l { grid-area: l; } .pe-pad-f { grid-area: f; }
+.pe-pad .pe-up { grid-area: u; background: rgba(255,211,110,.14); border-color: rgba(255,211,110,.5); color: var(--al-sun); }
+.pe-pad .pe-up small { color: var(--al-sun); }
+.pe-is-fallen .pe-pad .pe-up { background: var(--al-sun); color: #1b1405; animation: alPulse 1.6s ease-in-out infinite; }
+.pe-is-fallen .pe-pad .pe-up small { color: #1b1405; }
+.pe-pad button i { font-style: normal; font-weight: 800; color: #7dffb9; font-variant-numeric: tabular-nums; margin-left: .15rem; }
+.pe-pad-note { margin: 0; font-size: .72rem; line-height: 1.5; color: var(--al-mute); }
+.pe-pad-note .zh { display: block; }
+.pe-speed { display: flex; align-items: center; gap: .3rem; font-size: .72rem; font-weight: 700; color: var(--al-mute); }
+.pe-speed span { margin-right: auto; }
+.pe-speed button { border: 1px solid var(--al-line); background: transparent; color: var(--al-mute); font-family: var(--sans); font-weight: 800; font-size: .78rem; padding: .28rem .7rem; border-radius: 999px; cursor: pointer; }
+.pe-speed button[aria-pressed="true"] { background: rgba(255,211,110,.16); color: var(--al-sun); border-color: rgba(255,211,110,.5); }
+.pe-msg { margin: 0; padding-top: .55rem; border-top: 1px solid var(--al-line); min-height: 8.4em; font-size: .82rem; line-height: 1.6; color: var(--al-text); }
+.pe-msg .zh { display: block; margin-top: .25rem; color: var(--al-mute); }
+.pe-credit { margin: 0; padding: 0 1.3rem 1.1rem; font-size: .74rem; line-height: 1.6; color: #7f90b0; }
+.al-lg-base i { border-color: #7dffb9; background: rgba(67,201,138,.45); border-radius: 3px; }
+.al-lg-cog i { border-color: #ffd36e; background: #ffd36e; }
+.al-lg-mass i { border-color: #7cc4ff; background: rgba(124,196,255,.7); }
+@media (max-width: 1000px) {
+  .pe-lab .al-stage { grid-template-columns: minmax(0, 1fr); }
+  .pe-lab .al-space { aspect-ratio: 4 / 3; min-height: 380px; max-height: 78vh; border-right: 0; border-bottom: 1px solid var(--al-line); }
+  .pe-msg { min-height: 5.4em; }
+}
+@media (max-width: 620px) {
+  .pe-lab .al-space { aspect-ratio: 4 / 5; min-height: 0; max-height: 68vh; }
+  .pe-lab .al-hint { display: none; }
+  .pe-views button { padding: .3rem .6rem; font-size: .74rem; }
+  .pe-fell { font-size: .84rem; padding: .55rem 1rem; white-space: nowrap; }
+  .pe-msg { min-height: 9.4em; }
+}
+
+/* ── 卡片與課程卡小圖 ─────────────────────────────────────────────────── */
+.pe-ico { background: radial-gradient(circle at 50% 40%, #eafff3, #bfe9d1); font-size: 2.2rem; }
+.pe-lc-ico { background: radial-gradient(circle at 50% 38%, #1b2f5c, #070b17); }
+
+/* ── 小互動共用的深色面板 ─────────────────────────────────────────────── */
+.pe-game { margin-top: 1.5rem; padding: 1.5rem 1.6rem 1.4rem; background: #0c1428; color: #e8edf7; border-radius: 20px; box-shadow: var(--shadow); max-width: 940px; }
+.pe-btn { display: inline-flex; flex-direction: column; align-items: center; justify-content: center; padding: .5rem 1rem; border-radius: 999px; border: 1px solid rgba(160,180,230,.35); background: rgba(255,255,255,.05); color: #e8edf7; font-family: var(--sans); font-weight: 800; font-size: .84rem; line-height: 1.25; cursor: pointer; transition: background .15s, border-color .15s, transform .15s; }
+.pe-btn small { font-family: var(--zh); font-weight: 600; font-size: .76rem; color: #9fb0cf; }
+.pe-btn:hover:not(:disabled) { background: rgba(255,255,255,.12); transform: translateY(-1px); }
+.pe-btn[aria-pressed="true"] { border-color: #ffd36e; background: rgba(255,211,110,.16); color: #ffd36e; }
+.pe-btn[aria-pressed="true"] small { color: #ffe3a3; }
+.pe-btn-gold { background: #ffd36e; border-color: #ffd36e; color: #1b1405; }
+.pe-btn-gold:hover:not(:disabled) { background: #ffe08f; }
+.pe-btn[hidden] { display: none; }
+.pe-g-top { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .4rem 1rem; align-items: baseline; }
+.pe-g-k { margin: 0; font-size: .78rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: #ffd36e; }
+.pe-g-sc { margin: 0; font-size: .82rem; color: #9fb0cf; }
+.pe-g-score { margin-left: .3rem; font-size: 1.05rem; color: #fff; font-variant-numeric: tabular-nums; }
+.pe-g-steps { display: flex; gap: .35rem; margin: .9rem 0 0; }
+.pe-g-steps i { flex: 1; height: 6px; border-radius: 3px; background: #2b3550; }
+.pe-g-steps i.is-past { background: #43c98a; }
+.pe-g-steps i.is-now { background: #ffd36e; }
+.pe-g-ask { margin: 1.1rem 0 0; font-size: 1.08rem; font-weight: 700; line-height: 1.5; }
+.pe-g-ask .zh { display: block; font-weight: 600; color: #cfd8ee; }
+.pe-g-ask small { display: block; margin-top: .3rem; font-size: .76rem; font-weight: 700; letter-spacing: .06em; color: #9fb0cf; }
+.pe-g-opts { display: grid; gap: .8rem; margin-top: 1rem; }
+.pe-g-n2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.pe-g-n3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.pe-g-opt { display: flex; flex-direction: column; align-items: center; gap: .3rem; padding: .7rem .5rem .8rem; border-radius: 16px; border: 1px solid rgba(160,180,230,.3); background: rgba(255,255,255,.05); color: #fff; font-family: var(--sans); cursor: pointer; transition: background .15s, border-color .15s, transform .15s; min-width: 0; }
+.pe-g-opt:hover:not(:disabled) { background: rgba(255,255,255,.11); transform: translateY(-2px); }
+.pe-g-opt:disabled { cursor: default; }
+.pe-g-opt canvas { width: 100%; height: 230px; display: block; }
+.pe-g-lab { font-weight: 800; font-size: .9rem; text-align: center; line-height: 1.3; }
+.pe-g-lab .zh { display: block; font-weight: 600; color: #9fb0cf; }
+.pe-g-num { min-height: 2.9em; font-size: .8rem; line-height: 1.4; text-align: center; color: #ffe3a3; font-variant-numeric: tabular-nums; }
+.pe-g-num b { font-size: 1rem; color: #fff; }
+.pe-g-num small { display: block; font-size: .72rem; color: #9fb0cf; }
+.pe-g-opt.is-right { background: rgba(47,158,99,.35); border-color: #7ee0aa; }
+.pe-g-opt.is-wrong { background: rgba(214,69,69,.22); border-color: #e08a8a; opacity: .6; }
+.pe-g-msg { margin: 1rem 0 .9rem; min-height: 4.8em; font-size: .95rem; line-height: 1.6; }
+.pe-g-msg .zh { display: block; color: #9fb0cf; }
+.pe-g-end { display: block; margin-top: .6rem; padding-top: .6rem; border-top: 1px solid rgba(160,180,230,.2); font-weight: 700; color: #ffe3a3; }
+.pe-g-foot { display: flex; flex-wrap: wrap; gap: .7rem 1rem; min-height: 2.6rem; }
+
+/* ── 推推看 ───────────────────────────────────────────────────────────── */
+.pe-p-row { display: flex; flex-wrap: wrap; gap: .45rem; }
+.pe-p-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 1rem; margin: 1rem 0; align-items: stretch; }
+.pe-p-stage { position: relative; border-radius: 16px; border: 1px solid rgba(160,180,230,.22); background: radial-gradient(80% 70% at 50% 60%, #14244c, #070b17); min-height: 330px; }
+.pe-p-fig { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.pe-p-view { position: absolute; left: .8rem; top: .6rem; margin: 0; font-size: .72rem; font-weight: 700; letter-spacing: .04em; color: #9fb0cf; }
+.pe-p-mapw { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; grid-template-areas: ". back ." "right map left" ". front ."; gap: .4rem; align-items: center; justify-items: center; }
+.pe-p-map { grid-area: map; width: 100%; height: 220px; display: block; border-radius: 14px; border: 1px solid rgba(160,180,230,.22); background: #1f3f73; }
+.pe-p-arrow { border: 1px solid rgba(255,157,107,.6); background: rgba(255,157,107,.14); color: #ffc7a8; font-family: var(--sans); font-weight: 800; font-size: .82rem; line-height: 1.25; padding: .45rem .8rem; border-radius: 12px; cursor: pointer; transition: background .15s, transform .15s; }
+.pe-p-arrow small { display: block; font-family: var(--zh); font-weight: 600; font-size: .74rem; color: #ffdccb; }
+.pe-p-arrow:hover { background: rgba(255,157,107,.3); transform: scale(1.04); }
+.pe-p-a-back { grid-area: back; } .pe-p-a-front { grid-area: front; } .pe-p-a-left { grid-area: left; } .pe-p-a-right { grid-area: right; }
+.pe-p-a-left, .pe-p-a-right { max-width: 6.2em; font-size: 1.1rem; }
+.pe-p-a-left small, .pe-p-a-right small { font-size: .7rem; }
+.pe-p-table { width: 100%; border-collapse: collapse; margin-top: 1rem; font-size: .86rem; }
+.pe-p-table th, .pe-p-table td { padding: .45rem .5rem; border-bottom: 1px solid rgba(160,180,230,.18); text-align: center; }
+.pe-p-table thead th { font-size: .74rem; letter-spacing: .06em; text-transform: uppercase; color: #ffd36e; }
+.pe-p-table th small { display: block; font-family: var(--zh); font-weight: 600; letter-spacing: 0; text-transform: none; color: #9fb0cf; }
+.pe-p-table tbody th { text-align: left; font-weight: 700; }
+.pe-p-table td { font-size: 1.15rem; font-weight: 800; color: #56617d; width: 20%; }
+.pe-p-table td.is-up { color: #7ee0aa; background: rgba(47,158,99,.16); }
+.pe-p-table td.is-down { color: #ff9c90; background: rgba(214,69,69,.16); }
+.pe-p-note { margin: 0; padding-top: .7rem; border-top: 1px solid rgba(160,180,230,.2); font-size: .8rem; line-height: 1.6; color: #9fb0cf; }
+.pe-p-note .zh { display: block; }
+
+/* ── 體育課的課室英語（每一課共用） ───────────────────────────────────── */
+.pe-phrases { list-style: none; margin: 1.4rem 0 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .9rem 1.1rem; counter-reset: peph; }
+.pe-ph { counter-increment: peph; position: relative; display: flex; gap: .9rem; align-items: flex-start; padding: 1rem 1.2rem 1rem 1rem; background: #fff; border: 1px solid var(--line); border-left: 5px solid #43c98a; border-radius: 14px; box-shadow: var(--shadow-sm); }
+.pe-ph .spk { flex: none; width: 40px; height: 40px; font-size: 1.15rem; margin-top: .1rem; }
+.pe-ph-b { min-width: 0; }
+.pe-ph-en { margin: 0; font-family: var(--serif); font-size: 1.22rem; font-weight: 700; line-height: 1.3; color: var(--ink); }
+.pe-ph-en::before { content: counter(peph) ". "; font-family: var(--sans); font-size: .8rem; font-weight: 800; color: #2f9e63; vertical-align: .15em; }
+.pe-ph-zh { margin: .15rem 0 0; font-family: var(--zh); font-size: 1.02rem; font-weight: 600; color: var(--brand-dk); }
+.pe-ph-when { margin: .45rem 0 0; font-size: .86rem; line-height: 1.55; color: var(--ink-soft); }
+.pe-ph-when .zh { display: block; }
+.pe-ph-src { margin: 1rem 0 0; font-size: .84rem; line-height: 1.6; color: var(--ink-soft); max-width: 78ch; }
+.pe-ph-src .zh { display: block; }
+
+/* ── 課綱、安全、活動、延伸閱讀、出處 ─────────────────────────────────── */
+.pe-curric { list-style: none; margin: 1.4rem 0 0; padding: 0; display: grid; gap: .9rem; max-width: 900px; }
+.pe-cur { padding: 1.1rem 1.3rem; background: #fff; border: 1px solid var(--line); border-left: 5px solid var(--gold); border-radius: 14px; box-shadow: var(--shadow-sm); }
+.pe-cur-k { margin: 0; display: flex; flex-wrap: wrap; gap: .2rem .8rem; align-items: baseline; font-size: .82rem; color: var(--ink-soft); }
+.pe-cur-k b { font-size: 1rem; color: var(--brand-dk); font-variant-numeric: tabular-nums; }
+.pe-cur-q { margin: .4rem 0 0; font-size: 1rem; line-height: 1.7; font-family: var(--zh); }
+.pe-cur-n { margin: .5rem 0 0; font-size: .88rem; line-height: 1.6; color: var(--ink-soft); }
+.pe-cur-n .zh { display: block; }
+.pe-safety { list-style: none; margin: 1.4rem 0 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .9rem 1.1rem; }
+.pe-safety li { position: relative; padding: 1rem 1.2rem 1rem 3.1rem; background: #fff; border: 1px solid #f0c9b8; border-radius: 14px; font-size: .98rem; line-height: 1.65; box-shadow: var(--shadow-sm); }
+.pe-safety li::before { content: "\26A0"; position: absolute; left: 1.05rem; top: .95rem; font-size: 1.2rem; color: var(--sunset); }
+.pe-safety li .zh { display: block; margin-top: .3rem; color: var(--ink-soft); font-size: .93rem; }
+.pe-act-safe { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .9rem; margin-top: 1rem; }
+.pe-as { padding: 1rem 1.15rem; border-radius: 14px; background: #fff; border: 1px solid var(--line); box-shadow: var(--shadow-sm); font-size: .93rem; line-height: 1.6; }
+.pe-as .sub-head { margin: 0 0 .35rem; }
+.pe-as p { margin: 0; }
+.pe-as .zh { display: block; margin-top: .3rem; color: var(--ink-soft); }
+.pe-as-space { border-top: 4px solid #4a7bd6; }
+.pe-as-skip { border-top: 4px solid var(--sunset); }
+.pe-as-alt { border-top: 4px solid #43c98a; }
+.pe-links { display: grid; gap: 1rem; margin-top: 1.4rem; max-width: 860px; }
+.pe-link { display: flex; gap: 1.1rem; align-items: flex-start; padding: 1.2rem 1.4rem; border-radius: 18px; background: #fff; border: 1px solid var(--line); box-shadow: var(--shadow-sm); color: var(--ink); transition: transform .25s, box-shadow .25s, border-color .25s; }
+a.pe-link:hover { transform: translateY(-3px); box-shadow: var(--shadow); border-color: var(--gold); color: var(--ink); }
+.pe-link-soon { border-style: dashed; background: linear-gradient(120deg, #fff, var(--cream)); }
+.pe-link-ic { flex: none; display: grid; place-items: center; width: 64px; height: 64px; border-radius: 18px; background: radial-gradient(circle at 50% 38%, #1b2f5c, #070b17); font-size: 2rem; }
+.pe-link-b { display: flex; flex-direction: column; gap: .15rem; min-width: 0; }
+.pe-link-k { font-size: .74rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: var(--gold-dk); }
+.pe-link-b b { font-family: var(--serif); font-size: 1.2rem; line-height: 1.3; }
+.pe-link-zh { font-size: 1rem; font-weight: 600; color: var(--ink-soft); }
+.pe-link-n { margin-top: .4rem; font-size: .92rem; line-height: 1.6; }
+.pe-link-n .zh { display: block; margin-top: .2rem; color: var(--ink-soft); }
+.pe-link-go { align-self: flex-start; margin-top: .6rem; font-weight: 800; font-size: .82rem; color: var(--brand-dk); background: var(--brand-lt); border-radius: 999px; padding: .38rem .85rem; }
+.pe-link-soon .pe-link-go { color: var(--ink-soft); background: var(--cream); border: 1px solid var(--line); }
+.pe-sources { margin: 0 0 2.4rem; padding: 1.3rem 1.5rem; border: 1px solid var(--line); border-radius: 16px; background: var(--cream); }
+.pe-sources .sub-head { margin-top: 0; }
+.pe-sources > .muted { margin: .2rem 0 .8rem; font-size: .9rem; }
+.pe-sources ol { margin: 0; padding-left: 1.3em; display: grid; gap: .55rem; }
+.pe-sources li { font-size: .92rem; line-height: 1.55; }
+.pe-sources li > span { display: block; }
+.pe-sources li .zh { display: inline; margin-left: .4rem; color: var(--ink-soft); font-size: .88rem; }
+.pe-sources a { font-weight: 700; font-size: .86rem; color: var(--brand-dk); overflow-wrap: anywhere; }
+.pe-progress { font-weight: 700; color: var(--brand-dk); }
+.pe-intro-ic { float: right; margin: 0 0 .8rem 1.2rem; display: grid; place-items: center; width: 104px; height: 104px; border-radius: 26px; background: radial-gradient(circle at 50% 38%, #1b2f5c, #070b17); box-shadow: 0 14px 30px -18px rgba(6,12,30,.9); }
+
+@media (max-width: 860px) { .pe-act-safe { grid-template-columns: 1fr; } .pe-p-grid { grid-template-columns: 1fr; } }
+@media (max-width: 760px) { .pe-safety, .pe-phrases { grid-template-columns: 1fr; } }
+@media (max-width: 560px) {
+  .pe-link { flex-direction: column; }
+  .pe-intro-ic { width: 80px; height: 80px; } .pe-intro-ic svg { width: 58px; height: 58px; }
+  .pe-game { padding: 1.1rem; }
+  .pe-g-opts { gap: .45rem; }
+  .pe-g-opt { padding: .5rem .25rem .6rem; }
+  .pe-g-opt canvas { height: 170px; }
+  .pe-g-lab { font-size: .78rem; } .pe-g-num { font-size: .7rem; } .pe-g-num small { font-size: .64rem; }
+  .pe-p-row .pe-btn { flex: 1 1 44%; padding: .45rem .5rem; font-size: .78rem; }
+  .pe-p-stage { min-height: 280px; }
+  .pe-p-map { height: 180px; }
+  .pe-p-table { font-size: .76rem; } .pe-p-table th, .pe-p-table td { padding: .4rem .25rem; }
+  .pe-ph-en { font-size: 1.08rem; }
+}

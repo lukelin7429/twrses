@@ -1431,6 +1431,8 @@ def build_reading_hub():
              "Why do we count in tens? One question a lesson, answered with a model you can play with, plus a card that shows how to say the math in English. No timers, no drills. 為什麼我們十個一數？每課用一個可以動手玩的模型回答一個「為什麼」，再附一張「這個用英文怎麼唸」卡。不計時、不考速度。"),
             ("/resources/classes/geography/", "🗺️", "Geography · 地理",
              "Why is every flat map wrong? Peel a 3D globe open, flatten it five ways, and see what each map keeps and what it gives up. 為什麼每一張平面地圖都是「錯」的？把 3D 地球儀剝開，用五種方法攤平，看每一種地圖保住什麼、犧牲什麼。"),
+            ("/resources/classes/pe/", "🤸", "Sports and Movement · 體育",
+             "Why does a wide, low stance keep you on your feet? Lean a 3D figure until it tips, then take the classroom English for PE out to the field. 為什麼腳張開、蹲低就站得穩？讓 3D 人偶歪到倒下去，再把體育課的課室英語帶到操場上用。"),
             ("/resources/classes/philosophy/", "🦉", "Philosophy · 哲學",
              "Advanced reading: the big questions, the people who asked them, and where the Dharma meets Western thought. 高級閱讀：哲學的大問題、問這些問題的人，以及佛法與西方哲學的對照。"),
             ("/resources/grandfather/", "🌅", "Grandfather · 落日餘暉",
@@ -18105,6 +18107,362 @@ def build_math_hub():
           f'{MATH["lead_en"]} {MATH["lead_zh"]}', body, "resources", extra_head=_math_head() + _lc_head()))
     return MATH_BASE
 
+# ─────────────────────────────────────────────────────────────────────────────
+# 體育 Sports and Movement（/resources/classes/pe/）
+# 架構照音樂：data/pe.json 的 units[].lessons 是做好的課、units[].planned 是「製作中」卡。
+# 樣式 assets/css/pe.css（class 前綴 pe-，只載在本系列）；原始碼 tools/pe/src/，bundle 一律 pe-*。
+# 每一課都有一張「體育課的課室英語」卡（lesson["phrases"]，_pe_phrases）；活動用 _pe_activity（多了場地、誰先不要做、換個做法）。
+# ─────────────────────────────────────────────────────────────────────────────
+_pej = os.path.join(ROOT, "data", "pe.json")
+PE = json.load(open(_pej, encoding="utf-8")) if os.path.exists(_pej) else None
+PE_BASE = "/resources/classes/pe/"
+_PE_JS = {"balance": "pe-balance"}   # lab.kind → assets/js/<bundle>.js
+
+def _pe_ver():
+    h = hashlib.md5()
+    for rel in ("assets/css/astro.css", "assets/css/pe.css", *(f"assets/js/{j}.js" for j in _PE_JS.values())):
+        fp = os.path.join(ROOT, rel)
+        if os.path.exists(fp): h.update(open(fp, "rb").read())
+    return h.hexdigest()[:8]
+
+def _pe_head(js=None):
+    v = _pe_ver()
+    tag = f'<script defer src="/assets/js/{js}.js?v={v}"></script>\n' if js else ""
+    return (f'<link rel="stylesheet" href="/assets/css/astro.css?v={v}">\n'
+            f'<link rel="stylesheet" href="/assets/css/pe.css?v={v}">\n{tag}')
+
+def pehub_svg(size=56):
+    """體育系列的小圖示：單腳站、張開雙臂的木頭人偶，腳下一小塊綠色的支撐底面，肚子上一顆金色的重心。"""
+    return (f'<svg class="pehub-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">'
+            '<ellipse cx="29" cy="53" rx="9" ry="2.6" fill="#43c98a" opacity=".55"/>'
+            '<g fill="none" stroke="#ecd2a6" stroke-linecap="round" stroke-linejoin="round">'
+            '<path d="M29 51V35" stroke-width="5"/><path d="M31 35l9 5-2 9" stroke-width="4.4"/>'
+            '<path d="M30 33V20" stroke-width="8.5"/><path d="M30 21L12 17M30 21l18-4" stroke-width="4"/></g>'
+            '<circle cx="30" cy="11" r="5.4" fill="#ecd2a6"/>'
+            '<path d="M30 30V53" stroke="#ffd36e" stroke-width="1.2" stroke-dasharray="2 2"/>'
+            '<circle cx="30" cy="30" r="3" fill="#ffd36e" stroke="#1b1405" stroke-width="1"/></svg>')
+
+def pebalance_svg(size=56):
+    """第一課的課程卡小圖示：馬步的人偶，地上一片寬寬的綠色支撐底面，重心的虛線落在中間。"""
+    return (f'<svg class="pebalance-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">'
+            '<ellipse cx="30" cy="53" rx="22" ry="3" fill="#43c98a" opacity=".55"/>'
+            '<g fill="none" stroke="#ecd2a6" stroke-linecap="round" stroke-linejoin="round">'
+            '<path d="M24 36l-10 4 0 12M36 36l10 4 0 12" stroke-width="4.6"/>'
+            '<path d="M30 36V22" stroke-width="9"/><path d="M24 23l-6 7 6 3M36 23l6 7-6 3" stroke-width="3.6"/></g>'
+            '<circle cx="30" cy="13" r="5.4" fill="#ecd2a6"/>'
+            '<path d="M30 33V53" stroke="#ffd36e" stroke-width="1.2" stroke-dasharray="2 2"/>'
+            '<circle cx="30" cy="33" r="3" fill="#ffd36e" stroke="#1b1405" stroke-width="1"/></svg>')
+
+_PE_CARD = {"balance": pebalance_svg}
+_PE_POSES = [   # 和 tools/pe/src/body.js 的 POSES 對應（3D 模型右邊的六個姿勢按鈕）
+    ("together", "Feet together", "雙腳併攏"), ("apart", "Feet apart", "雙腳張開"), ("horse", "Horse stance", "馬步"),
+    ("oneLeg", "On one foot", "單腳站"), ("tiptoe", "On tiptoe", "踮腳尖"), ("armsOut", "Arms out", "張開雙臂"),
+]
+
+def render_pebalance_lab(lesson):
+    """第一課：站得穩的人偶（assets/js/pe-balance.js 綁這裡的 class；人偶是簡化的示意）。"""
+    lab = lesson["lab"]
+    pb = "".join(
+        f'<button type="button" data-pose="{k}" aria-pressed="{"true" if k == "together" else "false"}">'
+        f'<b>{html.escape(en)}</b><small>{html.escape(zh)}</small></button>' for k, en, zh in _PE_POSES)
+    vb = "".join(
+        f'<button type="button" data-view="{k}" aria-pressed="{"true" if k == "front" else "false"}">{en}<small>{zh}</small></button>'
+        for k, en, zh in (("front", "Front", "正面"), ("side", "Side", "側面"), ("top", "Top", "正上方")))
+    sb = "".join(
+        f'<button type="button" data-speed="{v}" aria-pressed="{"true" if v == "1" else "false"}">{t}</button>'
+        for v, t in (("1", "1×"), ("0.5", "½×"), ("0.25", "¼×")))
+    tg = _lab_toggles([("marks", "Base and center of gravity", "支撐底面與重心", True), ("labels", "Labels", "標示文字", True),
+                       ("masses", "Mass of each body part", "各部位的質量", False)])
+    return f'''<div class="astro-lab pe-lab rvl" data-pebalance-lab>
+  <div class="al-stage">
+    <div class="al-space">
+      <canvas class="al-space-cv" aria-label="3D figure standing on a mat, with its base of support and center of gravity marked; lean it until it tips over · 站在墊子上的 3D 人偶，標出支撐底面與重心；讓它歪，直到倒下去"></canvas>
+      <div class="al-labels" aria-hidden="true"></div>
+      <div class="pe-views" role="group" aria-label="View · 視角">{vb}</div>
+      <button type="button" class="pe-fell">It tipped over. Tap to stand up<small>倒了，按一下站起來</small></button>
+      <p class="al-hint">Drag the figure to lean it · 拖動人偶讓它歪　Drag the background to turn · 拖曳背景旋轉　Scroll or pinch to zoom · 滾輪／雙指縮放</p>
+      <button type="button" class="al-home" title="Reset view · 重設視角" aria-label="Reset view · 重設視角">&#8634;</button>
+    </div>
+    <aside class="al-sky pe-aside">
+      <p class="al-sky-k">Pose · 姿勢</p>
+      <div class="pe-poses" role="group" aria-label="Poses · 姿勢">{pb}</div>
+      <dl class="pe-facts">
+        <div><dt>Base of support · 支撐底面</dt><dd class="pe-area">&nbsp;</dd></div>
+        <div><dt>Center of gravity · 重心高度</dt><dd class="pe-cog">&nbsp;</dd></div>
+        <div><dt>Room left before it tips · 還能歪多少</dt><dd class="pe-room" aria-live="polite">&nbsp;</dd></div>
+      </dl>
+      <div class="pe-meter" aria-hidden="true"><i></i></div>
+      <p class="al-sky-k">Lean it · 讓它歪 <span class="pe-k-note">each press is 2° · 每按一下 2°</span></p>
+      <div class="pe-pad" role="group" aria-label="Lean the figure · 讓人偶歪">
+        <button type="button" data-lean="back" class="pe-pad-b"><b>&uarr; Back</b><small>往後 <i class="pe-tip-back"></i></small></button>
+        <button type="button" data-lean="right" class="pe-pad-r"><b>&larr; Its right</b><small>往它的右邊 <i class="pe-tip-right"></i></small></button>
+        <button type="button" class="pe-up"><b>Stand up</b><small>站起來</small></button>
+        <button type="button" data-lean="left" class="pe-pad-l"><b>Its left &rarr;</b><small>往它的左邊 <i class="pe-tip-left"></i></small></button>
+        <button type="button" data-lean="front" class="pe-pad-f"><b>&darr; Front</b><small>往前 <i class="pe-tip-front"></i></small></button>
+      </div>
+      <p class="pe-pad-note">The small numbers show how far it can lean each way before it tips.<span class="zh">小數字是往那一邊歪幾度才會倒。</span></p>
+      <div class="pe-speed" role="group" aria-label="Speed · 速度"><span>Speed · 速度</span>{sb}</div>
+      <p class="pe-msg" aria-live="polite"></p>
+    </aside>
+  </div>
+  <div class="al-controls">
+    <div class="al-row al-row-main">
+      <div class="al-row al-toggles">{tg}</div>
+    </div>
+  </div>
+  {_lab_foot(lab)}
+  <p class="pe-credit">{lab["credit_html"]}</p>
+</div>'''
+
+def _pe_stable(d):
+    return '''<div class="pe-game pe-stable rvl" data-pe-stable>
+  <div class="pe-g-top"><p class="pe-g-k"></p><p class="pe-g-sc">Right on the first try · 第一次就答對 <b class="pe-g-score"></b></p></div>
+  <div class="pe-g-steps" aria-hidden="true"></div>
+  <p class="pe-g-ask"></p>
+  <div class="pe-g-opts"></div>
+  <p class="pe-g-msg" aria-live="polite"></p>
+  <div class="pe-g-foot">
+    <button type="button" class="pe-btn pe-btn-gold pe-g-next" hidden>Next question · 下一題 &rarr;</button>
+    <button type="button" class="pe-btn pe-g-again" hidden>Play again · 再玩一次</button>
+  </div>
+</div>'''
+
+def _pe_push(d):
+    sb = "".join(
+        f'<button type="button" class="pe-btn" data-stance="{k}" aria-pressed="{"true" if k == "together" else "false"}">{html.escape(en)}<small>{html.escape(zh)}</small></button>'
+        for k, en, zh in (("together", "Feet together", "雙腳併攏"), ("apart", "Feet apart, side by side", "雙腳左右張開"),
+                          ("stride", "One foot in front", "一腳在前、一腳在後"), ("horse", "Horse stance", "馬步")))
+    st = "".join(
+        f'<button type="button" class="pe-btn" data-strength="{i}" aria-pressed="{"true" if i == 1 else "false"}">{en}<small>{zh}</small></button>'
+        for i, (en, zh) in enumerate((("Gentle · 3°", "輕輕推"), ("Medium · 7°", "中等"), ("Firm · 11°", "用力推"))))
+    rows = "".join(
+        f'<tr><th scope="row">{en}<small>{zh}</small></th>' + "".join(f'<td data-cell="{k}:{i}"></td>' for i in range(3)) + '</tr>'
+        for k, en, zh in (("front", "From the front", "從前面推"), ("back", "From the back", "從後面推"),
+                          ("left", "From its left", "從它的左邊推"), ("right", "From its right", "從它的右邊推")))
+    return f'''<div class="pe-game pe-push rvl" data-pe-push>
+  <div class="pe-p-row" role="group" aria-label="Stance · 站姿">{sb}</div>
+  <div class="pe-p-grid">
+    <div class="pe-p-stage"><canvas class="pe-p-fig" aria-label="The figure being pushed · 被推的人偶"></canvas><p class="pe-p-view">Seen from the front · 從正面看</p></div>
+    <div class="pe-p-mapw">
+      <button type="button" class="pe-p-arrow pe-p-a-back" data-push="back">Push from the back &darr;<small>從後面推</small></button>
+      <button type="button" class="pe-p-arrow pe-p-a-right" data-push="right">&rarr;<small>從它的右邊推</small></button>
+      <canvas class="pe-p-map" aria-label="Seen from above: the footprints, the base of support, and the point under the center of gravity · 從正上方看：腳印、支撐底面與重心的投影"></canvas>
+      <button type="button" class="pe-p-arrow pe-p-a-left" data-push="left">&larr;<small>從它的左邊推</small></button>
+      <button type="button" class="pe-p-arrow pe-p-a-front" data-push="front">Push from the front &uarr;<small>從前面推</small></button>
+    </div>
+  </div>
+  <div class="pe-p-row pe-p-str" role="group" aria-label="How hard to push · 推多大力">{st}</div>
+  <table class="pe-p-table"><thead><tr><th scope="col">Push · 怎麼推</th><th scope="col">Gentle<small>輕</small></th><th scope="col">Medium<small>中</small></th><th scope="col">Firm<small>重</small></th></tr></thead><tbody>{rows}</tbody></table>
+  <p class="pe-g-msg pe-p-msg" aria-live="polite"></p>
+  <p class="pe-p-note">{html.escape(d["note_en"])}<span class="zh">{html.escape(d["note_zh"])}</span></p>
+</div>'''
+
+def _pe_phrases(d):
+    """體育課的課室英語：每課 8 句老師真的會說的指令，中英對照、每句有 🔊（每一課共用這個版面）。"""
+    rows = "".join(
+        f'<li class="pe-ph rvl"><button class="spk" data-say="{html.escape(p["en"])}" aria-label="Say this · 唸這一句">🔊</button>'
+        f'<div class="pe-ph-b"><p class="pe-ph-en">{html.escape(p["en"])}</p><p class="pe-ph-zh">{html.escape(p["zh"])}</p>'
+        f'<p class="pe-ph-when">{html.escape(p["when_en"])}<span class="zh">{html.escape(p["when_zh"])}</span></p></div></li>'
+        for p in d["items"])
+    return (f'<ol class="pe-phrases">{rows}</ol>'
+            f'<p class="pe-ph-src rvl">{html.escape(d["src_en"])}<span class="zh">{html.escape(d["src_zh"])}</span></p>')
+
+def _pe_curric(d):
+    rows = "".join(
+        f'<li class="pe-cur rvl"><p class="pe-cur-k"><b>{html.escape(c["code"])}</b><span>{html.escape(c["area"])} · {html.escape(c["area_en"])}</span></p>'
+        f'<p class="pe-cur-q">{html.escape(c["text"])}</p>'
+        f'<p class="pe-cur-n">{html.escape(c["note_en"])}<span class="zh">{html.escape(c["note_zh"])}</span></p></li>'
+        for c in d["items"])
+    return f'<ul class="pe-curric">{rows}</ul>'
+
+def _pe_activity(act):
+    """課堂活動：材料與步驟沿用 _astro_activity，另外加三格——場地、這些情況先不要做、換個做法也可以。"""
+    box = lambda k, en, zh: (f'<div class="pe-as pe-as-{k}"><p class="sub-head">{en}</p>'
+                             f'<p>{html.escape(act[k + "_en"])}<span class="zh">{html.escape(act[k + "_zh"])}</span></p></div>')
+    return (_astro_activity(act)
+            + f'<div class="pe-act-safe rvl">{box("space", "Space · 場地", "")}{box("skip", "Sit this one out if · 這些情況先不要做", "")}'
+              f'{box("alt", "Another way to do it · 換個做法也可以", "")}</div>')
+
+def _pe_flat():
+    return [(ui, u, l) for ui, u in enumerate(PE["units"]) for l in u["lessons"]]
+
+def _pe_nav(slug):
+    flat = _pe_flat()
+    i = next(n for n, (_, _, l) in enumerate(flat) if l["slug"] == slug)
+    def side(item, dirn, label):
+        if not item:
+            return '<span class="pm-nav-x"></span>'
+        l = item[2]
+        arrow = "&larr;" if dirn == "prev" else "&rarr;"
+        return (f'<a class="pm-nav-s pm-nav-{dirn}" href="{PE_BASE}{l["slug"]}/">'
+                f'<span class="pm-nav-k">{arrow} {label}</span>'
+                f'<span class="pm-nav-t">{html.escape(l["title"])}</span></a>')
+    prev = flat[i - 1] if i > 0 else None
+    nxt = flat[i + 1] if i < len(flat) - 1 else None
+    return (f'<nav class="pm-nav rvl">{side(prev, "prev", "上一課 · Previous")}'
+            f'<a class="pm-nav-hub" href="{PE_BASE}">&#9776; 回體育 · All Lessons</a>'
+            f'{side(nxt, "next", "下一課 · Next")}</nav>')
+
+def build_pe_lesson(ui, unit, lesson):
+    path = f'{PE_BASE}{lesson["slug"]}/'
+    unit_dict = {k: lesson[k] for k in ("title", "paras", "paras_zh", "questions", "answers", "vocab", "quiz")}
+    unit_dict["unit"] = lesson["n"]
+    reading_html = render_basic_unit(1, unit_dict, level="pe", audio_rel="", pdf_rel="")
+    lab = lesson["lab"]
+    kind = lab["kind"]
+    lab_html = {"balance": render_pebalance_lab}[kind](lesson)
+
+    def sec(key, fn):
+        d = lesson[key]
+        return (key, d["eyebrow"], d["en"], d["zh"], fn(d), _bi(d["lead_en"], d["lead_zh"], cls="lead rvl d2"))
+    secs = []
+    if lesson.get("parts"):
+        cards = "".join(
+            f'<article class="ph-card pe-part rvl">'
+            f'<div class="ph-ico pe-ico" aria-hidden="true">{pt["icon"]}</div>'
+            f'<h3>{html.escape(pt["en"])}<span class="zh">{html.escape(pt["zh"])}</span></h3>'
+            f'<p class="ph-meta"><span>{html.escape(pt["meta_en"])} · {html.escape(pt["meta_zh"])}</span></p>'
+            f'<p class="ph-when">{html.escape(pt["text_en"])}<br><span class="zh">{html.escape(pt["text_zh"])}</span></p>'
+            f'<button type="button" class="ph-go" data-lab-demo="{pt["demo"]}">Watch it in the model · 在模型中看 <i>&uarr;</i></button>'
+            f'</article>' for pt in lesson["parts"])
+        ph = lesson["parts_head"]
+        secs.append(("parts", ph["eyebrow"], ph["en"], ph["zh"], f'<div class="ph-grid stagger">{cards}</div>',
+                     _bi(lesson["parts_note_en"], lesson["parts_note_zh"], cls="lead rvl d2")))
+    if lesson.get("stable"): secs.append(sec("stable", _pe_stable))
+    if lesson.get("push"): secs.append(sec("push", _pe_push))
+    if lesson.get("phrases"): secs.append(sec("phrases", _pe_phrases))
+    if lesson.get("culture_cards"):
+        cu = lesson["culture_cards"]
+        cc = "".join(
+            f'<article class="cc-card rvl"><p class="cc-k">{html.escape(c["k"])}</p>'
+            f'<h3>{html.escape(c["en"])}<span class="zh">{html.escape(c["zh"])}</span></h3>'
+            f'{_bi(c["body_en"], c["body_zh"])}</article>'
+            for c in cu["cards"])
+        secs.append(("stories", cu["eyebrow"], cu["title_en"], cu["title_zh"], f'<div class="cc-grid">{cc}</div>',
+                     _bi(cu["lead_en"], cu["lead_zh"], cls="lead rvl d2")))
+    if lesson.get("curric"): secs.append(sec("curric", _pe_curric))
+    secs.append(("myths", "Myth vs. Fact · 常見迷思", "Four things people get wrong", "四個常見的誤會", _sci_myths(lesson), ""))
+    th = lesson["tricks_head"]
+    secs.append(("tricks", "Remember It · 記憶口訣", th["en"], th["zh"], _sci_tricks(lesson), ""))
+    if lesson.get("safety"):
+        sh = lesson["safety_head"]
+        items = "".join(f'<li class="rvl">{html.escape(s["en"])}<span class="zh">{html.escape(s["zh"])}</span></li>' for s in lesson["safety"])
+        secs.append(("safety", sh["eyebrow"], sh["en"], sh["zh"], f'<ul class="pe-safety">{items}</ul>',
+                     _bi(sh["lead_en"], sh["lead_zh"], cls="lead rvl d2") if sh.get("lead_en") else ""))
+    acts = lesson.get("activities") or []
+    for n, act in enumerate(acts, 1):
+        eb = "Classroom Activity · 課堂活動" if len(acts) == 1 else f"Classroom Activity {n} · 課堂活動{_astro_cn(n)}"
+        secs.append((f"activity{'' if n == 1 else n}", eb, act["title_en"], act["title_zh"], _pe_activity(act), ""))
+    if lesson.get("links"):
+        def link(x):
+            body = (f'<span class="pe-link-ic" aria-hidden="true">{x["icon"]}</span>'
+                    f'<span class="pe-link-b"><span class="pe-link-k">{html.escape(x["k_en"])} · {html.escape(x["k_zh"])}</span>'
+                    f'<b>{html.escape(x["en"])}</b><span class="zh pe-link-zh">{html.escape(x["zh"])}</span>'
+                    f'<span class="pe-link-n">{html.escape(x["note_en"])}<span class="zh">{html.escape(x["note_zh"])}</span></span>')
+            if x.get("soon"):
+                return f'<div class="pe-link pe-link-soon rvl">{body}<span class="pe-link-go">Coming soon · 製作中</span></span></div>'
+            return f'<a class="pe-link rvl" href="{html.escape(x["href"])}">{body}<span class="pe-link-go">Go to the lesson · 前往這一課 <i>&rarr;</i></span></span></a>'
+        lh = lesson.get("links_head") or {"eyebrow": "Go Further · 延伸閱讀", "en": "Read more", "zh": "延伸閱讀"}
+        secs.append(("more", lh["eyebrow"], lh["en"], lh["zh"], f'<div class="pe-links">{"".join(link(x) for x in lesson["links"])}</div>', ""))
+    sec_html = "\n".join(_astro_sec(sid, k % 2 == 1, eb, en, zh, inner, lead)
+                         for k, (sid, eb, en, zh, inner, lead) in enumerate(secs))
+    src_html = ""
+    if lesson.get("sources"):
+        rows = "".join(
+            f'<li><span>{html.escape(s["en"])}<span class="zh">{html.escape(s["zh"])}</span></span>'
+            f'<a href="{html.escape(s["url"])}" target="_blank" rel="noopener">{html.escape(s["src"])} &#8599;</a></li>'
+            for s in lesson["sources"])
+        src_html = (f'<div class="pe-sources rvl"><p class="sub-head">Sources · 資料出處</p>'
+                    f'<p class="muted">{html.escape(lesson["sources_note_en"])} · {html.escape(lesson["sources_note_zh"])}</p>'
+                    f'<ol>{rows}</ol></div>')
+
+    eyebrow = (f'Sports and Movement · Unit {ui + 1} · Lesson {lesson["n"]} · '
+               f'體育 單元{_htw_cn(ui + 1)} 第{_htw_cn(lesson["n"])}課')
+    lead = f'{html.escape(lesson["blurb_en"])}<br><span class="muted">{html.escape(lesson["blurb_zh"])}</span>'
+    body = f'''
+{page_hero(eyebrow, f'{html.escape(lesson["title"])}<span class="h1-zh">{html.escape(lesson["title_zh"])}</span>', lead, back=(PE_BASE, "回體育 · All Lessons"))}
+<section class="section astro-lab-sec" id="model"><div class="wrap">
+  <div class="big-idea rvl"><span class="big-idea-k">Big idea · 一句話看懂</span>{_bi(lesson["big_idea_en"], lesson["big_idea_zh"])}</div>
+  <p class="eyebrow rvl">{html.escape(lab["eyebrow"])}</p>
+  <h2 class="rvl d1 sweep">{html.escape(lab["title_en"])} <span class="tp-h2-en">{html.escape(lab["title_zh"])}</span></h2>
+  {_bi(lab["how_en"], lab["how_zh"], cls="lead rvl d2 al-how")}
+  {lab_html}
+</div></section>
+<section class="section band" id="reading"><div class="wrap" style="max-width:940px">
+  <p class="eyebrow rvl">Reading · 英文閱讀</p>
+  {reading_html}
+</div></section>
+{sec_html}
+<section class="section"><div class="wrap">
+{src_html}
+{_pe_nav(lesson["slug"])}
+</div></section>
+'''
+    say_slug = f'pe-{lesson["slug"]}'   # tools/gen_audio.py 以路徑末兩段命名
+    has_clips = os.path.exists(os.path.join(ROOT, "assets/data/say", say_slug + ".json"))
+    write(path, layout(path, f'{lesson["title"]} · {lesson["title_zh"]}',
+          f'{lesson["blurb_en"]} {lesson["blurb_zh"]}', body, "resources",
+          say_manifest=say_slug if has_clips else None, extra_head=_pe_head(_PE_JS[kind])))
+    return path
+
+def build_pe_hub():
+    def icon(l):
+        return _PE_CARD[l["card"]](60) if l.get("card") in _PE_CARD else l["icon"]
+    unit_sections, nav = [], []
+    done = sum(len(u["lessons"]) for u in PE["units"])
+    total = done + sum(len(u.get("planned", [])) for u in PE["units"])
+    for idx, u in enumerate(PE["units"]):
+        rows = []
+        for l in u["lessons"]:
+            rows.append((l["n"],
+                f'<a class="lc-row rvl" href="{PE_BASE}{l["slug"]}/">'
+                f'<span class="lc-ico pe-lc-ico" aria-hidden="true">{icon(l)}</span>'
+                f'<span class="lc-body">'
+                f'<span class="lc-meta"><b>Lesson {l["n"]} · 第{_htw_cn(l["n"])}課</b><i>{html.escape(l["level"])}</i></span>'
+                f'<h3 class="lc-title">{html.escape(l["title"])}</h3>'
+                f'<span class="lc-zh">{html.escape(l["title_zh"])}</span>'
+                f'<span class="lc-bl">{html.escape(l["blurb_en"])}</span>'
+                f'<span class="lc-bl zh">{html.escape(l["blurb_zh"])}</span>'
+                f'<span class="lc-go">Start the lesson · 開始上課 <i>&rarr;</i></span>'
+                f'</span></a>'))
+        for p in u.get("planned", []):
+            rows.append((p["n"],
+                f'<div class="lc-row lc-soon rvl">'
+                f'<span class="lc-ico" aria-hidden="true">{p["icon"]}</span>'
+                f'<span class="lc-body"><span class="lc-meta"><b>Lesson {p["n"]} · 第{_htw_cn(p["n"])}課 · Coming soon 製作中</b></span>'
+                f'<h3 class="lc-title">{html.escape(p["en"])}</h3><span class="lc-zh">{html.escape(p["zh"])}</span></span></div>'))
+        rows.sort(key=lambda r: r[0])
+        band = " band" if idx % 2 == 0 else ""
+        uid = f"unit-{idx + 1}"
+        nav.append(f'<a class="unit-nav-link" href="#{uid}"><b>{idx + 1}</b><span>{html.escape(u["title_zh"])}</span></a>')
+        unit_sections.append(
+            f'<section class="section lc-unit{band}" id="{uid}"><div class="wrap">'
+            f'<p class="eyebrow rvl">Unit {idx + 1} · 單元{_htw_cn(idx + 1)}</p>'
+            f'<h2 class="rvl d1 sweep">{html.escape(u["title_en"])} <span class="tp-h2-en">{html.escape(u["title_zh"])}</span></h2>'
+            f'<p class="lead rvl d2" style="max-width:62ch">{html.escape(u["blurb_en"])}<br>'
+            f'<span class="muted">{html.escape(u["blurb_zh"])}</span></p>'
+            f'<div class="lc-list">{"".join(r[1] for r in rows)}</div>'
+            f'</div></section>')
+    unit_nav = (f'<nav class="unit-nav" aria-label="Jump to unit · 單元導覽"><div class="wrap">'
+                f'<span class="unit-nav-label">Jump to unit · 跳到單元</span>'
+                f'<div class="unit-nav-track">{"".join(nav)}</div></div></nav>')
+    intro_html = "".join(_bi(p["en"], p["zh"]) for p in PE["intro"])
+    intro_html += _bi(f"{done} of {total} lessons {'is' if done == 1 else 'are'} ready so far; more are on the way.",
+                      f"目前完成 {done} 課（共規劃 {total} 課），持續增加中。", cls="pe-progress")
+    lead = f'{html.escape(PE["lead_en"])}<br><span class="muted">{html.escape(PE["lead_zh"])}</span>'
+    body = f'''
+{page_hero(PE["eyebrow"], f'{PE["title_en"]} <span class="h1-zh">{PE["title_zh"]}</span>', lead, back=("/resources/reading/", "回閱讀與經典"))}
+<section class="section"><div class="wrap">
+  <div class="prose wide rvl pe-intro"><span class="pe-intro-ic" aria-hidden="true">{pehub_svg(76)}</span>{intro_html}</div>
+</div></section>
+{unit_nav}
+{"".join(unit_sections)}
+'''
+    write(PE_BASE, layout(PE_BASE, f'{PE["title_en"]} · {PE["title_zh"]}',
+          f'{PE["lead_en"]} {PE["lead_zh"]}', body, "resources", extra_head=_pe_head() + _lc_head()))
+    return PE_BASE
+
+
 
 def build_poetry_hub():
     cards = []
@@ -20082,6 +20440,10 @@ def main():
         paths.append(build_geo_hub())
         for _ui, _u in enumerate(GEO["units"]):
             for _l in _u["lessons"]: paths.append(build_geo_lesson(_ui, _u, _l))
+    if PE:
+        paths.append(build_pe_hub())
+        for _ui, _u in enumerate(PE["units"]):
+            for _l in _u["lessons"]: paths.append(build_pe_lesson(_ui, _u, _l))
     if PHIL:
         paths.append(build_phil_hub())
         for _l in PHIL["lessons"]: paths.append(build_phil_lesson(_l))

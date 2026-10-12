@@ -941,6 +941,37 @@
   - 除錯：`document.querySelector('[data-geoflat-lab]').__lab`（`state`、`setFlat(0–1)`、`setProj(name, 立即?)`、`select(lon, lat)`、`peel(0|1)`、`demo('peel'|'mercator'|'equal'|'gores')`、`look(lon, lat)`、`info()`、`run(秒)`、`render()`、`goHome()`）；`[data-gg-drag].__drag`（`moveTo(key, lon, lat)`、`toEquator(立即?)`、`home(立即?)`、`info(key)`）；`[data-gg-fit].__fit`（`game.state`、`pick(key)`、`next()`、`reset()`）。**模型快捲進畫面才初始化，shot.mjs 要等 3.5 秒再拿 `__lab`**；`run()` 之後要 `render()`。shot.mjs 會啟動系統的 Chrome，Luke 的規則是改用 `headless-chrome`（把腳本複製到暫存區、換掉執行檔路徑再跑）。
   - 查證過（2026-10）：地圖投影的定義、「不可能沒有變形」、麥卡托 1569 年發表（標題有 ad usum navigantium）、正形、恆向線是直線、畫不到極點、比例因子 sec φ、底索 1859 與 1881、等距圓柱約西元 100 年（馬里努斯）、莫爾威 1805、高爾 1855（以上 Snyder《Map Projections: A Working Manual》USGS PP 1395，1987）；Britannica〈Mercator projection〉「any straight line … is a line of constant true bearing」；高斯絕妙定理 1827（維基百科）；格陵蘭 2,166,086 km²（Statistics Greenland）、非洲 30,365,000 km²（Britannica，含島嶼）、澳洲本土 7,656,127 km²（Geoscience Australia）；波士頓公立學校 2017 年改用高爾－彼得斯（NPR）；彼得斯 1967 設計、1973 發表；1989–1990 北美七個團體反對長方形世界地圖的決議（維基百科引 Robinson 1990）；Google 地圖在約 ±85 度切成正方形（Google Maps Platform 文件）、85.0511＝arctan(sinh π)（OSM Wiki）；TWD97 橫麥卡托二度分帶、中央子午線東經 121 度、尺度比 0.9999（國土測繪中心〈常用測繪名詞〉）；中文名詞依樂詞網（地圖投影、麥卡托投影、等積投影、變形、大圓、恆向線、莫爾威投影）；課綱 地 Aa-Ⅳ-1、地 Ac-Ⅴ-1、地 Ac-Ⅴ-2 與說明欄「若介紹地圖投影時，應著重於介紹地圖投影的變形及合宜應用的案例」。**沒寫**：2026 年聯合國大會關於地圖投影的決議（只在維基百科看到，新聞稿打不開）；國家地理學會換投影的年份（維基百科 1998、學會自己寫 1995，不一致）；七個團體的名單；CIA World Factbook 的數字（2026 年 2 月已停止更新、打不開）；Web Mercator「為什麼」的官方說法（只寫文件有的：切成正方形、保角度）；國小階段課綱（學習內容沒有地圖投影的條目）；「高爾－彼得斯投影」「等距圓柱投影」樂詞網沒有條目，用通行譯名。數學系列的連結沒放（main 上還沒有數學系列）。
 
+---
+
+## 體育 Sports and Movement（/resources/classes/pe/）— 架構照音樂，3D 是「人偶引擎」，每課多一張「課室英語」卡
+
+- 內容：`data/pe.json`：`units[]`（六個單元：動作的基本功／球的科學／球類運動／更多運動項目／安全與習慣／運動的故事）底下 `lessons[]` 與 `planned[]`（「製作中」卡，做一課就從 planned 移到 lessons）；課次 `n` 全系列連號（1–24，大綱在 vault 的 `創作庫/體育課程規劃（twrses）.md`）。課綱的領域名稱是「健康與體育」，寫在系列首頁的導言。每課欄位同音樂（`paras`、`vocab`、`quiz`、`parts`、`culture_cards`、`curric`、`myths`、`tricks`、`safety`、`activities`、`links`、`sources`），多的：
+  - `phrases`（**體育課的課室英語，每課都要有**：8 句老師真的會說的指令，`items[]` 的 `en`／`zh`／`when_en`／`when_zh`，加 `src_en`／`src_zh` 說明依據；`_pe_phrases()` 畫成兩欄卡片，每句一顆 🔊，錄音跟著 gen_audio 一起產）。
+  - `activities[]` 每個活動多三組欄位：`space_*`（場地）、`skip_*`（這些情況先不要做）、`alt_*`（換個做法也可以）；`_pe_activity()` 在 `_astro_activity()` 下面加三格。**每個活動都要有換個做法的版本，不給醫療建議。**
+  - `safety_head` 可以有 `lead_en`／`lead_zh`。
+  - 本課的 2D 小互動：`stable`（哪一個姿勢最穩）、`push`（推推看；`note_en`／`note_zh` 說明「推」只是固定角度）。
+- 頁面：`build.py` 的 `build_pe_hub()`／`build_pe_lesson()`（`PE_BASE`、`_PE_JS`、`_pe_head()`、`_PE_CARD`、`_PE_POSES`）；段落順序：3D → 英文閱讀 → 模型卡 → 哪一個姿勢最穩 → 推推看 → 課室英語 → 文化卡 → 對應課綱 → 迷思 → 口訣 → 安全提醒 → 活動 → 延伸閱讀 → 出處。「閱讀與經典」頁有入口卡（🤸，放在音樂後面）。朗讀 manifest 叫 `pe-<slug>`（`tools/gen_audio.py` 的 `SHORT_PAGES` 已加 `resources/classes/pe`）。
+- 樣式：共用 `assets/css/astro.css`，本系列專屬的在 `assets/css/pe.css`（**class 前綴一律 `pe-`**）。
+- 原始碼在 `tools/pe/src/`（自己的 package.json，three 0.186.1、esbuild 0.25.10），bundle 一律 `pe-*`（`lab.kind` → bundle 對照在 `_PE_JS`；目前只有 `balance` → `pe-balance`）。**不要 import 別的系列的 tools 目錄，也不要搬人體探索的骨架**；`common.js` 是從 tools/music 抄來的。加一課要把新的 entry 加進 package.json 的 build。
+  ```
+  cd tools/pe && npm ci && npm run build && npm test
+  ```
+- **人偶引擎（每課共用，只換資料）**：座標 x＝人偶的左邊、y＝往上、z＝人偶面對的方向；地板 y＝0；人偶身高 `HEIGHT`＝1.4 公尺。
+  - `body.js`（純函式，`test/body.test.mjs`）：`PROP`（各節長度占身高的比例）、`MASS`（各節質量占體重的比例與質心位置：**Dempster 1955／Winter 2009 表 4.1**，頭頸 0.081、軀幹 0.497、上臂 0.028、前臂 0.016、手 0.006、大腿 0.100、小腿 0.0465、腳 0.0145）、`RADII`（外觀粗細）、`POSES`（姿勢＝`BASE` 加幾個改掉的數字：`stance` 腳踝離中線、`stagger` 前後錯開、`toeOut`、`drop` 蹲低、`heel` 踮腳、`liftR` 右腳離地、`trunk` 前傾、`armAbd*`／`armFlex*`／`elbow*`、`shiftX/Z` 骨盆位置）、`pose(key)`（`settle()` 解出骨盆位置，讓重心投影落在支撐底面的形心）、`lerpPose`、`joints(P, sway)`（腳先放好 → 骨盆 → 兩節腿的反向運動學，膝蓋往腳尖方向彎；`sway`＝整個人繞腳踝歪幾度，腳留在原地，腿伸不到時骨盆自動下降）、`centerOfMass(J)`、`analyze(P, sway)`、`fallFrom(A)`、`topple(J, pivot, dir, 角度)`（倒下去，不穿過地板）。
+  - `balance.js`（純函式，`test/balance.test.mjs`）：`hull`（凸包）、`area`、`centroid`、`inside`、`margin`、`nearest`、`rayDist`、`tipAngles`（往前後左右歪幾度投影才到邊緣＝atan(距離 ÷ 重心高度)）、`tipAny`。
+  - `sim.js`（不碰 DOM，`test/sim.test.mjs`）：`createSim(key)`（`setPose`、`lean`、`nudge`、`standUp`、`step(dt)`、`speed` 放慢、`onFall`；過渡中不判斷倒不倒）、`swayFor(P, dir, deg)`（要讓**重心**歪 deg 度，身體要歪幾度——人偶繞腳踝歪，重心移得比身體角度少，所以要解）、`PUSH`。
+  - `figure3d.js`：`makeFigure()`（木頭人偶：圓柱＋關節圓球＋扁橢圓球的軀幹與腳，鼻子小凸點標示正面）、`makeMarks()`（支撐底面、重心、鉛垂線、投影點、各節質量點；從正上方看時底面畫在最上層）、`makeFloor()`（3.2 公尺墊子，一格 20 公分）。`figure2d.js`：`drawFigure`（正面／側面剪影；側面＝從人偶右邊看，它面向畫面右邊）、`drawGround`、`drawTop`（正上方，人偶的前方朝下）。
+  - **之後的課要加球的物理和球場**：另開 `ball.js`（純函式＋測試）與 `court3d.js`，不要塞進 body.js。
+- 第一課怎麼站得穩（`pe-balance.js`，`lab.kind = "balance"`，`data-pebalance-lab`）：一個機制——重心的投影落在支撐底面裡就不會倒；腳張開（底面變大）、蹲低（重心變低）更穩。六個姿勢按鈕（`_PE_POSES`：together／apart／horse／oneLeg／tiptoe／armsOut），三個視角 `data-view`（front／side／top），拖動人偶（每像素 0.11°，往畫面哪邊拖就往哪邊歪；放手回正）或按方向鍵（每下 2°，會停在那裡）；金點一出綠色底面就倒，按「站起來」或點畫面。沒有 WebGL 時用 `figure2d` 畫同一個人偶（`.pe-flat`），按鈕與讀數照樣能用。
+  - 小互動（不需要 WebGL）：`stable2d.js`「哪一個姿勢最穩」（題目在 `stable.js` 的 `QUESTIONS`，**答案由引擎算**，測試要求第一名贏第二名 15% 以上）；`push2d.js`「推推看」（輕 3°／中 7°／重 11°，測試把四個站姿的結果表寫死，而且每格離臨界值至少 0.3°）。
+  - 模型算出來的數字（測試裡有）：站直重心約身高 57%（實測成年人平均約 55%，課文寫 55%、模型讀數照實顯示）；雙腳併攏底面約 350 cm²、往旁邊約 6° 就倒；雙腳張開約 980 cm²、往旁邊 16°、往前只有 7.5°；馬步重心 64 公分；單腳站 136 cm²、2.5°。
+  - 除錯：`document.querySelector('[data-pebalance-lab]').__lab`（`sim`、`setPose(key, 立即?)`、`lean(x, z)`、`standUp()`、`setView`、`setSpeed`、`demo('wide'|'low'|'one'|'lean')`、`run(秒)`、`render()`、`flat`）；`[data-pe-stable].__stable`（`best()`、`pick(key)`、`next()`、`score()`）；`[data-pe-push].__push`（`setStance`、`setStrength(0–2)`、`push('front'|'back'|'left'|'right')`、`table`、`sim`）。
+  - 查證過（2026-10）：重心不在支撐底面上方就倒、腳張開底面變大、彎膝蓋重心變低（OpenStax《College Physics 2e》9.3，原文逐字核對過）；重心定義（Britannica、教育部辭典 ID 120507）；站立重心約身高 55%、第二薦椎前方（Yang & Pai 2014；PE Central 說約在肚臍高度）；平衡靠內耳＋視覺＋肌肉骨骼的感覺（NIDCD）；姿勢擺動（Danna-Dos-Santos 2008）；6–12 歲單腳站閉眼晃得多（García-Liñeira 2021）；跳高重心可從竿下過（Scientific American 2012）；相撲規則與土俵 4.6 公尺、平衡木 5 m × 10 cm × 125 cm（Britannica）；柔道自然體／自護體（講道館柔道科學研究會紀要 1972、Judo Info）、崩し；馬步「兩腿分開，超過肩寬，採半蹲姿勢」、金雞獨立（教育部辭典 26856、94155）；課綱 Ia-Ⅱ-1、3c-Ⅲ-1、1d-Ⅲ-1、3c-Ⅳ-1（領綱 PDF 逐字）；雙語手冊（教育部師藝司／臺北市立大學雙語教學研究中心，約 2024）；學校運動安全（臺大編印 103 年手冊，**不是教育部文件**，引用時寫臺大）。
+  - **沒寫／要注意**：`base of support` 在樂詞網查不到譯名，「支撐底面」是本教材自己的用語（頁面與出處有明講）；各節**長度**比例的出處（一般說是 Drillis 與 Contini 1966）沒查到可核對的原文，頁面只說「一般人的大致比例」；相撲的蹲低、籃球防守站姿、走鋼索的長竿、「運動員起跑要不穩才快」都沒有夠硬的出處，沒寫；領綱沒有「重心」「支撐底面」這兩個詞，五六年級以上也沒有明寫「平衡」的條目；《國民體適能檢測實施辦法》只有 65 歲以上有「開眼單足立」，沒有閉眼版，所以課文沒有引用體適能檢測。
+  - `tools/astro/scripts/shot.mjs` 會啟動系統的 Google Chrome；Luke 的規則是無頭截圖一律用 `headless-chrome`——這一課是在暫存區放一份把執行檔改成 `~/.local/bin/headless-chrome` 的副本來截圖。
+
+---
+
 ## Build / Deploy
 ```
 python3 build.py        # BASE=/twrses → 服務於 lukelin7429.github.io/twrses/ 或 www.twrses.org
