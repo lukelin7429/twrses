@@ -1108,6 +1108,39 @@
   - 除錯：`document.querySelector('[data-wh-spread-lab]').__lab`（`state`、`setAgo(年前)`、`setPos(0–1)`、`play(bool)`、`ice(bool)`、`look(lon, lat, dist, 立即?)`、`select(siteKey)`、`demo('africa'|'sahul'|'beringia'|'pacific')`、`info()`、`render()`）；`[data-wh-order].__order`（`solve()`、`check()`、`move(key, ±1)`）；`[data-wh-sort].__sort`。**shot.mjs 裡要用 `scrollIntoView({ behavior: 'instant' })`**（全站是平滑捲動，不加的話模型還沒捲進畫面、`__lab` 是 undefined），再等 3 秒。
   - 課文原稿（Python dict，方便改字）備份在 `~/Developer/twrses-worldhist-gen/`，`build_json.py` 合成 JSON；repo 裡以 JSON 為準。
 
+## 美國政治 How America Governs Itself（/resources/classes/us-government/）— 架構照地理與書法；**程度是高中到大學**，每課多五張固定的卡
+
+- 內容：`data/us_government.json`：`units[]`（六個單元：憲法／國會／總統與行政部門／法院／選舉與參與／地方與公民）底下 `lessons[]` 與 `planned[]`（「製作中」卡，做一課就從 planned 移到 lessons）；課次 `n` 全系列連號（1–24，大綱在 vault 的 `創作庫/美國政治課程規劃（twrses）.md`；系列索引 `英文學習/美國政治（twrses.org）.md`）。最上層另有 `level_en`／`level_zh`（「High school and up · 高中以上」，顯示在系列首頁與每課的閱讀標題旁）與 `rules`（系列首頁的「這個系列的界線」八條）。
+- **程度（Luke 2026-10-13：不要講得太淺）**：讀者是高中生、大學生和成人，不寫成兒童科普。英文閱讀八段左右、每段 80–135 字（`test/data.test.mjs` 會檢查），用正式的術語、第一次出現時解釋；生字 12 個；小測驗考理解與推論。語氣是對聰明的成年人說話：精確、不囉嗦、不賣弄。
+- **界線（每一課都適用，違反就是這一課沒做完）**：
+  1. **公民課，不是時事評論**：講制度怎麼運作，不評價任何政黨或在世的政治人物，不替任何一邊說話。
+  2. **不比較兩黨的主張**；兩大黨只講是什麼、怎麼來的、在制度裡做什麼；例子兩黨對稱，或用歷史上的。
+  3. **不寫在世的政治人物**（現任與近年的總統、議員、大法官）的名字與評價。引言用已故、年代久遠的人（第一課「制度的爭論」用麥迪遜 1824 與霍姆斯 1920）。
+  4. **爭議議題不當主題、不表態**（墮胎、槍枝、移民等）；要舉例用已成歷史的案例（廢除種族隔離、女性投票權）。
+  5. **不談外交與美台關係**。
+  6. **歷史不美化**：制憲者蓄奴、五分之三條款、原住民族與女性被排除——照實寫、引條文。
+  7. **會變的數字與規則一律動工時重查**（席次、選舉人票、大法官人數、修正案數目、公民考試題庫版本），查官方網站、標年份，不憑記憶寫。
+  8. **「和台灣比一比」只比制度的設計**，引中華民國憲法與增修條文原文（全國法規資料庫）及官方說明；不評價哪一種比較好，不碰台灣的政黨與時事。
+  9. 來源以原文與官方為主：archives.gov、congress.gov、senate.gov、最高法院、聯邦選舉委員會、國會圖書館、Founders Online；學術性的補充用大學出版的教材或權威百科。引文逐字、保留原拼法（defence、Behaviour）；我方寫的英文一律美式。
+  10. **逐條核對多做一道**：課文寫完後另開一個子代理人（model: "sonnet"）只做核對——每個史實、年份、數字、引文對回出處；找「只寫了一種說法、其實有爭論」的句子；**逐句檢查有沒有哪一句話、哪個形容詞、哪個例子讀起來偏向某一黨**。每一條都處理完才交付。
+- **每課固定的五張卡**（資料欄位＋共用版面，`test/data.test.mjs` 檢查每課都有）：`clause`「條文怎麼寫？」（`items[]`：`cite_en/zh`、`text` 逐字原文、`zh`、`note_*`、`src[]`；每條有 🔊）、`primary`「讀原典」（`docs[]`：`text[]` 逐字原文＋`text_zh[]` 預設收起、`gloss[]` 難字、`questions[]` 三個導讀問題、`note_*` 版本說明、`src[]`；每段有 🔊）、`debate`「制度的爭論」（`question_*`、`sides[2]` 各至少三點且**兩邊點數相同**、`voice` 逐字引言＋出處、`close_*` 不下結論）、`taiwan`「和台灣比一比」（`rows[]` 對照表＋`quotes[]` 條文原文與官方英譯）、`news_english`「新聞英語」（8 個詞：`en`、`zh`、`def_*`、`ex` 例句可用 `<b>`、`ex_zh`；詞與例句各一個 🔊）。第一課另有 `series_note`「這個系列怎麼讀」。
+- 頁面：`build.py`「美國政治」區塊的 `build_usg_hub()`／`build_usg_lesson()`（`USG_BASE`、`_usg_head()`、`_usg_nav()`；render 函式一律 `_ug_` 前綴）。**加課只要登記四個表**：`_USG_JS`（`lab.kind` → bundle）、`_USG_LAB`（`lab.kind` → 3D 面板的 render 函式）、`_USG_CARD`（`lesson.card` → 課程卡小圖示）、`_USG_WIDGETS`（`[(JSON 的 key, render 函式)]`，照這個順序排；五張固定卡已登記，新的小互動加在 `clause` 前面）。段落順序：3D → 英文閱讀 →（這個系列怎麼讀）→ 模型卡 → 小互動 → 條文怎麼寫 → 讀原典 → 制度的爭論 → 和台灣比一比 → 新聞英語 → 迷思 →（口訣，可省）→ 活動 → 延伸閱讀 → 出處。沒有安全提醒段。「閱讀與經典」頁有入口卡（🏛️，放在哲學前面）。朗讀 manifest 叫 `us-government-<slug>`（`tools/gen_audio.py` 的 `SHORT_PAGES` 已加）。
+- 樣式：共用 `assets/css/astro.css`，本系列專屬的在 `assets/css/us-government.css`（**class 前綴一律 `ug-`**；3D 標籤是 `.al-lab.ug-lab3`，圖例顏色 `.al-lg-b／doc／st／rat／old／node`）。閱讀比較長：`.ug-reading .rd-para` 行寬 70ch、行距 1.8，原典 68ch。
+- 原始碼在 `tools/usgov/src/`（自己的 package.json，three 0.186.1、esbuild 0.25.10），bundle 一律 `usg-*`。**不要 import 別的系列的 tools 目錄**；`common.js` 從 tools/geo 抄來。新入口要加進 `package.json` 的 build 與 test。
+  ```
+  cd tools/usgov && npm ci && npm run build && npm test
+  ```
+- **共用引擎（每課都用）**：
+  - `dc.js`「華盛頓的模型」：`makeDC()` → `{ group, buildings: { capitol, whitehouse, court }, setGrow(key, 0–1), focusOf(key), SITES, EXTENT }`。三棟都用基本形狀自己建模（沒有照片貼圖），面向 +z，**不照比例、位置與朝向都簡化過**（頁面的 `lab.scale_*` 要寫明，並說明真正的建築比較晚才有）。`setGrow` 讓建築從地基「長出來」；之後講到哪一權就 `flyTo` 那一棟，要加東西（議場剖面、九張椅子）加在 `buildings[key].group` 底下。
+  - `timeline.js`（純函式，`test/timeline.test.mjs`）：時間用「小數年」。`toYear`／`parseDate('YYYY-MM-DD')`／`fromYear`／`formatEn`（美式日期）／`formatZh`、`makeView`／`clampView`／`zoomAt`／`pan`／`reveal`、`toFrac`／`toTime`、`ticks`、`sortEvents`／`latestAt`／`countAt`／`nearest`、`labeled`（哪些事件的標籤放得下）。
+  - `timeline2d.js`（不需要 WebGL）：`makeTimeline(root, { min, max, view, value, events, presets, onChange, onPick })`；骨架由 `build.py` 的 `_ug_timeline()` 輸出（`.ug-tl`）。拖曳或點一下移動游標、圓點是事件、方向鍵移動、＋／－與預設範圍縮放；**不攔滾輪**，手機上軌道 `touch-action: pan-y`。
+  - `match.js`＋`match2d.js`（`data-ug-match`）：配對題，不計時、可以選到對、只記第一次就答對的題數。`amend.js`（`need`／`majority`／`blockers`／`gates`／`tally`，`test/amend.test.mjs`）。
+- 第一課〈一份文件怎麼管一個國家？〉（`usg-constitution.js`，`lab.kind = "constitution"`，`data-usgconst-lab`，slug `constitution`）：一個想法——憲法是「人民授權政府」的書面契約，先設立機關、分配權力，再劃出政府不能越過的線；很短、很難改，所以靠解釋和修正案跟上時代。模型一開始停在 1787-09-17：十三州（後排的弧，由北到南）、羊皮紙、三塊空地基。九個按鈕 `data-art`（`pre`、`a1`…`a7`、`am`）：點 `a1`／`a2`／`a3` 各長出一棟建築並飛過去，右邊欄 `.ug-art[data-art-panel]` 顯示該條設立什麼、給哪些權力與逐字引文（內容在 `lab.articles`，由 build.py 輸出，沒有 WebGL 也看得到）；`a4`–`a7` 與 `am` 是前排五個節點。時間軸 1770 到現在（`lab.events`＋`lab.states` 十三州批准日＋`lab.amendments` 二十七條的批准日）：1781-03-01 前是「大陸會議」、之後到 1789-03-04 是一院制的邦聯國會（虛線串起十三州）；1787-09-17 起有羊皮紙；各州在批准日變金色並連到文件；1789-03-04 憲法施行、舊國會的小會堂消失；**三棟建築各自在那個部門開始運作的那一天出現**（`lab.branches`：國會 1789-04-06、總統 1789-04-30、最高法院 1790-02-02，出處是國家檔案館 Q&A）；修正案節點的數字＝`countAt(amendments, t)`。建築「有沒有蓋」＝`t ≥ 該部門的日期 ||（t ≥ 1787-09-17 && 使用者點過）`；時間拉回簽署之前就清掉。
+  - 「這項權力寫在哪一條？」（`match`）：十題、六個選項（第一到六條），答案分布 4／2／1／1／1／1（否決與彈劾都在第一條，是刻意的兩個意外）。
+  - 「改一個字有多難？」（`amend`，`amend2d.js`，`data-ug-amend`）：兩種提案 × 兩種批准，列出關卡與票數（由 `amend.bodies` 的 435／100／50 算出 290／67／34／38）、歷史上用過幾次；三支滑桿試票數；下面是 1789 年以來的紀錄（11,985／33／27，同一個比例畫）。
+  - 查證過（2026-10，逐條核對 101 項通過、其餘全部處理）：憲法、權利法案、第 11–27 條修正案的原文與批准日（國家檔案館謄本，引文用程式逐字比對）；《邦聯條例》1777-11-15 通過、1781-03-01 生效；制憲會議 74 人獲派、55 人出席、39 人簽署，參與表決的州從未超過十一個；十三州批准日；1789-03-04／04-06／04-30／1790-02-02；憲法 4,543 字、四張羊皮紙（以上國家檔案館）；修憲案約 11,985 件（參議院，到 2025-01-03）、33 送交各州／27 批准、會議提案從未實行、只有第 21 條由州會議批准（CRS R42592，2012）；《聯邦論》第 51 篇用國會圖書館的文本，1788-02-06 首刊於 Independent Journal、作者歸屬（Founders Online）；麥迪遜致 Henry Lee 1824-06-25、霍姆斯 Missouri v. Holland (1920)、Jacobson v. Massachusetts (1905) 談序言；25 位代表蓄奴（National Constitution Center，國家檔案館沒有這個數字）；國會大廈 1800、白宮 1800、最高法院大樓 1935；2020 普查 331,449,281；中華民國憲法與增修條文（全國法規資料庫，條文與官方英譯逐字）。**改掉或沒寫**：「一張羊皮紙」（其實四張）；「1789 年 3 月三個部門都存在」（各自的日期不同）；「十二州的代表 5 月開會」（代表陸續到，新罕布夏 7 月才到）；「1787 年的憲法沒有提到平等」（第五條有 equal Suffrage，改成「沒有保障人與人之間的平等」）；「最短的憲法」（查不到可靠出處）；「最古老」改引參議院的原話並附麻州憲法 1780 的但書（原先引的事實查核網頁網址裡有在世政治人物的名字，換掉；聖馬利諾那個但書只在該頁查得到，一併拿掉）；聯邦派對「不需要權利法案」的回應（《聯邦論》第 84 篇沒抓到原文，沒寫）；「兩種解釋取向都不專屬於哪一黨」（沒有出處，刪掉）。**Luke 2026-10-14 決定加**：「和台灣比一比」的附註用一句話寫 2022-11-26 憲法修正案複決的中選會數字（同意 5,647,102、不同意 5,016,427、同意票占選舉人總數 29.35%、不通過），當作門檻怎麼運作的例子；只寫數字與結果，不寫修正案的內容之爭、不評論。譯名：《聯邦論》（又譯《聯邦黨人文集》）、聯邦派／反聯邦派、最高條款、邦聯條例、制憲會議——樂詞網沒有這些條目，用通行譯名；Holmes 的 constituent act 譯「制憲行為」（不用「創制」，會和憲法第 17 條的創制權混淆）。世界歷史系列還不在 main 上，延伸閱讀沒有連。
+  - 除錯：`document.querySelector('[data-usgconst-lab]').__lab`（`state`、`setYear(小數年或 'YYYY-MM-DD')`、`select(key)`、`build(key, on)`、`demo('league'|'build'|'outer'|'ratify')`、`fly('overview'|'capitol'|'whitehouse'|'court'|節點 key, 立即?)`、`play()`、`info()`、`run(秒)`、`render()`、`timeline`）；`[data-ug-match].__match`（`game.state`、`pick(key)`、`next()`、`reset()`）；`[data-ug-amend].__amend`（`choose(propose, ratify)`、`vote({ house, senate, states })`、`info()`）。**模型快捲進畫面才初始化，shot.mjs 要等 3.5 秒再拿 `__lab`**；`run()` 之後要 `render()`。
+
 ## Build / Deploy
 ```
 python3 build.py        # BASE=/twrses → 服務於 lukelin7429.github.io/twrses/ 或 www.twrses.org

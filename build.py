@@ -1439,6 +1439,8 @@ def build_reading_hub():
              "How do we know what happened long ago? Taiwan's past in English, one question a lesson, with the evidence shown and differing views set side by side. 很久以前的事，我們怎麼知道？用英文讀台灣的過去：每課一個問題，把證據拿出來，說法不一樣的地方並列。"),
             ("/resources/classes/world-history/", "🌐", "World History · 世界歷史",
              "How did humans spread across the world? Turning points in world history, one question a lesson, with a 3D history globe, a parallel timeline, and an honest look at how we know. 人類怎麼走到世界各地？世界歷史的轉折點，每課一個問題：3D 歷史地球儀、平行時間軸，還有「我們怎麼知道」。"),
+            ("/resources/classes/us-government/", "🏛️", "How America Governs Itself · 美國政治",
+             "How can one document run a country? A civics series for high school and up: how the Constitution, Congress, the presidency, the courts, and elections work, with primary sources and a 3D model of Washington. 一份文件怎麼管一個國家？給高中以上讀者的公民課：憲法、國會、總統、法院與選舉怎麼運作，讀原典，再用華盛頓的 3D 模型看清楚。"),
             ("/resources/classes/philosophy/", "🦉", "Philosophy · 哲學",
              "Advanced reading: the big questions, the people who asked them, and where the Dharma meets Western thought. 高級閱讀：哲學的大問題、問這些問題的人，以及佛法與西方哲學的對照。"),
             ("/resources/grandfather/", "🌅", "Grandfather · 落日餘暉",
@@ -17907,6 +17909,458 @@ def build_wh_hub():
           f'{WH["lead_en"]} {WH["lead_zh"]}', body, "resources", extra_head=_wh_head() + _lc_head()))
     return WH_BASE
 
+# ─────────────────────────────────────────────────────────────────────────────
+# 美國政治 How America Governs Itself（/resources/classes/us-government/）
+# 架構照地理、書法：data/us_government.json 的 units[].lessons 是做好的課、units[].planned 是「製作中」卡。
+# 樣式 assets/css/us-government.css（class 前綴 ug-，只載在本系列）；原始碼 tools/usgov/src/，bundle 一律 usg-*。
+# 加課只要登記四個表：_USG_JS（lab.kind → bundle）、_USG_LAB（lab.kind → 3D 面板）、_USG_CARD（課程卡小圖示）、
+# _USG_WIDGETS（頁面上的小互動與每課固定的卡：JSON 的 key → render 函式，照這個順序排）。
+# 程度：高中到大學、一般成人。界線（每課都適用，詳見 CLAUDE.md「美國政治」一節）：公民課不是時事評論；不比較兩黨主張；
+# 不寫在世的政治人物；爭議議題不當主題；不談外交與美台關係；歷史不美化；會變的數字標來源與年份。
+# ─────────────────────────────────────────────────────────────────────────────
+_usgj = os.path.join(ROOT, "data", "us_government.json")
+USG = json.load(open(_usgj, encoding="utf-8")) if os.path.exists(_usgj) else None
+USG_BASE = "/resources/classes/us-government/"
+_USG_JS = {"constitution": "usg-constitution"}   # lab.kind → assets/js/<bundle>.js
+
+def _usg_ver():
+    h = hashlib.md5()
+    for rel in ("assets/css/astro.css", "assets/css/us-government.css", *(f"assets/js/{j}.js" for j in _USG_JS.values())):
+        fp = os.path.join(ROOT, rel)
+        if os.path.exists(fp): h.update(open(fp, "rb").read())
+    return h.hexdigest()[:8]
+
+def _usg_head(js=None):
+    v = _usg_ver()
+    tag = f'<script defer src="/assets/js/{js}.js?v={v}"></script>\n' if js else ""
+    return (f'<link rel="stylesheet" href="/assets/css/astro.css?v={v}">\n'
+            f'<link rel="stylesheet" href="/assets/css/us-government.css?v={v}">\n{tag}')
+
+def usghub_svg(size=56):
+    """美國政治系列的小圖示：一座有圓頂和柱廊的議會建築（示意），下面一條時間軸。"""
+    return (f'<svg class="usghub-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">'
+            '<path d="M19 27a11 11 0 0 1 22 0z" fill="#f1efe8"/><rect x="28.4" y="9" width="3.2" height="7" rx="1" fill="#f1efe8"/>'
+            '<circle cx="30" cy="8" r="1.8" fill="#ffd36e"/><rect x="16" y="27" width="28" height="3.4" fill="#d9d7cd"/>'
+            '<path d="M8 36l22-6 22 6z" fill="#f1efe8"/><g fill="#f1efe8"><rect x="11" y="37" width="3" height="11"/><rect x="18" y="37" width="3" height="11"/>'
+            '<rect x="25" y="37" width="3" height="11"/><rect x="32" y="37" width="3" height="11"/><rect x="39" y="37" width="3" height="11"/><rect x="46" y="37" width="3" height="11"/></g>'
+            '<rect x="7" y="48" width="46" height="3.4" rx="1" fill="#d9d7cd"/>'
+            '<path d="M6 56h48" stroke="#ffd36e" stroke-width="1.6" stroke-linecap="round"/><g fill="#ffd36e"><circle cx="14" cy="56" r="2"/><circle cx="30" cy="56" r="2"/><circle cx="46" cy="56" r="2"/></g></svg>')
+
+def usgconst_svg(size=56):
+    """第一課的課程卡小圖示：一張寫著 We the People 的羊皮紙，長出三棟小建築。"""
+    return (f'<svg class="usgconst-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">'
+            '<rect x="17" y="30" width="26" height="26" rx="2" fill="#efe2bd"/><path d="M21 37h14" stroke="#2a2117" stroke-width="2.4" stroke-linecap="round"/>'
+            '<g stroke="#8a7a55" stroke-width="1.3" stroke-linecap="round"><path d="M21 42h18M21 46h18M21 50h13"/></g>'
+            '<g stroke="#ffd36e" stroke-width="1.5" fill="none" stroke-linecap="round"><path d="M23 30C20 25 14 24 11 20"/><path d="M30 30V20"/><path d="M37 30c3-5 9-6 12-10"/></g>'
+            '<g fill="#f1efe8"><rect x="4" y="13" width="14" height="7"/><path d="M3 13l8-4 8 4z"/>'
+            '<path d="M25 13a5 5 0 0 1 10 0z"/><rect x="22" y="13" width="16" height="7"/><rect x="29.2" y="4" width="1.6" height="4"/>'
+            '<rect x="42" y="13" width="14" height="7"/><path d="M41 13l8-5 8 5z"/></g></svg>')
+
+_USG_CARD = {"constitution": usgconst_svg}
+
+def _ug_timeline(tl):
+    """可縮放的時間軸骨架（tools/usgov/src/timeline2d.js 綁這裡的 class；每課共用）。"""
+    views = "".join(
+        f'<button type="button" data-tl-view="{p["key"]}" aria-pressed="false">{html.escape(p["en"])}<small>{html.escape(p["zh"])}</small></button>'
+        for p in tl["presets"])
+    return (f'<div class="ug-tl">'
+            f'<div class="ug-tl-bar"><p class="ug-tl-date" aria-live="polite"></p>'
+            f'<div class="ug-tl-views" role="group" aria-label="Time range · 時間範圍">{views}'
+            f'<button type="button" class="ug-tl-z" data-tl-zoom="out" aria-label="Zoom out · 拉遠" title="Zoom out · 拉遠">&minus;</button>'
+            f'<button type="button" class="ug-tl-z" data-tl-zoom="in" aria-label="Zoom in · 拉近" title="Zoom in · 拉近">+</button></div></div>'
+            f'<div class="ug-tl-track" aria-label="Timeline: drag to move through time, or use the arrow keys · 時間軸：拖曳或用方向鍵在時間裡移動"></div>'
+            f'<p class="ug-tl-hint">Drag along the line, or tap a dot · 沿著線拖曳，或點一個圓點</p></div>')
+
+def render_usgconst_lab(lesson):
+    """第一課：華盛頓的模型＋時間軸（assets/js/usg-constitution.js 綁這裡的 class）。"""
+    lab = lesson["lab"]
+    ab = "".join(
+        f'<button type="button" data-art="{a["key"]}" aria-pressed="{"true" if n == 0 else "false"}">'
+        f'<b>{html.escape(a["btn_en"])}</b><small>{html.escape(a["btn_zh"])}</small></button>'
+        for n, a in enumerate(lab["articles"]))
+    def panel(n, a):
+        pw = "".join(f'<li>{html.escape(p["en"])}<span class="zh">{html.escape(p["zh"])}</span></li>' for p in a.get("powers", []))
+        quote = (f'<blockquote class="ug-art-q" lang="en">{html.escape(a["quote"])}<cite>{html.escape(a["quote_cite"])}</cite></blockquote>' if a.get("quote") else "")
+        return (f'<div class="ug-art" data-art-panel="{a["key"]}"{"" if n == 0 else " hidden"}>'
+                f'<h3 class="ug-art-name">{html.escape(a["en"])}<span class="zh">{html.escape(a["zh"])}</span></h3>'
+                f'<p class="ug-art-est">{html.escape(a["est_en"])}<span class="zh">{html.escape(a["est_zh"])}</span></p>'
+                + (f'<ul class="ug-art-pw">{pw}</ul>' if pw else "") + quote + '</div>')
+    panels = "".join(panel(n, a) for n, a in enumerate(lab["articles"]))
+    payload = json.dumps({k: lab[k] for k in ("min", "max", "presets", "events", "states", "amendments", "branches", "before_en", "before_zh")},
+                         ensure_ascii=False).replace("</", "<\\/")
+    tg = _lab_toggles([("labels", "Labels", "標示", True), ("states", "The thirteen states", "最初的十三州", True)])
+    return f'''<div class="astro-lab ug-lab rvl" data-usgconst-lab>
+  <script type="application/json">{payload}</script>
+  <div class="al-stage">
+    <div class="al-space">
+      <canvas class="al-space-cv" aria-label="Simplified 3D model: the Capitol, the White House, and the Supreme Court building, with the first thirteen states behind them and a timeline below · 簡化的 3D 模型：國會大廈、白宮、最高法院，後面是最初的十三州，下方有時間軸"></canvas>
+      <div class="al-labels" aria-hidden="true"></div>
+      <p class="al-hint">Drag to look around · 拖曳轉動視角　Scroll or pinch to zoom · 滾輪／雙指縮放</p>
+      <button type="button" class="al-home" title="Whole view · 回到全景" aria-label="Whole view · 回到全景">&#8634;</button>
+      <p class="al-nogl-msg">This 3D model needs WebGL, which this browser does not support. The article buttons, the panel, and the timeline still work, and so do the reading and the two activities below.<br><span class="zh">這個瀏覽器不支援 WebGL，無法顯示 3D 模型；條文按鈕、說明欄和時間軸照樣能用，下面的課文和兩個小互動也都能用。</span></p>
+    </div>
+    <aside class="al-sky ug-aside">
+      <p class="al-sky-k">In the document · 文件裡寫的</p>
+      {panels}
+      <div class="ug-when">
+        <p class="ug-when-k">On the timeline · 時間軸上的這一天</p>
+        <p class="ug-when-t" aria-live="polite"></p>
+        <p class="ug-when-e"></p>
+        <p class="ug-when-n"></p>
+        <dl class="ug-cnt">
+          <div><dt>States that have ratified<span class="zh">已批准憲法的州</span></dt><dd class="ug-cnt-states">0 / 13</dd></div>
+          <div><dt>Amendments ratified<span class="zh">已批准的修正案</span></dt><dd class="ug-cnt-amend">0</dd></div>
+        </dl>
+      </div>
+    </aside>
+  </div>
+  <div class="al-controls">
+    <p class="ug-ctl-k">Click a part of the Constitution · 點憲法的一個部分</p>
+    <div class="ug-arts" role="group" aria-label="Parts of the Constitution · 憲法的各個部分">{ab}</div>
+    {_ug_timeline(lab)}
+    <div class="al-row al-row-main ug-row-play">
+      <button type="button" class="al-play ug-play" aria-pressed="false"><span class="al-play-i" aria-hidden="true"></span><span class="al-play-t">Play the founding years · 播放建國那幾年</span></button>
+      <div class="al-row al-toggles">{tg}</div>
+    </div>
+  </div>
+  {_lab_foot(lab)}
+</div>'''
+
+_USG_LAB = {"constitution": render_usgconst_lab}
+
+def _ug_spk(text, label="Listen · 聽"):
+    return f'<button class="spk" data-say="{html.escape(re.sub(r"<[^>]+>", "", text))}" aria-label="{label}">🔊</button>'
+
+def _ug_src(items):
+    return "".join(f'<a href="{html.escape(s["url"])}" target="_blank" rel="noopener">{html.escape(s["label"])} &#8599;</a>' for s in items)
+
+def _ug_series_note(d):
+    """「這個系列怎麼讀」：第一課立下的讀法（公民課不是時事評論、固定的卡、為什麼不寫在世的政治人物）。"""
+    rows = "".join(
+        f'<li class="rvl"><span class="ug-sn-ic" aria-hidden="true">{it["icon"]}</span>'
+        f'<div><h3>{html.escape(it["en"])}<span class="zh">{html.escape(it["zh"])}</span></h3>{_bi(it["body_en"], it["body_zh"])}</div></li>'
+        for it in d["items"])
+    return f'<ul class="ug-sn">{rows}</ul>'
+
+def _ug_match(d):
+    opts = "".join(
+        f'<button type="button" class="ug-mt-opt" data-pick="{o["key"]}"><b>{html.escape(o["en"])}</b>'
+        f'<span class="ug-mt-lab">{html.escape(o["sub_en"])}<span class="zh">{html.escape(o["sub_zh"])}</span></span></button>'
+        for o in d["options"])
+    n = len(d["questions"])
+    payload = json.dumps({"questions": d["questions"], "end_en": d["end_en"], "end_zh": d["end_zh"]}, ensure_ascii=False).replace("</", "<\\/")
+    return f'''<div class="ug-match rvl" data-ug-match>
+  <script type="application/json">{payload}</script>
+  <div class="ug-mt-top"><p class="ug-mt-k">1 of {n} · 第 1 題（共 {n} 題）</p><p class="ug-mt-sc">Right on the first try · 第一次就答對 <b class="ug-mt-score">0 / 0</b></p></div>
+  <div class="ug-mt-steps" aria-hidden="true"></div>
+  <p class="ug-mt-q" aria-live="polite"><span class="ug-mt-q-en"></span><span class="zh ug-mt-q-zh"></span></p>
+  <div class="ug-mt-opts">{opts}</div>
+  <p class="ug-mt-msg" aria-live="polite"></p>
+  <div class="ug-mt-foot"><button type="button" class="ug-btn ug-btn-gold ug-mt-next" hidden>Next · 下一題</button></div>
+</div>'''
+
+def _ug_amend(d):
+    def choice(attr, items):
+        return "".join(
+            f'<button type="button" data-{attr}="{o["key"]}" aria-pressed="{"true" if n == 0 else "false"}">'
+            f'<b>{html.escape(o["en"])}</b><span class="zh">{html.escape(o["zh"])}</span></button>' for n, o in enumerate(items))
+    def row(k, en, zh):
+        return (f'<div class="ug-am-row"><label><span class="ug-am-lab">{en}<span class="zh">{zh}</span></span>'
+                f'<span class="ug-am-sl"><input type="range" data-vote="{k}" min="0" max="100" step="1" value="0" aria-label="{en} · {zh}"><i class="ug-am-mark" aria-hidden="true"></i></span></label>'
+                f'<p class="ug-am-read"><b class="ug-am-val">0</b><span class="ug-am-need"></span></p></div>')
+    sets = "".join(f'<button type="button" class="ug-btn" data-am-set="{k}">{html.escape(s["en"])} · {html.escape(s["zh"])}</button>' for k, s in d["sets"].items())
+    rec = d["record"]
+    top = max(r["n"] for r in rec["items"])
+    bars = "".join(
+        f'<li><span class="ug-am-rn">{html.escape(r["label"])}</span>'
+        f'<span class="ug-am-bar"><i style="width:{max(0.6, r["n"] / top * 100):.2f}%"></i></span>'
+        f'<span class="ug-am-rt">{html.escape(r["en"])}<span class="zh">{html.escape(r["zh"])}</span></span></li>'
+        for r in rec["items"])
+    payload = json.dumps({k: d[k] for k in ("bodies", "start", "sets", "gates", "used", "results")}, ensure_ascii=False).replace("</", "<\\/")
+    return f'''<div class="ug-amend rvl" data-ug-amend>
+  <script type="application/json">{payload}</script>
+  <div class="ug-am-pick">
+    <p class="ug-am-k">Step 1 · Who proposes? <span class="zh">第一步：誰提案？</span></p>
+    <div class="ug-am-choice" role="group" aria-label="How the amendment is proposed · 提案方式">{choice("propose", d["propose"])}</div>
+    <p class="ug-am-k">Step 2 · Who ratifies? <span class="zh">第二步：誰批准？</span></p>
+    <div class="ug-am-choice" role="group" aria-label="How the amendment is ratified · 批准方式">{choice("ratify", d["ratify"])}</div>
+  </div>
+  <div class="ug-am-path">
+    <p class="ug-am-k">The gates on this route <span class="zh">這條路線要過的關卡</span></p>
+    <ol class="ug-am-gates" aria-live="polite"></ol>
+    <p class="ug-am-used" aria-live="polite"></p>
+    <p class="ug-am-note">{html.escape(d["bodies_note_en"])}<span class="zh">{html.escape(d["bodies_note_zh"])}</span></p>
+  </div>
+  <div class="ug-am-try">
+    <p class="ug-am-k">Try the numbers on the usual route <span class="zh">在最常走的那條路線上試試票數</span></p>
+    {row("house", "Yes votes in the House", "眾議院贊成票")}
+    {row("senate", "Yes votes in the Senate", "參議院贊成票")}
+    {row("states", "States that ratify", "批准的州數")}
+    <div class="ug-am-sets">{sets}</div>
+    <p class="ug-am-result" aria-live="polite"></p>
+  </div>
+  <div class="ug-am-record">
+    <p class="ug-am-k">{html.escape(rec["en"])} <span class="zh">{html.escape(rec["zh"])}</span></p>
+    <ul class="ug-am-bars">{bars}</ul>
+    <p class="ug-am-note">{html.escape(rec["note_en"])}<span class="zh">{html.escape(rec["note_zh"])}</span> <span class="ug-srcs">{_ug_src(rec["src"])}</span></p>
+  </div>
+</div>'''
+
+def _ug_clause(d):
+    """「條文怎麼寫？」：這一課依據的條文原文（逐字）、中譯、一句說明與官方連結。每課都有。"""
+    rows = "".join(
+        f'<li class="ug-cl rvl"><p class="ug-cl-k"><b>{html.escape(c["cite_en"])}</b><span>{html.escape(c["cite_zh"])}</span></p>'
+        f'<blockquote class="ug-cl-q" lang="en">{_ug_spk(c["text"], "Read this clause · 唸這一條")}<span>{html.escape(c["text"])}</span></blockquote>'
+        f'<p class="ug-cl-zh">{html.escape(c["zh"])}</p>'
+        f'<p class="ug-cl-n">{html.escape(c["note_en"])}<span class="zh">{html.escape(c["note_zh"])}</span></p>'
+        f'<p class="ug-srcs">{_ug_src(c["src"])}</p></li>'
+        for c in d["items"])
+    return f'<ul class="ug-clauses">{rows}</ul>'
+
+def _ug_primary(d):
+    """「讀原典」：第一手文獻的原文（逐字、保留原拼法）、中譯、難字註解、三個導讀問題。每課都有。"""
+    out = []
+    for n, doc in enumerate(d["docs"]):
+        tid = f'ug-pr-{n + 1}'
+        paras = "".join(f'<p class="ug-pr-p" lang="en">{_ug_spk(p, "Read this passage · 唸這一段")}<span>{html.escape(p)}</span></p>' for p in doc["text"])
+        zh = "".join(f'<p>{html.escape(p)}</p>' for p in doc["text_zh"])
+        gloss = "".join(f'<li><b lang="en">{html.escape(g["w"])}</b><span>{html.escape(g["en"])}<span class="zh">{html.escape(g["zh"])}</span></span></li>' for g in doc["gloss"])
+        qs = "".join(f'<li>{html.escape(q["en"])}<span class="zh">{html.escape(q["zh"])}</span></li>' for q in doc["questions"])
+        out.append(
+            f'<article class="ug-pr rvl"><header class="ug-pr-h"><p class="ug-pr-k">{html.escape(doc["kind_en"])} · {html.escape(doc["kind_zh"])}</p>'
+            f'<h3>{html.escape(doc["title_en"])}<span class="zh">{html.escape(doc["title_zh"])}</span></h3>'
+            f'<p class="ug-pr-by">{html.escape(doc["by_en"])}<span class="zh">{html.escape(doc["by_zh"])}</span></p></header>'
+            f'<div class="ug-pr-text">{paras}</div>'
+            f'<div class="rd-trwrap"><button class="tr-toggle" data-target="{tid}" data-show="Show Chinese · 看中文翻譯" data-hide="Hide · 隱藏翻譯">Show Chinese · 看中文翻譯</button>'
+            f'<div class="tr-box ug-pr-zh" id="{tid}">{zh}</div></div>'
+            f'<p class="ug-pr-note">{html.escape(doc["note_en"])}<span class="zh">{html.escape(doc["note_zh"])}</span> <span class="ug-srcs">{_ug_src(doc["src"])}</span></p>'
+            f'<div class="ug-pr-cols"><div><p class="sub-head">Hard words · 難字</p><ul class="ug-pr-gloss">{gloss}</ul></div>'
+            f'<div><p class="sub-head">Three questions for a close reading · 三個導讀問題</p><ol class="ug-pr-qs">{qs}</ol></div></div></article>')
+    return f'<div class="ug-primary">{"".join(out)}</div>'
+
+def _ug_debate(d):
+    """「制度的爭論」：對這個制度設計的正反論點，各用最強的版本，附出處，不下結論。每課都有。"""
+    def side(s):
+        pts = "".join(f'<li>{html.escape(p["en"])}<span class="zh">{html.escape(p["zh"])}</span></li>' for p in s["points"])
+        voice = (f'<blockquote class="ug-db-v"><span lang="en">{html.escape(s["voice"])}</span><cite>{html.escape(s["voice_cite"])}</cite>'
+                 f'<span class="zh">{html.escape(s["voice_zh"])}</span></blockquote>' if s.get("voice") else "")
+        return (f'<article class="ug-db-side rvl"><p class="ug-db-k">{html.escape(s["k_en"])} · {html.escape(s["k_zh"])}</p>'
+                f'<h3>{html.escape(s["name_en"])}<span class="zh">{html.escape(s["name_zh"])}</span></h3>'
+                f'<ul class="ug-db-pts">{pts}</ul>{voice}<p class="ug-srcs">{_ug_src(s["src"])}</p></article>')
+    return (f'<p class="ug-db-q rvl">{html.escape(d["question_en"])}<span class="zh">{html.escape(d["question_zh"])}</span></p>'
+            f'<div class="ug-db-grid">{"".join(side(s) for s in d["sides"])}</div>'
+            f'<p class="ug-db-close rvl">{html.escape(d["close_en"])}<span class="zh">{html.escape(d["close_zh"])}</span></p>')
+
+def _ug_taiwan(d):
+    """「和台灣比一比」：只比制度的設計，引中華民國憲法與增修條文原文及官方說明；不評價哪一種比較好。每課都有。"""
+    rows = "".join(
+        f'<tr><th scope="row">{html.escape(r["topic_en"])}<span class="zh">{html.escape(r["topic_zh"])}</span></th>'
+        f'<td data-k="United States · 美國">{html.escape(r["us_en"])}<span class="zh">{html.escape(r["us_zh"])}</span></td>'
+        f'<td data-k="Republic of China (Taiwan) · 中華民國（台灣）">{html.escape(r["tw_en"])}<span class="zh">{html.escape(r["tw_zh"])}</span></td></tr>'
+        for r in d["rows"])
+    quotes = "".join(
+        f'<li class="ug-tw-q rvl"><p class="ug-cl-k"><b>{html.escape(q["cite_zh"])}</b><span>{html.escape(q["cite_en"])}</span></p>'
+        f'<blockquote lang="zh-Hant">{html.escape(q["text"])}</blockquote>'
+        f'<p class="ug-tw-en">{html.escape(q["en"])}</p><p class="ug-srcs">{_ug_src(q["src"])}</p></li>'
+        for q in d["quotes"])
+    return (f'<div class="ug-tw-wrap rvl"><table class="ug-tw"><thead><tr><th scope="col"><span class="ug-sr">Topic · 項目</span></th>'
+            f'<th scope="col">United States<span class="zh">美國</span></th><th scope="col">Republic of China (Taiwan)<span class="zh">中華民國（台灣）</span></th></tr></thead>'
+            f'<tbody>{rows}</tbody></table></div>'
+            f'<ul class="ug-tw-quotes">{quotes}</ul>'
+            f'<p class="ug-tw-note rvl">{html.escape(d["note_en"])}<span class="zh">{html.escape(d["note_zh"])}</span></p>')
+
+def _ug_news_english(d):
+    """「新聞英語」：每課都有的一張卡——8 個讀新聞會遇到的詞或句，中英對照，每個有 🔊（詞與例句各一個）。"""
+    rows = "".join(
+        f'<li class="rvl">{_ug_spk(it["en"], "Say this term · 唸這個詞")}'
+        f'<p class="ug-ne-en">{html.escape(it["en"])}<span class="zh">{html.escape(it["zh"])}</span></p>'
+        f'<p class="ug-ne-def">{html.escape(it["def_en"])}<span class="zh">{html.escape(it["def_zh"])}</span></p>'
+        f'<p class="ug-ne-ex">{_ug_spk(it["ex"], "Say this sentence · 唸這一句")}<span><span lang="en">{it["ex"]}</span><span class="zh">{html.escape(it["ex_zh"])}</span></span></p></li>'
+        for it in d["items"])
+    return f'<ol class="ug-ne">{rows}</ol>'
+
+# 頁面上的小互動與每課固定的卡：照這個順序排在「模型卡」後面（JSON 有那個 key 才出現）。
+# clause（條文怎麼寫？）、primary（讀原典）、debate（制度的爭論）、taiwan（和台灣比一比）、news_english（新聞英語）每課都要有。
+_USG_WIDGETS = [("match", _ug_match), ("amend", _ug_amend), ("clause", _ug_clause), ("primary", _ug_primary),
+                ("debate", _ug_debate), ("taiwan", _ug_taiwan), ("news_english", _ug_news_english)]
+
+def _usg_flat():
+    return [(ui, u, l) for ui, u in enumerate(USG["units"]) for l in u["lessons"]]
+
+def _usg_nav(slug):
+    flat = sorted(_usg_flat(), key=lambda x: x[2]["n"])
+    i = next(n for n, (_, _, l) in enumerate(flat) if l["slug"] == slug)
+    def side(item, dirn, label):
+        if not item:
+            return '<span class="pm-nav-x"></span>'
+        l = item[2]
+        arrow = "&larr;" if dirn == "prev" else "&rarr;"
+        return (f'<a class="pm-nav-s pm-nav-{dirn}" href="{USG_BASE}{l["slug"]}/">'
+                f'<span class="pm-nav-k">{arrow} {label}</span>'
+                f'<span class="pm-nav-t">{html.escape(l["title"])}</span></a>')
+    prev = flat[i - 1] if i > 0 else None
+    nxt = flat[i + 1] if i < len(flat) - 1 else None
+    return (f'<nav class="pm-nav rvl">{side(prev, "prev", "上一課 · Previous")}'
+            f'<a class="pm-nav-hub" href="{USG_BASE}">&#9776; 回美國政治 · All Lessons</a>'
+            f'{side(nxt, "next", "下一課 · Next")}</nav>')
+
+def build_usg_lesson(ui, unit, lesson):
+    path = f'{USG_BASE}{lesson["slug"]}/'
+    unit_dict = {k: lesson[k] for k in ("title", "paras", "paras_zh", "questions", "answers", "vocab", "quiz")}
+    unit_dict["unit"] = lesson["n"]
+    reading_html = render_basic_unit(1, unit_dict, level="us-government", audio_rel="", pdf_rel="")
+    lab = lesson["lab"]
+    kind = lab["kind"]
+    lab_html = _USG_LAB[kind](lesson)
+
+    def sec(key, fn):
+        d = lesson[key]
+        return (key.replace("_", "-"), d["eyebrow"], d["en"], d["zh"], fn(d), _bi(d["lead_en"], d["lead_zh"], cls="lead rvl d2"))
+    secs = []
+    if lesson.get("series_note"): secs.append(sec("series_note", _ug_series_note))
+    if lesson.get("parts"):
+        cards = "".join(
+            f'<article class="ph-card ug-part rvl">'
+            f'<div class="ph-ico ug-ico" aria-hidden="true">{pt["icon"]}</div>'
+            f'<h3>{html.escape(pt["en"])}<span class="zh">{html.escape(pt["zh"])}</span></h3>'
+            f'<p class="ph-meta"><span>{html.escape(pt["meta_en"])} · {html.escape(pt["meta_zh"])}</span></p>'
+            f'<p class="ph-when">{html.escape(pt["text_en"])}<br><span class="zh">{html.escape(pt["text_zh"])}</span></p>'
+            f'<button type="button" class="ph-go" data-lab-demo="{pt["demo"]}">Watch it in the model · 在模型中看 <i>&uarr;</i></button>'
+            f'</article>' for pt in lesson["parts"])
+        ph = lesson["parts_head"]
+        secs.append(("parts", ph["eyebrow"], ph["en"], ph["zh"], f'<div class="ph-grid stagger">{cards}</div>',
+                     _bi(lesson["parts_note_en"], lesson["parts_note_zh"], cls="lead rvl d2")))
+    for key, fn in _USG_WIDGETS:
+        if lesson.get(key): secs.append(sec(key, fn))
+    mh = lesson.get("myths_head") or {"en": "Four things people get wrong", "zh": "四個常見的誤會"}
+    secs.append(("myths", "Myth vs. Fact · 常見迷思", mh["en"], mh["zh"], _sci_myths(lesson), ""))
+    if lesson.get("tricks"):
+        th = lesson["tricks_head"]
+        secs.append(("tricks", "Remember It · 記憶口訣", th["en"], th["zh"], _sci_tricks(lesson), ""))
+    acts = lesson.get("activities") or []
+    for n, act in enumerate(acts, 1):
+        eb = "Activity · 課堂或自學活動" if len(acts) == 1 else f"Activity {n} · 課堂或自學活動{_astro_cn(n)}"
+        secs.append((f"activity{'' if n == 1 else n}", eb, act["title_en"], act["title_zh"], _astro_activity(act), ""))
+    if lesson.get("links"):
+        def link(x):
+            body = (f'<span class="ug-link-ic" aria-hidden="true">{x["icon"]}</span>'
+                    f'<span class="ug-link-b"><span class="ug-link-k">{html.escape(x["k_en"])} · {html.escape(x["k_zh"])}</span>'
+                    f'<b>{html.escape(x["en"])}</b><span class="zh ug-link-zh">{html.escape(x["zh"])}</span>'
+                    f'<span class="ug-link-n">{html.escape(x["note_en"])}<span class="zh">{html.escape(x["note_zh"])}</span></span>')
+            if x.get("soon"):
+                return f'<div class="ug-link ug-link-soon rvl">{body}<span class="ug-link-go">Coming soon · 製作中</span></span></div>'
+            return f'<a class="ug-link rvl" href="{html.escape(x["href"])}">{body}<span class="ug-link-go">Go to the lesson · 前往這一課 <i>&rarr;</i></span></span></a>'
+        lh = lesson.get("links_head") or {"eyebrow": "Go Further · 延伸閱讀", "en": "Read more", "zh": "延伸閱讀"}
+        secs.append(("more", lh["eyebrow"], lh["en"], lh["zh"], f'<div class="ug-links">{"".join(link(x) for x in lesson["links"])}</div>', ""))
+    sec_html = "\n".join(_astro_sec(sid, k % 2 == 1, eb, en, zh, inner, lead)
+                         for k, (sid, eb, en, zh, inner, lead) in enumerate(secs))
+    src_html = ""
+    if lesson.get("sources"):
+        rows = "".join(
+            f'<li><span>{html.escape(s["en"])}<span class="zh">{html.escape(s["zh"])}</span></span>'
+            f'<a href="{html.escape(s["url"])}" target="_blank" rel="noopener">{html.escape(s["src"])} &#8599;</a></li>'
+            for s in lesson["sources"])
+        src_html = (f'<div class="ug-sources rvl"><p class="sub-head">Sources · 資料出處</p>'
+                    f'<p class="muted">{html.escape(lesson["sources_note_en"])} · {html.escape(lesson["sources_note_zh"])}</p>'
+                    f'<ol>{rows}</ol></div>')
+
+    eyebrow = (f'U.S. Government · Unit {ui + 1} · Lesson {lesson["n"]} · '
+               f'美國政治 單元{_htw_cn(ui + 1)} 第{_htw_cn(lesson["n"])}課')
+    lead = f'{html.escape(lesson["blurb_en"])}<br><span class="muted">{html.escape(lesson["blurb_zh"])}</span>'
+    body = f'''
+{page_hero(eyebrow, f'{html.escape(lesson["title"])}<span class="h1-zh">{html.escape(lesson["title_zh"])}</span>', lead, back=(USG_BASE, "回美國政治 · All Lessons"))}
+<section class="section astro-lab-sec" id="model"><div class="wrap">
+  <div class="big-idea rvl"><span class="big-idea-k">Big idea · 一句話看懂</span>{_bi(lesson["big_idea_en"], lesson["big_idea_zh"])}</div>
+  <p class="eyebrow rvl">{html.escape(lab["eyebrow"])}</p>
+  <h2 class="rvl d1 sweep">{html.escape(lab["title_en"])} <span class="tp-h2-en">{html.escape(lab["title_zh"])}</span></h2>
+  {_bi(lab["how_en"], lab["how_zh"], cls="lead rvl d2 al-how")}
+  {lab_html}
+</div></section>
+<section class="section band ug-reading" id="reading"><div class="wrap" style="max-width:940px">
+  <p class="eyebrow rvl">Reading · 英文閱讀 <span class="ug-level">{html.escape(USG["level_en"])} · {html.escape(USG["level_zh"])}</span></p>
+  {reading_html}
+</div></section>
+{sec_html}
+<section class="section"><div class="wrap">
+{src_html}
+{_usg_nav(lesson["slug"])}
+</div></section>
+'''
+    say_slug = f'us-government-{lesson["slug"]}'   # tools/gen_audio.py 以路徑末兩段命名
+    has_clips = os.path.exists(os.path.join(ROOT, "assets/data/say", say_slug + ".json"))
+    write(path, layout(path, f'{lesson["title"]} · {lesson["title_zh"]}',
+          f'{lesson["blurb_en"]} {lesson["blurb_zh"]}', body, "resources",
+          say_manifest=say_slug if has_clips else None, extra_head=_usg_head(_USG_JS[kind])))
+    return path
+
+def build_usg_hub():
+    def icon(l):
+        return _USG_CARD[l["card"]](60) if l.get("card") in _USG_CARD else l["icon"]
+    unit_sections, nav = [], []
+    done = sum(len(u["lessons"]) for u in USG["units"])
+    total = done + sum(len(u.get("planned", [])) for u in USG["units"])
+    for idx, u in enumerate(USG["units"]):
+        rows = []
+        for l in u["lessons"]:
+            rows.append((l["n"],
+                f'<a class="lc-row rvl" href="{USG_BASE}{l["slug"]}/">'
+                f'<span class="lc-ico ug-lc-ico" aria-hidden="true">{icon(l)}</span>'
+                f'<span class="lc-body">'
+                f'<span class="lc-meta"><b>Lesson {l["n"]} · 第{_htw_cn(l["n"])}課</b><i>{html.escape(l["level"])}</i></span>'
+                f'<h3 class="lc-title">{html.escape(l["title"])}</h3>'
+                f'<span class="lc-zh">{html.escape(l["title_zh"])}</span>'
+                f'<span class="lc-bl">{html.escape(l["blurb_en"])}</span>'
+                f'<span class="lc-bl zh">{html.escape(l["blurb_zh"])}</span>'
+                f'<span class="lc-go">Start the lesson · 開始上課 <i>&rarr;</i></span>'
+                f'</span></a>'))
+        for p in u.get("planned", []):
+            rows.append((p["n"],
+                f'<div class="lc-row lc-soon rvl">'
+                f'<span class="lc-ico" aria-hidden="true">{p["icon"]}</span>'
+                f'<span class="lc-body"><span class="lc-meta"><b>Lesson {p["n"]} · 第{_htw_cn(p["n"])}課 · Coming soon 製作中</b></span>'
+                f'<h3 class="lc-title">{html.escape(p["en"])}</h3><span class="lc-zh">{html.escape(p["zh"])}</span></span></div>'))
+        rows.sort(key=lambda r: r[0])
+        band = " band" if idx % 2 == 1 else ""
+        uid = f"unit-{idx + 1}"
+        nav.append(f'<a class="unit-nav-link" href="#{uid}"><b>{idx + 1}</b><span>{html.escape(u["title_zh"])}</span></a>')
+        unit_sections.append(
+            f'<section class="section lc-unit{band}" id="{uid}"><div class="wrap">'
+            f'<p class="eyebrow rvl">Unit {idx + 1} · 單元{_htw_cn(idx + 1)}</p>'
+            f'<h2 class="rvl d1 sweep">{html.escape(u["title_en"])} <span class="tp-h2-en">{html.escape(u["title_zh"])}</span></h2>'
+            f'<p class="lead rvl d2" style="max-width:62ch">{html.escape(u["blurb_en"])}<br>'
+            f'<span class="muted">{html.escape(u["blurb_zh"])}</span></p>'
+            f'<div class="lc-list">{"".join(r[1] for r in rows)}</div>'
+            f'</div></section>')
+    unit_nav = (f'<nav class="unit-nav" aria-label="Jump to unit · 單元導覽"><div class="wrap">'
+                f'<span class="unit-nav-label">Jump to unit · 跳到單元</span>'
+                f'<div class="unit-nav-track">{"".join(nav)}</div></div></nav>')
+    intro_html = (f'<p class="ug-level-row"><span class="ug-level">{html.escape(USG["level_en"])} · {html.escape(USG["level_zh"])}</span></p>'
+                  + "".join(_bi(p["en"], p["zh"]) for p in USG["intro"]))
+    intro_html += _bi(f"{done} of {total} lessons {'is' if done == 1 else 'are'} ready so far; more are on the way.",
+                      f"目前完成 {done} 課（共規劃 {total} 課），持續增加中。", cls="ug-progress")
+    rh = USG["rules"]
+    rules = "".join(
+        f'<li class="rvl"><h3>{html.escape(r["en"])}<span class="zh">{html.escape(r["zh"])}</span></h3>{_bi(r["body_en"], r["body_zh"])}</li>'
+        for r in rh["items"])
+    lead = f'{html.escape(USG["lead_en"])}<br><span class="muted">{html.escape(USG["lead_zh"])}</span>'
+    body = f'''
+{page_hero(USG["eyebrow"], f'{USG["title_en"]} <span class="h1-zh">{USG["title_zh"]}</span>', lead, back=("/resources/reading/", "回閱讀與經典"))}
+<section class="section"><div class="wrap">
+  <div class="prose wide rvl ug-intro"><span class="ug-intro-ic" aria-hidden="true">{usghub_svg(76)}</span>{intro_html}</div>
+</div></section>
+<section class="section band" id="ground-rules"><div class="wrap">
+  <p class="eyebrow rvl">{html.escape(rh["eyebrow"])}</p>
+  <h2 class="rvl d1 sweep">{html.escape(rh["en"])} <span class="tp-h2-en">{html.escape(rh["zh"])}</span></h2>
+  {_bi(rh["lead_en"], rh["lead_zh"], cls="lead rvl d2")}
+  <ul class="ug-rules">{rules}</ul>
+</div></section>
+{unit_nav}
+{"".join(unit_sections)}
+'''
+    write(USG_BASE, layout(USG_BASE, f'{USG["title_en"]} · {USG["title_zh"]}',
+          f'{USG["lead_en"]} {USG["lead_zh"]}', body, "resources", extra_head=_usg_head() + _lc_head()))
+    return USG_BASE
+
 
 # ─────────────────────────────────────────────────────────────────────────────
 # 美術 Art（/resources/classes/art/）
@@ -22063,6 +22517,10 @@ def main():
         paths.append(build_wh_hub())
         for _ui, _u in enumerate(WH["units"]):
             for _l in _u["lessons"]: paths.append(build_wh_lesson(_ui, _u, _l))
+    if USG:
+        paths.append(build_usg_hub())
+        for _ui, _u in enumerate(USG["units"]):
+            for _l in _u["lessons"]: paths.append(build_usg_lesson(_ui, _u, _l))
     if PHIL:
         paths.append(build_phil_hub())
         for _l in PHIL["lessons"]: paths.append(build_phil_lesson(_l))

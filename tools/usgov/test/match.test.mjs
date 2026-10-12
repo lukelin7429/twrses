@@ -1,0 +1,21 @@
+import assert from 'node:assert/strict';
+import { makeMatchGame } from '../src/match.js';
+
+const g = makeMatchGame([{ answer: 'a1' }, { answer: 'a2' }, { answer: 'a5' }]);
+assert.equal(g.total, 3);
+assert.deepEqual(g.answer('a2'), { correct: false, first: false });
+assert.equal(g.next(), false, 'cannot skip an unsolved question');
+assert.deepEqual(g.answer('a1'), { correct: true, first: false });
+assert.equal(g.answer('a1'), null, 'already solved');
+assert.equal(g.state.first, 0);
+assert.equal(g.next(), true);
+assert.deepEqual(g.answer('a2'), { correct: true, first: true });
+assert.equal(g.next(), true);
+assert.deepEqual(g.answer('a5'), { correct: true, first: true });
+assert.equal(g.next(), false);
+assert.equal(g.state.done, true);
+assert.equal(g.state.first, 2);
+assert.equal(g.answer('a5'), null);
+g.reset();
+assert.deepEqual([g.state.first, g.state.i, g.state.done], [0, 0, false]);
+console.log('match.test ok');
