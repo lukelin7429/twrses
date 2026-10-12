@@ -473,3 +473,54 @@ a.mu-link:hover { transform: translateY(-3px); box-shadow: var(--shadow); border
 .mu-sq-opt:disabled { cursor: default; color: var(--ink); }
 @media (max-width: 760px) { .mu-st-grid { grid-template-columns: 1fr; } }
 @media (max-width: 560px) { .mu-staffwrap, .mu-staffq { padding: 1rem; } .mu-st-cv { height: 230px; } .mu-st-key { height: 78px; font-size: .64rem; } .mu-sq-opt b { font-size: 1.2rem; } .mu-sq-opts { gap: .3rem; } }
+
+/* ── 第六課：音符積木 ───────────────────────────────────────────────── */
+.mu-vals, .mu-beatq { margin-top: 1.5rem; padding: 1.3rem 1.4rem; background: #fff; border: 1px solid var(--line); border-radius: 20px; box-shadow: var(--shadow-sm); max-width: 1000px; }
+.mu-vl-top { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: .6rem 1rem; }
+.mu-vl-ts { display: flex; align-items: center; gap: .4rem; flex-wrap: wrap; }
+.mu-vl-ts .mu-st-k { margin-right: .3rem; }
+.mu-vals .mu-btn[aria-pressed="true"] { border-color: var(--brand); background: var(--brand-lt); }
+.mu-vals .mu-btn-gold { background: var(--gold); border-color: var(--gold); }
+.mu-vl-count { margin: 0; font-family: var(--serif); font-size: 1.8rem; font-weight: 700; color: var(--brand-dk); font-variant-numeric: tabular-nums; }
+.mu-vl-count small { font-family: var(--sans); font-size: .8rem; color: var(--ink-soft); font-weight: 700; }
+.is-full .mu-vl-count { color: #2f9e63; }
+.mu-vl-track { display: flex; gap: 3px; height: 54px; margin-top: .9rem; padding: 4px; border-radius: 12px; background: var(--cream); border: 1px dashed var(--line); transition: transform .08s; }
+.is-full .mu-vl-track { border-style: solid; border-color: #2f9e63; background: #eefaf2; }
+.is-shake .mu-vl-track { animation: mu-shake .3s; }
+@keyframes mu-shake { 25% { transform: translateX(-6px); } 75% { transform: translateX(6px); } }
+.mu-vl-blk { flex: var(--w) 1 0; min-width: 0; display: grid; place-items: center; border-radius: 8px; background: linear-gradient(#ffe08f, #ffd36e); border: 1px solid var(--gold-dk); color: #1b1405; font-size: .72rem; font-weight: 800; overflow: hidden; white-space: nowrap; padding: 0 2px; }
+.mu-vl-blk.is-rest { background: repeating-linear-gradient(45deg, #e4e0d2, #e4e0d2 6px, #f4f1e6 6px, #f4f1e6 12px); border-color: #b9b29a; color: #6a6450; }
+.mu-vl-empty { flex: var(--w) 1 0; border-radius: 8px; border: 1px dashed #c9c2ac; }
+.mu-vl-cv { display: block; width: 100%; height: 220px; margin-top: .9rem; border: 1px solid var(--line); border-radius: 14px; background: #fffdf6; }
+.mu-vl-vals { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: .4rem; margin-top: .4rem; }
+.mu-vl-val { padding: .6rem .2rem; border-radius: 12px; border: 1px solid var(--line); background: #fff; font-family: var(--sans); cursor: pointer; color: var(--ink); text-align: center; transition: border-color .15s, transform .15s, opacity .15s; }
+.mu-vl-val:hover { border-color: var(--gold); transform: translateY(-2px); }
+.mu-vl-val b { display: block; font-size: .86rem; }
+.mu-vl-val small { display: block; font-size: .68rem; color: var(--ink-soft); font-weight: 700; margin-top: .15rem; }
+.mu-vl-val.is-nofit { opacity: .45; }
+.mu-vl-mods { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: .8rem; }
+.mu-vals .mu-msg { color: var(--ink); margin-top: .8rem; min-height: 3em; }
+.mu-vals .mu-msg .zh { color: var(--ink-soft); }
+.mu-beatq .mu-hg-sc { color: var(--ink-soft); } .mu-beatq .mu-hg-score { color: var(--ink); }
+.mu-bq-k { margin: 0; font-size: .78rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--gold-dk); }
+.mu-bq-name { margin: .8rem 0 .4rem; font-weight: 800; color: var(--brand-dk); }
+.mu-bq-name .zh { font-weight: 600; color: var(--ink-soft); }
+.mu-bq-cv { display: block; width: 100%; height: 200px; border: 1px solid var(--line); border-radius: 14px; background: #fffdf6; }
+.mu-bq-opts { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: .4rem; margin-top: 1rem; }
+.mu-bq-opt { display: flex; flex-direction: column; align-items: center; padding: .6rem .1rem; border-radius: 12px; border: 1px solid var(--line); background: #fff; font-family: var(--sans); cursor: pointer; color: var(--ink); transition: border-color .15s, transform .15s; }
+.mu-bq-opt:hover:not(:disabled) { border-color: var(--gold); transform: translateY(-2px); }
+.mu-bq-opt b { font-family: var(--serif); font-size: 1.5rem; line-height: 1.1; }
+.mu-bq-opt small { font-size: .6rem; color: var(--ink-soft); font-weight: 700; text-align: center; }
+.mu-bq-opt.is-right { border-color: #2f9e63; background: #eefaf2; }
+.mu-bq-opt.is-wrong { border-color: #e08a8a; background: #fdf0f0; opacity: .7; }
+.mu-bq-opt:disabled { cursor: default; color: var(--ink); }
+.mu-split { margin-top: 1.5rem; padding: 1.2rem 1.4rem; background: #fff; border: 1px solid var(--line); border-radius: 20px; box-shadow: var(--shadow-sm); max-width: 900px; display: grid; gap: .5rem; }
+.mu-sp-row { display: grid; grid-template-columns: 9.5rem minmax(0, 1fr); gap: .8rem; align-items: center; padding: .3rem .5rem; border-radius: 12px; border: 1px solid transparent; background: transparent; font-family: var(--sans); cursor: pointer; text-align: left; color: var(--ink); }
+.mu-sp-row:hover, .mu-sp-row.is-on { border-color: var(--gold); background: #fff8e6; }
+.mu-sp-name { font-size: .86rem; font-weight: 800; }
+.mu-sp-name small { display: block; font-size: .72rem; font-weight: 600; color: var(--ink-soft); }
+.mu-sp-bar { position: relative; display: flex; gap: 2px; height: 30px; }
+.mu-sp-bar i { flex: 1 1 0; border-radius: 4px; background: linear-gradient(#ffe08f, #ffd36e); border: 1px solid var(--gold-dk); }
+.mu-sp-head { position: absolute; left: 0; top: 0; bottom: 0; width: 0; background: rgba(13,157,140,.28); border-right: 3px solid #0d9d8c; border-radius: 4px; pointer-events: none; }
+.mu-sp-note { margin: .4rem 0 0; font-size: .8rem; color: var(--ink-soft); }
+@media (max-width: 560px) { .mu-vals, .mu-beatq, .mu-split { padding: 1rem; } .mu-vl-vals { grid-template-columns: repeat(2, minmax(0, 1fr)); } .mu-bq-opts { grid-template-columns: repeat(4, minmax(0, 1fr)); } .mu-sp-row { grid-template-columns: 6.2rem minmax(0, 1fr); } .mu-vl-cv { height: 190px; } }

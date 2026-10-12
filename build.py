@@ -16166,7 +16166,7 @@ def build_comp_hub():
 _musj = os.path.join(ROOT, "data", "music.json")
 MUS = json.load(open(_musj, encoding="utf-8")) if os.path.exists(_musj) else None
 MUS_BASE = "/resources/classes/music/"
-_MUS_JS = {"string": "mus-string", "timbre": "mus-timbre", "beat": "mus-beat", "dynamics": "mus-dynamics", "staff": "mus-staff"}   # lab.kind → assets/js/<bundle>.js
+_MUS_JS = {"string": "mus-string", "timbre": "mus-timbre", "beat": "mus-beat", "dynamics": "mus-dynamics", "staff": "mus-staff", "values": "mus-values"}   # lab.kind → assets/js/<bundle>.js
 
 def _mus_ver():
     h = hashlib.md5()
@@ -16234,7 +16234,17 @@ def musstaff_svg(size=56):
             '<ellipse cx="34" cy="38" rx="4.6" ry="3.2" transform="rotate(-20 34 38)" fill="#7ef0e3"/><path d="M38 37V20" stroke="#7ef0e3" stroke-width="2"/>'
             '<ellipse cx="48" cy="26" rx="4.6" ry="3.2" transform="rotate(-20 48 26)" fill="#7ef0e3"/><path d="M52 25V8" stroke="#7ef0e3" stroke-width="2"/></svg>')
 
-_MUS_CARD = {"string": mustring_svg, "timbre": mustimbre_svg, "beat": musbeat_svg, "dynamics": musdynamics_svg, "staff": musstaff_svg}
+def musvalues_svg(size=56):
+    """第六課的課程卡小圖示：一條長條一路對半分成 1、2、4 格，最下面一排四個音符。"""
+    rows = "".join(
+        f'<rect x="6" y="{8 + 10 * i}" width="48" height="8" rx="2" fill="none" stroke="#9fb0cf" stroke-width="1.2"/>' +
+        "".join(f'<path d="M{6 + 48 * k / n:.1f} {8 + 10 * i}v8" stroke="#ffd36e" stroke-width="1.6"/>' for k in range(1, n))
+        for i, n in enumerate((1, 2, 4)))
+    return (f'<svg class="musvalues-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">{rows}'
+            '<g fill="#7ef0e3"><ellipse cx="14" cy="46" rx="3.6" ry="2.6"/><ellipse cx="26" cy="46" rx="3.6" ry="2.6"/><ellipse cx="38" cy="46" rx="3.6" ry="2.6"/><ellipse cx="50" cy="46" rx="3.6" ry="2.6"/></g>'
+            '<g stroke="#7ef0e3" stroke-width="1.8"><path d="M17 46V34M29 46V34M41 46V34M53 46V34"/></g></svg>')
+
+_MUS_CARD = {"string": mustring_svg, "timbre": mustimbre_svg, "beat": musbeat_svg, "dynamics": musdynamics_svg, "staff": musstaff_svg, "values": musvalues_svg}
 _MUS_PRESETS = [   # 和 tools/music/src/pitch.js 的 PRESETS 對應
     {"key": "whole", "en": "Whole string", "zh": "整根弦"}, {"key": "half", "en": "One half", "zh": "二分之一"},
     {"key": "twothirds", "en": "Two thirds", "zh": "三分之二"}, {"key": "threequarters", "en": "Three quarters", "zh": "四分之三"}]
@@ -16622,6 +16632,50 @@ def _mu_staffq(d):
   <div class="mu-hg-foot"><span></span><button type="button" class="mu-btn mu-btn-gold mu-sq-next" hidden>Next question · 下一題</button></div>
 </div>'''
 
+def render_musvalues_lab(lesson):
+    """第六課：音符積木與五線譜（assets/js/mus-values.js 綁這裡的 class；沒有 3D，聲音由瀏覽器合成）。"""
+    ts = "".join(f'<button type="button" class="mu-btn" data-ts="{t}" aria-pressed="{"true" if t == "4/4" else "false"}">{t}</button>' for t in ("2/4", "3/4", "4/4"))
+    vals = "".join(f'<button type="button" class="mu-vl-val" data-val="{k}"><b>{en}</b><small></small></button>'
+                   for k, en in [("whole", "Whole · 全"), ("half", "Half · 二分"), ("quarter", "Quarter · 四分"), ("eighth", "Eighth · 八分"), ("sixteenth", "Sixteenth · 十六分")])
+    return f'''<div class="mu-vals rvl" data-musvalues-lab>
+  <div class="mu-vl-top">
+    <div class="mu-vl-ts" role="group" aria-label="Time signature · 拍號"><span class="mu-st-k">Time signature · 拍號</span>{ts}</div>
+    <p class="mu-vl-count" aria-live="polite">0 <small>of 4 beats</small></p>
+  </div>
+  <div class="mu-vl-track" aria-label="The bar: blocks show how long each note is · 這一小節：長條顯示每個音符多長"></div>
+  <canvas class="mu-vl-cv" aria-label="The bar written on a staff · 寫在五線譜上的這一小節"></canvas>
+  <p class="mu-st-k mu-st-k2">Add a note · 加一個音符</p>
+  <div class="mu-vl-vals">{vals}</div>
+  <div class="mu-vl-mods">
+    <button type="button" class="mu-btn" data-mod="dot" aria-pressed="false">Dot (&times;1.5) · 附點</button>
+    <button type="button" class="mu-btn" data-mod="rest" aria-pressed="false">Rest (silent) · 休止符</button>
+    <button type="button" class="mu-btn mu-vl-undo">Undo · 復原</button>
+    <button type="button" class="mu-btn mu-vl-clear">Clear · 清除</button>
+    <button type="button" class="mu-btn mu-btn-gold mu-vl-play" disabled>&#9654; Play the bar · 播放這一小節</button>
+  </div>
+  <p class="mu-msg" aria-live="polite"></p>
+</div>'''
+
+def _mu_beatq(d):
+    opts = "".join(f'<button type="button" class="mu-bq-opt" data-pick="{b}"><b>{lab}</b><small>{"beat" if b == 1 else "beats"} · 拍</small></button>'
+                   for b, lab in [(0.25, "¼"), (0.5, "½"), (1, "1"), (1.5, "1½"), (2, "2"), (3, "3"), (4, "4")])
+    return f'''<div class="mu-beatq rvl" data-mu-beatq>
+  <div class="mu-hg-top"><p class="mu-bq-k">Question 1 of 8 · 第 1 題（共 8 題）</p><p class="mu-hg-sc">Right on the first try · 第一次就答對 <b class="mu-bq-score">0 / 0</b></p></div>
+  <p class="mu-bq-name"></p>
+  <canvas class="mu-bq-cv" aria-label="A note or rest on a staff · 五線譜上的一個音符或休止符"></canvas>
+  <div class="mu-bq-opts">{opts}</div>
+  <p class="mu-bq-msg mu-q-msg" aria-live="polite"></p>
+  <div class="mu-hg-foot"><span></span><button type="button" class="mu-btn mu-btn-gold mu-bq-next" hidden>Next question · 下一題</button></div>
+</div>'''
+
+def _mu_split(d):
+    rows = "".join(
+        f'<button type="button" class="mu-sp-row" data-n="{n}" aria-label="{nm}: {n} {"note" if n == 1 else "notes"} in four beats · {zh}：四拍裡 {n} 個音">'
+        f'<span class="mu-sp-name">{nm}<small>{zh} · {n}</small></span>'
+        f'<span class="mu-sp-bar">{"".join("<i></i>" for _ in range(n))}<b class="mu-sp-head"></b></span></button>'
+        for n, nm, zh in [(1, "Whole note", "全音符"), (2, "Half notes", "二分音符"), (4, "Quarter notes", "四分音符"), (8, "Eighth notes", "八分音符"), (16, "Sixteenth notes", "十六分音符")])
+    return f'''<div class="mu-split rvl" data-mu-split>{rows}<p class="mu-sp-note">Each row fills the same four beats. Press a row to hear it at 60 BPM, one beat each second. · 每一列填滿同樣的四拍。按一列，用 60 BPM（每秒一拍）聽聽看。</p></div>'''
+
 def _mu_curric(d):
     rows = "".join(
         f'<li class="mu-cur rvl"><p class="mu-cur-k"><b>{html.escape(c["code"])}</b><span>{html.escape(c["area"])} · {html.escape(c["area_en"])}</span></p>'
@@ -16657,7 +16711,7 @@ def build_mus_lesson(ui, unit, lesson):
     reading_html = render_basic_unit(1, unit_dict, level="music", audio_rel="", pdf_rel="")
     lab = lesson["lab"]
     kind = lab["kind"]
-    lab_html = {"string": render_musstring_lab, "timbre": render_mustimbre_lab, "beat": render_musbeat_lab, "dynamics": render_musdynamics_lab, "staff": render_musstaff_lab}[kind](lesson)
+    lab_html = {"string": render_musstring_lab, "timbre": render_mustimbre_lab, "beat": render_musbeat_lab, "dynamics": render_musdynamics_lab, "staff": render_musstaff_lab, "values": render_musvalues_lab}[kind](lesson)
 
     def sec(key, fn):
         d = lesson[key]
@@ -16675,6 +16729,8 @@ def build_mus_lesson(ui, unit, lesson):
         ph = lesson["parts_head"]
         secs.append(("parts", ph["eyebrow"], ph["en"], ph["zh"], f'<div class="ph-grid stagger">{cards}</div>',
                      _bi(lesson["parts_note_en"], lesson["parts_note_zh"], cls="lead rvl d2")))
+    if lesson.get("beatq"): secs.append(sec("beatq", _mu_beatq))
+    if lesson.get("split"): secs.append(sec("split", _mu_split))
     if lesson.get("staffq"): secs.append(sec("staffq", _mu_staffq))
     if lesson.get("signq"): secs.append(sec("signq", _mu_signq))
     if lesson.get("tempoq"): secs.append(sec("tempoq", _mu_tempoq))

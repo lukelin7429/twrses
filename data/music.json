@@ -3099,11 +3099,11 @@
        "icon": "♩",
        "k_en": "Music · Lesson 6",
        "k_zh": "音樂・第六課",
-       "soon": true,
        "en": "How Long Is a Note?",
        "zh": "一個音要多長？",
        "note_en": "The staff shows how high a note is. The next lesson shows how long: note values and the time signature.",
-       "note_zh": "五線譜顯示音有多高；下一課顯示音有多長：音符的時值和拍號。"
+       "note_zh": "五線譜顯示音有多高；下一課顯示音有多長：音符的時值和拍號。",
+       "href": "/resources/classes/music/how-long-is-a-note/"
       }
      ],
      "sources_note_en": "Names, dates, and quotations on this page were checked against these sources (October 2026). The note positions are computed by the page itself and covered by automatic tests. The clef shapes on the page are our own simplified drawings.",
@@ -3200,15 +3200,615 @@
        "url": "https://cdn.who.int/media/docs/default-source/documents/health-topics/deafness-and-hearing-loss/mls-brochure-english-2021.pdf?sfvrsn=bf19b448_5"
       }
      ]
+    },
+    {
+     "n": 6,
+     "slug": "how-long-is-a-note",
+     "title": "How Long Is a Note?",
+     "title_zh": "一個音要多長？",
+     "level": "入門 · Beginner",
+     "icon": "♩",
+     "card": "values",
+     "blurb_en": "Fill a bar with note blocks until it is exactly full, then see it on a staff and hear it. Find out why every note is half as long as the one before it.",
+     "blurb_zh": "用音符積木把一小節剛好填滿，再看它寫在五線譜上、聽它播出來。看看為什麼每個音符都是前一個的一半長。",
+     "big_idea_en": "Note lengths keep getting cut in half: a whole note, then two half notes, four quarter notes, eight eighth notes. A time signature says how many beats fit in a bar, and a bar must be filled exactly.",
+     "big_idea_zh": "音符的長度一路對半分：一個全音符，是兩個二分音符、四個四分音符、八個八分音符。拍號說每小節裡放得下幾拍，而一小節要剛好填滿。",
+     "lab": {
+      "kind": "values",
+      "eyebrow": "Try It · 動手試試",
+      "title_en": "Fill the Bar",
+      "title_zh": "把小節填滿",
+      "how_en": "Choose a time signature, then press the note buttons to add notes one at a time. The strip shows how long each note is, and the staff shows how it is written. A note that does not fit is turned away, and it tells you how many beats are left. Add a dot to make a note one and a half times as long, or switch on Rest to add silence. When the bar is full, press play.",
+      "how_zh": "選一個拍號，再按音符按鈕，一次加一個音符。長條顯示每個音符多長，五線譜顯示它怎麼寫。放不下的音符會被擋下來，並告訴你還剩幾拍。加上附點，音符就變成一又二分之一倍長；打開「休止符」就加上一段安靜。小節填滿了，就按播放。"
+     },
+     "paras": [
+      "Last time you learned where to put a note on the staff to show how high it is. But a note also needs to say how long it lasts. The answer is in its shape. A note value tells us the relative length of a note by the look of its head, whether it has a stem, and whether it has flags or beams.",
+      "The idea is easy to remember: each note is half as long as the one before it. A whole note is a hollow oval with no stem. Two half notes, which have a stem, fit in the time of one whole note. Four quarter notes, with filled heads, fit in the same time. Eight eighth notes, which have one flag each, and sixteen sixteenth notes, which have two, do too. In the United States we use these names. In British English they are called semibreve, minim, crotchet, quaver, and semiquaver.",
+      "How long is a quarter note in seconds? It depends on the tempo. A note value is relative. At 60 beats per minute, a quarter note lasts one second. At 120 beats per minute, it lasts half a second. In music we count beats, and a quarter note is one beat when the bottom number of the time signature is 4. So a half note gets two beats, and a whole note gets four.",
+      "A dot after a note makes it longer by half of its own value. A half note is two beats, so a dotted half note is two plus one, three beats. A dotted quarter note is one and a half beats. There are rests, too. A rest is the absence of sound for a set length of time, and each kind is named for the note value it matches. A quarter rest lasts as long as a quarter note, and it is silent.",
+      "Now we can understand the time signature. In 4/4, the top number says there are four beats in each bar, and the bottom number says that a quarter note is one beat. So a bar of 4/4 can hold one whole note, or two half notes, or four quarter notes, or a half note and two quarter notes. In 3/4, it holds three beats. The notes of a bar must add up exactly. That is the puzzle that composers solve in every bar.",
+      "Notes with different lengths make rhythm. Taiwan’s school music also uses jianpu, the numbered notation, and it has its own signs for length. A short line after a number makes it longer, a line under a number makes it half as long, and a circle is a rest. The same ideas of halves and halves again are there too. Whichever way it is written, the relative length is what matters, and the tempo decides how many seconds it lasts."
+     ],
+     "paras_zh": [
+      "上一課你學到在五線譜上把音放在哪裡，可以表示音有多高。可是一個音也要說明它持續多久。答案就在它的形狀裡。「音符時值」是靠符頭的樣子、有沒有符桿、有沒有符尾或符槓，來說明音符的相對長度。",
+      "這個想法很好記：每個音符都是前一個的一半長。全音符是沒有符桿的空心橢圓；兩個有符桿的二分音符，剛好等於一個全音符的時間；四個符頭是實心的四分音符，也是同樣的時間；八個各有一條符尾的八分音符，和十六個各有兩條符尾的十六分音符，也一樣。美國用這些名稱；英國英文則叫 semibreve、minim、crotchet、quaver、semiquaver。",
+      "四分音符有幾秒長？要看速度。音符時值是相對的。每分鐘 60 拍時，四分音符長一秒；每分鐘 120 拍時，長半秒。在音樂裡我們數拍，拍號下面的數字是 4 的時候，一個四分音符就是一拍。所以二分音符是兩拍，全音符是四拍。",
+      "音符後面加一個點，就會多出它自己一半的長度。二分音符是兩拍，所以附點二分音符是二加一，共三拍；附點四分音符是一又二分之一拍。也有休止符：它是一段固定長度的沉默，每一種都用它對應的音符時值來命名。四分休止符和四分音符一樣長，只是沒有聲音。",
+      "現在我們可以懂拍號了。在 4/4 裡，上面的數字說每小節有四拍，下面的數字說以四分音符為一拍。所以一個 4/4 的小節，可以放一個全音符、或兩個二分音符、或四個四分音符，或一個二分音符加兩個四分音符。在 3/4 裡，放三拍。一小節裡的音符，加起來要剛剛好。這就是作曲家在每個小節裡都要解的謎題。",
+      "長短不同的音符組成節奏。台灣的學校音樂也用簡譜（數字記譜），它有自己表示長短的記號：數字後面加一條短橫線，就變長；數字底下加一條線，就變成一半；圓圈則是休止符。同樣是一半再一半的想法。不管怎麼寫，要緊的是相對的長短，速度才決定它是幾秒。"
+     ],
+     "questions": [
+      "How many eighth notes fit in one half note?",
+      "A bar in 3/4 has a dotted half note. What else fits in the bar?",
+      "Is a quarter note always one second long? Why or why not?"
+     ],
+     "answers": [
+      "Four. A half note is two beats, and an eighth note is half a beat, so 2 ÷ ½ = 4.",
+      "Nothing else. A dotted half note is 3 beats, and a bar of 3/4 holds 3 beats, so it is full.",
+      "No. A note value is relative. A quarter note is one beat, and how long a beat lasts depends on the tempo. At 60 BPM it is one second, and at 120 BPM it is half a second."
+     ],
+     "vocab": [
+      {
+       "n": 1,
+       "w": "note value",
+       "pos": "n.",
+       "zh": "音符時值",
+       "ex": "A half note has a longer <b>note value</b> than a quarter note.",
+       "exzh": "二分音符的時值比四分音符長。"
+      },
+      {
+       "n": 2,
+       "w": "whole note",
+       "pos": "n.",
+       "zh": "全音符",
+       "ex": "A <b>whole note</b> lasts four beats in 4/4.",
+       "exzh": "全音符在 4/4 裡長四拍。"
+      },
+      {
+       "n": 3,
+       "w": "quarter note",
+       "pos": "n.",
+       "zh": "四分音符",
+       "ex": "A <b>quarter note</b> usually gets one beat.",
+       "exzh": "四分音符通常是一拍。"
+      },
+      {
+       "n": 4,
+       "w": "rest",
+       "pos": "n.",
+       "zh": "休止符",
+       "ex": "Count one beat for the <b>rest</b>, and do not play.",
+       "exzh": "休止符數一拍，不要演奏。"
+      },
+      {
+       "n": 5,
+       "w": "dot",
+       "pos": "n.",
+       "zh": "附點",
+       "ex": "A <b>dot</b> makes a note half again as long.",
+       "exzh": "附點會讓音符再多出一半的長度。"
+      },
+      {
+       "n": 6,
+       "w": "bar",
+       "pos": "n.",
+       "zh": "小節",
+       "ex": "Each <b>bar</b> of this song has four beats.",
+       "exzh": "這首歌的每一小節有四拍。"
+      },
+      {
+       "n": 7,
+       "w": "stem",
+       "pos": "n.",
+       "zh": "符桿",
+       "ex": "A half note has a <b>stem</b>, and a whole note does not.",
+       "exzh": "二分音符有符桿，全音符沒有。"
+      },
+      {
+       "n": 8,
+       "w": "flag",
+       "pos": "n.",
+       "zh": "符尾",
+       "ex": "An eighth note has one <b>flag</b> on its stem.",
+       "exzh": "八分音符的符桿上有一條符尾。"
+      }
+     ],
+     "quiz": [
+      {
+       "q": "How many quarter notes equal one whole note?",
+       "options": [
+        "Four",
+        "Two",
+        "Eight",
+        "Three"
+       ],
+       "correct": 0
+      },
+      {
+       "q": "What does a dot after a note do?",
+       "options": [
+        "Makes it half as long again",
+        "Makes it twice as long",
+        "Makes it louder",
+        "Makes it a rest"
+       ],
+       "correct": 0
+      },
+      {
+       "q": "In 4/4, how many beats does a dotted half note get?",
+       "options": [
+        "Three",
+        "Two",
+        "Four",
+        "One and a half"
+       ],
+       "correct": 0
+      },
+      {
+       "q": "What is a rest?",
+       "options": [
+        "A silence that lasts as long as a note of the same name",
+        "A very quiet note",
+        "A note with a dot",
+        "The last note of a bar"
+       ],
+       "correct": 0
+      },
+      {
+       "q": "A bar of 3/4 is filled by…",
+       "options": [
+        "A half note and a quarter note",
+        "A whole note",
+        "Two half notes",
+        "Three half notes"
+       ],
+       "correct": 0
+      }
+     ],
+     "parts_head": {
+      "eyebrow": "Try It in the Model · 在模型裡試試",
+      "en": "Four things to try",
+      "zh": "四件值得試的事"
+     },
+     "parts": [
+      {
+       "key": "fill",
+       "icon": "🧩",
+       "en": "A bar that adds up",
+       "zh": "加起來剛好的小節",
+       "meta_en": "Half + quarter + two eighths",
+       "meta_zh": "二分＋四分＋兩個八分",
+       "demo": "fill",
+       "text_en": "These four blocks add up to exactly four beats. Watch the strip fill, and hear the bar.",
+       "text_zh": "這四塊加起來剛好四拍。看長條被填滿，並聽這一小節。"
+      },
+      {
+       "key": "dotted",
+       "icon": "•",
+       "en": "A dot adds half",
+       "zh": "附點多加一半",
+       "meta_en": "Dotted half = 3 beats",
+       "meta_zh": "附點二分＝3 拍",
+       "demo": "dotted",
+       "text_en": "A dotted half note and a quarter note fill a bar of 4/4.",
+       "text_zh": "一個附點二分音符加一個四分音符，填滿 4/4 的小節。"
+      },
+      {
+       "key": "rest",
+       "icon": "🤫",
+       "en": "A rest is silent but counts",
+       "zh": "休止符沒有聲音，但要算",
+       "meta_en": "A quarter rest = 1 beat",
+       "meta_zh": "四分休止符＝1 拍",
+       "demo": "rest",
+       "text_en": "Listen for the gap in the middle of the bar. The beat clicks go on through it.",
+       "text_zh": "聽小節中間的空隙。節拍的喀喀聲照常走過去。"
+      },
+      {
+       "key": "split",
+       "icon": "➗",
+       "en": "Three beats in 3/4",
+       "zh": "3/4 的三拍",
+       "meta_en": "Another time signature",
+       "meta_zh": "另一個拍號",
+       "demo": "split",
+       "text_en": "Switch the time signature, and the same notes make a different bar.",
+       "text_zh": "換一個拍號，同樣的音符就組成不一樣的小節。"
+      }
+     ],
+     "parts_note_en": "Then try it yourself: can you fill a 4/4 bar using at least three different note values?",
+     "parts_note_zh": "然後自己試試：你能不能用至少三種不同的音符時值，填滿一個 4/4 的小節？",
+     "split": {
+      "eyebrow": "Hear It · 聽聽看",
+      "en": "Halves, Again and Again",
+      "zh": "一半再一半",
+      "lead_en": "Every row fills the same four beats. The first row uses one note, the second uses two, and so on, doubling each time. Press a row and listen to how the notes get closer together.",
+      "lead_zh": "每一列都填滿同樣的四拍。第一列用一個音，第二列用兩個，一直倍增下去。按一列，聽聽音符怎麼越來越密。"
+     },
+     "beatq": {
+      "eyebrow": "Game · 小遊戲",
+      "en": "How Many Beats?",
+      "zh": "這個符號幾拍？",
+      "lead_en": "Eight questions, all in 4/4. Each one shows a note or a rest, and you choose how many beats it lasts. The game counts the questions you get right on the first try.",
+      "lead_zh": "八道題，全部在 4/4 裡。每一題給你看一個音符或休止符，你選它占幾拍。遊戲會記下你第一次就答對的題數。"
+     },
+     "curric": {
+      "eyebrow": "In the Curriculum · 對應課綱",
+      "en": "Where this lesson fits",
+      "zh": "這一課對應的課綱",
+      "lead_en": "The curriculum names rhythm and time signatures, and it also names simple composing. The words “note” and “rest” do not appear in the curriculum itself.",
+      "lead_zh": "課綱寫到節奏和拍號，也寫到簡易創作。「音符」和「休止」這兩個詞，課綱本文裡沒有出現。",
+      "items": [
+       {
+        "code": "音 E-Ⅱ-3",
+        "area": "藝術領域・音樂（國小三、四年級）",
+        "area_en": "Arts, music (grades 3–4)",
+        "text": "讀譜方式，如：五線譜、唱名法、拍號等。",
+        "note_en": "Time signatures are named as part of reading music.",
+        "note_zh": "拍號被列為讀譜的一部分。"
+       },
+       {
+        "code": "音 E-Ⅱ-4",
+        "area": "藝術領域・音樂（國小三、四年級）",
+        "area_en": "Arts, music (grades 3–4)",
+        "text": "音樂元素，如：節奏、力度、速度等。",
+        "note_en": "Rhythm is the first element named.",
+        "note_zh": "節奏是被點名的第一個音樂元素。"
+       },
+       {
+        "code": "音 E-Ⅲ-4",
+        "area": "藝術領域・音樂（國小五、六年級）",
+        "area_en": "Arts, music (grades 5–6)",
+        "text": "音樂符號與讀譜方式，如：音樂術語、唱名法等。記譜法，如：圖形譜、簡譜、五線譜等。",
+        "note_en": "Notation systems, including jianpu and the staff, are named.",
+        "note_zh": "記譜法被點名，包括簡譜和五線譜。"
+       },
+       {
+        "code": "音 E-Ⅲ-5",
+        "area": "藝術領域・音樂（國小五、六年級）",
+        "area_en": "Arts, music (grades 5–6)",
+        "text": "簡易創作，如：節奏創作、曲調創作、曲式創作等。",
+        "note_en": "Filling a bar with your own mix of notes and rests is a small piece of rhythm composing.",
+        "note_zh": "用你自己選的音符和休止符填滿一小節，就是一小段節奏創作。"
+       }
+      ]
+     },
+     "culture_cards": {
+      "eyebrow": "Stories Behind the Notes · 音符背後的故事",
+      "title_en": "Names, a dot, a silence, and a row of numbers",
+      "title_zh": "名字、一個點、一段安靜，和一排數字",
+      "lead_en": "Four short stories about how music writes down length.",
+      "lead_zh": "關於音樂怎麼把長短寫下來的四個小故事。",
+      "cards": [
+       {
+        "k": "Names · 名字",
+        "en": "Whole, half, quarter: a German loan",
+        "zh": "全、二分、四分：從德文借來的",
+        "body_en": "The American names are translations of German ones. The American whole note is a calque of the German ganze Note, and the quarter note follows the German Viertelnote. The British names are older and come from other places. Crotchet is from an Old French word for a little hook, named after the shape of the note, and minim comes from the Latin for very small.",
+        "body_zh": "美式名稱是從德文翻譯來的。美式的 whole note 是德文 ganze Note 的直譯，quarter note 也來自德文 Viertelnote。英式名稱比較古老，來自別的地方：crotchet 來自古法文的「小鉤子」，是依音符的形狀命名；minim 來自拉丁文的「很小」。"
+       },
+       {
+        "k": "A Dot · 一個點",
+        "en": "A dot, and a double dot",
+        "zh": "一個點，和兩個點",
+        "body_en": "A single dot adds half of the note's value. A second dot adds half of that again, so a double-dotted note lasts 1¾ times its basic value. For instance, a double-dotted half note is 2 + 1 + ½ = 3½ beats. Double dots were not used until the middle of the 18th century.",
+        "body_zh": "一個點加上音符時值的一半。第二個點再加上那一半的一半，所以複附點音符的長度是原時值的 1¾ 倍。例如複附點二分音符是 2＋1＋½＝3½ 拍。複附點直到十八世紀中葉才有人用。"
+       },
+       {
+        "k": "A Silence · 一段安靜",
+        "en": "Rests: counted, not played",
+        "zh": "休止符：要數，但不演奏",
+        "body_en": "A rest is the absence of sound for a defined length of time, and each kind is named for the note value it matches. There are rests for every note value, from the whole rest to the thirty-second rest. One special case: when a whole bar is silent, a whole rest is used, whatever the time signature is. So a whole rest does not always mean four beats.",
+        "body_zh": "休止符是一段有明確長度的沒有聲音，每一種都用它對應的音符時值命名。從全休止符到三十二分休止符，每一種時值都有休止符。有一個特別的情況：整個小節都沒有聲音時，不管拍號是什麼，都用全休止符。所以全休止符不一定是四拍。"
+       },
+       {
+        "k": "A Row of Numbers · 一排數字",
+        "en": "Length in jianpu",
+        "zh": "簡譜怎麼寫長短",
+        "body_en": "In jianpu, each number is worth a quarter note. A dash after a number makes it twice as long, like a half note. A line under a number cuts it in half, like an eighth note. A rest is written with a circle. The time signature is written as two numbers, such as 3/4, in the same way as on the staff.",
+        "body_zh": "在簡譜裡，每個數字相當於五線譜的四分音符。數字後面加一條短橫線，長度加倍，相當於二分音符；數字底下加一條線，長度減半，相當於八分音符；休止符用圓圈寫。拍號和五線譜一樣，寫成兩個數字，例如 3/4。"
+       }
+      ]
+     },
+     "myths": [
+      {
+       "myth_en": "A whole note always lasts four seconds.",
+       "myth_zh": "全音符永遠是四秒。",
+       "fact_en": "A note value is relative. A whole note is four beats when a quarter note is one beat, and the number of seconds depends on the tempo. At 60 BPM it is four seconds. At 120 BPM it is two.",
+       "fact_zh": "音符時值是相對的。當四分音符是一拍時，全音符是四拍，幾秒要看速度：60 BPM 是四秒，120 BPM 是兩秒。"
+      },
+      {
+       "myth_en": "A rest means nothing happens.",
+       "myth_zh": "休止符就是什麼都不發生。",
+       "fact_en": "A rest is silent but it takes time. It keeps the rhythm going, and the player must count it.",
+       "fact_zh": "休止符沒有聲音，但它占時間。它讓節奏繼續走，演奏的人必須數它。"
+      },
+      {
+       "myth_en": "A whole rest is always four beats.",
+       "myth_zh": "全休止符永遠是四拍。",
+       "fact_en": "A whole rest is used for a whole silent bar, in any time signature. In 3/4 a whole rest means three beats.",
+       "fact_zh": "全休止符用來表示整個沒有聲音的小節，不管什麼拍號。在 3/4 裡，全休止符是三拍。"
+      },
+      {
+       "myth_en": "A dot just makes a note longer by one beat.",
+       "myth_zh": "附點只是讓音符多一拍。",
+       "fact_en": "A dot adds half of the note's own value. For a half note that is one beat, for a quarter note it is half a beat, and for an eighth note it is a quarter of a beat.",
+       "fact_zh": "附點加上音符自己時值的一半：二分音符加一拍、四分音符加半拍、八分音符加四分之一拍。"
+      }
+     ],
+     "tricks_head": {
+      "en": "Note lengths in a sentence",
+      "zh": "一句話記住音符長短"
+     },
+     "tricks": [
+      {
+       "title_en": "Half, half, half again",
+       "title_zh": "一半，再一半，再一半",
+       "body_en": "Whole, half, quarter, eighth, sixteenth.",
+       "body_zh": "全、二分、四分、八分、十六分。"
+      },
+      {
+       "title_en": "A dot is half again",
+       "title_zh": "附點加一半",
+       "body_en": "Dotted half = 2 + 1 = 3 beats.",
+       "body_zh": "附點二分＝2＋1＝3 拍。"
+      },
+      {
+       "title_en": "A rest is silent but counted",
+       "title_zh": "休止符靜靜地數",
+       "body_en": "Same length as the note of the same name.",
+       "body_zh": "和同名的音符一樣長。"
+      },
+      {
+       "title_en": "The bar must add up",
+       "title_zh": "小節要加起來剛好",
+       "body_en": "4/4 holds four quarter notes' worth.",
+       "body_zh": "4/4 放得下四個四分音符的長度。"
+      }
+     ],
+     "safety_head": {
+      "eyebrow": "Protect Your Ears · 保護耳朵",
+      "en": "Before you listen",
+      "zh": "聽之前"
+     },
+     "safety": [
+      {
+       "en": "Start with the volume low and turn it up a little at a time. The sound bar on this page starts at 30%.",
+       "zh": "先把音量調小，再一點一點調大。本頁的聲音列一開始是 30%。"
+      },
+      {
+       "en": "With headphones, keep the volume at no more than 60% of maximum, and use personal audio devices for less than one hour a day, as the World Health Organization suggests.",
+       "zh": "戴耳機時，音量不要超過最大音量的 60%，個人音響裝置每天使用少於一小時，這是世界衛生組織的建議。"
+      },
+      {
+       "en": "When you clap or tap rhythms in class, use soft hands or a pad, and do not clap close to anyone’s ears.",
+       "zh": "在課堂上拍或敲節奏時，用軟軟的手或墊子，不要在別人耳朵旁邊拍手。"
+      }
+     ],
+     "activities": [
+      {
+       "title_en": "Fraction Clapping",
+       "title_zh": "分數拍手",
+       "materials": [
+        {
+         "en": "Paper strips, each one the same length, for the whole class",
+         "zh": "全班每人一條一樣長的紙條"
+        },
+        {
+         "en": "Pencils",
+         "zh": "鉛筆"
+        },
+        {
+         "en": "The page, for a steady beat",
+         "zh": "本頁的節拍"
+        }
+       ],
+       "steps": [
+        {
+         "en": "Fold the strip in half, then in half again, and again, like folding paper into halves, quarters, and eighths. Mark the folds.",
+         "zh": "把紙條對摺、再對摺、再對摺，就像把紙摺成二分之一、四分之一、八分之一。把摺痕標出來。"
+        },
+        {
+         "en": "Let the whole strip be one bar of four beats. Clap one clap for the whole strip, then two claps for halves, four for quarters, and eight for eighths, all in the same four beats.",
+         "zh": "把整條紙條當作四拍的一小節。整條拍一下，二分之一各拍一下共兩下，四分之一共四下，八分之一共八下，全都在同樣的四拍裡。"
+        },
+        {
+         "en": "Write the claps on the strip as notes: whole, half, quarter, eighth.",
+         "zh": "把拍手的次數在紙條上寫成音符：全音符、二分音符、四分音符、八分音符。"
+        },
+        {
+         "en": "Now clap a pattern of your own that fills the strip. Your partner reads it back.",
+         "zh": "再拍一個你自己的圖樣，填滿紙條。同伴把它讀回來。"
+        }
+       ],
+       "tip_en": "Second graders already learn halves, quarters, and eighths of folded paper in math class, so the same idea is a good start for note values.",
+       "tip_zh": "二年級的數學課就用摺紙認識二分之一、四分之一和八分之一，所以同樣的想法是學音符時值的好開頭。"
+      },
+      {
+       "title_en": "Rest Statues",
+       "title_zh": "休止符雕像",
+       "materials": [
+        {
+         "en": "An open space in the classroom",
+         "zh": "教室裡一塊空地"
+        },
+        {
+         "en": "Cards with notes and rests: quarter note, quarter rest, half note, half rest",
+         "zh": "寫了音符和休止符的卡片：四分音符、四分休止符、二分音符、二分休止符"
+        },
+        {
+         "en": "The metronome from lesson 3 at 80 BPM",
+         "zh": "第三課的節拍器，速度 80 BPM"
+        }
+       ],
+       "steps": [
+        {
+         "en": "Everyone steps in place on every beat. The teacher shows a card.",
+         "zh": "大家在每一拍原地踏步。老師出示一張卡片。"
+        },
+        {
+         "en": "For a note card, clap once and hold the clap for the length of the note. For a rest card, freeze like a statue for the length of the rest.",
+         "zh": "看到音符卡，就拍一下手，並保持到音符那麼長。看到休止符卡，就像雕像一樣靜止，停那麼久。"
+        },
+        {
+         "en": "Show a row of four cards, one for each beat, and perform them together.",
+         "zh": "出示一排四張卡片，每張一拍，大家一起表演。"
+        },
+        {
+         "en": "Let students make their own row for a 4/4 bar, and check that it adds up to four beats.",
+         "zh": "讓學生做自己的一排 4/4 小節，並檢查加起來是不是四拍。"
+        }
+       ],
+       "tip_en": "Keep the stepping light and stay in your own space. The quiet of a rest is part of the music, so listen to it.",
+       "tip_zh": "踏步輕輕的，待在自己的位置。休止符的安靜也是音樂的一部分，要聽它。"
+      }
+     ],
+     "links_head": {
+      "eyebrow": "Go Further · 延伸閱讀",
+      "en": "Before, around, and after this lesson",
+      "zh": "這一課的前面、旁邊和後面"
+     },
+     "links": [
+      {
+       "icon": "🎼",
+       "k_en": "Music · Lesson 5",
+       "k_zh": "音樂・第五課",
+       "en": "How Do You Read Music?",
+       "zh": "五線譜怎麼看？",
+       "note_en": "The staff shows how high a note is. This lesson adds how long it is.",
+       "note_zh": "五線譜顯示音有多高；這一課加上它有多長。",
+       "href": "/resources/classes/music/reading-music/"
+      },
+      {
+       "icon": "🥁",
+       "k_en": "Music · Lesson 3",
+       "k_zh": "音樂・第三課",
+       "en": "What Is a Beat?",
+       "zh": "拍子是什麼？",
+       "note_en": "A quarter note gets one beat, and the tempo says how long a beat is.",
+       "note_zh": "四分音符是一拍，速度說明一拍有多長。",
+       "href": "/resources/classes/music/what-is-a-beat/"
+      },
+      {
+       "icon": "🪜",
+       "k_en": "Music · Lesson 7",
+       "k_zh": "音樂・第七課",
+       "soon": true,
+       "en": "What Is a Scale?",
+       "zh": "音階是什麼？",
+       "note_en": "Length is only one half of a tune. Next, the steps of pitch: whole steps and half steps.",
+       "note_zh": "長短只是一段旋律的一半。接下來是音高的階梯：全音和半音。"
+      }
+     ],
+     "sources_note_en": "Names, dates, numbers, and quotations on this page were checked against these sources (October 2026). The note shapes on the staff are our own simplified drawings, and the timing is computed by the page itself and covered by automatic tests.",
+     "sources_note_zh": "本頁的人名、年代、數字與引文依下列資料查證（2026 年 10 月）；五線譜上的音符形狀是我們自己畫的簡化圖形，時間由頁面自己計算，並有自動測試。",
+     "sources": [
+      {
+       "en": "A note value indicates the relative duration of a note, by the shape of the notehead, a stem, and flags or beams; unmodified values are fractional powers of two; American and British names",
+       "zh": "音符時值以符頭的形狀、符桿與符尾或符槓表示音符的相對長度；未修飾的時值是二的分數次方；美式與英式名稱",
+       "src": "Wikipedia, “Note value”",
+       "url": "https://en.wikipedia.org/wiki/Note_value"
+      },
+      {
+       "en": "The American whole note is a calque of German ganze Note; semibreve from Latin semi- and brevis",
+       "zh": "美式 whole note 是德文 ganze Note 的直譯；semibreve 來自拉丁文 semi- 與 brevis",
+       "src": "Wikipedia, “Whole note”",
+       "url": "https://en.wikipedia.org/wiki/Whole_note"
+      },
+      {
+       "en": "The quarter note is a calque of the German Viertelnote",
+       "zh": "四分音符是德文 Viertelnote 的直譯",
+       "src": "Wikipedia, “Quarter note”",
+       "url": "https://en.wikipedia.org/wiki/Quarter_note"
+      },
+      {
+       "en": "Dotted notes: the dot adds half of the value; double dots add three quarters; double dots were not used until the mid-18th century",
+       "zh": "附點音符：附點加上時值的一半；複附點加四分之三；複附點到十八世紀中葉才被使用",
+       "src": "Wikipedia, “Dotted note”",
+       "url": "https://en.wikipedia.org/wiki/Dotted_note"
+      },
+      {
+       "en": "A rest is the absence of sound for a defined period; each rest is named for the note value it matches; a whole rest can stand for a whole bar of any length",
+       "zh": "休止符是一段有明確長度的沒有聲音；每一種休止符都以它對應的音符時值命名；全休止符可以代表任何長度的整個小節",
+       "src": "Wikipedia, “Rest (music)”",
+       "url": "https://en.wikipedia.org/wiki/Rest_(music)"
+      },
+      {
+       "en": "Time signature: the upper numeral counts how many note values make up a bar; 4 is the quarter note",
+       "zh": "拍號：上面的數字說一小節有幾個單位；4 是四分音符",
+       "src": "Wikipedia, “Time signature”",
+       "url": "https://en.wikipedia.org/wiki/Time_signature"
+      },
+      {
+       "en": "Bar: its length is normally shown by the time signature",
+       "zh": "小節：長度通常由拍號顯示",
+       "src": "Wikipedia, “Bar (music)”",
+       "url": "https://en.wikipedia.org/wiki/Bar_(music)"
+      },
+      {
+       "en": "音符: the sign for the length and pitch of a musical sound; whole, half, quarter, eighth, sixteenth; dotted notes are half as long again",
+       "zh": "音符：表示樂音長短、高低的符號；全音符、二分、四分、八分、十六分；附點音符時間較原音符長一半",
+       "src": "教育百科〈音符〉（教育部《國語辭典簡編本》）",
+       "url": "https://pedia.cloud.edu.tw/Entry/Detail/?title=%E9%9F%B3%E7%AC%A6"
+      },
+      {
+       "en": "休止符: a sign for a pause in the music; six kinds from the whole rest to the thirty-second rest",
+       "zh": "休止符：表示音樂停頓時間長度的符號；從全休止符到三十二分休止符六種",
+       "src": "教育百科〈休止符〉（教育部《國語辭典簡編本》）",
+       "url": "https://pedia.cloud.edu.tw/Entry/Detail/?title=%E4%BC%91%E6%AD%A2%E7%AC%A6"
+      },
+      {
+       "en": "附點音符: a dot adds half of the length of the note; a second dot adds three quarters in all",
+       "zh": "附點音符：單附點加原音長二分之一；複附點加四分之三",
+       "src": "教育部《重編國語辭典修訂本》「附點音符」",
+       "url": "https://dict.revised.moe.edu.tw/dictView.jsp?ID=38852"
+      },
+      {
+       "en": "時值: the relative length of the notes in a score; a half note is twice as long as a quarter note",
+       "zh": "時值：樂譜中各音符的相對長度，如二分音符為四分音符的兩倍長",
+       "src": "教育部《重編國語辭典修訂本》「時值」",
+       "url": "https://dict.revised.moe.edu.tw/dictView.jsp?ID=127947"
+      },
+      {
+       "en": "拍子記號: the upper number is the beats per bar, the lower number the basic unit; 3/4 means a quarter note is one beat and each bar has three",
+       "zh": "拍子記號：上面是每小節拍數、下面是拍子的基本單位；3/4 表示以四分音符為一拍、每小節三拍",
+       "src": "教育部《重編國語辭典修訂本》「拍子記號」",
+       "url": "https://dict.revised.moe.edu.tw/dictView.jsp?ID=22816"
+      },
+      {
+       "en": "簡譜: each number is worth a quarter note; a dash lengthens, a line under a number halves, a circle is a rest",
+       "zh": "簡譜：每個數字相當於四分音符；加橫線變長、下加線減半、圓圈是休止符",
+       "src": "教育百科〈簡譜〉（國教院《舞蹈辭典》）",
+       "url": "https://pedia.cloud.edu.tw/Entry/Detail/?title=%E7%B0%A1%E8%AD%9C"
+      },
+      {
+       "en": "Chinese terms: whole note 全音符, half note 二分音符, quarter note 四分音符, eighth note 八分音符, sixteenth note 十六分音符, rest 休止符, dotted note 附點音符, note value 音值／時值, time signature 拍子記號",
+       "zh": "中文名稱：whole note 全音符、half note 二分音符、quarter note 四分音符、eighth note 八分音符、sixteenth note 十六分音符、rest 休止符、dotted note 附點音符、note value 音值／時值、time signature 拍子記號",
+       "src": "國家教育研究院「學術名詞資訊網」（音樂名詞）",
+       "url": "https://terms.naer.edu.tw/search/?query_term=quarter+note&query_field=title&match_type=term"
+      },
+      {
+       "en": "Taiwan's 12-year curriculum: arts (music) 音 E-Ⅱ-3, 音 E-Ⅱ-4, 音 E-Ⅲ-4, 音 E-Ⅲ-5",
+       "zh": "十二年國民基本教育課程綱要藝術領域：音 E-Ⅱ-3、音 E-Ⅱ-4、音 E-Ⅲ-4、音 E-Ⅲ-5",
+       "src": "國家教育研究院，十二年國教藝術領域課綱",
+       "url": "https://www.naer.edu.tw/upload/1/16/doc/818/%E5%8D%81%E4%BA%8C%E5%B9%B4%E5%9C%8B%E6%B0%91%E5%9F%BA%E6%9C%AC%E6%95%99%E8%82%B2%E8%AA%B2%E7%A8%8B%E7%B6%B1%E8%A6%81%E5%9C%8B%E6%B0%91%E4%B8%AD%E5%B0%8F%E5%AD%B8%E6%9A%A8%E6%99%AE%E9%80%9A%E5%9E%8B%E9%AB%98%E7%B4%9A%E4%B8%AD%E7%AD%89%E6%A0%A1-%E8%97%9D%E8%A1%93%E9%A0%98%E5%9F%9F.pdf"
+      },
+      {
+       "en": "Taiwan's 12-year curriculum, mathematics N-2-10: halves, quarters, and eighths of a whole (folded paper)",
+       "zh": "十二年國教數學領域 N-2-10：整體的二分之一、四分之一與八分之一（摺紙）",
+       "src": "國家教育研究院，十二年國教數學領域課綱",
+       "url": "https://www.naer.edu.tw/upload/1/16/doc/815/%E5%8D%81%E4%BA%8C%E5%B9%B4%E5%9C%8B%E6%B0%91%E5%9F%BA%E6%9C%AC%E6%95%99%E8%82%B2%E8%AA%B2%E7%A8%8B%E7%B6%B1%E8%A6%81%E5%9C%8B%E6%B0%91%E4%B8%AD%E5%B0%8F%E5%AD%B8%E6%9A%A8%E6%99%AE%E9%80%9A%E5%9E%8B%E9%AB%98%E7%B4%9A%E4%B8%AD%E7%AD%89%E5%AD%B8%E6%A0%A1-%E6%95%B8%E5%AD%B8%E9%A0%98%E5%9F%9F.pdf"
+      },
+      {
+       "en": "Safe listening: headphone volume to 60% of maximum, personal audio devices less than one hour a day",
+       "zh": "安全聆聽：耳機音量不超過最大的 60%、個人音響裝置每天少於一小時",
+       "src": "WHO, Make Listening Safe brochure (2021)",
+       "url": "https://cdn.who.int/media/docs/default-source/documents/health-topics/deafness-and-hearing-loss/mls-brochure-english-2021.pdf?sfvrsn=bf19b448_5"
+      }
+     ]
     }
    ],
    "planned": [
-    {
-     "n": 6,
-     "icon": "♩",
-     "en": "How Long Is a Note?",
-     "zh": "一個音要多長？"
-    },
     {
      "n": 7,
      "icon": "🪜",
