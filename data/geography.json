@@ -1,0 +1,1264 @@
+{
+ "title_en": "Geography",
+ "title_zh": "地理",
+ "eyebrow": "Geography · 地理",
+ "lead_en": "Maps, places, and people. Geography asks three questions: Where is it? Why is it there? And what difference does that make? This series starts with a globe you can peel flat.",
+ "lead_zh": "地圖、地方和人。地理問三個問題：在哪裡？為什麼在那裡？那又怎樣？這個系列從一顆可以剝開攤平的地球儀講起。",
+ "intro": [
+  {
+   "en": "The stars of this series are the map and the globe. Each lesson answers one question in English and Chinese, with a model you can turn, flatten, or slice, and one or two small activities that work on any phone.",
+   "zh": "這個系列的主角是地圖和地球儀。每一課用中英文回答一個問題，配一個可以轉、可以攤平、可以切開的模型，再加一兩個手機也能玩的小互動。"
+  },
+  {
+   "en": "The maps here are drawn from public-domain data and show land, sea, landforms, climate, and people rather than borders. Numbers come with their source and year. Every lesson also has a Map English card: eight sentences for saying where things are.",
+   "zh": "這裡的地圖用公有領域的資料繪製，畫的是陸地、海洋、地形、氣候和人的分布，而不是國界。每個數字都標明來源與年份。每一課還有一張「地圖英語」卡：八句用英文說位置的句子。"
+  }
+ ],
+ "units": [
+  {
+   "key": "maps",
+   "title_en": "Map Skills",
+   "title_zh": "地圖的基本功",
+   "blurb_en": "How a round Earth becomes a flat map, how two numbers can name any place, how a mountain is drawn on paper, and how to read what a map is telling you.",
+   "blurb_zh": "圓的地球怎麼變成平的地圖、兩個數字怎麼指出任何一個地方、怎麼在紙上畫出一座山，以及怎麼讀懂一張地圖。",
+   "lessons": [
+    {
+     "n": 1,
+     "slug": "flat-maps",
+     "title": "Why Is Every Flat Map Wrong?",
+     "title_zh": "為什麼每一張平面地圖都是「錯」的？",
+     "level": "入門 · Beginner",
+     "icon": "🗺️",
+     "card": "flatmap",
+     "blurb_en": "Peel a 3D globe open and flatten it five different ways. Watch equal circles swell and squash, drag Greenland down to the equator, and find out why no flat map can get everything right.",
+     "blurb_zh": "把 3D 地球儀剝開，用五種方法攤平。看一樣大的圓怎麼被拉大、壓扁，把格陵蘭拖到赤道，再想想為什麼沒有一張平面地圖能樣樣都對。",
+     "big_idea_en": "The surface of a ball cannot be laid flat without stretching it. So every flat map has to choose what to keep right: shape, area, distance, or direction. There is no best map, only a map that fits the job.",
+     "big_idea_zh": "球的表面不可能不拉扯就攤平。所以每一張平面地圖都要選：形狀、面積、距離、方向，要保住哪一樣。沒有「最好的地圖」，只有「適合這個用途的地圖」。",
+     "lab": {
+      "kind": "flatmap",
+      "eyebrow": "3D Model · 3D 模型",
+      "title_en": "A Globe You Can Peel Flat",
+      "title_zh": "一顆可以剝開攤平的地球儀",
+      "how_en": "Press “Peel it flat,” or pull the slider, and the globe opens along the back and spreads out into a map. Then choose another way of flattening it. The orange circles are all the same size on the globe, so wherever a circle grows or turns into an oval, the map has stretched the Earth. Click any spot to read how much. The model draws only land, sea, and grid lines.",
+      "how_zh": "按「攤平」或拉動滑桿，地球儀會從背面裂開，攤成一張地圖。接著換別種攤法看看。橘色的圓在地球儀上都一樣大，所以哪裡的圓變大了、變成橢圓了，就是地圖在那裡把地球拉扯了。點任何一個地方，可以讀出拉了多少。模型只畫陸地、海洋和經緯線。",
+      "legend": [
+       {
+        "cls": "land",
+        "en": "Land (outline only; no borders are drawn)",
+        "zh": "陸地（只有外形，不畫國界）"
+       },
+       {
+        "cls": "circle",
+        "en": "Circles that are all the same size on the globe",
+        "zh": "在地球儀上一樣大的圓"
+       },
+       {
+        "cls": "sel",
+        "en": "The spot you picked, and its line of latitude",
+        "zh": "你選的地方，和它所在的緯線"
+       },
+       {
+        "cls": "eq",
+        "en": "The equator",
+        "zh": "赤道"
+       },
+       {
+        "cls": "tw",
+        "en": "Taiwan",
+        "zh": "台灣"
+       }
+      ],
+      "scale_en": "Each orange circle is 4.5° across from center to edge, about 500 km on the real Earth. All five maps are drawn for a globe of the same size, so you can compare them directly.",
+      "scale_zh": "每個橘色的圓從圓心到邊緣是 4.5 度，在真正的地球上大約 500 公里。五種地圖都是用同樣大小的地球儀畫的，可以直接互相比較。",
+      "credit_html": "Land outlines: Natural Earth, 1:50m Land, version 5.1.2, public domain (naturalearthdata.com), simplified for this page. No borders or country names are shown. The stretch numbers are computed by the page itself. · 陸地外形：Natural Earth 1:50m Land 5.1.2 版，公有領域（naturalearthdata.com），經本頁簡化。不畫國界、不標國名。變形的倍率由頁面自己計算。",
+      "projs": [
+       {
+        "key": "equirect",
+        "btn_en": "Plain grid",
+        "btn_zh": "等距圓柱",
+        "en": "Plate carrée",
+        "zh": "等距圓柱投影",
+        "note_en": "The simplest way: longitude becomes left–right, latitude becomes up–down, and the grid turns into equal squares. It has been used for about two thousand years.",
+        "note_zh": "最簡單的攤法：經度直接當左右、緯度直接當上下，格線變成一樣大的正方形。大約兩千年前就有人用了。",
+        "props": {
+         "shape": [
+          "no",
+          "Stretched sideways away from the equator",
+          "離赤道越遠，橫向拉得越寬"
+         ],
+         "area": [
+          "no",
+          "Too big toward the poles",
+          "越靠近兩極畫得越大"
+         ],
+         "distance": [
+          "part",
+          "Right along north–south lines only",
+          "只有南北方向的距離是對的"
+         ],
+         "direction": [
+          "part",
+          "North is up, but angles are bent",
+          "上面是北，但角度不準"
+         ]
+        }
+       },
+       {
+        "key": "mercator",
+        "btn_en": "Mercator",
+        "btn_zh": "麥卡托",
+        "en": "Mercator projection",
+        "zh": "麥卡托投影",
+        "note_en": "Made in 1569 for sailors. Every small shape keeps its true form, and a straight line on the map is a line of constant compass direction. The price is size: the map grows without limit toward the poles, so it has to be cut off before it reaches them.",
+        "note_zh": "1569 年為航海設計。每個小地方的形狀都是對的，地圖上的一條直線就是羅盤方向不變的航線。代價是大小：越靠近兩極放得越大、沒有止境，所以地圖畫不到極點。",
+        "props": {
+         "shape": [
+          "yes",
+          "Small shapes stay true everywhere",
+          "每個小地方的形狀都正確"
+         ],
+         "area": [
+          "no",
+          "4 times too big at 60°, far more beyond",
+          "緯度 60 度放大 4 倍，再往上更多"
+         ],
+         "distance": [
+          "no",
+          "The scale changes with latitude",
+          "比例尺隨緯度改變"
+         ],
+         "direction": [
+          "yes",
+          "A straight line keeps one compass direction",
+          "直線就是羅盤方向不變的線"
+         ]
+        }
+       },
+       {
+        "key": "gallpeters",
+        "btn_en": "Gall–Peters",
+        "btn_zh": "高爾－彼得斯",
+        "en": "Gall–Peters projection",
+        "zh": "高爾－彼得斯投影",
+        "note_en": "An equal-area map: every region covers the same share of the map as it does of the Earth. To manage that, land near the equator is drawn tall and thin, and land near the poles is drawn short and wide.",
+        "note_zh": "一種等積投影：每個地區在地圖上占的比例，和它在地球上占的比例一樣。為了做到這一點，赤道附近的陸地被畫得又高又瘦，兩極附近的陸地被畫得又扁又寬。",
+        "props": {
+         "shape": [
+          "no",
+          "Tall near the equator, flat near the poles",
+          "赤道附近拉長，兩極附近壓扁"
+         ],
+         "area": [
+          "yes",
+          "Sizes can be compared fairly",
+          "大小可以公平比較"
+         ],
+         "distance": [
+          "no",
+          "True only along 45° north and south",
+          "只有南北緯 45 度那兩條線上正確"
+         ],
+         "direction": [
+          "part",
+          "North is up, but angles are bent",
+          "上面是北，但角度不準"
+         ]
+        }
+       },
+       {
+        "key": "mollweide",
+        "btn_en": "Mollweide",
+        "btn_zh": "莫爾威",
+        "en": "Mollweide projection",
+        "zh": "莫爾威投影",
+        "note_en": "Another equal-area map, shaped like an oval, presented in 1805. The middle looks natural. Toward the left and right edges the land leans over, because the lines of longitude curve in to meet at the poles.",
+        "note_zh": "另一種等積投影，整張圖是橢圓形，1805 年發表。中間看起來很自然；越靠左右兩邊，陸地越歪斜，因為經線要彎進來在兩極會合。",
+        "props": {
+         "shape": [
+          "no",
+          "Leaning and squeezed near the edges",
+          "靠近邊緣會歪斜、擠壓"
+         ],
+         "area": [
+          "yes",
+          "Sizes can be compared fairly",
+          "大小可以公平比較"
+         ],
+         "distance": [
+          "no",
+          "Not true in general",
+          "一般來說不正確"
+         ],
+         "direction": [
+          "no",
+          "North is not straight up near the edges",
+          "靠近邊緣時，北方不是正上方"
+         ]
+        }
+       },
+       {
+        "key": "gores",
+        "btn_en": "Orange peel",
+        "btn_zh": "橘子皮",
+        "en": "Gores (an interrupted map)",
+        "zh": "一瓣一瓣攤開（分瓣地圖）",
+        "note_en": "Cut the globe into twelve strips, like the segments of an orange peel, and lay each one flat. Shapes and sizes stay close to true inside each strip, but the map is torn: neighbors on the globe end up far apart. Printed strips like these are glued onto balls to make real globes.",
+        "note_zh": "把地球儀切成十二瓣，像橘子皮一樣，一瓣一瓣攤平。每一瓣裡面的形狀和大小都接近正確，但地圖被撕開了：在地球儀上相鄰的地方，在圖上隔得很遠。真正的地球儀，就是把這樣印好的紙條貼到球上做成的。",
+        "props": {
+         "shape": [
+          "part",
+          "Close to true inside each strip",
+          "每一瓣裡面接近正確"
+         ],
+         "area": [
+          "yes",
+          "Sizes are kept",
+          "大小保住了"
+         ],
+         "distance": [
+          "no",
+          "Broken wherever the map is torn",
+          "地圖裂開的地方距離就斷了"
+         ],
+         "direction": [
+          "no",
+          "The gaps break every route",
+          "裂縫把路線都切斷"
+         ]
+        }
+       }
+      ]
+     },
+     "paras": [
+      "Peel a tangerine in one piece, then try to press the peel flat on the table. It will not lie flat. It bulges, and if you push harder, it tears. Now think about the Earth. The Earth is round like the tangerine, and a map is flat like the table. Every flat map of the world has to solve the tangerine-peel problem somehow.",
+      "A globe does not have this problem. A globe is a small model of the Earth with the same round shape, so the shapes of the lands, their sizes, the distances between places, and the directions from one place to another can all be right at the same time. But a globe is hard to carry, hard to print in a book, and it never shows you the whole world at once. So people flatten the globe. A map projection is a set of rules for moving every point on the round Earth to a point on a flat sheet.",
+      "Here is the trouble: something has to stretch. In the 1820s the mathematician Carl Friedrich Gauss proved a theorem which shows that the surface of a ball cannot be flattened without changing some of its distances. Mapmakers call this stretching distortion. A flat map can keep shapes right, or keep areas right, or keep some distances or directions right, but it can never keep all of them right everywhere.",
+      "The most famous choice was made in 1569 by Gerardus Mercator, who drew a map for sailors. On his map, a straight line always follows one compass direction, so a sailor could draw the route with a ruler. To make that work, the map stretches more and more toward the poles. At 60 degrees of latitude everything is drawn twice as wide and twice as tall, which means four times too large in area. That is why Greenland looks about as big as Africa on a Mercator map. In fact Africa is about fourteen times larger.",
+      "Other maps make the opposite choice. An equal-area projection keeps every size right, so Greenland shrinks back to one-fourteenth of Africa. The price is shape: on one well-known equal-area map, lands near the equator look tall and thin. Some people say equal-area maps are fairer for classrooms, because the Mercator map makes places far from the equator look larger than they are. Others answer that the Mercator map was built for steering ships and was never meant for comparing sizes. Each side is describing what its map does well.",
+      "So which map is the best? It depends on the job. To hold a compass course at sea, use a Mercator map. To compare the sizes of lands, use an equal-area map. To study the Arctic, use a map with the North Pole in the middle. To see everything right at once, pick up a globe. Every flat map is wrong somewhere, and a good map reader asks two questions: what was this map made for, and what did it give up?"
+     ],
+     "paras_zh": [
+      "把一顆橘子的皮完整剝下來，再試著把它壓平在桌上。它不會乖乖躺平：中間鼓起來，再用力壓就裂開。現在想想地球。地球像橘子一樣是圓的，地圖像桌面一樣是平的。每一張平面的世界地圖，都得想辦法解決這個「橘子皮問題」。",
+      "地球儀沒有這個問題。地球儀是一顆小小的地球模型，形狀同樣是圓的，所以陸地的形狀、大小、兩地之間的距離、從一地到另一地的方向，可以同時都是對的。但地球儀不好攜帶、沒辦法印在書裡，也沒辦法一眼看到整個世界。所以人們把地球儀攤平。地圖投影就是一套規則，把圓圓的地球上的每一個點，搬到一張平面上的某一個點。",
+      "麻煩在這裡：一定有地方要被拉扯。1820 年代，數學家高斯證明了一個定理，從這個定理可以知道：球的表面不可能攤平而不改變上面的某些距離。製圖的人把這種拉扯叫做變形。一張平面地圖可以把形狀畫對，或把面積畫對，或把某些距離、某些方向畫對，但不可能在每個地方把這些全部畫對。",
+      "最有名的一個選擇，是 1569 年麥卡托做的。他畫了一張給航海的人用的地圖：在這張圖上，一條直線永遠朝著同一個羅盤方向，所以水手可以用尺畫出航線。為了做到這一點，地圖越靠近兩極就拉得越開。在緯度 60 度的地方，每樣東西都被畫成兩倍寬、兩倍高，也就是面積大了四倍。這就是為什麼在麥卡托地圖上，格陵蘭看起來和非洲差不多大。實際上，非洲大約是格陵蘭的十四倍。",
+      "另一些地圖做了相反的選擇。等積投影把每個地方的大小都畫對，所以格陵蘭縮回非洲的十四分之一。代價是形狀：在一種常見的等積地圖上，赤道附近的陸地看起來又高又瘦。有人說等積地圖用在教室裡比較公平，因為麥卡托地圖把離赤道遠的地方畫得比實際大；也有人回答，麥卡托地圖本來就是為了讓船照著方向走而設計的，從來不是拿來比大小的。兩邊說的，都是自己那張地圖擅長的事。",
+      "那麼哪一張地圖最好？要看你拿它做什麼。在海上要照著羅盤方向走，用麥卡托地圖。要比較陸地的大小，用等積地圖。要研究北極，用北極在正中央的地圖。想要樣樣都對，就拿起地球儀。每一張平面地圖都有某個地方是「錯」的；會看地圖的人會問兩個問題：這張地圖是為了什麼做的？它犧牲了什麼？"
+     ],
+     "questions": [
+      "Why can a globe show shapes, sizes, distances, and directions correctly all at once, when a flat map cannot?",
+      "On a Mercator map, Greenland looks about as big as Africa. What is really going on?",
+      "Your class wants a wall map to compare the sizes of the continents. A ship's officer wants a chart for steering by compass. Should they buy the same map? Why or why not?"
+     ],
+     "answers": [
+      "A globe has the same round shape as the Earth, so nothing needs to be stretched. A flat map must flatten a round surface, and that cannot be done without distortion, so it has to give up at least one of the four.",
+      "The Mercator map stretches everything more and more toward the poles. Greenland is far north, so it is drawn many times too large, while Africa lies across the equator and is drawn close to its true size. In reality Africa is about fourteen times larger than Greenland.",
+      "No. The class needs an equal-area map, because it keeps sizes right even though it bends shapes. The officer needs a Mercator chart, because a straight line on it keeps one compass direction even though sizes are wrong. Each map fits a different job."
+     ],
+     "vocab": [
+      {
+       "n": 1,
+       "w": "globe",
+       "pos": "n.",
+       "zh": "地球儀",
+       "ex": "Spin the <b>globe</b> and find the island of Taiwan.",
+       "exzh": "轉動地球儀，找出台灣這座島。"
+      },
+      {
+       "n": 2,
+       "w": "map projection",
+       "pos": "n.",
+       "zh": "地圖投影",
+       "ex": "A <b>map projection</b> turns the round Earth into a flat map.",
+       "exzh": "地圖投影把圓的地球變成一張平面地圖。"
+      },
+      {
+       "n": 3,
+       "w": "distortion",
+       "pos": "n.",
+       "zh": "變形",
+       "ex": "The <b>distortion</b> on this map is greatest near the poles.",
+       "exzh": "這張地圖在兩極附近變形最大。"
+      },
+      {
+       "n": 4,
+       "w": "equator",
+       "pos": "n.",
+       "zh": "赤道",
+       "ex": "The <b>equator</b> divides the Earth into a northern half and a southern half.",
+       "exzh": "赤道把地球分成北半邊和南半邊。"
+      },
+      {
+       "n": 5,
+       "w": "latitude",
+       "pos": "n.",
+       "zh": "緯度",
+       "ex": "Taipei is at about 25 degrees north <b>latitude</b>.",
+       "exzh": "台北大約在北緯 25 度。"
+      },
+      {
+       "n": 6,
+       "w": "area",
+       "pos": "n.",
+       "zh": "面積",
+       "ex": "The <b>area</b> of Africa is about fourteen times that of Greenland.",
+       "exzh": "非洲的面積大約是格陵蘭的十四倍。"
+      },
+      {
+       "n": 7,
+       "w": "stretch",
+       "pos": "v.",
+       "zh": "拉長；拉開",
+       "ex": "This map <b>stretches</b> the lands that are far from the equator.",
+       "exzh": "這張地圖把離赤道遠的陸地拉大了。"
+      },
+      {
+       "n": 8,
+       "w": "navigate",
+       "pos": "v.",
+       "zh": "航行；導航",
+       "ex": "Sailors used the stars and a compass to <b>navigate</b> across the ocean.",
+       "exzh": "水手靠星星和羅盤在海上航行。"
+      }
+     ],
+     "quiz": [
+      {
+       "q": "Why is every flat map of the world distorted somewhere?",
+       "options": [
+        "Because a round surface cannot be flattened without stretching",
+        "Because mapmakers are careless",
+        "Because the Earth keeps changing shape",
+        "Because paper shrinks when it dries"
+       ],
+       "correct": 0
+      },
+      {
+       "q": "What was the Mercator map of 1569 designed for?",
+       "options": [
+        "Comparing the sizes of continents",
+        "Navigation at sea",
+        "Showing the North Pole",
+        "Measuring mountains"
+       ],
+       "correct": 1
+      },
+      {
+       "q": "At 60 degrees of latitude, a Mercator map draws areas about how many times too large?",
+       "options": [
+        "Two times",
+        "Three times",
+        "Four times",
+        "Ten times"
+       ],
+       "correct": 2
+      },
+      {
+       "q": "What does an equal-area projection keep right?",
+       "options": [
+        "The shapes of the lands",
+        "Compass directions",
+        "All distances",
+        "The sizes of the lands"
+       ],
+       "correct": 3
+      },
+      {
+       "q": "Which sentence is true?",
+       "options": [
+        "The Mercator map is always the best map.",
+        "An equal-area map has no distortion.",
+        "The best map depends on what you want to use it for.",
+        "A globe distorts areas more than a flat map."
+       ],
+       "correct": 2
+      }
+     ],
+     "parts_head": {
+      "eyebrow": "Try It in the Model · 在模型裡試試",
+      "en": "Four things to watch",
+      "zh": "四件值得看的事"
+     },
+     "parts": [
+      {
+       "key": "peel",
+       "icon": "🍊",
+       "en": "The globe opens up",
+       "zh": "地球儀裂開攤平",
+       "meta_en": "Globe to flat map",
+       "meta_zh": "從地球儀到平面",
+       "demo": "peel",
+       "text_en": "Watch the globe split along the back and spread into a flat sheet. Notice the North Pole: on the globe it is one point, and on the map it becomes the whole top edge.",
+       "text_zh": "看地球儀從背面裂開，攤成一張平面。注意北極：在地球儀上它是一個點，到了地圖上卻變成最上面的一整條邊。"
+      },
+      {
+       "key": "mercator",
+       "icon": "🧭",
+       "en": "Circles that grow",
+       "zh": "越來越大的圓",
+       "meta_en": "Mercator projection",
+       "meta_zh": "麥卡托投影",
+       "demo": "mercator",
+       "text_en": "On the Mercator map every circle stays round, so shapes are kept. But the circles swell toward the poles. At 60° the panel reads × 2 each way and × 4 in area.",
+       "text_zh": "在麥卡托地圖上，每個圓都還是圓的，形狀保住了；但越靠近兩極，圓就越大。到了 60 度，右邊欄顯示兩個方向都是 2 倍，面積是 4 倍。"
+      },
+      {
+       "key": "equal",
+       "icon": "⚖️",
+       "en": "Circles that squash",
+       "zh": "被壓扁的圓",
+       "meta_en": "Equal-area projection",
+       "meta_zh": "等積投影",
+       "demo": "equal",
+       "text_en": "Switch to an equal-area map. Now every circle covers the same area, but the circles turn into ovals: tall near the equator, wide near the poles.",
+       "text_zh": "換成等積地圖。現在每個圓蓋住的面積都一樣，但圓變成了橢圓：赤道附近是直的，兩極附近是橫的。"
+      },
+      {
+       "key": "gores",
+       "icon": "✂️",
+       "en": "The orange-peel map",
+       "zh": "橘子皮地圖",
+       "meta_en": "Twelve strips",
+       "meta_zh": "十二瓣",
+       "demo": "gores",
+       "text_en": "Cut the globe into twelve strips instead. Shapes and sizes look good, but the map is full of gaps. To avoid tearing, a map has to stretch.",
+       "text_zh": "改成把地球儀切成十二瓣。形狀和大小看起來都不錯，但地圖上到處是裂縫。地圖想要不裂開，就得拉扯。"
+      }
+     ],
+     "parts_note_en": "Then try it yourself. Click on Greenland, then on the middle of Africa, and compare the area numbers on each of the five maps.",
+     "parts_note_zh": "然後自己動手試試。先點格陵蘭，再點非洲的中間，在五種地圖上比一比面積的倍率。",
+     "drag": {
+      "eyebrow": "Try It · 動手試試",
+      "en": "Drag Greenland to the Equator",
+      "zh": "把格陵蘭拖到赤道",
+      "lead_en": "This is a Mercator map. Drag the orange shape of Greenland down to the equator and watch it shrink to the size it would have if it were drawn with the same ruler as Africa. Then drag Africa north and watch it grow. The shapes are moved on the round Earth first and then redrawn, so their real size never changes.",
+      "lead_zh": "這是一張麥卡托地圖。把橘色的格陵蘭拖到赤道，看它縮成和非洲「用同一把尺畫」的大小。再把非洲往北拖，看它變大。這些陸塊是先在圓的地球上搬動、再重新畫出來的，所以它們真正的大小從頭到尾沒有變。",
+      "msg_home_en": "At home, far from the equator, this map draws the shape many times too large. Drag it toward the dashed line.",
+      "msg_home_zh": "在原來的位置、離赤道很遠的地方，這張地圖把它畫得比實際大了好多倍。把它往虛線拖拖看。",
+      "msg_move_en": "Watch the number in gold. The closer the shape gets to the equator, the closer the number gets to 1.",
+      "msg_move_zh": "注意金色的數字。陸塊越靠近赤道，數字就越接近 1。",
+      "msg_eq_en": "On the equator the map draws the shape at very nearly its true size. Now the two percentages almost match.",
+      "msg_eq_zh": "在赤道上，地圖幾乎把它畫成真正的大小。現在兩個百分比幾乎一樣了。"
+     },
+     "fit": {
+      "eyebrow": "Game · 小遊戲",
+      "en": "Which Map Fits the Job?",
+      "zh": "哪一張地圖適合？",
+      "lead_en": "Eight jobs. For each one, choose the kind of map that fits it best. There is no timer, and you can keep choosing until you find it. The game counts the jobs you match on the first try.",
+      "lead_zh": "八個用途。每一題選出最適合的那一種地圖。不計時，可以一直選到對為止；遊戲會記下你第一次就選對的題數。",
+      "options": [
+       {
+        "key": "mercator",
+        "thumb": "mercator",
+        "en": "Mercator map",
+        "zh": "麥卡托地圖"
+       },
+       {
+        "key": "equal",
+        "thumb": "equal",
+        "en": "Equal-area map",
+        "zh": "等積地圖"
+       },
+       {
+        "key": "polar",
+        "thumb": "polar",
+        "en": "Map centered on a pole",
+        "zh": "以極點為中心的地圖"
+       },
+       {
+        "key": "globe",
+        "thumb": "globe",
+        "en": "Globe",
+        "zh": "地球儀"
+       }
+      ],
+      "questions": [
+       {
+        "answer": "mercator",
+        "en": "A ship's officer wants to draw a route as one straight line and steer by a single compass direction.",
+        "zh": "船上的航海員想把航線畫成一條直線，然後照著同一個羅盤方向開。",
+        "why_en": "On a Mercator map, a straight line keeps one compass direction. That is what the map was made for.",
+        "why_zh": "在麥卡托地圖上，直線就是羅盤方向不變的線。這張地圖就是為這件事設計的。",
+        "hint_en": "Think about which map turns a steady compass direction into a straight line.",
+        "hint_zh": "想想哪一種地圖會把固定的羅盤方向變成一條直線。"
+       },
+       {
+        "answer": "equal",
+        "en": "You want to see fairly how much bigger Africa is than Greenland.",
+        "zh": "你想公平地看出非洲比格陵蘭大多少。",
+        "why_en": "An equal-area map keeps sizes right, so you can compare them by eye.",
+        "why_zh": "等積地圖把大小畫對，可以直接用眼睛比。",
+        "hint_en": "You need a flat map that keeps sizes right.",
+        "hint_zh": "你需要一張把大小畫對的平面地圖。"
+       },
+       {
+        "answer": "polar",
+        "en": "A scientist wants one map that shows the whole Arctic Ocean and the lands around it.",
+        "zh": "一位科學家想要一張地圖，把整個北冰洋和周圍的陸地都畫進去。",
+        "why_en": "With the North Pole in the middle, the Arctic is shown in one piece. A Mercator map cannot even reach the pole.",
+        "why_zh": "把北極放在正中央，北極地區就完整地在一張圖上。麥卡托地圖根本畫不到極點。",
+        "hint_en": "On most world maps the Arctic is stretched along the top edge or cut off.",
+        "hint_zh": "在大多數的世界地圖上，北極地區不是被拉成上面一長條，就是被切掉。"
+       },
+       {
+        "answer": "globe",
+        "en": "A teacher wants to show shapes, sizes, distances, and directions all correctly at the same time.",
+        "zh": "老師想同時把形狀、大小、距離、方向都正確地呈現出來。",
+        "why_en": "Only a globe can do that, because it is round like the Earth and nothing has to be stretched.",
+        "why_zh": "只有地球儀做得到，因為它和地球一樣是圓的，什麼都不用拉扯。",
+        "hint_en": "No flat map can keep all four. What is not flat?",
+        "hint_zh": "沒有一張平面地圖能四樣都保住。什麼東西不是平的？"
+       },
+       {
+        "answer": "mercator",
+        "en": "An online map lets you zoom in to a single street corner, and the corner should keep its true angle at every zoom level.",
+        "zh": "網路地圖可以一路放大到一個街角，而且不管放到多大，街角的角度都要是對的。",
+        "why_en": "Most online maps use a form of the Mercator projection. It keeps angles, and the whole world fits in a square that divides neatly into square tiles.",
+        "why_zh": "大多數的網路地圖用的是麥卡托投影的一種變化。它保住角度，而且整個世界剛好是一個正方形，可以整齊地切成一塊塊正方形的圖磚。",
+        "hint_en": "Which map keeps small shapes and angles right everywhere?",
+        "hint_zh": "哪一種地圖在每個地方都把小形狀和角度畫對？"
+       },
+       {
+        "answer": "equal",
+        "en": "You are making a map where one dot stands for one million people, and readers will compare how crowded the regions look.",
+        "zh": "你要做一張地圖，一個點代表一百萬人，讓讀者比較各地區看起來有多擁擠。",
+        "why_en": "If the map stretched some regions, their dots would look more spread out than they really are. An equal-area map keeps the crowding honest.",
+        "why_zh": "如果地圖把某些地區拉大，那裡的點看起來就會比實際稀疏。等積地圖才能老實呈現擁擠的程度。",
+        "hint_en": "How crowded dots look depends on how much room the map gives each region.",
+        "hint_zh": "點看起來擠不擠，要看地圖給每個地區多大的空間。"
+       },
+       {
+        "answer": "polar",
+        "en": "A researcher needs a single map of the whole of Antarctica.",
+        "zh": "一位研究人員需要一張把整個南極洲畫在一起的地圖。",
+        "why_en": "A map centered on the South Pole shows Antarctica as one landmass. On many world maps it is smeared along the bottom edge.",
+        "why_zh": "以南極點為中心的地圖，把南極洲畫成一整塊陸地。在很多世界地圖上，它被拉成底下一長條。",
+        "hint_en": "Where is Antarctica on a world map with the equator across the middle?",
+        "hint_zh": "在赤道橫過中間的世界地圖上，南極洲在哪裡？"
+       },
+       {
+        "answer": "globe",
+        "en": "You want to find the shortest path between two faraway cities by stretching a string between them.",
+        "zh": "你想在兩個很遠的城市之間拉一條線，找出最短的路。",
+        "why_en": "On a globe, a tight string follows a great circle, which is the shortest path on a sphere. On most flat maps that path looks curved.",
+        "why_zh": "在地球儀上，拉緊的線會沿著大圓走，那就是球面上最短的路。在大多數的平面地圖上，這條路看起來是彎的。",
+        "hint_en": "A tight string is only the shortest path on the real, round shape.",
+        "hint_zh": "拉緊的線，只有在真正的圓球上才是最短的路。"
+       }
+      ],
+      "end_en": "There is no best map. Each one keeps something and gives something up, so the first thing to ask is what the map is for.",
+      "end_zh": "沒有最好的地圖。每一種都保住一些、犧牲一些，所以第一件事是問：這張地圖是拿來做什麼的？"
+     },
+     "map_english": {
+      "eyebrow": "Map English · 地圖英語",
+      "en": "Eight sentences for talking about maps",
+      "zh": "談地圖時用得到的八句英文",
+      "lead_en": "Every lesson in this series has a Map English card: eight sentences for saying where things are and what a map shows. Listen, repeat, then try them with a map or globe in front of you.",
+      "lead_zh": "這個系列每一課都有一張「地圖英語」卡：八句用英文說位置、說地圖的句子。先聽、再跟著唸，然後對著一張地圖或一顆地球儀自己說說看。",
+      "items": [
+       {
+        "en": "The equator <b>runs through the middle of</b> the map.",
+        "zh": "赤道從地圖的正中間穿過。",
+        "use_en": "runs through: a line crossing a place",
+        "use_zh": "一條線穿過某個地方"
+       },
+       {
+        "en": "Greenland is <b>near</b> the North Pole.",
+        "zh": "格陵蘭在北極附近。",
+        "use_en": "near: close to",
+        "use_zh": "靠近"
+       },
+       {
+        "en": "Taiwan is <b>off the coast of</b> East Asia.",
+        "zh": "台灣在東亞的外海。",
+        "use_en": "off the coast of: in the sea, not far from the shore",
+        "use_zh": "在外海、離岸不遠"
+       },
+       {
+        "en": "Africa lies <b>on both sides of</b> the equator.",
+        "zh": "非洲橫跨赤道的兩邊。",
+        "use_en": "on both sides of: north and south of a line",
+        "use_zh": "在一條線的兩邊"
+       },
+       {
+        "en": "Greenland <b>looks bigger</b> on this map <b>than it really is</b>.",
+        "zh": "格陵蘭在這張地圖上看起來比實際大。",
+        "use_en": "looks … than it really is: for distortion",
+        "use_zh": "說地圖的變形"
+       },
+       {
+        "en": "North is <b>at the top of</b> the map.",
+        "zh": "地圖的上方是北邊。",
+        "use_en": "at the top of / at the bottom of",
+        "use_zh": "在上方／在下方"
+       },
+       {
+        "en": "Australia is <b>in the Southern Hemisphere</b>.",
+        "zh": "澳洲在南半球。",
+        "use_en": "in the Northern / Southern Hemisphere",
+        "use_zh": "在北半球／南半球"
+       },
+       {
+        "en": "This map <b>keeps</b> the sizes right, but it <b>stretches</b> the shapes.",
+        "zh": "這張地圖把大小畫對了，但把形狀拉長了。",
+        "use_en": "keeps … but stretches …: what a map does well and badly",
+        "use_zh": "說一張地圖保住什麼、犧牲什麼"
+       }
+      ]
+     },
+     "culture_cards": {
+      "eyebrow": "Stories Behind the Maps · 地圖背後的故事",
+      "title_en": "A sailor's map, a long argument, the map in your phone, and Taiwan's own grid",
+      "title_zh": "水手的地圖、一場爭論、手機裡的地圖，和台灣自己的坐標",
+      "lead_en": "Four short stories about people choosing what a map should keep.",
+      "lead_zh": "四個小故事，講的都是人怎麼選擇一張地圖要保住什麼。",
+      "cards": [
+       {
+        "k": "1569 · For Sailors · 給水手的地圖",
+        "en": "Mercator's straight lines",
+        "zh": "麥卡托的直線",
+        "body_en": "Gerardus Mercator presented his world map in 1569. Part of its long Latin title means “for the use of navigators.” A course that keeps one compass direction is called a rhumb line, and on his map every rhumb line is straight. Sea charts still use the projection today. Its weakness for wall maps was known from the start: the poles cannot be shown at all, and lands far from the equator look far too large.",
+        "body_zh": "麥卡托在 1569 年發表他的世界地圖，那一長串拉丁文標題裡有一段的意思是「供航海者使用」。羅盤方向固定不變的航線叫做恆向線，在他的地圖上，每一條恆向線都是直的。今天的海圖仍然使用這種投影。拿來當掛圖的缺點也從一開始就看得出來：兩極根本畫不出來，離赤道遠的陸地看起來大得太多。"
+       },
+       {
+        "k": "A Long Argument · 一場爭論",
+        "en": "Which map belongs on the classroom wall?",
+        "zh": "教室牆上該掛哪一張地圖？",
+        "body_en": "In the 1970s Arno Peters promoted an equal-area map and criticized the Mercator map for making lands far from the equator look too large. In 2017 the public schools of Boston began using a map of this kind. Many mapmakers replied that the Mercator map was designed for navigation, and that the Gall–Peters map bends shapes badly. In 1989 and 1990, seven geographic organizations in North America advised against using any rectangular map as a general world map, and they named both of these. The argument shows that a map is a choice.",
+        "body_zh": "1970 年代，彼得斯推廣一種等積地圖，並批評麥卡托地圖把離赤道遠的陸地畫得太大。2017 年，美國波士頓的公立學校開始使用這一類地圖。許多製圖的人則回應：麥卡托地圖是為航海設計的，而高爾－彼得斯地圖把形狀扭曲得很厲害。1989 到 1990 年，北美有七個地理學會與製圖學會建議，一般用途的世界地圖不要用任何長方形的投影，這兩種都點名在內。這場爭論讓人看見：地圖是一種選擇。"
+       },
+       {
+        "k": "In Your Pocket · 口袋裡的地圖",
+        "en": "Why online maps are square",
+        "zh": "網路地圖為什麼是正方形的",
+        "body_en": "Most online maps use a form of the Mercator projection, often called Web Mercator. Google's documentation explains that the map is cut off at about 85 degrees north and south, which makes the whole world a square. A square splits neatly into four smaller squares, again and again, and those are the tiles your phone loads as you zoom in. The projection is also good at keeping angles. Zoomed all the way out, it has the same size problem as any Mercator map.",
+        "body_zh": "大多數的網路地圖用的是麥卡托投影的一種變化，常被稱為 Web Mercator。Google 的技術文件說明：地圖在南北緯大約 85 度的地方切掉，這樣整個世界剛好是一個正方形。正方形可以整齊地一分為四、再一分為四，這些就是你放大地圖時手機載入的一塊塊圖磚。這種投影也擅長保住角度。把畫面縮到最小時，它和所有的麥卡托地圖一樣，有大小不準的問題。"
+       },
+       {
+        "k": "Taiwan · 台灣",
+        "en": "A Mercator map turned on its side",
+        "zh": "一張橫過來的麥卡托地圖",
+        "body_en": "Taiwan's official coordinate system, TWD97, uses a projection called Transverse Mercator. Imagine the Mercator map turned on its side, so that the line of least distortion runs north–south instead of along the equator. Taiwan is a long island running north to south, so this fits it well. According to the National Land Surveying and Mapping Center, the central line for the main island is 121 degrees east, and the zone is only two degrees wide, which keeps the distortion very small.",
+        "body_zh": "台灣的官方坐標系統 TWD97，用的是「橫麥卡托投影」。想像把麥卡托地圖橫過來，讓變形最小的那條線不再是赤道，而是一條南北向的線。台灣是一座南北狹長的島，這種投影很適合。依內政部國土測繪中心的說明，台灣本島的中央子午線是東經 121 度，而且一帶只有經度兩度寬（二度分帶），所以變形非常小。"
+       }
+      ]
+     },
+     "curric": {
+      "eyebrow": "In the Curriculum · 對應課綱",
+      "en": "Where this lesson fits",
+      "zh": "這一課對應的課綱",
+      "lead_en": "These entries come from Taiwan's 12-Year Basic Education curriculum for social studies (2018). The elementary-school content has no entry about map projections, so the links below are to junior and senior high school geography.",
+      "lead_zh": "下面的條目出自十二年國民基本教育課程綱要社會領域（民國 107 年發布）。國小階段的學習內容沒有談地圖投影的條目，所以這裡列的是國中與高中地理。",
+      "items": [
+       {
+        "code": "地 Aa-Ⅳ-1",
+        "area": "社會領域・地理（國中）",
+        "area_en": "Social studies, geography (junior high)",
+        "text": "全球經緯度座標系統。",
+        "note_en": "Latitude and longitude are the grid that every projection moves onto the flat map. Lesson 2 of this series is about that grid.",
+        "note_zh": "經緯度就是每一種投影搬到平面上的那套格線。本系列第二課會專門談它。"
+       },
+       {
+        "code": "地 Ac-Ⅴ-1",
+        "area": "社會領域・地理（普通型高中必修）",
+        "area_en": "Social studies, geography (senior high, required)",
+        "text": "地圖本質與要素。",
+        "note_en": "The curriculum adds a note to this group of entries: “若介紹地圖投影時，應著重於介紹地圖投影的變形及合宜應用的案例。” (If map projections are introduced, the focus should be on their distortion and on cases of fitting use.) That is the idea of this lesson.",
+        "note_zh": "課綱在這一組條目的說明欄寫：「若介紹地圖投影時，應著重於介紹地圖投影的變形及合宜應用的案例。」這正是本課的主題。"
+       },
+       {
+        "code": "地 Ac-Ⅴ-2",
+        "area": "社會領域・地理（普通型高中必修）",
+        "area_en": "Social studies, geography (senior high, required)",
+        "text": "地圖種類及其用途。",
+        "note_en": "The game “Which Map Fits the Job?” practices matching a kind of map to a use.",
+        "note_zh": "「哪一張地圖適合？」這個小遊戲，練習的就是把地圖的種類和用途配起來。"
+       }
+      ]
+     },
+     "myths": [
+      {
+       "myth_en": "The map on the classroom wall shows the true sizes of the lands.",
+       "myth_zh": "教室牆上的地圖，畫的就是陸地真正的大小。",
+       "fact_en": "Only if it is an equal-area map. Many wall maps and almost all online maps enlarge the lands that are far from the equator.",
+       "fact_zh": "只有等積地圖才是。很多掛圖和幾乎所有的網路地圖，都把離赤道遠的陸地放大了。"
+      },
+      {
+       "myth_en": "The Mercator map is a wrong map, and an equal-area map is the right one.",
+       "myth_zh": "麥卡托地圖是錯的地圖，等積地圖才是對的。",
+       "fact_en": "Each keeps something different. The Mercator map keeps shapes and compass directions. An equal-area map keeps sizes. Each is right for its job and wrong for the other one.",
+       "fact_zh": "它們保住的東西不一樣。麥卡托地圖保住形狀和羅盤方向，等積地圖保住大小。各自在自己的用途上是對的，換到對方的用途上就不對。"
+      },
+      {
+       "myth_en": "With a good enough computer, someone will make a flat map with no distortion.",
+       "myth_zh": "只要電腦夠厲害，總有一天能做出完全沒有變形的平面地圖。",
+       "fact_en": "This is a matter of geometry, and computing power cannot change it. It was proved about two hundred years ago that a sphere cannot be flattened without distortion. A map can only choose where to put it.",
+       "fact_zh": "這是幾何的問題，電腦再厲害也改變不了。大約兩百年前就有人證明：球面不可能毫無變形地攤平。地圖只能選擇把變形放在哪裡。"
+      },
+      {
+       "myth_en": "On a map, the shortest way between two places is always a straight line.",
+       "myth_zh": "在地圖上，兩地之間最短的路一定是一條直線。",
+       "fact_en": "On the round Earth, the shortest path follows a great circle. On a Mercator map that path usually looks curved, which is why long flights seem to bend toward the poles.",
+       "fact_zh": "在圓的地球上，最短的路沿著大圓走。這條路畫在麥卡托地圖上通常是彎的，所以長途航線看起來會往兩極的方向彎。"
+      }
+     ],
+     "tricks_head": {
+      "en": "Maps in a sentence",
+      "zh": "一句話記住地圖"
+     },
+     "tricks": [
+      {
+       "title_en": "Round will not go flat",
+       "title_zh": "圓的攤不平",
+       "body_en": "Remember the tangerine peel. To lie flat, it has to stretch or tear.",
+       "body_zh": "想想橘子皮：要攤平，不是拉扯就是裂開。"
+      },
+      {
+       "title_en": "Shape, area, distance, direction: pick",
+       "title_zh": "形狀、面積、距離、方向：選",
+       "body_en": "A flat map can keep some of the four, never all of them.",
+       "body_zh": "一張平面地圖可以保住其中幾樣，不可能四樣全保。"
+      },
+      {
+       "title_en": "Mercator for steering, equal-area for sizes",
+       "title_zh": "要走方向用麥卡托，要比大小用等積",
+       "body_en": "One keeps compass directions straight. The other keeps sizes fair.",
+       "body_zh": "一個讓羅盤方向是直線，一個讓大小公平。"
+      },
+      {
+       "title_en": "Ask what the map is for",
+       "title_zh": "先問地圖是做什麼用的",
+       "body_en": "There is no best map, only a map that fits the job.",
+       "body_zh": "沒有最好的地圖，只有適合這個用途的地圖。"
+      }
+     ],
+     "safety_head": {
+      "eyebrow": "Before the Activities · 做活動之前",
+      "en": "Working safely",
+      "zh": "安全提醒"
+     },
+     "safety": [
+      {
+       "en": "Peel the fruit with your fingers. If the peel needs a starting cut, an adult makes it. Students do not use knives.",
+       "zh": "水果用手剝。如果需要先劃一刀才好剝，由大人來劃；學生不拿刀。"
+      },
+      {
+       "en": "Use round-tipped scissors, cut away from your other hand, and pass scissors with the handles toward the other person.",
+       "zh": "用圓頭剪刀，剪的時候刀口不要朝向另一隻手；遞剪刀時把握柄朝向對方。"
+      },
+      {
+       "en": "Blow up balloons only as far as the teacher shows you, and keep them away from your face when you cut them. Check first whether anyone in the class is allergic to latex.",
+       "zh": "氣球只吹到老師示範的大小，剪的時候離臉遠一點。活動前先確認班上有沒有人對乳膠過敏。"
+      },
+      {
+       "en": "Wash your hands after handling the fruit, and wipe up juice so that nobody slips.",
+       "zh": "碰過水果之後洗手，滴在地上的果汁擦乾，免得有人滑倒。"
+      }
+     ],
+     "activities": [
+      {
+       "title_en": "The Tangerine-Peel Map",
+       "title_zh": "橘子皮地圖",
+       "materials": [
+        {
+         "en": "One tangerine or small orange for each pair",
+         "zh": "每兩人一顆橘子或小柳丁"
+        },
+        {
+         "en": "A marker that writes on the peel",
+         "zh": "一支能畫在果皮上的筆"
+        },
+        {
+         "en": "A sheet of paper and a heavy book",
+         "zh": "一張紙和一本厚書"
+        },
+        {
+         "en": "A pencil",
+         "zh": "一枝鉛筆"
+        }
+       ],
+       "steps": [
+        {
+         "en": "Before peeling, draw a line around the middle of the fruit for the equator. Draw four or five circles of the same size on the peel, some near the equator and some near the top.",
+         "zh": "剝皮之前，先在水果的腰上畫一圈當赤道。再在果皮上畫四、五個一樣大的圓，有的靠近赤道，有的靠近頂端。"
+        },
+        {
+         "en": "Peel the fruit with your fingers, keeping the peel in as few pieces as you can.",
+         "zh": "用手把皮剝下來，盡量讓皮保持完整、越少片越好。"
+        },
+        {
+         "en": "Lay the peel on the paper with the outside facing up, and press it flat with the book. Watch where it tears.",
+         "zh": "把皮攤在紙上、外面朝上，用書壓平。看看它從哪裡裂開。"
+        },
+        {
+         "en": "Trace the outline of the flattened peel on the paper. Mark the gaps.",
+         "zh": "在紙上描出壓平後果皮的輪廓，把裂縫標出來。"
+        },
+        {
+         "en": "Look at your circles. Which ones were torn or pulled out of shape? Compare with the orange-peel map in the 3D model.",
+         "zh": "看看你畫的圓，哪些被撕開、被拉得變形了？和 3D 模型裡的「橘子皮地圖」比一比。"
+        }
+       ],
+       "tip_en": "The peel tears because it cannot stretch. A printed map does not tear because the mapmaker stretches the picture instead. Ask the class: which would you rather have, gaps or stretching?",
+       "tip_zh": "果皮會裂開，是因為它不能伸縮。印出來的地圖不會裂開，是因為製圖的人改用「拉扯圖形」來代替。問問全班：你寧願要裂縫，還是要拉扯？"
+      },
+      {
+       "title_en": "The Balloon Map",
+       "title_zh": "氣球地圖",
+       "materials": [
+        {
+         "en": "One round balloon for each group",
+         "zh": "每組一個圓形氣球"
+        },
+        {
+         "en": "A permanent marker",
+         "zh": "一支油性筆"
+        },
+        {
+         "en": "Round-tipped scissors",
+         "zh": "圓頭剪刀"
+        },
+        {
+         "en": "Four pushpins or pieces of tape, and a piece of cardboard",
+         "zh": "四個圖釘或幾段膠帶，和一塊厚紙板"
+        }
+       ],
+       "steps": [
+        {
+         "en": "Blow the balloon up to the size of a grapefruit and tie it. Draw an equator and six small squares of the same size, some near the equator and some near the knot.",
+         "zh": "把氣球吹到葡萄柚那麼大，打結。畫一條赤道，再畫六個一樣大的小正方形，有的靠近赤道，有的靠近打結的地方。"
+        },
+        {
+         "en": "Let the air out slowly. Cut the balloon open from the knot to the opposite end.",
+         "zh": "慢慢把氣放掉。從打結的地方剪到另一端，把氣球剪開。"
+        },
+        {
+         "en": "Stretch the rubber into a rectangle on the cardboard and fix the four corners with tape or pins. An adult helps with the pins.",
+         "zh": "把橡皮在厚紙板上拉成長方形，四個角用膠帶或圖釘固定。圖釘請大人幫忙。"
+        },
+        {
+         "en": "Measure your squares now. Which ones grew the most? Are they still square?",
+         "zh": "現在量一量那些正方形。哪幾個變大最多？還是正方形嗎？"
+        },
+        {
+         "en": "Open the 3D model and choose the Mercator map. Do the orange circles change in the same places as your squares?",
+         "zh": "打開 3D 模型，選麥卡托地圖。橘色的圓變化的地方，和你的正方形一樣嗎？"
+        }
+       ],
+       "tip_en": "Rubber can stretch, so the balloon map has no gaps, but the squares near the edge are pulled much bigger than the ones in the middle. That is distortion you can measure with a ruler.",
+       "tip_zh": "橡皮可以伸縮，所以氣球地圖沒有裂縫；但靠邊的正方形被拉得比中間的大很多。這就是可以用尺量出來的變形。"
+      }
+     ],
+     "links_head": {
+      "eyebrow": "Go Further · 延伸閱讀",
+      "en": "The round Earth in other lessons, and what comes next",
+      "zh": "其他課裡的圓形地球，以及下一課"
+     },
+     "links": [
+      {
+       "icon": "🌍",
+       "k_en": "Astronomy · Lesson 3",
+       "k_zh": "天文教育・第三課",
+       "en": "Why Do We Have Seasons?",
+       "zh": "為什麼有四季？",
+       "note_en": "The same round, tilted Earth, seen from space. That lesson shows why sunlight falls differently at different latitudes.",
+       "note_zh": "同一顆圓圓的、歪著轉的地球，從太空看。那一課說明為什麼不同緯度照到的陽光不一樣。",
+       "href": "/resources/classes/astronomy/seasons/"
+      },
+      {
+       "icon": "🛰️",
+       "k_en": "How Things Work · Lesson 7",
+       "k_zh": "萬物原理・第七課",
+       "en": "How Does GPS Know Where You Are?",
+       "zh": "GPS 怎麼知道你在哪裡？",
+       "note_en": "Satellites find your position on the round Earth. A map projection then decides where that position lands on your flat screen.",
+       "note_zh": "衛星先在圓的地球上找出你的位置，地圖投影再決定這個位置要畫在平面螢幕的哪裡。",
+       "href": "/resources/classes/how-things-work/gps/"
+      },
+      {
+       "icon": "📍",
+       "k_en": "Geography · Lesson 2",
+       "k_zh": "地理・第二課",
+       "en": "How Do You Find Any Place on Earth?",
+       "zh": "怎麼找到地球上任何一個地方？",
+       "note_en": "Latitude and longitude: two numbers that work like an address for any spot on the globe.",
+       "note_zh": "經度和緯度：兩個數字，就是地球上任何一個地方的地址。",
+       "soon": true
+      }
+     ],
+     "sources_note_en": "Names, dates, numbers, and quotations on this page were checked against these sources (October 2026). The stretch factors and ratios are computed by the page itself and have automated tests",
+     "sources_note_zh": "本頁的人名、年代、數字與引文依下列資料查證（2026 年 10 月）；變形的倍率與比值由頁面自己計算，並有自動測試",
+     "sources": [
+      {
+       "en": "Land outlines: Natural Earth, 1:50m Physical Vectors, Land, version 5.1.2. Public domain. Simplified for this page; no borders or names.",
+       "zh": "陸地外形：Natural Earth 1:50m Land 5.1.2 版，公有領域；經本頁簡化，不含國界與地名",
+       "src": "Natural Earth: Terms of Use",
+       "url": "https://www.naturalearthdata.com/about/terms-of-use/"
+      },
+      {
+       "en": "A map projection is “a systematic representation of all or part of the surface of a round body, especially the Earth, on a plane”; this “cannot be done without distortion.” Formulas for the projections, the scale factor sec φ of the Mercator projection, and Tissot's analysis of distortion (1859, 1881).",
+       "zh": "地圖投影的定義、「不可能沒有變形」、各投影的公式、麥卡托的比例因子 sec φ、底索的變形分析（1859、1881）",
+       "src": "Snyder, Map Projections: A Working Manual, USGS Professional Paper 1395 (1987)",
+       "url": "https://pubs.usgs.gov/publication/pp1395"
+      },
+      {
+       "en": "Mercator projection: presented in 1569; conformal; rhumb lines are straight; the poles cannot be shown; the 1569 title includes “ad usum navigantium.” Plate carrée credited to Marinus of Tyre, about AD 100; Mollweide presented in 1805; Gall's projection, 1855.",
+       "zh": "麥卡托投影：1569 年發表、正形、恆向線是直線、畫不到極點、標題有「供航海者使用」；等距圓柱投影約西元 100 年；莫爾威投影 1805 年；高爾的投影 1855 年",
+       "src": "Snyder (1987), chapters 7, 10, 12, 31",
+       "url": "https://pubs.usgs.gov/pp/1395/report.pdf"
+      },
+      {
+       "en": "“Any straight line on a Mercator projection map is a line of constant true bearing”; introduced in 1569 by Gerardus Mercator; areas farther from the equator appear disproportionately large.",
+       "zh": "麥卡托地圖上的直線是方位固定的線；1569 年由麥卡托提出；離赤道越遠的地區看起來越大",
+       "src": "Encyclopaedia Britannica, “Mercator projection”",
+       "url": "https://www.britannica.com/science/Mercator-projection"
+      },
+      {
+       "en": "“All projections involve some degree of distortion.”",
+       "zh": "所有的投影都有某種程度的變形",
+       "src": "Encyclopaedia Britannica, “projection (cartography)”",
+       "url": "https://www.britannica.com/science/projection-cartography"
+      },
+      {
+       "en": "Gauss's Theorema Egregium (1827): the surface of a sphere cannot be unfolded onto a plane without distorting distances.",
+       "zh": "高斯的「絕妙定理」（1827 年）：球面不可能攤成平面而不改變距離",
+       "src": "Wikipedia, “Theorema Egregium”",
+       "url": "https://en.wikipedia.org/wiki/Theorema_Egregium"
+      },
+      {
+       "en": "Area of Greenland: 2,166,086 km².",
+       "zh": "格陵蘭的面積：2,166,086 平方公里",
+       "src": "Statistics Greenland, “Geography”",
+       "url": "https://stat.gl/publ/en/SA/201002/content/Geography.htm"
+      },
+      {
+       "en": "“Africa's total land area is approximately 11,724,000 square miles (30,365,000 square km).” This figure includes the islands; the Africa shape on this page is the mainland only. 30,365,000 ÷ 2,166,086 ≈ 14.0 (our calculation).",
+       "zh": "非洲的面積：約 30,365,000 平方公里（含島嶼；本頁拖動的非洲只有本土）。30,365,000 ÷ 2,166,086 ≈ 14.0（本教材計算）",
+       "src": "Encyclopaedia Britannica, “Africa” (read October 2026)",
+       "url": "https://www.britannica.com/place/Africa"
+      },
+      {
+       "en": "Area of mainland Australia: 7,656,127 km² (7,688,287 km² with its islands).",
+       "zh": "澳洲本土的面積：7,656,127 平方公里（含島嶼為 7,688,287）",
+       "src": "Geoscience Australia, “Area of Australia – States and Territories” (updated 2014)",
+       "url": "https://www.ga.gov.au/scientific-topics/national-location-information/dimensions/area-of-australia-states-and-territories"
+      },
+      {
+       "en": "Boston Public Schools introduced Gall–Peters maps in 2017; supporters and critics are both quoted.",
+       "zh": "2017 年波士頓公立學校開始使用高爾－彼得斯地圖；報導中並列支持與批評的說法",
+       "src": "NPR, March 21, 2017",
+       "url": "https://www.npr.org/sections/thetwo-way/2017/03/21/520938221/boston-students-get-a-glimpse-of-a-whole-new-world-with-different-maps"
+      },
+      {
+       "en": "Arno Peters devised his projection in 1967 and presented it in 1973 as the “Peters world map”; it matches the projection James Gall described in 1855.",
+       "zh": "彼得斯 1967 年設計、1973 年發表「彼得斯世界地圖」；和高爾 1855 年提出的投影相同",
+       "src": "Wikipedia, “Gall–Peters projection”",
+       "url": "https://en.wikipedia.org/wiki/Gall%E2%80%93Peters_projection"
+      },
+      {
+       "en": "In 1989 and 1990, seven North American geographic organizations adopted a resolution recommending against any rectangular projection, including Mercator and Gall–Peters, for reference maps of the world (Robinson, 1990).",
+       "zh": "1989–1990 年北美七個地理與製圖團體通過決議，建議世界參考地圖不要用任何長方形投影（含麥卡托與高爾－彼得斯）",
+       "src": "Wikipedia, “Map projection”",
+       "url": "https://en.wikipedia.org/wiki/Map_projection"
+      },
+      {
+       "en": "Globes are commonly made from long, thin strips of printed paper called gores, which narrow to a point at the poles.",
+       "zh": "地球儀常用印好的細長紙條（gores）貼成，紙條在兩極收成尖端",
+       "src": "Wikipedia, “Globe”",
+       "url": "https://en.wikipedia.org/wiki/Globe"
+      },
+      {
+       "en": "“We cut off base map imagery utilizing the Mercator projection at approximately +/- 85 degrees to make the resulting map shape square.”",
+       "zh": "Google 地圖在南北緯約 85 度切掉，讓地圖成為正方形",
+       "src": "Google Maps Platform, “Map and Tile Coordinates”",
+       "url": "https://developers.google.com/maps/documentation/javascript/coordinates"
+      },
+      {
+       "en": "EPSG:3857, “WGS 84 / Pseudo-Mercator,” used for web mapping; the cutoff latitude 85.0511° is arctan(sinh π).",
+       "zh": "EPSG:3857（Web Mercator），網路地圖使用；邊界緯度 85.0511 度",
+       "src": "OpenStreetMap Wiki, “Slippy map tilenames”",
+       "url": "https://wiki.openstreetmap.org/wiki/Slippy_map_tilenames"
+      },
+      {
+       "en": "Online map services use a variation of the Mercator projection, which “is very good for preserving angles.” The shortest path between two points on a sphere is a segment of a great circle.",
+       "zh": "網路地圖使用麥卡托投影的變化，它擅長保住角度；球面上兩點之間最短的路是大圓的一段",
+       "src": "National Geographic Education, “Selecting a Map Projection” and “Great Circle”",
+       "url": "https://education.nationalgeographic.org/resource/selecting-map-projection/"
+      },
+      {
+       "en": "TWD97: Transverse Mercator projection in two-degree zones; central meridian 121° E for Taiwan's main island; scale factor 0.9999 on the central meridian.",
+       "zh": "TWD97：「採用橫麥卡托投影經差二度分帶，其中央子午線為東經121度……中央子午線尺度比為0.9999」",
+       "src": "內政部國土測繪中心〈常用測繪名詞〉",
+       "url": "https://www.nlsc.gov.tw/News_toggle2.aspx?n=1538&sms=9699"
+      },
+      {
+       "en": "Chinese terms: 地圖投影 (map projection), 麥卡托投影 (Mercator projection), 等積投影 (equal-area projection), 變形 (distortion), 大圓 (great circle), 恆向線 (rhumb line), 莫爾威投影 (Mollweide projection).",
+       "zh": "中文名詞依國家教育研究院樂詞網（高中以下地理學名詞、測繪學名詞）",
+       "src": "國家教育研究院 樂詞網",
+       "url": "https://terms.naer.edu.tw/"
+      },
+      {
+       "en": "Curriculum entries 地 Aa-Ⅳ-1, 地 Ac-Ⅴ-1, 地 Ac-Ⅴ-2 and the note on map projections.",
+       "zh": "課綱條目 地 Aa-Ⅳ-1、地 Ac-Ⅴ-1、地 Ac-Ⅴ-2 與關於地圖投影的說明",
+       "src": "十二年國民基本教育課程綱要 社會領域（教育部，民國 107 年）",
+       "url": "https://www.naer.edu.tw/PageSyllabus?fid=52"
+      }
+     ]
+    }
+   ],
+   "planned": [
+    {
+     "n": 2,
+     "icon": "📍",
+     "en": "How Do You Find Any Place on Earth?",
+     "zh": "怎麼找到地球上任何一個地方？"
+    },
+    {
+     "n": 3,
+     "icon": "⛰️",
+     "en": "How Do You Draw a Mountain on Flat Paper?",
+     "zh": "怎麼在平面上畫出一座山？"
+    },
+    {
+     "n": 4,
+     "icon": "🧭",
+     "en": "How Do You Read a Map?",
+     "zh": "一張地圖要怎麼看？"
+    }
+   ]
+  },
+  {
+   "key": "earth",
+   "title_en": "Getting to Know the Earth",
+   "title_zh": "認識地球",
+   "blurb_en": "Time zones, continents and oceans, hot and cold places, and where people live.",
+   "blurb_zh": "時區、大洲與大洋、熱的地方和冷的地方，以及人都住在哪裡。",
+   "lessons": [],
+   "planned": [
+    {
+     "n": 5,
+     "icon": "🕒",
+     "en": "Why Is It Night in New York When It Is Day in Taipei?",
+     "zh": "台北是白天，紐約為什麼是晚上？"
+    },
+    {
+     "n": 6,
+     "icon": "🌏",
+     "en": "How Many Continents and Oceans Are There?",
+     "zh": "世界有幾大洲、幾大洋？"
+    },
+    {
+     "n": 7,
+     "icon": "🌡️",
+     "en": "Why Is It Hot at the Equator and Cold at the Poles?",
+     "zh": "為什麼赤道熱、兩極冷？"
+    },
+    {
+     "n": 8,
+     "icon": "🏘️",
+     "en": "Where Do People Live?",
+     "zh": "人都住在哪裡？"
+    }
+   ]
+  },
+  {
+   "key": "taiwan",
+   "title_en": "Taiwan",
+   "title_zh": "台灣",
+   "blurb_en": "The island from above: its mountains and plains, its water, its people, its crops, its outer islands, and one county up close.",
+   "blurb_zh": "從天上看這座島：山與平原、水、人、作物、離島，再走近看一個縣。",
+   "lessons": [],
+   "planned": [
+    {
+     "n": 9,
+     "icon": "🏔️",
+     "en": "What Does Taiwan Look Like from Above?",
+     "zh": "從天上看，台灣長什麼樣子？"
+    },
+    {
+     "n": 10,
+     "icon": "💧",
+     "en": "Why Can Taiwan Run Short of Water When It Rains So Much?",
+     "zh": "台灣雨這麼多，為什麼還會缺水？"
+    },
+    {
+     "n": 11,
+     "icon": "🚉",
+     "en": "Where Do Taiwan's People Live?",
+     "zh": "台灣的人住在哪裡？"
+    },
+    {
+     "n": 12,
+     "icon": "🌾",
+     "en": "What Grows Where in Taiwan?",
+     "zh": "台灣什麼地方種什麼？"
+    },
+    {
+     "n": 13,
+     "icon": "🏝️",
+     "en": "What Are Taiwan's Outer Islands Like?",
+     "zh": "台灣的離島是什麼樣子？"
+    },
+    {
+     "n": 14,
+     "icon": "🧶",
+     "en": "Where Do Taiwan's Indigenous Peoples Live?",
+     "zh": "台灣的原住民族住在哪裡？"
+    },
+    {
+     "n": 15,
+     "icon": "🏡",
+     "en": "What Makes Changhua Changhua?",
+     "zh": "彰化為什麼是彰化？"
+    }
+   ]
+  },
+  {
+   "key": "land-use",
+   "title_en": "How People Use the Land",
+   "title_zh": "人怎麼用土地",
+   "blurb_en": "Why cities grow where they do, where food comes from, and how goods and people move.",
+   "blurb_zh": "城市為什麼長在那裡、食物從哪裡來，東西和人又怎麼移動。",
+   "lessons": [],
+   "planned": [
+    {
+     "n": 16,
+     "icon": "🏙️",
+     "en": "Why Are Cities Where They Are?",
+     "zh": "城市為什麼蓋在那裡？"
+    },
+    {
+     "n": 17,
+     "icon": "🍳",
+     "en": "Where Does Your Breakfast Come From?",
+     "zh": "你的早餐從哪裡來？"
+    },
+    {
+     "n": 18,
+     "icon": "🚢",
+     "en": "How Do Things Cross the Ocean?",
+     "zh": "東西怎麼漂洋過海？"
+    },
+    {
+     "n": 19,
+     "icon": "🚄",
+     "en": "How Do You Get from Here to There?",
+     "zh": "怎麼從這裡到那裡？"
+    }
+   ]
+  },
+  {
+   "key": "world",
+   "title_en": "Looking at the World: Four Questions",
+   "title_zh": "看世界：四個問題",
+   "blurb_en": "Monsoons, the true size of Africa, rainforests, and the two ends of the Earth.",
+   "blurb_zh": "季風、非洲真正的大小、雨林，以及地球的兩端。",
+   "lessons": [],
+   "planned": [
+    {
+     "n": 20,
+     "icon": "🌬️",
+     "en": "What Is a Monsoon?",
+     "zh": "季風是什麼？"
+    },
+    {
+     "n": 21,
+     "icon": "📐",
+     "en": "How Big Is Africa Really?",
+     "zh": "非洲到底有多大？"
+    },
+    {
+     "n": 22,
+     "icon": "🌴",
+     "en": "What Is a Rainforest?",
+     "zh": "雨林是什麼？"
+    },
+    {
+     "n": 23,
+     "icon": "🧊",
+     "en": "Who Lives at the Ends of the Earth?",
+     "zh": "地球的兩端有誰住？"
+    }
+   ]
+  },
+  {
+   "key": "continents",
+   "title_en": "The Continents",
+   "title_zh": "各大洲",
+   "blurb_en": "One lesson for each: where it is, the bones of its land, its climate, where people live, and one link to Taiwan.",
+   "blurb_zh": "每一洲一課：在哪裡、地形的骨架、氣候、人住在哪裡，以及和台灣的一個連結。",
+   "lessons": [],
+   "planned": [
+    {
+     "n": 24,
+     "icon": "🗻",
+     "en": "What Is Asia Like?",
+     "zh": "亞洲是什麼樣子？"
+    },
+    {
+     "n": 25,
+     "icon": "🏰",
+     "en": "What Is Europe Like?",
+     "zh": "歐洲是什麼樣子？"
+    },
+    {
+     "n": 26,
+     "icon": "🦒",
+     "en": "What Is Africa Like?",
+     "zh": "非洲是什麼樣子？"
+    },
+    {
+     "n": 27,
+     "icon": "🌽",
+     "en": "What Is North America Like?",
+     "zh": "北美洲是什麼樣子？"
+    },
+    {
+     "n": 28,
+     "icon": "🦙",
+     "en": "What Is South America Like?",
+     "zh": "南美洲是什麼樣子？"
+    },
+    {
+     "n": 29,
+     "icon": "🛶",
+     "en": "What Is Oceania Like?",
+     "zh": "大洋洲是什麼樣子？"
+    }
+   ]
+  },
+  {
+   "key": "methods",
+   "title_en": "How Geographers Work",
+   "title_zh": "地理的方法",
+   "blurb_en": "Reading hazard maps, mapping from space, comparing old and new maps, and drawing a map of your own.",
+   "blurb_zh": "看防災地圖、從太空畫地圖、比較新舊地圖，最後畫一張自己的地圖。",
+   "lessons": [],
+   "planned": [
+    {
+     "n": 30,
+     "icon": "🚨",
+     "en": "How Do You Read a Hazard Map?",
+     "zh": "防災地圖怎麼看？"
+    },
+    {
+     "n": 31,
+     "icon": "🛰️",
+     "en": "How Do Satellites Map the Earth?",
+     "zh": "衛星怎麼幫地球拍照？"
+    },
+    {
+     "n": 32,
+     "icon": "🕰️",
+     "en": "How Do Places Change Over Time?",
+     "zh": "一個地方會怎麼改變？"
+    },
+    {
+     "n": 33,
+     "icon": "✏️",
+     "en": "How Do You Make Your Own Map?",
+     "zh": "怎麼畫一張自己的地圖？"
+    }
+   ]
+  }
+ ]
+}

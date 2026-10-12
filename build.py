@@ -1429,6 +1429,8 @@ def build_reading_hub():
              "Why do paint and light mix differently? Move three colored lamps in a dark room, then mix the same colors as paint, with every color named in words. 顏料和光，混色為什麼不一樣？在暗房裡移動三盞彩色的燈，再換成顏料混混看；每個顏色都附文字名稱。"),
             ("/resources/classes/math/", "🧮", "Math You Can See · 看得見的數學",
              "Why do we count in tens? One question a lesson, answered with a model you can play with, plus a card that shows how to say the math in English. No timers, no drills. 為什麼我們十個一數？每課用一個可以動手玩的模型回答一個「為什麼」，再附一張「這個用英文怎麼唸」卡。不計時、不考速度。"),
+            ("/resources/classes/geography/", "🗺️", "Geography · 地理",
+             "Why is every flat map wrong? Peel a 3D globe open, flatten it five ways, and see what each map keeps and what it gives up. 為什麼每一張平面地圖都是「錯」的？把 3D 地球儀剝開，用五種方法攤平，看每一種地圖保住什麼、犧牲什麼。"),
             ("/resources/classes/philosophy/", "🦉", "Philosophy · 哲學",
              "Advanced reading: the big questions, the people who asked them, and where the Dharma meets Western thought. 高級閱讀：哲學的大問題、問這些問題的人，以及佛法與西方哲學的對照。"),
             ("/resources/grandfather/", "🌅", "Grandfather · 落日餘暉",
@@ -17053,6 +17055,368 @@ def build_mus_hub():
           f'{MUS["lead_en"]} {MUS["lead_zh"]}', body, "resources", extra_head=_mus_head() + _lc_head()))
     return MUS_BASE
 
+# ─────────────────────────────────────────────────────────────────────────────
+# 地理 Geography（/resources/classes/geography/）
+# 架構照書法、音樂：data/geography.json 的 units[].lessons 是做好的課、units[].planned 是「製作中」卡。
+# 樣式 assets/css/geography.css（class 前綴 gg-，只載在本系列）；原始碼 tools/geo/src/，bundle 一律 geo-*。
+# 加課只要登記四個表：_GEO_JS（lab.kind → bundle）、_GEO_LAB（lab.kind → 3D 面板）、_GEO_CARD（課程卡小圖示）、
+# _GEO_WIDGETS（頁面上的小互動與「地圖英語」：JSON 的 key → render 函式，照這個順序排）。
+# 原則：只畫陸地、海洋、經緯線；不畫國界、不標國名。底圖是 Natural Earth（公有領域）。
+# ─────────────────────────────────────────────────────────────────────────────
+_geoj = os.path.join(ROOT, "data", "geography.json")
+GEO = json.load(open(_geoj, encoding="utf-8")) if os.path.exists(_geoj) else None
+GEO_BASE = "/resources/classes/geography/"
+_GEO_JS = {"flatmap": "geo-flatmap"}   # lab.kind → assets/js/<bundle>.js
+
+def _geo_ver():
+    h = hashlib.md5()
+    for rel in ("assets/css/astro.css", "assets/css/geography.css", *(f"assets/js/{j}.js" for j in _GEO_JS.values())):
+        fp = os.path.join(ROOT, rel)
+        if os.path.exists(fp): h.update(open(fp, "rb").read())
+    return h.hexdigest()[:8]
+
+def _geo_head(js=None):
+    v = _geo_ver()
+    tag = f'<script defer src="/assets/js/{js}.js?v={v}"></script>\n' if js else ""
+    return (f'<link rel="stylesheet" href="/assets/css/astro.css?v={v}">\n'
+            f'<link rel="stylesheet" href="/assets/css/geography.css?v={v}">\n{tag}')
+
+def geohub_svg(size=56):
+    """地理系列的小圖示：一顆有經緯線的地球儀（只有海、陸塊的色塊與格線，沒有國界），斜斜的軸和底座。"""
+    return (f'<svg class="geohub-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">'
+            '<path d="M14 52h26" stroke="#c89a5c" stroke-width="3" stroke-linecap="round"/><path d="M27 52v-5" stroke="#c89a5c" stroke-width="3"/>'
+            '<path d="M44.5 12.5A21 21 0 0 1 20 46" fill="none" stroke="#c89a5c" stroke-width="2.4" stroke-linecap="round"/>'
+            '<circle cx="29" cy="27" r="17" fill="#1f4c8a"/>'
+            '<path d="M20 15c4-1 7 1 8 4s-2 5-1 8 5 3 5 7-4 8-7 8c-5-2-9-7-10-13s1-11 5-14z" fill="#8fbf7a"/>'
+            '<path d="M36 13c4 2 8 6 9 11-3 1-6-1-7-4s-3-4-2-7zM40 33c2 0 4 2 3 5s-4 5-6 4 0-9 3-9z" fill="#8fbf7a"/>'
+            '<g fill="none" stroke="#e8edf7" stroke-width=".9" opacity=".55"><ellipse cx="29" cy="27" rx="7.5" ry="17"/><path d="M12 27h34M14.5 18.5h29M14.5 35.5h29"/></g>'
+            '<circle cx="29" cy="27" r="17" fill="none" stroke="#e8edf7" stroke-width="1.4"/></svg>')
+
+def geoflat_svg(size=56):
+    """第一課的課程卡小圖示：左邊一顆地球，右邊攤開成一張有格線的平面地圖，中間一個箭頭。"""
+    return (f'<svg class="geoflat-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">'
+            '<circle cx="16" cy="20" r="11" fill="#1f4c8a" stroke="#e8edf7" stroke-width="1.3"/>'
+            '<path d="M11 13c3-1 5 1 5 3s-1 3 0 5 3 2 3 4-3 5-5 4c-3-2-5-5-5-9s1-6 2-7z" fill="#8fbf7a"/>'
+            '<g fill="none" stroke="#e8edf7" stroke-width=".7" opacity=".6"><ellipse cx="16" cy="20" rx="5" ry="11"/><path d="M5 20h22"/></g>'
+            '<path d="M27 30l6 6" stroke="#ffd36e" stroke-width="2.2" stroke-linecap="round"/><path d="M34 31v6h-6" fill="none" stroke="#ffd36e" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>'
+            '<rect x="20" y="38" width="36" height="18" rx="2" fill="#1f4c8a" stroke="#e8edf7" stroke-width="1.3"/>'
+            '<path d="M27 42c3-1 5 0 5 2s-1 2 0 4 3 1 2 4-3 2-5 1-3-4-3-7 0-3 1-4zM42 42c3 0 6 1 7 3s-2 2-3 2-2 3-4 2-2-5 0-7z" fill="#8fbf7a"/>'
+            '<g stroke="#e8edf7" stroke-width=".7" opacity=".55"><path d="M20 47h36M29 38v18M38 38v18M47 38v18"/></g>'
+            '<circle cx="26" cy="41" r="1.8" fill="#ff8a3d" opacity=".9"/><ellipse cx="33" cy="52" rx="2.6" ry="1.2" fill="#ff8a3d" opacity=".9"/></svg>')
+
+_GEO_CARD = {"flatmap": geoflat_svg}
+_GEO_PROP_K = [("shape", "Shape", "形狀"), ("area", "Area", "面積"), ("distance", "Distance", "距離"), ("direction", "Direction", "方向")]
+
+def render_geoflat_lab(lesson):
+    """第一課：可以攤平的地球儀（assets/js/geo-flatmap.js 綁這裡的 class；底圖 Natural Earth，只有陸地、海洋、經緯線）。"""
+    lab = lesson["lab"]
+    pb = "".join(
+        f'<button type="button" data-proj="{p["key"]}" aria-pressed="{"true" if n == 0 else "false"}">'
+        f'<b>{html.escape(p["btn_en"])}</b><small>{html.escape(p["btn_zh"])}</small></button>'
+        for n, p in enumerate(lab["projs"]))
+    def pinfo(n, p):
+        rows = "".join(
+            f'<li class="is-{p["props"][k][0]}"><b>{en}<span class="zh">{zh}</span></b>'
+            f'<span class="gg-pv">{html.escape(p["props"][k][1])}<span class="zh">{html.escape(p["props"][k][2])}</span></span></li>'
+            for k, en, zh in _GEO_PROP_K)
+        return (f'<div class="gg-pinfo" data-pinfo="{p["key"]}"{"" if n == 0 else " hidden"}>'
+                f'<h3 class="gg-pname">{html.escape(p["en"])}<span class="zh">{html.escape(p["zh"])}</span></h3>'
+                f'<p class="gg-pnote">{html.escape(p["note_en"])}<span class="zh">{html.escape(p["note_zh"])}</span></p>'
+                f'<ul class="gg-props">{rows}</ul></div>')
+    infos = "".join(pinfo(n, p) for n, p in enumerate(lab["projs"]))
+    tg = _lab_toggles([("graticule", "Grid lines", "經緯線", True), ("circles", "Equal circles", "一樣大的圓", True), ("labels", "Place labels", "地名標示", True)])
+    return f'''<div class="astro-lab gg-lab rvl" data-geoflat-lab>
+  <div class="al-stage">
+    <div class="al-space">
+      <canvas class="al-space-cv" aria-label="3D globe that peels open and flattens into a map; only land, sea, and grid lines are drawn · 可以剝開攤平成地圖的 3D 地球儀；只畫陸地、海洋與經緯線"></canvas>
+      <div class="al-labels" aria-hidden="true"></div>
+      <p class="al-hint">Drag to turn the globe · 拖曳轉動地球　Click a spot to measure it · 點一下量那個地方　Scroll or pinch to zoom · 滾輪／雙指縮放</p>
+      <button type="button" class="al-home" title="Reset view · 重設視角" aria-label="Reset view · 重設視角">&#8634;</button>
+      <p class="al-nogl-msg">This 3D model needs WebGL, which this browser does not support. The numbers on the right still work, and so do the reading, the dragging map, and the game below.<br><span class="zh">這個瀏覽器不支援 WebGL，無法顯示 3D 模型；右邊的數字照樣能用，下面的課文、拖著走的地圖和小遊戲也都能用。</span></p>
+    </div>
+    <aside class="al-sky gg-aside">
+      <p class="al-sky-k">This way of flattening · 這一種攤法</p>
+      {infos}
+      <div class="gg-read">
+        <p class="gg-read-k">At the spot you picked · 你選的那個地方</p>
+        <dl class="gg-facts">
+          <div><dt>Latitude · 緯度</dt><dd class="gg-latv">60° N</dd></div>
+          <div><dt>East–west · 東西向</dt><dd class="gg-k">× 1.00</dd></div>
+          <div><dt>North–south · 南北向</dt><dd class="gg-h">× 1.00</dd></div>
+          <div><dt>Area · 面積</dt><dd class="gg-a">× 1.00</dd></div>
+        </dl>
+        <svg class="gg-ell" viewBox="0 0 120 104" role="img" aria-label="What a small circle at this spot turns into on the map · 這個地方的一個小圓，在地圖上變成的形狀"><circle class="gg-ell-ref" cx="60" cy="52" r="20"/><polygon class="gg-ell-shape" points=""/></svg>
+        <p class="gg-shape-note">
+          <span data-kind="true">The blue shape is the same as the dashed circle: nothing is distorted here.<span class="zh">藍色的形狀和虛線圓一樣：這裡沒有變形。</span></span>
+          <span data-kind="shape" hidden>Still a circle, so the shape is kept. It is a different size, so the area is not.<span class="zh">還是圓的，形狀保住了；但大小變了，面積沒保住。</span></span>
+          <span data-kind="area" hidden>Squashed into an oval with the same area as the dashed circle: area is kept, shape is not.<span class="zh">被壓成橢圓，但面積和虛線圓一樣：面積保住了，形狀沒保住。</span></span>
+          <span data-kind="none" hidden>Stretched one way more than the other: both the shape and the area have changed.<span class="zh">一個方向拉得比另一個方向多：形狀和面積都變了。</span></span>
+        </p>
+        <label class="gg-slide"><span>Slide the latitude · 拉動緯度</span>
+          <input type="range" class="gg-lat" min="-80" max="80" step="1" value="60" aria-label="Latitude of the spot to measure, from 80 degrees south to 80 degrees north · 要量的緯度，南緯 80 度到北緯 80 度"></label>
+      </div>
+    </aside>
+  </div>
+  <div class="al-controls">
+    <div class="al-row al-row-main">
+      <button type="button" class="al-play gg-peel" aria-pressed="false"><span class="al-play-i" aria-hidden="true"></span><span class="al-play-t">Peel it flat · 攤平</span></button>
+      <label class="gg-flatrow"><span>Globe · 地球儀</span>
+        <input type="range" class="gg-flat" min="0" max="1000" step="1" value="0" aria-label="From globe to flat map · 從地球儀到平面地圖"><span>Flat map · 平面地圖</span></label>
+    </div>
+    <div class="gg-projs" role="group" aria-label="Ways to flatten the globe · 攤平的方法">{pb}</div>
+    <div class="al-row al-toggles">{tg}</div>
+  </div>
+  {_lab_foot(lab)}
+  <p class="gg-credit">{lab["credit_html"]}</p>
+</div>'''
+
+_GEO_LAB = {"flatmap": render_geoflat_lab}
+
+def _gg_drag(d):
+    picks = "".join(
+        f'<button type="button" data-piece="{k}" aria-pressed="{"true" if k == "greenland" else "false"}">'
+        f'<i style="--c:{c}"></i>{en}<small>{zh}</small></button>'
+        for k, en, zh, c in (("greenland", "Greenland", "格陵蘭", "#ff9d3d"), ("africa", "Africa", "非洲", "#3dd6c6"), ("australia", "Australia", "澳洲", "#c7a2ff")))
+    return f'''<div class="gg-drag rvl" data-gg-drag>
+  <div class="gg-dg-map">
+    <canvas class="gg-dg-cv" aria-label="A Mercator map with three landmasses you can drag to another latitude: Greenland, Africa, and Australia. No borders are drawn. · 一張麥卡托地圖，上面有三塊可以拖到別的緯度的陸地：格陵蘭、非洲、澳洲。沒有畫國界。"></canvas>
+    <p class="gg-dg-hint">Drag a colored shape · 拖動有顏色的陸塊</p>
+  </div>
+  <div class="gg-dg-side">
+    <div class="gg-dg-pick" role="group" aria-label="Which landmass · 選一塊陸地">{picks}</div>
+    <p class="gg-dg-name">Greenland <span class="zh">格陵蘭</span></p>
+    <dl class="gg-dg-facts">
+      <div><dt>Real area<span class="zh">真正的面積</span></dt><dd class="gg-dg-real"></dd></div>
+      <div><dt>Where its center is now<span class="zh">中心現在的緯度</span></dt><dd class="gg-dg-lat"></dd></div>
+      <div class="is-key"><dt>This map draws its area<span class="zh">這張地圖把它的面積畫成</span></dt><dd class="gg-dg-factor"></dd></div>
+      <div><dt>How big it looks next to Africa<span class="zh">看起來是非洲的</span></dt><dd class="gg-dg-vs"></dd></div>
+      <div><dt>How big it really is next to Africa<span class="zh">實際上是非洲的</span></dt><dd class="gg-dg-true"></dd></div>
+    </dl>
+    <div class="gg-dg-btns">
+      <button type="button" class="gg-btn gg-btn-gold" data-go="equator">Send it to the equator · 送到赤道</button>
+      <button type="button" class="gg-btn" data-go="home">Put it back · 放回原位</button>
+    </div>
+    <p class="gg-dg-msg" aria-live="polite">
+      <span data-when="home">{html.escape(d["msg_home_en"])}<span class="zh">{html.escape(d["msg_home_zh"])}</span></span>
+      <span data-when="move" hidden>{html.escape(d["msg_move_en"])}<span class="zh">{html.escape(d["msg_move_zh"])}</span></span>
+      <span data-when="eq" hidden>{html.escape(d["msg_eq_en"])}<span class="zh">{html.escape(d["msg_eq_zh"])}</span></span>
+    </p>
+  </div>
+</div>'''
+
+def _gg_fit(d):
+    opts = "".join(
+        f'<button type="button" class="gg-ft-opt" data-pick="{o["key"]}"><canvas data-thumb="{o["thumb"]}" aria-hidden="true"></canvas>'
+        f'<span class="gg-ft-lab">{html.escape(o["en"])}<span class="zh">{html.escape(o["zh"])}</span></span></button>'
+        for o in d["options"])
+    payload = json.dumps({"questions": d["questions"], "end_en": d["end_en"], "end_zh": d["end_zh"]}, ensure_ascii=False).replace("</", "<\\/")
+    return f'''<div class="gg-fit rvl" data-gg-fit>
+  <script type="application/json">{payload}</script>
+  <div class="gg-ft-top"><p class="gg-ft-k">Question 1 of 8 · 第 1 題（共 8 題）</p><p class="gg-ft-sc">Right on the first try · 第一次就答對 <b class="gg-ft-score">0 / 0</b></p></div>
+  <div class="gg-ft-steps" aria-hidden="true"></div>
+  <p class="gg-ft-q" aria-live="polite"><span class="gg-ft-q-en"></span><span class="zh gg-ft-q-zh"></span></p>
+  <div class="gg-ft-opts">{opts}</div>
+  <p class="gg-ft-msg" aria-live="polite"></p>
+  <div class="gg-ft-foot"><button type="button" class="gg-btn gg-btn-gold gg-ft-next" hidden>Next question · 下一題</button></div>
+</div>'''
+
+def _gg_map_english(d):
+    """「地圖英語」：每課都有的一張卡——8 句用英文說位置、方向和地圖的句子，中英對照，每句有 🔊。"""
+    rows = "".join(
+        f'<li class="rvl"><button class="spk" data-say="{html.escape(re.sub(r"<[^>]+>", "", it["en"]))}" aria-label="Say this sentence · 唸這一句">🔊</button>'
+        f'<p class="gg-me-en">{it["en"]}</p><p class="gg-me-zh">{html.escape(it["zh"])}</p>'
+        + (f'<p class="gg-me-use">{html.escape(it["use_en"])}<span class="zh">{html.escape(it["use_zh"])}</span></p>' if it.get("use_en") else "")
+        + '</li>' for it in d["items"])
+    return f'<ol class="gg-me">{rows}</ol>'
+
+def _gg_curric(d):
+    rows = "".join(
+        f'<li class="gg-cur rvl"><p class="gg-cur-k"><b>{html.escape(c["code"])}</b><span>{html.escape(c["area"])} · {html.escape(c["area_en"])}</span></p>'
+        f'<p class="gg-cur-q">{html.escape(c["text"])}</p>'
+        f'<p class="gg-cur-n">{html.escape(c["note_en"])}<span class="zh">{html.escape(c["note_zh"])}</span></p></li>'
+        for c in d["items"])
+    return f'<ul class="gg-curric">{rows}</ul>'
+
+# 頁面上的小互動：照這個順序排在「模型卡」後面（JSON 有那個 key 才出現）
+_GEO_WIDGETS = [("drag", _gg_drag), ("fit", _gg_fit), ("map_english", _gg_map_english)]
+
+def _geo_flat():
+    return [(ui, u, l) for ui, u in enumerate(GEO["units"]) for l in u["lessons"]]
+
+def _geo_nav(slug):
+    flat = sorted(_geo_flat(), key=lambda x: x[2]["n"])
+    i = next(n for n, (_, _, l) in enumerate(flat) if l["slug"] == slug)
+    def side(item, dirn, label):
+        if not item:
+            return '<span class="pm-nav-x"></span>'
+        l = item[2]
+        arrow = "&larr;" if dirn == "prev" else "&rarr;"
+        return (f'<a class="pm-nav-s pm-nav-{dirn}" href="{GEO_BASE}{l["slug"]}/">'
+                f'<span class="pm-nav-k">{arrow} {label}</span>'
+                f'<span class="pm-nav-t">{html.escape(l["title"])}</span></a>')
+    prev = flat[i - 1] if i > 0 else None
+    nxt = flat[i + 1] if i < len(flat) - 1 else None
+    return (f'<nav class="pm-nav rvl">{side(prev, "prev", "上一課 · Previous")}'
+            f'<a class="pm-nav-hub" href="{GEO_BASE}">&#9776; 回地理 · All Lessons</a>'
+            f'{side(nxt, "next", "下一課 · Next")}</nav>')
+
+def build_geo_lesson(ui, unit, lesson):
+    path = f'{GEO_BASE}{lesson["slug"]}/'
+    unit_dict = {k: lesson[k] for k in ("title", "paras", "paras_zh", "questions", "answers", "vocab", "quiz")}
+    unit_dict["unit"] = lesson["n"]
+    reading_html = render_basic_unit(1, unit_dict, level="geography", audio_rel="", pdf_rel="")
+    lab = lesson["lab"]
+    kind = lab["kind"]
+    lab_html = _GEO_LAB[kind](lesson)
+
+    def sec(key, fn):
+        d = lesson[key]
+        return (key.replace("_", "-"), d["eyebrow"], d["en"], d["zh"], fn(d), _bi(d["lead_en"], d["lead_zh"], cls="lead rvl d2"))
+    secs = []
+    if lesson.get("parts"):
+        cards = "".join(
+            f'<article class="ph-card gg-part rvl">'
+            f'<div class="ph-ico gg-ico" aria-hidden="true">{pt["icon"]}</div>'
+            f'<h3>{html.escape(pt["en"])}<span class="zh">{html.escape(pt["zh"])}</span></h3>'
+            f'<p class="ph-meta"><span>{html.escape(pt["meta_en"])} · {html.escape(pt["meta_zh"])}</span></p>'
+            f'<p class="ph-when">{html.escape(pt["text_en"])}<br><span class="zh">{html.escape(pt["text_zh"])}</span></p>'
+            f'<button type="button" class="ph-go" data-lab-demo="{pt["demo"]}">Watch it in the model · 在模型中看 <i>&uarr;</i></button>'
+            f'</article>' for pt in lesson["parts"])
+        ph = lesson["parts_head"]
+        secs.append(("parts", ph["eyebrow"], ph["en"], ph["zh"], f'<div class="ph-grid stagger">{cards}</div>',
+                     _bi(lesson["parts_note_en"], lesson["parts_note_zh"], cls="lead rvl d2")))
+    for key, fn in _GEO_WIDGETS:
+        if lesson.get(key): secs.append(sec(key, fn))
+    if lesson.get("culture_cards"):
+        cu = lesson["culture_cards"]
+        cc = "".join(
+            f'<article class="cc-card rvl"><p class="cc-k">{html.escape(c["k"])}</p>'
+            f'<h3>{html.escape(c["en"])}<span class="zh">{html.escape(c["zh"])}</span></h3>'
+            f'{_bi(c["body_en"], c["body_zh"])}</article>'
+            for c in cu["cards"])
+        secs.append(("stories", cu["eyebrow"], cu["title_en"], cu["title_zh"], f'<div class="cc-grid">{cc}</div>',
+                     _bi(cu["lead_en"], cu["lead_zh"], cls="lead rvl d2")))
+    if lesson.get("curric"): secs.append(sec("curric", _gg_curric))
+    secs.append(("myths", "Myth vs. Fact · 常見迷思", "Four things people get wrong", "四個常見的誤會", _sci_myths(lesson), ""))
+    th = lesson["tricks_head"]
+    secs.append(("tricks", "Remember It · 記憶口訣", th["en"], th["zh"], _sci_tricks(lesson), ""))
+    if lesson.get("safety"):
+        sh = lesson["safety_head"]
+        items = "".join(f'<li class="rvl">{html.escape(s["en"])}<span class="zh">{html.escape(s["zh"])}</span></li>' for s in lesson["safety"])
+        secs.append(("safety", sh["eyebrow"], sh["en"], sh["zh"], f'<ul class="gg-safety">{items}</ul>', ""))
+    acts = lesson.get("activities") or []
+    for n, act in enumerate(acts, 1):
+        eb = "Classroom Activity · 課堂活動" if len(acts) == 1 else f"Classroom Activity {n} · 課堂活動{_astro_cn(n)}"
+        secs.append((f"activity{'' if n == 1 else n}", eb, act["title_en"], act["title_zh"], _astro_activity(act), ""))
+    if lesson.get("links"):
+        def link(x):
+            body = (f'<span class="gg-link-ic" aria-hidden="true">{x["icon"]}</span>'
+                    f'<span class="gg-link-b"><span class="gg-link-k">{html.escape(x["k_en"])} · {html.escape(x["k_zh"])}</span>'
+                    f'<b>{html.escape(x["en"])}</b><span class="zh gg-link-zh">{html.escape(x["zh"])}</span>'
+                    f'<span class="gg-link-n">{html.escape(x["note_en"])}<span class="zh">{html.escape(x["note_zh"])}</span></span>')
+            if x.get("soon"):
+                return f'<div class="gg-link gg-link-soon rvl">{body}<span class="gg-link-go">Coming soon · 製作中</span></span></div>'
+            return f'<a class="gg-link rvl" href="{html.escape(x["href"])}">{body}<span class="gg-link-go">Go to the lesson · 前往這一課 <i>&rarr;</i></span></span></a>'
+        lh = lesson.get("links_head") or {"eyebrow": "Go Further · 延伸閱讀", "en": "Read more", "zh": "延伸閱讀"}
+        secs.append(("more", lh["eyebrow"], lh["en"], lh["zh"], f'<div class="gg-links">{"".join(link(x) for x in lesson["links"])}</div>', ""))
+    sec_html = "\n".join(_astro_sec(sid, k % 2 == 1, eb, en, zh, inner, lead)
+                         for k, (sid, eb, en, zh, inner, lead) in enumerate(secs))
+    src_html = ""
+    if lesson.get("sources"):
+        rows = "".join(
+            f'<li><span>{html.escape(s["en"])}<span class="zh">{html.escape(s["zh"])}</span></span>'
+            f'<a href="{html.escape(s["url"])}" target="_blank" rel="noopener">{html.escape(s["src"])} &#8599;</a></li>'
+            for s in lesson["sources"])
+        src_html = (f'<div class="gg-sources rvl"><p class="sub-head">Sources · 資料出處</p>'
+                    f'<p class="muted">{html.escape(lesson["sources_note_en"])} · {html.escape(lesson["sources_note_zh"])}</p>'
+                    f'<ol>{rows}</ol></div>')
+
+    eyebrow = (f'Geography · Unit {ui + 1} · Lesson {lesson["n"]} · '
+               f'地理 單元{_htw_cn(ui + 1)} 第{_htw_cn(lesson["n"])}課')
+    lead = f'{html.escape(lesson["blurb_en"])}<br><span class="muted">{html.escape(lesson["blurb_zh"])}</span>'
+    body = f'''
+{page_hero(eyebrow, f'{html.escape(lesson["title"])}<span class="h1-zh">{html.escape(lesson["title_zh"])}</span>', lead, back=(GEO_BASE, "回地理 · All Lessons"))}
+<section class="section astro-lab-sec" id="model"><div class="wrap">
+  <div class="big-idea rvl"><span class="big-idea-k">Big idea · 一句話看懂</span>{_bi(lesson["big_idea_en"], lesson["big_idea_zh"])}</div>
+  <p class="eyebrow rvl">{html.escape(lab["eyebrow"])}</p>
+  <h2 class="rvl d1 sweep">{html.escape(lab["title_en"])} <span class="tp-h2-en">{html.escape(lab["title_zh"])}</span></h2>
+  {_bi(lab["how_en"], lab["how_zh"], cls="lead rvl d2 al-how")}
+  {lab_html}
+</div></section>
+<section class="section band" id="reading"><div class="wrap" style="max-width:940px">
+  <p class="eyebrow rvl">Reading · 英文閱讀</p>
+  {reading_html}
+</div></section>
+{sec_html}
+<section class="section"><div class="wrap">
+{src_html}
+{_geo_nav(lesson["slug"])}
+</div></section>
+'''
+    say_slug = f'geography-{lesson["slug"]}'   # tools/gen_audio.py 以路徑末兩段命名
+    has_clips = os.path.exists(os.path.join(ROOT, "assets/data/say", say_slug + ".json"))
+    write(path, layout(path, f'{lesson["title"]} · {lesson["title_zh"]}',
+          f'{lesson["blurb_en"]} {lesson["blurb_zh"]}', body, "resources",
+          say_manifest=say_slug if has_clips else None, extra_head=_geo_head(_GEO_JS[kind])))
+    return path
+
+def build_geo_hub():
+    def icon(l):
+        return _GEO_CARD[l["card"]](60) if l.get("card") in _GEO_CARD else l["icon"]
+    unit_sections, nav = [], []
+    done = sum(len(u["lessons"]) for u in GEO["units"])
+    total = done + sum(len(u.get("planned", [])) for u in GEO["units"])
+    for idx, u in enumerate(GEO["units"]):
+        rows = []
+        for l in u["lessons"]:
+            rows.append((l["n"],
+                f'<a class="lc-row rvl" href="{GEO_BASE}{l["slug"]}/">'
+                f'<span class="lc-ico gg-lc-ico" aria-hidden="true">{icon(l)}</span>'
+                f'<span class="lc-body">'
+                f'<span class="lc-meta"><b>Lesson {l["n"]} · 第{_htw_cn(l["n"])}課</b><i>{html.escape(l["level"])}</i></span>'
+                f'<h3 class="lc-title">{html.escape(l["title"])}</h3>'
+                f'<span class="lc-zh">{html.escape(l["title_zh"])}</span>'
+                f'<span class="lc-bl">{html.escape(l["blurb_en"])}</span>'
+                f'<span class="lc-bl zh">{html.escape(l["blurb_zh"])}</span>'
+                f'<span class="lc-go">Start the lesson · 開始上課 <i>&rarr;</i></span>'
+                f'</span></a>'))
+        for p in u.get("planned", []):
+            rows.append((p["n"],
+                f'<div class="lc-row lc-soon rvl">'
+                f'<span class="lc-ico" aria-hidden="true">{p["icon"]}</span>'
+                f'<span class="lc-body"><span class="lc-meta"><b>Lesson {p["n"]} · 第{_htw_cn(p["n"])}課 · Coming soon 製作中</b></span>'
+                f'<h3 class="lc-title">{html.escape(p["en"])}</h3><span class="lc-zh">{html.escape(p["zh"])}</span></span></div>'))
+        rows.sort(key=lambda r: r[0])
+        band = " band" if idx % 2 == 0 else ""
+        uid = f"unit-{idx + 1}"
+        nav.append(f'<a class="unit-nav-link" href="#{uid}"><b>{idx + 1}</b><span>{html.escape(u["title_zh"])}</span></a>')
+        unit_sections.append(
+            f'<section class="section lc-unit{band}" id="{uid}"><div class="wrap">'
+            f'<p class="eyebrow rvl">Unit {idx + 1} · 單元{_htw_cn(idx + 1)}</p>'
+            f'<h2 class="rvl d1 sweep">{html.escape(u["title_en"])} <span class="tp-h2-en">{html.escape(u["title_zh"])}</span></h2>'
+            f'<p class="lead rvl d2" style="max-width:62ch">{html.escape(u["blurb_en"])}<br>'
+            f'<span class="muted">{html.escape(u["blurb_zh"])}</span></p>'
+            f'<div class="lc-list">{"".join(r[1] for r in rows)}</div>'
+            f'</div></section>')
+    unit_nav = (f'<nav class="unit-nav" aria-label="Jump to unit · 單元導覽"><div class="wrap">'
+                f'<span class="unit-nav-label">Jump to unit · 跳到單元</span>'
+                f'<div class="unit-nav-track">{"".join(nav)}</div></div></nav>')
+    intro_html = "".join(_bi(p["en"], p["zh"]) for p in GEO["intro"])
+    intro_html += _bi(f"{done} of {total} lessons {'is' if done == 1 else 'are'} ready so far; more are on the way.",
+                      f"目前完成 {done} 課（共規劃 {total} 課），持續增加中。", cls="gg-progress")
+    lead = f'{html.escape(GEO["lead_en"])}<br><span class="muted">{html.escape(GEO["lead_zh"])}</span>'
+    body = f'''
+{page_hero(GEO["eyebrow"], f'{GEO["title_en"]} <span class="h1-zh">{GEO["title_zh"]}</span>', lead, back=("/resources/reading/", "回閱讀與經典"))}
+<section class="section"><div class="wrap">
+  <div class="prose wide rvl gg-intro"><span class="gg-intro-ic" aria-hidden="true">{geohub_svg(76)}</span>{intro_html}</div>
+</div></section>
+{unit_nav}
+{"".join(unit_sections)}
+'''
+    write(GEO_BASE, layout(GEO_BASE, f'{GEO["title_en"]} · {GEO["title_zh"]}',
+          f'{GEO["lead_en"]} {GEO["lead_zh"]}', body, "resources", extra_head=_geo_head() + _lc_head()))
+    return GEO_BASE
+
 
 # ─────────────────────────────────────────────────────────────────────────────
 # 美術 Art（/resources/classes/art/）
@@ -19714,6 +20078,10 @@ def main():
         paths.append(build_math_hub())
         for _ui, _u in enumerate(MATH["units"]):
             for _l in _u["lessons"]: paths.append(build_math_lesson(_ui, _u, _l))
+    if GEO:
+        paths.append(build_geo_hub())
+        for _ui, _u in enumerate(GEO["units"]):
+            for _l in _u["lessons"]: paths.append(build_geo_lesson(_ui, _u, _l))
     if PHIL:
         paths.append(build_phil_hub())
         for _l in PHIL["lessons"]: paths.append(build_phil_lesson(_l))

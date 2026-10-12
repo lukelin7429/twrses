@@ -1,0 +1,15 @@
+{
+  "name": "twrses-geo",
+  "private": true,
+  "description": "地理 Geography 的地球儀引擎（geo.js 純函式、land.js 陸地資料、globe.js 可以攤平的 3D 地球、map2d.js 畫在 canvas 上的地圖）與各課的原始碼。產物寫到 assets/js/geo-*.js，npm run build 重新打包。",
+  "type": "module",
+  "scripts": {
+    "land": "node scripts/build-land.mjs",
+    "build": "esbuild src/geo-flatmap.js --bundle --minify --format=iife --target=es2019 --legal-comments=eof --outdir=../../assets/js",
+    "test": "node test/geo.test.mjs && node test/land.test.mjs && node test/fit.test.mjs"
+  },
+  "devDependencies": {
+    "esbuild": "0.25.10",
+    "three": "0.186.1"
+  }
+}
