@@ -67,10 +67,10 @@ export function createSynth({ win = typeof window !== 'undefined' ? window : nul
     } catch (e) { /* ignore */ }
   }
 
-  function make(freq, { type = 'triangle', gain = 1, kind = 'tone', attack = ATTACK, amps = null } = {}) {
+  function make(freq, { type = 'triangle', gain = 1, kind = 'tone', attack = ATTACK, amps = null, at = 0 } = {}) {
     if (!state.unlocked || !ctx || !(freq > 0)) return null;
     if (voices.size >= MAX_VOICES) { const oldest = [...voices].sort((a, b) => a.order - b.order)[0]; retire(oldest, now()); }
-    const t = now();
+    const t = Math.max(at, now());      // at：想從 AudioContext 的哪個時間開始（排在未來）；預設現在
     const osc = ctx.createOscillator();
     const env = ctx.createGain();
     let top = freq;   // 最高的成分（安全限制要看它）
@@ -86,7 +86,7 @@ export function createSynth({ win = typeof window !== 'undefined' ? window : nul
     env.gain.linearRampToValueAtTime(VOICE_PEAK * gain * safeScale(top), t + attack);
     osc.connect(env); env.connect(master);
     osc.start(t);
-    const v = { osc, env, freq, kind, order: ++order, gain, endAt: Infinity, partials: amps ? amps.slice() : null, top,
+    const v = { osc, env, freq, kind, order: ++order, gain, start: t, endAt: Infinity, partials: amps ? amps.slice() : null, top,
       setFreq(f) {
         if (!(f > 0)) return;
         v.freq = f;
@@ -107,10 +107,10 @@ export function createSynth({ win = typeof window !== 'undefined' ? window : nul
     const v = make(freq, { ...opts, kind: 'tone' });
     if (!v) return null;
     const dur = opts.dur ?? 0.9;
-    v.endAt = now() + dur;
-    // 預設像撥弦一樣慢慢衰減（sustain: true 則音量不變，到時間才收）
-    if (!opts.sustain) v.env.gain.setTargetAtTime(0.0001, now() + ATTACK, dur / 3);
-    v.timer = setTimeout(() => v.release(), Math.max(30, dur * 1000));
+    v.endAt = v.start + dur;
+    // 預設像撥弦一樣慢慢衰減（sustain: true 則音量不變，到時間才收）；opts.at 可以排在未來
+    if (!opts.sustain) v.env.gain.setTargetAtTime(0.0001, v.start + ATTACK, dur / 3);
+    v.timer = setTimeout(() => v.release(), Math.max(30, (v.endAt - now()) * 1000));
     const rel = v.release;
     v.release = () => { clearTimeout(v.timer); rel(); };
     return v;
@@ -187,7 +187,7 @@ export function createSynth({ win = typeof window !== 'undefined' ? window : nul
   function nowPlaying() {
     const t = now();
     const cl = [...clicks].filter((c) => c.when <= t && t < c.end).map((c) => ({ freq: c.freq, kind: 'click' }));
-    return cl.concat([...voices].sort((a, b) => a.order - b.order).map((v) => (v.partials ? { freq: v.freq, kind: v.kind, partials: v.partials } : { freq: v.freq, kind: v.kind })));
+    return cl.concat([...voices].filter((v) => v.start <= t + 1e-9).sort((a, b) => a.order - b.order).map((v) => (v.partials ? { freq: v.freq, kind: v.kind, partials: v.partials } : { freq: v.freq, kind: v.kind })));
   }
   const hz = () => { const l = nowPlaying(); return l.length ? l[l.length - 1].freq : 0; };
 

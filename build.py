@@ -16166,7 +16166,7 @@ def build_comp_hub():
 _musj = os.path.join(ROOT, "data", "music.json")
 MUS = json.load(open(_musj, encoding="utf-8")) if os.path.exists(_musj) else None
 MUS_BASE = "/resources/classes/music/"
-_MUS_JS = {"string": "mus-string", "timbre": "mus-timbre", "beat": "mus-beat"}   # lab.kind → assets/js/<bundle>.js
+_MUS_JS = {"string": "mus-string", "timbre": "mus-timbre", "beat": "mus-beat", "dynamics": "mus-dynamics"}   # lab.kind → assets/js/<bundle>.js
 
 def _mus_ver():
     h = hashlib.md5()
@@ -16219,7 +16219,13 @@ def musbeat_svg(size=56):
             '<rect x="36" y="22" width="8" height="6" rx="1.4" fill="#ffd36e" transform="rotate(20 40 25)"/>'
             '<circle cx="30" cy="48" r="2.6" fill="#555d70"/></svg>')
 
-_MUS_CARD = {"string": mustring_svg, "timbre": mustimbre_svg, "beat": musbeat_svg}
+def musdynamics_svg(size=56):
+    """第四課的課程卡小圖示：一個漸強的發叉記號（<），旁邊三個越來越大的音符圓點。"""
+    return (f'<svg class="musdynamics-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">'
+            '<path d="M6 30 54 12M6 30 54 48" stroke="#ffd36e" stroke-width="3" stroke-linecap="round" fill="none"/>'
+            '<circle cx="18" cy="30" r="3" fill="#7ef0e3"/><circle cx="31" cy="30" r="4.6" fill="#7ef0e3"/><circle cx="45" cy="30" r="6.4" fill="#7ef0e3"/></svg>')
+
+_MUS_CARD = {"string": mustring_svg, "timbre": mustimbre_svg, "beat": musbeat_svg, "dynamics": musdynamics_svg}
 _MUS_PRESETS = [   # 和 tools/music/src/pitch.js 的 PRESETS 對應
     {"key": "whole", "en": "Whole string", "zh": "整根弦"}, {"key": "half", "en": "One half", "zh": "二分之一"},
     {"key": "twothirds", "en": "Two thirds", "zh": "三分之二"}, {"key": "threequarters", "en": "Three quarters", "zh": "四分之三"}]
@@ -16521,6 +16527,57 @@ def _mu_meter(d):
   <div class="mu-hg-foot"><span></span><button type="button" class="mu-btn mu-btn-gold mu-mt-next" hidden>Next question · 下一題</button></div>
 </div>'''
 
+def render_musdynamics_lab(lesson):
+    """第四課：力度階梯與速度階梯（assets/js/mus-dynamics.js 綁這裡的 class；沒有 3D，聲音由瀏覽器合成）。"""
+    dyn = "".join(f'<button type="button" class="mu-cd-dyn" data-dyn="{k}" aria-pressed="{"true" if k == "mf" else "false"}"><b>{k}</b><small>{it}<br>{zh}</small></button>'
+                  for k, it, zh in [("pp", "pianissimo", "很弱"), ("p", "piano", "弱"), ("mp", "mezzo piano", "中弱"), ("mf", "mezzo forte", "中強"), ("f", "forte", "強"), ("ff", "fortissimo", "很強")])
+    tmp = "".join(f'<button type="button" class="mu-cd-tmp" data-tempo="{k}" aria-pressed="{"true" if k == "allegro" else "false"}"><b>{k}</b><small>{zh}</small></button>'
+                  for k, zh in [("largo", "廣板・很慢"), ("adagio", "慢板"), ("andante", "行板"), ("moderato", "中板"), ("allegro", "快板"), ("presto", "急板・很快")])
+    shp = "".join(f'<button type="button" class="mu-cd-shape" data-shape="{k}" aria-pressed="{"true" if k == "steady" else "false"}"><b>{sym}</b><small>{en}<br>{zh}</small></button>'
+                  for k, sym, en, zh in [("steady", "—", "steady", "不變"), ("cresc", "&lt;", "crescendo", "漸強"), ("dim", "&gt;", "diminuendo", "漸弱")])
+    return f'''<div class="mu-cond rvl" data-musdyn-lab>
+  <div class="mu-cd-roll-w"><canvas class="mu-cd-roll" aria-label="The melody drawn as bars: brighter and thicker bars are louder · 把旋律畫成長條：越亮越粗的長條越大聲"></canvas></div>
+  <div class="mu-cd-reads">
+    <div><p class="mu-cd-k">Loudness · 力度</p><p class="mu-cd-read-dyn"></p></div>
+    <div><p class="mu-cd-k">Speed · 速度</p><p class="mu-cd-read-tmp"></p><p class="mu-cd-note">This page plays it at about <b class="mu-cd-bpm"></b> BPM, <b class="mu-cd-sec"></b> seconds in all. That number is our choice, not a rule.<span class="zh">本頁用的數字是我們自己選的，不是規定。</span></p></div>
+    <div><p class="mu-cd-k">Shape · 形狀</p><p class="mu-cd-read-shape"></p></div>
+  </div>
+  <div class="mu-cd-lad"><p class="mu-cd-k">Loudness ladder, soft to loud · 力度階梯（弱到強）</p><div class="mu-cd-row6">{dyn}</div></div>
+  <div class="mu-cd-lad"><p class="mu-cd-k">Speed ladder, slow to fast · 速度階梯（慢到快）</p><div class="mu-cd-row6">{tmp}</div></div>
+  <div class="mu-cd-lad"><p class="mu-cd-k">Shape over time · 隨時間的變化</p><div class="mu-cd-row3">{shp}</div></div>
+  <div class="mu-cd-go"><button type="button" class="mu-btn mu-btn-gold mu-cd-play" aria-pressed="false">&#9654; Play the melody · 播放旋律</button></div>
+  <p class="mu-msg" aria-live="polite"></p>
+</div>'''
+
+def _mu_signq(d):
+    opts = "".join(f'<button type="button" class="mu-sg-opt" data-pick="{k}"><b>{it}</b><span>{en}<span class="zh">{zh}</span></span></button>'
+                   for k, it, en, zh in [("p", "piano", "softer", "弱：比較小聲"), ("f", "forte", "louder", "強：比較大聲"), ("cresc", "crescendo", "getting louder", "漸強"), ("dim", "diminuendo", "getting softer", "漸弱")])
+    return f'''<div class="mu-signq rvl" data-mu-sign>
+  <div class="mu-hg-top"><p class="mu-sg-k">Question 1 of 6 · 第 1 題（共 6 題）</p><p class="mu-hg-sc">Right on the first try · 第一次就答對 <b class="mu-sg-score">0 / 0</b></p></div>
+  <div class="mu-hg-playrow"><button type="button" class="mu-btn mu-btn-gold mu-sg-play">&#9654; Play the reference note and the melody · 播放參考音和旋律</button></div>
+  <p class="mu-hg-nosound mu-sg-nosound" hidden>This browser cannot make sound, so the question is described in words instead.<span class="zh">這個瀏覽器無法發聲，所以改用文字描述這一題。</span></p>
+  <p class="mu-sg-desc mu-q-desc" hidden></p>
+  <div class="mu-sg-opts">{opts}</div>
+  <p class="mu-sg-msg mu-q-msg" aria-live="polite"></p>
+  <div class="mu-hg-foot"><span></span><button type="button" class="mu-btn mu-btn-gold mu-sg-next" hidden>Next question · 下一題</button></div>
+</div>'''
+
+def _mu_tempoq(d):
+    return f'''<div class="mu-signq mu-tempoq rvl" data-mu-tempoq>
+  <div class="mu-hg-top"><p class="mu-tq-k">Question 1 of 5 · 第 1 題（共 5 題）</p><p class="mu-hg-sc">Right on the first try · 第一次就答對 <b class="mu-tq-score">0 / 0</b></p></div>
+  <p class="mu-tq-ask mu-tq-big"></p>
+  <ol class="mu-tq-ladder" aria-label="Speed ladder from slow to fast · 由慢到快的速度階梯"></ol>
+  <div class="mu-hg-playrow"><button type="button" class="mu-btn mu-btn-gold mu-tq-play">&#9654; Play both versions · 播放兩個版本</button></div>
+  <p class="mu-hg-nosound mu-tq-nosound" hidden>This browser cannot make sound, so the question is described in words instead.<span class="zh">這個瀏覽器無法發聲，所以改用文字描述這一題。</span></p>
+  <p class="mu-tq-desc mu-q-desc" hidden></p>
+  <div class="mu-tq-opts">
+    <button type="button" class="mu-tq-opt" data-pick="first"><b>1</b><span>The first version<span class="zh">第一個版本</span></span></button>
+    <button type="button" class="mu-tq-opt" data-pick="second"><b>2</b><span>The second version<span class="zh">第二個版本</span></span></button>
+  </div>
+  <p class="mu-tq-msg mu-q-msg" aria-live="polite"></p>
+  <div class="mu-hg-foot"><span></span><button type="button" class="mu-btn mu-btn-gold mu-tq-next" hidden>Next question · 下一題</button></div>
+</div>'''
+
 def _mu_curric(d):
     rows = "".join(
         f'<li class="mu-cur rvl"><p class="mu-cur-k"><b>{html.escape(c["code"])}</b><span>{html.escape(c["area"])} · {html.escape(c["area_en"])}</span></p>'
@@ -16556,7 +16613,7 @@ def build_mus_lesson(ui, unit, lesson):
     reading_html = render_basic_unit(1, unit_dict, level="music", audio_rel="", pdf_rel="")
     lab = lesson["lab"]
     kind = lab["kind"]
-    lab_html = {"string": render_musstring_lab, "timbre": render_mustimbre_lab, "beat": render_musbeat_lab}[kind](lesson)
+    lab_html = {"string": render_musstring_lab, "timbre": render_mustimbre_lab, "beat": render_musbeat_lab, "dynamics": render_musdynamics_lab}[kind](lesson)
 
     def sec(key, fn):
         d = lesson[key]
@@ -16574,6 +16631,8 @@ def build_mus_lesson(ui, unit, lesson):
         ph = lesson["parts_head"]
         secs.append(("parts", ph["eyebrow"], ph["en"], ph["zh"], f'<div class="ph-grid stagger">{cards}</div>',
                      _bi(lesson["parts_note_en"], lesson["parts_note_zh"], cls="lead rvl d2")))
+    if lesson.get("signq"): secs.append(sec("signq", _mu_signq))
+    if lesson.get("tempoq"): secs.append(sec("tempoq", _mu_tempoq))
     if lesson.get("tap"): secs.append(sec("tap", _mu_tap))
     if lesson.get("meterq"): secs.append(sec("meterq", _mu_meter))
     if lesson.get("mix"): secs.append(sec("mix", _mu_mix))
