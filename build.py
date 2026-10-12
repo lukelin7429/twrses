@@ -1425,6 +1425,8 @@ def build_reading_hub():
              "From one switch to programs, the internet, and AI: how 0s and 1s stack up into everything on your screen, in English with 3D models. 從一個開關講到程式、網路和 AI：0 和 1 怎麼一層一層疊成你看到的畫面，用英文讀懂，再用 3D 模型看清楚。"),
             ("/resources/classes/music/", "🎵", "Music · 音樂",
              "Why are some notes high and some low? Hear and see how a vibrating string makes music, with sounds your browser makes itself. 為什麼有的音高、有的音低？看弦怎麼振動、聽音怎麼變，聲音全由瀏覽器自己合成。"),
+            ("/resources/classes/art/", "🎨", "Art · 美術",
+             "Why do paint and light mix differently? Move three colored lamps in a dark room, then mix the same colors as paint, with every color named in words. 顏料和光，混色為什麼不一樣？在暗房裡移動三盞彩色的燈，再換成顏料混混看；每個顏色都附文字名稱。"),
             ("/resources/classes/philosophy/", "🦉", "Philosophy · 哲學",
              "Advanced reading: the big questions, the people who asked them, and where the Dharma meets Western thought. 高級閱讀：哲學的大問題、問這些問題的人，以及佛法與西方哲學的對照。"),
             ("/resources/grandfather/", "🌅", "Grandfather · 落日餘暉",
@@ -16984,6 +16986,355 @@ def build_mus_hub():
     return MUS_BASE
 
 
+# ─────────────────────────────────────────────────────────────────────────────
+# 美術 Art（/resources/classes/art/）
+# 架構照音樂、書法：data/art.json 的 units[].lessons 是做好的課、units[].planned 是「製作中」卡。
+# 樣式 assets/css/art.css（class 前綴 ar-，只載在本系列）；原始碼 tools/art/src/，bundle 一律 art-*。
+# 顏色由顏色引擎（tools/art/src/color.js）計算；顏料的混色是示意模型，頁面上要明講。
+# ─────────────────────────────────────────────────────────────────────────────
+_artj = os.path.join(ROOT, "data", "art.json")
+ART = json.load(open(_artj, encoding="utf-8")) if os.path.exists(_artj) else None
+ART_BASE = "/resources/classes/art/"
+_ART_JS = {"lights": "art-lights"}   # lab.kind → assets/js/<bundle>.js
+
+def _art_ver():
+    h = hashlib.md5()
+    for rel in ("assets/css/astro.css", "assets/css/art.css", *(f"assets/js/{j}.js" for j in _ART_JS.values())):
+        fp = os.path.join(ROOT, rel)
+        if os.path.exists(fp): h.update(open(fp, "rb").read())
+    return h.hexdigest()[:8]
+
+def _art_head(js=None):
+    v = _art_ver()
+    tag = f'<script defer src="/assets/js/{js}.js?v={v}"></script>\n' if js else ""
+    return (f'<link rel="stylesheet" href="/assets/css/astro.css?v={v}">\n'
+            f'<link rel="stylesheet" href="/assets/css/art.css?v={v}">\n{tag}')
+
+def arthub_svg(size=56):
+    """美術系列的小圖示：一塊調色盤（三團顏料）和一支畫筆。"""
+    return (f'<svg class="arhub-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">'
+            '<path d="M30 8C16 8 6 17.5 6 29.5S15.5 51 27 51c3.6 0 5-2.2 4.2-4.8-1-3.2.6-5.7 4.4-5.7H42c7 0 12-4.6 12-11.5C54 17 43.5 8 30 8Z" fill="#e9d3a4"/>'
+            '<circle cx="17" cy="26" r="5" fill="#ffd400"/><circle cx="28" cy="18" r="5" fill="#e0007a"/><circle cx="41" cy="22" r="5" fill="#00a8e0"/>'
+            '<circle cx="17" cy="38" r="3.4" fill="#fff8e6"/>'
+            '<path d="M38 52 54 34" stroke="#8a5a2b" stroke-width="3.2" stroke-linecap="round"/><path d="M34.5 56c.4-3 1.8-4.9 4-5l1.6 1.6c-.2 2.2-2.4 3.4-5.6 3.4Z" fill="#2b2f3a"/></svg>')
+
+def artlights_svg(size=56):
+    """第一課的課程卡小圖示：暗底上紅、綠、藍三個互相重疊的光斑，重疊處是黃、青、洋紅，中間是白色。"""
+    return (f'<svg class="arlights-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true" style="isolation:isolate">'
+            '<circle cx="23" cy="36" r="15" fill="#ff0000" style="mix-blend-mode:screen"/>'
+            '<circle cx="37" cy="36" r="15" fill="#00ff00" style="mix-blend-mode:screen"/>'
+            '<circle cx="30" cy="24" r="15" fill="#0000ff" style="mix-blend-mode:screen"/></svg>')
+
+_ART_CARD = {"lights": artlights_svg}
+
+def render_artlights_lab(lesson):
+    """第一課：暗房裡的三盞燈／三片顏料（assets/js/art-lights.js 綁這裡的 class；右邊欄的字由程式依模式填入）。"""
+    lab = lesson["lab"]
+    rows = "".join(
+        f'<div class="ar-src" data-i="{i}"><span class="ar-chip" aria-hidden="true">{l}</span>'
+        f'<label class="ar-src-n"><input type="checkbox" data-on checked><span><b class="ar-src-en">{en} light</b><small class="ar-src-zh">{zh}光</small></span></label>'
+        f'<input type="range" data-k min="0" max="100" step="5" value="100" aria-label="Brightness of the {en} lamp · {zh}燈的亮度">'
+        f'<output class="ar-src-v">100%</output></div>'
+        for i, (l, en, zh) in enumerate([("R", "Red", "紅"), ("G", "Green", "綠"), ("B", "Blue", "藍")]))
+    mixes = "".join(
+        '<li><span class="ar-sw" aria-hidden="true"></span><span class="ar-mx-b">'
+        '<b class="ar-mx-n"></b><span class="ar-mx-v"></span></span><span class="ar-mx-s" role="img"></span></li>' for _ in range(4))
+    tg = _lab_toggles([("labels", "Color names on the wall", "牆上的顏色名稱", True), ("beams", "Light beams (they tint the view)", "光束（會讓畫面染上一點顏色）", False)])
+    notes = "".join(f'<li>{html.escape(n["en"])}<span class="zh">{html.escape(n["zh"])}</span></li>' for n in lab["notes"])
+    return f'''<div class="astro-lab ar-lab rvl" data-artlights-lab data-mode="light">
+  <div class="al-stage">
+    <div class="al-space">
+      <canvas class="al-space-cv" aria-label="3D model of a dark room where a red, a green, and a blue lamp shine on a white wall; the overlaps are yellow, cyan, magenta, and white. In paint mode the wall carries yellow, magenta, and cyan sheets whose overlaps are red, green, blue, and almost black · 暗房的 3D 模型：紅、綠、藍三盞燈照在白牆上，重疊處是黃、青、洋紅和白；切換到顏料時，牆上是黃、洋紅、青三片色片，重疊處是紅、綠、藍和接近黑"></canvas>
+      <div class="al-labels" aria-hidden="true"></div>
+      <div class="ar-mode" role="group" aria-label="Light or paint · 光或顏料">
+        <button type="button" data-mode="light" aria-pressed="true">&#128161; Light · 光</button>
+        <button type="button" data-mode="paint" aria-pressed="false">&#127912; Paint · 顏料</button>
+      </div>
+      <p class="al-hint">Drag a spot to move it · 拖動光斑　Drag the dark part to turn · 拖曳暗處旋轉　Scroll or pinch to zoom · 滾輪／雙指縮放</p>
+      <button type="button" class="al-home" title="Reset view · 重設視角" aria-label="Reset view · 重設視角">&#8634;</button>
+      <p class="al-nogl-msg">This 3D model needs WebGL, which this browser does not support. The switches and sliders on the right still work and still show each mix, and so do the reading, the cards, and the games.<br><span class="zh">這個瀏覽器不支援 WebGL，無法顯示 3D 模型；右邊的開關與滑桿照樣能用，也照樣顯示每一種混色，課文、卡片和小遊戲也都能用。</span></p>
+    </div>
+    <aside class="al-sky ar-aside">
+      <p class="ar-rule" aria-live="polite"></p>
+      <p class="al-sky-k ar-k-src">Three lamps · 三盞燈</p>
+      <div class="ar-srcs">{rows}</div>
+      <p class="al-sky-k ar-k-mix">Where the lights overlap · 光重疊的地方</p>
+      <ul class="ar-mixes">{mixes}</ul>
+      <p class="ar-mx-key">&#9679; on the wall now · 牆上現在有　&#9675; not overlapping now · 現在沒有重疊</p>
+      <p class="al-sky-k">Point at the wall · 指著牆面</p>
+      <div class="ar-probe" aria-live="polite"><span class="ar-sw" aria-hidden="true"></span><span class="ar-mx-b"><b class="ar-pr-n"></b><span class="ar-pr-v"></span></span></div>
+      <p class="ar-msg" aria-live="polite"></p>
+    </aside>
+  </div>
+  <div class="al-controls">
+    <div class="al-row al-row-main ar-ctl">
+      <div class="ar-presets" role="group" aria-label="Arrangements · 排法">
+        <span class="ar-presets-k">Arrange · 排法</span>
+        <button type="button" data-layout="venn"><b>Three rings</b><small>三個圓交疊</small></button>
+        <button type="button" data-layout="together"><b>All together</b><small>全部疊在一起</small></button>
+        <button type="button" data-layout="apart"><b>Apart</b><small>分開</small></button>
+      </div>
+      <label class="ar-check ar-objrow"><input type="checkbox" data-t="obj"><span>Put a ball in the light · 放一顆球擋光</span></label>
+      <div class="al-row al-toggles">{tg}</div>
+    </div>
+  </div>
+  {_lab_foot(lab)}
+  <div class="ar-note">
+    <p class="ar-note-h">{html.escape(lab["note_head_en"])} <span class="zh">{html.escape(lab["note_head_zh"])}</span></p>
+    <ul>{notes}</ul>
+    <p class="ar-note-end">{html.escape(lab["note_end_en"])}<span class="zh">{html.escape(lab["note_end_zh"])}</span></p>
+  </div>
+  <p class="ar-credit">{lab["credit_html"]}</p>
+</div>'''
+
+def _ar_match(d):
+    rows = "".join(
+        '<label class="ar-mt-sl"><span class="ar-chip" aria-hidden="true"></span><span class="ar-mt-sn"></span>'
+        '<input type="range" min="0" max="100" step="5" value="0"><output>0%</output><span class="ar-mt-hint" aria-live="polite"></span></label>'
+        for _ in range(3))
+    return f'''<div class="ar-match rvl" data-ar-match data-mode="light">
+  <div class="ar-mt-top"><p class="ar-mt-k">Question 1 of 8 · 第 1 題（共 8 題）</p><p class="ar-mt-sc">Matched · 調出來的題數 <b class="ar-mt-score">0 / 0</b></p></div>
+  <div class="ar-mt-steps" aria-hidden="true"></div>
+  <p class="ar-mt-mode"></p>
+  <div class="ar-mt-stage">
+    <figure class="ar-mt-sw ar-mt-target"><div class="ar-mt-box"></div><figcaption><b>Target · 目標</b><span class="ar-mt-tname"></span><span class="ar-mt-tval"></span></figcaption></figure>
+    <figure class="ar-mt-sw ar-mt-mine"><div class="ar-mt-box"></div><figcaption><b>Yours · 你調的</b><span class="ar-mt-mname"></span><span class="ar-mt-mval"></span></figcaption></figure>
+  </div>
+  <div class="ar-mt-sliders">{rows}</div>
+  <p class="ar-mt-msg" aria-live="polite"></p>
+  <div class="ar-mt-foot">
+    <button type="button" class="ar-btn ar-mt-skip">Show the answer · 看答案</button>
+    <button type="button" class="ar-btn ar-btn-gold ar-mt-check">Check · 對答案</button>
+    <button type="button" class="ar-btn ar-btn-gold ar-mt-next" hidden>Next question · 下一題</button>
+    <button type="button" class="ar-btn ar-btn-gold ar-mt-again" hidden>Play again · 再玩一次</button>
+  </div>
+  <p class="ar-fine">{html.escape(d["note_en"])}<span class="zh">{html.escape(d["note_zh"])}</span></p>
+</div>'''
+
+def _ar_zoom(d):
+    cols = "".join(
+        f'<button type="button" class="ar-zm-c" data-rgb="{c["rgb"]}" aria-pressed="{"true" if n == 0 else "false"}">'
+        f'<i style="background:rgb({c["rgb"]})" aria-hidden="true"></i><b>{html.escape(c["en"])}</b><small>{html.escape(c["zh"])}</small></button>'
+        for n, c in enumerate(d["colors"]))
+    bars = "".join(
+        f'<div class="ar-zm-bar" data-ch="{l}"><span>{l} · {zh}</span><span class="ar-zm-track"><i></i></span><b>100%</b></div>'
+        for l, zh in (("R", "紅"), ("G", "綠"), ("B", "藍")))
+    return f'''<div class="ar-zoom rvl" data-ar-zoom>
+  <div class="ar-zm-colors" role="group" aria-label="Pick a color · 選一個顏色">{cols}</div>
+  <div class="ar-zm-grid">
+    <canvas class="ar-zm-cv" width="720" height="440" role="img" aria-label="A patch of color that breaks up into red, green, and blue stripes as you magnify it · 一塊顏色，放大後變成紅、綠、藍三種直條"></canvas>
+    <div class="ar-zm-side">
+      <p class="ar-zm-name" aria-live="polite"></p>
+      <div class="ar-zm-bars">{bars}</div>
+      <label class="ar-zm-sl"><span>Magnify · 放大 <b class="ar-zm-x">1×</b></span>
+        <input type="range" class="ar-zm-slider" min="0" max="100" step="1" value="0" aria-label="Magnification · 放大倍率"></label>
+      <p class="ar-zm-msg" aria-live="polite"></p>
+    </div>
+  </div>
+  <p class="ar-fine">{html.escape(d["note_en"])}<span class="zh">{html.escape(d["note_zh"])}</span></p>
+</div>'''
+
+def _ar_primaries(d):
+    def one(s):
+        sw = "".join(
+            f'<span class="ar-pm-sw"><i style="background:{c["hex"]}"></i><b>{c["l"]}</b><small>{html.escape(c["en"])} {html.escape(c["zh"])}</small></span>'
+            for c in s["colors"])
+        return (f'<article class="ar-pm rvl"><p class="ar-pm-k">{html.escape(s["k_en"])} · {html.escape(s["k_zh"])}</p>'
+                f'<h3>{html.escape(s["en"])}<span class="zh">{html.escape(s["zh"])}</span></h3>'
+                f'<div class="ar-pm-sws">{sw}</div>'
+                f'<p class="ar-pm-w"><b>Where · 用在哪裡</b>{html.escape(s["where_en"])}<span class="zh">{html.escape(s["where_zh"])}</span></p>'
+                f'<p class="ar-pm-n">{html.escape(s["note_en"])}<span class="zh">{html.escape(s["note_zh"])}</span></p></article>')
+    pts = "".join(f'<li class="rvl">{html.escape(p["en"])}<span class="zh">{html.escape(p["zh"])}</span></li>' for p in d["points"])
+    return (f'<div class="ar-pms">{"".join(one(s) for s in d["sets"])}</div>'
+            f'<p class="ar-fine ar-fine-out rvl">{html.escape(d["swatch_note_en"])}<span class="zh">{html.escape(d["swatch_note_zh"])}</span></p>'
+            f'<ul class="ar-points">{pts}</ul>')
+
+def _ar_curric(d):
+    rows = "".join(
+        f'<li class="ar-cur rvl"><p class="ar-cur-k"><b>{html.escape(c["code"])}</b><span>{html.escape(c["area"])} · {html.escape(c["area_en"])}</span></p>'
+        f'<p class="ar-cur-q">{html.escape(c["text"])}</p>'
+        f'<p class="ar-cur-n">{html.escape(c["note_en"])}<span class="zh">{html.escape(c["note_zh"])}</span></p></li>'
+        for c in d["items"])
+    return f'<ul class="ar-curric">{rows}</ul>'
+
+def _art_flat():
+    return [(ui, u, l) for ui, u in enumerate(ART["units"]) for l in u["lessons"]]
+
+def _art_nav(slug):
+    flat = _art_flat()
+    i = next(n for n, (_, _, l) in enumerate(flat) if l["slug"] == slug)
+    def side(item, dirn, label):
+        if not item:
+            return '<span class="pm-nav-x"></span>'
+        l = item[2]
+        arrow = "&larr;" if dirn == "prev" else "&rarr;"
+        return (f'<a class="pm-nav-s pm-nav-{dirn}" href="{ART_BASE}{l["slug"]}/">'
+                f'<span class="pm-nav-k">{arrow} {label}</span>'
+                f'<span class="pm-nav-t">{html.escape(l["title"])}</span></a>')
+    prev = flat[i - 1] if i > 0 else None
+    nxt = flat[i + 1] if i < len(flat) - 1 else None
+    return (f'<nav class="pm-nav rvl">{side(prev, "prev", "上一課 · Previous")}'
+            f'<a class="pm-nav-hub" href="{ART_BASE}">&#9776; 回美術 · All Lessons</a>'
+            f'{side(nxt, "next", "下一課 · Next")}</nav>')
+
+def build_art_lesson(ui, unit, lesson):
+    path = f'{ART_BASE}{lesson["slug"]}/'
+    unit_dict = {k: lesson[k] for k in ("title", "paras", "paras_zh", "questions", "answers", "vocab", "quiz")}
+    unit_dict["unit"] = lesson["n"]
+    reading_html = render_basic_unit(1, unit_dict, level="art", audio_rel="", pdf_rel="")
+    lab = lesson["lab"]
+    kind = lab["kind"]
+    lab_html = {"lights": render_artlights_lab}[kind](lesson)
+
+    def sec(key, fn):
+        d = lesson[key]
+        return (key, d["eyebrow"], d["en"], d["zh"], fn(d), _bi(d["lead_en"], d["lead_zh"], cls="lead rvl d2"))
+    secs = []
+    if lesson.get("parts"):
+        cards = "".join(
+            f'<article class="ph-card ar-part rvl">'
+            f'<div class="ph-ico ar-ico" aria-hidden="true">{pt["icon"]}</div>'
+            f'<h3>{html.escape(pt["en"])}<span class="zh">{html.escape(pt["zh"])}</span></h3>'
+            f'<p class="ph-meta"><span>{html.escape(pt["meta_en"])} · {html.escape(pt["meta_zh"])}</span></p>'
+            f'<p class="ph-when">{html.escape(pt["text_en"])}<br><span class="zh">{html.escape(pt["text_zh"])}</span></p>'
+            f'<button type="button" class="ph-go" data-lab-demo="{pt["demo"]}">Watch it in the model · 在模型中看 <i>&uarr;</i></button>'
+            f'</article>' for pt in lesson["parts"])
+        ph = lesson["parts_head"]
+        secs.append(("parts", ph["eyebrow"], ph["en"], ph["zh"], f'<div class="ph-grid stagger">{cards}</div>',
+                     _bi(lesson["parts_note_en"], lesson["parts_note_zh"], cls="lead rvl d2")))
+    if lesson.get("match"): secs.append(sec("match", _ar_match))
+    if lesson.get("zoom"): secs.append(sec("zoom", _ar_zoom))
+    if lesson.get("primaries"): secs.append(sec("primaries", _ar_primaries))
+    if lesson.get("culture_cards"):
+        cu = lesson["culture_cards"]
+        cc = "".join(
+            f'<article class="cc-card rvl"><p class="cc-k">{html.escape(c["k"])}</p>'
+            f'<h3>{html.escape(c["en"])}<span class="zh">{html.escape(c["zh"])}</span></h3>'
+            f'{_bi(c["body_en"], c["body_zh"])}</article>'
+            for c in cu["cards"])
+        secs.append(("stories", cu["eyebrow"], cu["title_en"], cu["title_zh"], f'<div class="cc-grid">{cc}</div>',
+                     _bi(cu["lead_en"], cu["lead_zh"], cls="lead rvl d2")))
+    if lesson.get("curric"): secs.append(sec("curric", _ar_curric))
+    secs.append(("myths", "Myth vs. Fact · 常見迷思", "Four things people get wrong", "四個常見的誤會", _sci_myths(lesson), ""))
+    th = lesson["tricks_head"]
+    secs.append(("tricks", "Remember It · 記憶口訣", th["en"], th["zh"], _sci_tricks(lesson), ""))
+    if lesson.get("safety"):
+        sh = lesson["safety_head"]
+        items = "".join(f'<li class="rvl">{html.escape(s["en"])}<span class="zh">{html.escape(s["zh"])}</span></li>' for s in lesson["safety"])
+        secs.append(("safety", sh["eyebrow"], sh["en"], sh["zh"], f'<ul class="ar-safety">{items}</ul>', ""))
+    acts = lesson.get("activities") or []
+    for n, act in enumerate(acts, 1):
+        eb = "Classroom Activity · 課堂活動" if len(acts) == 1 else f"Classroom Activity {n} · 課堂活動{_astro_cn(n)}"
+        secs.append((f"activity{'' if n == 1 else n}", eb, act["title_en"], act["title_zh"], _astro_activity(act), ""))
+    if lesson.get("links"):
+        def link(x):
+            body = (f'<span class="ar-link-ic" aria-hidden="true">{x["icon"]}</span>'
+                    f'<span class="ar-link-b"><span class="ar-link-k">{html.escape(x["k_en"])} · {html.escape(x["k_zh"])}</span>'
+                    f'<b>{html.escape(x["en"])}</b><span class="zh ar-link-zh">{html.escape(x["zh"])}</span>'
+                    f'<span class="ar-link-n">{html.escape(x["note_en"])}<span class="zh">{html.escape(x["note_zh"])}</span></span>')
+            if x.get("soon"):
+                return f'<div class="ar-link ar-link-soon rvl">{body}<span class="ar-link-go">Coming soon · 製作中</span></span></div>'
+            return f'<a class="ar-link rvl" href="{html.escape(x["href"])}">{body}<span class="ar-link-go">Go to the lesson · 前往這一課 <i>&rarr;</i></span></span></a>'
+        lh = lesson.get("links_head") or {"eyebrow": "Go Further · 延伸閱讀", "en": "Read more", "zh": "延伸閱讀"}
+        secs.append(("more", lh["eyebrow"], lh["en"], lh["zh"], f'<div class="ar-links">{"".join(link(x) for x in lesson["links"])}</div>', ""))
+    sec_html = "\n".join(_astro_sec(sid, k % 2 == 1, eb, en, zh, inner, lead)
+                         for k, (sid, eb, en, zh, inner, lead) in enumerate(secs))
+    src_html = ""
+    if lesson.get("sources"):
+        rows = "".join(
+            f'<li><span>{html.escape(s["en"])}<span class="zh">{html.escape(s["zh"])}</span></span>'
+            f'<a href="{html.escape(s["url"])}" target="_blank" rel="noopener">{html.escape(s["src"])} &#8599;</a></li>'
+            for s in lesson["sources"])
+        src_html = (f'<div class="ar-sources rvl"><p class="sub-head">Sources · 資料出處</p>'
+                    f'<p class="muted">{html.escape(lesson["sources_note_en"])} · {html.escape(lesson["sources_note_zh"])}</p>'
+                    f'<ol>{rows}</ol></div>')
+
+    eyebrow = (f'Art · Unit {ui + 1} · Lesson {lesson["n"]} · '
+               f'美術 單元{_htw_cn(ui + 1)} 第{_htw_cn(lesson["n"])}課')
+    lead = f'{html.escape(lesson["blurb_en"])}<br><span class="muted">{html.escape(lesson["blurb_zh"])}</span>'
+    body = f'''
+{page_hero(eyebrow, f'{html.escape(lesson["title"])}<span class="h1-zh">{html.escape(lesson["title_zh"])}</span>', lead, back=(ART_BASE, "回美術 · All Lessons"))}
+<section class="section astro-lab-sec" id="model"><div class="wrap">
+  <div class="big-idea rvl"><span class="big-idea-k">Big idea · 一句話看懂</span>{_bi(lesson["big_idea_en"], lesson["big_idea_zh"])}</div>
+  <p class="eyebrow rvl">{html.escape(lab["eyebrow"])}</p>
+  <h2 class="rvl d1 sweep">{html.escape(lab["title_en"])} <span class="tp-h2-en">{html.escape(lab["title_zh"])}</span></h2>
+  {_bi(lab["how_en"], lab["how_zh"], cls="lead rvl d2 al-how")}
+  {lab_html}
+</div></section>
+<section class="section band" id="reading"><div class="wrap" style="max-width:940px">
+  <p class="eyebrow rvl">Reading · 英文閱讀</p>
+  {reading_html}
+</div></section>
+{sec_html}
+<section class="section"><div class="wrap">
+{src_html}
+{_art_nav(lesson["slug"])}
+</div></section>
+'''
+    say_slug = f'art-{lesson["slug"]}'   # tools/gen_audio.py 以路徑末兩段命名
+    has_clips = os.path.exists(os.path.join(ROOT, "assets/data/say", say_slug + ".json"))
+    write(path, layout(path, f'{lesson["title"]} · {lesson["title_zh"]}',
+          f'{lesson["blurb_en"]} {lesson["blurb_zh"]}', body, "resources",
+          say_manifest=say_slug if has_clips else None, extra_head=_art_head(_ART_JS[kind])))
+    return path
+
+def build_art_hub():
+    def icon(l):
+        return _ART_CARD[l["card"]](60) if l.get("card") in _ART_CARD else l["icon"]
+    unit_sections, nav = [], []
+    done = sum(len(u["lessons"]) for u in ART["units"])
+    total = done + sum(len(u.get("planned", [])) for u in ART["units"])
+    for idx, u in enumerate(ART["units"]):
+        rows = []
+        for l in u["lessons"]:
+            rows.append((l["n"],
+                f'<a class="lc-row rvl" href="{ART_BASE}{l["slug"]}/">'
+                f'<span class="lc-ico ar-lc-ico" aria-hidden="true">{icon(l)}</span>'
+                f'<span class="lc-body">'
+                f'<span class="lc-meta"><b>Lesson {l["n"]} · 第{_htw_cn(l["n"])}課</b><i>{html.escape(l["level"])}</i></span>'
+                f'<h3 class="lc-title">{html.escape(l["title"])}</h3>'
+                f'<span class="lc-zh">{html.escape(l["title_zh"])}</span>'
+                f'<span class="lc-bl">{html.escape(l["blurb_en"])}</span>'
+                f'<span class="lc-bl zh">{html.escape(l["blurb_zh"])}</span>'
+                f'<span class="lc-go">Start the lesson · 開始上課 <i>&rarr;</i></span>'
+                f'</span></a>'))
+        for p in u.get("planned", []):
+            rows.append((p["n"],
+                f'<div class="lc-row lc-soon rvl">'
+                f'<span class="lc-ico" aria-hidden="true">{p["icon"]}</span>'
+                f'<span class="lc-body"><span class="lc-meta"><b>Lesson {p["n"]} · 第{_htw_cn(p["n"])}課 · Coming soon 製作中</b></span>'
+                f'<h3 class="lc-title">{html.escape(p["en"])}</h3><span class="lc-zh">{html.escape(p["zh"])}</span></span></div>'))
+        rows.sort(key=lambda r: r[0])
+        band = " band" if idx % 2 == 0 else ""
+        uid = f"unit-{idx + 1}"
+        nav.append(f'<a class="unit-nav-link" href="#{uid}"><b>{idx + 1}</b><span>{html.escape(u["title_zh"])}</span></a>')
+        unit_sections.append(
+            f'<section class="section lc-unit{band}" id="{uid}"><div class="wrap">'
+            f'<p class="eyebrow rvl">Unit {idx + 1} · 單元{_htw_cn(idx + 1)}</p>'
+            f'<h2 class="rvl d1 sweep">{html.escape(u["title_en"])} <span class="tp-h2-en">{html.escape(u["title_zh"])}</span></h2>'
+            f'<p class="lead rvl d2" style="max-width:62ch">{html.escape(u["blurb_en"])}<br>'
+            f'<span class="muted">{html.escape(u["blurb_zh"])}</span></p>'
+            f'<div class="lc-list">{"".join(r[1] for r in rows)}</div>'
+            f'</div></section>')
+    unit_nav = (f'<nav class="unit-nav" aria-label="Jump to unit · 單元導覽"><div class="wrap">'
+                f'<span class="unit-nav-label">Jump to unit · 跳到單元</span>'
+                f'<div class="unit-nav-track">{"".join(nav)}</div></div></nav>')
+    intro_html = "".join(_bi(p["en"], p["zh"]) for p in ART["intro"])
+    intro_html += _bi(f"{done} of {total} lessons {'is' if done == 1 else 'are'} ready so far; more are on the way.",
+                      f"目前完成 {done} 課（共規劃 {total} 課），持續增加中。", cls="ar-progress")
+    lead = f'{html.escape(ART["lead_en"])}<br><span class="muted">{html.escape(ART["lead_zh"])}</span>'
+    body = f'''
+{page_hero(ART["eyebrow"], f'{ART["title_en"]} <span class="h1-zh">{ART["title_zh"]}</span>', lead, back=("/resources/reading/", "回閱讀與經典"))}
+<section class="section"><div class="wrap">
+  <div class="prose wide rvl ar-intro"><span class="ar-intro-ic" aria-hidden="true">{arthub_svg(76)}</span>{intro_html}</div>
+</div></section>
+{unit_nav}
+{"".join(unit_sections)}
+'''
+    write(ART_BASE, layout(ART_BASE, f'{ART["title_en"]} · {ART["title_zh"]}',
+          f'{ART["lead_en"]} {ART["lead_zh"]}', body, "resources", extra_head=_art_head() + _lc_head()))
+    return ART_BASE
+
 
 def build_poetry_hub():
     cards = []
@@ -18949,6 +19300,10 @@ def main():
         paths.append(build_mus_hub())
         for _ui, _u in enumerate(MUS["units"]):
             for _l in _u["lessons"]: paths.append(build_mus_lesson(_ui, _u, _l))
+    if ART:
+        paths.append(build_art_hub())
+        for _ui, _u in enumerate(ART["units"]):
+            for _l in _u["lessons"]: paths.append(build_art_lesson(_ui, _u, _l))
     if PHIL:
         paths.append(build_phil_hub())
         for _l in PHIL["lessons"]: paths.append(build_phil_lesson(_l))

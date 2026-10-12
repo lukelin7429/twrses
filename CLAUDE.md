@@ -860,6 +860,33 @@
   - **沒寫**：Wikipedia “Major chord” 說平均律大三度「窄 14 音分」（方向寫錯，實際較寬）；辭典「八度音程」的「相差八個音程」（鬆散，改用「頻率相差一倍」）；Just intonation 頁把畢達哥拉斯用單弦琴發現當事實（改用傳說）；「協和是天生的／文化的」不給定論（只寫研究者仍在爭論）；「大調快樂小調悲傷」（只寫「有時被形容」，頁面沒有用）；辭典「協和」只有一般語意；嬰兒偏好研究（Zentner & Kagan 1996，沒有可取得的摘要）；「beating」與第三課的「拍」不可混用（課文有明講）。
 - **加下一課以後**：(1) `data/music.json` 把該課從 `planned` 移到 `lessons`（欄位照第一課）；(2) `_MUS_JS` 加一個 `lab.kind` → bundle，`tools/music/package.json` 的 build／test 加新檔，`render_mus<kind>_lab()` 加進 `build_mus_lesson()` 的 dict；(3) `_MUS_CARD` 加課程卡小圖示；(4) 新一課的 `sec()` 小互動依樣加（在 `build_mus_lesson()` 的 secs 清單加一行與 `_mu_<名稱>()`）；(5) 第三課起要「多個音同時」「節拍」的話，先看 `synth.js` 有沒有現成的排程，沒有就在那裡加（保持 `tone`／`toneComplex` 的介面不變）。**音符名稱用美式**（quarter note、half note，不用 crotchet、minim）；義大利文術語（allegro、forte）和英文、中文並列。
 
+## 美術 Art（/resources/classes/art/）— 架構照音樂與書法，共用的是「顏色引擎」
+
+- 內容：`data/art.json`：`units[]`（五個單元：看的基本功／空間與構圖／材料與技法／美術的種類／藝術家與我們）底下 `lessons[]` 與 `planned[]`（「製作中」卡，做一課就從 planned 移到 lessons）；課次 `n` 全系列連號（1–20，大綱在 vault 的 `創作庫/美術課程規劃（twrses）.md`），系列首頁自己算「x of 20」。導言說明課綱的正式名稱是「視覺藝術」。每課欄位同音樂（`paras`、`vocab`、`quiz`、`parts`、`culture_cards`、`curric`、`myths`、`tricks`、`safety`、`activities`、`links`、`sources`），多的：`lab.notes`／`note_head_*`／`note_end_*`（**模型簡化了什麼**，畫在 3D 下方的黃框裡，每課都要寫）、`match`／`zoom`（兩個不需要 WebGL 的小互動）、`primaries`（三套三原色的並列卡：`sets[]`、`points[]`）。`lab.legend` 的 `cls`（arspot／armix／arprobe）要有對應的 `.al-lg-<cls> i`。
+- 頁面：`build.py`「美術」區塊的 `build_art_hub()`／`build_art_lesson()`（`ART_BASE`、`_ART_JS`、`_art_head()`、`_ART_CARD`；系列小圖示 `arthub_svg()`＝調色盤，第一課卡 `artlights_svg()`＝三個重疊的光斑）；段落順序：3D（含模型說明）→ 英文閱讀 → 模型卡 → 調出這個顏色 → 把螢幕放大看 → 三套三原色 → 文化卡 → 對應課綱 → 迷思 → 口訣 → 動手之前 → 活動 → 延伸閱讀 → 出處。「閱讀與經典」頁有入口卡（🎨，放在音樂後面）。朗讀 manifest 叫 `art-<slug>`（`tools/gen_audio.py` 的 `SHORT_PAGES` 已加 `resources/classes/art`）。
+- 樣式：共用 `assets/css/astro.css`，本系列專屬的在 `assets/css/art.css`（**class 前綴一律 `ar-`**）。
+- 原始碼在 `tools/art/src/`（自己的 package.json，three 0.186.1、esbuild 0.25.10），bundle 一律 `art-*`（`lab.kind` → bundle 對照在 `_ART_JS`；目前只有 `lights` → `art-lights`）。**不要 import 別的系列的 tools 目錄**；`common.js` 是從 tools/music 抄來的。
+  ```
+  cd tools/art && npm ci && npm run build && npm test
+  ```
+- **三條每課都要守的規矩**：
+  1. **螢幕只會發光**。凡是「顏料」都是示意，頁面要明講模型簡化了什麼（`lab.notes`），並請學生拿真的顏料驗證（至少一個課堂活動要比較螢幕和實物）。
+  2. **色覺差異**：每個顏色旁邊都要有字（名稱、字母、數值）；對錯與狀態用文字和記號（● ○ ▲ ▼ ✓ △）表示，不靠紅綠分辨。
+  3. **名作圖片只用博物館明確開放的影像**，記下館藏編號與授權聲明；近現代藝術家不放圖。第一課沒有用任何圖片。
+- **顏色引擎（每課共用）**：
+  - `color.js`（純函式，`test/color.test.mjs`）：顏色一律 `[r, g, b]`、0–1（螢幕的設定值，乘 255 就是 0–255）。`mixLight(parts)`（加法：相加後截在 1）、`LIGHTS`；`mixPaint(parts)`／`PIGMENTS`／`pigmentPass`（**減法的示意模型**：白紙 × 每一層 `1 − 厚度 × absorb`；黃 absorb＝[0.02, 0.06, 0.92]、洋紅 [0.06, 0.90, 0.10]、青 [0.92, 0.10, 0.04]，**數字是自己選的、不是量的**，刻意不做成理想值，所以三層疊起來是 (19, 22, 18)「接近黑」而不是純黑）；`rgbToHsl`／`hslToRgb`／`rgbToHsv`；`rgbToLab`／`rgbToLch`（D65；L*＝明度、C*＝彩度、h＝色相角）、`luminance`；`deltaE`（CIE76，黑白相差 100）、`matchGrade`（6 以內算調出來，每一級有不靠顏色的記號）；`colorName(rgb)`（英文＋中文名稱）；`MATCH_ROUNDS`、`mixOf`、`sliderHints`。測試把數字寫死（紅 Lab＝53.24, 80.09, 67.20；紅綠色差 170.57…）。
+  - `lights.js`（`test/lights.test.mjs`）：牆面上每一點的顏色——`spotMask`、`shadowMask`（球擋住哪一盞燈）、`wallLight`／`wallPaint`／`wallColor`、`regions`（七種重疊區的面積與中心）、`LAYOUTS`、`LAMPS`（三盞燈排成三角形，三個影子才會各自露出一塊，七種影子顏色都看得到）。**著色器照這裡的公式寫**，兩邊要一起改。
+  - `match2d.js`（`[data-ar-match]`，除錯 `__match`：`set([a, b, c])`、`check()`、`next()`）、`zoom2d.js`（`[data-ar-zoom]`，`__zoom`：`set(rgb)`、`zoom(0–100)`）。
+- 第一課〈顏料和光，混色為什麼不一樣？〉（`art-lights.js`，`lab.kind = "lights"`，`data-artlights-lab`；slug `paint-and-light`）：一個機制——光越加越亮（紅綠藍＝白），顏料越加越暗（黃、洋紅、青＝接近黑）。暗房、白牆、三盞聚光燈；拖動光斑、開關、調亮度、放一顆球看彩色的影子；右邊欄即時列出四種重疊的名稱與 RGB、指著牆面的那一點；切換「顏料」＝同一面牆換成三片色片。
+  - **顏色要對**：牆面是自己的 `ShaderMaterial`，直接輸出公式算的數字（沒有場景燈光、色調映射、色彩空間轉換）；其他物件都是 `MeshBasicMaterial`。光束（半透明圓錐）會讓畫面染色，預設關閉。實測：`__lab.pixelAt(x, y)`（readPixels）和截圖取樣都是 紅＋綠 (255,255,0)、綠＋藍 (0,255,255)、紅＋藍 (255,0,255)、三盞 (255,255,255)。
+  - 除錯：`document.querySelector('[data-artlights-lab]').__lab`（`state`、`setMode('light'|'paint')`、`setK(i, 0–1)`、`setOn(i, bool)`、`setLayout('venn'|'together'|'apart'|'pair', 立刻?)`、`setObj(bool)`、`colorAt(x, y)`＝公式、`pixelAt(x, y)`＝畫面上實際的像素、`regions()`、`screenOf(x, y)`、`demo('add'|'dim'|'shadow'|'paint')`、`run(秒)`、`render()`、`goCam()`）。用 shot.mjs 實測時，`scrollIntoView({block:'center'})` 後等 3 秒模型才會初始化；瀏覽器面板在背景時（`visibilityState` 是 hidden）IntersectionObserver 不會觸發，模型不會啟動。
+  - 查證過（2026-10）：加法混色與各組結果、Maxwell 1861 年演講與 Thomas Sutton 拍的格子緞帶（Wikipedia “Additive color”、“James Clerk Maxwell”；**Young 提的是紅、綠、紫，Maxwell 才把紫換成藍**，所以沒寫 Young）；紅綠藍是 additive primaries、紅光加綠光刺激視錐細胞的程度和黃光一樣、七種顏色的影子（Exploratorium “Colored Shadows”）；減法混色、青吸紅／洋紅吸綠／黃吸藍、加黑色墨水的三個理由、攪在一起的顏料裡光會碰到不同深度的色料顆粒（Wikipedia “Subtractive color”）；CMY 三種實際上是深灰（“Color mixing”，**來源寫 dark gray，沒有寫 brown 或 muddy**）；紅黃藍是繪畫與美術教育的傳統三原色、早於現代色彩科學、Le Blon 1725、可視為 CMY 的近似、二十世紀合成色料（“RYB color model”）；**沒有任何一組真實的色料或光能混出所有顏色**（“Primary color”）；教育部《重編國語辭典修訂本》「原色」把色光紅綠藍、顏料紅黃藍、印刷洋紅黃青並列（**「三原色」一條只寫紅黃藍**；辭典的「青」是綠、藍、黑的泛稱，「青＝cyan」的依據是樂詞網物理學名詞）；教育百科〈印刷三原色〉（色料三原色、色光三原色、加法混合、減法混合、CMYK）；樂詞網（加法混色、減法混色、洋紅、[視]錐細胞、像素；**subpixel 查不到標準譯名**，頁面寫「子像素（也有人叫次畫素）」）；視錐細胞 L、M、S 約 560、530、420 奈米（“Cone cell”）；紅綠色覺異常在北歐血統族群約每 12 位男性、每 200 位女性一位，其他族群幾乎都較低（MedlinePlus Genetics）；高雄市小一、小四、國一學生 2019–2021 年男 3.46%、女 0.14%（Kuo et al. 2023，**不是全台數字**）；像素通常由紅綠藍子像素組成、也有別的排法（“Subpixel rendering”、“Pixel geometry”、科技大觀園）；雷射筆（標準檢驗局 2022）、美術用品（CPSC Art and Craft Safety Guide）。**課綱**：藝術與自然兩份課綱全文都沒有「三原色」「混色」，只能寫「最接近的條目」——視 E-Ⅱ-1、視 E-Ⅲ-1、視 E-Ⅳ-1、INe-Ⅲ-7、Ka-Ⅳ-11，五條原文逐字核對過。
+  - **沒寫**：三種顏料混在一起是「棕色」「髒髒的」（來源只寫深灰）；紅黃藍「錯了」（Wikipedia 寫 scientifically obsolete、Exploratorium 寫 not red, yellow, and blue as many people are taught，但教育部辭典並列，頁面三套並列、說明各自用在哪裡）；「人眼只看得到紅綠藍」（Exploratorium 的簡化說法，M 視錐的峰值其實在黃綠）；Young 1802 與 Newton 的色環（年代只有二手出處）；台灣全國的色覺異常比例（查不到官方數字）；LED 手電筒不可直視的官方說法（只查到雷射筆，強光那一條寫成教室規矩、不掛出處）；兒童顏料「不可入口」的台灣官方原文（只查到指畫顏料）；Britannica（沒有讀）。
+- 🔊 錄音：`python3 tools/gen_audio.py --page resources/classes/art/<slug> --out audio/say-<slug>` → `python3 tools/upload_say_dir.py assets/data/say/art-<slug>.json audio/say-<slug>`。worktree 裡先把 `~/Developer/repos/twrses/tools/.r2_uploaded_cache.txt` 複製過來，做完 `sort -u` 合併回去。
+- 課程規劃在 Obsidian：`第二大腦/創作庫/美術課程規劃（twrses）.md`（五單元二十課、版權原則、待查證清單）；系列索引 `第二大腦/英文學習/美術（twrses.org）.md`（課程清單、維護備忘、下一課的交接指令）。
+
+---
+
 ## Build / Deploy
 ```
 python3 build.py        # BASE=/twrses → 服務於 lukelin7429.github.io/twrses/ 或 www.twrses.org

@@ -1,0 +1,1041 @@
+{
+  "title_en": "Art",
+  "title_zh": "美術",
+  "eyebrow": "Art · 美術",
+  "lead_en": "Art starts with looking. This series begins with color, light, and line, and climbs one question at a time to space, materials, the many kinds of art, and the people who made it.",
+  "lead_zh": "美術從「看」開始。這個系列從顏色、光和線條講起，一次回答一個問題，一路講到空間、材料、美術的種類，以及創作的人。",
+  "intro": [
+    {
+      "en": "Every lesson has something you can move with your own hands: a lamp, a slider, a sheet of color. In Taiwan's school curriculum this subject is called Visual Arts. It is one of the three subjects in the Arts area, together with Music and Performing Arts.",
+      "zh": "每一課都有可以自己動手的東西：一盞燈、一根滑桿、一片顏色。在十二年國教課綱裡，這個科目的正式名稱是「視覺藝術」，和音樂、表演藝術同屬藝術領域。"
+    },
+    {
+      "en": "A screen can only make light, so the paint on these pages is a drawing of paint, and each lesson says where the drawing is simplified. People do not all see color in the same way, so every color here also has a name, a letter, or a number beside it. When a later lesson shows a famous work, the image will come only from a museum that clearly releases it for open use.",
+      "zh": "螢幕只會發光，所以這些頁面上的「顏料」是畫出來的示意，每一課都會說明它簡化了什麼。每個人看到的顏色不完全一樣，所以這裡的每一個顏色，旁邊都有名稱、字母或數字。之後的課若放名作，只用博物館明確開放使用的影像。"
+    }
+  ],
+  "units": [
+    {
+      "key": "seeing",
+      "title_en": "Learning to See",
+      "title_zh": "看的基本功",
+      "blurb_en": "Color, light and shade, and line: the things your eyes work with before you draw anything.",
+      "blurb_zh": "顏色、明暗和線條：動筆之前，眼睛先要學會看的幾件事。",
+      "lessons": [
+        {
+          "n": 1,
+          "slug": "paint-and-light",
+          "title": "Why Do Paint and Light Mix Differently?",
+          "title_zh": "顏料和光，混色為什麼不一樣？",
+          "level": "入門 · Beginner",
+          "icon": "🎨",
+          "card": "lights",
+          "blurb_en": "Shine a red, a green, and a blue lamp on a white wall and watch the overlaps turn yellow, cyan, magenta, and white. Then swap the lamps for three sheets of paint and see the overlaps get darker.",
+          "blurb_zh": "把紅、綠、藍三盞燈打在白牆上，看重疊的地方變成黃、青、洋紅和白；再把燈換成三片顏料，看重疊的地方越來越暗。",
+          "big_idea_en": "Light adds: every lamp you switch on sends more light to your eyes, so the mix gets brighter, and red, green, and blue together look white. Paint takes away: every layer absorbs some of the light, so the mix gets darker, and yellow, magenta, and cyan together look almost black.",
+          "big_idea_zh": "光是用加的：每多開一盞燈，進到眼睛的光就多一些，所以越混越亮，紅、綠、藍加在一起看起來是白色。顏料是用減的：每多一層顏料，就多吸掉一些光，所以越混越暗，黃、洋紅、青疊在一起接近黑色。",
+          "lab": {
+            "kind": "lights",
+            "eyebrow": "3D Model · 3D 模型",
+            "title_en": "Three Lamps in a Dark Room",
+            "title_zh": "暗房裡的三盞燈",
+            "how_en": "Three lamps, one red, one green, and one blue, shine on a white wall. Drag a spot of light to move it. On the right you can switch each lamp off or make it dimmer, and read the name and the numbers of each color. Then press Paint: the same wall gets three sheets of paint instead, in yellow, magenta, and cyan. Every color on the wall has a label, so you never have to tell colors apart by eye alone.",
+            "how_zh": "紅、綠、藍三盞燈照在一面白牆上。拖動光斑就能移動它；右邊可以把每一盞燈關掉或調暗，並讀出每個顏色的名稱和數值。再按「顏料」：同一面牆換成黃、洋紅、青三片顏料。牆上每個顏色都有標籤，不必只靠眼睛分辨顏色。",
+            "legend": [
+              {
+                "cls": "arspot",
+                "en": "A spot of light (or a sheet of paint); the label gives its letter and color name",
+                "zh": "一個光斑（或一片顏料）；標籤寫著它的字母和顏色名稱"
+              },
+              {
+                "cls": "armix",
+                "en": "An overlap; its label names the color that the mix makes",
+                "zh": "重疊的地方；標籤寫的是混出來的顏色"
+              },
+              {
+                "cls": "arprobe",
+                "en": "The small ring: the point whose color is read out on the right",
+                "zh": "小圓圈：右邊讀出的是這一點的顏色"
+              }
+            ],
+            "scale_en": "The numbers are screen values: R, G, and B each run from 0 (off) to 255 (as bright as the screen goes). The wall is drawn straight from those numbers, with no room lighting added.",
+            "scale_zh": "數值是螢幕的設定值：R、G、B 各從 0（不亮）到 255（螢幕能顯示的最亮）。牆面直接照這些數字畫出來，沒有再加上房間的光影。",
+            "note_head_en": "What the paint model leaves out",
+            "note_head_zh": "顏料模型簡化了什麼",
+            "notes": [
+              {
+                "en": "A screen can only make light. The sheets of paint here are drawn with red, green, and blue light, like everything else on your screen.",
+                "zh": "螢幕只會發光。這裡的顏料色片，和螢幕上其他東西一樣，是用紅、綠、藍三種光畫出來的。"
+              },
+              {
+                "en": "The model cuts light into just three parts: red, green, and blue. Real light is a smooth spread of colors, and a real paint absorbs a little or a lot at every point along it.",
+                "zh": "模型把光只切成紅、綠、藍三段。真正的光是連續的一整片顏色，真的顏料在每一段吸收的多寡都不一樣。"
+              },
+              {
+                "en": "The model treats paint as thin, clear sheets laid one over another, like colored film or printing ink. In paint that is stirred together, light meets many grains of pigment at different depths before it comes back out, so the result can differ.",
+                "zh": "模型把顏料當成一片一片透明的薄片疊起來，像色片或印刷油墨。攪在一起的顏料裡，光要在不同深度碰到許多色料顆粒才出來，結果可能不一樣。"
+              },
+              {
+                "en": "How much each sheet absorbs (about nine tenths of one part of the light, and a little of the other two) are numbers we chose for this page. Nobody measured them from a real paint.",
+                "zh": "每一片吸掉多少光（其中一段大約九成，另外兩段各一點點），是我們為這一頁選的數字，不是從真的顏料量出來的。"
+              }
+            ],
+            "note_end_en": "So treat the paint side as a prediction, and test it with real paint. Classroom Activity 2 shows how.",
+            "note_end_zh": "所以請把顏料這一邊當成「預測」，再拿真的顏料來驗證；做法在課堂活動二。",
+            "credit_html": "Model drawn for this lesson. The color math is in a small color engine that later lessons share, and it is covered by automatic tests. · 模型為本課自行繪製；顏色的計算放在之後每一課共用的顏色引擎裡，並有自動測試。"
+          },
+          "paras": [
+            "Squeeze yellow, magenta, and cyan paint onto a plate and stir them together. The mix turns into a dark gray that is close to black. Now go into a dark room with three lamps, one red, one green, and one blue, and point all of them at the same place on a white wall. That place turns white. Three colors of paint make something close to black, and three colors of light make white. Why are the two results opposite?",
+            "Start with the lamps. A wall in a dark room sends no light to your eyes. Switch on the red lamp, and the wall reflects red light back to you. Switch on the green lamp as well, and the place where the two spots overlap now reflects red light and green light together. More light reaches your eyes, so that place looks brighter, and it looks yellow. This is called additive mixing, because every lamp adds light. Red, green, and blue are called the primary colors of light. Red and green make yellow, green and blue make cyan, and red and blue make magenta. All three together make white.",
+            "Why yellow? The answer is in your eyes. At the back of each eye are cells called cones, and there are three kinds. Each kind responds to a wide range of light, but one is most sensitive to long waves, one to medium waves, and one to short waves. Your brain works out a color from how strongly the three kinds respond. A certain mix of red and green light stimulates the cones exactly as much as yellow light does, so your eyes cannot tell the two apart.",
+            "Paint does not make light. Paint gets its color from a pigment, and a pigment absorbs some of the light that falls on it and reflects the rest. White paper reflects almost all of the light. A layer of yellow paint absorbs most of the blue light. Magenta paint absorbs mostly green light, and cyan paint absorbs mostly red light. Lay yellow over magenta and both the blue and the green are taken away, so red is what is left. Each new layer takes away more light and the mix gets darker. This is called subtractive mixing.",
+            "Look again and you will see that the two sets fit together. Where two lamps overlap you get yellow, cyan, and magenta, and those are the three colors of paint in the model. Where two of those paints overlap you get red, green, and blue. A color printer uses cyan, magenta, and yellow ink for this reason. Real inks are not perfect, and the three together usually give a dark gray, so printers add black ink as well. A screen works the other way. Each pixel is usually made of three tiny lamps: one red, one green, and one blue.",
+            "In art class you may have learned a different set of primary colors: red, yellow, and blue. That set is older than modern color science, and it is still used in painting and in art lessons today. Printers use cyan, magenta, and yellow. Both sets are in use, and neither can do everything, because no three real paints, inks, or lights can mix every color there is. One more thing: the paint on this page is drawn by a screen, which means it is drawn with light. Try the same mixes with real paint and see how close the model comes."
+          ],
+          "paras_zh": [
+            "把黃、洋紅、青三種顏料擠在盤子上攪在一起，會變成接近黑色的深灰。現在走進一間暗房，拿紅、綠、藍三盞燈，全部照在白牆上的同一個地方，那個地方變成白色。三種顏料混出接近黑的顏色，三種光卻混出白色。為什麼結果剛好相反？",
+            "先看燈。暗房裡的牆不會把任何光送到你的眼睛。打開紅燈，牆就把紅光反射給你。再打開綠燈，兩個光斑重疊的地方同時反射紅光和綠光；進到眼睛的光變多了，所以那裡看起來更亮，而且是黃色。這叫做加法混色，因為每一盞燈都加上一些光。紅、綠、藍叫做色光三原色。紅加綠是黃，綠加藍是青，紅加藍是洋紅；三種全部加在一起是白色。",
+            "為什麼是黃色？答案在你的眼睛裡。眼睛後方有一種叫做視錐細胞的細胞，一共三種。每一種都對很大範圍的光有反應，但一種對長波的光最敏感，一種對中波，一種對短波。大腦根據這三種細胞反應的強弱判斷出顏色。某一種比例的紅光加綠光，刺激視錐細胞的程度和黃光一模一樣，所以眼睛分不出兩者的差別。",
+            "顏料不會發光。顏料的顏色來自色料，色料會吸收一部分照在上面的光，把其餘的反射出去。白紙幾乎把所有的光都反射出去。一層黃色顏料吸收大部分的藍光；洋紅色顏料主要吸收綠光，青色顏料主要吸收紅光。把黃色疊在洋紅上，藍光和綠光都被拿走，剩下的就是紅色。每多一層，被拿走的光就更多，混出來的顏色也更暗。這叫做減法混色。",
+            "再看一次，你會發現這兩組顏色剛好互相對應。兩盞燈重疊的地方是黃、青、洋紅，正是模型裡的三種顏料；其中兩種顏料重疊的地方，則是紅、綠、藍。彩色印表機用青、洋紅、黃三種墨水，就是這個道理。真正的墨水並不完美，三種疊在一起通常只是深灰，所以印表機還會加上黑色墨水。螢幕則反過來：每個像素通常由三個小小的燈組成，一個紅、一個綠、一個藍。",
+            "在美術課，你學到的三原色可能是另一組：紅、黃、藍。這一組比現代的色彩科學更早出現，今天的繪畫和美術課仍然在用；印刷則用青、洋紅、黃。兩組都有人用，也都不是萬能的，因為沒有任何三種真實的顏料、墨水或光，可以混出所有的顏色。還有一件事：這一頁的顏料是螢幕畫出來的，也就是用光畫出來的。請拿真的顏料混混看，看模型有多接近。"
+          ],
+          "questions": [
+            "On a white wall, why does the place where a red spot and a green spot overlap look brighter than the red spot alone?",
+            "Yellow paint over cyan paint looks green. Which light did each layer take away?",
+            "Why can a screen not show you exactly what real paint will do?"
+          ],
+          "answers": [
+            "The overlap reflects both the red light and the green light, so more light reaches your eyes there. Light mixes by adding, and every lamp you add makes the mix brighter.",
+            "The yellow layer absorbed most of the blue light and the cyan layer absorbed most of the red light. Green is the part of the light that neither layer took away.",
+            "A screen can only make light, so it draws paint with red, green, and blue light. The picture follows a simple model, and real paint behaves in more complicated ways. You have to mix real paint to find out."
+          ],
+          "vocab": [
+            {
+              "n": 1,
+              "w": "primary color",
+              "pos": "n.",
+              "zh": "原色",
+              "ex": "Red, green, and blue are the <b>primary colors</b> of light.",
+              "exzh": "紅、綠、藍是色光的三原色。"
+            },
+            {
+              "n": 2,
+              "w": "additive",
+              "pos": "adj.",
+              "zh": "加法的",
+              "ex": "Mixing light is <b>additive</b>: each lamp adds more light.",
+              "exzh": "光的混色是加法的：每一盞燈都多加一些光。"
+            },
+            {
+              "n": 3,
+              "w": "subtractive",
+              "pos": "adj.",
+              "zh": "減法的",
+              "ex": "Mixing paint is <b>subtractive</b>: each layer takes some light away.",
+              "exzh": "顏料的混色是減法的：每一層都拿走一些光。"
+            },
+            {
+              "n": 4,
+              "w": "absorb",
+              "pos": "v.",
+              "zh": "吸收",
+              "ex": "Yellow paint <b>absorbs</b> most of the blue light.",
+              "exzh": "黃色顏料吸收大部分的藍光。"
+            },
+            {
+              "n": 5,
+              "w": "reflect",
+              "pos": "v.",
+              "zh": "反射",
+              "ex": "White paper <b>reflects</b> almost all of the light that falls on it.",
+              "exzh": "白紙幾乎把照在上面的光全部反射出去。"
+            },
+            {
+              "n": 6,
+              "w": "pigment",
+              "pos": "n.",
+              "zh": "色料；顏料",
+              "ex": "A <b>pigment</b> gives paint its color.",
+              "exzh": "色料讓顏料有了顏色。"
+            },
+            {
+              "n": 7,
+              "w": "overlap",
+              "pos": "v.",
+              "zh": "重疊",
+              "ex": "Where the red and green spots <b>overlap</b>, the wall looks yellow.",
+              "exzh": "紅色和綠色光斑重疊的地方，牆看起來是黃色的。"
+            },
+            {
+              "n": 8,
+              "w": "pixel",
+              "pos": "n.",
+              "zh": "像素",
+              "ex": "Each <b>pixel</b> on the screen has a red, a green, and a blue part.",
+              "exzh": "螢幕上的每個像素都有紅、綠、藍三個部分。"
+            }
+          ],
+          "quiz": [
+            {
+              "q": "A red lamp and a green lamp shine on the same place on a white wall. What color do you see there?",
+              "options": [
+                "Yellow",
+                "Brown",
+                "Blue",
+                "Black"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "What do red, green, and blue light make when all three are mixed at full brightness?",
+              "options": [
+                "Black",
+                "White",
+                "Gray",
+                "Purple"
+              ],
+              "correct": 1
+            },
+            {
+              "q": "What does a layer of yellow paint do to white light?",
+              "options": [
+                "It adds yellow light",
+                "It absorbs most of the blue light and reflects the rest",
+                "It absorbs all of the light",
+                "It turns red light into yellow light"
+              ],
+              "correct": 1
+            },
+            {
+              "q": "Which three inks does a color printer mix, before it adds black?",
+              "options": [
+                "Red, green, and blue",
+                "Red, yellow, and blue",
+                "Cyan, magenta, and yellow",
+                "White, gray, and black"
+              ],
+              "correct": 2
+            },
+            {
+              "q": "Each time you add another layer of paint, the mix gets…",
+              "options": [
+                "brighter",
+                "darker",
+                "whiter",
+                "no different"
+              ],
+              "correct": 1
+            }
+          ],
+          "parts_head": {
+            "eyebrow": "Try It in the Model · 在模型裡試試",
+            "en": "Four things to try",
+            "zh": "四件值得試的事"
+          },
+          "parts": [
+            {
+              "key": "add",
+              "icon": "💡",
+              "en": "Light adds up",
+              "zh": "光越加越亮",
+              "meta_en": "One lamp, then two, then three",
+              "meta_zh": "一盞、兩盞、三盞",
+              "demo": "add",
+              "text_en": "Watch the lamps come on one at a time. Each overlap is brighter than the spots that make it, and the middle turns white.",
+              "text_zh": "看三盞燈一盞一盞打開。每一塊重疊的地方都比原來的光斑亮，正中間變成白色。"
+            },
+            {
+              "key": "dim",
+              "icon": "🔅",
+              "en": "How much of each",
+              "zh": "各加多少",
+              "meta_en": "Dim the green lamp",
+              "meta_zh": "把綠燈調暗",
+              "demo": "dim",
+              "text_en": "Full red with full green is yellow. With the green lamp at half, the same overlap is orange. The amounts matter as much as the colors.",
+              "text_zh": "紅光全開加綠光全開是黃色；綠燈調到一半，同一塊重疊的地方變成橙色。各加多少，和加哪幾種一樣重要。"
+            },
+            {
+              "key": "shadow",
+              "icon": "🌗",
+              "en": "Colored shadows",
+              "zh": "彩色的影子",
+              "meta_en": "Put a ball in the light",
+              "meta_zh": "放一顆球擋光",
+              "demo": "shadow",
+              "text_en": "A ball blocks each lamp from a different side. Where only the red lamp is blocked, green and blue are left, and the shadow is cyan.",
+              "text_zh": "一顆球從不同的方向擋住每一盞燈。只擋住紅燈的地方，剩下綠光和藍光，影子是青色的。"
+            },
+            {
+              "key": "paint",
+              "icon": "🎨",
+              "en": "Paint takes away",
+              "zh": "顏料越加越暗",
+              "meta_en": "Switch to paint",
+              "meta_zh": "換成顏料",
+              "demo": "paint",
+              "text_en": "The lamps become sheets of yellow, magenta, and cyan paint. Each new sheet takes more light away, and the middle is almost black.",
+              "text_zh": "三盞燈換成黃、洋紅、青三片顏料。每多一片，就多拿走一些光，正中間接近黑色。"
+            }
+          ],
+          "parts_note_en": "Then try it yourself. Can you make white with only two lamps? Can you make the middle of the paint lighter without taking a sheet away?",
+          "parts_note_zh": "然後自己動手試試。只用兩盞燈，調得出白色嗎？不拿掉任何一片顏料，能讓正中間變亮嗎？",
+          "match": {
+            "eyebrow": "Game · 小遊戲",
+            "en": "Match This Color",
+            "zh": "調出這個顏色",
+            "lead_en": "Eight questions. In the first four you mix light: three sliders set the brightness of a red, a green, and a blue lamp. In the last four you mix paint: three sliders set how thick the yellow, magenta, and cyan layers are. Press Check to see how far apart the two colors are. Each slider then tells you, in words, whether it needs more or less.",
+            "lead_zh": "八道題。前四題混的是光：三根滑桿分別是紅、綠、藍三盞燈的亮度。後四題混的是顏料：三根滑桿分別是黃、洋紅、青三層顏料的厚度。按「對答案」看兩個顏色差多少；每根滑桿旁邊會用文字告訴你要多一點還是少一點。",
+            "note_en": "The difference is a number called a color difference: 0 means the two colors are the same, and black and white are 100 apart. Here 6 or less counts as a match. The paint questions use the model above, so they are an illustration too.",
+            "note_zh": "「差多少」是一個叫做色差的數字：0 代表兩個顏色一樣，黑和白相差 100；這裡 6 以內就算調出來。顏料的題目用的是上面那個模型，所以同樣是示意。"
+          },
+          "zoom": {
+            "eyebrow": "Look Closer · 靠近看",
+            "en": "Zoom In on the Screen",
+            "zh": "把螢幕放大看",
+            "lead_en": "Pick a color, then drag the slider to magnify it. A screen has no white lamp and no yellow lamp. Each pixel is usually three small lamps side by side, red, green, and blue, and each one is set to its own brightness.",
+            "lead_zh": "選一個顏色，再拖動滑桿把它放大。螢幕裡沒有白色的燈，也沒有黃色的燈；每個像素通常是並排的三個小燈：紅、綠、藍，各自開到不同的亮度。",
+            "note_en": "This is a drawing, not a photograph of your screen. Real screens arrange these small lamps, called subpixels, in more than one way, and some use four colors.",
+            "note_zh": "這是畫出來的示意，不是你的螢幕的照片。這些小燈叫做子像素（也有人叫次畫素）；真正的螢幕有不只一種排法，有些還用四種顏色。",
+            "colors": [
+              {
+                "rgb": "255,255,255",
+                "en": "White",
+                "zh": "白"
+              },
+              {
+                "rgb": "255,255,0",
+                "en": "Yellow",
+                "zh": "黃"
+              },
+              {
+                "rgb": "0,255,255",
+                "en": "Cyan",
+                "zh": "青"
+              },
+              {
+                "rgb": "255,0,255",
+                "en": "Magenta",
+                "zh": "洋紅"
+              },
+              {
+                "rgb": "255,128,0",
+                "en": "Orange",
+                "zh": "橙"
+              },
+              {
+                "rgb": "128,128,128",
+                "en": "Gray",
+                "zh": "灰"
+              }
+            ]
+          },
+          "primaries": {
+            "eyebrow": "Three Sets · 三套三原色",
+            "en": "Which Colors Are the Primary Colors?",
+            "zh": "三原色到底是哪三個？",
+            "lead_en": "It depends on what you are mixing, and on who is doing the mixing. Three sets are in everyday use.",
+            "lead_zh": "要看你混的是什麼，也要看是誰在混。日常會遇到三套說法。",
+            "sets": [
+              {
+                "k_en": "Light",
+                "k_zh": "光",
+                "en": "Red, green, blue",
+                "zh": "紅、綠、藍（色光三原色）",
+                "colors": [
+                  {
+                    "l": "R",
+                    "hex": "#ff0000",
+                    "en": "Red",
+                    "zh": "紅"
+                  },
+                  {
+                    "l": "G",
+                    "hex": "#00ff00",
+                    "en": "Green",
+                    "zh": "綠"
+                  },
+                  {
+                    "l": "B",
+                    "hex": "#0000ff",
+                    "en": "Blue",
+                    "zh": "藍"
+                  }
+                ],
+                "where_en": "Screens, stage lighting, and the lamps in this lesson.",
+                "where_zh": "螢幕、舞台燈光，以及這一課的三盞燈。",
+                "note_en": "Additive: the mix gets brighter, and all three make white.",
+                "note_zh": "加法混色：越混越亮，三種加起來是白。"
+              },
+              {
+                "k_en": "Printing",
+                "k_zh": "印刷",
+                "en": "Cyan, magenta, yellow",
+                "zh": "青、洋紅、黃（色料三原色，也叫印刷三原色）",
+                "colors": [
+                  {
+                    "l": "C",
+                    "hex": "#00a8e0",
+                    "en": "Cyan",
+                    "zh": "青"
+                  },
+                  {
+                    "l": "M",
+                    "hex": "#e0007a",
+                    "en": "Magenta",
+                    "zh": "洋紅"
+                  },
+                  {
+                    "l": "Y",
+                    "hex": "#ffe600",
+                    "en": "Yellow",
+                    "zh": "黃"
+                  }
+                ],
+                "where_en": "Color printers and printed books, with black ink (K) added: CMYK.",
+                "where_zh": "彩色印表機和印刷品，再加上黑色墨水（K），合稱 CMYK。",
+                "note_en": "Subtractive: the mix gets darker. These are the colors you get where two of the lights overlap.",
+                "note_zh": "減法混色：越混越暗。這三個顏色，正好是兩種色光重疊的地方出現的顏色。"
+              },
+              {
+                "k_en": "Painting, the traditional set",
+                "k_zh": "繪畫的傳統說法",
+                "en": "Red, yellow, blue",
+                "zh": "紅、黃、藍",
+                "colors": [
+                  {
+                    "l": "R",
+                    "hex": "#d8232a",
+                    "en": "Red",
+                    "zh": "紅"
+                  },
+                  {
+                    "l": "Y",
+                    "hex": "#ffd400",
+                    "en": "Yellow",
+                    "zh": "黃"
+                  },
+                  {
+                    "l": "B",
+                    "hex": "#1f4fa8",
+                    "en": "Blue",
+                    "zh": "藍"
+                  }
+                ],
+                "where_en": "Paint boxes, color wheels, and many art lessons.",
+                "where_zh": "顏料盒、色相環，以及許多美術課。",
+                "note_en": "Also subtractive, and older than modern color science. In 1725 the printmaker Jacob Christoph Le Blon wrote that all colors can be composed of yellow, red, and blue.",
+                "note_zh": "同樣是減法混色，比現代的色彩科學更早出現。1725 年，版畫家勒布隆（Jacob Christoph Le Blon）寫道：所有的顏色都可以用黃、紅、藍三色配出來。"
+              }
+            ],
+            "swatch_note_en": "The swatches are screen colors chosen to stand for each name. They are not measurements of any ink or paint.",
+            "swatch_note_zh": "色塊是為了代表各個名稱而選的螢幕顏色，不是任何墨水或顏料的實測值。",
+            "points": [
+              {
+                "en": "The traditional set and the printing set are close relatives. The red-yellow-blue set can be considered an approximation of cyan-magenta-yellow. In the twentieth century, new synthetic pigments gave painters reds and blues that came closer to magenta and cyan.",
+                "zh": "傳統的一組和印刷的一組是近親。紅黃藍可以看成青、洋紅、黃的一種近似；到了二十世紀，新的合成色料讓畫家手上的紅和藍更接近洋紅和青。"
+              },
+              {
+                "en": "No set of three real paints, inks, or lights can mix every color. Each set can reach some colors and misses others.",
+                "zh": "沒有任何三種真實的顏料、墨水或光，可以混出所有的顏色。每一組都有混得出來的顏色，也有混不出來的。"
+              },
+              {
+                "en": "Taiwan's Ministry of Education dictionary lists them side by side. Its entry for 原色 gives red, green, and blue for light, red, yellow, and blue for paint, and adds that color printing often uses magenta, yellow, and cyan.",
+                "zh": "教育部《重編國語辭典修訂本》把它們並列。「原色」一條寫的是：「紅、綠、藍是色光的三原色（疊加型）；紅、黃、藍是顏料的三原色（消減型），彩色印刷術中常用洋紅、黃、青作為三原色。」"
+              }
+            ]
+          },
+          "culture_cards": {
+            "eyebrow": "Stories Behind the Colors · 顏色背後的故事",
+            "title_en": "Three kinds of cones, a tartan ribbon, black ink, and the eyes of your classmates",
+            "title_zh": "三種視錐細胞、一條格子緞帶、黑色墨水，和同學的眼睛",
+            "lead_en": "Four short stories about how people worked out what color mixing is.",
+            "lead_zh": "關於人怎麼弄懂混色的四個小故事。",
+            "cards": [
+              {
+                "k": "In Your Eyes · 眼睛裡",
+                "en": "Three kinds of cones",
+                "zh": "三種視錐細胞",
+                "body_en": "People normally have three kinds of cone cells, named L, M, and S for the long, medium, and short waves of light they are most sensitive to. Their strongest responses are at about 560, 530, and 420 nanometers. Each kind still responds to a wide range of light, and the ranges overlap. That is why three well-chosen lights are enough to make so many colors.",
+                "body_zh": "人通常有三種視錐細胞，依照它們最敏感的長波、中波、短波的光，叫做 L、M、S。它們反應最強的地方大約在 560、530、420 奈米。不過每一種都對很大範圍的光有反應，範圍互相重疊。所以只要三種選得好的光，就能混出很多顏色。"
+              },
+              {
+                "k": "1861 · 一八六一年",
+                "en": "A ribbon photographed three times",
+                "zh": "拍了三次的緞帶",
+                "body_en": "In 1861 the physicist James Clerk Maxwell gave a lecture about color at the Royal Institution in London. For it, the photographer Thomas Sutton photographed a tartan ribbon three times: once through a red filter, once through green, and once through blue. Put together again, the three pictures made one color image. The plates of that time hardly responded to red or green light, so the result was far from perfect. It is remembered as the first durable color photograph.",
+                "body_zh": "1861 年，物理學家馬克士威（James Clerk Maxwell）在倫敦的皇家研究院做了一場關於顏色的演講。攝影師薩頓（Thomas Sutton）為這場演講，把一條蘇格蘭格子緞帶拍了三次：一次透過紅色濾鏡、一次綠色、一次藍色。三張照片再合在一起，就成了一張彩色影像。當時的感光版對紅光和綠光幾乎沒有反應，所以結果離完美還很遠；後人仍把它當作第一張能保存下來的彩色照片。"
+              },
+              {
+                "k": "In the Printer · 印表機裡",
+                "en": "Why printers carry black ink",
+                "zh": "印表機為什麼還要黑色墨水",
+                "body_en": "In theory, cyan, magenta, and yellow ink together absorb all the light. Real inks are not perfect, and the three together usually come out dark gray. Black ink covers those unwanted tints in the dark parts of a picture, keeps fine details sharp, and saves the more expensive color inks when only black or gray is needed. The K in CMYK stands for that black ink.",
+                "body_zh": "理論上，青、洋紅、黃三種墨水疊在一起會吸掉所有的光。真正的墨水並不完美，三種疊起來通常只是深灰。黑色墨水可以蓋掉畫面暗處那些不該有的色偏、讓細節保持銳利，而且只需要黑或灰的地方，就不必用比較貴的彩色墨水。CMYK 的 K 指的就是這種黑色墨水。"
+              },
+              {
+                "k": "In Your Class · 教室裡",
+                "en": "Not everyone sees the same colors",
+                "zh": "每個人看到的顏色不完全一樣",
+                "body_en": "Some people's cones work differently, and reds and greens can be hard for them to tell apart. The U.S. National Library of Medicine says that among people of Northern European ancestry this affects about 1 in 12 males and 1 in 200 females, and fewer in almost all other groups studied. A study of school students in Kaohsiung from 2019 to 2021 found it in 3.46% of the boys and 0.14% of the girls. That is why this page writes a name or a letter beside every color.",
+                "body_zh": "有些人的視錐細胞運作方式不同，紅色和綠色對他們來說不容易分辨。美國國家醫學圖書館的資料說，在北歐血統的族群裡，大約每 12 位男性、每 200 位女性有一位如此，其他被研究過的族群幾乎都比較少。2019 到 2021 年高雄市中小學生的一項研究裡，男生是 3.46%，女生是 0.14%。所以這一頁的每一個顏色，旁邊都寫了名稱或字母。"
+              }
+            ]
+          },
+          "curric": {
+            "eyebrow": "In the Curriculum · 對應課綱",
+            "en": "Where this lesson fits",
+            "zh": "這一課對應的課綱",
+            "lead_en": "The arts curriculum and the science curriculum do not use the words for primary colors or color mixing. These are the closest entries. The links to color mixing are our reading of them.",
+            "lead_zh": "藝術領域和自然科學領域的課綱，都沒有出現「三原色」或「混色」這兩個詞。下面是最接近的條目；它們和混色的連結，是本教材的解讀。",
+            "items": [
+              {
+                "code": "視 E-Ⅱ-1",
+                "area": "藝術領域・視覺藝術（國小三、四年級）",
+                "area_en": "Arts, visual arts (grades 3–4)",
+                "text": "色彩感知、造形與空間的探索。",
+                "note_en": "Sensing color is where this series begins.",
+                "note_zh": "「色彩感知」正是這個系列的起點。"
+              },
+              {
+                "code": "視 E-Ⅲ-1",
+                "area": "藝術領域・視覺藝術（國小五、六年級）",
+                "area_en": "Arts, visual arts (grades 5–6)",
+                "text": "視覺元素、色彩與構成要素的辨識與溝通。",
+                "note_en": "Naming a color, and saying how it was mixed, is one way to recognize and talk about color.",
+                "note_zh": "說出一個顏色的名稱、說明它是怎麼混出來的，是辨識與溝通色彩的一種方式。"
+              },
+              {
+                "code": "視 E-Ⅳ-1",
+                "area": "藝術領域・視覺藝術（國中）",
+                "area_en": "Arts, visual arts (grades 7–9)",
+                "text": "色彩理論、造形表現、符號意涵。",
+                "note_en": "Additive and subtractive mixing are part of color theory. The entry does not list them by name.",
+                "note_zh": "加法混色與減法混色屬於色彩理論，但這一條沒有點名。"
+              },
+              {
+                "code": "INe-Ⅲ-7",
+                "area": "自然科學領域（國小五、六年級）",
+                "area_en": "Science (grades 5–6)",
+                "text": "陽光是由不同色光組成。",
+                "note_en": "This lesson runs it the other way: put colored lights together and you get white.",
+                "note_zh": "這一課反過來做：把幾種色光加在一起，得到白光。"
+              },
+              {
+                "code": "Ka-Ⅳ-11",
+                "area": "自然科學領域（國中）",
+                "area_en": "Science (grades 7–9)",
+                "text": "物體的顏色是光選擇性反射的結果。",
+                "note_en": "This is the paint half of the lesson: a pigment absorbs some light and reflects the rest.",
+                "note_zh": "這是本課顏料那一半的依據：色料吸收一部分的光，反射其餘的。"
+              }
+            ]
+          },
+          "myths": [
+            {
+              "myth_en": "Red, yellow, and blue are the only real primary colors.",
+              "myth_zh": "只有紅、黃、藍才是真正的三原色。",
+              "fact_en": "Several sets are in use. Light is mixed from red, green, and blue. Printing uses cyan, magenta, and yellow. Painters have long used red, yellow, and blue. No set of three real paints, inks, or lights can mix every color.",
+              "fact_zh": "通行的說法不只一套。光用紅、綠、藍來混；印刷用青、洋紅、黃；畫家長久以來用紅、黃、藍。沒有任何三種真實的顏料、墨水或光能混出所有的顏色。"
+            },
+            {
+              "myth_en": "The more colors you mix, the brighter the result.",
+              "myth_zh": "混進去的顏色越多，結果就越鮮亮。",
+              "fact_en": "That holds for light, where each lamp adds more. With paint it runs the other way: each paint absorbs more of the light, so the mix gets darker.",
+              "fact_zh": "光是這樣，因為每一盞燈都多加一些光。顏料正好相反：每一種顏料都多吸掉一些光，所以越混越暗。"
+            },
+            {
+              "myth_en": "A yellow patch on a screen sends out yellow light.",
+              "myth_zh": "螢幕上黃色的地方，發出的是黃光。",
+              "fact_en": "On a typical screen, the red and green parts of each pixel are lit and the blue part is dark. No part is yellow. That mix stimulates your cones the way yellow light does, so you see yellow.",
+              "fact_zh": "在一般的螢幕上，是每個像素的紅色和綠色部分亮著、藍色部分不亮，沒有任何一個部分是黃色的。這樣的組合刺激視錐細胞的方式和黃光一樣，所以你看到黃色。"
+            },
+            {
+              "myth_en": "A shadow is always gray or black.",
+              "myth_zh": "影子一定是灰色或黑色的。",
+              "fact_en": "A shadow is a place that one light cannot reach. If other lights still reach it, you see their mix. Under red, green, and blue lamps, the shadow that blocks only the red lamp is cyan.",
+              "fact_zh": "影子是某一道光照不到的地方。如果別的光還照得到，你看到的就是那些光混出來的顏色。在紅、綠、藍三盞燈下，只擋住紅燈的影子是青色的。"
+            }
+          ],
+          "tricks_head": {
+            "en": "Color mixing in a sentence",
+            "zh": "一句話記住混色"
+          },
+          "tricks": [
+            {
+              "title_en": "Light adds, paint takes away",
+              "title_zh": "光是加，顏料是減",
+              "body_en": "More lamps, brighter. More paint, darker.",
+              "body_zh": "燈越多越亮，顏料越多越暗。"
+            },
+            {
+              "title_en": "RGB makes white, CMY makes almost black",
+              "title_zh": "紅綠藍變白，青洋紅黃接近黑",
+              "body_en": "Three lights add up to white. Three paints take away nearly all the light.",
+              "body_zh": "三種光加起來是白色；三種顏料幾乎把光全部拿走。"
+            },
+            {
+              "title_en": "Each paint eats one light",
+              "title_zh": "一種顏料吃掉一種光",
+              "body_en": "Yellow absorbs blue, magenta absorbs green, and cyan absorbs red.",
+              "body_zh": "黃吸收藍，洋紅吸收綠，青吸收紅。"
+            },
+            {
+              "title_en": "Two of one set make one of the other",
+              "title_zh": "這一組的兩個，混出那一組的一個",
+              "body_en": "Red and green light make yellow. Yellow and magenta paint make red.",
+              "body_zh": "紅光加綠光是黃；黃色顏料加洋紅顏料是紅。"
+            }
+          ],
+          "safety_head": {
+            "eyebrow": "Before You Start · 動手之前",
+            "en": "Lamps and paint",
+            "zh": "燈和顏料"
+          },
+          "safety": [
+            {
+              "en": "Do not look straight into a bright lamp or flashlight, and do not point one at anyone's eyes. Look at the wall, not at the lamp.",
+              "zh": "不要直視很亮的燈或手電筒，也不要拿它照別人的眼睛。看牆面，不要看燈。"
+            },
+            {
+              "en": "Do not use a laser pointer for these activities. Taiwan's Bureau of Standards says a laser pointer must never be aimed at a person, least of all at the eyes, and that children under 14 should not use one.",
+              "zh": "這些活動不要用雷射筆。經濟部標準檢驗局提醒：雷射筆不可對準人，尤其是眼睛，並禁止 14 歲以下兒童使用。"
+            },
+            {
+              "en": "Keep food and drinks away from the paint. Do not put paint, brushes, or painted fingers in your mouth, and wash your hands when you finish.",
+              "zh": "食物和飲料不要放在顏料旁邊。顏料、畫筆和沾了顏料的手指都不要放進嘴巴；畫完要洗手。"
+            },
+            {
+              "en": "Before the room goes dark, clear the floor and decide where everyone will stand. Move slowly, and switch the room lights back on before you tidy up.",
+              "zh": "關燈之前，先把地板清空，並決定每個人站在哪裡。慢慢走動；收拾之前先把教室的燈打開。"
+            }
+          ],
+          "activities": [
+            {
+              "title_en": "Three Flashlights",
+              "title_zh": "三支手電筒",
+              "materials": [
+                {
+                  "en": "Three flashlights of the same kind",
+                  "zh": "三支同一款的手電筒"
+                },
+                {
+                  "en": "Red, green, and blue cellophane (or color filters) and rubber bands",
+                  "zh": "紅、綠、藍三種玻璃紙（或濾色片）和橡皮筋"
+                },
+                {
+                  "en": "A white wall or a large sheet of white paper, in a room you can make dark",
+                  "zh": "一面白牆或一大張白紙，以及一間可以弄暗的教室"
+                },
+                {
+                  "en": "A pencil or a finger to make shadows",
+                  "zh": "一支鉛筆或一根手指，用來做影子"
+                }
+              ],
+              "steps": [
+                {
+                  "en": "Cover each flashlight with one color of cellophane and hold it on with a rubber band. Use two layers if the color looks pale.",
+                  "zh": "每支手電筒各包一種顏色的玻璃紙，用橡皮筋固定。顏色太淡就包兩層。"
+                },
+                {
+                  "en": "Darken the room. Shine each flashlight on the wall by itself and say its color.",
+                  "zh": "把教室弄暗。每支手電筒先單獨照在牆上，說出它的顏色。"
+                },
+                {
+                  "en": "Overlap red and green. Before you look, say what you expect. Then try green with blue, and red with blue.",
+                  "zh": "讓紅光和綠光重疊。看之前先說出你的預測。再試綠加藍、紅加藍。"
+                },
+                {
+                  "en": "Overlap all three. Move a flashlight nearer or farther to change how bright its spot is, until the middle looks as white as you can get it.",
+                  "zh": "三種光全部重疊。把某一支手電筒拿近或拿遠來改變光斑的亮度，直到中間盡量接近白色。"
+                },
+                {
+                  "en": "Hold a pencil close to the wall in the white spot. Count the shadows and name their colors. Which lamp is blocked in each one?",
+                  "zh": "在白色光斑裡，把鉛筆拿到靠近牆面的地方。數一數有幾個影子，說出它們的顏色。每個影子裡，被擋住的是哪一支手電筒？"
+                }
+              ],
+              "tip_en": "Cellophane is not a perfect filter, and flashlights are not equally bright, so your white may look a little pink or a little blue. That is normal. Compare what you see with the model on this page, and write down what is the same and what is different.",
+              "tip_zh": "玻璃紙不是完美的濾色片，每支手電筒的亮度也不一樣，所以你的「白色」可能偏粉紅或偏藍，這很正常。把看到的結果和這一頁的模型比較，記下哪些一樣、哪些不一樣。"
+            },
+            {
+              "title_en": "The Screen Against Real Paint",
+              "title_zh": "螢幕和真的顏料比一比",
+              "materials": [
+                {
+                  "en": "Watercolors: a yellow, a magenta or rose red, and a cyan or sky blue",
+                  "zh": "水彩：黃色、洋紅（或玫瑰紅）、青色（或天藍）各一"
+                },
+                {
+                  "en": "The red and the blue from an ordinary paint box, to compare",
+                  "zh": "一般顏料盒裡的紅色和藍色，用來對照"
+                },
+                {
+                  "en": "A brush, clean water, a plate, and white paper",
+                  "zh": "畫筆、清水、調色盤和白紙"
+                },
+                {
+                  "en": "This page, with the model switched to Paint",
+                  "zh": "這一頁，並把模型切換到「顏料」"
+                }
+              ],
+              "steps": [
+                {
+                  "en": "In the model, look at the overlap of yellow and magenta. Write down the color name it shows. This is the prediction.",
+                  "zh": "在模型裡看黃色和洋紅重疊的地方，把它顯示的顏色名稱寫下來。這是「預測」。"
+                },
+                {
+                  "en": "Paint a wide stripe of yellow on the paper and let it dry. Paint a stripe of magenta across it. Look at the square where they cross.",
+                  "zh": "在紙上畫一道寬寬的黃色，等它乾。再橫著畫一道洋紅。看兩道交叉的那一格。"
+                },
+                {
+                  "en": "Do the same for yellow with cyan, for magenta with cyan, and for all three. Hold the paper beside the screen each time.",
+                  "zh": "黃加青、洋紅加青、三種全加，各做一次。每次都把紙拿到螢幕旁邊比較。"
+                },
+                {
+                  "en": "Make a table with three columns: the mix, what the model showed, and what the paint did. Mark each row as close or not close.",
+                  "zh": "畫一張三欄的表：混了什麼、模型顯示什麼、顏料實際的結果。每一列註明「接近」或「不接近」。"
+                },
+                {
+                  "en": "Now repeat the crossings with the ordinary red and blue in place of magenta and cyan. Which pair gives the cleaner green? The cleaner purple?",
+                  "zh": "把洋紅和青換成一般的紅色和藍色，再做一次交叉。哪一組混出來的綠比較乾淨？紫色呢？"
+                }
+              ],
+              "tip_en": "Your results will not match the screen exactly, and they should not. The model leaves things out, every brand of paint is different, and a screen makes its colors with light. Finding where the model is wrong is the point of this activity.",
+              "tip_zh": "你的結果不會和螢幕一模一樣，也不應該一樣：模型省略了一些事，每個牌子的顏料都不同，而且螢幕是用光來顯示顏色的。找出模型哪裡不準，正是這個活動的目的。"
+            }
+          ],
+          "links_head": {
+            "eyebrow": "Go Further · 延伸閱讀",
+            "en": "What light is, and what comes next",
+            "zh": "光本身，以及下一課"
+          },
+          "links": [
+            {
+              "icon": "🌤️",
+              "k_en": "How Things Work · Lesson 9",
+              "k_zh": "萬物原理・第九課",
+              "en": "Why Is the Sky Blue?",
+              "zh": "天空為什麼是藍色的？",
+              "note_en": "Sunlight is a mix of many colors, and the air scatters some of them more than others. That lesson is about light itself. This lesson does not repeat it.",
+              "note_zh": "陽光是許多顏色混在一起的光，空氣把其中一些顏色散射得比較多。那一課講的是光本身；這一課不再重複。",
+              "href": "/resources/classes/how-things-work/blue-sky/"
+            },
+            {
+              "icon": "🌈",
+              "k_en": "How Things Work · Lesson 10",
+              "k_zh": "萬物原理・第十課",
+              "en": "How Does a Rainbow Form?",
+              "zh": "彩虹是怎麼形成的？",
+              "note_en": "Raindrops spread white sunlight out into its colors. Here you did the opposite and put colored lights together.",
+              "note_zh": "雨滴把白色的陽光分散成各種顏色；這一課做的是反方向的事：把幾種色光加在一起。",
+              "href": "/resources/classes/how-things-work/rainbow/"
+            },
+            {
+              "icon": "🎡",
+              "k_en": "Art · Lesson 2",
+              "k_zh": "美術・第二課",
+              "en": "How Do Colors Work Together?",
+              "zh": "顏色怎麼搭配？",
+              "note_en": "Next come the color wheel, warm and cool colors, and a gray square that seems to change when its neighbors do.",
+              "note_zh": "下一課是色相環、暖色與冷色，還有一塊會隨著周圍顏色「變色」的灰色方塊。",
+              "soon": true
+            }
+          ],
+          "sources_note_en": "Names, dates, numbers, and quotations on this page were checked against these sources (October 2026). The mixed colors are computed by the page itself and covered by automatic tests; the paint mixes follow a simplified model",
+          "sources_note_zh": "本頁的人名、年代、數字與引文依下列資料查證（2026 年 10 月）；混出來的顏色由頁面自己計算，並有自動測試；顏料的混色是簡化的示意模型",
+          "sources": [
+            {
+              "en": "Additive mixing: red and green make yellow, green and blue make cyan, blue and red make magenta, and all three make white",
+              "zh": "加法混色：紅加綠是黃、綠加藍是青、藍加紅是洋紅，三種加起來是白",
+              "src": "Wikipedia “Additive color”",
+              "url": "https://en.wikipedia.org/wiki/Additive_color"
+            },
+            {
+              "en": "Red, green, and blue are the additive primaries of light; why red and green light look yellow; the three kinds of cones; the seven colors of shadows",
+              "zh": "紅、綠、藍是色光的加法原色；紅光加綠光為什麼看起來是黃色；三種視錐細胞；七種顏色的影子",
+              "src": "Exploratorium “Colored Shadows”",
+              "url": "https://www.exploratorium.edu/snacks/colored-shadows"
+            },
+            {
+              "en": "Subtractive mixing: each layer absorbs part of the light; cyan absorbs red, magenta absorbs green, yellow absorbs blue; why printers add black ink; light meets many pigment particles in mixed paint",
+              "zh": "減法混色：每一層吸收一部分的光；青吸收紅、洋紅吸收綠、黃吸收藍；印刷為什麼加黑色墨水；攪在一起的顏料裡，光會碰到許多色料顆粒",
+              "src": "Wikipedia “Subtractive color”",
+              "url": "https://en.wikipedia.org/wiki/Subtractive_color"
+            },
+            {
+              "en": "The mixes of cyan, magenta, and yellow; in practice all three give a dark gray",
+              "zh": "青、洋紅、黃兩兩混合的結果；實際上三種混在一起是深灰",
+              "src": "Wikipedia “Color mixing”",
+              "url": "https://en.wikipedia.org/wiki/Color_mixing"
+            },
+            {
+              "en": "Cyan filters subtract red light and yellow filters subtract blue light; the brain reads color from the three kinds of signals",
+              "zh": "青色色片減去紅光、黃色色片減去藍光；大腦依三種訊號的比例判斷顏色",
+              "src": "Exploratorium “The Three Little Pigments”",
+              "url": "https://www.exploratorium.edu/snacks/three-little-pigments"
+            },
+            {
+              "en": "Red, yellow, and blue as the traditional primary colors of painting and art education; Le Blon in 1725; its relation to cyan, magenta, and yellow; synthetic pigments in the twentieth century",
+              "zh": "紅、黃、藍是繪畫與美術教育的傳統三原色；1725 年的勒布隆；和青、洋紅、黃的關係；二十世紀的合成色料",
+              "src": "Wikipedia “RYB color model”",
+              "url": "https://en.wikipedia.org/wiki/RYB_color_model"
+            },
+            {
+              "en": "No set of real colorants or lights can mix all possible colors",
+              "zh": "沒有任何一組真實的色料或光可以混出所有的顏色",
+              "src": "Wikipedia “Primary color”",
+              "url": "https://en.wikipedia.org/wiki/Primary_color"
+            },
+            {
+              "en": "The dictionary entry for 原色: red, green, and blue for light; red, yellow, and blue for paint; magenta, yellow, and cyan in color printing",
+              "zh": "「原色」：色光的三原色是紅、綠、藍；顏料的三原色是紅、黃、藍；彩色印刷常用洋紅、黃、青",
+              "src": "教育部《重編國語辭典修訂本》〈原色〉",
+              "url": "https://dict.revised.moe.edu.tw/dictView.jsp?ID=165156"
+            },
+            {
+              "en": "The dictionary entry for 三原色",
+              "zh": "「三原色」：物理學上指色光紅、綠、藍；顏料中的紅、黃、藍色",
+              "src": "教育部《重編國語辭典修訂本》〈三原色〉",
+              "url": "https://dict.revised.moe.edu.tw/dictView.jsp?ID=144914"
+            },
+            {
+              "en": "Printing primaries (cyan, magenta, yellow), the terms for additive and subtractive mixing in Chinese, and CMYK four-color printing",
+              "zh": "印刷三原色（青、洋紅、黃，也稱色料三原色）、色光三原色、加法與減法混合，以及 CMYK 四色印刷",
+              "src": "教育百科〈印刷三原色〉（國家教育研究院）",
+              "url": "https://pedia.cloud.edu.tw/Entry/Detail/?title=%E5%8D%B0%E5%88%B7%E4%B8%89%E5%8E%9F%E8%89%B2"
+            },
+            {
+              "en": "Standard Chinese terms: additive mixture, subtractive mixture, magenta, cyan, cone cell, pixel, pigment",
+              "zh": "學術名詞：加法混色、減法混色、洋紅、青、視錐細胞、像素、顏料／色料",
+              "src": "國家教育研究院 樂詞網",
+              "url": "https://terms.naer.edu.tw/"
+            },
+            {
+              "en": "Cone cells: three classes, L, M, and S, with peaks at about 560, 530, and 420 nanometers",
+              "zh": "視錐細胞：L、M、S 三類，反應最強處約在 560、530、420 奈米",
+              "src": "Wikipedia “Cone cell”",
+              "url": "https://en.wikipedia.org/wiki/Cone_cell"
+            },
+            {
+              "en": "Red-green color vision deficiency: about 1 in 12 males and 1 in 200 females of Northern European ancestry, lower in almost all other populations studied",
+              "zh": "紅綠色覺異常：北歐血統族群約每 12 位男性、每 200 位女性有一位，其他被研究的族群幾乎都較低",
+              "src": "MedlinePlus Genetics (U.S. National Library of Medicine)",
+              "url": "https://medlineplus.gov/genetics/condition/color-vision-deficiency/"
+            },
+            {
+              "en": "Kaohsiung students in grades 1, 4, and 7, 2019–2021: 3.46% of males and 0.14% of females",
+              "zh": "高雄市國小一、四年級與國中一年級學生（2019–2021）：男生 3.46%、女生 0.14%",
+              "src": "Kuo et al., Int. J. Mol. Sci. 2023",
+              "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10607166/"
+            },
+            {
+              "en": "A pixel on a color display is typically made of red, green, and blue subpixels",
+              "zh": "彩色顯示器的一個像素通常由紅、綠、藍三個子像素組成",
+              "src": "Wikipedia “Subpixel rendering”",
+              "url": "https://en.wikipedia.org/wiki/Subpixel_rendering"
+            },
+            {
+              "en": "Other subpixel layouts, including four-color ones",
+              "zh": "其他的子像素排法，包括四種顏色的",
+              "src": "Wikipedia “Pixel geometry”",
+              "url": "https://en.wikipedia.org/wiki/Pixel_geometry"
+            },
+            {
+              "en": "Each pixel of a liquid crystal display is made of red, green, and blue subpixels (in Chinese)",
+              "zh": "液晶顯示器的每一格畫素由紅、綠、藍三種次畫素組成",
+              "src": "科技大觀園〈當新印象派大師看到現代顯示器（三）〉",
+              "url": "https://scitechvista.nat.gov.tw/Article/C000003/detail?ID=06bbee21-feaa-42aa-ac6f-5fa5408f719f"
+            },
+            {
+              "en": "Maxwell's 1861 lecture and the tartan ribbon photographed by Thomas Sutton through red, green, and blue filters",
+              "zh": "馬克士威 1861 年的演講，以及薩頓透過紅、綠、藍濾鏡拍攝的格子緞帶",
+              "src": "Wikipedia “James Clerk Maxwell”",
+              "url": "https://en.wikipedia.org/wiki/James_Clerk_Maxwell"
+            },
+            {
+              "en": "Visual arts learning content: 視 E-Ⅱ-1, 視 E-Ⅲ-1, 視 E-Ⅳ-1",
+              "zh": "視覺藝術學習內容：視 E-Ⅱ-1、視 E-Ⅲ-1、視 E-Ⅳ-1",
+              "src": "十二年國教課綱 藝術領域（教育部，2018）",
+              "url": "https://www.naer.edu.tw/upload/1/16/doc/818/%E5%8D%81%E4%BA%8C%E5%B9%B4%E5%9C%8B%E6%B0%91%E5%9F%BA%E6%9C%AC%E6%95%99%E8%82%B2%E8%AA%B2%E7%A8%8B%E7%B6%B1%E8%A6%81%E5%9C%8B%E6%B0%91%E4%B8%AD%E5%B0%8F%E5%AD%B8%E6%9A%A8%E6%99%AE%E9%80%9A%E5%9E%8B%E9%AB%98%E7%B4%9A%E4%B8%AD%E7%AD%89%E6%A0%A1-%E8%97%9D%E8%A1%93%E9%A0%98%E5%9F%9F.pdf"
+            },
+            {
+              "en": "Science learning content: INe-Ⅲ-7 and Ka-Ⅳ-11",
+              "zh": "自然科學學習內容：INe-Ⅲ-7、Ka-Ⅳ-11",
+              "src": "十二年國教課綱 自然科學領域（教育部，2018）",
+              "url": "https://www.naer.edu.tw/upload/1/16/doc/820/%E5%8D%81%E4%BA%8C%E5%B9%B4%E5%9C%8B%E6%B0%91%E5%9F%BA%E6%9C%AC%E6%95%99%E8%82%B2%E8%AA%B2%E7%A8%8B%E7%B6%B1%E8%A6%81%E5%9C%8B%E6%B0%91%E4%B8%AD%E5%B0%8F%E5%AD%B8%E6%9A%A8%E6%99%AE%E9%80%9A%E5%9E%8B%E9%AB%98%E7%B4%9A%E4%B8%AD%E7%AD%89%E6%A0%A1-%E8%87%AA%E7%84%B6%E7%A7%91%E5%AD%B8%E9%A0%98%E5%9F%9F.pdf"
+            },
+            {
+              "en": "Laser pointers: never aim at a person, especially the eyes; not for children under 14",
+              "zh": "雷射筆不可對準人，尤其是眼睛；禁止 14 歲以下兒童使用",
+              "src": "經濟部標準檢驗局（2022）",
+              "url": "https://safety.bsmi.gov.tw/wSite/ct?xItem=105915&ctNode=8274&mp=65"
+            },
+            {
+              "en": "Art materials: keep food and drinks out of the art area and wash hands after use",
+              "zh": "美術用品：食物和飲料不要帶進創作的地方，用完洗手",
+              "src": "U.S. CPSC, Art and Craft Safety Guide",
+              "url": "https://www.cpsc.gov/s3fs-public/5015.pdf"
+            }
+          ]
+        }
+      ],
+      "planned": [
+        {
+          "n": 2,
+          "icon": "🎡",
+          "en": "How Do Colors Work Together?",
+          "zh": "顏色怎麼搭配？"
+        },
+        {
+          "n": 3,
+          "icon": "🌗",
+          "en": "How Does Shading Make a Circle Look Like a Ball?",
+          "zh": "明暗怎麼把圓形變成球？"
+        },
+        {
+          "n": 4,
+          "icon": "✏️",
+          "en": "What Can a Line Say?",
+          "zh": "一條線可以說什麼？"
+        }
+      ]
+    },
+    {
+      "key": "space",
+      "title_en": "Space and Composition",
+      "title_zh": "空間與構圖",
+      "blurb_en": "How a flat sheet of paper can hold a room, a mountain range, or a face, and where to put the main thing.",
+      "blurb_zh": "一張平平的紙，怎麼裝得下一個房間、一片山脈或一張臉；主角又該放在哪裡。",
+      "lessons": [],
+      "planned": [
+        {
+          "n": 5,
+          "icon": "🚪",
+          "en": "How Do You Draw a Room on Flat Paper?",
+          "zh": "怎麼在平面上畫出一個房間？"
+        },
+        {
+          "n": 6,
+          "icon": "🏞️",
+          "en": "How Do Painters Show Near and Far?",
+          "zh": "畫家怎麼畫出遠和近？"
+        },
+        {
+          "n": 7,
+          "icon": "🖼️",
+          "en": "Where Should the Main Thing Go?",
+          "zh": "主角該放在哪裡？"
+        },
+        {
+          "n": 8,
+          "icon": "🙂",
+          "en": "Why Do Drawn Faces Look Wrong?",
+          "zh": "為什麼畫的臉常常怪怪的？"
+        }
+      ]
+    },
+    {
+      "key": "materials",
+      "title_en": "Materials and Techniques",
+      "title_zh": "材料與技法",
+      "blurb_en": "Pigments, watercolor, oil, ink, prints, and sculpture: what art is made of, and what each material can do.",
+      "blurb_zh": "色料、水彩、油畫、水墨、版畫和雕塑：美術是用什麼做的，每一種材料又做得到什麼。",
+      "lessons": [],
+      "planned": [
+        {
+          "n": 9,
+          "icon": "🪨",
+          "en": "Where Do Paint Colors Come From?",
+          "zh": "顏料的顏色從哪裡來？"
+        },
+        {
+          "n": 10,
+          "icon": "💧",
+          "en": "How Are Watercolor, Oil Paint, and Ink Different?",
+          "zh": "水彩、油畫、水墨有什麼不同？"
+        },
+        {
+          "n": 11,
+          "icon": "🪵",
+          "en": "How Does a Print Make Many Copies?",
+          "zh": "版畫怎麼印出很多張？"
+        },
+        {
+          "n": 12,
+          "icon": "🗿",
+          "en": "How Do You Find a Statue Inside a Stone?",
+          "zh": "怎麼從石頭裡找出一座雕像？"
+        }
+      ]
+    },
+    {
+      "key": "kinds",
+      "title_en": "Kinds of Art",
+      "title_zh": "美術的種類",
+      "blurb_en": "Five hundred years of European painting, the Impressionists, Chinese landscapes, and the art that grew in Taiwan.",
+      "blurb_zh": "歐洲繪畫的五百年、印象派、山水畫，以及在台灣這塊土地上長出來的美術。",
+      "lessons": [],
+      "planned": [
+        {
+          "n": 13,
+          "icon": "🏛️",
+          "en": "How Did European Painting Change in 500 Years?",
+          "zh": "歐洲繪畫五百年怎麼變？"
+        },
+        {
+          "n": 14,
+          "icon": "🌸",
+          "en": "Why Do Impressionist Paintings Look Blurry Up Close?",
+          "zh": "印象派的畫為什麼近看糊糊的？"
+        },
+        {
+          "n": 15,
+          "icon": "⛰️",
+          "en": "Why Do Chinese Landscapes Have No Vanishing Point?",
+          "zh": "山水畫為什麼沒有消失點？"
+        },
+        {
+          "n": 16,
+          "icon": "🏮",
+          "en": "What Art Grew in Taiwan?",
+          "zh": "台灣這塊土地上有哪些美術？"
+        }
+      ]
+    },
+    {
+      "key": "artists",
+      "title_en": "Artists and Us",
+      "title_zh": "藝術家與我們",
+      "blurb_en": "A few artists and what their work can teach, and three questions to ask in front of any picture.",
+      "blurb_zh": "幾位藝術家和他們的作品教我們的事，以及站在任何一幅畫前面都可以問的三個問題。",
+      "lessons": [],
+      "planned": [
+        {
+          "n": 17,
+          "icon": "📓",
+          "en": "Why Did Leonardo Fill Notebooks with Drawings?",
+          "zh": "達文西為什麼畫了那麼多筆記？"
+        },
+        {
+          "n": 18,
+          "icon": "🌻",
+          "en": "Why Can You See Every Brushstroke in Van Gogh?",
+          "zh": "梵谷的畫為什麼看得見每一筆？"
+        },
+        {
+          "n": 19,
+          "icon": "🌴",
+          "en": "Who Painted Taiwan First?",
+          "zh": "誰最早畫出台灣的樣子？"
+        },
+        {
+          "n": 20,
+          "icon": "👀",
+          "en": "How Do You Look at a Painting?",
+          "zh": "一幅畫要怎麼看？"
+        }
+      ]
+    }
+  ]
+}
