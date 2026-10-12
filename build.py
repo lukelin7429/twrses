@@ -16166,7 +16166,7 @@ def build_comp_hub():
 _musj = os.path.join(ROOT, "data", "music.json")
 MUS = json.load(open(_musj, encoding="utf-8")) if os.path.exists(_musj) else None
 MUS_BASE = "/resources/classes/music/"
-_MUS_JS = {"string": "mus-string", "timbre": "mus-timbre", "beat": "mus-beat", "dynamics": "mus-dynamics", "staff": "mus-staff", "values": "mus-values", "scale": "mus-scale"}   # lab.kind → assets/js/<bundle>.js
+_MUS_JS = {"string": "mus-string", "timbre": "mus-timbre", "beat": "mus-beat", "dynamics": "mus-dynamics", "staff": "mus-staff", "values": "mus-values", "scale": "mus-scale", "harmony": "mus-harmony"}   # lab.kind → assets/js/<bundle>.js
 
 def _mus_ver():
     h = hashlib.md5()
@@ -16251,7 +16251,18 @@ def musscale_svg(size=56):
     return (f'<svg class="musscale-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">{rects}'
             '<g fill="#7ef0e3"><circle cx="11" cy="40" r="3"/><circle cx="21" cy="32" r="3"/><circle cx="31" cy="28" r="3"/><circle cx="41" cy="20" r="3"/><circle cx="51" cy="12" r="3"/></g></svg>')
 
-_MUS_CARD = {"string": mustring_svg, "timbre": mustimbre_svg, "beat": musbeat_svg, "dynamics": musdynamics_svg, "staff": musstaff_svg, "values": musvalues_svg, "scale": musscale_svg}
+def musharmony_svg(size=56):
+    """第八課的課程卡小圖示：兩條一起振動的波，和它們疊起來的波。"""
+    import math
+    def wave(f, y, a):
+        return "M" + " L".join(f"{4 + x * 1.12:.1f} {y - a * math.sin(2 * math.pi * f * x / 50):.1f}" for x in range(0, 51))
+    def both(y, a):
+        return "M" + " L".join(f"{4 + x * 1.12:.1f} {y - a * 0.5 * (math.sin(2 * math.pi * 2 * x / 50) + math.sin(2 * math.pi * 3 * x / 50)):.1f}" for x in range(0, 51))
+    return (f'<svg class="musharmony-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">'
+            f'<path d="{wave(2, 13, 6)}" fill="none" stroke="#9fb0cf" stroke-width="1.6"/><path d="{wave(3, 29, 6)}" fill="none" stroke="#ffd36e" stroke-width="1.6"/>'
+            f'<path d="{both(48, 8)}" fill="none" stroke="#7ef0e3" stroke-width="2"/></svg>')
+
+_MUS_CARD = {"string": mustring_svg, "timbre": mustimbre_svg, "beat": musbeat_svg, "dynamics": musdynamics_svg, "staff": musstaff_svg, "values": musvalues_svg, "scale": musscale_svg, "harmony": musharmony_svg}
 _MUS_PRESETS = [   # 和 tools/music/src/pitch.js 的 PRESETS 對應
     {"key": "whole", "en": "Whole string", "zh": "整根弦"}, {"key": "half", "en": "One half", "zh": "二分之一"},
     {"key": "twothirds", "en": "Two thirds", "zh": "三分之二"}, {"key": "threequarters", "en": "Three quarters", "zh": "四分之三"}]
@@ -16725,6 +16736,52 @@ def _mu_scaleq(d):
   <div class="mu-hg-foot"><span></span><button type="button" class="mu-btn mu-btn-gold mu-scq-next" hidden>Next question · 下一題</button></div>
 </div>'''
 
+def render_musharmony_lab(lesson):
+    """第八課：兩個音一起響（assets/js/mus-harmony.js 綁這裡的 class；沒有 3D，聲音由瀏覽器合成）。"""
+    ivs = "".join(f'<button type="button" class="mu-btn" data-iv="{k}" aria-pressed="{"true" if k == "fifth" else "false"}">{en} · {zh}</button>'
+                  for k, en, zh in [("unison", "Unison 1:1", "同度"), ("octave", "Octave 2:1", "八度"), ("fifth", "Fifth 3:2", "完全五度"), ("fourth", "Fourth 4:3", "完全四度"),
+                                    ("majthird", "Major third 5:4", "大三度"), ("minthird", "Minor third 6:5", "小三度"), ("majsecond", "Major second 9:8", "大二度"), ("minsecond", "Minor second 16:15", "小二度")])
+    return f'''<div class="mu-hm rvl" data-musharmony-lab>
+  <div class="mu-sc-row" role="group" aria-label="Interval · 音程"><span class="mu-st-k">Interval · 音程（下面的音 220 Hz）</span>{ivs}</div>
+  <canvas class="mu-hm-cv" aria-label="Two sound waves and the wave you get when they are added together · 兩個聲波，和它們疊在一起的波"></canvas>
+  <div class="mu-hm-read">
+    <div><span class="mu-st-k">Ratio · 頻率比</span><b class="mu-hm-ratio"></b></div>
+    <div><span class="mu-st-k">Frequencies · 頻率</span><b class="mu-hm-hz"></b></div>
+    <div><span class="mu-st-k">Pattern repeats · 圖樣重複</span><b class="mu-hm-rep"></b></div>
+    <div><span class="mu-st-k">Exact ratio vs. piano · 精確比值對鋼琴</span><b class="mu-hm-eq"></b></div>
+  </div>
+  <div class="mu-hm-mis-row"><label class="mu-st-k" for="mu-hm-mis">Mistune the upper note · 把上面的音調歪</label>
+    <input id="mu-hm-mis" class="mu-hm-mis" type="range" min="-50" max="50" step="1" value="0"><span class="mu-hm-mis-v">0 cents · 音分</span></div>
+  <canvas class="mu-hm-cvb" aria-label="How the loudness rises and falls when two notes are slightly different · 兩個音稍微不同時，音量的起伏"></canvas>
+  <div class="mu-hm-read"><div><span class="mu-st-k">Beats · 拍音</span><b class="mu-hm-beat"></b></div></div>
+  <div class="mu-sc-btns">
+    <button type="button" class="mu-btn mu-btn-gold mu-hm-both">&#9654; Together · 一起響</button>
+    <button type="button" class="mu-btn mu-hm-seq">One after the other · 先後各響一次</button>
+    <button type="button" class="mu-btn mu-hm-stop">Stop · 停止</button>
+  </div>
+  <p class="mu-msg" aria-live="polite"></p>
+</div>'''
+
+def _mu_chord(d):
+    return f'''<div class="mu-chord rvl" data-mu-chord>
+  <div class="mu-sc-btns"><button type="button" class="mu-btn" data-chord="major">C major · C 大三和弦</button><button type="button" class="mu-btn" data-chord="minor">C minor · C 小三和弦</button></div>
+  <div class="mu-sc-kb mu-ch-kb" aria-label="Piano keys from C4 to C6 · 從 C4 到 C6 的鋼琴鍵"></div>
+  <p class="mu-ch-name" aria-live="polite"></p>
+  <div class="mu-sc-btns"><button type="button" class="mu-btn mu-btn-gold mu-ch-play" disabled>&#9654; Play the chord · 播放和弦</button><button type="button" class="mu-btn mu-ch-clear">Clear · 清除</button></div>
+  <p class="mu-ch-msg" aria-live="polite"></p>
+</div>'''
+
+def _mu_chordq(d):
+    opts = "".join(f'<button type="button" class="mu-cq-opt" data-pick="{k}"><b>{en}</b><small>{zh}</small></button>' for k, en, zh in [("major", "Major triad", "大三和弦"), ("minor", "Minor triad", "小三和弦")])
+    return f'''<div class="mu-chordq rvl" data-mu-chordq>
+  <div class="mu-hg-top"><p class="mu-cq-k">Question 1 of 6 · 第 1 題（共 6 題）</p><p class="mu-hg-sc">Right on the first try · 第一次就答對 <b class="mu-cq-score">0 / 0</b></p></div>
+  <div class="mu-sc-btns"><button type="button" class="mu-btn mu-btn-gold mu-cq-listen">&#9654; Listen · 聽</button><button type="button" class="mu-btn mu-cq-show">Show the notes · 看音</button></div>
+  <p class="mu-cq-pat" hidden></p>
+  <div class="mu-cq-opts">{opts}</div>
+  <p class="mu-q-msg" aria-live="polite"></p>
+  <div class="mu-hg-foot"><span></span><button type="button" class="mu-btn mu-btn-gold mu-cq-next" hidden>Next question · 下一題</button></div>
+</div>'''
+
 def _mu_curric(d):
     rows = "".join(
         f'<li class="mu-cur rvl"><p class="mu-cur-k"><b>{html.escape(c["code"])}</b><span>{html.escape(c["area"])} · {html.escape(c["area_en"])}</span></p>'
@@ -16760,7 +16817,7 @@ def build_mus_lesson(ui, unit, lesson):
     reading_html = render_basic_unit(1, unit_dict, level="music", audio_rel="", pdf_rel="")
     lab = lesson["lab"]
     kind = lab["kind"]
-    lab_html = {"string": render_musstring_lab, "timbre": render_mustimbre_lab, "beat": render_musbeat_lab, "dynamics": render_musdynamics_lab, "staff": render_musstaff_lab, "values": render_musvalues_lab, "scale": render_musscale_lab}[kind](lesson)
+    lab_html = {"string": render_musstring_lab, "timbre": render_mustimbre_lab, "beat": render_musbeat_lab, "dynamics": render_musdynamics_lab, "staff": render_musstaff_lab, "values": render_musvalues_lab, "scale": render_musscale_lab, "harmony": render_musharmony_lab}[kind](lesson)
 
     def sec(key, fn):
         d = lesson[key]
@@ -16778,6 +16835,8 @@ def build_mus_lesson(ui, unit, lesson):
         ph = lesson["parts_head"]
         secs.append(("parts", ph["eyebrow"], ph["en"], ph["zh"], f'<div class="ph-grid stagger">{cards}</div>',
                      _bi(lesson["parts_note_en"], lesson["parts_note_zh"], cls="lead rvl d2")))
+    if lesson.get("chord"): secs.append(sec("chord", _mu_chord))
+    if lesson.get("chordq"): secs.append(sec("chordq", _mu_chordq))
     if lesson.get("tune"): secs.append(sec("tune", _mu_tune))
     if lesson.get("scaleq"): secs.append(sec("scaleq", _mu_scaleq))
     if lesson.get("beatq"): secs.append(sec("beatq", _mu_beatq))

@@ -4309,11 +4309,11 @@
        "icon": "🎶",
        "k_en": "Music · Lesson 8",
        "k_zh": "音樂・第八課",
-       "soon": true,
        "en": "Why Do Some Notes Sound Good Together?",
        "zh": "為什麼有些音放在一起很好聽？",
        "note_en": "Next: two notes at the same time, and the simple ratios behind them.",
-       "note_zh": "接下來：兩個音同時響，和它們背後的簡單比例。"
+       "note_zh": "接下來：兩個音同時響，和它們背後的簡單比例。",
+       "href": "/resources/classes/music/sounding-together/"
       }
      ],
      "sources_note_en": "Names, numbers, and quotations on this page were checked against these sources (October 2026). The scales are computed by the page itself and covered by automatic tests; the staff drawings are our own simplified shapes.",
@@ -4452,16 +4452,617 @@
        "url": "https://cdn.who.int/media/docs/default-source/documents/health-topics/deafness-and-hearing-loss/mls-brochure-english-2021.pdf?sfvrsn=bf19b448_5"
       }
      ]
-    }
-   ],
-   "planned": [
+    },
     {
      "n": 8,
-     "icon": "🤝",
-     "en": "Why Do Some Notes Sound Good Together?",
-     "zh": "為什麼有些音放在一起很好聽？"
+     "slug": "sounding-together",
+     "title": "Why Do Some Notes Sound Good Together?",
+     "title_zh": "為什麼有些音放在一起很好聽？",
+     "level": "入門 · Beginner",
+     "icon": "🎶",
+     "card": "harmony",
+     "blurb_en": "Play two notes at once and see their waves line up. Hear the beats when two notes are almost the same, and build major and minor chords with three keys.",
+     "blurb_zh": "讓兩個音同時響，看它們的波怎麼對齊。聽兩個幾乎相同的音發出的拍音，再用三個鍵組出大三和弦與小三和弦。",
+     "big_idea_en": "When two notes sound together, a simple frequency ratio makes the combined wave repeat quickly, and many listeners hear that as blended. Notes that are almost, but not exactly, the same make beats. Three notes stacked in thirds make a chord.",
+     "big_idea_zh": "兩個音同時響時，簡單的頻率比會讓疊起來的波很快重複，許多人聽起來就覺得融在一起。幾乎相同、但不完全相同的音會產生拍音。三個音按三度疊起來，就是和弦。",
+     "lab": {
+      "kind": "harmony",
+      "eyebrow": "Try It · 動手試試",
+      "title_en": "Two Notes at Once",
+      "title_zh": "兩個音一起響",
+      "how_en": "The lower note is always 220 Hz. Choose an interval, then press “Together” to hear both notes at once. The top wave is the lower note, the middle one is the upper note, and the bottom one is what you get when they are added together. Dashed lines mark where the combined wave starts to repeat. Then move the slider to mistune the upper note, and watch the loudness rise and fall: those are beats.",
+      "how_zh": "下面的音一律是 220 赫茲。選一個音程，再按「一起響」同時聽兩個音。最上面的波是低音，中間是高音，最下面是兩者疊在一起的結果。虛線標出疊起來的波從哪裡開始重複。再移動滑桿，把高音調歪，看音量一起一伏：那就是拍音。"
+     },
+     "paras": [
+      "An interval is the difference in pitch between two sounds. You can also say it as a frequency ratio. Two notes an octave apart have a ratio of 2 to 1. A perfect fifth is 3 to 2, a perfect fourth is 4 to 3, a major third is 5 to 4, and a minor third is 6 to 5. You met 2 to 1 and 3 to 2 on the string in lesson 1.",
+      "An interval’s name counts the notes it covers, with both ends included. From C to E is a third, because C, D, and E are three notes. In semitones, a minor third is 3, a major third is 4, a perfect fourth is 5, and a perfect fifth is 7. A perfect fifth is at the start of “Twinkle, Twinkle, Little Star.” A piano is not exactly in these ratios: its fifth is 700 cents, but 3 to 2 is about 701.96 cents, and its major third is about 14 cents wider than 5 to 4.",
+      "Musicians call a stable combination of notes a consonance, a point of rest. They call a tense combination a dissonance, which seems to want to move on. Consonance is often associated with simple ratios. Look at the lab: when two notes are an octave apart, the combined wave repeats as fast as the lower note. For a fifth it lines up again every 1/110 of a second. For a half step the pattern takes much longer, and the two notes seem to rub against each other.",
+      "When two notes are almost the same, you hear something else. The sound gets louder and softer, again and again, and this is called beats. The beat rate is the difference between the two frequencies: 220 Hz and 224 Hz make 4 beats per second. Slow beats are heard as the loudness changing, and faster ones, above about 20 per second, as a rough, fluttering sound. Piano tuners listen for beats to know when two strings are in tune. These beats are not the beat of a song, which you learned about in lesson 3.",
+      "A chord is two or more notes sounding at the same time. A triad has three notes stacked in thirds: the root, then a third above, then a fifth above. A major triad is a major third and a perfect fifth above the root, so from C it is C, E, G. In just intonation its ratio is 4 : 5 : 6. A minor triad has a minor third instead, so from C it is C, E♭, G. Only the middle note is different, by one half step. Major and minor triads are the most common triads in Western music.",
+      "Is the pleasure of consonance built in, or learned? Researchers still debate it. In a 2016 study, people of the Tsimane’, an Amazonian society with little exposure to Western music, rated consonant and dissonant chords as equally pleasant. But they still disliked rough sounds. Dissonance is not simply bad, either. Dissonances often play a decisive role in making music pleasant. So listen with open ears, and let your own listening tell you what you find beautiful."
+     ],
+     "paras_zh": [
+      "音程是兩個聲音之間音高的差距。你也可以用頻率比來說：差一個八度的兩個音，頻率比是 2 比 1；完全五度是 3 比 2，完全四度是 4 比 3，大三度是 5 比 4，小三度是 6 比 5。2 比 1 和 3 比 2，你在第一課的弦上就遇到過。",
+      "音程的名字是數它涵蓋的音，頭尾都算。C 到 E 是三度，因為 C、D、E 是三個音。用半音數來說：小三度是 3、大三度是 4、完全四度是 5、完全五度是 7。〈小星星〉一開始就是完全五度。鋼琴並不完全照這些比例：它的五度是 700 音分，而 3 比 2 約是 701.96 音分；它的大三度比 5 比 4 寬約 14 音分。",
+      "音樂家把穩定的音的組合叫協和，是休息、到達的地方；把緊張的組合叫不協和，好像想要往前走。協和常常和簡單的比連在一起。看看實驗室：兩個音差八度時，疊起來的波重複得和低音一樣快；五度每 1/110 秒重新對齊一次；半音的圖樣要花久得多，兩個音聽起來好像在彼此摩擦。",
+      "當兩個音幾乎相同時，你會聽到另一種現象：聲音一次又一次地變大、變小，這叫拍音。拍音的速度就是兩個頻率的差：220 赫茲和 224 赫茲會產生每秒 4 次的拍音。慢的拍音聽起來是音量在變；每秒超過約 20 次，就變成粗糙、顫動的聲音。調琴師聽拍音來判斷兩條弦準不準。這裡的拍音，和你在第三課學的歌曲的「拍」不是同一件事。",
+      "和弦是兩個或更多的音同時響。三和弦有三個音，按三度疊起來：根音、上面的三度音、再上面的五度音。大三和弦是根音上面有大三度和完全五度，從 C 開始就是 C、E、G；在純律裡它的比是 4 : 5 : 6。小三和弦用小三度，從 C 開始是 C、E♭、G。只有中間的音不同，差一個半音。大三和弦與小三和弦是西方音樂裡最常用的三和弦。",
+      "協和的愉悅是天生的，還是學來的？研究者還在爭論。2016 年的一項研究裡，奇曼內人（Tsimane’，亞馬遜雨林裡很少接觸西方音樂的社群）認為協和與不協和的和弦同樣悅耳；但他們還是不喜歡粗糙的聲音。不協和也不只是「不好」：不協和常常是讓音樂變得悅耳的關鍵。所以請用開放的耳朵去聽，讓你自己的聆聽告訴你，你覺得什麼美。"
+     ],
+     "questions": [
+      "Why is the interval from C to E called a third?",
+      "What do you hear when you play 220 Hz and 224 Hz together, and how fast is it?",
+      "What is the difference between a major triad and a minor triad?"
+     ],
+     "answers": [
+      "Because the name counts the notes it covers, with both ends included: C, D, E are three notes.",
+      "You hear beats, the loudness rising and falling. The rate is the difference between the frequencies, 224 − 220 = 4 times per second.",
+      "Only the middle note. A major triad has a major third (4 semitones) above the root, and a minor triad has a minor third (3 semitones). Both have a perfect fifth (7 semitones)."
+     ],
+     "vocab": [
+      {
+       "n": 1,
+       "w": "interval",
+       "pos": "n.",
+       "zh": "音程",
+       "ex": "The <b>interval</b> between C and G is a fifth.",
+       "exzh": "C 和 G 之間的音程是五度。"
+      },
+      {
+       "n": 2,
+       "w": "octave",
+       "pos": "n.",
+       "zh": "八度",
+       "ex": "An <b>octave</b> has a frequency ratio of 2 to 1.",
+       "exzh": "八度的頻率比是 2 比 1。"
+      },
+      {
+       "n": 3,
+       "w": "ratio",
+       "pos": "n.",
+       "zh": "比",
+       "ex": "A perfect fifth has a <b>ratio</b> of 3 to 2.",
+       "exzh": "純五度的比是 3 比 2。"
+      },
+      {
+       "n": 4,
+       "w": "consonant",
+       "pos": "adj.",
+       "zh": "協和的",
+       "ex": "Many people hear a perfect fifth as <b>consonant</b>.",
+       "exzh": "許多人聽純五度覺得協和。"
+      },
+      {
+       "n": 5,
+       "w": "dissonant",
+       "pos": "adj.",
+       "zh": "不協和的",
+       "ex": "A <b>dissonant</b> interval sounds tense and wants to move.",
+       "exzh": "不協和的音程聽起來緊張，好像想要走開。"
+      },
+      {
+       "n": 6,
+       "w": "chord",
+       "pos": "n.",
+       "zh": "和弦",
+       "ex": "A <b>chord</b> is three or more notes played together.",
+       "exzh": "和弦是三個或更多的音一起彈。"
+      },
+      {
+       "n": 7,
+       "w": "triad",
+       "pos": "n.",
+       "zh": "三和弦",
+       "ex": "A <b>triad</b> has three notes: a root, a third, and a fifth.",
+       "exzh": "三和弦有三個音：根音、三度音、五度音。"
+      },
+      {
+       "n": 8,
+       "w": "beats (of two notes)",
+       "pos": "n.",
+       "zh": "拍音",
+       "ex": "Two strings that are almost in tune make slow <b>beats</b>.",
+       "exzh": "兩條幾乎準了的弦會發出緩慢的拍音。"
+      }
+     ],
+     "quiz": [
+      {
+       "q": "What is the frequency ratio of a perfect fifth, in the simple (just) form?",
+       "options": [
+        "3 : 2",
+        "2 : 1",
+        "5 : 4",
+        "16 : 15"
+       ],
+       "correct": 0
+      },
+      {
+       "q": "How many semitones are in a major third?",
+       "options": [
+        "Four",
+        "Three",
+        "Seven",
+        "Twelve"
+       ],
+       "correct": 0
+      },
+      {
+       "q": "What do you hear when two notes are almost, but not exactly, the same frequency?",
+       "options": [
+        "Beats: the loudness rises and falls",
+        "A higher note",
+        "Silence",
+        "A perfect fifth"
+       ],
+       "correct": 0
+      },
+      {
+       "q": "How does a minor triad differ from a major triad?",
+       "options": [
+        "The middle note is one half step lower",
+        "The top note is an octave higher",
+        "It has four notes",
+        "It is always louder"
+       ],
+       "correct": 0
+      },
+      {
+       "q": "A C major triad is C E G. How many semitones is G above C?",
+       "options": [
+        "Seven",
+        "Four",
+        "Five",
+        "Twelve"
+       ],
+       "correct": 0
+      }
+     ],
+     "parts_head": {
+      "eyebrow": "Try It in the Model · 在模型裡試試",
+      "en": "Four things to try",
+      "zh": "四件值得試的事"
+     },
+     "parts": [
+      {
+       "key": "octave",
+       "icon": "2️⃣",
+       "en": "The octave: 2 to 1",
+       "zh": "八度：2 比 1",
+       "meta_en": "The simplest ratio after the unison",
+       "meta_zh": "除了同度，最簡單的比",
+       "demo": "octave",
+       "text_en": "The combined wave repeats 220 times a second, as fast as the lower note itself.",
+       "text_zh": "疊起來的波每秒重複 220 次，和低音本身一樣快。"
+      },
+      {
+       "key": "fifth",
+       "icon": "3️⃣",
+       "en": "The fifth: 3 to 2",
+       "zh": "五度：3 比 2",
+       "meta_en": "The ratio you met on the string in lesson 1",
+       "meta_zh": "第一課在弦上遇過的比",
+       "demo": "fifth",
+       "text_en": "Two waves line up again every 1/110 of a second. Look at the dashed lines.",
+       "text_zh": "兩個波每 1/110 秒重新對齊一次。看看虛線。"
+      },
+      {
+       "key": "second",
+       "icon": "🔢",
+       "en": "A busy ratio: 16 to 15",
+       "zh": "複雜的比：16 比 15",
+       "meta_en": "Minor second, a half step apart",
+       "meta_zh": "小二度，相差一個半音",
+       "demo": "second",
+       "text_en": "The pattern repeats only about 15 times a second, and the two notes rub against each other.",
+       "text_zh": "圖樣每秒只重複約 15 次，兩個音彼此摩擦。"
+      },
+      {
+       "key": "beats",
+       "icon": "🌊",
+       "en": "Beats",
+       "zh": "拍音",
+       "meta_en": "Two nearly equal notes",
+       "meta_zh": "兩個幾乎相同的音",
+       "demo": "beats",
+       "text_en": "The upper note is mistuned a little. The loudness swells and fades, again and again.",
+       "text_zh": "高音被調歪了一點。音量一次又一次地變大、變小。"
+      }
+     ],
+     "parts_note_en": "Then try it yourself: choose the unison and drag the slider slowly. When does the pulsing slow down and stop?",
+     "parts_note_zh": "然後自己試試：選同度，慢慢拖動滑桿。起伏什麼時候變慢、停下來？",
+     "chord": {
+      "eyebrow": "Build It · 動手組組看",
+      "en": "Build a Chord",
+      "zh": "自己組和弦",
+      "lead_en": "Press three keys, and the page tells you what chord they make. Try C E G, then lower the E by one key. What changed?",
+      "lead_zh": "按三個鍵，頁面會告訴你它們組成什麼和弦。試試 C E G，再把 E 降低一個鍵。有什麼改變？"
+     },
+     "chordq": {
+      "eyebrow": "Game · 小遊戲",
+      "en": "Major or Minor?",
+      "zh": "大三和弦還是小三和弦？",
+      "lead_en": "Six questions. Each one plays a triad. Choose major or minor. If you cannot hear the sound, press “Show the notes” and look at how far the middle note is above the lowest one.",
+      "lead_zh": "六道題。每一題播放一個三和弦。選大三和弦或小三和弦。如果聽不到聲音，按「看音」，看中間的音比最低音高幾個半音。"
+     },
+     "curric": {
+      "eyebrow": "In the Curriculum · 對應課綱",
+      "en": "Where this lesson fits",
+      "zh": "這一課對應的課綱",
+      "lead_en": "The curriculum names unison singing, rounds, part singing, and harmony. The words “interval,” “chord,” “triad,” “consonance,” and “dissonance” do not appear in the curriculum itself.",
+      "lead_zh": "課綱寫到齊唱、輪唱、合唱和和聲。「音程」「和弦」「三和弦」「協和」「不協和」這些詞，課綱本文裡沒有出現。",
+      "items": [
+       {
+        "code": "音 E-Ⅱ-1",
+        "area": "藝術領域・音樂（國小三、四年級）",
+        "area_en": "Arts, music (grades 3–4)",
+        "text": "多元形式歌曲，如：獨唱、齊唱等。",
+        "note_en": "In unison singing, everyone sings the same note. That is a ratio of 1 to 1.",
+        "note_zh": "齊唱時大家唱同一個音，頻率比是 1 比 1。"
+       },
+       {
+        "code": "音 E-Ⅲ-1",
+        "area": "藝術領域・音樂（國小五、六年級）",
+        "area_en": "Arts, music (grades 5–6)",
+        "text": "多元形式歌曲，如：輪唱、合唱等。",
+        "note_en": "In rounds and part singing, different notes sound together.",
+        "note_zh": "輪唱與合唱時，不同的音會同時響。"
+       },
+       {
+        "code": "音 E-Ⅳ-4",
+        "area": "藝術領域・音樂（國中七至九年級）",
+        "area_en": "Arts, music (grades 7–9)",
+        "text": "音樂元素，如：音色、調式、和聲等。",
+        "note_en": "Harmony is first named as a musical element in junior high school.",
+        "note_zh": "和聲在國中才第一次被列為音樂元素。"
+       },
+       {
+        "code": "音 A-Ⅳ-2",
+        "area": "藝術領域・音樂（國中七至九年級）",
+        "area_en": "Arts, music (grades 7–9)",
+        "text": "相關音樂語彙，如音色、和聲等描述音樂元素之音樂術語，或相關之一般性用語。",
+        "note_en": "Words for describing harmony are part of musical vocabulary.",
+        "note_zh": "描述和聲的詞彙，屬於音樂語彙。"
+       }
+      ]
+     },
+     "culture_cards": {
+      "eyebrow": "Stories Behind the Notes · 音符背後的故事",
+      "title_en": "A name, a legend, a rough sound, and different ears",
+      "title_zh": "一個名字、一個傳說、一種粗糙的聲音，和不同的耳朵",
+      "lead_en": "Four short stories about how people have thought about sounds that go together.",
+      "lead_zh": "關於人們怎麼看待一起響的聲音的四個小故事。",
+      "cards": [
+       {
+        "k": "A Name · 名字",
+        "en": "Why “perfect”?",
+        "zh": "為什麼叫「完全」？",
+        "body_en": "Perfect intervals, such as the fourth, fifth, and octave, are called perfect because they were traditionally considered perfectly consonant. Taiwan’s standard translations use the word 完全, as in 完全五度, for perfect fifth. The name does not mean that every other interval is imperfect, or that a perfect interval is always the best choice.",
+        "body_zh": "完全音程，例如四度、五度和八度，叫「完全」，是因為傳統上它們被認為是完全協和的。台灣的標準譯名用「完全」兩個字，例如 perfect fifth 是完全五度。這個名字不表示其他音程就是不完美，也不表示完全音程永遠是最好的選擇。"
+       },
+       {
+        "k": "A Legend · 一個傳說",
+        "en": "Pythagoras and the hammers",
+        "zh": "畢達哥拉斯與鐵錘",
+        "body_en": "According to legend, Pythagoras heard blacksmiths’ hammers ringing and discovered that musical notes could be turned into numbers. But no authentic writings of Pythagoras survive, and modern scholars usually ascribe these discoveries to the later Pythagorean Philolaus. The tuning built from fifths is named after Pythagoras, but its system dates back to ancient Mesopotamia.",
+        "body_zh": "依傳說，畢達哥拉斯聽到鐵匠的錘子敲擊聲，發現音可以變成數字。但畢達哥拉斯本人沒有留下可靠的著作，現代學者通常把這些發現歸給後來的畢達哥拉斯學派的菲洛勞斯。用五度疊出來的音律以畢達哥拉斯命名，但這個系統可以追溯到古代美索不達米亞。"
+       },
+       {
+        "k": "A Rough Sound · 粗糙的聲音",
+        "en": "Beats on purpose",
+        "zh": "故意製造的拍音",
+        "body_en": "Beats are not always a mistake. Many pipe organs have “celeste” stops that intentionally produce beating, and in some musical traditions people consider the rough, fluttering sound an attractive part of the timbre. Whether a sound is pleasant depends on the style of music and the listener.",
+        "body_zh": "拍音不一定是錯誤。許多管風琴有「天使音栓」（celeste），故意製造拍音；有些音樂傳統認為，這種粗糙、顫動的聲音是迷人的音色的一部分。一個聲音好不好聽，要看音樂的風格與聽的人。"
+       },
+       {
+        "k": "Different Ears · 不同的耳朵",
+        "en": "What the Tsimane’ rated",
+        "zh": "奇曼內人的評分",
+        "body_en": "In a 2016 study published in Nature, the Tsimane’, a native Amazonian society with minimal exposure to Western culture, rated consonant and dissonant chords and vocal harmonies as equally pleasant. They did show Western-like dislike for acoustic roughness. Bolivian town and city dwellers preferred consonance, less strongly than US residents did. The authors concluded that culture has a dominant role in shaping these responses, and other researchers still argue for a biological part.",
+        "body_zh": "2016 年發表在《自然》期刊的一項研究中，奇曼內人（Tsimane’，亞馬遜地區、很少接觸西方文化的原住民社群）認為協和與不協和的和弦與人聲和聲同樣悅耳；但他們和西方人一樣不喜歡粗糙的聲音。玻利維亞城鎮的居民比較喜歡協和，程度比美國居民輕。作者的結論是文化在塑造這些反應上占主導地位；也有其他研究者主張其中有生物性的成分。"
+       }
+      ]
+     },
+     "myths": [
+      {
+       "myth_en": "Dissonant means bad.",
+       "myth_zh": "不協和就是不好聽。",
+       "fact_en": "A dissonance is a tension that wants to move on. Dissonances often play a decisive role in making music pleasant.",
+       "fact_zh": "不協和是一種想要往前走的緊張。不協和常常是讓音樂悅耳的關鍵。"
+      },
+      {
+       "myth_en": "A piano plays exactly 3 to 2 for a fifth.",
+       "myth_zh": "鋼琴彈出的五度就是剛好 3 比 2。",
+       "fact_en": "A piano’s fifth is 700 cents, and 3 to 2 is about 701.96 cents. It is very close, but not the same. Its major third is about 14 cents wider than 5 to 4.",
+       "fact_zh": "鋼琴的五度是 700 音分，3 比 2 約是 701.96 音分，非常接近，但不完全一樣。它的大三度比 5 比 4 寬約 14 音分。"
+      },
+      {
+       "myth_en": "Everyone hears consonance the same way.",
+       "myth_zh": "每個人聽到的協和都一樣。",
+       "fact_en": "Researchers still debate how much is built in and how much is learned. One study found a group who rated consonant and dissonant chords as equally pleasant.",
+       "fact_zh": "研究者還在爭論有多少是天生的、有多少是學來的。有一項研究發現，有一個社群認為協和與不協和的和弦同樣悅耳。"
+      },
+      {
+       "myth_en": "Pythagoras discovered the ratios from blacksmiths’ hammers.",
+       "myth_zh": "畢達哥拉斯是聽鐵錘發現比例的。",
+       "fact_en": "That is a legend. No authentic writings of Pythagoras survive, and scholars usually ascribe the discoveries to Philolaus.",
+       "fact_zh": "那是傳說。畢達哥拉斯沒有留下可靠的著作，學者通常把這些發現歸給菲洛勞斯。"
+      }
+     ],
+     "tricks_head": {
+      "en": "Harmony in a sentence",
+      "zh": "一句話記住和聲"
+     },
+     "tricks": [
+      {
+       "title_en": "Simple ratio, quick repeat",
+       "title_zh": "簡單的比，很快重複",
+       "body_en": "2:1, 3:2, 4:3: the combined wave lines up often.",
+       "body_zh": "2:1、3:2、4:3：疊起來的波常常對齊。"
+      },
+      {
+       "title_en": "Close, not equal: beats",
+       "title_zh": "很近、但不相等：拍音",
+       "body_en": "The beat rate is the difference in frequency.",
+       "body_zh": "拍音的速度就是頻率的差。"
+      },
+      {
+       "title_en": "Triad = root + third + fifth",
+       "title_zh": "三和弦＝根音＋三度＋五度",
+       "body_en": "C E G: stack every other note of the scale.",
+       "body_zh": "C E G：每隔一個音疊一個。"
+      },
+      {
+       "title_en": "Major 4 + 3, minor 3 + 4",
+       "title_zh": "大 4＋3，小 3＋4",
+       "body_en": "Count the half steps from the root.",
+       "body_zh": "從根音開始數半音。"
+      }
+     ],
+     "safety_head": {
+      "eyebrow": "Protect Your Ears · 保護耳朵",
+      "en": "Before you listen",
+      "zh": "聽之前"
+     },
+     "safety": [
+      {
+       "en": "Start with the volume low and turn it up a little at a time. When two or three notes sound together, the total is louder than one note, so be careful.",
+       "zh": "先把音量調小，再一點一點調大。兩三個音一起響時，總音量比一個音大，要特別小心。"
+      },
+      {
+       "en": "With headphones, keep the volume at no more than 60% of maximum, and use personal audio devices for less than one hour a day, as the World Health Organization suggests.",
+       "zh": "戴耳機時，音量不要超過最大音量的 60%，個人音響裝置每天使用少於一小時，這是世界衛生組織的建議。"
+      },
+      {
+       "en": "The rough, beating sounds on this page are not harmful at a low volume, but if a sound bothers you, stop it. You do not have to listen to a sound that feels unpleasant.",
+       "zh": "本頁粗糙、起伏的聲音在小音量下沒有害處；但如果某個聲音讓你不舒服，就停下來。你不必勉強聽讓你不舒服的聲音。"
+      }
+     ],
+     "activities": [
+      {
+       "title_en": "Two Voices, One Note",
+       "title_zh": "兩個聲音，一個音",
+       "materials": [
+        {
+         "en": "Pairs of students",
+         "zh": "兩人一組"
+        },
+        {
+         "en": "A keyboard or this page to give the starting note",
+         "zh": "鍵盤或本頁，用來給起始音"
+        }
+       ],
+       "steps": [
+        {
+         "en": "Both students sing the same comfortable note together, as steady as they can.",
+         "zh": "兩位同學一起唱同一個舒服的音，盡量穩。"
+        },
+        {
+         "en": "One student slowly slides the pitch a tiny bit higher, then back. Everyone listens for the pulsing, which is beats.",
+         "zh": "其中一位慢慢把音高滑高一點點，再滑回來。大家聽那種一起一伏，就是拍音。"
+        },
+        {
+         "en": "Find the exact moment when the pulsing disappears. That is when the two notes match.",
+         "zh": "找到起伏消失的那一刻。那就是兩個音對上的時候。"
+        },
+        {
+         "en": "Now try to sing a fifth apart. One student holds the note while the other finds the note that sounds blended.",
+         "zh": "再試試相差五度。一位同學唱住音，另一位找出聽起來融在一起的音。"
+        }
+       ],
+       "tip_en": "Singing in tune with another voice is hard at first, so let students try several times and praise the effort. Stay in a comfortable range.",
+       "tip_zh": "一開始要和別人唱得準很難，讓同學多試幾次，肯定他們的努力。待在舒服的音域裡。"
+      },
+      {
+       "title_en": "Chord Detectives",
+       "title_zh": "和弦偵探",
+       "materials": [
+        {
+         "en": "A keyboard or this page",
+         "zh": "鍵盤或本頁"
+        },
+        {
+         "en": "Paper and pencils",
+         "zh": "紙和鉛筆"
+        }
+       ],
+       "steps": [
+        {
+         "en": "Play a major triad and a minor triad on the same root, one after the other. Write down words that describe each one.",
+         "zh": "在同一個根音上，先後彈一個大三和弦和一個小三和弦。把形容它們的詞寫下來。"
+        },
+        {
+         "en": "Count the half steps from the lowest note to the middle note. Write 4 or 3 next to each word list.",
+         "zh": "數最低音到中間音有幾個半音。在每份詞彙旁寫下 4 或 3。"
+        },
+        {
+         "en": "Move both chords to a new root and play them again. Do the words still fit?",
+         "zh": "把兩個和弦移到新的根音再彈一次。這些詞還適用嗎？"
+        },
+        {
+         "en": "Share your lists. Did everybody pick the same words? Why might people differ?",
+         "zh": "分享你們的詞彙。每個人選的詞一樣嗎？為什麼人們可能不一樣？"
+        }
+       ],
+       "tip_en": "Accept every honest description. The activity is not a test of the “right” feeling.",
+       "tip_zh": "每個誠實的形容都接受。這個活動不是在測驗「標準」的感覺。"
+      }
+     ],
+     "links_head": {
+      "eyebrow": "Go Further · 延伸閱讀",
+      "en": "Before, around, and after this lesson",
+      "zh": "這一課的前面、旁邊和後面"
+     },
+     "links": [
+      {
+       "icon": "🪜",
+       "k_en": "Music · Lesson 7",
+       "k_zh": "音樂・第七課",
+       "en": "What Is a Scale?",
+       "zh": "音階是什麼？",
+       "note_en": "The three notes of a major triad are the first, third, and fifth notes of a major scale.",
+       "note_zh": "大三和弦的三個音，是大調音階的第一、三、五個音。",
+       "href": "/resources/classes/music/what-is-a-scale/"
+      },
+      {
+       "icon": "🎻",
+       "k_en": "Music · Lesson 1",
+       "k_zh": "音樂・第一課",
+       "en": "Why Are Some Notes High and Some Low?",
+       "zh": "為什麼有的音高、有的音低？",
+       "note_en": "Where the ratios 2 to 1 and 3 to 2 first appeared, on a string.",
+       "note_zh": "2 比 1 和 3 比 2 第一次出現的地方：一條弦。",
+       "href": "/resources/classes/music/high-and-low-notes/"
+      },
+      {
+       "icon": "🎹",
+       "k_en": "Music · Lesson 2",
+       "k_zh": "音樂・第二課",
+       "en": "Why Does a Piano Sound Different from a Violin?",
+       "zh": "同一個音，鋼琴和小提琴為什麼聽起來不一樣？",
+       "note_en": "Harmonics are the reason a note and its octave share partials.",
+       "note_zh": "諧波，就是一個音與它的八度共用泛音的原因。",
+       "href": "/resources/classes/music/tone-color/"
+      },
+      {
+       "icon": "🎷",
+       "k_en": "Music · Lesson 9",
+       "k_zh": "音樂・第九課",
+       "soon": true,
+       "en": "How Do Instruments Make Sound?",
+       "zh": "樂器怎麼發出聲音？",
+       "note_en": "Next: the four kinds of things that vibrate to make a sound.",
+       "note_zh": "接下來：四種會振動、發出聲音的東西。"
+      }
+     ],
+     "sources_note_en": "Names, numbers, and quotations on this page were checked against these sources (October 2026). The waves, ratios, and chords are computed by the page itself and covered by automatic tests.",
+     "sources_note_zh": "本頁的名稱、數字與引文依下列資料查證（2026 年 10 月）；波形、比例與和弦由頁面自己計算，並有自動測試。",
+     "sources": [
+      {
+       "en": "An interval is a difference in pitch between two sounds; frequency ratios 2:1, 3:2, 4:3, 5:4, 6:5; interval numbers count scale degrees with both ends; perfect intervals were traditionally considered perfectly consonant; Helmholtz theorized that dissonance was caused by beats",
+       "zh": "音程是兩個聲音的音高差；頻率比 2:1、3:2、4:3、5:4、6:5；音程的度數頭尾都算；完全音程傳統上被認為完全協和；亥姆霍茲認為不協和來自拍音",
+       "src": "Wikipedia, “Interval (music)”",
+       "url": "https://en.wikipedia.org/wiki/Interval_(music)"
+      },
+      {
+       "en": "Seven semitones in equal temperament; a frequency ratio of 3:2, or very nearly so; at the start of “Twinkle, Twinkle, Little Star”; more consonant than any interval except the unison and the octave",
+       "zh": "平均律中是七個半音；頻率比 3:2 或非常接近；〈小星星〉一開始；除了同度和八度，比其他音程都更協和",
+       "src": "Wikipedia, “Perfect fifth”",
+       "url": "https://en.wikipedia.org/wiki/Perfect_fifth"
+      },
+      {
+       "en": "Four half steps; 5:4 is 386.31 cents; 13.69 cents narrower than the equal-tempered major third",
+       "zh": "四個半音；5:4 是 386.31 音分；平均律的大三度比它寬 13.69 音分",
+       "src": "Wikipedia, “Major third”",
+       "url": "https://en.wikipedia.org/wiki/Major_third"
+      },
+      {
+       "en": "A stable tone combination is a consonance; consonance is often associated with simple ratios; partials of the higher octave note are partials of the lower; beating and roughness; dissonances often play a decisive role in making music pleasant; varies across cultures and styles",
+       "zh": "穩定的音組合是協和；協和常和簡單的比連在一起；高八度音的泛音也是低音的泛音；拍音與粗糙感；不協和常是讓音樂悅耳的關鍵；因文化與風格而異",
+       "src": "Wikipedia, “Consonance and dissonance”",
+       "url": "https://en.wikipedia.org/wiki/Consonance_and_dissonance"
+      },
+      {
+       "en": "Interference between two sounds of slightly different frequencies, perceived as a periodic variation in volume, the rate of which is the difference of the two frequencies; tuning by beats; organ celeste stops",
+       "zh": "兩個頻率略有不同的聲音的干涉，聽起來是音量週期性變化，速度是兩個頻率的差；用拍音調音；管風琴的天使音栓",
+       "src": "Wikipedia, “Beat (acoustics)”",
+       "url": "https://en.wikipedia.org/wiki/Beat_(acoustics)"
+      },
+      {
+       "en": "Equal-tempered fifth 700 cents vs 701.96; major third 400 vs 386.31; minor third 300 vs 315.64; fifths and fourths almost indistinguishably close to just intervals",
+       "zh": "平均律五度 700 音分對 701.96；大三度 400 對 386.31；小三度 300 對 315.64；五度與四度幾乎和純律分辨不出來",
+       "src": "Wikipedia, “Equal temperament”",
+       "url": "https://en.wikipedia.org/wiki/Equal_temperament"
+      },
+      {
+       "en": "A chord is two or more notes at the same time; a triad is three notes stacked in thirds; major and minor triads are the most commonly used",
+       "zh": "和弦是兩個或更多的音同時響；三和弦是三個音按三度疊起；大、小三和弦最常用",
+       "src": "Wikipedia, “Triad (music)” and “Chord (music)”",
+       "url": "https://en.wikipedia.org/wiki/Triad_(music)"
+      },
+      {
+       "en": "Major triad: major third and perfect fifth above the root, {0,4,7}, just ratio 4:5:6; minor triad {0,3,7}, 10:12:15",
+       "zh": "大三和弦：根音上有大三度與完全五度，{0,4,7}，純律比 4:5:6；小三和弦 {0,3,7}，10:12:15",
+       "src": "Wikipedia, “Major chord” and “Minor chord”",
+       "url": "https://en.wikipedia.org/wiki/Major_chord"
+      },
+      {
+       "en": "According to legend; no authentic writings survive; discoveries ascribed to Philolaus; the tuning system dates back to ancient Mesopotamia",
+       "zh": "據說；沒有可靠的著作留存；發現歸給菲洛勞斯；這個音律可追溯到古代美索不達米亞",
+       "src": "Wikipedia, “Pythagoras” and “Pythagorean tuning”",
+       "url": "https://en.wikipedia.org/wiki/Pythagoras"
+      },
+      {
+       "en": "The Tsimane’ rated consonant and dissonant chords and vocal harmonies as equally pleasant; Western-like responses to acoustic roughness; culture has a dominant role",
+       "zh": "奇曼內人認為協和與不協和的和弦與人聲和聲同樣悅耳；對粗糙聲音有類似西方的反應；文化占主導地位",
+       "src": "McDermott et al. (2016), Nature 535",
+       "url": "https://www.nature.com/articles/nature18635"
+      },
+      {
+       "en": "Reviews mathematical, physical, and biological explanations of consonance; argues that a biological explanation is plausible",
+       "zh": "回顧協和的數學、物理與生物解釋；主張生物解釋是可能的",
+       "src": "Bowling & Purves (2015), Annual Review",
+       "url": "https://pubmed.ncbi.nlm.nih.gov/26209651/"
+      },
+      {
+       "en": "音程: the difference in pitch between two notes, counted in 度; 八度音程: the vibration frequencies differ by a factor of two",
+       "zh": "音程：兩音之間的音高差距，以度計算；八度音程：振動頻率相差一倍",
+       "src": "教育部《重編國語辭典修訂本》「音程」「八度音程」",
+       "url": "https://dict.revised.moe.edu.tw/dictView.jsp?ID=156305"
+      },
+      {
+       "en": "When two sound waves of nearly the same frequency combine, a sound that alternates strong and weak is heard, called 拍音",
+       "zh": "兩種頻率略同的聲波合成時，會聽到一強一弱交替的聲音，稱為「拍音」",
+       "src": "教育部《重編國語辭典修訂本》「拍音」",
+       "url": "https://dict.revised.moe.edu.tw/dictView.jsp?ID=22826"
+      },
+      {
+       "en": "三和弦: a chord of three notes; the distances are thirds; the lowest is the root, then the third and the fifth",
+       "zh": "三和弦：由三個音組成的和弦；彼此間的距離是三度；最低的音稱根音，依次為三度音、五度音",
+       "src": "教育部《重編國語辭典修訂本》「和弦」「三和弦」",
+       "url": "https://dict.revised.moe.edu.tw/dictView.jsp?ID=144533"
+      },
+      {
+       "en": "perfect fifth 完全五度, perfect fourth 完全四度, major third 大三度, minor third 小三度, consonance 協和, dissonance 不協和, chord 和弦, triad 三和弦, major triad 大三和弦, minor triad 小三和弦, beats 拍音, beat 拍",
+       "zh": "perfect fifth 完全五度、perfect fourth 完全四度、major third 大三度、minor third 小三度、consonance 協和、dissonance 不協和、chord 和弦、triad 三和弦、major triad 大三和弦、minor triad 小三和弦、beats 拍音、beat 拍",
+       "src": "國家教育研究院「學術名詞資訊網」（音樂名詞）",
+       "url": "https://terms.naer.edu.tw/search/?query_term=perfect+fifth&query_field=title&match_type=term"
+      },
+      {
+       "en": "Taiwan's 12-year curriculum: arts (music) 音 E-Ⅱ-1, 音 E-Ⅲ-1, 音 E-Ⅳ-4, 音 A-Ⅳ-2",
+       "zh": "十二年國民基本教育課程綱要藝術領域：音 E-Ⅱ-1、音 E-Ⅲ-1、音 E-Ⅳ-4、音 A-Ⅳ-2",
+       "src": "國家教育研究院，十二年國教藝術領域課綱",
+       "url": "https://www.naer.edu.tw/upload/1/16/doc/818/%E5%8D%81%E4%BA%8C%E5%B9%B4%E5%9C%8B%E6%B0%91%E5%9F%BA%E6%9C%AC%E6%95%99%E8%82%B2%E8%AA%B2%E7%A8%8B%E7%B6%B1%E8%A6%81%E5%9C%8B%E6%B0%91%E4%B8%AD%E5%B0%8F%E5%AD%B8%E6%9A%A8%E6%99%AE%E9%80%9A%E5%9E%8B%E9%AB%98%E7%B4%9A%E4%B8%AD%E7%AD%89%E6%A0%A1-%E8%97%9D%E8%A1%93%E9%A0%98%E5%9F%9F.pdf"
+      },
+      {
+       "en": "Safe listening: headphone volume to 60% of maximum, personal audio devices less than one hour a day",
+       "zh": "安全聆聽：耳機音量不超過最大的 60%、個人音響裝置每天少於一小時",
+       "src": "WHO, Make Listening Safe brochure (2021)",
+       "url": "https://cdn.who.int/media/docs/default-source/documents/health-topics/deafness-and-hearing-loss/mls-brochure-english-2021.pdf?sfvrsn=bf19b448_5"
+      }
+     ]
     }
-   ]
+   ],
+   "planned": []
   },
   {
    "key": "instruments",

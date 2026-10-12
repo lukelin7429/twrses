@@ -578,3 +578,36 @@ a.mu-link:hover { transform: translateY(-3px); box-shadow: var(--shadow); border
 .mu-scaleq .mu-hg-sc { color: var(--ink-soft); }
 .mu-sqz-pat { margin: .8rem 0 0; display: flex; flex-wrap: wrap; align-items: center; gap: .35rem; }
 @media (max-width: 560px) { .mu-scl, .mu-tune, .mu-scaleq { padding: 1rem; } .mu-sc-kb { height: 108px; } .mu-sc-cv, .mu-tn-cv { height: 180px; } .mu-sc-note { min-width: 2.2rem; } }
+
+/* ── 第八課：兩個音一起響、和弦 ───────────────────────────────────── */
+.mu-hm, .mu-chord, .mu-chordq { margin-top: 1.5rem; padding: 1.3rem 1.4rem; background: #fff; border: 1px solid var(--line); border-radius: 20px; box-shadow: var(--shadow-sm); max-width: 1000px; }
+.mu-hm .mu-btn[aria-pressed="true"] { border-color: var(--brand); background: var(--brand-lt); }
+.mu-hm .mu-btn-gold, .mu-chord .mu-btn-gold, .mu-chordq .mu-btn-gold { background: var(--gold); border-color: var(--gold); }
+.mu-hm .mu-msg, .mu-chord .mu-ch-msg, .mu-chordq .mu-q-msg { color: var(--ink); margin: .8rem 0 0; min-height: 3.4em; font-size: .86rem; line-height: 1.6; }
+.mu-hm .mu-msg .zh, .mu-chord .mu-ch-msg .zh, .mu-chordq .mu-q-msg .zh { display: block; color: var(--ink-soft); }
+.mu-hm-cv, .mu-hm-cvb { display: block; width: 100%; height: 230px; margin-top: .9rem; border: 1px solid var(--line); border-radius: 14px; background: #fffdf6; }
+.mu-hm-cvb { height: 110px; margin-top: .6rem; }
+.mu-hm-read { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: .6rem; margin-top: .9rem; }
+.mu-hm-read > div { padding: .6rem .8rem; border-radius: 12px; background: var(--cream); border: 1px solid var(--line); }
+.mu-hm-read b, .mu-hm-read p { margin: 0; font-family: var(--serif); font-size: 1.15rem; font-weight: 700; color: var(--brand-dk); font-variant-numeric: tabular-nums; }
+.mu-hm-read small { display: block; font-family: var(--sans); font-size: .68rem; color: var(--ink-soft); font-weight: 700; }
+.mu-hm-mis-row { display: flex; flex-wrap: wrap; align-items: center; gap: .6rem 1rem; margin-top: .9rem; }
+.mu-hm-mis { flex: 1 1 220px; max-width: 420px; accent-color: var(--brand); }
+.mu-hm-mis-v { font-weight: 800; font-variant-numeric: tabular-nums; min-width: 9rem; }
+.mu-ch-name { margin: .9rem 0 0; font-family: var(--serif); font-size: 1.35rem; font-weight: 700; color: var(--brand-dk); }
+.mu-ch-name small { display: block; font-family: var(--sans); font-size: .76rem; font-weight: 700; color: var(--ink-soft); }
+.mu-cq-k { margin: 0; font-size: .78rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--gold-dk); }
+.mu-cq-opts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .5rem; margin-top: 1rem; }
+.mu-cq-opt { display: flex; flex-direction: column; align-items: center; padding: .8rem .3rem; border-radius: 12px; border: 1px solid var(--line); background: #fff; font-family: var(--sans); cursor: pointer; color: var(--ink); transition: transform .12s, border-color .12s; }
+.mu-cq-opt:hover:not(:disabled) { border-color: var(--gold); transform: translateY(-2px); }
+.mu-cq-opt b { font-family: var(--serif); font-size: 1.15rem; line-height: 1.1; }
+.mu-cq-opt small { font-size: .72rem; color: var(--ink-soft); font-weight: 700; }
+.mu-cq-opt.is-right { border-color: #2f9e63; background: #eefaf2; }
+.mu-cq-opt.is-wrong { border-color: #e08a8a; background: #fdf0f0; opacity: .7; }
+.mu-cq-opt:disabled { cursor: default; color: var(--ink); }
+.mu-chordq .mu-hg-sc { color: var(--ink-soft); }
+.mu-cq-pat { margin: .8rem 0 0; display: flex; flex-wrap: wrap; align-items: center; gap: .35rem; }
+.mu-cq-pat .mu-sc-pg { opacity: 1; }
+@media (max-width: 560px) { .mu-hm, .mu-chord, .mu-chordq { padding: 1rem; } .mu-hm-cv { height: 210px; } }
+.mu-hm-read .mu-st-k { display: block; margin-bottom: .2rem; }
+.mu-hm-read b { display: block; }
