@@ -543,11 +543,11 @@
        "icon": "🎻",
        "k_en": "Music · Lesson 2",
        "k_zh": "音樂・第二課",
-       "soon": true,
        "en": "Why Does a Piano Sound Different from a Violin?",
        "zh": "同一個音，鋼琴和小提琴為什麼聽起來不一樣？",
        "note_en": "Two instruments can play the same pitch and still sound different. The next lesson looks inside a single note.",
-       "note_zh": "兩種樂器可以彈同一個音高，聽起來卻不一樣。下一課要看進一個音的裡面。"
+       "note_zh": "兩種樂器可以彈同一個音高，聽起來卻不一樣。下一課要看進一個音的裡面。",
+       "href": "/resources/classes/music/tone-color/"
       }
      ],
      "sources_note_en": "Names, dates, numbers, and quotations on this page were checked against these sources (October 2026). The frequencies and ratios are computed by the page itself and covered by automatic tests.",
@@ -710,15 +710,670 @@
        "url": "https://www.naer.edu.tw/upload/1/16/doc/820/%E5%8D%81%E4%BA%8C%E5%B9%B4%E5%9C%8B%E6%B0%91%E5%9F%BA%E6%9C%AC%E6%95%99%E8%82%B2%E8%AA%B2%E7%A8%8B%E7%B6%B1%E8%A6%81%E5%9C%8B%E6%B0%91%E4%B8%AD%E5%B0%8F%E5%AD%B8%E6%9A%A8%E6%99%AE%E9%80%9A%E5%9E%8B%E9%AB%98%E7%B4%9A%E4%B8%AD%E7%AD%89%E6%A0%A1-%E8%87%AA%E7%84%B6%E7%A7%91%E5%AD%B8%E9%A0%98%E5%9F%9F.pdf"
       }
      ]
+    },
+    {
+     "n": 2,
+     "slug": "tone-color",
+     "title": "Why Does a Piano Sound Different from a Violin?",
+     "title_zh": "同一個音，鋼琴和小提琴為什麼聽起來不一樣？",
+     "level": "入門 · Beginner",
+     "icon": "🎻",
+     "card": "timbre",
+     "blurb_en": "Pluck a string in the middle or near the end and watch it shake in many ways at once. Then mix the harmonics yourself and hear how the same note changes its color.",
+     "blurb_zh": "在弦的中間或靠近一端撥一下，看它同時用很多種方式振動。再自己混合諧波，聽同一個音怎麼換了顏色。",
+     "big_idea_en": "A note is not one shake but a mix of many shakes at once: the fundamental and its harmonics. The pitch you hear comes from the fundamental. Which harmonics are strong, and how the note begins and fades, give it its tone color.",
+     "big_idea_zh": "一個音不是只有一種振動，而是很多種振動同時混在一起：基音和它的諧波。你聽到的音高來自基音；哪些諧波強、這個音怎麼開始又怎麼消失，決定了它的音色。",
+     "lab": {
+      "kind": "timbre",
+      "eyebrow": "3D Model · 3D 模型",
+      "title_en": "One String, Many Shakes",
+      "title_zh": "一根弦，同時很多種振動",
+      "how_en": "The string is C4, 261.63 Hz. Click the box to pluck the string at that spot, or use the slider. Above the string, each thin line is one way of shaking: harmonic 1 is the whole string, harmonic 2 is two halves, harmonic 3 is three thirds, and so on. The gold string at the bottom is all of them added together, and that is the sound. White dots mark the nodes, the points that stay still. The shaking is slowed down on purpose.",
+      "how_zh": "這根弦是 C4，261.63 赫。點箱子，就在那裡撥弦；也可以用滑桿。弦的上方，每一條細線是一種振動方式：第 1 諧波是整根弦、第 2 諧波是兩個半根、第 3 諧波是三個三分之一，依此類推。最下面金色的弦是全部加起來的樣子，也就是你聽到的聲音。白點標出節點，就是不動的點。振動畫面是刻意放慢的。",
+      "legend": [
+       {
+        "cls": "live",
+        "en": "The string you hear: all the harmonics added together",
+        "zh": "你聽到的弦：所有諧波加起來"
+       },
+       {
+        "cls": "mode",
+        "en": "One thin line for each harmonic, with its frequency",
+        "zh": "每個諧波一條細線，附上頻率"
+       },
+       {
+        "cls": "node",
+        "en": "White dots: nodes, the points that do not move",
+        "zh": "白點：節點，不會動的點"
+       }
+      ],
+      "scale_en": "The model string is about 60 cm long. The fundamental shakes once per second here, slowed down about 262 times, and harmonic n shakes n times per second.",
+      "scale_zh": "模型裡的弦約 60 公分長。基音在這裡每秒振動一次，放慢了大約 262 倍；第 n 諧波每秒 n 次。",
+      "credit_html": "All sounds on this page are made by your browser, tone by tone. They are simple mixes of harmonics, not recordings of a piano or a violin. · 本頁所有的聲音都由瀏覽器即時合成，是簡單的諧波混合，不是鋼琴或小提琴的錄音。"
+     },
+     "paras": [
+      "Play middle C on a piano, and then play the same note on a violin. The pitch is the same. The loudness can be the same too. Yet you would never mix them up, even with your eyes closed. Something about the sound is different. Musicians call it tone color, or timbre (say \"TAM-ber\").",
+      "A well-known standard from the American National Standards Institute describes timbre as the quality that lets a listener tell that two sounds are different, even when they have the same loudness and the same pitch. So timbre is not pitch, and it is not loudness. It is the third thing.",
+      "To see where timbre comes from, look inside one note. A string does not shake in only one way. It shakes as a whole, and at the same time in two halves, in three thirds, and so on. Each way of shaking is called a harmonic. The whole-string shake is the fundamental, or the first harmonic. The second harmonic has exactly twice the frequency, and the third has three times, and so on. The second harmonic is also called the first overtone.",
+      "You do not hear these harmonics as separate notes. You hear one note, and its pitch is the fundamental. But the mix matters. If the harmonics are strong, the sound is bright and buzzy. If only a few are present, the sound is round and soft. The mix of harmonics changes the shape of the sound wave, even though the repeating rate, and so the pitch, stays the same.",
+      "Where does the mix come from? Partly from how you start the string. Helmholtz, a German scientist who wrote a famous book on sound in 1863, noticed that a string struck in its middle loses its second partial tone. In the model you can check this: pluck exactly in the middle and every even harmonic disappears, because a node sits right where you pluck. Pluck near the end and many high harmonics are strong. Partly it comes from the instrument itself. A clarinet, for example, mostly makes the odd harmonics.",
+      "Time matters too. A piano string is struck by a hammer, so the note starts at once and then fades. A bowed violin string can start more gently and keep going. Reference works on timbre note that if you remove the beginning of a piano or trumpet note, it becomes harder to tell which instrument it is. Our model uses only simple recipes, so it cannot sound like a real piano or violin. Real instruments have many more harmonics and many more details."
+     ],
+     "paras_zh": [
+      "在鋼琴上彈中央 C，再在小提琴上拉同一個音。音高一樣，音量也可以一樣。可是就算閉著眼睛，你也不會把它們搞混。聲音裡有某個地方不一樣。音樂家把它叫做「音色」，英文是 tone color 或 timbre（唸成「坦伯」）。",
+      "美國國家標準學會有一份很有名的標準，把音色描述成：就算兩個聲音的響度和音高都一樣，聽的人還是能分辨它們不同的那種性質。所以音色不是音高，也不是音量，它是第三件事。",
+      "要看出音色從哪裡來，得看進一個音的裡面。一根弦不是只有一種振動方式。它整根在振動，同時也一半一半地振動、三分之一三分之一地振動，依此類推。每一種振動方式叫一個「諧波」。整根弦的振動是「基音」，也就是第一諧波；第二諧波的頻率剛好是兩倍，第三諧波是三倍，依此類推。第二諧波也叫做第一泛音。",
+      "你不會把這些諧波聽成一個個分開的音。你聽到的是一個音，音高就是基音。但是混合的比例很重要：諧波強，聲音就明亮、有點嗡嗡的；只有幾個諧波，聲音就圓潤柔和。諧波的混合會改變聲波的形狀，可是重複的快慢不變，所以音高也不變。",
+      "這個混合從哪裡來？一部分來自你怎麼讓弦動起來。亥姆霍茲是一位德國科學家，1863 年寫了一本關於聲音的名著，他發現弦在正中間被敲時，第二個分音就消失了。你可以在模型裡檢查：剛好在正中間撥，所有偶數諧波都不見了，因為節點剛好在你撥的位置。靠近一端撥，很多高諧波就很強。另一部分來自樂器本身，例如單簧管主要發出奇數諧波。",
+      "時間也很重要。鋼琴的弦是被琴槌敲響的，所以聲音一開始就出現，然後慢慢消失；用弓拉的小提琴弦可以輕輕地開始、持續下去。談音色的參考資料提到，如果把鋼琴或小號的音一開始的那一瞬間拿掉，就比較難聽出是哪一種樂器。我們的模型只用簡單的配方，所以不可能聽起來像真的鋼琴或小提琴；真的樂器有多得多的諧波和細節。"
+     ],
+     "questions": [
+      "Two notes have the same pitch and the same loudness, but they sound different. What do we call that difference?",
+      "A note has a fundamental of 200 Hz. What are the frequencies of its first four harmonics?",
+      "Why do the even harmonics disappear when you pluck a string exactly in the middle?"
+     ],
+     "answers": [
+      "It is called timbre, or tone color. Timbre is the quality that tells two sounds apart when their pitch and loudness are the same.",
+      "The harmonics are whole-number multiples of the fundamental: 200 Hz, 400 Hz, 600 Hz, and 800 Hz. The first one is the fundamental itself.",
+      "Every even harmonic has a node exactly in the middle of the string, a point that does not move. If you pluck right there, those harmonics cannot start. The odd harmonics have their biggest swing in the middle, so they are strong."
+     ],
+     "vocab": [
+      {
+       "n": 1,
+       "w": "timbre",
+       "pos": "n.",
+       "zh": "音色",
+       "ex": "The flute and the oboe play the same note, but their <b>timbre</b> is very different.",
+       "exzh": "長笛和雙簧管吹同一個音，但它們的音色很不一樣。"
+      },
+      {
+       "n": 2,
+       "w": "fundamental",
+       "pos": "n.",
+       "zh": "基音",
+       "ex": "The <b>fundamental</b> is the lowest frequency in a note, and it gives the pitch.",
+       "exzh": "基音是一個音裡頻率最低的成分，音高就是它決定的。"
+      },
+      {
+       "n": 3,
+       "w": "harmonic",
+       "pos": "n.",
+       "zh": "諧波（泛音）",
+       "ex": "The third <b>harmonic</b> vibrates three times as fast as the fundamental.",
+       "exzh": "第三諧波的振動速度是基音的三倍。"
+      },
+      {
+       "n": 4,
+       "w": "overtone",
+       "pos": "n.",
+       "zh": "泛音",
+       "ex": "The first <b>overtone</b> is the second harmonic.",
+       "exzh": "第一泛音就是第二諧波。"
+      },
+      {
+       "n": 5,
+       "w": "waveform",
+       "pos": "n.",
+       "zh": "波形",
+       "ex": "A pure tone has the smooth <b>waveform</b> of a sine wave.",
+       "exzh": "純音的波形是平滑的正弦波。"
+      },
+      {
+       "n": 6,
+       "w": "attack",
+       "pos": "n.",
+       "zh": "起音（開始的那一瞬間）",
+       "ex": "A piano has a sharp <b>attack</b> because the hammer hits the string.",
+       "exzh": "鋼琴的起音很尖銳，因為琴槌敲到了弦。"
+      },
+      {
+       "n": 7,
+       "w": "decay",
+       "pos": "v./n.",
+       "zh": "衰減",
+       "ex": "After you press a piano key, the note slowly <b>decays</b>.",
+       "exzh": "鋼琴鍵按下去以後，聲音慢慢衰減。"
+      },
+      {
+       "n": 8,
+       "w": "pluck",
+       "pos": "v.",
+       "zh": "撥（弦）",
+       "ex": "She <b>plucked</b> the string with her finger.",
+       "exzh": "她用手指撥了那根弦。"
+      }
+     ],
+     "quiz": [
+      {
+       "q": "What is timbre?",
+       "options": [
+        "The quality that tells two sounds apart when pitch and loudness are the same",
+        "How high or low a note is",
+        "How loud a note is",
+        "How fast a song is"
+       ],
+       "correct": 0
+      },
+      {
+       "q": "A note has a fundamental of 100 Hz. What is the frequency of its third harmonic?",
+       "options": [
+        "300 Hz",
+        "103 Hz",
+        "200 Hz",
+        "150 Hz"
+       ],
+       "correct": 0
+      },
+      {
+       "q": "You pluck a string exactly in its middle. Which harmonics disappear?",
+       "options": [
+        "The even ones",
+        "The odd ones",
+        "All of them",
+        "None of them"
+       ],
+       "correct": 0
+      },
+      {
+       "q": "Which of these gives a note its timbre?",
+       "options": [
+        "The mix of harmonics and how the note begins and fades",
+        "Only the loudness",
+        "Only the pitch",
+        "Only the length of the string"
+       ],
+       "correct": 0
+      },
+      {
+       "q": "A note that has only odd harmonics, fading as 1/n, is made of harmonics…",
+       "options": [
+        "1, 3, 5, 7",
+        "2, 4, 6, 8",
+        "1, 2, 3, 4",
+        "1 only"
+       ],
+       "correct": 0
+      }
+     ],
+     "parts_head": {
+      "eyebrow": "Try It in the Model · 在模型裡試試",
+      "en": "Four things to try",
+      "zh": "四件值得試的事"
+     },
+     "parts": [
+      {
+       "key": "modes",
+       "icon": "🌊",
+       "en": "One string, many ways to shake",
+       "zh": "一根弦，很多種振動",
+       "meta_en": "Harmonics 1 to 6",
+       "meta_zh": "第 1 到第 6 諧波",
+       "demo": "modes",
+       "text_en": "Watch the harmonics join one at a time. Each one is a new line, and the note gets brighter.",
+       "text_zh": "看諧波一個一個加進來。每加一個就多一條線，聲音越來越亮。"
+      },
+      {
+       "key": "middle",
+       "icon": "🎯",
+       "en": "Pluck in the middle",
+       "zh": "在正中間撥",
+       "meta_en": "The even harmonics disappear",
+       "meta_zh": "偶數諧波不見了",
+       "demo": "middle",
+       "text_en": "Look at harmonics 2, 4, and 6. A node sits where you pluck, so they cannot start.",
+       "text_zh": "看第 2、4、6 諧波。節點剛好在你撥的位置，它們動不起來。"
+      },
+      {
+       "key": "end",
+       "icon": "🔔",
+       "en": "Pluck near the end",
+       "zh": "靠近一端撥",
+       "meta_en": "More high harmonics",
+       "meta_zh": "高諧波比較多",
+       "demo": "end",
+       "text_en": "The same string and the same pitch, but the sound is brighter and thinner.",
+       "text_zh": "同一根弦、同一個音高，可是聲音比較亮、比較薄。"
+      },
+      {
+       "key": "octave",
+       "icon": "🔗",
+       "en": "Harmonic 2 is lesson 1's half string",
+       "zh": "第 2 諧波就是第一課的一半弦長",
+       "meta_en": "523.25 Hz, one octave up",
+       "meta_zh": "523.25 赫，高一個八度",
+       "demo": "octave",
+       "text_en": "Switch off everything except harmonic 2. The string shakes in two halves, the same note you made by pressing a string in lesson 1.",
+       "text_zh": "只留第 2 諧波。弦分成兩半各自振動，就是第一課把弦按住一半得到的那個音。"
+      }
+     ],
+     "parts_note_en": "Then try the slider and the switches. Which harmonics are missing when you pluck at one fifth of the string?",
+     "parts_note_zh": "然後試試滑桿和開關。在弦長五分之一的地方撥，缺少哪些諧波？",
+     "mix": {
+      "eyebrow": "Try It · 動手試試",
+      "en": "Mix Your Own Note",
+      "zh": "混合出你自己的音",
+      "lead_en": "Every slider is one harmonic of the note C4, 261.63 Hz. Push a slider up to add that harmonic, and the wave shape changes. The pitch stays the same, but the color changes. Try the four recipes. The names describe the mix, not any real instrument.",
+      "lead_zh": "每一根滑桿是 C4（261.63 赫）這個音的一個諧波。把滑桿往上推就加入那個諧波，波形跟著改變。音高不變，顏色卻變了。試試四個配方。名稱描述的是混合的方式，不是哪一種真的樂器。"
+     },
+     "env": {
+      "eyebrow": "Try It · 動手試試",
+      "en": "Same Mix, Different Start",
+      "zh": "同樣的混合，不同的開始",
+      "lead_en": "A note also has a shape in time. Attack is how fast it starts, decay is how fast it fades, and sustain is how much is kept. Compare a struck or plucked note, which starts at once and fades, with a bowed note, which starts gently and keeps going. The harmonics are exactly the same in both.",
+      "lead_zh": "一個音在時間上也有形狀：起音是它多快響起來、衰減是它多快變小聲、維持是它保留多少。比較敲擊或撥奏的音（一開始就響、然後慢慢消失）和拉奏的音（輕輕開始、一直持續）。兩個的諧波完全一樣。"
+     },
+     "which": {
+      "eyebrow": "Game · 小遊戲",
+      "en": "Which Shape Is It?",
+      "zh": "這是哪一種波形？",
+      "lead_en": "Six questions. Each one plays a note made from one of the four recipes. Choose the picture of the wave that matches. The notes all have the same pitch, so you have to listen for the color.",
+      "lead_zh": "六道題。每一題播出用四個配方之一做成的音，選出對得上的波形圖。每個音的音高都一樣，所以你要聽的是顏色。"
+     },
+     "curric": {
+      "eyebrow": "In the Curriculum · 對應課綱",
+      "en": "Where this lesson fits",
+      "zh": "這一課對應的課綱",
+      "lead_en": "In the arts curriculum, tone color first appears in junior high school. Elementary grades 3 to 6 do not list it among the elements of music, so for those grades the science curriculum is the closest match. The links to this lesson are our reading.",
+      "lead_zh": "藝術領域的課綱裡，「音色」到國中才出現；國小三到六年級的音樂元素沒有列到音色，所以對國小高年級來說，最接近的是自然領域的條目。它們和本課的連結是本教材的解讀。",
+      "items": [
+       {
+        "code": "音 E-Ⅳ-4",
+        "area": "藝術領域・音樂（國中）",
+        "area_en": "Arts, music (junior high)",
+        "text": "音樂元素，如：音色、調式、和聲等。",
+        "note_en": "Tone color is named as an element of music.",
+        "note_zh": "課綱明白把音色列為音樂元素。"
+       },
+       {
+        "code": "INe-Ⅲ-6",
+        "area": "自然科學領域（國小五、六年級）",
+        "area_en": "Science (grades 5–6)",
+        "text": "聲音有大小、高低與音色等不同性質，生活中聲音有樂音與噪音之分，噪音可以防治。",
+        "note_en": "Loudness, pitch, and tone color are three different properties of a sound.",
+        "note_zh": "音量、音高、音色是聲音三種不同的性質。"
+       },
+       {
+        "code": "INe-Ⅲ-6 說明 6-2",
+        "area": "自然科學領域・學習內容說明",
+        "area_en": "Science, notes on the content",
+        "text": "可藉由樂器的演奏，例如：直笛的吹奏、木琴的敲打、烏克麗麗的撥彈或是自製樂器，例如：吸管笛、敲水杯、橡皮筋古箏等活動，了解樂器的發生構造與原理。包含振動部位的判斷、音箱的功用、音調的控制、音色的差異等。",
+        "note_en": "The notes name “differences in tone color” as something to learn from playing instruments.",
+        "note_zh": "說明裡把「音色的差異」列為從演奏樂器中要了解的內容。"
+       },
+       {
+        "code": "Ka-Ⅳ 說明 5-1",
+        "area": "自然科學領域・國中說明",
+        "area_en": "Science, junior high notes",
+        "text": "經由自製樂器或樂器表演，知道聲音可由音量、音調及音色來描述。亦可以自由軟體讓學生看到不同樂器的音色和波形的關係。了解弦的鬆緊、空氣柱的長短、鼓的大小如何影響波形。",
+        "note_en": "Seeing the link between tone color and waveform with software is exactly what the mixing sliders on this page do.",
+        "note_zh": "用軟體看見音色和波形的關係，正是本頁混合滑桿做的事。"
+       }
+      ]
+     },
+     "culture_cards": {
+      "eyebrow": "Stories Behind Tone Color · 音色背後的故事",
+      "title_en": "A scientist, a tube, a hammer and a bow, and a word",
+      "title_zh": "一位科學家、一根管子、一把槌子和一張弓，和一個詞",
+      "lead_en": "Four short stories about how people came to understand the color of sound.",
+      "lead_zh": "關於人怎麼一步步看懂聲音的「顏色」的四個小故事。",
+      "cards": [
+       {
+        "k": "A Scientist · 一位科學家",
+        "en": "Helmholtz and the partial tones",
+        "zh": "亥姆霍茲與分音",
+        "body_en": "The German scientist Hermann von Helmholtz published a book on the sensations of tone in 1863. In it he studied the partial tones of strings, tubes, and voices. He noted that when a string is struck in its middle, the second partial tone disappears. The English translation by Alexander Ellis appeared in 1875.",
+        "body_zh": "德國科學家亥姆霍茲（Hermann von Helmholtz）在 1863 年出版了一本談聽覺與音的名著，書裡研究了弦、管和人聲的分音。他指出，弦在正中間被敲時，第二個分音就消失了。亞歷山大・艾利斯（Alexander Ellis）的英文譯本在 1875 年出版。"
+       },
+       {
+        "k": "A Tube · 一根管子",
+        "en": "Why the clarinet is different",
+        "zh": "單簧管為什麼不一樣",
+        "body_en": "A clarinet is a tube that is almost closed at one end by the reed. Such a tube mostly reinforces the odd harmonics, so a clarinet makes mainly the odd members of the series. The even ones are weak, not completely missing. Helmholtz found the same by ear, up to the seventh partial, and found that instruments with conical tubes, such as the oboe, reinforce all of them.",
+        "body_zh": "單簧管是一根一端幾乎被簧片封住的管子。這樣的管子主要加強奇數諧波，所以單簧管主要發出奇數的那幾個；偶數的很弱，但不是完全沒有。亥姆霍茲用耳朵也發現了同樣的事，一直到第七個分音；他還發現雙簧管這類圓錐形管的樂器，會把所有的諧波都加強。"
+       },
+       {
+        "k": "A Hammer and a Bow · 一把槌子和一張弓",
+        "en": "Two ways to start a string",
+        "zh": "讓弦動起來的兩種方法",
+        "body_en": "A piano string is struck by a felt-covered hammer, so the sound begins at once and fades. A bow does something different: the string clings to the bow, is carried along, and then suddenly slips back. This stick-and-slip motion can keep the string going. A piano string is also a little stiff, so its higher partials come out slightly above exact whole-number multiples.",
+        "body_zh": "鋼琴的弦是被包著毛氈的琴槌敲響的，所以聲音一開始就出現，然後慢慢消失。弓的做法不一樣：弦黏在弓上被帶著走，然後突然滑回來。這種「黏住、滑開」的運動可以讓弦一直振動下去。鋼琴的弦還有一點硬，所以它的高分音會比剛好的整數倍稍微高一點。"
+       },
+       {
+        "k": "A Word · 一個詞",
+        "en": "Tone color, 音色, Klangfarbe",
+        "zh": "Tone color、音色、Klangfarbe",
+        "body_en": "Helmholtz called it Klangfarbe, German for “tone color,” and English adopted both “tone color” and “timbre.” In Chinese, the dictionary of the Ministry of Education also lists 音品 and 音質 for the same idea. Chinese players use words for it too. The erhu, for example, is described as having a beautiful timbre that ranges from soft to strong.",
+        "body_zh": "亥姆霍茲把它叫做 Klangfarbe，德文就是「聲音的顏色」；英文後來用 tone color 和 timbre 兩個詞。在中文裡，教育部辭典把同一個概念也寫作「音品」「音質」。演奏者也用詞彙來形容它，例如二胡被形容為音色優美、表現力強，剛柔多變。"
+       }
+      ]
+     },
+     "myths": [
+      {
+       "myth_en": "Two instruments that play the same note make exactly the same sound wave.",
+       "myth_zh": "兩種樂器彈同一個音，發出的聲波一模一樣。",
+       "fact_en": "They share the same repeating rate, so the same pitch. But the mix of harmonics and the way the note starts and fades are different, so the wave shapes differ.",
+       "fact_zh": "它們重複的快慢一樣，所以音高一樣；可是諧波的混合、以及音怎麼開始和消失都不同，所以波形不一樣。"
+      },
+      {
+       "myth_en": "You can hear the harmonics as separate notes.",
+       "myth_zh": "你可以把諧波一個一個聽成分開的音。",
+       "fact_en": "Normally you hear one note, and its pitch is the fundamental. The harmonics change the color of that note. It takes practice, or special tools, to pick them out.",
+       "fact_zh": "平常你只聽到一個音，音高就是基音；諧波改變的是這個音的顏色。要把它們一個個挑出來，需要練習或特別的工具。"
+      },
+      {
+       "myth_en": "A violin's sound is a sawtooth wave.",
+       "myth_zh": "小提琴的聲音就是鋸齒波。",
+       "fact_en": "A bow drives the string with a motion that looks like a sawtooth, and synthesizers use sawtooth waves as one ingredient for bowed sounds. But the sound of a real violin is far more complicated than any simple recipe.",
+       "fact_zh": "弓帶動弦的運動看起來像鋸齒，合成器也拿鋸齒波當做拉弦聲音的材料之一；但真的小提琴的聲音，比任何簡單的配方都複雜得多。"
+      },
+      {
+       "myth_en": "The beginning of a note does not matter for telling instruments apart.",
+       "myth_zh": "要分辨樂器，一個音開頭那一瞬間不重要。",
+       "fact_en": "It matters a lot. If you remove the attack from a piano or trumpet note, it becomes harder to identify, because the hammer strike or the first blast of breath is very characteristic.",
+       "fact_zh": "非常重要。如果把鋼琴或小號的音一開始的那一瞬間拿掉，就比較難辨認，因為槌子敲弦的聲音或第一口氣的聲音，都是那種樂器很有特色的部分。"
+      }
+     ],
+     "tricks_head": {
+      "en": "Tone color in a sentence",
+      "zh": "一句話記住音色"
+     },
+     "tricks": [
+      {
+       "title_en": "Same pitch, different mix",
+       "title_zh": "音高一樣，混合不一樣",
+       "body_en": "The fundamental sets the pitch. The mix of harmonics sets the color.",
+       "body_zh": "基音決定音高，諧波的混合決定顏色。"
+      },
+      {
+       "title_en": "Harmonics: 1×, 2×, 3×, 4×",
+       "title_zh": "諧波：1 倍、2 倍、3 倍、4 倍",
+       "body_en": "Each harmonic is a whole-number multiple of the fundamental.",
+       "body_zh": "每個諧波都是基音頻率的整數倍。"
+      },
+      {
+       "title_en": "Pluck in the middle, lose the evens",
+       "title_zh": "正中間撥，偶數就不見",
+       "body_en": "A node sits where you pluck, so the even harmonics cannot start.",
+       "body_zh": "節點剛好在撥的位置，偶數諧波動不起來。"
+      },
+      {
+       "title_en": "Color is the mix and the start",
+       "title_zh": "顏色是混合，也是開始",
+       "body_en": "Harmonics, attack, and decay together make a tone color.",
+       "body_zh": "諧波、起音、衰減，合起來才是一個音色。"
+      }
+     ],
+     "safety_head": {
+      "eyebrow": "Protect Your Ears · 保護耳朵",
+      "en": "Before you listen",
+      "zh": "聽之前"
+     },
+     "safety": [
+      {
+       "en": "Start with the volume low and turn it up a little at a time. The sound bar on this page starts at 30%.",
+       "zh": "先把音量調小，再一點一點調大。本頁的聲音列一開始是 30%。"
+      },
+      {
+       "en": "The mixes on this page are scaled so that the wave never gets taller than the pure tone. A bright mix with many harmonics can still sound sharp. If it hurts, stop and turn the volume down.",
+       "zh": "本頁的混合都會縮放，讓波形不會比純音更高；但諧波很多的明亮混合聽起來還是可能刺耳。如果不舒服，就停下來、把音量調小。"
+      },
+      {
+       "en": "With headphones, keep the volume at no more than 60% of maximum in a quiet place, and use personal audio devices for less than one hour a day, as the World Health Organization suggests.",
+       "zh": "戴耳機時，在安靜的地方不要超過最大音量的 60%，個人音響裝置每天使用少於一小時，這是世界衛生組織的建議。"
+      },
+      {
+       "en": "In the classroom activities, do not shout or blow into anyone's ear. Sing or hum at a comfortable volume.",
+       "zh": "課堂活動中，不要對著別人的耳朵大叫或吹氣。用舒服的音量唱或哼就好。"
+      }
+     ],
+     "activities": [
+      {
+       "title_en": "Pluck in the Middle, Pluck Near the End",
+       "title_zh": "在中間撥，在靠近一端撥",
+       "materials": [
+        {
+         "en": "The rubber-band box from lesson 1, or a guitar or ukulele if your class has one",
+         "zh": "第一課的橡皮筋盒子；班上有吉他或烏克麗麗也可以"
+        },
+        {
+         "en": "A ruler",
+         "zh": "一把尺"
+        },
+        {
+         "en": "A sheet of paper for words",
+         "zh": "一張寫形容詞的紙"
+        }
+       ],
+       "steps": [
+        {
+         "en": "Pluck one string right in its middle. Listen, and write a word for how it sounds: round, bright, hollow, thin, buzzy…",
+         "zh": "在弦的正中間撥一下。仔細聽，寫下一個形容它的詞：圓、亮、空、薄、嗡嗡……"
+        },
+        {
+         "en": "Pluck the same string about one tenth of the way from the end. Is the pitch the same? Is the color the same?",
+         "zh": "在離一端大約十分之一的地方撥同一根弦。音高一樣嗎？顏色一樣嗎？"
+        },
+        {
+         "en": "Repeat three times each, and take turns with a partner, who listens with eyes closed and says which one was plucked near the end.",
+         "zh": "各重複三次，兩人輪流；另一個人閉著眼睛聽，說出哪一次是靠近一端撥的。"
+        },
+        {
+         "en": "Compare with the model: it says that plucking near the end gives more high harmonics.",
+         "zh": "和模型比對：模型說，靠近一端撥，高諧波比較多。"
+        }
+       ],
+       "tip_en": "The difference is small on a rubber band, so listen carefully and try more than once. If your partner cannot tell, that is a result too. Keep the rubber band away from your face.",
+       "tip_zh": "橡皮筋上的差別很小，所以要仔細聽、多試幾次。如果同伴聽不出來，那也是一個結果。橡皮筋要離臉遠一點。"
+      },
+      {
+       "title_en": "Who Is Singing? Same Note, Different Voices",
+       "title_zh": "是誰在唱？同一個音，不同的聲音",
+       "materials": [
+        {
+         "en": "A pitch from this page: play the C4 key in lesson 1 or the whole string",
+         "zh": "從本頁取一個音：在第一課彈 C4 鍵或整根弦"
+        },
+        {
+         "en": "Four or five volunteers, or a recorder or ukulele if you have them",
+         "zh": "四、五位自願的同學；有直笛或烏克麗麗也可以"
+        },
+        {
+         "en": "Paper and pencil for each listener",
+         "zh": "每位聽的同學一張紙和一支筆"
+        }
+       ],
+       "steps": [
+        {
+         "en": "Everyone listens to the pitch from the page. Each volunteer, one at a time, sings or plays that same pitch for two seconds, behind the others.",
+         "zh": "大家先聽頁面上的音。每位自願的同學一次一位，站在大家後面，把同一個音唱或吹兩秒。"
+        },
+        {
+         "en": "Listeners keep their eyes closed and write down who it was, and one word for the sound.",
+         "zh": "聽的人閉著眼睛，寫下是誰，再寫一個形容聲音的詞。"
+        },
+        {
+         "en": "Now start the note in two ways: very gently, and with a sharp “t” or “d” at the front. Does that change how easy it is to know the sound?",
+         "zh": "再用兩種方式開始這個音：很輕柔地開始，和在前面加一個清脆的「ㄊ」或「ㄉ」。這樣有沒有改變辨認的難易？"
+        },
+        {
+         "en": "Talk about it: pitch was the same, so what told you apart?",
+         "zh": "討論：音高是一樣的，那是什麼讓你分辨出來的？"
+        }
+       ],
+       "tip_en": "Each person's voice has its own timbre, just as every instrument does. This is a good chance to practice words for sound in English: bright, dark, warm, soft, sharp, round.",
+       "tip_zh": "每個人的聲音都有自己的音色，就像每一種樂器一樣。這也是練習用英文形容聲音的好機會：bright、dark、warm、soft、sharp、round。"
+      }
+     ],
+     "links_head": {
+      "eyebrow": "Go Further · 延伸閱讀",
+      "en": "Before, around, and after this lesson",
+      "zh": "這一課的前面、旁邊和後面"
+     },
+     "links": [
+      {
+       "icon": "🎵",
+       "k_en": "Music · Lesson 1",
+       "k_zh": "音樂・第一課",
+       "en": "Why Are Some Notes High and Some Low?",
+       "zh": "為什麼有的音高、有的音低？",
+       "note_en": "Half a string shakes twice as fast. This lesson showed that a whole string also shakes in halves, at the same time.",
+       "note_zh": "弦長一半，振動快一倍。這一課看到整根弦同時也在一半一半地振動。",
+       "href": "/resources/classes/music/high-and-low-notes/"
+      },
+      {
+       "icon": "🔊",
+       "k_en": "How Things Work · Lesson 11",
+       "k_zh": "萬物原理・第十一課",
+       "en": "How Does Sound Reach Your Ears?",
+       "zh": "聲音怎麼傳到耳朵？",
+       "note_en": "Sound is a vibration that travels through the air. That lesson follows it to your ear.",
+       "note_zh": "聲音是在空氣中傳遞的振動。那一課一路講到你的耳朵。",
+       "href": "/resources/classes/how-things-work/sound/"
+      },
+      {
+       "icon": "🥁",
+       "k_en": "Music · Lesson 3",
+       "k_zh": "音樂・第三課",
+       "soon": true,
+       "en": "What Is a Beat?",
+       "zh": "拍子是什麼？",
+       "note_en": "Pitch and tone color are about one note. The next lesson is about time: the steady beat under the music.",
+       "note_zh": "音高和音色說的是一個音。下一課講時間：音樂底下穩定的拍子。"
+      }
+     ],
+     "sources_note_en": "Names, dates, numbers, and quotations on this page were checked against these sources (October 2026). The frequencies and wave shapes are computed by the page itself and covered by automatic tests.",
+     "sources_note_zh": "本頁的人名、年代、數字與引文依下列資料查證（2026 年 10 月）；頻率與波形由頁面自己計算，並有自動測試。",
+     "sources": [
+      {
+       "en": "Timbre: the ANSI definition, the role of the spectrum and the time envelope (attack, decay, sustain, release), and the effect of removing the attack",
+       "zh": "音色：ANSI 的定義、頻譜與時間包絡（起音、衰減、維持、釋放）的角色，以及去掉起音的效果",
+       "src": "Wikipedia, “Timbre”",
+       "url": "https://en.wikipedia.org/wiki/Timbre"
+      },
+      {
+       "en": "Harmonic frequencies on a string fixed at both ends are n times the fundamental; nodes and antinodes; the first overtone is the second harmonic",
+       "zh": "兩端固定的弦，諧波頻率是基頻的 n 倍；節點與腹點；第一泛音是第二諧波",
+       "src": "OpenStax, University Physics Vol. 1, 16.6",
+       "url": "https://openstax.org/books/university-physics-volume-1/pages/16-6-standing-waves-and-resonance"
+      },
+      {
+       "en": "The harmonic series, fundamental, partial, and overtone; the fundamental is generally perceived as the pitch; piano inharmonicity",
+       "zh": "泛音列、基音、分音、泛音；基音通常被聽成音高；鋼琴的不諧和性",
+       "src": "Wikipedia, “Harmonic series (music)”",
+       "url": "https://en.wikipedia.org/wiki/Harmonic_series_(music)"
+      },
+      {
+       "en": "A stiff string's partials are no longer exactly harmonic; strings under low tension, such as bass piano strings, show it most",
+       "zh": "有硬度的弦，分音不再剛好是整數倍；低張力的弦（例如鋼琴低音弦）最明顯",
+       "src": "Wikipedia, “Inharmonicity”",
+       "url": "https://en.wikipedia.org/wiki/Inharmonicity"
+      },
+      {
+       "en": "Helmholtz, On the Sensations of Tone (Ellis translation): a string struck in its middle loses its second partial; the clarinet reinforces the uneven partials; how a bow carries the string",
+       "zh": "亥姆霍茲《論音的感覺》（艾利斯英譯）：弦在正中間被敲，第二分音消失；單簧管加強奇數分音；弓怎麼帶著弦走",
+       "src": "Internet Archive, Helmholtz (Ellis, 2nd ed.)",
+       "url": "https://archive.org/details/onsensationsofto00helmrich"
+      },
+      {
+       "en": "Helmholtz published Sensations of Tone in 1863",
+       "zh": "亥姆霍茲在 1863 年出版這本書",
+       "src": "Wikipedia, “Hermann von Helmholtz”",
+       "url": "https://en.wikipedia.org/wiki/Hermann_von_Helmholtz"
+      },
+      {
+       "en": "The clarinet plays approximately the odd members of the series only; the missing even harmonics",
+       "zh": "單簧管（大約）只發出泛音列中奇數的那些；偶數諧波缺少",
+       "src": "UNSW, Joe Wolfe, Clarinet acoustics",
+       "url": "https://newt.phys.unsw.edu.au/jw/clarinetacoustics.html"
+      },
+      {
+       "en": "Clarinet: a cylindrical stopped pipe in which primarily the odd harmonics are reinforced",
+       "zh": "單簧管：近似圓柱閉管，主要加強奇數諧波",
+       "src": "Wikipedia, “Clarinet”",
+       "url": "https://en.wikipedia.org/wiki/Clarinet"
+      },
+      {
+       "en": "A string plucked at the center has prominent odd harmonics and weak even ones; plucked near the bridge it has stronger high harmonics",
+       "zh": "弦在正中間撥，奇數諧波明顯、偶數諧波弱；靠近琴橋撥，高諧波較強",
+       "src": "Middle Tennessee State University, W. Roberston, Fourier transforms module",
+       "url": "https://w1.mtsu.edu/faculty/wroberts/teaching/four_5a.php"
+      },
+      {
+       "en": "Square wave: only odd harmonics (1, 1/3, 1/5…)",
+       "zh": "方波：只有奇數諧波（1、1/3、1/5……）",
+       "src": "Wikipedia, “Square wave (waveform)”",
+       "url": "https://en.wikipedia.org/wiki/Square_wave_(waveform)"
+      },
+      {
+       "en": "Sawtooth wave: all the integer harmonics, with amplitude 1/k",
+       "zh": "鋸齒波：所有整數諧波，振幅 1/k",
+       "src": "Wikipedia, “Sawtooth wave”",
+       "url": "https://en.wikipedia.org/wiki/Sawtooth_wave"
+      },
+      {
+       "en": "Triangle wave: only odd harmonics, falling off as the inverse square of the harmonic number",
+       "zh": "三角波：只有奇數諧波，依諧波編號的平方反比變小",
+       "src": "Wikipedia, “Triangle wave”",
+       "url": "https://en.wikipedia.org/wiki/Triangle_wave"
+      },
+      {
+       "en": "A piano's strings are struck by felt-covered wooden hammers",
+       "zh": "鋼琴的弦由包著毛氈的木槌敲響",
+       "src": "Wikipedia, “Piano”",
+       "url": "https://en.wikipedia.org/wiki/Piano"
+      },
+      {
+       "en": "Stick–slip motion is used to generate musical notes in bowed string instruments",
+       "zh": "弓弦樂器靠「黏住、滑開」的運動發出樂音",
+       "src": "Wikipedia, “Stick–slip phenomenon”",
+       "url": "https://en.wikipedia.org/wiki/Stick-slip_phenomenon"
+      },
+      {
+       "en": "Timbre (音色, 音品): the Ministry of Education Dictionary entries",
+       "zh": "音色、音品：教育部《重編國語辭典修訂本》詞條",
+       "src": "教育部《重編國語辭典修訂本》「音品」",
+       "url": "https://dict.revised.moe.edu.tw/dictView.jsp?ID=156252&la=0&powerMode=0"
+      },
+      {
+       "en": "Fundamental tone (基音), harmonic and overtone (泛音) in the Ministry of Education Dictionary",
+       "zh": "基音、泛音：教育部辭典詞條",
+       "src": "教育部《重編國語辭典修訂本》「泛音」",
+       "url": "https://dict.revised.moe.edu.tw/dictView.jsp?ID=35450&la=0&powerMode=0"
+      },
+      {
+       "en": "Chinese terms: timbre 音色, tone color 音色, overtone 泛音, harmonic 諧波／泛音, fundamental tone 基音, waveform 波形, node 波節, antinode 波腹, attack 起音",
+       "zh": "中文名詞：timbre 音色、tone color 音色、overtone 泛音、harmonic 諧波／泛音、fundamental tone 基音、waveform 波形、node 波節、antinode 波腹、attack 起音",
+       "src": "國家教育研究院「學術名詞資訊網」",
+       "url": "https://terms.naer.edu.tw/search/?query_term=timbre&query_field=title&match_type=term"
+      },
+      {
+       "en": "The erhu: “beautiful timbre, strong expressiveness… soft and strong”",
+       "zh": "二胡：「音色優美、表現力強……音色剛柔多變」",
+       "src": "教育百科〈二胡〉（臺灣音樂館傳統民族樂器資料庫）",
+       "url": "https://pedia.cloud.edu.tw/Entry/Detail/?title=%E4%BA%8C%E8%83%A1"
+      },
+      {
+       "en": "Safe listening: headphone volume to 60% of maximum, personal audio devices less than one hour a day",
+       "zh": "安全聆聽：耳機音量不超過最大的 60%、個人音響裝置每天少於一小時",
+       "src": "WHO, Make Listening Safe brochure (2021)",
+       "url": "https://cdn.who.int/media/docs/default-source/documents/health-topics/deafness-and-hearing-loss/mls-brochure-english-2021.pdf?sfvrsn=bf19b448_5"
+      },
+      {
+       "en": "Taiwan's 12-year curriculum: arts (music) 音 E-Ⅳ-4",
+       "zh": "十二年國民基本教育課程綱要藝術領域：音 E-Ⅳ-4",
+       "src": "國家教育研究院，十二年國教藝術領域課綱",
+       "url": "https://www.naer.edu.tw/upload/1/16/doc/818/%E5%8D%81%E4%BA%8C%E5%B9%B4%E5%9C%8B%E6%B0%91%E5%9F%BA%E6%9C%AC%E6%95%99%E8%82%B2%E8%AA%B2%E7%A8%8B%E7%B6%B1%E8%A6%81%E5%9C%8B%E6%B0%91%E4%B8%AD%E5%B0%8F%E5%AD%B8%E6%9A%A8%E6%99%AE%E9%80%9A%E5%9E%8B%E9%AB%98%E7%B4%9A%E4%B8%AD%E7%AD%89%E6%A0%A1-%E8%97%9D%E8%A1%93%E9%A0%98%E5%9F%9F.pdf"
+      },
+      {
+       "en": "Taiwan's 12-year curriculum: science INe-Ⅲ-6, note 6-2, and Ka-Ⅳ note 5-1",
+       "zh": "十二年國民基本教育課程綱要自然科學領域：INe-Ⅲ-6、說明 6-2、Ka-Ⅳ 說明 5-1",
+       "src": "國家教育研究院，十二年國教自然科學領域課綱",
+       "url": "https://www.naer.edu.tw/upload/1/16/doc/820/%E5%8D%81%E4%BA%8C%E5%B9%B4%E5%9C%8B%E6%B0%91%E5%9F%BA%E6%9C%AC%E6%95%99%E8%82%B2%E8%AA%B2%E7%A8%8B%E7%B6%B1%E8%A6%81%E5%9C%8B%E6%B0%91%E4%B8%AD%E5%B0%8F%E5%AD%B8%E6%9A%A8%E6%99%AE%E9%80%9A%E5%9E%8B%E9%AB%98%E7%B4%9A%E4%B8%AD%E7%AD%89%E6%A0%A1-%E8%87%AA%E7%84%B6%E7%A7%91%E5%AD%B8%E9%A0%98%E5%9F%9F.pdf"
+      }
+     ]
     }
    ],
    "planned": [
-    {
-     "n": 2,
-     "icon": "🎻",
-     "en": "Why Does a Piano Sound Different from a Violin?",
-     "zh": "同一個音，鋼琴和小提琴為什麼聽起來不一樣？"
-    },
     {
      "n": 3,
      "icon": "🥁",

@@ -16083,7 +16083,7 @@ def build_comp_hub():
 _musj = os.path.join(ROOT, "data", "music.json")
 MUS = json.load(open(_musj, encoding="utf-8")) if os.path.exists(_musj) else None
 MUS_BASE = "/resources/classes/music/"
-_MUS_JS = {"string": "mus-string"}   # lab.kind → assets/js/<bundle>.js
+_MUS_JS = {"string": "mus-string", "timbre": "mus-timbre"}   # lab.kind → assets/js/<bundle>.js
 
 def _mus_ver():
     h = hashlib.md5()
@@ -16120,7 +16120,14 @@ def mustring_svg(size=56):
             '<path d="M20 26Q35.5 21 51.5 26" fill="none" stroke="#ffd36e" stroke-width="2.2" stroke-linecap="round"/>'
             '<rect x="17.5" y="22" width="5" height="12" rx="1.6" fill="#b98240"/><circle cx="20" cy="17.5" r="3.6" fill="#ffd36e"/></svg>')
 
-_MUS_CARD = {"string": mustring_svg}
+def mustimbre_svg(size=56):
+    """第二課的課程卡小圖示：上面一條平滑的正弦波，下面一條疊了諧波的波，同一個週期。"""
+    return (f'<svg class="mustimbre-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">'
+            '<path d="M5 19Q12.5 5 20 19T35 19T50 19" fill="none" stroke="#7ef0e3" stroke-width="2.6" stroke-linecap="round"/>'
+            '<path d="M5 44C7 30 10 30 12.5 44S18 56 20 44C22 30 25 30 27.5 44S33 56 35 44C37 30 40 30 42.5 44S48 56 50 44" fill="none" stroke="#ffd36e" stroke-width="2.6" stroke-linecap="round"/>'
+            '<path d="M5 31.5H55" stroke="#9fb0cf" stroke-width="1" stroke-dasharray="2 3"/></svg>')
+
+_MUS_CARD = {"string": mustring_svg, "timbre": mustimbre_svg}
 _MUS_PRESETS = [   # 和 tools/music/src/pitch.js 的 PRESETS 對應
     {"key": "whole", "en": "Whole string", "zh": "整根弦"}, {"key": "half", "en": "One half", "zh": "二分之一"},
     {"key": "twothirds", "en": "Two thirds", "zh": "三分之二"}, {"key": "threequarters", "en": "Three quarters", "zh": "四分之三"}]
@@ -16239,6 +16246,111 @@ def _mu_range(d):
   </div>
 </div>'''
 
+def render_mustimbre_lab(lesson):
+    """第二課：弦的諧波（assets/js/mus-timbre.js 綁這裡的 class；全部自繪示意，聲音由瀏覽器合成）。"""
+    lab = lesson["lab"]
+    modes = "".join(f'<button type="button" data-mode="{n}" aria-pressed="true">{n}</button>' for n in range(1, 7))
+    bars = "".join(
+        f'<div class="mu-bar" data-bar="{n}" style="--c:{c}"><span class="mu-bar-n">{n}</span><i class="mu-bar-v"></i><span class="mu-bar-f">{n}×</span></div>'
+        for n, c in zip(range(1, 9), ["#ffd36e", "#7ef0e3", "#ff9f7a", "#b79cff", "#8fd16b", "#ff7aa8", "#7aa8ff", "#d7c27a"]))
+    tg = _lab_toggles([("labels", "Labels", "標籤", True), ("nodes", "Nodes (white dots)", "節點（白點）", True)])
+    return f'''<div class="astro-lab mu-lab rvl" data-mustimbre-lab>
+  <div class="al-stage">
+    <div class="al-space">
+      <canvas class="al-space-cv" aria-label="3D model of a string that shakes in several ways at once, one thin line for each harmonic, and a gold string that adds them up · 一根弦同時用好幾種方式振動的 3D 模型：每個諧波一條細線，金色的弦是全部加起來"></canvas>
+      <div class="al-labels" aria-hidden="true"></div>
+      <p class="al-hint">Click the box to pluck there · 點箱子，就在那裡撥弦　Drag the background to turn · 拖曳背景旋轉　Scroll or pinch to zoom · 滾輪／雙指縮放</p>
+      <button type="button" class="al-home" title="Reset view · 重設視角" aria-label="Reset view · 重設視角">&#8634;</button>
+      <p class="al-nogl-msg">This 3D model needs WebGL, which this browser does not support. The slider and buttons on this page still work, and so do the reading, the cards, and the games.<br><span class="zh">這個瀏覽器不支援 WebGL，無法顯示 3D 模型；頁面上的滑桿與按鈕照樣能用，課文、卡片和小遊戲也都能用。</span></p>
+    </div>
+    <aside class="al-sky mu-aside">
+      <p class="al-sky-k">Where you pluck · 撥弦的位置</p>
+      <p class="mu-freq mu-freq-sm">at <b class="mu-pout">50%</b> <small>of the string · 弦長</small></p>
+      <label class="mu-slide"><span>Distance from the nearer end · 離最近那一端的距離</span>
+        <input type="range" class="mu-pslider" min="5" max="50" step="1" value="50" aria-label="Where you pluck, as a percentage of the string, from 5% to 50% · 撥弦的位置，弦長的 5% 到 50%"></label>
+      <div class="mu-presets mu-presets-3" role="group" aria-label="Pluck positions · 撥弦位置">
+        <button type="button" data-pp="50"><b>Middle</b><small>正中間</small></button>
+        <button type="button" data-pp="20"><b>One fifth</b><small>五分之一</small></button>
+        <button type="button" data-pp="10"><b>Near the end</b><small>靠近一端</small></button>
+      </div>
+      <p class="al-sky-k mu-k2">Harmonics, relative strength · 各諧波的相對強度</p>
+      <div class="mu-bars" aria-label="Strength of harmonics 1 to 8 · 第 1 到 8 諧波的強度">{bars}</div>
+      <p class="al-sky-k mu-k2">Switch a harmonic on or off · 開關某個諧波</p>
+      <div class="mu-modes" role="group" aria-label="Harmonics on or off · 諧波開關">{modes}</div>
+      <button type="button" class="mu-btn mu-btn-gold mu-pluck">Pluck the string · 撥弦</button>
+      <p class="mu-msg" aria-live="polite"></p>
+      <p class="mu-slowline">Slow motion: the fundamental shakes once per second here, slowed down about <b class="mu-slow">262</b> times; harmonic <i>n</i> shakes <i>n</i> times per second.<span class="zh">放慢：基音在這裡每秒振動一次，放慢了大約 262 倍；第 <i>n</i> 諧波每秒 <i>n</i> 次。</span></p>
+    </aside>
+  </div>
+  <div class="al-controls">
+    <div class="al-row al-row-main">
+      <div class="al-row al-toggles">{tg}</div>
+    </div>
+  </div>
+  {_lab_foot(lab)}
+  <p class="mu-credit">{lab["credit_html"]}</p>
+</div>'''
+
+def _mu_mix(d):
+    rows = "".join(
+        f'<label class="mu-mx-row" style="--c:{c}"><span class="mu-mx-n">{n}</span>'
+        f'<input type="range" class="mu-mx-sl" min="0" max="100" step="1" value="0" aria-label="Harmonic {n}, {261.63 * n:.2f} hertz · 第 {n} 諧波，{261.63 * n:.2f} 赫">'
+        f'<span class="mu-mx-f">{261.63 * n:.1f} Hz</span><output data-out="{n}">0%</output></label>'
+        for n, c in zip(range(1, 9), ["#ffd36e", "#0d9d8c", "#e07a52", "#8a6bd6", "#5fa03c", "#d6527f", "#4a7bd6", "#b59a3a"]))
+    return f'''<div class="mu-mix rvl" data-mu-mix>
+  <div class="mu-mx-grid">
+    <div class="mu-mx-sliders">{rows}</div>
+    <div class="mu-mx-right">
+      <canvas class="mu-mx-cv" aria-label="The wave shape of the mix, two repeats · 這個混合的波形，兩個週期"></canvas>
+      <p class="mu-mx-cap">Two repeats of the shape · 兩個週期的形狀</p>
+      <div class="mu-mx-presets" role="group" aria-label="Mixes · 配方">
+        <button type="button" class="mu-btn" data-recipe="pure" aria-pressed="true">Only the fundamental · 只有基音</button>
+        <button type="button" class="mu-btn" data-recipe="all" aria-pressed="false">All, fading as 1/n · 全部，1/n</button>
+        <button type="button" class="mu-btn" data-recipe="odd" aria-pressed="false">Odd only, 1/n · 只有奇數，1/n</button>
+        <button type="button" class="mu-btn" data-recipe="soft" aria-pressed="false">Odd only, 1/n² · 只有奇數，1/n²</button>
+      </div>
+      <button type="button" class="mu-btn mu-btn-gold mu-mx-play">&#9654; Play the note · 播放這個音</button>
+    </div>
+  </div>
+  <p class="mu-mx-msg" aria-live="polite"></p>
+</div>'''
+
+def _mu_env(d):
+    return '''<div class="mu-env rvl" data-mu-env>
+  <div class="mu-ev-grid">
+    <div class="mu-ev-ctl">
+      <label><span>Attack, how fast it starts · 起音（多快響起來）<output class="mu-ev-ao"></output></span><input type="range" class="mu-ev-a" min="0" max="100" step="1" value="0" aria-label="Attack time · 起音時間"></label>
+      <label><span>Decay, how fast it fades · 衰減（多快變小聲）<output class="mu-ev-do"></output></span><input type="range" class="mu-ev-d" min="0" max="100" step="1" value="50" aria-label="Decay time · 衰減時間"></label>
+      <label><span>Sustain, how much is kept · 維持（保留多少）<output class="mu-ev-so"></output></span><input type="range" class="mu-ev-s" min="0" max="100" step="1" value="0" aria-label="Sustain level · 維持的量"></label>
+      <div class="mu-ev-presets" role="group" aria-label="Presets · 預設">
+        <button type="button" class="mu-btn" data-env="struck" aria-pressed="true">Struck or plucked · 敲擊或撥奏</button>
+        <button type="button" class="mu-btn" data-env="bowed" aria-pressed="false">Bowed · 拉奏</button>
+      </div>
+      <button type="button" class="mu-btn mu-btn-gold mu-ev-play">&#9654; Play the note · 播放這個音</button>
+    </div>
+    <div class="mu-ev-right">
+      <canvas class="mu-ev-cv" aria-label="How the loudness of the note changes over three seconds · 三秒內這個音的音量怎麼變"></canvas>
+      <p class="mu-mx-cap">Loudness over 3 seconds · 三秒內的音量</p>
+    </div>
+  </div>
+  <p class="mu-ev-msg">The pitch and the harmonics stay exactly the same. Only the loudness curve changes.<span class="zh">音高和諧波完全不變，只有音量的曲線不一樣。</span></p>
+</div>'''
+
+def _mu_which(d):
+    opts = "".join(
+        f'<button type="button" class="mu-wh-opt" data-pick="{k}"><canvas aria-hidden="true"></canvas><span class="mu-wh-name">{html.escape(en)}<span class="zh">{html.escape(zh)}</span></span></button>'
+        for k, en, zh in [("pure", "Only the fundamental", "只有基音"), ("all", "All harmonics, 1/n", "全部諧波，1/n"),
+                          ("odd", "Odd harmonics only, 1/n", "只有奇數諧波，1/n"), ("soft", "Odd harmonics only, 1/n²", "只有奇數諧波，1/n²")])
+    return f'''<div class="mu-which rvl" data-mu-which>
+  <div class="mu-hg-top"><p class="mu-wh-k">Question 1 of 6 · 第 1 題（共 6 題）</p><p class="mu-hg-sc">Right on the first try · 第一次就答對 <b class="mu-wh-score">0 / 0</b></p></div>
+  <div class="mu-hg-playrow"><button type="button" class="mu-btn mu-btn-gold mu-wh-play">&#9654; Play the note · 播放這個音</button></div>
+  <p class="mu-hg-nosound mu-wh-nosound" hidden>This browser cannot make sound, so the question is described in words instead.<span class="zh">這個瀏覽器無法發聲，所以改用文字描述這一題。</span></p>
+  <p class="mu-wh-desc" hidden></p>
+  <div class="mu-wh-opts">{opts}</div>
+  <p class="mu-wh-msg" aria-live="polite"></p>
+  <div class="mu-hg-foot"><span></span><button type="button" class="mu-btn mu-btn-gold mu-wh-next" hidden>Next question · 下一題</button></div>
+</div>'''
+
 def _mu_curric(d):
     rows = "".join(
         f'<li class="mu-cur rvl"><p class="mu-cur-k"><b>{html.escape(c["code"])}</b><span>{html.escape(c["area"])} · {html.escape(c["area_en"])}</span></p>'
@@ -16274,7 +16386,7 @@ def build_mus_lesson(ui, unit, lesson):
     reading_html = render_basic_unit(1, unit_dict, level="music", audio_rel="", pdf_rel="")
     lab = lesson["lab"]
     kind = lab["kind"]
-    lab_html = {"string": render_musstring_lab}[kind](lesson)
+    lab_html = {"string": render_musstring_lab, "timbre": render_mustimbre_lab}[kind](lesson)
 
     def sec(key, fn):
         d = lesson[key]
@@ -16292,6 +16404,9 @@ def build_mus_lesson(ui, unit, lesson):
         ph = lesson["parts_head"]
         secs.append(("parts", ph["eyebrow"], ph["en"], ph["zh"], f'<div class="ph-grid stagger">{cards}</div>',
                      _bi(lesson["parts_note_en"], lesson["parts_note_zh"], cls="lead rvl d2")))
+    if lesson.get("mix"): secs.append(sec("mix", _mu_mix))
+    if lesson.get("env"): secs.append(sec("env", _mu_env))
+    if lesson.get("which"): secs.append(sec("which", _mu_which))
     if lesson.get("higher"): secs.append(sec("higher", _mu_higher))
     if lesson.get("keys"): secs.append(sec("keys", _mu_keys))
     if lesson.get("range"): secs.append(sec("range", _mu_range))

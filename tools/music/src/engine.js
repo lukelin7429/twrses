@@ -30,7 +30,7 @@ export function getSynth() {
   synth = createSynth({ win: window });
   trackMedia();
   // 樂器要響之前，先讓朗讀安靜；朗讀按鈕按下去，樂器就收音
-  for (const k of ['tone', 'hold']) {
+  for (const k of ['tone', 'toneComplex', 'hold']) {
     const f = synth[k];
     synth[k] = (...a) => { silenceSpeech(); return f(...a); };
   }

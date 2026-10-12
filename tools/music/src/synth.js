@@ -66,25 +66,32 @@ export function createSynth({ win = typeof window !== 'undefined' ? window : nul
     } catch (e) { /* ignore */ }
   }
 
-  function make(freq, { type = 'triangle', gain = 1, kind = 'tone' } = {}) {
+  function make(freq, { type = 'triangle', gain = 1, kind = 'tone', attack = ATTACK, amps = null } = {}) {
     if (!state.unlocked || !ctx || !(freq > 0)) return null;
     if (voices.size >= MAX_VOICES) { const oldest = [...voices].sort((a, b) => a.order - b.order)[0]; retire(oldest, now()); }
     const t = now();
     const osc = ctx.createOscillator();
     const env = ctx.createGain();
-    osc.type = type;
+    let top = freq;   // 最高的成分（安全限制要看它）
+    if (amps && ctx.createPeriodicWave && osc.setPeriodicWave) {
+      const real = new Float32Array(amps.length + 1), imag = new Float32Array(amps.length + 1);
+      amps.forEach((a, i) => { imag[i + 1] = a; if (a) top = freq * (i + 1); });
+      osc.setPeriodicWave(ctx.createPeriodicWave(real, imag, { disableNormalization: true }));
+    } else {
+      osc.type = type;
+    }
     osc.frequency.setValueAtTime(freq, t);
     env.gain.setValueAtTime(0, t);
-    env.gain.linearRampToValueAtTime(VOICE_PEAK * gain * safeScale(freq), t + ATTACK);
+    env.gain.linearRampToValueAtTime(VOICE_PEAK * gain * safeScale(top), t + attack);
     osc.connect(env); env.connect(master);
     osc.start(t);
-    const v = { osc, env, freq, kind, order: ++order, gain, endAt: Infinity,
+    const v = { osc, env, freq, kind, order: ++order, gain, endAt: Infinity, partials: amps ? amps.slice() : null, top,
       setFreq(f) {
         if (!(f > 0)) return;
         v.freq = f;
         const tt = now();
         osc.frequency.setTargetAtTime(f, tt, GLIDE_TAU);
-        env.gain.setTargetAtTime(VOICE_PEAK * v.gain * safeScale(f), tt, 0.02);
+        env.gain.setTargetAtTime(VOICE_PEAK * v.gain * safeScale(f * (top / freq)), tt, 0.02);
       },
       release() { if (voices.has(v)) { retire(v, now()); emit(); } },
     };
@@ -102,6 +109,25 @@ export function createSynth({ win = typeof window !== 'undefined' ? window : nul
     v.endAt = now() + dur;
     // 預設像撥弦一樣慢慢衰減（sustain: true 則音量不變，到時間才收）
     if (!opts.sustain) v.env.gain.setTargetAtTime(0.0001, now() + ATTACK, dur / 3);
+    v.timer = setTimeout(() => v.release(), Math.max(30, dur * 1000));
+    const rel = v.release;
+    v.release = () => { clearTimeout(v.timer); rel(); };
+    return v;
+  }
+
+  /**
+   * 疊了很多諧波的音：amps[n-1] 是第 n 諧波的相對振幅（尖峰要事先縮到 1，見 timbre.js 的 normalizePeak）。
+   * env = { attack, decay, sustain }（秒、秒、0–1 的水準）：attack 秒線性升到最大，之後以 decay/3 的時間常數衰減到 sustain；
+   * dur 秒後收音（0.08 秒內，不爆音）。
+   */
+  function toneComplex(freq, amps, opts = {}) {
+    const env = opts.env || { attack: 0.01, decay: 1, sustain: 0 };
+    const v = make(freq, { ...opts, amps, attack: Math.max(0.003, env.attack), kind: 'tone' });
+    if (!v) return null;
+    const dur = opts.dur ?? 1.5;
+    v.endAt = now() + dur;
+    const peak = VOICE_PEAK * v.gain * safeScale(v.top);
+    v.env.gain.setTargetAtTime(Math.max(0.0001, peak * env.sustain), now() + Math.max(0.003, env.attack), Math.max(0.01, env.decay / 3));
     v.timer = setTimeout(() => v.release(), Math.max(30, dur * 1000));
     const rel = v.release;
     v.release = () => { clearTimeout(v.timer); rel(); };
@@ -132,7 +158,7 @@ export function createSynth({ win = typeof window !== 'undefined' ? window : nul
   }
 
   function nowPlaying() {
-    return [...voices].sort((a, b) => a.order - b.order).map((v) => ({ freq: v.freq, kind: v.kind }));
+    return [...voices].sort((a, b) => a.order - b.order).map((v) => (v.partials ? { freq: v.freq, kind: v.kind, partials: v.partials } : { freq: v.freq, kind: v.kind }));
   }
   const hz = () => { const l = nowPlaying(); return l.length ? l[l.length - 1].freq : 0; };
 
@@ -145,7 +171,7 @@ export function createSynth({ win = typeof window !== 'undefined' ? window : nul
   }
 
   return {
-    state, unlock, tone, hold, stopAll, setVolume, setMuted, nowPlaying, hz,
+    state, unlock, tone, toneComplex, hold, stopAll, setVolume, setMuted, nowPlaying, hz,
     subscribe: (fn) => { listeners.add(fn); return () => listeners.delete(fn); },
     get context() { return ctx; },
   };

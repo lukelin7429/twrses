@@ -234,3 +234,78 @@ a.mu-link:hover { transform: translateY(-3px); box-shadow: var(--shadow); border
   .mu-k-cell b { font-size: 1rem; }
   .mu-rg-hz { font-size: 2.4rem; }
 }
+
+/* ── 第二課：弦的諧波（3D 與右邊欄） ─────────────────────────────────── */
+.al-lab.mu-lb-mode { font-size: .72rem; color: #e8edf7; background: rgba(12,20,40,.82); }
+.al-lab.mu-lb-mode.is-zero { color: #ffb4a2; text-decoration: line-through; }
+.mu-freq-sm { font-size: 1.9rem; }
+.mu-freq-sm b { color: var(--al-sun); }
+.mu-freq-sm small { font-size: .85rem; }
+.mu-k2 { margin-top: .2rem !important; }
+.mu-bars { display: grid; grid-template-columns: repeat(8, minmax(0, 1fr)); gap: .25rem; align-items: end; height: 120px; }
+.mu-bar { position: relative; display: flex; flex-direction: column; justify-content: flex-end; align-items: center; height: 100%; }
+.mu-bar-v { display: block; width: 100%; height: calc(var(--v, 0) * 74px + 3px); min-height: 3px; border-radius: 4px 4px 0 0; background: var(--c); transition: height .2s; }
+.mu-bar.is-off .mu-bar-v { opacity: .22; }
+.mu-bar.is-zero .mu-bar-v { background: transparent; border: 1px dashed #ffb4a2; border-bottom: 0; }
+.mu-bar-n { font-size: .78rem; font-weight: 800; color: #fff; }
+.mu-bar-f { font-size: .56rem; color: var(--al-mute); white-space: nowrap; font-variant-numeric: tabular-nums; }
+.mu-bar > .mu-bar-n { order: 3; margin-top: .15rem; }
+.mu-bar > .mu-bar-f { order: 4; }
+.mu-bar > .mu-bar-v { order: 2; }
+.mu-modes { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: .3rem; }
+.mu-modes button { padding: .42rem 0; border-radius: 10px; border: 1px solid var(--al-line); background: rgba(255,255,255,.03); color: var(--al-mute); font-family: var(--sans); font-weight: 800; font-size: .9rem; cursor: pointer; }
+.mu-modes button[aria-pressed="true"] { background: var(--al-sun); border-color: var(--al-sun); color: #1b1405; }
+.mu-presets-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+
+/* ── 混合諧波 ────────────────────────────────────────────────────────── */
+.mu-mix, .mu-env, .mu-which { margin-top: 1.5rem; padding: 1.5rem 1.6rem; background: #fff; border: 1px solid var(--line); border-radius: 20px; box-shadow: var(--shadow-sm); max-width: 940px; }
+.mu-mx-grid, .mu-ev-grid { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: 1.4rem 2rem; align-items: start; }
+.mu-mx-sliders { display: grid; gap: .45rem; }
+.mu-mx-row { display: grid; grid-template-columns: 1.6rem minmax(0, 1fr) 4.6rem 2.8rem; align-items: center; gap: .5rem; font-size: .8rem; }
+.mu-mx-n { display: grid; place-items: center; width: 1.5rem; height: 1.5rem; border-radius: 50%; background: var(--c); color: #1b1405; font-weight: 800; font-size: .8rem; }
+.mu-mx-row input { width: 100%; accent-color: var(--c); }
+.mu-mx-f { color: var(--ink-soft); font-variant-numeric: tabular-nums; text-align: right; }
+.mu-mx-row output { font-weight: 800; font-variant-numeric: tabular-nums; text-align: right; }
+.mu-mx-cv, .mu-ev-cv { display: block; width: 100%; height: 150px; border: 1px solid var(--line); border-radius: 12px; background: #fff; }
+.mu-mx-cap { margin: .35rem 0 .8rem; font-size: .76rem; color: var(--ink-soft); }
+.mu-mx-presets, .mu-ev-presets { display: flex; flex-wrap: wrap; gap: .4rem; margin-bottom: .8rem; }
+.mu-mx-presets .mu-btn, .mu-ev-presets .mu-btn { padding: .4rem .8rem; font-size: .78rem; }
+.mu-mix .mu-btn[aria-pressed="true"], .mu-env .mu-btn[aria-pressed="true"] { border-color: var(--brand); background: var(--brand-lt); }
+.mu-mx-msg { margin: 1rem 0 0; min-height: 3.2em; font-size: .92rem; line-height: 1.6; }
+.mu-mx-msg .zh, .mu-ev-msg .zh { display: block; color: var(--ink-soft); }
+.mu-ev-ctl { display: grid; gap: .9rem; }
+.mu-ev-ctl label { display: block; font-size: .82rem; font-weight: 700; }
+.mu-ev-ctl label output { margin-left: .5rem; color: var(--brand-dk); font-variant-numeric: tabular-nums; }
+.mu-ev-ctl input[type="range"] { display: block; width: 100%; margin-top: .3rem; accent-color: var(--brand); }
+.mu-ev-msg { margin: 1rem 0 0; font-size: .92rem; line-height: 1.6; }
+
+/* ── 哪一個波形？ ───────────────────────────────────────────────────── */
+.mu-wh-k { margin: 0; font-size: .78rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--gold-dk); }
+.mu-which .mu-hg-sc { color: var(--ink-soft); }
+.mu-which .mu-hg-score { color: var(--ink); }
+.mu-which .mu-hg-nosound { background: #fff0ec; color: #8a3b24; }
+.mu-wh-desc { margin: .8rem 0 0; padding: .6rem .9rem; border-radius: 10px; background: var(--cream); font-size: .92rem; }
+.mu-wh-desc[hidden] { display: none; }
+.mu-wh-desc .zh { display: block; color: var(--ink-soft); }
+.mu-wh-opts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .8rem; margin-top: 1rem; }
+.mu-wh-opt { display: flex; flex-direction: column; gap: .4rem; padding: .6rem; border-radius: 14px; border: 1px solid var(--line); background: #fff; font-family: var(--sans); cursor: pointer; text-align: left; transition: border-color .15s, transform .15s; }
+.mu-wh-opt:hover:not(:disabled) { border-color: var(--gold); transform: translateY(-2px); }
+.mu-wh-opt canvas { width: 100%; height: 86px; display: block; border-radius: 8px; }
+.mu-wh-name { font-size: .84rem; font-weight: 800; line-height: 1.35; }
+.mu-wh-name .zh { display: block; font-weight: 600; color: var(--ink-soft); }
+.mu-wh-opt.is-right { border-color: #2f9e63; background: #eefaf2; }
+.mu-wh-opt.is-wrong { border-color: #e08a8a; background: #fdf0f0; opacity: .7; }
+.mu-wh-opt:disabled:not(.is-right) { cursor: default; }
+.mu-wh-msg { margin: 1rem 0 0; min-height: 3.4em; font-size: .94rem; line-height: 1.6; }
+.mu-wh-msg .zh { display: block; color: var(--ink-soft); }
+@media (max-width: 860px) { .mu-mx-grid, .mu-ev-grid { grid-template-columns: 1fr; } }
+@media (max-width: 560px) {
+  .mu-mix, .mu-env, .mu-which { padding: 1.1rem; }
+  .mu-mx-row { grid-template-columns: 1.5rem minmax(0, 1fr) 3.6rem 2.4rem; gap: .35rem; font-size: .72rem; }
+  .mu-wh-opts { grid-template-columns: 1fr; }
+}
+
+.al-lg-mode i { border-color: #7ef0e3; background: rgba(126,240,227,.25); height: 6px; border-radius: 3px; margin-top: .5rem; }
+.al-lg-node i { border-color: #fff; background: #fff; width: 10px; height: 10px; margin: .3rem 4px 0; }
+
+.mu-wh-opt:disabled { color: var(--ink); }
