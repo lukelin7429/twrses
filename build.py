@@ -16166,7 +16166,7 @@ def build_comp_hub():
 _musj = os.path.join(ROOT, "data", "music.json")
 MUS = json.load(open(_musj, encoding="utf-8")) if os.path.exists(_musj) else None
 MUS_BASE = "/resources/classes/music/"
-_MUS_JS = {"string": "mus-string", "timbre": "mus-timbre", "beat": "mus-beat", "dynamics": "mus-dynamics", "staff": "mus-staff", "values": "mus-values"}   # lab.kind → assets/js/<bundle>.js
+_MUS_JS = {"string": "mus-string", "timbre": "mus-timbre", "beat": "mus-beat", "dynamics": "mus-dynamics", "staff": "mus-staff", "values": "mus-values", "scale": "mus-scale"}   # lab.kind → assets/js/<bundle>.js
 
 def _mus_ver():
     h = hashlib.md5()
@@ -16244,7 +16244,14 @@ def musvalues_svg(size=56):
             '<g fill="#7ef0e3"><ellipse cx="14" cy="46" rx="3.6" ry="2.6"/><ellipse cx="26" cy="46" rx="3.6" ry="2.6"/><ellipse cx="38" cy="46" rx="3.6" ry="2.6"/><ellipse cx="50" cy="46" rx="3.6" ry="2.6"/></g>'
             '<g stroke="#7ef0e3" stroke-width="1.8"><path d="M17 46V34M29 46V34M41 46V34M53 46V34"/></g></svg>')
 
-_MUS_CARD = {"string": mustring_svg, "timbre": mustimbre_svg, "beat": musbeat_svg, "dynamics": musdynamics_svg, "staff": musstaff_svg, "values": musvalues_svg}
+def musscale_svg(size=56):
+    """第七課的課程卡小圖示：一道往上的階梯，台階有高有矮（全音與半音）。"""
+    steps = [(6, 44, 10), (16, 36, 10), (26, 32, 10), (36, 24, 10), (46, 16, 10)]
+    rects = "".join(f'<rect x="{x}" y="{y}" width="{w}" height="{50 - y}" rx="2" fill="none" stroke="#9fb0cf" stroke-width="1.4"/>' for x, y, w in steps)
+    return (f'<svg class="musscale-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">{rects}'
+            '<g fill="#7ef0e3"><circle cx="11" cy="40" r="3"/><circle cx="21" cy="32" r="3"/><circle cx="31" cy="28" r="3"/><circle cx="41" cy="20" r="3"/><circle cx="51" cy="12" r="3"/></g></svg>')
+
+_MUS_CARD = {"string": mustring_svg, "timbre": mustimbre_svg, "beat": musbeat_svg, "dynamics": musdynamics_svg, "staff": musstaff_svg, "values": musvalues_svg, "scale": musscale_svg}
 _MUS_PRESETS = [   # 和 tools/music/src/pitch.js 的 PRESETS 對應
     {"key": "whole", "en": "Whole string", "zh": "整根弦"}, {"key": "half", "en": "One half", "zh": "二分之一"},
     {"key": "twothirds", "en": "Two thirds", "zh": "三分之二"}, {"key": "threequarters", "en": "Three quarters", "zh": "四分之三"}]
@@ -16676,6 +16683,48 @@ def _mu_split(d):
         for n, nm, zh in [(1, "Whole note", "全音符"), (2, "Half notes", "二分音符"), (4, "Quarter notes", "四分音符"), (8, "Eighth notes", "八分音符"), (16, "Sixteenth notes", "十六分音符")])
     return f'''<div class="mu-split rvl" data-mu-split>{rows}<p class="mu-sp-note">Each row fills the same four beats. Press a row to hear it at 60 BPM, one beat each second. · 每一列填滿同樣的四拍。按一列，用 60 BPM（每秒一拍）聽聽看。</p></div>'''
 
+def render_musscale_lab(lesson):
+    """第七課：建一個音階（assets/js/mus-scale.js 綁這裡的 class；沒有 3D，聲音由瀏覽器合成）。"""
+    tonics = "".join(f'<button type="button" class="mu-btn" data-tonic="{t}" aria-pressed="{"true" if t == "C" else "false"}">{t}</button>' for t in "CDEFGAB")
+    scales = "".join(f'<button type="button" class="mu-btn" data-scale="{k}" aria-pressed="{"true" if k == "major" else "false"}">{en} · {zh}</button>'
+                     for k, en, zh in [("major", "Major", "大調"), ("minor", "Minor", "小調"), ("majpent", "Major pentatonic", "大調五聲"), ("minpent", "Minor pentatonic", "小調五聲")])
+    return f'''<div class="mu-scl rvl" data-musscale-lab>
+  <div class="mu-sc-row" role="group" aria-label="Tonic · 主音"><span class="mu-st-k">Tonic · 主音</span>{tonics}</div>
+  <div class="mu-sc-row" role="group" aria-label="Scale · 音階"><span class="mu-st-k">Scale · 音階</span>{scales}</div>
+  <div class="mu-sc-steps" aria-live="polite" aria-label="The notes you have built, with the steps between them · 你建好的音，與它們之間的步階"></div>
+  <p class="mu-sc-pat"></p>
+  <canvas class="mu-sc-cv" aria-label="The scale written on a staff · 寫在五線譜上的音階"></canvas>
+  <div class="mu-sc-kb" aria-label="Piano keys from C4 to C6 · 從 C4 到 C6 的鋼琴鍵"></div>
+  <div class="mu-sc-btns">
+    <button type="button" class="mu-btn mu-btn-gold mu-sc-play" disabled>&#9654; Play · 播放</button>
+    <button type="button" class="mu-btn mu-sc-reveal">Show the whole scale · 直接顯示整個音階</button>
+    <button type="button" class="mu-btn mu-sc-reset">Start over · 重來</button>
+  </div>
+  <p class="mu-msg" aria-live="polite"></p>
+</div>'''
+
+def _mu_tune(d):
+    btns = "".join(f'<button type="button" class="mu-btn" data-tscale="{k}" aria-pressed="{"true" if k == "major" else "false"}">{en} · {zh}</button>'
+                   for k, en, zh in [("major", "Major", "大調"), ("minor", "Minor", "小調"), ("majpent", "Pentatonic", "五聲音階")])
+    return f'''<div class="mu-tune rvl" data-mu-tune>
+  <div class="mu-sc-row">{btns}</div>
+  <canvas class="mu-tn-cv" aria-label="The same tune written in the chosen scale · 用選好的音階寫出的同一段旋律"></canvas>
+  <p class="mu-tn-names"></p>
+  <p class="mu-tn-msg" aria-live="polite"></p>
+</div>'''
+
+def _mu_scaleq(d):
+    opts = "".join(f'<button type="button" class="mu-scq-opt" data-pick="{k}"><b>{en}</b><small>{zh}</small></button>'
+                   for k, en, zh in [("major", "Major", "大調"), ("minor", "Minor", "小調"), ("majpent", "Pentatonic", "五聲音階")])
+    return f'''<div class="mu-scaleq rvl" data-mu-scaleq>
+  <div class="mu-hg-top"><p class="mu-scq-k">Question 1 of 6 · 第 1 題（共 6 題）</p><p class="mu-hg-sc">Right on the first try · 第一次就答對 <b class="mu-scq-score">0 / 0</b></p></div>
+  <div class="mu-sc-btns"><button type="button" class="mu-btn mu-btn-gold mu-sqz-listen">&#9654; Listen · 聽</button><button type="button" class="mu-btn mu-sqz-show">Show the steps · 看步階</button></div>
+  <p class="mu-sqz-pat" hidden></p>
+  <div class="mu-scq-opts">{opts}</div>
+  <p class="mu-q-msg" aria-live="polite"></p>
+  <div class="mu-hg-foot"><span></span><button type="button" class="mu-btn mu-btn-gold mu-scq-next" hidden>Next question · 下一題</button></div>
+</div>'''
+
 def _mu_curric(d):
     rows = "".join(
         f'<li class="mu-cur rvl"><p class="mu-cur-k"><b>{html.escape(c["code"])}</b><span>{html.escape(c["area"])} · {html.escape(c["area_en"])}</span></p>'
@@ -16711,7 +16760,7 @@ def build_mus_lesson(ui, unit, lesson):
     reading_html = render_basic_unit(1, unit_dict, level="music", audio_rel="", pdf_rel="")
     lab = lesson["lab"]
     kind = lab["kind"]
-    lab_html = {"string": render_musstring_lab, "timbre": render_mustimbre_lab, "beat": render_musbeat_lab, "dynamics": render_musdynamics_lab, "staff": render_musstaff_lab, "values": render_musvalues_lab}[kind](lesson)
+    lab_html = {"string": render_musstring_lab, "timbre": render_mustimbre_lab, "beat": render_musbeat_lab, "dynamics": render_musdynamics_lab, "staff": render_musstaff_lab, "values": render_musvalues_lab, "scale": render_musscale_lab}[kind](lesson)
 
     def sec(key, fn):
         d = lesson[key]
@@ -16729,6 +16778,8 @@ def build_mus_lesson(ui, unit, lesson):
         ph = lesson["parts_head"]
         secs.append(("parts", ph["eyebrow"], ph["en"], ph["zh"], f'<div class="ph-grid stagger">{cards}</div>',
                      _bi(lesson["parts_note_en"], lesson["parts_note_zh"], cls="lead rvl d2")))
+    if lesson.get("tune"): secs.append(sec("tune", _mu_tune))
+    if lesson.get("scaleq"): secs.append(sec("scaleq", _mu_scaleq))
     if lesson.get("beatq"): secs.append(sec("beatq", _mu_beatq))
     if lesson.get("split"): secs.append(sec("split", _mu_split))
     if lesson.get("staffq"): secs.append(sec("staffq", _mu_staffq))

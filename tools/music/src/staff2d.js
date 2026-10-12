@@ -8,8 +8,8 @@
  */
 import { isLinePos, ledgerPositions } from './staff.js';
 
-export function staffGeometry(w, h) {
-  const s = Math.max(10, Math.min(22, (h - 40) / 10));        // 線距：五線高 4s，上下各留 3 個半格以上放加線
+export function staffGeometry(w, h, maxS = 22) {
+  const s = Math.max(10, Math.min(maxS, (h - 40) / 10));        // 線距：五線高 4s，上下各留 3 個半格以上放加線
   const mid = h / 2;
   const yBottom = mid + 2 * s;                                  // pos 0 的線
   return { s, yBottom, yTop: yBottom - 4 * s, w, h, noteX: Math.max(90, w * 0.62), left: 14 };
@@ -41,12 +41,12 @@ function bassClef(c, x, g) {
   for (const dy of [-0.55, 0.55]) { c.beginPath(); c.arc(x + 2.5 * s, yF + dy * s, 0.28 * s, 0, Math.PI * 2); c.fill(); }
 }
 
-export function drawStaff(cv, { clef = 'treble', notes = [], hover = null, ink = '#1b1405', bg = '#fffdf6' } = {}) {
+export function drawStaff(cv, { clef = 'treble', notes = [], hover = null, ink = '#1b1405', bg = '#fffdf6', maxS = 22 } = {}) {
   const dpr = Math.min(window.devicePixelRatio || 1, 2), w = cv.clientWidth || 600, h = cv.clientHeight || 220;
   if (cv.width !== Math.round(w * dpr) || cv.height !== Math.round(h * dpr)) { cv.width = Math.round(w * dpr); cv.height = Math.round(h * dpr); }
   const c = cv.getContext('2d');
   c.setTransform(dpr, 0, 0, dpr, 0, 0);
-  const g = staffGeometry(w, h);
+  const g = staffGeometry(w, h, maxS);
   c.fillStyle = bg; c.fillRect(0, 0, w, h);
   c.strokeStyle = ink; c.fillStyle = ink; c.lineCap = 'round'; c.lineJoin = 'round';
   c.lineWidth = 1.4;
@@ -150,4 +150,48 @@ export function drawMeasure(cv, { items = [], pitches = [60, 62, 64, 65, 67, 69,
     c.strokeStyle = '#0d9d8c'; c.lineWidth = 2.5; c.beginPath(); c.moveTo(x, g.yTop - 1.5 * s); c.lineTo(x, g.yBottom + 1.5 * s); c.stroke();
   }
   return { g, xOfBeat };
+}
+
+// ── 第七課起：畫一串音（音階、旋律），含升記號與降記號 ─────────────────────────
+function sharpSign(c, x, y, s, color) {
+  c.strokeStyle = color; c.fillStyle = color;
+  c.lineWidth = Math.max(1.2, s * 0.1);
+  for (const dx of [-0.22, 0.22]) { c.beginPath(); c.moveTo(x + dx * s, y - 1.1 * s); c.lineTo(x + dx * s, y + 1.1 * s); c.stroke(); }
+  c.lineWidth = Math.max(2, s * 0.22);
+  for (const dy of [-0.34, 0.34]) { c.beginPath(); c.moveTo(x - 0.5 * s, y + (dy + 0.14) * s); c.lineTo(x + 0.5 * s, y + (dy - 0.14) * s); c.stroke(); }
+}
+function flatSign(c, x, y, s, color) {
+  c.strokeStyle = color; c.fillStyle = color;
+  c.lineWidth = Math.max(1.4, s * 0.12);
+  c.beginPath(); c.moveTo(x - 0.25 * s, y - 1.7 * s); c.lineTo(x - 0.25 * s, y + 0.7 * s); c.stroke();
+  c.beginPath(); c.moveTo(x - 0.25 * s, y + 0.7 * s);
+  c.bezierCurveTo(x + 0.9 * s, y + 0.1 * s, x + 0.8 * s, y - 0.9 * s, x - 0.25 * s, y - 0.5 * s); c.stroke();
+}
+
+/**
+ * 畫一串音符（由左到右等距）：notes = [{ pos, acc（−1 降、0、1 升）, color? }]；active＝正在播放的那一個的索引（用強調色）。
+ * 回傳 { g, xs }（每個音符中心的 x）。
+ */
+export function drawScale(cv, { notes = [], clef = 'treble', active = -1, ink = '#1b1405', bg = '#fffdf6', color = ink, accent = '#0d9d8c', maxS = 17 } = {}) {
+  const g = drawStaff(cv, { clef, notes: [], ink, bg, maxS });
+  const c = cv.getContext('2d'), s = g.s, w = g.w;
+  const dpr = Math.min(window.devicePixelRatio || 1, 2);
+  c.setTransform(dpr, 0, 0, dpr, 0, 0);
+  const x0 = g.left + 6.6 * s, xEnd = w - 18, n = Math.max(1, notes.length);
+  const step = notes.length > 1 ? (xEnd - x0) / (n - 1) : 0;
+  const xs = notes.map((_, i) => (n === 1 ? (x0 + xEnd) / 2 : x0 + i * step));
+  notes.forEach((nt, i) => {
+    const x = xs[i], y = yOf(nt.pos, g), col = i === active ? accent : (nt.color || color);
+    c.strokeStyle = col; c.fillStyle = col; c.lineWidth = 1.4;
+    for (const lp of ledgerPositions(nt.pos)) { const ly = yOf(lp, g); c.beginPath(); c.moveTo(x - 1.1 * s, ly); c.lineTo(x + 1.1 * s, ly); c.stroke(); }
+    c.beginPath(); c.ellipse(x, y, 0.72 * s, 0.5 * s, -0.35, 0, Math.PI * 2); c.fill();
+    const up = nt.pos < 4;
+    c.lineWidth = Math.max(1.5, s * 0.12);
+    c.beginPath();
+    if (up) { c.moveTo(x + 0.66 * s, y - 0.1 * s); c.lineTo(x + 0.66 * s, y - 3.1 * s); } else { c.moveTo(x - 0.66 * s, y + 0.1 * s); c.lineTo(x - 0.66 * s, y + 3.1 * s); }
+    c.stroke();
+    if (nt.acc === 1) sharpSign(c, x - 1.55 * s, y, s * 0.78, col);
+    else if (nt.acc === -1) flatSign(c, x - 1.45 * s, y, s * 0.78, col);
+  });
+  return { g, xs };
 }

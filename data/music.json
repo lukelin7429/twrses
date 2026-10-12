@@ -3693,11 +3693,11 @@
        "icon": "🪜",
        "k_en": "Music · Lesson 7",
        "k_zh": "音樂・第七課",
-       "soon": true,
        "en": "What Is a Scale?",
        "zh": "音階是什麼？",
        "note_en": "Length is only one half of a tune. Next, the steps of pitch: whole steps and half steps.",
-       "note_zh": "長短只是一段旋律的一半。接下來是音高的階梯：全音和半音。"
+       "note_zh": "長短只是一段旋律的一半。接下來是音高的階梯：全音和半音。",
+       "href": "/resources/classes/music/what-is-a-scale/"
       }
      ],
      "sources_note_en": "Names, dates, numbers, and quotations on this page were checked against these sources (October 2026). The note shapes on the staff are our own simplified drawings, and the timing is computed by the page itself and covered by automatic tests.",
@@ -3806,15 +3806,655 @@
        "url": "https://cdn.who.int/media/docs/default-source/documents/health-topics/deafness-and-hearing-loss/mls-brochure-english-2021.pdf?sfvrsn=bf19b448_5"
       }
      ]
+    },
+    {
+     "n": 7,
+     "slug": "what-is-a-scale",
+     "title": "What Is a Scale?",
+     "title_zh": "音階是什麼？",
+     "level": "入門 · Beginner",
+     "icon": "🪜",
+     "card": "scale",
+     "blurb_en": "Build major, minor, and pentatonic scales one key at a time, and hear the same tune in three different scales. Find out what a whole step and a half step are.",
+     "blurb_zh": "一個鍵一個鍵建出大調、小調和五聲音階，聽同一段旋律換三種音階。看看什麼是全音和半音。",
+     "big_idea_en": "A scale is a ladder of notes from low to high. The steps between the notes are whole steps and half steps, and the pattern of those steps decides which scale it is.",
+     "big_idea_zh": "音階是一座由低到高的音的階梯。音和音之間的步階是全音和半音，這些步階的排列圖樣，決定它是哪一種音階。",
+     "lab": {
+      "kind": "scale",
+      "eyebrow": "Try It · 動手試試",
+      "title_en": "Build a Scale",
+      "title_zh": "建一個音階",
+      "how_en": "Choose a tonic, the note you start on, and a kind of scale. Then press the keys one at a time, following the pattern of whole steps (W) and half steps (H). If you press the wrong key, the page tells you which step comes next. When the scale is built, you can see it on the staff and play it. The tonics here are all white keys, so some scales need black keys: they are shown with a sharp (♯) or a flat (♭).",
+      "how_zh": "選一個主音（你開始的那個音）和一種音階，然後依照全音（W）與半音（H）的圖樣，一次按一個鍵。按錯了，頁面會告訴你下一步是什麼。音階建好了，可以在五線譜上看，也可以播放。這裡的主音都是白鍵，所以有些音階需要黑鍵：它們會用升記號（♯）或降記號（♭）標出來。"
+     },
+     "paras": [
+      "A scale is a series of notes arranged from low to high, from one note up to the same note an octave higher. The first note is called the tonic. The English word scale comes from the Latin scala, which means ladder, and that is a good picture: every note is a rung, and you climb from the tonic to the top.",
+      "The distance between neighboring rungs comes in two sizes. A half step, also called a semitone, is the distance between two neighboring keys on a piano. A whole step is two half steps. In the equal temperament you met in lesson 1, each half step is a frequency ratio of 2 to the power of 1/12, so two half steps multiply the frequency by about 1.12. On the piano, E to F and B to C are half steps, because there is no black key between them.",
+      "A major scale has a pattern of seven steps: whole, whole, half, whole, whole, whole, half. That is W W H W W W H. Start on C and you only need white keys: C D E F G A B C. The two half steps fall between the third and fourth notes, and between the seventh and eighth. In equal temperament, the notes of a major scale are 0, 200, 400, 500, 700, 900, 1100, and 1200 cents above the tonic.",
+      "The pattern is what makes the scale, not the starting note. Start on D and keep W W H W W W H, and you must use F♯ and C♯. A sharp raises a note by a half step. A flat lowers it. A natural minor scale has a different pattern: W H W W H W W. Compared with a major scale from the same tonic, its third, sixth, and seventh notes are a half step lower. From A, it uses only white keys: A B C D E F G A.",
+      "Many people hear major scales as brighter and minor scales as more serious or sad. Taiwan’s dictionary says a major key usually sounds brighter than a minor one. But research suggests this link is at least partly learned, and it also depends on tempo and context. So try it yourself: play the same tune in both, and describe what you hear in your own words.",
+      "Not every scale has seven notes. A pentatonic scale has five notes in an octave. The major pentatonic scale uses the first, second, third, fifth, and sixth notes of a major scale: C D E G A. The five black keys on a piano also make a pentatonic scale. Pentatonic scales are found in many cultures. In Chinese music, the five notes are named gong, shang, jue, zhi, and yu, and each of them can be the tonic of its own mode."
+     ],
+     "paras_zh": [
+      "音階是一串由低到高排好的音，從一個音一直排到高八度的同一個音。第一個音叫主音。英文的 scale 來自拉丁文的 scala，意思是梯子，這是很好的畫面：每個音是一格橫木，你從主音往上爬。",
+      "相鄰兩格之間的距離有兩種大小。半音（semitone）是鋼琴上相鄰兩個鍵的距離；全音是兩個半音。在你第一課認識的十二平均律裡，每個半音的頻率比是 2 的 1/12 次方，所以兩個半音會把頻率乘上大約 1.12。在鋼琴上，E 到 F、B 到 C 是半音，因為它們之間沒有黑鍵。",
+      "大調音階有七個步階的圖樣：全、全、半、全、全、全、半，也就是 W W H W W W H。從 C 開始，只要用白鍵：C D E F G A B C。兩個半音落在第三、四音之間，和第七、八音之間。在十二平均律裡，大調音階各音比主音高 0、200、400、500、700、900、1100、1200 音分。",
+      "決定一個音階的是圖樣，不是起點。從 D 開始、維持 W W H W W W H，就必須用 F♯ 和 C♯。升記號把音升高一個半音，降記號把音降低一個半音。自然小調音階的圖樣不同：W H W W H W W。和同一個主音的大調比，它的第三、第六、第七個音各低一個半音。從 A 開始，只用白鍵：A B C D E F G A。",
+      "許多人聽大調覺得比較明亮，聽小調覺得比較嚴肅或悲傷。台灣的辭典說，大調的色彩通常比小調明朗。不過研究認為，這種連結至少有一部分是學來的，也和速度與情境有關。所以請你自己試試：同一段旋律用兩種音階各彈一次，用你自己的話形容聽到的。",
+      "不是每個音階都有七個音。五聲音階在一個八度裡有五個音。大調五聲音階用大調音階的第一、二、三、五、六音：C D E G A。鋼琴上的五個黑鍵，也組成一個五聲音階。許多文化都有五聲音階。在中國音樂裡，這五個音叫宮、商、角、徵、羽，每一個音都可以當自己那個調式的主音。"
+     ],
+     "questions": [
+      "In the C major scale, which neighboring notes are a half step apart?",
+      "Why does a major scale that starts on D need black keys?",
+      "Are the black keys the only pentatonic scale on a piano?"
+     ],
+     "answers": [
+      "E and F, and B and C. Those are the pairs with no black key between them, and they are the third and fourth notes, and the seventh and eighth notes of the scale.",
+      "Because the pattern W W H W W W H must stay the same. Starting on D, the third note has to be F♯, and the seventh note has to be C♯, so two black keys join in.",
+      "No. They make one pentatonic scale, F♯ major pentatonic. The white keys C D E G A also make a pentatonic scale, and so do many other groups of five."
+     ],
+     "vocab": [
+      {
+       "n": 1,
+       "w": "scale",
+       "pos": "n.",
+       "zh": "音階",
+       "ex": "A <b>scale</b> is a ladder of notes from low to high.",
+       "exzh": "音階是一座由低到高的音的階梯。"
+      },
+      {
+       "n": 2,
+       "w": "tonic",
+       "pos": "n.",
+       "zh": "主音",
+       "ex": "The song ends on the <b>tonic</b>, so it feels like home.",
+       "exzh": "這首歌結束在主音上，所以有回到家的感覺。"
+      },
+      {
+       "n": 3,
+       "w": "half step",
+       "pos": "n.",
+       "zh": "半音",
+       "ex": "From E to F is a <b>half step</b>.",
+       "exzh": "從 E 到 F 是一個半音。"
+      },
+      {
+       "n": 4,
+       "w": "whole step",
+       "pos": "n.",
+       "zh": "全音",
+       "ex": "A <b>whole step</b> is two half steps.",
+       "exzh": "全音是兩個半音。"
+      },
+      {
+       "n": 5,
+       "w": "major",
+       "pos": "adj.",
+       "zh": "大調的",
+       "ex": "Many songs for children use a <b>major</b> scale.",
+       "exzh": "許多兒童歌曲用大調音階。"
+      },
+      {
+       "n": 6,
+       "w": "minor",
+       "pos": "adj.",
+       "zh": "小調的",
+       "ex": "Play the third note one half step lower to make it <b>minor</b>.",
+       "exzh": "把第三個音降低一個半音，就變成小調。"
+      },
+      {
+       "n": 7,
+       "w": "pentatonic",
+       "pos": "adj.",
+       "zh": "五聲的",
+       "ex": "A <b>pentatonic</b> scale has five notes in an octave.",
+       "exzh": "五聲音階在一個八度裡有五個音。"
+      },
+      {
+       "n": 8,
+       "w": "sharp / flat",
+       "pos": "n.",
+       "zh": "升記號／降記號",
+       "ex": "A <b>sharp</b> raises a note by a half step, and a <b>flat</b> lowers it.",
+       "exzh": "升記號把音升高一個半音，降記號把音降低一個半音。"
+      }
+     ],
+     "quiz": [
+      {
+       "q": "How many half steps are in a whole step?",
+       "options": [
+        "Two",
+        "One",
+        "Three",
+        "Twelve"
+       ],
+       "correct": 0
+      },
+      {
+       "q": "What is the step pattern of a major scale?",
+       "options": [
+        "W W H W W W H",
+        "W H W W H W W",
+        "W W W W W W W",
+        "H H H H H H H"
+       ],
+       "correct": 0
+      },
+      {
+       "q": "What happens to the third note when you go from a major scale to a natural minor scale?",
+       "options": [
+        "It goes down a half step",
+        "It goes up a half step",
+        "It stays the same",
+        "It disappears"
+       ],
+       "correct": 0
+      },
+      {
+       "q": "How many different notes does a pentatonic scale have in one octave?",
+       "options": [
+        "Five",
+        "Seven",
+        "Eight",
+        "Twelve"
+       ],
+       "correct": 0
+      },
+      {
+       "q": "A scale that starts on D follows the major pattern. Which notes need sharps?",
+       "options": [
+        "F and C",
+        "B and E",
+        "A and G",
+        "None"
+       ],
+       "correct": 0
+      }
+     ],
+     "parts_head": {
+      "eyebrow": "Try It in the Model · 在模型裡試試",
+      "en": "Four things to try",
+      "zh": "四件值得試的事"
+     },
+     "parts": [
+      {
+       "key": "cmajor",
+       "icon": "🪜",
+       "en": "The major scale from C",
+       "zh": "從 C 開始的大調音階",
+       "meta_en": "W W H W W W H",
+       "meta_zh": "全 全 半 全 全 全 半",
+       "demo": "cmajor",
+       "text_en": "Only white keys, from C up to the next C. Listen for where the steps are smaller.",
+       "text_zh": "只用白鍵，從 C 到上一個 C。聽聽哪裡的步階比較小。"
+      },
+      {
+       "key": "dmajor",
+       "icon": "🔁",
+       "en": "Same pattern, new start",
+       "zh": "同樣的圖樣，換個起點",
+       "meta_en": "D major needs F♯ and C♯",
+       "meta_zh": "D 大調需要 F♯ 和 C♯",
+       "demo": "dmajor",
+       "text_en": "Start on D and keep W W H W W W H. Two black keys have to join in.",
+       "text_zh": "從 D 開始，維持 全 全 半 全 全 全 半。有兩個黑鍵必須加進來。"
+      },
+      {
+       "key": "cminor",
+       "icon": "🌙",
+       "en": "Lower the third",
+       "zh": "把第三個音降下來",
+       "meta_en": "C minor: W H W W H W W",
+       "meta_zh": "C 小調：全 半 全 全 半 全 全",
+       "demo": "cminor",
+       "text_en": "Compare with C major. Three notes are a half step lower, and the color changes.",
+       "text_zh": "和 C 大調比一比。有三個音降低了一個半音，色彩就變了。"
+      },
+      {
+       "key": "black",
+       "icon": "⚫",
+       "en": "Five black keys",
+       "zh": "五個黑鍵",
+       "meta_en": "A pentatonic scale",
+       "meta_zh": "一個五聲音階",
+       "demo": "black",
+       "text_en": "Play only the black keys, in order. Five notes make a scale without any half steps.",
+       "text_zh": "只按黑鍵，依序彈。五個音，組成一個沒有半音的音階。"
+      }
+     ],
+     "parts_note_en": "Then try it yourself: build the major scale from G. Which black key do you need?",
+     "parts_note_zh": "然後自己試試：建一個從 G 開始的大調音階。你需要哪一個黑鍵？",
+     "tune": {
+      "eyebrow": "Hear It · 聽聽看",
+      "en": "One Tune, Three Scales",
+      "zh": "同一段旋律，三種音階",
+      "lead_en": "This short tune goes up the scale and comes back home. The tune is written as “first note, second note, third note…”, so it fits any scale. Press a button, and the tune is played using the notes of that scale.",
+      "lead_zh": "這段短旋律從音階往上走，再回到家。旋律是用「第一個音、第二個音、第三個音……」寫的，所以可以放進任何一個音階。按一個按鈕，旋律就用那個音階裡的音演奏。"
+     },
+     "scaleq": {
+      "eyebrow": "Game · 小遊戲",
+      "en": "Which Scale Is It?",
+      "zh": "這是哪一種音階？",
+      "lead_en": "Six questions. Each one plays a scale going up from a white-key note. Choose major, minor, or pentatonic. If you cannot hear the sound, press “Show the steps” and read the pattern instead.",
+      "lead_zh": "六道題。每一題播放一個從白鍵音開始往上走的音階。選大調、小調或五聲音階。如果聽不到聲音，按「看步階」，改成讀圖樣。"
+     },
+     "curric": {
+      "eyebrow": "In the Curriculum · 對應課綱",
+      "en": "Where this lesson fits",
+      "zh": "這一課對應的課綱",
+      "lead_en": "The curriculum names solfège, melody, and modes. The words “scale,” “major,” “minor,” “pentatonic,” “whole step,” and “half step” do not appear in the curriculum itself.",
+      "lead_zh": "課綱寫到唱名法、曲調和調式。「音階」「大調」「小調」「五聲」「全音」「半音」這些詞，課綱本文裡沒有出現。",
+      "items": [
+       {
+        "code": "音 E-Ⅱ-3",
+        "area": "藝術領域・音樂（國小三、四年級）",
+        "area_en": "Arts, music (grades 3–4)",
+        "text": "讀譜方式，如：五線譜、唱名法、拍號等。",
+        "note_en": "Solfège names, such as Do Re Mi, are part of reading music.",
+        "note_zh": "唱名（Do Re Mi）是讀譜的一部分。"
+       },
+       {
+        "code": "音 E-Ⅲ-3",
+        "area": "藝術領域・音樂（國小五、六年級）",
+        "area_en": "Arts, music (grades 5–6)",
+        "text": "音樂元素，如：曲調、調式等。",
+        "note_en": "Melody and mode are named as musical elements. A scale is the set of notes a melody is built from.",
+        "note_zh": "曲調和調式被列為音樂元素。音階是構成曲調的那一組音。"
+       },
+       {
+        "code": "音 E-Ⅲ-4",
+        "area": "藝術領域・音樂（國小五、六年級）",
+        "area_en": "Arts, music (grades 5–6)",
+        "text": "音樂符號與讀譜方式，如：音樂術語、唱名法等。記譜法，如：圖形譜、簡譜、五線譜等。",
+        "note_en": "Writing a scale on the staff, with sharps and flats, is a use of staff notation.",
+        "note_zh": "把音階寫在五線譜上，包括升降記號，是五線譜記譜法的應用。"
+       },
+       {
+        "code": "音 E-Ⅳ-4",
+        "area": "藝術領域・音樂（國中七至九年級）",
+        "area_en": "Arts, music (grades 7–9)",
+        "text": "音樂元素，如：音色、調式、和聲等。",
+        "note_en": "Modes come back in junior high school.",
+        "note_zh": "調式到國中會再出現。"
+       }
+      ]
+     },
+     "culture_cards": {
+      "eyebrow": "Stories Behind the Notes · 音符背後的故事",
+      "title_en": "A ladder, five tones, a cut pipe, and a world of five notes",
+      "title_zh": "一座階梯、五個音、一根被截短的管，和世界各地的五個音",
+      "lead_en": "Four short stories about how people have named and built scales.",
+      "lead_zh": "關於人們怎麼為音階命名、怎麼建構音階的四個小故事。",
+      "cards": [
+       {
+        "k": "A Ladder · 一座階梯",
+        "en": "Scale means ladder",
+        "zh": "scale 就是梯子",
+        "body_en": "According to Wikipedia, the English word scale comes from the Latin scala, which literally means ladder. Taiwan’s dictionary calls 音階 a translation of the English word scale. Each note is a rung, and the steps between the rungs are not always the same size.",
+        "body_zh": "依維基百科，英文 scale 來自拉丁文 scala，字面意思是「梯子」。台灣的辭典說「音階」是英文 scale 的意譯。每個音是一格橫木，而橫木之間的距離並不總是一樣大。"
+       },
+       {
+        "k": "Five Tones · 五音",
+        "en": "Gong, shang, jue, zhi, yu",
+        "zh": "宮、商、角、徵、羽",
+        "body_en": "Taiwan’s dictionary lists the five tones of ancient Chinese music as 宮, 商, 角, 徵, and 羽, and cites the Zuo Zhuan and the Rites of Zhou. A reference entry adds that each of the five tones can serve as the tonic, which gives five different pentatonic modes. They are often matched with Do Re Mi Sol La, but only roughly, because any of the five can be the tonic.",
+        "body_zh": "台灣的辭典把中國古代音樂的五音列為宮、商、角、徵、羽，並引用《左傳》和《周禮》。一則辭書條目補充：這五個音每一個都可以當主音，所以有五種不同的五聲調式。它們常被對應到 Do Re Mi Sol La，但只是大致對應，因為五個音都可以當主音。"
+       },
+       {
+        "k": "A Cut Pipe · 一根被截短的管",
+        "en": "Subtract a third, add a third",
+        "zh": "三分損益",
+        "body_en": "Ancient Chinese texts, including the Guanzi and the Lüshi Chunqiu, describe making notes by cutting a length into three parts and either removing one part or adding one. Start with 81. Remove a third and you get 54. Add a third to that and you get 72. Taiwan’s reference entry says this works out the same, mathematically, as the method of Pythagoras in ancient Greece. Removing a third leaves 2/3 of the length, the same 2 : 3 you saw in lesson 1.",
+        "body_zh": "中國古代文獻，包括《管子》和《呂氏春秋》，記載把一段長度分成三份，再減去一份或加上一份來生出音。從 81 開始，減去三分之一得到 54；再加上它的三分之一得到 72。台灣的辭書條目說，這在數理上和古希臘畢達哥拉斯的方法相通。減去三分之一，剩下 2/3 的長度，就是第一課看過的 2 比 3。"
+       },
+       {
+        "k": "Five Notes Worldwide · 世界各地的五個音",
+        "en": "Pentatonic songs you may know",
+        "zh": "你可能聽過的五聲音階歌曲",
+        "body_en": "Wikipedia says pentatonic scales were developed independently by many ancient civilizations. It names the hymn “Amazing Grace” and the Scottish tune of “Auld Lang Syne” as pentatonic melodies. The Chinese folk song “Mo Li Hua” (Jasmine Flower) uses a five-note scale that is common in Chinese music. Try playing them on the black keys.",
+        "body_zh": "維基百科說，許多古老的文明各自發展出五聲音階。它舉出聖詩〈Amazing Grace〉和蘇格蘭曲調〈Auld Lang Syne〉是五聲音階的旋律；中國民歌〈茉莉花〉用的是中國音樂裡很常見的五個音的音階。你可以試著用黑鍵彈彈看。"
+       }
+      ]
+     },
+     "myths": [
+      {
+       "myth_en": "Major is happy and minor is sad.",
+       "myth_zh": "大調就是快樂，小調就是悲傷。",
+       "fact_en": "Many listeners hear major as brighter and minor as more serious, but studies suggest the link is at least partly learned, and it depends on tempo and context as well.",
+       "fact_zh": "許多聽眾覺得大調較明亮、小調較嚴肅，但研究認為這種連結至少有一部分是學來的，也和速度與情境有關。"
+      },
+      {
+       "myth_en": "The black keys are the pentatonic scale.",
+       "myth_zh": "黑鍵就是五聲音階。",
+       "fact_en": "The black keys make one pentatonic scale. The white keys C D E G A make another, and there are many more.",
+       "fact_zh": "黑鍵組成的是其中一個五聲音階。白鍵 C D E G A 也是一個，還有很多別的。"
+      },
+      {
+       "myth_en": "A scale must have eight notes.",
+       "myth_zh": "音階一定有八個音。",
+       "fact_en": "A major scale has seven different notes, and the eighth is the tonic again. A pentatonic scale has five.",
+       "fact_zh": "大調音階有七個不同的音，第八個是再回到主音。五聲音階只有五個。"
+      },
+      {
+       "myth_en": "A half step is a note that is half as long.",
+       "myth_zh": "半音就是長度只有一半的音。",
+       "fact_en": "A half step is about pitch, not length. It is the distance between two neighboring piano keys, and a whole step is two half steps.",
+       "fact_zh": "半音說的是音高，不是長短。它是鋼琴上相鄰兩個鍵的距離，兩個半音是一個全音。"
+      }
+     ],
+     "tricks_head": {
+      "en": "Scales in a sentence",
+      "zh": "一句話記住音階"
+     },
+     "tricks": [
+      {
+       "title_en": "A scale is a ladder",
+       "title_zh": "音階是一座階梯",
+       "body_en": "Notes in order, from low to high.",
+       "body_zh": "音依序排好，由低到高。"
+      },
+      {
+       "title_en": "Two steps: W and H",
+       "title_zh": "兩種步階：全與半",
+       "body_en": "A whole step is two half steps.",
+       "body_zh": "一個全音是兩個半音。"
+      },
+      {
+       "title_en": "Major: W W H W W W H",
+       "title_zh": "大調：全全半全全全半",
+       "body_en": "The two half steps sit between 3 and 4, and 7 and 8.",
+       "body_zh": "兩個半音在第 3、4 音之間，和第 7、8 音之間。"
+      },
+      {
+       "title_en": "Minor lowers the third",
+       "title_zh": "小調降低第三音",
+       "body_en": "Natural minor also lowers the sixth and seventh.",
+       "body_zh": "自然小調也降低第六和第七音。"
+      }
+     ],
+     "safety_head": {
+      "eyebrow": "Protect Your Ears · 保護耳朵",
+      "en": "Before you listen",
+      "zh": "聽之前"
+     },
+     "safety": [
+      {
+       "en": "Start with the volume low and turn it up a little at a time. The sound bar on this page starts at 30%.",
+       "zh": "先把音量調小，再一點一點調大。本頁的聲音列一開始是 30%。"
+      },
+      {
+       "en": "With headphones, keep the volume at no more than 60% of maximum, and use personal audio devices for less than one hour a day, as the World Health Organization suggests.",
+       "zh": "戴耳機時，音量不要超過最大音量的 60%，個人音響裝置每天使用少於一小時，這是世界衛生組織的建議。"
+      },
+      {
+       "en": "When you sing or hum a scale, stay in a range that is comfortable. Do not push your voice too high or too loud, and stop if your throat hurts.",
+       "zh": "唱或哼音階時，待在舒服的音域裡。不要把聲音勉強唱得太高或太大聲；喉嚨痛就停下來。"
+      }
+     ],
+     "activities": [
+      {
+       "title_en": "The Human Scale",
+       "title_zh": "人體音階",
+       "materials": [
+        {
+         "en": "Eight students, or a row of eight chairs",
+         "zh": "八位同學，或排成一排的八張椅子"
+        },
+        {
+         "en": "Two sticky notes marked W and H for each gap",
+         "zh": "每個空隙兩張標了 W 和 H 的便利貼"
+        },
+        {
+         "en": "A keyboard, a xylophone, or this page",
+         "zh": "鍵盤、木琴或本頁"
+        }
+       ],
+       "steps": [
+        {
+         "en": "Students stand in a row and each is one note of C major, from C up to the next C.",
+         "zh": "同學排成一列，每個人是 C 大調的一個音，從 C 到上一個 C。"
+        },
+        {
+         "en": "Between each pair of neighbors, place a W or an H sticky note, following W W H W W W H.",
+         "zh": "在每兩位相鄰的同學之間貼上 W 或 H 的便利貼，依照 全 全 半 全 全 全 半。"
+        },
+        {
+         "en": "Sing the scale up, with each student singing only their own note. Notice where the half steps are.",
+         "zh": "把音階唱上去，每位同學只唱自己的那個音。注意半音在哪裡。"
+        },
+        {
+         "en": "Now ask the group to start on G. Who needs to change? (Hint: one student has to become F♯.)",
+         "zh": "再請大家改從 G 開始。誰要換？（提示：有一位同學必須變成 F♯。）"
+        }
+       ],
+       "tip_en": "Let students step forward as they sing, and take the half steps as smaller steps. Then the pattern can be seen and felt.",
+       "tip_zh": "讓同學唱的時候往前一步，半音的地方走小一點的步子。這樣圖樣看得見，也感覺得到。"
+      },
+      {
+       "title_en": "Same Tune, New Color",
+       "title_zh": "同一首曲子，新的顏色",
+       "materials": [
+        {
+         "en": "A tune the class knows well, written as numbers (for example 1 2 3 1 / 1 2 3 1)",
+         "zh": "全班都熟的一首短曲子，用數字寫（例如 1 2 3 1 / 1 2 3 1）"
+        },
+        {
+         "en": "Pencils and paper",
+         "zh": "鉛筆和紙"
+        },
+        {
+         "en": "A keyboard or this page",
+         "zh": "鍵盤或本頁"
+        }
+       ],
+       "steps": [
+        {
+         "en": "Write the tune as scale numbers. Play it in a major scale.",
+         "zh": "把曲子寫成音階的數字。用大調音階演奏。"
+        },
+        {
+         "en": "Lower the third note by a half step and play it again. Does it sound different? How would you describe the change?",
+         "zh": "把第三個音降低一個半音再彈一次。聽起來不一樣嗎？你會怎麼形容這個改變？"
+        },
+        {
+         "en": "Try the pentatonic scale by skipping the fourth and seventh notes of the major scale.",
+         "zh": "試試五聲音階：跳過大調音階的第四和第七個音。"
+        },
+        {
+         "en": "Talk it over: what words did different students use? Is there a right answer?",
+         "zh": "討論一下：不同同學用了哪些詞？有標準答案嗎？"
+        }
+       ],
+       "tip_en": "Accept every honest description. Listeners often hear a scale differently, and that is part of what the activity shows.",
+       "tip_zh": "每個誠實的形容都接受。不同的人聽音階的感覺常常不一樣，這也是這個活動要呈現的。"
+      }
+     ],
+     "links_head": {
+      "eyebrow": "Go Further · 延伸閱讀",
+      "en": "Before, around, and after this lesson",
+      "zh": "這一課的前面、旁邊和後面"
+     },
+     "links": [
+      {
+       "icon": "♩",
+       "k_en": "Music · Lesson 6",
+       "k_zh": "音樂・第六課",
+       "en": "How Long Is a Note?",
+       "zh": "一個音要多長？",
+       "note_en": "Last time was about how long. This time is about how high, one step at a time.",
+       "note_zh": "上一課說多長；這一課說多高，一步一步地走。",
+       "href": "/resources/classes/music/how-long-is-a-note/"
+      },
+      {
+       "icon": "🎼",
+       "k_en": "Music · Lesson 5",
+       "k_zh": "音樂・第五課",
+       "en": "How Do You Read Music?",
+       "zh": "五線譜怎麼看？",
+       "note_en": "The scales on this page are written on the staff you learned there.",
+       "note_zh": "本頁的音階，就寫在那一課學的五線譜上。",
+       "href": "/resources/classes/music/reading-music/"
+      },
+      {
+       "icon": "🎻",
+       "k_en": "Music · Lesson 1",
+       "k_zh": "音樂・第一課",
+       "en": "Why Are Some Notes High and Some Low?",
+       "zh": "為什麼有的音高、有的音低？",
+       "note_en": "Where the half step, 2 to the power of 1/12, comes from.",
+       "note_zh": "半音（2 的 1/12 次方）是怎麼來的。",
+       "href": "/resources/classes/music/high-and-low-notes/"
+      },
+      {
+       "icon": "🎶",
+       "k_en": "Music · Lesson 8",
+       "k_zh": "音樂・第八課",
+       "soon": true,
+       "en": "Why Do Some Notes Sound Good Together?",
+       "zh": "為什麼有些音放在一起很好聽？",
+       "note_en": "Next: two notes at the same time, and the simple ratios behind them.",
+       "note_zh": "接下來：兩個音同時響，和它們背後的簡單比例。"
+      }
+     ],
+     "sources_note_en": "Names, numbers, and quotations on this page were checked against these sources (October 2026). The scales are computed by the page itself and covered by automatic tests; the staff drawings are our own simplified shapes.",
+     "sources_note_zh": "本頁的名稱、數字與引文依下列資料查證（2026 年 10 月）；音階由頁面自己計算，並有自動測試；五線譜上的圖形是我們自己畫的簡化圖形。",
+     "sources": [
+      {
+       "en": "Scale: a series of notes between one note and its octave; the first degree is the tonic; the word comes from Latin scala, ladder; W stands for a whole step of two semitones; major pattern W–W–H–W–W–W–H",
+       "zh": "音階：從一個音到它的八度之間的一串音；第一級是主音；字源是拉丁文 scala（梯子）；W 是兩個半音的全音；大調圖樣 W–W–H–W–W–W–H",
+       "src": "Wikipedia, “Scale (music)”",
+       "url": "https://en.wikipedia.org/wiki/Scale_(music)"
+      },
+      {
+       "en": "Major scale: pattern W-W-H-W-W-W-H",
+       "zh": "大調音階的圖樣",
+       "src": "Wikipedia, “Major scale”",
+       "url": "https://en.wikipedia.org/wiki/Major_scale"
+      },
+      {
+       "en": "Semitone (half step); a whole tone is two semitones; 12-tone equal temperament semitone ratio is the twelfth root of two (100 cents)",
+       "zh": "半音；全音是兩個半音；十二平均律的半音頻率比是 2 的十二次方根（100 音分）",
+       "src": "Wikipedia, “Semitone”",
+       "url": "https://en.wikipedia.org/wiki/Semitone"
+      },
+      {
+       "en": "Equal temperament: major scale degrees at 0, 200, 400, 500, 700, 900, 1100, 1200 cents",
+       "zh": "十二平均律：大調音階各級的音分",
+       "src": "Wikipedia, “Equal temperament”",
+       "url": "https://en.wikipedia.org/wiki/Equal_temperament"
+      },
+      {
+       "en": "Natural minor scale (Aeolian) W–H–W–W–H–W–W; it can be played on the white keys A–G; major and natural minor have two semitones and five whole tones",
+       "zh": "自然小調（伊奧利亞）W–H–W–W–H–W–W；可以用白鍵 A 到 G 彈出；大調與自然小調都有兩個半音和五個全音",
+       "src": "Wikipedia, “Minor scale” and “Mode (music)”",
+       "url": "https://en.wikipedia.org/wiki/Minor_scale"
+      },
+      {
+       "en": "Pentatonic scale: five notes per octave; major pentatonic uses scale tones 1, 2, 3, 5, 6; the black keys comprise an F♯ major pentatonic scale; developed independently by many ancient civilizations; “Amazing Grace”",
+       "zh": "五聲音階：每個八度五個音；大調五聲音階用大調的第 1、2、3、5、6 音；黑鍵組成 F♯ 大調五聲音階；許多古老文明各自發展；〈Amazing Grace〉",
+       "src": "Wikipedia, “Pentatonic scale”",
+       "url": "https://en.wikipedia.org/wiki/Pentatonic_scale"
+      },
+      {
+       "en": "“Auld Lang Syne”: the tune is a pentatonic Scots folk melody",
+       "zh": "〈Auld Lang Syne〉：曲調是蘇格蘭民謠的五聲音階旋律",
+       "src": "Wikipedia, “Auld Lang Syne”",
+       "url": "https://en.wikipedia.org/wiki/Auld_Lang_Syne"
+      },
+      {
+       "en": "“Mo Li Hua” uses the five-note (pentatonic) scale ubiquitous in Chinese music",
+       "zh": "〈茉莉花〉用的是中國音樂裡很常見的五個音的音階",
+       "src": "Wikipedia, “Mo Li Hua”",
+       "url": "https://en.wikipedia.org/wiki/Mo_Li_Hua"
+      },
+      {
+       "en": "Major and minor: minor scales tend to sound serious or melancholic to contemporary Western ears",
+       "zh": "大調與小調：對當代西方人的耳朵，小調傾向聽起來嚴肅或憂傷",
+       "src": "Wikipedia, “Major and minor”",
+       "url": "https://en.wikipedia.org/wiki/Major_and_minor"
+      },
+      {
+       "en": "Music and emotion: major–minor and positive–negative association; cross-cultural studies suggest it is probably learned",
+       "zh": "音樂與情緒：大小調與正負情緒的連結；跨文化研究認為這種連結很可能是學來的",
+       "src": "Wikipedia, “Music and emotion”",
+       "url": "https://en.wikipedia.org/wiki/Music_and_emotion"
+      },
+      {
+       "en": "The association between major/minor tonality and positive/negative emotional valence is psychologically robust, but without a single accepted explanation",
+       "zh": "大小調與正負情緒的連結在心理學上很穩固，但沒有單一被接受的解釋",
+       "src": "Parncutt, R. (2014), Musicae Scientiae 18(3)",
+       "url": "https://doi.org/10.1177/1029864914542842"
+      },
+      {
+       "en": "Solfège: movable do, with do always the first degree of the major scale; fixed do",
+       "zh": "唱名：首調唱名中 do 永遠是大調音階的第一級；固定唱名",
+       "src": "Wikipedia, “Solfège”",
+       "url": "https://en.wikipedia.org/wiki/Solf%C3%A8ge"
+      },
+      {
+       "en": "音階: an arrangement of notes in order of pitch from a base note, a translation of scale; commonly major and minor scales and the pentatonic scale",
+       "zh": "音階：以一音為基音，依高低次序排列的音列；英語 scale 的意譯；常見的有大、小調音階與五聲音階",
+       "src": "教育部《重編國語辭典修訂本》「音階」",
+       "url": "https://dict.revised.moe.edu.tw/dictView.jsp?ID=156271"
+      },
+      {
+       "en": "大音階: apart from the half steps between the third and fourth and the seventh and eighth notes, all steps are whole steps",
+       "zh": "大音階：除第三、四音之間，第七、八音之間為半音外，其餘皆為全音",
+       "src": "教育部《重編國語辭典修訂本》「大音階」",
+       "url": "https://dict.revised.moe.edu.tw/dictView.jsp?ID=41878"
+      },
+      {
+       "en": "半音: the interval of a minor second, one twelfth of an octave; 全音: two half steps",
+       "zh": "半音：小二度音程，八度音階的十二分之一；全音：兩個半音",
+       "src": "教育部《重編國語辭典修訂本》「半音」「全音」",
+       "url": "https://dict.revised.moe.edu.tw/dictView.jsp?ID=16856"
+      },
+      {
+       "en": "五音: the five tones 宮、商、角、徵、羽 of ancient Chinese music, also called 五聲",
+       "zh": "五音：中國古代音樂的宮、商、角、徵、羽，也稱五聲",
+       "src": "教育部《重編國語辭典修訂本》「五音」",
+       "url": "https://dict.revised.moe.edu.tw/dictView.jsp?ID=159655"
+      },
+      {
+       "en": "五聲音階: each of the five tones can be the tonic, giving five pentatonic modes",
+       "zh": "五聲音階：每一個音都可以當主音，形成五種不同的五聲調式",
+       "src": "教育百科〈五聲音階〉（國教院《舞蹈辭典》）",
+       "url": "https://pedia.cloud.edu.tw/Entry/Detail/?title=%E4%BA%94%E8%81%B2%E9%9F%B3%E9%9A%8E"
+      },
+      {
+       "en": "三分損益法: remove or add a third of a length; 81 → 54 → 72; first recorded in the Guanzi and the Lüshi Chunqiu; mathematically equivalent to the Pythagorean method",
+       "zh": "三分損益法：減去或加上長度的三分之一；81 → 54 → 72；最早記載於《管子》與《呂氏春秋》；在數理上與畢達哥拉斯的方法相通",
+       "src": "教育百科〈三分損益法〉",
+       "url": "https://pedia.cloud.edu.tw/Entry/Detail/?title=%E4%B8%89%E5%88%86%E6%90%8D%E7%9B%8A%E6%B3%95"
+      },
+      {
+       "en": "大調: the color of a major key is usually brighter than that of a minor key",
+       "zh": "大調：大調的色彩通常比小調明朗",
+       "src": "教育部《重編國語辭典修訂本》「大調」",
+       "url": "https://dict.revised.moe.edu.tw/search.jsp?md=1&word=%E5%A4%A7%E8%AA%BF"
+      },
+      {
+       "en": "Chinese terms: scale 音階, tonic 主音, major scale 大音階, minor scale 小音階, pentatonic scale 五聲音階, whole tone 全音, semitone 半音, mode 調式, key signature 調號",
+       "zh": "中文名稱：scale 音階、tonic 主音、major scale 大音階、minor scale 小音階、pentatonic scale 五聲音階、whole tone 全音、semitone 半音、mode 調式",
+       "src": "國家教育研究院「學術名詞資訊網」（音樂名詞）",
+       "url": "https://terms.naer.edu.tw/search/?query_term=scale&query_field=title&match_type=term"
+      },
+      {
+       "en": "Taiwan's 12-year curriculum: arts (music) 音 E-Ⅱ-3, 音 E-Ⅲ-3, 音 E-Ⅲ-4, 音 E-Ⅳ-4",
+       "zh": "十二年國民基本教育課程綱要藝術領域：音 E-Ⅱ-3、音 E-Ⅲ-3、音 E-Ⅲ-4、音 E-Ⅳ-4",
+       "src": "國家教育研究院，十二年國教藝術領域課綱",
+       "url": "https://www.naer.edu.tw/upload/1/16/doc/818/%E5%8D%81%E4%BA%8C%E5%B9%B4%E5%9C%8B%E6%B0%91%E5%9F%BA%E6%9C%AC%E6%95%99%E8%82%B2%E8%AA%B2%E7%A8%8B%E7%B6%B1%E8%A6%81%E5%9C%8B%E6%B0%91%E4%B8%AD%E5%B0%8F%E5%AD%B8%E6%9A%A8%E6%99%AE%E9%80%9A%E5%9E%8B%E9%AB%98%E7%B4%9A%E4%B8%AD%E7%AD%89%E6%A0%A1-%E8%97%9D%E8%A1%93%E9%A0%98%E5%9F%9F.pdf"
+      },
+      {
+       "en": "Safe listening: headphone volume to 60% of maximum, personal audio devices less than one hour a day",
+       "zh": "安全聆聽：耳機音量不超過最大的 60%、個人音響裝置每天少於一小時",
+       "src": "WHO, Make Listening Safe brochure (2021)",
+       "url": "https://cdn.who.int/media/docs/default-source/documents/health-topics/deafness-and-hearing-loss/mls-brochure-english-2021.pdf?sfvrsn=bf19b448_5"
+      }
+     ]
     }
    ],
    "planned": [
-    {
-     "n": 7,
-     "icon": "🪜",
-     "en": "What Is a Scale?",
-     "zh": "音階是什麼？"
-    },
     {
      "n": 8,
      "icon": "🤝",
