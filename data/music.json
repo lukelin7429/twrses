@@ -2528,11 +2528,11 @@
        "icon": "🎼",
        "k_en": "Music · Lesson 5",
        "k_zh": "音樂・第五課",
-       "soon": true,
        "en": "How Do You Read Music?",
        "zh": "五線譜怎麼看？",
        "note_en": "The next unit puts the notes themselves on paper: the staff, and what each position means.",
-       "note_zh": "下一個單元要把音本身寫在紙上：五線譜，以及每個位置的意思。"
+       "note_zh": "下一個單元要把音本身寫在紙上：五線譜，以及每個位置的意思。",
+       "href": "/resources/classes/music/reading-music/"
       }
      ],
      "sources_note_en": "Names, dates, numbers, and quotations on this page were checked against these sources (October 2026). The melody is original, written for this page. The gains and the playback speeds are our own choices, and the page says so.",
@@ -2621,14 +2621,588 @@
    "title_zh": "把音樂寫下來",
    "blurb_en": "How a tune becomes marks on paper: the staff, note lengths, scales, and why some notes sound good together.",
    "blurb_zh": "一段旋律怎麼變成紙上的記號：五線譜、音符的長短、音階，以及為什麼有些音放在一起很好聽。",
-   "lessons": [],
-   "planned": [
+   "lessons": [
     {
      "n": 5,
+     "slug": "reading-music",
+     "title": "How Do You Read Music?",
+     "title_zh": "五線譜怎麼看？",
+     "level": "入門 · Beginner",
      "icon": "🎼",
-     "en": "How Do You Read Music?",
-     "zh": "五線譜怎麼看？"
-    },
+     "card": "staff",
+     "blurb_en": "Tap a line or a space on a five-line staff and hear the note, see its name, and see the same note light up on a keyboard. Then find out why a clef changes everything.",
+     "blurb_zh": "在五線譜的一條線或一個間上點一下，聽到那個音、看到它的名字，也看到它在鍵盤上的位置。再看看為什麼譜號會改變一切。",
+     "big_idea_en": "On a staff, higher on the page means higher in pitch. A clef at the start says which note a line is, and the rest follow in alphabetical order, up the lines and spaces.",
+     "big_idea_zh": "在五線譜上，畫得越高，音就越高。開頭的譜號說明哪一條線是哪個音，其餘的就照著字母順序，沿著線和間往上排。",
+     "lab": {
+      "kind": "staff",
+      "eyebrow": "Try It · 動手試試",
+      "title_en": "A Staff You Can Tap",
+      "title_zh": "可以點的五線譜",
+      "how_en": "Tap or click any line or space, even above and below the five lines. A note appears there, you hear it, and you see its name, its solfège name, and its frequency. The keys below show the same note on a keyboard. Switch the clef, and watch what happens to the same note.",
+      "how_zh": "在任何一條線或一個間上點一下，甚至在五線的上方和下方。音符會出現在那裡，你會聽到它，也會看到它的音名、唱名和頻率。下面的琴鍵顯示同一個音在鍵盤上的位置。換一個譜號，看看同一個音怎麼變。"
+     },
+     "paras": [
+      "Writing needs letters, and music needs a way to write too. A composer who writes a tune on paper must tell a player which notes to play, and how high or low each one is. Over many centuries, people found a simple idea: put the notes on a ladder. The higher a note sits on the page, the higher its pitch.",
+      "That ladder is the staff. It is made of five horizontal lines with four spaces between them. A note can sit on a line, or in a space. We count the lines from the bottom: the first line is the lowest. In British English the staff is usually called a stave.",
+      "But which note is which line? That is the job of the clef, the symbol at the beginning. The treble clef is also called the G clef. Its curl goes around the second line, and tells you that this line is G4, the G above middle C. The bass clef is also called the F clef. Its two dots sit above and below the fourth line, and tell you that this line is F3. These shapes began as the letters G and F, and became stylized over time.",
+      "Once you know one line, you know them all. Notes go up in alphabetical order, through the letters A to G, and then start again. On the treble clef the lines, from the bottom, are E, G, B, D, F, and the spaces are F, A, C, E. Many students remember them as “Every Good Boy Does Fine” and “FACE.” On the bass clef the lines are G, B, D, F, A, and the spaces are A, C, E, G. If a note is above or below the staff, we add a short extra line, called a ledger line.",
+      "Middle C shows how clefs work together. It sits one ledger line below the treble staff, and also one ledger line above the bass staff. It is the same note, the same C4, written in two places. In Taiwan, many schools sing notes with the names Do, Re, Mi, Fa, Sol, La, Si. The English letter names C, D, E, F, G, A, B go with them. A letter name is repeated in every octave, because notes an octave apart share a name.",
+      "The names Do, Re, Mi came from a hymn. In the eleventh century in Italy, a music teacher named Guido of Arezzo named the notes of a six-note pattern after the first syllables of the lines of a Latin hymn, “Ut queant laxis.” Later, “Ut” was replaced by the easier “Do.” Some systems keep Do fixed on C, which is called fixed do. Others move Do to the first note of any key, which is called movable do. Taiwan’s school music also uses numbers, 1 to 7, in a notation called jianpu. It writes the same notes as the staff, and both appear in the curriculum."
+     ],
+     "paras_zh": [
+      "寫文字需要字母，寫音樂也需要一種寫法。作曲家把旋律寫在紙上，要告訴演奏的人彈哪些音，每個音有多高或多低。經過許多個世紀，人們找到一個簡單的辦法：把音符放在一座梯子上。音符在紙上畫得越高，音高就越高。",
+      "這座梯子就是五線譜（staff）。它由五條水平的線和線與線之間的四個間組成。音符可以在線上，也可以在間裡。線從下面數起：第一線是最低的。英國英文通常把五線譜叫做 stave。",
+      "可是哪一條線是哪個音？這是開頭那個符號——譜號（clef）的工作。高音譜號也叫 G 譜號，它的捲曲圈住第二線，說明這條線是 G4，也就是中央 C 上面的那個 G。低音譜號也叫 F 譜號，它的兩個點夾住第四線，說明這條線是 F3。這些形狀原來是 G 和 F 兩個字母，後來慢慢變成了圖案。",
+      "只要知道一條線，其他的就都知道了。音依字母順序往上走，A 到 G，然後再從頭開始。高音譜號從下往上的五條線是 E、G、B、D、F，四個間是 F、A、C、E。很多學生用「Every Good Boy Does Fine」和「FACE」來記。低音譜號的線是 G、B、D、F、A，間是 A、C、E、G。如果音在五線的上方或下方，就加一小段短線，叫做加線（ledger line）。",
+      "中央 C 最能看出兩個譜號怎麼合作。它在高音譜號的下方加一線上，也在低音譜號的上方加一線上。同一個音、同一個 C4，寫在兩個地方。在台灣，很多學校用 Do、Re、Mi、Fa、Sol、La、Si 唱音，英文字母音名 C、D、E、F、G、A、B 和它們對應。字母名稱在每一個八度裡重複，因為相差八度的音共用同一個名字。",
+      "Do、Re、Mi 這些名字來自一首讚美詩。十一世紀的義大利，音樂老師圭多（Guido of Arezzo）用拉丁文讚美詩〈Ut queant laxis〉每一行的第一個音節，替一組六個音命名。後來「Ut」被比較好唱的「Do」取代。有的系統讓 Do 固定在 C 上，叫固定唱名法；有的系統讓 Do 跟著任何調的第一個音走，叫首調唱名法。台灣的學校音樂也用數字 1 到 7 的記譜法，叫簡譜。它寫的是和五線譜同樣的音，兩種寫法都出現在課綱裡。"
+     ],
+     "questions": [
+      "Why do we need a clef at the beginning of a staff?",
+      "A note sits on the first line of a treble staff. Which note is it? What about the first line of a bass staff?",
+      "Is middle C in the treble clef a different note from middle C in the bass clef?"
+     ],
+     "answers": [
+      "The five lines and four spaces are only positions. A clef names the note on one line, and then all the other lines and spaces follow from it.",
+      "On the treble staff the first line is E4. On the bass staff the first line is G2. The same position means different notes in different clefs.",
+      "No. It is the same note, C4, 261.63 Hz. In the treble clef it is written on a ledger line below the staff, and in the bass clef on a ledger line above it."
+     ],
+     "vocab": [
+      {
+       "n": 1,
+       "w": "staff",
+       "pos": "n.",
+       "zh": "五線譜；譜表",
+       "ex": "The notes are written on a <b>staff</b> of five lines.",
+       "exzh": "音符寫在有五條線的五線譜上。"
+      },
+      {
+       "n": 2,
+       "w": "clef",
+       "pos": "n.",
+       "zh": "譜號",
+       "ex": "A <b>clef</b> tells you which note each line is.",
+       "exzh": "譜號告訴你每一條線是哪個音。"
+      },
+      {
+       "n": 3,
+       "w": "treble clef",
+       "pos": "n.",
+       "zh": "高音譜號",
+       "ex": "Flutes and violins usually read the <b>treble clef</b>.",
+       "exzh": "長笛和小提琴通常讀高音譜號。"
+      },
+      {
+       "n": 4,
+       "w": "bass clef",
+       "pos": "n.",
+       "zh": "低音譜號",
+       "ex": "The left hand of the piano often reads the <b>bass clef</b>.",
+       "exzh": "鋼琴的左手常讀低音譜號。"
+      },
+      {
+       "n": 5,
+       "w": "ledger line",
+       "pos": "n.",
+       "zh": "加線",
+       "ex": "Middle C sits on a <b>ledger line</b> below the treble staff.",
+       "exzh": "中央 C 在高音譜表下方的加線上。"
+      },
+      {
+       "n": 6,
+       "w": "space",
+       "pos": "n.",
+       "zh": "（五線譜的）間",
+       "ex": "This note is in the second <b>space</b>, between two lines.",
+       "exzh": "這個音在第二個間裡，在兩條線之間。"
+      },
+      {
+       "n": 7,
+       "w": "position",
+       "pos": "n.",
+       "zh": "位置",
+       "ex": "A higher <b>position</b> on the staff means a higher pitch.",
+       "exzh": "在五線譜上位置越高，音高越高。"
+      },
+      {
+       "n": 8,
+       "w": "syllable",
+       "pos": "n.",
+       "zh": "音節",
+       "ex": "Do, Re, and Mi are each one <b>syllable</b>.",
+       "exzh": "Do、Re、Mi 各是一個音節。"
+      }
+     ],
+     "quiz": [
+      {
+       "q": "How many lines does a staff usually have?",
+       "options": [
+        "Five",
+        "Four",
+        "Six",
+        "Seven"
+       ],
+       "correct": 0
+      },
+      {
+       "q": "The curl of the treble clef goes around which line, and which note is it?",
+       "options": [
+        "The second line, G4",
+        "The fourth line, F3",
+        "The first line, E4",
+        "The third line, B4"
+       ],
+       "correct": 0
+      },
+      {
+       "q": "What are the four spaces of the treble staff, from the bottom?",
+       "options": [
+        "F, A, C, E",
+        "A, C, E, G",
+        "E, G, B, D",
+        "G, B, D, F"
+       ],
+       "correct": 0
+      },
+      {
+       "q": "Where is middle C written in the treble clef?",
+       "options": [
+        "On a ledger line below the staff",
+        "On the top line",
+        "On the second line",
+        "In the top space"
+       ],
+       "correct": 0
+      },
+      {
+       "q": "In fixed do, which note is always called Do?",
+       "options": [
+        "C",
+        "A",
+        "G",
+        "The first note of any key"
+       ],
+       "correct": 0
+      }
+     ],
+     "parts_head": {
+      "eyebrow": "Try It in the Model · 在模型裡試試",
+      "en": "Four things to try",
+      "zh": "四件值得試的事"
+     },
+     "parts": [
+      {
+       "key": "higher",
+       "icon": "🪜",
+       "en": "Higher on the page, higher in pitch",
+       "zh": "畫得越高，音越高",
+       "meta_en": "Up the lines and spaces",
+       "meta_zh": "沿著線與間往上",
+       "demo": "higher",
+       "text_en": "Watch a note climb the staff, one step at a time. Each step is higher in pitch.",
+       "text_zh": "看一個音符沿著五線譜一格一格往上爬。每一格的音都更高。"
+      },
+      {
+       "key": "clef",
+       "icon": "🗝️",
+       "en": "A clef changes the names",
+       "zh": "譜號改變名字",
+       "meta_en": "The same position, a different note",
+       "meta_zh": "同一個位置，不同的音",
+       "demo": "clef",
+       "text_en": "The note on the first line is E4 with the treble clef, and G2 with the bass clef.",
+       "text_zh": "第一線上的音，在高音譜號是 E4，在低音譜號是 G2。"
+      },
+      {
+       "key": "ledger",
+       "icon": "➖",
+       "en": "Middle C, the shared note",
+       "zh": "中央 C，兩個譜號共用的音",
+       "meta_en": "A ledger line below, or above",
+       "meta_zh": "下方加線，或上方加線",
+       "demo": "ledger",
+       "text_en": "The same C4 is written under the treble staff and above the bass staff.",
+       "text_zh": "同一個 C4，寫在高音譜表的下面，也寫在低音譜表的上面。"
+      },
+      {
+       "key": "octave",
+       "icon": "🔁",
+       "en": "Seven steps, the same letter",
+       "zh": "七格，同一個字母",
+       "meta_en": "One octave up",
+       "meta_zh": "高一個八度",
+       "demo": "octave",
+       "text_en": "Count up seven positions, lines and spaces together. You land on the same letter, an octave higher.",
+       "text_zh": "把線和間一起算，往上數七格。你會落在同一個字母，高一個八度。"
+      }
+     ],
+     "parts_note_en": "Then try the keyboard row under the staff: tap a key, and the note appears on the staff.",
+     "parts_note_zh": "然後試試五線譜下面那排琴鍵：點一個鍵，音符就出現在五線譜上。",
+     "staffq": {
+      "eyebrow": "Game · 小遊戲",
+      "en": "Which Note Is It?",
+      "zh": "這是哪個音？",
+      "lead_en": "Eight questions, switching between the treble clef and the bass clef. Look at where the note sits, find a line or space that you know, and count up or down from it. Choose the letter name. The game counts the questions you get right on the first try.",
+      "lead_zh": "八道題，高音譜號和低音譜號輪流出現。看音符的位置，找一條你認得的線或間，從那裡往上或往下數，選出字母音名。遊戲會記下你第一次就答對的題數。"
+     },
+     "curric": {
+      "eyebrow": "In the Curriculum · 對應課綱",
+      "en": "Where this lesson fits",
+      "zh": "這一課對應的課綱",
+      "lead_en": "Reading music is named directly in the curriculum from grades 3 and 4. The curriculum mentions the staff, solfège names, and jianpu, but it does not say whether to use fixed do or movable do.",
+      "lead_zh": "讀譜從國小三、四年級起就直接寫在課綱裡。課綱提到五線譜、唱名法和簡譜，但沒有說要用固定唱名法還是首調唱名法。",
+      "items": [
+       {
+        "code": "音 E-Ⅱ-3",
+        "area": "藝術領域・音樂（國小三、四年級）",
+        "area_en": "Arts, music (grades 3–4)",
+        "text": "讀譜方式，如：五線譜、唱名法、拍號等。",
+        "note_en": "The staff and solfège names are both named as ways of reading music.",
+        "note_zh": "五線譜和唱名法都被列為讀譜的方式。"
+       },
+       {
+        "code": "音 E-Ⅲ-4",
+        "area": "藝術領域・音樂（國小五、六年級）",
+        "area_en": "Arts, music (grades 5–6)",
+        "text": "音樂符號與讀譜方式，如：音樂術語、唱名法等。記譜法，如：圖形譜、簡譜、五線譜等。",
+        "note_en": "Three kinds of notation are named: graphic notation, jianpu, and the staff.",
+        "note_zh": "三種記譜法被點名：圖形譜、簡譜、五線譜。"
+       },
+       {
+        "code": "音 E-Ⅳ-3",
+        "area": "藝術領域・音樂（國中）",
+        "area_en": "Arts, music (junior high)",
+        "text": "音樂符號與術語、記譜法或簡易音樂軟體。",
+        "note_en": "In junior high, notation and simple music software come together.",
+        "note_zh": "國中階段，記譜法和簡易音樂軟體並列。"
+       }
+      ]
+     },
+     "culture_cards": {
+      "eyebrow": "Stories Behind the Staff · 五線譜背後的故事",
+      "title_en": "A hymn, a ladder, two letters, and a row of numbers",
+      "title_zh": "一首讚美詩、一座梯子、兩個字母，和一排數字",
+      "lead_en": "Four short stories about how music came to be written down.",
+      "lead_zh": "關於音樂怎麼被寫下來的四個小故事。",
+      "cards": [
+       {
+        "k": "A Hymn · 一首讚美詩",
+        "en": "Where Do, Re, Mi came from",
+        "zh": "Do、Re、Mi 從哪裡來",
+        "body_en": "In eleventh-century Italy, the music theorist Guido of Arezzo named the six notes of a pattern after the first syllable of each line of a Latin hymn to St. John: ut, re, mi, fa, sol, la. Each line of the hymn begins one step higher than the last, so singers could remember each note by its line. Later “ut” was changed to the easier “do.” Sources disagree about who changed it and when, so we only say that it happened.",
+        "body_zh": "十一世紀的義大利，音樂理論家圭多（Guido of Arezzo）用一首獻給聖約翰的拉丁文讚美詩，每一行的第一個音節，替一組六個音命名：ut、re、mi、fa、sol、la。這首詩每一行的開頭都比上一行高一階，歌者就可以靠那一行詩記住那個音。後來「ut」被改成比較好唱的「do」。各處資料對誰改的、什麼時候改的說法不一，所以我們只說有這回事。"
+       },
+       {
+        "k": "A Ladder · 一座梯子",
+        "en": "A staff that grew from four lines to five",
+        "zh": "從四線長成五線",
+        "body_en": "The modern use of staff lines is attributed to Guido of Arezzo, whose four-line staff is still used in chant books today. Five-line staves appeared in Italy in the 13th century. Staves with four, five, and six lines were all used as late as about 1600. The five-line staff we know became the standard only after that.",
+        "body_zh": "現代使用的譜線，歸功於圭多，他的四線譜到今天仍用在聖歌集裡。五線譜在十三世紀出現在義大利。一直到大約 1600 年，四線、五線、六線的譜都還有人用。我們熟悉的五線譜，是在那之後才成為標準。"
+       },
+       {
+        "k": "Two Letters · 兩個字母",
+        "en": "Clefs are letters in disguise",
+        "zh": "譜號是變了形的字母",
+        "body_en": "At first, a staff had a letter written at its beginning to show which line it named. Over time the shapes of these letters became stylized. The treble clef comes from G, and its curl circles the G line. The bass clef comes from F, and its two dots sit around the F line. There is also a third kind, the C clef, used for the viola and some other instruments.",
+        "body_zh": "一開始，五線譜的開頭是直接寫一個字母，表示那一條線的名字。隨著時間，這些字母的形狀變得圖案化。高音譜號來自 G，它的捲曲圈住 G 線；低音譜號來自 F，它的兩個點夾住 F 線。還有第三種，C 譜號，中提琴和一些其他樂器會用到。"
+       },
+       {
+        "k": "A Row of Numbers · 一排數字",
+        "en": "Jianpu, the numbered notation",
+        "zh": "簡譜，用數字寫的音樂",
+        "body_en": "Instead of a staff, numbered notation writes the notes of a scale as the numbers 1 to 7, which stand for Do, Re, Mi, Fa, Sol, La, Si. A dot above a number means an octave higher, and a dot below means an octave lower. Rousseau presented a similar idea to the French Academy of Sciences in 1742, and the Galin–Paris–Chevé system developed it. It came to China by way of Japan around the turn of the twentieth century.",
+        "body_zh": "簡譜不用五線，而是把音階的音寫成數字 1 到 7，它們代表 Do、Re、Mi、Fa、Sol、La、Si。數字上方加一點是高八度，下方加一點是低八度。盧梭在 1742 年向法國科學院提出類似的想法，後來由加林—帕里斯—謝韋（Galin–Paris–Chevé）體系發展它。它大約在十九世紀末二十世紀初，經由日本傳到中國。"
+       }
+      ]
+     },
+     "myths": [
+      {
+       "myth_en": "A position on the staff always has the same note name.",
+       "myth_zh": "五線譜上的同一個位置，永遠是同一個音名。",
+       "fact_en": "The clef decides. The first line is E4 in the treble clef, and G2 in the bass clef. Without a clef, a staff is only a set of positions.",
+       "fact_zh": "由譜號決定。第一線在高音譜號是 E4，在低音譜號是 G2。沒有譜號，五線譜只是一組位置。"
+      },
+      {
+       "myth_en": "Middle C is a different note in the treble and bass clefs.",
+       "myth_zh": "中央 C 在高音譜號和低音譜號是不同的音。",
+       "fact_en": "It is the same note, C4. It sits on a ledger line below the treble staff, and on a ledger line above the bass staff.",
+       "fact_zh": "它是同一個音，C4。它在高音譜表下方的加線上，也在低音譜表上方的加線上。"
+      },
+      {
+       "myth_en": "Do always means the note C.",
+       "myth_zh": "Do 永遠就是 C 這個音。",
+       "fact_en": "Only in fixed do. In movable do, Do is the first note of whatever key the music is in. The curriculum names “solfège” but does not choose between them.",
+       "fact_zh": "只有固定唱名法是這樣。首調唱名法裡，Do 是這首音樂所在調的第一個音。課綱只寫「唱名法」，沒有在兩者之間選一個。"
+      },
+      {
+       "myth_en": "Do, Re, Mi were made up to teach children.",
+       "myth_zh": "Do、Re、Mi 是為了教小朋友才編出來的。",
+       "fact_en": "They come from the first syllables of the lines of a Latin hymn, and they were in use in the eleventh century in Italy. Teachers have used them to teach singing for about a thousand years.",
+       "fact_zh": "它們來自一首拉丁文讚美詩每一行的第一個音節，十一世紀的義大利就在用。老師用它們教唱歌，已經差不多一千年。"
+      }
+     ],
+     "tricks_head": {
+      "en": "Reading the staff in a sentence",
+      "zh": "一句話記住五線譜"
+     },
+     "tricks": [
+      {
+       "title_en": "Higher on the page, higher in pitch",
+       "title_zh": "畫得越高，音越高",
+       "body_en": "The staff is a ladder for pitch.",
+       "body_zh": "五線譜是音高的梯子。"
+      },
+      {
+       "title_en": "Treble lines: E G B D F; spaces: F A C E",
+       "title_zh": "高音譜號：線 E G B D F、間 F A C E",
+       "body_en": "Every Good Boy Does Fine, and FACE.",
+       "body_zh": "Every Good Boy Does Fine，還有 FACE。"
+      },
+      {
+       "title_en": "Seven steps, the same letter",
+       "title_zh": "七格，同一個字母",
+       "body_en": "Lines and spaces together: seven steps up is one octave.",
+       "body_zh": "線和間一起算：往上七格是一個八度。"
+      },
+      {
+       "title_en": "Middle C lives between the two staffs",
+       "title_zh": "中央 C 住在兩個譜表中間",
+       "body_en": "One ledger line below the treble, or above the bass.",
+       "body_zh": "高音譜表下方一條加線，或低音譜表上方一條加線。"
+      }
+     ],
+     "safety_head": {
+      "eyebrow": "Protect Your Ears · 保護耳朵",
+      "en": "Before you listen",
+      "zh": "聽之前"
+     },
+     "safety": [
+      {
+       "en": "Start with the volume low and turn it up a little at a time. The sound bar on this page starts at 30%.",
+       "zh": "先把音量調小，再一點一點調大。本頁的聲音列一開始是 30%。"
+      },
+      {
+       "en": "With headphones, keep the volume at no more than 60% of maximum, and use personal audio devices for less than one hour a day, as the World Health Organization suggests.",
+       "zh": "戴耳機時，音量不要超過最大音量的 60%，個人音響裝置每天使用少於一小時，這是世界衛生組織的建議。"
+      },
+      {
+       "en": "Tap the screen with a fingertip. You do not need to press hard, and do not tap the screen with a pen or any hard object.",
+       "zh": "用指尖點螢幕就好，不需要用力，也不要用筆或硬的東西敲螢幕。"
+      }
+     ],
+     "activities": [
+      {
+       "title_en": "A Floor Staff",
+       "title_zh": "地板上的五線譜",
+       "materials": [
+        {
+         "en": "Five long strips of masking tape or five ropes",
+         "zh": "五條長長的紙膠帶或五條繩子"
+        },
+        {
+         "en": "A large card with a clef drawn on it",
+         "zh": "一張畫了譜號的大卡片"
+        },
+        {
+         "en": "Cards with the letters C D E F G A B",
+         "zh": "寫了 C D E F G A B 的卡片"
+        }
+       ],
+       "steps": [
+        {
+         "en": "Lay the five strips on the floor, about one big step apart, to make a staff. Put the treble clef card at the left end.",
+         "zh": "把五條帶子鋪在地上，每條相隔大約一步，做成五線譜。把高音譜號的卡片放在左端。"
+        },
+        {
+         "en": "One student stands on a line or in a space. The class says the note name. The student with the keyboard, or the page, plays it to check.",
+         "zh": "一位同學站在一條線上或一個間裡。全班說出音名。拿著鍵盤或用本頁的同學彈出來核對。"
+        },
+        {
+         "en": "Move the clef card to a bass clef card. Does the same place have the same name?",
+         "zh": "把譜號卡片換成低音譜號的卡片。同一個位置還是同一個名字嗎？"
+        },
+        {
+         "en": "Let a student stand one step above the top line. How many ledger lines does that note need?",
+         "zh": "讓一位同學站在最上面那條線再往上一格的地方。這個音需要幾條加線？"
+        }
+       ],
+       "tip_en": "Walk, do not run, and keep the strips taped down so nobody slips.",
+       "tip_zh": "用走的，不要跑，帶子要貼牢，免得有人滑倒。"
+      },
+      {
+       "title_en": "Coins on a Staff",
+       "title_zh": "硬幣當音符",
+       "materials": [
+        {
+         "en": "A sheet of paper with a staff drawn on it",
+         "zh": "一張畫了五線譜的紙"
+        },
+        {
+         "en": "Five small coins or buttons",
+         "zh": "五個小硬幣或鈕釦"
+        },
+        {
+         "en": "A keyboard, recorder, or the page on this screen",
+         "zh": "一個鍵盤、直笛，或這個螢幕上的頁面"
+        }
+       ],
+       "steps": [
+        {
+         "en": "Draw five lines on the paper, evenly spaced, and write a treble clef on the left.",
+         "zh": "在紙上畫五條間隔均勻的線，並在左邊寫一個高音譜號。"
+        },
+        {
+         "en": "Put the coins on the lines and spaces to make a short tune, and write the letter names under them.",
+         "zh": "把硬幣放在線和間上，做成一小段旋律，並在下面寫出字母音名。"
+        },
+        {
+         "en": "Play the tune on the page or an instrument, from the letters. Does it sound the way you pictured it?",
+         "zh": "照著字母，在頁面或樂器上把旋律彈出來。聽起來和你想的一樣嗎？"
+        },
+        {
+         "en": "Swap papers with a partner and play each other’s tunes.",
+         "zh": "和同伴交換紙，彼此演奏對方的旋律。"
+        }
+       ],
+       "tip_en": "Use only notes between the lowest and the highest line at first. Add a ledger line only after you can read the staff itself.",
+       "tip_zh": "一開始只用最低線到最高線之間的音。等你會讀五線以後，再加加線。"
+      }
+     ],
+     "links_head": {
+      "eyebrow": "Go Further · 延伸閱讀",
+      "en": "Before, around, and after this lesson",
+      "zh": "這一課的前面、旁邊和後面"
+     },
+     "links": [
+      {
+       "icon": "🎚️",
+       "k_en": "Music · Lesson 4",
+       "k_zh": "音樂・第四課",
+       "en": "How Do You Tell a Musician “Louder” or “Faster”?",
+       "zh": "怎麼告訴演奏的人「大聲一點」「快一點」？",
+       "note_en": "Signs such as p, f, and allegro are written on the staff, together with the notes.",
+       "note_zh": "p、f、allegro 這些記號，就和音符一起寫在五線譜上。",
+       "href": "/resources/classes/music/louder-and-faster/"
+      },
+      {
+       "icon": "🎵",
+       "k_en": "Music · Lesson 1",
+       "k_zh": "音樂・第一課",
+       "en": "Why Are Some Notes High and Some Low?",
+       "zh": "為什麼有的音高、有的音低？",
+       "note_en": "That lesson gave the letter names and frequencies: A4 is 440 Hz, and C4 is 261.63 Hz.",
+       "note_zh": "那一課給了字母音名和頻率：A4 是 440 赫、C4 是 261.63 赫。",
+       "href": "/resources/classes/music/high-and-low-notes/"
+      },
+      {
+       "icon": "♩",
+       "k_en": "Music · Lesson 6",
+       "k_zh": "音樂・第六課",
+       "soon": true,
+       "en": "How Long Is a Note?",
+       "zh": "一個音要多長？",
+       "note_en": "The staff shows how high a note is. The next lesson shows how long: note values and the time signature.",
+       "note_zh": "五線譜顯示音有多高；下一課顯示音有多長：音符的時值和拍號。"
+      }
+     ],
+     "sources_note_en": "Names, dates, and quotations on this page were checked against these sources (October 2026). The note positions are computed by the page itself and covered by automatic tests. The clef shapes on the page are our own simplified drawings.",
+     "sources_note_zh": "本頁的人名、年代與引文依下列資料查證（2026 年 10 月）；音符的位置由頁面自己計算，並有自動測試。頁面上的譜號是我們自己畫的簡化圖形。",
+     "sources": [
+      {
+       "en": "The staff: a set of horizontal lines (usually five) with spaces between them; higher notes are marked higher; ledger lines; UK usually stave; history (Guido's four-line staff, five lines in the 13th century, four to six lines as late as 1600)",
+       "zh": "五線譜：一組水平的線（通常五條）和之間的間；越高的音畫得越高；加線；英國通常叫 stave；歷史（圭多的四線譜、十三世紀的五線、直到 1600 年前後仍有四到六線）",
+       "src": "Wikipedia, “Staff (music)”",
+       "url": "https://en.wikipedia.org/wiki/Staff_(music)"
+      },
+      {
+       "en": "A ledger line is spaced at the same distance as the lines within the staff and is used for pitches above or below the staff",
+       "zh": "加線的間距和譜線相同，用來寫五線上方或下方的音",
+       "src": "Wikipedia, “Ledger line”",
+       "url": "https://en.wikipedia.org/wiki/Ledger_line"
+      },
+      {
+       "en": "Clefs: G, F, and C; the treble clef places G4 on the second line and the bass clef F3 on the fourth line; the clef shapes are stylized letters; the mnemonics Every Good Boy Does Fine and FACE",
+       "zh": "譜號：G、F、C 三種；高音譜號把 G4 放在第二線、低音譜號把 F3 放在第四線；譜號的形狀是圖案化的字母；口訣 Every Good Boy Does Fine 與 FACE",
+       "src": "Wikipedia, “Clef”",
+       "url": "https://en.wikipedia.org/wiki/Clef"
+      },
+      {
+       "en": "Middle C is C4; it sits one ledger line below the treble staff or one ledger line above the bass staff; pitch classes use the letters A to G",
+       "zh": "中央 C 是 C4；它在高音譜表下方一條加線或低音譜表上方一條加線；音級用字母 A 到 G",
+       "src": "Wikipedia, “Musical note”",
+       "url": "https://en.wikipedia.org/wiki/Musical_note"
+      },
+      {
+       "en": "Guido of Arezzo named the notes after the first syllables of the lines of “Ut queant laxis”; fixed do and movable do",
+       "zh": "圭多用〈Ut queant laxis〉每行的第一個音節為音命名；固定唱名法與首調唱名法",
+       "src": "Wikipedia, “Solfège”",
+       "url": "https://en.wikipedia.org/wiki/Solf%C3%A8ge"
+      },
+      {
+       "en": "The hymn “Ut queant laxis”: each line begins one step higher",
+       "zh": "讚美詩〈Ut queant laxis〉：每一行的開頭都高一階",
+       "src": "Wikipedia, “Ut queant laxis”",
+       "url": "https://en.wikipedia.org/wiki/Ut_queant_laxis"
+      },
+      {
+       "en": "Numbered musical notation: Rousseau's similar proposal of 1742; the Galin–Paris–Chevé system; introduced in Japan and then adopted in China",
+       "zh": "數字簡譜：盧梭 1742 年類似的提案；Galin–Paris–Chevé 體系；先傳入日本、再被中國採用",
+       "src": "Wikipedia, “Numbered musical notation”",
+       "url": "https://en.wikipedia.org/wiki/Numbered_musical_notation"
+      },
+      {
+       "en": "譜號: the clef is marked at the front of the staff; the treble clef (G clef) is on the second line, which is g′",
+       "zh": "譜號：標在五線譜最前端；高音譜號（G 譜號）記在第二線上，表示該線上的音為 g′",
+       "src": "教育百科〈譜號〉（國教院《舞蹈辭典》）",
+       "url": "https://pedia.cloud.edu.tw/Entry/Detail/?title=%E8%AD%9C%E8%99%9F"
+      },
+      {
+       "en": "五線譜: five parallel lines, called the first to the fifth line, and the first to the fourth space, from the bottom",
+       "zh": "五線譜：五根平行橫線，自下而上稱為第一線到第五線，以及第一間到第四間",
+       "src": "教育百科〈五線譜〉（國教院《舞蹈辭典》）",
+       "url": "https://pedia.cloud.edu.tw/Entry/Detail/?title=%E4%BA%94%E7%B7%9A%E8%AD%9C"
+      },
+      {
+       "en": "簡譜: numbers 1 to 7 for Do, Re, Mi, Fa, Sol, La, Si; a dot above or below marks an octave higher or lower",
+       "zh": "簡譜：以 1 到 7 表示 Do、Re、Mi、Fa、Sol、La、Si；數字上方或下方加點表示高八度或低八度",
+       "src": "教育部《重編國語辭典修訂本》「簡譜」",
+       "url": "https://dict.revised.moe.edu.tw/dictView.jsp?ID=93217"
+      },
+      {
+       "en": "五線譜, 譜號, 音名 in the Ministry of Education Dictionary",
+       "zh": "教育部辭典「五線譜」「譜號」「音名」",
+       "src": "教育部《重編國語辭典修訂本》「五線譜」",
+       "url": "https://dict.revised.moe.edu.tw/dictView.jsp?ID=159591"
+      },
+      {
+       "en": "Fixed do: C is always sung as Do; movable do: the tonic of each key is sung as Do",
+       "zh": "固定唱名法：C 音永遠唱成 Do；首調唱名法：把各調的主音唱成 Do",
+       "src": "國家教育研究院樂詞網《音樂名詞釋義》「固定唱名法」",
+       "url": "https://terms.naer.edu.tw/detail/ef06a4b0ab420dbee1558722486a66f9/?seq=2"
+      },
+      {
+       "en": "Chinese terms: staff 線譜／譜表, clef 譜號, treble clef 高音譜號, bass clef 低音譜號, G clef G 譜號, F clef F 譜號, ledger line 加線, middle C 中央 C, sol-fa 唱名, fixed Do 固定唱名法, movable Do 首調唱名法",
+       "zh": "中文名稱：staff 線譜／譜表、clef 譜號、treble clef 高音譜號、bass clef 低音譜號、G clef G 譜號、F clef F 譜號、ledger line 加線、middle C 中央 C、sol-fa 唱名、fixed Do 固定唱名法、movable Do 首調唱名法",
+       "src": "國家教育研究院「學術名詞資訊網」（音樂名詞）",
+       "url": "https://terms.naer.edu.tw/search/?query_term=clef&query_field=title&match_type=term"
+      },
+      {
+       "en": "Taiwan's 12-year curriculum: arts (music) 音 E-Ⅱ-3, 音 E-Ⅲ-4, 音 E-Ⅳ-3",
+       "zh": "十二年國民基本教育課程綱要藝術領域：音 E-Ⅱ-3、音 E-Ⅲ-4、音 E-Ⅳ-3",
+       "src": "國家教育研究院，十二年國教藝術領域課綱",
+       "url": "https://www.naer.edu.tw/upload/1/16/doc/818/%E5%8D%81%E4%BA%8C%E5%B9%B4%E5%9C%8B%E6%B0%91%E5%9F%BA%E6%9C%AC%E6%95%99%E8%82%B2%E8%AA%B2%E7%A8%8B%E7%B6%B1%E8%A6%81%E5%9C%8B%E6%B0%91%E4%B8%AD%E5%B0%8F%E5%AD%B8%E6%9A%A8%E6%99%AE%E9%80%9A%E5%9E%8B%E9%AB%98%E7%B4%9A%E4%B8%AD%E7%AD%89%E6%A0%A1-%E8%97%9D%E8%A1%93%E9%A0%98%E5%9F%9F.pdf"
+      },
+      {
+       "en": "Safe listening: headphone volume to 60% of maximum, personal audio devices less than one hour a day",
+       "zh": "安全聆聽：耳機音量不超過最大的 60%、個人音響裝置每天少於一小時",
+       "src": "WHO, Make Listening Safe brochure (2021)",
+       "url": "https://cdn.who.int/media/docs/default-source/documents/health-topics/deafness-and-hearing-loss/mls-brochure-english-2021.pdf?sfvrsn=bf19b448_5"
+      }
+     ]
+    }
+   ],
+   "planned": [
     {
      "n": 6,
      "icon": "♩",

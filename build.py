@@ -16166,7 +16166,7 @@ def build_comp_hub():
 _musj = os.path.join(ROOT, "data", "music.json")
 MUS = json.load(open(_musj, encoding="utf-8")) if os.path.exists(_musj) else None
 MUS_BASE = "/resources/classes/music/"
-_MUS_JS = {"string": "mus-string", "timbre": "mus-timbre", "beat": "mus-beat", "dynamics": "mus-dynamics"}   # lab.kind → assets/js/<bundle>.js
+_MUS_JS = {"string": "mus-string", "timbre": "mus-timbre", "beat": "mus-beat", "dynamics": "mus-dynamics", "staff": "mus-staff"}   # lab.kind → assets/js/<bundle>.js
 
 def _mus_ver():
     h = hashlib.md5()
@@ -16225,7 +16225,16 @@ def musdynamics_svg(size=56):
             '<path d="M6 30 54 12M6 30 54 48" stroke="#ffd36e" stroke-width="3" stroke-linecap="round" fill="none"/>'
             '<circle cx="18" cy="30" r="3" fill="#7ef0e3"/><circle cx="31" cy="30" r="4.6" fill="#7ef0e3"/><circle cx="45" cy="30" r="6.4" fill="#7ef0e3"/></svg>')
 
-_MUS_CARD = {"string": mustring_svg, "timbre": mustimbre_svg, "beat": musbeat_svg, "dynamics": musdynamics_svg}
+def musstaff_svg(size=56):
+    """第五課的課程卡小圖示：五條線、一個高音譜號的簡化圖和兩個音符。"""
+    ys = [18, 26, 34, 42, 50]
+    lines = "".join(f'<path d="M5 {y}H55" stroke="#9fb0cf" stroke-width="1.4"/>' for y in ys)
+    return (f'<svg class="musstaff-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">{lines}'
+            '<path d="M16 56V12M16 12C26 10 26 24 16 30C8 35 8 44 16 42C24 40 24 30 16 31" fill="none" stroke="#ffd36e" stroke-width="2.6" stroke-linecap="round" transform="translate(-4 0)"/>'
+            '<ellipse cx="34" cy="38" rx="4.6" ry="3.2" transform="rotate(-20 34 38)" fill="#7ef0e3"/><path d="M38 37V20" stroke="#7ef0e3" stroke-width="2"/>'
+            '<ellipse cx="48" cy="26" rx="4.6" ry="3.2" transform="rotate(-20 48 26)" fill="#7ef0e3"/><path d="M52 25V8" stroke="#7ef0e3" stroke-width="2"/></svg>')
+
+_MUS_CARD = {"string": mustring_svg, "timbre": mustimbre_svg, "beat": musbeat_svg, "dynamics": musdynamics_svg, "staff": musstaff_svg}
 _MUS_PRESETS = [   # 和 tools/music/src/pitch.js 的 PRESETS 對應
     {"key": "whole", "en": "Whole string", "zh": "整根弦"}, {"key": "half", "en": "One half", "zh": "二分之一"},
     {"key": "twothirds", "en": "Two thirds", "zh": "三分之二"}, {"key": "threequarters", "en": "Three quarters", "zh": "四分之三"}]
@@ -16578,6 +16587,41 @@ def _mu_tempoq(d):
   <div class="mu-hg-foot"><span></span><button type="button" class="mu-btn mu-btn-gold mu-tq-next" hidden>Next question · 下一題</button></div>
 </div>'''
 
+def render_musstaff_lab(lesson):
+    """第五課：可以點的五線譜與小鍵盤（assets/js/mus-staff.js 綁這裡的 class；沒有 3D，聲音由瀏覽器合成）。"""
+    return '''<div class="mu-staffwrap rvl" data-musstaff-lab>
+  <div class="mu-st-top">
+    <div class="mu-st-clefs" role="group" aria-label="Clef · 譜號">
+      <button type="button" class="mu-btn" data-clef="treble" aria-pressed="true">Treble clef · 高音譜號</button>
+      <button type="button" class="mu-btn" data-clef="bass" aria-pressed="false">Bass clef · 低音譜號</button>
+    </div>
+    <p class="mu-st-help">Tap a line or a space. · 點一條線或一個間。（也可以用 &uarr; &darr; 鍵）</p>
+  </div>
+  <div class="mu-st-grid">
+    <canvas class="mu-st-cv" aria-label="A five-line staff. Tap a line or space to place a note and hear it. · 五線譜：點一條線或一個間，放上音符並聽到它。"></canvas>
+    <div class="mu-st-side">
+      <p class="mu-st-k">The note · 這個音</p>
+      <p class="mu-st-name">G4 <span>· Sol</span></p>
+      <p class="mu-st-hz">392.00 <small>Hz</small></p>
+      <p class="mu-st-where"></p>
+    </div>
+  </div>
+  <p class="mu-st-k mu-st-k2">The same note on the keyboard (white keys) · 同一個音在鍵盤上（白鍵）</p>
+  <div class="mu-st-kb" role="group" aria-label="White keys · 白鍵"></div>
+  <p class="mu-msg" aria-live="polite"></p>
+</div>'''
+
+def _mu_staffq(d):
+    opts = "".join(f'<button type="button" class="mu-sq-opt" data-pick="{l}"><b>{l}</b><small>{z}</small></button>' for l, z in zip("CDEFGAB", ["Do", "Re", "Mi", "Fa", "Sol", "La", "Si"]))
+    return f'''<div class="mu-staffq rvl" data-mu-staffq>
+  <div class="mu-hg-top"><p class="mu-sq-k">Question 1 of 8 · 第 1 題（共 8 題）</p><p class="mu-hg-sc">Right on the first try · 第一次就答對 <b class="mu-sq-score">0 / 0</b></p></div>
+  <p class="mu-sq-clef"></p>
+  <canvas class="mu-sq-cv" aria-label="A note on a staff. Which note is it? · 五線譜上的一個音符，這是哪個音？"></canvas>
+  <div class="mu-sq-opts">{opts}</div>
+  <p class="mu-sq-msg mu-q-msg" aria-live="polite"></p>
+  <div class="mu-hg-foot"><span></span><button type="button" class="mu-btn mu-btn-gold mu-sq-next" hidden>Next question · 下一題</button></div>
+</div>'''
+
 def _mu_curric(d):
     rows = "".join(
         f'<li class="mu-cur rvl"><p class="mu-cur-k"><b>{html.escape(c["code"])}</b><span>{html.escape(c["area"])} · {html.escape(c["area_en"])}</span></p>'
@@ -16613,7 +16657,7 @@ def build_mus_lesson(ui, unit, lesson):
     reading_html = render_basic_unit(1, unit_dict, level="music", audio_rel="", pdf_rel="")
     lab = lesson["lab"]
     kind = lab["kind"]
-    lab_html = {"string": render_musstring_lab, "timbre": render_mustimbre_lab, "beat": render_musbeat_lab, "dynamics": render_musdynamics_lab}[kind](lesson)
+    lab_html = {"string": render_musstring_lab, "timbre": render_mustimbre_lab, "beat": render_musbeat_lab, "dynamics": render_musdynamics_lab, "staff": render_musstaff_lab}[kind](lesson)
 
     def sec(key, fn):
         d = lesson[key]
@@ -16631,6 +16675,7 @@ def build_mus_lesson(ui, unit, lesson):
         ph = lesson["parts_head"]
         secs.append(("parts", ph["eyebrow"], ph["en"], ph["zh"], f'<div class="ph-grid stagger">{cards}</div>',
                      _bi(lesson["parts_note_en"], lesson["parts_note_zh"], cls="lead rvl d2")))
+    if lesson.get("staffq"): secs.append(sec("staffq", _mu_staffq))
     if lesson.get("signq"): secs.append(sec("signq", _mu_signq))
     if lesson.get("tempoq"): secs.append(sec("tempoq", _mu_tempoq))
     if lesson.get("tap"): secs.append(sec("tap", _mu_tap))
