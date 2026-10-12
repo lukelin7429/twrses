@@ -8824,7 +8824,7 @@
               "zh": "電腦怎麼保守祕密？",
               "note_en": "Your messages pass through many machines on the way. Next: how to make sure only the right one can read them.",
               "note_zh": "你的訊息在路上會經過很多台機器。下一課：怎麼確保只有該看的那一台看得懂。",
-              "soon": true
+              "href": "/resources/classes/computers/keeping-secrets/"
             }
           ],
           "sources_note_en": "Facts on this page were checked against these sources (October 2026); the model’s names, numbers, and pages are made up for the example, and every step is tested",
@@ -8891,15 +8891,598 @@
               "url": "https://terms.naer.edu.tw/search/?query_term=domain+name&query_field=title&query_op=&match_type=exact"
             }
           ]
+        },
+        {
+          "n": 14,
+          "slug": "keeping-secrets",
+          "title": "How Does a Computer Keep a Secret?",
+          "title_zh": "電腦怎麼保守祕密？",
+          "level": "入門 · Beginner",
+          "icon": "🔐",
+          "card": "cipher",
+          "blurb_en": "A message travels from your computer to a friend’s, and someone in the middle is watching. Send it in 3D with no lock, then lock it with a key and see what the watcher gets. Give your friend the wrong key. Let the watcher try every key. Then lock and unlock messages yourself, break a cipher as the watcher, and see how many keys a real lock has.",
+          "blurb_zh": "一則訊息從你的電腦送到朋友的電腦，中間有人在偷看。在 3D 裡先不上鎖送一次，再用金鑰鎖起來，看偷看的人拿到什麼。給朋友一把錯的金鑰；讓偷看的人把每一把金鑰都試一遍。接著自己加密、解密，當一次偷看的人破解密文，再看看真正的鎖有幾把金鑰。",
+          "big_idea_en": "To keep a message secret, a computer scrambles it by a rule, using a secret number called a key. Anyone on the way can see the scrambled message but cannot understand it. Only someone with the right key can turn it back. The rule itself can be known to everyone. The lock is safe only if there are far too many keys to try.",
+          "big_idea_zh": "要讓一則訊息保密，電腦會照一個規則把它打亂，打亂時用到一個祕密的數，叫做金鑰。路上的任何人都看得到被打亂的訊息，卻看不懂。只有拿著正確金鑰的人，才能把它變回來。規則本身可以讓所有人知道。要金鑰多到試不完，這把鎖才安全。",
+          "lab": {
+            "kind": "cipher",
+            "eyebrow": "3D Model · 3D 模型",
+            "title_en": "A Message, a Watcher, and a Key",
+            "title_zh": "一則訊息、一個偷看的人、一把金鑰",
+            "how_en": "You are on the left and your friend is on the right. The message travels along the cable between you, past the teal relay points. Behind the middle one stands someone who can see everything that goes by. Choose a message, choose whether to lock it, and press Send. The three boxes on the right show what each person ends up with. Change the key and send again.",
+            "how_zh": "你在左邊，朋友在右邊。訊息沿著你們中間那條線走，經過幾個青色的中繼點。中間那個點的後面站著一個人，經過的東西他全都看得到。選一則訊息，決定要不要上鎖，然後按「送出」。右邊三個格子顯示每個人最後拿到什麼。改一改金鑰，再送一次。",
+            "messages": [
+              "MEET ME AT NOON",
+              "THE KEY IS UNDER THE MAT",
+              "HAPPY BIRTHDAY"
+            ],
+            "legend": [
+              {
+                "cls": "cpenv",
+                "en": "The envelope: your message on its way",
+                "zh": "信封：正在路上的訊息"
+              },
+              {
+                "cls": "cplock",
+                "en": "The padlock: the message has been scrambled with a key",
+                "zh": "鎖頭：訊息已經用金鑰打亂了"
+              },
+              {
+                "cls": "cpspy",
+                "en": "The watcher: sees everything that passes the middle point",
+                "zh": "偷看的人：經過中間那個點的東西全都看得到"
+              },
+              {
+                "cls": "cpnode",
+                "en": "Teal dots: machines the message passes through",
+                "zh": "青色圓點：訊息途中經過的機器"
+              }
+            ],
+            "scale_en": "A teaching model. The lock here is the letter-shift cipher that Julius Caesar used about two thousand years ago. It is easy to follow, and it is far too weak for real use: it has only 25 keys. Real encryption does not shift letters. It works on the bits of the message, with keys that are very long numbers. Real computers also do not need to meet in advance to agree on a key; a method called public-key cryptography lets them do that across the network. What is the same is the idea: a public rule, a secret key, and a watcher who sees only nonsense.",
+            "scale_zh": "這是教學用的示意模型。這裡的鎖是大約兩千年前凱撒用過的字母位移。它很容易看懂，但實際使用遠遠不夠強：金鑰只有 25 把。真的加密不是移字母，而是對訊息的位元動手，用的金鑰是很長的數。真的電腦也不必事先見面約好金鑰；有一種叫公開金鑰密碼學的方法，讓它們隔著網路就能約好。相同的是這個道理：規則公開、金鑰保密，偷看的人只看到一串沒有意義的東西。",
+            "credit_html": "Model and code are drawn and programmed by My Culture Connect. Every message is tested to lock and unlock exactly with every key, in <code>tools/computers/test/cipher.test.mjs</code>.<br><span class=\"zh\">模型與程式由人師教育協會自行繪製、撰寫；每一則訊息都測過「用每一把金鑰加密再解密，都和原文一模一樣」（<code>tools/computers/test/cipher.test.mjs</code>）。</span>"
+          },
+          "paras": [
+            "In Lesson 13 you saw that a message does not go straight from your computer to the other one. It passes through many machines on the way, and you do not control any of them. Anyone who runs one of those machines could look at what goes by. So how can you send something private? The answer is very old. It is called cryptography: writing a message so that only the person it is meant for can understand it.",
+            "Here is one way, used by Julius Caesar. Move every letter three places along the alphabet: A becomes D, B becomes E, and so on. “MEET ME AT NOON” turns into “PHHW PH DW QRRQ.” Scrambling a message like this is called encryption. There are two parts to it. The rule is “move each letter along.” The key is the number that says how far: here, 3.",
+            "Your friend knows the key, so your friend moves every letter back three places and reads the message. That is decryption. The watcher in the middle sees the same letters, but without the key they mean nothing. Notice what has to be secret. It is not the rule. Everyone can know the rule. Only the key must be kept between the two of you, and you must both have exactly the same one.",
+            "Caesar’s lock has a weakness. There are only 25 possible keys. A watcher can simply try them all, one after another, until the message makes sense. So the safety of a lock depends on how many keys there are. A computer’s key is a number written in bits, and you saw in Lesson 1 that every extra bit doubles the count. A standard method used today has keys of 128, 192, or 256 bits. A key of 128 bits can be any one of a number of keys that is 39 digits long.",
+            "One puzzle remains. How can two computers that have never met agree on a key, when the watcher hears everything they say? In 1976, two researchers, Whitfield Diffie and Martin Hellman, described a way. Each side has two keys. One is published for everyone to use for locking. The other is kept secret and is the only one that unlocks. Anyone can send you a locked message, and only you can open it.",
+            "You use all this every day. When a web address begins with https, the browser and the server are encrypting everything they send to each other. The machines in between see only scrambled data. But remember what encryption does and does not do. It keeps the message private on the way. It cannot tell you whether the person at the other end is honest, and it cannot help if you give your password to the wrong person."
+          ],
+          "paras_zh": [
+            "第十三課說過，訊息不是從你的電腦直接到另一台電腦。它在路上會經過很多台機器，而那些機器沒有一台歸你管。管那些機器的任何人，都可以看一看經過的東西。那要怎麼送出不想讓別人看到的東西？答案非常古老，叫做密碼學（cryptography）：把訊息寫成只有該收到的人才看得懂的樣子。",
+            "這裡有一個方法，是凱撒用過的。把每個字母在字母表上往後移三格：A 變成 D，B 變成 E，依此類推。「MEET ME AT NOON」就變成「PHHW PH DW QRRQ」。像這樣把訊息打亂，叫做加密（encryption）。它有兩個部分。規則是「把每個字母往後移」。金鑰（key）是說明要移幾格的那個數：這裡是 3。",
+            "你的朋友知道金鑰，所以把每個字母往回移三格，就讀到訊息了。這叫解密（decryption）。中間偷看的人看到的是同樣那些字母，可是沒有金鑰，它們毫無意義。注意到底是什麼要保密。不是規則——規則誰都可以知道。只有金鑰必須留在你們兩人之間，而且兩個人拿的必須一模一樣。",
+            "凱撒的鎖有一個弱點：金鑰只有 25 種可能。偷看的人只要一把一把全部試過，試到訊息讀得通為止。所以一把鎖安不安全，要看金鑰有幾把。電腦的金鑰是用位元寫成的數，而第一課說過，每多一個位元，數目就加倍。今天有一種標準的加密方法，金鑰是 128、192 或 256 個位元。128 個位元的金鑰，可能的數目是一個 39 位數。",
+            "還剩下一個難題。兩台從來沒見過面的電腦，要怎麼約好一把金鑰？它們說的每一句話，偷看的人都聽得到。1976 年，兩位研究者迪菲（Whitfield Diffie）和赫爾曼（Martin Hellman）提出了一個辦法。每一方都有兩把金鑰。一把公開，讓所有人用來上鎖；另一把自己留著，只有它能開鎖。任何人都可以送一則上了鎖的訊息給你，而只有你打得開。",
+            "這些東西你每天都在用。網址開頭是 https 的時候，瀏覽器和伺服器會把它們互相傳送的一切都加密。中途的機器只看得到打亂的資料。不過要記得加密能做什麼、不能做什麼。它讓訊息在路上不被別人看懂。它沒辦法告訴你另一頭的人是不是誠實，而如果你把密碼交給了不該給的人，它也幫不上忙。"
+          ],
+          "questions": [
+            "In Caesar’s cipher, what is the rule and what is the key? Which one must be kept secret?",
+            "Why is a cipher with only 25 keys not safe?",
+            "What does https at the start of a web address tell you, and what does it not tell you?"
+          ],
+          "answers": [
+            "The rule is to move every letter along the alphabet. The key is the number that says how many places. The rule can be known to everyone; only the key must be secret.",
+            "Someone who catches the message can try all 25 keys one after another until the message makes sense. A lock is safe only when there are far too many keys to try.",
+            "It tells you that the browser and the server encrypt what they send to each other, so the machines in between cannot read it. It does not tell you whether the one at the other end is honest."
+          ],
+          "vocab": [
+            {
+              "n": 1,
+              "w": "secret",
+              "pos": "n.",
+              "zh": "祕密",
+              "ex": "Can you keep a <b>secret</b>?",
+              "exzh": "你守得住祕密嗎？"
+            },
+            {
+              "n": 2,
+              "w": "key",
+              "pos": "n.",
+              "zh": "金鑰；鑰匙",
+              "ex": "Only someone with the <b>key</b> can read the message.",
+              "exzh": "只有拿著金鑰的人才讀得懂這則訊息。"
+            },
+            {
+              "n": 3,
+              "w": "encrypt",
+              "pos": "v.",
+              "zh": "加密",
+              "ex": "The browser <b>encrypts</b> the data before it is sent.",
+              "exzh": "瀏覽器在送出資料之前先把它加密。"
+            },
+            {
+              "n": 4,
+              "w": "decrypt",
+              "pos": "v.",
+              "zh": "解密",
+              "ex": "Your friend uses the same key to <b>decrypt</b> it.",
+              "exzh": "你的朋友用同一把金鑰把它解密。"
+            },
+            {
+              "n": 5,
+              "w": "scramble",
+              "pos": "v.",
+              "zh": "打亂",
+              "ex": "The letters were <b>scrambled</b>, so nobody could read the note.",
+              "exzh": "字母被打亂了，所以沒有人讀得懂那張紙條。"
+            },
+            {
+              "n": 6,
+              "w": "private",
+              "pos": "adj.",
+              "zh": "私人的；不公開的",
+              "ex": "This is a <b>private</b> message, not for everyone.",
+              "exzh": "這是一則私人訊息，不是給所有人看的。"
+            },
+            {
+              "n": 7,
+              "w": "protect",
+              "pos": "v.",
+              "zh": "保護",
+              "ex": "A long key <b>protects</b> the message better.",
+              "exzh": "金鑰越長，把訊息保護得越好。"
+            },
+            {
+              "n": 8,
+              "w": "break",
+              "pos": "v.",
+              "zh": "破解；打破",
+              "ex": "It took only a minute to <b>break</b> the simple code.",
+              "exzh": "破解那個簡單的密碼只花了一分鐘。"
+            }
+          ],
+          "quiz": [
+            {
+              "q": "What does encryption do to a message?",
+              "options": [
+                "It makes the message shorter.",
+                "It scrambles the message so that only someone with the key can read it.",
+                "It sends the message faster.",
+                "It deletes the message after reading."
+              ],
+              "correct": 1
+            },
+            {
+              "q": "In Caesar’s cipher with the key 3, what does A become?",
+              "options": [
+                "B",
+                "C",
+                "D",
+                "X"
+              ],
+              "correct": 2
+            },
+            {
+              "q": "What must be kept secret?",
+              "options": [
+                "The rule for scrambling",
+                "The key",
+                "The fact that a message was sent",
+                "The alphabet"
+              ],
+              "correct": 1
+            },
+            {
+              "q": "Why is Caesar’s cipher easy to break?",
+              "options": [
+                "It uses capital letters.",
+                "It has only 25 possible keys, so they can all be tried.",
+                "It is too old.",
+                "It works only in Latin."
+              ],
+              "correct": 1
+            },
+            {
+              "q": "According to the reading, what does https NOT tell you?",
+              "options": [
+                "That the data is encrypted on the way",
+                "That the browser and server are scrambling what they send",
+                "Whether the person at the other end is honest",
+                "That machines in between cannot read the data"
+              ],
+              "correct": 2
+            }
+          ],
+          "parts_head": {
+            "eyebrow": "Try It in the Model · 在模型裡試試",
+            "en": "Four ways to send the same message",
+            "zh": "同一則訊息的四種送法"
+          },
+          "parts": [
+            {
+              "key": "plain",
+              "icon": "📭",
+              "en": "With no lock",
+              "zh": "不上鎖",
+              "meta_en": "The watcher reads every word",
+              "meta_zh": "偷看的人每個字都讀到",
+              "demo": "plain",
+              "text_en": "The message goes as you wrote it. Compare the three boxes when it arrives. Who knows the secret now?",
+              "text_zh": "訊息照你寫的原樣送出去。送到的時候比一比三個格子：現在有誰知道這個祕密？"
+            },
+            {
+              "key": "secret",
+              "icon": "🔒",
+              "en": "Locked with the key 3",
+              "zh": "用金鑰 3 上鎖",
+              "meta_en": "The watcher gets PHHW PH DW QRRQ",
+              "meta_zh": "偷看的人拿到 PHHW PH DW QRRQ",
+              "demo": "secret",
+              "text_en": "The watcher still gets the message. What is different about what the watcher has?",
+              "text_zh": "偷看的人還是拿到了訊息。他拿到的東西有什麼不一樣？"
+            },
+            {
+              "key": "wrongkey",
+              "icon": "🗝️",
+              "en": "The wrong key",
+              "zh": "拿錯金鑰",
+              "meta_en": "Locked with 3, opened with 4",
+              "meta_zh": "用 3 上鎖，用 4 開",
+              "demo": "wrongkey",
+              "text_en": "Your friend’s key is off by just one. How close to the real message is the result?",
+              "text_zh": "朋友的金鑰只差了一。解出來的東西，離真正的訊息有多近？"
+            },
+            {
+              "key": "crack",
+              "icon": "🕵️",
+              "en": "The watcher tries every key",
+              "zh": "偷看的人一把一把試",
+              "meta_en": "Broken on the third try",
+              "meta_zh": "試到第三把就破了",
+              "demo": "crack",
+              "text_en": "The watcher has no key, but has patience. How many tries does it take? What would it take with the key 25?",
+              "text_zh": "偷看的人沒有金鑰，可是有耐心。他試了幾把？如果金鑰是 25 呢？"
+            }
+          ],
+          "parts_note_en": "Then choose your own key with the plus and minus buttons, and send each of the three messages.",
+          "parts_note_zh": "接著用加號和減號選一把自己的金鑰，把三則訊息各送一次。",
+          "ciphertool": {
+            "eyebrow": "Try It · 自己試試",
+            "en": "Lock and Unlock a Message",
+            "zh": "自己加密、解密",
+            "lead_en": "Type a message in English and move the slider to choose a key. The two rows of letters show the rule: each letter in the top row becomes the one below it. Then switch to Unlock: the scrambled text moves up into the box, and the same key turns it back.",
+            "lead_zh": "用英文打一則訊息，拉動滑桿選一把金鑰。那兩排字母就是規則：上面一排的每個字母，變成它正下方的那一個。接著切到「解密」：打亂的文字會移到上面的格子裡，同一把金鑰把它變回來。",
+            "start": "MEET ME AT NOON",
+            "note_en": "Only the 26 English letters are moved. Spaces, numbers, punctuation, and Chinese characters stay as they are. Nothing you type here is sent anywhere. And do not use this for a real secret: you are about to see how quickly it can be broken.",
+            "note_zh": "只有 26 個英文字母會被移動；空白、數字、標點和中文都原樣不動。你在這裡打的東西不會送到任何地方。還有，不要拿它來保護真正的祕密：你馬上就會看到，它多快就被破解。",
+            "tips": [
+              {
+                "en": "Set the key to 13 and lock a word. Then lock the result again with 13. What happens, and why?",
+                "zh": "把金鑰設成 13，把一個字加密。再把結果用 13 加密一次。發生了什麼事？為什麼？"
+              },
+              {
+                "en": "Write a note to a friend with a key you agreed on in person. Pass it through two classmates.",
+                "zh": "和朋友當面約好一把金鑰，寫一張紙條給他，請兩位同學幫忙傳過去。"
+              },
+              {
+                "en": "Locking with 2 and then with 3 is the same as locking once with 5. Two weak locks do not make a strong one.",
+                "zh": "先用 2 加密、再用 3 加密，和直接用 5 加密一次是一樣的。兩把弱的鎖，不會變成一把強的鎖。"
+              }
+            ]
+          },
+          "spy": {
+            "eyebrow": "Game · 小遊戲",
+            "en": "Be the Watcher",
+            "zh": "換你當偷看的人",
+            "lead_en": "Now change sides. You have caught three locked messages, and you do not know the key to any of them. But you know the rule, and there are only 25 keys. Each message is shown with every key tried. Find the line that is real English.",
+            "lead_zh": "現在換邊。你攔到三則上了鎖的訊息，每一則的金鑰你都不知道。可是你知道規則，而金鑰只有 25 把。每一則訊息都把 25 把金鑰試過的結果列出來。找出真正是英文的那一行。",
+            "note_en": "Trying every key like this is called a brute-force attack. It works on any cipher if the keys are few enough. That is the whole reason real keys are so long.",
+            "note_zh": "像這樣把每一把金鑰都試一遍，叫做暴力破解（brute-force attack）。只要金鑰夠少，它對任何加密方法都有效。真正的金鑰要那麼長，原因就在這裡。"
+          },
+          "keybits": {
+            "eyebrow": "See Why · 看看為什麼",
+            "en": "How Many Keys Are There?",
+            "zh": "金鑰有幾把？",
+            "lead_en": "A computer’s key is a number written in bits. Move the slider to make the key longer, and watch how many different keys there could be. Remember that the watcher’s only way in is to try them.",
+            "lead_zh": "電腦的金鑰是用位元寫成的數。拉動滑桿把金鑰變長，看看可能的金鑰有幾把。別忘了，偷看的人唯一的辦法就是一把一把試。",
+            "note_en": "These are exact numbers: 2 multiplied by itself once for each bit. The standard called AES uses keys of 128, 192, or 256 bits. We do not say how long trying them all would take, because that depends on the machine. The point is the size of the number.",
+            "note_zh": "這些都是精確的數字：有幾個位元，就把 2 自己乘幾次。叫做 AES 的那套標準，用的金鑰是 128、192 或 256 個位元。我們不說「全部試完要多久」，因為那要看用什麼機器；重點是這個數有多大。"
+          },
+          "culture_cards": {
+            "eyebrow": "Stories Behind Secret Writing · 祕密書寫的故事",
+            "title_en": "Caesar’s three places, a cipher that undoes itself, a lock anyone can close, and a number with 39 digits",
+            "title_zh": "凱撒的三格、會自己解開的加密、誰都能鎖上的鎖、一個 39 位數",
+            "lead_en": "Four short stories about keeping messages private.",
+            "lead_zh": "關於「不讓別人看懂訊息」的四個小故事。",
+            "cards": [
+              {
+                "k": "Caesar · 凱撒",
+                "en": "Three places down the alphabet",
+                "zh": "在字母表上往後三格",
+                "body_en": "According to Britannica, the Roman writer Suetonius describes the cipher that Julius Caesar used in his letters: he replaced each letter with the letter three places down in the alphabet, and for letters at the end, the cipher went back around to the start. Caesar’s successor, Augustus, found this too complicated and replaced each letter with the one right after it. The method is still named after Caesar.",
+                "body_zh": "根據大英百科，羅馬作家蘇埃托尼烏斯（Suetonius）記下了凱撒寫信時用的加密方法：把每個字母換成字母表上往後第三個字母，到了字母表的尾巴就繞回開頭。凱撒的繼承人奧古斯都覺得這樣太複雜，改成把每個字母換成緊接著的下一個。這個方法至今仍以凱撒為名。"
+              },
+              {
+                "k": "ROT13",
+                "en": "A cipher that undoes itself",
+                "zh": "會自己解開的加密",
+                "body_en": "There are 26 letters, and 13 is half of 26. So if you shift a message by 13 and then shift it by 13 again, every letter has gone all the way around and is back where it began. Britannica notes that this cipher, called ROT13, has been widely used to protect text against being read by accident, and that it was chosen because applying it twice returns the original. CODE becomes PBQR, and PBQR becomes CODE.",
+                "body_zh": "英文字母有 26 個，13 剛好是 26 的一半。所以把一則訊息移 13 格，再移 13 格，每個字母都繞了一整圈，回到原來的位置。大英百科提到，這種叫 ROT13 的加密一直被廣泛用來避免文字被不小心讀到；選 13，就是因為做兩次會回到原文。CODE 變成 PBQR，PBQR 又變回 CODE。"
+              },
+              {
+                "k": "1976",
+                "en": "A lock anyone can close",
+                "zh": "誰都能鎖上的鎖",
+                "body_en": "With a cipher like Caesar’s, the two sides must somehow share one key, and a key that is sent can be caught on the way. Britannica calls what happened in 1976 one of the most inspired insights in the history of the subject: Whitfield Diffie and Martin Hellman proposed that each user keep a decryption key secret and publish an encryption key in a public directory. It was the first discussion of the idea in the open literature. Later it was revealed that James Ellis, Clifford Cocks, and Malcolm Williamson at Britain’s GCHQ had discovered it earlier, in secret.",
+                "body_zh": "用凱撒那樣的加密，兩邊得想辦法拿到同一把金鑰，而送出去的金鑰可能在路上被攔走。大英百科把 1976 年發生的事稱為這門學問史上最有靈感的洞見之一：迪菲和赫爾曼提出，每個使用者把解密的金鑰自己留著，把加密的金鑰放在一份公開的名錄裡。這是公開文獻中第一次討論這個想法。後來才揭露，英國政府通訊總部（GCHQ）的艾利斯（James Ellis）、考克斯（Clifford Cocks）和威廉森（Malcolm Williamson）更早就祕密地發現了它。"
+              },
+              {
+                "k": "128 bits · 128 個位元",
+                "en": "A number with 39 digits",
+                "zh": "一個 39 位數",
+                "body_en": "The United States standard called AES says its keys are 128, 192, or 256 bits long. The rest of this card is our own arithmetic. Caesar’s cipher has 25 keys, fewer than 5 bits would give. A key of 128 bits can be any of 340,282,366,920,938,463,463,374,607,431,768,211,456 keys. Each extra bit doubles the number, exactly as each extra switch did in Lesson 1. Trying keys one by one is the slow search from Lesson 10, and a good lock is designed so that there is no quicker way.",
+                "body_zh": "美國一套叫 AES 的標準寫明，它的金鑰長度是 128、192 或 256 個位元。這張卡接下來的部分是我們自己算的。凱撒的加密有 25 把金鑰，比 5 個位元的還少。128 個位元的金鑰，可能的數目是 340,282,366,920,938,463,463,374,607,431,768,211,456 把。每多一個位元，數目就加倍，和第一課每多一個開關一樣。一把一把試金鑰，就是第十課那種慢的找法；好的鎖在設計上，就是要讓人找不到更快的方法。"
+              }
+            ]
+          },
+          "myths": [
+            {
+              "myth_en": "If nobody can see my screen, nobody can see my message.",
+              "myth_zh": "只要沒人看到我的螢幕，就沒人看得到我的訊息。",
+              "fact_en": "A message passes through many machines between you and the other person. Without encryption, whoever runs them could read it.",
+              "fact_zh": "訊息在你和對方之間會經過很多台機器。沒有加密的話，管那些機器的人就讀得到。"
+            },
+            {
+              "myth_en": "A code is safe as long as nobody knows how it works.",
+              "myth_zh": "只要沒人知道密碼是怎麼運作的，它就安全。",
+              "fact_en": "Everyone knows how Caesar’s cipher works. Safety has to come from the key, and from there being too many keys to try.",
+              "fact_zh": "凱撒的加密方法人人都知道。安全必須來自金鑰，而且金鑰要多到試不完。"
+            },
+            {
+              "myth_en": "Once a message is encrypted, it cannot be read by anyone else.",
+              "myth_zh": "訊息一旦加密，別人就一定讀不到。",
+              "fact_en": "It depends on the lock. With only 25 keys, a brute-force attack tries them all. Britannica notes that Caesar’s cipher can be broken in other ways too.",
+              "fact_zh": "要看是什麼鎖。金鑰只有 25 把的話，暴力破解把它們全部試一遍就行了。大英百科指出，凱撒的加密還有別的破解方法。"
+            },
+            {
+              "myth_en": "If the address starts with https, the site can be trusted.",
+              "myth_zh": "網址開頭是 https，這個網站就可以信任。",
+              "fact_en": "The letters mean that what travels between you and the server is encrypted. They say nothing about who runs the server or whether what it tells you is true.",
+              "fact_zh": "這幾個字母的意思是：你和伺服器之間傳的東西有加密。它們並沒有說那台伺服器是誰在管，也沒有說它告訴你的事是不是真的。"
+            }
+          ],
+          "tricks_head": {
+            "en": "A secret in a sentence",
+            "zh": "一句話記住保密"
+          },
+          "tricks": [
+            {
+              "title_en": "Public rule, secret key",
+              "title_zh": "規則公開，金鑰保密",
+              "body_en": "Everyone may know the method. Nobody else may know the key.",
+              "body_zh": "方法誰都可以知道；金鑰不能讓別人知道。"
+            },
+            {
+              "title_en": "Same key at both ends",
+              "title_zh": "兩邊同一把金鑰",
+              "body_en": "Off by one, and it is nonsense.",
+              "body_zh": "差一，就是一堆亂碼。"
+            },
+            {
+              "title_en": "Few keys, weak lock",
+              "title_zh": "金鑰少，鎖就弱",
+              "body_en": "25 keys can all be tried.",
+              "body_zh": "25 把，全部試得完。"
+            },
+            {
+              "title_en": "One more bit, twice the keys",
+              "title_zh": "多一個位元，金鑰多一倍",
+              "body_en": "That is why real keys are long.",
+              "body_zh": "所以真的金鑰很長。"
+            }
+          ],
+          "safety_head": {
+            "eyebrow": "Before You Start · 動手之前",
+            "en": "A few reminders",
+            "zh": "幾個提醒"
+          },
+          "safety": [
+            {
+              "en": "Do not use a letter-shift cipher for anything that really must stay secret. It is a way to learn the idea, not a way to protect yourself.",
+              "zh": "真正必須保密的東西，不要用字母位移來保護。它是用來學道理的，不是用來保護自己的。"
+            },
+            {
+              "en": "Never write a real password in a classroom game, on a note, or in a tool on a web page.",
+              "zh": "真正的密碼，絕對不要寫在課堂遊戲裡、紙條上，或網頁上的任何小工具裡。"
+            },
+            {
+              "en": "Being “the watcher” is a game with made-up messages. Reading other people’s real messages without permission is wrong, and it may be against the law.",
+              "zh": "「偷看的人」只是用編出來的訊息玩的遊戲。沒有得到同意就去看別人真正的訊息是不對的，也可能違法。"
+            },
+            {
+              "en": "Use a school or family computer only with permission.",
+              "zh": "用學校或家裡的電腦要先得到同意。"
+            }
+          ],
+          "activities": [
+            {
+              "title_en": "Pass the Note",
+              "title_zh": "傳紙條",
+              "materials": [
+                {
+                  "en": "Two paper strips for each student, each with the alphabet written along it in evenly spaced letters",
+                  "zh": "每人兩條紙條，上面各寫一排間隔相同的字母表"
+                },
+                {
+                  "en": "Small slips of paper for messages",
+                  "zh": "寫訊息用的小紙片"
+                },
+                {
+                  "en": "A row of five or six students to be “the network”",
+                  "zh": "五、六位同學排成一排，當作「網路」"
+                }
+              ],
+              "steps": [
+                {
+                  "en": "Two students at opposite ends of the row agree on a key in a whisper. To use it, slide one alphabet strip along the other by that many letters.",
+                  "zh": "坐在那一排兩端的兩位同學，小聲約好一把金鑰。使用的方法：把一條字母表沿著另一條滑過那麼多格。"
+                },
+                {
+                  "en": "The sender writes a short English message, encrypts it with the strips, and passes the slip along the row.",
+                  "zh": "送訊息的同學寫一句短短的英文，用紙條把它加密，再把紙片沿著那一排傳過去。"
+                },
+                {
+                  "en": "One student in the middle is the watcher and may copy the slip before passing it on. The receiver decrypts it and reads it aloud.",
+                  "zh": "中間有一位同學是偷看的人，可以先把紙片抄下來再往下傳。收訊息的同學把它解密，大聲唸出來。"
+                },
+                {
+                  "en": "Now give the watcher two minutes and a pair of strips. Can the watcher find the key by trying them one by one?",
+                  "zh": "接著給偷看的人兩分鐘和一組紙條。他能不能一把一把試，把金鑰找出來？"
+                }
+              ],
+              "tip_en": "Talk about the whisper. How did the two ends agree on the key without the watcher hearing? In a real network there is no whisper, which is the puzzle that public-key cryptography solved. In Taiwan’s junior high Information Technology curriculum, this lesson matches the topic “Information technology and human society”: 資 H-IV-1, protecting personal data, and 資 H-IV-3, information security.",
+              "tip_zh": "和學生談談那句「小聲約好」。兩端是怎麼不讓偷看的人聽到就約好金鑰的？真的網路上沒有辦法小聲說，這正是公開金鑰密碼學解決的難題。對照十二年國教國中「資訊科技」的學習內容，這一課對應「資訊科技與人類社會」主題：資 H-IV-1 個人資料保護、資 H-IV-3 資訊安全。"
+            },
+            {
+              "title_en": "Check It on Your Own Computer",
+              "title_zh": "在自己的電腦上驗證",
+              "materials": [
+                {
+                  "en": "A computer or phone with a web browser",
+                  "zh": "一台有瀏覽器的電腦或手機"
+                },
+                {
+                  "en": "The “Lock and Unlock a Message” tool on this page",
+                  "zh": "這一頁的「自己加密、解密」小工具"
+                },
+                {
+                  "en": "Paper and a pencil",
+                  "zh": "紙和鉛筆"
+                }
+              ],
+              "steps": [
+                {
+                  "en": "Look at the address of this page. Does it begin with https? Write down the first five letters.",
+                  "zh": "看看這一頁的網址。開頭是 https 嗎？把前五個字母寫下來。"
+                },
+                {
+                  "en": "Visit three other sites you use for school. Write down whether each address begins with https.",
+                  "zh": "再看三個你上課會用到的網站。把每個網址的開頭是不是 https 記下來。"
+                },
+                {
+                  "en": "In the tool, lock the word CODE with the key 13. Then lock the result with 13 again. What do you get?",
+                  "zh": "在小工具裡，用金鑰 13 把 CODE 這個字加密。再把結果用 13 加密一次。你得到什麼？"
+                },
+                {
+                  "en": "Lock your own first name with a key of your choice. Give the result to a partner and see how long it takes them to break it.",
+                  "zh": "用你自己選的金鑰把你的名字（英文）加密，把結果交給同伴，看他多久能破解。"
+                }
+              ],
+              "tip_en": "CODE becomes PBQR, and PBQR becomes CODE again. On a phone the address may be partly hidden; tap the address bar to see all of it. An address beginning with https means the connection is encrypted. It is not a promise about the site itself.",
+              "tip_zh": "CODE 會變成 PBQR，PBQR 又變回 CODE。手機上的網址可能只顯示一部分，點一下網址列就看得到完整的。網址開頭是 https，表示連線有加密；它並不是對這個網站本身的保證。"
+            }
+          ],
+          "links_head": {
+            "eyebrow": "Go Further · 延伸閱讀",
+            "en": "The road the message takes, the slow search, and what comes next",
+            "zh": "訊息走的那條路、慢的找法，以及下一課"
+          },
+          "links": [
+            {
+              "icon": "🌐",
+              "k_en": "Previous Lesson · Lesson 13",
+              "k_zh": "上一課・第十三課",
+              "en": "What Happens When You Open a Web Page?",
+              "zh": "打開一個網頁，發生了什麼？",
+              "note_en": "The request and the answer in that lesson are the messages that https keeps private.",
+              "note_zh": "那一課的請求和回答，就是 https 要保密的訊息。",
+              "href": "/resources/classes/computers/open-a-web-page/"
+            },
+            {
+              "icon": "🧮",
+              "k_en": "Lesson 10",
+              "k_zh": "第十課",
+              "en": "What Is an Algorithm?",
+              "zh": "演算法是什麼？",
+              "note_en": "Trying every key is searching one by one. A good lock is designed so that there is no quicker way.",
+              "note_zh": "把每一把金鑰都試一遍，就是一個一個找。好的鎖在設計上，就是要讓人找不到更快的方法。",
+              "href": "/resources/classes/computers/what-is-an-algorithm/"
+            },
+            {
+              "icon": "💡",
+              "k_en": "Lesson 1",
+              "k_zh": "第一課",
+              "en": "Why Do Computers Use Only 0 and 1?",
+              "zh": "電腦為什麼只用 0 和 1？",
+              "note_en": "Eight switches count to 255. A key of 128 bits is the same idea with 128 switches.",
+              "note_zh": "八個開關數得到 255。128 個位元的金鑰，就是 128 個開關的同一個道理。",
+              "href": "/resources/classes/computers/zeros-and-ones/"
+            },
+            {
+              "icon": "🧠",
+              "k_en": "Next Lesson · Lesson 15",
+              "k_zh": "下一課・第十五課",
+              "en": "How Does a Computer Learn?",
+              "zh": "電腦怎麼「學習」？",
+              "note_en": "So far every program followed rules that a person wrote. Next: a program that finds the rule by looking at examples.",
+              "note_zh": "到目前為止，每個程式照的都是人寫好的規則。下一課：靠著看例子自己找出規則的程式。",
+              "soon": true
+            }
+          ],
+          "sources_note_en": "Facts on this page were checked against these sources (October 2026); the model uses Caesar’s cipher only as an illustration, and every message is tested",
+          "sources_note_zh": "本頁的事實依下列資料查證（2026 年 10 月）；模型只是拿凱撒的加密來示意，每一則訊息都有測試",
+          "sources": [
+            {
+              "en": "Cryptography is the “practice of the enciphering and deciphering of messages in secret code in order to render them unintelligible to all but the intended receiver”",
+              "zh": "密碼學是用祕密的代碼把訊息加密與解密，使它除了預定的收訊者之外沒有人看得懂",
+              "src": "The Editors of Encyclopaedia Britannica, “cryptography” (revised by William L. Hosch)",
+              "url": "https://www.britannica.com/topic/cryptography"
+            },
+            {
+              "en": "In a Caesar cipher each letter is replaced by a letter a fixed number of positions away; with a shift of four, CIPHER becomes GMTLIV; Suetonius describes Julius Caesar replacing each letter with the one three places down, cycling back at the end; Augustus used a shift of one; ROT13 “was chosen because applying the same cipher twice returns the original text,” and CODE becomes PBQR; “The Caesar cipher allows only 25 different encryptions,” so a brute-force method can try all 25 shifts; it is also open to frequency analysis; a shift of two followed by a shift of three is the same as a shift of five",
+              "zh": "凱撒密碼把每個字母換成固定距離外的另一個字母；位移 4 時 CIPHER 變成 GMTLIV；蘇埃托尼烏斯記載凱撒把每個字母換成往後第三個、到尾巴繞回開頭；奧古斯都用的位移是 1；ROT13 被選用是因為做兩次會回到原文，CODE 變成 PBQR；凱撒密碼只有 25 種不同的加密，所以可以用暴力法把 25 種位移全試一遍；它也擋不住頻率分析；先移 2 再移 3 等於移 5",
+              "src": "Sanat Pai Raikar, “Caesar cipher,” Encyclopaedia Britannica",
+              "url": "https://www.britannica.com/topic/Caesar-cipher"
+            },
+            {
+              "en": "In 1976 Whitfield Diffie and Martin Hellman “proposed that each user keep his decryption key secret and publish his encryption key in a public directory”; “This was the first discussion of two-key cryptography in the open literature”; it had been discovered earlier at GCHQ by James Ellis, Clifford Cocks, and Malcolm Williamson",
+              "zh": "1976 年迪菲與赫爾曼提出，每個使用者把解密金鑰保密、把加密金鑰放在公開的名錄裡；這是公開文獻中第一次討論雙金鑰密碼學；英國政府通訊總部的艾利斯、考克斯、威廉森更早就發現了",
+              "src": "Gustavus J. Simmons, “public-key cryptography,” Encyclopaedia Britannica",
+              "url": "https://www.britannica.com/topic/public-key-cryptography"
+            },
+            {
+              "en": "“The AES algorithm is capable of using cryptographic keys of 128, 192, and 256 bits”",
+              "zh": "AES 演算法可以使用 128、192、256 個位元的密碼金鑰",
+              "src": "NIST, FIPS 197, “Advanced Encryption Standard (AES)”",
+              "url": "https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.197-upd1.pdf"
+            },
+            {
+              "en": "“HTTPS (HyperText Transfer Protocol Secure) is an encrypted version of the HTTP protocol. It uses TLS to encrypt all communication between a client and a server”",
+              "zh": "HTTPS 是 HTTP 協定的加密版本，用 TLS 把用戶端和伺服器之間的所有通訊加密",
+              "src": "MDN Web Docs, “HTTPS”",
+              "url": "https://developer.mozilla.org/en-US/docs/Glossary/HTTPS"
+            },
+            {
+              "en": "“Encryption can protect data as it travels across networks, including data divided into packets for transmission over the Internet”",
+              "zh": "加密可以保護在網路上傳送的資料，包括切成封包在網際網路上傳輸的資料",
+              "src": "The Editors of Encyclopaedia Britannica, “computer security”",
+              "url": "https://www.britannica.com/technology/computer-security"
+            },
+            {
+              "en": "資 H-IV-1, protecting personal data; 資 H-IV-3, information security, whose notes list protecting data and protecting communications (p. 11; notes on p. 44)",
+              "zh": "資 H-IV-1 個人資料保護；資 H-IV-3 資訊安全（說明列有「資料安全防護」「通訊安全防護」）（第 11 頁；附錄三的說明在第 44 頁）",
+              "src": "教育部《十二年國民基本教育課程綱要 國民中學暨普通型高級中等學校 科技領域》（2018）",
+              "url": "https://www.naer.edu.tw/upload/1/16/doc/816/十二年國民基本教育課程綱要國民中學暨普通型高級中等學校-科技領域.pdf"
+            },
+            {
+              "en": "Taiwan terms: plaintext 明文, ciphertext 密文, public key 公開金鑰, cryptography 密碼學 (K–12 information terms and computer science terms)",
+              "zh": "台灣用語：plaintext 明文、ciphertext 密文、public key 公開金鑰、cryptography 密碼學（高中以下資訊名詞、電子計算機名詞）",
+              "src": "國家教育研究院《樂詞網》",
+              "url": "https://terms.naer.edu.tw/search/?query_term=ciphertext&query_field=title&query_op=&match_type=exact"
+            },
+            {
+              "en": "The model and the numbers: with the key 3, MEET ME AT NOON becomes PHHW PH DW QRRQ, and opening that with the key 4 gives LDDS LD ZS MNNM; every message locks and unlocks exactly with all 25 keys; 5 bits give 32 keys; 2 to the 128th power is 340,282,366,920,938,463,463,374,607,431,768,211,456, a number of 39 digits; 2 to the 256th power has 78 digits",
+              "zh": "模型與數字：用金鑰 3，MEET ME AT NOON 變成 PHHW PH DW QRRQ；用金鑰 4 去開會得到 LDDS LD ZS MNNM；每一則訊息用 25 把金鑰加密再解密都和原文一模一樣；5 個位元有 32 把金鑰；2 的 128 次方是 340,282,366,920,938,463,463,374,607,431,768,211,456，一個 39 位數；2 的 256 次方有 78 位數",
+              "src": "Our own arithmetic, checked by tools/computers/test/cipher.test.mjs",
+              "url": "https://github.com/lukelin7429/twrses/blob/main/tools/computers/test/cipher.test.mjs"
+            }
+          ]
         }
       ],
       "planned": [
-        {
-          "n": 14,
-          "icon": "🔐",
-          "en": "How Does a Computer Keep a Secret?",
-          "zh": "電腦怎麼保守祕密？"
-        },
         {
           "n": 15,
           "icon": "🧠",

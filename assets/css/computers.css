@@ -903,3 +903,51 @@ a.cp-link:hover { transform: translateY(-3px); box-shadow: var(--shadow); border
 .cp-up-key i { display: inline-block; width: 12px; height: 12px; border-radius: 3px; margin-right: .3rem; vertical-align: -1px; }
 .cp-up-msg b { display: block; font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; font-size: .9rem; margin-bottom: .2rem; overflow-wrap: anywhere; }
 @media (max-width: 760px) { .cp-hm-main { grid-template-columns: 1fr; } .cp-up-line { font-size: .92rem; } }
+
+/* ── 第十四課：保守祕密（cp-cf-、小工具 cp-ci-／cp-sp-／cp-kb-）──── */
+@media (min-width: 1001px) { .cp-cf-lab .al-space { min-height: 620px; } }
+.cp-cf-msgs button b { font-size: .76rem; letter-spacing: .04em; }
+.cp-cf-modes { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.cp-cf-key { display: flex; align-items: center; gap: .45rem; font-size: .78rem; font-weight: 800; color: var(--al-text); }
+.cp-cf-key.is-off { opacity: .35; }
+.cp-cf-key button { width: 1.8rem; height: 1.8rem; border-radius: 50%; border: 1px solid rgba(255,211,110,.5); background: transparent; color: var(--al-sun); font-size: 1rem; font-weight: 800; cursor: pointer; }
+.cp-cf-key b { min-width: 1.6em; text-align: center; font-family: var(--serif); font-size: 1.4rem; color: var(--al-sun); }
+.cp-cf-key small { font-family: var(--zh); font-weight: 600; font-size: .66rem; color: var(--al-mute); }
+.cp-cf-who { margin: 0; display: grid; gap: .28rem; }
+.cp-cf-who > div { padding: .34rem .6rem .42rem; border-radius: 10px; border: 1px solid var(--al-line); background: rgba(255,255,255,.03); }
+.cp-cf-who dt { font-size: .64rem; font-weight: 700; color: var(--al-mute); }
+.cp-cf-who dd { margin: .1rem 0 0; font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; font-size: .82rem; font-weight: 700; letter-spacing: .03em; color: #7ef0e3; overflow-wrap: anywhere; min-height: 1.3em; }
+.cp-cf-who > div.is-bad { border-color: #ff7a66; background: rgba(255,122,102,.12); } .cp-cf-who > div.is-bad dd { color: #ffb3a8; }
+.cp-cf-lab .cp-msg { min-height: 9.6em; }
+.al-lab.cp-lb-spy { border-color: rgba(255,122,102,.8); color: #ffc9c2; }
+.al-lab.cp-lb-val.is-bad { border-color: #ff7a66; color: #ffb3a8; }
+.al-lab.cp-lb-note { background: rgba(20,12,28,.9); }
+.cp-narrow .cp-cf-lab .al-lab.cp-lb-val, .cp-cf-lab.cp-narrow .al-lab.cp-lb-val { font-size: .58rem; }
+.al-lg-cpenv i { border: 0; border-radius: 2px; background: #f4ecd8; }
+.al-lg-cplock i { border: 0; border-radius: 3px; background: #ffd36e; }
+.al-lg-cpspy i { border: 0; border-radius: 50% 50% 3px 3px; background: #3a2a4a; box-shadow: 0 0 0 1px #ff7a66 inset; }
+@media (max-width: 1000px) { .cp-cf-lab .al-space { aspect-ratio: 16 / 10; min-height: 340px; } }
+@media (max-width: 620px) { .cp-cf-lab .al-space { aspect-ratio: 4 / 3; min-height: 0; } .cp-cf-lab .cp-msg { min-height: 12em; } }
+.cp-ci { max-width: 860px; }
+.cp-ci-dir { grid-template-columns: repeat(2, minmax(0, 12rem)); margin-bottom: 1.1rem; }
+.cp-ci-dir button { border-color: var(--line); background: var(--cream); color: var(--ink); } .cp-ci-dir button small { color: var(--ink-soft); }
+.cp-ci-dir button[aria-pressed="true"] { background: var(--brand); border-color: var(--brand); color: #fff; } .cp-ci-dir button[aria-pressed="true"] small { color: rgba(255,255,255,.88); }
+.cp-ci-src { width: 100%; box-sizing: border-box; margin: .3rem 0 1.1rem; padding: .7rem .9rem; border-radius: 12px; border: 2px solid var(--brand); font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; font-size: 1.1rem; letter-spacing: .05em; color: var(--ink); background: #fff; }
+.cp-ci-table { margin: .9rem 0 1.1rem; padding: .6rem .7rem; border-radius: 12px; background: #0f1a2e; overflow-x: auto; }
+.cp-ci-table span { display: block; white-space: nowrap; font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; font-size: .98rem; letter-spacing: .34em; }
+.cp-ci-top { color: #aab4c8; } .cp-ci-bot { color: #ffd36e; }
+.cp-ci-out { margin: .3rem 0 0; min-height: 1.6em; padding: .7rem .9rem; border-radius: 12px; background: var(--cream); border: 1px solid var(--line); font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; font-size: 1.15rem; font-weight: 700; letter-spacing: .05em; color: var(--brand-dk); overflow-wrap: anywhere; }
+.cp-sp-code { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace !important; letter-spacing: .08em; }
+.cp-sp-list { list-style: none; margin: 0 auto 1rem; padding: 0; max-width: 620px; max-height: 21rem; overflow-y: auto; display: grid; gap: .22rem; }
+.cp-sp-list button { width: 100%; display: grid; grid-template-columns: 2rem minmax(0, 1fr); gap: .5rem; align-items: center; text-align: left; padding: .34rem .7rem; border-radius: 10px; border: 1px solid rgba(255,255,255,.14); background: rgba(255,255,255,.04); color: #eaf0ff; font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; font-size: .86rem; letter-spacing: .05em; cursor: pointer; }
+.cp-sp-list button i { font-style: normal; font-size: .7rem; color: #9fb0cf; text-align: right; }
+.cp-sp-list button:hover { background: rgba(255,255,255,.1); }
+.cp-sp-list button.is-right { background: #2f9e63; border-color: #2f9e63; color: #fff; } .cp-sp-list button.is-wrong { opacity: .35; }
+.cp-kb { max-width: 860px; }
+.cp-kb-n { margin: .2rem 0 .3rem; padding: .8rem 1rem; border-radius: 14px; background: #0f1a2e; color: #7ef0e3; font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; font-size: 1.15rem; font-weight: 700; line-height: 1.5; overflow-wrap: anywhere; }
+.cp-kb[data-size="huge"] .cp-kb-n { font-size: .92rem; }
+.cp-kb-d { margin: 0 0 .8rem; font-size: .88rem; font-weight: 700; color: var(--ink-soft); } .cp-kb-d b { font-family: var(--serif); font-size: 1.3rem; color: var(--brand-dk); margin: 0 .15rem; }
+.cp-kb-msg, .cp-ci-out, .cp-sp-code { overflow-wrap: anywhere; }
+/* 很長的數字（例如 2 的 128 次方）在窄螢幕要能換行，不然會把整頁撐寬 */
+.cc-grid > * { min-width: 0; } .cc-grid p, .cp-tips li, .src-list li, .cp-lv-note, .lead { overflow-wrap: anywhere; }
+.cp-sources li, .cp-sources p { overflow-wrap: anywhere; }

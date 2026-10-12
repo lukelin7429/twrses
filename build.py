@@ -14538,7 +14538,7 @@ def build_cal_hub():
 _compj = os.path.join(ROOT, "data", "computers.json")
 COMP = json.load(open(_compj, encoding="utf-8")) if os.path.exists(_compj) else None
 COMP_BASE = "/resources/classes/computers/"
-_COMP_JS = {"bits": "comp-bits", "pixels": "comp-pixels", "logic": "comp-logic", "adder": "comp-adder", "pc": "comp-pc", "cpu": "comp-cpu", "desk": "comp-desk", "key": "comp-key", "robot": "comp-robot", "search": "comp-search", "sched": "comp-sched", "rle": "comp-rle", "web": "comp-web"}   # lab.kind → assets/js/<bundle>.js
+_COMP_JS = {"bits": "comp-bits", "pixels": "comp-pixels", "logic": "comp-logic", "adder": "comp-adder", "pc": "comp-pc", "cpu": "comp-cpu", "desk": "comp-desk", "key": "comp-key", "robot": "comp-robot", "search": "comp-search", "sched": "comp-sched", "rle": "comp-rle", "web": "comp-web", "cipher": "comp-cipher"}   # lab.kind → assets/js/<bundle>.js
 
 def _comp_ver():
     h = hashlib.md5()
@@ -15695,6 +15695,96 @@ def _comp_urlparts(up):
   <p class="cp-lv-note">{html.escape(up["note_en"])}<span class="zh">{html.escape(up["note_zh"])}</span></p>
 </div>'''
 
+def compcipher_svg(size=56):
+    """第十四課的課程卡小圖示：一個上了鎖的信封，下面一排被打亂的字母方塊。"""
+    return (f'<svg class="compcipher-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">'
+            '<rect x="8" y="10" width="44" height="26" rx="3" fill="#f4ecd8"/><path d="M8 13l22 13 22-13" fill="none" stroke="#c9a47a" stroke-width="2.2" stroke-linejoin="round"/>'
+            '<rect x="24" y="24" width="12" height="10" rx="2" fill="#ffd36e"/><path d="M26.5 24v-3a3.5 3.5 0 0 1 7 0v3" fill="none" stroke="#ffd36e" stroke-width="2.4"/>'
+            '<g fill="#7ef0e3"><rect x="9" y="43" width="8" height="8" rx="1.6"/><rect x="20" y="43" width="8" height="8" rx="1.6"/><rect x="31" y="43" width="8" height="8" rx="1.6"/><rect x="42" y="43" width="8" height="8" rx="1.6"/></g></svg>')
+
+_COMP_CARD["cipher"] = compcipher_svg
+
+def render_compcipher_lab(lesson):
+    """第十四課：一則訊息、一個偷看的人、一把金鑰（assets/js/comp-cipher.js 綁這裡的 class；全部自繪示意）。"""
+    lab = lesson["lab"]
+    mb = "".join(f'<button type="button" data-msg="{i}" aria-pressed="false"><b>{html.escape(m)}</b></button>' for i, m in enumerate(lab["messages"]))
+    tg = _lab_toggles([("labels", "Labels", "標示", True)])
+    return f'''<div class="astro-lab cp-lab cp-cf-lab rvl" data-compcipher-lab>
+  <div class="al-stage">
+    <div class="al-space">
+      <canvas class="al-space-cv" aria-label="3D model of two laptops joined by a cable with relay points; a figure stands behind the middle point, watching; an envelope travels along the cable, with or without a padlock · 兩台筆電用一條有中繼點的線連著的 3D 模型；中間那個點後面站著一個偷看的人；一個信封沿著線走，上面有鎖或沒有鎖"></canvas>
+      <div class="al-labels" aria-hidden="true"></div>
+      <p class="al-hint">Drag to turn · 拖曳旋轉</p>
+      <button type="button" class="al-home" title="Reset view · 重設視角" aria-label="Reset view · 重設視角">&#8634;</button>
+      <p class="al-nogl-msg">This 3D model needs WebGL, which this browser does not support. The buttons and the three boxes below still work, and so do the reading and the games.<br><span class="zh">這個瀏覽器不支援 WebGL，無法顯示 3D 模型；下面的按鈕和三個格子照樣能用，課文和小遊戲也都能用。</span></p>
+    </div>
+    <aside class="al-sky cp-aside">
+      <p class="al-sky-k">Choose a message · 選一則訊息</p>
+      <div class="cp-wb-urls cp-cf-msgs" role="group" aria-label="Messages · 訊息">{mb}</div>
+      <div class="cp-ky-keys cp-cf-modes" role="group" aria-label="Lock it or not · 要不要上鎖">
+        <button type="button" data-mode="plain" aria-pressed="false"><b>No lock</b><small>不上鎖</small></button>
+        <button type="button" data-mode="secret" aria-pressed="false"><b>Lock it</b><small>上鎖</small></button>
+      </div>
+      <div class="cp-cf-key"><span>Key · 金鑰</span><button type="button" class="cp-cf-minus" aria-label="Smaller key · 金鑰減一">&minus;</button><b class="cp-cf-kv">3</b><button type="button" class="cp-cf-plus" aria-label="Bigger key · 金鑰加一">+</button><small>letters along · 往後移幾格</small></div>
+      <dl class="cp-cf-who">
+        <div><dt>You wrote · 你寫的</dt><dd class="cp-cf-you">…</dd></div>
+        <div><dt>The watcher has · 偷看的人拿到</dt><dd class="cp-cf-spy">…</dd></div>
+        <div><dt>Your friend reads · 朋友讀到</dt><dd class="cp-cf-friend">…</dd></div>
+      </dl>
+      <p class="cp-msg" aria-live="polite"></p>
+    </aside>
+  </div>
+  <div class="al-controls">
+    <div class="al-row al-row-main">
+      <button type="button" class="al-play" aria-pressed="false"><span class="al-play-t">Send · 送出</span></button>
+      <button type="button" class="cp-btn-d cp-step">One stop at a time · 一站一站走</button>
+      <button type="button" class="cp-btn-d cp-reset">Reset · 重來</button>
+      <div class="al-row al-toggles">{tg}</div>
+    </div>
+  </div>
+  {_lab_foot(lab)}
+  <p class="cp-credit">{lab["credit_html"]}</p>
+</div>'''
+
+def _comp_cipher(ci):
+    tips = "".join(f'<li>{html.escape(t["en"])}<span class="zh">{html.escape(t["zh"])}</span></li>' for t in ci["tips"])
+    return f'''<div class="cp-full cp-ci rvl" data-cp-cipher>
+  <div class="cp-ky-keys cp-ci-dir" role="group" aria-label="Lock or unlock · 加密或解密">
+    <button type="button" data-dir="enc" aria-pressed="true"><b>Lock</b><small>加密</small></button>
+    <button type="button" data-dir="dec" aria-pressed="false"><b>Unlock</b><small>解密</small></button>
+  </div>
+  <label class="cp-k cp-ci-lab" for="cp-ci-src">Your message · 你的訊息</label>
+  <input id="cp-ci-src" class="cp-ci-src" type="text" maxlength="60" value="{html.escape(ci["start"])}" autocomplete="off" autocapitalize="characters" spellcheck="false">
+  <label class="cp-sl-lab" for="cp-ci-k">Key · 金鑰 <b class="cp-ci-kv">3</b></label>
+  <input id="cp-ci-k" class="cp-sl-range cp-ci-k" type="range" min="1" max="25" step="1" value="3">
+  <p class="cp-ci-table" aria-hidden="true"><span class="cp-ci-top"></span><span class="cp-ci-bot"></span></p>
+  <p class="cp-k">Result · 結果</p>
+  <p class="cp-ci-out" aria-live="polite"></p>
+  <p class="cp-lv-note">{html.escape(ci["note_en"])}<span class="zh">{html.escape(ci["note_zh"])}</span></p>
+</div>
+<ul class="cp-tips rvl">{tips}</ul>'''
+
+def _comp_spy(sp):
+    return f'''<div class="cp-guess cp-jobs cp-sp rvl" data-cp-spy>
+  <div class="cp-gs-top"><p class="cp-gs-k cp-sp-k"></p><p class="cp-gs-sc">Broken · 破解了 <b class="cp-gs-score cp-sp-score">0</b></p></div>
+  <p class="cp-jb-q cp-sp-code" aria-live="polite"></p>
+  <ol class="cp-sp-list" aria-label="The message with each of the 25 keys tried · 用 25 把金鑰各試一次的結果"></ol>
+  <p class="cp-gs-msg cp-sp-msg" aria-live="polite"></p>
+  <div class="cp-gs-foot"><span></span><button type="button" class="cp-btn cp-btn-gold cp-gs-next cp-sp-next" hidden>Next message · 下一則</button></div>
+</div>''' + f'<p class="cp-lv-note rvl">{html.escape(sp["note_en"])}<span class="zh">{html.escape(sp["note_zh"])}</span></p>'
+
+def _comp_keys(kb):
+    return f'''<div class="cp-full cp-kb rvl" data-cp-keys>
+  <label class="cp-sl-lab" for="cp-kb-range">Length of the key · 金鑰的長度：<b class="cp-kb-bits">32</b> bits · 個位元</label>
+  <input id="cp-kb-range" class="cp-sl-range cp-kb-range" type="range" min="0" max="10" step="1" value="5">
+  <p class="cp-sl-ends"><span>1 bit · 1 個位元</span><span>256 bits · 256 個位元</span></p>
+  <p class="cp-k">How many different keys there are · 一共有幾把不同的金鑰</p>
+  <p class="cp-kb-n" aria-live="polite"></p>
+  <p class="cp-kb-d">A number with <b class="cp-kb-dg">0</b> digits · 這個數有幾位數</p>
+  <p class="cp-lv-msg cp-kb-msg" aria-live="polite"></p>
+  <p class="cp-lv-note">{html.escape(kb["note_en"])}<span class="zh">{html.escape(kb["note_zh"])}</span></p>
+</div>'''
+
 def _comp_flat():
     return [(ui, u, l) for ui, u in enumerate(COMP["units"]) for l in u["lessons"]]
 
@@ -15722,7 +15812,7 @@ def build_comp_lesson(ui, unit, lesson):
     reading_html = render_basic_unit(1, unit_dict, level="comp", audio_rel="", pdf_rel="")
     lab = lesson["lab"]
     kind = lab["kind"]
-    lab_html = {"bits": render_compbits_lab, "pixels": render_comppixels_lab, "logic": render_complogic_lab, "adder": render_compadder_lab, "pc": render_comppc_lab, "cpu": render_compcpu_lab, "desk": render_compdesk_lab, "key": render_compkey_lab, "robot": render_comprobot_lab, "search": render_compsearch_lab, "sched": render_compsched_lab, "rle": render_comprle_lab, "web": render_compweb_lab}[kind](lesson)
+    lab_html = {"bits": render_compbits_lab, "pixels": render_comppixels_lab, "logic": render_complogic_lab, "adder": render_compadder_lab, "pc": render_comppc_lab, "cpu": render_compcpu_lab, "desk": render_compdesk_lab, "key": render_compkey_lab, "robot": render_comprobot_lab, "search": render_compsearch_lab, "sched": render_compsched_lab, "rle": render_comprle_lab, "web": render_compweb_lab, "cipher": render_compcipher_lab}[kind](lesson)
 
     def sec(key, fn):
         d = lesson[key]
@@ -15772,6 +15862,9 @@ def build_comp_lesson(ui, unit, lesson):
     if lesson.get("htmlfile"): secs.append(sec("htmlfile", _comp_html))
     if lesson.get("urlparts"): secs.append(sec("urlparts", _comp_urlparts))
     if lesson.get("whoasks"): secs.append(sec("whoasks", _comp_choice))
+    if lesson.get("ciphertool"): secs.append(sec("ciphertool", _comp_cipher))
+    if lesson.get("spy"): secs.append(sec("spy", _comp_spy))
+    if lesson.get("keybits"): secs.append(sec("keybits", _comp_keys))
     if lesson.get("culture_cards"):
         cu = lesson["culture_cards"]
         cc = "".join(
