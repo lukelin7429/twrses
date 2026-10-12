@@ -5576,11 +5576,11 @@
        "icon": "🎹",
        "k_en": "Music · Lesson 10",
        "k_zh": "音樂・第十課",
-       "soon": true,
        "en": "What Happens Inside a Piano?",
        "zh": "鋼琴裡面發生了什麼？",
        "note_en": "Next: press a key, and a small hammer strikes a string.",
-       "note_zh": "接下來：按下琴鍵，小槌敲弦。"
+       "note_zh": "接下來：按下琴鍵，小槌敲弦。",
+       "href": "/resources/classes/music/inside-a-piano/"
       }
      ],
      "sources_note_en": "Names, numbers, and quotations on this page were checked against these sources (October 2026). The shapes of the vibrations are our own simplified drawings, and the sounds are our own simple recipes; the ratios and proportions in the code are covered by automatic tests.",
@@ -5707,15 +5707,610 @@
        "url": "https://cdn.who.int/media/docs/default-source/documents/health-topics/deafness-and-hearing-loss/mls-brochure-english-2021.pdf?sfvrsn=bf19b448_5"
       }
      ]
+    },
+    {
+     "n": 10,
+     "slug": "inside-a-piano",
+     "title": "What Happens Inside a Piano?",
+     "title_zh": "鋼琴裡面發生了什麼？",
+     "level": "入門 · Beginner",
+     "icon": "🎹",
+     "card": "piano",
+     "blurb_en": "Press one key in slow motion and watch the lever, the jack, the hammer, the damper, and the string. See why the hammer has to let go, and what the pedal does.",
+     "blurb_zh": "用慢動作按下一個鍵，看槓桿、傳動桿、琴槌、制音器和弦。看看為什麼槌子一定要放手，以及踏板做了什麼。",
+     "big_idea_en": "A piano key does not pluck the string. A chain of levers throws a felt hammer at the string and lets it go, so the string can ring freely until the key comes up and the damper falls back.",
+     "big_idea_zh": "鋼琴的鍵不是直接去撥弦。一串槓桿把毛氈槌子扔向弦，再讓它放手，弦才能自由地響，直到琴鍵放開、制音器落回去。",
+     "lab": {
+      "kind": "piano",
+      "eyebrow": "3D Model · 3D 模型",
+      "title_en": "One Key, Inside",
+      "title_zh": "一個鍵的裡面",
+      "how_en": "This is one key of a grand piano, simplified. Press and hold the key, either on the model or with the button. The key lifts the jack, the jack throws the hammer, and just before the string the jack slips away and lets the hammer go. The hammer hits the string, bounces back, and is caught. The damper lifts off the string as soon as the key goes down, and falls back when you let go. Try the damper pedal: it holds all the dampers up, so the sound keeps ringing. Slow motion is on, because a real strike takes only a few thousandths of a second.",
+      "how_zh": "這是一架平台鋼琴的一個鍵（簡化的）。在模型上或用按鈕，按住琴鍵。琴鍵抬起傳動桿，傳動桿把槌子送出去，在碰到弦之前，傳動桿滑開，讓槌子自由。槌子敲弦、彈回、被接住。琴鍵一按下去，制音器就離開弦，放開時再落回去。試試制音踏瓣：它把所有制音器都撐起來，聲音就一直響。慢動作是開著的，因為真正的一次敲擊只有幾毫秒。",
+      "legend": [
+       {
+        "cls": "live",
+        "en": "The string you hear, shaking after the hammer lets go",
+        "zh": "你聽到的弦：槌子放手後在振動"
+       },
+       {
+        "cls": "mode",
+        "en": "Labeled parts: click one to see what it does",
+        "zh": "有標籤的零件：點一個看它做什麼"
+       }
+      ],
+      "scale_en": "The motion is slowed down, and the parts are simplified: a real action has more parts, such as the wippen, the repetition lever, and the back check.",
+      "scale_zh": "動作是放慢的，零件也是簡化的：真正的擊弦機還有更多零件，例如 wippen、repetition lever 與 back check。",
+      "credit_html": "All sounds on this page are made by your browser, tone by tone. They are a simple recipe for a piano-like tone, not a recording of a piano. · 本頁所有的聲音都由瀏覽器即時合成，是類似鋼琴的簡單配方，不是鋼琴的錄音。"
+     },
+     "paras": [
+      "A piano is a keyboard instrument that makes sound when its keys are pressed, which activates an action where hammers strike strings. A modern piano usually has 88 keys: 52 white and 36 black, from A0 to C8. In the Hornbostel–Sachs system it is a chordophone, because strings are what vibrate, and it is played by striking. The name piano is short for pianoforte, from an Italian phrase for a harpsichord with soft and loud.",
+      "That name matters. On a harpsichord a note sounds equally loud no matter how hard you press the key. The piano changed that. The harder you press, the faster the hammer moves and the louder the sound. From pianissimo to fortissimo, the hammer speed changes by almost a factor of a hundred. The harder blow is also brighter: the contact between the hammer and the string is shorter, and a shorter contact puts more high partials into the sound.",
+      "Between your finger and the string is the action, a mechanical assembly that turns the pressing of a key into the rapid motion of a hammer. It amplifies a small movement of the key into a longer, faster movement of the hammer. In a grand piano the rising key lifts a part called the wippen, the wippen carries a jack, and the jack pushes the hammer up toward the string. At the same time, the key lifts the damper, a felt block that normally rests on the string and keeps it still.",
+      "Here is the clever part. The hammer must strike the string but not stay on it, because continued contact would damp the sound. So just before the hammer reaches the string, the jack is tripped and slips away. This is called let-off, and it frees the hammer. The hammer flies on by its own momentum, strikes, and rebounds, and a back check catches it. The contact lasts only about 4 thousandths of a second at pianissimo, and under 2 at fortissimo.",
+      "A piano has one string for each note in the bass, two for each note in the tenor, and three for each note in the treble. They are steel wire, and the bass strings are wound with copper. A string alone is not loud, because a thin string moves little air. Its vibrations go through a bridge to a large soundboard that moves a lot of air. When you let go of the key, the damper falls back on the string, and the sound stops. The strings of a modern grand pull with a total of more than 20 tons.",
+      "The pedals change what the dampers and hammers do. The right pedal, the damper pedal, lifts all the dampers, so notes keep ringing after you release the keys. It does not make notes louder, even though it is sometimes called the loud pedal. On a grand piano the left pedal shifts the whole action so the hammers hit two of the three strings, and that changes the timbre as well as the loudness. And the strings are a little stiff, so their overtones are slightly sharp. That is why tuners tune octaves slightly wider than 2 to 1."
+     ],
+     "paras_zh": [
+      "鋼琴是一種鍵盤樂器：按下琴鍵，啟動擊弦機，讓槌子敲弦而發聲。現代鋼琴通常有 88 個鍵：52 個白鍵、36 個黑鍵，從 A0 到 C8。在霍恩博斯特爾—薩克斯系統裡，它是弦鳴樂器，因為振動的是弦，演奏方式是敲擊。piano 這個名字是 pianoforte 的縮短，來自一句義大利文，意思是「有弱也有強的大鍵琴」。",
+      "這個名字很重要。在大鍵琴上，不管你多用力按鍵，一個音都一樣大聲。鋼琴改變了這件事：按得越用力，槌子越快，聲音越大。從 pp 到 ff，槌子的速度差了將近一百倍。用力的一擊也比較亮：槌子和弦接觸的時間比較短，接觸越短，聲音裡的高泛音就越多。",
+      "在你的手指和弦之間，是擊弦機：一套把按鍵變成槌子快速動作的機械裝置。它把琴鍵一個小小的動作，放大成槌子更長、更快的動作。在平台鋼琴裡，上升的琴鍵抬起一個叫 wippen 的零件，wippen 帶著傳動桿（jack），傳動桿把槌子往弦的方向推。同時，琴鍵也抬起制音器（damper）——一塊平常壓在弦上、讓弦保持不動的毛氈。",
+      "巧妙的地方在這裡：槌子必須敲到弦，但不能留在弦上，因為持續接觸會悶住聲音。所以在槌子碰到弦之前，傳動桿被絆開、滑走，這叫脫離（let-off），它讓槌子自由。槌子靠自己的慣性飛過去、敲弦、彈回，再由一個 back check 把它接住。接觸的時間在 pp 時只有約 4 毫秒，在 ff 時不到 2 毫秒。",
+      "鋼琴的低音每個音有一條弦，中音每個音有兩條，高音每個音有三條。弦是鋼絲，低音弦外面纏著銅線。一條弦自己不大聲，因為細細的弦推不動多少空氣。它的振動經過琴馬傳到一大塊共鳴板，共鳴板才推動大量的空氣。你放開琴鍵，制音器就落回弦上，聲音就停了。現代平台鋼琴所有弦加起來的拉力可以超過 20 噸。",
+      "踏板改變制音器和槌子的動作。右踏板，制音踏瓣，會把所有制音器抬起，所以放開琴鍵後，音還會繼續響。它不會讓音變大聲，雖然有時被叫做「大聲踏板」。在平台鋼琴上，左踏板把整個擊弦機往旁邊移，槌子只敲三條弦中的兩條，音量和音色都改變了。還有，弦有一點僵硬，所以它的泛音會稍微偏高。這就是為什麼調音師把八度調得比 2 比 1 稍微寬一點。"
+     ],
+     "questions": [
+      "Why must the hammer leave the string right after it strikes?",
+      "Does the damper pedal make notes louder?",
+      "What do piano tuners do to octaves, and why?"
+     ],
+     "answers": [
+      "Because if the hammer stayed on the string, the contact would damp the vibration and stop the sound. The jack slips away at let-off, so the hammer rebounds and the string rings freely.",
+      "No. The pedal lifts all the dampers so the strings keep vibrating after the keys are released. It sustains the sound, but it does not make it louder.",
+      "They tune octaves slightly wider than the exact 2 to 1. The overtones of a stiff piano string are slightly sharp, so the notes are stretched to match them."
+     ],
+     "vocab": [
+      {
+       "n": 1,
+       "w": "action",
+       "pos": "n.",
+       "zh": "擊弦機（擊弦系統）",
+       "ex": "The <b>action</b> turns the press of a key into the motion of a hammer.",
+       "exzh": "擊弦機把按鍵變成槌子的動作。"
+      },
+      {
+       "n": 2,
+       "w": "hammer",
+       "pos": "n.",
+       "zh": "琴槌",
+       "ex": "The felt <b>hammer</b> strikes the string and bounces back.",
+       "exzh": "毛氈琴槌敲弦後彈回。"
+      },
+      {
+       "n": 3,
+       "w": "damper",
+       "pos": "n.",
+       "zh": "制音器",
+       "ex": "The <b>damper</b> rests on the string until you press the key.",
+       "exzh": "制音器壓在弦上，直到你按下琴鍵。"
+      },
+      {
+       "n": 4,
+       "w": "let-off (escapement)",
+       "pos": "n.",
+       "zh": "脫離",
+       "ex": "At <b>let-off</b>, the jack slips away from the hammer.",
+       "exzh": "在脫離的時候，傳動桿從槌子旁滑開。"
+      },
+      {
+       "n": 5,
+       "w": "soundboard",
+       "pos": "n.",
+       "zh": "共鳴板",
+       "ex": "The <b>soundboard</b> moves much more air than a string.",
+       "exzh": "共鳴板推動的空氣比一條弦多得多。"
+      },
+      {
+       "n": 6,
+       "w": "bridge",
+       "pos": "n.",
+       "zh": "琴馬（琴橋）",
+       "ex": "The <b>bridge</b> carries the vibration to the soundboard.",
+       "exzh": "琴馬把振動傳到共鳴板。"
+      },
+      {
+       "n": 7,
+       "w": "pedal",
+       "pos": "n.",
+       "zh": "踏瓣（踏板）",
+       "ex": "Press the damper <b>pedal</b> to make the notes ring on.",
+       "exzh": "踩下制音踏瓣，音就會繼續響。"
+      },
+      {
+       "n": 8,
+       "w": "inharmonicity",
+       "pos": "n.",
+       "zh": "不諧波性",
+       "ex": "A stiff string has a little <b>inharmonicity</b>.",
+       "exzh": "僵硬的弦有一點不諧波性。"
+      }
+     ],
+     "quiz": [
+      {
+       "q": "How many keys does a modern piano usually have?",
+       "options": [
+        "88",
+        "76",
+        "61",
+        "100"
+       ],
+       "correct": 0
+      },
+      {
+       "q": "What stops the string from vibrating when you release the key?",
+       "options": [
+        "The damper falls back on it",
+        "The hammer stays on it",
+        "The soundboard",
+        "The pedal"
+       ],
+       "correct": 0
+      },
+      {
+       "q": "What does the hammer do after it strikes the string?",
+       "options": [
+        "It rebounds and is caught",
+        "It stays pressed on the string",
+        "It plucks the string",
+        "It breaks the string"
+       ],
+       "correct": 0
+      },
+      {
+       "q": "What does the damper (right) pedal do?",
+       "options": [
+        "Lifts all the dampers off the strings",
+        "Makes every note louder",
+        "Moves the hammers away",
+        "Tunes the piano"
+       ],
+       "correct": 0
+      },
+      {
+       "q": "What happens when you strike a piano key harder?",
+       "options": [
+        "It is louder and brighter",
+        "It is quieter",
+        "The pitch rises a lot",
+        "Nothing changes"
+       ],
+       "correct": 0
+      }
+     ],
+     "parts_head": {
+      "eyebrow": "Try It in the Model · 在模型裡試試",
+      "en": "Four things to try",
+      "zh": "四件值得試的事"
+     },
+     "parts": [
+      {
+       "key": "soft",
+       "icon": "🤫",
+       "en": "A soft touch",
+       "zh": "輕輕按",
+       "meta_en": "pp: the hammer is slow",
+       "meta_zh": "pp：槌子很慢",
+       "demo": "soft",
+       "text_en": "Watch how slowly the hammer moves, and how long it stays on the string.",
+       "text_zh": "看槌子動得多慢，又在弦上停了多久。"
+      },
+      {
+       "key": "loud",
+       "icon": "💥",
+       "en": "A hard touch",
+       "zh": "用力按",
+       "meta_en": "ff: almost 100 times faster",
+       "meta_zh": "ff：差了將近一百倍",
+       "demo": "loud",
+       "text_en": "A faster hammer is louder, and the sound is brighter too.",
+       "text_zh": "槌子越快，聲音越大，也越亮。"
+      },
+      {
+       "key": "hold",
+       "icon": "⏳",
+       "en": "Hold the key",
+       "zh": "按著不放",
+       "meta_en": "The damper stays up",
+       "meta_zh": "制音器一直抬著",
+       "demo": "hold",
+       "text_en": "While the key is down, the string rings. Let go, and the damper falls back on it.",
+       "text_zh": "琴鍵按著時，弦一直響。放開，制音器就落回去。"
+      },
+      {
+       "key": "pedal",
+       "icon": "🦶",
+       "en": "The damper pedal",
+       "zh": "制音踏瓣",
+       "meta_en": "All dampers up",
+       "meta_zh": "所有制音器抬起",
+       "demo": "pedal",
+       "text_en": "The key goes up, but the damper stays lifted, so the note keeps ringing.",
+       "text_zh": "琴鍵彈起來了，制音器還是抬著，所以音繼續響。"
+      }
+     ],
+     "parts_note_en": "Then try it yourself: set a loud touch, then a soft one, and compare the three numbers on the side: the speed, the contact time, and the brightness.",
+     "parts_note_zh": "然後自己試試：先用力、再輕輕按，比較旁邊的三個數字：速度、接觸時間和亮度。",
+     "stretch": {
+      "eyebrow": "Try It · 試試看",
+      "en": "Why Stretch the Octave?",
+      "zh": "為什麼要把八度拉寬？",
+      "lead_en": "A stiff string has overtones that are a little sharp. Move the slider to make the string stiffer, and see how much sharper each overtone gets. Then listen to the low note with an exact 2 to 1 octave above it, and with an octave tuned to the string’s own second partial. The numbers for B here are only for demonstration: the real value depends on the length, diameter, tension, and material of the string.",
+      "lead_zh": "僵硬的弦，泛音會稍微偏高。移動滑桿讓弦變得更僵硬，看每個泛音偏高多少。再聽低音和剛好 2 比 1 的八度，以及對準弦自己第二泛音的八度。這裡的 B 只是示範用的數字：真實的值取決於弦的長度、直徑、張力和材料。"
+     },
+     "partq": {
+      "eyebrow": "Game · 小遊戲",
+      "en": "What Does This Part Do?",
+      "zh": "這個零件做什麼？",
+      "lead_en": "Six questions. Each one describes what a part does. Choose which part it is.",
+      "lead_zh": "六道題。每一題描述一個零件的功能。選出是哪一個零件。"
+     },
+     "curric": {
+      "eyebrow": "In the Curriculum · 對應課綱",
+      "en": "Where this lesson fits",
+      "zh": "這一課對應的課綱",
+      "lead_en": "The curriculum names how instruments are built and how they make sound in junior high school. The words piano, keyboard, key, pedal, and strike a string do not appear in the curriculum itself.",
+      "lead_zh": "課綱在國中寫到樂器的構造與發音原理。「鋼琴」「鍵盤」「琴鍵」「踏板」「擊弦」這些詞，課綱本文裡沒有出現。",
+      "items": [
+       {
+        "code": "音 E-Ⅱ-2",
+        "area": "藝術領域・音樂（國小三、四年級）",
+        "area_en": "Arts, music (grades 3–4)",
+        "text": "簡易節奏樂器、曲調樂器的基礎演奏技巧。",
+        "note_en": "Playing a melody instrument, such as a keyboard, starts here.",
+        "note_zh": "演奏曲調樂器，例如鍵盤，從這裡開始。"
+       },
+       {
+        "code": "音 E-Ⅲ-2",
+        "area": "藝術領域・音樂（國小五、六年級）",
+        "area_en": "Arts, music (grades 5–6)",
+        "text": "樂器的分類、基礎演奏技巧，以及獨奏、齊奏與合奏等演奏形式。",
+        "note_en": "The piano is a string instrument that is struck: a classification question.",
+        "note_zh": "鋼琴是用敲的弦樂器：一個分類的問題。"
+       },
+       {
+        "code": "音 E-Ⅳ-2",
+        "area": "藝術領域・音樂（國中七至九年級）",
+        "area_en": "Arts, music (grades 7–9)",
+        "text": "樂器的構造、發音原理、演奏技巧，以及不同的演奏形式。",
+        "note_en": "The action, the strings, and the soundboard are what this lesson calls the structure and the sound-making principle.",
+        "note_zh": "擊弦機、弦和共鳴板，就是這一課說的構造與發音原理。"
+       }
+      ]
+     },
+     "culture_cards": {
+      "eyebrow": "Stories Behind the Notes · 音符背後的故事",
+      "title_en": "A name, a second keyboard, iron and felt, and a wider octave",
+      "title_zh": "一個名字、第二個鍵盤、鐵和毛氈，和更寬的八度",
+      "lead_en": "Four short stories about how the piano came to be.",
+      "lead_zh": "關於鋼琴怎麼變成今天這個樣子的四個小故事。",
+      "cards": [
+       {
+        "k": "A Name · 名字",
+        "en": "Soft and loud",
+        "zh": "弱和強",
+        "body_en": "Piano is short for pianoforte, from an Italian phrase meaning a harpsichord with soft and loud. A 1700 inventory of the Medici family lists an instrument of new invention that produces soft and loud, built by their instrument maker Bartolomeo Cristofori. Dates differ in other sources: Taiwan’s dictionary says about 1709. The three Cristofori pianos that survive today date from the 1720s.",
+        "body_zh": "piano 是 pianoforte 的縮短，來自一句義大利文，意思是「有弱也有強的大鍵琴」。1700 年美第奇家族的一份清冊，列了一件「新發明、能發出弱與強」的樂器，由他們的樂器師克里斯托弗里（Bartolomeo Cristofori）製作。別的資料說法不同：台灣的辭典說大約 1709 年。今天還留存的三架克里斯托弗里鋼琴，是 1720 年代的。"
+       },
+       {
+        "k": "The Second Keyboard · 第二個鍵盤",
+        "en": "Not the first to answer your touch",
+        "zh": "不是第一個回應手指力道的",
+        "body_en": "The piano was not the first keyboard that could change its sound with touch. The clavichord could, so Wikipedia calls the piano the second keyboard instrument that allows gradations of volume and tone. The harpsichord could not: a note sounds equally loud no matter how hard the key is pressed. The piano’s name says what it added: soft and loud.",
+        "body_zh": "鋼琴不是第一個能用手指力道改變聲音的鍵盤。擊弦古鋼琴（clavichord）就可以，所以維基百科說鋼琴是第二個能有音量與音色漸變的鍵盤樂器。大鍵琴做不到：不管多用力按，一個音都一樣大聲。鋼琴的名字說出了它加上的東西：弱與強。"
+       },
+       {
+        "k": "Iron and Felt · 鐵和毛氈",
+        "en": "Stronger frames, softer hammers",
+        "zh": "更強的框、更軟的槌",
+        "body_en": "The fortepiano changed by adding a cast iron frame, which allowed much greater string tensions. The first full iron frame for grand pianos was patented in 1843. Felt for the hammers was first used in pianos by Jean-Henri Pape in 1826. Felt has to be soft enough, because a hard hammer would create loud, very high harmonics. Today the strings of a modern grand pull with a total tension of more than 20 tons.",
+        "body_zh": "古鋼琴（fortepiano）改變的方式之一，是加上鑄鐵框，讓弦可以承受大得多的張力。第一個全鐵框平台鋼琴的專利是 1843 年。琴槌用毛氈，是帕普（Jean-Henri Pape）1826 年第一個用在鋼琴上。毛氈要夠軟，因為硬的槌子會產生又大聲又很高的泛音。今天現代平台鋼琴的弦，總拉力超過 20 噸。"
+       },
+       {
+        "k": "A Wider Octave · 更寬的八度",
+        "en": "Tuning the piano",
+        "zh": "為鋼琴調音",
+        "body_en": "Pianos are usually tuned to a modified version of equal temperament. Because the overtones of a stiff string run progressively sharp, octaves are tuned slightly wider than the exact 2 to 1. How much they are stretched varies from piano to piano, and a longer piano with longer strings has lower inharmonicity. The inharmonicity is not just a fault: it is important for tones to sound piano-like.",
+        "body_zh": "鋼琴通常調成「修正過的平均律」。因為僵硬的弦，泛音越高越往上偏，所以八度要調得比精確的 2 比 1 稍微寬一點。拉寬多少，每架鋼琴不一樣；弦比較長的大鋼琴，不諧波性比較低。不諧波性不只是缺點：它是讓聲音聽起來像鋼琴的重要部分。"
+       }
+      ]
+     },
+     "myths": [
+      {
+       "myth_en": "The right pedal makes the notes louder.",
+       "myth_zh": "右踏板讓音變大聲。",
+       "fact_en": "It lifts all the dampers so the notes keep ringing after you let go. It does not make them louder, even though it is sometimes called the loud pedal.",
+       "fact_zh": "它把所有制音器抬起，放開琴鍵後音還繼續響。它不會讓音變大聲，雖然有時被叫做「大聲踏板」。"
+      },
+      {
+       "myth_en": "The left pedal always moves the hammers closer to the strings.",
+       "myth_zh": "左踏板一定是讓槌子靠近弦。",
+       "fact_en": "That is how it works on an upright piano. On a grand piano it shifts the whole action sideways, so the hammers hit two of the three strings, and the timbre changes too.",
+       "fact_zh": "直立式鋼琴是這樣。在平台鋼琴上，它把整個擊弦機往旁邊移，槌子只敲三條弦中的兩條，音色也會改變。"
+      },
+      {
+       "myth_en": "The hammer stays on the string after it hits.",
+       "myth_zh": "槌子敲下去之後會停在弦上。",
+       "fact_en": "It would damp the sound. The hammer rebounds, and it touches the string for only a few thousandths of a second.",
+       "fact_zh": "那會悶住聲音。槌子彈回來，只接觸弦幾毫秒。"
+      },
+      {
+       "myth_en": "Every note on a piano has three strings.",
+       "myth_zh": "鋼琴每個音都有三條弦。",
+       "fact_en": "There is one string for each note in the bass, two in the tenor, and three in the treble.",
+       "fact_zh": "低音每個音一條弦，中音兩條，高音三條。"
+      }
+     ],
+     "tricks_head": {
+      "en": "The piano in a sentence",
+      "zh": "一句話記住鋼琴"
+     },
+     "tricks": [
+      {
+       "title_en": "Key, hammer, string, bridge, soundboard",
+       "title_zh": "鍵、槌、弦、琴馬、共鳴板",
+       "body_en": "That is the path of the sound.",
+       "body_zh": "這就是聲音走過的路。"
+      },
+      {
+       "title_en": "Let go, then strike",
+       "title_zh": "放手，再敲",
+       "body_en": "The hammer must leave the jack before it hits.",
+       "body_zh": "槌子要先離開傳動桿，才敲弦。"
+      },
+      {
+       "title_en": "Right pedal: all dampers up",
+       "title_zh": "右踏板：制音器全抬起",
+       "body_en": "It sustains. It is not louder.",
+       "body_zh": "它讓聲音延續，不是變大聲。"
+      },
+      {
+       "title_en": "Harder: louder and brighter",
+       "title_zh": "越用力：越大聲、越亮",
+       "body_en": "The contact is shorter, so the high partials are stronger.",
+       "body_zh": "接觸越短，高泛音越強。"
+      }
+     ],
+     "safety_head": {
+      "eyebrow": "Protect Your Ears · 保護耳朵",
+      "en": "Before you listen",
+      "zh": "聽之前"
+     },
+     "safety": [
+      {
+       "en": "Start with the volume low and turn it up a little at a time. A loud touch on this page starts with a sharp attack.",
+       "zh": "先把音量調小，再一點一點調大。本頁用力的一擊，一開始有尖銳的起音。"
+      },
+      {
+       "en": "With headphones, keep the volume at no more than 60% of maximum, and use personal audio devices for less than one hour a day, as the World Health Organization suggests.",
+       "zh": "戴耳機時，音量不要超過最大音量的 60%，個人音響裝置每天使用少於一小時，這是世界衛生組織的建議。"
+      },
+      {
+       "en": "Do not open a real piano or put your hands inside it unless a teacher is with you. Fingers can be hurt by the parts, and the strings are under very high tension.",
+       "zh": "沒有老師在場，不要打開真的鋼琴，也不要把手伸進去。零件會夾傷手指，而且弦的張力很大。"
+      }
+     ],
+     "activities": [
+      {
+       "title_en": "A Lever on Your Desk",
+       "title_zh": "桌上的槓桿",
+       "materials": [
+        {
+         "en": "A ruler",
+         "zh": "一把尺"
+        },
+        {
+         "en": "An eraser or a pencil to use as a pivot",
+         "zh": "橡皮擦或鉛筆當支點"
+        },
+        {
+         "en": "A small crumpled paper ball",
+         "zh": "一個小紙球"
+        }
+       ],
+       "steps": [
+        {
+         "en": "Put the ruler on the pivot, closer to one end. Place the paper ball on the short end.",
+         "zh": "把尺放在支點上，靠近一端。把紙球放在短的那一端。"
+        },
+        {
+         "en": "Press the long end down slowly by a small amount. What does the short end do?",
+         "zh": "把長的那一端慢慢壓下去一小段。短的那一端怎麼動？"
+        },
+        {
+         "en": "Press quickly. Does the ball fly? Compare how far the two ends move.",
+         "zh": "快一點壓下去。紙球會飛嗎？比較兩端各移動多遠。"
+        },
+        {
+         "en": "Talk about it: how is this like the action of a piano? What does the lever change: the distance, the speed, or both?",
+         "zh": "討論：這和鋼琴的擊弦機像在哪裡？槓桿改變的是距離、速度，還是兩者？"
+        }
+       ],
+       "tip_en": "Use a soft paper ball and aim away from faces. A lever can make a small movement longer and faster, which is what the piano action does.",
+       "tip_zh": "用軟的紙球，並朝向沒有人臉的方向。槓桿可以把小動作變得更長、更快，這正是鋼琴擊弦機做的事。"
+      },
+      {
+       "title_en": "Listen to the Damper",
+       "title_zh": "聽聽制音器",
+       "materials": [
+        {
+         "en": "A piano or a keyboard with a sustain pedal, or this page",
+         "zh": "鋼琴、有延音踏板的電子琴，或本頁"
+        },
+        {
+         "en": "Paper and pencils",
+         "zh": "紙和鉛筆"
+        }
+       ],
+       "steps": [
+        {
+         "en": "Play one note and hold the key down. Listen to how the sound slowly fades, and write what you hear.",
+         "zh": "彈一個音，按著不放。聽聲音慢慢變小，把聽到的寫下來。"
+        },
+        {
+         "en": "Play it again and let go quickly. What changes at the moment you let go?",
+         "zh": "再彈一次，很快放開。放開的那一刻有什麼改變？"
+        },
+        {
+         "en": "Play it again with the damper pedal down, and let go of the key. What happens now?",
+         "zh": "再彈一次，踩著制音踏瓣，放開琴鍵。這次怎麼了？"
+        },
+        {
+         "en": "Draw a timeline of what the key, the hammer, and the damper do in each case.",
+         "zh": "在每種情況下，為琴鍵、槌子和制音器畫一條時間線。"
+        }
+       ],
+       "tip_en": "Do not open the piano, and keep fingers away from the strings. Sounds with the pedal down can get louder together, so keep the volume comfortable.",
+       "tip_zh": "不要打開鋼琴，手指也不要靠近弦。踩著踏板時聲音會疊在一起變大，音量要放在舒服的程度。"
+      }
+     ],
+     "links_head": {
+      "eyebrow": "Go Further · 延伸閱讀",
+      "en": "Before, around, and after this lesson",
+      "zh": "這一課的前面、旁邊和後面"
+     },
+     "links": [
+      {
+       "icon": "🎷",
+       "k_en": "Music · Lesson 9",
+       "k_zh": "音樂・第九課",
+       "en": "How Do Instruments Make Sound?",
+       "zh": "樂器怎麼發出聲音？",
+       "note_en": "The piano is one of the string instruments, played by striking.",
+       "note_zh": "鋼琴是弦樂器的一種，用敲的來演奏。",
+       "href": "/resources/classes/music/what-vibrates/"
+      },
+      {
+       "icon": "📣",
+       "k_en": "Music · Lesson 4",
+       "k_zh": "音樂・第四課",
+       "en": "How Do You Tell a Musician “Louder” or “Faster”?",
+       "zh": "怎麼告訴演奏的人「大聲一點」「快一點」？",
+       "note_en": "Piano and forte: the instrument is named after them.",
+       "note_zh": "弱與強：鋼琴的名字就來自它們。",
+       "href": "/resources/classes/music/louder-and-faster/"
+      },
+      {
+       "icon": "🎹",
+       "k_en": "Music · Lesson 2",
+       "k_zh": "音樂・第二課",
+       "en": "Why Does a Piano Sound Different from a Violin?",
+       "zh": "同一個音，鋼琴和小提琴為什麼聽起來不一樣？",
+       "note_en": "Where you strike a string changes the harmonics.",
+       "note_zh": "敲弦的位置，會改變諧波。",
+       "href": "/resources/classes/music/tone-color/"
+      },
+      {
+       "icon": "🎻",
+       "k_en": "Music · Lesson 11",
+       "k_zh": "音樂・第十一課",
+       "soon": true,
+       "en": "Who Sits Where in an Orchestra?",
+       "zh": "交響樂團怎麼坐？",
+       "note_en": "Next: many instruments, and where each family sits.",
+       "note_zh": "接下來：很多樂器，和每一個家族坐在哪裡。"
+      }
+     ],
+     "sources_note_en": "Names, numbers, and quotations on this page were checked against these sources (October 2026). The parts and the motion in the 3D model are our own simplified drawing, and the sounds are our own simple recipe; the timings, ratios, and formulas in the code are covered by automatic tests.",
+     "sources_note_zh": "本頁的名稱、數字與引文依下列資料查證（2026 年 10 月）；3D 模型裡的零件與動作是我們自己畫的簡化圖形，聲音是我們自己的簡單配方；程式裡的時間、比例與公式有自動測試。",
+     "sources": [
+      {
+       "en": "A keyboard instrument that produces sound when its keys are pressed, activating an action where hammers strike strings; 52 white and 36 black keys, 88 in total, A0 to C8; piano is short for pianoforte, from “harpsichord with soft and loud”; the hammer must strike the string but not remain in contact with it; hammer velocity changes by almost a factor of a hundred from pp to ff; contact time shortens from 4 ms at pp to less than 2 ms at ff; one string for each note in the bass, two in the tenor, three in the treble; strings transmit through a bridge to a soundboard; string tension that can exceed 20 tons; first full iron frame for grands 1843; Pape first used felt in 1826; a piano existed by 1700",
+       "zh": "按下琴鍵啟動擊弦機、槌子敲弦的鍵盤樂器；52 個白鍵、36 個黑鍵，共 88 個，A0 到 C8；piano 是 pianoforte 的縮短，來自「有弱有強的大鍵琴」；槌子必須敲弦但不能留在弦上；從 pp 到 ff 槌子速度差將近一百倍；碰弦時間從 pp 的 4 毫秒縮短到 ff 的不到 2 毫秒；低音每音一條弦、中音兩條、高音三條；弦經琴馬傳到共鳴板；弦的總拉力可超過 20 噸；平台鋼琴第一個全鐵框 1843；帕普 1826 年首先用毛氈；1700 年已有鋼琴",
+       "src": "Wikipedia, “Piano”",
+       "url": "https://en.wikipedia.org/wiki/Piano"
+      },
+      {
+       "en": "The action is the mechanical assembly which translates the depression of the keys into rapid motion of a hammer; it amplifies a small key movement into a longer, faster hammer movement; capstan, wippen, jack, hammer; the damper normally rests on the strings; let-off; the hammer rebounds; the back check holds it; the sustain pedal lifts all the dampers",
+       "zh": "擊弦機是把琴鍵的下壓轉成槌子快速動作的機械裝置；把琴鍵的小動作放大成槌子更長、更快的動作；capstan、wippen、jack、hammer；制音器平常壓在弦上；脫離；槌子彈回；back check 接住它；延音踏瓣抬起所有制音器",
+       "src": "Wikipedia, “Piano action”",
+       "url": "https://en.wikipedia.org/wiki/Piano_action"
+      },
+      {
+       "en": "Three pedals: soft, sostenuto, sustaining; the damper pedal lifts all dampers; it does not increase loudness; in grands the soft pedal shifts the action; the una corda changes timbre, not just volume",
+       "zh": "三個踏板：弱音、中間、延音；延音踏板抬起所有制音器；不增加音量；平台鋼琴的弱音踏板移動擊弦機；una corda 改變音色，不只是音量",
+       "src": "Wikipedia, “Piano pedals”",
+       "url": "https://en.wikipedia.org/wiki/Piano_pedals"
+      },
+      {
+       "en": "In a harpsichord a note sounds equally loud no matter how hard the key is pressed; the 1700 Medici inventory: “of new invention that produces soft and loud”; the clavichord could respond to touch",
+       "zh": "大鍵琴上不管多用力按，一個音都一樣大聲；1700 年美第奇清冊：「新發明、能發出弱與強」；擊弦古鋼琴可以回應手指力道",
+       "src": "Wikipedia, “Harpsichord” and “Bartolomeo Cristofori”",
+       "url": "https://en.wikipedia.org/wiki/Bartolomeo_Cristofori"
+      },
+      {
+       "en": "The piano is a chordophone, a simple chordophone with a resonator box; the piano uses the method of striking the string",
+       "zh": "鋼琴是弦鳴樂器，帶共鳴箱的簡單弦鳴樂器；鋼琴用敲弦的方式發聲",
+       "src": "Wikipedia, “Hornbostel–Sachs” and “Chordophone”",
+       "url": "https://en.wikipedia.org/wiki/Hornbostel%E2%80%93Sachs"
+      },
+      {
+       "en": "Let-off: the jack is stopped by the escapement dolly and the top of the jack is rotated away from the hammer roller; the hammer is free and continues toward the string; the let-off distance is typically 1 to 3 mm",
+       "zh": "脫離：傳動桿尾端被擋住，頂端轉離槌子的滾輪；槌子自由，繼續飛向弦；脫離距離通常是 1 到 3 毫米",
+       "src": "Askenfelt & Jansson, KTH, “Five lectures on the Acoustics of the piano”: timing and let-off",
+       "url": "https://www.speech.kth.se/music/5_lectures/askenflt/timing.html"
+      },
+      {
+       "en": "The contact durations decrease from about 4 ms in the bass to less than 1 ms in the highest treble; a shorter contact duration increases the amount of high frequency partials; the tone is more brilliant at forte",
+       "zh": "接觸時間從低音約 4 毫秒縮短到最高音的不到 1 毫秒；接觸時間越短，高頻泛音越多；forte 時音色比較明亮",
+       "src": "KTH, “Five lectures…”: striking contact and the introduction",
+       "url": "https://www.speech.kth.se/music/5_lectures/askenflt/stricont.html"
+      },
+      {
+       "en": "The thin string cannot radiate a sound wave itself, so its motion is transferred to a much larger object; multiple stringing; inharmonicity 1 : 2.001 : 3.005 : 4.012; caused by the bending stiffness of the steel wire",
+       "zh": "細弦自己無法輻射聲波，必須把運動傳給大得多的物體；多弦；不諧波性 1 : 2.001 : 3.005 : 4.012；來自鋼絲的彎曲僵硬度",
+       "src": "KTH, “Five lectures…”: introduction",
+       "url": "https://www.speech.kth.se/music/5_lectures/introd/introd.html"
+      },
+      {
+       "en": "The spectral partials in piano tones run progressively sharp; octaves are tuned slightly wider than the harmonic 2:1 ratio; pianos are tuned to a modified version of equal temperament; the amount varies from piano to piano",
+       "zh": "鋼琴音的頻譜泛音越高越往上偏；八度調得比 2:1 稍寬；鋼琴調成修正過的平均律；拉寬的量因琴而異",
+       "src": "Wikipedia, “Inharmonicity” and “Piano tuning”",
+       "url": "https://en.wikipedia.org/wiki/Inharmonicity"
+      },
+      {
+       "en": "The partials of a stiff string follow f_n ∝ n f_1 √(1 + B n²); B depends on the length, diameter, tension and material of the string",
+       "zh": "僵硬的弦的泛音 f_n ∝ n f_1 √(1 + B n²)；B 取決於弦的長度、直徑、張力和材料",
+       "src": "Hinrichsen, “Entropy-based Tuning of Musical Instruments”, arXiv:1203.5101",
+       "url": "https://arxiv.org/abs/1203.5101"
+      },
+      {
+       "en": "鋼琴: a keyboard instrument; pressing the keys moves small wooden hammers under the keyboard that strike steel wire strings; upright and grand; made in Florence around 1709. 弦樂器: plucked, struck, bowed; includes the piano",
+       "zh": "鋼琴：鍵盤樂器；按動鍵盤，牽動小木錘敲打鋼絲弦；直立式與平臺鋼琴；約 1709 年在佛羅倫斯創造。弦樂器：彈弦、擊弦、撥弦、弓弦；包括鋼琴",
+       "src": "教育部《重編國語辭典修訂本》「鋼琴」「弦樂器」",
+       "url": "https://dict.revised.moe.edu.tw/dictView.jsp?ID=70451"
+      },
+      {
+       "en": "action 擊弦（絃）系統, hammer 琴槌, damper 制音器, jack 動力桿, soundboard 共鳴板, bridge 琴馬, damper pedal 制音踏瓣, soft pedal 弱音踏瓣, grand piano 平臺鋼琴, upright piano 立式鋼琴",
+       "zh": "action 擊弦（絃）系統、hammer 琴槌、damper 制音器、jack 動力桿、soundboard 共鳴板、bridge 琴馬、damper pedal 制音踏瓣、soft pedal 弱音踏瓣、grand piano 平臺鋼琴、upright piano 立式鋼琴",
+       "src": "國家教育研究院「學術名詞資訊網」（音樂名詞）",
+       "url": "https://terms.naer.edu.tw/search/?query_term=damper&query_field=title&match_type=term"
+      },
+      {
+       "en": "Taiwan's 12-year curriculum: arts (music) 音 E-Ⅱ-2, 音 E-Ⅲ-2, 音 E-Ⅳ-2",
+       "zh": "十二年國民基本教育課程綱要藝術領域：音 E-Ⅱ-2、音 E-Ⅲ-2、音 E-Ⅳ-2",
+       "src": "國家教育研究院，十二年國教藝術領域課綱",
+       "url": "https://www.naer.edu.tw/upload/1/16/doc/818/%E5%8D%81%E4%BA%8C%E5%B9%B4%E5%9C%8B%E6%B0%91%E5%9F%BA%E6%9C%AC%E6%95%99%E8%82%B2%E8%AA%B2%E7%A8%8B%E7%B6%B1%E8%A6%81%E5%9C%8B%E6%B0%91%E4%B8%AD%E5%B0%8F%E5%AD%B8%E6%9A%A8%E6%99%AE%E9%80%9A%E5%9E%8B%E9%AB%98%E7%B4%9A%E4%B8%AD%E7%AD%89%E6%A0%A1-%E8%97%9D%E8%A1%93%E9%A0%98%E5%9F%9F.pdf"
+      },
+      {
+       "en": "Safe listening: headphone volume to 60% of maximum, personal audio devices less than one hour a day",
+       "zh": "安全聆聽：耳機音量不超過最大的 60%、個人音響裝置每天少於一小時",
+       "src": "WHO, Make Listening Safe brochure (2021)",
+       "url": "https://cdn.who.int/media/docs/default-source/documents/health-topics/deafness-and-hearing-loss/mls-brochure-english-2021.pdf?sfvrsn=bf19b448_5"
+      }
+     ]
     }
    ],
    "planned": [
-    {
-     "n": 10,
-     "icon": "🎹",
-     "en": "What Happens Inside a Piano?",
-     "zh": "鋼琴裡面發生了什麼？"
-    },
     {
      "n": 11,
      "icon": "🎻",
