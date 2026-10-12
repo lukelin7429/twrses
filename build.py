@@ -1427,6 +1427,8 @@ def build_reading_hub():
              "Why are some notes high and some low? Hear and see how a vibrating string makes music, with sounds your browser makes itself. 為什麼有的音高、有的音低？看弦怎麼振動、聽音怎麼變，聲音全由瀏覽器自己合成。"),
             ("/resources/classes/art/", "🎨", "Art · 美術",
              "Why do paint and light mix differently? Move three colored lamps in a dark room, then mix the same colors as paint, with every color named in words. 顏料和光，混色為什麼不一樣？在暗房裡移動三盞彩色的燈，再換成顏料混混看；每個顏色都附文字名稱。"),
+            ("/resources/classes/math/", "🧮", "Math You Can See · 看得見的數學",
+             "Why do we count in tens? One question a lesson, answered with a model you can play with, plus a card that shows how to say the math in English. No timers, no drills. 為什麼我們十個一數？每課用一個可以動手玩的模型回答一個「為什麼」，再附一張「這個用英文怎麼唸」卡。不計時、不考速度。"),
             ("/resources/classes/philosophy/", "🦉", "Philosophy · 哲學",
              "Advanced reading: the big questions, the people who asked them, and where the Dharma meets Western thought. 高級閱讀：哲學的大問題、問這些問題的人，以及佛法與西方哲學的對照。"),
             ("/resources/grandfather/", "🌅", "Grandfather · 落日餘暉",
@@ -17336,6 +17338,344 @@ def build_art_hub():
     return ART_BASE
 
 
+# ─────────────────────────────────────────────────────────────────────────────
+# 看得見的數學 Math You Can See（/resources/classes/math/）
+# 架構照電腦概論：data/math.json 的 units[].lessons 是做好的課、units[].planned 是「製作中」卡。
+# 樣式 assets/css/math.css（class 前綴 mth-，只載在本系列；mt- 已被天文的潮汐、流星雨用掉）；
+# 3D 原始碼 tools/math/src/，bundle 一律 math-*。每課多一張「這個用英文怎麼唸」卡（lesson["sayit"]）。
+# ─────────────────────────────────────────────────────────────────────────────
+_mathj = os.path.join(ROOT, "data", "math.json")
+MATH = json.load(open(_mathj, encoding="utf-8")) if os.path.exists(_mathj) else None
+MATH_BASE = "/resources/classes/math/"
+_MATH_JS = {"blocks": "math-blocks"}   # lab.kind → assets/js/<bundle>.js
+
+def _math_ver():
+    h = hashlib.md5()
+    for rel in ("assets/css/astro.css", "assets/css/math.css", *(f"assets/js/{j}.js" for j in _MATH_JS.values())):
+        fp = os.path.join(ROOT, rel)
+        if os.path.exists(fp): h.update(open(fp, "rb").read())
+    return h.hexdigest()[:8]
+
+def _math_head(js=None):
+    v = _math_ver()
+    tag = f'<script defer src="/assets/js/{js}.js?v={v}"></script>\n' if js else ""
+    return (f'<link rel="stylesheet" href="/assets/css/astro.css?v={v}">\n'
+            f'<link rel="stylesheet" href="/assets/css/math.css?v={v}">\n{tag}')
+
+_MTH_SQRT = re.compile(r'sqrt\(([^()]+)\)')
+_MTH_POW = re.compile(r'([0-9A-Za-z.,]+|\))\^([0-9A-Za-z+\-−]+)')
+_MTH_FRAC = re.compile(r'(?<![\w.])(\d+)/(\d+)(?![\w.])')
+
+def _mth_expr(src, say):
+    """算式顯示（全系列共用，不依賴任何外部字型或函式庫）。
+
+    資料裡用很小的一套寫法：`10^2`（次方）、`3/4`（分數）、`sqrt(2)`（根號），其餘照字面（× ÷ − 直接打）。
+    輸出是 HTML＋CSS 排的算式，外層 role="math"、aria-label 放「怎麼唸」，螢幕閱讀器唸的是唸法而不是符號。
+    """
+    s = html.escape(src)
+    s = _MTH_SQRT.sub(r'<span class="mth-rt"><span class="mth-rt-s">&radic;</span><span class="mth-rt-b">\1</span></span>', s)
+    s = _MTH_FRAC.sub(r'<span class="mth-fr"><span class="mth-fr-n">\1</span><span class="mth-fr-d">\2</span></span>', s)
+    s = _MTH_POW.sub(r'\1<sup>\2</sup>', s)
+    return f'<span class="mth-x" role="math" aria-label="{html.escape(say)}"><span aria-hidden="true">{s}</span></span>'
+
+def _math_sayit(sy):
+    """「這個用英文怎麼唸」卡：每列一個算式或數字＋英文唸法＋中文唸法，兩邊各有 🔊。
+
+    🔊 的 data-say 放的是唸法（three hundred five），不是符號（305）——tools/gen_audio.py 照 data-say 合成。
+    """
+    rows = "".join(
+        f'<li class="mth-say-row rvl">'
+        f'<span class="mth-say-x">{_mth_expr(r["expr"], r["say_en"])}</span>'
+        f'<span class="mth-say-en"><button class="spk" data-say="{html.escape(r["say_en"])}" aria-label="Hear it in English · 聽英文唸法">🔊</button>'
+        f'<b lang="en">{html.escape(r["say_en"])}</b></span>'
+        f'<span class="mth-say-zh"><button class="spk" data-say="{html.escape(r["say_zh"])}" data-say-lang="zh" aria-label="Hear it in Chinese · 聽中文唸法">🔊</button>'
+        f'<span lang="zh-Hant">{html.escape(r["say_zh"])}</span></span>'
+        + (f'<span class="mth-say-n">{html.escape(r["note_en"])}<span class="zh">{html.escape(r["note_zh"])}</span></span>' if r.get("note_en") else "")
+        + '</li>' for r in sy["rows"])
+    tip = f'<p class="mth-say-tip rvl">{html.escape(sy["tip_en"])}<span class="zh">{html.escape(sy["tip_zh"])}</span></p>' if sy.get("tip_en") else ""
+    return (f'<div class="mth-say"><p class="mth-say-h" aria-hidden="true"><span>Written · 寫法</span><span>In English · 英文唸法</span><span>In Chinese · 中文唸法</span></p>'
+            f'<ul class="mth-say-list">{rows}</ul></div>{tip}')
+
+def _math_cell(x, y, s, fill, n=1):
+    g = "".join(f'<path d="M{x + s * k / n:.1f} {y}v{s}M{x} {y + s * k / n:.1f}h{s}" stroke="#16223f" stroke-opacity=".5" stroke-width=".7"/>' for k in range(1, n))
+    return f'<rect x="{x}" y="{y}" width="{s}" height="{s}" rx="1.2" fill="{fill}" stroke="#16223f" stroke-width="1.1"/>{g}'
+
+def mathhub_svg(size=56):
+    """系列小圖示：一片平板（藍）、一根長條（綠）、三個小方塊（黃）。"""
+    rod = "".join(f'<rect x="38" y="{8 + k * 4.4:.1f}" width="6" height="4.4" fill="#4fb477" stroke="#16223f" stroke-width=".9"/>' for k in range(10))
+    units = "".join(f'<rect x="48" y="{46 - k * 8}" width="6" height="6" rx="1" fill="#f4c542" stroke="#16223f" stroke-width=".9"/>' for k in range(3))
+    return (f'<svg class="mathhub-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">'
+            f'{_math_cell(5, 22, 30, "#4a90d9", 5)}{rod}{units}</svg>')
+
+def mathblocks_svg(size=56):
+    """第一課的課程卡小圖示：十個小方塊（黃）→ 箭頭 → 一根長條（綠）。"""
+    units = "".join(f'<rect x="{8 + (k % 2) * 8}" y="{10 + (k // 2) * 8}" width="6" height="6" rx="1" fill="#f4c542" stroke="#16223f" stroke-width=".9"/>' for k in range(10))
+    rod = "".join(f'<rect x="44" y="{8 + k * 4.4:.1f}" width="7" height="4.4" fill="#4fb477" stroke="#16223f" stroke-width=".9"/>' for k in range(10))
+    return (f'<svg class="mathblocks-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">{units}'
+            f'<path d="M27 30h10m-4-4 4 4-4 4" fill="none" stroke="#ffd36e" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>{rod}</svg>')
+
+_MATH_CARD = {"blocks": mathblocks_svg}
+
+def render_mathblocks_lab(lesson):
+    """第一課：桌上的位值積木（assets/js/math-blocks.js 綁這裡的 class；全部自繪示意）。"""
+    lab = lesson["lab"]
+    speeds = [("0.5", "½×", "慢"), ("1", "1×", "原速"), ("4", "4×", "快"), ("16", "16×", "很快")]
+    sb = "".join(f'<button type="button" data-speed="{k}" aria-pressed="{"true" if k == "1" else "false"}">{en}<small>{zh}</small></button>' for k, en, zh in speeds)
+    bases = [("10", "10", "Ten · 十個"), ("5", "5", "Five · 五個"), ("2", "2", "Two · 二個")]
+    bb = "".join(f'<button type="button" data-base="{k}" aria-pressed="{"true" if k == "10" else "false"}"><b>{n}</b><small>{t}</small></button>' for k, n, t in bases)
+    tg = _lab_toggles([("digits", "Digits", "各位數字", True), ("sound", "Click sound", "喀一聲", True)])
+    return f'''<div class="astro-lab mth-lab rvl" data-mathblocks-lab data-mth-base="10">
+  <div class="al-stage">
+    <div class="al-space">
+      <canvas class="al-space-cv" aria-label="3D model of place-value blocks on a table: small cubes, rods of ten, flats of one hundred, and big cubes of one thousand · 桌上的位值積木 3D 模型：小方塊、十個一根的長條、一百個一片的平板、一千個的大方塊"></canvas>
+      <div class="al-labels" aria-hidden="true"></div>
+      <p class="al-hint">Drag to turn · 拖曳旋轉　Scroll or pinch to zoom · 滾輪／雙指縮放</p>
+      <button type="button" class="al-home" title="Reset view · 重設視角" aria-label="Reset view · 重設視角">&#8634;</button>
+      <p class="al-nogl-msg">This 3D model needs WebGL, which this browser does not support. The number, the place-value row, and the buttons beside it still work, and so do the reading, the cards, and the games.<br><span class="zh">這個瀏覽器不支援 WebGL，無法顯示 3D 模型；旁邊的數字、位值列和按鈕照樣能用，課文、卡片和小遊戲也都能用。</span></p>
+    </div>
+    <aside class="al-sky mth-aside">
+      <p class="al-sky-k">On the table · 桌上一共有</p>
+      <p class="mth-num" aria-live="polite">0</p>
+      <p class="mth-name">zero<span class="zh">零</span></p>
+      <div class="mth-strip" role="img"></div>
+      <p class="mth-eq">0</p>
+      <p class="mth-basew"><span class="mth-basek"></span><b class="mth-basen"></b></p>
+      <div class="mth-inw">
+        <label class="mth-inl" for="mth-in">Show a number · 直接看一個數 <small class="mth-range">0–9,999</small></label>
+        <div class="mth-inr"><input id="mth-in" class="mth-in" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="4" autocomplete="off" placeholder="305">
+        <button type="button" class="mth-btn-d mth-go">Show · 顯示</button></div>
+      </div>
+      <div class="mth-btns">
+        <button type="button" class="mth-btn-d mth-add">+1 <span>Add one · 加一</span></button>
+        <button type="button" class="mth-btn-d mth-reset">Reset · 歸零</button>
+      </div>
+      <p class="al-sky-k mth-k2">Trade when a place has · 滿幾個就換</p>
+      <div class="mth-seg mth-seg-base" role="group" aria-label="How many make one of the next size · 幾個換一個">{bb}</div>
+      <p class="mth-msg" aria-live="polite"></p>
+    </aside>
+  </div>
+  <div class="al-controls">
+    <div class="al-row al-row-main">
+      <button type="button" class="al-play" aria-pressed="false"><span class="al-play-i" aria-hidden="true"></span><span class="al-play-t">Count up · 往上數</span></button>
+      <div class="mth-seg mth-seg-speed" role="group" aria-label="Speed · 速度">{sb}</div>
+      <div class="al-row al-toggles">{tg}</div>
+    </div>
+  </div>
+  {_lab_foot(lab)}
+  <p class="mth-credit">{lab["credit_html"]}</p>
+</div>'''
+
+def _math_pile(pq):
+    return f'''<div class="mth-pq rvl" data-mth-pile>
+  <div class="mth-pq-top"><p class="mth-pq-k"></p><p class="mth-pq-sc">Right on the first try · 第一次就答對 <b class="mth-pq-score">0 / 0</b></p></div>
+  <div class="mth-pq-pic" role="img"></div>
+  <div class="mth-pq-opts" role="group" aria-label="Choose the number · 選出這個數"></div>
+  <p class="mth-pq-msg" aria-live="polite"></p>
+  <div class="mth-pq-foot">
+    <label class="mth-check"><input type="checkbox" data-t="names"><span>Show the name of each place · 顯示每一位的名字</span></label>
+    <button type="button" class="mth-btn mth-btn-gold mth-pq-next" hidden>Next · 下一題</button>
+  </div>
+</div>
+<p class="mth-note rvl">{html.escape(pq["note_en"])}<span class="zh">{html.escape(pq["note_zh"])}</span></p>'''
+
+def _math_same(sm):
+    return f'''<div class="mth-sm rvl" data-mth-same>
+  <div class="mth-sm-ctl">
+    <span class="mth-k">How many dots · 幾個圓點</span>
+    <button type="button" class="mth-btn mth-sm-minus" aria-label="One fewer · 少一個">&minus;</button>
+    <b class="mth-sm-out" aria-live="polite">13</b>
+    <button type="button" class="mth-btn mth-sm-plus" aria-label="One more · 多一個">+</button>
+    <input type="range" class="mth-sm-range" min="1" max="40" step="1" value="13" aria-label="Number of dots, 1 to 40 · 圓點的數目，1 到 40">
+  </div>
+  <div class="mth-sm-panels"></div>
+  <p class="mth-sm-msg" aria-live="polite"></p>
+</div>
+<p class="mth-note rvl">{html.escape(sm["note_en"])}<span class="zh">{html.escape(sm["note_zh"])}</span></p>'''
+
+def _math_flat():
+    return [(ui, u, l) for ui, u in enumerate(MATH["units"]) for l in u["lessons"]]
+
+def _math_nav(slug):
+    flat = _math_flat()
+    i = next(n for n, (_, _, l) in enumerate(flat) if l["slug"] == slug)
+    def side(item, dirn, label):
+        if not item:
+            return '<span class="pm-nav-x"></span>'
+        l = item[2]
+        arrow = "&larr;" if dirn == "prev" else "&rarr;"
+        return (f'<a class="pm-nav-s pm-nav-{dirn}" href="{MATH_BASE}{l["slug"]}/">'
+                f'<span class="pm-nav-k">{arrow} {label}</span>'
+                f'<span class="pm-nav-t">{html.escape(l["title"])}</span></a>')
+    prev = flat[i - 1] if i > 0 else None
+    nxt = flat[i + 1] if i < len(flat) - 1 else None
+    return (f'<nav class="pm-nav rvl">{side(prev, "prev", "上一課 · Previous")}'
+            f'<a class="pm-nav-hub" href="{MATH_BASE}">&#9776; 回看得見的數學 · All Lessons</a>'
+            f'{side(nxt, "next", "下一課 · Next")}</nav>')
+
+def build_math_lesson(ui, unit, lesson):
+    path = f'{MATH_BASE}{lesson["slug"]}/'
+    unit_dict = {k: lesson[k] for k in ("title", "paras", "paras_zh", "questions", "answers", "vocab", "quiz")}
+    unit_dict["unit"] = lesson["n"]
+    reading_html = render_basic_unit(1, unit_dict, level="math", audio_rel="", pdf_rel="")
+    lab = lesson["lab"]
+    kind = lab["kind"]
+    lab_html = {"blocks": render_mathblocks_lab}[kind](lesson)
+
+    def sec(key, fn):
+        d = lesson[key]
+        return (key, d["eyebrow"], d["en"], d["zh"], fn(d), _bi(d["lead_en"], d["lead_zh"], cls="lead rvl d2"))
+    secs = []
+    if lesson.get("parts"):
+        def ico(pt):
+            return f'<span class="mth-mini" data-pile="{pt["pile"]}"></span>' if pt.get("pile") else f'<span class="mth-ico-t">{html.escape(pt["icon"])}</span>'
+        cards = "".join(
+            f'<article class="ph-card mth-part rvl">'
+            f'<div class="ph-ico mth-ico" aria-hidden="true">{ico(pt)}</div>'
+            f'<h3>{html.escape(pt["en"])}<span class="zh">{html.escape(pt["zh"])}</span></h3>'
+            f'<p class="ph-meta"><span>{html.escape(pt["meta_en"])} · {html.escape(pt["meta_zh"])}</span></p>'
+            f'<p class="ph-when">{html.escape(pt["text_en"])}<br><span class="zh">{html.escape(pt["text_zh"])}</span></p>'
+            f'<button type="button" class="ph-go" data-lab-demo="{pt["demo"]}">Watch it in the model · 在模型中看 <i>&uarr;</i></button>'
+            f'</article>' for pt in lesson["parts"])
+        ph = lesson["parts_head"]
+        secs.append(("parts", ph["eyebrow"], ph["en"], ph["zh"], f'<div class="ph-grid stagger">{cards}</div>',
+                     _bi(lesson["parts_note_en"], lesson["parts_note_zh"], cls="lead rvl d2")))
+    if lesson.get("sayit"): secs.append(sec("sayit", _math_sayit))
+    if lesson.get("pile"): secs.append(sec("pile", _math_pile))
+    if lesson.get("same"): secs.append(sec("same", _math_same))
+    if lesson.get("culture_cards"):
+        cu = lesson["culture_cards"]
+        cc = "".join(
+            f'<article class="cc-card rvl"><p class="cc-k">{html.escape(c["k"])}</p>'
+            f'<h3>{html.escape(c["en"])}<span class="zh">{html.escape(c["zh"])}</span></h3>'
+            f'{_bi(c["body_en"], c["body_zh"])}</article>'
+            for c in cu["cards"])
+        secs.append(("stories", cu["eyebrow"], cu["title_en"], cu["title_zh"], f'<div class="cc-grid">{cc}</div>',
+                     _bi(cu["lead_en"], cu["lead_zh"], cls="lead rvl d2")))
+    secs.append(("myths", "Myth vs. Fact · 常見迷思", "Four things people get wrong", "四個常見的誤會", _sci_myths(lesson), ""))
+    th = lesson["tricks_head"]
+    secs.append(("tricks", "Remember It · 記憶口訣", th["en"], th["zh"], _sci_tricks(lesson), ""))
+    if lesson.get("notes"):
+        nh = lesson["notes_head"]
+        items = "".join(f'<li class="rvl">{html.escape(s["en"])}<span class="zh">{html.escape(s["zh"])}</span></li>' for s in lesson["notes"])
+        secs.append(("notes", nh["eyebrow"], nh["en"], nh["zh"], f'<ul class="mth-notes">{items}</ul>', ""))
+    acts = lesson.get("activities") or ([lesson["activity"]] if lesson.get("activity") else [])
+    for n, act in enumerate(acts, 1):
+        eb = "Classroom Activity · 課堂活動" if len(acts) == 1 else f"Classroom Activity {n} · 課堂活動{_astro_cn(n)}"
+        secs.append((f"activity{'' if n == 1 else n}", eb, act["title_en"], act["title_zh"], _astro_activity(act), ""))
+    if lesson.get("links"):
+        def link(x):
+            body = (f'<span class="mth-link-ic" aria-hidden="true">{x["icon"]}</span>'
+                    f'<span class="mth-link-b"><span class="mth-link-k">{html.escape(x["k_en"])} · {html.escape(x["k_zh"])}</span>'
+                    f'<b>{html.escape(x["en"])}</b><span class="zh mth-link-zh">{html.escape(x["zh"])}</span>'
+                    f'<span class="mth-link-n">{html.escape(x["note_en"])}<span class="zh">{html.escape(x["note_zh"])}</span></span>')
+            if x.get("soon"):
+                return f'<div class="mth-link mth-link-soon rvl">{body}<span class="mth-link-go">Coming soon · 製作中</span></span></div>'
+            return f'<a class="mth-link rvl" href="{html.escape(x["href"])}">{body}<span class="mth-link-go">Go to the lesson · 前往這一課 <i>&rarr;</i></span></span></a>'
+        lh = lesson.get("links_head") or {"eyebrow": "Go Further · 延伸閱讀", "en": "Read more", "zh": "延伸閱讀"}
+        secs.append(("more", lh["eyebrow"], lh["en"], lh["zh"], f'<div class="mth-links">{"".join(link(x) for x in lesson["links"])}</div>', ""))
+    sec_html = "\n".join(_astro_sec(sid, k % 2 == 1, eb, en, zh, inner, lead)
+                         for k, (sid, eb, en, zh, inner, lead) in enumerate(secs))
+    src_html = ""
+    if lesson.get("sources"):
+        rows = "".join(
+            f'<li><span>{html.escape(s["en"])}<span class="zh">{html.escape(s["zh"])}</span></span>'
+            f'<a href="{html.escape(s["url"])}" target="_blank" rel="noopener">{html.escape(s["src"])} &#8599;</a></li>'
+            for s in lesson["sources"])
+        src_html = (f'<div class="mth-sources rvl"><p class="sub-head">Sources · 資料出處</p>'
+                    f'<p class="muted">{html.escape(lesson["sources_note_en"])} · {html.escape(lesson["sources_note_zh"])}</p>'
+                    f'<ol>{rows}</ol></div>')
+
+    eyebrow = (f'Math You Can See · Unit {ui + 1} · Lesson {lesson["n"]} · '
+               f'看得見的數學 單元{_htw_cn(ui + 1)} 第{_htw_cn(lesson["n"])}課')
+    lead = f'{html.escape(lesson["blurb_en"])}<br><span class="muted">{html.escape(lesson["blurb_zh"])}</span>'
+    body = f'''
+{page_hero(eyebrow, f'{html.escape(lesson["title"])}<span class="h1-zh">{html.escape(lesson["title_zh"])}</span>', lead, back=(MATH_BASE, "回看得見的數學 · All Lessons"))}
+<section class="section astro-lab-sec" id="model"><div class="wrap">
+  <div class="big-idea rvl"><span class="big-idea-k">Big idea · 一句話看懂</span>{_bi(lesson["big_idea_en"], lesson["big_idea_zh"])}</div>
+  <p class="eyebrow rvl">{html.escape(lab["eyebrow"])}</p>
+  <h2 class="rvl d1 sweep">{html.escape(lab["title_en"])} <span class="tp-h2-en">{html.escape(lab["title_zh"])}</span></h2>
+  {_bi(lab["how_en"], lab["how_zh"], cls="lead rvl d2 al-how")}
+  {lab_html}
+</div></section>
+<section class="section band" id="reading"><div class="wrap" style="max-width:940px">
+  <p class="eyebrow rvl">Reading · 英文閱讀</p>
+  {reading_html}
+</div></section>
+{sec_html}
+<section class="section"><div class="wrap">
+{src_html}
+{_math_nav(lesson["slug"])}
+</div></section>
+'''
+    say_slug = f'math-{lesson["slug"]}'   # tools/gen_audio.py 以路徑末兩段命名
+    has_clips = os.path.exists(os.path.join(ROOT, "assets/data/say", say_slug + ".json"))
+    write(path, layout(path, f'{lesson["title"]} · {lesson["title_zh"]}',
+          f'{lesson["blurb_en"]} {lesson["blurb_zh"]}', body, "resources",
+          say_manifest=say_slug if has_clips else None, extra_head=_math_head(_MATH_JS[kind])))
+    return path
+
+def build_math_hub():
+    # 照電腦概論：單元導覽＋每個單元一段橫向課程卡；做好的課可點，planned 是「製作中」卡。
+    def icon(l):
+        return _MATH_CARD[l["card"]](60) if l.get("card") in _MATH_CARD else l["icon"]
+    unit_sections, nav = [], []
+    done = sum(len(u["lessons"]) for u in MATH["units"])
+    total = done + sum(len(u.get("planned", [])) for u in MATH["units"])
+    for idx, u in enumerate(MATH["units"]):
+        rows = []
+        for l in u["lessons"]:
+            rows.append((l["n"],
+                f'<a class="lc-row rvl" href="{MATH_BASE}{l["slug"]}/">'
+                f'<span class="lc-ico mth-lc-ico" aria-hidden="true">{icon(l)}</span>'
+                f'<span class="lc-body">'
+                f'<span class="lc-meta"><b>Lesson {l["n"]} · 第{_htw_cn(l["n"])}課</b><i>{html.escape(l["level"])}</i></span>'
+                f'<h3 class="lc-title">{html.escape(l["title"])}</h3>'
+                f'<span class="lc-zh">{html.escape(l["title_zh"])}</span>'
+                f'<span class="lc-bl">{html.escape(l["blurb_en"])}</span>'
+                f'<span class="lc-bl zh">{html.escape(l["blurb_zh"])}</span>'
+                f'<span class="lc-go">Start the lesson · 開始上課 <i>&rarr;</i></span>'
+                f'</span></a>'))
+        for p in u.get("planned", []):
+            rows.append((p["n"],
+                f'<div class="lc-row lc-soon rvl">'
+                f'<span class="lc-ico" aria-hidden="true">{p["icon"]}</span>'
+                f'<span class="lc-body"><span class="lc-meta"><b>Lesson {p["n"]} · 第{_htw_cn(p["n"])}課 · Coming soon 製作中</b></span>'
+                f'<h3 class="lc-title">{html.escape(p["en"])}</h3><span class="lc-zh">{html.escape(p["zh"])}</span></span></div>'))
+        rows.sort(key=lambda r: r[0])
+        band = " band" if idx % 2 == 0 else ""
+        uid = f"unit-{idx + 1}"
+        nav.append(f'<a class="unit-nav-link" href="#{uid}"><b>{idx + 1}</b><span>{html.escape(u["title_zh"])}</span></a>')
+        unit_sections.append(
+            f'<section class="section lc-unit{band}" id="{uid}"><div class="wrap">'
+            f'<p class="eyebrow rvl">Unit {idx + 1} · 單元{_htw_cn(idx + 1)}</p>'
+            f'<h2 class="rvl d1 sweep">{html.escape(u["title_en"])} <span class="tp-h2-en">{html.escape(u["title_zh"])}</span></h2>'
+            f'<p class="lead rvl d2" style="max-width:62ch">{html.escape(u["blurb_en"])}<br>'
+            f'<span class="muted">{html.escape(u["blurb_zh"])}</span></p>'
+            f'<div class="lc-list">{"".join(r[1] for r in rows)}</div>'
+            f'</div></section>')
+    unit_nav = (f'<nav class="unit-nav" aria-label="Jump to unit · 單元導覽"><div class="wrap">'
+                f'<span class="unit-nav-label">Jump to unit · 跳到單元</span>'
+                f'<div class="unit-nav-track">{"".join(nav)}</div></div></nav>')
+    intro_html = "".join(_bi(p["en"], p["zh"]) for p in MATH["intro"])
+    if done == total:
+        intro_html += _bi(f"All {total} lessons are ready.", f"{total} 課全部完成。", cls="mth-progress")
+    else:
+        intro_html += _bi(f"{done} of {total} lessons {"is" if done == 1 else "are"} ready so far; more are on the way.",
+                          f"目前完成 {done} 課（共規劃 {total} 課），持續增加中。", cls="mth-progress")
+    lead = f'{html.escape(MATH["lead_en"])}<br><span class="muted">{html.escape(MATH["lead_zh"])}</span>'
+    body = f'''
+{page_hero(MATH["eyebrow"], f'{MATH["title_en"]} <span class="h1-zh">{MATH["title_zh"]}</span>', lead, back=("/resources/reading/", "回閱讀與經典"))}
+<section class="section"><div class="wrap">
+  <div class="prose wide rvl mth-intro"><span class="mth-intro-ic" aria-hidden="true">{mathhub_svg(76)}</span>{intro_html}</div>
+</div></section>
+{unit_nav}
+{"".join(unit_sections)}
+'''
+    write(MATH_BASE, layout(MATH_BASE, f'{MATH["title_en"]} · {MATH["title_zh"]}',
+          f'{MATH["lead_en"]} {MATH["lead_zh"]}', body, "resources", extra_head=_math_head() + _lc_head()))
+    return MATH_BASE
+
+
 def build_poetry_hub():
     cards = []
     for pm in POEMS["poems"]:
@@ -19304,6 +19644,10 @@ def main():
         paths.append(build_art_hub())
         for _ui, _u in enumerate(ART["units"]):
             for _l in _u["lessons"]: paths.append(build_art_lesson(_ui, _u, _l))
+    if MATH:
+        paths.append(build_math_hub())
+        for _ui, _u in enumerate(MATH["units"]):
+            for _l in _u["lessons"]: paths.append(build_math_lesson(_ui, _u, _l))
     if PHIL:
         paths.append(build_phil_hub())
         for _l in PHIL["lessons"]: paths.append(build_phil_lesson(_l))

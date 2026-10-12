@@ -886,6 +886,32 @@
 - 課程規劃在 Obsidian：`第二大腦/創作庫/美術課程規劃（twrses）.md`（五單元二十課、版權原則、待查證清單）；系列索引 `第二大腦/英文學習/美術（twrses.org）.md`（課程清單、維護備忘、下一課的交接指令）。
 
 ---
+## 看得見的數學 Math You Can See（/resources/classes/math/）— 架構照電腦概論，每課一個「可以動手玩的模型」回答一個「為什麼」
+
+- **定位（不要走樣）**：不是課本、不是題庫。**不出大量計算題、不計時、不比快**；小遊戲只記「第一次就答對幾題」，不做倒數計時、不做排行榜。程度到國中三年級為止，不碰三角函數、對數、微積分。規劃檔：Obsidian `第二大腦/創作庫/數學課程規劃（twrses）.md`（六個單元二十六課）。
+- 內容：`data/math.json`：`units[]`（六個單元：數／比與量／形狀與空間／代數與圖形／資料與機會／數學的故事與用處）底下 `lessons[]` 與 `planned[]`（「製作中」卡，做一課就從 planned 移到 lessons）；課次 `n` 全系列連號（1–26），系列首頁自己算「x of 26」。每課欄位同電腦概論，不同的：`sayit`（**「這個用英文怎麼唸」卡，每課都要有**，見下）、`pile`／`same`（第一課的兩個小互動，各有 `eyebrow/en/zh/lead_en/lead_zh/note_en/note_zh`）、`notes`＋`notes_head`（「給老師的提醒」，取代別的系列的安全提醒；這一格放台美差異與課綱對應）、`parts[].pile`（卡片小圖要畫的數，例如 `"305"`）或 `parts[].icon`（文字）。
+- 頁面：`build.py`「看得見的數學」區塊的 `build_math_hub()`（系列小圖示 `mathhub_svg()`＝平板＋長條＋小方塊，第一課卡 `mathblocks_svg()`；`_MATH_CARD` 把 `card` 對到圖示函式）/ `build_math_lesson()`；reading、迷思、口訣、活動沿用 `render_basic_unit()`、`_sci_myths()`、`_sci_tricks()`、`_astro_activity()`。「閱讀與經典」頁有入口卡（🧮，排在音樂後面）。段落順序：3D → 英文閱讀 → 模型卡 → **怎麼唸** → 這堆積木是多少 → 同一個數三種寫法 → 文化卡 → 迷思 → 口訣 → 給老師的提醒 → 活動 → 延伸閱讀 → 資料出處。
+- 樣式：共用 `assets/css/astro.css`，本系列專屬的在 `assets/css/math.css`（**class 前綴一律 `mth-`**——`mt-` 已被天文的潮汐、流星雨用掉，不要用）；`_math_head()` 只在本系列頁面載入。
+- 3D：**原始碼在 `tools/math/src/`**（自己的 package.json，three 0.186.1、esbuild 0.25.10），bundle 一律 `math-*`；`lab.kind` → bundle 對照在 `build.py` 的 `_MATH_JS`（`blocks` → `math-blocks`）。`labeler`、`lazyBoot`、`canvasTex` 在 `tools/math/src/common.js`（從 tools/computers 抄來）。**不要 import 別的系列的 tools 目錄**（esbuild 會打包進第二份 three.js）。新增一課＝`src/math-<名>.js`＋package.json 的 build 加入口＋`_MATH_JS` 加一筆＋`build_math_lesson()` 的 `lab_html` 對照加一筆。
+  ```
+  cd tools/math && npm ci && npm run build && npm test
+  ```
+- **算式顯示（全系列共用）**：`build.py` 的 `_mth_expr(src, say)`。資料裡用很小的一套寫法——`10^2`（次方）、`3/4`（分數）、`sqrt(2)`（根號），其餘照字面（× ÷ − 直接打）——輸出 HTML＋CSS 排的算式（`.mth-x`、`.mth-fr`、`.mth-rt`），外層 `role="math"`、`aria-label` 放唸法，螢幕閱讀器唸的是唸法不是符號。**不用 MathML、不載任何外部字型或函式庫**（站上原本沒有任何數學標記；自己排可以保證每台裝置長得一樣）。課文段落（`paras`）是純文字，裡面的算式直接寫成「10 × 10」。
+- **「這個用英文怎麼唸」卡（每課一張，6–8 列）**：`lesson["sayit"]`＝`{ eyebrow, en, zh, lead_en, lead_zh, rows[], tip_en, tip_zh }`；每列 `{ expr, say_en, say_zh, note_en, note_zh }`。`_math_sayit()` 每列兩顆 🔊：英文的 `data-say` 是 **唸法**（three hundred five），中文的另加 `data-say-lang="zh"`（台灣華語語音）。**唸法欄不能有阿拉伯數字**（`test/data.test.mjs` 會擋），整數的唸法還會和 `names.js` 算出來的比對。每一張卡的唸法都要找美國的教學資源對過（第一課用 OpenStax《Prealgebra 2e》）。`tools/gen_audio.py` 的 `SHORT_PAGES` 已加入本系列（三個字以內的短語用英語專用語音）。
+- **位值積木引擎（第一課建好，之後講位值、小數、大數的課都能用）**：
+  - `src/place.js`（純函式，`test/place.test.mjs`）：**各位數的陣列索引 0＝個位**。`placeValue`、`toDigits`／`fromDigits`、`maxValue`、`digitsNeeded`、`numeral`、`terms`／`expandedText`（「300 + 0 + 5」，0 也寫出來）、`carrySteps`／`increment`（加一：一位一位，滿了歸零並進位；最高位也滿＝`overflow`）、`regroupings`、`pieceDims(i, base)`（第 i 位積木的大小，**體積永遠是 base 的 i 次方**；小方塊 → 沿 z 的長條 → x–z 的平板 → 大方塊 → 再沿 z 接……）、`stackAxis`、`slots`／`fusedSlots`／`fusedBox`（同一格裡的位子、縫合後的位置、併起來那一塊——大小一定等於下一位的積木）、`columns`（每一格在桌上的位置，個位在最右、前緣對齊 z＝0）、`groupThousands`／`groupMyriads`、`mulberry32`、`makePileQuiz`（八題，樣式 `PILE_PATTERNS`：前三題沒有 0、後五題有；干擾項是「把 0 丟掉」「0 放錯位子」「多一個 0」「左右讀反」）、`groupsOf`。`WIDTHS`＝每種進位制模型用幾位（十進位 4 位 0–9,999、五進位 4 位 0–624、二進位 8 位 0–255）。
+  - `src/names.js`（純函式，`test/names.test.mjs`）：`enWords`（美式，**整數裡不加 and**、21–99 有連字號、三位一節）、`zhWords`（四位一節，中間的空位唸一個「零」，開頭的 10–19 唸「十」）、`placeNameEn／Zh`、`placeOneEn`、`baseDigitsEn／Zh`。範圍 0 到 999,999,999,999。
+  - `src/blocks3d.js`：`makeBlocks({ base, width })` → `set(counts)`、`spawn(i, 秒)`、`squeeze(i, 秒)`、`fuse(i)`、`travel(i, 秒)`、`counts()`／`value()`（**從畫面上實際的 Mesh 數出來**，除錯與驗證用）、`anchor(i)`（數字標籤的位置）、`extent(hi)`（鏡頭取景用）、`update(dt)`。每一面的貼圖重複次數＝那一面有幾格，所以看得出一塊積木是幾個小方塊做的。配色：小方塊黃、長條綠、平板藍、大方塊紅，更高的位再輪一次。
+  - `src/place2d.js`：`pileSVG(digits, { names, mini })`（平面的積木圖，沒有積木的那一格是空的）、`initPile`（`[data-mth-pile]`）、`initSame`（`[data-mth-same]`，1–40 個圓點分別照十、五、二個一數）、`drawMinis`（`.mth-mini[data-pile]`）。除錯：`el.__pile.start(seed)／answer()／wrong()／next()／round()`、`el.__same.set(n)／written()／dots()`。
+- 第一課位值（`math-blocks.js`，`lab.kind = "blocks"`，`data-mathblocks-lab`；slug `count-in-tens`）：一個想法——**滿十個就換成一個大的；改成滿五個、滿二個就換，也是同一條規則**。
+  - **畫面上的數字永遠等於積木代表的量**：加一的瞬間數字就變；進位只是「同樣多的東西換一種包法」，所以進位途中大數字不動，變的只有每一格的個數（剛滿的那一格會短暫顯示 10、變成金色）。時間軸 `op.phase`：`spawn` → `full`（停一下讓人看見 10）→ `squeeze`（縫合）→ 「喀」（WebAudio 合成，不載音檔）＋`fuse`＋`travel` → `arrive`（左邊那一格也滿了就再來一次）。各階段秒數在 `T`；速度 0.5／1／4／16。
+  - **控制器不靠 WebGL**：沒有 WebGL 時 `view` 是 null、加 `al-nogl`，右邊的數字、位值列、輸入框、+1、往上數、換進位制照樣能用。
+  - 鏡頭自動取景：只框到「有積木的最高位再多一位」（手機上不多框那一位），數大了才慢慢拉遠；使用者轉過的方向會保留，↺ 回到預設方向。手機上標籤只顯示數字，不顯示位名。
+  - 右側欄：大數字（千分位逗號）、英文與中文唸法（`names.js` 即時算）、位值列（`.mth-strip`，JS 依進位制產生）、展開式、「幾個一數，寫成」、輸入框（`.mth-in`，0 到該進位制的上限；超過會說明而不是默默截掉）、+1、歸零、`data-base` 三選一。**切換進位制時先把 `state.counts` 換成新進位制的各位數，再重建積木**（順序反了會拿舊的個數去找不存在的位子）。
+  - 四張卡 `data-lab-demo`：`ten`（7 → 10）、`hundred`（99 ＋ 1，連換兩次）、`zero`（35 → 305）、`two`（13 依序用十、五、二個一數）。`test/data.test.mjs` 會核對卡片的 `demo` 在 `DEMO` 裡都有。
+  - 除錯：`document.querySelector('[data-mathblocks-lab]').__lab`（`set(n)`、`addOne()`、`setBase(10|5|2)`、`setPlaying(bool)`、`setSpeed(n)`、`demo(...)`、`run(秒)`、`goCam()`、`render()`、`value()`、`counts()`、`shown()`＝畫面上那個大數字、`blocks()`＝實際的積木、**`check()`＝三者一致**、`busy()`）。驗證過：十進位從 0 一路加到 1,100、五進位 0–624、二進位 0–255，包含進位途中的每一格畫面，`check()` 全部為真；9,999／624／255 再加一會說明「要多開一位」而不動。
+  - 查證時改掉或沒寫的：**英式「three hundred and five」的說法沒有寫**（劍橋字典擋機器人，沒有開得到的出處），只寫 OpenStax 那句「唸整數時不用 and」；巴比倫的零符號 Britannica 說約西元前三世紀、MacTutor 說約西元前 400 年，課文只寫「兩千多年前」；「為什麼選 60」Scientific American 明說不清楚，所以數指節數到 60 只當成一種說法（MacTutor 自己也寫 “Anyone convinced?”）；分鐘和秒的名字來自托勒密的細分，不是巴比倫人直接發明的；中文手勢的六到十只有維基百科，沒寫；二進位「一位一位唸」沒有出處，模型的訊息裡不寫怎麼唸；課綱沒有「四位一節」這個說法，改引教育部辭典的「萬＝千的十倍、億＝萬的萬倍、兆＝億的萬倍」；regroup 在樂詞網沒有數學譯名，課文寫「重新分組（加法時就是進位）」。出處欄的逐字引文保留原拼法（MacTutor 的 civilisation），美式拼字的測試不掃 `sources`。
+  - 截圖：`tools/astro/scripts/shot.mjs` 會啟動系統的 Chrome；這一課是把它複製到暫存區、把執行檔換成 `headless-chrome` 再跑的（沒有改 repo 裡那一支）。
 
 ## Build / Deploy
 ```

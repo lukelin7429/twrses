@@ -1,0 +1,395 @@
+{
+  "title_en": "Math You Can See",
+  "title_zh": "看得見的數學",
+  "eyebrow": "Math · 數學",
+  "lead_en": "Why do we count in tens? Why can't you add the bottoms of two fractions? Each lesson takes one “why” and answers it with a model you can play with. No timers, no long pages of drills.",
+  "lead_zh": "為什麼我們十個一數？分數相加為什麼不能分母加分母？每一課只挑一個「為什麼」，用一個可以動手玩的模型來回答。不計時，也沒有一長串的計算題。",
+  "intro": [
+    {
+      "en": "Your textbook already teaches the steps and gives you practice. This series does the one thing a book cannot do: it lets you move the pieces yourself and watch why the steps work. Every lesson has one model, a short English reading with Chinese a tap away, and a small game or two that only counts how many you got right on the first try. Nothing is timed, and there is no leaderboard.",
+      "zh": "課本和習作已經教了步驟、也給了練習。這個系列只做課本做不到的一件事：讓你自己動手移動那些東西，看見步驟為什麼行得通。每一課有一個模型、一篇英文短文（中文翻譯隨點隨看），再加一兩個小遊戲——只記你第一次就答對幾題，不計時，也沒有排行榜。"
+    },
+    {
+      "en": "Every lesson also has a card called “How do you say it in English?” The hardest part of math in English is often not the vocabulary but the reading aloud: 305 is “three hundred five,” and 10² is “ten squared.” Each line on the card has a speaker button, so teachers can take it straight into a bilingual classroom. The series runs from the middle grades of elementary school to the end of junior high. Facts and readings are checked against the sources listed at the bottom of each lesson, and the numbers in every model are computed and tested.",
+      "zh": "每一課還有一張「這個用英文怎麼唸」卡。用英文上數學，最難的常常不是單字，而是唸法：305 唸 three hundred five，10² 唸 ten squared。卡片上每一列都有 🔊，老師可以直接帶進雙語教室。整個系列從國小中年級到國中三年級為止。每一課的事實與唸法都依頁尾列出的資料查證過，模型裡的數字都是自己算的，並有自動測試。"
+    }
+  ],
+  "units": [
+    {
+      "key": "numbers",
+      "title_en": "Numbers",
+      "title_zh": "數",
+      "blurb_en": "How we write numbers, what the four operations really mean, why fractions and negative numbers follow the rules they do, and what makes a number prime.",
+      "blurb_zh": "數是怎麼寫出來的、乘法和除法到底是什麼意思、分數和負數的規則從哪裡來，以及質數是什麼。",
+      "lessons": [
+        {
+          "n": 1,
+          "slug": "count-in-tens",
+          "title": "Why Do We Count in Tens?",
+          "title_zh": "為什麼我們十個一數？",
+          "level": "入門 · Beginner",
+          "icon": "🧮",
+          "card": "blocks",
+          "blurb_en": "Add one cube at a time and watch ten small cubes snap into a rod, ten rods into a flat, and ten flats into a big cube. Then change the rule to five or two, and see that a 0 is there to hold a place.",
+          "blurb_zh": "一次加一個小方塊，看十個小方塊「喀」一聲併成一根長條、十根長條併成一片平板、十片平板併成一個大方塊。再把規則改成滿五個、滿二個就換，並看看 0 為什麼是在「佔位子」。",
+          "big_idea_en": "We write every number with only ten digits because of one rule: when a place has ten, trade them for one in the next place to the left. A digit's value depends on where it sits, and a 0 keeps an empty place open. Trade at five or at two instead, and the same rule still works.",
+          "big_idea_zh": "我們只用十個數字就能寫出所有的數，靠的是一條規則：一個位子滿十個，就換成左邊那一位的一個。一個數字代表多少，要看它站在哪一位；0 則是替空著的那一位把位子佔住。把規則改成滿五個或滿二個就換，同一條規則照樣行得通。",
+          "lab": {
+            "kind": "blocks",
+            "eyebrow": "3D Model · 3D 模型",
+            "title_en": "Place-Value Blocks on a Table",
+            "title_zh": "桌上的位值積木",
+            "how_en": "Press +1 to add one small cube, or Count up to keep adding. When a place holds ten pieces, they close up, click together into one bigger piece, and move one place to the left. The big number always shows how many small cubes are on the table in all; the digit in front of each pile shows how many pieces are in that place. Type any number from 0 to 9,999 to see it built, then switch the rule to five or two and watch the pieces change size.",
+            "how_zh": "按「+1」加一個小方塊，或按「往上數」讓它一直加。哪一格滿了十個，那十個就會靠攏、「喀」一聲併成一個大的，搬到左邊那一格。右邊的大數字永遠是桌上一共有幾個小方塊；每一堆前面的數字，是那一位有幾個積木。也可以直接輸入 0 到 9,999 的數看它怎麼擺，再把規則改成滿五個或滿二個就換，看積木的大小跟著變。",
+            "legend": [
+              { "cls": "mthunit", "en": "Small cube: one", "zh": "小方塊：1" },
+              { "cls": "mthrod", "en": "Rod: ten small cubes in a row", "zh": "長條：十個小方塊排成一排" },
+              { "cls": "mthflat", "en": "Flat: ten rods side by side (100)", "zh": "平板：十根長條並排（100）" },
+              { "cls": "mthcube", "en": "Big cube: ten flats stacked (1,000)", "zh": "大方塊：十片平板疊起來（1,000）" }
+            ],
+            "scale_en": "A teaching model, drawn to scale: each piece really is made of that many small cubes, so a rod is ten times a cube, and a flat is ten times a rod. With the rule set to ten, the four places show every whole number from 0 to 9,999. With the rule set to five, the pieces are worth 1, 5, 25, and 125, and four places reach 624. With the rule set to two, they are worth 1, 2, 4, 8, and so on up to 128, and eight places reach 255. The trading is slowed down so that you can watch it.",
+            "scale_zh": "這是教學用的示意模型，大小照比例畫：每一塊積木真的就是那麼多個小方塊做成的，所以長條是小方塊的十倍，平板是長條的十倍。規則是「滿十個就換」時，四個位子可以表示 0 到 9,999 的每一個整數。改成滿五個就換，積木代表 1、5、25、125，四位最多到 624；改成滿二個就換，積木代表 1、2、4、8……一直到 128，八位最多到 255。「換」的過程放慢了，好讓你看得見。",
+            "credit_html": "Model and code are drawn and programmed by My Culture Connect. The place-value rules are tested in <code>tools/math/test/place.test.mjs</code>.<br><span class=\"zh\">模型與程式由人師教育協會自行繪製、撰寫；位值與進位的規則有自動測試（<code>tools/math/test/place.test.mjs</code>）。</span>"
+          },
+          "paras": [
+            "How many symbols do you need to write every number in the world? Only ten: 0, 1, 2, 3, 4, 5, 6, 7, 8, and 9. These ten symbols are called digits. With them you can write the number of students in your class or the number of stars you can see at night. Not every way of writing numbers is so thrifty. Roman numerals need a new letter each time the numbers grow: I for one, X for ten, C for one hundred, M for one thousand. Our way never runs out of symbols. The secret is not the digits themselves. It is where you put them.",
+            "Imagine counting a big pile of small cubes. When you have ten of them, snap them together into one rod. Now you have one ten and no loose cubes. Keep going. When you have ten rods, join them into one flat square: one hundred. Ten flats stack into one big cube: one thousand. Each time, ten pieces of one size are traded for one piece of the next size. So when we write 26, the 2 does not mean two. It sits in the tens place, so it means two tens, or twenty. The 6 sits in the ones place, so it means six ones. The value of a digit depends on its place. This idea is called place value, and a system that trades at ten is called base ten.",
+            "What happens when a place gets too full? Suppose you have 99 cubes: nine rods and nine loose cubes. Add one more. Now there are ten loose cubes. That is too many for one digit, because the biggest digit is 9. So the ten cubes become a rod. But now there are ten rods, and that is too many again! The ten rods become a flat. You are left with one flat, no rods, and no loose cubes: 100. Trading ten small pieces for one bigger piece is called regrouping. Many people also call it carrying. Nothing was added and nothing was lost. The amount is the same; only the packing changed.",
+            "Look again at 100. There are no rods and no loose cubes, but we still write two zeros. Why? Compare 305 and 35. In 305 there are three flats, no rods, and five cubes. If you left out the 0, the 3 would slide into the tens place, and the number would shrink to thirty-five. The 0 is a placeholder. It says, “Nothing here, but keep this place open.” People used place value for a very long time before they had a sign for an empty place. Scribes in Babylon began to mark an empty place more than two thousand years ago, and mathematicians in India later treated zero as a number of its own.",
+            "Why do we trade at ten, and not at eight or twelve? It is generally thought that the answer is at the ends of your arms. People have ten fingers, and fingers were the first counters. The word digit even comes from the Latin word for a finger or a toe. But ten is a habit, not a law of nature. The Babylonians counted in sixties, and their sixties still live in our clocks: sixty seconds in a minute, sixty minutes in an hour. The Maya counted in twenties. Computers count in twos, because a switch has only two states, off and on. The rule is always the same: when a place is full, trade for one piece of the next size. Only the number that counts as “full” changes.",
+            "Place value also shapes how we say numbers, and here English and Chinese part ways. In American classrooms, 305 is read “three hundred five,” with no “and.” Big numbers are split into groups of three digits, called periods, with a comma between them: 12,345 is “twelve thousand, three hundred forty-five.” A new name arrives every three places: thousand, million, billion. Chinese brings in a new name every four places instead: wan is ten thousand, and yi is one hundred million. So 10,000 is “ten thousand” in English but “one wan” in Chinese. When you read a big number in your second language, do not translate word by word. Go back to the places."
+          ],
+          "paras_zh": [
+            "要寫出世界上所有的數，需要幾個符號？只要十個：0、1、2、3、4、5、6、7、8、9。這十個符號叫做數字。有了它們，你可以寫出班上有幾個人，也可以寫出晚上看得見幾顆星星。不是每一種寫法都這麼省。羅馬數字每大一級就得換一個新字母：I 是一、X 是十、C 是一百、M 是一千。我們的寫法永遠不會把符號用完。祕密不在數字本身，而在你把它放在哪裡。",
+            "想像你在數一大堆小方塊。數到十個，就把它們「喀」一聲接成一根長條；現在你有一個十，沒有零散的小方塊。繼續數。有了十根長條，就把它們併成一片方形的平板：一百。十片平板疊成一個大方塊：一千。每一次都是十個一樣大的，換成一個大一號的。所以我們寫 26 的時候，那個 2 並不是二：它站在十位，代表兩個十，也就是二十；6 站在個位，代表六個一。一個數字代表多少，要看它站在哪一位。這個想法叫做位值；滿十個就換的數法，叫做十進位。",
+            "一個位子太滿了會怎樣？假設你有 99 個小方塊：九根長條和九個零散的小方塊。再加一個，現在有十個零散的小方塊了。一個數字寫不下這麼多，因為最大的數字是 9。所以那十個小方塊變成一根長條。可是這樣長條就有十根，又太多了！十根長條變成一片平板。最後剩下一片平板，沒有長條，也沒有零散的小方塊：100。把十個小的換成一個大的，英文叫 regrouping（重新分組），很多人也叫它 carrying，就是中文說的進位。過程中沒有多出什麼，也沒有少掉什麼。東西一樣多，只是換了包法。",
+            "再看一次 100。明明沒有長條、也沒有零散的小方塊，我們還是寫了兩個 0。為什麼？比較一下 305 和 35。305 有三片平板、沒有長條、五個小方塊。如果把 0 省掉，3 就會滑到十位，整個數縮水成三十五。這個 0 是在佔位子，它說的是：「這裡什麼都沒有，但是位子要留著。」人們用位值記數用了非常久，才有一個符號來表示空位。巴比倫的書記在兩千多年前開始標出空位；後來印度的數學家更把 0 當成一個真正的數來算。",
+            "為什麼是滿十個就換，而不是八個或十二個？一般認為，答案就在你的手上：人有十根手指，而手指是最早的計數工具。英文的 digit（數字）這個字，甚至就是從拉丁文的「手指、腳趾」來的。不過「十」是習慣，不是自然的定律。巴比倫人六十個一數，他們的六十到現在還留在時鐘裡：一分鐘六十秒、一小時六十分鐘。馬雅人二十個一數。電腦則是兩個一數，因為開關只有兩種狀態：關和開。規則永遠一樣：一個位子滿了，就換成一個大一號的。不同的只是「幾個算滿」。",
+            "位值也決定了數要怎麼唸，而英文和中文在這裡走上不同的路。在美國的課堂上，305 唸成 three hundred five，中間不加 and。大的數每三位切成一組，這一組叫做 period（節），兩節之間加一個逗號：12,345 唸成 twelve thousand, three hundred forty-five。每三位換一個新名字：thousand（千）、million（百萬）、billion（十億）。中文則是每四位才換一個新名字：萬是 ten thousand，億是 one hundred million。所以 10,000 在英文是 ten thousand（十個千），在中文卻是「一萬」。用第二種語言唸大數的時候，不要一個字一個字翻，回到位值去想。"
+          ],
+          "questions": [
+            "In the number 26, what does the 2 mean, and why?",
+            "What happens to the blocks when you add one to 99?",
+            "Why can't we leave out the 0 in 305?"
+          ],
+          "answers": [
+            "It means two tens, or twenty, because it sits in the tens place. The value of a digit depends on its place.",
+            "The tenth loose cube makes ten ones, which are traded for a rod. That makes ten rods, which are traded for a flat. The result is one flat, no rods, and no cubes: 100. The amount did not change; only the packing did.",
+            "The 0 holds the tens place open. Without it, the 3 would slide into the tens place and the number would be read as 35."
+          ],
+          "vocab": [
+            { "n": 1, "w": "digit", "pos": "n.", "zh": "數字（0 到 9 這十個符號）", "ex": "The number 305 has three <b>digits</b>: 3, 0, and 5.", "exzh": "305 這個數有三個數字：3、0、5。" },
+            { "n": 2, "w": "place value", "pos": "n.", "zh": "位值", "ex": "<b>Place value</b> tells you that the 3 in 305 is worth three hundred.", "exzh": "位值告訴你，305 裡的 3 代表三百。" },
+            { "n": 3, "w": "base ten", "pos": "n.", "zh": "十進位", "ex": "In <b>base ten</b>, ten ones make one ten.", "exzh": "在十進位裡，十個一是一個十。" },
+            { "n": 4, "w": "regroup", "pos": "v.", "zh": "重新分組（加法時就是進位）", "ex": "When you have ten ones, <b>regroup</b> them as one ten.", "exzh": "有了十個一，就把它們重新分組，變成一個十。" },
+            { "n": 5, "w": "trade", "pos": "v.", "zh": "交換、換", "ex": "<b>Trade</b> ten small cubes for one rod.", "exzh": "用十個小方塊換一根長條。" },
+            { "n": 6, "w": "placeholder", "pos": "n.", "zh": "佔位的符號", "ex": "In 305, the zero is a <b>placeholder</b> for the tens.", "exzh": "在 305 裡，0 是替十位佔位子的符號。" },
+            { "n": 7, "w": "amount", "pos": "n.", "zh": "數量", "ex": "The <b>amount</b> stays the same when you regroup.", "exzh": "重新分組的時候，數量不會變。" },
+            { "n": 8, "w": "period", "pos": "n.", "zh": "節（大數裡每三位數字一組）", "ex": "In 12,345, a comma separates the thousands <b>period</b> from the ones period.", "exzh": "在 12,345 裡，逗號把「千」那一節和「個」那一節分開。" }
+          ],
+          "quiz": [
+            { "q": "In the number 472, what is the 7 worth?", "options": ["7", "70", "700", "72"], "correct": 1 },
+            { "q": "You have ten rods. What can you trade them for?", "options": ["One small cube", "One more rod", "One flat", "One big cube"], "correct": 2 },
+            { "q": "Which number has 4 hundreds, 0 tens, and 6 ones?", "options": ["46", "460", "4,006", "406"], "correct": 3 },
+            { "q": "What does the 0 do in 305?", "options": ["It makes the number bigger by ten.", "It holds the tens place open.", "It means the number is finished.", "It can be left out."], "correct": 1 },
+            { "q": "In American classrooms, how is 305 read aloud?", "options": ["Three hundred five", "Three oh five hundred", "Thirty-five", "Three and five"], "correct": 0 }
+          ],
+          "parts_head": { "eyebrow": "Try It in the Model · 在模型裡試試", "en": "Four things to watch", "zh": "四件值得看的事" },
+          "parts": [
+            { "key": "ten", "pile": "10", "en": "Ten ones make one ten", "zh": "十個一，換一個十", "meta_en": "7, 8, 9, and then…", "meta_zh": "7、8、9，然後……", "demo": "ten", "text_en": "Watch the ones place fill up. The tenth cube is one too many for a single digit, so all ten close up into a rod and move left.", "text_zh": "看個位那一格慢慢滿起來。第十個小方塊一到，一個數字就寫不下了，十個一起靠攏、併成一根長條，搬到左邊。" },
+            { "key": "hundred", "pile": "100", "en": "99 + 1: two trades in a row", "zh": "99＋1：連換兩次", "meta_en": "Ten ones, then ten tens", "meta_zh": "先是十個一，再是十個十", "demo": "hundred", "text_en": "One more cube sets off a chain: ten cubes make a rod, and that rod is the tenth rod, so ten rods make a flat.", "text_zh": "多一個小方塊，引發一連串的事：十個小方塊併成一根長條，而這根剛好是第十根，於是十根長條再併成一片平板。" },
+            { "key": "zero", "pile": "305", "en": "305 is not 35", "zh": "305 不是 35", "meta_en": "Zero holds the place", "meta_zh": "0 在佔位子", "demo": "zero", "text_en": "See 35, then 305. The digits 3 and 5 are the same, but in 305 the tens space is empty, and the 0 says so.", "text_zh": "先看 35，再看 305。3 和 5 這兩個數字一樣，可是 305 的十位那一格是空的，0 就是在說這件事。" },
+            { "key": "two", "icon": "10 · 5 · 2", "en": "Same pile, new rule", "zh": "同一堆東西，換一條規則", "meta_en": "Trade at ten, five, or two", "meta_zh": "滿十個、五個、二個就換", "demo": "two", "text_en": "Thirteen things are written 13 when you trade at ten, 23 when you trade at five, and 1101 when you trade at two.", "text_zh": "同樣是十三個東西：滿十個就換，寫成 13；滿五個就換，寫成 23；滿二個就換，寫成 1101。" }
+          ],
+          "parts_note_en": "Then set the speed to 16× and press Count up from 0. Which pile changes every single time, and which one almost never moves?",
+          "parts_note_zh": "最後把速度調到 16×，從 0 按「往上數」。哪一堆每一次都在變？哪一堆幾乎不動？",
+          "sayit": {
+            "eyebrow": "Say It · 怎麼唸",
+            "en": "How Do You Say It in English?",
+            "zh": "這個用英文怎麼唸",
+            "lead_en": "Reading numbers aloud is its own skill. Tap a speaker to hear each line, in English or in Chinese, and notice where the two languages cut a number in different places.",
+            "lead_zh": "把數「唸出來」是另一種功夫。點 🔊 聽每一列的英文或中文唸法，注意兩種語言在哪裡把數切開的地方不一樣。",
+            "rows": [
+              { "expr": "26", "say_en": "twenty-six", "say_zh": "二十六", "note_en": "Two tens and six ones. From 21 to 99, the tens and ones are joined with a hyphen.", "note_zh": "兩個十和六個一。21 到 99 的英文，十位和個位之間用連字號連起來。" },
+              { "expr": "305", "say_en": "three hundred five", "say_zh": "三百零五", "note_en": "No “and” in American classrooms. English skips the empty tens place; Chinese says ling (zero) for it.", "note_zh": "美國課堂上不加 and。英文直接跳過空著的十位；中文會唸一個「零」。" },
+              { "expr": "1,000", "say_en": "one thousand", "say_zh": "一千", "note_en": "Ten hundreds. The comma marks off three digits.", "note_zh": "十個百。逗號標出後面三位數字。" },
+              { "expr": "12,345", "say_en": "twelve thousand, three hundred forty-five", "say_zh": "一萬二千三百四十五", "note_en": "English reads the part before the comma, then says “thousand.” Chinese starts a new name at the fifth digit: wan.", "note_zh": "英文先唸逗號前面那一段，再說 thousand。中文在第五位換一個新名字：萬。" },
+              { "expr": "10,000", "say_en": "ten thousand", "say_zh": "一萬", "note_en": "English has no single word for this number; “ten thousand” means ten of the thousands.", "note_zh": "英文沒有「萬」這個單位，說的是「十個千」。" },
+              { "expr": "1,000,000,000", "say_en": "one billion", "say_zh": "十億", "note_en": "In American usage a billion is a thousand millions.", "note_zh": "美式用法裡，billion 是一千個 million（百萬），也就是十億。" },
+              { "expr": "10^2", "say_en": "ten squared", "say_zh": "十的平方", "note_en": "10 × 10 = 100, the flat. Also read “ten to the second power.”", "note_zh": "10 × 10 = 100，就是那片平板。也可以唸 ten to the second power。" },
+              { "expr": "10^3", "say_en": "ten cubed", "say_zh": "十的立方", "note_en": "10 × 10 × 10 = 1,000, the big cube. Also read “ten to the third power.”", "note_zh": "10 × 10 × 10 = 1,000，就是那個大方塊。也可以唸 ten to the third power。" }
+            ],
+            "tip_en": "For teachers: the English readings follow OpenStax Prealgebra 2e, a free U.S. textbook (see Sources). The model above shows the English and Chinese name of every number from 0 to 9,999 as you build it.",
+            "tip_zh": "給老師：英文唸法依美國的免費教科書 OpenStax《Prealgebra 2e》（見資料出處）。上面的模型在你擺出 0 到 9,999 的任何一個數時，都會同時顯示它的英文和中文唸法。"
+          },
+          "pile": {
+            "eyebrow": "Game · 小遊戲",
+            "en": "How Many Is This Pile?",
+            "zh": "這堆積木是多少？",
+            "lead_en": "Eight piles of blocks. Choose the number each pile shows. In the later piles one kind of block is missing on purpose. There is no clock; the game only counts how many you get right on the first try.",
+            "lead_zh": "八堆積木，選出每一堆代表的數。後面幾題故意少了某一種積木。這裡不計時；遊戲只記下你第一次就答對幾題。",
+            "note_en": "The piles are different every time you play. The first three have every kind of block; the last five each have a place with no blocks at all.",
+            "note_zh": "每次玩題目都不一樣。前三題每一種積木都有；後五題都有一位「一個也沒有」。"
+          },
+          "same": {
+            "eyebrow": "See Why · 看看為什麼",
+            "en": "One Pile, Three Ways to Write It",
+            "zh": "同一個數，三種寫法",
+            "lead_en": "Choose how many dots there are. The three boxes hold exactly the same dots, grouped by tens, by fives, and by twos. Each group is as big as it can be: with fives, five ones become a five, and five fives become a twenty-five.",
+            "lead_zh": "先選有幾個圓點。三個框裡的圓點一模一樣多，只是分別照十個、五個、二個一數來分堆。每一堆都盡量湊成大的：五個一數的話，五個一湊成一個五，五個五再湊成一個二十五。",
+            "note_en": "The small word after a number (as in 23 five) names the trading rule, so that nobody mistakes it for twenty-three. Trading at two is exactly how the eight switches in How Computers Work, Lesson 1, count.",
+            "note_zh": "數字後面的小字（例如 23 five）是在說「幾個一數」，免得被看成二十三。二個一數，正是「電腦概論」第一課那八個開關的數法。"
+          },
+          "culture_cards": {
+            "eyebrow": "Stories Behind the Tens · 十的故事",
+            "title_en": "Ten fingers, sixty minutes, twenty toes, and rods on a board",
+            "title_zh": "十根手指、六十分鐘、二十與十二、桌上的算籌",
+            "lead_en": "Four short stories about how people have grouped their numbers.",
+            "lead_zh": "關於人們怎麼「幾個一數」的四個小故事。",
+            "cards": [
+              {
+                "k": "Ten · 十",
+                "en": "Why ten?",
+                "zh": "為什麼是十？",
+                "body_en": "Encyclopaedia Britannica puts it plainly: “The special position occupied by 10 stems from the number of human fingers, of course.” The habit is hiding in English number words, too. The same article explains that eleven comes from an Old English word meaning “one left” after ten, and twelve from a word meaning “two left.” Nobody sat down and voted for ten; as one historian of mathematics writes, it is hard to believe that anyone ever chose a base for a civilization. Counting simply grew out of what people had at hand.",
+                "body_zh": "《大英百科》說得很直接：10 的特殊地位，「當然是來自人類手指的數目」。這個習慣也藏在英文的數字裡。同一篇文章解釋，eleven（十一）來自古英文，意思是數完十以後「剩下一個」，twelve（十二）則是「剩下兩個」。沒有人開會投票選出「十」；一位數學史學者寫道，很難相信有誰替一個文明「選」了一種進位——數數的方法，就是從人們手邊有的東西長出來的。"
+              },
+              {
+                "k": "Sixty · 六十",
+                "en": "Why does an hour have 60 minutes?",
+                "zh": "一小時為什麼是 60 分鐘？",
+                "body_en": "The Babylonians did their astronomy in base 60, a system they inherited from the Sumerians. Nobody knows for certain why 60 was chosen, but it is very handy for fractions: it can be divided evenly by 1, 2, 3, 4, 5, and 6. Greek astronomers kept the sixties. Ptolemy divided each degree of a circle into 60 small parts, and each of those into 60 again. In Latin the first cut was the “first small part,” partes minutae primae, and the next was the “second small part,” partes minutae secundae. That is where the words minute and second come from.",
+                "body_zh": "巴比倫人用六十進位做天文計算，這套方法是從蘇美人那裡繼承來的。為什麼選 60，沒有人確切知道；不過它拿來分東西很方便，可以被 1、2、3、4、5、6 整除。希臘的天文學家把六十留了下來。托勒密把圓的每一度分成 60 小份，每一小份再分成 60 份。拉丁文把第一次切出來的叫「第一小份」（partes minutae primae），再切一次的叫「第二小份」（partes minutae secundae）——這就是英文 minute（分）和 second（秒）的來源。"
+              },
+              {
+                "k": "Twenty and Twelve · 二十與十二",
+                "en": "Twenties, dozens, and scores",
+                "zh": "二十個一數，十二個一打",
+                "body_en": "The Maya of Central America wrote numbers with place value in base 20, and they had a sign for zero, drawn as a shell. Traces of other groupings are still in everyday language. In English a “score” is twenty, so the famous line “Four score and seven years ago” means 87 years ago, and French says quatre-vingts, “four twenties,” for 80. Twelve survives in the dozen, in the twelve inches of a foot, and in the twelve months of a year.",
+                "body_zh": "中美洲的馬雅人用二十進位、有位值的方法記數，而且有代表 0 的符號，畫成一個貝殼。其他的數法到今天還留在日常語言裡。英文的 score 是二十，所以那句名言 “Four score and seven years ago” 說的是「八十七年前」；法文說 80 是 quatre-vingts，也就是「四個二十」。十二則留在「一打」、一英尺十二英寸，和一年十二個月裡。"
+              },
+              {
+                "k": "Rods · 算籌",
+                "en": "Place value on a counting board",
+                "zh": "算籌：桌上的位值",
+                "body_en": "From about the 4th century BCE, people in China calculated with small rods of bamboo or ivory laid out on a board ruled into squares. The ones went in the rightmost column, the tens in the next column to the left, then the hundreds, just like the mats in the model above. What about a place with nothing in it? The square was simply left blank. The abacus, which uses sliding beads instead of loose rods, came into use in China in about the 14th century.",
+                "body_zh": "大約從西元前四世紀起，中國人用竹子或象牙做的小棍子——算籌——擺在畫了格子的板子上計算。個位放在最右邊那一行，十位在它左邊，再左邊是百位，和上面模型裡的墊子一模一樣。那麼「什麼都沒有」的那一位呢？就把那一格空著。用滑動的珠子代替小棍子的算盤，大約在十四世紀才在中國通行。"
+              }
+            ]
+          },
+          "myths": [
+            {
+              "myth_en": "Zero means nothing, so you can leave it out.",
+              "myth_zh": "0 就是沒有，所以可以不寫。",
+              "fact_en": "A zero inside a number holds a place. Take it out of 305 and you get 35, a number less than one eighth as big.",
+              "fact_zh": "數裡面的 0 是在佔位子。把 305 的 0 拿掉就變成 35，連原來的八分之一都不到。"
+            },
+            {
+              "myth_en": "A 9 is always worth more than a 1.",
+              "myth_zh": "9 一定比 1 大。",
+              "fact_en": "It depends on the place. In 190, the 1 is worth one hundred and the 9 is worth ninety. Where a digit sits matters more than which digit it is.",
+              "fact_zh": "要看它站在哪一位。在 190 裡，1 代表一百，9 代表九十。數字站在哪裡，比它是哪個數字更重要。"
+            },
+            {
+              "myth_en": "When you carry, something extra is added to the number.",
+              "myth_zh": "進位的時候，數會多出一點什麼。",
+              "fact_en": "Nothing is added. Ten ones and one ten are the same amount. Regrouping only changes how the amount is packed.",
+              "fact_zh": "什麼都沒有多。十個一和一個十是一樣多的東西；進位只是換一種包法。"
+            },
+            {
+              "myth_en": "Counting in tens is the only way numbers can work.",
+              "myth_zh": "數只能十個一數，沒有別的辦法。",
+              "fact_en": "Ten is a habit that probably comes from our fingers. Clocks still count in sixties, and computers count in twos. The same trading rule works for any of them.",
+              "fact_zh": "「十」是習慣，很可能來自我們的手指。時鐘到現在還是六十個一數，電腦是兩個一數；同一條「滿了就換」的規則，哪一種都行得通。"
+            }
+          ],
+          "tricks_head": { "en": "Place value in a sentence", "zh": "一句話記住位值" },
+          "tricks": [
+            { "title_en": "Ten of these make one of those", "title_zh": "十個小的，換一個大的", "body_en": "Ten ones, one ten. Ten tens, one hundred. Ten hundreds, one thousand.", "body_zh": "十個一是十，十個十是百，十個百是千。" },
+            { "title_en": "One step left, ten times bigger", "title_zh": "往左一位，大十倍", "body_en": "The same digit is worth ten times as much in the next place to the left.", "body_zh": "同一個數字，往左移一位，代表的數就變成十倍。" },
+            { "title_en": "Zero saves the seat", "title_zh": "0 是在幫忙佔位子", "body_en": "No tens? Write a 0 so that the other digits stay where they belong.", "body_zh": "十位一個也沒有？寫個 0，別的數字才不會坐錯位子。" },
+            { "title_en": "English in threes, Chinese in fours", "title_zh": "英文三位一節，中文四位一節", "body_en": "Thousand, million, billion come every three places; wan and yi come every four.", "body_zh": "thousand、million、billion 每三位換一個；萬、億每四位換一個。" }
+          ],
+          "notes_head": { "eyebrow": "For Teachers · 給老師的提醒", "en": "Words and habits that differ between Taiwan and the United States", "zh": "台灣和美國不一樣的說法與習慣" },
+          "notes": [
+            {
+              "en": "Regroup, carry, or compose? You will meet all three. The U.S. textbook OpenStax Prealgebra explains that “carrying is the same as regrouping by exchanging,” for example 10 ones for 1 ten. The Common Core State Standards for Grades 1 and 2 use neither word. They say that “10 can be thought of as a bundle of ten ones — called a ‘ten,’” and that it is sometimes necessary to “compose or decompose tens or hundreds.”",
+              "zh": "regroup、carry 還是 compose？三種說法都會遇到。美國教科書 OpenStax《Prealgebra》解釋：carrying（進位）就是用交換的方式 regrouping（重新分組），例如十個一換一個十。美國的共同核心課程標準（CCSS）一、二年級的條文兩個詞都不用，它的說法是「10 可以想成十個一綁成的一捆，叫做一個『十』」，以及有時需要「合成或分解十或百」。"
+            },
+            {
+              "en": "“Three hundred five,” not “three hundred and five.” OpenStax Prealgebra, a free U.S. textbook from Rice University, states that the word “and” is not used when naming a whole number; “and” is saved for the decimal point, as in “fifteen and sixty-eight hundredths” for 15.68.",
+              "zh": "three hundred five，不是 three hundred and five。美國萊斯大學出版的免費教科書 OpenStax《Prealgebra》明白寫著：唸整數時不用 and；and 留給小數點，例如 15.68 唸成 fifteen and sixty-eight hundredths。"
+            },
+            {
+              "en": "Commas every three digits, names every four. Taiwan and the United States both write 12,345 with a comma every three digits, but Chinese names change every four places: the Ministry of Education's dictionary defines wan as ten times a thousand, yi as ten thousand wan, and zhao as ten thousand yi. A student reading 12,345 in Chinese must regroup the digits as 1 wan and 2,345.",
+              "zh": "逗號三位一撇，名字四位一換。台灣和美國寫 12,345 都是每三位一個逗號，但中文的單位每四位才換一次：教育部《重編國語辭典》說「萬」是千的十倍、「億」是萬的萬倍、「兆」是億的萬倍。學生用中文唸 12,345 的時候，得把它重新切成「1 萬 2345」。"
+            },
+            {
+              "en": "Where this lesson sits in Taiwan's curriculum. The 12-Year Basic Education mathematics guidelines build place value step by step: N-1-1 (numbers to 100; the place-value units “ones” and “tens”; “the place-value meaning of 0”), N-2-1 and N-3-1 (numbers to 1,000 and to 10,000, both “including activities with place-value blocks”), N-4-1 (numbers to one hundred million), and N-5-1 (“the decimal place-value system”). Trading at five or two is enrichment; the guidelines do not require it in elementary school.",
+              "zh": "這一課在課綱的位置。十二年國教數學領域的學習內容一步一步建立位值：N-1-1（一百以內的數；位值單位「個」和「十」；「認識 0 的位值意義」）、N-2-1 與 N-3-1（一千以內、一萬以內的數，都寫明「含位值積木操作活動」）、N-4-1（一億以內的數），以及 N-5-1（「十進位的位值系統」）。滿五個、滿二個就換屬於加深加廣，課綱並不要求國小學。"
+            }
+          ],
+          "activities": [
+            {
+              "title_en": "Bundle the Straws",
+              "title_zh": "吸管十根綁一捆",
+              "materials": [
+                { "en": "About 130 drinking straws or craft sticks for each group", "zh": "每組約 130 根吸管或冰棒棍" },
+                { "en": "Small rubber bands, and one large one", "zh": "小橡皮筋數條，大橡皮筋一條" },
+                { "en": "A mat with three spaces marked hundreds, tens, and ones; one die; paper and pencil", "zh": "一張分成「百、十、個」三格的墊子；一顆骰子；紙和筆" }
+              ],
+              "steps": [
+                { "en": "Roll the die and put that many loose straws in the ones space. Write down the number on the mat.", "zh": "擲骰子，擲到幾就拿幾根散的吸管放進「個」那一格，把墊子上的數寫下來。" },
+                { "en": "Whenever the ones space has ten or more straws, bundle exactly ten with a rubber band and move the bundle to the tens space. Say aloud: “Ten ones make one ten.”", "zh": "「個」那一格只要有十根以上，就用橡皮筋把剛好十根綁成一捆，搬到「十」那一格，並且大聲說：「十個一，換一個十。」" },
+                { "en": "Keep taking turns. When there are ten bundles, put the large band around all ten and move them to the hundreds space.", "zh": "輪流繼續擲。等到有十捆，就用大橡皮筋把十捆綁在一起，搬到「百」那一格。" },
+                { "en": "Stop at a moment when the tens space is empty, for example at 104. Ask: “How do we write this? What would happen without the 0?”", "zh": "找一個「十」那一格剛好是空的時候停下來（例如 104），問大家：「這個數要怎麼寫？少了 0 會怎樣？」" }
+              ],
+              "tip_en": "For a second round, change the rule to “bundle at five” and write each number the new way: 13 straws become 2 bundles and 3 loose straws, written 23. Bundling is the picture behind the Common Core wording that 10 is “a bundle of ten ones — called a ‘ten.’” In Taiwan's curriculum this activity fits N-1-1 (place-value units “ones” and “tens,” exchanging units, and the place-value meaning of 0) and N-2-1.",
+              "tip_zh": "第二輪可以把規則改成「五根綁一捆」，並用新的方法把數寫下來：13 根吸管是 2 捆和 3 根散的，寫成 23。「綁一捆」正是美國共同核心課程標準那句話的畫面：10 是「十個一綁成的一捆，叫做一個十」。對照十二年國教數學領域，這個活動對應 N-1-1（位值單位「個」和「十」、位值單位換算、認識 0 的位值意義）與 N-2-1。"
+            },
+            {
+              "title_en": "How Far Can Your Fingers Count?",
+              "title_zh": "手指可以數到多少？",
+              "materials": [
+                { "en": "Your two hands", "zh": "你的兩隻手" },
+                { "en": "A sheet of paper to record each method", "zh": "一張紙，記下每一種數法" }
+              ],
+              "steps": [
+                { "en": "Method 1: one finger for each thing. How far can two hands go? (10)", "zh": "方法一：一根手指代表一個東西。兩隻手最多數到多少？（10）" },
+                { "en": "Method 2: use your thumb to touch the three sections of each of the other four fingers on the same hand. How far does one hand go now? (12)", "zh": "方法二：用拇指去點同一隻手另外四根手指的三個指節。這樣一隻手可以數到多少？（12）" },
+                { "en": "Method 3: each time the first hand reaches 12, raise one finger on the other hand to remember it. Five fingers, each standing for a dozen: how far? (60)", "zh": "方法三：第一隻手每數到 12，另一隻手就舉起一根手指記下來。五根手指各代表一個「十二」：可以數到多少？（60）" },
+                { "en": "Talk about it: in Method 3, what is one finger on the second hand worth? How is that like the tens place?", "zh": "討論：方法三裡，第二隻手的一根手指代表多少？這和「十位」有什麼像的地方？" }
+              ],
+              "tip_en": "The point is that a finger can stand for more than one, and that is all a place is. Historians have suggested the finger-section method as one possible reason for counting in sixties, but the MacTutor History of Mathematics archive presents it as a proposal, not a known fact, and nobody knows for certain why 60 was chosen. For a fourth method, where five fingers reach 31, see Lesson 1 of How Computers Work.",
+              "tip_zh": "重點是：一根手指可以代表不只一個——所謂的「位」，就是這麼一回事。有學者提出，數指節的方法可能是六十進位的來源之一；但聖安德魯斯大學的 MacTutor 數學史資料庫只把它當成一種說法，並不是確定的事實，為什麼選 60 其實沒有人確切知道。還有第四種方法，五根手指可以數到 31，請看「電腦概論」第一課。"
+            }
+          ],
+          "links_head": { "eyebrow": "Go Further · 延伸閱讀", "en": "Trading at two, and what comes next", "zh": "滿二個就換的世界，以及下一課" },
+          "links": [
+            {
+              "icon": "💻",
+              "k_en": "How Computers Work · Lesson 1",
+              "k_zh": "電腦概論・第一課",
+              "en": "Why Do Computers Use Only 0 and 1?",
+              "zh": "電腦為什麼只用 0 和 1？",
+              "note_en": "Set the rule to two in the model above and you get exactly this: eight switches, each worth double the one to its right, counting from 0 to 255.",
+              "note_zh": "把上面模型的規則改成「滿二個就換」，得到的就是這一課：八個開關，每一個代表的數都是右邊的兩倍，從 0 數到 255。",
+              "href": "/resources/classes/computers/zeros-and-ones/"
+            },
+            {
+              "icon": "✖️",
+              "k_en": "Math You Can See · Lesson 2",
+              "k_zh": "看得見的數學・第二課",
+              "en": "Why Is 3 × 4 the Same as 4 × 3?",
+              "zh": "乘法為什麼可以交換？",
+              "note_en": "Lay out a tray of blocks in three rows of four, turn it a quarter of the way around, and count again.",
+              "note_zh": "把積木排成三排、每排四個，轉九十度，再數一次。",
+              "soon": true
+            }
+          ],
+          "sources_note_en": "Facts, quotations, and readings on this page were checked against these sources (October 2026); the numbers in the model are computed and tested",
+          "sources_note_zh": "本頁的事實、引文與唸法依下列資料查證（2026 年 10 月）；模型裡的數字是自己算的，並有測試",
+          "sources": [
+            { "en": "The decimal system is a positional system with base 10 and the ten digits 0–9; a numeral takes different place values depending on its position", "zh": "十進位是以 10 為底的位值記數法，用 0 到 9 十個數字；數字的位值隨位置而不同", "src": "Encyclopaedia Britannica, “decimal system”", "url": "https://www.britannica.com/science/decimal" },
+            { "en": "“The special position occupied by 10 stems from the number of human fingers, of course”; eleven and twelve as “one left” and “two left”; base 60 in time and angles; score, quatre-vingts, dozen, and gross; a Babylonian zero sign from about the 3rd century BCE that held only interior places", "zh": "10 的特殊地位來自手指的數目；eleven、twelve 的字源；時間與角度裡的六十進位；score、quatre-vingts、dozen、gross；巴比倫約在西元前三世紀出現只用於中間空位的零符號", "src": "Encyclopaedia Britannica, “numerals and numeral systems”", "url": "https://www.britannica.com/science/numeral" },
+            { "en": "A place-value system: the value of a digit depends on its position; place values are separated into groups of three called periods, separated by commas; “the word and is not used when naming a whole number”", "zh": "位值系統：數字的值取決於位置；每三位一組稱為 period，以逗號分開；唸整數時不用 and", "src": "OpenStax, Prealgebra 2e, section 1.1 “Introduction to Whole Numbers”", "url": "https://openstax.org/books/prealgebra-2e/pages/1-1-introduction-to-whole-numbers" },
+            { "en": "“We use the word ‘and’ to indicate the decimal point”: 15.68 is read “fifteen and sixty-eight hundredths”", "zh": "and 用來表示小數點：15.68 唸成 fifteen and sixty-eight hundredths", "src": "OpenStax, Prealgebra 2e, section 5.1 “Decimals”", "url": "https://openstax.org/books/prealgebra-2e/pages/5-1-decimals" },
+            { "en": "“Carrying is the same as regrouping by exchanging. For example, 10 ones for 1 ten or 10 tens for 1 hundred”", "zh": "進位（carrying）就是用交換的方式重新分組（regrouping）：十個一換一個十，十個十換一個百", "src": "OpenStax, Prealgebra 2e, section 1.2 “Add Whole Numbers”", "url": "https://openstax.org/books/prealgebra-2e/pages/1-2-add-whole-numbers" },
+            { "en": "a² is read “a squared” and a³ is read “a cubed”; 7² is “7 to the second power, or 7 squared”", "zh": "a² 唸 a squared、a³ 唸 a cubed；7² 唸 7 to the second power 或 7 squared", "src": "OpenStax, Prealgebra 2e, section 2.1 “Use the Language of Algebra”", "url": "https://openstax.org/books/prealgebra-2e/pages/2-1-use-the-language-of-algebra" },
+            { "en": "“10 can be thought of as a bundle of ten ones — called a ‘ten’” (1.NBT.B.2a)", "zh": "「10 可以想成十個一綁成的一捆，叫做一個十」（1.NBT.B.2a）", "src": "Common Core State Standards for Mathematics, Grade 1, Number and Operations in Base Ten", "url": "https://www.thecorestandards.org/Math/Content/1/NBT/" },
+            { "en": "“706 equals 7 hundreds, 0 tens, and 6 ones”; “100 can be thought of as a bundle of ten tens”; “compose or decompose tens or hundreds” (2.NBT.A.1, 2.NBT.B.7)", "zh": "706 是 7 個百、0 個十、6 個一；100 是十個十綁成的一捆；合成或分解十或百（2.NBT.A.1、2.NBT.B.7）", "src": "Common Core State Standards for Mathematics, Grade 2, Number and Operations in Base Ten", "url": "https://www.thecorestandards.org/Math/Content/2/NBT/" },
+            { "en": "Base ten blocks: unit cubes (1), longs or rods (10), flats (100), and thousand cubes (1,000); each piece is ten times the volume of the one before; trading 10 of one block for 1 of the next is what happens when you regroup (carry or borrow)", "zh": "位值積木的英文名稱：unit cube、long／rod、flat、thousand cube；每一種的體積是前一種的十倍", "src": "Mathwords, “Base Ten Blocks”", "url": "https://www.mathwords.com/b/base_ten_blocks.htm" },
+            { "en": "Two uses of zero, as an empty-place indicator and as a number; around 400 BC the Babylonians put two wedge symbols where we would put zero; Brahmagupta gave rules for arithmetic with zero in the seventh century", "zh": "0 的兩種用法：表示空位、當成一個數；約西元前 400 年巴比倫人用兩個楔形符號標出空位；婆羅摩笈多在七世紀寫下 0 的運算規則", "src": "MacTutor History of Mathematics Archive (University of St Andrews), “A history of Zero”", "url": "https://mathshistory.st-andrews.ac.uk/HistTopics/Zero/" },
+            { "en": "The Babylonians inherited base 60 from the Sumerians; “I just do not believe that anyone ever chose a number base for any civilisation”; counting to 60 on the twelve finger sections, offered as a proposal", "zh": "巴比倫的六十進位承自蘇美人；「我不相信有誰替一個文明選了進位制」；用十二個指節數到 60 的說法（只是一種提議）", "src": "MacTutor History of Mathematics Archive, “Babylonian numerals”", "url": "https://mathshistory.st-andrews.ac.uk/HistTopics/Babylonian_numerals/" },
+            { "en": "“Although it is unknown why 60 was chosen, it is notably convenient for expressing fractions”; Ptolemy's partes minutae primae and partes minutae secundae became the minute and the second", "zh": "為什麼選 60 並不清楚，但它很適合表示分數；托勒密的 partes minutae primae 與 secundae 成為 minute 與 second", "src": "Michael A. Lombardi (NIST), “Why is a minute divided into 60 seconds, an hour into 60 minutes, yet there are only 24 hours in a day?” Scientific American", "url": "https://www.scientificamerican.com/article/experts-time-division-days-hours-minutes/" },
+            { "en": "The Maya used a place-value system to base 20 with a zero, “denoted by a shell”", "zh": "馬雅人使用二十進位的位值記數法，有以貝殼表示的零", "src": "MacTutor History of Mathematics Archive, “Mayan mathematics”", "url": "https://mathshistory.st-andrews.ac.uk/HistTopics/Mayan_mathematics/" },
+            { "en": "Counting boards came into use in China from the 4th century BC; units in the rightmost column, tens in the next; “a square was simply left blank”; the abacus came into use in about the fourteenth century AD", "zh": "中國自西元前四世紀起使用算籌與算板；個位在最右、十位在其左；空位就把格子空著；算盤約在十四世紀通行", "src": "MacTutor History of Mathematics Archive, “Chinese numerals”", "url": "https://mathshistory.st-andrews.ac.uk/HistTopics/Chinese_numerals/" },
+            { "en": "Binary: a positional system with base 2 and the digits 0 and 1, reliably represented by devices with two states", "zh": "二進位：以 2 為底、只用 0 和 1 的位值記數法，可以用兩種狀態的裝置可靠地表示", "src": "Encyclopaedia Britannica, “binary number system”", "url": "https://www.britannica.com/science/binary-number-system" },
+            { "en": "Digit: “any of the Arabic numerals 1 to 9 and usually the symbol 0”; from Latin digitus, “finger, toe.” Billion (U.S.): “a number equal to 1,000 million”", "zh": "digit：阿拉伯數字 1 到 9，通常也包括 0；源自拉丁文 digitus（手指、腳趾）。billion（美式）：一千個 million", "src": "Merriam-Webster Dictionary, “digit” and “billion”", "url": "https://www.merriam-webster.com/dictionary/digit" },
+            { "en": "Learning content N-1-1, N-2-1, N-3-1, N-4-1, and N-5-1 (place-value units, exchanging units, the place-value meaning of 0, activities with place-value blocks, the decimal place-value system)", "zh": "學習內容 N-1-1、N-2-1、N-3-1、N-4-1、N-5-1（位值單位、位值單位換算、認識 0 的位值意義、位值積木操作活動、十進位的位值系統）", "src": "教育部《十二年國民基本教育課程綱要 國民中小學暨普通型高級中等學校 數學領域》（2018）", "url": "https://www.naer.edu.tw/upload/1/16/doc/815/十二年國民基本教育課程綱要國民中小學暨普通型高級中等學校-數學領域.pdf" },
+            { "en": "Chinese terms: place value 位值, digit 數字, carry 進位, counting rods 算籌, sexagesimal system 六十進位制", "zh": "中文名詞：位值、數字、進位、算籌、六十進位制", "src": "國家教育研究院 樂詞網（數學名詞）", "url": "https://terms.naer.edu.tw/search/?match_type=phrase&query_field=title&query_term=place+value" },
+            { "en": "Wan is “ten times a thousand,” yi is “ten thousand wan,” and zhao is “ten thousand yi”", "zh": "萬：「千的十倍」；億：「萬的萬倍」；兆：「億的萬倍」", "src": "教育部《重編國語辭典修訂本》「萬」「億」「兆」", "url": "https://dict.revised.moe.edu.tw/dictView.jsp?ID=10676" },
+            { "en": "Official examples of horizontal number writing in Taiwan use a comma every three digits (639,442,789)", "zh": "台灣公文橫式書寫數字的範例，每三位一個逗號（639,442,789）", "src": "行政院〈公文書橫式書寫數字使用原則〉", "url": "https://docu.nccu.edu.tw/upload/65/doc/3785/公文書橫式書寫數字使用.pdf" }
+          ]
+        }
+      ],
+      "planned": [
+        { "n": 2, "icon": "✖️", "en": "Why Is 3 × 4 the Same as 4 × 3?", "zh": "乘法為什麼可以交換？" },
+        { "n": 3, "icon": "🍬", "en": "What Does Division Really Mean?", "zh": "除法到底是什麼意思？" },
+        { "n": 4, "icon": "🍕", "en": "Why Can't You Just Add the Bottoms?", "zh": "分數相加，為什麼不能分母加分母？" },
+        { "n": 5, "icon": "🧭", "en": "Why Does a Negative Times a Negative Make a Positive?", "zh": "負負為什麼得正？" },
+        { "n": 6, "icon": "🔢", "en": "What Makes a Number Prime?", "zh": "質數是什麼？" }
+      ]
+    },
+    {
+      "key": "ratio",
+      "title_en": "Ratios and Measures",
+      "title_zh": "比與量",
+      "blurb_en": "Two amounts that grow and shrink together, what “percent” really says, where pi comes from, and a number whose decimals never end.",
+      "blurb_zh": "兩個量一起放大、一起縮小；百分之幾到底在說什麼；圓周率從哪裡來；還有一個小數永遠寫不完的數。",
+      "lessons": [],
+      "planned": [
+        { "n": 7, "icon": "🥤", "en": "What Is a Ratio?", "zh": "比是什麼？" },
+        { "n": 8, "icon": "💯", "en": "What Does “Percent” Really Mean?", "zh": "百分之幾到底是什麼意思？" },
+        { "n": 9, "icon": "🛞", "en": "Where Does Pi Come From?", "zh": "圓周率是怎麼來的？" },
+        { "n": 10, "icon": "🔍", "en": "What Number Times Itself Makes 2?", "zh": "哪個數自己乘自己等於 2？" }
+      ]
+    },
+    {
+      "key": "shapes",
+      "title_en": "Shapes and Space",
+      "title_zh": "形狀與空間",
+      "blurb_en": "Tear off the corners of a triangle, cut and move shapes to find their areas, pour water to see the Pythagorean theorem, and fold a box flat.",
+      "blurb_zh": "把三角形的角撕下來拼一拼、把圖形剪開搬一搬來算面積、用倒水看畢氏定理，再把一個盒子攤平。",
+      "lessons": [],
+      "planned": [
+        { "n": 11, "icon": "📐", "en": "Why Do a Triangle's Angles Add Up to 180°?", "zh": "三角形的內角和為什麼是 180 度？" },
+        { "n": 12, "icon": "🔺", "en": "Why Is a Triangle's Area Half of Base Times Height?", "zh": "三角形的面積為什麼要除以二？" },
+        { "n": 13, "icon": "🟦", "en": "What Does the Pythagorean Theorem Say?", "zh": "畢氏定理在說什麼？" },
+        { "n": 14, "icon": "📦", "en": "How Much Does a Shape Hold?", "zh": "一個立體裝得下多少？" }
+      ]
+    },
+    {
+      "key": "algebra",
+      "title_en": "Algebra and Graphs",
+      "title_zh": "代數與圖形",
+      "blurb_en": "A number you do not know yet, patterns you can put into a sentence, equations you can draw, and the curve a thrown ball makes.",
+      "blurb_zh": "一個還不知道的數、可以用一個式子說出來的規律、可以畫出來的式子，以及球丟出去畫出的那條曲線。",
+      "lessons": [],
+      "planned": [
+        { "n": 15, "icon": "⚖️", "en": "What Is x?", "zh": "x 是什麼？" },
+        { "n": 16, "icon": "🧩", "en": "What Comes Next?", "zh": "下一個是什麼？" },
+        { "n": 17, "icon": "📈", "en": "How Do You Draw an Equation?", "zh": "式子怎麼畫成圖？" },
+        { "n": 18, "icon": "🏀", "en": "Why Does a Thrown Ball Make That Curve?", "zh": "丟出去的球為什麼畫出那條曲線？" }
+      ]
+    },
+    {
+      "key": "data",
+      "title_en": "Data and Chance",
+      "title_zh": "資料與機會",
+      "blurb_en": "Three kinds of average, graphs that mislead, what happens when you flip a coin a thousand times, and how to count every possibility.",
+      "blurb_zh": "三種「平均」、會誤導人的圖表、硬幣丟一千次會怎樣，以及怎麼把所有的可能一個不漏地數出來。",
+      "lessons": [],
+      "planned": [
+        { "n": 19, "icon": "📊", "en": "Which Average Tells the Truth?", "zh": "哪一種「平均」才說實話？" },
+        { "n": 20, "icon": "📉", "en": "How Can a Graph Fool You?", "zh": "圖表怎麼騙人？" },
+        { "n": 21, "icon": "🎲", "en": "What Are the Chances?", "zh": "機會有多大？" },
+        { "n": 22, "icon": "🌳", "en": "How Many Ways Are There?", "zh": "一共有幾種可能？" }
+      ]
+    },
+    {
+      "key": "stories",
+      "title_en": "The Story and Use of Math",
+      "title_zh": "數學的故事與用處",
+      "blurb_en": "Where our numerals came from, how to write numbers that are very big or very small, the math in a honeycomb, and what to do when you are stuck.",
+      "blurb_zh": "我們用的數字從哪裡來、很大和很小的數怎麼寫、蜂巢裡的數學，以及題目不會的時候怎麼辦。",
+      "lessons": [],
+      "planned": [
+        { "n": 23, "icon": "🏺", "en": "Where Did Our Numbers Come From?", "zh": "我們用的數字是怎麼來的？" },
+        { "n": 24, "icon": "🔭", "en": "How Do You Write a Really Big Number?", "zh": "很大的數要怎麼寫？" },
+        { "n": 25, "icon": "🐝", "en": "Where Is the Math in a Honeycomb?", "zh": "蜂巢裡有什麼數學？" },
+        { "n": 26, "icon": "💡", "en": "What Do You Do When You Are Stuck?", "zh": "題目不會的時候怎麼辦？" }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "name": "twrses-math",
+  "private": true,
+  "description": "看得見的數學 Math You Can See 的位值積木引擎（place.js 純函式、names.js 數字的英文與中文唸法、blocks3d.js 桌上的積木、place2d.js 不需要 WebGL 的小互動）與各課 3D 的原始碼。產物寫到 assets/js/math-*.js，npm run build 重新打包。",
+  "type": "module",
+  "scripts": {
+    "build": "esbuild src/math-blocks.js --bundle --minify --format=iife --target=es2019 --legal-comments=eof --outdir=../../assets/js",
+    "test": "node test/place.test.mjs && node test/names.test.mjs && node test/data.test.mjs"
+  },
+  "devDependencies": {
+    "esbuild": "0.25.10",
+    "three": "0.186.1"
+  }
+}
