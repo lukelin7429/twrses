@@ -27,6 +27,8 @@ export const pieceColor = (i) => COLORS[i % COLORS.length];
 export const pieceCss = (i) => `#${COLORS[i % COLORS.length].toString(16).padStart(6, '0')}`;
 
 let gridTex = null;
+/** 白底、四邊有線的一格；乘上材質顏色就是一塊看得出格子的積木（第二課的方陣也用） */
+export function gridTexture() { return grid(); }
 function grid() {
   if (gridTex) return gridTex;
   const c = document.createElement('canvas'); c.width = c.height = 64;
@@ -42,7 +44,7 @@ function grid() {
 }
 
 /** 一塊積木的幾何：每一面的貼圖重複次數＝那一面有幾格小方塊，所以看得出它是幾個小方塊做的 */
-function boxGeo([x, y, z]) {
+export function boxGeo([x, y, z]) {
   const geo = new BoxGeometry(x, y, z);
   const rep = [[z, y], [z, y], [x, z], [x, z], [x, y], [x, y]];     // ±x、±y、±z 六個面
   const uv = geo.attributes.uv.array.slice();

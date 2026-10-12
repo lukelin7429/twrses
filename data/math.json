@@ -42,10 +42,26 @@
             "how_en": "Press +1 to add one small cube, or Count up to keep adding. When a place holds ten pieces, they close up, click together into one bigger piece, and move one place to the left. The big number always shows how many small cubes are on the table in all; the digit in front of each pile shows how many pieces are in that place. Type any number from 0 to 9,999 to see it built, then switch the rule to five or two and watch the pieces change size.",
             "how_zh": "按「+1」加一個小方塊，或按「往上數」讓它一直加。哪一格滿了十個，那十個就會靠攏、「喀」一聲併成一個大的，搬到左邊那一格。右邊的大數字永遠是桌上一共有幾個小方塊；每一堆前面的數字，是那一位有幾個積木。也可以直接輸入 0 到 9,999 的數看它怎麼擺，再把規則改成滿五個或滿二個就換，看積木的大小跟著變。",
             "legend": [
-              { "cls": "mthunit", "en": "Small cube: one", "zh": "小方塊：1" },
-              { "cls": "mthrod", "en": "Rod: ten small cubes in a row", "zh": "長條：十個小方塊排成一排" },
-              { "cls": "mthflat", "en": "Flat: ten rods side by side (100)", "zh": "平板：十根長條並排（100）" },
-              { "cls": "mthcube", "en": "Big cube: ten flats stacked (1,000)", "zh": "大方塊：十片平板疊起來（1,000）" }
+              {
+                "cls": "mthunit",
+                "en": "Small cube: one",
+                "zh": "小方塊：1"
+              },
+              {
+                "cls": "mthrod",
+                "en": "Rod: ten small cubes in a row",
+                "zh": "長條：十個小方塊排成一排"
+              },
+              {
+                "cls": "mthflat",
+                "en": "Flat: ten rods side by side (100)",
+                "zh": "平板：十根長條並排（100）"
+              },
+              {
+                "cls": "mthcube",
+                "en": "Big cube: ten flats stacked (1,000)",
+                "zh": "大方塊：十片平板疊起來（1,000）"
+              }
             ],
             "scale_en": "A teaching model, drawn to scale: each piece really is made of that many small cubes, so a rod is ten times a cube, and a flat is ten times a rod. With the rule set to ten, the four places show every whole number from 0 to 9,999. With the rule set to five, the pieces are worth 1, 5, 25, and 125, and four places reach 624. With the rule set to two, they are worth 1, 2, 4, 8, and so on up to 128, and eight places reach 255. The trading is slowed down so that you can watch it.",
             "scale_zh": "這是教學用的示意模型，大小照比例畫：每一塊積木真的就是那麼多個小方塊做成的，所以長條是小方塊的十倍，平板是長條的十倍。規則是「滿十個就換」時，四個位子可以表示 0 到 9,999 的每一個整數。改成滿五個就換，積木代表 1、5、25、125，四位最多到 624；改成滿二個就換，積木代表 1、2、4、8……一直到 128，八位最多到 255。「換」的過程放慢了，好讓你看得見。",
@@ -78,28 +94,173 @@
             "The 0 holds the tens place open. Without it, the 3 would slide into the tens place and the number would be read as 35."
           ],
           "vocab": [
-            { "n": 1, "w": "digit", "pos": "n.", "zh": "數字（0 到 9 這十個符號）", "ex": "The number 305 has three <b>digits</b>: 3, 0, and 5.", "exzh": "305 這個數有三個數字：3、0、5。" },
-            { "n": 2, "w": "place value", "pos": "n.", "zh": "位值", "ex": "<b>Place value</b> tells you that the 3 in 305 is worth three hundred.", "exzh": "位值告訴你，305 裡的 3 代表三百。" },
-            { "n": 3, "w": "base ten", "pos": "n.", "zh": "十進位", "ex": "In <b>base ten</b>, ten ones make one ten.", "exzh": "在十進位裡，十個一是一個十。" },
-            { "n": 4, "w": "regroup", "pos": "v.", "zh": "重新分組（加法時就是進位）", "ex": "When you have ten ones, <b>regroup</b> them as one ten.", "exzh": "有了十個一，就把它們重新分組，變成一個十。" },
-            { "n": 5, "w": "trade", "pos": "v.", "zh": "交換、換", "ex": "<b>Trade</b> ten small cubes for one rod.", "exzh": "用十個小方塊換一根長條。" },
-            { "n": 6, "w": "placeholder", "pos": "n.", "zh": "佔位的符號", "ex": "In 305, the zero is a <b>placeholder</b> for the tens.", "exzh": "在 305 裡，0 是替十位佔位子的符號。" },
-            { "n": 7, "w": "amount", "pos": "n.", "zh": "數量", "ex": "The <b>amount</b> stays the same when you regroup.", "exzh": "重新分組的時候，數量不會變。" },
-            { "n": 8, "w": "period", "pos": "n.", "zh": "節（大數裡每三位數字一組）", "ex": "In 12,345, a comma separates the thousands <b>period</b> from the ones period.", "exzh": "在 12,345 裡，逗號把「千」那一節和「個」那一節分開。" }
+            {
+              "n": 1,
+              "w": "digit",
+              "pos": "n.",
+              "zh": "數字（0 到 9 這十個符號）",
+              "ex": "The number 305 has three <b>digits</b>: 3, 0, and 5.",
+              "exzh": "305 這個數有三個數字：3、0、5。"
+            },
+            {
+              "n": 2,
+              "w": "place value",
+              "pos": "n.",
+              "zh": "位值",
+              "ex": "<b>Place value</b> tells you that the 3 in 305 is worth three hundred.",
+              "exzh": "位值告訴你，305 裡的 3 代表三百。"
+            },
+            {
+              "n": 3,
+              "w": "base ten",
+              "pos": "n.",
+              "zh": "十進位",
+              "ex": "In <b>base ten</b>, ten ones make one ten.",
+              "exzh": "在十進位裡，十個一是一個十。"
+            },
+            {
+              "n": 4,
+              "w": "regroup",
+              "pos": "v.",
+              "zh": "重新分組（加法時就是進位）",
+              "ex": "When you have ten ones, <b>regroup</b> them as one ten.",
+              "exzh": "有了十個一，就把它們重新分組，變成一個十。"
+            },
+            {
+              "n": 5,
+              "w": "trade",
+              "pos": "v.",
+              "zh": "交換、換",
+              "ex": "<b>Trade</b> ten small cubes for one rod.",
+              "exzh": "用十個小方塊換一根長條。"
+            },
+            {
+              "n": 6,
+              "w": "placeholder",
+              "pos": "n.",
+              "zh": "佔位的符號",
+              "ex": "In 305, the zero is a <b>placeholder</b> for the tens.",
+              "exzh": "在 305 裡，0 是替十位佔位子的符號。"
+            },
+            {
+              "n": 7,
+              "w": "amount",
+              "pos": "n.",
+              "zh": "數量",
+              "ex": "The <b>amount</b> stays the same when you regroup.",
+              "exzh": "重新分組的時候，數量不會變。"
+            },
+            {
+              "n": 8,
+              "w": "period",
+              "pos": "n.",
+              "zh": "節（大數裡每三位數字一組）",
+              "ex": "In 12,345, a comma separates the thousands <b>period</b> from the ones period.",
+              "exzh": "在 12,345 裡，逗號把「千」那一節和「個」那一節分開。"
+            }
           ],
           "quiz": [
-            { "q": "In the number 472, what is the 7 worth?", "options": ["7", "70", "700", "72"], "correct": 1 },
-            { "q": "You have ten rods. What can you trade them for?", "options": ["One small cube", "One more rod", "One flat", "One big cube"], "correct": 2 },
-            { "q": "Which number has 4 hundreds, 0 tens, and 6 ones?", "options": ["46", "460", "4,006", "406"], "correct": 3 },
-            { "q": "What does the 0 do in 305?", "options": ["It makes the number bigger by ten.", "It holds the tens place open.", "It means the number is finished.", "It can be left out."], "correct": 1 },
-            { "q": "In American classrooms, how is 305 read aloud?", "options": ["Three hundred five", "Three oh five hundred", "Thirty-five", "Three and five"], "correct": 0 }
+            {
+              "q": "In the number 472, what is the 7 worth?",
+              "options": [
+                "7",
+                "70",
+                "700",
+                "72"
+              ],
+              "correct": 1
+            },
+            {
+              "q": "You have ten rods. What can you trade them for?",
+              "options": [
+                "One small cube",
+                "One more rod",
+                "One flat",
+                "One big cube"
+              ],
+              "correct": 2
+            },
+            {
+              "q": "Which number has 4 hundreds, 0 tens, and 6 ones?",
+              "options": [
+                "46",
+                "460",
+                "4,006",
+                "406"
+              ],
+              "correct": 3
+            },
+            {
+              "q": "What does the 0 do in 305?",
+              "options": [
+                "It makes the number bigger by ten.",
+                "It holds the tens place open.",
+                "It means the number is finished.",
+                "It can be left out."
+              ],
+              "correct": 1
+            },
+            {
+              "q": "In American classrooms, how is 305 read aloud?",
+              "options": [
+                "Three hundred five",
+                "Three oh five hundred",
+                "Thirty-five",
+                "Three and five"
+              ],
+              "correct": 0
+            }
           ],
-          "parts_head": { "eyebrow": "Try It in the Model · 在模型裡試試", "en": "Four things to watch", "zh": "四件值得看的事" },
+          "parts_head": {
+            "eyebrow": "Try It in the Model · 在模型裡試試",
+            "en": "Four things to watch",
+            "zh": "四件值得看的事"
+          },
           "parts": [
-            { "key": "ten", "pile": "10", "en": "Ten ones make one ten", "zh": "十個一，換一個十", "meta_en": "7, 8, 9, and then…", "meta_zh": "7、8、9，然後……", "demo": "ten", "text_en": "Watch the ones place fill up. The tenth cube is one too many for a single digit, so all ten close up into a rod and move left.", "text_zh": "看個位那一格慢慢滿起來。第十個小方塊一到，一個數字就寫不下了，十個一起靠攏、併成一根長條，搬到左邊。" },
-            { "key": "hundred", "pile": "100", "en": "99 + 1: two trades in a row", "zh": "99＋1：連換兩次", "meta_en": "Ten ones, then ten tens", "meta_zh": "先是十個一，再是十個十", "demo": "hundred", "text_en": "One more cube sets off a chain: ten cubes make a rod, and that rod is the tenth rod, so ten rods make a flat.", "text_zh": "多一個小方塊，引發一連串的事：十個小方塊併成一根長條，而這根剛好是第十根，於是十根長條再併成一片平板。" },
-            { "key": "zero", "pile": "305", "en": "305 is not 35", "zh": "305 不是 35", "meta_en": "Zero holds the place", "meta_zh": "0 在佔位子", "demo": "zero", "text_en": "See 35, then 305. The digits 3 and 5 are the same, but in 305 the tens space is empty, and the 0 says so.", "text_zh": "先看 35，再看 305。3 和 5 這兩個數字一樣，可是 305 的十位那一格是空的，0 就是在說這件事。" },
-            { "key": "two", "icon": "10 · 5 · 2", "en": "Same pile, new rule", "zh": "同一堆東西，換一條規則", "meta_en": "Trade at ten, five, or two", "meta_zh": "滿十個、五個、二個就換", "demo": "two", "text_en": "Thirteen things are written 13 when you trade at ten, 23 when you trade at five, and 1101 when you trade at two.", "text_zh": "同樣是十三個東西：滿十個就換，寫成 13；滿五個就換，寫成 23；滿二個就換，寫成 1101。" }
+            {
+              "key": "ten",
+              "pile": "10",
+              "en": "Ten ones make one ten",
+              "zh": "十個一，換一個十",
+              "meta_en": "7, 8, 9, and then…",
+              "meta_zh": "7、8、9，然後……",
+              "demo": "ten",
+              "text_en": "Watch the ones place fill up. The tenth cube is one too many for a single digit, so all ten close up into a rod and move left.",
+              "text_zh": "看個位那一格慢慢滿起來。第十個小方塊一到，一個數字就寫不下了，十個一起靠攏、併成一根長條，搬到左邊。"
+            },
+            {
+              "key": "hundred",
+              "pile": "100",
+              "en": "99 + 1: two trades in a row",
+              "zh": "99＋1：連換兩次",
+              "meta_en": "Ten ones, then ten tens",
+              "meta_zh": "先是十個一，再是十個十",
+              "demo": "hundred",
+              "text_en": "One more cube sets off a chain: ten cubes make a rod, and that rod is the tenth rod, so ten rods make a flat.",
+              "text_zh": "多一個小方塊，引發一連串的事：十個小方塊併成一根長條，而這根剛好是第十根，於是十根長條再併成一片平板。"
+            },
+            {
+              "key": "zero",
+              "pile": "305",
+              "en": "305 is not 35",
+              "zh": "305 不是 35",
+              "meta_en": "Zero holds the place",
+              "meta_zh": "0 在佔位子",
+              "demo": "zero",
+              "text_en": "See 35, then 305. The digits 3 and 5 are the same, but in 305 the tens space is empty, and the 0 says so.",
+              "text_zh": "先看 35，再看 305。3 和 5 這兩個數字一樣，可是 305 的十位那一格是空的，0 就是在說這件事。"
+            },
+            {
+              "key": "two",
+              "icon": "10 · 5 · 2",
+              "en": "Same pile, new rule",
+              "zh": "同一堆東西，換一條規則",
+              "meta_en": "Trade at ten, five, or two",
+              "meta_zh": "滿十個、五個、二個就換",
+              "demo": "two",
+              "text_en": "Thirteen things are written 13 when you trade at ten, 23 when you trade at five, and 1101 when you trade at two.",
+              "text_zh": "同樣是十三個東西：滿十個就換，寫成 13；滿五個就換，寫成 23；滿二個就換，寫成 1101。"
+            }
           ],
           "parts_note_en": "Then set the speed to 16× and press Count up from 0. Which pile changes every single time, and which one almost never moves?",
           "parts_note_zh": "最後把速度調到 16×，從 0 按「往上數」。哪一堆每一次都在變？哪一堆幾乎不動？",
@@ -110,14 +271,62 @@
             "lead_en": "Reading numbers aloud is its own skill. Tap a speaker to hear each line, in English or in Chinese, and notice where the two languages cut a number in different places.",
             "lead_zh": "把數「唸出來」是另一種功夫。點 🔊 聽每一列的英文或中文唸法，注意兩種語言在哪裡把數切開的地方不一樣。",
             "rows": [
-              { "expr": "26", "say_en": "twenty-six", "say_zh": "二十六", "note_en": "Two tens and six ones. From 21 to 99, the tens and ones are joined with a hyphen.", "note_zh": "兩個十和六個一。21 到 99 的英文，十位和個位之間用連字號連起來。" },
-              { "expr": "305", "say_en": "three hundred five", "say_zh": "三百零五", "note_en": "No “and” in American classrooms. English skips the empty tens place; Chinese says ling (zero) for it.", "note_zh": "美國課堂上不加 and。英文直接跳過空著的十位；中文會唸一個「零」。" },
-              { "expr": "1,000", "say_en": "one thousand", "say_zh": "一千", "note_en": "Ten hundreds. The comma marks off three digits.", "note_zh": "十個百。逗號標出後面三位數字。" },
-              { "expr": "12,345", "say_en": "twelve thousand, three hundred forty-five", "say_zh": "一萬二千三百四十五", "note_en": "English reads the part before the comma, then says “thousand.” Chinese starts a new name at the fifth digit: wan.", "note_zh": "英文先唸逗號前面那一段，再說 thousand。中文在第五位換一個新名字：萬。" },
-              { "expr": "10,000", "say_en": "ten thousand", "say_zh": "一萬", "note_en": "English has no single word for this number; “ten thousand” means ten of the thousands.", "note_zh": "英文沒有「萬」這個單位，說的是「十個千」。" },
-              { "expr": "1,000,000,000", "say_en": "one billion", "say_zh": "十億", "note_en": "In American usage a billion is a thousand millions.", "note_zh": "美式用法裡，billion 是一千個 million（百萬），也就是十億。" },
-              { "expr": "10^2", "say_en": "ten squared", "say_zh": "十的平方", "note_en": "10 × 10 = 100, the flat. Also read “ten to the second power.”", "note_zh": "10 × 10 = 100，就是那片平板。也可以唸 ten to the second power。" },
-              { "expr": "10^3", "say_en": "ten cubed", "say_zh": "十的立方", "note_en": "10 × 10 × 10 = 1,000, the big cube. Also read “ten to the third power.”", "note_zh": "10 × 10 × 10 = 1,000，就是那個大方塊。也可以唸 ten to the third power。" }
+              {
+                "expr": "26",
+                "say_en": "twenty-six",
+                "say_zh": "二十六",
+                "note_en": "Two tens and six ones. From 21 to 99, the tens and ones are joined with a hyphen.",
+                "note_zh": "兩個十和六個一。21 到 99 的英文，十位和個位之間用連字號連起來。"
+              },
+              {
+                "expr": "305",
+                "say_en": "three hundred five",
+                "say_zh": "三百零五",
+                "note_en": "No “and” in American classrooms. English skips the empty tens place; Chinese says ling (zero) for it.",
+                "note_zh": "美國課堂上不加 and。英文直接跳過空著的十位；中文會唸一個「零」。"
+              },
+              {
+                "expr": "1,000",
+                "say_en": "one thousand",
+                "say_zh": "一千",
+                "note_en": "Ten hundreds. The comma marks off three digits.",
+                "note_zh": "十個百。逗號標出後面三位數字。"
+              },
+              {
+                "expr": "12,345",
+                "say_en": "twelve thousand, three hundred forty-five",
+                "say_zh": "一萬二千三百四十五",
+                "note_en": "English reads the part before the comma, then says “thousand.” Chinese starts a new name at the fifth digit: wan.",
+                "note_zh": "英文先唸逗號前面那一段，再說 thousand。中文在第五位換一個新名字：萬。"
+              },
+              {
+                "expr": "10,000",
+                "say_en": "ten thousand",
+                "say_zh": "一萬",
+                "note_en": "English has no single word for this number; “ten thousand” means ten of the thousands.",
+                "note_zh": "英文沒有「萬」這個單位，說的是「十個千」。"
+              },
+              {
+                "expr": "1,000,000,000",
+                "say_en": "one billion",
+                "say_zh": "十億",
+                "note_en": "In American usage a billion is a thousand millions.",
+                "note_zh": "美式用法裡，billion 是一千個 million（百萬），也就是十億。"
+              },
+              {
+                "expr": "10^2",
+                "say_en": "ten squared",
+                "say_zh": "十的平方",
+                "note_en": "10 × 10 = 100, the flat. Also read “ten to the second power.”",
+                "note_zh": "10 × 10 = 100，就是那片平板。也可以唸 ten to the second power。"
+              },
+              {
+                "expr": "10^3",
+                "say_en": "ten cubed",
+                "say_zh": "十的立方",
+                "note_en": "10 × 10 × 10 = 1,000, the big cube. Also read “ten to the third power.”",
+                "note_zh": "10 × 10 × 10 = 1,000，就是那個大方塊。也可以唸 ten to the third power。"
+              }
             ],
             "tip_en": "For teachers: the English readings follow OpenStax Prealgebra 2e, a free U.S. textbook (see Sources). The model above shows the English and Chinese name of every number from 0 to 9,999 as you build it.",
             "tip_zh": "給老師：英文唸法依美國的免費教科書 OpenStax《Prealgebra 2e》（見資料出處）。上面的模型在你擺出 0 到 9,999 的任何一個數時，都會同時顯示它的英文和中文唸法。"
@@ -203,14 +412,41 @@
               "fact_zh": "「十」是習慣，很可能來自我們的手指。時鐘到現在還是六十個一數，電腦是兩個一數；同一條「滿了就換」的規則，哪一種都行得通。"
             }
           ],
-          "tricks_head": { "en": "Place value in a sentence", "zh": "一句話記住位值" },
+          "tricks_head": {
+            "en": "Place value in a sentence",
+            "zh": "一句話記住位值"
+          },
           "tricks": [
-            { "title_en": "Ten of these make one of those", "title_zh": "十個小的，換一個大的", "body_en": "Ten ones, one ten. Ten tens, one hundred. Ten hundreds, one thousand.", "body_zh": "十個一是十，十個十是百，十個百是千。" },
-            { "title_en": "One step left, ten times bigger", "title_zh": "往左一位，大十倍", "body_en": "The same digit is worth ten times as much in the next place to the left.", "body_zh": "同一個數字，往左移一位，代表的數就變成十倍。" },
-            { "title_en": "Zero saves the seat", "title_zh": "0 是在幫忙佔位子", "body_en": "No tens? Write a 0 so that the other digits stay where they belong.", "body_zh": "十位一個也沒有？寫個 0，別的數字才不會坐錯位子。" },
-            { "title_en": "English in threes, Chinese in fours", "title_zh": "英文三位一節，中文四位一節", "body_en": "Thousand, million, billion come every three places; wan and yi come every four.", "body_zh": "thousand、million、billion 每三位換一個；萬、億每四位換一個。" }
+            {
+              "title_en": "Ten of these make one of those",
+              "title_zh": "十個小的，換一個大的",
+              "body_en": "Ten ones, one ten. Ten tens, one hundred. Ten hundreds, one thousand.",
+              "body_zh": "十個一是十，十個十是百，十個百是千。"
+            },
+            {
+              "title_en": "One step left, ten times bigger",
+              "title_zh": "往左一位，大十倍",
+              "body_en": "The same digit is worth ten times as much in the next place to the left.",
+              "body_zh": "同一個數字，往左移一位，代表的數就變成十倍。"
+            },
+            {
+              "title_en": "Zero saves the seat",
+              "title_zh": "0 是在幫忙佔位子",
+              "body_en": "No tens? Write a 0 so that the other digits stay where they belong.",
+              "body_zh": "十位一個也沒有？寫個 0，別的數字才不會坐錯位子。"
+            },
+            {
+              "title_en": "English in threes, Chinese in fours",
+              "title_zh": "英文三位一節，中文四位一節",
+              "body_en": "Thousand, million, billion come every three places; wan and yi come every four.",
+              "body_zh": "thousand、million、billion 每三位換一個；萬、億每四位換一個。"
+            }
           ],
-          "notes_head": { "eyebrow": "For Teachers · 給老師的提醒", "en": "Words and habits that differ between Taiwan and the United States", "zh": "台灣和美國不一樣的說法與習慣" },
+          "notes_head": {
+            "eyebrow": "For Teachers · 給老師的提醒",
+            "en": "Words and habits that differ between Taiwan and the United States",
+            "zh": "台灣和美國不一樣的說法與習慣"
+          },
           "notes": [
             {
               "en": "Regroup, carry, or compose? You will meet all three. The U.S. textbook OpenStax Prealgebra explains that “carrying is the same as regrouping by exchanging,” for example 10 ones for 1 ten. The Common Core State Standards for Grades 1 and 2 use neither word. They say that “10 can be thought of as a bundle of ten ones — called a ‘ten,’” and that it is sometimes necessary to “compose or decompose tens or hundreds.”",
@@ -234,15 +470,36 @@
               "title_en": "Bundle the Straws",
               "title_zh": "吸管十根綁一捆",
               "materials": [
-                { "en": "About 130 drinking straws or craft sticks for each group", "zh": "每組約 130 根吸管或冰棒棍" },
-                { "en": "Small rubber bands, and one large one", "zh": "小橡皮筋數條，大橡皮筋一條" },
-                { "en": "A mat with three spaces marked hundreds, tens, and ones; one die; paper and pencil", "zh": "一張分成「百、十、個」三格的墊子；一顆骰子；紙和筆" }
+                {
+                  "en": "About 130 drinking straws or craft sticks for each group",
+                  "zh": "每組約 130 根吸管或冰棒棍"
+                },
+                {
+                  "en": "Small rubber bands, and one large one",
+                  "zh": "小橡皮筋數條，大橡皮筋一條"
+                },
+                {
+                  "en": "A mat with three spaces marked hundreds, tens, and ones; one die; paper and pencil",
+                  "zh": "一張分成「百、十、個」三格的墊子；一顆骰子；紙和筆"
+                }
               ],
               "steps": [
-                { "en": "Roll the die and put that many loose straws in the ones space. Write down the number on the mat.", "zh": "擲骰子，擲到幾就拿幾根散的吸管放進「個」那一格，把墊子上的數寫下來。" },
-                { "en": "Whenever the ones space has ten or more straws, bundle exactly ten with a rubber band and move the bundle to the tens space. Say aloud: “Ten ones make one ten.”", "zh": "「個」那一格只要有十根以上，就用橡皮筋把剛好十根綁成一捆，搬到「十」那一格，並且大聲說：「十個一，換一個十。」" },
-                { "en": "Keep taking turns. When there are ten bundles, put the large band around all ten and move them to the hundreds space.", "zh": "輪流繼續擲。等到有十捆，就用大橡皮筋把十捆綁在一起，搬到「百」那一格。" },
-                { "en": "Stop at a moment when the tens space is empty, for example at 104. Ask: “How do we write this? What would happen without the 0?”", "zh": "找一個「十」那一格剛好是空的時候停下來（例如 104），問大家：「這個數要怎麼寫？少了 0 會怎樣？」" }
+                {
+                  "en": "Roll the die and put that many loose straws in the ones space. Write down the number on the mat.",
+                  "zh": "擲骰子，擲到幾就拿幾根散的吸管放進「個」那一格，把墊子上的數寫下來。"
+                },
+                {
+                  "en": "Whenever the ones space has ten or more straws, bundle exactly ten with a rubber band and move the bundle to the tens space. Say aloud: “Ten ones make one ten.”",
+                  "zh": "「個」那一格只要有十根以上，就用橡皮筋把剛好十根綁成一捆，搬到「十」那一格，並且大聲說：「十個一，換一個十。」"
+                },
+                {
+                  "en": "Keep taking turns. When there are ten bundles, put the large band around all ten and move them to the hundreds space.",
+                  "zh": "輪流繼續擲。等到有十捆，就用大橡皮筋把十捆綁在一起，搬到「百」那一格。"
+                },
+                {
+                  "en": "Stop at a moment when the tens space is empty, for example at 104. Ask: “How do we write this? What would happen without the 0?”",
+                  "zh": "找一個「十」那一格剛好是空的時候停下來（例如 104），問大家：「這個數要怎麼寫？少了 0 會怎樣？」"
+                }
               ],
               "tip_en": "For a second round, change the rule to “bundle at five” and write each number the new way: 13 straws become 2 bundles and 3 loose straws, written 23. Bundling is the picture behind the Common Core wording that 10 is “a bundle of ten ones — called a ‘ten.’” In Taiwan's curriculum this activity fits N-1-1 (place-value units “ones” and “tens,” exchanging units, and the place-value meaning of 0) and N-2-1.",
               "tip_zh": "第二輪可以把規則改成「五根綁一捆」，並用新的方法把數寫下來：13 根吸管是 2 捆和 3 根散的，寫成 23。「綁一捆」正是美國共同核心課程標準那句話的畫面：10 是「十個一綁成的一捆，叫做一個十」。對照十二年國教數學領域，這個活動對應 N-1-1（位值單位「個」和「十」、位值單位換算、認識 0 的位值意義）與 N-2-1。"
@@ -251,20 +508,42 @@
               "title_en": "How Far Can Your Fingers Count?",
               "title_zh": "手指可以數到多少？",
               "materials": [
-                { "en": "Your two hands", "zh": "你的兩隻手" },
-                { "en": "A sheet of paper to record each method", "zh": "一張紙，記下每一種數法" }
+                {
+                  "en": "Your two hands",
+                  "zh": "你的兩隻手"
+                },
+                {
+                  "en": "A sheet of paper to record each method",
+                  "zh": "一張紙，記下每一種數法"
+                }
               ],
               "steps": [
-                { "en": "Method 1: one finger for each thing. How far can two hands go? (10)", "zh": "方法一：一根手指代表一個東西。兩隻手最多數到多少？（10）" },
-                { "en": "Method 2: use your thumb to touch the three sections of each of the other four fingers on the same hand. How far does one hand go now? (12)", "zh": "方法二：用拇指去點同一隻手另外四根手指的三個指節。這樣一隻手可以數到多少？（12）" },
-                { "en": "Method 3: each time the first hand reaches 12, raise one finger on the other hand to remember it. Five fingers, each standing for a dozen: how far? (60)", "zh": "方法三：第一隻手每數到 12，另一隻手就舉起一根手指記下來。五根手指各代表一個「十二」：可以數到多少？（60）" },
-                { "en": "Talk about it: in Method 3, what is one finger on the second hand worth? How is that like the tens place?", "zh": "討論：方法三裡，第二隻手的一根手指代表多少？這和「十位」有什麼像的地方？" }
+                {
+                  "en": "Method 1: one finger for each thing. How far can two hands go? (10)",
+                  "zh": "方法一：一根手指代表一個東西。兩隻手最多數到多少？（10）"
+                },
+                {
+                  "en": "Method 2: use your thumb to touch the three sections of each of the other four fingers on the same hand. How far does one hand go now? (12)",
+                  "zh": "方法二：用拇指去點同一隻手另外四根手指的三個指節。這樣一隻手可以數到多少？（12）"
+                },
+                {
+                  "en": "Method 3: each time the first hand reaches 12, raise one finger on the other hand to remember it. Five fingers, each standing for a dozen: how far? (60)",
+                  "zh": "方法三：第一隻手每數到 12，另一隻手就舉起一根手指記下來。五根手指各代表一個「十二」：可以數到多少？（60）"
+                },
+                {
+                  "en": "Talk about it: in Method 3, what is one finger on the second hand worth? How is that like the tens place?",
+                  "zh": "討論：方法三裡，第二隻手的一根手指代表多少？這和「十位」有什麼像的地方？"
+                }
               ],
               "tip_en": "The point is that a finger can stand for more than one, and that is all a place is. Historians have suggested the finger-section method as one possible reason for counting in sixties, but the MacTutor History of Mathematics archive presents it as a proposal, not a known fact, and nobody knows for certain why 60 was chosen. For a fourth method, where five fingers reach 31, see Lesson 1 of How Computers Work.",
               "tip_zh": "重點是：一根手指可以代表不只一個——所謂的「位」，就是這麼一回事。有學者提出，數指節的方法可能是六十進位的來源之一；但聖安德魯斯大學的 MacTutor 數學史資料庫只把它當成一種說法，並不是確定的事實，為什麼選 60 其實沒有人確切知道。還有第四種方法，五根手指可以數到 31，請看「電腦概論」第一課。"
             }
           ],
-          "links_head": { "eyebrow": "Go Further · 延伸閱讀", "en": "Trading at two, and what comes next", "zh": "滿二個就換的世界，以及下一課" },
+          "links_head": {
+            "eyebrow": "Go Further · 延伸閱讀",
+            "en": "Trading at two, and what comes next",
+            "zh": "滿二個就換的世界，以及下一課"
+          },
           "links": [
             {
               "icon": "💻",
@@ -284,41 +563,812 @@
               "zh": "乘法為什麼可以交換？",
               "note_en": "Lay out a tray of blocks in three rows of four, turn it a quarter of the way around, and count again.",
               "note_zh": "把積木排成三排、每排四個，轉九十度，再數一次。",
+              "href": "/resources/classes/math/three-times-four/"
+            }
+          ],
+          "sources_note_en": "Facts, quotations, and readings on this page were checked against these sources (October 2026); the numbers in the model are computed and tested",
+          "sources_note_zh": "本頁的事實、引文與唸法依下列資料查證（2026 年 10 月）；模型裡的數字是自己算的，並有測試",
+          "sources": [
+            {
+              "en": "The decimal system is a positional system with base 10 and the ten digits 0–9; a numeral takes different place values depending on its position",
+              "zh": "十進位是以 10 為底的位值記數法，用 0 到 9 十個數字；數字的位值隨位置而不同",
+              "src": "Encyclopaedia Britannica, “decimal system”",
+              "url": "https://www.britannica.com/science/decimal"
+            },
+            {
+              "en": "“The special position occupied by 10 stems from the number of human fingers, of course”; eleven and twelve as “one left” and “two left”; base 60 in time and angles; score, quatre-vingts, dozen, and gross; a Babylonian zero sign from about the 3rd century BCE that held only interior places",
+              "zh": "10 的特殊地位來自手指的數目；eleven、twelve 的字源；時間與角度裡的六十進位；score、quatre-vingts、dozen、gross；巴比倫約在西元前三世紀出現只用於中間空位的零符號",
+              "src": "Encyclopaedia Britannica, “numerals and numeral systems”",
+              "url": "https://www.britannica.com/science/numeral"
+            },
+            {
+              "en": "A place-value system: the value of a digit depends on its position; place values are separated into groups of three called periods, separated by commas; “the word and is not used when naming a whole number”",
+              "zh": "位值系統：數字的值取決於位置；每三位一組稱為 period，以逗號分開；唸整數時不用 and",
+              "src": "OpenStax, Prealgebra 2e, section 1.1 “Introduction to Whole Numbers”",
+              "url": "https://openstax.org/books/prealgebra-2e/pages/1-1-introduction-to-whole-numbers"
+            },
+            {
+              "en": "“We use the word ‘and’ to indicate the decimal point”: 15.68 is read “fifteen and sixty-eight hundredths”",
+              "zh": "and 用來表示小數點：15.68 唸成 fifteen and sixty-eight hundredths",
+              "src": "OpenStax, Prealgebra 2e, section 5.1 “Decimals”",
+              "url": "https://openstax.org/books/prealgebra-2e/pages/5-1-decimals"
+            },
+            {
+              "en": "“Carrying is the same as regrouping by exchanging. For example, 10 ones for 1 ten or 10 tens for 1 hundred”",
+              "zh": "進位（carrying）就是用交換的方式重新分組（regrouping）：十個一換一個十，十個十換一個百",
+              "src": "OpenStax, Prealgebra 2e, section 1.2 “Add Whole Numbers”",
+              "url": "https://openstax.org/books/prealgebra-2e/pages/1-2-add-whole-numbers"
+            },
+            {
+              "en": "a² is read “a squared” and a³ is read “a cubed”; 7² is “7 to the second power, or 7 squared”",
+              "zh": "a² 唸 a squared、a³ 唸 a cubed；7² 唸 7 to the second power 或 7 squared",
+              "src": "OpenStax, Prealgebra 2e, section 2.1 “Use the Language of Algebra”",
+              "url": "https://openstax.org/books/prealgebra-2e/pages/2-1-use-the-language-of-algebra"
+            },
+            {
+              "en": "“10 can be thought of as a bundle of ten ones — called a ‘ten’” (1.NBT.B.2a)",
+              "zh": "「10 可以想成十個一綁成的一捆，叫做一個十」（1.NBT.B.2a）",
+              "src": "Common Core State Standards for Mathematics, Grade 1, Number and Operations in Base Ten",
+              "url": "https://www.thecorestandards.org/Math/Content/1/NBT/"
+            },
+            {
+              "en": "“706 equals 7 hundreds, 0 tens, and 6 ones”; “100 can be thought of as a bundle of ten tens”; “compose or decompose tens or hundreds” (2.NBT.A.1, 2.NBT.B.7)",
+              "zh": "706 是 7 個百、0 個十、6 個一；100 是十個十綁成的一捆；合成或分解十或百（2.NBT.A.1、2.NBT.B.7）",
+              "src": "Common Core State Standards for Mathematics, Grade 2, Number and Operations in Base Ten",
+              "url": "https://www.thecorestandards.org/Math/Content/2/NBT/"
+            },
+            {
+              "en": "Base ten blocks: unit cubes (1), longs or rods (10), flats (100), and thousand cubes (1,000); each piece is ten times the volume of the one before; trading 10 of one block for 1 of the next is what happens when you regroup (carry or borrow)",
+              "zh": "位值積木的英文名稱：unit cube、long／rod、flat、thousand cube；每一種的體積是前一種的十倍",
+              "src": "Mathwords, “Base Ten Blocks”",
+              "url": "https://www.mathwords.com/b/base_ten_blocks.htm"
+            },
+            {
+              "en": "Two uses of zero, as an empty-place indicator and as a number; around 400 BC the Babylonians put two wedge symbols where we would put zero; Brahmagupta gave rules for arithmetic with zero in the seventh century",
+              "zh": "0 的兩種用法：表示空位、當成一個數；約西元前 400 年巴比倫人用兩個楔形符號標出空位；婆羅摩笈多在七世紀寫下 0 的運算規則",
+              "src": "MacTutor History of Mathematics Archive (University of St Andrews), “A history of Zero”",
+              "url": "https://mathshistory.st-andrews.ac.uk/HistTopics/Zero/"
+            },
+            {
+              "en": "The Babylonians inherited base 60 from the Sumerians; “I just do not believe that anyone ever chose a number base for any civilisation”; counting to 60 on the twelve finger sections, offered as a proposal",
+              "zh": "巴比倫的六十進位承自蘇美人；「我不相信有誰替一個文明選了進位制」；用十二個指節數到 60 的說法（只是一種提議）",
+              "src": "MacTutor History of Mathematics Archive, “Babylonian numerals”",
+              "url": "https://mathshistory.st-andrews.ac.uk/HistTopics/Babylonian_numerals/"
+            },
+            {
+              "en": "“Although it is unknown why 60 was chosen, it is notably convenient for expressing fractions”; Ptolemy's partes minutae primae and partes minutae secundae became the minute and the second",
+              "zh": "為什麼選 60 並不清楚，但它很適合表示分數；托勒密的 partes minutae primae 與 secundae 成為 minute 與 second",
+              "src": "Michael A. Lombardi (NIST), “Why is a minute divided into 60 seconds, an hour into 60 minutes, yet there are only 24 hours in a day?” Scientific American",
+              "url": "https://www.scientificamerican.com/article/experts-time-division-days-hours-minutes/"
+            },
+            {
+              "en": "The Maya used a place-value system to base 20 with a zero, “denoted by a shell”",
+              "zh": "馬雅人使用二十進位的位值記數法，有以貝殼表示的零",
+              "src": "MacTutor History of Mathematics Archive, “Mayan mathematics”",
+              "url": "https://mathshistory.st-andrews.ac.uk/HistTopics/Mayan_mathematics/"
+            },
+            {
+              "en": "Counting boards came into use in China from the 4th century BC; units in the rightmost column, tens in the next; “a square was simply left blank”; the abacus came into use in about the fourteenth century AD",
+              "zh": "中國自西元前四世紀起使用算籌與算板；個位在最右、十位在其左；空位就把格子空著；算盤約在十四世紀通行",
+              "src": "MacTutor History of Mathematics Archive, “Chinese numerals”",
+              "url": "https://mathshistory.st-andrews.ac.uk/HistTopics/Chinese_numerals/"
+            },
+            {
+              "en": "Binary: a positional system with base 2 and the digits 0 and 1, reliably represented by devices with two states",
+              "zh": "二進位：以 2 為底、只用 0 和 1 的位值記數法，可以用兩種狀態的裝置可靠地表示",
+              "src": "Encyclopaedia Britannica, “binary number system”",
+              "url": "https://www.britannica.com/science/binary-number-system"
+            },
+            {
+              "en": "Digit: “any of the Arabic numerals 1 to 9 and usually the symbol 0”; from Latin digitus, “finger, toe.” Billion (U.S.): “a number equal to 1,000 million”",
+              "zh": "digit：阿拉伯數字 1 到 9，通常也包括 0；源自拉丁文 digitus（手指、腳趾）。billion（美式）：一千個 million",
+              "src": "Merriam-Webster Dictionary, “digit” and “billion”",
+              "url": "https://www.merriam-webster.com/dictionary/digit"
+            },
+            {
+              "en": "Learning content N-1-1, N-2-1, N-3-1, N-4-1, and N-5-1 (place-value units, exchanging units, the place-value meaning of 0, activities with place-value blocks, the decimal place-value system)",
+              "zh": "學習內容 N-1-1、N-2-1、N-3-1、N-4-1、N-5-1（位值單位、位值單位換算、認識 0 的位值意義、位值積木操作活動、十進位的位值系統）",
+              "src": "教育部《十二年國民基本教育課程綱要 國民中小學暨普通型高級中等學校 數學領域》（2018）",
+              "url": "https://www.naer.edu.tw/upload/1/16/doc/815/十二年國民基本教育課程綱要國民中小學暨普通型高級中等學校-數學領域.pdf"
+            },
+            {
+              "en": "Chinese terms: place value 位值, digit 數字, carry 進位, counting rods 算籌, sexagesimal system 六十進位制",
+              "zh": "中文名詞：位值、數字、進位、算籌、六十進位制",
+              "src": "國家教育研究院 樂詞網（數學名詞）",
+              "url": "https://terms.naer.edu.tw/search/?match_type=phrase&query_field=title&query_term=place+value"
+            },
+            {
+              "en": "Wan is “ten times a thousand,” yi is “ten thousand wan,” and zhao is “ten thousand yi”",
+              "zh": "萬：「千的十倍」；億：「萬的萬倍」；兆：「億的萬倍」",
+              "src": "教育部《重編國語辭典修訂本》「萬」「億」「兆」",
+              "url": "https://dict.revised.moe.edu.tw/dictView.jsp?ID=10676"
+            },
+            {
+              "en": "Official examples of horizontal number writing in Taiwan use a comma every three digits (639,442,789)",
+              "zh": "台灣公文橫式書寫數字的範例，每三位一個逗號（639,442,789）",
+              "src": "行政院〈公文書橫式書寫數字使用原則〉",
+              "url": "https://docu.nccu.edu.tw/upload/65/doc/3785/公文書橫式書寫數字使用.pdf"
+            }
+          ]
+        },
+        {
+          "n": 2,
+          "slug": "three-times-four",
+          "title": "Why Is 3 × 4 the Same as 4 × 3?",
+          "title_zh": "乘法為什麼可以交換？",
+          "level": "入門 · Beginner",
+          "icon": "✖️",
+          "card": "array",
+          "blurb_en": "Set cubes on a tray in 3 rows of 4, count across, count down, and then turn the whole tray. Nothing is added and nothing is taken away, so 3 × 4 and 4 × 3 must be the same. Then fold a multiplication table in half and see how much less there is to learn.",
+          "blurb_zh": "在盤子上把小方塊排成 3 排、每排 4 個，橫著數、直著數，再把整盤轉九十度。沒有多、也沒有少，所以 3 × 4 和 4 × 3 一定一樣。接著把乘法表對摺，看看要記的少了多少。",
+          "big_idea_en": "Things set out in equal rows can be counted row by row or column by column. Both ways count every piece exactly once, so both give the same total. That is why the order of the two numbers in a multiplication does not change the answer.",
+          "big_idea_zh": "排成一排一排、每排一樣多的東西，可以一排一排數，也可以一行一行數。兩種數法都把每一個東西剛好數到一次，所以數出來一樣多。這就是為什麼乘法的兩個數換個順序，答案不會變。",
+          "lab": {
+            "kind": "array",
+            "eyebrow": "3D Model · 3D 模型",
+            "title_en": "A Tray You Can Turn",
+            "title_zh": "可以轉的一盤方塊",
+            "how_en": "The tray starts with 3 rows of 4 cubes. Press Count across to count one row at a time, or Count down to count one column at a time, and watch the running total beside each group. Then press Turn the tray: the same cubes become 4 rows of 3. Use the two sliders to build any tray from 1 × 1 to 10 × 10, and switch on Push together to turn the cubes into a rectangle whose area you can read off.",
+            "how_zh": "盤子一開始是 3 排、每排 4 個小方塊。按「橫著數」一次數一排，或按「直著數」一次數一行，每一組旁邊會出現數到這裡的總數。接著按「轉九十度」：同樣的方塊變成 4 排、每排 3 個。用兩條滑桿可以排出 1 × 1 到 10 × 10 的任何一盤；打開「靠攏成長方形」，方塊會併成一個長方形，面積一眼就看得出來。",
+            "legend": [
+              {
+                "cls": "mthunit",
+                "en": "A cube that has not been counted yet",
+                "zh": "還沒數到的小方塊"
+              },
+              {
+                "cls": "mthcount",
+                "en": "Groups already counted (colors take turns)",
+                "zh": "已經數過的組（兩種顏色輪流）"
+              },
+              {
+                "cls": "mthtray",
+                "en": "The tray: turning it does not change what is on it",
+                "zh": "盤子：把它轉個方向，上面的東西不會變"
+              }
+            ],
+            "scale_en": "A teaching model. The big number is always the number of cubes actually drawn on the tray, from 1 to 100. Turning the tray only changes the direction you look from; the model swaps “rows” and “in each row” after the turn is finished. A picture like this shows why the order does not matter for whole numbers you can lay out in rows. It is a convincing picture, not a formal proof.",
+            "scale_zh": "這是教學用的示意模型。大數字永遠是盤子上實際畫出來的方塊數，從 1 到 100。轉盤子只是換一個方向看；轉完以後，模型才把「幾排」和「每排幾個」對調。這樣的圖能讓你看見：可以排成一排一排的整數，順序為什麼不影響答案。它是很有說服力的圖，但不是嚴格的證明。",
+            "credit_html": "Model and code are drawn and programmed by My Culture Connect. The counting rules are tested in <code>tools/math/test/array.test.mjs</code>.<br><span class=\"zh\">模型與程式由人師教育協會自行繪製、撰寫；數數的規則有自動測試（<code>tools/math/test/array.test.mjs</code>）。</span>"
+          },
+          "paras": [
+            "Put twelve small cubes on a tray in neat rows: three rows, with four cubes in each row. Now count them. You could count one row at a time: four, eight, twelve. Your friend is sitting at the side of the table, and from there the tray looks different. Your friend sees four rows, with three cubes in each, and counts three, six, nine, twelve. You counted three fours. Your friend counted four threes. You both got twelve. Is that just luck?",
+            "It is not luck, and you can see why without doing any arithmetic. Each of you counted every cube on the tray exactly once. Nobody added a cube, and nobody took one away. The cubes did not care which way you were facing. In fact, you can skip the second chair. Just turn the tray a quarter of the way around. Three rows of four become four rows of three, and the pile is still the same pile.",
+            "Counting equal groups like this is what multiplication is for. We write 3 × 4 and read it “three times four.” The numbers we multiply are called factors, and the answer is called the product. Things set out in rows and columns, like the cubes on the tray, make an array. Because an array can be counted by its rows or by its columns, 3 × 4 and 4 × 3 have the same product. Changing the order of the factors does not change the product. Mathematicians call this the commutative property of multiplication.",
+            "This one idea saves a great deal of work. A multiplication table from 1 × 1 to 10 × 10 has one hundred squares. But every square off the diagonal has a twin: 7 × 8 and 8 × 7 are both 56. Fold the table along the diagonal, and each square lands on its twin. That leaves only fifty-five different facts to learn instead of one hundred. Learn one, and you know two.",
+            "The same picture explains area. Push the cubes together until they touch, and they make a rectangle four units long and three units wide. Its area is twelve square units, because twelve unit squares cover it. Turn the rectangle, and it is three units long and four units wide. It is the same rectangle, so it has the same area. Finding the area of a rectangle and counting an array are the same job.",
+            "Be careful, though. Not every operation lets you swap. Addition does: 3 + 4 and 4 + 3 are both 7. Subtraction and division do not: 7 − 3 is 4, but 3 − 7 is not, and 12 ÷ 4 is 3, but 4 ÷ 12 is not. Order matters in daily life, too. Putting on your socks and then your shoes is not the same as shoes and then socks! One more thing: classrooms in different countries write the same tray in different orders. In the end both orders give twelve, and now you know why."
+          ],
+          "paras_zh": [
+            "在盤子上把十二個小方塊排整齊：三排，每排四個。現在數數看。你可以一排一排數：四、八、十二。你的朋友坐在桌子的側邊，從那邊看，盤子的樣子不一樣：他看到的是四排、每排三個，所以他數的是三、六、九、十二。你數的是三個四，他數的是四個三，兩個人都數到十二。這只是碰巧嗎？",
+            "不是碰巧，而且不用算就看得出為什麼。你們兩個人都把盤子上的每一個方塊剛好數到一次。沒有人多放一個，也沒有人拿走一個。方塊才不管你面向哪一邊。其實連第二張椅子都可以省了：把盤子轉九十度就好。三排、每排四個，變成四排、每排三個，而那一堆還是原來那一堆。",
+            "像這樣數「每一組一樣多」的東西，就是乘法在做的事。我們寫成 3 × 4，英文唸 three times four。相乘的數英文叫 factor，中文是被乘數和乘數；乘出來的答案叫做積（product）。像盤子上的方塊這樣排成幾排幾行的東西，叫做陣列（array）。因為一個陣列可以一排一排數，也可以一行一行數，所以 3 × 4 和 4 × 3 的積一樣。兩個數相乘，順序換過來，積不會變。數學家把這件事叫做乘法交換律。",
+            "這一個想法可以省下很多力氣。從 1 × 1 到 10 × 10 的乘法表有一百格。可是對角線以外的每一格都有一個雙胞胎：7 × 8 和 8 × 7 都是 56。沿著對角線把表對摺，每一格都會疊在它的雙胞胎上。這樣真正不一樣的只剩五十五格，而不是一百格。記住一個，兩個都會了。",
+            "同一張圖也能說明面積。把方塊推在一起、互相貼緊，它們就排成一個長四個單位、寬三個單位的長方形。它的面積是十二個平方單位，因為剛好用十二個單位正方形鋪滿。把長方形轉個方向，它變成長三個單位、寬四個單位；但它還是同一個長方形，所以面積一樣。算長方形的面積和數一個陣列，是同一件事。",
+            "不過要小心，不是每一種運算都可以交換。加法可以：3 + 4 和 4 + 3 都是 7。減法和除法不行：7 − 3 是 4，3 − 7 卻不是；12 ÷ 4 是 3，4 ÷ 12 卻不是。日常生活裡順序也常常有差：先穿襪子再穿鞋子，和先穿鞋子再穿襪子可不一樣！還有一件事：不同國家的教室，會用不同的順序來寫同一盤方塊。最後兩種寫法算出來都是十二，而現在你知道為什麼了。"
+          ],
+          "questions": [
+            "You see 3 rows of 4, and your friend sees 4 rows of 3. Why do you both count twelve?",
+            "What does the commutative property of multiplication say?",
+            "Name one operation where the order does matter, and give an example."
+          ],
+          "answers": [
+            "Because it is the same tray. Each of us counts every cube exactly once, and no cube is added or taken away, so the totals must be the same.",
+            "Changing the order of the factors does not change the product. For example, 3 × 4 and 4 × 3 are both 12.",
+            "Subtraction or division. For example, 7 − 3 is 4 but 3 − 7 is not, and 12 ÷ 4 is 3 but 4 ÷ 12 is not."
+          ],
+          "vocab": [
+            {
+              "n": 1,
+              "w": "times",
+              "pos": "prep.",
+              "zh": "乘以",
+              "ex": "Three <b>times</b> four is twelve.",
+              "exzh": "三乘以四是十二。"
+            },
+            {
+              "n": 2,
+              "w": "factor",
+              "pos": "n.",
+              "zh": "相乘的數（被乘數、乘數）",
+              "ex": "In 3 × 4, the <b>factors</b> are 3 and 4.",
+              "exzh": "在 3 × 4 裡，相乘的兩個數是 3 和 4。"
+            },
+            {
+              "n": 3,
+              "w": "product",
+              "pos": "n.",
+              "zh": "積（乘出來的答案）",
+              "ex": "The <b>product</b> of 3 and 4 is 12.",
+              "exzh": "3 和 4 的積是 12。"
+            },
+            {
+              "n": 4,
+              "w": "row",
+              "pos": "n.",
+              "zh": "橫排（列）",
+              "ex": "There are four cubes in each <b>row</b>.",
+              "exzh": "每一橫排有四個方塊。"
+            },
+            {
+              "n": 5,
+              "w": "column",
+              "pos": "n.",
+              "zh": "直排（行）",
+              "ex": "Count down one <b>column</b> at a time.",
+              "exzh": "一次往下數一直排。"
+            },
+            {
+              "n": 6,
+              "w": "array",
+              "pos": "n.",
+              "zh": "陣列（排成幾排幾行的東西）",
+              "ex": "The cubes make an <b>array</b> with three rows and four columns.",
+              "exzh": "這些方塊排成一個三列四行的陣列。"
+            },
+            {
+              "n": 7,
+              "w": "commutative",
+              "pos": "adj.",
+              "zh": "可以交換的",
+              "ex": "Multiplication is <b>commutative</b>, so 3 × 4 equals 4 × 3.",
+              "exzh": "乘法是可以交換的，所以 3 × 4 等於 4 × 3。"
+            },
+            {
+              "n": 8,
+              "w": "area",
+              "pos": "n.",
+              "zh": "面積",
+              "ex": "The <b>area</b> of the rectangle is twelve square units.",
+              "exzh": "這個長方形的面積是十二個平方單位。"
+            }
+          ],
+          "quiz": [
+            {
+              "q": "A tray has 5 rows of 6 cubes. You turn it a quarter turn. What do you see now?",
+              "options": [
+                "5 rows of 5",
+                "6 rows of 5",
+                "6 rows of 6",
+                "11 rows of 1"
+              ],
+              "correct": 1
+            },
+            {
+              "q": "You know that 7 × 8 = 56. What is 8 × 7?",
+              "options": [
+                "54",
+                "63",
+                "56",
+                "65"
+              ],
+              "correct": 2
+            },
+            {
+              "q": "In 3 × 4 = 12, what is the 12 called?",
+              "options": [
+                "A factor",
+                "A row",
+                "An array",
+                "The product"
+              ],
+              "correct": 3
+            },
+            {
+              "q": "Which of these is NOT true?",
+              "options": [
+                "12 ÷ 4 = 4 ÷ 12",
+                "3 + 4 = 4 + 3",
+                "6 × 2 = 2 × 6",
+                "9 × 1 = 1 × 9"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "A rectangle is 4 units long and 3 units wide. What is its area?",
+              "options": [
+                "7 square units",
+                "12 square units",
+                "14 square units",
+                "34 square units"
+              ],
+              "correct": 1
+            }
+          ],
+          "parts_head": {
+            "eyebrow": "Try It in the Model · 在模型裡試試",
+            "en": "Four things to watch",
+            "zh": "四件值得看的事"
+          },
+          "parts": [
+            {
+              "key": "rows",
+              "array": "3x4",
+              "en": "Count across",
+              "zh": "橫著數",
+              "meta_en": "4, 8, 12",
+              "meta_zh": "4、8、12",
+              "demo": "rows",
+              "text_en": "One row at a time. Each row has 4, so the running total goes up by fours: three fours make 12.",
+              "text_zh": "一次數一排。每排 4 個，所以總數四個四個往上加：三個四是 12。"
+            },
+            {
+              "key": "cols",
+              "array": "3x4",
+              "en": "Count down",
+              "zh": "直著數",
+              "meta_en": "3, 6, 9, 12",
+              "meta_zh": "3、6、9、12",
+              "demo": "cols",
+              "text_en": "The same tray, one column at a time. Each column has 3, so the total goes up by threes: four threes make 12.",
+              "text_zh": "同一盤，一次數一直排。每一直排 3 個，所以總數三個三個往上加：四個三也是 12。"
+            },
+            {
+              "key": "turn",
+              "array": "4x3",
+              "en": "Turn the tray",
+              "zh": "把盤子轉過來",
+              "meta_en": "3 rows of 4 become 4 rows of 3",
+              "meta_zh": "3 排 4 個變成 4 排 3 個",
+              "demo": "turn",
+              "text_en": "Watch the whole tray swing a quarter turn. Keep your eye on the cubes: none appears, and none disappears.",
+              "text_zh": "看整盤慢慢轉九十度。盯著方塊看：沒有多出來的，也沒有不見的。"
+            },
+            {
+              "key": "area",
+              "array": "6x7",
+              "en": "From cubes to area",
+              "zh": "從方塊到面積",
+              "meta_en": "6 × 7 = 42 square units",
+              "meta_zh": "6 × 7 = 42 個平方單位",
+              "demo": "area",
+              "text_en": "Forty-two cubes slide together into one rectangle. Counting the cubes and finding the area turn out to be the same thing.",
+              "text_zh": "四十二個方塊靠攏成一個長方形。數方塊和算面積，原來是同一件事。"
+            }
+          ],
+          "parts_note_en": "Then try a square tray, such as 5 rows of 5, and turn it. What changes this time?",
+          "parts_note_zh": "最後試試正方形的一盤，例如 5 排、每排 5 個，再把它轉過來。這一次有什麼變了？",
+          "sayit": {
+            "eyebrow": "Say It · 怎麼唸",
+            "en": "How Do You Say It in English?",
+            "zh": "這個用英文怎麼唸",
+            "lead_en": "A multiplication can be said in several ways, and English and Chinese do not always say the two numbers in the same order. Tap a speaker to hear each line.",
+            "lead_zh": "同一個乘法有好幾種說法，而且英文和中文說那兩個數的順序不一定一樣。點 🔊 聽每一列。",
+            "rows": [
+              {
+                "expr": "3 × 4",
+                "say_en": "three times four",
+                "say_zh": "三乘以四",
+                "note_en": "The sign × is read “times.”",
+                "note_zh": "× 這個符號英文唸 times；中文唸「乘以」。"
+              },
+              {
+                "expr": "3 × 4 = 12",
+                "say_en": "three times four equals twelve",
+                "say_zh": "三乘以四等於十二",
+                "note_en": "You can also say “is equal to twelve.”",
+                "note_zh": "等號也可以唸 is equal to。"
+              },
+              {
+                "expr": "3 rows of 4",
+                "say_en": "three rows of four",
+                "say_zh": "三排，每排四個",
+                "note_en": "English puts the number of rows first.",
+                "note_zh": "英文先說有幾排，再說每排幾個。"
+              },
+              {
+                "expr": "a 3 by 4 array",
+                "say_en": "a three by four array",
+                "say_zh": "三列四行的陣列",
+                "note_en": "“By” joins the two sizes of an array or a rectangle.",
+                "note_zh": "by 用來連接陣列或長方形的兩個大小。"
+              },
+              {
+                "expr": "the product of 3 and 4",
+                "say_en": "the product of three and four",
+                "say_zh": "三和四的積",
+                "note_en": "Another way to say 3 × 4.",
+                "note_zh": "3 × 4 的另一種說法。"
+              },
+              {
+                "expr": "6 × 7 = 42",
+                "say_en": "six times seven equals forty-two",
+                "say_zh": "六七四十二",
+                "note_en": "Chinese has a short chant for every fact in the table: just the two numbers and the answer.",
+                "note_zh": "中文的九九乘法每一句都很短：只唸兩個數和答案。"
+              },
+              {
+                "expr": "5^2",
+                "say_en": "five squared",
+                "say_zh": "五的平方",
+                "note_en": "5 × 5: five rows of five make a square.",
+                "note_zh": "5 × 5：五排、每排五個，剛好排成正方形。"
+              },
+              {
+                "expr": "a × b = b × a",
+                "say_en": "a times b equals b times a",
+                "say_zh": "a 乘以 b 等於 b 乘以 a",
+                "note_en": "The commutative property, written for any two numbers.",
+                "note_zh": "乘法交換律，對任何兩個數都成立的寫法。"
+              }
+            ],
+            "tip_en": "For teachers: the English readings follow OpenStax Prealgebra 2e (“We read 3 × 8 as three times eight”) and Illustrative Mathematics Grade 3 (“a 3 by 4 array”); see Sources.",
+            "tip_zh": "給老師：英文唸法依 OpenStax《Prealgebra 2e》（3 × 8 唸 three times eight）與 Illustrative Mathematics 三年級教材（a 3 by 4 array），見資料出處。"
+          },
+          "match": {
+            "eyebrow": "Game · 小遊戲",
+            "en": "Which Tray Is the Same One, Turned?",
+            "zh": "哪一盤是它轉過來的？",
+            "lead_en": "Eight trays. Under each one are four more, and only one of them is the same tray after a quarter turn. There is no clock; the game only counts how many you get right on the first try.",
+            "lead_zh": "八個盤子。每一題下面有四個盤子，只有一個是上面那一盤轉九十度的樣子。這裡不計時；遊戲只記下你第一次就答對幾題。",
+            "note_en": "The trays are different every time you play, and they get bigger as you go. In every question, the three wrong trays hold a different number of dots from the tray at the top.",
+            "note_zh": "每次玩題目都不一樣，而且越後面盤子越大。每一題裡，錯的那三盤的點數都和最上面那一盤不一樣。"
+          },
+          "table": {
+            "eyebrow": "See Why · 看看為什麼",
+            "en": "Fold the Multiplication Table",
+            "zh": "把乘法表對摺",
+            "lead_en": "Here is the table from 1 × 1 to 10 × 10. Tap any square to light up its twin on the other side of the gold diagonal. Then fold the table and count what is left.",
+            "lead_zh": "這是 1 × 1 到 10 × 10 的乘法表。點任何一格，金色對角線另一邊和它成對的那一格會跟著亮起來。然後把表對摺，數數看還剩幾格。",
+            "note_en": "One hundred squares, but only 10 + 45 = 55 different facts. One U.S. teaching guide counts further: once a student knows the ×1, ×2, ×5, and ×10 facts, only 21 are left to learn.",
+            "note_zh": "一百格，其實只有 10＋45＝55 個不一樣的乘法。美國有一份教師指引還算得更細：學會乘以 1、2、5、10 之後，只剩 21 個要學。"
+          },
+          "culture_cards": {
+            "eyebrow": "Stories Behind the Times Sign · 乘號的故事",
+            "title_en": "An old proposition, a disputed cross, bamboo strips, and a long word",
+            "title_zh": "一條古老的命題、一個有爭議的叉、一批竹簡、一個很長的字",
+            "lead_en": "Four short stories about multiplying and swapping.",
+            "lead_zh": "關於相乘與交換的四個小故事。",
+            "cards": [
+              {
+                "k": "Euclid · 歐幾里得",
+                "en": "It is in the Elements",
+                "zh": "《幾何原本》裡就有",
+                "body_en": "Euclid's Elements, a mathematics book from ancient Greece, states it as Proposition 16 of Book VII: “If two numbers multiplied by one another make certain numbers, then the numbers so produced equal one another.” In today's words: A times B equals B times A. Euclid did not leave it as something obvious. He gave a proof.",
+                "body_zh": "古希臘數學家歐幾里得的《幾何原本》，在第七卷命題十六就寫了這件事：「如果兩個數互相乘，得到某些數，那麼這樣得到的數彼此相等。」用今天的話說，就是 A 乘 B 等於 B 乘 A。歐幾里得沒有把它當成理所當然，他給了證明。"
+              },
+              {
+                "k": "The Sign · 符號",
+                "en": "Where did × come from?",
+                "zh": "× 是哪裡來的？",
+                "body_en": "The cross for multiplication was used by the English mathematician William Oughtred in his book Clavis Mathematicae, published in London in 1631. It had appeared a little earlier, in 1618, in an unsigned appendix that is believed to be his as well. Not everyone liked it. In 1698 Gottfried Wilhelm Leibniz wrote in a letter to John Bernoulli, “I do not like X as a symbol for multiplication, as it is easily confounded with x.” He preferred a dot. That is why, once letters arrive in algebra, you will see a · b or just ab.",
+                "body_zh": "用叉來表示乘法，見於英國數學家奧特雷德（William Oughtred）1631 年在倫敦出版的《數學之鑰》。更早一點，1618 年一篇沒有署名的附錄裡就出現過，一般認為那也是他寫的。不是人人都喜歡這個符號。1698 年，萊布尼茲在給約翰・白努利的信裡說：「我不喜歡用 X 當乘號，因為它很容易和 x 弄混。」他比較喜歡用一個點。所以等代數裡出現字母以後，你會看到 a · b，或乾脆寫成 ab。"
+              },
+              {
+                "k": "Nine Nines · 九九",
+                "en": "A times table on bamboo",
+                "zh": "寫在竹簡上的乘法表",
+                "body_en": "In 2014 the journal Nature reported on twenty-one bamboo strips kept at Tsinghua University in Beijing. Dated to around 305 BC, they form what the report calls the world's oldest decimal multiplication table. Other old Chinese tables, from the Qin dynasty, were written as short sentences such as “six eights beget forty-eight.” The table is still recited in Chinese in the same short way: just the two numbers and the answer. The table from one to nine is called the jiu-jiu table, the “nine-nine” table.",
+                "body_zh": "2014 年，《自然》期刊報導了北京清華大學收藏的二十一支竹簡。它們的年代大約是西元前 305 年，報導說這是世界上最古老的十進位乘法表。另外一些秦代的乘法表，則是寫成一句一句的短句，例如「六八四十八」。到現在，中文背乘法表還是這種短短的句子：只唸兩個數和答案。從一到九的乘法表，就叫做九九乘法表。"
+              },
+              {
+                "k": "A Long Word · 一個很長的字",
+                "en": "You do not have to say “commutative”",
+                "zh": "不一定要會說「交換律」",
+                "body_en": "The earliest known use of the word commutative for a rule like this is from 1814, in French, by François Joseph Servois. It is a grown-up word, and both countries' guidelines say so. The U.S. Common Core standards add a note to Grade 3: “Students need not use formal terms for these properties.” Taiwan's guidelines for Grade 2 say that lessons should not use the term at all. The idea matters. The name can wait.",
+                "body_zh": "commutative（可交換的）這個字拿來稱呼這一類規則，目前查得到最早的是 1814 年塞爾瓦（François Joseph Servois）用法文寫的一篇文章。這是大人用的字，兩邊的課程文件也都這麼說。美國共同核心課程標準在三年級加了一條註：「學生不需要使用這些性質的正式名稱。」台灣的課綱在二年級寫的是：「教學不出現『乘法交換律』一詞。」重要的是想法，名字可以晚一點再學。"
+              }
+            ]
+          },
+          "myths": [
+            {
+              "myth_en": "3 × 4 and 4 × 3 look different, so they must be different amounts.",
+              "myth_zh": "3 × 4 和 4 × 3 寫起來不一樣，所以一定不一樣多。",
+              "fact_en": "They are two ways of counting the same tray. Three rows of four and four rows of three both hold 12.",
+              "fact_zh": "它們是同一盤東西的兩種數法。三排每排四個、四排每排三個，都是 12 個。"
+            },
+            {
+              "myth_en": "If the totals are equal, the two stories are the same.",
+              "myth_zh": "總數一樣，兩件事情就完全一樣。",
+              "fact_en": "Three bags of four apples and four bags of three apples both hold 12 apples, but they are different pictures. The total is the same; the number of bags is not.",
+              "fact_zh": "三袋、每袋四顆蘋果，和四袋、每袋三顆蘋果，都是 12 顆，但畫出來的圖不一樣。總數一樣，袋子的數目卻不一樣。"
+            },
+            {
+              "myth_en": "You can swap the numbers in any operation.",
+              "myth_zh": "不管哪一種運算，兩個數都可以交換。",
+              "fact_en": "Addition and multiplication are commutative. Subtraction and division are not: 12 ÷ 4 is 3, but 4 ÷ 12 is not.",
+              "fact_zh": "加法和乘法可以交換，減法和除法不行：12 ÷ 4 是 3，4 ÷ 12 卻不是。"
+            },
+            {
+              "myth_en": "To know the times table, you must memorize 100 separate facts.",
+              "myth_zh": "要學會乘法表，得把 100 格一格一格背起來。",
+              "fact_en": "Because of the twins, a 10 × 10 table holds only 55 different facts. Understanding the table first leaves much less to remember.",
+              "fact_zh": "因為每一格都有雙胞胎，10 × 10 的表其實只有 55 個不一樣的乘法。先弄懂這張表，要記的就少得多。"
+            }
+          ],
+          "tricks_head": {
+            "en": "The commutative property in a sentence",
+            "zh": "一句話記住交換律"
+          },
+          "tricks": [
+            {
+              "title_en": "Turn it and count again",
+              "title_zh": "轉一下，再數一次",
+              "body_en": "Not sure about 4 × 3? Picture 3 rows of 4 and turn the tray.",
+              "body_zh": "不確定 4 × 3？想像 3 排、每排 4 個，把盤子轉過來。"
+            },
+            {
+              "title_en": "Swap the factors, keep the product",
+              "title_zh": "兩個數對調，積不變",
+              "body_en": "a × b = b × a, every time.",
+              "body_zh": "a × b = b × a，每一次都成立。"
+            },
+            {
+              "title_en": "Learn one, know two",
+              "title_zh": "記一個，會兩個",
+              "body_en": "7 × 8 = 56 gives you 8 × 7 = 56 for free.",
+              "body_zh": "會了 7 × 8 = 56，8 × 7 = 56 就是送的。"
+            },
+            {
+              "title_en": "Minus and divide do not swap",
+              "title_zh": "減法、除法不能換",
+              "body_en": "7 − 3 and 3 − 7 are not the same. Neither are 12 ÷ 4 and 4 ÷ 12.",
+              "body_zh": "7 − 3 和 3 − 7 不一樣；12 ÷ 4 和 4 ÷ 12 也不一樣。"
+            }
+          ],
+          "notes_head": {
+            "eyebrow": "For Teachers · 給老師的提醒",
+            "en": "Where Taiwan and the United States write it differently",
+            "zh": "台灣和美國寫法不一樣的地方"
+          },
+          "notes": [
+            {
+              "en": "Which number comes first? In U.S. materials the first factor usually counts the groups. The Common Core reads 5 × 7 as “5 groups of 7 objects each,” and Encyclopaedia Britannica writes 5 + 5 + 5 as 3 × 5, calling 5 the multiplicand and 3 the multiplier. In Taiwan the first number is the multiplicand: the Ministry of Education's dictionary says that when 3 is multiplied by 2, 3 is the beichengshu. So three rabbits with four legs each are 3 × 4 in an American classroom and 4 × 3 in a Taiwanese one, as a 2024 thesis at National Chengchi University describes. Tell students which convention your class is using before you mark an order wrong.",
+              "zh": "哪一個數寫在前面？美國的教材通常把「有幾組」寫在前面：共同核心課程標準把 5 × 7 讀成「5 組、每組 7 個」；《大英百科》把 5＋5＋5 寫成 3 × 5，並說 5 是被乘數、3 是乘數。台灣則是被乘數在前：教育部《重編國語辭典》說「3 乘以 2 等於 6，則 3 為被乘數」。所以「三隻兔子，每隻四隻腳」在美國教室寫成 3 × 4，在台灣教室寫成 4 × 3——政治大學 2024 年的一篇碩士論文就是這樣描述的。要把順序算錯之前，請先告訴學生你的班上用的是哪一種約定。"
+            },
+            {
+              "en": "Taiwan's curriculum guidelines themselves do not fix an order. What they do say, in N-2-6, is that students should gradually build the language of bei (“times as many”) and, in the end, use a rows-and-columns model to understand that the order can be swapped. Illustrative Mathematics, a widely used U.S. curriculum, shows a 3 by 4 array with both equations, 3 × 4 = 12 and 4 × 3 = 12.",
+              "zh": "台灣的課綱本身並沒有規定順序。它在 N-2-6 寫的是：逐步發展「倍」的概念，做為統整乘法應用情境的語言，最後能以行列模型理解乘法交換律。美國通行的教材 Illustrative Mathematics 則是在一個 3 by 4 的陣列旁邊，把 3 × 4 = 12 和 4 × 3 = 12 兩條算式一起寫出來。"
+            },
+            {
+              "en": "Rows and columns are a trap between Taiwan and mainland China. In Taiwan's official terminology a row (across) is lie and a column (down) is hang; the same database lists hang as the mainland term for row. To stay clear of the mix-up, this page says hengpai (across) and zhipai (down).",
+              "zh": "「列」和「行」在兩岸剛好相反。國教院樂詞網的數學名詞：row 是「列」（橫的），column 是「行」（直的）；同一個資料庫也註明 row 的中國大陸譯名是「行」。為了不混淆，這一頁對學生一律說「橫排」和「直排」。"
+            },
+            {
+              "en": "Where this lesson sits in Taiwan's curriculum: N-2-6 (the meaning of multiplication), R-2-3 (“the order of two numbers being multiplied does not affect the product,” with the advice to teach it late in Grade 2, with a rows-and-columns model, and without using the term), and N-2-7 (the ten-by-ten table, with the note that students must not be made to memorize it by rote). The rectangle area formula comes later, in S-4-3 (Grade 4).",
+              "zh": "這一課在課綱的位置：N-2-6（乘法的意義與應用）、R-2-3（「兩數相乘的順序不影響其積：乘法交換律」；備註寫明不宜太早教學，建議在 2 年級後期，以行列模型教學，教學不出現「乘法交換律」一詞），以及 N-2-7（十十乘法；備註：不可要求學生死背乘法表）。長方形的面積公式要到 S-4-3（四年級）。"
+            }
+          ],
+          "activities": [
+            {
+              "title_en": "Turn the Paper",
+              "title_zh": "把紙轉過來",
+              "materials": [
+                {
+                  "en": "Counters, beans, or buttons: about 30 for each pair",
+                  "zh": "花片、豆子或鈕扣：每兩人約 30 個"
+                },
+                {
+                  "en": "A sheet of paper for each pair, to use as a tray",
+                  "zh": "每兩人一張紙，當作盤子"
+                },
+                {
+                  "en": "Pencil and a small notebook",
+                  "zh": "鉛筆和小本子"
+                }
+              ],
+              "steps": [
+                {
+                  "en": "Partners sit at two sides of a desk, so that one sees the paper from the front and the other from the side.",
+                  "zh": "兩個人坐在桌子相鄰的兩邊：一個從正面看這張紙，一個從側面看。"
+                },
+                {
+                  "en": "Lay out 3 rows of 4 counters on the paper. Each partner counts the rows as he or she sees them and writes an addition sentence: 4 + 4 + 4 or 3 + 3 + 3 + 3.",
+                  "zh": "在紙上排出 3 排、每排 4 個花片。兩個人各自照自己看到的「一排一排」數，寫下連加的算式：4＋4＋4，或 3＋3＋3＋3。"
+                },
+                {
+                  "en": "Compare the totals. Then turn the paper a quarter turn without touching the counters, and count again.",
+                  "zh": "比一比兩個人的總數。然後不碰花片，把紙轉九十度，再數一次。"
+                },
+                {
+                  "en": "Try other trays: 2 rows of 5, 4 rows of 6, 5 rows of 5. Ask: “Did turning the paper ever change the total? Could it?”",
+                  "zh": "換別的排法：2 排每排 5 個、4 排每排 6 個、5 排每排 5 個。問：「把紙轉過來，總數有沒有變過？有可能變嗎？」"
+                }
+              ],
+              "tip_en": "Let students write addition sentences first; Taiwan's guidelines say that repeated addition may be used naturally while solving multiplication problems (N-2-6). This activity is the “rows-and-columns model” that R-2-3 recommends for late Grade 2. In the Common Core it matches 2.OA.C.4 (arrays with up to 5 rows and 5 columns) and 3.OA.B.5.",
+              "tip_zh": "先讓學生寫連加的算式就好；課綱 N-2-6 的備註說，可在乘法解題脈絡中自然使用連加算式。這個活動就是 R-2-3 建議在二年級後期使用的「行列模型」。對照美國共同核心課程標準，是 2.OA.C.4（最多 5 列 5 行的陣列）與 3.OA.B.5。"
+            },
+            {
+              "title_en": "Fold the Times Table",
+              "title_zh": "對摺乘法表",
+              "materials": [
+                {
+                  "en": "A printed 10 × 10 multiplication table on square paper for each student",
+                  "zh": "每人一張印在正方形紙上的 10 × 10 乘法表"
+                },
+                {
+                  "en": "Two colored pencils",
+                  "zh": "兩枝不同顏色的色鉛筆"
+                }
+              ],
+              "steps": [
+                {
+                  "en": "Color the diagonal squares (1 × 1, 2 × 2, up to 10 × 10) with one color.",
+                  "zh": "用一種顏色把對角線上的格子（1 × 1、2 × 2……到 10 × 10）塗起來。"
+                },
+                {
+                  "en": "Pick any other square, such as 3 × 7. Find the square with the same number on the other side of the diagonal and color both with the second color.",
+                  "zh": "任選一格不在對角線上的，例如 3 × 7。在對角線另一邊找到數字一樣的那一格，兩格都用第二種顏色塗起來。"
+                },
+                {
+                  "en": "Fold the paper along the diagonal and hold it up to the light. Check that every square sits on a square with the same number.",
+                  "zh": "沿著對角線把紙對摺，拿起來對著光看：是不是每一格都疊在數字一樣的格子上？"
+                },
+                {
+                  "en": "Count the squares on one side of the fold, including the diagonal. How many facts are there really?",
+                  "zh": "數一數摺線一邊的格子（包括對角線）。真正不一樣的乘法有幾個？"
+                }
+              ],
+              "tip_en": "The count is 55: 10 on the diagonal plus 45 pairs. A teacher note in TERC's Investigations curriculum goes one step further: once the ×1, ×2, ×5, and ×10 facts are known, there are 21 facts left to learn, assuming students use the commutative property. The point is not speed. It is that understanding the table shrinks it.",
+              "tip_zh": "答案是 55：對角線上 10 個，加上 45 對。美國 TERC 的 Investigations 教材有一則教師說明算得更細：學會乘以 1、2、5、10 之後，只剩 21 個要學（前提是學生會用交換律）。重點不是背得快，而是「弄懂這張表，它就變小了」。"
+            }
+          ],
+          "links_head": {
+            "eyebrow": "Go Further · 延伸閱讀",
+            "en": "The lesson before, and the one coming next",
+            "zh": "上一課，以及下一課"
+          },
+          "links": [
+            {
+              "icon": "🧮",
+              "k_en": "Math You Can See · Lesson 1",
+              "k_zh": "看得見的數學・第一課",
+              "en": "Why Do We Count in Tens?",
+              "zh": "為什麼我們十個一數？",
+              "note_en": "The flat in Lesson 1 is an array too: ten rows of ten small cubes. That is why 10 × 10 is 100.",
+              "note_zh": "第一課的那片平板也是一個陣列：十排、每排十個小方塊，所以 10 × 10 是 100。",
+              "href": "/resources/classes/math/count-in-tens/"
+            },
+            {
+              "icon": "🍬",
+              "k_en": "Math You Can See · Lesson 3",
+              "k_zh": "看得見的數學・第三課",
+              "en": "What Does Division Really Mean?",
+              "zh": "除法到底是什麼意思？",
+              "note_en": "Share twelve candies among three people, or pack them three to a bag. Two questions, one division sign.",
+              "note_zh": "把十二顆糖分給三個人，或是每三顆裝一袋。兩種問法，同一個除號。",
               "soon": true
             }
           ],
           "sources_note_en": "Facts, quotations, and readings on this page were checked against these sources (October 2026); the numbers in the model are computed and tested",
           "sources_note_zh": "本頁的事實、引文與唸法依下列資料查證（2026 年 10 月）；模型裡的數字是自己算的，並有測試",
           "sources": [
-            { "en": "The decimal system is a positional system with base 10 and the ten digits 0–9; a numeral takes different place values depending on its position", "zh": "十進位是以 10 為底的位值記數法，用 0 到 9 十個數字；數字的位值隨位置而不同", "src": "Encyclopaedia Britannica, “decimal system”", "url": "https://www.britannica.com/science/decimal" },
-            { "en": "“The special position occupied by 10 stems from the number of human fingers, of course”; eleven and twelve as “one left” and “two left”; base 60 in time and angles; score, quatre-vingts, dozen, and gross; a Babylonian zero sign from about the 3rd century BCE that held only interior places", "zh": "10 的特殊地位來自手指的數目；eleven、twelve 的字源；時間與角度裡的六十進位；score、quatre-vingts、dozen、gross；巴比倫約在西元前三世紀出現只用於中間空位的零符號", "src": "Encyclopaedia Britannica, “numerals and numeral systems”", "url": "https://www.britannica.com/science/numeral" },
-            { "en": "A place-value system: the value of a digit depends on its position; place values are separated into groups of three called periods, separated by commas; “the word and is not used when naming a whole number”", "zh": "位值系統：數字的值取決於位置；每三位一組稱為 period，以逗號分開；唸整數時不用 and", "src": "OpenStax, Prealgebra 2e, section 1.1 “Introduction to Whole Numbers”", "url": "https://openstax.org/books/prealgebra-2e/pages/1-1-introduction-to-whole-numbers" },
-            { "en": "“We use the word ‘and’ to indicate the decimal point”: 15.68 is read “fifteen and sixty-eight hundredths”", "zh": "and 用來表示小數點：15.68 唸成 fifteen and sixty-eight hundredths", "src": "OpenStax, Prealgebra 2e, section 5.1 “Decimals”", "url": "https://openstax.org/books/prealgebra-2e/pages/5-1-decimals" },
-            { "en": "“Carrying is the same as regrouping by exchanging. For example, 10 ones for 1 ten or 10 tens for 1 hundred”", "zh": "進位（carrying）就是用交換的方式重新分組（regrouping）：十個一換一個十，十個十換一個百", "src": "OpenStax, Prealgebra 2e, section 1.2 “Add Whole Numbers”", "url": "https://openstax.org/books/prealgebra-2e/pages/1-2-add-whole-numbers" },
-            { "en": "a² is read “a squared” and a³ is read “a cubed”; 7² is “7 to the second power, or 7 squared”", "zh": "a² 唸 a squared、a³ 唸 a cubed；7² 唸 7 to the second power 或 7 squared", "src": "OpenStax, Prealgebra 2e, section 2.1 “Use the Language of Algebra”", "url": "https://openstax.org/books/prealgebra-2e/pages/2-1-use-the-language-of-algebra" },
-            { "en": "“10 can be thought of as a bundle of ten ones — called a ‘ten’” (1.NBT.B.2a)", "zh": "「10 可以想成十個一綁成的一捆，叫做一個十」（1.NBT.B.2a）", "src": "Common Core State Standards for Mathematics, Grade 1, Number and Operations in Base Ten", "url": "https://www.thecorestandards.org/Math/Content/1/NBT/" },
-            { "en": "“706 equals 7 hundreds, 0 tens, and 6 ones”; “100 can be thought of as a bundle of ten tens”; “compose or decompose tens or hundreds” (2.NBT.A.1, 2.NBT.B.7)", "zh": "706 是 7 個百、0 個十、6 個一；100 是十個十綁成的一捆；合成或分解十或百（2.NBT.A.1、2.NBT.B.7）", "src": "Common Core State Standards for Mathematics, Grade 2, Number and Operations in Base Ten", "url": "https://www.thecorestandards.org/Math/Content/2/NBT/" },
-            { "en": "Base ten blocks: unit cubes (1), longs or rods (10), flats (100), and thousand cubes (1,000); each piece is ten times the volume of the one before; trading 10 of one block for 1 of the next is what happens when you regroup (carry or borrow)", "zh": "位值積木的英文名稱：unit cube、long／rod、flat、thousand cube；每一種的體積是前一種的十倍", "src": "Mathwords, “Base Ten Blocks”", "url": "https://www.mathwords.com/b/base_ten_blocks.htm" },
-            { "en": "Two uses of zero, as an empty-place indicator and as a number; around 400 BC the Babylonians put two wedge symbols where we would put zero; Brahmagupta gave rules for arithmetic with zero in the seventh century", "zh": "0 的兩種用法：表示空位、當成一個數；約西元前 400 年巴比倫人用兩個楔形符號標出空位；婆羅摩笈多在七世紀寫下 0 的運算規則", "src": "MacTutor History of Mathematics Archive (University of St Andrews), “A history of Zero”", "url": "https://mathshistory.st-andrews.ac.uk/HistTopics/Zero/" },
-            { "en": "The Babylonians inherited base 60 from the Sumerians; “I just do not believe that anyone ever chose a number base for any civilisation”; counting to 60 on the twelve finger sections, offered as a proposal", "zh": "巴比倫的六十進位承自蘇美人；「我不相信有誰替一個文明選了進位制」；用十二個指節數到 60 的說法（只是一種提議）", "src": "MacTutor History of Mathematics Archive, “Babylonian numerals”", "url": "https://mathshistory.st-andrews.ac.uk/HistTopics/Babylonian_numerals/" },
-            { "en": "“Although it is unknown why 60 was chosen, it is notably convenient for expressing fractions”; Ptolemy's partes minutae primae and partes minutae secundae became the minute and the second", "zh": "為什麼選 60 並不清楚，但它很適合表示分數；托勒密的 partes minutae primae 與 secundae 成為 minute 與 second", "src": "Michael A. Lombardi (NIST), “Why is a minute divided into 60 seconds, an hour into 60 minutes, yet there are only 24 hours in a day?” Scientific American", "url": "https://www.scientificamerican.com/article/experts-time-division-days-hours-minutes/" },
-            { "en": "The Maya used a place-value system to base 20 with a zero, “denoted by a shell”", "zh": "馬雅人使用二十進位的位值記數法，有以貝殼表示的零", "src": "MacTutor History of Mathematics Archive, “Mayan mathematics”", "url": "https://mathshistory.st-andrews.ac.uk/HistTopics/Mayan_mathematics/" },
-            { "en": "Counting boards came into use in China from the 4th century BC; units in the rightmost column, tens in the next; “a square was simply left blank”; the abacus came into use in about the fourteenth century AD", "zh": "中國自西元前四世紀起使用算籌與算板；個位在最右、十位在其左；空位就把格子空著；算盤約在十四世紀通行", "src": "MacTutor History of Mathematics Archive, “Chinese numerals”", "url": "https://mathshistory.st-andrews.ac.uk/HistTopics/Chinese_numerals/" },
-            { "en": "Binary: a positional system with base 2 and the digits 0 and 1, reliably represented by devices with two states", "zh": "二進位：以 2 為底、只用 0 和 1 的位值記數法，可以用兩種狀態的裝置可靠地表示", "src": "Encyclopaedia Britannica, “binary number system”", "url": "https://www.britannica.com/science/binary-number-system" },
-            { "en": "Digit: “any of the Arabic numerals 1 to 9 and usually the symbol 0”; from Latin digitus, “finger, toe.” Billion (U.S.): “a number equal to 1,000 million”", "zh": "digit：阿拉伯數字 1 到 9，通常也包括 0；源自拉丁文 digitus（手指、腳趾）。billion（美式）：一千個 million", "src": "Merriam-Webster Dictionary, “digit” and “billion”", "url": "https://www.merriam-webster.com/dictionary/digit" },
-            { "en": "Learning content N-1-1, N-2-1, N-3-1, N-4-1, and N-5-1 (place-value units, exchanging units, the place-value meaning of 0, activities with place-value blocks, the decimal place-value system)", "zh": "學習內容 N-1-1、N-2-1、N-3-1、N-4-1、N-5-1（位值單位、位值單位換算、認識 0 的位值意義、位值積木操作活動、十進位的位值系統）", "src": "教育部《十二年國民基本教育課程綱要 國民中小學暨普通型高級中等學校 數學領域》（2018）", "url": "https://www.naer.edu.tw/upload/1/16/doc/815/十二年國民基本教育課程綱要國民中小學暨普通型高級中等學校-數學領域.pdf" },
-            { "en": "Chinese terms: place value 位值, digit 數字, carry 進位, counting rods 算籌, sexagesimal system 六十進位制", "zh": "中文名詞：位值、數字、進位、算籌、六十進位制", "src": "國家教育研究院 樂詞網（數學名詞）", "url": "https://terms.naer.edu.tw/search/?match_type=phrase&query_field=title&query_term=place+value" },
-            { "en": "Wan is “ten times a thousand,” yi is “ten thousand wan,” and zhao is “ten thousand yi”", "zh": "萬：「千的十倍」；億：「萬的萬倍」；兆：「億的萬倍」", "src": "教育部《重編國語辭典修訂本》「萬」「億」「兆」", "url": "https://dict.revised.moe.edu.tw/dictView.jsp?ID=10676" },
-            { "en": "Official examples of horizontal number writing in Taiwan use a comma every three digits (639,442,789)", "zh": "台灣公文橫式書寫數字的範例，每三位一個逗號（639,442,789）", "src": "行政院〈公文書橫式書寫數字使用原則〉", "url": "https://docu.nccu.edu.tw/upload/65/doc/3785/公文書橫式書寫數字使用.pdf" }
+            {
+              "en": "5 + 5 + 5 “can be written 3 × 5”; 5 is the multiplicand and 3 the multiplier; “the symbol × of this operation is read ‘times’”; three rows of five dots and five rows of three dots",
+              "zh": "5＋5＋5 可以寫成 3 × 5；5 是被乘數、3 是乘數；× 唸 times；三排五個點與五排三個點",
+              "src": "Encyclopaedia Britannica, “arithmetic”",
+              "url": "https://www.britannica.com/science/arithmetic"
+            },
+            {
+              "en": "The commutative laws: a + b = b + a and ab = ba",
+              "zh": "交換律：a + b = b + a 與 ab = ba",
+              "src": "Encyclopaedia Britannica, “commutative law”",
+              "url": "https://www.britannica.com/science/commutative-law"
+            },
+            {
+              "en": "“We read 3 × 8 as three times eight”; factor and product; 3 rows of 8 counters, or 8 rows of 3; “Changing the order of the factors does not change their product”",
+              "zh": "3 × 8 唸 three times eight；factor 與 product；3 排 8 個或 8 排 3 個；「改變因數的順序不會改變積」",
+              "src": "OpenStax, Prealgebra 2e, section 1.4 “Multiply Whole Numbers”",
+              "url": "https://openstax.org/books/prealgebra-2e/pages/1-4-multiply-whole-numbers"
+            },
+            {
+              "en": "“a = b is read a is equal to b”; a² is read “a squared”",
+              "zh": "a = b 唸 a is equal to b；a² 唸 a squared",
+              "src": "OpenStax, Prealgebra 2e, section 2.1 “Use the Language of Algebra”",
+              "url": "https://openstax.org/books/prealgebra-2e/pages/2-1-use-the-language-of-algebra"
+            },
+            {
+              "en": "“Addition and multiplication are commutative. Subtraction and division are not commutative.”",
+              "zh": "加法和乘法可以交換；減法和除法不能交換",
+              "src": "OpenStax, Prealgebra 2e, section 7.2 “Commutative and Associative Properties”",
+              "url": "https://openstax.org/books/prealgebra-2e/pages/7-2-commutative-and-associative-properties"
+            },
+            {
+              "en": "“interpret 5 × 7 as the total number of objects in 5 groups of 7 objects each” (3.OA.A.1); “If 6 × 4 = 24 is known, then 4 × 6 = 24 is also known” (3.OA.B.5); “Students need not use formal terms for these properties”",
+              "zh": "5 × 7 讀成 5 組、每組 7 個（3.OA.A.1）；知道 6 × 4 = 24 就知道 4 × 6 = 24（3.OA.B.5）；學生不需要使用正式名稱",
+              "src": "Common Core State Standards for Mathematics, Grade 3, Operations and Algebraic Thinking",
+              "url": "https://www.thecorestandards.org/Math/Content/3/OA/"
+            },
+            {
+              "en": "Rectangular arrays with up to 5 rows and up to 5 columns (2.OA.C.4)",
+              "zh": "最多 5 列、5 行的長方形陣列（2.OA.C.4）",
+              "src": "Common Core State Standards for Mathematics, Grade 2, Operations and Algebraic Thinking",
+              "url": "https://www.thecorestandards.org/Math/Content/2/OA/"
+            },
+            {
+              "en": "Array: “An arrangement of objects in rows and columns”",
+              "zh": "array：東西排成幾列幾行",
+              "src": "Illustrative Mathematics K–5, Grade 3 Glossary",
+              "url": "https://curriculum.illustrativemathematics.org/k5/teachers/grade-3/course-guide/glossary.html"
+            },
+            {
+              "en": "“Display a 3 by 4 array and the equations 3 × 4 = 12 and 4 × 3 = 12”",
+              "zh": "展示一個 3 by 4 的陣列，以及 3 × 4 = 12 和 4 × 3 = 12 兩條算式",
+              "src": "Illustrative Mathematics K–5, Grade 3, Unit 1, Lesson 20 “The Commutative Property”",
+              "url": "https://curriculum.illustrativemathematics.org/k5/teachers/grade-3/unit-1/lesson-20/lesson.html"
+            },
+            {
+              "en": "“Once the ×1, ×2, ×5, and ×10 facts are known, there are 21 facts left to be learned. (This assumes students are using the commutative property.)”",
+              "zh": "學會乘以 1、2、5、10 之後只剩 21 個要學（前提是學生會用交換律）",
+              "src": "TERC, Investigations 3, Grade 3 Teacher Note “Learning Multiplication Facts”",
+              "url": "https://invcourse.terc.edu/inv3/documents/s4/PDF_4.2.4_Reading_Learning_Multiplication_Facts.pdf"
+            },
+            {
+              "en": "“If two numbers multiplied by one another make certain numbers, then the numbers so produced equal one another”; the proposition “states the commutativity of multiplication”",
+              "zh": "《幾何原本》第七卷命題十六及其說明",
+              "src": "David E. Joyce (Clark University), Euclid's Elements, Book VII, Proposition 16",
+              "url": "https://mathcs.clarku.edu/~djoyce/elements/bookVII/propVII16.html"
+            },
+            {
+              "en": "× in Oughtred's Clavis Mathematicae, “composed about 1628 and published in London in 1631”; an earlier appearance in 1618; Leibniz, July 29, 1698: “I do not like X as a symbol for multiplication, as it is easily confounded with x”",
+              "zh": "奧特雷德《數學之鑰》（約 1628 年寫成、1631 年出版）；1618 年更早的出現；萊布尼茲 1698 年 7 月 29 日的信",
+              "src": "Jeff Miller, “Earliest Uses of Symbols of Operation,” MacTutor History of Mathematics Archive",
+              "url": "https://mathshistory.st-andrews.ac.uk/Miller/mathsym/operation/"
+            },
+            {
+              "en": "“COMMUTATIVE and DISTRIBUTIVE were used (in French) by François Joseph Servois” in 1814",
+              "zh": "commutative 與 distributive 由塞爾瓦在 1814 年以法文使用",
+              "src": "Jeff Miller, “Earliest Known Uses of Some of the Words of Mathematics (C),” MacTutor History of Mathematics Archive",
+              "url": "https://mathshistory.st-andrews.ac.uk/Miller/mathword/c/"
+            },
+            {
+              "en": "Twenty-one bamboo strips dated to around 305 BC, “the world's oldest decimal multiplication table”; Qin-dynasty tables written as sentences such as “six eights beget forty-eight”",
+              "zh": "清華簡二十一支竹簡，約西元前 305 年，世界最古老的十進位乘法表；秦代的乘法表寫成「六八四十八」這樣的短句",
+              "src": "Jane Qiu, “Ancient Times Table Hidden in Chinese Bamboo Strips,” Nature (January 7, 2014), reprinted in Scientific American",
+              "url": "https://www.scientificamerican.com/article/ancient-times-table-hidden-in-chinese-bamboo-strips"
+            },
+            {
+              "en": "Learning content N-2-6, N-2-7, R-2-3, and S-4-3, with their notes",
+              "zh": "學習內容 N-2-6、N-2-7、R-2-3、S-4-3 及備註",
+              "src": "教育部《十二年國民基本教育課程綱要 國民中小學暨普通型高級中等學校 數學領域》（2018）",
+              "url": "https://www.naer.edu.tw/upload/1/16/doc/815/十二年國民基本教育課程綱要國民中小學暨普通型高級中等學校-數學領域.pdf"
+            },
+            {
+              "en": "Beichengshu (multiplicand): when A is multiplied by B, A is the multiplicand; “3 multiplied by 2 is 6, so 3 is the multiplicand.” The jiu-jiu table: the table of products from one to nine",
+              "zh": "被乘數：「甲數乘以乙數，甲數稱為『被乘數』。如3乘以2等於6，則3為被乘數。」九九乘法表：「從一到九，兩數逐一相乘的乘法表。」",
+              "src": "教育部《重編國語辭典修訂本》「被乘數」「九九乘法表」",
+              "url": "https://dict.revised.moe.edu.tw/dictView.jsp?ID=15346"
+            },
+            {
+              "en": "Chinese terms: row 列, column 行 (mainland term for row: 行), array 陣列, commutative law 交換律, multiplicand 被乘數, multiplier 乘數, product 積",
+              "zh": "中文名詞：row 列、column 行（row 的中國大陸譯名為「行」）、陣列、交換律、被乘數、乘數、積",
+              "src": "國家教育研究院 樂詞網（數學名詞）",
+              "url": "https://terms.naer.edu.tw/detail/586fda39a0b36c951b9bf10abffd41c5/"
+            },
+            {
+              "en": "For “three rabbits, how many legs,” Taiwan writes 4 × 3 = 12 (multiplicand first), while the United States mainly writes 3 × 4 = 12, read “three times four equals twelve”",
+              "zh": "「三隻兔子有幾隻腳」：臺灣採行 4 × 3 = 12（被乘數 × 乘數），美國以 3 × 4 = 12 為主",
+              "src": "郭惠婷〈論乘法啟蒙教學中的詞序問題：語言學的觀點〉，國立政治大學語言學研究所碩士論文（2024）",
+              "url": "https://thesis.lib.nccu.edu.tw/detail/c318c8fa6e475999d7996a2976cfc010/"
+            }
           ]
         }
       ],
       "planned": [
-        { "n": 2, "icon": "✖️", "en": "Why Is 3 × 4 the Same as 4 × 3?", "zh": "乘法為什麼可以交換？" },
-        { "n": 3, "icon": "🍬", "en": "What Does Division Really Mean?", "zh": "除法到底是什麼意思？" },
-        { "n": 4, "icon": "🍕", "en": "Why Can't You Just Add the Bottoms?", "zh": "分數相加，為什麼不能分母加分母？" },
-        { "n": 5, "icon": "🧭", "en": "Why Does a Negative Times a Negative Make a Positive?", "zh": "負負為什麼得正？" },
-        { "n": 6, "icon": "🔢", "en": "What Makes a Number Prime?", "zh": "質數是什麼？" }
+        {
+          "n": 3,
+          "icon": "🍬",
+          "en": "What Does Division Really Mean?",
+          "zh": "除法到底是什麼意思？"
+        },
+        {
+          "n": 4,
+          "icon": "🍕",
+          "en": "Why Can't You Just Add the Bottoms?",
+          "zh": "分數相加，為什麼不能分母加分母？"
+        },
+        {
+          "n": 5,
+          "icon": "🧭",
+          "en": "Why Does a Negative Times a Negative Make a Positive?",
+          "zh": "負負為什麼得正？"
+        },
+        {
+          "n": 6,
+          "icon": "🔢",
+          "en": "What Makes a Number Prime?",
+          "zh": "質數是什麼？"
+        }
       ]
     },
     {
@@ -329,10 +1379,30 @@
       "blurb_zh": "兩個量一起放大、一起縮小；百分之幾到底在說什麼；圓周率從哪裡來；還有一個小數永遠寫不完的數。",
       "lessons": [],
       "planned": [
-        { "n": 7, "icon": "🥤", "en": "What Is a Ratio?", "zh": "比是什麼？" },
-        { "n": 8, "icon": "💯", "en": "What Does “Percent” Really Mean?", "zh": "百分之幾到底是什麼意思？" },
-        { "n": 9, "icon": "🛞", "en": "Where Does Pi Come From?", "zh": "圓周率是怎麼來的？" },
-        { "n": 10, "icon": "🔍", "en": "What Number Times Itself Makes 2?", "zh": "哪個數自己乘自己等於 2？" }
+        {
+          "n": 7,
+          "icon": "🥤",
+          "en": "What Is a Ratio?",
+          "zh": "比是什麼？"
+        },
+        {
+          "n": 8,
+          "icon": "💯",
+          "en": "What Does “Percent” Really Mean?",
+          "zh": "百分之幾到底是什麼意思？"
+        },
+        {
+          "n": 9,
+          "icon": "🛞",
+          "en": "Where Does Pi Come From?",
+          "zh": "圓周率是怎麼來的？"
+        },
+        {
+          "n": 10,
+          "icon": "🔍",
+          "en": "What Number Times Itself Makes 2?",
+          "zh": "哪個數自己乘自己等於 2？"
+        }
       ]
     },
     {
@@ -343,10 +1413,30 @@
       "blurb_zh": "把三角形的角撕下來拼一拼、把圖形剪開搬一搬來算面積、用倒水看畢氏定理，再把一個盒子攤平。",
       "lessons": [],
       "planned": [
-        { "n": 11, "icon": "📐", "en": "Why Do a Triangle's Angles Add Up to 180°?", "zh": "三角形的內角和為什麼是 180 度？" },
-        { "n": 12, "icon": "🔺", "en": "Why Is a Triangle's Area Half of Base Times Height?", "zh": "三角形的面積為什麼要除以二？" },
-        { "n": 13, "icon": "🟦", "en": "What Does the Pythagorean Theorem Say?", "zh": "畢氏定理在說什麼？" },
-        { "n": 14, "icon": "📦", "en": "How Much Does a Shape Hold?", "zh": "一個立體裝得下多少？" }
+        {
+          "n": 11,
+          "icon": "📐",
+          "en": "Why Do a Triangle's Angles Add Up to 180°?",
+          "zh": "三角形的內角和為什麼是 180 度？"
+        },
+        {
+          "n": 12,
+          "icon": "🔺",
+          "en": "Why Is a Triangle's Area Half of Base Times Height?",
+          "zh": "三角形的面積為什麼要除以二？"
+        },
+        {
+          "n": 13,
+          "icon": "🟦",
+          "en": "What Does the Pythagorean Theorem Say?",
+          "zh": "畢氏定理在說什麼？"
+        },
+        {
+          "n": 14,
+          "icon": "📦",
+          "en": "How Much Does a Shape Hold?",
+          "zh": "一個立體裝得下多少？"
+        }
       ]
     },
     {
@@ -357,10 +1447,30 @@
       "blurb_zh": "一個還不知道的數、可以用一個式子說出來的規律、可以畫出來的式子，以及球丟出去畫出的那條曲線。",
       "lessons": [],
       "planned": [
-        { "n": 15, "icon": "⚖️", "en": "What Is x?", "zh": "x 是什麼？" },
-        { "n": 16, "icon": "🧩", "en": "What Comes Next?", "zh": "下一個是什麼？" },
-        { "n": 17, "icon": "📈", "en": "How Do You Draw an Equation?", "zh": "式子怎麼畫成圖？" },
-        { "n": 18, "icon": "🏀", "en": "Why Does a Thrown Ball Make That Curve?", "zh": "丟出去的球為什麼畫出那條曲線？" }
+        {
+          "n": 15,
+          "icon": "⚖️",
+          "en": "What Is x?",
+          "zh": "x 是什麼？"
+        },
+        {
+          "n": 16,
+          "icon": "🧩",
+          "en": "What Comes Next?",
+          "zh": "下一個是什麼？"
+        },
+        {
+          "n": 17,
+          "icon": "📈",
+          "en": "How Do You Draw an Equation?",
+          "zh": "式子怎麼畫成圖？"
+        },
+        {
+          "n": 18,
+          "icon": "🏀",
+          "en": "Why Does a Thrown Ball Make That Curve?",
+          "zh": "丟出去的球為什麼畫出那條曲線？"
+        }
       ]
     },
     {
@@ -371,10 +1481,30 @@
       "blurb_zh": "三種「平均」、會誤導人的圖表、硬幣丟一千次會怎樣，以及怎麼把所有的可能一個不漏地數出來。",
       "lessons": [],
       "planned": [
-        { "n": 19, "icon": "📊", "en": "Which Average Tells the Truth?", "zh": "哪一種「平均」才說實話？" },
-        { "n": 20, "icon": "📉", "en": "How Can a Graph Fool You?", "zh": "圖表怎麼騙人？" },
-        { "n": 21, "icon": "🎲", "en": "What Are the Chances?", "zh": "機會有多大？" },
-        { "n": 22, "icon": "🌳", "en": "How Many Ways Are There?", "zh": "一共有幾種可能？" }
+        {
+          "n": 19,
+          "icon": "📊",
+          "en": "Which Average Tells the Truth?",
+          "zh": "哪一種「平均」才說實話？"
+        },
+        {
+          "n": 20,
+          "icon": "📉",
+          "en": "How Can a Graph Fool You?",
+          "zh": "圖表怎麼騙人？"
+        },
+        {
+          "n": 21,
+          "icon": "🎲",
+          "en": "What Are the Chances?",
+          "zh": "機會有多大？"
+        },
+        {
+          "n": 22,
+          "icon": "🌳",
+          "en": "How Many Ways Are There?",
+          "zh": "一共有幾種可能？"
+        }
       ]
     },
     {
@@ -385,10 +1515,30 @@
       "blurb_zh": "我們用的數字從哪裡來、很大和很小的數怎麼寫、蜂巢裡的數學，以及題目不會的時候怎麼辦。",
       "lessons": [],
       "planned": [
-        { "n": 23, "icon": "🏺", "en": "Where Did Our Numbers Come From?", "zh": "我們用的數字是怎麼來的？" },
-        { "n": 24, "icon": "🔭", "en": "How Do You Write a Really Big Number?", "zh": "很大的數要怎麼寫？" },
-        { "n": 25, "icon": "🐝", "en": "Where Is the Math in a Honeycomb?", "zh": "蜂巢裡有什麼數學？" },
-        { "n": 26, "icon": "💡", "en": "What Do You Do When You Are Stuck?", "zh": "題目不會的時候怎麼辦？" }
+        {
+          "n": 23,
+          "icon": "🏺",
+          "en": "Where Did Our Numbers Come From?",
+          "zh": "我們用的數字是怎麼來的？"
+        },
+        {
+          "n": 24,
+          "icon": "🔭",
+          "en": "How Do You Write a Really Big Number?",
+          "zh": "很大的數要怎麼寫？"
+        },
+        {
+          "n": 25,
+          "icon": "🐝",
+          "en": "Where Is the Math in a Honeycomb?",
+          "zh": "蜂巢裡有什麼數學？"
+        },
+        {
+          "n": 26,
+          "icon": "💡",
+          "en": "What Do You Do When You Are Stuck?",
+          "zh": "題目不會的時候怎麼辦？"
+        }
       ]
     }
   ]

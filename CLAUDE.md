@@ -896,10 +896,10 @@
 ## 看得見的數學 Math You Can See（/resources/classes/math/）— 架構照電腦概論，每課一個「可以動手玩的模型」回答一個「為什麼」
 
 - **定位（不要走樣）**：不是課本、不是題庫。**不出大量計算題、不計時、不比快**；小遊戲只記「第一次就答對幾題」，不做倒數計時、不做排行榜。程度到國中三年級為止，不碰三角函數、對數、微積分。規劃檔：Obsidian `第二大腦/創作庫/數學課程規劃（twrses）.md`（六個單元二十六課）。
-- 內容：`data/math.json`：`units[]`（六個單元：數／比與量／形狀與空間／代數與圖形／資料與機會／數學的故事與用處）底下 `lessons[]` 與 `planned[]`（「製作中」卡，做一課就從 planned 移到 lessons）；課次 `n` 全系列連號（1–26），系列首頁自己算「x of 26」。每課欄位同電腦概論，不同的：`sayit`（**「這個用英文怎麼唸」卡，每課都要有**，見下）、`pile`／`same`（第一課的兩個小互動，各有 `eyebrow/en/zh/lead_en/lead_zh/note_en/note_zh`）、`notes`＋`notes_head`（「給老師的提醒」，取代別的系列的安全提醒；這一格放台美差異與課綱對應）、`parts[].pile`（卡片小圖要畫的數，例如 `"305"`）或 `parts[].icon`（文字）。
+- 內容：`data/math.json`：`units[]`（六個單元：數／比與量／形狀與空間／代數與圖形／資料與機會／數學的故事與用處）底下 `lessons[]` 與 `planned[]`（「製作中」卡，做一課就從 planned 移到 lessons）；課次 `n` 全系列連號（1–26），系列首頁自己算「x of 26」。每課欄位同電腦概論，不同的：`sayit`（**「這個用英文怎麼唸」卡，每課都要有**，見下）、`match`／`table`（第二課的兩個小互動，欄位同下）、`parts[].array`（卡片小圖的方陣，例如 `"3x4"`）、`pile`／`same`（第一課的兩個小互動，各有 `eyebrow/en/zh/lead_en/lead_zh/note_en/note_zh`）、`notes`＋`notes_head`（「給老師的提醒」，取代別的系列的安全提醒；這一格放台美差異與課綱對應）、`parts[].pile`（卡片小圖要畫的數，例如 `"305"`）或 `parts[].icon`（文字）。
 - 頁面：`build.py`「看得見的數學」區塊的 `build_math_hub()`（系列小圖示 `mathhub_svg()`＝平板＋長條＋小方塊，第一課卡 `mathblocks_svg()`；`_MATH_CARD` 把 `card` 對到圖示函式）/ `build_math_lesson()`；reading、迷思、口訣、活動沿用 `render_basic_unit()`、`_sci_myths()`、`_sci_tricks()`、`_astro_activity()`。「閱讀與經典」頁有入口卡（🧮，排在音樂後面）。段落順序：3D → 英文閱讀 → 模型卡 → **怎麼唸** → 這堆積木是多少 → 同一個數三種寫法 → 文化卡 → 迷思 → 口訣 → 給老師的提醒 → 活動 → 延伸閱讀 → 資料出處。
 - 樣式：共用 `assets/css/astro.css`，本系列專屬的在 `assets/css/math.css`（**class 前綴一律 `mth-`**——`mt-` 已被天文的潮汐、流星雨用掉，不要用）；`_math_head()` 只在本系列頁面載入。
-- 3D：**原始碼在 `tools/math/src/`**（自己的 package.json，three 0.186.1、esbuild 0.25.10），bundle 一律 `math-*`；`lab.kind` → bundle 對照在 `build.py` 的 `_MATH_JS`（`blocks` → `math-blocks`）。`labeler`、`lazyBoot`、`canvasTex` 在 `tools/math/src/common.js`（從 tools/computers 抄來）。**不要 import 別的系列的 tools 目錄**（esbuild 會打包進第二份 three.js）。新增一課＝`src/math-<名>.js`＋package.json 的 build 加入口＋`_MATH_JS` 加一筆＋`build_math_lesson()` 的 `lab_html` 對照加一筆。
+- 3D：**原始碼在 `tools/math/src/`**（自己的 package.json，three 0.186.1、esbuild 0.25.10），bundle 一律 `math-*`；`lab.kind` → bundle 對照在 `build.py` 的 `_MATH_JS`（`blocks` → `math-blocks`、`array` → `math-array`）。`labeler`、`lazyBoot`、`canvasTex` 在 `tools/math/src/common.js`（從 tools/computers 抄來）。**不要 import 別的系列的 tools 目錄**（esbuild 會打包進第二份 three.js）。新增一課＝`src/math-<名>.js`＋package.json 的 build 加入口＋`_MATH_JS` 加一筆＋`build_math_lesson()` 的 `lab_html` 對照加一筆。
   ```
   cd tools/math && npm ci && npm run build && npm test
   ```
@@ -918,7 +918,18 @@
   - 四張卡 `data-lab-demo`：`ten`（7 → 10）、`hundred`（99 ＋ 1，連換兩次）、`zero`（35 → 305）、`two`（13 依序用十、五、二個一數）。`test/data.test.mjs` 會核對卡片的 `demo` 在 `DEMO` 裡都有。
   - 除錯：`document.querySelector('[data-mathblocks-lab]').__lab`（`set(n)`、`addOne()`、`setBase(10|5|2)`、`setPlaying(bool)`、`setSpeed(n)`、`demo(...)`、`run(秒)`、`goCam()`、`render()`、`value()`、`counts()`、`shown()`＝畫面上那個大數字、`blocks()`＝實際的積木、**`check()`＝三者一致**、`busy()`）。驗證過：十進位從 0 一路加到 1,100、五進位 0–624、二進位 0–255，包含進位途中的每一格畫面，`check()` 全部為真；9,999／624／255 再加一會說明「要多開一位」而不動。
   - 查證時改掉或沒寫的：**英式「three hundred and five」的說法沒有寫**（劍橋字典擋機器人，沒有開得到的出處），只寫 OpenStax 那句「唸整數時不用 and」；巴比倫的零符號 Britannica 說約西元前三世紀、MacTutor 說約西元前 400 年，課文只寫「兩千多年前」；「為什麼選 60」Scientific American 明說不清楚，所以數指節數到 60 只當成一種說法（MacTutor 自己也寫 “Anyone convinced?”）；分鐘和秒的名字來自托勒密的細分，不是巴比倫人直接發明的；中文手勢的六到十只有維基百科，沒寫；二進位「一位一位唸」沒有出處，模型的訊息裡不寫怎麼唸；課綱沒有「四位一節」這個說法，改引教育部辭典的「萬＝千的十倍、億＝萬的萬倍、兆＝億的萬倍」；regroup 在樂詞網沒有數學譯名，課文寫「重新分組（加法時就是進位）」。出處欄的逐字引文保留原拼法（MacTutor 的 civilisation），美式拼字的測試不掃 `sources`。
-  - 截圖：`tools/astro/scripts/shot.mjs` 會啟動系統的 Chrome；這一課是把它複製到暫存區、把執行檔換成 `headless-chrome` 再跑的（沒有改 repo 裡那一支）。
+  - 截圖：`node tools/astro/scripts/shot.mjs`（2026-10-13 起用 `headless-chrome`，不再啟動系統的 Chrome）。
+- **方陣（第二課建好；之後講除法、面積、因數、平方數都能用）**：
+  - `src/array.js`（純函式，`test/array.test.mjs`）：約定 **rows＝橫排有幾排、cols＝每排幾個**。`total`、`cells`、`position`／`extent`（整盤置中；gap＝兩格之間的縫，0 就是靠攏成長方形）、`turn(r, c, rows)`（整盤順時針轉九十度後的新位子，新盤是 cols 排、每排 rows 個；測試驗了不重疊、轉四次回原位）、`groups`／`skipCount`（一排一排或一行一行數的累計：3 排 4 個 → 4、8、12）、`sumText`、`mirror`／`pairsOf`／`factsToLearn`（10 × 10 的表：對角線 10 格＋45 對＝55）、`makeTurnQuiz`（八題，`TURN_RANGES` 越後面越大；**錯的三盤總數都和題目不一樣**，所以「一樣多」的只有正確答案）。
+  - `src/array2d.js`：`arraySVG(rows, cols, { box })`、`initMatch`（`[data-mth-match]`，沿用第一課 `.mth-pq` 的深色卡）、`initTable`（`[data-mth-table]`，點一格對角線另一邊一起亮；`data-t="fold"` 對摺後剩 55）、`drawArrayMinis`（`.mth-mini[data-array="3x4"]`）。除錯：`el.__match.start(seed)／answer()／wrong()／next()／round()`、`el.__table.pick(a, b)／fold(bool)／lit()／counts()／mismatches()`。
+  - `blocks3d.js` 的 `boxGeo`、`gridTexture` 已匯出，第二課的方塊用同一種外觀。
+- 第二課交換律（`math-array.js`，`lab.kind = "array"`，`data-matharray-lab`；slug `three-times-four`）：一個想法——**同一盤東西，橫著數和直著數一樣多**。
+  - 盤子上的小方塊是一個 `InstancedMesh`（最多 100 個），**大數字永遠是它的 `count`**。`.mth-count[data-by="rows|cols"]` 一組一組數（數過的組綠、藍輪流上色，旁邊的標籤是累計）；`.mth-turn` 整盤順時針轉九十度（`group.rotation.y` 到 −π/2），**轉完才把 rows 和 cols 對調**並把角度歸零；`data-t="flat"` 把縫收成 0（長方形與面積）；`.al-play` 橫著、直著各數一次。兩條滑桿 1–10。
+  - 對學生一律說「橫排／直排」「橫著數／直著數」，不說「列／行」（兩岸相反，見「給老師的提醒」）。右側欄兩條算式：`rows × cols`（幾排、每排幾個）和 `cols × rows`。
+  - 四張卡 `data-lab-demo`：`rows`、`cols`、`turn`、`area`（6 × 7 靠攏）。
+  - 除錯：`document.querySelector('[data-matharray-lab]').__lab`（`set(rows, cols)`、`turn()`、`count('rows'|'cols')`、`setFlat(bool)`、`setPlaying(bool)`、`setSpeed(n)`、`demo(...)`、`run(秒)`、`goCam()`、`render()`、`size()`、`shown()`、`cubes()`、`counted()`、**`check()`**）。驗證過：1 × 1 到 10 × 10 一百種大小，橫著數、直著數的總數與轉九十度途中每一格畫面，`check()` 全部為真。
+  - 查證時改掉或沒寫的：**課綱沒有規定被乘數寫在前面**——出處是教育部辭典（「3 乘以 2 等於 6，則 3 為被乘數」）對上 Britannica（5＋5＋5 寫成 3 × 5，5 是被乘數）與 CCSS（5 × 7＝5 groups of 7），再加一篇政大 2024 年的碩士論文；「寫反要不要算錯」沒有官方說法，沒寫，只請老師先講清楚班上的約定。× 不寫成「奧特雷德 1631 年發明」（1618 年就出現過）。commutative 寫「查得到最早的是 1814 年」，不寫他替乘法命名（塞爾瓦講的是函數）。里耶秦簡「只列 45 句」與「九九」名稱的由來只有通俗文章與維基，沒寫。歐幾里得的年代沒有開到出處，沒寫。「五乘五唸 five squared」沒有直接出處，卡片上寫的是 5² 唸 five squared。中文九九口訣「六七四十二」是常識、沒有另外找出處。
+
 ## 地理 Geography（/resources/classes/geography/）— 架構照書法與音樂，3D 是「地球儀引擎」
 
 - 內容：`data/geography.json`：`units[]`（七個單元：地圖的基本功／認識地球／台灣／人怎麼用土地／看世界：四個問題／各大洲／地理的方法）底下 `lessons[]` 與 `planned[]`（「製作中」卡，做一課就從 planned 移到 lessons）；課次 `n` 全系列連號（1–33，大綱在 vault 的 `創作庫/地理課程規劃（twrses）.md`；系列索引 `英文學習/地理（twrses.org）.md`）。每課欄位同音樂（`paras`、`vocab`、`quiz`、`parts`、`culture_cards`、`curric`、`myths`、`tricks`、`safety`、`activities`、`links`、`sources`），多的：**`map_english`（「地圖英語」卡，每課都要有：8 句用英文說位置、方向和地圖的句子，`items[].en` 可用 `<b>` 標出句型、`zh`、`use_en`／`use_zh` 一行用法；每句有 🔊，錄音跟著 gen_audio 一起產生）**，以及本課的小互動（第一課是 `drag`、`fit`）。

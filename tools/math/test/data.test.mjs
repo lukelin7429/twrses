@@ -59,6 +59,37 @@ assert.equal(numeral([6, 0, 4]), '406');
 // 小卡的示範鍵要和 math-blocks.js 的 DEMO 一致
 const src = readFileSync(new URL('../src/math-blocks.js', import.meta.url), 'utf8');
 L.parts.forEach((p) => assert.ok(new RegExp(`\\n    ${p.demo}\\(\\) \\{`).test(src), `DEMO.${p.demo}`));
+// ── 第二課：乘法為什麼可以交換 ──────────────────────────────────────────
+{
+  const { factsToLearn, pairsOf, skipCount, total } = await import('../src/array.js');
+  const M = lessons.find((l) => l.slug === 'three-times-four');
+  assert.equal(M.n, 2); assert.equal(M.lab.kind, 'array');
+  assert.equal(M.paras.length, 6); assert.equal(M.paras_zh.length, 6);
+  assert.equal(M.vocab.length, 8); assert.equal(M.questions.length, 3); assert.equal(M.answers.length, 3);
+  assert.equal(M.quiz.length, 5); assert.equal(M.parts.length, 4); assert.equal(M.myths.length, 4); assert.equal(M.tricks.length, 4);
+  assert.equal(M.culture_cards.cards.length, 4); assert.equal(M.activities.length, 2); assert.equal(M.notes.length, 4);
+  M.quiz.forEach((q) => { assert.equal(q.options.length, 4); assert.ok(q.correct >= 0 && q.correct < 4); });
+  assert.ok(M.sayit.rows.length >= 6 && M.sayit.rows.length <= 8);
+  M.sayit.rows.forEach((r) => assert.ok(!/\d/.test(r.say_en) && !/\d/.test(r.say_zh), `唸法裡不能有阿拉伯數字：${r.expr}`));
+  const src2 = readFileSync(new URL('../src/math-array.js', import.meta.url), 'utf8');
+  M.parts.forEach((p) => { assert.ok(new RegExp(`\\n    ${p.demo}\\(\\) \\{`).test(src2), `DEMO.${p.demo}`); assert.ok(/^\d+x\d+$/.test(p.array)); });
+  // 課文裡的數
+  assert.deepEqual(skipCount(3, 4, 'rows'), [4, 8, 12]);       // 第一段：四、八、十二
+  assert.deepEqual(skipCount(3, 4, 'cols'), [3, 6, 9, 12]);    // 三、六、九、十二
+  assert.equal(total(7, 8), 56); assert.equal(total(8, 7), 56);
+  assert.equal(10 * 10, 100); assert.equal(factsToLearn(10), 55); assert.equal(pairsOf(10), 45);
+  assert.equal(55 - (10 + 9 + 8 + 7), 21);                     // 會了 ×1、×2、×5、×10 之後剩 21 個（TERC 的數字，自己算一遍）
+  assert.equal(total(4, 3), 12); assert.equal(total(6, 7), 42); assert.equal(total(5, 5), 25);
+  assert.equal(7 - 3, 4); assert.notEqual(3 - 7, 4); assert.equal(12 / 4, 3); assert.notEqual(4 / 12, 3);
+  assert.equal(3 * 4, 4 * 3);                                  // 三隻兔子每隻四隻腳
+  assert.equal(5 + 5 + 5, 3 * 5);                              // Britannica 的例子
+  // 小測驗的答案
+  assert.equal(M.quiz[0].options[M.quiz[0].correct], '6 rows of 5');
+  assert.equal(M.quiz[1].options[M.quiz[1].correct], '56');
+  assert.equal(M.quiz[4].options[M.quiz[4].correct], '12 square units');
+  // 第一課延伸閱讀的第二課卡片已經是真的連結
+  assert.ok(L.links.some((x) => x.href === '/resources/classes/math/three-times-four/' && !x.soon));
+}
 // 美式拼字：常見的英式拼法不能出現在英文欄位
 // （出處欄的逐字引文照原文，例如 MacTutor 的 “civilisation”，所以 sources 不掃）
 const en = JSON.stringify(data, (k, v) => (k === 'sources' ? undefined : v)).replace(/[\u4e00-\u9fff]/g, '');

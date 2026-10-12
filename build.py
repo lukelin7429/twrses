@@ -17781,7 +17781,7 @@ def build_art_hub():
 _mathj = os.path.join(ROOT, "data", "math.json")
 MATH = json.load(open(_mathj, encoding="utf-8")) if os.path.exists(_mathj) else None
 MATH_BASE = "/resources/classes/math/"
-_MATH_JS = {"blocks": "math-blocks"}   # lab.kind → assets/js/<bundle>.js
+_MATH_JS = {"blocks": "math-blocks", "array": "math-array"}   # lab.kind → assets/js/<bundle>.js
 
 def _math_ver():
     h = hashlib.md5()
@@ -17899,6 +17899,85 @@ def render_mathblocks_lab(lesson):
   <p class="mth-credit">{lab["credit_html"]}</p>
 </div>'''
 
+def matharray_svg(size=56):
+    """第二課的課程卡小圖示：三排、每排四個小方塊，旁邊一個轉彎的箭頭。"""
+    cells = "".join(f'<rect x="{8 + c * 9}" y="{20 + r * 9}" width="7.4" height="7.4" rx="1.2" fill="{"#4fb477" if r == 0 else "#f4c542"}" stroke="#16223f" stroke-width=".9"/>' for r in range(3) for c in range(4))
+    return (f'<svg class="matharray-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">{cells}'
+            '<path d="M47 30a9 9 0 1 0-9 9" fill="none" stroke="#ffd36e" stroke-width="2.4" stroke-linecap="round"/>'
+            '<path d="m34.5 35.5 3.6 3.6-3.9 3.3" fill="none" stroke="#ffd36e" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>')
+
+_MATH_CARD["array"] = matharray_svg
+
+def render_matharray_lab(lesson):
+    """第二課：盤子上的方陣（assets/js/math-array.js 綁這裡的 class；全部自繪示意）。"""
+    lab = lesson["lab"]
+    speeds = [("0.5", "½×", "慢"), ("1", "1×", "原速"), ("2", "2×", "快")]
+    sb = "".join(f'<button type="button" data-speed="{k}" aria-pressed="{"true" if k == "1" else "false"}">{en}<small>{zh}</small></button>' for k, en, zh in speeds)
+    tg = _lab_toggles([("labels", "Labels", "標籤", True), ("flat", "Push together", "靠攏成長方形", False)])
+    return f'''<div class="astro-lab mth-lab mth-ar-lab rvl" data-matharray-lab>
+  <div class="al-stage">
+    <div class="al-space">
+      <canvas class="al-space-cv" aria-label="3D model of a tray of small cubes set out in rows and columns; the tray can be turned a quarter turn · 盤子上排成幾排幾行的小方塊 3D 模型，整盤可以轉九十度"></canvas>
+      <div class="al-labels" aria-hidden="true"></div>
+      <p class="al-hint">Drag to turn the view · 拖曳旋轉視角　Scroll or pinch to zoom · 滾輪／雙指縮放</p>
+      <button type="button" class="al-home" title="Reset view · 重設視角" aria-label="Reset view · 重設視角">&#8634;</button>
+      <p class="al-nogl-msg">This 3D model needs WebGL, which this browser does not support. The number sentences, the sliders, and the buttons beside it still work, and so do the reading, the cards, and the games.<br><span class="zh">這個瀏覽器不支援 WebGL，無法顯示 3D 模型；旁邊的算式、滑桿和按鈕照樣能用，課文、卡片和小遊戲也都能用。</span></p>
+    </div>
+    <aside class="al-sky mth-aside">
+      <p class="al-sky-k">On the tray · 盤子上一共有</p>
+      <p class="mth-num" aria-live="polite">12</p>
+      <div class="mth-eqs" aria-live="polite">
+        <p class="mth-eqrow" data-eq="rows"><b>3 × 4 = 12</b><span>3 rows of 4 · 3 橫排，每排 4 個</span></p>
+        <p class="mth-eqrow" data-eq="cols"><b>4 × 3 = 12</b><span>4 columns of 3 · 4 直排，每排 3 個</span></p>
+      </div>
+      <p class="mth-eq mth-eq-1">4 + 4 + 4 = 12</p>
+      <label class="mth-sl"><span>Rows · 橫排有幾排 <b class="mth-ar-rows-out">3</b></span>
+        <input type="range" class="mth-ar-rows" min="1" max="10" step="1" value="3" aria-label="Number of rows, 1 to 10 · 橫排的數目，1 到 10"></label>
+      <label class="mth-sl"><span>In each row · 每排幾個 <b class="mth-ar-cols-out">4</b></span>
+        <input type="range" class="mth-ar-cols" min="1" max="10" step="1" value="4" aria-label="Number in each row, 1 to 10 · 每一排的個數，1 到 10"></label>
+      <div class="mth-btns">
+        <button type="button" class="mth-btn-d mth-count" data-by="rows">Count across · 橫著數</button>
+        <button type="button" class="mth-btn-d mth-count" data-by="cols">Count down · 直著數</button>
+        <button type="button" class="mth-btn-d mth-add mth-turn">&#8635; Turn the tray · 轉九十度</button>
+      </div>
+      <p class="mth-msg" aria-live="polite"></p>
+    </aside>
+  </div>
+  <div class="al-controls">
+    <div class="al-row al-row-main">
+      <button type="button" class="al-play" aria-pressed="false"><span class="al-play-i" aria-hidden="true"></span><span class="al-play-t">Count both ways · 兩種都數一次</span></button>
+      <div class="mth-seg mth-seg-speed mth-seg-3" role="group" aria-label="Speed · 速度">{sb}</div>
+      <div class="al-row al-toggles">{tg}</div>
+    </div>
+  </div>
+  {_lab_foot(lab)}
+  <p class="mth-credit">{lab["credit_html"]}</p>
+</div>'''
+
+def _math_match(mq):
+    return f'''<div class="mth-pq mth-mq rvl" data-mth-match>
+  <div class="mth-pq-top"><p class="mth-pq-k"></p><p class="mth-pq-sc">Right on the first try · 第一次就答對 <b class="mth-pq-score">0 / 0</b></p></div>
+  <div class="mth-pq-pic mth-mq-pic" role="img"></div>
+  <div class="mth-mq-opts" role="group" aria-label="Choose the tray that matches · 選出一樣的那一盤"></div>
+  <p class="mth-pq-msg" aria-live="polite"></p>
+  <div class="mth-pq-foot"><span></span>
+    <button type="button" class="mth-btn mth-btn-gold mth-pq-next" hidden>Next · 下一題</button>
+  </div>
+</div>
+<p class="mth-note rvl">{html.escape(mq["note_en"])}<span class="zh">{html.escape(mq["note_zh"])}</span></p>'''
+
+def _math_table(tb):
+    return f'''<div class="mth-tb rvl" data-mth-table>
+  <div class="mth-tb-top">
+    <label class="mth-check mth-check-l"><input type="checkbox" data-t="fold"><span>Fold along the diagonal · 沿對角線對摺</span></label>
+    <p class="mth-tb-count"></p>
+  </div>
+  <div class="mth-tb-scroll"><div class="mth-tb-grid" role="group" aria-label="Multiplication table from 1 × 1 to 10 × 10 · 1 × 1 到 10 × 10 的乘法表"></div></div>
+  <p class="mth-tb-msg" aria-live="polite"></p>
+</div>
+<p class="mth-note rvl">{html.escape(tb["note_en"])}<span class="zh">{html.escape(tb["note_zh"])}</span></p>'''
+
+
 def _math_pile(pq):
     return f'''<div class="mth-pq rvl" data-mth-pile>
   <div class="mth-pq-top"><p class="mth-pq-k"></p><p class="mth-pq-sc">Right on the first try · 第一次就答對 <b class="mth-pq-score">0 / 0</b></p></div>
@@ -17953,7 +18032,7 @@ def build_math_lesson(ui, unit, lesson):
     reading_html = render_basic_unit(1, unit_dict, level="math", audio_rel="", pdf_rel="")
     lab = lesson["lab"]
     kind = lab["kind"]
-    lab_html = {"blocks": render_mathblocks_lab}[kind](lesson)
+    lab_html = {"blocks": render_mathblocks_lab, "array": render_matharray_lab}[kind](lesson)
 
     def sec(key, fn):
         d = lesson[key]
@@ -17961,7 +18040,9 @@ def build_math_lesson(ui, unit, lesson):
     secs = []
     if lesson.get("parts"):
         def ico(pt):
-            return f'<span class="mth-mini" data-pile="{pt["pile"]}"></span>' if pt.get("pile") else f'<span class="mth-ico-t">{html.escape(pt["icon"])}</span>'
+            if pt.get("pile"): return f'<span class="mth-mini" data-pile="{pt["pile"]}"></span>'
+            if pt.get("array"): return f'<span class="mth-mini" data-array="{pt["array"]}"></span>'
+            return f'<span class="mth-ico-t">{html.escape(pt["icon"])}</span>'
         cards = "".join(
             f'<article class="ph-card mth-part rvl">'
             f'<div class="ph-ico mth-ico" aria-hidden="true">{ico(pt)}</div>'
@@ -17976,6 +18057,8 @@ def build_math_lesson(ui, unit, lesson):
     if lesson.get("sayit"): secs.append(sec("sayit", _math_sayit))
     if lesson.get("pile"): secs.append(sec("pile", _math_pile))
     if lesson.get("same"): secs.append(sec("same", _math_same))
+    if lesson.get("match"): secs.append(sec("match", _math_match))
+    if lesson.get("table"): secs.append(sec("table", _math_table))
     if lesson.get("culture_cards"):
         cu = lesson["culture_cards"]
         cc = "".join(
