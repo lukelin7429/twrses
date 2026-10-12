@@ -14540,7 +14540,7 @@ def build_cal_hub():
 _compj = os.path.join(ROOT, "data", "computers.json")
 COMP = json.load(open(_compj, encoding="utf-8")) if os.path.exists(_compj) else None
 COMP_BASE = "/resources/classes/computers/"
-_COMP_JS = {"bits": "comp-bits", "pixels": "comp-pixels", "logic": "comp-logic", "adder": "comp-adder", "pc": "comp-pc", "cpu": "comp-cpu", "desk": "comp-desk", "key": "comp-key", "robot": "comp-robot", "search": "comp-search", "sched": "comp-sched", "rle": "comp-rle", "web": "comp-web", "cipher": "comp-cipher"}   # lab.kind → assets/js/<bundle>.js
+_COMP_JS = {"bits": "comp-bits", "pixels": "comp-pixels", "logic": "comp-logic", "adder": "comp-adder", "pc": "comp-pc", "cpu": "comp-cpu", "desk": "comp-desk", "key": "comp-key", "robot": "comp-robot", "search": "comp-search", "sched": "comp-sched", "rle": "comp-rle", "web": "comp-web", "cipher": "comp-cipher", "learn": "comp-learn"}   # lab.kind → assets/js/<bundle>.js
 
 def _comp_ver():
     h = hashlib.md5()
@@ -15787,6 +15787,80 @@ def _comp_keys(kb):
   <p class="cp-lv-note">{html.escape(kb["note_en"])}<span class="zh">{html.escape(kb["note_zh"])}</span></p>
 </div>'''
 
+def complearn_svg(size=56):
+    """第十五課的課程卡小圖示：一條斜線把紅點和橘點分在兩邊。"""
+    red = "".join(f'<circle cx="{x}" cy="{y}" r="4.2" fill="#ff6b5c"/>' for x, y in ((14, 16), (24, 12), (20, 26), (33, 18)))
+    org = "".join(f'<circle cx="{x}" cy="{y}" r="4.2" fill="#ffb04a"/>' for x, y in ((30, 44), (42, 38), (46, 48), (38, 30)))
+    return (f'<svg class="complearn-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">'
+            f'{red}{org}<path d="M6 44 54 14" stroke="#7ef0e3" stroke-width="3" stroke-linecap="round"/>'
+            '<path d="M49 9l6 4-6 5" fill="none" stroke="#7ef0e3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity=".7"/></svg>')
+
+_COMP_CARD["learn"] = complearn_svg
+
+def render_complearn_lab(lesson):
+    """第十五課：一片會自己挪動的隔板（assets/js/comp-learn.js 綁這裡的 class；全部自繪示意）。"""
+    lab = lesson["lab"]
+    sb = "".join(f'<button type="button" data-set="{s["key"]}" aria-pressed="false"><b>{html.escape(s["en"])}</b><small>{html.escape(s["zh"])}</small></button>' for s in lab["sets"])
+    tg = _lab_toggles([("labels", "Labels", "標示", True)])
+    return f'''<div class="astro-lab cp-lab cp-ln-lab rvl" data-complearn-lab>
+  <div class="al-stage">
+    <div class="al-space">
+      <canvas class="al-space-cv" aria-label="3D model of a table with red apples and orange oranges placed by weight and redness, and an upright wall that moves to separate them · 桌面上依重量和紅度擺著紅色的蘋果和橘色的橘子，還有一片會挪動、把它們分開的隔板的 3D 模型"></canvas>
+      <div class="al-labels" aria-hidden="true"></div>
+      <p class="al-hint">Drag to turn · 拖曳旋轉</p>
+      <button type="button" class="al-home" title="Reset view · 重設視角" aria-label="Reset view · 重設視角">&#8634;</button>
+      <p class="al-nogl-msg">This 3D model needs WebGL, which this browser does not support. The buttons and the counters below still work, and so do the reading and the games.<br><span class="zh">這個瀏覽器不支援 WebGL，無法顯示 3D 模型；下面的按鈕和計數照樣能用，課文和小遊戲也都能用。</span></p>
+    </div>
+    <aside class="al-sky cp-aside">
+      <p class="al-sky-k">Choose the examples · 選一組例子</p>
+      <div class="cp-wb-urls cp-ln-sets" role="group" aria-label="Sets of examples · 幾組例子">{sb}</div>
+      <dl class="cp-dk-nums cp-ln-nums">
+        <div><dt>Examples looked at · 看了幾個例子</dt><dd class="cp-ln-seen">0</dd></div>
+        <div><dt>Times the wall moved · 隔板挪了幾次</dt><dd class="cp-ln-moves">0</dd></div>
+        <div><dt>Wrong now, of <span class="cp-ln-n">24</span> · 現在分錯幾顆</dt><dd class="cp-ln-wrong">0</dd></div>
+        <div><dt>New fruits it gets right · 新水果分對幾顆</dt><dd class="cp-ln-new">0</dd></div>
+      </dl>
+      <p class="cp-msg" aria-live="polite"></p>
+    </aside>
+  </div>
+  <div class="al-controls">
+    <div class="al-row al-row-main">
+      <button type="button" class="al-play" aria-pressed="false"><span class="al-play-t">Keep learning · 一直學</span></button>
+      <button type="button" class="cp-btn-d cp-step">One example · 看一個例子</button>
+      <button type="button" class="cp-btn-d cp-reset">Start over · 從頭來</button>
+      <div class="al-row al-toggles">{tg}</div>
+    </div>
+  </div>
+  {_lab_foot(lab)}
+  <p class="cp-credit">{lab["credit_html"]}</p>
+</div>'''
+
+def _comp_teach(tc):
+    tips = "".join(f'<li>{html.escape(t["en"])}<span class="zh">{html.escape(t["zh"])}</span></li>' for t in tc["tips"])
+    return f'''<div class="cp-full cp-tc rvl" data-cp-teach>
+  <div class="cp-tc-main">
+    <div>
+      <div class="cp-tc-wrap"><svg class="cp-tc-svg" viewBox="0 0 300 300" role="img" aria-label="A square to place fruit on: across is weight, up is redness · 放水果的方框：橫的是重量，直的是有多紅"></svg><span class="cp-tc-ax-x">heavier → 越重</span><span class="cp-tc-ax-y">redder ↑ 越紅</span></div>
+    </div>
+    <div>
+      <p class="cp-k">Which fruit to put down · 要放哪一種</p>
+      <div class="cp-ky-keys cp-ci-dir cp-tc-kinds" role="group" aria-label="Kind of fruit · 水果的種類">
+        <button type="button" data-kind="1" aria-pressed="true"><b>🍎 Apple</b><small>蘋果</small></button>
+        <button type="button" data-kind="-1" aria-pressed="false"><b>🍊 Orange</b><small>橘子</small></button>
+      </div>
+      <div class="cp-mz-btns"><button type="button" class="cp-btn cp-btn-gold cp-tc-learn">Learn · 學</button><button type="button" class="cp-btn cp-tc-clear">Clear the table · 清空桌面</button></div>
+      <dl class="cp-lv2-out cp-tc-out">
+        <div><dt>Fruits on the table · 桌上幾顆</dt><dd class="cp-tc-n">0</dd></div>
+        <div><dt>Examples looked at · 看了幾個例子</dt><dd class="cp-tc-seen">—</dd></div>
+        <div><dt>Still wrong · 還分錯幾顆</dt><dd class="cp-tc-wrong">—</dd></div>
+      </dl>
+    </div>
+  </div>
+  <p class="cp-lv-msg cp-tc-msg" aria-live="polite"></p>
+  <p class="cp-lv-note">{html.escape(tc["note_en"])}<span class="zh">{html.escape(tc["note_zh"])}</span></p>
+</div>
+<ul class="cp-tips rvl">{tips}</ul>'''
+
 def _comp_flat():
     return [(ui, u, l) for ui, u in enumerate(COMP["units"]) for l in u["lessons"]]
 
@@ -15814,7 +15888,7 @@ def build_comp_lesson(ui, unit, lesson):
     reading_html = render_basic_unit(1, unit_dict, level="comp", audio_rel="", pdf_rel="")
     lab = lesson["lab"]
     kind = lab["kind"]
-    lab_html = {"bits": render_compbits_lab, "pixels": render_comppixels_lab, "logic": render_complogic_lab, "adder": render_compadder_lab, "pc": render_comppc_lab, "cpu": render_compcpu_lab, "desk": render_compdesk_lab, "key": render_compkey_lab, "robot": render_comprobot_lab, "search": render_compsearch_lab, "sched": render_compsched_lab, "rle": render_comprle_lab, "web": render_compweb_lab, "cipher": render_compcipher_lab}[kind](lesson)
+    lab_html = {"bits": render_compbits_lab, "pixels": render_comppixels_lab, "logic": render_complogic_lab, "adder": render_compadder_lab, "pc": render_comppc_lab, "cpu": render_compcpu_lab, "desk": render_compdesk_lab, "key": render_compkey_lab, "robot": render_comprobot_lab, "search": render_compsearch_lab, "sched": render_compsched_lab, "rle": render_comprle_lab, "web": render_compweb_lab, "cipher": render_compcipher_lab, "learn": render_complearn_lab}[kind](lesson)
 
     def sec(key, fn):
         d = lesson[key]
@@ -15867,6 +15941,8 @@ def build_comp_lesson(ui, unit, lesson):
     if lesson.get("ciphertool"): secs.append(sec("ciphertool", _comp_cipher))
     if lesson.get("spy"): secs.append(sec("spy", _comp_spy))
     if lesson.get("keybits"): secs.append(sec("keybits", _comp_keys))
+    if lesson.get("teach"): secs.append(sec("teach", _comp_teach))
+    if lesson.get("ruleorlearn"): secs.append(sec("ruleorlearn", _comp_choice))
     if lesson.get("culture_cards"):
         cu = lesson["culture_cards"]
         cc = "".join(

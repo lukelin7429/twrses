@@ -771,6 +771,14 @@
   - **很長的數字會把手機版撐寬**：2¹²⁸、2²⁵⁶ 這種沒有空白的長數字，放進文化卡、出處、說明都要 `overflow-wrap: anywhere`（computers.css 最後幾行）；檢查橫向捲動要把小工具調到最長的數再量。
   - 除錯：`document.querySelector('[data-compcipher-lab]').__lab`（`send()`、`next()`、`setMode(m)`、`setKey(k)`、`setMsg(i)`、`reset()`、`demo(...)`、`run(秒)`、`goCam()`、`render()`、`cur()`）。
   - 查證：密碼學的定義、凱撒密碼（蘇埃托尼烏斯、位移 3、奧古斯都位移 1、ROT13、只有 25 種、暴力法、頻率分析）引 Britannica；公開金鑰（1976 迪菲與赫爾曼、GCHQ 更早）引 Simmons 的 Britannica 條目；AES 金鑰 128／192／256 位元引 NIST FIPS 197；HTTPS 引 MDN；課綱資 H-IV-1、H-IV-3（第 11、44 頁）。**沒寫**：全部試完要多久、Enigma、RSA、瀏覽器的鎖頭圖示（Mozilla 說明頁擋爬蟲）、密碼該多長或多久換。「https 不代表網站可信」是從機制推的（加密只管路上），頁面沒有說成是哪個機構的說法。
+- 第十五課機器學習（`comp-learn.js`，`lab.kind = "learn"`，`data-complearn-lab`；slug `how-computers-learn`；資料在 `units[3]`）：一個機制——**不寫規則，給有答案的例子，讓電腦一點一點調整自己**；學到的東西最多只能和例子一樣好。
+  - `src/learn.js`（純函式，`test/learn.test.mjs`）：最簡單的感知器——一條線 `a·(x−5) + b·(y−5) + c = 0`，`stepOnce(m, set)` 看下一個例子，分錯才挪（`RATE`）；`errors`、`train`（一整輪都沒錯就算收斂，上限 `LIMIT = 240`）、`segment(m)`（線在 0–10 方框裡的兩個端點）、`makeSet('clean'|'few'|'noisy')`、`TEST`（12 顆新水果，只拿來檢查）。**資料是固定種子編出來的示意資料**（x＝重量、y＝紅度，都是 0–10 的示意刻度），頁面有寫明。
+  - 數字（測試釘住）：一開始 24 顆錯 17 顆；clean 看 40 個例子、挪 5 次、0 錯、新水果 12/12；few（4 顆）看 14 個、挪 4 次就停、新水果 10/12；noisy（4 顆標錯）到 240 個被停、挪 92 次、還錯 5 顆，而且測試確認跑到 20000 個也不會收斂。**noisy 停下來時新水果剛好 12/12**，所以結束的說明只講「定不下來、不知道該懷疑誰」，不講「新水果會分錯」。改 `FLIP`、`FEW`、種子或 `RATE`，這些數字全部會變，要重印再改課文。
+  - 場景：米色桌面（往右越重、往後越紅）、紅球蘋果／橘球橘子、青色半透明隔板（沿 `segment` 擺，角度與位置平滑追上）、目前看的那一顆底下有亮圈（分錯變紅）、新水果小一號加白圈（分錯時圈變紅）、標錯的水果有深色圈與「答案標錯」標籤。
+  - 右側欄：`[data-set]` 三組、四個計數（看了幾個／挪了幾次／現在分錯幾顆／新水果分對幾顆）。控制列 `.al-play`（一直學）、`.cp-step`（看一個例子）、`.cp-reset`。四張卡 `data-lab-demo`：`one`（看兩個例子）、`clean`、`few`、`noisy`。
+  - `src/learn2d.js`：`initTeach`（`[data-cp-teach]`，SVG 方框點一下加一顆、按「學」最多看 400 個例子、畫出那條線；點用 `createElementNS` 建）。「人寫的規則，還是從例子學的」用通用選項題（`ruleorlearn` 段）。除錯：`el.__teach.add(x, y, label)`／`learn()`／`clear()`／`state()`。
+  - 除錯：`document.querySelector('[data-complearn-lab]').__lab`（`setSet(k)`、`stepOnce()`、`setPlaying(bool)`、`reset()`、`demo(...)`、`run(秒)`、`goCam()`、`render()`、`cur()`）。
+  - 查證：機器學習的定義引 Hosch 的 Britannica 條目；類神經網路（1943、1954、知識分散在網路裡而不是寫在程式裡、監督式學習、測試案例、大網路很難追出輸出怎麼來的、手寫／人臉／語音）引 Zwass；感知器（Rosenblatt、1957、康乃爾航空實驗室）引 Copeland。課綱：**國中沒有列機器學習**，頁面明說，並引高中資 D-V-2（第 11、45 頁）。**沒寫**：任何模型的參數數目或資料量、Arthur Samuel、特定公司的偏誤案例、生成式 AI／大型語言模型；全篇不用「懂」「想」「知道」來形容模型（唯一一處「知道」有加引號）。
 - **預覽伺服器名額被別的 session 占滿時**（preview_start 回 Maximum 5 dev servers）：不要去停別人的，也不要用 Bash 跑伺服器。把 shot.mjs 的副本加一段 CDP `Fetch.enable`，攔截 `http://twrses.test/*` 直接從 worktree 讀檔回應（環境變數 `SHOT_ROOT`），不經過任何伺服器就能截圖、看 console 錯誤。
 - 查證過的事（出處在每課 `sources`）與**沒寫的事**記在 Obsidian 的系列索引；名詞一律台灣用語（位元、位元組、二進位、處理器、記憶體、電晶體），不用「比特、字節、內存」。
 - 和既有系列互相連結：第一課的 `links` 連晶片第二課 `/resources/classes/semiconductors/transistor/`（開關本身）與萬物原理第八課 `/resources/classes/how-things-work/computer-memory/`（0 和 1 存在哪裡），再放下一課的預告卡（`soon: true`）。
