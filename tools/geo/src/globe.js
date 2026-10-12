@@ -11,14 +11,16 @@
  *   const globe = makeGlobe({ land, texWidth })
  *   globe.group                       加進場景
  *   globe.setFlat(t)／setProjection(name, immediate)／tick(dt)／update()
- *   globe.show('graticule' | 'circles' | 'select' | 'marks', on)
+ *   globe.show('graticule' | 'meridians' | 'parallels' | 'circles' | 'select' | 'selectLine' | 'selectDot' | 'equator' | 'marks', on)
+ *   globe.addPath(color, opacity) → { obj, set([[lon, lat], …]) }   自訂的線（某條經線、本初子午線、航線）
+ *   globe.setOpacity(a, frontOnly)    地表透明度（看地球內部時用；frontOnly 只畫朝向鏡頭的那一面）
  *   globe.setSelection(lon, lat)      選一個點：畫出那條緯線和那個位置的變形圓
  *   globe.pointAt(lon, lat, out, eps) 目前形狀下那個經緯度的位置（標籤用）；globe.normalAt(lon, lat, out)
  *   globe.addLayer({ key, on, draw(ctx, W, H, toXY) })／setLayer(key, on)   主題圖層（畫在貼圖上）
  *   globe.mesh                        給 Raycaster 用；intersect.uv → globe.uvToLonLat(uv)
  */
 import {
-  BufferAttribute, BufferGeometry, CanvasTexture, DoubleSide, Group, LineBasicMaterial, LineSegments, Mesh, MeshBasicMaterial,
+  BufferAttribute, BufferGeometry, CanvasTexture, DoubleSide, FrontSide, Group, LineBasicMaterial, LineSegments, Mesh, MeshBasicMaterial,
   MeshLambertMaterial, Sphere, SRGBColorSpace, Vector3,
 } from 'three';
 import { RAD, forward, goreOf, smallCircle } from './geo.js';
@@ -83,7 +85,7 @@ function lineObject(set, color, opacity) {
   return o;
 }
 
-export function makeGlobe({ land, texWidth = 4096, circleRadius = 4.5 } = {}) {
+export function makeGlobe({ land, texWidth = 4096, circleRadius = 4.5, selRadius = circleRadius } = {}) {
   const group = new Group();
   const state = { t: 0, proj: 'equirect', from: 'equirect', u: 1, lin: 1, sel: { lon: 0, lat: 60 }, dirty: true };
 
@@ -132,18 +134,20 @@ export function makeGlobe({ land, texWidth = 4096, circleRadius = 4.5 } = {}) {
   mesh.frustumCulled = false;
   group.add(mesh);
 
-  // ── 經緯線：每 30 度一條；瓣的邊界畫兩次（左右兩瓣各一次），橘子皮裂開時兩邊都有線 ──
-  const grat = new PointSet(GORES * 2 * 2 * ROWS + 5 * GORES * 2 * SEG + 64);
+  // ── 經緯線：每 30 度一條；經線與緯線分成兩個物件（可以分開開關）。
+  //    瓣的邊界畫兩次（左右兩瓣各一次），橘子皮裂開時兩邊都有線 ──
+  const mer = new PointSet(GORES * 2 * 2 * ROWS);
+  const par = new PointSet(4 * GORES * 2 * SEG);
   for (let g = 0; g < GORES; g++) {
     for (const lon of [-180 + g * gw, -180 + (g + 1) * gw]) {
-      for (let j = 0; j < ROWS; j++) { grat.push(lon, -90 + j * 2.5, g); grat.push(lon, -90 + (j + 1) * 2.5, g); }
+      for (let j = 0; j < ROWS; j++) { mer.push(lon, -90 + j * 2.5, g); mer.push(lon, -90 + (j + 1) * 2.5, g); }
     }
     for (const lat of [-60, -30, 30, 60]) {
-      for (let i = 0; i < SEG; i++) { grat.push(-180 + g * gw + i * gw / SEG, lat, g); grat.push(-180 + g * gw + (i + 1) * gw / SEG, lat, g); }
+      for (let i = 0; i < SEG; i++) { par.push(-180 + g * gw + i * gw / SEG, lat, g); par.push(-180 + g * gw + (i + 1) * gw / SEG, lat, g); }
     }
   }
-  const gratObj = lineObject(grat, 0xffffff, 0.3);
-  group.add(gratObj);
+  const merObj = lineObject(mer, 0xffffff, 0.3), parObj = lineObject(par, 0xffffff, 0.3);
+  group.add(merObj); group.add(parObj);
   const eq = new PointSet(GORES * 2 * SEG);
   for (let g = 0; g < GORES; g++) for (let i = 0; i < SEG; i++) { eq.push(-180 + g * gw + i * gw / SEG, 0, g); eq.push(-180 + g * gw + (i + 1) * gw / SEG, 0, g); }
   const eqObj = lineObject(eq, 0xff9d6b, 0.9);
@@ -190,7 +194,7 @@ export function makeGlobe({ land, texWidth = 4096, circleRadius = 4.5 } = {}) {
   // ── 選取的點：那條緯線＋那個位置的變形圓 ──
   const selLine = new PointSet(GORES * 2 * SEG);
   const selLineObj = lineObject(selLine, 0xffd36e, 1);
-  let selFan = fanSet([[0, 60, 6]], circleRadius);
+  let selFan = fanSet([[0, 60, 6]], selRadius);
   const selFanObj = fanObject(selFan, 0x6fe0ff, 0.6, 0xffffff);
   const selGrp = new Group(); selGrp.add(selLineObj); selGrp.add(selFanObj.grp);
   group.add(selGrp);
@@ -201,7 +205,7 @@ export function makeGlobe({ land, texWidth = 4096, circleRadius = 4.5 } = {}) {
     const g = goreOf(lon, GORES).g;
     selFan.set.reset();
     selFan.set.push(lon, lat, g);
-    for (const [a, b] of smallCircle(lon, lat, circleRadius, RIM)) selFan.set.push(a, b, g);
+    for (const [a, b] of smallCircle(lon, lat, selRadius, RIM)) selFan.set.push(a, b, g);
   }
   buildSelection();
 
@@ -212,6 +216,25 @@ export function makeGlobe({ land, texWidth = 4096, circleRadius = 4.5 } = {}) {
     const o = fanObject(f, color, 0.95, 0xffffff);
     marks.push({ f, o }); group.add(o.grp); state.dirty = true;
     return o.grp;
+  }
+
+  // ── 自訂的線（例如某一條經線、本初子午線、一段航線）：給一串經緯度，跟著地表一起變形 ──
+  const paths = [];
+  function addPath(color, opacity = 1, maxPoints = 400, eps = 0.007) {
+    const set = new PointSet(maxPoints * 2);
+    const obj = lineObject(set, color, opacity);
+    obj.geometry.setDrawRange(0, 0);
+    const p = {
+      set, obj, eps,
+      /** pts：[[lon, lat], …] 連成一條線；gore 不給就照每個點的經度判斷 */
+      set_(pts, gore) {
+        set.reset();
+        for (let i = 0; i + 1 < pts.length && set.count + 2 <= set.n; i++) { set.push(pts[i][0], pts[i][1], gore); set.push(pts[i + 1][0], pts[i + 1][1], gore); }
+        state.dirty = true;
+      },
+    };
+    paths.push(p); group.add(obj); state.dirty = true;
+    return { obj, set: (pts, gore) => p.set_(pts, gore) };
   }
 
   const tmp = new PointSet(1);
@@ -238,7 +261,9 @@ export function makeGlobe({ land, texWidth = 4096, circleRadius = 4.5 } = {}) {
       if (nor) g.getAttribute('normal').needsUpdate = true;
     };
     w(surf, geo, 0, true);
-    if (gratObj.visible) { w(grat, gratObj.geometry, 0.004); }
+    if (merObj.visible) w(mer, merObj.geometry, 0.004);
+    if (parObj.visible) w(par, parObj.geometry, 0.004);
+    for (const p of paths) if (p.obj.visible) { w(p.set, p.obj.geometry, p.eps); p.obj.geometry.setDrawRange(0, p.set.count); }
     w(eq, eqObj.geometry, 0.005);
     if (circObj.grp.visible) w(circ.set, circObj.geo, 0.008);
     if (selGrp.visible) {
@@ -269,12 +294,16 @@ export function makeGlobe({ land, texWidth = 4096, circleRadius = 4.5 } = {}) {
     },
     update,
     show(key, on) {
-      const o = { graticule: gratObj, circles: circObj.grp, select: selGrp, equator: eqObj }[key];
-      if (key === 'marks') { for (const m of marks) m.o.grp.visible = on; } else if (o) o.visible = on;
+      const o = { meridians: merObj, parallels: parObj, circles: circObj.grp, select: selGrp, selectLine: selLineObj, selectDot: selFanObj.grp, equator: eqObj }[key];
+      if (key === 'marks') { for (const m of marks) m.o.grp.visible = on; }
+      else if (key === 'graticule') { merObj.visible = on; parObj.visible = on; }
+      else if (o) o.visible = on;
       state.dirty = true;
     },
     setSelection(lon, lat) { state.sel = { lon, lat }; buildSelection(); state.dirty = true; },
-    addMark, pointAt, normalAt,
+    addMark, addPath, pointAt, normalAt,
+    /** 地表的透明度（看地球內部的角度時用）：1 是不透明 */
+    setOpacity(a, frontOnly = false) { const m = mesh.material; m.transparent = a < 1; m.opacity = a; m.depthWrite = a >= 1; m.side = frontOnly ? FrontSide : DoubleSide; m.needsUpdate = true; },
     uvToLonLat: (v) => [v.x * 360 - 180, v.y * 180 - 90],
     addLayer(l) { layers.push(l); redraw(); },
     setLayer(key, on) { const l = layers.find((x) => x.key === key); if (l) { l.on = on; redraw(); } },

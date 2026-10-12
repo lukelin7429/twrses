@@ -16,6 +16,10 @@
  *   movePoint / moveRing             把一塊陸地在球面上原封不動搬到別的地方（形狀與面積不變）
  *   ringArea(ring, R)                球面多邊形的面積
  *   smallCircle(lon, lat, radiusDeg) 球面上的一個圓（變形圓用）
+ *   degreeLengths(lat, R)            一度緯度、一度經度在地面上有多長（球面：經度那一度 × cos 緯度）
+ *   toDM / formatLat / formatLon / formatPlace   度 → 度分；加上 N／S、E／W
+ *   angleBetween(lon1, lat1, lon2, lat2)          兩點之間的角距離（度）
+ *   whichWay(from, to)               從 from 到 to 主要該往哪邊走（north／south／east／west）
  *
  * 公式出處：John P. Snyder, Map Projections: A Working Manual, USGS Professional Paper 1395 (1987)。
  */
@@ -225,3 +229,49 @@ export const AREAS_KM2 = {
   antarctica: 14200000,
 };
 export const areaRatio = (a, b) => AREAS_KM2[a] / AREAS_KM2[b];
+
+/**
+ * 一度有多長（球面）：一度緯度 = πR/180，到處一樣；一度經度 = 一度緯度 × cos(緯度)，到兩極縮成 0。
+ * 預設用平均半徑，回傳公里。真正的地球略扁，一度緯度實際上在 110.6（赤道）到 111.7（兩極）公里之間。
+ */
+export function degreeLengths(lat, R = EARTH_RADIUS_KM) {
+  const one = Math.PI * R / 180;
+  return { lat: one, lon: one * Math.max(0, Math.cos(lat * RAD)) };
+}
+
+/** 度（小數）→ 度與分：四捨五入到整數分，59.6 分會進位成下一度 */
+export function toDM(value) {
+  const a = Math.abs(value);
+  let deg = Math.floor(a), min = Math.round((a - deg) * 60);
+  if (min === 60) { deg += 1; min = 0; }
+  return { deg, min, sign: value < 0 ? -1 : 1 };
+}
+const dm = (v) => { const { deg, min } = toDM(v); return `${deg}° ${String(min).padStart(2, '0')}′`; };
+/** 緯度的寫法：decimal＝「23.5° N」，dm＝「23° 30′ N」；赤道不寫 N／S */
+export function formatLat(lat, style = 'decimal') {
+  const body = style === 'dm' ? dm(lat) : `${Math.abs(lat).toFixed(1)}°`;
+  const zero = style === 'dm' ? toDM(lat).deg === 0 && toDM(lat).min === 0 : Math.abs(lat) < 0.05;
+  return zero ? body : `${body} ${lat > 0 ? 'N' : 'S'}`;
+}
+/** 經度的寫法：本初子午線與 180 度不寫 E／W */
+export function formatLon(lon, style = 'decimal') {
+  const body = style === 'dm' ? dm(lon) : `${Math.abs(lon).toFixed(1)}°`;
+  const t = toDM(lon);
+  const edge = style === 'dm' ? (t.deg === 0 && t.min === 0) || (t.deg === 180 && t.min === 0) : Math.abs(lon) < 0.05 || Math.abs(lon) > 179.95;
+  return edge ? body : `${body} ${lon > 0 ? 'E' : 'W'}`;
+}
+/** 一個地方的「地址」：緯度在前、經度在後 */
+export const formatPlace = (lon, lat, style = 'decimal') => `${formatLat(lat, style)}, ${formatLon(lon, style)}`;
+
+/** 兩點之間的角距離（度） */
+export const angleBetween = (lon1, lat1, lon2, lat2) => greatCircle(lon1, lat1, lon2, lat2, 1) * DEG;
+
+/** 經度差，收在 −180 到 180（正的是往東） */
+export function lonDiff(from, to) {
+  return ((to - from + 540) % 360) - 180;
+}
+/** 從 from 走到 to，南北向與東西向各該往哪邊：{ ns: 'north'|'south'|null, ew: 'east'|'west'|null }（差不到 tol 度就不提） */
+export function whichWay([lon1, lat1], [lon2, lat2], tol = 3) {
+  const dLat = lat2 - lat1, dLon = lonDiff(lon1, lon2);
+  return { ns: Math.abs(dLat) <= tol ? null : dLat > 0 ? 'north' : 'south', ew: Math.abs(dLon) <= tol ? null : dLon > 0 ? 'east' : 'west', dLat, dLon };
+}

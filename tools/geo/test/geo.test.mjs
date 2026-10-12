@@ -1,6 +1,7 @@
 import assert from 'node:assert/strict';
 import {
   AREAS_KM2, DEG, EARTH_RADIUS_KM, MERC_MAX, RAD, areaRatio, distortion, extent, forward, goreOf, greatCircle, inverseMercator,
+  angleBetween, degreeLengths, formatLat, formatLon, formatPlace, lonDiff, toDM, whichWay,
   lonLatToVec3, mercatorScale, movePoint, moveRing, planarArea, ringArea, ringCenter, smallCircle, unroll, vec3ToLonLat,
 } from '../src/geo.js';
 
@@ -152,4 +153,36 @@ assert.equal(AREAS_KM2.australia, 7656127);
 near(areaRatio('australia', 'greenland'), 3.535, 1e-3, 'mainland Australia is about 3.5 times the size of Greenland');
 near(areaRatio('antarctica', 'greenland'), 6.556, 1e-3, 'Antarctica is about 6.6 times the size of Greenland');
 near(DEG * RAD, 1, 1e-15, 'deg/rad');
+
+// 一度有多長：緯度那一度到處一樣（約 111.19 公里），經度那一度 × cos 緯度
+near(degreeLengths(0).lat, 111.195, 1e-3, 'one degree of latitude');
+near(degreeLengths(0).lon, 111.195, 1e-3, 'one degree of longitude at the equator');
+near(degreeLengths(60).lon / degreeLengths(0).lon, 0.5, 1e-12, 'half as long at 60 degrees');
+near(degreeLengths(60).lon, 55.597, 1e-3, 'one degree of longitude at 60');
+near(degreeLengths(23.5).lon, 101.972, 1e-3, 'one degree of longitude at Taiwan');
+near(degreeLengths(90).lon, 0, 1e-9, 'zero at the pole');
+near(degreeLengths(-45).lon, degreeLengths(45).lon, 1e-12, 'same north and south');
+near(degreeLengths(75).lat, degreeLengths(0).lat, 1e-12, 'latitude degree is constant on a sphere');
+near(degreeLengths(0).lat * 360, 2 * Math.PI * EARTH_RADIUS_KM, 1e-6, '360 degrees go all the way around');
+near(degreeLengths(0).lat / 60, 1.8532, 1e-3, 'one minute of latitude is close to a nautical mile (1.852 km)');
+
+// 度分的寫法
+assert.deepEqual(toDM(23.5), { deg: 23, min: 30, sign: 1 });
+assert.deepEqual(toDM(-0.25), { deg: 0, min: 15, sign: -1 });
+assert.deepEqual(toDM(120.9999), { deg: 121, min: 0, sign: 1 }, 'minutes round up into the next degree');
+assert.equal(formatLat(23.5), '23.5° N'); assert.equal(formatLat(-33.9), '33.9° S'); assert.equal(formatLat(0), '0.0°');
+assert.equal(formatLon(121), '121.0° E'); assert.equal(formatLon(-74), '74.0° W'); assert.equal(formatLon(0), '0.0°'); assert.equal(formatLon(180), '180.0°'); assert.equal(formatLon(-180), '180.0°');
+assert.equal(formatLat(23.5, 'dm'), '23° 30′ N'); assert.equal(formatLon(121.0, 'dm'), '121° 00′ E'); assert.equal(formatLat(-0.004, 'dm'), '0° 00′');
+assert.equal(formatLat(23.4333, 'dm'), '23° 26′ N', 'the Tropic of Cancer is near 23° 26′');
+assert.equal(formatPlace(121, 23.5), '23.5° N, 121.0° E', 'latitude first, then longitude');
+assert.equal(formatPlace(0, 0), '0.0°, 0.0°');
+
+// 角距離與「往哪邊走」
+near(angleBetween(0, 0, 0, 90), 90, 1e-9, 'equator to pole is 90 degrees');
+near(angleBetween(121, 23.5, 121, 23.5), 0, 1e-9, 'same point');
+near(angleBetween(0, 60, 180, 60), 60, 1e-9, 'over the pole');
+assert.equal(lonDiff(170, -170), 20); assert.equal(lonDiff(-170, 170), -20); assert.equal(lonDiff(0, 121), 121);
+{ const w = whichWay([0, 0], [121, 23.5]); assert.equal(w.ns, 'north'); assert.equal(w.ew, 'east'); }
+{ const w = whichWay([150, 40], [121, 23.5]); assert.equal(w.ns, 'south'); assert.equal(w.ew, 'west'); }
+{ const w = whichWay([170, 10], [-170, 11]); assert.equal(w.ns, null); assert.equal(w.ew, 'east', 'the short way across the 180th meridian'); }
 console.log('geo.test ok');

@@ -200,3 +200,60 @@ a.gg-link:hover { transform: translateY(-3px); box-shadow: var(--shadow); border
   .gg-link { flex-direction: column; }
   .gg-intro-ic { width: 80px; height: 80px; } .gg-intro-ic svg { width: 58px; height: 58px; }
 }
+/* ── 第二課：經緯度 ─────────────────────────────────────────────────── */
+.gg-ll-lab .al-space-cv.gg-can-grab { cursor: pointer; }
+.gg-ll-lab .al-space-cv.gg-grabbing { cursor: grabbing; }
+.al-lab.gg-lab-pm { color: #ffc4ea; border-color: rgba(255,143,216,.5); }
+.al-lab.gg-lab-pt { color: #06121f; background: #6fe0ff; border-color: #fff; font-size: .78rem; font-variant-numeric: tabular-nums; }
+.gg-ll-addr { margin: 0; font-family: var(--serif); font-size: 1.95rem; line-height: 1.15; color: #fff; font-variant-numeric: tabular-nums; }
+.gg-ll-dm { margin: 0; font-size: .95rem; font-weight: 700; color: var(--al-sun); font-variant-numeric: tabular-nums; }
+.gg-ll-two { margin: .3rem 0 0; display: grid; gap: .45rem; }
+.gg-ll-row { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: .1rem .6rem; align-items: baseline; padding: .55rem .7rem; border-radius: 12px; background: rgba(255,255,255,.04); border-left: 4px solid #ffd36e; }
+.gg-ll-rlon { border-left-color: #6fe0ff; }
+.gg-ll-row dt { font-size: .86rem; color: var(--al-text); }
+.gg-ll-row dt b { font-weight: 800; color: #fff; margin-right: .25rem; }
+.gg-ll-row dt small { display: block; font-size: .7rem; color: var(--al-mute); }
+.gg-ll-row dd { margin: 0; font-size: 1.25rem; font-weight: 800; color: #fff; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.gg-ll-row p { grid-column: 1 / -1; margin: 0; font-size: .74rem; color: var(--al-mute); }
+.gg-ll-row p span { display: none; }
+.gg-ll-row p[data-side="a"] span[data-s="a"], .gg-ll-row p[data-side="b"] span[data-s="b"], .gg-ll-row p[data-side="mid"] span[data-s="mid"] { display: inline; }
+.gg-ll-s1 input { accent-color: #ffd36e; } .gg-ll-s2 input { accent-color: #6fe0ff; }
+.gg-ll-spots { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .3rem; }
+.gg-ll-spots button, .gg-dd-presets button { padding: .42rem .2rem; border-radius: 11px; border: 1px solid var(--al-line, rgba(160,180,230,.25)); background: rgba(255,255,255,.03); color: #e8edf7; font-family: var(--sans); font-size: .78rem; cursor: pointer; }
+.gg-ll-spots button b, .gg-dd-presets button b { display: block; font-weight: 800; }
+.gg-ll-spots button small, .gg-dd-presets button small { display: block; font-family: var(--zh); font-weight: 600; color: #9fb0cf; }
+.gg-ll-spots button:hover, .gg-dd-presets button:hover { background: rgba(255,255,255,.09); }
+.gg-dd-presets button[aria-pressed="true"] { border-color: #ffd36e; background: rgba(255,211,110,.14); box-shadow: 0 0 0 1px #ffd36e inset; }
+.gg-ll-note { margin: 0; min-height: 4.6em; font-size: .8rem; line-height: 1.55; color: var(--al-text); }
+.gg-ll-note .zh { display: block; color: var(--al-mute); }
+.gg-ll-note span[hidden] { display: none; }
+.al-lg-par i { border-color: #ffd36e; background: #ffd36e; height: 3px; border-radius: 2px; }
+.al-lg-mer i { border-color: #6fe0ff; background: #6fe0ff; height: 3px; border-radius: 2px; }
+.al-lg-pm i { border-color: #ff8fd8; background: #ff8fd8; height: 3px; border-radius: 2px; }
+.al-lg-latang i { border-color: #ffd36e; background: rgba(255,211,110,.45); }
+.al-lg-lonang i { border-color: #6fe0ff; background: rgba(111,224,255,.45); }
+.gg-lab.al-nogl .gg-ll-spots { display: none; }
+
+/* 找出這個地方 */
+.gg-find { max-width: 1040px; }
+.gg-fd-q { margin: 1.1rem 0 0; display: grid; gap: .1rem; }
+.gg-fd-lead { font-size: .8rem; font-weight: 700; color: #9fb0cf; }
+.gg-fd-coord { font-family: var(--serif); font-size: 2rem; line-height: 1.2; color: #ffd36e; font-variant-numeric: tabular-nums; }
+.gg-fd-say-en { font-size: .95rem; font-weight: 700; color: #fff; min-height: 1.4em; }
+.gg-fd-q .zh { font-family: var(--zh); font-size: .9rem; color: #b9c8e6; min-height: 1.4em; }
+.gg-fd-map { margin-top: .9rem; border-radius: 12px; overflow: hidden; border: 1px solid rgba(160,180,230,.25); }
+.gg-fd-cv { display: block; width: 100%; aspect-ratio: 1.94; cursor: crosshair; touch-action: manipulation; }
+.gg-fd-cv.is-done { cursor: default; }
+.gg-find .gg-ft-msg { min-height: 4.4em; }
+@media (max-width: 620px) { .gg-fd-coord { font-size: 1.5rem; } .gg-fd-cv { aspect-ratio: 1.75; } }
+
+/* 一度有多長？ */
+.gg-degree { grid-template-columns: minmax(0, 1fr) 320px; }
+.gg-dd-fig { background: #0a1122; display: grid; align-items: center; }
+.gg-dd-cv { display: block; width: 100%; aspect-ratio: 16 / 9; }
+.gg-dd-slide { grid-column: auto; font-size: .78rem; color: #9fb0cf; }
+.gg-dd-slide b { color: #fff; font-size: 1rem; }
+.gg-dd-slide input { width: 100%; accent-color: #ffd36e; }
+.gg-dd-presets { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: .25rem; }
+.gg-dd-presets button { font-size: .68rem; padding: .35rem .1rem; }
+@media (max-width: 900px) { .gg-degree { grid-template-columns: minmax(0, 1fr); } .gg-dd-cv { aspect-ratio: 16 / 10; } }

@@ -17339,7 +17339,7 @@ def build_mus_hub():
 _geoj = os.path.join(ROOT, "data", "geography.json")
 GEO = json.load(open(_geoj, encoding="utf-8")) if os.path.exists(_geoj) else None
 GEO_BASE = "/resources/classes/geography/"
-_GEO_JS = {"flatmap": "geo-flatmap"}   # lab.kind → assets/js/<bundle>.js
+_GEO_JS = {"flatmap": "geo-flatmap", "latlon": "geo-latlon"}   # lab.kind → assets/js/<bundle>.js
 
 def _geo_ver():
     h = hashlib.md5()
@@ -17377,7 +17377,19 @@ def geoflat_svg(size=56):
             '<g stroke="#e8edf7" stroke-width=".7" opacity=".55"><path d="M20 47h36M29 38v18M38 38v18M47 38v18"/></g>'
             '<circle cx="26" cy="41" r="1.8" fill="#ff8a3d" opacity=".9"/><ellipse cx="33" cy="52" rx="2.6" ry="1.2" fill="#ff8a3d" opacity=".9"/></svg>')
 
-_GEO_CARD = {"flatmap": geoflat_svg}
+def geolatlon_svg(size=56):
+    """第二課的課程卡小圖示：地球儀上一條金色的緯線、一條藍色的經線，交點是一個紅點。"""
+    return (f'<svg class="geolatlon-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">'
+            '<circle cx="30" cy="30" r="22" fill="#1f4c8a"/>'
+            '<path d="M18 14c5-2 9 1 10 5s-3 6-2 10 7 4 6 9-5 9-9 9c-6-3-11-9-12-17s2-13 7-16z" fill="#8fbf7a"/>'
+            '<path d="M40 12c5 3 9 8 11 14-4 1-7-1-9-5s-4-5-2-9z" fill="#8fbf7a"/>'
+            '<g fill="none" stroke="#e8edf7" stroke-width=".8" opacity=".4"><path d="M8 30h44"/><ellipse cx="30" cy="30" rx="9" ry="22"/></g>'
+            '<path d="M10.5 20h39" stroke="#ffd36e" stroke-width="2.2" stroke-linecap="round"/>'
+            '<path d="M39 8.6c6 13 6 30 0 42.8" fill="none" stroke="#6fe0ff" stroke-width="2.2" stroke-linecap="round"/>'
+            '<circle cx="30" cy="30" r="22" fill="none" stroke="#e8edf7" stroke-width="1.4"/>'
+            '<circle cx="42.3" cy="20" r="4" fill="#ff4d4d" stroke="#fff" stroke-width="1.4"/></svg>')
+
+_GEO_CARD = {"flatmap": geoflat_svg, "latlon": geolatlon_svg}
 _GEO_PROP_K = [("shape", "Shape", "形狀"), ("area", "Area", "面積"), ("distance", "Distance", "距離"), ("direction", "Direction", "方向")]
 
 def render_geoflat_lab(lesson):
@@ -17443,7 +17455,56 @@ def render_geoflat_lab(lesson):
   <p class="gg-credit">{lab["credit_html"]}</p>
 </div>'''
 
-_GEO_LAB = {"flatmap": render_geoflat_lab}
+def render_geolatlon_lab(lesson):
+    """第二課：地球儀上一個可以拖的點，讀出經緯度（assets/js/geo-latlon.js 綁這裡的 class）。"""
+    lab = lesson["lab"]
+    spots = "".join(
+        f'<button type="button" data-spot="{k}"><b>{html.escape(en)}</b><small>{html.escape(zh)}</small></button>'
+        for k, en, zh in (("taiwan", "Taiwan", "台灣"), ("zero", "0°, 0°", "赤道與本初子午線的交點"), ("npole", "North Pole", "北極"), ("greenwich", "Greenwich", "格林威治")))
+    tg = _lab_toggles([("parallels", "Lines of latitude", "緯線", True), ("meridians", "Lines of longitude", "經線", True),
+                       ("angles", "See the angles", "看角度", True), ("labels", "Labels", "標示", True)])
+    return f'''<div class="astro-lab gg-lab gg-ll-lab rvl" data-geolatlon-lab>
+  <div class="al-stage">
+    <div class="al-space">
+      <canvas class="al-space-cv" aria-label="3D globe with one movable point; its line of latitude and line of longitude light up, and two angles are drawn from the center of the Earth. Only land, sea, and grid lines are drawn. · 3D 地球儀上一個可以移動的點；它所在的緯線與經線會亮起來，並從地心畫出兩個角。只畫陸地、海洋與經緯線"></canvas>
+      <div class="al-labels" aria-hidden="true"></div>
+      <p class="al-hint">Drag the blue dot · 拖動藍色的點　Click anywhere to move it · 點任何地方把它移過去　Drag the background to turn · 拖曳背景旋轉</p>
+      <button type="button" class="al-home" title="Reset view · 重設視角" aria-label="Reset view · 重設視角">&#8634;</button>
+      <p class="al-nogl-msg">This 3D model needs WebGL, which this browser does not support. The two sliders on the right still read out latitude and longitude, and the map game and the reading below still work.<br><span class="zh">這個瀏覽器不支援 WebGL，無法顯示 3D 模型；右邊的兩支滑桿照樣能讀出經緯度，下面的地圖遊戲和課文也都能用。</span></p>
+    </div>
+    <aside class="al-sky gg-aside">
+      <p class="al-sky-k">The address of this spot · 這個地方的地址</p>
+      <p class="gg-ll-addr" aria-live="polite">23.7° N, 121.0° E</p>
+      <p class="gg-ll-dm">23° 42′ N, 121° 00′ E</p>
+      <dl class="gg-ll-two">
+        <div class="gg-ll-row gg-ll-rlat"><dt><b>Latitude</b> 緯度<small>how far from the equator · 離赤道多遠</small></dt><dd class="gg-ll-latv">23.7° N</dd>
+          <p class="gg-ll-ns" data-side="a"><span data-s="a">north of the equator · 赤道以北（北緯）</span><span data-s="b">south of the equator · 赤道以南（南緯）</span><span data-s="mid">on the equator · 在赤道上</span></p></div>
+        <div class="gg-ll-row gg-ll-rlon"><dt><b>Longitude</b> 經度<small>how far from the prime meridian · 離本初子午線多遠</small></dt><dd class="gg-ll-lonv">121.0° E</dd>
+          <p class="gg-ll-ew" data-side="a"><span data-s="a">east of the prime meridian · 本初子午線以東（東經）</span><span data-s="b">west of the prime meridian · 本初子午線以西（西經）</span><span data-s="mid">neither east nor west · 不分東西</span></p></div>
+      </dl>
+      <label class="gg-slide gg-ll-s1"><span>Latitude: south to north · 緯度：由南到北</span>
+        <input type="range" class="gg-ll-lat" min="-90" max="90" step="0.5" value="23.5" aria-label="Latitude from 90 degrees south to 90 degrees north · 緯度，南緯 90 度到北緯 90 度"></label>
+      <label class="gg-slide gg-ll-s2"><span>Longitude: west to east · 經度：由西到東</span>
+        <input type="range" class="gg-ll-lon" min="-180" max="180" step="0.5" value="121" aria-label="Longitude from 180 degrees west to 180 degrees east · 經度，西經 180 度到東經 180 度"></label>
+      <div class="gg-ll-spots" role="group" aria-label="Jump to a place · 飛到這裡">{spots}</div>
+      <p class="gg-ll-note" aria-live="polite">
+        <span data-when="plain">Latitude is always said first, then longitude.<span class="zh">先說緯度，再說經度。</span></span>
+        <span data-when="equator" hidden>On the equator the latitude is 0°, so there is no N or S.<span class="zh">在赤道上緯度是 0 度，所以不寫 N 或 S。</span></span>
+        <span data-when="prime" hidden>On the prime meridian the longitude is 0°, so there is no E or W.<span class="zh">在本初子午線上經度是 0 度，所以不寫 E 或 W。</span></span>
+        <span data-when="zero" hidden>0°, 0°: the equator meets the prime meridian here, in the Atlantic Ocean. Both angles have closed to nothing.<span class="zh">0 度、0 度：赤道和本初子午線在這裡相交，位置在大西洋上。兩個角都合起來了。</span></span>
+        <span data-when="anti" hidden>180° is the line on the far side of the globe from the prime meridian. East and west meet here, so there is no E or W.<span class="zh">180 度是地球另一面、正對著本初子午線的那條線。東經和西經在這裡碰頭，所以不寫 E 或 W。</span></span>
+        <span data-when="pole" hidden>At a pole every line of longitude meets, so longitude has no meaning here. One number is enough.<span class="zh">所有的經線都在極點會合，所以這裡沒有經度可言，一個數字就夠了。</span></span>
+      </p>
+    </aside>
+  </div>
+  <div class="al-controls">
+    <div class="al-row al-toggles">{tg}</div>
+  </div>
+  {_lab_foot(lab)}
+  <p class="gg-credit">{lab["credit_html"]}</p>
+</div>'''
+
+_GEO_LAB = {"flatmap": render_geoflat_lab, "latlon": render_geolatlon_lab}
 
 def _gg_drag(d):
     picks = "".join(
@@ -17510,8 +17571,45 @@ def _gg_curric(d):
         for c in d["items"])
     return f'<ul class="gg-curric">{rows}</ul>'
 
+def _gg_find(d):
+    payload = json.dumps({k: d[k] for k in ("questions", "tol", "start_en", "start_zh", "end_en", "end_zh")}, ensure_ascii=False).replace("</", "<\\/")
+    return f'''<div class="gg-fit gg-find rvl" data-gg-find>
+  <script type="application/json">{payload}</script>
+  <div class="gg-ft-top"><p class="gg-ft-k">Question 1 of 8 · 第 1 題（共 8 題）</p><p class="gg-ft-sc">Found on the first try · 第一次就找到 <b class="gg-ft-score">0 / 0</b></p></div>
+  <div class="gg-ft-steps" aria-hidden="true"></div>
+  <p class="gg-fd-q" aria-live="polite"><span class="gg-fd-lead">Click this place on the map · 在地圖上點出這個地方</span><b class="gg-fd-coord"></b><span class="gg-fd-say-en"></span><span class="zh gg-fd-say-zh"></span></p>
+  <div class="gg-fd-map"><canvas class="gg-fd-cv" aria-label="A world map with grid lines every 30 degrees, labeled in degrees. Only land and sea are drawn. Click to choose a spot. · 一張每 30 度有一條格線並標上度數的世界地圖，只畫陸地與海洋。點一下選一個位置。"></canvas></div>
+  <p class="gg-ft-msg" aria-live="polite"></p>
+  <div class="gg-ft-foot"><button type="button" class="gg-btn gg-btn-gold gg-ft-next" hidden>Next place · 下一個地方</button></div>
+</div>'''
+
+def _gg_degree(d):
+    pre = "".join(
+        f'<button type="button" data-lat="{v}" aria-pressed="{"true" if v == "0" else "false"}"><b>{html.escape(en)}</b><small>{html.escape(zh)}</small></button>'
+        for v, en, zh in (("0", "Equator 0°", "赤道"), ("23.5", "Taiwan 23.5°", "台灣"), ("45", "45°", "一半的地方"), ("60", "60°", "六十度"), ("90", "Pole 90°", "極點")))
+    return f'''<div class="gg-drag gg-degree rvl" data-gg-degree>
+  <div class="gg-dd-fig"><canvas class="gg-dd-cv" aria-label="Left: the Earth from the side with the chosen circle of latitude. Right: a one-degree by one-degree box drawn to scale; it gets narrower toward the pole. · 左邊是地球的側面與所選的那一圈緯線；右邊把一度乘一度的那一格照比例畫出來，越靠近極點越窄。"></canvas></div>
+  <div class="gg-dg-side">
+    <label class="gg-slide gg-dd-slide"><span>Latitude · 緯度　<b class="gg-dd-latv">0°</b></span>
+      <input type="range" class="gg-dd-lat" min="0" max="90" step="0.5" value="0" aria-label="Latitude from the equator to the pole · 緯度，從赤道到極點"></label>
+    <div class="gg-dd-presets" role="group" aria-label="Preset latitudes · 預設緯度">{pre}</div>
+    <dl class="gg-dg-facts">
+      <div><dt>One degree of latitude here<span class="zh">這裡的一度緯度</span></dt><dd class="gg-dd-latkm"></dd></div>
+      <div class="is-key"><dt>One degree of longitude here<span class="zh">這裡的一度經度</span></dt><dd class="gg-dd-lonkm"></dd></div>
+      <div><dt>Compared with the equator<span class="zh">和赤道上比</span></dt><dd class="gg-dd-pct"></dd></div>
+      <div><dt>All the way around at this latitude<span class="zh">沿著這條緯線繞一圈</span></dt><dd class="gg-dd-around"></dd></div>
+    </dl>
+    <p class="gg-dg-msg" aria-live="polite">
+      <span data-when="eq">{html.escape(d["msg_eq_en"])}<span class="zh">{html.escape(d["msg_eq_zh"])}</span></span>
+      <span data-when="mid" hidden>{html.escape(d["msg_mid_en"])}<span class="zh">{html.escape(d["msg_mid_zh"])}</span></span>
+      <span data-when="half" hidden>{html.escape(d["msg_half_en"])}<span class="zh">{html.escape(d["msg_half_zh"])}</span></span>
+      <span data-when="pole" hidden>{html.escape(d["msg_pole_en"])}<span class="zh">{html.escape(d["msg_pole_zh"])}</span></span>
+    </p>
+  </div>
+</div>'''
+
 # 頁面上的小互動：照這個順序排在「模型卡」後面（JSON 有那個 key 才出現）
-_GEO_WIDGETS = [("drag", _gg_drag), ("fit", _gg_fit), ("map_english", _gg_map_english)]
+_GEO_WIDGETS = [("drag", _gg_drag), ("fit", _gg_fit), ("find", _gg_find), ("degree", _gg_degree), ("map_english", _gg_map_english)]
 
 def _geo_flat():
     return [(ui, u, l) for ui, u in enumerate(GEO["units"]) for l in u["lessons"]]

@@ -882,7 +882,7 @@
        "zh": "怎麼找到地球上任何一個地方？",
        "note_en": "Latitude and longitude: two numbers that work like an address for any spot on the globe.",
        "note_zh": "經度和緯度：兩個數字，就是地球上任何一個地方的地址。",
-       "soon": true
+       "href": "/resources/classes/geography/latitude-and-longitude/"
       }
      ],
      "sources_note_en": "Names, dates, numbers, and quotations on this page were checked against these sources (October 2026). The stretch factors and ratios are computed by the page itself and have automated tests",
@@ -1003,15 +1003,806 @@
        "url": "https://www.naer.edu.tw/PageSyllabus?fid=52"
       }
      ]
+    },
+    {
+     "n": 2,
+     "slug": "latitude-and-longitude",
+     "title": "How Do You Find Any Place on Earth?",
+     "title_zh": "怎麼找到地球上任何一個地方？",
+     "level": "入門 · Beginner",
+     "icon": "📍",
+     "card": "latlon",
+     "blurb_en": "Drag a point around a 3D globe and read its latitude and longitude. See the two angles from the center of the Earth, find eight places from their numbers, and learn why one degree is not always the same distance.",
+     "blurb_zh": "在 3D 地球儀上拖動一個點，讀出它的緯度和經度。看看從地心量出來的兩個角，照著數字找出八個地方，再想想為什麼「一度」不一定一樣長。",
+     "big_idea_en": "Two numbers work like an address for any spot on Earth. Latitude tells how far north or south of the equator it is. Longitude tells how far east or west of the prime meridian it is. Both numbers are angles.",
+     "big_idea_zh": "兩個數字，就是地球上任何一個地方的地址。緯度說它在赤道的北邊或南邊多遠，經度說它在本初子午線的東邊或西邊多遠。這兩個數字都是角度。",
+     "lab": {
+      "kind": "latlon",
+      "eyebrow": "3D Model · 3D 模型",
+      "title_en": "A Globe with a Movable Point",
+      "title_zh": "地球儀上一個可以移動的點",
+      "how_en": "Drag the blue dot, or click anywhere on the globe, and read the two numbers on the right. The gold line is the dot's line of latitude and the blue line is its line of longitude. With “See the angles” on, the globe turns see-through: the gold wedge at the center is the latitude and the blue wedge is the longitude. The model draws only land, sea, and grid lines.",
+      "how_zh": "拖動藍色的點，或點地球儀上任何一個地方，再讀右邊的兩個數字。金色的線是這個點所在的緯線，藍色的線是它所在的經線。打開「看角度」，地球儀會變成半透明：地心那片金色的扇形就是緯度，藍色的扇形就是經度。模型只畫陸地、海洋和經緯線。",
+      "legend": [
+       {
+        "cls": "sel",
+        "en": "The point you are moving",
+        "zh": "你正在移動的點"
+       },
+       {
+        "cls": "par",
+        "en": "Its line of latitude (a parallel)",
+        "zh": "它所在的緯線"
+       },
+       {
+        "cls": "mer",
+        "en": "Its line of longitude (a meridian)",
+        "zh": "它所在的經線"
+       },
+       {
+        "cls": "eq",
+        "en": "The equator, latitude 0°",
+        "zh": "赤道，緯度 0 度"
+       },
+       {
+        "cls": "pm",
+        "en": "The prime meridian, longitude 0°",
+        "zh": "本初子午線，經度 0 度"
+       },
+       {
+        "cls": "latang",
+        "en": "Gold wedge: the latitude angle",
+        "zh": "金色扇形：緯度的角"
+       },
+       {
+        "cls": "lonang",
+        "en": "Blue wedge: the longitude angle",
+        "zh": "藍色扇形：經度的角"
+       },
+       {
+        "cls": "tw",
+        "en": "Taiwan",
+        "zh": "台灣"
+       }
+      ],
+      "scale_en": "The grid lines are 30° apart. The readout is rounded to one-tenth of a degree, which is about 11 km on the ground along a line of longitude.",
+      "scale_zh": "格線每 30 度一條。讀數四捨五入到 0.1 度；沿著經線量，0.1 度在地面上大約是 11 公里。",
+      "credit_html": "Land outlines: Natural Earth, 1:50m Land, version 5.1.2, public domain (naturalearthdata.com), simplified for this page. No borders or country names are shown. · 陸地外形：Natural Earth 1:50m Land 5.1.2 版，公有領域（naturalearthdata.com），經本頁簡化。不畫國界、不標國名。"
+     },
+     "paras": [
+      "Imagine a ship far out in the middle of the ocean. There are no streets, no signs, and no buildings, only water in every direction. If the ship needs help, how can the sailors tell anyone where they are? On land we use addresses with street names and house numbers. The ocean has none of these. Luckily, the whole Earth has an address system of its own, and it needs only two numbers.",
+      "The first number is latitude. Picture a line around the middle of the Earth, halfway between the North Pole and the South Pole. This is the equator. Latitude tells you how far north or south of the equator a place is. It is measured in degrees, from 0 at the equator to 90 at each pole. Lines of latitude are circles that run east and west. They are also called parallels, because they never meet, and they get smaller as they get closer to the poles.",
+      "The second number is longitude. Lines of longitude, also called meridians, run from the North Pole to the South Pole. One of them is chosen as the starting line and is called the prime meridian. It passes through Greenwich, in London. Longitude tells you how far east or west of the prime meridian a place is, from 0 degrees up to 180 degrees. Unlike lines of latitude, all lines of longitude meet at the two poles.",
+      "Put the two numbers together and you have an address. Latitude is said first, then longitude. The middle of Taiwan is at about 23.5 degrees north, 121 degrees east. For more exact work, each degree is divided into 60 smaller parts called minutes. One degree of latitude is about 111 kilometers on the ground wherever you are. One degree of longitude is about 111 kilometers at the equator, but it shrinks toward the poles, where all the lines come together.",
+      "Why does longitude start at Greenwich? The equator is set by the way the Earth spins, so nobody had to choose it. The prime meridian is different. Any line from pole to pole could have been the starting line, and for a long time different countries used different ones. In 1884, delegates from 25 countries met in Washington, D.C., and voted to use the line through the observatory at Greenwich, which most ships' charts already used. The prime meridian is an agreement among people.",
+      "For sailors, latitude was the easy number. In the Northern Hemisphere, the height of the North Star above the horizon is about the same as your latitude. Longitude was much harder, because finding it means knowing the exact time. The Earth turns 15 degrees every hour, so a clock that keeps the time of a known place can tell a ship how far east or west it has sailed. In the 1700s, the English clockmaker John Harrison built clocks that could do this at sea. Today the satellites of GPS give your phone both numbers in a few seconds."
+     ],
+     "paras_zh": [
+      "想像一艘船在大海的正中央。沒有街道、沒有路牌、沒有建築，四面八方只有海水。如果這艘船需要幫忙，船上的人要怎麼告訴別人自己在哪裡？在陸地上，我們用有路名和門牌號碼的地址；大海上這些都沒有。還好，整個地球有一套自己的地址系統，而且只需要兩個數字。",
+      "第一個數字是緯度。想像有一條線繞著地球的腰，剛好在北極和南極的正中間，這就是赤道。緯度告訴你一個地方在赤道的北邊或南邊多遠。它用「度」來量，赤道是 0 度，兩極各是 90 度。緯線是東西向的圓圈。它們彼此平行、永遠不會相交，而且越靠近兩極，圓圈就越小。",
+      "第二個數字是經度。經線（英文是 lines of longitude，也叫 meridians）從北極一路畫到南極。其中有一條被選為起點，叫做本初子午線，它通過倫敦的格林威治。經度告訴你一個地方在本初子午線的東邊或西邊多遠，從 0 度到 180 度。和緯線不一樣的是，所有的經線都在南北兩極會合。",
+      "把兩個數字放在一起，就是一個地址。先說緯度，再說經度。台灣的中間大約在北緯 23.5 度、東經 121 度。需要更精確的時候，每一度再分成 60 個更小的單位，叫做「分」。一度緯度在地面上大約是 111 公里，到哪裡都差不多。一度經度在赤道上也大約是 111 公里，但越往兩極越短，因為所有的經線在那裡聚在一起。",
+      "經度為什麼從格林威治算起？赤道是地球自轉的方式決定的，不需要誰來選。本初子午線就不一樣了：任何一條從北極到南極的線都可以當起點，而且有很長一段時間，各國用的起點都不一樣。1884 年，25 個國家的代表在美國華盛頓開會，表決採用通過格林威治天文台的那一條線——當時大多數船隻用的海圖，本來就以它為準。本初子午線是人和人之間的約定。",
+      "對航海的人來說，緯度是比較容易的那個數字。在北半球，北極星在地平線上的高度，大約就等於你所在的緯度。經度難得多，因為要知道經度，就得知道準確的時間。地球每小時轉 15 度，所以只要有一個鐘一直保持某個已知地點的時間，就能算出船往東或往西走了多遠。十八世紀，英國的鐘錶匠哈里森做出了能在海上辦到這件事的鐘。今天，GPS 衛星幾秒鐘就能把這兩個數字送到你的手機上。"
+     ],
+     "questions": [
+      "Lines of latitude are called parallels. Why does that name not fit lines of longitude?",
+      "Why did people have to hold a meeting to choose the prime meridian, but not the equator?",
+      "A place is at 60 degrees north. You walk along its line of latitude until your longitude has changed by one degree. Did you walk more or less than 111 kilometers? Why?"
+     ],
+     "answers": [
+      "Parallel lines never meet. Lines of latitude never meet, but all lines of longitude come together at the North Pole and the South Pole, so they are not parallel.",
+      "The equator is fixed by the Earth's spin: it is the circle halfway between the two poles. No line of longitude is special in that way, so people had to agree on which one would be zero. In 1884 they agreed on the line through Greenwich.",
+      "Less. Lines of longitude get closer together toward the poles. At 60 degrees north, one degree of longitude is only half as long as at the equator, about 56 kilometers."
+     ],
+     "vocab": [
+      {
+       "n": 1,
+       "w": "latitude",
+       "pos": "n.",
+       "zh": "緯度",
+       "ex": "The <b>latitude</b> of the equator is zero degrees.",
+       "exzh": "赤道的緯度是 0 度。"
+      },
+      {
+       "n": 2,
+       "w": "longitude",
+       "pos": "n.",
+       "zh": "經度",
+       "ex": "Taiwan's <b>longitude</b> is about 121 degrees east.",
+       "exzh": "台灣的經度大約是東經 121 度。"
+      },
+      {
+       "n": 3,
+       "w": "prime meridian",
+       "pos": "n.",
+       "zh": "本初子午線",
+       "ex": "The <b>prime meridian</b> passes through Greenwich.",
+       "exzh": "本初子午線通過格林威治。"
+      },
+      {
+       "n": 4,
+       "w": "degree",
+       "pos": "n.",
+       "zh": "度",
+       "ex": "A full circle has 360 <b>degrees</b>.",
+       "exzh": "一整圈是 360 度。"
+      },
+      {
+       "n": 5,
+       "w": "hemisphere",
+       "pos": "n.",
+       "zh": "半球",
+       "ex": "Taiwan is in the Northern <b>Hemisphere</b>.",
+       "exzh": "台灣在北半球。"
+      },
+      {
+       "n": 6,
+       "w": "parallel",
+       "pos": "n.",
+       "zh": "緯線",
+       "ex": "Each <b>parallel</b> is a circle around the Earth.",
+       "exzh": "每一條緯線都是繞地球一圈的圓。"
+      },
+      {
+       "n": 7,
+       "w": "meridian",
+       "pos": "n.",
+       "zh": "經線；子午線",
+       "ex": "Every <b>meridian</b> runs from pole to pole.",
+       "exzh": "每一條經線都從北極畫到南極。"
+      },
+      {
+       "n": 8,
+       "w": "coordinates",
+       "pos": "n.",
+       "zh": "坐標",
+       "ex": "Give me the <b>coordinates</b>, and I will find the island on the map.",
+       "exzh": "把坐標給我，我就能在地圖上找到那座島。"
+      }
+     ],
+     "quiz": [
+      {
+       "q": "What does latitude tell you?",
+       "options": [
+        "How far north or south of the equator a place is",
+        "How far east or west of Greenwich a place is",
+        "How high a place is above the sea",
+        "How far a place is from the North Pole in kilometers"
+       ],
+       "correct": 0
+      },
+      {
+       "q": "Where do all lines of longitude meet?",
+       "options": [
+        "At the equator",
+        "At the North Pole and the South Pole",
+        "At Greenwich",
+        "They never meet"
+       ],
+       "correct": 1
+      },
+      {
+       "q": "Which number is said first in a place's coordinates?",
+       "options": [
+        "Longitude",
+        "The distance in kilometers",
+        "Latitude",
+        "The time"
+       ],
+       "correct": 2
+      },
+      {
+       "q": "In what year did an international conference choose Greenwich for the prime meridian?",
+       "options": [
+        "1492",
+        "1569",
+        "1714",
+        "1884"
+       ],
+       "correct": 3
+      },
+      {
+       "q": "About how long is one degree of longitude at 60 degrees north?",
+       "options": [
+        "About 111 km, the same as at the equator",
+        "About 56 km, half as long as at the equator",
+        "About 222 km, twice as long as at the equator",
+        "Zero"
+       ],
+       "correct": 1
+      }
+     ],
+     "parts_head": {
+      "eyebrow": "Try It in the Model · 在模型裡試試",
+      "en": "Four things to watch",
+      "zh": "四件值得看的事"
+     },
+     "parts": [
+      {
+       "key": "latitude",
+       "icon": "↕️",
+       "en": "Latitude is an angle",
+       "zh": "緯度是一個角",
+       "meta_en": "North and south",
+       "meta_zh": "南北方向",
+       "demo": "latitude",
+       "text_en": "The dot climbs north from the equator along one line of longitude. Watch the gold wedge at the center of the Earth open: that angle is the latitude.",
+       "text_zh": "那個點沿著同一條經線，從赤道往北爬。看地心那片金色的扇形慢慢張開：那個角就是緯度。"
+      },
+      {
+       "key": "longitude",
+       "icon": "↔️",
+       "en": "Longitude is an angle too",
+       "zh": "經度也是一個角",
+       "meta_en": "East and west",
+       "meta_zh": "東西方向",
+       "demo": "longitude",
+       "text_en": "The dot slides east along the equator, starting from the prime meridian. The blue wedge opens in the flat plane of the equator: that angle is the longitude.",
+       "text_zh": "那個點從本初子午線出發，沿著赤道往東滑。藍色的扇形在赤道的平面上張開：那個角就是經度。"
+      },
+      {
+       "key": "taiwan",
+       "icon": "📍",
+       "en": "Two numbers for Taiwan",
+       "zh": "台灣的兩個數字",
+       "meta_en": "23.7° N, 121° E",
+       "meta_zh": "北緯 23.7 度、東經 121 度",
+       "demo": "taiwan",
+       "text_en": "Fly to Taiwan and see both wedges at once. The gold one says how far north of the equator. The blue one says how far east of Greenwich.",
+       "text_zh": "飛到台灣，同時看到兩片扇形。金色的說它在赤道以北多遠，藍色的說它在格林威治以東多遠。"
+      },
+      {
+       "key": "pole",
+       "icon": "🧊",
+       "en": "Where the lines run out",
+       "zh": "線走到盡頭的地方",
+       "meta_en": "The North Pole",
+       "meta_zh": "北極",
+       "demo": "pole",
+       "text_en": "Send the dot to the North Pole. Its line of latitude shrinks to a single point, every line of longitude meets there, and the longitude reading disappears.",
+       "text_zh": "把那個點送到北極。它的緯線縮成一個點，所有的經線都在那裡會合，經度的讀數也不見了。"
+      }
+     ],
+     "parts_note_en": "Then try it yourself. Can you put the dot on a place that is in the Southern Hemisphere and the Western Hemisphere at the same time?",
+     "parts_note_zh": "然後自己動手試試。你能把那個點放在一個同時屬於南半球和西半球的地方嗎？",
+     "find": {
+      "eyebrow": "Game · 小遊戲",
+      "en": "Find the Place",
+      "zh": "找出這個地方",
+      "lead_en": "Eight places. Each one is given only as two numbers. Click where you think it is on the map. If you miss, the game tells you which way to move. There is no timer, and the game counts the places you find on the first try.",
+      "lead_zh": "八個地方，每一個都只給兩個數字。在地圖上點出你認為的位置；沒點中的話，遊戲會告訴你該往哪邊移。不計時，遊戲會記下你第一次就找到的題數。",
+      "tol": 9,
+      "start_en": "Find the line of latitude first, then follow it east or west to the longitude.",
+      "start_zh": "先找到緯線，再沿著它往東或往西找到經度。",
+      "end_en": "With two numbers you can point to any spot on Earth, on land or in the middle of the sea.",
+      "end_zh": "有了兩個數字，就能指出地球上任何一個地方，不管在陸地上還是大海中間。",
+      "questions": [
+       {
+        "lon": 0,
+        "lat": 0,
+        "land": false,
+        "en": "zero degrees latitude, zero degrees longitude",
+        "zh": "緯度 0 度、經度 0 度",
+        "where_en": "This is where the equator crosses the prime meridian. It is open water in the Atlantic Ocean, off the west coast of Africa.",
+        "where_zh": "這是赤道和本初子午線交叉的地方。這裡是大西洋上的一片海，在非洲西岸外。"
+       },
+       {
+        "lon": 121,
+        "lat": 23.5,
+        "land": true,
+        "en": "twenty-three point five degrees north, one hundred twenty-one degrees east",
+        "zh": "北緯 23.5 度、東經 121 度",
+        "where_en": "You found Taiwan.",
+        "where_zh": "你找到台灣了。"
+       },
+       {
+        "lon": -40,
+        "lat": 72,
+        "land": true,
+        "en": "seventy-two degrees north, forty degrees west",
+        "zh": "北緯 72 度、西經 40 度",
+        "where_en": "This is the middle of Greenland. On this kind of map, places this far north are stretched wide.",
+        "where_zh": "這是格陵蘭的中間。在這種地圖上，這麼北邊的地方會被橫向拉寬。"
+       },
+       {
+        "lon": 134,
+        "lat": -25,
+        "land": true,
+        "en": "twenty-five degrees south, one hundred thirty-four degrees east",
+        "zh": "南緯 25 度、東經 134 度",
+        "where_en": "This is the middle of Australia, in the Southern Hemisphere.",
+        "where_zh": "這是澳洲的中間，在南半球。"
+       },
+       {
+        "lon": -160,
+        "lat": 0,
+        "land": false,
+        "en": "zero degrees latitude, one hundred sixty degrees west",
+        "zh": "緯度 0 度、西經 160 度",
+        "where_en": "This is on the equator in the middle of the Pacific Ocean, far from any continent.",
+        "where_zh": "這是太平洋正中間、赤道上的一點，離每一塊大陸都很遠。"
+       },
+       {
+        "lon": 47,
+        "lat": -20,
+        "land": true,
+        "en": "twenty degrees south, forty-seven degrees east",
+        "zh": "南緯 20 度、東經 47 度",
+        "where_en": "This is the island of Madagascar, off the east coast of Africa.",
+        "where_zh": "這是馬達加斯加島，在非洲東岸外。"
+       },
+       {
+        "lon": -55,
+        "lat": -10,
+        "land": true,
+        "en": "ten degrees south, fifty-five degrees west",
+        "zh": "南緯 10 度、西經 55 度",
+        "where_en": "This is in South America, south of the Amazon River. It is in both the Southern and the Western Hemisphere.",
+        "where_zh": "這在南美洲、亞馬遜河的南邊，同時屬於南半球和西半球。"
+       },
+       {
+        "lon": 45,
+        "lat": -78,
+        "land": true,
+        "en": "seventy-eight degrees south, forty-five degrees east",
+        "zh": "南緯 78 度、東經 45 度",
+        "where_en": "This is Antarctica. Near the poles the lines of longitude are so close together that many degrees of longitude are only a short walk.",
+        "where_zh": "這是南極洲。靠近兩極的地方，經線擠得很近，相差很多度的經度其實只隔一小段路。"
+       }
+      ]
+     },
+     "degree": {
+      "eyebrow": "See Why · 看看為什麼",
+      "en": "How Long Is One Degree?",
+      "zh": "一度有多長？",
+      "lead_en": "A degree is an angle, and its length on the ground depends on the direction. Slide the latitude from the equator to the pole. The gold box is one degree of latitude tall and one degree of longitude wide, drawn to scale. The numbers treat the Earth as a perfect ball with a radius of 6,371 km; the real Earth is slightly flattened, so real values differ by less than one percent.",
+      "lead_zh": "「度」是角度，它在地面上有多長，要看是哪個方向。把緯度從赤道拉到極點看看。金色的格子高是一度緯度、寬是一度經度，照比例畫。這裡把地球當成半徑 6,371 公里的正圓球來算；真正的地球稍微扁一點，所以實際的數字會差不到百分之一。",
+      "msg_eq_en": "At the equator the box is a square: one degree is about 111 km in both directions.",
+      "msg_eq_zh": "在赤道上，這一格是正方形：兩個方向的一度都大約是 111 公里。",
+      "msg_mid_en": "The box keeps its height and loses its width. One degree of latitude stays about 111 km; one degree of longitude is 111 km times the cosine of the latitude.",
+      "msg_mid_zh": "這一格的高度不變，寬度變窄。一度緯度一直是大約 111 公里；一度經度是 111 公里乘上緯度的餘弦。",
+      "msg_half_en": "At 60 degrees, one degree of longitude is exactly half as long as at the equator.",
+      "msg_half_zh": "在緯度 60 度，一度經度剛好是赤道上的一半。",
+      "msg_pole_en": "At the pole the box has no width at all. You could walk through all 360 degrees of longitude in a few steps.",
+      "msg_pole_zh": "到了極點，這一格完全沒有寬度。走幾步路，就走過了全部 360 度的經度。"
+     },
+     "map_english": {
+      "eyebrow": "Map English · 地圖英語",
+      "en": "Eight sentences for saying where a place is",
+      "zh": "用經緯度說位置的八句英文",
+      "lead_en": "This lesson's Map English card is about reading coordinates aloud. Listen, repeat, then read out the coordinates of the blue dot in the model.",
+      "lead_zh": "這一課的「地圖英語」練習把經緯度唸出來。先聽、再跟著唸，然後把模型裡那個藍色的點的經緯度唸出來。",
+      "items": [
+       {
+        "en": "Taiwan is <b>at about</b> twenty-three and a half <b>degrees north</b>.",
+        "zh": "台灣大約在北緯 23.5 度。",
+        "use_en": "at … degrees north / south: for latitude",
+        "use_zh": "說緯度"
+       },
+       {
+        "en": "Its longitude is one hundred twenty-one <b>degrees east</b>.",
+        "zh": "它的經度是東經 121 度。",
+        "use_en": "… degrees east / west: for longitude",
+        "use_zh": "說經度"
+       },
+       {
+        "en": "<b>What are the coordinates of</b> this island?",
+        "zh": "這座島的坐標是多少？",
+        "use_en": "coordinates: the two numbers together",
+        "use_zh": "兩個數字合起來叫坐標"
+       },
+       {
+        "en": "The equator is <b>at zero degrees latitude</b>.",
+        "zh": "赤道在緯度 0 度。",
+        "use_en": "at zero degrees: no north or south",
+        "use_zh": "0 度不分南北"
+       },
+       {
+        "en": "Greenwich is <b>on the prime meridian</b>.",
+        "zh": "格林威治在本初子午線上。",
+        "use_en": "on: for a place that lies on a line",
+        "use_zh": "在一條線上用 on"
+       },
+       {
+        "en": "Australia is <b>south of the equator</b>.",
+        "zh": "澳洲在赤道以南。",
+        "use_en": "north of / south of / east of / west of",
+        "use_zh": "在……以北／以南／以東／以西"
+       },
+       {
+        "en": "The lines of longitude <b>meet at the poles</b>.",
+        "zh": "經線在兩極會合。",
+        "use_en": "meet at: come together at a point",
+        "use_zh": "在某一點會合"
+       },
+       {
+        "en": "<b>Go ten degrees farther</b> north, and you will reach the coast.",
+        "zh": "再往北十度，你就會到海岸。",
+        "use_en": "go … degrees farther north / south / east / west",
+        "use_zh": "再往某個方向幾度"
+       }
+      ]
+     },
+     "culture_cards": {
+      "eyebrow": "Stories Behind the Lines · 線背後的故事",
+      "title_en": "A vote, a clock, a line across Taiwan, and a line that moved",
+      "title_zh": "一場表決、一座鐘、一條穿過台灣的線，和一條移動了的線",
+      "lead_en": "Four short stories about how people drew lines on the Earth and agreed on them.",
+      "lead_zh": "四個小故事，講人怎麼在地球上畫線，又怎麼取得共識。",
+      "cards": [
+       {
+        "k": "1884 · A Vote · 一場表決",
+        "en": "Twenty-two to one",
+        "zh": "二十二比一",
+        "body_en": "In October 1884, 41 delegates from 25 countries met in Washington, D.C., to choose one starting line for longitude. The vote for Greenwich was 22 in favor and 1 against, with 2 countries not voting. According to the Royal Observatory, Greenwich was chosen because it caused the least disruption: nearly two-thirds of the world's ships already used charts based on it. The same meeting agreed to count longitude in two directions, up to 180 degrees east and 180 degrees west.",
+        "body_zh": "1884 年 10 月，25 個國家的 41 位代表在美國華盛頓開會，要選出一條共同的經度起點。表決結果是 22 票贊成格林威治、1 票反對，另有 2 國棄權。依格林威治皇家天文台的說明，選它是因為造成的變動最小：當時全世界將近三分之二的船，用的海圖本來就以它為準。同一場會議也決定，經度往東、往西兩個方向各算到 180 度。"
+       },
+       {
+        "k": "1700s · A Clock · 一座鐘",
+        "en": "Carrying the time to sea",
+        "zh": "把時間帶到海上",
+        "body_en": "The Earth turns 360 degrees in 24 hours, which is 15 degrees every hour. So if a ship carries a clock set to the time of a known place, each hour of difference from local noon means 15 degrees of longitude. The hard part was building a clock that stayed accurate on a rolling ship. In 1714 the British Parliament passed the Longitude Act, offering rewards of up to 20,000 pounds for a solution. John Harrison completed his sea watch, now called H4, in 1759. It was tested on a voyage to Jamaica that began in 1761, and again on a voyage to Barbados in 1764.",
+        "body_zh": "地球 24 小時轉 360 度，也就是每小時 15 度。所以只要船上有一個鐘，一直保持某個已知地點的時間，它和當地正午每差一小時，就是 15 度的經度。難的是做出一個在搖晃的船上還走得準的鐘。1714 年，英國國會通過《經度法案》，懸賞最高兩萬英鎊徵求解法。哈里森在 1759 年完成他的航海鐘（今天稱為 H4），1761 年起在前往牙買加的航程中測試，1764 年又在前往巴貝多的航程中再測一次。"
+       },
+       {
+        "k": "Taiwan · 台灣",
+        "en": "A line that crosses the island, and moves",
+        "zh": "一條穿過台灣、還會移動的線",
+        "body_en": "The Tropic of Cancer, at about 23.5 degrees north, runs across Taiwan. Taiwan's Tourism Administration lists three markers on the main island: in Shuishang Township in Chiayi County, on the Wuhe Terrace in Ruisui Township in Hualien County, and in Fengbin Township in Hualien County. At noon on the June solstice the Sun is straight overhead on this line, and a pole standing upright casts no shadow. The line is not fixed. It is drifting south by a little more than 14 meters a year, and in 1788 it ran through what is now a street corner in Chiayi City.",
+        "body_zh": "北回歸線大約在北緯 23.5 度，橫貫台灣。交通部觀光署的資料列出本島的三座北回歸線標：嘉義縣水上鄉、花蓮縣瑞穗鄉舞鶴台地、花蓮縣豐濱鄉。每年夏至正午，太陽直射這條線，可以看到「立竿不見影」。這條線並不是固定的：它平均每年以 14 公尺多的速度往南移，1788 年時通過的地方，是今天嘉義市的一個路口。"
+       },
+       {
+        "k": "Today · 今天",
+        "en": "The line at Greenwich has moved 102 meters",
+        "zh": "格林威治那條線，移了 102 公尺",
+        "body_en": "Visitors to Greenwich like to stand on the brass line that marks the historic prime meridian, with one foot in the east and one in the west. But a phone standing on that line does not read exactly zero. Satellite navigation uses a newer reference line, which passes 102.5 meters to the east of the old one. The old line was set by a telescope on the ground; the new one comes from measurements of the whole Earth. A degree of longitude is still a degree, counted from a slightly different zero.",
+        "body_zh": "到格林威治的遊客，喜歡站在標示舊本初子午線的那條銅線上，一腳在東、一腳在西。但把手機放在那條線上，讀數並不會剛好是 0。衛星導航用的是一條比較新的參考線，在舊線東邊 102.5 公尺的地方。舊線是用地面上的一架望遠鏡定出來的，新線則來自對整個地球的測量。經度的「度」還是一樣的度，只是零點稍微挪了一點。"
+       }
+      ]
+     },
+     "curric": {
+      "eyebrow": "In the Curriculum · 對應課綱",
+      "en": "Where this lesson fits",
+      "zh": "這一課對應的課綱",
+      "lead_en": "This entry comes from Taiwan's 12-Year Basic Education curriculum for social studies (2018). The curriculum writes the word for “coordinate” as 座標; surveying agencies in Taiwan write 坐標. We quote each as it is written.",
+      "lead_zh": "下面的條目出自十二年國民基本教育課程綱要社會領域（民國 107 年發布）。課綱寫「座標」，國土測繪機關寫「坐標」；本教材引用時各照原文。",
+      "items": [
+       {
+        "code": "地 Aa-Ⅳ-1",
+        "area": "社會領域・地理（國中）",
+        "area_en": "Social studies, geography (junior high)",
+        "text": "全球經緯度座標系統。",
+        "note_en": "This lesson is a first look at that system: what the two numbers mean, where they start, and how to read and say them.",
+        "note_zh": "這一課就是這套系統的入門：兩個數字各代表什麼、從哪裡算起、怎麼讀和怎麼說。"
+       }
+      ]
+     },
+     "myths": [
+      {
+       "myth_en": "A degree is a fixed distance, like a kilometer.",
+       "myth_zh": "「一度」是固定的距離，就像一公里一樣。",
+       "fact_en": "A degree is an angle. One degree of latitude is about 111 km everywhere, but one degree of longitude is about 111 km at the equator, about 56 km at 60 degrees, and nothing at the poles.",
+       "fact_zh": "「度」是角度。一度緯度到哪裡都大約是 111 公里；一度經度在赤道約 111 公里，在緯度 60 度約 56 公里，到了兩極是 0。"
+      },
+      {
+       "myth_en": "The prime meridian is a natural line, just like the equator.",
+       "myth_zh": "本初子午線和赤道一樣，是自然形成的線。",
+       "fact_en": "The equator is set by the Earth's spin. The prime meridian is an agreement: it was chosen by a vote at an international conference in 1884.",
+       "fact_zh": "赤道是地球自轉決定的。本初子午線則是約定：它是 1884 年一場國際會議表決選出來的。"
+      },
+      {
+       "myth_en": "Lines of longitude are parallel to each other, like lines of latitude.",
+       "myth_zh": "經線彼此平行，就像緯線一樣。",
+       "fact_en": "Lines of latitude are parallel and never meet. Lines of longitude are farthest apart at the equator and all meet at the poles.",
+       "fact_zh": "緯線彼此平行、永遠不相交。經線在赤道上隔得最開，到了兩極全部會合。"
+      },
+      {
+       "myth_en": "If you stand on the line at Greenwich, your phone will show a longitude of exactly zero.",
+       "myth_zh": "站在格林威治的那條線上，手機顯示的經度會剛好是 0。",
+       "fact_en": "Satellite navigation counts longitude from a newer line about 102 meters to the east, so on the historic line a phone shows a tiny bit of west longitude.",
+       "fact_zh": "衛星導航的經度是從東邊大約 102 公尺的一條新線算起的，所以站在舊線上，手機會顯示一點點西經。"
+      }
+     ],
+     "tricks_head": {
+      "en": "Latitude and longitude in a sentence",
+      "zh": "一句話記住經緯度"
+     },
+     "tricks": [
+      {
+       "title_en": "Latitude is like a ladder",
+       "title_zh": "緯線像梯子的橫桿",
+       "body_en": "The lines lie flat, one above another, and you climb them to go north.",
+       "body_zh": "一條一條橫著排上去；往北走，就像往上爬。"
+      },
+      {
+       "title_en": "Longitude lines are long",
+       "title_zh": "經線是長長的直線",
+       "body_en": "Every one runs the long way, from pole to pole, and they are all the same length.",
+       "body_zh": "每一條都從北極拉到南極，而且每一條都一樣長。"
+      },
+      {
+       "title_en": "Latitude first, then longitude",
+       "title_zh": "先緯度，再經度",
+       "body_en": "The same order as in the dictionary: “la” comes before “lo.”",
+       "body_zh": "和字典的順序一樣：la 排在 lo 前面。"
+      },
+      {
+       "title_en": "N and S for latitude, E and W for longitude",
+       "title_zh": "緯度配南北，經度配東西",
+       "body_en": "A latitude can never be more than 90. A longitude can go up to 180.",
+       "body_zh": "緯度最多 90，經度最多 180。"
+      }
+     ],
+     "safety_head": {
+      "eyebrow": "Before the Activities · 做活動之前",
+      "en": "Working safely",
+      "zh": "安全提醒"
+     },
+     "safety": [
+      {
+       "en": "Stretch rubber bands only as far as they need to go, and never aim one at another person. A band that snaps can hurt an eye.",
+       "zh": "橡皮筋只拉到需要的長度，絕對不要對著別人。橡皮筋彈開可能傷到眼睛。"
+      },
+      {
+       "en": "Use washable markers on the ball or fruit, and wash your hands before eating anything.",
+       "zh": "在球或水果上畫線用水性筆；吃東西之前先洗手。"
+      },
+      {
+       "en": "If you go outside at night to look for the North Star, go with an adult, stay away from roads, and take a flashlight.",
+       "zh": "晚上到戶外找北極星時，要有大人陪同、遠離馬路，並帶手電筒。"
+      },
+      {
+       "en": "Never look at the Sun, even to find a direction.",
+       "zh": "絕對不要直視太陽，即使只是為了找方向。"
+      }
+     ],
+     "activities": [
+      {
+       "title_en": "A Rubber-Band Globe",
+       "title_zh": "橡皮筋地球儀",
+       "materials": [
+        {
+         "en": "A ball about the size of a grapefruit, or an orange",
+         "zh": "一顆葡萄柚大小的球，或一顆柳丁"
+        },
+        {
+         "en": "Six rubber bands in two colors",
+         "zh": "六條橡皮筋，兩種顏色"
+        },
+        {
+         "en": "A washable marker and two small stickers",
+         "zh": "一支水性筆和兩張小貼紙"
+        },
+        {
+         "en": "A globe or world map to check against",
+         "zh": "一顆地球儀或一張世界地圖，用來對照"
+        }
+       ],
+       "steps": [
+        {
+         "en": "Put the two stickers on opposite sides of the ball. These are the North Pole and the South Pole.",
+         "zh": "把兩張貼紙貼在球的正對面兩側，當作北極和南極。"
+        },
+        {
+         "en": "Stretch one band around the middle, halfway between the poles. This is the equator, 0 degrees latitude.",
+         "zh": "把一條橡皮筋套在球的腰上，剛好在兩極的正中間。這是赤道，緯度 0 度。"
+        },
+        {
+         "en": "Stretch three bands of the other color so that each one passes over both poles. Space them evenly. You have made six half-circles of longitude, 60 degrees apart. Mark one of them with the marker as the prime meridian.",
+         "zh": "用另一種顏色的三條橡皮筋，每一條都繞過兩極，間隔平均。這樣就有六條半圓形的經線，彼此相隔 60 度。用筆把其中一條標成本初子午線。"
+        },
+        {
+         "en": "Try to add a band for 60 degrees north. Notice that it has to be a much smaller circle than the equator, and that it will not stay on unless the ball is a little rough.",
+         "zh": "試著再加一條北緯 60 度的橡皮筋。你會發現它得是一個比赤道小很多的圓，而且除非球面有點粗糙，否則很難固定。"
+        },
+        {
+         "en": "Find where Taiwan belongs: about a quarter of the way from the equator to the North Pole, and one-third of the way around the ball to the east of your prime meridian. Mark it with a dot.",
+         "zh": "找出台灣該在的位置：從赤道到北極大約四分之一的地方，從本初子午線往東繞大約三分之一圈。點一個點。"
+        }
+       ],
+       "tip_en": "Ask the class: which bands are all the same length, and which are not? The longitude bands are all the same. The latitude bands get shorter toward the poles. That is why one degree of longitude shrinks.",
+       "tip_zh": "問問全班：哪些橡皮筋一樣長，哪些不一樣？經線那幾條都一樣長；緯線那幾條越靠近兩極越短。這就是一度經度會變短的原因。"
+      },
+      {
+       "title_en": "Call the Coordinates",
+       "title_zh": "報坐標",
+       "materials": [
+        {
+         "en": "A printed world map with latitude and longitude lines every 30 degrees, one for each pair",
+         "zh": "每兩人一張印好的世界地圖，上面每 30 度有一條經緯線"
+        },
+        {
+         "en": "Ten small counters or paper dots for each pair",
+         "zh": "每組十個小圓片或小紙點"
+        },
+        {
+         "en": "A folder to stand between the two partners",
+         "zh": "一個可以立在兩人中間的資料夾"
+        }
+       ],
+       "steps": [
+        {
+         "en": "Partner A secretly places five counters on the map, each where two grid lines cross.",
+         "zh": "甲同學偷偷把五個圓片放在地圖上，每一個都放在兩條格線的交點。"
+        },
+        {
+         "en": "Partner A reads each position aloud in English, latitude first: “thirty degrees north, one hundred twenty degrees east.”",
+         "zh": "甲同學用英文把每個位置唸出來，先說緯度：「thirty degrees north, one hundred twenty degrees east.」"
+        },
+        {
+         "en": "Partner B listens and places a counter on the same crossing on a second map.",
+         "zh": "乙同學邊聽邊在另一張地圖的同一個交點放上圓片。"
+        },
+        {
+         "en": "Remove the folder and compare the two maps. Score one point for each counter in the right place.",
+         "zh": "把資料夾拿開，比對兩張地圖。每放對一個圓片得一分。"
+        },
+        {
+         "en": "Swap roles. For a harder round, place counters halfway between the lines and say “about fifteen degrees south.”",
+         "zh": "交換角色。想難一點，就把圓片放在兩條線的中間，說「about fifteen degrees south」。"
+        }
+       ],
+       "tip_en": "The most common mistake is swapping the two numbers. Remind students that a latitude can never be more than 90, so “one hundred twenty degrees north” cannot exist.",
+       "tip_zh": "最常見的錯誤是把兩個數字說反。提醒學生：緯度不可能超過 90，所以不會有「北緯 120 度」。"
+      }
+     ],
+     "links_head": {
+      "eyebrow": "Go Further · 延伸閱讀",
+      "en": "The same grid in other lessons, and what comes next",
+      "zh": "其他課裡的這套格線，以及下一課"
+     },
+     "links": [
+      {
+       "icon": "🗺️",
+       "k_en": "Geography · Lesson 1",
+       "k_zh": "地理・第一課",
+       "en": "Why Is Every Flat Map Wrong?",
+       "zh": "為什麼每一張平面地圖都是「錯」的？",
+       "note_en": "A map projection moves this grid of latitude and longitude from the globe onto a flat sheet. That lesson shows what gets stretched on the way.",
+       "note_zh": "地圖投影就是把這套經緯線的格子，從地球儀搬到平面上。那一課看的是搬的過程中哪裡被拉扯了。",
+       "href": "/resources/classes/geography/flat-maps/"
+      },
+      {
+       "icon": "⭐",
+       "k_en": "Astronomy · Lesson 6",
+       "k_zh": "天文教育・第六課",
+       "en": "How Do You Find North at Night?",
+       "zh": "夜裡怎麼找北方？",
+       "note_en": "The height of the North Star equals your latitude. That lesson shows why, and how to measure it with your fist.",
+       "note_zh": "北極星的高度等於你所在的緯度。那一課說明為什麼，還教你用拳頭量。",
+       "href": "/resources/classes/astronomy/north-star/"
+      },
+      {
+       "icon": "🛰️",
+       "k_en": "How Things Work · Lesson 7",
+       "k_zh": "萬物原理・第七課",
+       "en": "How Does GPS Know Where You Are?",
+       "zh": "GPS 怎麼知道你在哪裡？",
+       "note_en": "The answer GPS gives you is a latitude and a longitude. That lesson shows how the satellites work it out.",
+       "note_zh": "GPS 給你的答案，就是一個緯度和一個經度。那一課講衛星是怎麼算出來的。",
+       "href": "/resources/classes/how-things-work/gps/"
+      },
+      {
+       "icon": "⛰️",
+       "k_en": "Geography · Lesson 3",
+       "k_zh": "地理・第三課",
+       "en": "How Do You Draw a Mountain on Flat Paper?",
+       "zh": "怎麼在平面上畫出一座山？",
+       "note_en": "Contour lines: how a flat map shows which places are high and which are low.",
+       "note_zh": "等高線：平面的地圖怎麼畫出哪裡高、哪裡低。",
+       "soon": true
+      }
+     ],
+     "sources_note_en": "Names, dates, numbers, and quotations on this page were checked against these sources (October 2026). The lengths of a degree are computed by the page itself and have automated tests",
+     "sources_note_zh": "本頁的人名、年代、數字與引文依下列資料查證（2026 年 10 月）；一度的長度由頁面自己計算，並有自動測試",
+     "sources": [
+      {
+       "en": "Land outlines: Natural Earth, 1:50m Physical Vectors, Land, version 5.1.2. Public domain. Simplified for this page; no borders or names.",
+       "zh": "陸地外形：Natural Earth 1:50m Land 5.1.2 版，公有領域；經本頁簡化，不含國界與地名",
+       "src": "Natural Earth: Terms of Use",
+       "url": "https://www.naturalearthdata.com/about/terms-of-use/"
+      },
+      {
+       "en": "“Latitude measures the distance north or south of the equator”; lines of latitude are also called parallels; “Each degree of latitude covers about 111 kilometers”; a degree is divided into 60 minutes and a minute into 60 seconds; the North Star's height above the horizon gave navigators their latitude.",
+       "zh": "緯度的定義、緯線又叫 parallels、一度緯度約 111 公里、一度 60 分、一分 60 秒、用北極星的高度求緯度",
+       "src": "NOAA National Ocean Service, “What is latitude?”",
+       "url": "https://oceanservice.noaa.gov/facts/latitude.html"
+      },
+      {
+       "en": "“Longitude measures distance east or west of the prime meridian”; meridians run from pole to pole and “meet at the poles”; one degree is about 111 km at the equator, 56 km at 60 degrees, and zero at the poles; the Earth turns 15 degrees per hour; the 1884 conference; a GPS receiver reads zero 102 meters east of the markers at Greenwich.",
+       "zh": "經度的定義、經線在兩極會合、一度經度在赤道約 111 公里、60 度約 56 公里、兩極為 0、地球每小時轉 15 度、1884 年會議、GPS 的零度在格林威治標線東邊 102 公尺",
+       "src": "NOAA National Ocean Service, “What is longitude?”",
+       "url": "https://oceanservice.noaa.gov/facts/longitude.html"
+      },
+      {
+       "en": "Volumetric mean radius of the Earth: 6,371.000 km (equatorial 6,378.137 km, polar 6,356.752 km). One degree on a sphere of this radius is 111.2 km (our calculation).",
+       "zh": "地球的體積平均半徑 6,371.000 公里（赤道半徑 6,378.137、極半徑 6,356.752）；照這個半徑算，球面上的一度是 111.2 公里（本教材計算）",
+       "src": "NASA, Earth Fact Sheet",
+       "url": "https://nssdc.gsfc.nasa.gov/planetary/factsheet/earthfact.html"
+      },
+      {
+       "en": "The vote on Greenwich: “Ayes, 22; noes, 1; abstaining, 2.” Longitude to be counted “in two directions up to 180 degrees.”",
+       "zh": "表決結果：贊成 22、反對 1、棄權 2；經度往兩個方向各算到 180 度",
+       "src": "International Conference Held at Washington … Protocols of the Proceedings (1884), Project Gutenberg",
+       "url": "https://www.gutenberg.org/ebooks/17759"
+      },
+      {
+       "en": "The conference “took place in October 1884 and was attended by 41 delegates from 25 nations.”",
+       "zh": "會議在 1884 年 10 月舉行，25 國、41 位代表出席",
+       "src": "The Greenwich Meridian, “The International Meridian Conference”",
+       "url": "https://www.thegreenwichmeridian.org/tgm/articles.php?article=10"
+      },
+      {
+       "en": "“Greenwich was chosen because it offered the least disruption. Nearly two-thirds of the world's ships were already using charts based on the Greenwich Meridian.” The modern reference meridian “passes 102.5 m to the east of the historic Prime Meridian.”",
+       "zh": "選格林威治是因為變動最小、近三分之二的船已用以它為準的海圖；現代的參考子午線在舊線東邊 102.5 公尺",
+       "src": "Royal Museums Greenwich, “What is the Prime Meridian and why is it in Greenwich?”",
+       "url": "https://www.rmg.co.uk/stories/time/what-prime-meridian-why-it-greenwich"
+      },
+      {
+       "en": "The Longitude Act of 1714; the 1761 voyage to Jamaica to test H4; the 1764 trial to Barbados.",
+       "zh": "1714 年《經度法案》；1761 年前往牙買加測試 H4；1764 年前往巴貝多再測",
+       "src": "Royal Museums Greenwich, “Harrison's clocks and the longitude problem”",
+       "url": "https://www.rmg.co.uk/stories/time/harrisons-clocks-longitude-problem"
+      },
+      {
+       "en": "H4: “Harrison's prize-winning longitude watch, completed in 1759.”",
+       "zh": "H4：哈里森的航海鐘，1759 年完成",
+       "src": "Royal Museums Greenwich, collections, object 79142",
+       "url": "https://www.rmg.co.uk/collections/objects/rmgc-object-79142"
+      },
+      {
+       "en": "The 1714 Act offered up to 20,000 pounds for finding longitude to within half a degree.",
+       "zh": "1714 年的法案：經度準到半度以內，最高懸賞兩萬英鎊",
+       "src": "Royal Museums Greenwich, text of the Longitude Act",
+       "url": "https://www.rmg.co.uk/sites/default/files/import/media/pdf/Longitude_Act_3.pdf"
+      },
+      {
+       "en": "The Tropic of Cancer crosses Taiwan and moves south by a little more than 14 m a year; at noon on the June solstice the Sun is directly overhead on it; the marker at Wuhe, Ruisui Township.",
+       "zh": "「北回歸線橫貫臺灣，平均每年以14公尺餘的速度向南移動」；夏至正午太陽直射、立竿不見影；瑞穗鄉舞鶴的北回歸線標",
+       "src": "交通部觀光署〈北回歸線標誌公園（瑞穗鄉）〉",
+       "url": "https://www.taiwan.net.tw/m1.aspx?sNo=0001124&id=A12-00180"
+      },
+      {
+       "en": "Three Tropic of Cancer markers on Taiwan's main island: Shuishang Township (Chiayi County), Wuhe Terrace in Ruisui Township, and Fengbin Township (Hualien County).",
+       "zh": "「臺灣一共有三個北回歸線標，分別在嘉義縣水上鄉、花蓮縣瑞穗鄉舞鶴台地、花蓮縣豐濱鄉」",
+       "src": "交通部觀光署〈北回歸線（豐濱鄉）〉",
+       "url": "https://www.taiwan.net.tw/m1.aspx?sNo=0001124&id=A12-00419"
+      },
+      {
+       "en": "In 1788 the Tropic of Cancer passed near a street corner in what is now Chiayi City.",
+       "zh": "北回歸線「於西元1788年通過本市博愛路與世賢路路口北端附近」",
+       "src": "交通部觀光署〈北回歸線歷年標誌〉（嘉義市）",
+       "url": "https://www.taiwan.net.tw/m1.aspx?sNo=0001117&id=8969"
+      },
+      {
+       "en": "The Tropic of Cancer (23.5° N) passes through Shuishang Township, Chiayi County.",
+       "zh": "「北回歸線（北緯23.5度）通過嘉義縣水上鄉」",
+       "src": "行政院〈國情簡介：土地〉（資料來源：內政部）",
+       "url": "https://www.ey.gov.tw/state/4447F4A951A1EC45/094b1d53-de8d-4393-bde6-ab092969cce4"
+      },
+      {
+       "en": "Taiwan lies between 120° and 122° east and between 22° and 25° north.",
+       "zh": "「臺灣位於東經120°～122°、北緯22°～25°之間」",
+       "src": "經濟部水利署〈臺灣海岸詳介〉",
+       "url": "https://www.wra.gov.tw/News.aspx?n=3253&sms=9088"
+      },
+      {
+       "en": "Chinese terms: 緯度 (latitude), 經度 (longitude), 緯線 (parallel), 經線 (meridian), 本初子午線 (prime meridian), 半球 (hemisphere), 坐標 (coordinate), 北回歸線 (Tropic of Cancer).",
+       "zh": "中文名詞依國家教育研究院樂詞網（地理學名詞、高中以下地理學名詞）",
+       "src": "國家教育研究院 樂詞網",
+       "url": "https://terms.naer.edu.tw/"
+      },
+      {
+       "en": "Curriculum entry 地 Aa-Ⅳ-1.",
+       "zh": "課綱條目 地 Aa-Ⅳ-1「全球經緯度座標系統。」",
+       "src": "十二年國民基本教育課程綱要 社會領域（教育部，民國 107 年）",
+       "url": "https://www.naer.edu.tw/PageSyllabus?fid=52"
+      }
+     ]
     }
    ],
    "planned": [
-    {
-     "n": 2,
-     "icon": "📍",
-     "en": "How Do You Find Any Place on Earth?",
-     "zh": "怎麼找到地球上任何一個地方？"
-    },
     {
      "n": 3,
      "icon": "⛰️",
