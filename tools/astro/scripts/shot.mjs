@@ -1,5 +1,6 @@
 /*
  * 無頭 Chrome 截圖（瀏覽器面板在背景時不繪製，用這個實測 3D 頁面；WebGL 正常）。
+ * 瀏覽器用 PATH 上的 headless-chrome（不是 /Applications 裡那個平常在用的 Chrome）。
  *   node tools/astro/scripts/shot.mjs <url> <out.png> [寬 1280] [高 900] [mobile]  < steps.js
  * stdin 是要在頁面裡依序執行的 JS（用一行 --- 分段，每段可 await、可 return 值，結果會印出來），最後截圖。
  * 主控台的 error／warning 與未捕捉的例外也會印出來。例：
@@ -16,7 +17,8 @@ const [url, out, W = '1280', H = '900', mobile] = process.argv.slice(2);
 const steps = readFileSync(0, 'utf8').split('\n---\n').map((s) => s.trim()).filter(Boolean);
 const port = 9333 + Math.floor(Math.random() * 500);
 const dir = mkdtempSync(join(tmpdir(), 'chr'));
-const chrome = spawn('/Applications/Google Chrome.app/Contents/MacOS/Google Chrome', ['--headless=new', `--remote-debugging-port=${port}`, `--user-data-dir=${dir}`, '--use-angle=swiftshader', '--enable-unsafe-swiftshader', `--window-size=${W},${H}`, 'about:blank'], { stdio: 'ignore' });
+// 不要啟動系統的 Google Chrome（Dock 會多一個跳動的圖示、有時截完不結束）；用 ~/.local/bin/headless-chrome（Playwright 的 chrome-headless-shell）
+const chrome = spawn('headless-chrome', [`--remote-debugging-port=${port}`, `--user-data-dir=${dir}`, '--use-angle=swiftshader', '--enable-unsafe-swiftshader', `--window-size=${W},${H}`, 'about:blank'], { stdio: 'ignore' });
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 let tgt;
 for (let k = 0; k < 50 && !tgt; k++) { await sleep(200); try { tgt = (await (await fetch(`http://127.0.0.1:${port}/json`)).json()).find((t) => t.type === 'page'); } catch {} }
