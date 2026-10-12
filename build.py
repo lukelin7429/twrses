@@ -14540,7 +14540,7 @@ def build_cal_hub():
 _compj = os.path.join(ROOT, "data", "computers.json")
 COMP = json.load(open(_compj, encoding="utf-8")) if os.path.exists(_compj) else None
 COMP_BASE = "/resources/classes/computers/"
-_COMP_JS = {"bits": "comp-bits", "pixels": "comp-pixels", "logic": "comp-logic", "adder": "comp-adder", "pc": "comp-pc", "cpu": "comp-cpu", "desk": "comp-desk", "key": "comp-key", "robot": "comp-robot", "search": "comp-search", "sched": "comp-sched", "rle": "comp-rle", "web": "comp-web", "cipher": "comp-cipher", "learn": "comp-learn"}   # lab.kind → assets/js/<bundle>.js
+_COMP_JS = {"bits": "comp-bits", "pixels": "comp-pixels", "logic": "comp-logic", "adder": "comp-adder", "pc": "comp-pc", "cpu": "comp-cpu", "desk": "comp-desk", "key": "comp-key", "robot": "comp-robot", "search": "comp-search", "sched": "comp-sched", "rle": "comp-rle", "web": "comp-web", "cipher": "comp-cipher", "learn": "comp-learn", "shrink": "comp-shrink"}   # lab.kind → assets/js/<bundle>.js
 
 def _comp_ver():
     h = hashlib.md5()
@@ -15861,6 +15861,83 @@ def _comp_teach(tc):
 </div>
 <ul class="cp-tips rvl">{tips}</ul>'''
 
+def compshrink_svg(size=56):
+    """第十六課的課程卡小圖示：由大到小的三個方塊（一個房間、一個盒子、一片晶片）。"""
+    return (f'<svg class="compshrink-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">'
+            '<rect x="4" y="14" width="26" height="34" rx="3" fill="#56627e"/><path d="M9 21h16M9 27h16M9 33h16M9 39h16" stroke="#ffb04a" stroke-width="2" stroke-linecap="round" stroke-dasharray="1 4"/>'
+            '<rect x="34" y="30" width="13" height="18" rx="2.5" fill="#aab4c8"/><path d="M37 35h7M37 40h7" stroke="#1d2a44" stroke-width="1.8" stroke-linecap="round"/>'
+            '<rect x="50" y="42" width="6" height="6" rx="1.2" fill="#7ef0e3"/>'
+            '<path d="M32 22h20m-4-4 4 4-4 4" fill="none" stroke="#ffd36e" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>')
+
+_COMP_CARD["shrink"] = compshrink_svg
+
+def render_compshrink_lab(lesson):
+    """第十六課：同一個開關的五個年代（assets/js/comp-shrink.js 綁這裡的 class；全部自繪示意）。"""
+    lab = lesson["lab"]
+    gb = "".join(f'<button type="button" data-gen="{s["key"]}" aria-pressed="false"><b>{s["year"]}</b><small>{html.escape(s["short_zh"])}</small></button>' for s in lab["stops"])
+    stops = html.escape(json.dumps({s["key"]: {k: s[k] for k in ("en", "zh", "short_zh", "unit_en", "unit_zh", "text_en", "text_zh")} for s in lab["stops"]}, ensure_ascii=False))
+    tg = _lab_toggles([("labels", "Labels", "標示", True)])
+    return f'''<div class="astro-lab cp-lab cp-sh-lab rvl" data-compshrink-lab data-stops="{stops}">
+  <div class="al-stage">
+    <div class="al-space">
+      <canvas class="al-space-cv" aria-label="3D model of five stands in a row holding a relay, a vacuum tube, an early transistor, a 1971 chip, and a 2024 chip, each with a column behind it showing how many switches one machine held · 一排五個展示台的 3D 模型，上面是繼電器、真空管、早期的電晶體、1971 年的晶片和 2024 年的晶片，每個後面有一根柱子表示一台機器裡有幾個開關"></canvas>
+      <div class="al-labels" aria-hidden="true"></div>
+      <p class="al-hint">Drag to turn · 拖曳旋轉</p>
+      <button type="button" class="al-home" title="Reset view · 重設視角" aria-label="Reset view · 重設視角">&#8634;</button>
+      <p class="al-nogl-msg">This 3D model needs WebGL, which this browser does not support. The five years and the card below still work, and so do the reading and the games.<br><span class="zh">這個瀏覽器不支援 WebGL，無法顯示 3D 模型；下面的五個年代和卡片照樣能用，課文和小遊戲也都能用。</span></p>
+    </div>
+    <aside class="al-sky cp-aside">
+      <p class="al-sky-k">Choose a year · 選一個年代</p>
+      <div class="cp-ky-keys cp-sh-gens" role="group" aria-label="Five years · 五個年代">{gb}</div>
+      <div class="cp-sh-card">
+        <p class="cp-sh-year">1937</p>
+        <p class="cp-sh-name"></p>
+        <p class="cp-sh-num"><b class="cp-sh-count">0</b><span class="cp-sh-what"></span></p>
+      </div>
+      <p class="cp-msg" aria-live="polite"></p>
+    </aside>
+  </div>
+  <div class="al-controls">
+    <div class="al-row al-row-main">
+      <button type="button" class="al-play" aria-pressed="false"><span class="al-play-t">Walk through the years · 沿著年代走一遍</span></button>
+      <button type="button" class="cp-btn-d cp-step">Next · 下一個</button>
+      <button type="button" class="cp-btn-d cp-reset">Back to 1937 · 回到 1937</button>
+      <div class="al-row al-toggles">{tg}</div>
+    </div>
+  </div>
+  {_lab_foot(lab)}
+  <p class="cp-credit">{lab["credit_html"]}</p>
+</div>'''
+
+def _comp_compare(cm):
+    names = {s["key"]: {"en": s["en"], "zh": s["zh"]} for s in cm["items"]}
+    row = lambda attr: "".join(f'<button type="button" data-{attr}="{s["key"]}" aria-pressed="false"><b>{s["year"]}</b><small>{html.escape(s["zh"])}</small></button>' for s in cm["items"])
+    return f'''<div class="cp-full cp-cm rvl" data-cp-compare data-names="{html.escape(json.dumps(names, ensure_ascii=False))}">
+  <p class="cp-k">First · 第一個</p>
+  <div class="cp-cm-row" role="group" aria-label="First one · 第一個">{row("a")}</div>
+  <p class="cp-k">Second · 第二個</p>
+  <div class="cp-cm-row" role="group" aria-label="Second one · 第二個">{row("b")}</div>
+  <dl class="cp-lv2-out cp-cm-out">
+    <div><dt>Switches in the first · 第一個有幾個開關</dt><dd class="cp-cm-na">0</dd></div>
+    <div><dt>Switches in the second · 第二個有幾個開關</dt><dd class="cp-cm-nb">0</dd></div>
+    <div><dt>Times as many · 幾倍</dt><dd class="cp-cm-x">0</dd></div>
+    <div><dt>Years apart · 相隔幾年</dt><dd class="cp-cm-yrs">0</dd></div>
+  </dl>
+  <p class="cp-lv-msg cp-cm-msg" aria-live="polite"></p>
+  <p class="cp-lv-note">{html.escape(cm["note_en"])}<span class="zh">{html.escape(cm["note_zh"])}</span></p>
+</div>'''
+
+def _comp_recap(rc):
+    """十六課回顧：直接從各課的 title 與 big_idea 第一句取，不另外寫一套摘要。"""
+    first_en = lambda t: re.match(r"^(.+?[.!?]”?)(?=\s+[A-Z“]|$)", t, re.S).group(1)
+    first_zh = lambda t: t.split("。")[0] + "。"
+    cards = "".join(
+        f'<a class="cp-rc-card" href="{COMP_BASE}{l["slug"]}/"><span class="cp-rc-n">{l["n"]}</span><span class="cp-rc-ic" aria-hidden="true">{l["icon"]}</span>'
+        f'<b>{html.escape(l["title"])}<small>{html.escape(l["title_zh"])}</small></b>'
+        f'<span class="cp-rc-t">{html.escape(first_en(l["big_idea_en"]))}<span class="zh">{html.escape(first_zh(l["big_idea_zh"]))}</span></span></a>'
+        for u in COMP["units"] for l in u["lessons"])
+    return f'<div class="cp-rc-grid rvl">{cards}</div><p class="cp-lv-note rvl">{html.escape(rc["note_en"])}<span class="zh">{html.escape(rc["note_zh"])}</span></p>'
+
 def _comp_flat():
     return [(ui, u, l) for ui, u in enumerate(COMP["units"]) for l in u["lessons"]]
 
@@ -15888,7 +15965,7 @@ def build_comp_lesson(ui, unit, lesson):
     reading_html = render_basic_unit(1, unit_dict, level="comp", audio_rel="", pdf_rel="")
     lab = lesson["lab"]
     kind = lab["kind"]
-    lab_html = {"bits": render_compbits_lab, "pixels": render_comppixels_lab, "logic": render_complogic_lab, "adder": render_compadder_lab, "pc": render_comppc_lab, "cpu": render_compcpu_lab, "desk": render_compdesk_lab, "key": render_compkey_lab, "robot": render_comprobot_lab, "search": render_compsearch_lab, "sched": render_compsched_lab, "rle": render_comprle_lab, "web": render_compweb_lab, "cipher": render_compcipher_lab, "learn": render_complearn_lab}[kind](lesson)
+    lab_html = {"bits": render_compbits_lab, "pixels": render_comppixels_lab, "logic": render_complogic_lab, "adder": render_compadder_lab, "pc": render_comppc_lab, "cpu": render_compcpu_lab, "desk": render_compdesk_lab, "key": render_compkey_lab, "robot": render_comprobot_lab, "search": render_compsearch_lab, "sched": render_compsched_lab, "rle": render_comprle_lab, "web": render_compweb_lab, "cipher": render_compcipher_lab, "learn": render_complearn_lab, "shrink": render_compshrink_lab}[kind](lesson)
 
     def sec(key, fn):
         d = lesson[key]
@@ -15943,6 +16020,9 @@ def build_comp_lesson(ui, unit, lesson):
     if lesson.get("keybits"): secs.append(sec("keybits", _comp_keys))
     if lesson.get("teach"): secs.append(sec("teach", _comp_teach))
     if lesson.get("ruleorlearn"): secs.append(sec("ruleorlearn", _comp_choice))
+    if lesson.get("compare"): secs.append(sec("compare", _comp_compare))
+    if lesson.get("whichswitch"): secs.append(sec("whichswitch", _comp_choice))
+    if lesson.get("recap"): secs.append(sec("recap", _comp_recap))
     if lesson.get("culture_cards"):
         cu = lesson["culture_cards"]
         cc = "".join(
@@ -16058,8 +16138,11 @@ def build_comp_hub():
                 f'<span class="unit-nav-label">Jump to unit · 跳到單元</span>'
                 f'<div class="unit-nav-track">{"".join(nav)}</div></div></nav>')
     intro_html = "".join(_bi(p["en"], p["zh"]) for p in COMP["intro"])
-    intro_html += _bi(f"{done} of {total} lessons {"is" if done == 1 else "are"} ready so far; more are on the way.",
-                      f"目前完成 {done} 課（共規劃 {total} 課），持續增加中。", cls="cp-progress")
+    if done == total:
+        intro_html += _bi(f"All {total} lessons are ready.", f"{total} 課全部完成。", cls="cp-progress")
+    else:
+        intro_html += _bi(f"{done} of {total} lessons {"is" if done == 1 else "are"} ready so far; more are on the way.",
+                          f"目前完成 {done} 課（共規劃 {total} 課），持續增加中。", cls="cp-progress")
     lead = f'{html.escape(COMP["lead_en"])}<br><span class="muted">{html.escape(COMP["lead_zh"])}</span>'
     body = f'''
 {page_hero(COMP["eyebrow"], f'{COMP["title_en"]} <span class="h1-zh">{COMP["title_zh"]}</span>', lead, back=("/resources/reading/", "回閱讀與經典"))}

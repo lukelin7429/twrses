@@ -10087,7 +10087,7 @@
               "zh": "電腦怎麼越變越小？",
               "note_en": "The last lesson. Everything in this course ran on switches. Next: how the switches shrank from the size of a room to the size of a fingernail.",
               "note_zh": "最後一課。這門課裡的一切都跑在開關上。下一課：這些開關怎麼從一個房間那麼大，縮到指甲那麼小。",
-              "soon": true
+              "href": "/resources/classes/computers/how-computers-got-small/"
             }
           ],
           "sources_note_en": "Facts on this page were checked against these sources (October 2026); the fruits and their numbers are made up for the example, and every count is tested",
@@ -10136,16 +10136,743 @@
               "url": "https://github.com/lukelin7429/twrses/blob/main/tools/computers/test/learn.test.mjs"
             }
           ]
-        }
-      ],
-      "planned": [
+        },
         {
           "n": 16,
+          "slug": "how-computers-got-small",
+          "title": "How Did Computers Get So Small?",
+          "title_zh": "電腦怎麼越變越小？",
+          "level": "入門 · Beginner",
           "icon": "📱",
-          "en": "How Did Computers Get So Small?",
-          "zh": "電腦怎麼越變越小？"
+          "card": "shrink",
+          "blurb_en": "Five stands in a row show the same thing, a switch, as it was built in 1937, 1946, 1947, 1971, and 2024: a relay, a vacuum tube, the first transistor, and two chips. Behind each stand is a column for how many switches one machine held, from 2 to 28 billion. Then compare any two, name the switch, and look back over all sixteen lessons.",
+          "blurb_zh": "一排五個展示台，放的是同一樣東西——開關——在 1937、1946、1947、1971、2024 年的樣子：繼電器、真空管、第一顆電晶體，還有兩片晶片。每個展示台後面有一根柱子，表示一台機器裡有幾個開關，從 2 個到 280 億個。接著隨意挑兩個來比、說出那是哪一種開關，再回頭看一遍十六課。",
+          "big_idea_en": "A computer has always been the same idea: a great many switches. What changed is what the switches are made of and how small they are. Relays gave way to vacuum tubes, tubes to transistors, and separate transistors to chips that hold billions. Smaller switches mean more of them in the same space, and that is how a machine that filled a room came to fit in a pocket.",
+          "big_idea_zh": "電腦從頭到尾都是同一個想法：很多很多個開關。變的是開關用什麼做、做得多小。繼電器讓位給真空管，真空管讓位給電晶體，一顆一顆的電晶體又讓位給裝得下幾十億顆的晶片。開關變小，同樣的空間就放得下更多，於是原本占滿一個房間的機器，後來放得進口袋。",
+          "lab": {
+            "kind": "shrink",
+            "eyebrow": "3D Model · 3D 模型",
+            "title_en": "One Switch, Five Times",
+            "title_zh": "同一個開關的五個年代",
+            "how_en": "Each stand holds one kind of switch, in order of time from left to right. Choose a year, or press “Walk through the years.” The blue column behind each stand shows how many switches one machine, or one chip, held. Read the columns with care: each step up means ten times more, so a column that is a little taller stands for a great deal more.",
+            "how_zh": "每個展示台上是一種開關，由左到右照年代排。選一個年代，或按「沿著年代走一遍」。展示台後面的藍色柱子，表示一台機器（或一片晶片）裡有幾個開關。看柱子的時候要留意：每高一格是十倍，所以柱子只高一點點，代表的其實是多很多。",
+            "stops": [
+              {
+                "key": "relay",
+                "year": 1937,
+                "en": "A relay",
+                "zh": "繼電器",
+                "short_zh": "繼電器",
+                "unit_en": "relays in George Stibitz’s adder",
+                "unit_zh": "史提比茲那台加法器裡的繼電器數",
+                "text_en": "A relay is a switch that is moved by an electromagnet: one electric current switches another. In 1937 George Stibitz fastened two relays to a piece of plywood at home and made an adder for one binary digit, the circuit you built in Lesson 4. A relay has parts that really move, so it is slow, and it clicks.",
+                "text_zh": "繼電器是用電磁鐵帶動的開關：一股電流去開關另一股電流。1937 年，史提比茲（George Stibitz）在家裡把兩個繼電器釘在一塊夾板上，做出一位二進位數的加法器——就是你在第四課接出來的那個電路。繼電器有真正會動的零件，所以它很慢，還會喀噠喀噠地響。"
+              },
+              {
+                "key": "eniac",
+                "year": 1946,
+                "en": "Vacuum tubes: ENIAC",
+                "zh": "真空管：ENIAC",
+                "short_zh": "真空管",
+                "unit_en": "vacuum tubes in ENIAC",
+                "unit_zh": "ENIAC 裡的真空管數",
+                "text_en": "A vacuum tube switches a current with no moving parts, so it is far faster than a relay. ENIAC, completed by February 1946, had more than 17,000 of them. It filled a basement 50 feet by 30 feet, and it gave off 174 kilowatts of heat, so it needed its own air conditioning. It could do up to 5,000 additions a second.",
+                "text_zh": "真空管不靠會動的零件就能開關電流，所以比繼電器快得多。ENIAC 在 1946 年 2 月以前完成，裡面有超過 17,000 根真空管。它占滿一間 50 英尺乘 30 英尺（約 15 公尺乘 9 公尺）的地下室，散發 174 瓩的熱，所以得有自己的空調。它一秒最多可以做 5,000 次加法。"
+              },
+              {
+                "key": "transistor",
+                "year": 1947,
+                "en": "The first transistor",
+                "zh": "第一顆電晶體",
+                "short_zh": "電晶體",
+                "unit_en": "transistor: the very first one",
+                "unit_zh": "顆電晶體：世界上的第一顆",
+                "text_en": "On December 16, 1947, at Bell Labs, John Bardeen and Walter Brattain made the first transistor from a small slab of germanium. Their group had been looking for something to replace unreliable vacuum tubes and mechanical switches. A transistor is a switch made inside a solid piece of material. Nothing moves, and nothing needs to glow hot.",
+                "text_zh": "1947 年 12 月 16 日，在貝爾實驗室，巴丁（John Bardeen）和布拉頓（Walter Brattain）用一小塊鍺做出了第一顆電晶體。他們那個研究小組一直在找東西，來取代不可靠的真空管和機械式開關。電晶體是做在一塊固體材料裡面的開關：沒有東西在動，也不必燒得發亮。"
+              },
+              {
+                "key": "i4004",
+                "year": 1971,
+                "en": "One chip: the Intel 4004",
+                "zh": "一片晶片：Intel 4004",
+                "short_zh": "晶片",
+                "unit_en": "transistors on one chip",
+                "unit_zh": "一片晶片上的電晶體數",
+                "text_en": "In 1958 Jack Kilby built a circuit in which the separate parts were made from one piece of semiconductor: the integrated circuit, or chip. Now many transistors could be made together. In November 1971 Intel announced the 4004, the first microprocessor: a whole processor on one chip, with 2,300 transistors.",
+                "text_zh": "1958 年，基爾比（Jack Kilby）做出一個電路，裡面各個零件都出自同一塊半導體——這就是積體電路，也就是晶片。從此，很多顆電晶體可以一起做出來。1971 年 11 月，Intel 發表了 4004，第一個微處理器：一整個處理器做在一片晶片上，有 2,300 個電晶體。"
+              },
+              {
+                "key": "m4",
+                "year": 2024,
+                "en": "One chip: the Apple M4",
+                "zh": "一片晶片：Apple M4",
+                "short_zh": "今天的晶片",
+                "unit_en": "transistors on one chip",
+                "unit_zh": "一片晶片上的電晶體數",
+                "text_en": "In May 2024 Apple announced a chip called M4 and said it consists of 28 billion transistors. That is about 12 million times as many as the 4004, 53 years later, and it still fits inside a tablet. Each of those transistors is the same thing you met in Lesson 1: a switch that is either off or on.",
+                "text_zh": "2024 年 5 月，Apple 發表了一片叫 M4 的晶片，並說它由 280 億個電晶體構成。這大約是 4004 的一千兩百萬倍，中間隔了 53 年，而它仍然放得進一台平板電腦。這些電晶體的每一個，都是你在第一課認識的那樣東西：一個不是關就是開的開關。"
+              }
+            ],
+            "legend": [
+              {
+                "cls": "cpstand",
+                "en": "A stand: one kind of switch",
+                "zh": "展示台：一種開關"
+              },
+              {
+                "cls": "cpcol",
+                "en": "Blue column: how many switches in one machine or one chip",
+                "zh": "藍色柱子：一台機器或一片晶片裡有幾個開關"
+              },
+              {
+                "cls": "cptick",
+                "en": "Each mark on a column: ten times more",
+                "zh": "柱子上每一道刻度：十倍"
+              }
+            ],
+            "scale_en": "A teaching model. The five switches are not drawn to scale: a real relay or vacuum tube can be held in the hand, while a transistor on today’s chips is far too small to see. The columns use a scale in which each step is ten times the one below, because on an ordinary scale the first four columns would be too short to see beside the fifth. The five examples were chosen because their numbers come from sources we could read; many other machines came in between.",
+            "scale_zh": "這是教學用的示意模型。五個開關不是照比例畫的：真的繼電器和真空管拿在手上那麼大，今天晶片上的電晶體卻小到根本看不見。柱子用的是「每一格是下面一格的十倍」的刻度，因為用一般的刻度，前四根柱子在第五根旁邊會矮到看不見。挑這五個例子，是因為它們的數字出自我們讀得到的來源；它們之間其實還有很多別的機器。",
+            "credit_html": "Model and code are drawn and programmed by My Culture Connect. Every number has a named source, and the test in <code>tools/computers/test/shrink.test.mjs</code> refuses a number without one.<br><span class=\"zh\">模型與程式由人師教育協會自行繪製、撰寫；每一個數字都有具名的來源，測試（<code>tools/computers/test/shrink.test.mjs</code>）不接受沒有來源的數字。</span>"
+          },
+          "paras": [
+            "In Lesson 1 you worked eight switches by hand. Every lesson since then has been about switches too: switches wired into gates, gates into an adder, adders into a processor, and programs telling the processor what to do. One question is left. How did a machine made of switches shrink from the size of a room to something you carry in your pocket?",
+            "The first switches were relays. A relay is a switch moved by an electromagnet, so one electric current can turn another on and off. In 1937 George Stibitz built an adder from just two of them. But a relay has parts that move, and moving parts are slow. The next switch had no moving parts at all: the vacuum tube.",
+            "ENIAC, finished early in 1946, used more than 17,000 vacuum tubes. It was far faster than any relay machine: it could do up to 5,000 additions a second. It was also enormous. It filled a basement 50 feet long and 30 feet wide, and it gave off so much heat that it needed its own air conditioning.",
+            "Then, in December 1947, two researchers at Bell Labs made a switch inside a small piece of solid material. It was called a transistor. Nothing in it moved and nothing had to glow hot. Eleven years later came the next step: the integrated circuit, in which many parts are made together from one piece of material. We call it a chip.",
+            "From then on, the story is one of fitting more switches onto a chip. In 1971 the Intel 4004 put a whole processor on one chip, with 2,300 transistors. In 2024 Apple announced a chip with 28 billion. In 1965 Gordon Moore had noticed how quickly the number was growing; ten years later he described it as doubling every two years. That pattern became known as Moore’s law.",
+            "So the answer is simple to say and astonishing to think about. The idea never changed: a switch is off or on, 0 or 1. The switch itself changed, from a clicking relay to something far too small to see. Everything in these sixteen lessons, from adding two numbers to opening a web page, rests on that one idea, repeated an enormous number of times."
+          ],
+          "paras_zh": [
+            "在第一課，你用手撥了八個開關。從那以後，每一課講的也都是開關：開關接成邏輯閘，邏輯閘接成加法器，加法器組成處理器，再由程式告訴處理器該做什麼。還剩一個問題。一台用開關做成的機器，是怎麼從一個房間那麼大，縮到可以放進口袋帶著走的？",
+            "最早的開關是繼電器（relay）。繼電器是用電磁鐵帶動的開關，所以一股電流可以把另一股電流打開、關掉。1937 年，史提比茲只用兩個繼電器就做出一個加法器。可是繼電器裡有會動的零件，而會動的零件就慢。下一種開關完全沒有會動的零件：真空管（vacuum tube）。",
+            "ENIAC 在 1946 年初完成，用了超過 17,000 根真空管。它比任何繼電器做的機器都快得多：一秒最多可以做 5,000 次加法。它也非常巨大。它占滿一間長 50 英尺、寬 30 英尺的地下室，散發的熱多到得有自己的空調。",
+            "接著，1947 年 12 月，貝爾實驗室的兩位研究者在一小塊固體材料裡面做出了一個開關，叫做電晶體（transistor）。它裡面沒有東西在動，也沒有東西要燒得發亮。十一年後，下一步出現了：積體電路（integrated circuit），把很多零件一起做在同一塊材料上。我們叫它晶片。",
+            "從那時候起，故事就是「在一片晶片上放進更多開關」。1971 年，Intel 4004 把一整個處理器做在一片晶片上，有 2,300 個電晶體。2024 年，Apple 發表了一片有 280 億個電晶體的晶片。1965 年，摩爾（Gordon Moore）注意到這個數目增加得有多快；十年後，他把它說成是每兩年增加一倍。這個規律後來被稱為摩爾定律（Moore’s law）。",
+            "所以答案說起來很簡單，想起來卻很驚人。想法從來沒有變：開關不是關就是開，不是 0 就是 1。變的是開關本身，從喀噠作響的繼電器，變成小到根本看不見的東西。這十六課裡的一切，從把兩個數加起來到打開一個網頁，都建立在這一個想法上，只是重複了多到數不清的次數。"
+          ],
+          "questions": [
+            "Name the kinds of switch in this lesson, in order of time. What was better about each new one?",
+            "What is an integrated circuit, and why did it matter?",
+            "What stayed the same from the relay to today’s chip, and what changed?"
+          ],
+          "answers": [
+            "The relay, the vacuum tube, and the transistor. The vacuum tube had no moving parts, so it was faster than the relay. The transistor was made inside a solid piece of material: nothing moved, and nothing had to glow hot.",
+            "It is a circuit in which many parts are made together from one piece of material; we call it a chip. It mattered because many transistors could now be made at once, and more and more of them fitted on one chip.",
+            "The idea stayed the same: a switch is either off or on, 0 or 1. What changed is what the switch is made of and how small it is, so that far more switches fit in the same space."
+          ],
+          "vocab": [
+            {
+              "n": 1,
+              "w": "shrink",
+              "pos": "v.",
+              "zh": "縮小",
+              "ex": "Computers <b>shrank</b> from the size of a room to the size of a hand.",
+              "exzh": "電腦從一個房間那麼大，縮小到一隻手那麼大。"
+            },
+            {
+              "n": 2,
+              "w": "replace",
+              "pos": "v.",
+              "zh": "取代",
+              "ex": "Transistors <b>replaced</b> vacuum tubes.",
+              "exzh": "電晶體取代了真空管。"
+            },
+            {
+              "n": 3,
+              "w": "invent",
+              "pos": "v.",
+              "zh": "發明",
+              "ex": "Who <b>invented</b> the first transistor?",
+              "exzh": "第一顆電晶體是誰發明的？"
+            },
+            {
+              "n": 4,
+              "w": "enormous",
+              "pos": "adj.",
+              "zh": "巨大的",
+              "ex": "The first electronic computers were <b>enormous</b>.",
+              "exzh": "最早的電子電腦非常巨大。"
+            },
+            {
+              "n": 5,
+              "w": "tiny",
+              "pos": "adj.",
+              "zh": "極小的",
+              "ex": "A chip holds billions of <b>tiny</b> switches.",
+              "exzh": "一片晶片上有幾十億個極小的開關。"
+            },
+            {
+              "n": 6,
+              "w": "billion",
+              "pos": "n.",
+              "zh": "十億",
+              "ex": "Twenty-eight <b>billion</b> is 28 followed by nine zeros.",
+              "exzh": "二百八十億就是 28 後面加九個零。"
+            },
+            {
+              "n": 7,
+              "w": "double",
+              "pos": "v.",
+              "zh": "加倍",
+              "ex": "The number of transistors on a chip kept <b>doubling</b>.",
+              "exzh": "一片晶片上的電晶體數目不斷加倍。"
+            },
+            {
+              "n": 8,
+              "w": "reliable",
+              "pos": "adj.",
+              "zh": "可靠的",
+              "ex": "A switch with no moving parts is more <b>reliable</b>.",
+              "exzh": "沒有會動零件的開關比較可靠。"
+            }
+          ],
+          "quiz": [
+            {
+              "q": "What is a relay?",
+              "options": [
+                "A switch moved by an electromagnet",
+                "A kind of screen",
+                "A very small chip",
+                "A program"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "About how many vacuum tubes did ENIAC have?",
+              "options": [
+                "More than 170",
+                "More than 1,700",
+                "More than 17,000",
+                "More than 17 billion"
+              ],
+              "correct": 2
+            },
+            {
+              "q": "What was new about the transistor?",
+              "options": [
+                "It had more moving parts.",
+                "It was a switch made inside a solid piece of material, with nothing moving.",
+                "It was bigger than a vacuum tube.",
+                "It needed no electricity."
+              ],
+              "correct": 1
+            },
+            {
+              "q": "How many transistors did the Intel 4004 have?",
+              "options": [
+                "2",
+                "2,300",
+                "17,000",
+                "28 billion"
+              ],
+              "correct": 1
+            },
+            {
+              "q": "According to the reading, what has never changed?",
+              "options": [
+                "The size of the switch",
+                "The material the switch is made of",
+                "The idea that a switch is off or on, 0 or 1",
+                "The number of switches in a computer"
+              ],
+              "correct": 2
+            }
+          ],
+          "parts_head": {
+            "eyebrow": "Try It in the Model · 在模型裡試試",
+            "en": "Four stops along the row",
+            "zh": "這一排上的四站"
+          },
+          "parts": [
+            {
+              "key": "eniac",
+              "icon": "💡",
+              "en": "1946: a room of tubes",
+              "zh": "1946：一屋子的真空管",
+              "meta_en": "More than 17,000 switches",
+              "meta_zh": "超過 17,000 個開關",
+              "demo": "eniac",
+              "text_en": "Compare its column with the relay’s on the left. How many marks taller is it, and what does each mark mean?",
+              "text_zh": "拿它的柱子和左邊繼電器的比一比。它高了幾道刻度？每一道代表什麼？"
+            },
+            {
+              "key": "transistor",
+              "icon": "🔬",
+              "en": "1947: one transistor",
+              "zh": "1947：一顆電晶體",
+              "meta_en": "The shortest column of all",
+              "meta_zh": "最矮的一根柱子",
+              "demo": "transistor",
+              "text_en": "This column is the shortest, yet this is the most important stand in the row. Why is it only 1?",
+              "text_zh": "這根柱子最矮，可是這一站卻是整排最重要的。為什麼它只有 1？"
+            },
+            {
+              "key": "i4004",
+              "icon": "🔲",
+              "en": "1971: a processor on one chip",
+              "zh": "1971：一片晶片上的處理器",
+              "meta_en": "2,300 transistors",
+              "meta_zh": "2,300 個電晶體",
+              "demo": "i4004",
+              "text_en": "It has fewer switches than ENIAC had tubes. So what was the great step forward here?",
+              "text_zh": "它的開關比 ENIAC 的真空管還少。那這一步了不起在哪裡？"
+            },
+            {
+              "key": "m4",
+              "icon": "📱",
+              "en": "2024: one chip today",
+              "zh": "2024：今天的一片晶片",
+              "meta_en": "28 billion transistors",
+              "meta_zh": "280 億個電晶體",
+              "demo": "m4",
+              "text_en": "Count the marks on this column and on the 1971 one. About how many times more is that?",
+              "text_zh": "數一數這根柱子和 1971 那一根各有幾道刻度。這大約差了幾倍？"
+            }
+          ],
+          "parts_note_en": "Then press “Walk through the years” and watch the columns from left to right. They do not rise steadily.",
+          "parts_note_zh": "接著按「沿著年代走一遍」，由左到右看那幾根柱子。它們並不是平穩地一路升高。",
+          "compare": {
+            "eyebrow": "Try It · 自己試試",
+            "en": "Compare Any Two",
+            "zh": "挑兩個來比",
+            "lead_en": "Choose one of the five as the first and another as the second. The tool works out how many times as many switches the second has, and how many years lie between them.",
+            "lead_zh": "從五個裡面選一個當第一個，再選另一個當第二個。這個小工具會算出第二個的開關數是第一個的幾倍，以及它們之間隔了幾年。",
+            "items": [
+              {
+                "key": "relay",
+                "year": 1937,
+                "en": "A relay",
+                "zh": "繼電器"
+              },
+              {
+                "key": "eniac",
+                "year": 1946,
+                "en": "Vacuum tubes: ENIAC",
+                "zh": "真空管：ENIAC"
+              },
+              {
+                "key": "transistor",
+                "year": 1947,
+                "en": "The first transistor",
+                "zh": "第一顆電晶體"
+              },
+              {
+                "key": "i4004",
+                "year": 1971,
+                "en": "One chip: the Intel 4004",
+                "zh": "一片晶片：Intel 4004"
+              },
+              {
+                "key": "m4",
+                "year": 2024,
+                "en": "One chip: the Apple M4",
+                "zh": "一片晶片：Apple M4"
+              }
+            ],
+            "note_en": "These compare how many switches there are, not how fast or how useful a machine is. The numbers are the ones the sources give; the multiples are our own arithmetic.",
+            "note_zh": "這裡比的是開關有幾個，不是機器有多快或多好用。數字是來源寫的；倍數是我們自己算的。"
+          },
+          "whichswitch": {
+            "eyebrow": "Game · 小遊戲",
+            "en": "Which Kind of Switch?",
+            "zh": "這是哪一種開關？",
+            "lead_en": "Eight clues. Each one is about a relay, a vacuum tube, or a transistor. Decide which.",
+            "lead_zh": "一共八條線索。每一條說的不是繼電器，就是真空管，或電晶體。分分看。",
+            "ask_en": "Which switch is it?",
+            "ask_zh": "是哪一種開關？",
+            "opts": [
+              [
+                "relay",
+                "A relay",
+                "繼電器"
+              ],
+              [
+                "tube",
+                "A vacuum tube",
+                "真空管"
+              ],
+              [
+                "transistor",
+                "A transistor",
+                "電晶體"
+              ]
+            ],
+            "tasks": [
+              {
+                "en": "George Stibitz fastened two of these to a piece of plywood in 1937.",
+                "zh": "1937 年，史提比茲把兩個這種東西釘在一塊夾板上。",
+                "answer": "relay",
+                "why_en": "His two-relay adder was the circuit of Lesson 4.",
+                "why_zh": "他那台兩個繼電器的加法器，就是第四課的電路。"
+              },
+              {
+                "en": "ENIAC had more than 17,000 of these.",
+                "zh": "ENIAC 裡有超過 17,000 個這種東西。",
+                "answer": "tube",
+                "why_en": "Computers built with vacuum tubes are called first-generation computers.",
+                "why_zh": "用真空管做的電腦，被稱為第一代電腦。"
+              },
+              {
+                "en": "John Bardeen and Walter Brattain made the first one in December 1947.",
+                "zh": "巴丁和布拉頓在 1947 年 12 月做出了第一個。",
+                "answer": "transistor",
+                "why_en": "It was made from a small slab of germanium.",
+                "why_zh": "它是用一小塊鍺做的。"
+              },
+              {
+                "en": "It has a part that really moves when it switches.",
+                "zh": "它切換的時候，有一個零件真的在動。",
+                "answer": "relay",
+                "why_en": "An electromagnet pulls a contact, which is why relays are slow.",
+                "why_zh": "電磁鐵把接點吸過去，所以繼電器很慢。"
+              },
+              {
+                "en": "The Intel 4004 had 2,300 of these on one chip.",
+                "zh": "Intel 4004 在一片晶片上有 2,300 個這種東西。",
+                "answer": "transistor",
+                "why_en": "A chip is many transistors made together.",
+                "why_zh": "晶片就是一起做出來的很多電晶體。"
+              },
+              {
+                "en": "A moth was once found caught between the contacts of one.",
+                "zh": "曾經有一隻飛蛾被發現卡在它的接點之間。",
+                "answer": "relay",
+                "why_en": "That was the bug of Lesson 9, in the Harvard Mark II.",
+                "why_zh": "那就是第九課的那隻蟲，在哈佛馬克二號裡。"
+              },
+              {
+                "en": "ENIAC was kept running all the time, partly to make these last longer.",
+                "zh": "ENIAC 一直開著不關機，部分原因是為了讓這種東西撐久一點。",
+                "answer": "tube",
+                "why_en": "Britannica notes it ran continuously in part to extend tube life.",
+                "why_zh": "大英百科提到，它持續運轉的部分原因是延長真空管的壽命。"
+              },
+              {
+                "en": "A chip announced in 2024 has 28 billion of these.",
+                "zh": "2024 年發表的一片晶片上，有 280 億個這種東西。",
+                "answer": "transistor",
+                "why_en": "Each one is still a switch: off or on.",
+                "why_zh": "每一個仍然是一個開關：關或開。"
+              }
+            ]
+          },
+          "recap": {
+            "eyebrow": "Looking Back · 回頭看",
+            "en": "Sixteen Lessons, One Sentence Each",
+            "zh": "十六課，一課一句話",
+            "lead_en": "This is the last lesson of How Computers Work. Here are all sixteen, each with the first sentence of its big idea. Tap any card to go back to that lesson.",
+            "lead_zh": "這是「電腦概論」的最後一課。這裡是全部十六課，每一課附上它「一句話看懂」的第一句。點任何一張卡，就可以回到那一課。",
+            "note_en": "Read them in order, from 1 to 16. Each sentence leans on the ones before it.",
+            "note_zh": "照順序讀，從 1 到 16。每一句都靠著前面那幾句。"
+          },
+          "culture_cards": {
+            "eyebrow": "Stories Behind the Shrinking · 越變越小的故事",
+            "title_en": "A room that needed air conditioning, a slab of germanium, a circuit in one piece, and a prediction",
+            "title_zh": "一間需要空調的房間、一小塊鍺、做成一整塊的電路、一個預測",
+            "lead_en": "Four short stories about the switch.",
+            "lead_zh": "關於開關的四個小故事。",
+            "cards": [
+              {
+                "k": "ENIAC",
+                "en": "Forty panels along three walls",
+                "zh": "沿著三面牆的四十片面板",
+                "body_en": "Britannica describes ENIAC as the first programmable general-purpose electronic digital computer. Its 40 panels stood in a U along three walls of a basement at the University of Pennsylvania, and each panel was about 2 feet wide, 2 feet deep, and 8 feet high. Besides its vacuum tubes it had 1,500 relays, so it stood between two ages. Changing its program meant rewiring it, which could take days.",
+                "body_zh": "大英百科把 ENIAC 稱為第一台可程式化的通用電子數位電腦。它的 40 片面板在賓州大學的一間地下室裡，沿著三面牆排成 U 字形，每一片大約寬 2 英尺、深 2 英尺、高 8 英尺。除了真空管，它還有 1,500 個繼電器，所以它正好站在兩個時代之間。要換程式就得重新接線，可能要花好幾天。"
+              },
+              {
+                "k": "December 16, 1947",
+                "en": "A wedge, two gold contacts, and germanium",
+                "zh": "一塊楔子、兩個金接點、一塊鍺",
+                "body_en": "The Computer History Museum describes the first transistor. John Bardeen and Walter Brattain pressed two closely spaced gold contacts, held by a plastic wedge, onto a small slab of very pure germanium. The voltage on one contact controlled the current through the other. A week later, on December 23, they showed it to others at the laboratory.",
+                "body_zh": "電腦歷史博物館描述了第一顆電晶體。巴丁和布拉頓用一塊塑膠楔子固定兩個靠得很近的金接點，壓在一小塊純度很高的鍺上。一個接點上的電壓，控制著流過另一個接點的電流。一個星期後的 12 月 23 日，他們把它展示給實驗室裡的其他人看。"
+              },
+              {
+                "k": "September 12, 1958",
+                "en": "A circuit made in one piece",
+                "zh": "做成一整塊的電路",
+                "body_en": "By the 1950s engineers were wiring together thousands of separate transistors, and the wiring itself had become the problem. According to the Computer History Museum, on September 12, 1958, Jack Kilby of Texas Instruments built a circuit whose transistor, capacitor, and resistor were all formed from pieces of germanium. That was the first integrated circuit. The chips series on this site tells how such circuits are made today.",
+                "body_zh": "到了 1950 年代，工程師要把幾千顆一顆一顆的電晶體用線接起來，接線本身成了難題。根據電腦歷史博物館，1958 年 9 月 12 日，德州儀器的基爾比做出一個電路，裡面的電晶體、電容和電阻都是用鍺做成的。這就是第一個積體電路。今天這種電路是怎麼做出來的，本站的「晶片與半導體」系列有說明。"
+              },
+              {
+                "k": "1965, 1975",
+                "en": "Moore’s prediction",
+                "zh": "摩爾的預測",
+                "body_en": "In 1965 Gordon Moore tried to predict the next ten years of integrated circuits. The Computer History Museum reports that he projected a doubling every 12 months, reaching 65,000 parts on a chip by 1975. In 1975 he looked again and slowed the rate to “a doubling every two years, rather than every year.” The museum calls it a prediction that became a self-fulfilling prophecy, one of the driving principles of the industry.",
+                "body_zh": "1965 年，摩爾試著預測積體電路往後十年的發展。電腦歷史博物館記載，他推估每 12 個月增加一倍，到 1975 年一片晶片上會有 65,000 個元件。1975 年他重新檢視，把速度放慢成「每兩年增加一倍，而不是每年」。博物館說，這個預測成了一個自我實現的預言，也是推動整個產業的原則之一。"
+              }
+            ]
+          },
+          "myths": [
+            {
+              "myth_en": "Computers got smaller because each new one was a different kind of machine.",
+              "myth_zh": "電腦變小，是因為每一代都是不一樣的機器。",
+              "fact_en": "The idea stayed the same: switches that are off or on. What changed was how the switch is made and how small it is.",
+              "fact_zh": "想法一直沒變：不是關就是開的開關。變的是開關的做法和大小。"
+            },
+            {
+              "myth_en": "Newer always means more switches.",
+              "myth_zh": "比較新，開關就一定比較多。",
+              "fact_en": "The 4004 of 1971 had 2,300 transistors, far fewer than ENIAC’s 17,000 tubes of 1946. Its great step was to put a whole processor on one chip.",
+              "fact_zh": "1971 年的 4004 只有 2,300 個電晶體，比 1946 年 ENIAC 的 17,000 根真空管少得多。它了不起的地方，是把一整個處理器做在一片晶片上。"
+            },
+            {
+              "myth_en": "The transistor replaced the vacuum tube because it was invented later.",
+              "myth_zh": "電晶體取代真空管，只因為它發明得比較晚。",
+              "fact_en": "The Bell Labs group was looking for a replacement for unreliable vacuum tubes and mechanical switches. A switch with nothing moving and nothing glowing was the point.",
+              "fact_zh": "貝爾實驗室那個小組，本來就是在找東西取代不可靠的真空管和機械式開關。重點是「沒有東西在動、沒有東西在發亮」的開關。"
+            },
+            {
+              "myth_en": "Moore’s law is a law of nature.",
+              "myth_zh": "摩爾定律是一條自然定律。",
+              "fact_en": "It began as one person’s prediction in 1965, which he changed in 1975. The Computer History Museum calls it a self-fulfilling prophecy.",
+              "fact_zh": "它一開始是一個人在 1965 年的預測，1975 年他自己還修改過。電腦歷史博物館把它稱為自我實現的預言。"
+            }
+          ],
+          "tricks_head": {
+            "en": "The whole course in a sentence",
+            "zh": "一句話記住整門課"
+          },
+          "tricks": [
+            {
+              "title_en": "Same idea, smaller switch",
+              "title_zh": "想法一樣，開關變小",
+              "body_en": "Off or on, 0 or 1, the whole way.",
+              "body_zh": "關或開，0 或 1，從頭到尾都是。"
+            },
+            {
+              "title_en": "Relay, tube, transistor, chip",
+              "title_zh": "繼電器、真空管、電晶體、晶片",
+              "body_en": "Four steps in the story.",
+              "body_zh": "故事的四步。"
+            },
+            {
+              "title_en": "2,300 then, 28 billion now",
+              "title_zh": "當年 2,300，現在 280 億",
+              "body_en": "One chip in 1971, one chip in 2024.",
+              "body_zh": "1971 年的一片，2024 年的一片。"
+            },
+            {
+              "title_en": "It all rests on Lesson 1",
+              "title_zh": "一切都建立在第一課上",
+              "body_en": "Eight switches, many times over.",
+              "body_zh": "八個開關，再重複很多很多遍。"
+            }
+          ],
+          "safety_head": {
+            "eyebrow": "Before You Start · 動手之前",
+            "en": "A few reminders",
+            "zh": "幾個提醒"
+          },
+          "safety": [
+            {
+              "en": "Do not open a phone, a computer, or a power supply to look for the chips. Lesson 5 explained why.",
+              "zh": "不要為了找晶片而把手機、電腦或電源供應器拆開。原因第五課說過。"
+            },
+            {
+              "en": "Old electronic parts such as vacuum tubes can break easily. If your school has any, look, and let the teacher handle them.",
+              "zh": "真空管這類舊的電子零件很容易弄破。學校如果有，用看的就好，讓老師來拿。"
+            },
+            {
+              "en": "When you look up your own device, use the maker’s official page, and do not type personal information into sites that ask for it.",
+              "zh": "查自己裝置的資料時，請看製造商的官方網頁；有網站要你填個人資料的話，不要填。"
+            },
+            {
+              "en": "Use a school or family computer only with permission.",
+              "zh": "用學校或家裡的電腦要先得到同意。"
+            }
+          ],
+          "activities": [
+            {
+              "title_en": "A Timeline You Can Walk",
+              "title_zh": "可以走的時間軸",
+              "materials": [
+                {
+                  "en": "A long corridor or playground, and chalk or tape",
+                  "zh": "一條長走廊或操場，和粉筆或膠帶"
+                },
+                {
+                  "en": "A tape measure",
+                  "zh": "一條捲尺"
+                },
+                {
+                  "en": "Five cards: 1937 relay, 1946 vacuum tubes, 1947 transistor, 1971 one chip, 2024 one chip",
+                  "zh": "五張卡片：1937 繼電器、1946 真空管、1947 電晶體、1971 一片晶片、2024 一片晶片"
+                }
+              ],
+              "steps": [
+                {
+                  "en": "Mark a line on the ground. Let 10 centimeters stand for one year, so the whole line from 1937 to 2024 is 8.7 meters long.",
+                  "zh": "在地上畫一條線。用 10 公分代表一年，所以從 1937 到 2024 的整條線長 8.7 公尺。"
+                },
+                {
+                  "en": "Five students each take a card and stand at the right place. Measure from 1937: the 1946 card stands at 0.9 meters, 1947 at 1 meter, 1971 at 3.4 meters, and 2024 at 8.7 meters.",
+                  "zh": "五位同學各拿一張卡，站到正確的位置。從 1937 量起：1946 那張站在 0.9 公尺，1947 在 1 公尺，1971 在 3.4 公尺，2024 在 8.7 公尺。"
+                },
+                {
+                  "en": "Each student says in English what the switch was and how many there were: 2, more than 17,000, 1, 2,300, and 28 billion.",
+                  "zh": "每位同學用英文說出那是什麼開關、有幾個：2、超過 17,000、1、2,300、280 億。"
+                },
+                {
+                  "en": "Now the class adds its own cards: the year each student was born, and the year the school was built. Where do they stand?",
+                  "zh": "接著全班加上自己的卡片：每位同學出生的那一年，還有學校蓋好的那一年。它們站在哪裡？"
+                }
+              ],
+              "tip_en": "Notice how close together 1946 and 1947 stand, and how long the walk is from 1971 to 2024. In Taiwan’s junior high Information Technology curriculum, this lesson matches the topic “System platforms”: 資 S-IV-1, important developments and the evolution of system platforms.",
+              "tip_zh": "注意 1946 和 1947 站得有多近，而從 1971 走到 2024 又有多遠。對照十二年國教國中「資訊科技」的學習內容，這一課對應「系統平台」主題：資 S-IV-1 系統平台重要發展與演進。"
+            },
+            {
+              "title_en": "Check It on Your Own Device",
+              "title_zh": "在自己的裝置上驗證",
+              "materials": [
+                {
+                  "en": "A computer, tablet, or phone",
+                  "zh": "一台電腦、平板或手機"
+                },
+                {
+                  "en": "The steps from Lesson 5 for finding the name of the processor",
+                  "zh": "第五課教的、找出處理器名稱的步驟"
+                },
+                {
+                  "en": "Paper and a pencil",
+                  "zh": "紙和鉛筆"
+                }
+              ],
+              "steps": [
+                {
+                  "en": "Find the name of the processor or chip in your device, as you did in Lesson 5. Write it down exactly.",
+                  "zh": "照第五課的做法，找出你裝置裡處理器或晶片的名稱。一字不差地抄下來。"
+                },
+                {
+                  "en": "Look for that name on its maker’s official website. Does the maker say how many transistors it has? Not every maker does.",
+                  "zh": "到製造商的官方網站上找這個名稱。製造商有沒有說它有幾個電晶體？不是每一家都會說。"
+                },
+                {
+                  "en": "If you find a number, write it down with the web address and the date. If you do not, write “not published.”",
+                  "zh": "如果找到數字，連同網址和日期一起記下來。如果找不到，就寫「not published」（沒有公布）。"
+                },
+                {
+                  "en": "Compare your number with 2,300 in the “Compare Any Two” way: about how many times as many?",
+                  "zh": "用「挑兩個來比」的方式，拿你的數字和 2,300 比：大約是幾倍？"
+                }
+              ],
+              "tip_en": "This activity is about sources as much as chips. A number is only worth writing down if you can say where it came from, which is how every number on these pages was chosen. “Not published” is a perfectly good finding.",
+              "tip_zh": "這個活動談的是晶片，也是「來源」。一個數字要說得出它是哪裡來的，才值得寫下來——這幾頁上的每一個數字都是這樣挑的。「沒有公布」也是一個很好的發現。"
+            }
+          ],
+          "links_head": {
+            "eyebrow": "Go Further · 延伸閱讀",
+            "en": "Where it began, how chips are made, and the whole course",
+            "zh": "從哪裡開始、晶片怎麼做，以及整門課"
+          },
+          "links": [
+            {
+              "icon": "🧠",
+              "k_en": "Previous Lesson · Lesson 15",
+              "k_zh": "上一課・第十五課",
+              "en": "How Does a Computer Learn?",
+              "zh": "電腦怎麼「學習」？",
+              "note_en": "Adjusting a great many numbers needs a great many switches. That is why this lesson comes last.",
+              "note_zh": "要調整非常多的數，就需要非常多的開關。所以這一課排在最後。",
+              "href": "/resources/classes/computers/how-computers-learn/"
+            },
+            {
+              "icon": "💡",
+              "k_en": "Lesson 1",
+              "k_zh": "第一課",
+              "en": "Why Do Computers Use Only 0 and 1?",
+              "zh": "電腦為什麼只用 0 和 1？",
+              "note_en": "Go back to the eight switches. They will look different now.",
+              "note_zh": "回去看看那八個開關。現在看起來會不一樣。",
+              "href": "/resources/classes/computers/zeros-and-ones/"
+            },
+            {
+              "icon": "🔬",
+              "k_en": "Chips and Semiconductors",
+              "k_zh": "晶片與半導體",
+              "en": "How Is a Chip Made?",
+              "zh": "晶片是怎麼做出來的？",
+              "note_en": "A separate series on this site: what a transistor does, how sand becomes a chip, and how small a nanometer is.",
+              "note_zh": "本站的另一個系列：電晶體在做什麼、沙子怎麼變成晶片、一奈米有多小。",
+              "href": "/resources/classes/semiconductors/"
+            },
+            {
+              "icon": "💻",
+              "k_en": "The Whole Course",
+              "k_zh": "整門課",
+              "en": "How Computers Work: All Sixteen Lessons",
+              "zh": "電腦概論：全部十六課",
+              "note_en": "The course is complete. Start again from the beginning, or pick the lesson you most want to see again.",
+              "note_zh": "這門課到這裡全部完成。可以從頭再來一遍，或挑你最想再看一次的那一課。",
+              "href": "/resources/classes/computers/"
+            }
+          ],
+          "sources_note_en": "Facts on this page were checked against these sources (October 2026); the five shapes in the model are our own drawings and are not to scale",
+          "sources_note_zh": "本頁的事實依下列資料查證（2026 年 10 月）；模型裡五個東西的外形是我們自己畫的，沒有照比例",
+          "sources": [
+            {
+              "en": "ENIAC was “the first programmable general-purpose electronic digital computer”; it occupied a 50-by-30-foot basement; its 40 panels, each about 2 feet wide by 2 feet deep by 8 feet high, stood along three walls; “more than 17,000 vacuum tubes” and 1,500 relays; it generated 174 kilowatts of heat and required its own air conditioning; it ran continuously, in part to extend tube life; up to 5,000 additions per second; completed by February 1946; it took days to rewire for each new problem; computers employing vacuum tubes are known as first-generation computers",
+              "zh": "ENIAC 是「第一台可程式化的通用電子數位電腦」；占用一間 50 乘 30 英尺的地下室；40 片面板（每片約寬 2、深 2、高 8 英尺）沿三面牆排列；「超過 17,000 根真空管」與 1,500 個繼電器；產生 174 瓩的熱，需要自己的空調；持續運轉，部分原因是延長真空管壽命；每秒最多 5,000 次加法；1946 年 2 月以前完成；每換一個問題要花好幾天重新接線；使用真空管的電腦稱為第一代電腦",
+              "src": "Paul A. Freiberger and Michael R. Swaine, “ENIAC,” Encyclopaedia Britannica",
+              "url": "https://www.britannica.com/technology/ENIAC"
+            },
+            {
+              "en": "Stibitz fastened two relays to a piece of plywood to make a one-digit binary adder at home in 1937 (see Lesson 4)",
+              "zh": "1937 年史提比茲在家裡把兩個繼電器釘在夾板上，做出一位二進位數的加法器（見第四課）",
+              "src": "IEEE Computer Society, “Computer Pioneers: George Robert Stibitz”",
+              "url": "https://history.computer.org/pioneers/stibitz.html"
+            },
+            {
+              "en": "The Bell Labs group “pursued research on semiconductor replacements for unreliable vacuum tubes and electromechanical switches”; on December 16, 1947, Bardeen and Brattain applied two closely spaced gold contacts held by a plastic wedge to a small slab of high-purity germanium; on December 23 they demonstrated the device",
+              "zh": "貝爾實驗室的小組研究用半導體取代不可靠的真空管與機電式開關；1947 年 12 月 16 日，巴丁與布拉頓把塑膠楔子固定的兩個緊鄰金接點壓在一小塊高純度的鍺上；12 月 23 日展示這個元件",
+              "src": "Computer History Museum, “1947: Invention of the Point-Contact Transistor”",
+              "url": "https://www.computerhistory.org/siliconengine/invention-of-the-point-contact-transistor/"
+            },
+            {
+              "en": "“On September 12, 1958, Jack Kilby of Texas Instruments built a circuit using germanium mesa p-n-p transistor slices he had etched to form transistor, capacitor, and resistor elements”; engineers had sought simpler ways to interconnect the thousands of transistors they employed",
+              "zh": "1958 年 9 月 12 日，德州儀器的基爾比用鍺晶片蝕刻出電晶體、電容與電阻，做成一個電路；在那之前，工程師一直在找更簡單的方法，把所用的幾千顆電晶體連接起來",
+              "src": "Computer History Museum, “1958: All Semiconductor ‘Solid Circuit’ is Demonstrated”",
+              "url": "https://www.computerhistory.org/siliconengine/all-semiconductor-solid-circuit-is-demonstrated/"
+            },
+            {
+              "en": "In November 1971 Intel announced the 4004; “The 4004 processor contained 2,300 transistors in all”",
+              "zh": "1971 年 11 月 Intel 發表 4004；4004 處理器一共有 2,300 個電晶體",
+              "src": "Intel, “The First Programmable Microprocessor: The 4004”",
+              "url": "https://timeline.intel.com/1971/the-first-programmable-microprocessor:-the-4004"
+            },
+            {
+              "en": "“M4 consists of 28 billion transistors built using a second-generation 3-nanometer technology”; announced May 7, 2024, in the iPad Pro",
+              "zh": "M4 由 280 億個電晶體構成，採用第二代 3 奈米技術；2024 年 5 月 7 日隨 iPad Pro 發表",
+              "src": "Apple Newsroom, “Apple introduces M4 chip”",
+              "url": "https://www.apple.com/newsroom/2024/05/apple-introduces-m4-chip/"
+            },
+            {
+              "en": "In 1965 Moore projected “a doubling every 12 months,” reaching 65,000 components per chip by 1975; in 1975 he slowed the rate to “a doubling every two years, rather than every year”; “This prediction became a self-fulfilling prophecy that emerged as one of the driving principles of the semiconductor industry”",
+              "zh": "1965 年摩爾推估每 12 個月增加一倍，1975 年每片晶片達到 65,000 個元件；1975 年他把速度放慢為每兩年增加一倍，而不是每年；這個預測成了自我實現的預言，也是半導體產業的推動原則之一",
+              "src": "Computer History Museum, “1965: ‘Moore’s Law’ Predicts the Future of Integrated Circuits”",
+              "url": "https://www.computerhistory.org/siliconengine/moores-law-predicts-the-future-of-integrated-circuits/"
+            },
+            {
+              "en": "資 S-IV-1, important developments and the evolution of system platforms (p. 10; notes on p. 43)",
+              "zh": "資 S-IV-1 系統平台重要發展與演進（第 10 頁；附錄三的說明「系統平台演進歷程與重要趨勢」在第 43 頁）",
+              "src": "教育部《十二年國民基本教育課程綱要 國民中學暨普通型高級中等學校 科技領域》（2018）",
+              "url": "https://www.naer.edu.tw/upload/1/16/doc/816/十二年國民基本教育課程綱要國民中學暨普通型高級中等學校-科技領域.pdf"
+            },
+            {
+              "en": "Taiwan terms: integrated circuit 積體電路, relay 繼電器 (see Lesson 4), transistor 電晶體",
+              "zh": "台灣用語：integrated circuit 積體電路、relay 繼電器（見第四課）、transistor 電晶體",
+              "src": "國家教育研究院《樂詞網》",
+              "url": "https://terms.naer.edu.tw/search/?query_term=integrated+circuit&query_field=title&query_op=&match_type=exact"
+            },
+            {
+              "en": "Our own arithmetic: 28,000,000,000 ÷ 2,300 is about 12 million; 28,000,000,000 ÷ 17,000 is about 1.6 million; 2024 − 1971 = 53 years; 1958 − 1947 = 11 years; on the timeline, 10 centimeters a year puts 1946 at 0.9 m, 1947 at 1 m, 1971 at 3.4 m, and 2024 at 8.7 m",
+              "zh": "自己的算術：28,000,000,000 ÷ 2,300 約為一千兩百萬；28,000,000,000 ÷ 17,000 約為一百六十萬；2024 − 1971＝53 年；1958 − 1947＝11 年；時間軸上一年 10 公分，1946 在 0.9 公尺、1947 在 1 公尺、1971 在 3.4 公尺、2024 在 8.7 公尺",
+              "src": "Checked by tools/computers/test/shrink.test.mjs",
+              "url": "https://github.com/lukelin7429/twrses/blob/main/tools/computers/test/shrink.test.mjs"
+            }
+          ]
         }
-      ]
+      ],
+      "planned": []
     }
   ]
 }
