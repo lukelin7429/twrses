@@ -1234,11 +1234,11 @@
        "icon": "🥁",
        "k_en": "Music · Lesson 3",
        "k_zh": "音樂・第三課",
-       "soon": true,
        "en": "What Is a Beat?",
        "zh": "拍子是什麼？",
-       "note_en": "Pitch and tone color are about one note. The next lesson is about time: the steady beat under the music.",
-       "note_zh": "音高和音色說的是一個音。下一課講時間：音樂底下穩定的拍子。"
+       "note_en": "Pitch and tone color are about one note. This lesson is about time: the steady beat under the music.",
+       "note_zh": "音高和音色說的是一個音。下一課講時間：音樂底下穩定的拍子。",
+       "href": "/resources/classes/music/what-is-a-beat/"
       }
      ],
      "sources_note_en": "Names, dates, numbers, and quotations on this page were checked against these sources (October 2026). The frequencies and wave shapes are computed by the page itself and covered by automatic tests.",
@@ -1371,15 +1371,663 @@
        "url": "https://www.naer.edu.tw/upload/1/16/doc/820/%E5%8D%81%E4%BA%8C%E5%B9%B4%E5%9C%8B%E6%B0%91%E5%9F%BA%E6%9C%AC%E6%95%99%E8%82%B2%E8%AA%B2%E7%A8%8B%E7%B6%B1%E8%A6%81%E5%9C%8B%E6%B0%91%E4%B8%AD%E5%B0%8F%E5%AD%B8%E6%9A%A8%E6%99%AE%E9%80%9A%E5%9E%8B%E9%AB%98%E7%B4%9A%E4%B8%AD%E7%AD%89%E6%A0%A1-%E8%87%AA%E7%84%B6%E7%A7%91%E5%AD%B8%E9%A0%98%E5%9F%9F.pdf"
       }
      ]
+    },
+    {
+     "n": 3,
+     "slug": "what-is-a-beat",
+     "title": "What Is a Beat?",
+     "title_zh": "拍子是什麼？",
+     "level": "入門 · Beginner",
+     "icon": "🥁",
+     "card": "beat",
+     "blurb_en": "Start a pendulum metronome, change its speed, and count the strong and weak beats in twos, threes, and fours. Then tap along and see how close you land to the beat.",
+     "blurb_zh": "啟動擺錘節拍器、改變它的速度，數一數二拍、三拍、四拍裡的強拍與弱拍。再跟著敲，看你離拍子有多近。",
+     "big_idea_en": "A beat is a steady pulse that cuts time into equal steps. Strong and weak beats come back in a repeating pattern, which groups them into bars of two, three, or four. The speed is counted in beats per minute.",
+     "big_idea_zh": "拍是穩定的脈搏，把時間切成一樣長的格。強拍和弱拍照著一個圖樣一直回來，把拍分成二拍、三拍或四拍的小節。速度則用每分鐘幾拍來數。",
+     "lab": {
+      "kind": "beat",
+      "eyebrow": "3D Model · 3D 模型",
+      "title_en": "A Pendulum Metronome",
+      "title_zh": "擺錘節拍器",
+      "how_en": "Press Start and watch the rod. Every time it reaches one end, that is one beat, and you hear a click. The row of lights on top shows which beat of the bar you are on. The gold light is the strong beat. Drag the gold weight up for slower and down for faster, or use the slider. Choose two, three, or four beats in a bar and listen for the strong beat that keeps coming back.",
+      "how_zh": "按「開始」，看擺桿。每次擺到一端，就是一拍，你會聽到一聲喀。頂上一排燈顯示現在是小節的第幾拍，金色的燈是強拍。把金色重錘往上拖就變慢、往下拖就變快，也可以用滑桿。選每小節二拍、三拍或四拍，聽那個一直回來的強拍。",
+      "legend": [
+       {
+        "cls": "live",
+        "en": "Gold light: the strong beat, the first beat of each bar",
+        "zh": "金色燈：強拍，每小節的第一拍"
+       },
+       {
+        "cls": "mode",
+        "en": "Cyan lights: the other beats of the bar",
+        "zh": "青色燈：小節裡的其他拍"
+       },
+       {
+        "cls": "tick",
+        "en": "Gold weight: higher is slower, lower is faster (schematic)",
+        "zh": "金色重錘：越高越慢、越低越快（示意）"
+       }
+      ],
+      "scale_en": "The speed range is 40 to 180 beats per minute. At 180, there are three beats every second.",
+      "scale_zh": "速度範圍是每分鐘 40 到 180 拍。180 拍時，每秒三拍。",
+      "credit_html": "The clicks are made by your browser, with a different pitch for strong and weak beats. They are timed on the browser's audio clock, so the sound and the pendulum agree. · 喀喀聲由瀏覽器合成，強拍與弱拍的音高不同；它們用瀏覽器的聲音時鐘排程，所以聲音和擺錘是一致的。"
+     },
+     "paras": [
+      "Think of a song you love and tap your foot along with it. Everyone in the room taps at the same speed, and nobody had to count. What you are tapping is the beat. A beat is the basic unit of time in music, the pulse, and it keeps going whether the melody has a long note or a short one.",
+      "Beats come one after another, each the same length, like the ticks of a clock. We say how fast the beats are with the word tempo, which is Italian for “time.” Tempo is measured in beats per minute, or BPM. At 60 BPM there is exactly one beat every second, like the second hand of a clock. At 120 BPM the beats are twice as fast. For comparison, the resting pulse of a person aged ten or older is 60 to 100 beats per minute, counted in the same unit.",
+      "But beats are not all the same. Some feel stronger and some weaker, and the pattern keeps coming back. A set of beats from one strong beat to the next is called a bar, or a measure. The first beat of the bar is the downbeat, and it is usually the strongest. The pattern of strong and weak beats is the meter.",
+      "The most common patterns are twos, threes, and fours. In two beats, the pattern is strong, weak, like a march step. In three beats, it is strong, weak, weak, and you count one-two-three. In four beats, it is strong, weak, medium, weak. Written music shows this with a time signature. In 3/4, the top number says there are three beats in each bar, and the bottom number says that a quarter note gets one beat.",
+      "Chinese traditional music has its own names for the same idea. The strongest beat is the 板 (bǎn), struck on a wooden clapper. The weaker beats are the 眼 (yǎn), marked with a drumstick. “One 板 and one 眼” means two beats in a bar, and “one 板 and three 眼” means four. In nanguan music, the beats are counted in 撩拍, with its own clapper called the 拍板.",
+      "A metronome keeps the beat for you. The mechanical kind has a rod that swings like a pendulum and a weight that slides up the rod to make it slower. A German inventor named Johann Maelzel patented one in 1815, after an earlier design by Dietrich Winkel. Beethoven was soon the first notable composer to write metronome numbers in his music. Even so, the old Italian words such as allegro and andante are only rough guides, and different books give them different numbers."
+     ],
+     "paras_zh": [
+      "想一首你喜歡的歌，跟著它用腳打拍子。房間裡每個人敲的速度都一樣，而且沒有人需要數。你敲的就是拍。拍是音樂裡最基本的時間單位，是脈搏；不管旋律是長音還是短音，它都一直走下去。",
+      "拍一個接著一個，每一拍一樣長，像時鐘的滴答。我們用「速度」（tempo，義大利文是「時間」的意思）來說拍有多快，單位是每分鐘幾拍，簡稱 BPM。60 BPM 就是每秒剛好一拍，像時鐘的秒針；120 BPM 就快一倍。作為對照，十歲以上的人靜止時的脈搏是每分鐘 60 到 100 下，用的是同一種單位。",
+      "可是拍不全是一樣的。有些感覺比較強、有些比較弱，而且這個圖樣一直回來。從一個強拍到下一個強拍之間的拍，合成一組，叫做一個小節（measure，也叫 bar）。小節的第一拍是強拍（downbeat），通常最強。強弱拍的圖樣叫做拍子（meter）。",
+      "最常見的圖樣是二拍、三拍和四拍。二拍子是強、弱，像行進的腳步；三拍子是強、弱、弱，數成一二三；四拍子是強、弱、次強、弱。樂譜用「拍子記號」（拍號）把它寫下來。在 3/4 裡，上面的數字說每小節有三拍，下面的數字說以四分音符為一拍。",
+      "中國傳統音樂對同一件事有自己的名字。最強的拍叫「板」，用拍板敲出來；比較弱的拍叫「眼」，用鼓簽標出來。「一板一眼」是一小節兩拍，「一板三眼」是一小節四拍。南管音樂則用「撩拍」來數拍，並且有自己叫做「拍板」的樂器。",
+      "節拍器可以替你保持拍子。機械式的節拍器有一根像鐘擺一樣擺動的桿子，和一個沿著桿子往上滑就會變慢的重錘。德國發明家約翰・梅爾策爾（Johann Maelzel）在 1815 年取得專利，在這之前已有迪特里希・溫克爾（Dietrich Winkel）的設計。貝多芬很快就成為第一位把節拍器數字寫進樂譜的知名作曲家。即使如此，allegro、andante 這些舊的義大利文，也只是大略的指引，不同的書給它們的數字也不一樣。"
+     ],
+     "questions": [
+      "A song is played at 120 BPM. How long is one beat, and how many beats are there in 10 seconds?",
+      "What does the time signature 3/4 tell you?",
+      "A friend says, “Tempo and beat are the same thing.” How would you explain the difference?"
+     ],
+     "answers": [
+      "One beat lasts 60 ÷ 120 = 0.5 seconds. In 10 seconds there are 10 ÷ 0.5 = 20 beats.",
+      "The top number, 3, means there are three beats in each bar. The bottom number, 4, means that a quarter note gets one beat. The pattern is usually strong, weak, weak.",
+      "The beat is the steady pulse itself, one step of equal length after another. Tempo is how fast those beats go, usually counted in beats per minute."
+     ],
+     "vocab": [
+      {
+       "n": 1,
+       "w": "beat",
+       "pos": "n.",
+       "zh": "拍",
+       "ex": "Clap on every <b>beat</b> of the song.",
+       "exzh": "跟著這首歌的每一拍拍手。"
+      },
+      {
+       "n": 2,
+       "w": "pulse",
+       "pos": "n.",
+       "zh": "脈搏；規律的拍動",
+       "ex": "Put two fingers on your wrist to feel your <b>pulse</b>.",
+       "exzh": "把兩根手指放在手腕上，感覺你的脈搏。"
+      },
+      {
+       "n": 3,
+       "w": "tempo",
+       "pos": "n.",
+       "zh": "速度",
+       "ex": "The band played the song at a fast <b>tempo</b>.",
+       "exzh": "樂團用很快的速度演奏這首歌。"
+      },
+      {
+       "n": 4,
+       "w": "measure",
+       "pos": "n.",
+       "zh": "小節（也叫 bar）",
+       "ex": "Each <b>measure</b> of this song has four beats.",
+       "exzh": "這首歌的每一個小節有四拍。"
+      },
+      {
+       "n": 5,
+       "w": "meter",
+       "pos": "n.",
+       "zh": "拍子（強弱的圖樣）",
+       "ex": "A waltz has a <b>meter</b> of three beats.",
+       "exzh": "圓舞曲的拍子是三拍。"
+      },
+      {
+       "n": 6,
+       "w": "accent",
+       "pos": "n./v.",
+       "zh": "重音；強調",
+       "ex": "Put an <b>accent</b> on the first beat of the bar.",
+       "exzh": "在小節的第一拍加重音。"
+      },
+      {
+       "n": 7,
+       "w": "metronome",
+       "pos": "n.",
+       "zh": "節拍器",
+       "ex": "She practices the piano with a <b>metronome</b>.",
+       "exzh": "她用節拍器練鋼琴。"
+      },
+      {
+       "n": 8,
+       "w": "steady",
+       "pos": "adj.",
+       "zh": "穩定的",
+       "ex": "A drummer must keep a <b>steady</b> beat.",
+       "exzh": "鼓手必須維持穩定的拍子。"
+      }
+     ],
+     "quiz": [
+      {
+       "q": "What does BPM stand for?",
+       "options": [
+        "Beats per minute",
+        "Bars per measure",
+        "Big pulse meter",
+        "Beats per melody"
+       ],
+       "correct": 0
+      },
+      {
+       "q": "A song is at 60 BPM. How long is each beat?",
+       "options": [
+        "One second",
+        "Half a second",
+        "Two seconds",
+        "One minute"
+       ],
+       "correct": 0
+      },
+      {
+       "q": "In the time signature 4/4, what does the top number tell you?",
+       "options": [
+        "There are four beats in each bar",
+        "The song is four minutes long",
+        "There are four notes in the song",
+        "The tempo is 4 BPM"
+       ],
+       "correct": 0
+      },
+      {
+       "q": "Which pattern is a three-beat bar?",
+       "options": [
+        "Strong, weak, weak",
+        "Strong, weak",
+        "Strong, weak, medium, weak",
+        "Weak, weak, weak"
+       ],
+       "correct": 0
+      },
+      {
+       "q": "In traditional Chinese music, what is the 板 (bǎn)?",
+       "options": [
+        "The strongest beat",
+        "The weakest beat",
+        "A kind of flute",
+        "The speed of the song"
+       ],
+       "correct": 0
+      }
+     ],
+     "parts_head": {
+      "eyebrow": "Try It in the Model · 在模型裡試試",
+      "en": "Four things to try",
+      "zh": "四件值得試的事"
+     },
+     "parts": [
+      {
+       "key": "slow",
+       "icon": "🐌",
+       "en": "A slow beat",
+       "zh": "慢的拍子",
+       "meta_en": "50 BPM",
+       "meta_zh": "每分鐘 50 拍",
+       "demo": "slow",
+       "text_en": "One beat every 1.2 seconds. Watch where the weight sits: high on the rod.",
+       "text_zh": "每 1.2 秒一拍。看看重錘在哪裡：在桿子的高處。"
+      },
+      {
+       "key": "fast",
+       "icon": "🐇",
+       "en": "A fast beat",
+       "zh": "快的拍子",
+       "meta_en": "160 BPM",
+       "meta_zh": "每分鐘 160 拍",
+       "demo": "fast",
+       "text_en": "Nearly three beats every second. The weight slides down the rod.",
+       "text_zh": "每秒將近三拍。重錘滑到桿子的低處。"
+      },
+      {
+       "key": "three",
+       "icon": "3️⃣",
+       "en": "Three beats in a bar",
+       "zh": "每小節三拍",
+       "meta_en": "Strong, weak, weak",
+       "meta_zh": "強、弱、弱",
+       "demo": "three",
+       "text_en": "Count one-two-three, one-two-three. The gold light comes back every third beat.",
+       "text_zh": "數一二三、一二三。金色的燈每三拍回來一次。"
+      },
+      {
+       "key": "second",
+       "icon": "⏱️",
+       "en": "60 BPM is one per second",
+       "zh": "60 BPM 是每秒一拍",
+       "meta_en": "Like a clock's second hand",
+       "meta_zh": "像時鐘的秒針",
+       "demo": "second",
+       "text_en": "Compare the clicks with a clock that has a second hand. They match.",
+       "text_zh": "拿喀喀聲和有秒針的時鐘比一比，它們是一致的。"
+      }
+     ],
+     "parts_note_en": "Then switch between two, three, and four beats and listen. How do you know which one you are hearing?",
+     "parts_note_zh": "然後在二拍、三拍、四拍之間切換並仔細聽。你怎麼知道自己聽到的是哪一種？",
+     "tap": {
+      "eyebrow": "Try It · 動手試試",
+      "en": "Tap Along",
+      "zh": "跟著拍子敲",
+      "lead_en": "Choose a speed and press Start. You will hear four count-in beats, and then you tap the drum sixteen times along with the clicks. You can tap with a mouse, a finger, or the space bar. The graph shows each tap: a dot above the middle line is late, and a dot below is early. Green dots are within 50 milliseconds, which is one twentieth of a second.",
+      "lead_zh": "選一個速度、按「開始」。你會先聽到四拍預備，然後跟著喀喀聲在鼓面上敲十六下。可以用滑鼠、手指或空白鍵。圖上畫出每一下：在中線上方的點是晚了，在下方的點是早了。綠色的點在 50 毫秒以內，也就是二十分之一秒。"
+     },
+     "meterq": {
+      "eyebrow": "Game · 小遊戲",
+      "en": "How Many Beats in a Bar?",
+      "zh": "這是幾拍子？",
+      "lead_en": "Six questions. Each one plays three bars. Listen for the strong beat that keeps coming back and count the beats from one strong beat to the next. Then choose two, three, or four.",
+      "lead_zh": "六道題。每一題播三個小節。聽那個一直回來的強拍，數從一個強拍到下一個強拍有幾拍，再選二、三或四。"
+     },
+     "curric": {
+      "eyebrow": "In the Curriculum · 對應課綱",
+      "en": "Where this lesson fits",
+      "zh": "這一課對應的課綱",
+      "lead_en": "Unlike pitch and tone color, beat, speed, and time signatures are named directly in the elementary arts curriculum for music.",
+      "lead_zh": "和音高、音色不一樣，拍、速度和拍號都直接寫在國小藝術領域音樂的課綱裡。",
+      "items": [
+       {
+        "code": "音 E-Ⅱ-3",
+        "area": "藝術領域・音樂（國小三、四年級）",
+        "area_en": "Arts, music (grades 3–4)",
+        "text": "讀譜方式，如：五線譜、唱名法、拍號等。",
+        "note_en": "Time signatures are named as part of reading music.",
+        "note_zh": "拍號被列為讀譜的一部分。"
+       },
+       {
+        "code": "音 E-Ⅱ-4",
+        "area": "藝術領域・音樂（國小三、四年級）",
+        "area_en": "Arts, music (grades 3–4)",
+        "text": "音樂元素，如：節奏、力度、速度等。",
+        "note_en": "Speed is named as an element of music.",
+        "note_zh": "速度被列為音樂元素。"
+       },
+       {
+        "code": "音 A-Ⅱ-2",
+        "area": "藝術領域・音樂（國小三、四年級）",
+        "area_en": "Arts, music (grades 3–4)",
+        "text": "相關音樂語彙，如節奏、力度、速度等描述音樂元素之音樂術語，或相關之一般性用語。",
+        "note_en": "Words for speed, such as the Italian terms in this lesson, belong to this entry. Lesson 4 comes back to them.",
+        "note_zh": "描述速度的詞彙（例如本課提到的義大利文）屬於這一條。第四課會再回來講。"
+       },
+       {
+        "code": "音 E-Ⅲ-4",
+        "area": "藝術領域・音樂（國小五、六年級）",
+        "area_en": "Arts, music (grades 5–6)",
+        "text": "音樂符號與讀譜方式，如：音樂術語、唱名法等。記譜法，如：圖形譜、簡譜、五線譜等。",
+        "note_en": "At grades 5–6 the entry speaks of music terms and notation in general, and no longer names the time signature.",
+        "note_zh": "國小五、六年級這一條講的是音樂術語與記譜法，沒有再單獨點名拍號。"
+       }
+      ]
+     },
+     "culture_cards": {
+      "eyebrow": "Stories Behind the Beat · 拍子背後的故事",
+      "title_en": "A clapper, a pendulum, Beethoven’s numbers, and some Italian words",
+      "title_zh": "一塊拍板、一個擺錘、貝多芬的數字，和幾個義大利字",
+      "lead_en": "Four short stories about how people keep and name the beat.",
+      "lead_zh": "關於人怎麼守住拍子、又怎麼為它命名的四個小故事。",
+      "cards": [
+       {
+        "k": "A Clapper · 一塊拍板",
+        "en": "板 and 眼 in Chinese music",
+        "zh": "中國音樂裡的板與眼",
+        "body_en": "In traditional Chinese opera and music, the strongest beat of a bar is the 板, struck with a wooden clapper. The weaker beats are the 眼, marked with a drumstick. So “one 板 and three 眼” is a bar of four beats. The phrase also became an everyday saying for someone who does things by the book. In nanguan music, the beat is called 撩拍 instead, kept with a clapper made of several wooden pieces.",
+        "body_zh": "在中國傳統戲曲與音樂裡，小節裡最強的拍叫「板」，用拍板敲出來；比較弱的拍叫「眼」，用鼓簽標出來。所以「一板三眼」就是一小節四拍。這句話後來也變成一句日常的俗語，形容人做事一絲不苟。南管音樂則改稱「撩拍」，用好幾片木板做成的拍板來打拍子。"
+       },
+       {
+        "k": "A Pendulum · 一個擺錘",
+        "en": "How a mechanical metronome works",
+        "zh": "機械節拍器怎麼運作",
+        "body_en": "A mechanical metronome uses an upside-down pendulum: a rod with a fixed weight at the bottom and a weight you can slide. Slide it up and the rod swings slower. Slide it down and it swings faster. Most are adjustable from about 40 to 208 beats per minute. Dietrich Winkel built a version in Amsterdam in 1814, and Johann Maelzel added a numbered scale and patented it in 1815.",
+        "body_zh": "機械節拍器用的是倒過來的擺：一根桿子，下面有固定的重錘，另外還有一個可以滑動的重錘。往上滑，擺得比較慢；往下滑，擺得比較快。大多數可以調到大約每分鐘 40 到 208 拍。迪特里希・溫克爾 1814 年在阿姆斯特丹做出一種版本，約翰・梅爾策爾加上有數字的刻度，並在 1815 年申請專利。"
+       },
+       {
+        "k": "A Number · 一個數字",
+        "en": "Beethoven and M.M.",
+        "zh": "貝多芬與 M.M.",
+        "body_en": "Maelzel knew Beethoven, and Beethoven became the first notable composer to write specific metronome marks in his music. This was in December 1815, in the corrected score of his Cantata op. 112. Since then, a mark such as M.M. = 60, for Maelzel’s Metronome, has told a player exactly how fast to go: sixty beats per minute.",
+        "body_zh": "梅爾策爾認識貝多芬，而貝多芬成為第一位把明確的節拍器數字寫進樂譜的知名作曲家。那是 1815 年 12 月，在他的清唱劇作品 112 的修正稿上。從那時起，像 M.M. = 60（M.M. 是梅爾策爾節拍器的縮寫）這樣的標記，就明確告訴演奏者要多快：每分鐘六十拍。"
+       },
+       {
+        "k": "Some Words · 幾個詞",
+        "en": "Tempo, allegro, andante, presto",
+        "zh": "Tempo、allegro、andante、presto",
+        "body_en": "Tempo is the Italian word for “time.” Well-known Italian speed words include allegro, which means “cheerful,” andante, “walking pace,” and presto, “quickly.” People often give each word a range of BPM numbers, but the books do not agree, and one reference calls the numbers “very rough approximations.” The speed words tell you a feeling and a rough speed, and a metronome mark tells you the exact one.",
+        "body_zh": "Tempo 是義大利文的「時間」。有名的義大利文速度詞包括 allegro（輕快、愉快）、andante（走路的速度）和 presto（很快）。人們常給每個詞一個 BPM 的範圍，但不同的書意見不一，有一份參考資料還說這些數字只是「非常粗略的近似」。速度詞告訴你一種感覺和大略的快慢，節拍器的標記才告訴你精確的數字。"
+       }
+      ]
+     },
+     "myths": [
+      {
+       "myth_en": "Beat and rhythm are exactly the same thing.",
+       "myth_zh": "拍和節奏是完全一樣的東西。",
+       "fact_en": "The beat is the steady pulse that you would tap your foot to. Rhythm is the pattern of long and short sounds that moves over it, and it can be much more complicated than the beat.",
+       "fact_zh": "拍是你會用腳去打的穩定脈搏；節奏是在它上面進行的長短聲音的圖樣，可以比拍複雜得多。"
+      },
+      {
+       "myth_en": "All beats have the same strength.",
+       "myth_zh": "每一拍的力度都一樣。",
+       "fact_en": "In most music some beats are stressed and some are unstressed. The pattern of strong and weak beats coming back again and again is what we call meter.",
+       "fact_zh": "大多數音樂裡，有些拍是重的、有些是輕的。強弱拍一再回來的圖樣，就叫拍子（meter）。"
+      },
+      {
+       "myth_en": "A faster song has more beats in each bar.",
+       "myth_zh": "越快的歌，每小節的拍數越多。",
+       "fact_en": "The number of beats in a bar and the speed are two different things. A song in three beats can be slow or fast. The top number of the time signature counts beats in a bar. The BPM counts beats in a minute.",
+       "fact_zh": "每小節幾拍和速度是兩件事。三拍子的歌可以慢也可以快。拍號上面的數字數的是每小節的拍數，BPM 數的是每分鐘的拍數。"
+      },
+      {
+       "myth_en": "“Allegro” means exactly 120 BPM.",
+       "myth_zh": "「Allegro」就是剛好每分鐘 120 拍。",
+       "fact_en": "The speed words are rough guides. Two common references give different ranges for allegro, and even the order of two of the words, largo and adagio, is the opposite of what it was in the Baroque period. Only a metronome mark gives an exact number.",
+       "fact_zh": "速度詞只是大略的指引。兩份常見的參考資料給 allegro 的範圍就不一樣，連 largo 和 adagio 兩個詞誰快誰慢，現在也和巴洛克時期相反。只有節拍器標記才給精確的數字。"
+      }
+     ],
+     "tricks_head": {
+      "en": "The beat in a sentence",
+      "zh": "一句話記住拍子"
+     },
+     "tricks": [
+      {
+       "title_en": "Steady as a tick",
+       "title_zh": "穩得像滴答聲",
+       "body_en": "Every beat is the same length.",
+       "body_zh": "每一拍一樣長。"
+      },
+      {
+       "title_en": "60 BPM, one per second",
+       "title_zh": "60 BPM，每秒一拍",
+       "body_en": "Double the BPM, and the beats are twice as fast.",
+       "body_zh": "BPM 加倍，拍子就快一倍。"
+      },
+      {
+       "title_en": "Count to the next strong beat",
+       "title_zh": "數到下一個強拍",
+       "body_en": "The beats from one strong beat to the next make a bar.",
+       "body_zh": "從一個強拍到下一個強拍之間的拍，是一個小節。"
+      },
+      {
+       "title_en": "Top counts, bottom names",
+       "title_zh": "上面數拍、下面命名",
+       "body_en": "In 3/4, the top number says three beats, the bottom number says quarter notes.",
+       "body_zh": "3/4 裡，上面說三拍，下面說以四分音符為一拍。"
+      }
+     ],
+     "safety_head": {
+      "eyebrow": "Before You Start · 開始之前",
+      "en": "A few reminders",
+      "zh": "幾個提醒"
+     },
+     "safety": [
+      {
+       "en": "The lights and dots flash with the beat, up to three times a second at 180 BPM. For some people with photosensitive epilepsy, lights flashing at about three to sixty times a second can trigger a seizure. If you or anyone in your class is sensitive, switch the flashing off with the switch under the model. The sound and the pendulum still work.",
+       "zh": "燈和圓點會跟著拍子閃，180 BPM 時每秒最多三次。對患有光敏感性癲癇的人來說，大約每秒三次到六十次的閃光可能引發發作。如果你或班上有人是敏感的，請用模型下方的開關把閃爍關掉；聲音和擺錘仍然會動。"
+      },
+      {
+       "en": "Start with the volume low and turn it up a little at a time. The sound bar on this page starts at 30%.",
+       "zh": "先把音量調小，再一點一點調大。本頁的聲音列一開始是 30%。"
+      },
+      {
+       "en": "With headphones, keep the volume at no more than 60% of maximum, and use personal audio devices for less than one hour a day, as the World Health Organization suggests.",
+       "zh": "戴耳機時，音量不要超過最大音量的 60%，個人音響裝置每天使用少於一小時，這是世界衛生組織的建議。"
+      },
+      {
+       "en": "When you tap or clap in class, use your hands or a soft pad. Do not hit a phone screen or a desk hard, and do not clap close to anyone’s ears.",
+       "zh": "在課堂上敲或拍手時，用手或軟墊就好。不要用力敲手機螢幕或桌子，也不要在別人耳朵旁邊拍手。"
+      }
+     ],
+     "activities": [
+      {
+       "title_en": "Your Pulse and the Metronome",
+       "title_zh": "你的脈搏和節拍器",
+       "materials": [
+        {
+         "en": "A clock or timer with seconds",
+         "zh": "有秒針或秒數的時鐘或計時器"
+        },
+        {
+         "en": "Paper and pencil",
+         "zh": "紙和筆"
+        },
+        {
+         "en": "This page, for the metronome",
+         "zh": "本頁的節拍器"
+        }
+       ],
+       "steps": [
+        {
+         "en": "Sit quietly for a minute. Put two fingers on the inside of your wrist, gently, and find your pulse.",
+         "zh": "安靜坐一分鐘。把兩根手指輕輕放在手腕內側，找到你的脈搏。"
+        },
+        {
+         "en": "Count the beats for 15 seconds and multiply by four. That is your pulse in beats per minute.",
+         "zh": "數 15 秒的下數，乘以四，就是你每分鐘的脈搏數。"
+        },
+        {
+         "en": "Set the metronome to a number close to yours. Listen: is your pulse faster or slower than the clicks?",
+         "zh": "把節拍器調到接近你的數字。聽聽看：你的脈搏比喀喀聲快還是慢？"
+        },
+        {
+         "en": "Jump up and down for 30 seconds and count again. What changed? Compare your numbers with the 60 to 100 that is normal at rest.",
+         "zh": "原地跳 30 秒，再數一次。有什麼改變？把你的數字和靜止時正常的 60 到 100 比一比。"
+        }
+       ],
+       "tip_en": "This is not a medical test. Everyone's pulse is a little different. Do not press hard on your neck. Use your wrist.",
+       "tip_zh": "這不是醫療檢查，每個人的脈搏都有一點不一樣。不要用力壓脖子，用手腕就好。"
+      },
+      {
+       "title_en": "Human Metronome: 板 and 眼",
+       "title_zh": "人體節拍器：板與眼",
+       "materials": [
+        {
+         "en": "A desk or a pair of wooden blocks for the strong beat",
+         "zh": "一張桌子或一對木塊，當作強拍"
+        },
+        {
+         "en": "Your hands, for the weak beats",
+         "zh": "你的雙手，當作弱拍"
+        },
+        {
+         "en": "The metronome on this page",
+         "zh": "本頁的節拍器"
+        }
+       ],
+       "steps": [
+        {
+         "en": "Set the metronome to 80 BPM and four beats in a bar. Listen to the high click, the strong beat.",
+         "zh": "把節拍器調到 80 BPM、每小節四拍。聽那個比較高的喀，就是強拍。"
+        },
+        {
+         "en": "Strike the desk on the strong beat, the 板, and tap your knee on every other beat, the 眼. That is “one 板 and three 眼.”",
+         "zh": "在強拍（板）敲桌子，其他每一拍在膝蓋上輕拍（眼）。這就是「一板三眼」。"
+        },
+        {
+         "en": "Switch to two beats in a bar: “one 板 and one 眼.” Then to three beats. Which one feels like a march? Which one feels like a waltz?",
+         "zh": "換成每小節兩拍：「一板一眼」。再換成三拍。哪一種像行進？哪一種像圓舞曲？"
+        },
+        {
+         "en": "Take turns being the metronome for the class: one student keeps the 板, and the class keeps the 眼.",
+         "zh": "輪流當全班的節拍器：一位同學打「板」，全班打「眼」。"
+        }
+       ],
+       "tip_en": "Keep the volume of the metronome low, and use the soft part of your hand. Tapping softly lets everyone hear the clicks.",
+       "tip_zh": "節拍器音量調小，用手掌軟的部分輕拍，這樣大家才聽得到喀喀聲。"
+      }
+     ],
+     "links_head": {
+      "eyebrow": "Go Further · 延伸閱讀",
+      "en": "Before, around, and after this lesson",
+      "zh": "這一課的前面、旁邊和後面"
+     },
+     "links": [
+      {
+       "icon": "🎵",
+       "k_en": "Music · Lesson 1",
+       "k_zh": "音樂・第一課",
+       "en": "Why Are Some Notes High and Some Low?",
+       "zh": "為什麼有的音高、有的音低？",
+       "note_en": "The same unit, hertz, counts both a note shaking hundreds of times a second and a beat once a second.",
+       "note_zh": "同一個單位「赫茲」，可以數一個音每秒振動幾百次，也可以數一拍每秒一次。",
+       "href": "/resources/classes/music/high-and-low-notes/"
+      },
+      {
+       "icon": "🎻",
+       "k_en": "Music · Lesson 2",
+       "k_zh": "音樂・第二課",
+       "en": "Why Does a Piano Sound Different from a Violin?",
+       "zh": "同一個音，鋼琴和小提琴為什麼聽起來不一樣？",
+       "note_en": "Lesson 2 was about the color inside one note. This lesson is about when the notes arrive.",
+       "note_zh": "第二課講一個音裡面的顏色；這一課講音什麼時候來。",
+       "href": "/resources/classes/music/tone-color/"
+      },
+      {
+       "icon": "🎚️",
+       "k_en": "Music · Lesson 4",
+       "k_zh": "音樂・第四課",
+       "soon": true,
+       "en": "How Do You Tell a Musician “Louder” or “Faster”?",
+       "zh": "怎麼告訴演奏的人「大聲一點」「快一點」？",
+       "note_en": "The Italian words for speed and loudness, and how they sound.",
+       "note_zh": "表示速度和力度的義大利文，以及它們聽起來怎麼樣。"
+      }
+     ],
+     "sources_note_en": "Names, dates, numbers, and quotations on this page were checked against these sources (October 2026). The timing and the beat patterns are computed by the page itself and covered by automatic tests.",
+     "sources_note_zh": "本頁的人名、年代、數字與引文依下列資料查證（2026 年 10 月）；時間點與強弱圖樣由頁面自己計算，並有自動測試。",
+     "sources": [
+      {
+       "en": "The beat as the basic unit of time, the pulse; stressed and unstressed beats; the downbeat is the first beat of the bar",
+       "zh": "拍是基本的時間單位、脈搏；強拍與弱拍；強拍（downbeat）是小節的第一拍",
+       "src": "Wikipedia, “Beat (music)”",
+       "url": "https://en.wikipedia.org/wiki/Beat_(music)"
+      },
+      {
+       "en": "Tempo: from the Italian for “time,” measured in beats per minute; 60 BPM is one beat per second; Italian speed words; the BPM numbers for them are very rough",
+       "zh": "速度：來自義大利文「時間」，用每分鐘幾拍計算；60 BPM 是每秒一拍；義大利文速度詞；它們的 BPM 數字非常粗略",
+       "src": "Wikipedia, “Tempo”",
+       "url": "https://en.wikipedia.org/wiki/Tempo"
+      },
+      {
+       "en": "Meter: a regularly recurring pattern of strong and weak beats",
+       "zh": "拍子：強弱拍規律地一再出現的圖樣",
+       "src": "Wikipedia, “Metre (music)”",
+       "url": "https://en.wikipedia.org/wiki/Metre_(music)"
+      },
+      {
+       "en": "A bar (or measure) is a segment of music bounded by vertical lines",
+       "zh": "小節（bar 或 measure）是用直線隔出來的一段音樂",
+       "src": "Wikipedia, “Bar (music)”",
+       "url": "https://en.wikipedia.org/wiki/Bar_(music)"
+      },
+      {
+       "en": "Time signature: the upper numeral counts the note values in a bar, the lower numeral names the note value (4 = quarter note); 2 = half note",
+       "zh": "拍號：上面的數字數每小節有幾個單位、下面的數字說是哪一種音符（4＝四分音符、2＝二分音符）",
+       "src": "Wikipedia, “Time signature”",
+       "url": "https://en.wikipedia.org/wiki/Time_signature"
+      },
+      {
+       "en": "Quarter note, half note, and whole note are the American names of the note values",
+       "zh": "quarter note、half note、whole note 是音符的美式名稱",
+       "src": "Wikipedia, “Note value”",
+       "url": "https://en.wikipedia.org/wiki/Note_value"
+      },
+      {
+       "en": "The mechanical metronome: Winkel 1814, Maelzel's 1815 patent and scale, the weight slides up to slow down; M.M.; Beethoven's first metronome mark in December 1815; usually 40 to 208 BPM",
+       "zh": "機械節拍器：溫克爾 1814 年、梅爾策爾 1815 年專利與刻度、重錘往上滑會變慢；M.M.；貝多芬 1815 年 12 月第一個節拍器標記；通常 40 到 208 BPM",
+       "src": "Wikipedia, “Metronome”",
+       "url": "https://en.wikipedia.org/wiki/Metronome"
+      },
+      {
+       "en": "The Italian speed words and the BPM ranges differ between references (Largo, Adagio, Andante, Moderato, Allegro, Presto)",
+       "zh": "義大利文速度詞與 BPM 範圍在不同參考資料之間不同（Largo、Adagio、Andante、Moderato、Allegro、Presto）",
+       "src": "Dolmetsch Online, Musical Terms: tempo",
+       "url": "http://www.dolmetsch.com/musictheory5.htm"
+      },
+      {
+       "en": "拍 and 拍子: units that count musical rhythm (二拍子, 三拍子, 四拍子)",
+       "zh": "拍、拍子：計算音樂節奏的單位（二拍子、三拍子、四拍子）",
+       "src": "教育部《重編國語辭典修訂本》「拍子」",
+       "url": "https://dict.revised.moe.edu.tw/dictView.jsp?ID=22815"
+      },
+      {
+       "en": "小節: the basic regular unit of rhythm, with as many beats as the time signature says (bar, measure)",
+       "zh": "小節：音樂最基本、有規律的節奏單位，每個小節內的拍數和拍號標明的相同（bar、measure）",
+       "src": "教育部《重編國語辭典修訂本》「小節」",
+       "url": "https://dict.revised.moe.edu.tw/dictView.jsp?ID=106838"
+      },
+      {
+       "en": "拍子記號 (time signature): the upper number is the beats per bar, the lower number the basic unit; 3/4 means a quarter note is one beat and each bar has three",
+       "zh": "拍子記號（拍號）：上面是每小節拍數、下面是拍子的基本單位；3/4 表示以四分音符為一拍、每小節三拍",
+       "src": "教育部《重編國語辭典修訂本》「拍子記號」",
+       "url": "https://dict.revised.moe.edu.tw/dictView.jsp?ID=22816"
+      },
+      {
+       "en": "板眼: the strong beat struck on the clapper is the 板; the secondary and weak beats marked with the drumstick are the 眼",
+       "zh": "板眼：以鼓板敲擊的強拍為「板」；以簽敲鼓按拍的次強拍和弱拍為「眼」",
+       "src": "教育部《重編國語辭典修訂本》「板眼」",
+       "url": "https://dict.revised.moe.edu.tw/dictView.jsp?ID=16634"
+      },
+      {
+       "en": "一板三眼: four beats in a bar; 一板一眼: two beats in a bar",
+       "zh": "一板三眼：一小節四拍；一板一眼：一小節兩拍",
+       "src": "教育百科〈一板三眼〉（教育部辭典、成語典）",
+       "url": "https://pedia.cloud.edu.tw/Entry/Detail/?title=%E4%B8%80%E6%9D%BF%E4%B8%89%E7%9C%BC"
+      },
+      {
+       "en": "In nanguan music the beat is called 撩拍 and kept with the 拍板",
+       "zh": "南管音樂稱為「撩拍」，用拍板打拍子",
+       "src": "施炳華〈南管音樂之美〉（文化部主題檔案）",
+       "url": "https://themefile.culture.tw/file/2018-08-15/9c93900e-ad4e-4670-9677-2ef945b42be8/%E5%8D%97%E7%AE%A1%E9%9F%B3%E6%A8%82%E4%B9%8B%E7%BE%8E.pdf"
+      },
+      {
+       "en": "Pulse: 60 to 100 beats per minute at rest for children aged 10 and older and adults",
+       "zh": "脈搏：十歲以上兒童與成人靜止時每分鐘 60 到 100 下",
+       "src": "NIH MedlinePlus, “Pulse”",
+       "url": "https://medlineplus.gov/ency/article/003399.htm"
+      },
+      {
+       "en": "Photosensitive epilepsy: flashing at 10 to 25 times a second is most likely to trigger a seizure; some people are sensitive from 3 to 60 times a second",
+       "zh": "光敏感性癲癇：每秒閃 10 到 25 次最容易引發發作；有些人在每秒 3 到 60 次都會敏感",
+       "src": "Epilepsy Action (UK), Photosensitive epilepsy",
+       "url": "https://www.epilepsy.org.uk/info/seizure-triggers/photosensitive-epilepsy"
+      },
+      {
+       "en": "Web content should not flash more than three times in any one second, or should stay below the flash thresholds",
+       "zh": "網頁內容在任何一秒內閃爍不應超過三次，或應低於閃光閾值",
+       "src": "W3C, WCAG 2.1, 2.3.1 Three Flashes or Below Threshold",
+       "url": "https://www.w3.org/TR/WCAG21/#three-flashes-or-below-threshold"
+      },
+      {
+       "en": "People tapping with a metronome tend to tap a few tens of milliseconds ahead of the beat; musicians less so",
+       "zh": "跟著節拍器敲的人，往往比拍子早幾十毫秒；音樂家比較不明顯",
+       "src": "Repp (2005), Sensorimotor synchronization: A review of the tapping literature",
+       "url": "https://pubmed.ncbi.nlm.nih.gov/16615317/"
+      },
+      {
+       "en": "Safe listening: headphone volume to 60% of maximum, personal audio devices less than one hour a day",
+       "zh": "安全聆聽：耳機音量不超過最大的 60%、個人音響裝置每天少於一小時",
+       "src": "WHO, Make Listening Safe brochure (2021)",
+       "url": "https://cdn.who.int/media/docs/default-source/documents/health-topics/deafness-and-hearing-loss/mls-brochure-english-2021.pdf?sfvrsn=bf19b448_5"
+      },
+      {
+       "en": "Chinese terms: beat 拍、拍子; tempo 速度; meter 拍子、節拍; measure 小節; time signature 拍子記號; downbeat 下拍、強拍; metronome 節拍器",
+       "zh": "中文名詞：beat 拍、拍子；tempo 速度；meter 拍子、節拍；measure 小節；time signature 拍子記號；downbeat 下拍、強拍；metronome 節拍器",
+       "src": "國家教育研究院「學術名詞資訊網」",
+       "url": "https://terms.naer.edu.tw/search/?query_term=time+signature&query_field=title&match_type=term"
+      },
+      {
+       "en": "Taiwan's 12-year curriculum: arts (music) 音 E-Ⅱ-3, 音 E-Ⅱ-4, 音 A-Ⅱ-2, 音 E-Ⅲ-4",
+       "zh": "十二年國民基本教育課程綱要藝術領域：音 E-Ⅱ-3、音 E-Ⅱ-4、音 A-Ⅱ-2、音 E-Ⅲ-4",
+       "src": "國家教育研究院，十二年國教藝術領域課綱",
+       "url": "https://www.naer.edu.tw/upload/1/16/doc/818/%E5%8D%81%E4%BA%8C%E5%B9%B4%E5%9C%8B%E6%B0%91%E5%9F%BA%E6%9C%AC%E6%95%99%E8%82%B2%E8%AA%B2%E7%A8%8B%E7%B6%B1%E8%A6%81%E5%9C%8B%E6%B0%91%E4%B8%AD%E5%B0%8F%E5%AD%B8%E6%9A%A8%E6%99%AE%E9%80%9A%E5%9E%8B%E9%AB%98%E7%B4%9A%E4%B8%AD%E7%AD%89%E6%A0%A1-%E8%97%9D%E8%A1%93%E9%A0%98%E5%9F%9F.pdf"
+      }
+     ]
     }
    ],
    "planned": [
-    {
-     "n": 3,
-     "icon": "🥁",
-     "en": "What Is a Beat?",
-     "zh": "拍子是什麼？"
-    },
     {
      "n": 4,
      "icon": "🎚️",

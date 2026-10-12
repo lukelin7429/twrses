@@ -16166,7 +16166,7 @@ def build_comp_hub():
 _musj = os.path.join(ROOT, "data", "music.json")
 MUS = json.load(open(_musj, encoding="utf-8")) if os.path.exists(_musj) else None
 MUS_BASE = "/resources/classes/music/"
-_MUS_JS = {"string": "mus-string", "timbre": "mus-timbre"}   # lab.kind → assets/js/<bundle>.js
+_MUS_JS = {"string": "mus-string", "timbre": "mus-timbre", "beat": "mus-beat"}   # lab.kind → assets/js/<bundle>.js
 
 def _mus_ver():
     h = hashlib.md5()
@@ -16210,7 +16210,16 @@ def mustimbre_svg(size=56):
             '<path d="M5 44C7 30 10 30 12.5 44S18 56 20 44C22 30 25 30 27.5 44S33 56 35 44C37 30 40 30 42.5 44S48 56 50 44" fill="none" stroke="#ffd36e" stroke-width="2.6" stroke-linecap="round"/>'
             '<path d="M5 31.5H55" stroke="#9fb0cf" stroke-width="1" stroke-dasharray="2 3"/></svg>')
 
-_MUS_CARD = {"string": mustring_svg, "timbre": mustimbre_svg}
+def musbeat_svg(size=56):
+    """第三課的課程卡小圖示：擺錘節拍器（錐形的木身、擺桿、金色重錘）。"""
+    return (f'<svg class="musbeat-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">'
+            '<path d="M22 54 27 8h6l5 46z" fill="#8a5a2b"/><path d="M27 8h6l.8 6H26.2z" fill="#c89a5c"/>'
+            '<rect x="18" y="52" width="24" height="5" rx="1.5" fill="#c89a5c"/>'
+            '<path d="M30 48 41 14" stroke="#e8edf7" stroke-width="2.4" stroke-linecap="round"/>'
+            '<rect x="36" y="22" width="8" height="6" rx="1.4" fill="#ffd36e" transform="rotate(20 40 25)"/>'
+            '<circle cx="30" cy="48" r="2.6" fill="#555d70"/></svg>')
+
+_MUS_CARD = {"string": mustring_svg, "timbre": mustimbre_svg, "beat": musbeat_svg}
 _MUS_PRESETS = [   # 和 tools/music/src/pitch.js 的 PRESETS 對應
     {"key": "whole", "en": "Whole string", "zh": "整根弦"}, {"key": "half", "en": "One half", "zh": "二分之一"},
     {"key": "twothirds", "en": "Two thirds", "zh": "三分之二"}, {"key": "threequarters", "en": "Three quarters", "zh": "四分之三"}]
@@ -16434,6 +16443,84 @@ def _mu_which(d):
   <div class="mu-hg-foot"><span></span><button type="button" class="mu-btn mu-btn-gold mu-wh-next" hidden>Next question · 下一題</button></div>
 </div>'''
 
+def render_musbeat_lab(lesson):
+    """第三課：擺錘節拍器（assets/js/mus-beat.js 綁這裡的 class；全部自繪示意，聲音由瀏覽器合成）。"""
+    lab = lesson["lab"]
+    meters = "".join(f'<button type="button" data-meter="{n}" aria-pressed="{"true" if n == 4 else "false"}"><b>{n}</b><small>{zh}</small></button>' for n, zh in [(2, "二拍"), (3, "三拍"), (4, "四拍")])
+    presets = "".join(f'<button type="button" data-bpm="{b}"><b>{b}</b><small>{zh}</small></button>' for b, zh in [(60, "每秒一拍"), (90, "走路"), (120, "進行曲"), (160, "很快")])
+    dots = "".join('<i class="mu-bt-dot"></i>' for _ in range(4))
+    tg = _lab_toggles([("flash", "Flashing lights", "閃爍的燈", True), ("labels", "Labels", "標籤", True)])
+    return f'''<div class="astro-lab mu-lab rvl" data-musbeat-lab>
+  <div class="al-stage">
+    <div class="al-space">
+      <canvas class="al-space-cv" aria-label="3D model of a pendulum metronome: the rod swings to one side on every beat, and a row of lights shows which beat of the bar it is · 擺錘節拍器的 3D 模型：每一拍擺桿擺到另一邊，一排燈顯示這是小節的第幾拍"></canvas>
+      <div class="al-labels" aria-hidden="true"></div>
+      <p class="al-hint">Drag the gold weight to change the speed · 拖動金色重錘改變速度　Drag the background to turn · 拖曳背景旋轉　Scroll or pinch to zoom · 滾輪／雙指縮放</p>
+      <button type="button" class="al-home" title="Reset view · 重設視角" aria-label="Reset view · 重設視角">&#8634;</button>
+      <p class="al-nogl-msg">This 3D model needs WebGL, which this browser does not support. The lights, slider, and buttons on this page still work, and so do the reading, the cards, and the games.<br><span class="zh">這個瀏覽器不支援 WebGL，無法顯示 3D 模型；頁面上的燈、滑桿與按鈕照樣能用，課文、卡片和小遊戲也都能用。</span></p>
+    </div>
+    <aside class="al-sky mu-aside">
+      <p class="al-sky-k">Speed · 速度</p>
+      <p class="mu-freq mu-bt-bpmout">100 <small>BPM</small></p>
+      <p class="mu-bt-secline">One beat every <b class="mu-bt-sec">0.600</b> seconds<span class="zh">每一拍的長度，單位是秒</span></p>
+      <label class="mu-slide"><span>Beats per minute · 每分鐘幾拍</span>
+        <input type="range" class="mu-bt-bpm" min="40" max="180" step="1" value="100" aria-label="Beats per minute, 40 to 180 · 每分鐘幾拍，40 到 180"></label>
+      <div class="mu-presets mu-presets-4" role="group" aria-label="Speeds · 速度">{presets}</div>
+      <p class="al-sky-k mu-k2">Beats in each bar · 每小節幾拍</p>
+      <div class="mu-modes mu-meters" role="group" aria-label="Beats in each bar · 每小節幾拍">{meters}</div>
+      <div class="mu-bt-lights" aria-hidden="true">{dots}</div>
+      <p class="mu-bt-bar" aria-live="off">Bar 1 · beat 1<span class="zh">第 1 小節・第 1 拍</span></p>
+      <button type="button" class="mu-btn mu-btn-gold mu-bt-go" aria-pressed="false"><span class="mu-bt-gt">&#9654; Start the metronome · 開始</span></button>
+      <p class="mu-msg" aria-live="polite"></p>
+      <p class="mu-slowline">The fastest speed here, 180 BPM, is three beats every second. If the flashing bothers you, switch it off below.<span class="zh">這裡最快的 180 拍，是每秒三拍。如果閃爍讓你不舒服，請在下面把它關掉。</span></p>
+    </aside>
+  </div>
+  <div class="al-controls">
+    <div class="al-row al-row-main">
+      <div class="al-row al-toggles">{tg}</div>
+    </div>
+  </div>
+  {_lab_foot(lab)}
+  <p class="mu-credit">{lab["credit_html"]}</p>
+</div>'''
+
+def _mu_tap(d):
+    bp = "".join(f'<button type="button" class="mu-btn" data-tbpm="{b}" aria-pressed="{"true" if b == 90 else "false"}">{b} BPM</button>' for b in (60, 90, 120))
+    return f'''<div class="mu-tap rvl" data-mu-tap>
+  <div class="mu-tp-top">
+    <div class="mu-tp-speeds" role="group" aria-label="Speed · 速度">{bp}</div>
+    <button type="button" class="mu-btn mu-btn-gold mu-tp-start">&#9654; Start · 開始</button>
+  </div>
+  <div class="mu-tp-stage">
+    <button type="button" class="mu-tp-drum" aria-label="Drum: tap along with the beat, or press the space bar · 鼓面：跟著拍子敲，或按空白鍵"><span>TAP<br><small>敲這裡・空白鍵</small></span></button>
+    <div class="mu-tp-side">
+      <div class="mu-tp-dots" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+      <p class="mu-tp-count" aria-live="off">&mdash;</p>
+      <dl class="mu-tp-stats">
+        <div><dt>Average · 平均（− 早、+ 晚）</dt><dd class="mu-tp-mean">&mdash;</dd></div>
+        <div><dt>Average distance · 平均相差</dt><dd class="mu-tp-mae">&mdash;</dd></div>
+        <div><dt>Within 50 ms · 50 毫秒以內</dt><dd class="mu-tp-within">&mdash;</dd></div>
+      </dl>
+    </div>
+  </div>
+  <canvas class="mu-tp-cv" aria-label="Each tap, early or late, in milliseconds · 每一下敲擊的早晚（毫秒）"></canvas>
+  <p class="mu-tp-msg" aria-live="polite">Press Start. You will hear four count-in beats, then tap along sixteen times.<span class="zh">按「開始」。先聽四拍預備，再跟著敲十六下。</span></p>
+  <label class="mu-check mu-tp-flash"><input type="checkbox" data-t="flash" checked><span>Show flashing dots · 顯示閃爍的圓點</span></label>
+</div>'''
+
+def _mu_meter(d):
+    opts = "".join(f'<button type="button" class="mu-mt-opt" data-pick="{n}"><b>{n}</b><span>{en}<span class="zh">{zh}</span></span></button>' for n, en, zh in [(2, "two beats", "二拍子"), (3, "three beats", "三拍子"), (4, "four beats", "四拍子")])
+    return f'''<div class="mu-meterq rvl" data-mu-meter>
+  <div class="mu-hg-top"><p class="mu-mt-k">Question 1 of 6 · 第 1 題（共 6 題）</p><p class="mu-hg-sc">Right on the first try · 第一次就答對 <b class="mu-mt-score">0 / 0</b></p></div>
+  <div class="mu-hg-playrow"><button type="button" class="mu-btn mu-btn-gold mu-mt-play">&#9654; Play three bars · 播放三個小節</button></div>
+  <div class="mu-mt-dots" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+  <p class="mu-hg-nosound mu-mt-nosound" hidden>This browser cannot make sound, so the question is described in words instead.<span class="zh">這個瀏覽器無法發聲，所以改用文字描述這一題。</span></p>
+  <p class="mu-mt-desc" hidden></p>
+  <div class="mu-mt-opts">{opts}</div>
+  <p class="mu-mt-msg" aria-live="polite"></p>
+  <div class="mu-hg-foot"><span></span><button type="button" class="mu-btn mu-btn-gold mu-mt-next" hidden>Next question · 下一題</button></div>
+</div>'''
+
 def _mu_curric(d):
     rows = "".join(
         f'<li class="mu-cur rvl"><p class="mu-cur-k"><b>{html.escape(c["code"])}</b><span>{html.escape(c["area"])} · {html.escape(c["area_en"])}</span></p>'
@@ -16469,7 +16556,7 @@ def build_mus_lesson(ui, unit, lesson):
     reading_html = render_basic_unit(1, unit_dict, level="music", audio_rel="", pdf_rel="")
     lab = lesson["lab"]
     kind = lab["kind"]
-    lab_html = {"string": render_musstring_lab, "timbre": render_mustimbre_lab}[kind](lesson)
+    lab_html = {"string": render_musstring_lab, "timbre": render_mustimbre_lab, "beat": render_musbeat_lab}[kind](lesson)
 
     def sec(key, fn):
         d = lesson[key]
@@ -16487,6 +16574,8 @@ def build_mus_lesson(ui, unit, lesson):
         ph = lesson["parts_head"]
         secs.append(("parts", ph["eyebrow"], ph["en"], ph["zh"], f'<div class="ph-grid stagger">{cards}</div>',
                      _bi(lesson["parts_note_en"], lesson["parts_note_zh"], cls="lead rvl d2")))
+    if lesson.get("tap"): secs.append(sec("tap", _mu_tap))
+    if lesson.get("meterq"): secs.append(sec("meterq", _mu_meter))
     if lesson.get("mix"): secs.append(sec("mix", _mu_mix))
     if lesson.get("env"): secs.append(sec("env", _mu_env))
     if lesson.get("which"): secs.append(sec("which", _mu_which))

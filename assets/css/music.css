@@ -309,3 +309,74 @@ a.mu-link:hover { transform: translateY(-3px); box-shadow: var(--shadow); border
 .al-lg-node i { border-color: #fff; background: #fff; width: 10px; height: 10px; margin: .3rem 4px 0; }
 
 .mu-wh-opt:disabled { color: var(--ink); }
+
+/* ── 第三課：節拍器 ─────────────────────────────────────────────────── */
+.mu-bt-secline { margin: 0; font-size: .9rem; color: var(--al-text); }
+.mu-bt-secline b { color: var(--al-sun); font-variant-numeric: tabular-nums; }
+.mu-bt-secline .zh { display: block; color: var(--al-mute); }
+.mu-presets-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.mu-meters { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.mu-meters button { line-height: 1.15; }
+.mu-meters button small { display: block; font-family: var(--zh); font-size: .66rem; font-weight: 600; }
+.mu-bt-lights { display: flex; gap: .55rem; justify-content: center; padding: .4rem 0; }
+.mu-bt-dot { display: block; width: 26px; height: 26px; border-radius: 50%; background: #2b3550; border: 2px solid #4a5878; transition: background .05s, box-shadow .05s; }
+.mu-bt-dot[hidden] { display: none; }
+.mu-bt-dot.is-strong { border-color: #c9a14a; }
+.mu-bt-dot.is-on { background: #7ef0e3; border-color: #fff; box-shadow: 0 0 16px 3px rgba(126,240,227,.6); }
+.mu-bt-dot.is-strong.is-on { background: #ffd36e; box-shadow: 0 0 18px 4px rgba(255,211,110,.7); }
+.mu-bt-bar { margin: 0; text-align: center; font-weight: 800; color: #fff; font-size: .9rem; }
+.mu-bt-bar .zh { display: block; font-weight: 600; color: var(--al-mute); font-size: .8rem; }
+.mu-bt-go[aria-pressed="true"] { background: transparent; color: var(--al-sun); }
+
+/* 跟著拍 */
+.mu-tap, .mu-meterq { margin-top: 1.5rem; padding: 1.5rem 1.6rem; background: #fff; border: 1px solid var(--line); border-radius: 20px; box-shadow: var(--shadow-sm); max-width: 940px; }
+.mu-tp-top { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .6rem 1rem; align-items: center; }
+.mu-tp-speeds { display: flex; gap: .4rem; flex-wrap: wrap; }
+.mu-tp-speeds .mu-btn[aria-pressed="true"] { border-color: var(--brand); background: var(--brand-lt); }
+.mu-tp-stage { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 1.2rem; margin-top: 1.1rem; align-items: center; }
+.mu-tp-drum { display: grid; place-items: center; min-height: 170px; border-radius: 50%; aspect-ratio: 1; max-width: 230px; margin: 0 auto; width: 100%; border: 6px solid #8a5a2b; background: radial-gradient(circle at 50% 40%, #fff8e3, #f1dfae); color: #5a3d17; font-family: var(--sans); font-weight: 800; font-size: 1.4rem; cursor: pointer; touch-action: manipulation; user-select: none; -webkit-user-select: none; transition: transform .06s, box-shadow .1s; }
+.mu-tp-drum small { font-size: .74rem; font-weight: 700; color: #7a5a2e; }
+.is-hit .mu-tp-drum { transform: scale(.96); box-shadow: 0 0 0 6px rgba(255,211,110,.5); }
+.mu-tp-drum:focus-visible { outline: 3px solid var(--brand); outline-offset: 3px; }
+.mu-tp-dots { display: flex; gap: .5rem; }
+.mu-tp-dots i { width: 22px; height: 22px; border-radius: 50%; background: #e4e0d2; border: 2px solid #c9c2ac; }
+.mu-tp-dots i.is-strong { border-color: var(--gold-dk); }
+.mu-tp-dots i.is-on { background: var(--brand); border-color: var(--brand-dk); }
+.mu-tp-dots i.is-strong.is-on { background: var(--gold); }
+.mu-tp-count { margin: .5rem 0; font-family: var(--serif); font-size: 2.4rem; font-weight: 700; line-height: 1; color: var(--brand-dk); font-variant-numeric: tabular-nums; }
+.is-counting .mu-tp-count { color: var(--gold-dk); }
+.mu-tp-stats { margin: 0; display: grid; gap: .3rem; }
+.mu-tp-stats div { display: flex; justify-content: space-between; gap: .6rem; font-size: .84rem; }
+.mu-tp-stats dt { color: var(--ink-soft); }
+.mu-tp-stats dd { margin: 0; font-weight: 800; font-variant-numeric: tabular-nums; }
+.mu-tp-cv { display: block; width: 100%; height: 150px; margin-top: 1rem; border: 1px solid var(--line); border-radius: 12px; background: #fff; }
+.mu-tp-msg { margin: .9rem 0 .5rem; min-height: 3.6em; font-size: .92rem; line-height: 1.6; }
+.mu-tp-msg .zh { display: block; color: var(--ink-soft); }
+.mu-tp-flash { color: var(--ink-soft); }
+
+/* 這是幾拍子？ */
+.mu-mt-k { margin: 0; font-size: .78rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--gold-dk); }
+.mu-meterq .mu-hg-sc { color: var(--ink-soft); }
+.mu-meterq .mu-hg-score { color: var(--ink); }
+.mu-meterq .mu-hg-nosound { background: #fff0ec; color: #8a3b24; }
+.mu-mt-dots { display: flex; gap: .5rem; justify-content: center; margin-top: .8rem; }
+.mu-mt-dots i { width: 18px; height: 18px; border-radius: 50%; background: #e4e0d2; border: 2px solid #c9c2ac; }
+.mu-mt-dots i.is-on { background: var(--brand); border-color: var(--brand-dk); }
+.mu-mt-desc { margin: .8rem 0 0; padding: .6rem .9rem; border-radius: 10px; background: var(--cream); font-size: .92rem; }
+.mu-mt-desc[hidden] { display: none; }
+.mu-mt-desc .zh { display: block; color: var(--ink-soft); }
+.mu-mt-opts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .8rem; margin-top: 1rem; }
+.mu-mt-opt { display: flex; flex-direction: column; align-items: center; gap: .3rem; padding: .9rem .4rem; border-radius: 14px; border: 1px solid var(--line); background: #fff; font-family: var(--sans); cursor: pointer; transition: border-color .15s, transform .15s; color: var(--ink); }
+.mu-mt-opt:hover:not(:disabled) { border-color: var(--gold); transform: translateY(-2px); }
+.mu-mt-opt b { font-family: var(--serif); font-size: 2rem; line-height: 1; }
+.mu-mt-opt span { font-size: .84rem; font-weight: 800; text-align: center; }
+.mu-mt-opt .zh { display: block; font-weight: 600; color: var(--ink-soft); }
+.mu-mt-opt.is-right { border-color: #2f9e63; background: #eefaf2; }
+.mu-mt-opt.is-wrong { border-color: #e08a8a; background: #fdf0f0; opacity: .7; }
+.mu-mt-opt:disabled { cursor: default; }
+.mu-mt-msg { margin: 1rem 0 0; min-height: 3.4em; font-size: .94rem; line-height: 1.6; }
+.mu-mt-msg .zh { display: block; color: var(--ink-soft); }
+@media (max-width: 760px) { .mu-tp-stage { grid-template-columns: 1fr; } }
+@media (max-width: 560px) { .mu-tap, .mu-meterq { padding: 1.1rem; } .mu-tp-drum { max-width: 190px; min-height: 150px; } }
+
+.al-lg-tick i.is-weight { border-color: #ffd36e; }

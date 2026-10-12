@@ -32,6 +32,7 @@ export function createSynth({ win = typeof window !== 'undefined' ? window : nul
   const listeners = new Set();
   const voices = new Set();
   let ctx = null, master = null, order = 0;
+  const clicks = new Set();   // 排在未來的點擊聲：{ when, end, freq, osc, env }
 
   const emit = () => { state.playing = voices.size; listeners.forEach((fn) => fn(state)); };
   const level = () => (state.muted ? 0 : volumeToGain(state.volume));
@@ -134,6 +135,31 @@ export function createSynth({ win = typeof window !== 'undefined' ? window : nul
     return v;
   }
 
+  /**
+   * 在 AudioContext 的時間軸上排一個短短的點擊聲（節拍器用）：when 是 AudioContext 時間（秒，見 clock()）。
+   * 2 ms 起音、約 50 ms 指數衰減；高頻照 safeScale 壓低。沒解鎖、靜音時回傳 null。
+   */
+  function click(when, { freq = 1000, gain = 1, dur = 0.06 } = {}) {
+    if (!state.unlocked || !ctx || state.muted || !(freq > 0)) return null;
+    const t = Math.max(when, now());
+    const osc = ctx.createOscillator(), env = ctx.createGain();
+    osc.type = 'sine';
+    osc.frequency.setValueAtTime(freq, t);
+    env.gain.setValueAtTime(0, t);
+    env.gain.linearRampToValueAtTime(VOICE_PEAK * gain * safeScale(freq), t + 0.002);
+    env.gain.setTargetAtTime(0.0001, t + 0.002, dur / 3);
+    osc.connect(env); env.connect(master);
+    osc.start(t); osc.stop(t + dur * 4);
+    const c = { when: t, end: t + dur, freq, osc, env };
+    clicks.add(c);
+    osc.onended = () => { clicks.delete(c); try { osc.disconnect(); env.disconnect(); } catch (e) { /* ignore */ } };
+    return c;
+  }
+  function cancelClicks() {
+    clicks.forEach((c) => { try { c.osc.stop(0); } catch (e) { /* ignore */ } });
+    clicks.clear();
+  }
+
   /** 持續的音：按住時一直響，放開（release）才收 */
   function hold(freq, opts = {}) {
     return make(freq, { ...opts, kind: 'hold' });
@@ -142,6 +168,7 @@ export function createSynth({ win = typeof window !== 'undefined' ? window : nul
   function stopAll() {
     const t = now();
     [...voices].forEach((v) => { clearTimeout(v.timer); retire(v, t); });
+    cancelClicks();
     emit();
   }
 
@@ -158,7 +185,9 @@ export function createSynth({ win = typeof window !== 'undefined' ? window : nul
   }
 
   function nowPlaying() {
-    return [...voices].sort((a, b) => a.order - b.order).map((v) => (v.partials ? { freq: v.freq, kind: v.kind, partials: v.partials } : { freq: v.freq, kind: v.kind }));
+    const t = now();
+    const cl = [...clicks].filter((c) => c.when <= t && t < c.end).map((c) => ({ freq: c.freq, kind: 'click' }));
+    return cl.concat([...voices].sort((a, b) => a.order - b.order).map((v) => (v.partials ? { freq: v.freq, kind: v.kind, partials: v.partials } : { freq: v.freq, kind: v.kind })));
   }
   const hz = () => { const l = nowPlaying(); return l.length ? l[l.length - 1].freq : 0; };
 
@@ -171,7 +200,7 @@ export function createSynth({ win = typeof window !== 'undefined' ? window : nul
   }
 
   return {
-    state, unlock, tone, toneComplex, hold, stopAll, setVolume, setMuted, nowPlaying, hz,
+    state, unlock, tone, toneComplex, hold, click, cancelClicks, clock: () => now(), running: () => !!(ctx && ctx.state === 'running'), stopAll, setVolume, setMuted, nowPlaying, hz,
     subscribe: (fn) => { listeners.add(fn); return () => listeners.delete(fn); },
     get context() { return ctx; },
   };

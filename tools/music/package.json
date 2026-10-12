@@ -4,8 +4,8 @@
   "description": "音樂 Music 的聲音引擎（pitch.js 純函式、synth.js Web Audio 合成器、keys2d.js／higher2d.js／range2d.js 不需要 WebGL 的小互動）與各課 3D 的原始碼。產物寫到 assets/js/mus-*.js，npm run build 重新打包。",
   "type": "module",
   "scripts": {
-    "build": "esbuild src/mus-string.js src/mus-timbre.js --bundle --minify --format=iife --target=es2019 --legal-comments=eof --outdir=../../assets/js",
-    "test": "node test/pitch.test.mjs && node test/synth.test.mjs && node test/timbre.test.mjs"
+    "build": "esbuild src/mus-string.js src/mus-timbre.js src/mus-beat.js --bundle --minify --format=iife --target=es2019 --legal-comments=eof --outdir=../../assets/js",
+    "test": "node test/pitch.test.mjs && node test/synth.test.mjs && node test/timbre.test.mjs && node test/beat.test.mjs"
   },
   "devDependencies": {
     "esbuild": "0.25.10",
