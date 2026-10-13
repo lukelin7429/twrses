@@ -1435,6 +1435,8 @@ def build_reading_hub():
              "Why does a wide, low stance keep you on your feet? Lean a 3D figure until it tips, then take the classroom English for PE out to the field. 為什麼腳張開、蹲低就站得穩？讓 3D 人偶歪到倒下去，再把體育課的課室英語帶到操場上用。"),
             ("/resources/classes/home/", "🥣", "Life Skills at Home · 家政",
              "Why does an American recipe say cups? Measure, cook, mend, sort, and budget in English, with a 3D kitchen counter and one thing to try at home after every lesson. 美國的食譜為什麼寫「幾杯」？用英文學量、煮、補、分類和記帳：3D 流理台，加上每課一件今天回家就能做的事。"),
+            ("/resources/classes/taiwan-history/", "🏺", "Taiwan's Story · 台灣歷史",
+             "How do we know what happened long ago? Taiwan's past in English, one question a lesson, with the evidence shown and differing views set side by side. 很久以前的事，我們怎麼知道？用英文讀台灣的過去：每課一個問題，把證據拿出來，說法不一樣的地方並列。"),
             ("/resources/classes/philosophy/", "🦉", "Philosophy · 哲學",
              "Advanced reading: the big questions, the people who asked them, and where the Dharma meets Western thought. 高級閱讀：哲學的大問題、問這些問題的人，以及佛法與西方哲學的對照。"),
             ("/resources/grandfather/", "🌅", "Grandfather · 落日餘暉",
@@ -19147,6 +19149,351 @@ def build_home_hub():
     return HOME_BASE
 
 
+# ==================================================================
+# 台灣歷史 Taiwan's Story（/resources/classes/taiwan-history/）
+# 架構照看得見的數學：data/taiwan_history.json 的 units[].lessons 是做好的課、units[].planned 是「製作中」卡。
+# 樣式 assets/css/taiwan-history.css（class 前綴 twh-，只載在本系列；th- 已被別的系列用掉）；
+# 原始碼 tools/twhist/src/，bundle 一律 twh-*。每課固定三張卡：how_we_know／views／phrases；
+# 每課一段「這一課在時間軸的哪裡」（lesson["when"]，時間軸引擎 timeline.js／timeline2d.js）。
+# **處理原則見 CLAUDE.md「台灣歷史」一節——每一課都適用。**
+
+_twhj = os.path.join(ROOT, "data", "taiwan_history.json")
+TWH = json.load(open(_twhj, encoding="utf-8")) if os.path.exists(_twhj) else None
+TWH_BASE = "/resources/classes/taiwan-history/"
+_TWH_JS = {"dig": "twh-dig"}   # lab.kind → assets/js/<bundle>.js
+
+def _twh_ver():
+    h = hashlib.md5()
+    for rel in ("assets/css/astro.css", "assets/css/taiwan-history.css", "assets/js/twh-hub.js", *(f"assets/js/{j}.js" for j in _TWH_JS.values())):
+        fp = os.path.join(ROOT, rel)
+        if os.path.exists(fp): h.update(open(fp, "rb").read())
+    return h.hexdigest()[:8]
+
+def _twh_head(js=None):
+    v = _twh_ver()
+    tag = f'<script defer src="/assets/js/{js}.js?v={v}"></script>\n' if js else ""
+    return (f'<link rel="stylesheet" href="/assets/css/astro.css?v={v}">\n'
+            f'<link rel="stylesheet" href="/assets/css/taiwan-history.css?v={v}">\n{tag}')
+
+def _twh_json(obj):
+    """塞進 <script type="application/json"> 的資料（</ 要跳脫，免得提早結束 script）。"""
+    return json.dumps(obj, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")
+
+def _twh_b(en, zh):
+    return f'{html.escape(en)}<span class="zh">{html.escape(zh)}</span>'
+
+def twhhub_svg(size=56):
+    """系列小圖示：一層一層的地層，最上面是草地，中間一個探坑，旁邊一把手鏟。"""
+    cols = ["#5d8a45", "#6b4a2f", "#a47a4b", "#c7a56a", "#8f5a3c", "#b9b3a4"]
+    ys = [12, 17, 25, 33, 41, 49]
+    bands = "".join(f'<rect x="8" y="{y}" width="44" height="{(ys[i + 1] if i + 1 < len(ys) else 56) - y}" fill="{c}"/>' for i, (y, c) in enumerate(zip(ys, cols)))
+    return (f'<svg class="twhhub-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">'
+            f'<defs><clipPath id="twhc"><rect x="8" y="12" width="44" height="44" rx="6"/></clipPath></defs>'
+            f'<g clip-path="url(#twhc)">{bands}<rect x="22" y="12" width="18" height="29" fill="#0b1326" opacity=".72"/></g>'
+            f'<circle cx="27" cy="37" r="2.4" fill="#f4c542"/><path d="M33 36l4 3-5 1z" fill="#e8e2d2"/>'
+            f'<path d="M44 3l6 6-9 4z" fill="#c9ced6"/><rect x="48" y="0" width="4" height="9" rx="2" transform="rotate(45 50 4)" fill="#a5682a"/></svg>')
+
+def twhdig_svg(size=56):
+    """第一課卡：階梯狀的探坑剖面，每一階上有一樣東西。"""
+    cols = ["#6b4a2f", "#a47a4b", "#c7a56a", "#8f5a3c", "#b9b3a4"]
+    steps = "".join(f'<rect x="{6 + i * 9}" y="{14 + i * 8}" width="{54 - i * 9 - 6}" height="8.4" fill="{c}"/>' for i, c in enumerate(cols))
+    dots = "".join(f'<circle cx="{10.5 + i * 9}" cy="{11.5 + i * 8}" r="2.3" fill="{c}"/>' for i, c in enumerate(["#e2574c", "#4a90d9", "#4fb477", "#f4c542", "#d7d2c6"]))
+    return (f'<svg class="twhdig-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">'
+            f'<rect x="6" y="9" width="48" height="5" fill="#5d8a45"/>{steps}{dots}</svg>')
+
+_TWH_CARD = {"dig": twhdig_svg}
+
+def _twh_timeline(tl, focus=None, extra_events=None):
+    """可縮放的時間軸（tools/twhist/src/timeline2d.js 掛在 [data-twh-timeline] 上；設定寫在裡面的 JSON）。"""
+    cfg = {"older": tl["older"], "nearest": tl.get("nearest", 1), "kind": tl.get("kind", "log"), "spans": tl.get("spans", []),
+           "events": list(tl.get("events", [])) + list(extra_events or []), "kindNote": tl.get("kind_note")}
+    if focus: cfg["focus"] = focus
+    return (f'<div class="twh-tl-wrap rvl"><div data-twh-timeline><script type="application/json">{_twh_json(cfg)}</script>'
+            f'<noscript><p class="muted">The timeline needs JavaScript. · 時間軸需要 JavaScript。</p></noscript></div></div>'
+            f'<p class="twh-note rvl">{_twh_b(tl["note_en"], tl["note_zh"])}</p>')
+
+def _twh_how(hw):
+    """固定卡一：我們怎麼知道？——這一課依據的史料、收藏在哪裡、連結。"""
+    cards = "".join(
+        f'<article class="twh-hw rvl"><p class="twh-hw-k"><i aria-hidden="true">{it["icon"]}</i>{_twh_b(it["kind_en"], it["kind_zh"])}</p>'
+        f'<h3>{_twh_b(it["en"], it["zh"])}</h3>'
+        f'<p class="twh-hw-t">{_twh_b(it["text_en"], it["text_zh"])}</p>'
+        f'<p class="twh-hw-w"><b>{html.escape(it.get("where_k", "Where it is kept · 收藏在哪裡"))}</b>{_twh_b(it["where_en"], it["where_zh"])}</p>'
+        f'<a class="twh-src" href="{html.escape(it["url"])}" target="_blank" rel="noopener">{html.escape(it["src"])} &#8599;</a></article>'
+        for it in hw["items"])
+    return f'<div class="twh-hw-grid">{cards}</div>'
+
+def _twh_views(vw):
+    """固定卡二：不同的說法——並列，各附出處，不下結論。"""
+    out = []
+    for it in vw["items"]:
+        sides = "".join(
+            f'<div class="twh-side"><p class="twh-side-k">{_twh_b(s["label_en"], s["label_zh"])}</p>'
+            f'<p>{_twh_b(s["en"], s["zh"])}</p>'
+            f'<a class="twh-src" href="{html.escape(s["url"])}" target="_blank" rel="noopener">{html.escape(s["src"])} &#8599;</a></div>'
+            for s in it["sides"])
+        out.append(f'<article class="twh-view rvl"><h3>{_twh_b(it["topic_en"], it["topic_zh"])}</h3>'
+                   f'<div class="twh-sides twh-sides-{len(it["sides"])}">{sides}</div>'
+                   f'<p class="twh-view-n">{_twh_b(it["note_en"], it["note_zh"])}</p></article>')
+    return f'<div class="twh-views">{"".join(out)}</div><p class="twh-note rvl">{_twh_b(vw["rule_en"], vw["rule_zh"])}</p>'
+
+def _twh_phrases(ph):
+    """固定卡三：歷史英語——8 句說時間、證據與因果的句子，每句有 🔊。"""
+    rows = "".join(
+        f'<li class="twh-ph rvl"><button class="spk" data-say="{html.escape(r["en"])}" aria-label="Hear this sentence · 聽這一句">🔊</button>'
+        f'<span class="twh-ph-b"><span class="twh-ph-en">{r["html"]}</span><span class="zh twh-ph-zh">{html.escape(r["zh"])}</span>'
+        f'<span class="twh-ph-n">{_twh_b(r["note_en"], r["note_zh"])}</span></span></li>'
+        for r in ph["rows"])
+    return f'<ol class="twh-phs">{rows}</ol>'
+
+def _twh_sort(sq):
+    cfg = {k: sq[k] for k in ("bins", "items", "done_en", "done_zh")}
+    return (f'<div class="twh-sort rvl" data-twh-sort><script type="application/json">{_twh_json(cfg)}</script></div>'
+            f'<p class="twh-note rvl">{_twh_b(sq["note_en"], sq["note_zh"])}</p>')
+
+def _twh_two(tw):
+    cfg = {k: tw[k] for k in ("a", "b", "ask_en", "ask_zh", "hint_en", "hint_zh", "asks", "reveal_after", "close_k_en", "close_k_zh", "close", "close_en", "close_zh")}
+    return (f'<div class="twh-two rvl" data-twh-two><script type="application/json">{_twh_json(cfg)}</script></div>'
+            f'<p class="twh-note rvl">{_twh_b(tw["note_en"], tw["note_zh"])}</p>')
+
+def render_twhdig_lab(lesson):
+    """第一課：考古探坑的剖面（assets/js/twh-dig.js 綁這裡的 class；通用的示意，不是真實遺址）。"""
+    lab = lesson["lab"]
+    n = len(lab["layers"])
+    cfg = {k: lab[k] for k in ("older", "nearest", "layers", "later", "demo_date")}
+    tg = _lab_toggles([("labels", "Layer labels", "地層標籤", True), ("later", "A later pit", "後來挖的坑", False)])
+    return f'''<div class="astro-lab twh-lab rvl" data-twhdig-lab>
+  <script type="application/json" class="twh-lab-data">{_twh_json(cfg)}</script>
+  <div class="al-stage">
+    <div class="al-space">
+      <canvas class="al-space-cv" aria-label="3D cutaway of an archaeological test pit dug in steps through {n} layers of soil; each step holds the things found in that layer, and the deeper layers are older · 考古探坑的 3D 剖面：一階一階往下挖過 {n} 層土，每一階上放著那一層的出土物，越下面的地層越古老"></canvas>
+      <div class="al-labels"></div>
+      <p class="twh-badge">Illustration, not a real site · 示意圖，不是真實的遺址</p>
+      <p class="al-hint">Drag to turn · 拖曳旋轉　Scroll or pinch to zoom · 滾輪／雙指縮放</p>
+      <button type="button" class="al-home" title="Reset view · 重設視角" aria-label="Reset view · 重設視角">&#8634;</button>
+      <p class="al-nogl-msg">This 3D model needs WebGL, which this browser does not support. The slider, the timeline, and the list of finds beside it still work, and so do the reading, the cards, and the games.<br><span class="zh">這個瀏覽器不支援 WebGL，無法顯示 3D 模型；旁邊的滑桿、時間軸和出土物清單照樣能用，課文、卡片和小遊戲也都能用。</span></p>
+    </div>
+    <aside class="al-sky twh-aside">
+      <p class="al-sky-k">The floor of the pit is · 坑底現在是</p>
+      <p class="twh-age" aria-live="polite">today<span class="zh">現在</span></p>
+      <p class="twh-depth"></p>
+      <div class="twh-aside-grid">
+        <div class="twh-vtl" data-k="Years ago · 年前" aria-label="Timeline: today at the top, older going down · 時間軸：現在在上，越下面越古老"></div>
+        <div class="twh-aside-main">
+          <p class="twh-lname"></p>
+          <p class="al-sky-k twh-k2">Found so far · 目前出土</p>
+          <div class="twh-finds" role="group" aria-label="Things found so far · 目前出土的東西"></div>
+        </div>
+      </div>
+    </aside>
+  </div>
+  <div class="al-controls">
+    <div class="twh-card" aria-live="polite"></div>
+    <label class="al-slider twh-dig-l"><span>Dig down · 往下挖 <small>surface 地表 &rarr; layer {n} 第 {n} 層</small></span>
+      <input type="range" class="al-age twh-dig-range" min="0" max="{n}" step="0.01" value="0" aria-label="How deep the pit is dug, from the surface down to layer {n} · 探坑挖多深：從地表到第 {n} 層"></label>
+    <div class="al-row al-row-main">
+      <button type="button" class="al-play twh-down"><span aria-hidden="true">&#9935;</span><span>Dig one layer down · 往下挖一層</span></button>
+      <button type="button" class="twh-btn-d twh-up">Put one layer back · 回填一層</button>
+      <button type="button" class="twh-btn-d twh-refill">Fill it all in · 全部回填</button>
+      <div class="al-row al-toggles">{tg}</div>
+    </div>
+    <p class="twh-msg" aria-live="polite"></p>
+  </div>
+  {_lab_foot(lab)}
+  <p class="twh-credit">{lab["credit_html"]}</p>
+</div>'''
+
+def _twh_flat():
+    return [(ui, u, l) for ui, u in enumerate(TWH["units"]) for l in u["lessons"]]
+
+def _twh_nav(slug):
+    flat = _twh_flat()
+    i = next(n for n, (_, _, l) in enumerate(flat) if l["slug"] == slug)
+    def side(item, dirn, label):
+        if not item:
+            return '<span class="pm-nav-x"></span>'
+        l = item[2]
+        arrow = "&larr;" if dirn == "prev" else "&rarr;"
+        return (f'<a class="pm-nav-s pm-nav-{dirn}" href="{TWH_BASE}{l["slug"]}/">'
+                f'<span class="pm-nav-k">{arrow} {label}</span>'
+                f'<span class="pm-nav-t">{html.escape(l["title"])}</span></a>')
+    prev = flat[i - 1] if i > 0 else None
+    nxt = flat[i + 1] if i < len(flat) - 1 else None
+    return (f'<nav class="pm-nav rvl">{side(prev, "prev", "上一課 · Previous")}'
+            f'<a class="pm-nav-hub" href="{TWH_BASE}">&#9776; 回台灣歷史 · All Lessons</a>'
+            f'{side(nxt, "next", "下一課 · Next")}</nav>')
+
+def build_twh_lesson(ui, unit, lesson):
+    path = f'{TWH_BASE}{lesson["slug"]}/'
+    unit_dict = {k: lesson[k] for k in ("title", "paras", "paras_zh", "questions", "answers", "vocab", "quiz")}
+    unit_dict["unit"] = lesson["n"]
+    reading_html = render_basic_unit(1, unit_dict, level="twh", audio_rel="", pdf_rel="")
+    lab = lesson["lab"]
+    kind = lab["kind"]
+    lab_html = {"dig": render_twhdig_lab}[kind](lesson)
+
+    def sec(key, fn, sid=None):
+        d = lesson[key]
+        return (sid or key, d["eyebrow"], d["en"], d["zh"], fn(d), _bi(d["lead_en"], d["lead_zh"], cls="lead rvl d2"))
+    secs = []
+    if lesson.get("parts"):
+        cards = "".join(
+            f'<article class="ph-card twh-part rvl">'
+            f'<div class="ph-ico twh-ico" aria-hidden="true"><span class="twh-ico-t">{pt["icon"]}</span></div>'
+            f'<h3>{html.escape(pt["en"])}<span class="zh">{html.escape(pt["zh"])}</span></h3>'
+            f'<p class="ph-meta"><span>{html.escape(pt["meta_en"])} · {html.escape(pt["meta_zh"])}</span></p>'
+            f'<p class="ph-when">{html.escape(pt["text_en"])}<br><span class="zh">{html.escape(pt["text_zh"])}</span></p>'
+            f'<button type="button" class="ph-go" data-lab-demo="{pt["demo"]}">Watch it in the model · 在模型中看 <i>&uarr;</i></button>'
+            f'</article>' for pt in lesson["parts"])
+        ph = lesson["parts_head"]
+        secs.append(("parts", ph["eyebrow"], ph["en"], ph["zh"], f'<div class="ph-grid stagger">{cards}</div>',
+                     _bi(lesson["parts_note_en"], lesson["parts_note_zh"], cls="lead rvl d2")))
+    if lesson.get("when"):
+        secs.append(sec("when", lambda d: _twh_timeline({**TWH["timeline"], "note_en": d["note_en"], "note_zh": d["note_zh"]}, d.get("focus"), d.get("events"))))
+    if lesson.get("sort"): secs.append(sec("sort", _twh_sort))
+    if lesson.get("two"): secs.append(sec("two", _twh_two))
+    secs.append(sec("how_we_know", _twh_how, "how-we-know"))
+    secs.append(sec("views", _twh_views))
+    secs.append(sec("phrases", _twh_phrases))
+    if lesson.get("culture_cards"):
+        cu = lesson["culture_cards"]
+        cc = "".join(
+            f'<article class="cc-card rvl"><p class="cc-k">{html.escape(c["k"])}</p>'
+            f'<h3>{html.escape(c["en"])}<span class="zh">{html.escape(c["zh"])}</span></h3>'
+            f'{_bi(c["body_en"], c["body_zh"])}</article>'
+            for c in cu["cards"])
+        secs.append(("stories", cu["eyebrow"], cu["title_en"], cu["title_zh"], f'<div class="cc-grid">{cc}</div>',
+                     _bi(cu["lead_en"], cu["lead_zh"], cls="lead rvl d2")))
+    secs.append(("myths", "Myth vs. Fact · 常見迷思", "Four things people get wrong", "四個常見的誤會", _sci_myths(lesson), ""))
+    th = lesson["tricks_head"]
+    secs.append(("tricks", "Remember It · 記憶口訣", th["en"], th["zh"], _sci_tricks(lesson), ""))
+    if lesson.get("notes"):
+        nh = lesson["notes_head"]
+        items = "".join(f'<li class="rvl">{html.escape(s["en"])}<span class="zh">{html.escape(s["zh"])}</span></li>' for s in lesson["notes"])
+        secs.append(("notes", nh["eyebrow"], nh["en"], nh["zh"], f'<ul class="twh-notes">{items}</ul>', ""))
+    acts = lesson.get("activities") or []
+    for n, act in enumerate(acts, 1):
+        eb = "Classroom Activity · 課堂活動" if len(acts) == 1 else f"Classroom Activity {n} · 課堂活動{_astro_cn(n)}"
+        secs.append((f"activity{'' if n == 1 else n}", eb, act["title_en"], act["title_zh"], _astro_activity(act), ""))
+    if lesson.get("links"):
+        def link(x):
+            body = (f'<span class="twh-link-ic" aria-hidden="true">{x["icon"]}</span>'
+                    f'<span class="twh-link-b"><span class="twh-link-k">{html.escape(x["k_en"])} · {html.escape(x["k_zh"])}</span>'
+                    f'<b>{html.escape(x["en"])}</b><span class="zh twh-link-zh">{html.escape(x["zh"])}</span>'
+                    f'<span class="twh-link-n">{html.escape(x["note_en"])}<span class="zh">{html.escape(x["note_zh"])}</span></span>')
+            if x.get("soon"):
+                return f'<div class="twh-link twh-link-soon rvl">{body}<span class="twh-link-go">Coming soon · 製作中</span></span></div>'
+            return f'<a class="twh-link rvl" href="{html.escape(x["href"])}">{body}<span class="twh-link-go">Go to the lesson · 前往這一課 <i>&rarr;</i></span></span></a>'
+        lh = lesson.get("links_head") or {"eyebrow": "Go Further · 延伸閱讀", "en": "Read more", "zh": "延伸閱讀"}
+        secs.append(("more", lh["eyebrow"], lh["en"], lh["zh"], f'<div class="twh-links">{"".join(link(x) for x in lesson["links"])}</div>', ""))
+    sec_html = "\n".join(_astro_sec(sid, k % 2 == 1, eb, en, zh, inner, lead)
+                         for k, (sid, eb, en, zh, inner, lead) in enumerate(secs))
+    rows = "".join(
+        f'<li><span>{html.escape(s["en"])}<span class="zh">{html.escape(s["zh"])}</span></span>'
+        f'<a href="{html.escape(s["url"])}" target="_blank" rel="noopener">{html.escape(s["src"])} &#8599;</a></li>'
+        for s in lesson["sources"])
+    src_html = (f'<div class="twh-sources rvl"><p class="sub-head">Sources · 資料出處</p>'
+                f'<p class="muted">{html.escape(lesson["sources_note_en"])} · {html.escape(lesson["sources_note_zh"])}</p>'
+                f'<ol>{rows}</ol></div>')
+
+    eyebrow = (f'Taiwan&#39;s Story · Unit {ui + 1} · Lesson {lesson["n"]} · '
+               f'台灣歷史 單元{_htw_cn(ui + 1)} 第{_htw_cn(lesson["n"])}課')
+    lead = f'{html.escape(lesson["blurb_en"])}<br><span class="muted">{html.escape(lesson["blurb_zh"])}</span>'
+    body = f'''
+{page_hero(eyebrow, f'{html.escape(lesson["title"])}<span class="h1-zh">{html.escape(lesson["title_zh"])}</span>', lead, back=(TWH_BASE, "回台灣歷史 · All Lessons"))}
+<section class="section astro-lab-sec" id="model"><div class="wrap">
+  <div class="big-idea rvl"><span class="big-idea-k">Big idea · 一句話看懂</span>{_bi(lesson["big_idea_en"], lesson["big_idea_zh"])}</div>
+  <p class="eyebrow rvl">{html.escape(lab["eyebrow"])}</p>
+  <h2 class="rvl d1 sweep">{html.escape(lab["title_en"])} <span class="tp-h2-en">{html.escape(lab["title_zh"])}</span></h2>
+  {_bi(lab["how_en"], lab["how_zh"], cls="lead rvl d2 al-how")}
+  {lab_html}
+</div></section>
+<section class="section band" id="reading"><div class="wrap" style="max-width:940px">
+  <p class="eyebrow rvl">Reading · 英文閱讀</p>
+  {reading_html}
+</div></section>
+{sec_html}
+<section class="section"><div class="wrap">
+{src_html}
+{_twh_nav(lesson["slug"])}
+</div></section>
+'''
+    say_slug = f'taiwan-history-{lesson["slug"]}'   # tools/gen_audio.py 以路徑末兩段命名
+    has_clips = os.path.exists(os.path.join(ROOT, "assets/data/say", say_slug + ".json"))
+    write(path, layout(path, f'{lesson["title"]} · {lesson["title_zh"]}',
+          f'{lesson["blurb_en"]} {lesson["blurb_zh"]}', body, "resources",
+          say_manifest=say_slug if has_clips else None, extra_head=_twh_head(_TWH_JS[kind])))
+    return path
+
+def build_twh_hub():
+    def icon(l):
+        return _TWH_CARD[l["card"]](60) if l.get("card") in _TWH_CARD else l["icon"]
+    unit_sections, nav = [], []
+    done = sum(len(u["lessons"]) for u in TWH["units"])
+    total = done + sum(len(u.get("planned", [])) for u in TWH["units"])
+    for idx, u in enumerate(TWH["units"]):
+        rows = []
+        for l in u["lessons"]:
+            rows.append((l["n"],
+                f'<a class="lc-row rvl" href="{TWH_BASE}{l["slug"]}/">'
+                f'<span class="lc-ico twh-lc-ico" aria-hidden="true">{icon(l)}</span>'
+                f'<span class="lc-body">'
+                f'<span class="lc-meta"><b>Lesson {l["n"]} · 第{_htw_cn(l["n"])}課</b><i>{html.escape(l["level"])}</i></span>'
+                f'<h3 class="lc-title">{html.escape(l["title"])}</h3>'
+                f'<span class="lc-zh">{html.escape(l["title_zh"])}</span>'
+                f'<span class="lc-bl">{html.escape(l["blurb_en"])}</span>'
+                f'<span class="lc-bl zh">{html.escape(l["blurb_zh"])}</span>'
+                f'<span class="lc-go">Start the lesson · 開始上課 <i>&rarr;</i></span>'
+                f'</span></a>'))
+        for p in u.get("planned", []):
+            rows.append((p["n"],
+                f'<div class="lc-row lc-soon rvl">'
+                f'<span class="lc-ico" aria-hidden="true">{p["icon"]}</span>'
+                f'<span class="lc-body"><span class="lc-meta"><b>Lesson {p["n"]} · 第{_htw_cn(p["n"])}課 · Coming soon 製作中</b></span>'
+                f'<h3 class="lc-title">{html.escape(p["en"])}</h3><span class="lc-zh">{html.escape(p["zh"])}</span></span></div>'))
+        rows.sort(key=lambda r: r[0])
+        band = "" if idx % 2 == 0 else " band"
+        uid = f"unit-{idx + 1}"
+        nav.append(f'<a class="unit-nav-link" href="#{uid}"><b>{idx + 1}</b><span>{html.escape(u["title_zh"])}</span></a>')
+        unit_sections.append(
+            f'<section class="section lc-unit{band}" id="{uid}"><div class="wrap">'
+            f'<p class="eyebrow rvl">Unit {idx + 1} · 單元{_htw_cn(idx + 1)}</p>'
+            f'<h2 class="rvl d1 sweep">{html.escape(u["title_en"])} <span class="tp-h2-en">{html.escape(u["title_zh"])}</span></h2>'
+            f'<p class="lead rvl d2" style="max-width:62ch">{html.escape(u["blurb_en"])}<br>'
+            f'<span class="muted">{html.escape(u["blurb_zh"])}</span></p>'
+            f'<div class="lc-list">{"".join(r[1] for r in rows)}</div>'
+            f'</div></section>')
+    unit_nav = (f'<nav class="unit-nav" aria-label="Jump to unit · 單元導覽"><div class="wrap">'
+                f'<span class="unit-nav-label">Jump to unit · 跳到單元</span>'
+                f'<div class="unit-nav-track">{"".join(nav)}</div></div></nav>')
+    intro_html = "".join(_bi(p["en"], p["zh"]) for p in TWH["intro"])
+    if done == total:
+        intro_html += _bi(f"All {total} lessons are ready.", f"{total} 課全部完成。", cls="twh-progress")
+    else:
+        intro_html += _bi(f"{done} of {total} lessons {'is' if done == 1 else 'are'} ready so far; more are on the way.",
+                          f"目前完成 {done} 課（共規劃 {total} 課），持續增加中。", cls="twh-progress")
+    rd = TWH["reading_guide"]
+    guide = "".join(
+        f'<article class="twh-guide rvl"><p class="twh-guide-ic" aria-hidden="true">{g["icon"]}</p>'
+        f'<h3>{_twh_b(g["en"], g["zh"])}</h3>{_bi(g["body_en"], g["body_zh"])}</article>' for g in rd["cards"])
+    guide_html = f'<div class="twh-guides">{guide}</div><p class="twh-note rvl">{_twh_b(rd["note_en"], rd["note_zh"])}</p>'
+    tl = TWH["timeline"]
+    lead = f'{html.escape(TWH["lead_en"])}<br><span class="muted">{html.escape(TWH["lead_zh"])}</span>'
+    body = f'''
+{page_hero(TWH["eyebrow"], f'{html.escape(TWH["title_en"])} <span class="h1-zh">{TWH["title_zh"]}</span>', lead, back=("/resources/reading/", "回閱讀與經典"))}
+<section class="section"><div class="wrap">
+  <div class="prose wide rvl twh-intro"><span class="twh-intro-ic" aria-hidden="true">{twhhub_svg(76)}</span>{intro_html}</div>
+</div></section>
+{_astro_sec("how-to-read", True, rd["eyebrow"], rd["en"], rd["zh"], guide_html, _bi(rd["lead_en"], rd["lead_zh"], cls="lead rvl d2"))}
+{_astro_sec("timeline", False, tl["eyebrow"], tl["en"], tl["zh"], _twh_timeline(tl), _bi(tl["lead_en"], tl["lead_zh"], cls="lead rvl d2"))}
+{unit_nav}
+{"".join(unit_sections)}
+'''
+    write(TWH_BASE, layout(TWH_BASE, f'{TWH["title_en"]} · {TWH["title_zh"]}',
+          f'{TWH["lead_en"]} {TWH["lead_zh"]}', body, "resources", extra_head=_twh_head("twh-hub") + _lc_head()))
+    return TWH_BASE
+
+
 def build_poetry_hub():
     cards = []
     for pm in POEMS["poems"]:
@@ -21131,6 +21478,10 @@ def main():
         paths.append(build_pe_hub())
         for _ui, _u in enumerate(PE["units"]):
             for _l in _u["lessons"]: paths.append(build_pe_lesson(_ui, _u, _l))
+    if TWH:
+        paths.append(build_twh_hub())
+        for _ui, _u in enumerate(TWH["units"]):
+            for _l in _u["lessons"]: paths.append(build_twh_lesson(_ui, _u, _l))
     if PHIL:
         paths.append(build_phil_hub())
         for _l in PHIL["lessons"]: paths.append(build_phil_lesson(_l))

@@ -1,0 +1,14 @@
+{
+  "name": "twrses-twhist",
+  "private": true,
+  "description": "台灣歷史 Taiwan's Story 的共用引擎（timeline.js 時間軸純函式、timeline2d.js 可縮放的時間軸、evidence2d.js 不需要 WebGL 的小互動、pit3d.js 考古探坑）與各課 3D 的原始碼。產物寫到 assets/js/twh-*.js，npm run build 重新打包。",
+  "type": "module",
+  "scripts": {
+    "build": "esbuild src/twh-hub.js src/twh-dig.js --bundle --minify --format=iife --target=es2019 --legal-comments=eof --outdir=../../assets/js",
+    "test": "node test/timeline.test.mjs && node test/strata.test.mjs && node test/data.test.mjs"
+  },
+  "devDependencies": {
+    "esbuild": "0.25.10",
+    "three": "0.186.1"
+  }
+}

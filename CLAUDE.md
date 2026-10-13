@@ -1024,6 +1024,42 @@
   - 台灣味四課（21–24）的食譜要有人實際試做才上線；第一課的香蕉燕麥餅乾是換單位的練習題，頁面上註明「還沒有實際試烤過」。
 - 查證習慣：美制單位引 NIST（SP 811 附錄 B.8、Handbook 44 附錄 C、Metric Kitchen）與 21 CFR 101.9(b)(5)(viii)；NIST 明說「美國沒採用公制」是不正確的說法（美國兩種都用），不要寫「全世界只有三個國家不用公制」。課綱引國教院的綜合活動領域 PDF（家政的學習內容在附錄，國小階段沒有「家」開頭的條目）。
 
+## 台灣歷史 Taiwan's Story（/resources/classes/taiwan-history/）— 架構照看得見的數學；**全站最需要小心的一個系列**
+
+- **定位**：雙語台灣歷史教材，兩群讀者——台灣學生（用英文說自己土地的故事）、外籍老師（看懂自己站著的地方）。每一課從一樣看得到的東西出發，問一個問題，並老實說「我們怎麼知道」。規劃檔：Obsidian `第二大腦/創作庫/台灣歷史課程規劃（twrses）.md`（六個單元二十四課）。系列索引與下一課的交接指令：`第二大腦/英文學習/台灣歷史（twrses.org）.md`。
+- **處理原則（每一課都適用，Luke 2026-10-13 確認；動筆前先讀一遍）**：
+  1. **不替任何政治立場說話**：只寫查得到史料的事實；有爭論的地方把說法並列（`views` 卡），不下結論。不評價在世的政治人物、不談現在的政黨、不對台灣的政治地位表態。**全系列寫到 1996 年為止**（`test/data.test.mjs` 會擋 1996 以後的年份，查證年份與出處的年份另列白名單）。
+  2. **用詞以十二年國教社會領域課綱為準**，第一次出現時用一句話說明另有的稱呼。注意：課綱國中歷史的主題名稱是「早期臺灣／大航海時代的臺灣／清帝國時期的臺灣／日本帝國時期的臺灣／當代臺灣」；**「日治時期」只出現在高中條目**（歷 Db-Ⅴ-1）。課綱 PDF 的文字是表格，抽出來欄位會交錯，核對時要把空白去掉再找。
+  3. **原住民族每個時代都在場**，不是背景。族名與用語依原住民族委員會；課綱的「原住民族」範圍比較廣（「包含法定原住民族、平埔族群及其他原住民族群」）。不用「發現台灣」「開發」這類只從外來者角度說的話，改說「來到」「開墾」並寫出對原住民族的影響（測試會擋「發現台灣」「開發」）。
+  4. **困難的歷史要寫**（霧社事件、二二八、白色恐怖等，Luke 明確要求一定要碰），但要適齡：講發生了什麼、為什麼重要、現在怎麼紀念；不描寫血腥細節、不用指責的語氣；數字與說法只引官方研究報告與國家級紀念館，估計不一致時並列並註明來源。
+  5. 人物只寫事蹟與影響，不封英雄或罪人。
+  6. 圖片只用博物館與檔案館明確開放的影像，每一張記下館藏編號與授權；**3D 重建一律在畫面上標明「示意」**（第一課的探坑左上角有「Illustration, not a real site · 示意圖，不是真實的遺址」），並在 `lab.scale_*` 寫清楚依據什麼、哪些是編的。
+  7. 年代以西元為主；估計的年代寫「about … years ago／約……年前」。
+  8. **沒有外部的歷史老師把關**，所以每一課寫完後另開一個子代理人（`model: "sonnet"`）只做一件事：把課文裡每一個史實、年份、數字、引文逐條對回出處，並專門找「只寫了一種說法、其實有爭論」的句子；它列出的每一條都要處理完才交付，核對清單附在給 Luke 的報告裡。子代理人回報的引文我方要自己再抽查（它會把摘要當成原文）。Britannica、教育部辭典 curl 會被擋，用瀏覽器面板讀。
+  9. **查不到出處就不寫**。「不同的說法」每一邊都要有出處連結。出處欄的逐字引文保留原文的拼法與標點（中文引文不要自己加空格、不要把連字號改成破折號）。
+- 內容：`data/taiwan_history.json`：系列層有 `reading_guide`（首頁「每一課都有的三張卡」）、`timeline`（全系列的時間軸：`older`、`nearest`、`spans[]`、`events[]`、`kind_note`；做新課時把那一課的事件點加進 `events`）；`units[]`（六個單元）底下 `lessons[]` 與 `planned[]`（「製作中」卡，做一課就從 planned 移到 lessons）；課次 `n` 全系列連號（1–24），首頁自己算「x of 24」。每課欄位同看得見的數學（沒有 `sayit`），多的：
+  - **三張固定的卡（每課都要有，`test/data.test.mjs` 會擋）**：`how_we_know`（`items[]`：`icon/kind_*/en/zh/text_*/where_*/src/url`，`where_k` 可以換掉「收藏在哪裡」這個小標——這一課依據的史料、收藏在哪裡、連結，至少三項）、`views`（`items[]`：`topic_*`、`sides[]` 至少兩邊各有 `label_*/en/zh/src/url`、`note_*`；`rule_*`）、`phrases`（`rows[]` 剛好 8 句：`en`＝朗讀用的整句、`html`＝同一句但把句型用 `<b>` 標出來、`zh`、`note_*`；每句有 🔊）。
+  - `when`（「這一課在時間軸的哪裡」：`focus` ＝ `{ fromAgo|fromYear, toAgo|toYear, en, zh }`、`note_*`，可加 `events[]`）、`sort`（分類遊戲）、`two`（兩份互相矛盾的記錄）、`notes`＋`notes_head`（「給老師的提醒」：課綱對應、名詞、這個系列怎麼處理敏感題目）。
+- 頁面：`build.py`「台灣歷史」區塊的 `build_twh_hub()`（系列小圖示 `twhhub_svg()`＝地層＋探坑＋手鏟，第一課卡 `twhdig_svg()`；`_TWH_CARD`）/ `build_twh_lesson()`；三張固定的卡是 `_twh_how()`、`_twh_views()`、`_twh_phrases()`，時間軸 `_twh_timeline()`。「閱讀與經典」頁有入口卡（🏺，排在家政後面）。段落順序：3D → 英文閱讀 → 模型卡 → **時間軸** → 這是哪一種證據 → 兩個人說的不一樣 → **我們怎麼知道？** → **不同的說法** → **歷史英語** → 在台灣（文化卡）→ 迷思 → 口訣 → 給老師的提醒 → 活動 → 延伸閱讀 → 資料出處。`tools/gen_audio.py` 的 `SHORT_PAGES` 已加入本系列。
+- 樣式：共用 `assets/css/astro.css`，本系列專屬的在 `assets/css/taiwan-history.css`（**class 前綴一律 `twh-`**——`th-` 已被天文、人體、地球、書法、數學等系列用掉，不要用）；`_twh_head()` 只在本系列頁面載入。
+- 原始碼：**`tools/twhist/src/`**（自己的 package.json，three 0.186.1、esbuild 0.25.10），bundle 一律 `twh-*`；`lab.kind` → bundle 對照在 `build.py` 的 `_TWH_JS`（`dig` → `twh-dig`）；首頁另載 `twh-hub`（只有時間軸，不含 three.js）。**不要 import 別的系列的 tools 目錄。** 新增一課＝`src/twh-<名>.js`＋package.json 的 build 加入口＋`_TWH_JS` 加一筆＋`build_twh_lesson()` 的 `lab_html` 對照加一筆。
+  ```
+  cd tools/twhist && npm ci && npm run build && npm test
+  ```
+- **時間軸引擎（第一課建好，之後每課都用）**：
+  - `src/timeline.js`（純函式，`test/timeline.test.mjs`）：兩種說時間的方法——`year`（曆年，**負數＝西元前，沒有 0 年**）與 `ago`（距今幾年）。`yearToAgo`／`agoToYear`（西元前 1 年的下一年是西元 1 年）、`yearsBetween`、`centuryOf`、`roundAgo`（兩位有效數字）、`formatYearEn/Zh`、`formatAgoEn/Zh`、`zhCount`（3 萬）；`makeScale(kind, older, nearer)` → `pos(ago)`（**0＝最古老、1＝現在**）／`ago(pos)`／`contains`，`kind`＝`'linear'`（每一年一樣寬）或 `'log'`（每往回十倍一樣寬；比 `FLOOR`＝1 年更近的算 1）；`spanPos`、`ticks`（log：十的次方是主刻度；linear 在 3,000 年以內刻在整數曆年上、跨過西元前後不會出現 0 年）、`zoomView`／`panView`／`fitView`（縮放後錨點的年代位置不變、不會超出範圍）。
+  - `src/timeline2d.js`：`mountTimeline(el, cfg)`／`initTimelines()`（掛在 `[data-twh-timeline]`，設定寫在裡面的 `<script type="application/json">`）。**位置交給 CSS 變數 `--p`／`--a`／`--b`**，所以橫的（首頁、每課的「在時間軸上」）和直的（`.twh-tl-v`，探坑旁邊，現在在上）是同一份 DOM。`cfg.nearest`＝對數尺度最靠近現在畫到距今幾年（全系列用 10，免得最近十年佔掉一大段）。api（`el.__tl`）：`setKind`、`setView`、`reset`、`zoom`、`fit`、`setCursor`、`setBand`、`select`、`state()`、`posOf(ago)`、`events()`。可以左右拖曳平移；不攔滾輪（免得擋住頁面捲動）。
+- 第一課（`twh-dig.js`，`lab.kind = "dig"`，`data-twhdig-lab`；slug `how-do-we-know`）：一個想法——**我們靠證據知道過去（東西、記錄、口傳）；沒有文字的時代靠考古，沒有被擾動的地層越下面越古老**。這一課也立下全系列的讀法（為什麼每課都有「我們怎麼知道？」和「不同的說法」）。
+  - **探坑是通用的示意，不是任何真實遺址**：`lab.layers[]` 五層（`thick` 公尺、`color`、`soil`、`fromAgo`／`toAgo`、`finds[]` 各兩樣：`key/shape/icon/ago/what_*/date_*`），只有「先後順序」依史前館對台灣史前時代的大致說明（打製石器、無陶 → 陶器與磨製石器 → 鐵器與玻璃珠）。`src/strata.js`（純函式，`test/strata.test.mjs`）：`bounds`、`depthAt(level)`、`layerIndexAt`、`agoAtDepth(layers, depth, floor)`（一層裡面照十倍十倍均勻往回走；`floor` 要和時間軸的 `nearest` 同一個數）、`foundSoFar`、`checkOrder`（疊置原理：下面那一層不比上面年輕、出土物的年代落在自己那一層）、`intrusionYoungerThanNeighbors`。
+  - `src/pit3d.js`：`makePit(layers, { pit })`。探坑挖成**階梯**（每往下一層後緣往前退一階），每一層的出土物留在自己那一階上，從正面一眼看得到誰在上、誰在下。`setLevel(v)`（可以是小數：正在挖的那一層的土塊從上面變薄）、`isFindVisible(key)`、`findAnchor`／`layerAnchor`／`intrusionAnchor`、`setIntrusion(on)`。出土物模型 `makeFind(shape)`：`cap`、`coin`、`porcelain`、`tile`、`knife`、`beads`、`potsherd`、`adze`、`chopper`、`charcoal`（全部自繪）。「後來挖的坑」（`lab.later`：從第 `from` 層往下切進第 `into` 層）是貼在探坑左壁上的深色填土＋一圈淺色輪廓，裡面一片年輕的瓷片躺在第四層的深度。
+  - 右邊直的時間軸跟著坑底走：游標＝`agoAtDepth`，亮起來的那一段＝正在挖的那一層。**`__lab.check()`＝游標的年代等於坑底的年代，而且 3D 裡看得到的出土物＝清單裡解鎖的出土物**；截圖驗過 0–5 層與沒有 WebGL 的情形。
+  - **鏡頭只在版面大幅改變（直↔橫）時重設**——右欄多一列少一列不動使用者轉好的視角（原本是長寬比一變就重設，開關「後來挖的坑」會把視角拉回去）。
+  - 控制器不靠 WebGL：沒有 WebGL 時 `view` 是 null、加 `al-nogl`，滑桿、時間軸、出土物清單與小卡照樣能用。
+  - 四張卡 `data-lab-demo`：`top`、`deeper`、`date`（`lab.demo_date` 那樣出土物）、`later`。除錯：`document.querySelector('[data-twhdig-lab]').__lab`（`setLevel(v, instant)`、`level()`、`depth()`、`floorAgo()`、`layer()`、`found()`、`select(key)`、`setLater(bool)`、`demo(...)`、`run(秒)`、`render()`、`tl`、`pit`、`view`、`check()`）。
+  - 2D（`src/evidence2d.js`，不需要 WebGL）：`initSort`（`[data-twh-sort]`：八樣東西分到東西／記錄／口傳，一次一樣，只記第一次就分對的數量、不計時；`el.__sort`）、`initTwo`（`[data-twh-two]`：編出來的運動會，阿公的口述和校刊對不起來，點「還想找什麼」看每樣證據能說什麼、不能說什麼，**沒有標準答案、不計分**；`el.__two`）。
+  - 查證時改掉或沒寫的：見 Obsidian `第二大腦/知識庫/台灣歷史/` 那一課的筆記與系列索引的紀錄。
+  - 截圖：`tools/astro/scripts/shot.mjs`（已改用 `headless-chrome`）。頁面有 `scroll-behavior: smooth`，截某一段之前先把 `document.documentElement.style.scrollBehavior = 'auto'`，並等模型開機後再捲（模型開機會改變頁面高度）。
+
 ## Build / Deploy
 ```
 python3 build.py        # BASE=/twrses → 服務於 lukelin7429.github.io/twrses/ 或 www.twrses.org
