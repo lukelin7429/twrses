@@ -1494,7 +1494,7 @@
               "zh": "明暗怎麼把圓形變成球？",
               "note_en": "Next comes the direction the wheel leaves out: light and dark, and a lamp you can drag around a ball.",
               "note_zh": "下一課是色相環沒有畫出來的方向：明與暗，還有一盞可以繞著球拖動的燈。",
-              "soon": true
+              "href": "/resources/classes/art/light-and-shade/"
             }
           ],
           "sources_note_en": "Names, dates, numbers, and quotations on this page were checked against these sources (October 2026). The positions on the wheels and the difference numbers are computed by the page itself and covered by automatic tests; the swatches are chosen screen colors",
@@ -1621,15 +1621,691 @@
               "url": "https://www.cpsc.gov/s3fs-public/5015.pdf"
             }
           ]
+        },
+        {
+          "n": 3,
+          "slug": "light-and-shade",
+          "title": "How Does Shading Make a Circle Look Like a Ball?",
+          "title_zh": "明暗怎麼把圓形變成球？",
+          "level": "入門 · Beginner",
+          "icon": "🌗",
+          "card": "ball",
+          "blurb_en": "Move one lamp around a ball and watch the light side, the dark side, and the shadow follow it. Then take the shading away and see the ball turn back into a flat circle.",
+          "blurb_zh": "拿一盞燈繞著一顆球移動，看亮面、暗面和影子跟著它變；再把明暗拿掉，看球變回一個平面的圓。",
+          "big_idea_en": "An outline can only tell you that a shape is a circle. Shading tells you that it is a ball. The surface is lightest where it faces the lamp and grows darker as it turns away, and the shadow falls on the side away from the lamp. Light, shade, and shadow all follow the light source.",
+          "big_idea_zh": "輪廓只能告訴你這個形狀是圓的；明暗才能告訴你它是一顆球。表面朝著燈的地方最亮，越轉離燈就越暗，影子落在背向燈的那一邊。亮面、暗面和影子，全部跟著光源走。",
+          "lab": {
+            "kind": "ball",
+            "eyebrow": "3D Model · 3D 模型",
+            "title_en": "A Ball, a Table, and One Lamp",
+            "title_zh": "一顆球、一張桌子，和一盞燈",
+            "how_en": "Drag the lamp, or use the two sliders, to move it around the ball and up and down. The labels name the parts of the light and shade. Point at any spot on the ball to read how light it is. Then press Flat circle to take all the shading away, or Pencil steps to sort the grays into a few steps the way you would with a pencil.",
+            "how_zh": "拖動那盞燈，或用兩根滑桿，讓它繞著球轉、升高或降低。標籤寫著明暗各部分的名稱；指著球上任何一點，就能讀出那裡有多亮。再按「平面的圓」把明暗全部拿掉，或按「分階」把灰分成幾階，就像用鉛筆畫的那樣。",
+            "legend": [
+              {
+                "cls": "arlamp",
+                "en": "The lamp, which only marks where the light comes from",
+                "zh": "燈：只是標出光從哪裡來"
+              },
+              {
+                "cls": "array",
+                "en": "The dashed line: the direction of the light",
+                "zh": "虛線：光的方向"
+              },
+              {
+                "cls": "arprobe",
+                "en": "The small dot: the spot whose gray is read out on the right",
+                "zh": "小圓點：右邊讀出的是這一點的灰"
+              }
+            ],
+            "scale_en": "The grays are screen values from 0 (black) to 255 (white). L* is a measure of lightness from 0 to 100. The ball and the table are drawn straight from the numbers, with no other lighting added.",
+            "scale_zh": "灰色是螢幕的設定值，從 0（黑）到 255（白）。L* 是明度的量，從 0 到 100。球和桌面直接照這些數字畫出來，沒有再加別的光影。",
+            "note_head_en": "What this model leaves out",
+            "note_head_zh": "這個模型簡化了什麼",
+            "notes": [
+              {
+                "en": "The lamp is treated as a light very far away, so only its direction matters. A real lamp close to a ball lights it a little differently, and its shadow spreads out.",
+                "zh": "模型把燈當成非常遠的光，所以只看方向。真正的燈離球很近的時候，照出來的樣子會有一點不同，影子也會往外張開。"
+              },
+              {
+                "en": "The reflected light under the ball comes from one simple rule. The model does not follow light as it bounces around a real room.",
+                "zh": "球底下的反光只用一條簡單的規則算出來；模型沒有真的去追蹤光在房間裡來回反射。"
+              },
+              {
+                "en": "The edge of the shadow is drawn with one fixed softness. Real shadow edges are sharper near the object and softer farther away, and softer still when the lamp is large.",
+                "zh": "影子的邊緣用固定的柔和程度來畫。真正的影子，靠近物體的地方比較清楚，越遠越模糊；燈越大，邊緣也越柔和。"
+              },
+              {
+                "en": "The ball is plain gray and a little shiny. Real things have color and texture, and a matte ball has no bright highlight.",
+                "zh": "這顆球是單純的灰色，表面有一點光澤。真實的東西有顏色和質感；表面不反光的球，就沒有明顯的亮點。"
+              }
+            ],
+            "note_end_en": "So set up a real ball and a real lamp and compare. Classroom Activity 1 shows how.",
+            "note_end_zh": "所以請拿真的球和真的燈來比一比；做法在課堂活動一。",
+            "credit_html": "Model drawn for this lesson. The shading formula is in the shared color engine and is covered by automatic tests. · 模型為本課自行繪製；明暗的公式放在共用的顏色引擎裡，並有自動測試。"
+          },
+          "paras": [
+            "Draw a circle on a sheet of paper. It could be a coin, a plate, or a hole. Nothing in the outline tells you which. Now make one side of the circle light and let it grow darker little by little toward the other side, and add a dark patch on the ground beside it. Suddenly the circle is a ball. The outline did not change. What you added is shading, and shading is how a flat drawing shows that a thing is round.",
+            "Shading copies what light does. Put a ball on a table and switch on one lamp. The part of the ball that faces the lamp gets the most light. As the surface curves away, the same light is spread over more of it, so it looks darker. Where the surface turns its back on the lamp, no direct light arrives at all. Every gray on the ball depends on one thing: how squarely that spot faces the light.",
+            "Artists have names for the parts. The highlight is the brightest spot, where a shiny surface sends the lamp's light straight to your eye. The light side shades into the halftone, the middle grays. Then comes the core shadow, a soft dark band that begins where the direct light ends. Beyond it the shadow side is often a little lighter again. That is reflected light, which bounces up from the table onto the ball.",
+            "The ball also blocks light from reaching the table, and that makes a cast shadow. A cast shadow always points away from the lamp. Raise the lamp and the shadow gets shorter. Lower the lamp and it stretches out, the way your own shadow does late in the afternoon. A small lamp gives a shadow with a crisp edge. The wider the light source, the more blurred the shadow becomes.",
+            "You do not need hundreds of grays to draw a ball. How light or dark a color is, is called its value, and a value scale is a row of even steps from white to black. In the Munsell system, value runs from 0 for black to 10 for white. In 1907 the teacher Denman Ross described a scale of nine values. With only five steps of pencil gray, placed in the right places, a circle already looks round.",
+            "Painters have used light and shade this way for centuries. The Italian word chiaroscuro means light-dark, and it describes clear contrasts of tone that suggest the volume of the things in a painting. Leonardo da Vinci and Caravaggio are famous for it. You can see the same thing in the night sky. The Sun always lights half of the Moon, like one lamp shining on one ball, and what we call the phases are our changing view of that sunlit half."
+          ],
+          "paras_zh": [
+            "在紙上畫一個圓。它可能是一枚硬幣、一個盤子，或是一個洞；光看輪廓，分不出是哪一個。現在讓圓的一邊亮，往另一邊一點一點變暗，再在旁邊的地面上加一塊暗暗的形狀。忽然之間，圓變成了一顆球。輪廓並沒有改變，你加上去的是明暗；平面的圖畫，就是靠明暗來表現一樣東西是圓鼓鼓的。",
+            "明暗是照著光的行為畫出來的。把一顆球放在桌上，打開一盞燈。球面朝著燈的部分，得到的光最多。表面越彎離燈，同樣多的光要攤在更大的面積上，所以看起來比較暗。到了背對燈的地方，就完全沒有直接照到的光了。球上每一處的灰，只看一件事：那一點有多正對著光。",
+            "藝術家替這幾個部分取了名字。亮點是最亮的一小塊，有光澤的表面在那裡把燈光直接反射到你的眼睛。亮面慢慢過渡到半色調，也就是中間的灰。再過去是最暗的那一圈（英文叫 core shadow），一道柔和的暗帶，從直接的光結束的地方開始。過了這一圈，暗面常常又稍微亮一點，那是反光：光從桌面彈上來，照到球上。",
+            "球也擋住了照向桌面的光，於是桌上有了投影，也就是影子。影子永遠指向燈的反方向。把燈舉高，影子變短；把燈放低，影子拉長，就像傍晚時你自己的影子。小小的燈照出邊緣清楚的影子；光源越寬，影子就越模糊。",
+            "畫一顆球，不需要幾百種灰。一個顏色有多亮或多暗，叫做它的明度；明度階是從白到黑、一階一階間隔相等的一排灰。在孟塞爾系統裡，明度從 0（黑）到 10（白）。1907 年，美術教師羅斯（Denman Ross）描述過一套九階的明度。其實只要五階的鉛筆灰，放在對的位置，一個圓看起來就已經是圓鼓鼓的了。",
+            "幾百年來，畫家一直這樣運用明與暗。義大利文 chiaroscuro 的意思是「明—暗」，指的是用清楚的明暗對比來表現畫中物體的體積；達文西和卡拉瓦喬都以此聞名。同樣的事，在夜空中也看得到：太陽永遠照亮月球的一半，就像一盞燈照著一顆球；我們說的月相，就是從地球上看到的那一半亮面一直在改變。"
+          ],
+          "questions": [
+            "A drawn circle and a drawn ball have the same outline. What makes one of them look round?",
+            "You see a ball whose shadow is very long and points to the right. Where is the lamp?",
+            "Why is the shadow side of a ball on a white table usually not completely black?"
+          ],
+          "answers": [
+            "Shading. The ball is lightest where it faces the light and gets darker as its surface turns away, and it has a cast shadow beside it. The flat circle is one even gray.",
+            "On the left, and low. A cast shadow points away from the lamp, and a low lamp makes a long shadow.",
+            "Light bounces off the table and other things nearby and reaches the shadow side. Artists call this reflected light."
+          ],
+          "vocab": [
+            {
+              "n": 1,
+              "w": "shading",
+              "pos": "n.",
+              "zh": "明暗；陰影畫法",
+              "ex": "Careful <b>shading</b> makes the circle look like a ball.",
+              "exzh": "仔細畫出明暗，圓看起來就像一顆球。"
+            },
+            {
+              "n": 2,
+              "w": "highlight",
+              "pos": "n.",
+              "zh": "亮點",
+              "ex": "The <b>highlight</b> is the brightest spot on the ball.",
+              "exzh": "亮點是球上最亮的地方。"
+            },
+            {
+              "n": 3,
+              "w": "shadow",
+              "pos": "n.",
+              "zh": "影子；陰影",
+              "ex": "The ball's <b>shadow</b> falls on the side away from the lamp.",
+              "exzh": "球的影子落在背向燈的那一邊。"
+            },
+            {
+              "n": 4,
+              "w": "cast",
+              "pos": "v.",
+              "zh": "投射",
+              "ex": "A low lamp <b>casts</b> a long shadow.",
+              "exzh": "燈放得低，投出來的影子就長。"
+            },
+            {
+              "n": 5,
+              "w": "reflect",
+              "pos": "v.",
+              "zh": "反射",
+              "ex": "The white table <b>reflects</b> light onto the dark side of the ball.",
+              "exzh": "白色的桌面把光反射到球的暗面。"
+            },
+            {
+              "n": 6,
+              "w": "value",
+              "pos": "n.",
+              "zh": "明度",
+              "ex": "Yellow has a light <b>value</b>, and dark blue has a dark one.",
+              "exzh": "黃色的明度高，深藍色的明度低。"
+            },
+            {
+              "n": 7,
+              "w": "outline",
+              "pos": "n.",
+              "zh": "輪廓",
+              "ex": "The <b>outline</b> of a ball is only a circle.",
+              "exzh": "球的輪廓只是一個圓。"
+            },
+            {
+              "n": 8,
+              "w": "surface",
+              "pos": "n.",
+              "zh": "表面",
+              "ex": "The <b>surface</b> gets darker as it turns away from the light.",
+              "exzh": "表面越轉離光，就越暗。"
+            }
+          ],
+          "quiz": [
+            {
+              "q": "Which part of a ball is lightest?",
+              "options": [
+                "The part that faces the lamp",
+                "The part that touches the table",
+                "The part farthest from the lamp",
+                "The edge of the cast shadow"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "Which way does a cast shadow point?",
+              "options": [
+                "Toward the lamp",
+                "Away from the lamp",
+                "Always to the right",
+                "Straight up"
+              ],
+              "correct": 1
+            },
+            {
+              "q": "What happens to the shadow on the table when the lamp is lowered?",
+              "options": [
+                "It disappears",
+                "It gets shorter",
+                "It gets longer",
+                "It turns white"
+              ],
+              "correct": 2
+            },
+            {
+              "q": "What is reflected light?",
+              "options": [
+                "The brightest spot on the ball",
+                "Light that bounces from nearby surfaces onto the shadow side",
+                "The shadow on the table",
+                "Light that passes through the ball"
+              ],
+              "correct": 1
+            },
+            {
+              "q": "What does “value” mean in art?",
+              "options": [
+                "How much a painting costs",
+                "How big a shape is",
+                "How light or dark a color is",
+                "How many colors are used"
+              ],
+              "correct": 2
+            }
+          ],
+          "parts_head": {
+            "eyebrow": "Try It in the Model · 在模型裡試試",
+            "en": "Four things to try",
+            "zh": "四件值得試的事"
+          },
+          "parts": [
+            {
+              "key": "flat",
+              "icon": "⚪",
+              "en": "Circle or ball?",
+              "zh": "是圓，還是球？",
+              "meta_en": "Take the shading away",
+              "meta_zh": "把明暗拿掉",
+              "demo": "flat",
+              "text_en": "First the ball is drawn with no shading at all: a flat gray circle. Then the shading comes back, and the circle swells into a ball.",
+              "text_zh": "先把球畫成完全沒有明暗的樣子：一個平面的灰色圓。接著明暗回來，圓就鼓成了一顆球。"
+            },
+            {
+              "key": "around",
+              "icon": "💡",
+              "en": "Everything follows the lamp",
+              "zh": "一切都跟著燈走",
+              "meta_en": "The lamp circles the ball",
+              "meta_zh": "燈繞著球轉",
+              "demo": "around",
+              "text_en": "The lamp moves from the left side to the right. The light side, the dark band, and the shadow on the table all swing around with it.",
+              "text_zh": "燈從左邊移到右邊。亮面、最暗的那一圈和桌上的影子，全部跟著它轉。"
+            },
+            {
+              "key": "low",
+              "icon": "🌇",
+              "en": "High lamp, low lamp",
+              "zh": "燈高，燈低",
+              "meta_en": "Lower the lamp",
+              "meta_zh": "把燈放低",
+              "demo": "low",
+              "text_en": "With the lamp high, the shadow is a short patch under the ball. As the lamp comes down, the shadow stretches far across the table.",
+              "text_zh": "燈很高的時候，影子是球底下短短的一塊；燈降下來，影子就在桌面上拉得很長。"
+            },
+            {
+              "key": "steps",
+              "icon": "✏️",
+              "en": "A few grays are enough",
+              "zh": "幾階灰就夠了",
+              "meta_en": "Seven steps, five, then three",
+              "meta_zh": "七階、五階、三階",
+              "demo": "steps",
+              "text_en": "The same light is sorted into seven steps of gray, then five, then three. Even with three, you still read the shape as a ball.",
+              "text_zh": "同樣的光，分成七階的灰，再變成五階、三階。就算只有三階，你還是看得出那是一顆球。"
+            }
+          ],
+          "parts_note_en": "Then try it yourself. Where must the lamp be for the shadow to hide completely behind the ball? Where is it when the ball looks flattest?",
+          "parts_note_zh": "然後自己動手試試。燈要放在哪裡，影子才會完全躲到球的後面？球看起來最扁平的時候，燈又在哪裡？",
+          "lamp": {
+            "eyebrow": "Game · 小遊戲",
+            "en": "Where Is the Lamp?",
+            "zh": "燈在哪裡？",
+            "lead_en": "Six pictures of a ball on a table. In each one, work out where the light comes from. Find the lightest part of the ball first, then check which way the shadow points. Every choice has an arrow and words. The game counts the questions you get right on the first try.",
+            "lead_zh": "六張桌上一顆球的圖。每一張都要判斷光從哪裡來：先找球上最亮的地方，再看影子指向哪一邊。每個選項都有箭頭和文字。遊戲會記下你第一次就答對的題數。",
+            "note_en": "The pictures are drawn with the same formula as the model above, seen from straight in front.",
+            "note_zh": "這些圖用的是和上面模型同一條公式，從正前方看。"
+          },
+          "sort": {
+            "eyebrow": "Train Your Eye · 練眼力",
+            "en": "From Light to Dark",
+            "zh": "由亮排到暗",
+            "lead_en": "Five gray squares are out of order. Click one square and then another to trade their places, until the lightest is on the left and the darkest on the right. Then press Check. There are three rounds, and in each round the grays are closer together.",
+            "lead_zh": "五塊灰色的方塊順序亂了。點一塊、再點另一塊，兩塊就會交換位置；排到最亮的在左邊、最暗的在右邊，再按「對答案」。一共三回合，每一回合的灰色彼此更接近。",
+            "note_en": "After you finish a round, each square shows its L*, a number for lightness from 0 (black) to 100 (white). Remember Lesson 2: a gray can look lighter or darker depending on what is beside it, so the last round is harder than it sounds.",
+            "note_zh": "每完成一回合，方塊下面會顯示 L*：明度的數字，從 0（黑）到 100（白）。別忘了第二課：一個灰看起來比較亮或比較暗，和它旁邊是什麼有關，所以最後一回合比聽起來難。"
+          },
+          "culture_cards": {
+            "eyebrow": "Stories Behind the Shadows · 明暗背後的故事",
+            "title_en": "A word for light-dark, a smoky edge, a ball in the sky, and nine grays",
+            "title_zh": "「明—暗」這個詞、煙霧一樣的邊緣、天上的一顆球，和九階灰",
+            "lead_en": "Four short stories about how people have used and studied light and shade.",
+            "lead_zh": "關於人怎麼運用、怎麼研究明與暗的四個小故事。",
+            "cards": [
+              {
+                "k": "A Word from Italy · 來自義大利的詞",
+                "en": "Chiaroscuro",
+                "zh": "明暗對比法",
+                "body_en": "Chiaroscuro is an Italian term that literally means light-dark. The National Gallery in London uses it for clear contrasts of tone that suggest the volume and modeling of the things in a painting, and names Leonardo da Vinci and Caravaggio as artists famed for it. In Caravaggio's late paintings, faces and hands are lit against a setting that is mostly dark. That stronger kind has its own name, tenebrism.",
+                "body_zh": "chiaroscuro 是義大利文，字面的意思是「明—暗」。倫敦國家美術館用這個詞指清楚的明暗對比，用來表現畫中物體的體積與立體感，並舉達文西和卡拉瓦喬為以此聞名的畫家。卡拉瓦喬晚期的畫裡，臉和手被照亮，周圍大部分是暗的；這種更強烈的做法另有一個名稱，叫暗色調主義（tenebrism）。"
+              },
+              {
+                "k": "Leonardo · 達文西",
+                "en": "Painting without lines",
+                "zh": "不用線條來畫",
+                "body_en": "Look at the edge of the ball in the model. There is no line around it. One gray simply meets another. Leonardo da Vinci advised painting without lines. The soft, smoky way he blurred his contours is called sfumato: figures emerge from a dark background through gradual changes of tone, with no harsh outlines.",
+                "body_zh": "看看模型裡那顆球的邊緣：它周圍並沒有一條線，只是一種灰碰到另一種灰。達文西主張畫畫「不用線條」。他把輪廓弄得柔和、像煙霧一樣的畫法，叫做暈塗法（sfumato）：人物靠著一點一點變化的明暗，從暗暗的背景裡浮現出來，沒有生硬的輪廓線。"
+              },
+              {
+                "k": "In the Sky · 天上",
+                "en": "The Moon is a ball lit by one lamp",
+                "zh": "月球就是一盞燈照著的一顆球",
+                "body_en": "The Sun always lights half of the Moon while the other half stays dark. The line between lunar day and night is called the terminator, and long shadows there make craters and mountains easy to see. The dark part of a crescent Moon is sometimes faintly visible too. NASA calls that earthshine: sunlight that reflects off the Earth onto the Moon. It is the same reflected light you see under the ball.",
+                "body_zh": "太陽永遠照亮月球的一半，另一半是暗的。月面上白天和黑夜的分界線叫做明暗界線（terminator）；那裡的影子很長，坑洞和山脈特別容易看清楚。彎彎的月亮暗的那一部分，有時候也隱約看得見。NASA 把它叫做地照（earthshine）：陽光先從地球反射到月球上。這和你在球底下看到的反光，是同一回事。"
+              },
+              {
+                "k": "1907 · 一九〇七年",
+                "en": "Nine grays, or eleven",
+                "zh": "九階灰，或十一階",
+                "body_en": "How many steps should a value scale have? In A Theory of Pure Design, published in 1907, the American teacher Denman Ross set out a scale of nine neutral values, with white the highest and black the lowest. Albert Munsell's system, from the same years, numbers value from 0 for black to 10 for white. The number of steps is a choice. Seeing the steps clearly is the skill.",
+                "body_zh": "明度階應該分成幾階？美國美術教師羅斯在 1907 年出版的《A Theory of Pure Design》裡，列出一套九階的中性明度：白最高、黑最低。同一個年代，孟塞爾的系統把明度從 0（黑）編到 10（白）。分幾階是一種選擇；能把每一階看清楚，才是真正要練的功夫。"
+              }
+            ]
+          },
+          "curric": {
+            "eyebrow": "In the Curriculum · 對應課綱",
+            "en": "Where this lesson fits",
+            "zh": "這一課對應的課綱",
+            "lead_en": "The visual arts curriculum does not use the words for light and shade or for shadow. These are the closest entries, together with two from science. The links to this lesson are our reading of them.",
+            "lead_zh": "視覺藝術課綱的條文沒有出現「明暗」「光影」或「陰影」。下面是最接近的條目，另外加上自然科學的兩條；它們和這一課的連結，是本教材的解讀。",
+            "items": [
+              {
+                "code": "視 E-Ⅱ-1",
+                "area": "藝術領域・視覺藝術（國小三、四年級）",
+                "area_en": "Arts, visual arts (grades 3–4)",
+                "text": "色彩感知、造形與空間的探索。",
+                "note_en": "Shading is one way a flat drawing explores form and space.",
+                "note_zh": "明暗是平面的圖探索造形與空間的一種方法。"
+              },
+              {
+                "code": "視 E-Ⅱ-2",
+                "area": "藝術領域・視覺藝術（國小三、四年級）",
+                "area_en": "Arts, visual arts (grades 3–4)",
+                "text": "媒材、技法及工具知能。",
+                "note_en": "Building up steps of gray with a pencil is a basic technique.",
+                "note_zh": "用鉛筆一階一階疊出灰，是一種基本技法。"
+              },
+              {
+                "code": "視 E-Ⅳ-2",
+                "area": "藝術領域・視覺藝術（國中）",
+                "area_en": "Arts, visual arts (grades 7–9)",
+                "text": "平面、立體及複合媒材的表現技法。",
+                "note_en": "Showing a solid form on a flat surface is the subject of this lesson.",
+                "note_zh": "在平面上表現立體，正是這一課的主題。"
+              },
+              {
+                "code": "INe-Ⅱ-6",
+                "area": "自然科學領域（國小三、四年級）",
+                "area_en": "Science (grades 3–4)",
+                "text": "光線以直線前進，反射時有一定的方向。",
+                "note_en": "Light travels in straight lines, which is why a shadow points away from the lamp.",
+                "note_zh": "光沿直線前進，所以影子會指向燈的反方向。"
+              },
+              {
+                "code": "Ka-Ⅳ-6",
+                "area": "自然科學領域（國中）",
+                "area_en": "Science (grades 7–9)",
+                "text": "由針孔成像、影子實驗驗證與說明光的直進性。",
+                "note_en": "The shadow experiments in the classroom activities fit here.",
+                "note_zh": "課堂活動裡的影子實驗對得上這一條。"
+              }
+            ]
+          },
+          "myths": [
+            {
+              "myth_en": "To make a drawing look real, you need a strong, dark outline.",
+              "myth_zh": "要畫得像真的，輪廓線要畫得又黑又清楚。",
+              "fact_en": "An outline shows only the shape of the edge. A ball looks round because of its shading and its cast shadow. Real objects have no line around them at all.",
+              "fact_zh": "輪廓線只表現邊緣的形狀。球看起來圓鼓鼓的，靠的是明暗和投影。真實的物體周圍，其實根本沒有一條線。"
+            },
+            {
+              "myth_en": "The darkest part of a ball is the part farthest from the lamp.",
+              "myth_zh": "球上最暗的地方，就是離燈最遠的地方。",
+              "fact_en": "The darkest part is often a band just past the edge of the direct light, called the core shadow. Farther around, reflected light from the table makes the surface a little lighter again.",
+              "fact_zh": "最暗的地方，往往是直接的光剛結束的那一圈（core shadow）。再往後，桌面彈上來的反光又讓表面稍微亮了一點。"
+            },
+            {
+              "myth_en": "A shadow is solid black.",
+              "myth_zh": "影子是全黑的。",
+              "fact_en": "A shadow is a place that direct light does not reach. Light reflected from other surfaces usually still gets in, and when the light source is wide, the edge of the shadow is blurred.",
+              "fact_zh": "影子是直接的光照不到的地方。別的表面反射過來的光通常還是照得進去；光源比較寬的時候，影子的邊緣也是模糊的。"
+            },
+            {
+              "myth_en": "Pencil lead is made of lead.",
+              "myth_zh": "鉛筆芯是鉛做的。",
+              "fact_en": "Pencil lead is not lead. Most pencil cores are made of graphite powder mixed with clay. That is still no reason to put a pencil in your mouth.",
+              "fact_zh": "鉛筆的「鉛」不是鉛。大多數鉛筆芯是石墨粉加黏土做成的。不過這不代表可以把鉛筆放進嘴巴。"
+            }
+          ],
+          "tricks_head": {
+            "en": "Light and shade in a sentence",
+            "zh": "一句話記住明暗"
+          },
+          "tricks": [
+            {
+              "title_en": "Face the light, be light",
+              "title_zh": "朝著光，就亮",
+              "body_en": "A surface is lightest where it faces the lamp and darker as it turns away.",
+              "body_zh": "表面朝著燈的地方最亮，越轉離燈越暗。"
+            },
+            {
+              "title_en": "Shadows point away",
+              "title_zh": "影子指向另一邊",
+              "body_en": "The cast shadow always lies on the side away from the lamp.",
+              "body_zh": "投影永遠落在背向燈的那一邊。"
+            },
+            {
+              "title_en": "Low lamp, long shadow",
+              "title_zh": "燈越低，影子越長",
+              "body_en": "High lamp, short shadow. Think of noon and late afternoon.",
+              "body_zh": "燈越高，影子越短。想想正午和傍晚。"
+            },
+            {
+              "title_en": "Dark has light in it",
+              "title_zh": "暗裡面還有亮",
+              "body_en": "Look for reflected light on the shadow side before you fill it in black.",
+              "body_zh": "把暗面塗黑之前，先找找裡面的反光。"
+            }
+          ],
+          "safety_head": {
+            "eyebrow": "Before You Start · 動手之前",
+            "en": "Lamps, pencils, and a dark room",
+            "zh": "燈、鉛筆，和暗暗的教室"
+          },
+          "safety": [
+            {
+              "en": "Do not look straight into the lamp, and do not point it at anyone's eyes. Look at the ball and the shadow.",
+              "zh": "不要直視燈，也不要拿燈照別人的眼睛。看球和影子就好。"
+            },
+            {
+              "en": "A lamp bulb can get hot. Let an adult move it, or wait until it has cooled. Keep the cord out of the way so nobody trips.",
+              "zh": "燈泡可能會燙。請大人移動它，或等它涼了再碰。電線收好，免得有人絆倒。"
+            },
+            {
+              "en": "Pencil lead is graphite, not lead, but pencils still do not belong in your mouth. Wash the graphite off your hands when you finish.",
+              "zh": "鉛筆芯是石墨，不是鉛，但鉛筆還是不該放進嘴巴。畫完把手上的石墨洗掉。"
+            },
+            {
+              "en": "Before the room goes dark, clear the floor. Rest your eyes too: ten minutes after every thirty minutes of close work.",
+              "zh": "關燈之前先把地板清空。也要讓眼睛休息：用眼每 30 分鐘休息 10 分鐘。"
+            }
+          ],
+          "activities": [
+            {
+              "title_en": "A Real Ball and a Real Lamp",
+              "title_zh": "真的球，真的燈",
+              "materials": [
+                {
+                  "en": "A plain, light-colored ball, such as a table tennis ball or a foam ball",
+                  "zh": "一顆素色、淺色的球，例如桌球或保麗龍球"
+                },
+                {
+                  "en": "A desk lamp or a flashlight, in a room you can make dim",
+                  "zh": "一盞檯燈或一支手電筒，以及一間可以弄暗的教室"
+                },
+                {
+                  "en": "A sheet of white paper and a sheet of black paper to stand the ball on",
+                  "zh": "白紙和黑紙各一張，用來墊在球下面"
+                },
+                {
+                  "en": "This page, with the model set to Ball",
+                  "zh": "這一頁，模型設在「球」"
+                }
+              ],
+              "steps": [
+                {
+                  "en": "Put the ball on the white paper. Dim the room and shine the lamp on the ball from the upper left.",
+                  "zh": "把球放在白紙上。把教室弄暗，從左上方用燈照球。"
+                },
+                {
+                  "en": "Find the lightest spot, the darkest band, and the cast shadow. Point to each one and say its name.",
+                  "zh": "找出最亮的地方、最暗的那一圈和投影。一個一個指出來，說出名稱。"
+                },
+                {
+                  "en": "Set the lamp in the model to about the same place. What is the same on the screen and on your desk? What is different?",
+                  "zh": "把模型裡的燈調到差不多的位置。螢幕上和桌上，哪些一樣？哪些不一樣？"
+                },
+                {
+                  "en": "Look at the shadow side near the table. Now slide the black paper under the ball in place of the white. Does that part get darker?",
+                  "zh": "看球的暗面靠近桌面的地方。把白紙換成黑紙墊在球下面，那個地方有沒有變暗？"
+                },
+                {
+                  "en": "Move the lamp lower, then higher. Measure the shadow each time with a ruler and write the numbers down.",
+                  "zh": "把燈放低，再舉高。每一次都用尺量影子的長度，把數字記下來。"
+                }
+              ],
+              "tip_en": "Your shadow will not match the model exactly. The model treats the lamp as very far away, and a real lamp is close and has some width, so its shadow spreads and its edge is soft. A matte ball may have no bright highlight at all. Finding these differences is the point.",
+              "tip_zh": "你的影子不會和模型一模一樣。模型把燈當成非常遠，真的燈很近、又有寬度，所以影子會張開、邊緣是柔和的；表面不反光的球，可能根本沒有明顯的亮點。找出這些差別，正是這個活動的目的。"
+            },
+            {
+              "title_en": "Five Grays, One Ball",
+              "title_zh": "五階灰，畫一顆球",
+              "materials": [
+                {
+                  "en": "A soft pencil, such as a 2B, and white drawing paper",
+                  "zh": "一支軟的鉛筆（例如 2B）和白色的圖畫紙"
+                },
+                {
+                  "en": "An eraser and a ruler",
+                  "zh": "橡皮擦和尺"
+                },
+                {
+                  "en": "The ball and lamp from Activity 1, or the model set to Pencil steps with 5 steps",
+                  "zh": "活動一的球和燈，或把模型設在「分階」、五階"
+                }
+              ],
+              "steps": [
+                {
+                  "en": "Draw a row of five boxes. Leave the first one white and make the last one as dark as your pencil will go.",
+                  "zh": "畫一排五個格子。第一格留白，最後一格塗到這支鉛筆能塗的最黑。"
+                },
+                {
+                  "en": "Fill the three boxes between them so that each step is the same size. This is your value scale.",
+                  "zh": "把中間三格塗上灰，讓每一階的差距一樣大。這就是你的明度階。"
+                },
+                {
+                  "en": "Draw a light circle. Mark where the light comes from with a small arrow outside it.",
+                  "zh": "輕輕畫一個圓，在圓的外面用小箭頭標出光從哪裡來。"
+                },
+                {
+                  "en": "Shade the ball using only your five grays: the lightest toward the arrow, the darkest in a band on the far side, and a slightly lighter gray below that band.",
+                  "zh": "只用你的五階灰替球畫上明暗：最亮的朝著箭頭，最暗的在另一側畫成一圈，那一圈下面再用稍微亮一點的灰。"
+                },
+                {
+                  "en": "Add the cast shadow on the side away from the arrow. Hold your drawing beside the screen and compare.",
+                  "zh": "在背向箭頭的那一邊畫上投影。把你的畫拿到螢幕旁邊比一比。"
+                }
+              ],
+              "tip_en": "Squint at the ball until the small details blur. Squinting makes the big areas of light and dark easier to sort. If your drawing looks flat, the usual reason is that the darkest gray is not dark enough.",
+              "tip_zh": "瞇起眼睛看球，直到小細節變模糊；這樣比較容易分出大塊的亮和暗。如果畫出來扁扁的，最常見的原因是最暗的那一階不夠暗。"
+            }
+          ],
+          "links_head": {
+            "eyebrow": "Go Further · 延伸閱讀",
+            "en": "The same ball in the sky, and what comes next",
+            "zh": "天上的那一顆球，以及下一課"
+          },
+          "links": [
+            {
+              "icon": "🌙",
+              "k_en": "Astronomy · Lesson 1",
+              "k_zh": "天文教育・第一課",
+              "en": "Why Does the Moon Change Shape?",
+              "zh": "月亮為什麼會有圓缺？",
+              "note_en": "One lamp, one ball, and a viewer who moves around them. The phases of the Moon are this lesson at full size.",
+              "note_zh": "一盞燈、一顆球，加上一個繞著它們移動的觀看者。月相就是把這一課放大到真實的尺寸。",
+              "href": "/resources/classes/astronomy/moon-phases/"
+            },
+            {
+              "icon": "🎡",
+              "k_en": "Art · Lesson 2",
+              "k_zh": "美術・第二課",
+              "en": "How Do Colors Work Together?",
+              "zh": "顏色怎麼搭配？",
+              "note_en": "The same gray looks lighter on black and darker on white. Keep that in mind when you judge the grays on a ball.",
+              "note_zh": "同一個灰，放在黑色上比較亮，放在白色上比較暗。判斷球上的灰時，別忘了這件事。",
+              "href": "/resources/classes/art/colors-together/"
+            },
+            {
+              "icon": "✏️",
+              "k_en": "Art · Lesson 4",
+              "k_zh": "美術・第四課",
+              "en": "What Can a Line Say?",
+              "zh": "一條線可以說什麼？",
+              "note_en": "Next comes line: thick and thin, fast and slow, and a drawing pad on the page to try them on.",
+              "note_zh": "下一課是線條：粗與細、快與慢，還有一塊可以直接在頁面上畫的畫板。",
+              "soon": true
+            }
+          ],
+          "sources_note_en": "Names, dates, numbers, and quotations on this page were checked against these sources (October 2026). The grays on the ball and the table are computed by the page itself and covered by automatic tests; the lighting follows a simplified model",
+          "sources_note_zh": "本頁的人名、年代、數字與引文依下列資料查證（2026 年 10 月）；球和桌面的灰由頁面自己計算，並有自動測試；光照是簡化的示意模型",
+          "sources": [
+            {
+              "en": "Names of the areas of light: highlight, halftone, core shadow, reflected light, cast shadow, and their definitions; value scale",
+              "zh": "明暗各部分的名稱與定義：亮點、半色調、core shadow、反光、投影；明度階",
+              "src": "Brigham Young University–Idaho, ART 110 glossary",
+              "url": "https://courses.byui.edu/art110_new/art110/glossary/glossary.html"
+            },
+            {
+              "en": "Form shadows and cast shadows; darker areas caused by the effects of reflected light; the wider the light source, the more blurred the shadow",
+              "zh": "物體本身的陰影與投影；反光造成的明暗差異；光源越寬，影子越模糊",
+              "src": "Wikipedia “Shadow”",
+              "url": "https://en.wikipedia.org/wiki/Shadow"
+            },
+            {
+              "en": "The light landing on a surface is proportional to the cosine of the angle between the source and the surface normal",
+              "zh": "落在表面上的光，和光源方向與表面法線夾角的餘弦成正比",
+              "src": "Wikipedia “Lambert's cosine law”",
+              "url": "https://en.wikipedia.org/wiki/Lambert%27s_cosine_law"
+            },
+            {
+              "en": "Chiaroscuro: an Italian term that literally means light-dark; Leonardo da Vinci and Caravaggio",
+              "zh": "chiaroscuro：義大利文，字面意思是「明—暗」；達文西與卡拉瓦喬",
+              "src": "The National Gallery, London, glossary: Chiaroscuro",
+              "url": "https://www.nationalgallery.org.uk/paintings/glossary/chiaroscuro"
+            },
+            {
+              "en": "Tenebrism: faces and hands lit against a mostly dark setting; Caravaggio's late paintings",
+              "zh": "暗色調主義：臉與手被照亮，周圍大部分是暗的；卡拉瓦喬的晚期作品",
+              "src": "The National Gallery, London, glossary: Tenebrism",
+              "url": "https://www.nationalgallery.org.uk/paintings/glossary/tenebrism"
+            },
+            {
+              "en": "Sfumato: the smoky quality that blurs contours; Leonardo advised painting without lines",
+              "zh": "暈塗法：讓輪廓模糊、像煙霧一樣的效果；達文西主張不用線條來畫",
+              "src": "The National Gallery, London, glossary: Sfumato",
+              "url": "https://www.nationalgallery.org.uk/paintings/glossary/sfumato"
+            },
+            {
+              "en": "Munsell value runs from black (0) to white (10)",
+              "zh": "孟塞爾明度：黑為 0、白為 10",
+              "src": "Wikipedia “Munsell color system”",
+              "url": "https://en.wikipedia.org/wiki/Munsell_color_system"
+            },
+            {
+              "en": "A scale of nine neutral values, with white the highest and black the lowest (1907)",
+              "zh": "九階的中性明度：白最高、黑最低（1907）",
+              "src": "Denman W. Ross, A Theory of Pure Design (Project Gutenberg)",
+              "url": "https://gutenberg.org/cache/epub/74765/pg74765-images.html"
+            },
+            {
+              "en": "The Sun always illuminates half of the Moon; earthshine is sunlight reflected from the Earth onto the Moon",
+              "zh": "太陽永遠照亮月球的一半；地照是從地球反射到月球上的陽光",
+              "src": "NASA Science, “Moon Phases”",
+              "url": "https://science.nasa.gov/moon/moon-phases/"
+            },
+            {
+              "en": "The line between night and day on the Moon is called the terminator; long shadows there show craters and mountains",
+              "zh": "月面上白天與黑夜的分界線叫 terminator；那裡的長影子讓坑洞與山脈更清楚",
+              "src": "NASA, “10 Ways to Observe the Moon”",
+              "url": "https://moon.nasa.gov/observe-the-moon-night/participate/10-ways-to-observe-the-moon/"
+            },
+            {
+              "en": "The dictionary entry for 明暗: light and dark sides give the sense of solid form",
+              "zh": "「明暗」：物體因受光、不受光而有亮面和暗面，由於明暗的感覺才造成視覺上的立體感",
+              "src": "教育部《重編國語辭典修訂本》〈明暗〉",
+              "url": "https://dict.revised.moe.edu.tw/dictView.jsp?ID=32485"
+            },
+            {
+              "en": "The dictionary entry for 明度",
+              "zh": "「明度」：色彩的明暗程度",
+              "src": "教育部《重編國語辭典修訂本》〈明度〉",
+              "url": "https://dict.revised.moe.edu.tw/dictView.jsp?ID=32306"
+            },
+            {
+              "en": "Standard Chinese terms: highlight, halftone, cast shadow, chiaroscuro, sfumato, tenebrism, value, contour; terminator (astronomy)",
+              "zh": "學術名詞：亮點、半色調、投影、明暗對比法、暈塗、暗色調主義、明度、輪廓線；明暗界線（天文學名詞）",
+              "src": "國家教育研究院 樂詞網",
+              "url": "https://terms.naer.edu.tw/"
+            },
+            {
+              "en": "Pencil lead is not really lead; pencils contain graphite",
+              "zh": "鉛筆的「鉛」不是鉛；鉛筆裡的是石墨",
+              "src": "Poison Help (U.S. poison control), “Safe Use of Art Products”",
+              "url": "https://www.poison.org/articles/safe-use-of-art-products"
+            },
+            {
+              "en": "Most pencil cores are made of graphite powder mixed with a clay binder",
+              "zh": "大多數鉛筆芯是石墨粉加黏土做成的",
+              "src": "Wikipedia “Pencil”",
+              "url": "https://en.wikipedia.org/wiki/Pencil"
+            },
+            {
+              "en": "Visual arts learning content: 視 E-Ⅱ-1, 視 E-Ⅱ-2, 視 E-Ⅳ-2",
+              "zh": "視覺藝術學習內容：視 E-Ⅱ-1、視 E-Ⅱ-2、視 E-Ⅳ-2",
+              "src": "十二年國教課綱 藝術領域（教育部，2018）",
+              "url": "https://www.naer.edu.tw/upload/1/16/doc/818/%E5%8D%81%E4%BA%8C%E5%B9%B4%E5%9C%8B%E6%B0%91%E5%9F%BA%E6%9C%AC%E6%95%99%E8%82%B2%E8%AA%B2%E7%A8%8B%E7%B6%B1%E8%A6%81%E5%9C%8B%E6%B0%91%E4%B8%AD%E5%B0%8F%E5%AD%B8%E6%9A%A8%E6%99%AE%E9%80%9A%E5%9E%8B%E9%AB%98%E7%B4%9A%E4%B8%AD%E7%AD%89%E6%A0%A1-%E8%97%9D%E8%A1%93%E9%A0%98%E5%9F%9F.pdf"
+            },
+            {
+              "en": "Science learning content: INe-Ⅱ-6 and Ka-Ⅳ-6",
+              "zh": "自然科學學習內容：INe-Ⅱ-6、Ka-Ⅳ-6",
+              "src": "十二年國教課綱 自然科學領域（教育部，2018）",
+              "url": "https://www.naer.edu.tw/upload/1/16/doc/820/%E5%8D%81%E4%BA%8C%E5%B9%B4%E5%9C%8B%E6%B0%91%E5%9F%BA%E6%9C%AC%E6%95%99%E8%82%B2%E8%AA%B2%E7%A8%8B%E7%B6%B1%E8%A6%81%E5%9C%8B%E6%B0%91%E4%B8%AD%E5%B0%8F%E5%AD%B8%E6%9A%A8%E6%99%AE%E9%80%9A%E5%9E%8B%E9%AB%98%E7%B4%9A%E4%B8%AD%E7%AD%89%E6%A0%A1-%E8%87%AA%E7%84%B6%E7%A7%91%E5%AD%B8%E9%A0%98%E5%9F%9F.pdf"
+            },
+            {
+              "en": "Eye rest: ten minutes after every thirty minutes of close work",
+              "zh": "護眼：用眼每 30 分鐘休息 10 分鐘",
+              "src": "衛生福利部國民健康署",
+              "url": "https://www.hpa.gov.tw/Pages/Detail.aspx?nodeid=4705&pid=17328"
+            }
+          ]
         }
       ],
       "planned": [
-        {
-          "n": 3,
-          "icon": "🌗",
-          "en": "How Does Shading Make a Circle Look Like a Ball?",
-          "zh": "明暗怎麼把圓形變成球？"
-        },
         {
           "n": 4,
           "icon": "✏️",

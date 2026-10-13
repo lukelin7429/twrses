@@ -17507,7 +17507,7 @@ def build_geo_hub():
 _artj = os.path.join(ROOT, "data", "art.json")
 ART = json.load(open(_artj, encoding="utf-8")) if os.path.exists(_artj) else None
 ART_BASE = "/resources/classes/art/"
-_ART_JS = {"lights": "art-lights", "wheel": "art-wheel"}   # lab.kind → assets/js/<bundle>.js
+_ART_JS = {"lights": "art-lights", "wheel": "art-wheel", "ball": "art-ball"}   # lab.kind → assets/js/<bundle>.js
 
 def _art_ver():
     h = hashlib.md5()
@@ -17548,7 +17548,14 @@ def artwheel_svg(size=56):
     return (f'<svg class="arwheel-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">{segs}'
             '<circle cx="30" cy="30" r="10" fill="#05070d"/></svg>')
 
-_ART_CARD = {"lights": artlights_svg, "wheel": artwheel_svg}
+def artball_svg(size=56):
+    """第三課的課程卡小圖示：一顆有明暗的球和它的影子。"""
+    return (f'<svg class="arball-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">'
+            '<defs><radialGradient id="arballg" cx="36%" cy="30%" r="75%"><stop offset="0" stop-color="#ffffff"/><stop offset=".35" stop-color="#b9bcc4"/>'
+            '<stop offset=".8" stop-color="#3a3d46"/><stop offset="1" stop-color="#5a5e69"/></radialGradient></defs>'
+            '<ellipse cx="38" cy="47" rx="17" ry="4.5" fill="#000" opacity=".75"/><circle cx="28" cy="28" r="18" fill="url(#arballg)"/></svg>')
+
+_ART_CARD = {"lights": artlights_svg, "wheel": artwheel_svg, "ball": artball_svg}
 
 def render_artlights_lab(lesson):
     """第一課：暗房裡的三盞燈／三片顏料（assets/js/art-lights.js 綁這裡的 class；右邊欄的字由程式依模式填入）。"""
@@ -17702,6 +17709,82 @@ def _ar_wheels(d):
             f'<p class="ar-fine ar-fine-out rvl">{html.escape(d["swatch_note_en"])}<span class="zh">{html.escape(d["swatch_note_zh"])}</span></p>'
             f'<ul class="ar-points">{pts}</ul>')
 
+def render_artball_lab(lesson):
+    """第三課：桌上一顆球和一盞燈（assets/js/art-ball.js 綁這裡的 class）。"""
+    lab = lesson["lab"]
+    modes = "".join(
+        f'<button type="button" data-mode-pick="{k}" aria-pressed="{"true" if k == "ball" else "false"}"><b>{en}</b><small>{zh}</small></button>'
+        for k, en, zh in [("ball", "Ball", "球（連續的明暗）"), ("steps", "Pencil steps", "分階（像素描）"), ("flat", "Flat circle", "平面的圓")])
+    steps = "".join(f'<button type="button" data-steps="{n}" aria-pressed="{"true" if n == 5 else "false"}">{n}</button>' for n in (3, 5, 7))
+    tg = _lab_toggles([("labels", "Names of the parts", "各部分的名稱", True)])
+    notes = "".join(f'<li>{html.escape(n["en"])}<span class="zh">{html.escape(n["zh"])}</span></li>' for n in lab["notes"])
+    return f'''<div class="astro-lab ar-lab ar-ball rvl" data-artball-lab data-mode="ball">
+  <div class="al-stage">
+    <div class="al-space">
+      <canvas class="al-space-cv" aria-label="3D model of a gray ball on a table lit by one lamp that you can move. The side facing the lamp is light, the far side is dark with a little reflected light near the table, and a shadow falls on the table away from the lamp · 3D 模型：桌上一顆灰色的球，一盞可以移動的燈。朝向燈的一面亮，另一面暗，靠近桌面的地方有一點反光，影子落在背向燈的桌面上"></canvas>
+      <div class="al-labels" aria-hidden="true"></div>
+      <p class="al-hint">Drag the lamp · 拖動那盞燈　Drag elsewhere to turn · 拖曳其他地方旋轉　Scroll or pinch to zoom · 滾輪／雙指縮放</p>
+      <button type="button" class="al-home" title="Reset view · 重設視角" aria-label="Reset view · 重設視角">&#8634;</button>
+      <p class="al-nogl-msg">This 3D model needs WebGL, which this browser does not support. The sliders on the right still work and still describe the light, and so do the reading, the cards, and the games.<br><span class="zh">這個瀏覽器不支援 WebGL，無法顯示 3D 模型；右邊的滑桿照樣能用，也照樣說明光的方向，課文、卡片和小遊戲也都能用。</span></p>
+    </div>
+    <aside class="al-sky ar-aside">
+      <p class="al-sky-k">How to draw it · 怎麼畫</p>
+      <div class="ar-presets ar-bl-modes" role="group" aria-label="How the ball is drawn · 球的畫法">{modes}</div>
+      <div class="ar-bl-steps" hidden><span>Steps of gray · 分成幾階</span><span class="ar-bl-stepbtns" role="group" aria-label="Number of steps · 階數">{steps}</span></div>
+      <p class="al-sky-k">The lamp · 燈</p>
+      <label class="ar-bl-sl"><span>Around the ball · 繞著球轉 <b class="ar-bl-azv">-55°</b></span>
+        <input type="range" data-s="az" min="-180" max="180" step="1" value="-55" aria-label="Direction of the lamp around the ball, from 180 degrees left to 180 degrees right · 燈繞著球的方位，從左 180 度到右 180 度"></label>
+      <label class="ar-bl-sl"><span>Height · 高度 <b class="ar-bl-elv">50°</b></span>
+        <input type="range" data-s="el" min="8" max="88" step="1" value="50" aria-label="Height of the lamp, from 8 degrees (low) to 88 degrees (overhead) · 燈的高度，從 8 度（很低）到 88 度（頭頂）"></label>
+      <p class="ar-rule ar-bl-from" aria-live="polite"></p>
+      <p class="ar-bl-range"></p>
+      <ol class="ar-bl-key" aria-label="Names of the numbered parts · 編號各部分的名稱">
+        <li>Highlight <span class="zh">亮點</span></li><li>Light side <span class="zh">亮面</span></li><li>Halftone <span class="zh">半色調</span></li>
+        <li>Core shadow <span class="zh">最暗的一圈</span></li><li>Reflected light <span class="zh">反光</span></li><li>Cast shadow <span class="zh">投影</span></li>
+      </ol>
+      <p class="al-sky-k">Point at the ball · 指著球</p>
+      <div class="ar-probe" aria-live="polite"><span class="ar-sw" aria-hidden="true"></span><span class="ar-mx-b"><b class="ar-pr-n"></b><span class="ar-pr-v"></span></span></div>
+      <p class="ar-msg" aria-live="polite"></p>
+    </aside>
+  </div>
+  <div class="al-controls">
+    <div class="al-row al-row-main"><div class="al-row al-toggles">{tg}</div></div>
+  </div>
+  {_lab_foot(lab)}
+  <div class="ar-note">
+    <p class="ar-note-h">{html.escape(lab["note_head_en"])} <span class="zh">{html.escape(lab["note_head_zh"])}</span></p>
+    <ul>{notes}</ul>
+    <p class="ar-note-end">{html.escape(lab["note_end_en"])}<span class="zh">{html.escape(lab["note_end_zh"])}</span></p>
+  </div>
+  <p class="ar-credit">{lab["credit_html"]}</p>
+</div>'''
+
+def _ar_lamp(d):
+    return f'''<div class="ar-match ar-lampq rvl" data-ar-lamp>
+  <div class="ar-mt-top"><p class="ar-mt-k ar-lp-k">Question 1 of 6 · 第 1 題（共 6 題）</p><p class="ar-mt-sc">Right on the first try · 第一次就答對 <b class="ar-mt-score ar-lp-score">0 / 0</b></p></div>
+  <div class="ar-mt-steps ar-lp-steps" aria-hidden="true"></div>
+  <div class="ar-lp-grid">
+    <canvas class="ar-lp-cv" width="360" height="300" role="img" aria-label="A shaded ball on a table with its shadow · 桌上一顆有明暗的球，和它的影子"></canvas>
+    <div class="ar-lp-opts"></div>
+  </div>
+  <p class="ar-mt-msg ar-lp-msg" aria-live="polite"></p>
+  <div class="ar-mt-foot"><button type="button" class="ar-btn ar-btn-gold ar-lp-next" hidden>Next question · 下一題</button></div>
+  <p class="ar-fine">{html.escape(d["note_en"])}<span class="zh">{html.escape(d["note_zh"])}</span></p>
+</div>'''
+
+def _ar_sort(d):
+    return f'''<div class="ar-match ar-sort rvl" data-ar-sort>
+  <div class="ar-mt-top"><p class="ar-mt-k ar-so-k">Round 1 of 3 · 第 1 回合（共 3 回合）</p></div>
+  <p class="ar-so-ends"><span>&larr; Lightest · 最亮</span><span>Darkest · 最暗 &rarr;</span></p>
+  <div class="ar-so-row" role="group" aria-label="Five gray squares to put in order · 要排順序的五塊灰色"></div>
+  <p class="ar-mt-msg ar-so-msg" aria-live="polite"></p>
+  <div class="ar-mt-foot">
+    <button type="button" class="ar-btn ar-btn-gold ar-so-check">Check · 對答案</button>
+    <button type="button" class="ar-btn ar-btn-gold ar-so-next" hidden>Next round · 下一回合</button>
+  </div>
+  <p class="ar-fine">{html.escape(d["note_en"])}<span class="zh">{html.escape(d["note_zh"])}</span></p>
+</div>'''
+
 def _ar_match(d):
     rows = "".join(
         '<label class="ar-mt-sl"><span class="ar-chip" aria-hidden="true"></span><span class="ar-mt-sn"></span>'
@@ -17799,7 +17882,7 @@ def build_art_lesson(ui, unit, lesson):
     reading_html = render_basic_unit(1, unit_dict, level="art", audio_rel="", pdf_rel="")
     lab = lesson["lab"]
     kind = lab["kind"]
-    lab_html = {"lights": render_artlights_lab, "wheel": render_artwheel_lab}[kind](lesson)
+    lab_html = {"lights": render_artlights_lab, "wheel": render_artwheel_lab, "ball": render_artball_lab}[kind](lesson)
 
     def sec(key, fn):
         d = lesson[key]
@@ -17817,6 +17900,8 @@ def build_art_lesson(ui, unit, lesson):
         ph = lesson["parts_head"]
         secs.append(("parts", ph["eyebrow"], ph["en"], ph["zh"], f'<div class="ph-grid stagger">{cards}</div>',
                      _bi(lesson["parts_note_en"], lesson["parts_note_zh"], cls="lead rvl d2")))
+    if lesson.get("lamp"): secs.append(sec("lamp", _ar_lamp))
+    if lesson.get("sort"): secs.append(sec("sort", _ar_sort))
     if lesson.get("gray"): secs.append(sec("gray", _ar_gray))
     if lesson.get("pick"): secs.append(sec("pick", _ar_pick))
     if lesson.get("wheels"): secs.append(sec("wheels", _ar_wheels))
