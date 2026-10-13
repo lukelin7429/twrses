@@ -358,6 +358,44 @@
 @media (max-width: 760px) { .ar-lp-grid { grid-template-columns: 1fr; } .ar-lp-cv { max-width: 360px; margin: 0 auto; } }
 @media (max-width: 560px) { .ar-so-row { gap: .3rem; padding: .5rem; } .ar-so-sq { padding: .15rem; } }
 
+/* ── 第四課：同一條線的五種畫法＋畫板 ────────────────────────────────── */
+.ar-llab { padding: 1.3rem 1.4rem 0; }
+.ar-ln-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.6rem; align-items: start; }
+.ar-ln-col { display: flex; flex-direction: column; gap: .6rem; min-width: 0; }
+.ar-ln-col .al-sky-k { margin: 0; }
+.ar-ln-kinds { display: flex; flex-wrap: wrap; gap: .35rem; }
+.ar-ln-kinds button { padding: .4rem .7rem; border-radius: 11px; border: 1px solid var(--al-line); background: rgba(255,255,255,.04); color: var(--al-text); font-family: var(--sans); font-size: .8rem; line-height: 1.25; cursor: pointer; text-align: left; }
+.ar-ln-kinds button b { display: block; font-weight: 800; color: #fff; }
+.ar-ln-kinds button small { display: block; font-family: var(--zh); font-weight: 600; color: var(--al-mute); }
+.ar-ln-kinds button[aria-pressed="true"] { border-color: #ffd36e; background: rgba(255,211,110,.14); box-shadow: 0 0 0 1px #ffd36e inset; }
+.ar-ln-kinds button:focus-visible { outline: 3px solid #fff; outline-offset: 2px; }
+.ar-ln-cv { display: block; width: 100%; height: auto; aspect-ratio: 8 / 5; border-radius: 14px; border: 2px solid rgba(255,255,255,.75); background: #fbf8f0; }
+.ar-ln-padcv { touch-action: none; cursor: crosshair; }
+.ar-ln-read { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: .4rem; margin: 0; }
+.ar-ln-read div { padding: .4rem .5rem; border-radius: 10px; border: 1px solid var(--al-line); }
+.ar-ln-read dt { font-size: .66rem; font-weight: 700; letter-spacing: .03em; color: var(--al-mute); }
+.ar-ln-read dd { margin: 0; font-size: 1rem; font-weight: 800; color: #fff; font-variant-numeric: tabular-nums; }
+.ar-ln-btns { display: flex; flex-wrap: wrap; align-items: center; gap: .45rem .7rem; }
+.ar-ln-btns .ar-btn { padding: .45rem .9rem; font-size: .8rem; }
+.ar-llab .ar-msg { border-top: 0; padding-top: 0; min-height: 5.2em; }
+.ar-llab .ar-note { margin: 1.2rem 0 1rem; }
+.ar-llab .ar-credit { padding: 0 0 1.1rem; }
+.ar-lc-ico .arline-svg { display: block; }
+@media (max-width: 900px) { .ar-ln-grid { grid-template-columns: 1fr; } }
+@media (max-width: 560px) { .ar-llab { padding: 1rem .9rem 0; } .ar-ln-read { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+/* ── 這條線是怎麼畫的？／幾何的形狀，還是自然的形狀？ ─────────────────── */
+.ar-hw-grid { grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); }
+.ar-hw-opt { grid-template-columns: 1fr; }
+.ar-sh-grid { display: grid; grid-template-columns: minmax(0, 260px) minmax(0, 1fr); gap: 1.4rem; margin-top: 1.1rem; align-items: center; }
+.ar-sh-box { margin: 0; }
+.ar-sh-fig { aspect-ratio: 1; border-radius: 14px; border: 2px solid rgba(255,255,255,.75); background: #fbf8f0; padding: 10%; }
+.ar-sh-fig svg { display: block; width: 100%; height: 100%; }
+.ar-sh-name { margin-top: .5rem; text-align: center; font-size: 1.05rem; font-weight: 800; color: #fff; }
+.ar-sh-name .zh { margin-left: .3rem; font-family: var(--zh); color: #ffe3a3; }
+.ar-sh-opts { display: grid; gap: .7rem; }
+@media (max-width: 760px) { .ar-hw-grid { grid-template-columns: 1fr; } .ar-sh-grid { grid-template-columns: 1fr; } .ar-sh-box { max-width: 220px; margin: 0 auto; } }
+
 /* ── 課綱、安全提醒、延伸閱讀、出處、系列首頁（寫法照音樂系列） ───────── */
 .ar-curric { list-style: none; margin: 1.4rem 0 0; padding: 0; display: grid; gap: .9rem; max-width: 900px; }
 .ar-cur { padding: 1.1rem 1.3rem; background: #fff; border: 1px solid var(--line); border-left: 5px solid var(--gold); border-radius: 14px; box-shadow: var(--shadow-sm); }

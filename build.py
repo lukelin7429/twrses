@@ -17917,7 +17917,7 @@ def build_wh_hub():
 _artj = os.path.join(ROOT, "data", "art.json")
 ART = json.load(open(_artj, encoding="utf-8")) if os.path.exists(_artj) else None
 ART_BASE = "/resources/classes/art/"
-_ART_JS = {"lights": "art-lights", "wheel": "art-wheel", "ball": "art-ball"}   # lab.kind → assets/js/<bundle>.js
+_ART_JS = {"lights": "art-lights", "wheel": "art-wheel", "ball": "art-ball", "line": "art-line"}   # lab.kind → assets/js/<bundle>.js
 
 def _art_ver():
     h = hashlib.md5()
@@ -17965,7 +17965,14 @@ def artball_svg(size=56):
             '<stop offset=".8" stop-color="#3a3d46"/><stop offset="1" stop-color="#5a5e69"/></radialGradient></defs>'
             '<ellipse cx="38" cy="47" rx="17" ry="4.5" fill="#000" opacity=".75"/><circle cx="28" cy="28" r="18" fill="url(#arballg)"/></svg>')
 
-_ART_CARD = {"lights": artlights_svg, "wheel": artwheel_svg, "ball": artball_svg}
+def artline_svg(size=56):
+    """第四課的課程卡小圖示：紙上一條由粗到細的線。"""
+    return (f'<svg class="arline-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">'
+            '<rect x="6" y="9" width="48" height="42" rx="5" fill="#fbf8f0"/>'
+            '<path d="M12 36C18 22 24 22 30 31S42 42 49 24L48.4 23.4C42 39 36 37 31 28.6S17 17 10 34Z" fill="#16181d"/>'
+            '<path d="M12 44h22" stroke="#16181d" stroke-width="1.2" stroke-linecap="round" stroke-dasharray="1 3"/></svg>')
+
+_ART_CARD = {"lights": artlights_svg, "wheel": artwheel_svg, "ball": artball_svg, "line": artline_svg}
 
 def render_artlights_lab(lesson):
     """第一課：暗房裡的三盞燈／三片顏料（assets/js/art-lights.js 綁這裡的 class；右邊欄的字由程式依模式填入）。"""
@@ -18195,6 +18202,79 @@ def _ar_sort(d):
   <p class="ar-fine">{html.escape(d["note_en"])}<span class="zh">{html.escape(d["note_zh"])}</span></p>
 </div>'''
 
+def render_artline_lab(lesson):
+    """第四課：同一條線的五種畫法＋畫板（assets/js/art-line.js 綁這裡的 class；2D canvas，不需要 WebGL）。"""
+    lab = lesson["lab"]
+    kinds = "".join(
+        f'<button type="button" data-line="{k}" aria-pressed="{"true" if k == "even" else "false"}"><b>{en}</b><small>{zh}</small></button>'
+        for k, en, zh in [("even", "Thin and steady", "細而穩"), ("heavy", "Thick and heavy", "粗而重"), ("fast", "Fast, with gaps", "很快，有空隙"), ("shaky", "Shaky", "抖動"), ("taper", "Thick to thin", "由粗到細")])
+    tools = "".join(
+        f'<button type="button" data-brush="{k}" aria-pressed="{"true" if k == "brush" else "false"}"><b>{en}</b><small>{zh}</small></button>'
+        for k, en, zh in [("brush", "Brush", "毛筆（粗細會變）"), ("pen", "Thin pen", "細筆"), ("marker", "Thick marker", "粗筆")])
+    notes = "".join(f'<li>{html.escape(n["en"])}<span class="zh">{html.escape(n["zh"])}</span></li>' for n in lab["notes"])
+    return f'''<div class="astro-lab ar-llab rvl" data-artline-lab>
+  <div class="ar-ln-grid">
+    <section class="ar-ln-col">
+      <p class="al-sky-k">One line, five ways · 同一條線，五種畫法</p>
+      <div class="ar-ln-kinds" role="group" aria-label="Five ways to draw the line · 五種畫法">{kinds}</div>
+      <canvas class="ar-ln-cv ar-ln-democv" width="800" height="500" role="img" aria-label="The same wavy line drawn in the chosen way; the text below describes how it was drawn · 用選定的方式畫出同一條波浪線；下方文字說明它是怎麼畫的"></canvas>
+      <dl class="ar-ln-read"></dl>
+      <div class="ar-ln-btns"><button type="button" class="ar-btn ar-btn-gold ar-ln-replay">&#9654; Draw it again · 再畫一次</button></div>
+      <p class="ar-msg" aria-live="polite"></p>
+    </section>
+    <section class="ar-ln-col">
+      <p class="al-sky-k">Your turn · 換你畫</p>
+      <div class="ar-ln-kinds ar-ln-tools" role="group" aria-label="Drawing tool · 畫具">{tools}</div>
+      <canvas class="ar-ln-cv ar-ln-padcv" width="800" height="500" aria-label="A drawing pad. Draw with a mouse, a finger, or a pen. The text below describes your last stroke · 畫板：用滑鼠、手指或觸控筆畫；下方文字說明你最後畫的那一筆"></canvas>
+      <div class="ar-ln-btns">
+        <button type="button" class="ar-btn ar-ln-undo">Undo · 復原一筆</button>
+        <button type="button" class="ar-btn ar-ln-clear">Clear · 清除</button>
+        <button type="button" class="ar-btn ar-ln-again">&#9654; Replay my drawing · 重播我的畫</button>
+        <label class="ar-check"><input type="checkbox" data-t="guide" checked><span>Show the tree to trace · 顯示可以描的樹</span></label>
+      </div>
+      <p class="ar-msg ar-ln-last" aria-live="polite"></p>
+    </section>
+  </div>
+  <div class="ar-note">
+    <p class="ar-note-h">{html.escape(lab["note_head_en"])} <span class="zh">{html.escape(lab["note_head_zh"])}</span></p>
+    <ul>{notes}</ul>
+    <p class="ar-note-end">{html.escape(lab["note_end_en"])}<span class="zh">{html.escape(lab["note_end_zh"])}</span></p>
+  </div>
+  <p class="ar-credit">{lab["credit_html"]}</p>
+</div>'''
+
+def _ar_how(d):
+    return f'''<div class="ar-match ar-howq rvl" data-ar-how>
+  <div class="ar-mt-top"><p class="ar-mt-k ar-hw-k">Question 1 of 6 · 第 1 題（共 6 題）</p><p class="ar-mt-sc">Right on the first try · 第一次就答對 <b class="ar-mt-score ar-hw-score">0 / 0</b></p></div>
+  <div class="ar-mt-steps ar-hw-steps" aria-hidden="true"></div>
+  <div class="ar-lp-grid ar-hw-grid">
+    <canvas class="ar-ln-cv ar-hw-cv" width="800" height="500" role="img" aria-label="An ink line to study · 要觀察的一條墨線"></canvas>
+    <div class="ar-lp-opts ar-hw-opts"></div>
+  </div>
+  <p class="ar-mt-msg ar-hw-msg" aria-live="polite"></p>
+  <div class="ar-mt-foot">
+    <button type="button" class="ar-btn ar-hw-watch" hidden>&#9654; Watch it being drawn · 看它怎麼畫</button>
+    <button type="button" class="ar-btn ar-btn-gold ar-hw-next" hidden>Next question · 下一題</button>
+  </div>
+  <p class="ar-fine">{html.escape(d["note_en"])}<span class="zh">{html.escape(d["note_zh"])}</span></p>
+</div>'''
+
+def _ar_shape(d):
+    return f'''<div class="ar-match ar-shapeq rvl" data-ar-shape>
+  <div class="ar-mt-top"><p class="ar-mt-k ar-sh-k">Shape 1 of 8 · 第 1 個（共 8 個）</p><p class="ar-mt-sc">Right · 答對 <b class="ar-mt-score ar-sh-score">0 / 0</b></p></div>
+  <div class="ar-mt-steps ar-sh-steps" aria-hidden="true"></div>
+  <div class="ar-sh-grid">
+    <figure class="ar-sh-box"><div class="ar-sh-fig"></div><figcaption class="ar-sh-name"></figcaption></figure>
+    <div class="ar-sh-opts">
+      <button type="button" class="ar-lp-opt" data-kind="geometric"><i aria-hidden="true">&#9651;</i><b>Geometric</b><span class="zh">幾何的形狀</span><span class="ar-pk-mk"></span></button>
+      <button type="button" class="ar-lp-opt" data-kind="organic"><i aria-hidden="true">&#10047;</i><b>Organic</b><span class="zh">自然的形狀（有機形）</span><span class="ar-pk-mk"></span></button>
+    </div>
+  </div>
+  <p class="ar-mt-msg ar-sh-msg" aria-live="polite"></p>
+  <div class="ar-mt-foot"><button type="button" class="ar-btn ar-btn-gold ar-sh-next" hidden>Next shape · 下一個</button></div>
+  <p class="ar-fine">{html.escape(d["note_en"])}<span class="zh">{html.escape(d["note_zh"])}</span></p>
+</div>'''
+
 def _ar_match(d):
     rows = "".join(
         '<label class="ar-mt-sl"><span class="ar-chip" aria-hidden="true"></span><span class="ar-mt-sn"></span>'
@@ -18292,7 +18372,7 @@ def build_art_lesson(ui, unit, lesson):
     reading_html = render_basic_unit(1, unit_dict, level="art", audio_rel="", pdf_rel="")
     lab = lesson["lab"]
     kind = lab["kind"]
-    lab_html = {"lights": render_artlights_lab, "wheel": render_artwheel_lab, "ball": render_artball_lab}[kind](lesson)
+    lab_html = {"lights": render_artlights_lab, "wheel": render_artwheel_lab, "ball": render_artball_lab, "line": render_artline_lab}[kind](lesson)
 
     def sec(key, fn):
         d = lesson[key]
@@ -18310,6 +18390,8 @@ def build_art_lesson(ui, unit, lesson):
         ph = lesson["parts_head"]
         secs.append(("parts", ph["eyebrow"], ph["en"], ph["zh"], f'<div class="ph-grid stagger">{cards}</div>',
                      _bi(lesson["parts_note_en"], lesson["parts_note_zh"], cls="lead rvl d2")))
+    if lesson.get("how"): secs.append(sec("how", _ar_how))
+    if lesson.get("shape"): secs.append(sec("shape", _ar_shape))
     if lesson.get("lamp"): secs.append(sec("lamp", _ar_lamp))
     if lesson.get("sort"): secs.append(sec("sort", _ar_sort))
     if lesson.get("gray"): secs.append(sec("gray", _ar_gray))
