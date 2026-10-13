@@ -1066,6 +1066,42 @@
   - 查證時改掉或沒寫的：見 Obsidian `第二大腦/知識庫/台灣歷史/` 那一課的筆記與系列索引的紀錄。
   - 截圖：`tools/astro/scripts/shot.mjs`（已改用 `headless-chrome`）。頁面有 `scroll-behavior: smooth`，截某一段之前先把 `document.documentElement.style.scrollBehavior = 'auto'`，並等模型開機後再捲（模型開機會改變頁面高度）。
 
+## 世界歷史 World History（/resources/classes/world-history/）— 架構照地理與台灣歷史，共用的是「歷史地球儀」與「平行時間軸」
+
+- 內容：`data/world_history.json`：`units[]`（七個單元：人類的開始／古典時代的想法／路上的世界／各地的世界／世界連起來／革命的時代／二十世紀）底下 `lessons[]` 與 `planned[]`（「製作中」卡，做一課就從 planned 移到 lessons）；課次 `n` 全系列連號（1–28，大綱在 vault 的 `創作庫/世界歷史課程規劃（twrses）.md`；系列索引 `英文學習/世界歷史（twrses.org）.md`）。最上層另有 `rules`（首頁最下面的「六個約定」）。每課欄位同地理（`paras`、`vocab`、`quiz`、`parts`、`culture_cards`、`curric`、`myths`、`tricks`、`activities`、`links`、`sources`），再加**每課固定的五塊**（欄位名和台灣歷史一致，程式各自一套）：
+  - `timeline`（平行時間軸：`from`／`to`／`view` 都是「距今幾年」，`lesson` 是金色的「這一課在這裡」，`events[]` 有 `lane`、`from`、`to?`、`kind?`（`debated` 條紋、`anchor` 灰色路標）、`note_*`）
+  - `how_we_know`（`items[]`：`icon`、`en`／`zh`、`text_*`、**`limit_*`（這種證據的限制，世界歷史多的欄位）**、`src`、`url`）
+  - `views`（「不同的說法」：`items[].topic_*`、`sides[]`（`label_*`、`en`／`zh`、`src`、`url`）、`note_*`；`rule_*`）
+  - `phrases`（「歷史英語」8 句：`rows[].en`（純文字，給 🔊）、`html`（粗體標句型）、`zh`、`note_*`）
+  - `taiwan_then`（「那時候的台灣」：`intro_*`、`facts[]`（`k_*`、`en`／`zh`、`src`、`url`）、`links[]`——**台灣歷史對應的課上線了才放 `href`，沒有 `href` 就畫成「製作中」**）
+  - 第一課另有 `guide`（這個系列怎麼讀：BCE／CE、平行時間軸、為什麼有不同的說法）與小互動 `order`、`sort`。
+- **處理原則（每一課都適用）**：
+  1. 不替任何政治立場說話：只寫查得到史料的事實；有爭論的地方把說法並列、各附出處，不下結論。全系列寫到 2000 年前後為止。
+  2. **不以歐洲為中心、不替文明排名**：不用「先進／落後」「野蠻／文明」「原始人」這類詞。
+  3. **宗教當作歷史來寫**：分清楚「信徒相信」「傳統上說」「史料顯示」；一律尊重、不比較高下、不評論教義。佛教名相三語並列（中文＋巴利文或梵文＋英文）。
+  4. **困難的歷史要寫**（奴隸貿易、殖民、世界大戰、大屠殺、原子彈），適齡：講發生了什麼、為什麼重要、後來怎麼記得；不描寫血腥細節；數字有不同估計時並列並註明來源。
+  5. 歷史地圖只畫「大約」，標明依據與年代；**不把今天的國界畫進古代地圖、不標國名**（用大洲與地理區的名稱；發現地點的小卡也只寫「非洲西北部」「東亞」）。
+  6. 人物只寫事蹟與影響，不封英雄或罪人。圖片只用博物館與檔案館明確開放的影像；3D 重建標明「示意，依據某某資料」。
+  7. 紀年用 BCE／CE（西元前／西元）；很久以前用「大約幾萬年前」；年代一律寫範圍與「大約」。
+  8. 中國與東亞史只寫「和世界相連」的部分（之後可能另開東亞歷史系列）。
+  9. **沒有外部的歷史老師把關**：課文寫完後另開一個子代理人（model: "sonnet"）逐條把史實、年代、數字、引文對回出處，並專門找「只寫了一種說法、其實有爭論」的句子；每一條都處理完才交付。出處不引廠商文件。
+- 頁面：`build.py` 的 `build_wh_hub()`／`build_wh_lesson()`（`WH_BASE`、`_wh_head()`、`_wh_nav()`）。**加課只要登記四個表**：`_WH_JS`（`lab.kind` → bundle）、`_WH_LAB`（`lab.kind` → 3D 面板）、`_WH_CARD`（課程卡小圖示）、`_WH_WIDGETS`（這一課自己的小互動）；固定的五塊在 `_WH_FIXED`，不用再登記。段落順序：3D → 英文閱讀 →（guide）→ 模型卡 → 小互動 → 平行時間軸 → 我們怎麼知道 → 不同的說法 → 歷史英語 → 那時候的台灣 → 文化卡 → 對應課綱 → 迷思 → 口訣 → 活動 → 延伸閱讀 → 出處。「閱讀與經典」頁有入口卡（🌐，放在台灣歷史後面）。朗讀 manifest 叫 `world-history-<slug>`（`tools/gen_audio.py` 的 `SHORT_PAGES` 已加）。
+- 樣式：共用 `assets/css/astro.css`，本系列專屬的在 `assets/css/world-history.css`（**class 前綴一律 `wh-`**；`computers.css` 的 `.cp-wh-*`、`music.css` 的 `.mu-wh-*` 是別人的，不相干）。圖例 `.al-lg-wh-land／sea／shelf／ice／main／early／seaway／voyage／site`。
+- 原始碼在 `tools/worldhist/src/`（自己的 package.json，three 0.186.1、esbuild 0.25.10），bundle 一律 `wh-*`。**不要 import 別的系列的 tools 目錄**（地理的地球儀、台灣歷史的時間軸都是各自一份）。新入口要加進 `package.json` 的 build 與 test。
+  ```
+  cd tools/worldhist && npm ci && npm run build && npm test
+  ```
+- **共用引擎**：
+  - `timeline.js`（純函式，`test/timeline.test.mjs`，涵蓋 30 萬年前到西元 2000 年）：`year` 是曆年（負數＝西元前，**沒有 0 年**）、`ago` 是距今幾年，**「今」一律取 `EPOCH`＝2000**（系列寫到 2000 年）。`yearToAgo`／`agoToYear`／`yearsBetween`／`centuryOf`、`formatYear`（「3,300 BCE／西元前 3,300 年」）、`formatAgo`／`formatAgoRange`（兩位有效數字、「大約 6.5 萬到 5 萬年前」）、`describe`（一萬年以內加曆年）、`makeScale('log'|'linear', older, nearer)`、`spanPos`、`ticks`（線性且 5,000 年以內刻在曆年上，0 那一格標「1 BCE / 1 CE」）、`zoomView`／`panView`／`clampView`、`packRows`。**`LANES` 七條線：africa、wasia、europe、sasia、easia、oceania、americas**（分法只是為了方便，中亞與東南亞放在最近的一條；第一課的 guide 卡有說明）。
+  - `timeline2d.js`（`[data-wh-timeline]`，DOM 畫的，不需要 WebGL）：兩種尺度、縮放按鈕、「最近六千年」、左右拖曳平移（`touch-action: pan-y`）、鍵盤 ← → + −、點事件讀年代；標籤放不下會翻到長條左邊。除錯 `root.__tl`（`state`、`setScale`、`zoom`、`fit`、`all`、`select(i)`）。
+  - `sphere.js`（純函式，`test/sphere.test.mjs`）：y 朝北極、經度 0 在 +z、東經在 +x（不會左右顛倒）。`toVec`／`toLonLat`／`toUV`、`angle`／`km`、`between`（大圓內插）、`trace`、**`timedTrace`（轉折點 `[lon, lat, ago?]`，沒標年代的照距離內插；年代不能倒退）**、`frontAt(timed, ago)`。
+  - `land.js`＋`landcode.js`＋`data/land.json`：Natural Earth 1:50m Land 5.1.2（**公有領域**），`npm run land` 重產（943 個多邊形、約 44 KB）。只有陸地外形，沒有國界。
+  - `hglobe.js`：`makeHGlobe({ land, texWidth })`。自己排的球面（`toUV` 一致），貼圖是等距圓柱的 canvas；**冰河時期是另一顆稍大的球，用不透明度淡入**（`loadIceAge(url)`、`setIceAge(0–1)`）。`addRoute({ key, pts, color, dash })`（貼著球面的帶子，shader 依 `uAgo` 截斷；`pts[].sea` 的段落畫成藍色虛線）、`setAgo(ago, fronts)`、`addDot`／`setDot`（發現地點）、`addArea`／`setArea`（「大約這一帶」的光暈，沒有邊界線）、`pos`／`facing`／`pick`。之後的課要疊帝國的大約範圍或商路，用 `addArea` 與 `addRoute`。
+  - **冰河時期圖層** `assets/img/world-history/iceage.png`（3600×1800 索引色，約 85 KB；1 露出的陸棚、2 冰、3 兩者）：`python3 tools/worldhist/scripts/build_iceage.py <etopo.nc> <LGM_best_estimate.shp>`。海底地形是 NOAA ETOPO1（公有領域，從 ERDDAP 取 0.1 度）往下放水 120 公尺、只算和外海相連的海域（裏海、黑海不算）；冰層是 Batchelor et al. 2019（Nature Communications 10:3713，文章 CC BY 4.0；資料在 https://osf.io/7jen3/ ，OSF 專案本身沒有另標授權）的 LGM best-estimate 柵格化，只有北半球。**是示意**：沒有修正地殼均衡與沉積，頁面的 `lab.ice_note_*` 與 `credit_html` 都有寫。
+- 第一課〈人類怎麼走到世界各地？〉（`wh-spread.js`，`lab.kind = "spread"`，`data-wh-spread-lab`，slug `humans-spread`）：時間滑桿是對數（30 萬年前 → 400 年前），路線隨時間長出去；`lab.regions[]` 的抵達年代是範圍（`older`＝有研究主張的最早年代、`nearer`＝普遍接受的年代；`regionState` → not／maybe／yes），右邊欄的清單沒有 WebGL 也能用；`lab.routes[].kind`：`main` 實線、`early`／`debated` 虛線、`voyage` 紫色；`lab.sites[]` 是可以點的白點（下面也有一排按鈕）；`lab.bridges[]` 只在冰河時期圖層打開時出現；`lab.tour[]` 是播放時鏡頭跟著走的路。同一支 bundle 帶平行時間軸與兩個小互動：`order2d.js`（「誰先到？」，**只用範圍判定：範圍重疊的一對誰先誰後都算對**，`spread.js` 的 `judgeOrder`）、`sort2d.js`（「三種證據」：化石／石器／DNA／三種都沒辦法）。`test/spread.test.mjs` 直接讀 `data/world_history.json`：路線起點在非洲、年代不倒退、轉折點與發現地點都在陸地上、接點不會比前一條路線早。
+  - 除錯：`document.querySelector('[data-wh-spread-lab]').__lab`（`state`、`setAgo(年前)`、`setPos(0–1)`、`play(bool)`、`ice(bool)`、`look(lon, lat, dist, 立即?)`、`select(siteKey)`、`demo('africa'|'sahul'|'beringia'|'pacific')`、`info()`、`render()`）；`[data-wh-order].__order`（`solve()`、`check()`、`move(key, ±1)`）；`[data-wh-sort].__sort`。**shot.mjs 裡要用 `scrollIntoView({ behavior: 'instant' })`**（全站是平滑捲動，不加的話模型還沒捲進畫面、`__lab` 是 undefined），再等 3 秒。
+  - 課文原稿（Python dict，方便改字）備份在 `~/Developer/twrses-worldhist-gen/`，`build_json.py` 合成 JSON；repo 裡以 JSON 為準。
+
 ## Build / Deploy
 ```
 python3 build.py        # BASE=/twrses → 服務於 lukelin7429.github.io/twrses/ 或 www.twrses.org

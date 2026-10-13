@@ -1437,6 +1437,8 @@ def build_reading_hub():
              "Why does an American recipe say cups? Measure, cook, mend, sort, and budget in English, with a 3D kitchen counter and one thing to try at home after every lesson. 美國的食譜為什麼寫「幾杯」？用英文學量、煮、補、分類和記帳：3D 流理台，加上每課一件今天回家就能做的事。"),
             ("/resources/classes/taiwan-history/", "🏺", "Taiwan's Story · 台灣歷史",
              "How do we know what happened long ago? Taiwan's past in English, one question a lesson, with the evidence shown and differing views set side by side. 很久以前的事，我們怎麼知道？用英文讀台灣的過去：每課一個問題，把證據拿出來，說法不一樣的地方並列。"),
+            ("/resources/classes/world-history/", "🌐", "World History · 世界歷史",
+             "How did humans spread across the world? Turning points in world history, one question a lesson, with a 3D history globe, a parallel timeline, and an honest look at how we know. 人類怎麼走到世界各地？世界歷史的轉折點，每課一個問題：3D 歷史地球儀、平行時間軸，還有「我們怎麼知道」。"),
             ("/resources/classes/philosophy/", "🦉", "Philosophy · 哲學",
              "Advanced reading: the big questions, the people who asked them, and where the Dharma meets Western thought. 高級閱讀：哲學的大問題、問這些問題的人，以及佛法與西方哲學的對照。"),
             ("/resources/grandfather/", "🌅", "Grandfather · 落日餘暉",
@@ -17497,6 +17499,414 @@ def build_geo_hub():
           f'{GEO["lead_en"]} {GEO["lead_zh"]}', body, "resources", extra_head=_geo_head() + _lc_head()))
     return GEO_BASE
 
+# ─────────────────────────────────────────────────────────────────────────────
+# 世界歷史 World History（/resources/classes/world-history/）
+# 架構照地理：data/world_history.json 的 units[].lessons 是做好的課、units[].planned 是「製作中」卡。
+# 樣式 assets/css/world-history.css（class 前綴 wh-，只載在本系列）；原始碼 tools/worldhist/src/，bundle 一律 wh-*。
+# 加課只要登記四個表：_WH_JS（lab.kind → bundle）、_WH_LAB（lab.kind → 3D 面板）、_WH_CARD（課程卡小圖示）、
+# _WH_WIDGETS（這一課自己的小互動：JSON 的 key → render 函式）。每課固定的卡（平行時間軸、我們怎麼知道、
+# 不同的說法、歷史英語、那時候的台灣）在 _WH_FIXED，不用再登記。
+# 原則：不替立場說話、爭論並列；不以歐洲為中心、不替文明排名；歷史地圖只畫大約，不把今天的國界畫進去。
+# ─────────────────────────────────────────────────────────────────────────────
+_whj = os.path.join(ROOT, "data", "world_history.json")
+WH = json.load(open(_whj, encoding="utf-8")) if os.path.exists(_whj) else None
+WH_BASE = "/resources/classes/world-history/"
+_WH_JS = {"spread": "wh-spread"}   # lab.kind → assets/js/<bundle>.js
+
+def _wh_ver():
+    h = hashlib.md5()
+    for rel in ("assets/css/astro.css", "assets/css/world-history.css", "assets/img/world-history/iceage.png",
+                *(f"assets/js/{j}.js" for j in _WH_JS.values())):
+        fp = os.path.join(ROOT, rel)
+        if os.path.exists(fp): h.update(open(fp, "rb").read())
+    return h.hexdigest()[:8]
+
+def _wh_head(js=None):
+    v = _wh_ver()
+    tag = f'<script defer src="/assets/js/{js}.js?v={v}"></script>\n' if js else ""
+    return (f'<link rel="stylesheet" href="/assets/css/astro.css?v={v}">\n'
+            f'<link rel="stylesheet" href="/assets/css/world-history.css?v={v}">\n{tag}')
+
+def _wh_json(d):
+    return json.dumps(d, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")
+
+def _wh_bi(en, zh):
+    return f'{html.escape(en)}<span class="zh">{html.escape(zh)}</span>'
+
+def whhub_svg(size=56):
+    """世界歷史系列的小圖示：一顆地球（只有海與陸塊的色塊，沒有國界），一條繞過去的虛線路線，下面一條有刻度的時間軸。"""
+    return (f'<svg class="whhub-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">'
+            '<circle cx="30" cy="25" r="18" fill="#16406f"/>'
+            '<path d="M24 11c4-1 8 1 9 4s-2 4-1 7 5 4 4 8-5 7-8 6c-4-2-7-6-8-11s1-12 4-14z" fill="#93bd7c"/>'
+            '<path d="M39 15c3 2 6 5 7 9-2 1-5 0-6-3s-2-3-1-6zM41 30c2 0 3 2 2 4s-3 4-5 3 1-7 3-7z" fill="#93bd7c"/>'
+            '<circle cx="30" cy="25" r="18" fill="none" stroke="#e8edf7" stroke-width="1.4"/>'
+            '<path d="M27 27c5-6 10-8 15-6" fill="none" stroke="#ffd36e" stroke-width="2.2" stroke-linecap="round" stroke-dasharray="1 4"/>'
+            '<circle cx="27" cy="27" r="2.6" fill="#ffd36e"/>'
+            '<path d="M8 52h44" stroke="#c89a5c" stroke-width="2.4" stroke-linecap="round"/>'
+            '<path d="M12 48v8M24 49.5v5M36 49.5v5M48 48v8" stroke="#c89a5c" stroke-width="2" stroke-linecap="round"/></svg>')
+
+def whspread_svg(size=56):
+    """第一課的課程卡小圖示：地球上從一個亮點（非洲）往外長出去的三條路線。"""
+    return (f'<svg class="whspread-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">'
+            '<circle cx="30" cy="30" r="23" fill="#16406f" stroke="#e8edf7" stroke-width="1.4"/>'
+            '<path d="M17 20c4-2 9-1 11 2s0 5 1 8 4 5 3 9-5 6-8 5c-5-2-8-7-9-12s0-9 2-12z" fill="#93bd7c"/>'
+            '<path d="M35 14c5 0 10 3 12 8-3 2-7 1-9-1s-4-4-3-7zM42 34c3 0 5 2 4 5s-4 5-6 4 0-9 2-9z" fill="#93bd7c"/>'
+            '<g fill="none" stroke="#ffd36e" stroke-width="2.2" stroke-linecap="round">'
+            '<path d="M25 27c4-7 9-9 15-8"/><path d="M25 27c7 0 12 3 17 9"/><path d="M25 27c-2-6-1-10 3-13" stroke-dasharray="1 4"/></g>'
+            '<circle cx="25" cy="27" r="3.4" fill="#ffb347" stroke="#fff" stroke-width="1.2"/></svg>')
+
+_WH_CARD = {"spread": whspread_svg}
+
+def render_whspread_lab(lesson):
+    """第一課：歷史地球儀（assets/js/wh-spread.js 綁這裡的 class）。只畫陸地、海洋與路線；不畫國界、不標國名。"""
+    lab = lesson["lab"]
+    payload = _wh_json({k: lab[k] for k in ("from_ago", "to_ago", "start_ago", "routes", "regions", "sites", "bridges", "tour")})
+    reach = "".join(
+        f'<li data-region="{g["key"]}" data-state="not"><button type="button" data-jump="{g["older"]}" data-look="{g["at"][0]},{g["at"][1]},3">'
+        f'<b>{_wh_bi(g["en"], g["zh"])}</b><span class="wh-reach-r">{_wh_bi(g["range_en"], g["range_zh"])}</span>'
+        f'<span class="wh-reach-st"></span></button></li>' for g in lab["regions"])
+    sites = "".join(
+        f'<button type="button" data-site="{s["key"]}" aria-pressed="false">{_wh_bi(s["en"], s["zh"])}</button>' for s in lab["sites"])
+    tg = _lab_toggles([("ice", "Ice-age sea level", "冰河時期的海平面", False),
+                       ("sites", "Discovery sites", "發現地點", True), ("labels", "Labels", "標示", True),
+                       ("graticule", "Grid lines", "經緯線", True), ("follow", "Camera follows", "鏡頭跟著走", True)])
+    icev = _wh_ver()
+    return f'''<div class="astro-lab wh-lab rvl" data-wh-spread-lab data-ice="/assets/img/world-history/iceage.png?v={icev}">
+  <script type="application/json">{payload}</script>
+  <div class="al-stage">
+    <div class="al-space">
+      <canvas class="al-space-cv" aria-label="3D globe showing, in rough outline, how people spread from Africa across the world; only land, sea, and routes are drawn, with no borders · 3D 地球儀，大略畫出人類怎麼從非洲走到世界各地；只畫陸地、海洋與路線，沒有國界"></canvas>
+      <div class="al-labels" aria-hidden="true"></div>
+      <p class="al-hint">Drag to turn · 拖曳轉動　Scroll or pinch to zoom · 滾輪／雙指縮放　Click a white dot · 點白色圓點</p>
+      <button type="button" class="al-home" title="Reset view · 重設視角" aria-label="Reset view · 重設視角">&#8634;</button>
+      <p class="al-nogl-msg">This 3D globe needs WebGL, which this browser does not support. The time slider, the list on the right, and the discovery cards still work, and so do the reading and the games below.<br><span class="zh">這個瀏覽器不支援 WebGL，無法顯示 3D 地球儀；時間滑桿、右邊的清單和發現地點的小卡照樣能用，下面的課文和小遊戲也都能用。</span></p>
+    </div>
+    <aside class="al-sky wh-aside">
+      <p class="al-sky-k">Time · 時間</p>
+      <p class="wh-when" aria-live="polite"><b class="wh-when-en"></b><span class="zh wh-when-zh"></span></p>
+      <p class="al-sky-k">Reached so far · 人到了哪裡 <b class="wh-count"></b></p>
+      <ul class="wh-reach">{reach}</ul>
+      <div class="wh-site" hidden aria-live="polite"></div>
+    </aside>
+  </div>
+  <div class="al-controls">
+    <div class="al-row al-row-main">
+      <button type="button" class="al-play" aria-pressed="false"><span class="al-play-i" aria-hidden="true"></span><span class="al-play-t">Play · 播放</span></button>
+      <label class="wh-timerow"><span>{html.escape(lab["slider_from_en"])}<small>{html.escape(lab["slider_from_zh"])}</small></span>
+        <input type="range" class="wh-time" min="0" max="1000" step="1" value="0" aria-label="Time, from about 300,000 years ago to recent centuries · 時間，從大約三十萬年前到最近幾百年"><span>{html.escape(lab["slider_to_en"])}<small>{html.escape(lab["slider_to_zh"])}</small></span></label>
+    </div>
+    <div class="al-row al-toggles">{tg}</div>
+    <p class="wh-ice-note" hidden>{_wh_bi(lab["ice_note_en"], lab["ice_note_zh"])}</p>
+    <div class="wh-sites" role="group" aria-label="Discovery sites · 發現地點"><span class="wh-sites-k">Discovery sites · 發現地點</span>{sites}</div>
+  </div>
+  {_lab_foot(lab)}
+  <p class="wh-credit">{lab["credit_html"]}</p>
+</div>'''
+
+_WH_LAB = {"spread": render_whspread_lab}
+
+def _wh_order(d):
+    payload = _wh_json({k: d[k] for k in ("items", "hint_en", "hint_zh", "done_en", "done_zh", "open_en", "open_zh")})
+    return f'''<div class="wh-order rvl" data-wh-order>
+  <script type="application/json">{payload}</script>
+  <p class="wh-or-top"><span>Earliest · 最早</span></p>
+  <ol class="wh-or-list"></ol>
+  <p class="wh-or-top"><span>Most recent · 最晚</span></p>
+  <div class="wh-or-foot"><button type="button" class="wh-btn wh-btn-gold" data-act="check">Check my order · 檢查</button><button type="button" class="wh-btn" data-act="reset">Start over · 重來</button></div>
+  <p class="wh-or-msg" aria-live="polite"></p>
+  <div class="wh-or-chart" hidden></div>
+</div>'''
+
+def _wh_sort(d):
+    opts = "".join(
+        f'<button type="button" class="wh-so-opt" data-pick="{b["key"]}"><span class="wh-so-ic" aria-hidden="true">{b["icon"]}</span>'
+        f'<span class="wh-so-lab">{_wh_bi(b["en"], b["zh"])}</span></button>' for b in d["buckets"])
+    payload = _wh_json({k: d[k] for k in ("buckets", "items", "end_en", "end_zh")})
+    return f'''<div class="wh-sort rvl" data-wh-sort>
+  <script type="application/json">{payload}</script>
+  <div class="wh-so-top"><p class="wh-so-k"></p><p class="wh-so-sc">Right on the first try · 第一次就分對 <b class="wh-so-score">0 / 0</b></p></div>
+  <div class="wh-so-steps" aria-hidden="true"></div>
+  <p class="wh-so-ask">{_wh_bi(d["ask_en"], d["ask_zh"])}</p>
+  <p class="wh-so-q" aria-live="polite"></p>
+  <div class="wh-so-opts">{opts}</div>
+  <p class="wh-so-msg" aria-live="polite"></p>
+  <div class="wh-so-foot"><button type="button" class="wh-btn wh-btn-gold wh-so-next" data-act="next" hidden>Next · 下一題</button></div>
+</div>'''
+
+def _wh_guide(d):
+    cards = "".join(
+        f'<article class="wh-guide-c rvl"><span class="wh-guide-ic" aria-hidden="true">{c["icon"]}</span>'
+        f'<h3>{_wh_bi(c["en"], c["zh"])}</h3>{_bi(c["body_en"], c["body_zh"])}</article>' for c in d["cards"])
+    return f'<div class="wh-guide">{cards}</div>'
+
+def _wh_timeline(d):
+    """平行時間軸（每課都有）：七條並排的線，標出「這一課在這裡」。JS 畫圖；下面的清單是沒有 JS 時也讀得到的版本。"""
+    payload = _wh_json({k: d[k] for k in ("from", "to", "view", "lesson", "events") if k in d})
+    tips = "".join(f'<li>{_wh_bi(t["en"], t["zh"])}</li>' for t in d["tips"])
+    rows = "".join(
+        f'<li><b>{html.escape(e["en"])}</b><span class="zh">{html.escape(e["zh"])}</span></li>' for e in d["events"])
+    return f'''<div class="wh-tl rvl" data-wh-timeline>
+  <script type="application/json">{payload}</script>
+  <div class="wh-tl-bar">
+    <div class="wh-tl-seg" role="group" aria-label="Scale · 尺度">
+      <button type="button" data-scale="log" aria-pressed="true">Each step back is ×10<small>每往回一格是十倍</small></button>
+      <button type="button" data-scale="linear" aria-pressed="false">Every year the same width<small>每一年一樣寬</small></button>
+    </div>
+    <div class="wh-tl-seg" role="group" aria-label="Zoom · 縮放">
+      <button type="button" data-zoom="out" aria-label="Zoom out · 縮小">&minus;</button>
+      <button type="button" data-zoom="in" aria-label="Zoom in · 放大">+</button>
+      <button type="button" data-zoom="all">Whole span<small>全部</small></button>
+      <button type="button" data-zoom="recent" data-older="6000">Last 6,000 years<small>最近六千年</small></button>
+    </div>
+  </div>
+  <div class="wh-tl-view" tabindex="0" role="group" aria-label="Parallel timeline with seven lanes, one for each region; drag sideways to move, use the buttons to zoom · 七條並排的時間線，每個區域一條；左右拖曳移動，用按鈕縮放"></div>
+  <p class="wh-tl-read" aria-live="polite">{_wh_bi(d["idle_en"], d["idle_zh"])}</p>
+  <ul class="wh-tl-tips">{tips}</ul>
+  <noscript><ul class="wh-tl-list">{rows}</ul></noscript>
+</div>'''
+
+def _wh_how_we_know(d):
+    """「我們怎麼知道？」（每課都有）：這一課依據的證據是什麼、能告訴我們什麼、收藏或發表在哪裡。"""
+    def src(it):
+        if not it.get("url"): return ""
+        return f'<a class="wh-hk-src" href="{html.escape(it["url"])}" target="_blank" rel="noopener">{html.escape(it["src"])} &#8599;</a>'
+    cards = "".join(
+        f'<article class="wh-hk rvl"><span class="wh-hk-ic" aria-hidden="true">{it["icon"]}</span>'
+        f'<h3>{_wh_bi(it["en"], it["zh"])}</h3>{_bi(it["text_en"], it["text_zh"])}'
+        f'<p class="wh-hk-limit"><b>Its limits · 它的限制</b>{_wh_bi(it["limit_en"], it["limit_zh"])}</p>{src(it)}</article>' for it in d["items"])
+    return f'<div class="wh-hks">{cards}</div>'
+
+def _wh_views(d):
+    """「不同的說法」（每課都有）：並列，各附出處，不下結論。欄位和台灣歷史系列一樣（topic／sides／note）。"""
+    def side(v):
+        s = (f'<a href="{html.escape(v["url"])}" target="_blank" rel="noopener">{html.escape(v["src"])} &#8599;</a>' if v.get("url") else html.escape(v.get("src", "")))
+        return (f'<li><p class="wh-ov-vk">{_wh_bi(v["label_en"], v["label_zh"])}</p>{_bi(v["en"], v["zh"])}'
+                f'<p class="wh-ov-src">{s}</p></li>')
+    items = "".join(
+        f'<article class="wh-ov rvl"><h3>{_wh_bi(q["topic_en"], q["topic_zh"])}</h3><ul class="wh-ov-views">{"".join(side(v) for v in q["sides"])}</ul>'
+        f'<p class="wh-ov-now"><b>Where things stand · 目前的情況</b>{_wh_bi(q["note_en"], q["note_zh"])}</p></article>' for q in d["items"])
+    rule = f'<p class="wh-ov-rule rvl">{_wh_bi(d["rule_en"], d["rule_zh"])}</p>' if d.get("rule_en") else ""
+    return f'<div class="wh-ovs">{items}</div>{rule}'
+
+def _wh_phrases(d):
+    """「歷史英語」（每課都有）：8 句說時間、證據與不確定的句子，中英對照，每句有 🔊。欄位和台灣歷史系列一樣（rows[].en／html／zh／note_*）。"""
+    rows = "".join(
+        f'<li class="rvl"><button class="spk" data-say="{html.escape(r["en"])}" aria-label="Say this sentence · 唸這一句">🔊</button>'
+        f'<p class="wh-he-en">{r["html"]}</p><p class="wh-he-zh">{html.escape(r["zh"])}</p>'
+        + (f'<p class="wh-he-use">{html.escape(r["note_en"])}<span class="zh">{html.escape(r["note_zh"])}</span></p>' if r.get("note_en") else "")
+        + '</li>' for r in d["rows"])
+    return f'<ol class="wh-he">{rows}</ol>'
+
+def _wh_taiwan_then(d):
+    """「那時候的台灣」（每課都有）：把世界接回台灣；台灣歷史系列對應的課上線了才放連結。"""
+    facts = "".join(
+        f'<li class="rvl"><p class="wh-tw-k">{_wh_bi(f["k_en"], f["k_zh"])}</p>{_bi(f["en"], f["zh"])}'
+        + (f'<a class="wh-tw-src" href="{html.escape(f["url"])}" target="_blank" rel="noopener">{html.escape(f["src"])} &#8599;</a>' if f.get("url") else "")
+        + '</li>' for f in d["facts"])
+    links = "".join(
+        (f'<a class="wh-tw-link" href="{html.escape(x["href"])}">{_wh_bi(x["en"], x["zh"])} <i>&rarr;</i></a>' if x.get("href")
+         else f'<span class="wh-tw-link is-soon">{_wh_bi(x["en"], x["zh"])} <i>Coming soon · 製作中</i></span>') for x in d.get("links", []))
+    return (f'<div class="wh-tw rvl"><div class="wh-tw-head"><span class="wh-tw-ic" aria-hidden="true">🏝️</span>{_bi(d["intro_en"], d["intro_zh"])}</div>'
+            f'<ul class="wh-tw-facts">{facts}</ul>' + (f'<div class="wh-tw-links">{links}</div>' if links else "") + '</div>')
+
+def _wh_curric(d):
+    rows = "".join(
+        f'<li class="wh-cur rvl"><p class="wh-cur-k"><b>{html.escape(c["code"])}</b><span>{html.escape(c["area"])} · {html.escape(c["area_en"])}</span></p>'
+        f'<p class="wh-cur-q">{html.escape(c["text"])}</p>'
+        f'<p class="wh-cur-n">{html.escape(c["note_en"])}<span class="zh">{html.escape(c["note_zh"])}</span></p></li>'
+        for c in d["items"])
+    return f'<ul class="wh-curric">{rows}</ul>'
+
+# 這一課自己的小互動（照這個順序排在「模型卡」後面）
+_WH_WIDGETS = [("order", _wh_order), ("sort", _wh_sort)]
+# 每課固定的卡（照這個順序排在小互動後面）
+_WH_FIXED = [("timeline", _wh_timeline), ("how_we_know", _wh_how_we_know), ("views", _wh_views),
+             ("phrases", _wh_phrases), ("taiwan_then", _wh_taiwan_then)]
+
+def _wh_flat():
+    return [(ui, u, l) for ui, u in enumerate(WH["units"]) for l in u["lessons"]]
+
+def _wh_nav(slug):
+    flat = sorted(_wh_flat(), key=lambda x: x[2]["n"])
+    i = next(n for n, (_, _, l) in enumerate(flat) if l["slug"] == slug)
+    def side(item, dirn, label):
+        if not item:
+            return '<span class="pm-nav-x"></span>'
+        l = item[2]
+        arrow = "&larr;" if dirn == "prev" else "&rarr;"
+        return (f'<a class="pm-nav-s pm-nav-{dirn}" href="{WH_BASE}{l["slug"]}/">'
+                f'<span class="pm-nav-k">{arrow} {label}</span>'
+                f'<span class="pm-nav-t">{html.escape(l["title"])}</span></a>')
+    prev = flat[i - 1] if i > 0 else None
+    nxt = flat[i + 1] if i < len(flat) - 1 else None
+    return (f'<nav class="pm-nav rvl">{side(prev, "prev", "上一課 · Previous")}'
+            f'<a class="pm-nav-hub" href="{WH_BASE}">&#9776; 回世界歷史 · All Lessons</a>'
+            f'{side(nxt, "next", "下一課 · Next")}</nav>')
+
+def build_wh_lesson(ui, unit, lesson):
+    path = f'{WH_BASE}{lesson["slug"]}/'
+    unit_dict = {k: lesson[k] for k in ("title", "paras", "paras_zh", "questions", "answers", "vocab", "quiz")}
+    unit_dict["unit"] = lesson["n"]
+    reading_html = render_basic_unit(1, unit_dict, level="world-history", audio_rel="", pdf_rel="")
+    lab = lesson["lab"]
+    kind = lab["kind"]
+    lab_html = _WH_LAB[kind](lesson)
+
+    def sec(key, fn):
+        d = lesson[key]
+        return (key.replace("_", "-"), d["eyebrow"], d["en"], d["zh"], fn(d), _bi(d["lead_en"], d["lead_zh"], cls="lead rvl d2"))
+    secs = []
+    if lesson.get("guide"): secs.append(sec("guide", _wh_guide))
+    if lesson.get("parts"):
+        cards = "".join(
+            f'<article class="ph-card wh-part rvl">'
+            f'<div class="ph-ico wh-ico" aria-hidden="true">{pt["icon"]}</div>'
+            f'<h3>{html.escape(pt["en"])}<span class="zh">{html.escape(pt["zh"])}</span></h3>'
+            f'<p class="ph-meta"><span>{html.escape(pt["meta_en"])} · {html.escape(pt["meta_zh"])}</span></p>'
+            f'<p class="ph-when">{html.escape(pt["text_en"])}<br><span class="zh">{html.escape(pt["text_zh"])}</span></p>'
+            f'<button type="button" class="ph-go" data-lab-demo="{pt["demo"]}">Watch it on the globe · 在地球儀上看 <i>&uarr;</i></button>'
+            f'</article>' for pt in lesson["parts"])
+        ph = lesson["parts_head"]
+        secs.append(("parts", ph["eyebrow"], ph["en"], ph["zh"], f'<div class="ph-grid stagger">{cards}</div>',
+                     _bi(lesson["parts_note_en"], lesson["parts_note_zh"], cls="lead rvl d2")))
+    for key, fn in _WH_WIDGETS + _WH_FIXED:
+        if lesson.get(key): secs.append(sec(key, fn))
+    if lesson.get("culture_cards"):
+        cu = lesson["culture_cards"]
+        cc = "".join(
+            f'<article class="cc-card rvl"><p class="cc-k">{html.escape(c["k"])}</p>'
+            f'<h3>{html.escape(c["en"])}<span class="zh">{html.escape(c["zh"])}</span></h3>'
+            f'{_bi(c["body_en"], c["body_zh"])}</article>'
+            for c in cu["cards"])
+        secs.append(("stories", cu["eyebrow"], cu["title_en"], cu["title_zh"], f'<div class="cc-grid">{cc}</div>',
+                     _bi(cu["lead_en"], cu["lead_zh"], cls="lead rvl d2")))
+    if lesson.get("curric"): secs.append(sec("curric", _wh_curric))
+    secs.append(("myths", "Myth vs. Fact · 常見迷思", "Four things people get wrong", "四個常見的誤會", _sci_myths(lesson), ""))
+    th = lesson["tricks_head"]
+    secs.append(("tricks", "Remember It · 記憶口訣", th["en"], th["zh"], _sci_tricks(lesson), ""))
+    acts = lesson.get("activities") or []
+    for n, act in enumerate(acts, 1):
+        eb = "Classroom Activity · 課堂活動" if len(acts) == 1 else f"Classroom Activity {n} · 課堂活動{_astro_cn(n)}"
+        secs.append((f"activity{'' if n == 1 else n}", eb, act["title_en"], act["title_zh"], _astro_activity(act), ""))
+    if lesson.get("links"):
+        def link(x):
+            body = (f'<span class="wh-link-ic" aria-hidden="true">{x["icon"]}</span>'
+                    f'<span class="wh-link-b"><span class="wh-link-k">{html.escape(x["k_en"])} · {html.escape(x["k_zh"])}</span>'
+                    f'<b>{html.escape(x["en"])}</b><span class="zh wh-link-zh">{html.escape(x["zh"])}</span>'
+                    f'<span class="wh-link-n">{html.escape(x["note_en"])}<span class="zh">{html.escape(x["note_zh"])}</span></span>')
+            if x.get("soon"):
+                return f'<div class="wh-link wh-link-soon rvl">{body}<span class="wh-link-go">Coming soon · 製作中</span></span></div>'
+            return f'<a class="wh-link rvl" href="{html.escape(x["href"])}">{body}<span class="wh-link-go">Go to the lesson · 前往這一課 <i>&rarr;</i></span></span></a>'
+        lh = lesson.get("links_head") or {"eyebrow": "Go Further · 延伸閱讀", "en": "Read more", "zh": "延伸閱讀"}
+        secs.append(("more", lh["eyebrow"], lh["en"], lh["zh"], f'<div class="wh-links">{"".join(link(x) for x in lesson["links"])}</div>', ""))
+    sec_html = "\n".join(_astro_sec(sid, k % 2 == 1, eb, en, zh, inner, lead)
+                         for k, (sid, eb, en, zh, inner, lead) in enumerate(secs))
+    src_html = ""
+    if lesson.get("sources"):
+        rows = "".join(
+            f'<li><span>{html.escape(s["en"])}<span class="zh">{html.escape(s["zh"])}</span></span>'
+            f'<a href="{html.escape(s["url"])}" target="_blank" rel="noopener">{html.escape(s["src"])} &#8599;</a></li>'
+            for s in lesson["sources"])
+        src_html = (f'<div class="wh-sources rvl"><p class="sub-head">Sources · 資料出處</p>'
+                    f'<p class="muted">{html.escape(lesson["sources_note_en"])} · {html.escape(lesson["sources_note_zh"])}</p>'
+                    f'<ol>{rows}</ol></div>')
+
+    eyebrow = (f'World History · Unit {ui + 1} · Lesson {lesson["n"]} · '
+               f'世界歷史 單元{_htw_cn(ui + 1)} 第{_htw_cn(lesson["n"])}課')
+    lead = f'{html.escape(lesson["blurb_en"])}<br><span class="muted">{html.escape(lesson["blurb_zh"])}</span>'
+    body = f'''
+{page_hero(eyebrow, f'{html.escape(lesson["title"])}<span class="h1-zh">{html.escape(lesson["title_zh"])}</span>', lead, back=(WH_BASE, "回世界歷史 · All Lessons"))}
+<section class="section astro-lab-sec" id="model"><div class="wrap">
+  <div class="big-idea rvl"><span class="big-idea-k">Big idea · 一句話看懂</span>{_bi(lesson["big_idea_en"], lesson["big_idea_zh"])}</div>
+  <p class="eyebrow rvl">{html.escape(lab["eyebrow"])}</p>
+  <h2 class="rvl d1 sweep">{html.escape(lab["title_en"])} <span class="tp-h2-en">{html.escape(lab["title_zh"])}</span></h2>
+  {_bi(lab["how_en"], lab["how_zh"], cls="lead rvl d2 al-how")}
+  {lab_html}
+</div></section>
+<section class="section band" id="reading"><div class="wrap" style="max-width:940px">
+  <p class="eyebrow rvl">Reading · 英文閱讀</p>
+  {reading_html}
+</div></section>
+{sec_html}
+<section class="section"><div class="wrap">
+{src_html}
+{_wh_nav(lesson["slug"])}
+</div></section>
+'''
+    say_slug = f'world-history-{lesson["slug"]}'   # tools/gen_audio.py 以路徑末兩段命名
+    has_clips = os.path.exists(os.path.join(ROOT, "assets/data/say", say_slug + ".json"))
+    write(path, layout(path, f'{lesson["title"]} · {lesson["title_zh"]}',
+          f'{lesson["blurb_en"]} {lesson["blurb_zh"]}', body, "resources",
+          say_manifest=say_slug if has_clips else None, extra_head=_wh_head(_WH_JS[kind])))
+    return path
+
+def build_wh_hub():
+    def icon(l):
+        return _WH_CARD[l["card"]](60) if l.get("card") in _WH_CARD else l["icon"]
+    unit_sections, nav = [], []
+    done = sum(len(u["lessons"]) for u in WH["units"])
+    total = done + sum(len(u.get("planned", [])) for u in WH["units"])
+    for idx, u in enumerate(WH["units"]):
+        rows = []
+        for l in u["lessons"]:
+            rows.append((l["n"],
+                f'<a class="lc-row rvl" href="{WH_BASE}{l["slug"]}/">'
+                f'<span class="lc-ico wh-lc-ico" aria-hidden="true">{icon(l)}</span>'
+                f'<span class="lc-body">'
+                f'<span class="lc-meta"><b>Lesson {l["n"]} · 第{_htw_cn(l["n"])}課</b><i>{html.escape(l["level"])}</i></span>'
+                f'<h3 class="lc-title">{html.escape(l["title"])}</h3>'
+                f'<span class="lc-zh">{html.escape(l["title_zh"])}</span>'
+                f'<span class="lc-bl">{html.escape(l["blurb_en"])}</span>'
+                f'<span class="lc-bl zh">{html.escape(l["blurb_zh"])}</span>'
+                f'<span class="lc-go">Start the lesson · 開始上課 <i>&rarr;</i></span>'
+                f'</span></a>'))
+        for p in u.get("planned", []):
+            rows.append((p["n"],
+                f'<div class="lc-row lc-soon rvl">'
+                f'<span class="lc-ico" aria-hidden="true">{p["icon"]}</span>'
+                f'<span class="lc-body"><span class="lc-meta"><b>Lesson {p["n"]} · 第{_htw_cn(p["n"])}課 · Coming soon 製作中</b></span>'
+                f'<h3 class="lc-title">{html.escape(p["en"])}</h3><span class="lc-zh">{html.escape(p["zh"])}</span></span></div>'))
+        rows.sort(key=lambda r: r[0])
+        band = " band" if idx % 2 == 0 else ""
+        uid = f"unit-{idx + 1}"
+        nav.append(f'<a class="unit-nav-link" href="#{uid}"><b>{idx + 1}</b><span>{html.escape(u["title_zh"])}</span></a>')
+        unit_sections.append(
+            f'<section class="section lc-unit{band}" id="{uid}"><div class="wrap">'
+            f'<p class="eyebrow rvl">Unit {idx + 1} · 單元{_htw_cn(idx + 1)}</p>'
+            f'<h2 class="rvl d1 sweep">{html.escape(u["title_en"])} <span class="tp-h2-en">{html.escape(u["title_zh"])}</span></h2>'
+            f'<p class="lead rvl d2" style="max-width:62ch">{html.escape(u["blurb_en"])}<br>'
+            f'<span class="muted">{html.escape(u["blurb_zh"])}</span></p>'
+            f'<div class="lc-list">{"".join(r[1] for r in rows)}</div>'
+            f'</div></section>')
+    unit_nav = (f'<nav class="unit-nav" aria-label="Jump to unit · 單元導覽"><div class="wrap">'
+                f'<span class="unit-nav-label">Jump to unit · 跳到單元</span>'
+                f'<div class="unit-nav-track">{"".join(nav)}</div></div></nav>')
+    intro_html = "".join(_bi(p["en"], p["zh"]) for p in WH["intro"])
+    intro_html += _bi(f"{done} of {total} lessons {'is' if done == 1 else 'are'} ready so far; more are on the way.",
+                      f"目前完成 {done} 課（共規劃 {total} 課），持續增加中。", cls="wh-progress")
+    rules = "".join(
+        f'<li class="rvl"><span class="wh-rule-ic" aria-hidden="true">{r["icon"]}</span><div><h3>{_wh_bi(r["en"], r["zh"])}</h3>{_bi(r["body_en"], r["body_zh"])}</div></li>'
+        for r in WH["rules"])
+    rh = WH["rules_head"]
+    lead = f'{html.escape(WH["lead_en"])}<br><span class="muted">{html.escape(WH["lead_zh"])}</span>'
+    body = f'''
+{page_hero(WH["eyebrow"], f'{WH["title_en"]} <span class="h1-zh">{WH["title_zh"]}</span>', lead, back=("/resources/reading/", "回閱讀與經典"))}
+<section class="section"><div class="wrap">
+  <div class="prose wide rvl wh-intro"><span class="wh-intro-ic" aria-hidden="true">{whhub_svg(76)}</span>{intro_html}</div>
+</div></section>
+{unit_nav}
+{"".join(unit_sections)}
+<section class="section" id="how-we-write"><div class="wrap">
+  <p class="eyebrow rvl">{html.escape(rh["eyebrow"])}</p>
+  <h2 class="rvl d1 sweep">{html.escape(rh["en"])} <span class="tp-h2-en">{html.escape(rh["zh"])}</span></h2>
+  {_bi(rh["lead_en"], rh["lead_zh"], cls="lead rvl d2")}
+  <ul class="wh-rules">{rules}</ul>
+</div></section>
+'''
+    write(WH_BASE, layout(WH_BASE, f'{WH["title_en"]} · {WH["title_zh"]}',
+          f'{WH["lead_en"]} {WH["lead_zh"]}', body, "resources", extra_head=_wh_head() + _lc_head()))
+    return WH_BASE
+
 
 # ─────────────────────────────────────────────────────────────────────────────
 # 美術 Art（/resources/classes/art/）
@@ -21567,6 +21977,10 @@ def main():
         paths.append(build_twh_hub())
         for _ui, _u in enumerate(TWH["units"]):
             for _l in _u["lessons"]: paths.append(build_twh_lesson(_ui, _u, _l))
+    if WH:
+        paths.append(build_wh_hub())
+        for _ui, _u in enumerate(WH["units"]):
+            for _l in _u["lessons"]: paths.append(build_wh_lesson(_ui, _u, _l))
     if PHIL:
         paths.append(build_phil_hub())
         for _l in PHIL["lessons"]: paths.append(build_phil_lesson(_l))
