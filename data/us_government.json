@@ -82,12 +82,6 @@
       "blurb_zh": "政府的權力從哪裡來、怎麼分配、到哪裡為止。",
       "planned": [
         {
-          "n": 2,
-          "icon": "⚖️",
-          "en": "Why Split the Power Three Ways?",
-          "zh": "權力為什麼要分成三份？"
-        },
-        {
           "n": 3,
           "icon": "🗺️",
           "en": "Why Does Every State Have Its Own Laws?",
@@ -1945,7 +1939,7 @@
               "zh": "權力為什麼要分成三份？",
               "note_en": "Federalist No. 51 said that ambition must counteract ambition. The next lesson shows how: each branch has a move that can stop the other two.",
               "note_zh": "《聯邦論》第五十一篇說要用野心對抗野心。下一課說明怎麼做到：每一個部門手上都有一招，可以擋住另外兩個。",
-              "soon": true
+              "href": "/resources/classes/us-government/checks-and-balances/"
             },
             {
               "icon": "📏",
@@ -2150,6 +2144,1487 @@
               "zh": "《聯邦論》為台灣出版的中譯本書名（謝淑斐譯，貓頭鷹出版，2000）；另一個常見譯名是《聯邦黨人文集》",
               "src": "博客來：聯邦論",
               "url": "https://www.books.com.tw/products/0010079172"
+            }
+          ]
+        },
+        {
+          "n": 2,
+          "slug": "checks-and-balances",
+          "title": "Why Split the Power Three Ways?",
+          "title_zh": "權力為什麼要分成三份？",
+          "level": "高中以上 · High school and up",
+          "icon": "⚖️",
+          "card": "checks",
+          "blurb_en": "Pass a bill, veto it, override the veto: choose a move in a 3D model of Washington and watch an arrow fly from the branch that acts to the branch it checks. Read Montesquieu and Federalist No. 47 in the original, then work out what happens to a bill after a veto.",
+          "blurb_zh": "通過法案、否決、推翻否決——在華盛頓的 3D 模型裡選一招，看箭頭從出手的部門飛向被牽制的部門。讀孟德斯鳩與《聯邦論》第四十七篇的原文，再算算一項法案被否決之後還有幾條路。",
+          "big_idea_en": "The Constitution divides the work of government among three branches so that no single person or group holds all of it. Then it gives each branch a limited share in the work of the others, so that each can slow or stop the other two. The first idea is called the separation of powers. The second is called checks and balances.",
+          "big_idea_zh": "憲法把政府的工作分給三個部門，讓任何一個人或一群人都拿不到全部的權力；接著又讓每個部門在別的部門的工作裡各有一小份，於是每一個都能拖慢或擋下另外兩個。前一個想法叫權力分立，後一個叫制衡。",
+          "lab": {
+            "kind": "checks",
+            "eyebrow": "3D Model · 3D 模型",
+            "title_en": "Three Branches, Each Able to Stop the Others",
+            "title_zh": "三個部門，誰都擋得住誰",
+            "how_en": "The three buildings stand for Congress, the President, and the courts. Choose a move from the buttons below. An arrow flies from the branch that acts to the branch it checks, and the panel shows what the move is, where the Constitution provides for it, and an example from history. Many panels end with a question: what can the other side do? Press the answer and the exchange goes on. The grid keeps track of which of the six directions you have seen.",
+            "how_zh": "三棟建築代表國會、總統和法院。從下面的按鈕選一招：箭頭會從出手的部門飛向被牽制的部門，右邊欄說明這一招是什麼、憲法在哪裡規定，以及歷史上的一個例子。很多說明欄最後會問：對方可以怎麼回應？按下答案，這場往來就接著演下去。右下角的方格記著六個方向裡你看過哪幾個。",
+            "legend": [
+              {
+                "cls": "capitol",
+                "en": "A move by Congress",
+                "zh": "國會出手"
+              },
+              {
+                "cls": "whitehouse",
+                "en": "A move by the President",
+                "zh": "總統出手"
+              },
+              {
+                "cls": "court",
+                "en": "A move by the courts",
+                "zh": "法院出手"
+              }
+            ],
+            "scale_en": "A simplified diagram, not to scale; the positions of the buildings and the directions they face are simplified too. The arrows show who acts on whom. They do not show how often each move is used: some are everyday events, and some have happened only a handful of times.",
+            "scale_zh": "這是簡化的示意圖，不照比例；三棟建築的位置與朝向也簡化過。箭頭表示誰對誰出手，不代表這一招有多常用——有的天天發生，有的在歷史上只出現過幾次。",
+            "demos": {
+              "veto": [
+                "pass",
+                "veto",
+                "override"
+              ],
+              "appoint": [
+                "nominate",
+                "reject",
+                "courts_shape"
+              ],
+              "review": [
+                "review_law",
+                "review_act"
+              ],
+              "remove": [
+                "impeach_p",
+                "impeach_j"
+              ]
+            },
+            "actions": [
+              {
+                "key": "pass",
+                "from": "capitol",
+                "to": "whitehouse",
+                "check": false,
+                "btn_en": "Pass a bill",
+                "btn_zh": "通過法案",
+                "en": "Congress passes a bill",
+                "zh": "國會通過法案",
+                "text_en": "A bill must pass both the House and the Senate in the same form, which is already a check inside Congress. It is then presented to the President. This is an ordinary step, not a check on another branch, but it is where most exchanges begin.",
+                "text_zh": "法案必須以相同的內容在眾議院和參議院都通過——這已經是國會內部的一道牽制。接著法案送交總統。這是平常的步驟，不算牽制別的部門，但大多數的往來從這裡開始。",
+                "quote": "Every Bill which shall have passed the House of Representatives and the Senate, shall, before it become a Law, be presented to the President of the United States;",
+                "cite": "Article I, Section 7",
+                "next": [
+                  "veto"
+                ]
+              },
+              {
+                "key": "override",
+                "from": "capitol",
+                "to": "whitehouse",
+                "check": true,
+                "btn_en": "Override a veto",
+                "btn_zh": "推翻否決",
+                "en": "Congress overrides a veto",
+                "zh": "國會推翻否決",
+                "text_en": "If two thirds of the House and then two thirds of the Senate vote for the bill again, it becomes law without the President's signature.",
+                "text_zh": "如果眾議院三分之二、接著參議院三分之二再次表決通過，法案不必總統簽署就成為法律。",
+                "quote": "If after such Reconsideration two thirds of that House shall agree to pass the Bill, it shall be sent, together with the Objections, to the other House, by which it shall likewise be reconsidered, and if approved by two thirds of that House, it shall become a Law.",
+                "cite": "Article I, Section 7",
+                "eg_en": "Congress first overrode a veto on March 3, 1845, more than half a century after the first veto. It has done so 112 times in all (Senate records, read in October 2026).",
+                "eg_zh": "國會第一次推翻否決是在 1845 年 3 月 3 日，距離第一次否決已經超過半個世紀。到現在一共推翻過 112 次（參議院紀錄，2026 年 10 月查閱）。"
+              },
+              {
+                "key": "purse",
+                "from": "capitol",
+                "to": "whitehouse",
+                "check": true,
+                "btn_en": "Hold the purse",
+                "btn_zh": "管住錢包",
+                "en": "Congress decides what money may be spent",
+                "zh": "國會決定錢可以怎麼花",
+                "text_en": "The executive branch runs the departments and the armed forces, but it may spend only what Congress has approved by law. This is often called the power of the purse.",
+                "text_zh": "行政部門管理各部會和軍隊，但只能花國會以法律核准的錢。這常被稱為「錢包的權力」（power of the purse）。",
+                "quote": "No Money shall be drawn from the Treasury, but in Consequence of Appropriations made by Law;",
+                "cite": "Article I, Section 9"
+              },
+              {
+                "key": "reject",
+                "from": "capitol",
+                "to": "whitehouse",
+                "check": true,
+                "btn_en": "Refuse consent",
+                "btn_zh": "不予同意",
+                "en": "The Senate refuses its consent",
+                "zh": "參議院不同意",
+                "text_en": "The President's nominees for the courts and for the top executive posts take office only if the Senate consents, and a treaty needs two thirds of the senators present. The Senate can vote no, or simply not act.",
+                "text_zh": "總統提名的法官與行政部門高階官員，要參議院同意才能就任；條約則需要出席參議員三分之二同意。參議院可以表決否決，也可以乾脆不處理。",
+                "quote": "… he shall nominate, and by and with the Advice and Consent of the Senate, shall appoint Ambassadors, other public Ministers and Consuls, Judges of the supreme Court, and all other Officers of the United States …",
+                "cite": "Article II, Section 2",
+                "eg_en": "In December 1795 the Senate voted 10 to 14 against George Washington's choice for chief justice, John Rutledge. It was the first Supreme Court nomination the Senate rejected; there have been twelve such rejections by vote.",
+                "eg_zh": "1795 年 12 月，參議院以 10 票對 14 票否決了華盛頓提名的首席大法官人選拉特利奇（John Rutledge）。這是參議院第一次否決最高法院的提名；經表決否決的一共有十二次。",
+                "next": [
+                  "nominate"
+                ]
+              },
+              {
+                "key": "impeach_p",
+                "from": "capitol",
+                "to": "whitehouse",
+                "check": true,
+                "btn_en": "Impeach and try",
+                "btn_zh": "彈劾與審判",
+                "en": "Congress impeaches and tries the President",
+                "zh": "國會彈劾並審判總統",
+                "text_en": "The House may impeach, which means to bring formal charges. The Senate then holds the trial, with the chief justice presiding when a President is tried, and conviction takes two thirds of the members present. The only penalties are removal from office and a bar on holding office again.",
+                "text_zh": "眾議院可以提出彈劾，也就是正式提出指控。接著由參議院審判；受審的是總統時，由首席大法官主持。定罪需要出席議員三分之二同意。處罰只有免職，以及不得再擔任公職。",
+                "quote": "The President, Vice President and all civil Officers of the United States, shall be removed from Office on Impeachment for, and Conviction of, Treason, Bribery, or other high Crimes and Misdemeanors.",
+                "cite": "Article II, Section 4",
+                "eg_en": "In 1868 the vote in the Senate to convict President Andrew Johnson was 35 to 19, one vote short of two thirds, so he was acquitted and stayed in office. No President has ever been removed by conviction.",
+                "eg_zh": "1868 年，參議院以 35 票對 19 票表決是否將總統安德魯．詹森定罪——離三分之二只差一票，所以他留任。從來沒有一位總統因為被定罪而去職。"
+              },
+              {
+                "key": "impeach_j",
+                "from": "capitol",
+                "to": "court",
+                "check": true,
+                "btn_en": "Remove a judge",
+                "btn_zh": "將法官免職",
+                "en": "Congress impeaches and removes a judge",
+                "zh": "國會彈劾法官並將其免職",
+                "text_en": "Federal judges keep their offices “during good Behaviour,” which in practice means for life. The one way to remove a judge is the same process used for a President: impeachment by the House and conviction by two thirds of the Senate.",
+                "text_zh": "聯邦法官「品行端正」即得繼續任職，實際上就是終身職。要把法官免職只有一條路，和對總統用的是同一套程序：眾議院彈劾，參議院三分之二定罪。",
+                "quote": "The Judges, both of the supreme and inferior Courts, shall hold their Offices during good Behaviour …",
+                "cite": "Article III, Section 1",
+                "eg_en": "The Senate has convicted eight officials in impeachment trials since 1789. All eight were federal judges (Senate records, read in October 2026).",
+                "eg_zh": "1789 年以來，參議院在彈劾審判中一共將八名官員定罪，八人全是聯邦法官（參議院紀錄，2026 年 10 月查閱）。"
+              },
+              {
+                "key": "courts_shape",
+                "from": "capitol",
+                "to": "court",
+                "check": true,
+                "btn_en": "Shape the courts",
+                "btn_zh": "決定法院的樣子",
+                "en": "Congress shapes the courts and can answer a ruling",
+                "zh": "國會決定法院的編制，也可以回應判決",
+                "text_en": "The Constitution creates only the Supreme Court. Congress creates the lower courts and sets the number of justices by law: six in 1789, and nine since 1869. When Congress and the states disagree with a ruling on the Constitution, they can amend the Constitution.",
+                "text_zh": "憲法只設立了最高法院。下級法院由國會設立，大法官的人數也由國會以法律決定：1789 年是六位，1869 年以來是九位。國會與各州不同意法院對憲法的某項判決時，可以修憲。",
+                "quote": "To constitute Tribunals inferior to the supreme Court;",
+                "cite": "Article I, Section 8",
+                "eg_en": "In Chisholm v. Georgia (1793) the Supreme Court let a citizen of one state sue another state in federal court. The Eleventh Amendment, ratified in 1795, reversed that result.",
+                "eg_zh": "1793 年的 Chisholm v. Georgia 案，最高法院准許一州的公民在聯邦法院控告另一個州。1795 年批准的第十一條修正案推翻了這個結果。"
+              },
+              {
+                "key": "veto",
+                "from": "whitehouse",
+                "to": "capitol",
+                "check": true,
+                "btn_en": "Veto a bill",
+                "btn_zh": "否決法案",
+                "en": "The President vetoes a bill",
+                "zh": "總統否決法案",
+                "text_en": "The President may refuse to sign a bill and send it back to Congress with written objections. The word “veto” is not in the Constitution; the text speaks of returning the bill.",
+                "text_zh": "總統可以拒絕簽署，把法案連同書面的異議退回國會。憲法裡沒有 veto 這個字，條文說的是「退回」法案。",
+                "quote": "If he approve he shall sign it, but if not he shall return it, with his Objections to that House in which it shall have originated, who shall enter the Objections at large on their Journal, and proceed to reconsider it.",
+                "cite": "Article I, Section 7",
+                "eg_en": "George Washington issued the first veto on April 5, 1792. Presidents have vetoed 2,599 bills and joint resolutions since then (Senate records, read in October 2026).",
+                "eg_zh": "華盛頓在 1792 年 4 月 5 日行使了第一次否決。從那時起，歷任總統一共否決了 2,599 項法案與聯合決議案（參議院紀錄，2026 年 10 月查閱）。",
+                "next": [
+                  "override"
+                ]
+              },
+              {
+                "key": "nominate",
+                "from": "whitehouse",
+                "to": "court",
+                "check": true,
+                "btn_en": "Nominate judges",
+                "btn_zh": "提名法官",
+                "en": "The President nominates the judges",
+                "zh": "總統提名法官",
+                "text_en": "Judges do not choose their own successors. Every federal judge is nominated by the President, so over time the elected branches decide who sits on the courts. The nomination then needs the Senate's consent.",
+                "text_zh": "法官不能自己挑接班人。每一位聯邦法官都由總統提名，所以時間一久，是民選的部門在決定誰坐上法官席。提名之後還要參議院同意。",
+                "quote": "… he shall nominate, and by and with the Advice and Consent of the Senate, shall appoint … Judges of the supreme Court …",
+                "cite": "Article II, Section 2",
+                "eg_en": "Presidents have sent the Senate 165 nominations for the Supreme Court since 1789 (Senate table, which runs through 2022).",
+                "eg_zh": "1789 年以來，歷任總統一共向參議院送出 165 次最高法院的提名（參議院的統計表，列到 2022 年）。",
+                "next": [
+                  "reject"
+                ]
+              },
+              {
+                "key": "pardon",
+                "from": "whitehouse",
+                "to": "court",
+                "check": true,
+                "btn_en": "Grant a pardon",
+                "btn_zh": "赦免",
+                "en": "The President grants a pardon",
+                "zh": "總統赦免",
+                "text_en": "The President may set aside the punishment for a federal crime, usually after a court has convicted and sentenced the person. The power does not reach impeachment, and it does not reach crimes under state law. It is sometimes described as a check on the courts, although it works case by case.",
+                "text_zh": "總統可以免除聯邦罪行的刑罰，通常是在法院定罪、判刑之後。這項權力不及於彈劾案，也不及於州法上的罪行。有人把它看成對法院的一種牽制，不過它是一個案子一個案子行使的。",
+                "quote": "… he shall have Power to grant Reprieves and Pardons for Offences against the United States, except in Cases of Impeachment.",
+                "cite": "Article II, Section 2"
+              },
+              {
+                "key": "review_law",
+                "from": "court",
+                "to": "capitol",
+                "check": true,
+                "btn_en": "Review a law",
+                "btn_zh": "審查法律",
+                "en": "The courts refuse to apply an unconstitutional law",
+                "zh": "法院拒絕適用違憲的法律",
+                "text_en": "When a case turns on a law that conflicts with the Constitution, a court follows the Constitution and treats the law as void. This is judicial review. The Constitution does not provide for it in so many words; the Supreme Court set out the reasoning in 1803.",
+                "text_zh": "當一個案子牽涉到牴觸憲法的法律時，法院依據憲法判決，把那項法律當作無效。這就是司法審查。憲法並沒有明文規定這項權力；最高法院在 1803 年說明了它的道理。",
+                "quote": "It is emphatically the province and duty of the judicial department to say what the law is.",
+                "cite": "Marbury v. Madison (1803), Chief Justice John Marshall",
+                "eg_en": "In Marbury v. Madison the Court found that part of the act that had organized the federal courts gave the Court a power the Constitution did not allow, and it declined to use that power.",
+                "eg_zh": "在 Marbury v. Madison 案裡，最高法院認定當初設立聯邦法院的那部法律，有一部分給了最高法院憲法所不允許的權力，因此拒絕行使那項權力。",
+                "next": [
+                  "courts_shape"
+                ]
+              },
+              {
+                "key": "review_act",
+                "from": "court",
+                "to": "whitehouse",
+                "check": true,
+                "btn_en": "Review an order",
+                "btn_zh": "審查命令",
+                "en": "The courts rule against an executive order",
+                "zh": "法院判定行政命令不合法",
+                "text_en": "Courts also decide whether the President and the departments have acted within the Constitution and the laws. If they have not, the court can order the action stopped.",
+                "text_zh": "法院也判斷總統與各部會的作為有沒有超出憲法與法律的範圍。超出的話，法院可以下令停止。",
+                "quote": "In the framework of our Constitution, the President's power to see that the laws are faithfully executed refutes the idea that he is to be a lawmaker.",
+                "cite": "Youngstown Sheet & Tube Co. v. Sawyer (1952), Justice Hugo Black for the Court",
+                "eg_en": "In 1952 President Harry Truman ordered the Secretary of Commerce to take possession of most of the nation's steel mills. The Supreme Court held that neither a law nor the Constitution gave him that power, and that the order could not stand.",
+                "eg_zh": "1952 年，杜魯門總統下令商務部長接管全國大部分的鋼鐵廠。最高法院判定，沒有任何法律、憲法也沒有給他這項權力，這道命令不能成立。",
+                "next": [
+                  "nominate"
+                ]
+              }
+            ]
+          },
+          "paras": [
+            "In 1788, while the states were deciding whether to ratify the Constitution, James Madison named the danger it was built to avoid. “The accumulation of all powers legislative, executive and judiciary in the same hands,” he wrote in The Federalist No. 47, “… may justly be pronounced the very definition of tyranny.” The thought was not his own. Forty years earlier the French writer Montesquieu had argued that liberty cannot last where the power to make laws, the power to carry them out, and the power to judge are joined in one person or one body. Madison called him “the oracle who is always consulted and cited on this subject.” The practical question was how to keep those three powers apart.",
+            "The first answer was separation. The Constitution gives the legislative power to Congress in Article I, the executive power to a President in Article II, and the judicial power to the courts in Article III. Each branch is chosen in a different way and for a different length of time: representatives for two years, senators for six, a President for four, and federal judges for as long as they show “good Behaviour.” The branches are also kept apart in their membership. No one who holds a federal office may sit in Congress at the same time, so a cabinet secretary cannot also be a senator. In a parliamentary system, by contrast, the ministers who run the government are usually members of the legislature.",
+            "Separation alone was not expected to hold. Madison warned in The Federalist No. 48 that “power is of an encroaching nature,” and he doubted that boundaries written into a document, which he called “parchment barriers,” would stop a determined branch. So the Constitution adds a second device. Rather than sealing the branches off from one another, it gives each a limited share in the work of the others. The President takes part in lawmaking through the veto. The Senate takes part in appointments. Congress can remove a President or a judge. This arrangement is called checks and balances. Madison argued that it keeps faith with Montesquieu, whose rule forbids one branch to hold the whole power of another.",
+            "Lawmaking shows how the checks work. A bill must pass both the House and the Senate, which is already a check inside Congress. It then goes to the President, who may sign it or return it with objections. That return is the veto, although the word never appears in the Constitution. Congress can still make the bill law if two thirds of each house vote to override. That is hard to do. According to the Senate's records, presidents have vetoed 2,599 bills and joint resolutions since 1789. More than a thousand were pocket vetoes, which cannot be overridden; of the 1,533 others, Congress has overridden 112. The first veto came in 1792, and the first override not until 1845.",
+            "Other checks run through appointments and money. The President chooses ambassadors, department heads, and federal judges, but only “by and with the Advice and Consent of the Senate,” and a treaty needs the agreement of two thirds of the senators present. The Senate has voted down a nomination to the Supreme Court twelve times, the first of them in 1795. Congress also holds what is often called the power of the purse. In the words of Article I, “No Money shall be drawn from the Treasury, but in Consequence of Appropriations made by Law.” A President commands the armed forces and directs the departments, but cannot lawfully spend money that Congress has not approved.",
+            "The most drastic check is removal. The House of Representatives may impeach, that is, bring formal charges against, the President, other civil officers, and judges for “Treason, Bribery, or other high Crimes and Misdemeanors.” The Senate then holds a trial, and conviction requires two thirds of the members present. Removal has been rare. As of 2026 the House has impeached officials twenty-two times, and the Senate has convicted eight of them, every one a federal judge. No President has been removed in this way. In 1868 the vote in the Senate to convict President Andrew Johnson was 35 to 19, one vote short of two thirds, so he was acquitted.",
+            "The courts hold a check that the Constitution does not spell out. In Marbury v. Madison, decided in 1803, Chief Justice John Marshall wrote: “It is emphatically the province and duty of the judicial department to say what the law is.” The same opinion reasoned that a law contrary to the Constitution is void. This power, called judicial review, lets courts refuse to apply laws and executive actions that violate the Constitution. Yet the courts are checked as well. Judges are nominated by the President and confirmed by the Senate, and Congress decides how many justices sit on the Supreme Court. As Alexander Hamilton observed, the judiciary has “neither FORCE nor WILL, but merely judgment”: it depends on the executive branch to carry out its decisions.",
+            "All of this has a cost. A system in which every branch can say no tends to be slow, and it can stall when the branches disagree, a condition that news reports call gridlock. Critics since the nineteenth century have argued that dividing power also divides responsibility, so that voters cannot easily tell whom to hold to account. Defenders answer that the delay is deliberate. Justice Louis Brandeis wrote in 1926 that the separation of powers was adopted “not to promote efficiency but to preclude the exercise of arbitrary power.” Whether that trade is worth making is a real argument about how governments should be built, and the Design Debate card in this lesson sets out both sides."
+          ],
+          "paras_zh": [
+            "1788 年，各州還在決定要不要批准憲法的時候，麥迪遜點出了這部憲法想要避開的危險。他在《聯邦論》第四十七篇寫道：「把立法、行政、司法的一切權力集中在同一批人手裡……完全可以說就是暴政的定義。」這個想法不是他發明的。四十年前，法國作家孟德斯鳩（Montesquieu）就主張：制定法律的權力、執行法律的權力和審判的權力，如果合在同一個人或同一個機構手上，自由就保不住。麥迪遜稱他是「談到這個題目，人人都要請教、都要引用的權威」。真正的難題是實際上要怎麼把這三種權力分開。",
+            "第一個答案是「分開」。憲法在第一條把立法權交給國會，第二條把行政權交給總統，第三條把司法權交給法院。每個部門產生的方式不同，任期也不同：眾議員兩年、參議員六年、總統四年，聯邦法官則是「品行端正」就一直做下去。三個部門連成員也是分開的：擔任聯邦官職的人不能同時當國會議員，所以內閣部長不可能兼任參議員。相對地，在內閣制（parliamentary system）裡，負責施政的閣員通常就是國會議員。",
+            "光是分開，制憲者並不認為撐得住。麥迪遜在《聯邦論》第四十八篇警告：「權力具有侵略的本性」；他也懷疑，寫在文件裡的界線——他稱之為「羊皮紙上的柵欄」（parchment barriers）——擋不擋得住一個鐵了心要擴權的部門。於是憲法加上第二個設計：不是把三個部門彼此封死，而是讓每個部門在別的部門的工作裡各有一小份。總統靠否決參與立法；參議院參與人事任命；國會可以把總統或法官免職。這套安排叫做制衡（checks and balances）。麥迪遜主張，這樣並沒有違背孟德斯鳩的原則——那條原則禁止的，是一個部門握有另一個部門的「全部」權力。",
+            "從立法可以看出制衡怎麼運作。法案必須在眾議院和參議院都通過，這已經是國會內部的一道牽制。接著法案送到總統手上，總統可以簽署，也可以附上異議退回。這個「退回」就是否決（veto），雖然憲法裡從頭到尾沒有這個字。國會如果兩院各有三分之二表決推翻（override），法案仍然成為法律——但這很難做到。依參議院的紀錄，1789 年以來歷任總統一共否決了 2,599 項法案與聯合決議案，其中一千多項是不能推翻的「口袋否決」（pocket veto，學術名詞作「袋中否決」）；其餘 1,533 項裡，國會推翻了 112 項。第一次否決在 1792 年，第一次推翻要等到 1845 年。",
+            "另外一些牽制走的是人事和錢。大使、各部會首長和聯邦法官由總統挑選，但必須「經參議院的建議與同意」；條約則需要出席參議員三分之二同意。參議院曾經十二次表決否決最高法院的提名，第一次在 1795 年。國會還握有常被稱為「錢包的權力」的那項權力——第一條的原文是：「除依法律所定的撥款外，不得從國庫提取任何款項。」總統統率軍隊、指揮各部會，但不能合法地花國會沒有核准的錢。",
+            "最激烈的一道牽制是免職。眾議院可以對總統、其他文職官員和法官提出彈劾（impeach）——也就是正式提出指控——罪名是「叛國、賄賂或其他重罪與輕罪」。接著由參議院審判，定罪需要出席議員三分之二同意。真正被免職的很少。到 2026 年為止，眾議院一共彈劾過二十二次，參議院將其中八人定罪，八人全是聯邦法官。沒有一位總統是這樣去職的。1868 年，參議院表決是否將安德魯．詹森總統定罪，結果是 35 票對 19 票，離三分之二只差一票，所以他沒有被定罪。",
+            "法院握有的那道牽制，憲法並沒有明寫。1803 年判決的 Marbury v. Madison 案裡，首席大法官馬歇爾寫道：「說明法律是什麼，斷然是司法部門的職權與責任。」同一份意見書推論：牴觸憲法的法律是無效的。這項權力叫做司法審查（judicial review），法院可以據此拒絕適用違反憲法的法律和行政作為。不過法院自己也受到牽制：法官由總統提名、參議院同意；最高法院有幾位大法官由國會決定。而且正如漢彌爾頓所說，司法部門「既沒有武力，也沒有意志，只有判斷」——它的判決要靠行政部門去執行。",
+            "這一切是有代價的。每個部門都能說「不」的制度往往走得很慢，各部門意見不合時還可能停擺——新聞裡把這種狀況叫做僵局（gridlock）。從十九世紀起就有批評者主張：分散權力也就分散了責任，選民不容易看出該找誰負責。辯護的人則回答：慢是刻意的。布蘭戴斯大法官（Louis Brandeis）在 1926 年寫道，採用權力分立「不是為了提高效率，而是為了防止權力被恣意行使」。這筆交換值不值得，是關於政府該怎麼設計的一場真正的爭論；這一課的「制度的爭論」卡會把兩邊都寫出來。"
+          ],
+          "questions": [
+            "Explain the difference between “separation of powers” and “checks and balances.” Why did Madison think the first would not work without the second?",
+            "Choose one check from the reading and trace a complete exchange: who acts first, how the other branch can respond, and what finally decides the outcome.",
+            "The reading says that a system in which every branch can say no “has a cost.” What is the cost, and what do defenders of the system say it buys?"
+          ],
+          "answers": [
+            "Separation of powers means giving the three kinds of power to three different branches with different members. Checks and balances means giving each branch a small part in the others' work, such as the veto or the Senate's consent to appointments, so that it can resist them. Madison thought that written boundaries alone (“parchment barriers”) would not stop a branch from reaching for more power, because “power is of an encroaching nature.” Each branch needed its own means of defense.",
+            "Sample answer: Congress passes a bill. The President vetoes it by returning it with objections. Congress can respond by voting again; if two thirds of the House and two thirds of the Senate approve, the bill becomes law anyway. If either house falls short, the veto stands. Other good answers: nomination and Senate consent; impeachment by the House and trial in the Senate; a court ruling answered by a constitutional amendment.",
+            "The cost is speed and sometimes action itself: laws are harder to pass, and when the branches disagree the government can reach gridlock. Critics add that it becomes harder for voters to know who is responsible. Defenders say the delay protects liberty, because no one branch can act alone; in Brandeis's words, the purpose was “not to promote efficiency but to preclude the exercise of arbitrary power.”"
+          ],
+          "vocab": [
+            {
+              "n": 1,
+              "w": "separation of powers",
+              "pos": "n.",
+              "zh": "權力分立",
+              "ex": "Under the <b>separation of powers</b>, the people who make the laws do not also judge cases.",
+              "exzh": "在權力分立之下，制定法律的人不會同時審判案件。"
+            },
+            {
+              "n": 2,
+              "w": "checks and balances",
+              "pos": "n.",
+              "zh": "制衡",
+              "ex": "The veto is one of the <b>checks and balances</b> written into the Constitution.",
+              "exzh": "否決是寫進憲法的制衡手段之一。"
+            },
+            {
+              "n": 3,
+              "w": "legislative",
+              "pos": "adj.",
+              "zh": "立法的",
+              "ex": "Congress is the <b>legislative</b> branch.",
+              "exzh": "國會是立法部門。"
+            },
+            {
+              "n": 4,
+              "w": "executive",
+              "pos": "adj.",
+              "zh": "行政的",
+              "ex": "The President heads the <b>executive</b> branch.",
+              "exzh": "總統是行政部門的首長。"
+            },
+            {
+              "n": 5,
+              "w": "judiciary",
+              "pos": "n.",
+              "zh": "司法部門",
+              "ex": "Hamilton thought the <b>judiciary</b> was the weakest of the three branches.",
+              "exzh": "漢彌爾頓認為司法部門是三個部門裡最弱的。"
+            },
+            {
+              "n": 6,
+              "w": "veto",
+              "pos": "v.",
+              "zh": "否決",
+              "ex": "The President may <b>veto</b> a bill by returning it to Congress.",
+              "exzh": "總統可以把法案退回國會，以否決這項法案。"
+            },
+            {
+              "n": 7,
+              "w": "override",
+              "pos": "v.",
+              "zh": "推翻（否決）",
+              "ex": "It takes two thirds of each house to <b>override</b> a veto.",
+              "exzh": "推翻否決需要兩院各三分之二。"
+            },
+            {
+              "n": 8,
+              "w": "consent",
+              "pos": "n.",
+              "zh": "同意",
+              "ex": "A judge cannot take office without the <b>consent</b> of the Senate.",
+              "exzh": "沒有參議院的同意，法官不能就任。"
+            },
+            {
+              "n": 9,
+              "w": "impeach",
+              "pos": "v.",
+              "zh": "彈劾",
+              "ex": "Only the House of Representatives can <b>impeach</b> a federal official.",
+              "exzh": "只有眾議院可以彈劾聯邦官員。"
+            },
+            {
+              "n": 10,
+              "w": "judicial review",
+              "pos": "n.",
+              "zh": "司法審查",
+              "ex": "Through <b>judicial review</b>, a court can refuse to apply an unconstitutional law.",
+              "exzh": "法院可以透過司法審查，拒絕適用違憲的法律。"
+            },
+            {
+              "n": 11,
+              "w": "appropriation",
+              "pos": "n.",
+              "zh": "撥款",
+              "ex": "No department may spend money without an <b>appropriation</b> from Congress.",
+              "exzh": "沒有國會的撥款，任何部會都不能花錢。"
+            },
+            {
+              "n": 12,
+              "w": "gridlock",
+              "pos": "n.",
+              "zh": "僵局",
+              "ex": "When the branches cannot agree, the result is <b>gridlock</b>.",
+              "exzh": "各部門無法達成一致時，結果就是僵局。"
+            }
+          ],
+          "quiz": [
+            {
+              "q": "A cabinet secretary wants to keep her post and also serve as a senator. Why does the Constitution forbid this?",
+              "options": [
+                "Senators must be older than cabinet secretaries",
+                "No one holding a federal office may be a member of Congress at the same time, which keeps the branches separate in their membership",
+                "The President may not appoint anyone from the Senate's home state",
+                "Cabinet secretaries are chosen by the Supreme Court"
+              ],
+              "correct": 1
+            },
+            {
+              "q": "Madison doubted that “parchment barriers” would be enough. What did he mean?",
+              "options": [
+                "The Constitution was written on material that would not last",
+                "Courts would refuse to read the Constitution",
+                "Boundaries written in a document will not by themselves stop a branch from taking more power",
+                "The states would ignore the federal government"
+              ],
+              "correct": 2
+            },
+            {
+              "q": "A bill passes the House 300 to 135 and the Senate 60 to 40. The President vetoes it, and every member votes the same way again. What happens?",
+              "options": [
+                "It becomes law, because both houses passed it twice",
+                "It becomes law, because the House reached two thirds",
+                "It goes to the Supreme Court to decide",
+                "It fails, because the Senate is short of two thirds"
+              ],
+              "correct": 3
+            },
+            {
+              "q": "Which fact from the reading best supports Hamilton's remark that the judiciary has “neither FORCE nor WILL, but merely judgment”?",
+              "options": [
+                "Courts depend on the executive branch to carry out their decisions",
+                "Federal judges serve during good behavior",
+                "The Senate has rejected twelve Supreme Court nominations",
+                "Marbury v. Madison was decided in 1803"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "Since 1789 the Senate has convicted eight impeached officials, all of them judges, and no President. What is the most reasonable conclusion?",
+              "options": [
+                "Presidents cannot be impeached",
+                "The two-thirds requirement is one reason removal has been rare",
+                "Judges are impeached by the Supreme Court",
+                "Impeachment has been used only eight times"
+              ],
+              "correct": 1
+            }
+          ],
+          "parts_head": {
+            "eyebrow": "Try It in the Model · 在模型裡試試",
+            "en": "Four exchanges to watch",
+            "zh": "四場值得看的往來"
+          },
+          "parts": [
+            {
+              "key": "veto",
+              "icon": "✍️",
+              "en": "Bill, veto, override",
+              "zh": "法案、否決、推翻否決",
+              "meta_en": "Congress and the President",
+              "meta_zh": "國會與總統",
+              "demo": "veto",
+              "text_en": "Three arrows in a row: Congress sends a bill, the President sends it back, and Congress answers with two thirds of each house. Notice that the veto stands unless Congress can gather two thirds in both houses.",
+              "text_zh": "連續三道箭頭：國會送出法案，總統把它退回，國會再用兩院各三分之二回應。注意：除非國會能在兩院都湊到三分之二，否則否決就成立。"
+            },
+            {
+              "key": "appoint",
+              "icon": "🪑",
+              "en": "Who puts a judge on the bench?",
+              "zh": "誰讓一位法官坐上法官席？",
+              "meta_en": "President, Senate, and the courts",
+              "meta_zh": "總統、參議院與法院",
+              "demo": "appoint",
+              "text_en": "The President nominates, the Senate may refuse, and Congress decides how many seats there are. The courts are the one branch whose members are chosen entirely by the other two.",
+              "text_zh": "總統提名，參議院可以不同意，國會則決定有幾個席位。三個部門裡，只有法院的成員完全由另外兩個部門來決定。"
+            },
+            {
+              "key": "review",
+              "icon": "🔎",
+              "en": "The check that is not in the text",
+              "zh": "條文裡沒有寫的那道牽制",
+              "meta_en": "The courts",
+              "meta_zh": "法院",
+              "demo": "review",
+              "text_en": "Two arrows leave the Supreme Court: one toward Congress, when a law conflicts with the Constitution, and one toward the President, when an order goes beyond his lawful power. Neither is spelled out in Article III.",
+              "text_zh": "兩道箭頭從最高法院出發：一道指向國會（法律牴觸憲法時），一道指向總統（命令超出他合法的權限時）。這兩項在第三條裡都沒有明寫。"
+            },
+            {
+              "key": "remove",
+              "icon": "🚪",
+              "en": "The last resort",
+              "zh": "最後的手段",
+              "meta_en": "Impeachment",
+              "meta_zh": "彈劾",
+              "demo": "remove",
+              "text_en": "The same two-step process, accusation in the House and trial in the Senate, can remove a President or a judge. Compare the two panels: one has never ended in a conviction, and the other has eight times.",
+              "text_zh": "同一套兩步驟的程序——眾議院指控、參議院審判——可以把總統免職，也可以把法官免職。比一比這兩個說明欄：一種從來沒有以定罪收場，另一種有八次。"
+            }
+          ],
+          "parts_note_en": "When you have watched all four, look at the grid in the panel. Each of the three branches should have checked both of the others: six directions in all.",
+          "parts_note_zh": "四場都看過之後，看看說明欄裡的方格：三個部門應該各自牽制過另外兩個——一共六個方向。",
+          "match": {
+            "eyebrow": "Try It · 動手試試",
+            "en": "Who Is Checking Whom?",
+            "zh": "這一招是誰擋誰？",
+            "cols": 3,
+            "lead_en": "Ten moves. For each one, choose which branch is acting and which branch is being checked. There is no timer, and you can keep choosing until you find it; the game counts the ones you get on the first try.",
+            "lead_zh": "十招。每一題選出是哪個部門出手、牽制的是哪個部門。不計時，可以一直選到對為止；遊戲會記下你第一次就答對的題數。",
+            "options": [
+              {
+                "key": "cp",
+                "en": "Congress ▸ President",
+                "sub_en": "",
+                "sub_zh": "國會 ▸ 總統"
+              },
+              {
+                "key": "cj",
+                "en": "Congress ▸ Courts",
+                "sub_en": "",
+                "sub_zh": "國會 ▸ 法院"
+              },
+              {
+                "key": "pc",
+                "en": "President ▸ Congress",
+                "sub_en": "",
+                "sub_zh": "總統 ▸ 國會"
+              },
+              {
+                "key": "pj",
+                "en": "President ▸ Courts",
+                "sub_en": "",
+                "sub_zh": "總統 ▸ 法院"
+              },
+              {
+                "key": "jc",
+                "en": "Courts ▸ Congress",
+                "sub_en": "",
+                "sub_zh": "法院 ▸ 國會"
+              },
+              {
+                "key": "jp",
+                "en": "Courts ▸ President",
+                "sub_en": "",
+                "sub_zh": "法院 ▸ 總統"
+              }
+            ],
+            "questions": [
+              {
+                "answer": "pc",
+                "en": "Returning a bill unsigned, with written objections",
+                "zh": "不簽署法案，附上書面異議退回",
+                "why_en": "This is the veto: the President checks Congress's power to make law (Article I, Section 7).",
+                "why_zh": "這就是否決：總統牽制國會的立法權（第一條第七項）。",
+                "hint_en": "Who receives a bill after it passes, and who wrote it?",
+                "hint_zh": "法案通過後送到誰手上？法案又是誰寫的？"
+              },
+              {
+                "answer": "cp",
+                "en": "Passing a bill again by two thirds of each house after it has been returned",
+                "zh": "法案被退回後，兩院各以三分之二再次通過",
+                "why_en": "The override: Congress checks the President's veto. The bill becomes law without a signature.",
+                "why_zh": "這是推翻否決：國會牽制總統的否決權。法案不必簽署就成為法律。",
+                "hint_en": "This answers the move in the previous question.",
+                "hint_zh": "這一招是在回應上一題的那一招。"
+              },
+              {
+                "answer": "jc",
+                "en": "Refusing to apply a law because it conflicts with the Constitution",
+                "zh": "以牴觸憲法為由，拒絕適用一項法律",
+                "why_en": "Judicial review of legislation: the courts check the lawmakers (Marbury v. Madison, 1803).",
+                "why_zh": "對法律的司法審查：法院牽制立法者（Marbury v. Madison，1803）。",
+                "hint_en": "Who makes laws, and who decides cases?",
+                "hint_zh": "誰制定法律？誰審理案件？"
+              },
+              {
+                "answer": "pj",
+                "en": "Nominating a new justice of the Supreme Court",
+                "zh": "提名一位新的最高法院大法官",
+                "why_en": "Judges do not pick their successors. By choosing who sits on the courts, the President checks the judiciary (Article II, Section 2).",
+                "why_zh": "法官不能自己挑接班人。總統藉由決定誰當法官，來牽制司法部門（第二條第二項）。",
+                "hint_en": "The question is about who chooses, and whose membership is being chosen.",
+                "hint_zh": "重點是「誰來選」，以及被決定成員的是哪個部門。"
+              },
+              {
+                "answer": "cp",
+                "en": "Refusing to approve a treaty the President has signed",
+                "zh": "不同意總統簽署的條約",
+                "why_en": "A treaty needs two thirds of the senators present (Article II, Section 2). The Senate checks the President.",
+                "why_zh": "條約需要出席參議員三分之二同意（第二條第二項）。這是參議院牽制總統。",
+                "hint_en": "The Senate is part of which branch?",
+                "hint_zh": "參議院屬於哪一個部門？"
+              },
+              {
+                "answer": "cj",
+                "en": "Impeaching a federal judge and removing him from office",
+                "zh": "彈劾一名聯邦法官並將他免職",
+                "why_en": "The House impeaches and the Senate tries. This has ended in conviction eight times, always of judges.",
+                "why_zh": "由眾議院彈劾、參議院審判。這套程序有八次以定罪收場，對象都是法官。",
+                "hint_en": "Which branch holds impeachment trials?",
+                "hint_zh": "彈劾審判是在哪個部門進行的？"
+              },
+              {
+                "answer": "jp",
+                "en": "Ruling that a presidential order goes beyond the President's lawful power",
+                "zh": "判定總統的一道命令超出他合法的權限",
+                "why_en": "Courts review executive action too, as in the steel seizure case of 1952.",
+                "why_zh": "法院也審查行政部門的作為，例如 1952 年的接管鋼鐵廠案。",
+                "hint_en": "Who issued the order, and who is judging it?",
+                "hint_zh": "命令是誰下的？是誰在審查它？"
+              },
+              {
+                "answer": "pj",
+                "en": "Pardoning a person convicted in a federal court",
+                "zh": "赦免一名被聯邦法院定罪的人",
+                "why_en": "A pardon sets aside a punishment that a court imposed (Article II, Section 2).",
+                "why_zh": "赦免免除的是法院所判的刑罰（第二條第二項）。",
+                "hint_en": "Whose decision is being set aside?",
+                "hint_zh": "被擱到一邊的是誰的決定？"
+              },
+              {
+                "answer": "cj",
+                "en": "Setting the number of justices on the Supreme Court by law",
+                "zh": "以法律訂定最高法院大法官的人數",
+                "why_en": "The Constitution leaves the size of the Court to Congress: six justices in 1789, and nine since 1869.",
+                "why_zh": "憲法把最高法院的規模交給國會決定：1789 年六位，1869 年以來九位。",
+                "hint_en": "Laws are made by which branch?",
+                "hint_zh": "法律是哪個部門制定的？"
+              },
+              {
+                "answer": "pc",
+                "en": "Keeping a bill unsigned until Congress has adjourned, so that it never becomes law",
+                "zh": "把法案放著不簽，直到國會休會，讓它無法成為法律",
+                "why_en": "This is the pocket veto, and Congress cannot override it: when an adjournment prevents the bill's return, “it shall not be a Law” (Article I, Section 7).",
+                "why_zh": "這是口袋否決，國會無法推翻：國會休會致使法案無從退回時，它「不成為法律」（第一條第七項）。",
+                "hint_en": "Whose bill is it, and who is holding it?",
+                "hint_zh": "這是誰的法案？又是誰把它壓著？"
+              }
+            ],
+            "end_en": "Every branch appeared as the one acting and as the one being checked. That is the design: no branch is only a watcher, and none is only watched.",
+            "end_zh": "每個部門都當過出手的一方，也都當過被牽制的一方。這就是這套設計：沒有哪個部門只管看著別人，也沒有哪個部門只被別人看著。"
+          },
+          "veto": {
+            "eyebrow": "Try It · 動手試試",
+            "en": "After the Veto, What Then?",
+            "zh": "否決之後，還有幾條路？",
+            "lead_en": "A bill has reached the President's desk. Set how Congress voted, choose what the President does, and read the result. Then change one thing at a time. Try to find the two ways a bill can become law without the President's signature, and the one kind of veto that Congress cannot override.",
+            "lead_zh": "一項法案送到了總統桌上。先設定國會怎麼投票，再選總統怎麼做，看看結果；然後一次只改一樣。試著找出法案不經總統簽署也能成為法律的兩種情形，以及國會無法推翻的那一種否決。",
+            "bodies": {
+              "house": 435,
+              "senate": 100
+            },
+            "start": {
+              "house": 240,
+              "senate": 55
+            },
+            "sets": {
+              "bare": {
+                "house": 218,
+                "senate": 51,
+                "en": "A bare majority",
+                "zh": "剛好過半"
+              },
+              "split": {
+                "house": 300,
+                "senate": 60,
+                "en": "Strong in one house only",
+                "zh": "只有一院夠強"
+              },
+              "super": {
+                "house": 290,
+                "senate": 67,
+                "en": "Two thirds of each",
+                "zh": "兩院各三分之二"
+              }
+            },
+            "marks_en": "Each slider has two marks: a majority (218 and 51), which passes a bill, and two thirds (290 and 67), which overrides a veto.",
+            "marks_zh": "每支滑桿上有兩個記號：過半數（218 與 51）可以通過法案，三分之二（290 與 67）可以推翻否決。",
+            "acts": [
+              {
+                "key": "sign",
+                "en": "Sign it",
+                "zh": "簽署"
+              },
+              {
+                "key": "veto",
+                "en": "Veto it: return it to Congress with objections",
+                "zh": "否決：附上異議退回國會"
+              },
+              {
+                "key": "wait",
+                "en": "Do nothing for ten days (Sundays not counted)",
+                "zh": "十天內不簽也不退回（星期日不算）"
+              }
+            ],
+            "adjourn_en": "Congress has adjourned during those ten days, so the bill cannot be returned",
+            "adjourn_zh": "這十天當中國會已經休會，法案無從退回",
+            "results": {
+              "fail_congress": {
+                "en": "The bill never reached the President: it needs a majority in both houses first.",
+                "zh": "法案根本沒有送到總統手上：它得先在兩院都過半數。"
+              },
+              "signed": {
+                "en": "Both houses passed it and the President signed it. This is the ordinary route.",
+                "zh": "兩院通過、總統簽署。這是最平常的路。"
+              },
+              "unsigned_law": {
+                "en": "The President neither signed nor returned it, and Congress was still in session, so after ten days it became law “in like Manner as if he had signed it.”",
+                "zh": "總統既沒有簽署也沒有退回，而國會還在開會，所以十天之後它「如同總統已簽署一樣」成為法律。"
+              },
+              "pocket": {
+                "en": "This is a pocket veto. Because Congress adjourned, the President could not return the bill, and the Constitution says that in that case “it shall not be a Law.” There is nothing for Congress to override, however many votes it has. (Which adjournments count has been disputed between presidents and Congress.)",
+                "zh": "這是口袋否決（pocket veto）。因為國會休會，總統無從退回法案；憲法規定在這種情形下它「不成為法律」。國會不管有多少票，都沒有東西可以推翻。（哪一種休會才算數，總統和國會之間有過爭執。）"
+              },
+              "overridden": {
+                "en": "The President vetoed it, and two thirds of each house passed it again. The veto is overridden.",
+                "zh": "總統否決了，但兩院各有三分之二再次通過——否決被推翻。"
+              },
+              "sustained": {
+                "en": "The President vetoed it, and Congress could not gather two thirds in both houses. The veto stands.",
+                "zh": "總統否決了，而國會沒能在兩院都湊到三分之二——否決成立。"
+              }
+            },
+            "short": {
+              "house": {
+                "en": "The House fell short.",
+                "zh": "差在眾議院。"
+              },
+              "senate": {
+                "en": "The Senate fell short.",
+                "zh": "差在參議院。"
+              },
+              "both": {
+                "en": "Both houses fell short.",
+                "zh": "兩院都不夠。"
+              }
+            },
+            "bodies_note_en": "Counts for 2026: 435 voting seats in the House and 100 in the Senate. The Constitution sets fractions, not head counts, and the two thirds is of the members who vote, so these numbers assume that every seat is filled and every member votes. The tool also assumes that each member votes the same way on the override as on the bill.",
+            "bodies_note_zh": "2026 年的數字：眾議院 435 個有表決權的席位、參議院 100 席。憲法寫的是分數而不是人數，而且三分之二是以實際投票的議員來算，所以這裡的票數是假設「席位全部有人、全員投票」。這個小工具還假設：表決推翻否決時，每位議員投的票和當初表決法案時一樣。",
+            "record": {
+              "en": "The record since 1789",
+              "zh": "1789 年以來的紀錄",
+              "items": [
+                {
+                  "label": "2,599",
+                  "n": 2599,
+                  "en": "presidential vetoes in all",
+                  "zh": "總統否決的總數"
+                },
+                {
+                  "label": "1,066",
+                  "n": 1066,
+                  "en": "of them pocket vetoes, which cannot be overridden",
+                  "zh": "其中是口袋否決（袋中否決；無法推翻）"
+                },
+                {
+                  "label": "112",
+                  "n": 112,
+                  "en": "vetoes overridden by Congress",
+                  "zh": "被國會推翻的否決"
+                }
+              ],
+              "note_en": "Of the 1,533 vetoes that Congress could have tried to override, it overrode 112, about 7 in every 100. The counts include joint resolutions as well as bills. The Senate's table has no “as of” date; these figures were read in October 2026.",
+              "note_zh": "國會可以嘗試推翻的 1,533 次否決裡，被推翻的有 112 次，大約每 100 次有 7 次。這些數字除了法案，也包括聯合決議案。參議院的表格沒有標示統計截止日；這些數字是 2026 年 10 月查閱的。",
+              "src": [
+                {
+                  "label": "U.S. Senate: Vetoes, 1789 to Present",
+                  "url": "https://www.senate.gov/legislative/vetoes/vetoCounts.htm"
+                },
+                {
+                  "label": "U.S. House: Presidential Vetoes",
+                  "url": "https://history.house.gov/Institution/Presidential-Vetoes/Presidential-Vetoes/"
+                }
+              ]
+            }
+          },
+          "clause": {
+            "eyebrow": "What Does the Text Say? · 條文怎麼寫？",
+            "en": "Three clauses this lesson rests on",
+            "zh": "這一課依據的三段條文",
+            "lead_en": "The words are copied from the National Archives transcription of the Constitution, with the capital letters and spelling of 1787. The first clause keeps the branches apart; the other two let one branch into the work of another.",
+            "lead_zh": "原文照美國國家檔案館的憲法謄本逐字抄錄，保留 1787 年的大寫與拼法。第一段把部門分開；另外兩段讓一個部門伸手進另一個部門的工作。",
+            "items": [
+              {
+                "cite_en": "Article I, Section 6, Clause 2 (second part)",
+                "cite_zh": "第一條第六項第二款（後半）",
+                "text": "… and no Person holding any Office under the United States, shall be a Member of either House during his Continuance in Office.",
+                "zh": "……凡在合眾國政府擔任任何官職的人，在其任職期間，不得為國會任何一院的議員。",
+                "note_en": "This is separation in its plainest form: the same person cannot be in two branches at once. It is one of the clearest differences between the presidential system of the United States and a parliamentary system such as Britain's, where ministers normally sit in the legislature.",
+                "note_zh": "這是最直白的「分開」：同一個人不能同時待在兩個部門。美國的總統制和英國那樣的內閣制，最清楚的差別之一就在這裡——在英國，閣員通常同時是國會議員。",
+                "src": [
+                  {
+                    "label": "National Archives: The Constitution, a transcription",
+                    "url": "https://www.archives.gov/founding-docs/constitution-transcript"
+                  }
+                ]
+              },
+              {
+                "cite_en": "Article I, Section 7, Clause 2 (the veto and the override)",
+                "cite_zh": "第一條第七項第二款（否決與推翻否決）",
+                "text": "Every Bill which shall have passed the House of Representatives and the Senate, shall, before it become a Law, be presented to the President of the United States; If he approve he shall sign it, but if not he shall return it, with his Objections to that House in which it shall have originated, who shall enter the Objections at large on their Journal, and proceed to reconsider it. If after such Reconsideration two thirds of that House shall agree to pass the Bill, it shall be sent, together with the Objections, to the other House, by which it shall likewise be reconsidered, and if approved by two thirds of that House, it shall become a Law.",
+                "zh": "凡經眾議院與參議院通過的法案，在成為法律之前，應送交合眾國總統。總統如果同意，應予簽署；如果不同意，應附上異議，退回提出該法案的那一院；該院應把異議詳細載入議事錄，並重新審議。重新審議後，如果該院有三分之二同意通過，應將法案連同異議送交另一院，由另一院同樣重新審議；如果也經該院三分之二同意，該法案即成為法律。",
+                "note_en": "The clause continues: a bill not returned within ten days, Sundays excepted, becomes law as if signed, “unless the Congress by their Adjournment prevent its Return, in which Case it shall not be a Law.” That last phrase is the source of the pocket veto.",
+                "note_zh": "條文接著規定：法案在十天內（星期日不算）沒有被退回，就如同已簽署一樣成為法律，「除非國會休會致使法案無從退回，在這種情形下它不成為法律」。最後這一句，就是口袋否決的來源。",
+                "src": [
+                  {
+                    "label": "National Archives: The Constitution, a transcription",
+                    "url": "https://www.archives.gov/founding-docs/constitution-transcript"
+                  }
+                ]
+              },
+              {
+                "cite_en": "Article II, Section 2, Clause 2 (advice and consent)",
+                "cite_zh": "第二條第二項第二款（參議院的建議與同意）",
+                "text": "He shall have Power, by and with the Advice and Consent of the Senate, to make Treaties, provided two thirds of the Senators present concur; and he shall nominate, and by and with the Advice and Consent of the Senate, shall appoint Ambassadors, other public Ministers and Consuls, Judges of the supreme Court, and all other Officers of the United States, whose Appointments are not herein otherwise provided for, and which shall be established by Law:",
+                "zh": "總統經參議院的建議與同意，並經出席參議員三分之二贊成，有締結條約之權；總統提名，並經參議院的建議與同意，任命大使、其他公使與領事、最高法院法官，以及本憲法未另行規定任命方式、而依法律設置的合眾國一切其他官員。",
+                "note_en": "Notice the two different thresholds in one sentence. Treaties need two thirds of the senators present. Appointments need the Senate's consent, and the text does not say how large a vote that takes.",
+                "note_zh": "注意同一句話裡有兩種不同的門檻：條約要出席參議員的三分之二；人事任命要參議院同意，但條文沒有說需要多少票。",
+                "src": [
+                  {
+                    "label": "National Archives: The Constitution, a transcription",
+                    "url": "https://www.archives.gov/founding-docs/constitution-transcript"
+                  }
+                ]
+              }
+            ]
+          },
+          "primary": {
+            "eyebrow": "Read the Source · 讀原典",
+            "en": "Montesquieu, and Madison's reading of him",
+            "zh": "孟德斯鳩，以及麥迪遜怎麼讀他",
+            "lead_en": "Two texts forty years apart. The first is the passage that the authors of the Constitution kept coming back to, in the standard English translation of their century. The second is Madison explaining what that passage does and does not require. Read each slowly before you open the translation; the eighteenth-century spellings (“controul,” “every thing”) are in the originals.",
+            "lead_zh": "兩段相隔四十年的文字。第一段是制憲者一再回頭去談的那一段，用的是十八世紀通行的英譯本；第二段是麥迪遜在解釋這段話要求什麼、不要求什麼。先慢慢讀一遍，再打開中譯；十八世紀的拼法（controul、every thing）是原文就有的。",
+            "docs": [
+              {
+                "kind_en": "Political theory, 1748",
+                "kind_zh": "1748 年的政治理論",
+                "title_en": "The Spirit of Laws, Book XI, Chapter 6 (excerpt)",
+                "title_zh": "《論法的精神》第十一卷第六章（節錄）",
+                "by_en": "Charles de Secondat, Baron de Montesquieu. First published in French in 1748; English translation by Thomas Nugent, first published in the early 1750s.",
+                "by_zh": "孟德斯鳩（Montesquieu）著，1748 年以法文出版；英譯者為 Thomas Nugent，英譯本在 1750 年代初出版。",
+                "text": [
+                  "When the legislative and executive powers are united in the same person, or in the same body of magistrates, there can be no liberty; because apprehensions may arise, lest the same monarch or senate should enact tyrannical laws, to execute them in a tyrannical manner.",
+                  "Again, there is no liberty, if the power of judging be not separated from the legislative and executive powers. Were it joined with the legislative, the life and liberty of the subject would be exposed to arbitrary controul; for the judge would be then the legislator. Were it joined to the executive power, the judge might behave with all the violence of an oppressor.",
+                  "There would be an end of every thing, were the same man, or the same body whether of the nobles or of the people, to exercise those three powers, that of enacting laws, that of executing the public resolutions, and that of judging the crimes or differences of individuals."
+                ],
+                "text_zh": [
+                  "當立法權與行政權集中在同一個人或同一個官員團體手上時，自由就不存在了；因為人們會擔心，同一位君主或同一個元老院會制定暴虐的法律，再用暴虐的方式去執行。",
+                  "同樣地，如果審判權不和立法權、行政權分開，自由也不存在。如果審判權和立法權合在一起，人民的生命與自由就會受到恣意的支配，因為法官就是立法者。如果審判權和行政權合在一起，法官就可能擁有壓迫者的全部暴力。",
+                  "如果同一個人，或是同一個機構——不論是貴族的還是人民的——行使這三種權力，也就是制定法律的權力、執行公共決議的權力，以及審判罪行或私人爭訟的權力，那就一切都完了。"
+                ],
+                "note_en": "Text of Nugent's translation as printed in the London edition of 1758, transcribed by Wikisource from page scans. Public domain. The Chinese translation is ours.",
+                "note_zh": "原文依 Nugent 英譯本 1758 年倫敦版，由 Wikisource 依掃描頁面謄錄；公有領域。中譯為本站所譯。",
+                "src": [
+                  {
+                    "label": "Wikisource: The Spirit of Laws (1758), Book XI",
+                    "url": "https://en.wikisource.org/wiki/The_Spirit_of_Laws_(1758)/Book_XI"
+                  }
+                ],
+                "gloss": [
+                  {
+                    "w": "magistrates",
+                    "en": "officials who hold public authority",
+                    "zh": "握有公權力的官員"
+                  },
+                  {
+                    "w": "apprehensions",
+                    "en": "fears about what may happen",
+                    "zh": "對將來的憂慮"
+                  },
+                  {
+                    "w": "lest",
+                    "en": "for fear that",
+                    "zh": "唯恐；以免"
+                  },
+                  {
+                    "w": "the subject",
+                    "en": "a person living under a government",
+                    "zh": "受政府統治的人民"
+                  },
+                  {
+                    "w": "arbitrary controul",
+                    "en": "control not limited by law (“controul” is an old spelling of “control”)",
+                    "zh": "不受法律限制的支配（controul 是 control 的舊拼法）"
+                  },
+                  {
+                    "w": "public resolutions",
+                    "en": "decisions made in the name of the state",
+                    "zh": "以國家名義作成的決議"
+                  }
+                ],
+                "questions": [
+                  {
+                    "en": "Montesquieu gives a separate reason for each combination of powers. What exactly goes wrong when judging is joined to lawmaking, and what goes wrong when it is joined to executing?",
+                    "zh": "孟德斯鳩替每一種權力的結合各給了一個理由。審判權和立法權合在一起，到底會出什麼問題？和行政權合在一起，又會出什麼問題？"
+                  },
+                  {
+                    "en": "He says the danger exists whether the body that holds all three powers is “of the nobles or of the people.” Why would a body elected by the people still be dangerous?",
+                    "zh": "他說：握有三種權力的機構不論是「貴族的還是人民的」，危險都在。為什麼一個由人民選出來的機構仍然危險？"
+                  },
+                  {
+                    "en": "Notice the word “apprehensions” in the first paragraph. Is liberty lost when tyrannical laws are actually passed, or already when people have reason to fear them? What does that tell you about his idea of liberty?",
+                    "zh": "注意第一段裡的 apprehensions（擔心）。自由是在暴虐的法律真的通過時才失去，還是在人們有理由害怕時就已經失去了？這透露出他心目中的自由是什麼？"
+                  }
+                ]
+              },
+              {
+                "kind_en": "Essay, 1788",
+                "kind_zh": "1788 年的文章",
+                "title_en": "The Federalist, No. 47 (excerpts)",
+                "title_zh": "《聯邦論》第四十七篇（節錄）",
+                "by_en": "By James Madison, signed “Publius.” Printed in New York newspapers at the end of January 1788; the editors of Madison's papers date it January 30.",
+                "by_zh": "麥迪遜著，署名「普布利烏斯」（Publius）。1788 年 1 月底刊登於紐約的報紙；《麥迪遜文集》的編者把日期定在 1 月 30 日。",
+                "text": [
+                  "The accumulation of all powers legislative, executive and judiciary in the same hands, whether of one, a few or many, and whether hereditary, self appointed, or elective, may justly be pronounced the very definition of tyranny.",
+                  "From these facts by which Montesquieu was guided it may clearly be inferred, that in saying, “there can be no liberty where the legislative and executive powers are united in the same person, or body of magistrates,” or, “if the power of judging be not separated from the legislative and executive powers,” he did not mean that these departments ought to have no partial agency in, or no control over the acts of each other. His meaning, as his own words import, and still more conclusively as illustrated by the example in his eye, can amount to no more than this, that where the whole power of one department is exercised by the same hands which possess the whole power of another department, the fundamental principles of a free constitution, are subverted."
+                ],
+                "text_zh": [
+                  "把立法、行政、司法的一切權力集中在同一批人手裡——不論是一個人、少數人還是多數人，也不論是世襲的、自己任命的還是選舉產生的——完全可以說就是暴政的定義。",
+                  "從孟德斯鳩所依據的這些事實，可以清楚地推斷：當他說「立法權與行政權集中在同一個人或同一個官員團體時，自由便不存在」，或者「審判權如果不和立法權、行政權分開」的時候，他的意思並不是說這些部門對彼此的作為不應該有部分的參與，或者不應該有任何牽制。他的意思——從他自己的話就看得出來，從他眼前的那個實例看得更加確定——只不過是：當一個部門的全部權力，由握有另一個部門全部權力的同一批人行使時，自由憲政的基本原則就被顛覆了。"
+                ],
+                "note_en": "Text as given by Founders Online (National Archives), from The Papers of James Madison. The two paragraphs come from different places in the essay. “The example in his eye” is the British constitution, which Montesquieu was describing. Madison's quotations from Montesquieu differ slightly from Nugent's translation above; the editors suggest he may have been translating from a French edition. Other editions, including the Library of Congress text, punctuate the passage differently, print some words in capitals, and date the essay February 1. Public domain. The Chinese translation is ours.",
+                "note_zh": "原文依 Founders Online（美國國家檔案館）收錄的《麥迪遜文集》版本；這兩段出自文章裡不同的地方。「他眼前的那個實例」指的是孟德斯鳩當時所描述的英國憲政。麥迪遜引用孟德斯鳩的字句，和上面 Nugent 的譯文略有出入；編者推測他可能是自己從法文本翻譯的。其他版本（包括國會圖書館的文本）標點不同、有些字用大寫，日期則標為 2 月 1 日。公有領域。中譯為本站所譯。",
+                "src": [
+                  {
+                    "label": "Founders Online: The Federalist Number 47",
+                    "url": "https://founders.archives.gov/documents/Madison/01-10-02-0266"
+                  },
+                  {
+                    "label": "Library of Congress: Federalist Nos. 41–50",
+                    "url": "https://guides.loc.gov/federalist-papers/text-41-50"
+                  }
+                ],
+                "gloss": [
+                  {
+                    "w": "accumulation",
+                    "en": "a gathering together into one place",
+                    "zh": "聚集；累積"
+                  },
+                  {
+                    "w": "hereditary",
+                    "en": "passed down by birth within a family",
+                    "zh": "世襲的"
+                  },
+                  {
+                    "w": "partial agency",
+                    "en": "a limited share in doing something",
+                    "zh": "部分的參與"
+                  },
+                  {
+                    "w": "import",
+                    "en": "(verb) to mean; to signify",
+                    "zh": "（動詞）意指"
+                  },
+                  {
+                    "w": "in his eye",
+                    "en": "that he was looking at; that he had in view",
+                    "zh": "他眼前所看的"
+                  },
+                  {
+                    "w": "subverted",
+                    "en": "overturned from below; undermined",
+                    "zh": "被顛覆；被破壞"
+                  }
+                ],
+                "questions": [
+                  {
+                    "en": "In the first sentence, tyranny is defined by where power sits, not by how the rulers were chosen. Which words tell you that an elected government can also be a tyranny?",
+                    "zh": "第一句是用「權力放在哪裡」來定義暴政，而不是用「統治者怎麼產生」。哪幾個字告訴你，民選的政府也可能是暴政？"
+                  },
+                  {
+                    "en": "Madison separates two things: a branch having “partial agency” in another's work, and one set of hands holding the “whole power” of two branches. Give one example of each from the Constitution.",
+                    "zh": "麥迪遜把兩件事分開：一個部門在另一個部門的工作裡有「部分的參與」，以及同一批人握有兩個部門的「全部權力」。請從憲法裡各舉一個例子。"
+                  },
+                  {
+                    "en": "Madison is answering critics who said the Constitution mixed the powers too much. After reading Montesquieu's own words above, do you find Madison's reading of him convincing? Why or why not?",
+                    "zh": "麥迪遜是在回應批評者——他們認為這部憲法把權力混得太多。讀過上面孟德斯鳩自己的話之後，你覺得麥迪遜對他的解讀有沒有說服力？為什麼？"
+                  }
+                ]
+              }
+            ]
+          },
+          "debate": {
+            "eyebrow": "The Design Debate · 制度的爭論",
+            "en": "Is friction the flaw or the design?",
+            "zh": "摩擦是缺陷，還是設計？",
+            "lead_en": "Democracies have built their governments in two broad ways. Some, like the United States, keep the executive and the legislature apart and let each check the other. Others join them, in what the English writer Walter Bagehot called in 1867 “the nearly complete fusion” of the two powers: the executive is chosen by the legislature and lasts only while it keeps the legislature's support. Each design is stated here in its strongest form, and the card does not choose between them.",
+            "lead_zh": "民主國家搭建政府的方式大致有兩種。一種像美國，把行政和立法分開，讓它們互相牽制；另一種把兩者結合起來——英國作家白芝浩（Walter Bagehot）在 1867 年稱之為兩種權力「幾乎完全的融合」：行政首長由立法機關產生，只有在保住立法機關支持的時候才能繼續執政。這裡把兩種設計各用最強的版本寫出來，不替它們分高下。",
+            "question_en": "Should the power to make laws and the power to carry them out be kept in separate hands that must agree before the government acts, or joined so that one majority, answerable to the voters, can govern?",
+            "question_zh": "制定法律的權力和執行法律的權力，應該放在必須彼此同意才能行動的不同人手上，還是結合起來，讓一個要向選民負責的多數能夠施政？",
+            "sides": [
+              {
+                "k_en": "One design",
+                "k_zh": "一種設計",
+                "name_en": "Separate the powers and let them check each other",
+                "name_zh": "分開，並且互相牽制",
+                "points": [
+                  {
+                    "en": "Concentrated power is the greater danger. A government that needs the agreement of several independent bodies will sometimes fail to act, but it is less likely to act against people's rights, because no one of those bodies can do so alone.",
+                    "zh": "集中的權力才是比較大的危險。要好幾個獨立機構都同意才能行動的政府，有時候會做不成事，但也比較不會侵害人民的權利——因為沒有哪一個機構能單獨辦到。"
+                  },
+                  {
+                    "en": "Bodies chosen in different ways, at different times, by different electorates must each be persuaded. A law that survives all of them rests on broader agreement than one passed by a single majority, and it is less likely to be reversed after the next election.",
+                    "zh": "用不同方式、在不同時間、由不同選民選出來的機構，必須一個一個被說服。通得過這些關卡的法律，共識比單一多數通過的更廣，下次選舉後也比較不會被翻掉。"
+                  },
+                  {
+                    "en": "Each branch has both a motive and the means to expose what the others do wrong. Rivalry between institutions does some of the work that would otherwise depend on the virtue of the people in office.",
+                    "zh": "每個部門都有動機、也有手段去揭露別的部門做錯的事。機構之間的競爭，分擔了一部分原本只能指望在位者品德的工作。"
+                  }
+                ],
+                "voice": "The doctrine of the separation of powers was adopted by the convention of 1787 not to promote efficiency but to preclude the exercise of arbitrary power. The purpose was not to avoid friction, but, by means of the inevitable friction incident to the distribution of the governmental powers among three departments, to save the people from autocracy.",
+                "voice_cite": "Justice Louis Brandeis, dissenting in Myers v. United States, 272 U.S. 52 (1926)",
+                "voice_zh": "1787 年的制憲會議採用權力分立的原則，不是為了提高效率，而是為了防止權力被恣意行使。目的不在避免摩擦，而是要藉著把政府權力分配給三個部門所必然產生的摩擦，使人民免於專制。——布蘭戴斯大法官，1926 年（不同意見書）",
+                "src": [
+                  {
+                    "label": "Cornell LII: Myers v. United States (1926)",
+                    "url": "https://www.law.cornell.edu/supremecourt/text/272/52"
+                  },
+                  {
+                    "label": "Library of Congress: Federalist No. 51",
+                    "url": "https://guides.loc.gov/federalist-papers/text-51-60"
+                  }
+                ]
+              },
+              {
+                "k_en": "Another design",
+                "k_zh": "另一種設計",
+                "name_en": "Join the powers and make one majority answerable",
+                "name_zh": "結合，並且讓一個多數負責",
+                "points": [
+                  {
+                    "en": "A government has to be able to govern. When the executive is drawn from the majority in the legislature, the people who promise a program are the same people who can pass it and carry it out, so decisions get made.",
+                    "zh": "政府總得要能施政。當行政首長出自立法機關的多數時，提出政綱的人就是有辦法通過它、執行它的同一批人，事情因此做得了決定。"
+                  },
+                  {
+                    "en": "Clear power means clear responsibility. If things go badly, voters know whom to remove. Where power is divided, each side can blame the other, and it can be hard to say who should answer for the result.",
+                    "zh": "權力清楚，責任才清楚。事情辦壞了，選民知道該把誰換掉。權力分散的地方，每一邊都可以怪另一邊，很難說清楚該由誰為後果負責。"
+                  },
+                  {
+                    "en": "A deadlock needs an exit. Officials elected for fixed terms can remain at odds for years. A legislature that can dismiss the executive, or be sent back to the voters in a new election, can end a stalemate in weeks.",
+                    "zh": "僵局需要出口。任期固定的民選官員可以對峙好幾年；而一個可以把行政首長換掉、或者可以被解散重選的立法機關，幾個星期就能結束僵持。"
+                  }
+                ],
+                "voice": "If there be one principle clearer than another, it is this: that in any business, whether of government or of mere merchandising, somebody must be trusted, in order that when things go wrong it may be quite plain who should be punished. … Power and strict accountability for its use are the essential constituents of good government.",
+                "voice_cite": "Woodrow Wilson, Congressional Government (1885), written when he was a young scholar; some words are in italics in the original",
+                "voice_zh": "如果有哪一條原則比別的更清楚，那就是：任何事業，不論是政府還是單純的買賣，總得信任某一個人，這樣事情出錯時，才能清清楚楚知道該罰誰。……權力，加上對如何使用權力的嚴格問責，是良好政府的根本要素。——威爾遜，《國會政體》（1885，當時他還是一位年輕的學者）",
+                "src": [
+                  {
+                    "label": "Project Gutenberg: Woodrow Wilson, Congressional Government",
+                    "url": "https://www.gutenberg.org/ebooks/35861"
+                  },
+                  {
+                    "label": "Project Gutenberg: Walter Bagehot, The English Constitution",
+                    "url": "https://www.gutenberg.org/ebooks/4351"
+                  }
+                ]
+              }
+            ],
+            "close_en": "Both designs exist in stable democracies, and many countries combine features of the two. The disagreement is about which risk to guard against first: a government that can do too much, or one that can do too little. This card does not settle it. Which of the arguments above do you find strongest, and what evidence would change your mind?",
+            "close_zh": "這兩種設計都存在於穩定的民主國家，也有許多國家混用兩者的特色。分歧在於先防哪一種風險：一個能做太多事的政府，還是一個做不了事的政府。這張卡不替這個問題下結論。上面的論點裡，你覺得哪幾個最有力？什麼樣的證據會讓你改變想法？"
+          },
+          "taiwan": {
+            "eyebrow": "Compare with Taiwan · 和台灣比一比",
+            "en": "Three branches and five Yuan",
+            "zh": "三個部門與五院",
+            "lead_en": "This card compares designs only. It quotes the Constitution of the Republic of China and its Additional Articles from the official Laws and Regulations Database, and it does not say which arrangement is better.",
+            "lead_zh": "這張卡只比制度的設計，條文引自全國法規資料庫的《中華民國憲法》與《中華民國憲法增修條文》；不評價哪一種安排比較好。",
+            "rows": [
+              {
+                "topic_en": "How the powers are divided",
+                "topic_zh": "權力怎麼分",
+                "us_en": "Three branches: Congress (Article I), the President (Article II), and the courts (Article III).",
+                "us_zh": "三個部門：國會（第一條）、總統（第二條）、法院（第三條）。",
+                "tw_en": "A President and five Yuan: Executive, Legislative, Judicial, Examination, and Control (Constitution, Articles 53, 62, 77, 83, and 90).",
+                "tw_zh": "總統之外設五院：行政院、立法院、司法院、考試院、監察院（憲法第 53、62、77、83、90 條）。"
+              },
+              {
+                "topic_en": "The executive and the legislature",
+                "topic_zh": "行政與立法的關係",
+                "us_en": "The President is elected separately for a fixed term of four years and does not depend on the confidence of Congress. No officeholder may sit in Congress.",
+                "us_zh": "總統另外選出，任期固定四年，不必得到國會的信任才能繼續任職。官員不得兼任國會議員。",
+                "tw_en": "The President is directly elected and appoints the president of the Executive Yuan. The Executive Yuan is responsible to the Legislative Yuan, which may pass a vote of no confidence; the President may then dissolve the Legislative Yuan (Additional Articles 2 and 3).",
+                "tw_zh": "總統由人民直選，並任命行政院院長。行政院對立法院負責；立法院可以通過不信任案，總統在不信任案通過後得解散立法院（增修條文第 2、3 條）。"
+              },
+              {
+                "topic_en": "Sending a bill back",
+                "topic_zh": "把法案退回去",
+                "us_en": "The President returns the bill. Overriding takes two thirds of each house. A bill neither signed nor returned within ten days becomes law if Congress is still in session.",
+                "us_zh": "總統把法案退回。推翻需要兩院各三分之二。十天內既沒簽署也沒退回的法案，只要國會還在開會，就成為法律。",
+                "tw_en": "The Executive Yuan, with the President's approval, asks the Legislative Yuan to reconsider within ten days. The bill is upheld if more than half of all members vote for it. If the Legislative Yuan does not decide in time, the original bill lapses.",
+                "tw_zh": "行政院經總統核可，於十日內移請立法院覆議。全體立法委員二分之一以上決議維持原案，行政院院長就應接受。立法院逾期沒有議決，原決議失效。"
+              },
+              {
+                "topic_en": "Removing the President",
+                "topic_zh": "把總統免職",
+                "us_en": "The House impeaches; the Senate tries the case and convicts by two thirds of the members present.",
+                "us_zh": "眾議院彈劾；參議院審判，出席議員三分之二同意即定罪。",
+                "tw_en": "The Legislative Yuan impeaches, on the proposal of more than half and the vote of more than two thirds of all its members. The case then goes to the Constitutional Court, and the President is removed if the Court upholds it (Additional Articles 2, 4, and 5).",
+                "tw_zh": "立法院提出彈劾案，須經全體立法委員二分之一以上提議、三分之二以上決議；接著聲請司法院大法官審理，經憲法法庭判決成立，被彈劾人即解職（增修條文第 2、4、5 條）。"
+              },
+              {
+                "topic_en": "Who decides what the constitution means",
+                "topic_zh": "誰來解釋憲法",
+                "us_en": "The ordinary federal courts, with the Supreme Court at the top. The power is not stated in the text; the Court explained it in 1803. Judges are nominated by the President and confirmed by the Senate, and serve during good behavior.",
+                "us_zh": "一般的聯邦法院，最上面是最高法院。這項權力條文沒有明寫，最高法院在 1803 年說明了它的道理。法官由總統提名、參議院同意，品行端正即終身任職。",
+                "tw_en": "The Judicial Yuan interprets the Constitution (Article 78). The Additional Articles provide for fifteen justices, nominated by the President and confirmed by the Legislative Yuan for terms of eight years, who also sit as the Constitutional Court (Additional Article 5).",
+                "tw_zh": "司法院解釋憲法（憲法第 78 條）。增修條文規定司法院設大法官十五人，由總統提名、經立法院同意任命，任期八年，並組成憲法法庭（增修條文第 5 條）。"
+              }
+            ],
+            "quotes": [
+              {
+                "cite_zh": "中華民國憲法增修條文　第 3 條第 2 項第 2 款（覆議）",
+                "cite_en": "Additional Articles of the Constitution, Article 3, Paragraph 2, Item 2 (reconsideration)",
+                "text": "行政院對於立法院決議之法律案、預算案、條約案，如認為有窒礙難行時，得經總統之核可，於該決議案送達行政院十日內，移請立法院覆議。立法院對於行政院移請覆議案，應於送達十五日內作成決議。如為休會期間，立法院應於七日內自行集會，並於開議十五日內作成決議。覆議案逾期未議決者，原決議失效。覆議時，如經全體立法委員二分之一以上決議維持原案，行政院院長應即接受該決議。",
+                "en": "Official English translation: “Should the Executive Yuan deem a statutory, budgetary, or treaty bill passed by the Legislative Yuan difficult to execute, the Executive Yuan may, with the approval of the president of the Republic and within ten days of the bill's submission to the Executive Yuan, request the Legislative Yuan to reconsider the bill. The Legislative Yuan shall reach a resolution on the returned bill within 15 days after it is received. Should the Legislative Yuan be in recess, it shall convene of its own accord within seven days and reach a resolution within 15 days after the session begins. Should the Legislative Yuan not reach a resolution within the said period of time, the original bill shall become invalid. Should more than one-half of the total number of Legislative Yuan members uphold the original bill, the president of the Executive Yuan shall immediately accept the said bill.”",
+                "src": [
+                  {
+                    "label": "全國法規資料庫：中華民國憲法增修條文",
+                    "url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=A0000002"
+                  },
+                  {
+                    "label": "Laws & Regulations Database: Additional Articles (English)",
+                    "url": "https://law.moj.gov.tw/ENG/LawClass/LawAll.aspx?pcode=A0000002"
+                  }
+                ]
+              },
+              {
+                "cite_zh": "中華民國憲法增修條文　第 3 條第 2 項第 3 款（不信任案）",
+                "cite_en": "Additional Articles of the Constitution, Article 3, Paragraph 2, Item 3 (vote of no confidence)",
+                "text": "立法院得經全體立法委員三分之一以上連署，對行政院院長提出不信任案。不信任案提出七十二小時後，應於四十八小時內以記名投票表決之。如經全體立法委員二分之一以上贊成，行政院院長應於十日內提出辭職，並得同時呈請總統解散立法院；不信任案如未獲通過，一年內不得對同一行政院院長再提不信任案。",
+                "en": "Official English translation: “With the signatures of more than one-third of the total number of Legislative Yuan members, the Legislative Yuan may propose a no-confidence vote against the president of the Executive Yuan. Seventy-two hours after the no-confidence motion is made, an open-ballot vote shall be taken within 48 hours. Should more than one-half of the total number of Legislative Yuan members approve the motion, the president of the Executive Yuan shall tender his resignation within ten days, and at the same time may request that the president dissolve the Legislative Yuan. Should the no-confidence motion fail, the Legislative Yuan may not initiate another no-confidence motion against the same president of the Executive Yuan within one year.”",
+                "src": [
+                  {
+                    "label": "全國法規資料庫：中華民國憲法增修條文",
+                    "url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=A0000002"
+                  },
+                  {
+                    "label": "Laws & Regulations Database: Additional Articles (English)",
+                    "url": "https://law.moj.gov.tw/ENG/LawClass/LawAll.aspx?pcode=A0000002"
+                  }
+                ]
+              }
+            ],
+            "note_en": "Two things to notice. First, the numbers differ: a returned bill needs two thirds of each of two houses in the United States and more than half of all members of the Legislative Yuan, which has one chamber, in Taiwan. Second, the default differs: an American bill left alone for ten days becomes law, while a request for reconsideration that is not decided in time causes the original bill to lapse. The text was checked against the Laws and Regulations Database in October 2026.",
+            "note_zh": "有兩點可以注意。第一，數字不同：被退回的法案，在美國要兩院各三分之二才能維持，在台灣是全體立法委員二分之一以上（立法院只有一院）。第二，「沒有動作時」的結果不同：美國的法案放著十天不處理就成為法律；台灣的覆議案逾期沒有議決，原決議就失效。條文於 2026 年 10 月對過全國法規資料庫。"
+          },
+          "news_english": {
+            "eyebrow": "News English · 新聞英語",
+            "en": "Eight terms for reading about the three branches",
+            "zh": "讀三權新聞用得到的八個詞",
+            "lead_en": "Listen to each term and its example sentence, then try making a sentence of your own. Most of the examples come from history.",
+            "lead_zh": "先聽每個詞和例句，再試著自己造一句。例句大多取自歷史。",
+            "items": [
+              {
+                "en": "checks and balances",
+                "zh": "制衡",
+                "def_en": "the powers that let each branch limit the others",
+                "def_zh": "讓每個部門都能限制其他部門的那些權力",
+                "ex": "The veto is part of the system of <b>checks and balances</b>.",
+                "ex_zh": "否決是制衡制度的一部分。"
+              },
+              {
+                "en": "to veto a bill",
+                "zh": "否決法案",
+                "def_en": "(of a president) to refuse to sign a bill and send it back to Congress",
+                "def_zh": "（總統）拒絕簽署法案並退回國會",
+                "ex": "George Washington was the first president <b>to veto a bill</b>, in 1792.",
+                "ex_zh": "華盛頓在 1792 年成為第一位否決法案的總統。"
+              },
+              {
+                "en": "to override a veto",
+                "zh": "推翻否決",
+                "def_en": "(of Congress) to pass a vetoed bill again by two thirds of each house",
+                "def_zh": "（國會）以兩院各三分之二再次通過被否決的法案",
+                "ex": "Congress did not manage <b>to override a veto</b> until 1845.",
+                "ex_zh": "國會直到 1845 年才第一次成功推翻否決。"
+              },
+              {
+                "en": "to confirm a nominee",
+                "zh": "同意提名人選",
+                "def_en": "(of the Senate) to approve a person the president has nominated",
+                "def_zh": "（參議院）同意總統提名的人選",
+                "ex": "In 1795 the Senate refused <b>to confirm a nominee</b> for chief justice.",
+                "ex_zh": "1795 年，參議院拒絕同意一位首席大法官的提名人選。"
+              },
+              {
+                "en": "to impeach",
+                "zh": "彈劾",
+                "def_en": "(of the House) to bring formal charges against an official; it is not the same as removing the official",
+                "def_zh": "（眾議院）對官員正式提出指控；彈劾不等於免職",
+                "ex": "The House voted <b>to impeach</b> President Andrew Johnson in 1868, but the Senate did not convict him.",
+                "ex_zh": "1868 年眾議院表決彈劾安德魯．詹森總統，但參議院沒有將他定罪。"
+              },
+              {
+                "en": "judicial review",
+                "zh": "司法審查",
+                "def_en": "the power of courts to decide whether a law or an official act agrees with the Constitution",
+                "def_zh": "法院判斷法律或官方作為是否合乎憲法的權力",
+                "ex": "The reasoning behind <b>judicial review</b> was set out in Marbury v. Madison.",
+                "ex_zh": "司法審查背後的道理，是在 Marbury v. Madison 案裡說明的。"
+              },
+              {
+                "en": "the power of the purse",
+                "zh": "錢包的權力（預算權）",
+                "def_en": "Congress's control over what the government may spend",
+                "def_zh": "國會對政府可以花多少錢的控制權",
+                "ex": "Under Article I, Congress holds <b>the power of the purse</b>.",
+                "ex_zh": "依第一條，錢包的權力在國會手上。"
+              },
+              {
+                "en": "gridlock",
+                "zh": "僵局",
+                "def_en": "a situation in which the branches cannot agree and nothing gets passed",
+                "def_zh": "各部門無法達成一致、什麼都通不過的狀況",
+                "ex": "Critics of divided power say that it leads to <b>gridlock</b>.",
+                "ex_zh": "批評權力分散的人說，這種制度會造成僵局。"
+              }
+            ]
+          },
+          "myths_head": {
+            "en": "Four things people get wrong",
+            "zh": "四個常見的誤會"
+          },
+          "myths": [
+            {
+              "myth_en": "Separation of powers means that each branch works alone in its own area.",
+              "myth_zh": "權力分立的意思是：每個部門各管各的，互不相干。",
+              "fact_en": "The branches are separate in their membership, but their powers overlap on purpose. The President takes part in lawmaking, the Senate in appointments, and the courts in judging what the other two have done. Madison's phrase for this was “partial agency.”",
+              "fact_zh": "三個部門的成員是分開的，權力卻刻意重疊：總統參與立法，參議院參與人事任命，法院則審查另外兩個部門做的事。麥迪遜把這叫做「部分的參與」。"
+            },
+            {
+              "myth_en": "To impeach an official is to remove that official from office.",
+              "myth_zh": "彈劾一名官員，就是把他免職。",
+              "fact_en": "Impeachment is only the accusation, made by the House. Removal requires a trial in the Senate and a conviction by two thirds of the members present. As of 2026 the House has impeached officials twenty-two times, and eight have been convicted.",
+              "fact_zh": "彈劾只是指控，由眾議院提出。要免職，還得經過參議院審判，並由出席議員三分之二定罪。到 2026 年為止，眾議院彈劾過二十二次，被定罪的有八人。"
+            },
+            {
+              "myth_en": "The Constitution says that the Supreme Court may strike down laws.",
+              "myth_zh": "憲法明文規定最高法院可以宣告法律無效。",
+              "fact_en": "It does not say so in words. The Supreme Court's own account is that “the function of judicial review is not explicitly provided in the Constitution,” though “it had been anticipated before the adoption of that document.” The Court set out the reasoning in Marbury v. Madison in 1803.",
+              "fact_zh": "條文裡沒有這樣的字句。最高法院自己的說明是：司法審查這項功能「在憲法中並無明文規定」，不過「在憲法通過之前就已經有人預期到它」。這項權力的道理，是最高法院在 1803 年的 Marbury v. Madison 案裡說明的。"
+            },
+            {
+              "myth_en": "A veto kills a bill, and a bill cannot become law without the President's signature.",
+              "myth_zh": "否決就是法案的終點；沒有總統簽署，法案不可能成為法律。",
+              "fact_en": "There are two ways around the signature. Congress can override a veto by two thirds of each house, and a bill that the President neither signs nor returns within ten days becomes law if Congress is still in session. Only the pocket veto cannot be overridden.",
+              "fact_zh": "繞過簽署的路有兩條：國會可以用兩院各三分之二推翻否決；總統在十天內既不簽署也不退回的法案，只要國會還在開會，就自動成為法律。只有口袋否決是國會無法推翻的。"
+            }
+          ],
+          "activities": [
+            {
+              "title_en": "Find the Checks in the Text",
+              "title_zh": "到條文裡找牽制",
+              "materials": [
+                {
+                  "en": "Articles I, II, and III of the Constitution, from the National Archives transcription (linked in the sources below)",
+                  "zh": "憲法第一、二、三條（國家檔案館的謄本，連結在下面的出處裡）"
+                },
+                {
+                  "en": "A sheet of paper with a large triangle drawn on it, the corners labeled Congress, President, and Courts",
+                  "zh": "一張紙，上面畫一個大三角形，三個角分別寫上國會、總統、法院"
+                },
+                {
+                  "en": "Three colored pens, one for each branch",
+                  "zh": "三枝不同顏色的筆，一個部門一種顏色"
+                }
+              ],
+              "steps": [
+                {
+                  "en": "Skim the three articles and mark every sentence in which one branch takes part in, approves, or can undo the work of another. Aim for at least six.",
+                  "zh": "瀏覽這三條，把「一個部門參與、同意，或者可以推翻另一個部門的工作」的句子都標出來。目標是至少找到六句。"
+                },
+                {
+                  "en": "For each sentence, draw an arrow on the triangle from the branch that acts to the branch it checks, in the color of the acting branch, and write the article and section beside it.",
+                  "zh": "每一句都在三角形上畫一道箭頭，從出手的部門指向被牽制的部門，用出手那個部門的顏色，並在旁邊寫上是第幾條第幾項。"
+                },
+                {
+                  "en": "Count the arrows leaving each corner. Which branch has the most ways to check the others? Which has the fewest?",
+                  "zh": "數一數從每個角出發的箭頭。哪個部門牽制別人的辦法最多？哪個最少？"
+                },
+                {
+                  "en": "Compare your triangle with the grid in the 3D model. Is there a direction for which you found no clause? Explain why that might be.",
+                  "zh": "把你的三角形和 3D 模型裡的方格比一比。有沒有哪個方向你找不到條文？說說可能的原因。"
+                }
+              ],
+              "tip_en": "Many readers find no clause that plainly says a court may set a law aside; the nearest is Article III, Section 2, which extends the judicial power to cases “arising under this Constitution.” That is the point of the third myth card above.",
+              "tip_zh": "很多人會發現：找不到哪一條明白寫著法院可以宣告法律無效；最接近的是第三條第二項，它讓司法權及於「因本憲法而生」的案件。這正是上面第三張迷思卡要說的。"
+            },
+            {
+              "title_en": "One Bill, Three Endings",
+              "title_zh": "一項法案，三種結局",
+              "materials": [
+                {
+                  "en": "The “After the Veto, What Then?” tool above",
+                  "zh": "上面的「否決之後，還有幾條路？」小工具"
+                },
+                {
+                  "en": "Paper for a table with four columns: House votes, Senate votes, the President's choice, and the result",
+                  "zh": "一張紙，畫一個四欄的表：眾議院票數、參議院票數、總統的選擇、結果"
+                }
+              ],
+              "steps": [
+                {
+                  "en": "Invent a harmless bill, for example one that names a new national park. Decide how many votes it gets in each house and write the numbers down.",
+                  "zh": "自己想一項無害的法案，例如替一座新的國家公園命名。決定它在兩院各得幾票，把數字寫下來。"
+                },
+                {
+                  "en": "Using the tool, find a set of votes and a presidential choice that produces each ending: signed into law, law after an override, and a veto that stands. Record each in the table.",
+                  "zh": "用小工具分別找出會產生這三種結局的票數與總統的選擇：簽署成為法律、推翻否決後成為法律、否決成立。每一種都記在表裡。"
+                },
+                {
+                  "en": "Now find the two unusual endings: a bill that becomes law with no signature and no override, and a veto that no number of votes can overturn.",
+                  "zh": "再找出兩種少見的結局：沒有簽署也沒有推翻否決，法案卻成了法律；以及不管有多少票都推翻不了的否決。"
+                },
+                {
+                  "en": "Write two sentences: one explaining why the override threshold is higher than the threshold for passing the bill, and one giving a reason someone might think it is too high or too low.",
+                  "zh": "寫兩句話：一句說明為什麼推翻否決的門檻比通過法案高；一句寫出有人可能覺得這個門檻太高或太低的一個理由。"
+                }
+              ],
+              "tip_en": "In a class, three groups can play the House, the Senate, and the President, and pass a paper “bill” between them. Keep the subject of the bill light, so that the discussion stays on the procedure.",
+              "tip_zh": "在班上可以分三組，分別扮演眾議院、參議院和總統，把一張紙做的「法案」傳來傳去。法案的主題選輕鬆一點的，討論才會留在程序上。"
+            }
+          ],
+          "links_head": {
+            "eyebrow": "Go Further · 延伸閱讀",
+            "en": "The lesson before, the lesson after, and an old question",
+            "zh": "上一課、下一課，以及一個古老的問題"
+          },
+          "links": [
+            {
+              "icon": "📜",
+              "k_en": "U.S. Government · Lesson 1",
+              "k_zh": "美國政治・第一課",
+              "en": "How Can One Document Run a Country?",
+              "zh": "一份文件怎麼管一個國家？",
+              "note_en": "Articles I, II, and III create the three branches. That lesson shows where each one comes from in the text and reads Federalist No. 51.",
+              "note_zh": "第一、二、三條設立了三個部門。那一課說明每個部門在條文裡的來歷，並且讀《聯邦論》第五十一篇。",
+              "href": "/resources/classes/us-government/constitution/"
+            },
+            {
+              "icon": "🗺️",
+              "k_en": "U.S. Government · Lesson 3",
+              "k_zh": "美國政治・第三課",
+              "en": "Why Does Every State Have Its Own Laws?",
+              "zh": "為什麼每一州的法律不一樣？",
+              "note_en": "Power is divided a second way as well: between the national government and the states.",
+              "note_zh": "權力還有第二種分法：在全國政府與各州之間分。",
+              "soon": true
+            },
+            {
+              "icon": "👑",
+              "k_en": "Philosophy",
+              "k_zh": "哲學",
+              "en": "Who Should Rule?",
+              "zh": "該由誰來治理？",
+              "note_en": "Montesquieu and Madison both worried that people who hold power are tempted to use too much of it. Philosophers had been arguing about rulers for two thousand years before them.",
+              "note_zh": "孟德斯鳩和麥迪遜都擔心：握有權力的人會忍不住用得太多。在他們之前，哲學家已經為「統治者」這個題目爭論了兩千年。",
+              "href": "/resources/classes/philosophy/who-rules/"
+            }
+          ],
+          "sources_note_en": "Quotations, dates, and numbers on this page were checked against these sources in October 2026. Quotations keep the spelling of the originals",
+          "sources_note_zh": "本頁的引文、日期與數字於 2026 年 10 月依下列資料查證；引文保留原文的拼法",
+          "sources": [
+            {
+              "en": "The text of the Constitution: the clauses on holding office, the veto, appropriations, appointments and treaties, impeachment, the courts, and the pardon.",
+              "zh": "憲法條文：兼職的禁止、否決、撥款、任命與條約、彈劾、法院、赦免各款",
+              "src": "National Archives: The Constitution of the United States, a transcription",
+              "url": "https://www.archives.gov/founding-docs/constitution-transcript"
+            },
+            {
+              "en": "The Federalist No. 47: the definition of tyranny, Montesquieu as “the oracle,” and “partial agency”; dated January 30, 1788, by the editors.",
+              "zh": "《聯邦論》第四十七篇：暴政的定義、稱孟德斯鳩為「權威」、「部分的參與」；編者定為 1788 年 1 月 30 日",
+              "src": "Founders Online (National Archives): The Federalist Number 47",
+              "url": "https://founders.archives.gov/documents/Madison/01-10-02-0266"
+            },
+            {
+              "en": "The Federalist No. 48: “power is of an encroaching nature” and “parchment barriers.”",
+              "zh": "《聯邦論》第四十八篇：「權力具有侵略的本性」與「羊皮紙上的柵欄」",
+              "src": "Library of Congress: Federalist Nos. 41–50",
+              "url": "https://guides.loc.gov/federalist-papers/text-41-50"
+            },
+            {
+              "en": "The Federalist No. 78: the judiciary has “neither FORCE nor WILL, but merely judgment.”",
+              "zh": "《聯邦論》第七十八篇：司法部門「既沒有武力，也沒有意志，只有判斷」",
+              "src": "Library of Congress: Federalist Nos. 71–80",
+              "url": "https://guides.loc.gov/federalist-papers/text-71-80"
+            },
+            {
+              "en": "Montesquieu, The Spirit of Laws, Book XI, Chapter 6, in Thomas Nugent's translation (London, 1758).",
+              "zh": "孟德斯鳩《論法的精神》第十一卷第六章，Thomas Nugent 英譯（倫敦，1758）",
+              "src": "Wikisource: The Spirit of Laws (1758), Book XI",
+              "url": "https://en.wikisource.org/wiki/The_Spirit_of_Laws_(1758)/Book_XI"
+            },
+            {
+              "en": "Vetoes: 2,599 in all, 1,533 regular and 1,066 pocket vetoes, 112 overridden.",
+              "zh": "否決：共 2,599 次，其中一般否決 1,533 次、口袋否決 1,066 次，被推翻 112 次",
+              "src": "U.S. Senate: Vetoes, 1789 to Present",
+              "url": "https://www.senate.gov/legislative/vetoes/vetoCounts.htm"
+            },
+            {
+              "en": "The first veto (April 5, 1792) and the first override (March 3, 1845); a pocket veto cannot be overridden.",
+              "zh": "第一次否決（1792 年 4 月 5 日）與第一次推翻否決（1845 年 3 月 3 日）；口袋否決不能推翻",
+              "src": "U.S. House of Representatives: History, Art & Archives, Presidential Vetoes",
+              "url": "https://history.house.gov/Institution/Presidential-Vetoes/Presidential-Vetoes/"
+            },
+            {
+              "en": "Supreme Court nominations: 165 submitted since 1789, 12 rejected by vote; John Rutledge rejected 10 to 14 in December 1795.",
+              "zh": "最高法院提名：1789 年以來共 165 次，經表決否決 12 次；1795 年 12 月以 10 比 14 否決拉特利奇",
+              "src": "U.S. Senate: Supreme Court Nominations, 1789 to Present",
+              "url": "https://www.senate.gov/legislative/nominations/SupremeCourtNominations1789present.htm"
+            },
+            {
+              "en": "Impeachment: twenty-two impeachments by the House; eight convictions in the Senate, all of judges; two thirds needed to convict; the chief justice presides when a President is tried.",
+              "zh": "彈劾：眾議院共彈劾二十二次；參議院定罪八人，全為法官；定罪需三分之二；審判總統時由首席大法官主持",
+              "src": "U.S. Senate: About Impeachment; U.S. House: List of Individuals Impeached",
+              "url": "https://www.senate.gov/about/powers-procedures/impeachment/impeachment-list.htm"
+            },
+            {
+              "en": "The trial of Andrew Johnson: 35 to 19 on May 16, 1868, one vote short of two thirds.",
+              "zh": "安德魯．詹森的彈劾審判：1868 年 5 月 16 日，35 票對 19 票，離三分之二差一票",
+              "src": "U.S. Senate: Impeachment Trial of President Andrew Johnson, 1868",
+              "url": "https://www.senate.gov/about/powers-procedures/impeachment/impeachment-johnson.htm"
+            },
+            {
+              "en": "Marbury v. Madison (1803): “the province and duty of the judicial department”; the provision of the act organizing the courts that the Court found unwarranted by the Constitution.",
+              "zh": "Marbury v. Madison（1803）：「司法部門的職權與責任」；最高法院認定設立法院的那部法律有一項規定為憲法所不許",
+              "src": "Cornell Legal Information Institute: Marbury v. Madison, 5 U.S. 137",
+              "url": "https://www.law.cornell.edu/supremecourt/text/5/137"
+            },
+            {
+              "en": "Judicial review “is not explicitly provided in the Constitution.”",
+              "zh": "司法審查「在憲法中並無明文規定」",
+              "src": "Supreme Court of the United States: The Court and Constitutional Interpretation",
+              "url": "https://www.supremecourt.gov/about/constitutional.pdf"
+            },
+            {
+              "en": "The number of justices is set by Congress: six in 1789, nine since 1869.",
+              "zh": "大法官人數由國會決定：1789 年六位，1869 年以來九位",
+              "src": "Supreme Court of the United States: Frequently Asked Questions",
+              "url": "https://www.supremecourt.gov/about/faq_general.aspx"
+            },
+            {
+              "en": "Chisholm v. Georgia (1793) and the Eleventh Amendment, ratified in 1795, which reversed its holding.",
+              "zh": "Chisholm v. Georgia（1793）與 1795 年批准、推翻其結論的第十一條修正案",
+              "src": "Federal Judicial Center: Chisholm v. Georgia",
+              "url": "https://www.fjc.gov/history/cases/cases-that-shaped-the-federal-courts/chisholm-v-georgia"
+            },
+            {
+              "en": "Youngstown Sheet & Tube Co. v. Sawyer (1952): the seizure of the steel mills “cannot stand.”",
+              "zh": "Youngstown Sheet & Tube Co. v. Sawyer（1952）：接管鋼鐵廠的命令「不能成立」",
+              "src": "Cornell Legal Information Institute: Youngstown Sheet & Tube Co. v. Sawyer, 343 U.S. 579",
+              "url": "https://www.law.cornell.edu/supremecourt/text/343/579"
+            },
+            {
+              "en": "Brandeis on the purpose of the separation of powers (dissenting opinion, 1926).",
+              "zh": "布蘭戴斯談權力分立的目的（不同意見書，1926）",
+              "src": "Cornell Legal Information Institute: Myers v. United States, 272 U.S. 52",
+              "url": "https://www.law.cornell.edu/supremecourt/text/272/52"
+            },
+            {
+              "en": "Bagehot on “the nearly complete fusion” of executive and legislative powers (The English Constitution, 1867; text of the second edition, 1872, chapter “The Cabinet”).",
+              "zh": "白芝浩談行政權與立法權「幾乎完全的融合」（《英國憲政》，1867；文字依 1872 年第二版〈內閣〉一章）",
+              "src": "Project Gutenberg: Walter Bagehot, The English Constitution",
+              "url": "https://www.gutenberg.org/ebooks/4351"
+            },
+            {
+              "en": "Wilson on trust and accountability, and on the “division of authority and concealment of responsibility.”",
+              "zh": "威爾遜談信任與問責，以及「權力的分割與責任的隱沒」",
+              "src": "Project Gutenberg: Woodrow Wilson, Congressional Government (1885)",
+              "url": "https://www.gutenberg.org/ebooks/35861"
+            },
+            {
+              "en": "Constitution of the Republic of China: Articles 53, 62, 77, 78, 83, and 90.",
+              "zh": "中華民國憲法：第 53、62、77、78、83、90 條",
+              "src": "全國法規資料庫：中華民國憲法",
+              "url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=A0000001"
+            },
+            {
+              "en": "Additional Articles of the Constitution: Article 2 (direct election, dissolution, impeachment), Article 3 (responsibility to the Legislative Yuan, reconsideration, no confidence), Article 4 (impeachment), and Article 5 (justices and the Constitutional Court).",
+              "zh": "中華民國憲法增修條文：第 2 條（直選、解散立法院、彈劾）、第 3 條（對立法院負責、覆議、不信任案）、第 4 條（彈劾案）、第 5 條（大法官與憲法法庭）",
+              "src": "全國法規資料庫：中華民國憲法增修條文",
+              "url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=A0000002"
             }
           ]
         }

@@ -357,3 +357,73 @@ a.ug-link:hover { transform: translateY(-3px); box-shadow: var(--shadow); border
   .ug-link { flex-direction: column; }
   .ug-intro-ic { width: 80px; height: 80px; } .ug-intro-ic svg { width: 58px; height: 58px; }
 }
+
+/* ── 第二課：三個部門互相牽制 ───────────────────────────────────────── */
+.ug-chk { --c-capitol: #ffd36e; --c-whitehouse: #6fd3c0; --c-court: #ff8fa3; }
+@media (min-width: 1001px) { .ug-chk .al-space { min-height: 560px; } }
+.al-lab.ug-lab3.is-from { border-color: #fff; box-shadow: 0 0 0 2px rgba(255,255,255,.35); }
+.al-lab.ug-lab3.is-to { border-style: dashed; }
+.ug-act[hidden] { display: none; }
+.ug-act-who { margin: 0 0 .3rem; display: inline-block; padding: .14rem .6rem; border-radius: 999px; font-size: .7rem; font-weight: 800; letter-spacing: .03em; color: #10203a; background: var(--c-capitol); }
+.ug-act.is-whitehouse .ug-act-who { background: var(--c-whitehouse); }
+.ug-act.is-court .ug-act-who { background: var(--c-court); }
+.ug-act-cite { margin: .6rem 0 0; font-size: .72rem; font-weight: 700; letter-spacing: .03em; color: var(--al-mute); }
+.ug-act-eg { margin: .6rem 0 0; padding: .5rem .7rem; border-radius: 9px; background: rgba(255,255,255,.045); font-size: .8rem; line-height: 1.55; color: var(--al-text); }
+.ug-act-eg b { display: block; margin-bottom: .15rem; font-size: .66rem; letter-spacing: .1em; text-transform: uppercase; color: var(--al-sun); }
+.ug-act-eg .zh { display: block; margin-top: .2rem; font-family: var(--zh); color: var(--al-mute); }
+.ug-act-next { margin-top: .7rem; display: flex; flex-wrap: wrap; gap: .35rem; align-items: center; }
+.ug-act-next p { flex: 1 1 100%; margin: 0; font-size: .7rem; font-weight: 800; letter-spacing: .06em; color: var(--al-mute); }
+.ug-act-next button { padding: .38rem .8rem; border-radius: 999px; border: 1px solid var(--al-sun); background: rgba(255,211,110,.12); color: #fff; font-family: var(--sans); font-size: .78rem; font-weight: 800; cursor: pointer; }
+.ug-act-next button small { margin-left: .35rem; font-family: var(--zh); font-weight: 600; color: var(--al-sun); }
+.ug-act-next button:hover { background: rgba(255,211,110,.25); }
+.ug-mx { margin-top: auto; padding-top: .75rem; border-top: 1px solid var(--al-line); }
+.ug-mx .ug-when-k b { margin-left: .4rem; color: #fff; font-size: .9rem; letter-spacing: 0; }
+.ug-mx table { width: 100%; margin-top: .5rem; border-collapse: separate; border-spacing: 4px; font-size: .72rem; }
+.ug-mx th { font-family: var(--zh); font-weight: 700; color: var(--al-text); text-align: center; padding: .1rem; }
+.ug-mx tbody th { text-align: right; padding-right: .4rem; white-space: nowrap; }
+.ug-mx-c { font-size: .58rem; line-height: 1.3; color: var(--al-mute); text-align: left; }
+.ug-mx-c .zh { display: block; font-family: var(--zh); }
+.ug-mx td[data-cell], .ug-mx td.is-self { height: 30px; border-radius: 8px; background: rgba(255,255,255,.05); text-align: center; }
+.ug-mx td.is-self { background: repeating-linear-gradient(45deg, rgba(255,255,255,.03) 0 4px, transparent 4px 8px); }
+.ug-mx td i { display: inline-block; width: 10px; height: 10px; border-radius: 50%; border: 2px solid rgba(160,180,230,.4); vertical-align: middle; }
+.ug-mx td.is-on { background: rgba(126,224,170,.16); }
+.ug-mx td.is-on i { border-color: #7ee0aa; background: #7ee0aa; }
+.ug-mx td.is-now { box-shadow: 0 0 0 2px var(--al-sun) inset; }
+.ug-chk-groups { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: .8rem 1rem; }
+.ug-chk-gk { margin: 0 0 .4rem; padding-left: .6rem; border-left: 4px solid var(--c-capitol); font-size: .8rem; font-weight: 800; color: #fff; }
+.ug-chk-g.is-whitehouse .ug-chk-gk { border-left-color: var(--c-whitehouse); }
+.ug-chk-g.is-court .ug-chk-gk { border-left-color: var(--c-court); }
+.ug-chk-gk .zh { margin-left: .4rem; font-family: var(--zh); font-weight: 600; color: var(--al-mute); }
+.ug-chk-btns { display: flex; flex-wrap: wrap; gap: .35rem; }
+.ug-chk-btns button { position: relative; flex: 1 1 8.5rem; padding: .5rem .5rem; border-radius: 12px; border: 1px solid var(--al-line); background: rgba(255,255,255,.03); color: var(--al-text); font-family: var(--sans); font-size: .8rem; cursor: pointer; transition: background .15s, border-color .15s, transform .15s; min-width: 0; }
+.ug-chk-btns button b { display: block; font-weight: 800; }
+.ug-chk-btns button small { display: block; font-family: var(--zh); font-weight: 600; font-size: .72rem; color: var(--al-mute); }
+.ug-chk-btns button:hover { background: rgba(255,255,255,.08); transform: translateY(-1px); }
+.ug-chk-btns button[aria-pressed="true"] { border-color: var(--al-sun); background: rgba(255,211,110,.14); box-shadow: 0 0 0 1px var(--al-sun) inset; }
+.ug-chk-btns button.is-seen::after { content: ""; position: absolute; right: .35rem; top: .35rem; width: 7px; height: 7px; border-radius: 50%; background: #7ee0aa; }
+.al-lg-capitol i { border-color: #ffd36e; background: #ffd36e; height: 4px; border-radius: 2px; }
+.al-lg-whitehouse i { border-color: #6fd3c0; background: #6fd3c0; height: 4px; border-radius: 2px; }
+.al-lg-court i { border-color: #ff8fa3; background: #ff8fa3; height: 4px; border-radius: 2px; }
+@media (max-width: 900px) { .ug-chk-groups { grid-template-columns: minmax(0, 1fr); } }
+@media (max-width: 620px) { .ug-chk-btns button { flex-basis: 44%; } .al-lab.ug-lab3.is-b small { display: none; } }
+
+/* 配對題：選項比較長時排三欄 */
+.ug-mt-c3 .ug-mt-opts { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.ug-mt-c3 .ug-mt-opt b { font-family: var(--sans); font-size: .92rem; font-weight: 800; }
+@media (max-width: 620px) { .ug-mt-c3 .ug-mt-opts { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+/* ── 否決之後還有幾條路？（沿用「改一個字有多難」的版面） ───────────── */
+.ug-veto .ug-vt-m1 { background: #9fb0cf; } .ug-veto .ug-vt-m1::after { border-top-color: #9fb0cf; }
+.ug-veto .ug-am-row.is-pass .ug-am-val { color: #ffd36e; }
+.ug-veto .ug-am-row.is-pass .ug-am-val::after { content: ""; }
+.ug-veto .ug-am-row.is-super .ug-am-val { color: #7ee0aa; }
+.ug-veto .ug-am-row.is-super .ug-am-val::after { content: " \2713"; font-size: .9rem; }
+.ug-vt-adj { display: flex; gap: .6rem; align-items: flex-start; margin-top: .7rem; padding: .55rem .75rem; border-radius: 11px; border: 1px dashed rgba(160,180,230,.35); font-size: .84rem; line-height: 1.5; cursor: pointer; }
+.ug-vt-adj input { width: 18px; height: 18px; margin-top: .15rem; accent-color: #ffd36e; flex: none; }
+.ug-vt-adj .zh { display: block; font-family: var(--zh); color: #9fb0cf; }
+.ug-vt-adj.is-off { opacity: .4; }
+.ug-vt-result b { display: block; margin-bottom: .2rem; }
+.ug-vt-result.is-law { background: rgba(47,158,99,.25); border-color: #7ee0aa; }
+.ug-vt-result.is-nolaw { background: rgba(255,157,107,.12); border-color: rgba(255,157,107,.5); }
+.ug-vt-notes { grid-column: 1 / -1; }
+@media (min-width: 901px) { .ug-vt-rec { grid-column: 1 / -1; } }

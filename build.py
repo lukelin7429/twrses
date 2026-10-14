@@ -17921,7 +17921,7 @@ def build_wh_hub():
 _usgj = os.path.join(ROOT, "data", "us_government.json")
 USG = json.load(open(_usgj, encoding="utf-8")) if os.path.exists(_usgj) else None
 USG_BASE = "/resources/classes/us-government/"
-_USG_JS = {"constitution": "usg-constitution"}   # lab.kind → assets/js/<bundle>.js
+_USG_JS = {"constitution": "usg-constitution", "checks": "usg-checks"}   # lab.kind → assets/js/<bundle>.js
 
 def _usg_ver():
     h = hashlib.md5()
@@ -17956,7 +17956,127 @@ def usgconst_svg(size=56):
             '<path d="M25 13a5 5 0 0 1 10 0z"/><rect x="22" y="13" width="16" height="7"/><rect x="29.2" y="4" width="1.6" height="4"/>'
             '<rect x="42" y="13" width="14" height="7"/><path d="M41 13l8-5 8 5z"/></g></svg>')
 
-_USG_CARD = {"constitution": usgconst_svg}
+def usgchecks_svg(size=56):
+    """第二課的課程卡小圖示：三個圓（三個部門）排成三角形，彼此之間有來回的箭頭。"""
+    return (f'<svg class="usgchecks-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">'
+            '<g fill="none" stroke-width="2.2" stroke-linecap="round">'
+            '<path d="M22 17l-8 22" stroke="#ffd36e"/><path d="M38 17l8 22" stroke="#6fd3c0"/><path d="M20 47h20" stroke="#ff8fa3"/>'
+            '<path d="M26 14l-9 25" stroke="#6fd3c0" opacity=".55"/><path d="M34 14l9 25" stroke="#ff8fa3" opacity=".55"/><path d="M20 51h20" stroke="#ffd36e" opacity=".55"/></g>'
+            '<circle cx="30" cy="11" r="8" fill="#ffd36e"/><circle cx="12" cy="47" r="8" fill="#6fd3c0"/><circle cx="48" cy="47" r="8" fill="#ff8fa3"/>'
+            '<g fill="#10203a" font-family="Georgia,serif" font-size="9" font-weight="700" text-anchor="middle">'
+            '<text x="30" y="14">I</text><text x="12" y="50">II</text><text x="48" y="50">III</text></g></svg>')
+
+_USG_BRANCH = [("capitol", "Congress", "國會"), ("whitehouse", "The President", "總統"), ("court", "The Courts", "法院")]
+
+def render_usgchecks_lab(lesson):
+    """第二課：三個部門互相牽制（assets/js/usg-checks.js 綁這裡的 class）。"""
+    lab = lesson["lab"]
+    acts = {a["key"]: a for a in lab["actions"]}
+    bn = {k: (en, zh) for k, en, zh in _USG_BRANCH}
+    def group(k, en, zh):
+        btns = "".join(
+            f'<button type="button" data-act="{a["key"]}" aria-pressed="false"><b>{html.escape(a["btn_en"])}</b><small>{html.escape(a["btn_zh"])}</small></button>'
+            for a in lab["actions"] if a["from"] == k)
+        return (f'<div class="ug-chk-g is-{k}"><p class="ug-chk-gk">{en} can … <span class="zh">{zh}可以……</span></p>'
+                f'<div class="ug-chk-btns" role="group" aria-label="{en} · {zh}">{btns}</div></div>')
+    def panel(n, a):
+        who = (f'{bn[a["from"]][0]} &#9656; {bn[a["to"]][0]} · {bn[a["from"]][1]} &#9656; {bn[a["to"]][1]}' if a["from"] != a["to"]
+               else f'Inside {bn[a["from"]][0]} · {bn[a["from"]][1]}內部')
+        quote = (f'<blockquote class="ug-art-q" lang="en">{html.escape(a["quote"])}<cite>{html.escape(a["cite"])}</cite></blockquote>' if a.get("quote")
+                 else f'<p class="ug-act-cite">{html.escape(a["cite"])}</p>')
+        eg = (f'<p class="ug-act-eg"><b>In history · 歷史上</b>{html.escape(a["eg_en"])}<span class="zh">{html.escape(a["eg_zh"])}</span></p>' if a.get("eg_en") else "")
+        nxt = ""
+        if a.get("next"):
+            nb = "".join(f'<button type="button" data-go="{k}">{html.escape(acts[k]["btn_en"])}<small>{html.escape(acts[k]["btn_zh"])}</small> &rarr;</button>' for k in a["next"])
+            nxt = f'<div class="ug-act-next"><p>What can the other side do? · 對方可以怎麼回應？</p>{nb}</div>'
+        return (f'<div class="ug-act is-{a["from"]}" data-act-panel="{a["key"]}"{"" if n == 0 else " hidden"}>'
+                f'<p class="ug-act-who">{who}</p>'
+                f'<h3 class="ug-art-name">{html.escape(a["en"])}<span class="zh">{html.escape(a["zh"])}</span></h3>'
+                f'<p class="ug-art-est">{html.escape(a["text_en"])}<span class="zh">{html.escape(a["text_zh"])}</span></p>'
+                f'{quote}{eg}{nxt}</div>')
+    panels = "".join(panel(n, a) for n, a in enumerate(lab["actions"]))
+    groups = "".join(group(*b) for b in _USG_BRANCH)
+    head = "".join(f'<th scope="col">{zh}</th>' for _, en, zh in _USG_BRANCH)
+    rows = "".join(
+        f'<tr><th scope="row">{zh}</th>' + "".join(
+            (f'<td class="is-self" aria-hidden="true"></td>' if f == t else f'<td data-cell="{f}&gt;{t}"><i></i></td>') for t, _, _ in _USG_BRANCH) + '</tr>'
+        for f, en, zh in _USG_BRANCH)
+    payload = json.dumps({"actions": [{k: a.get(k) for k in ("key", "from", "to", "check")} for a in lab["actions"]], "demos": lab["demos"]},
+                         ensure_ascii=False).replace("</", "<\\/")
+    tg = _lab_toggles([("labels", "Labels", "標示", True)])
+    return f'''<div class="astro-lab ug-lab ug-chk rvl" data-usgchecks-lab>
+  <script type="application/json">{payload}</script>
+  <div class="al-stage">
+    <div class="al-space">
+      <canvas class="al-space-cv" aria-label="Simplified 3D model of the Capitol, the White House, and the Supreme Court building; an arrow flies from the branch that acts to the branch it checks · 國會大廈、白宮、最高法院的簡化 3D 模型；箭頭從出手的部門飛向被牽制的部門"></canvas>
+      <div class="al-labels" aria-hidden="true"></div>
+      <p class="al-hint">Drag to look around · 拖曳轉動視角　Scroll or pinch to zoom · 滾輪／雙指縮放</p>
+      <button type="button" class="al-home" title="Whole view · 回到全景" aria-label="Whole view · 回到全景">&#8634;</button>
+      <p class="al-nogl-msg">This 3D model needs WebGL, which this browser does not support. The buttons and the panel still work, and so do the reading and the two activities below.<br><span class="zh">這個瀏覽器不支援 WebGL，無法顯示 3D 模型；按鈕和說明欄照樣能用，下面的課文和兩個小互動也都能用。</span></p>
+    </div>
+    <aside class="al-sky ug-aside">
+      <p class="al-sky-k">This move · 這一招</p>
+      {panels}
+      <div class="ug-mx">
+        <p class="ug-when-k">Who has checked whom so far · 目前看過誰牽制誰 <b class="ug-mx-n">0 / 6</b></p>
+        <table><thead><tr><td class="ug-mx-c">acts &#9662; on &#9656;<span class="zh">出手 &#9662;　對象 &#9656;</span></td>{head}</tr></thead><tbody>{rows}</tbody></table>
+      </div>
+    </aside>
+  </div>
+  <div class="al-controls">
+    <p class="ug-ctl-k">Choose a move · 選一招</p>
+    <div class="ug-chk-groups">{groups}</div>
+    <div class="al-row al-toggles ug-row-play">{tg}</div>
+  </div>
+  {_lab_foot(lab)}
+</div>'''
+
+def _ug_veto(d):
+    """「否決之後還有幾條路？」（tools/usgov/src/veto2d.js；結局由 bill.js 算）。"""
+    acts = "".join(
+        f'<button type="button" data-act="{o["key"]}" aria-pressed="{"true" if o["key"] == "veto" else "false"}">'
+        f'<b>{html.escape(o["en"])}</b><span class="zh">{html.escape(o["zh"])}</span></button>' for o in d["acts"])
+    def row(k, en, zh):
+        return (f'<div class="ug-am-row"><label><span class="ug-am-lab">{en}<span class="zh">{zh}</span></span>'
+                f'<span class="ug-am-sl"><input type="range" data-vote="{k}" min="0" max="100" step="1" value="0" aria-label="{en} · {zh}">'
+                f'<i class="ug-am-mark ug-vt-m1" aria-hidden="true"></i><i class="ug-am-mark ug-vt-m2" aria-hidden="true"></i></span></label>'
+                f'<p class="ug-am-read"><b class="ug-am-val">0</b><span class="ug-am-need"></span></p></div>')
+    sets = "".join(f'<button type="button" class="ug-btn" data-vt-set="{k}">{html.escape(s["en"])} · {html.escape(s["zh"])}</button>' for k, s in d["sets"].items())
+    rec = d["record"]
+    top = max(r["n"] for r in rec["items"])
+    bars = "".join(
+        f'<li><span class="ug-am-rn">{html.escape(r["label"])}</span>'
+        f'<span class="ug-am-bar"><i style="width:{max(0.6, r["n"] / top * 100):.2f}%"></i></span>'
+        f'<span class="ug-am-rt">{html.escape(r["en"])}<span class="zh">{html.escape(r["zh"])}</span></span></li>'
+        for r in rec["items"])
+    payload = json.dumps({k: d[k] for k in ("bodies", "start", "sets", "results", "short")}, ensure_ascii=False).replace("</", "<\\/")
+    return f'''<div class="ug-amend ug-veto rvl" data-ug-veto>
+  <script type="application/json">{payload}</script>
+  <div class="ug-am-try">
+    <p class="ug-am-k">Step 1 · How did Congress vote? <span class="zh">第一步：國會怎麼投票？</span></p>
+    {row("house", "Yes votes in the House", "眾議院贊成票")}
+    {row("senate", "Yes votes in the Senate", "參議院贊成票")}
+    <p class="ug-am-note">{html.escape(d["marks_en"])}<span class="zh">{html.escape(d["marks_zh"])}</span></p>
+    <div class="ug-am-sets">{sets}</div>
+  </div>
+  <div class="ug-am-pick">
+    <p class="ug-am-k">Step 2 · What does the President do? <span class="zh">第二步：總統怎麼做？</span></p>
+    <div class="ug-am-choice" role="group" aria-label="The President's choice · 總統的選擇">{acts}</div>
+    <label class="ug-vt-adj"><input type="checkbox"><span>{html.escape(d["adjourn_en"])}<span class="zh">{html.escape(d["adjourn_zh"])}</span></span></label>
+    <p class="ug-am-result ug-vt-result" aria-live="polite"></p>
+  </div>
+  <div class="ug-am-record ug-vt-rec">
+    <p class="ug-am-k">{html.escape(rec["en"])} <span class="zh">{html.escape(rec["zh"])}</span></p>
+    <ul class="ug-am-bars">{bars}</ul>
+    <p class="ug-am-note">{html.escape(rec["note_en"])}<span class="zh">{html.escape(rec["note_zh"])}</span> <span class="ug-srcs">{_ug_src(rec["src"])}</span></p>
+  </div>
+  <div class="ug-vt-notes">
+    <p class="ug-am-note">{html.escape(d["bodies_note_en"])}<span class="zh">{html.escape(d["bodies_note_zh"])}</span></p>
+  </div>
+</div>'''
+
+
+_USG_CARD = {"constitution": usgconst_svg, "checks": usgchecks_svg}
 
 def _ug_timeline(tl):
     """可縮放的時間軸骨架（tools/usgov/src/timeline2d.js 綁這裡的 class；每課共用）。"""
@@ -18026,7 +18146,7 @@ def render_usgconst_lab(lesson):
   {_lab_foot(lab)}
 </div>'''
 
-_USG_LAB = {"constitution": render_usgconst_lab}
+_USG_LAB = {"constitution": render_usgconst_lab, "checks": render_usgchecks_lab}
 
 def _ug_spk(text, label="Listen · 聽"):
     return f'<button class="spk" data-say="{html.escape(re.sub(r"<[^>]+>", "", text))}" aria-label="{label}">🔊</button>'
@@ -18049,7 +18169,8 @@ def _ug_match(d):
         for o in d["options"])
     n = len(d["questions"])
     payload = json.dumps({"questions": d["questions"], "end_en": d["end_en"], "end_zh": d["end_zh"]}, ensure_ascii=False).replace("</", "<\\/")
-    return f'''<div class="ug-match rvl" data-ug-match>
+    cols = f' ug-mt-c{d["cols"]}' if d.get("cols") else ""
+    return f'''<div class="ug-match{cols} rvl" data-ug-match>
   <script type="application/json">{payload}</script>
   <div class="ug-mt-top"><p class="ug-mt-k">1 of {n} · 第 1 題（共 {n} 題）</p><p class="ug-mt-sc">Right on the first try · 第一次就答對 <b class="ug-mt-score">0 / 0</b></p></div>
   <div class="ug-mt-steps" aria-hidden="true"></div>
@@ -18181,7 +18302,7 @@ def _ug_news_english(d):
 
 # 頁面上的小互動與每課固定的卡：照這個順序排在「模型卡」後面（JSON 有那個 key 才出現）。
 # clause（條文怎麼寫？）、primary（讀原典）、debate（制度的爭論）、taiwan（和台灣比一比）、news_english（新聞英語）每課都要有。
-_USG_WIDGETS = [("match", _ug_match), ("amend", _ug_amend), ("clause", _ug_clause), ("primary", _ug_primary),
+_USG_WIDGETS = [("match", _ug_match), ("amend", _ug_amend), ("veto", _ug_veto), ("clause", _ug_clause), ("primary", _ug_primary),
                 ("debate", _ug_debate), ("taiwan", _ug_taiwan), ("news_english", _ug_news_english)]
 
 def _usg_flat():

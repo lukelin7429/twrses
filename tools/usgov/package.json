@@ -1,11 +1,11 @@
 {
   "name": "twrses-usgov",
   "private": true,
-  "description": "美國政治 How America Governs Itself 的共用引擎（dc.js 華盛頓的三棟建築、timeline.js／timeline2d.js 可縮放的時間軸、match.js 配對題、amend.js 修憲門檻）與各課的原始碼。產物寫到 assets/js/usg-*.js，npm run build 重新打包。",
+  "description": "美國政治 How America Governs Itself 的共用引擎（dc.js 華盛頓的三棟建築、timeline.js／timeline2d.js 可縮放的時間軸、match.js 配對題、amend.js 修憲門檻、bill.js 法案的結局、flow3d.js 建築之間的箭頭）與各課的原始碼。產物寫到 assets/js/usg-*.js，npm run build 重新打包。",
   "type": "module",
   "scripts": {
-    "build": "esbuild src/usg-constitution.js --bundle --minify --format=iife --target=es2019 --legal-comments=eof --outdir=../../assets/js",
-    "test": "node test/timeline.test.mjs && node test/match.test.mjs && node test/amend.test.mjs && node test/data.test.mjs"
+    "build": "esbuild src/usg-constitution.js src/usg-checks.js --bundle --minify --format=iife --target=es2019 --legal-comments=eof --outdir=../../assets/js",
+    "test": "node test/timeline.test.mjs && node test/match.test.mjs && node test/amend.test.mjs && node test/bill.test.mjs && node test/data.test.mjs"
   },
   "devDependencies": {
     "esbuild": "0.25.10",

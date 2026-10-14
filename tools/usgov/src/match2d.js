@@ -34,7 +34,7 @@ export function initMatch(root) {
       b.classList.add('is-right');
       opts.forEach((o) => { o.disabled = true; });
       msg.className = 'ug-mt-msg is-right';
-      msg.innerHTML = `<b>${r.first ? 'Right on the first try. · 第一次就答對。' : 'That is the one. · 就是這一條。'}</b> ${q.why_en}<span class="zh">${q.why_zh}</span>`;
+      msg.innerHTML = `<b>${r.first ? 'Right on the first try. · 第一次就答對。' : 'That is the one. · 就是這個。'}</b> ${q.why_en}<span class="zh">${q.why_zh}</span>`;
       const last = game.state.i >= game.total - 1;
       next.textContent = last ? 'See your result · 看結果' : 'Next · 下一題';
       next.hidden = false;
@@ -43,7 +43,7 @@ export function initMatch(root) {
     } else {
       b.classList.add('is-wrong'); b.disabled = true;
       msg.className = 'ug-mt-msg is-wrong';
-      msg.innerHTML = `<b>Not that one. Try again. · 不是這一條，再選選看。</b> ${q.hint_en}<span class="zh">${q.hint_zh}</span>`;
+      msg.innerHTML = `<b>Not that one. Try again. · 不是這個，再選選看。</b> ${q.hint_en}<span class="zh">${q.hint_zh}</span>`;
     }
     return r;
   }

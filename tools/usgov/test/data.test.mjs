@@ -70,4 +70,35 @@ for (const k of ['ratified', 'proposed', 'ordinary', 'fails']) assert.ok(a.resul
 assert.equal(need(a.bodies.states, 3, 4), 38);
 assert.deepEqual(a.record.items.map((r) => r.n), [11985, 33, 27]);
 assert.equal(Math.round(11985 / 27), 444);
+
+// 第二課：三個部門互相牽制
+const k2 = lessons.find((l) => l.slug === 'checks-and-balances');
+{
+  const acts = k2.lab.actions, keys2 = acts.map((x) => x.key);
+  assert.equal(new Set(keys2).size, keys2.length);
+  const B3 = ['capitol', 'whitehouse', 'court'];
+  for (const x of acts) {
+    assert.ok(B3.includes(x.from) && B3.includes(x.to), x.key);
+    assert.ok(x.btn_en && x.btn_zh && x.en && x.zh && x.text_en && x.text_zh && x.cite, x.key);
+    for (const n of x.next || []) assert.ok(keys2.includes(n), `${x.key} → ${n}`);
+    if (x.check) assert.notEqual(x.from, x.to);
+  }
+  const dirs = new Set(acts.filter((x) => x.check).map((x) => `${x.from}>${x.to}`));
+  assert.equal(dirs.size, 6, 'every branch checks both of the others');
+  for (const [name, chain] of Object.entries(k2.lab.demos)) for (const n of chain) assert.ok(keys2.includes(n), `demo ${name}: ${n}`);
+  for (const pt of k2.parts) assert.ok(k2.lab.demos[pt.demo], `card demo ${pt.demo}`);
+  const m2 = k2.match, mk = m2.options.map((o) => o.key);
+  assert.deepEqual(mk, ['cp', 'cj', 'pc', 'pj', 'jc', 'jp']);
+  assert.equal(m2.questions.length, 10);
+  for (const k of mk) assert.ok(m2.questions.some((q) => q.answer === k), `direction ${k} is an answer at least once`);
+  for (const q of m2.questions) assert.ok(mk.includes(q.answer) && q.why_en && q.why_zh && q.hint_en && q.hint_zh);
+  const v = k2.veto;
+  assert.deepEqual(v.bodies, { house: 435, senate: 100 });
+  assert.deepEqual(v.acts.map((x) => x.key), ['sign', 'veto', 'wait']);
+  for (const k of ['fail_congress', 'signed', 'unsigned_law', 'pocket', 'overridden', 'sustained']) assert.ok(v.results[k], k);
+  for (const k of ['house', 'senate', 'both']) assert.ok(v.short[k]);
+  assert.deepEqual(v.record.items.map((r) => r.n), [2599, 1066, 112]);
+  assert.equal(2599 - 1066, 1533);
+  assert.equal(Math.round((112 / 1533) * 100), 7);
+}
 console.log('data.test ok');
