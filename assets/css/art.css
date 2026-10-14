@@ -396,6 +396,51 @@
 .ar-sh-opts { display: grid; gap: .7rem; }
 @media (max-width: 760px) { .ar-hw-grid { grid-template-columns: 1fr; } .ar-sh-grid { grid-template-columns: 1fr; } .ar-sh-box { max-width: 220px; margin: 0 auto; } }
 
+/* ── 第五課：走廊與畫家的窗戶 ────────────────────────────────────────── */
+.ar-hall .al-space { position: relative; aspect-ratio: 4 / 3; min-height: 0; height: auto; align-self: start; background: #0c0e13; }
+.ar-hall .al-space-cv { touch-action: none; cursor: grab; }
+.ar-hl-over { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+.ar-hl-guide { stroke: #ffd36e; stroke-width: 1.4; stroke-dasharray: 6 5; vector-effect: non-scaling-stroke; }
+.ar-hl-horizon { stroke: #fff; stroke-width: 1.6; stroke-dasharray: 2 5; vector-effect: non-scaling-stroke; filter: drop-shadow(0 0 1px #000); }
+.ar-hl-vp { fill: #ffd36e; stroke: #10131c; stroke-width: 1.5; vector-effect: non-scaling-stroke; }
+.ar-hl-cross { stroke: #10131c; stroke-width: 1.5; vector-effect: non-scaling-stroke; }
+.ar-hl-t { font: 700 6.4px var(--sans); fill: #fff; paint-order: stroke; stroke: #10131c; stroke-width: 1.8px; stroke-linejoin: round; }
+.ar-hall.ar-narrow .ar-hl-t { font-size: 11px; stroke-width: 2.6px; }
+.ar-hall[data-mode="drawing"] .ar-hl-horizon { stroke: #10131c; filter: none; }
+.ar-hall[data-mode="drawing"] .ar-hl-guide { stroke: #b07a00; }
+.ar-hl-facts { margin: .2rem 0 0; padding-top: .55rem; border-top: 1px solid var(--al-line); display: grid; gap: .4rem; }
+.ar-hl-facts div { display: flex; justify-content: space-between; align-items: baseline; gap: .8rem; }
+.ar-hl-facts dt { font-size: .7rem; font-weight: 700; color: var(--al-mute); }
+.ar-hl-facts dd { margin: 0; font-size: 1rem; font-weight: 800; color: #fff; font-variant-numeric: tabular-nums; text-align: right; }
+.ar-hl-facts dd small { display: block; font-size: .64rem; font-weight: 700; color: var(--al-mute); }
+.ar-hl-modes { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+@media (max-width: 1000px) { .ar-hall .al-space { aspect-ratio: 4 / 3; min-height: 0; max-height: none; } }
+@media (max-width: 620px) { .ar-hall .al-space { aspect-ratio: 4 / 3; max-height: none; } .ar-hall .al-hint { display: block; font-size: .64rem; } }
+
+/* ── 消失點在哪裡？／哪一根比較高？ ──────────────────────────────────── */
+.ar-pv-svg { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; border-radius: 14px; border: 2px solid rgba(255,255,255,.75); background: #fbf8f0; }
+.ar-vp-svg { max-width: 640px; margin: .8rem 0 0; cursor: crosshair; touch-action: manipulation; }
+.ar-pv-paper { fill: #fbf8f0; }
+.ar-pv-line { stroke: #16181d; stroke-width: 1.3; stroke-linecap: round; }
+.ar-pv-guide { stroke: #b07a00; stroke-width: 1.3; stroke-dasharray: 6 5; }
+.ar-pv-horizon { stroke: #16181d; stroke-width: 1.2; stroke-dasharray: 2 5; }
+.ar-pv-vp { fill: #ffd36e; stroke: #16181d; stroke-width: 1.5; }
+.ar-pv-cross { stroke: #16181d; stroke-width: 2.2; fill: none; }
+.ar-pv-ring { fill: none; stroke: #16181d; stroke-width: 1.6; stroke-dasharray: 3 3; }
+.ar-pv-t { font: 800 10px var(--sans); fill: #16181d; paint-order: stroke; stroke: #fbf8f0; stroke-width: 3px; }
+.ar-vp-name { margin: 1rem 0 0; font-size: 1.05rem; font-weight: 800; }
+.ar-vp-name .zh { margin-left: .3rem; font-family: var(--zh); color: #ffe3a3; }
+.ar-vp-nudge { display: flex; flex-wrap: wrap; align-items: center; gap: .4rem; margin-top: .8rem; }
+.ar-vp-nudge .ar-btn { padding: .45rem .8rem; }
+.ar-vp-nudge .ar-btn-gold { margin-left: .6rem; }
+.ar-btn:disabled { opacity: .45; cursor: default; }
+.ar-po-grid { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 1.3rem; align-items: start; }
+.ar-po-side { display: flex; flex-direction: column; gap: .8rem; min-width: 0; }
+.ar-po-post { fill: #d9a520; stroke: #16181d; stroke-width: 1.2; }
+.ar-po-read { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.ar-postsq .ar-check { color: #e8edf7; }
+@media (max-width: 760px) { .ar-po-grid { grid-template-columns: 1fr; } }
+
 /* ── 課綱、安全提醒、延伸閱讀、出處、系列首頁（寫法照音樂系列） ───────── */
 .ar-curric { list-style: none; margin: 1.4rem 0 0; padding: 0; display: grid; gap: .9rem; max-width: 900px; }
 .ar-cur { padding: 1.1rem 1.3rem; background: #fff; border: 1px solid var(--line); border-left: 5px solid var(--gold); border-radius: 14px; box-shadow: var(--shadow-sm); }

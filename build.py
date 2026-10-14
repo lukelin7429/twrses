@@ -18371,7 +18371,7 @@ def build_usg_hub():
 _artj = os.path.join(ROOT, "data", "art.json")
 ART = json.load(open(_artj, encoding="utf-8")) if os.path.exists(_artj) else None
 ART_BASE = "/resources/classes/art/"
-_ART_JS = {"lights": "art-lights", "wheel": "art-wheel", "ball": "art-ball", "line": "art-line"}   # lab.kind → assets/js/<bundle>.js
+_ART_JS = {"lights": "art-lights", "wheel": "art-wheel", "ball": "art-ball", "line": "art-line", "hall": "art-hall"}   # lab.kind → assets/js/<bundle>.js
 
 def _art_ver():
     h = hashlib.md5()
@@ -18426,7 +18426,14 @@ def artline_svg(size=56):
             '<path d="M12 36C18 22 24 22 30 31S42 42 49 24L48.4 23.4C42 39 36 37 31 28.6S17 17 10 34Z" fill="#16181d"/>'
             '<path d="M12 44h22" stroke="#16181d" stroke-width="1.2" stroke-linecap="round" stroke-dasharray="1 3"/></svg>')
 
-_ART_CARD = {"lights": artlights_svg, "wheel": artwheel_svg, "ball": artball_svg, "line": artline_svg}
+def arthall_svg(size=56):
+    """第五課的課程卡小圖示：一條往消失點收窄的走廊。"""
+    return (f'<svg class="arhall-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">'
+            '<rect x="6" y="9" width="48" height="42" fill="#d3dbe6"/><path d="M6 9L26 25H34L54 9Z" fill="#e9e4d8"/><path d="M6 51L26 33H34L54 51Z" fill="#c9b89a"/>'
+            '<rect x="26" y="25" width="8" height="8" fill="#b4bfd0"/><path d="M6 9L26 25M54 9L34 25M6 51L26 33M54 51L34 33" stroke="#16181d" stroke-width="1.2"/>'
+            '<circle cx="30" cy="29" r="2.2" fill="#ffd36e" stroke="#16181d" stroke-width="1"/></svg>')
+
+_ART_CARD = {"lights": artlights_svg, "wheel": artwheel_svg, "ball": artball_svg, "line": artline_svg, "hall": arthall_svg}
 
 def render_artlights_lab(lesson):
     """第一課：暗房裡的三盞燈／三片顏料（assets/js/art-lights.js 綁這裡的 class；右邊欄的字由程式依模式填入）。"""
@@ -18729,6 +18736,84 @@ def _ar_shape(d):
   <p class="ar-fine">{html.escape(d["note_en"])}<span class="zh">{html.escape(d["note_zh"])}</span></p>
 </div>'''
 
+def render_arthall_lab(lesson):
+    """第五課：走廊與畫家的窗戶（assets/js/art-hall.js 綁這裡的 class）。"""
+    lab = lesson["lab"]
+    heights = "".join(
+        f'<button type="button" data-height="{k}" aria-pressed="{"true" if k == "stand" else "false"}"><b>{en}</b><small>{zh}</small></button>'
+        for k, en, zh in [("crouch", "Crouch", "蹲著 0.6 m"), ("stand", "Stand", "站著 1.2 m"), ("chair", "On a chair", "站在椅子上 2.2 m")])
+    modes = "".join(
+        f'<button type="button" data-mode-pick="{k}" aria-pressed="{"true" if k == "room" else "false"}"><b>{en}</b><small>{zh}</small></button>'
+        for k, en, zh in [("room", "The hallway", "走廊"), ("drawing", "Line drawing", "紙上的線稿")])
+    tg = _lab_toggles([("lines", "Lines to the vanishing point", "連到消失點的透視線", True), ("posts", "Two posts of the same height", "兩根一樣高的柱子", False)])
+    notes = "".join(f'<li>{html.escape(n["en"])}<span class="zh">{html.escape(n["zh"])}</span></li>' for n in lab["notes"])
+    return f'''<div class="astro-lab ar-lab ar-hall rvl" data-arthall-lab data-mode="room">
+  <div class="al-stage">
+    <div class="al-space">
+      <canvas class="al-space-cv" aria-label="3D view down a hallway through a fixed window. As the eye moves, the vanishing point and the eye-level line move with it; the text on the right gives their positions · 透過一扇固定的窗戶看一條走廊的 3D 畫面：眼睛移動時，消失點和視平線跟著移動；右邊的文字寫出它們的位置"></canvas>
+      <svg class="ar-hl-over" aria-hidden="true" preserveAspectRatio="none"></svg>
+      <p class="al-hint">Drag the picture to move your eye · 拖動畫面，移動你的眼睛</p>
+      <p class="al-nogl-msg">This 3D model needs WebGL, which this browser does not support. The sliders on the right still work and still give the position of the horizon and the vanishing point, and the two activities below draw the same hallway without WebGL.<br><span class="zh">這個瀏覽器不支援 WebGL，無法顯示 3D 模型；右邊的滑桿照樣能用，也照樣寫出視平線與消失點的位置；下面兩個小互動不需要 WebGL，畫的是同一條走廊。</span></p>
+    </div>
+    <aside class="al-sky ar-aside">
+      <p class="ar-rule ar-hl-from" aria-live="polite"></p>
+      <p class="al-sky-k">Your eye · 你的眼睛</p>
+      <div class="ar-presets ar-bl-modes ar-hl-heights" role="group" aria-label="Eye height · 眼睛的高度">{heights}</div>
+      <label class="ar-bl-sl"><span>Height above the floor · 離地高度 <b class="ar-hl-yv">1.2 m</b></span>
+        <input type="range" data-s="ey" min="50" max="250" step="5" value="120" aria-label="Height of the eye above the floor, 0.5 to 2.5 meters · 眼睛離地的高度，0.5 到 2.5 公尺"></label>
+      <label class="ar-bl-sl"><span>Left or right · 左右位置 <b class="ar-hl-xv">center</b></span>
+        <input type="range" data-s="ex" min="-170" max="170" step="5" value="0" aria-label="Position of the eye, from 1.7 meters left of center to 1.7 meters right · 眼睛的左右位置，從中間偏左 1.7 公尺到偏右 1.7 公尺"></label>
+      <p class="al-sky-k">Show it as · 顯示成</p>
+      <div class="ar-presets ar-bl-modes ar-hl-modes" role="group" aria-label="How the view is drawn · 畫面的畫法">{modes}</div>
+      <dl class="ar-hl-facts"></dl>
+      <p class="ar-msg" aria-live="polite"></p>
+    </aside>
+  </div>
+  <div class="al-controls">
+    <div class="al-row al-row-main"><div class="al-row al-toggles">{tg}</div></div>
+  </div>
+  {_lab_foot(lab)}
+  <div class="ar-note">
+    <p class="ar-note-h">{html.escape(lab["note_head_en"])} <span class="zh">{html.escape(lab["note_head_zh"])}</span></p>
+    <ul>{notes}</ul>
+    <p class="ar-note-end">{html.escape(lab["note_end_en"])}<span class="zh">{html.escape(lab["note_end_zh"])}</span></p>
+  </div>
+  <p class="ar-credit">{lab["credit_html"]}</p>
+</div>'''
+
+def _ar_vp(d):
+    return f'''<div class="ar-match ar-vpq rvl" data-ar-vp>
+  <div class="ar-mt-top"><p class="ar-mt-k ar-vp-k">Picture 1 of 5 · 第 1 張（共 5 張）</p><p class="ar-mt-sc">Found · 找到的張數 <b class="ar-mt-score ar-vp-score">0 / 0</b></p></div>
+  <div class="ar-mt-steps ar-vp-steps" aria-hidden="true"></div>
+  <p class="ar-vp-name"></p>
+  <svg class="ar-pv-svg ar-vp-svg" role="img" aria-label="A line drawing. Click where the receding lines would meet · 一張線稿：點出往遠處延伸的線會相交的地方"></svg>
+  <div class="ar-vp-nudge" role="group" aria-label="Move your mark · 移動你標的位置">
+    <button type="button" class="ar-btn" data-nudge="-1,0" aria-label="Left · 往左">&larr;</button>
+    <button type="button" class="ar-btn" data-nudge="0,-1" aria-label="Up · 往上">&uarr;</button>
+    <button type="button" class="ar-btn" data-nudge="0,1" aria-label="Down · 往下">&darr;</button>
+    <button type="button" class="ar-btn" data-nudge="1,0" aria-label="Right · 往右">&rarr;</button>
+    <button type="button" class="ar-btn ar-btn-gold ar-vp-check" disabled>Check · 對答案</button>
+    <button type="button" class="ar-btn ar-btn-gold ar-vp-next" hidden>Next picture · 下一張</button>
+  </div>
+  <p class="ar-mt-msg ar-vp-msg" aria-live="polite"></p>
+  <p class="ar-fine">{html.escape(d["note_en"])}<span class="zh">{html.escape(d["note_zh"])}</span></p>
+</div>'''
+
+def _ar_posts(d):
+    return f'''<div class="ar-match ar-postsq rvl" data-ar-posts>
+  <div class="ar-po-grid">
+    <svg class="ar-pv-svg ar-po-svg" role="img" aria-label="A hallway with two posts, A near and B far. The text beside it gives their heights · 走廊裡的兩根柱子：A 近、B 遠；旁邊的文字寫出它們的高度"></svg>
+    <div class="ar-po-side">
+      <label class="ar-zm-sl"><span>How far post B is from your eye · 柱子 B 離眼睛多遠 <b class="ar-po-zv">15 m</b></span>
+        <input type="range" class="ar-po-z" min="3" max="16" step="1" value="12" aria-label="Distance of post B down the hallway, 3 to 16 meters · 柱子 B 在走廊裡的位置，3 到 16 公尺"></label>
+      <dl class="ar-ln-read ar-po-read"></dl>
+      <label class="ar-check"><input type="checkbox" data-t="polines"><span>Draw lines through the tops and the feet · 畫出通過頂端與底端的線</span></label>
+      <p class="ar-zm-msg ar-po-msg" aria-live="polite"></p>
+    </div>
+  </div>
+  <p class="ar-fine">{html.escape(d["note_en"])}<span class="zh">{html.escape(d["note_zh"])}</span></p>
+</div>'''
+
 def _ar_match(d):
     rows = "".join(
         '<label class="ar-mt-sl"><span class="ar-chip" aria-hidden="true"></span><span class="ar-mt-sn"></span>'
@@ -18826,7 +18911,7 @@ def build_art_lesson(ui, unit, lesson):
     reading_html = render_basic_unit(1, unit_dict, level="art", audio_rel="", pdf_rel="")
     lab = lesson["lab"]
     kind = lab["kind"]
-    lab_html = {"lights": render_artlights_lab, "wheel": render_artwheel_lab, "ball": render_artball_lab, "line": render_artline_lab}[kind](lesson)
+    lab_html = {"lights": render_artlights_lab, "wheel": render_artwheel_lab, "ball": render_artball_lab, "line": render_artline_lab, "hall": render_arthall_lab}[kind](lesson)
 
     def sec(key, fn):
         d = lesson[key]
@@ -18844,6 +18929,8 @@ def build_art_lesson(ui, unit, lesson):
         ph = lesson["parts_head"]
         secs.append(("parts", ph["eyebrow"], ph["en"], ph["zh"], f'<div class="ph-grid stagger">{cards}</div>',
                      _bi(lesson["parts_note_en"], lesson["parts_note_zh"], cls="lead rvl d2")))
+    if lesson.get("vp"): secs.append(sec("vp", _ar_vp))
+    if lesson.get("posts"): secs.append(sec("posts", _ar_posts))
     if lesson.get("how"): secs.append(sec("how", _ar_how))
     if lesson.get("shape"): secs.append(sec("shape", _ar_shape))
     if lesson.get("lamp"): secs.append(sec("lamp", _ar_lamp))
