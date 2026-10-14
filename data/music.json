@@ -6213,11 +6213,11 @@
        "icon": "🎻",
        "k_en": "Music · Lesson 11",
        "k_zh": "音樂・第十一課",
-       "soon": true,
        "en": "Who Sits Where in an Orchestra?",
        "zh": "交響樂團怎麼坐？",
        "note_en": "Next: many instruments, and where each family sits.",
-       "note_zh": "接下來：很多樂器，和每一個家族坐在哪裡。"
+       "note_zh": "接下來：很多樂器，和每一個家族坐在哪裡。",
+       "href": "/resources/classes/music/orchestra-seating/"
       }
      ],
      "sources_note_en": "Names, numbers, and quotations on this page were checked against these sources (October 2026). The parts and the motion in the 3D model are our own simplified drawing, and the sounds are our own simple recipe; the timings, ratios, and formulas in the code are covered by automatic tests.",
@@ -6308,15 +6308,610 @@
        "url": "https://cdn.who.int/media/docs/default-source/documents/health-topics/deafness-and-hearing-loss/mls-brochure-english-2021.pdf?sfvrsn=bf19b448_5"
       }
      ]
+    },
+    {
+     "n": 11,
+     "slug": "orchestra-seating",
+     "title": "Who Sits Where in an Orchestra?",
+     "title_zh": "交響樂團怎麼坐？",
+     "level": "入門 · Beginner",
+     "icon": "🎻",
+     "card": "orchestra",
+     "blurb_en": "Click through a 3D seating plan, from the strings at the front to the percussion at the back. Switch between two string layouts, and hear the sections join in one by one.",
+     "blurb_zh": "點一點 3D 的座位圖，從最前面的弦樂到最後面的打擊。換兩種弦樂的排法，聽各組一組一組加進來。",
+     "big_idea_en": "An orchestra has four sections, arranged in a semicircle around the conductor. A general principle is to seat them by volume, softer in front and louder behind, but the layout is a tradition that conductors adjust.",
+     "big_idea_zh": "管弦樂團有四組，圍著指揮坐成半圓形。一個通則是依音量排：輕的在前、響的在後；但這是傳統，指揮會依情況調整。",
+     "lab": {
+      "kind": "orchestra",
+      "eyebrow": "3D Model · 3D 模型",
+      "title_en": "A Seating Plan",
+      "title_zh": "一張座位圖",
+      "how_en": "The conductor stands on the podium in the middle. The strings sit in a fan at the front. Behind them are the woodwinds, then the brass, and the percussion are at the back. Click a group of seats to hear that section. Switch between the American and the German layout to see how only the strings move. You can also look from above or from the audience. The dots show where each section sits, not how many players there are.",
+      "how_zh": "指揮站在中間的台上。弦樂在最前面坐成扇形。後面是木管，再後面是銅管，打擊在最後面。點一群座位，聽那一組的聲音。在美式和德式排法之間切換，看看只有弦樂換了位置。你也可以從上面看，或從觀眾席看。圓點只顯示每一組坐在哪裡，不代表有多少人。",
+      "legend": [
+       {
+        "cls": "live",
+        "en": "A lit-up section: the one you chose",
+        "zh": "亮起來的一組：你選的那一組"
+       },
+       {
+        "cls": "mode",
+        "en": "Four sections, front to back",
+        "zh": "四組，由前到後"
+       }
+      ],
+      "scale_en": "This is a teaching sketch. Real seating plans differ from orchestra to orchestra, and from concert to concert.",
+      "scale_zh": "這是教學用的示意圖。真正的座位圖，每個樂團、每場音樂會都不一樣。",
+      "credit_html": "All sounds on this page are made by your browser, tone by tone. They are simple recipes for each section, not recordings of an orchestra. · 本頁所有的聲音都由瀏覽器即時合成，是每一組的簡單配方，不是樂團的錄音。"
+     },
+     "paras": [
+      "An orchestra is a large instrumental ensemble that combines instruments from different families. There are typically four main sections: strings, woodwinds, brass, and percussion. A full-size orchestra may be called a symphony orchestra or a philharmonic orchestra, and Taiwan’s dictionary says there is no real difference between the two names. Its size may vary from seventy to over one hundred players, depending on the music and the hall.",
+      "The strings are the first and second violins, violas, cellos, and double basses, and they are usually the most numerous group. The woodwind section usually includes flutes, oboes, clarinets, and bassoons. The brass are French horns, trumpets, trombones, and a tuba. The percussion include the timpani, snare drum, bass drum, cymbals, and triangle. The timpani can be tuned to particular notes. A harp is often added, and keyboard instruments may form a fifth section.",
+      "These four sections are not the same as the four families in lesson 9. The woodwinds and the brass are both aerophones, because air vibrates in both. The percussion section includes membranophones, such as the timpani, and idiophones, such as the cymbals. A piano is a chordophone. And the names do not describe materials: a saxophone is usually made of brass but belongs to the woodwinds, and a brass instrument is defined by the way its sound is made.",
+      "In the usual plan the strings sit at the front, in a semicircle around the conductor’s podium. The Berlin Philharmonic describes one general principle: the sections are arranged by volume. The softer strings sit at the front, then the more powerful woodwinds, then the louder brass, and finally the percussion at the back. But it is a tradition and not a rule. The conductors decide, thinking about the music, the hall, how well the sections blend, and whether they can see the players.",
+      "Even the strings can be arranged in different ways. In the so-called American setup, the first violins, second violins, violas, and cellos sit in that order from the audience’s left. In the German setup, the first and second violins sit opposite each other, with the cellos and violas between them. The double basses sit behind the strings, on the left or the right. Even the horns may switch sides. So the picture in this lesson is one possible plan.",
+      "The conductor stands on a raised podium. The conductor sets the tempo, makes sure each group comes in at the right time, and shapes the phrasing, often with a baton. Most conductors do not play an instrument when they conduct, so all the sound is made by the musicians. The concertmaster, who leads the first violins, is the second-in-command and leads the tuning. By a convention hundreds of years old, the first oboe plays the note A for the orchestra to tune to."
+     ],
+     "paras_zh": [
+      "管弦樂團是一個大型的樂器合奏團體，把不同家族的樂器結合在一起。通常有四個主要的組：弦樂、木管、銅管和打擊。全編制的樂團可以叫交響樂團或愛樂樂團，台灣的辭典說這兩個名稱之間並沒有實質的差別。人數可以從七十到一百多位不等，要看曲子和場地。",
+      "弦樂是第一和第二小提琴、中提琴、大提琴和低音提琴，通常是人數最多的一組。木管通常包括長笛、雙簧管、單簧管和低音管。銅管是法國號、小號、長號和一支低音號。打擊包括定音鼓、小鼓、大鼓、鈸和三角鐵。定音鼓可以調到特定的音。常常還會加上豎琴，鍵盤樂器有時構成第五組。",
+      "這四個組和第九課的四個家族不一樣。木管和銅管都是氣鳴樂器，因為兩者振動的都是空氣。打擊這一組同時包含膜鳴樂器（例如定音鼓）和體鳴樂器（例如鈸）。鋼琴是弦鳴樂器。而且名稱不是在說材料：薩克斯風通常是銅做的，卻屬於木管；銅管樂器是由發聲的方式來定義的。",
+      "通常的座位，是弦樂坐在最前面，圍著指揮台排成半圓形。柏林愛樂官網描述了一個通則：各組依音量來排。比較輕的弦樂坐在前面，接著是比較有力的木管，然後是比較響的銅管，最後面是打擊。但這是傳統，不是規定。由指揮決定，他們考慮曲子、場地、各組合不合得起來，還有看不看得到演奏者。",
+      "連弦樂也有不同的排法。所謂的美式排法，從觀眾的左邊起，依序是第一小提琴、第二小提琴、中提琴、大提琴。德式排法，是第一與第二小提琴面對面，大提琴和中提琴在它們中間。低音提琴坐在弦樂後面，可以在左邊，也可以在右邊。連法國號也可能換邊。所以這一課的圖，只是一種可能的排法。",
+      "指揮站在一個升高的台上。指揮定速度、確保每一組在對的時間進來、塑造樂句的形狀，常常用指揮棒。大多數指揮在指揮時不演奏樂器，所以所有的聲音都由樂手發出。樂團首席帶領第一小提琴，是僅次於指揮的第二號人物，也帶領調音。依一個幾百年的慣例，由第一雙簧管吹出 A 音，讓全團對準。"
+     ],
+     "questions": [
+      "Why do the strings usually sit at the front?",
+      "What does a conductor do, if the conductor does not make the sound?",
+      "Why are the orchestra’s four sections not the same as the four families of lesson 9?"
+     ],
+     "answers": [
+      "One general principle is to seat the sections by volume, with the softer strings at the front and the louder brass and percussion behind. It is a tradition, and conductors adjust it for the music and the hall.",
+      "The conductor sets the tempo, makes sure each group comes in at the right time, and shapes the phrasing, so the musicians play together. The musicians make all the sound.",
+      "The orchestra’s sections follow a custom of grouping players. Woodwinds and brass are both aerophones, the percussion split into membranophones and idiophones, and a piano is a chordophone, so the two ways of sorting cut across each other."
+     ],
+     "vocab": [
+      {
+       "n": 1,
+       "w": "orchestra",
+       "pos": "n.",
+       "zh": "管弦樂團",
+       "ex": "An <b>orchestra</b> has four main sections.",
+       "exzh": "管弦樂團有四個主要的組。"
+      },
+      {
+       "n": 2,
+       "w": "conductor",
+       "pos": "n.",
+       "zh": "指揮",
+       "ex": "The <b>conductor</b> sets the tempo.",
+       "exzh": "指揮定速度。"
+      },
+      {
+       "n": 3,
+       "w": "concertmaster",
+       "pos": "n.",
+       "zh": "樂團首席",
+       "ex": "The <b>concertmaster</b> leads the first violins.",
+       "exzh": "樂團首席帶領第一小提琴。"
+      },
+      {
+       "n": 4,
+       "w": "section",
+       "pos": "n.",
+       "zh": "（樂團的）組、聲部",
+       "ex": "The brass <b>section</b> sits behind the woodwinds.",
+       "exzh": "銅管組坐在木管後面。"
+      },
+      {
+       "n": 5,
+       "w": "podium",
+       "pos": "n.",
+       "zh": "指揮台",
+       "ex": "The conductor stands on the <b>podium</b>.",
+       "exzh": "指揮站在指揮台上。"
+      },
+      {
+       "n": 6,
+       "w": "woodwind",
+       "pos": "n.",
+       "zh": "木管樂器",
+       "ex": "A flute is a <b>woodwind</b>, even if it is made of metal.",
+       "exzh": "長笛就算是金屬做的，也是木管樂器。"
+      },
+      {
+       "n": 7,
+       "w": "brass",
+       "pos": "n.",
+       "zh": "銅管樂器",
+       "ex": "The player’s lips vibrate in a <b>brass</b> instrument.",
+       "exzh": "銅管樂器是演奏者的嘴唇在振動。"
+      },
+      {
+       "n": 8,
+       "w": "percussion",
+       "pos": "n.",
+       "zh": "打擊樂器",
+       "ex": "The <b>percussion</b> sit at the very back.",
+       "exzh": "打擊坐在最後面。"
+      }
+     ],
+     "quiz": [
+      {
+       "q": "Which section usually sits at the very back?",
+       "options": [
+        "Percussion",
+        "Strings",
+        "Woodwinds",
+        "Brass"
+       ],
+       "correct": 0
+      },
+      {
+       "q": "What is one thing a conductor does?",
+       "options": [
+        "Sets the tempo and shapes the phrasing",
+        "Plays the first violin",
+        "Tunes every instrument alone",
+        "Chooses the audience seats"
+       ],
+       "correct": 0
+      },
+      {
+       "q": "Who leads the first violins and is second-in-command?",
+       "options": [
+        "The concertmaster",
+        "The conductor",
+        "The timpanist",
+        "The tuba player"
+       ],
+       "correct": 0
+      },
+      {
+       "q": "Which instrument usually gives the note A for the orchestra to tune?",
+       "options": [
+        "The oboe",
+        "The tuba",
+        "The snare drum",
+        "The harp"
+       ],
+       "correct": 0
+      },
+      {
+       "q": "A woodwind and a brass instrument are both…",
+       "options": [
+        "Aerophones, because air vibrates",
+        "Chordophones",
+        "Membranophones",
+        "Idiophones"
+       ],
+       "correct": 0
+      }
+     ],
+     "parts_head": {
+      "eyebrow": "Try It in the Model · 在模型裡試試",
+      "en": "Four things to try",
+      "zh": "四件值得試的事"
+     },
+     "parts": [
+      {
+       "key": "strings",
+       "icon": "🎻",
+       "en": "The strings at the front",
+       "zh": "最前面的弦樂",
+       "meta_en": "The softer sound, in a fan",
+       "meta_zh": "比較輕的聲音，扇形",
+       "demo": "strings",
+       "text_en": "Click the strings. Notice where they sit, close to the conductor.",
+       "text_zh": "點弦樂。注意它們坐在哪裡：靠近指揮。"
+      },
+      {
+       "key": "woodwinds",
+       "icon": "🎶",
+       "en": "Woodwinds behind them",
+       "zh": "後面的木管",
+       "meta_en": "A different color",
+       "meta_zh": "不同的音色",
+       "demo": "woodwinds",
+       "text_en": "The woodwinds sit in rows behind the strings. Listen for the hollow, reedy sound.",
+       "text_zh": "木管坐在弦樂後面的幾排。聽那種空空的、帶簧片的聲音。"
+      },
+      {
+       "key": "brass",
+       "icon": "🎺",
+       "en": "Brass toward the back",
+       "zh": "靠後的銅管",
+       "meta_en": "A louder, brighter sound",
+       "meta_zh": "比較響、比較亮",
+       "demo": "brass",
+       "text_en": "The brass sit behind the woodwinds. In our simple recipe their sound has many strong harmonics.",
+       "text_zh": "銅管坐在木管後面。在我們的簡單配方裡，它們的聲音有很多強的諧波。"
+      },
+      {
+       "key": "all",
+       "icon": "🌅",
+       "en": "One by one, front to back",
+       "zh": "由前到後，一組一組",
+       "meta_en": "Strings, woodwinds, brass, percussion",
+       "meta_zh": "弦樂、木管、銅管、打擊",
+       "demo": "all",
+       "text_en": "Hear the sections join in, in the order they sit, from the front to the back.",
+       "text_zh": "聽各組依座位的順序，由前到後，一組一組加進來。"
+      }
+     ],
+     "parts_note_en": "Then try it yourself: switch to the German layout. Which sections moved, and which did not?",
+     "parts_note_zh": "然後自己試試：換成德式排法。哪些組移動了？哪些沒有？",
+     "mixer": {
+      "eyebrow": "Build It · 動手組組看",
+      "en": "Add the Sections",
+      "zh": "把各組加進來",
+      "lead_en": "Turn on the sections you want and press play. They all play the same simple chord. As you add sections, each gets a smaller share of the volume, so the total does not get too loud.",
+      "lead_zh": "打開你想要的組，再按播放。它們都奏同一個簡單的和弦。加進來的組越多，每一組分到的音量就越小，總音量才不會太大。"
+     },
+     "seatq": {
+      "eyebrow": "Game · 小遊戲",
+      "en": "Where Do They Sit?",
+      "zh": "它們坐在哪裡？",
+      "lead_en": "Six questions. Each one names a section. Choose which row it usually sits in. Remember that real orchestras vary.",
+      "lead_zh": "六道題。每一題給一個組的名字。選出它通常坐在哪一排。記得真正的樂團各不相同。"
+     },
+     "curric": {
+      "eyebrow": "In the Curriculum · 對應課綱",
+      "en": "Where this lesson fits",
+      "zh": "這一課對應的課綱",
+      "lead_en": "The curriculum names playing together and conducting. The words orchestra, symphony, and section do not appear in the curriculum itself.",
+      "lead_zh": "課綱寫到合奏與指揮。「樂團」「管弦」「交響」「聲部」這些詞，課綱本文裡沒有出現。",
+      "items": [
+       {
+        "code": "音 E-Ⅲ-2",
+        "area": "藝術領域・音樂（國小五、六年級）",
+        "area_en": "Arts, music (grades 5–6)",
+        "text": "樂器的分類、基礎演奏技巧，以及獨奏、齊奏與合奏等演奏形式。",
+        "note_en": "An orchestra is an ensemble of many kinds of instruments playing together.",
+        "note_zh": "管弦樂團是許多種樂器一起合奏的團體。"
+       },
+       {
+        "code": "音 E-Ⅳ-2",
+        "area": "藝術領域・音樂（國中七至九年級）",
+        "area_en": "Arts, music (grades 7–9)",
+        "text": "樂器的構造、發音原理、演奏技巧，以及不同的演奏形式。",
+        "note_en": "Different forms of playing include orchestras and other ensembles.",
+        "note_zh": "不同的演奏形式，包括管弦樂團與其他合奏。"
+       },
+       {
+        "code": "音 E-Ⅳ-5",
+        "area": "藝術領域・音樂（國中七至九年級）",
+        "area_en": "Arts, music (grades 7–9)",
+        "text": "基礎指揮。",
+        "note_en": "Basic conducting is named in junior high school.",
+        "note_zh": "基礎指揮在國中被列為學習內容。"
+       }
+      ]
+     },
+     "culture_cards": {
+      "eyebrow": "Stories Behind the Notes · 音符背後的故事",
+      "title_en": "A Greek word, two layouts, an experimenter, and three Taiwanese orchestras",
+      "title_zh": "一個希臘字、兩種排法、一位實驗者，和三個台灣的樂團",
+      "lead_en": "Four short stories about how orchestras came to sit the way they do.",
+      "lead_zh": "關於樂團怎麼坐成今天這樣的四個小故事。",
+      "cards": [
+       {
+        "k": "A Greek Word · 希臘字",
+        "en": "The place in front of the stage",
+        "zh": "舞台前面的那塊地方",
+        "body_en": "The word orchestra comes from the Greek orchestra, the name of the area in front of a stage in ancient Greek theaters. Taiwan’s dictionary says the same: it was the place where the chorus stood, and the meaning later grew to a group of instruments playing together, usually in music after the eighteenth century.",
+        "body_zh": "orchestra 這個字來自希臘文的 orchestra，是古希臘劇場裡舞台前面那塊地方的名稱。台灣的辭典也這麼說：那是合唱團站的位置，後來延伸成一群樂器合奏的團體，通常用在十八世紀之後的樂團。"
+       },
+       {
+        "k": "Two Layouts · 兩種排法",
+        "en": "American and German",
+        "zh": "美式與德式",
+        "body_en": "In the 19th century it was standard to put the first and second violins on opposite sides. Today the most common layout puts the first violins, second violins, violas, and cellos in a line, with the basses behind. Some conductors prefer the German layout, with the violins facing each other. A composer may even specify the seating: Bartók wrote for strings placed in a conversational, antiphonal way.",
+        "body_zh": "十九世紀的標準是把第一和第二小提琴放在相對的兩邊。今天最常見的排法，是第一小提琴、第二小提琴、中提琴、大提琴排成一線，低音提琴在後面。有些指揮喜歡德式排法，讓小提琴面對面。作曲家甚至可以指定座位：巴爾托克的曲子，就要求弦樂用像對話一樣的「交替」方式擺放。"
+       },
+       {
+        "k": "An Experimenter · 實驗者",
+        "en": "Stokowski moved everyone",
+        "zh": "史托科夫斯基讓大家換位子",
+        "body_en": "The conductor Leopold Stokowski is credited as the first to adopt the seating plan that most orchestras use today, with the first and second violins together on the conductor’s left and the violas and cellos to the right. He kept changing the seating of his sections. At one time he even put the winds and brass in front of the strings, which, as one article tells it, horrified the people of Philadelphia.",
+        "body_zh": "指揮史托科夫斯基（Leopold Stokowski）被認為是第一位採用今天大多數樂團所用座位的人：第一和第二小提琴一起在指揮的左邊，中提琴和大提琴在右邊。他不斷改變各組的座位。有一次他甚至把木管和銅管放在弦樂前面；有一篇文章說，這讓費城的人大吃一驚。"
+       },
+       {
+        "k": "In Taiwan · 在台灣",
+        "en": "Three orchestras",
+        "zh": "三個樂團",
+        "body_en": "The National Symphony Orchestra has been in residence at the National Theater and Concert Hall in Taipei since 1987. The National Taiwan Symphony Orchestra, in Wufeng, Taichung, was founded in 1945 and is the oldest symphony orchestra in Taiwan. The Taipei Symphony Orchestra was founded in 1969. They are three different organizations.",
+        "body_zh": "國家交響樂團從 1987 年起，常駐台北的國家戲劇院與音樂廳（兩廳院）。位在台中霧峰的國立臺灣交響樂團，成立於 1945 年，是台灣歷史最悠久的交響樂團。臺北市立交響樂團成立於 1969 年。它們是三個不同的單位。"
+       }
+      ]
+     },
+     "myths": [
+      {
+       "myth_en": "Quiet instruments always sit in front.",
+       "myth_zh": "輕的樂器一定坐在前面。",
+       "fact_en": "Arranging by volume is one general principle, not a law. Conductors adjust the seating for the music and the hall, and Stokowski once put the winds and brass in front.",
+       "fact_zh": "依音量排只是一個通則，不是法律。指揮依曲子和場地調整座位；史托科夫斯基有一次把木管和銅管放在前面。"
+      },
+      {
+       "myth_en": "All orchestras use the same seating plan.",
+       "myth_zh": "所有樂團的座位都一樣。",
+       "fact_en": "American and German layouts differ, the basses can be on the left or the right, and the horns may switch sides. The exact layout varies.",
+       "fact_zh": "美式與德式排法不同，低音提琴可以在左也可以在右，法國號可能換邊。確切的排法各有不同。"
+      },
+      {
+       "myth_en": "The conductor makes the sound.",
+       "myth_zh": "指揮發出聲音。",
+       "fact_en": "Most conductors do not play an instrument while conducting. The conductor sets the tempo, gives cues, and shapes the phrasing, and the musicians make all the sound.",
+       "fact_zh": "大多數指揮在指揮時不演奏樂器。指揮定速度、給提示、塑造樂句，所有的聲音都由樂手發出。"
+      },
+      {
+       "myth_en": "The concertmaster is the conductor.",
+       "myth_zh": "樂團首席就是指揮。",
+       "fact_en": "The concertmaster leads the first violins and is the second-in-command, behind only the conductor. Early orchestras, with no conductor, were led by the concertmaster.",
+       "fact_zh": "樂團首席帶領第一小提琴，是僅次於指揮的第二號人物。沒有指揮的早期樂團，由首席帶領。"
+      }
+     ],
+     "tricks_head": {
+      "en": "The orchestra in a sentence",
+      "zh": "一句話記住樂團"
+     },
+     "tricks": [
+      {
+       "title_en": "Four sections",
+       "title_zh": "四個組",
+       "body_en": "Strings, woodwinds, brass, percussion.",
+       "body_zh": "弦樂、木管、銅管、打擊。"
+      },
+      {
+       "title_en": "Front to back",
+       "title_zh": "由前到後",
+       "body_en": "Usually softer to louder.",
+       "body_zh": "通常由輕到響。"
+      },
+      {
+       "title_en": "A tradition, not a law",
+       "title_zh": "是傳統，不是規定",
+       "body_en": "Conductors adjust it.",
+       "body_zh": "指揮會調整。"
+      },
+      {
+       "title_en": "The conductor leads, the players sound",
+       "title_zh": "指揮帶領，樂手發聲",
+       "body_en": "Tempo, cues, phrasing.",
+       "body_zh": "速度、提示、樂句。"
+      }
+     ],
+     "safety_head": {
+      "eyebrow": "Protect Your Ears · 保護耳朵",
+      "en": "Before you listen",
+      "zh": "聽之前"
+     },
+     "safety": [
+      {
+       "en": "Start with the volume low and turn it up a little at a time. When several sections play together, the total is louder than one, so be careful.",
+       "zh": "先把音量調小，再一點一點調大。好幾組一起奏時，總音量比一組大，要特別小心。"
+      },
+      {
+       "en": "With headphones, keep the volume at no more than 60% of maximum, and use personal audio devices for less than one hour a day, as the World Health Organization suggests.",
+       "zh": "戴耳機時，音量不要超過最大音量的 60%，個人音響裝置每天使用少於一小時，這是世界衛生組織的建議。"
+      },
+      {
+       "en": "In a real concert hall, the brass and percussion are very loud for the players sitting in front of them. If you ever play in a band or orchestra, ask about ear protection.",
+       "zh": "在真正的音樂廳裡，坐在銅管和打擊前面的演奏者會覺得它們非常響。如果你有一天在管樂團或樂團裡演奏，請問問有沒有護耳的辦法。"
+      }
+     ],
+     "activities": [
+      {
+       "title_en": "The Classroom Orchestra",
+       "title_zh": "教室裡的樂團",
+       "materials": [
+        {
+         "en": "Chairs for about twenty students",
+         "zh": "二十位左右學生的椅子"
+        },
+        {
+         "en": "Four colored cards: strings, woodwinds, brass, percussion",
+         "zh": "四張彩色卡片：弦樂、木管、銅管、打擊"
+        },
+        {
+         "en": "A ruler for a conductor’s baton",
+         "zh": "一把尺當指揮棒"
+        }
+       ],
+       "steps": [
+        {
+         "en": "Set the chairs in a semicircle, with a space for the conductor in the middle. Give each student a section card.",
+         "zh": "把椅子排成半圓形，中間留位置給指揮。每位同學發一張組別卡。"
+        },
+        {
+         "en": "Seat the sections: strings at the front, then woodwinds, then brass, then percussion at the back.",
+         "zh": "讓各組坐好：弦樂在最前面，然後木管、銅管，打擊在最後。"
+        },
+        {
+         "en": "The conductor shows a steady beat, and each section takes a turn to clap its own pattern, softly. Then all four together.",
+         "zh": "指揮打出穩定的拍子，每一組輪流輕輕拍自己的節奏型。然後四組一起。"
+        },
+        {
+         "en": "Now change the seating: put the brass in front. Is it easier or harder to hear the strings? Talk about why the traditional plan has stayed.",
+         "zh": "再換座位：把銅管放在前面。聽弦樂變容易還是變難？討論傳統的座位為什麼留下來。"
+        }
+       ],
+       "tip_en": "Clap softly with hands or on knees, so it does not get too loud. Let each student try being the conductor.",
+       "tip_zh": "用手或在膝蓋上輕輕拍，不要太大聲。讓每位同學都試試當指揮。"
+      },
+      {
+       "title_en": "Draw the Plan",
+       "title_zh": "畫出座位圖",
+       "materials": [
+        {
+         "en": "A video or photo of an orchestra concert, from the teacher",
+         "zh": "老師準備的一段樂團音樂會的影片或照片"
+        },
+        {
+         "en": "Paper, pencils, and colored pens",
+         "zh": "紙、鉛筆和彩色筆"
+        }
+       ],
+       "steps": [
+        {
+         "en": "Look at the stage and find the conductor. Mark the podium in the middle of your paper.",
+         "zh": "看舞台，找到指揮。在紙的中間畫出指揮台。"
+        },
+        {
+         "en": "Find the four sections. Mark each one in its own color.",
+         "zh": "找到四個組。用不同顏色標出每一組。"
+        },
+        {
+         "en": "Where are the first violins? The cellos and basses? Compare with the American and German layouts on this page.",
+         "zh": "第一小提琴在哪裡？大提琴和低音提琴呢？和本頁的美式與德式排法比較。"
+        },
+        {
+         "en": "Compare your drawing with a classmate’s. Did the two orchestras sit in the same way?",
+         "zh": "和同學的圖比一比。這兩個樂團的坐法一樣嗎？"
+        }
+       ],
+       "tip_en": "Different concerts have different layouts, so there is no single right answer. Notice the differences instead of marking things wrong.",
+       "tip_zh": "不同的音樂會有不同的排法，所以沒有唯一的答案。注意差別，不要把不一樣的當成錯。"
+      }
+     ],
+     "links_head": {
+      "eyebrow": "Go Further · 延伸閱讀",
+      "en": "Before, around, and after this lesson",
+      "zh": "這一課的前面、旁邊和後面"
+     },
+     "links": [
+      {
+       "icon": "🎹",
+       "k_en": "Music · Lesson 10",
+       "k_zh": "音樂・第十課",
+       "en": "What Happens Inside a Piano?",
+       "zh": "鋼琴裡面發生了什麼？",
+       "note_en": "A piano sometimes joins the orchestra as a keyboard.",
+       "note_zh": "鋼琴有時會以鍵盤的身分加入樂團。",
+       "href": "/resources/classes/music/inside-a-piano/"
+      },
+      {
+       "icon": "🎷",
+       "k_en": "Music · Lesson 9",
+       "k_zh": "音樂・第九課",
+       "en": "How Do Instruments Make Sound?",
+       "zh": "樂器怎麼發出聲音？",
+       "note_en": "The four families are a different way of sorting the same instruments.",
+       "note_zh": "四個家族，是把同樣的樂器用另一種方式分類。",
+       "href": "/resources/classes/music/what-vibrates/"
+      },
+      {
+       "icon": "📣",
+       "k_en": "Music · Lesson 4",
+       "k_zh": "音樂・第四課",
+       "en": "How Do You Tell a Musician “Louder” or “Faster”?",
+       "zh": "怎麼告訴演奏的人「大聲一點」「快一點」？",
+       "note_en": "Volume and tempo are what a conductor shapes.",
+       "note_zh": "音量和速度，是指揮要塑造的。",
+       "href": "/resources/classes/music/louder-and-faster/"
+      },
+      {
+       "icon": "🪕",
+       "k_en": "Music · Lesson 12",
+       "k_zh": "音樂・第十二課",
+       "soon": true,
+       "en": "What Do Chinese Instruments Sound Like?",
+       "zh": "國樂器有哪些？",
+       "note_en": "Next: blowing, bowing, plucking, and striking, in Chinese instruments.",
+       "note_zh": "接下來：國樂器裡的吹、拉、彈、打。"
+      }
+     ],
+     "sources_note_en": "Names, numbers, and quotations on this page were checked against these sources (October 2026). The seating plan and the sounds are our own simplified drawing and recipes; the geometry and the mix levels in the code are covered by automatic tests.",
+     "sources_note_zh": "本頁的名稱、數字與引文依下列資料查證（2026 年 10 月）；座位圖與聲音是我們自己的簡化圖形與配方；程式裡的幾何與混音比例有自動測試。",
+     "sources": [
+      {
+       "en": "An orchestra is a large instrumental ensemble that combines instruments from different families; typically four main sections; a full-size orchestra may be called a symphony or philharmonic orchestra; seventy to over one hundred players; the concertmaster is the second-in-command; the oboe often provides the tuning note; the word comes from Greek orchestra; layout varies",
+       "zh": "管弦樂團是結合不同家族樂器的大型合奏團體；通常四個主要的組；全編制可稱交響樂團或愛樂樂團；七十到一百多人；首席是第二號人物；雙簧管常提供調音的音；字源是希臘文 orchestra；排法各有不同",
+       "src": "Wikipedia, “Orchestra”",
+       "url": "https://en.wikipedia.org/wiki/Orchestra"
+      },
+      {
+       "en": "The conductors decide; sections are arranged by volume: the softer strings at the front, then the more powerful woodwinds, then the louder brass, and finally the percussion at the back; the “American” and “German” setups; the basses may sit on the left or the right; the horns may switch sides",
+       "zh": "由指揮決定；各組依音量排：較輕的弦樂在前，接著較有力的木管，然後較響的銅管，打擊在最後；「美式」與「德式」排法；低音提琴可在左或右；法國號可能換邊",
+       "src": "Berliner Philharmoniker, “Who decides the seating arrangement of the musicians on stage?”",
+       "url": "https://www.berliner-philharmoniker.de/en/stories/who-decides-the-seating-arrangement-of-the-musicians-on-stage/"
+      },
+      {
+       "en": "The string sections are at the front, arrayed in a semicircle around the conductor’s podium; the most common layout; the 19th-century layout with violins on opposite sides; the composer may specify the seating",
+       "zh": "弦樂組在最前面、圍著指揮台排成半圓形；最常見的排法；十九世紀小提琴在相對兩邊的排法；座位可由作曲家指定",
+       "src": "Wikipedia, “String section”",
+       "url": "https://en.wikipedia.org/wiki/String_section"
+      },
+      {
+       "en": "Stokowski’s seating plan; he placed the winds and brass in front of the strings on one occasion; placing all the violins together helped the musicians to hear one another",
+       "zh": "史托科夫斯基的座位；有一次把木管和銅管放在弦樂前面；把所有小提琴放在一起，讓樂手更容易聽到彼此",
+       "src": "Classic FM, “Why are orchestras arranged the way they are?”",
+       "url": "https://www.classicfm.com/discover-music/why-orchestras-arranged/"
+      },
+      {
+       "en": "Credited as the first conductor to adopt the seating plan used by most orchestras today; continually altered the seating arrangements",
+       "zh": "被認為是第一位採用今天大多數樂團所用座位的指揮；不斷改變座位",
+       "src": "Wikipedia, “Leopold Stokowski”",
+       "url": "https://en.wikipedia.org/wiki/Leopold_Stokowski"
+      },
+      {
+       "en": "The primary duties of the conductor are to set the tempo, ensure correct entries, and shape the phrasing; usually with a baton; most conductors have not played an instrument when conducting since the mid-18th century",
+       "zh": "指揮的主要職責是定速度、確保進入正確、塑造樂句；通常用指揮棒；十八世紀中葉以來，大多數指揮在指揮時不演奏樂器",
+       "src": "Wikipedia, “Conducting”",
+       "url": "https://en.wikipedia.org/wiki/Conducting"
+      },
+      {
+       "en": "The concertmaster is the leader of the first violin section and leads the orchestra in tuning; orchestras tune to a concert A played by the first oboe",
+       "zh": "首席是第一小提琴組的領導者，帶領全團調音；樂團用第一雙簧管吹出的音樂會 A 來調音",
+       "src": "Wikipedia, “Concertmaster” and “Oboe”",
+       "url": "https://en.wikipedia.org/wiki/Concertmaster"
+      },
+      {
+       "en": "Woodwind and brass instruments are both aerophones; percussion includes idiophones and membranophones; the piano is a chordophone",
+       "zh": "木管與銅管都是氣鳴樂器；打擊包含體鳴樂器與膜鳴樂器；鋼琴是弦鳴樂器",
+       "src": "Wikipedia, “Hornbostel–Sachs”, “Woodwind section”, “Brass section”, “Percussion section”",
+       "url": "https://en.wikipedia.org/wiki/Hornbostel%E2%80%93Sachs"
+      },
+      {
+       "en": "A brass instrument is defined by the way the sound is made, and not by whether it is made of brass; sound is produced by the vibration of the player’s lips",
+       "zh": "銅管樂器由發聲的方式來定義，不是由是否銅製；聲音來自演奏者嘴唇的振動",
+       "src": "Wikipedia, “Brass instrument”",
+       "url": "https://en.wikipedia.org/wiki/Brass_instrument"
+      },
+      {
+       "en": "NSO in residence at the National Theater and Concert Hall since 1987; NTSO founded in 1945, the oldest symphony orchestra in Taiwan, based in Wufeng, Taichung; Taipei Symphony Orchestra founded in 1969",
+       "zh": "國家交響樂團自 1987 年常駐國家戲劇院與音樂廳；國立臺灣交響樂團 1945 年成立，是台灣最老的交響樂團，位在台中霧峰；臺北市立交響樂團 1969 年成立",
+       "src": "Wikipedia, “National Symphony Orchestra (Taiwan)”, “National Taiwan Symphony Orchestra”, “Taipei Symphony Orchestra”",
+       "url": "https://en.wikipedia.org/wiki/National_Symphony_Orchestra_(Taiwan)"
+      },
+      {
+       "en": "管弦樂團: from the place of the chorus in the ancient Greek theater, later a group of instruments, covering strings, woodwinds, brass, and percussion; 交響樂團: a general name for a large orchestra, also called a philharmonic orchestra, about 70 to 100 players; 總譜: a score for many parts, mostly for a conductor",
+       "zh": "管弦樂團：字義源於古希臘劇場中合唱團所在的位置，後延伸為樂器合奏團，涵蓋弦樂器、木管、銅管、擊樂器；交響樂團：大型管弦樂團的通稱，也稱愛樂樂團，約 70 到 100 人；總譜：多聲部的樂譜，多供指揮使用",
+       "src": "教育部《重編國語辭典修訂本》「管弦樂團」「交響樂團」「總譜」",
+       "url": "https://dict.revised.moe.edu.tw/dictView.jsp?ID=74081"
+      },
+      {
+       "en": "orchestra 管弦（絃）樂團, symphony orchestra 交響樂團, conductor 指揮, concertmaster 樂團首席, woodwind 木管樂器, brass 銅管樂器, percussion 擊樂器, baton 指揮棒, timpani 定音鼓",
+       "zh": "orchestra 管弦（絃）樂團、symphony orchestra 交響樂團、conductor 指揮、concertmaster 樂團首席、woodwind 木管樂器、brass 銅管樂器、percussion 擊樂器、baton 指揮棒、timpani 定音鼓",
+       "src": "國家教育研究院「學術名詞資訊網」（音樂名詞）",
+       "url": "https://terms.naer.edu.tw/search/?query_term=orchestra&query_field=title&match_type=term"
+      },
+      {
+       "en": "Taiwan's 12-year curriculum: arts (music) 音 E-Ⅲ-2, 音 E-Ⅳ-2, 音 E-Ⅳ-5",
+       "zh": "十二年國民基本教育課程綱要藝術領域：音 E-Ⅲ-2、音 E-Ⅳ-2、音 E-Ⅳ-5",
+       "src": "國家教育研究院，十二年國教藝術領域課綱",
+       "url": "https://www.naer.edu.tw/upload/1/16/doc/818/%E5%8D%81%E4%BA%8C%E5%B9%B4%E5%9C%8B%E6%B0%91%E5%9F%BA%E6%9C%AC%E6%95%99%E8%82%B2%E8%AA%B2%E7%A8%8B%E7%B6%B1%E8%A6%81%E5%9C%8B%E6%B0%91%E4%B8%AD%E5%B0%8F%E5%AD%B8%E6%9A%A8%E6%99%AE%E9%80%9A%E5%9E%8B%E9%AB%98%E7%B4%9A%E4%B8%AD%E7%AD%89%E6%A0%A1-%E8%97%9D%E8%A1%93%E9%A0%98%E5%9F%9F.pdf"
+      },
+      {
+       "en": "Safe listening: headphone volume to 60% of maximum, personal audio devices less than one hour a day",
+       "zh": "安全聆聽：耳機音量不超過最大的 60%、個人音響裝置每天少於一小時",
+       "src": "WHO, Make Listening Safe brochure (2021)",
+       "url": "https://cdn.who.int/media/docs/default-source/documents/health-topics/deafness-and-hearing-loss/mls-brochure-english-2021.pdf?sfvrsn=bf19b448_5"
+      }
+     ]
     }
    ],
    "planned": [
-    {
-     "n": 11,
-     "icon": "🎻",
-     "en": "Who Sits Where in an Orchestra?",
-     "zh": "交響樂團怎麼坐？"
-    },
     {
      "n": 12,
      "icon": "🪕",
