@@ -82,12 +82,6 @@
       "blurb_zh": "政府的權力從哪裡來、怎麼分配、到哪裡為止。",
       "planned": [
         {
-          "n": 3,
-          "icon": "🗺️",
-          "en": "Why Does Every State Have Its Own Laws?",
-          "zh": "為什麼每一州的法律不一樣？"
-        },
-        {
           "n": 4,
           "icon": "🗽",
           "en": "What Rights Does the Constitution Protect?",
@@ -3490,7 +3484,7 @@
               "zh": "為什麼每一州的法律不一樣？",
               "note_en": "Power is divided a second way as well: between the national government and the states.",
               "note_zh": "權力還有第二種分法：在全國政府與各州之間分。",
-              "soon": true
+              "href": "/resources/classes/us-government/federalism/"
             },
             {
               "icon": "👑",
@@ -3625,6 +3619,1971 @@
               "zh": "中華民國憲法增修條文：第 2 條（直選、解散立法院、彈劾）、第 3 條（對立法院負責、覆議、不信任案）、第 4 條（彈劾案）、第 5 條（大法官與憲法法庭）",
               "src": "全國法規資料庫：中華民國憲法增修條文",
               "url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=A0000002"
+            }
+          ]
+        },
+        {
+          "n": 3,
+          "slug": "federalism",
+          "title": "Why Does Every State Have Its Own Laws?",
+          "title_zh": "為什麼每一州的法律不一樣？",
+          "level": "高中以上 · High school and up",
+          "icon": "🗺️",
+          "card": "federalism",
+          "blurb_en": "Choose a power, such as coining money, running schools, or collecting taxes, and see which layer of a 3D map lights up: the national government, the states, or both. Then compare all fifty states on one question at a time, read Federalist No. 45 and McCulloch v. Maryland, and weigh local choice against national standards.",
+          "blurb_zh": "選一項權力——鑄幣、辦學校、徵稅——看 3D 地圖上亮起來的是哪一層：全國政府、各州，還是兩層都亮。接著一次一個題目比較五十州，讀《聯邦論》第四十五篇與 McCulloch v. Maryland，再想想該由地方決定，還是該有全國一致的標準。",
+          "big_idea_en": "Federalism divides power between two levels of government. Some powers belong to the national government, some remain with the states, and some are shared. That is why one question can have fifty different answers across the country, and why, when the two levels collide, the Constitution's Supremacy Clause decides which law prevails.",
+          "big_idea_zh": "聯邦制把權力分給兩層政府：有些權力屬於全國政府，有些留給各州，有些兩邊共有。所以同一個問題，在全國可以有五十種不同的答案；而兩層衝突時，由憲法的最高條款決定哪一邊的法律優先。",
+          "lab": {
+            "kind": "federalism",
+            "eyebrow": "3D Model · 3D 模型",
+            "title_en": "Two Layers of Government on One Map",
+            "title_zh": "一張地圖上的兩層政府",
+            "how_en": "The fifty states and the District of Columbia sit on the map, and a translucent gold layer above them stands for the national government. Choose a power. If it belongs to the national government, the gold layer lights up and the states dim; if it belongs to the states, the states light up; if both may use it, both glow. Below, choose what the height and color of the states should show, or switch to tiles sized by population. Click a state to read its value.",
+            "how_zh": "地圖上是五十州和哥倫比亞特區，上方一層半透明的金色板子代表全國政府。選一項權力：屬於全國政府的，金色那一層會亮、各州變暗；屬於各州的，各州會亮；兩邊都能用的，兩層都亮。下面可以選各州的高度與顏色要代表什麼，或切換成依人口大小的方塊。點一個州，可以讀出它的數值。",
+            "start": "NE",
+            "legend": [
+              {
+                "cls": "nat",
+                "en": "The national government",
+                "zh": "全國政府"
+              },
+              {
+                "cls": "states",
+                "en": "The states: low to high on the chosen question",
+                "zh": "各州：所選題目的數值由低到高"
+              },
+              {
+                "cls": "none",
+                "en": "No value (for example, the District of Columbia is not a state)",
+                "zh": "沒有數值（例如哥倫比亞特區不是州）"
+              }
+            ],
+            "scale_en": "Alaska and Hawaii are moved and drawn smaller so that they fit; the other states keep approximately their true relative areas. The colors run from dark teal to gold and are chosen to avoid the red and blue that American news uses for the two parties. Territories such as Puerto Rico are not shown.",
+            "scale_zh": "阿拉斯加和夏威夷搬了位置、縮小了才放得進來；其他各州的面積比例大致是真實的。顏色從深藍綠到金色，刻意避開美國新聞替兩大黨用的紅色與藍色。波多黎各等領地沒有畫出來。",
+            "credit_html": "State outlines: U.S. Census Bureau, 2024 Cartographic Boundary File <i>cb_2024_us_state_20m</i> (1:20,000,000). The Census Bureau states that these products are free to use with acknowledgement of the Bureau as the source; projected to Albers USA and simplified for this page. <a href=\"https://www.census.gov/geographies/mapping-files/time-series/geo/cartographic-boundary.html\" target=\"_blank\" rel=\"noopener\">Census Bureau ↗</a> · 州界：美國人口普查局 2024 年州界檔 cb_2024_us_state_20m（1:2,000 萬）；人口普查局說明這些資料可以免費使用，但須註明來源為人口普查局；本頁投影為 Albers USA 並簡化。",
+            "demos": {
+              "national": {
+                "powers": [
+                  "coin",
+                  "war",
+                  "naturalize"
+                ]
+              },
+              "state": {
+                "powers": [
+                  "schools",
+                  "licenses",
+                  "crime"
+                ]
+              },
+              "both": {
+                "powers": [
+                  "tax",
+                  "courts",
+                  "elections"
+                ]
+              },
+              "tiles": {
+                "layer": "seats",
+                "mode": "tiles",
+                "pick": "CA"
+              }
+            },
+            "powers": [
+              {
+                "key": "coin",
+                "level": "national",
+                "btn_en": "Coin money",
+                "btn_zh": "鑄造貨幣",
+                "en": "Coining money",
+                "zh": "鑄造貨幣",
+                "text_en": "Only the national government issues money. The Constitution gives the power to Congress and, in a separate clause, forbids the states to coin money. That is why a dollar is the same in every state.",
+                "text_zh": "只有全國政府發行貨幣。憲法把這項權力交給國會，又在另一條明文禁止各州鑄幣。所以一塊錢在每一州都一樣。",
+                "quote": "No State shall enter into any Treaty, Alliance, or Confederation; grant Letters of Marque and Reprisal; coin Money; …",
+                "cite": "Article I, Section 10"
+              },
+              {
+                "key": "war",
+                "level": "national",
+                "btn_en": "Declare war",
+                "btn_zh": "宣戰",
+                "en": "Declaring war and raising armies",
+                "zh": "宣戰與建軍",
+                "text_en": "Defense belongs to the national government. Congress declares war and raises the army and navy, and the states may not keep troops or ships of war in peacetime without Congress's consent.",
+                "text_zh": "國防屬於全國政府。宣戰、招募陸海軍都由國會負責；平時各州未經國會同意，不得維持軍隊或戰艦。",
+                "quote": "To declare War, grant Letters of Marque and Reprisal, and make Rules concerning Captures on Land and Water;",
+                "cite": "Article I, Section 8"
+              },
+              {
+                "key": "treaty",
+                "level": "national",
+                "btn_en": "Make treaties",
+                "btn_zh": "締結條約",
+                "en": "Making treaties",
+                "zh": "締結條約",
+                "text_en": "The President makes treaties with the consent of two thirds of the senators present. The states are forbidden to enter into “any Treaty, Alliance, or Confederation.”",
+                "text_zh": "總統經出席參議員三分之二同意締結條約；各州則被禁止締結「任何條約、同盟或邦聯」。",
+                "quote": "No State shall enter into any Treaty, Alliance, or Confederation; …",
+                "cite": "Article I, Section 10"
+              },
+              {
+                "key": "naturalize",
+                "level": "national",
+                "btn_en": "Naturalize citizens",
+                "btn_zh": "歸化入籍",
+                "en": "Setting the rules for becoming a citizen",
+                "zh": "訂定入籍的規則",
+                "text_en": "The rules for becoming a citizen are national and the same everywhere. A person naturalized in one state is a citizen of the United States and of whatever state he or she lives in.",
+                "text_zh": "入籍的規則是全國性的，各地都一樣。在任何一州歸化的人，都是美國公民，也是他所居住那一州的公民。",
+                "quote": "To establish an uniform Rule of Naturalization, …",
+                "cite": "Article I, Section 8"
+              },
+              {
+                "key": "post",
+                "level": "national",
+                "btn_en": "Run the mail",
+                "btn_zh": "郵政",
+                "en": "Post offices and post roads",
+                "zh": "郵局與郵路",
+                "text_en": "The Constitution gives Congress the power to establish post offices. A letter mailed in one state carries the same national stamp in every other.",
+                "text_zh": "憲法把設立郵局的權力交給國會。在任何一州寄出的信，貼的都是同一種全國通用的郵票。",
+                "quote": "To establish Post Offices and post Roads;",
+                "cite": "Article I, Section 8"
+              },
+              {
+                "key": "schools",
+                "level": "state",
+                "btn_en": "Run schools",
+                "btn_zh": "辦學校",
+                "en": "Running public schools",
+                "zh": "辦公立學校",
+                "text_en": "Education is not among the powers the Constitution gives the national government, so it falls under the powers “reserved to the States.” States, and the school districts they create, set graduation requirements and run the schools.",
+                "text_zh": "教育不在憲法交給全國政府的權力之列，所以屬於「保留給各州」的權力。畢業的條件由各州——以及各州設立的學區——決定，學校也由他們辦。",
+                "quote": "The powers not delegated to the United States by the Constitution, nor prohibited by it to the States, are reserved to the States respectively, or to the people.",
+                "cite": "Tenth Amendment"
+              },
+              {
+                "key": "licenses",
+                "level": "state",
+                "btn_en": "Issue licenses",
+                "btn_zh": "核發執照",
+                "en": "Licenses for driving and for marriage",
+                "zh": "駕照與結婚登記",
+                "text_en": "Driver's licenses are issued by each state's motor vehicle agency, and marriage licenses by the states as well, under state law. That is why the requirements and the paperwork are not the same everywhere.",
+                "text_zh": "駕照由各州的監理機關核發，結婚證書也由各州依州法核發。所以各地的條件與手續並不相同。",
+                "cite": "Reserved powers (Tenth Amendment) · 保留給各州的權力（第十條修正案）"
+              },
+              {
+                "key": "crime",
+                "level": "state",
+                "btn_en": "Most criminal law",
+                "btn_zh": "大部分的刑法",
+                "en": "Defining most crimes",
+                "zh": "規定大部分的罪行",
+                "text_en": "Most criminal cases, like most family-law cases, are heard in state courts under state law. Federal criminal law covers matters tied to the national government's powers, such as counterfeiting money.",
+                "text_zh": "大部分的刑事案件——和大部分的家事案件一樣——是在州法院依州法審理的。聯邦刑法管的是和全國政府權力有關的事，例如偽造貨幣。",
+                "cite": "Reserved powers (Tenth Amendment) · 保留給各州的權力（第十條修正案）"
+              },
+              {
+                "key": "tax",
+                "level": "both",
+                "btn_en": "Collect taxes",
+                "btn_zh": "徵稅",
+                "en": "Collecting taxes",
+                "zh": "徵稅",
+                "text_en": "Both levels tax the same people at the same time. Congress may “lay and collect Taxes,” and the states keep their own power to tax, apart from a few limits, such as the rule that a state may not tax imports or exports without Congress's consent.",
+                "text_zh": "兩層政府同時向同一批人課稅。國會可以「課徵各種稅捐」，各州也保有自己的徵稅權，只受少數限制——例如未經國會同意，州不得對進出口貨物課稅。",
+                "quote": "The Congress shall have Power To lay and collect Taxes, Duties, Imposts and Excises, …",
+                "cite": "Article I, Section 8"
+              },
+              {
+                "key": "courts",
+                "level": "both",
+                "btn_en": "Run courts",
+                "btn_zh": "設法院",
+                "en": "Running courts",
+                "zh": "設立法院",
+                "text_en": "There are two court systems side by side: federal courts under Article III, and the courts of each state under its own constitution. State courts hear most criminal, contract, and family-law cases. Lesson 14 follows a case up both ladders.",
+                "text_zh": "有兩套法院並排存在：依第三條設立的聯邦法院，以及各州依自己的憲法設立的法院。大部分的刑事、契約與家事案件由州法院審理。第十四課會跟著一個案子，沿著兩道階梯往上走。",
+                "quote": "The judicial Power of the United States, shall be vested in one supreme Court, and in such inferior Courts as the Congress may from time to time ordain and establish.",
+                "cite": "Article III, Section 1"
+              },
+              {
+                "key": "elections",
+                "level": "both",
+                "btn_en": "Run elections",
+                "btn_zh": "辦選舉",
+                "en": "Running elections for Congress",
+                "zh": "辦國會議員選舉",
+                "text_en": "The states set the times, places, and manner of elections for Congress, and Congress may change those rules by law. In practice, the states organize the voting.",
+                "text_zh": "國會議員選舉的時間、地點與方式由各州規定，國會則可以用法律加以修改。實際上，投票是由各州在辦理。",
+                "quote": "The Times, Places and Manner of holding Elections for Senators and Representatives, shall be prescribed in each State by the Legislature thereof; but the Congress may at any time by Law make or alter such Regulations, …",
+                "cite": "Article I, Section 4"
+              }
+            ],
+            "layers": [
+              {
+                "key": "statehood",
+                "fmt": "year",
+                "values": {
+                  "AK": 1959,
+                  "AL": 1819,
+                  "AR": 1836,
+                  "AZ": 1912,
+                  "CA": 1850,
+                  "CO": 1876,
+                  "CT": 1788,
+                  "DE": 1787,
+                  "FL": 1845,
+                  "GA": 1788,
+                  "HI": 1959,
+                  "IA": 1846,
+                  "ID": 1890,
+                  "IL": 1818,
+                  "IN": 1816,
+                  "KS": 1861,
+                  "KY": 1792,
+                  "LA": 1812,
+                  "MA": 1788,
+                  "MD": 1788,
+                  "ME": 1820,
+                  "MI": 1837,
+                  "MN": 1858,
+                  "MO": 1821,
+                  "MS": 1817,
+                  "MT": 1889,
+                  "NC": 1789,
+                  "ND": 1889,
+                  "NE": 1867,
+                  "NH": 1788,
+                  "NJ": 1787,
+                  "NM": 1912,
+                  "NV": 1864,
+                  "NY": 1788,
+                  "OH": 1803,
+                  "OK": 1907,
+                  "OR": 1859,
+                  "PA": 1787,
+                  "RI": 1790,
+                  "SC": 1788,
+                  "SD": 1889,
+                  "TN": 1796,
+                  "TX": 1845,
+                  "UT": 1896,
+                  "VA": 1788,
+                  "VT": 1791,
+                  "WA": 1889,
+                  "WI": 1848,
+                  "WV": 1863,
+                  "WY": 1890,
+                  "DC": null
+                },
+                "btn_en": "Year admitted",
+                "btn_zh": "加入聯邦的年份",
+                "en": "Year each state joined the Union",
+                "zh": "各州加入聯邦的年份",
+                "note_en": "For the original thirteen, the year the state ratified the Constitution; for the others, the year Congress admitted it. The District of Columbia is not a state.",
+                "note_zh": "最初的十三州是批准憲法的年份，其餘各州是國會接納它加入的年份。哥倫比亞特區不是州。",
+                "src": [
+                  {
+                    "label": "Congressional Research Service: Admission of States to the Union (R47747, 2026)",
+                    "url": "https://www.congress.gov/crs-product/R47747"
+                  }
+                ]
+              },
+              {
+                "key": "seats",
+                "fmt": "int",
+                "values": {
+                  "AK": 1,
+                  "AL": 7,
+                  "AR": 4,
+                  "AZ": 9,
+                  "CA": 52,
+                  "CO": 8,
+                  "CT": 5,
+                  "DC": null,
+                  "DE": 1,
+                  "FL": 28,
+                  "GA": 14,
+                  "HI": 2,
+                  "IA": 4,
+                  "ID": 2,
+                  "IL": 17,
+                  "IN": 9,
+                  "KS": 4,
+                  "KY": 6,
+                  "LA": 6,
+                  "MA": 9,
+                  "MD": 8,
+                  "ME": 2,
+                  "MI": 13,
+                  "MN": 8,
+                  "MO": 8,
+                  "MS": 4,
+                  "MT": 2,
+                  "NC": 14,
+                  "ND": 1,
+                  "NE": 3,
+                  "NH": 2,
+                  "NJ": 12,
+                  "NM": 3,
+                  "NV": 4,
+                  "NY": 26,
+                  "OH": 15,
+                  "OK": 5,
+                  "OR": 6,
+                  "PA": 17,
+                  "RI": 2,
+                  "SC": 7,
+                  "SD": 1,
+                  "TN": 9,
+                  "TX": 38,
+                  "UT": 4,
+                  "VA": 11,
+                  "VT": 1,
+                  "WA": 10,
+                  "WI": 8,
+                  "WV": 2,
+                  "WY": 1
+                },
+                "btn_en": "Seats in the House",
+                "btn_zh": "眾議院席次",
+                "en": "Seats in the House of Representatives after the 2020 census",
+                "zh": "2020 年人口普查後的眾議院席次",
+                "note_en": "The 435 seats are divided among the states by population after each census; every state has at least one. The District of Columbia has a delegate in the House who does not have a full vote.",
+                "note_zh": "每次人口普查之後，435 個席次依人口分配給各州，每一州至少一席。哥倫比亞特區在眾議院有一位沒有完整表決權的代表。",
+                "src": [
+                  {
+                    "label": "U.S. Census Bureau: 2020 Census Apportionment Results",
+                    "url": "https://www.census.gov/data/tables/2020/dec/2020-apportionment-data.html"
+                  }
+                ]
+              },
+              {
+                "key": "population",
+                "fmt": "int",
+                "values": {
+                  "AK": 733391,
+                  "AL": 5024279,
+                  "AR": 3011524,
+                  "AZ": 7151502,
+                  "CA": 39538223,
+                  "CO": 5773714,
+                  "CT": 3605944,
+                  "DC": 689545,
+                  "DE": 989948,
+                  "FL": 21538187,
+                  "GA": 10711908,
+                  "HI": 1455271,
+                  "IA": 3190369,
+                  "ID": 1839106,
+                  "IL": 12812508,
+                  "IN": 6785528,
+                  "KS": 2937880,
+                  "KY": 4505836,
+                  "LA": 4657757,
+                  "MA": 7029917,
+                  "MD": 6177224,
+                  "ME": 1362359,
+                  "MI": 10077331,
+                  "MN": 5706494,
+                  "MO": 6154913,
+                  "MS": 2961279,
+                  "MT": 1084225,
+                  "NC": 10439388,
+                  "ND": 779094,
+                  "NE": 1961504,
+                  "NH": 1377529,
+                  "NJ": 9288994,
+                  "NM": 2117522,
+                  "NV": 3104614,
+                  "NY": 20201249,
+                  "OH": 11799448,
+                  "OK": 3959353,
+                  "OR": 4237256,
+                  "PA": 13002700,
+                  "RI": 1097379,
+                  "SC": 5118425,
+                  "SD": 886667,
+                  "TN": 6910840,
+                  "TX": 29145505,
+                  "UT": 3271616,
+                  "VA": 8631393,
+                  "VT": 643077,
+                  "WA": 7705281,
+                  "WI": 5893718,
+                  "WV": 1793716,
+                  "WY": 576851
+                },
+                "btn_en": "Population",
+                "btn_zh": "人口",
+                "en": "Resident population, 2020 census",
+                "zh": "居住人口（2020 年人口普查）",
+                "note_en": "The count taken on April 1, 2020. Switch to tiles to see the states sized by these numbers.",
+                "note_zh": "2020 年 4 月 1 日的普查人數。切換成方塊，可以看各州依這些數字決定大小。",
+                "src": [
+                  {
+                    "label": "U.S. Census Bureau: 2020 Census Apportionment Results",
+                    "url": "https://www.census.gov/data/tables/2020/dec/2020-apportionment-data.html"
+                  }
+                ]
+              },
+              {
+                "key": "legislature",
+                "fmt": "cat",
+                "values": {
+                  "AK": "two",
+                  "AL": "two",
+                  "AR": "two",
+                  "AZ": "two",
+                  "CA": "two",
+                  "CO": "two",
+                  "CT": "two",
+                  "DC": null,
+                  "DE": "two",
+                  "FL": "two",
+                  "GA": "two",
+                  "HI": "two",
+                  "IA": "two",
+                  "ID": "two",
+                  "IL": "two",
+                  "IN": "two",
+                  "KS": "two",
+                  "KY": "two",
+                  "LA": "two",
+                  "MA": "two",
+                  "MD": "two",
+                  "ME": "two",
+                  "MI": "two",
+                  "MN": "two",
+                  "MO": "two",
+                  "MS": "two",
+                  "MT": "two",
+                  "NC": "two",
+                  "ND": "two",
+                  "NE": "one",
+                  "NH": "two",
+                  "NJ": "two",
+                  "NM": "two",
+                  "NV": "two",
+                  "NY": "two",
+                  "OH": "two",
+                  "OK": "two",
+                  "OR": "two",
+                  "PA": "two",
+                  "RI": "two",
+                  "SC": "two",
+                  "SD": "two",
+                  "TN": "two",
+                  "TX": "two",
+                  "UT": "two",
+                  "VA": "two",
+                  "VT": "two",
+                  "WA": "two",
+                  "WI": "two",
+                  "WV": "two",
+                  "WY": "two"
+                },
+                "btn_en": "Legislature",
+                "btn_zh": "州議會",
+                "categories": [
+                  {
+                    "v": "two",
+                    "en": "Two chambers",
+                    "zh": "兩院制",
+                    "color": "#2c7d72",
+                    "h": 0.25
+                  },
+                  {
+                    "v": "one",
+                    "en": "One chamber",
+                    "zh": "一院制",
+                    "color": "#f0d36e",
+                    "h": 0.95
+                  }
+                ],
+                "en": "How many chambers the state legislature has",
+                "zh": "州議會有幾院",
+                "note_en": "Nebraska has the only one-chamber legislature among the states; voters approved it in 1934, and it first met in 1937. The District of Columbia has a council rather than a state legislature.",
+                "note_zh": "在各州裡，只有內布拉斯加的議會是一院制：選民在 1934 年通過，1937 年第一次開會。哥倫比亞特區是市議會，不是州議會。",
+                "src": [
+                  {
+                    "label": "Nebraska Legislature: Facts about the Unicameral",
+                    "url": "https://nebraskalegislature.gov/about/ou_facts.php"
+                  }
+                ]
+              }
+            ],
+            "population": {
+              "AK": 733391,
+              "AL": 5024279,
+              "AR": 3011524,
+              "AZ": 7151502,
+              "CA": 39538223,
+              "CO": 5773714,
+              "CT": 3605944,
+              "DC": 689545,
+              "DE": 989948,
+              "FL": 21538187,
+              "GA": 10711908,
+              "HI": 1455271,
+              "IA": 3190369,
+              "ID": 1839106,
+              "IL": 12812508,
+              "IN": 6785528,
+              "KS": 2937880,
+              "KY": 4505836,
+              "LA": 4657757,
+              "MA": 7029917,
+              "MD": 6177224,
+              "ME": 1362359,
+              "MI": 10077331,
+              "MN": 5706494,
+              "MO": 6154913,
+              "MS": 2961279,
+              "MT": 1084225,
+              "NC": 10439388,
+              "ND": 779094,
+              "NE": 1961504,
+              "NH": 1377529,
+              "NJ": 9288994,
+              "NM": 2117522,
+              "NV": 3104614,
+              "NY": 20201249,
+              "OH": 11799448,
+              "OK": 3959353,
+              "OR": 4237256,
+              "PA": 13002700,
+              "RI": 1097379,
+              "SC": 5118425,
+              "SD": 886667,
+              "TN": 6910840,
+              "TX": 29145505,
+              "UT": 3271616,
+              "VA": 8631393,
+              "VT": 643077,
+              "WA": 7705281,
+              "WI": 5893718,
+              "WV": 1793716,
+              "WY": 576851
+            }
+          },
+          "paras": [
+            "An American lives under two governments at the same time. One is the national government in Washington, usually called the federal government. The other is the government of the state where the person lives, with its own constitution, legislature, governor, and courts. Dividing power between two levels in this way is called federalism. It explains why the rate of sales tax, the requirements for a driver's license, and the punishment for many crimes change at a state line, while the dollar in a wallet, the stamp on a letter, and the rules for becoming a citizen are the same everywhere. In Madison's words, the two levels are “different agents and trustees of the people.”",
+            "State governments came first. When the Constitution was written, the thirteen states already had governments of their own, and few Americans wanted to see them swallowed by a distant capital. The Constitution therefore gave the national government a list of specific powers and left the rest where it was. James Madison put it plainly in The Federalist No. 45. The powers given to the national government, he wrote, “are few and defined,” while those that remain with the states “are numerous and indefinite.” The national government would deal mainly with matters such as war, peace, and foreign commerce, and the states with the ordinary affairs of daily life.",
+            "Powers under the Constitution fall into a few groups. Enumerated powers are the ones listed for Congress, such as coining money, declaring war, and running the post office. Reserved powers are the ones left to the states by the Tenth Amendment, which says that powers not delegated to the United States “are reserved to the States respectively, or to the people.” Education, family law, and most criminal law belong here. Concurrent powers, such as taxing, borrowing, and running courts, are held by both levels at once. Finally, some powers are denied to the states outright. No state may coin money or make a treaty, and no state may tax imports without the consent of Congress.",
+            "The boundary between the levels has never stayed still. In 1818 Maryland passed a law taxing a branch of the Bank of the United States, which Congress had created even though the Constitution says nothing about banks; the dispute reached the Supreme Court in 1819. In McCulloch v. Maryland, Chief Justice John Marshall upheld the bank under the clause that lets Congress make all laws “necessary and proper” for carrying out its listed powers, and he held that a state could not tax it, since “the power to tax involves the power to destroy.” Maryland had argued for reading the national government's powers narrowly. The Court read them to include the means of carrying them out, and held that a state may not obstruct a valid federal law.",
+            "Two other tools have widened the national government's reach. The first is the Commerce Clause, which lets Congress regulate commerce “among the several States.” In Gibbons v. Ogden in 1824, the Supreme Court held that commerce includes navigation, so that steamboats licensed by Congress could not be shut out by a monopoly that New York had granted. Over time Congress has relied on that clause for a growing share of national laws, and how far it reaches is still argued. The second tool is money. Congress can attach conditions to the funds it sends the states. In 1984 Congress passed a law that withheld part of a state's federal highway funds unless it made twenty-one the minimum age for buying alcohol, and by 1988 every state had done so.",
+            "Federalism has been used for good and ill. Before the Civil War, claims of “states' rights” were used to defend slavery, and later to defend racial segregation. Yet national power was also turned to slavery's ends: the Fugitive Slave Act of 1850 required the return of people who had escaped, and some Northern states passed laws to resist it. After the war, the Fourteenth Amendment forbade any state to deny a person “the equal protection of the laws.” In 1957, when the governor of Arkansas used the state's National Guard to keep Black students out of Central High School in Little Rock, President Eisenhower sent federal troops to enforce desegregation.",
+            "The same division also lets states try ideas that the nation has not adopted. Justice Louis Brandeis wrote in 1932 that “a single courageous state may, if its citizens choose, serve as a laboratory; and try novel social and economic experiments without risk to the rest of the country.” History offers examples. Nine western states had adopted woman suffrage by 1912, years before the Nineteenth Amendment secured the vote for women across the country in 1920. Nebraska has run its legislature with a single chamber since 1937, while every other state has two. An idea that works in one state can be copied by others, and one that fails stays contained.",
+            "The result is a country in which the answer to many questions depends on where you live. That variety is one of the purposes of the system, and it is also one of its costs. People who move from one state to another must learn new rules, businesses must follow fifty sets of laws, and a right may seem broader in one state than in the next. Americans have argued since 1787 about which matters should be settled close to home and which deserve one national standard, and the line has moved many times. The map in this lesson shows what that division looks like on a handful of questions that are not matters of party dispute."
+          ],
+          "paras_zh": [
+            "一個美國人同時生活在兩個政府之下。一個是在華盛頓的全國政府，通常叫做聯邦政府（federal government）；另一個是他居住那一州的政府，有自己的憲法、議會、州長和法院。像這樣把權力分給兩層政府，叫做聯邦制（federalism）。它說明了為什麼銷售稅的稅率、考駕照的條件、許多罪行的刑罰，一跨過州界就不一樣；而皮夾裡的一塊錢、信封上的郵票、入籍的規則，卻到處都相同。用麥迪遜的話說，兩層政府是「人民不同的代理人與受託人」。",
+            "州政府比聯邦政府先存在。寫憲法的時候，十三個州早已有了自己的政府，很少美國人願意看到它們被一個遙遠的首都吞掉。因此，憲法給全國政府一張列明的權力清單，其餘的權力則留在原處。麥迪遜在《聯邦論》第四十五篇講得很清楚：交給全國政府的權力「少而明確」，留給各州的則「多而不定」。全國政府主要處理戰爭、和平、對外貿易這一類的事，各州處理的是日常生活的一般事務。",
+            "憲法之下的權力可以分成幾類。列舉的權力（enumerated powers）是明列給國會的，例如鑄幣、宣戰、經營郵政。保留的權力（reserved powers）是第十條修正案留給各州的——條文說，沒有授予合眾國的權力，「保留給各州，或保留給人民」；教育、家庭法和大部分的刑法屬於這一類。共有的權力（concurrent powers），例如徵稅、舉債、設立法院，則由兩層政府同時擁有。最後，有些權力是明文禁止各州行使的：任何一州都不得鑄幣、不得締結條約；未經國會同意，也不得對進口貨物課稅。",
+            "兩層之間的界線從來沒有停在原地。1818 年，馬里蘭州通過法律，對美國銀行設在當地的分行課稅——這家銀行是國會設立的，雖然憲法對銀行一個字也沒提；這場爭議在 1819 年打到最高法院。在 McCulloch v. Maryland 案中，首席大法官馬歇爾援引容許國會制定一切「必要且適當」法律以執行其列舉權力的條款，判定這家銀行合憲；他也判定州不得對它課稅，因為「課稅的權力包含毀滅的權力」。馬里蘭主張對全國政府的權力作狹義的解讀；最高法院則把這些權力解讀為包括執行它們的手段，並判定州不得阻撓有效的聯邦法律。",
+            "另外有兩項工具擴大了全國政府的範圍。第一項是商業條款（Commerce Clause），讓國會管理「各州之間的貿易」。1824 年的 Gibbons v. Ogden 案，最高法院判定「貿易」包括航運，所以領有國會執照的汽船，不能被紐約州授予的獨占權擋在門外。隨著時間過去，國會越來越常援引這項條款來制定全國性的法律，而它能延伸到多遠，至今仍有爭論。第二項工具是錢：國會可以在撥給各州的款項上附加條件。1984 年，國會通過一項法律：州若不把購買酒類的最低年齡訂為二十一歲，就扣下它一部分的聯邦公路經費；到 1988 年，每一州都照做了。",
+            "聯邦制被用來做過好事，也做過壞事。內戰之前，「州權」（states' rights）的主張被用來為奴隸制辯護，後來又被用來為種族隔離辯護。可是全國政府的權力也曾被用來替奴隸制服務：1850 年的《逃亡奴隸法》要求交還逃走的人，而北方有些州通過法律加以抵制。內戰之後，第十四條修正案禁止任何一州拒絕給予任何人「法律的平等保護」。1957 年，阿肯色州州長動用州的國民警衛隊（National Guard），阻止黑人學生進入小岩城的中央中學；艾森豪總統派出聯邦部隊，強制執行廢除種族隔離。",
+            "同樣的分權，也讓各州可以嘗試全國還沒採用的做法。布蘭戴斯大法官在 1932 年寫道：「一個勇敢的州，只要它的公民願意，就可以充當一間實驗室，嘗試新的社會與經濟實驗，而不會危及國家的其他部分。」歷史上有例子：到 1912 年，西部已經有九個州通過了婦女投票權，比 1920 年第十九條修正案替全國的女性確保投票權早了好幾年。內布拉斯加從 1937 年起，州議會只有一院，其他每一州都是兩院。一州行得通的做法，別州可以照著學；行不通的，也只限於那一州。",
+            "結果是：一個國家裡，很多問題的答案取決於你住在哪裡。這種多樣性是這套制度的用意之一，也是它的代價之一。從一州搬到另一州的人得重新學一套規則，企業得遵守五十套法律，同一種權利在這一州和鄰州看起來也可能寬窄不同。從 1787 年起，美國人就一直在爭論哪些事該在離家近的地方決定、哪些事該有全國一致的標準，這條線也移動過很多次。這一課的地圖，用幾個不屬於政黨爭議的題目，讓你看看這種分權是什麼樣子。"
+          ],
+          "questions": [
+            "Explain the difference between enumerated, reserved, and concurrent powers, and give one example of each.",
+            "In McCulloch v. Maryland, what two questions did the Court answer, and why does each matter for the balance between the national government and the states?",
+            "The reading says that federalism “has been used for good and ill.” Use two examples from the reading, one for each, and explain what they suggest about whether either level of government is automatically the protector of rights."
+          ],
+          "answers": [
+            "Enumerated powers are the ones the Constitution lists for Congress, such as coining money. Reserved powers are left to the states by the Tenth Amendment, such as running public schools. Concurrent powers belong to both levels at the same time, such as collecting taxes.",
+            "First, could Congress create a bank when the Constitution does not mention one? Yes, because the Necessary and Proper Clause lets Congress choose the means of carrying out its listed powers. This allowed national power to grow beyond the bare list. Second, could Maryland tax the bank? No, because a state may not obstruct a valid federal law, and “the power to tax involves the power to destroy.” This confirmed that valid federal law is supreme over state law.",
+            "Sample answer: “States' rights” arguments were used to defend slavery and segregation, but the Fugitive Slave Act of 1850 used national power on slavery's side, while some Northern states resisted it. In 1957 federal troops enforced desegregation against a state governor. The examples suggest that neither level is automatically the protector of rights; it depends on what each level does with its power."
+          ],
+          "vocab": [
+            {
+              "n": 1,
+              "w": "federalism",
+              "pos": "n.",
+              "zh": "聯邦制",
+              "ex": "Under <b>federalism</b>, power is divided between the national government and the states.",
+              "exzh": "在聯邦制之下，權力分屬全國政府與各州。"
+            },
+            {
+              "n": 2,
+              "w": "federal",
+              "pos": "adj.",
+              "zh": "聯邦的；全國政府的",
+              "ex": "Counterfeiting money is a <b>federal</b> crime.",
+              "exzh": "偽造貨幣是聯邦的罪行。"
+            },
+            {
+              "n": 3,
+              "w": "enumerated powers",
+              "pos": "n.",
+              "zh": "列舉的權力",
+              "ex": "Coining money is one of the <b>enumerated powers</b> of Congress.",
+              "exzh": "鑄幣是國會列舉的權力之一。"
+            },
+            {
+              "n": 4,
+              "w": "reserved powers",
+              "pos": "n.",
+              "zh": "保留的權力",
+              "ex": "Running public schools is one of the <b>reserved powers</b> of the states.",
+              "exzh": "辦公立學校是各州保留的權力之一。"
+            },
+            {
+              "n": 5,
+              "w": "concurrent powers",
+              "pos": "n.",
+              "zh": "共有的權力",
+              "ex": "Taxing and borrowing are <b>concurrent powers</b>.",
+              "exzh": "徵稅與舉債是共有的權力。"
+            },
+            {
+              "n": 6,
+              "w": "delegate",
+              "pos": "v.",
+              "zh": "授予；委託",
+              "ex": "The people <b>delegated</b> certain powers to the national government.",
+              "exzh": "人民把某些權力授予全國政府。"
+            },
+            {
+              "n": 7,
+              "w": "commerce",
+              "pos": "n.",
+              "zh": "貿易；商業",
+              "ex": "Congress may regulate <b>commerce</b> among the states.",
+              "exzh": "國會可以管理各州之間的貿易。"
+            },
+            {
+              "n": 8,
+              "w": "implied powers",
+              "pos": "n.",
+              "zh": "默示的權力",
+              "ex": "The power to create a bank is one of the <b>implied powers</b> of Congress.",
+              "exzh": "設立銀行的權力是國會默示的權力之一。"
+            },
+            {
+              "n": 9,
+              "w": "jurisdiction",
+              "pos": "n.",
+              "zh": "管轄權",
+              "ex": "Most traffic cases fall under the <b>jurisdiction</b> of state courts.",
+              "exzh": "大多數交通案件歸州法院管轄。"
+            },
+            {
+              "n": 10,
+              "w": "governor",
+              "pos": "n.",
+              "zh": "州長",
+              "ex": "Each state elects its own <b>governor</b>.",
+              "exzh": "每一州都選出自己的州長。"
+            },
+            {
+              "n": 11,
+              "w": "uniform",
+              "pos": "adj.",
+              "zh": "一致的；統一的",
+              "ex": "The Constitution gives Congress the power to set a <b>uniform</b> rule of naturalization.",
+              "exzh": "憲法授權國會訂定一套全國一致的歸化規則。"
+            },
+            {
+              "n": 12,
+              "w": "obstruct",
+              "pos": "v.",
+              "zh": "阻撓",
+              "ex": "A state may not <b>obstruct</b> a valid federal law.",
+              "exzh": "州不得阻撓有效的聯邦法律。"
+            }
+          ],
+          "quiz": [
+            {
+              "q": "A state wants to issue its own coins to celebrate its anniversary as legal money. Why can't it?",
+              "options": [
+                "The Tenth Amendment forbids states from celebrating anniversaries",
+                "Article I, Section 10 says no state shall coin money",
+                "Only cities may issue money",
+                "The governor would need the Supreme Court's permission"
+              ],
+              "correct": 1
+            },
+            {
+              "q": "The Constitution says nothing about public schools. Under the Tenth Amendment, what follows?",
+              "options": [
+                "Public schools are unconstitutional",
+                "Congress must run all public schools",
+                "Running schools is a power reserved to the states or to the people",
+                "Each school must ask the President for approval"
+              ],
+              "correct": 2
+            },
+            {
+              "q": "Why did Chief Justice Marshall say that “the power to tax involves the power to destroy”?",
+              "options": [
+                "To argue that states should abolish all taxes",
+                "To explain why a state could not tax an institution created by Congress, since a tax could be used to drive it out",
+                "To show that Congress has no power to tax",
+                "To praise Maryland's tax system"
+              ],
+              "correct": 1
+            },
+            {
+              "q": "In 1984 Congress did not order the states to raise the drinking age. What did it do instead, and what does this show?",
+              "options": [
+                "It amended the Constitution, which shows how easy amendments are",
+                "It sued every state, which shows the power of the courts",
+                "It attached a condition to federal highway funds, which shows that money can extend national influence into areas the states control",
+                "It asked the President to sign an order, which shows the power of executive orders"
+              ],
+              "correct": 2
+            },
+            {
+              "q": "Which conclusion is best supported by the history in paragraph six?",
+              "options": [
+                "The states have always protected rights better than the national government",
+                "The national government has always protected rights better than the states",
+                "Federalism ended with the Civil War",
+                "Power at either level has been used both to protect rights and to deny them"
+              ],
+              "correct": 3
+            }
+          ],
+          "parts_head": {
+            "eyebrow": "Try It in the Model · 在模型裡試試",
+            "en": "Four things to watch",
+            "zh": "四件值得看的事"
+          },
+          "parts": [
+            {
+              "key": "national",
+              "icon": "🏛️",
+              "en": "Only the national layer",
+              "zh": "只有全國那一層",
+              "meta_en": "Enumerated powers",
+              "meta_zh": "列舉的權力",
+              "demo": "national",
+              "text_en": "Money, war, and the rules for becoming a citizen. Watch the gold layer light up while all fifty states dim: on these matters the states have no say of their own.",
+              "text_zh": "貨幣、戰爭、入籍的規則。看金色那一層亮起來，五十州全部變暗：在這些事情上，各州沒有自己的決定權。"
+            },
+            {
+              "key": "state",
+              "icon": "🏫",
+              "en": "Only the states",
+              "zh": "只有各州",
+              "meta_en": "Reserved powers",
+              "meta_zh": "保留的權力",
+              "demo": "state",
+              "text_en": "Schools, licenses, and most crimes. Now the gold layer fades and the map lights up: these are the powers the Tenth Amendment leaves to the states.",
+              "text_zh": "學校、執照、大部分的罪行。這次金色那一層淡掉，地圖亮起來：這些是第十條修正案留給各州的權力。"
+            },
+            {
+              "key": "both",
+              "icon": "⚖️",
+              "en": "Both at once",
+              "zh": "兩層同時",
+              "meta_en": "Concurrent powers",
+              "meta_zh": "共有的權力",
+              "demo": "both",
+              "text_en": "Taxes, courts, and elections. Both layers glow, because both levels act on the same people at the same time, and the Supremacy Clause settles any conflict.",
+              "text_zh": "稅、法院、選舉。兩層都亮，因為兩層政府同時作用在同一批人身上；有衝突時由最高條款解決。"
+            },
+            {
+              "key": "tiles",
+              "icon": "🟩",
+              "en": "Size by people, not by land",
+              "zh": "依人口而不是依土地",
+              "meta_en": "Seats in the House, 2020",
+              "meta_zh": "眾議院席次（2020）",
+              "demo": "tiles",
+              "text_en": "The map switches to tiles whose area matches each state's population. Big states on the map can become small tiles, and the reverse. The height shows how many seats each state has in the House of Representatives.",
+              "text_zh": "地圖切換成方塊，方塊的面積和各州的人口成正比。在地圖上很大的州，可能變成小方塊；反過來也一樣。高度代表各州在眾議院有幾席。"
+            }
+          ],
+          "parts_note_en": "Then try your own: choose a power that is not in the cards, guess which layer will light up, and check. Click any state to read its values.",
+          "parts_note_zh": "接著自己試：選一項卡片裡沒有的權力，先猜哪一層會亮，再按下去看看。點任何一州，可以讀出它的數值。",
+          "match": {
+            "eyebrow": "Try It · 動手試試",
+            "en": "Who Decides This?",
+            "zh": "這件事誰管？",
+            "cols": 3,
+            "lead_en": "Ten matters. For each one, choose whether it belongs to the national government, to the states, or to both. There is no timer, and you can keep choosing until you find it; the game counts the ones you get on the first try.",
+            "lead_zh": "十件事。每一題選出它歸全國政府、歸各州，還是兩邊都管。不計時，可以一直選到對為止；遊戲會記下你第一次就答對的題數。",
+            "options": [
+              {
+                "key": "national",
+                "en": "National government",
+                "sub_en": "",
+                "sub_zh": "全國政府"
+              },
+              {
+                "key": "state",
+                "en": "The states",
+                "sub_en": "",
+                "sub_zh": "各州"
+              },
+              {
+                "key": "both",
+                "en": "Both",
+                "sub_en": "",
+                "sub_zh": "兩邊都管"
+              }
+            ],
+            "questions": [
+              {
+                "answer": "national",
+                "en": "Printing and coining money",
+                "zh": "印製與鑄造貨幣",
+                "why_en": "Congress has the power “To coin Money,” and Article I, Section 10 forbids the states to do so.",
+                "why_zh": "國會有「鑄造貨幣」的權力，第一條第十項則禁止各州鑄幣。",
+                "hint_en": "Is a dollar different in each state?",
+                "hint_zh": "一塊錢在每一州都不一樣嗎？"
+              },
+              {
+                "answer": "state",
+                "en": "Setting the requirements for a high school diploma",
+                "zh": "訂定高中畢業的條件",
+                "why_en": "Education is a reserved power. States and the school districts they create decide what students must complete.",
+                "why_zh": "教育是保留給各州的權力。學生要修完什麼，由各州和各州設立的學區決定。",
+                "hint_en": "Is education on the list of Congress's powers?",
+                "hint_zh": "教育在國會的權力清單上嗎？"
+              },
+              {
+                "answer": "both",
+                "en": "Collecting taxes on income",
+                "zh": "課徵所得稅",
+                "why_en": "Congress taxes incomes (the Sixteenth Amendment), and the states keep their own power to tax, which can include taxing incomes.",
+                "why_zh": "國會課徵所得稅（第十六條修正案），各州也保有自己的徵稅權，可以包括對所得課稅。",
+                "hint_en": "Can two governments tax the same paycheck?",
+                "hint_zh": "兩個政府可以對同一份薪水課稅嗎？"
+              },
+              {
+                "answer": "national",
+                "en": "Declaring war",
+                "zh": "宣戰",
+                "why_en": "Congress declares war, and the states may not engage in war unless actually invaded.",
+                "why_zh": "宣戰由國會決定；各州除非真的遭到入侵，否則不得參與戰爭。",
+                "hint_en": "Could one state be at war while another is at peace?",
+                "hint_zh": "有可能一州在打仗、另一州在和平嗎？"
+              },
+              {
+                "answer": "state",
+                "en": "Issuing a driver's license",
+                "zh": "核發駕照",
+                "why_en": "Licenses are issued by each state's motor vehicle agency under state law, so the requirements differ from state to state.",
+                "why_zh": "駕照由各州的監理機關依州法核發，所以各州的條件不同。",
+                "hint_en": "Which office do you visit to take the test?",
+                "hint_zh": "考駕照要去哪裡的機關？"
+              },
+              {
+                "answer": "both",
+                "en": "Running a system of courts",
+                "zh": "設立法院體系",
+                "why_en": "Federal courts exist under Article III, and every state has its own courts; most cases are heard in state courts.",
+                "why_zh": "聯邦法院依第三條設立，每一州也有自己的法院；大部分的案件在州法院審理。",
+                "hint_en": "Where is a traffic ticket contested, and where is a case about a federal law?",
+                "hint_zh": "交通罰單在哪裡爭執？關於聯邦法律的案子又在哪裡審？"
+              },
+              {
+                "answer": "national",
+                "en": "Setting the rules for becoming a citizen",
+                "zh": "訂定入籍的規則",
+                "why_en": "Congress has the power to establish “an uniform Rule of Naturalization.”",
+                "why_zh": "國會有權訂定「全國一致的歸化規則」。",
+                "hint_en": "Look for the word “uniform” in Article I, Section 8.",
+                "hint_zh": "到第一條第八項找 uniform 這個字。"
+              },
+              {
+                "answer": "state",
+                "en": "Issuing marriage licenses",
+                "zh": "核發結婚證書",
+                "why_en": "Marriage licenses are issued by the states, and family law, including marriage, is mainly state law heard in state courts.",
+                "why_zh": "結婚證書由各州核發；家庭法（包括婚姻）主要是州法，由州法院審理。",
+                "hint_en": "This is part of family law.",
+                "hint_zh": "這屬於家庭法。"
+              },
+              {
+                "answer": "both",
+                "en": "Borrowing money",
+                "zh": "舉債",
+                "why_en": "Congress may borrow “on the credit of the United States,” and states borrow too, for example by selling bonds for roads and schools.",
+                "why_zh": "國會可以「以合眾國的信用」舉債，各州也會借錢，例如發行公債來修路、蓋學校。",
+                "hint_en": "Do both levels build things they cannot pay for at once?",
+                "hint_zh": "兩層政府是不是都會蓋一時付不起的東西？"
+              },
+              {
+                "answer": "national",
+                "en": "Making a treaty with another country",
+                "zh": "與外國締結條約",
+                "why_en": "The President makes treaties with the Senate's consent, and Article I, Section 10 forbids the states to enter into any treaty.",
+                "why_zh": "總統經參議院同意締結條約，第一條第十項則禁止各州締結任何條約。",
+                "hint_en": "Article I, Section 10 begins with this.",
+                "hint_zh": "第一條第十項一開頭就寫了這件事。"
+              }
+            ],
+            "end_en": "Notice that “both” is not a rare answer. Much of what governments do is shared, and that is where the Supremacy Clause matters most.",
+            "end_zh": "注意：「兩邊都管」並不是少見的答案。政府做的事有很多是共有的，而最高條款最常派上用場的地方就在這裡。"
+          },
+          "fifty": {
+            "eyebrow": "Try It · 動手試試",
+            "en": "One Question, Fifty Answers",
+            "zh": "同一件事，五十種答案",
+            "lead_en": "Choose a question and see how the fifty states and the District of Columbia answer it. Switch to tiles to see the states sized by population instead of land. Every figure comes from an official source and carries its year.",
+            "lead_zh": "選一個題目，看五十州和哥倫比亞特區各自的答案。切換成方塊，州的大小就改依人口而不是土地。每個數字都來自官方來源，並標明年份。",
+            "start": "NE",
+            "credit_en": "Map: U.S. Census Bureau, 2024 Cartographic Boundary File (cb_2024_us_state_20m), used with acknowledgement of the Census Bureau as the source; projected to Albers USA, with Alaska and Hawaii moved and drawn smaller. Colors avoid party red and blue.",
+            "credit_zh": "地圖：美國人口普查局 2024 年州界檔（cb_2024_us_state_20m），依其規定註明來源；投影為 Albers USA，阿拉斯加與夏威夷搬了位置並縮小。顏色避開代表政黨的紅與藍。",
+            "layers": [
+              {
+                "key": "statehood",
+                "fmt": "year",
+                "values": {
+                  "AK": 1959,
+                  "AL": 1819,
+                  "AR": 1836,
+                  "AZ": 1912,
+                  "CA": 1850,
+                  "CO": 1876,
+                  "CT": 1788,
+                  "DE": 1787,
+                  "FL": 1845,
+                  "GA": 1788,
+                  "HI": 1959,
+                  "IA": 1846,
+                  "ID": 1890,
+                  "IL": 1818,
+                  "IN": 1816,
+                  "KS": 1861,
+                  "KY": 1792,
+                  "LA": 1812,
+                  "MA": 1788,
+                  "MD": 1788,
+                  "ME": 1820,
+                  "MI": 1837,
+                  "MN": 1858,
+                  "MO": 1821,
+                  "MS": 1817,
+                  "MT": 1889,
+                  "NC": 1789,
+                  "ND": 1889,
+                  "NE": 1867,
+                  "NH": 1788,
+                  "NJ": 1787,
+                  "NM": 1912,
+                  "NV": 1864,
+                  "NY": 1788,
+                  "OH": 1803,
+                  "OK": 1907,
+                  "OR": 1859,
+                  "PA": 1787,
+                  "RI": 1790,
+                  "SC": 1788,
+                  "SD": 1889,
+                  "TN": 1796,
+                  "TX": 1845,
+                  "UT": 1896,
+                  "VA": 1788,
+                  "VT": 1791,
+                  "WA": 1889,
+                  "WI": 1848,
+                  "WV": 1863,
+                  "WY": 1890,
+                  "DC": null
+                },
+                "btn_en": "Year admitted",
+                "btn_zh": "加入聯邦的年份",
+                "en": "Year each state joined the Union",
+                "zh": "各州加入聯邦的年份",
+                "note_en": "For the original thirteen, the year the state ratified the Constitution; for the others, the year Congress admitted it. The District of Columbia is not a state.",
+                "note_zh": "最初的十三州是批准憲法的年份，其餘各州是國會接納它加入的年份。哥倫比亞特區不是州。",
+                "src": [
+                  {
+                    "label": "Congressional Research Service: Admission of States to the Union (R47747, 2026)",
+                    "url": "https://www.congress.gov/crs-product/R47747"
+                  }
+                ]
+              },
+              {
+                "key": "seats",
+                "fmt": "int",
+                "values": {
+                  "AK": 1,
+                  "AL": 7,
+                  "AR": 4,
+                  "AZ": 9,
+                  "CA": 52,
+                  "CO": 8,
+                  "CT": 5,
+                  "DC": null,
+                  "DE": 1,
+                  "FL": 28,
+                  "GA": 14,
+                  "HI": 2,
+                  "IA": 4,
+                  "ID": 2,
+                  "IL": 17,
+                  "IN": 9,
+                  "KS": 4,
+                  "KY": 6,
+                  "LA": 6,
+                  "MA": 9,
+                  "MD": 8,
+                  "ME": 2,
+                  "MI": 13,
+                  "MN": 8,
+                  "MO": 8,
+                  "MS": 4,
+                  "MT": 2,
+                  "NC": 14,
+                  "ND": 1,
+                  "NE": 3,
+                  "NH": 2,
+                  "NJ": 12,
+                  "NM": 3,
+                  "NV": 4,
+                  "NY": 26,
+                  "OH": 15,
+                  "OK": 5,
+                  "OR": 6,
+                  "PA": 17,
+                  "RI": 2,
+                  "SC": 7,
+                  "SD": 1,
+                  "TN": 9,
+                  "TX": 38,
+                  "UT": 4,
+                  "VA": 11,
+                  "VT": 1,
+                  "WA": 10,
+                  "WI": 8,
+                  "WV": 2,
+                  "WY": 1
+                },
+                "btn_en": "Seats in the House",
+                "btn_zh": "眾議院席次",
+                "en": "Seats in the House of Representatives after the 2020 census",
+                "zh": "2020 年人口普查後的眾議院席次",
+                "note_en": "The 435 seats are divided among the states by population after each census; every state has at least one. The District of Columbia has a delegate in the House who does not have a full vote.",
+                "note_zh": "每次人口普查之後，435 個席次依人口分配給各州，每一州至少一席。哥倫比亞特區在眾議院有一位沒有完整表決權的代表。",
+                "src": [
+                  {
+                    "label": "U.S. Census Bureau: 2020 Census Apportionment Results",
+                    "url": "https://www.census.gov/data/tables/2020/dec/2020-apportionment-data.html"
+                  }
+                ]
+              },
+              {
+                "key": "population",
+                "fmt": "int",
+                "values": {
+                  "AK": 733391,
+                  "AL": 5024279,
+                  "AR": 3011524,
+                  "AZ": 7151502,
+                  "CA": 39538223,
+                  "CO": 5773714,
+                  "CT": 3605944,
+                  "DC": 689545,
+                  "DE": 989948,
+                  "FL": 21538187,
+                  "GA": 10711908,
+                  "HI": 1455271,
+                  "IA": 3190369,
+                  "ID": 1839106,
+                  "IL": 12812508,
+                  "IN": 6785528,
+                  "KS": 2937880,
+                  "KY": 4505836,
+                  "LA": 4657757,
+                  "MA": 7029917,
+                  "MD": 6177224,
+                  "ME": 1362359,
+                  "MI": 10077331,
+                  "MN": 5706494,
+                  "MO": 6154913,
+                  "MS": 2961279,
+                  "MT": 1084225,
+                  "NC": 10439388,
+                  "ND": 779094,
+                  "NE": 1961504,
+                  "NH": 1377529,
+                  "NJ": 9288994,
+                  "NM": 2117522,
+                  "NV": 3104614,
+                  "NY": 20201249,
+                  "OH": 11799448,
+                  "OK": 3959353,
+                  "OR": 4237256,
+                  "PA": 13002700,
+                  "RI": 1097379,
+                  "SC": 5118425,
+                  "SD": 886667,
+                  "TN": 6910840,
+                  "TX": 29145505,
+                  "UT": 3271616,
+                  "VA": 8631393,
+                  "VT": 643077,
+                  "WA": 7705281,
+                  "WI": 5893718,
+                  "WV": 1793716,
+                  "WY": 576851
+                },
+                "btn_en": "Population",
+                "btn_zh": "人口",
+                "en": "Resident population, 2020 census",
+                "zh": "居住人口（2020 年人口普查）",
+                "note_en": "The count taken on April 1, 2020. Switch to tiles to see the states sized by these numbers.",
+                "note_zh": "2020 年 4 月 1 日的普查人數。切換成方塊，可以看各州依這些數字決定大小。",
+                "src": [
+                  {
+                    "label": "U.S. Census Bureau: 2020 Census Apportionment Results",
+                    "url": "https://www.census.gov/data/tables/2020/dec/2020-apportionment-data.html"
+                  }
+                ]
+              },
+              {
+                "key": "legislature",
+                "fmt": "cat",
+                "values": {
+                  "AK": "two",
+                  "AL": "two",
+                  "AR": "two",
+                  "AZ": "two",
+                  "CA": "two",
+                  "CO": "two",
+                  "CT": "two",
+                  "DC": null,
+                  "DE": "two",
+                  "FL": "two",
+                  "GA": "two",
+                  "HI": "two",
+                  "IA": "two",
+                  "ID": "two",
+                  "IL": "two",
+                  "IN": "two",
+                  "KS": "two",
+                  "KY": "two",
+                  "LA": "two",
+                  "MA": "two",
+                  "MD": "two",
+                  "ME": "two",
+                  "MI": "two",
+                  "MN": "two",
+                  "MO": "two",
+                  "MS": "two",
+                  "MT": "two",
+                  "NC": "two",
+                  "ND": "two",
+                  "NE": "one",
+                  "NH": "two",
+                  "NJ": "two",
+                  "NM": "two",
+                  "NV": "two",
+                  "NY": "two",
+                  "OH": "two",
+                  "OK": "two",
+                  "OR": "two",
+                  "PA": "two",
+                  "RI": "two",
+                  "SC": "two",
+                  "SD": "two",
+                  "TN": "two",
+                  "TX": "two",
+                  "UT": "two",
+                  "VA": "two",
+                  "VT": "two",
+                  "WA": "two",
+                  "WI": "two",
+                  "WV": "two",
+                  "WY": "two"
+                },
+                "btn_en": "Legislature",
+                "btn_zh": "州議會",
+                "categories": [
+                  {
+                    "v": "two",
+                    "en": "Two chambers",
+                    "zh": "兩院制",
+                    "color": "#2c7d72",
+                    "h": 0.25
+                  },
+                  {
+                    "v": "one",
+                    "en": "One chamber",
+                    "zh": "一院制",
+                    "color": "#f0d36e",
+                    "h": 0.95
+                  }
+                ],
+                "en": "How many chambers the state legislature has",
+                "zh": "州議會有幾院",
+                "note_en": "Nebraska has the only one-chamber legislature among the states; voters approved it in 1934, and it first met in 1937. The District of Columbia has a council rather than a state legislature.",
+                "note_zh": "在各州裡，只有內布拉斯加的議會是一院制：選民在 1934 年通過，1937 年第一次開會。哥倫比亞特區是市議會，不是州議會。",
+                "src": [
+                  {
+                    "label": "Nebraska Legislature: Facts about the Unicameral",
+                    "url": "https://nebraskalegislature.gov/about/ou_facts.php"
+                  }
+                ]
+              }
+            ],
+            "population": {
+              "AK": 733391,
+              "AL": 5024279,
+              "AR": 3011524,
+              "AZ": 7151502,
+              "CA": 39538223,
+              "CO": 5773714,
+              "CT": 3605944,
+              "DC": 689545,
+              "DE": 989948,
+              "FL": 21538187,
+              "GA": 10711908,
+              "HI": 1455271,
+              "IA": 3190369,
+              "ID": 1839106,
+              "IL": 12812508,
+              "IN": 6785528,
+              "KS": 2937880,
+              "KY": 4505836,
+              "LA": 4657757,
+              "MA": 7029917,
+              "MD": 6177224,
+              "ME": 1362359,
+              "MI": 10077331,
+              "MN": 5706494,
+              "MO": 6154913,
+              "MS": 2961279,
+              "MT": 1084225,
+              "NC": 10439388,
+              "ND": 779094,
+              "NE": 1961504,
+              "NH": 1377529,
+              "NJ": 9288994,
+              "NM": 2117522,
+              "NV": 3104614,
+              "NY": 20201249,
+              "OH": 11799448,
+              "OK": 3959353,
+              "OR": 4237256,
+              "PA": 13002700,
+              "RI": 1097379,
+              "SC": 5118425,
+              "SD": 886667,
+              "TN": 6910840,
+              "TX": 29145505,
+              "UT": 3271616,
+              "VA": 8631393,
+              "VT": 643077,
+              "WA": 7705281,
+              "WI": 5893718,
+              "WV": 1793716,
+              "WY": 576851
+            }
+          },
+          "clause": {
+            "eyebrow": "What Does the Text Say? · 條文怎麼寫？",
+            "en": "Three clauses this lesson rests on",
+            "zh": "這一課依據的三段條文",
+            "lead_en": "The words are copied from the National Archives transcriptions, with the capital letters and spelling of the originals.",
+            "lead_zh": "原文照美國國家檔案館的謄本逐字抄錄，保留原文的大寫與拼法。",
+            "items": [
+              {
+                "cite_en": "Tenth Amendment (1791)",
+                "cite_zh": "第十條修正案（1791）",
+                "text": "The powers not delegated to the United States by the Constitution, nor prohibited by it to the States, are reserved to the States respectively, or to the people.",
+                "zh": "本憲法未授予合眾國、也未禁止各州行使的權力，分別保留給各州，或保留給人民。",
+                "note_en": "The amendment does not list any state powers. It describes them by what is left over, so the size of the state's share depends on how broadly the national government's powers are read.",
+                "note_zh": "這條修正案沒有列出州的任何權力，而是用「剩下的」來描述它們；所以各州的那一份有多大，取決於全國政府的權力被解釋得多寬。",
+                "src": [
+                  {
+                    "label": "National Archives: The Bill of Rights, a transcription",
+                    "url": "https://www.archives.gov/founding-docs/bill-of-rights-transcript"
+                  }
+                ]
+              },
+              {
+                "cite_en": "Article I, Section 8, Clauses 3 and 18 (commerce; necessary and proper)",
+                "cite_zh": "第一條第八項第三款與第十八款（商業條款；必要且適當條款）",
+                "text": "To regulate Commerce with foreign Nations, and among the several States, and with the Indian Tribes; … To make all Laws which shall be necessary and proper for carrying into Execution the foregoing Powers, and all other Powers vested by this Constitution in the Government of the United States, or in any Department or Officer thereof.",
+                "zh": "管理與外國、各州之間以及與印第安部族的貿易；……制定為執行上述各項權力，以及本憲法授予合眾國政府或其任何部門、官員的一切其他權力所必要且適當的一切法律。",
+                "note_en": "These two clauses, read together, are the main source of the national government's growth. The word “Commerce” and the phrase “necessary and proper” do not say how far they reach, and that question has been argued in court since McCulloch v. Maryland in 1819.",
+                "note_zh": "這兩款合在一起讀，是全國政府擴大的主要來源。「貿易」這個字和「必要且適當」這個片語都沒有說它們能延伸多遠；從 1819 年的 McCulloch v. Maryland 案起，這個問題就一直在法院裡爭論。",
+                "src": [
+                  {
+                    "label": "National Archives: The Constitution, a transcription",
+                    "url": "https://www.archives.gov/founding-docs/constitution-transcript"
+                  }
+                ]
+              },
+              {
+                "cite_en": "Article I, Section 10, Clause 1 (limits on the states)",
+                "cite_zh": "第一條第十項第一款（對各州的限制）",
+                "text": "No State shall enter into any Treaty, Alliance, or Confederation; grant Letters of Marque and Reprisal; coin Money; emit Bills of Credit; make any Thing but gold and silver Coin a Tender in Payment of Debts; pass any Bill of Attainder, ex post facto Law, or Law impairing the Obligation of Contracts, or grant any Title of Nobility.",
+                "zh": "任何一州都不得締結條約、同盟或邦聯；不得頒發捕獲敵船許可狀；不得鑄造貨幣；不得發行信用票據；不得以金銀幣以外的任何物品作為償還債務的法定貨幣；不得通過褫奪公權法案、溯及既往的法律或損害契約義務的法律；也不得授予任何貴族爵位。",
+                "note_en": "The Constitution also limits what the states may do, not only what the national government may do. Several of these limits ended practices that had caused trouble under the Articles of Confederation, when states issued their own money.",
+                "note_zh": "憲法不只限制全國政府能做什麼，也限制各州。其中幾項限制，終結了《邦聯條例》時期各州自己發行貨幣所造成的麻煩。",
+                "src": [
+                  {
+                    "label": "National Archives: The Constitution, a transcription",
+                    "url": "https://www.archives.gov/founding-docs/constitution-transcript"
+                  }
+                ]
+              }
+            ]
+          },
+          "primary": {
+            "eyebrow": "Read the Source · 讀原典",
+            "en": "Madison's promise, and Marshall's reading",
+            "zh": "麥迪遜的承諾，馬歇爾的解讀",
+            "lead_en": "Two texts thirty-one years apart. In 1788 Madison assured readers that the new national government would have only a few powers. In 1819 Marshall explained how far those powers reach. Read each slowly before you open the translation; the spelling and punctuation are those of the sources.",
+            "lead_zh": "兩段相隔三十一年的文字。1788 年，麥迪遜向讀者保證新的全國政府只會有少數幾項權力；1819 年，馬歇爾說明這些權力能延伸多遠。先慢慢讀一遍，再打開中譯；拼法與標點照出處原樣。",
+            "docs": [
+              {
+                "kind_en": "Essay, 1788",
+                "kind_zh": "1788 年的文章",
+                "title_en": "The Federalist, No. 45 (excerpt)",
+                "title_zh": "《聯邦論》第四十五篇（節錄）",
+                "by_en": "By James Madison, signed “Publius.” Printed in a New York newspaper in late January 1788; the editors of Madison's papers date it January 26.",
+                "by_zh": "麥迪遜著，署名「普布利烏斯」（Publius）。1788 年 1 月底刊登於紐約的一份報紙；《麥迪遜文集》的編者把日期定在 1 月 26 日。",
+                "text": [
+                  "The powers delegated by the proposed constitution to the federal government, are few and defined. Those which are to remain in the state governments are numerous and indefinite. The former will be exercised principally on external objects, as war, peace, negociation, and foreign commerce; with which last the power of taxation will for the most part be connected. The powers reserved to the several states will extend to all the objects, which, in the ordinary course of affairs, concern the lives, liberties and properties of the people; and the internal order, improvement and prosperity of the state."
+                ],
+                "text_zh": [
+                  "擬議中的憲法授予聯邦政府的權力，少而明確；仍留在各州政府的權力，多而不定。前者主要行使於對外的事務，如戰爭、和平、談判與對外貿易；徵稅的權力大多和最後這一項相連。保留給各州的權力，則涵蓋日常事務中一切關係到人民的生命、自由與財產，以及各州內部的秩序、改善與繁榮的事項。"
+                ],
+                "note_en": "Text as given by Founders Online (National Archives), from The Papers of James Madison, which keeps the spelling “negociation.” The Library of Congress text punctuates the passage differently, capitalizes “Constitution” and “State,” and dates the essay January 25. Public domain. The Chinese translation is ours.",
+                "note_zh": "原文依 Founders Online（美國國家檔案館）收錄的《麥迪遜文集》，保留 negociation 的舊拼法。國會圖書館的文本標點不同、Constitution 與 State 用大寫，日期標為 1 月 25 日。公有領域。中譯為本站所譯。",
+                "src": [
+                  {
+                    "label": "Founders Online: The Federalist Number 45",
+                    "url": "https://founders.archives.gov/documents/Madison/01-10-02-0254"
+                  },
+                  {
+                    "label": "Library of Congress: Federalist Nos. 41–50",
+                    "url": "https://guides.loc.gov/federalist-papers/text-41-50"
+                  }
+                ],
+                "gloss": [
+                  {
+                    "w": "delegated",
+                    "en": "handed over by the people to someone acting for them",
+                    "zh": "（由人民）授予、委託"
+                  },
+                  {
+                    "w": "indefinite",
+                    "en": "not limited to a fixed list",
+                    "zh": "不限於固定清單的；不定的"
+                  },
+                  {
+                    "w": "external objects",
+                    "en": "matters concerning other nations",
+                    "zh": "對外的事務"
+                  },
+                  {
+                    "w": "negociation",
+                    "en": "negotiation (an old spelling)",
+                    "zh": "談判（舊拼法）"
+                  },
+                  {
+                    "w": "internal order",
+                    "en": "peace and good order inside a state",
+                    "zh": "內部的秩序"
+                  }
+                ],
+                "questions": [
+                  {
+                    "en": "Madison sorts government business into two kinds. What belongs to each, and which kind affects ordinary people's daily lives more?",
+                    "zh": "麥迪遜把政府的事務分成兩類。各屬於哪些事？哪一類比較影響一般人的日常生活？"
+                  },
+                  {
+                    "en": "He was writing to persuade New Yorkers to ratify. Why would the promise that national powers are “few and defined” matter to a reader who distrusted a strong central government?",
+                    "zh": "他寫這篇文章是要說服紐約人批准憲法。對一個不信任強大中央政府的讀者來說，「少而明確」這個保證為什麼重要？"
+                  },
+                  {
+                    "en": "Compare this passage with Marshall's words below, written thirty-one years later. Do they describe the same system? Where do they agree, and where might they pull in different directions?",
+                    "zh": "把這一段和下面馬歇爾三十一年後寫的話比一比。它們描述的是同一套制度嗎？哪裡一致，哪裡可能往不同的方向拉？"
+                  }
+                ]
+              },
+              {
+                "kind_en": "Supreme Court opinion, 1819",
+                "kind_zh": "1819 年的最高法院判決",
+                "title_en": "McCulloch v. Maryland (excerpts)",
+                "title_zh": "McCulloch v. Maryland（節錄）",
+                "by_en": "Opinion of the Court by Chief Justice John Marshall, February Term, 1819. The Court held that Congress could create the bank and that Maryland's tax on it was “unconstitutional and void.”",
+                "by_zh": "首席大法官馬歇爾撰寫的法院意見，1819 年二月庭期。最高法院判定國會有權設立這家銀行，馬里蘭對它課稅則「違憲且無效」。",
+                "text": [
+                  "Let the end be legitimate, let it be within the scope of the constitution, and all means which are appropriate, which are plainly adapted to that end, which are not prohibited, but consist with the letter and spirit of the constitution, are constitutional.",
+                  "That the power to tax involves the power to destroy; that the power to destroy may defeat and render useless the power to create; that there is a plain repugnance in conferring on one government a power to control the constitutional measures of another, which other, with respect to those very measures, is declared to be supreme over that which exerts the control, are propositions not to be denied."
+                ],
+                "text_zh": [
+                  "只要目的正當、在憲法的範圍之內，那麼一切適當的、明顯適合於那個目的的、不受禁止而且符合憲法的文字與精神的手段，都是合憲的。",
+                  "課稅的權力包含毀滅的權力；毀滅的權力可以挫敗創造的權力，使它歸於無用；把控制另一個政府的合憲措施的權力，交給一個政府，而另一個政府在這些措施上又被宣告為高於施加控制的一方——這顯然自相矛盾。這些都是不容否認的命題。"
+                ],
+                "note_en": "Text from the Cornell Legal Information Institute's copy of the opinion. The two paragraphs come from different parts of it. Public domain. The Chinese translation is ours.",
+                "note_zh": "原文依康乃爾大學法律資訊研究所收錄的判決書；兩段出自判決的不同部分。公有領域。中譯為本站所譯。",
+                "src": [
+                  {
+                    "label": "Cornell LII: McCulloch v. Maryland, 17 U.S. 316",
+                    "url": "https://www.law.cornell.edu/supremecourt/text/17/316"
+                  }
+                ],
+                "gloss": [
+                  {
+                    "w": "legitimate",
+                    "en": "allowed; within proper authority",
+                    "zh": "正當的；在合法權限內的"
+                  },
+                  {
+                    "w": "plainly adapted",
+                    "en": "clearly suited",
+                    "zh": "明顯適合的"
+                  },
+                  {
+                    "w": "consist with",
+                    "en": "agree with; fit",
+                    "zh": "與……相符"
+                  },
+                  {
+                    "w": "repugnance",
+                    "en": "contradiction; inconsistency",
+                    "zh": "矛盾；不相容"
+                  },
+                  {
+                    "w": "propositions",
+                    "en": "statements put forward as true",
+                    "zh": "命題；主張"
+                  }
+                ],
+                "questions": [
+                  {
+                    "en": "Marshall's first sentence sets out a test with several conditions. List them. Which word or phrase leaves the most room for judgment?",
+                    "zh": "馬歇爾的第一句話提出了一個有好幾個條件的檢驗標準。把這些條件列出來。哪一個字或片語留下最多判斷的空間？"
+                  },
+                  {
+                    "en": "Why does Marshall say that letting one government tax another's institutions would be a “plain repugnance”? Which government does he treat as supreme, and on what basis?",
+                    "zh": "馬歇爾為什麼說，讓一個政府對另一個政府的機構課稅是「顯然的矛盾」？他把哪一個政府當作最高的？根據什麼？"
+                  },
+                  {
+                    "en": "Madison promised powers that were “few and defined.” Does Marshall's test keep that promise, change it, or explain how to keep it? Give a reason.",
+                    "zh": "麥迪遜保證過權力「少而明確」。馬歇爾的檢驗標準是守住了這個承諾、改變了它，還是說明了怎麼守住它？說出一個理由。"
+                  }
+                ]
+              }
+            ]
+          },
+          "debate": {
+            "eyebrow": "The Design Debate · 制度的爭論",
+            "en": "Close to home, or one national standard?",
+            "zh": "離家近的地方決定，還是全國一個標準？",
+            "lead_en": "Every federal system has to decide which matters are settled locally and which nationally. Americans have argued about the line since 1787, and it has moved many times. This card states the strongest case for each direction and does not choose between them. It is about the design, not about any particular issue.",
+            "lead_zh": "每一個聯邦制度都得決定：哪些事在地方決定，哪些事在全國決定。從 1787 年起美國人就在爭論這條線，它也移動過很多次。這張卡把兩個方向各用最強的版本寫出來，不替它們分高下；談的是制度的設計，不是任何一個具體的議題。",
+            "question_en": "When people disagree about how a matter should be handled, should each state be free to decide it for itself, or should there be one rule for the whole country?",
+            "question_zh": "當人們對一件事該怎麼處理意見不同時，應該讓每一州自己決定，還是應該全國用同一套規則？",
+            "sides": [
+              {
+                "k_en": "One direction",
+                "k_zh": "一個方向",
+                "name_en": "Decide it close to home",
+                "name_zh": "在離家近的地方決定",
+                "points": [
+                  {
+                    "en": "People differ from place to place in their circumstances and their values. Fifty decisions can fit fifty states, while one national rule will fit some places badly, and those who dislike a state's choice can move to another.",
+                    "zh": "各地的人處境不同、價值觀也不同。五十個決定可以配合五十個州；一條全國的規則，總會讓某些地方很不合身。不喜歡某一州做法的人，也可以搬到別州去。"
+                  },
+                  {
+                    "en": "A state government is closer to the people it governs. Citizens can see it, reach it, and change it more easily than a government far away, so decisions made there are easier to hold to account.",
+                    "zh": "州政府離它所治理的人比較近。比起一個遙遠的政府，公民比較看得見它、找得到它，也比較容易改變它，所以在那裡作成的決定比較容易被問責。"
+                  },
+                  {
+                    "en": "States can experiment. A policy tried in one state shows what works before the whole country commits to it, and a mistake made in one state does not become a mistake everywhere.",
+                    "zh": "各州可以做實驗。一項政策先在一州試行，可以在全國投入之前看出它行不行得通；一州犯的錯，也不會變成全國都犯的錯。"
+                  }
+                ],
+                "voice": "It is one of the happy incidents of the federal system that a single courageous state may, if its citizens choose, serve as a laboratory; and try novel social and economic experiments without risk to the rest of the country.",
+                "voice_cite": "Justice Louis Brandeis, dissenting in New State Ice Co. v. Liebmann, 285 U.S. 262 (1932)",
+                "voice_zh": "聯邦制度有一個可喜的好處：一個勇敢的州，只要它的公民願意，就可以充當一間實驗室，嘗試新的社會與經濟實驗，而不會危及國家的其他部分。——布蘭戴斯大法官，1932 年（不同意見書）",
+                "src": [
+                  {
+                    "label": "Cornell LII: New State Ice Co. v. Liebmann (1932)",
+                    "url": "https://www.law.cornell.edu/supremecourt/text/285/262"
+                  }
+                ]
+              },
+              {
+                "k_en": "Another direction",
+                "k_zh": "另一個方向",
+                "name_en": "Set one national standard",
+                "name_zh": "訂一個全國的標準",
+                "points": [
+                  {
+                    "en": "Some things should not depend on where a person happens to live. A citizen's basic rights, and the rules of a market that crosses every state line, call for one standard, applied the same way everywhere.",
+                    "zh": "有些事不應該取決於一個人剛好住在哪裡。公民的基本權利，以及一個跨越所有州界的市場的規則，需要一個標準，在每個地方用同樣的方式適用。"
+                  },
+                  {
+                    "en": "A smaller community can make it easier for a local majority to override the rights of a local minority. A national majority is broader and more varied, so it is less likely to share one narrow aim.",
+                    "zh": "一個比較小的社群，比較容易讓當地的多數壓過當地少數的權利。全國性的多數範圍更廣、組成更多元，比較不會共有某一個狹隘的目標。"
+                  },
+                  {
+                    "en": "Fifty sets of rules impose real costs. People who move must start over, businesses must comply many times, and states may compete with each other in ways that leave everyone worse off.",
+                    "zh": "五十套規則會帶來實實在在的成本：搬家的人得從頭來過，企業得重複遵守很多次，各州之間的競爭也可能讓大家的處境都變差。"
+                  }
+                ],
+                "voice": "Extend the sphere, and you take in a greater variety of parties and interests; you make it less probable that a majority of the whole will have a common motive to invade the rights of other citizens; …",
+                "voice_cite": "James Madison, The Federalist No. 10 (1787)",
+                "voice_zh": "把範圍擴大，就能納入更多樣的派別與利益；全體的多數會共有某種侵犯其他公民權利的動機，就變得比較不可能；……——麥迪遜，《聯邦論》第十篇（1787）",
+                "src": [
+                  {
+                    "label": "Library of Congress: Federalist Nos. 1–10",
+                    "url": "https://guides.loc.gov/federalist-papers/text-1-10"
+                  }
+                ]
+              }
+            ],
+            "close_en": "The same person may give different answers for different matters, and the American line has moved in both directions over time. Notice too that the two quotations come from one tradition: Madison helped design the federal system, and Brandeis was defending it. Madison's No. 10 is an argument about the size of a republic, which is why it is often cited on the national side. Which of the arguments above do you find strongest, and on which kinds of questions?",
+            "close_zh": "同一個人對不同的事，可能給出不同的答案；美國的這條線也曾往兩個方向移動。也請注意：這兩段引言出自同一個傳統——麥迪遜參與設計了聯邦制度，布蘭戴斯則是在為它辯護。麥迪遜的第十篇談的是一個共和國的大小，所以常被引用來支持全國標準這一邊。上面的論點裡，你覺得哪幾個最有力？在哪一類問題上？"
+          },
+          "taiwan": {
+            "eyebrow": "Compare with Taiwan · 和台灣比一比",
+            "en": "A federal country and a unitary one",
+            "zh": "聯邦國與單一國",
+            "lead_en": "This card compares designs only. It quotes the Constitution of the Republic of China and its Additional Articles from the official Laws and Regulations Database, and it does not say which arrangement is better.",
+            "lead_zh": "這張卡只比制度的設計，條文引自全國法規資料庫的《中華民國憲法》與《中華民國憲法增修條文》；不評價哪一種安排比較好。",
+            "rows": [
+              {
+                "topic_en": "The kind of state",
+                "topic_zh": "國家的型態",
+                "us_en": "Federal. Fifty states, each with its own constitution, legislature, governor, and courts. Their powers do not come from Congress.",
+                "us_zh": "聯邦國。五十州各有自己的憲法、議會、州長與法院；州的權力不是來自國會。",
+                "tw_en": "Unitary. The system of local government for provinces and counties is set by law (Additional Article 9). Under the Local Government Act, the province is no longer a self-governing body; self-government rests with the special municipalities, counties, and cities, and the units below them.",
+                "tw_zh": "單一國。省、縣的地方制度以法律定之（增修條文第 9 條）。依《地方制度法》，省已不是地方自治團體；地方自治由直轄市、縣、市及其下的單位行使。"
+              },
+              {
+                "topic_en": "Where the powers are listed",
+                "topic_zh": "權力列在哪裡",
+                "us_en": "The Constitution lists the powers of Congress (Article I, Section 8) and some limits on the states (Article I, Section 10).",
+                "us_zh": "憲法列出國會的權力（第一條第八項）與對各州的一些限制（第一條第十項）。",
+                "tw_en": "The Constitution lists matters for the central government (Article 107), matters the center may hand to provinces and counties to carry out (Article 108), and provincial and county matters (Articles 109 and 110).",
+                "tw_zh": "憲法列出由中央立法並執行的事項（第 107 條）、由中央立法並執行或交由省縣執行的事項（第 108 條），以及省、縣的事項（第 109、110 條）。"
+              },
+              {
+                "topic_en": "Matters not on any list",
+                "topic_zh": "沒有列舉的事項",
+                "us_en": "Reserved to the states, or to the people (Tenth Amendment).",
+                "us_zh": "保留給各州，或保留給人民（第十條修正案）。",
+                "tw_en": "Assigned by their nature: national matters to the central government, provincial to the province, county to the county; disputes are settled by the Legislative Yuan (Article 111).",
+                "tw_zh": "依事務的性質分配：有全國一致之性質者屬於中央，有全省一致之性質者屬於省，有一縣之性質者屬於縣；遇有爭議，由立法院解決（第 111 條）。"
+              },
+              {
+                "topic_en": "The units today",
+                "topic_zh": "現在的單位",
+                "us_en": "Fifty states, plus the District of Columbia, which is not a state.",
+                "us_zh": "五十州，加上不是州的哥倫比亞特區。",
+                "tw_en": "Six special municipalities, thirteen counties, and three cities (Ministry of the Interior, page updated July 2024).",
+                "tw_zh": "6 個直轄市、13 個縣、3 個市（內政部，網頁更新於 2024 年 7 月）。"
+              }
+            ],
+            "quotes": [
+              {
+                "cite_zh": "中華民國憲法　第 111 條",
+                "cite_en": "Constitution of the Republic of China, Article 111",
+                "text": "除第一百零七條、第一百零八條、第一百零九條及第一百十條列舉事項外，如有未列舉事項發生時，其事務有全國一致之性質者屬於中央，有全省一致之性質者屬於省，有一縣之性質者屬於縣。遇有爭議時，由立法院解決之。",
+                "en": "Official English translation: “Any matter not enumerated in Articles 107, 108, 109 and 110 shall fall within the jurisdiction of the Central Government, if it is national in nature; of the province, if it is provincial in nature; and of the hsien, if it concerns the hsien. In case of dispute, it shall be settled by the Legislative Yuan.”",
+                "src": [
+                  {
+                    "label": "全國法規資料庫：中華民國憲法",
+                    "url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=A0000001"
+                  },
+                  {
+                    "label": "Laws & Regulations Database: Constitution (English)",
+                    "url": "https://law.moj.gov.tw/ENG/LawClass/LawAll.aspx?pcode=A0000001"
+                  }
+                ]
+              },
+              {
+                "cite_zh": "中華民國憲法增修條文　第 9 條第 1 項（開頭）",
+                "cite_en": "Additional Articles of the Constitution, Article 9, Paragraph 1 (opening)",
+                "text": "省、縣地方制度，應包括左列各款，以法律定之，不受憲法第一百零八條第一項第一款、第一百零九條、第一百十二條至第一百十五條及第一百二十二條之限制：",
+                "en": "Official English translation: “The system of self-government in the provinces and counties shall include the following provisions, which shall be established by the enactment of appropriate laws, the restrictions in Article 108, Paragraph 1, Subparagraph 1; Article 109; Article 112 through Article 115; and Article 122 of the Constitution notwithstanding:”",
+                "src": [
+                  {
+                    "label": "全國法規資料庫：中華民國憲法增修條文",
+                    "url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=A0000002"
+                  },
+                  {
+                    "label": "Laws & Regulations Database: Additional Articles (English)",
+                    "url": "https://law.moj.gov.tw/ENG/LawClass/LawAll.aspx?pcode=A0000002"
+                  }
+                ]
+              }
+            ],
+            "note_en": "One thing to notice: both constitutions list some powers and then need a rule for everything else. The United States leaves the remainder to the states; the Constitution of the Republic of China sorts it by the nature of the matter and gives disputes to the Legislative Yuan. The text was checked against the Laws and Regulations Database, and the count of local governments against the Ministry of the Interior, in October 2026.",
+            "note_zh": "可以注意的一點：兩部憲法都先列舉一些權力，再需要一條規則來處理其餘的事。美國把剩下的留給各州；中華民國憲法則依事務的性質來分，爭議交給立法院解決。條文於 2026 年 10 月對過全國法規資料庫，地方自治團體的數目對過內政部的網頁。"
+          },
+          "news_english": {
+            "eyebrow": "News English · 新聞英語",
+            "en": "Eight terms for reading about the states",
+            "zh": "讀各州新聞用得到的八個詞",
+            "lead_en": "Listen to each term and its example sentence, then try making a sentence of your own.",
+            "lead_zh": "先聽每個詞和例句，再試著自己造一句。",
+            "items": [
+              {
+                "en": "the federal government",
+                "zh": "聯邦政府；全國政府",
+                "def_en": "the national government in Washington, as opposed to the state governments",
+                "def_zh": "在華盛頓的全國政府，相對於各州政府",
+                "ex": "Only <b>the federal government</b> can print money.",
+                "ex_zh": "只有聯邦政府可以印鈔票。"
+              },
+              {
+                "en": "state law",
+                "zh": "州法",
+                "def_en": "a law passed by a state legislature, in force only in that state",
+                "def_zh": "州議會通過、只在那一州有效的法律",
+                "ex": "Most criminal cases in the United States are tried under <b>state law</b>.",
+                "ex_zh": "在美國，大部分的刑事案件是依州法審理的。"
+              },
+              {
+                "en": "states' rights",
+                "zh": "州權",
+                "def_en": "the powers the states claim against the national government; the phrase was long used to defend slavery and, later, segregation",
+                "def_zh": "各州相對於全國政府所主張的權力；這個詞長期被用來為奴隸制、後來又為種族隔離辯護",
+                "ex": "Before the Civil War, arguments for <b>states' rights</b> were used to defend slavery.",
+                "ex_zh": "內戰之前，州權的論點被用來替奴隸制辯護。"
+              },
+              {
+                "en": "to preempt",
+                "zh": "（聯邦法）優先於（州法）",
+                "def_en": "(of a federal law) to take priority over a state law on the same subject",
+                "def_zh": "（聯邦法律）在同一事項上優先於州法律",
+                "ex": "A valid federal law can <b>preempt</b> a conflicting state law.",
+                "ex_zh": "有效的聯邦法律可以優先於與它牴觸的州法律。"
+              },
+              {
+                "en": "federal funding",
+                "zh": "聯邦經費",
+                "def_en": "money the national government sends to the states, often with conditions",
+                "def_zh": "全國政府撥給各州的錢，常常附有條件",
+                "ex": "In 1984, <b>federal funding</b> for highways was tied to a drinking age of twenty-one.",
+                "ex_zh": "1984 年，聯邦的公路經費被綁上飲酒年齡二十一歲的條件。"
+              },
+              {
+                "en": "jurisdiction",
+                "zh": "管轄權",
+                "def_en": "the authority of a government or a court over a place, a person, or a kind of case",
+                "def_zh": "政府或法院對某個地方、某個人或某類案件的權限",
+                "ex": "The case was outside the court's <b>jurisdiction</b>.",
+                "ex_zh": "這個案子不在該法院的管轄範圍內。"
+              },
+              {
+                "en": "governor",
+                "zh": "州長",
+                "def_en": "the elected head of a state's executive branch",
+                "def_zh": "民選的州行政首長",
+                "ex": "Every state elects a <b>governor</b>.",
+                "ex_zh": "每一州都選出一位州長。"
+              },
+              {
+                "en": "the Tenth Amendment",
+                "zh": "第十條修正案",
+                "def_en": "the amendment that reserves to the states, or to the people, the powers not delegated to the United States",
+                "def_zh": "把沒有授予合眾國的權力保留給各州或人民的那一條修正案",
+                "ex": "<b>The Tenth Amendment</b> was ratified in 1791 as part of the Bill of Rights.",
+                "ex_zh": "第十條修正案在 1791 年作為權利法案的一部分完成批准。"
+              }
+            ]
+          },
+          "myths_head": {
+            "en": "Four things people get wrong",
+            "zh": "四個常見的誤會"
+          },
+          "myths": [
+            {
+              "myth_en": "The states are local branch offices of the government in Washington.",
+              "myth_zh": "各州是華盛頓那個政府在地方的分支機構。",
+              "fact_en": "Each state has its own constitution, elects its own officials, and holds powers that do not come from Congress.",
+              "fact_zh": "每一州都有自己的憲法、自己選出的官員，以及不是來自國會的權力。"
+            },
+            {
+              "myth_en": "Whenever federal and state law conflict, the federal law always wins.",
+              "myth_zh": "聯邦法律和州法律衝突時，一定是聯邦法律贏。",
+              "fact_en": "Only a valid federal law wins. The Supremacy Clause covers laws made “in Pursuance” of the Constitution, so a federal law that goes beyond the national government's powers does not displace state law.",
+              "fact_zh": "只有有效的聯邦法律才會贏。最高條款涵蓋的是「依本憲法」制定的法律；超出全國政府權力範圍的聯邦法律，不能取代州法律。"
+            },
+            {
+              "myth_en": "The Constitution created the states.",
+              "myth_zh": "各州是憲法創造出來的。",
+              "fact_en": "The thirteen original states existed before the Constitution and ratified it. The other thirty-seven were admitted later by Congress under Article IV.",
+              "fact_zh": "最初的十三州在憲法之前就存在，憲法還是由它們批准的。其餘三十七州是後來由國會依第四條接納加入的。"
+            },
+            {
+              "myth_en": "Every state government is built like the federal one.",
+              "myth_zh": "每一州的政府都和聯邦政府一個樣。",
+              "fact_en": "Most are similar, with a governor, two legislative chambers, and courts, but not all. Nebraska's legislature has had only one chamber since 1937, and state constitutions differ widely in length and detail.",
+              "fact_zh": "大多數很像——有州長、兩院制的議會和法院——但不是全部。內布拉斯加的州議會從 1937 年起只有一院；各州憲法的長短與詳細程度也差得很多。"
+            }
+          ],
+          "activities": [
+            {
+              "title_en": "A Day Under Two Governments",
+              "title_zh": "兩個政府底下的一天",
+              "materials": [
+                {
+                  "en": "A sheet of paper divided into three columns: National, State, Both",
+                  "zh": "一張分成三欄的紙：全國、州、兩邊都管"
+                },
+                {
+                  "en": "The “Who Decides This?” game above, for checking",
+                  "zh": "上面的「這件事誰管？」小遊戲，用來核對"
+                }
+              ],
+              "steps": [
+                {
+                  "en": "Imagine the day of an American high school student: breakfast, the drive or bus ride to school, classes, a letter from a relative abroad, a part-time job, a trip to buy shoes. List ten moments.",
+                  "zh": "想像一個美國高中生的一天：早餐、搭車或開車上學、上課、收到國外親戚的信、打工、去買鞋。列出十個時刻。"
+                },
+                {
+                  "en": "For each moment, write down one rule that applies to it (for example, the speed limit, the stamp, the sales tax on the shoes).",
+                  "zh": "每一個時刻寫下一條適用的規則（例如速限、郵票、買鞋要付的銷售稅）。"
+                },
+                {
+                  "en": "Sort the rules into the three columns, then check your guesses against the game and the reading.",
+                  "zh": "把這些規則分進三欄，再用小遊戲和課文核對你的猜測。"
+                },
+                {
+                  "en": "Discuss: which column is longest? Were any rules hard to place, and why?",
+                  "zh": "討論：哪一欄最長？有沒有哪條規則很難歸類？為什麼？"
+                }
+              ],
+              "tip_en": "Some rules are made by cities and counties, which are created by the states. Put them in the State column and mark them with an asterisk; Lesson 21 looks at local government.",
+              "tip_zh": "有些規則是市、郡訂的，而市、郡是由州設立的。把它們放在「州」那一欄並打個星號；第二十一課會談地方政府。"
+            },
+            {
+              "title_en": "Read the Map, Then Explain It",
+              "title_zh": "先讀地圖，再解釋它",
+              "materials": [
+                {
+                  "en": "The “One Question, Fifty Answers” map above",
+                  "zh": "上面的「同一件事，五十種答案」地圖"
+                },
+                {
+                  "en": "A notebook",
+                  "zh": "一本筆記本"
+                }
+              ],
+              "steps": [
+                {
+                  "en": "Choose one question on the map. Write two sentences describing the pattern: which states are high, which are low, and whether neighbors tend to be alike.",
+                  "zh": "在地圖上選一個題目。寫兩句話描述你看到的分布：哪些州高、哪些州低、相鄰的州是不是比較像。"
+                },
+                {
+                  "en": "Switch to tiles. Does the picture change when states are sized by population? Write one sentence.",
+                  "zh": "切換成方塊。各州改依人口決定大小之後，畫面有沒有改變？寫一句話。"
+                },
+                {
+                  "en": "Suggest one possible reason for the pattern, then open the source linked under the map and see whether it helps you test your idea.",
+                  "zh": "替這個分布提出一個可能的原因，再打開地圖下面的出處連結，看看它能不能幫你檢驗這個想法。"
+                },
+                {
+                  "en": "Share your explanation with a partner, who should try to think of a different one.",
+                  "zh": "把你的解釋講給同伴聽，請他試著想出另一種解釋。"
+                }
+              ],
+              "tip_en": "Keep to explanation. The questions on this map were chosen because they say nothing about parties; the aim is to practice reading data, not to rank states.",
+              "tip_zh": "只做解釋。這張地圖上的題目，刻意挑了和政黨無關的；目的是練習讀資料，不是替各州排名次。"
+            }
+          ],
+          "links_head": {
+            "eyebrow": "Go Further · 延伸閱讀",
+            "en": "The lesson before, the lesson after, and a related map",
+            "zh": "上一課、下一課，以及一張相關的地圖"
+          },
+          "links": [
+            {
+              "icon": "⚖️",
+              "k_en": "U.S. Government · Lesson 2",
+              "k_zh": "美國政治・第二課",
+              "en": "Why Split the Power Three Ways?",
+              "zh": "權力為什麼要分成三份？",
+              "note_en": "That lesson divides power across three branches. This one divides it a second way, between the nation and the states.",
+              "note_zh": "那一課把權力分給三個部門；這一課用第二種方式分權——分給全國與各州。",
+              "href": "/resources/classes/us-government/checks-and-balances/"
+            },
+            {
+              "icon": "🗽",
+              "k_en": "U.S. Government · Lesson 4",
+              "k_zh": "美國政治・第四課",
+              "en": "What Rights Does the Constitution Protect?",
+              "zh": "憲法保護哪些權利？",
+              "note_en": "The Bill of Rights first limited only the national government. The next lesson shows how the Fourteenth Amendment came to apply many of its protections to the states as well.",
+              "note_zh": "權利法案原本只限制全國政府。下一課說明第十四條修正案怎麼讓其中許多保障也適用於各州。",
+              "soon": true
+            },
+            {
+              "icon": "🗺️",
+              "k_en": "Geography · Lesson 1",
+              "k_zh": "地理・第一課",
+              "en": "Why Is Every Flat Map Wrong?",
+              "zh": "為什麼每一張平面地圖都是「錯」的？",
+              "note_en": "The state map in this lesson uses an equal-area projection, so that apart from Alaska and Hawaii, which are moved and shrunk, a state's size on the screen stays close to its true land area. That lesson explains what such a map keeps and what it gives up.",
+              "note_zh": "這一課的州地圖用的是等積投影：除了搬過位置、縮小過的阿拉斯加和夏威夷，州在螢幕上的大小都接近它真實的土地面積。那一課說明這種地圖保住了什麼、犧牲了什麼。",
+              "href": "/resources/classes/geography/flat-maps/"
+            }
+          ],
+          "sources_note_en": "Quotations, dates, and numbers on this page were checked against these sources in October 2026. Quotations keep the spelling of the originals",
+          "sources_note_zh": "本頁的引文、日期與數字於 2026 年 10 月依下列資料查證；引文保留原文的拼法",
+          "sources": [
+            {
+              "en": "The text of the Constitution: Article I, Sections 4, 8, and 10; Article III; Article IV; the Tenth and Fourteenth Amendments.",
+              "zh": "憲法條文：第一條第四、八、十項；第三條；第四條；第十與第十四條修正案",
+              "src": "National Archives: The Constitution and the Bill of Rights, transcriptions",
+              "url": "https://www.archives.gov/founding-docs/constitution-transcript"
+            },
+            {
+              "en": "The Federalist No. 45: “few and defined” and “numerous and indefinite”; dated January 26, 1788, by the editors.",
+              "zh": "《聯邦論》第四十五篇：「少而明確」與「多而不定」；編者定為 1788 年 1 月 26 日",
+              "src": "Founders Online (National Archives): The Federalist Number 45",
+              "url": "https://founders.archives.gov/documents/Madison/01-10-02-0254"
+            },
+            {
+              "en": "The federal and state governments are “different agents and trustees of the people” (The Federalist No. 46).",
+              "zh": "聯邦與州政府是「人民不同的代理人與受託人」（《聯邦論》第四十六篇）",
+              "src": "Library of Congress: Federalist Nos. 41–50",
+              "url": "https://guides.loc.gov/federalist-papers/text-41-50"
+            },
+            {
+              "en": "The Federalist No. 10: “Extend the sphere …”",
+              "zh": "《聯邦論》第十篇：「把範圍擴大……」",
+              "src": "Library of Congress: Federalist Nos. 1–10",
+              "url": "https://guides.loc.gov/federalist-papers/text-1-10"
+            },
+            {
+              "en": "McCulloch v. Maryland (1819): Maryland's tax act of 1818; the bank upheld, the tax “unconstitutional and void,” and the quoted passages.",
+              "zh": "McCulloch v. Maryland（1819）：馬里蘭 1818 年的課稅法；銀行合憲、這項稅「違憲且無效」，以及引用的段落",
+              "src": "Cornell Legal Information Institute: McCulloch v. Maryland, 17 U.S. 316",
+              "url": "https://www.law.cornell.edu/supremecourt/text/17/316"
+            },
+            {
+              "en": "Gibbons v. Ogden (1824): “commerce” comprehends navigation; vessels licensed under federal law could not be excluded by New York's law.",
+              "zh": "Gibbons v. Ogden（1824）：「貿易」包括航運；依聯邦法律領有執照的船隻，不能被紐約州的法律排除",
+              "src": "Cornell Legal Information Institute: Gibbons v. Ogden, 22 U.S. 1",
+              "url": "https://www.law.cornell.edu/supremecourt/text/22/1"
+            },
+            {
+              "en": "Federal highway funds withheld from states where people under twenty-one could lawfully buy alcohol (enacted 1984).",
+              "zh": "未滿二十一歲者可合法購買酒類的州，將被扣減聯邦公路經費（1984 年立法）",
+              "src": "Cornell Legal Information Institute: 23 U.S. Code § 158",
+              "url": "https://www.law.cornell.edu/uscode/text/23/158"
+            },
+            {
+              "en": "By 1988 the remaining states had set the minimum legal drinking age at twenty-one.",
+              "zh": "到 1988 年，其餘各州都已把最低合法飲酒年齡訂為二十一歲",
+              "src": "National Institutes of Health (PubMed Central): Reducing Underage Drinking",
+              "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6876521/"
+            },
+            {
+              "en": "The Mississippi secession convention identified its position with slavery (1861).",
+              "zh": "密西西比的脫離聯邦大會把自己的立場與奴隸制畫上等號（1861）",
+              "src": "National Park Service: Mississippi Secession",
+              "url": "https://www.nps.gov/articles/ms-secession.htm"
+            },
+            {
+              "en": "The war was not about states' rights, “except for the right of southern states to protect slavery.”",
+              "zh": "那場戰爭與州權無關，「除了南方各州保護奴隸制的權利之外」",
+              "src": "National Park Service: Confronting Slavery (Civil War 150th)",
+              "url": "https://www.nps.gov/features/waso/cw150th/reflections/confronting-slavery/page4.html"
+            },
+            {
+              "en": "The Southern Manifesto (1956) attacked Brown v. Board of Education as an abuse of judicial power “that trespassed upon states' rights.”",
+              "zh": "1956 年的《南方宣言》抨擊布朗案是濫用司法權、「侵犯州權」",
+              "src": "U.S. House of Representatives: History, Art & Archives, The Southern Manifesto of 1956",
+              "url": "https://history.house.gov/Historical-Highlights/1951-2000/The-Southern-Manifesto-of-1956/"
+            },
+            {
+              "en": "The Fugitive Slave Act of 1850 and Massachusetts's Personal Liberty Laws.",
+              "zh": "1850 年的《逃亡奴隸法》與麻薩諸塞的《個人自由法》",
+              "src": "National Park Service: The Fugitive Slave Laws and Boston",
+              "url": "https://www.nps.gov/articles/000/fugitive-slave-laws-boston.htm"
+            },
+            {
+              "en": "Little Rock, 1957: the governor used the Arkansas National Guard to keep the students out, and President Eisenhower sent federal troops (Executive Order 10730).",
+              "zh": "1957 年小岩城：州長動用阿肯色國民警衛隊阻擋學生，艾森豪總統派出聯邦部隊（第 10730 號行政命令）",
+              "src": "Eisenhower Presidential Library; National Archives: Executive Order 10730",
+              "url": "https://www.archives.gov/milestone-documents/executive-order-10730"
+            },
+            {
+              "en": "Brandeis on “a single courageous state” as a laboratory (dissenting opinion, 1932).",
+              "zh": "布蘭戴斯談「一個勇敢的州」可以充當實驗室（不同意見書，1932）",
+              "src": "Cornell Legal Information Institute: New State Ice Co. v. Liebmann, 285 U.S. 262",
+              "url": "https://www.law.cornell.edu/supremecourt/text/285/262"
+            },
+            {
+              "en": "“Nine western states adopted woman suffrage legislation by 1912”; the Nineteenth Amendment was ratified on August 18, 1920.",
+              "zh": "「到 1912 年，西部有九個州通過了婦女投票權的立法」；第十九條修正案於 1920 年 8 月 18 日批准",
+              "src": "National Archives: 19th Amendment to the U.S. Constitution",
+              "url": "https://www.archives.gov/milestone-documents/19th-amendment"
+            },
+            {
+              "en": "Nebraska has the only unicameral legislature; approved by initiative in 1934, first session in 1937.",
+              "zh": "內布拉斯加是唯一一院制的州議會；1934 年公投通過，1937 年第一次開會",
+              "src": "Nebraska Legislature: Facts about the Unicameral",
+              "url": "https://nebraskalegislature.gov/about/ou_facts.php"
+            },
+            {
+              "en": "Concurrent powers: taxing, borrowing, making and enforcing laws, and establishing courts.",
+              "zh": "共有的權力：徵稅、舉債、制定與執行法律、設立法院",
+              "src": "OpenStax, American Government 3e, section 3.1 (Rice University)",
+              "url": "https://openstax.org/books/american-government-3e/pages/3-1-the-division-of-powers"
+            },
+            {
+              "en": "Resident population and House seats by state after the 2020 census (Tables 1 and 2).",
+              "zh": "2020 年人口普查後各州的居住人口與眾議院席次（表 1、表 2）",
+              "src": "U.S. Census Bureau: 2020 Census Apportionment Results",
+              "url": "https://www.census.gov/data/tables/2020/dec/2020-apportionment-data.html"
+            },
+            {
+              "en": "Dates of admission to the Union (for the original thirteen, ratification of the Constitution); Table 1, updated January 6, 2026.",
+              "zh": "各州加入聯邦的日期（最初十三州為批准憲法的日期）；表 1，2026 年 1 月 6 日更新",
+              "src": "Congressional Research Service: Admission of States to the Union (R47747)",
+              "url": "https://www.congress.gov/crs-product/R47747"
+            },
+            {
+              "en": "State outlines: 2024 Cartographic Boundary File, free to use with acknowledgement of the Census Bureau.",
+              "zh": "州界：2024 年州界檔，可免費使用，須註明人口普查局",
+              "src": "U.S. Census Bureau: Cartographic Boundary Files",
+              "url": "https://www.census.gov/geographies/mapping-files/time-series/geo/cartographic-boundary.html"
+            },
+            {
+              "en": "Constitution of the Republic of China: Articles 107 to 111.",
+              "zh": "中華民國憲法：第 107 至 111 條",
+              "src": "全國法規資料庫：中華民國憲法",
+              "url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=A0000001"
+            },
+            {
+              "en": "Additional Articles of the Constitution, Article 9; Local Government Act, Articles 1 and 2.",
+              "zh": "中華民國憲法增修條文第 9 條；地方制度法第 1、2 條",
+              "src": "全國法規資料庫：地方制度法",
+              "url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=A0040003"
+            },
+            {
+              "en": "Six special municipalities, thirteen counties, and three cities.",
+              "zh": "6 直轄市、13 縣、3 市",
+              "src": "內政部：我國地方制度概況",
+              "url": "https://www.moi.gov.tw/cp.aspx?n=674"
+            },
+            {
+              "en": "State courts hear most criminal cases, most contract cases, and family-law cases; federal and state courts compared.",
+              "zh": "州法院審理大部分的刑事、契約與家事案件；聯邦法院與州法院的比較",
+              "src": "United States Courts: Comparing Federal & State Courts",
+              "url": "https://www.uscourts.gov/about-federal-courts/court-role-and-structure/comparing-federal-state-courts"
+            },
+            {
+              "en": "Driver's licenses come from each state's motor vehicle agency; marriage licenses are issued by the states.",
+              "zh": "駕照由各州的監理機關核發；結婚證書由各州核發",
+              "src": "USA.gov: State motor vehicle services; Marriage license or certificate",
+              "url": "https://www.usa.gov/state-motor-vehicle-services"
             }
           ]
         }

@@ -18182,7 +18182,7 @@ def build_wh_hub():
 _usgj = os.path.join(ROOT, "data", "us_government.json")
 USG = json.load(open(_usgj, encoding="utf-8")) if os.path.exists(_usgj) else None
 USG_BASE = "/resources/classes/us-government/"
-_USG_JS = {"constitution": "usg-constitution", "checks": "usg-checks"}   # lab.kind → assets/js/<bundle>.js
+_USG_JS = {"constitution": "usg-constitution", "checks": "usg-checks", "federalism": "usg-federalism"}   # lab.kind → assets/js/<bundle>.js
 
 def _usg_ver():
     h = hashlib.md5()
@@ -18337,7 +18337,112 @@ def _ug_veto(d):
 </div>'''
 
 
-_USG_CARD = {"constitution": usgconst_svg, "checks": usgchecks_svg}
+def usgfed_svg(size=56):
+    """第三課的課程卡小圖示：一片金色的「全國」板子，下面一排高低不同的州方塊。"""
+    return (f'<svg class="usgfed-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">'
+            '<path d="M8 14l22-7 22 7-22 7z" fill="#ffd36e" opacity=".85"/>'
+            '<g stroke="#ffd36e" stroke-width="1" stroke-dasharray="2 2" opacity=".6"><path d="M14 18v20M30 22v18M46 18v20"/></g>'
+            '<rect x="6" y="40" width="8" height="12" rx="1.5" fill="#2c7d72"/><rect x="16" y="34" width="8" height="18" rx="1.5" fill="#86b86f"/>'
+            '<rect x="26" y="44" width="8" height="8" rx="1.5" fill="#1f5d66"/><rect x="36" y="30" width="8" height="22" rx="1.5" fill="#c6cc6a"/>'
+            '<rect x="46" y="38" width="8" height="14" rx="1.5" fill="#4e9c74"/></svg>')
+
+def _ug_layer_note(l):
+    return (f'<p class="ug-lyr-note" data-note="{l["key"]}" hidden><b>{html.escape(l["en"])}<span class="zh">{html.escape(l["zh"])}</span></b>'
+            f'{html.escape(l["note_en"])}<span class="zh">{html.escape(l["note_zh"])}</span> <span class="ug-srcs">{_ug_src(l["src"])}</span></p>')
+
+def _ug_layer_payload(lesson):
+    lab = lesson["lab"]
+    return [{k: l.get(k) for k in ("key", "fmt", "values", "categories", "low_first")} for l in lab["layers"]]
+
+def render_usgfed_lab(lesson):
+    """第三課：五十州地圖（3D）＋上方的「全國政府」一層（assets/js/usg-federalism.js 綁這裡的 class）。"""
+    lab = lesson["lab"]
+    lv = {"national": ("National government", "全國政府"), "state": ("The states", "各州"), "both": ("Both", "兩層都管")}
+    pw = "".join(
+        f'<button type="button" data-pw="{p["key"]}" aria-pressed="{"true" if n == 0 else "false"}"><b>{html.escape(p["btn_en"])}</b><small>{html.escape(p["btn_zh"])}</small></button>'
+        for n, p in enumerate(lab["powers"]))
+    def panel(n, p):
+        q = (f'<blockquote class="ug-art-q" lang="en">{html.escape(p["quote"])}<cite>{html.escape(p["cite"])}</cite></blockquote>' if p.get("quote")
+             else f'<p class="ug-act-cite">{html.escape(p["cite"])}</p>')
+        en, zh = lv[p["level"]]
+        return (f'<div class="ug-pw is-{p["level"]}" data-pw-panel="{p["key"]}"{"" if n == 0 else " hidden"}>'
+                f'<p class="ug-act-who">{en} · {zh}</p>'
+                f'<h3 class="ug-art-name">{html.escape(p["en"])}<span class="zh">{html.escape(p["zh"])}</span></h3>'
+                f'<p class="ug-art-est">{html.escape(p["text_en"])}<span class="zh">{html.escape(p["text_zh"])}</span></p>{q}</div>')
+    panels = "".join(panel(n, p) for n, p in enumerate(lab["powers"]))
+    lyr = "".join(
+        f'<button type="button" data-layer="{l["key"]}" aria-pressed="{"true" if n == 0 else "false"}"><b>{html.escape(l["btn_en"])}</b><small>{html.escape(l["btn_zh"])}</small></button>'
+        for n, l in enumerate(lab["layers"]))
+    notes = "".join(_ug_layer_note(l) for l in lab["layers"])
+    payload = json.dumps({"layers": _ug_layer_payload(lesson), "population": lab["population"], "start": lab.get("start", "NE"),
+                          "powers": [{"key": p["key"], "level": p["level"]} for p in lab["powers"]], "demos": lab["demos"]},
+                         ensure_ascii=False).replace("</", "<\\/")
+    tg = _lab_toggles([("labels", "Labels", "標示", True)])
+    return f'''<div class="astro-lab ug-lab ug-fed rvl" data-usgfed-lab>
+  <script type="application/json">{payload}</script>
+  <div class="al-stage">
+    <div class="al-space">
+      <canvas class="al-space-cv" aria-label="3D map of the fifty states and the District of Columbia, with a translucent layer above for the national government · 五十州與哥倫比亞特區的 3D 地圖，上方一層半透明的板子代表全國政府"></canvas>
+      <div class="al-labels" aria-hidden="true"></div>
+      <p class="al-hint">Drag to look around · 拖曳轉動視角　Click a state · 點一個州　Scroll or pinch to zoom · 滾輪／雙指縮放</p>
+      <button type="button" class="al-home" title="Whole view · 回到全景" aria-label="Whole view · 回到全景">&#8634;</button>
+      <p class="al-nogl-msg">This 3D model needs WebGL, which this browser does not support. The buttons and the panel still work, and so do the reading and the two activities below, including the flat map.<br><span class="zh">這個瀏覽器不支援 WebGL，無法顯示 3D 模型；按鈕和說明欄照樣能用，下面的課文和兩個小互動（包括平面地圖）也都能用。</span></p>
+    </div>
+    <aside class="al-sky ug-aside">
+      <p class="al-sky-k">Who decides? · 這件事誰管？</p>
+      {panels}
+      <div class="ug-lyr">
+        <p class="ug-when-k">On the map · 地圖上顯示的</p>
+        {notes}
+        <p class="ug-lyr-sel" aria-live="polite"></p>
+      </div>
+    </aside>
+  </div>
+  <div class="al-controls">
+    <p class="ug-ctl-k">Choose a power: which layer lights up? · 選一項權力：哪一層會亮？</p>
+    <div class="ug-pws" role="group" aria-label="Powers · 權力">{pw}</div>
+    <p class="ug-ctl-k">Height and color show · 高度與顏色代表</p>
+    <div class="ug-row-play al-row">
+      <div class="ug-lyrs" role="group" aria-label="What the map shows · 地圖顯示的內容">{lyr}</div>
+      <div class="ug-modes" role="group" aria-label="Map or tiles · 地圖或方塊"><button type="button" data-mode="map" aria-pressed="true">Map · 地圖</button><button type="button" data-mode="tiles" aria-pressed="false">Tiles by population · 依人口的方塊</button></div>
+      <div class="al-row al-toggles">{tg}</div>
+    </div>
+  </div>
+  {_lab_foot(lab)}
+  <p class="ug-credit">{lab["credit_html"]}</p>
+</div>'''
+
+def _ug_fifty(d):
+    """「同一件事，五十種答案」（tools/usgov/src/fifty2d.js；地圖是 map2d.js 的 SVG）。"""
+    lyr = "".join(
+        f'<button type="button" data-layer="{l["key"]}" aria-pressed="{"true" if n == 0 else "false"}">{html.escape(l["btn_en"])}<small>{html.escape(l["btn_zh"])}</small></button>'
+        for n, l in enumerate(d["layers"]))
+    notes = "".join(
+        f'<p class="ug-ff-note" data-note="{l["key"]}" hidden><b>{html.escape(l["en"])}<span class="zh">{html.escape(l["zh"])}</span></b>'
+        f'{html.escape(l["note_en"])}<span class="zh">{html.escape(l["note_zh"])}</span> <span class="ug-srcs">{_ug_src(l["src"])}</span></p>'
+        for l in d["layers"])
+    payload = json.dumps({"layers": [{k: l.get(k) for k in ("key", "fmt", "values", "categories", "low_first")} for l in d["layers"]],
+                          "population": d["population"], "start": d.get("start", "NE")}, ensure_ascii=False).replace("</", "<\\/")
+    return f'''<div class="ug-fifty rvl" data-ug-fifty>
+  <script type="application/json">{payload}</script>
+  <div class="ug-ff-bar">
+    <div class="ug-ff-layers" role="group" aria-label="Choose a question · 選一個題目">{lyr}</div>
+    <div class="ug-modes" role="group" aria-label="Map or tiles · 地圖或方塊"><button type="button" data-mode="map" aria-pressed="true">Map · 地圖</button><button type="button" data-mode="tiles" aria-pressed="false">Tiles by population · 依人口的方塊</button></div>
+  </div>
+  <div class="ug-ff-main">
+    <svg class="ug-ff-map" role="group" aria-label="Map of the fifty states and the District of Columbia; select a state to read its value · 五十州與哥倫比亞特區的地圖；選一個州看它的數值"></svg>
+    <div class="ug-ff-side">
+      {notes}
+      <div class="ug-ff-leg"></div>
+      <p class="ug-ff-sel" aria-live="polite"></p>
+      <div class="ug-ff-top"></div>
+    </div>
+  </div>
+  <p class="ug-am-note">{html.escape(d["credit_en"])}<span class="zh">{html.escape(d["credit_zh"])}</span></p>
+</div>'''
+
+
+_USG_CARD = {"constitution": usgconst_svg, "checks": usgchecks_svg, "federalism": usgfed_svg}
 
 def _ug_timeline(tl):
     """可縮放的時間軸骨架（tools/usgov/src/timeline2d.js 綁這裡的 class；每課共用）。"""
@@ -18407,7 +18512,7 @@ def render_usgconst_lab(lesson):
   {_lab_foot(lab)}
 </div>'''
 
-_USG_LAB = {"constitution": render_usgconst_lab, "checks": render_usgchecks_lab}
+_USG_LAB = {"constitution": render_usgconst_lab, "checks": render_usgchecks_lab, "federalism": render_usgfed_lab}
 
 def _ug_spk(text, label="Listen · 聽"):
     return f'<button class="spk" data-say="{html.escape(re.sub(r"<[^>]+>", "", text))}" aria-label="{label}">🔊</button>'
@@ -18563,7 +18668,7 @@ def _ug_news_english(d):
 
 # 頁面上的小互動與每課固定的卡：照這個順序排在「模型卡」後面（JSON 有那個 key 才出現）。
 # clause（條文怎麼寫？）、primary（讀原典）、debate（制度的爭論）、taiwan（和台灣比一比）、news_english（新聞英語）每課都要有。
-_USG_WIDGETS = [("match", _ug_match), ("amend", _ug_amend), ("veto", _ug_veto), ("clause", _ug_clause), ("primary", _ug_primary),
+_USG_WIDGETS = [("match", _ug_match), ("amend", _ug_amend), ("veto", _ug_veto), ("fifty", _ug_fifty), ("clause", _ug_clause), ("primary", _ug_primary),
                 ("debate", _ug_debate), ("taiwan", _ug_taiwan), ("news_english", _ug_news_english)]
 
 def _usg_flat():

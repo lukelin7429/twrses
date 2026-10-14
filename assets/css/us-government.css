@@ -427,3 +427,92 @@ a.ug-link:hover { transform: translateY(-3px); box-shadow: var(--shadow); border
 .ug-vt-result.is-nolaw { background: rgba(255,157,107,.12); border-color: rgba(255,157,107,.5); }
 .ug-vt-notes { grid-column: 1 / -1; }
 @media (min-width: 901px) { .ug-vt-rec { grid-column: 1 / -1; } }
+
+/* ── 第三課：五十州地圖與「全國政府」一層 ───────────────────────────── */
+@media (min-width: 1001px) { .ug-fed .al-stage { grid-template-columns: minmax(0, 1fr) 340px; } .ug-fed .al-space { min-height: 560px; } }
+.al-lab.ug-lab3.is-nat { color: #ffe6a8; border-color: rgba(255,211,110,.35); opacity: .55; transition: opacity .3s, border-color .3s; }
+.al-lab.ug-lab3.is-nat.is-on { border-color: #ffd36e; background: rgba(40,30,6,.75); }
+.al-lab.ug-lab3.is-stl { color: #cfe8d8; border-color: rgba(134,184,111,.4); }
+.al-lab.ug-lab3.is-stl.is-on { border-color: #86b86f; }
+.al-lab.ug-lab3.is-sel { font-size: .7rem; font-weight: 800; color: #10203a; background: #fff; border-color: #fff; }
+.ug-pw[hidden] { display: none; }
+.ug-pw .ug-act-who { background: #ffd36e; }
+.ug-pw.is-state .ug-act-who { background: #86b86f; }
+.ug-pw.is-both .ug-act-who { background: linear-gradient(90deg, #ffd36e, #86b86f); }
+.ug-lyr { margin-top: auto; padding-top: .75rem; border-top: 1px solid var(--al-line); }
+.ug-lyr-note { margin: .35rem 0 0; font-size: .78rem; line-height: 1.55; color: var(--al-text); }
+.ug-lyr-note[hidden] { display: none; }
+.ug-lyr-note > b { display: block; font-size: .92rem; color: #fff; }
+.ug-lyr-note > b .zh { margin-left: .4rem; font-family: var(--zh); color: var(--al-sun); }
+.ug-lyr-note .zh { display: block; font-family: var(--zh); color: var(--al-mute); }
+.ug-lyr-note .ug-srcs a { color: var(--al-sun); font-size: .72rem; }
+.ug-lyr-sel { margin: .6rem 0 0; padding: .55rem .7rem; border-radius: 10px; background: rgba(255,255,255,.05); display: flex; flex-wrap: wrap; align-items: baseline; gap: .2rem .5rem; }
+.ug-lyr-sel b { font-size: 1rem; color: #fff; }
+.ug-lyr-sel .zh { font-family: var(--zh); color: var(--al-mute); font-size: .85rem; }
+.ug-lyr-sel em { margin-left: auto; font-style: normal; font-size: 1.25rem; font-weight: 800; color: #ffd36e; font-variant-numeric: tabular-nums; }
+.ug-pws { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: .35rem; margin-bottom: .9rem; }
+.ug-pws button, .ug-lyrs button, .ug-modes button, .ug-ff-layers button { padding: .45rem .35rem; border-radius: 12px; border: 1px solid var(--al-line, rgba(160,180,230,.2)); background: rgba(255,255,255,.03); color: #e8edf7; font-family: var(--sans); font-size: .78rem; font-weight: 700; cursor: pointer; transition: background .15s, border-color .15s; min-width: 0; }
+.ug-pws button b, .ug-lyrs button b { display: block; font-weight: 800; }
+.ug-pws button small, .ug-lyrs button small, .ug-ff-layers button small { display: block; font-family: var(--zh); font-weight: 600; font-size: .7rem; color: #9fb0cf; }
+.ug-pws button:hover, .ug-lyrs button:hover, .ug-modes button:hover, .ug-ff-layers button:hover { background: rgba(255,255,255,.08); }
+.ug-pws button[aria-pressed="true"], .ug-lyrs button[aria-pressed="true"], .ug-modes button[aria-pressed="true"], .ug-ff-layers button[aria-pressed="true"] { border-color: #ffd36e; background: rgba(255,211,110,.14); box-shadow: 0 0 0 1px #ffd36e inset; }
+.ug-lyrs { display: flex; flex-wrap: wrap; gap: .35rem; flex: 1 1 420px; }
+.ug-lyrs button { flex: 1 1 8rem; }
+.ug-modes { display: inline-flex; gap: .3rem; }
+.ug-modes button { padding: .45rem .7rem; }
+.ug-credit { margin: 0; padding: 0 1.3rem 1.1rem; font-size: .72rem; line-height: 1.5; color: var(--al-mute); }
+.ug-credit a { color: var(--al-sun); }
+.al-lg-nat i { border-color: #ffd36e; background: rgba(255,211,110,.35); }
+.al-lg-states i { border: 0; background: linear-gradient(90deg, #163d4f, #4e9c74, #f0d36e); }
+.al-lg-none i { border-color: #5b6886; background: repeating-linear-gradient(45deg, #3a4660 0 3px, #5b6886 3px 5px); }
+@media (max-width: 1000px) { .ug-pws { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+@media (max-width: 620px) { .ug-pws { grid-template-columns: repeat(2, minmax(0, 1fr)); } .ug-modes { width: 100%; } .ug-modes button { flex: 1; } }
+
+/* ── 五十州的平面地圖（map2d.js，每課共用） ─────────────────────────── */
+.ug-m2 { display: block; width: 100%; height: auto; }
+.ug-m2 path, .ug-m2 rect { stroke: #0b1424; stroke-width: 1; vector-effect: non-scaling-stroke; transition: fill .35s, opacity .45s, transform .45s; }
+.ug-m2 .ug-m2-st { cursor: pointer; outline: none; }
+.ug-m2 .ug-m2-st:hover path, .ug-m2 .ug-m2-st:hover rect, .ug-m2 .ug-m2-st:focus-visible path, .ug-m2 .ug-m2-st:focus-visible rect { stroke: #fff; stroke-width: 1.6; }
+.ug-m2 .ug-m2-st.is-sel path, .ug-m2 .ug-m2-st.is-sel rect { stroke: #fff; stroke-width: 2.6; }
+.ug-m2-tile { opacity: 0; pointer-events: none; transition: opacity .45s; }
+.ug-m2-tile rect { transform: scale(.2); transform-box: fill-box; transform-origin: center; }
+.ug-m2-map { transition: opacity .45s; }
+.ug-m2.ug-m2-tiles .ug-m2-map { opacity: 0; pointer-events: none; }
+.ug-m2.ug-m2-tiles .ug-m2-tile { opacity: 1; pointer-events: auto; }
+.ug-m2.ug-m2-tiles .ug-m2-tile rect { transform: scale(1); }
+.ug-m2-lab text { font-family: var(--sans); font-size: 11px; font-weight: 800; fill: #fff; paint-order: stroke; stroke: rgba(6,10,22,.75); stroke-width: 3px; text-anchor: middle; pointer-events: none; transition: opacity .45s; }
+.ug-m2-lab .ug-m2-lm.is-small { opacity: 0; }
+.ug-m2-lab .ug-m2-lt { opacity: 0; font-size: 10px; }
+.ug-m2.ug-m2-tiles .ug-m2-lm { opacity: 0; }
+.ug-m2.ug-m2-tiles .ug-m2-lt { opacity: 1; }
+
+/* ── 同一件事，五十種答案 ───────────────────────────────────────────── */
+.ug-fifty { margin-top: 1.5rem; padding: 1.3rem 1.4rem 1.2rem; background: #0c1428; color: #e8edf7; border-radius: 20px; box-shadow: var(--shadow); }
+.ug-ff-bar { display: flex; flex-wrap: wrap; gap: .6rem 1rem; align-items: center; justify-content: space-between; }
+.ug-ff-layers { display: flex; flex-wrap: wrap; gap: .35rem; }
+.ug-ff-layers button { padding: .45rem .8rem; }
+.ug-ff-main { display: grid; grid-template-columns: minmax(0, 1fr) 280px; gap: 1rem 1.4rem; margin-top: 1rem; align-items: start; }
+.ug-ff-main > * { min-width: 0; }
+.ug-ff-note { margin: 0; font-size: .82rem; line-height: 1.6; }
+.ug-ff-note[hidden] { display: none; }
+.ug-ff-note > b { display: block; font-size: 1rem; color: #fff; }
+.ug-ff-note > b .zh { margin-left: .4rem; font-family: var(--zh); color: #ffd36e; }
+.ug-ff-note .zh { display: block; font-family: var(--zh); color: #9fb0cf; }
+.ug-ff-note .ug-srcs a { color: #ffd36e; font-size: .74rem; }
+.ug-ff-leg { margin-top: .8rem; display: grid; gap: .3rem; }
+.ug-ff-ramp { display: block; height: 10px; border-radius: 5px; }
+.ug-ff-ends { display: flex; justify-content: space-between; font-size: .8rem; color: #cfd8ee; font-variant-numeric: tabular-nums; }
+.ug-ff-cat { display: flex; align-items: center; gap: .45rem; font-size: .82rem; }
+.ug-ff-cat i { width: 14px; height: 14px; border-radius: 4px; flex: none; }
+.ug-ff-cat .zh { margin-left: .3rem; font-family: var(--zh); color: #9fb0cf; }
+.ug-ff-sel { margin: .8rem 0 0; padding: .6rem .75rem; border-radius: 12px; background: rgba(255,255,255,.06); display: grid; gap: .1rem; }
+.ug-ff-sk { font-size: .66rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: #9fb0cf; }
+.ug-ff-sn { font-size: 1rem; color: #fff; } .ug-ff-sn .zh { margin-left: .4rem; font-family: var(--zh); font-weight: 600; color: #9fb0cf; }
+.ug-ff-sv { font-size: 1.5rem; color: #ffd36e; font-variant-numeric: tabular-nums; }
+.ug-ff-top { margin-top: .8rem; display: grid; grid-template-columns: 1fr 1fr; gap: .8rem; }
+.ug-ff-top p { margin: 0 0 .25rem; font-size: .7rem; font-weight: 800; letter-spacing: .06em; color: #9fb0cf; }
+.ug-ff-top ol { margin: 0; padding-left: 1.1em; font-size: .84rem; line-height: 1.6; font-variant-numeric: tabular-nums; }
+.ug-ff-top b { color: #fff; margin-right: .3rem; }
+.ug-fifty .ug-am-note { margin-top: 1rem; }
+@media (max-width: 900px) { .ug-ff-main { grid-template-columns: minmax(0, 1fr); } }
+@media (max-width: 620px) { .ug-fifty { padding: 1.1rem .8rem 1rem; } }

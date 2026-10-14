@@ -101,4 +101,33 @@ const k2 = lessons.find((l) => l.slug === 'checks-and-balances');
   assert.equal(2599 - 1066, 1533);
   assert.equal(Math.round((112 / 1533) * 100), 7);
 }
+
+// 第三課：聯邦制與五十州地圖
+const k3 = lessons.find((l) => l.slug === 'federalism');
+{
+  const ABBR = Object.keys(k3.lab.population);
+  assert.equal(ABBR.length, 51, '50 states and DC');
+  assert.equal(Object.values(k3.lab.population).reduce((a, b) => a + b, 0), 331449281, '2020 resident population, 50 states and DC');
+  for (const l of k3.lab.layers) {
+    assert.deepEqual(Object.keys(l.values).sort(), ABBR.slice().sort(), `${l.key} has a value (or null) for every state and DC`);
+    assert.ok(l.src.length && l.note_en && l.note_zh && l.btn_en && l.btn_zh);
+    if (l.categories) for (const v of Object.values(l.values)) assert.ok(v === null || l.categories.some((c) => c.v === v));
+    if (l.categories) for (const c of l.categories) assert.ok(!/^#(?:[c-f][0-9a-f])[0-4][0-9a-f][0-4][0-9a-f]$/i.test(c.color), 'no party red');
+  }
+  const seats = k3.lab.layers.find((l) => l.key === 'seats').values;
+  assert.equal(Object.values(seats).filter((v) => v).reduce((a, b) => a + b, 0), 435);
+  assert.equal(seats.DC, null);
+  const yr = k3.lab.layers.find((l) => l.key === 'statehood').values;
+  assert.equal(yr.DE, 1787); assert.equal(yr.HI, 1959); assert.equal(Object.values(yr).filter((v) => v).length, 50);
+  const leg = k3.lab.layers.find((l) => l.key === 'legislature').values;
+  assert.deepEqual(Object.entries(leg).filter(([, v]) => v === 'one').map(([k]) => k), ['NE']);
+  assert.deepEqual(k3.fifty.layers.map((l) => l.key), k3.lab.layers.map((l) => l.key));
+  const lv = new Set(k3.lab.powers.map((p) => p.level));
+  assert.deepEqual([...lv].sort(), ['both', 'national', 'state']);
+  for (const p of k3.lab.powers) assert.ok(p.btn_en && p.en && p.text_en && p.text_zh && p.cite);
+  for (const [k, d] of Object.entries(k3.lab.demos)) for (const p of d.powers || []) assert.ok(k3.lab.powers.some((x) => x.key === p), `${k}: ${p}`);
+  const m3 = k3.match;
+  assert.deepEqual(m3.options.map((o) => o.key), ['national', 'state', 'both']);
+  for (const o of m3.options) assert.ok(m3.questions.filter((q) => q.answer === o.key).length >= 3);
+}
 console.log('data.test ok');
