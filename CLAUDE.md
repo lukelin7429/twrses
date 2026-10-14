@@ -1149,6 +1149,10 @@
   - 「哪裡開始種田？」（`centers`，`centers2d.js`＋**`map2d.js`（畫在 canvas 上的世界地圖：等距圓柱、只有陸地、沒有國界；`makeView`／`drawWorld`／`halo`，之後的課要平面地圖就用它）**，`data-wh-centers`）：時間滑桿 1.2 萬 → 4,000 年前；每個地區是一段範圍（`older`／`nearer`，用 `regionState`），光暈沒有邊界線。**只畫年代查得到出處的七個地區**（Larson 2014 說至少十一個；北美洲東部等沒有畫，頁面的 `foot_*` 有說明）。
   - 「它是哪裡來的？」（`match`）與「什麼變了？」（`gains`）都用第一課的 `sort2d.js` 版面（`_wh_sort`；`_WH_WIDGETS` 登記同一個 render 函式、不同的 key）。`gains` 的籃子是「增加了／減少了／研究者看法不同」——**刻意不做「好處／代價」的價值判斷題**，每一題的說明都對得回一篇研究。`test/farming.test.mjs` 檢查地區在陸地上、遊戲的籃子和地圖的地區一致、每個籃子至少一題、第一課的延伸閱讀已連到這一課。
   - 除錯：`[data-wh-farm-lab].__lab`（`state`、`setMonth(0–12)`、`play(bool)`、`bad(bool)`、`demo('camp'|'field'|'granary'|'bad')`、`look(方位角, 俯角, 距離, 立即?, tx, tz)`、`info()`、`render()`）；`[data-wh-centers].__centers`（`setAgo(年前)`、`select(key)`、`info()`）；`#match [data-wh-sort].__sort`、`#gains [data-wh-sort].__sort`。
+- 第三課〈人為什麼發明文字？〉（`wh-tablet.js`，`lab.kind = "tablet"`，`data-wh-tablet-lab`，slug `why-writing`）：一個想法——文字只在少數幾個地方從無到有被發明（美索不達米亞、埃及、中國、中部美洲），最早的用途大多很實際（記帳、占卜、曆法），後來借用圖畫的聲音（畫謎原理），才能寫下名字和說話；**不替文字排名**（字母不是「比較高的階段」）。3D 是**「在泥板上記帳」**：選 1–119 的數字，蘆葦筆一下一下壓進泥板（泥板正面是 canvas 貼圖，壓一下畫一個記號）。兩種寫法：`round`（最早泥板的數字記號，圓頭筆：小斜痕＝1、圓痕＝10、大斜痕＝60；**不是位值**）與 `wedge`（巴比倫的楔形數字：直楔＝1、角楔＝10、六十進位的**位值**，所以 61 是兩個直楔中間空一格）。**只畫數字，不畫「數的是什麼」那個字**——不憑猜測畫楔形文字的字形（`lab.scale_*` 有寫明）。純函式在 `tablet.js`（`groups`、`marks`、`bounds`、`pressOrder`、`read`；`test/tablet.test.mjs` 檢查 1–119 兩種寫法都讀得回原數、記號不重疊）。
+  - 「文字從哪裡開始？」沿用第二課的 `centers2d.js`：**小卡兩欄的標題改成從資料讀**（`centers.labels.what_*／when_*`、上方的 `count_*`），沒給就用第二課的字樣。「是圖，還是聲音？」（`signs`）沿用 `sort2d.js`。`test/writing.test.mjs` 檢查地方都在陸地上、同一個圖（👁️ ☀️ 🔑）兩種用法都出題、時間軸的曆年寫法換得回來。
+  - 平行時間軸的事件可以直接寫曆年：`"from": {"year": -3350}`（＝西元前 3350 年），`timeline2d.js` 會換成距今幾年。
+  - 除錯：`[data-wh-tablet-lab].__lab`（`set(n)`、`style('wedge'|'round')`、`write(立即?)`、`clear()`、`slow(bool)`、`demo('one'|'count'|'round'|'sixty')`、`info()`）；`#signs [data-wh-sort].__sort`。
 
 ## 美國政治 How America Governs Itself（/resources/classes/us-government/）— 架構照地理與書法；**程度是高中到大學**，每課多五張固定的卡
 

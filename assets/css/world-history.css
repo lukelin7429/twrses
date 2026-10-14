@@ -118,6 +118,29 @@
 .al-lg-wh-crop i { border-color: #b08d2a; background: linear-gradient(90deg, #5fae4a, #e3bf45); }
 .al-lg-wh-grain i { border-color: #c9a877; background: #e7b93c; }
 
+/* ── 第三課：在泥板上記帳 ─────────────────────────────── */
+.wh-tb .al-space { background: radial-gradient(70% 60% at 50% 40%, #3b2a1c, #120c08 80%); }
+.wh-tb-aside { display: flex; flex-direction: column; gap: .55rem; }
+.wh-tb-pick { display: flex; align-items: center; justify-content: center; gap: 1rem; }
+.wh-tb-step { width: 2.6rem; height: 2.6rem; border-radius: 50%; border: 1px solid var(--al-line); background: rgba(255,255,255,.06); color: #fff; font-size: 1.3rem; font-weight: 800; cursor: pointer; }
+.wh-tb-step:hover { background: rgba(255,255,255,.14); }
+.wh-tb-n { min-width: 3.2ch; text-align: center; font-family: var(--serif); font-size: 2.6rem; line-height: 1; color: #fff; font-variant-numeric: tabular-nums; }
+.wh-tb-num { width: 100%; accent-color: #d8a35c; }
+.wh-tb-split { margin: 0; text-align: center; font-size: .9rem; font-weight: 800; color: var(--al-sun); font-variant-numeric: tabular-nums; }
+.wh-tb-split .zh { display: block; font-weight: 600; color: var(--al-mute); }
+.wh-tb-key { list-style: none; margin: 0; padding: 0; display: grid; gap: .35rem; }
+.wh-tb-key li { display: grid; grid-template-columns: 2.6rem minmax(0, 1fr); gap: .6rem; align-items: center; padding: .35rem .55rem; border-radius: 10px; background: #e3c39c; color: #3b2414; font-size: .78rem; font-weight: 700; line-height: 1.35; }
+.wh-tb-key li[hidden] { display: none; }
+.wh-tb-key svg { width: 2.6rem; height: 2.6rem; border-radius: 8px; background: #c79a6b; }
+.wh-tb-key .zh { display: block; font-weight: 600; color: #5b3a22; }
+.wh-tb-pressed { margin: 0; font-size: .74rem; font-weight: 700; color: var(--al-mute); }
+.wh-tb-pressed .zh { margin-left: .35rem; } .wh-tb-pressed b { margin-left: .4rem; color: #fff; font-variant-numeric: tabular-nums; }
+.wh-tb-styles { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.wh-btn-dark { background: rgba(255,255,255,.06); color: var(--al-text); border-color: var(--al-line); }
+.wh-btn-dark:hover:not(:disabled) { background: rgba(255,255,255,.12); }
+.al-lg-wh-clay i { border-color: #8a5f3a; background: #c79a6b; }
+.al-lg-wh-reed i { border-color: #b89a52; background: #d8c27a; }
+
 /* ── 第二課：哪裡開始種田？ ─────────────────────────────── */
 .wh-centers { max-width: 1040px; margin: 1.4rem auto 0; padding: 1.2rem 1.3rem 1.3rem; background: #fff; border: 1px solid var(--line); border-radius: 20px; box-shadow: var(--shadow-sm); }
 .wh-ce-top { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: .3rem 1rem; margin-bottom: .7rem; }

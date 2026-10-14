@@ -17647,7 +17647,7 @@ def build_geo_hub():
 _whj = os.path.join(ROOT, "data", "world_history.json")
 WH = json.load(open(_whj, encoding="utf-8")) if os.path.exists(_whj) else None
 WH_BASE = "/resources/classes/world-history/"
-_WH_JS = {"spread": "wh-spread", "farm": "wh-farm"}   # lab.kind → assets/js/<bundle>.js
+_WH_JS = {"spread": "wh-spread", "farm": "wh-farm", "tablet": "wh-tablet"}   # lab.kind → assets/js/<bundle>.js
 
 def _wh_ver():
     h = hashlib.md5()
@@ -17702,7 +17702,15 @@ def whfarm_svg(size=56):
             '<g stroke="#e3bf45" stroke-width="2.2" stroke-linecap="round"><path d="M40 44v-9M44 44v-11M48 44v-9M51 44v-7"/></g>'
             '<rect x="40" y="15" width="8" height="10" rx="2" fill="#e7b93c" stroke="#c9a877" stroke-width="1.6"/></svg>')
 
-_WH_CARD = {"spread": whspread_svg, "farm": whfarm_svg}
+def whtablet_svg(size=56):
+    """第三課的課程卡小圖示：一塊泥板，上面壓著角楔和直楔，一支斜放的蘆葦筆。"""
+    return (f'<svg class="whtablet-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">'
+            '<rect x="8" y="14" width="40" height="32" rx="7" fill="#c79a6b" stroke="#8a5f3a" stroke-width="1.6"/>'
+            '<g fill="#6b3f22"><path d="M15 25l7-4v8zM15 35l7-4v8z"/><path d="M27 21h6l-3 4zM35 21h6l-3 4zM27 31h6l-3 4z"/></g>'
+            '<g stroke="#6b3f22" stroke-width="1.6" stroke-linecap="round"><path d="M30 25v6M38 25v6M30 35v6"/></g>'
+            '<path d="M44 52L56 12" stroke="#d8c27a" stroke-width="3.2" stroke-linecap="round"/><path d="M44 52l-1.4-4 3.6 1z" fill="#b89a52"/></svg>')
+
+_WH_CARD = {"spread": whspread_svg, "farm": whfarm_svg, "tablet": whtablet_svg}
 
 def render_whspread_lab(lesson):
     """第一課：歷史地球儀（assets/js/wh-spread.js 綁這裡的 class）。只畫陸地、海洋與路線；不畫國界、不標國名。"""
@@ -17793,7 +17801,58 @@ def render_whfarm_lab(lesson):
   <p class="wh-credit">{lab["credit_html"]}</p>
 </div>'''
 
-_WH_LAB = {"spread": render_whspread_lab, "farm": render_whfarm_lab}
+def render_whtablet_lab(lesson):
+    """第三課：在泥板上記帳（assets/js/wh-tablet.js 綁這裡的 class）。記號的形狀是依館藏說明簡化的示意。"""
+    lab = lesson["lab"]
+    tg = _lab_toggles([("slow", "Slow motion", "慢動作", False)])
+    key = "".join(
+        f'<li data-key-style="{st}"{"" if st == "wedge" else " hidden"}><svg viewBox="0 0 40 40" aria-hidden="true">{svg}</svg><span>{_wh_bi(en, zh)}</span></li>'
+        for st, svg, en, zh in (
+            ("wedge", '<path d="M13 8h14l-7 8z" fill="#6b3f22"/><path d="M20 15v17" stroke="#8a5a36" stroke-width="3" stroke-linecap="round"/>', "Upright wedge = 1 (and, in the next place, 60)", "直楔＝1（寫在前一位時是 60）"),
+            ("wedge", '<path d="M9 20l16-9v18z" fill="#6b3f22"/>', "Corner wedge = 10", "角楔＝10"),
+            ("round", '<ellipse cx="20" cy="20" rx="5" ry="11" transform="rotate(-20 20 20)" fill="#6b3f22"/>', "Small slanted mark = 1", "小的斜壓痕＝1"),
+            ("round", '<circle cx="20" cy="20" r="10" fill="#6b3f22"/>', "Round mark = 10", "圓形壓痕＝10"),
+            ("round", '<ellipse cx="20" cy="20" rx="7" ry="15" transform="rotate(-20 20 20)" fill="#6b3f22"/>', "Large slanted mark = 60", "大的斜壓痕＝60"),
+        ))
+    return f'''<div class="astro-lab wh-lab wh-tb rvl" data-wh-tablet-lab>
+  <div class="al-stage">
+    <div class="al-space">
+      <canvas class="al-space-cv" aria-label="3D model of a clay tablet and a reed stylus that presses number signs into the clay; a simplified illustration · 泥板與蘆葦筆的 3D 模型，筆會在泥上壓出數字的記號；簡化的示意"></canvas>
+      <div class="al-labels" aria-hidden="true"></div>
+      <p class="al-hint">Drag to turn · 拖曳轉動　Scroll or pinch to zoom · 滾輪／雙指縮放</p>
+      <button type="button" class="al-home" title="Reset view · 重設視角" aria-label="Reset view · 重設視角">&#8634;</button>
+      <p class="al-nogl-msg">This 3D model needs WebGL, which this browser does not support. The number, the sign key, and the reading on the right still work, and so do the map and the games below.<br><span class="zh">這個瀏覽器不支援 WebGL，無法顯示 3D 模型；右邊的數字、記號說明和讀數照樣能用，下面的地圖和小遊戲也都能用。</span></p>
+    </div>
+    <aside class="al-sky wh-aside wh-tb-aside">
+      <p class="al-sky-k">The number · 數字</p>
+      <div class="wh-tb-pick">
+        <button type="button" class="wh-tb-step" data-step="-1" aria-label="One less · 少一">&minus;</button>
+        <b class="wh-tb-n" aria-live="polite">23</b>
+        <button type="button" class="wh-tb-step" data-step="1" aria-label="One more · 多一">+</button>
+      </div>
+      <input type="range" class="wh-tb-num" min="1" max="119" step="1" value="23" aria-label="The number to write, 1 to 119 · 要寫的數字，1 到 119">
+      <p class="wh-tb-split"></p>
+      <p class="al-sky-k">The signs · 記號</p>
+      <ul class="wh-tb-key">{key}</ul>
+      <p class="wh-tb-pressed">{_wh_bi("Marks pressed", "已經壓下的記號")} <b class="wh-tb-count"></b></p>
+    </aside>
+  </div>
+  <div class="al-controls">
+    <div class="al-row al-row-main">
+      <button type="button" class="al-play" data-act="write"><span class="al-play-i" aria-hidden="true"></span><span class="al-play-t">Write it · 寫上去</span></button>
+      <button type="button" class="wh-btn wh-btn-dark" data-act="clear">Smooth the clay · 把泥抹平</button>
+    </div>
+    <div class="wh-seasons wh-tb-styles" role="group" aria-label="Way of writing numbers · 數字的寫法">
+      <button type="button" data-style="round" aria-pressed="false">{html.escape(lab["round_en"])}<small>{html.escape(lab["round_zh"])}</small></button>
+      <button type="button" data-style="wedge" aria-pressed="true">{html.escape(lab["wedge_en"])}<small>{html.escape(lab["wedge_zh"])}</small></button>
+    </div>
+    <div class="al-row al-toggles">{tg}</div>
+  </div>
+  {_lab_foot(lab)}
+  <p class="wh-credit">{lab["credit_html"]}</p>
+</div>'''
+
+_WH_LAB = {"spread": render_whspread_lab, "farm": render_whfarm_lab, "tablet": render_whtablet_lab}
 
 def _wh_order(d):
     payload = _wh_json({k: d[k] for k in ("items", "hint_en", "hint_zh", "done_en", "done_zh", "open_en", "open_zh")})
@@ -17909,10 +17968,10 @@ def _wh_curric(d):
 
 def _wh_centers(d):
     """第二課：「哪裡開始種田？」——世界地圖（只有陸地、沒有國界）＋時間滑桿；每個地區是一段年代範圍。"""
-    payload = _wh_json({k: d[k] for k in ("from", "to", "start", "centers") if k in d})
+    payload = _wh_json({k: d[k] for k in ("from", "to", "start", "labels", "centers") if k in d})
     return f'''<div class="wh-centers rvl" data-wh-centers>
   <script type="application/json">{payload}</script>
-  <div class="wh-ce-top"><p class="wh-ce-when" aria-live="polite"></p><p class="wh-ce-n">{_wh_bi("Regions where farming has begun", "已經開始種田的地區")} <b class="wh-ce-count"></b></p></div>
+  <div class="wh-ce-top"><p class="wh-ce-when" aria-live="polite"></p><p class="wh-ce-n">{_wh_bi(d.get("count_en", "Regions where farming has begun"), d.get("count_zh", "已經開始種田的地區"))} <b class="wh-ce-count"></b></p></div>
   <div class="wh-ce-map"><canvas aria-label="World map showing only land, with no borders. Numbered regions light up as farming begins there · 只畫陸地、沒有國界的世界地圖；有編號的地區在開始種田的時候亮起來"></canvas></div>
   <label class="wh-ce-time"><span>{html.escape(d["slider_from_en"])}<small>{html.escape(d["slider_from_zh"])}</small></span>
     <input type="range" class="wh-ce-slider" min="0" max="1000" step="1" value="0" aria-label="Time · 時間"><span>{html.escape(d["slider_to_en"])}<small>{html.escape(d["slider_to_zh"])}</small></span></label>
@@ -17922,7 +17981,7 @@ def _wh_centers(d):
 </div>'''
 
 # 這一課自己的小互動（照這個順序排在「模型卡」後面）。match、gains 和 sort 用同一個版面（一題一題分到籃子裡）。
-_WH_WIDGETS = [("order", _wh_order), ("sort", _wh_sort), ("centers", _wh_centers), ("match", _wh_sort), ("gains", _wh_sort)]
+_WH_WIDGETS = [("order", _wh_order), ("sort", _wh_sort), ("centers", _wh_centers), ("match", _wh_sort), ("gains", _wh_sort), ("signs", _wh_sort)]
 # 每課固定的卡（照這個順序排在小互動後面）
 _WH_FIXED = [("timeline", _wh_timeline), ("how_we_know", _wh_how_we_know), ("views", _wh_views),
              ("phrases", _wh_phrases), ("taiwan_then", _wh_taiwan_then)]

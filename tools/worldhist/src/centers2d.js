@@ -1,7 +1,8 @@
 /*
  * 世界歷史 第二課 ·「哪裡開始種田？」（不需要 WebGL）。
  *
- *   <div class="wh-centers" data-wh-centers><script type="application/json">{ from, to, centers: [{ key, en, zh, at, r, older, nearer, crops_en, crops_zh, note_en, note_zh, src, url }] }</script>…</div>
+ *   <div class="wh-centers" data-wh-centers><script type="application/json">{ from, to, labels?, centers: [{ key, en, zh, at, r, older, nearer, crops_en, crops_zh, note_en, note_zh, src, url }] }</script>…</div>
+ *   labels：小卡上兩欄的標題 { what_en, what_zh, when_en, when_zh }（第二課是「最早栽培的作物」，第三課是「最早的文字」）；不給就用第二課的。
  *
  * 一張世界地圖（只有陸地，沒有國界）和一支時間滑桿。每個地區有一段估計的範圍 [older, nearer]（距今幾年）：
  * 滑到 older 之後光暈淡淡地出現（「也許已經開始」），過了 nearer 才變實。光暈沒有邊界線——只表示「大約這一帶」。
@@ -20,6 +21,7 @@ export function initCenters(root) {
   const slider = root.querySelector('.wh-ce-slider'), whenEl = root.querySelector('.wh-ce-when'), countEl = root.querySelector('.wh-ce-count');
   const list = root.querySelector('.wh-ce-list'), card = root.querySelector('.wh-ce-card');
   const state = { ago: data.from, sel: null };
+  const LB = { what_en: 'First farmed here', what_zh: '這裡最早栽培、畜養的', when_en: 'Roughly when', when_zh: '大約什麼時候', ...(data.labels || {}) };
   const BOX = { south: -58, north: 72 };
   let view = null;
   list.innerHTML = centers.map((c, i) => `<button type="button" data-center="${c.key}" aria-pressed="false"><b>${i + 1}</b><span>${bi(c.en, c.zh)}</span></button>`).join('');
@@ -59,8 +61,8 @@ export function initCenters(root) {
       const r = formatAgoRange(c.older, c.nearer);
       if (state.ago > c.older) setAgo(c.older, true);
       card.innerHTML = `<h3>${bi(c.en, c.zh)}</h3><dl>`
-        + `<div><dt>${bi('First farmed here', '這裡最早栽培、畜養的')}</dt><dd>${bi(c.crops_en, c.crops_zh)}</dd></div>`
-        + `<div><dt>${bi('Roughly when', '大約什麼時候')}</dt><dd>${bi(c.when_en || r.en, c.when_zh || r.zh)}</dd></div></dl>`
+        + `<div><dt>${bi(LB.what_en, LB.what_zh)}</dt><dd>${bi(c.crops_en, c.crops_zh)}</dd></div>`
+        + `<div><dt>${bi(LB.when_en, LB.when_zh)}</dt><dd>${bi(c.when_en || r.en, c.when_zh || r.zh)}</dd></div></dl>`
         + (c.note_en ? `<p class="wh-ce-note">${bi(c.note_en, c.note_zh)}</p>` : '')
         + (c.url ? `<a class="wh-ce-src" href="${esc(c.url)}" target="_blank" rel="noopener">${esc(c.src)} &#8599;</a>` : c.src ? `<p class="wh-ce-src">${esc(c.src)}</p>` : '');
     }
