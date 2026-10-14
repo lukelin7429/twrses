@@ -6814,11 +6814,11 @@
        "icon": "🪕",
        "k_en": "Music · Lesson 12",
        "k_zh": "音樂・第十二課",
-       "soon": true,
        "en": "What Do Chinese Instruments Sound Like?",
        "zh": "國樂器有哪些？",
        "note_en": "Next: blowing, bowing, plucking, and striking, in Chinese instruments.",
-       "note_zh": "接下來：國樂器裡的吹、拉、彈、打。"
+       "note_zh": "接下來：國樂器裡的吹、拉、彈、打。",
+       "href": "/resources/classes/music/chinese-instruments/"
       }
      ],
      "sources_note_en": "Names, numbers, and quotations on this page were checked against these sources (October 2026). The seating plan and the sounds are our own simplified drawing and recipes; the geometry and the mix levels in the code are covered by automatic tests.",
@@ -6909,16 +6909,638 @@
        "url": "https://cdn.who.int/media/docs/default-source/documents/health-topics/deafness-and-hearing-loss/mls-brochure-english-2021.pdf?sfvrsn=bf19b448_5"
       }
      ]
-    }
-   ],
-   "planned": [
+    },
     {
      "n": 12,
-     "icon": "🪕",
-     "en": "What Do Chinese Instruments Sound Like?",
-     "zh": "國樂器有哪些？"
+     "slug": "chinese-instruments",
+     "title": "What Do Chinese Instruments Sound Like?",
+     "title_zh": "國樂器有哪些？",
+     "level": "入門 · Beginner",
+     "icon": "🏮",
+     "card": "chinese",
+     "blurb_en": "Four stands, four ways to make a sound: bow an erhu, pluck a pipa, blow a dizi, strike a drum. Then play a short tune on the five notes of Chinese music.",
+     "blurb_zh": "四個展示台，四種發聲的方式：拉二胡、彈琵琶、吹笛、打鼓。再用中國音樂的五個音，彈一段短旋律。",
+     "big_idea_en": "A Chinese orchestra sorts its instruments by how they are played: blown, bowed, plucked, or struck. Each way sets something different vibrating, and the sounds you hear come from that.",
+     "big_idea_zh": "國樂團把樂器依演奏方式分組：吹、拉、彈、打。每一種方式讓不同的東西振動，你聽到的聲音就從那裡來。",
+     "lab": {
+      "kind": "chinese",
+      "eyebrow": "3D Model · 3D 模型",
+      "title_en": "Four Ways to Make a Sound",
+      "title_zh": "發聲的四種方式",
+      "how_en": "From left to right: an erhu, a pipa, a dizi, and a drum. Click one to hear it and see what vibrates. On the erhu, the bow sits between the two strings and rubs them. On the pipa, a finger plucks a string, and it rings and fades. In the dizi, the small dots are air moving inside the bamboo tube. Below the blow hole is a membrane hole, which is covered with a thin membrane. On the drum, a stick strikes the skin. The shapes are simplified, and the sounds are our own simple recipes, not recordings.",
+      "how_zh": "由左到右：二胡、琵琶、笛和鼓。點一件，聽它的聲音，看是什麼在振動。二胡的弓在兩條弦之間，摩擦它們。琵琶是手指勾起弦，聲音響起再慢慢變小。笛裡的小點是竹管裡移動的空氣。吹孔旁邊有一個膜孔，蒙著一層薄膜。鼓是槌子敲在鼓皮上。形狀是簡化的，聲音是我們自己的簡單配方，不是錄音。",
+      "legend": [
+       {
+        "cls": "live",
+        "en": "The one you chose: it sounds and moves",
+        "zh": "你選的那一件：發聲並動起來"
+       },
+       {
+        "cls": "mode",
+        "en": "The word over each stand: how it is played",
+        "zh": "每個展示台上面的字：怎麼演奏"
+       }
+      ],
+      "scale_en": "The motion is simplified and slowed down. These are teaching sketches, not accurate models of any one instrument.",
+      "scale_zh": "動作是簡化、放慢的。這些是教學用的示意圖，不是任何一件樂器的精確模型。",
+      "credit_html": "All sounds on this page are made by your browser, tone by tone. They are simple recipes, not recordings of real instruments. · 本頁所有的聲音都由瀏覽器即時合成，是簡單的配方，不是真樂器的錄音。"
+     },
+     "paras": [
+      "A Chinese orchestra, called a guoyuetuan in Taiwan, was developed in the twentieth century. It is based on the structure and principles of a Western symphony orchestra, but it uses Chinese instruments. It grew out of the Jiangnan sizhu ensembles in the 1920s. Its instruments are grouped by the way they are played: blown, bowed, plucked, and struck. In Chinese these are 吹, 拉, 彈, and 打.",
+      "The erhu is a Chinese two-stringed bowed instrument. One end of its small sound box is covered with python skin, and the bow hair passes between the two strings instead of over them. There is no fingerboard, so the player presses the strings with the fingertips in the air. The two strings are commonly tuned a fifth apart. The erhu is not a violin, even though people sometimes call it the Chinese violin.",
+      "The pipa is a plucked instrument with a pear-shaped body and four strings. Taiwan’s dictionary says a pear-shaped, four-stringed pipa came to the Central Plains in the fourth century from the western regions. The pipa has been played in China for almost two thousand years. In the Chinese word, “pí” is to strike outward with the right hand, and “pá” is to pluck inward.",
+      "The dizi is a transverse bamboo flute. A bangdi has one blow hole, one membrane hole, and six finger holes. The membrane hole is between the blow hole and the finger holes. It is covered with a thin membrane, the dimo, which makes the sound louder and brighter, with a buzzing quality. The bangdi is shorter and higher, with a clear, bright tone. The qudi is longer and mellower, and about a fourth lower.",
+      "A drum, a gu, is a skin stretched over a hollow wooden body, played with the hands, sticks, or mallets. A gong, a luo, is a flat bronze disc struck with a mallet. In Chinese opera, the percussion section is particularly important, and a pair of gongs is an essential part of the orchestra. The overtones of a drumhead and of a gong are not whole-number multiples, as you saw in lesson 9.",
+      "A lot of Chinese music is built on five notes, called gong, shang, jue, zhi, and yu. Any of the five can be the tonic. The guqin was said to have had five strings for these five notes, and the guzheng is traditionally arranged in a pentatonic scale. But this is a tendency and not a rule: some pieces use seven notes. In Taiwan, two old traditions are nanguan, with a pipa held across the lap, and beiguan, with suona, drums, and gongs."
+     ],
+     "paras_zh": [
+      "國樂團（在台灣叫國樂團，英文用拼音 guoyuetuan）是二十世紀發展出來的。它以西洋交響樂團的結構與原則為基礎，但使用中國的樂器。它從 1920 年代的江南絲竹合奏發展而來。樂器依演奏方式分組：吹、拉、彈、打。",
+      "二胡是一種中國的兩條弦的拉弦樂器。它小小的琴筒一端蒙著蟒皮，弓毛是從兩條弦之間穿過去，不是在弦的上面。它沒有指板，演奏的人用指尖在空中按弦。兩條弦常常相隔五度定弦。二胡不是小提琴，雖然人們有時叫它「中國的小提琴」。",
+      "琵琶是一種彈撥樂器，半梨形的音箱、四條弦。台灣的辭典說，半梨形、四弦四柱的琵琶，在西元四世紀從西域傳入中原。琵琶在中國已經彈了將近兩千年。在這個詞裡，「pí」是右手向外彈，「pá」是向內挑。",
+      "笛是橫吹的竹笛。梆笛有一個吹孔、一個膜孔、六個按音孔。膜孔在吹孔和按音孔之間，蒙著一層薄膜，叫笛膜，它讓聲音變大、變清脆明亮，帶著嗡嗡的質感。梆笛比較短、比較高，音色清脆明亮；曲笛比較長，音色比較柔和，音大約低四度。",
+      "鼓是把皮蒙在中空木桶上的樂器，用手、木棒或鼓槌來敲。鑼是銅製的淺平圓盤，用槌敲。在戲曲裡，打擊特別重要，一對鑼是樂隊的重要部分。鼓皮和鑼的泛音不是整數倍，這在第九課你看過了。",
+      "許多中國音樂是用五個音來寫的，叫宮、商、角、徵、羽，每一個音都可以當主音。古琴傳說原本有五條弦，代表這五個音；古箏傳統上也是按五聲音階排列。不過這是傾向，不是規則：有些曲子用七個音。在台灣，有兩種古老的傳統：南管，琵琶橫抱在膝上彈；和北管，用嗩吶、鼓和鑼。"
+     ],
+     "questions": [
+      "Why does the erhu’s bow stay between the two strings?",
+      "What does the membrane on a dizi do?",
+      "Is “blown, bowed, plucked, struck” an ancient way of sorting Chinese instruments?"
+     ],
+     "answers": [
+      "The horsehair bow passes between the two strings, so one stroke of the bow rubs both strings, and the player chooses which one by pressing and angling the bow. It is never separated from the strings.",
+      "It is a thin membrane over the membrane hole. It makes the sound louder and brighter, and gives the tone a buzzing quality.",
+      "No. It is the grouping of the modern Chinese orchestra, from the twentieth century. The older Chinese way is the eight sounds, which sorts by material: metal, stone, silk, bamboo, gourd, clay, hide, wood."
+     ],
+     "vocab": [
+      {
+       "n": 1,
+       "w": "bow",
+       "pos": "v./n.",
+       "zh": "拉（弓）；弓",
+       "ex": "You <b>bow</b> an erhu with a bow made of bamboo and horsehair.",
+       "exzh": "你用竹子和馬尾做的弓來拉二胡。"
+      },
+      {
+       "n": 2,
+       "w": "pluck",
+       "pos": "v.",
+       "zh": "彈、撥",
+       "ex": "You <b>pluck</b> the strings of a pipa.",
+       "exzh": "你彈撥琵琶的弦。"
+      },
+      {
+       "n": 3,
+       "w": "membrane",
+       "pos": "n.",
+       "zh": "膜",
+       "ex": "A thin <b>membrane</b> covers the membrane hole of a dizi.",
+       "exzh": "一層薄膜蓋在笛的膜孔上。"
+      },
+      {
+       "n": 4,
+       "w": "bamboo",
+       "pos": "n.",
+       "zh": "竹子",
+       "ex": "Most dizi are made of <b>bamboo</b>.",
+       "exzh": "大多數的笛是竹子做的。"
+      },
+      {
+       "n": 5,
+       "w": "sound box",
+       "pos": "n.",
+       "zh": "音箱、琴筒",
+       "ex": "The <b>sound box</b> of a pipa is shaped like a pear.",
+       "exzh": "琵琶的音箱像一顆梨。"
+      },
+      {
+       "n": 6,
+       "w": "tonic",
+       "pos": "n.",
+       "zh": "主音",
+       "ex": "Any of the five notes can be the <b>tonic</b>.",
+       "exzh": "這五個音的任何一個都可以當主音。"
+      },
+      {
+       "n": 7,
+       "w": "pentatonic",
+       "pos": "adj.",
+       "zh": "五聲的",
+       "ex": "Much Chinese music uses a <b>pentatonic</b> scale.",
+       "exzh": "許多中國音樂用五聲音階。"
+      },
+      {
+       "n": 8,
+       "w": "ensemble",
+       "pos": "n.",
+       "zh": "合奏團",
+       "ex": "A nanguan <b>ensemble</b> is small, with a singer.",
+       "exzh": "南管的合奏團很小，有一位歌者。"
+      }
+     ],
+     "quiz": [
+      {
+       "q": "How is an erhu played?",
+       "options": [
+        "It is bowed",
+        "It is plucked",
+        "It is blown",
+        "It is struck"
+       ],
+       "correct": 0
+      },
+      {
+       "q": "What is special about the membrane hole of a dizi?",
+       "options": [
+        "A thin membrane covers it, adding a brighter, buzzing sound",
+        "It is where you blow",
+        "It is the hole for the lowest note",
+        "It holds the pitch pipe"
+       ],
+       "correct": 0
+      },
+      {
+       "q": "How many strings does a pipa have?",
+       "options": [
+        "Four",
+        "Two",
+        "Seven",
+        "Twelve"
+       ],
+       "correct": 0
+      },
+      {
+       "q": "What are the five notes of Chinese music called?",
+       "options": [
+        "Gong, shang, jue, zhi, yu",
+        "Do, re, mi, fa, sol",
+        "A, B, C, D, E",
+        "One, two, three, four, five"
+       ],
+       "correct": 0
+      },
+      {
+       "q": "Which is the older way of sorting Chinese instruments?",
+       "options": [
+        "The eight sounds, by material",
+        "Blown, bowed, plucked, struck",
+        "By their price",
+        "By color"
+       ],
+       "correct": 0
+      }
+     ],
+     "parts_head": {
+      "eyebrow": "Try It in the Model · 在模型裡試試",
+      "en": "Four things to try",
+      "zh": "四件值得試的事"
+     },
+     "parts": [
+      {
+       "key": "erhu",
+       "icon": "🎻",
+       "en": "Bow: the erhu",
+       "zh": "拉：二胡",
+       "meta_en": "A bow between two strings",
+       "meta_zh": "弓在兩條弦之間",
+       "demo": "erhu",
+       "text_en": "The sound starts smoothly and can go on as long as the bow moves.",
+       "text_zh": "聲音平順地開始，弓只要在動就可以一直持續。"
+      },
+      {
+       "key": "pipa",
+       "icon": "🪕",
+       "en": "Pluck: the pipa",
+       "zh": "彈：琵琶",
+       "meta_en": "A fast start that fades",
+       "meta_zh": "很快開始，然後變小",
+       "demo": "pipa",
+       "text_en": "A plucked string starts at once and then dies away by itself.",
+       "text_zh": "被撥的弦馬上開始響，再自己慢慢變小。"
+      },
+      {
+       "key": "dizi",
+       "icon": "🪈",
+       "en": "Blow: the dizi",
+       "zh": "吹：笛",
+       "meta_en": "Air, with a buzzing edge",
+       "meta_zh": "空氣，帶著嗡嗡的邊緣",
+       "demo": "dizi",
+       "text_en": "Listen for the breath and the bright, buzzing edge that the membrane gives it.",
+       "text_zh": "聽那一點氣息，和膜給它的、明亮嗡嗡的邊緣。"
+      },
+      {
+       "key": "gu",
+       "icon": "🥁",
+       "en": "Strike: the drum",
+       "zh": "打：鼓",
+       "meta_en": "A thump, not a note",
+       "meta_zh": "「碰」的一聲，不是一個音",
+       "demo": "gu",
+       "text_en": "A struck skin gives a short thump whose overtones are not whole numbers.",
+       "text_zh": "被敲的皮發出短短的「碰」，泛音不是整數倍。"
+      }
+     ],
+     "parts_note_en": "Then try the five-note keyboard below with each instrument, and notice how the same note sounds different.",
+     "parts_note_zh": "然後用下面的五音鍵盤，換不同的樂器彈，注意同一個音聽起來有什麼不同。",
+     "wayq": {
+      "eyebrow": "Game · 小遊戲",
+      "en": "Blow, Bow, Pluck, or Strike?",
+      "zh": "吹、拉、彈，還是打？",
+      "lead_en": "Six questions. Each one plays a sound from one of five instruments. Choose how it is played. If you cannot hear the sound, press “How the sound starts” to read what the sound is like at the beginning.",
+      "lead_zh": "六道題。每一題播放五件樂器之一的聲音。選出它是怎麼演奏的。如果聽不到聲音，按「聲音怎麼開始」，看聲音一開始是什麼樣子。"
+     },
+     "penta": {
+      "eyebrow": "Play It · 彈彈看",
+      "en": "The Five Notes",
+      "zh": "五個音",
+      "lead_en": "Press the five notes in order: gong, shang, jue, zhi, yu. Then a sixth key gives the high gong. Switch the instrument, and play the short tune that we wrote with only these notes. The names Do, Re, Mi, Sol, and La are only a rough match, because any of the five can be the tonic.",
+      "lead_zh": "依序按五個音：宮、商、角、徵、羽。第六個鍵是高八度的宮。換不同的樂器，播放我們用這五個音寫的短旋律。Do、Re、Mi、Sol、La 只是大致對應，因為這五個音每一個都可以當主音。"
+     },
+     "curric": {
+      "eyebrow": "In the Curriculum · 對應課綱",
+      "en": "Where this lesson fits",
+      "zh": "這一課對應的課綱",
+      "lead_en": "The curriculum names the classification of instruments and local and traditional music. The words for Chinese orchestra, nanguan, beiguan, erhu, pipa, and dizi do not appear in the curriculum itself.",
+      "lead_zh": "課綱寫到樂器的分類，和本土與傳統音樂。「國樂」「南管」「北管」「二胡」「琵琶」「笛」這些詞，課綱本文裡沒有出現。",
+      "items": [
+       {
+        "code": "音 E-Ⅱ-2",
+        "area": "藝術領域・音樂（國小三、四年級）",
+        "area_en": "Arts, music (grades 3–4)",
+        "text": "簡易節奏樂器、曲調樂器的基礎演奏技巧。",
+        "note_en": "Playing a melody instrument, and the sound each one makes.",
+        "note_zh": "演奏曲調樂器，和每一種樂器發出的聲音。"
+       },
+       {
+        "code": "音 E-Ⅲ-2",
+        "area": "藝術領域・音樂（國小五、六年級）",
+        "area_en": "Arts, music (grades 5–6)",
+        "text": "樂器的分類、基礎演奏技巧，以及獨奏、齊奏與合奏等演奏形式。",
+        "note_en": "Blown, bowed, plucked, and struck is one way of classifying instruments.",
+        "note_zh": "吹、拉、彈、打是分類樂器的一種方式。"
+       },
+       {
+        "code": "音 A-Ⅲ-1",
+        "area": "藝術領域・音樂（國小五、六年級）",
+        "area_en": "Arts, music (grades 5–6)",
+        "text": "器樂曲與聲樂曲，如：各國民謠、本土與傳統音樂、古典與流行音樂等，以及樂曲之作曲家、演奏者、傳統藝師與創作背景。",
+        "note_en": "Local and traditional music, and traditional master artists, are named here: nanguan and beiguan are examples in Taiwan.",
+        "note_zh": "這裡寫到本土與傳統音樂，和傳統藝師：南管與北管是台灣的例子。"
+       },
+       {
+        "code": "音 A-Ⅳ-1",
+        "area": "藝術領域・音樂（國中七至九年級）",
+        "area_en": "Arts, music (grades 7–9)",
+        "text": "器樂曲與聲樂曲，如：傳統戲曲、音樂劇、世界音樂、電影配樂等多元風格之樂曲。各種音樂展演形式，以及樂曲之作曲家、音樂表演團體與創作背景。",
+        "note_en": "Traditional opera is named in junior high school. Percussion is important there.",
+        "note_zh": "傳統戲曲在國中被列入。打擊在其中很重要。"
+       }
+      ]
+     },
+     "culture_cards": {
+      "eyebrow": "Stories Behind the Notes · 音符背後的故事",
+      "title_en": "A modern orchestra, a membrane, a lute on the lap, and a street band",
+      "title_zh": "一個現代的樂團、一片膜、橫抱的琵琶，和廟會的樂隊",
+      "lead_en": "Four short stories about Chinese instruments and the music of Taiwan.",
+      "lead_zh": "關於國樂器和台灣音樂的四個小故事。",
+      "cards": [
+       {
+        "k": "A Modern Orchestra · 現代的樂團",
+        "en": "From Shanghai to Taipei",
+        "zh": "從上海到台北",
+        "body_en": "The Chinese orchestra is a twentieth-century development. In 1921 Zheng Jinwen founded the Great Unity Music Society in Shanghai and grew the ensemble to 35 players. The Broadcasting Chinese Orchestra, founded in Nanjing in 1935, is considered the first Chinese orchestra, and it moved to Taiwan in 1949. The Taipei Chinese Orchestra was founded in 1979, and the National Chinese Orchestra began in 1984 as an experimental orchestra at a school, and has had its present name since 2012.",
+        "body_zh": "國樂團是二十世紀發展出來的。1921 年，鄭覲文在上海成立大同樂會，把合奏團擴大到 35 位演奏者。1935 年在南京成立的中央廣播電臺國樂團，被認為是第一個國樂團，並在 1949 年隨政府遷到台灣。臺北市立國樂團成立於 1979 年；臺灣國樂團 1984 年從國立藝專的實驗國樂團開始，2012 年起改用現在的名稱。"
+       },
+       {
+        "k": "A Membrane · 一片膜",
+        "en": "Why does a flute have a skin?",
+        "zh": "為什麼笛有一層膜？",
+        "body_en": "Most flutes have no membrane at all. The dizi has a special hole, the mo kong, covered by a thin shaving of reed or bamboo called the dimo. Taiwan’s dictionary says it enlarges the volume and makes the tone clear and bright. English-language sources add that the sound gets a buzzing, nasal quality. So a dizi is an air column instrument with a vibrating membrane in it.",
+        "body_zh": "大多數的笛根本沒有膜。笛有一個特別的孔，叫膜孔，蓋著一層薄薄的蘆葦或竹子的膜，叫笛膜。台灣的辭典說，它讓音量變大、音色清脆明亮。英文的資料補充，聲音多了一種嗡嗡的、帶鼻音的質感。所以笛是一件空氣柱樂器，裡面有一片會振動的膜。"
+       },
+       {
+        "k": "A Lute on the Lap · 橫抱的琵琶",
+        "en": "Nanguan",
+        "zh": "南管",
+        "body_en": "Taiwan’s dictionary describes nanguan as ancient music that has been popular in Fujian, Taiwan, and Southeast Asia since the Song and Yuan dynasties. The singer holds clappers, and the accompaniment is led by the pipa, with the dongxiao vertical flute, the sanxian, the erxian, and clappers. The pipa is held horizontally across the lap. Nanguan came to Taiwan with immigrants from Fujian, and it became popular in places such as Lukang. UNESCO listed it in 2009.",
+        "body_zh": "台灣的辭典說，南管是宋元以後流行於福建、臺灣及東南亞地區的古樂。歌者拿著拍板，伴奏以琵琶為主，再配上洞簫、三弦、二弦和拍板。琵琶是橫抱在膝上彈的。南管隨著福建的移民傳到台灣，在鹿港等地很盛行。2009 年被聯合國教科文組織列入名錄。"
+       },
+       {
+        "k": "A Street Band · 廟會的樂隊",
+        "en": "Beiguan",
+        "zh": "北管",
+        "body_en": "Beiguan is a traditional music that was widespread in Taiwan. It usually uses two suona, a woodblock, large and small gongs, drums, cymbals, and also a pipa. Most of the lively street bands that join temple festivals are beiguan bands, and there are the most clubs in Changhua and Yilan. The name beiguan, “northern,” is relative to nanguan from southern Fujian. It was probably brought to Taiwan in the years of the Qianlong and Jiaqing emperors, though where it came from in Fujian is not certain.",
+        "body_zh": "北管是曾經在台灣很流行的傳統音樂。通常使用兩支嗩吶、梆子、大鑼小鑼、鼓、鈸，還有琵琶。大多數在廟會裡熱鬧高亢的音樂陣頭，是北管樂團；彰化和宜蘭的館閣最多。「北管」的「北」，是相對於來自閩南的南管。它大約在乾隆、嘉慶年間傳入台灣，不過它在福建的來源並不確定。"
+       }
+      ]
+     },
+     "myths": [
+      {
+       "myth_en": "The erhu is a Chinese violin.",
+       "myth_zh": "二胡就是中國的小提琴。",
+       "fact_en": "It has two strings and no fingerboard, and the bow passes between the strings. It is a spike fiddle, sometimes called the Chinese violin, but it is a different instrument.",
+       "fact_zh": "它有兩條弦、沒有指板，弓從兩條弦之間穿過。它是一種插在琴筒上的提琴，有時被叫做「中國小提琴」，但它是另一種樂器。"
+      },
+      {
+       "myth_en": "The guqin and the guzheng are the same.",
+       "myth_zh": "古琴和古箏是同一種。",
+       "fact_en": "The guqin has seven strings and no bridges, and it is very quiet. The guzheng has movable bridges and many more strings, 21 to 25.",
+       "fact_zh": "古琴有七條弦、沒有琴馬，聲音很小。古箏有可以移動的琴馬、弦多得多，有 21 到 25 條。"
+      },
+      {
+       "myth_en": "The dizi is 9,000 years old.",
+       "myth_zh": "笛有 9000 年的歷史。",
+       "fact_en": "Simple flutes without the membrane hole are that old. The dizi as we know it dates roughly to the 5th century BC.",
+       "fact_zh": "沒有膜孔的簡單笛子才有那麼老。我們今天知道的笛，大約可以追溯到西元前五世紀。"
+      },
+      {
+       "myth_en": "Chinese music uses only five notes.",
+       "myth_zh": "中國音樂只用五個音。",
+       "fact_en": "Many pieces are built on five notes, but it is a tendency, not a rule. Some use seven notes, and modern music can be quite chromatic.",
+       "fact_zh": "許多曲子建立在五個音上，但這是傾向，不是規則。有些用七個音，現代的音樂也可以很半音化。"
+      }
+     ],
+     "tricks_head": {
+      "en": "Chinese instruments in a sentence",
+      "zh": "一句話記住國樂器"
+     },
+     "tricks": [
+      {
+       "title_en": "Blow, bow, pluck, strike",
+       "title_zh": "吹、拉、彈、打",
+       "body_en": "How you make the sound.",
+       "body_zh": "怎麼讓它發聲。"
+      },
+      {
+       "title_en": "Erhu: the bow is between",
+       "title_zh": "二胡：弓在中間",
+       "body_en": "Two strings, no fingerboard.",
+       "body_zh": "兩條弦，沒有指板。"
+      },
+      {
+       "title_en": "Dizi: a membrane hole",
+       "title_zh": "笛：有一個膜孔",
+       "body_en": "Louder, brighter, a little buzzing.",
+       "body_zh": "更大聲、更明亮、有一點嗡嗡的。"
+      },
+      {
+       "title_en": "Five notes",
+       "title_zh": "五個音",
+       "body_en": "Gong, shang, jue, zhi, yu.",
+       "body_zh": "宮、商、角、徵、羽。"
+      }
+     ],
+     "safety_head": {
+      "eyebrow": "Protect Your Ears · 保護耳朵",
+      "en": "Before you listen",
+      "zh": "聽之前"
+     },
+     "safety": [
+      {
+       "en": "Start with the volume low and turn it up a little at a time. The drum and the bright flute sounds can be sharp.",
+       "zh": "先把音量調小，再一點一點調大。鼓和明亮的笛聲可能很尖銳。"
+      },
+      {
+       "en": "With headphones, keep the volume at no more than 60% of maximum, and use personal audio devices for less than one hour a day, as the World Health Organization suggests.",
+       "zh": "戴耳機時，音量不要超過最大音量的 60%，個人音響裝置每天使用少於一小時，這是世界衛生組織的建議。"
+      },
+      {
+       "en": "Real gongs, drums, and suona are very loud up close. Stay back and ask your teacher about ear protection if you play them.",
+       "zh": "真的鑼、鼓和嗩吶近距離聽非常響。要離遠一點；如果要演奏它們，請問老師有沒有護耳的辦法。"
+      }
+     ],
+     "activities": [
+      {
+       "title_en": "Sort the Instruments",
+       "title_zh": "把樂器分類",
+       "materials": [
+        {
+         "en": "Cards with names: erhu, pipa, dizi, dongxiao, guzheng, drum, gong",
+         "zh": "寫了名字的卡片：二胡、琵琶、笛、洞簫、古箏、鼓、鑼"
+        },
+        {
+         "en": "Four sheets: blown, bowed, plucked, struck",
+         "zh": "四張紙：吹、拉、彈、打"
+        }
+       ],
+       "steps": [
+        {
+         "en": "In small groups, put each card on the sheet that shows how the instrument is played. Use the lesson to check.",
+         "zh": "小組把每張卡片放在代表演奏方式的那張紙上。用這一課來核對。"
+        },
+        {
+         "en": "Ask for each one: what vibrates? A string, the air, or a skin?",
+         "zh": "每一件都問：是什麼在振動？弦、空氣，還是皮？"
+        },
+        {
+         "en": "Find the instruments that sort differently in the eight sounds, by material.",
+         "zh": "找出用八音（依材質）來分，會分到不同地方的樂器。"
+        },
+        {
+         "en": "Share: which instruments did you know already? Which are new?",
+         "zh": "分享：哪些樂器你本來就知道？哪些是新的？"
+        }
+       ],
+       "tip_en": "Photos or videos from the teacher help, but the lesson itself does not use any recordings.",
+       "tip_zh": "老師準備的照片或影片會有幫助，但這一課本身沒有用到任何錄音。"
+      },
+      {
+       "title_en": "A Five-Note Tune",
+       "title_zh": "五音旋律",
+       "materials": [
+        {
+         "en": "A keyboard, or this page",
+         "zh": "鍵盤或本頁"
+        },
+        {
+         "en": "Paper and pencils",
+         "zh": "紙和鉛筆"
+        }
+       ],
+       "steps": [
+        {
+         "en": "Play only the five notes on this page, or the five black keys of a piano. Everything you play will sound fine together.",
+         "zh": "只彈本頁的五個音，或鋼琴的五個黑鍵。你彈的任何音放在一起都會很順耳。"
+        },
+        {
+         "en": "Write a short tune of eight notes, and end on the first note, the gong.",
+         "zh": "寫一段八個音的短旋律，結束在第一個音，宮。"
+        },
+        {
+         "en": "Play it for a partner. Can your partner clap the rhythm back?",
+         "zh": "彈給同伴聽。同伴能把節奏拍回來嗎？"
+        },
+        {
+         "en": "Try ending on a different note. How does the feeling of ending change?",
+         "zh": "試試結束在不同的音。結束的感覺怎麼變？"
+        }
+       ],
+       "tip_en": "Let students use their own words for how an ending feels.",
+       "tip_zh": "讓學生用自己的話，說結束的感覺怎麼樣。"
+      }
+     ],
+     "links_head": {
+      "eyebrow": "Go Further · 延伸閱讀",
+      "en": "Before, around, and after this lesson",
+      "zh": "這一課的前面、旁邊和後面"
+     },
+     "links": [
+      {
+       "icon": "🎻",
+       "k_en": "Music · Lesson 11",
+       "k_zh": "音樂・第十一課",
+       "en": "Who Sits Where in an Orchestra?",
+       "zh": "交響樂團怎麼坐？",
+       "note_en": "A Chinese orchestra is modeled on the Western one, with its own four sections.",
+       "note_zh": "國樂團是模仿西洋樂團，有自己的四組。",
+       "href": "/resources/classes/music/orchestra-seating/"
+      },
+      {
+       "icon": "🎷",
+       "k_en": "Music · Lesson 9",
+       "k_zh": "音樂・第九課",
+       "en": "How Do Instruments Make Sound?",
+       "zh": "樂器怎麼發出聲音？",
+       "note_en": "The eight sounds, and what vibrates in each instrument.",
+       "note_zh": "八音，和每件樂器是什麼在振動。",
+       "href": "/resources/classes/music/what-vibrates/"
+      },
+      {
+       "icon": "🪜",
+       "k_en": "Music · Lesson 7",
+       "k_zh": "音樂・第七課",
+       "en": "What Is a Scale?",
+       "zh": "音階是什麼？",
+       "note_en": "The five notes of Chinese music and the pentatonic scale.",
+       "note_zh": "中國音樂的五個音，和五聲音階。",
+       "href": "/resources/classes/music/what-is-a-scale/"
+      },
+      {
+       "icon": "🏛️",
+       "k_en": "Music · Lesson 13",
+       "k_zh": "音樂・第十三課",
+       "soon": true,
+       "en": "How Did Western Music Change Over 400 Years?",
+       "zh": "西洋古典音樂四百年怎麼變？",
+       "note_en": "Next: the kinds of music, starting with 400 years of Western classical music.",
+       "note_zh": "接下來：音樂的種類，先從西洋古典音樂的四百年開始。"
+      }
+     ],
+     "sources_note_en": "Names, numbers, and quotations on this page were checked against these sources (October 2026). The instrument shapes and the sounds are our own simplified drawings and recipes; the five-note pitches and the tune are covered by automatic tests.",
+     "sources_note_zh": "本頁的名稱、數字與引文依下列資料查證（2026 年 10 月）；樂器的形狀與聲音是我們自己的簡化圖形與配方；五音的音高與旋律有自動測試。",
+     "sources": [
+      {
+       "en": "A 20th-century development, modeled on a Western symphony orchestra but using Chinese instruments; developed out of Jiangnan sizhu in the 1920s; four sections grouped by the way they are played; Great Unity Music Society 1921; the BCC Chinese Orchestra (1935) moved to Taiwan in 1949; in Taiwan guoyuetuan",
+       "zh": "二十世紀發展出來的、以西洋交響樂團為模型但用中國樂器的樂團；1920 年代從江南絲竹發展；依演奏方式分四組；1921 年大同樂會；1935 年中央廣播電臺國樂團 1949 年遷台；台灣稱國樂團",
+       "src": "Wikipedia, “Chinese orchestra” and zh.wikipedia 中樂團",
+       "url": "https://en.wikipedia.org/wiki/Chinese_orchestra"
+      },
+      {
+       "en": "The modern Chinese orchestra is generally divided into the four groups blow, bow, pluck, strike; called guoyuetuan in Taiwan; traditional sizhu ensembles are mostly pentatonic",
+       "zh": "現代中樂團編制，一般分為吹、拉、彈、打四組；台灣稱國樂團；傳統絲竹合奏以五聲音階為主",
+       "src": "zh.wikipedia 中樂團",
+       "url": "https://zh.wikipedia.org/wiki/%E4%B8%AD%E6%A8%82%E5%9C%98"
+      },
+      {
+       "en": "A two-stringed bowed instrument, a spike fiddle; python skin on the front of the sound box; the bow hair passes between the strings; no fingerboard; the strings are a fifth apart; evolved from the xiqin",
+       "zh": "兩條弦的拉弦樂器；音箱前端蒙蟒皮；弓毛從兩條弦之間穿過；沒有指板；兩條弦相隔五度；由奚琴演變而來",
+       "src": "Wikipedia, “Erhu”",
+       "url": "https://en.wikipedia.org/wiki/Erhu"
+      },
+      {
+       "en": "A bowed instrument with two strings, often tuned a fifth apart; a hexagonal or octagonal sound box covered with python skin; a bamboo bow strung with horsehair that passes between the two strings",
+       "zh": "擦弦樂器；兩條弦，常以五度定弦；琴筒多呈六角或八角形，蒙以蟒皮；竹製弓桿，張以馬尾，穿於兩弦之間演奏",
+       "src": "教育部《重編國語辭典修訂本》「二胡」",
+       "url": "https://dict.revised.moe.edu.tw/dictView.jsp?ID=148617"
+      },
+      {
+       "en": "Belongs to the plucked category; pear-shaped wooden body; almost two thousand years in China; the pear-shaped pipa is likely to have been introduced from Central Asia; “pí” strike outward, “pá” pluck inward",
+       "zh": "屬於彈撥類；半梨形木製音箱；在中國將近兩千年；半梨形的琵琶很可能從中亞傳入；「pí」向外彈、「pá」向內挑",
+       "src": "Wikipedia, “Pipa”",
+       "url": "https://en.wikipedia.org/wiki/Pipa"
+      },
+      {
+       "en": "A plucked instrument; in the fourth century the pear-shaped, four-string, four-fret pipa came to the Central Plains from the western regions",
+       "zh": "彈撥樂器；西元四世紀，西域文化交流，致使半梨形音箱、四弦四柱的琵琶傳入中原",
+       "src": "教育部《重編國語辭典修訂本》「琵琶」",
+       "url": "https://dict.revised.moe.edu.tw/dictView.jsp?ID=24672"
+      },
+      {
+       "en": "A Chinese transverse flute; bangdi, qudi, xindi; a membrane hole (mo kong) between the embouchure and finger holes; the dimo makes the tone brighter and louder with a buzzing, nasal quality; the dizi as we know it dates roughly to the 5th century BC",
+       "zh": "中國橫笛；梆笛、曲笛、新笛；吹孔與按音孔之間有膜孔；笛膜讓聲音更亮、更大聲，帶嗡嗡的鼻音質感；我們知道的笛，大約出現在西元前五世紀",
+       "src": "Wikipedia, “Dizi (instrument)”",
+       "url": "https://en.wikipedia.org/wiki/Dizi_(instrument)"
+      },
+      {
+       "en": "Bangdi: bamboo, played sideways, one blow hole, one membrane hole, six finger holes; dimo: the thin membrane on the membrane hole, enlarging the volume and making the tone clear and bright; di: a blown instrument, a bamboo-class instrument of the eight sounds, mostly played sideways",
+       "zh": "梆笛：竹製，橫吹，一個吹孔、一個膜孔、六個按音孔；笛膜：貼於膜孔上的薄膜，有擴大音量並使音色清脆明亮的作用；笛：吹管樂器，古代屬八音的竹類樂器，多為橫吹",
+       "src": "教育部《重編國語辭典修訂本》「梆笛」「笛膜」「笛」",
+       "url": "https://dict.revised.moe.edu.tw/dictView.jsp?ID=17184"
+      },
+      {
+       "en": "Drum: a percussion instrument, hide stretched over a hollow wooden body, struck with the hands, sticks, or mallets; gong: a shallow flat bronze disc struck with a mallet",
+       "zh": "鼓：打擊樂器，用皮革蒙在中空木桶上所製成，常以手、木棒或鼓槌擊奏；鑼：銅製的淺平圓盤，用槌敲擊",
+       "src": "教育部《重編國語辭典修訂本》「鼓」「鑼」",
+       "url": "https://dict.revised.moe.edu.tw/dictView.jsp?ID=4187"
+      },
+      {
+       "en": "The guqin is a plucked seven-string instrument; not the guzheng, which has moveable bridges; originally five strings for gong, shang, jue, zhi, yu; the most common tuning is pentatonic; 古箏 traditionally arranged in a pentatonic scale, 21 to 25 strings",
+       "zh": "古琴是彈撥的七弦樂器；不是有可移動琴馬的古箏；傳說原本五條弦代表宮商角徵羽；最常見的定弦是五聲音階；古箏傳統上按五聲音階排列，21 到 25 條弦",
+       "src": "Wikipedia, “Guqin” and 教育部辭典「古琴」「古箏」",
+       "url": "https://en.wikipedia.org/wiki/Guqin"
+      },
+      {
+       "en": "The five notes gong, shang, jue, zhi, yu, also called the five sounds",
+       "zh": "宮、商、角、徵、羽五個音階，也稱為「五聲」",
+       "src": "教育部《重編國語辭典修訂本》「五音」",
+       "url": "https://dict.revised.moe.edu.tw/dictView.jsp?ID=159655"
+      },
+      {
+       "en": "The eight sounds: an ancient classification by material: metal, stone, silk, bamboo, gourd, clay, hide, wood",
+       "zh": "古代依製作材料分為金、石、絲、竹、匏、土、革、木等八類",
+       "src": "教育部《重編國語辭典修訂本》「八音」",
+       "url": "https://dict.revised.moe.edu.tw/dictView.jsp?ID=12152"
+      },
+      {
+       "en": "Ancient music popular in Fujian, Taiwan, and Southeast Asia since the Song and Yuan; the singer holds clappers; accompaniment led by the pipa, with dongxiao, sanxian, erxian, and clappers",
+       "zh": "宋元以後流行於福建、臺灣及東南亞地區的古樂；歌者執拍板，伴奏以琵琶為主，再配洞簫、三弦、二弦、四塊板",
+       "src": "教育部《重編國語辭典修訂本》「南管」",
+       "url": "https://dict.revised.moe.edu.tw/dictView.jsp?ID=56941"
+      },
+      {
+       "en": "Nanguan came to Taiwan during the Ming dynasty and became popular in Lukang; pipa played across the lap; inscribed by UNESCO in 2009; beiguan was widespread in Taiwan, with suona, bangzi, gongs, drums, and cymbals",
+       "zh": "南管在明代傳到台灣、在鹿港很盛行；琵琶橫抱彈奏；2009 年被聯合國教科文組織列入；北管曾在台灣很盛行，用嗩吶、梆子、鑼、鼓和鈸",
+       "src": "Wikipedia, “Nanguan music” and “Beiguan music”",
+       "url": "https://en.wikipedia.org/wiki/Nanguan_music"
+      },
+      {
+       "en": "Beiguan is a traditional music of the Han people in Taiwan; arrived about the Qianlong–Jiaqing years; the most guanges are in Changhua and Yilan; most street bands are beiguan bands; no theatrical form related to beiguan exists in Fujian today",
+       "zh": "北管為臺灣漢族傳統音樂；大約在清朝乾隆、嘉慶年間傳入；以彰化與宜蘭的館閣最多；大多數音樂陣頭為北管樂團；在今日福建省卻無與北管音樂相關的劇種",
+       "src": "zh.wikipedia 北管",
+       "url": "https://zh.wikipedia.org/wiki/%E5%8C%97%E7%AE%A1"
+      },
+      {
+       "en": "The Taipei Chinese Orchestra was founded in 1979, the first professional Chinese orchestra in Taiwan; the National Chinese Orchestra Taiwan began in 1984 as an experimental orchestra at the National Taiwan Academy of the Arts and was renamed in 2012",
+       "zh": "臺北市立國樂團創立於 1979 年，是臺灣第一個專業國樂團；臺灣國樂團前身為 1984 年成立的國立藝專實驗國樂團，2012 年更名",
+       "src": "zh.wikipedia 臺北市立國樂團、臺灣國樂團",
+       "url": "https://zh.wikipedia.org/wiki/%E8%87%BA%E5%8C%97%E5%B8%82%E7%AB%8B%E5%9C%8B%E6%A8%82%E5%9C%98"
+      },
+      {
+       "en": "Taiwan's 12-year curriculum: arts (music) 音 E-Ⅱ-2, 音 E-Ⅲ-2, 音 A-Ⅲ-1, 音 A-Ⅳ-1",
+       "zh": "十二年國民基本教育課程綱要藝術領域：音 E-Ⅱ-2、音 E-Ⅲ-2、音 A-Ⅲ-1、音 A-Ⅳ-1",
+       "src": "國家教育研究院，十二年國教藝術領域課綱",
+       "url": "https://www.naer.edu.tw/upload/1/16/doc/818/%E5%8D%81%E4%BA%8C%E5%B9%B4%E5%9C%8B%E6%B0%91%E5%9F%BA%E6%9C%AC%E6%95%99%E8%82%B2%E8%AA%B2%E7%A8%8B%E7%B6%B1%E8%A6%81%E5%9C%8B%E6%B0%91%E4%B8%AD%E5%B0%8F%E5%AD%B8%E6%9A%A8%E6%99%AE%E9%80%9A%E5%9E%8B%E9%AB%98%E7%B4%9A%E4%B8%AD%E7%AD%89%E6%A0%A1-%E8%97%9D%E8%A1%93%E9%A0%98%E5%9F%9F.pdf"
+      },
+      {
+       "en": "Safe listening: headphone volume to 60% of maximum, personal audio devices less than one hour a day",
+       "zh": "安全聆聽：耳機音量不超過最大的 60%、個人音響裝置每天少於一小時",
+       "src": "WHO, Make Listening Safe brochure (2021)",
+       "url": "https://cdn.who.int/media/docs/default-source/documents/health-topics/deafness-and-hearing-loss/mls-brochure-english-2021.pdf?sfvrsn=bf19b448_5"
+      }
+     ]
     }
-   ]
+   ],
+   "planned": []
   },
   {
    "key": "kinds",

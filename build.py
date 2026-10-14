@@ -16182,7 +16182,7 @@ def build_comp_hub():
 _musj = os.path.join(ROOT, "data", "music.json")
 MUS = json.load(open(_musj, encoding="utf-8")) if os.path.exists(_musj) else None
 MUS_BASE = "/resources/classes/music/"
-_MUS_JS = {"string": "mus-string", "timbre": "mus-timbre", "beat": "mus-beat", "dynamics": "mus-dynamics", "staff": "mus-staff", "values": "mus-values", "scale": "mus-scale", "harmony": "mus-harmony", "instruments": "mus-instruments", "piano": "mus-piano", "orchestra": "mus-orchestra"}   # lab.kind → assets/js/<bundle>.js
+_MUS_JS = {"string": "mus-string", "timbre": "mus-timbre", "beat": "mus-beat", "dynamics": "mus-dynamics", "staff": "mus-staff", "values": "mus-values", "scale": "mus-scale", "harmony": "mus-harmony", "instruments": "mus-instruments", "piano": "mus-piano", "orchestra": "mus-orchestra", "chinese": "mus-chinese"}   # lab.kind → assets/js/<bundle>.js
 
 def _mus_ver():
     h = hashlib.md5()
@@ -16300,7 +16300,15 @@ def musorchestra_svg(size=56):
     return (f'<svg class="musorchestra-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">{rows}'
             '<circle cx="30" cy="50" r="2.6" fill="#fff"/></svg>')
 
-_MUS_CARD = {"string": mustring_svg, "timbre": mustimbre_svg, "beat": musbeat_svg, "dynamics": musdynamics_svg, "staff": musstaff_svg, "values": musvalues_svg, "scale": musscale_svg, "harmony": musharmony_svg, "instruments": musinstruments_svg, "piano": muspiano_svg, "orchestra": musorchestra_svg}
+def muschinese_svg(size=56):
+    """第十二課的課程卡小圖示：吹、拉、彈、打——一支笛、一把弓、一條弦、一面鼓。"""
+    return (f'<svg class="muschinese-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">'
+            '<rect x="6" y="9" width="34" height="5" rx="2.5" fill="none" stroke="#7ef0e3" stroke-width="2"/><circle cx="14" cy="11.5" r="1.2" fill="#7ef0e3"/><circle cx="24" cy="11.5" r="1.2" fill="#7ef0e3"/><circle cx="31" cy="11.5" r="1.2" fill="#7ef0e3"/>'
+            '<path d="M6 26 Q20 20 34 26" fill="none" stroke="#ffd36e" stroke-width="2"/><path d="M8 31 L38 23" stroke="#c89a5c" stroke-width="1.6"/>'
+            '<path d="M44 20 Q50 34 44 46" fill="none" stroke="#ff9f7a" stroke-width="2"/><path d="M44 28h6M44 33h7" stroke="#ff9f7a" stroke-width="1.4"/>'
+            '<ellipse cx="22" cy="44" rx="13" ry="4.5" fill="none" stroke="#b79cff" stroke-width="2"/><path d="M9 44v8c0 2.5 6 4.5 13 4.5s13-2 13-4.5v-8" fill="none" stroke="#b79cff" stroke-width="2"/></svg>')
+
+_MUS_CARD = {"string": mustring_svg, "timbre": mustimbre_svg, "beat": musbeat_svg, "dynamics": musdynamics_svg, "staff": musstaff_svg, "values": musvalues_svg, "scale": musscale_svg, "harmony": musharmony_svg, "instruments": musinstruments_svg, "piano": muspiano_svg, "orchestra": musorchestra_svg, "chinese": muschinese_svg}
 _MUS_PRESETS = [   # 和 tools/music/src/pitch.js 的 PRESETS 對應
     {"key": "whole", "en": "Whole string", "zh": "整根弦"}, {"key": "half", "en": "One half", "zh": "二分之一"},
     {"key": "twothirds", "en": "Two thirds", "zh": "三分之二"}, {"key": "threequarters", "en": "Three quarters", "zh": "四分之三"}]
@@ -17002,6 +17010,60 @@ def _mu_seatq(d):
   <div class="mu-hg-foot"><span></span><button type="button" class="mu-btn mu-btn-gold mu-sq2-next" hidden>Next question · 下一題</button></div>
 </div>'''
 
+def render_muschinese_lab(lesson):
+    """第十二課：四件國樂器的展示台（assets/js/mus-chinese.js 綁這裡的 class；全部自繪示意，聲音由瀏覽器合成）。"""
+    lab = lesson["lab"]
+    ins = "".join(f'<button type="button" data-ins="{k}" aria-pressed="{"true" if k == "erhu" else "false"}"><b>{w} · {zh}</b><small>{en}</small></button>'
+                  for k, w, zh, en in [("erhu", "拉", "二胡", "Erhu · bowed"), ("pipa", "彈", "琵琶", "Pipa · plucked"), ("dizi", "吹", "笛", "Dizi · blown"), ("gu", "打", "鼓", "Drum · struck")])
+    tg = _lab_toggles([("labels", "Labels", "標籤", True)])
+    return f'''<div class="astro-lab mu-lab rvl" data-muschinese-lab>
+  <div class="al-stage">
+    <div class="al-space">
+      <canvas class="al-space-cv" aria-label="3D model of four Chinese instruments side by side: an erhu, a pipa, a bamboo flute, and a drum · 四件國樂器並排的 3D 模型：二胡、琵琶、笛和鼓"></canvas>
+      <div class="al-labels" aria-hidden="true"></div>
+      <p class="al-hint">Click an instrument to hear it · 點一件樂器聽聽看　Drag the background to turn · 拖曳背景旋轉　Scroll or pinch to zoom · 滾輪／雙指縮放</p>
+      <button type="button" class="al-home" title="Reset view · 重設視角" aria-label="Reset view · 重設視角">&#8634;</button>
+      <p class="al-nogl-msg">This 3D model needs WebGL, which this browser does not support. The buttons on this page still work, and so do the reading, the cards, and the games.<br><span class="zh">這個瀏覽器不支援 WebGL，沒辦法顯示 3D 模型。頁面上的按鈕、課文、卡片與小遊戲都還能用。</span></p>
+    </div>
+    <aside class="al-sky mu-aside">
+      <p class="al-sky-k">Choose an instrument · 選一件樂器</p>
+      <div class="mu-fams" role="group" aria-label="Chinese instruments · 國樂器">{ins}</div>
+      <div class="mu-fam-card" aria-live="polite"></div>
+      <p class="mu-msg" aria-live="polite"></p>
+    </aside>
+  </div>
+  <div class="al-controls">
+    <div class="al-row al-row-main">
+      <div class="al-row al-toggles">{tg}</div>
+    </div>
+  </div>
+  {_lab_foot(lab)}
+  <p class="mu-credit">{lab["credit_html"]}</p>
+</div>'''
+
+def _mu_wayq(d):
+    opts = "".join(f'<button type="button" class="mu-wq-opt" data-pick="{k}"><b>{zh}</b><small>{en}</small></button>'
+                   for k, zh, en in [("blow", "吹", "Blow"), ("bow", "拉", "Bow"), ("pluck", "彈", "Pluck"), ("strike", "打", "Strike")])
+    return f'''<div class="mu-wayq rvl" data-mu-wayq>
+  <div class="mu-hg-top"><p class="mu-wq-k">Question 1 of 6 · 第 1 題（共 6 題）</p><p class="mu-hg-sc">Right on the first try · 第一次就答對 <b class="mu-wq-score">0 / 0</b></p></div>
+  <div class="mu-sc-btns"><button type="button" class="mu-btn mu-btn-gold mu-wq-listen">&#9654; Listen · 聽</button><button type="button" class="mu-btn mu-wq-show">How the sound starts · 聲音怎麼開始</button></div>
+  <p class="mu-wq-hint" hidden></p>
+  <div class="mu-wq-opts">{opts}</div>
+  <p class="mu-q-msg" aria-live="polite"></p>
+  <div class="mu-hg-foot"><span></span><button type="button" class="mu-btn mu-btn-gold mu-wq-next" hidden>Next question · 下一題</button></div>
+</div>'''
+
+def _mu_penta(d):
+    keys = "".join(f'<button type="button" class="mu-pn-key" data-pn="{i}"><b>{zh}</b><small>{py} · {sol}</small></button>'
+                   for i, (zh, py, sol) in enumerate([("宮", "gōng", "Do"), ("商", "shāng", "Re"), ("角", "jué", "Mi"), ("徵", "zhǐ", "Sol"), ("羽", "yǔ", "La"), ("宮", "gōng ↑", "Do ↑")]))
+    ins = "".join(f'<button type="button" class="mu-btn" data-pins="{k}" aria-pressed="false">{zh} {en}</button>' for k, zh, en in [("erhu", "二胡", "Erhu"), ("pipa", "琵琶", "Pipa"), ("dizi", "笛", "Dizi")])
+    return f'''<div class="mu-penta rvl" data-mu-penta>
+  <div class="mu-sc-row"><span class="mu-st-k">Instrument · 樂器</span>{ins}</div>
+  <div class="mu-pn-row">{keys}</div>
+  <div class="mu-sc-btns"><button type="button" class="mu-btn mu-btn-gold mu-pn-tune">&#9654; Play the short tune · 播放短旋律</button></div>
+  <p class="mu-q-msg" aria-live="polite"></p>
+</div>'''
+
 def _mu_curric(d):
     rows = "".join(
         f'<li class="mu-cur rvl"><p class="mu-cur-k"><b>{html.escape(c["code"])}</b><span>{html.escape(c["area"])} · {html.escape(c["area_en"])}</span></p>'
@@ -17037,7 +17099,7 @@ def build_mus_lesson(ui, unit, lesson):
     reading_html = render_basic_unit(1, unit_dict, level="music", audio_rel="", pdf_rel="")
     lab = lesson["lab"]
     kind = lab["kind"]
-    lab_html = {"string": render_musstring_lab, "timbre": render_mustimbre_lab, "beat": render_musbeat_lab, "dynamics": render_musdynamics_lab, "staff": render_musstaff_lab, "values": render_musvalues_lab, "scale": render_musscale_lab, "harmony": render_musharmony_lab, "instruments": render_musinstruments_lab, "piano": render_muspiano_lab, "orchestra": render_musorchestra_lab}[kind](lesson)
+    lab_html = {"string": render_musstring_lab, "timbre": render_mustimbre_lab, "beat": render_musbeat_lab, "dynamics": render_musdynamics_lab, "staff": render_musstaff_lab, "values": render_musvalues_lab, "scale": render_musscale_lab, "harmony": render_musharmony_lab, "instruments": render_musinstruments_lab, "piano": render_muspiano_lab, "orchestra": render_musorchestra_lab, "chinese": render_muschinese_lab}[kind](lesson)
 
     def sec(key, fn):
         d = lesson[key]
@@ -17055,6 +17117,8 @@ def build_mus_lesson(ui, unit, lesson):
         ph = lesson["parts_head"]
         secs.append(("parts", ph["eyebrow"], ph["en"], ph["zh"], f'<div class="ph-grid stagger">{cards}</div>',
                      _bi(lesson["parts_note_en"], lesson["parts_note_zh"], cls="lead rvl d2")))
+    if lesson.get("wayq"): secs.append(sec("wayq", _mu_wayq))
+    if lesson.get("penta"): secs.append(sec("penta", _mu_penta))
     if lesson.get("mixer"): secs.append(sec("mixer", _mu_mixer))
     if lesson.get("seatq"): secs.append(sec("seatq", _mu_seatq))
     if lesson.get("stretch"): secs.append(sec("stretch", _mu_stretch))
