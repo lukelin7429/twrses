@@ -168,4 +168,19 @@ function makeWin() {
   s.setMuted(true);
   assert.equal(s.nowPlaying().length, 0);
 }
+// toneComplex 可以排在未來（at）：頻率設定與包絡從 at 開始，且在 at 之前不算「正在響」
+{
+  const { win, log, tick } = makeWin();
+  const s = createSynth({ win });
+  s.unlock();
+  tick(1);
+  const v = s.toneComplex(220, [1, 0.5], { at: 3, dur: 1 });
+  assert.ok(v);
+  assert.equal(s.nowPlaying().length, 0, 'not playing before its start time');
+  const set = log.filter((e) => e[0] === 'freq' && e[1] === 'set' && e[2] === 220).at(-1);
+  assert.equal(set[3], 3);
+  const tgt = log.filter((e) => e[0] === 'gain' && e[1] === 'target').at(-1);
+  assert.ok(tgt[3] >= 3, 'decay starts after the note starts');
+  s.stopAll();
+}
 console.log('synth.test.mjs ok');

@@ -126,10 +126,11 @@ export function createSynth({ win = typeof window !== 'undefined' ? window : nul
     const v = make(freq, { ...opts, amps, attack: Math.max(0.003, env.attack), kind: 'tone' });
     if (!v) return null;
     const dur = opts.dur ?? 1.5;
-    v.endAt = now() + dur;
+    const t0 = v.start;                 // opts.at：排在未來；預設現在
+    v.endAt = t0 + dur;
     const peak = VOICE_PEAK * v.gain * safeScale(v.top);
-    v.env.gain.setTargetAtTime(Math.max(0.0001, peak * env.sustain), now() + Math.max(0.003, env.attack), Math.max(0.01, env.decay / 3));
-    v.timer = setTimeout(() => v.release(), Math.max(30, dur * 1000));
+    v.env.gain.setTargetAtTime(Math.max(0.0001, peak * env.sustain), t0 + Math.max(0.003, env.attack), Math.max(0.01, env.decay / 3));
+    v.timer = setTimeout(() => v.release(), Math.max(30, (v.endAt - now()) * 1000));
     const rel = v.release;
     v.release = () => { clearTimeout(v.timer); rel(); };
     return v;
