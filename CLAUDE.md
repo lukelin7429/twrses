@@ -1061,7 +1061,7 @@
   - `when`（「這一課在時間軸的哪裡」：`focus` ＝ `{ fromAgo|fromYear, toAgo|toYear, en, zh }`、`note_*`，可加 `events[]`）、`sort`（分類遊戲）、`two`（兩份互相矛盾的記錄）、`notes`＋`notes_head`（「給老師的提醒」：課綱對應、名詞、這個系列怎麼處理敏感題目）。
 - 頁面：`build.py`「台灣歷史」區塊的 `build_twh_hub()`（系列小圖示 `twhhub_svg()`＝地層＋探坑＋手鏟，第一課卡 `twhdig_svg()`；`_TWH_CARD`）/ `build_twh_lesson()`；三張固定的卡是 `_twh_how()`、`_twh_views()`、`_twh_phrases()`，時間軸 `_twh_timeline()`。「閱讀與經典」頁有入口卡（🏺，排在家政後面）。段落順序：3D → 英文閱讀 → 模型卡 → **時間軸** → 這是哪一種證據 → 兩個人說的不一樣 → **我們怎麼知道？** → **不同的說法** → **歷史英語** → 在台灣（文化卡）→ 迷思 → 口訣 → 給老師的提醒 → 活動 → 延伸閱讀 → 資料出處。`tools/gen_audio.py` 的 `SHORT_PAGES` 已加入本系列。
 - 樣式：共用 `assets/css/astro.css`，本系列專屬的在 `assets/css/taiwan-history.css`（**class 前綴一律 `twh-`**——`th-` 已被天文、人體、地球、書法、數學等系列用掉，不要用）；`_twh_head()` 只在本系列頁面載入。
-- 原始碼：**`tools/twhist/src/`**（自己的 package.json，three 0.186.1、esbuild 0.25.10），bundle 一律 `twh-*`；`lab.kind` → bundle 對照在 `build.py` 的 `_TWH_JS`（`dig` → `twh-dig`）；首頁另載 `twh-hub`（只有時間軸，不含 three.js）。**不要 import 別的系列的 tools 目錄。** 新增一課＝`src/twh-<名>.js`＋package.json 的 build 加入口＋`_TWH_JS` 加一筆＋`build_twh_lesson()` 的 `lab_html` 對照加一筆。
+- 原始碼：**`tools/twhist/src/`**（自己的 package.json，three 0.186.1、esbuild 0.25.10），bundle 一律 `twh-*`；`lab.kind` → bundle 對照在 `build.py` 的 `_TWH_JS`（`dig` → `twh-dig`、`sites` → `twh-sites`）；首頁另載 `twh-hub`（只有時間軸，不含 three.js）。**不要 import 別的系列的 tools 目錄。** 新增一課＝`src/twh-<名>.js`＋package.json 的 build 加入口＋`_TWH_JS` 加一筆＋`build_twh_lesson()` 的 `lab_html` 對照加一筆。
   ```
   cd tools/twhist && npm ci && npm run build && npm test
   ```
@@ -1077,6 +1077,15 @@
   - 四張卡 `data-lab-demo`：`top`、`deeper`、`date`（`lab.demo_date` 那樣出土物）、`later`。除錯：`document.querySelector('[data-twhdig-lab]').__lab`（`setLevel(v, instant)`、`level()`、`depth()`、`floorAgo()`、`layer()`、`found()`、`select(key)`、`setLater(bool)`、`demo(...)`、`run(秒)`、`render()`、`tl`、`pit`、`view`、`check()`）。
   - 2D（`src/evidence2d.js`，不需要 WebGL）：`initSort`（`[data-twh-sort]`：八樣東西分到東西／記錄／口傳，一次一樣，只記第一次就分對的數量、不計時；`el.__sort`）、`initTwo`（`[data-twh-two]`：編出來的運動會，阿公的口述和校刊對不起來，點「還想找什麼」看每樣證據能說什麼、不能說什麼，**沒有標準答案、不計分**；`el.__two`）。
   - 查證時改掉或沒寫的：見 Obsidian `第二大腦/知識庫/台灣歷史/` 那一課的筆記與系列索引的紀錄。
+- 第二課遺址地圖（`twh-sites.js`，`lab.kind = "sites"`，`data-twhsites-lab`；slug `who-lived-here`）：一個想法——**還沒有文字以前，已經有人在台灣住了好幾萬年；遺址讓我們看見生活怎麼變（打製石器 → 陶器與玉 → 鐵與交易），但這些文化和今天的原住民族是什麼關係，證據還沒有完全回答**。
+  - **主角是一張 SVG 地圖，不需要 WebGL**：只畫海岸線與遺址點，**不畫任何界線**。海岸線 `src/data/coast.json`＝Natural Earth 1:10m Land 5.1.2（**公有領域**），`npm run coast`（`scripts/build-coast.mjs`）重產：只取整個落在框裡的島（歐亞大陸那一塊不會整個落在框裡）、Douglas–Peucker 0.004 度、7 個環 282 點約 5 KB。**封閉的環頭尾同一點，直接簡化會整條被丟掉**——腳本先在離起點最遠的那一點把環切成兩半再簡化。
+  - `src/geo2d.js`（純函式，`test/geo2d.test.mjs`）：`makeProjection(bbox, width, pad)`（等距圓柱＋中央緯度修正，東西向和南北向的比例尺誤差 1% 以內）、`ringPath`、`dated`／`activeAt(site, ago)`／`layerAt`／`spanOf`、`distanceKm`。
+  - 資料 `lab.sites[]`（8 個，都是文資局的國定考古遺址）：`lon/lat`（**鄉鎮市區的大概位置，不是確切地點**；畫面上有標示）、`nudge`（圓點往旁邊拉開幾個像素，用短線連回去，北部三個才不會疊在一起）、`layers[]`（`en/zh`、`fromAgo/toAgo`、`rep` 代表文化層；沒有年代的用 `note_*`）、`found_*`、`url`（每個遺址自己的文資局頁面，測試會擋）。**文化層的名稱與年代全部照各遺址自己的文資局頁面**——同一個文化（大坌坑）在五個頁面有五組數字，這正是「不同的說法」的題材，不要自己統一。年代不詳的（萬山岩雕群）畫成虛線圈、永遠不會亮，並有 `unknown_*` 說明。
+  - 時間滑桿是對數尺度（3 萬年前到 350 年前）；亮起來＝那個時候有文化層。右邊直的時間軸的色帶＝選到的遺址的每一個文化層（`timeline2d` 新增 `setSpans()`）。**`__lab.check()`＝亮著的遺址等於資料裡那個時候有文化層的遺址，而且時間軸游標等於滑桿的時間。** 滑到全部暗掉（例如 1 萬年前）時，訊息會說明「這不代表當時沒有人」。
+  - 「看一件文物」：`lesson["jade"]`（`facts[]`、`spots[]` 四個重點、`badge`、`aria`、`src/url`、`note_*`）＋`src/jade3d.js` 的 `makeJade()`——人獸形玉玦的**簡化示意**（依史前館典藏號碼 20121600001 的尺寸與語音導覽的描述自繪，不是掃描；畫面上標明）。只有這一段用 WebGL，沒有 WebGL 時加 `twh-jade-nogl`，右邊的說明照樣能看。除錯 `document.querySelector('[data-twh-jade]').__jade`（`spot(key)`、`gl()`、`render()`）。來自墓葬的文物：課文照實說明並請學生帶著敬意；頁面上不放任何人骨影像。
+  - 小遊戲「這是哪一個時代的東西？」沿用 `initSort`（`sort` 多了 `ask_*`、`nudge_*`、`aria` 三個可選欄位）。
+  - 四張卡 `data-lab-demo`：`oldest`、`pottery`、`village`、`iron`（跳到某個時間並選一個遺址，對照在 `lab.demo`）。除錯：`document.querySelector('[data-twhsites-lab]').__lab`（`setAgo(n)`、`ago()`、`select(key)`、`selected()`、`lit()`、`demo(...)`、`tl`、`proj`、`check()`）。
+  - 英文拼法依各機構：Peinan／Pinuyumayan（史前館、原民會）、Shihsanhang（十三行博物館自己的拼法），其餘用漢語拼音。
   - 截圖：`tools/astro/scripts/shot.mjs`（已改用 `headless-chrome`）。頁面有 `scroll-behavior: smooth`，截某一段之前先把 `document.documentElement.style.scrollBehavior = 'auto'`，並等模型開機後再捲（模型開機會改變頁面高度）。
 
 ## 世界歷史 World History（/resources/classes/world-history/）— 架構照地理與台灣歷史，共用的是「歷史地球儀」與「平行時間軸」

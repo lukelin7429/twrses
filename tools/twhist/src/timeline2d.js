@@ -17,7 +17,7 @@
  * 年代一律可以寫「距今幾年」（ago）或曆年（year，負數＝西元前）；換算在 timeline.js。
  * 位置用 CSS 變數 --p（0＝最古老、1＝現在）交給樣式表排，所以橫的、直的是同一份 DOM。
  *
- * api：setKind(k)、setView({ older, nearer })、reset()、zoom(倍數, 錨點)、fit(fromAgo, toAgo)、
+ * api：setSpans(spans)、setKind(k)、setView({ older, nearer })、reset()、zoom(倍數, 錨點)、fit(fromAgo, toAgo)、
  *      setCursor(ago | null, { en, zh })、setBand(fromAgo, toAgo)、select(i)、state()
  */
 import {
@@ -158,6 +158,7 @@ export function mountTimeline(root, cfg) {
     reset() { state.view = { ...limits(state.kind) }; draw(); },
     zoom(f, anchor = 0.5) { state.view = zoomView(state.kind, state.view, f, anchor, limits(state.kind)); draw(); },
     fit(a, b) { state.view = fitView(state.kind, a, b, limits(state.kind)); draw(); },
+    setSpans(spans) { cfg.spans = spans || []; draw(); },
     setCursor(ago, text) { state.cursor = ago === null ? null : { ago, ...(text || whenText(ago, now, true)) }; draw(); },
     setBand(a, b) { state.band = a === null ? null : { from: a, to: b }; draw(); },
     select(i, reveal) {

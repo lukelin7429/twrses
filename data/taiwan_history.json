@@ -62,6 +62,7 @@
     "events": [
       { "ago": 30000, "approx": true, "en": "The oldest culture found so far in Taiwan, the Changbin Culture, begins.", "zh": "目前在台灣發現最古老的文化——長濱文化——開始。", "src": "National Museum of Prehistory · 國立臺灣史前文化博物館" },
       { "ago": 5500, "approx": true, "en": "People who make pottery and polished stone tools: the Dapenkeng Culture, Taiwan’s earliest Neolithic culture.", "zh": "會做陶器和磨製石器的人：大坌坑文化，台灣最早的新石器時代文化。", "src": "National Museum of Prehistory · 國立臺灣史前文化博物館" },
+      { "ago": 3500, "approx": true, "en": "The Peinan settlement in the east grows large: planned rows of houses, slate coffins, jade.", "zh": "東部的卑南聚落變得很大：有規劃的成排家屋、石板棺、玉器。", "src": "National Museum of Prehistory · 國立臺灣史前文化博物館" },
       { "ago": 2500, "approx": true, "en": "The skill of making iron tools reaches Taiwan.", "zh": "製作鐵器的技術傳入台灣。", "src": "National Museum of Prehistory · 國立臺灣史前文化博物館" },
       { "year": 1603, "en": "Chen Di writes Dongfan ji, which the National Museum of Prehistory calls the earliest record of customs in Taiwan.", "zh": "陳第寫下《東番記》，國立臺灣史前文化博物館說它是最早關於台灣風俗的紀錄。", "src": "National Museum of Prehistory · 國立臺灣史前文化博物館" }
     ],
@@ -545,7 +546,7 @@
               "href": "/resources/classes/earth/how-fossils-form/" },
             { "icon": "🏺", "k_en": "Taiwan’s Story · Lesson 2", "k_zh": "台灣歷史・第二課", "en": "Who Lived in Taiwan Thousands of Years Ago?", "zh": "幾千年前，誰住在台灣？",
               "note_en": "From a made-up pit to real ones: several of Taiwan’s important prehistoric sites, and what was found there.", "note_zh": "從編出來的探坑走到真的探坑：台灣幾個重要的史前遺址，以及那裡出土了什麼。",
-              "soon": true }
+              "href": "/resources/classes/taiwan-history/who-lived-here/" }
           ],
           "sources_note_en": "Facts, dates, and quotations on this page were checked against these sources in October 2026. Quotations keep the spelling of the original. The test pit is an illustration and is not based on any single site",
           "sources_note_zh": "本頁的事實、年代與引文於 2026 年 10 月依下列資料查證；引文保留原文的拼法。探坑是示意圖，不是依據任何單一遺址繪製",
@@ -575,10 +576,527 @@
             { "en": "National Taiwan Museum (Zhongzheng District, Taipei City)", "zh": "國立臺灣博物館（臺北市中正區）", "src": "National Taiwan Museum · 國立臺灣博物館", "url": "https://www.ntm.gov.tw/" },
             { "en": "Chinese terms: 疊積定律／疊置定律 (law of superposition), 放射性碳定年法／碳十四定年法 (radiocarbon dating), 口述歷史, 一手資料／二手資料", "zh": "中文名詞：疊積定律／疊置定律、放射性碳定年法／碳十四定年法、口述歷史、一手資料／二手資料", "src": "國家教育研究院 樂詞網", "url": "https://terms.naer.edu.tw/" }
           ]
+        },
+        {
+          "n": 2,
+          "slug": "who-lived-here",
+          "title": "Who Lived in Taiwan Thousands of Years Ago?",
+          "title_zh": "幾千年前，誰住在台灣？",
+          "level": "入門 · Beginner",
+          "icon": "🏺",
+          "card": "sites",
+          "blurb_en": "Slide through 30,000 years on a map of eight real archaeological sites and watch them light up. Look closely at a jade earring more than 2,000 years old, and sort eight finds into the three ages of Taiwan’s prehistory.",
+          "blurb_zh": "在一張有八個真實考古遺址的地圖上，拖著滑桿走過三萬年，看它們一個一個亮起來。仔細看一件兩千多年前的玉耳飾，再把八樣出土物分到台灣史前的三個時代。",
+          "big_idea_en": "People lived in Taiwan for tens of thousands of years before anyone wrote about them. Archaeological sites show their lives changing: first hunters who chipped stone, then farmers who made pottery and jade, then people who smelted iron and traded across the sea. How these cultures are related to today’s Indigenous peoples is a question the evidence has not fully answered.",
+          "big_idea_zh": "還沒有人把他們寫下來之前，已經有人在台灣住了好幾萬年。考古遺址讓我們看見生活的改變：先是打製石器的獵人，然後是會做陶器和玉器的農人，再來是會煉鐵、渡海做交易的人。這些文化和今天的原住民族是什麼關係，證據還沒有完全回答。",
+          "lab": {
+            "kind": "sites",
+            "eyebrow": "Map · 地圖",
+            "title_en": "Eight Sites, Thirty Thousand Years",
+            "title_zh": "八個遺址，三萬年",
+            "how_en": "Drag the slider from 30,000 years ago toward the present. A site lights up when it has a layer from that time. Tap a numbered dot to open its card: where it is, what each layer is called and how old it is, and what was found there. The bar beside the card shows that site’s layers on a timeline.",
+            "how_zh": "把滑桿從 3 萬年前往現在拖。哪個遺址有那個時候的文化層，它就會亮起來。點有數字的圓點，打開那個遺址的卡片：它在哪裡、每一個文化層叫什麼、多古老，以及出土了什麼。卡片旁邊那一條，是把這個遺址的文化層畫在時間軸上。",
+            "older": 30000,
+            "nearest": 350,
+            "start": 30000,
+            "jumps": [
+              { "ago": 20000, "en": "20,000 years ago", "zh": "2 萬年前" },
+              { "ago": 5000, "en": "5,000 years ago", "zh": "5,000 年前" },
+              { "ago": 3000, "en": "3,000 years ago", "zh": "3,000 年前" },
+              { "ago": 1000, "en": "1,000 years ago", "zh": "1,000 年前" }
+            ],
+            "demo": { "oldest": "baxian", "pottery": "dapenkeng", "village": "peinan", "iron": "shihsanhang" },
+            "demo_say": {
+              "oldest_en": "20,000 years ago, only the Baxian Caves are lit. The people there chipped stone tools and made no pottery.", "oldest_zh": "2 萬年前，只有八仙洞亮著。那裡的人打製石器，還不會做陶器。",
+              "pottery_en": "5,000 years ago, five dots are lit. At four of them, in the north, the south, and the east, the layer from this time is the Dapenkeng Culture, with pottery and polished stone tools. The layer at the Baxian Caves is still without pottery.", "pottery_zh": "5,000 年前，有五個點亮著。其中四個（北部、南部、東部都有）這個時候的文化層是大坌坑文化，有陶器和磨製石器；八仙洞這個時候的地層還沒有陶器。",
+              "village_en": "3,000 years ago, the Peinan Culture in the east is at its height. Yuanshan in the north and Fengbitou in the south are lit too, along with two more sites.", "village_zh": "3,000 年前，東部的卑南文化正在最興盛的時候；北部的圓山、南部的鳳鼻頭也亮著，另外還有兩個遺址。",
+              "iron_en": "1,000 years ago, people at Shihsanhang are smelting iron. Qubing, high in the mountains, is lit as well.", "iron_zh": "1,000 年前，十三行的人在煉鐵；高山上的曲冰也亮著。"
+            },
+            "sites": [
+              {
+                "key": "baxian", "lon": 121.48, "lat": 23.40, "nudge": [26, -4],
+                "en": "Baxian Caves", "zh": "八仙洞考古遺址", "short_en": "Baxian Caves", "short_zh": "八仙洞",
+                "where_en": "Changbin Township, Taitung County", "where_zh": "臺東縣長濱鄉",
+                "tag_en": "Sea caves where hunters lived: the site that represents the Changbin Culture, the oldest culture found so far in Taiwan.", "tag_zh": "獵人住過的海蝕洞：長濱文化的代表遺址，也是目前在台灣發現最古老的文化。",
+                "layers": [
+                  { "en": "Paleolithic", "zh": "舊石器時代", "fromAgo": 30000, "toAgo": 15000, "rep": true },
+                  { "en": "Pre-ceramic", "zh": "先陶時代", "fromAgo": 6000, "toAgo": 4800 },
+                  { "en": "Middle Neolithic", "zh": "新石器時代中期", "fromAgo": 4700, "toAgo": 4500 },
+                  { "en": "Late Neolithic to early Metal Age", "zh": "新石器時代晚期至金屬器時代早期", "fromAgo": 3500, "toAgo": 2000 }
+                ],
+                "found_en": "Stone tools made by chipping, and fire pits. No pottery in the oldest layer.", "found_zh": "打製的石器和火塘。最古老的那一層沒有陶器。",
+                "src": "Bureau of Cultural Heritage · 文化資產局", "url": "https://nhsrc.boch.gov.tw/SiteDetail?id=20060501000007"
+              },
+              {
+                "key": "dapenkeng", "lon": 121.43, "lat": 25.13, "nudge": [-34, 30],
+                "en": "Dapenkeng Site", "zh": "大坌坑考古遺址", "short_en": "Dapenkeng", "short_zh": "大坌坑",
+                "where_en": "Bali District, New Taipei City", "where_zh": "新北市八里區",
+                "tag_en": "The site that gave its name to the Dapenkeng Culture, Taiwan’s earliest Neolithic and farming culture.", "tag_zh": "大坌坑文化的命名遺址。大坌坑文化是台灣最早的新石器時代文化及農耕文化。",
+                "layers": [
+                  { "en": "Dapenkeng Culture", "zh": "大坌坑文化", "fromAgo": 5500, "toAgo": 4500, "rep": true },
+                  { "en": "Xuntangpu Culture", "zh": "訊塘埔文化", "fromAgo": 4800, "toAgo": 3500 },
+                  { "en": "Yuanshan Culture", "zh": "圓山文化", "fromAgo": 3500, "toAgo": 2000 },
+                  { "en": "Botanical Garden Culture", "zh": "植物園文化", "fromAgo": 2500, "toAgo": 1800 },
+                  { "en": "Shihsanhang Culture", "zh": "十三行文化", "fromAgo": 1800, "toAgo": 350 }
+                ],
+                "found_en": "Remains of five cultures, the oldest of them Dapenkeng. They show that people lived at this place again and again over more than 5,000 years.", "found_zh": "五個文化的遺留，最早的是大坌坑文化。它們顯示，五千多年間，一再有人在這個地方生活。",
+                "src": "Bureau of Cultural Heritage · 文化資產局", "url": "https://nhsrc.boch.gov.tw/SiteDetail?id=20060501000004"
+              },
+              {
+                "key": "yuanshan", "lon": 121.52, "lat": 25.07, "nudge": [36, 22],
+                "en": "Yuanshan Site", "zh": "圓山考古遺址", "short_en": "Yuanshan", "short_zh": "圓山",
+                "where_en": "Zhongshan District, Taipei City", "where_zh": "臺北市中山區",
+                "tag_en": "Recorded by researchers in 1897, one of the first prehistoric sites studied in Taiwan, and famous for its shell mound.", "tag_zh": "1897 年由研究者記錄下來，是台灣早期發現的史前遺址之一，以貝塚聞名。",
+                "layers": [
+                  { "en": "Pre-ceramic", "zh": "先陶文化", "note_en": "no date given", "note_zh": "資料上沒有列年代" },
+                  { "en": "Dapenkeng Culture", "zh": "大坌坑文化", "fromAgo": 6000, "toAgo": 5000 },
+                  { "en": "Xuntangpu Culture", "zh": "訊塘埔文化", "fromAgo": 4500, "toAgo": 3500 },
+                  { "en": "Zhishanyan Culture", "zh": "芝山岩文化", "fromAgo": 3600, "toAgo": 3000 },
+                  { "en": "Yuanshan Culture", "zh": "圓山文化", "fromAgo": 3300, "toAgo": 2300, "rep": true },
+                  { "en": "Botanical Garden Culture", "zh": "植物園文化", "fromAgo": 2300, "toAgo": 1800 },
+                  { "en": "Late Shihsanhang Culture", "zh": "十三行文化晚期", "fromAgo": 1000, "toAgo": 350 }
+                ],
+                "found_en": "A mound of shells, animal bones, fish bones, broken pots, and stone tools: what people threw away after eating.", "found_zh": "一座由貝殼、獸骨、魚骨、陶片和石器堆成的小丘——人們吃完以後丟掉的東西。",
+                "src": "Bureau of Cultural Heritage · 文化資產局", "url": "https://nhsrc.boch.gov.tw/SiteDetail?id=20060501000002"
+              },
+              {
+                "key": "shihsanhang", "lon": 121.40, "lat": 25.16, "nudge": [-40, -6],
+                "en": "Shihsanhang Site", "zh": "十三行考古遺址", "short_en": "Shihsanhang", "short_zh": "十三行",
+                "where_en": "Bali District, New Taipei City", "where_zh": "新北市八里區",
+                "tag_en": "The earliest ironworking place known so far in northern Taiwan.", "tag_zh": "北台灣目前所知最早的煉鐵作坊。",
+                "layers": [
+                  { "en": "Shihsanhang Culture", "zh": "十三行文化", "fromAgo": 1800, "toAgo": 500, "rep": true }
+                ],
+                "found_en": "An iron-smelting furnace and a great deal of iron slag; pottery with geometric patterns; and glass, gold, and agate ornaments from outside the island, which show frequent trade.", "found_zh": "煉鐵爐和大量鐵渣；有幾何紋飾的陶器；還有玻璃、黃金、瑪瑙等來自島外的裝飾品，反映出頻繁的交易。",
+                "src": "Bureau of Cultural Heritage · 文化資產局", "url": "https://nhsrc.boch.gov.tw/SiteDetail?id=20060501000003"
+              },
+              {
+                "key": "qubing", "lon": 121.07, "lat": 23.93, "nudge": [0, 0],
+                "en": "Qubing Site", "zh": "曲冰考古遺址", "short_en": "Qubing", "short_zh": "曲冰",
+                "where_en": "Ren’ai Township, Nantou County", "where_zh": "南投縣仁愛鄉",
+                "tag_en": "A whole settlement on a river terrace high in the mountains, on the upper Zhuoshui River.", "tag_zh": "濁水溪上游河階上的一整個聚落，位在高山裡。",
+                "layers": [
+                  { "en": "Radiocarbon dates for the settlement", "zh": "聚落的碳十四年代", "fromAgo": 2700, "toAgo": 1000, "rep": true }
+                ],
+                "found_en": "More than 29,000 stone tools, most of them axes; over 80,000 pieces of pottery; the remains of houses; and 171 slate coffins.", "found_zh": "石器兩萬九千多件，多數是石斧；陶片八萬多片；房屋的殘跡；還有 171 座石板棺。",
+                "src": "Bureau of Cultural Heritage · 文化資產局", "url": "https://nhsrc.boch.gov.tw/SiteDetail?id=20190522000002"
+              },
+              {
+                "key": "wanshan", "lon": 120.75, "lat": 22.93, "nudge": [-30, -10],
+                "en": "Wanshan Rock Carvings", "zh": "萬山岩雕群考古遺址", "short_en": "Wanshan carvings", "short_zh": "萬山岩雕",
+                "where_en": "Maolin District, Kaohsiung City", "where_zh": "高雄市茂林區",
+                "tag_en": "Taiwan’s only large group of rock carvings, on boulders deep in the mountains.", "tag_zh": "國內唯一的大型岩雕群，刻在深山裡的大石頭上。",
+                "layers": [
+                  { "en": "Age not settled", "zh": "年代還不確定", "note_en": "one view: about 500 years; the exact age is hard to confirm", "note_zh": "有一說約距今 500 年，但詳細年代難以確認" }
+                ],
+                "unknown_en": "This dot never lights up, because nobody can yet say how old the carvings are. See Different Views below.", "unknown_zh": "這個圓點永遠不會亮，因為還沒有人能確定這些岩雕有多古老。見下面的「不同的說法」。",
+                "found_en": "Patterns carved into 14 rocks at four places, which the record calls works of Indigenous art. A researcher recorded the first two in 1978 and named them with the place names used by local Indigenous people; the fourth was recorded in 2002 with Rukai people leading the way.", "found_zh": "四個地點、14 塊岩石上的刻紋；文資局的資料稱它是原住民的藝術遺跡。最早的兩處在 1978 年由研究者記錄下來，並依照當地原住民賦予的地名來命名；第四處是 2002 年在魯凱族人帶領下記錄的。",
+                "src": "Bureau of Cultural Heritage · 文化資產局", "url": "https://nhsrc.boch.gov.tw/SiteDetail?id=20080822000001"
+              },
+              {
+                "key": "peinan", "lon": 121.12, "lat": 22.79, "nudge": [30, 6],
+                "en": "Peinan Site", "zh": "卑南考古遺址", "short_en": "Peinan", "short_zh": "卑南",
+                "where_en": "Taitung City, Taitung County", "where_zh": "臺東縣臺東市",
+                "tag_en": "The largest prehistoric settlement with a clear layout found so far in Taiwan, and its rows of slate coffins.", "tag_zh": "目前台灣發現格局最清楚的史前聚落中最大的一個，還有成群的石板棺。",
+                "layers": [
+                  { "en": "Dapenkeng Culture", "zh": "大坌坑文化", "fromAgo": 5300, "toAgo": 4200 },
+                  { "en": "Fushan Culture", "zh": "富山文化", "fromAgo": 4200, "toAgo": 3500 },
+                  { "en": "Peinan Culture", "zh": "卑南文化", "fromAgo": 3500, "toAgo": 2300, "rep": true },
+                  { "en": "Sanhe Culture", "zh": "三和文化", "fromAgo": 2300, "toAgo": 1900 }
+                ],
+                "found_en": "Houses set out in rows; slate coffins (more than 1,500 in the Bureau’s record, more than 2,000 by the museum’s count); pottery; and finely made jade ornaments, among them the earring shown in this lesson.", "found_zh": "成排的家屋；石板棺（文資局的資料寫一千五百多具，史前館說超過兩千具）；陶器；以及精緻的玉器——這一課那件玉耳飾就是其中之一。",
+                "src": "Bureau of Cultural Heritage · 文化資產局", "url": "https://nhsrc.boch.gov.tw/SiteDetail?id=20060501000006"
+              },
+              {
+                "key": "fengbitou", "lon": 120.39, "lat": 22.50, "nudge": [-30, 14],
+                "en": "Fengbitou (Zhongkengmen) Site", "zh": "鳳鼻頭（中坑門）考古遺址", "short_en": "Fengbitou", "short_zh": "鳳鼻頭",
+                "where_en": "Linyuan District, Kaohsiung City", "where_zh": "高雄市林園區",
+                "tag_en": "Three cultures stacked one above another: the site where the order of prehistoric cultures in the south was first worked out.", "tag_zh": "三個文化一層疊一層：最早在這裡建立起南部史前文化的先後順序。",
+                "layers": [
+                  { "en": "Dapenkeng Culture", "zh": "大坌坑文化", "fromAgo": 5200, "toAgo": 4350 },
+                  { "en": "Niuchouzi Culture (Fengbitou type)", "zh": "牛稠子文化鳳鼻頭類型", "fromAgo": 4350, "toAgo": 3350 },
+                  { "en": "Fengbitou Culture", "zh": "鳳鼻頭文化", "fromAgo": 3350, "toAgo": 2450, "rep": true }
+                ],
+                "found_en": "Thick layers of pottery from three cultures, lying in order. It is Lesson 1’s rule at work in a real place: the deeper layer is the older one.", "found_zh": "三個文化的陶器，厚厚地依序疊著。這就是第一課那條規則在真實地點的樣子：越下面的地層越古老。",
+                "src": "Bureau of Cultural Heritage · 文化資產局", "url": "https://nhsrc.boch.gov.tw/SiteDetail?id=20060501000005"
+              }
+            ],
+            "legend": [
+              { "cls": "twhlit", "en": "Lit: the site has a layer from the time on the slider", "zh": "亮著：這個遺址有滑桿那個時候的文化層" },
+              { "cls": "twhdim", "en": "Dim: no dated layer from that time at this site", "zh": "暗著：這個遺址沒有那個時候的、有年代的文化層" },
+              { "cls": "twhunk", "en": "Dashed ring: age not settled", "zh": "虛線圈：年代還不確定" }
+            ],
+            "scale_en": "The map shows only the coastline (Natural Earth, public domain) and eight of the 13 National Archaeological Sites listed by the Bureau of Cultural Heritage in October 2026. Each dot marks the district or township the Bureau gives, not the exact place; some dots are moved aside with a short line so they do not overlap. All layer names and ages are the Bureau’s, with one exception: its Qubing page lists no layers yet, so Qubing’s span here is the radiocarbon range given in that page’s account of the excavation. The other five national sites are not shown here; one of them lies outside this map.",
+            "scale_zh": "地圖只畫海岸線（Natural Earth，公有領域），以及文化資產局 2026 年 10 月列出的 13 處國定考古遺址當中的 8 處。每個圓點標的是文資局資料上的鄉鎮市區，不是確切的地點；有些圓點為了不重疊，用一條短線往旁邊拉開。文化層的名稱與年代全部照文資局的資料，只有一個例外：曲冰的頁面還沒有列文化層，所以這裡用的是那一頁發掘經過裡寫的碳十四年代範圍。另外五處國定遺址這一課沒有畫進來；其中一處的位置在這張地圖之外。",
+            "credit_html": "Map and code by My Culture Connect. Coastline: Natural Earth 1:10m Land 5.1.2, public domain (processing script in <code>tools/twhist/scripts/build-coast.mjs</code>). No boundaries of any kind are drawn. 地圖與程式由人師教育協會製作；海岸線為公有領域資料，圖上不畫任何界線。"
+          },
+          "paras": [
+            "In what is now a park in Taipei, archaeologists found mounds made mostly of shells. About three thousand years ago, people who lived here ate shellfish and threw the shells away in the same place. Animal bones, fish bones, broken pots, and worn-out stone tools went onto the pile too. It was their trash heap, and more than that: they also buried their dead in it. It is called the Yuanshan shell mound. Building work has destroyed most of it, but it is still one of the most important sites in northern Taiwan. Nobody wrote a word about these people, yet what they left tells us what they ate and what they made.",
+            "Archaeologists divide Taiwan’s long prehistory into three ages, named for what people made their tools from. In the Paleolithic, or Old Stone Age, people made stone tools only by chipping, and they did not make pottery. In the Neolithic, or New Stone Age, people ground and polished their stone tools, made pottery, and began to farm. In the Iron Age, people learned to make iron. These ages did not begin on one day. They are names that archaeologists use to put thousands of finds in order.",
+            "The oldest culture found so far is the Changbin Culture. At the Baxian Caves on the east coast, people lived in caves beside the sea. They hunted and gathered their food, and they left stone tools and the remains of fires. Then, about 6,000 to 5,000 years ago, according to the National Museum of Prehistory, another group of people arrived by sea from the southeast coast of the Asian mainland. They brought pottery and polished stone tools, and they had some knowledge of farming. Many scholars think so, the museum adds, although no boats from that time have been found. Archaeologists call their culture Dapenkeng, after a site in what is now New Taipei City.",
+            "By about 3,500 years ago, some villages had grown large. At the Peinan Site in Taitung, houses stood in planned rows. Archaeologists have found a great many coffins there, made of flat slabs of slate: more than 2,000 by the museum’s count. Some of the dead were buried with pots and with jade ornaments. The museum says the people of Peinan got their jade from more than 100 kilometers away. One small jade earring from a Peinan coffin, carved with two people and an animal, is now a National Treasure.",
+            "About 2,500 years ago, the skill of making iron reached Taiwan. At the Shihsanhang Site, near the north coast, which dates from about 1,800 years ago, archaeologists found a furnace and a great deal of iron slag, the waste left over from smelting. They also found glass, gold, and agate ornaments that came from outside the island, a sign of frequent trade. People did not live only near the sea. At Qubing, high in the mountains of Nantou, radiocarbon dates show that people were living there between about 1,000 and more than 2,700 years ago.",
+            "So who were all these people? That is harder to answer than it sounds. Pots and tools do not tell us what language people spoke or what they called themselves. The National Museum of Prehistory says there is no direct evidence that the Peinan Culture was handed down to the Pinuyumayan people of today. For some Iron Age cultures, it says only that they may be related to Indigenous cultures. A careful historian says “may be” here, and keeps looking. Lesson 3 follows this question further."
+          ],
+          "paras_zh": [
+            "在今天臺北的一座公園裡，考古學家找到主要由貝殼堆成的小丘。大約三千年前，住在這裡的人吃貝類，吃完就把殼丟在同一個地方。獸骨、魚骨、破掉的陶罐、用壞的石器，也都丟到這一堆上面。這是他們的垃圾堆，但不只是垃圾堆：他們也把過世的人葬在裡面。它叫做圓山貝塚。後來的工程破壞了它的大部分，但它仍然是台灣北部最重要的遺址之一。沒有人為這些人寫下一個字，但他們留下的東西告訴我們，他們吃什麼、做了什麼東西。",
+            "考古學家把台灣漫長的史前時代分成三個時代，名字來自人們用什麼材料做工具。舊石器時代，人只會用打製的方式做石器，還不會做陶器。新石器時代，人把石器磨光、會做陶器，也開始耕種。鐵器時代，人學會了製作鐵器。這些時代不是在某一天開始的；它們是考古學家用來替成千上萬件出土物排順序的名稱。",
+            "目前發現最古老的文化是長濱文化。在東海岸的八仙洞，人們住在海邊的山洞裡，靠打獵和採集過活，留下了石器和用火的痕跡。後來，依國立臺灣史前文化博物館的說明，大約 6,000 到 5,000 年前，另一群人從亞洲大陸東南沿海渡海而來。他們帶來陶器和磨製石器，對農作也有一定的知識。博物館補充：許多學者這樣認為，不過目前還沒有發現那個時代的船。考古學家把他們的文化叫做大坌坑文化——名字來自今天新北市的一個遺址。",
+            "到了大約 3,500 年前，有些聚落已經變得很大。在臺東的卑南遺址，家屋排列得有規劃。考古學家在那裡找到非常多用石板做成的棺——照博物館的說法，超過兩千具。有些人下葬的時候，身邊放著陶罐和玉做的裝飾品。博物館說，卑南的人是從 100 多公里外取得玉材的。卑南的一具石板棺裡，有一件小小的玉耳飾，雕著兩個人和一隻獸，現在是國寶。",
+            "大約 2,500 年前，製作鐵器的技術傳入台灣。在靠近北海岸的十三行遺址（年代從大約 1,800 年前開始），考古學家找到煉鐵爐和大量的鐵渣（煉鐵剩下的廢料），也找到來自島外的玻璃、黃金和瑪瑙裝飾品——這是頻繁交易的痕跡。人不是只住在海邊。在南投高山裡的曲冰，碳十四年代顯示，一千年到兩千七百多年前，就有人住在那裡。",
+            "那麼，這些人是誰？這個問題比聽起來難回答。陶罐和工具不會告訴我們，這些人說什麼語言、怎麼稱呼自己。國立臺灣史前文化博物館說，沒有直接證據顯示考古遺址所見的卑南文化和今天的卑南族文化之間有傳承關係；對於鐵器時代的一些文化，博物館也只說「可能」與原住民的文化有所關聯。謹慎的歷史學家在這裡會說「可能」，然後繼續找證據。第三課會接著談這個問題。"
+          ],
+          "questions": [
+            "What are the three ages of Taiwan’s prehistory, and what is the main difference between them?",
+            "What did archaeologists find at the Shihsanhang Site that shows people there traded with others far away?",
+            "Why is it hard to say which of today’s peoples are descended from the people of an ancient site?"
+          ],
+          "answers": [
+            "The Paleolithic (chipped stone tools, no pottery), the Neolithic (polished stone tools, pottery, and farming), and the Iron Age (iron tools). The difference is in what people made and how they made it.",
+            "Glass, gold, and agate ornaments that came from outside the island, along with a furnace and iron slag that show they smelted iron themselves.",
+            "Because pots and tools do not tell us what language people spoke or what they called themselves. Museums say “no direct evidence” or “may be related,” so the question is still open."
+          ],
+          "vocab": [
+            { "n": 1, "w": "site", "pos": "n.", "zh": "遺址", "ex": "The Peinan <b>site</b> is in Taitung City.", "exzh": "卑南遺址在臺東市。" },
+            { "n": 2, "w": "excavate", "pos": "v.", "zh": "發掘", "ex": "Archaeologists <b>excavate</b> slowly and record everything.", "exzh": "考古學家發掘得很慢，而且把每一樣東西都記錄下來。" },
+            { "n": 3, "w": "settlement", "pos": "n.", "zh": "聚落", "ex": "The <b>settlement</b> had houses set out in rows.", "exzh": "這個聚落的家屋排成一排一排的。" },
+            { "n": 4, "w": "pottery", "pos": "n.", "zh": "陶器", "ex": "The oldest layer has no <b>pottery</b> at all.", "exzh": "最古老的那一層完全沒有陶器。" },
+            { "n": 5, "w": "jade", "pos": "n.", "zh": "玉", "ex": "The earring is carved from green <b>jade</b>.", "exzh": "這件耳飾是用綠色的玉雕成的。" },
+            { "n": 6, "w": "burial", "pos": "n.", "zh": "墓葬", "ex": "At Peinan, a <b>burial</b> was a coffin made of slate slabs.", "exzh": "在卑南，墓葬是一具用石板做成的棺。" },
+            { "n": 7, "w": "smelt", "pos": "v.", "zh": "冶煉；煉（鐵）", "ex": "They knew how to <b>smelt</b> iron in a furnace.", "exzh": "他們懂得用爐子煉鐵。" },
+            { "n": 8, "w": "trade", "pos": "n. / v.", "zh": "交易；貿易", "ex": "Glass beads are a sign of <b>trade</b> with other places.", "exzh": "玻璃珠是和別的地方交易的痕跡。" }
+          ],
+          "quiz": [
+            { "q": "Which age has stone tools made only by chipping, and no pottery?", "options": ["The Iron Age", "The Neolithic", "The Paleolithic", "The age of written records"], "correct": 2 },
+            { "q": "What is the Yuanshan shell mound?", "options": ["A mound of shells and other things people threw away long ago, where they also buried their dead", "A temple built of shells", "A natural hill made by the sea", "A modern landfill"], "correct": 0 },
+            { "q": "What were the coffins at the Peinan Site made of?", "options": ["Wood", "Iron", "Clay", "Slabs of slate"], "correct": 3 },
+            { "q": "What does iron slag at a site tell archaeologists?", "options": ["People there ate shellfish", "People there smelted iron", "People there could write", "The site is from the Paleolithic"], "correct": 1 },
+            { "q": "What does the museum say about the Peinan Culture and the Pinuyumayan people of today?", "options": ["They are certainly the same people", "They are certainly different people", "There is no direct evidence of a handed-down link", "Nobody has ever asked the question"], "correct": 2 }
+          ],
+          "parts_head": { "eyebrow": "Try It on the Map · 在地圖上試試", "en": "Four moments in time", "zh": "四個時間點" },
+          "parts": [
+            { "key": "oldest", "icon": "🔥", "en": "Hunters in sea caves", "zh": "海邊山洞裡的獵人", "meta_en": "20,000 years ago", "meta_zh": "2 萬年前", "demo": "oldest",
+              "text_en": "Only one dot is lit. The people of the Baxian Caves chipped their stone tools and made fires, but made no pottery.", "text_zh": "只有一個點亮著。八仙洞的人打製石器、會用火，但不做陶器。" },
+            { "key": "pottery", "icon": "🏺", "en": "The first potters", "zh": "最早做陶器的人", "meta_en": "5,000 years ago", "meta_zh": "5,000 年前", "demo": "pottery",
+              "text_en": "Dots are lit in the north, the south, and the east. At four of them, Dapenkeng, Yuanshan, Fengbitou, and Peinan, the layer from this time belongs to one culture: Dapenkeng.", "text_zh": "北部、南部、東部都有點亮著。其中四個——大坌坑、圓山、鳳鼻頭、卑南——這個時候的文化層屬於同一個文化：大坌坑文化。" },
+            { "key": "village", "icon": "🏘️", "en": "A large village", "zh": "一個大聚落", "meta_en": "3,000 years ago", "meta_zh": "3,000 年前", "demo": "village",
+              "text_en": "The Peinan settlement is at its height: planned rows of houses, slate coffins, and jade brought from far away.", "text_zh": "卑南聚落正在最興盛的時候：有規劃的成排家屋、石板棺，還有從遠方帶來的玉。" },
+            { "key": "iron", "icon": "⚒️", "en": "Iron and trade", "zh": "鐵與交易", "meta_en": "1,000 years ago", "meta_zh": "1,000 年前", "demo": "iron",
+              "text_en": "At Shihsanhang people smelt iron and wear ornaments from across the sea. Look inland too: Qubing, in the mountains, is lit.", "text_zh": "十三行的人在煉鐵，也戴著渡海而來的裝飾品。也看看內陸：山裡的曲冰亮著。" }
+          ],
+          "parts_note_en": "Now move the slider slowly to about 10,000 years ago. Every dot is dark. Read the message under the slider before you decide what that means. The Bureau’s list for the Baxian Caves has no dated layer between 15,000 and 6,000 years ago, while the museum says the Changbin Culture went on until about 5,000 years ago.",
+          "parts_note_zh": "現在把滑桿慢慢拖到大約 1 萬年前。所有的點都暗了。先讀一讀滑桿下面那段話，再判斷這代表什麼。文資局替八仙洞列的文化層，在 1 萬 5,000 年前到 6,000 年前之間沒有資料；史前館則說長濱文化一直延續到距今 5,000 年前左右。",
+          "jade": {
+            "eyebrow": "Look at One Object · 看一件文物",
+            "en": "A Jade Earring with Two People and an Animal",
+            "zh": "人獸形玉玦",
+            "lead_en": "This earring was found in a slate coffin at the Peinan Site. It is 7 centimeters tall, about the length of a finger. Turn the sketch, then tap the four numbers.",
+            "lead_zh": "這件耳飾出土於卑南遺址的一具石板棺。它高 7 公分，大約一根手指那麼長。轉一轉這個示意圖，再點那四個數字。",
+            "aria": "Simplified 3D sketch of a flat jade earring: two people standing side by side with an animal on their heads, beside a seven-centimeter scale bar · 一件扁平玉耳飾的簡化 3D 示意：兩個人並肩站立，頭上頂著一隻獸，旁邊是七公分的比例尺",
+            "badge": "A simplified sketch, not a scan · 簡化的示意圖，不是掃描",
+            "facts": [
+              { "k_en": "Name", "k_zh": "名稱", "en": "Jade earring in the shape of people and an animal", "zh": "人獸形玉玦" },
+              { "k_en": "Museum number", "k_zh": "典藏號碼", "en": "20121600001, a National Treasure", "zh": "20121600001，國寶" },
+              { "k_en": "Age", "k_zh": "時代", "en": "Neolithic, Peinan Culture, 3,500 to 2,300 years ago", "zh": "新石器時代卑南文化，距今 3,500 到 2,300 年" },
+              { "k_en": "Material and size", "k_zh": "材質與尺寸", "en": "Taiwan jade; 70 mm tall, 40 mm wide, 4.5 mm thick; 15.7 g", "zh": "臺灣玉；高 70 mm、寬 40 mm、厚 4.5 mm；重 15.7 g" }
+            ],
+            "spots": [
+              { "key": "people", "en": "Two people", "zh": "兩個人", "text_en": "Two people stand side by side in the same pose: hands on their hips, feet apart. Scholars read the scene in two ways, the museum says. Some see two hunters showing a prized catch. Others see an animal turning into people, like Indigenous stories of ancestors who were animal spirits.", "text_zh": "兩個人並肩站立，姿勢相同：雙手叉腰、雙腳張開。博物館說，學者對這個畫面有兩種讀法：有人認為是兩個打獵的人在展示珍貴的獵物；也有人認為像是獸幻化出人，象徵原住民族起源於動物祖靈的傳說。" },
+              { "key": "beast", "en": "The animal on top", "zh": "頭上的獸", "text_en": "An animal seen from the side stands on their heads. It has upright ears, an open mouth, an arched back, and a tail that curls upward. The museum says it looks like a clouded leopard or another cat.", "text_zh": "一隻側身的獸站在他們頭上：豎立的耳朵、張開的嘴、拱起的背、向上翹的尾巴。博物館說牠像一隻雲豹或貓科動物。" },
+              { "key": "mend", "en": "A crack and two holes", "zh": "一條斷痕和兩個孔", "text_en": "The animal’s body once broke. Someone drilled a small hole on each side of the crack to mend it and went on using it. The museum reads this as a sign that the earring was treasured.", "text_zh": "獸的身體曾經斷掉。有人在斷痕兩邊各鑽了一個小孔，修補以後繼續使用。博物館認為，這顯示這件玉器受到古人愛惜。" },
+              { "key": "size", "en": "Seven centimeters", "zh": "七公分", "text_en": "Each block on the bar is 1 centimeter. The whole earring is thinner than a pencil: 4.5 millimeters. Carving openings this small in hard jade took great skill.", "text_zh": "比例尺上每一格是 1 公分。整件耳飾比鉛筆還薄：4.5 公釐。在堅硬的玉上鏤出這麼小的空隙，需要很高的手藝。" }
+            ],
+            "src": "National Museum of Prehistory, National Treasures and Significant Antiquities · 史前館 國寶與重要古物", "url": "https://www.nmp.gov.tw/News_Content2.aspx?n=2028&sms=11979&s=93203",
+            "note_en": "This is a simplified sketch drawn by My Culture Connect from the museum’s measurements and its description. It is not a copy of the real object, and the proportions are only approximate. The real earring is on display at the National Museum of Prehistory in Taitung. The museum’s record dates it to 3,500 to 2,300 years ago; its audio guide says it is about two thousand-odd years old. It came from a burial, the grave of a man, so it deserves to be looked at with respect.",
+            "note_zh": "這是人師教育協會依博物館的尺寸與描述畫的簡化示意圖，不是實物的複製，比例只是大概。真正的玉玦在臺東的國立臺灣史前文化博物館展出。館藏資料寫的年代是距今 3,500 到 2,300 年；語音導覽說它「大約有兩千多年的歷史」。它來自一座墓葬——一位男性的石板棺——所以值得我們帶著敬意去看。"
+          },
+          "when": {
+            "eyebrow": "On the Timeline · 在時間軸上",
+            "en": "Where this lesson sits",
+            "zh": "這一課講的是哪裡",
+            "lead_en": "This lesson covers the long stretch from the oldest culture found so far to the last few centuries before written records.",
+            "lead_zh": "這一課講的是很長的一段：從目前發現最古老的文化，一直到有文字記錄之前的最後幾百年。",
+            "focus": { "fromAgo": 30000, "toAgo": 423, "en": "This lesson: before the written records we have", "zh": "這一課：現有的文字記錄以前" },
+            "note_en": "Zoom in on the last 6,000 years with the + button. Pottery, jade, and iron all arrive inside that small part of the line; before it, the sites show only chipped stone tools.",
+            "note_zh": "用「+」把最後 6,000 年放大來看。陶器、玉器、鐵器都出現在這條線的那一小段裡；在那之前，遺址裡只有打製的石器。"
+          },
+          "sort": {
+            "eyebrow": "Game · 小遊戲",
+            "en": "Which Age Is It From?",
+            "zh": "這是哪一個時代的東西？",
+            "lead_en": "Eight finds, one at a time. Use the rule from the reading: no pottery, pottery and polished stone, or iron and glass. There is no timer; the game only counts how many you place correctly on the first try.",
+            "lead_zh": "八樣出土物，一次出現一樣。用課文裡的規則來判斷：沒有陶器、有陶器和磨製石器，還是有鐵器和玻璃。這裡不計時；遊戲只記下你第一次就分對幾樣。",
+            "ask_en": "Which age is it from?", "ask_zh": "這是哪一個時代的東西？",
+            "nudge_en": "Not that one. Ask: is there pottery or polished stone? Is there iron or glass?", "nudge_zh": "不是這一個。想一想：有沒有陶器或磨製的石器？有沒有鐵或玻璃？",
+            "aria": "Choose the age · 選出是哪一個時代",
+            "bins": [
+              { "key": "paleo", "icon": "🪨", "en": "Paleolithic", "zh": "舊石器時代", "hint_en": "chipped stone, no pottery", "hint_zh": "打製石器，沒有陶器" },
+              { "key": "neo", "icon": "🏺", "en": "Neolithic", "zh": "新石器時代", "hint_en": "pottery and polished stone", "hint_zh": "陶器與磨製石器" },
+              { "key": "iron", "icon": "⚒️", "en": "Iron Age", "zh": "鐵器時代", "hint_en": "iron, glass, trade goods", "hint_zh": "鐵器、玻璃、交易來的東西" }
+            ],
+            "items": [
+              { "key": "chopper", "icon": "🪨", "en": "A stone tool made only by chipping", "zh": "一件只用打製做成的石器", "bin": "paleo", "why_en": "In the Paleolithic all stone tools were made by chipping. Nobody ground them smooth yet.", "why_zh": "舊石器時代的石器完全以打製的方式製作，還沒有人把石器磨光。" },
+              { "key": "hearth", "icon": "🔥", "en": "A fire pit in a sea cave, with no pottery nearby", "zh": "海邊山洞裡的火塘，附近沒有陶器", "bin": "paleo", "why_en": "Changbin Culture sites are mostly caves and rock shelters, with fire pits and no pottery.", "why_zh": "長濱文化的遺址大多是岩蔭或洞穴，有火塘，沒有陶器。" },
+              { "key": "cord", "icon": "🏺", "en": "A pot marked with cord", "zh": "一個繩紋陶罐", "bin": "neo", "why_en": "Cord-marked pottery is the mark of the Dapenkeng Culture, Taiwan’s earliest Neolithic culture.", "why_zh": "繩紋陶是大坌坑文化的主要特色；大坌坑文化是台灣最早的新石器時代文化。" },
+              { "key": "adze", "icon": "⛏️", "en": "A polished stone tool", "zh": "一件磨製石器", "bin": "neo", "why_en": "Grinding and polishing stone is what makes the New Stone Age “new.”", "why_zh": "把石器磨光，正是「新」石器時代新的地方。" },
+              { "key": "jade", "icon": "💚", "en": "A jade earring from a slate coffin", "zh": "石板棺裡的玉耳飾", "bin": "neo", "why_en": "Jade ornaments like this belong to the Peinan Culture, in the later part of the Neolithic.", "why_zh": "這樣的玉飾屬於卑南文化，在新石器時代比較晚的階段。" },
+              { "key": "shell", "icon": "🐚", "en": "A shell mound with polished stone axes in it", "zh": "一座貝塚，裡面有磨製的石斧", "bin": "neo", "why_en": "The Yuanshan shell mound holds polished stone tools and pottery: Neolithic.", "why_zh": "圓山貝塚裡有磨製石器和陶器：新石器時代。" },
+              { "key": "slag", "icon": "⚒️", "en": "A furnace and iron slag", "zh": "煉鐵爐和鐵渣", "bin": "iron", "why_en": "Slag is the waste from smelting. It shows that people made iron on the spot.", "why_zh": "鐵渣是煉鐵剩下的廢料，說明當時的人就在這裡煉鐵。" },
+              { "key": "glass", "icon": "📿", "en": "Glass and agate beads from across the sea", "zh": "渡海而來的玻璃珠和瑪瑙珠", "bin": "iron", "why_en": "Glass and agate ornaments appear with iron, and they show trade with places outside the island.", "why_zh": "玻璃和瑪瑙的裝飾品和鐵器一起出現，也顯示了和島外的交易。" }
+            ],
+            "done_en": "Two from the Paleolithic, four from the Neolithic, two from the Iron Age. Real digging is harder: an archaeologist rarely has one clear object, and has to weigh everything in a layer together.",
+            "done_zh": "兩樣舊石器時代、四樣新石器時代、兩樣鐵器時代。真正的考古比這難：考古學家很少只憑一樣清楚的東西下判斷，而是要把一層裡所有的東西放在一起看。",
+            "note_en": "The three ages follow the National Museum of Prehistory, which calls the last one the Iron Age. The Bureau of Cultural Heritage calls it the Metal Age. Both names are in use. The museum also describes a “pre-ceramic” stage, when some groups still lived by hunting and gathering, with chipped stone tools, as late as 6,000 years ago; this game leaves that stage out.",
+            "note_zh": "三個時代的分法依國立臺灣史前文化博物館，最後一個時代稱為「鐵器時代」；文化資產局稱為「金屬器時代」。兩種說法都有人用。史前館另外提到「先陶文化」：到距今 6,000 年前，島內局部地區仍有人以狩獵、採集維生，並以打製石器為工具；這個遊戲沒有把它分出來。"
+          },
+          "how_we_know": {
+            "eyebrow": "How Do We Know? · 我們怎麼知道？",
+            "en": "The evidence behind this lesson",
+            "zh": "這一課依據的證據",
+            "lead_en": "Everything on the map comes from public records that you can open yourself.",
+            "lead_zh": "地圖上的每一樣資料，都來自你自己打得開的公開紀錄。",
+            "items": [
+              {
+                "icon": "📍", "kind_en": "Sites", "kind_zh": "遺址",
+                "en": "The National Archaeological Sites", "zh": "國定考古遺址",
+                "text_en": "The names, locations, layers, and ages of the eight sites come from the Bureau of Cultural Heritage, which lists 13 National Archaeological Sites as of October 2026.",
+                "text_zh": "八個遺址的名稱、所在地、文化層與年代，都來自文化資產局；2026 年 10 月，文資局列出的國定考古遺址共有 13 處。",
+                "where_en": "The sites themselves are protected places. Their records, with photographs of finds, are in the Bureau’s national database.",
+                "where_zh": "遺址本身是受保護的地方。它們的資料與出土遺物的照片，收在文資局的「國家考古遺址出土遺物典藏系統」。",
+                "src": "Bureau of Cultural Heritage, National Archaeological Sites · 文資局 國定考古遺址", "url": "https://nhsrc.boch.gov.tw/SiteSearch_1"
+              },
+              {
+                "icon": "💚", "kind_en": "An object", "kind_zh": "一件文物",
+                "en": "The jade earring from Peinan", "zh": "卑南的人獸形玉玦",
+                "text_en": "Museum number 20121600001. It was found in a slate coffin at the Peinan Site and was named a National Treasure in 2012, among the first excavated objects from Taiwan to be given that rank.",
+                "text_zh": "典藏號碼 20121600001。它出土於卑南遺址的石板棺，2012 年公告為國寶，是台灣本土第一批被指定為國寶的考古出土文物之一。",
+                "where_en": "National Museum of Prehistory, Taitung City, in the hall of Taiwan’s prehistory.",
+                "where_zh": "國立臺灣史前文化博物館（臺東市）的臺灣史前史廳。",
+                "src": "National Museum of Prehistory, audio guide on the jade earring · 史前館語音導覽〈國寶：人獸形玉玦〉", "url": "https://m.nmp.gov.tw/accessibility/TPH_15.html"
+              },
+              {
+                "icon": "📖", "kind_en": "A museum’s account", "kind_zh": "博物館的說明",
+                "en": "The three ages of Taiwan’s prehistory", "zh": "臺灣史前的三個時代",
+                "text_en": "The descriptions of the Paleolithic, the Neolithic, and the Iron Age, and of the Changbin, Dapenkeng, Yuanshan, Peinan, and Shihsanhang cultures, follow the museum’s three pages on Taiwan’s prehistory.",
+                "text_zh": "舊石器、新石器、鐵器三個時代，以及長濱、大坌坑、圓山、卑南、十三行各文化的描述，依史前館「臺灣的史前時代」的三頁說明。",
+                "where_k": "Where to read it · 去哪裡讀",
+                "where_en": "The museum’s online classroom, “Taiwan’s Prehistory.”",
+                "where_zh": "史前館「臺灣史前文化雲」的教室〈臺灣的史前時代〉。",
+                "src": "National Museum of Prehistory, “Neolithic” · 史前館〈新石器時代〉", "url": "https://icloud.nmp.gov.tw/Classroom/Prehistoric?a=75"
+              },
+              {
+                "icon": "🧪", "kind_en": "A method", "kind_zh": "方法",
+                "en": "Radiocarbon dates from Qubing", "zh": "曲冰的碳十四年代",
+                "text_en": "The Bureau’s record says radiocarbon dating shows that people lived at Qubing from about 1,000 to more than 2,700 years ago. Lesson 1 explains how this method works and why its answers are ranges.",
+                "text_zh": "文資局的資料說，經過碳十四測定的年代，曲冰人早在一千年至二千七百多年前即居此地。這個方法怎麼運作、答案為什麼是一個範圍，第一課說明過了。",
+                "where_k": "Where it is done · 在哪裡做",
+                "where_en": "In a laboratory. The site was excavated by an Academia Sinica project between 1981 and 1987.",
+                "where_zh": "在實驗室裡。這個遺址是中央研究院的研究計畫在民國 70 到 76 年間發掘的。",
+                "src": "Bureau of Cultural Heritage, Qubing site record · 文資局 曲冰考古遺址", "url": "https://nhsrc.boch.gov.tw/SiteDetail?id=20190522000002"
+              }
+            ]
+          },
+          "views": {
+            "eyebrow": "Different Views · 不同的說法",
+            "en": "Three questions that are still open",
+            "zh": "三個還沒有定論的問題",
+            "lead_en": "Each of these is an honest “we are not sure.” The accounts are set side by side, each with its source.",
+            "lead_zh": "下面每一題，都是老實的「我們還不確定」。說法並列，各自附上出處。",
+            "items": [
+              {
+                "topic_en": "How are these ancient cultures related to today’s Indigenous peoples?", "topic_zh": "這些古老的文化，和今天的原住民族是什麼關係？",
+                "sides": [
+                  { "label_en": "On the Peinan Culture", "label_zh": "關於卑南文化",
+                    "en": "No direct evidence shows that the Peinan Culture seen at archaeological sites was handed down to the present-day Pinuyumayan people.", "zh": "「考古遺址所見的卑南文化與現生原住民族群卑南族文化並沒有直接證據顯示兩者之間的傳承關係。」",
+                    "src": "National Museum of Prehistory, “Neolithic” · 史前館〈新石器時代〉", "url": "https://icloud.nmp.gov.tw/Classroom/Prehistoric?a=75" },
+                  { "label_en": "On Iron Age cultures", "label_zh": "關於鐵器時代的文化",
+                    "en": "The cultures of this period may be related to Indigenous cultures. Snake patterns on pottery and stone show a link between prehistoric and Indigenous cultures, and people often discuss whether they are connected with the origin of Paiwan culture. The same page infers that the Jingpu Culture was left by ancestors of the Amis, and says the Siraya were very likely closely related to the Niaosong Culture.", "zh": "「本時期的文化可能與原住民的文化有所關聯。」蛇紋的出現「展露史前文化與原住民文化的連結；常被討論是否為與排灣族文化的起源有關」；「推測靜浦文化是阿美族祖先所留下的文化」；「許多證據都顯示西拉雅族很可能就與蔦松文化有著密切關係」。",
+                    "src": "National Museum of Prehistory, “Iron Age” · 史前館〈鐵器時代〉", "url": "https://icloud.nmp.gov.tw/Classroom/Prehistoric?a=76" },
+                  { "label_en": "On the Dapenkeng Culture", "label_zh": "關於大坌坑文化",
+                    "en": "It may be the ancestral culture of the earliest speakers of Austronesian languages. The museum puts it this way: many scholars think it may be one of their earliest ancestors.", "zh": "大坌坑文化「可能是最早的南島語族的祖型文化」。史前館的說法是：「許多學者認為，大坌坑文化是從亞洲東南沿海移入的新文化，並可能是南島語族最早的祖先之一。」",
+                    "src": "Bureau of Cultural Heritage, Dapenkeng site record · 文資局 大坌坑考古遺址", "url": "https://nhsrc.boch.gov.tw/SiteDetail?id=20060501000004" }
+                ],
+                "note_en": "Notice the careful words: “no direct evidence,” “may be,” “people often discuss.” The later the culture, the more links the museum sees; for the older ones it is more cautious. This lesson does not go further than its sources. Each Indigenous people also has its own account of where it came from, and Lesson 3 will listen to those accounts.",
+                "note_zh": "注意這些小心的字眼：「沒有直接證據」「可能」「常被討論」。越晚的文化，博物館看到的連結越多；對比較早的文化，就比較保留。這一課不會說得比出處更多。每一個原住民族對自己的來歷也有自己的說法，第三課會聽這些說法。"
+              },
+              {
+                "topic_en": "When was the Dapenkeng Culture?", "topic_zh": "大坌坑文化是什麼時候？",
+                "sides": [
+                  { "label_en": "National Museum of Prehistory", "label_zh": "國立臺灣史前文化博物館",
+                    "en": "About 5,500 to 4,200 years ago. (The same page also says these people arrived about 6,000 to 5,000 years ago.)", "zh": "「時間大約在距今5,500到4,200年前之間」（同一頁另寫「約距今6,000至5,000年前」這群人來到台灣）。",
+                    "src": "National Museum of Prehistory, “Neolithic” · 史前館〈新石器時代〉", "url": "https://icloud.nmp.gov.tw/Classroom/Prehistoric?a=75" },
+                  { "label_en": "The Bureau’s record for Dapenkeng", "label_zh": "文資局：大坌坑遺址",
+                    "en": "About 5,500 to 4,500 years ago.", "zh": "「大坌坑文化層（距今約5,500∼4,500年前後）」。",
+                    "src": "Bureau of Cultural Heritage, Dapenkeng site record · 文資局 大坌坑考古遺址", "url": "https://nhsrc.boch.gov.tw/SiteDetail?id=20060501000004" },
+                  { "label_en": "The Bureau’s records for other sites", "label_zh": "文資局：其他遺址",
+                    "en": "At Yuanshan, about 6,000 to 5,000 years ago; at Peinan, 5,300 to 4,200; at Fengbitou, about 5,200 to 4,350.", "zh": "圓山：「距今約6,000∼5,000年前」；卑南：「距今5,300 ∼4,200年前」；鳳鼻頭：「距今約5,200∼4,350年前」。",
+                    "src": "Bureau of Cultural Heritage, Yuanshan site record · 文資局 圓山考古遺址", "url": "https://nhsrc.boch.gov.tw/SiteDetail?id=20060501000002" }
+                ],
+                "note_en": "Five sets of numbers for one culture, all from official pages. Part of the reason is simple: a culture does not start and stop at the same moment everywhere, and each site is dated from its own samples. That is why the map uses each site’s own numbers instead of one number for the whole island.",
+                "note_zh": "同一個文化，五組數字，全都來自官方的頁面。一部分的原因很單純：一個文化不會在每個地方同時開始、同時結束，而每個遺址的年代是用自己的樣本測出來的。所以地圖上用的是每個遺址自己的數字，而不是全島共用一個數字。"
+              },
+              {
+                "topic_en": "How old are the Wanshan rock carvings?", "topic_zh": "萬山岩雕有多古老？",
+                "sides": [
+                  { "label_en": "The researcher who recorded them", "label_zh": "記錄它們的研究者",
+                    "en": "Comparing the carvings with later wood carving and with changes in pattern and style, he estimated that they are about 500 to 1,600 years old.", "zh": "發現者「依照露天石刻早於原住民石板屋內木雕，參酌刻紋、圖騰風格變遷，推估岩雕約有500年到1600年歷史」。",
+                    "src": "Bureau of Cultural Heritage, Wanshan site record · 文資局 萬山岩雕群考古遺址", "url": "https://nhsrc.boch.gov.tw/SiteDetail?id=20080822000001" },
+                  { "label_en": "The same record, under “layers”", "label_zh": "同一份資料的「代表文化層」",
+                    "en": "One view is about 500 years, but the exact age is hard to confirm. The record guesses that the carvings are from the same time as one of two cultures, dated 2,000 to 400 and 2,500 to 1,000 years ago.", "zh": "「有一說約距今500年，但詳細年代難以確認，推測與東埔一鄰（2,000∼400年前）或北葉文化層（2,500∼1,000年前）同時期。」",
+                    "src": "Bureau of Cultural Heritage, Wanshan site record · 文資局 萬山岩雕群考古遺址", "url": "https://nhsrc.boch.gov.tw/SiteDetail?id=20080822000001" }
+                ],
+                "note_en": "Lesson 1 said that radiocarbon dating needs something that was once alive, and a line cut into rock is not. The estimate in the record is argued from style. On the map this site is drawn with a dashed ring and never lights up. Saying “we do not know yet” is also an answer.",
+                "note_zh": "第一課說過，碳十四定年需要「曾經活過的東西」。刻在石頭上的線條不是這樣的東西；資料裡的推估，是從風格去推論的。地圖上這個遺址畫成虛線圈，永遠不會亮。說「我們還不知道」，也是一種答案。"
+              }
+            ],
+            "rule_en": "The rule stays the same as in Lesson 1: views are set side by side, each with its source, and the lesson does not choose.",
+            "rule_zh": "規則和第一課一樣：說法並列、各附出處，課文不替誰選邊。"
+          },
+          "phrases": {
+            "eyebrow": "History English · 歷史英語",
+            "en": "Eight sentences for talking about a site",
+            "zh": "談一個遺址的八句英文",
+            "lead_en": "These are the sentences a museum label or a guide uses. Tap a speaker to hear each one, then try changing the part in bold.",
+            "lead_zh": "這些是博物館說明牌和導覽員會用的句子。點 🔊 聽每一句，再試著把粗體的部分換掉。",
+            "rows": [
+              { "en": "Archaeologists have found more than 1,500 slate coffins at the Peinan Site.", "html": "Archaeologists <b>have found</b> more than 1,500 slate coffins at the Peinan Site.", "zh": "考古學家在卑南遺址找到了一千五百多具石板棺。", "note_en": "have found: the finding is done, and the result still matters now.", "note_zh": "have found：已經找到了，而且結果到現在還有意義。" },
+              { "en": "This layer dates from about 3,500 to 2,300 years ago.", "html": "This layer <b>dates from</b> about 3,500 to 2,300 years ago.", "zh": "這一層的年代大約是 3,500 到 2,300 年前。", "note_en": "dates from: says how old something is.", "note_zh": "dates from：說一樣東西的年代。" },
+              { "en": "The culture is named after the site where it was first recognized.", "html": "The culture <b>is named after</b> the site where it was first recognized.", "zh": "這個文化是用最早認出它的那個遺址來命名的。", "note_en": "is named after: where a name comes from.", "note_zh": "is named after：說一個名字的由來。" },
+              { "en": "The jade was brought from more than 100 kilometers away.", "html": "The jade <b>was brought from</b> more than 100 kilometers away.", "zh": "這些玉是從 100 多公里外帶來的。", "note_en": "was brought from: we know it moved, even if we do not know who carried it.", "note_zh": "was brought from：知道它被帶過來，即使不知道是誰帶的。" },
+              { "en": "By about 1,800 years ago, people here were smelting iron.", "html": "<b>By about 1,800 years ago</b>, people here were smelting iron.", "zh": "到了大約 1,800 年前，這裡的人已經在煉鐵了。", "note_en": "by + time: at that time or earlier.", "note_zh": "by＋時間：最晚到那個時候，事情已經發生了。" },
+              { "en": "Some scholars think the two figures are hunters.", "html": "<b>Some scholars think</b> the two figures are hunters.", "zh": "有些學者認為，那兩個人是獵人。", "note_en": "Some scholars think …: one view, not everyone’s.", "note_zh": "Some scholars think …：這是一種看法，不是所有人的看法。" },
+              { "en": "There is no direct evidence that the two are linked.", "html": "<b>There is no direct evidence that</b> the two are linked.", "zh": "沒有直接證據顯示兩者有關聯。", "note_en": "no direct evidence: it has not been shown. It has not been ruled out either.", "note_zh": "no direct evidence：還沒有被證明；但也沒有被排除。" },
+              { "en": "We still do not know how old the carvings are.", "html": "<b>We still do not know</b> how old the carvings are.", "zh": "我們還不知道這些岩雕有多古老。", "note_en": "We still do not know …: an honest sentence, and a useful one.", "note_zh": "We still do not know …：一句老實、也很有用的話。" }
+            ]
+          },
+          "culture_cards": {
+            "eyebrow": "In Taiwan · 在台灣",
+            "title_en": "A trash heap, a journey of jade, a mountain village, and where to visit",
+            "title_zh": "一座垃圾山、玉走過的路、山裡的聚落，以及去哪裡看",
+            "lead_en": "Four short notes on what these sites show.",
+            "lead_zh": "四則短短的說明：這些遺址讓我們看見什麼。",
+            "cards": [
+              {
+                "k": "Yuanshan · 圓山",
+                "en": "The biggest prehistoric trash heap", "zh": "最大的史前垃圾山",
+                "body_en": "The Bureau of Cultural Heritage calls Yuanshan the place where the study of Taiwan’s archaeology began, and Taiwan’s largest prehistoric garbage hill. Researchers first recorded the site in 1897. The museum explains that the shell mound is a small hill built up mainly from food waste, with shells, animal bones, fish bones, pottery, and stone tools buried in it. Burials were found in the mound as well, and the Bureau’s record says that for the people of Yuanshan it was more than a place to pile trash: it must have had cultural and social meaning too.",
+                "body_zh": "文化資產局說圓山是「台灣考古學研究的濫觴、台灣最大的史前垃圾山」。這個遺址發現於 1897 年。史前館說明，圓山貝塚是以食餘為主的廢棄物所堆積起來的小丘，裡面埋藏大量的貝殼、獸骨、魚骨以及陶片、石器；貝塚中也發現了墓葬；文資局的資料說，貝塚對圓山文化人「不只是堆置垃圾之處，應當也是蘊涵了重要的文化與社會意義」。"
+              },
+              {
+                "k": "Jade · 玉",
+                "en": "Jade that traveled", "zh": "會旅行的玉",
+                "body_en": "The people of Peinan could get the material for their jade from more than 100 kilometers away, the museum says, and they made many kinds of fine ornaments and tools from it. The same style of earring, with people and an animal, has turned up at other sites in the north and the east.",
+                "body_zh": "史前館說，卑南的人能從 100 多公里外的地區取得玉器材料，製作各式各樣精美的裝飾品與工具。同一種人獸形的玉耳飾，在北部和東部的其他遺址也出土過。"
+              },
+              {
+                "k": "Qubing · 曲冰",
+                "en": "A village in the high mountains", "zh": "高山上的聚落",
+                "body_en": "At Qubing, on a river terrace in Nantou, an Academia Sinica project uncovered a whole settlement between 1981 and 1987: the remains of houses, 171 slate coffins, and tens of thousands of stone tools and pieces of pottery. The Bureau of Cultural Heritage’s record says the radiocarbon dates show people were living there from about 1,000 to more than 2,700 years ago. The finds do not tell us what these people called themselves.",
+                "body_zh": "在南投一處河階上的曲冰，中央研究院的研究計畫在民國 70 到 76 年間挖出一整個聚落：房屋的殘跡、171 座石板棺，以及數以萬計的石器與陶片。文化資產局的資料說，碳十四測定的年代顯示，一千年至二千七百多年前就有人住在這裡。出土的東西沒有告訴我們，這些人怎麼稱呼自己。"
+              },
+              {
+                "k": "Go and see · 親眼看",
+                "en": "Museums built beside the sites", "zh": "蓋在遺址旁邊的博物館",
+                "body_en": "The National Museum of Prehistory has three places to visit: its main museum in Taitung City, the Peinan Site Park, also in Taitung City, and the Museum of Archaeology in Tainan. In the north, the Shihsanhang Museum of Archaeology in Bali District, New Taipei City, stands beside the Shihsanhang Site. A site is not a place to dig for souvenirs. Whatever is taken out without being recorded loses its place in the layers, and with it most of what it could have told us.",
+                "body_zh": "國立臺灣史前文化博物館有三個地方可以參觀：臺東市的康樂本館、同樣在臺東市的卑南遺址公園，以及臺南的南科考古館。北部的新北市立十三行博物館在八里區，就在十三行遺址旁邊。遺址不是挖紀念品的地方：沒有經過記錄就拿走的東西，會失去它在地層裡的位置——它能告訴我們的事，也跟著失去大半。"
+              }
+            ]
+          },
+          "myths": [
+            { "myth_en": "Stone Age people lived simple, rough lives.", "myth_zh": "石器時代的人，過的是簡單粗糙的生活。",
+              "fact_en": "Between 3,500 and 2,300 years ago the people of Peinan planned their village in rows, carved jade a few millimeters thick, and mended a broken earring so they could go on wearing it.", "fact_zh": "距今 3,500 到 2,300 年前，卑南的人把聚落規劃成一排一排的，雕出只有幾公釐厚的玉器，耳飾斷了還修補起來繼續戴。" },
+            { "myth_en": "One group of people lived in Taiwan, unchanged, until writing began.", "myth_zh": "台灣一直住著同一群人，直到有文字為止都沒有變。",
+              "fact_en": "The sites show many cultures in different regions. The museum describes people arriving by sea, possibly more than once, and many changes over thousands of years.", "fact_zh": "遺址顯示不同的地區有許多不同的文化。博物館的說明裡，有人渡海而來（可能不只一批），幾千年間也有許多變化。" },
+            { "myth_en": "Scientists know exactly which of today’s peoples came from each ancient site.", "myth_zh": "科學家清楚知道，今天的哪一個族群是從哪一個古老的遺址來的。",
+              "fact_en": "Not exactly. For the Peinan Culture and the Pinuyumayan people, the museum says there is no direct evidence of a handed-down link. For some later cultures it sees a likely link, and it words each one with care.", "fact_zh": "沒有這麼確定。對卑南文化和卑南族，博物館說沒有直接證據顯示傳承關係；對一些比較晚的文化，博物館認為很可能有關聯，但每一句都說得很小心。" },
+            { "myth_en": "A dark dot on the map means nobody lived there at that time.", "myth_zh": "地圖上的點暗著，就表示那個時候那裡沒有人。",
+              "fact_en": "It means only that no dated layer from that time has been recorded at that site. People may have lived nearby, or their traces may not have been found yet.", "fact_zh": "它只表示那個遺址沒有登錄那個時候的、有年代的文化層。人可能住在附近，或者他們的痕跡還沒被找到。" }
+          ],
+          "tricks_head": { "en": "Four things to keep in your pocket", "zh": "四句帶著走的話" },
+          "tricks": [
+            { "title_en": "Chipped, polished, iron", "title_zh": "打製、磨製、鐵", "body_en": "Three ages in three words: Paleolithic, Neolithic, Iron Age.", "body_zh": "三個詞記三個時代：舊石器、新石器、鐵器。" },
+            { "title_en": "No pottery? Think older", "title_zh": "沒有陶器？往更早想", "body_en": "The oldest layers found so far in Taiwan have stone tools and fire, but no pots.", "body_zh": "目前在台灣找到最古老的地層，有石器和火，但沒有陶罐。" },
+            { "title_en": "A culture is named after a site", "title_zh": "文化用遺址來命名", "body_en": "Dapenkeng, Yuanshan, Peinan, Shihsanhang: each is a place first, then a name for a way of life.", "body_zh": "大坌坑、圓山、卑南、十三行：每一個都先是地名，然後才成了一種生活方式的名字。" },
+            { "title_en": "“May be” is a real answer", "title_zh": "「可能」也是一個答案", "body_en": "When the evidence is not enough, say so, and say what would settle it.", "body_zh": "證據不夠的時候就照實說，並且說出還需要什麼才能確定。" }
+          ],
+          "notes_head": { "eyebrow": "For Teachers · 給老師的提醒", "en": "Curriculum links, names, and care with sensitive points", "zh": "課綱對應、名稱，以及幾個需要小心的地方" },
+          "notes": [
+            { "en": "Curriculum links (12-Year Basic Education, social studies). Junior high history content: 歷 Ba-Ⅳ-1 (archaeological excavation and prehistoric cultures); the curriculum’s note suggests discussing a prehistoric site or Indigenous community near the school. Elementary stage 3: Cb-Ⅲ-2 (heritage left in Taiwan by prehistoric, Indigenous, and other cultures).", "zh": "課綱對應（十二年國教社會領域）。國中歷史學習內容：歷 Ba-Ⅳ-1「考古發掘與史前文化」；課綱說明建議討論「學校附近的史前遺址或原住民族部落」。國小第三學習階段：Cb-Ⅲ-2。" },
+            { "en": "Names. English spellings follow the institutions: Peinan and Pinuyumayan (National Museum of Prehistory; Council of Indigenous Peoples), Shihsanhang (the museum’s own spelling). Other site names are in Hanyu Pinyin; older books in English may use other spellings, such as Tapenkeng. The last age is the Iron Age in the museum’s pages and the Metal Age in the Bureau’s.", "zh": "名稱。英文拼法依各機構：Peinan 與 Pinuyumayan（史前館、原住民族委員會）、Shihsanhang（十三行博物館自己的拼法）。其他遺址名用漢語拼音；較早的英文書可能用別的拼法，例如 Tapenkeng。最後一個時代，史前館稱「鐵器時代」，文資局稱「金屬器時代」。" },
+            { "en": "On links to present-day peoples, please do not go beyond the sources. The museum’s wording is “no direct evidence” for Peinan and “may be related” for some Iron Age cultures. Students from Indigenous families may know their own community’s account of its origins; that account is evidence of another kind (see Lesson 1), and Lesson 3 takes it up.", "zh": "關於和今天各族群的關係，請不要說得比出處更多。博物館對卑南文化的用語是「沒有直接證據」，對鐵器時代一些文化是「可能有所關聯」。原住民族家庭的學生，也許知道自己族群對來歷的說法；那是另一種證據（見第一課），第三課會談。" },
+            { "en": "Burials. Much of what we know about Peinan comes from graves. The lesson says so plainly and asks for respect; it shows no human remains. The 3D earring is a simplified sketch, and the map dots mark districts, not exact locations.", "zh": "墓葬。我們對卑南的了解，很多來自墓葬。課文照實說明，並請學生帶著敬意；頁面上沒有任何人骨的影像。3D 的玉玦是簡化的示意圖；地圖上的圓點標的是鄉鎮市區，不是確切的位置。" }
+          ],
+          "activities": [
+            {
+              "title_en": "Write a Site Card",
+              "title_zh": "寫一張遺址卡",
+              "materials": [
+                { "en": "The map in this lesson, on a screen or projector", "zh": "這一課的地圖（用螢幕或投影機）" },
+                { "en": "One index card for each pair of students", "zh": "每兩人一張小卡片" },
+                { "en": "A wall or board for the finished cards", "zh": "一面可以貼卡片的牆或白板" }
+              ],
+              "steps": [
+                { "en": "Each pair chooses one of the eight sites and opens its card on the map.", "zh": "每兩人選八個遺址裡的一個，在地圖上打開它的卡片。" },
+                { "en": "On the index card, write four lines in English: its name, where it is, how old its main layer is, and one thing that was found there.", "zh": "在小卡片上用英文寫四行：它的名字、在哪裡、主要那一層有多古老、出土了什麼（寫一樣）。" },
+                { "en": "Add one sentence that begins “We still do not know …”", "zh": "再加一句用「We still do not know …」開頭的話。" },
+                { "en": "Put the cards on the wall from the oldest site to the youngest, and read them aloud in order.", "zh": "把卡片從最古老排到最年輕貼在牆上，照順序唸出來。" }
+              ],
+              "tip_en": "Step 3 is the important one. Students will find that every site has an open question: who the people were, where the jade came from exactly, how old a carving is. Use the History English sentences as models. If a pair chooses Wanshan, ask the class where its card should go in the line, and why that is hard to decide.",
+              "tip_zh": "第三步最重要。學生會發現每個遺址都有還沒解開的問題：這些人是誰、玉確切從哪裡來、岩雕有多古老。可以拿「歷史英語」的句子當範本。如果有一組選了萬山岩雕，問問全班：它的卡片該排在隊伍的哪裡？為什麼很難決定？"
+            },
+            {
+              "title_en": "Our Own Shell Mound",
+              "title_zh": "我們自己的貝塚",
+              "materials": [
+                { "en": "One day of clean, dry classroom waste: paper, wrappers, bottle caps, pencil stubs (nothing wet or sharp)", "zh": "教室一天份乾淨、乾燥的回收物與垃圾：紙、包裝、瓶蓋、鉛筆頭（不要濕的或尖銳的東西）" },
+                { "en": "Gloves and a large sheet of paper to sort on", "zh": "手套，和一大張可以攤開分類的紙" },
+                { "en": "A worksheet with three columns: What it is, What it tells us, What it cannot tell us", "zh": "一張三欄的學習單：這是什麼／它告訴我們什麼／它不能告訴我們什麼" }
+              ],
+              "steps": [
+                { "en": "Spread the waste on the paper and sort it into groups, as an archaeologist sorts finds.", "zh": "把東西攤在紙上分成幾堆，就像考古學家替出土物分類。" },
+                { "en": "Imagine you are an archaeologist 3,000 years from now. What could you say about the people who made this pile?", "zh": "想像你是三千年後的考古學家。關於留下這一堆東西的人，你能說出什麼？" },
+                { "en": "Now list what you could not know: their names, their language, what they were laughing about.", "zh": "再列出你不可能知道的事：他們的名字、說的語言、在笑什麼。" },
+                { "en": "Share one sentence with “The evidence suggests that …” and one with “We still do not know …”", "zh": "各說一句：一句用「The evidence suggests that …」，一句用「We still do not know …」。" }
+              ],
+              "tip_en": "This is the Yuanshan shell mound in one class period, with one big difference to point out: the real mound also held burials, so it was more than trash to the people who made it. The third step is the bridge to the reading’s last paragraph: things tell us what people ate and made, and very little about who they said they were. Wash hands afterward, and leave out food waste.",
+              "tip_zh": "這是用一節課做一座「圓山貝塚」。有一點很不一樣，要告訴學生：真正的貝塚裡也有墓葬，對當時的人來說，它不只是垃圾堆。第三步接到課文最後一段：東西能告訴我們人們吃什麼、做什麼，卻很少告訴我們「他們說自己是誰」。活動後要洗手；廚餘不要放進來。"
+            }
+          ],
+          "links_head": { "eyebrow": "Go Further · 延伸閱讀", "en": "Back to the method, and on to the next question", "zh": "回頭看方法，再往下一個問題走" },
+          "links": [
+            { "icon": "🔎", "k_en": "Taiwan’s Story · Lesson 1", "k_zh": "台灣歷史・第一課", "en": "How Do We Know What Happened Long Ago?", "zh": "很久以前的事，我們怎麼知道？",
+              "note_en": "Layers, radiocarbon dating, and why dates come as ranges. The made-up pit in that lesson follows the same order as the real sites here.", "note_zh": "地層、碳十四定年，以及年代為什麼是一個範圍。那一課編出來的探坑，和這一課真實遺址的先後順序是一樣的。",
+              "href": "/resources/classes/taiwan-history/how-do-we-know/" },
+            { "icon": "🛶", "k_en": "Taiwan’s Story · Lesson 3", "k_zh": "台灣歷史・第三課", "en": "Who Are Taiwan’s Indigenous Peoples?", "zh": "台灣的原住民族是誰？",
+              "note_en": "Many peoples and many languages, their own accounts of where they came from, and what scholars say about Taiwan and the Austronesian languages.", "note_zh": "很多族、很多語言，各族對自己來歷的說法，以及學界怎麼看台灣和南島語族的關係。",
+              "soon": true }
+          ],
+          "sources_note_en": "Facts, dates, and quotations on this page were checked against these sources in October 2026. Quotations keep the spelling and punctuation of the original. Site ages are the Bureau of Cultural Heritage’s unless another source is named",
+          "sources_note_zh": "本頁的事實、年代與引文於 2026 年 10 月依下列資料查證；引文保留原文的寫法與標點。遺址的年代除另外註明外，都依文化資產局",
+          "sources": [
+            { "en": "The list of 13 National Archaeological Sites (October 2026)", "zh": "國定考古遺址共 13 處（2026 年 10 月）：圓山、十三行、大坌坑、鳳鼻頭（中坑門）、卑南、八仙洞、萬山岩雕群、Blihun 漢本、丸山、曲冰、亮島島尾、芝山岩、和平島 B", "src": "文化部文化資產局 國家考古遺址出土遺物典藏系統", "url": "https://nhsrc.boch.gov.tw/SiteSearch_1" },
+            { "en": "Baxian Caves: layers and ages; representative site of the Changbin Culture", "zh": "八仙洞：「代表文化層 距今約30000-15000年（舊石器時代）、6000-4800年（先陶時代）、4700-4500年（新石器時代中期）、3500-2000多年（新石器時代晚期至金屬器時代早期）……」", "src": "文資局 八仙洞考古遺址", "url": "https://nhsrc.boch.gov.tw/SiteDetail?id=20060501000007" },
+            { "en": "Dapenkeng: name-giving site; layers and ages; “the earliest Neolithic and farming culture, and possibly the ancestral culture of the earliest Austronesian speakers”", "zh": "大坌坑：「大坌坑文化命名遺址」；「以大坌坑文化層（距今約5,500∼4,500年前後）為代表……」；「大坌坑文化是台灣最早的新石器時代文化及農耕文化，而且可能是最早的南島語族的祖型文化。」", "src": "文資局 大坌坑考古遺址", "url": "https://nhsrc.boch.gov.tw/SiteDetail?id=20060501000004" },
+            { "en": "Yuanshan: found in 1897; layers and ages; known for its shell mound", "zh": "圓山：「台灣考古學研究的濫觴、台灣最大的史前垃圾山」；「圓山遺址是台灣早期發現的史前遺址之一（1897）」；「以圓山文化層（距今約3,300∼2,300年前）為代表。其他主要有先陶文化、大坌坑文化（距今約6,000∼5,000年前）……」；「貝塚對圓山文化人不只是堆置垃圾之處，應當也是蘊涵了重要的文化與社會意義」；現況：「長久以來遭工程施工嚴重破壞，僅存若干處貝塚及小部分文化層堆積」", "src": "文資局 圓山考古遺址", "url": "https://nhsrc.boch.gov.tw/SiteDetail?id=20060501000002" },
+            { "en": "Shihsanhang: 1,800 to 500 years ago; furnace and slag; ornaments from outside the island", "zh": "十三行：「鐵證如山的金屬器時代、北臺灣現知最早的煉鐵作坊」；「以十三行文化層為代表（距今約1,800∼500年前）」；「出土的煉鐵爐及大量鐵渣顯示已經擁有煉鐵技術」；「出土大量島外物品，如玻璃、黃金、瑪瑙等裝飾物，反映十三行人與外界有頻繁的交易行為」", "src": "文資局 十三行考古遺址", "url": "https://nhsrc.boch.gov.tw/SiteDetail?id=20060501000003" },
+            { "en": "Peinan: layers and ages; the largest clearly laid-out prehistoric settlement found so far", "zh": "卑南：「大坌坑文化（距今5,300 ∼4,200年前）、富山文化（距今4,200∼3,500年前）、卑南文化（距今3,500∼2,300年前）、三和文化（距今2,300∼1,900年前）」；「是目前台灣所發現格局最清楚的史前聚落中最大的一個」；「發掘出土近1,500多具石板棺」", "src": "文資局 卑南考古遺址", "url": "https://nhsrc.boch.gov.tw/SiteDetail?id=20060501000006" },
+            { "en": "Fengbitou: three cultures in order; the first site to establish the sequence of prehistoric cultures in the south", "zh": "鳳鼻頭：「以鳳鼻頭文化層為代表（距今約3,350∼2,450年前），其他主要有大坌坑文化層（距今約5,200∼4,350年前）、牛稠子文化鳳鼻頭類型（距今約4,350∼3,350年前）」；「首先建立南部史前文化層序之遺址」", "src": "文資局 鳳鼻頭（中坑門）考古遺址", "url": "https://nhsrc.boch.gov.tw/SiteDetail?id=20060501000005" },
+            { "en": "Qubing: excavated 1981–87; 29,000 stone tools, 80,000 pieces of pottery, 171 slate coffins; radiocarbon dates of about 1,000 to more than 2,700 years ago", "zh": "曲冰：民國 70 至 76 年三次挖掘，「出土的石器有29000餘件，其中多數為石斧」、「陶質物品八萬餘片」、「石板棺171座」；「經過碳十四測定的年代，曲冰人早在一千年至二千七百多年前即居此地」", "src": "文資局 曲冰考古遺址", "url": "https://nhsrc.boch.gov.tw/SiteDetail?id=20190522000002" },
+            { "en": "Wanshan rock carvings: 14 rocks at four places; estimates of age", "zh": "萬山岩雕群：「共有4處14塊岩石」；「國內唯一的大型岩雕群遺址」；「推估岩雕約有500年到1600年歷史」；「有一說約距今500年，但詳細年代難以確認，推測與東埔一鄰（2,000∼400年前）或北葉文化層（2,500∼1,000年前）同時期。」；「萬山岩雕為原住民原始藝術遺跡」；「依照當地原住民賦予的地名」命名", "src": "文資局 萬山岩雕群考古遺址", "url": "https://nhsrc.boch.gov.tw/SiteDetail?id=20080822000001" },
+            { "en": "Paleolithic and the Changbin Culture: chipped stone only, no pottery, caves and rock shelters, fire pits, hunting and gathering", "zh": "「石器完全以打製的方式製作……也還沒有燒製陶器的技術」；「此遺址大多為岩蔭或洞穴，有發現人類使用的『火塘』遺跡，當時人們以狩獵與採食為生」", "src": "國立臺灣史前文化博物館〈臺灣的史前時代：舊石器時代〉", "url": "https://icloud.nmp.gov.tw/Classroom/Prehistoric?a=74" },
+            { "en": "Neolithic: arrival by sea about 6,000 to 5,000 years ago with polished stone tools and pottery; the Yuanshan shell mound; the Peinan Culture (planned settlement, more than 2,000 slate coffins, jade from more than 100 km away); no direct evidence of a link with the present-day Pinuyumayan", "zh": "「約距今6,000至5,000年前，另一群人由亞洲大陸東南沿海帶入了新石器時代文化……成為最早的航海移民。這些人帶著磨製石器及製作陶器的技術」；圓山貝塚「是以食餘為主的廢棄物所堆積起來的小丘」；「卑南遺址已經出土超過 2,000具的石板棺」；「許多學者認為，大坌坑文化是從亞洲東南沿海移入的新文化，並可能是南島語族最早的祖先之一。目前尚未發現新石器時代舟船的遺留」；先陶文化「到距今6,000年前，島內局部地區仍有人群以狩獵、採集維生，並以打製石器為工具」（見舊石器時代一頁）；「能從100多公里外的地區取得玉器材料」；「考古遺址所見的卑南文化與現生原住民族群卑南族文化並沒有直接證據顯示兩者之間的傳承關係。」", "src": "國立臺灣史前文化博物館〈臺灣的史前時代：新石器時代〉", "url": "https://icloud.nmp.gov.tw/Classroom/Prehistoric?a=75" },
+            { "en": "Iron Age: ironworking reaches Taiwan about 2,500 years ago; glass and agate beads; cultures of this period may be related to Indigenous cultures; snake patterns and the Paiwan", "zh": "「約距今2,500年前，製作鐵器的技術傳入臺灣」；「本時期的文化可能與原住民的文化有所關聯」；蛇紋的出現「展露史前文化與原住民文化的連結；常被討論是否為與排灣族文化的起源有關」；「推測靜浦文化是阿美族祖先所留下的文化」；「許多證據都顯示西拉雅族很可能就與蔦松文化有著密切關係」", "src": "國立臺灣史前文化博物館〈臺灣的史前時代：鐵器時代〉", "url": "https://icloud.nmp.gov.tw/Classroom/Prehistoric?a=76" },
+            { "en": "The jade earring: museum number, rank, age, material, and size", "zh": "人獸形玉玦：典藏號碼 20121600001；級別 國寶；時代 新石器時代卑南文化3500-2300BP；材質 臺灣玉；尺寸 高度70mm、寬40mm、厚度4.5mm、重量15.7g", "src": "國立臺灣史前文化博物館 國寶與重要古物", "url": "https://www.nmp.gov.tw/News_Content2.aspx?n=2028&sms=11979&s=93203" },
+            { "en": "The jade earring: description, the two readings by scholars, the mended crack, found in a man’s slate coffin, National Treasure in 2012", "zh": "「主要造形是兩個人並肩站立，頭上頂著一隻獸……有學者認為是兩個打獵的人展示獵物……但也有學者認為……好像是獸幻化出人」；「中間有一條斷痕，斷痕兩邊各有一個洞，是修補繼續使用的痕跡」；「大約有兩千多年的歷史」；「在2012年被公告為國寶」", "src": "國立臺灣史前文化博物館 語音導覽〈國寶：人獸形玉玦〉", "url": "https://m.nmp.gov.tw/accessibility/TPH_15.html" },
+            { "en": "English names of the Indigenous peoples (Pinuyumayan, Paiwan, Rukai)", "zh": "原住民族的英文名稱（Pinuyumayan、Paiwan、Rukai）", "src": "Council of Indigenous Peoples, “The Tribes in Taiwan”", "url": "https://www.cip.gov.tw/en/tribe/grid-list/index.html?cumid=5DD9C4959C302B9FD0636733C6861689" },
+            { "en": "Shihsanhang Museum of Archaeology, New Taipei City (Bali District)", "zh": "新北市立十三行博物館（新北市八里區）", "src": "新北市立十三行博物館", "url": "https://www.sshm.ntpc.gov.tw/" },
+            { "en": "National Museum of Prehistory: main museum and Peinan Site Park in Taitung City; Museum of Archaeology, Tainan Branch", "zh": "國立臺灣史前文化博物館：康樂本館與卑南遺址公園（臺東市）、南科考古館（臺南市新市區）", "src": "National Museum of Prehistory · 國立臺灣史前文化博物館", "url": "https://www.nmp.gov.tw/" },
+            { "en": "Curriculum: 歷 Ba-Ⅳ-1 and its note; Cb-Ⅲ-2", "zh": "歷 Ba-Ⅳ-1「考古發掘與史前文化」，說明建議討論「學校附近的史前遺址或原住民族部落」；Cb-Ⅲ-2", "src": "十二年國民基本教育課程綱要 社會領域（教育部，2018）", "url": "https://www.k12ea.gov.tw/files/class_schema/%E8%AA%B2%E7%B6%B1/16-%E7%A4%BE%E6%9C%83/16-1/%E5%8D%81%E4%BA%8C%E5%B9%B4%E5%9C%8B%E6%B0%91%E5%9F%BA%E6%9C%AC%E6%95%99%E8%82%B2%E8%AA%B2%E7%A8%8B%E7%B6%B1%E8%A6%81%E5%9C%8B%E6%B0%91%E4%B8%AD%E5%B0%8F%E5%AD%B8%E6%9A%A8%E6%99%AE%E9%80%9A%E5%9E%8B%E9%AB%98%E7%B4%9A%E4%B8%AD%E7%AD%89%E5%AD%B8%E6%A0%A1%E2%94%80%E7%A4%BE%E6%9C%83%E9%A0%98%E5%9F%9F.pdf" },
+            { "en": "Coastline on the map: Natural Earth 1:10m Land, version 5.1.2, public domain", "zh": "地圖的海岸線：Natural Earth 1:10m Land 5.1.2 版，公有領域", "src": "Natural Earth, Terms of Use", "url": "https://www.naturalearthdata.com/about/terms-of-use/" }
+          ]
         }
       ],
       "planned": [
-        { "n": 2, "icon": "🏺", "en": "Who Lived in Taiwan Thousands of Years Ago?", "zh": "幾千年前，誰住在台灣？" },
         { "n": 3, "icon": "🛶", "en": "Who Are Taiwan’s Indigenous Peoples?", "zh": "台灣的原住民族是誰？" },
         { "n": 4, "icon": "🗺️", "en": "How Did the World First Draw Taiwan?", "zh": "世界最早怎麼畫台灣？" }
       ]

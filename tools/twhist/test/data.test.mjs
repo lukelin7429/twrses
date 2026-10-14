@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { agoAtDepth, checkOrder, depthAt, foundSoFar, intrusionYoungerThanNeighbors, totalDepth } from '../src/strata.js';
 import { centuryOf, makeScale, yearToAgo, yearsBetween } from '../src/timeline.js';
+import { activeAt, dated, spanOf } from '../src/geo2d.js';
 
 const data = JSON.parse(readFileSync(new URL('../../../data/taiwan_history.json', import.meta.url), 'utf8'));
 const lessons = data.units.flatMap((u) => u.lessons), planned = data.units.flatMap((u) => u.planned);
@@ -73,11 +74,55 @@ assert.ok(1 - makeScale('linear', data.timeline.older, 0).pos(yearToAgo(1603, NO
 assert.ok((30000 - yearToAgo(1603, NOW)) / 30000 > 0.98);       // 「幾乎占了全部」
 assert.equal(centuryOf(1603), 17); assert.equal(centuryOf(1601), 17); assert.equal(centuryOf(1700), 17);
 assert.equal(yearsBetween(1601, 1700) + 1, 100);
+// ── 第二課 ───────────────────────────────────────────────────────────
+{
+  const L2 = lessons.find((l) => l.slug === 'who-lived-here'), lab2 = L2.lab;
+  const coast = JSON.parse(readFileSync(new URL('../src/data/coast.json', import.meta.url), 'utf8'));
+  assert.equal(lab2.sites.length, 8);
+  assert.equal(new Set(lab2.sites.map((s) => s.key)).size, 8);
+  for (const s of lab2.sites) {
+    assert.ok(s.lon >= coast.bbox.w && s.lon <= coast.bbox.e && s.lat >= coast.bbox.s && s.lat <= coast.bbox.n, s.key);
+    assert.ok(/^https:\/\/nhsrc\.boch\.gov\.tw\/SiteDetail\?id=\d+$/.test(s.url), s.key);
+    assert.ok(s.layers.length >= 1);
+    s.layers.forEach((l) => { if (l.fromAgo !== undefined) assert.ok(l.fromAgo > l.toAgo && l.fromAgo <= lab2.older, `${s.key} ${l.en}`); else assert.ok(l.note_en && l.note_zh, `${s.key} ${l.en}`); });
+    assert.ok(s.layers.filter((l) => l.rep).length <= 1);
+    if (!dated(s).length) assert.ok(s.unknown_en && s.unknown_zh, '年代不詳的遺址要有說明');
+  }
+  // 年代不詳的只有萬山岩雕群
+  assert.deepEqual(lab2.sites.filter((s) => !dated(s).length).map((s) => s.key), ['wanshan']);
+  const lit = (ago) => lab2.sites.filter((s) => activeAt(s, ago)).map((s) => s.key).sort();
+  assert.deepEqual(lit(20000), ['baxian']);                      // 小卡一：2 萬年前只有八仙洞
+  assert.deepEqual(lit(10000), []);                              // 「滑到 1 萬年前，全部暗掉」
+  assert.deepEqual(lit(5000), ['baxian', 'dapenkeng', 'fengbitou', 'peinan', 'yuanshan']);   // 小卡二：北、南、東同時亮
+  assert.ok(['peinan', 'yuanshan', 'fengbitou'].every((k) => lit(3000).includes(k)));         // 小卡三
+  assert.ok(['shihsanhang', 'qubing'].every((k) => lit(1000).includes(k)));                    // 小卡四
+  for (const k of ['dapenkeng', 'yuanshan', 'peinan', 'fengbitou']) assert.ok(lab2.sites.find((s) => s.key === k).layers[k === 'yuanshan' ? 1 : 0].zh === '大坌坑文化');
+  assert.ok(spanOf(lab2.sites.find((s) => s.key === 'dapenkeng')).fromAgo - spanOf(lab2.sites.find((s) => s.key === 'dapenkeng')).toAgo > 5000);   // 「五千多年間」
+  Object.values(lab2.demo).forEach((k) => assert.ok(lab2.sites.some((s) => s.key === k), k));
+  const src2 = readFileSync(new URL('../src/twh-sites.js', import.meta.url), 'utf8');
+  L2.parts.forEach((p) => { assert.ok(new RegExp(`\\n    ${p.demo}\\(\\) \\{`).test(src2), `DEMO.${p.demo}`); assert.ok(lab2.demo[p.demo]); });
+  lab2.jumps.forEach((j) => assert.ok(j.ago <= lab2.older && j.ago >= lab2.nearest));
+  // 玉玦：四個重點要和 jade3d.js 的 spots 一致；尺寸照館藏資料
+  const jsrc = readFileSync(new URL('../src/jade3d.js', import.meta.url), 'utf8');
+  assert.equal(L2.jade.spots.length, 4);
+  L2.jade.spots.forEach((sp) => assert.ok(new RegExp(`\\b${sp.key}: new Vector3`).test(jsrc), sp.key));
+  assert.ok(/JADE = \{ h: 7, w: 4, t: 0\.45 \}/.test(jsrc));
+  assert.ok(L2.jade.facts.some((f) => f.en.includes('70 mm') && f.en.includes('40 mm') && f.en.includes('4.5 mm')));
+  // 分類遊戲：兩樣、四樣、兩樣
+  assert.deepEqual(['paleo', 'neo', 'iron'].map((k) => L2.sort.items.filter((it) => it.bin === k).length), [2, 4, 2]);
+  // 第一課的預告卡已經換成真的連結；這一課的預告卡指向第三課
+  assert.ok(L.links.some((x) => x.href === '/resources/classes/taiwan-history/who-lived-here/'));
+  assert.ok(L2.links.some((x) => x.soon));
+  assert.match(coast.license, /Public domain/);
+}
 // 時間軸上的事件由古到今
 const ev = data.timeline.events.map((e) => (e.ago !== undefined ? e.ago : yearToAgo(e.year, NOW)));
 assert.deepEqual(ev, [...ev].sort((a, b) => b - a));
 // 全系列寫到 1996 年為止
-JSON.stringify(data).replace(/\b(19\d\d|20\d\d)\b/g, (y) => { assert.ok(+y <= 1996 || ['2009', '2011', '2018', '2020', '2025', '2026'].includes(y), `year ${y}`); return y; });
+// （只看文字欄位；「3500-2000多年」「2,000 年前」這類距今的年數不是西元年，先拿掉）
+JSON.stringify(data, (k, v) => (k === 'url' ? undefined : typeof v === 'number' ? 0 : v))
+  .replace(/[\d,]+\s*[-∼~–]\s*[\d,]+/g, ' ').replace(/[\d,]+\s*(多)?(年前|年至|年到|年間|年歷史| years ago| years)/g, ' ')
+  .replace(/\b(19\d\d|20\d\d)\b/g, (y) => { assert.ok(+y <= 1996 || ['2002', '2009', '2011', '2012', '2018', '2020', '2025', '2026'].includes(y), `year ${y}`); return y; });
 // 美式拼字：常見的英式拼法不能出現（出處欄的逐字引文照原文，所以 sources 不掃）
 const en = JSON.stringify(data, (k, v) => (k === 'sources' ? undefined : v)).replace(/[一-鿿]/g, '');
 assert.ok(!/\b(colour|centre|metre|programme|practise|favourite|grey|whilst|towards|amongst|recognise|organise|analyse|civilisation|judgement|travell|labell|artefact|defence|neighbour|honour|catalogue|archaeolog(?:y|ist|ical)s?e)\b/i.test(en));

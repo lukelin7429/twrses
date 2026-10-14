@@ -20467,7 +20467,7 @@ def build_home_hub():
 _twhj = os.path.join(ROOT, "data", "taiwan_history.json")
 TWH = json.load(open(_twhj, encoding="utf-8")) if os.path.exists(_twhj) else None
 TWH_BASE = "/resources/classes/taiwan-history/"
-_TWH_JS = {"dig": "twh-dig"}   # lab.kind → assets/js/<bundle>.js
+_TWH_JS = {"dig": "twh-dig", "sites": "twh-sites"}   # lab.kind → assets/js/<bundle>.js
 
 def _twh_ver():
     h = hashlib.md5()
@@ -20554,7 +20554,7 @@ def _twh_phrases(ph):
     return f'<ol class="twh-phs">{rows}</ol>'
 
 def _twh_sort(sq):
-    cfg = {k: sq[k] for k in ("bins", "items", "done_en", "done_zh")}
+    cfg = {k: sq[k] for k in ("bins", "items", "done_en", "done_zh", "ask_en", "ask_zh", "nudge_en", "nudge_zh", "aria") if k in sq}
     return (f'<div class="twh-sort rvl" data-twh-sort><script type="application/json">{_twh_json(cfg)}</script></div>'
             f'<p class="twh-note rvl">{_twh_b(sq["note_en"], sq["note_zh"])}</p>')
 
@@ -20610,6 +20610,73 @@ def render_twhdig_lab(lesson):
   <p class="twh-credit">{lab["credit_html"]}</p>
 </div>'''
 
+def twhsites_svg(size=56):
+    """第二課卡：一座島的輪廓，上面幾個遺址點。"""
+    dots = "".join(f'<circle cx="{x}" cy="{y}" r="3.2" fill="{c}" stroke="#0b1326" stroke-width="1"/>' for x, y, c in
+                   [(35, 12, "#ffd36e"), (30, 16, "#ffd36e"), (29, 30, "#8fd0ff"), (41, 33, "#ffd36e"), (36, 43, "#8fe0a8"), (24, 46, "#ffd36e")])
+    return (f'<svg class="twhsites-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">'
+            f'<path d="M35 5c5 1 9 5 9 10l-3 14c-1 8-3 15-6 22l-4 5-5-6c-5-8-8-16-8-23 1-10 8-20 17-22z" fill="#5f8f6a" stroke="#cfe6d2" stroke-width="1.2"/>{dots}</svg>')
+
+def render_twhsites_lab(lesson):
+    """第二課：遺址地圖（assets/js/twh-sites.js 綁這裡的 class；SVG，不需要 WebGL；只畫海岸線與遺址點）。"""
+    lab = lesson["lab"]
+    cfg = {k: lab[k] for k in ("older", "nearest", "start", "sites", "demo", "demo_say")}
+    n = len(lab["sites"])
+    jumps = "".join(f'<button type="button" class="twh-btn-d" data-jump="{j["ago"]}" aria-pressed="false">{html.escape(j["en"])}<small>{html.escape(j["zh"])}</small></button>' for j in lab["jumps"])
+    tg = _lab_toggles([("names", "Site names", "遺址名稱", True)])
+    return f'''<div class="astro-lab twh-lab twh-sites-lab rvl" data-twhsites-lab>
+  <script type="application/json" class="twh-lab-data">{_twh_json(cfg)}</script>
+  <div class="al-stage">
+    <div class="al-space twh-map-space">
+      <div class="twh-map"></div>
+      <p class="twh-badge">Dots show the district, not the exact spot · 圓點標的是鄉鎮市區，不是確切地點</p>
+    </div>
+    <aside class="al-sky twh-aside">
+      <p class="al-sky-k">The time on the slider · 滑桿上的時間</p>
+      <p class="twh-age" aria-live="polite"></p>
+      <p class="twh-count twh-depth"></p>
+      <div class="twh-aside-grid">
+        <div class="twh-vtl" data-k="Years ago · 年前" aria-label="Timeline: today at the top, older going down · 時間軸：現在在上，越下面越古老"></div>
+        <div class="twh-aside-main"><div class="twh-site-card" aria-live="polite"></div></div>
+      </div>
+    </aside>
+  </div>
+  <div class="al-controls">
+    <label class="al-slider twh-dig-l"><span>Travel through time · 走過時間 <small>30,000 years ago 3 萬年前 &rarr; 350 years ago 350 年前</small></span>
+      <input type="range" class="al-age twh-time-range" min="0" max="1000" step="1" value="0" aria-label="Choose a time, from about 30,000 years ago to about 350 years ago; the sites with a layer from that time light up · 選一個時間，從約 3 萬年前到約 350 年前；那個時候有文化層的遺址會亮起來"></label>
+    <div class="al-row al-row-main twh-jumps">{jumps}<div class="al-row al-toggles">{tg}</div></div>
+    <p class="twh-msg" aria-live="polite"></p>
+  </div>
+  {_lab_foot(lab)}
+  <p class="twh-credit">{lab["credit_html"]}</p>
+</div>'''
+
+def _twh_jade(jd):
+    """看一件文物：3D 示意＋可以點的重點（沒有 WebGL 時只剩右邊的文字）。"""
+    cfg = {"spots": jd["spots"]}
+    btns = "".join(f'<button type="button" class="twh-spot" data-spot="{s["key"]}" aria-pressed="false"><i>{i}</i><span>{_twh_b(s["en"], s["zh"])}</span></button>'
+                   for i, s in enumerate(jd["spots"], 1))
+    facts = "".join(f'<div><dt>{_twh_b(f["k_en"], f["k_zh"])}</dt><dd>{_twh_b(f["en"], f["zh"])}</dd></div>' for f in jd["facts"])
+    return f'''<div class="twh-jade rvl" data-twh-jade>
+  <script type="application/json">{_twh_json(cfg)}</script>
+  <div class="twh-jade-stage">
+    <canvas aria-label="{html.escape(jd["aria"])}"></canvas>
+    <div class="al-labels"></div>
+    <p class="twh-badge">{html.escape(jd["badge"])}</p>
+    <button type="button" class="al-home" title="Reset view · 重設視角" aria-label="Reset view · 重設視角">&#8634;</button>
+    <p class="twh-jade-nomsg">This sketch needs WebGL, which this browser does not support. The notes beside it still work.<br><span class="zh">這個示意圖需要 WebGL，這個瀏覽器不支援；旁邊的說明照樣能看。</span></p>
+  </div>
+  <div class="twh-jade-side">
+    <dl class="twh-jade-facts">{facts}</dl>
+    <div class="twh-spots" role="group" aria-label="Things to look at · 值得看的地方">{btns}</div>
+    <p class="twh-jade-out" aria-live="polite"></p>
+    <a class="twh-src" href="{html.escape(jd["url"])}" target="_blank" rel="noopener">{html.escape(jd["src"])} &#8599;</a>
+  </div>
+</div>
+<p class="twh-note rvl">{_twh_b(jd["note_en"], jd["note_zh"])}</p>'''
+
+_TWH_CARD["sites"] = twhsites_svg
+
 def _twh_flat():
     return [(ui, u, l) for ui, u in enumerate(TWH["units"]) for l in u["lessons"]]
 
@@ -20637,7 +20704,7 @@ def build_twh_lesson(ui, unit, lesson):
     reading_html = render_basic_unit(1, unit_dict, level="twh", audio_rel="", pdf_rel="")
     lab = lesson["lab"]
     kind = lab["kind"]
-    lab_html = {"dig": render_twhdig_lab}[kind](lesson)
+    lab_html = {"dig": render_twhdig_lab, "sites": render_twhsites_lab}[kind](lesson)
 
     def sec(key, fn, sid=None):
         d = lesson[key]
@@ -20655,6 +20722,7 @@ def build_twh_lesson(ui, unit, lesson):
         ph = lesson["parts_head"]
         secs.append(("parts", ph["eyebrow"], ph["en"], ph["zh"], f'<div class="ph-grid stagger">{cards}</div>',
                      _bi(lesson["parts_note_en"], lesson["parts_note_zh"], cls="lead rvl d2")))
+    if lesson.get("jade"): secs.append(sec("jade", _twh_jade))
     if lesson.get("when"):
         secs.append(sec("when", lambda d: _twh_timeline({**TWH["timeline"], "note_en": d["note_en"], "note_zh": d["note_zh"]}, d.get("focus"), d.get("events"))))
     if lesson.get("sort"): secs.append(sec("sort", _twh_sort))

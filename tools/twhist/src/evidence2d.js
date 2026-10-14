@@ -27,7 +27,7 @@ export function initSort(root) {
   root.textContent = '';
   const top = el('div', 'twh-sort-top', '<p class="twh-sort-k"></p><p class="twh-sort-sc">Right on the first try · 第一次就分對 <b>0 / 0</b></p>');
   const card = el('div', 'twh-sort-card');
-  const bins = el('div', 'twh-sort-bins'); bins.setAttribute('role', 'group'); bins.setAttribute('aria-label', 'Choose the kind of evidence · 選出是哪一種證據');
+  const bins = el('div', 'twh-sort-bins'); bins.setAttribute('role', 'group'); bins.setAttribute('aria-label', cfg.aria || 'Choose the kind of evidence · 選出是哪一種證據');
   const msg = el('p', 'twh-sort-msg'); msg.setAttribute('aria-live', 'polite');
   const foot = el('div', 'twh-sort-foot');
   const next = el('button', 'twh-btn twh-btn-gold', 'Next · 下一樣'); next.type = 'button'; next.hidden = true;
@@ -49,7 +49,7 @@ export function initSort(root) {
     top.lastChild.querySelector('b').textContent = `${st.first} / ${st.answered}`;
     card.innerHTML = `<span class="twh-sort-ic" aria-hidden="true">${it.icon}</span><span class="twh-sort-t">${bi(it.en, it.zh)}</span>`;
     bins.querySelectorAll('button').forEach((b) => { b.disabled = false; b.classList.remove('is-right', 'is-wrong'); });
-    msg.innerHTML = bi('Which kind of evidence is it?', '這是哪一種證據？');
+    msg.innerHTML = bi(cfg.ask_en || 'Which kind of evidence is it?', cfg.ask_zh || '這是哪一種證據？');
     next.hidden = true;
   }
   function pick(key) {
@@ -63,11 +63,11 @@ export function initSort(root) {
       top.lastChild.querySelector('b').textContent = `${st.first} / ${st.answered}`;
       msg.innerHTML = `<b>${bi(binOf[key].en, binOf[key].zh)}</b> ${bi(it.why_en, it.why_zh)}`;
       next.hidden = false;
-      next.textContent = st.i === st.order.length - 1 ? 'See all eight · 看全部八樣' : 'Next · 下一樣';
+      next.textContent = st.i === st.order.length - 1 ? 'See them all · 看全部' : 'Next · 下一樣';
     } else {
       st.tried = true;
       b.classList.add('is-wrong'); b.disabled = true;
-      msg.innerHTML = bi(it.nudge_en || 'Not that one. Ask: was it made to be used, made to record something, or told aloud?', it.nudge_zh || '不是這一種。想一想：它是做來用的、做來記錄的，還是用嘴巴說的？');
+      msg.innerHTML = bi(it.nudge_en || cfg.nudge_en || 'Not that one. Ask: was it made to be used, made to record something, or told aloud?', it.nudge_zh || cfg.nudge_zh || '不是這一種。想一想：它是做來用的、做來記錄的，還是用嘴巴說的？');
     }
   }
   function go() {
@@ -77,7 +77,7 @@ export function initSort(root) {
   }
   function finish() {
     card.hidden = true; bins.hidden = true; next.hidden = true; again.hidden = false; done.hidden = false;
-    top.firstChild.innerHTML = 'All eight sorted · 八樣都分好了';
+    top.firstChild.innerHTML = 'All sorted · 全部分好了';
     msg.innerHTML = bi(cfg.done_en, cfg.done_zh);
     done.innerHTML = cfg.bins.map((b) =>
       `<div class="twh-sort-col twh-bin-${b.key}"><p><i aria-hidden="true">${b.icon}</i>${bi(b.en, b.zh)}</p><ul>${
@@ -132,6 +132,6 @@ export function initTwo(root) {
 }
 
 export function initEvidence() {
-  const s = document.querySelector('[data-twh-sort]'); if (s && !s.__sort) initSort(s);
+  document.querySelectorAll('[data-twh-sort]').forEach((s) => { if (!s.__sort) initSort(s); });
   const t = document.querySelector('[data-twh-two]'); if (t && !t.__two) initTwo(t);
 }
