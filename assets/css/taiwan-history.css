@@ -467,3 +467,51 @@ a.twh-link:hover { transform: translateY(-3px); box-shadow: var(--shadow); borde
 }
 .twh-sites-lab .al-space.twh-map-space { aspect-ratio: auto; max-height: none; }
 @media (max-width: 620px) { .twh-sites-lab .twh-vtl::before { font-size: .58rem; } .twh-sites-lab .twh-aside-grid { grid-template-columns: 64px minmax(0, 1fr); } }
+
+/* ── 第三課：族群地圖（名字標籤，不是界線）與南島語族的世界 ─────────────────── */
+.twh-people { cursor: pointer; outline: none; }
+.twh-people-dot { fill: #9fb0cf; stroke: #0a1830; stroke-width: 1.5; transition: fill .25s; }
+.twh-people-t { fill: #9fb0cf; font-size: 12px; font-weight: 700; paint-order: stroke; stroke: #0a1830; stroke-width: 3px; transition: fill .25s, opacity .25s; opacity: .72; }
+.twh-people-t .zh { font-family: var(--zh); font-weight: 600; }
+.twh-people.is-lit .twh-people-t { fill: #fff; opacity: 1; }
+.twh-people.is-lit .twh-people-t .zh { fill: #ffd36e; }
+.twh-people.is-lit .twh-people-dot { fill: #ffd36e; }
+.twh-people.is-sel .twh-people-dot { fill: #4fd1c5; r: 6; }
+.twh-people.is-sel .twh-people-t { text-decoration: underline; text-decoration-color: #4fd1c5; }
+.twh-people:focus-visible .twh-people-t { fill: #4fd1c5; opacity: 1; }
+.twh-people:hover .twh-people-t { opacity: 1; }
+.twh-peoples-lab .twh-aside .twh-site-card { margin-top: .3rem; }
+.twh-people-dl { margin: 0 0 .6rem; display: grid; gap: .1rem; }
+.twh-people-dl dt { margin-top: .35rem; font-size: .68rem; font-weight: 800; letter-spacing: .04em; color: var(--al-sun); }
+.twh-people-dl dt .zh { display: inline; margin-left: .5em; color: var(--al-sun); }
+.twh-people-dl dd { margin: 0; }
+.twh-people-not { margin: 0 0 .6rem; padding: .5rem .7rem; border-radius: 10px; border: 1px dashed rgba(255,211,110,.5); }
+.twh-world { display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); margin-top: 1.4rem; border-radius: 22px; overflow: hidden; background: #0b1326; color: #e8edf7; box-shadow: 0 24px 60px -34px rgba(10,20,50,.7); }
+.twh-world-map { padding: .8rem; background: radial-gradient(80% 70% at 40% 45%, #123058 0%, #0a1830 75%); display: grid; place-items: center; }
+.twh-world-svg { width: 100%; height: auto; display: block; font-family: var(--sans); }
+.twh-world-land path { fill: #3f6f52; stroke: #9cc9a8; stroke-width: .7; stroke-linejoin: round; }
+.twh-world-eq { stroke: rgba(201,214,238,.35); stroke-dasharray: 4 5; fill: none; }
+.twh-world-lines path { stroke: #ffd36e; stroke-width: 2; stroke-dasharray: 6 5; fill: none; }
+.twh-wp { cursor: pointer; outline: none; }
+.twh-wp circle { fill: #ffd36e; stroke: #0a1830; stroke-width: 2; }
+.twh-wp.is-home circle { fill: #4fd1c5; }
+.twh-wp text { fill: #e8edf7; font-size: 12px; font-weight: 700; paint-order: stroke; stroke: #0a1830; stroke-width: 3px; }
+.twh-wp text .zh { font-family: var(--zh); fill: #ffd36e; }
+.twh-wp.is-on circle, .twh-wp:focus-visible circle { stroke: #fff; stroke-width: 3; }
+.twh-world-side { padding: 1.2rem 1.3rem; display: flex; flex-direction: column; gap: .8rem; border-left: 1px solid rgba(160,180,230,.16); }
+.twh-world-out { margin: 0; padding: .8rem .9rem; border-radius: 12px; background: rgba(255,211,110,.07); border: 1px solid rgba(255,211,110,.35); font-size: .9rem; line-height: 1.55; min-height: 9em; }
+.twh-world-out b { display: block; margin-bottom: .2rem; color: #fff; }
+.twh-world-out b .zh { display: inline; margin-left: .5em; color: #ffd36e; }
+.twh-world-out .zh { display: block; font-family: var(--zh); color: #9fb0cf; }
+.twh-world-km { margin: .5rem 0 0; padding-top: .5rem; border-top: 1px solid rgba(160,180,230,.2); font-size: .82rem; }
+.twh-world-list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .4rem; }
+.twh-world-list .twh-spot { width: 100%; }
+.twh-world-list .zh { font-family: var(--zh); }
+@media (max-width: 900px) { .twh-world { grid-template-columns: 1fr; } .twh-world-side { border-left: 0; border-top: 1px solid rgba(160,180,230,.16); } }
+@media (max-width: 560px) { .twh-world-list { grid-template-columns: 1fr; } .twh-people-t { font-size: 13px; } }
+@media (max-width: 560px) {
+  .twh-wp text { font-size: 21px; stroke-width: 4px; }
+  .twh-wp text .zh { display: none; }
+  .twh-wp circle { r: 9px; }
+  .twh-world-lines path { stroke-width: 3; }
+}

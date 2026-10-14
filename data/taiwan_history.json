@@ -1069,7 +1069,7 @@
               "href": "/resources/classes/taiwan-history/how-do-we-know/" },
             { "icon": "🛶", "k_en": "Taiwan’s Story · Lesson 3", "k_zh": "台灣歷史・第三課", "en": "Who Are Taiwan’s Indigenous Peoples?", "zh": "台灣的原住民族是誰？",
               "note_en": "Many peoples and many languages, their own accounts of where they came from, and what scholars say about Taiwan and the Austronesian languages.", "note_zh": "很多族、很多語言，各族對自己來歷的說法，以及學界怎麼看台灣和南島語族的關係。",
-              "soon": true }
+              "href": "/resources/classes/taiwan-history/indigenous-peoples/" }
           ],
           "sources_note_en": "Facts, dates, and quotations on this page were checked against these sources in October 2026. Quotations keep the spelling and punctuation of the original. Site ages are the Bureau of Cultural Heritage’s unless another source is named",
           "sources_note_zh": "本頁的事實、年代與引文於 2026 年 10 月依下列資料查證；引文保留原文的寫法與標點。遺址的年代除另外註明外，都依文化資產局",
@@ -1094,10 +1094,536 @@
             { "en": "Curriculum: 歷 Ba-Ⅳ-1 and its note; Cb-Ⅲ-2", "zh": "歷 Ba-Ⅳ-1「考古發掘與史前文化」，說明建議討論「學校附近的史前遺址或原住民族部落」；Cb-Ⅲ-2", "src": "十二年國民基本教育課程綱要 社會領域（教育部，2018）", "url": "https://www.k12ea.gov.tw/files/class_schema/%E8%AA%B2%E7%B6%B1/16-%E7%A4%BE%E6%9C%83/16-1/%E5%8D%81%E4%BA%8C%E5%B9%B4%E5%9C%8B%E6%B0%91%E5%9F%BA%E6%9C%AC%E6%95%99%E8%82%B2%E8%AA%B2%E7%A8%8B%E7%B6%B1%E8%A6%81%E5%9C%8B%E6%B0%91%E4%B8%AD%E5%B0%8F%E5%AD%B8%E6%9A%A8%E6%99%AE%E9%80%9A%E5%9E%8B%E9%AB%98%E7%B4%9A%E4%B8%AD%E7%AD%89%E5%AD%B8%E6%A0%A1%E2%94%80%E7%A4%BE%E6%9C%83%E9%A0%98%E5%9F%9F.pdf" },
             { "en": "Coastline on the map: Natural Earth 1:10m Land, version 5.1.2, public domain", "zh": "地圖的海岸線：Natural Earth 1:10m Land 5.1.2 版，公有領域", "src": "Natural Earth, Terms of Use", "url": "https://www.naturalearthdata.com/about/terms-of-use/" }
           ]
+        },
+        {
+          "n": 3,
+          "slug": "indigenous-peoples",
+          "title": "Who Are Taiwan’s Indigenous Peoples?",
+          "title_zh": "台灣的原住民族是誰？",
+          "level": "入門 · Beginner",
+          "icon": "🛶",
+          "card": "peoples",
+          "blurb_en": "Meet the peoples on a map of names, not borders, and slide through the years to watch the government’s official list grow from nine to sixteen, and then take in the Siraya under a new law in 2026. Read each people’s own account of where it came from, and follow the Austronesian languages from Taiwan across two oceans.",
+          "blurb_zh": "在一張「標名字、不標界線」的地圖上認識各族，拖著年份看政府的官方名單從九族變成十六族，再在 2026 年依新的法律加入西拉雅族。讀各族對自己來歷的說法，再跟著南島語言從台灣走過兩個大洋。",
+          "big_idea_en": "Taiwan’s Indigenous peoples are many peoples, with many languages and their own accounts of where they came from. The government’s official list has grown over time as peoples asked to be recognized by their own names; the peoples were here long before the list. Their languages belong to the Austronesian family, and many scholars place its homeland in Taiwan, though not all of the evidence agrees.",
+          "big_idea_zh": "台灣的原住民族是很多個民族，有很多種語言，也各有自己對來歷的說法。政府的官方名單隨著各族要求以自己的名字被承認而一再增加；這些民族早在名單出現之前就在這裡了。他們的語言屬於南島語系，許多學者認為南島語言的原鄉在台灣，但證據並不全都一致。",
+          "lab": {
+            "kind": "peoples",
+            "eyebrow": "Map · 地圖",
+            "title_en": "Names, Not Borders: The Peoples and the Official List",
+            "title_zh": "標名字，不標界線：各族與官方名單",
+            "how_en": "Each name sits near where that people mainly lives, according to the Council of Indigenous Peoples (for the Siraya, the Tainan City Government). Drag the slider, or press a year, to see who was on the government’s official list at that time. Names not yet on the list fade but never disappear. Tap a name to read its card, including the people’s own account of where it came from.",
+            "how_zh": "每一個族名，放在原住民族委員會說明的主要分布地區附近（西拉雅族依臺南市政府）。拖動滑桿或按年份，看那個時候政府的官方名單上有哪幾族。還不在名單上的族名會變淡，但不會消失。點一個族名看卡片，卡片上也有那一族自己對來歷的說法。",
+            "min": 2000, "max": 2026, "start": 2026,
+            "pop_month_en": "July 2026", "pop_month_zh": "2026 年 7 月",
+            "hello_en": "This is 2026: sixteen recognized peoples, plus the Siraya, approved this year under the law on the Pingpu peoples. Drag the slider back to 2000 and forward again to watch the list grow.", "hello_zh": "這是 2026 年：十六個法定原住民族，加上今年依平埔原住民族群身分法核定的西拉雅族。把滑桿拖回 2000 年，再往前拖，看名單怎麼一族一族增加。",
+            "demo": {
+              "nine": { "year": 2000, "people": "bunun" },
+              "thao": { "year": 2001, "people": "thao" },
+              "names": { "year": 2026, "people": "yami" },
+              "siraya": { "year": 2026, "people": "siraya" }
+            },
+            "changes": [
+              { "year": 2000, "short_en": "nine", "short_zh": "九族", "en": "Before 2001 there were nine peoples on the list. The Council’s page on the Thao calls them the tenth people to be recognized, in 2001.", "zh": "2001 年以前，名單上有九族。原民會介紹邵族的頁面說，邵族在 2001 年成為第十個被承認的原住民族。" },
+              { "year": 2001, "short_en": "Thao", "short_zh": "邵族", "en": "2001: after a long campaign, the Thao were recognized as the tenth Indigenous people, under the name they asked for.", "zh": "2001 年：經過長期的爭取，邵族以自己爭取的族名，成為第十個原住民族。" },
+              { "year": 2002, "short_en": "Kavalan", "short_zh": "噶瑪蘭族", "en": "2002: the Kavalan were recognized.", "zh": "2002 年：噶瑪蘭族被公告認定為原住民族之一。" },
+              { "year": 2004, "short_en": "Truku", "short_zh": "太魯閣族", "en": "2004: the Truku were recognized as a separate people.", "zh": "2004 年：太魯閣族被公告認定為獨立的民族。" },
+              { "year": 2007, "short_en": "Sakizaya", "short_zh": "撒奇萊雅族", "en": "2007: the Sakizaya were recognized.", "zh": "2007 年：撒奇萊雅族成為官方公告承認的原住民族。" },
+              { "year": 2008, "short_en": "Sediq", "short_zh": "賽德克族", "en": "2008: the Sediq were recognized as a separate people.", "zh": "2008 年：賽德克族被公告認定為獨立的民族。" },
+              { "year": 2014, "short_en": "Hla’alua, Kanakanavu", "short_zh": "拉阿魯哇族、卡那卡那富族", "en": "2014: on June 26 the government announced the Hla’alua as the 15th people and the Kanakanavu as the 16th.", "zh": "2014 年：政府在 6 月 26 日宣布，拉阿魯哇族為第 15 族、卡那卡那富族為第 16 族。" },
+              { "year": 2026, "short_en": "Siraya", "short_zh": "西拉雅族", "en": "2026: in late July the Executive Yuan approved the Siraya as an Indigenous people, the first under a new law on the status of the Pingpu peoples. Registration opened on August 13, 2026.", "zh": "2026 年：7 月底，行政院核定西拉雅族為原住民族，這是《平埔原住民族群身分法》施行後的第一件。族人從 2026 年 8 月 13 日起可以申請登載。" }
+            ],
+            "peoples": [
+              { "key": "amis", "zh": "阿美族", "en": "Amis", "lon": 121.42, "lat": 23.55, "nudge": [16, 0], "recognized": 2000,
+                "recognized_en": "On the list before 2001", "recognized_zh": "2001 年以前就在名單上",
+                "self_en": "They call themselves Pangcah. “Amis,” meaning northerners, is what the Pinuyumayan called the Amis living to their north; scholars then spread the name.", "self_zh": "自稱 Pangcah（邦查）；住在卑南族北邊的阿美族人，被卑南族人稱為「Amis」，有北方人的意思，後來經學術界採用而傳開。",
+                "area_en": "The plains east of the Central Mountain Range in Hualien and Taitung, and the Hengchun Peninsula in Pingtung.", "area_zh": "中央山脈以東、立霧溪以南的平原地區，包含花蓮、臺東兩縣，以及屏東縣的恆春半島。",
+                "pop": 238027,
+                "origin_en": "In the north, Amis tradition says the ancestors were born of gods; in the south, that they were born from a stone.", "origin_zh": "北部阿美族人傳說祖先是由神降生而來，南部阿美族人認為祖先是由石頭誕生而來。",
+                "src": "Council of Indigenous Peoples · 原住民族委員會", "url": "https://www.cip.gov.tw/zh-tw/tribe/grid-list/DBADF0287998968BD0636733C6861689/info.html?cumid=5DD9C4959C302B9FD0636733C6861689" },
+              { "key": "atayal", "zh": "泰雅族", "en": "Atayal", "lon": 121.35, "lat": 24.62, "nudge": [10, -8], "recognized": 2000,
+                "recognized_en": "On the list before 2001", "recognized_zh": "2001 年以前就在名單上",
+                "self_en": "Atayal means a person, a true person, or one of us.", "self_zh": "atayal 的意思是人、真人或同族人。",
+                "area_en": "The mountains of north-central Taiwan, in New Taipei, Taoyuan, Hsinchu, Miaoli, Taichung, Nantou, and Yilan.", "area_zh": "臺灣中北部山區，包含新北市、桃園市、新竹縣、苗栗縣、臺中市、南投縣、宜蘭縣等七縣市。",
+                "pop": 104052,
+                "origin_en": "Long ago a great rock split open, and the first man and woman walked out of it. Their descendants moved to many places and built villages.", "origin_zh": "遠古時代，由大石頭分裂爆開後走出男、女性的祖先，之後遷徙到各地建立部落。",
+                "src": "Council of Indigenous Peoples · 原住民族委員會", "url": "https://www.cip.gov.tw/zh-tw/tribe/grid-list/8C87B4AF56B788EED0636733C6861689/info.html?cumid=5DD9C4959C302B9FD0636733C6861689" },
+              { "key": "saisiyat", "zh": "賽夏族", "en": "Saisiyat", "lon": 121.03, "lat": 24.6, "nudge": [-14, -2], "recognized": 2000,
+                "recognized_en": "On the list before 2001", "recognized_zh": "2001 年以前就在名單上",
+                "area_en": "Northwestern Taiwan, on either side of Mount Egongji, in Hsinchu and Miaoli counties.", "area_zh": "臺灣西北部，以鵝公髻山為界分屬於新竹縣與苗栗縣。",
+                "pop": 7817,
+                "origin_en": "A brother and sister survived a great flood and had a child. The pieces of the child were cast into the sea and became the ancestors of the villages and peoples.", "origin_zh": "倖存的兄妹成婚生下小孩，而後將小孩肉、骨、胃、腸分解後投入海中，各別成為各部落與民族的祖先。",
+                "src": "Council of Indigenous Peoples · 原住民族委員會", "url": "https://www.cip.gov.tw/zh-tw/tribe/grid-list/8DF9561F4FCC6AF4D0636733C6861689/info.html?cumid=5DD9C4959C302B9FD0636733C6861689" },
+              { "key": "kavalan", "zh": "噶瑪蘭族", "en": "Kavalan", "lon": 121.8, "lat": 24.72, "nudge": [14, 0], "recognized": 2002,
+                "recognized_en": "Recognized in 2002", "recognized_zh": "2002 年公告認定",
+                "self_en": "Kavalan means people of the plain.", "self_zh": "自稱 kavalan，意思是平原的人類。",
+                "area_en": "Zhuangwei and Wujie in Yilan; Xincheng and Fengbin in Hualien; Changbin in Taitung.", "area_zh": "宜蘭縣壯圍鄉、五結鄉；花蓮縣新城鄉、豐濱鄉；臺東縣長濱鄉。",
+                "pop": 1800,
+                "origin_en": "The Kavalan first came from islands to the south, passing a place called Sanasai, and settled on the Lanyang Plain.", "origin_zh": "傳說噶瑪蘭族人最早由南方島嶼，途經地名為 Sanasai 的地方後遷入臺灣，落腳於蘭陽平原。",
+                "src": "Council of Indigenous Peoples · 原住民族委員會", "url": "https://www.cip.gov.tw/zh-tw/tribe/grid-list/7088C08FB51F3383D0636733C6861689/info.html?cumid=5DD9C4959C302B9FD0636733C6861689" },
+              { "key": "truku", "zh": "太魯閣族", "en": "Truku", "lon": 121.55, "lat": 24.17, "nudge": [14, -4], "recognized": 2004,
+                "recognized_en": "Recognized in 2004", "recognized_zh": "2004 年公告認定",
+                "area_en": "Xiulin, Wanrong, and Zhuoxi townships in Hualien, and three villages of Ji’an.", "area_zh": "花蓮縣秀林、萬榮、卓溪三鄉，以及吉安鄉慶豐、南華、福興三村。",
+                "pop": 37477,
+                "origin_en": "In prehistoric times the ancestors came by boat from the lands to the south (rowcing, a word for driftwood that here means a boat) and landed on the southwest coast of Taiwan.", "origin_zh": "祖先在史前時代由南洋一帶乘坐 rowcing（漂流木，即船隻之意），在臺灣西南沿海一帶登陸。",
+                "src": "Council of Indigenous Peoples · 原住民族委員會", "url": "https://www.cip.gov.tw/zh-tw/tribe/grid-list/F0736660B8023670D0636733C6861689/info.html?cumid=5DD9C4959C302B9FD0636733C6861689" },
+              { "key": "sediq", "zh": "賽德克族", "en": "Sediq", "lon": 121.2, "lat": 24.03, "nudge": [-14, -8], "recognized": 2008,
+                "recognized_en": "Recognized in 2008", "recognized_zh": "2008 年公告認定",
+                "self_en": "Also written Seediq or Sejiq; three groups, Tgdaya, Toda, and Truku. The Truku people of Hualien were recognized as a separate people in 2004, the Sediq in 2008.", "self_zh": "也寫作 Seediq、Sejiq；分為 Tgdaya、Toda、Truku 三群。花蓮的太魯閣族在 2004 年、賽德克族在 2008 年，分別成為獨立的民族。",
+                "area_en": "Ren’ai Township in Nantou, and Xiulin and Wanrong in Hualien.", "area_zh": "南投縣仁愛鄉，以及花蓮縣秀林、萬榮兩鄉等地。",
+                "pop": 12268,
+                "origin_en": "The Sediq began in the Central Mountain Range, at a place now called Mudan Rock.", "origin_zh": "發源於中央山脈（Pusu Qhuni），今被稱之為牡丹岩。",
+                "src": "Council of Indigenous Peoples · 原住民族委員會", "url": "https://www.cip.gov.tw/zh-tw/tribe/grid-list/F35F3EBC7CE2E1BCD0636733C6861689/info.html?cumid=5DD9C4959C302B9FD0636733C6861689" },
+              { "key": "sakizaya", "zh": "撒奇萊雅族", "en": "Sakizaya", "lon": 121.6, "lat": 23.97, "nudge": [14, 4], "recognized": 2007,
+                "recognized_en": "Recognized in 2007", "recognized_zh": "2007 年成為官方承認的原住民族",
+                "area_en": "Mainly the Hualien plain, with villages also in the East Rift Valley and along the coast.", "area_zh": "以花蓮平原為主要分布地點，也在花東縱谷、海岸等地建立部落。",
+                "pop": 1237,
+                "origin_en": "The ancestors came from overseas to eastern Taiwan and settled on the Hualien plain.", "origin_zh": "祖先由海外遷入東部後落腳花蓮平原。",
+                "src": "Council of Indigenous Peoples · 原住民族委員會", "url": "https://www.cip.gov.tw/zh-tw/tribe/grid-list/588FAD20D4E16D65D0636733C6861689/info.html?cumid=5DD9C4959C302B9FD0636733C6861689" },
+              { "key": "thao", "zh": "邵族", "en": "Thao", "lon": 120.92, "lat": 23.86, "nudge": [-14, 0], "recognized": 2001,
+                "recognized_en": "Recognized in 2001, the tenth people", "recognized_zh": "2001 年承認，第十個原住民族",
+                "self_en": "Thau, their word for “person”; Japanese scholars took it as the name of the people in the colonial period.", "self_zh": "族名 Thau，源自日本殖民統治時期，日本學者引用邵語稱呼「人」的「Thau」做為邵族的族名。",
+                "area_en": "Ita Thau village in Yuchi Township and Dapinglin in Shuili Township, Nantou: around Sun Moon Lake.", "area_zh": "南投縣魚池鄉伊達邵部落和水里鄉大坪林聚落——在日月潭一帶。",
+                "pop": 975,
+                "origin_en": "The ancestors lived on the Chiayi–Tainan plain. Hunters chased a rare white deer for days into the mountains, until it leapt into Sun Moon Lake.", "origin_zh": "邵族祖先原居於嘉南平原一帶……獵人無意間發現罕見的白鹿……白鹿即躍入日月潭。",
+                "src": "Council of Indigenous Peoples · 原住民族委員會", "url": "https://www.cip.gov.tw/zh-tw/tribe/grid-list/3343FD21497CA007D0636733C6861689/info.html?cumid=5DD9C4959C302B9FD0636733C6861689" },
+              { "key": "bunun", "zh": "布農族", "en": "Bunun", "lon": 121.05, "lat": 23.35, "nudge": [10, 8], "recognized": 2000,
+                "recognized_en": "On the list before 2001", "recognized_zh": "2001 年以前就在名單上",
+                "self_en": "They call themselves Bunun.", "self_zh": "以 bunun 一詞來稱呼自己。",
+                "area_en": "The Central Mountain Range and both sides of it: Nantou, Hualien, Taitung, and Kaohsiung.", "area_zh": "南投縣仁愛鄉、信義鄉，花蓮縣卓溪鄉、萬榮鄉，臺東縣延平鄉、海端鄉，高雄市桃源區、那瑪夏區等地。",
+                "pop": 66390,
+                "origin_en": "The Bunun have several origin accounts. In one of the most widely told, a gourd fell from the sky and split open; a man and a woman walked out of it, and their descendants are the Bunun of today.", "origin_zh": "布農族的起源有好幾種說法。流傳較廣的一種是：有一天從天上掉下了一顆葫蘆，裂開之後，從葫蘆裡走出了一對男女，這一對男女的後裔就是現今的布農族人。",
+                "src": "Council of Indigenous Peoples · 原住民族委員會", "url": "https://www.cip.gov.tw/zh-tw/tribe/grid-list/F39C8394699DD2D6D0636733C6861689/info.html?cumid=5DD9C4959C302B9FD0636733C6861689" },
+              { "key": "cou", "zh": "鄒族", "en": "Cou (Tsou)", "lon": 120.78, "lat": 23.47, "nudge": [-14, 0], "recognized": 2000,
+                "recognized_en": "On the list before 2001", "recognized_zh": "2001 年以前就在名單上",
+                "self_en": "Tsou, their word for “person.”", "self_zh": "以自稱 Tsou 為族名，意思是人。",
+                "area_en": "Centered on Alishan in Chiayi, with some in Xinyi, Nantou, and Namasia, Kaohsiung.", "area_zh": "以嘉義縣阿里山鄉為中心，部分在南投縣信義鄉，往南到高雄市那瑪夏區。",
+                "pop": 7068,
+                "origin_en": "The great god Hamo made the Cou from maple leaves, and they moved from Yushan, the Jade Mountain, to where they live now.", "origin_zh": "大神哈默用楓葉創造鄒族人……並從玉山逐漸遷徙到現居地。",
+                "src": "Council of Indigenous Peoples · 原住民族委員會", "url": "https://www.cip.gov.tw/zh-tw/tribe/grid-list/AE6EE12F5F284D59D0636733C6861689/info.html?cumid=5DD9C4959C302B9FD0636733C6861689" },
+              { "key": "kanakanavu", "zh": "卡那卡那富族", "en": "Kanakanavu", "lon": 120.68, "lat": 23.24, "nudge": [-14, 2], "recognized": 2014,
+                "recognized_en": "Recognized in 2014, the 16th people", "recognized_zh": "2014 年宣布，第 16 族",
+                "area_en": "Takanuwa and Maya in Namasia District, Kaohsiung; some families were moved to Da’ai Park in Shanlin District after the 2009 typhoon.", "area_zh": "高雄市那瑪夏區的達卡努瓦里、瑪雅里；2009 年莫拉克風災後，有幾戶被安遷至杉林區的「大愛園區」。",
+                "pop": 495,
+                "origin_en": "A mother named Niun lived alone with her son Parumaci. He kicked a tree: the falling leaves became houses, and with a second kick the leaves became people.", "origin_zh": "一名為 Niun 的母親，與其子 Parumaci 相依為命……一腳踢向……樹幹，樹葉盡落，紛紛相疊，瞬間疊成了一棟棟的房子。再度一踢，落葉悉數成了人。",
+                "src": "Council of Indigenous Peoples · 原住民族委員會", "url": "https://www.cip.gov.tw/zh-tw/tribe/grid-list/91A2A514F76BAEACD0636733C6861689/info.html?cumid=5DD9C4959C302B9FD0636733C6861689" },
+              { "key": "hlaalua", "zh": "拉阿魯哇族", "en": "Hla’alua", "lon": 120.78, "lat": 23.13, "nudge": [12, 0], "recognized": 2014,
+                "recognized_en": "Recognized in 2014, the 15th people", "recognized_zh": "2014 年宣布，第 15 族",
+                "area_en": "Gaozhong and Taoyuan in Taoyuan District, and Maya in Namasia District, Kaohsiung.", "area_zh": "高雄市桃源區高中里、桃源里以及那瑪夏區瑪雅里。",
+                "pop": 528,
+                "origin_en": "The ancestors once lived in the east, at Hlasʉnga, together with little people who kept sacred shells as the home of their first ancestor.", "origin_zh": "族人原居地在東方 Hlasʉnga，曾與矮人共同生活；矮人視「聖貝」為太祖（貝神）居住之所。",
+                "src": "Council of Indigenous Peoples · 原住民族委員會", "url": "https://www.cip.gov.tw/zh-tw/tribe/grid-list/DE7E75BDD1F53F90D0636733C6861689/info.html?cumid=5DD9C4959C302B9FD0636733C6861689" },
+              { "key": "siraya", "pingpu": true, "zh": "西拉雅族", "en": "Siraya", "lon": 120.33, "lat": 23.1, "nudge": [-16, 24], "recognized": 2026,
+                "recognized_en": "Approved in 2026", "recognized_zh": "2026 年核定",
+                "area_en": "Tainan, where the city government counts 50 Siraya communities in 12 districts.", "area_zh": "臺南；臺南市政府說，臺南市仍有 50 處西拉雅族聚落，分布於 12 個行政區。",
+                "note_en": "Approved as a Pingpu people under the 2025 law. Registration as a member opened on August 13, 2026; the July 2026 population table has no Siraya column.", "note_zh": "依 2025 年的法律核定為平埔原住民族群。族人從 2026 年 8 月 13 日起可以申請登載民族成員名冊；2026 年 7 月的人口統計表還沒有西拉雅族這一欄。",
+                "src": "Council of Indigenous Peoples, July 30, 2026 · 原住民族委員會", "url": "https://www.cip.gov.tw/zh-tw/news/data-list/35AE118732EB6BAF/C782A9E0C4FE437EB952F7A111CC4239-info.html" },
+              { "key": "rukai", "zh": "魯凱族", "en": "Rukai", "lon": 120.73, "lat": 22.78, "nudge": [-14, 0], "recognized": 2000,
+                "recognized_en": "On the list before 2001", "recognized_zh": "2001 年以前就在名單上",
+                "self_en": "Ngudradrekai; where the name “Rukai” comes from is still not settled.", "self_zh": "Ngudradrekai；「魯凱」這個名稱的來源仍無定論。",
+                "area_en": "Both sides of the southern Central Mountain Range, in Kaohsiung, Pingtung, and Taitung.", "area_zh": "中央山脈南段兩側，分屬高雄、屏東與臺東三個行政區。",
+                "pop": 14689,
+                "origin_en": "The three Rukai groups have different accounts. The East Rukai say the ancestors landed from overseas on the east coast; the West Rukai, that the first ancestors were created by the sun, from a clay pot, or from a stone; the Lower Three Villages of Maolin, that the ancestors began around the Big and Small Ghost Lakes.", "origin_zh": "魯凱族三群的說法不同：東魯凱群相傳祖先是由海外登陸東海岸；西魯凱群認為先祖是由太陽、陶壺或石頭創生；高雄茂林下三社的口述歷史，認為祖先是發源在茂林區大、小鬼湖地區。",
+                "src": "Council of Indigenous Peoples · 原住民族委員會", "url": "https://www.cip.gov.tw/zh-tw/tribe/grid-list/409F703B4E592A82D0636733C6861689/info.html?cumid=5DD9C4959C302B9FD0636733C6861689" },
+              { "key": "pinuyumayan", "zh": "卑南族", "en": "Pinuyumayan", "lon": 121.08, "lat": 22.8, "nudge": [12, 4], "recognized": 2000,
+                "recognized_en": "On the list before 2001", "recognized_zh": "2001 年以前就在名單上",
+                "self_en": "They call themselves Puyuma; in recent years some have proposed Pinuyumayan for the whole people, to tell it apart from the name of one village.", "self_zh": "自稱 Puyuma；近年有族人提倡以「比努優瑪樣」（Pinuyumayan）作為新的族稱，以區別族稱與部落名。",
+                "area_en": "The Taitung plain, around Taitung City and Beinan Township.", "area_zh": "以臺東平原的臺東市、卑南鄉一帶為核心。",
+                "pop": 16791,
+                "origin_en": "There are two accounts: the ancestors were born from bamboo, or from a stone.", "origin_zh": "卑南族的起源有「竹生」、「石生」兩種說法。",
+                "src": "Council of Indigenous Peoples · 原住民族委員會", "url": "https://www.cip.gov.tw/zh-tw/tribe/grid-list/913F9B9D35D49AC3D0636733C6861689/info.html?cumid=5DD9C4959C302B9FD0636733C6861689" },
+              { "key": "paiwan", "zh": "排灣族", "en": "Paiwan", "lon": 120.78, "lat": 22.45, "nudge": [-14, 0], "recognized": 2000,
+                "recognized_en": "On the list before 2001", "recognized_zh": "2001 年以前就在名單上",
+                "area_en": "From Mount Dawu south to the Hengchun Peninsula, west to Fangliao and east to Taimali, in Pingtung and Taitung.", "area_zh": "北以大武山、南到恆春半島、西到枋寮、東到太麻里及臺東市新園里，包含屏東、臺東兩縣。",
+                "pop": 116004,
+                "origin_en": "In Paiwan tradition, the ancient clay pot is the source from which the ancestors were born. Some Paiwan believe the hundred-pace snake is the ancestor of the traditional leaders.", "origin_zh": "排灣族的文化傳說中，古陶壺是祖先誕生的來源，具有創生的意義。部分排灣族人相信百步蛇是傳統領袖的祖先。",
+                "src": "Council of Indigenous Peoples · 原住民族委員會", "url": "https://www.cip.gov.tw/zh-tw/tribe/grid-list/67E3CC5AE2F10A8BD0636733C6861689/info.html?cumid=5DD9C4959C302B9FD0636733C6861689" },
+              { "key": "yami", "zh": "雅美族（達悟族）", "en": "Yami (Tao)", "lon": 121.55, "lat": 22.05, "nudge": [12, 0], "recognized": 2000,
+                "recognized_en": "On the list before 2001", "recognized_zh": "2001 年以前就在名單上",
+                "self_en": "“Yami,” meaning “we,” was first used by the anthropologist Torii Ryūzō in the late 19th century. Some use “Tao,” meaning “person.” The Council says official use is Yami and everyday use is Tao.", "self_zh": "「雅美」是「我們」的意思，由十九世紀末期人類學家鳥居龍藏開始使用；部分族人另外使用「達悟」（tao），意思為「人」。原民會說，官方採用雅美、民間採用達悟。",
+                "area_en": "Orchid Island (Lanyu), in Taitung County.", "area_zh": "臺東縣蘭嶼鄉蘭嶼島。",
+                "pop": 5121,
+                "origin_en": "There are two accounts: the first ancestors came from a stone, or from bamboo.", "origin_zh": "蘭嶼居民的遠祖來源有石生與竹生兩種傳說。",
+                "src": "Council of Indigenous Peoples · 原住民族委員會", "url": "https://www.cip.gov.tw/zh-tw/tribe/grid-list/5839F78F6C869EE4D0636733C6861689/info.html?cumid=5DD9C4959C302B9FD0636733C6861689" }
+            ],
+            "legend": [
+              { "cls": "twhlit", "en": "Bright: on the government’s list in the chosen year", "zh": "亮著：選定的那一年在政府的名單上" },
+              { "cls": "twhdim", "en": "Faded: not yet on the list in that year (but the people was there)", "zh": "變淡：那一年還不在名單上（但這一族一直都在）" }
+            ],
+            "scale_en": "Each name is placed near where the Council of Indigenous Peoples says the people mainly lives. The names are not borders, and many people from every group now live in cities all over Taiwan. Population figures are the Council’s for July 2026 (the Ministry of the Interior’s count for the same month is the same total); the Siraya have no figure yet. The nine peoples on the list before 2001 are shown from 2000, because no official page we could find gives the year the first list was made.",
+            "scale_zh": "每一個族名，放在原民會說明的主要分布地區附近。族名不是界線；而且每一族都有很多人住在台灣各地的城市。人口數依原民會 2026 年 7 月的統計（和內政部同月的總數相同）；西拉雅族還沒有人口數。2001 年以前在名單上的九族，地圖從 2000 年開始畫，因為我們找不到寫明最早的名單是哪一年訂的官方頁面。",
+            "credit_html": "Map and code by My Culture Connect. Coastline: Natural Earth 1:10m Land, public domain. No boundaries of any kind are drawn. 地圖與程式由人師教育協會製作；海岸線為公有領域資料，圖上不畫任何界線。"
+          },
+          "paras": [
+            "How many Indigenous peoples are there in Taiwan? The answer depends on when you ask. In 2000, the government’s official list had nine peoples. By 2014 it had sixteen. In 2026 the Siraya were approved under a new law for the Pingpu peoples. The peoples themselves did not suddenly appear. They had been here all along, and many of them had to work for years to be recognized by the names they call themselves. So a list made by a government is one kind of record, and like every record, it has a date.",
+            "In July 2026 the Ministry of the Interior counted 638,466 Indigenous people in Taiwan, about 2.75 percent of the population. Of these, 7,727 had not yet registered with a particular people. The Amis are the largest people, with more than 238,000 members; the Kanakanavu are among the smallest, with about 500. The Council of Indigenous Peoples counts 42 varieties of Indigenous languages spoken by the sixteen peoples recognized before 2026. Since 2017, the law has called Indigenous languages national languages of Taiwan.",
+            "Each people has its own account of where it came from. One Bunun account tells of a gourd that fell from the sky and split open, and a man and a woman walked out. The Atayal tell of a great rock that burst apart. The Cou say the god Hamo made them from maple leaves, and that they later moved from Yushan to where they live now. The Kavalan say their ancestors came from islands to the south. Lesson 1 called these words passed down by mouth. They are evidence of another kind: they tell us how a people understands itself, and they deserve the same respect as any other source.",
+            "Names matter, too. In the 1992 constitutional amendments, the government still used the word shanbao, meaning “mountain compatriots.” In 1994 the amendments changed it to yuanzhumin, “original inhabitants,” and in 1997 to yuanzhuminzu, “Indigenous peoples,” a word that recognizes them as peoples. Some names were given by outsiders. The name Yami was first used by a Japanese anthropologist in the late 19th century; some people on Orchid Island also use Tao, which means “person” in their language.",
+            "The list keeps changing. In 2001 the Thao were recognized as the tenth people. In 2022 Taiwan’s Constitutional Court ruled that the Indigenous peoples protected by the Constitution include all the Austronesian peoples that already existed in Taiwan, and so the Pingpu peoples as well. A law on the status of the Pingpu peoples followed in 2025, and in July 2026 the Siraya became the first people approved under it. In October 2025 the Council said that nine Pingpu peoples had applied, including the Siraya. Those cases were at different stages.",
+            "Taiwan’s Indigenous languages belong to a large family called Austronesian. Encyclopaedia Britannica counts about 1,200 Austronesian languages, spoken from Madagascar, off Africa, to Easter Island in the eastern Pacific. Many linguists think the family began in Taiwan. A 2009 study of language trees placed its origin here about 5,230 years ago. Others have argued that the ancestors of the Polynesians came from farther south, and a 2014 study notes that the genetic evidence is “more controversial” than the evidence from languages. This series sets these views side by side."
+          ],
+          "paras_zh": [
+            "台灣有幾個原住民族？答案要看你什麼時候問。2000 年，政府的官方名單上有九族；到了 2014 年有十六族；2026 年，西拉雅族又依平埔原住民族群的新法律被核定。這些民族不是突然出現的。他們一直都在這裡，而且很多族花了好多年，才讓政府用他們自己的名字承認他們。所以，政府訂的名單是一種記錄；就像每一份記錄一樣，它也有日期。",
+            "2026 年 7 月，內政部統計台灣的原住民人口是 638,466 人，大約占總人口的 2.75%；其中 7,727 人尚未申報族別。阿美族是人口最多的一族，超過二十三萬八千人；卡那卡那富族是人口最少的幾族之一，大約五百人。原住民族委員會說，2026 年以前承認的十六族，族語共有 42 種語言別。從 2017 年起，法律明定原住民族語言是台灣的國家語言。",
+            "每一族都有自己對來歷的說法。布農族的說法之一是：有一天從天上掉下一顆葫蘆，裂開以後走出一對男女。泰雅族說，一塊大石頭分裂爆開。鄒族說，大神哈默用楓葉創造了他們，後來他們從玉山遷到現在住的地方。噶瑪蘭族說，祖先來自南方的島嶼。第一課把這些叫做「用嘴巴傳下來的話」。它們是另一種證據：告訴我們一個民族怎麼理解自己，也值得和其他史料一樣被尊重。",
+            "名稱也很重要。1992 年的憲法增修條文，還用「山胞」這個詞。1994 年改成「原住民」，1997 年再改成「原住民族」——承認他們是一個一個的民族。有些名稱是外人取的。「雅美」這個名稱，是十九世紀末一位日本人類學家開始使用的；蘭嶼也有族人使用「達悟」，在他們的語言裡是「人」的意思。",
+            "名單一直在改變。2001 年，邵族成為第十個被承認的民族。2022 年，憲法法庭判決：憲法保障的原住民族，應包括既存於臺灣之所有臺灣南島語系民族——因此也包括平埔族群。2025 年通過了平埔原住民族群身分法；2026 年 7 月，西拉雅族成為依這部法律核定的第一個民族。原民會在 2025 年 10 月說，包括西拉雅族在內，已有九個平埔族群提出申請，各案進度不一。",
+            "台灣原住民族的語言屬於一個很大的語系，叫做南島語系。《大英百科全書》說，南島語言大約有 1,200 種，從非洲外海的馬達加斯加，一直分布到東太平洋的復活節島。許多語言學家認為，這個語系起源於台灣。2009 年一份比較語言樹的研究，把它的起源放在大約 5,230 年前的台灣。也有學者主張，波里尼西亞人的祖先來自更南方；2014 年的一份研究則指出，遺傳學的證據比語言的證據「更有爭議」。這個系列把這些看法並列。"
+          ],
+          "questions": [
+            "Why did the number of peoples on the official list change between 2000 and 2026?",
+            "What is the difference between the names Yami and Tao?",
+            "Why does this lesson treat each people’s origin account as evidence?"
+          ],
+          "answers": [
+            "Because peoples asked, often for years, to be recognized by their own names, and because a 2022 court ruling and a 2025 law opened the way for Pingpu peoples. The peoples did not change; the government’s list did.",
+            "Yami, meaning “we,” was first used by a Japanese anthropologist in the late 19th century and is still the official name. Tao means “person” in their own language and is a name some people on Orchid Island use.",
+            "Because words passed down by mouth are one of the three kinds of evidence from Lesson 1. They show how a people understands itself, so they deserve respect alongside archaeology and written records."
+          ],
+          "vocab": [
+            { "n": 1, "w": "Indigenous", "pos": "adj.", "zh": "原住的；原住民族的", "ex": "Taiwan’s <b>Indigenous</b> peoples speak many languages.", "exzh": "台灣的原住民族說很多種語言。" },
+            { "n": 2, "w": "recognize", "pos": "v.", "zh": "承認；認定", "ex": "The government <b>recognized</b> the Thao in 2001.", "exzh": "政府在 2001 年承認了邵族。" },
+            { "n": 3, "w": "official", "pos": "adj.", "zh": "官方的；正式的", "ex": "The <b>official</b> list had nine peoples in 2000.", "exzh": "2000 年，官方名單上有九族。" },
+            { "n": 4, "w": "origin", "pos": "n.", "zh": "起源；來歷", "ex": "Each people has its own story of its <b>origin</b>.", "exzh": "每一族都有自己的起源故事。" },
+            { "n": 5, "w": "ancestor", "pos": "n.", "zh": "祖先", "ex": "In Atayal tradition, the first <b>ancestors</b> came out of a rock.", "exzh": "在泰雅族的傳說裡，最早的祖先是從石頭裡走出來的。" },
+            { "n": 6, "w": "language family", "pos": "n.", "zh": "語系", "ex": "Austronesian is one of the largest <b>language families</b> in the world.", "exzh": "南島語系是世界上最大的語系之一。" },
+            { "n": 7, "w": "variety", "pos": "n.", "zh": "（語言的）語言別、變體", "ex": "The Council counts 42 <b>varieties</b> of Indigenous languages.", "exzh": "原民會說族語共有 42 種語言別。" },
+            { "n": 8, "w": "rule", "pos": "v.", "zh": "（法院）裁決、判決", "ex": "In 2022 the Constitutional Court <b>ruled</b> on the status of the Pingpu peoples.", "exzh": "2022 年，憲法法庭對平埔族群的身分作出判決。" }
+          ],
+          "quiz": [
+            { "q": "How many peoples were on the government’s official list in 2014?", "options": ["Nine", "Ten", "Sixteen", "Seventeen"], "correct": 2 },
+            { "q": "In one widely told Bunun account, what did the first man and woman come out of?", "options": ["A gourd that fell from the sky", "A clay pot", "A white deer", "The sea"], "correct": 0 },
+            { "q": "What does the word Tao mean in its own language?", "options": ["Mountain", "Person", "Island", "We"], "correct": 1 },
+            { "q": "Which people did Taiwan’s government approve in 2026, the first under the law on Pingpu status?", "options": ["Thao", "Kavalan", "Siraya", "Sediq"], "correct": 2 },
+            { "q": "Where do many linguists think the Austronesian language family began?", "options": ["Madagascar", "Easter Island", "Taiwan", "Hawaii"], "correct": 2 }
+          ],
+          "parts_head": { "eyebrow": "Try It on the Map · 在地圖上試試", "en": "Four things to look at", "zh": "四件值得看的事" },
+          "parts": [
+            { "key": "nine", "icon": "9️⃣", "en": "The first nine", "zh": "最早的九族", "meta_en": "2000", "meta_zh": "2000 年", "demo": "nine",
+              "text_en": "In 2000 nine names are bright. The faded ones were there too; they were not yet on the government’s list.", "text_zh": "2000 年有九個族名亮著。變淡的那些族也都在，只是還不在政府的名單上。" },
+            { "key": "thao", "icon": "🦌", "en": "The tenth people", "zh": "第十個民族", "meta_en": "2001", "meta_zh": "2001 年", "demo": "thao",
+              "text_en": "The Thao of Sun Moon Lake were recognized under the name they asked for. Read their account of the white deer.", "text_zh": "日月潭的邵族，以自己爭取的族名被承認。讀一讀他們關於白鹿的說法。" },
+            { "key": "names", "icon": "🏝️", "en": "Two names", "zh": "兩個名字", "meta_en": "Yami and Tao", "meta_zh": "雅美與達悟", "demo": "names",
+              "text_en": "One name was first used by an outsider; the other means “person” in the people’s own language. The card shows both.", "text_zh": "一個名稱是外人開始用的；另一個在族人自己的語言裡是「人」的意思。卡片上兩個都有。" },
+            { "key": "siraya", "icon": "🌾", "en": "The newest", "zh": "最新的一族", "meta_en": "2026", "meta_zh": "2026 年", "demo": "siraya",
+              "text_en": "The Siraya of Tainan were approved in 2026, after a court ruling and a new law. Their card explains why there is no population figure yet.", "text_zh": "臺南的西拉雅族在 2026 年核定，在那之前有一個判決和一部新的法律。卡片說明了為什麼還沒有人口數。" }
+          ],
+          "parts_note_en": "Now drag the slider slowly from 2000 to 2026 and count the changes. Then ask: what had to happen before each new name could appear?",
+          "parts_note_zh": "現在把滑桿從 2000 年慢慢拖到 2026 年，數一數改變了幾次。再想一想：每一個新的族名出現之前，必須先發生什麼事？",
+          "world": {
+            "eyebrow": "Austronesian · 南島語族",
+            "en": "One Language Family, Two Oceans",
+            "zh": "一個語系，兩個大洋",
+            "lead_en": "Austronesian languages are spoken across a vast stretch of sea. Tap a place to see what is spoken there, and how far it is from Taiwan.",
+            "lead_zh": "南島語言分布在一大片海洋上。點一個地方，看那裡說什麼語言、離台灣有多遠。",
+            "home": "taiwan", "start": "madagascar",
+            "places": [
+              { "key": "taiwan", "en": "Taiwan", "zh": "台灣", "lon": 121.0, "lat": 23.7, "nudge": [10, -8],
+                "text_en": "Britannica says 14 of the 21 or 22 Austronesian languages once spoken by Taiwan’s Indigenous peoples survive. The Council of Indigenous Peoples counts 42 varieties, counting differently (see Different Views).", "text_zh": "《大英百科全書》說，台灣原住民族說過的 21 或 22 種南島語言，有 14 種留存至今。原住民族委員會算的是 42 種語言別，算法不同（見「不同的說法」）。" },
+              { "key": "philippines", "en": "The Philippines", "zh": "菲律賓", "lon": 121.0, "lat": 14.6, "nudge": [10, 4],
+                "text_en": "Britannica gives Ilokano, Tagalog, and Cebuano as examples of the Austronesian languages of the Philippines.", "text_zh": "《大英百科全書》舉伊洛卡諾語、他加祿語、宿霧語，作為菲律賓南島語言的例子。" },
+              { "key": "borneo", "en": "Malaysia (Borneo)", "zh": "馬來西亞（婆羅洲）", "lon": 116.0, "lat": 4.0, "nudge": [-10, 4],
+                "text_en": "About 110 Austronesian languages are spoken in Malaysia, Britannica says, mostly in Sabah and Sarawak on the island of Borneo.", "text_zh": "《大英百科全書》說，馬來西亞大約有 110 種南島語言，大多在婆羅洲的沙巴和砂拉越。" },
+              { "key": "java", "en": "Java", "zh": "爪哇", "lon": 110.4, "lat": -7.5, "nudge": [0, 18],
+                "text_en": "Javanese alone accounts for about one quarter of all speakers of Austronesian languages, according to Britannica.", "text_zh": "依《大英百科全書》，光是爪哇語，就占所有說南島語言的人大約四分之一。" },
+              { "key": "madagascar", "en": "Madagascar", "zh": "馬達加斯加", "lon": 46.9, "lat": -19.0, "nudge": [10, 4],
+                "text_en": "Off the southeast coast of Africa, the western end of the family. Malagasy is generally regarded as a single language, Britannica says.", "text_zh": "在非洲東南方外海，是這個語系最西的一端。《大英百科全書》說，馬達加斯加語一般被視為單一的語言。" },
+              { "key": "hawaii", "en": "Hawaii", "zh": "夏威夷", "lon": 204.4, "lat": 19.6, "nudge": [-10, -8],
+                "text_en": "Hawaiian is one of the Austronesian languages Britannica names among those of the Pacific islands.", "text_zh": "《大英百科全書》在太平洋島嶼的南島語言中，列出了夏威夷語。" },
+              { "key": "easter", "en": "Easter Island (Rapa Nui)", "zh": "復活節島", "lon": 250.6, "lat": -27.1, "nudge": [-10, 16],
+                "text_en": "The eastern end of the family, some 2,200 miles west of Chile, Britannica says. From Madagascar to here spans 206 degrees of longitude.", "text_zh": "這個語系最東的一端，《大英百科全書》說它在智利以西大約 2,200 英里。從馬達加斯加到這裡，橫跨 206 個經度。" }
+            ],
+            "note_en": "The distances are straight-line distances over the globe, worked out on this page from rounded positions, so they are approximate. The map shows only land and sea (Natural Earth, public domain), with no borders. Dots mark a place where an Austronesian language is spoken; they do not show where the speakers came from, and the dashed line only joins two dots: it is not a route anyone sailed.",
+            "note_zh": "距離是地球上的直線距離（大圓距離），本頁用取整數的位置自己算的，所以是大概的數字。地圖只畫陸地和海（Natural Earth，公有領域），不畫任何界線。圓點標的是說南島語言的地方，不代表說話的人從哪裡來；虛線只是把兩個點連起來，不是誰航行過的路線。"
+          },
+          "when": {
+            "eyebrow": "On the Timeline · 在時間軸上",
+            "en": "Where this lesson sits",
+            "zh": "這一課講的是哪裡",
+            "lead_en": "This lesson reaches back to the beginnings of the Austronesian languages and forward to 2026, past the year this series usually stops, because the official list is still changing.",
+            "lead_zh": "這一課往回講到南島語言的起源，往後講到 2026 年——超過這個系列平常寫到的年份，因為官方名單到現在還在改變。",
+            "focus": { "fromAgo": 6000, "toAgo": 0, "en": "This lesson: from the first Austronesian speakers to today", "zh": "這一課：從最早說南島語言的人到今天" },
+            "note_en": "This series normally stops in 1996. Lesson 3 goes further on purpose: the official list of peoples changed in 2001, 2002, 2004, 2007, 2008, 2014, and 2026, and a lesson that stopped in 1996 would give a number that is no longer true.",
+            "note_zh": "這個系列平常寫到 1996 年為止。第三課是刻意寫得更晚：官方名單在 2001、2002、2004、2007、2008、2014、2026 年都改變過，停在 1996 年的話，給出的數字就已經不對了。"
+          },
+          "sort": {
+            "eyebrow": "Game · 小遊戲",
+            "en": "Whose Statement Is It?",
+            "zh": "這是誰的說法？",
+            "lead_en": "Eight statements from this lesson. Is each one a people’s own account, a scholar’s finding, or a government decision? There is no timer; the game only counts how many you place correctly on the first try.",
+            "lead_zh": "這一課裡的八句話。每一句是某一族自己的說法、學者的研究，還是政府的決定？這裡不計時；遊戲只記下你第一次就分對幾句。",
+            "ask_en": "Whose statement is it?", "ask_zh": "這是誰的說法？",
+            "nudge_en": "Not that one. Ask: who said this, and how do they know?", "nudge_zh": "不是這一種。想一想：這是誰說的？他們怎麼知道？",
+            "aria": "Choose the kind of statement · 選出是哪一種說法",
+            "bins": [
+              { "key": "own", "icon": "🗣️", "en": "A people’s own account", "zh": "族人自己的說法", "hint_en": "passed down by mouth", "hint_zh": "口耳相傳的" },
+              { "key": "study", "icon": "🔬", "en": "A scholar’s finding", "zh": "學者的研究", "hint_en": "from evidence and methods", "hint_zh": "根據證據與方法" },
+              { "key": "gov", "icon": "🏛️", "en": "A government decision", "zh": "政府的決定", "hint_en": "a law, ruling, or list", "hint_zh": "法律、判決或名單" }
+            ],
+            "items": [
+              { "key": "gourd", "icon": "🎃", "en": "A gourd fell from the sky, and a man and a woman walked out of it.", "zh": "天上掉下一顆葫蘆，裡面走出一對男女。", "bin": "own", "why_en": "This is one of several Bunun accounts, as the Council records it.", "why_zh": "這是布農族好幾種說法中的一種，由原民會記錄下來。" },
+              { "key": "deer", "icon": "🦌", "en": "Hunters chased a white deer until it leapt into Sun Moon Lake.", "zh": "獵人追著一隻白鹿，直到牠躍入日月潭。", "bin": "own", "why_en": "This is the Thao account of how they came to the lake.", "why_zh": "這是邵族說明自己怎麼來到日月潭的說法。" },
+              { "key": "sanasai", "icon": "🏝️", "en": "The ancestors came from islands to the south, by way of Sanasai.", "zh": "祖先從南方的島嶼經過 Sanasai 而來。", "bin": "own", "why_en": "This is the Kavalan account, as the Council records it.", "why_zh": "這是噶瑪蘭族的說法，由原民會記錄下來。" },
+              { "key": "trees", "icon": "🌳", "en": "Language trees place the Austronesian origin in Taiwan about 5,230 years ago.", "zh": "語言樹的研究，把南島語言的起源放在大約 5,230 年前的台灣。", "bin": "study", "why_en": "This comes from a 2009 study in the journal Science that built a family tree of 400 languages.", "why_zh": "這來自 2009 年發表在《Science》期刊、替 400 種語言建立家族樹的研究。" },
+              { "key": "genes", "icon": "🧬", "en": "The genetic evidence is more controversial than the evidence from languages.", "zh": "遺傳學的證據，比語言的證據更有爭議。", "bin": "study", "why_en": "This is from a 2014 study that compared the DNA of an ancient skeleton found on Liangdao with living peoples.", "why_zh": "這來自 2014 年一份論文，比較亮島出土的古代人骨和現代族群的 DNA。" },
+              { "key": "court", "icon": "⚖️", "en": "The Indigenous peoples protected by the Constitution include all Austronesian peoples that already existed in Taiwan.", "zh": "憲法保障的原住民族，應包括既存於臺灣之所有臺灣南島語系民族。", "bin": "gov", "why_en": "This is from the Constitutional Court’s 2022 ruling.", "why_zh": "這是 2022 年憲法法庭的判決。" },
+              { "key": "thao10", "icon": "🔟", "en": "The Thao are the tenth Indigenous people.", "zh": "邵族是第十個原住民族。", "bin": "gov", "why_en": "This was the government’s decision in 2001, after the Thao asked for it for a long time.", "why_zh": "這是政府在 2001 年的決定——在邵族長期爭取之後。" },
+              { "key": "national", "icon": "📜", "en": "Indigenous languages are national languages.", "zh": "原住民族語言為國家語言。", "bin": "gov", "why_en": "This is Article 1 of the Indigenous Languages Development Act of 2017.", "why_zh": "這是 2017 年《原住民族語言發展法》的第一條。" }
+            ],
+            "done_en": "Three accounts in a people’s own telling, two findings by scholars, and three government decisions. Each kind answers a different question: who we are, what the evidence shows, and what the state recognizes.",
+            "done_zh": "三則族人自己的說法、兩項學者的研究、三個政府的決定。每一種回答的問題不一樣：我們是誰、證據顯示什麼、國家承認什麼。",
+            "note_en": "None of the three kinds is the “real” one. A government list can lag behind a people’s own sense of itself, and a scholar’s finding can be revised. Reading well means knowing which kind of statement you are looking at.",
+            "note_zh": "三種說法沒有哪一種才是「真的」。政府的名單可能落在族人自我認同的後面，學者的研究也可能被修正。會讀資料，就是知道自己正在讀的是哪一種說法。"
+          },
+          "how_we_know": {
+            "eyebrow": "How Do We Know? · 我們怎麼知道？",
+            "en": "The evidence behind this lesson",
+            "zh": "這一課依據的證據",
+            "lead_en": "Each of these is a public record you can open yourself.",
+            "lead_zh": "下面每一項，都是你自己打得開的公開紀錄。",
+            "items": [
+              {
+                "icon": "🗣️", "kind_en": "Words passed down", "kind_zh": "口傳",
+                "en": "The peoples’ own accounts", "zh": "各族自己的說法",
+                "text_en": "The origin accounts, names, and places on each card are those the Council of Indigenous Peoples publishes on its page for each people.",
+                "text_zh": "卡片上的起源說法、族名與分布地區，依原住民族委員會為每一族寫的介紹頁。",
+                "where_k": "Where it lives · 保存在哪裡",
+                "where_en": "Above all in each people’s own memory, language, and ceremonies; written summaries are on the Council’s website.",
+                "where_zh": "最重要的是在每一族自己的記憶、語言與祭儀裡；文字的摘要在原民會的網站上。",
+                "src": "Council of Indigenous Peoples, “The 16 Indigenous Peoples” · 原民會〈原住民族16族簡介〉", "url": "https://www.cip.gov.tw/zh-tw/tribe/grid-list/index.html?cumid=5DD9C4959C302B9FD0636733C6861689"
+              },
+              {
+                "icon": "📊", "kind_en": "Official statistics", "kind_zh": "官方統計",
+                "en": "Population, July 2026", "zh": "2026 年 7 月的人口",
+                "text_en": "638,466 Indigenous people, about 2.75 percent of 23,235,002 people in Taiwan. The Council’s table by people gives the same total.",
+                "text_zh": "原住民人口 638,466 人，占總人口 23,235,002 人的 2.75%。原民會按族別的統計表，總數相同。",
+                "where_k": "Where it is kept · 收藏在哪裡",
+                "where_en": "The household registration records of the Ministry of the Interior, published each month.",
+                "where_zh": "內政部戶政司的戶籍資料，每個月公布。",
+                "src": "Ministry of the Interior, Department of Household Registration, July 2026 · 內政部戶政司", "url": "https://www.ris.gov.tw/info-liferay/app/channel/newsDetail/26218233"
+              },
+              {
+                "icon": "⚖️", "kind_en": "A ruling and a law", "kind_zh": "判決與法律",
+                "en": "Constitutional Court Judgment 111-Hsien-Pan-17 (2022)", "zh": "憲法法庭 111 年憲判字第 17 號判決（2022）",
+                "text_en": "The court ruled that the Indigenous peoples protected by the Constitution include all the Austronesian peoples that already existed in Taiwan, and that other Austronesian peoples whose languages, customs, and traditions still survive, whose members keep their identity, and whose history is on record may apply to be recognized. It gave the government three years to change the law. In the hearing, the Council had argued that the Pingpu peoples were not included.",
+                "text_zh": "判決說，憲法保障的原住民族，應包括既存於臺灣之所有臺灣南島語系民族，；語言、習俗、傳統等文化特徵至今仍然存續、成員仍維持族群認同、且有客觀歷史紀錄可稽的其他臺灣南島語系民族，均得依其民族意願申請核定為原住民族；並要求在三年內修法或另訂特別法。言詞辯論時，原民會的主張是平埔族群不在其內。",
+                "where_k": "Where to read it · 去哪裡讀",
+                "where_en": "On the Constitutional Court’s website, in Chinese with an English summary.",
+                "where_zh": "憲法法庭網站，有中文全文與英文摘要。",
+                "src": "Constitutional Court, R.O.C. (Taiwan) · 憲法法庭", "url": "https://cons.judicial.gov.tw/docdata.aspx?fid=38&id=310021"
+              },
+              {
+                "icon": "🔬", "kind_en": "Scholars’ studies", "kind_zh": "學者的研究",
+                "en": "Where the Austronesian languages began", "zh": "南島語言從哪裡開始",
+                "text_en": "A 2009 study of language trees (Gray, Drummond, and Greenhill, in Science) and a 2014 study of ancient DNA (Ko and others, in the American Journal of Human Genetics), with a 2001 article that argues the other way.",
+                "text_zh": "2009 年比較語言樹的研究（Gray、Drummond、Greenhill，《Science》）、2014 年研究古代 DNA 的論文（Ko 等人，《American Journal of Human Genetics》），以及 2001 年一篇持不同看法的文章。",
+                "where_k": "Where to read it · 去哪裡讀",
+                "where_en": "Summaries are free on PubMed, the U.S. National Library of Medicine’s index; see Sources.",
+                "where_zh": "摘要可以在美國國家醫學圖書館的 PubMed 免費讀到；見資料出處。",
+                "src": "PubMed, Gray et al. 2009", "url": "https://pubmed.ncbi.nlm.nih.gov/19164742/"
+              }
+            ]
+          },
+          "views": {
+            "eyebrow": "Different Views · 不同的說法",
+            "en": "Three questions with more than one answer",
+            "zh": "三個不只一種答案的問題",
+            "lead_en": "Each answer below has a source. The lesson does not choose.",
+            "lead_zh": "下面每一個答案都有出處。課文不替誰選邊。",
+            "items": [
+              {
+                "topic_en": "Where did the Austronesian languages begin?", "topic_zh": "南島語言從哪裡開始？",
+                "sides": [
+                  { "label_en": "A study of language trees (2009)", "label_zh": "語言樹的研究（2009）",
+                    "en": "“[T]he language trees place the Austronesian origin in Taiwan approximately 5230 years ago”", "zh": "這份研究的語言樹，把南島語言的起源放在大約 5,230 年前的台灣。",
+                    "src": "Gray, Drummond & Greenhill, Science (2009), PubMed abstract", "url": "https://pubmed.ncbi.nlm.nih.gov/19164742/" },
+                  { "label_en": "An argument against (2001)", "label_zh": "持不同看法的文章（2001）",
+                    "en": "Of the “out of Taiwan” model, “popularly known as the ‘express train to Polynesia’,” they wrote that “it is becoming clear that there is, in fact, little supporting evidence,” and that the immediate genetic substrate of the Polynesian expansion came “not from Taiwan, but from east of the Wallace line.”", "zh": "他們說，俗稱「到波里尼西亞的快車」的「出台灣」模型，「越來越清楚的是，其實支持的證據很少」；波里尼西亞人擴張的直接遺傳基礎「不是來自台灣，而是華萊士線以東」。",
+                    "src": "Oppenheimer & Richards, Science Progress (2001), PubMed abstract", "url": "https://pubmed.ncbi.nlm.nih.gov/11732155/" },
+                  { "label_en": "A study of ancient DNA that supports a Taiwan origin (2014)", "label_zh": "支持起源於台灣的古代 DNA 研究（2014）",
+                    "en": "“A Taiwan origin … is well supported by linguistic and archaeological evidence. However, human genetic evidence is more controversial.”", "zh": "起源於台灣的看法，有語言學與考古學證據的充分支持；但人類遺傳學的證據比較有爭議。",
+                    "src": "Ko et al., American Journal of Human Genetics (2014)", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3951936/" }
+                ],
+                "note_en": "Official pages do not all speak the same way, either. A 2010 page of the Council of Indigenous Peoples says plainly that Taiwan is the common origin of the Austronesian languages 5,000 years ago; a 2003 newsletter of the National Museum of Prehistory lays out several competing models and ends by saying a final answer is still to come. Notice also that each people has its own account of where it came from (see the cards on the map). Those accounts answer a different question, and this lesson does not test them against the scientific studies.",
+                "note_zh": "官方的頁面說法也不完全一樣。原民會 2010 年的一頁直接寫「臺灣……係5,000年前南島語言之共同起源」；史前館 2003 年的電子報則列出好幾種互相競爭的模型，最後說還要更多研究，「才可對於南島語族起源提出最終的答案」。也請注意：每一族對自己的來歷都有自己的說法（見地圖上的卡片）。那些說法回答的是另一個問題，這一課不拿它們去和科學研究比對真假。"
+              },
+              {
+                "topic_en": "How many Indigenous languages are there?", "topic_zh": "台灣有幾種原住民族語言？",
+                "sides": [
+                  { "label_en": "Council of Indigenous Peoples", "label_zh": "原住民族委員會",
+                    "en": "Taiwan’s Indigenous languages have 42 varieties among 16 peoples.", "zh": "「臺灣原住民族語言具 16 族 42 種語言別」。",
+                    "src": "Council of Indigenous Peoples, 2024 language program (PDF) · 原民會 113 年度族語推動計畫", "url": "https://www.cip.gov.tw/data/news/202402/T-41724220.pdf?s=B026E2CEE4DBEDB5" },
+                  { "label_en": "Encyclopaedia Britannica", "label_zh": "大英百科全書",
+                    "en": "“Fourteen of the 21 or 22 Austronesian languages spoken by the pre-Chinese aboriginal population of Taiwan (also called Formosa) survive.”", "zh": "台灣原住民族說過的 21 或 22 種南島語言當中，有 14 種留存至今。",
+                    "src": "Encyclopaedia Britannica, “Austronesian languages”", "url": "https://www.britannica.com/topic/Austronesian-languages" }
+                ],
+                "note_en": "These numbers do not contradict each other so much as count different things. The Council counts language varieties within each recognized people (its 2024 plan gives 42); Britannica counts languages, including ones no longer spoken. Britannica lists Siraya among the languages no longer spoken, while the Tainan City Government describes classes and books to revive it. Telling a language from a dialect is itself a choice that linguists make in different ways.",
+                "note_zh": "這兩組數字與其說互相矛盾，不如說算的東西不一樣。原民會算的是每一個法定民族裡的「語言別」（它 2024 年的計畫寫的是 42 種）；《大英百科全書》算的是語言，也包括已經沒有人說的。《大英百科全書》把西拉雅語列為已經沒有人說的語言，臺南市政府則說明了族語教師研習、出版繪本與教材等復育的工作。什麼算一種語言、什麼算方言，本身就是語言學家用不同方法做的選擇。"
+              },
+              {
+                "topic_en": "What should a people be called?", "topic_zh": "一個民族應該怎麼稱呼？",
+                "sides": [
+                  { "label_en": "Yami or Tao", "label_zh": "雅美或達悟",
+                    "en": "The name Yami was first used by the anthropologist Torii Ryūzō in the late 19th century; some people use Tao. Studies and reports use Yami (official) and Tao (everyday).", "zh": "「雅美」一詞「由十九世紀末期人類學家鳥居龍藏開始使用」；「部分族人在族群名稱上也另外使用『達悟』」；研究與報導「分別出現官方採用雅美、民間採用達悟這兩種不同的族稱」。",
+                    "src": "Council of Indigenous Peoples, Yami page · 原民會 雅美族", "url": "https://www.cip.gov.tw/zh-tw/tribe/grid-list/index.html?cumid=5DD9C4959C302B9FD0636733C6861689" },
+                  { "label_en": "Puyuma or Pinuyumayan", "label_zh": "Puyuma 或 Pinuyumayan",
+                    "en": "The people’s self-name Puyuma is also the name of one village, so in recent years some have proposed Pinuyumayan for the whole people. The Council’s English pages use Pinuyumayan.", "zh": "族人的自稱 Puyuma 也是南王部落的名稱；為了避免混用，「近年有族人提倡以『比努優瑪樣』（Pinuyumayan）來作為卑南族新的族稱」。原民會的英文頁使用 Pinuyumayan。",
+                    "src": "Council of Indigenous Peoples, Pinuyumayan page · 原民會 卑南族", "url": "https://www.cip.gov.tw/en/tribe/grid-list/index.html?cumid=5DD9C4959C302B9FD0636733C6861689" }
+                ],
+                "note_en": "Both examples come from the same official source, which itself records both names. The safest habit is the one the Council follows: give the official name and the name people use, and say who uses which.",
+                "note_zh": "兩個例子都來自同一個官方出處，而它自己就把兩個名稱都記下來了。最穩當的習慣就是原民會的做法：寫出官方的名稱，也寫出族人用的名稱，並說明誰用哪一個。"
+              }
+            ],
+            "rule_en": "The rule is the same in every lesson: views are set side by side, each with its source, and the lesson does not choose.",
+            "rule_zh": "每一課的規則都一樣：說法並列、各附出處，課文不替誰選邊。"
+          },
+          "phrases": {
+            "eyebrow": "History English · 歷史英語",
+            "en": "Eight sentences for talking about peoples and names",
+            "zh": "談民族與名稱的八句英文",
+            "lead_en": "Some of these report what a people says about itself; others report what a law or a study says. Tap a speaker to hear each one, then try changing the part in bold.",
+            "lead_zh": "有幾句轉述的是一個民族對自己的說法；有幾句轉述的是法律或研究怎麼說。點 🔊 聽每一句，再試著把粗體的部分換掉。",
+            "rows": [
+              { "en": "The Bunun tell of a gourd that fell from the sky.", "html": "The Bunun <b>tell of</b> a gourd that fell from the sky.", "zh": "布農族的說法裡，有一顆從天上掉下來的葫蘆。", "note_en": "tell of: to report a people’s own account without judging it.", "note_zh": "tell of：轉述一個民族自己的說法，不加評斷。" },
+              { "en": "According to Atayal tradition, the first ancestors came out of a rock.", "html": "<b>According to Atayal tradition</b>, the first ancestors came out of a rock.", "zh": "依照泰雅族的傳說，最早的祖先是從石頭裡走出來的。", "note_en": "According to … tradition: says whose account it is.", "note_zh": "According to … tradition：說明這是誰的說法。" },
+              { "en": "Some Yami people call themselves Tao, which means person.", "html": "Some Yami people <b>call themselves</b> Tao, which means person.", "zh": "有些雅美族人自稱達悟，意思是「人」。", "note_en": "call themselves: the name a people uses for itself.", "note_zh": "call themselves：一個民族對自己的稱呼。" },
+              { "en": "The Thao were recognized as the tenth Indigenous people in 2001.", "html": "The Thao <b>were recognized as</b> the tenth Indigenous people in 2001.", "zh": "邵族在 2001 年被承認為第十個原住民族。", "note_en": "were recognized as: a decision made by a government.", "note_zh": "were recognized as：政府所做的決定。" },
+              { "en": "Indigenous people make up about 2.75 percent of Taiwan’s population.", "html": "Indigenous people <b>make up</b> about 2.75 percent of Taiwan’s population.", "zh": "原住民大約占台灣人口的 2.75%。", "note_en": "make up: to be a part of a whole.", "note_zh": "make up：構成整體的一部分。" },
+              { "en": "Since 2017, Indigenous languages have been national languages of Taiwan.", "html": "<b>Since 2017</b>, Indigenous languages <b>have been</b> national languages of Taiwan.", "zh": "從 2017 年起，原住民族語言就是台灣的國家語言。", "note_en": "since + year, with have been: true from then until now.", "note_zh": "since＋年份，配 have been：從那時到現在都是。" },
+              { "en": "Austronesian languages are spoken from Madagascar to Easter Island.", "html": "Austronesian languages <b>are spoken from</b> Madagascar <b>to</b> Easter Island.", "zh": "從馬達加斯加到復活節島，都有人說南島語言。", "note_en": "are spoken from … to …: the range where a language is used.", "note_zh": "are spoken from … to …：說明一種語言使用的範圍。" },
+              { "en": "Many linguists think the family began in Taiwan, but the genetic evidence is debated.", "html": "Many linguists think the family began in Taiwan, <b>but the genetic evidence is debated</b>.", "zh": "許多語言學家認為這個語系起源於台灣，但遺傳學的證據還有爭論。", "note_en": "is debated: careful people do not yet agree.", "note_zh": "is debated：認真的人們還沒有共識。" }
+            ]
+          },
+          "culture_cards": {
+            "eyebrow": "In Taiwan · 在台灣",
+            "title_en": "A changed word, a lake, a national language, and the Pingpu peoples",
+            "title_zh": "一個改掉的詞、一座湖、一種國家語言，以及平埔族群",
+            "lead_en": "Four short notes on names and recognition.",
+            "lead_zh": "四則關於名稱與承認的短短說明。",
+            "cards": [
+              {
+                "k": "A word · 一個詞",
+                "en": "From “mountain compatriots” to “Indigenous peoples”", "zh": "從「山胞」到「原住民族」",
+                "body_en": "The constitutional amendments of 1992 spoke of protecting the status of shanbao, “mountain compatriots.” The amendments of 1994 changed the word to yuanzhumin, “original inhabitants.” Those of 1997 changed it again, to yuanzhuminzu, “Indigenous peoples,” and added that the state would act “according to the will of the peoples.” Three amendments in five years, and each word says something different about who is being named.",
+                "body_zh": "1992 年的憲法增修條文寫的是保障「山胞」的地位。1994 年的增修條文把這個詞改成「原住民」。1997 年再改成「原住民族」，並加上國家應「依民族意願」保障其地位。五年之內改了三次，每一個詞，對被稱呼的人說的都不一樣。"
+              },
+              {
+                "k": "A lake · 一座湖",
+                "en": "The Thao and Sun Moon Lake", "zh": "邵族與日月潭",
+                "body_en": "Sun Moon Lake is one of Taiwan’s best-known sights. In Thao tradition, their ancestors came there following a white deer. The Thao were once classified as part of the Cou, though the two differ greatly in language, religion, and customs; they campaigned to be called by their own name, and in 2001 they became the tenth people on the list. Fewer than 1,000 Thao were counted in July 2026.",
+                "body_zh": "日月潭是台灣最有名的景點之一。在邵族的傳說裡，祖先是追著一隻白鹿來到這裡的。邵族在民族分類上曾經被歸類為鄒族，但兩族在語言、宗教、生命禮俗上有很大的差異；他們爭取以自己的名字被稱呼，2001 年成為名單上的第十族。2026 年 7 月統計的邵族人口不到 1,000 人。"
+              },
+              {
+                "k": "Language · 語言",
+                "en": "National languages", "zh": "國家語言",
+                "body_en": "Article 1 of the Indigenous Languages Development Act of 2017 begins: “Indigenous languages are national languages.” The Council of Indigenous Peoples counts 42 language varieties among the 16 peoples recognized before 2026. The National Languages Development Act of 2019 defines national languages as the natural languages used by each of Taiwan’s original groups, together with Taiwan Sign Language.",
+                "body_zh": "2017 年《原住民族語言發展法》第一條開頭就說：「原住民族語言為國家語言」。原民會說，2026 年以前承認的十六族共有 42 種語言別。《國家語言發展法》則把國家語言定義為「臺灣各固有族群使用之自然語言及臺灣手語」。"
+              },
+              {
+                "k": "Pingpu · 平埔",
+                "en": "The newest people on the list", "zh": "名單上最新的一族",
+                "body_en": "Pingpu, “of the plains,” is a name for a group of peoples, each with its own name, such as the Siraya. In 2022 the Constitutional Court ruled that they, too, are among the Indigenous peoples the Constitution protects. A law followed in 2025, and in July 2026 the Siraya of Tainan became the first people approved under it; the Council’s pages give both July 30 and July 31 for the approval. In October 2025 the Council said eight other Pingpu peoples had also applied.",
+                "body_zh": "「平埔」是平原的意思，指的是一群民族；每一族都有自己的名字，例如西拉雅族。2022 年，憲法法庭判決他們也屬於憲法保障的原住民族。2025 年通過了相關的法律；2026 年 7 月，臺南的西拉雅族成為依這部法律核定的第一個民族——原民會的頁面上，核定的日期一處寫 7 月 30 日、一處寫 7 月 31 日。原民會在 2025 年 10 月說，另外還有八個平埔族群也已經提出申請。"
+              }
+            ]
+          },
+          "myths": [
+            { "myth_en": "Taiwan’s Indigenous people are one group with one language.", "myth_zh": "台灣的原住民是同一群人，說同一種語言。",
+              "fact_en": "They are many peoples: sixteen recognized peoples, plus the Siraya approved in 2026 under the Pingpu law. The Council counts 42 language varieties among the sixteen.", "fact_zh": "他們是很多個民族：十六個法定原住民族，加上 2026 年依平埔族群的法律核定的西拉雅族。原民會說，那十六族共有 42 種語言別。" },
+            { "myth_en": "The number of peoples is fixed.", "myth_zh": "原住民族的數目是固定的。",
+              "fact_en": "The government’s list changed seven times between 2001 and 2026, and more Pingpu peoples have applied. The list is a record with a date.", "fact_zh": "政府的名單在 2001 到 2026 年之間改變了七次，還有更多平埔族群提出申請。名單是一份有日期的記錄。" },
+            { "myth_en": "Indigenous peoples all live in the mountains.", "myth_zh": "原住民族都住在山上。",
+              "fact_en": "The Amis live mainly on the eastern plains, the Kavalan named themselves “people of the plain,” the Yami live on an island, and the Siraya live in Tainan.", "fact_zh": "阿美族主要住在東部的平原，噶瑪蘭族的族名就是「平原的人」，雅美族住在島上，西拉雅族住在臺南。" },
+            { "myth_en": "Origin stories are just fairy tales.", "myth_zh": "起源故事只是童話。",
+              "fact_en": "They are a people’s own account, passed down by mouth for generations: evidence of how a people understands itself. They answer a different question from archaeology, not a lesser one.", "fact_zh": "它們是一個民族自己的說法，口耳相傳了好幾代——是這個民族怎麼理解自己的證據。它們回答的問題和考古學不一樣，但並不比較不重要。" }
+          ],
+          "tricks_head": { "en": "Four things to keep in your pocket", "zh": "四句帶著走的話" },
+          "tricks": [
+            { "title_en": "Many peoples, not one", "title_zh": "很多個民族，不是一個", "body_en": "Say “Indigenous peoples,” with an s.", "body_zh": "說「原住民族」，英文用複數 peoples。" },
+            { "title_en": "The list has a date", "title_zh": "名單有日期", "body_en": "When you give a number, say which year it is from.", "body_zh": "說出一個數字的時候，也說出它是哪一年的。" },
+            { "title_en": "Use the name people use", "title_zh": "用族人用的名字", "body_en": "Give the official name and the self-name, and say who uses which.", "body_zh": "寫出官方的名稱和自稱，並說明誰用哪一個。" },
+            { "title_en": "Tell of, don’t judge", "title_zh": "轉述，不評斷", "body_en": "Report an origin account with “they tell of,” not with “they believe a silly story.”", "body_zh": "轉述起源說法用「他們的說法是……」，不要說「他們相信一個奇怪的故事」。" }
+          ],
+          "notes_head": { "eyebrow": "For Teachers · 給老師的提醒", "en": "Curriculum links, a deliberate exception, and care with names", "zh": "課綱對應、一個刻意的例外，以及名稱上的小心" },
+          "notes": [
+            { "en": "Curriculum links (12-Year Basic Education, social studies). Junior high history content: 歷 Ba-Ⅳ-2 (migrations and traditions of Taiwan’s Indigenous peoples); the curriculum’s note suggests discussing the migration of Austronesian peoples and the distribution of Indigenous peoples, and uses “Indigenous peoples” in a wide sense that includes the Pingpu peoples. Elementary stage 3: Cb-Ⅲ-2.", "zh": "課綱對應（十二年國教社會領域）。國中歷史學習內容：歷 Ba-Ⅳ-2「臺灣原住民族的遷徙與傳說」；課綱說明建議討論「南島語族的遷徙與原住民族的分布」，而且這裡的「原住民族」範圍包含平埔族群。國小第三學習階段：Cb-Ⅲ-2。" },
+            { "en": "A deliberate exception. This series stops in 1996, but this lesson includes the changes to the official list up to 2026, because a lesson that stopped earlier would give a number that is no longer true. If the list changes again, this lesson will be updated.", "zh": "一個刻意的例外。這個系列寫到 1996 年為止，但這一課把官方名單到 2026 年為止的變動都寫進來，因為停在更早的話，給出的數字已經不對了。名單如果再改變，這一課會跟著更新。" },
+            { "en": "Names. English names follow the Council of Indigenous Peoples’ English pages: Pinuyumayan, Cou (also written Tsou), Sediq, Hla’alua, Kanakanavu. For Yami and Tao, the Council itself notes both names; the lesson gives both. Please say “Indigenous peoples” (原住民族), not older terms, except when quoting history.", "zh": "名稱。英文族名依原民會英文頁：Pinuyumayan、Cou（也寫作 Tsou）、Sediq、Hla’alua、Kanakanavu。雅美與達悟，原民會自己就並列兩個名稱，課文也兩個都寫。請說「原住民族」，不用舊的稱呼，除非是在引用歷史文件。" },
+            { "en": "Students from Indigenous families. Some students may know their own people’s account better than any web page. Invite them to share if they wish, and never ask a student to speak for a whole people. Origin accounts in this lesson are short summaries from the Council and are not complete versions.", "zh": "原住民族家庭的學生。有些學生對自己族群的說法，可能比任何網頁都清楚。歡迎他們自願分享，但不要要求一位學生代表整個民族發言。本課的起源說法是原民會網站上的簡短摘要，不是完整的版本。" }
+          ],
+          "activities": [
+            {
+              "title_en": "A Name Card",
+              "title_zh": "一張名字卡",
+              "materials": [
+                { "en": "An index card for each student", "zh": "每人一張小卡片" },
+                { "en": "Colored pens", "zh": "彩色筆" }
+              ],
+              "steps": [
+                { "en": "On one side, write the name your family calls you, and what it means or why it was chosen, if you know.", "zh": "在一面寫下家人叫你的名字，以及它的意思或為什麼取這個名字（如果你知道的話）。" },
+                { "en": "On the other side, write a name someone outside your family once gave you, such as a nickname or an English name.", "zh": "在另一面寫下家人以外的人給你取過的名字，例如綽號或英文名字。" },
+                { "en": "In pairs, explain which name you prefer, and why.", "zh": "兩人一組，說說你比較喜歡哪一個名字，為什麼。" },
+                { "en": "As a class, connect this to the lesson: why might a people want to be called by its own name?", "zh": "全班一起把它連到這一課：為什麼一個民族會希望用自己的名字被稱呼？" }
+              ],
+              "tip_en": "Keep the focus on the students’ own names; do not ask students to guess or use other people’s ethnic names. The point is to feel why a self-name matters before reading the Yami and Tao card again.",
+              "tip_zh": "焦點放在學生自己的名字；不要請學生去猜或使用別人的族名。重點是先體會「自己的名字」為什麼重要，再回頭讀雅美與達悟那張卡。"
+            },
+            {
+              "title_en": "Languages in Our Class",
+              "title_zh": "我們班上的語言",
+              "materials": [
+                { "en": "A large sheet of paper or the board", "zh": "一大張紙或白板" },
+                { "en": "Sticky notes", "zh": "便利貼" }
+              ],
+              "steps": [
+                { "en": "Each student writes on a sticky note one language spoken in their home, even a few words of it.", "zh": "每位同學在便利貼上寫下家裡說的一種語言，就算只會幾個詞也可以。" },
+                { "en": "Group the notes on the board. Count how many languages the class has together.", "zh": "把便利貼在白板上分組，數一數全班一共有幾種語言。" },
+                { "en": "Read Article 3 of the National Languages Development Act together: national languages are the natural languages used by each of Taiwan’s original groups, and Taiwan Sign Language.", "zh": "一起讀《國家語言發展法》第三條：國家語言是臺灣各固有族群使用之自然語言及臺灣手語。" },
+                { "en": "Discuss: what helps a language stay alive in a family?", "zh": "討論：什麼能讓一種語言在家裡繼續活下去？" }
+              ],
+              "tip_en": "No student should feel pressed to name a language they would rather not. Students who speak an Indigenous language may be invited, never required, to teach the class a greeting.",
+              "tip_zh": "不要讓任何學生覺得必須說出自己不想說的語言。會說族語的學生可以邀請、但絕不要求，教全班一句問候。"
+            }
+          ],
+          "links_head": { "eyebrow": "Go Further · 延伸閱讀", "en": "Back to the sites, and on to the maps", "zh": "回到遺址，再往地圖走" },
+          "links": [
+            { "icon": "🏺", "k_en": "Taiwan’s Story · Lesson 2", "k_zh": "台灣歷史・第二課", "en": "Who Lived in Taiwan Thousands of Years Ago?", "zh": "幾千年前，誰住在台灣？",
+              "note_en": "What archaeology shows, and why museums are careful about linking ancient cultures to today’s peoples.", "note_zh": "考古學讓我們看見什麼，以及為什麼博物館把古代文化和今天的民族連在一起時特別小心。",
+              "href": "/resources/classes/taiwan-history/who-lived-here/" },
+            { "icon": "🗺️", "k_en": "Taiwan’s Story · Lesson 4", "k_zh": "台灣歷史・第四課", "en": "How Did the World First Draw Taiwan?", "zh": "世界最早怎麼畫台灣？",
+              "note_en": "Old maps of Taiwan, how its shape went from wrong to right, and where some of its names came from.", "note_zh": "老地圖裡的台灣：形狀怎麼從錯的變成對的，以及幾個名字的由來。",
+              "soon": true }
+          ],
+          "sources_note_en": "Facts, dates, and quotations on this page were checked against these sources in October 2026. Quotations keep the spelling of the original. Population figures are for July 2026; the official list of peoples is as of October 2026",
+          "sources_note_zh": "本頁的事實、年代與引文於 2026 年 10 月依下列資料查證；引文保留原文的拼法。人口數為 2026 年 7 月的資料；民族的官方名單以 2026 年 10 月為準",
+          "sources": [
+            { "en": "The Council of Indigenous Peoples’ pages on each people: names, self-names, main areas, origin accounts, and the recognition years of the Thao (2001, “the tenth”), Kavalan (2002), Truku (2004), Sakizaya (2007), Sediq (2008), Hla’alua and Kanakanavu (June 26, 2014)", "zh": "原民會各族介紹頁：族名、自稱、分布地區、起源說法；邵族「民國90 年（2001），政府承認邵族為臺灣的第十個原住民族」、噶瑪蘭族「中華民國91 年（2002）公告認定」、太魯閣族 2004、撒奇萊雅族 2007、賽德克族 2008；「政府於103 年6 月26 日以正式的儀式宣布……拉阿魯哇族為第15 族，卡那卡那富族為第16 族」", "src": "原住民族委員會〈原住民族16族簡介〉", "url": "https://www.cip.gov.tw/zh-tw/tribe/grid-list/index.html?cumid=5DD9C4959C302B9FD0636733C6861689" },
+            { "en": "English names of the peoples", "zh": "各族的英文名稱", "src": "Council of Indigenous Peoples, “The Tribes in Taiwan”", "url": "https://www.cip.gov.tw/en/tribe/grid-list/index.html?cumid=5DD9C4959C302B9FD0636733C6861689" },
+            { "en": "Siraya approved as an Indigenous people on July 30, 2026, the first under the Pingpu status law", "zh": "「行政院於今（30）日正式核定西拉雅族為原住民族，完成《平埔原住民族群身分法》施行後首件民族核定程序。」（2026/07/30）", "src": "原住民族委員會 新聞稿", "url": "https://www.cip.gov.tw/zh-tw/news/data-list/35AE118732EB6BAF/C782A9E0C4FE437EB952F7A111CC4239-info.html" },
+            { "en": "The same approval dated July 31, 2026; registration from August 13, 2026 to August 12, 2031", "zh": "「行政院已於115年7月31日核定西拉雅族為平埔原住民族群，各直轄市、縣（市）政府自115年8月13日起至120年8月12日止，受理族人申請西拉雅族民族成員名冊登載。」", "src": "原住民族委員會 公告（2026/08/21）", "url": "https://www.cip.gov.tw/zh-tw/news/data-list/35AE118732EB6BAF/0747E487E929081EF3827C43BE19244F-info.html" },
+            { "en": "Nine Pingpu peoples had applied, including the Siraya; the law was passed in October 2025", "zh": "「目前已有西拉雅族、噶哈巫族、巴宰族、道卡斯族、大武壠族、拍瀑拉族（巴布拉族）、馬卡道族、巴布薩族及凱達格蘭族等先後向本會提出申請，各案進度不一。」", "src": "原住民族委員會 新聞稿（2025/10/28）", "url": "https://www.cip.gov.tw/zh-tw/news/data-list/35AE118732EB6BAF/001E53E41E5F312C88B4E099C3F98744-info.html" },
+            { "en": "Siraya communities in Tainan", "zh": "「臺南市仍有50處大小不一的西拉雅族聚落，以集居方式明確分布於臺南12個行政區」；語言復育「舉辦族語教師研習、出版繪本、教材及有聲書」", "src": "臺南市政府民族事務委員會", "url": "https://web.tainan.gov.tw/nation/News_Content.aspx?n=934&s=5752" },
+            { "en": "Constitutional Court Judgment 111-Hsien-Pan-17 (October 28, 2022), main text, point 1", "zh": "「憲法增修條文第10條第11項及第12項前段規定所保障之原住民族，應包括既存於臺灣之所有臺灣南島語系民族。除……山地原住民及平地原住民，舉凡其民族語言、習俗、傳統等文化特徵至今仍然存續，其成員仍維持族群認同，且有客觀歷史紀錄可稽之其他臺灣南島語系民族，亦均得依其民族意願，申請核定其為原住民族」；言詞辯論中原民會主張憲法上之原住民族不包括平埔族或西拉雅族", "src": "憲法法庭 111年憲判字第17號判決", "url": "https://cons.judicial.gov.tw/docdata.aspx?fid=38&id=310021" },
+            { "en": "Population at the end of July 2026: 23,235,002 people in Taiwan; 638,466 Indigenous people, 2.75 percent (the Council’s table by people gives the same total, including 7,727 not yet registered with a people)", "zh": "「115年7月底人口數為23,235,002人」；「115年7月底原住民人口數為638,466人……占總人口比率2.75%」", "src": "內政部戶政司", "url": "https://www.ris.gov.tw/info-liferay/app/channel/newsDetail/26218233" },
+            { "en": "Indigenous population by people, July 2026 (table by sex and people)", "zh": "【2026年】7月原住民族人口數統計資料（按性別族別統計表；總計 638,466 人，尚未申報 7,727 人）", "src": "原住民族委員會", "url": "https://www.cip.gov.tw/zh-tw/news/data-list/812FFAB0BCD92D1A/0747E487E929081E96713ED4AC6208AE-info.html" },
+            { "en": "42 language varieties among 16 peoples", "zh": "「臺灣原住民族語言具 16 族 42 種語言別」", "src": "原住民族委員會 113 年度原住民族語言推動組織補助計畫（PDF）", "url": "https://www.cip.gov.tw/data/news/202402/T-41724220.pdf?s=B026E2CEE4DBEDB5" },
+            { "en": "Indigenous Languages Development Act (2017), Article 1", "zh": "「原住民族語言為國家語言，為實現歷史正義，促進原住民族語言之保存與發展……特制定本法。」", "src": "全國法規資料庫《原住民族語言發展法》", "url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0130037" },
+            { "en": "National Languages Development Act (2019), Article 3", "zh": "「本法所稱國家語言，指臺灣各固有族群使用之自然語言及臺灣手語。」", "src": "全國法規資料庫《國家語言發展法》", "url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=H0170143" },
+            { "en": "Second constitutional amendments (1992): shanbao", "zh": "「國家對於自由地區山胞之地位及政治參與，應予保障」", "src": "總統府 憲法第二次增修", "url": "https://www.president.gov.tw/Page/323" },
+            { "en": "Third constitutional amendments (1994): yuanzhumin", "zh": "「國家對於自由地區原住民之地位及政治參與，應予保障」", "src": "總統府 憲法第三次增修", "url": "https://www.president.gov.tw/Page/324" },
+            { "en": "Fourth constitutional amendments (1997): yuanzhuminzu, “according to the will of the peoples”", "zh": "「國家應依民族意願，保障原住民族之地位及政治參與」；「國家肯定多元文化，並積極維護發展原住民族語言及文化。」", "src": "總統府 憲法第四次增修", "url": "https://www.president.gov.tw/Page/325" },
+            { "en": "The Austronesian language family: about 1,200 languages, from Madagascar to Easter Island; Javanese about a quarter of speakers; languages of the Philippines, Malaysia, the Pacific; 14 of 21 or 22 Taiwanese languages survive", "zh": "南島語系約 1,200 種語言，從馬達加斯加到復活節島；台灣原住民族 21 或 22 種語言中 14 種留存", "src": "Encyclopaedia Britannica, “Austronesian languages”", "url": "https://www.britannica.com/topic/Austronesian-languages" },
+            { "en": "“[T]he language trees place the Austronesian origin in Taiwan approximately 5230 years ago”", "zh": "語言樹把南島語言的起源放在約 5,230 年前的台灣", "src": "Gray, Drummond & Greenhill, Science 323 (2009), PubMed abstract", "url": "https://pubmed.ncbi.nlm.nih.gov/19164742/" },
+            { "en": "“it is becoming clear that there is, in fact, little supporting evidence in favour of this view”; the genetic substrate came “not from Taiwan, but from east of the Wallace line”", "zh": "說起源於台灣的看法支持證據很少；遺傳來源在華萊士線以東", "src": "Oppenheimer & Richards, Science Progress 84 (2001), PubMed abstract", "url": "https://pubmed.ncbi.nlm.nih.gov/11732155/" },
+            { "en": "“A Taiwan origin for the expansion of the Austronesian languages and their speakers is well supported by linguistic and archaeological evidence. However, human genetic evidence is more controversial.”", "zh": "起源於台灣有語言學與考古學證據支持；人類遺傳學的證據比較有爭議", "src": "Ko et al., American Journal of Human Genetics 94 (2014)", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3951936/" },
+            { "en": "A 2010 Council page stating Taiwan as the common origin of Austronesian languages 5,000 years ago", "zh": "「臺灣是南島語系民族分佈的最北端，係5,000年前南島語言之共同起源」", "src": "原住民族委員會", "url": "https://www.cip.gov.tw/zh-tw/news/data-list/49744114ECE41D1F/0C3331F0EBD318C2F69080C5C7060B21-info.html" },
+            { "en": "A 2003 museum newsletter setting out competing models, including the slow-boat model", "zh": "「最近由遺傳基因研究及考古資料所建立的『慢輪模型』……指出，波里尼西亞的南島語族並非源於台灣」；文末「才可對於南島語族起源提出最終的答案」", "src": "國立臺灣史前文化博物館 電子報第 12 期（2003）", "url": "https://beta.nmp.gov.tw/enews/no12/page_02.html" },
+            { "en": "Curriculum: 歷 Ba-Ⅳ-2 and its note; the curriculum’s wide use of “Indigenous peoples”", "zh": "歷 Ba-Ⅳ-2「臺灣原住民族的遷徙與傳說」；說明建議討論「南島語族的遷徙與原住民族的分布」；「包含法定原住民族、平埔族群及其他原住民族群」", "src": "十二年國民基本教育課程綱要 社會領域（教育部，2018）", "url": "https://www.k12ea.gov.tw/files/class_schema/%E8%AA%B2%E7%B6%B1/16-%E7%A4%BE%E6%9C%83/16-1/%E5%8D%81%E4%BA%8C%E5%B9%B4%E5%9C%8B%E6%B0%91%E5%9F%BA%E6%9C%AC%E6%95%99%E8%82%B2%E8%AA%B2%E7%A8%8B%E7%B6%B1%E8%A6%81%E5%9C%8B%E6%B0%91%E4%B8%AD%E5%B0%8F%E5%AD%B8%E6%9A%A8%E6%99%AE%E9%80%9A%E5%9E%8B%E9%AB%98%E7%B4%9A%E4%B8%AD%E7%AD%89%E5%AD%B8%E6%A0%A1%E2%94%80%E7%A4%BE%E6%9C%83%E9%A0%98%E5%9F%9F.pdf" },
+            { "en": "Coastline and world land: Natural Earth 1:10m and 1:110m Land, version 5.1.2, public domain", "zh": "地圖的海岸線與世界陸地：Natural Earth 1:10m、1:110m Land 5.1.2 版，公有領域", "src": "Natural Earth, Terms of Use", "url": "https://www.naturalearthdata.com/about/terms-of-use/" }
+          ]
         }
       ],
       "planned": [
-        { "n": 3, "icon": "🛶", "en": "Who Are Taiwan’s Indigenous Peoples?", "zh": "台灣的原住民族是誰？" },
         { "n": 4, "icon": "🗺️", "en": "How Did the World First Draw Taiwan?", "zh": "世界最早怎麼畫台灣？" }
       ]
     },

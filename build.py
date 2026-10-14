@@ -20934,7 +20934,7 @@ def build_home_hub():
 _twhj = os.path.join(ROOT, "data", "taiwan_history.json")
 TWH = json.load(open(_twhj, encoding="utf-8")) if os.path.exists(_twhj) else None
 TWH_BASE = "/resources/classes/taiwan-history/"
-_TWH_JS = {"dig": "twh-dig", "sites": "twh-sites"}   # lab.kind → assets/js/<bundle>.js
+_TWH_JS = {"dig": "twh-dig", "sites": "twh-sites", "peoples": "twh-peoples"}   # lab.kind → assets/js/<bundle>.js
 
 def _twh_ver():
     h = hashlib.md5()
@@ -21144,6 +21144,58 @@ def _twh_jade(jd):
 
 _TWH_CARD["sites"] = twhsites_svg
 
+def twhpeoples_svg(size=56):
+    """第三課卡：一座島的輪廓，上面幾個名字標籤（小橫條）。"""
+    bars = "".join(f'<rect x="{x}" y="{y}" width="{w}" height="4.6" rx="2.3" fill="{c}"/>' for x, y, w, c in
+                   [(30, 12, 14, "#ffd36e"), (26, 22, 16, "#ffd36e"), (33, 30, 12, "#8fd0ff"), (22, 38, 15, "#ffd36e"), (34, 44, 11, "#ffd36e"), (27, 50, 10, "#8fe0a8")])
+    return (f'<svg class="twhpeoples-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">'
+            f'<path d="M35 5c5 1 9 5 9 10l-3 14c-1 8-3 15-6 22l-4 5-5-6c-5-8-8-16-8-23 1-10 8-20 17-22z" fill="#5f8f6a" stroke="#cfe6d2" stroke-width="1.2"/>{bars}</svg>')
+
+def render_twhpeoples_lab(lesson):
+    """第三課：族群地圖＋官方名單的年份滑桿（assets/js/twh-peoples.js；SVG，不需要 WebGL；名字標籤不是界線）。"""
+    lab = lesson["lab"]
+    cfg = {k: lab[k] for k in ("min", "max", "start", "peoples", "changes", "demo", "hello_en", "hello_zh", "pop_month_en", "pop_month_zh")}
+    ys = "".join(f'<button type="button" class="twh-btn-d" data-year="{c["year"]}" aria-pressed="false">{c["year"]}<small>{html.escape(c["short_en"])} · {html.escape(c["short_zh"])}</small></button>' for c in lab["changes"])
+    return f'''<div class="astro-lab twh-lab twh-sites-lab twh-peoples-lab rvl" data-twhpeoples-lab>
+  <script type="application/json" class="twh-lab-data">{_twh_json(cfg)}</script>
+  <div class="al-stage">
+    <div class="al-space twh-map-space">
+      <div class="twh-map"></div>
+      <p class="twh-badge">Names, not borders · 標的是名字，不是界線</p>
+    </div>
+    <aside class="al-sky twh-aside">
+      <p class="al-sky-k">The government’s list in · 政府名單的年份</p>
+      <p class="twh-age" aria-live="polite"></p>
+      <p class="twh-count twh-depth"></p>
+      <div class="twh-site-card" aria-live="polite"></div>
+    </aside>
+  </div>
+  <div class="al-controls">
+    <label class="al-slider twh-dig-l"><span>The official list over time · 官方名單的變化 <small>{lab["min"]} &rarr; {lab["max"]}</small></span>
+      <input type="range" class="al-age twh-year-range" min="{lab["min"]}" max="{lab["max"]}" step="1" value="{lab["start"]}" aria-label="Choose a year; the peoples on the government's official list in that year are highlighted · 選一個年份；那一年在政府官方名單上的族會亮起來"></label>
+    <div class="al-row al-row-main twh-jumps">{ys}</div>
+    <p class="twh-msg" aria-live="polite"></p>
+  </div>
+  {_lab_foot(lab)}
+  <p class="twh-credit">{lab["credit_html"]}</p>
+</div>'''
+
+def _twh_world(wd):
+    """南島語族的世界：以太平洋為中心的地圖（SVG）＋可以點的地方＋自己算的距離。"""
+    cfg = {k: wd[k] for k in ("places", "home", "start")}
+    btns = "".join(f'<li><button type="button" class="twh-spot" onclick="this.closest(\'[data-twh-world]\').__world.pick(\'{p["key"]}\')"><i>{i}</i><span>{_twh_b(p["en"], p["zh"])}</span></button></li>' for i, p in enumerate(wd["places"], 1))
+    return f'''<div class="twh-world rvl" data-twh-world>
+  <script type="application/json">{_twh_json(cfg)}</script>
+  <div class="twh-world-map"></div>
+  <div class="twh-world-side">
+    <p class="twh-world-out" aria-live="polite"></p>
+    <ol class="twh-world-list">{btns}</ol>
+  </div>
+</div>
+<p class="twh-note rvl">{_twh_b(wd["note_en"], wd["note_zh"])}</p>'''
+
+_TWH_CARD["peoples"] = twhpeoples_svg
+
 def _twh_flat():
     return [(ui, u, l) for ui, u in enumerate(TWH["units"]) for l in u["lessons"]]
 
@@ -21171,7 +21223,7 @@ def build_twh_lesson(ui, unit, lesson):
     reading_html = render_basic_unit(1, unit_dict, level="twh", audio_rel="", pdf_rel="")
     lab = lesson["lab"]
     kind = lab["kind"]
-    lab_html = {"dig": render_twhdig_lab, "sites": render_twhsites_lab}[kind](lesson)
+    lab_html = {"dig": render_twhdig_lab, "sites": render_twhsites_lab, "peoples": render_twhpeoples_lab}[kind](lesson)
 
     def sec(key, fn, sid=None):
         d = lesson[key]
@@ -21190,6 +21242,7 @@ def build_twh_lesson(ui, unit, lesson):
         secs.append(("parts", ph["eyebrow"], ph["en"], ph["zh"], f'<div class="ph-grid stagger">{cards}</div>',
                      _bi(lesson["parts_note_en"], lesson["parts_note_zh"], cls="lead rvl d2")))
     if lesson.get("jade"): secs.append(sec("jade", _twh_jade))
+    if lesson.get("world"): secs.append(sec("world", _twh_world))
     if lesson.get("when"):
         secs.append(sec("when", lambda d: _twh_timeline({**TWH["timeline"], "note_en": d["note_en"], "note_zh": d["note_zh"]}, d.get("focus"), d.get("events"))))
     if lesson.get("sort"): secs.append(sec("sort", _twh_sort))

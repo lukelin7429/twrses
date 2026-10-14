@@ -1083,7 +1083,7 @@
   - `when`（「這一課在時間軸的哪裡」：`focus` ＝ `{ fromAgo|fromYear, toAgo|toYear, en, zh }`、`note_*`，可加 `events[]`）、`sort`（分類遊戲）、`two`（兩份互相矛盾的記錄）、`notes`＋`notes_head`（「給老師的提醒」：課綱對應、名詞、這個系列怎麼處理敏感題目）。
 - 頁面：`build.py`「台灣歷史」區塊的 `build_twh_hub()`（系列小圖示 `twhhub_svg()`＝地層＋探坑＋手鏟，第一課卡 `twhdig_svg()`；`_TWH_CARD`）/ `build_twh_lesson()`；三張固定的卡是 `_twh_how()`、`_twh_views()`、`_twh_phrases()`，時間軸 `_twh_timeline()`。「閱讀與經典」頁有入口卡（🏺，排在家政後面）。段落順序：3D → 英文閱讀 → 模型卡 → **時間軸** → 這是哪一種證據 → 兩個人說的不一樣 → **我們怎麼知道？** → **不同的說法** → **歷史英語** → 在台灣（文化卡）→ 迷思 → 口訣 → 給老師的提醒 → 活動 → 延伸閱讀 → 資料出處。`tools/gen_audio.py` 的 `SHORT_PAGES` 已加入本系列。
 - 樣式：共用 `assets/css/astro.css`，本系列專屬的在 `assets/css/taiwan-history.css`（**class 前綴一律 `twh-`**——`th-` 已被天文、人體、地球、書法、數學等系列用掉，不要用）；`_twh_head()` 只在本系列頁面載入。
-- 原始碼：**`tools/twhist/src/`**（自己的 package.json，three 0.186.1、esbuild 0.25.10），bundle 一律 `twh-*`；`lab.kind` → bundle 對照在 `build.py` 的 `_TWH_JS`（`dig` → `twh-dig`、`sites` → `twh-sites`）；首頁另載 `twh-hub`（只有時間軸，不含 three.js）。**不要 import 別的系列的 tools 目錄。** 新增一課＝`src/twh-<名>.js`＋package.json 的 build 加入口＋`_TWH_JS` 加一筆＋`build_twh_lesson()` 的 `lab_html` 對照加一筆。
+- 原始碼：**`tools/twhist/src/`**（自己的 package.json，three 0.186.1、esbuild 0.25.10），bundle 一律 `twh-*`；`lab.kind` → bundle 對照在 `build.py` 的 `_TWH_JS`（`dig` → `twh-dig`、`sites` → `twh-sites`、`peoples` → `twh-peoples`）；首頁另載 `twh-hub`（只有時間軸，不含 three.js）。**不要 import 別的系列的 tools 目錄。** 新增一課＝`src/twh-<名>.js`＋package.json 的 build 加入口＋`_TWH_JS` 加一筆＋`build_twh_lesson()` 的 `lab_html` 對照加一筆。
   ```
   cd tools/twhist && npm ci && npm run build && npm test
   ```
@@ -1108,6 +1108,14 @@
   - 小遊戲「這是哪一個時代的東西？」沿用 `initSort`（`sort` 多了 `ask_*`、`nudge_*`、`aria` 三個可選欄位）。
   - 四張卡 `data-lab-demo`：`oldest`、`pottery`、`village`、`iron`（跳到某個時間並選一個遺址，對照在 `lab.demo`）。除錯：`document.querySelector('[data-twhsites-lab]').__lab`（`setAgo(n)`、`ago()`、`select(key)`、`selected()`、`lit()`、`demo(...)`、`tl`、`proj`、`check()`）。
   - 英文拼法依各機構：Peinan／Pinuyumayan（史前館、原民會）、Shihsanhang（十三行博物館自己的拼法），其餘用漢語拼音。
+- 第三課族群地圖（`twh-peoples.js`，`lab.kind = "peoples"`，`data-twhpeoples-lab`；slug `indigenous-peoples`）：一個想法——**台灣的原住民族是很多個民族、很多種語言，各有自己對來歷的說法；政府的官方名單隨著各族爭取而增加，但這些民族早在名單出現前就在這裡；南島語言的原鄉，許多學者認為在台灣，但證據並不全都一致**。
+  - **刻意的例外（Luke 2026-10-14 決定）**：這一課把官方名單到 2026 年為止的變動都寫進來（邵 2001、噶瑪蘭 2002、太魯閣 2004、撒奇萊雅 2007、賽德克 2008、拉阿魯哇與卡那卡那富 2014、西拉雅 2026），因為停在 1996 年的話數字已經不對。`test/data.test.mjs` 的年份白名單因此加了這些年份。**名單再改變時要更新 `lab.peoples[].recognized`、`lab.changes`、課文第一段與數字。**
+  - **地圖只放名字標籤，不畫範圍或邊界**（畫面上標明「標的是名字，不是界線」）：`lab.peoples[]`（`lon/lat` 放在原民會說明的主要分布地區附近、`nudge`、`recognized` 年份、`recognized_*`、`self_*`、`area_*`、`pop`、`origin_*` 或 `note_*`、`url`）。年份滑桿 2000–2026：那一年已核定的族亮起來，**還沒核定的只變淡、不消失**，卡片會說明「這一族一直都在，改變的只是政府的名單」。2001 年以前的九族用 2000 表示（找不到寫明最早名單年份的官方頁面）。
+  - 族名、自稱、分布、起源說法全部依原民會各族介紹頁；英文族名依原民會英文頁（Pinuyumayan、Cou、Sediq、Hla’alua、Kanakanavu）。原民會頁面沒有起源說法的（排灣族、西拉雅族）用 `note_*` 說明，不自己補。人口用原民會 2026 年 7 月按性別族別的統計表（和內政部戶政司同月總數 638,466 相同；原民會另一張 HTML 表的數字略有出入）。
+  - 「南島語族的世界」：`lesson["world"]`（`places[]`、`home`、`start`、`note_*`）。以太平洋為中心的世界地圖，`src/data/world.json`＝Natural Earth 1:110m Land（公有領域），`npm run world`（`scripts/build-world.mjs`：西經 25 度以西的點經度加 360）。距離用 `geo2d.distanceKm` 自己算；虛線只是把兩點連起來，不是航線（畫面上有寫）。
+  - 小遊戲「這是誰的說法？」沿用 `initSort`：族人自己的說法／學者的研究／政府的決定（3／2／3）。
+  - **不比對真假**：各族的起源說法是「另一種證據」（口傳），課文不拿它們和考古、語言學比對對錯；轉述用 tell of / according to … tradition。
+  - 除錯：`document.querySelector('[data-twhpeoples-lab]').__lab`（`setYear(y)`、`year()`、`select(key)`、`listed()`、`demo(...)`、`check()`＝亮著的族名＝資料裡那一年已核定的族，而且畫面上的數字一致）；`document.querySelector('[data-twh-world]').__world`（`pick(key)`、`distance(key)`）。這一課完全不用 WebGL（bundle 約 80 KB）。
   - 截圖：`tools/astro/scripts/shot.mjs`（已改用 `headless-chrome`）。頁面有 `scroll-behavior: smooth`，截某一段之前先把 `document.documentElement.style.scrollBehavior = 'auto'`，並等模型開機後再捲（模型開機會改變頁面高度）。
 
 ## 世界歷史 World History（/resources/classes/world-history/）— 架構照地理與台灣歷史，共用的是「歷史地球儀」與「平行時間軸」
