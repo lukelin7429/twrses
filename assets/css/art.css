@@ -441,7 +441,7 @@
 .ar-postsq .ar-check { color: #e8edf7; }
 @media (max-width: 760px) { .ar-po-grid { grid-template-columns: 1fr; } }
 
-/* ── 第六課：五座山、四種線索 ────────────────────────────────────────── */
+/* ── 第六課：五棵樹、四種線索 ────────────────────────────────────────── */
 .ar-dlab { padding: 1.3rem 1.4rem 0; }
 .ar-dp-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.4rem; align-items: start; }
 .ar-dp-pic { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; border-radius: 14px; border: 2px solid rgba(255,255,255,.75); background: #cfe0f2; }
@@ -482,6 +482,46 @@
 .ar-ag-row output { text-align: right; font-weight: 800; font-size: .84rem; font-variant-numeric: tabular-nums; }
 @media (max-width: 900px) { .ar-dp-grid, .ar-dp-ctl { grid-template-columns: 1fr; } .ar-fr-grid { grid-template-columns: 1fr; } }
 @media (max-width: 560px) { .ar-dlab { padding: 1rem .9rem 0; } .ar-dp-cues { grid-template-columns: 1fr; } .ar-ag-row { grid-template-columns: auto minmax(0, 1fr) 5em; } .ar-ag-row input { grid-column: 1 / -1; } }
+
+/* ── 第七課：畫框、視覺重心、三分線、裁切 ───────────────────────────── */
+.ar-flab { padding: 1.3rem 1.4rem 0; }
+.ar-fm-grid { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 1.4rem; align-items: start; }
+.ar-fm-svg { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; border-radius: 6px; background: #f1f1f1; outline: 10px solid #3a3226; box-shadow: 0 0 0 12px #c9a646; margin: 12px; width: calc(100% - 24px); touch-action: none; }
+.ar-fm-it { cursor: grab; }
+.ar-fm-it.is-drag { cursor: grabbing; }
+.ar-fm-it:focus { outline: none; }
+.ar-fm-it:focus-visible > :first-child { stroke: #ffd36e; stroke-width: 8; }
+.ar-fm-empty { float: right; color: var(--al-mute); font-weight: 700; letter-spacing: 0; text-transform: none; }
+.ar-fm-beamw[hidden] { display: none; }
+.ar-fm-beam { display: block; width: 100%; height: auto; }
+.ar-fm-read { min-height: 3.2em; }
+.ar-fm-checks { display: grid; gap: .45rem; }
+.ar-fm-table td .zh { display: block; font-family: var(--zh); color: var(--al-mute); font-size: .74rem; }
+.ar-fm-table tbody td { white-space: nowrap; vertical-align: top; }
+.ar-fm-table { display: block; overflow-x: auto; }
+.ar-flab .ar-msg { border-top: 0; padding-top: 0; min-height: 6.4em; }
+.ar-flab .ar-note { margin: 1.2rem 0 1rem; }
+.ar-flab .ar-credit { padding: 0 0 1.1rem; }
+.ar-bl-pics { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; margin-top: 1rem; }
+.ar-bl-fig { margin: 0; display: flex; flex-direction: column; gap: .4rem; }
+.ar-bl-fig figcaption { display: flex; align-items: center; gap: .5rem; font-weight: 800; font-size: .9rem; color: #fff; }
+.ar-bl-svg { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; border-radius: 6px; background: #f1f1f1; border: 6px solid #3a3226; }
+.ar-bl-read { margin: 0; min-height: 1.4em; font-size: .86rem; font-weight: 800; color: #ffe3a3; }
+.ar-bl-read .zh { display: inline; margin-left: .4rem; font-family: var(--zh); color: #f1dfae; }
+.ar-bl-opts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .6rem; margin-top: .8rem; }
+.ar-cr-grid { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); gap: 1rem; margin-top: 1rem; align-items: start; }
+.ar-cr-fig { margin: 0; display: flex; flex-direction: column; gap: .4rem; }
+.ar-cr-fig figcaption { font-weight: 800; font-size: .86rem; color: #fff; }
+.ar-cr-over { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; border-radius: 8px; touch-action: none; }
+.ar-cr-box { cursor: move; }
+.ar-cr-view { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; border-radius: 6px; border: 6px solid #3a3226; background: #d4e5f3; }
+.ar-cr-ctl { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)) auto; gap: .6rem 1rem; align-items: end; margin-top: .9rem; }
+.ar-cr-sl { display: flex; flex-direction: column; gap: .25rem; font-size: .8rem; font-weight: 800; color: var(--al-text); }
+.ar-cr-sl .zh { font-family: var(--zh); font-weight: 600; color: var(--al-mute); }
+.ar-cr-sl input { width: 100%; accent-color: #ffd36e; }
+.ar-cr-read { font-variant-numeric: tabular-nums; }
+@media (max-width: 900px) { .ar-fm-grid, .ar-cr-grid { grid-template-columns: 1fr; } .ar-cr-ctl { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 560px) { .ar-flab { padding: 1rem .9rem 0; } .ar-bl-pics, .ar-bl-opts { grid-template-columns: 1fr; } .ar-bl-pics { grid-template-columns: 1fr 1fr; gap: .5rem; } .ar-cr-ctl { grid-template-columns: 1fr; } }
 
 /* ── 課綱、安全提醒、延伸閱讀、出處、系列首頁（寫法照音樂系列） ───────── */
 .ar-curric { list-style: none; margin: 1.4rem 0 0; padding: 0; display: grid; gap: .9rem; max-width: 900px; }

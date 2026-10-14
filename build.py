@@ -18560,7 +18560,7 @@ def build_usg_hub():
 _artj = os.path.join(ROOT, "data", "art.json")
 ART = json.load(open(_artj, encoding="utf-8")) if os.path.exists(_artj) else None
 ART_BASE = "/resources/classes/art/"
-_ART_JS = {"lights": "art-lights", "wheel": "art-wheel", "ball": "art-ball", "line": "art-line", "hall": "art-hall", "depth": "art-depth"}   # lab.kind → assets/js/<bundle>.js
+_ART_JS = {"lights": "art-lights", "wheel": "art-wheel", "ball": "art-ball", "line": "art-line", "hall": "art-hall", "depth": "art-depth", "frame": "art-frame"}   # lab.kind → assets/js/<bundle>.js
 
 def _art_ver():
     h = hashlib.md5()
@@ -18628,7 +18628,14 @@ def artdepth_svg(size=56):
             '<rect x="6" y="9" width="48" height="42" fill="#cfe0f2"/><path d="M6 36Q20 18 32 30T54 26V51H6Z" fill="#a9c3d6"/>'
             '<path d="M6 42Q18 28 30 38T54 34V51H6Z" fill="#5f8f7a"/><path d="M6 48Q16 38 28 45T54 43V51H6Z" fill="#21573a"/></svg>')
 
-_ART_CARD = {"lights": artlights_svg, "wheel": artwheel_svg, "ball": artball_svg, "line": artline_svg, "hall": arthall_svg, "depth": artdepth_svg}
+def artframe_svg(size=56):
+    """第七課的課程卡小圖示：畫框、三分線，一個小黑點在三分點上、一個大淡圓在另一邊。"""
+    return (f'<svg class="arframe-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">'
+            '<rect x="6" y="12" width="48" height="36" rx="2" fill="#f1f1f1" stroke="#1d2230" stroke-width="2"/>'
+            '<path d="M22 12V48M38 12V48M6 24H54M6 36H54" stroke="#1d2230" stroke-width="1" stroke-dasharray="2 2" opacity=".6"/>'
+            '<circle cx="19" cy="38" r="8" fill="#c4c4c4" stroke="#1d2230" stroke-width="1.5"/><circle cx="38" cy="24" r="4" fill="#2c2c2c"/></svg>')
+
+_ART_CARD = {"lights": artlights_svg, "wheel": artwheel_svg, "ball": artball_svg, "line": artline_svg, "hall": arthall_svg, "depth": artdepth_svg, "frame": artframe_svg}
 
 def render_artlights_lab(lesson):
     """第一課：暗房裡的三盞燈／三片顏料（assets/js/art-lights.js 綁這裡的 class；右邊欄的字由程式依模式填入）。"""
@@ -19056,6 +19063,78 @@ def render_artdepth_lab(lesson):
   <p class="ar-credit">{lab["credit_html"]}</p>
 </div>'''
 
+def render_artframe_lab(lesson):
+    """第七課：畫框裡可以拖動的形狀與視覺重心（assets/js/art-frame.js 綁這裡的 class；SVG，不需要 WebGL）。"""
+    lab = lesson["lab"]
+    presets = "".join(
+        f'<button type="button" data-preset="{k}" aria-pressed="{"true" if k == "lean" else "false"}"><b>{en}</b><small>{zh}</small></button>'
+        for k, en, zh in [("lean", "Start: all on the left", "開始：全擠在左邊"), ("sym", "Symmetrical", "對稱"), ("asym", "Asymmetrical", "不對稱的平衡"),
+                          ("radial", "Radial", "放射狀"), ("thirds", "Rule of thirds", "三分法")])
+    notes = "".join(f'<li>{html.escape(n["en"])}<span class="zh">{html.escape(n["zh"])}</span></li>' for n in lab["notes"])
+    return f'''<div class="astro-lab ar-flab rvl" data-artframe-lab>
+  <div class="ar-fm-grid">
+    <section class="ar-ln-col">
+      <p class="al-sky-k">The frame · 畫框 <span class="ar-fm-empty"></span></p>
+      <svg class="ar-fm-svg" viewBox="0 0 800 600" role="group" aria-label="A picture frame with gray shapes marked with letters. Drag a shape, or select it and use the arrow keys. The diamond marks the balance point, and the text below says where it is · 一個畫框，裡面有標了字母的灰色形狀；拖動形狀，或選取後用方向鍵移動。菱形標出重心，下面的文字寫出它在哪裡"></svg>
+      <div class="ar-fm-beamw"><svg class="ar-fm-beam" viewBox="0 0 800 70" aria-hidden="true"></svg></div>
+      <p class="ar-rule ar-fm-read" aria-live="polite"></p>
+    </section>
+    <section class="ar-ln-col ar-fm-side">
+      <p class="al-sky-k">Ways to arrange · 擺法</p>
+      <div class="ar-ln-kinds ar-fm-presets" role="group" aria-label="Arrangements · 擺法">{presets}</div>
+      <div class="ar-fm-checks">
+        <label class="ar-check"><input type="checkbox" data-t="mark" checked><span>Show the balance point ◆ · 顯示重心 ◆</span></label>
+        <label class="ar-check"><input type="checkbox" data-t="grid"><span>Show the thirds lines (dashed) · 顯示三分線（虛線）</span></label>
+      </div>
+      <table class="ar-dp-table ar-fm-table"><thead><tr><th scope="col">Shape · 形狀</th><th scope="col">Kind · 種類</th><th scope="col">Lightness · 明度</th><th scope="col">Area · 面積</th><th scope="col">Weight · 重量</th><th scope="col">Thirds point · 三分點</th></tr></thead><tbody></tbody></table>
+      <p class="ar-msg" aria-live="polite"></p>
+    </section>
+  </div>
+  <div class="ar-note">
+    <p class="ar-note-h">{html.escape(lab["note_head_en"])} <span class="zh">{html.escape(lab["note_head_zh"])}</span></p>
+    <ul>{notes}</ul>
+    <p class="ar-note-end">{html.escape(lab["note_end_en"])}<span class="zh">{html.escape(lab["note_end_zh"])}</span></p>
+  </div>
+  <p class="ar-credit">{lab["credit_html"]}</p>
+</div>'''
+
+def _ar_bal(d):
+    pics = "".join(
+        f'<figure class="ar-bl-fig"><figcaption><span class="ar-dp-n">{k}</span> Picture {k} · 圖 {k}</figcaption>'
+        f'<svg class="ar-bl-svg" data-p="{k}" viewBox="0 0 800 600" role="img" aria-label="Picture {k}: gray shapes in a frame · 圖 {k}：畫框裡的灰色形狀"></svg>'
+        f'<p class="ar-bl-read" data-p="{k}" aria-live="polite">&nbsp;</p></figure>' for k in ("A", "B"))
+    opts = "".join(
+        f'<button type="button" class="ar-lp-opt" data-pick="{k}"><i aria-hidden="true">{k}</i><b>Picture {k} is more balanced</b><span class="zh">圖 {k} 比較平衡</span><span class="ar-pk-mk"></span></button>'
+        for k in ("A", "B"))
+    return f'''<div class="ar-match ar-balq rvl" data-ar-bal>
+  <div class="ar-mt-top"><p class="ar-mt-k ar-bl-k">Question 1 of 6 · 第 1 題（共 6 題）</p><p class="ar-mt-sc">Right · 答對 <b class="ar-mt-score ar-bl-score">0 / 0</b></p></div>
+  <div class="ar-mt-steps ar-bl-steps" aria-hidden="true"></div>
+  <div class="ar-bl-pics">{pics}</div>
+  <div class="ar-sh-opts ar-bl-opts">{opts}</div>
+  <p class="ar-mt-msg ar-bl-msg" aria-live="polite"></p>
+  <div class="ar-mt-foot"><button type="button" class="ar-btn ar-btn-gold ar-bl-next" hidden>Next question · 下一題</button></div>
+  <p class="ar-fine">{html.escape(d["note_en"])}<span class="zh">{html.escape(d["note_zh"])}</span></p>
+</div>'''
+
+def _ar_crop(d):
+    sl = "".join(
+        f'<label class="ar-cr-sl"><span>{en} <span class="zh">{zh}</span></span><input type="range" min="0" max="100" step="1" value="{v}" aria-label="{en} · {zh}"></label>'
+        for en, zh, v in [("Frame size", "框的大小", 100), ("Left – right", "左右", 0), ("Up – down", "上下", 0)])
+    return f'''<div class="ar-match ar-cropq rvl" data-ar-crop>
+  <div class="ar-mt-top"><p class="ar-mt-k ar-cr-k">Task 1 of 3 · 第 1 個任務（共 3 個）</p><p class="ar-mt-sc ar-cr-read"></p></div>
+  <p class="ar-pk-ask ar-cr-task"></p>
+  <div class="ar-cr-grid">
+    <figure class="ar-cr-fig"><figcaption>The whole scene · 整片風景</figcaption>
+      <svg class="ar-cr-over" viewBox="0 0 1600 900" role="img" aria-label="A wide scene with a boat, a tree, a house, and the sun. The yellow frame shows what will be kept; drag it to move it · 一片寬的風景，有船、樹、房子和太陽；黃色的框是要留下來的部分，可以拖動"></svg></figure>
+    <figure class="ar-cr-fig"><figcaption>Your cropped picture · 你裁出來的畫面</figcaption>
+      <svg class="ar-cr-view" viewBox="0 0 1200 900" role="img" aria-label="The part of the scene inside the yellow frame · 黃色框裡的那一部分風景"></svg></figure>
+  </div>
+  <div class="ar-cr-ctl">{sl}<label class="ar-check"><input type="checkbox" data-t="cgrid" checked><span>Thirds lines (dashed) · 三分線（虛線）</span></label></div>
+  <p class="ar-mt-msg ar-cr-msg" aria-live="polite"></p>
+  <div class="ar-mt-foot"><button type="button" class="ar-btn ar-btn-gold ar-cr-check">Check · 對答案</button><button type="button" class="ar-btn ar-btn-gold ar-cr-next" hidden>Next task · 下一個任務</button></div>
+  <p class="ar-fine">{html.escape(d["note_en"])}<span class="zh">{html.escape(d["note_zh"])}</span></p>
+</div>'''
+
 def _ar_far(d):
     return f'''<div class="ar-match ar-farq rvl" data-ar-far>
   <div class="ar-mt-top"><p class="ar-mt-k ar-fr-k">Question 1 of 8 · 第 1 題（共 8 題）</p><p class="ar-mt-sc">Right · 答對 <b class="ar-mt-score ar-fr-score">0 / 0</b></p></div>
@@ -19186,7 +19265,7 @@ def build_art_lesson(ui, unit, lesson):
     reading_html = render_basic_unit(1, unit_dict, level="art", audio_rel="", pdf_rel="")
     lab = lesson["lab"]
     kind = lab["kind"]
-    lab_html = {"lights": render_artlights_lab, "wheel": render_artwheel_lab, "ball": render_artball_lab, "line": render_artline_lab, "hall": render_arthall_lab, "depth": render_artdepth_lab}[kind](lesson)
+    lab_html = {"lights": render_artlights_lab, "wheel": render_artwheel_lab, "ball": render_artball_lab, "line": render_artline_lab, "hall": render_arthall_lab, "depth": render_artdepth_lab, "frame": render_artframe_lab}[kind](lesson)
 
     def sec(key, fn):
         d = lesson[key]
@@ -19204,6 +19283,8 @@ def build_art_lesson(ui, unit, lesson):
         ph = lesson["parts_head"]
         secs.append(("parts", ph["eyebrow"], ph["en"], ph["zh"], f'<div class="ph-grid stagger">{cards}</div>',
                      _bi(lesson["parts_note_en"], lesson["parts_note_zh"], cls="lead rvl d2")))
+    if lesson.get("bal"): secs.append(sec("bal", _ar_bal))
+    if lesson.get("crop"): secs.append(sec("crop", _ar_crop))
     if lesson.get("far"): secs.append(sec("far", _ar_far))
     if lesson.get("arrange"): secs.append(sec("arrange", _ar_arrange))
     if lesson.get("vp"): secs.append(sec("vp", _ar_vp))
