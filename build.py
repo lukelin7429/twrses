@@ -18560,7 +18560,7 @@ def build_usg_hub():
 _artj = os.path.join(ROOT, "data", "art.json")
 ART = json.load(open(_artj, encoding="utf-8")) if os.path.exists(_artj) else None
 ART_BASE = "/resources/classes/art/"
-_ART_JS = {"lights": "art-lights", "wheel": "art-wheel", "ball": "art-ball", "line": "art-line", "hall": "art-hall"}   # lab.kind → assets/js/<bundle>.js
+_ART_JS = {"lights": "art-lights", "wheel": "art-wheel", "ball": "art-ball", "line": "art-line", "hall": "art-hall", "depth": "art-depth"}   # lab.kind → assets/js/<bundle>.js
 
 def _art_ver():
     h = hashlib.md5()
@@ -18622,7 +18622,13 @@ def arthall_svg(size=56):
             '<rect x="26" y="25" width="8" height="8" fill="#b4bfd0"/><path d="M6 9L26 25M54 9L34 25M6 51L26 33M54 51L34 33" stroke="#16181d" stroke-width="1.2"/>'
             '<circle cx="30" cy="29" r="2.2" fill="#ffd36e" stroke="#16181d" stroke-width="1"/></svg>')
 
-_ART_CARD = {"lights": artlights_svg, "wheel": artwheel_svg, "ball": artball_svg, "line": artline_svg, "hall": arthall_svg}
+def artdepth_svg(size=56):
+    """第六課的課程卡小圖示：三層越遠越淡的山。"""
+    return (f'<svg class="ardepth-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">'
+            '<rect x="6" y="9" width="48" height="42" fill="#cfe0f2"/><path d="M6 36Q20 18 32 30T54 26V51H6Z" fill="#a9c3d6"/>'
+            '<path d="M6 42Q18 28 30 38T54 34V51H6Z" fill="#5f8f7a"/><path d="M6 48Q16 38 28 45T54 43V51H6Z" fill="#21573a"/></svg>')
+
+_ART_CARD = {"lights": artlights_svg, "wheel": artwheel_svg, "ball": artball_svg, "line": artline_svg, "hall": arthall_svg, "depth": artdepth_svg}
 
 def render_artlights_lab(lesson):
     """第一課：暗房裡的三盞燈／三片顏料（assets/js/art-lights.js 綁這裡的 class；右邊欄的字由程式依模式填入）。"""
@@ -19003,6 +19009,86 @@ def _ar_posts(d):
   <p class="ar-fine">{html.escape(d["note_en"])}<span class="zh">{html.escape(d["note_zh"])}</span></p>
 </div>'''
 
+def render_artdepth_lab(lesson):
+    """第六課：五棵一樣的樹、四種線索（assets/js/art-depth.js 綁這裡的 class；左邊的畫是 2D canvas，右邊的世界是 3D）。"""
+    lab = lesson["lab"]
+    cues = "".join(
+        f'<label class="ar-dp-cue"><input type="checkbox" data-cue="{k}" checked><span class="ar-dp-cue-b"><b>{en}</b><small>{zh}</small><em>{hint_en}<span class="zh">{hint_zh}</span></em></span></label>'
+        for k, en, zh, hint_en, hint_zh in [
+            ("overlap", "Overlap", "重疊", "Near things cover far things.", "近的蓋住遠的。"),
+            ("size", "Size", "大小", "Far things are drawn smaller.", "遠的畫得小。"),
+            ("position", "Position", "位置", "On the ground, far things sit higher, near the horizon.", "在地面上，遠的畫得高，靠近地平線。"),
+            ("air", "Air", "空氣", "Far things are paler and bluer.", "遠的比較淡、比較藍。")])
+    views = "".join(
+        f'<button type="button" data-view="{k}" aria-pressed="{"true" if k == "side" else "false"}"><b>{en}</b><small>{zh}</small></button>'
+        for k, en, zh in [("side", "From the side", "從側面看"), ("top", "From above", "從上面看"), ("eye", "From the eye", "從眼睛看")])
+    notes = "".join(f'<li>{html.escape(n["en"])}<span class="zh">{html.escape(n["zh"])}</span></li>' for n in lab["notes"])
+    return f'''<div class="astro-lab ar-dlab rvl" data-artdepth-lab>
+  <div class="ar-dp-grid">
+    <section class="ar-ln-col">
+      <p class="al-sky-k">The picture · 畫</p>
+      <canvas class="ar-dp-pic" width="800" height="600" role="img" aria-label="A picture of five numbered trees. Which cues are used is listed below it, and the table gives each tree's distance, drawn size, and lightness · 一張畫著五棵編號的樹的圖；用了哪幾種線索列在下面，表格寫出每棵樹的距離、畫出來的大小和明度"></canvas>
+      <p class="ar-rule ar-dp-count" aria-live="polite"></p>
+    </section>
+    <section class="ar-ln-col">
+      <p class="al-sky-k">The world · 世界</p>
+      <div class="ar-dp-3d">
+        <canvas class="ar-dp-cv" aria-label="3D view of the same five trees standing at five distances from the eye, with the picture frame in front of the eye · 3D 畫面：同樣的五棵樹立在離眼睛五個不同的距離，眼睛前面是畫框"></canvas>
+        <div class="al-labels" aria-hidden="true"></div>
+        <p class="al-nogl-msg">This 3D view needs WebGL, which this browser does not support. The picture on the left, the four switches, and the table still work.<br><span class="zh">這個瀏覽器不支援 WebGL，無法顯示 3D 畫面；左邊的畫、四個開關和表格照樣能用。</span></p>
+      </div>
+      <div class="ar-ln-kinds ar-dp-views" role="group" aria-label="Where to look from · 從哪裡看">{views}</div>
+    </section>
+  </div>
+  <div class="ar-dp-ctl">
+    <div class="ar-dp-cues" role="group" aria-label="Four cues for distance · 表現遠近的四種線索">{cues}</div>
+    <div class="ar-dp-side">
+      <div class="ar-ln-btns"><button type="button" class="ar-btn" data-all="off">All off · 全部關掉</button><button type="button" class="ar-btn ar-btn-gold" data-all="on">All on · 全部打開</button></div>
+      <table class="ar-dp-table"><thead><tr><th scope="col">Tree · 樹</th><th scope="col">From the eye · 離眼睛</th><th scope="col">Drawn size · 畫出來的大小</th><th scope="col">Color · 顏色</th></tr></thead><tbody></tbody></table>
+      <p class="ar-msg" aria-live="polite"></p>
+    </div>
+  </div>
+  <div class="ar-note">
+    <p class="ar-note-h">{html.escape(lab["note_head_en"])} <span class="zh">{html.escape(lab["note_head_zh"])}</span></p>
+    <ul>{notes}</ul>
+    <p class="ar-note-end">{html.escape(lab["note_end_en"])}<span class="zh">{html.escape(lab["note_end_zh"])}</span></p>
+  </div>
+  <p class="ar-credit">{lab["credit_html"]}</p>
+</div>'''
+
+def _ar_far(d):
+    return f'''<div class="ar-match ar-farq rvl" data-ar-far>
+  <div class="ar-mt-top"><p class="ar-mt-k ar-fr-k">Question 1 of 8 · 第 1 題（共 8 題）</p><p class="ar-mt-sc">Right · 答對 <b class="ar-mt-score ar-fr-score">0 / 0</b></p></div>
+  <div class="ar-mt-steps ar-fr-steps" aria-hidden="true"></div>
+  <div class="ar-lp-grid ar-fr-grid">
+    <canvas class="ar-dp-pic ar-fr-cv" width="800" height="600" role="img" aria-label="Two trees, A on the left and B on the right · 兩棵樹：A 在左，B 在右"></canvas>
+    <div class="ar-sh-opts">
+      <button type="button" class="ar-lp-opt" data-pick="A"><i aria-hidden="true">A</i><b>Tree A is farther</b><span class="zh">A 比較遠</span><span class="ar-pk-mk"></span></button>
+      <button type="button" class="ar-lp-opt" data-pick="B"><i aria-hidden="true">B</i><b>Tree B is farther</b><span class="zh">B 比較遠</span><span class="ar-pk-mk"></span></button>
+    </div>
+  </div>
+  <p class="ar-mt-msg ar-fr-msg" aria-live="polite"></p>
+  <div class="ar-mt-foot"><button type="button" class="ar-btn ar-btn-gold ar-fr-next" hidden>Next question · 下一題</button></div>
+  <p class="ar-fine">{html.escape(d["note_en"])}<span class="zh">{html.escape(d["note_zh"])}</span></p>
+</div>'''
+
+def _ar_arrange(d):
+    rows = "".join(
+        f'<label class="ar-ag-row" data-tree="{n}"><span class="ar-dp-n">{n}</span><span class="ar-ag-nm">Tree {n} <span class="zh">樹 {n}</span></span>'
+        f'<input type="range" min="1" max="5" step="1" value="3" aria-label="How far tree {n} is, from place 1 (nearest) to place 5 (farthest) · 樹 {n} 的遠近，從位置 1（最近）到位置 5（最遠）"><output>3</output></label>'
+        for n in ("A", "B", "C"))
+    return f'''<div class="ar-match ar-arrq rvl" data-ar-arrange>
+  <div class="ar-mt-top"><p class="ar-mt-k ar-ag-k">Task 1 of 3 · 第 1 個任務（共 3 個）</p></div>
+  <p class="ar-pk-ask ar-ag-task"></p>
+  <div class="ar-lp-grid ar-fr-grid">
+    <canvas class="ar-dp-pic ar-ag-cv" width="800" height="600" role="img" aria-label="A picture of three trees, A, B, and C, at the distances set by the sliders · 一張畫著 A、B、C 三棵樹的圖，遠近由滑桿決定"></canvas>
+    <div class="ar-ag-rows"><p class="ar-ag-ends"><span>1 = nearest · 最近</span><span>5 = farthest · 最遠</span></p>{rows}</div>
+  </div>
+  <p class="ar-mt-msg ar-ag-msg" aria-live="polite"></p>
+  <div class="ar-mt-foot"><button type="button" class="ar-btn ar-btn-gold ar-ag-check">Check · 對答案</button><button type="button" class="ar-btn ar-btn-gold ar-ag-next" hidden>Next task · 下一個任務</button></div>
+  <p class="ar-fine">{html.escape(d["note_en"])}<span class="zh">{html.escape(d["note_zh"])}</span></p>
+</div>'''
+
 def _ar_match(d):
     rows = "".join(
         '<label class="ar-mt-sl"><span class="ar-chip" aria-hidden="true"></span><span class="ar-mt-sn"></span>'
@@ -19100,7 +19186,7 @@ def build_art_lesson(ui, unit, lesson):
     reading_html = render_basic_unit(1, unit_dict, level="art", audio_rel="", pdf_rel="")
     lab = lesson["lab"]
     kind = lab["kind"]
-    lab_html = {"lights": render_artlights_lab, "wheel": render_artwheel_lab, "ball": render_artball_lab, "line": render_artline_lab, "hall": render_arthall_lab}[kind](lesson)
+    lab_html = {"lights": render_artlights_lab, "wheel": render_artwheel_lab, "ball": render_artball_lab, "line": render_artline_lab, "hall": render_arthall_lab, "depth": render_artdepth_lab}[kind](lesson)
 
     def sec(key, fn):
         d = lesson[key]
@@ -19118,6 +19204,8 @@ def build_art_lesson(ui, unit, lesson):
         ph = lesson["parts_head"]
         secs.append(("parts", ph["eyebrow"], ph["en"], ph["zh"], f'<div class="ph-grid stagger">{cards}</div>',
                      _bi(lesson["parts_note_en"], lesson["parts_note_zh"], cls="lead rvl d2")))
+    if lesson.get("far"): secs.append(sec("far", _ar_far))
+    if lesson.get("arrange"): secs.append(sec("arrange", _ar_arrange))
     if lesson.get("vp"): secs.append(sec("vp", _ar_vp))
     if lesson.get("posts"): secs.append(sec("posts", _ar_posts))
     if lesson.get("how"): secs.append(sec("how", _ar_how))

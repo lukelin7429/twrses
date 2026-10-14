@@ -3493,7 +3493,7 @@
               "zh": "畫家怎麼畫出遠和近？",
               "note_en": "Overlap, size, position, and the way far hills turn pale and blue: the other tools for showing distance.",
               "note_zh": "重疊、大小、位置，還有遠山越來越淡、越來越藍：表現遠近的其他工具。",
-              "soon": true
+              "href": "/resources/classes/art/near-and-far/"
             }
           ],
           "sources_note_en": "Names, dates, numbers, and quotations on this page were checked against these sources (October 2026). The positions of the vanishing point and the sizes on the picture are computed by the page itself and covered by automatic tests; the sizes of the hallway are chosen for the model",
@@ -3602,15 +3602,630 @@
               "url": "https://www.hpa.gov.tw/Pages/Detail.aspx?nodeid=4705&pid=17328"
             }
           ]
+        },
+        {
+          "n": 6,
+          "slug": "near-and-far",
+          "title": "How Do Painters Show Near and Far?",
+          "title_zh": "畫家怎麼畫出遠和近？",
+          "level": "入門 · Beginner",
+          "icon": "🏞️",
+          "card": "depth",
+          "blurb_en": "Five identical trees stand at five distances. Switch four cues on and off, overlap, size, position, and air, and watch a flat row of trees turn into a deep landscape.",
+          "blurb_zh": "五棵一模一樣的樹，立在五個不同的距離。把四種線索開開關關：重疊、大小、位置、空氣，看一排平平的樹怎麼變成有深度的風景。",
+          "big_idea_en": "A painter has four simple cues for distance besides perspective lines. Near things cover far things. Far things are drawn smaller. On the ground, far things sit higher up the picture, toward the horizon. And far things look paler and bluer, because of the air between. Use none of them and the picture is flat. Use all four and it looks deep.",
+          "big_idea_zh": "除了透視線，畫家還有四種簡單的線索可以表現遠近：近的東西蓋住遠的；遠的東西畫得小；在地面上，遠的東西畫得比較高、靠近地平線；遠的東西看起來比較淡、比較藍，因為中間隔著空氣。一種都不用，畫面是平的；四種都用，畫面就有了深度。",
+          "lab": {
+            "kind": "depth",
+            "eyebrow": "3D Model · 3D 模型",
+            "title_en": "Five Trees, Four Cues",
+            "title_zh": "五棵樹，四種線索",
+            "how_en": "On the right is the world: five trees of the same size and color, standing 5, 8, 12, 18, and 27 meters from an eye. On the left is a picture of them. The four switches are the painter's choices. Turn a cue off and the picture stops using it, though the world stays the same. Every tree carries a number, 1 for the nearest, and the table gives the distance, drawn size, and lightness of each one.",
+            "how_zh": "右邊是「世界」：五棵一樣大、一樣顏色的樹，離眼睛 5、8、12、18、27 公尺。左邊是把它們畫下來的一張「畫」。四個開關是畫家的選擇：關掉一種線索，畫面就不再用它，但世界並沒有改變。每棵樹都有編號（1 最近），表格寫出每一棵的距離、畫出來的大小和明度。",
+            "note_head_en": "What this model leaves out",
+            "note_head_zh": "這個模型簡化了什麼",
+            "notes": [
+              {
+                "en": "The way the trees fade with distance follows a curve we chose. Real air depends on the weather, the moisture and dust in it, and the light. Distant things are usually bluish, and at sunrise or sunset they can turn reddish.",
+                "zh": "樹隨著距離變淡的方式，照的是我們自己選的一條曲線。真實的空氣要看天氣、空氣裡的水氣和灰塵，還有光線。遠處的東西通常偏藍；日出或日落的時候，也可能偏紅。"
+              },
+              {
+                "en": "Twenty-seven meters of clear air would hardly change a tree's color. The model squeezes the effect of several kilometers into a short distance so that you can see it.",
+                "zh": "27 公尺的乾淨空氣，幾乎不會改變一棵樹的顏色。模型把好幾公里才有的效果，壓縮到很短的距離裡，你才看得出來。"
+              },
+              {
+                "en": "The trees are flat cut-outs of one color, with no light and shade and no small details. Far things also lose detail, and the model does not show that.",
+                "zh": "這些樹是單一顏色的平面剪影，沒有明暗，也沒有細節。遠處的東西還會失去細節，這一點模型沒有表現出來。"
+              },
+              {
+                "en": "The position cue here works for things standing on flat ground below your eye level. Clouds and birds above your eye level do the opposite: the far ones sit lower, toward the horizon.",
+                "zh": "這裡的「位置」線索，適用於站在平地上、比眼睛低的東西。比眼睛高的雲和鳥正好相反：遠的畫得比較低，同樣是靠近地平線。"
+              }
+            ],
+            "note_end_en": "So look out of a real window at real hills or buildings. Classroom Activity 1 shows what to look for.",
+            "note_end_zh": "所以請從真的窗戶往外看，看真的山或房子；要看什麼，寫在課堂活動一。",
+            "credit_html": "Trees and landscape made for this lesson. The colors and positions are computed by shared code and covered by automatic tests. · 樹與風景為本課自行繪製；顏色與位置由共用的程式計算，並有自動測試。"
+          },
+          "paras": [
+            "Draw five trees in a row, all the same size, all the same green, all standing on one line. Your picture is flat. Nothing in it says which tree is close and which is far. Yet a landscape painter can make you feel that one hill is a short walk away and another is a day's journey. Painters do it with a small set of cues, and you already read every one of them without thinking.",
+            "The first cue is overlap. If one tree hides part of another, the hidden one must be behind. Overlap tells you the order of things, though it cannot tell you how far apart they are. The second cue is size. When you know two trees are about the same size, the one that looks smaller seems farther away. This is the rule you met in Lesson 5: twice as far, half as tall.",
+            "The third cue is position on the picture. Look at a field or a floor. The ground near your feet is at the bottom of your view, and the ground far away is higher up, close to the horizon. So a tree whose foot is drawn higher on the picture looks farther off. This works for things on the ground, below your eye level. Clouds above you do the opposite.",
+            "The fourth cue is the air itself. Air scatters sunlight, and that scattered light is added to everything you see through it. The more air lies between you and a hill, the paler the hill looks, and the less contrast it has. Scattered sky light usually has more blue in it, so far hills usually look bluish. Artists call this aerial perspective, or atmospheric perspective.",
+            "Leonardo da Vinci wrote about it in his notebooks about five hundred years ago. He called it aerial perspective, because, he said, the atmosphere lets us tell how far away different buildings are. His advice to painters was plain. Paint the nearest building in its real color, and make the more distant ones less defined and bluer.",
+            "Chinese landscape painters thought about distance too. In the eleventh century the painter Guo Xi described three kinds of distance in a mountain scene: looking up from the foot of a mountain to its peak, looking from the front of a mountain to what lies behind, and looking from a near mountain across to far ones. All these painters, east and west, were solving the same puzzle. The paper is flat, and the world is not."
+          ],
+          "paras_zh": [
+            "畫五棵樹排成一排，一樣大、一樣綠，站在同一條線上。你的畫是平的，畫面上沒有任何東西說明哪一棵近、哪一棵遠。可是風景畫家卻能讓你覺得，這座山走幾步就到，那座山要走上一整天。畫家靠的是少少幾種線索，而每一種你其實早就會讀了，連想都不用想。",
+            "第一種線索是重疊。如果一棵樹擋住另一棵的一部分，被擋住的那一棵一定在後面。重疊告訴你東西的前後順序，但說不出它們相隔多遠。第二種線索是大小。當你知道兩棵樹差不多一樣大的時候，看起來比較小的那一棵，就顯得比較遠。這是第五課遇過的規則：兩倍遠，一半高。",
+            "第三種線索是在畫面上的位置。看看一片田野或地板：腳邊的地面在視野的最下面，遠處的地面比較高，靠近地平線。所以一棵樹的底部畫得越高，看起來就越遠。這只適用於地面上、比眼睛低的東西；頭頂上的雲正好相反。",
+            "第四種線索是空氣本身。空氣會散射陽光，而這些被散射的光，會疊加在你透過空氣看到的每一樣東西上。你和一座山之間的空氣越多，山看起來就越淡，對比也越低。被散射的天空光通常藍色的成分比較多，所以遠山通常看起來偏藍。藝術家把這叫做空氣透視，也叫大氣透視。",
+            "大約五百年前，達文西在筆記裡寫過這件事。他把它叫做空氣透視，因為他說，靠著大氣，我們才分得出不同的建築各有多遠。他給畫家的建議很直接：最近的建築畫它本來的顏色，比較遠的就畫得模糊一點、藍一點。",
+            "中國的山水畫家也思考過遠近。十一世紀的畫家郭熙說，山有三種「遠」：從山下仰望山頂，從山前看到山後，從近山望向遠山。東方和西方的這些畫家，解的是同一道難題：紙是平的，世界卻不是。"
+          ],
+          "questions": [
+            "Overlap shows that one tree is behind another. What can it not tell you?",
+            "Two trees are the same real size, but one is drawn half as tall as the other. What does that tell you?",
+            "Why do far hills usually look paler and bluer than near ones?"
+          ],
+          "answers": [
+            "It cannot tell you how far apart the two trees are. Overlap gives only the order, which one is in front.",
+            "The smaller one is farther away. If they really are the same size, it is about twice as far from your eye.",
+            "Air scatters sunlight, and that scattered light is added between you and the hills. More air means more added light, so the hills look paler. The scattered light usually has more blue in it, so they look bluish."
+          ],
+          "vocab": [
+            {
+              "n": 1,
+              "w": "overlap",
+              "pos": "v.",
+              "zh": "重疊；蓋住一部分",
+              "ex": "The near tree <b>overlaps</b> the far one.",
+              "exzh": "近的那棵樹蓋住了遠的那棵的一部分。"
+            },
+            {
+              "n": 2,
+              "w": "landscape",
+              "pos": "n.",
+              "zh": "風景；風景畫",
+              "ex": "She painted a <b>landscape</b> with hills and a river.",
+              "exzh": "她畫了一幅有山丘和河流的風景畫。"
+            },
+            {
+              "n": 3,
+              "w": "foreground",
+              "pos": "n.",
+              "zh": "前景",
+              "ex": "The flowers in the <b>foreground</b> are large and bright.",
+              "exzh": "前景裡的花又大又鮮豔。"
+            },
+            {
+              "n": 4,
+              "w": "background",
+              "pos": "n.",
+              "zh": "背景",
+              "ex": "The mountains in the <b>background</b> are pale blue.",
+              "exzh": "背景裡的山是淡藍色的。"
+            },
+            {
+              "n": 5,
+              "w": "atmosphere",
+              "pos": "n.",
+              "zh": "大氣；空氣",
+              "ex": "The <b>atmosphere</b> makes far hills look pale.",
+              "exzh": "大氣讓遠山看起來淡淡的。"
+            },
+            {
+              "n": 6,
+              "w": "scatter",
+              "pos": "v.",
+              "zh": "散射；使散開",
+              "ex": "Air <b>scatters</b> sunlight in all directions.",
+              "exzh": "空氣把陽光往四面八方散射。"
+            },
+            {
+              "n": 7,
+              "w": "pale",
+              "pos": "adj.",
+              "zh": "淡的；淺的",
+              "ex": "The farthest hill is a <b>pale</b> gray-blue.",
+              "exzh": "最遠的那座山是淡淡的灰藍色。"
+            },
+            {
+              "n": 8,
+              "w": "cue",
+              "pos": "n.",
+              "zh": "線索",
+              "ex": "Size is one <b>cue</b> for distance.",
+              "exzh": "大小是判斷遠近的一種線索。"
+            }
+          ],
+          "quiz": [
+            {
+              "q": "One tree hides part of another tree. Which tree looks nearer?",
+              "options": [
+                "The one that is partly hidden",
+                "The one in front, doing the hiding",
+                "Neither one",
+                "The smaller one"
+              ],
+              "correct": 1
+            },
+            {
+              "q": "Two trees are the same real size. In a picture, the far one is drawn…",
+              "options": [
+                "larger",
+                "smaller",
+                "the same size",
+                "upside down"
+              ],
+              "correct": 1
+            },
+            {
+              "q": "On flat ground, where is the foot of a far tree drawn?",
+              "options": [
+                "Lower on the picture",
+                "At the very bottom",
+                "Higher on the picture, nearer the horizon",
+                "Above the sky"
+              ],
+              "correct": 2
+            },
+            {
+              "q": "What does aerial perspective do to far hills?",
+              "options": [
+                "It makes them darker and sharper",
+                "It makes them paler and usually bluer",
+                "It makes them larger",
+                "It turns them upside down"
+              ],
+              "correct": 1
+            },
+            {
+              "q": "Who wrote about “Aerial Perspective” in his notebooks about five hundred years ago?",
+              "options": [
+                "Leonardo da Vinci",
+                "Guo Xi",
+                "Paul Klee",
+                "Isaac Newton"
+              ],
+              "correct": 0
+            }
+          ],
+          "parts_head": {
+            "eyebrow": "Try It in the Model · 在模型裡試試",
+            "en": "Four things to try",
+            "zh": "四件值得試的事"
+          },
+          "parts": [
+            {
+              "key": "flat",
+              "icon": "🟰",
+              "en": "From flat to deep",
+              "zh": "從平的變成深的",
+              "meta_en": "Add the cues one at a time",
+              "meta_zh": "一次加一種線索",
+              "demo": "flat",
+              "text_en": "All four cues start switched off: five trees in a flat row. Then overlap, size, position, and air come on one after another.",
+              "text_zh": "四種線索一開始全部關掉：五棵樹排成平平的一排。接著重疊、大小、位置、空氣一種一種打開。"
+            },
+            {
+              "key": "air",
+              "icon": "🌫️",
+              "en": "Air alone",
+              "zh": "只靠空氣",
+              "meta_en": "Paler means farther",
+              "meta_zh": "越淡越遠",
+              "demo": "air",
+              "text_en": "Only the air cue is on. The trees are the same size and stand on one line, yet the pale ones already look farther away.",
+              "text_zh": "只打開「空氣」這一種。五棵樹一樣大、站在同一條線上，可是淡的那幾棵已經顯得比較遠了。"
+            },
+            {
+              "key": "side",
+              "icon": "🎭",
+              "en": "Walk around the world",
+              "zh": "繞到旁邊看這個世界",
+              "meta_en": "From the side, then from above",
+              "meta_zh": "先從側面，再從上面",
+              "demo": "side",
+              "text_en": "Seen from the side, the five trees are thin slices set one behind another, like a paper theater. From above you can read their real distances.",
+              "text_zh": "從側面看，五棵樹是一片一片前後排開的薄片，像紙劇場。從上面看，可以讀出它們真正的距離。"
+            },
+            {
+              "key": "eye",
+              "icon": "👁️",
+              "en": "Stand where the eye is",
+              "zh": "站到眼睛的位置",
+              "meta_en": "The world through the frame",
+              "meta_zh": "透過畫框看世界",
+              "demo": "eye",
+              "text_en": "Look at the world from the eye, through the picture frame. Overlap, size, and position are already there before the painter does anything.",
+              "text_zh": "從眼睛的位置、透過畫框去看世界。畫家什麼都還沒做，重疊、大小和位置就已經在裡面了。"
+            }
+          ],
+          "parts_note_en": "Then try it yourself. Which single cue gives the strongest feeling of depth for you? Which two cues work best together? Compare your answer with a classmate's.",
+          "parts_note_zh": "然後自己動手試試。對你來說，哪一種線索單獨使用時，深度的感覺最強？哪兩種搭配起來效果最好？和同學比較一下答案。",
+          "far": {
+            "eyebrow": "Game · 小遊戲",
+            "en": "Which One Is Farther?",
+            "zh": "哪一個比較遠？",
+            "lead_en": "Eight pictures of two trees, A and B. They are really the same size and the same color. Each picture uses just one cue. Choose the tree that looks farther away, and the page will tell you which cue you were reading.",
+            "lead_zh": "八張圖，每張有 A、B 兩棵樹。它們實際上一樣大、一樣顏色；每張圖只用一種線索。選出看起來比較遠的那一棵，頁面會告訴你剛才讀的是哪一種線索。",
+            "note_en": "Psychologists call these monocular cues, because they work with one eye and in flat pictures.",
+            "note_zh": "心理學家把這些叫做單眼線索，因為只用一隻眼睛、看的是平面的圖，它們也有效。"
+          },
+          "arrange": {
+            "eyebrow": "Build It · 自己排",
+            "en": "Arrange a Landscape",
+            "zh": "自己排一張風景",
+            "lead_en": "Three trees, A, B, and C, each with a slider. Place 1 is the nearest and place 5 is the farthest. Move the trees to finish three small tasks. As a tree goes back, watch all four cues change together: it shrinks, rises, fades, and slips behind the others.",
+            "lead_zh": "A、B、C 三棵樹，各有一根滑桿。位置 1 最近，位置 5 最遠。移動它們，完成三個小任務。一棵樹往後退的時候，注意四種線索一起變：它變小、升高、變淡，而且躲到別棵的後面。",
+            "note_en": "When two trees are at the same distance, they are drawn the same size and the same color, and the picture cannot tell you which is in front.",
+            "note_zh": "兩棵樹在同樣的距離時，畫出來一樣大、一樣顏色，畫面就說不出哪一棵在前面。"
+          },
+          "culture_cards": {
+            "eyebrow": "Stories Behind the Distance · 遠近背後的故事",
+            "title_en": "Leonardo's blue mountains, Guo Xi's three distances, size that means importance, and the air above your town",
+            "title_zh": "達文西的藍色遠山、郭熙的三遠、代表地位的大小，和你頭頂的空氣",
+            "lead_en": "Four short stories about how people have noticed distance and put it into pictures.",
+            "lead_zh": "關於人怎麼注意到遠近、又怎麼把它放進畫裡的四個小故事。",
+            "cards": [
+              {
+                "k": "About 1500 · 大約一五〇〇年",
+                "en": "Leonardo names it",
+                "zh": "達文西替它取了名字",
+                "body_en": "In his notebooks Leonardo da Vinci wrote: “There is another kind of perspective which I call Aerial Perspective, because by the atmosphere we are able to distinguish the variations in distance of different buildings.” He also asked why far mountains look blue. He argued that the air itself is not blue: it takes on that color, he wrote, from particles of moisture that catch the rays of the sun.",
+                "body_zh": "達文西在筆記裡寫道：「還有另一種透視，我稱它為空氣透視，因為靠著大氣，我們才分得出不同建築遠近的差別。」他也問過遠山為什麼是藍的。他認為空氣本身並不是藍色的；他寫道，空氣是因為其中的水氣微粒截住了陽光，才帶上那種顏色。"
+              },
+              {
+                "k": "Northern Song · 北宋",
+                "en": "Guo Xi's three distances",
+                "zh": "郭熙的三遠",
+                "body_en": "The painter Guo Xi wrote that a mountain has three distances. Looking up from the foot to the peak is high distance. Looking from the front of the mountain to what lies behind is deep distance. Looking from a near mountain to far ones is level distance. A Taiwanese education encyclopedia notes that one Chinese landscape often holds all three at once, because it does not keep to a single viewpoint.",
+                "body_zh": "郭熙在《林泉高致》裡說：「山有三遠：自山下而仰山顛，謂之『高遠』；自山前而窺山後，謂之『深遠』；自近山而望遠山，謂之『平遠』。」《教育大辭書》指出，中國山水畫不採單點透視，所以一個畫面裡往往同時具備三遠的空間表現。"
+              },
+              {
+                "k": "Ancient Egypt · 古埃及",
+                "en": "When bigger meant more important",
+                "zh": "畫得大，是因為地位高",
+                "body_en": "Size has not always stood for distance. In the art of ancient Egypt, people of higher status were sometimes drawn larger than those of lower status. This is called hierarchical proportion. Egyptian artists did use simple overlapping to show which figure was nearer. A cue is a habit shared by the artist and the viewer, and different times have used the same cue for different jobs.",
+                "body_zh": "大小並不是一直都代表遠近。在古埃及的藝術裡，地位高的人有時畫得比地位低的人大，這叫做階級比例。不過埃及的畫師確實用簡單的重疊，來表示哪一個人物比較近。線索是畫的人和看的人共有的習慣；不同的時代，會拿同一種線索做不同的事。"
+              },
+              {
+                "k": "Science · 科學",
+                "en": "Why the far hills fade",
+                "zh": "遠山為什麼會變淡",
+                "body_en": "Molecules of air, and larger particles such as water vapor and smoke, scatter light. This scattered sky light is laid like a thin veil over the light coming from a distant hill, and it lowers the hill's contrast. Sky light usually has more short-wavelength light in it, which is also why the sky looks blue, so distant things usually look bluish. On a hazy day the veil is thicker, and the hills fade sooner.",
+                "body_zh": "空氣的分子，還有水氣、煙塵這些比較大的微粒，都會散射光。這些被散射的天空光，像一層薄紗蓋在遠山傳來的光上面，讓遠山的對比降低。天空光裡短波長的光通常比較多（這也是天空看起來是藍色的原因），所以遠處的東西通常偏藍。霧霾重的日子，這層薄紗比較厚，山也就更快淡掉。"
+              }
+            ]
+          },
+          "curric": {
+            "eyebrow": "In the Curriculum · 對應課綱",
+            "en": "Where this lesson fits",
+            "zh": "這一課對應的課綱",
+            "lead_en": "The visual arts curriculum does not name these cues. These are the closest entries, with one from science, and their links to this lesson are our reading of them.",
+            "lead_zh": "視覺藝術課綱的條文沒有點名這些線索。下面是最接近的條目，另外加上自然科學的一條；它們和這一課的連結，是本教材的解讀。",
+            "items": [
+              {
+                "code": "視 E-Ⅱ-1",
+                "area": "藝術領域・視覺藝術（國小三、四年級）",
+                "area_en": "Arts, visual arts (grades 3–4)",
+                "text": "色彩感知、造形與空間的探索。",
+                "note_en": "Overlap, size, and position are ways to explore space, and aerial perspective links space to color.",
+                "note_zh": "重疊、大小和位置是探索空間的方法；空氣透視則把空間和色彩連在一起。"
+              },
+              {
+                "code": "視 E-Ⅲ-1",
+                "area": "藝術領域・視覺藝術（國小五、六年級）",
+                "area_en": "Arts, visual arts (grades 5–6)",
+                "text": "視覺元素、色彩與構成要素的辨識與溝通。",
+                "note_en": "Words such as foreground, background, and overlap let students say how a picture is built.",
+                "note_zh": "前景、背景、重疊這些詞，讓學生能說出一張圖是怎麼組成的。"
+              },
+              {
+                "code": "視 A-Ⅲ-1",
+                "area": "藝術領域・視覺藝術（國小五、六年級）",
+                "area_en": "Arts, visual arts (grades 5–6)",
+                "text": "藝術語彙、形式原理與視覺美感。",
+                "note_en": "Reading the cues for distance is part of looking closely at a landscape painting.",
+                "note_zh": "讀出表現遠近的線索，是仔細看一幅風景畫的一部分。"
+              },
+              {
+                "code": "INe-Ⅲ-7",
+                "area": "自然科學領域（國小五、六年級）",
+                "area_en": "Science (grades 5–6)",
+                "text": "陽光是由不同色光組成。",
+                "note_en": "Air scatters the blue part of sunlight more than the rest, which is where aerial perspective begins.",
+                "note_zh": "空氣把陽光裡藍色的部分散射得比其他顏色多；空氣透視就是從這裡開始的。"
+              }
+            ]
+          },
+          "myths": [
+            {
+              "myth_en": "Far hills look blue because air is blue.",
+              "myth_zh": "遠山是藍的，因為空氣是藍色的。",
+              "fact_en": "Air scatters sunlight, and the scattered light, which usually has more blue in it, is added between you and the hills. At sunrise or sunset the added light can be reddish. Leonardo already argued that the air itself is not blue.",
+              "fact_zh": "空氣會散射陽光，被散射的光通常藍色成分比較多，疊加在你和遠山之間。日出或日落時，疊加的光也可能偏紅。達文西當年就主張，空氣本身並不是藍色的。"
+            },
+            {
+              "myth_en": "Anything drawn higher on the picture is farther away.",
+              "myth_zh": "畫在畫面上越高的東西，就越遠。",
+              "fact_en": "That holds for things on the ground, below your eye level: far ground is nearer the horizon. Above your eye level it is reversed. A far cloud sits lower than a near one, and it too is nearer the horizon.",
+              "fact_zh": "這只適用於地面上、比眼睛低的東西：遠處的地面比較靠近地平線。比眼睛高的東西正好相反：遠的雲比近的雲低，同樣是比較靠近地平線。"
+            },
+            {
+              "myth_en": "A bigger figure in a picture is always a nearer one.",
+              "myth_zh": "畫裡比較大的人物，一定比較近。",
+              "fact_en": "Only when the artist is using size for distance. In ancient Egyptian art, a larger figure was often a more important person. You have to know which habit the picture follows.",
+              "fact_zh": "只有在畫的人用大小來表現遠近的時候才是這樣。在古埃及的藝術裡，畫得比較大的往往是地位比較高的人。要先知道這張圖用的是哪一種習慣。"
+            },
+            {
+              "myth_en": "Without perspective lines, a picture cannot look deep.",
+              "myth_zh": "沒有透視線，畫面就不可能有深度。",
+              "fact_en": "Overlap, size, position, and air need no ruler and no vanishing point. Landscapes with no straight lines at all can look very deep. The model on this page has no perspective lines in it.",
+              "fact_zh": "重疊、大小、位置和空氣，都不需要尺，也不需要消失點。完全沒有直線的風景，也可以看起來很深。這一頁的模型裡就沒有任何透視線。"
+            }
+          ],
+          "tricks_head": {
+            "en": "Near and far in a sentence",
+            "zh": "一句話記住遠近"
+          },
+          "tricks": [
+            {
+              "title_en": "In front covers behind",
+              "title_zh": "前面的蓋住後面的",
+              "body_en": "If part of a thing is hidden, something nearer is hiding it.",
+              "body_zh": "一樣東西有一部分被擋住，擋住它的那個就比較近。"
+            },
+            {
+              "title_en": "Far is small",
+              "title_zh": "遠的小",
+              "body_en": "Twice as far, half as tall.",
+              "body_zh": "兩倍遠，一半高。"
+            },
+            {
+              "title_en": "Far ground climbs to the horizon",
+              "title_zh": "遠處的地面往地平線爬",
+              "body_en": "On the ground, a higher foot is a farther foot.",
+              "body_zh": "在地面上，底部畫得越高，就越遠。"
+            },
+            {
+              "title_en": "Far is pale and blue",
+              "title_zh": "遠的淡，遠的藍",
+              "body_en": "More air between, less contrast and more sky color.",
+              "body_zh": "中間的空氣越多，對比越低，越帶著天空的顏色。"
+            }
+          ],
+          "safety_head": {
+            "eyebrow": "Before You Start · 動手之前",
+            "en": "Looking far, cutting paper",
+            "zh": "看遠方，剪紙"
+          },
+          "safety": [
+            {
+              "en": "Never look at the Sun, not even through a window or through haze. Look at hills and buildings away from it.",
+              "zh": "絕對不要看太陽，隔著窗戶或隔著霧霾也不行。請看離太陽遠一點的山和房子。"
+            },
+            {
+              "en": "Look from a safe place: a classroom window, a balcony with a railing, or the playground. Do not lean out or climb on anything to see farther.",
+              "zh": "在安全的地方看：教室的窗邊、有欄杆的陽台，或操場。不要為了看得更遠而探出身體或爬到東西上面。"
+            },
+            {
+              "en": "Carry scissors closed, with the points down, and hand them to someone handle first.",
+              "zh": "拿剪刀走動時要合起來、尖端朝下；遞給別人時握柄朝向對方。"
+            },
+            {
+              "en": "Looking far is good for your eyes. Rest them for ten minutes after every thirty minutes of close work.",
+              "zh": "看遠方對眼睛有好處。用眼每 30 分鐘，就休息 10 分鐘。"
+            }
+          ],
+          "activities": [
+            {
+              "title_en": "Count the Layers Out of a Window",
+              "title_zh": "從窗戶數一數有幾層",
+              "materials": [
+                {
+                  "en": "A window or a high place with a long view of hills, buildings, or rows of trees",
+                  "zh": "一扇窗戶或一個高處，看得到一層一層的山、房子或成排的樹"
+                },
+                {
+                  "en": "Paper and a pencil",
+                  "zh": "紙和鉛筆"
+                },
+                {
+                  "en": "This page, with the model's table showing",
+                  "zh": "這一頁，模型的表格開著"
+                }
+              ],
+              "steps": [
+                {
+                  "en": "Find a view with at least three layers, such as trees close by, buildings farther off, and hills behind them.",
+                  "zh": "找一個至少有三層的景：例如近處的樹、遠一點的房子、更後面的山。"
+                },
+                {
+                  "en": "Draw one box for each layer, nearest at the bottom. In each box write what the layer is.",
+                  "zh": "每一層畫一個格子，最近的放在最下面。在格子裡寫下那一層是什麼。"
+                },
+                {
+                  "en": "For each layer, write one word for its color and one word for how sharp its edges are.",
+                  "zh": "替每一層寫下一個形容顏色的詞，和一個形容邊緣清不清楚的詞。"
+                },
+                {
+                  "en": "Mark every place where one layer covers part of another.",
+                  "zh": "標出每一個「這一層蓋住另一層」的地方。"
+                },
+                {
+                  "en": "Compare your notes with the model. Do your far layers get paler? Bluer? Look again on a hazy day and on a clear day.",
+                  "zh": "把你的紀錄和模型比一比。你看到的遠處，有沒有變淡？有沒有變藍？霧濛濛的日子和晴朗的日子各看一次。"
+                }
+              ],
+              "tip_en": "You may find that your far layers are gray or brownish and hardly blue at all. That is a real result. The color of the haze depends on the weather, on what is in the air, and on where the Sun is. Write down what you see, and do not write what the model says you should see.",
+              "tip_zh": "你可能會發現，遠處那幾層是灰的或偏褐色，幾乎不藍。這是真實的結果：霧霾的顏色要看天氣、空氣裡有什麼，還有太陽在哪裡。請寫下你看到的，不要寫模型說你「應該」看到的。"
+            },
+            {
+              "title_en": "A Landscape in Four Layers of Paper",
+              "title_zh": "用四層紙做一張風景",
+              "materials": [
+                {
+                  "en": "Four sheets of paper in one color family, from dark to very pale, or white paper and one watercolor",
+                  "zh": "同一個色系、由深到很淺的四張紙；或白紙加一種水彩"
+                },
+                {
+                  "en": "A sheet of pale blue or white paper for the sky",
+                  "zh": "一張淡藍或白色的紙，當作天空"
+                },
+                {
+                  "en": "Scissors and glue",
+                  "zh": "剪刀和膠水"
+                }
+              ],
+              "steps": [
+                {
+                  "en": "If you are using watercolor, paint four strips with more and more water, so that they go from dark to very pale. Let them dry.",
+                  "zh": "如果用水彩，就畫四條紙帶，水越加越多，讓顏色由深到很淡。等它們乾。"
+                },
+                {
+                  "en": "Cut a row of hills from each sheet. Make the palest hills the smallest and the darkest hills the largest.",
+                  "zh": "從每一張紙上剪出一排山。最淡的剪得最小，最深的剪得最大。"
+                },
+                {
+                  "en": "Glue the palest row highest on the sky paper. Glue each darker row a little lower, so that it covers the foot of the row behind.",
+                  "zh": "把最淡的那一排貼在天空紙上最高的地方。越深的貼得越低，並蓋住後面那一排的底部。"
+                },
+                {
+                  "en": "Stand back. Which of the four cues did you use? Write them on the back.",
+                  "zh": "退後幾步看。四種線索你用了哪幾種？寫在背面。"
+                },
+                {
+                  "en": "Now make a second picture that breaks one cue, for example with the palest hills in front. Show both to a classmate and ask which looks deeper.",
+                  "zh": "再做第二張，故意破壞其中一種線索，例如把最淡的山貼在最前面。把兩張都拿給同學看，問哪一張看起來比較深。"
+                }
+              ],
+              "tip_en": "Compare your paper landscape with the picture on this page. The screen makes its pale colors with light, and your paper makes them with pigment or with more water, so the two will not match exactly. What matters is the order from dark to pale.",
+              "tip_zh": "把你的紙風景和這一頁的畫比一比。螢幕的淡色是用光做出來的，你的紙是用色料或加水做出來的，兩者不會完全一樣。重要的是由深到淡的順序。"
+            }
+          ],
+          "links_head": {
+            "eyebrow": "Go Further · 延伸閱讀",
+            "en": "The blue of the sky, the lines of a room, and what comes next",
+            "zh": "天空的藍、房間的線，以及下一課"
+          },
+          "links": [
+            {
+              "icon": "🌤️",
+              "k_en": "How Things Work · Lesson 9",
+              "k_zh": "萬物原理・第九課",
+              "en": "Why Is the Sky Blue?",
+              "zh": "天空為什麼是藍色的？",
+              "note_en": "The scattering that makes the sky blue is the same scattering that makes far hills pale and bluish. That lesson explains the light. This one uses it.",
+              "note_zh": "讓天空變藍的散射，和讓遠山變淡變藍的散射，是同一回事。那一課解釋光；這一課拿它來用。",
+              "href": "/resources/classes/how-things-work/blue-sky/"
+            },
+            {
+              "icon": "🚪",
+              "k_en": "Art · Lesson 5",
+              "k_zh": "美術・第五課",
+              "en": "How Do You Draw a Room on Flat Paper?",
+              "zh": "怎麼在平面上畫出一個房間？",
+              "note_en": "The size cue and the position cue come straight from the rules of perspective in that lesson.",
+              "note_zh": "「大小」和「位置」這兩種線索，就是從那一課的透視規則來的。",
+              "href": "/resources/classes/art/room-on-paper/"
+            },
+            {
+              "icon": "🖼️",
+              "k_en": "Art · Lesson 7",
+              "k_zh": "美術・第七課",
+              "en": "Where Should the Main Thing Go?",
+              "zh": "主角該放在哪裡？",
+              "note_en": "Next comes composition: balance, empty space, and the path your eye takes across a picture.",
+              "note_zh": "下一課是構圖：平衡、留白，還有眼睛在畫面上走的路線。",
+              "soon": true
+            }
+          ],
+          "sources_note_en": "Names, dates, numbers, and quotations on this page were checked against these sources (October 2026). The sizes, positions, and colors in the picture are computed by the page itself and covered by automatic tests; the fading with distance follows a simplified model",
+          "sources_note_zh": "本頁的人名、年代、數字與引文依下列資料查證（2026 年 10 月）；畫面上的大小、位置與顏色由頁面自己計算，並有自動測試；隨距離變淡的方式是簡化的示意模型",
+          "sources": [
+            {
+              "en": "Monocular depth cues: interposition (the partial overlap of objects), relative size, and closeness to the horizon; they work in two-dimensional images",
+              "zh": "單眼深度線索：重疊、相對大小、靠近地平線的程度；看平面的圖也有效",
+              "src": "OpenStax, Psychology 2e, 5.3 Vision",
+              "url": "https://openstax.org/books/psychology-2e/pages/5-3-vision"
+            },
+            {
+              "en": "Occlusion gives only a ranking of nearness; relative size; elevation relative to the horizon, above and below the line of sight; aerial perspective lowers contrast and saturation",
+              "zh": "重疊只能排出前後順序；相對大小；相對於地平線的高低（視線以上與以下相反）；空氣透視降低對比與彩度",
+              "src": "Wikipedia “Depth perception”",
+              "url": "https://en.wikipedia.org/wiki/Depth_perception"
+            },
+            {
+              "en": "Aerial or atmospheric perspective: colors and tones alter as a landscape recedes, as Leonardo and others observed",
+              "zh": "空氣透視（大氣透視）：風景越往遠處，顏色與明暗就跟著改變；達文西等人已經觀察到",
+              "src": "The National Gallery, London, glossary: Aerial perspective",
+              "url": "https://www.nationalgallery.org.uk/paintings/glossary/aerial-perspective"
+            },
+            {
+              "en": "Far objects usually appear lighter in value, less detailed, cooler, and lower in contrast; overlapping",
+              "zh": "遠處的東西通常明度較高、細節較少、顏色較冷、對比較低；重疊",
+              "src": "Brigham Young University–Idaho, ART 110 glossary",
+              "url": "https://courses.byui.edu/art110_new/art110/glossary/glossary.html"
+            },
+            {
+              "en": "Scattering by air molecules and larger particles adds sky light as a veil, reducing contrast; why distant objects appear bluish; reddish around sunrise or sunset",
+              "zh": "空氣分子與較大的微粒散射光，把天空光像薄紗一樣疊上去、降低對比；遠處的東西為什麼偏藍；日出日落時可能偏紅",
+              "src": "Wikipedia “Aerial perspective”",
+              "url": "https://en.wikipedia.org/wiki/Aerial_perspective"
+            },
+            {
+              "en": "“There is another kind of perspective which I call Aerial Perspective…”; make distant buildings less defined and bluer; the air takes its blue from particles of moisture (sections 295–297)",
+              "zh": "「還有另一種透視，我稱它為空氣透視…」；遠處的建築畫得模糊一點、藍一點；空氣的藍來自水氣微粒（第 295–297 節）",
+              "src": "The Notebooks of Leonardo da Vinci, tr. J. P. Richter (Project Gutenberg)",
+              "url": "https://www.gutenberg.org/ebooks/5000"
+            },
+            {
+              "en": "Guo Xi's three distances, and the many viewpoints of Chinese landscape painting",
+              "zh": "郭熙的三遠（高遠、深遠、平遠），以及中國山水畫的多點透視",
+              "src": "教育百科〈三遠〉（教育大辭書）",
+              "url": "https://pedia.cloud.edu.tw/Entry/Detail/?title=%E4%B8%89%E9%81%A0"
+            },
+            {
+              "en": "Ancient Egyptian art: vertical arrangement and simple overlapping to relate distance",
+              "zh": "古埃及藝術：上下排列，以及用簡單的重疊表示遠近",
+              "src": "Wikipedia “Perspective (graphical)”",
+              "url": "https://en.wikipedia.org/wiki/Perspective_(graphical)"
+            },
+            {
+              "en": "Hierarchical proportion: scale used to show the importance of figures",
+              "zh": "階級比例：用大小表示人物的重要性",
+              "src": "Wikipedia “Hierarchical proportion”",
+              "url": "https://en.wikipedia.org/wiki/Hierarchical_proportion"
+            },
+            {
+              "en": "Depth is judged from several distance cues together (in Chinese): relative size, overlap, height on the plane, clearness",
+              "zh": "數個距離線索的聯結決定了我們的深度知覺；單眼線索包括相對大小、重疊組合、平面高度、清晰度等",
+              "src": "教育百科〈雙眼線索，單眼線索〉（教育大辭書）",
+              "url": "https://pedia.cloud.edu.tw/Entry/Detail/?title=%E9%9B%99%E7%9C%BC%E7%B7%9A%E7%B4%A2%EF%BC%8C%E5%96%AE%E7%9C%BC%E7%B7%9A%E7%B4%A2"
+            },
+            {
+              "en": "Standard Chinese terms: aerial perspective, overlap, foreground, middle ground, monocular depth cue",
+              "zh": "學術名詞：空氣透視（大氣透視法）、重疊、前景、中景、單眼深度線索",
+              "src": "國家教育研究院 樂詞網",
+              "url": "https://terms.naer.edu.tw/"
+            },
+            {
+              "en": "Visual arts learning content: 視 E-Ⅱ-1, 視 E-Ⅲ-1, 視 A-Ⅲ-1; science: INe-Ⅲ-7",
+              "zh": "視覺藝術學習內容：視 E-Ⅱ-1、視 E-Ⅲ-1、視 A-Ⅲ-1；自然科學：INe-Ⅲ-7",
+              "src": "十二年國教課綱 藝術領域（教育部，2018）",
+              "url": "https://www.naer.edu.tw/upload/1/16/doc/818/%E5%8D%81%E4%BA%8C%E5%B9%B4%E5%9C%8B%E6%B0%91%E5%9F%BA%E6%9C%AC%E6%95%99%E8%82%B2%E8%AA%B2%E7%A8%8B%E7%B6%B1%E8%A6%81%E5%9C%8B%E6%B0%91%E4%B8%AD%E5%B0%8F%E5%AD%B8%E6%9A%A8%E6%99%AE%E9%80%9A%E5%9E%8B%E9%AB%98%E7%B4%9A%E4%B8%AD%E7%AD%89%E6%A0%A1-%E8%97%9D%E8%A1%93%E9%A0%98%E5%9F%9F.pdf"
+            },
+            {
+              "en": "Eye rest: ten minutes after every thirty minutes of close work",
+              "zh": "護眼：用眼每 30 分鐘休息 10 分鐘",
+              "src": "衛生福利部國民健康署",
+              "url": "https://www.hpa.gov.tw/Pages/Detail.aspx?nodeid=4705&pid=17328"
+            }
+          ]
         }
       ],
       "planned": [
-        {
-          "n": 6,
-          "icon": "🏞️",
-          "en": "How Do Painters Show Near and Far?",
-          "zh": "畫家怎麼畫出遠和近？"
-        },
         {
           "n": 7,
           "icon": "🖼️",

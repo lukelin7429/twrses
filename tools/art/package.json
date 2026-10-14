@@ -4,8 +4,8 @@
   "description": "美術 Art 的顏色引擎（color.js 純函式：光的混色、顏料混色的示意模型、色彩空間換算、色差；lights.js 牆面上的光斑與影子；match2d.js／zoom2d.js 不需要 WebGL 的小互動）與各課 3D 的原始碼。產物寫到 assets/js/art-*.js，npm run build 重新打包。",
   "type": "module",
   "scripts": {
-    "build": "esbuild src/art-lights.js src/art-wheel.js src/art-ball.js src/art-line.js src/art-hall.js --bundle --minify --format=iife --target=es2019 --legal-comments=eof --outdir=../../assets/js",
-    "test": "node test/color.test.mjs && node test/lights.test.mjs && node test/wheel.test.mjs && node test/shade.test.mjs && node test/stroke.test.mjs && node test/persp.test.mjs"
+    "build": "esbuild src/art-lights.js src/art-wheel.js src/art-ball.js src/art-line.js src/art-hall.js src/art-depth.js --bundle --minify --format=iife --target=es2019 --legal-comments=eof --outdir=../../assets/js",
+    "test": "node test/color.test.mjs && node test/lights.test.mjs && node test/wheel.test.mjs && node test/shade.test.mjs && node test/stroke.test.mjs && node test/persp.test.mjs && node test/depth.test.mjs"
   },
   "devDependencies": {
     "esbuild": "0.25.10",
