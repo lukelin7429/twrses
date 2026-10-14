@@ -17513,7 +17513,7 @@ def build_geo_hub():
 _whj = os.path.join(ROOT, "data", "world_history.json")
 WH = json.load(open(_whj, encoding="utf-8")) if os.path.exists(_whj) else None
 WH_BASE = "/resources/classes/world-history/"
-_WH_JS = {"spread": "wh-spread"}   # lab.kind → assets/js/<bundle>.js
+_WH_JS = {"spread": "wh-spread", "farm": "wh-farm"}   # lab.kind → assets/js/<bundle>.js
 
 def _wh_ver():
     h = hashlib.md5()
@@ -17557,7 +17557,18 @@ def whspread_svg(size=56):
             '<path d="M25 27c4-7 9-9 15-8"/><path d="M25 27c7 0 12 3 17 9"/><path d="M25 27c-2-6-1-10 3-13" stroke-dasharray="1 4"/></g>'
             '<circle cx="25" cy="27" r="3.4" fill="#ffb347" stroke="#fff" stroke-width="1.2"/></svg>')
 
-_WH_CARD = {"spread": whspread_svg}
+def whfarm_svg(size=56):
+    """第二課的課程卡小圖示：一條河，左岸是營地的棚子與樹，右岸是一塊有作物的田和穀倉。"""
+    return (f'<svg class="whfarm-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">'
+            '<rect x="4" y="10" width="52" height="42" rx="8" fill="#9ccf74"/>'
+            '<path d="M27 10c4 8-4 13 0 21s4 13 2 21h6c2-8-2-13-2-21s4-13 0-21z" fill="#3f86c9"/>'
+            '<path d="M10 30l5-11 5 11zM17 26l4-9 4 9z" fill="#4f9a45"/><path d="M9 44a5 5 0 0 1 10 0z" fill="#b98d5a"/>'
+            '<circle cx="22" cy="42" r="2" fill="#ff8a2a"/>'
+            '<rect x="37" y="30" width="16" height="17" rx="2" fill="#8a6844"/>'
+            '<g stroke="#e3bf45" stroke-width="2.2" stroke-linecap="round"><path d="M40 44v-9M44 44v-11M48 44v-9M51 44v-7"/></g>'
+            '<rect x="40" y="15" width="8" height="10" rx="2" fill="#e7b93c" stroke="#c9a877" stroke-width="1.6"/></svg>')
+
+_WH_CARD = {"spread": whspread_svg, "farm": whfarm_svg}
 
 def render_whspread_lab(lesson):
     """第一課：歷史地球儀（assets/js/wh-spread.js 綁這裡的 class）。只畫陸地、海洋與路線；不畫國界、不標國名。"""
@@ -17605,7 +17616,50 @@ def render_whspread_lab(lesson):
   <p class="wh-credit">{lab["credit_html"]}</p>
 </div>'''
 
-_WH_LAB = {"spread": render_whspread_lab}
+def render_whfarm_lab(lesson):
+    """第二課：同一條河兩岸的一年（assets/js/wh-farm.js 綁這裡的 class）。通用的示意，不是任何真實遺址。"""
+    lab = lesson["lab"]
+    payload = _wh_json({"seasons": lab["seasons"]})
+    tg = _lab_toggles([("bad", "A year when the harvest fails", "歉收的一年", False), ("labels", "Labels", "標示", True)])
+    jumps = "".join(f'<button type="button" data-season="{i}" aria-pressed="false">{en}<small>{zh}</small></button>'
+                    for i, (en, zh) in enumerate((("Spring", "春"), ("Summer", "夏"), ("Autumn", "秋"), ("Winter", "冬"))))
+    return f'''<div class="astro-lab wh-lab wh-farm rvl" data-wh-farm-lab>
+  <script type="application/json">{payload}</script>
+  <div class="al-stage">
+    <div class="al-space">
+      <canvas class="al-space-cv" aria-label="3D model of one river valley through a year: a camp of foragers on the left bank and an early farming village on the right bank. A simplified illustration, not a real site · 同一條河谷的一年：左岸是採集狩獵者的營地，右岸是早期的農村。簡化的示意，不是真實的遺址"></canvas>
+      <div class="al-labels" aria-hidden="true"></div>
+      <p class="al-hint">Drag to turn · 拖曳轉動　Scroll or pinch to zoom · 滾輪／雙指縮放</p>
+      <button type="button" class="al-home" title="Reset view · 重設視角" aria-label="Reset view · 重設視角">&#8634;</button>
+      <p class="al-nogl-msg">This 3D model needs WebGL, which this browser does not support. The season slider and the panel on the right still work, and so do the reading, the map, and the games below.<br><span class="zh">這個瀏覽器不支援 WebGL，無法顯示 3D 模型；季節滑桿和右邊的說明照樣能用，下面的課文、地圖和小遊戲也都能用。</span></p>
+    </div>
+    <aside class="al-sky wh-aside wh-farm-aside">
+      <p class="al-sky-k">Time of year · 季節</p>
+      <p class="wh-when" aria-live="polite"><b class="wh-when-en"></b><span class="zh wh-when-zh"></span></p>
+      <div class="wh-fgroup wh-fa"><p class="wh-fg-k"><i></i>{_wh_bi("Foragers, left bank", "採集狩獵的一群人（左岸）")}</p>
+        <p class="wh-fg-do wh-fa-do" aria-live="polite"></p>
+        <p class="wh-fg-bar-k">{_wh_bi("Food put away", "存起來的食物")}</p><div class="wh-fg-bar wh-fa-bar"><i></i></div></div>
+      <div class="wh-fgroup wh-fb"><p class="wh-fg-k"><i></i>{_wh_bi("Farmers, right bank", "農人（右岸）")}</p>
+        <p class="wh-fg-do wh-fb-do" aria-live="polite"></p>
+        <p class="wh-fg-bar-k">{_wh_bi("Grain in the granary", "穀倉裡的穀子")}</p><div class="wh-fg-bar wh-fb-bar"><i></i></div></div>
+      <p class="wh-fg-note">{_wh_bi(lab["bar_note_en"], lab["bar_note_zh"])}</p>
+    </aside>
+  </div>
+  <div class="al-controls">
+    <div class="al-row al-row-main">
+      <button type="button" class="al-play" aria-pressed="false"><span class="al-play-i" aria-hidden="true"></span><span class="al-play-t">Play the year · 播放一年</span></button>
+      <label class="wh-timerow"><span>Spring<small>春</small></span>
+        <input type="range" class="wh-time wh-month" min="0" max="1199" step="1" value="40" aria-label="Time of year, from the start of spring through winter · 一年裡的時間，從春天開始到冬天結束"><span>Winter<small>冬</small></span></label>
+    </div>
+    <div class="wh-seasons" role="group" aria-label="Jump to a season · 跳到某一季">{jumps}</div>
+    <div class="al-row al-toggles">{tg}</div>
+    <p class="wh-ice-note wh-bad-note" hidden>{_wh_bi(lab["bad_note_en"], lab["bad_note_zh"])}</p>
+  </div>
+  {_lab_foot(lab)}
+  <p class="wh-credit">{lab["credit_html"]}</p>
+</div>'''
+
+_WH_LAB = {"spread": render_whspread_lab, "farm": render_whfarm_lab}
 
 def _wh_order(d):
     payload = _wh_json({k: d[k] for k in ("items", "hint_en", "hint_zh", "done_en", "done_zh", "open_en", "open_zh")})
@@ -17719,8 +17773,22 @@ def _wh_curric(d):
         for c in d["items"])
     return f'<ul class="wh-curric">{rows}</ul>'
 
-# 這一課自己的小互動（照這個順序排在「模型卡」後面）
-_WH_WIDGETS = [("order", _wh_order), ("sort", _wh_sort)]
+def _wh_centers(d):
+    """第二課：「哪裡開始種田？」——世界地圖（只有陸地、沒有國界）＋時間滑桿；每個地區是一段年代範圍。"""
+    payload = _wh_json({k: d[k] for k in ("from", "to", "start", "centers") if k in d})
+    return f'''<div class="wh-centers rvl" data-wh-centers>
+  <script type="application/json">{payload}</script>
+  <div class="wh-ce-top"><p class="wh-ce-when" aria-live="polite"></p><p class="wh-ce-n">{_wh_bi("Regions where farming has begun", "已經開始種田的地區")} <b class="wh-ce-count"></b></p></div>
+  <div class="wh-ce-map"><canvas aria-label="World map showing only land, with no borders. Numbered regions light up as farming begins there · 只畫陸地、沒有國界的世界地圖；有編號的地區在開始種田的時候亮起來"></canvas></div>
+  <label class="wh-ce-time"><span>{html.escape(d["slider_from_en"])}<small>{html.escape(d["slider_from_zh"])}</small></span>
+    <input type="range" class="wh-ce-slider" min="0" max="1000" step="1" value="0" aria-label="Time · 時間"><span>{html.escape(d["slider_to_en"])}<small>{html.escape(d["slider_to_zh"])}</small></span></label>
+  <div class="wh-ce-list" role="group" aria-label="Regions · 地區"></div>
+  <div class="wh-ce-card" aria-live="polite"><p class="wh-ce-idle">{_wh_bi(d["idle_en"], d["idle_zh"])}</p></div>
+  <p class="wh-ce-foot">{_wh_bi(d["foot_en"], d["foot_zh"])}</p>
+</div>'''
+
+# 這一課自己的小互動（照這個順序排在「模型卡」後面）。match、gains 和 sort 用同一個版面（一題一題分到籃子裡）。
+_WH_WIDGETS = [("order", _wh_order), ("sort", _wh_sort), ("centers", _wh_centers), ("match", _wh_sort), ("gains", _wh_sort)]
 # 每課固定的卡（照這個順序排在小互動後面）
 _WH_FIXED = [("timeline", _wh_timeline), ("how_we_know", _wh_how_we_know), ("views", _wh_views),
              ("phrases", _wh_phrases), ("taiwan_then", _wh_taiwan_then)]

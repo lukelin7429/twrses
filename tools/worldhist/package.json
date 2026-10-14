@@ -1,12 +1,12 @@
 {
   "name": "twrses-worldhist",
   "private": true,
-  "description": "世界歷史 World History 的共用引擎（timeline.js 平行時間軸的純函式、timeline2d.js 時間軸、sphere.js 球面幾何、land.js 陸地資料、hglobe.js 歷史地球儀）與各課的原始碼。產物寫到 assets/js/wh-*.js，npm run build 重新打包。",
+  "description": "世界歷史 World History 的共用引擎（timeline.js 平行時間軸的純函式、timeline2d.js 時間軸、sphere.js 球面幾何、land.js 陸地資料、hglobe.js 歷史地球儀、map2d.js 畫在 canvas 上的世界地圖）與各課的原始碼。產物寫到 assets/js/wh-*.js，npm run build 重新打包。",
   "type": "module",
   "scripts": {
     "land": "node scripts/build-land.mjs",
-    "build": "esbuild src/wh-spread.js --bundle --minify --format=iife --target=es2019 --legal-comments=eof --outdir=../../assets/js",
-    "test": "node test/timeline.test.mjs && node test/sphere.test.mjs && node test/land.test.mjs && node test/spread.test.mjs"
+    "build": "esbuild src/wh-spread.js src/wh-farm.js --bundle --minify --format=iife --target=es2019 --legal-comments=eof --outdir=../../assets/js",
+    "test": "node test/timeline.test.mjs && node test/sphere.test.mjs && node test/land.test.mjs && node test/spread.test.mjs && node test/farm.test.mjs && node test/farming.test.mjs"
   },
   "devDependencies": {
     "esbuild": "0.25.10",
