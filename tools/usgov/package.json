@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "states": "python3 scripts/build-states.py",
-    "build": "esbuild src/usg-constitution.js src/usg-checks.js src/usg-federalism.js --bundle --minify --format=iife --target=es2019 --legal-comments=eof --outdir=../../assets/js",
+    "build": "esbuild src/usg-constitution.js src/usg-checks.js src/usg-federalism.js src/usg-rights.js --bundle --minify --format=iife --target=es2019 --legal-comments=eof --outdir=../../assets/js",
     "test": "node test/timeline.test.mjs && node test/match.test.mjs && node test/amend.test.mjs && node test/bill.test.mjs && node test/usmap.test.mjs && node test/data.test.mjs"
   },
   "devDependencies": {

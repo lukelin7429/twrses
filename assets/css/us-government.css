@@ -516,3 +516,36 @@ a.ug-link:hover { transform: translateY(-3px); box-shadow: var(--shadow); border
 .ug-fifty .ug-am-note { margin-top: 1rem; }
 @media (max-width: 900px) { .ug-ff-main { grid-template-columns: minmax(0, 1fr); } }
 @media (max-width: 620px) { .ug-fifty { padding: 1.1rem .8rem 1rem; } }
+
+/* ── 第四課：盾牌與權利 ───────────────────────────────────────────── */
+@media (min-width: 1001px) { .ug-rts .al-stage { grid-template-columns: minmax(0, 1fr) 350px; } .ug-rts .al-space { min-height: 540px; } }
+.ug-rt[hidden] { display: none; }
+.ug-rt-inc { list-style: none; margin: .6rem 0 0; padding: 0; display: grid; gap: .3rem; }
+.ug-rt-inc li { padding: .35rem .55rem; border-radius: 9px; background: rgba(134,184,111,.1); font-size: .76rem; line-height: 1.45; color: var(--al-text); }
+.ug-rt-inc li b { margin-right: .4rem; color: #86b86f; font-variant-numeric: tabular-nums; }
+.ug-rt-inc li i { color: var(--al-mute); }
+.ug-rt-inc li .zh { display: block; font-family: var(--zh); color: var(--al-mute); }
+.ug-rt-status .ug-when-t { margin: 0 0 .4rem; }
+.ug-rt-dl { margin: 0; display: grid; gap: .35rem; }
+.ug-rt-dl div { padding: .45rem .6rem; border-radius: 10px; background: rgba(255,255,255,.04); border-left: 4px solid #5b6886; }
+.ug-rt-dl div.is-on { border-left-color: #ffd36e; background: rgba(255,211,110,.08); }
+.ug-rt-dl div.is-on:nth-child(2) { border-left-color: #86b86f; background: rgba(134,184,111,.1); }
+.ug-rt-dl dt { font-size: .68rem; font-weight: 800; letter-spacing: .04em; color: var(--al-mute); }
+.ug-rt-dl dt .zh { margin-left: .3rem; font-family: var(--zh); }
+.ug-rt-dl dd { margin: .15rem 0 0; font-size: .82rem; font-weight: 700; color: #fff; line-height: 1.45; }
+.ug-rt-dl dd .zh { display: block; font-family: var(--zh); font-weight: 500; color: var(--al-mute); }
+.ug-rts-btns { display: grid; grid-template-columns: repeat(11, minmax(0, 1fr)); gap: .3rem; margin-bottom: .2rem; }
+.ug-rts-btns button { padding: .45rem .2rem; border-radius: 11px; border: 1px solid var(--al-line); background: rgba(255,255,255,.03); color: #e8edf7; font-family: var(--sans); font-size: .78rem; cursor: pointer; min-width: 0; }
+.ug-rts-btns button b { display: block; font-weight: 800; }
+.ug-rts-btns button small { display: block; font-family: var(--zh); font-weight: 600; font-size: .66rem; color: #9fb0cf; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.ug-rts-btns button[aria-pressed="true"] { border-color: #ffd36e; background: rgba(255,211,110,.14); box-shadow: 0 0 0 1px #ffd36e inset; }
+.al-lg-shieldn i { border-color: #ffd36e; background: rgba(255,211,110,.35); }
+.al-lg-shields i { border-color: #86b86f; background: rgba(134,184,111,.35); }
+.al-lg-person i { border-color: #4e9c74; background: #f2c9a0; border-radius: 50%; }
+@media (max-width: 900px) { .ug-rts-btns { grid-template-columns: repeat(6, minmax(0, 1fr)); } }
+@media (max-width: 620px) { .ug-rts-btns { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+/* 配對題：選項很多時排五欄（第四課的十條修正案） */
+.ug-mt-c5 .ug-mt-opts { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+.ug-mt-c2 .ug-mt-opts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.ug-mt-c2 .ug-mt-opt b, .ug-mt-c5 .ug-mt-opt b { font-family: var(--sans); font-size: .92rem; font-weight: 800; }
+@media (max-width: 620px) { .ug-mt-c5 .ug-mt-opts { grid-template-columns: repeat(3, minmax(0, 1fr)); } }

@@ -80,14 +80,6 @@
       "title_zh": "遊戲規則：憲法",
       "blurb_en": "Where the government's power comes from, how it is divided, and where it stops.",
       "blurb_zh": "政府的權力從哪裡來、怎麼分配、到哪裡為止。",
-      "planned": [
-        {
-          "n": 4,
-          "icon": "🗽",
-          "en": "What Rights Does the Constitution Protect?",
-          "zh": "憲法保護哪些權利？"
-        }
-      ],
       "lessons": [
         {
           "n": 1,
@@ -5419,7 +5411,7 @@
               "zh": "憲法保護哪些權利？",
               "note_en": "The Bill of Rights first limited only the national government. The next lesson shows how the Fourteenth Amendment came to apply many of its protections to the states as well.",
               "note_zh": "權利法案原本只限制全國政府。下一課說明第十四條修正案怎麼讓其中許多保障也適用於各州。",
-              "soon": true
+              "href": "/resources/classes/us-government/bill-of-rights/"
             },
             {
               "icon": "🗺️",
@@ -5584,6 +5576,1723 @@
               "zh": "駕照由各州的監理機關核發；結婚證書由各州核發",
               "src": "USA.gov: State motor vehicle services; Marriage license or certificate",
               "url": "https://www.usa.gov/state-motor-vehicle-services"
+            }
+          ]
+        },
+        {
+          "n": 4,
+          "slug": "bill-of-rights",
+          "title": "What Rights Does the Constitution Protect?",
+          "title_zh": "憲法保護哪些權利？",
+          "level": "高中以上 · High school and up",
+          "icon": "🗽",
+          "card": "rights",
+          "blurb_en": "Choose an amendment and watch a shield rise between a person and the government it restrains. Then drag a timeline from 1791 to 1975 to see when each protection came to bind the states as well as the national government. Read Madison and the flag-salute case of 1943, and sort out who the Bill of Rights actually limits.",
+          "blurb_zh": "選一條修正案，看一面盾牌立在一個人和它所限制的政府之間。再把時間軸從 1791 年拉到 1975 年，看每一項保障從哪一年起不只拘束全國政府、也拘束各州。讀麥迪遜與 1943 年的升旗敬禮案，再弄清楚權利法案到底限制的是誰。",
+          "big_idea_en": "The Bill of Rights is a list of things the government may not do. It restrains government, not private persons. At first it restrained only the national government; after the Fourteenth Amendment of 1868, the courts applied its guarantees to the states one by one. None of these rights is absolute, and courts decide where their limits lie.",
+          "big_idea_zh": "權利法案是一張寫給政府的「不得」清單。它限制的是政府，不是私人。起初它只限制全國政府；1868 年第十四條修正案之後，法院才一條一條把這些保障適用到各州。這些權利沒有一項是絕對的，界線在哪裡由法院判斷。",
+          "lab": {
+            "kind": "rights",
+            "eyebrow": "3D Model · 3D 模型",
+            "title_en": "A Shield Between the Person and the Government",
+            "title_zh": "立在人與政府之間的盾牌",
+            "how_en": "Behind are the buildings of the national government; on the right is a state capitol; in front stands a person. Choose an amendment. Two arrows, standing for government action, fly toward the person: gold from the national government, green from the state. Where the amendment protects the person, a shield rises and the arrow stops. Drag the timeline: before 1791 there is no shield at all, and for most rights the state's arrow gets through until the year the Supreme Court applied that right to the states.",
+            "how_zh": "後面是全國政府的建築，右邊是一棟州議會大廈，前面站著一個人。選一條修正案：兩道代表「政府作為」的箭頭飛向這個人——金色的來自全國政府，綠色的來自州。這一條保護得到的那一邊，會立起一面盾牌，箭頭停在盾牌前。拉動時間軸：1791 年以前根本沒有盾牌；大多數權利，州的箭頭一直穿得過去，直到最高法院把那項權利適用到各州的那一年。",
+            "legend": [
+              {
+                "cls": "shieldn",
+                "en": "A shield against the national government",
+                "zh": "擋住全國政府的盾牌"
+              },
+              {
+                "cls": "shields",
+                "en": "A shield against a state government",
+                "zh": "擋住州政府的盾牌"
+              },
+              {
+                "cls": "person",
+                "en": "A person",
+                "zh": "一個人"
+              }
+            ],
+            "scale_en": "A diagram of an idea, not of any real case. The timeline ends in 1975: most of the Bill of Rights was applied to the states between 1925 and 1969, and later developments are outside this lesson. Each amendment lists the cases that applied parts of it to the states; the state shield appears with the first of them, even when other parts came later.",
+            "scale_zh": "這是一個概念的示意圖，不代表任何真實的案件。時間軸只到 1975 年：權利法案大部分的條文是在 1925 到 1969 年間適用到各州的，之後的發展不在這一課的範圍。每一條修正案列出把它某些部分適用到各州的案子；州的盾牌在第一個案子出現，即使其他部分是後來才適用的。",
+            "min": 1785,
+            "max": 1975,
+            "start": "1800-01-01",
+            "presets": [
+              {
+                "key": "all",
+                "a": 1785,
+                "b": 1975,
+                "en": "1785 to 1975",
+                "zh": "1785 到 1975 年"
+              },
+              {
+                "key": "c20",
+                "a": 1915,
+                "b": 1975,
+                "en": "1915 to 1975",
+                "zh": "1915 到 1975 年"
+              }
+            ],
+            "demos": {
+              "speech": [
+                [
+                  "a1",
+                  "1800-01-01"
+                ],
+                [
+                  "a1",
+                  "1900-01-01"
+                ],
+                [
+                  "a1",
+                  "1926-01-01"
+                ]
+              ],
+              "trial": [
+                [
+                  "a6",
+                  "1940-01-01"
+                ],
+                [
+                  "a6",
+                  "1964-01-01"
+                ],
+                [
+                  "a5",
+                  "1965-01-01"
+                ]
+              ],
+              "local": [
+                [
+                  "a14",
+                  "1860-01-01"
+                ],
+                [
+                  "a14",
+                  "1869-01-01"
+                ]
+              ],
+              "reserved": [
+                [
+                  "a9",
+                  "1800-01-01"
+                ],
+                [
+                  "a10",
+                  "1800-01-01"
+                ]
+              ]
+            },
+            "events": [
+              {
+                "id": "madison",
+                "date": "1789-06-08",
+                "rank": 3,
+                "en": "Madison proposes amendments in the House",
+                "zh": "麥迪遜在眾議院提出修正案",
+                "short_en": "Madison proposes",
+                "short_zh": "麥迪遜提案",
+                "note_en": "His proposals included one that would have barred the states from violating the equal rights of conscience, the freedom of the press, and trial by jury in criminal cases. It was not among the amendments ratified.",
+                "note_zh": "他的提案裡有一條，要禁止各州侵犯平等的良心權利、出版自由與刑事陪審權；這一條不在後來批准的修正案之中。"
+              },
+              {
+                "id": "bor",
+                "date": "1791-12-15",
+                "rank": 1,
+                "en": "The Bill of Rights is ratified",
+                "zh": "權利法案完成批准",
+                "short_en": "Bill of Rights",
+                "short_zh": "權利法案",
+                "note_en": "Ten amendments now restrain the national government.",
+                "note_zh": "十條修正案從此限制全國政府。"
+              },
+              {
+                "id": "barron",
+                "date": "1833-02-16",
+                "rank": 2,
+                "en": "Barron v. Baltimore",
+                "zh": "Barron v. Baltimore 案",
+                "short_en": "Barron (1833)",
+                "short_zh": "Barron 案",
+                "note_en": "The Supreme Court holds that the Bill of Rights restrains only the national government.",
+                "note_zh": "最高法院判定權利法案只限制全國政府。"
+              },
+              {
+                "id": "a14",
+                "date": "1868-07-09",
+                "rank": 1,
+                "en": "The Fourteenth Amendment is ratified",
+                "zh": "第十四條修正案完成批准",
+                "short_en": "14th Amendment",
+                "short_zh": "第十四條",
+                "note_en": "No state may deprive any person of life, liberty, or property without due process of law.",
+                "note_zh": "任何一州未經正當法律程序，都不得剝奪任何人的生命、自由或財產。"
+              },
+              {
+                "id": "gitlow",
+                "date": "1925-06-08",
+                "rank": 2,
+                "en": "Gitlow v. New York",
+                "zh": "Gitlow v. New York 案",
+                "short_en": "Gitlow (1925)",
+                "short_zh": "Gitlow 案",
+                "note_en": "The Court assumes that freedom of speech and of the press are protected against the states. Incorporation of the First Amendment begins.",
+                "note_zh": "最高法院「假定」言論與出版自由也受保護、不受各州侵害；第一條修正案的「併入」從這裡開始。"
+              },
+              {
+                "id": "barnette",
+                "date": "1943-06-14",
+                "rank": 3,
+                "en": "West Virginia State Board of Education v. Barnette",
+                "zh": "West Virginia State Board of Education v. Barnette 案",
+                "short_en": "Barnette (1943)",
+                "short_zh": "Barnette 案",
+                "note_en": "Public schools may not compel students to salute the flag.",
+                "note_zh": "公立學校不得強迫學生向國旗敬禮。"
+              },
+              {
+                "id": "gideon",
+                "date": "1963-03-18",
+                "rank": 2,
+                "en": "Gideon v. Wainwright",
+                "zh": "Gideon v. Wainwright 案",
+                "short_en": "Gideon (1963)",
+                "short_zh": "Gideon 案",
+                "note_en": "A person too poor to hire a lawyer must be provided one in a state criminal trial.",
+                "note_zh": "請不起律師的人，在州的刑事審判中必須獲得指派的律師。"
+              },
+              {
+                "id": "miranda",
+                "date": "1966-06-13",
+                "rank": 3,
+                "en": "Miranda v. Arizona",
+                "zh": "Miranda v. Arizona 案",
+                "short_en": "Miranda (1966)",
+                "short_zh": "Miranda 案",
+                "note_en": "Statements from custodial interrogation may not be used unless safeguards, including warnings of the right to remain silent, were followed.",
+                "note_zh": "除非遵守了包括告知緘默權在內的保護程序，否則羈押訊問所得的陳述不得使用。"
+              },
+              {
+                "id": "tinker",
+                "date": "1969-02-24",
+                "rank": 3,
+                "en": "Tinker v. Des Moines",
+                "zh": "Tinker v. Des Moines 案",
+                "short_en": "Tinker (1969)",
+                "short_zh": "Tinker 案",
+                "note_en": "Students do not lose their rights to free expression at school, unless their speech would materially and substantially interfere with the school's work.",
+                "note_zh": "學生在學校並不失去表達的自由，除非他們的言論會實質而重大地干擾學校運作。"
+              }
+            ],
+            "rights": [
+              {
+                "key": "a1",
+                "btn_en": "1st",
+                "btn_zh": "宗教言論",
+                "en": "First Amendment: religion, speech, press, assembly, petition",
+                "zh": "第一條：宗教、言論、出版、集會、請願",
+                "text_en": "Blocks the government from establishing a religion, interfering with its free exercise, or abridging speech, the press, peaceful assembly, or petitions.",
+                "text_zh": "禁止政府設立國教、干涉宗教的自由實踐，或剝奪言論、出版、和平集會與請願的自由。",
+                "quote": "Congress shall make no law respecting an establishment of religion, or prohibiting the free exercise thereof; or abridging the freedom of speech, or of the press; or the right of the people peaceably to assemble, and to petition the Government for a redress of grievances.",
+                "cite": "First Amendment (1791)",
+                "national": true,
+                "inc": [
+                  {
+                    "date": "1925-06-08",
+                    "case": "Gitlow v. New York",
+                    "what_en": "speech and press (assumed)",
+                    "what_zh": "言論與出版（法院「假定」受保護）"
+                  },
+                  {
+                    "date": "1931-06-01",
+                    "case": "Near v. Minnesota",
+                    "what_en": "the press",
+                    "what_zh": "出版"
+                  },
+                  {
+                    "date": "1937-01-04",
+                    "case": "De Jonge v. Oregon",
+                    "what_en": "assembly",
+                    "what_zh": "集會"
+                  },
+                  {
+                    "date": "1940-05-20",
+                    "case": "Cantwell v. Connecticut",
+                    "what_en": "free exercise of religion",
+                    "what_zh": "宗教的自由實踐"
+                  },
+                  {
+                    "date": "1947-02-10",
+                    "case": "Everson v. Board of Education",
+                    "what_en": "no establishment of religion",
+                    "what_zh": "不得設立國教"
+                  }
+                ]
+              },
+              {
+                "key": "a2",
+                "btn_en": "2nd",
+                "btn_zh": "民兵與武器",
+                "en": "Second Amendment: militia and arms",
+                "zh": "第二條：民兵與武器",
+                "text_en": "This series quotes the text of the Second Amendment and does not discuss its meaning, which is the subject of continuing public debate. The model therefore shows no shield for it.",
+                "text_zh": "這個系列只引第二條修正案的條文，不討論它的意義——那是仍在持續的公共爭論。所以模型不替這一條畫盾牌。",
+                "quote": "A well regulated Militia, being necessary to the security of a free State, the right of the people to keep and bear Arms, shall not be infringed.",
+                "cite": "Second Amendment (1791)",
+                "national": false,
+                "national_note_en": "Text only: this series does not discuss its meaning",
+                "national_note_zh": "只引條文：這個系列不討論它的意義",
+                "state_note_en": "Outside the scope of this lesson",
+                "state_note_zh": "不在這一課的範圍",
+                "inc": []
+              },
+              {
+                "key": "a3",
+                "btn_en": "3rd",
+                "btn_zh": "駐軍",
+                "en": "Third Amendment: quartering soldiers",
+                "zh": "第三條：軍隊駐紮",
+                "text_en": "Blocks the government from lodging soldiers in private homes in peacetime without the owner's consent, a grievance from the colonial years.",
+                "text_zh": "禁止政府在平時未經屋主同意，讓軍隊住進私人住宅——這是殖民時期的一項不滿。",
+                "quote": "No Soldier shall, in time of peace be quartered in any house, without the consent of the Owner, nor in time of war, but in a manner to be prescribed by law.",
+                "cite": "Third Amendment (1791)",
+                "national": true,
+                "state_note_en": "Never applied to the states by the Supreme Court",
+                "state_note_zh": "最高法院從未把它適用到各州",
+                "inc": []
+              },
+              {
+                "key": "a4",
+                "btn_en": "4th",
+                "btn_zh": "搜索",
+                "en": "Fourth Amendment: searches and seizures",
+                "zh": "第四條：搜索與扣押",
+                "text_en": "Blocks unreasonable searches and seizures, and requires warrants to rest on probable cause and to describe what is to be searched.",
+                "text_zh": "禁止不合理的搜索與扣押；令狀必須有相當的理由，並寫明要搜索什麼。",
+                "quote": "The right of the people to be secure in their persons, houses, papers, and effects, against unreasonable searches and seizures, shall not be violated, …",
+                "cite": "Fourth Amendment (1791)",
+                "national": true,
+                "inc": [
+                  {
+                    "date": "1949-06-27",
+                    "case": "Wolf v. Colorado",
+                    "what_en": "the right itself (but improperly seized evidence could still be used)",
+                    "what_zh": "權利本身（但不當取得的證據仍可使用）"
+                  },
+                  {
+                    "date": "1961-06-19",
+                    "case": "Mapp v. Ohio",
+                    "what_en": "evidence from an unconstitutional search excluded in state courts",
+                    "what_zh": "違憲搜索取得的證據，在州法院不得使用"
+                  }
+                ]
+              },
+              {
+                "key": "a5",
+                "btn_en": "5th",
+                "btn_zh": "被告權利",
+                "en": "Fifth Amendment: rights of the accused, and property",
+                "zh": "第五條：被告的權利與財產",
+                "text_en": "Blocks forcing a person to testify against himself, trying a person twice for the same offense, taking life, liberty, or property without due process, and taking property without just compensation. It also requires a grand jury for serious federal charges.",
+                "text_zh": "禁止強迫一個人作不利於自己的證詞、同一罪行審判兩次、未經正當程序剝奪生命自由財產，以及徵收私產不給公正補償。它也要求重大的聯邦罪名須經大陪審團起訴。",
+                "quote": "… nor shall be compelled in any criminal case to be a witness against himself, nor be deprived of life, liberty, or property, without due process of law; …",
+                "cite": "Fifth Amendment (1791)",
+                "national": true,
+                "inc": [
+                  {
+                    "date": "1897-03-01",
+                    "case": "Chicago, Burlington & Quincy Railroad Co. v. Chicago",
+                    "what_en": "just compensation when property is taken",
+                    "what_zh": "徵收私產須給公正補償"
+                  },
+                  {
+                    "date": "1964-06-15",
+                    "case": "Malloy v. Hogan",
+                    "what_en": "no compelled self-incrimination",
+                    "what_zh": "不自證己罪"
+                  },
+                  {
+                    "date": "1969-06-23",
+                    "case": "Benton v. Maryland",
+                    "what_en": "no double jeopardy (the grand jury requirement has never been applied to the states)",
+                    "what_zh": "一罪不二審（大陪審團的要求從未適用到各州）"
+                  }
+                ]
+              },
+              {
+                "key": "a6",
+                "btn_en": "6th",
+                "btn_zh": "審判",
+                "en": "Sixth Amendment: a fair trial",
+                "zh": "第六條：公正的審判",
+                "text_en": "Guarantees a person accused of a crime a speedy and public trial, an impartial jury, notice of the charge, the chance to confront witnesses, and the assistance of counsel.",
+                "text_zh": "保障刑事被告獲得迅速而公開的審判、公正的陪審團、知悉被控的罪名、與證人對質的機會，以及律師的協助。",
+                "quote": "In all criminal prosecutions, the accused shall enjoy the right to a speedy and public trial, by an impartial jury … and to have the Assistance of Counsel for his defence.",
+                "cite": "Sixth Amendment (1791)",
+                "national": true,
+                "inc": [
+                  {
+                    "date": "1948-03-08",
+                    "case": "In re Oliver",
+                    "what_en": "a public trial",
+                    "what_zh": "公開審判"
+                  },
+                  {
+                    "date": "1963-03-18",
+                    "case": "Gideon v. Wainwright",
+                    "what_en": "the right to counsel",
+                    "what_zh": "律師協助權"
+                  },
+                  {
+                    "date": "1967-03-13",
+                    "case": "Klopfer v. North Carolina",
+                    "what_en": "a speedy trial",
+                    "what_zh": "迅速審判"
+                  },
+                  {
+                    "date": "1968-05-20",
+                    "case": "Duncan v. Louisiana",
+                    "what_en": "a jury in serious criminal cases",
+                    "what_zh": "重大刑事案件的陪審團審判"
+                  }
+                ]
+              },
+              {
+                "key": "a7",
+                "btn_en": "7th",
+                "btn_zh": "民事陪審",
+                "en": "Seventh Amendment: jury in civil cases",
+                "zh": "第七條：民事陪審",
+                "text_en": "Preserves trial by jury in civil lawsuits in federal court where the value in dispute exceeds twenty dollars.",
+                "text_zh": "在聯邦法院，爭議金額超過二十元的民事訴訟，保留陪審團審判的權利。",
+                "quote": "In Suits at common law, where the value in controversy shall exceed twenty dollars, the right of trial by jury shall be preserved, …",
+                "cite": "Seventh Amendment (1791)",
+                "national": true,
+                "state_note_en": "Never applied to the states",
+                "state_note_zh": "從未適用到各州",
+                "inc": []
+              },
+              {
+                "key": "a8",
+                "btn_en": "8th",
+                "btn_zh": "刑罰",
+                "en": "Eighth Amendment: bail and punishment",
+                "zh": "第八條：保釋與刑罰",
+                "text_en": "Blocks excessive bail, excessive fines, and cruel and unusual punishments.",
+                "text_zh": "禁止過高的保釋金、過重的罰金，以及殘酷而不尋常的刑罰。",
+                "quote": "Excessive bail shall not be required, nor excessive fines imposed, nor cruel and unusual punishments inflicted.",
+                "cite": "Eighth Amendment (1791)",
+                "national": true,
+                "inc": [
+                  {
+                    "date": "1962-06-25",
+                    "case": "Robinson v. California",
+                    "what_en": "the clause on cruel and unusual punishments (not the bail and fines clauses)",
+                    "what_zh": "殘酷而不尋常刑罰的條款（不包括保釋金與罰金的條款）"
+                  }
+                ]
+              },
+              {
+                "key": "a9",
+                "btn_en": "9th",
+                "btn_zh": "其他權利",
+                "en": "Ninth Amendment: rights not listed",
+                "zh": "第九條：沒有列出的權利",
+                "text_en": "Does not block a particular act. It tells readers that the list is not complete: the people keep rights that are not written down.",
+                "text_zh": "它不擋住某一種特定的作為，而是告訴讀者這張清單並不完整：人民保有沒有寫下來的權利。",
+                "quote": "The enumeration in the Constitution, of certain rights, shall not be construed to deny or disparage others retained by the people.",
+                "cite": "Ninth Amendment (1791)",
+                "national": false,
+                "national_note_en": "A rule for reading the list, not a shield",
+                "national_note_zh": "這是讀清單的規則，不是盾牌",
+                "state_note_en": "A rule for reading the list, not a shield",
+                "state_note_zh": "這是讀清單的規則，不是盾牌",
+                "inc": []
+              },
+              {
+                "key": "a10",
+                "btn_en": "10th",
+                "btn_zh": "保留權力",
+                "en": "Tenth Amendment: reserved powers",
+                "zh": "第十條：保留的權力",
+                "text_en": "Is about powers, not rights: what was not delegated to the United States remains with the states or the people. Lesson 3 is about this amendment.",
+                "text_zh": "談的是權力而不是權利：沒有授予合眾國的，留給各州或人民。第三課談的就是這一條。",
+                "quote": "The powers not delegated to the United States by the Constitution, nor prohibited by it to the States, are reserved to the States respectively, or to the people.",
+                "cite": "Tenth Amendment (1791)",
+                "national": false,
+                "national_note_en": "About the division of powers, not a shield",
+                "national_note_zh": "談權力的劃分，不是盾牌",
+                "state_note_en": "About the division of powers, not a shield",
+                "state_note_zh": "談權力的劃分，不是盾牌",
+                "inc": []
+              },
+              {
+                "key": "a14",
+                "btn_en": "14th",
+                "btn_zh": "正當程序",
+                "en": "Fourteenth Amendment, Section 1",
+                "zh": "第十四條第一項",
+                "text_en": "Written to restrain the states. It forbids any state to deprive a person of life, liberty, or property without due process of law, or to deny the equal protection of the laws. The Court later read its word “liberty” to carry most of the Bill of Rights to the states.",
+                "text_zh": "這一條是為了限制各州而寫的：任何一州都不得未經正當法律程序剝奪人的生命、自由或財產，也不得拒絕給予法律的平等保護。最高法院後來把其中的「自由」解讀為包括權利法案大部分的保障，把它們帶到各州。",
+                "quote": "… nor shall any State deprive any person of life, liberty, or property, without due process of law; nor deny to any person within its jurisdiction the equal protection of the laws.",
+                "cite": "Fourteenth Amendment, Section 1 (1868)",
+                "national": false,
+                "national_note_en": "Written to restrain the states",
+                "national_note_zh": "這一條是為限制各州而寫的",
+                "inc": [
+                  {
+                    "date": "1868-07-09",
+                    "case": "ratification of the Fourteenth Amendment",
+                    "what_en": "in force against the states from ratification",
+                    "what_zh": "批准之日起即拘束各州"
+                  }
+                ]
+              }
+            ]
+          },
+          "paras": [
+            "A bill of rights is a list of things the government may not do. The Constitution of 1787 had none, and that absence was one of the main objections of its opponents during ratification. James Madison, who had defended the Constitution in The Federalist, introduced amendments in the House of Representatives on June 8, 1789. Congress sent twelve to the states that September, and ten were ratified by December 1791. They are written as commands to the government. The First Amendment does not say “people have freedom of speech”; it says “Congress shall make no law … abridging the freedom of speech.” The rights are described as things the government must leave alone.",
+            "The ten amendments cover several kinds of protection. The First protects religion, speech, the press, peaceful assembly, and petitions to the government. The Second is quoted in the model without discussion of its meaning, and the Third forbids quartering soldiers in private homes in peacetime without the owner's consent. The Fourth through the Eighth deal mostly with how the government may treat people it suspects or accuses of crimes: no unreasonable searches, no forcing a person to testify against himself, no trying a person twice for the same offense, a speedy and public trial by jury, the help of a lawyer, and no excessive bail or cruel and unusual punishments.",
+            "The last two amendments are different. The Ninth answers a worry raised during ratification, that listing some rights might suggest that the people had no others. It says that the listing of certain rights “shall not be construed to deny or disparage others retained by the people.” The Tenth, which Lesson 3 discussed, is about powers rather than rights: what was not delegated to the United States stays with the states or the people. Together they show the theory behind the whole list. The people keep everything they did not give away, and the list marks some of the most important things the government is not allowed to touch.",
+            "One point is easy to miss. The Bill of Rights restrains government, not private persons. A city that punishes a speaker, a public school that compels a student to recite a pledge, and a police officer who searches a house without a warrant are all governments acting, so the Constitution applies. A private company that fires an employee for a speech, or a newspaper that refuses to print a letter, is not the government, and the First Amendment does not reach it, although other laws may. Lawyers call this the state action requirement: a constitutional right is a claim against the state, meaning the government at any level.",
+            "At first, “the government” meant only the national government. In Barron v. Baltimore in 1833, a wharf owner argued that the city of Baltimore had taken his property without compensation, contrary to the Fifth Amendment. Chief Justice John Marshall replied that the amendments limited the government of the United States and not the governments of the states. For decades afterward, a state could restrict speech or religion without violating the federal Bill of Rights, and people had to rely on their own state constitutions. That changed only after the Civil War and the abolition of slavery, when the country rewrote the relationship between the nation, the states, and the people.",
+            "The Fourteenth Amendment, ratified in 1868, says that no state shall “deprive any person of life, liberty, or property, without due process of law.” Over many decades the Supreme Court read its word “liberty” to include most of the Bill of Rights, and so applied those guarantees to the states. Lawyers call this incorporation. It happened one right at a time. The duty to pay for property taken for public use came early, in 1897. Freedom of speech followed in 1925, and most of the protections for people accused of crimes followed in the 1960s. A few provisions, such as the Third Amendment and the right to a jury in civil cases, have never been applied to the states.",
+            "None of these rights is absolute, and courts decide where the limits lie. In 1943 the Supreme Court held that a public school could not force students to salute the flag. In 1969 it held that students who wore black armbands to school were protected, because students do not shed their rights “at the schoolhouse gate,” although a school may restrict speech that would materially and substantially interfere with its work. To judge such limits, courts use different standards. Under the strictest, the government must show that a law serves a compelling interest and is narrowly drawn. Under the mildest, a law needs only a reasonable connection to a legitimate purpose.",
+            "Who should have the final say on the reach of these rights has been argued since 1789. Courts decide cases, but legislatures pass laws that protect rights further, and the people can amend the Constitution, as they did after the Civil War. Many questions about the Bill of Rights remain deeply contested in American public life, and this series does not take sides on them. What it can show is the framework: a written list of limits on government, a clause that carried those limits to the states, and a long history of courts, legislatures, and citizens arguing about what the words require."
+          ],
+          "paras_zh": [
+            "權利法案是一張「政府不得做什麼」的清單。1787 年的憲法沒有這張清單，而這個缺口正是批准過程中反對者的主要論點之一。曾在《聯邦論》中為憲法辯護的麥迪遜，在 1789 年 6 月 8 日於眾議院提出修正案。那年九月，國會把十二條送交各州，到 1791 年 12 月有十條完成批准。這些修正案寫成對政府下的命令。第一條修正案並不是說「人民有言論自由」，而是說「國會不得制定……剝奪言論自由的法律」。權利被描述成政府必須不去碰的東西。",
+            "這十條修正案涵蓋幾種不同的保障。第一條保障宗教、言論、出版、和平集會，以及向政府請願。第二條在模型裡只引條文、不討論它的意義；第三條禁止在平時未經屋主同意讓軍隊駐紮在私人住宅。第四條到第八條大多在處理政府怎麼對待它懷疑或指控犯罪的人：不得不合理地搜索、不得強迫一個人作不利於自己的證詞、同一罪行不得審判兩次、迅速而公開的陪審團審判、律師的協助，以及不得要求過高的保釋金或施加殘酷而不尋常的刑罰。",
+            "最後兩條不一樣。第九條回應批准過程中的一個憂慮：列舉某些權利，可能讓人以為人民沒有別的權利。它規定，列舉某些權利，「不得解釋為否定或貶低人民所保有的其他權利」。第十條——第三課談過——講的是權力而不是權利：沒有授予合眾國的，留給各州或人民。兩條合起來，說明了整張清單背後的道理：人民保有一切他們沒有交出去的東西，而這張清單標出了其中幾項最重要、政府不得碰觸的事。",
+            "有一點很容易忽略：權利法案限制的是政府，不是私人。一個處罰演講者的城市、一所強迫學生背誦誓詞的公立學校、一位沒有搜索票就搜索住宅的警察，都是政府在行動，所以適用憲法。一家因為員工的言論而開除他的私人公司，或一家拒絕刊登讀者投書的報社，不是政府，第一條修正案管不到它們——雖然可能有別的法律管得到。法律人把這叫做「國家行為」的要件（state action requirement）：憲法上的權利，是對國家——也就是任何一層政府——提出的主張。",
+            "起初，「政府」只指全國政府。1833 年的 Barron v. Baltimore 案，一位碼頭業主主張巴爾的摩市拿走了他的財產卻沒有給補償，違反第五條修正案。首席大法官馬歇爾的回答是：這些修正案限制的是合眾國政府，不是各州政府。此後幾十年，一個州可以限制言論或宗教，而不違反聯邦的權利法案；人民只能依靠自己州的憲法。這要等到內戰與廢除奴隸制之後才改變——那時這個國家重新寫了全國、各州與人民之間的關係。",
+            "1868 年批准的第十四條修正案規定，任何一州「未經正當法律程序，不得剝奪任何人的生命、自由或財產」。在幾十年當中，最高法院把這一款裡的「自由」解讀為包括權利法案大部分的保障，於是把它們適用到各州。法律人把這叫做「併入」（incorporation）。它是一條一條發生的：徵收私產須給補償很早，在 1897 年；言論自由在 1925 年跟上；保護刑事被告的大部分規定在 1960 年代陸續跟上。有少數規定，例如第三條修正案與民事案件的陪審權，從來沒有適用到各州。",
+            "這些權利沒有一項是絕對的，界線在哪裡由法院判斷。1943 年，最高法院判定公立學校不能強迫學生向國旗敬禮。1969 年，它判定戴黑臂章上學的學生受到保護，因為學生並不會「在校門口」就把權利脫掉——不過學校可以限制會實質而重大地干擾校務的言論。判斷這些限制時，法院使用不同的標準：最嚴格的一種，政府必須證明法律是為了重大而迫切的利益，而且規定得很精準；最寬鬆的一種，法律只要和正當的目的有合理的關聯就行。",
+            "這些權利的範圍該由誰來作最後決定，從 1789 年起就一直有爭論。法院審理案件，但立法機關也會通過進一步保護權利的法律，人民還可以修憲——就像內戰之後那樣。關於權利法案，有許多問題在美國的公共生活裡仍然爭論激烈，這個系列不在這些問題上選邊。它能呈現的是這個架構：一張寫明的、對政府的限制清單，一個把這些限制帶到各州的條款，以及法院、立法機關與公民之間，對這些文字到底要求什麼所進行的長期爭論。"
+          ],
+          "questions": [
+            "Why are the amendments written as limits on the government (“Congress shall make no law…”) rather than as grants of rights to the people? What theory of rights does that wording reflect?",
+            "Explain the difference between Barron v. Baltimore (1833) and the process of incorporation after 1868. Why did it matter which government a right restrained?",
+            "Give one example of government action and one of private action from the reading, and explain why the First Amendment applies to one but not the other."
+          ],
+          "answers": [
+            "The wording treats rights as things the people already have, which the government must not take away. The amendments do not create the rights; they forbid the government to interfere with them. This fits the idea, stated in the Ninth Amendment, that the people keep everything they did not delegate.",
+            "Barron held that the Bill of Rights restrained only the national government, so a state could do things the national government could not. After the Fourteenth Amendment, the Supreme Court gradually applied most of the guarantees to the states as part of the “liberty” protected by due process. It mattered because most laws that affect daily life, including most criminal law, are state laws.",
+            "Sample answer: A public school that forces students to salute the flag is the government acting, so the First Amendment applies (the 1943 case). A newspaper that refuses to print a letter is a private actor, so the First Amendment does not reach it. The Constitution restrains government, not private persons."
+          ],
+          "vocab": [
+            {
+              "n": 1,
+              "w": "bill of rights",
+              "pos": "n.",
+              "zh": "權利法案",
+              "ex": "The first ten amendments are known as the <b>Bill of Rights</b>.",
+              "exzh": "前十條修正案被稱為權利法案。"
+            },
+            {
+              "n": 2,
+              "w": "abridge",
+              "pos": "v.",
+              "zh": "剝奪；縮減",
+              "ex": "Congress may not <b>abridge</b> the freedom of the press.",
+              "exzh": "國會不得剝奪新聞出版的自由。"
+            },
+            {
+              "n": 3,
+              "w": "due process",
+              "pos": "n.",
+              "zh": "正當法律程序",
+              "ex": "No state may take a person's liberty without <b>due process</b> of law.",
+              "exzh": "任何一州未經正當法律程序，都不得剝奪一個人的自由。"
+            },
+            {
+              "n": 4,
+              "w": "warrant",
+              "pos": "n.",
+              "zh": "令狀；搜索票",
+              "ex": "The police needed a <b>warrant</b> to search the house.",
+              "exzh": "警方需要搜索票才能搜索那棟房子。"
+            },
+            {
+              "n": 5,
+              "w": "self-incrimination",
+              "pos": "n.",
+              "zh": "自證己罪",
+              "ex": "The Fifth Amendment protects people against <b>self-incrimination</b>.",
+              "exzh": "第五條修正案保護人民不被迫自證己罪。"
+            },
+            {
+              "n": 6,
+              "w": "counsel",
+              "pos": "n.",
+              "zh": "律師；法律顧問",
+              "ex": "A person accused of a crime has the right to the assistance of <b>counsel</b>.",
+              "exzh": "被控犯罪的人有獲得律師協助的權利。"
+            },
+            {
+              "n": 7,
+              "w": "incorporation",
+              "pos": "n.",
+              "zh": "併入（將權利法案適用於各州）",
+              "ex": "Through <b>incorporation</b>, most of the Bill of Rights came to apply to the states.",
+              "exzh": "透過「併入」，權利法案大部分的條文也適用於各州。"
+            },
+            {
+              "n": 8,
+              "w": "state action",
+              "pos": "n.",
+              "zh": "國家行為",
+              "ex": "A constitutional claim requires <b>state action</b>, not merely private conduct.",
+              "exzh": "憲法上的主張需要有國家行為，不能只是私人的行為。"
+            },
+            {
+              "n": 9,
+              "w": "compel",
+              "pos": "v.",
+              "zh": "強迫",
+              "ex": "The Court held that a school could not <b>compel</b> students to salute the flag.",
+              "exzh": "最高法院判定學校不能強迫學生向國旗敬禮。"
+            },
+            {
+              "n": 10,
+              "w": "construe",
+              "pos": "v.",
+              "zh": "解釋",
+              "ex": "The Ninth Amendment tells readers how not to <b>construe</b> the list of rights.",
+              "exzh": "第九條修正案告訴讀者，這張權利清單不該怎麼解釋。"
+            },
+            {
+              "n": 11,
+              "w": "civil liberties",
+              "pos": "n.",
+              "zh": "公民自由",
+              "ex": "Freedom of speech and religion are among the most familiar <b>civil liberties</b>.",
+              "exzh": "言論與宗教自由是最為人熟悉的公民自由。"
+            },
+            {
+              "n": 12,
+              "w": "absolute",
+              "pos": "adj.",
+              "zh": "絕對的",
+              "ex": "Courts have held that free speech is important but not <b>absolute</b>.",
+              "exzh": "法院認為言論自由很重要，但不是絕對的。"
+            }
+          ],
+          "quiz": [
+            {
+              "q": "A private employer fires a worker for something the worker said at a public meeting. Why does the First Amendment not decide the case?",
+              "options": [
+                "The First Amendment protects only written speech",
+                "The First Amendment restrains government, and a private employer is not the government",
+                "Workers have no rights at all",
+                "The Supreme Court has never heard a speech case"
+              ],
+              "correct": 1
+            },
+            {
+              "q": "In 1833 Barron v. Baltimore held that the Fifth Amendment did not apply to a city. What was the reasoning?",
+              "options": [
+                "The Bill of Rights limited only the national government, not the states and their cities",
+                "The wharf owner had not paid his taxes",
+                "The Fifth Amendment had not yet been ratified",
+                "Cities are part of the federal government"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "Why is incorporation described as happening “one right at a time”?",
+              "options": [
+                "Because Congress voted on each right separately",
+                "Because the states ratified each amendment separately",
+                "Because the Supreme Court applied the guarantees to the states case by case over several decades",
+                "Because each President chose one right to enforce"
+              ],
+              "correct": 2
+            },
+            {
+              "q": "The Ninth Amendment says that listing certain rights shall not be read to deny others. Which worry does that answer?",
+              "options": [
+                "That the list would be too long",
+                "That listing some rights could suggest the people had no other rights",
+                "That the states would refuse to ratify",
+                "That judges would ignore the Constitution"
+              ],
+              "correct": 1
+            },
+            {
+              "q": "In 1969 the Supreme Court protected students who wore black armbands but said schools may restrict speech that would materially and substantially interfere with their work. What does this show?",
+              "options": [
+                "Students have no rights at school",
+                "Schools may punish any speech they dislike",
+                "Free speech is protected in schools only for teachers",
+                "Rights are protected, but within limits that courts define"
+              ],
+              "correct": 3
+            }
+          ],
+          "parts_head": {
+            "eyebrow": "Try It in the Model · 在模型裡試試",
+            "en": "Four things to watch",
+            "zh": "四件值得看的事"
+          },
+          "parts": [
+            {
+              "key": "speech",
+              "icon": "🗣️",
+              "en": "Speech: one shield, then two",
+              "zh": "言論：先一面盾牌，再兩面",
+              "meta_en": "First Amendment, 1791 and 1925",
+              "meta_zh": "第一條修正案，1791 與 1925",
+              "demo": "speech",
+              "text_en": "In 1800 the First Amendment blocks the national government only, and the state's arrow gets through. In 1925 a second shield begins to rise: the Court assumes that freedom of speech restrains the states as well.",
+              "text_zh": "1800 年，第一條修正案只擋得住全國政府，州的箭頭照樣穿過去。到了 1925 年，第二面盾牌開始立起：最高法院假定言論自由也拘束各州。"
+            },
+            {
+              "key": "trial",
+              "icon": "⚖️",
+              "en": "The accused and the 1960s",
+              "zh": "刑事被告與 1960 年代",
+              "meta_en": "Fifth and Sixth Amendments",
+              "meta_zh": "第五、第六條修正案",
+              "demo": "trial",
+              "text_en": "Step from 1940 into the 1960s: a public trial reaches the states in 1948, the right to a lawyer in 1963, and the protection against self-incrimination in 1964. Most protections for people accused of crimes were applied in the 1960s.",
+              "text_zh": "從 1940 年走到 1960 年代：公開審判在 1948 年擴及各州，律師協助權在 1963 年，不自證己罪在 1964 年。保護刑事被告的大部分規定，都是在 1960 年代適用到各州的。"
+            },
+            {
+              "key": "local",
+              "icon": "🏛️",
+              "en": "An amendment aimed at the states",
+              "zh": "一條直接針對各州的修正案",
+              "meta_en": "Fourteenth Amendment, 1868",
+              "meta_zh": "第十四條修正案，1868",
+              "demo": "local",
+              "text_en": "The Fourteenth Amendment speaks to the states: its key sentence begins “No State shall.” Before 1868 it does not exist; after 1868 its shield stands in front of the state, not the national government.",
+              "text_zh": "第十四條修正案是對各州說話的：它的關鍵句一開頭就是「任何一州都不得」。1868 年以前它不存在；1868 年以後，它的盾牌立在州的前面，而不是全國政府的前面。"
+            },
+            {
+              "key": "reserved",
+              "icon": "📜",
+              "en": "Two amendments with no shield",
+              "zh": "兩條沒有盾牌的修正案",
+              "meta_en": "Ninth and Tenth Amendments",
+              "meta_zh": "第九、第十條修正案",
+              "demo": "reserved",
+              "text_en": "The Ninth and Tenth do not block a particular action. They tell us how to read the rest: the list is not complete, and powers not given away remain with the states or the people.",
+              "text_zh": "第九條和第十條並不擋住某一種特定的作為，而是告訴我們怎麼讀其他各條：這張清單並不完整，沒有交出去的權力留給各州或人民。"
+            }
+          ],
+          "parts_note_en": "Then try the others. For each amendment, move the timeline until the green shield appears, and notice which ones never get one before 1975.",
+          "parts_note_zh": "接著試試其他各條。每一條都拉動時間軸，看綠色的盾牌什麼時候出現；也注意哪幾條到 1975 年都沒有。",
+          "links_head": {
+            "eyebrow": "Go Further · 延伸閱讀",
+            "en": "Related lessons",
+            "zh": "相關的課"
+          },
+          "links": [
+            {
+              "icon": "🗺️",
+              "k_en": "U.S. Government · Lesson 3",
+              "k_zh": "美國政治・第三課",
+              "en": "Why Does Every State Have Its Own Laws?",
+              "zh": "為什麼每一州的法律不一樣？",
+              "note_en": "Incorporation changed the balance that lesson describes: rights that once restrained only the national government came to restrain the states too.",
+              "note_zh": "「併入」改變了那一課所描述的平衡：原本只限制全國政府的權利，後來也限制各州。",
+              "href": "/resources/classes/us-government/federalism/"
+            },
+            {
+              "icon": "📜",
+              "k_en": "U.S. Government · Lesson 1",
+              "k_zh": "美國政治・第一課",
+              "en": "How Hard Is It to Change One Word?",
+              "zh": "改一個字有多難？",
+              "note_en": "The Bill of Rights itself had to pass through Article V. Try the amendment process in Lesson 1.",
+              "note_zh": "權利法案本身也得走過第五條的程序。到第一課試試修憲的流程。",
+              "href": "/resources/classes/us-government/constitution/#amend"
+            },
+            {
+              "icon": "🏛️",
+              "k_en": "U.S. Government · Lesson 5",
+              "k_zh": "美國政治・第五課",
+              "en": "Why Are There Two Houses?",
+              "zh": "國會為什麼有兩院？",
+              "note_en": "Unit 2 turns to Congress, starting with the compromise that gave it two chambers.",
+              "note_zh": "單元二轉向國會，從讓它有兩院的那場妥協講起。",
+              "soon": true
+            },
+            {
+              "icon": "🕊️",
+              "k_en": "Philosophy",
+              "k_zh": "哲學",
+              "en": "How Free Should We Be?",
+              "zh": "我們應該有多自由？",
+              "note_en": "Philosophers have long asked where one person's liberty should end. That lesson looks at the question without the legal machinery.",
+              "note_zh": "哲學家一直在問：一個人的自由該在哪裡停下來？那一課不靠法律的機制來看這個問題。",
+              "href": "/resources/classes/philosophy/liberty/"
+            }
+          ],
+          "match": {
+            "eyebrow": "Try It · 動手試試",
+            "en": "Who Is Being Limited?",
+            "zh": "這是誰在限制誰？",
+            "cols": 2,
+            "lead_en": "Eight situations. For each one, decide whether the Constitution's rights apply, because the government is acting, or whether they do not, because the actor is private. There is no timer, and you can keep choosing until you find it.",
+            "lead_zh": "八個情境。每一題判斷：憲法上的權利適用嗎（因為是政府在行動）？還是不適用（因為行動的是私人）？不計時，可以一直選到對為止。",
+            "options": [
+              {
+                "key": "gov",
+                "en": "Government action: the Constitution applies",
+                "sub_en": "",
+                "sub_zh": "政府的行為：適用憲法"
+              },
+              {
+                "key": "private",
+                "en": "Private action: the Constitution does not apply",
+                "sub_en": "",
+                "sub_zh": "私人的行為：不適用憲法"
+              }
+            ],
+            "questions": [
+              {
+                "answer": "gov",
+                "en": "A public school requires every student to salute the flag",
+                "zh": "一所公立學校要求每個學生向國旗敬禮",
+                "why_en": "A public school is part of a state government. In 1943 the Supreme Court held that such a requirement violated the First Amendment.",
+                "why_zh": "公立學校屬於州政府。1943 年最高法院判定這樣的規定違反第一條修正案。",
+                "hint_en": "Who runs a public school?",
+                "hint_zh": "公立學校是誰辦的？"
+              },
+              {
+                "answer": "private",
+                "en": "A private newspaper refuses to print a reader's letter",
+                "zh": "一家私人報社拒絕刊登一封讀者投書",
+                "why_en": "A newspaper is not the government. The First Amendment limits the government's power over the press; it does not force a paper to print anything.",
+                "why_zh": "報社不是政府。第一條修正案限制的是政府對新聞界的權力，並不強迫報社刊登任何東西。",
+                "hint_en": "Is the newspaper part of the government?",
+                "hint_zh": "報社是政府的一部分嗎？"
+              },
+              {
+                "answer": "gov",
+                "en": "City police search a house without a warrant",
+                "zh": "市警察沒有搜索票就搜索一棟房子",
+                "why_en": "Police are government officers, and the Fourth Amendment, applied to the states, restrains them.",
+                "why_zh": "警察是政府的官員；適用於各州的第四條修正案拘束他們。",
+                "hint_en": "Who employs the police?",
+                "hint_zh": "警察受雇於誰？"
+              },
+              {
+                "answer": "private",
+                "en": "A shop owner asks a customer to leave because of the slogan on his shirt",
+                "zh": "一位店主因為顧客衣服上的標語，請他離開",
+                "why_en": "The shop owner is a private person. Other laws may limit what a business can do, but the First Amendment does not.",
+                "why_zh": "店主是私人。也許有別的法律限制商家能做什麼，但不是第一條修正案。",
+                "hint_en": "Is a shop owner the state?",
+                "hint_zh": "店主是國家嗎？"
+              },
+              {
+                "answer": "gov",
+                "en": "A state court refuses to appoint a lawyer for a poor defendant charged with a serious crime",
+                "zh": "一個州法院拒絕替被控重罪、請不起律師的被告指派律師",
+                "why_en": "A court is part of the government. Since 1963 the Sixth Amendment's right to counsel has applied in state criminal trials.",
+                "why_zh": "法院是政府的一部分。自 1963 年起，第六條修正案的律師協助權適用於州的刑事審判。",
+                "hint_en": "Which branch of which government runs the trial?",
+                "hint_zh": "這場審判是哪一層政府的哪一個部門在進行？"
+              },
+              {
+                "answer": "private",
+                "en": "A private club decides which speakers to invite to its dinner",
+                "zh": "一個私人社團決定晚宴要邀請哪些講者",
+                "why_en": "A private club choosing its own speakers is not government action.",
+                "why_zh": "私人社團挑選自己的講者，不是政府的行為。",
+                "hint_en": "Who is making the choice?",
+                "hint_zh": "做決定的是誰？"
+              },
+              {
+                "answer": "gov",
+                "en": "A public high school suspends students for wearing armbands as a silent protest",
+                "zh": "一所公立高中因為學生戴臂章默默抗議而將他們停學",
+                "why_en": "In 1969 the Supreme Court held that the students were protected, since the armbands did not materially and substantially interfere with the school's work.",
+                "why_zh": "1969 年最高法院判定這些學生受到保護，因為臂章並沒有實質而重大地干擾學校運作。",
+                "hint_en": "Is the school public or private?",
+                "hint_zh": "這所學校是公立還是私立？"
+              },
+              {
+                "answer": "private",
+                "en": "A private company fires an employee for a speech he gave at a town meeting",
+                "zh": "一家私人公司因為員工在鎮民大會上的發言而開除他",
+                "why_en": "The company is not the government, so the First Amendment does not apply, although employment laws might.",
+                "why_zh": "公司不是政府，所以第一條修正案不適用；不過勞動法可能適用。",
+                "hint_en": "Is the employer the government?",
+                "hint_zh": "雇主是政府嗎？"
+              }
+            ],
+            "end_en": "The question to ask first is always: who is acting? A constitutional right is a claim against the government, at any level, not against everyone.",
+            "end_zh": "第一個要問的問題永遠是：是誰在行動？憲法上的權利，是對政府（任何一層）提出的主張，不是對每一個人。"
+          },
+          "match2": {
+            "eyebrow": "Try It · 動手試試",
+            "en": "Which Amendment Is It?",
+            "zh": "這屬於哪一條修正案？",
+            "cols": 5,
+            "lead_en": "Ten protections. For each one, choose the amendment that contains it. There is no timer, and the game counts the ones you place on the first try.",
+            "lead_zh": "十項保障。每一題選出它寫在哪一條修正案。不計時，遊戲會記下你第一次就放對的題數。",
+            "options": [
+              {
+                "key": "a1",
+                "en": "1st",
+                "sub_en": "",
+                "sub_zh": "第一條"
+              },
+              {
+                "key": "a2",
+                "en": "2nd",
+                "sub_en": "",
+                "sub_zh": "第二條"
+              },
+              {
+                "key": "a3",
+                "en": "3rd",
+                "sub_en": "",
+                "sub_zh": "第三條"
+              },
+              {
+                "key": "a4",
+                "en": "4th",
+                "sub_en": "",
+                "sub_zh": "第四條"
+              },
+              {
+                "key": "a5",
+                "en": "5th",
+                "sub_en": "",
+                "sub_zh": "第五條"
+              },
+              {
+                "key": "a6",
+                "en": "6th",
+                "sub_en": "",
+                "sub_zh": "第六條"
+              },
+              {
+                "key": "a7",
+                "en": "7th",
+                "sub_en": "",
+                "sub_zh": "第七條"
+              },
+              {
+                "key": "a8",
+                "en": "8th",
+                "sub_en": "",
+                "sub_zh": "第八條"
+              },
+              {
+                "key": "a9",
+                "en": "9th",
+                "sub_en": "",
+                "sub_zh": "第九條"
+              },
+              {
+                "key": "a10",
+                "en": "10th",
+                "sub_en": "",
+                "sub_zh": "第十條"
+              }
+            ],
+            "questions": [
+              {
+                "answer": "a1",
+                "en": "Freedom of the press",
+                "zh": "新聞出版自由",
+                "why_en": "The First Amendment: “Congress shall make no law … abridging the freedom of speech, or of the press …”",
+                "why_zh": "第一條修正案：「國會不得制定……剝奪言論或出版自由……的法律」。",
+                "hint_en": "It sits with religion, speech, and assembly.",
+                "hint_zh": "它和宗教、言論、集會放在一起。"
+              },
+              {
+                "answer": "a4",
+                "en": "No unreasonable searches and seizures",
+                "zh": "不受不合理的搜索與扣押",
+                "why_en": "The Fourth Amendment protects “against unreasonable searches and seizures” and requires warrants based on probable cause.",
+                "why_zh": "第四條修正案保障人民「不受不合理的搜索與扣押」，並要求令狀必須有相當的理由。",
+                "hint_en": "It is the first of the amendments about suspects.",
+                "hint_zh": "它是談嫌疑人的那幾條裡的第一條。"
+              },
+              {
+                "answer": "a5",
+                "en": "No one shall be compelled to be a witness against himself",
+                "zh": "任何人不得被迫作不利於自己的證人",
+                "why_en": "The Fifth Amendment protects against self-incrimination, and also against double jeopardy and taking property without just compensation.",
+                "why_zh": "第五條修正案保障不自證己罪，也保障一罪不二審、徵收私產必須公正補償。",
+                "hint_en": "People sometimes say they “plead” this amendment.",
+                "hint_zh": "美國人有時說他們「援引」這一條拒絕作證。"
+              },
+              {
+                "answer": "a6",
+                "en": "The assistance of counsel for the defense",
+                "zh": "被告獲得律師協助的權利",
+                "why_en": "The Sixth Amendment lists the rights of the accused at trial: a speedy and public trial, an impartial jury, and the assistance of counsel.",
+                "why_zh": "第六條修正案列出被告在審判中的權利：迅速而公開的審判、公正的陪審團，以及律師的協助。",
+                "hint_en": "It is about the trial itself.",
+                "hint_zh": "它談的是審判本身。"
+              },
+              {
+                "answer": "a3",
+                "en": "No soldiers quartered in a house in peacetime without the owner's consent",
+                "zh": "平時未經屋主同意，不得讓軍隊駐紮在住宅",
+                "why_en": "The Third Amendment, a response to the colonial experience of quartering troops.",
+                "why_zh": "第三條修正案，回應殖民時期被迫讓軍隊駐紮的經驗。",
+                "hint_en": "It is one of the shortest and least litigated.",
+                "hint_zh": "它是最短、也最少被打官司的一條之一。"
+              },
+              {
+                "answer": "a8",
+                "en": "No excessive bail, and no cruel and unusual punishments",
+                "zh": "不得要求過高的保釋金，不得施加殘酷而不尋常的刑罰",
+                "why_en": "The Eighth Amendment: “Excessive bail shall not be required, nor excessive fines imposed, nor cruel and unusual punishments inflicted.”",
+                "why_zh": "第八條修正案：「不得要求過高的保釋金，不得課以過重的罰金，不得施加殘酷而不尋常的刑罰。」",
+                "hint_en": "It is about what happens after arrest and after conviction.",
+                "hint_zh": "它談的是被捕之後與定罪之後的事。"
+              },
+              {
+                "answer": "a7",
+                "en": "A jury in civil lawsuits where the value in dispute exceeds twenty dollars",
+                "zh": "爭議金額超過二十元的民事訴訟，有陪審團審判的權利",
+                "why_en": "The Seventh Amendment preserves the right of trial by jury in suits at common law. It has never been applied to the states.",
+                "why_zh": "第七條修正案保留普通法訴訟中的陪審權。它從來沒有適用到各州。",
+                "hint_en": "Civil, not criminal.",
+                "hint_zh": "民事，不是刑事。"
+              },
+              {
+                "answer": "a9",
+                "en": "Listing some rights does not deny others retained by the people",
+                "zh": "列舉某些權利，不否定人民保有的其他權利",
+                "why_en": "The Ninth Amendment, which answers the worry that a list might be read as complete.",
+                "why_zh": "第九條修正案，回應「清單可能被當成完整的」這種憂慮。",
+                "hint_en": "It is the second to last.",
+                "hint_zh": "它是倒數第二條。"
+              },
+              {
+                "answer": "a10",
+                "en": "Powers not delegated are reserved to the states or the people",
+                "zh": "沒有授予的權力，保留給各州或人民",
+                "why_en": "The Tenth Amendment, which Lesson 3 discussed.",
+                "why_zh": "第十條修正案，第三課談過。",
+                "hint_en": "It is the last of the ten.",
+                "hint_zh": "它是十條裡的最後一條。"
+              },
+              {
+                "answer": "a2",
+                "en": "A well regulated militia and the right to keep and bear arms",
+                "zh": "紀律良好的民兵，以及持有與攜帶武器的權利",
+                "why_en": "The Second Amendment. This series quotes its text and does not take a side in the modern debate over what it means.",
+                "why_zh": "第二條修正案。這個系列只引它的條文，不在現代關於它意義的爭論中選邊。",
+                "hint_en": "It comes right after the First.",
+                "hint_zh": "它緊接在第一條後面。"
+              }
+            ],
+            "end_en": "Notice how many of the ten deal with how the government treats people it suspects or accuses of crimes: most of the Fourth through the Eighth.",
+            "end_zh": "注意十條裡有多少條是在處理政府怎麼對待它懷疑或指控犯罪的人：第四條到第八條大多如此。"
+          },
+          "myths_head": {
+            "en": "Four things people get wrong",
+            "zh": "四個常見的誤會"
+          },
+          "myths": [
+            {
+              "myth_en": "The First Amendment means anyone can say anything anywhere without consequences.",
+              "myth_zh": "第一條修正案的意思是：任何人在任何地方說任何話都不會有後果。",
+              "fact_en": "It limits the government, not private employers, schools run by private groups, or newspapers. Even against the government it is not absolute; courts have recognized limits, such as speech that would materially and substantially interfere with a school's operation.",
+              "fact_zh": "它限制的是政府，不是私人雇主、私人團體辦的學校或報社。即使是對政府，它也不是絕對的；法院承認有一些界線，例如會實質而重大地干擾學校運作的言論。"
+            },
+            {
+              "myth_en": "The Bill of Rights has always protected people from their state governments.",
+              "myth_zh": "權利法案一直都保護人民不受州政府侵害。",
+              "fact_en": "For most of the nineteenth century it did not. Barron v. Baltimore (1833) held that it restrained only the national government. Most of its guarantees were applied to the states between 1925 and 1969.",
+              "fact_zh": "十九世紀大部分的時間並不是這樣。Barron v. Baltimore（1833）判定它只限制全國政府；它的大部分保障是在 1925 到 1969 年間才適用到各州。"
+            },
+            {
+              "myth_en": "If a right is not listed in the Constitution, people do not have it.",
+              "myth_zh": "憲法沒有列出的權利，人民就沒有。",
+              "fact_en": "The Ninth Amendment says the opposite: listing certain rights “shall not be construed to deny or disparage others retained by the people.” Which unlisted rights the courts should protect is itself a long-running debate.",
+              "fact_zh": "第九條修正案說的正好相反：列舉某些權利，「不得解釋為否定或貶低人民所保有的其他權利」。至於法院該保護哪些沒有列出的權利，本身就是一場長久的爭論。"
+            },
+            {
+              "myth_en": "The Bill of Rights was part of the original Constitution.",
+              "myth_zh": "權利法案是原始憲法的一部分。",
+              "fact_en": "It was added afterward. The Constitution took effect in 1789 without it; Congress proposed twelve amendments that year, and ten were ratified in 1791.",
+              "fact_zh": "它是後來加上去的。憲法在 1789 年生效時並沒有它；國會那一年提出十二條修正案，其中十條在 1791 年完成批准。"
+            }
+          ],
+          "activities": [
+            {
+              "title_en": "Rewrite It as a Command",
+              "title_zh": "把它改寫成命令",
+              "materials": [
+                {
+                  "en": "The text of the First through the Eighth Amendments (in “What Does the Text Say?” and the model panels above)",
+                  "zh": "第一到第八條修正案的條文（在上面的「條文怎麼寫？」與模型說明欄裡）"
+                },
+                {
+                  "en": "Paper and pen",
+                  "zh": "紙和筆"
+                }
+              ],
+              "steps": [
+                {
+                  "en": "Choose three amendments. For each, underline the words that tell the government what it may not do.",
+                  "zh": "選三條修正案。每一條都畫出告訴政府「不得做什麼」的字句。"
+                },
+                {
+                  "en": "Rewrite each one twice: once as a command to the government (“The government shall not …”) and once as a statement of a right (“People have the right to …”).",
+                  "zh": "每一條改寫兩次：一次寫成對政府的命令（「政府不得……」），一次寫成權利的陳述（「人民有……的權利」）。"
+                },
+                {
+                  "en": "Compare the two versions. Does the meaning change? Which version better fits the Ninth Amendment's idea that people keep rights that are not listed?",
+                  "zh": "比較兩種寫法。意思有沒有改變？哪一種比較符合第九條修正案「人民保有沒有列出的權利」的想法？"
+                },
+                {
+                  "en": "Share one rewrite with a partner, who should say which government action it would block.",
+                  "zh": "把其中一句改寫念給同伴聽，請他說出這一句會擋住政府的哪一種作為。"
+                }
+              ],
+              "tip_en": "Choose from the amendments about religion, the press, searches, trials, and punishments. The aim is to see how the text is built, not to argue about current controversies.",
+              "tip_zh": "從談宗教、出版、搜索、審判與刑罰的那幾條裡挑。目的是看清楚條文的結構，不是爭論當前的議題。"
+            },
+            {
+              "title_en": "Build the Incorporation Timeline",
+              "title_zh": "做一條「併入」的時間軸",
+              "materials": [
+                {
+                  "en": "The timeline in the 3D model above (or the panels, if WebGL is not available)",
+                  "zh": "上面 3D 模型裡的時間軸（不支援 WebGL 時看說明欄）"
+                },
+                {
+                  "en": "A long strip of paper and colored pens",
+                  "zh": "一長條紙和彩色筆"
+                }
+              ],
+              "steps": [
+                {
+                  "en": "Draw a line from 1791 to 1975. Mark 1791, 1833, and 1868, and write one sentence under each explaining why it matters.",
+                  "zh": "畫一條從 1791 到 1975 年的線。標出 1791、1833、1868 三個年份，每一個下面寫一句話說明它為什麼重要。"
+                },
+                {
+                  "en": "Using the model, mark the year each amendment in the panel was first applied to the states.",
+                  "zh": "用模型查出說明欄裡每一條修正案第一次適用到各州的年份，標在線上。"
+                },
+                {
+                  "en": "Circle the decade in which the most marks fall. Write one sentence describing the pattern.",
+                  "zh": "圈出標記最多的那個十年，寫一句話描述這個分布。"
+                },
+                {
+                  "en": "Mark the provisions that were never applied to the states before 1975 at the end of the line, and discuss why a court might leave some provisions to the states.",
+                  "zh": "在線的尾端標出 1975 年前從未適用到各州的規定，並討論法院為什麼可能把某些規定留給各州決定。"
+                }
+              ],
+              "tip_en": "Keep to dates and patterns. The timeline stops in 1975 on purpose; later cases are outside this lesson.",
+              "tip_zh": "只處理年份與分布。時間軸刻意停在 1975 年，之後的判決不在這一課的範圍。"
+            }
+          ],
+          "news_english": {
+            "eyebrow": "News English · 新聞英語",
+            "en": "Eight terms for reading about rights",
+            "zh": "讀權利新聞用得到的八個詞",
+            "lead_en": "Listen to each term and its example sentence, then try making a sentence of your own. The examples come from settled history.",
+            "lead_zh": "先聽每個詞和例句，再試著自己造一句。例句取自已有定論的歷史。",
+            "items": [
+              {
+                "en": "the Bill of Rights",
+                "zh": "權利法案",
+                "def_en": "the first ten amendments to the Constitution, ratified in 1791",
+                "def_zh": "1791 年批准的前十條憲法修正案",
+                "ex": "<b>The Bill of Rights</b> was ratified in 1791, a little under three years after the new government began.",
+                "ex_zh": "權利法案在 1791 年批准，距離新政府開始運作不到三年。"
+              },
+              {
+                "en": "the First Amendment",
+                "zh": "第一條修正案",
+                "def_en": "the amendment protecting religion, speech, the press, assembly, and petition",
+                "def_zh": "保障宗教、言論、出版、集會與請願的修正案",
+                "ex": "In 1943 the Court relied on <b>the First Amendment</b> to strike down a compulsory flag salute.",
+                "ex_zh": "1943 年，最高法院依據第一條修正案，宣告強制升旗敬禮的規定無效。"
+              },
+              {
+                "en": "free speech",
+                "zh": "言論自由",
+                "def_en": "the freedom to express ideas without government punishment",
+                "def_zh": "表達意見而不受政府處罰的自由",
+                "ex": "The armband case of 1969 applied <b>free speech</b> protection to a student's silent protest at a public school.",
+                "ex_zh": "1969 年的臂章案，把言論自由的保障適用到公立學校學生的靜默抗議。"
+              },
+              {
+                "en": "due process",
+                "zh": "正當法律程序",
+                "def_en": "fair procedures that the government must follow before taking life, liberty, or property",
+                "def_zh": "政府剝奪生命、自由或財產之前必須遵守的公正程序",
+                "ex": "The Fourteenth Amendment's <b>due process</b> clause applies to the states.",
+                "ex_zh": "第十四條修正案的正當程序條款適用於各州。"
+              },
+              {
+                "en": "a search warrant",
+                "zh": "搜索票",
+                "def_en": "a court order allowing the police to search a particular place",
+                "def_zh": "允許警方搜索特定地點的法院命令",
+                "ex": "Under the Fourth Amendment, <b>a search warrant</b> must describe the place to be searched.",
+                "ex_zh": "依第四條修正案，搜索票必須寫明要搜索的地點。"
+              },
+              {
+                "en": "the right to counsel",
+                "zh": "律師協助權",
+                "def_en": "the right of a person accused of a crime to have a lawyer",
+                "def_zh": "被控犯罪的人有律師協助的權利",
+                "ex": "In 1963 the Supreme Court held that <b>the right to counsel</b> applies in state criminal trials.",
+                "ex_zh": "1963 年，最高法院判定律師協助權適用於州的刑事審判。"
+              },
+              {
+                "en": "civil liberties",
+                "zh": "公民自由",
+                "def_en": "freedoms that protect individuals from government interference",
+                "def_zh": "保護個人不受政府干預的各種自由",
+                "ex": "The Bill of Rights is the main source of Americans' <b>civil liberties</b>.",
+                "ex_zh": "權利法案是美國人公民自由的主要來源。"
+              },
+              {
+                "en": "to incorporate a right",
+                "zh": "（把權利）併入、適用於各州",
+                "def_en": "(of a court) to apply a guarantee of the Bill of Rights to the states through the Fourteenth Amendment",
+                "def_zh": "（法院）透過第十四條修正案，把權利法案的某項保障適用到各州",
+                "ex": "By the 1960s the Supreme Court had begun <b>to incorporate</b> most of the Bill of Rights.",
+                "ex_zh": "到了 1960 年代，最高法院已經開始把權利法案的大部分併入、適用於各州。"
+              }
+            ]
+          },
+          "clause": {
+            "eyebrow": "What Does the Text Say? · 條文怎麼寫？",
+            "en": "Three clauses this lesson rests on",
+            "zh": "這一課依據的三段條文",
+            "lead_en": "The words are copied from the National Archives transcriptions; the Bill of Rights keeps the capitalization and punctuation of the 1789 enrolled resolution.",
+            "lead_zh": "原文照美國國家檔案館的謄本逐字抄錄；權利法案保留 1789 年正式決議文本的大寫與標點。",
+            "items": [
+              {
+                "cite_en": "First Amendment (1791)",
+                "cite_zh": "第一條修正案（1791）",
+                "text": "Congress shall make no law respecting an establishment of religion, or prohibiting the free exercise thereof; or abridging the freedom of speech, or of the press; or the right of the people peaceably to assemble, and to petition the Government for a redress of grievances.",
+                "zh": "國會不得制定下列法律：涉及設立國教、或禁止宗教自由實踐的法律；剝奪言論或出版自由的法律；或剝奪人民和平集會以及向政府請願申冤之權利的法律。",
+                "note_en": "It begins with “Congress.” For more than a century it was read to restrain only the national government, and it reached the states through the Fourteenth Amendment.",
+                "note_zh": "它的第一個字是「國會」。一百多年來，它被理解為只限制全國政府；後來才透過第十四條修正案適用到各州。",
+                "src": [
+                  {
+                    "label": "National Archives: The Bill of Rights, a transcription",
+                    "url": "https://www.archives.gov/founding-docs/bill-of-rights-transcript"
+                  }
+                ]
+              },
+              {
+                "cite_en": "Ninth Amendment (1791)",
+                "cite_zh": "第九條修正案（1791）",
+                "text": "The enumeration in the Constitution, of certain rights, shall not be construed to deny or disparage others retained by the people.",
+                "zh": "本憲法列舉某些權利，不得解釋為否定或貶低人民所保有的其他權利。",
+                "note_en": "This answers the Federalist objection that a list would imply the people had no other rights. Which unlisted rights courts should recognize has been argued ever since.",
+                "note_zh": "這一條回應了聯邦派的反對理由：列一張清單，會讓人以為人民沒有別的權利。至於法院該承認哪些沒有列出的權利，從那時起就一直有爭論。",
+                "src": [
+                  {
+                    "label": "National Archives: The Bill of Rights, a transcription",
+                    "url": "https://www.archives.gov/founding-docs/bill-of-rights-transcript"
+                  }
+                ]
+              },
+              {
+                "cite_en": "Fourteenth Amendment, Section 1 (1868)",
+                "cite_zh": "第十四條修正案第一項（1868）",
+                "text": "All persons born or naturalized in the United States, and subject to the jurisdiction thereof, are citizens of the United States and of the State wherein they reside. No State shall make or enforce any law which shall abridge the privileges or immunities of citizens of the United States; nor shall any State deprive any person of life, liberty, or property, without due process of law; nor deny to any person within its jurisdiction the equal protection of the laws.",
+                "zh": "凡在合眾國出生或歸化、並受其管轄的人，都是合眾國及其所居住之州的公民。任何一州都不得制定或執行剝奪合眾國公民之特權或豁免權的法律；任何一州未經正當法律程序，都不得剝奪任何人的生命、自由或財產；也不得對其管轄範圍內的任何人，拒絕給予法律的平等保護。",
+                "note_en": "Notice the repeated “No State” and “nor shall any State.” Where the First Amendment speaks to Congress, this section speaks to the states.",
+                "note_zh": "注意反覆出現的「任何一州都不得」。第一條修正案對國會說話，這一項則是對各州說話。",
+                "src": [
+                  {
+                    "label": "National Archives: Amendments 11–27",
+                    "url": "https://www.archives.gov/founding-docs/amendments-11-27"
+                  }
+                ]
+              }
+            ]
+          },
+          "primary": {
+            "eyebrow": "Read the Source · 讀原典",
+            "en": "Madison proposes, and the Court explains",
+            "zh": "麥迪遜提出，最高法院說明",
+            "lead_en": "Two texts 154 years apart. In 1789 Madison told the House why amendments were worth adding. In 1943 the Supreme Court explained what a bill of rights is for. Read each slowly before you open the translation; the spelling is that of the sources.",
+            "lead_zh": "兩段相隔 154 年的文字。1789 年，麥迪遜向眾議院說明為什麼值得加上修正案；1943 年，最高法院說明一部權利法案是做什麼用的。先慢慢讀一遍，再打開中譯；拼法照出處原樣。",
+            "docs": [
+              {
+                "kind_en": "Speech in Congress, 1789",
+                "kind_zh": "1789 年的國會演說",
+                "title_en": "Speech proposing amendments to the Constitution (excerpts)",
+                "title_zh": "提出憲法修正案的演說（節錄）",
+                "by_en": "James Madison, in the House of Representatives, June 8, 1789.",
+                "by_zh": "麥迪遜，1789 年 6 月 8 日於眾議院。",
+                "text": [
+                  "I know some respectable characters who opposed this government on these grounds; but I believe that the great mass of the people who opposed it, disliked it because it did not contain effectual provision against encroachments on particular rights, and those safeguards which they have been long accustomed to have interposed between them and the magistrate who exercised the sovereign power: nor ought we to consider them safe, while a great number of our fellow citizens think these securities necessary.",
+                  "If they are incorporated into the constitution, independent tribunals of justice will consider themselves in a peculiar manner the guardians of those rights; they will be an impenetrable bulwark against every assumption of power in the legislative or executive; they will be naturally led to resist every encroachment upon rights expressly stipulated for in the constitution by the declaration of rights."
+                ],
+                "text_zh": [
+                  "我知道有些可敬的人士是基於這些理由反對這個政府的；但我相信，反對它的廣大民眾之所以不喜歡它，是因為它沒有有效的規定防止特定的權利受到侵犯，也沒有那些他們長久以來習慣於擋在自己與行使主權的官員之間的保障；只要還有許多同胞認為這些保障是必要的，我們就不該認為他們是安全的。",
+                  "如果把這些權利寫進憲法，獨立的司法法庭就會特別把自己看成這些權利的守護者；它們會成為一道堅不可摧的堡壘，抵擋立法或行政部門每一次的擅權；它們自然會抵抗每一次對權利宣言在憲法中明文規定之權利的侵犯。"
+                ],
+                "note_en": "Text as given by Founders Online (National Archives), from The Papers of James Madison. The two paragraphs come from different parts of the speech. Public domain. The Chinese translation is ours.",
+                "note_zh": "原文依 Founders Online（美國國家檔案館）收錄的《麥迪遜文集》；兩段出自演說的不同部分。公有領域。中譯為本站所譯。",
+                "src": [
+                  {
+                    "label": "Founders Online: Amendments to the Constitution, 8 June 1789",
+                    "url": "https://founders.archives.gov/documents/Madison/01-12-02-0126"
+                  }
+                ],
+                "gloss": [
+                  {
+                    "w": "respectable characters",
+                    "en": "people of good reputation",
+                    "zh": "可敬的人士"
+                  },
+                  {
+                    "w": "encroachments",
+                    "en": "gradual intrusions on what belongs to someone else",
+                    "zh": "侵犯；蠶食"
+                  },
+                  {
+                    "w": "interposed",
+                    "en": "placed between",
+                    "zh": "置於……之間"
+                  },
+                  {
+                    "w": "magistrate",
+                    "en": "an official with public authority",
+                    "zh": "官員"
+                  },
+                  {
+                    "w": "tribunals",
+                    "en": "courts",
+                    "zh": "法庭"
+                  },
+                  {
+                    "w": "bulwark",
+                    "en": "a strong wall of defense",
+                    "zh": "堡壘；屏障"
+                  }
+                ],
+                "questions": [
+                  {
+                    "en": "According to Madison, why did most opponents of the Constitution dislike it? Why does he treat their view as a reason to act, even if he did not share it?",
+                    "zh": "依麥迪遜的說法，大多數反對憲法的人為什麼不喜歡它？即使他自己不完全同意，為什麼還把他們的看法當作應該行動的理由？"
+                  },
+                  {
+                    "en": "Which institution does Madison expect to guard the listed rights? Why might that institution be better placed than the legislature or the executive?",
+                    "zh": "麥迪遜期待由哪一個機構來守護這些列出的權利？為什麼這個機構可能比立法或行政部門更適合？"
+                  },
+                  {
+                    "en": "Madison speaks of safeguards “interposed between” the people and the officials who exercise power. Compare that image with the shields in the 3D model above.",
+                    "zh": "麥迪遜說保障是「擋在」人民與行使權力的官員「之間」。把這個意象和上面 3D 模型裡的盾牌比一比。"
+                  }
+                ]
+              },
+              {
+                "kind_en": "Supreme Court opinion, 1943",
+                "kind_zh": "1943 年的最高法院判決",
+                "title_en": "West Virginia State Board of Education v. Barnette (excerpts)",
+                "title_zh": "West Virginia State Board of Education v. Barnette（節錄）",
+                "by_en": "Opinion of the Court by Justice Robert H. Jackson, June 14, 1943. The Court held that a state could not require public school students to salute the flag and recite the pledge, overruling a decision it had made three years earlier.",
+                "by_zh": "傑克森大法官撰寫的法院意見，1943 年 6 月 14 日。最高法院判定州不得要求公立學校學生向國旗敬禮、背誦效忠誓詞，並推翻了它三年前的一項判決。",
+                "text": [
+                  "The very purpose of a Bill of Rights was to withdraw certain subjects from the vicissitudes of political controversy, to place them beyond the reach of majorities and officials and to establish them as legal principles to be applied by the courts. One's right to life, liberty, and property, to free speech, a free press, freedom of worship and assembly, and other fundamental rights may not be submitted to vote; they depend on the outcome of no elections.",
+                  "If there is any fixed star in our constitutional constellation, it is that no official, high or petty, can prescribe what shall be orthodox in politics, nationalism, religion, or other matters of opinion or force citizens to confess by word or act their faith therein."
+                ],
+                "text_zh": [
+                  "權利法案的根本目的，就是要把某些事項從政治爭議的變化無常中抽離出來，放在多數人與官員搆不到的地方，把它們確立為由法院適用的法律原則。一個人的生命、自由與財產的權利，言論自由、出版自由、信仰與集會自由，以及其他基本權利，不能交付表決；它們不取決於任何一場選舉的結果。",
+                  "如果我們憲法的星座裡有哪一顆恆星，那就是：沒有任何官員——不論高低——可以規定在政治、民族主義、宗教或其他意見問題上什麼才是正統，也不能強迫公民用言語或行動表白他們對此的信仰。"
+                ],
+                "note_en": "Text from the Cornell Legal Information Institute's copy of the opinion. Public domain. The Chinese translation is ours.",
+                "note_zh": "原文依康乃爾大學法律資訊研究所收錄的判決書。公有領域。中譯為本站所譯。",
+                "src": [
+                  {
+                    "label": "Cornell LII: West Virginia State Board of Education v. Barnette, 319 U.S. 624",
+                    "url": "https://www.law.cornell.edu/supremecourt/text/319/624"
+                  }
+                ],
+                "gloss": [
+                  {
+                    "w": "vicissitudes",
+                    "en": "changes of fortune; ups and downs",
+                    "zh": "變化無常；起伏"
+                  },
+                  {
+                    "w": "submitted to vote",
+                    "en": "decided by an election",
+                    "zh": "交付表決"
+                  },
+                  {
+                    "w": "orthodox",
+                    "en": "officially approved as correct",
+                    "zh": "正統的"
+                  },
+                  {
+                    "w": "high or petty",
+                    "en": "of high rank or low rank",
+                    "zh": "高位或低位的"
+                  },
+                  {
+                    "w": "confess",
+                    "en": "to declare openly",
+                    "zh": "公開表白"
+                  }
+                ],
+                "questions": [
+                  {
+                    "en": "Jackson says some rights “may not be submitted to vote.” How does that fit with democracy, which is government by majority vote? What answer does the passage give?",
+                    "zh": "傑克森說有些權利「不能交付表決」。這和以多數決為原則的民主怎麼相容？這段文字給了什麼答案？"
+                  },
+                  {
+                    "en": "The case was about a flag salute in public schools. Why does Jackson frame the principle so broadly: politics, nationalism, religion, and “other matters of opinion”?",
+                    "zh": "這個案子談的是公立學校的升旗敬禮。傑克森為什麼把原則講得這麼寬——政治、民族主義、宗教，以及「其他意見問題」？"
+                  },
+                  {
+                    "en": "Compare this passage with Madison's prediction that courts would be “guardians of those rights.” Did his prediction come true in this case?",
+                    "zh": "把這段文字和麥迪遜「法院會成為這些權利的守護者」的預言比一比。在這個案子裡，他的預言實現了嗎？"
+                  }
+                ]
+              }
+            ]
+          },
+          "debate": {
+            "eyebrow": "The Design Debate · 制度的爭論",
+            "en": "Write the rights down, or leave them unlisted?",
+            "zh": "把權利寫下來，還是不列清單？",
+            "lead_en": "In 1787 and 1788 Americans argued over whether the new Constitution needed a bill of rights at all. Both sides wanted rights protected; they disagreed about whether a written list would protect them or endanger them. Each side is stated here in its strongest form, and the card does not choose between them.",
+            "lead_zh": "1787 與 1788 年，美國人爭論新憲法到底需不需要權利法案。兩邊都想保護權利，分歧在於：一張寫下來的清單，究竟是保護權利，還是危害權利。這裡把兩邊各用最強的版本寫出來，不替它們分高下。",
+            "question_en": "Is a constitution that gives the government only limited powers better served by a written list of rights, or without one?",
+            "question_zh": "一部只給政府有限權力的憲法，是加上一張寫明的權利清單比較好，還是不要清單比較好？",
+            "sides": [
+              {
+                "k_en": "One position",
+                "k_zh": "一種立場",
+                "name_en": "Leave the rights unlisted",
+                "name_zh": "不列權利清單",
+                "points": [
+                  {
+                    "en": "A government of enumerated powers has no authority beyond what it was given. Forbidding it to do what it was never allowed to do adds nothing.",
+                    "zh": "一個只有列舉權力的政府，本來就沒有授權以外的權力。禁止它做它本來就不能做的事，沒有增加任何東西。"
+                  },
+                  {
+                    "en": "A list can be read as complete. Whatever is left off may seem unprotected, and the exceptions may imply powers never granted.",
+                    "zh": "清單可能被當成完整的。沒有列上去的看起來像不受保護，而那些例外可能暗示政府擁有從未授予的權力。"
+                  },
+                  {
+                    "en": "Words on paper do not stop a determined majority. The real protection lies in the structure: divided power, elections, and limited grants of authority.",
+                    "zh": "紙上的文字擋不住一個鐵了心的多數。真正的保障在於結構：分散的權力、選舉，以及有限的授權。"
+                  }
+                ],
+                "voice": "I go further, and affirm that bills of rights, in the sense and to the extent in which they are contended for, are not only unnecessary in the proposed Constitution, but would even be dangerous.",
+                "voice_cite": "Alexander Hamilton, The Federalist No. 84 (1788)",
+                "voice_zh": "我要更進一步斷言：照他們所主張的那種意義與範圍，權利法案在擬議的憲法中不但沒有必要，甚至是危險的。——漢彌爾頓，《聯邦論》第八十四篇（1788）",
+                "src": [
+                  {
+                    "label": "Library of Congress: Federalist Nos. 81–85",
+                    "url": "https://guides.loc.gov/federalist-papers/text-81-85"
+                  }
+                ]
+              },
+              {
+                "k_en": "Another position",
+                "k_zh": "另一種立場",
+                "name_en": "Write the rights down",
+                "name_zh": "把權利寫下來",
+                "points": [
+                  {
+                    "en": "Powers granted in general words can be stretched. A written list draws clear lines that a government cannot easily argue away.",
+                    "zh": "以概括文字授予的權力可以被拉長。一張寫明的清單畫出清楚的界線，政府不容易用說理把它推掉。"
+                  },
+                  {
+                    "en": "A written right gives judges something definite to enforce. Courts can point to the text when they strike down an action, rather than relying on inference.",
+                    "zh": "寫下來的權利，讓法官有明確的東西可以執行。法院宣告某項作為無效時，可以指著條文，而不必只靠推論。"
+                  },
+                  {
+                    "en": "A list also teaches. Citizens who know their rights by heart are more likely to notice when those rights are threatened and to defend them.",
+                    "zh": "清單也有教育的作用。把權利記在心裡的公民，比較會察覺權利受到威脅，也比較會出來捍衛。"
+                  }
+                ],
+                "voice": "Let me add that a bill of rights is what the people are entitled to against every government on earth, general or particular, & what no just government should refuse or rest on inference.",
+                "voice_cite": "Thomas Jefferson, letter to James Madison, December 20, 1787",
+                "voice_zh": "容我補充：權利法案是人民有權對世上每一個政府——不論是全國的還是地方的——要求的東西，也是任何正當的政府都不該拒絕、也不該只憑推論來處理的東西。——傑佛遜致麥迪遜的信，1787 年 12 月 20 日",
+                "src": [
+                  {
+                    "label": "Founders Online: Jefferson to Madison, 20 December 1787",
+                    "url": "https://founders.archives.gov/documents/Madison/01-10-02-0210"
+                  }
+                ]
+              }
+            ],
+            "close_en": "The outcome drew on both: a list was added, and the Ninth Amendment was written to answer the worry that the list would be read as complete. Madison, who introduced the amendments, had argued alongside Hamilton for ratification. Which of the arguments above do you find strongest, and do any of them apply to a constitution you know?",
+            "close_zh": "結果兩邊的考量都用上了：清單加上去了，同時寫了第九條修正案來回應「清單會被當成完整」的憂慮。提出這些修正案的麥迪遜，曾經和漢彌爾頓並肩為批准憲法辯護。上面的論點裡，你覺得哪幾個最有力？有沒有哪一個也適用於你所知道的某一部憲法？"
+          },
+          "taiwan": {
+            "eyebrow": "Compare with Taiwan · 和台灣比一比",
+            "en": "Two lists of rights",
+            "zh": "兩張權利清單",
+            "lead_en": "This card compares designs only. It quotes the Constitution of the Republic of China from the official Laws and Regulations Database and does not say which arrangement is better.",
+            "lead_zh": "這張卡只比制度的設計，條文引自全國法規資料庫的《中華民國憲法》；不評價哪一種安排比較好。",
+            "rows": [
+              {
+                "topic_en": "Where the rights are written",
+                "topic_zh": "權利寫在哪裡",
+                "us_en": "Added after the original text, as the first ten amendments (1791), with later amendments such as the Fourteenth (1868).",
+                "us_zh": "在原始條文之後追加，成為前十條修正案（1791），後來又有第十四條（1868）等修正案。",
+                "tw_en": "In the body of the Constitution itself: Chapter II, “Rights and Duties of the People,” Articles 7 to 24.",
+                "tw_zh": "寫在憲法本文之中：第二章「人民之權利義務」，第 7 條至第 24 條。"
+              },
+              {
+                "topic_en": "Rights that are not listed",
+                "topic_zh": "沒有列出的權利",
+                "us_en": "The Ninth Amendment: listing some rights shall not be read to deny others retained by the people.",
+                "us_zh": "第九條修正案：列舉某些權利，不得解釋為否定人民保有的其他權利。",
+                "tw_en": "Article 22: other freedoms and rights not detrimental to social order or public welfare are guaranteed under the Constitution.",
+                "tw_zh": "第 22 條：人民之其他自由及權利，不妨害社會秩序公共利益者，均受憲法之保障。"
+              },
+              {
+                "topic_en": "When rights may be limited",
+                "topic_zh": "權利什麼時候可以限制",
+                "us_en": "The amendments do not say. Courts have developed standards of review, such as strict scrutiny, to judge each limit.",
+                "us_zh": "修正案沒有寫。法院發展出審查標準（例如嚴格審查）來判斷每一項限制。",
+                "tw_en": "Article 23 states the test in the text: only by law, and only where necessary to prevent infringing others' freedoms, to avert an imminent crisis, to maintain social order, or to advance public welfare.",
+                "tw_zh": "第 23 條把標準寫進條文：只能以法律限制，而且必須是為防止妨礙他人自由、避免緊急危難、維持社會秩序或增進公共利益所必要。"
+              },
+              {
+                "topic_en": "Who interprets",
+                "topic_zh": "誰來解釋",
+                "us_en": "Ordinary courts decide rights cases, with the Supreme Court at the top; the power of review is not stated in the text.",
+                "us_zh": "一般法院審理權利案件，最上面是最高法院；審查的權力條文沒有明寫。",
+                "tw_en": "The Judicial Yuan interprets the Constitution (Article 78).",
+                "tw_zh": "司法院解釋憲法（第 78 條）。"
+              }
+            ],
+            "quotes": [
+              {
+                "cite_zh": "中華民國憲法　第 22 條",
+                "cite_en": "Constitution of the Republic of China, Article 22",
+                "text": "凡人民之其他自由及權利，不妨害社會秩序公共利益者，均受憲法之保障。",
+                "en": "Official English translation: “All other freedoms and rights of the people that are not detrimental to social order or public welfare shall be guaranteed under the Constitution.”",
+                "src": [
+                  {
+                    "label": "全國法規資料庫：中華民國憲法",
+                    "url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=A0000001"
+                  },
+                  {
+                    "label": "Laws & Regulations Database: Constitution (English)",
+                    "url": "https://law.moj.gov.tw/ENG/LawClass/LawAll.aspx?pcode=A0000001"
+                  }
+                ]
+              },
+              {
+                "cite_zh": "中華民國憲法　第 23 條",
+                "cite_en": "Constitution of the Republic of China, Article 23",
+                "text": "以上各條列舉之自由權利，除為防止妨礙他人自由、避免緊急危難、維持社會秩序，或增進公共利益所必要者外，不得以法律限制之。",
+                "en": "Official English translation: “All the freedoms and rights enumerated in the preceding Articles shall not be restricted by law except by such as may be necessary to prevent infringement upon the freedoms of other persons, to avert an imminent crisis, to maintain social order or to advance public welfare.”",
+                "src": [
+                  {
+                    "label": "全國法規資料庫：中華民國憲法",
+                    "url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=A0000001"
+                  },
+                  {
+                    "label": "Laws & Regulations Database: Constitution (English)",
+                    "url": "https://law.moj.gov.tw/ENG/LawClass/LawAll.aspx?pcode=A0000001"
+                  }
+                ]
+              }
+            ],
+            "note_en": "Two things to notice. Both constitutions include a clause protecting rights that are not listed: the Ninth Amendment and Article 22. And where the American amendments leave the limits to the courts, Article 23 writes a test for limits into the text itself. The text was checked against the Laws and Regulations Database in October 2026.",
+            "note_zh": "有兩點可以注意。兩部憲法都有一個保護「沒有列出的權利」的條款：第九條修正案與第 22 條。而美國的修正案把限制的標準留給法院，第 23 條則直接把限制的標準寫進條文。條文於 2026 年 10 月對過全國法規資料庫。"
+          },
+          "sources_note_en": "Quotations, dates, and numbers on this page were checked against these sources in October 2026. Quotations keep the spelling of the originals",
+          "sources_note_zh": "本頁的引文、日期與數字於 2026 年 10 月依下列資料查證；引文保留原文的拼法",
+          "sources": [
+            {
+              "en": "The Bill of Rights: text, the twelve amendments proposed on September 25, 1789, and the ten ratified on December 15, 1791.",
+              "zh": "權利法案：條文、1789 年 9 月 25 日提出的十二條與 1791 年 12 月 15 日批准的十條",
+              "src": "National Archives: The Bill of Rights, a transcription",
+              "url": "https://www.archives.gov/founding-docs/bill-of-rights-transcript"
+            },
+            {
+              "en": "The Fourteenth Amendment, Section 1; ratified July 9, 1868.",
+              "zh": "第十四條修正案第一項；1868 年 7 月 9 日批准",
+              "src": "National Archives: Amendments 11–27",
+              "url": "https://www.archives.gov/founding-docs/amendments-11-27"
+            },
+            {
+              "en": "Madison's speech of June 8, 1789, including his proposal that no state violate the equal rights of conscience, the freedom of the press, or trial by jury in criminal cases.",
+              "zh": "麥迪遜 1789 年 6 月 8 日的演說，包括他提議禁止各州侵犯平等的良心權利、出版自由與刑事陪審權",
+              "src": "Founders Online (National Archives): Amendments to the Constitution, 8 June 1789",
+              "url": "https://founders.archives.gov/documents/Madison/01-12-02-0126"
+            },
+            {
+              "en": "Hamilton on why a bill of rights would be unnecessary and dangerous.",
+              "zh": "漢彌爾頓談權利法案為何沒有必要、甚至危險",
+              "src": "Library of Congress: Federalist Nos. 81–85",
+              "url": "https://guides.loc.gov/federalist-papers/text-81-85"
+            },
+            {
+              "en": "Jefferson to Madison, December 20, 1787.",
+              "zh": "傑佛遜致麥迪遜，1787 年 12 月 20 日",
+              "src": "Founders Online (National Archives)",
+              "url": "https://founders.archives.gov/documents/Madison/01-10-02-0210"
+            },
+            {
+              "en": "Barron v. Baltimore (1833): the Fifth Amendment's takings clause limits only the government of the United States.",
+              "zh": "Barron v. Baltimore（1833）：第五條修正案的徵收條款只限制合眾國政府",
+              "src": "Cornell LII: Barron v. Baltimore, 32 U.S. 243",
+              "url": "https://www.law.cornell.edu/supremecourt/text/32/243"
+            },
+            {
+              "en": "The incorporation doctrine; selective incorporation; provisions not incorporated (the Third and Seventh Amendments and the grand jury requirement).",
+              "zh": "併入原則；選擇性併入；未併入的規定（第三、第七條修正案與大陪審團的要求）",
+              "src": "Cornell LII Wex: Incorporation Doctrine",
+              "url": "https://www.law.cornell.edu/wex/incorporation_doctrine"
+            },
+            {
+              "en": "Chicago, Burlington & Quincy Railroad Co. v. Chicago (1897): the decision and the part of the Bill of Rights it applied to the states.",
+              "zh": "Chicago, Burlington & Quincy Railroad Co. v. Chicago (1897)：判決與它適用到各州的權利法案條文",
+              "src": "Cornell LII: Chicago, Burlington & Quincy Railroad Co. v. Chicago, 166 U.S. 226",
+              "url": "https://www.law.cornell.edu/supremecourt/text/166/226"
+            },
+            {
+              "en": "Gitlow v. New York (1925): the decision and the part of the Bill of Rights it applied to the states.",
+              "zh": "Gitlow v. New York (1925)：判決與它適用到各州的權利法案條文",
+              "src": "Cornell LII: Gitlow v. New York, 268 U.S. 652",
+              "url": "https://www.law.cornell.edu/supremecourt/text/268/652"
+            },
+            {
+              "en": "Near v. Minnesota (1931): the decision and the part of the Bill of Rights it applied to the states.",
+              "zh": "Near v. Minnesota (1931)：判決與它適用到各州的權利法案條文",
+              "src": "Cornell LII: Near v. Minnesota, 283 U.S. 697",
+              "url": "https://www.law.cornell.edu/supremecourt/text/283/697"
+            },
+            {
+              "en": "De Jonge v. Oregon (1937): the decision and the part of the Bill of Rights it applied to the states.",
+              "zh": "De Jonge v. Oregon (1937)：判決與它適用到各州的權利法案條文",
+              "src": "Cornell LII: De Jonge v. Oregon, 299 U.S. 353",
+              "url": "https://www.law.cornell.edu/supremecourt/text/299/353"
+            },
+            {
+              "en": "Cantwell v. Connecticut (1940): the decision and the part of the Bill of Rights it applied to the states.",
+              "zh": "Cantwell v. Connecticut (1940)：判決與它適用到各州的權利法案條文",
+              "src": "Cornell LII: Cantwell v. Connecticut, 310 U.S. 296",
+              "url": "https://www.law.cornell.edu/supremecourt/text/310/296"
+            },
+            {
+              "en": "Everson v. Board of Education (1947): the decision and the part of the Bill of Rights it applied to the states.",
+              "zh": "Everson v. Board of Education (1947)：判決與它適用到各州的權利法案條文",
+              "src": "Cornell LII: Everson v. Board of Education, 330 U.S. 1",
+              "url": "https://www.law.cornell.edu/supremecourt/text/330/1"
+            },
+            {
+              "en": "In re Oliver (1948): the decision and the part of the Bill of Rights it applied to the states.",
+              "zh": "In re Oliver (1948)：判決與它適用到各州的權利法案條文",
+              "src": "Cornell LII: In re Oliver, 333 U.S. 257",
+              "url": "https://www.law.cornell.edu/supremecourt/text/333/257"
+            },
+            {
+              "en": "Wolf v. Colorado (1949): the decision and the part of the Bill of Rights it applied to the states.",
+              "zh": "Wolf v. Colorado (1949)：判決與它適用到各州的權利法案條文",
+              "src": "Cornell LII: Wolf v. Colorado, 338 U.S. 25",
+              "url": "https://www.law.cornell.edu/supremecourt/text/338/25"
+            },
+            {
+              "en": "Mapp v. Ohio (1961): the decision and the part of the Bill of Rights it applied to the states.",
+              "zh": "Mapp v. Ohio (1961)：判決與它適用到各州的權利法案條文",
+              "src": "Cornell LII: Mapp v. Ohio, 367 U.S. 643",
+              "url": "https://www.law.cornell.edu/supremecourt/text/367/643"
+            },
+            {
+              "en": "Robinson v. California (1962): the decision and the part of the Bill of Rights it applied to the states.",
+              "zh": "Robinson v. California (1962)：判決與它適用到各州的權利法案條文",
+              "src": "Cornell LII: Robinson v. California, 370 U.S. 660",
+              "url": "https://www.law.cornell.edu/supremecourt/text/370/660"
+            },
+            {
+              "en": "Gideon v. Wainwright (1963): the decision and the part of the Bill of Rights it applied to the states.",
+              "zh": "Gideon v. Wainwright (1963)：判決與它適用到各州的權利法案條文",
+              "src": "Cornell LII: Gideon v. Wainwright, 372 U.S. 335",
+              "url": "https://www.law.cornell.edu/supremecourt/text/372/335"
+            },
+            {
+              "en": "Malloy v. Hogan (1964): the decision and the part of the Bill of Rights it applied to the states.",
+              "zh": "Malloy v. Hogan (1964)：判決與它適用到各州的權利法案條文",
+              "src": "Cornell LII: Malloy v. Hogan, 378 U.S. 1",
+              "url": "https://www.law.cornell.edu/supremecourt/text/378/1"
+            },
+            {
+              "en": "Klopfer v. North Carolina (1967): the decision and the part of the Bill of Rights it applied to the states.",
+              "zh": "Klopfer v. North Carolina (1967)：判決與它適用到各州的權利法案條文",
+              "src": "Cornell LII: Klopfer v. North Carolina, 386 U.S. 213",
+              "url": "https://www.law.cornell.edu/supremecourt/text/386/213"
+            },
+            {
+              "en": "Duncan v. Louisiana (1968): the decision and the part of the Bill of Rights it applied to the states.",
+              "zh": "Duncan v. Louisiana (1968)：判決與它適用到各州的權利法案條文",
+              "src": "Cornell LII: Duncan v. Louisiana, 391 U.S. 145",
+              "url": "https://www.law.cornell.edu/supremecourt/text/391/145"
+            },
+            {
+              "en": "Benton v. Maryland (1969): the decision and the part of the Bill of Rights it applied to the states.",
+              "zh": "Benton v. Maryland (1969)：判決與它適用到各州的權利法案條文",
+              "src": "Cornell LII: Benton v. Maryland, 395 U.S. 784",
+              "url": "https://www.law.cornell.edu/supremecourt/text/395/784"
+            },
+            {
+              "en": "Miranda v. Arizona (1966): statements from custodial interrogation and the required warnings.",
+              "zh": "Miranda v. Arizona（1966）：羈押訊問所得的陳述與必須告知的權利",
+              "src": "Cornell LII: Miranda v. Arizona, 384 U.S. 436",
+              "url": "https://www.law.cornell.edu/supremecourt/text/384/436"
+            },
+            {
+              "en": "West Virginia State Board of Education v. Barnette (1943): the quoted passages and the holding.",
+              "zh": "West Virginia State Board of Education v. Barnette（1943）：引用的段落與判決結果",
+              "src": "Cornell LII: 319 U.S. 624",
+              "url": "https://www.law.cornell.edu/supremecourt/text/319/624"
+            },
+            {
+              "en": "Tinker v. Des Moines (1969): the armbands, “the schoolhouse gate,” and “materially and substantially interfere.”",
+              "zh": "Tinker v. Des Moines（1969）：黑臂章、「校門口」與「實質而重大地干擾」",
+              "src": "Cornell LII: 393 U.S. 503",
+              "url": "https://www.law.cornell.edu/supremecourt/text/393/503"
+            },
+            {
+              "en": "The state action requirement: a purely private party cannot violate the First Amendment.",
+              "zh": "國家行為的要件：純粹的私人不可能違反第一條修正案",
+              "src": "Cornell LII Wex: State Action Requirement",
+              "url": "https://www.law.cornell.edu/wex/state_action_requirement"
+            },
+            {
+              "en": "Strict scrutiny: a compelling government interest, and a law narrowly tailored to it.",
+              "zh": "嚴格審查：重大而迫切的政府利益，且法律精準地量身訂做",
+              "src": "Cornell LII Wex: Strict Scrutiny",
+              "url": "https://www.law.cornell.edu/wex/strict_scrutiny"
+            },
+            {
+              "en": "The rational basis test: a reasonable connection to a legitimate government purpose.",
+              "zh": "合理基礎審查：與正當的政府目的有合理的關聯",
+              "src": "Cornell LII Wex: Rational Basis Test",
+              "url": "https://www.law.cornell.edu/wex/rational_basis_test"
+            },
+            {
+              "en": "What free speech does and does not include, as summarized by the federal courts.",
+              "zh": "聯邦法院整理的言論自由包括與不包括的範圍",
+              "src": "United States Courts: What Does Free Speech Mean?",
+              "url": "https://www.uscourts.gov/about-federal-courts/educational-resources/about-educational-outreach/activity-resources/what-does"
+            },
+            {
+              "en": "Constitution of the Republic of China: Chapter II (Articles 7 to 24), Articles 22, 23, and 78.",
+              "zh": "中華民國憲法：第二章（第 7 至 24 條）、第 22、23、78 條",
+              "src": "全國法規資料庫：中華民國憲法",
+              "url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=A0000001"
             }
           ]
         }

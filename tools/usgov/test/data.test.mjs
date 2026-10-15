@@ -130,4 +130,35 @@ const k3 = lessons.find((l) => l.slug === 'federalism');
   assert.deepEqual(m3.options.map((o) => o.key), ['national', 'state', 'both']);
   for (const o of m3.options) assert.ok(m3.questions.filter((q) => q.answer === o.key).length >= 3);
 }
+// 第四課：權利法案與併入
+const k4 = lessons.find((l) => l.slug === 'bill-of-rights');
+{
+  const R = k4.lab.rights;
+  assert.deepEqual(R.map((r) => r.key), ['a1', 'a2', 'a3', 'a4', 'a5', 'a6', 'a7', 'a8', 'a9', 'a10', 'a14']);
+  const minT = Date.parse(k4.lab.min + '-01-01'), maxT = Date.parse(k4.lab.max + '-12-31');
+  for (const r of R) {
+    assert.ok(r.en && r.zh && r.text_en && r.text_zh && r.quote && r.cite && r.btn_en && r.btn_zh, r.key);
+    if (!r.national) assert.ok(r.national_note_en && r.national_note_zh, `${r.key}: says why there is no national shield`);
+    if (!r.inc.length) assert.ok(r.state_note_en && r.state_note_zh, `${r.key}: says why there is no state shield`);
+    const ds = r.inc.map((i) => Date.parse(i.date));
+    assert.deepEqual(ds, ds.slice().sort((a, b) => a - b), `${r.key}: cases in order`);
+    for (const d of ds) assert.ok(d >= minT && d <= maxT, `${r.key}: case inside the timeline`);
+  }
+  // 第二條只引條文：不畫盾牌、不列判例
+  const a2 = R.find((r) => r.key === 'a2');
+  assert.equal(a2.national, false); assert.equal(a2.inc.length, 0);
+  assert.equal(R.find((r) => r.key === 'a1').inc[0].date, '1925-06-08', 'Gitlow');
+  for (const k of ['a3', 'a7']) assert.equal(R.find((r) => r.key === k).inc.length, 0, `${k} not incorporated`);
+  assert.equal(k4.clause.items[0].text, R[0].quote);
+  for (const [k, d] of Object.entries(k4.lab.demos)) for (const [sel] of d) assert.ok(R.some((r) => r.key === sel), `${k}: ${sel}`);
+  for (const p of k4.parts) assert.ok(k4.lab.demos[p.demo], p.demo);
+  const ev = k4.lab.events.map((e) => Date.parse(e.date));
+  assert.deepEqual(ev, ev.slice().sort((a, b) => a - b), 'events in order');
+  for (const m of [k4.match, k4.match2]) for (const q of m.questions) assert.ok(m.options.some((o) => o.key === q.answer), q.en);
+  const [s0, s1] = k4.debate.sides;
+  assert.equal(s0.points.length, s1.points.length);
+  const w = (s) => s.points.reduce((a, q) => a + q.en.split(/\s+/).length, 0);
+  assert.ok(Math.abs(w(s0) - w(s1)) <= 8, 'debate sides about equal length');
+  assert.ok(Math.abs(s0.voice.split(/\s+/).length - s1.voice.split(/\s+/).length) <= 8, 'quoted voices about equal length');
+}
 console.log('data.test ok');

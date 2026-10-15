@@ -18446,7 +18446,7 @@ def build_wh_hub():
 _usgj = os.path.join(ROOT, "data", "us_government.json")
 USG = json.load(open(_usgj, encoding="utf-8")) if os.path.exists(_usgj) else None
 USG_BASE = "/resources/classes/us-government/"
-_USG_JS = {"constitution": "usg-constitution", "checks": "usg-checks", "federalism": "usg-federalism"}   # lab.kind → assets/js/<bundle>.js
+_USG_JS = {"constitution": "usg-constitution", "checks": "usg-checks", "federalism": "usg-federalism", "rights": "usg-rights"}   # lab.kind → assets/js/<bundle>.js
 
 def _usg_ver():
     h = hashlib.md5()
@@ -18706,7 +18706,61 @@ def _ug_fifty(d):
 </div>'''
 
 
-_USG_CARD = {"constitution": usgconst_svg, "checks": usgchecks_svg, "federalism": usgfed_svg}
+def usgrights_svg(size=56):
+    """第四課的課程卡小圖示：一個人前面立著一面六角形的盾牌，上面寫著 I。"""
+    return (f'<svg class="usgrights-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">'
+            '<path d="M4 14l12 6M4 30h12M4 46l12-6" stroke="#ffd36e" stroke-width="2" stroke-linecap="round" opacity=".7"/>'
+            '<path d="M30 8l14 8v16l-14 8-14-8V16z" fill="rgba(255,211,110,.25)" stroke="#ffd36e" stroke-width="2"/>'
+            '<text x="30" y="30" text-anchor="middle" font-family="Georgia,serif" font-size="12" font-weight="700" fill="#fff">I</text>'
+            '<circle cx="50" cy="38" r="4" fill="#f2c9a0"/><path d="M45 56c0-8 2-12 5-12s5 4 5 12z" fill="#4e9c74"/></svg>')
+
+def render_usgrights_lab(lesson):
+    """第四課：盾牌擋在政府與人之間（assets/js/usg-rights.js 綁這裡的 class）。"""
+    lab = lesson["lab"]
+    btns = "".join(
+        f'<button type="button" data-right="{r["key"]}" aria-pressed="{"true" if n == 0 else "false"}"><b>{html.escape(r["btn_en"])}</b><small>{html.escape(r["btn_zh"])}</small></button>'
+        for n, r in enumerate(lab["rights"]))
+    def panel(n, r):
+        q = f'<blockquote class="ug-art-q" lang="en">{html.escape(r["quote"])}<cite>{html.escape(r["cite"])}</cite></blockquote>' if r.get("quote") else ""
+        inc = ""
+        if r.get("inc"):
+            inc = '<ul class="ug-rt-inc">' + "".join(
+                f'<li><b>{html.escape(c["date"][:4])}</b>{html.escape(c["what_en"])} <i>{html.escape(c["case"])}</i><span class="zh">{html.escape(c["what_zh"])}</span></li>' for c in r["inc"]) + '</ul>'
+        return (f'<div class="ug-rt" data-right-panel="{r["key"]}"{"" if n == 0 else " hidden"}>'
+                f'<h3 class="ug-art-name">{html.escape(r["en"])}<span class="zh">{html.escape(r["zh"])}</span></h3>'
+                f'<p class="ug-art-est">{html.escape(r["text_en"])}<span class="zh">{html.escape(r["text_zh"])}</span></p>{q}{inc}</div>')
+    panels = "".join(panel(n, r) for n, r in enumerate(lab["rights"]))
+    payload = json.dumps({k: lab[k] for k in ("min", "max", "start", "presets", "events", "demos")} |
+                         {"rights": [{k: r.get(k) for k in ("key", "national", "inc", "national_note_en", "national_note_zh", "state_note_en", "state_note_zh")} for r in lab["rights"]]},
+                         ensure_ascii=False).replace("</", "<\\/")
+    tg = _lab_toggles([("labels", "Labels", "標示", True)])
+    return f'''<div class="astro-lab ug-lab ug-rts rvl" data-usgrights-lab>
+  <script type="application/json">{payload}</script>
+  <div class="al-stage">
+    <div class="al-space">
+      <canvas class="al-space-cv" aria-label="Simplified 3D model: the national government's buildings, a state capitol, and a person; arrows show government action and shields show which right blocks it · 簡化的 3D 模型：全國政府的建築、一棟州議會大廈和一個人；箭頭代表政府的作為，盾牌代表擋住它的權利"></canvas>
+      <div class="al-labels" aria-hidden="true"></div>
+      <p class="al-hint">Drag to look around · 拖曳轉動視角　Scroll or pinch to zoom · 滾輪／雙指縮放</p>
+      <button type="button" class="al-home" title="Whole view · 回到全景" aria-label="Whole view · 回到全景">&#8634;</button>
+      <p class="al-nogl-msg">This 3D model needs WebGL, which this browser does not support. The buttons, the panel, and the timeline still work, and so do the reading and the two activities below.<br><span class="zh">這個瀏覽器不支援 WebGL，無法顯示 3D 模型；按鈕、說明欄和時間軸照樣能用，下面的課文和兩個小互動也都能用。</span></p>
+    </div>
+    <aside class="al-sky ug-aside">
+      <p class="al-sky-k">The right · 這一條權利</p>
+      {panels}
+      <div class="ug-rt-status ug-when" aria-live="polite"></div>
+    </aside>
+  </div>
+  <div class="al-controls">
+    <p class="ug-ctl-k">Choose an amendment · 選一條修正案</p>
+    <div class="ug-rts-btns" role="group" aria-label="Amendments · 修正案">{btns}</div>
+    {_ug_timeline(lab)}
+    <div class="al-row al-toggles ug-row-play">{tg}</div>
+  </div>
+  {_lab_foot(lab)}
+</div>'''
+
+
+_USG_CARD = {"constitution": usgconst_svg, "checks": usgchecks_svg, "federalism": usgfed_svg, "rights": usgrights_svg}
 
 def _ug_timeline(tl):
     """可縮放的時間軸骨架（tools/usgov/src/timeline2d.js 綁這裡的 class；每課共用）。"""
@@ -18776,7 +18830,7 @@ def render_usgconst_lab(lesson):
   {_lab_foot(lab)}
 </div>'''
 
-_USG_LAB = {"constitution": render_usgconst_lab, "checks": render_usgchecks_lab, "federalism": render_usgfed_lab}
+_USG_LAB = {"constitution": render_usgconst_lab, "checks": render_usgchecks_lab, "federalism": render_usgfed_lab, "rights": render_usgrights_lab}
 
 def _ug_spk(text, label="Listen · 聽"):
     return f'<button class="spk" data-say="{html.escape(re.sub(r"<[^>]+>", "", text))}" aria-label="{label}">🔊</button>'
@@ -18932,7 +18986,7 @@ def _ug_news_english(d):
 
 # 頁面上的小互動與每課固定的卡：照這個順序排在「模型卡」後面（JSON 有那個 key 才出現）。
 # clause（條文怎麼寫？）、primary（讀原典）、debate（制度的爭論）、taiwan（和台灣比一比）、news_english（新聞英語）每課都要有。
-_USG_WIDGETS = [("match", _ug_match), ("amend", _ug_amend), ("veto", _ug_veto), ("fifty", _ug_fifty), ("clause", _ug_clause), ("primary", _ug_primary),
+_USG_WIDGETS = [("match", _ug_match), ("match2", _ug_match), ("amend", _ug_amend), ("veto", _ug_veto), ("fifty", _ug_fifty), ("clause", _ug_clause), ("primary", _ug_primary),
                 ("debate", _ug_debate), ("taiwan", _ug_taiwan), ("news_english", _ug_news_english)]
 
 def _usg_flat():
