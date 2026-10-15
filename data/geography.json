@@ -1691,7 +1691,7 @@
        "zh": "怎麼在平面上畫出一座山？",
        "note_en": "Contour lines: how a flat map shows which places are high and which are low.",
        "note_zh": "等高線：平面的地圖怎麼畫出哪裡高、哪裡低。",
-       "soon": true
+       "href": "/resources/classes/geography/contour-lines/"
       }
      ],
      "sources_note_en": "Names, dates, numbers, and quotations on this page were checked against these sources (October 2026). The lengths of a degree are computed by the page itself and have automated tests",
@@ -1800,15 +1800,927 @@
        "url": "https://www.naer.edu.tw/PageSyllabus?fid=52"
       }
      ]
+    },
+    {
+     "n": 3,
+     "slug": "contour-lines",
+     "title": "How Do You Draw a Mountain on Flat Paper?",
+     "title_zh": "怎麼在平面上畫出一座山？",
+     "level": "入門 · Beginner",
+     "icon": "⛰️",
+     "card": "contour",
+     "blurb_en": "Fill a tank around a mountain with water, one step at a time, and let the water's edge draw contour lines. Then look from above, read which slopes are steep, and turn any line on the map into a side view.",
+     "blurb_zh": "在一座山的四周一層一層灌水，讓水邊畫出等高線。再從正上方看、判斷哪裡陡，把地圖上任何一條線變成側面圖。",
+     "big_idea_en": "A contour line joins points that are the same height above sea level. Draw one every few meters of height and a flat map can show a mountain: where the lines crowd together, the slope is steep, and where they spread apart, it is gentle.",
+     "big_idea_zh": "等高線把海拔一樣高的點連起來。每隔固定的高度畫一條，平面的地圖就能畫出一座山：線擠在一起的地方坡很陡，線分得很開的地方坡很緩。",
+     "lab": {
+      "kind": "contour",
+      "eyebrow": "3D Model · 3D 模型",
+      "title_en": "A Mountain in a Tank of Water",
+      "title_zh": "水缸裡的一座山",
+      "how_en": "Press “Raise the water,” or drag the slider. Each time the water climbs one contour interval, its edge leaves a gold line on the mountain. When the summit is under water, switch to “From above”: the lines you see are a contour map. Click anywhere on the mountain to read its height and slope. This is an imaginary island, not a real place.",
+      "how_zh": "按「升高水位」，或拖動滑桿。水每升高一個等高距，水邊就在山上留下一條金色的線。等山頂也淹沒了，切到「從正上方看」：你看到的那些線，就是一張等高線地圖。點山上任何一個地方，可以讀出它的海拔和坡度。這是一座想像的島，不是真實的地方。",
+      "legend": [
+       {
+        "cls": "water",
+        "en": "The rising water",
+        "zh": "升高的水"
+       },
+       {
+        "cls": "gold",
+        "en": "Contour lines left by the water",
+        "zh": "水留下的等高線"
+       },
+       {
+        "cls": "white",
+        "en": "The water's edge right now",
+        "zh": "現在的水邊"
+       },
+       {
+        "cls": "pick",
+        "en": "The spot you clicked",
+        "zh": "你點的地方"
+       }
+      ],
+      "scale_en": "The island is 10 km across and its summit is about 1,000 m high. Heights in the model are drawn 1.5 times taller than they really are, so the shape is easier to see.",
+      "scale_zh": "這座島寬 10 公里，山頂大約 1,000 公尺。模型裡的高度畫成實際的 1.5 倍，讓形狀比較容易看清楚。",
+      "credit_html": "The island is an imaginary landform made by the page itself from a mathematical formula, so that every height and slope can be computed and tested. · 這座島是頁面用數學式自己做出來的想像地形，所以每一個高度和坡度都算得出來、也有自動測試。"
+     },
+     "paras": [
+      "A map is flat, but the land is not. Some places are high and some are low, and a hiker, a farmer, or a person choosing where to build a house needs to know which is which. How can a flat sheet of paper show a mountain? One clever answer is the contour line.",
+      "A contour line joins points that are the same height above sea level. Imagine an island in the middle of a calm sea. The edge of the water traces a line all the way around the island, and every point on that line is at a height of zero. That line is the coastline, and it is also the first contour line.",
+      "Now imagine that the sea rises by 100 meters. The water's edge moves up the mountain and traces a new, shorter loop. Every point on it is 100 meters high. Let the water rise another 100 meters, and another, and each time draw the new edge. When you look down from above, you see rings inside rings. The difference in height between one line and the next is called the contour interval.",
+      "The spacing of the lines tells you the shape of the land. Where the lines crowd together, the ground rises quickly over a short distance, so the slope is steep. Where the lines are far apart, the ground rises slowly, and the slope is gentle. A small closed ring in the middle marks a summit. Two summits with a low dip between them make a saddle, and lines that bend into a V show a valley.",
+      "Mapmakers make contour maps easier to read in a few ways. Every fourth or fifth line is usually drawn thicker and labeled with its height, so you do not have to count all the lines. Many maps also color the land by height. The height of a mountain is measured from sea level, so countries choose an official starting point. Taiwan's heights are measured from the average sea level at the tide station in Keelung.",
+      "With practice, you can read a contour map like a picture. You can tell which path to the top is shorter but steeper, where a river will flow, and what you would see if you cut the mountain in half and looked at it from the side. That side view is called a profile. Contour lines turn the ups and downs of the land into lines that a flat map can hold."
+     ],
+     "paras_zh": [
+      "地圖是平的，土地卻不是。有些地方高、有些地方低，登山的人、種田的人、要選地方蓋房子的人，都得知道哪裡高、哪裡低。一張平平的紙，要怎麼畫出一座山？有一個很聰明的答案：等高線。",
+      "等高線把海拔一樣高的點連起來。想像大海中間有一座島，海面很平靜。水邊沿著島繞了一整圈，這條線上的每一個點，高度都是 0。這條線就是海岸線，也是第一條等高線。",
+      "現在想像海面升高 100 公尺。水邊往山上移，畫出一圈新的、比較短的線，線上每一點都是 100 公尺高。再升高 100 公尺、再升高 100 公尺，每次都把新的水邊畫下來。從正上方往下看，你會看到一圈套著一圈。相鄰兩條線之間的高度差，叫做等高距。",
+      "線和線之間的距離，告訴你土地的形狀。線擠在一起的地方，很短的距離裡地面就升得很高，所以坡很陡；線分得很開的地方，地面升得很慢，坡就很緩。中間一個小小的封閉圓圈是山頂。兩座山頂中間低下去的地方是鞍部，彎成 V 字形的線代表山谷。",
+      "製圖的人用幾種方法讓等高線地圖更好讀。通常每四條或五條線就有一條畫得比較粗，並標上高度，不用一條一條數。很多地圖也會照高度幫陸地上色。山的高度是從海平面量起的，所以每個國家都要選一個官方的起點；台灣的高度，是從基隆潮位站量到的平均海平面算起。",
+      "多練習幾次，你就能把等高線地圖當成一幅畫來讀。你看得出哪一條上山的路比較短、但比較陡，河會往哪裡流，以及把山從中間切開、從側面看會是什麼樣子。這個側面的樣子叫做剖面。等高線把土地的高高低低，變成了平面地圖裝得下的線。"
+     ],
+     "questions": [
+      "Why is the coastline also a contour line?",
+      "On a contour map, two paths lead to the same summit. One crosses many lines that are close together. The other crosses the same lines, but they are far apart. Which path is steeper, and why?",
+      "Why do contour lines of different heights never cross each other on a normal map?"
+     ],
+     "answers": [
+      "Every point on the coastline is at the same height: sea level, 0 meters. A contour line joins points of the same height, so the coastline is the 0 m contour line.",
+      "The path across the crowded lines is steeper. It climbs the same height in a shorter distance.",
+      "One spot on the ground has only one height. If two lines of different heights crossed, the crossing point would need two different heights at once, which is impossible."
+     ],
+     "vocab": [
+      {
+       "n": 1,
+       "w": "contour line",
+       "pos": "n.",
+       "zh": "等高線",
+       "ex": "Every point on this <b>contour line</b> is 500 meters high.",
+       "exzh": "這條等高線上的每一點都是 500 公尺高。"
+      },
+      {
+       "n": 2,
+       "w": "elevation",
+       "pos": "n.",
+       "zh": "海拔；高程",
+       "ex": "The <b>elevation</b> of the summit is about 1,000 meters.",
+       "exzh": "山頂的海拔大約 1,000 公尺。"
+      },
+      {
+       "n": 3,
+       "w": "sea level",
+       "pos": "n.",
+       "zh": "海平面",
+       "ex": "Heights on a map are measured from <b>sea level</b>.",
+       "exzh": "地圖上的高度是從海平面量起的。"
+      },
+      {
+       "n": 4,
+       "w": "contour interval",
+       "pos": "n.",
+       "zh": "等高距",
+       "ex": "On this map the <b>contour interval</b> is 100 meters.",
+       "exzh": "這張地圖的等高距是 100 公尺。"
+      },
+      {
+       "n": 5,
+       "w": "steep",
+       "pos": "adj.",
+       "zh": "陡的",
+       "ex": "The east side of the mountain is very <b>steep</b>.",
+       "exzh": "這座山的東坡非常陡。"
+      },
+      {
+       "n": 6,
+       "w": "gentle",
+       "pos": "adj.",
+       "zh": "（坡）緩的",
+       "ex": "The path up the <b>gentle</b> slope is longer but easier.",
+       "exzh": "從緩坡上山的路比較長，但比較好走。"
+      },
+      {
+       "n": 7,
+       "w": "summit",
+       "pos": "n.",
+       "zh": "山頂",
+       "ex": "We reached the <b>summit</b> before noon.",
+       "exzh": "我們中午以前就到了山頂。"
+      },
+      {
+       "n": 8,
+       "w": "valley",
+       "pos": "n.",
+       "zh": "山谷",
+       "ex": "A river runs along the bottom of the <b>valley</b>.",
+       "exzh": "一條河沿著山谷的底部流過。"
+      }
+     ],
+     "quiz": [
+      {
+       "q": "What does a contour line join?",
+       "options": [
+        "Points at the same height",
+        "Points at the same distance from the sea",
+        "Places with the same weather",
+        "Roads that lead to the summit"
+       ],
+       "correct": 0
+      },
+      {
+       "q": "Where contour lines are very close together, the slope is…",
+       "options": [
+        "flat",
+        "steep",
+        "under water",
+        "gentle"
+       ],
+       "correct": 1
+      },
+      {
+       "q": "What is the contour interval?",
+       "options": [
+        "The distance between two summits",
+        "The thickness of a contour line",
+        "The difference in height between neighboring contour lines",
+        "The number of lines on a map"
+       ],
+       "correct": 2
+      },
+      {
+       "q": "What does a small closed ring in the middle of other rings usually show?",
+       "options": [
+        "A lake",
+        "A valley",
+        "A saddle",
+        "A summit"
+       ],
+       "correct": 3
+      },
+      {
+       "q": "Which contour line is also the coastline?",
+       "options": [
+        "The 0 m line",
+        "The highest line",
+        "The thickest line",
+        "The 100 m line"
+       ],
+       "correct": 0
+      }
+     ],
+     "parts_head": {
+      "eyebrow": "Try It in the Model · 在模型裡試試",
+      "en": "Four things to watch",
+      "zh": "四件值得看的事"
+     },
+     "parts": [
+      {
+       "key": "rise",
+       "icon": "🌊",
+       "en": "The water draws the lines",
+       "zh": "水畫出線",
+       "meta_en": "Every 100 m",
+       "meta_zh": "每 100 公尺一條",
+       "demo": "rise",
+       "text_en": "Watch the water rise from sea level to the summit. Each time it climbs 100 m, its edge leaves a gold line on the mountain. The U.S. Geological Survey explains contour lines with this same picture of a rising sea.",
+       "text_zh": "看水從海平面一路升到山頂。每升高 100 公尺，水邊就在山上留下一條金色的線。美國地質調查所（USGS）解說等高線時，用的也是「海面升高」這個畫面。"
+      },
+      {
+       "key": "top",
+       "icon": "🗺️",
+       "en": "From above, it is a map",
+       "zh": "從上面看，就是地圖",
+       "meta_en": "Contour map",
+       "meta_zh": "等高線地圖",
+       "demo": "top",
+       "text_en": "The camera moves straight overhead. The rings you see are exactly what a contour map shows.",
+       "text_zh": "鏡頭移到正上方。你看到的一圈一圈，就是等高線地圖畫的東西。"
+      },
+      {
+       "key": "steep",
+       "icon": "🧗",
+       "en": "Crowded lines, steep slope",
+       "zh": "線擠在一起，坡就陡",
+       "meta_en": "The east side",
+       "meta_zh": "東坡",
+       "demo": "steep",
+       "text_en": "On the east side the lines crowd together. The marked spot there has a slope of more than 30 degrees. Compare it with the west side, where the lines spread out.",
+       "text_zh": "東邊的線擠在一起，那裡標出的點坡度超過 30 度。和西邊線分得很開的地方比一比。"
+      },
+      {
+       "key": "saddle",
+       "icon": "🐴",
+       "en": "A saddle between two peaks",
+       "zh": "兩座山之間的鞍部",
+       "meta_en": "Saddle",
+       "meta_zh": "鞍部",
+       "demo": "saddle",
+       "text_en": "The water stops just above the low point between the two peaks. A little higher and the two islands would be separate. That low point is the saddle.",
+       "text_zh": "水停在兩座山之間最低點的上方一點。再高一點，就會變成兩座分開的島。那個最低點就是鞍部。"
+      }
+     ],
+     "parts_note_en": "Then try it yourself. Change the contour interval to 50 m and to 200 m. Which one shows the shape best, and which one is easiest to read?",
+     "parts_note_zh": "然後自己動手試試。把等高距改成 50 公尺和 200 公尺。哪一種最能看出山的形狀？哪一種最好讀？",
+     "steep": {
+      "eyebrow": "Game · 小遊戲",
+      "en": "Which Path Is Steeper?",
+      "zh": "哪一條路比較陡？",
+      "lead_en": "Eight questions about the same island. Read the contour map and choose path A or path B. After you answer, the side views of both paths appear, drawn to the same scale, so you can check. There is no timer, and the game counts the questions you get right on the first try.",
+      "lead_zh": "同一座島的八個問題。讀等高線地圖，選路線 A 或 B。答完以後，兩條路線的側面會照同樣的比例畫出來，讓你對答案。不計時，遊戲會記下你第一次就答對的題數。",
+      "start_en": "Count how many lines each path crosses, and look at how close together they are.",
+      "start_zh": "數一數每條路線穿過幾條線，再看看那些線擠得多近。",
+      "end_en": "Close lines mean a steep climb; far-apart lines mean an easy one. Now you can read a mountain from a flat map.",
+      "end_zh": "線擠在一起就是陡坡，線分得開就是緩坡。現在你能從一張平面地圖讀出一座山了。",
+      "hint": {
+       "steeper": {
+        "en": "Steeper means more height in less distance. Look for the path where the lines are closest together.",
+        "zh": "比較陡，就是在比較短的距離裡升得比較高。找線擠得最近的那一條。"
+       },
+       "easier": {
+        "en": "An easier walk climbs slowly. Look for the path where the lines are far apart.",
+        "zh": "好走的路升得慢。找線分得最開的那一條。"
+       },
+       "higher": {
+        "en": "Look for the highest numbered line, or the innermost ring, that each path reaches.",
+        "zh": "看每條路線碰到的最高那條線（標的數字最大、或最裡面的那一圈）。"
+       },
+       "climb": {
+        "en": "Count the lines each path crosses on the way up. Every line is another 100 m of climbing.",
+        "zh": "數每條路線往上走時穿過幾條線。每多一條，就要多爬 100 公尺。"
+       }
+      },
+      "questions": [
+       {
+        "ask": "steeper",
+        "a": [
+         [
+          0.9,
+          0.75
+         ],
+         [
+          -1,
+          0.75
+         ]
+        ],
+        "b": [
+         [
+          -3.6,
+          0.75
+         ],
+         [
+          -1,
+          0.75
+         ]
+        ],
+        "answer": "a",
+        "en": "Both paths end at the summit. Which one is steeper?",
+        "zh": "兩條路線都到山頂。哪一條比較陡？",
+        "why_en": "Path A climbs about the same height in a much shorter distance. Its lines are crowded together.",
+        "why_zh": "A 路線爬差不多的高度，走的距離卻短得多；它經過的線擠在一起。"
+       },
+       {
+        "ask": "easier",
+        "a": [
+         [
+          -3.6,
+          2.2
+         ],
+         [
+          -1.3,
+          0.9
+         ]
+        ],
+        "b": [
+         [
+          0.9,
+          0.75
+         ],
+         [
+          -1,
+          0.75
+         ]
+        ],
+        "answer": "a",
+        "en": "You are carrying a heavy pack. Which path is the easier climb?",
+        "zh": "你背著很重的背包。哪一條路比較好爬？",
+        "why_en": "Path A crosses lines that are spread out, so it rises more slowly.",
+        "why_zh": "A 路線經過的線分得比較開，所以升得比較慢。"
+       },
+       {
+        "ask": "higher",
+        "a": [
+         [
+          -3.4,
+          1.4
+         ],
+         [
+          1.4,
+          0.2
+         ]
+        ],
+        "b": [
+         [
+          -0.8,
+          -2.6
+         ],
+         [
+          1.6,
+          1.8
+         ]
+        ],
+        "answer": "a",
+        "en": "Both paths cross the island. Which one goes higher?",
+        "zh": "兩條路線都橫越這座島。哪一條走得比較高？",
+        "why_en": "Path A passes right by the summit. Path B crosses through the low saddle between the peaks.",
+        "why_zh": "A 路線從山頂旁邊經過；B 路線從兩座山之間低低的鞍部穿過去。"
+       },
+       {
+        "ask": "climb",
+        "a": [
+         [
+          -1.2,
+          -2.9
+         ],
+         [
+          0.2,
+          -0.5
+         ]
+        ],
+        "b": [
+         [
+          -2.6,
+          -1.6
+         ],
+         [
+          -1,
+          0.75
+         ]
+        ],
+        "answer": "b",
+        "en": "Which path makes you climb more meters in total?",
+        "zh": "哪一條路線總共要爬比較多公尺？",
+        "why_en": "Path B goes all the way to the summit, about 1,000 m. Path A follows the valley and stops near 200 m.",
+        "why_zh": "B 路線一路爬到山頂，大約 1,000 公尺；A 路線沿著山谷走，到 200 公尺左右就停了。"
+       },
+       {
+        "ask": "steeper",
+        "a": [
+         [
+          0.2,
+          -2.6
+         ],
+         [
+          1.25,
+          -1
+         ]
+        ],
+        "b": [
+         [
+          0.4,
+          0.75
+         ],
+         [
+          -0.6,
+          0.75
+         ]
+        ],
+        "answer": "b",
+        "en": "Which path is steeper?",
+        "zh": "哪一條路線比較陡？",
+        "why_en": "Path B is short and crosses many crowded lines on the east face of the main peak.",
+        "why_zh": "B 路線很短，卻穿過主峰東坡上很多擠在一起的線。"
+       },
+       {
+        "ask": "higher",
+        "a": [
+         [
+          -3.6,
+          1
+         ],
+         [
+          3.2,
+          -1.4
+         ]
+        ],
+        "b": [
+         [
+          -1.2,
+          -2.9
+         ],
+         [
+          0.2,
+          -0.5
+         ]
+        ],
+        "answer": "a",
+        "en": "Which path reaches a higher point?",
+        "zh": "哪一條路線會經過比較高的地方？",
+        "why_en": "Path A climbs over the shoulder of the main peak. Path B stays low in the valley.",
+        "why_zh": "A 路線翻過主峰的山肩；B 路線一直待在低低的山谷裡。"
+       },
+       {
+        "ask": "easier",
+        "a": [
+         [
+          1.25,
+          1.0
+         ],
+         [
+          1.25,
+          -1
+         ]
+        ],
+        "b": [
+         [
+          0.9,
+          0.75
+         ],
+         [
+          -1,
+          0.75
+         ]
+        ],
+        "answer": "a",
+        "en": "Which path is the easier climb?",
+        "zh": "哪一條路比較好爬？",
+        "why_en": "Path A goes up the lower peak, where the lines are farther apart. Path B goes up the steep east face of the main peak.",
+        "why_zh": "A 路線爬的是比較矮、線比較開的副峰；B 路線爬的是主峰陡峭的東坡。"
+       },
+       {
+        "ask": "climb",
+        "a": [
+         [
+          -1.2,
+          -2.9
+         ],
+         [
+          0.2,
+          -0.5
+         ]
+        ],
+        "b": [
+         [
+          1.25,
+          1.0
+         ],
+         [
+          1.25,
+          -1
+         ]
+        ],
+        "answer": "b",
+        "en": "Which path makes you climb more meters in total?",
+        "zh": "哪一條路線總共要爬比較多公尺？",
+        "why_en": "Path B reaches the top of the lower peak, about 540 m. Path A stays in the valley and climbs only about 260 m.",
+        "why_zh": "B 路線爬到副峰頂，大約 540 公尺；A 路線待在山谷裡，只爬大約 260 公尺。"
+       }
+      ]
+     },
+     "profile": {
+      "eyebrow": "See Why · 看看為什麼",
+      "en": "From Contour Lines to a Side View",
+      "zh": "從等高線到剖面",
+      "lead_en": "Drag the ends of the pink line, A and B, anywhere on the map. The side view shows the land along the line, as if you had cut the island with a knife and looked at the cut. Notice how the crowded lines on the map turn into steep slopes in the side view.",
+      "lead_zh": "把粉紅色線的兩端 A、B 拖到地圖上任何地方。側面圖畫的是沿著這條線的地面，就像拿刀把島切開、看切開的那一面。注意地圖上擠在一起的線，到了側面圖就變成陡坡。"
+     },
+     "map_english": {
+      "eyebrow": "Map English · 地圖英語",
+      "en": "Eight sentences for talking about high and low",
+      "zh": "說高低與坡度的八句英文",
+      "lead_en": "This lesson's Map English card is about height and slope. Listen, repeat, then describe the island in the model to a partner.",
+      "lead_zh": "這一課的「地圖英語」練習說高低和坡度。先聽、再跟著唸，然後對著模型裡的島，向同伴描述它的樣子。",
+      "items": [
+       {
+        "en": "The summit is <b>about one thousand meters above sea level</b>.",
+        "zh": "山頂大約海拔一千公尺。",
+        "use_en": "… meters above sea level: for elevation",
+        "use_zh": "說海拔"
+       },
+       {
+        "en": "<b>The contour lines are close together</b> on the east side.",
+        "zh": "東邊的等高線擠在一起。",
+        "use_en": "close together / far apart",
+        "use_zh": "擠在一起／分得很開"
+       },
+       {
+        "en": "<b>The slope is steep</b>, so the path zigzags.",
+        "zh": "坡很陡，所以小路走之字形。",
+        "use_en": "the slope is steep / gentle",
+        "use_zh": "坡很陡／很緩"
+       },
+       {
+        "en": "The river <b>flows down</b> the valley <b>to</b> the sea.",
+        "zh": "河沿著山谷往下流到海裡。",
+        "use_en": "flows down … to …",
+        "use_zh": "往下流到……"
+       },
+       {
+        "en": "There is <b>a saddle between</b> the two peaks.",
+        "zh": "兩座山峰之間有一個鞍部。",
+        "use_en": "between A and B",
+        "use_zh": "在 A 和 B 之間"
+       },
+       {
+        "en": "The contour interval <b>on this map is</b> one hundred meters.",
+        "zh": "這張地圖的等高距是一百公尺。",
+        "use_en": "on this map",
+        "use_zh": "說地圖本身的規格用 on this map"
+       },
+       {
+        "en": "We <b>climbed</b> four hundred meters <b>in</b> two kilometers.",
+        "zh": "我們走兩公里，爬升了四百公尺。",
+        "use_en": "climb … meters in … kilometers",
+        "use_zh": "說爬升多少"
+       },
+       {
+        "en": "<b>If you cut the mountain in half</b>, you can see its profile.",
+        "zh": "把山從中間切開，就能看到它的剖面。",
+        "use_en": "If you …, you can …",
+        "use_zh": "如果……就可以……"
+       }
+      ]
+     },
+     "culture_cards": {
+      "eyebrow": "Stories Behind the Lines · 線背後的故事",
+      "title_en": "Lines under the water, lines on the land, Taiwan's maps, and the height of Yushan",
+      "title_zh": "水下的線、陸上的線、台灣的地形圖，和玉山的高度",
+      "lead_en": "Four short stories about how people learned to draw height on paper and how they measure it.",
+      "lead_zh": "四個小故事，講人怎麼學會把高度畫到紙上，又怎麼量高度。",
+      "cards": [
+       {
+        "k": "About 1730 · Under Water · 水下",
+        "en": "The first lines measured depth",
+        "zh": "最早的線量的是水深",
+        "body_en": "Some of the first lines of equal height were really lines of equal depth, drawn for boats. Around 1729 and 1730, the Dutch engineer Nicolaas Cruquius published a map of the river Merwede that, according to Utrecht University Library, was the first to use a printed system of depth contours. A few years later the French geographer Philippe Buache drew depth lines on a chart of the English Channel, prepared in 1737 and published in 1752.",
+        "body_zh": "最早的一些「等高線」其實是「等深線」，是為了行船畫的。大約 1729 到 1730 年，荷蘭工程師克魯奎烏斯出版了一張默韋德河的地圖；依荷蘭烏特勒支大學圖書館的說明，這是第一張用印刷的等深線系統畫成的地圖。幾年後，法國地理學家布阿許在英吉利海峽的海圖上也畫了等深線，1737 年畫好、1752 年出版。"
+       },
+       {
+        "k": "1700s · On Land · 陸上",
+        "en": "From the riverbed to the mountain",
+        "zh": "從河床到山上",
+        "body_en": "Mapmakers then used the same idea for land. In the 1770s the British mathematician Charles Hutton used lines of equal height while working on survey measurements of a Scottish mountain called Schiehallion. In 1791 a map of France by Jean-Louis Dupain-Triel showed the whole country with contour lines 20 meters apart. Today almost every topographic map uses them.",
+        "body_zh": "後來製圖的人把同樣的想法用在陸地上。1770 年代，英國數學家哈頓在處理蘇格蘭一座叫希哈林的山的測量資料時，用了等高的線。1791 年，杜潘－特里耶爾的一張法國地圖，用每隔 20 公尺一條的等高線畫出整個國家。今天，幾乎每一張地形圖都用等高線。"
+       },
+       {
+        "k": "Taiwan · 台灣的地形圖",
+        "en": "Lines every 10 meters",
+        "zh": "每 10 公尺一條線",
+        "body_en": "Taiwan's 1:25,000 topographic maps, made by the National Land Surveying and Mapping Center, draw an ordinary contour line every 10 meters and a thicker index contour every 50 meters. Where the land is very flat, they add extra lines every 5 meters. On maps with a smaller scale, the lines are spaced farther apart: 20 and 100 meters at 1:50,000.",
+        "body_zh": "內政部國土測繪中心製作的 1/25,000 經建版地形圖，每 10 公尺畫一條首曲線、每 50 公尺畫一條加粗的計曲線；地勢很平的地方，再加每 5 公尺一條的間曲線。比例尺越小的地圖，線隔得越開：1/50,000 是 20 公尺和 100 公尺。"
+       },
+       {
+        "k": "Taiwan · 0 公尺從哪裡算",
+        "en": "How tall is Yushan, and tall from where?",
+        "zh": "玉山多高？從哪裡算起？",
+        "body_en": "The sea around Taiwan is not exactly the same height everywhere, because of currents such as the Kuroshio. So Taiwan measures every height from one place: the average sea level at the Keelung tide station, worked out from tide records from 1957 to 1991. From that zero, careful leveling surveys found Yushan's main peak to be 3,951.798 m in 2003, 3,952.430 m in 2017, and 3,952.433 m in 2022. The numbers are for the survey mark at the summit; the top of the stone monument there is about 1 meter higher.",
+        "body_zh": "台灣四周的海面並不是每個地方都一樣高，因為黑潮等因素會影響海面。所以台灣的高度都從同一個地方算起：基隆潮位站的平均海水面，用 1957 年到 1991 年的潮汐資料算出來。從這個零點出發，國土測繪中心用最精密的水準測量量出玉山主峰：2003 年 3,951.798 公尺、2017 年 3,952.430 公尺、2022 年 3,952.433 公尺。這些數字是山頂三角點的高度；主峰石碑的頂端大約再高 1 公尺。"
+       }
+      ]
+     },
+     "curric": {
+      "eyebrow": "In the Curriculum · 對應課綱",
+      "en": "Where this lesson fits",
+      "zh": "這一課對應的課綱",
+      "lead_en": "These entries come from Taiwan's 12-Year Basic Education curriculum for social studies (2018). The words contour line (等高線) and topographic map (地形圖) do not appear in the curriculum itself, and the elementary-school content has no entry about them. The links below are our reading of the closest entries.",
+      "lead_zh": "下面的條目出自十二年國民基本教育課程綱要社會領域（民國 107 年發布）。課綱本身沒有出現「等高線」和「地形圖」這兩個詞，國小階段也沒有相關的條目；下面列的是最接近的條目，和本課的連結是本教材的解讀。",
+      "items": [
+       {
+        "code": "地 Ab-Ⅳ-2",
+        "area": "社會領域・地理（國中）",
+        "area_en": "Social studies, geography (junior high)",
+        "text": "臺灣主要地形的分布與特色。",
+        "note_en": "Contour lines are one of the main ways maps show where Taiwan's mountains, hills, and plains are.",
+        "note_zh": "等高線是地圖呈現台灣的山地、丘陵、平原分布的主要方法之一。"
+       },
+       {
+        "code": "地 Ac-Ⅴ-3",
+        "area": "社會領域・地理（普通型高中必修）",
+        "area_en": "Social studies, geography (senior high, required)",
+        "text": "問題探究：地圖判讀與使用。",
+        "note_en": "Reading which path is steeper and drawing a profile are basic skills of map reading.",
+        "note_zh": "判斷哪條路比較陡、畫出剖面，都是讀地圖的基本功。"
+       },
+       {
+        "code": "地 Bb-Ⅴ-3",
+        "area": "社會領域・地理（普通型高中必修）",
+        "area_en": "Social studies, geography (senior high, required)",
+        "text": "地形辨識。",
+        "note_en": "Summits, saddles, and valleys can be recognized from the pattern of contour lines.",
+        "note_zh": "山頂、鞍部、山谷，都能從等高線的樣子認出來。"
+       }
+      ]
+     },
+     "myths": [
+      {
+       "myth_en": "A thick contour line marks a cliff or a special place.",
+       "myth_zh": "粗的等高線代表懸崖或特別的地方。",
+       "fact_en": "On many maps every fifth line is simply drawn thicker and labeled, so readers can count heights quickly. It means nothing special about the ground.",
+       "fact_zh": "很多地圖只是每五條線畫粗一條、標上高度，方便讀的人快速數高度，和地面本身沒有特別的關係。"
+      },
+      {
+       "myth_en": "Contour lines are real lines you can see on the ground.",
+       "myth_zh": "等高線是地面上看得到的真的線。",
+       "fact_en": "They are imaginary, like the equator. Mapmakers measure heights and draw the lines. Our model shows how a rising sea could trace them.",
+       "fact_zh": "等高線和赤道一樣是想像的線，是製圖的人量了高度之後畫出來的。我們的模型示範的是：如果海面升高，水邊會怎麼把它們描出來。"
+      },
+      {
+       "myth_en": "Where there are more contour lines, the mountain is bigger.",
+       "myth_zh": "等高線越多的地方，山就越大。",
+       "fact_en": "The number of lines between two places shows how much height changes. How close together they are shows how steep it is. A map with a smaller contour interval simply has more lines.",
+       "fact_zh": "兩地之間有幾條線，表示高度差多少；線擠得多近，表示有多陡。等高距比較小的地圖，線本來就比較多。"
+      },
+      {
+       "myth_en": "Contour lines can cross whenever the land is complicated.",
+       "myth_zh": "地形複雜的時候，等高線可以交叉。",
+       "fact_en": "Each contour line joins points of one height, so lines of different heights never cross. Where a slope is extremely steep, the lines can come so close that they seem to merge.",
+       "fact_zh": "每一條等高線連的都是同一個高度的點，所以不同高度的線不會交叉。坡非常陡的地方，線會靠得很近，看起來像疊在一起。"
+      }
+     ],
+     "tricks_head": {
+      "en": "Contour lines in a sentence",
+      "zh": "一句話記住等高線"
+     },
+     "tricks": [
+      {
+       "title_en": "Same line, same height",
+       "title_zh": "同一條線，同一個高度",
+       "body_en": "Walk along a contour line and you never go up or down.",
+       "body_zh": "沿著一條等高線走，永遠不會上坡也不會下坡。"
+      },
+      {
+       "title_en": "Close is steep, far is gentle",
+       "title_zh": "線密坡陡，線疏坡緩",
+       "body_en": "Crowded lines, hard climb. Spread-out lines, easy walk.",
+       "body_zh": "線擠在一起，爬得辛苦；線分得很開，走得輕鬆。"
+      },
+      {
+       "title_en": "Rings in rings, a hilltop",
+       "title_zh": "圈中有圈是山頂",
+       "body_en": "The smallest ring in the middle is the top.",
+       "body_zh": "最裡面那個最小的圈，就是山頂。"
+      },
+      {
+       "title_en": "The V points uphill",
+       "title_zh": "V 字尖端朝上游",
+       "body_en": "Where lines cross a stream they bend into a V, and the point of the V aims upstream.",
+       "body_zh": "等高線經過河谷時會彎成 V 字形，V 的尖端指向上游。"
+      }
+     ],
+     "safety_head": {
+      "eyebrow": "Before the Activities · 做活動之前",
+      "en": "Working safely",
+      "zh": "安全提醒"
+     },
+     "safety": [
+      {
+       "en": "An adult cuts the potato or the clay with a knife. Students use plastic tools and keep their fingers away from any blade.",
+       "zh": "切馬鈴薯或黏土由大人用刀切；學生用塑膠工具，手指遠離刀刃。"
+      },
+      {
+       "en": "Wipe up spilled water right away so that nobody slips, and keep water away from electrical outlets and devices.",
+       "zh": "水灑出來馬上擦乾，免得有人滑倒；水要遠離插座和電器。"
+      },
+      {
+       "en": "Use a waterproof marker on the model and wash your hands afterward.",
+       "zh": "在模型上畫線用防水筆，做完要洗手。"
+      },
+      {
+       "en": "If you walk a real slope to feel the difference, stay on marked paths and go with an adult.",
+       "zh": "如果到真的坡地上走走、感受坡度的差別，要走在步道上，並且有大人陪同。"
+      }
+     ],
+     "activities": [
+      {
+       "title_en": "Draw Contour Lines with Water",
+       "title_zh": "用水畫等高線",
+       "materials": [
+        {
+         "en": "A lump of modeling clay shaped into a mountain, or half a potato",
+         "zh": "一團捏成山形的黏土，或半顆馬鈴薯"
+        },
+        {
+         "en": "A clear plastic box taller than the mountain",
+         "zh": "一個比山高的透明塑膠盒"
+        },
+        {
+         "en": "A ruler, a waterproof marker, and a cup of water",
+         "zh": "一把尺、一支防水筆、一杯水"
+        },
+        {
+         "en": "A sheet of clear plastic and a dry-erase marker",
+         "zh": "一張透明片和一支白板筆"
+        }
+       ],
+       "steps": [
+        {
+         "en": "Put the mountain in the box. Stand the ruler in a corner of the box.",
+         "zh": "把山放進盒子裡，把尺立在盒子的一角。"
+        },
+        {
+         "en": "Pour in water until it is 1 cm deep. With the marker, trace the water's edge around the mountain.",
+         "zh": "倒水到 1 公分深。用防水筆沿著山邊的水線畫一圈。"
+        },
+        {
+         "en": "Add water to 2 cm, then 3 cm, and so on, tracing a new line each time, until the top is under water.",
+         "zh": "加水到 2 公分、3 公分……每次都畫一圈新的線，直到山頂淹沒。"
+        },
+        {
+         "en": "Pour the water out. Lay the clear sheet over the top of the box and look straight down. Copy the lines onto the sheet.",
+         "zh": "把水倒掉。把透明片蓋在盒子上，從正上方往下看，把線描到透明片上。"
+        },
+        {
+         "en": "Label each line with its height in centimeters. Where are the lines closest together? Feel the mountain there.",
+         "zh": "在每一條線旁邊標上高度（公分）。哪裡的線最擠？用手摸摸那裡的山坡。"
+        }
+       ],
+       "tip_en": "This is the same idea as the 3D model: each line was once the edge of the water. A 1 cm interval on a 10 cm mountain gives about ten lines.",
+       "tip_zh": "這和 3D 模型是同一個道理：每一條線都曾經是水邊。10 公分高的山、每 1 公分一條線，大約會有十條線。"
+      },
+      {
+       "title_en": "Cut a Profile",
+       "title_zh": "切一個剖面",
+       "materials": [
+        {
+         "en": "The contour map you drew on the clear sheet, or a printed one",
+         "zh": "你畫在透明片上的等高線圖，或一張印好的圖"
+        },
+        {
+         "en": "A strip of paper and a pencil",
+         "zh": "一張紙條和一枝鉛筆"
+        },
+        {
+         "en": "Graph paper",
+         "zh": "方格紙"
+        }
+       ],
+       "steps": [
+        {
+         "en": "Draw a straight line across the map, from one side of the mountain to the other.",
+         "zh": "在地圖上畫一條直線，從山的一邊畫到另一邊。"
+        },
+        {
+         "en": "Lay the edge of the paper strip along the line. Make a tick wherever a contour line crosses it, and write the height beside each tick.",
+         "zh": "把紙條的邊貼著這條線，每遇到一條等高線就畫一個記號，旁邊寫上高度。"
+        },
+        {
+         "en": "Move the strip to the graph paper. Above each tick, put a dot at the right height.",
+         "zh": "把紙條移到方格紙上，在每個記號的正上方、對應的高度點一個點。"
+        },
+        {
+         "en": "Join the dots with a smooth curve. You have drawn the profile.",
+         "zh": "用平滑的曲線把點連起來，你就畫出了剖面。"
+        },
+        {
+         "en": "Check your profile with the “From Contour Lines to a Side View” map on this page.",
+         "zh": "用本頁的「從等高線到剖面」地圖，檢查你畫的剖面。"
+        }
+       ],
+       "tip_en": "Where the ticks on the strip are close together, the profile climbs steeply. This is the same rule as reading the map.",
+       "tip_zh": "紙條上記號擠在一起的地方，剖面就爬得很陡。和讀地圖是同一個規則。"
+      }
+     ],
+     "links_head": {
+      "eyebrow": "Go Further · 延伸閱讀",
+      "en": "Mountains in other lessons, and what comes next",
+      "zh": "其他課裡的山，以及下一課"
+     },
+     "links": [
+      {
+       "icon": "📍",
+       "k_en": "Geography · Lesson 2",
+       "k_zh": "地理・第二課",
+       "en": "How Do You Find Any Place on Earth?",
+       "zh": "怎麼找到地球上任何一個地方？",
+       "note_en": "Latitude and longitude tell you where a place is. Contour lines tell you how high it is.",
+       "note_zh": "經緯度說一個地方在哪裡，等高線說它有多高。",
+       "href": "/resources/classes/geography/latitude-and-longitude/"
+      },
+      {
+       "icon": "🏔️",
+       "k_en": "Earth and Weather · Lesson 4",
+       "k_zh": "地球與天氣・第四課",
+       "en": "How Did Taiwan's Mountains Rise?",
+       "zh": "台灣的山怎麼來的？",
+       "note_en": "That lesson explains how plates pushed Taiwan's mountains up. This one shows how to draw them.",
+       "note_zh": "那一課講板塊怎麼把台灣的山推高；這一課講怎麼把山畫下來。",
+       "href": "/resources/classes/earth/taiwan-mountains/"
+      },
+      {
+       "icon": "🏞️",
+       "k_en": "Earth and Weather · Lesson 11",
+       "k_zh": "地球與天氣・第十一課",
+       "en": "How Do Rivers Shape the Land?",
+       "zh": "河流怎麼改變大地？",
+       "note_en": "Rivers carve the valleys that show up as V-shaped contour lines.",
+       "note_zh": "河流切出的山谷，在地圖上就是 V 字形的等高線。",
+       "href": "/resources/classes/earth/rivers-shape-the-land/"
+      },
+      {
+       "icon": "🧭",
+       "k_en": "Geography · Lesson 4",
+       "k_zh": "地理・第四課",
+       "en": "How Do You Read a Map?",
+       "zh": "一張地圖要怎麼看？",
+       "note_en": "Scale, direction, and the legend: the three things to check on any map.",
+       "note_zh": "比例尺、方位、圖例：看任何一張地圖都要先看的三件事。",
+       "soon": true
+      }
+     ],
+     "sources_note_en": "Names, dates, numbers, and quotations on this page were checked against these sources (October 2026). The island is made by the page itself, and its heights, slopes, and the answers to the game are computed and tested automatically",
+     "sources_note_zh": "本頁的人名、年代、數字與引文依下列資料查證（2026 年 10 月）；島是頁面自己做的，高度、坡度與小遊戲的答案都由程式計算並有自動測試",
+     "sources": [
+      {
+       "en": "“Contours are imaginary lines that join points of equal elevation on the surface of the land above or below a reference surface, such as mean sea level.” Contours never cross; close contours mean steep slopes; index contours are wider and labeled.",
+       "zh": "等高線是把海拔相等的點連起來的想像線；等高線不會交叉；線密代表陡坡；計曲線比較粗並標高度",
+       "src": "U.S. Geological Survey, Topographic Map Symbols",
+       "url": "https://pubs.usgs.gov/gip/TopographicMapSymbols/topomapsymbols.pdf"
+      },
+      {
+       "en": "The shoreline is the contour of zero elevation; “If the sea should rise and cover the land, the shoreline would trace out, in turn, each of the contour lines shown on the map.” Index contours are “every fourth or fifth contour.”",
+       "zh": "海岸線是 0 公尺的等高線；海面上升時，海岸線會依序描出每一條等高線；計曲線是每四或五條一條",
+       "src": "U.S. Geological Survey, Topographic Maps (booklet)",
+       "url": "https://pubs.usgs.gov/gip/70039399/report.pdf"
+      },
+      {
+       "en": "“Valley ‘V’s point upstream; ridge ‘V’s point downstream.”",
+       "zh": "山谷的 V 字尖端指向上游，山脊的 V 字尖端指向下游",
+       "src": "U.S. Geological Survey, Geology in the Parks, “Play-dough Topo” answer key",
+       "url": "https://pubs.usgs.gov/gip/19/downloads/Chapter_3/Activities/Play-dough_topo.pdf"
+      },
+      {
+       "en": "Where a hill is very steep, contour lines may merge; contours bunched on either side of lower ground show a valley or col (saddle).",
+       "zh": "坡非常陡時等高線可能疊在一起；兩側線密、中間較低的地方是山谷或鞍部",
+       "src": "Ordnance Survey, “Advanced guide to contours and relief”",
+       "url": "https://getoutside.ordnancesurvey.co.uk/guides/advanced-contours-and-relief/"
+      },
+      {
+       "en": "Cruquius's map of the river Merwede (1729–1730): “For the first time in the history of cartography a printed system of bathymetric contours was used.”",
+       "zh": "克魯奎烏斯的默韋德河地圖（1729–1730）：製圖史上第一次使用印刷的等深線系統",
+       "src": "Utrecht University Library, Special Collections",
+       "url": "https://www.uu.nl/en/special-collections/collections/maps-and-atlases/regional-maps/map-of-the-river-merwede-by-cruquius"
+      },
+      {
+       "en": "Buache's chart of the English Channel (prepared 1737, published 1752); Hutton's use of contours in the Schiehallion survey; Dupain-Triel's 1791 map of France with contours at 20-meter intervals.",
+       "zh": "布阿許的英吉利海峽海圖（1737 年畫、1752 年出版）；哈頓在希哈林山測量中使用等高線；1791 年杜潘－特里耶爾以 20 公尺等高距畫的法國地圖",
+       "src": "Wikipedia, “Contour line”",
+       "url": "https://en.wikipedia.org/wiki/Contour_line"
+      },
+      {
+       "en": "Contour intervals of Taiwan's topographic maps: at 1:25,000, index contours 50 m, intermediate contours 10 m, supplementary contours 5 m; at 1:50,000, 100 m and 20 m.",
+       "zh": "「表5、等高線間距」：1/25,000 計曲線 50m、首曲線 10m、間曲線 5m；1/50,000 為 100m、20m、10m",
+       "src": "內政部國土測繪中心〈113年度臺灣地區經建版地形圖製圖作業工作總報告書〉",
+       "url": "https://ws.moi.gov.tw/Download.ashx?u=LzAwMS9VcGxvYWQvNDA3L3JlbGZpbGUvOTY5OC8zMjUwMTcvNGQ5NjZjMmMtYWIwNS00YjFiLTg3NDctN2ExOWI3MjZhYjIyLnBkZg%3D%3D&n=MTEz5bm05bqm57aT5bu654mI5Zyw5b2i5ZyW6KO95ZyW5L2c5qWt5bel5L2c57i95aCx5ZGKLnBkZg%3D%3D&icon=..pdf"
+      },
+      {
+       "en": "Yushan's orthometric height: 3,951.798 m (2003), 3,952.430 m (survey of 2016–2017), 3,952.433 m (2022); the figure is for the triangulation point, and the top of the summit monument is about 3,952.8 m (2003 figure).",
+       "zh": "玉山正高：3951.798 公尺（民國 92 年）、3952.430 公尺（106 年）、3952.433 公尺（111 年）；是主峰三角點的高程，石碑頂點約再高 1 公尺",
+       "src": "內政部國土測繪中心〈玉山高度測量〉",
+       "url": "https://www.nlsc.gov.tw/cp.aspx?n=1486"
+      },
+      {
+       "en": "Taiwan Vertical Datum 2001 is based on mean sea level at the single Keelung tide station, from tide data of 1957–1991; sea level around Taiwan varies because of the Kuroshio and the shape of the strait.",
+       "zh": "「臺灣高程基準仍採用以基隆單一潮位站之平均海水面來訂定國家高程基準」；採用基隆潮位站 1957 年至 1991 年之潮汐資料；四周海面受黑潮與海峽地形影響有顯著變化",
+       "src": "內政部國土測繪中心〈111年臺灣一等水準網水準測量成果說明〉",
+       "url": "https://ws.moi.gov.tw/001/Upload/407/relfile/9273/316/2882f6ef-709a-4498-97cb-8fbc9082dcf9.pdf"
+      },
+      {
+       "en": "Chinese terms: 等高線 (contour line), 等高距 (contour interval), 計曲線 (index contour), 首曲線 (intermediate contour), 海拔 / 高程 (elevation), 海平面 (sea level), 坡度 (slope), 鞍部 (saddle), 地形圖 (topographic map), 地形剖面 (topographic profile).",
+       "zh": "中文名詞依國家教育研究院樂詞網（地理學名詞、測繪學名詞、測量學）",
+       "src": "國家教育研究院 樂詞網",
+       "url": "https://terms.naer.edu.tw/"
+      },
+      {
+       "en": "Curriculum entries 地 Ab-Ⅳ-2, 地 Ac-Ⅴ-3, 地 Bb-Ⅴ-3.",
+       "zh": "課綱條目 地 Ab-Ⅳ-2、地 Ac-Ⅴ-3、地 Bb-Ⅴ-3",
+       "src": "十二年國民基本教育課程綱要 社會領域（教育部，民國 107 年）",
+       "url": "https://www.naer.edu.tw/PageSyllabus?fid=52"
+      }
+     ]
     }
    ],
    "planned": [
-    {
-     "n": 3,
-     "icon": "⛰️",
-     "en": "How Do You Draw a Mountain on Flat Paper?",
-     "zh": "怎麼在平面上畫出一座山？"
-    },
     {
      "n": 4,
      "icon": "🧭",

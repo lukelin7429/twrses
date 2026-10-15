@@ -257,3 +257,53 @@ a.gg-link:hover { transform: translateY(-3px); box-shadow: var(--shadow); border
 .gg-dd-presets { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: .25rem; }
 .gg-dd-presets button { font-size: .68rem; padding: .35rem .1rem; }
 @media (max-width: 900px) { .gg-degree { grid-template-columns: minmax(0, 1fr); } .gg-dd-cv { aspect-ratio: 16 / 10; } }
+
+/* ── 第三課：等高線 ─────────────────────────────────────────────────── */
+.gg-ct-lab .al-space { background: radial-gradient(70% 60% at 50% 50%, rgba(80,140,255,.12), transparent 70%); }
+.gg-ct-big { display: flex; justify-content: space-between; align-items: baseline; gap: .6rem; }
+.gg-ct-big span { font-size: .78rem; font-weight: 700; color: var(--al-mute); }
+.gg-ct-big b { font-family: var(--serif); font-size: 2.2rem; line-height: 1; color: #7fc4ff; font-variant-numeric: tabular-nums; }
+.gg-ct-big b small { font-size: 1rem; color: var(--al-mute); }
+.gg-ct-water { accent-color: #4fb7ff !important; }
+.gg-ct-ints, .gg-ct-views { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .3rem; }
+.gg-ct-views { grid-template-columns: repeat(2, minmax(0, auto)); }
+.gg-ct-ints button, .gg-ct-views button, .gg-pf-pre button { padding: .4rem .5rem; border-radius: 11px; border: 1px solid rgba(160,180,230,.25); background: rgba(255,255,255,.03); color: #e8edf7; font-family: var(--sans); font-size: .76rem; cursor: pointer; }
+.gg-ct-ints button b, .gg-ct-views button b, .gg-pf-pre button b { display: block; font-weight: 800; }
+.gg-ct-ints button small, .gg-ct-views button small, .gg-pf-pre button small { display: block; font-family: var(--zh); font-weight: 600; color: #9fb0cf; }
+.gg-ct-ints button[aria-pressed="true"], .gg-ct-views button[aria-pressed="true"] { border-color: #ffd36e; background: rgba(255,211,110,.14); box-shadow: 0 0 0 1px #ffd36e inset; }
+.gg-ct-pick { padding-top: .5rem; border-top: 1px solid var(--al-line); display: grid; gap: .3rem; }
+.gg-ct-note { margin: 0; min-height: 4.4em; font-size: .8rem; line-height: 1.55; color: var(--al-text); }
+.gg-ct-note .zh { display: block; color: var(--al-mute); }
+.gg-ct-note span[hidden] { display: none; }
+.al-lab.gg-lab b { font-weight: 800; color: #fff; margin-left: .25rem; }
+.al-lab.gg-lab-top { color: #fff; border-color: rgba(255,255,255,.6); }
+.al-lab.gg-lab-sad { color: #ffe3a3; border-color: rgba(255,211,110,.5); }
+.al-lab.gg-lab-val { color: #bfe6ff; border-color: rgba(79,183,255,.5); }
+.al-lg-water i { border-color: #4fb7ff; background: rgba(63,143,224,.6); }
+.al-lg-gold i { border-color: #ffd36e; background: #ffd36e; height: 3px; border-radius: 2px; }
+.al-lg-white i { border-color: #fff; background: #fff; height: 3px; border-radius: 2px; }
+.al-lg-pick i { border-color: #fff; background: #ff4d8a; border-radius: 50%; }
+.gg-lab.al-nogl .gg-ct-play, .gg-lab.al-nogl .gg-ct-views, .gg-lab.al-nogl .gg-ct-pick { display: none; }
+
+/* 哪一條路比較陡？ */
+.gg-steep { max-width: 1040px; }
+.gg-st-body { display: grid; grid-template-columns: minmax(0, 1fr) 340px; gap: 1rem; margin-top: .9rem; align-items: start; }
+.gg-st-map { display: block; width: 100%; aspect-ratio: 1; border-radius: 12px; }
+.gg-st-side { display: grid; gap: .8rem; }
+.gg-st-opts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .6rem; }
+.gg-st-opt { flex-direction: row; justify-content: center; }
+.gg-st-dot { display: grid; place-items: center; width: 2rem; height: 2rem; border-radius: 50%; background: var(--c); color: #fff; font-weight: 800; border: 2px solid #fff; flex: none; }
+.gg-st-prof { display: block; width: 100%; aspect-ratio: 16 / 10; border-radius: 12px; background: rgba(255,255,255,.04); }
+@media (max-width: 860px) { .gg-st-body { grid-template-columns: minmax(0, 1fr); } }
+
+/* 從等高線到剖面 */
+.gg-profile { grid-template-columns: minmax(0, 1fr) 360px; }
+.gg-pf-left { background: #0a1122; display: grid; place-items: center; padding: .6rem; }
+.gg-pf-map { display: block; width: 100%; max-width: 620px; aspect-ratio: 1; touch-action: pan-y; }
+.gg-pf-k { margin: 0; font-size: .74rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: #ffd36e; }
+.gg-pf-prof { display: block; width: 100%; aspect-ratio: 16 / 10; border-radius: 12px; background: rgba(255,255,255,.04); }
+.gg-pf-pre { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .3rem; }
+@media (max-width: 900px) { .gg-profile { grid-template-columns: minmax(0, 1fr); } }
+
+/* 3D 面板最下面的資料說明（三課共用；之前漏了這一條，字會變成內文大小） */
+.gg-credit { margin: 0; padding: 0 1.3rem 1.1rem; font-size: .74rem; line-height: 1.6; color: #7f90b0; }

@@ -17392,7 +17392,7 @@ def build_mus_hub():
 _geoj = os.path.join(ROOT, "data", "geography.json")
 GEO = json.load(open(_geoj, encoding="utf-8")) if os.path.exists(_geoj) else None
 GEO_BASE = "/resources/classes/geography/"
-_GEO_JS = {"flatmap": "geo-flatmap", "latlon": "geo-latlon"}   # lab.kind → assets/js/<bundle>.js
+_GEO_JS = {"flatmap": "geo-flatmap", "latlon": "geo-latlon", "contour": "geo-contour"}   # lab.kind → assets/js/<bundle>.js
 
 def _geo_ver():
     h = hashlib.md5()
@@ -17442,7 +17442,18 @@ def geolatlon_svg(size=56):
             '<circle cx="30" cy="30" r="22" fill="none" stroke="#e8edf7" stroke-width="1.4"/>'
             '<circle cx="42.3" cy="20" r="4" fill="#ff4d4d" stroke="#fff" stroke-width="1.4"/></svg>')
 
-_GEO_CARD = {"flatmap": geoflat_svg, "latlon": geolatlon_svg}
+def geocontour_svg(size=56):
+    """第三課的課程卡小圖示：一座山的側面（下）與從上面看的等高線（上），中間一條水平線是水面。"""
+    return (f'<svg class="geocontour-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">'
+            '<g fill="none" stroke-linejoin="round">'
+            '<ellipse cx="30" cy="17" rx="22" ry="11" stroke="#c89a5c" stroke-width="1.6"/>'
+            '<ellipse cx="27" cy="16" rx="14" ry="7" stroke="#ffd36e" stroke-width="1.6"/>'
+            '<ellipse cx="25" cy="15.5" rx="6" ry="3" stroke="#fff" stroke-width="1.6"/></g>'
+            '<path d="M4 54L16 44Q22 30 26 32T34 40Q38 46 42 46L56 54Z" fill="#b9cf9a"/>'
+            '<path d="M8 50.6h44" stroke="#4fb7ff" stroke-width="2" stroke-linecap="round" opacity=".9"/>'
+            '<path d="M12 47.3h33M16 44h27M19 40.6h18M21.5 37.3h11" stroke="#ffd36e" stroke-width="1.1" stroke-linecap="round" opacity=".85"/></svg>')
+
+_GEO_CARD = {"flatmap": geoflat_svg, "latlon": geolatlon_svg, "contour": geocontour_svg}
 _GEO_PROP_K = [("shape", "Shape", "形狀"), ("area", "Area", "面積"), ("distance", "Distance", "距離"), ("direction", "Direction", "方向")]
 
 def render_geoflat_lab(lesson):
@@ -17557,7 +17568,55 @@ def render_geolatlon_lab(lesson):
   <p class="gg-credit">{lab["credit_html"]}</p>
 </div>'''
 
-_GEO_LAB = {"flatmap": render_geoflat_lab, "latlon": render_geolatlon_lab}
+def render_geocontour_lab(lesson):
+    """第三課：水位一層一層升高的一座山（assets/js/geo-contour.js 綁這裡的 class；示意的地形，不是真實的地方）。"""
+    lab = lesson["lab"]
+    ints = "".join(f'<button type="button" data-int="{v}" aria-pressed="{"true" if v == 100 else "false"}"><b>{v} m</b><small>{zh}</small></button>'
+                   for v, zh in ((50, "每 50 公尺"), (100, "每 100 公尺"), (200, "每 200 公尺")))
+    views = "".join(f'<button type="button" data-view="{k}" aria-pressed="{"true" if k == "side" else "false"}"><b>{en}</b><small>{zh}</small></button>'
+                    for k, en, zh in (("side", "From the side", "從旁邊看"), ("top", "From above", "從正上方看")))
+    tg = _lab_toggles([("lines", "Contour lines", "等高線", True), ("water", "Water", "水面", True), ("labels", "Labels", "標示", True)])
+    return f'''<div class="astro-lab gg-lab gg-ct-lab rvl" data-geocontour-lab>
+  <div class="al-stage">
+    <div class="al-space">
+      <canvas class="al-space-cv" aria-label="3D model of an island mountain in a tank of water; as the water rises, a line is left on the mountain every time the water climbs one contour interval · 一座在水缸裡的山的 3D 模型：水位每升高一個等高距，就在山上留下一條線"></canvas>
+      <div class="al-labels" aria-hidden="true"></div>
+      <p class="al-hint">Drag to turn · 拖曳旋轉　Click the mountain to measure a spot · 點山上一點量海拔和坡度　Scroll or pinch to zoom · 滾輪／雙指縮放</p>
+      <button type="button" class="al-home" title="Reset view · 重設視角" aria-label="Reset view · 重設視角">&#8634;</button>
+      <p class="al-nogl-msg">This 3D model needs WebGL, which this browser does not support. The water slider still counts the contour lines, and the two map activities below work without it.<br><span class="zh">這個瀏覽器不支援 WebGL，無法顯示 3D 模型；水位滑桿照樣能數等高線，下面兩個地圖活動也都能用。</span></p>
+    </div>
+    <aside class="al-sky gg-aside">
+      <p class="al-sky-k">The rising water · 升高的水</p>
+      <div class="gg-ct-big"><span>Water level · 水位</span><b class="gg-ct-level" aria-live="polite">0 <small>m</small></b></div>
+      <label class="gg-slide"><span>Raise or lower the water · 升降水位</span>
+        <input type="range" class="gg-ct-water" min="0" max="1100" step="10" value="0" aria-label="Water level from 0 to 1,100 meters · 水位，0 到 1,100 公尺"></label>
+      <dl class="gg-facts">
+        <div><dt>Contour interval · 等高距</dt><dd class="gg-ct-int">100 m</dd></div>
+        <div><dt>Lines drawn so far · 已經畫了幾條</dt><dd class="gg-ct-count">1</dd></div>
+        <div><dt>Height of the summit · 山頂的海拔</dt><dd class="gg-ct-peak">—</dd></div>
+      </dl>
+      <div class="gg-ct-ints" role="group" aria-label="Contour interval · 等高距">{ints}</div>
+      <div class="gg-ct-pick"><p class="gg-read-k">The spot you clicked · 你點的地方</p>
+        <dl class="gg-facts"><div><dt>Elevation · 海拔</dt><dd class="gg-ct-ph">—</dd></div><div><dt>Slope · 坡度</dt><dd class="gg-ct-ps">—</dd></div></dl></div>
+      <p class="gg-ct-note" aria-live="polite">
+        <span data-when="sea">At 0 m the water's edge is the coastline. That is the first contour line: sea level.<span class="zh">水位 0 公尺時，水邊就是海岸線——第一條等高線，海平面。</span></span>
+        <span data-when="rise" hidden>Every gold line was once the edge of the water. Each one joins points at the same height.<span class="zh">每一條金色的線都曾經是水邊；同一條線上的點，高度都一樣。</span></span>
+        <span data-when="over" hidden>The summit is under water now. Every line is drawn. Look from above to see the contour map.<span class="zh">山頂已經淹沒，線都畫完了。從正上方看，就是一張等高線地圖。</span></span>
+      </p>
+    </aside>
+  </div>
+  <div class="al-controls">
+    <div class="al-row al-row-main">
+      <button type="button" class="al-play gg-ct-play" aria-pressed="false"><span class="al-play-i" aria-hidden="true"></span><span class="al-play-t">Raise the water · 升高水位</span></button>
+      <div class="gg-ct-views" role="group" aria-label="View · 視角">{views}</div>
+    </div>
+    <div class="al-row al-toggles">{tg}</div>
+  </div>
+  {_lab_foot(lab)}
+  <p class="gg-credit">{lab["credit_html"]}</p>
+</div>'''
+
+_GEO_LAB = {"flatmap": render_geoflat_lab, "latlon": render_geolatlon_lab, "contour": render_geocontour_lab}
 
 def _gg_drag(d):
     picks = "".join(
@@ -17661,8 +17720,48 @@ def _gg_degree(d):
   </div>
 </div>'''
 
+def _gg_steep(d):
+    payload = json.dumps({k: d[k] for k in ("questions", "hint", "start_en", "start_zh", "end_en", "end_zh")}, ensure_ascii=False).replace("</", "<\\/")
+    opts = "".join(f'<button type="button" class="gg-ft-opt gg-st-opt" data-pick="{k}"><span class="gg-st-dot" style="--c:{c}">{k.upper()}</span>'
+                   f'<span class="gg-ft-lab">Path {k.upper()}<span class="zh">{zh}</span></span></button>'
+                   for k, c, zh in (("a", "#ff5a5a", "紅色路線 A"), ("b", "#4fb7ff", "藍色路線 B")))
+    return f'''<div class="gg-fit gg-steep rvl" data-gg-steep>
+  <script type="application/json">{payload}</script>
+  <div class="gg-ft-top"><p class="gg-ft-k">Question 1 of 8 · 第 1 題（共 8 題）</p><p class="gg-ft-sc">Right on the first try · 第一次就答對 <b class="gg-ft-score">0 / 0</b></p></div>
+  <div class="gg-ft-steps" aria-hidden="true"></div>
+  <p class="gg-ft-q" aria-live="polite"><span class="gg-st-q-en"></span><span class="zh gg-st-q-zh"></span></p>
+  <div class="gg-st-body">
+    <canvas class="gg-st-map" aria-label="A contour map of the same island mountain with two paths, A in red and B in blue. Lines every 100 meters; every fifth line is thicker and labeled. · 同一座山的等高線地圖，上面有紅色 A、藍色 B 兩條路線；每 100 公尺一條線，每五條加粗並標高度。"></canvas>
+    <div class="gg-st-side">
+      <div class="gg-st-opts">{opts}</div>
+      <canvas class="gg-st-prof" aria-label="Side views of both paths, drawn after you answer · 回答後畫出的兩條路線側面"></canvas>
+    </div>
+  </div>
+  <p class="gg-ft-msg" aria-live="polite"></p>
+  <div class="gg-ft-foot"><button type="button" class="gg-btn gg-btn-gold gg-ft-next" hidden>Next question · 下一題</button></div>
+</div>'''
+
+def _gg_profile(d):
+    pre = "".join(f'<button type="button" data-line="{k}"><b>{html.escape(en)}</b><small>{html.escape(zh)}</small></button>'
+                  for k, en, zh in (("across", "Across the island", "橫越全島"), ("peaks", "Peak to peak", "山頂到副峰"), ("valley", "Across the valley", "橫過山谷"), ("ns", "North to south", "由北到南")))
+    return f'''<div class="gg-drag gg-profile rvl" data-gg-profile>
+  <div class="gg-pf-left"><canvas class="gg-pf-map" aria-label="Contour map with a pink line between two handles, A and B, that you can drag · 等高線地圖上有一條粉紅色的線，兩端 A、B 可以拖"></canvas></div>
+  <div class="gg-dg-side">
+    <p class="gg-pf-k">Side view along the line · 沿著這條線的側面</p>
+    <canvas class="gg-pf-prof" aria-label="The height profile along the line from A to B · 從 A 到 B 沿線的高度剖面"></canvas>
+    <dl class="gg-dg-facts">
+      <div><dt>Length<span class="zh">長度</span></dt><dd class="gg-pf-len"></dd></div>
+      <div><dt>From A to B<span class="zh">起點到終點的海拔</span></dt><dd class="gg-pf-ends"></dd></div>
+      <div class="is-key"><dt>Highest point on the line<span class="zh">沿線最高點</span></dt><dd class="gg-pf-top"></dd></div>
+      <div><dt>Total climb from A to B<span class="zh">從 A 走到 B 總共要爬</span></dt><dd class="gg-pf-climb"></dd></div>
+      <div><dt>Steepest part<span class="zh">最陡的一段</span></dt><dd class="gg-pf-max"></dd></div>
+    </dl>
+    <div class="gg-pf-pre" role="group" aria-label="Preset lines · 預設的線">{pre}</div>
+  </div>
+</div>'''
+
 # 頁面上的小互動：照這個順序排在「模型卡」後面（JSON 有那個 key 才出現）
-_GEO_WIDGETS = [("drag", _gg_drag), ("fit", _gg_fit), ("find", _gg_find), ("degree", _gg_degree), ("map_english", _gg_map_english)]
+_GEO_WIDGETS = [("drag", _gg_drag), ("fit", _gg_fit), ("find", _gg_find), ("degree", _gg_degree), ("steep", _gg_steep), ("profile", _gg_profile), ("map_english", _gg_map_english)]
 
 def _geo_flat():
     return [(ui, u, l) for ui, u in enumerate(GEO["units"]) for l in u["lessons"]]
