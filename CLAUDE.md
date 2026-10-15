@@ -1172,6 +1172,9 @@
   - 「文字從哪裡開始？」沿用第二課的 `centers2d.js`：**小卡兩欄的標題改成從資料讀**（`centers.labels.what_*／when_*`、上方的 `count_*`），沒給就用第二課的字樣。「是圖，還是聲音？」（`signs`）沿用 `sort2d.js`。`test/writing.test.mjs` 檢查地方都在陸地上、同一個圖（👁️ ☀️ 🔑）兩種用法都出題、時間軸的曆年寫法換得回來。
   - 平行時間軸的事件可以直接寫曆年：`"from": {"year": -3350}`（＝西元前 3350 年），`timeline2d.js` 會換成距今幾年。
   - 除錯：`[data-wh-tablet-lab].__lab`（`set(n)`、`style('wedge'|'round')`、`write(立即?)`、`clear()`、`slow(bool)`、`demo('one'|'count'|'round'|'sixty')`、`info()`）；`#signs [data-wh-sort].__sort`。
+- 第四課〈最早的城市為什麼都在河邊？〉（`wh-pyramid.js`，`lab.kind = "pyramid"`，`data-wh-pyramid-lab`，slug `cities-by-rivers`；第一單元最後一課）：一個想法——最早的城市長在河流讓人種得出「多出來的糧食」的地方，但每條河脾氣不同（尼羅河規律、美索不達米亞的漲水跟作物季節錯開、印度河的洪水和季風雨慢慢變弱），**河讓城市成為可能，不是一定**。地圖畫**六個**地方（加上長江的良渚、祕魯的卡拉爾），「四大文明」當成一種教學習慣來談，不當成事實。3D 是**「大金字塔怎麼蓋的？四種想法」**：滑桿讓金字塔一層一層長高，金色的數字是已經放上去的石頭比例（`1 − (1 − p)³`，一半高度時約 88%；還沒蓋完時不顯示 100%）；四種坡道假說 `straight`／`zigzag`／`spiral`／`internal` 一次顯示一種，每一種都附「支持」與「難題」與出處（`lab.ideas[]`：`key`、`en`／`zh`、`what_*`、`for_*`、`against_*`、`src`、`url`，**由 `lesson4_text.py` 的 `IDEAS4` 填**）；切換「完工」顯示平滑的外層。坡度 1:10（Edwards 2003 說最實際）、寬 20 公尺是示意的假設，`lab.numbers_note_*` 有寫明。純函式在 `pyramid.js`（`builtFraction`、`heightForFraction`、`halfAt`、`ramp(kind, base, height, p)`、`pathLength`、`straightRampVolume`；`test/pyramid.test.mjs`）。
+  - 「最早的城市長在哪裡？」沿用 `centers2d.js`；「河帶來了什麼？」（`needs`，三個籃子 food／travel／trouble）沿用 `sort2d.js`。`test/rivers.test.mjs` 檢查四種想法對上 `KINDS`、地方都在陸地上、不只四個地方、三個籃子都有題、第三課已連到這一課、第一單元沒有「製作中」。
+  - 除錯：`[data-wh-pyramid-lab].__lab`（`setP(0–1)`、`idea(kind)`、`play()`、`casing(bool)`、`demo('half'|'straight'|'spiral'|'finished')`、`info()`）；`#needs [data-wh-sort].__sort`。
 
 ## 美國政治 How America Governs Itself（/resources/classes/us-government/）— 架構照地理與書法；**程度是高中到大學**，每課多五張固定的卡
 

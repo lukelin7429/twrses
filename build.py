@@ -17800,7 +17800,7 @@ def build_geo_hub():
 _whj = os.path.join(ROOT, "data", "world_history.json")
 WH = json.load(open(_whj, encoding="utf-8")) if os.path.exists(_whj) else None
 WH_BASE = "/resources/classes/world-history/"
-_WH_JS = {"spread": "wh-spread", "farm": "wh-farm", "tablet": "wh-tablet"}   # lab.kind → assets/js/<bundle>.js
+_WH_JS = {"spread": "wh-spread", "farm": "wh-farm", "tablet": "wh-tablet", "pyramid": "wh-pyramid"}   # lab.kind → assets/js/<bundle>.js
 
 def _wh_ver():
     h = hashlib.md5()
@@ -17863,7 +17863,16 @@ def whtablet_svg(size=56):
             '<g stroke="#6b3f22" stroke-width="1.6" stroke-linecap="round"><path d="M30 25v6M38 25v6M30 35v6"/></g>'
             '<path d="M44 52L56 12" stroke="#d8c27a" stroke-width="3.2" stroke-linecap="round"/><path d="M44 52l-1.4-4 3.6 1z" fill="#b89a52"/></svg>')
 
-_WH_CARD = {"spread": whspread_svg, "farm": whfarm_svg, "tablet": whtablet_svg}
+def whpyramid_svg(size=56):
+    """第四課的課程卡小圖示：一座蓋到一半的金字塔、一條直坡道，旁邊一條河。"""
+    return (f'<svg class="whpyramid-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">'
+            '<rect x="0" y="0" width="60" height="60" rx="10" fill="#a9d3f2"/><rect x="0" y="40" width="60" height="20" fill="#dcc08a"/>'
+            '<path d="M44 40c4 6 6 12 8 20h8V40z" fill="#3f86c9"/>'
+            '<path d="M10 40l14-14h8l14 14z" fill="#cdb27c" stroke="#9a7d48" stroke-width="1.2"/><path d="M24 26l4-8 4 8z" fill="none" stroke="#9a7d48" stroke-width="1.2" stroke-dasharray="2 2"/>'
+            '<g stroke="#9a7d48" stroke-width=".9"><path d="M17 33h26M20 30h20"/></g>'
+            '<path d="M2 40l26-13v3L8 40z" fill="#b98c55"/></svg>')
+
+_WH_CARD = {"spread": whspread_svg, "farm": whfarm_svg, "tablet": whtablet_svg, "pyramid": whpyramid_svg}
 
 def render_whspread_lab(lesson):
     """第一課：歷史地球儀（assets/js/wh-spread.js 綁這裡的 class）。只畫陸地、海洋與路線；不畫國界、不標國名。"""
@@ -18005,7 +18014,56 @@ def render_whtablet_lab(lesson):
   <p class="wh-credit">{lab["credit_html"]}</p>
 </div>'''
 
-_WH_LAB = {"spread": render_whspread_lab, "farm": render_whfarm_lab, "tablet": render_whtablet_lab}
+def render_whpyramid_lab(lesson):
+    """第四課：金字塔怎麼蓋起來的？四種想法（assets/js/wh-pyramid.js 綁這裡的 class）。每一種坡道都只是假說。"""
+    lab = lesson["lab"]
+    payload = _wh_json({k: lab[k] for k in ("base", "height", "ideas")})
+    btns = "".join(f'<button type="button" data-idea="{i["key"]}" aria-pressed="{"true" if n == 0 else "false"}">{html.escape(i["en"])}<small>{html.escape(i["zh"])}</small></button>'
+                   for n, i in enumerate(lab["ideas"]))
+    def card(n, i):
+        src = f'<a class="wh-py-src" href="{html.escape(i["url"])}" target="_blank" rel="noopener">{html.escape(i["src"])} &#8599;</a>' if i.get("url") else ""
+        return (f'<div class="wh-py-idea" data-idea-card="{i["key"]}"{"" if n == 0 else " hidden"}>'
+                f'<h3>{_wh_bi(i["en"], i["zh"])}</h3><p class="wh-py-what">{_wh_bi(i["what_en"], i["what_zh"])}</p>'
+                f'<p class="wh-py-for"><b>For · 支持的理由</b>{_wh_bi(i["for_en"], i["for_zh"])}</p>'
+                f'<p class="wh-py-against"><b>Problems · 難題</b>{_wh_bi(i["against_en"], i["against_zh"])}</p>{src}</div>')
+    cards = "".join(card(n, i) for n, i in enumerate(lab["ideas"]))
+    tg = _lab_toggles([("casing", "Show it finished, with its smooth outer casing", "看完工的樣子（平滑的外層）", False)])
+    return f'''<div class="astro-lab wh-lab wh-py rvl" data-wh-pyramid-lab>
+  <script type="application/json">{payload}</script>
+  <div class="al-stage">
+    <div class="al-space">
+      <canvas class="al-space-cv" aria-label="3D model of a pyramid rising course by course, with four possible kinds of construction ramp; a simplified illustration · 一座一層一層長高的金字塔，可以切換四種可能的坡道；簡化的示意"></canvas>
+      <div class="al-labels" aria-hidden="true"></div>
+      <p class="al-hint">Drag to turn · 拖曳轉動　Scroll or pinch to zoom · 滾輪／雙指縮放</p>
+      <button type="button" class="al-home" title="Reset view · 重設視角" aria-label="Reset view · 重設視角">&#8634;</button>
+      <p class="al-nogl-msg">This 3D model needs WebGL, which this browser does not support. The numbers and the four ideas on the right still work, and so do the map and the games below.<br><span class="zh">這個瀏覽器不支援 WebGL，無法顯示 3D 模型；右邊的數字和四種想法照樣能用，下面的地圖和小遊戲也都能用。</span></p>
+    </div>
+    <aside class="al-sky wh-aside wh-py-aside">
+      <p class="al-sky-k">How far along · 蓋到哪裡</p>
+      <dl class="wh-py-facts">
+        <div><dt>{_wh_bi("Height built", "已經蓋的高度")}</dt><dd><b class="wh-py-h"></b><small class="wh-py-hm"></small></dd></div>
+        <div class="is-key"><dt>{_wh_bi("Stone already in place", "已經放上去的石頭")}</dt><dd><b class="wh-py-v"></b></dd></div>
+        <div><dt>{_wh_bi("Length of this ramp", "這種坡道的長度")}</dt><dd><b class="wh-py-len"></b></dd></div>
+        <div class="wh-py-rvrow"><dt>{_wh_bi("The ramp itself, compared with the pyramid", "坡道本身的體積，和金字塔比")}</dt><dd><b class="wh-py-rv"></b></dd></div>
+      </dl>
+      <p class="wh-fg-note">{_wh_bi(lab["numbers_note_en"], lab["numbers_note_zh"])}</p>
+      {cards}
+    </aside>
+  </div>
+  <div class="al-controls">
+    <div class="al-row al-row-main">
+      <button type="button" class="al-play" aria-pressed="false"><span class="al-play-i" aria-hidden="true"></span><span class="al-play-t">Build it · 蓋起來</span></button>
+      <label class="wh-timerow"><span>Ground<small>地面</small></span>
+        <input type="range" class="wh-time wh-py-p" min="0" max="1000" step="1" value="420" aria-label="How much of the height is built · 蓋到多高"><span>Top<small>頂端</small></span></label>
+    </div>
+    <div class="wh-seasons wh-py-ideas" role="group" aria-label="Four ideas about the ramps · 四種坡道的想法">{btns}</div>
+    <div class="al-row al-toggles">{tg}</div>
+  </div>
+  {_lab_foot(lab)}
+  <p class="wh-credit">{lab["credit_html"]}</p>
+</div>'''
+
+_WH_LAB = {"spread": render_whspread_lab, "farm": render_whfarm_lab, "tablet": render_whtablet_lab, "pyramid": render_whpyramid_lab}
 
 def _wh_order(d):
     payload = _wh_json({k: d[k] for k in ("items", "hint_en", "hint_zh", "done_en", "done_zh", "open_en", "open_zh")})
@@ -18134,7 +18192,7 @@ def _wh_centers(d):
 </div>'''
 
 # 這一課自己的小互動（照這個順序排在「模型卡」後面）。match、gains 和 sort 用同一個版面（一題一題分到籃子裡）。
-_WH_WIDGETS = [("order", _wh_order), ("sort", _wh_sort), ("centers", _wh_centers), ("match", _wh_sort), ("gains", _wh_sort), ("signs", _wh_sort)]
+_WH_WIDGETS = [("order", _wh_order), ("sort", _wh_sort), ("centers", _wh_centers), ("match", _wh_sort), ("gains", _wh_sort), ("signs", _wh_sort), ("needs", _wh_sort)]
 # 每課固定的卡（照這個順序排在小互動後面）
 _WH_FIXED = [("timeline", _wh_timeline), ("how_we_know", _wh_how_we_know), ("views", _wh_views),
              ("phrases", _wh_phrases), ("taiwan_then", _wh_taiwan_then)]

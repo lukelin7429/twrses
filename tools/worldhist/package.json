@@ -5,8 +5,8 @@
   "type": "module",
   "scripts": {
     "land": "node scripts/build-land.mjs",
-    "build": "esbuild src/wh-spread.js src/wh-farm.js src/wh-tablet.js --bundle --minify --format=iife --target=es2019 --legal-comments=eof --outdir=../../assets/js",
-    "test": "node test/timeline.test.mjs && node test/sphere.test.mjs && node test/land.test.mjs && node test/spread.test.mjs && node test/farm.test.mjs && node test/farming.test.mjs && node test/tablet.test.mjs && node test/writing.test.mjs"
+    "build": "esbuild src/wh-spread.js src/wh-farm.js src/wh-tablet.js src/wh-pyramid.js --bundle --minify --format=iife --target=es2019 --legal-comments=eof --outdir=../../assets/js",
+    "test": "node test/timeline.test.mjs && node test/sphere.test.mjs && node test/land.test.mjs && node test/spread.test.mjs && node test/farm.test.mjs && node test/farming.test.mjs && node test/tablet.test.mjs && node test/writing.test.mjs && node test/pyramid.test.mjs && node test/rivers.test.mjs"
   },
   "devDependencies": {
     "esbuild": "0.25.10",
