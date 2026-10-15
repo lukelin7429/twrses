@@ -515,3 +515,30 @@ a.twh-link:hover { transform: translateY(-3px); box-shadow: var(--shadow); borde
   .twh-wp circle { r: 9px; }
   .twh-world-lines path { stroke-width: 3; }
 }
+
+/* ── 第四課：老地圖展示台 ─────────────────────────────────────────────── */
+.twh-mapstage { position: relative; padding: 3.2rem 1rem 1rem; place-items: start center; }
+.twh-mapview { position: sticky; top: 88px; }
+.twh-mapview { width: 100%; max-width: 620px; overflow: hidden; border-radius: 10px; background: #1a1408; box-shadow: 0 16px 40px -20px rgba(0,0,0,.8); }
+.twh-mapframe { position: relative; transform: translate(var(--x, 0), var(--y, 0)) scale(var(--z, 1)); transform-origin: center; transition: transform .25s ease; touch-action: none; }
+.twh-mapimg { display: block; width: 100%; height: auto; user-select: none; -webkit-user-drag: none; background: #e8d7a8; }
+.twh-hots { position: absolute; inset: 0; }
+.twh-hot { position: absolute; transform: translate(-50%, -50%) scale(calc(1 / var(--z, 1))); width: 2.1rem; height: 2.1rem; border-radius: 50%; border: 2px solid #fff3c9; background: rgba(27,20,5,.78); color: #ffd36e; font: 800 .85rem/1 var(--sans); cursor: pointer; box-shadow: 0 0 0 0 rgba(255,211,110,.55); animation: twhPin 2.2s ease-out infinite; }
+.twh-hot i { font-style: normal; }
+.twh-hot.is-on { background: #ffd36e; color: #1b1405; animation: none; }
+.twh-mapzoom { position: absolute; right: .8rem; top: .8rem; display: flex; gap: .3rem; }
+.twh-mapzoom .twh-btn-d { width: 2.4rem; height: 2.4rem; justify-content: center; padding: 0; font-size: 1.1rem; }
+.twh-mapdots { display: flex; flex-wrap: wrap; gap: .35rem; flex: 1; justify-content: center; }
+.twh-mapdot { display: flex; flex-direction: column; align-items: center; padding: .35rem .6rem; border-radius: 10px; border: 1px solid var(--al-line); background: rgba(255,255,255,.04); color: var(--al-text); font: 800 .82rem/1.2 var(--sans); cursor: pointer; }
+.twh-mapdot small { font-size: .64rem; font-weight: 500; color: var(--al-mute); max-width: 8rem; text-align: center; }
+.twh-mapdot.is-on { background: var(--al-sun); border-color: var(--al-sun); color: #1b1405; }
+.twh-mapdot.is-on small { color: #1b1405; }
+.twh-today { margin-top: .8rem; padding-top: .7rem; border-top: 1px solid var(--al-line); }
+.twh-today-svg { display: block; width: 100%; max-width: 150px; height: auto; margin: .3rem auto 0; }
+.twh-today-n { margin: .3rem 0 0; font-size: .66rem; color: var(--al-mute); text-align: center; }
+.twh-today-n .zh { display: block; font-family: var(--zh); }
+.twh-no-today .twh-today { display: none; }
+.twh-maps-lab .twh-age { font-size: 1.6rem; }
+@media (max-width: 620px) { .twh-mapdot small { display: none; } .twh-mapstage { padding: 2.8rem .4rem .6rem; } }
+.al-lg-twhhot i { background: rgba(27,20,5,.78); border: 2px solid #fff3c9; border-radius: 50%; }
+.al-lg-twhtoday i { background: transparent; border: 2px solid #c9d6ef; border-radius: 3px; }

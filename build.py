@@ -21582,7 +21582,7 @@ def build_home_hub():
 _twhj = os.path.join(ROOT, "data", "taiwan_history.json")
 TWH = json.load(open(_twhj, encoding="utf-8")) if os.path.exists(_twhj) else None
 TWH_BASE = "/resources/classes/taiwan-history/"
-_TWH_JS = {"dig": "twh-dig", "sites": "twh-sites", "peoples": "twh-peoples"}   # lab.kind → assets/js/<bundle>.js
+_TWH_JS = {"dig": "twh-dig", "sites": "twh-sites", "peoples": "twh-peoples", "maps": "twh-maps"}   # lab.kind → assets/js/<bundle>.js
 
 def _twh_ver():
     h = hashlib.md5()
@@ -21844,6 +21844,46 @@ def _twh_world(wd):
 
 _TWH_CARD["peoples"] = twhpeoples_svg
 
+def twhmaps_svg(size=56):
+    """第四課卡：一張泛黃的老地圖，上面三個歪歪的島。"""
+    return (f'<svg class="twhmaps-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">'
+            f'<rect x="8" y="8" width="44" height="44" rx="3" fill="#e8d7a8" stroke="#8a6d3b" stroke-width="1.4"/>'
+            f'<path d="M30 14c4 1 5 4 4 7l-3 2-3-2c-1-3 0-6 2-7z" fill="#7a9a6a"/><path d="M27 26c5 0 7 4 6 8l-3 3-4-2c-2-3-1-8 1-9z" fill="#7a9a6a"/>'
+            f'<path d="M25 39c4 0 6 3 5 6l-3 2-3-2c-1-2-1-5 1-6z" fill="#7a9a6a"/><path d="M12 48h36" stroke="#8a6d3b" stroke-width="1"/>'
+            f'<circle cx="46" cy="16" r="4" fill="none" stroke="#8a6d3b"/><path d="M46 12v8M42 16h8" stroke="#8a6d3b" stroke-width=".8"/></svg>')
+
+def render_twhmaps_lab(lesson):
+    """第四課：老地圖展示台（assets/js/twh-maps.js；HTML 影像＋重點，不需要 WebGL）。影像都是館方明確開放授權的。"""
+    lab = lesson["lab"]
+    cfg = {k: lab[k] for k in ("older", "nearest", "maps", "demo", "hello_en", "hello_zh")}
+    tg = _lab_toggles([("today", "Today’s coastline", "今天的海岸線", True)])
+    return f'''<div class="astro-lab twh-lab twh-sites-lab twh-maps-lab rvl" data-twhmaps-lab>
+  <script type="application/json" class="twh-lab-data">{_twh_json(cfg)}</script>
+  <div class="al-stage">
+    <div class="al-space twh-map-space twh-mapstage">
+      <div class="twh-mapview"><div class="twh-mapframe"><img class="twh-mapimg" alt="" decoding="async"><div class="twh-hots"></div></div></div>
+      <div class="twh-mapzoom"><button type="button" class="twh-btn-d twh-zoom-out" aria-label="Zoom out · 縮小">&minus;</button><button type="button" class="twh-btn-d twh-zoom-in" aria-label="Zoom in · 放大">+</button></div>
+      <p class="twh-badge">Museum and library images, open license · 館藏影像，開放授權</p>
+    </div>
+    <aside class="al-sky twh-aside">
+      <p class="al-sky-k">This map was made in · 這張地圖的年代</p>
+      <p class="twh-age" aria-live="polite"></p>
+      <div class="twh-aside-grid">
+        <div class="twh-vtl" data-k="Year · 西元年" aria-label="Timeline of the maps · 地圖的時間軸"></div>
+        <div class="twh-aside-main"><div class="twh-site-card" aria-live="polite"></div><div class="twh-today"></div></div>
+      </div>
+    </aside>
+  </div>
+  <div class="al-controls">
+    <div class="al-row al-row-main"><button type="button" class="twh-btn-d twh-prev">&larr; Older · 較早</button><div class="twh-mapdots" role="group" aria-label="Choose a map · 選一張地圖"></div><button type="button" class="twh-btn-d twh-next">Newer · 較晚 &rarr;</button><div class="al-row al-toggles">{tg}</div></div>
+    <p class="twh-msg" aria-live="polite"></p>
+  </div>
+  {_lab_foot(lab)}
+  <p class="twh-credit">{lab["credit_html"]}</p>
+</div>'''
+
+_TWH_CARD["maps"] = twhmaps_svg
+
 def _twh_flat():
     return [(ui, u, l) for ui, u in enumerate(TWH["units"]) for l in u["lessons"]]
 
@@ -21871,7 +21911,7 @@ def build_twh_lesson(ui, unit, lesson):
     reading_html = render_basic_unit(1, unit_dict, level="twh", audio_rel="", pdf_rel="")
     lab = lesson["lab"]
     kind = lab["kind"]
-    lab_html = {"dig": render_twhdig_lab, "sites": render_twhsites_lab, "peoples": render_twhpeoples_lab}[kind](lesson)
+    lab_html = {"dig": render_twhdig_lab, "sites": render_twhsites_lab, "peoples": render_twhpeoples_lab, "maps": render_twhmaps_lab}[kind](lesson)
 
     def sec(key, fn, sid=None):
         d = lesson[key]

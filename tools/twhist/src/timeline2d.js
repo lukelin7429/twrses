@@ -42,7 +42,7 @@ export function whenText(ago, now, approx) {
 
 export function mountTimeline(root, cfg) {
   const now = cfg.now || new Date().getFullYear();
-  const limits = (kind) => ({ older: cfg.older, nearer: kind === 'log' ? (cfg.nearest || FLOOR) : 0 });
+  const limits = (kind) => ({ older: cfg.older, nearer: kind === 'log' ? (cfg.nearest || FLOOR) : (cfg.nearestLinear || 0) });   // nearestLinear：只看一小段年代的直線時間軸（第四課）
   const state = { kind: cfg.kind || 'log', view: null, cursor: null, band: null, sel: -1 };
   state.view = { ...limits(state.kind) };
   root.classList.add('twh-tl');

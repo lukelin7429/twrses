@@ -1133,7 +1133,7 @@
   - `when`（「這一課在時間軸的哪裡」：`focus` ＝ `{ fromAgo|fromYear, toAgo|toYear, en, zh }`、`note_*`，可加 `events[]`）、`sort`（分類遊戲）、`two`（兩份互相矛盾的記錄）、`notes`＋`notes_head`（「給老師的提醒」：課綱對應、名詞、這個系列怎麼處理敏感題目）。
 - 頁面：`build.py`「台灣歷史」區塊的 `build_twh_hub()`（系列小圖示 `twhhub_svg()`＝地層＋探坑＋手鏟，第一課卡 `twhdig_svg()`；`_TWH_CARD`）/ `build_twh_lesson()`；三張固定的卡是 `_twh_how()`、`_twh_views()`、`_twh_phrases()`，時間軸 `_twh_timeline()`。「閱讀與經典」頁有入口卡（🏺，排在家政後面）。段落順序：3D → 英文閱讀 → 模型卡 → **時間軸** → 這是哪一種證據 → 兩個人說的不一樣 → **我們怎麼知道？** → **不同的說法** → **歷史英語** → 在台灣（文化卡）→ 迷思 → 口訣 → 給老師的提醒 → 活動 → 延伸閱讀 → 資料出處。`tools/gen_audio.py` 的 `SHORT_PAGES` 已加入本系列。
 - 樣式：共用 `assets/css/astro.css`，本系列專屬的在 `assets/css/taiwan-history.css`（**class 前綴一律 `twh-`**——`th-` 已被天文、人體、地球、書法、數學等系列用掉，不要用）；`_twh_head()` 只在本系列頁面載入。
-- 原始碼：**`tools/twhist/src/`**（自己的 package.json，three 0.186.1、esbuild 0.25.10），bundle 一律 `twh-*`；`lab.kind` → bundle 對照在 `build.py` 的 `_TWH_JS`（`dig` → `twh-dig`、`sites` → `twh-sites`、`peoples` → `twh-peoples`）；首頁另載 `twh-hub`（只有時間軸，不含 three.js）。**不要 import 別的系列的 tools 目錄。** 新增一課＝`src/twh-<名>.js`＋package.json 的 build 加入口＋`_TWH_JS` 加一筆＋`build_twh_lesson()` 的 `lab_html` 對照加一筆。
+- 原始碼：**`tools/twhist/src/`**（自己的 package.json，three 0.186.1、esbuild 0.25.10），bundle 一律 `twh-*`；`lab.kind` → bundle 對照在 `build.py` 的 `_TWH_JS`（`dig` → `twh-dig`、`sites` → `twh-sites`、`peoples` → `twh-peoples`、`maps` → `twh-maps`）；首頁另載 `twh-hub`（只有時間軸，不含 three.js）。**不要 import 別的系列的 tools 目錄。** 新增一課＝`src/twh-<名>.js`＋package.json 的 build 加入口＋`_TWH_JS` 加一筆＋`build_twh_lesson()` 的 `lab_html` 對照加一筆。
   ```
   cd tools/twhist && npm ci && npm run build && npm test
   ```
@@ -1167,6 +1167,13 @@
   - **不比對真假**：各族的起源說法是「另一種證據」（口傳），課文不拿它們和考古、語言學比對對錯；轉述用 tell of / according to … tradition。
   - 除錯：`document.querySelector('[data-twhpeoples-lab]').__lab`（`setYear(y)`、`year()`、`select(key)`、`listed()`、`demo(...)`、`check()`＝亮著的族名＝資料裡那一年已核定的族，而且畫面上的數字一致）；`document.querySelector('[data-twh-world]').__world`（`pick(key)`、`distance(key)`）。這一課完全不用 WebGL（bundle 約 80 KB）。
   - 截圖：`tools/astro/scripts/shot.mjs`（已改用 `headless-chrome`）。頁面有 `scroll-behavior: smooth`，截某一段之前先把 `document.documentElement.style.scrollBehavior = 'auto'`，並等模型開機後再捲（模型開機會改變頁面高度）。
+- 第四課老地圖展示台（`twh-maps.js`，`lab.kind = "maps"`，`data-twhmaps-lab`；slug `old-maps`）：一個想法——**老地圖讓我們看見畫圖的人知道什麼、不知道什麼；遠方的地圖師一開始把台灣畫得很小、形狀不對，原住民族並不需要這些地圖；地圖是關於畫圖者的證據**。
+  - **影像規則**：只用館方明確開放授權的影像（Luke 2026-10-15 選定：David Rumsey 地圖典藏＋荷蘭國家博物館）。檔案在 `assets/img/taiwan-history/maps/`（1584 Ortelius／1728 Halley／1737 d’Anville 裁台灣附近／1764 Bellin／1849 Siebold），每張約 200–480 KB，用 IIIF 取區域再壓縮（Rumsey：`https://www.davidrumsey.com/luna/servlet/iiif/<ID>/x,y,w,h/寬,/0/default.jpg`；荷博：`https://iiif.micr.io/PQHHn/...`）。**Rumsey 是 CC BY-NC-SA 3.0**：非商業、一定要標「David Rumsey Map Collection, David Rumsey Map Center, Stanford Libraries」、裁切後依同授權分享（`license` 欄寫明裁切方式）。荷博 RP-P-1939-985 是公有領域。loc.gov、gallica 有 Cloudflare 擋（沒繞過、不用）；Amsterdam Museum 要聯絡授權（不用）。
+  - `lab.maps[]`：`key`、`year`（`year_label_*` 可蓋掉，例如 1584 這份印於 1608）、`img`、`w/h`（實際像素）、`short_en`（年份按鈕下的小字）、`maker_*`、`notice_*`、`held_*`、`id`、`license`、`src/url`、`say_*`、`hots[]`（`x/y` 是**影像寬高的百分比**，看影像手放；`npm test` 檢查在 0–100、每張至少 4 個）。換影像或重新裁切時**重算所有 hots**（畫紅圈在影像上檢查最快）。
+  - 展示台：放大用 CSS 變數 `--z/--x/--y`（重點圓點反向縮放，大小不變）、拖曳平移、← → 換圖；**今天的海岸線放在旁邊對照，不疊到老地圖上**（形狀對不上正是要看的）。直的時間軸用 `kind: 'linear'` 加 `nearestLinear`（`timeline2d.js` 新增的選項，直線尺度只畫到 1870 年，不然五張地圖擠在一起）。
+  - 老地圖上的字是我們放大影像讀的（頁面與給老師的提醒都有寫）。1584 年那張哪幾座島是台灣，依 **Kua 2020 全文**（Lequeio parua＋Ins. Fermosa＝被拆成兩塊的台灣、Lequeio magna＝沖繩；Georgio 是葡萄牙地圖師、1579 年畫成）。「不同的說法」只放一題：誰最早把台灣叫 Formosa——課本的說法／翁佳音與黃驗 2017（央廣 2017-11-14 報導，西班牙人最早）／Kua 2020（葡萄牙人 1550 年代初期，「going too far」）。Taiwan 來自族名依 Mair（Pinyin.info；寫「研究漢語的學者」，不寫 linguist）。**1737 與 1764 兩張都同時把 Taiouan／Tai-ouan 用在整座島和西海岸的一個地方**（查證抓到原本寫成「一張標島、一張標地方」）。**沒寫**：流求、翁佳音與曹銘宗《大灣大員福爾摩沙》（2016）的地名說法（沒取得內容）；《大英百科》的台灣黑熊（引的頁面查不到那句）；原住民族「不需要這些地圖」「知識存在語言裡」（沒有出處，刪掉）；d’Anville 實測範圍（只引標題）。
+  - 小遊戲「這個名字標的是什麼？」沿用 `initSort`：整座島／島上的地方／附近的群島（3／3／2）——Taiwan 的各種拼法在「整座島」和「島上的地方」兩組都出現。
+  - 除錯：`document.querySelector('[data-twhmaps-lab]').__lab`（`show(key)`、`current()`、`hot(key)`、`zoom(f)`、`demo(...)`、`check()`＝影像、卡片、時間軸游標、重點數量都是同一張地圖）。完全不用 WebGL（bundle 約 27 KB）。
 
 ## 世界歷史 World History（/resources/classes/world-history/）— 架構照地理與台灣歷史，共用的是「歷史地球儀」與「平行時間軸」
 

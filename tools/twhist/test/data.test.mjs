@@ -149,6 +149,31 @@ assert.equal(yearsBetween(1601, 1700) + 1, 100);
   assert.ok(lessons.at(-1).links.some((x) => x.soon));
   assert.ok(lessons.find((l) => l.slug === 'who-lived-here').links.some((x) => x.href === '/resources/classes/taiwan-history/indigenous-peoples/'));
 }
+// ── 第四課 ───────────────────────────────────────────────────────────
+{
+  const L4 = lessons.find((l) => l.slug === 'old-maps'), lab4 = L4.lab, M = lab4.maps;
+  const { existsSync } = await import('node:fs');
+  assert.deepEqual(M.map((m) => m.year), [1584, 1728, 1737, 1764, 1849]);           // 五張，依年代
+  assert.equal(new Set(M.map((m) => m.key)).size, 5);
+  for (const m of M) {
+    assert.ok(existsSync(new URL(`../../..${m.img}`, import.meta.url)), m.img);       // 影像在 repo 裡
+    assert.ok(/^https:\/\//.test(m.url) && m.license && m.id && m.held_en && m.maker_en && m.notice_en, m.key);   // 每一張都有館藏編號、授權、連結
+    assert.ok(/David Rumsey Map Center, Stanford Libraries/.test(m.license) || /Public domain/.test(m.license), m.key);
+    assert.ok(m.hots.length >= 4 && new Set(m.hots.map((h) => h.key)).size === m.hots.length, m.key);
+    m.hots.forEach((h) => assert.ok(h.x > 0 && h.x < 100 && h.y > 0 && h.y < 100 && h.en && h.zh, `${m.key}.${h.key}`));
+    assert.ok(yearToAgo(m.year, NOW) < lab4.older && yearToAgo(m.year, NOW) > lab4.nearest);
+  }
+  // 小卡的示範：地圖和重點都存在
+  L4.parts.forEach((p) => { const d = lab4.demo[p.demo]; assert.ok(d, p.demo); const m = M.find((x) => x.key === d.map); assert.ok(m && m.hots.some((h) => h.key === d.hot), p.demo); assert.equal(p.meta_en, String(m.year)); });
+  // 時間軸：這一課是 1584–1849；「大約 265 年」
+  assert.equal(L4.when.focus.fromAgo, yearToAgo(1584, NOW)); assert.equal(L4.when.focus.toAgo, yearToAgo(1849, NOW));
+  assert.equal(1849 - 1584, 265); assert.equal(1737 - 1728, 9);                      // 「九年後」
+  // 分類遊戲：整座島 3、島上的地方 3、附近的群島 2
+  assert.deepEqual(['island', 'place', 'near'].map((k) => L4.sort.items.filter((it) => it.bin === k).length), [3, 3, 2]);
+  assert.ok(L4.sort.done_en.startsWith('Three names for the whole island, three for places on it, and two'));
+  // 第三課的預告卡已換成真的連結
+  assert.ok(lessons.find((l) => l.slug === 'indigenous-peoples').links.some((x) => x.href === '/resources/classes/taiwan-history/old-maps/'));
+}
 // 時間軸上的事件由古到今
 const ev = data.timeline.events.map((e) => (e.ago !== undefined ? e.ago : yearToAgo(e.year, NOW)));
 assert.deepEqual(ev, [...ev].sort((a, b) => b - a));
