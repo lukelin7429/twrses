@@ -16182,7 +16182,7 @@ def build_comp_hub():
 _musj = os.path.join(ROOT, "data", "music.json")
 MUS = json.load(open(_musj, encoding="utf-8")) if os.path.exists(_musj) else None
 MUS_BASE = "/resources/classes/music/"
-_MUS_JS = {"string": "mus-string", "timbre": "mus-timbre", "beat": "mus-beat", "dynamics": "mus-dynamics", "staff": "mus-staff", "values": "mus-values", "scale": "mus-scale", "harmony": "mus-harmony", "instruments": "mus-instruments", "piano": "mus-piano", "orchestra": "mus-orchestra", "chinese": "mus-chinese", "eras": "mus-eras"}   # lab.kind → assets/js/<bundle>.js
+_MUS_JS = {"string": "mus-string", "timbre": "mus-timbre", "beat": "mus-beat", "dynamics": "mus-dynamics", "staff": "mus-staff", "values": "mus-values", "scale": "mus-scale", "harmony": "mus-harmony", "instruments": "mus-instruments", "piano": "mus-piano", "orchestra": "mus-orchestra", "chinese": "mus-chinese", "eras": "mus-eras", "swing": "mus-swing"}   # lab.kind → assets/js/<bundle>.js
 
 def _mus_ver():
     h = hashlib.md5()
@@ -16315,7 +16315,14 @@ def museras_svg(size=56):
             '<g fill="#fff"><ellipse cx="12" cy="24" rx="3.6" ry="2.6"/><ellipse cx="30" cy="18" rx="3.6" ry="2.6"/><ellipse cx="48" cy="12" rx="3.6" ry="2.6"/></g>'
             '<g stroke="#fff" stroke-width="1.6"><path d="M15 24V12M33 18V6M51 12V0"/></g></svg>')
 
-_MUS_CARD = {"string": mustring_svg, "timbre": mustimbre_svg, "beat": musbeat_svg, "dynamics": musdynamics_svg, "staff": musstaff_svg, "values": musvalues_svg, "scale": musscale_svg, "harmony": musharmony_svg, "instruments": musinstruments_svg, "piano": muspiano_svg, "orchestra": musorchestra_svg, "chinese": muschinese_svg, "eras": museras_svg}
+def musswing_svg(size=56):
+    """第十四課的課程卡小圖示：一拍切成長—短兩段（搖擺），上面兩個音符。"""
+    return (f'<svg class="musswing-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">'
+            '<rect x="6" y="38" width="30" height="9" rx="3" fill="#ffd36e"/><rect x="38" y="38" width="16" height="9" rx="3" fill="#ff9f7a"/>'
+            '<g fill="#fff"><ellipse cx="14" cy="22" rx="4" ry="3"/><ellipse cx="44" cy="22" rx="4" ry="3"/></g>'
+            '<g stroke="#fff" stroke-width="1.7"><path d="M18 22V8M48 22V8M18 8H48"/></g></svg>')
+
+_MUS_CARD = {"string": mustring_svg, "timbre": mustimbre_svg, "beat": musbeat_svg, "dynamics": musdynamics_svg, "staff": musstaff_svg, "values": musvalues_svg, "scale": musscale_svg, "harmony": musharmony_svg, "instruments": musinstruments_svg, "piano": muspiano_svg, "orchestra": musorchestra_svg, "chinese": muschinese_svg, "eras": museras_svg, "swing": musswing_svg}
 _MUS_PRESETS = [   # 和 tools/music/src/pitch.js 的 PRESETS 對應
     {"key": "whole", "en": "Whole string", "zh": "整根弦"}, {"key": "half", "en": "One half", "zh": "二分之一"},
     {"key": "twothirds", "en": "Two thirds", "zh": "三分之二"}, {"key": "threequarters", "en": "Three quarters", "zh": "四分之三"}]
@@ -17105,6 +17112,50 @@ def _mu_eraq(d):
   <div class="mu-hg-foot"><span></span><button type="button" class="mu-btn mu-btn-gold mu-eq-next" hidden>Next question · 下一題</button></div>
 </div>'''
 
+def render_musswing_lab(lesson):
+    """第十四課：搖擺比例滑桿與鋼琴卷（assets/js/mus-swing.js 綁這裡的 class；沒有 3D，聲音由瀏覽器合成）。"""
+    pre = "".join(f'<button type="button" class="mu-btn" data-sw-preset="{v}" aria-pressed="false">{en} · {zh}</button>'
+                  for v, en, zh in [("1", "Straight 1 : 1", "平均"), ("2", "Swung 2 : 1", "搖擺 2:1"), ("3", "Strong swing 3 : 1", "更搖擺 3:1")])
+    return f'''<div class="mu-swing rvl" data-musswing-lab>
+  <div class="mu-sc-row" role="group" aria-label="Presets · 預設"><span class="mu-st-k">Presets · 預設</span>{pre}</div>
+  <div class="mu-sw-sliders">
+    <label class="mu-sw-lab">Swing ratio · 搖擺比例 <b class="mu-sw-val">1 : 1</b><input type="range" class="mu-sw-ratio" min="1" max="3" step="0.1" value="1" aria-label="Swing ratio · 搖擺比例"></label>
+    <label class="mu-sw-lab">Tempo · 速度 <b><span class="mu-sw-bpmv">120</span> BPM</b><input type="range" class="mu-sw-bpm" min="60" max="200" step="1" value="120" aria-label="Tempo in beats per minute · 速度（每分鐘幾拍）"></label>
+  </div>
+  <p class="mu-sw-info"></p>
+  <canvas class="mu-sw-cv" aria-label="A piano roll of the tune with the off-beat notes shown in orange; they move later as the swing ratio grows · 旋律的鋼琴卷，反拍的音是橘色；搖擺比例越大，它們越往後移"></canvas>
+  <div class="mu-sc-btns">
+    <button type="button" class="mu-btn mu-btn-gold mu-sw-play">&#9654; Play · 播放</button>
+    <button type="button" class="mu-btn mu-sw-hat" aria-pressed="true">Hi-hat · 踩鈸</button>
+  </div>
+  <p class="mu-msg" aria-live="polite"></p>
+</div>'''
+
+def _mu_swingq(d):
+    return f'''<div class="mu-swingq rvl" data-mu-swingq>
+  <div class="mu-hg-top"><p class="mu-sq-k">Question 1 of 6 · 第 1 題（共 6 題）</p><p class="mu-hg-sc">Right on the first try · 第一次就答對 <b class="mu-sq-score">0 / 0</b></p></div>
+  <div class="mu-sc-btns"><button type="button" class="mu-btn mu-btn-gold mu-sq-listen">&#9654; Listen · 聽</button><button type="button" class="mu-btn mu-sq-show">What is in the music · 音樂裡有什麼</button></div>
+  <div class="mu-eq-hint mu-sq-hint" hidden></div>
+  <div class="mu-eq-opts"><button type="button" class="mu-eq-opt" data-pick="straight"><b>Straight</b><small>平均</small></button><button type="button" class="mu-eq-opt" data-pick="swung"><b>Swung</b><small>搖擺</small></button></div>
+  <p class="mu-q-msg" aria-live="polite"></p>
+  <div class="mu-hg-foot"><span></span><button type="button" class="mu-btn mu-btn-gold mu-sq-next" hidden>Next question · 下一題</button></div>
+</div>'''
+
+def _mu_improv(d):
+    notes = "".join(f'<button type="button" class="mu-btn mu-im-note" data-note="{m}">{n}</button>'
+                    for m, n in [(60, "C"), (62, "D"), (64, "E"), (67, "G"), (69, "A"), (72, "high C · 高 C")])
+    return f'''<div class="mu-improv rvl" data-mu-improv>
+  <div class="mu-sc-row" role="group" aria-label="Grid · 格子"><span class="mu-st-k">Grid · 格子</span>
+    <button type="button" class="mu-btn" data-im-ratio="1" aria-pressed="false">Straight · 平均</button>
+    <button type="button" class="mu-btn" data-im-ratio="2" aria-pressed="true">Swung 2 : 1 · 搖擺</button></div>
+  <canvas class="mu-im-cv mu-sw-cv" aria-label="The grid of eighth notes with your tapped notes shown as purple dots · 八分音符的格子，與你點的音（紫色圓點）"></canvas>
+  <div class="mu-sc-btns"><button type="button" class="mu-btn mu-btn-gold mu-im-go">&#9654; Start the band · 開始伴奏</button></div>
+  <div class="mu-sc-row" role="group" aria-label="Notes · 音"><span class="mu-st-k">Notes · 音</span>{notes}</div>
+  <p class="mu-im-log" aria-live="polite"></p>
+  <div class="mu-sc-btns"><button type="button" class="mu-btn mu-im-back">Play it back · 播放我的樂句</button><button type="button" class="mu-btn mu-im-clear">Clear · 清除</button></div>
+  <p class="mu-msg" aria-live="polite"></p>
+</div>'''
+
 def _mu_timeline(d):
     lo, hi = d.get("from", 1550), d.get("to", 1920)
     span = hi - lo
@@ -17152,7 +17203,7 @@ def build_mus_lesson(ui, unit, lesson):
     reading_html = render_basic_unit(1, unit_dict, level="music", audio_rel="", pdf_rel="")
     lab = lesson["lab"]
     kind = lab["kind"]
-    lab_html = {"string": render_musstring_lab, "timbre": render_mustimbre_lab, "beat": render_musbeat_lab, "dynamics": render_musdynamics_lab, "staff": render_musstaff_lab, "values": render_musvalues_lab, "scale": render_musscale_lab, "harmony": render_musharmony_lab, "instruments": render_musinstruments_lab, "piano": render_muspiano_lab, "orchestra": render_musorchestra_lab, "chinese": render_muschinese_lab, "eras": render_museras_lab}[kind](lesson)
+    lab_html = {"string": render_musstring_lab, "timbre": render_mustimbre_lab, "beat": render_musbeat_lab, "dynamics": render_musdynamics_lab, "staff": render_musstaff_lab, "values": render_musvalues_lab, "scale": render_musscale_lab, "harmony": render_musharmony_lab, "instruments": render_musinstruments_lab, "piano": render_muspiano_lab, "orchestra": render_musorchestra_lab, "chinese": render_muschinese_lab, "eras": render_museras_lab, "swing": render_musswing_lab}[kind](lesson)
 
     def sec(key, fn):
         d = lesson[key]
@@ -17172,6 +17223,8 @@ def build_mus_lesson(ui, unit, lesson):
                      _bi(lesson["parts_note_en"], lesson["parts_note_zh"], cls="lead rvl d2")))
     if lesson.get("eraq"): secs.append(sec("eraq", _mu_eraq))
     if lesson.get("timeline"): secs.append(sec("timeline", _mu_timeline))
+    if lesson.get("swingq"): secs.append(sec("swingq", _mu_swingq))
+    if lesson.get("improv"): secs.append(sec("improv", _mu_improv))
     if lesson.get("wayq"): secs.append(sec("wayq", _mu_wayq))
     if lesson.get("penta"): secs.append(sec("penta", _mu_penta))
     if lesson.get("mixer"): secs.append(sec("mixer", _mu_mixer))

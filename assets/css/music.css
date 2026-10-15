@@ -785,3 +785,24 @@ a.mu-link:hover { transform: translateY(-3px); box-shadow: var(--shadow); border
 .mu-tl-notes { margin: 1rem 0 0; padding-left: 1.2rem; font-size: .86rem; line-height: 1.6; }
 .mu-tl-caveat { margin: .8rem 0 0; font-size: .8rem; color: var(--ink-soft); }
 @media (max-width: 560px) { .mu-eras, .mu-eraq, .mu-timeline { padding: 1rem; } .mu-eq-opts { grid-template-columns: 1fr; } .mu-er-cv { height: 220px; } .mu-tl-bar small { display: none; } }
+
+/* ── 第十四課：爵士與搖擺 ───────────────────────────────────────── */
+.mu-swing, .mu-swingq, .mu-improv { margin-top: 1.5rem; padding: 1.3rem 1.4rem; background: #fff; border: 1px solid var(--line); border-radius: 20px; box-shadow: var(--shadow-sm); max-width: 1000px; }
+.mu-swing .mu-btn[aria-pressed="true"], .mu-improv .mu-btn[aria-pressed="true"] { border-color: var(--brand); background: var(--brand-lt); }
+.mu-swing .mu-btn-gold, .mu-swingq .mu-btn-gold, .mu-improv .mu-btn-gold { background: var(--gold); border-color: var(--gold); }
+.mu-sw-sliders { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; margin-top: .9rem; }
+.mu-sw-lab { display: flex; flex-direction: column; gap: .35rem; font-size: .84rem; font-weight: 700; }
+.mu-sw-lab input[type=range] { width: 100%; accent-color: var(--brand); }
+.mu-sw-info { margin: .8rem 0 0; font-size: .9rem; }
+.mu-sw-info small { display: block; color: var(--ink-soft); font-weight: 700; margin-top: .15rem; }
+.mu-sw-cv { display: block; width: 100%; height: 240px; margin-top: .6rem; border: 1px solid var(--line); border-radius: 14px; background: #fffdf6; }
+.mu-swing .mu-msg, .mu-swingq .mu-q-msg, .mu-improv .mu-msg { color: var(--ink); margin: .8rem 0 0; min-height: 3.4em; font-size: .86rem; line-height: 1.6; }
+.mu-swing .mu-msg .zh, .mu-swingq .mu-q-msg .zh, .mu-improv .mu-msg .zh { display: block; color: var(--ink-soft); }
+.mu-sq-k { margin: 0; font-size: .78rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--gold-dk); }
+.mu-swingq .mu-eq-opts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.mu-swingq .mu-hg-sc { color: var(--ink-soft); }
+.mu-im-log { margin: .8rem 0 0; min-height: 2.2em; font-size: .82rem; line-height: 2; }
+.mu-im-chip { display: inline-block; padding: .05rem .5rem; border-radius: 999px; background: #f1e9fb; border: 1px solid #d9c6f0; font-weight: 700; }
+.mu-im-empty { color: var(--ink-soft); }
+.mu-im-note { min-width: 3.2rem; }
+@media (max-width: 560px) { .mu-swing, .mu-swingq, .mu-improv { padding: 1rem; } .mu-sw-sliders { grid-template-columns: 1fr; } .mu-sw-cv { height: 210px; } }
