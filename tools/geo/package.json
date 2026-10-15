@@ -5,8 +5,8 @@
   "type": "module",
   "scripts": {
     "land": "node scripts/build-land.mjs",
-    "build": "esbuild src/geo-flatmap.js src/geo-latlon.js src/geo-contour.js --bundle --minify --format=iife --target=es2019 --legal-comments=eof --outdir=../../assets/js",
-    "test": "node test/geo.test.mjs && node test/land.test.mjs && node test/fit.test.mjs && node test/find.test.mjs && node test/terrain.test.mjs"
+    "build": "esbuild src/geo-flatmap.js src/geo-latlon.js src/geo-contour.js src/geo-mapview.js --bundle --minify --format=iife --target=es2019 --legal-comments=eof --outdir=../../assets/js",
+    "test": "node test/geo.test.mjs && node test/land.test.mjs && node test/fit.test.mjs && node test/find.test.mjs && node test/terrain.test.mjs && node test/town.test.mjs"
   },
   "devDependencies": {
     "esbuild": "0.25.10",

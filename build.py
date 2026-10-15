@@ -17392,7 +17392,7 @@ def build_mus_hub():
 _geoj = os.path.join(ROOT, "data", "geography.json")
 GEO = json.load(open(_geoj, encoding="utf-8")) if os.path.exists(_geoj) else None
 GEO_BASE = "/resources/classes/geography/"
-_GEO_JS = {"flatmap": "geo-flatmap", "latlon": "geo-latlon", "contour": "geo-contour"}   # lab.kind → assets/js/<bundle>.js
+_GEO_JS = {"flatmap": "geo-flatmap", "latlon": "geo-latlon", "contour": "geo-contour", "mapview": "geo-mapview"}   # lab.kind → assets/js/<bundle>.js
 
 def _geo_ver():
     h = hashlib.md5()
@@ -17453,7 +17453,19 @@ def geocontour_svg(size=56):
             '<path d="M8 50.6h44" stroke="#4fb7ff" stroke-width="2" stroke-linecap="round" opacity=".9"/>'
             '<path d="M12 47.3h33M16 44h27M19 40.6h18M21.5 37.3h11" stroke="#ffd36e" stroke-width="1.1" stroke-linecap="round" opacity=".85"/></svg>')
 
-_GEO_CARD = {"flatmap": geoflat_svg, "latlon": geolatlon_svg, "contour": geocontour_svg}
+def geomapview_svg(size=56):
+    """第四課的課程卡小圖示：一張摺起來的地圖，上面有北方箭頭、圖形比例尺和兩個符號。"""
+    return (f'<svg class="geomapview-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">'
+            '<path d="M6 14l14-5 20 5 14-5v37l-14 5-20-5-14 5z" fill="#f3ead2"/>'
+            '<path d="M20 9v37M40 14v37" stroke="#c8b88f" stroke-width="1.2"/>'
+            '<path d="M6 14l14-5 20 5 14-5v37l-14 5-20-5-14 5z" fill="none" stroke="#e8edf7" stroke-width="1.4" stroke-linejoin="round"/>'
+            '<path d="M10 34c6-4 10 4 16 0s10-6 14-2" fill="none" stroke="#2f7fd6" stroke-width="2"/>'
+            '<path d="M47 16l3 8-3-2-3 2z" fill="#2b2118"/><text x="47" y="15" font-size="5" text-anchor="middle" fill="#2b2118" font-weight="800">N</text>'
+            '<path d="M10 44h12" stroke="#2b2118" stroke-width="2"/><path d="M16 44h6" stroke="#fff" stroke-width="1"/>'
+            '<rect x="27" y="19" width="7" height="5" fill="#fff" stroke="#2b2118" stroke-width=".8"/><path d="M30.5 19v-4" stroke="#2b2118" stroke-width=".8"/><path d="M30.5 15l3 1-3 1z" fill="#d63a3a"/>'
+            '<path d="M24 28l3 5h-6z" fill="#2b2118"/></svg>')
+
+_GEO_CARD = {"flatmap": geoflat_svg, "latlon": geolatlon_svg, "contour": geocontour_svg, "mapview": geomapview_svg}
 _GEO_PROP_K = [("shape", "Shape", "形狀"), ("area", "Area", "面積"), ("distance", "Distance", "距離"), ("direction", "Direction", "方向")]
 
 def render_geoflat_lab(lesson):
@@ -17616,7 +17628,56 @@ def render_geocontour_lab(lesson):
   <p class="gg-credit">{lab["credit_html"]}</p>
 </div>'''
 
-_GEO_LAB = {"flatmap": render_geoflat_lab, "latlon": render_geolatlon_lab, "contour": render_geocontour_lab}
+_MV_LEGEND = (("school", "School", "學校"), ("temple", "Temple", "廟"), ("harbor", "Harbor", "港口"), ("lighthouse", "Lighthouse", "燈塔"),
+              ("bridge", "Bridge", "橋"), ("summit", "Summit", "山頂"), ("trailhead", "Trailhead", "登山口"), ("hut", "Mountain hut", "山屋"),
+              ("river", "River", "河流"), ("road", "Road", "公路"), ("trail", "Hiking trail", "登山步道"), ("rice", "Rice field", "稻田"),
+              ("forest", "Forest", "森林"), ("town", "Buildings", "房屋"))
+
+def render_geomapview_lab(lesson):
+    """第四課：示意小鎮從立體變成地圖（assets/js/geo-mapview.js 綁這裡的 class；虛構的地方）。"""
+    lab = lesson["lab"]
+    views = "".join(f'<button type="button" data-mview="{k}" aria-pressed="{"true" if k == "island" else "false"}"><b>{en}</b><small>{zh}</small></button>'
+                    for k, en, zh in (("island", "Whole island", "整座島"), ("town", "Town", "小鎮"), ("street", "Neighborhood", "街區")))
+    legend = "".join(f'<button type="button" class="gg-mv-key" data-sym="{k}"><img alt=""><span>{en}<small>{zh}</small></span></button>' for k, en, zh in _MV_LEGEND)
+    return f'''<div class="astro-lab gg-lab gg-mv-lab rvl" data-geomapview-lab>
+  <div class="al-stage">
+    <div class="al-space">
+      <canvas class="al-space-cv" aria-label="3D model of an imaginary island town; as the view turns to look straight down, buildings and trees fade into map symbols · 一座虛構小島小鎮的 3D 模型：鏡頭轉到正上方時，房子和樹淡出、變成地圖符號"></canvas>
+      <div class="al-labels" aria-hidden="true"></div>
+      <div class="gg-mv-north" aria-hidden="true"><i><b>N</b></i></div>
+      <div class="gg-mv-bar" aria-hidden="true"><i></i><b></b></div>
+      <p class="al-hint">Drag left or right to turn the island · 左右拖曳轉動小島</p>
+      <button type="button" class="al-home" title="Reset view · 重設視角" aria-label="Reset view · 重設視角">&#8634;</button>
+      <p class="al-nogl-msg">This 3D model needs WebGL, which this browser does not support. The legend on the right still works, and so do the two map activities below.<br><span class="zh">這個瀏覽器不支援 WebGL，無法顯示 3D 模型；右邊的圖例照樣能看，下面兩個地圖活動也都能用。</span></p>
+    </div>
+    <aside class="al-sky gg-aside">
+      <p class="al-sky-k">Three things to find · 先找三件事</p>
+      <p class="gg-mv-note" aria-live="polite">
+        <span data-when="side">From the side you see buildings, trees, and hills. A map looks at all of it from straight above.<span class="zh">從旁邊看，看到的是房子、樹和山坡。地圖是從正上方看下來的。</span></span>
+        <span data-when="mid" hidden>Turning to look straight down… the buildings and trees are turning into symbols.<span class="zh">正在轉到正上方……房子和樹正在變成符號。</span></span>
+        <span data-when="map" hidden>Now it is a map. Find the north arrow, the scale bar in the corner, and the symbols in the legend.<span class="zh">現在它是一張地圖了。找找角落的北方箭頭、圖形比例尺，以及圖例裡的符號。</span></span>
+      </p>
+      <dl class="gg-facts">
+        <div><dt>Width of the view · 畫面的寬度</dt><dd class="gg-mv-wide">10 km</dd></div>
+        <div><dt>As a 20 cm print · 印成 20 公分寬</dt><dd class="gg-mv-ratio">1 : 50,000</dd></div>
+      </dl>
+      <div class="gg-mv-views" role="group" aria-label="Area shown · 顯示範圍">{views}</div>
+      <p class="gg-read-k">Legend · 圖例 <small>(click one · 點一下找找看)</small></p>
+      <div class="gg-mv-legend">{legend}</div>
+    </aside>
+  </div>
+  <div class="al-controls">
+    <div class="al-row al-row-main">
+      <button type="button" class="al-play gg-mv-play" aria-pressed="false"><span class="al-play-i" aria-hidden="true"></span><span class="al-play-t">Look straight down · 轉到正上方</span></button>
+      <label class="gg-flatrow"><span>From the side · 從旁邊看</span>
+        <input type="range" class="gg-mv-t" min="0" max="100" step="1" value="0" aria-label="From a side view to looking straight down · 從側面看到從正上方看"><span>From above · 從正上方看</span></label>
+    </div>
+  </div>
+  {_lab_foot(lab)}
+  <p class="gg-credit">{lab["credit_html"]}</p>
+</div>'''
+
+_GEO_LAB = {"flatmap": render_geoflat_lab, "latlon": render_geolatlon_lab, "contour": render_geocontour_lab, "mapview": render_geomapview_lab}
 
 def _gg_drag(d):
     picks = "".join(
@@ -17760,8 +17821,43 @@ def _gg_profile(d):
   </div>
 </div>'''
 
+def _gg_measure(d):
+    views = "".join(f'<button type="button" data-mv="{k}" aria-pressed="{"true" if k == "island" else "false"}"><b>{en}</b><small>{zh}</small></button>'
+                    for k, en, zh in (("island", "Whole island · 1:50,000", "整座島"), ("town", "Town · 1:12,500", "小鎮"), ("street", "Neighborhood · 1:5,000", "街區")))
+    pairs = "".join(f'<button type="button" data-pair="{p}"><b>{html.escape(en)}</b><small>{html.escape(zh)}</small></button>'
+                    for p, en, zh in (("school,harbor", "School → harbor", "學校到港口"), ("bridge,lighthouse", "Bridge → lighthouse", "橋到燈塔"), ("trailhead,summit", "Trailhead → summit", "登山口到山頂")))
+    return f'''<div class="gg-drag gg-measure rvl" data-gg-measure>
+  <div class="gg-pf-left"><canvas class="gg-ms-cv" aria-label="A map of the imaginary island with a ruler between two handles, A and B, that you can drag · 虛構小島的地圖，上面有一把尺，兩端 A、B 可以拖"></canvas></div>
+  <div class="gg-dg-side">
+    <div class="gg-ms-views" role="group" aria-label="Map scale · 比例尺">{views}</div>
+    <dl class="gg-dg-facts">
+      <div><dt>Scale of this map (printed 20 cm wide)<span class="zh">這張地圖的比例尺（印成 20 公分寬）</span></dt><dd class="gg-ms-scale"></dd></div>
+      <div><dt>So 1 cm on the map is<span class="zh">所以地圖上 1 公分是</span></dt><dd class="gg-ms-means"></dd></div>
+      <div><dt>The ruler on the printed map<span class="zh">尺在印出來的地圖上</span></dt><dd class="gg-ms-cm"></dd></div>
+      <div><dt>Multiply by the scale<span class="zh">乘上比例尺</span></dt><dd class="gg-ms-calc"></dd></div>
+      <div class="is-key"><dt>Distance on the ground<span class="zh">地面上的距離</span></dt><dd class="gg-ms-ground"></dd></div>
+    </dl>
+    <div class="gg-pf-pre" role="group" aria-label="Measure between two places · 量兩個地方">{pairs}</div>
+  </div>
+</div>'''
+
+def _gg_legend(d):
+    payload = json.dumps({k: d[k] for k in ("questions", "labels", "hint", "start_en", "start_zh", "end_en", "end_zh")}, ensure_ascii=False).replace("</", "<\\/")
+    return f'''<div class="gg-fit gg-legend rvl" data-gg-legend>
+  <script type="application/json">{payload}</script>
+  <div class="gg-ft-top"><p class="gg-ft-k">Question 1 of 8 · 第 1 題（共 8 題）</p><p class="gg-ft-sc">Right on the first try · 第一次就答對 <b class="gg-ft-score">0 / 0</b></p></div>
+  <div class="gg-ft-steps" aria-hidden="true"></div>
+  <p class="gg-ft-q" aria-live="polite"><span class="gg-lg-q-en"></span><span class="zh gg-lg-q-zh"></span></p>
+  <div class="gg-st-body">
+    <canvas class="gg-lg-map" aria-label="Map of the imaginary island with symbols, a north arrow, and a scale bar; the starting point pulses in pink · 虛構小島的地圖，有符號、北方箭頭和圖形比例尺；起點用粉紅色的圈標出"></canvas>
+    <div class="gg-st-side"><div class="gg-lg-opts"></div></div>
+  </div>
+  <p class="gg-ft-msg" aria-live="polite"></p>
+  <div class="gg-ft-foot"><button type="button" class="gg-btn gg-btn-gold gg-ft-next" hidden>Next question · 下一題</button></div>
+</div>'''
+
 # 頁面上的小互動：照這個順序排在「模型卡」後面（JSON 有那個 key 才出現）
-_GEO_WIDGETS = [("drag", _gg_drag), ("fit", _gg_fit), ("find", _gg_find), ("degree", _gg_degree), ("steep", _gg_steep), ("profile", _gg_profile), ("map_english", _gg_map_english)]
+_GEO_WIDGETS = [("drag", _gg_drag), ("fit", _gg_fit), ("find", _gg_find), ("degree", _gg_degree), ("steep", _gg_steep), ("profile", _gg_profile), ("measure", _gg_measure), ("legend", _gg_legend), ("map_english", _gg_map_english)]
 
 def _geo_flat():
     return [(ui, u, l) for ui, u in enumerate(GEO["units"]) for l in u["lessons"]]

@@ -307,3 +307,44 @@ a.gg-link:hover { transform: translateY(-3px); box-shadow: var(--shadow); border
 
 /* 3D 面板最下面的資料說明（三課共用；之前漏了這一條，字會變成內文大小） */
 .gg-credit { margin: 0; padding: 0 1.3rem 1.1rem; font-size: .74rem; line-height: 1.6; color: #7f90b0; }
+
+/* ── 第四課：地圖怎麼看 ─────────────────────────────────────────────── */
+.gg-mv-lab .al-space-cv { cursor: ew-resize; }
+.gg-mv-north { position: absolute; left: 1rem; top: 1rem; width: 52px; height: 52px; border-radius: 50%; background: rgba(255,255,255,.88); box-shadow: 0 4px 14px rgba(0,0,0,.35); display: grid; place-items: center; pointer-events: none; }
+.gg-mv-north i { display: block; width: 0; height: 0; border-left: 9px solid transparent; border-right: 9px solid transparent; border-bottom: 30px solid #2b2118; position: relative; transform-origin: 50% 60%; }
+.gg-mv-north i b { position: absolute; left: -5px; top: 9px; font-style: normal; font-size: .7rem; font-weight: 800; color: #fff; }
+.gg-mv-bar { position: absolute; left: 1rem; bottom: 2.4rem; padding: .3rem .6rem .45rem; border-radius: 8px; background: rgba(255,255,255,.9); pointer-events: none; opacity: 0; transition: opacity .2s; }
+.gg-mv-bar i { display: block; height: 5px; background: linear-gradient(90deg, #2b2118 50%, #fff 50%); border: 1px solid #2b2118; }
+.gg-mv-bar b { display: block; margin-top: .15rem; font-size: .72rem; font-weight: 800; color: #2b2118; text-align: right; }
+.al-lab.gg-sym { display: inline-flex; align-items: center; gap: .3rem; padding: .1rem .45rem .1rem .2rem; background: rgba(255,255,255,.92); color: #2b2118; border-color: rgba(43,33,24,.35); font-size: .68rem; transition: opacity .2s, transform .1s; }
+.al-lab.gg-sym img { width: 22px; height: 22px; display: block; }
+.al-lab.gg-sym i { font-style: normal; font-family: var(--zh); font-weight: 600; margin-left: .25rem; color: #6b5a48; }
+.al-lab.gg-sym.is-hot { background: #ffd36e; box-shadow: 0 0 0 3px rgba(255,211,110,.6); z-index: 2; }
+.gg-mv-note { margin: 0; min-height: 5.2em; font-size: .82rem; line-height: 1.55; color: var(--al-text); }
+.gg-mv-note .zh { display: block; color: var(--al-mute); }
+.gg-mv-note span[hidden] { display: none; }
+.gg-mv-views, .gg-ms-views { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .3rem; }
+.gg-mv-views button, .gg-ms-views button { padding: .4rem .3rem; border-radius: 11px; border: 1px solid rgba(160,180,230,.25); background: rgba(255,255,255,.03); color: #e8edf7; font-family: var(--sans); font-size: .72rem; cursor: pointer; }
+.gg-mv-views button b, .gg-ms-views button b { display: block; font-weight: 800; }
+.gg-mv-views button small, .gg-ms-views button small { display: block; font-family: var(--zh); font-weight: 600; color: #9fb0cf; }
+.gg-mv-views button[aria-pressed="true"], .gg-ms-views button[aria-pressed="true"] { border-color: #ffd36e; background: rgba(255,211,110,.14); box-shadow: 0 0 0 1px #ffd36e inset; }
+.gg-read-k small { font-weight: 600; letter-spacing: 0; text-transform: none; color: var(--al-mute); }
+.gg-mv-legend { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .25rem; }
+.gg-mv-key { display: flex; align-items: center; gap: .4rem; padding: .25rem .35rem; border-radius: 9px; border: 1px solid rgba(160,180,230,.18); background: rgba(255,255,255,.92); color: #2b2118; font-family: var(--sans); font-size: .72rem; font-weight: 700; text-align: left; cursor: pointer; }
+.gg-mv-key img { width: 24px; height: 24px; flex: none; }
+.gg-mv-key small { display: block; font-family: var(--zh); font-weight: 600; color: #6b5a48; }
+.gg-mv-key.is-hot { background: #ffd36e; }
+.gg-lab.al-nogl .gg-mv-play, .gg-lab.al-nogl .gg-flatrow, .gg-lab.al-nogl .gg-mv-views { display: none; }
+/* 量一量 */
+.gg-measure { grid-template-columns: minmax(0, 1fr) 360px; }
+.gg-ms-cv { display: block; width: 100%; max-width: 640px; aspect-ratio: 1; touch-action: pan-y; border-radius: 10px; }
+.gg-ms-views button { font-size: .68rem; }
+@media (max-width: 900px) { .gg-measure { grid-template-columns: minmax(0, 1fr); } }
+/* 照著地圖找 */
+.gg-legend { max-width: 1040px; }
+.gg-lg-map { display: block; width: 100%; aspect-ratio: 1; border-radius: 12px; }
+.gg-lg-opts { display: grid; gap: .5rem; }
+.gg-lg-opt { flex-direction: row; justify-content: flex-start; gap: .7rem; padding: .6rem .8rem; }
+.gg-lg-opt img { width: 30px; height: 30px; flex: none; background: #fff; border-radius: 8px; padding: 2px; }
+.gg-lg-opt .gg-ft-lab { text-align: left; }
+.gg-lg-d { display: grid; place-items: center; width: 30px; height: 30px; flex: none; border-radius: 50%; background: #ffd36e; color: #1b1405; font-size: .8rem; }
