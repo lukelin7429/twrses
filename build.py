@@ -18545,7 +18545,7 @@ def build_wh_hub():
 _usgj = os.path.join(ROOT, "data", "us_government.json")
 USG = json.load(open(_usgj, encoding="utf-8")) if os.path.exists(_usgj) else None
 USG_BASE = "/resources/classes/us-government/"
-_USG_JS = {"constitution": "usg-constitution", "checks": "usg-checks", "federalism": "usg-federalism", "rights": "usg-rights"}   # lab.kind → assets/js/<bundle>.js
+_USG_JS = {"constitution": "usg-constitution", "checks": "usg-checks", "federalism": "usg-federalism", "rights": "usg-rights", "congress": "usg-congress"}   # lab.kind → assets/js/<bundle>.js
 
 def _usg_ver():
     h = hashlib.md5()
@@ -18859,7 +18859,80 @@ def render_usgrights_lab(lesson):
 </div>'''
 
 
-_USG_CARD = {"constitution": usgconst_svg, "checks": usgchecks_svg, "federalism": usgfed_svg, "rights": usgrights_svg}
+def usgcongress_svg(size=56):
+    """第五課的課程卡小圖示：兩個半圓形的議場，左小右大。"""
+    def arc(cx, r, n, col):
+        import math
+        dots = "".join(f'<circle cx="{cx + r * math.cos(math.pi - math.pi * i / (n - 1)):.1f}" cy="{40 - r * math.sin(math.pi - math.pi * i / (n - 1)):.1f}" r="1.6" fill="{col}"/>' for i in range(n))
+        return dots
+    return (f'<svg class="usgcongress-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">'
+            + arc(15, 7, 7, "#8a9bb8") + arc(15, 11, 9, "#8a9bb8") + arc(41, 9, 9, "#8a9bb8") + arc(41, 14, 13, "#8a9bb8") + arc(41, 18.5, 15, "#ffd36e")
+            + '<rect x="11" y="42" width="8" height="3" rx="1" fill="#f1efe8"/><rect x="37" y="42" width="8" height="3" rx="1" fill="#f1efe8"/>'
+            '<text x="15" y="54" text-anchor="middle" font-family="Georgia,serif" font-size="7" fill="#cfd6e4">S</text>'
+            '<text x="41" y="54" text-anchor="middle" font-family="Georgia,serif" font-size="7" fill="#cfd6e4">H</text></svg>')
+
+def render_usgcongress_lab(lesson):
+    """第五課：兩個半圓形的議場（assets/js/usg-congress.js 綁這裡的 class）。"""
+    lab = lesson["lab"]
+    eras = "".join(
+        f'<button type="button" data-era="{e["key"]}" aria-pressed="{"true" if e["key"] == lab["start_era"] else "false"}"><b>{html.escape(e["en"])}</b><small>{html.escape(e["zh"])}</small></button>'
+        for e in lab["eras"])
+    notes = "".join(
+        f'<p class="ug-cg-note" data-era-note="{e["key"]}"{"" if e["key"] == lab["start_era"] else " hidden"}>{html.escape(e["note_en"])}<span class="zh">{html.escape(e["note_zh"])}</span></p>'
+        for e in lab["eras"])
+    picks = "".join(
+        f'<button type="button" data-pick="{p["abbr"]}" aria-pressed="false"><b>{html.escape(p["en"])}</b><small>{html.escape(p["zh"])}</small></button>'
+        for p in lab["picks"])
+    payload = json.dumps({"states": lab["states"], "states1789": lab["states1789"], "start": lab["start"], "start_era": lab["start_era"], "demos": lab["demos"]},
+                         ensure_ascii=False).replace("</", "<\\/")
+    tg = _lab_toggles([("labels", "Labels", "標示", True)])
+    return f'''<div class="astro-lab ug-lab ug-cg rvl" data-usgcongress-lab>
+  <script type="application/json">{payload}</script>
+  <div class="al-stage">
+    <div class="al-space">
+      <canvas class="al-space-cv" aria-label="3D model of the two chambers of Congress, each a half circle of seats; the seats of the chosen state are raised and gold · 國會兩院的 3D 模型，兩個半圓形的議場；選到的州的座位會浮起來、變成金色"></canvas>
+      <div class="al-labels" aria-hidden="true"></div>
+      <p class="al-hint">Drag to look around · 拖曳轉動視角　Click a seat · 點一個座位　Scroll or pinch to zoom · 滾輪／雙指縮放</p>
+      <button type="button" class="al-home" title="Whole view · 回到全景" aria-label="Whole view · 回到全景">&#8634;</button>
+      <p class="al-nogl-msg">This 3D model needs WebGL, which this browser does not support. The buttons and the panel still work, and so do the reading and the two activities below.<br><span class="zh">這個瀏覽器不支援 WebGL，無法顯示 3D 模型；按鈕和說明欄照樣能用，下面的課文和兩個小互動也都能用。</span></p>
+    </div>
+    <aside class="al-sky ug-aside">
+      <p class="al-sky-k">One state, two chambers · 一個州，兩個議院</p>
+      <label class="ug-cg-pick"><span>Choose a state · 選一州</span><select data-state aria-label="Choose a state · 選一州"></select></label>
+      <div class="ug-cg-out" aria-live="polite"></div>
+      {notes}
+    </aside>
+  </div>
+  <div class="al-controls">
+    <p class="ug-ctl-k">When? · 哪一年？</p>
+    <div class="ug-cg-eras" role="group" aria-label="Era · 時期">{eras}</div>
+    <p class="ug-ctl-k">Try these states · 試試這幾州</p>
+    <div class="ug-cg-picks" role="group" aria-label="States · 州">{picks}</div>
+    <div class="al-row al-toggles ug-row-play">{tg}</div>
+  </div>
+  {_lab_foot(lab)}
+  <p class="ug-credit">{lab["credit_html"]}</p>
+</div>'''
+
+def _ug_weight(d):
+    """「一票的分量」（tools/usgov/src/weight2d.js）：選兩州，比較每一席代表多少居民。"""
+    payload = json.dumps({"states": d["states"], "a": d.get("a", "CA"), "b": d.get("b", "WY")}, ensure_ascii=False).replace("</", "<\\/")
+    return f'''<div class="ug-weight rvl" data-ug-weight>
+  <script type="application/json">{payload}</script>
+  <div class="ug-wt-pick">
+    <label><span>State A · 甲州</span><select aria-label="State A · 甲州"></select></label>
+    <label><span>State B · 乙州</span><select aria-label="State B · 乙州"></select></label>
+  </div>
+  <div class="ug-wt-scroll"><table class="ug-wt-t">
+    <thead><tr><th scope="col"></th><th scope="col" data-col="a"></th><th scope="col" data-col="b"></th></tr></thead>
+    <tbody></tbody>
+  </table></div>
+  <p class="ug-wt-msg" aria-live="polite"></p>
+  <p class="ug-am-note">{html.escape(d["credit_en"])}<span class="zh">{html.escape(d["credit_zh"])}</span></p>
+</div>'''
+
+
+_USG_CARD = {"constitution": usgconst_svg, "checks": usgchecks_svg, "federalism": usgfed_svg, "rights": usgrights_svg, "congress": usgcongress_svg}
 
 def _ug_timeline(tl):
     """可縮放的時間軸骨架（tools/usgov/src/timeline2d.js 綁這裡的 class；每課共用）。"""
@@ -18929,7 +19002,7 @@ def render_usgconst_lab(lesson):
   {_lab_foot(lab)}
 </div>'''
 
-_USG_LAB = {"constitution": render_usgconst_lab, "checks": render_usgchecks_lab, "federalism": render_usgfed_lab, "rights": render_usgrights_lab}
+_USG_LAB = {"constitution": render_usgconst_lab, "checks": render_usgchecks_lab, "federalism": render_usgfed_lab, "rights": render_usgrights_lab, "congress": render_usgcongress_lab}
 
 def _ug_spk(text, label="Listen · 聽"):
     return f'<button class="spk" data-say="{html.escape(re.sub(r"<[^>]+>", "", text))}" aria-label="{label}">🔊</button>'
@@ -19085,7 +19158,7 @@ def _ug_news_english(d):
 
 # 頁面上的小互動與每課固定的卡：照這個順序排在「模型卡」後面（JSON 有那個 key 才出現）。
 # clause（條文怎麼寫？）、primary（讀原典）、debate（制度的爭論）、taiwan（和台灣比一比）、news_english（新聞英語）每課都要有。
-_USG_WIDGETS = [("match", _ug_match), ("match2", _ug_match), ("amend", _ug_amend), ("veto", _ug_veto), ("fifty", _ug_fifty), ("clause", _ug_clause), ("primary", _ug_primary),
+_USG_WIDGETS = [("match", _ug_match), ("match2", _ug_match), ("amend", _ug_amend), ("veto", _ug_veto), ("fifty", _ug_fifty), ("weight", _ug_weight), ("clause", _ug_clause), ("primary", _ug_primary),
                 ("debate", _ug_debate), ("taiwan", _ug_taiwan), ("news_english", _ug_news_english)]
 
 def _usg_flat():

@@ -161,4 +161,31 @@ const k4 = lessons.find((l) => l.slug === 'bill-of-rights');
   assert.ok(Math.abs(w(s0) - w(s1)) <= 8, 'debate sides about equal length');
   assert.ok(Math.abs(s0.voice.split(/\s+/).length - s1.voice.split(/\s+/).length) <= 8, 'quoted voices about equal length');
 }
+// 第五課：兩院（席次圖）
+const k5 = lessons.find((l) => l.slug === 'two-houses');
+{
+  const st = k5.lab.states, s89 = k5.lab.states1789;
+  assert.equal(st.length, 50, 'fifty states, no DC');
+  assert.equal(st.reduce((a, s) => a + s.house, 0), 435);
+  assert.ok(st.every((s) => s.house >= 1 && s.pop > 0 && s.name && s.zh));
+  assert.deepEqual(st.filter((s) => s.house === 1).map((s) => s.abbr).sort(), ['AK', 'DE', 'ND', 'SD', 'VT', 'WY'], 'one-seat states after 2020');
+  assert.equal(st.find((s) => s.abbr === 'CA').house, 52);
+  // 和第三課的地圖用同一份資料
+  const k3seats = k3.lab.layers.find((l) => l.key === 'seats').values;
+  for (const s of st) { assert.equal(s.house, k3seats[s.abbr], s.abbr); assert.equal(s.pop, k3.lab.population[s.abbr], s.abbr); }
+  // 1789：憲法第一條第二項第三款的暫定分配
+  assert.equal(s89.length, 13);
+  assert.equal(s89.reduce((a, s) => a + s.house, 0), 65);
+  assert.deepEqual(s89.map((s) => [s.abbr, s.house]), [['NH', 3], ['MA', 8], ['RI', 1], ['CT', 5], ['NY', 6], ['NJ', 4], ['PA', 8], ['DE', 1], ['MD', 6], ['VA', 10], ['NC', 5], ['SC', 5], ['GA', 3]]);
+  for (const [k, d] of Object.entries(k5.lab.demos)) for (const [era, ab] of d) assert.ok((era === '1789' ? s89 : st).some((s) => s.abbr === ab), `${k}: ${ab}`);
+  for (const p of k5.parts) assert.ok(k5.lab.demos[p.demo], p.demo);
+  for (const q of k5.match.questions) assert.ok(k5.match.options.some((o) => o.key === q.answer), q.en);
+  for (const o of k5.match.options) assert.ok(k5.match.questions.filter((q) => q.answer === o.key).length >= 3);
+  assert.deepEqual(k5.weight.states, st);
+  const [s0, s1] = k5.debate.sides;
+  const w = (s) => s.points.reduce((a, q) => a + q.en.split(/\s+/).length, 0);
+  assert.equal(s0.points.length, s1.points.length);
+  assert.ok(Math.abs(w(s0) - w(s1)) <= 8, 'debate sides about equal length');
+  assert.ok(Math.abs(s0.voice.split(/\s+/).length - s1.voice.split(/\s+/).length) <= 8, 'quoted voices about equal length');
+}
 console.log('data.test ok');

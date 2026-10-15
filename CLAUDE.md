@@ -1276,6 +1276,12 @@
   - 小互動：「這是誰在限制誰？」（`match`，`cols: 2`，`gov`／`private`，國家行為要件）；「這屬於哪一條修正案？」（`match2`，`cols: 5`，a1–a10；`_USG_WIDGETS` 的 `match2` 也用 `_ug_match`）。
   - 除錯：`[data-usgrights-lab].__lab`（`state`、`select(key)`、`setYear('YYYY-MM-DD')`、`demo('speech'|'trial'|'local'|'reserved')`、`info()`、`run(秒)`、`render()`）。
   - 截圖：預覽伺服器名額被別的對話占滿時，可以把 `tools/astro/scripts/shot.mjs` 複製一份到 scratchpad、加上 CDP `Fetch.enable`，把 `http://site.test/…` 的請求直接從 worktree 目錄回檔（`Fetch.fulfillRequest`），不必開伺服器（第四課就是這樣截的）。
+- 第五課〈國會為什麼有兩院？〉（`usg-congress.js`，`lab.kind = "congress"`，`data-usgcongress-lab`，slug `two-houses`；**單元二第一課，資料在 `units[1]`**）：一個想法——眾議院依人口、參議院每州兩席，是 1787 年 7 月 16 日的大妥協（五州對四州、麻薩諸塞分歧）；兩院的任期、資格、專屬權力都不同。
+  - **新的共用引擎「席次圖」** `seats.js`（純函式，`test/seats.test.mjs`）：`rowCounts`（每排座位和半徑成正比、總數剛好）、`hemicycle(n, {rows, r0, r1})`（半圓座位，開口朝 +z）、`assign(seats, groups)`（依角度由左到右分座位，同一州連成一塊扇形）、`share`、`perSeat`、`ratio`。之後選舉人團、議場的課可以直接用。**座位顏色只代表選到的州，不畫政黨。**
+  - 3D：兩個半圓議場（InstancedMesh），寬畫面左右並排（參議院在左＝北翼），**畫布寬高比 < 1.25（手機）時改成前後排**（參議院在後），鏡頭跟著換。時期切換 `data-era`：`1789`（`lab.states1789`，憲法第一條第二項第三款的 65 席，依條文順序由北到南）與 `2020`（`lab.states`：50 州的席次與居住人口，**和第三課 `seats` 圖層、`population` 同一份**，測試會比對）。地板依時期縮放。點座位＝選那一州（raycast instanceId）。
+  - 小互動：「這是哪一院的工作？」（`match`，`cols: 3`，`house`／`senate`／`both`）；「一票的分量」（`weight`，`weight2d.js`，`data-ug-weight`：兩個下拉選單，算每位眾議員、參議員代表的居民，以及相差幾倍）。
+  - 除錯：`[data-usgcongress-lab].__lab`（`state`、`era('1789'|'2020')`、`pick(abbr)`、`demo('big'|'small'|'founding'|'same')`、`info()`、`run(秒)`、`render()`）；`[data-ug-weight].__weight`（`set(a, b)`、`info()`）。
+  - **查證注意**：紐澤西方案的條文本身沒有寫「一院」「每州一票」——它是「加強現有的國會」（邦聯國會每州一票）；大妥協的設計者寫「主要是雪曼與艾斯華斯」（senate.gov），條文出自 7 月 5 日的委員會報告；眾議院 435 席是 1911、1929 年的法律，不是憲法；「茶碟冷卻熱茶」的華盛頓軼事連 senate.gov 都寫「據說」，沒用。
 
 ## Build / Deploy
 ```

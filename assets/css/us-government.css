@@ -549,3 +549,43 @@ a.ug-link:hover { transform: translateY(-3px); box-shadow: var(--shadow); border
 .ug-mt-c2 .ug-mt-opts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 .ug-mt-c2 .ug-mt-opt b, .ug-mt-c5 .ug-mt-opt b { font-family: var(--sans); font-size: .92rem; font-weight: 800; }
 @media (max-width: 620px) { .ug-mt-c5 .ug-mt-opts { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+
+/* ── 第五課：兩個議場（席次圖） ─────────────────────────────────────── */
+@media (min-width: 1001px) { .ug-cg .al-stage { grid-template-columns: minmax(0, 1fr) 330px; } .ug-cg .al-space { min-height: 520px; } }
+.ug-cg-pick { display: grid; gap: .3rem; margin: .2rem 0 .8rem; font-size: .7rem; font-weight: 800; letter-spacing: .06em; color: var(--al-mute); }
+.ug-cg-pick select, .ug-wt-pick select { width: 100%; padding: .5rem .6rem; border-radius: 10px; border: 1px solid var(--al-line, rgba(160,180,230,.25)); background: #111b33; color: #fff; font-family: var(--sans), var(--zh); font-size: .9rem; }
+.ug-cg-name { margin: 0 0 .5rem; font-family: var(--serif); font-size: 1.35rem; font-weight: 700; color: #fff; }
+.ug-cg-name .zh { margin-left: .5rem; font-family: var(--zh); font-size: 1rem; color: #ffd36e; }
+.ug-cg-dl { margin: 0; display: grid; gap: .35rem; }
+.ug-cg-dl div { padding: .45rem .6rem; border-radius: 10px; background: rgba(255,255,255,.04); border-left: 4px solid #ffd36e; }
+.ug-cg-dl div:nth-child(n+3) { border-left-color: #5b6886; }
+.ug-cg-dl dt { font-size: .68rem; font-weight: 800; letter-spacing: .04em; color: var(--al-mute); }
+.ug-cg-dl dt .zh { margin-left: .3rem; font-family: var(--zh); }
+.ug-cg-dl dd { margin: .15rem 0 0; font-size: .86rem; font-weight: 700; color: #fff; line-height: 1.45; font-variant-numeric: tabular-nums; }
+.ug-cg-dl dd .zh { display: block; font-family: var(--zh); font-weight: 500; color: var(--al-mute); }
+.ug-cg-note { margin: .8rem 0 0; padding-top: .7rem; border-top: 1px solid var(--al-line); font-size: .76rem; line-height: 1.6; color: #cfd8ee; }
+.ug-cg-note[hidden] { display: none; }
+.ug-cg-note .zh { display: block; font-family: var(--zh); color: var(--al-mute); }
+.ug-cg-eras, .ug-cg-picks { display: flex; flex-wrap: wrap; gap: .35rem; margin-bottom: .7rem; }
+.ug-cg-eras button, .ug-cg-picks button { padding: .45rem .8rem; border-radius: 12px; border: 1px solid var(--al-line); background: rgba(255,255,255,.03); color: #e8edf7; font-family: var(--sans); font-size: .8rem; cursor: pointer; min-width: 0; }
+.ug-cg-eras button b, .ug-cg-picks button b { font-weight: 800; }
+.ug-cg-eras button small, .ug-cg-picks button small { margin-left: .35rem; font-family: var(--zh); font-weight: 600; font-size: .72rem; color: #9fb0cf; }
+.ug-cg-eras button[aria-pressed="true"], .ug-cg-picks button[aria-pressed="true"] { border-color: #ffd36e; background: rgba(255,211,110,.14); box-shadow: 0 0 0 1px #ffd36e inset; }
+.ug-cg-picks button[hidden] { display: none; }
+.al-lg-seat i { border-color: #8a9bb8; border-radius: 3px; background: #5d6f8c; } .al-lg-gold i { border-color: #ffd36e; border-radius: 3px; background: #ffd36e; }
+
+/* ── 一票的分量 ──────────────────────────────────────────────────── */
+.ug-weight { margin-top: 1.5rem; padding: 1.3rem 1.4rem 1.2rem; background: #0c1428; color: #e8edf7; border-radius: 20px; box-shadow: var(--shadow); }
+.ug-wt-pick { display: grid; grid-template-columns: 1fr 1fr; gap: .8rem; }
+.ug-wt-pick label { display: grid; gap: .3rem; font-size: .72rem; font-weight: 800; letter-spacing: .06em; color: #9fb0cf; }
+.ug-wt-scroll { overflow-x: auto; margin-top: 1rem; }
+.ug-wt-t { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+.ug-wt-t th, .ug-wt-t td { padding: .5rem .6rem; border-bottom: 1px solid rgba(160,180,230,.15); text-align: right; font-size: .9rem; }
+.ug-wt-t thead th { font-size: .95rem; color: #fff; }
+.ug-wt-t thead th .zh, .ug-wt-t th[scope="row"] .zh { display: block; font-family: var(--zh); font-weight: 500; font-size: .76rem; color: #9fb0cf; }
+.ug-wt-t th[scope="row"] { text-align: left; font-weight: 700; color: #cfd8ee; font-size: .82rem; }
+.ug-wt-t tbody tr:nth-child(3) td, .ug-wt-t tbody tr:nth-child(5) td { color: #ffd36e; font-weight: 800; }
+.ug-wt-msg { margin: .9rem 0 0; font-size: .88rem; line-height: 1.65; }
+.ug-wt-msg b { color: #ffd36e; }
+.ug-wt-msg .zh { display: block; margin-top: .3rem; font-family: var(--zh); color: #cfd8ee; }
+@media (max-width: 620px) { .ug-wt-pick { grid-template-columns: 1fr; } .ug-weight { padding: 1rem; } .ug-wt-t th, .ug-wt-t td { padding: .45rem .35rem; font-size: .82rem; } }

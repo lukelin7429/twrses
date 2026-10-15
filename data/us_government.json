@@ -6320,7 +6320,7 @@
               "zh": "國會為什麼有兩院？",
               "note_en": "Unit 2 turns to Congress, starting with the compromise that gave it two chambers.",
               "note_zh": "單元二轉向國會，從讓它有兩院的那場妥協講起。",
-              "soon": true
+              "href": "/resources/classes/us-government/two-houses/"
             },
             {
               "icon": "🕊️",
@@ -7304,14 +7304,2014 @@
       "title_zh": "國會",
       "blurb_en": "Two chambers, 535 voting members, and the long road from a bill to a law.",
       "blurb_zh": "兩個議院、535 位有表決權的議員，以及從法案到法律的那條長路。",
-      "lessons": [],
-      "planned": [
+      "lessons": [
         {
           "n": 5,
+          "slug": "two-houses",
+          "title": "Why Are There Two Houses?",
+          "title_zh": "國會為什麼有兩院？",
+          "level": "高中以上 · High school and up",
           "icon": "🏛️",
-          "en": "Why Are There Two Houses?",
-          "zh": "國會為什麼有兩院？"
-        },
+          "card": "congress",
+          "blurb_en": "Choose a state and see its seats light up in both chambers: many in the House if it is large, always two in the Senate.",
+          "blurb_zh": "選一州，看它在兩個議院的座位亮起來：大州在眾議院有很多席，參議院永遠是兩席。",
+          "big_idea_en": "Congress has two chambers built on two different ways of counting the states, because the framers could not agree on one. The House gives seats by population; the Senate gives every state an equal vote. The compromise of 1787 built that disagreement into the government, and every law must now win a majority in both.",
+          "big_idea_zh": "國會的兩院，用的是兩種不同的方式來算各州的分量，因為制憲者對該用哪一種談不攏。眾議院依人口分配席次，參議院每州表決權平等。1787 年的妥協把這個分歧寫進了政府，從此每一條法律都必須在兩院各自過半。",
+          "lab": {
+            "kind": "congress",
+            "eyebrow": "3D Model · 3D 模型",
+            "title_en": "One State, Two Chambers",
+            "title_zh": "一個州，兩個議院",
+            "how_en": "Two half circles of seats face their rostrums: the Senate on the left and the House of Representatives on the right, the way they sit in the north and south wings of the Capitol as seen from the west. Choose a state, from the list or by clicking a seat. Its seats rise and turn gold in both chambers, and the panel gives its share of each chamber and how many residents each of its members represents. Switch between 1789, when the Constitution itself listed the first House seats, and the seats after the 2020 census.",
+            "how_zh": "兩個半圓形的座位區各自面對主席台：左邊是參議院、右邊是眾議院——從西面看國會大廈，兩院就分別在北翼和南翼。從清單選一州，或直接點一個座位：這一州在兩院的座位會浮起來、變成金色，右邊欄寫出它在每一院所占的比例，以及每位議員代表多少居民。上方可以切換 1789 年（憲法本身列出第一屆眾議院的席次）與 2020 年普查之後的席次。",
+            "legend": [
+              {
+                "cls": "gold",
+                "en": "Seats of the chosen state",
+                "zh": "選到的州的座位"
+              },
+              {
+                "cls": "seat",
+                "en": "Other seats (not party colors)",
+                "zh": "其他座位（不是政黨的顏色）"
+              }
+            ],
+            "scale_en": "A diagram, not a floor plan. Seats are grouped by state so that each state's seats sit together; in the real chambers members do not sit by state. The colors show only the chosen state and never a party. The District of Columbia and the territories have delegates in the House who do not have a full vote, so they are not drawn. Residents are the 2020 census resident population.",
+            "scale_zh": "這是示意圖，不是平面圖。座位依州排在一起，好讓同一州的座位連成一塊；真實的議場並不是依州入座。顏色只標出選到的州，從不代表政黨。哥倫比亞特區與各領地在眾議院有代表，但沒有完整的表決權，所以沒有畫出來。居民人數是 2020 年普查的居住人口。",
+            "start": "CA",
+            "start_era": "2020",
+            "eras": [
+              {
+                "key": "1789",
+                "en": "1789",
+                "zh": "第一屆國會",
+                "note_en": "1789: the Constitution's list for thirteen states. Until the first census, Article I, Section 2 itself set how many representatives each state could choose: 65 in all, from 10 for Virginia to 1 each for Delaware and Rhode Island. The Senate would have 26 seats once all thirteen had joined; North Carolina and Rhode Island ratified only in 1789 and 1790.",
+                "note_zh": "1789 年：憲法替十三州列的名單。第一次人口普查之前，憲法第一條第二項本身就寫明各州可以選幾位眾議員：共 65 席，從維吉尼亞的 10 席到德拉瓦、羅德島各 1 席。十三州都加入後參議院是 26 席；北卡羅來納和羅德島到 1789、1790 年才批准憲法。"
+              },
+              {
+                "key": "2020",
+                "en": "After the 2020 census",
+                "zh": "2020 年普查之後",
+                "note_en": "After the 2020 census: fifty states, 435 House seats divided by population (every state gets at least one), and 100 senators.",
+                "note_zh": "2020 年普查之後：五十州，眾議院 435 席依人口分配（每州至少一席），參議院 100 席。"
+              }
+            ],
+            "picks": [
+              {
+                "abbr": "CA",
+                "en": "California",
+                "zh": "加利福尼亞"
+              },
+              {
+                "abbr": "TX",
+                "en": "Texas",
+                "zh": "德克薩斯"
+              },
+              {
+                "abbr": "WY",
+                "en": "Wyoming",
+                "zh": "懷俄明"
+              },
+              {
+                "abbr": "VT",
+                "en": "Vermont",
+                "zh": "佛蒙特"
+              },
+              {
+                "abbr": "VA",
+                "en": "Virginia",
+                "zh": "維吉尼亞"
+              },
+              {
+                "abbr": "DE",
+                "en": "Delaware",
+                "zh": "德拉瓦"
+              },
+              {
+                "abbr": "RI",
+                "en": "Rhode Island",
+                "zh": "羅德島"
+              }
+            ],
+            "demos": {
+              "big": [
+                [
+                  "2020",
+                  "CA"
+                ]
+              ],
+              "small": [
+                [
+                  "2020",
+                  "WY"
+                ],
+                [
+                  "2020",
+                  "VT"
+                ]
+              ],
+              "founding": [
+                [
+                  "1789",
+                  "VA"
+                ],
+                [
+                  "1789",
+                  "DE"
+                ]
+              ],
+              "same": [
+                [
+                  "2020",
+                  "TX"
+                ],
+                [
+                  "2020",
+                  "AK"
+                ]
+              ]
+            },
+            "states": [
+              {
+                "abbr": "AL",
+                "name": "Alabama",
+                "zh": "阿拉巴馬",
+                "house": 7,
+                "pop": 5024279
+              },
+              {
+                "abbr": "AK",
+                "name": "Alaska",
+                "zh": "阿拉斯加",
+                "house": 1,
+                "pop": 733391
+              },
+              {
+                "abbr": "AZ",
+                "name": "Arizona",
+                "zh": "亞利桑那",
+                "house": 9,
+                "pop": 7151502
+              },
+              {
+                "abbr": "AR",
+                "name": "Arkansas",
+                "zh": "阿肯色",
+                "house": 4,
+                "pop": 3011524
+              },
+              {
+                "abbr": "CA",
+                "name": "California",
+                "zh": "加利福尼亞",
+                "house": 52,
+                "pop": 39538223
+              },
+              {
+                "abbr": "CO",
+                "name": "Colorado",
+                "zh": "科羅拉多",
+                "house": 8,
+                "pop": 5773714
+              },
+              {
+                "abbr": "CT",
+                "name": "Connecticut",
+                "zh": "康乃狄克",
+                "house": 5,
+                "pop": 3605944
+              },
+              {
+                "abbr": "DE",
+                "name": "Delaware",
+                "zh": "德拉瓦",
+                "house": 1,
+                "pop": 989948
+              },
+              {
+                "abbr": "FL",
+                "name": "Florida",
+                "zh": "佛羅里達",
+                "house": 28,
+                "pop": 21538187
+              },
+              {
+                "abbr": "GA",
+                "name": "Georgia",
+                "zh": "喬治亞",
+                "house": 14,
+                "pop": 10711908
+              },
+              {
+                "abbr": "HI",
+                "name": "Hawaii",
+                "zh": "夏威夷",
+                "house": 2,
+                "pop": 1455271
+              },
+              {
+                "abbr": "ID",
+                "name": "Idaho",
+                "zh": "愛達荷",
+                "house": 2,
+                "pop": 1839106
+              },
+              {
+                "abbr": "IL",
+                "name": "Illinois",
+                "zh": "伊利諾",
+                "house": 17,
+                "pop": 12812508
+              },
+              {
+                "abbr": "IN",
+                "name": "Indiana",
+                "zh": "印第安納",
+                "house": 9,
+                "pop": 6785528
+              },
+              {
+                "abbr": "IA",
+                "name": "Iowa",
+                "zh": "愛荷華",
+                "house": 4,
+                "pop": 3190369
+              },
+              {
+                "abbr": "KS",
+                "name": "Kansas",
+                "zh": "堪薩斯",
+                "house": 4,
+                "pop": 2937880
+              },
+              {
+                "abbr": "KY",
+                "name": "Kentucky",
+                "zh": "肯塔基",
+                "house": 6,
+                "pop": 4505836
+              },
+              {
+                "abbr": "LA",
+                "name": "Louisiana",
+                "zh": "路易斯安那",
+                "house": 6,
+                "pop": 4657757
+              },
+              {
+                "abbr": "ME",
+                "name": "Maine",
+                "zh": "緬因",
+                "house": 2,
+                "pop": 1362359
+              },
+              {
+                "abbr": "MD",
+                "name": "Maryland",
+                "zh": "馬里蘭",
+                "house": 8,
+                "pop": 6177224
+              },
+              {
+                "abbr": "MA",
+                "name": "Massachusetts",
+                "zh": "麻薩諸塞",
+                "house": 9,
+                "pop": 7029917
+              },
+              {
+                "abbr": "MI",
+                "name": "Michigan",
+                "zh": "密西根",
+                "house": 13,
+                "pop": 10077331
+              },
+              {
+                "abbr": "MN",
+                "name": "Minnesota",
+                "zh": "明尼蘇達",
+                "house": 8,
+                "pop": 5706494
+              },
+              {
+                "abbr": "MS",
+                "name": "Mississippi",
+                "zh": "密西西比",
+                "house": 4,
+                "pop": 2961279
+              },
+              {
+                "abbr": "MO",
+                "name": "Missouri",
+                "zh": "密蘇里",
+                "house": 8,
+                "pop": 6154913
+              },
+              {
+                "abbr": "MT",
+                "name": "Montana",
+                "zh": "蒙大拿",
+                "house": 2,
+                "pop": 1084225
+              },
+              {
+                "abbr": "NE",
+                "name": "Nebraska",
+                "zh": "內布拉斯加",
+                "house": 3,
+                "pop": 1961504
+              },
+              {
+                "abbr": "NV",
+                "name": "Nevada",
+                "zh": "內華達",
+                "house": 4,
+                "pop": 3104614
+              },
+              {
+                "abbr": "NH",
+                "name": "New Hampshire",
+                "zh": "新罕布夏",
+                "house": 2,
+                "pop": 1377529
+              },
+              {
+                "abbr": "NJ",
+                "name": "New Jersey",
+                "zh": "紐澤西",
+                "house": 12,
+                "pop": 9288994
+              },
+              {
+                "abbr": "NM",
+                "name": "New Mexico",
+                "zh": "新墨西哥",
+                "house": 3,
+                "pop": 2117522
+              },
+              {
+                "abbr": "NY",
+                "name": "New York",
+                "zh": "紐約",
+                "house": 26,
+                "pop": 20201249
+              },
+              {
+                "abbr": "NC",
+                "name": "North Carolina",
+                "zh": "北卡羅來納",
+                "house": 14,
+                "pop": 10439388
+              },
+              {
+                "abbr": "ND",
+                "name": "North Dakota",
+                "zh": "北達科他",
+                "house": 1,
+                "pop": 779094
+              },
+              {
+                "abbr": "OH",
+                "name": "Ohio",
+                "zh": "俄亥俄",
+                "house": 15,
+                "pop": 11799448
+              },
+              {
+                "abbr": "OK",
+                "name": "Oklahoma",
+                "zh": "奧克拉荷馬",
+                "house": 5,
+                "pop": 3959353
+              },
+              {
+                "abbr": "OR",
+                "name": "Oregon",
+                "zh": "奧勒岡",
+                "house": 6,
+                "pop": 4237256
+              },
+              {
+                "abbr": "PA",
+                "name": "Pennsylvania",
+                "zh": "賓夕法尼亞",
+                "house": 17,
+                "pop": 13002700
+              },
+              {
+                "abbr": "RI",
+                "name": "Rhode Island",
+                "zh": "羅德島",
+                "house": 2,
+                "pop": 1097379
+              },
+              {
+                "abbr": "SC",
+                "name": "South Carolina",
+                "zh": "南卡羅來納",
+                "house": 7,
+                "pop": 5118425
+              },
+              {
+                "abbr": "SD",
+                "name": "South Dakota",
+                "zh": "南達科他",
+                "house": 1,
+                "pop": 886667
+              },
+              {
+                "abbr": "TN",
+                "name": "Tennessee",
+                "zh": "田納西",
+                "house": 9,
+                "pop": 6910840
+              },
+              {
+                "abbr": "TX",
+                "name": "Texas",
+                "zh": "德克薩斯",
+                "house": 38,
+                "pop": 29145505
+              },
+              {
+                "abbr": "UT",
+                "name": "Utah",
+                "zh": "猶他",
+                "house": 4,
+                "pop": 3271616
+              },
+              {
+                "abbr": "VT",
+                "name": "Vermont",
+                "zh": "佛蒙特",
+                "house": 1,
+                "pop": 643077
+              },
+              {
+                "abbr": "VA",
+                "name": "Virginia",
+                "zh": "維吉尼亞",
+                "house": 11,
+                "pop": 8631393
+              },
+              {
+                "abbr": "WA",
+                "name": "Washington",
+                "zh": "華盛頓",
+                "house": 10,
+                "pop": 7705281
+              },
+              {
+                "abbr": "WV",
+                "name": "West Virginia",
+                "zh": "西維吉尼亞",
+                "house": 2,
+                "pop": 1793716
+              },
+              {
+                "abbr": "WI",
+                "name": "Wisconsin",
+                "zh": "威斯康辛",
+                "house": 8,
+                "pop": 5893718
+              },
+              {
+                "abbr": "WY",
+                "name": "Wyoming",
+                "zh": "懷俄明",
+                "house": 1,
+                "pop": 576851
+              }
+            ],
+            "states1789": [
+              {
+                "abbr": "NH",
+                "name": "New Hampshire",
+                "zh": "新罕布夏",
+                "house": 3
+              },
+              {
+                "abbr": "MA",
+                "name": "Massachusetts",
+                "zh": "麻薩諸塞",
+                "house": 8
+              },
+              {
+                "abbr": "RI",
+                "name": "Rhode Island",
+                "zh": "羅德島",
+                "house": 1
+              },
+              {
+                "abbr": "CT",
+                "name": "Connecticut",
+                "zh": "康乃狄克",
+                "house": 5
+              },
+              {
+                "abbr": "NY",
+                "name": "New York",
+                "zh": "紐約",
+                "house": 6
+              },
+              {
+                "abbr": "NJ",
+                "name": "New Jersey",
+                "zh": "紐澤西",
+                "house": 4
+              },
+              {
+                "abbr": "PA",
+                "name": "Pennsylvania",
+                "zh": "賓夕法尼亞",
+                "house": 8
+              },
+              {
+                "abbr": "DE",
+                "name": "Delaware",
+                "zh": "德拉瓦",
+                "house": 1
+              },
+              {
+                "abbr": "MD",
+                "name": "Maryland",
+                "zh": "馬里蘭",
+                "house": 6
+              },
+              {
+                "abbr": "VA",
+                "name": "Virginia",
+                "zh": "維吉尼亞",
+                "house": 10
+              },
+              {
+                "abbr": "NC",
+                "name": "North Carolina",
+                "zh": "北卡羅來納",
+                "house": 5
+              },
+              {
+                "abbr": "SC",
+                "name": "South Carolina",
+                "zh": "南卡羅來納",
+                "house": 5
+              },
+              {
+                "abbr": "GA",
+                "name": "Georgia",
+                "zh": "喬治亞",
+                "house": 3
+              }
+            ],
+            "credit_html": "Seats: <a href=\"https://www.archives.gov/founding-docs/constitution-transcript\">the Constitution, Article I, Section 2</a> (1789) and the <a href=\"https://www.census.gov/data/tables/2020/dec/2020-apportionment-data.html\">U.S. Census Bureau, 2020 Census Apportionment Results</a> (seats and resident population). Diagram by twrses.org."
+          },
+          "paras": [
+            "In the Congress of the Articles of Confederation, each state's delegation cast one vote, whatever the state's size. When delegates met in Philadelphia in 1787, the large states wanted that rule gone. The Virginia Plan, presented on May 29, proposed a legislature of two branches, with votes in proportion to each state's wealth or free population. On June 15 the New Jersey Plan answered by proposing to strengthen the existing Congress, where each state kept its single vote. For weeks the convention argued over this one question, and several delegates feared it would break up the meeting before a constitution could be written.",
+            "The answer, adopted on July 16, 1787, is usually called the Great Compromise or the Connecticut Compromise, after its architects, the Connecticut delegates Roger Sherman and Oliver Ellsworth. One chamber, the House of Representatives, would be apportioned by population. The other, the Senate, would give each state an equal vote; a week later, on July 23, the delegates settled on two senators per state. The vote was five states to four, with Massachusetts divided, and it was taken by state delegations, not by individuals. The large states had won one chamber; the small states had kept equality in the other.",
+            "The two chambers were also designed to differ in character. Representatives serve two-year terms, so they must face the voters often. Senators serve six-year terms, and only about a third of the Senate is elected every two years, so the chamber changes slowly. A representative must be at least 25 years old and a citizen for seven years; a senator, at least 30 and a citizen for nine. The framers expected the House to reflect the mood of the people quickly and the Senate to be steadier. Both must pass the same bill, in the same words, before it can become law.",
+            "Counting people for the House raised a harder question. The Constitution counted each enslaved person as three fifths of a person when dividing seats, and it excluded “Indians not taxed.” The three-fifths rule gave the slaveholding states more seats in the House, and therefore more electoral votes, than their free population alone would have earned, while the people counted had no vote at all. After the Civil War, the Fourteenth Amendment replaced the rule: seats would be based on “the whole number of persons in each State,” though it still excluded “Indians not taxed.” The original compromise over representation cannot be told honestly without this part.",
+            "Senators were not at first chosen by the voters. The Constitution gave that power to the state legislatures, partly so that the states as governments would have a voice in the national government. Over time, deadlocked legislatures left Senate seats empty, and many Americans came to see the system as indirect and open to corruption. The Seventeenth Amendment, ratified in 1913, provided that senators would be “elected by the people” of each state. The equal vote of every state in the Senate did not change, and Article V protects it: no state may lose that equality without its own consent.",
+            "The size of the House is set by law, not by the Constitution. The first House had 65 members. It generally grew with the population, though it shrank once, after the 1840 census, until 1911, when Congress set the number at 433, with one seat added for each of the two territories expected to become states. Since 1913 the House has had 435 voting members, except from 1959 to 1963, when it briefly had 437 after Alaska and Hawaii joined the Union. After each census the 435 seats are divided among the states by a formula, and every state receives at least one. After the 2020 census, California had 52 seats, and six states had one each.",
+            "The two chambers also hold different powers. Bills for raising revenue must start in the House. The House alone can impeach a federal official, and the Senate alone can try the case, with conviction requiring two thirds of the senators present. The Senate also gives its “advice and consent” to treaties, which need two thirds of the senators present, and to the president's nominations of judges and other officers. Each chamber writes its own rules. For example, under Senate rules, ending debate on most bills takes sixty votes, so more than forty senators can keep a bill that a simple majority supports from coming to a vote.",
+            "How the Senate's equal vote should be judged is still argued. Both sides start from the same facts: in 2020 the most populous state had more than 68 times as many residents as the least populous, and each has two senators. Supporters say the design protects smaller states, makes laws win support across many regions, and reflects a union of states as well as of people. Critics say it gives some voters far more weight than others, lets senators representing a minority of Americans block a majority, and applies a rule made for thirteen states to fifty. This lesson presents both arguments without deciding between them."
+          ],
+          "paras_zh": [
+            "在《邦聯條例》下的國會，每一州的代表團不論州的大小，都只投一票。1787 年各州代表在費城開會時，大州想廢掉這個規則。5 月 29 日提出的維吉尼亞方案，主張立法機關分成兩院，表決權依各州的財力或自由人口比例分配。6 月 15 日的紐澤西方案則回應：加強現有的國會，讓每州保有自己的一票。好幾個星期，會議就為這一個問題爭論不休；好幾位代表擔心，憲法還沒寫出來，會議就會因此破局。",
+            "1787 年 7 月 16 日通過的解答，通常叫做「大妥協」或「康乃狄克妥協」，以紀念它的主要設計者——康乃狄克的代表雪曼與艾斯華斯。一院——眾議院——依人口分配；另一院——參議院——每州表決權平等；一週後的 7 月 23 日，代表們才定下每州兩名參議員。表決結果是五州對四州，麻薩諸塞代表團內部意見分歧；而且是以州代表團為單位投票，不是一人一票。大州贏得了一院；小州在另一院保住了平等。",
+            "兩院的性格也刻意設計得不一樣。眾議員任期兩年，所以必須常常面對選民；參議員任期六年，而且每兩年只改選大約三分之一，所以這一院變化得慢。眾議員至少 25 歲、成為公民至少七年；參議員至少 30 歲、成為公民至少九年。制憲者期待眾議院很快反映民意，參議院則比較穩定。兩院必須通過同一個法案、而且字句完全相同，它才可能成為法律。",
+            "為了眾議院而計算人口，引出一個更難的問題。憲法在分配席次時，把每一個被奴役的人算作五分之三個人，並排除「不納稅的印第安人」。五分之三條款讓蓄奴州在眾議院得到的席次——因而在選舉人團得到的票——比只算自由人口時更多，而那些被計算的人自己根本沒有投票權。內戰之後，第十四條修正案取代了這個規則：席次依「各州的總人數」計算，但仍排除「不納稅的印第安人」。不講這一段，就不可能誠實地講那場關於代表權的妥協。",
+            "參議員起初不是由選民選出的。憲法把這個權力交給州議會，部分原因是讓各州以政府的身分在全國政府裡有發言權。後來，州議會陷入僵局而讓參議員席位空著的情形時有發生，許多美國人也認為這個制度太間接、容易舞弊。1913 年批准的第十七條修正案規定，參議員由各州「人民選出」。每州在參議院的平等表決權沒有改變，而且受第五條保護：任何一州未經自己同意，都不得被剝奪這份平等。",
+            "眾議院的人數是法律定的，不是憲法定的。第一屆眾議院有 65 位議員。人數大致隨人口增加（1840 年普查後曾減少一次），直到 1911 年國會把人數定為 433 席，並為預計將成為州的兩個領地各加一席。從 1913 年起，眾議院一直有 435 位有表決權的議員，只有 1959 到 1963 年例外：阿拉斯加和夏威夷加入聯邦後，暫時有 437 席。每次普查之後，這 435 席依公式分給各州，每州至少一席。2020 年普查之後，加利福尼亞有 52 席，有六個州各只有一席。",
+            "兩院的權力也不同。增加歲入的法案必須從眾議院提出。只有眾議院能彈劾聯邦官員，只有參議院能審判，定罪需要出席參議員的三分之二。參議院也對條約給予「建議與同意」——條約需要出席參議員的三分之二——並對總統提名的法官和其他官員行使同意權。兩院各自訂定議事規則。例如依參議院的規則，大多數法案要結束辯論需要六十票，所以超過四十位參議員，就能讓一個得到簡單多數支持的法案無法進入表決。",
+            "參議院的平等表決權該怎麼評價，至今仍有爭論。兩邊的出發點是同一組事實：2020 年，人口最多的州居民是人口最少的州的 68 倍以上，兩州各有兩位參議員。支持的人說，這個設計保護小州、讓法律必須得到許多地區的支持，也反映美國既是人民的聯合、也是各州的聯合。批評的人說，它讓某些選民的分量遠大於其他人、讓只代表少數美國人的參議員能擋住多數，也把一條為十三州訂的規則原封不動用在五十州。這一課把兩邊的論點都呈現出來，不替它們分高下。"
+          ],
+          "questions": [
+            "Why did the large states and the small states each think their own plan was fair?",
+            "The framers gave the House two-year terms and the Senate six-year terms. What did they hope each choice would achieve?",
+            "Why can the original compromise over representation not be told honestly without the three-fifths clause?"
+          ],
+          "answers": [
+            "The large states argued that a government acting on people should count people, so more residents should mean more seats. The small states argued that the states had entered the union as equals and would be outvoted on everything if votes followed population. Each side was applying a different idea of whom Congress represents: individual people or member states.",
+            "Short terms keep representatives close to the voters, who can replace them every two years. Long, staggered terms make the Senate change slowly, so it can resist passing moods and take a longer view. The cost of the first is that members are always campaigning; the cost of the second is that the Senate may respond more slowly to public opinion.",
+            "The compromise decided how to count people for the House, and the three-fifths clause was part of that count. It gave the slaveholding states extra seats and electoral votes based on enslaved people who could not vote. Leaving it out would make the compromise look like a simple bargain between large and small states, when it also settled power between slave and free states."
+          ],
+          "vocab": [
+            {
+              "n": 1,
+              "w": "bicameral",
+              "pos": "adj.",
+              "zh": "兩院制的",
+              "ex": "The United States Congress is bicameral: it has a Senate and a House of Representatives.",
+              "exzh": "美國國會是兩院制：有參議院和眾議院。"
+            },
+            {
+              "n": 2,
+              "w": "chamber",
+              "pos": "n.",
+              "zh": "議院；議場",
+              "ex": "A bill must pass both chambers in the same words.",
+              "exzh": "一個法案必須以相同的字句通過兩院。"
+            },
+            {
+              "n": 3,
+              "w": "apportion",
+              "pos": "v.",
+              "zh": "分配（席次）",
+              "ex": "House seats are apportioned among the states after each census.",
+              "exzh": "每次普查之後，眾議院的席次都會分配給各州。"
+            },
+            {
+              "n": 4,
+              "w": "delegation",
+              "pos": "n.",
+              "zh": "代表團",
+              "ex": "At the convention, each state delegation cast a single vote.",
+              "exzh": "在制憲會議上，每個州的代表團只投一票。"
+            },
+            {
+              "n": 5,
+              "w": "compromise",
+              "pos": "n.",
+              "zh": "妥協",
+              "ex": "The Great Compromise gave each side half of what it wanted.",
+              "exzh": "大妥協讓兩邊各得到一半想要的東西。"
+            },
+            {
+              "n": 6,
+              "w": "census",
+              "pos": "n.",
+              "zh": "人口普查",
+              "ex": "The Constitution requires a census every ten years.",
+              "exzh": "憲法規定每十年進行一次人口普查。"
+            },
+            {
+              "n": 7,
+              "w": "term",
+              "pos": "n.",
+              "zh": "任期",
+              "ex": "A senator's term lasts six years.",
+              "exzh": "參議員的任期是六年。"
+            },
+            {
+              "n": 8,
+              "w": "staggered",
+              "pos": "adj.",
+              "zh": "錯開的；分批的",
+              "ex": "Senate elections are staggered, so only about a third of the seats are filled at a time.",
+              "exzh": "參議院的選舉是分批的，所以每次只改選大約三分之一的席位。"
+            },
+            {
+              "n": 9,
+              "w": "constituent",
+              "pos": "n.",
+              "zh": "選區的選民",
+              "ex": "A representative answers to the constituents of one district.",
+              "exzh": "一位眾議員要對一個選區的選民負責。"
+            },
+            {
+              "n": 10,
+              "w": "equal suffrage",
+              "pos": "n.",
+              "zh": "平等的表決權",
+              "ex": "Article V protects each state's equal suffrage in the Senate.",
+              "exzh": "憲法第五條保護每州在參議院的平等表決權。"
+            },
+            {
+              "n": 11,
+              "w": "ratify",
+              "pos": "v.",
+              "zh": "批准",
+              "ex": "The Seventeenth Amendment was ratified in 1913.",
+              "exzh": "第十七條修正案在 1913 年批准。"
+            },
+            {
+              "n": 12,
+              "w": "deliberate",
+              "pos": "v.",
+              "zh": "審慎討論",
+              "ex": "Both chambers deliberate on a bill before they vote.",
+              "exzh": "兩院在表決之前都會審慎討論法案。"
+            }
+          ],
+          "quiz": [
+            {
+              "q": "Under the Articles of Confederation, Delaware and Virginia each had one vote in Congress. Which plan at the 1787 convention would have kept that equality in the whole legislature?",
+              "options": [
+                "The Virginia Plan",
+                "The New Jersey Plan",
+                "The Great Compromise",
+                "The Seventeenth Amendment"
+              ],
+              "correct": 1
+            },
+            {
+              "q": "A state's population grows faster than the rest of the country's for twenty years. What is most likely to change?",
+              "options": [
+                "It gains senators",
+                "It may gain House seats after the next census",
+                "Its senators' terms get longer",
+                "Nothing, because seats are fixed in the Constitution"
+              ],
+              "correct": 1
+            },
+            {
+              "q": "Why might the framers have given senators six-year terms with only a third elected at a time?",
+              "options": [
+                "To make the Senate change slowly and resist sudden swings of opinion",
+                "To save money on elections",
+                "Because senators represented larger districts than today",
+                "Because the Senate had no role in passing laws"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "Before 1913, who chose United States senators?",
+              "options": [
+                "The voters of each state",
+                "The House of Representatives",
+                "The state legislatures",
+                "The president, with the advice of the governors"
+              ],
+              "correct": 2
+            },
+            {
+              "q": "Which change to the Senate's equal representation would be hardest to make under the Constitution?",
+              "options": [
+                "Electing senators by popular vote",
+                "Changing the Senate's rules for ending debate",
+                "Giving large states more senators than small states",
+                "Adding two senators for a newly admitted state"
+              ],
+              "correct": 2
+            }
+          ],
+          "parts_head": {
+            "eyebrow": "Try It in the Model · 在模型裡試試",
+            "en": "Four things to watch",
+            "zh": "四件值得看的事"
+          },
+          "parts": [
+            {
+              "key": "big",
+              "icon": "🌉",
+              "en": "The largest delegation",
+              "zh": "人數最多的代表團",
+              "meta_en": "California after the 2020 census",
+              "meta_zh": "2020 年普查之後的加利福尼亞",
+              "demo": "big",
+              "text_en": "California's 52 seats fill a wide wedge of the House, about 12 percent of the chamber. In the Senate it has the same two seats as every other state.",
+              "text_zh": "加利福尼亞的 52 席在眾議院占了一大片扇形，大約是全院的 12%。在參議院，它和其他每一州一樣只有兩席。"
+            },
+            {
+              "key": "small",
+              "icon": "🏔️",
+              "en": "One seat, two senators",
+              "zh": "一席眾議員，兩位參議員",
+              "meta_en": "Wyoming and Vermont",
+              "meta_zh": "懷俄明與佛蒙特",
+              "demo": "small",
+              "text_en": "Wyoming and Vermont each have one representative and two senators. Watch the panel: each of their senators represents far fewer residents than a senator from a large state.",
+              "text_zh": "懷俄明和佛蒙特各有一位眾議員、兩位參議員。看右邊欄：它們每位參議員代表的居民，比大州的參議員少得多。"
+            },
+            {
+              "key": "founding",
+              "icon": "📜",
+              "en": "The first Congress",
+              "zh": "第一屆國會",
+              "meta_en": "Virginia and Delaware, 1789",
+              "meta_zh": "1789 年的維吉尼亞與德拉瓦",
+              "demo": "founding",
+              "text_en": "In 1789 Virginia had 10 of the 65 House seats and Delaware had one. In the Senate both had two. This is the compromise in the form of the first Congress.",
+              "text_zh": "1789 年，維吉尼亞在眾議院 65 席中有 10 席，德拉瓦只有 1 席；在參議院兩州都是兩席。這就是第一屆國會時妥協的樣子。"
+            },
+            {
+              "key": "same",
+              "icon": "⚖️",
+              "en": "Same Senate, different House",
+              "zh": "參議院一樣，眾議院不同",
+              "meta_en": "Texas and Alaska",
+              "meta_zh": "德克薩斯與阿拉斯加",
+              "demo": "same",
+              "text_en": "Texas and Alaska are both vast, but by population they are far apart: 38 House seats against one. In the Senate they are equal.",
+              "text_zh": "德克薩斯和阿拉斯加都很遼闊，但人口差得很遠：眾議院 38 席對 1 席。在參議院，它們是平等的。"
+            }
+          ],
+          "parts_note_en": "Each card plays a short demonstration in the model above.",
+          "parts_note_zh": "每張卡片都會在上面的模型裡播一段示範。",
+          "match": {
+            "eyebrow": "Try It · 動手試試",
+            "en": "Which Chamber Does It?",
+            "zh": "這是哪一院的工作？",
+            "cols": 3,
+            "lead_en": "Ten powers and rules from the Constitution. For each one, decide whether it belongs to the House, to the Senate, or to both.",
+            "lead_zh": "十項憲法上的權力與規定。每一項判斷：屬於眾議院、參議院，還是兩院都有？",
+            "options": [
+              {
+                "key": "house",
+                "en": "House",
+                "sub_en": "",
+                "sub_zh": "眾議院"
+              },
+              {
+                "key": "senate",
+                "en": "Senate",
+                "sub_en": "",
+                "sub_zh": "參議院"
+              },
+              {
+                "key": "both",
+                "en": "Both",
+                "sub_en": "",
+                "sub_zh": "兩院都有"
+              }
+            ],
+            "questions": [
+              {
+                "answer": "house",
+                "en": "Bring the charges in an impeachment",
+                "zh": "提出彈劾",
+                "why_en": "Article I, Section 2: the House “shall have the sole Power of Impeachment.”",
+                "why_zh": "第一條第二項：眾議院「獨享彈劾權」。",
+                "hint_en": "Who accuses, and who judges?",
+                "hint_zh": "誰提出指控、誰來審判？"
+              },
+              {
+                "answer": "senate",
+                "en": "Hold the trial in an impeachment",
+                "zh": "審判彈劾案",
+                "why_en": "Article I, Section 3: the Senate has “the sole Power to try all Impeachments,” and conviction needs two thirds of the members present.",
+                "why_zh": "第一條第三項：參議院「獨享審判一切彈劾案的權力」，定罪需要出席議員的三分之二。",
+                "hint_en": "The accusing chamber does not judge its own charges.",
+                "hint_zh": "提出指控的那一院不審判自己的指控。"
+              },
+              {
+                "answer": "house",
+                "en": "Start a bill for raising revenue",
+                "zh": "提出增加歲入的法案",
+                "why_en": "Article I, Section 7: “All Bills for raising Revenue shall originate in the House of Representatives,” though the Senate may propose amendments.",
+                "why_zh": "第一條第七項：「一切增加歲入的法案應由眾議院提出」，但參議院可以提出修正。",
+                "hint_en": "Which chamber was closest to the voters?",
+                "hint_zh": "哪一院離選民最近？"
+              },
+              {
+                "answer": "senate",
+                "en": "Approve a treaty by a two-thirds vote",
+                "zh": "以三分之二的票數同意條約",
+                "why_en": "Article II, Section 2: the president makes treaties with the advice and consent of the Senate, “provided two thirds of the Senators present concur.”",
+                "why_zh": "第二條第二項：總統締結條約須經參議院的建議與同意，「並須出席參議員三分之二贊同」。",
+                "hint_en": "Only one chamber votes on treaties.",
+                "hint_zh": "只有一院表決條約。"
+              },
+              {
+                "answer": "senate",
+                "en": "Confirm a nominee for the Supreme Court",
+                "zh": "同意最高法院大法官的提名",
+                "why_en": "Article II, Section 2: the president nominates, and “by and with the Advice and Consent of the Senate, shall appoint” judges of the Supreme Court.",
+                "why_zh": "第二條第二項：總統提名，並「經參議院的建議與同意」任命最高法院法官。",
+                "hint_en": "Same chamber as treaties.",
+                "hint_zh": "和條約是同一院。"
+              },
+              {
+                "answer": "both",
+                "en": "Pass a bill before it goes to the president",
+                "zh": "在送交總統之前通過法案",
+                "why_en": "Article I, Section 7: every bill must pass the House and the Senate before it is presented to the president.",
+                "why_zh": "第一條第七項：每一個法案都必須經眾議院和參議院通過，才送交總統。",
+                "hint_en": "Can one chamber make a law alone?",
+                "hint_zh": "一院可以單獨制定法律嗎？"
+              },
+              {
+                "answer": "both",
+                "en": "Override a veto by a two-thirds vote",
+                "zh": "以三分之二的票數推翻否決",
+                "why_en": "Article I, Section 7: a vetoed bill becomes law if two thirds of each chamber vote for it again.",
+                "why_zh": "第一條第七項：被否決的法案，若兩院各以三分之二的票數再次通過，就成為法律。",
+                "hint_en": "Lesson 2 covered this check.",
+                "hint_zh": "第二課講過這一招。"
+              },
+              {
+                "answer": "house",
+                "en": "The minimum age for members is 25",
+                "zh": "議員的最低年齡門檻是 25 歲",
+                "why_en": "Article I, Section 2 sets 25 years for representatives; Section 3 sets 30 for senators.",
+                "why_zh": "第一條第二項規定眾議員至少 25 歲；第三項規定參議員至少 30 歲。",
+                "hint_en": "The younger age goes with the shorter term.",
+                "hint_zh": "年齡較低的那一院，任期也較短。"
+              },
+              {
+                "answer": "senate",
+                "en": "Members serve six-year terms",
+                "zh": "議員任期六年",
+                "why_en": "Article I, Section 3: senators serve six years, and a third of the seats come up every two years.",
+                "why_zh": "第一條第三項：參議員任期六年，每兩年改選三分之一。",
+                "hint_en": "Which chamber was meant to change slowly?",
+                "hint_zh": "哪一院的設計是變化得慢？"
+              },
+              {
+                "answer": "both",
+                "en": "Write its own rules of procedure",
+                "zh": "訂定自己的議事規則",
+                "why_en": "Article I, Section 5: “Each House may determine the Rules of its Proceedings.”",
+                "why_zh": "第一條第五項：「兩院各自決定其議事規則。」",
+                "hint_en": "The text says “each House.”",
+                "hint_zh": "條文寫的是「兩院各自」。"
+              }
+            ],
+            "end_en": "Notice the pattern: the House accuses and starts revenue bills; the Senate judges, approves treaties, and confirms nominees; and nothing becomes law without both.",
+            "end_zh": "注意其中的規律：眾議院提出指控、提出歲入法案；參議院審判、同意條約與人事；而沒有兩院一起，什麼都成不了法律。"
+          },
+          "weight": {
+            "eyebrow": "Try It · 動手試試",
+            "en": "How Much Is One Seat Worth?",
+            "zh": "一票的分量",
+            "lead_en": "Choose two states. The table compares how many residents each of their members of Congress represents. The numbers are calculated, not opinions; what to make of them is the question in the design debate below.",
+            "lead_zh": "選兩州，表格比較它們的每一位國會議員代表多少居民。這些數字是算出來的，不是意見；怎麼看待這些數字，正是下面「制度的爭論」要討論的問題。",
+            "states": [
+              {
+                "abbr": "AL",
+                "name": "Alabama",
+                "zh": "阿拉巴馬",
+                "house": 7,
+                "pop": 5024279
+              },
+              {
+                "abbr": "AK",
+                "name": "Alaska",
+                "zh": "阿拉斯加",
+                "house": 1,
+                "pop": 733391
+              },
+              {
+                "abbr": "AZ",
+                "name": "Arizona",
+                "zh": "亞利桑那",
+                "house": 9,
+                "pop": 7151502
+              },
+              {
+                "abbr": "AR",
+                "name": "Arkansas",
+                "zh": "阿肯色",
+                "house": 4,
+                "pop": 3011524
+              },
+              {
+                "abbr": "CA",
+                "name": "California",
+                "zh": "加利福尼亞",
+                "house": 52,
+                "pop": 39538223
+              },
+              {
+                "abbr": "CO",
+                "name": "Colorado",
+                "zh": "科羅拉多",
+                "house": 8,
+                "pop": 5773714
+              },
+              {
+                "abbr": "CT",
+                "name": "Connecticut",
+                "zh": "康乃狄克",
+                "house": 5,
+                "pop": 3605944
+              },
+              {
+                "abbr": "DE",
+                "name": "Delaware",
+                "zh": "德拉瓦",
+                "house": 1,
+                "pop": 989948
+              },
+              {
+                "abbr": "FL",
+                "name": "Florida",
+                "zh": "佛羅里達",
+                "house": 28,
+                "pop": 21538187
+              },
+              {
+                "abbr": "GA",
+                "name": "Georgia",
+                "zh": "喬治亞",
+                "house": 14,
+                "pop": 10711908
+              },
+              {
+                "abbr": "HI",
+                "name": "Hawaii",
+                "zh": "夏威夷",
+                "house": 2,
+                "pop": 1455271
+              },
+              {
+                "abbr": "ID",
+                "name": "Idaho",
+                "zh": "愛達荷",
+                "house": 2,
+                "pop": 1839106
+              },
+              {
+                "abbr": "IL",
+                "name": "Illinois",
+                "zh": "伊利諾",
+                "house": 17,
+                "pop": 12812508
+              },
+              {
+                "abbr": "IN",
+                "name": "Indiana",
+                "zh": "印第安納",
+                "house": 9,
+                "pop": 6785528
+              },
+              {
+                "abbr": "IA",
+                "name": "Iowa",
+                "zh": "愛荷華",
+                "house": 4,
+                "pop": 3190369
+              },
+              {
+                "abbr": "KS",
+                "name": "Kansas",
+                "zh": "堪薩斯",
+                "house": 4,
+                "pop": 2937880
+              },
+              {
+                "abbr": "KY",
+                "name": "Kentucky",
+                "zh": "肯塔基",
+                "house": 6,
+                "pop": 4505836
+              },
+              {
+                "abbr": "LA",
+                "name": "Louisiana",
+                "zh": "路易斯安那",
+                "house": 6,
+                "pop": 4657757
+              },
+              {
+                "abbr": "ME",
+                "name": "Maine",
+                "zh": "緬因",
+                "house": 2,
+                "pop": 1362359
+              },
+              {
+                "abbr": "MD",
+                "name": "Maryland",
+                "zh": "馬里蘭",
+                "house": 8,
+                "pop": 6177224
+              },
+              {
+                "abbr": "MA",
+                "name": "Massachusetts",
+                "zh": "麻薩諸塞",
+                "house": 9,
+                "pop": 7029917
+              },
+              {
+                "abbr": "MI",
+                "name": "Michigan",
+                "zh": "密西根",
+                "house": 13,
+                "pop": 10077331
+              },
+              {
+                "abbr": "MN",
+                "name": "Minnesota",
+                "zh": "明尼蘇達",
+                "house": 8,
+                "pop": 5706494
+              },
+              {
+                "abbr": "MS",
+                "name": "Mississippi",
+                "zh": "密西西比",
+                "house": 4,
+                "pop": 2961279
+              },
+              {
+                "abbr": "MO",
+                "name": "Missouri",
+                "zh": "密蘇里",
+                "house": 8,
+                "pop": 6154913
+              },
+              {
+                "abbr": "MT",
+                "name": "Montana",
+                "zh": "蒙大拿",
+                "house": 2,
+                "pop": 1084225
+              },
+              {
+                "abbr": "NE",
+                "name": "Nebraska",
+                "zh": "內布拉斯加",
+                "house": 3,
+                "pop": 1961504
+              },
+              {
+                "abbr": "NV",
+                "name": "Nevada",
+                "zh": "內華達",
+                "house": 4,
+                "pop": 3104614
+              },
+              {
+                "abbr": "NH",
+                "name": "New Hampshire",
+                "zh": "新罕布夏",
+                "house": 2,
+                "pop": 1377529
+              },
+              {
+                "abbr": "NJ",
+                "name": "New Jersey",
+                "zh": "紐澤西",
+                "house": 12,
+                "pop": 9288994
+              },
+              {
+                "abbr": "NM",
+                "name": "New Mexico",
+                "zh": "新墨西哥",
+                "house": 3,
+                "pop": 2117522
+              },
+              {
+                "abbr": "NY",
+                "name": "New York",
+                "zh": "紐約",
+                "house": 26,
+                "pop": 20201249
+              },
+              {
+                "abbr": "NC",
+                "name": "North Carolina",
+                "zh": "北卡羅來納",
+                "house": 14,
+                "pop": 10439388
+              },
+              {
+                "abbr": "ND",
+                "name": "North Dakota",
+                "zh": "北達科他",
+                "house": 1,
+                "pop": 779094
+              },
+              {
+                "abbr": "OH",
+                "name": "Ohio",
+                "zh": "俄亥俄",
+                "house": 15,
+                "pop": 11799448
+              },
+              {
+                "abbr": "OK",
+                "name": "Oklahoma",
+                "zh": "奧克拉荷馬",
+                "house": 5,
+                "pop": 3959353
+              },
+              {
+                "abbr": "OR",
+                "name": "Oregon",
+                "zh": "奧勒岡",
+                "house": 6,
+                "pop": 4237256
+              },
+              {
+                "abbr": "PA",
+                "name": "Pennsylvania",
+                "zh": "賓夕法尼亞",
+                "house": 17,
+                "pop": 13002700
+              },
+              {
+                "abbr": "RI",
+                "name": "Rhode Island",
+                "zh": "羅德島",
+                "house": 2,
+                "pop": 1097379
+              },
+              {
+                "abbr": "SC",
+                "name": "South Carolina",
+                "zh": "南卡羅來納",
+                "house": 7,
+                "pop": 5118425
+              },
+              {
+                "abbr": "SD",
+                "name": "South Dakota",
+                "zh": "南達科他",
+                "house": 1,
+                "pop": 886667
+              },
+              {
+                "abbr": "TN",
+                "name": "Tennessee",
+                "zh": "田納西",
+                "house": 9,
+                "pop": 6910840
+              },
+              {
+                "abbr": "TX",
+                "name": "Texas",
+                "zh": "德克薩斯",
+                "house": 38,
+                "pop": 29145505
+              },
+              {
+                "abbr": "UT",
+                "name": "Utah",
+                "zh": "猶他",
+                "house": 4,
+                "pop": 3271616
+              },
+              {
+                "abbr": "VT",
+                "name": "Vermont",
+                "zh": "佛蒙特",
+                "house": 1,
+                "pop": 643077
+              },
+              {
+                "abbr": "VA",
+                "name": "Virginia",
+                "zh": "維吉尼亞",
+                "house": 11,
+                "pop": 8631393
+              },
+              {
+                "abbr": "WA",
+                "name": "Washington",
+                "zh": "華盛頓",
+                "house": 10,
+                "pop": 7705281
+              },
+              {
+                "abbr": "WV",
+                "name": "West Virginia",
+                "zh": "西維吉尼亞",
+                "house": 2,
+                "pop": 1793716
+              },
+              {
+                "abbr": "WI",
+                "name": "Wisconsin",
+                "zh": "威斯康辛",
+                "house": 8,
+                "pop": 5893718
+              },
+              {
+                "abbr": "WY",
+                "name": "Wyoming",
+                "zh": "懷俄明",
+                "house": 1,
+                "pop": 576851
+              }
+            ],
+            "a": "CA",
+            "b": "WY",
+            "credit_en": "Residents: 2020 census resident population; House seats: 2020 census apportionment (U.S. Census Bureau). Apportionment uses a slightly different population count that includes U.S. military and federal civilian employees living overseas, and their dependents living with them, so the per-seat figures here are approximate.",
+            "credit_zh": "居民：2020 年普查的居住人口；眾議院席次：2020 年普查的分配結果（美國人口普查局）。分配席次用的人口數略有不同，包括派駐海外的軍人與聯邦文職人員，以及隨行的家屬，所以這裡每一席代表的人數是近似值。"
+          },
+          "myths_head": {
+            "en": "Four things people get wrong",
+            "zh": "四個常見的誤會"
+          },
+          "myths": [
+            {
+              "myth_en": "The Constitution says the House has 435 members.",
+              "myth_zh": "憲法規定眾議院有 435 位議員。",
+              "fact_en": "It does not. The Constitution sets only a ceiling of one representative for every thirty thousand people and at least one per state. The number 435 comes from laws passed in 1911 and 1929.",
+              "fact_zh": "沒有。憲法只規定每三萬人最多一位眾議員、每州至少一位。435 這個數字來自 1911 年與 1929 年的法律。"
+            },
+            {
+              "myth_en": "Senators have always been elected by the voters.",
+              "myth_zh": "參議員一直都是選民選出來的。",
+              "fact_en": "Until the Seventeenth Amendment was ratified in 1913, the Constitution gave the choice to the state legislatures.",
+              "fact_zh": "直到 1913 年第十七條修正案批准之前，憲法把這個選擇交給州議會。"
+            },
+            {
+              "myth_en": "Larger states have more senators.",
+              "myth_zh": "大州的參議員比較多。",
+              "fact_en": "Every state has exactly two. Population matters only in the House.",
+              "fact_zh": "每一州剛好兩位。人口只在眾議院才有影響。"
+            },
+            {
+              "myth_en": "The House and the Senate do the same job twice.",
+              "myth_zh": "眾議院和參議院只是把同一件事做兩遍。",
+              "fact_en": "Both must pass every law, but each also has powers the other lacks: the House starts revenue bills and impeaches, and the Senate tries impeachments, approves treaties, and confirms nominees.",
+              "fact_zh": "每一條法律都要兩院通過，但兩院也各有對方沒有的權力：眾議院提出歲入法案與彈劾，參議院審判彈劾、同意條約與人事。"
+            }
+          ],
+          "activities": [
+            {
+              "title_en": "Rerun the Convention",
+              "title_zh": "重開一次制憲會議",
+              "materials": [
+                {
+                  "en": "The 1789 House seats from the model (or Article I, Section 2)",
+                  "zh": "模型裡 1789 年的眾議院席次（或憲法第一條第二項）"
+                },
+                {
+                  "en": "Thirteen cards, one per state",
+                  "zh": "十三張卡片，每州一張"
+                }
+              ],
+              "steps": [
+                {
+                  "en": "Divide the class into state delegations, large and small, using the 1789 seats as a guide to size. (Rhode Island never sent delegates to the convention.)",
+                  "zh": "把全班分成大大小小的州代表團，依 1789 年的席次決定大小。（羅德島從未派代表出席制憲會議。）"
+                },
+                {
+                  "en": "Each delegation argues for the Virginia Plan or the New Jersey Plan, depending on its interest.",
+                  "zh": "每個代表團依自己的利益，主張維吉尼亞方案或紐澤西方案。"
+                },
+                {
+                  "en": "Vote by delegation, one vote per state, as the convention did. Then try to find a compromise that can pass.",
+                  "zh": "照制憲會議的方式，以代表團為單位投票、每州一票。接著試著找出一個能通過的妥協。"
+                },
+                {
+                  "en": "Compare your result with the July 16, 1787 compromise.",
+                  "zh": "把你們的結果和 1787 年 7 月 16 日的妥協比一比。"
+                }
+              ],
+              "tip_en": "The point is to feel why one vote per delegation made the small states hard to outvote at the convention itself.",
+              "tip_zh": "重點是體會：為什麼在制憲會議上「每州一票」讓小州很難被壓過。"
+            },
+            {
+              "title_en": "One Seat, How Many People?",
+              "title_zh": "一席，代表多少人？",
+              "materials": [
+                {
+                  "en": "The “How Much Is One Seat Worth?” table above",
+                  "zh": "上面的「一票的分量」表格"
+                },
+                {
+                  "en": "A calculator",
+                  "zh": "計算機"
+                }
+              ],
+              "steps": [
+                {
+                  "en": "Choose five states of different sizes and record residents per representative and per senator.",
+                  "zh": "選五個大小不同的州，記下每位眾議員與每位參議員代表的居民數。"
+                },
+                {
+                  "en": "Make two bar charts, one for each chamber, using the same scale.",
+                  "zh": "用同一個刻度畫兩張長條圖，一院一張。"
+                },
+                {
+                  "en": "Write two sentences: one describing what the charts show, and one stating an argument from either side of the design debate that the charts could support.",
+                  "zh": "寫兩句話：一句描述圖表呈現的事實，一句寫出「制度的爭論」任一邊可以用這張圖支持的論點。"
+                }
+              ],
+              "tip_en": "Keep the description and the argument separate: the first should be something everyone can agree on.",
+              "tip_zh": "把描述和論點分開：第一句應該是每個人都能同意的事實。"
+            }
+          ],
+          "news_english": {
+            "eyebrow": "News English · 新聞英語",
+            "en": "Eight terms for reading about Congress",
+            "zh": "讀國會新聞用得到的八個詞",
+            "lead_en": "Listen to each term and its example sentence, then try one of your own. The examples describe how the institution works, not any current dispute.",
+            "lead_zh": "先聽每個詞和例句，再試著自己造一句。例句只描述制度怎麼運作，不涉及任何當前的爭議。",
+            "items": [
+              {
+                "en": "the House",
+                "zh": "眾議院",
+                "def_en": "short for the House of Representatives, the chamber apportioned by population",
+                "def_zh": "House of Representatives 的簡稱，依人口分配席次的那一院",
+                "ex": "<b>The House</b> passed the bill and sent it to the Senate.",
+                "ex_zh": "眾議院通過了這個法案，送交參議院。"
+              },
+              {
+                "en": "the Senate",
+                "zh": "參議院",
+                "def_en": "the chamber in which each state has two members",
+                "def_zh": "每州有兩位議員的那一院",
+                "ex": "The treaty needs two thirds of <b>the Senate</b> present.",
+                "ex_zh": "這項條約需要出席參議員的三分之二。"
+              },
+              {
+                "en": "bicameral",
+                "zh": "兩院制的",
+                "def_en": "having two legislative chambers",
+                "def_zh": "立法機關有兩院的",
+                "ex": "Nebraska is the only state without a <b>bicameral</b> legislature.",
+                "ex_zh": "內布拉斯加是唯一沒有採用兩院制州議會的州。"
+              },
+              {
+                "en": "apportionment",
+                "zh": "（席次）分配",
+                "def_en": "dividing the House seats among the states by population after each census",
+                "def_zh": "每次普查之後，依人口把眾議院席次分給各州",
+                "ex": "The 2020 <b>apportionment</b> moved seats between several states.",
+                "ex_zh": "2020 年的席次分配讓幾個州之間的席次有所增減。"
+              },
+              {
+                "en": "constituents",
+                "zh": "選區選民",
+                "def_en": "the people a member of Congress represents",
+                "def_zh": "國會議員所代表的人",
+                "ex": "Members often return home to meet their <b>constituents</b>.",
+                "ex_zh": "議員常回到家鄉和選民見面。"
+              },
+              {
+                "en": "a quorum",
+                "zh": "法定人數",
+                "def_en": "the minimum number of members who must be present to do business; for each chamber, a majority",
+                "def_zh": "開會議事所需的最低出席人數；兩院都是過半數",
+                "ex": "The chamber could not vote because it lacked <b>a quorum</b>.",
+                "ex_zh": "因為出席人數不足法定人數，這一院無法表決。"
+              },
+              {
+                "en": "a filibuster",
+                "zh": "冗長辯論（阻撓議事）",
+                "def_en": "an action designed to prolong debate and delay or prevent a vote in the Senate",
+                "def_zh": "在參議院延長辯論、拖延或阻止表決的作為",
+                "ex": "Supporters needed sixty votes to end <b>the filibuster</b>.",
+                "ex_zh": "支持者需要六十票才能結束這場冗長辯論。"
+              },
+              {
+                "en": "a term",
+                "zh": "任期",
+                "def_en": "the fixed period a member serves: two years in the House, six in the Senate",
+                "def_zh": "議員固定的任職期間：眾議院兩年、參議院六年",
+                "ex": "She was elected to a six-year <b>term</b> in the Senate.",
+                "ex_zh": "她當選參議員，任期六年。"
+              }
+            ]
+          },
+          "links_head": {
+            "eyebrow": "Go Further · 延伸閱讀",
+            "en": "Related lessons",
+            "zh": "相關的課"
+          },
+          "links": [
+            {
+              "icon": "⚖️",
+              "k_en": "U.S. Government · Lesson 2",
+              "k_zh": "美國政治・第二課",
+              "en": "Why Split the Power Three Ways?",
+              "zh": "權力為什麼要分成三份？",
+              "note_en": "Two chambers are a check inside the legislature itself; Lesson 2 shows the checks between the branches.",
+              "note_zh": "兩院是立法部門內部的制衡；第二課講的是三個部門之間的制衡。",
+              "href": "/resources/classes/us-government/checks-and-balances/"
+            },
+            {
+              "icon": "🗺️",
+              "k_en": "U.S. Government · Lesson 3",
+              "k_zh": "美國政治・第三課",
+              "en": "Why Does Every State Have Its Own Laws?",
+              "zh": "為什麼每一州的法律不一樣？",
+              "note_en": "The fifty-state map there shows the same 2020 House seats by state.",
+              "note_zh": "那一課的五十州地圖用的是同一份 2020 年眾議院席次。",
+              "href": "/resources/classes/us-government/federalism/"
+            },
+            {
+              "icon": "📑",
+              "k_en": "U.S. Government · Lesson 6",
+              "k_zh": "美國政治・第六課",
+              "en": "How Does a Bill Become a Law?",
+              "zh": "法案怎麼變成法律？",
+              "note_en": "The next lesson follows a bill through committees, both chambers, and the president.",
+              "note_zh": "下一課跟著一個法案走過委員會、兩院和總統。",
+              "soon": true
+            }
+          ],
+          "clause": {
+            "eyebrow": "What Does the Text Say? · 條文怎麼寫？",
+            "en": "Four clauses that built two chambers",
+            "zh": "蓋出兩個議院的四段條文",
+            "lead_en": "The words are copied from the National Archives transcriptions, which keep the spelling and capitalization of the parchment.",
+            "lead_zh": "原文照美國國家檔案館的謄本逐字抄錄，保留羊皮紙原件的拼法與大寫。",
+            "items": [
+              {
+                "cite_en": "Article I, Section 2, Clause 1",
+                "cite_zh": "第一條第二項第一款",
+                "text": "The House of Representatives shall be composed of Members chosen every second Year by the People of the several States, and the Electors in each State shall have the Qualifications requisite for Electors of the most numerous Branch of the State Legislature.",
+                "zh": "眾議院由各州人民每兩年選出的議員組成；各州選舉人應具備該州議會中人數最多一院之選舉人所需的資格。",
+                "note_en": "“Every second Year” and “by the People”: from the start, the House was the chamber closest to the voters.",
+                "note_zh": "「每兩年」「由人民」：眾議院從一開始就是離選民最近的一院。",
+                "src": [
+                  {
+                    "label": "National Archives: The Constitution of the United States, a transcription",
+                    "url": "https://www.archives.gov/founding-docs/constitution-transcript"
+                  }
+                ]
+              },
+              {
+                "cite_en": "Article I, Section 2, Clause 3 (1787; later changed)",
+                "cite_zh": "第一條第二項第三款（1787；後來修改）",
+                "text": "Representatives and direct Taxes shall be apportioned among the several States which may be included within this Union, according to their respective Numbers, which shall be determined by adding to the whole Number of free Persons, including those bound to Service for a Term of Years, and excluding Indians not taxed, three fifths of all other Persons.",
+                "zh": "眾議員人數及直接稅，應依本聯邦所包含各州的人數比例分配；各州人數的計算方法，是在自由人總數——包括須服一定年限勞役者，但不包括不納稅的印第安人——之外，加上所有其他人口的五分之三。",
+                "note_en": "“All other Persons” meant enslaved people; the word “slave” does not appear. Section 2 of the Fourteenth Amendment (1868) replaced this count with “the whole number of persons in each State, excluding Indians not taxed.”",
+                "note_zh": "「所有其他人口」指的是被奴役的人；條文裡沒有出現「奴隸」這個字。1868 年第十四條修正案第二項把這個算法換成「各州的總人數，不包括不納稅的印第安人」。",
+                "src": [
+                  {
+                    "label": "National Archives: The Constitution of the United States, a transcription",
+                    "url": "https://www.archives.gov/founding-docs/constitution-transcript"
+                  },
+                  {
+                    "label": "National Archives: Amendments 11–27",
+                    "url": "https://www.archives.gov/founding-docs/amendments-11-27"
+                  }
+                ]
+              },
+              {
+                "cite_en": "Article I, Section 3, Clause 1 (1787), and the Seventeenth Amendment (1913)",
+                "cite_zh": "第一條第三項第一款（1787）與第十七條修正案（1913）",
+                "text": "The Senate of the United States shall be composed of two Senators from each State, chosen by the Legislature thereof, for six Years; and each Senator shall have one Vote.",
+                "zh": "合眾國參議院由每州兩名參議員組成，由該州議會選出，任期六年；每名參議員有一票。",
+                "note_en": "In 1913 the Seventeenth Amendment changed “chosen by the Legislature thereof” to “elected by the people thereof.” “Two Senators from each State” did not change. Note also “each Senator shall have one Vote”: senators vote as individuals, not as a state delegation.",
+                "note_zh": "1913 年第十七條修正案把「由該州議會選出」改為「由該州人民選出」；「每州兩名參議員」沒有變。也注意「每名參議員有一票」：參議員是個別投票，不是以州代表團為單位。",
+                "src": [
+                  {
+                    "label": "National Archives: The Constitution of the United States, a transcription",
+                    "url": "https://www.archives.gov/founding-docs/constitution-transcript"
+                  },
+                  {
+                    "label": "National Archives: Amendments 11–27",
+                    "url": "https://www.archives.gov/founding-docs/amendments-11-27"
+                  }
+                ]
+              },
+              {
+                "cite_en": "Article V (the last words)",
+                "cite_zh": "第五條（最後一句）",
+                "text": "… and that no State, without its Consent, shall be deprived of its equal Suffrage in the Senate.",
+                "zh": "……任何一州，未經其同意，不得被剝奪其在參議院的平等表決權。",
+                "note_en": "Article V shielded two subjects from the ordinary amendment process. The other protection, for the clauses on the migration or importation of persons (the slave trade) and on direct taxes, ran only until 1808. This one has no end date: a state cannot lose its equal vote in the Senate without its own consent.",
+                "note_zh": "第五條讓兩件事不受一般修憲程序更動。另一項保護——針對人口遷入或輸入（即奴隸貿易）與直接稅這兩款——只到 1808 年為止。這一項沒有期限：任何一州未經自己同意，都不會失去在參議院的平等表決權。",
+                "src": [
+                  {
+                    "label": "National Archives: The Constitution of the United States, a transcription",
+                    "url": "https://www.archives.gov/founding-docs/constitution-transcript"
+                  }
+                ]
+              }
+            ]
+          },
+          "primary": {
+            "eyebrow": "Read the Source · 讀原典",
+            "en": "The compromise, argued and defended",
+            "zh": "妥協：當場的爭論與事後的辯護",
+            "lead_en": "Two kinds of source. The first comes from James Madison's notes of the convention, written as it happened, so the speakers are reported in the third person. The second is from The Federalist, written in 1788 to persuade New Yorkers to ratify. Read each slowly before you open the translation; the spelling and abbreviations are those of the sources.",
+            "lead_zh": "兩種不同的原典。第一份出自麥迪遜在制憲會議上當場寫的筆記，所以發言者是以第三人稱轉述。第二份出自 1788 年為了說服紐約人批准憲法而寫的《聯邦論》。先慢慢讀一遍，再打開中譯；拼法與縮寫照出處原樣。",
+            "docs": [
+              {
+                "kind_en": "Notes of the convention, 1787",
+                "kind_zh": "1787 年的制憲會議筆記",
+                "title_en": "Ellsworth and Franklin on a compromise (excerpts)",
+                "title_zh": "艾斯華斯與富蘭克林談妥協（節錄）",
+                "by_en": "James Madison's notes: Oliver Ellsworth of Connecticut on June 29, 1787, and Benjamin Franklin of Pennsylvania on June 30, 1787.",
+                "by_zh": "麥迪遜的筆記：康乃狄克的艾斯華斯（1787 年 6 月 29 日）與賓夕法尼亞的富蘭克林（1787 年 6 月 30 日）。",
+                "text": [
+                  "… He hoped it would become a ground of compromise with regard to the 2d. branch. We were partly national; partly federal. The proportional representation in the first branch was conformable to the national principle & would secure the large States agst. the small. An equality of voices was conformable to the federal principle and was necessary to secure the Small States agst. the large. He trusted that on this middle ground a compromise would take place. He did not see that it could on any other. And if no compromise should take place, our meeting would not only be in vain but worse than in vain.",
+                  "The diversity of opinions turns on two points. If a proportional representation takes place, the small States contend that their liberties will be in danger. If an equality of votes is to be put in its place, the large States say their money will be in danger. When a broad table is to be made, and the edges of planks do not fit, the artist takes a little from both, and makes a good joint."
+                ],
+                "text_zh": [
+                  "他希望這能成為第二院方面妥協的基礎。我們一部分是全國性的，一部分是聯邦性的。第一院依比例代表，符合全國性的原則，能保護大州不受小州侵害；表決權平等，符合聯邦性的原則，是保護小州不受大州侵害所必需的。他相信妥協會在這個中間的立場上達成，看不出在別的立場上能夠達成。如果達不成妥協，我們這次開會不但白費，而且比白費還糟。",
+                  "意見的分歧在於兩點。如果採用比例代表，小州主張它們的自由會有危險；如果改用平等表決，大州說它們的錢會有危險。要做一張寬桌子，木板的邊緣接不攏時，工匠會從兩邊各削掉一點，做出一個好的接縫。"
+                ],
+                "note_en": "Text from the Avalon Project (Yale Law School) edition of Madison's notes, with Madison's abbreviations (“2d.” for second, “agst.” for against). Public domain. The Chinese translation is ours.",
+                "note_zh": "原文依耶魯法學院 Avalon 計畫收錄的麥迪遜筆記，保留麥迪遜的縮寫（2d. 是 second、agst. 是 against）。公有領域。中譯為本站所譯。",
+                "src": [
+                  {
+                    "label": "Avalon Project: Madison's notes, June 29, 1787",
+                    "url": "https://avalon.law.yale.edu/18th_century/debates_629.asp"
+                  },
+                  {
+                    "label": "Avalon Project: Madison's notes, June 30, 1787",
+                    "url": "https://avalon.law.yale.edu/18th_century/debates_630.asp"
+                  }
+                ],
+                "gloss": [
+                  {
+                    "w": "2d. branch",
+                    "en": "the second branch of the legislature, which became the Senate",
+                    "zh": "立法機關的第二院，後來的參議院"
+                  },
+                  {
+                    "w": "federal",
+                    "en": "here, based on the states as members of a league",
+                    "zh": "這裡指以各州為成員的聯合"
+                  },
+                  {
+                    "w": "conformable to",
+                    "en": "in agreement with",
+                    "zh": "符合"
+                  },
+                  {
+                    "w": "secure … agst.",
+                    "en": "protect against",
+                    "zh": "保護……不受"
+                  },
+                  {
+                    "w": "in vain",
+                    "en": "without result",
+                    "zh": "徒勞"
+                  },
+                  {
+                    "w": "joint",
+                    "en": "the place where two pieces of wood meet",
+                    "zh": "接縫"
+                  }
+                ],
+                "questions": [
+                  {
+                    "en": "Ellsworth calls the new government “partly national; partly federal.” Which chamber matches which half, and why?",
+                    "zh": "艾斯華斯說新政府「一部分是全國性的，一部分是聯邦性的」。哪一院對應哪一半？為什麼？"
+                  },
+                  {
+                    "en": "What does each side fear losing, according to Franklin? Are those fears the same kind of thing?",
+                    "zh": "依富蘭克林的說法，兩邊各自怕失去什麼？這兩種害怕是同一類的東西嗎？"
+                  },
+                  {
+                    "en": "Ellsworth says failure would be “worse than in vain.” Why might no agreement have been worse than no meeting at all?",
+                    "zh": "艾斯華斯說失敗會「比白費還糟」。為什麼達不成協議，可能比根本沒開會還糟？"
+                  }
+                ]
+              },
+              {
+                "kind_en": "Argument for ratification, 1788",
+                "kind_zh": "1788 年支持批准的論述",
+                "title_en": "The Federalist No. 62 (excerpts)",
+                "title_zh": "《聯邦論》第 62 篇（節錄）",
+                "by_en": "Publius. The Library of Congress lists the author as Alexander Hamilton or James Madison.",
+                "by_zh": "署名 Publius。美國國會圖書館列出的作者是漢彌爾頓或麥迪遜。",
+                "text": [
+                  "The equality of representation in the Senate is another point, which, being evidently the result of compromise between the opposite pretensions of the large and the small States, does not call for much discussion. … In this spirit it may be remarked, that the equal vote allowed to each State is at once a constitutional recognition of the portion of sovereignty remaining in the individual States, and an instrument for preserving that residuary sovereignty.",
+                  "In this point of view, a senate, as a second branch of the legislative assembly, distinct from, and dividing the power with, a first, must be in all cases a salutary check on the government. It doubles the security to the people, by requiring the concurrence of two distinct bodies in schemes of usurpation or perfidy, where the ambition or corruption of one would otherwise be sufficient."
+                ],
+                "text_zh": [
+                  "參議院的平等代表是另一點；它顯然是大州與小州相反主張之間妥協的結果，不需要多加討論。……本著這種精神可以說，給予每州平等的一票，既是在憲法上承認各州仍保有的那一部分主權，也是保存那份剩餘主權的工具。",
+                  "從這個角度看，參議院作為立法機關的第二院，和第一院分開、又與第一院分享權力，在任何情況下都必然是對政府有益的牽制。篡權或背信的圖謀，原本只要一個機構的野心或腐化就足以得逞；現在需要兩個不同機構的同意，人民的保障因此加倍。"
+                ],
+                "note_en": "Text from the Library of Congress edition of The Federalist. Public domain. The Chinese translation is ours.",
+                "note_zh": "原文依美國國會圖書館收錄的《聯邦論》。公有領域。中譯為本站所譯。",
+                "src": [
+                  {
+                    "label": "Library of Congress: Federalist Nos. 61–70",
+                    "url": "https://guides.loc.gov/federalist-papers/text-61-70"
+                  }
+                ],
+                "gloss": [
+                  {
+                    "w": "pretensions",
+                    "en": "claims",
+                    "zh": "主張"
+                  },
+                  {
+                    "w": "sovereignty",
+                    "en": "supreme authority to govern",
+                    "zh": "主權"
+                  },
+                  {
+                    "w": "residuary",
+                    "en": "remaining",
+                    "zh": "剩餘的"
+                  },
+                  {
+                    "w": "salutary",
+                    "en": "beneficial",
+                    "zh": "有益的"
+                  },
+                  {
+                    "w": "concurrence",
+                    "en": "agreement",
+                    "zh": "同意"
+                  },
+                  {
+                    "w": "usurpation or perfidy",
+                    "en": "seizing power wrongly, or betraying trust",
+                    "zh": "篡權或背信"
+                  }
+                ],
+                "questions": [
+                  {
+                    "en": "The essay admits the equal vote is “the result of compromise.” Does it then defend the equal vote only as a necessity, or also as a good idea? Find the words that show it.",
+                    "zh": "這篇文章承認平等的一票是「妥協的結果」。它接著只是把它當作不得不然來辯護，還是也認為它本身是好主意？找出顯示這一點的字句。"
+                  },
+                  {
+                    "en": "How does a second chamber “double the security to the people”? What would have to happen for a bad law to pass?",
+                    "zh": "第二院怎麼讓「人民的保障加倍」？一個壞法律要通過，必須發生什麼事？"
+                  },
+                  {
+                    "en": "Compare this argument with Ellsworth's. Which one rests on the states, and which on the structure of government?",
+                    "zh": "把這段論述和艾斯華斯的話比一比。哪一個是建立在「各州」上，哪一個是建立在「政府的結構」上？"
+                  }
+                ]
+              }
+            ]
+          },
+          "debate": {
+            "eyebrow": "The Design Debate · 制度的爭論",
+            "en": "Equal votes for states, or equal weight for people?",
+            "zh": "每州平等，還是每人平等？",
+            "lead_en": "The House settles representation by population. The argument is about the Senate: should every state have the same voice, however many people live there? Delegates argued it in 1787, and Americans still do. Each side is stated here in its strongest form, and the card does not choose between them.",
+            "lead_zh": "眾議院依人口分配代表，沒有爭議；爭的是參議院：不論住了多少人，每一州都該有一樣的發言權嗎？1787 年的代表為此爭論，美國人到今天也還在爭論。這裡把兩邊各用最強的版本寫出來，不替它們分高下。",
+            "question_en": "Should the Senate give every state the same two votes?",
+            "question_zh": "參議院應該讓每一州都有相同的兩票嗎？",
+            "sides": [
+              {
+                "k_en": "One position",
+                "k_zh": "一種立場",
+                "name_en": "Keep an equal vote for every state",
+                "name_zh": "保留每州平等的一票",
+                "points": [
+                  {
+                    "en": "The United States is a union of states as well as of people. An equal vote recognizes that each state keeps part of its own authority.",
+                    "zh": "美國既是人民的聯合，也是各州的聯合。平等的一票承認每一州仍保有自己的一部分權力。"
+                  },
+                  {
+                    "en": "Without it, a handful of populous states could outvote the rest on every question. Laws must instead win support across many states and regions.",
+                    "zh": "沒有它，少數人口多的州就能在每個問題上壓過其他各州；有了它，法律必須在許多州、許多地區都得到支持。"
+                  },
+                  {
+                    "en": "Two chambers chosen on different principles make every law pass two different majorities, which slows hasty or harmful legislation.",
+                    "zh": "兩院依不同的原則組成，每一條法律都要通過兩種不同的多數，這能減緩倉促或有害的立法。"
+                  }
+                ],
+                "voice": "He said as the States would remain possessed of certain individual rights, each State ought to be able to protect itself: otherwise a few large States will rule the rest.",
+                "voice_cite": "Roger Sherman of Connecticut, as recorded in Madison's notes, June 11, 1787",
+                "voice_zh": "他說，既然各州仍保有某些各自的權利，每一州就應該能保護自己；否則少數幾個大州就會統治其餘各州。——康乃狄克的雪曼，麥迪遜筆記，1787 年 6 月 11 日",
+                "src": [
+                  {
+                    "label": "Avalon Project: Madison's notes, June 11, 1787",
+                    "url": "https://avalon.law.yale.edu/18th_century/debates_611.asp"
+                  }
+                ]
+              },
+              {
+                "k_en": "Another position",
+                "k_zh": "另一種立場",
+                "name_en": "Give every person equal weight",
+                "name_zh": "讓每個人的分量相等",
+                "points": [
+                  {
+                    "en": "Government acts on individuals, not on states. Each person's voice in making the laws should count the same, wherever that person lives.",
+                    "zh": "政府作用的對象是個人，不是州。在制定法律時，每個人的聲音都應該一樣重，不論他住在哪裡。"
+                  },
+                  {
+                    "en": "Equal state votes let senators who together represent a minority of Americans block what senators representing a majority want.",
+                    "zh": "各州平等的表決權，讓合起來只代表少數美國人的參議員，能擋住代表多數美國人的參議員想做的事。"
+                  },
+                  {
+                    "en": "Population is the rule elsewhere in American government. Since 1964 the Supreme Court has required both chambers of every state legislature to be apportioned by population.",
+                    "zh": "在美國政府的其他地方，人口才是規則。1964 年起，最高法院要求每一州議會的兩院都必須依人口分配席次。"
+                  }
+                ],
+                "voice": "… the majority of States might still injure the majority of people. … they could obstruct the wishes and interests of the majority.",
+                "voice_cite": "James Madison of Virginia, answering the argument that the large states' majority in the House would protect them, as recorded in his notes, June 30, 1787",
+                "voice_zh": "……多數的州仍然可能損害多數的人民。……它們可以阻擋多數人的願望與利益。——維吉尼亞的麥迪遜，回應「大州在眾議院占多數就足以自保」的說法，麥迪遜筆記，1787 年 6 月 30 日",
+                "src": [
+                  {
+                    "label": "Avalon Project: Madison's notes, June 30, 1787",
+                    "url": "https://avalon.law.yale.edu/18th_century/debates_630.asp"
+                  },
+                  {
+                    "label": "Cornell LII: Reynolds v. Sims, 377 U.S. 533 (1964)",
+                    "url": "https://www.law.cornell.edu/supremecourt/text/377/533"
+                  }
+                ]
+              }
+            ],
+            "close_en": "Which argument above do you find strongest? Would your answer change if you lived in a large state, or in a small one?",
+            "close_zh": "上面的論點裡，你覺得哪一個最有力？如果你住在大州或小州，答案會不會不一樣？"
+          },
+          "taiwan": {
+            "eyebrow": "Compare with Taiwan · 和台灣比一比",
+            "en": "Two chambers and one",
+            "zh": "兩院與一院",
+            "lead_en": "This card compares designs only. It quotes the Constitution of the Republic of China and its Additional Articles from the official Laws and Regulations Database and does not say which arrangement is better.",
+            "lead_zh": "這張卡只比制度的設計，條文引自全國法規資料庫的《中華民國憲法》與增修條文；不評價哪一種安排比較好。",
+            "rows": [
+              {
+                "topic_en": "The legislature",
+                "topic_zh": "立法機關",
+                "us_en": "Congress: two chambers, the Senate and the House of Representatives (Article I, Section 1).",
+                "us_zh": "國會：參議院與眾議院兩院（第一條第一項）。",
+                "tw_en": "The Legislative Yuan, a single body, is “the highest legislative organ of the State” (Constitution, Article 62).",
+                "tw_zh": "立法院為「國家最高立法機關」，是單一的機關（憲法第 62 條）。"
+              },
+              {
+                "topic_en": "Number of seats",
+                "topic_zh": "席次",
+                "us_en": "435 representatives (set by law) and 100 senators.",
+                "us_zh": "眾議員 435 席（法律規定）、參議員 100 席。",
+                "tw_en": "113 members, beginning with the Seventh Legislative Yuan (Additional Articles, Article 4).",
+                "tw_zh": "自第七屆起 113 人（增修條文第 4 條）。"
+              },
+              {
+                "topic_en": "How seats are divided",
+                "topic_zh": "席次怎麼分",
+                "us_en": "House seats by state population, at least one per state; two senators per state.",
+                "us_zh": "眾議院依各州人口分配、每州至少一席；參議院每州兩席。",
+                "tw_en": "73 from single-member districts in proportion to the population of each special municipality, county, or city, with at least one for each county and city; 3 each for lowland and highland indigenous peoples; 34 nationwide and overseas seats by party list.",
+                "tw_zh": "直轄市、縣市 73 人，依人口比例分配並劃分同額選舉區，每縣市至少一人；平地原住民及山地原住民各 3 人；全國不分區及僑居國外國民共 34 人，依政黨名單投票選出。"
+              },
+              {
+                "topic_en": "Term",
+                "topic_zh": "任期",
+                "us_en": "Two years in the House; six in the Senate, with a third elected every two years.",
+                "us_zh": "眾議員兩年；參議員六年，每兩年改選三分之一。",
+                "tw_en": "Four years for all members, elected together.",
+                "tw_zh": "全體立委任期四年，同時改選。"
+              }
+            ],
+            "quotes": [
+              {
+                "cite_zh": "中華民國憲法　第 62 條",
+                "cite_en": "Constitution of the Republic of China, Article 62",
+                "text": "立法院為國家最高立法機關，由人民選舉之立法委員組織之，代表人民行使立法權。",
+                "en": "Official English translation: “The Legislative Yuan shall be the highest legislative organ of the State, to be constituted of members elected by the people. It shall exercise legislative power on behalf of the people.”",
+                "src": [
+                  {
+                    "label": "全國法規資料庫：中華民國憲法",
+                    "url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=A0000001"
+                  },
+                  {
+                    "label": "Laws & Regulations Database: Constitution (English)",
+                    "url": "https://law.moj.gov.tw/ENG/LawClass/LawAll.aspx?pcode=A0000001"
+                  }
+                ]
+              },
+              {
+                "cite_zh": "中華民國憲法增修條文　第 4 條第 1 項（節錄）",
+                "cite_en": "Additional Articles, Article 4, paragraph 1 (excerpt)",
+                "text": "立法院立法委員自第七屆起一百一十三人，任期四年，連選得連任……一、自由地區直轄市、縣市七十三人。每縣市至少一人。二、自由地區平地原住民及山地原住民各三人。三、全國不分區及僑居國外國民共三十四人。",
+                "en": "Official English translation: “Beginning with the Seventh Legislative Yuan, the Legislative Yuan shall have 113 members, who shall serve a term of four years, which is renewable after re-election. … (1) Seventy-three members shall be elected from the Special Municipalities, counties, and cities in the free area. At least one member shall be elected from each county and city. (2) Three members each shall be elected from among the lowland and highland aborigines in the free area. (3) A total of thirty-four members shall be elected from the nationwide constituency and among nationals residing overseas.”",
+                "src": [
+                  {
+                    "label": "全國法規資料庫：中華民國憲法增修條文",
+                    "url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=A0000002"
+                  },
+                  {
+                    "label": "Laws & Regulations Database: Additional Articles (English)",
+                    "url": "https://law.moj.gov.tw/ENG/LawClass/LawAll.aspx?pcode=A0000002"
+                  }
+                ]
+              }
+            ],
+            "note_en": "Two things to notice. Both systems guarantee a minimum to small units: every American state has at least one representative, and every Taiwanese county and city has at least one legislator. But only the American design adds a second chamber in which every state is equal. The text was checked against the Laws and Regulations Database in October 2026.",
+            "note_zh": "有兩點可以注意。兩種制度都替小單位保障了最低限度：美國每州至少一位眾議員，台灣每縣市至少一位立委。但只有美國的設計另外加了一個「每州平等」的第二院。條文於 2026 年 10 月對過全國法規資料庫。"
+          },
+          "sources_note_en": "Quotations, dates, and numbers on this page were checked against these sources in October 2026. Quotations keep the spelling of the originals",
+          "sources_note_zh": "本頁的引文、日期與數字於 2026 年 10 月依下列資料查證；引文保留原文的拼法",
+          "sources": [
+            {
+              "en": "The Constitution: Article I, Sections 1, 2, 3, 5, and 7; Article II, Section 2; Article V.",
+              "zh": "憲法第一條第一、二、三、五、七項，第二條第二項，第五條",
+              "src": "National Archives: The Constitution of the United States, a transcription",
+              "url": "https://www.archives.gov/founding-docs/constitution-transcript"
+            },
+            {
+              "en": "The Fourteenth Amendment, Section 2 (ratified July 9, 1868), and the Seventeenth Amendment (ratified April 8, 1913).",
+              "zh": "第十四條修正案第二項（1868 年 7 月 9 日批准）與第十七條修正案（1913 年 4 月 8 日批准）",
+              "src": "National Archives: Amendments 11–27",
+              "url": "https://www.archives.gov/founding-docs/amendments-11-27"
+            },
+            {
+              "en": "Why the Seventeenth Amendment was adopted: deadlocked legislatures, vacant seats, and the influence of special interests.",
+              "zh": "第十七條修正案的背景：州議會僵持、席位空缺與特殊利益的影響",
+              "src": "National Archives: 17th Amendment to the U.S. Constitution",
+              "url": "https://www.archives.gov/milestone-documents/17th-amendment"
+            },
+            {
+              "en": "The Congress of the Articles of Confederation: one vote per state.",
+              "zh": "《邦聯條例》下的國會：每州一票",
+              "src": "National Archives: Articles of Confederation",
+              "url": "https://www.archives.gov/milestone-documents/articles-of-confederation"
+            },
+            {
+              "en": "The Virginia Plan (May 29, 1787).",
+              "zh": "維吉尼亞方案（1787 年 5 月 29 日）",
+              "src": "Avalon Project: Madison's notes, May 29, 1787",
+              "url": "https://avalon.law.yale.edu/18th_century/debates_529.asp"
+            },
+            {
+              "en": "The New Jersey Plan (June 15, 1787).",
+              "zh": "紐澤西方案（1787 年 6 月 15 日）",
+              "src": "Avalon Project: Madison's notes, June 15, 1787",
+              "url": "https://avalon.law.yale.edu/18th_century/debates_615.asp"
+            },
+            {
+              "en": "Sherman's proposal of one vote per state in the second branch (June 11, 1787).",
+              "zh": "雪曼提議第二院每州一票（1787 年 6 月 11 日）",
+              "src": "Avalon Project: Madison's notes, June 11, 1787",
+              "url": "https://avalon.law.yale.edu/18th_century/debates_611.asp"
+            },
+            {
+              "en": "Ellsworth on a compromise (June 29, 1787).",
+              "zh": "艾斯華斯談妥協（1787 年 6 月 29 日）",
+              "src": "Avalon Project: Madison's notes, June 29, 1787",
+              "url": "https://avalon.law.yale.edu/18th_century/debates_629.asp"
+            },
+            {
+              "en": "Franklin's “good joint” and Madison's reply on the majority of the people (June 30, 1787).",
+              "zh": "富蘭克林的「好的接縫」與麥迪遜談多數人民的回應（1787 年 6 月 30 日）",
+              "src": "Avalon Project: Madison's notes, June 30, 1787",
+              "url": "https://avalon.law.yale.edu/18th_century/debates_630.asp"
+            },
+            {
+              "en": "The vote of July 16, 1787 on an equal vote in the second branch: five states to four, Massachusetts divided; the 65 House seats of the first Congress (also in Article I, Section 2).",
+              "zh": "1787 年 7 月 16 日第二院平等表決權的表決：五州對四州、麻薩諸塞意見分歧；第一屆眾議院的 65 席（亦見憲法第一條第二項）",
+              "src": "Avalon Project: Madison's notes, July 16, 1787",
+              "url": "https://avalon.law.yale.edu/18th_century/debates_716.asp"
+            },
+            {
+              "en": "Two senators per state, voting as individuals (July 23, 1787).",
+              "zh": "每州兩名參議員、個別投票（1787 年 7 月 23 日）",
+              "src": "Avalon Project: Madison's notes, July 23, 1787",
+              "url": "https://avalon.law.yale.edu/18th_century/debates_723.asp"
+            },
+            {
+              "en": "The Great Compromise and its architects, Roger Sherman and Oliver Ellsworth.",
+              "zh": "大妥協與它的主要設計者雪曼、艾斯華斯",
+              "src": "U.S. Senate: The Great Compromise",
+              "url": "https://www.senate.gov/about/origins-foundations/senate-and-constitution/great-compromise.htm"
+            },
+            {
+              "en": "The three-fifths compromise in the House.",
+              "zh": "眾議院的五分之三妥協",
+              "src": "History, Art & Archives, U.S. House of Representatives: Proportional Representation",
+              "url": "https://history.house.gov/Institution/Origins-Development/Proportional-Representation/"
+            },
+            {
+              "en": "The three-fifths clause gave the slave states extra weight in the House and in the electoral college.",
+              "zh": "五分之三條款讓蓄奴州在眾議院與選舉人團得到額外的分量",
+              "src": "National Archives, Prologue (Winter 2000): Garrison's Constitution",
+              "url": "https://www.archives.gov/publications/prologue/2000/winter/garrisons-constitution-1"
+            },
+            {
+              "en": "The Federalist No. 62 on the Senate.",
+              "zh": "《聯邦論》第 62 篇談參議院",
+              "src": "Library of Congress: Federalist Nos. 61–70",
+              "url": "https://guides.loc.gov/federalist-papers/text-61-70"
+            },
+            {
+              "en": "The 1911 law: 433 seats, plus one each for Arizona and New Mexico; the temporary 437 seats of 1959–1963.",
+              "zh": "1911 年的法律：433 席，另為亞利桑那與新墨西哥各加一席；1959–1963 年暫時的 437 席",
+              "src": "History, Art & Archives, U.S. House: The 1911 House Reapportionment",
+              "url": "https://history.house.gov/Historical-Highlights/1901-1950/The-1911-House-reapportionment/"
+            },
+            {
+              "en": "The Permanent Apportionment Act of 1929 fixed the House at 435.",
+              "zh": "1929 年的《永久分配法》把眾議院定為 435 席",
+              "src": "History, Art & Archives, U.S. House: The Permanent Apportionment Act of 1929",
+              "url": "https://history.house.gov/Historical-Highlights/1901-1950/The-Permanent-Apportionment-Act-of-1929/"
+            },
+            {
+              "en": "The method of equal proportions, used since 1941.",
+              "zh": "1941 年起採用的等比例法",
+              "src": "U.S. Census Bureau: Computing Apportionment",
+              "url": "https://www.census.gov/topics/public-sector/congressional-apportionment/about/computing.html"
+            },
+            {
+              "en": "The 2020 apportionment: seats by state (California 52; six states with one) and resident population.",
+              "zh": "2020 年的席次分配：各州席次（加利福尼亞 52 席、六州各一席）與居住人口",
+              "src": "U.S. Census Bureau: 2020 Census Apportionment Results",
+              "url": "https://www.census.gov/data/tables/2020/dec/2020-apportionment-data.html"
+            },
+            {
+              "en": "Filibusters and cloture: the 1917 rule and the 1975 change to three fifths of the Senate (sixty votes).",
+              "zh": "冗長辯論與終結辯論：1917 年的規則與 1975 年改為參議院的五分之三（六十票）",
+              "src": "U.S. Senate: Filibusters and Cloture",
+              "url": "https://www.senate.gov/about/powers-procedures/filibusters-cloture.htm"
+            },
+            {
+              "en": "Reynolds v. Sims (1964): both chambers of a state legislature must be apportioned by population.",
+              "zh": "Reynolds v. Sims（1964）：州議會的兩院都必須依人口分配席次",
+              "src": "Cornell LII: Reynolds v. Sims, 377 U.S. 533",
+              "url": "https://www.law.cornell.edu/supremecourt/text/377/533"
+            },
+            {
+              "en": "Constitution of the Republic of China, Article 62.",
+              "zh": "中華民國憲法第 62 條",
+              "src": "全國法規資料庫：中華民國憲法",
+              "url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=A0000001"
+            },
+            {
+              "en": "Additional Articles of the Constitution of the Republic of China, Article 4.",
+              "zh": "中華民國憲法增修條文第 4 條",
+              "src": "全國法規資料庫：中華民國憲法增修條文",
+              "url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=A0000002"
+            }
+          ]
+        }
+      ],
+      "planned": [
         {
           "n": 6,
           "icon": "📑",
