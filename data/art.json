@@ -4759,7 +4759,7 @@
               "zh": "為什麼畫的臉常常怪怪的？",
               "note_en": "Next comes proportion: where the eyes really are on a head, and why beginners often draw them too high.",
               "note_zh": "下一課是比例：眼睛在頭上真正的位置，以及為什麼初學者常把眼睛畫得太高。",
-              "soon": true
+              "href": "/resources/classes/art/faces/"
             }
           ],
           "sources_note_en": "Names, dates, numbers, and quotations on this page were checked against these sources (October 2026). The balance point is computed by the page itself and covered by automatic tests; visual weight follows a simplified model of our own",
@@ -4844,16 +4844,612 @@
               "url": "https://www.naer.edu.tw/upload/1/16/doc/818/%E5%8D%81%E4%BA%8C%E5%B9%B4%E5%9C%8B%E6%B0%91%E5%9F%BA%E6%9C%AC%E6%95%99%E8%82%B2%E8%AA%B2%E7%A8%8B%E7%B6%B1%E8%A6%81%E5%9C%8B%E6%B0%91%E4%B8%AD%E5%B0%8F%E5%AD%B8%E6%9A%A8%E6%99%AE%E9%80%9A%E5%9E%8B%E9%AB%98%E7%B4%9A%E4%B8%AD%E7%AD%89%E6%A0%A1-%E8%97%9D%E8%A1%93%E9%A0%98%E5%9F%9F.pdf"
             }
           ]
-        }
-      ],
-      "planned": [
+        },
         {
           "n": 8,
+          "slug": "faces",
+          "title": "Why Do Drawn Faces Look Wrong?",
+          "title_zh": "為什麼畫的臉常常怪怪的？",
+          "level": "入門 · Beginner",
           "icon": "🙂",
-          "en": "Why Do Drawn Faces Look Wrong?",
-          "zh": "為什麼畫的臉常常怪怪的？"
+          "card": "face",
+          "blurb_en": "Most people draw the eyes too high. Turn a simple 3D head, switch on its proportion lines, and find out how much head there really is above the eyes.",
+          "blurb_zh": "大多數人畫臉時，都把眼睛畫得太高。轉一轉一顆簡單的 3D 頭像，打開比例線，看看眼睛上面其實還有多大一塊頭。",
+          "big_idea_en": "When we draw a face, we often draw what we think a face is like, not what we see. The most common slip is putting the eyes too high. On an adult head, the eyes sit about halfway between the top of the head and the chin. Hair hides the top of the skull, which makes the forehead look smaller than it is. Proportions like these are a starting point for drawing, not a rule for how a face should look. Every face is different.",
+          "big_idea_zh": "畫臉的時候，我們常常畫的是自己「以為」的臉，而不是眼睛看到的臉。最常見的失誤，是把眼睛放得太高。成人的頭上，眼睛大約在頭頂和下巴的正中間。頭髮蓋住了頭頂，讓額頭看起來比實際小。這些比例是畫畫的起點，不是臉「應該」長什麼樣子的規定。每一張臉都不一樣。",
+          "lab": {
+            "kind": "face",
+            "eyebrow": "3D Model · 3D 模型",
+            "title_en": "A Head You Can Turn",
+            "title_zh": "一顆可以轉的頭",
+            "how_en": "Drag the head to turn it, or choose a view. The yellow lines show where the parts of a face usually sit, and the table gives each line's height, measured down from the top of the head. Try the three kinds of hair, then press “Where beginners put them” to see a common mistake.",
+            "how_zh": "拖動頭像來旋轉，或選一個角度。黃色的線標出臉上各部分通常在的位置，表格寫出每條線從頭頂往下量的高度。試試三種頭髮，再按「初學者常畫的位置」，看看一個常見的錯誤。",
+            "note_head_en": "What this model leaves out",
+            "note_head_zh": "這個模型簡化了什麼",
+            "notes": [
+              {
+                "en": "This is a simple clay-gray head, not anyone's face, and its color does not stand for any skin color. Real heads and faces come in many shapes.",
+                "zh": "這是一顆簡單的黏土灰頭像，不是任何人的臉，顏色也不代表任何膚色。真實的頭和臉有各種形狀。"
+              },
+              {
+                "en": "The lines follow one university drawing guide: eyes halfway, the bottom of the nose halfway between the eyes and the chin, and the mouth halfway between the nose and the chin. The hairline, the eyebrows, and the size and spacing of the eyes are numbers we chose.",
+                "zh": "這些線照的是一份大學的繪畫講義：眼睛在一半、鼻子底在眼睛和下巴的正中間、嘴巴在鼻子和下巴的正中間。髮際線、眉毛的高度，以及眼睛的大小和間距，是我們自己選的數字。"
+              },
+              {
+                "en": "Drawing guides do not all agree. The old rule of three equal parts of the face puts the nose a little higher than this model does. When scientists measured real faces, the old rules did not describe the average face.",
+                "zh": "繪畫的講義彼此不完全一樣。「臉分成三等分」的古老規則，鼻子的位置比這個模型高一點。科學家測量真人的臉，發現這些古老的規則都不能代表平均的臉。"
+              },
+              {
+                "en": "This is an adult head. A baby's skull is very large compared with its face, so the same lines do not fit babies and young children. How high “too high” is also varies. The beginner's eye line here is only an example.",
+                "zh": "這是成人的頭。嬰兒的頭顱和臉比起來非常大，所以同樣的線不適用於嬰兒和小小孩。「太高」到底高多少也因人而異，這裡初學者的眼睛位置只是一個例子。"
+              }
+            ],
+            "note_end_en": "So measure real faces. Classroom Activity 1 asks you to measure with a pencil, and the faces in your class will not all match the model. That is the point.",
+            "note_end_zh": "所以請量量真的臉。課堂活動一請你用鉛筆量，班上每個人的臉不會都和模型一樣，這正是重點。",
+            "credit_html": "Head model made for this lesson. Line heights are computed by shared code and covered by automatic tests. · 頭像為本課自行製作；比例線的高度由共用的程式計算，並有自動測試。"
+          },
+          "paras": [
+            "Ask a friend to draw a face from memory. Very often, the eyes end up high on the head, with only a thin strip of forehead above them. The nose and mouth are fine, and each part looks right on its own. Yet the whole face looks a little strange, as if the top of the head had been sliced off.",
+            "Scientists have tested this. In 2014 two researchers asked many people to draw faces and found that the eyes were placed too high again and again. They even found the same slip in pictures of faces printed in well-known research articles. Knowing a lot about faces does not stop it.",
+            "So where do the eyes go? On an adult head, they sit about halfway between the top of the head and the chin. One university drawing guide adds a few more starting points. The bottom of the nose is about halfway between the eyes and the chin. The mouth is about halfway between the nose and the chin. The ears reach from the eyebrows down to the bottom of the nose.",
+            "Hair makes this harder to see. It covers the top of the skull and often part of the forehead, so the face seems to start lower than it really does. Hair also adds height on top. When you measure, imagine the shape of the skull under the hair.",
+            "Artists have studied proportions for a very long time. The Roman writer Vitruvius divided the face into three equal parts: chin to nose, nose to eyebrows, and eyebrows to hairline. About 1490 Leonardo da Vinci drew his famous Vitruvian Man and wrote measurements beside it. In 1528 the German artist Albrecht Dürer published four books on human proportion, based partly on measuring two to three hundred people.",
+            "But no real face follows the rules exactly. When scientists measured the faces of 153 young adults in North America, the old rules did not describe the average face. A baby's head has a very large skull compared with its small face. Proportions are a tool to help you see. The face in front of you is always the final guide."
+          ],
+          "paras_zh": [
+            "請朋友憑記憶畫一張臉。很多時候，眼睛會被放在頭的高處，上面只剩下一條細細的額頭。鼻子和嘴巴都沒問題，每個部分單獨看都對，整張臉卻有點怪，好像頭頂被削掉了一塊。",
+            "科學家測試過這件事。2014 年，兩位研究者請許多人畫臉，發現眼睛一次又一次被放得太高。他們甚至在著名研究論文裡刊出的人臉圖上，也看到同樣的失誤。對臉懂得很多，也避免不了。",
+            "那眼睛到底該在哪裡？成人的頭上，眼睛大約在頭頂和下巴的正中間。一份大學的繪畫講義還給了幾個起點：鼻子底大約在眼睛和下巴的正中間；嘴巴大約在鼻子和下巴的正中間；耳朵從眉毛的高度延伸到鼻子底的高度。",
+            "頭髮讓這件事更難看出來。頭髮蓋住頭頂，常常也蓋住一部分額頭，所以臉看起來好像從比較低的地方才開始。頭髮還會讓頭頂多出一些高度。量的時候，要想像頭髮底下頭骨的形狀。",
+            "藝術家研究比例已經很久了。羅馬的作家維特魯威把臉分成一樣長的三段：下巴到鼻子、鼻子到眉毛、眉毛到髮際線。大約 1490 年，達文西畫了著名的〈維特魯威人〉，並在旁邊寫下各種尺寸。1528 年，德國畫家杜勒出版了四冊談人體比例的書，部分根據的是他量過的兩、三百個人。",
+            "不過，沒有一張真實的臉會剛好符合這些規則。科學家測量了北美洲 153 位年輕人的臉，發現這些古老的規則都不能代表平均的臉。嬰兒的頭骨和他小小的臉比起來非常大。比例是幫助你「看見」的工具；眼前那張真實的臉，永遠是最後的依據。"
+          ],
+          "questions": [
+            "Where do the eyes sit on an adult head?",
+            "Why can hair make it hard to place the eyes?",
+            "Do real faces follow the proportion rules exactly?"
+          ],
+          "answers": [
+            "About halfway between the top of the head and the chin.",
+            "Hair covers the top of the skull and part of the forehead, so the face seems to start lower than it really does, and the head looks taller.",
+            "No. When scientists measured real faces, the old rules did not describe the average face. Proportions are a starting point, and every face is different."
+          ],
+          "vocab": [
+            {
+              "n": 1,
+              "w": "proportion",
+              "pos": "n.",
+              "zh": "比例",
+              "ex": "Good <b>proportions</b> make the drawing look real.",
+              "exzh": "比例對了，畫看起來就像真的。"
+            },
+            {
+              "n": 2,
+              "w": "forehead",
+              "pos": "n.",
+              "zh": "額頭",
+              "ex": "Her bangs cover her <b>forehead</b>.",
+              "exzh": "她的瀏海蓋住了額頭。"
+            },
+            {
+              "n": 3,
+              "w": "chin",
+              "pos": "n.",
+              "zh": "下巴",
+              "ex": "Measure from the top of the head to the <b>chin</b>.",
+              "exzh": "從頭頂量到下巴。"
+            },
+            {
+              "n": 4,
+              "w": "halfway",
+              "pos": "adv.",
+              "zh": "在中間；一半的地方",
+              "ex": "The eyes are <b>halfway</b> down the head.",
+              "exzh": "眼睛在頭的一半高度。"
+            },
+            {
+              "n": 5,
+              "w": "skull",
+              "pos": "n.",
+              "zh": "頭骨；頭顱",
+              "ex": "Hair hides the shape of the <b>skull</b>.",
+              "exzh": "頭髮把頭骨的形狀藏起來了。"
+            },
+            {
+              "n": 6,
+              "w": "portrait",
+              "pos": "n.",
+              "zh": "肖像；人像",
+              "ex": "He painted a <b>portrait</b> of his grandmother.",
+              "exzh": "他畫了一幅祖母的肖像。"
+            },
+            {
+              "n": 7,
+              "w": "self-portrait",
+              "pos": "n.",
+              "zh": "自畫像",
+              "ex": "Use a mirror to draw a <b>self-portrait</b>.",
+              "exzh": "用鏡子畫一張自畫像。"
+            },
+            {
+              "n": 8,
+              "w": "measure",
+              "pos": "v.",
+              "zh": "測量；量",
+              "ex": "<b>Measure</b> the face with a pencil held at arm's length.",
+              "exzh": "把鉛筆拿在手臂伸直的地方，用它來量臉。"
+            }
+          ],
+          "quiz": [
+            {
+              "q": "On an adult head, where are the eyes?",
+              "options": [
+                "Near the top of the head",
+                "About halfway between the top of the head and the chin",
+                "Just above the mouth",
+                "At the very middle of the forehead"
+              ],
+              "correct": 1
+            },
+            {
+              "q": "What mistake did researchers find in people's drawings of faces?",
+              "options": [
+                "The eyes were too far apart",
+                "The eyes were placed too high",
+                "The mouth was too big",
+                "The ears were missing"
+              ],
+              "correct": 1
+            },
+            {
+              "q": "According to the drawing guide, where is the bottom of the nose?",
+              "options": [
+                "About halfway between the eyes and the chin",
+                "At the top of the ears",
+                "Right under the eyes",
+                "At the chin"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "Why can hair fool your eyes?",
+              "options": [
+                "It changes the color of the eyes",
+                "It hides the top of the skull and part of the forehead",
+                "It makes the chin longer",
+                "It moves the ears"
+              ],
+              "correct": 1
+            },
+            {
+              "q": "When scientists measured real faces, what did they find about the old proportion rules?",
+              "options": [
+                "Every face matched them",
+                "They did not describe the average face",
+                "They only fit children",
+                "They were invented in 2014"
+              ],
+              "correct": 1
+            }
+          ],
+          "parts_head": {
+            "eyebrow": "Try It in the Model · 在模型裡試試",
+            "en": "Four things to try",
+            "zh": "四件值得試的事"
+          },
+          "parts": [
+            {
+              "key": "half",
+              "icon": "½",
+              "en": "Halfway",
+              "zh": "一半",
+              "meta_en": "From the front",
+              "meta_zh": "從正面看",
+              "demo": "half",
+              "text_en": "The head turns to face you. The yellow eye line sits exactly halfway between the top line and the chin line.",
+              "text_zh": "頭轉向正面。黃色的眼睛線剛好在頭頂線和下巴線的正中間。"
+            },
+            {
+              "key": "hair",
+              "icon": "💇",
+              "en": "Hair fools the eye",
+              "zh": "頭髮騙了眼睛",
+              "meta_en": "None, short, bangs",
+              "meta_zh": "沒有、短髮、瀏海",
+              "demo": "hair",
+              "text_en": "The same head with no hair, short hair, and bangs. The forehead seems to shrink, but the eyes never move.",
+              "text_zh": "同一顆頭，沒有頭髮、短髮、瀏海。額頭好像越來越小，眼睛卻從來沒有動。"
+            },
+            {
+              "key": "high",
+              "icon": "⬆️",
+              "en": "Too high",
+              "zh": "太高了",
+              "meta_en": "A beginner's face",
+              "meta_zh": "初學者的臉",
+              "demo": "high",
+              "text_en": "The eyes jump up to where beginners often put them. Every part is fine, but the head looks squashed on top.",
+              "text_zh": "眼睛跳到初學者常放的位置。每個部分都沒錯，頭頂卻像被壓扁了。"
+            },
+            {
+              "key": "side",
+              "icon": "👂",
+              "en": "From the side",
+              "zh": "從側面看",
+              "meta_en": "Where the ears go",
+              "meta_zh": "耳朵在哪裡",
+              "demo": "side",
+              "text_en": "Turn to the side. The ear reaches from the eyebrow line to the bottom of the nose, and it sits behind the middle of the head.",
+              "text_zh": "轉到側面。耳朵從眉毛線延伸到鼻子底的線，位置在頭的中間偏後。"
+            }
+          ],
+          "parts_note_en": "Then turn the head yourself. From which angle is it easiest to see that the eyes are halfway? From which angle is it hardest?",
+          "parts_note_zh": "然後自己轉轉看。從哪個角度最容易看出眼睛在一半？從哪個角度最難？",
+          "eye": {
+            "eyebrow": "Game · 小遊戲",
+            "en": "Where Do the Eyes Go?",
+            "zh": "眼睛該在哪裡？",
+            "lead_en": "Three heads with no faces: no hair, short hair, and bangs. Move the dashed line to where you think the eyes belong, then check. The page tells you how far off you were, as a share of the head's height.",
+            "lead_zh": "三顆沒有五官的頭：沒有頭髮、短髮、瀏海。把虛線移到你覺得眼睛該在的高度，再對答案。頁面會告訴你差了多少（以頭高的百分比表示）。",
+            "note_en": "The answer is the same for all three heads. Only the hair changes.",
+            "note_zh": "三顆頭的答案都一樣，變的只有頭髮。"
+          },
+          "facepad": {
+            "eyebrow": "Draw It · 動手畫",
+            "en": "Draw a Face, Then Check",
+            "zh": "先畫一張臉，再對比例",
+            "lead_en": "Draw a face inside the outline from memory, without the lines. Then switch on the proportion lines. Where did your eyes, nose, mouth, and ears land?",
+            "lead_zh": "先不看比例線，憑記憶在輪廓裡畫一張臉。畫好再打開比例線：你畫的眼睛、鼻子、嘴巴和耳朵落在哪裡？",
+            "note_en": "Your drawing does not have to match the lines. If you chose to draw a face with different proportions, that is a choice. The lines only show where the parts usually sit.",
+            "note_zh": "你的畫不一定要和線一樣。如果你是刻意畫成別的比例，那是你的選擇；這些線只是標出各部分通常在的位置。"
+          },
+          "culture_cards": {
+            "eyebrow": "Stories Behind the Face · 臉背後的故事",
+            "title_en": "Three equal parts, a man in a circle, three hundred people, and a test of our drawings",
+            "title_zh": "三等分的臉、圓圈裡的人、三百個人，以及對我們的畫的一次測驗",
+            "lead_en": "Four short stories about how people have measured faces, and what they found.",
+            "lead_zh": "四個小故事：人怎麼量臉，又發現了什麼。",
+            "cards": [
+              {
+                "k": "Ancient Rome · 古羅馬",
+                "en": "Three equal parts",
+                "zh": "三等分",
+                "body_en": "The Roman architect Vitruvius wrote that the face can be measured in three equal parts. From the bottom of the chin to the underside of the nostrils is one third. The nose up to a line between the eyebrows is the same. From there to the lowest roots of the hair is also a third, the forehead.",
+                "body_zh": "羅馬的建築師維特魯威寫道，臉可以分成一樣長的三段：從下巴底部到鼻孔下方是三分之一；鼻子到兩眉之間的線也一樣長；從那裡到髮根最低的地方，也是三分之一，也就是額頭。"
+              },
+              {
+                "k": "About 1490 · 大約一四九〇年",
+                "en": "The Vitruvian Man",
+                "zh": "〈維特魯威人〉",
+                "body_en": "Leonardo da Vinci drew a man standing inside a circle and a square, and wrote measurements around him. One says that from the hairline to the bottom of the chin is a tenth of a man's height. Leonardo started from Vitruvius, but he also corrected some of the ancient measurements, especially for the head.",
+                "body_zh": "達文西畫了一個站在圓形和正方形裡的人，並在四周寫下尺寸。其中一條說，從髮際線到下巴底部，是一個人身高的十分之一。達文西以維特魯威為起點，但也修正了一些古代的尺寸，尤其是頭部的。"
+              },
+              {
+                "k": "1528 · 德國",
+                "en": "Dürer measures people",
+                "zh": "杜勒量人",
+                "body_en": "The German artist Albrecht Dürer wrote Four Books on Human Proportion, published in 1528, shortly after his death. He did not rely only on old rules. In his own words, he based his figures partly on “two to three hundred living persons.” Even so, the first book alone shows five different types of men and five of women, not one ideal body.",
+                "body_zh": "德國畫家杜勒寫了《人體比例四書》，在 1528 年他去世後不久出版。他不只靠古老的規則；用他自己的話說，他的人像部分是根據「兩、三百個活生生的人」。即使如此，光是第一冊就畫了五種男性和五種女性的體型，而不是只有一種理想的身體。"
+              },
+              {
+                "k": "Science · 科學",
+                "en": "Testing the old rules, and our drawings",
+                "zh": "檢驗古老的規則，也檢驗我們的畫",
+                "body_en": "In 1985 a team measured the faces of 153 young adults in North America and found that the classical rules do not represent average facial proportions. In 2014 two psychologists asked people to draw faces and found that the eye position was always higher than in reality. Rules can be wrong, and so can our memory of a face.",
+                "body_zh": "1985 年，一個研究團隊測量了北美洲 153 位年輕人的臉，發現古典的比例規則並不能代表平均的臉。2014 年，兩位心理學家請人畫臉，發現畫裡眼睛的位置總是比實際高。規則可能是錯的，我們對臉的記憶也可能是錯的。"
+              }
+            ]
+          },
+          "curric": {
+            "eyebrow": "In the Curriculum · 對應課綱",
+            "en": "Where this lesson fits",
+            "zh": "這一課對應的課綱",
+            "lead_en": "The arts curriculum does not use the word proportion (比例). These are the closest entries, and their links to this lesson are our reading of them.",
+            "lead_zh": "藝術領域課綱的條文沒有用「比例」這個詞。下面是最接近的條目；它們和這一課的連結，是本教材的解讀。",
+            "items": [
+              {
+                "code": "視 E-Ⅱ-1",
+                "area": "藝術領域・視覺藝術 學習內容（國小三、四年級）",
+                "area_en": "Arts, visual arts, learning content (grades 3–4)",
+                "text": "色彩感知、造形與空間的探索。",
+                "note_en": "The shape of a head, and where the parts sit on it, is an exploration of form.",
+                "note_zh": "頭的形狀，以及各部分在頭上的位置，都是對造形的探索。"
+              },
+              {
+                "code": "2-Ⅱ-5",
+                "area": "藝術領域 學習表現（國小三、四年級）",
+                "area_en": "Arts, learning performance (grades 3–4)",
+                "text": "能觀察生活物件與藝術作品，並珍視自己與他人的創作。",
+                "note_en": "Measuring real faces trains observation, and comparing drawings without laughing at them is valuing each other's work.",
+                "note_zh": "量真實的臉是在練習觀察；比較彼此的畫而不取笑，就是珍視彼此的創作。"
+              },
+              {
+                "code": "視 A-Ⅲ-1",
+                "area": "藝術領域・視覺藝術 學習內容（國小五、六年級）",
+                "area_en": "Arts, visual arts, learning content (grades 5–6)",
+                "text": "藝術語彙、形式原理與視覺美感。",
+                "note_en": "Proportion is one of the principles of form.",
+                "note_zh": "比例是形式原理的一種。"
+              },
+              {
+                "code": "視 E-Ⅳ-1",
+                "area": "藝術領域・視覺藝術 學習內容（國中）",
+                "area_en": "Arts, visual arts, learning content (grades 7–9)",
+                "text": "色彩理論、造形表現、符號意涵。",
+                "note_en": "Drawing a head in proportion is part of expressing form.",
+                "note_zh": "照比例畫出一顆頭，是造形表現的一部分。"
+              }
+            ]
+          },
+          "myths": [
+            {
+              "myth_en": "The eyes are near the top of the head.",
+              "myth_zh": "眼睛在頭的上方。",
+              "fact_en": "On an adult head they are about halfway between the top of the head and the chin. There is a lot of head above the eyes, much of it hidden by hair.",
+              "fact_zh": "成人的眼睛大約在頭頂和下巴的正中間。眼睛上面還有一大塊頭，很多被頭髮蓋住了。"
+            },
+            {
+              "myth_en": "If you know a lot about faces, you will draw them right.",
+              "myth_zh": "對臉很了解的人，就會把臉畫對。",
+              "fact_en": "Researchers found the eyes drawn too high even in face pictures printed in well-known research articles about faces.",
+              "fact_zh": "研究者發現，就連著名的人臉研究論文裡刊出的人臉圖，眼睛也畫得太高。"
+            },
+            {
+              "myth_en": "There is one correct set of face proportions.",
+              "myth_zh": "臉的比例有一套「正確答案」。",
+              "fact_en": "Proportions are averages and starting points. Measurements of real people show that faces vary, and the old rules do not even describe the average face.",
+              "fact_zh": "比例是平均值，也是起點。測量真人的結果顯示每張臉都不一樣，古老的規則連平均的臉都描述不了。"
+            },
+            {
+              "myth_en": "Children's faces have the same proportions as adults' faces.",
+              "myth_zh": "小孩的臉和大人的臉比例一樣。",
+              "fact_en": "A baby's skull is very large compared with its face. Faces change as people grow, so an adult guide does not fit a baby.",
+              "fact_zh": "嬰兒的頭骨和臉比起來非常大。人長大的過程中臉會改變，所以成人的比例不適用於嬰兒。"
+            }
+          ],
+          "tricks_head": {
+            "en": "Faces in a sentence",
+            "zh": "一句話記住臉的比例"
+          },
+          "tricks": [
+            {
+              "title_en": "Eyes in the middle",
+              "title_zh": "眼睛在中間",
+              "body_en": "Halfway from the top of the head to the chin.",
+              "body_zh": "從頭頂到下巴的一半。"
+            },
+            {
+              "title_en": "Halve, then halve again",
+              "title_zh": "對半，再對半",
+              "body_en": "Nose halfway from eyes to chin, mouth halfway from nose to chin.",
+              "body_zh": "鼻子在眼睛和下巴的一半，嘴巴在鼻子和下巴的一半。"
+            },
+            {
+              "title_en": "Ears from brow to nose",
+              "title_zh": "耳朵從眉到鼻",
+              "body_en": "The top at the eyebrows, the bottom at the nose.",
+              "body_zh": "上緣對齊眉毛，下緣對齊鼻子底。"
+            },
+            {
+              "title_en": "Look past the hair",
+              "title_zh": "看穿頭髮",
+              "body_en": "Measure the skull, not the hairstyle.",
+              "body_zh": "量頭骨，不要量髮型。"
+            }
+          ],
+          "safety_head": {
+            "eyebrow": "Before You Start · 動手之前",
+            "en": "Measuring faces kindly",
+            "zh": "友善地量臉"
+          },
+          "safety": [
+            {
+              "en": "Ask before you measure someone's face, and let them say no. You can always measure your own face in a mirror instead.",
+              "zh": "量別人的臉之前要先問，對方可以拒絕。你也可以改成對著鏡子量自己的臉。"
+            },
+            {
+              "en": "Hold the pencil at arm's length and never bring it close to anyone's eyes, including your own.",
+              "zh": "鉛筆要拿在手臂伸直的地方，絕對不要靠近任何人的眼睛，包括你自己的。"
+            },
+            {
+              "en": "Talk about drawings, not about people's looks. Every face is different, and no face is “wrong.”",
+              "zh": "討論的是畫，不是別人的長相。每張臉都不一樣，沒有哪張臉是「錯的」。"
+            },
+            {
+              "en": "Use a mirror that is not cracked, and hold it with both hands or stand it on the desk.",
+              "zh": "使用沒有裂痕的鏡子，用雙手拿好，或把它立在桌上。"
+            }
+          ],
+          "activities": [
+            {
+              "title_en": "Measure With a Pencil",
+              "title_zh": "用鉛筆量",
+              "materials": [
+                {
+                  "en": "A pencil",
+                  "zh": "一枝鉛筆"
+                },
+                {
+                  "en": "A mirror, or a classmate who agrees to sit for you",
+                  "zh": "一面鏡子，或一位同意當模特兒的同學"
+                },
+                {
+                  "en": "Paper for notes",
+                  "zh": "記錄用的紙"
+                }
+              ],
+              "steps": [
+                {
+                  "en": "Hold the pencil straight up at arm's length, with one eye closed. Line up the tip with the top of the head.",
+                  "zh": "閉起一隻眼睛，把鉛筆直直拿在手臂伸直的地方，讓筆尖對齊頭頂。"
+                },
+                {
+                  "en": "Slide your thumb down the pencil until it lines up with the chin. That is the height of the head.",
+                  "zh": "大拇指沿著鉛筆往下滑，對齊下巴。這一段就是頭的高度。"
+                },
+                {
+                  "en": "Keeping your arm straight, check where the eyes are. Are they at the halfway point of that length, above it, or below it?",
+                  "zh": "手臂保持伸直，看看眼睛在哪裡：在這段長度的一半、比一半高，還是比一半低？"
+                },
+                {
+                  "en": "Do the same for the bottom of the nose and the mouth. Write down what you find.",
+                  "zh": "用同樣的方法量鼻子底和嘴巴，把結果寫下來。"
+                },
+                {
+                  "en": "Compare with three classmates' notes. Do all the faces match the model on this page?",
+                  "zh": "和三位同學的紀錄比一比。每張臉都和這一頁的模型一樣嗎？"
+                }
+              ],
+              "tip_en": "With hair, you have to guess where the top of the skull is. Gently pressing the hair flat, on your own head, helps. You will probably find the faces differ a little, and that is the real lesson.",
+              "tip_zh": "有頭髮的時候，要猜頭骨的頂在哪裡。在自己頭上輕輕把頭髮壓平會有幫助。你大概會發現每張臉都有一點不同，這才是真正要學的事。"
+            },
+            {
+              "title_en": "Two Self-Portraits",
+              "title_zh": "兩張自畫像",
+              "materials": [
+                {
+                  "en": "A mirror",
+                  "zh": "一面鏡子"
+                },
+                {
+                  "en": "Two sheets of paper and a pencil",
+                  "zh": "兩張紙和一枝鉛筆"
+                },
+                {
+                  "en": "A ruler",
+                  "zh": "一把尺"
+                }
+              ],
+              "steps": [
+                {
+                  "en": "On the first sheet, draw your face from memory, without looking in the mirror.",
+                  "zh": "在第一張紙上，不看鏡子，憑記憶畫自己的臉。"
+                },
+                {
+                  "en": "On the second sheet, draw an egg shape for the head. With the ruler, mark the halfway line for the eyes, then halve again for the nose and the mouth.",
+                  "zh": "在第二張紙上畫一個蛋形當作頭。用尺標出一半的線放眼睛，再對半找出鼻子和嘴巴的位置。"
+                },
+                {
+                  "en": "Look in the mirror and draw your face on the second sheet, using the lines as a start and changing them where your own face is different.",
+                  "zh": "看著鏡子，在第二張紙上畫自己的臉。以那些線為起點，你的臉哪裡不一樣就照著改。"
+                },
+                {
+                  "en": "Put the two drawings side by side. Measure where the eyes are on each one.",
+                  "zh": "把兩張畫並排，量量每一張的眼睛在哪裡。"
+                },
+                {
+                  "en": "Write one sentence about what changed.",
+                  "zh": "寫一句話，說說有什麼改變。"
+                }
+              ],
+              "tip_en": "Compare your paper drawings with the head on this page. The screen shows a smooth gray model that gives off light, but your mirror shows a real face lit by the room. Trust the mirror.",
+              "tip_zh": "把紙上的畫和這一頁的頭像比一比。螢幕上是一顆會發光、光滑的灰色模型，鏡子裡則是被教室燈光照亮的真實的臉。請相信鏡子。"
+            }
+          ],
+          "links_head": {
+            "eyebrow": "Go Further · 延伸閱讀",
+            "en": "The frame, the skull, the eye, and what comes next",
+            "zh": "畫框、頭骨、眼睛，以及下一課"
+          },
+          "links": [
+            {
+              "icon": "🖼️",
+              "k_en": "Art · Lesson 7",
+              "k_zh": "美術・第七課",
+              "en": "Where Should the Main Thing Go?",
+              "zh": "主角該放在哪裡？",
+              "note_en": "Once the face is in proportion, where do you put it in the picture? Faces pull the eye strongly, which makes that choice matter.",
+              "note_zh": "臉的比例對了，要放在畫面的哪裡？臉特別會吸引目光，所以這個選擇很重要。",
+              "href": "/resources/classes/art/main-thing/"
+            },
+            {
+              "icon": "🦴",
+              "k_en": "Human Body · Lesson 1",
+              "k_zh": "人體探索・第一課",
+              "en": "Why Do We Need a Skeleton?",
+              "zh": "為什麼我們需要骨骼？",
+              "note_en": "The skull under the hair is part of the skeleton. That lesson shows the bones that give a head its shape.",
+              "note_zh": "頭髮底下的頭骨是骨骼的一部分。那一課介紹讓頭有形狀的骨頭。",
+              "href": "/resources/classes/human-body/skeleton/"
+            },
+            {
+              "icon": "🪨",
+              "k_en": "Art · Lesson 9",
+              "k_zh": "美術・第九課",
+              "en": "Where Do Paint Colors Come From?",
+              "zh": "顏料的顏色從哪裡來？",
+              "note_en": "Next comes a new unit on materials: the earth, plants, and chemistry behind the colors in a paint box.",
+              "note_zh": "接下來是新的單元「材料與技法」：顏料盒裡的顏色，背後的土、植物和化學。",
+              "soon": true
+            }
+          ],
+          "sources_note_en": "Names, dates, numbers, and quotations on this page were checked against these sources (October 2026). The line heights are computed by the page itself and covered by automatic tests; the head is a simplified model of our own",
+          "sources_note_zh": "本頁的人名、年代、數字與引文依下列資料查證（2026 年 10 月）；比例線的高度由頁面自己計算，並有自動測試；頭像是本教材自訂的簡化模型",
+          "sources": [
+            {
+              "en": "Eyes halfway between the top of the head and the chin; nose halfway between eyes and chin; mouth halfway between nose and chin; ears from the eyebrows to the bottom of the nose; “ideal” measurements vary from face to face",
+              "zh": "眼睛在頭頂和下巴的正中間；鼻子底在眼睛和下巴的正中間；嘴巴在鼻子和下巴的正中間；耳朵從眉毛到鼻子底；「理想」的尺寸每張臉都不同",
+              "src": "University of Evansville, Drawing Lab, “Standard Human Facial Proportions”",
+              "url": "https://drawinglab.evansville.edu/face.html"
+            },
+            {
+              "en": "People's sketches of faces place the eyes higher than in reality, consistently, even in face pictures in published research",
+              "zh": "人畫的臉，眼睛的位置總是比實際高，而且一再如此，連已出版研究裡的人臉圖也是",
+              "src": "Carbon & Wirth, Perception (2014), abstract on Europe PMC",
+              "url": "https://europepmc.org/article/MED/24689136"
+            },
+            {
+              "en": "Neoclassical canons tested on 153 young adults: they do not represent the average facial proportions",
+              "zh": "以 153 位年輕人檢驗新古典的臉部比例規則：不能代表平均的臉部比例",
+              "src": "Farkas et al., Plastic and Reconstructive Surgery (1985), abstract on Europe PMC",
+              "url": "https://europepmc.org/article/MED/3883374"
+            },
+            {
+              "en": "Vitruvius on the face in three equal parts (Book III, chapter 1)",
+              "zh": "維特魯威：臉分成三等分（第三書第一章）",
+              "src": "Vitruvius, The Ten Books on Architecture, tr. M. H. Morgan (Project Gutenberg)",
+              "url": "https://www.gutenberg.org/ebooks/20239"
+            },
+            {
+              "en": "Vitruvian Man, c. 1490; hairline to chin a tenth of the height; Leonardo corrected Vitruvius, especially for the head",
+              "zh": "〈維特魯威人〉約 1490 年；髮際線到下巴是身高的十分之一；達文西修正了維特魯威，尤其是頭部",
+              "src": "Wikipedia “Vitruvian Man”",
+              "url": "https://en.wikipedia.org/wiki/Vitruvian_Man"
+            },
+            {
+              "en": "Four Books on Human Proportion (1528), published shortly after Dürer's death; “two to three hundred living persons”",
+              "zh": "《人體比例四書》（1528），杜勒去世後不久出版；「兩、三百個活生生的人」",
+              "src": "Wikipedia “Albrecht Dürer”",
+              "url": "https://en.wikipedia.org/wiki/Albrecht_D%C3%BCrer"
+            },
+            {
+              "en": "A newborn's cranium is enormous relative to its face",
+              "zh": "新生兒的頭顱和臉比起來非常大",
+              "src": "Wikipedia “Infant”",
+              "url": "https://en.wikipedia.org/wiki/Infant"
+            },
+            {
+              "en": "肖像: a picture of a person made by drawing, sculpture, or photography; 素描",
+              "zh": "「肖像」：利用繪畫、雕塑、攝影等方式所形成的人物像；「素描」",
+              "src": "教育百科〈肖像〉（教育部國語辭典）",
+              "url": "https://pedia.cloud.edu.tw/Entry/Detail/?title=%E8%82%96%E5%83%8F"
+            },
+            {
+              "en": "Standard Chinese terms: proportion, portraiture, self-portrait, portrait from life, life drawing",
+              "zh": "學術名詞：比例、肖像畫、自畫像、人物寫生、寫生",
+              "src": "國家教育研究院 樂詞網",
+              "url": "https://terms.naer.edu.tw/"
+            },
+            {
+              "en": "Learning content 視 E-Ⅱ-1, 視 A-Ⅲ-1, 視 E-Ⅳ-1; learning performance 2-Ⅱ-5",
+              "zh": "學習內容：視 E-Ⅱ-1、視 A-Ⅲ-1、視 E-Ⅳ-1；學習表現：2-Ⅱ-5",
+              "src": "十二年國教課綱 藝術領域（教育部，2018）",
+              "url": "https://www.naer.edu.tw/upload/1/16/doc/818/%E5%8D%81%E4%BA%8C%E5%B9%B4%E5%9C%8B%E6%B0%91%E5%9F%BA%E6%9C%AC%E6%95%99%E8%82%B2%E8%AA%B2%E7%A8%8B%E7%B6%B1%E8%A6%81%E5%9C%8B%E6%B0%91%E4%B8%AD%E5%B0%8F%E5%AD%B8%E6%9A%A8%E6%99%AE%E9%80%9A%E5%9E%8B%E9%AB%98%E7%B4%9A%E4%B8%AD%E7%AD%89%E6%A0%A1-%E8%97%9D%E8%A1%93%E9%A0%98%E5%9F%9F.pdf"
+            }
+          ]
         }
-      ]
+      ],
+      "planned": []
     },
     {
       "key": "materials",

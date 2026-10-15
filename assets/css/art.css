@@ -523,6 +523,25 @@
 @media (max-width: 900px) { .ar-fm-grid, .ar-cr-grid { grid-template-columns: 1fr; } .ar-cr-ctl { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 560px) { .ar-flab { padding: 1rem .9rem 0; } .ar-bl-pics, .ar-bl-opts { grid-template-columns: 1fr; } .ar-bl-pics { grid-template-columns: 1fr 1fr; gap: .5rem; } .ar-cr-ctl { grid-template-columns: 1fr; } }
 
+/* ── 第八課：頭像與比例線 ────────────────────────────────────────────── */
+.ar-face .al-space { aspect-ratio: 4 / 3.4; }
+.ar-fc-lb { font-size: .74rem; padding: .15rem .45rem; border-radius: 8px; background: rgba(16,19,28,.86); border: 1px solid #c9a646; color: #ffe3a3; white-space: nowrap; }
+.ar-fc-lb .zh { font-family: var(--zh); color: #f1dfae; }
+.ar-fc-lb.is-eye { border-width: 2px; border-color: #ffd36e; color: #fff; font-weight: 800; }
+.ar-fc-table td .zh { display: block; font-family: var(--zh); font-size: .74rem; color: var(--al-mute); }
+.ar-fc-table tr.is-eye td { font-weight: 800; color: #ffe3a3; }
+.ar-face .ar-presets { margin-bottom: .2rem; }
+.ar-ey-grid { display: grid; grid-template-columns: minmax(0, 340px) minmax(0, 1fr); gap: 1.2rem; margin-top: 1rem; align-items: start; }
+.ar-ey-svg { display: block; width: 100%; height: auto; border-radius: 12px; background: #e9e6df; touch-action: none; cursor: ns-resize; }
+.ar-ey-side { display: flex; flex-direction: column; gap: .7rem; min-width: 0; }
+.ar-ey-sl { display: flex; flex-direction: column; gap: .3rem; font-size: .84rem; font-weight: 800; color: var(--al-text); }
+.ar-ey-sl .zh { font-family: var(--zh); font-weight: 600; color: var(--al-mute); }
+.ar-ey-sl input { width: 100%; accent-color: #ffd36e; }
+.ar-ey-key { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: .3rem .9rem; font-size: .76rem; color: var(--al-mute); }
+.ar-fp-cv { display: block; width: 100%; height: auto; aspect-ratio: 8 / 5; border-radius: 12px; touch-action: none; }
+.ar-fp-ctl { display: flex; flex-wrap: wrap; gap: .6rem 1rem; align-items: center; margin-top: .8rem; }
+@media (max-width: 760px) { .ar-ey-grid { grid-template-columns: 1fr; } .ar-ey-svg { max-width: 320px; margin: 0 auto; } }
+
 /* ── 課綱、安全提醒、延伸閱讀、出處、系列首頁（寫法照音樂系列） ───────── */
 .ar-curric { list-style: none; margin: 1.4rem 0 0; padding: 0; display: grid; gap: .9rem; max-width: 900px; }
 .ar-cur { padding: 1.1rem 1.3rem; background: #fff; border: 1px solid var(--line); border-left: 5px solid var(--gold); border-radius: 14px; box-shadow: var(--shadow-sm); }

@@ -19275,7 +19275,7 @@ def build_usg_hub():
 _artj = os.path.join(ROOT, "data", "art.json")
 ART = json.load(open(_artj, encoding="utf-8")) if os.path.exists(_artj) else None
 ART_BASE = "/resources/classes/art/"
-_ART_JS = {"lights": "art-lights", "wheel": "art-wheel", "ball": "art-ball", "line": "art-line", "hall": "art-hall", "depth": "art-depth", "frame": "art-frame"}   # lab.kind → assets/js/<bundle>.js
+_ART_JS = {"lights": "art-lights", "wheel": "art-wheel", "ball": "art-ball", "line": "art-line", "hall": "art-hall", "depth": "art-depth", "frame": "art-frame", "face": "art-face"}   # lab.kind → assets/js/<bundle>.js
 
 def _art_ver():
     h = hashlib.md5()
@@ -19350,7 +19350,14 @@ def artframe_svg(size=56):
             '<path d="M22 12V48M38 12V48M6 24H54M6 36H54" stroke="#1d2230" stroke-width="1" stroke-dasharray="2 2" opacity=".6"/>'
             '<circle cx="19" cy="38" r="8" fill="#c4c4c4" stroke="#1d2230" stroke-width="1.5"/><circle cx="38" cy="24" r="4" fill="#2c2c2c"/></svg>')
 
-_ART_CARD = {"lights": artlights_svg, "wheel": artwheel_svg, "ball": artball_svg, "line": artline_svg, "hall": arthall_svg, "depth": artdepth_svg, "frame": artframe_svg}
+def artface_svg(size=56):
+    """第八課的課程卡小圖示：頭的輪廓、中間一條眼睛線、兩個眼睛。"""
+    return (f'<svg class="arface-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">'
+            '<path d="M30 6C43 6 49 16 49 29C49 42 41 54 30 54C19 54 11 42 11 29C11 16 17 6 30 6Z" fill="#c9c4bb" stroke="#1d2230" stroke-width="2"/>'
+            '<path d="M8 30H52" stroke="#c48a00" stroke-width="2" stroke-dasharray="3 2"/><circle cx="23" cy="30" r="2.6" fill="#1d2230"/><circle cx="37" cy="30" r="2.6" fill="#1d2230"/>'
+            '<path d="M24 44Q30 47 36 44" fill="none" stroke="#1d2230" stroke-width="1.8"/></svg>')
+
+_ART_CARD = {"lights": artlights_svg, "wheel": artwheel_svg, "ball": artball_svg, "line": artline_svg, "hall": arthall_svg, "depth": artdepth_svg, "frame": artframe_svg, "face": artface_svg}
 
 def render_artlights_lab(lesson):
     """第一課：暗房裡的三盞燈／三片顏料（assets/js/art-lights.js 綁這裡的 class；右邊欄的字由程式依模式填入）。"""
@@ -19813,6 +19820,75 @@ def render_artframe_lab(lesson):
   <p class="ar-credit">{lab["credit_html"]}</p>
 </div>'''
 
+def render_artface_lab(lesson):
+    """第八課：一顆可以轉的簡單頭像與比例線（assets/js/art-face.js 綁這裡的 class）。"""
+    lab = lesson["lab"]
+    def group(attr, items, on):
+        return "".join(f'<button type="button" data-{attr}="{k}" aria-pressed="{"true" if k == on else "false"}"><b>{en}</b><small>{zh}</small></button>' for k, en, zh in items)
+    views = group("view", [("front", "Front", "正面"), ("three", "Three-quarter", "斜前方"), ("side", "Side", "側面")], "three")
+    hair = group("hair", [("none", "No hair", "沒有頭髮"), ("short", "Short hair", "短髮"), ("bangs", "Bangs", "瀏海")], "none")
+    eyes = group("eyes", [("true", "Where the eyes are", "眼睛真正的位置"), ("high", "Where beginners put them", "初學者常畫的位置")], "true")
+    tg = _lab_toggles([("lines", "Proportion lines", "比例線", True), ("labels", "Names of the lines", "線的名稱", True)])
+    notes = "".join(f'<li>{html.escape(n["en"])}<span class="zh">{html.escape(n["zh"])}</span></li>' for n in lab["notes"])
+    return f'''<div class="astro-lab ar-lab ar-face rvl" data-artface-lab>
+  <div class="al-stage">
+    <div class="al-space">
+      <canvas class="al-space-cv" aria-label="3D model of a simple gray head that you can turn, with yellow lines around it at the top of the head, the hairline, the eyebrows, the eyes, the bottom of the nose, the mouth, and the chin. The table beside it gives the height of each line · 3D 模型：一顆可以轉的簡單灰色頭像，頭頂、髮際線、眉毛、眼睛、鼻子底、嘴巴、下巴各有一條黃色的線；旁邊的表格寫出每條線的高度"></canvas>
+      <div class="al-labels" aria-hidden="true"></div>
+      <p class="al-hint">Drag to turn the head · 拖曳旋轉　Scroll or pinch to zoom · 滾輪／雙指縮放</p>
+      <button type="button" class="al-home" title="Reset view · 重設視角" aria-label="Reset view · 重設視角">&#8634;</button>
+      <p class="al-nogl-msg">This 3D model needs WebGL, which this browser does not support. The table on the right still gives the height of every line, and the reading, the cards, and the games still work.<br><span class="zh">這個瀏覽器不支援 WebGL，無法顯示 3D 模型；右邊的表格照樣寫出每一條線的高度，課文、卡片和小遊戲也都能用。</span></p>
+    </div>
+    <aside class="al-sky ar-aside">
+      <p class="al-sky-k">Look from · 從哪裡看</p>
+      <div class="ar-presets" role="group" aria-label="View · 角度">{views}</div>
+      <p class="al-sky-k">Hair · 頭髮</p>
+      <div class="ar-presets" role="group" aria-label="Hair · 頭髮">{hair}</div>
+      <p class="al-sky-k">The eyes · 眼睛</p>
+      <div class="ar-presets" role="group" aria-label="Eye position · 眼睛的位置">{eyes}</div>
+      <p class="ar-rule ar-fc-read" aria-live="polite"></p>
+      <table class="ar-dp-table ar-fc-table"><thead><tr><th scope="col">Line · 線</th><th scope="col">Down from the top · 從頭頂往下</th></tr></thead><tbody></tbody></table>
+      <p class="ar-msg" aria-live="polite"></p>
+    </aside>
+  </div>
+  <div class="al-controls">
+    <div class="al-row al-row-main"><div class="al-row al-toggles">{tg}</div></div>
+  </div>
+  <div class="ar-note">
+    <p class="ar-note-h">{html.escape(lab["note_head_en"])} <span class="zh">{html.escape(lab["note_head_zh"])}</span></p>
+    <ul>{notes}</ul>
+    <p class="ar-note-end">{html.escape(lab["note_end_en"])}<span class="zh">{html.escape(lab["note_end_zh"])}</span></p>
+  </div>
+  <p class="ar-credit">{lab["credit_html"]}</p>
+</div>'''
+
+def _ar_eye(d):
+    return f'''<div class="ar-match ar-eyeq rvl" data-ar-eye>
+  <div class="ar-mt-top"><p class="ar-mt-k ar-ey-k">Head 1 of 3 · 第 1 顆頭（共 3 顆）</p><p class="ar-mt-sc">Close or exact · 接近或剛好 <b class="ar-mt-score ar-ey-score">0 / 0</b></p></div>
+  <div class="ar-mt-steps ar-ey-steps" aria-hidden="true"></div>
+  <div class="ar-ey-grid">
+    <svg class="ar-ey-svg" viewBox="0 0 400 520" role="img" aria-label="A head with no face. A dashed line shows where you have put the eyes; drag it up or down, or use the slider · 一顆沒有五官的頭；虛線是你放眼睛的高度，可以上下拖動，或用滑桿"></svg>
+    <div class="ar-ey-side">
+      <label class="ar-ey-sl"><span>Eye line · 眼睛的高度 <span class="zh">（0 = chin 下巴，100 = top 頭頂）</span></span><input type="range" min="5" max="95" step="1" value="72" aria-label="Height of the eye line, from the chin (0) to the top of the head (100) · 眼睛的高度，從下巴（0）到頭頂（100）"></label>
+      <p class="ar-mt-msg ar-ey-msg" aria-live="polite"></p>
+      <ul class="ar-ey-key"><li>✓ within 3% · 差 3% 以內</li><li>△ within 8% · 差 8% 以內</li><li>✗ more than 8% · 差超過 8%</li></ul>
+      <div class="ar-mt-foot"><button type="button" class="ar-btn ar-btn-gold ar-ey-check">Check · 對答案</button><button type="button" class="ar-btn ar-btn-gold ar-ey-next" hidden>Next head · 下一顆頭</button></div>
+    </div>
+  </div>
+  <p class="ar-fine">{html.escape(d["note_en"])}<span class="zh">{html.escape(d["note_zh"])}</span></p>
+</div>'''
+
+def _ar_facepad(d):
+    return f'''<div class="ar-match ar-fpad rvl" data-ar-facepad>
+  <canvas class="ar-ln-cv ar-fp-cv" width="800" height="500" aria-label="A drawing pad with the outline of a head. Draw a face with a mouse, a finger, or a pen, then switch on the proportion lines to compare · 畫著頭部輪廓的畫板；用滑鼠、手指或觸控筆畫一張臉，再打開比例線比較"></canvas>
+  <div class="ar-fp-ctl">
+    <label class="ar-check"><input type="checkbox" data-t="padlines"><span>Show the proportion lines (dashed) · 顯示比例線（虛線）</span></label>
+    <button type="button" class="ar-btn ar-fp-undo">Undo · 復原</button><button type="button" class="ar-btn ar-fp-clear">Clear · 清除</button>
+  </div>
+  <p class="ar-mt-msg ar-fp-msg" aria-live="polite"></p>
+  <p class="ar-fine">{html.escape(d["note_en"])}<span class="zh">{html.escape(d["note_zh"])}</span></p>
+</div>'''
+
 def _ar_bal(d):
     pics = "".join(
         f'<figure class="ar-bl-fig"><figcaption><span class="ar-dp-n">{k}</span> Picture {k} · 圖 {k}</figcaption>'
@@ -19980,7 +20056,7 @@ def build_art_lesson(ui, unit, lesson):
     reading_html = render_basic_unit(1, unit_dict, level="art", audio_rel="", pdf_rel="")
     lab = lesson["lab"]
     kind = lab["kind"]
-    lab_html = {"lights": render_artlights_lab, "wheel": render_artwheel_lab, "ball": render_artball_lab, "line": render_artline_lab, "hall": render_arthall_lab, "depth": render_artdepth_lab, "frame": render_artframe_lab}[kind](lesson)
+    lab_html = {"lights": render_artlights_lab, "wheel": render_artwheel_lab, "ball": render_artball_lab, "line": render_artline_lab, "hall": render_arthall_lab, "depth": render_artdepth_lab, "frame": render_artframe_lab, "face": render_artface_lab}[kind](lesson)
 
     def sec(key, fn):
         d = lesson[key]
@@ -19998,6 +20074,8 @@ def build_art_lesson(ui, unit, lesson):
         ph = lesson["parts_head"]
         secs.append(("parts", ph["eyebrow"], ph["en"], ph["zh"], f'<div class="ph-grid stagger">{cards}</div>',
                      _bi(lesson["parts_note_en"], lesson["parts_note_zh"], cls="lead rvl d2")))
+    if lesson.get("eye"): secs.append(sec("eye", _ar_eye))
+    if lesson.get("facepad"): secs.append(sec("facepad", _ar_facepad))
     if lesson.get("bal"): secs.append(sec("bal", _ar_bal))
     if lesson.get("crop"): secs.append(sec("crop", _ar_crop))
     if lesson.get("far"): secs.append(sec("far", _ar_far))
