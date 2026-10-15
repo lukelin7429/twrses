@@ -542,6 +542,38 @@
 .ar-fp-ctl { display: flex; flex-wrap: wrap; gap: .6rem 1rem; align-items: center; margin-top: .8rem; }
 @media (max-width: 760px) { .ar-ey-grid { grid-template-columns: 1fr; } .ar-ey-svg { max-width: 320px; margin: 0 auto; } }
 
+/* ── 第九課：色粉＋黏著劑 ─────────────────────────────────────────── */
+.ar-plab { padding: 1.3rem 1.4rem 0; }
+.ar-pg-grid { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 1.4rem; align-items: start; }
+.ar-pg-cv { display: block; width: 100%; height: auto; aspect-ratio: 800 / 480; border-radius: 14px; }
+.ar-pg-cover { margin: 0; font-size: .84rem; color: var(--al-text); }
+.ar-pg-cover .zh { display: block; color: var(--al-mute); font-family: var(--zh); }
+.ar-pg-card { padding: .7rem .85rem; border-radius: 12px; background: rgba(255,255,255,.05); border: 1px solid var(--al-line); font-size: .86rem; line-height: 1.55; color: var(--al-text); min-height: 6.5em; }
+.ar-pg-card p { margin: 0 0 .3rem; }
+.ar-pg-card .zh { display: block; font-family: var(--zh); color: #c9d2e6; }
+.ar-pg-ck { font-weight: 800; color: #ffe3a3; }
+.ar-pg-ck b { color: #ffb4a8; margin-left: .3rem; }
+.ar-pg-pigs { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .4rem; }
+.ar-pg-pigs button { display: grid; grid-template-columns: auto 1fr; column-gap: .55rem; align-items: center; text-align: left; padding: .45rem .6rem; border-radius: 11px; border: 1px solid var(--al-line); background: rgba(255,255,255,.04); color: var(--al-text); font-family: var(--sans); cursor: pointer; }
+.ar-pg-pigs button[aria-pressed="true"] { border: 2px solid #ffd36e; background: rgba(255,211,110,.12); }
+.ar-pg-dot { grid-row: span 3; width: 26px; height: 26px; border-radius: 50%; border: 2px solid #fff; }
+.ar-pg-pigs b { font-size: .84rem; font-weight: 800; color: #fff; }
+.ar-pg-pigs small { font-family: var(--zh); font-size: .78rem; color: #ffe3a3; }
+.ar-pg-pigs em { font-style: normal; font-size: .68rem; color: var(--al-mute); }
+.ar-plab .ar-msg { border-top: 0; padding-top: 0; min-height: 5.6em; }
+.ar-plab .ar-note { margin: 1.2rem 0 1rem; }
+.ar-plab .ar-credit { padding: 0 0 1.1rem; }
+.ar-or-card { display: flex; gap: 1rem; align-items: center; margin-top: 1rem; padding: .9rem 1rem; border-radius: 14px; background: rgba(255,255,255,.06); }
+.ar-or-sw { flex: none; width: 74px; height: 74px; border-radius: 14px; border: 3px solid #fff; }
+.ar-or-b { display: flex; flex-direction: column; gap: .15rem; min-width: 0; }
+.ar-or-b b { font-size: 1.05rem; color: #fff; }
+.ar-or-b > .zh { font-family: var(--zh); color: #ffe3a3; font-weight: 700; }
+.ar-or-clue { font-size: .9rem; line-height: 1.55; color: var(--al-text); }
+.ar-or-clue .zh { display: block; font-family: var(--zh); color: #c9d2e6; }
+.ar-or-opts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .6rem; margin-top: .9rem; }
+@media (max-width: 900px) { .ar-pg-grid { grid-template-columns: 1fr; } }
+@media (max-width: 560px) { .ar-plab { padding: 1rem .9rem 0; } .ar-or-opts { grid-template-columns: 1fr; } }
+
 /* ── 課綱、安全提醒、延伸閱讀、出處、系列首頁（寫法照音樂系列） ───────── */
 .ar-curric { list-style: none; margin: 1.4rem 0 0; padding: 0; display: grid; gap: .9rem; max-width: 900px; }
 .ar-cur { padding: 1.1rem 1.3rem; background: #fff; border: 1px solid var(--line); border-left: 5px solid var(--gold); border-radius: 14px; box-shadow: var(--shadow-sm); }

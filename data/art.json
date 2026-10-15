@@ -5380,7 +5380,7 @@
               "zh": "顏料的顏色從哪裡來？",
               "note_en": "Next comes a new unit on materials: the earth, plants, and chemistry behind the colors in a paint box.",
               "note_zh": "接下來是新的單元「材料與技法」：顏料盒裡的顏色，背後的土、植物和化學。",
-              "soon": true
+              "href": "/resources/classes/art/paint-colors/"
             }
           ],
           "sources_note_en": "Names, dates, numbers, and quotations on this page were checked against these sources (October 2026). The line heights are computed by the page itself and covered by automatic tests; the head is a simplified model of our own",
@@ -5457,14 +5457,648 @@
       "title_zh": "材料與技法",
       "blurb_en": "Pigments, watercolor, oil, ink, prints, and sculpture: what art is made of, and what each material can do.",
       "blurb_zh": "色料、水彩、油畫、水墨、版畫和雕塑：美術是用什麼做的，每一種材料又做得到什麼。",
-      "lessons": [],
-      "planned": [
+      "lessons": [
         {
           "n": 9,
+          "slug": "paint-colors",
+          "title": "Where Do Paint Colors Come From?",
+          "title_zh": "顏料的顏色從哪裡來？",
+          "level": "入門 · Beginner",
           "icon": "🪨",
-          "en": "Where Do Paint Colors Come From?",
-          "zh": "顏料的顏色從哪裡來？"
-        },
+          "card": "pigment",
+          "blurb_en": "Paint is colored powder plus something sticky. Pick a pigment from a stone, an insect, a plant, or a factory, mix it with a binder, and see which paint you get.",
+          "blurb_zh": "顏料是有顏色的粉，加上會黏的東西。從石頭、昆蟲、植物或工廠挑一種色粉，配上一種黏著劑，看看你做出哪一種顏料。",
+          "big_idea_en": "Paint has two main parts. The pigment is a fine colored powder that does not dissolve. The binder holds the powder together and sticks it to the paper, wood, or wall. Mix the same pigment with gum arabic and you get watercolor; with egg yolk, egg tempera; with linseed oil, oil paint. Pigments come from the earth, from living things, or from factories.",
+          "big_idea_zh": "顏料有兩個主要部分。色料是有顏色、不會溶解的細粉；黏著劑把粉黏在一起，再黏到紙、木板或牆上。同一種色粉配阿拉伯膠就是水彩，配蛋黃就是蛋彩，配亞麻仁油就是油畫顏料。色粉的來源有土和礦石、生物，還有工廠。",
+          "lab": {
+            "kind": "pigment",
+            "eyebrow": "Interactive · 互動模型",
+            "title_en": "Powder Plus Binder",
+            "title_zh": "色粉加上黏著劑",
+            "how_en": "Choose one of eight pigments, then one of five binders. The strip of paper on the right is painted with the paint you made, over a black line, so you can see how much the paint covers. Each card tells you where the pigment comes from. This lesson has no 3D, on purpose. The things to compare are flat strips of color.",
+            "how_zh": "從八種色粉裡選一種，再從五種黏著劑裡選一種。右邊的紙條會塗上你做出來的顏料，底下有一條黑線，看得出顏料蓋住了多少。每張卡都寫著這種色粉從哪裡來。這一課刻意不用 3D：要比較的是平平的色塊。",
+            "note_head_en": "What this model leaves out",
+            "note_head_zh": "這個模型簡化了什麼",
+            "notes": [
+              {
+                "en": "A screen gives off light, and real pigments reflect it. The colors here are only near matches. Real azurite or shell white looks different on paper.",
+                "zh": "螢幕會發光，真的色粉則是反射光。這裡的顏色只是接近的顏色，真的石青或蛤粉塗在紙上看起來不一樣。"
+              },
+              {
+                "en": "How much each paint covers the black line is a number we chose for each binder. In real paint, it also depends on the pigment itself and on how thickly you paint.",
+                "zh": "每種顏料蓋住黑線的程度，是我們替每種黏著劑選的數字。真的顏料蓋不蓋得住，還要看色粉本身，以及塗得多厚。"
+              },
+              {
+                "en": "Real paints contain more than two things. Watercolor, for example, also has small amounts of additives, and oil paint dries by reacting with the air.",
+                "zh": "真的顏料不只兩樣東西。例如水彩還加了少量的添加物，油畫顏料則是和空氣起反應才會乾。"
+              },
+              {
+                "en": "Some famous old pigments are poisonous, such as lead white and vermilion. They are described in the reading, but they are not in the model, and no one should handle them in class.",
+                "zh": "有些有名的古老顏料有毒，例如鉛白和朱砂。課文裡會介紹，但模型裡沒有放，課堂上也沒有人該碰它們。"
+              }
+            ],
+            "note_end_en": "So look at real paint. Classroom Activity 2 paints watercolor and poster paint over a marker line, so you can compare real paint with the screen.",
+            "note_end_zh": "所以請看真的顏料。課堂活動二把水彩和廣告顏料塗在麥克筆線上，拿真的顏料和螢幕比一比。",
+            "credit_html": "Pictures made for this lesson. The colors of the painted strip are computed by shared code and covered by automatic tests. · 圖為本課自行繪製；紙條上的顏色由共用的程式計算，並有自動測試。"
+          },
+          "paras": [
+            "Open a box of paints and every color looks ready to use. But each one began as a powder. A pigment is a fine colored powder that does not dissolve in water. That is the difference between a pigment and a dye. A dye dissolves, like the color in a cup of tea, but a pigment stays as tiny solid grains.",
+            "Powder alone will not stay on paper. It brushes off. So painters mix the pigment with a binder, something sticky that holds the grains together and glues them to the surface. The National Gallery in London puts it simply: paint is made by mixing a pigment with a medium that binds the particles together.",
+            "The binder decides what kind of paint you get. Watercolor uses gum arabic, a gum from acacia trees. Egg tempera uses egg yolk, and most early Italian paintings were made with it. Oil paint uses a drying oil, such as linseed oil. Acrylic paint uses an acrylic polymer. Taiwan's glue painting, 膠彩, mixes pigments with animal glue. The same pile of yellow ochre can become any of these paints.",
+            "Where do the pigments come from? Many come from the earth. Ochre is clay colored by iron, and people were already mixing an ochre-rich paste about 100,000 years ago. Ultramarine was ground from a blue stone mined in Afghanistan, and the best of it could be worth more than gold. Azurite, called 石青 in Chinese painting, is a blue mineral that contains copper.",
+            "Other pigments come from living things. Carmine is made from cochineal, small insects that live on cactus plants in Mexico and South America. Indigo comes from the leaves of plants, and Chinese painters call it 花青. Shell white is ground from clam shells. Still other pigments are made in laboratories and factories. Prussian blue was made by accident in Berlin around 1706, and titanium white has been mass-produced since 1916.",
+            "Not every old pigment is safe. Lead white contains lead. Vermilion is made from cinnabar, which contains mercury. Gamboge, a yellow tree resin used in Chinese painting, is also poisonous. Over time, safer pigments such as titanium white took the place of some of these. Today the paints made for schools are chosen with safety in mind, but you should still wash your hands and never eat or drink while you paint."
+          ],
+          "paras_zh": [
+            "打開一盒顏料，每個顏色看起來都可以直接用。可是每一種，一開始都是粉。色料是有顏色、不會溶於水的細粉，這就是色料和染料的不同：染料會溶解，像茶水裡的顏色；色料則一直是一顆一顆很小的固體顆粒。",
+            "光有粉，是留不住在紙上的，一擦就掉。所以畫家把色粉和黏著劑混在一起：一種會黏的東西，把顆粒黏在一起，再黏到表面上。倫敦國家美術館說得很簡單：顏料是把色料和把顆粒黏在一起的媒劑混合而成的。",
+            "黏著劑決定了顏料的種類。水彩用阿拉伯膠，一種金合歡樹的樹膠。蛋彩用蛋黃，早期的義大利繪畫大多是用它畫的。油畫顏料用會乾的油，例如亞麻仁油。壓克力顏料用壓克力樹脂。台灣的膠彩畫，是把顏料和動物膠調在一起。同一堆土黃色粉，可以變成上面任何一種顏料。",
+            "色粉從哪裡來？很多來自土和礦石。赭土是被鐵染色的黏土，大約十萬年前，人類就已經在調製富含赭土的糊狀物。群青是用阿富汗開採的藍色石頭磨成的，最好的群青可能比黃金還貴。中國畫的石青，是一種含銅的藍色礦物。",
+            "也有色粉來自生物。胭脂紅是用胭脂蟲做的，那是一種住在墨西哥和南美洲仙人掌上的小昆蟲。靛藍來自植物的葉子，中國畫叫它花青。蛤粉是用文蛤的殼磨成的。還有一些色粉是在實驗室和工廠裡做出來的：普魯士藍大約在 1706 年於柏林被意外做出來；鈦白則從 1916 年開始大量生產。",
+            "不是每一種古老的顏料都安全。鉛白含鉛；朱砂含汞；中國畫用的藤黃是一種黃色的樹脂，也有毒。後來，比較安全的色粉（例如鈦白）漸漸取代了其中一些。今天給學校用的顏料，選的時候都考慮過安全，但畫畫時還是要洗手，也絕對不要邊畫邊吃東西或喝飲料。"
+          ],
+          "questions": [
+            "What are the two main parts of paint?",
+            "How is a pigment different from a dye?",
+            "What makes watercolor different from oil paint?"
+          ],
+          "answers": [
+            "The pigment, a fine colored powder, and the binder, which holds the powder together and sticks it to the surface.",
+            "A pigment does not dissolve. It stays as tiny solid grains. A dye dissolves in a liquid.",
+            "The binder. Watercolor uses gum arabic, and oil paint uses a drying oil such as linseed oil. The pigment can be the same."
+          ],
+          "vocab": [
+            {
+              "n": 1,
+              "w": "pigment",
+              "pos": "n.",
+              "zh": "色料；色粉",
+              "ex": "Ochre is a yellow <b>pigment</b> from the earth.",
+              "exzh": "赭土是來自土裡的黃色色料。"
+            },
+            {
+              "n": 2,
+              "w": "binder",
+              "pos": "n.",
+              "zh": "黏著劑",
+              "ex": "Egg yolk is the <b>binder</b> in egg tempera.",
+              "exzh": "蛋黃是蛋彩的黏著劑。"
+            },
+            {
+              "n": 3,
+              "w": "dye",
+              "pos": "n.",
+              "zh": "染料",
+              "ex": "A <b>dye</b> dissolves in water.",
+              "exzh": "染料會溶在水裡。"
+            },
+            {
+              "n": 4,
+              "w": "dissolve",
+              "pos": "v.",
+              "zh": "溶解",
+              "ex": "Sugar <b>dissolves</b> in tea, but sand does not.",
+              "exzh": "糖會溶在茶裡，沙子不會。"
+            },
+            {
+              "n": 5,
+              "w": "mineral",
+              "pos": "n.",
+              "zh": "礦物",
+              "ex": "Azurite is a blue <b>mineral</b>.",
+              "exzh": "藍銅礦是一種藍色的礦物。"
+            },
+            {
+              "n": 6,
+              "w": "grind",
+              "pos": "v.",
+              "zh": "磨（成粉）",
+              "ex": "Painters <b>ground</b> the stone into powder.",
+              "exzh": "畫家把石頭磨成粉。"
+            },
+            {
+              "n": 7,
+              "w": "synthetic",
+              "pos": "adj.",
+              "zh": "合成的",
+              "ex": "Prussian blue was an early <b>synthetic</b> pigment.",
+              "exzh": "普魯士藍是早期的合成色料。"
+            },
+            {
+              "n": 8,
+              "w": "poisonous",
+              "pos": "adj.",
+              "zh": "有毒的",
+              "ex": "Lead white is <b>poisonous</b>.",
+              "exzh": "鉛白有毒。"
+            }
+          ],
+          "quiz": [
+            {
+              "q": "What does the binder do?",
+              "options": [
+                "It gives the paint its color",
+                "It holds the pigment together and sticks it to the surface",
+                "It makes the paint smell nice",
+                "It turns the paint into a dye"
+              ],
+              "correct": 1
+            },
+            {
+              "q": "Which binder makes watercolor?",
+              "options": [
+                "Linseed oil",
+                "Egg yolk",
+                "Gum arabic",
+                "Animal glue"
+              ],
+              "correct": 2
+            },
+            {
+              "q": "Ultramarine was ground from…",
+              "options": [
+                "a blue stone mined in Afghanistan",
+                "insects on cactus plants",
+                "clam shells",
+                "the leaves of a plant"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "Which pigment was made by accident in Berlin around 1706?",
+              "options": [
+                "Yellow ochre",
+                "Prussian blue",
+                "Carmine",
+                "Shell white"
+              ],
+              "correct": 1
+            },
+            {
+              "q": "Which of these old pigments is poisonous?",
+              "options": [
+                "Yellow ochre",
+                "Shell white",
+                "Vermilion",
+                "Titanium white"
+              ],
+              "correct": 2
+            }
+          ],
+          "parts_head": {
+            "eyebrow": "Try It in the Model · 在模型裡試試",
+            "en": "Four things to try",
+            "zh": "四件值得試的事"
+          },
+          "parts": [
+            {
+              "key": "same",
+              "icon": "🔁",
+              "en": "One powder, five paints",
+              "zh": "一種粉，五種顏料",
+              "meta_en": "Change only the binder",
+              "meta_zh": "只換黏著劑",
+              "demo": "same",
+              "text_en": "Yellow ochre stays on the slab while the binder changes. The name of the paint changes every time.",
+              "text_zh": "土黃色粉留在玻璃板上，只換黏著劑。每換一次，顏料的名字就變一次。"
+            },
+            {
+              "key": "sources",
+              "icon": "🌍",
+              "en": "Earth, life, factory",
+              "zh": "土、生物、工廠",
+              "meta_en": "Where colors come from",
+              "meta_zh": "顏色從哪裡來",
+              "demo": "sources",
+              "text_en": "Cards from all three kinds of source, one after another: a stone, an insect, a plant, a laboratory.",
+              "text_zh": "三種來源的卡一張接一張出現：石頭、昆蟲、植物、實驗室。"
+            },
+            {
+              "key": "cover",
+              "icon": "⬛",
+              "en": "Over the black line",
+              "zh": "蓋過黑線",
+              "meta_en": "Watercolor and acrylic",
+              "meta_zh": "水彩和壓克力",
+              "demo": "cover",
+              "text_en": "The same blue as watercolor and then as acrylic paint. In this model, watercolor lets the black line show through much more.",
+              "text_zh": "同一種藍，先做成水彩，再做成壓克力顏料。在這個模型裡，水彩讓黑線透出來得多很多。"
+            },
+            {
+              "key": "blues",
+              "icon": "🔵",
+              "en": "Four blues",
+              "zh": "四種藍",
+              "meta_en": "Four different stories",
+              "meta_zh": "四個不同的故事",
+              "demo": "blues",
+              "text_en": "Ultramarine, azurite, indigo, and Prussian blue: two minerals, a plant, and a laboratory accident.",
+              "text_zh": "群青、石青、靛藍、普魯士藍：兩種礦物、一種植物，還有一場實驗室裡的意外。"
+            }
+          ],
+          "parts_note_en": "Then make your own. Which pigment and binder would you choose to paint a wall outdoors? A greeting card? Explain why.",
+          "parts_note_zh": "然後自己配配看。如果要畫戶外的牆，你會選哪一種色粉和黏著劑？畫一張卡片呢？說說為什麼。",
+          "origin": {
+            "eyebrow": "Game · 小遊戲",
+            "en": "Where Is It From?",
+            "zh": "這是從哪裡來的？",
+            "lead_en": "Eight pigment cards, each with a clue. Decide whether the color comes from the earth, from a living thing, or from a lab or factory. The answer tells you a little more of its story.",
+            "lead_zh": "八張色粉卡，每張都有一條線索。判斷這個顏色是來自土和礦石、生物，還是實驗室或工廠。答完會多告訴你一點它的故事。",
+            "note_en": "Some pigments have more than one source. Ultramarine was ground from stone for centuries, and a factory-made version has existed since 1826.",
+            "note_zh": "有些色粉不只一種來源。好幾百年來，群青都是用石頭磨的；1826 年以後，也有工廠做的版本。"
+          },
+          "binder": {
+            "eyebrow": "Game · 小遊戲",
+            "en": "Which Binder Makes It?",
+            "zh": "要用哪一種黏著劑？",
+            "lead_en": "Five kinds of paint. For each one, choose the binder you would mix with the pigment.",
+            "lead_zh": "五種顏料。每一種都選出要和色粉混在一起的黏著劑。",
+            "note_en": "Paint makers also add other things, such as small amounts of additives, so real recipes are longer than this.",
+            "note_zh": "顏料廠還會加入其他東西，例如少量的添加物，所以真正的配方比這裡複雜。"
+          },
+          "culture_cards": {
+            "eyebrow": "Stories Behind the Colors · 顏色背後的故事",
+            "title_en": "A workshop 100,000 years old, a blue worth gold, a lucky accident, and glue painting in Taiwan",
+            "title_zh": "十萬年前的工作坊、和黃金一樣貴的藍、一場幸運的意外，以及台灣的膠彩畫",
+            "lead_en": "Four short stories about where colors have come from.",
+            "lead_zh": "四個關於顏色從哪裡來的小故事。",
+            "cards": [
+              {
+                "k": "100,000 years ago · 十萬年前",
+                "en": "The oldest paint workshop",
+                "zh": "最古老的顏料工作坊",
+                "body_en": "In Blombos Cave in South Africa, scientists found two abalone shells that had been used to mix and store a liquid paste rich in ochre about 100,000 years ago. Nobody knows exactly what it was used for. The scientists suggest decoration or protecting the skin.",
+                "body_zh": "在南非的布隆伯斯洞穴，科學家找到兩個鮑魚殼，大約十萬年前被用來調製、存放一種富含赭土的糊狀液體。沒有人確定它拿來做什麼；科學家推測可能是裝飾，或保護皮膚。"
+              },
+              {
+                "k": "Middle Ages and Renaissance · 中世紀與文藝復興",
+                "en": "A blue worth more than gold",
+                "zh": "比黃金還貴的藍",
+                "body_en": "Ultramarine was ground from lapis lazuli mined in Afghanistan, and it was the most brilliant and stable blue that painters had. The National Gallery in London says the best grades could be worth more than gold, and that patrons would often pay for the exact amount of ultramarine they wanted in a painting.",
+                "body_zh": "群青是用阿富汗開採的青金石磨成的，是當時畫家能用的最鮮豔、最穩定的藍。倫敦國家美術館說，最好的等級可能比黃金還貴，訂畫的人常常按照自己想在畫裡用多少群青來付錢。"
+              },
+              {
+                "k": "About 1706 · 大約一七〇六年",
+                "en": "A lucky accident in Berlin",
+                "zh": "柏林的一場幸運意外",
+                "body_en": "A paint maker in Berlin, Johann Jacob Diesbach, got a deep blue by accident. Prussian blue is described by the National Gallery as the first totally modern synthetic pigment made by a chemical reaction. He had been trying to make a red. Within a few years Prussian blue was on sale, and painters had a strong blue that was cheap and easy to make.",
+                "body_zh": "柏林一位顏料師傅迪斯巴赫，意外得到一種深藍色。倫敦國家美術館說，普魯士藍是第一種完全現代、靠化學反應做出來的合成色料。他原本想做的是紅色。沒幾年普魯士藍就開始販售，畫家有了一種濃烈、便宜又容易做的藍。"
+              },
+              {
+                "k": "Taiwan · 台灣",
+                "en": "Painting with glue",
+                "zh": "用膠來畫",
+                "body_en": "In glue painting, 膠彩畫, the pigments must be mixed with glue, which is how it got its name. Many of its colors are ground minerals and shells, such as 石青 from azurite, 石綠 from malachite, and 蛤粉 from clam shells. A Taiwanese scholar notes that Taiwan's glue painting came from Japan.",
+                "body_zh": "膠彩畫作畫時，顏料必須和膠水調和，所以叫做膠彩。它的許多顏色是磨碎的礦石和貝殼，例如用藍銅礦做的石青、用孔雀石做的石綠，以及用文蛤殼做的蛤粉。台灣的學者指出，台灣的膠彩畫是從日本傳來的。"
+              }
+            ]
+          },
+          "curric": {
+            "eyebrow": "In the Curriculum · 對應課綱",
+            "en": "Where this lesson fits",
+            "zh": "這一課對應的課綱",
+            "lead_en": "The arts curriculum speaks of media, techniques, and tools (媒材、技法、工具). These entries fit this lesson directly, and their links to it are our reading of them.",
+            "lead_zh": "藝術領域課綱談的是「媒材、技法、工具」。下面的條目和這一課直接相關；它們和這一課的連結，是本教材的解讀。",
+            "items": [
+              {
+                "code": "視 E-Ⅱ-2",
+                "area": "藝術領域・視覺藝術 學習內容（國小三、四年級）",
+                "area_en": "Arts, visual arts, learning content (grades 3–4)",
+                "text": "媒材、技法及工具知能。",
+                "note_en": "Knowing that paint is pigment plus binder is basic knowledge of a medium.",
+                "note_zh": "知道顏料是色粉加上黏著劑，就是對媒材的基本認識。"
+              },
+              {
+                "code": "1-Ⅱ-3",
+                "area": "藝術領域 學習表現（國小三、四年級）",
+                "area_en": "Arts, learning performance (grades 3–4)",
+                "text": "能試探媒材特性與技法，進行創作。",
+                "note_en": "Classroom Activity 1 has students try a binder and no binder and see the difference.",
+                "note_zh": "課堂活動一請學生試試有黏著劑和沒有黏著劑的差別。"
+              },
+              {
+                "code": "視 E-Ⅲ-2",
+                "area": "藝術領域・視覺藝術 學習內容（國小五、六年級）",
+                "area_en": "Arts, visual arts, learning content (grades 5–6)",
+                "text": "多元的媒材技法與創作表現類型。",
+                "note_en": "Watercolor, tempera, oil, acrylic, and glue painting are different media made from the same kinds of powder.",
+                "note_zh": "水彩、蛋彩、油畫、壓克力和膠彩，是用同樣的粉做成的不同媒材。"
+              },
+              {
+                "code": "視 E-Ⅳ-2",
+                "area": "藝術領域・視覺藝術 學習內容（國中）",
+                "area_en": "Arts, visual arts, learning content (grades 7–9)",
+                "text": "平面、立體及複合媒材的表現技法。",
+                "note_en": "Choosing a binder is choosing how a painting will look and last.",
+                "note_zh": "選擇黏著劑，就是選擇一幅畫看起來的樣子，以及它能保存多久。"
+              }
+            ]
+          },
+          "myths": [
+            {
+              "myth_en": "Paint color is just colored water.",
+              "myth_zh": "顏料的顏色只是有顏色的水。",
+              "fact_en": "Most paint color comes from pigment, tiny solid grains that do not dissolve. A binder holds them together and sticks them to the surface.",
+              "fact_zh": "大多數顏料的顏色來自色料，也就是不會溶解的細小固體顆粒；黏著劑把它們黏在一起，再黏到表面上。"
+            },
+            {
+              "myth_en": "Natural colors are always safe.",
+              "myth_zh": "天然的顏色一定安全。",
+              "fact_en": "Vermilion comes from a natural mineral that contains mercury, and gamboge is a tree resin, yet both are poisonous. Natural does not mean safe.",
+              "fact_zh": "朱砂來自含汞的天然礦物，藤黃是一種樹脂，但兩者都有毒。天然不等於安全。"
+            },
+            {
+              "myth_en": "Each color needs its own kind of paint.",
+              "myth_zh": "每個顏色都需要自己的那一種顏料。",
+              "fact_en": "The same pigment can be made into watercolor, tempera, oil paint, or acrylic. The binder decides the kind of paint.",
+              "fact_zh": "同一種色粉可以做成水彩、蛋彩、油畫顏料或壓克力顏料；決定顏料種類的是黏著劑。"
+            },
+            {
+              "myth_en": "All blue paint is made from the same thing.",
+              "myth_zh": "所有的藍色顏料都是同一種東西做的。",
+              "fact_en": "Ultramarine came from a stone, azurite is a copper mineral, indigo comes from a plant, and Prussian blue was made in a laboratory.",
+              "fact_zh": "群青來自石頭，石青是含銅的礦物，靛藍來自植物，普魯士藍是在實驗室裡做出來的。"
+            }
+          ],
+          "tricks_head": {
+            "en": "Paint in a sentence",
+            "zh": "一句話記住顏料"
+          },
+          "tricks": [
+            {
+              "title_en": "Powder plus glue",
+              "title_zh": "粉加膠",
+              "body_en": "Pigment gives the color, the binder makes it stay.",
+              "body_zh": "色粉給顏色，黏著劑讓它留住。"
+            },
+            {
+              "title_en": "The binder names the paint",
+              "title_zh": "黏著劑決定名字",
+              "body_en": "Gum, watercolor. Egg, tempera. Oil, oil paint.",
+              "body_zh": "膠是水彩，蛋是蛋彩，油是油畫。"
+            },
+            {
+              "title_en": "Earth, life, factory",
+              "title_zh": "土、生物、工廠",
+              "body_en": "Every pigment comes from one of these, or more.",
+              "body_zh": "每一種色粉都來自其中一種，或不只一種。"
+            },
+            {
+              "title_en": "Natural is not the same as safe",
+              "title_zh": "天然不等於安全",
+              "body_en": "Wash your hands, and never eat while you paint.",
+              "body_zh": "要洗手，畫畫時絕對不吃東西。"
+            }
+          ],
+          "safety_head": {
+            "eyebrow": "Before You Start · 動手之前",
+            "en": "Powders, paints, and clean hands",
+            "zh": "粉、顏料，和乾淨的手"
+          },
+          "safety": [
+            {
+              "en": "Adults should do any mixing of powders, because fine dust can be breathed in. Students do not grind or pour powders.",
+              "zh": "粉要由大人來調，因為細小的粉塵可能被吸進去。學生不磨粉，也不倒粉。"
+            },
+            {
+              "en": "Keep food and drinks out of the art area, and never eat or drink while you paint.",
+              "zh": "食物和飲料不要放在美術區，畫畫時絕對不要吃東西或喝飲料。"
+            },
+            {
+              "en": "Wash your hands with soap and water when you finish. Do not clean your skin with paint thinners.",
+              "zh": "做完要用肥皂和水洗手。不要用溶劑清潔皮膚。"
+            },
+            {
+              "en": "Use only paints made for children. Historic pigments such as lead white, vermilion, and gamboge are for reading about, not for touching.",
+              "zh": "只用給兒童使用的顏料。鉛白、朱砂、藤黃這些古老的色料，只能讀，不能碰。"
+            }
+          ],
+          "activities": [
+            {
+              "title_en": "Why Paint Needs a Binder",
+              "title_zh": "顏料為什麼需要黏著劑",
+              "materials": [
+                {
+                  "en": "Colored chalk, already crushed into powder by an adult",
+                  "zh": "已經由大人壓成粉的彩色粉筆"
+                },
+                {
+                  "en": "Water, and an egg yolk in a small cup (prepared by an adult)",
+                  "zh": "水，以及裝在小杯子裡的蛋黃（由大人準備）"
+                },
+                {
+                  "en": "Two brushes, paper, and two small dishes",
+                  "zh": "兩枝筆刷、紙和兩個小碟子"
+                }
+              ],
+              "steps": [
+                {
+                  "en": "An adult puts a spoonful of chalk powder in each dish.",
+                  "zh": "由大人在每個碟子裡放一匙粉筆粉。"
+                },
+                {
+                  "en": "In the first dish, mix the powder with only water. In the second, mix it with egg yolk and a few drops of water.",
+                  "zh": "第一個碟子只加水調；第二個碟子加蛋黃和幾滴水調。"
+                },
+                {
+                  "en": "Paint a stripe of each on the paper and let both dry.",
+                  "zh": "兩種各在紙上刷一條，等它們乾。"
+                },
+                {
+                  "en": "When they are dry, rub each stripe gently with a finger. Which one comes off?",
+                  "zh": "乾了以後，用手指輕輕擦每一條。哪一條會掉？"
+                },
+                {
+                  "en": "Wash your hands, and write one sentence about what the egg yolk did.",
+                  "zh": "洗手，再寫一句話說說蛋黃做了什麼。"
+                }
+              ],
+              "tip_en": "Anyone allergic to eggs should not handle the yolk. They can watch and do the rubbing test with a clean tissue instead.",
+              "tip_zh": "對蛋過敏的同學不要碰蛋黃，可以在旁邊看，改用乾淨的面紙做擦拭測試。"
+            },
+            {
+              "title_en": "Over the Black Line",
+              "title_zh": "蓋過黑線",
+              "materials": [
+                {
+                  "en": "Thick paper and a black permanent marker",
+                  "zh": "厚紙和一枝黑色油性麥克筆"
+                },
+                {
+                  "en": "School watercolor and school poster paint",
+                  "zh": "學校用的水彩和廣告顏料"
+                },
+                {
+                  "en": "A brush and water",
+                  "zh": "筆刷和水"
+                }
+              ],
+              "steps": [
+                {
+                  "en": "Draw a thick black line across the paper and let it dry.",
+                  "zh": "在紙上畫一條粗粗的黑線，等它乾。"
+                },
+                {
+                  "en": "Paint a stripe of watercolor across the line.",
+                  "zh": "刷一條水彩，橫跨過黑線。"
+                },
+                {
+                  "en": "Next to it, paint a stripe of poster paint of a similar color across the line.",
+                  "zh": "在旁邊刷一條顏色差不多的廣告顏料，也橫跨過黑線。"
+                },
+                {
+                  "en": "When both are dry, compare. Which one covers the line better?",
+                  "zh": "兩條都乾了以後比一比：哪一條把黑線蓋得比較好？"
+                },
+                {
+                  "en": "Compare your results with the model on this page.",
+                  "zh": "把結果和這一頁的模型比一比。"
+                }
+              ],
+              "tip_en": "The screen makes its colors with light, and your paint reflects the light in the room, so the two will not look the same. Trust what you see on the paper.",
+              "tip_zh": "螢幕的顏色是用光做出來的，你的顏料則是反射教室裡的光，兩者看起來不會一樣。請相信你在紙上看到的。"
+            }
+          ],
+          "links_head": {
+            "eyebrow": "Go Further · 延伸閱讀",
+            "en": "Mixing paint, ink and paper, and what comes next",
+            "zh": "混色、墨與紙，以及下一課"
+          },
+          "links": [
+            {
+              "icon": "🎨",
+              "k_en": "Art · Lesson 1",
+              "k_zh": "美術・第一課",
+              "en": "Why Do Paint and Light Mix Differently?",
+              "zh": "顏料和光，混色為什麼不一樣？",
+              "note_en": "Pigments make color by soaking up some light and reflecting the rest. That lesson shows why mixing them makes darker colors.",
+              "note_zh": "色料靠吸收一部分的光、反射其餘的光來呈現顏色。那一課說明為什麼它們越混越暗。",
+              "href": "/resources/classes/art/paint-and-light/"
+            },
+            {
+              "icon": "🖌️",
+              "k_en": "Calligraphy · Lesson 1",
+              "k_zh": "書法・第一課",
+              "en": "What Are the Four Treasures of the Study?",
+              "zh": "文房四寶是什麼？",
+              "note_en": "Ink is a pigment too: soot held together by glue. That lesson tells the story of the brush, ink, paper, and inkstone.",
+              "note_zh": "墨也是一種色料：用膠黏在一起的煙灰。那一課介紹筆、墨、紙、硯。",
+              "href": "/resources/classes/calligraphy/four-treasures/"
+            },
+            {
+              "icon": "💧",
+              "k_en": "Art · Lesson 10",
+              "k_zh": "美術・第十課",
+              "en": "How Are Watercolor, Oil Paint, and Ink Different?",
+              "zh": "水彩、油畫、水墨有什麼不同？",
+              "note_en": "Next comes what painters do with these paints: thin washes, thick layers, and ink on paper that drinks it in.",
+              "note_zh": "下一課是畫家怎麼用這些顏料：薄薄的渲染、厚厚的堆疊，以及畫在會吸水的紙上的墨。",
+              "soon": true
+            }
+          ],
+          "sources_note_en": "Names, dates, numbers, and quotations on this page were checked against these sources (October 2026). The colors of the painted strip are computed by the page itself and covered by automatic tests; how much each paint covers is a simplified model of our own",
+          "sources_note_zh": "本頁的人名、年代、數字與引文依下列資料查證（2026 年 10 月）；紙條上的顏色由頁面自己計算，並有自動測試；各種顏料的遮蓋程度是本教材自訂的簡化模型",
+          "sources": [
+            {
+              "en": "Pigment: the element in paint that provides its color; made from minerals, natural and synthetic dyestuffs, and other man-made compounds",
+              "zh": "色料：顏料裡提供顏色的成分；來源有礦物、天然與合成的染料，以及其他人造的化合物",
+              "src": "The National Gallery, London, glossary: Pigments",
+              "url": "https://www.nationalgallery.org.uk/paintings/glossary/pigments"
+            },
+            {
+              "en": "Paint is made by mixing a pigment with a medium that binds the particles together",
+              "zh": "顏料是把色料和把顆粒黏在一起的媒劑混合而成",
+              "src": "The National Gallery, London, glossary: Media",
+              "url": "https://www.nationalgallery.org.uk/paintings/glossary/media"
+            },
+            {
+              "en": "Egg tempera uses egg yolk; most early Italian paintings; oil paint uses linseed, walnut, or poppy oil",
+              "zh": "蛋彩用蛋黃，早期義大利繪畫大多如此；油畫顏料用亞麻仁油、核桃油或罌粟油",
+              "src": "The National Gallery, London, glossary: Tempera; Oil paint",
+              "url": "https://www.nationalgallery.org.uk/paintings/glossary/tempera"
+            },
+            {
+              "en": "Pigments are insoluble, dyes are soluble",
+              "zh": "色料不溶，染料會溶",
+              "src": "Wikipedia “Pigment”",
+              "url": "https://en.wikipedia.org/wiki/Pigment"
+            },
+            {
+              "en": "Watercolor: pigment, gum arabic as a binder, additives, and water; acrylic paint: an emulsion of acrylic polymer; gum arabic from acacia trees; drying oils harden by reacting with oxygen in the air",
+              "zh": "水彩：色料、阿拉伯膠、添加物和水；壓克力顏料：壓克力樹脂乳液；阿拉伯膠來自金合歡樹；乾性油和空氣中的氧起反應而變硬",
+              "src": "Wikipedia “Watercolor painting,” “Acrylic paint,” “Gum arabic,” “Drying oil”",
+              "url": "https://en.wikipedia.org/wiki/Watercolor_painting"
+            },
+            {
+              "en": "An ochre-processing workshop 100,000 years old at Blombos Cave; the use of the mixture is unknown",
+              "zh": "布隆伯斯洞穴十萬年前的赭土加工工作坊；混合物的用途不明",
+              "src": "Henshilwood et al., Science (2011), abstract on Europe PMC",
+              "url": "https://doi.org/10.1126/science.1211535"
+            },
+            {
+              "en": "Ultramarine from lapis lazuli mined in Afghanistan; the best grades could be worth more than gold; indigo as “blue gold”",
+              "zh": "群青來自阿富汗開採的青金石；最好的等級可能比黃金還貴",
+              "src": "The National Gallery, London, “Colour Stories: Blue”",
+              "url": "https://www.nationalgallery.org.uk/podcast/colour-stories-blue"
+            },
+            {
+              "en": "Synthetic ultramarine from 1826; ochre is clay with iron oxide; cochineal insects on cactus, brought to Spain in the 1520s; indigo from plant leaves",
+              "zh": "合成群青始於 1826 年；赭土是含氧化鐵的黏土；胭脂蟲住在仙人掌上，1520 年代運到西班牙；靛藍來自植物葉子",
+              "src": "Wikipedia “Ultramarine,” “Ochre,” “Cochineal,” “Indigo dye”",
+              "url": "https://en.wikipedia.org/wiki/Ultramarine"
+            },
+            {
+              "en": "Prussian blue: the first totally modern synthetic pigment made by a chemical reaction",
+              "zh": "普魯士藍：第一種完全現代、靠化學反應做出來的合成色料",
+              "src": "The National Gallery, London, Technical Bulletin 25 (2004)",
+              "url": "https://www.nationalgallery.org.uk/research/publications/technical-bulletin/fading-and-colour-change-of-prussian-blue-methods-of-manufacture-and-the-influence-of-extenders"
+            },
+            {
+              "en": "Prussian blue made in Berlin around 1706, believed accidental; titanium dioxide first mass-produced in 1916; lead white later displaced by titanium white",
+              "zh": "普魯士藍約 1706 年在柏林做出，一般認為是意外；二氧化鈦 1916 年開始大量生產；鉛白後來被鈦白取代",
+              "src": "Wikipedia “Prussian blue,” “Titanium dioxide,” “Lead white”",
+              "url": "https://en.wikipedia.org/wiki/Prussian_blue"
+            },
+            {
+              "en": "Toxic pigments: vermilion (mercury sulfide), lead carbonate, gamboge",
+              "zh": "有毒的色料：朱砂（硫化汞）、鉛白、藤黃",
+              "src": "Wikipedia “Vermilion,” “Lead(II) carbonate,” “Gamboge”",
+              "url": "https://en.wikipedia.org/wiki/Vermilion"
+            },
+            {
+              "en": "石青, 石綠 (孔雀石), 朱砂, 藤黃 (有毒), 花青 / 靛藍, 蛤粉, 膠彩畫",
+              "zh": "石青、石綠（孔雀石）、朱砂、藤黃（有毒）、花青／靛藍、蛤粉、膠彩畫",
+              "src": "教育百科（教育部國語辭典、教育大辭書）〈膠彩畫〉等條目",
+              "url": "https://pedia.cloud.edu.tw/Entry/Detail/?title=%E8%86%A0%E5%BD%A9%E7%95%AB"
+            },
+            {
+              "en": "Glue painting mixes colors with animal glue, and Taiwan's came from Japan; 石青 from azurite, 蛤粉 from clam shells",
+              "zh": "膠彩以動物膠調色，台灣的膠彩畫傳自日本；石青來自藍銅礦，蛤粉由蛤貝殼研磨而成",
+              "src": "高永隆〈礦物顏料與現代重彩〉，2009 兩岸重彩畫學術研討會（國立臺灣藝術大學）",
+              "url": "https://cart.ntua.edu.tw/uploads/root/%E6%88%90%E6%9E%9C%E7%99%BC%E8%A1%A8/%E5%87%BA%E7%89%88%E5%88%8A%E7%89%A9/%E8%AB%96%E6%96%87%E9%9B%86/2009%E5%85%A9%E5%B2%B8%E9%87%8D%E5%BD%A9%E7%95%AB%E5%AD%B8%E8%A1%93%E7%A0%94%E8%A8%8E%E6%9C%83/03.%E9%AB%98%E6%B0%B8%E9%9A%86-%E7%A4%A6%E7%89%A9%E9%A1%8F%E6%96%99%E8%88%87%E7%8F%BE%E4%BB%A3%E9%87%8D%E5%BD%A9.pdf"
+            },
+            {
+              "en": "Standard Chinese terms: pigment, egg tempera, ultramarine, Prussian blue, vermilion, lead white, titanium white, gum arabic, linseed oil, animal glue, glue painting, azurite",
+              "zh": "學術名詞：顏料（色料）、蛋彩、群青、普魯士藍、朱紅、鉛白、鈦白、阿拉伯膠、亞麻仁油、動物膠、膠彩畫、藍銅礦",
+              "src": "國家教育研究院 樂詞網（視覺藝術名詞）",
+              "url": "https://terms.naer.edu.tw/"
+            },
+            {
+              "en": "Adults mix powders; keep food and drinks out; wash hands; avoid airborne dusts",
+              "zh": "粉由大人調；食物飲料不進美術區；洗手；避免會飄散的粉塵",
+              "src": "U.S. Consumer Product Safety Commission, Art and Craft Safety Guide",
+              "url": "https://www.cpsc.gov/s3fs-public/5015.pdf"
+            },
+            {
+              "en": "Learning content 視 E-Ⅱ-2, 視 E-Ⅲ-2, 視 E-Ⅳ-2; learning performance 1-Ⅱ-3",
+              "zh": "學習內容：視 E-Ⅱ-2、視 E-Ⅲ-2、視 E-Ⅳ-2；學習表現：1-Ⅱ-3",
+              "src": "十二年國教課綱 藝術領域（教育部，2018）",
+              "url": "https://www.naer.edu.tw/upload/1/16/doc/818/%E5%8D%81%E4%BA%8C%E5%B9%B4%E5%9C%8B%E6%B0%91%E5%9F%BA%E6%9C%AC%E6%95%99%E8%82%B2%E8%AA%B2%E7%A8%8B%E7%B6%B1%E8%A6%81%E5%9C%8B%E6%B0%91%E4%B8%AD%E5%B0%8F%E5%AD%B8%E6%9A%A8%E6%99%AE%E9%80%9A%E5%9E%8B%E9%AB%98%E7%B4%9A%E4%B8%AD%E7%AD%89%E6%A0%A1-%E8%97%9D%E8%A1%93%E9%A0%98%E5%9F%9F.pdf"
+            }
+          ]
+        }
+      ],
+      "planned": [
         {
           "n": 10,
           "icon": "💧",

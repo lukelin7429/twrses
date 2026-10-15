@@ -19275,7 +19275,7 @@ def build_usg_hub():
 _artj = os.path.join(ROOT, "data", "art.json")
 ART = json.load(open(_artj, encoding="utf-8")) if os.path.exists(_artj) else None
 ART_BASE = "/resources/classes/art/"
-_ART_JS = {"lights": "art-lights", "wheel": "art-wheel", "ball": "art-ball", "line": "art-line", "hall": "art-hall", "depth": "art-depth", "frame": "art-frame", "face": "art-face"}   # lab.kind → assets/js/<bundle>.js
+_ART_JS = {"lights": "art-lights", "wheel": "art-wheel", "ball": "art-ball", "line": "art-line", "hall": "art-hall", "depth": "art-depth", "frame": "art-frame", "face": "art-face", "pigment": "art-pigment"}   # lab.kind → assets/js/<bundle>.js
 
 def _art_ver():
     h = hashlib.md5()
@@ -19357,7 +19357,14 @@ def artface_svg(size=56):
             '<path d="M8 30H52" stroke="#c48a00" stroke-width="2" stroke-dasharray="3 2"/><circle cx="23" cy="30" r="2.6" fill="#1d2230"/><circle cx="37" cy="30" r="2.6" fill="#1d2230"/>'
             '<path d="M24 44Q30 47 36 44" fill="none" stroke="#1d2230" stroke-width="1.8"/></svg>')
 
-_ART_CARD = {"lights": artlights_svg, "wheel": artwheel_svg, "ball": artball_svg, "line": artline_svg, "hall": arthall_svg, "depth": artdepth_svg, "frame": artframe_svg, "face": artface_svg}
+def artpigment_svg(size=56):
+    """第九課的課程卡小圖示：三小堆不同顏色的色粉，旁邊一條塗開的顏料。"""
+    return (f'<svg class="arpigment-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">'
+            '<path d="M6 40Q12 28 18 40Z" fill="#cc9940"/><path d="M19 40Q25 26 31 40Z" fill="#2940a6"/><path d="M32 40Q38 29 44 40Z" fill="#b81a40"/>'
+            '<rect x="4" y="40" width="44" height="3" rx="1.5" fill="#6b5a40"/>'
+            '<path d="M47 12C54 14 55 24 50 30C46 35 47 44 52 50" fill="none" stroke="#2940a6" stroke-width="6" stroke-linecap="round" opacity=".85"/></svg>')
+
+_ART_CARD = {"lights": artlights_svg, "wheel": artwheel_svg, "ball": artball_svg, "line": artline_svg, "hall": arthall_svg, "depth": artdepth_svg, "frame": artframe_svg, "face": artface_svg, "pigment": artpigment_svg}
 
 def render_artlights_lab(lesson):
     """第一課：暗房裡的三盞燈／三片顏料（assets/js/art-lights.js 綁這裡的 class；右邊欄的字由程式依模式填入）。"""
@@ -19862,6 +19869,59 @@ def render_artface_lab(lesson):
   <p class="ar-credit">{lab["credit_html"]}</p>
 </div>'''
 
+def render_artpigment_lab(lesson):
+    """第九課：色粉＋黏著劑＝顏料（assets/js/art-pigment.js 綁這裡的 class；2D canvas，不需要 WebGL）。"""
+    lab = lesson["lab"]
+    notes = "".join(f'<li>{html.escape(n["en"])}<span class="zh">{html.escape(n["zh"])}</span></li>' for n in lab["notes"])
+    return f'''<div class="astro-lab ar-plab rvl" data-artpigment-lab>
+  <div class="ar-pg-grid">
+    <section class="ar-ln-col">
+      <canvas class="ar-pg-cv" width="800" height="480" role="img" aria-label="A pile of pigment, a binder, and a strip of paper painted with the paint they make, over a black line · 一堆色粉、一種黏著劑，和塗上它們做成的顏料的紙條，底下有一條黑線"></canvas>
+      <p class="ar-rule ar-pg-result" aria-live="polite"></p>
+      <p class="ar-pg-cover" aria-live="polite"></p>
+      <div class="ar-pg-card" aria-live="polite"></div>
+    </section>
+    <section class="ar-ln-col">
+      <p class="al-sky-k">1. Choose a pigment · 選一種色粉</p>
+      <div class="ar-pg-pigs" role="group" aria-label="Pigments · 色粉"></div>
+      <p class="al-sky-k">2. Choose a binder · 選一種黏著劑</p>
+      <div class="ar-ln-kinds ar-pg-binds" role="group" aria-label="Binders · 黏著劑"></div>
+      <p class="ar-msg" aria-live="polite"></p>
+    </section>
+  </div>
+  <div class="ar-note">
+    <p class="ar-note-h">{html.escape(lab["note_head_en"])} <span class="zh">{html.escape(lab["note_head_zh"])}</span></p>
+    <ul>{notes}</ul>
+    <p class="ar-note-end">{html.escape(lab["note_end_en"])}<span class="zh">{html.escape(lab["note_end_zh"])}</span></p>
+  </div>
+  <p class="ar-credit">{lab["credit_html"]}</p>
+</div>'''
+
+def _ar_origin(d):
+    opts = "".join(
+        f'<button type="button" class="ar-lp-opt" data-origin="{k}"><i aria-hidden="true">{m}</i><b>{en}</b><span class="zh">{zh}</span><span class="ar-pk-mk"></span></button>'
+        for k, m, en, zh in [("earth", "&#9650;", "From the earth", "來自土和礦石"), ("living", "&#9679;", "From living things", "來自生物"), ("made", "&#9632;", "Made in a lab or factory", "工廠裡做出來")])
+    return f'''<div class="ar-match ar-originq rvl" data-ar-origin>
+  <div class="ar-mt-top"><p class="ar-mt-k ar-or-k">Card 1 of 8 · 第 1 張（共 8 張）</p><p class="ar-mt-sc">Right · 答對 <b class="ar-mt-score ar-or-score">0 / 0</b></p></div>
+  <div class="ar-mt-steps ar-or-steps" aria-hidden="true"></div>
+  <div class="ar-or-card" aria-live="polite"></div>
+  <div class="ar-or-opts">{opts}</div>
+  <p class="ar-mt-msg ar-or-msg" aria-live="polite"></p>
+  <div class="ar-mt-foot"><button type="button" class="ar-btn ar-btn-gold ar-or-next" hidden>Next card · 下一張</button></div>
+  <p class="ar-fine">{html.escape(d["note_en"])}<span class="zh">{html.escape(d["note_zh"])}</span></p>
+</div>'''
+
+def _ar_binder(d):
+    return f'''<div class="ar-match ar-binderq rvl" data-ar-binder>
+  <div class="ar-mt-top"><p class="ar-mt-k ar-bd-k">Question 1 of 5 · 第 1 題（共 5 題）</p><p class="ar-mt-sc">Right · 答對 <b class="ar-mt-score ar-bd-score">0 / 0</b></p></div>
+  <div class="ar-mt-steps ar-bd-steps" aria-hidden="true"></div>
+  <p class="ar-pk-ask ar-bd-ask"></p>
+  <div class="ar-or-opts ar-bd-opts"></div>
+  <p class="ar-mt-msg ar-bd-msg" aria-live="polite"></p>
+  <div class="ar-mt-foot"><button type="button" class="ar-btn ar-btn-gold ar-bd-next" hidden>Next question · 下一題</button></div>
+  <p class="ar-fine">{html.escape(d["note_en"])}<span class="zh">{html.escape(d["note_zh"])}</span></p>
+</div>'''
+
 def _ar_eye(d):
     return f'''<div class="ar-match ar-eyeq rvl" data-ar-eye>
   <div class="ar-mt-top"><p class="ar-mt-k ar-ey-k">Head 1 of 3 · 第 1 顆頭（共 3 顆）</p><p class="ar-mt-sc">Close or exact · 接近或剛好 <b class="ar-mt-score ar-ey-score">0 / 0</b></p></div>
@@ -20056,7 +20116,7 @@ def build_art_lesson(ui, unit, lesson):
     reading_html = render_basic_unit(1, unit_dict, level="art", audio_rel="", pdf_rel="")
     lab = lesson["lab"]
     kind = lab["kind"]
-    lab_html = {"lights": render_artlights_lab, "wheel": render_artwheel_lab, "ball": render_artball_lab, "line": render_artline_lab, "hall": render_arthall_lab, "depth": render_artdepth_lab, "frame": render_artframe_lab, "face": render_artface_lab}[kind](lesson)
+    lab_html = {"lights": render_artlights_lab, "wheel": render_artwheel_lab, "ball": render_artball_lab, "line": render_artline_lab, "hall": render_arthall_lab, "depth": render_artdepth_lab, "frame": render_artframe_lab, "face": render_artface_lab, "pigment": render_artpigment_lab}[kind](lesson)
 
     def sec(key, fn):
         d = lesson[key]
@@ -20074,6 +20134,8 @@ def build_art_lesson(ui, unit, lesson):
         ph = lesson["parts_head"]
         secs.append(("parts", ph["eyebrow"], ph["en"], ph["zh"], f'<div class="ph-grid stagger">{cards}</div>',
                      _bi(lesson["parts_note_en"], lesson["parts_note_zh"], cls="lead rvl d2")))
+    if lesson.get("origin"): secs.append(sec("origin", _ar_origin))
+    if lesson.get("binder"): secs.append(sec("binder", _ar_binder))
     if lesson.get("eye"): secs.append(sec("eye", _ar_eye))
     if lesson.get("facepad"): secs.append(sec("facepad", _ar_facepad))
     if lesson.get("bal"): secs.append(sec("bal", _ar_bal))
