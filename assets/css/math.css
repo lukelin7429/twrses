@@ -280,3 +280,63 @@ button.mth-tb-c:hover { border-color: var(--gold); }
   .mth-tb { padding: 1rem .7rem; }
   .mth-tb-grid { gap: 2px; }
 }
+
+/* ══ 第三課：桌上的糖（math-divide）══════════════════════════════════════ */
+.mth-dv-lab .al-space { background: radial-gradient(70% 60% at 50% 45%, rgba(226,87,76,.10), transparent 70%); }
+.mth-seg-mode { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.mth-seg-mode button { padding: .5rem .4rem; text-align: center; }
+.mth-seg-mode button b { font-family: var(--sans); font-size: .86rem; }
+.mth-dv-qr { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .4rem; }
+.mth-dv-qr p { margin: 0; display: flex; flex-direction: column; gap: .1rem; padding: .45rem .7rem; border-radius: 11px; border: 1px solid var(--al-line); background: rgba(255,255,255,.04); }
+.mth-dv-qr span { font-size: .74rem; font-weight: 700; color: var(--al-mute); }
+.mth-dv-qr small { display: block; font-family: var(--zh); font-weight: 600; font-size: .68rem; }
+.mth-dv-qr b { font-family: var(--serif); font-size: 2.2rem; line-height: 1; color: #fff; font-variant-numeric: tabular-nums; }
+.mth-dv-qr p:last-child b { color: #ff9b8f; }
+.mth-dv-eqs { display: grid; gap: .25rem; padding-top: .5rem; border-top: 1px solid var(--al-line); }
+.mth-dv-eqs p { margin: 0; display: flex; align-items: baseline; justify-content: space-between; gap: .6rem; }
+.mth-dv-eqs small { font-size: .7rem; font-weight: 700; color: var(--al-mute); white-space: nowrap; }
+.mth-dv-eqs b { font-family: var(--serif); font-size: 1.3rem; color: #fff; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.mth-dv-check { min-height: 1.4em; justify-content: flex-end !important; font-size: .9rem; font-weight: 700; color: var(--al-sun); font-variant-numeric: tabular-nums; }
+.mth-btn-d:disabled { opacity: .4; cursor: default; }
+.al-lab.mth-lb-pl { min-width: 1.9em; padding: .06rem .45rem .1rem; border-color: #f2efe6; }
+.al-lab.mth-lb-pl b { font-size: 1.05rem; }
+.al-lab.mth-lb-pl.is-full { background: #4fb477; border-color: #4fb477; }
+.al-lab.mth-lb-pl.is-full b { color: #06150c; }
+.al-lab.mth-lb-tbl { border-color: #9fb0cf; }
+.al-lab.mth-lb-tbl.is-left { background: #e2574c; border-color: #ffb3aa; }
+.al-lab.mth-lb-tbl.is-left b, .al-lab.mth-lb-tbl.is-left small { color: #fff; }
+.al-lg-mthcandy i { border: 0; border-radius: 50%; background: conic-gradient(#e2574c 0 25%, #f4c542 0 50%, #4fb477 0 75%, #4a90d9 0); }
+.al-lg-mthplate i { border: 1.5px solid #9fb0cf; border-radius: 50%; background: #f2efe6; }
+.al-lg-mthbag i { border: 1.5px solid #16223f; border-radius: 50%; background: #c8a272; }
+.al-lg-mthleft i { border: 2px solid #ffb3aa; border-radius: 50%; background: #e2574c; }
+.mth-dv-lab .al-controls .al-row-main { justify-content: space-between; }
+
+/* ── 這是哪一種問法 ───────────────────────────────────────────────────── */
+.mth-kd-q { margin: 1.2rem 0 1rem; min-height: 4.4em; font-size: 1.12rem; line-height: 1.6; color: #fff; }
+.mth-kd-q .zh { display: block; margin-top: .3rem; font-size: 1rem; color: #9fb0cf; }
+.mth-kd-opts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .6rem; }
+.mth-kd-opt { font-family: var(--sans); font-size: 1.05rem; padding: .8rem .6rem; }
+.mth-kd-opt small { display: block; margin-top: .2rem; font-family: var(--zh); font-weight: 600; font-size: .8rem; color: #c9d3e8; }
+
+/* ── 餘數會是多少 ─────────────────────────────────────────────────────── */
+.mth-cy { margin-top: 1.5rem; padding: 1.4rem 1.5rem; background: #fff; border: 1px solid var(--line); border-radius: 20px; box-shadow: var(--shadow-sm); max-width: 900px; }
+.mth-cy-seg { display: flex; flex-wrap: wrap; gap: .35rem; margin: .3rem 0 1rem; }
+.mth-cy-seg button { min-width: 3.1rem; padding: .4rem .6rem; border-radius: 999px; border: 1px solid var(--line); background: #fff; color: var(--brand-dk); font-family: var(--sans); font-weight: 800; cursor: pointer; }
+.mth-cy-seg button[aria-pressed="true"] { background: var(--brand); border-color: var(--brand); color: #fff; }
+.mth-cy-strip { display: grid; grid-template-columns: repeat(10, minmax(0, 1fr)); gap: 4px; }
+.mth-cy-c { display: flex; flex-direction: column; align-items: center; gap: 1px; padding: .3rem 0 .35rem; border-radius: 9px; border: 1px solid rgba(0,0,0,.08); background: hsl(var(--h) 70% 90%); color: var(--ink); font-family: var(--sans); cursor: pointer; transition: transform .15s; }
+.mth-cy-c small { font-size: .66rem; font-weight: 700; color: var(--ink-soft); font-variant-numeric: tabular-nums; }
+.mth-cy-c b { font-family: var(--serif); font-size: 1.15rem; line-height: 1; font-variant-numeric: tabular-nums; }
+.mth-cy-c.is-zero { background: #e8ecf3; }
+.mth-cy-c.is-sel { outline: 3px solid var(--brand-dk); outline-offset: 1px; transform: scale(1.07); }
+.mth-cy-key { display: flex; flex-wrap: wrap; gap: .4rem 1.2rem; margin: .8rem 0 0; font-size: .8rem; color: var(--ink-soft); }
+.mth-cy-key small { font-weight: 700; margin-right: .25rem; }
+.mth-cy-key b { font-family: var(--serif); margin-right: .25rem; color: var(--ink); }
+.mth-cy-msg { margin: 1rem 0 0; min-height: 5.2em; padding: .9rem 1.1rem; border-radius: 14px; background: var(--cream); border: 1px solid var(--line); font-size: .95rem; line-height: 1.6; }
+.mth-cy-msg .zh { display: block; margin-top: .25rem; color: var(--ink-soft); }
+@media (max-width: 560px) {
+  .mth-kd-opts { grid-template-columns: 1fr; }
+  .mth-cy { padding: 1rem .8rem; }
+  .mth-cy-strip { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+}
+.mth-dv-zhrow b { font-family: var(--zh); font-size: 1.05rem; font-weight: 700; }

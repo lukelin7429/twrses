@@ -954,10 +954,10 @@
 ## 看得見的數學 Math You Can See（/resources/classes/math/）— 架構照電腦概論，每課一個「可以動手玩的模型」回答一個「為什麼」
 
 - **定位（不要走樣）**：不是課本、不是題庫。**不出大量計算題、不計時、不比快**；小遊戲只記「第一次就答對幾題」，不做倒數計時、不做排行榜。程度到國中三年級為止，不碰三角函數、對數、微積分。規劃檔：Obsidian `第二大腦/創作庫/數學課程規劃（twrses）.md`（六個單元二十六課）。
-- 內容：`data/math.json`：`units[]`（六個單元：數／比與量／形狀與空間／代數與圖形／資料與機會／數學的故事與用處）底下 `lessons[]` 與 `planned[]`（「製作中」卡，做一課就從 planned 移到 lessons）；課次 `n` 全系列連號（1–26），系列首頁自己算「x of 26」。每課欄位同電腦概論，不同的：`sayit`（**「這個用英文怎麼唸」卡，每課都要有**，見下）、`match`／`table`（第二課的兩個小互動，欄位同下）、`parts[].array`（卡片小圖的方陣，例如 `"3x4"`）、`pile`／`same`（第一課的兩個小互動，各有 `eyebrow/en/zh/lead_en/lead_zh/note_en/note_zh`）、`notes`＋`notes_head`（「給老師的提醒」，取代別的系列的安全提醒；這一格放台美差異與課綱對應）、`parts[].pile`（卡片小圖要畫的數，例如 `"305"`）或 `parts[].icon`（文字）。
+- 內容：`data/math.json`：`units[]`（六個單元：數／比與量／形狀與空間／代數與圖形／資料與機會／數學的故事與用處）底下 `lessons[]` 與 `planned[]`（「製作中」卡，做一課就從 planned 移到 lessons）；課次 `n` 全系列連號（1–26），系列首頁自己算「x of 26」。每課欄位同電腦概論，不同的：`sayit`（**「這個用英文怎麼唸」卡，每課都要有**，見下）、`kind`（第三課「這是哪一種問法」，題目在 `kind.items[]`：`en/zh/kind(share|group)/total/n/ans_en/ans_zh`，測試會核對答案句裡的商與餘數）／`cycle`（第三課「餘數會是多少」）、`match`／`table`（第二課的兩個小互動，欄位同下）、`parts[].array`（卡片小圖的方陣，例如 `"3x4"`）、`pile`／`same`（第一課的兩個小互動，各有 `eyebrow/en/zh/lead_en/lead_zh/note_en/note_zh`）、`notes`＋`notes_head`（「給老師的提醒」，取代別的系列的安全提醒；這一格放台美差異與課綱對應）、`parts[].pile`（卡片小圖要畫的數，例如 `"305"`）或 `parts[].icon`（文字）。
 - 頁面：`build.py`「看得見的數學」區塊的 `build_math_hub()`（系列小圖示 `mathhub_svg()`＝平板＋長條＋小方塊，第一課卡 `mathblocks_svg()`；`_MATH_CARD` 把 `card` 對到圖示函式）/ `build_math_lesson()`；reading、迷思、口訣、活動沿用 `render_basic_unit()`、`_sci_myths()`、`_sci_tricks()`、`_astro_activity()`。「閱讀與經典」頁有入口卡（🧮，排在音樂後面）。段落順序：3D → 英文閱讀 → 模型卡 → **怎麼唸** → 這堆積木是多少 → 同一個數三種寫法 → 文化卡 → 迷思 → 口訣 → 給老師的提醒 → 活動 → 延伸閱讀 → 資料出處。
 - 樣式：共用 `assets/css/astro.css`，本系列專屬的在 `assets/css/math.css`（**class 前綴一律 `mth-`**——`mt-` 已被天文的潮汐、流星雨用掉，不要用）；`_math_head()` 只在本系列頁面載入。
-- 3D：**原始碼在 `tools/math/src/`**（自己的 package.json，three 0.186.1、esbuild 0.25.10），bundle 一律 `math-*`；`lab.kind` → bundle 對照在 `build.py` 的 `_MATH_JS`（`blocks` → `math-blocks`、`array` → `math-array`）。`labeler`、`lazyBoot`、`canvasTex` 在 `tools/math/src/common.js`（從 tools/computers 抄來）。**不要 import 別的系列的 tools 目錄**（esbuild 會打包進第二份 three.js）。新增一課＝`src/math-<名>.js`＋package.json 的 build 加入口＋`_MATH_JS` 加一筆＋`build_math_lesson()` 的 `lab_html` 對照加一筆。
+- 3D：**原始碼在 `tools/math/src/`**（自己的 package.json，three 0.186.1、esbuild 0.25.10），bundle 一律 `math-*`；`lab.kind` → bundle 對照在 `build.py` 的 `_MATH_JS`（`blocks` → `math-blocks`、`array` → `math-array`、`divide` → `math-divide`）。`labeler`、`lazyBoot`、`canvasTex` 在 `tools/math/src/common.js`（從 tools/computers 抄來）。**不要 import 別的系列的 tools 目錄**（esbuild 會打包進第二份 three.js）。新增一課＝`src/math-<名>.js`＋package.json 的 build 加入口＋`_MATH_JS` 加一筆＋`build_math_lesson()` 的 `lab_html` 對照加一筆。
   ```
   cd tools/math && npm ci && npm run build && npm test
   ```
@@ -987,6 +987,16 @@
   - 四張卡 `data-lab-demo`：`rows`、`cols`、`turn`、`area`（6 × 7 靠攏）。
   - 除錯：`document.querySelector('[data-matharray-lab]').__lab`（`set(rows, cols)`、`turn()`、`count('rows'|'cols')`、`setFlat(bool)`、`setPlaying(bool)`、`setSpeed(n)`、`demo(...)`、`run(秒)`、`goCam()`、`render()`、`size()`、`shown()`、`cubes()`、`counted()`、**`check()`**）。驗證過：1 × 1 到 10 × 10 一百種大小，橫著數、直著數的總數與轉九十度途中每一格畫面，`check()` 全部為真。
   - 查證時改掉或沒寫的：**課綱沒有規定被乘數寫在前面**——出處是教育部辭典（「3 乘以 2 等於 6，則 3 為被乘數」）對上 Britannica（5＋5＋5 寫成 3 × 5，5 是被乘數）與 CCSS（5 × 7＝5 groups of 7），再加一篇政大 2024 年的碩士論文；「寫反要不要算錯」沒有官方說法，沒寫，只請老師先講清楚班上的約定。× 不寫成「奧特雷德 1631 年發明」（1618 年就出現過）。commutative 寫「查得到最早的是 1814 年」，不寫他替乘法命名（塞爾瓦講的是函數）。里耶秦簡「只列 45 句」與「九九」名稱的由來只有通俗文章與維基，沒寫。歐幾里得的年代沒有開到出處，沒寫。「五乘五唸 five squared」沒有直接出處，卡片上寫的是 5² 唸 five squared。中文九九口訣「六七四十二」是常識、沒有另外找出處。
+- **除法（第三課建好；之後講分數、比、平均都能用）**：
+  - `src/divide.js`（純函式，`test/divide.test.mjs`）：`divide(total, n)` → `{ q, r }`（n 是 0 就丟錯）、`steps(total, n, 'share'|'group')`（平分＝一人一顆輪流發，第 k 顆進第 k % n 個盤子；分裝＝一袋裝滿才開下一袋，第 k 顆進第 ⌊k / n⌋ 袋；發不完的留在桌上）、`containers`、`tally`、`remainders(n, upto)`（0…n−1 循環）、`containerSlot`／`candySlot`／`pileSlot`（桌上的位置，測試驗了不重疊、糖不出盤子）。測試把 0–30 除以 1–10 兩種分法每一步都跑過：總數＝n × q＋r、0 ≤ r < n、平分途中各盤最多差一顆。
+  - `src/divide2d.js`：`initKind`（`[data-mth-kind]`，八個情境由 build.py 以 `data-items` 傳入，順序每次洗牌；沿用 `.mth-pq` 深色卡）、`initCycle`（`[data-mth-cycle]`，除以 2–10，1–30 每一格的餘數，顏色照餘數）。除錯：`el.__kind.start(seed)／answer()／wrong()／next()／item()`、`el.__cycle.set(d, t)／shown()`。
+- 第三課除法（`math-divide.js`，`lab.kind = "divide"`，`data-mathdivide-lab`；slug `what-is-division`）：一個想法——**除法有兩種問法，用同一個算式**；分不完的是餘數，一定比除數小。
+  - 桌上一堆糖（圓球，顏色只是好看）、盤子（平分）或紙袋色的盤子（分裝；**一袋有糖了才出現**）。`[data-mode-btn]` 切換模式、兩條滑桿（1–30 顆、1–10）、`.mth-deal` 開始分（`STEP` 秒一顆，糖沿弧線飛過去）、`.mth-dv-reset`、`.mth-arrange` 分完後排成方陣（每個盤子或每一袋一排，接上第二課）。
+  - 右側欄：商與餘數兩格、**美國寫法 `13 ÷ 3 = 4 R 1`**、**中文說法「13 除以 3，商 4，餘 1」**（台灣課本在算式裡怎麼寫餘數沒有查到官方出處，所以不寫「4 … 1」，用教育部辭典的「商數…餘數」說法）、驗算 `3 × 4 + 1 = 13`。
+  - 四張卡 `data-lab-demo`：`share`、`group`、`left`（13 ÷ 3）、`array`。
+  - 除錯：`document.querySelector('[data-mathdivide-lab]').__lab`（`set(total, n)`、`setMode('share'|'group')`、`deal()`、`finish()`、`reset()`、`setArranged(bool)`、`setSpeed(n)`、`demo(...)`、`run(秒)`、`goCam()`、`render()`、`counts()`（**從畫面上的糖數**：離哪個盤子近就算哪個）、`shown()`、**`check()`**）。驗證過：兩種模式、1–30 除以 1–10 共 600 種，每一步與排成方陣後 `check()` 全部為真。
+  - 無頭瀏覽器截圖偶爾會拍到空白的 3D（測試迴圈跑很多次之後立刻截圖）；像素讀出來是正常的，等一兩秒再截就好。瀏覽器面板在背景時 `requestAnimationFrame` 不跑、懶載入也不會觸發，要用無頭截圖。
+  - 查證時改掉或沒寫的：**「4 … 1」這種寫法找不到官方出處，沒寫**（改用「商 4，餘 1」）；CCSS 本身沒有 partitive／quotitive 這兩個字，出處是猶他州教育委員會的三年級指引（而且寫明學生不必會說）；「等分除／包含除」只在課綱 N-4-3、N-5-6、N-5-7 的備註出現，辭典與樂詞網都沒有；ISO 不准用 ÷ 只有維基百科，沒寫；各國直式除法的寫法只有維基百科，沒寫；÷ 不寫「拉恩發明」，寫「第一次被當成除號」（米勒也記錄了佩爾可能才是發明者的說法）；拉恩、萊布尼茲的國籍沒有出處，不寫。
 
 ## 地理 Geography（/resources/classes/geography/）— 架構照書法與音樂，3D 是「地球儀引擎」
 

@@ -1227,7 +1227,7 @@
               "zh": "除法到底是什麼意思？",
               "note_en": "Share twelve candies among three people, or pack them three to a bag. Two questions, one division sign.",
               "note_zh": "把十二顆糖分給三個人，或是每三顆裝一袋。兩種問法，同一個除號。",
-              "soon": true
+              "href": "/resources/classes/math/what-is-division/"
             }
           ],
           "sources_note_en": "Facts, quotations, and readings on this page were checked against these sources (October 2026); the numbers in the model are computed and tested",
@@ -1342,15 +1342,692 @@
               "url": "https://thesis.lib.nccu.edu.tw/detail/c318c8fa6e475999d7996a2976cfc010/"
             }
           ]
+        },
+        {
+          "n": 3,
+          "slug": "what-is-division",
+          "title": "What Does Division Really Mean?",
+          "title_zh": "除法到底是什麼意思？",
+          "level": "入門 · Beginner",
+          "icon": "🍬",
+          "card": "divide",
+          "blurb_en": "Share candies equally among friends, or pack them into bags of the same size. Two different questions, one division sign. Watch what is left over, and see why it is always smaller than the number you divide by.",
+          "blurb_zh": "把糖平分給朋友，或是每幾顆裝成一袋。兩種不一樣的問題，用的是同一個除號。看看最後剩下了什麼，以及為什麼剩下的一定比除數小。",
+          "big_idea_en": "Division answers two different questions. Sharing equally asks how many each group gets when you know how many groups there are. Making groups asks how many groups you can make when you know how big each group is. Both are written the same way, and anything left over, the remainder, is always less than the divisor.",
+          "big_idea_zh": "除法回答兩種不一樣的問題。平分：知道有幾組，問每組分到幾個。分裝：知道每組幾個，問可以分成幾組。兩種寫成同一個算式；分不完剩下的叫做餘數，而且一定比除數小。",
+          "lab": {
+            "kind": "divide",
+            "eyebrow": "3D Model · 3D 模型",
+            "title_en": "Candies on the Table",
+            "title_zh": "桌上的糖",
+            "how_en": "Choose Share equally or Make groups, set how many candies there are and how many people or how many in each bag, and press Deal. When sharing, the candies are dealt around one at a time, like cards. When making groups, one bag is filled before the next one opens. Whatever cannot be dealt stays on the table, and that is the remainder. When the dealing is done, press Line up in rows to turn the plates or bags into the rows of an array.",
+            "how_zh": "先選「平分」或「分裝」，再設定一共有幾顆糖、分給幾個人或每袋幾顆，然後按「開始分」。平分的時候，糖會像發牌一樣一人一顆輪流發；分裝的時候，一袋裝滿了才開下一袋。發不出去、留在桌上的，就是餘數。分完以後按「排成方陣」，每個盤子或每一袋會變成方陣裡的一排。",
+            "legend": [
+              {
+                "cls": "mthcandy",
+                "en": "A candy (the colors are only for fun)",
+                "zh": "一顆糖（顏色只是好看）"
+              },
+              {
+                "cls": "mthplate",
+                "en": "A plate: one person's share",
+                "zh": "盤子：一個人分到的"
+              },
+              {
+                "cls": "mthbag",
+                "en": "A bag: one group of the chosen size",
+                "zh": "袋子：每袋一樣多的一組"
+              },
+              {
+                "cls": "mthleft",
+                "en": "Left on the table at the end: the remainder",
+                "zh": "最後留在桌上的：餘數"
+              }
+            ],
+            "scale_en": "A teaching model. Every candy is drawn, from 1 to 30, and the candies on the plates or in the bags plus the ones on the table always add up to the total. The dealing is slowed down so that you can watch it. Real sharing does not have to go one at a time; the model does it that way so that every step is fair and easy to follow.",
+            "scale_zh": "這是教學用的示意模型。每一顆糖都畫出來，從 1 到 30 顆；盤子裡或袋子裡的加上桌上的，永遠等於一共的顆數。發糖的速度放慢了，好讓你看得見。真的分東西不一定要一顆一顆發；模型這樣做，是為了讓每一步都公平、看得清楚。",
+            "credit_html": "Model and code are drawn and programmed by My Culture Connect. The dealing rules are tested in <code>tools/math/test/divide.test.mjs</code>.<br><span class=\"zh\">模型與程式由人師教育協會自行繪製、撰寫；分糖的規則有自動測試（<code>tools/math/test/divide.test.mjs</code>）。</span>"
+          },
+          "paras": [
+            "Here are two questions about the same twelve candies. First: you share the twelve candies equally among three friends. How many does each friend get? Second: you pack the twelve candies into bags, with three candies in each bag. How many bags do you fill? Both questions use the numbers 12 and 3, and both answers are 4. But they are not the same question, and if you act them out, your hands do very different things.",
+            "To answer the first question, you deal the candies out, one to each friend, around and around, like cards. You already know how many groups there are: three friends. You are finding out how big each group gets. American teachers often call this fair sharing. Taiwan's curriculum calls it pingfen, sharing equally. Dealing one at a time is a simple way to make sure that nobody gets more than anyone else.",
+            "To answer the second question, you fill one bag with three candies, then a second bag, then a third, until you run out. This time you know how big each group is: three candies. You are finding out how many groups you can make. Even so, both questions are written the same way: 12 ÷ 3 = 4, read “twelve divided by three equals four.” The number being divided, 12, is the dividend. The number you divide by, 3, is the divisor. The answer, 4, is the quotient.",
+            "Now try thirteen candies. Deal them to three friends, and each gets four, but one candy is left on the table. There is not enough for another round. The leftover is called the remainder. An American classroom writes 13 ÷ 3 = 4 R 1, where R stands for remainder. In Chinese you say the quotient is 4 and the remainder is 1. The remainder is always smaller than the divisor. If three candies were left, there would be enough for one more round.",
+            "Division and multiplication are partners. When the dealing is done, line up each plate's candies in a row. Three plates of four make three rows of four, which is the tray from the last lesson: 3 × 4 = 12. So 12 ÷ 3 = 4, because 3 × 4 = 12. This is also how to check an answer. Multiply the divisor by the quotient, add the remainder, and you should get back the number you started with: 3 × 4 + 1 = 13.",
+            "One number needs special care: zero. If you have no candies, everyone gets zero, so 0 ÷ 3 = 0. But you cannot divide by zero. Try sharing twelve candies among zero people, or packing them into bags that hold zero candies each. You could keep filling empty bags forever and never use up a single candy. Mathematicians say that dividing by zero is undefined: it has no answer at all."
+          ],
+          "paras_zh": [
+            "這裡有兩個關於同樣十二顆糖的問題。第一個：把十二顆糖平分給三個朋友，每個朋友分到幾顆？第二個：把十二顆糖裝袋，每袋裝三顆，可以裝滿幾袋？兩個問題用的都是 12 和 3，答案也都是 4。可是它們不是同一個問題；如果真的動手做做看，你的手做的事完全不一樣。",
+            "要回答第一個問題，你會像發牌一樣，一人一顆、一輪一輪地把糖發出去。你已經知道有幾組了：三個朋友。你要找的是每一組會有多少。美國老師常把這叫做 fair sharing（公平地分）；台灣的課綱叫它「平分」。一次發一顆，是確保沒有人比別人多的簡單方法。",
+            "要回答第二個問題，你會先把一個袋子裝三顆，再裝第二袋、第三袋，一直裝到糖用完為止。這一次你知道每一組有多大：三顆。你要找的是可以分成幾組。即使如此，兩個問題的寫法完全一樣：12 ÷ 3 = 4，英文唸 twelve divided by three equals four。被拿來除的 12 叫做被除數，拿去除的 3 叫做除數，答案 4 叫做商。",
+            "現在換成十三顆糖。發給三個朋友，每人四顆，可是桌上還剩一顆，不夠再發一輪了。剩下的叫做餘數。美國的教室寫成 13 ÷ 3 = 4 R 1，R 代表 remainder（餘數）。中文則說：商是 4，餘數是 1。餘數永遠比除數小——如果剩下三顆，就夠再發一輪了。",
+            "除法和乘法是一對搭檔。分完以後，把每個盤子裡的糖排成一排。三盤、每盤四顆，就成了三排、每排四顆——正是上一課的那一盤：3 × 4 = 12。所以 12 ÷ 3 = 4，因為 3 × 4 = 12。這也是驗算的方法：除數乘以商，再加上餘數，應該要回到原來的數：3 × 4 + 1 = 13。",
+            "有一個數要特別小心：零。如果一顆糖也沒有，每個人都分到零顆，所以 0 ÷ 3 = 0。可是你不能除以零。試試看把十二顆糖分給零個人，或是裝進每袋裝零顆的袋子裡：你可以一直裝空袋子裝到永遠，一顆糖都用不掉。數學家說，除以零是「沒有定義」的：它根本沒有答案。"
+          ],
+          "questions": [
+            "What is the difference between sharing equally and making groups?",
+            "Why must the remainder always be smaller than the divisor?",
+            "How can you check that 13 ÷ 3 = 4 R 1 is right?"
+          ],
+          "answers": [
+            "When you share equally, you know how many groups there are and find how many go in each. When you make groups, you know how many go in each group and find how many groups there are. Both are division.",
+            "If the leftover were as big as the divisor, there would be enough for one more round or one more group, so you would keep dividing.",
+            "Multiply the divisor by the quotient and add the remainder: 3 × 4 + 1 = 13, which is the number you started with."
+          ],
+          "vocab": [
+            {
+              "n": 1,
+              "w": "divide",
+              "pos": "v.",
+              "zh": "除；分",
+              "ex": "Twelve <b>divided</b> by three equals four.",
+              "exzh": "十二除以三等於四。"
+            },
+            {
+              "n": 2,
+              "w": "share",
+              "pos": "v.",
+              "zh": "分享；平分",
+              "ex": "We <b>share</b> the candies equally, so everyone gets four.",
+              "exzh": "我們把糖平分，每個人都分到四顆。"
+            },
+            {
+              "n": 3,
+              "w": "dividend",
+              "pos": "n.",
+              "zh": "被除數",
+              "ex": "In 12 ÷ 3, the <b>dividend</b> is 12.",
+              "exzh": "在 12 ÷ 3 裡，被除數是 12。"
+            },
+            {
+              "n": 4,
+              "w": "divisor",
+              "pos": "n.",
+              "zh": "除數",
+              "ex": "In 12 ÷ 3, the <b>divisor</b> is 3.",
+              "exzh": "在 12 ÷ 3 裡，除數是 3。"
+            },
+            {
+              "n": 5,
+              "w": "quotient",
+              "pos": "n.",
+              "zh": "商",
+              "ex": "The <b>quotient</b> of 12 and 3 is 4.",
+              "exzh": "12 除以 3 的商是 4。"
+            },
+            {
+              "n": 6,
+              "w": "remainder",
+              "pos": "n.",
+              "zh": "餘數",
+              "ex": "Thirteen divided by three is four with a <b>remainder</b> of one.",
+              "exzh": "十三除以三，商四，餘數是一。"
+            },
+            {
+              "n": 7,
+              "w": "left over",
+              "pos": "adj.",
+              "zh": "剩下的",
+              "ex": "One candy is <b>left over</b> on the table.",
+              "exzh": "桌上剩下一顆糖。"
+            },
+            {
+              "n": 8,
+              "w": "undefined",
+              "pos": "adj.",
+              "zh": "沒有定義的",
+              "ex": "Dividing by zero is <b>undefined</b>.",
+              "exzh": "除以零是沒有定義的。"
+            }
+          ],
+          "quiz": [
+            {
+              "q": "Twenty stickers are shared equally among 5 children. How many does each child get?",
+              "options": [
+                "15",
+                "25",
+                "4",
+                "100"
+              ],
+              "correct": 2
+            },
+            {
+              "q": "Eighteen plums are packed 6 to a bag. Which question does this answer?",
+              "options": [
+                "How many plums are in each bag?",
+                "How many bags are needed?",
+                "How many plums are there in all?",
+                "How many plums are left over?"
+              ],
+              "correct": 1
+            },
+            {
+              "q": "What is 17 ÷ 5?",
+              "options": [
+                "3 R 2",
+                "2 R 7",
+                "3 R 5",
+                "4 R 3"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "In 13 ÷ 3 = 4 R 1, which number is the divisor?",
+              "options": [
+                "13",
+                "4",
+                "1",
+                "3"
+              ],
+              "correct": 3
+            },
+            {
+              "q": "Which of these has no answer?",
+              "options": [
+                "0 ÷ 6",
+                "6 ÷ 6",
+                "6 ÷ 0",
+                "6 ÷ 1"
+              ],
+              "correct": 2
+            }
+          ],
+          "parts_head": {
+            "eyebrow": "Try It in the Model · 在模型裡試試",
+            "en": "Four things to watch",
+            "zh": "四件值得看的事"
+          },
+          "parts": [
+            {
+              "key": "share",
+              "icon": "12 ÷ 3",
+              "en": "Share equally",
+              "zh": "平分",
+              "meta_en": "3 people, how many each?",
+              "meta_zh": "3 個人，每人幾顆？",
+              "demo": "share",
+              "text_en": "Twelve candies dealt around to three plates, one at a time. Watch how the plates take turns, so no plate ever gets two ahead.",
+              "text_zh": "十二顆糖一顆一顆輪流發到三個盤子。看盤子怎麼輪流拿，沒有哪一盤會一下子多兩顆。"
+            },
+            {
+              "key": "group",
+              "icon": "3 / bag",
+              "en": "Make groups",
+              "zh": "分裝",
+              "meta_en": "3 in a bag, how many bags?",
+              "meta_zh": "每袋 3 顆，裝幾袋？",
+              "demo": "group",
+              "text_en": "The same twelve candies, but now each bag is filled before the next one opens. Same numbers, same answer, a different question.",
+              "text_zh": "同樣十二顆糖，這次一袋裝滿了才開下一袋。數字一樣、答案一樣，問的卻是另一件事。"
+            },
+            {
+              "key": "left",
+              "icon": "13 ÷ 3",
+              "en": "One left over",
+              "zh": "剩下一顆",
+              "meta_en": "4 R 1",
+              "meta_zh": "商 4，餘 1",
+              "demo": "left",
+              "text_en": "Thirteen among three: four each, and one candy that cannot be shared without breaking it. That one is the remainder.",
+              "text_zh": "十三顆分給三個人：每人四顆，還有一顆除非把它掰開，否則分不下去。那一顆就是餘數。"
+            },
+            {
+              "key": "array",
+              "icon": "3 × 4",
+              "en": "Back to the array",
+              "zh": "回到方陣",
+              "meta_en": "12 ÷ 3 = 4 because 3 × 4 = 12",
+              "meta_zh": "12 ÷ 3 = 4，因為 3 × 4 = 12",
+              "demo": "array",
+              "text_en": "After sharing, each plate lines up as a row. Three rows of four: the tray from Lesson 2. Division undoes multiplication.",
+              "text_zh": "分完以後，每個盤子排成一排。三排、每排四顆，就是第二課那一盤。除法就是把乘法倒過來。"
+            }
+          ],
+          "parts_note_en": "Then try 30 candies with bags of 1, and 7 candies among 10 people. What happens when the divisor is bigger than the number of candies?",
+          "parts_note_zh": "最後試試 30 顆糖、每袋 1 顆，以及 7 顆糖分給 10 個人。除數比糖還多的時候，會發生什麼事？",
+          "sayit": {
+            "eyebrow": "Say It · 怎麼唸",
+            "en": "How Do You Say It in English?",
+            "zh": "這個用英文怎麼唸",
+            "lead_en": "Division has its own set of words. Tap a speaker to hear each line in English or in Chinese.",
+            "lead_zh": "除法有一套自己的說法。點 🔊 聽每一列的英文或中文。",
+            "rows": [
+              {
+                "expr": "12 ÷ 3",
+                "say_en": "twelve divided by three",
+                "say_zh": "十二除以三",
+                "note_en": "The sign ÷ is read “divided by.”",
+                "note_zh": "÷ 這個符號英文唸 divided by。"
+              },
+              {
+                "expr": "12 ÷ 3 = 4",
+                "say_en": "twelve divided by three equals four",
+                "say_zh": "十二除以三等於四",
+                "note_en": "You can also say “is four.”",
+                "note_zh": "也可以說 is four。"
+              },
+              {
+                "expr": "13 ÷ 3 = 4 R 1",
+                "say_en": "thirteen divided by three is four with a remainder of one",
+                "say_zh": "十三除以三，商四，餘一",
+                "note_en": "R stands for remainder.",
+                "note_zh": "R 代表 remainder（餘數）。"
+              },
+              {
+                "expr": "dividend ÷ divisor = quotient",
+                "say_en": "dividend divided by divisor equals quotient",
+                "say_zh": "被除數除以除數等於商",
+                "note_en": "The names of the three numbers.",
+                "note_zh": "三個數各自的名字。"
+              },
+              {
+                "expr": "the quotient of 12 and 3",
+                "say_en": "the quotient of twelve and three",
+                "say_zh": "十二除以三的商",
+                "note_en": "Another way to say 12 ÷ 3.",
+                "note_zh": "12 ÷ 3 的另一種說法。"
+              },
+              {
+                "expr": "3 goes into 12 four times",
+                "say_en": "three goes into twelve four times",
+                "say_zh": "十二裡面有四個三",
+                "note_en": "Often heard when working through long division.",
+                "note_zh": "做直式除法時常聽到的說法。"
+              },
+              {
+                "expr": "12/4",
+                "say_en": "twelve over four",
+                "say_zh": "四分之十二",
+                "note_en": "A fraction bar is another way to write 12 ÷ 4. Fractions come in Lesson 4.",
+                "note_zh": "分數線是 12 ÷ 4 的另一種寫法。分數在第四課。"
+              },
+              {
+                "expr": "0 ÷ 5 = 0",
+                "say_en": "zero divided by five equals zero",
+                "say_zh": "零除以五等於零",
+                "note_en": "Zero divided by any number is zero. But five divided by zero is undefined.",
+                "note_zh": "零除以任何數都是零；但五除以零沒有定義。"
+              }
+            ],
+            "tip_en": "For teachers: these readings follow OpenStax Prealgebra 2e, section 1.5 (“We read this as twelve divided by four”; “The divisor 3 goes into 18 six times”; “309 with a remainder of 52”); see Sources.",
+            "tip_zh": "給老師：這些唸法依 OpenStax《Prealgebra 2e》1.5 節（We read this as twelve divided by four；The divisor 3 goes into 18 six times；309 with a remainder of 52），見資料出處。"
+          },
+          "kind": {
+            "eyebrow": "Game · 小遊戲",
+            "en": "Which Kind of Question Is It?",
+            "zh": "這是哪一種問法？",
+            "lead_en": "Eight short stories. For each one, decide: are you sharing equally, or making groups? There is no clock; the game only counts how many you get right on the first try.",
+            "lead_zh": "八個小故事。每一個都判斷看看：這是在平分，還是在分裝？這裡不計時；遊戲只記下你第一次就答對幾題。",
+            "note_en": "Two of the stories, about plums, come straight from the examples in the Common Core's table of problem types. The stories come in a new order each time you play.",
+            "note_zh": "其中兩個關於李子的故事，就是美國共同核心課程標準「題型表」裡的例子。每次玩，故事的順序都會換。",
+            "items": [
+              {
+                "en": "Twelve pencils are shared equally among 3 friends. How many pencils does each friend get?",
+                "zh": "十二枝鉛筆平分給 3 個朋友，每人分到幾枝？",
+                "kind": "share",
+                "total": 12,
+                "n": 3,
+                "ans_en": "Each friend gets 4 pencils.",
+                "ans_zh": "每人 4 枝。"
+              },
+              {
+                "en": "Eighteen plums are packed 6 to a bag. How many bags are needed?",
+                "zh": "十八顆李子每 6 顆裝一袋，需要幾個袋子？",
+                "kind": "group",
+                "total": 18,
+                "n": 6,
+                "ans_en": "3 bags are needed.",
+                "ans_zh": "需要 3 個袋子。"
+              },
+              {
+                "en": "Eighteen plums are shared equally into 3 bags. How many plums are in each bag?",
+                "zh": "十八顆李子平分到 3 個袋子裡，每袋幾顆？",
+                "kind": "share",
+                "total": 18,
+                "n": 3,
+                "ans_en": "Each bag holds 6 plums.",
+                "ans_zh": "每袋 6 顆。"
+              },
+              {
+                "en": "A relay team needs 4 runners. Twenty students sign up. How many teams can they make?",
+                "zh": "一隊接力要 4 個人，有 20 個學生報名，可以組成幾隊？",
+                "kind": "group",
+                "total": 20,
+                "n": 4,
+                "ans_en": "They can make 5 teams.",
+                "ans_zh": "可以組成 5 隊。"
+              },
+              {
+                "en": "Twenty-four dumplings are set out on 4 plates, the same number on each plate. How many are on each plate?",
+                "zh": "二十四顆水餃平均放在 4 個盤子上，每盤幾顆？",
+                "kind": "share",
+                "total": 24,
+                "n": 4,
+                "ans_en": "Each plate has 6 dumplings.",
+                "ans_zh": "每盤 6 顆。"
+              },
+              {
+                "en": "Each table seats 6 people. Thirty guests are coming. How many tables are needed?",
+                "zh": "一張桌子坐 6 個人，來了 30 位客人，需要幾張桌子？",
+                "kind": "group",
+                "total": 30,
+                "n": 6,
+                "ans_en": "5 tables are needed.",
+                "ans_zh": "需要 5 張桌子。"
+              },
+              {
+                "en": "Fifteen stickers are shared equally among 4 children. How many stickers does each child get?",
+                "zh": "十五張貼紙平分給 4 個小朋友，每人分到幾張？",
+                "kind": "share",
+                "total": 15,
+                "n": 4,
+                "ans_en": "Each child gets 3, and 3 are left over.",
+                "ans_zh": "每人 3 張，還剩 3 張。"
+              },
+              {
+                "en": "Twenty-five eggs are packed 6 to a box. How many boxes can be filled?",
+                "zh": "二十五顆蛋每 6 顆裝一盒，可以裝滿幾盒？",
+                "kind": "group",
+                "total": 25,
+                "n": 6,
+                "ans_en": "4 boxes are filled, and 1 egg is left over.",
+                "ans_zh": "裝滿 4 盒，還剩 1 顆。"
+              }
+            ]
+          },
+          "cycle": {
+            "eyebrow": "See Why · 看看為什麼",
+            "en": "What Will the Remainder Be?",
+            "zh": "餘數會是多少？",
+            "lead_en": "Pick a divisor. Every number from 1 to 30 is divided by it, and the big digit on each tile is the remainder. Tap a tile to see its whole division.",
+            "lead_zh": "先選一個除數。1 到 30 的每一個數都除以它，每一格裡的大數字就是餘數。點一格，看它完整的除法。",
+            "note_en": "The colors repeat because the remainders repeat: dividing by 4 leaves 1, 2, 3, 0, then 1, 2, 3, 0 again. A remainder can never reach the divisor. Encyclopaedia Britannica states the same rule for whole numbers: a = qb + r, “with r less than b.”",
+            "note_zh": "顏色會重複，是因為餘數會重複：除以 4 剩下 1、2、3、0，然後又是 1、2、3、0。餘數永遠到不了除數。《大英百科》對整數也寫了同一條規則：a = qb + r，而且 r 小於 b。"
+          },
+          "culture_cards": {
+            "eyebrow": "Stories Behind the Division Sign · 除號的故事",
+            "title_en": "A sign that used to mean minus, a colon, a bracket with no name, and two long words",
+            "title_zh": "原本是減號的符號、一個冒號、一個沒有名字的括號、兩個很長的字",
+            "lead_en": "Four short stories about how people have written and talked about division.",
+            "lead_zh": "關於人們怎麼寫除法、怎麼說除法的四個小故事。",
+            "cards": [
+              {
+                "k": "The Sign · 除號",
+                "en": "÷ used to mean minus",
+                "zh": "÷ 原本是減號",
+                "body_en": "The sign ÷ was first used for division by the mathematician Johann Rahn, in his book Teutsche Algebra in 1659. The mark itself was older. According to Jeff Miller's history of mathematical symbols, it “was used by many writers before Rahn as a minus sign.” Rahn's book was translated into English in 1668, and the new division sign came along with it.",
+                "body_zh": "÷ 第一次被拿來當除號，是數學家拉恩（Johann Rahn）在 1659 年出版的《德文代數》裡。這個記號本身更古老：根據傑夫・米勒整理的數學符號史，在拉恩之前，「有很多作者把它當成減號」。拉恩的書在 1668 年譯成英文，新的除號也跟著傳了過去。"
+              },
+              {
+                "k": "The Colon · 冒號",
+                "en": "Leibniz's two dots",
+                "zh": "萊布尼茲的兩個點",
+                "body_en": "Not everyone adopted ÷. In 1684 the mathematician Gottfried Wilhelm Leibniz used a colon, “:”, for both ratio and division. You may remember from Lesson 2 that Leibniz also disliked the × sign and used a dot instead. He liked his symbols small.",
+                "body_zh": "不是每個人都改用 ÷。1684 年，數學家萊布尼茲用冒號「:」同時表示比和除法。你可能還記得第二課：萊布尼茲也不喜歡 ×，改用一個點。他喜歡小小的符號。"
+              },
+              {
+                "k": "Long Division · 直式除法",
+                "en": "A bracket with no name",
+                "zh": "一個沒有名字的括號",
+                "body_en": "In an American classroom, long division is written with the divisor outside a bracket and the quotient on top. OpenStax notes that “in the past you may have used the notation 4)12.” Nineteenth-century U.S. textbooks wrote the divisor, dividend, and quotient on one line, as 36)116(3. And the bracket itself? Jeff Miller's history says simply: “The symbol does not have a name.”",
+                "body_zh": "在美國的教室，直式除法把除數寫在一個括號外面，商寫在上面。OpenStax 教科書提到：「你以前可能用過 4)12 這種寫法。」十九世紀美國的課本則把除數、被除數和商寫在同一行，像 36)116(3。至於那個括號本身呢？傑夫・米勒的符號史只說了一句：「這個符號沒有名字。」"
+              },
+              {
+                "k": "Two Long Words · 兩個長字",
+                "en": "Partitive and quotative",
+                "zh": "等分除與包含除",
+                "body_en": "Teachers have names for the two kinds of division. A teaching guide from the Utah State Board of Education calls them partitive (fair sharing) and quotative (measurement), and adds that students “are not expected to know or produce the terms.” Taiwan's curriculum calls them dengfen-chu and baohan-chu, but in Grade 2 it talks only about sharing and packing, without writing a division sign at all.",
+                "body_zh": "老師們替這兩種除法取了名字。美國猶他州教育委員會的教學指引叫它們 partitive（公平地分）和 quotative（測量），並且補一句：學生「不需要知道或說出這些名詞」。台灣的課綱叫它們「等分除」和「包含除」；不過在二年級，課綱只談「分裝與平分」，連除式都不寫。"
+              }
+            ]
+          },
+          "myths": [
+            {
+              "myth_en": "Sharing and making groups are two different kinds of math.",
+              "myth_zh": "平分和分裝是兩種不同的數學。",
+              "fact_en": "They ask different questions, but both are division and both are written the same way: 12 ÷ 3 = 4.",
+              "fact_zh": "它們問的問題不一樣，但都是除法，寫法也一樣：12 ÷ 3 = 4。"
+            },
+            {
+              "myth_en": "Dividing always makes a number smaller.",
+              "myth_zh": "除完以後，數一定會變小。",
+              "fact_en": "Not always. 12 ÷ 1 = 12: sharing twelve candies with one person leaves that person with all twelve.",
+              "fact_zh": "不一定。12 ÷ 1 = 12：十二顆糖分給一個人，他就拿到全部十二顆。"
+            },
+            {
+              "myth_en": "A remainder can be any size.",
+              "myth_zh": "餘數可以是任何大小。",
+              "fact_en": "A remainder is always less than the divisor. If you had that many left, you could share one more round.",
+              "fact_zh": "餘數一定比除數小。如果剩下那麼多，就還能再分一輪。"
+            },
+            {
+              "myth_en": "Dividing by zero gives zero.",
+              "myth_zh": "除以零的答案是零。",
+              "fact_en": "Zero divided by a number is zero, but a number divided by zero is undefined. No answer works.",
+              "fact_zh": "零除以一個數是零；但一個數除以零是「沒有定義」的，找不到任何答案。"
+            }
+          ],
+          "tricks_head": {
+            "en": "Division in a sentence",
+            "zh": "一句話記住除法"
+          },
+          "tricks": [
+            {
+              "title_en": "Know the groups? Find the size.",
+              "title_zh": "知道幾組，找每組幾個",
+              "body_en": "Know the size? Find the groups. Both are division.",
+              "body_zh": "知道每組幾個，就找有幾組。兩種都是除法。"
+            },
+            {
+              "title_en": "Leftovers are smaller than the divisor",
+              "title_zh": "餘數比除數小",
+              "body_en": "If it is not smaller, keep dividing.",
+              "body_zh": "如果沒有比較小，就再分一輪。"
+            },
+            {
+              "title_en": "Check it backward",
+              "title_zh": "倒回去驗算",
+              "body_en": "Divisor × quotient + remainder = dividend.",
+              "body_zh": "除數 × 商 ＋ 餘數 ＝ 被除數。"
+            },
+            {
+              "title_en": "Never divide by zero",
+              "title_zh": "不能除以零",
+              "body_en": "Zero can be divided. Nothing can be divided by zero.",
+              "body_zh": "零可以被除；但什麼數都不能除以零。"
+            }
+          ],
+          "notes_head": {
+            "eyebrow": "For Teachers · 給老師的提醒",
+            "en": "Names, order, and notation in Taiwan and the United States",
+            "zh": "台灣和美國的名稱、順序與寫法"
+          },
+          "notes": [
+            {
+              "en": "The two meanings go by different names. The Common Core's table of problem types calls them “Group Size Unknown (‘How many in each group?’ Division)” and “Number of Groups Unknown (‘How many groups?’ Division),” with the plum examples used in the game above. Taiwan's curriculum says pingfen and fenzhuang (sharing and packing) in Grade 2 (N-2-9) and names dengfen-chu and baohan-chu in a Grade 4 note (N-4-3).",
+              "zh": "兩種意思在兩邊有不同的名字。美國共同核心課程標準的題型表叫它們「每組幾個未知（How many in each group?）」和「組數未知（How many groups?）」，上面小遊戲裡的李子題就是它的例子。台灣課綱在二年級（N-2-9）說「分裝與平分」，到四年級（N-4-3）的備註才寫出「等分除和包含除」。"
+            },
+            {
+              "en": "Taiwan's order of teaching: in Grade 2, N-2-9 is “not division teaching”; it does not write division sentences or use the word chu, and it only uses problems that come out even. Grade 3 brings “the meaning and uses of division” (N-3-4), with the advice to handle problems that come out even first and remainders after. The same grade adds long division by a one-digit number (N-3-5) and multiplication and division as inverses (R-3-1).",
+              "zh": "台灣的教學順序：二年級 N-2-9 的備註寫明「本條目非除法教學，不列除式，不用『除』的名稱」，而且限相當於整除的問題。三年級 N-3-4 才是「除法的意義與應用」，備註建議「先處理整除情境，再處理有餘數的情境」；同年級還有 N-3-5（除以一位數的直式計算）和 R-3-1（乘除互逆）。"
+            },
+            {
+              "en": "Writing remainders. U.S. textbooks write 13 ÷ 3 = 4 R 1 (OpenStax: “The R stands for remainder”) and say “four with a remainder of one.” The Ministry of Education's dictionary describes the same thing in words: 45 divided by 6 gives a quotient of 7, and the remainder is 3. We did not find an official rule for how Taiwanese textbooks write a remainder inside an equation, so this page uses words in Chinese. Please follow the notation in your own textbook.",
+              "zh": "餘數怎麼寫。美國課本寫成 13 ÷ 3 = 4 R 1（OpenStax：「R 代表 remainder」），唸 four with a remainder of one。教育部《重編國語辭典》用文字描述：「如45除以6得商數7，則以45減去7乘以6所得的結果3即為餘數。」我們沒有找到官方規定台灣課本在算式裡怎麼寫餘數，所以這一頁的中文一律用「商幾，餘幾」的說法。請照您所用課本的寫法教。"
+            },
+            {
+              "en": "Long division sounds different in English. Students will hear “3 goes into 18 six times” (OpenStax) and see the divisor outside a bracket, a layout whose symbol “does not have a name” (Jeff Miller). Taiwan's long division by a one-digit number is a Grade 3 topic (N-3-5); its note asks teachers to include dividends that contain a 0.",
+              "zh": "直式除法的英文說法不一樣。學生會聽到「3 goes into 18 six times」（OpenStax），看到除數寫在括號外面——傑夫・米勒說這個符號「沒有名字」。台灣的除以一位數直式計算在三年級（N-3-5），備註提醒「須處理被除數有 0 的題型」。"
+            }
+          ],
+          "activities": [
+            {
+              "title_en": "Deal or Pack?",
+              "title_zh": "發牌還是裝袋？",
+              "materials": [
+                {
+                  "en": "About 20 counters, beans, or small candies for each pair",
+                  "zh": "每兩人約 20 個花片、豆子或小糖果"
+                },
+                {
+                  "en": "4 paper cups or small plates",
+                  "zh": "4 個紙杯或小盤子"
+                },
+                {
+                  "en": "Story cards, each with one division story",
+                  "zh": "故事卡，每張寫一個除法小故事"
+                }
+              ],
+              "steps": [
+                {
+                  "en": "One partner reads a story card aloud. The other partner acts it out with the counters before anyone writes a number.",
+                  "zh": "一個人把故事卡唸出來，另一個人先用花片演出來，演完之前不寫任何數字。"
+                },
+                {
+                  "en": "Decide together: did your hands deal the counters around (sharing equally), or fill one cup at a time (making groups)?",
+                  "zh": "一起決定：剛才你的手是一個一個輪流發（平分），還是一杯裝滿再裝下一杯（分裝）？"
+                },
+                {
+                  "en": "Write the division sentence and the answer. If some counters are left, say how many and why they cannot be shared.",
+                  "zh": "寫下除法算式和答案。如果有剩下的花片，說說剩下幾個，以及為什麼分不下去。"
+                },
+                {
+                  "en": "Swap roles. After four stories, put your cards in two piles, sharing and grouping, and compare piles with another pair.",
+                  "zh": "交換角色。做完四個故事以後，把卡片分成「平分」和「分裝」兩疊，再和別組比一比。"
+                }
+              ],
+              "tip_en": "Acting out first is what Taiwan's Grade 2 item N-2-9 asks for: sharing and packing with hands-on activities, before any division sentence is written. The Utah guide adds that students should meet both kinds of problems without having to know their names. Include a story where the divisor is larger than the number of counters (3 counters among 4 people) and talk about why each person gets zero.",
+              "tip_zh": "先演再寫，正是台灣課綱 N-2-9 的做法：以操作活動理解分裝與平分，先不列除式。猶他州的教學指引也說，學生應該兩種題型都碰到，但不必知道它們的名稱。可以加一個除數比花片還多的故事（3 個花片分給 4 個人），討論為什麼每人分到零個。"
+            },
+            {
+              "title_en": "Remainder Hunt",
+              "title_zh": "找餘數",
+              "materials": [
+                {
+                  "en": "20 counters for each group",
+                  "zh": "每組 20 個花片"
+                },
+                {
+                  "en": "A recording table with the numbers 1 to 20 down the side and “÷ 3,” “÷ 4,” and “÷ 5” across the top",
+                  "zh": "一張記錄表：左邊直寫 1 到 20，上面橫寫「÷ 3」「÷ 4」「÷ 5」"
+                }
+              ],
+              "steps": [
+                {
+                  "en": "For each number from 1 to 20, make groups of 3 with that many counters and record what is left over.",
+                  "zh": "1 到 20 的每一個數，都拿那麼多個花片三個三個分組，記下剩下幾個。"
+                },
+                {
+                  "en": "Do the same with groups of 4 and groups of 5.",
+                  "zh": "再用四個一組、五個一組各做一次。"
+                },
+                {
+                  "en": "Color each remainder a different color and look down each column. What pattern do you see?",
+                  "zh": "把不同的餘數塗不同顏色，沿著每一直行往下看。你看到什麼規律？"
+                },
+                {
+                  "en": "Ask: what is the biggest remainder you found when dividing by 4? Could it ever be 4 or more?",
+                  "zh": "問：除以 4 的時候，你找到最大的餘數是多少？它有可能是 4 或更大嗎？"
+                }
+              ],
+              "tip_en": "Students should find that the remainders repeat 0, 1, 2 for groups of 3, and never reach the divisor. Taiwan's curriculum suggests handling even division first and remainders after (N-3-4), so this activity fits after students are comfortable sharing without leftovers. The “What Will the Remainder Be?” strip above shows the same pattern up to 30.",
+              "tip_zh": "學生應該會發現：三個一組時，餘數 0、1、2 一直重複，永遠到不了除數。台灣課綱建議先處理整除、再處理有餘數的情境（N-3-4），所以這個活動適合放在學生熟悉「剛好分完」之後。上面「餘數會是多少？」的那一條，把同樣的規律畫到 30。"
+            }
+          ],
+          "links_head": {
+            "eyebrow": "Go Further · 延伸閱讀",
+            "en": "The lesson before, and the one coming next",
+            "zh": "上一課，以及下一課"
+          },
+          "links": [
+            {
+              "icon": "✖️",
+              "k_en": "Math You Can See · Lesson 2",
+              "k_zh": "看得見的數學・第二課",
+              "en": "Why Is 3 × 4 the Same as 4 × 3?",
+              "zh": "乘法為什麼可以交換？",
+              "note_en": "Lining the plates up as rows brings back Lesson 2's tray. But careful: multiplication can be turned around, and division cannot. 12 ÷ 3 is 4, while 3 ÷ 12 is not.",
+              "note_zh": "把盤子排成一排一排，就回到第二課那一盤。不過要小心：乘法可以交換，除法不行。12 ÷ 3 是 4，3 ÷ 12 卻不是。",
+              "href": "/resources/classes/math/three-times-four/"
+            },
+            {
+              "icon": "🍕",
+              "k_en": "Math You Can See · Lesson 4",
+              "k_zh": "看得見的數學・第四課",
+              "en": "Why Can't You Just Add the Bottoms?",
+              "zh": "分數相加，為什麼不能分母加分母？",
+              "note_en": "What if you break the leftover candy into pieces? Sharing one candy among three people gives each a third, and that is where fractions begin.",
+              "note_zh": "如果把剩下的那顆糖掰開呢？一顆糖分給三個人，每人三分之一——分數就從這裡開始。",
+              "soon": true
+            }
+          ],
+          "sources_note_en": "Facts, quotations, and readings on this page were checked against these sources (October 2026); the numbers in the model are computed and tested",
+          "sources_note_zh": "本頁的事實、引文與唸法依下列資料查證（2026 年 10 月）；模型裡的數字是自己算的，並有測試",
+          "sources": [
+            {
+              "en": "“We read this as twelve divided by four”; dividend and divisor; “the quotient of 12 and 4”; 12 ÷ 4, 12 / 4, and 4)12; “The R stands for remainder”; “309 with a remainder of 52”; “The divisor 3 goes into 18 six times”; “division is the inverse operation of multiplication”; “Zero divided by any number is 0”; “Dividing a number by zero is undefined”",
+              "zh": "12 ÷ 4 的唸法；被除數、除數、商；三種寫法；R 代表餘數；goes into；除法是乘法的逆運算；零除以任何數為零、除以零沒有定義",
+              "src": "OpenStax, Prealgebra 2e, section 1.5 “Divide Whole Numbers”",
+              "url": "https://openstax.org/books/prealgebra-2e/pages/1-5-divide-whole-numbers"
+            },
+            {
+              "en": "“interpret 56 ÷ 8 as the number of objects in each share when 56 objects are partitioned equally into 8 shares, or as a number of shares when 56 objects are partitioned into equal shares of 8 objects each” (3.OA.A.2); division as an unknown-factor problem (3.OA.B.6)",
+              "zh": "56 ÷ 8 的兩種解讀（3.OA.A.2）；除法是未知因數的問題（3.OA.B.6）",
+              "src": "Common Core State Standards for Mathematics, Grade 3, Operations and Algebraic Thinking",
+              "url": "https://www.thecorestandards.org/Math/Content/3/OA/"
+            },
+            {
+              "en": "“Group Size Unknown (‘How many in each group?’ Division)” and “Number of Groups Unknown (‘How many groups?’ Division)”; “If 18 plums are shared equally into 3 bags…”; “If 18 plums are to be packed 6 to a bag…”",
+              "zh": "題型表：每組幾個未知、組數未知；十八顆李子的兩個例子",
+              "src": "Common Core State Standards, Mathematics Glossary, Table 2",
+              "url": "https://www.thecorestandards.org/Math/Content/mathematics-glossary/Table-2/"
+            },
+            {
+              "en": "“partitive (fair sharing) and quotative (measurement)”; “Students are not expected to know or produce the terms partitive and quotative”",
+              "zh": "partitive（公平地分）與 quotative（測量）；學生不需要知道或說出這些名詞",
+              "src": "Utah State Board of Education, Grade 3 Core Guide, Operations and Algebraic Thinking",
+              "url": "https://schools.utah.gov/curr/mathematics/_mathematics_/_core/_math_core_guides_tab_/CoreGuidesGrade3OperationsAlgebraic.pdf"
+            },
+            {
+              "en": "Remainder: “The number left over when we take away as many equal groups as we can from a number”",
+              "zh": "remainder 的定義",
+              "src": "Illustrative Mathematics K–5, Grade 4 Glossary",
+              "url": "https://curriculum.illustrativemathematics.org/k5/teachers/grade-4/course-guide/glossary.html"
+            },
+            {
+              "en": "Division, “its symbol ÷, read ‘divided by’”; a = qb + r, “with r less than b,” where r is the remainder",
+              "zh": "÷ 唸 divided by；a = qb + r，r 小於 b，r 是餘數",
+              "src": "Encyclopaedia Britannica, “arithmetic”",
+              "url": "https://www.britannica.com/science/arithmetic"
+            },
+            {
+              "en": "÷ “first used as a division symbol by Johann Rahn … in 1659 in Teutsche Algebra”; “used by many writers before Rahn as a minus sign”; Leibniz “used : for both ratio and division in 1684”; 36)116(3 in nineteenth-century U.S. textbooks; “The symbol does not have a name”",
+              "zh": "拉恩 1659 年的除號；之前被當成減號；萊布尼茲 1684 年的冒號；十九世紀美國課本的寫法；直式除法的括號沒有名字",
+              "src": "Jeff Miller, “Earliest Uses of Symbols of Operation,” MacTutor History of Mathematics Archive",
+              "url": "https://mathshistory.st-andrews.ac.uk/Miller/mathsym/operation/"
+            },
+            {
+              "en": "Learning content N-2-9, N-3-4, N-3-5, R-3-1, and N-4-3, with their notes",
+              "zh": "學習內容 N-2-9、N-3-4、N-3-5、R-3-1、N-4-3 及備註",
+              "src": "教育部《十二年國民基本教育課程綱要 國民中小學暨普通型高級中等學校 數學領域》（2018）",
+              "url": "https://www.naer.edu.tw/upload/1/16/doc/815/十二年國民基本教育課程綱要國民中小學暨普通型高級中等學校-數學領域.pdf"
+            },
+            {
+              "en": "Dividend: when A is divided by B, A is the dividend. Remainder: in whole-number division, the dividend minus the quotient times the divisor; “45 divided by 6 gives a quotient of 7 … the result 3 is the remainder”",
+              "zh": "被除數：「甲數除以乙數，甲數稱為『被除數』」；餘數：「如45除以6得商數7，則以45減去7乘以6所得的結果3即為餘數」",
+              "src": "教育部《重編國語辭典修訂本》「被除數」「餘數」",
+              "url": "https://dict.revised.moe.edu.tw/dictView.jsp?ID=163186"
+            },
+            {
+              "en": "Chinese terms: division 除法, dividend 被除數, divisor 除數, quotient 商, remainder 餘數, long division 長除法",
+              "zh": "中文名詞：除法、被除數、除數、商、餘數、長除法",
+              "src": "國家教育研究院 樂詞網（數學名詞）",
+              "url": "https://terms.naer.edu.tw/"
+            }
+          ]
         }
       ],
       "planned": [
-        {
-          "n": 3,
-          "icon": "🍬",
-          "en": "What Does Division Really Mean?",
-          "zh": "除法到底是什麼意思？"
-        },
         {
           "n": 4,
           "icon": "🍕",

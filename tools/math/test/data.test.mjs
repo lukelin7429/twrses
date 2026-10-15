@@ -59,10 +59,11 @@ assert.equal(numeral([6, 0, 4]), '406');
 // 小卡的示範鍵要和 math-blocks.js 的 DEMO 一致
 const src = readFileSync(new URL('../src/math-blocks.js', import.meta.url), 'utf8');
 L.parts.forEach((p) => assert.ok(new RegExp(`\\n    ${p.demo}\\(\\) \\{`).test(src), `DEMO.${p.demo}`));
+let M;
 // ── 第二課：乘法為什麼可以交換 ──────────────────────────────────────────
 {
   const { factsToLearn, pairsOf, skipCount, total } = await import('../src/array.js');
-  const M = lessons.find((l) => l.slug === 'three-times-four');
+  M = lessons.find((l) => l.slug === 'three-times-four');
   assert.equal(M.n, 2); assert.equal(M.lab.kind, 'array');
   assert.equal(M.paras.length, 6); assert.equal(M.paras_zh.length, 6);
   assert.equal(M.vocab.length, 8); assert.equal(M.questions.length, 3); assert.equal(M.answers.length, 3);
@@ -89,6 +90,41 @@ L.parts.forEach((p) => assert.ok(new RegExp(`\\n    ${p.demo}\\(\\) \\{`).test(s
   assert.equal(M.quiz[4].options[M.quiz[4].correct], '12 square units');
   // 第一課延伸閱讀的第二課卡片已經是真的連結
   assert.ok(L.links.some((x) => x.href === '/resources/classes/math/three-times-four/' && !x.soon));
+}
+// ── 第三課：除法到底是什麼意思 ──────────────────────────────────────────
+{
+  const { divide } = await import('../src/divide.js');
+  const D = lessons.find((l) => l.slug === 'what-is-division');
+  assert.equal(D.n, 3); assert.equal(D.lab.kind, 'divide');
+  for (const [k, n] of [['paras', 6], ['paras_zh', 6], ['vocab', 8], ['questions', 3], ['answers', 3], ['quiz', 5], ['parts', 4], ['myths', 4], ['tricks', 4], ['activities', 2], ['notes', 4]]) assert.equal(D[k].length, n, k);
+  assert.equal(D.culture_cards.cards.length, 4);
+  D.quiz.forEach((q) => { assert.equal(q.options.length, 4); assert.ok(q.correct >= 0 && q.correct < 4); });
+  assert.ok(D.sayit.rows.length >= 6 && D.sayit.rows.length <= 8);
+  D.sayit.rows.forEach((r) => assert.ok(!/\d/.test(r.say_en) && !/\d/.test(r.say_zh), `唸法裡不能有阿拉伯數字：${r.expr}`));
+  const src3 = readFileSync(new URL('../src/math-divide.js', import.meta.url), 'utf8');
+  D.parts.forEach((p) => assert.ok(new RegExp(`\\n    ${p.demo}\\(\\) \\{`).test(src3), `DEMO.${p.demo}`));
+  // 「這是哪一種問法」八題：兩種各四題，數字在模型的範圍內，答案句裡的數和算出來的一樣
+  assert.equal(D.kind.items.length, 8);
+  assert.equal(D.kind.items.filter((x) => x.kind === 'share').length, 4);
+  D.kind.items.forEach((x) => {
+    assert.ok(['share', 'group'].includes(x.kind)); assert.ok(x.total >= 1 && x.total <= 30 && x.n >= 1 && x.n <= 10);
+    const { q, r } = divide(x.total, x.n), nums = (x.ans_en.match(/\d+/g) || []).map(Number);
+    assert.equal(nums[0], q, x.en); if (r) assert.equal(nums[1], r, x.en); else assert.equal(nums.length, 1, x.en);
+  });
+  // 課文與卡片裡的數
+  assert.deepEqual(divide(12, 3), { q: 4, r: 0 }); assert.deepEqual(divide(13, 3), { q: 4, r: 1 });
+  assert.equal(3 * 4 + 1, 13); assert.deepEqual(divide(45, 6), { q: 7, r: 3 }); assert.equal(45 - 7 * 6, 3);   // 教育部辭典的例子
+  assert.deepEqual(divide(18, 6), { q: 3, r: 0 }); assert.deepEqual(divide(18, 3), { q: 6, r: 0 });         // CCSS 的李子
+  assert.deepEqual(divide(56, 8), { q: 7, r: 0 }); assert.deepEqual(divide(12, 1), { q: 12, r: 0 }); assert.deepEqual(divide(0, 3), { q: 0, r: 0 });
+  assert.deepEqual(divide(116, 36), { q: 3, r: 8 });     // 36)116(3：十九世紀美國課本的例子
+  assert.deepEqual(divide(3, 4), { q: 0, r: 3 });        // 活動一：3 個花片分給 4 個人
+  assert.throws(() => divide(12, 0));
+  // 小測驗的答案
+  assert.equal(D.quiz[0].options[D.quiz[0].correct], String(divide(20, 5).q));
+  assert.equal(D.quiz[2].options[D.quiz[2].correct], `${divide(17, 5).q} R ${divide(17, 5).r}`);
+  assert.equal(D.quiz[4].options[D.quiz[4].correct], '6 ÷ 0');
+  // 第二課延伸閱讀的第三課卡片已經是真的連結
+  assert.ok(M.links.some((x) => x.href === '/resources/classes/math/what-is-division/' && !x.soon));
 }
 // 美式拼字：常見的英式拼法不能出現在英文欄位
 // （出處欄的逐字引文照原文，例如 MacTutor 的 “civilisation”，所以 sources 不掃）

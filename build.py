@@ -19948,7 +19948,7 @@ def build_art_hub():
 _mathj = os.path.join(ROOT, "data", "math.json")
 MATH = json.load(open(_mathj, encoding="utf-8")) if os.path.exists(_mathj) else None
 MATH_BASE = "/resources/classes/math/"
-_MATH_JS = {"blocks": "math-blocks", "array": "math-array"}   # lab.kind → assets/js/<bundle>.js
+_MATH_JS = {"blocks": "math-blocks", "array": "math-array", "divide": "math-divide"}   # lab.kind → assets/js/<bundle>.js
 
 def _math_ver():
     h = hashlib.md5()
@@ -20145,6 +20145,95 @@ def _math_table(tb):
 <p class="mth-note rvl">{html.escape(tb["note_en"])}<span class="zh">{html.escape(tb["note_zh"])}</span></p>'''
 
 
+def mathdivide_svg(size=56):
+    """第三課的課程卡小圖示：三個盤子各有四顆糖，下面剩一顆。"""
+    cols = ["#e2574c", "#f4c542", "#4fb477", "#4a90d9"]
+    out = []
+    for p, cx in enumerate((12, 30, 48)):
+        out.append(f'<ellipse cx="{cx}" cy="24" rx="8.6" ry="6.2" fill="#f2efe6" stroke="#9fb0cf" stroke-width="1"/>')
+        for k, (dx, dy) in enumerate(((-2.6, -1.8), (2.6, -1.8), (-2.6, 2), (2.6, 2))):
+            out.append(f'<circle cx="{cx + dx}" cy="{24 + dy}" r="1.9" fill="{cols[(p + k) % 4]}"/>')
+    out.append('<circle cx="30" cy="46" r="3.4" fill="#b066d6" stroke="#ffd36e" stroke-width="1.6"/>')
+    return f'<svg class="mathdivide-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">{"".join(out)}</svg>'
+
+_MATH_CARD["divide"] = mathdivide_svg
+
+def render_mathdivide_lab(lesson):
+    """第三課：桌上的糖與盤子（assets/js/math-divide.js 綁這裡的 class；全部自繪示意）。"""
+    lab = lesson["lab"]
+    speeds = [("0.5", "½×", "慢"), ("1", "1×", "原速"), ("3", "3×", "快")]
+    sb = "".join(f'<button type="button" data-speed="{k}" aria-pressed="{"true" if k == "1" else "false"}">{en}<small>{zh}</small></button>' for k, en, zh in speeds)
+    tg = _lab_toggles([("labels", "Labels", "標籤", True)])
+    return f'''<div class="astro-lab mth-lab mth-dv-lab rvl" data-mathdivide-lab data-mode="share">
+  <div class="al-stage">
+    <div class="al-space">
+      <canvas class="al-space-cv" aria-label="3D model of candies on a table being shared onto plates or packed into bags · 桌上的糖平分到盤子裡、或每幾顆裝一袋的 3D 模型"></canvas>
+      <div class="al-labels" aria-hidden="true"></div>
+      <p class="al-hint">Drag to turn the view · 拖曳旋轉視角　Scroll or pinch to zoom · 滾輪／雙指縮放</p>
+      <button type="button" class="al-home" title="Reset view · 重設視角" aria-label="Reset view · 重設視角">&#8634;</button>
+      <p class="al-nogl-msg">This 3D model needs WebGL, which this browser does not support. The number sentences, the sliders, and the buttons beside it still work, and so do the reading, the cards, and the games.<br><span class="zh">這個瀏覽器不支援 WebGL，無法顯示 3D 模型；旁邊的算式、滑桿和按鈕照樣能用，課文、卡片和小遊戲也都能用。</span></p>
+    </div>
+    <aside class="al-sky mth-aside">
+      <div class="mth-seg mth-seg-mode" role="group" aria-label="Which question · 哪一種問法">
+        <button type="button" data-mode-btn="share" aria-pressed="true"><b>Share equally</b><small>平分：每人幾顆？</small></button>
+        <button type="button" data-mode-btn="group" aria-pressed="false"><b>Make groups</b><small>分裝：每袋幾顆，裝幾袋？</small></button>
+      </div>
+      <label class="mth-sl"><span>Candies · 一共幾顆 <b class="mth-dv-total-out">13</b></span>
+        <input type="range" class="mth-dv-total" min="1" max="30" step="1" value="13" aria-label="Number of candies, 1 to 30 · 糖的數目，1 到 30"></label>
+      <label class="mth-sl"><span><span class="mth-dv-nk">Share among · 分給幾人</span> <b class="mth-dv-n-out">3</b></span>
+        <input type="range" class="mth-dv-n" min="1" max="10" step="1" value="3" aria-label="People to share among, or candies in each bag, 1 to 10 · 分給幾人或每袋幾顆，1 到 10"></label>
+      <div class="mth-btns">
+        <button type="button" class="mth-btn-d mth-add mth-deal">Deal · 開始分</button>
+        <button type="button" class="mth-btn-d mth-dv-reset">Reset · 收回來</button>
+        <button type="button" class="mth-btn-d mth-arrange" disabled>Line up in rows · 排成方陣</button>
+      </div>
+      <div class="mth-dv-qr">
+        <p><span class="mth-dv-qk">Each person gets<small>每人分到</small></span><b class="mth-dv-q">?</b></p>
+        <p><span>Left over<small>剩下（餘數）</small></span><b class="mth-dv-r">?</b></p>
+      </div>
+      <div class="mth-dv-eqs" aria-live="polite">
+        <p><small>U.S. · 美國寫法</small><b class="mth-dv-us">13 ÷ 3 = ?</b></p>
+        <p class="mth-dv-zhrow"><small>In Chinese · 中文說法</small><b class="mth-dv-tw">13 除以 3，商多少？</b></p>
+        <p class="mth-dv-check"></p>
+      </div>
+      <p class="mth-msg" aria-live="polite"></p>
+    </aside>
+  </div>
+  <div class="al-controls">
+    <div class="al-row al-row-main">
+      <div class="mth-seg mth-seg-speed mth-seg-3" role="group" aria-label="Speed · 速度">{sb}</div>
+      <div class="al-row al-toggles">{tg}</div>
+    </div>
+  </div>
+  {_lab_foot(lab)}
+  <p class="mth-credit">{lab["credit_html"]}</p>
+</div>'''
+
+def _math_kind(kd):
+    items = html.escape(json.dumps(kd["items"], ensure_ascii=False))
+    return f'''<div class="mth-pq mth-kd rvl" data-mth-kind data-items="{items}">
+  <div class="mth-pq-top"><p class="mth-pq-k"></p><p class="mth-pq-sc">Right on the first try · 第一次就答對 <b class="mth-pq-score">0 / 0</b></p></div>
+  <p class="mth-kd-q" aria-live="polite"></p>
+  <div class="mth-kd-opts" role="group" aria-label="Which kind of division · 哪一種除法">
+    <button type="button" class="mth-pq-opt mth-kd-opt" data-kind="share">Sharing equally<small>平分：知道有幾組，找每組幾個</small></button>
+    <button type="button" class="mth-pq-opt mth-kd-opt" data-kind="group">Making groups<small>分裝：知道每組幾個，找有幾組</small></button>
+  </div>
+  <p class="mth-pq-msg" aria-live="polite"></p>
+  <div class="mth-pq-foot"><span></span><button type="button" class="mth-btn mth-btn-gold mth-pq-next" hidden>Next · 下一題</button></div>
+</div>
+<p class="mth-note rvl">{html.escape(kd["note_en"])}<span class="zh">{html.escape(kd["note_zh"])}</span></p>'''
+
+def _math_cycle(cy):
+    seg = "".join(f'<button type="button" data-d="{d}" aria-pressed="{"true" if d == 3 else "false"}">÷ {d}</button>' for d in range(2, 11))
+    return f'''<div class="mth-cy rvl" data-mth-cycle>
+  <p class="mth-k">Divide by · 除以</p>
+  <div class="mth-cy-seg" role="group" aria-label="Choose the divisor · 選除數">{seg}</div>
+  <div class="mth-cy-strip" role="group" aria-label="Remainders of 1 to 30 · 1 到 30 的餘數"></div>
+  <p class="mth-cy-key"><span><small>12</small> the number · 被除數</span><span><b>0</b> the remainder · 餘數</span></p>
+  <p class="mth-cy-msg" aria-live="polite"></p>
+</div>
+<p class="mth-note rvl">{html.escape(cy["note_en"])}<span class="zh">{html.escape(cy["note_zh"])}</span></p>'''
+
 def _math_pile(pq):
     return f'''<div class="mth-pq rvl" data-mth-pile>
   <div class="mth-pq-top"><p class="mth-pq-k"></p><p class="mth-pq-sc">Right on the first try · 第一次就答對 <b class="mth-pq-score">0 / 0</b></p></div>
@@ -20199,7 +20288,7 @@ def build_math_lesson(ui, unit, lesson):
     reading_html = render_basic_unit(1, unit_dict, level="math", audio_rel="", pdf_rel="")
     lab = lesson["lab"]
     kind = lab["kind"]
-    lab_html = {"blocks": render_mathblocks_lab, "array": render_matharray_lab}[kind](lesson)
+    lab_html = {"blocks": render_mathblocks_lab, "array": render_matharray_lab, "divide": render_mathdivide_lab}[kind](lesson)
 
     def sec(key, fn):
         d = lesson[key]
@@ -20226,6 +20315,8 @@ def build_math_lesson(ui, unit, lesson):
     if lesson.get("same"): secs.append(sec("same", _math_same))
     if lesson.get("match"): secs.append(sec("match", _math_match))
     if lesson.get("table"): secs.append(sec("table", _math_table))
+    if lesson.get("kind"): secs.append(sec("kind", _math_kind))
+    if lesson.get("cycle"): secs.append(sec("cycle", _math_cycle))
     if lesson.get("culture_cards"):
         cu = lesson["culture_cards"]
         cc = "".join(
