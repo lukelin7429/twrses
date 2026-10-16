@@ -19532,7 +19532,7 @@ def build_usg_hub():
 _artj = os.path.join(ROOT, "data", "art.json")
 ART = json.load(open(_artj, encoding="utf-8")) if os.path.exists(_artj) else None
 ART_BASE = "/resources/classes/art/"
-_ART_JS = {"lights": "art-lights", "wheel": "art-wheel", "ball": "art-ball", "line": "art-line", "hall": "art-hall", "depth": "art-depth", "frame": "art-frame", "face": "art-face", "pigment": "art-pigment"}   # lab.kind → assets/js/<bundle>.js
+_ART_JS = {"lights": "art-lights", "wheel": "art-wheel", "ball": "art-ball", "line": "art-line", "hall": "art-hall", "depth": "art-depth", "frame": "art-frame", "face": "art-face", "pigment": "art-pigment", "media": "art-media"}   # lab.kind → assets/js/<bundle>.js
 
 def _art_ver():
     h = hashlib.md5()
@@ -19621,7 +19621,14 @@ def artpigment_svg(size=56):
             '<rect x="4" y="40" width="44" height="3" rx="1.5" fill="#6b5a40"/>'
             '<path d="M47 12C54 14 55 24 50 30C46 35 47 44 52 50" fill="none" stroke="#2940a6" stroke-width="6" stroke-linecap="round" opacity=".85"/></svg>')
 
-_ART_CARD = {"lights": artlights_svg, "wheel": artwheel_svg, "ball": artball_svg, "line": artline_svg, "hall": arthall_svg, "depth": artdepth_svg, "frame": artframe_svg, "face": artface_svg, "pigment": artpigment_svg}
+def artmedia_svg(size=56):
+    """第十課的課程卡小圖示：三顆小蘋果：彩色透明、深底亮點、墨色。"""
+    return (f'<svg class="armedia-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">'
+            '<circle cx="12" cy="34" r="9" fill="#e78b84"/><circle cx="9" cy="31" r="2.4" fill="#fbf8f0"/>'
+            '<circle cx="30" cy="34" r="9" fill="#a8241d"/><circle cx="27" cy="31" r="2.4" fill="#f7efe1"/>'
+            '<circle cx="48" cy="34" r="9" fill="#8d8b86"/><path d="M48 24V19M30 24V19M12 24V19" stroke="#3a2a1a" stroke-width="2"/></svg>')
+
+_ART_CARD = {"lights": artlights_svg, "wheel": artwheel_svg, "ball": artball_svg, "line": artline_svg, "hall": arthall_svg, "depth": artdepth_svg, "frame": artframe_svg, "face": artface_svg, "pigment": artpigment_svg, "media": artmedia_svg}
 
 def render_artlights_lab(lesson):
     """第一課：暗房裡的三盞燈／三片顏料（assets/js/art-lights.js 綁這裡的 class；右邊欄的字由程式依模式填入）。"""
@@ -20154,6 +20161,64 @@ def render_artpigment_lab(lesson):
   <p class="ar-credit">{lab["credit_html"]}</p>
 </div>'''
 
+def render_artmedia_lab(lesson):
+    """第十課：同一顆蘋果，水彩、油畫、水墨並排一步一步畫（assets/js/art-media.js 綁這裡的 class；2D canvas）。"""
+    lab = lesson["lab"]
+    notes = "".join(f'<li>{html.escape(n["en"])}<span class="zh">{html.escape(n["zh"])}</span></li>' for n in lab["notes"])
+    panels = "".join(
+        f'<figure class="ar-md-fig" data-m="{k}"><figcaption class="ar-md-name"><span aria-hidden="true">{m}</span> {en} <span class="zh">{zh}</span></figcaption>'
+        f'<canvas class="ar-md-cv" data-m="{k}" width="360" height="360" role="img" aria-label="An apple being painted in {en.lower()}; the text below describes the current step · 用{zh}畫的蘋果；下面的文字說明現在這一步"></canvas>'
+        f'<p class="ar-md-cap" data-m="{k}" aria-live="polite"></p></figure>'
+        for k, m, en, zh in [("watercolor", "&#128167;", "Watercolor", "水彩"), ("oil", "&#127912;", "Oil paint", "油畫"), ("ink", "&#128396;", "Ink", "水墨")])
+    return f'''<div class="astro-lab ar-mlab rvl" data-artmedia-lab>
+  <div class="ar-md-top">
+    <p class="al-sky-k ar-md-k">Step 1 of 4 · 第 1 步（共 4 步）</p>
+    <div class="ar-md-ctl">
+      <button type="button" class="ar-btn ar-md-prev">&larr; Back · 上一步</button>
+      <label class="ar-md-sl"><input type="range" min="1" max="4" step="1" value="1" aria-label="Step, from 1 to 4 · 步驟，從 1 到 4"></label>
+      <button type="button" class="ar-btn ar-btn-gold ar-md-nextb">Next · 下一步 &rarr;</button>
+    </div>
+  </div>
+  <div class="ar-md-grid">{panels}</div>
+  <p class="ar-msg" aria-live="polite"></p>
+  <div class="ar-note">
+    <p class="ar-note-h">{html.escape(lab["note_head_en"])} <span class="zh">{html.escape(lab["note_head_zh"])}</span></p>
+    <ul>{notes}</ul>
+    <p class="ar-note-end">{html.escape(lab["note_end_en"])}<span class="zh">{html.escape(lab["note_end_zh"])}</span></p>
+  </div>
+  <p class="ar-credit">{lab["credit_html"]}</p>
+</div>'''
+
+def _ar_which(d):
+    opts = "".join(
+        f'<button type="button" class="ar-lp-opt" data-medium="{k}"><i aria-hidden="true">{m}</i><b>{en}</b><span class="zh">{zh}</span><span class="ar-pk-mk"></span></button>'
+        for k, m, en, zh in [("watercolor", "&#128167;", "Watercolor", "水彩"), ("oil", "&#127912;", "Oil paint", "油畫"), ("ink", "&#128396;", "Ink", "水墨")])
+    return f'''<div class="ar-match ar-whichq rvl" data-ar-which>
+  <div class="ar-mt-top"><p class="ar-mt-k ar-wc-k">Close-up 1 of 6 · 第 1 張特寫（共 6 張）</p><p class="ar-mt-sc">Right · 答對 <b class="ar-mt-score ar-wc-score">0 / 0</b></p></div>
+  <div class="ar-mt-steps ar-wc-steps" aria-hidden="true"></div>
+  <div class="ar-lp-grid ar-wc-grid">
+    <canvas class="ar-wc-cv" width="280" height="200" role="img" aria-label="A close-up of a finished apple painting · 一幅畫好的蘋果的特寫"></canvas>
+    <div class="ar-sh-opts">{opts}</div>
+  </div>
+  <p class="ar-mt-msg ar-wc-msg" aria-live="polite"></p>
+  <div class="ar-mt-foot"><button type="button" class="ar-btn ar-btn-gold ar-wc-next" hidden>Next close-up · 下一張</button></div>
+  <p class="ar-fine">{html.escape(d["note_en"])}<span class="zh">{html.escape(d["note_zh"])}</span></p>
+</div>'''
+
+def _ar_next(d):
+    return f'''<div class="ar-match ar-nextq rvl" data-ar-next>
+  <div class="ar-mt-top"><p class="ar-mt-k ar-nx-k">Question 1 of 4 · 第 1 題（共 4 題）</p><p class="ar-mt-sc">Right · 答對 <b class="ar-mt-score ar-nx-score">0 / 0</b></p></div>
+  <div class="ar-mt-steps ar-nx-steps" aria-hidden="true"></div>
+  <p class="ar-pk-ask ar-nx-ask"></p>
+  <div class="ar-lp-grid ar-nx-grid">
+    <canvas class="ar-nx-cv" width="360" height="360" role="img" aria-label="An apple painting that is not finished yet · 一幅還沒畫完的蘋果"></canvas>
+    <div class="ar-sh-opts ar-nx-opts"></div>
+  </div>
+  <p class="ar-mt-msg ar-nx-msg" aria-live="polite"></p>
+  <div class="ar-mt-foot"><button type="button" class="ar-btn ar-btn-gold ar-nx-next" hidden>Next question · 下一題</button></div>
+  <p class="ar-fine">{html.escape(d["note_en"])}<span class="zh">{html.escape(d["note_zh"])}</span></p>
+</div>'''
+
 def _ar_origin(d):
     opts = "".join(
         f'<button type="button" class="ar-lp-opt" data-origin="{k}"><i aria-hidden="true">{m}</i><b>{en}</b><span class="zh">{zh}</span><span class="ar-pk-mk"></span></button>'
@@ -20373,7 +20438,7 @@ def build_art_lesson(ui, unit, lesson):
     reading_html = render_basic_unit(1, unit_dict, level="art", audio_rel="", pdf_rel="")
     lab = lesson["lab"]
     kind = lab["kind"]
-    lab_html = {"lights": render_artlights_lab, "wheel": render_artwheel_lab, "ball": render_artball_lab, "line": render_artline_lab, "hall": render_arthall_lab, "depth": render_artdepth_lab, "frame": render_artframe_lab, "face": render_artface_lab, "pigment": render_artpigment_lab}[kind](lesson)
+    lab_html = {"lights": render_artlights_lab, "wheel": render_artwheel_lab, "ball": render_artball_lab, "line": render_artline_lab, "hall": render_arthall_lab, "depth": render_artdepth_lab, "frame": render_artframe_lab, "face": render_artface_lab, "pigment": render_artpigment_lab, "media": render_artmedia_lab}[kind](lesson)
 
     def sec(key, fn):
         d = lesson[key]
@@ -20391,6 +20456,8 @@ def build_art_lesson(ui, unit, lesson):
         ph = lesson["parts_head"]
         secs.append(("parts", ph["eyebrow"], ph["en"], ph["zh"], f'<div class="ph-grid stagger">{cards}</div>',
                      _bi(lesson["parts_note_en"], lesson["parts_note_zh"], cls="lead rvl d2")))
+    if lesson.get("which"): secs.append(sec("which", _ar_which))
+    if lesson.get("next"): secs.append(sec("next", _ar_next))
     if lesson.get("origin"): secs.append(sec("origin", _ar_origin))
     if lesson.get("binder"): secs.append(sec("binder", _ar_binder))
     if lesson.get("eye"): secs.append(sec("eye", _ar_eye))
