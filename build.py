@@ -18942,7 +18942,7 @@ def build_wh_hub():
 _usgj = os.path.join(ROOT, "data", "us_government.json")
 USG = json.load(open(_usgj, encoding="utf-8")) if os.path.exists(_usgj) else None
 USG_BASE = "/resources/classes/us-government/"
-_USG_JS = {"constitution": "usg-constitution", "checks": "usg-checks", "federalism": "usg-federalism", "rights": "usg-rights", "congress": "usg-congress"}   # lab.kind → assets/js/<bundle>.js
+_USG_JS = {"constitution": "usg-constitution", "checks": "usg-checks", "federalism": "usg-federalism", "rights": "usg-rights", "congress": "usg-congress", "bill": "usg-bill"}   # lab.kind → assets/js/<bundle>.js
 
 def _usg_ver():
     h = hashlib.md5()
@@ -19329,7 +19329,81 @@ def _ug_weight(d):
 </div>'''
 
 
-_USG_CARD = {"constitution": usgconst_svg, "checks": usgchecks_svg, "federalism": usgfed_svg, "rights": usgrights_svg, "congress": usgcongress_svg}
+def usgbill_svg(size=56):
+    """第六課的課程卡小圖示：一張紙沿著點線走過幾站，最後一站是金色。"""
+    return (f'<svg class="usgbill-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">'
+            '<path d="M8 46 C16 30, 24 50, 32 34 S 46 22, 52 14" fill="none" stroke="#8a9bb8" stroke-width="2" stroke-dasharray="3 3"/>'
+            '<circle cx="8" cy="46" r="4" fill="#2a3858" stroke="#ffd36e" stroke-width="2"/><circle cx="21" cy="42" r="4" fill="#2a3858" stroke="#ffd36e" stroke-width="2"/>'
+            '<circle cx="32" cy="34" r="4" fill="#2a3858" stroke="#ffd36e" stroke-width="2"/><circle cx="52" cy="14" r="5" fill="#ffd36e"/>'
+            '<rect x="36" y="20" width="11" height="14" rx="1.5" fill="#f4f1e8" transform="rotate(-12 41 27)"/>'
+            '<path d="M38.5 24h6M38.5 27h6M38.5 30h4" stroke="#8a9bb8" stroke-width="1" transform="rotate(-12 41 27)"/></svg>')
+
+def render_usgbill_lab(lesson):
+    """第六課：法案一站一站走（assets/js/usg-bill.js 綁這裡的 class）。"""
+    lab = lesson["lab"]
+    scs = "".join(
+        f'<button type="button" data-sc="{s["key"]}" aria-pressed="{"true" if s["key"] == lab["start"] else "false"}"><b>{html.escape(s["btn_en"])}</b><small>{html.escape(s["btn_zh"])}</small></button>'
+        for s in lab["scenarios"])
+    sts = "".join(
+        f'<button type="button" data-stage="{s["key"]}" aria-pressed="false"><b>{n + 1}</b><span>{html.escape(s["short_en"])}</span><small>{html.escape(s["short_zh"])}</small></button>'
+        for n, s in enumerate(lab["stages"]))
+    scp = "".join(
+        f'<div class="ug-bl-sc" data-sc-panel="{s["key"]}"{"" if s["key"] == lab["start"] else " hidden"}>'
+        f'<h3 class="ug-art-name">{html.escape(s["en"])}<span class="zh">{html.escape(s["zh"])}</span></h3>'
+        f'<p class="ug-art-est">{html.escape(s["text_en"])}<span class="zh">{html.escape(s["text_zh"])}</span></p></div>'
+        for s in lab["scenarios"])
+    def stp(n, s):
+        q = f'<blockquote class="ug-art-q" lang="en">{html.escape(s["quote"])}<cite>{html.escape(s["cite"])}</cite></blockquote>' if s.get("quote") else ""
+        return (f'<div class="ug-bl-st" data-stage-panel="{s["key"]}" hidden>'
+                f'<p class="ug-act-who">Step {n + 1} · 第 {n + 1} 站 · {html.escape(s["who_en"])} · {html.escape(s["who_zh"])}</p>'
+                f'<p class="ug-bl-stn">{html.escape(s["en"])}<span class="zh">{html.escape(s["zh"])}</span></p>'
+                f'<p class="ug-art-est">{html.escape(s["text_en"])}<span class="zh">{html.escape(s["text_zh"])}</span></p>{q}</div>')
+    stps = "".join(stp(n, s) for n, s in enumerate(lab["stages"]))
+    payload = json.dumps({"stages": [{k: s[k] for k in ("key", "pos", "short_en", "short_zh", "en", "zh")} for s in lab["stages"]],
+                          "scenarios": [{k: s.get(k) for k in ("key", "path", "stop", "president")} for s in lab["scenarios"]],
+                          "bodies": lab["bodies"], "start": lab["start"]}, ensure_ascii=False).replace("</", "<\\/")
+    tg = _lab_toggles([("labels", "Labels", "標示", True)])
+    return f'''<div class="astro-lab ug-lab ug-bl rvl" data-usgbill-lab>
+  <script type="application/json">{payload}</script>
+  <div class="al-stage">
+    <div class="al-space">
+      <canvas class="al-space-cv" aria-label="Simplified 3D model: a path of nine stations in front of the Capitol and the White House; a sheet of paper, the bill, travels from station to station · 簡化的 3D 模型：國會大廈與白宮前的九站路線；一張紙（法案）一站一站往前走"></canvas>
+      <div class="al-labels" aria-hidden="true"></div>
+      <p class="al-hint">Drag to look around · 拖曳轉動視角　Scroll or pinch to zoom · 滾輪／雙指縮放</p>
+      <button type="button" class="al-home" title="Whole view · 回到全景" aria-label="Whole view · 回到全景">&#8634;</button>
+      <p class="al-nogl-msg">This 3D model needs WebGL, which this browser does not support. The buttons and the panel still work, and so do the reading and the two activities below.<br><span class="zh">這個瀏覽器不支援 WebGL，無法顯示 3D 模型；按鈕和說明欄照樣能用，下面的課文和兩個小互動也都能用。</span></p>
+    </div>
+    <aside class="al-sky ug-aside">
+      <p class="al-sky-k">The bill's journey · 法案的旅程</p>
+      {scp}
+      <p class="ug-bl-result" aria-live="polite" hidden></p>
+      <div class="ug-bl-sts">{stps}</div>
+    </aside>
+  </div>
+  <div class="al-controls">
+    <p class="ug-ctl-k">Choose what happens to the bill · 選一種情境</p>
+    <div class="ug-bl-scs" role="group" aria-label="Scenarios · 情境">{scs}<button type="button" class="ug-btn ug-bl-replay">&#8635; Replay · 重播</button></div>
+    <p class="ug-ctl-k">The nine stations: click one to read about it · 九站：點一站看說明</p>
+    <div class="ug-bl-stbtns" role="group" aria-label="Stations · 站">{sts}</div>
+    <div class="al-row al-toggles ug-row-play">{tg}</div>
+  </div>
+  {_lab_foot(lab)}
+</div>'''
+
+def _ug_order(d):
+    """「排出正確的順序」（tools/usgov/src/order2d.js）。"""
+    payload = json.dumps({"items": d["items"], "end_en": d["end_en"], "end_zh": d["end_zh"], "seed": d.get("seed", 7)}, ensure_ascii=False).replace("</", "<\\/")
+    return f'''<div class="ug-order rvl" data-ug-order>
+  <script type="application/json">{payload}</script>
+  <div class="ug-or-top"><p class="ug-or-k">Click the next step · 點出下一步</p><p class="ug-or-score"></p></div>
+  <ol class="ug-or-done" aria-live="polite"></ol>
+  <div class="ug-or-pool" role="group" aria-label="Steps, shuffled · 打亂的步驟"></div>
+  <p class="ug-or-msg" aria-live="polite"></p>
+  <div class="ug-mt-foot"><button type="button" class="ug-btn ug-or-reset">&#8635; Start over · 重新開始</button></div>
+</div>'''
+
+
+_USG_CARD = {"constitution": usgconst_svg, "checks": usgchecks_svg, "federalism": usgfed_svg, "rights": usgrights_svg, "congress": usgcongress_svg, "bill": usgbill_svg}
 
 def _ug_timeline(tl):
     """可縮放的時間軸骨架（tools/usgov/src/timeline2d.js 綁這裡的 class；每課共用）。"""
@@ -19399,7 +19473,7 @@ def render_usgconst_lab(lesson):
   {_lab_foot(lab)}
 </div>'''
 
-_USG_LAB = {"constitution": render_usgconst_lab, "checks": render_usgchecks_lab, "federalism": render_usgfed_lab, "rights": render_usgrights_lab, "congress": render_usgcongress_lab}
+_USG_LAB = {"constitution": render_usgconst_lab, "checks": render_usgchecks_lab, "federalism": render_usgfed_lab, "rights": render_usgrights_lab, "congress": render_usgcongress_lab, "bill": render_usgbill_lab}
 
 def _ug_spk(text, label="Listen · 聽"):
     return f'<button class="spk" data-say="{html.escape(re.sub(r"<[^>]+>", "", text))}" aria-label="{label}">🔊</button>'
@@ -19555,7 +19629,7 @@ def _ug_news_english(d):
 
 # 頁面上的小互動與每課固定的卡：照這個順序排在「模型卡」後面（JSON 有那個 key 才出現）。
 # clause（條文怎麼寫？）、primary（讀原典）、debate（制度的爭論）、taiwan（和台灣比一比）、news_english（新聞英語）每課都要有。
-_USG_WIDGETS = [("match", _ug_match), ("match2", _ug_match), ("amend", _ug_amend), ("veto", _ug_veto), ("fifty", _ug_fifty), ("weight", _ug_weight), ("clause", _ug_clause), ("primary", _ug_primary),
+_USG_WIDGETS = [("match", _ug_match), ("match2", _ug_match), ("amend", _ug_amend), ("veto", _ug_veto), ("fifty", _ug_fifty), ("weight", _ug_weight), ("order", _ug_order), ("clause", _ug_clause), ("primary", _ug_primary),
                 ("debate", _ug_debate), ("taiwan", _ug_taiwan), ("news_english", _ug_news_english)]
 
 def _usg_flat():

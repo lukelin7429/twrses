@@ -1320,6 +1320,12 @@
   - 小互動：「這是哪一院的工作？」（`match`，`cols: 3`，`house`／`senate`／`both`）；「一票的分量」（`weight`，`weight2d.js`，`data-ug-weight`：兩個下拉選單，算每位眾議員、參議員代表的居民，以及相差幾倍）。
   - 除錯：`[data-usgcongress-lab].__lab`（`state`、`era('1789'|'2020')`、`pick(abbr)`、`demo('big'|'small'|'founding'|'same')`、`info()`、`run(秒)`、`render()`）；`[data-ug-weight].__weight`（`set(a, b)`、`info()`）。
   - **查證注意**：紐澤西方案的條文本身沒有寫「一院」「每州一票」——它是「加強現有的國會」（邦聯國會每州一票）；大妥協的設計者寫「主要是雪曼與艾斯華斯」（senate.gov），條文出自 7 月 5 日的委員會報告；眾議院 435 席是 1911、1929 年的法律，不是憲法；「茶碟冷卻熱茶」的華盛頓軼事連 senate.gov 都寫「據說」，沒用。
+- 第六課〈法案怎麼變成法律？〉（`usg-bill.js`，`lab.kind = "bill"`，`data-usgbill-lab`，slug `how-a-bill-becomes-law`；單元二第二課）：一個想法——法案要在兩院各自走過委員會與院會、兩院條文一字不差，再送總統；每一關都可能停下來。
+  - 3D：dc.js 三棟建築前的九站（`lab.stages`：`intro`、`hcomm`、`rules`、`hfloor`、`scomm`、`sfloor`、`resolve`、`president`、`override`，`pos` 是地面上的 [x, z]；路線排成不交叉）。參議院在左、眾議院在右（和第五課一致；dc.js 的註解原本寫反，已改）。情境 `lab.scenarios`（`path`、`stop`、`president: {votes, action, adjourned}`）由 **`billpath.js` 的 `walk()`** 算出每一站過不過；**總統那一站交給第二課的 `bill.js` `billFate`**，測試確認六種情境的結局（signed／committee／sfloor／sustained／overridden／pocket）。紙張沿 `arcPoint` 拋物線飛、每跳 1.1 秒；停下的站變灰、紙掉下；成為法律時紙變金色。
+  - 小互動：「排出正確的順序」（`order`，`order2d.js`，`data-ug-order`：固定種子打亂、`shuffled()` 有測試）；「這個法案停在哪裡？」（`match`，`cols: 5`）。
+  - 除錯：`[data-usgbill-lab].__lab`（`scenario(key)`、`stage(key)`、`replay()`、`finish()`、`demo(key)`、`info()`、`run(秒)`、`render()`）；`[data-ug-order].__order`（`pick(key)`、`reset()`、`info()`）。
+  - **查證注意**：「ping-pong」不是官方用語（官方是 amendments between the houses）；「多少比例的法案死在委員會」沒有官方數字，不寫百分比；第 117 屆的 15,058／176 是兩個會期活動摘要加總、362 是最後一條公法編號（摘要的「enacted」數到隔年 1 月 3 日為止，會少算）；How Our Laws Are Made 最新是 2007 年版（H. Doc. 110-49），委員會數目已過時；台灣的覆議不是否決（行政院提出、全體立委二分之一維持、逾期原決議失效）。
+  - 工作位置（2026-10-16 起）：worktree `~/Developer/twrses-usgov-wt`、課文腳本與截圖工具 `~/Developer/twrses-usgov-tools/`（scratchpad 會被清空）。
 
 ## Build / Deploy
 ```

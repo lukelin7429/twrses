@@ -188,4 +188,26 @@ const k5 = lessons.find((l) => l.slug === 'two-houses');
   assert.ok(Math.abs(w(s0) - w(s1)) <= 8, 'debate sides about equal length');
   assert.ok(Math.abs(s0.voice.split(/\s+/).length - s1.voice.split(/\s+/).length) <= 8, 'quoted voices about equal length');
 }
+// 第六課：法案的旅程
+const k6 = lessons.find((l) => l.slug === 'how-a-bill-becomes-law');
+{
+  const { walk } = await import('../src/billpath.js');
+  const st = k6.lab.stages;
+  assert.deepEqual(st.map((s) => s.key), ['intro', 'hcomm', 'rules', 'hfloor', 'scomm', 'sfloor', 'resolve', 'president', 'override']);
+  for (const s of st) assert.ok(s.en && s.zh && s.text_en && s.text_zh && s.short_en && s.short_zh && s.pos.length === 2, s.key);
+  const fate = Object.fromEntries(k6.lab.scenarios.map((s) => [s.key, walk(s, st, k6.lab.bodies)]));
+  assert.equal(fate.law.law, true); assert.equal(fate.law.fate.key, 'signed');
+  assert.equal(fate.committee.law, false); assert.equal(fate.committee.steps.at(-1).key, 'hcomm');
+  assert.equal(fate.senate.steps.at(-1).key, 'sfloor');
+  assert.equal(fate.sustained.fate.key, 'sustained'); assert.equal(fate.override.fate.key, 'overridden'); assert.equal(fate.pocket.fate.key, 'pocket');
+  for (const p of k6.parts) assert.ok(k6.lab.scenarios.some((s) => s.key === p.demo), p.demo);
+  assert.equal(new Set(k6.order.items.map((x) => x.key)).size, k6.order.items.length);
+  for (const q of k6.match.questions) assert.ok(k6.match.options.some((o) => o.key === q.answer), q.en);
+  for (const o of k6.match.options) assert.ok(k6.match.questions.filter((q) => q.answer === o.key).length >= 2, o.key);
+  const [s0, s1] = k6.debate.sides;
+  const w = (s) => s.points.reduce((a, q) => a + q.en.split(/\s+/).length, 0);
+  assert.equal(s0.points.length, s1.points.length);
+  assert.ok(Math.abs(w(s0) - w(s1)) <= 8, 'debate sides about equal length');
+  assert.ok(Math.abs(s0.voice.split(/\s+/).length - s1.voice.split(/\s+/).length) <= 8, 'quoted voices about equal length');
+}
 console.log('data.test ok');
