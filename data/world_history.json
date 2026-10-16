@@ -6583,7 +6583,7 @@
        "k_zh": "世界歷史・下一課",
        "en": "What Did the Greeks Start?",
        "zh": "希臘人開了什麼頭？",
-       "soon": true,
+       "href": "/resources/classes/world-history/greeks-start/",
        "note_en": "Unit 2 begins with Greek city-states, small cities that ran their own affairs and argued about who should rule.",
        "note_zh": "第二單元從希臘的城邦開始：一座座自己管自己的小城市，爭論應該由誰來統治。"
       },
@@ -6830,14 +6830,1441 @@
    "title_zh": "古典時代的想法",
    "blurb_en": "Greek citizens, Roman roads, the Qin and Han empires, and the beginning and spread of Buddhism.",
    "blurb_zh": "希臘的公民、羅馬的道路、秦與漢的統一，以及佛教的開始與傳播。",
-   "lessons": [],
-   "planned": [
+   "lessons": [
     {
      "n": 5,
+     "slug": "greeks-start",
+     "title": "What Did the Greeks Start?",
+     "title_zh": "希臘人開了什麼頭？",
+     "level": "入門 · Beginner",
      "icon": "🏛️",
-     "en": "What Did the Greeks Start?",
-     "zh": "希臘人開了什麼頭？"
-    },
+     "card": "assembly",
+     "blurb_en": "Watch the people of Attica in 3D and find out how few of them could climb the Pnyx hill to vote. Decide who could vote in Athens, and test two ancient readings of the rule for sending a man away for ten years.",
+     "blurb_zh": "在 3D 裡看看阿提卡的居民，發現能走上普尼克斯山投票的人有多少。判斷誰能在雅典投票，再試試「把一個人送走十年」那條規則的兩種古代讀法。",
+     "big_idea_en": "From about 508 BCE, the adult male citizens of Athens met in an assembly and decided their city's affairs by voting. In the same age, some Greeks began to look for answers by asking questions and giving reasons. Both were beginnings, not finished things: most people in Athens could not vote, and other peoples also made decisions together.",
+     "big_idea_zh": "大約從西元前 508 年起，雅典的成年男性公民聚在公民大會裡，用投票決定城邦的事。同一個時代，有些希臘人開始用提問和講道理的方式找答案。兩件事都是開頭，不是完成品：住在雅典的大多數人不能投票，而其他民族也有一起做決定的方式。",
+     "lab": {
+      "kind": "assembly",
+      "eyebrow": "3D Model · 3D 模型",
+      "title_en": "Who Could Climb the Pnyx to Vote?",
+      "title_zh": "誰能上普尼克斯山投票？",
+      "how_en": "The plain of Attica holds everyone who lived around Athens, in four groups; each small figure stands for about 100 people. Switch to “Who could vote” and only one group stays lit. Then send the voters to a meeting on the Pnyx hill, and finally hold a show of hands. The numbers are one scholar's estimates for the 300s BCE; other scholars give different figures, listed on the right.",
+      "how_zh": "阿提卡平原上是住在雅典周圍的所有人，分成四群；每個小人代表大約 100 人。切換到「誰能投票」，只剩一群亮著。接著讓能投票的人去普尼克斯山開會，最後舉手表決。人數用的是一位學者對西元前 300 年代的估計；其他學者的數字不一樣，列在右邊。",
+      "per": 100,
+      "groups": [
+       {
+        "key": "men",
+        "short_en": "Citizen men",
+        "short_zh": "男性公民",
+        "vote": true,
+        "color": "#c0392b",
+        "en": "Adult male citizens",
+        "zh": "成年男性公民",
+        "range_en": "About 30,000 in the 300s BCE. For 431 BCE, estimates run from about 43,000 (an older estimate based on Thucydides) to at least 60,000 (Hansen)",
+        "range_zh": "西元前 300 年代約三萬；西元前 431 年的估計，從約四萬三千（根據修昔底德的舊估計）到至少六萬（漢森）",
+        "use": 30000
+       },
+       {
+        "key": "families",
+        "short_en": "Their families",
+        "short_zh": "公民的家人",
+        "vote": false,
+        "color": "#3d7cc9",
+        "en": "Women and children of citizen families",
+        "zh": "公民家庭的女性和孩子",
+        "range_en": "About 70,000 (all citizens together about 100,000)",
+        "range_zh": "約七萬（全部公民加起來約十萬）",
+        "use": 70000
+       },
+       {
+        "key": "metics",
+        "short_en": "Metics",
+        "short_zh": "外籍居民",
+        "vote": false,
+        "color": "#2e9e6e",
+        "en": "Free foreigners living in Athens (metics)",
+        "zh": "住在雅典的自由外邦人（外籍居民）",
+        "range_en": "About 10,000 by one estimate",
+        "range_zh": "依一個估計約一萬",
+        "use": 10000
+       },
+       {
+        "key": "enslaved",
+        "short_en": "Enslaved people",
+        "short_zh": "被奴役的人",
+        "vote": false,
+        "color": "#8b6fb3",
+        "en": "Enslaved people",
+        "zh": "被奴役的人",
+        "range_en": "“As many as 150,000” by one estimate; estimates vary widely",
+        "range_zh": "依一個估計「多達十五萬」；各家估計差很多",
+        "use": 150000
+       }
+      ],
+      "seats": 6000,
+      "margin": 0.1,
+      "proposal_en": "Proposal: build more warships this year?",
+      "proposal_zh": "提案：今年要不要多造幾艘戰船？",
+      "judge": {
+       "yes": {
+        "en": "Clearly more hands up: the proposal passes.",
+        "zh": "舉手的明顯比較多：提案通過。"
+       },
+       "no": {
+        "en": "Clearly fewer hands up: the proposal fails.",
+        "zh": "舉手的明顯比較少：提案不通過。"
+       },
+       "close": {
+        "en": "Too close to judge by eye. The presiding officers have to decide, or ask for the vote again.",
+        "zh": "太接近了，用看的看不出來。得由主持的人決定，或請大家再表決一次。"
+       }
+      },
+      "modes": [
+       {
+        "key": "people",
+        "en": "Everyone in Attica",
+        "zh": "阿提卡所有的人",
+        "text_en": "Each figure is about 100 people. The biggest group is the enslaved people, by this estimate, and the citizen men are one of the smaller ones.",
+        "text_zh": "每個小人約 100 人。照這組估計，最大的一群是被奴役的人，而男性公民是比較小的一群。"
+       },
+       {
+        "key": "citizens",
+        "en": "Who could vote",
+        "zh": "誰能投票",
+        "text_en": "Only adult men whose parents were both citizens could vote. Women, metics, and enslaved people could not, however long they had lived in Attica.",
+        "text_zh": "只有父母都是公民的成年男子能投票。女性、外籍居民和被奴役的人都不能，不管他們在阿提卡住了多久。"
+       },
+       {
+        "key": "pnyx",
+        "en": "A meeting on the Pnyx",
+        "zh": "普尼克斯山上的一場大會",
+        "text_en": "The first meeting place on the Pnyx held about 6,000 people. Later rebuildings made it larger, up to about 13,400 if packed tight; the historian Mogens Hansen doubts that so many ever came.",
+        "text_zh": "普尼克斯山最早的會場坐得下大約 6,000 人。後來重建，最大一期擠一擠可坐大約 13,400 人；歷史學家漢森懷疑從來沒有那麼多人到過。"
+       },
+       {
+        "key": "vote",
+        "en": "A show of hands",
+        "zh": "舉手表決",
+        "text_en": "The Assembly usually voted by raising hands, and a simple majority decided. Hands were judged by eye; when the two sides look close, it is hard to tell. The point at which a vote looks “too close” is this model's assumption.",
+        "text_zh": "公民大會通常舉手表決，簡單多數決定。舉手是用看的判斷；兩邊看起來很接近的時候，很難分得出來。多接近算「太接近」，是這個模型的假設。"
+       }
+      ],
+      "numbers_note_en": "The four groups use one estimate for the mid-300s BCE reported by Britannica. Other scholars estimate 250,000 people in all for 431 BCE (Hansen) or 400,000 or more (Akrigg). No census survives, so every number is an estimate.",
+      "numbers_note_zh": "四群人用的是大英百科全書引用的一個西元前 300 年代中期的估計。其他學者估計西元前 431 年總共約二十五萬人（漢森），或四十萬以上（阿克里格）。沒有留下任何人口普查，所以每個數字都是估計。",
+      "legend": [
+       {
+        "cls": "wh-men",
+        "en": "Adult male citizens: the only people who could vote",
+        "zh": "成年男性公民：唯一能投票的人"
+       },
+       {
+        "cls": "wh-others",
+        "en": "Everyone else who lived in Attica",
+        "zh": "住在阿提卡的其他所有人"
+       },
+       {
+        "cls": "wh-hill",
+        "en": "The Pnyx, where the assembly met",
+        "zh": "普尼克斯山，公民大會開會的地方"
+       }
+      ],
+      "scale_en": "This is a teaching sketch. Each small figure stands for many people; the groups are drawn side by side to compare their sizes, not where people lived. The hill, the platform, and the Acropolis are simplified, and the distances are not to scale.",
+      "scale_zh": "這是教學用的示意。每個小人代表很多人；四群人並排是為了比大小，不是他們住在哪裡。山坡、講台和衛城都簡化了，距離也不照比例。",
+      "credit_html": "Model: an illustration made for this lesson. Population estimates and the size of the Pnyx follow the sources listed at the bottom of the page. <span class=\"zh\">模型：為這一課製作的示意。人口估計和普尼克斯山的大小，依本頁最下面列出的資料。</span>"
+     },
+     "paras": [
+      "In Lesson 4, rulers and officials organized the first cities. Around 500 BCE, in a small Greek city-state called Athens, people tried something different. In about 508 BCE, a leader named Cleisthenes reorganized the citizens into ten new tribes and a Council of 500, chosen from all over Attica, the land around the city. From then on, the citizens themselves decided many of the city's affairs.",
+      "They decided in the Assembly. Three or four times a month, citizens climbed a hill called the Pnyx, listened to speeches from a stone platform, and voted, usually by raising their hands. Any citizen could stand up and speak, for or against a proposal; proposals came first from the Council of 500. The Greeks called this kind of government dēmokratia, “rule by the people.” Many officials were not elected but chosen by lot, so that ordinary citizens took turns holding office.",
+      "But who were “the people”? Only adult men whose parents were citizens. Women could not vote. Neither could metics, the free foreigners who lived and worked in Athens, nor the many enslaved people. By one scholar's estimate for the 300s BCE, about 30,000 citizen men lived among roughly 230,000 other people. And the earliest meeting place on the Pnyx that archaeologists can measure held only about 6,000 at a time.",
+      "Athenian democracy also had unusual tools. Once a year, the citizens could vote to send away one powerful man for ten years. Each voter scratched a name on a broken piece of pottery called an ostrakon, which is where the word “ostracism” comes from. Archaeologists have found thousands of these ostraka. Democracy did not always last, either: in 411 and again in 404 BCE, small groups seized power for a time, before the citizens restored it.",
+      "In the same age, some Greeks began to explain the world with reasons instead of only with stories. Thales is said to have predicted an eclipse in 585 BCE. In Athens, Socrates questioned people about justice and goodness, and he was put on trial and sentenced to death by a jury of citizens in 399 BCE. He wrote nothing himself; we know him mostly from his student Plato.",
+      "Greece was not the only place where new ideas were growing. Confucius taught in China, the Buddha taught in India, and the Persian Empire ruled lands from Egypt to Central Asia. Other peoples also made decisions together: a Buddhist text praises the Vajjis of India for meeting frequently and holding many meetings. What Athens started was one beginning among several, and later peoples, including many today, have argued about what it means."
+     ],
+     "paras_zh": [
+      "在第四課，最早的城市是由統治者和官員組織起來的。大約西元前 500 年，在希臘一個叫雅典的小城邦，人們試了一種不一樣的做法。大約西元前 508 年，一位叫克里斯提尼的領袖把公民重新編成十個新的部落，又設了一個從整個阿提卡（雅典城周圍的土地）選出來的五百人議事會。從那時起，城邦的很多事由公民自己決定。",
+      "他們在公民大會裡做決定。每個月三、四次，公民爬上一座叫普尼克斯的山丘，聽人站在石頭講台上演說，然後投票，通常是舉手。任何公民都可以站起來發言，支持或反對一項提案；提案要先由五百人議事會提出。希臘人把這種政治叫做 dēmokratia，「由人民統治」。很多官職不是選出來的，而是抽籤決定，讓一般的公民輪流擔任。",
+      "但是「人民」是誰？只有父母都是公民的成年男子。女性不能投票。外籍居民（metic）也不能，也就是在雅典生活、工作的自由外邦人；為數眾多的被奴役的人也不能。依一位學者對西元前 300 年代的估計，大約三萬名男性公民，和大約二十三萬個其他的人住在一起。而考古學家能量出來的、普尼克斯山最早的會場，一次只坐得下大約六千人。",
+      "雅典的民主還有一些特別的做法。每年一次，公民可以投票，把一位有權勢的人送走十年。每個投票的人在一塊叫 ostrakon 的破陶片上刻一個名字，「陶片放逐」這個詞就是從這裡來的。考古學家找到了好幾千塊這樣的陶片。民主也不是一直都在：西元前 411 年和 404 年，一小群人兩度奪取政權一段時間，後來公民才又把民主恢復。",
+      "在同一個時代，有些希臘人開始用道理、而不只是用故事來解釋世界。據說泰利斯在西元前 585 年預測了一次日食。在雅典，蘇格拉底向人追問什麼是正義、什麼是善；西元前 399 年，他被一個由公民組成的陪審團審判，判了死刑。他自己沒有寫下任何東西，我們主要是從他的學生柏拉圖那裡認識他。",
+      "長出新想法的地方，不只希臘。孔子在中國教學，佛陀在印度說法，波斯帝國統治著從埃及到中亞的土地。其他民族也有一起做決定的方式：一部佛教經典稱讚印度的跋耆人常常集會、多次集會。雅典開的頭，是好幾個開頭中的一個；後來的人，包括今天的很多人，一直在討論它的意義。"
+     ],
+     "questions": [
+      "Who could vote in the Athenian Assembly, and who could not?",
+      "Why do you think the Athenians chose many officials by lot instead of by election?",
+      "The lesson calls Athens “one beginning among several.” What other beginnings does it mention?"
+     ],
+     "answers": [
+      "Only adult men whose parents were citizens could vote. Women, metics (free foreigners living in Athens), and enslaved people could not.",
+      "A lottery gave ordinary citizens, not only rich or famous ones, a turn at holding office. Students may also suggest that it made bribery and campaigning less useful.",
+      "Confucius teaching in China, the Buddha teaching in India, the Persian Empire, and the Vajjis of India meeting in assembly."
+     ],
+     "vocab": [
+      {
+       "n": 1,
+       "w": "citizen",
+       "pos": "n.",
+       "zh": "公民",
+       "ex": "Only a <b>citizen</b> could vote in the Assembly.",
+       "exzh": "只有公民能在公民大會投票。"
+      },
+      {
+       "n": 2,
+       "w": "democracy",
+       "pos": "n.",
+       "zh": "民主",
+       "ex": "The word <b>democracy</b> comes from Greek.",
+       "exzh": "「民主」這個字來自希臘文。"
+      },
+      {
+       "n": 3,
+       "w": "assembly",
+       "pos": "n.",
+       "zh": "集會；（雅典的）公民大會",
+       "ex": "The <b>Assembly</b> met on the Pnyx.",
+       "exzh": "公民大會在普尼克斯山開會。"
+      },
+      {
+       "n": 4,
+       "w": "vote",
+       "pos": "v. / n.",
+       "zh": "投票；選票",
+       "ex": "They <b>voted</b> by raising their hands.",
+       "exzh": "他們舉手投票。"
+      },
+      {
+       "n": 5,
+       "w": "majority",
+       "pos": "n.",
+       "zh": "多數",
+       "ex": "The <b>majority</b> decided the result.",
+       "exzh": "由多數決定結果。"
+      },
+      {
+       "n": 6,
+       "w": "lot",
+       "pos": "n.",
+       "zh": "抽籤",
+       "ex": "Many officials were chosen by <b>lot</b>.",
+       "exzh": "很多官員是抽籤選出來的。"
+      },
+      {
+       "n": 7,
+       "w": "city-state",
+       "pos": "n.",
+       "zh": "城邦",
+       "ex": "Athens was a Greek <b>city-state</b>.",
+       "exzh": "雅典是一個希臘城邦。"
+      },
+      {
+       "n": 8,
+       "w": "question",
+       "pos": "v.",
+       "zh": "追問；質疑",
+       "ex": "Socrates <b>questioned</b> everyone he met.",
+       "exzh": "蘇格拉底向遇到的每個人追問。"
+      }
+     ],
+     "quiz": [
+      {
+       "q": "Who could vote in the Athenian Assembly?",
+       "options": [
+        "Adult men whose parents were citizens",
+        "Everyone who lived in Athens",
+        "Only the richest families",
+        "Women and men over 30"
+       ],
+       "correct": 0
+      },
+      {
+       "q": "How did the Assembly usually vote?",
+       "options": [
+        "By raising hands",
+        "By writing on paper ballots",
+        "By shouting the loudest",
+        "By asking the king"
+       ],
+       "correct": 0
+      },
+      {
+       "q": "What was an ostrakon?",
+       "options": [
+        "A broken piece of pottery with a name scratched on it",
+        "A stone platform for speakers",
+        "A Greek warship",
+        "A kind of coin"
+       ],
+       "correct": 0
+      },
+      {
+       "q": "How did Athens choose many of its officials?",
+       "options": [
+        "By lot",
+        "By a test of strength",
+        "By the oldest family",
+        "By the Persian king"
+       ],
+       "correct": 0
+      },
+      {
+       "q": "Which of these lived at about the same time as the first Athenian democracy?",
+       "options": [
+        "Confucius in China",
+        "The builders of the Great Pyramid",
+        "The first farmers",
+        "The people of Uruk in 3300 BCE"
+       ],
+       "correct": 0
+      }
+     ],
+     "parts_head": {
+      "eyebrow": "Try It in the Model · 在模型裡試試",
+      "en": "Four things to watch",
+      "zh": "四件值得看的事"
+     },
+     "parts": [
+      {
+       "key": "people",
+       "icon": "👥",
+       "en": "Everyone in Attica",
+       "zh": "阿提卡所有的人",
+       "meta_en": "Four groups side by side",
+       "meta_zh": "四群人並排",
+       "demo": "people",
+       "text_en": "Each small figure stands for about 100 people. Compare the size of the four groups before you look at who could vote.",
+       "text_zh": "每個小人代表大約 100 人。先比一比四群人的大小，再看誰能投票。"
+      },
+      {
+       "key": "citizens",
+       "icon": "✋",
+       "en": "Who could vote",
+       "zh": "誰能投票",
+       "meta_en": "One group lights up",
+       "meta_zh": "只有一群亮著",
+       "demo": "citizens",
+       "text_en": "Only the adult male citizens stay bright. With these estimates, that is a little over one person in ten.",
+       "text_zh": "只有成年男性公民還亮著。照這組估計，大約十個人裡只有一個多一點。"
+      },
+      {
+       "key": "pnyx",
+       "icon": "⛰️",
+       "en": "A meeting on the Pnyx",
+       "zh": "普尼克斯山上的一場大會",
+       "meta_en": "The hill fills up",
+       "meta_zh": "山坡坐滿了",
+       "demo": "pnyx",
+       "text_en": "The first meeting place held about 6,000 people. Watch how small that crowd is next to the whole population of Attica.",
+       "text_zh": "最早的會場坐得下大約 6,000 人。看看這一群人，和整個阿提卡的人口比起來有多小。"
+      },
+      {
+       "key": "vote",
+       "icon": "🙋",
+       "en": "A show of hands",
+       "zh": "舉手表決",
+       "meta_en": "Judged by eye",
+       "meta_zh": "用看的判斷",
+       "demo": "vote",
+       "text_en": "Drag the slider to change how many raise their hands. When the two sides are close, it is hard to tell by looking.",
+       "text_zh": "拉滑桿，改變舉手的人數。兩邊很接近的時候，用看的很難分得出來。"
+      }
+     ],
+     "parts_note_en": "Then try a close vote. How would you decide fairly if you could not count every hand?",
+     "parts_note_zh": "接著試一場很接近的表決。如果沒辦法一隻一隻手數，要怎麼公平地決定？",
+     "whovotes": {
+      "eyebrow": "Game · 小遊戲",
+      "en": "Could This Person Vote?",
+      "zh": "這個人能投票嗎？",
+      "lead_en": "Here are eight people who lived in Athens in the 400s BCE. For each one, decide whether they could vote in the Assembly. There is no timer.",
+      "lead_zh": "下面是八個西元前 400 年代住在雅典的人。每一個都判斷看看：他（她）能不能在公民大會投票？不計時。",
+      "ask_en": "Could this person vote in the Assembly?",
+      "ask_zh": "這個人能在公民大會投票嗎？",
+      "buckets": [
+       {
+        "key": "yes",
+        "icon": "✋",
+        "en": "Yes, could vote",
+        "zh": "可以投票"
+       },
+       {
+        "key": "no",
+        "icon": "🚫",
+        "en": "No, could not vote",
+        "zh": "不能投票"
+       }
+      ],
+      "items": [
+       {
+        "answer": "yes",
+        "en": "A 30-year-old man whose father and mother were both Athenian citizens",
+        "zh": "一個 30 歲的男人，父母都是雅典公民",
+        "why_en": "He is an adult male citizen, the only kind of person who could vote.",
+        "why_zh": "他是成年男性公民，這是唯一能投票的一種人。",
+        "hint_en": "Look at his age, his sex, and his parents.",
+        "hint_zh": "看看他的年紀、性別和父母。"
+       },
+       {
+        "answer": "no",
+        "en": "His sister, also born to two citizen parents",
+        "zh": "他的姊姊，父母也都是公民",
+        "why_en": "Women could not vote or speak in the Assembly, even when they came from citizen families.",
+        "why_zh": "女性不能在公民大會投票或發言，就算出身公民家庭也一樣。",
+        "hint_en": "The citizen rolls listed only men.",
+        "hint_zh": "公民名冊上只有男人。"
+       },
+       {
+        "answer": "no",
+        "en": "A potter from another Greek city who has lived and worked in Athens for twenty years",
+        "zh": "一個從別的希臘城邦來、在雅典住了二十年、在這裡做陶器的人",
+        "why_en": "He is a metic, a free foreigner living in Athens. Living there for many years did not make him a citizen.",
+        "why_zh": "他是外籍居民，也就是住在雅典的自由外邦人。住了很多年，也不會因此變成公民。",
+        "hint_en": "Aristotle wrote that living in a city does not make you a citizen of it.",
+        "hint_zh": "亞里斯多德寫過：住在一座城市裡，不會因此成為那裡的公民。"
+       },
+       {
+        "answer": "no",
+        "en": "An enslaved man working in the silver mines",
+        "zh": "一個在銀礦裡工作的被奴役的人",
+        "why_en": "Enslaved people had no political rights at all. Many thousands worked in the mines and elsewhere.",
+        "why_zh": "被奴役的人完全沒有政治權利。成千上萬的人在礦坑和其他地方工作。",
+        "hint_en": "Was he free?",
+        "hint_zh": "他是自由的嗎？"
+       },
+       {
+        "answer": "no",
+        "en": "A 15-year-old boy whose parents are both citizens",
+        "zh": "一個 15 歲的男孩，父母都是公民",
+        "why_en": "Young men were enrolled as citizens at 18. Some sources suggest they joined the Assembly only after two years of military training.",
+        "why_zh": "年輕男子 18 歲才登記成為公民；也有資料顯示，要再受兩年軍事訓練，才進得了公民大會。",
+        "hint_en": "How old do you have to be?",
+        "hint_zh": "要幾歲才可以？"
+       },
+       {
+        "answer": "yes",
+        "en": "Socrates, a citizen of about 60 who questioned people in the marketplace",
+        "zh": "蘇格拉底，一位大約 60 歲、常在市集裡問人問題的公民",
+        "why_en": "Socrates was an adult male citizen, so he could vote.",
+        "why_zh": "蘇格拉底是成年男性公民，所以可以投票。",
+        "hint_en": "He was born to an Athenian citizen family.",
+        "hint_zh": "他出身雅典的公民家庭。"
+       },
+       {
+        "answer": "no",
+        "en": "A young man born in 440 BCE, whose father was a citizen but whose mother came from another city",
+        "zh": "一個西元前 440 年出生的年輕人，父親是公民，母親來自別的城邦",
+        "why_en": "A law proposed by Pericles in 451 or 450 BCE allowed citizenship only to people whose parents were both citizens.",
+        "why_zh": "伯里克利在西元前 451 或 450 年提議的一條法律規定：父母都是公民的人，才能成為公民。",
+        "hint_en": "Both parents mattered after 451 BCE.",
+        "hint_zh": "西元前 451 年以後，父母兩邊都要算。"
+       },
+       {
+        "answer": "yes",
+        "en": "A poor citizen man who owns no land and works for wages",
+        "zh": "一個沒有土地、靠工資過活的窮公民",
+        "why_en": "In the democracy, poor citizen men could attend and vote too. Later they were even paid a little for coming.",
+        "why_zh": "在民主制度下，窮的男性公民也能出席、投票。後來出席公民大會甚至還能領一點錢。",
+        "hint_en": "Did you need to be rich?",
+        "hint_zh": "要有錢才可以嗎？"
+       }
+      ],
+      "end_en": "Most people who lived in Athens could not vote. The democracy was real, and it was narrow: it belonged to the adult male citizens.",
+      "end_zh": "住在雅典的大多數人都不能投票。這個民主是真的，也是很窄的：它只屬於成年男性公民。"
+     },
+     "ostraka": {
+      "eyebrow": "Try It · 試試看",
+      "en": "One Pile of Ostraka, Two Readings",
+      "zh": "同一堆陶片，兩種讀法",
+      "lead_en": "Once a year the Athenians could vote to send one powerful man away from the city for ten years. Each voter scratched a name on a broken piece of pottery, an ostrakon. Ancient writers describe the rule about 6,000 votes in two different ways. Drag the bars to change how many ostraka carry each name. The numbers here are made up; the names are real men who were ostracized between about 488 and 471 BCE.",
+      "lead_zh": "雅典人每年可以投票，把一位有權勢的人送出城外十年。每個投票的人在一塊破陶片（ostrakon）上刻一個名字。關於「6,000 票」的規則，古代的作者有兩種不同的說法。拖曳長條，改變寫著每個名字的陶片數量。這裡的數字是假設的；名字則是大約西元前 488 到 471 年間真的被放逐過的人。",
+      "need": 6000,
+      "max": 9000,
+      "names": [
+       {
+        "key": "aristides",
+        "en": "Aristides",
+        "zh": "阿里斯提德",
+        "start": 4000
+       },
+       {
+        "key": "themistocles",
+        "en": "Themistocles",
+        "zh": "地米斯托克利",
+        "start": 2500
+       },
+       {
+        "key": "hipparchus",
+        "en": "Hipparchus son of Charmus",
+        "zh": "卡爾穆斯之子希帕庫斯",
+        "start": 300
+       }
+      ],
+      "rules": [
+       {
+        "key": "quorum",
+        "en": "Reading 1: at least 6,000 ostraka in all",
+        "zh": "讀法一：全部加起來至少 6,000 片",
+        "text_en": "Plutarch wrote that if fewer than 6,000 people voted, the ostracism did not count; otherwise the man with the most votes had to leave.",
+        "text_zh": "普魯塔克寫道：投票的人少於 6,000，這次放逐就不算數；夠了的話，票最多的人就得離開。",
+        "src": "Plutarch, Life of Aristides 7",
+        "url": "https://www.perseus.tufts.edu/hopper/text?doc=Plut.+Arist.+7"
+       },
+       {
+        "key": "against",
+        "en": "Reading 2: at least 6,000 against one man",
+        "zh": "讀法二：寫同一個人的至少 6,000 片",
+        "text_en": "A fragment of the historian Philochorus is usually read to mean that one man needed at least 6,000 votes against him.",
+        "text_zh": "史家菲洛科羅斯的一段殘篇，通常被讀成：一個人要被寫上至少 6,000 次，才會被放逐。",
+        "src": "Philochorus, fragment 30 (FGrHist 328 F30), in translation at attalus.org",
+        "url": "https://www.attalus.org/translate/philochorus.html"
+       }
+      ],
+      "scenarios": [
+       {
+        "en": "6,800 in all, no one over 6,000",
+        "zh": "一共 6,800 片，沒有人超過 6,000",
+        "votes": {
+         "aristides": 4000,
+         "themistocles": 2500,
+         "hipparchus": 300
+        }
+       },
+       {
+        "en": "Too few in all",
+        "zh": "全部加起來太少",
+        "votes": {
+         "aristides": 2800,
+         "themistocles": 1900,
+         "hipparchus": 600
+        }
+       },
+       {
+        "en": "One clear target",
+        "zh": "很明顯的一個人",
+        "votes": {
+         "aristides": 6600,
+         "themistocles": 900,
+         "hipparchus": 300
+        }
+       }
+      ],
+      "result": {
+       "too-few": {
+        "en": "Not enough ostraka: no one is sent away.",
+        "zh": "陶片不夠：沒有人被放逐。"
+       },
+       "tie": {
+        "en": "Two men are tied at the top, and the sources do not say what happened then.",
+        "zh": "最多票的兩個人同票；史料沒有說這時候怎麼辦。"
+       },
+       "most": {
+        "en": "{name} has the most ostraka and must leave Athens for ten years.",
+        "zh": "{name}的陶片最多，要離開雅典十年。"
+       },
+       "enough": {
+        "en": "{name} has 6,000 or more and must leave Athens for ten years.",
+        "zh": "{name}有 6,000 片以上，要離開雅典十年。"
+       }
+      },
+      "same_en": "Both readings give the same result here.",
+      "same_zh": "這一次，兩種讀法的結果一樣。",
+      "differ_en": "The two readings give different results. Which one did the Athenians use? Historians still disagree.",
+      "differ_zh": "兩種讀法的結果不一樣。雅典人用的是哪一種？歷史學家到現在還沒有共識。"
+     },
+     "timeline": {
+      "eyebrow": "Parallel Timeline · 平行時間軸",
+      "en": "Many beginnings at once",
+      "zh": "同一個時代的好幾個開頭",
+      "lead_en": "Athens is in the Europe lane. Look at what was happening in the other lanes during the same two centuries.",
+      "lead_zh": "雅典在歐洲那一條線上。看看同樣這兩百年裡，其他的線上發生了什麼。",
+      "from": 400000,
+      "to": 0,
+      "view": {
+       "from": 2700,
+       "to": 2300
+      },
+      "lesson": {
+       "from": 2600,
+       "to": 2350,
+       "en": "This lesson is here",
+       "zh": "這一課在這裡"
+      },
+      "idle_en": "Click a bar or a diamond to read its dates.",
+      "idle_zh": "點一條長條或一個菱形，讀出它的年代。",
+      "tips": [
+       {
+        "en": "Several lanes have something new in the same two centuries. Historians sometimes compare these teachers and states, without ranking them.",
+        "zh": "好幾條線在同樣的兩百年裡都有新的事情發生。歷史學家有時會把這些老師和國家放在一起比較，但不排名。"
+       },
+       {
+        "en": "A striped bar marks dates that scholars still debate, such as the Buddha's lifetime.",
+        "zh": "有條紋的長條，是學者還在爭論的年代，例如佛陀的生卒年。"
+       },
+       {
+        "en": "The gray diamonds mark single events: Cleisthenes' reforms and the trial of Socrates.",
+        "zh": "灰色的菱形標的是單一事件：克里斯提尼的改革，以及蘇格拉底的審判。"
+       }
+      ],
+      "events": [
+       {
+        "lane": "europe",
+        "from": {
+         "year": -508
+        },
+        "kind": "anchor",
+        "en": "Cleisthenes' reforms, Athens",
+        "zh": "雅典，克里斯提尼的改革",
+        "note_en": "In 508 or 507 BCE: ten new tribes and a Council of 500.",
+        "note_zh": "西元前 508 或 507 年：十個新的部落，以及五百人議事會。"
+       },
+       {
+        "lane": "easia",
+        "from": {
+         "year": -551
+        },
+        "to": {
+         "year": -479
+        },
+        "en": "Confucius",
+        "zh": "孔子",
+        "note_en": "Traditional dates, 551 to 479 BCE.",
+        "note_zh": "傳統的年代：西元前 551 到 479 年。"
+       },
+       {
+        "lane": "sasia",
+        "from": {
+         "year": -560
+        },
+        "to": {
+         "year": -405
+        },
+        "kind": "debated",
+        "en": "The Buddha",
+        "zh": "佛陀",
+        "note_en": "Older estimates place his life around 560 to 480 BCE; many scholars now think he died around 405 BCE.",
+        "note_zh": "較早的估計是大約西元前 560 到 480 年；現在很多學者認為他大約在西元前 405 年去世。"
+       },
+       {
+        "lane": "wasia",
+        "from": {
+         "year": -522
+        },
+        "to": {
+         "year": -486
+        },
+        "en": "Darius I rules the Persian Empire",
+        "zh": "大流士一世統治波斯帝國",
+        "note_en": "His empire stretched from Anatolia and Egypt to northern India and Central Asia.",
+        "note_zh": "他的帝國從安納托利亞和埃及，一直延伸到印度北部和中亞。"
+       },
+       {
+        "lane": "europe",
+        "from": {
+         "year": -490
+        },
+        "to": {
+         "year": -480
+        },
+        "en": "Persian Wars: Marathon to Salamis",
+        "zh": "波斯戰爭：從馬拉松到薩拉米斯",
+        "note_en": "The battles of Marathon (490 BCE) and Salamis (480 BCE).",
+        "note_zh": "馬拉松之役（西元前 490 年）與薩拉米斯海戰（西元前 480 年）。"
+       },
+       {
+        "lane": "europe",
+        "from": {
+         "year": -469
+        },
+        "to": {
+         "year": -399
+        },
+        "en": "Socrates",
+        "zh": "蘇格拉底",
+        "note_en": "He questioned people in Athens and wrote nothing himself.",
+        "note_zh": "他在雅典向人追問，自己沒有寫下任何東西。"
+       },
+       {
+        "lane": "europe",
+        "from": {
+         "year": -399
+        },
+        "kind": "anchor",
+        "en": "The trial of Socrates",
+        "zh": "蘇格拉底受審",
+        "note_en": "A jury of citizens sentenced him to death.",
+        "note_zh": "由公民組成的陪審團判他死刑。"
+       },
+       {
+        "lane": "easia",
+        "from": {
+         "year": -1550
+        },
+        "to": {
+         "year": -50
+        },
+        "en": "Beinan culture, Taiwan",
+        "zh": "台灣的卑南文化",
+        "note_en": "At its height about 3,500 to 2,000 years ago, according to the National Museum of Prehistory.",
+        "note_zh": "依史前館的說法，極盛大約在距今三千五百到二千年前。"
+       }
+      ]
+     },
+     "how_we_know": {
+      "eyebrow": "How Do We Know? · 我們怎麼知道？",
+      "en": "A lost book, broken pots, and a hill",
+      "zh": "一本失而復得的書、破陶片，和一座山丘",
+      "lead_en": "Athenian democracy is better documented than most ancient governments, but every kind of evidence has gaps.",
+      "lead_zh": "雅典的民主，比大部分古代的政治制度記錄得更清楚；但每一種證據都有缺口。",
+      "items": [
+       {
+        "icon": "📜",
+        "en": "A description of the system",
+        "zh": "一份制度的說明",
+        "limit_en": "It was written almost two centuries after Cleisthenes. For the early years, the author relied on older writers we cannot always check.",
+        "limit_zh": "它寫成的時候，離克里斯提尼已經將近兩百年。早期的部分，作者依靠的是更早的作者，我們不一定能查證。",
+        "src": "Aristotle, Constitution of the Athenians, chapters 21–22 and 42–43",
+        "url": "https://www.perseus.tufts.edu/hopper/text?doc=Perseus:text:1999.01.0046:chapter=21",
+        "text_en": "The Constitution of the Athenians, written in Aristotle's school in the 300s BCE, describes how the Council, the Assembly, the courts, and the lotteries worked, and gives a short history of how they began.",
+        "text_zh": "《雅典政制》是西元前 300 年代亞里斯多德學派寫的，說明議事會、公民大會、法庭和抽籤怎麼運作，也簡短地交代它們怎麼開始。"
+       },
+       {
+        "icon": "🏺",
+        "en": "Names on broken pottery",
+        "zh": "破陶片上的名字",
+        "limit_en": "Ostraka tell us whose names were written, not how the whole vote turned out or how the 6,000 rule worked.",
+        "limit_zh": "陶片告訴我們有誰的名字被寫上去，卻看不出整場投票的結果，也看不出「6,000 票」的規則怎麼運作。",
+        "src": "Lang, The Athenian Agora XXV: Ostraka (1990)",
+        "url": "https://agora.ascsa.net/id/agora/publication/agora%2025",
+        "text_en": "Excavators in the Agora and the Kerameikos have found thousands of ostraka. One publication alone catalogues 1,145 from the Agora, and a well on the north slope of the Acropolis held 191 more, almost all naming Themistocles.",
+        "text_zh": "在雅典的阿哥拉（市集廣場）和凱拉米克斯，考古學家找到了好幾千塊陶片。光是一本報告就收錄了阿哥拉的 1,145 塊；衛城北坡的一口井裡還有 191 塊，幾乎都寫著地米斯托克利。"
+       },
+       {
+        "icon": "⛰️",
+        "en": "Measuring the meeting place",
+        "zh": "量出會場的大小",
+        "limit_en": "The dates of the phases have been revised more than once, and the space per person is an assumption, so the numbers are estimates.",
+        "limit_zh": "各期的年代已經修正過不只一次，每人占多少空間也是假設，所以這些數字都是估計。",
+        "src": "Hansen, Greek, Roman and Byzantine Studies 17 (1976); Rotroff and Camp, Hesperia 65 (1996)",
+        "url": "https://grbs.library.duke.edu/index.php/grbs/article/download/8091/4773/14627",
+        "text_en": "Archaeologists excavated the Pnyx and found three building phases. By allowing about 0.4 square meters for each person, one historian estimated that the first meeting place held about 6,000 citizens and the last about 13,400.",
+        "text_zh": "考古學家發掘普尼克斯山，找到三個建造階段。一位歷史學家以每人大約 0.4 平方公尺來估算，認為最早的會場坐得下大約 6,000 位公民，最後一期大約 13,400 位。"
+       }
+      ]
+     },
+     "views": {
+      "eyebrow": "Different Accounts · 不同的說法",
+      "en": "Four questions about the Athenian beginning",
+      "zh": "關於雅典這個開頭的四個問題",
+      "lead_en": "Historians and political thinkers have argued about Athens for centuries. Here are four of their questions, with the views set side by side.",
+      "lead_zh": "歷史學家和政治思想家為雅典爭論了好幾百年。下面是其中四個問題，各種說法並列。",
+      "rule_en": "Notice that some disagreements are about evidence, such as numbers, and some are about words, such as what counts as a democracy.",
+      "rule_zh": "留意有些分歧是關於證據的（例如數字），有些是關於用詞的（例如怎樣才算民主）。",
+      "items": [
+       {
+        "topic_en": "Was Athens really a democracy?",
+        "topic_zh": "雅典真的是民主嗎？",
+        "sides": [
+         {
+          "label_en": "Yes, in its own way",
+          "label_zh": "是，用它自己的方式",
+          "en": "Ordinary citizens, rich or poor, voted directly on laws, war, and peace, and took turns in office by lot. In some ways that is more direct than a modern democracy, where people elect representatives.",
+          "zh": "一般公民不論貧富，直接對法律、戰爭與和平投票，又用抽籤輪流擔任官職。在某些方面，這比現代人選出代表的民主更直接。",
+          "src": "Britannica, “Democracy”; Constitution of the Athenians 62–63",
+          "url": "https://www.britannica.com/topic/democracy"
+         },
+         {
+          "label_en": "Only for a few",
+          "label_zh": "只屬於少數人",
+          "en": "Women, metics, and enslaved people were shut out. By one estimate for the 300s BCE, the men with full rights were about 30,000 of some 260,000 people living in Attica, a little over one in ten.",
+          "zh": "女性、外籍居民和被奴役的人都被排除在外。依一個對西元前 300 年代的估計，擁有完整權利的男性大約三萬人，而阿提卡大約住了二十六萬人，大約十個人裡一個多一點。",
+          "src": "Britannica, “Democracy”; Aristotle, Politics 3.1",
+          "url": "https://www.perseus.tufts.edu/hopper/text?doc=Perseus:text:1999.01.0058:book=3:section=1275a"
+         }
+        ],
+        "note_en": "Both can be true at once: the system was very direct for those inside it, and closed to most people.",
+        "note_zh": "兩種說法可以同時成立：對身在其中的人，這個制度非常直接；對大多數人，它是關著的。"
+       },
+       {
+        "topic_en": "Did the Greeks invent government by assembly?",
+        "topic_zh": "是希臘人發明了「集會決定事情」嗎？",
+        "sides": [
+         {
+          "label_en": "They named it",
+          "label_zh": "名稱是他們取的",
+          "en": "The word dēmokratia is Greek, and Athens left more evidence about how its system worked than any other ancient city.",
+          "zh": "dēmokratia 這個字是希臘文；雅典留下的制度證據，也比任何一座古代城市都多。",
+          "src": "Britannica, “Democracy”",
+          "url": "https://www.britannica.com/topic/democracy"
+         },
+         {
+          "label_en": "Others met too",
+          "label_zh": "別人也集會",
+          "en": "A Buddhist text praises the Vajjis of India for meeting often in assembly, and a historian argued in 1943 that early Mesopotamia had assemblies. Scholars debate whether these were democracies or councils of leading families.",
+          "zh": "一部佛教經典稱讚印度的跋耆人常常集會；一位歷史學家在 1943 年主張早期的美索不達米亞也有集會。這些算不算民主，還是比較像主要家族的會議，學者仍在爭論。",
+          "src": "Mahāparinibbāna Sutta (DN 16); Jacobsen, JNES 2 (1943); Britannica, “Licchavi”",
+          "url": "https://suttacentral.net/dn16/en/sujato"
+         }
+        ],
+        "note_en": "Collective decision-making appears in many places; what was unusual in Athens was how much power the assembly of ordinary citizens held.",
+        "note_zh": "一起做決定的方式在很多地方都出現過；雅典不尋常的地方，在於一般公民的大會握有多大的權力。"
+       },
+       {
+        "topic_en": "How many votes did ostracism need?",
+        "topic_zh": "陶片放逐要幾票？",
+        "sides": [
+         {
+          "label_en": "6,000 in all",
+          "label_zh": "全部 6,000 票",
+          "en": "Plutarch wrote that if fewer than 6,000 people voted, the ostracism was void. The historian Mogens Hansen follows this reading.",
+          "zh": "普魯塔克寫道：投票的人少於 6,000，這次放逐就無效。歷史學家漢森採用這個讀法。",
+          "src": "Plutarch, Life of Aristides 7; Hansen, GRBS 23 (1982)",
+          "url": "https://www.perseus.tufts.edu/hopper/text?doc=Plut.+Arist.+7"
+         },
+         {
+          "label_en": "6,000 against one man",
+          "label_zh": "寫同一個人 6,000 票",
+          "en": "A fragment of the historian Philochorus is usually read to mean that a man needed 6,000 votes against him to be sent away.",
+          "zh": "史家菲洛科羅斯的一段殘篇，通常被讀成：一個人要被投 6,000 票，才會被放逐。",
+          "src": "Philochorus, fragment 30 (FGrHist 328 F30), in translation at attalus.org",
+          "url": "https://www.attalus.org/translate/philochorus.html"
+         }
+        ],
+        "note_en": "Try both rules in the game above: the same pile of ostraka can give different results.",
+        "note_zh": "在上面的小互動試試兩種規則：同一堆陶片，結果可能不一樣。"
+       },
+       {
+        "topic_en": "How many people lived in Attica?",
+        "topic_zh": "阿提卡住了多少人？",
+        "sides": [
+         {
+          "label_en": "About 250,000",
+          "label_zh": "大約二十五萬",
+          "en": "Mogens Hansen suggested that in 431 BCE Attica had at least 60,000 citizens and about 250,000 inhabitants in all.",
+          "zh": "漢森認為，西元前 431 年阿提卡至少有六萬名公民，全部居民大約二十五萬人。",
+          "src": "Hansen, as summarized in sehepunkte 21 (2021)",
+          "url": "https://sehepunkte.de/2021/01/33368.html"
+         },
+         {
+          "label_en": "400,000 or more",
+          "label_zh": "四十萬以上",
+          "en": "In a 2019 book, the historian Ben Akrigg argues that the total on the eve of the Peloponnesian War was 400,000 or more.",
+          "zh": "歷史學家阿克里格在 2019 年的書裡主張，伯羅奔尼撒戰爭前夕的總人口有四十萬以上。",
+          "src": "Akrigg, Population and Economy in Classical Athens (2019), reviewed in BMCR 2020.10.40",
+          "url": "https://bmcr.brynmawr.edu/?p=49324"
+         }
+        ],
+        "note_en": "No census survives, so every number is an estimate. The model in this lesson uses one estimate for the 300s BCE and says so.",
+        "note_zh": "沒有留下任何人口普查，所以每個數字都是估計。這一課的模型用的是一組對西元前 300 年代的估計，並且寫明了。"
+       }
+      ]
+     },
+     "phrases": {
+      "eyebrow": "History English · 歷史英語",
+      "en": "Eight sentences about rules and rights",
+      "zh": "談規則與權利的八句英文",
+      "lead_en": "These sentences help you say who was allowed to do what, and under what conditions. Listen, repeat, then make your own sentence with the words in bold.",
+      "lead_zh": "這八句幫你說清楚：誰可以做什麼、在什麼條件下。先聽、再跟著唸，然後用粗體的字自己造一句。",
+      "rows": [
+       {
+        "en": "Only citizens were allowed to vote.",
+        "html": "Only citizens <b>were allowed to</b> vote.",
+        "zh": "只有公民可以投票。",
+        "note_en": "were allowed to: had permission to",
+        "note_zh": "被允許"
+       },
+       {
+        "en": "Women were not allowed to speak in the Assembly.",
+        "html": "Women <b>were not allowed to</b> speak in the Assembly.",
+        "zh": "女性不可以在公民大會發言。",
+        "note_en": "were not allowed to: had no permission to",
+        "note_zh": "不被允許"
+       },
+       {
+        "en": "You could vote only if both your parents were citizens.",
+        "html": "You could vote <b>only if</b> both your parents were citizens.",
+        "zh": "只有在父母都是公民的情況下，你才能投票。",
+        "note_en": "only if: under this condition and no other",
+        "note_zh": "只有在……的情況下"
+       },
+       {
+        "en": "The ostracism did not count unless enough people voted.",
+        "html": "The ostracism did not count <b>unless</b> enough people voted.",
+        "zh": "除非投票的人夠多，否則這次放逐不算數。",
+        "note_en": "unless: except if",
+        "note_zh": "除非"
+       },
+       {
+        "en": "Many officials were chosen by lot.",
+        "html": "Many officials <b>were chosen by lot</b>.",
+        "zh": "很多官員是抽籤選出來的。",
+        "note_en": "were chosen by lot: picked at random",
+        "note_zh": "抽籤選出"
+       },
+       {
+        "en": "The result was decided by a show of hands.",
+        "html": "The result <b>was decided by</b> a show of hands.",
+        "zh": "結果是舉手決定的。",
+        "note_en": "was decided by: settled through",
+        "note_zh": "由……決定"
+       },
+       {
+        "en": "Anyone who was a citizen could speak in the Assembly.",
+        "html": "<b>Anyone who</b> was a citizen could speak in the Assembly.",
+        "zh": "任何一位公民都可以在公民大會發言。",
+        "note_en": "anyone who: every person that",
+        "note_zh": "任何……的人"
+       },
+       {
+        "en": "Democracy in Athens was a beginning, not a finished system.",
+        "html": "Democracy in Athens was <b>a beginning, not</b> a finished system.",
+        "zh": "雅典的民主是一個開頭，不是一個完成的制度。",
+        "note_en": "a beginning, not …: contrasting two ideas",
+        "note_zh": "是……，不是……"
+       }
+      ]
+     },
+     "taiwan_then": {
+      "eyebrow": "Taiwan at That Time · 那時候的台灣",
+      "en": "Villages, rice, and standing stones",
+      "zh": "聚落、稻米與豎立的巨石",
+      "lead_en": "Around 500 BCE, about 2,450 years ago, there were no city-states in Taiwan, but several cultures were flourishing, and metal was about to arrive.",
+      "lead_zh": "大約西元前 500 年，也就是距今大約 2,450 年，台灣沒有城邦，但好幾個文化正興盛，金屬器也快要出現了。",
+      "intro_en": "Archaeologists in Taiwan give dates as “years ago” (before 1950). About 2,450 years ago is roughly 500 BCE.",
+      "intro_zh": "台灣的考古學家用「距今幾年」（以 1950 年為準）說年代。距今大約 2,450 年，差不多就是西元前 500 年。",
+      "facts": [
+       {
+        "k_en": "Beinan culture",
+        "k_zh": "卑南文化",
+        "en": "The National Museum of Prehistory says the Beinan culture was at its height about 3,500 to 2,000 years ago, and that it lived side by side with the Qilin culture for a long time. The museum also notes that it is completely different from the culture of today's Puyuma people.",
+        "zh": "國立臺灣史前文化博物館說，卑南文化「極盛的年代大約在三千五百到二千年前，與麒麟文化並存了一段很長的時間」；博物館也說明，卑南文化和今天的卑南族文化完全不同。",
+        "src": "國立臺灣史前文化博物館 考古學習資源",
+        "url": "https://archae.nmp.gov.tw/c-04.html"
+       },
+       {
+        "k_en": "Yuanshan culture",
+        "k_zh": "圓山文化",
+        "en": "In the Taipei Basin, the Yuanshan culture lasted from about 4,500 to a little over 2,000 years ago. Its people grew rice and used shouldered stone axes and stepped stone adzes.",
+        "zh": "在臺北盆地，圓山文化從距今大約四千五百年延續到二千多年前；那裡的人種稻，使用有肩石斧和有段石錛。",
+        "src": "國立臺灣史前文化博物館 考古學習資源",
+        "url": "https://archae.nmp.gov.tw/c-04.html"
+       },
+       {
+        "k_en": "Standing stones",
+        "k_zh": "豎立的巨石",
+        "en": "On the east coast, the Qilin culture, about 3,000 years ago, raised large standing stones, which the museum says may have been connected with ceremonies.",
+        "zh": "在東海岸，大約距今三千年的麒麟文化豎起了巨大的石頭，博物館說它們可能和祭祀活動有關。",
+        "src": "國立臺灣史前文化博物館 考古學習資源",
+        "url": "https://archae.nmp.gov.tw/c-04.html"
+       },
+       {
+        "k_en": "When did metal arrive?",
+        "k_zh": "金屬什麼時候來？",
+        "en": "Sources differ. One recent study dates the start of Taiwan's metal age to about 2,400 years ago, though its evidence of iron smelting at Shisanhang is later; the museum says the Shisanhang culture, which smelted its own iron, rose about 2,000 years ago, and that iron-making spread to Taiwan about 1,500 years ago.",
+        "zh": "各資料的說法不同。一份近年的研究把台灣金屬器時代的開始定在距今大約 2,400 年，不過它在十三行找到的煉鐵證據比這晚；史前館則說，會自己煉鐵的十三行文化大約在二千年前興起，製作鐵器的技術大約在一千五百年前傳入臺灣。",
+        "src": "國立臺灣史前文化博物館 考古學習資源；國立臺灣大學學位論文（2025）",
+        "url": "https://archae.nmp.gov.tw/c-05.html"
+       }
+      ],
+      "links": [
+       {
+        "en": "Taiwan's Story, Lesson 2: Who Lived in Taiwan Thousands of Years Ago?",
+        "zh": "台灣歷史第二課：幾千年前，誰住在台灣？",
+        "href": "/resources/classes/taiwan-history/who-lived-here/"
+       },
+       {
+        "en": "Taiwan's Story, Lesson 3: Who Are Taiwan's Indigenous Peoples?",
+        "zh": "台灣歷史第三課：台灣的原住民族是誰？",
+        "href": "/resources/classes/taiwan-history/indigenous-peoples/"
+       }
+      ]
+     },
+     "culture_cards": {
+      "eyebrow": "Stories Behind the Evidence · 證據背後的故事",
+      "title_en": "A lottery machine, a well of names, a meeting by the Ganges, and painted gods",
+      "title_zh": "一台抽籤機、一口寫滿名字的井、恆河邊的集會，和上了色的神像",
+      "lead_en": "Four short stories about how the Greeks and their neighbors decided things, and how we know.",
+      "lead_zh": "四個小故事：希臘人和他們的鄰居怎麼做決定，以及我們怎麼知道。",
+      "cards": [
+       {
+        "k": "Athenian Agora · 雅典阿哥拉",
+        "en": "A machine for choosing by lot",
+        "zh": "一台抽籤用的機器",
+        "body_en": "A marble slab with eleven rows of slots, found in 1935, is a kleroterion: citizens' tickets went into the slots, and black and white cubes, dropped through a tube, decided which rows were chosen. None of the surviving machines can be securely dated before the mid-100s BCE, long after Pericles.",
+        "body_zh": "1935 年找到的一塊大理石板，上面有十一排插槽，是一台抽籤機（kleroterion）：公民的名牌插進槽裡，再從一根管子丟下黑色和白色的小方塊，決定哪幾排被選中。留下來的抽籤機，沒有一台能確定早於西元前二世紀中葉，比伯里克利的時代晚很多。"
+       },
+       {
+        "k": "Early 400s BCE · Athens · 雅典",
+        "en": "A well full of one name",
+        "zh": "一口寫滿同一個名字的井",
+        "body_en": "On the north slope of the Acropolis, an archaeologist found 191 ostraka in a well, almost all naming Themistocles, the Athenian commander who planned the Greek naval victory at Salamis. Themistocles himself was later ostracized.",
+        "body_zh": "在衛城的北坡，一位考古學家在一口井裡找到 191 塊陶片，幾乎都寫著地米斯托克利，也就是策劃希臘人在薩拉米斯海戰獲勝的雅典將領。後來，地米斯托克利自己也被放逐了。"
+       },
+       {
+        "k": "About 400s BCE · India · 印度",
+        "en": "The Vajjis who met often",
+        "zh": "常常集會的跋耆人",
+        "body_en": "In the Mahāparinibbāna Sutta, the Buddha asks Ānanda whether the Vajjis (Pāli Vajjī, Sanskrit Vṛji) meet frequently and hold many meetings, and says that as long as they do, they can expect growth, not decline. It is the first of seven such conditions he lists. Historians debate whether their government should be called a republic or rule by leading families.",
+        "body_zh": "在巴利《大般涅槃經》（Mahāparinibbāna Sutta，《長部》第 16 經；漢譯《長阿含・遊行經》）裡，佛陀問阿難：跋耆人（巴利文 Vajjī，梵文 Vṛji）是不是常常集會、多次集會？並說只要他們這樣做，就可以期待興盛，不會衰退。這是佛陀列出的七個條件中的第一個。他們的政治該叫共和，還是由主要家族統治，歷史學家仍在爭論。"
+       },
+       {
+        "k": "About 530 BCE · Greece · 希臘",
+        "en": "Statues in color",
+        "zh": "有顏色的雕像",
+        "body_en": "Greek statues look white today, but many were painted. A sphinx at the Metropolitan Museum of Art, from about 530 BCE, still has extensive remains of its original colors, and researchers have studied ancient paint for more than 40 years.",
+        "body_zh": "希臘雕像今天看起來是白的，但很多原本有上色。紐約大都會藝術博物館的一尊人面獅身像，大約是西元前 530 年的，至今還留著大片原本的顏料；研究者研究古代的彩繪已經超過 40 年。"
+       }
+      ]
+     },
+     "curric": {
+      "eyebrow": "In the Curriculum · 對應課綱",
+      "en": "Where this lesson fits",
+      "zh": "這一課對應的課綱",
+      "lead_en": "These entries come from Taiwan's 12-Year Basic Education curriculum for social studies (October 2018).",
+      "lead_zh": "下面的條目出自十二年國民基本教育課程綱要社會領域（民國 107 年 10 月）。",
+      "items": [
+       {
+        "code": "歷 Na-Ⅳ-2",
+        "area": "國中・古代文化的遺產",
+        "area_en": "Junior high · the heritage of ancient cultures",
+        "text": "希臘、羅馬的政治及文化。",
+        "note_en": "The curriculum asks for the political changes and cultural features of Greece and Rome, without going into detail. This lesson covers Athenian democracy and Greek ways of reasoning; Lesson 6 turns to Rome.",
+        "note_zh": "課綱要學生認識希臘、羅馬的政治演變與文化特色，不必詳述細節。這一課談雅典的民主和希臘人講道理的方式；第六課接著談羅馬。"
+       },
+       {
+        "code": "歷 La-Ⅴ-1",
+        "area": "高中・歐洲文化與現代世界",
+        "area_en": "Senior high · European culture and the modern world",
+        "text": "神話與哲學。",
+        "note_en": "The Greek habit of explaining the world with reasons, from Thales to Socrates, is a starting point for this entry.",
+        "note_zh": "希臘人用道理解釋世界的習慣，從泰利斯到蘇格拉底，是這個條目的一個起點。"
+       },
+       {
+        "code": "歷 Lb-Ⅴ-3",
+        "area": "高中・歐洲文化與現代世界",
+        "area_en": "Senior high · European culture and the modern world",
+        "text": "民主傳統及其現代挑戰。",
+        "note_en": "The curriculum's explanation focuses on democracy since the 1700s, including women's right to vote. This lesson shows how the word began and how narrow the first version was.",
+        "note_zh": "課綱的說明談的是十八世紀以來的民主，包括女性參政權。這一課讓學生看到這個詞怎麼開始，以及最早的版本有多窄。"
+       }
+      ]
+     },
+     "myths": [
+      {
+       "myth_en": "Every Athenian could vote.",
+       "myth_zh": "每個雅典人都能投票。",
+       "fact_en": "Only adult men whose parents were citizens could vote. Women, metics, and enslaved people, the great majority, could not.",
+       "fact_zh": "只有父母都是公民的成年男子能投票。女性、外籍居民和被奴役的人，也就是絕大多數的人，都不能。"
+      },
+      {
+       "myth_en": "Greek statues and temples were pure white.",
+       "myth_zh": "希臘的雕像和神廟是純白的。",
+       "fact_en": "Many were brightly painted. Traces of the original colors survive on statues such as a sphinx of about 530 BCE in the Metropolitan Museum of Art.",
+       "fact_zh": "很多原本塗著鮮豔的顏色。像大都會藝術博物館那尊大約西元前 530 年的人面獅身像，至今還留著原本的顏料。"
+      },
+      {
+       "myth_en": "Only the Greeks ever made decisions in assemblies.",
+       "myth_zh": "只有希臘人用集會做決定。",
+       "fact_en": "Other peoples, such as the Vajjis of India, also met in assemblies, though scholars debate how much power ordinary people had in them.",
+       "fact_zh": "其他民族也有集會，例如印度的跋耆人；不過一般人在這些集會裡有多少權力，學者仍有爭論。"
+      },
+      {
+       "myth_en": "Athens was a democracy from beginning to end.",
+       "myth_zh": "雅典從頭到尾都是民主的。",
+       "fact_en": "Small groups overthrew the democracy in 411 and again in 404 BCE, and the citizens restored it each time.",
+       "fact_zh": "西元前 411 年和 404 年，一小群人兩度推翻了民主，公民每一次都把它恢復。"
+      }
+     ],
+     "tricks_head": {
+      "en": "Four lines to keep",
+      "zh": "四句帶著走"
+     },
+     "tricks": [
+      {
+       "title_en": "Rule by the people, but which people?",
+       "title_zh": "人民統治，但是哪些人民？",
+       "body_en": "Adult male citizens only: a little over one in ten by one estimate.",
+       "body_zh": "只有成年男性公民：依一個估計，大約十個人裡一個多一點。"
+      },
+      {
+       "title_en": "Hands, lots, and pots",
+       "title_zh": "舉手、抽籤、陶片",
+       "body_en": "Vote by hands, choose officials by lot, send someone away with pottery.",
+       "body_zh": "舉手表決，抽籤選官，用陶片把人送走。"
+      },
+      {
+       "title_en": "Ask why, then ask again",
+       "title_zh": "問為什麼，再問一次",
+       "body_en": "Socrates looked for answers by questioning, not by telling.",
+       "body_zh": "蘇格拉底用追問找答案，而不是直接告訴你。"
+      },
+      {
+       "title_en": "One beginning among several",
+       "title_zh": "好幾個開頭中的一個",
+       "body_en": "Athens, Confucius, the Buddha, Persia: the same age, different paths.",
+       "body_zh": "雅典、孔子、佛陀、波斯：同一個時代，不同的路。"
+      }
+     ],
+     "activities": [
+      {
+       "title_en": "Hold a Class Assembly",
+       "title_zh": "開一場班級公民大會",
+       "materials": [
+        {
+         "en": "A question the class really cares about, such as where to go for a field trip",
+         "zh": "一個全班真的在意的問題，例如校外教學要去哪裡"
+        },
+        {
+         "en": "Slips of paper for a second, secret vote",
+         "zh": "第二次祕密投票用的小紙條"
+        }
+       ],
+       "steps": [
+        {
+         "en": "Choose two “presiding officers” by drawing names from a box. Anyone may stand and speak for one minute: “I propose that …”",
+         "zh": "從盒子裡抽出兩位「主席」。任何人都可以站起來發言一分鐘：「I propose that …」"
+        },
+        {
+         "en": "Vote by a show of hands. The officers must judge the result by looking only, without counting.",
+         "zh": "舉手表決。主席只能用看的判斷結果，不可以數。"
+        },
+        {
+         "en": "Now vote again on paper and count every slip. Did the officers judge correctly?",
+         "zh": "接著用紙條再投一次，每一張都數。主席剛剛判斷得對嗎？"
+        },
+        {
+         "en": "Finally, repeat the vote with only about one student in ten allowed to vote. How does the class feel about the result?",
+         "zh": "最後，只讓大約十分之一的同學投票，再表決一次。全班對這個結果有什麼感覺？"
+        }
+       ],
+       "tip_en": "Step 4 is the lesson. Students feel the difference between a direct vote and a narrow one, which is exactly the double picture of Athens.",
+       "tip_zh": "第四步就是這堂課的重點。學生會感受到「直接投票」和「只有少數人能投」的差別，這正是雅典的兩面。"
+      },
+      {
+       "title_en": "The Socrates Game",
+       "title_zh": "蘇格拉底遊戲",
+       "materials": [
+        {
+         "en": "A big question, such as “What is a good friend?” or “What is fair?”",
+         "zh": "一個大問題，例如「什麼是好朋友？」或「什麼是公平？」"
+        },
+        {
+         "en": "A timer",
+         "zh": "一個計時器"
+        }
+       ],
+       "steps": [
+        {
+         "en": "In pairs, one student gives a short answer: “A good friend is someone who …”",
+         "zh": "兩人一組，一個人先給一個簡短的答案：「A good friend is someone who …」"
+        },
+        {
+         "en": "The partner may only ask questions, never give answers: “Is that always true? Can you think of an example where it is not?”",
+         "zh": "另一個人只能問問題，不能給答案：「Is that always true? Can you think of an example where it is not?」"
+        },
+        {
+         "en": "After three minutes, the first student improves the answer. Then swap roles.",
+         "zh": "三分鐘後，第一個人修改自己的答案。接著交換角色。"
+        },
+        {
+         "en": "Share one answer that changed. What question made it change?",
+         "zh": "分享一個改變了的答案。是哪一個問題讓它改變的？"
+        }
+       ],
+       "tip_en": "Keep the questions kind. The goal, as with Socrates, is to examine ideas, not to embarrass people.",
+       "tip_zh": "提問要友善。就像蘇格拉底那樣，目的是檢驗想法，不是讓人難堪。"
+      }
+     ],
+     "links_head": {
+      "eyebrow": "Go Further · 延伸閱讀",
+      "en": "Read more",
+      "zh": "延伸閱讀"
+     },
+     "links": [
+      {
+       "icon": "🛣️",
+       "k_en": "World History · Next lesson",
+       "k_zh": "世界歷史・下一課",
+       "en": "How Did Rome Hold an Empire Together?",
+       "zh": "羅馬怎麼管住那麼大的地方？",
+       "soon": true,
+       "note_en": "Rome had citizens and assemblies too, and then roads, laws, and aqueducts that held a huge empire together.",
+       "note_zh": "羅馬也有公民和集會；後來它用道路、法律和水道，把一個巨大的帝國連在一起。"
+      },
+      {
+       "icon": "🏞️",
+       "k_en": "World History · Lesson 4",
+       "k_zh": "世界歷史・第四課",
+       "en": "Why Did the First Cities Grow Beside Rivers?",
+       "zh": "最早的城市為什麼都在河邊？",
+       "href": "/resources/classes/world-history/cities-by-rivers/",
+       "note_en": "The first cities, organized by rulers and officials.",
+       "note_zh": "由統治者和官員組織起來的最早的城市。"
+      },
+      {
+       "icon": "💭",
+       "k_en": "Philosophy",
+       "k_zh": "哲學",
+       "en": "What Makes a Good Argument?",
+       "zh": "什麼是好的論證？",
+       "href": "/resources/classes/philosophy/good-argument/",
+       "note_en": "How to give reasons, the habit the Greek thinkers made famous.",
+       "note_zh": "怎麼講道理，希臘的思想家讓這個習慣出了名。"
+      },
+      {
+       "icon": "📜",
+       "k_en": "How America Governs Itself · Lesson 1",
+       "k_zh": "美國政治・第一課",
+       "en": "How Can One Document Run a Country?",
+       "zh": "一份文件怎麼管一個國家？",
+       "href": "/resources/classes/us-government/constitution/",
+       "note_en": "A modern democracy that elects representatives, unlike Athens.",
+       "note_zh": "一個選出代表的現代民主，和雅典不一樣。"
+      }
+     ],
+     "sources_note_en": "Checked October 2026. Numbers for Athenian population and for the Pnyx are scholars' estimates; where they differ, the lesson gives the range",
+     "sources_note_zh": "2026 年 10 月查證。雅典的人口和普尼克斯山的大小都是學者的估計；遇到不一致時，課文寫出範圍",
+     "sources": [
+      {
+       "en": "Cleisthenes' reforms in the archonship of Isagoras (508/7 BCE): ten tribes, the Council of 500, demes",
+       "zh": "伊薩哥拉斯任執政官那年（西元前 508／507 年）克里斯提尼的改革：十個部落、五百人議事會、德莫",
+       "src": "Aristotle, Constitution of the Athenians 21",
+       "url": "https://www.perseus.tufts.edu/hopper/text?doc=Perseus:text:1999.01.0046:chapter=21"
+      },
+      {
+       "en": "The ostracism law; the first ostracism",
+       "zh": "陶片放逐法；第一次陶片放逐",
+       "src": "Aristotle, Constitution of the Athenians 22",
+       "url": "https://www.perseus.tufts.edu/hopper/text?doc=Perseus:text:1999.01.0046:chapter=22"
+      },
+      {
+       "en": "Citizenship for those of citizen parentage on both sides, enrolled at 18; two years of cadet service",
+       "zh": "父母雙方都是公民者，18 歲登記為公民；兩年的青年軍訓",
+       "src": "Aristotle, Constitution of the Athenians 42",
+       "url": "https://www.perseus.tufts.edu/hopper/text?doc=Perseus:text:1999.01.0046:chapter=42"
+      },
+      {
+       "en": "The Assembly met four times in each prytany",
+       "zh": "公民大會每個主席團任期開會四次",
+       "src": "Aristotle, Constitution of the Athenians 43",
+       "url": "https://www.perseus.tufts.edu/hopper/text?doc=Perseus:text:1999.01.0046:chapter=43"
+      },
+      {
+       "en": "Officials chosen by lot; pay for the Assembly, courts, and Council; Assembly pay introduced later, first one obol",
+       "zh": "抽籤選出的官員；出席公民大會、法庭和議事會的津貼；出席公民大會的津貼較晚才有，一開始是一個歐寶",
+       "src": "Aristotle, Constitution of the Athenians 41.3 and 62",
+       "url": "https://www.perseus.tufts.edu/hopper/text?doc=Perseus:text:1999.01.0046:chapter=62"
+      },
+      {
+       "en": "Pericles' citizenship law (451/450 BCE); Pericles introduced jury pay",
+       "zh": "伯里克利的公民權法（西元前 451／450 年）；伯里克利開始給陪審員津貼",
+       "src": "Aristotle, Constitution of the Athenians 26.4 and 27.3; Britannica, “Pericles” (on the citizenship law)",
+       "url": "https://www.perseus.tufts.edu/hopper/text?doc=Perseus:text:1999.01.0046:chapter=26"
+      },
+      {
+       "en": "The oligarchy of the Four Hundred (411 BCE) and the Thirty (404/3 BCE)",
+       "zh": "四百人寡頭（西元前 411 年）與三十人（西元前 404／403 年）",
+       "src": "Aristotle, Constitution of the Athenians 33–35",
+       "url": "https://www.perseus.tufts.edu/hopper/text?doc=Perseus:text:1999.01.0046:chapter=33"
+      },
+      {
+       "en": "Residence does not make a citizen; resident aliens and slaves share the domicile of citizens",
+       "zh": "住在一地不使人成為公民；外籍居民和奴隸也和公民住在一起",
+       "src": "Aristotle, Politics 3.1 (1275a)",
+       "url": "https://www.perseus.tufts.edu/hopper/text?doc=Perseus:text:1999.01.0058:book=3:section=1275a"
+      },
+      {
+       "en": "Show of hands, simple majority; the dēmos limited to male citizens; one estimate for the mid-300s BCE: about 100,000 citizens (about 30,000 men over 18), 10,000 metics, as many as 150,000 enslaved",
+       "zh": "舉手、簡單多數；dēmos 只限男性公民；一個對西元前 300 年代中期的估計：約十萬公民（其中十八歲以上男性約三萬）、一萬外籍居民、多達十五萬被奴役者",
+       "src": "Britannica, “Democracy”",
+       "url": "https://www.britannica.com/topic/democracy"
+      },
+      {
+       "en": "The Ecclesia: the body of male citizens 18 years of age or over",
+       "zh": "公民大會：十八歲以上的男性公民",
+       "src": "Britannica, “Ecclesia”",
+       "url": "https://www.britannica.com/topic/ecclesia-ancient-Greek-assembly"
+      },
+      {
+       "en": "The Pnyx's capacity by phase (about 6,000; 6,500–8,000; up to 13,400) at about 0.4 m² per person; attendance a minority of citizens",
+       "zh": "普尼克斯山各期的容量（約 6,000；6,500–8,000；最多 13,400），以每人約 0.4 平方公尺估算；出席的只是少數公民",
+       "src": "Hansen, “How Many Athenians Attended the Ecclesia?”, GRBS 17 (1976)",
+       "url": "https://grbs.library.duke.edu/index.php/grbs/article/download/8091/4773/14627"
+      },
+      {
+       "en": "The quorum of 6,000 for several decisions, including ostracism; Hansen follows Plutarch",
+       "zh": "幾種決定（包括陶片放逐）需要 6,000 人的法定人數；漢森採用普魯塔克的說法",
+       "src": "Hansen, GRBS 23 (1982)",
+       "url": "https://grbs.library.duke.edu/index.php/grbs/article/download/6201/5169"
+      },
+      {
+       "en": "The phases of the Pnyx and their redating",
+       "zh": "普尼克斯山的各期與年代的修正",
+       "src": "Forsén, Hesperia 62 (1993)",
+       "url": "https://www.ascsa.edu.gr/uploads/media/hesperia/148192.pdf"
+      },
+      {
+       "en": "The third period of the Pnyx, about 330 BCE",
+       "zh": "普尼克斯山第三期，約西元前 330 年",
+       "src": "Rotroff and Camp, Hesperia 65 (1996)",
+       "url": "https://www.ascsa.edu.gr/uploads/media/hesperia/148378.pdf"
+      },
+      {
+       "en": "Philochorus: the man with the most votes, which must be not less than 6,000, was exiled",
+       "zh": "菲洛科羅斯：票最多的人被放逐，票數不得少於 6,000",
+       "src": "Philochorus, fragment 30 (FGrHist 328 F30)",
+       "url": "https://www.attalus.org/translate/philochorus.html"
+      },
+      {
+       "en": "Fewer than 6,000 voters made an ostracism void; ten years' exile",
+       "zh": "投票者少於 6,000 則放逐無效；放逐十年",
+       "src": "Plutarch, Life of Aristides 7",
+       "url": "https://www.perseus.tufts.edu/hopper/text?doc=Plut.+Arist.+7"
+      },
+      {
+       "en": "Population of Attica: 400,000 or more on the eve of the Peloponnesian War (Akrigg)",
+       "zh": "阿提卡人口：伯羅奔尼撒戰爭前夕四十萬以上（阿克里格）",
+       "src": "Review of Akrigg (2019), BMCR 2020.10.40",
+       "url": "https://bmcr.brynmawr.edu/?p=49324"
+      },
+      {
+       "en": "Hansen's estimate for 431 BCE: at least 60,000 citizens, about 250,000 inhabitants",
+       "zh": "漢森對西元前 431 年的估計：至少六萬公民、約二十五萬居民",
+       "src": "Review of Akrigg (2019), sehepunkte 21 (2021)",
+       "url": "https://sehepunkte.de/2021/01/33368.html"
+      },
+      {
+       "en": "1,145 ostraka from the Agora; 191 from a well on the north slope, almost all naming Themistocles",
+       "zh": "阿哥拉出土的 1,145 塊陶片；北坡一口井裡的 191 塊，幾乎都寫著地米斯托克利",
+       "src": "Lang, The Athenian Agora XXV: Ostraka (1990)",
+       "url": "https://agora.ascsa.net/id/agora/publication/agora%2025"
+      },
+      {
+       "en": "Kleroterion, Agora I 3967: eleven rows of slots, found in 1935",
+       "zh": "抽籤機，阿哥拉 I 3967：十一排插槽，1935 年發現",
+       "src": "Agora Excavations, object I 3967",
+       "url": "https://agora.ascsa.net/id/agora/object/i%203967"
+      },
+      {
+       "en": "Allotment with tickets and black and white dice dropped through a tube",
+       "zh": "用名牌，以及從管子丟下的黑白骰子來抽籤",
+       "src": "Aristotle, Constitution of the Athenians 63–64",
+       "url": "https://www.perseus.tufts.edu/hopper/text?doc=Perseus:text:1999.01.0046:chapter=64"
+      },
+      {
+       "en": "Surviving kleroteria mostly date to the mid-second century BCE",
+       "zh": "留存的抽籤機大多是西元前二世紀中葉的",
+       "src": "Papazarkadas, CHS Research Bulletin (2011)",
+       "url": "https://research-bulletin.chs.harvard.edu/2011/02/16/athenian-kleroteria-and-hellenistic-sortition/"
+      },
+      {
+       "en": "Socrates (469–399 BCE), wrote nothing; question-and-answer method",
+       "zh": "蘇格拉底（西元前 469–399 年），沒有著作；問答的方法",
+       "src": "Stanford Encyclopedia of Philosophy, “Socrates”",
+       "url": "https://plato.stanford.edu/entries/socrates/"
+      },
+      {
+       "en": "“If only thirty votes had been cast the other way, I should have been acquitted”",
+       "zh": "「只要有三十票投向另一邊，我就無罪了」",
+       "src": "Plato, Apology 36a",
+       "url": "https://www.perseus.tufts.edu/hopper/text?doc=Perseus%3Atext%3A1999.01.0170%3Atext%3DApol.%3Asection%3D36a"
+      },
+      {
+       "en": "Thales said to have predicted a solar eclipse in 585 BCE",
+       "zh": "據說泰利斯預測了西元前 585 年的日食",
+       "src": "Stanford Encyclopedia of Philosophy, “Presocratic Philosophy”; MacTutor, “Thales”",
+       "url": "https://plato.stanford.edu/entries/presocratics/"
+      },
+      {
+       "en": "Confucius, traditional dates 551–479 BCE",
+       "zh": "孔子，傳統年代西元前 551–479 年",
+       "src": "Stanford Encyclopedia of Philosophy, “Confucius”",
+       "url": "https://plato.stanford.edu/entries/confucius/"
+      },
+      {
+       "en": "The Buddha's dates: about 560–480 BCE, or death around 405 BCE",
+       "zh": "佛陀的年代：約西元前 560–480 年，或約西元前 405 年去世",
+       "src": "Stanford Encyclopedia of Philosophy, “The Buddha”",
+       "url": "https://plato.stanford.edu/entries/buddha/"
+      },
+      {
+       "en": "Darius I (r. 522–486 BCE) and the extent of the Achaemenid Empire",
+       "zh": "大流士一世（在位西元前 522–486 年）與阿契美尼德帝國的範圍",
+       "src": "Metropolitan Museum of Art, “The Achaemenid Persian Empire”",
+       "url": "https://www.metmuseum.org/essays/the-achaemenid-persian-empire-550-330-b-c"
+      },
+      {
+       "en": "The battle of Salamis, 480 BCE",
+       "zh": "薩拉米斯海戰，西元前 480 年",
+       "src": "Britannica, “Battle of Salamis”",
+       "url": "https://www.britannica.com/event/Battle-of-Salamis"
+      },
+      {
+       "en": "The Vajjis meet frequently and have many meetings",
+       "zh": "跋耆人常常集會、多次集會",
+       "src": "Mahāparinibbāna Sutta (DN 16), tr. Sujato, SuttaCentral",
+       "url": "https://suttacentral.net/dn16/en/sujato"
+      },
+      {
+       "en": "The Licchavi republic, with a general assembly of the heads of leading families",
+       "zh": "離車的共和政治，有由主要家族首領組成的大會",
+       "src": "Britannica, “Licchavi”",
+       "url": "https://www.britannica.com/topic/Licchavi"
+      },
+      {
+       "en": "“Oligarchy, or even chiefdom” as alternative labels",
+       "zh": "也有人認為該稱「寡頭」甚至「酋邦」",
+       "src": "Britannica, “India”",
+       "url": "https://www.britannica.com/place/India/The-beginning-of-the-historical-period-c-500-150-bce"
+      },
+      {
+       "en": "“Primitive Democracy in Ancient Mesopotamia”",
+       "zh": "〈古代美索不達米亞的原始民主〉",
+       "src": "Jacobsen, Journal of Near Eastern Studies 2 (1943)",
+       "url": "https://doi.org/10.1086/370672"
+      },
+      {
+       "en": "The debate on early collective governance",
+       "zh": "關於早期集體治理的討論",
+       "src": "Fleming, Democracy's Ancient Ancestors (Cambridge, 2004)",
+       "url": "https://doi.org/10.1017/CBO9780511499623"
+      },
+      {
+       "en": "A Greek sphinx of about 530 BCE with extensive remains of original pigments",
+       "zh": "約西元前 530 年的希臘人面獅身像，保有大片原本的顏料",
+       "src": "Metropolitan Museum of Art, “Ancient Greek Sculpture in Color”",
+       "url": "https://www.metmuseum.org/perspectives/new-research-greek-sphinx"
+      },
+      {
+       "en": "Polychromy research for more than 40 years",
+       "zh": "超過 40 年的古代彩繪研究",
+       "src": "Liebieghaus Skulpturensammlung, Polychromy Research",
+       "url": "https://liebieghaus.de/en/polychromy-research"
+      },
+      {
+       "en": "Beinan culture at its height about 3,500–2,000 years ago; Yuanshan culture 4,500 to 2,000-odd years ago; Qilin culture about 3,000 years ago",
+       "zh": "卑南文化極盛約距今 3,500–2,000 年；圓山文化距今約 4,500 年到二千多年前；麒麟文化約距今 3,000 年",
+       "src": "國立臺灣史前文化博物館 考古學習資源",
+       "url": "https://archae.nmp.gov.tw/c-04.html"
+      },
+      {
+       "en": "Shisanhang culture about 2,000 years ago; iron-making reached Taiwan about 1,500 years ago",
+       "zh": "十三行文化約二千年前；製鐵技術約一千五百年前傳入臺灣",
+       "src": "國立臺灣史前文化博物館 考古學習資源",
+       "url": "https://archae.nmp.gov.tw/c-05.html"
+      },
+      {
+       "en": "Taiwan's metal age about 2,400–450 years ago; earliest smelting evidence at Shisanhang",
+       "zh": "台灣金屬器時代約距今 2,400–450 年；十三行有最早的煉鐵證據",
+       "src": "國立臺灣大學學位論文（2025）",
+       "url": "https://tdr.lib.ntu.edu.tw/handle/123456789/98326"
+      },
+      {
+       "en": "Curriculum entries 歷 Na-Ⅳ-2, 歷 La-Ⅴ-1, 歷 Lb-Ⅴ-3",
+       "zh": "課綱條目 歷 Na-Ⅳ-2、歷 La-Ⅴ-1、歷 Lb-Ⅴ-3",
+       "src": "十二年國民基本教育課程綱要・社會領域（民國 107 年 10 月）",
+       "url": "https://www.naer.edu.tw/upload/1/16/doc/819/十二年國民基本教育課程綱要國民中小學暨普通型高級中等校-社會領域.pdf"
+      }
+     ]
+    }
+   ],
+   "planned": [
     {
      "n": 6,
      "icon": "🛣️",

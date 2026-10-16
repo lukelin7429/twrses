@@ -18136,7 +18136,7 @@ def build_geo_hub():
 _whj = os.path.join(ROOT, "data", "world_history.json")
 WH = json.load(open(_whj, encoding="utf-8")) if os.path.exists(_whj) else None
 WH_BASE = "/resources/classes/world-history/"
-_WH_JS = {"spread": "wh-spread", "farm": "wh-farm", "tablet": "wh-tablet", "pyramid": "wh-pyramid"}   # lab.kind → assets/js/<bundle>.js
+_WH_JS = {"spread": "wh-spread", "farm": "wh-farm", "tablet": "wh-tablet", "pyramid": "wh-pyramid", "assembly": "wh-assembly"}   # lab.kind → assets/js/<bundle>.js
 
 def _wh_ver():
     h = hashlib.md5()
@@ -18208,7 +18208,19 @@ def whpyramid_svg(size=56):
             '<g stroke="#9a7d48" stroke-width=".9"><path d="M17 33h26M20 30h20"/></g>'
             '<path d="M2 40l26-13v3L8 40z" fill="#b98c55"/></svg>')
 
-_WH_CARD = {"spread": whspread_svg, "farm": whfarm_svg, "tablet": whtablet_svg, "pyramid": whpyramid_svg}
+def whassembly_svg(size=56):
+    """第五課的課程卡小圖示：扇形的山坡上坐著一群人，前面一個講台，幾隻手舉起來。"""
+    import math
+    dots = "".join(f'<circle cx="{30 + r * math.cos(a):.1f}" cy="{44 - r * math.sin(a):.1f}" r="2.1" fill="{c}"/>'
+                   for r, c in ((14, "#c0392b"), (20, "#c0392b"), (26, "#c0392b"))
+                   for a in [math.pi * (0.18 + 0.64 * i / 6) for i in range(7)])
+    return (f'<svg class="whassembly-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">'
+            '<rect x="0" y="0" width="60" height="60" rx="10" fill="#bfe0f5"/>'
+            '<path d="M2 46A28 28 0 0 1 58 46z" fill="#cdbb94"/><path d="M8 46A22 22 0 0 1 52 46" fill="none" stroke="#a8977a"/><path d="M14 46A16 16 0 0 1 46 46" fill="none" stroke="#a8977a"/>'
+            f'{dots}<g stroke="#f4d3b0" stroke-width="1.6" stroke-linecap="round"><path d="M24 26v-5M37 23v-5M18 34v-5"/></g>'
+            '<rect x="24" y="44" width="12" height="6" rx="1" fill="#9e8f72"/><rect x="0" y="50" width="60" height="10" fill="#b9b073"/></svg>')
+
+_WH_CARD = {"spread": whspread_svg, "farm": whfarm_svg, "tablet": whtablet_svg, "pyramid": whpyramid_svg, "assembly": whassembly_svg}
 
 def render_whspread_lab(lesson):
     """第一課：歷史地球儀（assets/js/wh-spread.js 綁這裡的 class）。只畫陸地、海洋與路線；不畫國界、不標國名。"""
@@ -18399,7 +18411,52 @@ def render_whpyramid_lab(lesson):
   <p class="wh-credit">{lab["credit_html"]}</p>
 </div>'''
 
-_WH_LAB = {"spread": render_whspread_lab, "farm": render_whfarm_lab, "tablet": render_whtablet_lab, "pyramid": render_whpyramid_lab}
+def render_whassembly_lab(lesson):
+    """第五課：誰能上普尼克斯山投票？（assets/js/wh-assembly.js 綁這裡的 class）。人數是學者的估計，畫面用示意的數字。"""
+    lab = lesson["lab"]
+    payload = _wh_json({k: lab[k] for k in ("per", "groups", "seats", "margin", "judge")})
+    btns = "".join(f'<button type="button" data-mode="{m["key"]}" aria-pressed="{"true" if n == 0 else "false"}">{html.escape(m["en"])}<small>{html.escape(m["zh"])}</small></button>'
+                   for n, m in enumerate(lab["modes"]))
+    cards = "".join(f'<div class="wh-as-card" data-mode-card="{m["key"]}"{"" if n == 0 else " hidden"}><h3>{_wh_bi(m["en"], m["zh"])}</h3><p>{_wh_bi(m["text_en"], m["text_zh"])}</p></div>'
+                    for n, m in enumerate(lab["modes"]))
+    groups = "".join(f'<li><i style="background:{g["color"]}"></i><span>{_wh_bi(g["en"], g["zh"])}</span><small>{_wh_bi(g["range_en"], g["range_zh"])}</small></li>'
+                     for g in lab["groups"])
+    return f'''<div class="astro-lab wh-lab wh-as rvl" data-wh-assembly-lab>
+  <script type="application/json">{payload}</script>
+  <div class="al-stage">
+    <div class="al-space">
+      <canvas class="al-space-cv" aria-label="3D model of the plain of Attica and the Pnyx hill in Athens; small figures stand for the people who lived there, and those who could vote walk up to the assembly; a simplified illustration · 雅典阿提卡平原與普尼克斯山的 3D 模型；小人代表住在那裡的人，能投票的人走上山去開公民大會；簡化的示意"></canvas>
+      <div class="al-labels" aria-hidden="true"></div>
+      <p class="al-hint">Drag to turn · 拖曳轉動　Scroll or pinch to zoom · 滾輪／雙指縮放</p>
+      <button type="button" class="al-home" title="Reset view · 重設視角" aria-label="Reset view · 重設視角">&#8634;</button>
+      <p class="al-nogl-msg">This 3D model needs WebGL, which this browser does not support. The numbers and the explanations on the right still work, and so do the games below.<br><span class="zh">這個瀏覽器不支援 WebGL，無法顯示 3D 模型；右邊的數字和說明照樣能用，下面的小遊戲也都能用。</span></p>
+    </div>
+    <aside class="al-sky wh-aside wh-as-aside">
+      <p class="al-sky-k">Who lived in Attica · 誰住在阿提卡</p>
+      <ul class="wh-as-groups">{groups}</ul>
+      <p class="wh-as-per-note">{_wh_bi(f"One figure stands for about {lab['per']:,} people.", f"一個小人代表大約 {lab['per']:,} 人。")}</p>
+      <dl class="wh-py-facts">
+        <div class="is-key"><dt>{_wh_bi("Share of all residents who could vote", "能投票的人占所有居民")}</dt><dd><b class="wh-as-voters"></b></dd></div>
+        <div><dt>{_wh_bi("Share of voters the hill could seat at once", "山坡一次坐得下的投票者")}</dt><dd><b class="wh-as-seats"></b></dd></div>
+      </dl>
+      <p class="wh-fg-note">{_wh_bi(lab["numbers_note_en"], lab["numbers_note_zh"])}</p>
+      {cards}
+    </aside>
+  </div>
+  <div class="al-controls">
+    <div class="al-row al-row-main">
+      <button type="button" class="al-play" aria-pressed="false"><span class="al-play-i" aria-hidden="true"></span><span class="al-play-t">Take the tour · 從頭看一遍</span></button>
+      <label class="wh-timerow wh-as-voterow" hidden><span>No one<small>沒有人</small></span>
+        <input type="range" class="wh-time wh-as-share" min="0" max="100" step="1" value="60" aria-label="Share of the assembly raising their hands for the proposal · 舉手贊成的比例"><span>Everyone<small>全部</small></span></label>
+    </div>
+    <div class="wh-as-result" aria-live="polite"><p class="wh-as-q">{_wh_bi(lab["proposal_en"], lab["proposal_zh"])}</p><p>{_wh_bi("Hands up", "舉手")} <b class="wh-as-yes"></b> → <span class="wh-as-judge"></span></p></div>
+    <div class="wh-seasons wh-as-modes" role="group" aria-label="What to show · 要看什麼">{btns}</div>
+  </div>
+  {_lab_foot(lab)}
+  <p class="wh-credit">{lab["credit_html"]}</p>
+</div>'''
+
+_WH_LAB = {"spread": render_whspread_lab, "farm": render_whfarm_lab, "tablet": render_whtablet_lab, "pyramid": render_whpyramid_lab, "assembly": render_whassembly_lab}
 
 def _wh_order(d):
     payload = _wh_json({k: d[k] for k in ("items", "hint_en", "hint_zh", "done_en", "done_zh", "open_en", "open_zh")})
@@ -18528,7 +18585,26 @@ def _wh_centers(d):
 </div>'''
 
 # 這一課自己的小互動（照這個順序排在「模型卡」後面）。match、gains 和 sort 用同一個版面（一題一題分到籃子裡）。
-_WH_WIDGETS = [("order", _wh_order), ("sort", _wh_sort), ("centers", _wh_centers), ("match", _wh_sort), ("gains", _wh_sort), ("signs", _wh_sort), ("needs", _wh_sort)]
+def _wh_ostraka(d):
+    """第五課：同一堆陶片，兩種讀法（assets/js 的 ostraka2d.js，打包在 wh-assembly 裡）。"""
+    payload = _wh_json({k: d[k] for k in ("need", "max", "names", "rules", "scenarios", "result", "same_en", "same_zh", "differ_en", "differ_zh")})
+    rules = "".join(
+        f'<div class="wh-ost-rule" data-rule="{r["key"]}"><h3>{_wh_bi(r["en"], r["zh"])}</h3><p class="wh-ost-how">{_wh_bi(r["text_en"], r["text_zh"])}</p>'
+        f'<p class="wh-ost-out" aria-live="polite"></p><a class="wh-py-src" href="{html.escape(r["url"])}" target="_blank" rel="noopener">{html.escape(r["src"])} &#8599;</a></div>'
+        for r in d["rules"])
+    sc = "".join(f'<button type="button" class="wh-btn" data-scenario="{i}">{_wh_bi(x["en"], x["zh"])}</button>' for i, x in enumerate(d["scenarios"]))
+    return f'''<div class="wh-ost rvl" data-wh-ostraka>
+  <script type="application/json">{payload}</script>
+  <p class="wh-ost-k">{_wh_bi("Ostraka with each name (drag)", "寫著每個名字的陶片（拖曳）")}</p>
+  <ul class="wh-ost-names"></ul>
+  <p class="wh-ost-sum">{_wh_bi("All ostraka together", "全部的陶片")} <b class="wh-ost-total"></b> · {_wh_bi("the line marks 6,000", "線標的是 6,000")}</p>
+  <div class="wh-ost-try">{sc}</div>
+  <div class="wh-ost-rules">{rules}</div>
+  <p class="wh-ost-diff" aria-live="polite"></p>
+</div>'''
+
+_WH_WIDGETS = [("order", _wh_order), ("sort", _wh_sort), ("centers", _wh_centers), ("match", _wh_sort), ("gains", _wh_sort), ("signs", _wh_sort), ("needs", _wh_sort),
+               ("whovotes", _wh_sort), ("ostraka", _wh_ostraka)]
 # 每課固定的卡（照這個順序排在小互動後面）
 _WH_FIXED = [("timeline", _wh_timeline), ("how_we_know", _wh_how_we_know), ("views", _wh_views),
              ("phrases", _wh_phrases), ("taiwan_then", _wh_taiwan_then)]
