@@ -17392,7 +17392,7 @@ def build_mus_hub():
 _geoj = os.path.join(ROOT, "data", "geography.json")
 GEO = json.load(open(_geoj, encoding="utf-8")) if os.path.exists(_geoj) else None
 GEO_BASE = "/resources/classes/geography/"
-_GEO_JS = {"flatmap": "geo-flatmap", "latlon": "geo-latlon", "contour": "geo-contour", "mapview": "geo-mapview"}   # lab.kind → assets/js/<bundle>.js
+_GEO_JS = {"flatmap": "geo-flatmap", "latlon": "geo-latlon", "contour": "geo-contour", "mapview": "geo-mapview", "timezone": "geo-timezone"}   # lab.kind → assets/js/<bundle>.js
 
 def _geo_ver():
     h = hashlib.md5()
@@ -17465,7 +17465,19 @@ def geomapview_svg(size=56):
             '<rect x="27" y="19" width="7" height="5" fill="#fff" stroke="#2b2118" stroke-width=".8"/><path d="M30.5 19v-4" stroke="#2b2118" stroke-width=".8"/><path d="M30.5 15l3 1-3 1z" fill="#d63a3a"/>'
             '<path d="M24 28l3 5h-6z" fill="#2b2118"/></svg>')
 
-_GEO_CARD = {"flatmap": geoflat_svg, "latlon": geolatlon_svg, "contour": geocontour_svg, "mapview": geomapview_svg}
+def geotime_svg(size=56):
+    """第五課的課程卡小圖示：一半亮一半暗的地球，旁邊一個太陽，上面一個小鐘。"""
+    return (f'<svg class="geotime-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">'
+            '<circle cx="50" cy="12" r="6" fill="#ffd36e"/><g stroke="#ffd36e" stroke-width="1.6" stroke-linecap="round"><path d="M50 2v2M50 20v2M40 12h2M58 12h2M43 5l1.4 1.4M55.6 17.6l1.4 1.4M43 19l1.4-1.4M55.6 6.4l1.4-1.4"/></g>'
+            '<circle cx="26" cy="34" r="20" fill="#1f4c8a"/>'
+            '<path d="M14 24c4-2 8 1 9 4s-2 6-1 9 6 3 5 7-5 8-9 6c-5-3-8-10-7-16s1-8 3-10z" fill="#8fbf7a"/>'
+            '<path d="M33 18c5 2 9 7 11 12-4 1-7-1-8-4s-4-4-3-8z" fill="#8fbf7a"/>'
+            '<path d="M26 14a20 20 0 0 0 0 40z" fill="#030916" opacity=".62"/>'
+            '<path d="M26 14v40" stroke="#ffd36e" stroke-width="1.6"/>'
+            '<circle cx="26" cy="34" r="20" fill="none" stroke="#e8edf7" stroke-width="1.4"/>'
+            '<circle cx="11" cy="11" r="8" fill="#fff6dc" stroke="#d8a93a" stroke-width="1.6"/><path d="M11 6v5l3.5 2" fill="none" stroke="#2b2118" stroke-width="1.6" stroke-linecap="round"/></svg>')
+
+_GEO_CARD = {"flatmap": geoflat_svg, "latlon": geolatlon_svg, "contour": geocontour_svg, "mapview": geomapview_svg, "timezone": geotime_svg}
 _GEO_PROP_K = [("shape", "Shape", "形狀"), ("area", "Area", "面積"), ("distance", "Distance", "距離"), ("direction", "Direction", "方向")]
 
 def render_geoflat_lab(lesson):
@@ -17677,7 +17689,47 @@ def render_geomapview_lab(lesson):
   <p class="gg-credit">{lab["credit_html"]}</p>
 </div>'''
 
-_GEO_LAB = {"flatmap": render_geoflat_lab, "latlon": render_geolatlon_lab, "contour": render_geocontour_lab, "mapview": render_geomapview_lab}
+_TZ_CITY_ROWS = (("taipei", "Taipei", "台北"), ("tokyo", "Tokyo", "東京"), ("sydney", "Sydney", "雪梨"), ("cairo", "Cairo", "開羅"),
+                 ("london", "London", "倫敦"), ("rio", "Rio de Janeiro", "里約熱內盧"), ("newyork", "New York", "紐約"), ("losangeles", "Los Angeles", "洛杉磯"))
+
+def render_geotime_lab(lesson):
+    """第五課：太陽固定在右邊、地球由西向東轉（assets/js/geo-timezone.js 綁這裡的 class；只畫理想時區帶，不畫真實的時區界線與國界）。"""
+    lab = lesson["lab"]
+    rows = "".join(f'<li data-city="{k}"><span class="gg-tz-n">{en}<small>{zh}</small></span><span class="gg-tz-i"></span>'
+                   f'<span class="gg-tz-t"></span><span class="gg-tz-d"></span><span class="gg-tz-x"></span></li>' for k, en, zh in _TZ_CITY_ROWS)
+    seasons = "".join(f'<button type="button" data-season="{k}" aria-pressed="{"true" if k == "march" else "false"}"><b>{en}</b><small>{zh}</small></button>'
+                      for k, en, zh in (("march", "March", "春分前後"), ("june", "June", "夏至前後"), ("december", "December", "冬至前後")))
+    tg = _lab_toggles([("zones", "Time zone bands", "理想時區帶", True), ("dateline", "Date line", "換日線", True), ("labels", "City labels", "城市標示", True), ("grid", "Grid lines", "經緯線", True)])
+    return f'''<div class="astro-lab gg-lab gg-tz-lab rvl" data-geotime-lab>
+  <div class="al-stage">
+    <div class="al-space">
+      <canvas class="al-space-cv" aria-label="3D Earth lit by the Sun from the right. As the time changes, the Earth turns from west to east and the line between day and night stays where it is. Idealized time zone bands are drawn every 15 degrees; no real borders are shown. · 太陽從右邊照過來的 3D 地球。時間改變時，地球由西向東轉，晝夜的分界線不動。每 15 度畫一條理想時區帶，不畫真實的界線。"></canvas>
+      <div class="al-labels" aria-hidden="true"></div>
+      <p class="al-hint">Drag to look around · 拖曳轉動視角　Scroll or pinch to zoom · 滾輪／雙指縮放</p>
+      <button type="button" class="al-home" title="Reset view · 重設視角" aria-label="Reset view · 重設視角">&#8634;</button>
+      <p class="al-nogl-msg">This 3D model needs WebGL, which this browser does not support. The time slider and the city clocks on the right still work, and so do the two activities below.<br><span class="zh">這個瀏覽器不支援 WebGL，無法顯示 3D 模型；右邊的時間滑桿和城市的鐘照樣能用，下面兩個活動也都能用。</span></p>
+    </div>
+    <aside class="al-sky gg-aside">
+      <p class="al-sky-k">Coordinated Universal Time · 協調世界時</p>
+      <p class="gg-tz-big"><b class="gg-tz-clock">04:00</b><span class="gg-tz-day">Monday · 星期一</span></p>
+      <label class="gg-slide"><span>Drag the time · 拖動時間（UTC）</span>
+        <input type="range" class="gg-tz-utc" min="0" max="23.75" step="0.25" value="4" aria-label="Coordinated Universal Time, from 0 to 24 hours · 協調世界時，0 到 24 時"></label>
+      <ol class="gg-tz-cities">{rows}</ol>
+      <p class="gg-tz-note">Times are for idealized time zones, one every 15 degrees, without daylight saving time. Real clocks can differ.<span class="zh">這裡的時間是「理想時區」（每 15 度一區），不算夏令時間；真實的鐘可能不一樣。</span></p>
+      <div class="gg-ct-ints gg-tz-seasons" role="group" aria-label="Time of year · 季節">{seasons}</div>
+    </aside>
+  </div>
+  <div class="al-controls">
+    <div class="al-row al-row-main">
+      <button type="button" class="al-play gg-tz-play" aria-pressed="false"><span class="al-play-i" aria-hidden="true"></span><span class="al-play-t">Turn the Earth · 讓地球轉</span></button>
+    </div>
+    <div class="al-row al-toggles">{tg}</div>
+  </div>
+  {_lab_foot(lab)}
+  <p class="gg-credit">{lab["credit_html"]}</p>
+</div>'''
+
+_GEO_LAB = {"flatmap": render_geoflat_lab, "latlon": render_geolatlon_lab, "contour": render_geocontour_lab, "mapview": render_geomapview_lab, "timezone": render_geotime_lab}
 
 def _gg_drag(d):
     picks = "".join(
@@ -17856,8 +17908,44 @@ def _gg_legend(d):
   <div class="gg-ft-foot"><button type="button" class="gg-btn gg-btn-gold gg-ft-next" hidden>Next question · 下一題</button></div>
 </div>'''
 
+def _gg_clock(d):
+    payload = json.dumps({k: d[k] for k in ("questions", "hint_en", "hint_zh", "start_en", "start_zh", "end_en", "end_zh")}, ensure_ascii=False).replace("</", "<\\/")
+    return f'''<div class="gg-fit gg-clock rvl" data-gg-clock>
+  <script type="application/json">{payload}</script>
+  <div class="gg-ft-top"><p class="gg-ft-k">Question 1 of 8 · 第 1 題（共 8 題）</p><p class="gg-ft-sc">Right on the first try · 第一次就答對 <b class="gg-ft-score">0 / 0</b></p></div>
+  <div class="gg-ft-steps" aria-hidden="true"></div>
+  <div class="gg-ck-pair">
+    <div class="gg-ck-box"><span class="gg-ck-k">In Taipei it is · 台北現在是</span><b class="gg-ck-from"></b></div>
+    <span class="gg-ck-arrow" aria-hidden="true">&rarr;</span>
+    <div class="gg-ck-box"><span class="gg-ck-k">What time is it here? · 這裡幾點？</span><b class="gg-ck-to"></b></div>
+  </div>
+  <p class="gg-ft-q" aria-live="polite"><span class="gg-ck-q-en"></span><span class="zh gg-ck-q-zh"></span></p>
+  <div class="gg-ck-opts"></div>
+  <p class="gg-ft-msg" aria-live="polite"></p>
+  <div class="gg-ft-foot"><button type="button" class="gg-btn gg-btn-gold gg-ft-next" hidden>Next question · 下一題</button></div>
+</div>'''
+
+def _gg_call(d):
+    cities = "".join(f'<button type="button" data-ccity="{k}" aria-pressed="{"true" if k == "newyork" else "false"}"><b>{en}</b><small>{zh}</small></button>'
+                     for k, en, zh in _TZ_CITY_ROWS if k != "taipei")
+    return f'''<div class="gg-drag gg-call rvl" data-gg-call>
+  <div class="gg-cl-clocks">
+    <figure><canvas class="gg-cl-a" aria-hidden="true"></canvas><figcaption><b>Taipei <span class="zh">台北</span></b><span class="gg-cl-ta"></span></figcaption></figure>
+    <figure><canvas class="gg-cl-b" aria-hidden="true"></canvas><figcaption><b class="gg-cl-nb"></b><span class="gg-cl-tb"></span></figcaption></figure>
+  </div>
+  <div class="gg-dg-side">
+    <label class="gg-slide"><span>Time in Taipei · 台北的時間</span><input type="range" class="gg-cl-h" min="0" max="23" step="1" value="20" aria-label="Hour in Taipei · 台北的時間"></label>
+    <div class="gg-cl-cities" role="group" aria-label="Who are you calling? · 打給哪裡？">{cities}</div>
+    <p class="gg-dg-msg gg-cl-msg" aria-live="polite">
+      <span data-when="sleep">{html.escape(d["msg_sleep_en"])}<span class="zh">{html.escape(d["msg_sleep_zh"])}</span></span>
+      <span data-when="edge" hidden>{html.escape(d["msg_edge_en"])}<span class="zh">{html.escape(d["msg_edge_zh"])}</span></span>
+      <span data-when="ok" hidden>{html.escape(d["msg_ok_en"])}<span class="zh">{html.escape(d["msg_ok_zh"])}</span></span>
+    </p>
+  </div>
+</div>'''
+
 # 頁面上的小互動：照這個順序排在「模型卡」後面（JSON 有那個 key 才出現）
-_GEO_WIDGETS = [("drag", _gg_drag), ("fit", _gg_fit), ("find", _gg_find), ("degree", _gg_degree), ("steep", _gg_steep), ("profile", _gg_profile), ("measure", _gg_measure), ("legend", _gg_legend), ("map_english", _gg_map_english)]
+_GEO_WIDGETS = [("drag", _gg_drag), ("fit", _gg_fit), ("find", _gg_find), ("degree", _gg_degree), ("steep", _gg_steep), ("profile", _gg_profile), ("measure", _gg_measure), ("legend", _gg_legend), ("clock", _gg_clock), ("call", _gg_call), ("map_english", _gg_map_english)]
 
 def _geo_flat():
     return [(ui, u, l) for ui, u in enumerate(GEO["units"]) for l in u["lessons"]]

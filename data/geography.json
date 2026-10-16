@@ -3593,7 +3593,7 @@
        "zh": "台北是白天，紐約為什麼是晚上？",
        "note_en": "Unit 2 begins with time zones: the Earth turns, and the time of day travels around it.",
        "note_zh": "單元二從時區開始：地球在轉，一天的時間跟著繞地球一圈。",
-       "soon": true
+       "href": "/resources/classes/geography/time-zones/"
       }
      ],
      "sources_note_en": "Names, dates, numbers, and quotations on this page were checked against these sources (October 2026). The island, the town, its distances and directions, and the answers to the game are made and computed by the page itself and tested automatically",
@@ -3688,14 +3688,845 @@
    "title_zh": "認識地球",
    "blurb_en": "Time zones, continents and oceans, hot and cold places, and where people live.",
    "blurb_zh": "時區、大洲與大洋、熱的地方和冷的地方，以及人都住在哪裡。",
-   "lessons": [],
-   "planned": [
+   "lessons": [
     {
      "n": 5,
+     "slug": "time-zones",
+     "title": "Why Is It Night in New York When It Is Day in Taipei?",
+     "title_zh": "台北是白天，紐約為什麼是晚上？",
+     "level": "入門 · Beginner",
      "icon": "🕒",
-     "en": "Why Is It Night in New York When It Is Day in Taipei?",
-     "zh": "台北是白天，紐約為什麼是晚上？"
-    },
+     "card": "timezone",
+     "blurb_en": "Turn a 3D Earth under a fixed Sun and watch day and night sweep around it. See why clocks are set by time zones, what happens at the International Date Line, and work out what time it is on the other side of the world.",
+     "blurb_zh": "讓 3D 地球在固定的太陽下轉，看白天和黑夜繞著地球移動。了解鐘為什麼照時區來調、國際換日線發生什麼事，再算算地球另一邊現在幾點。",
+     "big_idea_en": "The Earth turns once a day, 15 degrees every hour, so the Sun is overhead at different places at different times. People divide the Earth into time zones so that clocks in one zone agree. Crossing the International Date Line changes the date by one day.",
+     "big_idea_zh": "地球一天轉一圈、每小時轉 15 度，所以太陽在不同的時間照到不同的地方的正上方。人把地球分成時區，讓同一區的鐘一致。跨過國際換日線，日期就差一天。",
+     "lab": {
+      "kind": "timezone",
+      "eyebrow": "3D Model · 3D 模型",
+      "title_en": "The Earth Turns Under the Sun",
+      "title_zh": "在太陽下轉動的地球",
+      "how_en": "The Sun shines from the right and stays there. Press “Turn the Earth,” or drag the time slider, and the Earth turns from west to east. The gold line is the edge between day and night. The cities show the time on their clocks. Turn on the bands to see idealized time zones, one every 15 degrees, and the red line for the idealized date line. Real time zone borders are not drawn.",
+      "how_zh": "太陽從右邊照過來，而且不動。按「讓地球轉」或拖動時間滑桿，地球由西向東轉。金色的線是白天和黑夜的交界。城市旁邊顯示當地鐘上的時間。打開時區帶，可以看到每 15 度一條的理想時區，紅色的線是理想的換日線。真實的時區界線沒有畫出來。",
+      "legend": [
+       {
+        "cls": "term",
+        "en": "The edge between day and night",
+        "zh": "晝夜的交界（晨昏線）"
+       },
+       {
+        "cls": "band",
+        "en": "Idealized time zones, 15 degrees wide",
+        "zh": "理想時區，每區寬 15 度"
+       },
+       {
+        "cls": "dl",
+        "en": "The idealized date line at 180 degrees",
+        "zh": "理想的換日線（180 度經線）"
+       },
+       {
+        "cls": "city",
+        "en": "Cities (Taipei in red)",
+        "zh": "城市（台北是紅點）"
+       }
+      ],
+      "scale_en": "One second of the animation is one and a half hours. The Sun's direction is fixed; the seasons buttons tilt it north or south to show how the edge between day and night tilts too.",
+      "scale_zh": "動畫的一秒是一個半小時。太陽的方向固定不動；季節按鈕讓陽光偏北或偏南，看晝夜交界也跟著傾斜。",
+      "credit_html": "Land outlines: Natural Earth, 1:50m Land, version 5.1.2, public domain. City positions are rounded to one-tenth of a degree. Times are for idealized time zones without daylight saving time. · 陸地外形：Natural Earth 1:50m Land 5.1.2 版，公有領域。城市位置取到 0.1 度。時間是理想時區，不含夏令時間。"
+     },
+     "paras": [
+      "Suppose you call a friend in New York at three o'clock on a sunny afternoon in Taipei. Your friend answers sleepily, because in New York it is two o'clock in the morning. You are both talking at the same moment, yet one of you is in the afternoon and the other is in the middle of the night. How can that be?",
+      "The answer is that the Earth is turning. It spins once a day, from west to east, so the Sun seems to rise in the east and set in the west. At any moment, about half of the Earth faces the Sun and has day, and the other half faces away and has night. Because a full turn is 360 degrees and a day is 24 hours, the Earth turns 15 degrees every hour.",
+      "Long ago, every town set its clocks by its own Sun: noon was when the Sun was highest. That worked when people traveled slowly. But when trains began to cross whole countries, every station had a slightly different time, and timetables became confusing. So people agreed on standard time: everyone in a large area uses the same clock time, even if the Sun is not exactly overhead at noon.",
+      "Today the world is divided into time zones. The simplest picture is 24 zones, each 15 degrees wide, one hour apart. Time is counted from the prime meridian at Greenwich, using Coordinated Universal Time, or UTC. Taiwan's national standard time is UTC plus 8 hours, and New York uses UTC minus 5 hours in winter and minus 4 in summer. Real time zone borders are not straight lines. They bend to follow the borders of countries and regions, and some places even use half hours.",
+      "If you keep moving east through the time zones, your clock keeps moving forward. Go all the way around the world and you would gain a whole day. To fix this, people use the International Date Line, which runs roughly along the 180-degree meridian in the Pacific Ocean. When you cross it going west, the date jumps forward one day. When you cross it going east, the date goes back one day.",
+      "So when it is Monday afternoon in Taipei, it can still be Monday morning in London, very early Monday in New York, and Sunday evening in Los Angeles. Before you call someone far away, do a little geography: find their time zone, count the hours, and make sure you will not wake them up."
+     ],
+     "paras_zh": [
+      "假設台北一個晴朗的下午三點，你打電話給在紐約的朋友。朋友睡眼惺忪地接起來，因為紐約是凌晨兩點。你們在同一個瞬間說話，一個人在下午、另一個人卻在半夜。這是怎麼回事？",
+      "答案是：地球在轉。地球一天自轉一圈，由西向東轉，所以太陽看起來從東邊升起、從西邊落下。任何時候，地球大約有一半面對太陽，是白天；另一半背對太陽，是黑夜。轉一整圈是 360 度，一天是 24 小時，所以地球每小時轉 15 度。",
+      "很久以前，每個城鎮照自己的太陽來調鐘：太陽最高的時候就是正午。人走得慢的時候這樣沒問題。可是火車開始橫越整個國家以後，每一站的時間都差一點，時刻表就亂了。所以人們約定了標準時間：一大片地區的人都用同一個鐘點，就算太陽不是剛好在正午時最高也沒關係。",
+      "今天，世界被分成好幾個時區。最簡單的畫法是 24 個時區，每區寬 15 度，相鄰兩區差一小時。時間從格林威治的本初子午線算起，用的是協調世界時（UTC）。台灣的「國家標準時間」是 UTC 加 8 小時；紐約冬天用 UTC 減 5 小時，夏天用 UTC 減 4 小時。真實的時區界線不是直線，會跟著國家和地區的邊界彎曲，有些地方甚至用半小時。",
+      "如果一直往東走、穿過一個又一個時區，你的鐘就要一直往前調。繞地球一整圈，你就多出了一整天。為了解決這個問題，人們用一條國際換日線，大致沿著太平洋上的 180 度經線。往西跨過它，日期往前跳一天；往東跨過它，日期退回一天。",
+      "所以當台北是星期一下午，倫敦可能還是星期一早上，紐約是星期一清晨，洛杉磯則還是星期日晚上。打電話給遠方的人之前，先做一點地理：找出對方的時區、算算差幾小時，確定不會把人吵醒。"
+     ],
+     "questions": [
+      "Why does the Earth turn 15 degrees every hour?",
+      "Why did people start using standard time instead of each town's own Sun time?",
+      "You fly west across the International Date Line on Tuesday. What day is it right after you cross?"
+     ],
+     "answers": [
+      "A full turn is 360 degrees and it takes 24 hours, and 360 divided by 24 is 15.",
+      "When trains connected faraway towns, every station having its own slightly different time made timetables confusing. Agreeing on one clock time for a large area solved that.",
+      "Wednesday. Crossing the line going west moves the date forward one day."
+     ],
+     "vocab": [
+      {
+       "n": 1,
+       "w": "time zone",
+       "pos": "n.",
+       "zh": "時區",
+       "ex": "Taipei and Tokyo are in different <b>time zones</b>.",
+       "exzh": "台北和東京在不同的時區。"
+      },
+      {
+       "n": 2,
+       "w": "rotate",
+       "pos": "v.",
+       "zh": "自轉；旋轉",
+       "ex": "The Earth <b>rotates</b> from west to east.",
+       "exzh": "地球由西向東自轉。"
+      },
+      {
+       "n": 3,
+       "w": "noon",
+       "pos": "n.",
+       "zh": "正午",
+       "ex": "At <b>noon</b> the Sun is at its highest point.",
+       "exzh": "正午時太陽在最高的位置。"
+      },
+      {
+       "n": 4,
+       "w": "midnight",
+       "pos": "n.",
+       "zh": "午夜",
+       "ex": "It is <b>midnight</b> in New York when it is noon in Taipei.",
+       "exzh": "台北正午時，紐約是午夜。"
+      },
+      {
+       "n": 5,
+       "w": "ahead",
+       "pos": "adv.",
+       "zh": "（時間）比較早；超前",
+       "ex": "Taipei is thirteen hours <b>ahead</b> of New York in winter.",
+       "exzh": "冬天時，台北比紐約快十三小時。"
+      },
+      {
+       "n": 6,
+       "w": "behind",
+       "pos": "adv.",
+       "zh": "（時間）比較晚；落後",
+       "ex": "London is eight hours <b>behind</b> Taipei.",
+       "exzh": "倫敦比台北慢八小時。"
+      },
+      {
+       "n": 7,
+       "w": "date line",
+       "pos": "n.",
+       "zh": "換日線",
+       "ex": "We crossed the <b>date line</b> and lost a day.",
+       "exzh": "我們跨過換日線，少了一天。"
+      },
+      {
+       "n": 8,
+       "w": "standard time",
+       "pos": "n.",
+       "zh": "標準時間",
+       "ex": "Railways helped the world agree on <b>standard time</b>.",
+       "exzh": "鐵路幫助世界約定了標準時間。"
+      }
+     ],
+     "quiz": [
+      {
+       "q": "How many degrees does the Earth turn in one hour?",
+       "options": [
+        "15",
+        "24",
+        "30",
+        "360"
+       ],
+       "correct": 0
+      },
+      {
+       "q": "Which way does the Earth turn?",
+       "options": [
+        "From east to west",
+        "From west to east",
+        "From north to south",
+        "It does not turn"
+       ],
+       "correct": 1
+      },
+      {
+       "q": "Taiwan uses UTC plus how many hours?",
+       "options": [
+        "5",
+        "7",
+        "8",
+        "12"
+       ],
+       "correct": 2
+      },
+      {
+       "q": "What happens when you cross the International Date Line going west?",
+       "options": [
+        "Nothing changes",
+        "The clock goes back one hour",
+        "The date goes back one day",
+        "The date jumps forward one day"
+       ],
+       "correct": 3
+      },
+      {
+       "q": "Why are real time zone borders not straight lines?",
+       "options": [
+        "They follow the borders of countries and regions",
+        "The Earth is not round",
+        "The Sun moves",
+        "Mapmakers made a mistake"
+       ],
+       "correct": 0
+      }
+     ],
+     "parts_head": {
+      "eyebrow": "Try It in the Model · 在模型裡試試",
+      "en": "Four things to watch",
+      "zh": "四件值得看的事"
+     },
+     "parts": [
+      {
+       "key": "turn",
+       "icon": "🌍",
+       "en": "The Earth turns, the Sun stays",
+       "zh": "地球在轉，太陽不動",
+       "meta_en": "One day",
+       "meta_zh": "一天",
+       "demo": "turn",
+       "text_en": "Watch the Earth turn from west to east under a Sun that does not move. Each city passes from night into day at the gold line.",
+       "text_zh": "看地球在不動的太陽下由西向東轉。每個城市在金色的線那裡從黑夜進入白天。"
+      },
+      {
+       "key": "taipei",
+       "icon": "📞",
+       "en": "Afternoon in Taipei, night in New York",
+       "zh": "台北下午、紐約半夜",
+       "meta_en": "UTC 06:00",
+       "meta_zh": "協調世界時 6 點",
+       "demo": "taipei",
+       "text_en": "At 6:00 UTC it is 2 p.m. in Taipei and 1 a.m. in New York: the two cities are on opposite sides of the Earth.",
+       "text_zh": "協調世界時 6 點，台北是下午 2 點、紐約是凌晨 1 點：兩個城市在地球的兩邊。"
+      },
+      {
+       "key": "dateline",
+       "icon": "📅",
+       "en": "Two dates at once",
+       "zh": "同時有兩個日期",
+       "meta_en": "Date line",
+       "meta_zh": "換日線",
+       "demo": "dateline",
+       "text_en": "At 20:00 UTC on Monday, Taipei and Sydney are already in Tuesday, while Los Angeles is still on Monday. Check the dates in the list.",
+       "text_zh": "星期一協調世界時 20 點，台北和雪梨已經是星期二，洛杉磯還是星期一。看看右邊清單上的日期。"
+      },
+      {
+       "key": "seasons",
+       "icon": "☀️",
+       "en": "The line between day and night tilts",
+       "zh": "晝夜的交界會傾斜",
+       "meta_en": "June",
+       "meta_zh": "六月",
+       "demo": "seasons",
+       "text_en": "In June the Sun shines more on the north, so the gold line tilts and the North Pole stays in daylight all day.",
+       "text_zh": "六月時陽光偏向北邊，金色的線傾斜了，北極整天都在白天裡。"
+      }
+     ],
+     "parts_note_en": "Then try it yourself. Find a time when Taipei and London are both in daylight. How many hours of overlap can you find?",
+     "parts_note_zh": "然後自己動手試試。找一個台北和倫敦都是白天的時間。兩邊同時是白天的時間有幾個小時？",
+     "clock": {
+      "eyebrow": "Game · 小遊戲",
+      "en": "What Time Is It There?",
+      "zh": "那裡幾點？",
+      "lead_en": "Eight questions. Each one gives the day and time in Taipei and asks for the time in another place. Use idealized time zones: one hour for every 15 degrees of longitude, with no daylight saving time. There is no timer, and the game counts the questions you get right on the first try.",
+      "lead_zh": "八道題。每一題給台北的星期和時間，問另一個地方幾點。用理想時區來算：經度每 15 度差一小時，不算夏令時間。不計時，遊戲會記下你第一次就答對的題數。",
+      "hint_en": "First find the place's time zone: divide its longitude by 15 and round. Taipei is +8. Then count the difference, and watch for midnight.",
+      "hint_zh": "先找出那個地方的時區：經度除以 15 再四捨五入。台北是 +8。再算兩邊差幾小時，注意有沒有跨過半夜。",
+      "start_en": "East of Taipei is later; west of Taipei is earlier.",
+      "start_zh": "在台北東邊的地方比較晚（鐘比較快）；在西邊的比較早。",
+      "end_en": "Count the zones, mind midnight, and you can work out the time anywhere on Earth.",
+      "end_zh": "數時區、注意半夜，就能算出地球上任何地方的時間。",
+      "questions": [
+       {
+        "day": 0,
+        "h": 15,
+        "city": "newyork",
+        "answer": "0-2",
+        "options": [
+         "0-2",
+         "0-15",
+         "1-4",
+         "0-3"
+        ],
+        "en": "Monday, 3 p.m. in Taipei. What time is it in New York?",
+        "zh": "台北星期一下午 3 點，紐約幾點？",
+        "why_en": "New York is UTC−5 and Taipei is UTC+8, a difference of 13 hours. 3 p.m. minus 13 hours is 2 a.m. the same day.",
+        "why_zh": "紐約是 UTC−5、台北是 UTC+8，差 13 小時。下午 3 點減 13 小時，是同一天的凌晨 2 點。"
+       },
+       {
+        "day": 0,
+        "h": 15,
+        "city": "london",
+        "answer": "0-7",
+        "options": [
+         "0-7",
+         "0-23",
+         "0-15",
+         "1-7"
+        ],
+        "en": "Monday, 3 p.m. in Taipei. What time is it in London?",
+        "zh": "台北星期一下午 3 點，倫敦幾點？",
+        "why_en": "London is on the prime meridian, UTC+0, eight hours behind Taipei. 3 p.m. minus 8 hours is 7 a.m.",
+        "why_zh": "倫敦在本初子午線上，是 UTC+0，比台北慢 8 小時。下午 3 點減 8 小時是早上 7 點。"
+       },
+       {
+        "day": 1,
+        "h": 8,
+        "city": "losangeles",
+        "answer": "0-16",
+        "options": [
+         "0-16",
+         "1-16",
+         "1-0",
+         "0-8"
+        ],
+        "en": "Tuesday, 8 a.m. in Taipei. What time is it in Los Angeles?",
+        "zh": "台北星期二早上 8 點，洛杉磯幾點？",
+        "why_en": "Los Angeles is UTC−8, sixteen hours behind Taipei. Going back 16 hours from Tuesday 8 a.m. lands on Monday 4 p.m.",
+        "why_zh": "洛杉磯是 UTC−8，比台北慢 16 小時。從星期二早上 8 點往回 16 小時，是星期一下午 4 點。"
+       },
+       {
+        "day": 6,
+        "h": 23,
+        "city": "sydney",
+        "answer": "0-1",
+        "options": [
+         "0-1",
+         "6-1",
+         "6-21",
+         "0-23"
+        ],
+        "en": "Sunday, 11 p.m. in Taipei. What time is it in Sydney?",
+        "zh": "台北星期日晚上 11 點，雪梨幾點？",
+        "why_en": "Sydney is UTC+10, two hours ahead. Two hours after Sunday 11 p.m. is Monday 1 a.m.",
+        "why_zh": "雪梨是 UTC+10，比台北快 2 小時。星期日晚上 11 點再過 2 小時，是星期一凌晨 1 點。"
+       },
+       {
+        "day": 2,
+        "h": 12,
+        "city": "tokyo",
+        "answer": "2-13",
+        "options": [
+         "2-13",
+         "2-11",
+         "2-12",
+         "3-13"
+        ],
+        "en": "Wednesday, noon in Taipei. What time is it in Tokyo?",
+        "zh": "台北星期三中午 12 點，東京幾點？",
+        "why_en": "Tokyo is UTC+9, one hour ahead of Taipei, so it is 1 p.m.",
+        "why_zh": "東京是 UTC+9，比台北快 1 小時，所以是下午 1 點。"
+       },
+       {
+        "day": 4,
+        "h": 9,
+        "lon": 30,
+        "answer": "4-3",
+        "options": [
+         "4-3",
+         "4-15",
+         "3-21",
+         "4-9"
+        ],
+        "en": "Friday, 9 a.m. in Taipei. What time is it at 30 degrees east?",
+        "zh": "台北星期五早上 9 點，東經 30 度是幾點？",
+        "why_en": "30 divided by 15 is 2, so that zone is UTC+2, six hours behind Taipei. 9 a.m. minus 6 hours is 3 a.m.",
+        "why_zh": "30 除以 15 是 2，那一區是 UTC+2，比台北慢 6 小時。早上 9 點減 6 小時是凌晨 3 點。"
+       },
+       {
+        "day": 0,
+        "h": 10,
+        "lon": -120,
+        "answer": "6-18",
+        "options": [
+         "6-18",
+         "0-18",
+         "0-2",
+         "6-6"
+        ],
+        "en": "Monday, 10 a.m. in Taipei. What time is it at 120 degrees west?",
+        "zh": "台北星期一早上 10 點，西經 120 度是幾點？",
+        "why_en": "That zone is UTC−8, sixteen hours behind Taipei. Going back 16 hours from Monday 10 a.m. gives Sunday 6 p.m.",
+        "why_zh": "那一區是 UTC−8，比台北慢 16 小時。從星期一早上 10 點往回 16 小時，是星期日下午 6 點。"
+       },
+       {
+        "day": 3,
+        "h": 18,
+        "city": "rio",
+        "answer": "3-7",
+        "options": [
+         "3-7",
+         "3-21",
+         "4-7",
+         "3-15"
+        ],
+        "en": "Thursday, 6 p.m. in Taipei. What time is it in Rio de Janeiro?",
+        "zh": "台北星期四晚上 6 點，里約熱內盧幾點？",
+        "why_en": "Rio de Janeiro is about 43 degrees west, so its idealized zone is UTC−3, eleven hours behind Taipei. 6 p.m. minus 11 hours is 7 a.m.",
+        "why_zh": "里約熱內盧大約在西經 43 度，理想時區是 UTC−3，比台北慢 11 小時。晚上 6 點減 11 小時是早上 7 點。"
+       }
+      ]
+     },
+     "call": {
+      "eyebrow": "Try It · 動手試試",
+      "en": "Before You Call, Check the Clock",
+      "zh": "打電話前先算一算",
+      "lead_en": "Slide the time in Taipei and choose who you are calling. The two clocks show both times side by side. This uses idealized time zones without daylight saving time, so check a real clock before an important call.",
+      "lead_zh": "拉動台北的時間，再選要打給哪裡。兩個鐘並排顯示兩邊的時間。這裡用理想時區、不算夏令時間，重要的電話打之前，還是要查一下真的時間。",
+      "msg_sleep_en": "They are probably asleep. Wait a few hours, or send a message instead.",
+      "msg_sleep_zh": "對方大概在睡覺。等幾個小時，或改傳訊息。",
+      "msg_edge_en": "It is early morning or late evening there. A short call might be all right, but ask first.",
+      "msg_edge_zh": "那裡是清晨或深夜。簡短的電話也許可以，但先問一下比較好。",
+      "msg_ok_en": "It is daytime there. A good time to call.",
+      "msg_ok_zh": "那裡是白天，是打電話的好時間。"
+     },
+     "map_english": {
+      "eyebrow": "Map English · 地圖英語",
+      "en": "Eight sentences for talking about time",
+      "zh": "談時間與時區的八句英文",
+      "lead_en": "This lesson's Map English card is about time. Listen, repeat, then ask a partner what time it is in a city of your choice.",
+      "lead_zh": "這一課的「地圖英語」練習說時間。先聽、再跟著唸，然後問同伴你選的城市現在幾點。",
+      "items": [
+       {
+        "en": "<b>It is three in the afternoon</b> in Taipei.",
+        "zh": "台北現在是下午三點。",
+        "use_en": "It is … in …",
+        "use_zh": "某地現在是幾點"
+       },
+       {
+        "en": "New York is <b>thirteen hours behind</b> Taipei in winter.",
+        "zh": "冬天時，紐約比台北慢十三小時。",
+        "use_en": "… hours behind / ahead of …",
+        "use_zh": "慢／快幾小時"
+       },
+       {
+        "en": "<b>What time is it</b> in London <b>right now</b>?",
+        "zh": "倫敦現在幾點？",
+        "use_en": "What time is it in … right now?",
+        "use_zh": "問某地現在幾點"
+       },
+       {
+        "en": "Taiwan <b>is in the UTC plus eight</b> time zone.",
+        "zh": "台灣在 UTC+8 時區。",
+        "use_en": "is in the … time zone",
+        "use_zh": "在某個時區"
+       },
+       {
+        "en": "The Earth <b>turns from west to east</b>.",
+        "zh": "地球由西向東轉。",
+        "use_en": "turns from … to …",
+        "use_zh": "從……轉向……"
+       },
+       {
+        "en": "<b>When we cross</b> the date line, the date <b>changes</b>.",
+        "zh": "跨過換日線時，日期就改變了。",
+        "use_en": "When we cross …, … changes",
+        "use_zh": "跨過……時，……改變"
+       },
+       {
+        "en": "<b>It is already Tuesday</b> in Sydney.",
+        "zh": "雪梨已經是星期二了。",
+        "use_en": "It is already … / still …",
+        "use_zh": "已經是／還是……"
+       },
+       {
+        "en": "<b>Let's call them</b> after school, <b>when it is morning there</b>.",
+        "zh": "我們放學後再打給他們，那時他們那邊是早上。",
+        "use_en": "Let's … when it is … there",
+        "use_zh": "等對方那邊是……時再……"
+       }
+      ]
+     },
+     "culture_cards": {
+      "eyebrow": "Stories Behind the Clocks · 鐘背後的故事",
+      "title_en": "The day of two noons, Greenwich time, Taiwan's clocks, and a lost day",
+      "title_zh": "兩個正午的一天、格林威治的時間、台灣的鐘，和消失的一天",
+      "lead_en": "Four short stories about how people agreed on what time it is.",
+      "lead_zh": "四個小故事，講人怎麼對「現在幾點」取得共識。",
+      "cards": [
+       {
+        "k": "1883 · Railways · 鐵路",
+        "en": "The day of two noons",
+        "zh": "兩個正午的一天",
+        "body_en": "Before 1883, North American railroads ran on many local times. On November 18, 1883, station clocks were reset to a new standard time as noon arrived in each zone. Many towns heard noon twice that day, once by the old Sun time and once by the new standard time, so the Library of Congress calls it the Day of Two Noons.",
+        "body_zh": "1883 年以前，北美的鐵路用的是許多不同的地方時間。1883 年 11 月 18 日，各時區到了正午，車站的鐘就被重新調成新的標準時間。很多城鎮那天過了兩次正午：一次照舊的太陽時，一次照新的標準時間，所以美國國會圖書館稱這一天為「兩個正午的一天」。"
+       },
+       {
+        "k": "Greenwich · 格林威治",
+        "en": "From GMT to UTC",
+        "zh": "從格林威治時間到協調世界時",
+        "body_en": "Greenwich Mean Time is the average clock time at Greenwich. Today the world's reference is Coordinated Universal Time, UTC, which the Royal Observatory describes as the modern equivalent of GMT, never more than half a second different from it. UTC is kept by comparing atomic clocks around the world; the International Bureau of Weights and Measures in France combines their results.",
+        "body_zh": "格林威治標準時間是格林威治的平均鐘點時間。今天全世界的參考時間是協調世界時（UTC）；格林威治皇家天文台說它是格林威治標準時間的現代版本，兩者相差從來不超過半秒。協調世界時是比較世界各地的原子鐘得出來的，由設在法國的國際度量衡局彙整。"
+       },
+       {
+        "k": "Taiwan · 台灣",
+        "en": "Taiwan's clocks have changed before",
+        "zh": "台灣的鐘也改過",
+        "body_en": "Taiwan's official time today is called National Standard Time, UTC+8. It is kept by atomic clocks at Chunghwa Telecom Laboratories on behalf of the Bureau of Standards, and dialing 117 plays it. But it has changed. According to the Taiwan Historica archive, from October 1, 1937 to September 21, 1945 Taiwan used Japan's time, one hour ahead. From 1946 Taiwan used summer time in many years, and it stopped in the early 1980s.",
+        "body_zh": "台灣現行的標準時間叫做「國家標準時間」，是 UTC+8，由經濟部標準檢驗局委託中華電信研究院用原子鐘維護；撥 117 聽到的報時就是它。但它改過。依國史館臺灣文獻館的文章，1937 年 10 月 1 日到 1945 年 9 月 21 日，台灣用的是快一小時的日本中央標準時間；1946 年起許多年份實施「夏令時間」，到 1980 年代初期停止。"
+       },
+       {
+        "k": "2011 · The Pacific · 太平洋",
+        "en": "The day that disappeared",
+        "zh": "消失的那一天",
+        "body_en": "Because each country chooses its own date, the date line can move. At midnight on December 29, 2011, Samoa and Tokelau moved from the eastern side of the date line to the western side, to keep business hours closer to their trading partners in Asia and Oceania. For them, December 30, 2011 never happened.",
+        "body_zh": "因為每個國家自己決定日期，換日線是會移動的。2011 年 12 月 29 日午夜，薩摩亞和托克勞從換日線的東邊換到西邊，好讓營業時間和亞洲、大洋洲的貿易夥伴更接近。對他們來說，2011 年 12 月 30 日根本沒有出現。"
+       }
+      ]
+     },
+     "curric": {
+      "eyebrow": "In the Curriculum · 對應課綱",
+      "en": "Where this lesson fits",
+      "zh": "這一課對應的課綱",
+      "lead_en": "These entries come from Taiwan's 12-Year Basic Education curriculum (2018). The words time zone and date line do not appear in it. Day and night belong to natural science, and longitude to junior high geography; the links below are our reading of them.",
+      "lead_zh": "下面的條目出自十二年國民基本教育課程綱要（民國 107 年發布）。課綱裡沒有出現「時區」和「換日線」；晝夜屬於自然科學，經緯度屬於國中地理。下面和本課的連結是本教材的解讀。",
+      "items": [
+       {
+        "code": "自 Id-Ⅳ-1",
+        "area": "自然科學領域（國中）",
+        "area_en": "Natural science (junior high)",
+        "text": "夏季白天較長，冬季黑夜較長。",
+        "note_en": "The explanation for this entry says: “說明地球自轉會造成晝夜交替現象。” (Explain that the Earth's rotation causes day and night.) The 3D model shows exactly that, and the season buttons show the changing day length.",
+        "note_zh": "這一條的學習內容說明寫：「說明地球自轉會造成晝夜交替現象。」3D 模型示範的就是這件事，季節按鈕則讓你看到白天的長短改變。"
+       },
+       {
+        "code": "自 INc-Ⅲ-13",
+        "area": "自然科學領域（國小五、六年級）",
+        "area_en": "Natural science (grades 5–6)",
+        "text": "日出日落時間與位置，在不同季節會不同。",
+        "note_en": "Sunrise and sunset happen where a place crosses the line between day and night.",
+        "note_zh": "日出、日落，就是一個地方跨過晝夜交界的那一刻。"
+       },
+       {
+        "code": "地 Aa-Ⅳ-1",
+        "area": "社會領域・地理（國中）",
+        "area_en": "Social studies, geography (junior high)",
+        "text": "全球經緯度座標系統。",
+        "note_en": "Idealized time zones are counted in steps of 15 degrees of longitude.",
+        "note_zh": "理想時區就是用經度每 15 度一格來算的。"
+       }
+      ]
+     },
+     "myths": [
+      {
+       "myth_en": "The Sun travels around the Earth once a day.",
+       "myth_zh": "太陽每天繞著地球跑一圈。",
+       "fact_en": "The Earth spins toward the east, so the Sun only seems to cross the sky from east to west.",
+       "fact_zh": "是地球往東自轉，太陽才看起來從東往西走過天空。"
+      },
+      {
+       "myth_en": "Time zones are straight strips, each exactly 15 degrees wide.",
+       "myth_zh": "時區是一條一條筆直的帶子，每條剛好 15 度寬。",
+       "fact_en": "That is only the idealized picture. Real time zone boundaries bend to follow the borders of countries and regions, and some places use half hours.",
+       "fact_zh": "那只是理想的畫法。真實的時區界線會跟著國家和地區的邊界彎曲，有些地方還用半小時。"
+      },
+      {
+       "myth_en": "An international treaty fixed the International Date Line.",
+       "myth_zh": "國際換日線是國際條約規定的。",
+       "fact_en": "According to NOAA, the date line has no legal international status; each country chooses the date it uses. That is why the line zigzags.",
+       "fact_zh": "依美國國家海洋暨大氣總署的說明，換日線沒有國際法律地位，每個國家自己決定用哪一天的日期，所以這條線彎彎曲曲。"
+      },
+      {
+       "myth_en": "Exactly half of the Earth is in daylight at every moment.",
+       "myth_zh": "任何時候，地球都剛好一半是白天。",
+       "fact_en": "Slightly more than half is lit, because the atmosphere bends sunlight around the edge. That is also why the line between day and night is fuzzy, not sharp.",
+       "fact_zh": "被照亮的部分比一半多一點，因為大氣會把陽光折到邊緣後面。所以晝夜的交界是模糊的，不是一條清楚的線。"
+      }
+     ],
+     "tricks_head": {
+      "en": "Time zones in a sentence",
+      "zh": "一句話記住時區"
+     },
+     "tricks": [
+      {
+       "title_en": "15 degrees, 1 hour",
+       "title_zh": "15 度，1 小時",
+       "body_en": "360 degrees in 24 hours means 15 degrees every hour.",
+       "body_zh": "24 小時轉 360 度，每小時 15 度。"
+      },
+      {
+       "title_en": "East is ahead",
+       "title_zh": "越往東，鐘越快",
+       "body_en": "The Sun reaches the east first, so places to the east are later in the day.",
+       "body_zh": "太陽先照到東邊，所以東邊的地方時間比較晚、鐘比較快。"
+      },
+      {
+       "title_en": "West over the line, add a day",
+       "title_zh": "往西跨線，加一天",
+       "body_en": "Cross the date line going west and the date jumps forward; going east, it goes back.",
+       "body_zh": "往西跨過換日線，日期往前跳；往東跨過，日期退回。"
+      },
+      {
+       "title_en": "Check before you call",
+       "title_zh": "打電話前先算",
+       "body_en": "Find the zone, count the hours, and watch for midnight.",
+       "body_zh": "找時區、算小時、注意半夜。"
+      }
+     ],
+     "safety_head": {
+      "eyebrow": "Before the Activities · 做活動之前",
+      "en": "Working safely",
+      "zh": "安全提醒"
+     },
+     "safety": [
+      {
+       "en": "Never look straight at the Sun, and never look at it through a lens or a phone camera.",
+       "zh": "絕對不要直視太陽，也不要透過鏡片或手機鏡頭看太陽。"
+      },
+      {
+       "en": "If you use a lamp as the Sun, keep your hands and paper away from the hot bulb, and let an adult plug it in.",
+       "zh": "如果用檯燈當太陽，手和紙張不要碰到燙的燈泡，插電交給大人。"
+      },
+      {
+       "en": "When you mark shadows outside, stay in the playground where your teacher can see you, and wear a hat in strong sun.",
+       "zh": "到戶外記錄影子時，待在老師看得到的操場，太陽大時戴帽子。"
+      },
+      {
+       "en": "Use a pushpin only with an adult's help, and press it into the ball away from your fingers.",
+       "zh": "圖釘要在大人幫忙下使用，壓進球裡時手指要避開。"
+      }
+     ],
+     "activities": [
+      {
+       "title_en": "Day and Night with a Lamp",
+       "title_zh": "用檯燈做白天和黑夜",
+       "materials": [
+        {
+         "en": "A desk lamp (the Sun)",
+         "zh": "一盞檯燈（當太陽）"
+        },
+        {
+         "en": "A globe or a ball with a line drawn around the middle",
+         "zh": "一顆地球儀，或畫了赤道的球"
+        },
+        {
+         "en": "Two small stickers, one for Taipei and one for New York",
+         "zh": "兩張小貼紙，一張是台北、一張是紐約"
+        },
+        {
+         "en": "A dark room",
+         "zh": "一間暗一點的教室"
+        }
+       ],
+       "steps": [
+        {
+         "en": "Put the stickers on the globe: Taipei near 25 degrees north, 121 degrees east; New York near 41 degrees north, 74 degrees west.",
+         "zh": "把貼紙貼在地球儀上：台北大約在北緯 25 度、東經 121 度；紐約大約在北緯 41 度、西經 74 度。"
+        },
+        {
+         "en": "Turn on the lamp and point it at the globe. Which half is day? Which half is night?",
+         "zh": "打開檯燈照著地球儀。哪一半是白天？哪一半是黑夜？"
+        },
+        {
+         "en": "Turn the globe slowly from west to east, counterclockwise when you look down on the North Pole.",
+         "zh": "慢慢把地球儀由西向東轉，從北極往下看是逆時針。"
+        },
+        {
+         "en": "Stop when Taipei faces the lamp. Where is New York? Keep turning until New York faces the lamp.",
+         "zh": "轉到台北正對著檯燈時停下來。紐約在哪裡？繼續轉，直到紐約正對著檯燈。"
+        },
+        {
+         "en": "Count how much of a turn that took. About half a turn means about half a day apart.",
+         "zh": "數一數轉了多少。大約半圈，就表示兩地大約差半天。"
+        }
+       ],
+       "tip_en": "Turning the globe, not moving the lamp, is the key idea: the Sun does not race around the Earth; the Earth turns.",
+       "tip_zh": "重點是轉地球儀、不是移動檯燈：不是太陽繞著地球跑，是地球自己在轉。"
+      },
+      {
+       "title_en": "A World Clock for the Classroom",
+       "title_zh": "教室裡的世界時鐘",
+       "materials": [
+        {
+         "en": "Paper plates, one for each city",
+         "zh": "紙盤，每個城市一個"
+        },
+        {
+         "en": "Paper hands and brass fasteners",
+         "zh": "紙做的指針和兩腳釘"
+        },
+        {
+         "en": "A world map without borders, or the one in this lesson",
+         "zh": "一張沒有國界的世界地圖，或本課的地圖"
+        }
+       ],
+       "steps": [
+        {
+         "en": "Choose five cities and find their longitudes. Divide each by 15 and round to get its idealized time zone.",
+         "zh": "選五個城市，查出經度。每個經度除以 15 再四捨五入，就是理想時區。"
+        },
+        {
+         "en": "Make a clock from each plate and write the city and its time zone, such as “Taipei, UTC+8,” under it.",
+         "zh": "用紙盤做時鐘，在下面寫上城市和時區，例如「台北 UTC+8」。"
+        },
+        {
+         "en": "Set the Taipei clock to the time now. Work out each of the other clocks and set them.",
+         "zh": "把台北的鐘撥到現在的時間，再算出其他每個鐘，撥好。"
+        },
+        {
+         "en": "Hang the clocks in order from west to east, the same order as on the map.",
+         "zh": "照地圖上由西到東的順序，把鐘掛起來。"
+        },
+        {
+         "en": "Check a real world clock online. Which ones are different, and why? Look for daylight saving time or half-hour zones.",
+         "zh": "對照網路上真正的世界時間。哪幾個不一樣？為什麼？找找看是不是夏令時間或半小時的時區。"
+        }
+       ],
+       "tip_en": "Idealized zones are a starting point. Real time zones follow decisions made by each country, so always check before an important call or flight.",
+       "tip_zh": "理想時區只是起點。真實的時區是各地自己決定的，重要的電話或班機之前一定要查清楚。"
+      }
+     ],
+     "links_head": {
+      "eyebrow": "Go Further · 延伸閱讀",
+      "en": "Time in other lessons, and what comes next",
+      "zh": "其他課裡的時間，以及下一課"
+     },
+     "links": [
+      {
+       "icon": "📍",
+       "k_en": "Geography · Lesson 2",
+       "k_zh": "地理・第二課",
+       "en": "How Do You Find Any Place on Earth?",
+       "zh": "怎麼找到地球上任何一個地方？",
+       "note_en": "Longitude, the prime meridian, and the clock that solved the longitude problem.",
+       "note_zh": "經度、本初子午線，以及解決經度難題的那座鐘。",
+       "href": "/resources/classes/geography/latitude-and-longitude/"
+      },
+      {
+       "icon": "🌞",
+       "k_en": "Astronomy · Lesson 3",
+       "k_zh": "天文教育・第三課",
+       "en": "Why Do We Have Seasons?",
+       "zh": "為什麼有四季？",
+       "note_en": "Why the line between day and night tilts with the seasons.",
+       "note_zh": "晝夜的交界為什麼會隨季節傾斜。",
+       "href": "/resources/classes/astronomy/seasons/"
+      },
+      {
+       "icon": "🌅",
+       "k_en": "Astronomy · Lesson 16",
+       "k_zh": "天文教育・第十六課",
+       "en": "Why Does the Sun Rise in a Different Place Every Day?",
+       "zh": "太陽為什麼每天從不同的地方升起？",
+       "note_en": "Sunrise from the ground, on the same turning Earth.",
+       "note_zh": "在同一顆轉動的地球上，從地面看日出。",
+       "href": "/resources/classes/astronomy/sunrise/"
+      },
+      {
+       "icon": "🌏",
+       "k_en": "Geography · Lesson 6",
+       "k_zh": "地理・第六課",
+       "en": "How Many Continents and Oceans Are There?",
+       "zh": "世界有幾大洲、幾大洋？",
+       "note_en": "Ways of dividing the world into continents and oceans, and why there is more than one count.",
+       "note_zh": "怎麼把世界分成大洲和大洋，以及為什麼不只一種算法。",
+       "soon": true
+      }
+     ],
+     "sources_note_en": "Names, dates, numbers, and quotations on this page were checked against these sources (October 2026). Clock times, day and night, and the answers to the game are computed by the page itself and tested automatically",
+     "sources_note_zh": "本頁的人名、年代、數字與引文依下列資料查證（2026 年 10 月）；時間、晝夜與小遊戲的答案都由頁面自己計算，並有自動測試",
+     "sources": [
+      {
+       "en": "“Earth rotates from west to east, so the sun appears to rise in the east and set in the west.”",
+       "zh": "地球由西向東自轉，所以太陽看起來東升西落",
+       "src": "National Geographic Education, “Earth”",
+       "url": "https://education.nationalgeographic.org/resource/earth/"
+      },
+      {
+       "en": "“Within the 360° daily rotation of the Earth, the sun moves 15° each hour, which leads to the formation of 24 time zones”; zone boundaries “are no longer straight, nor are they always continuous.”",
+       "zh": "地球一天轉 360 度、每小時 15 度，形成 24 個時區；時區界線不再是直線",
+       "src": "NOAA JetStream, “Z-time”",
+       "url": "https://www.noaa.gov/jetstream/time"
+      },
+      {
+       "en": "A time zone is “one of Earth's 24 divisions distinct by one hour, roughly 15 degrees of longitude”; many places use half-hour time zones.",
+       "zh": "時區是地球的 24 個區之一、相差一小時、大約 15 度經度；有些地方用半小時的時區",
+       "src": "National Geographic Education, “MapMaker: World Time Zones”",
+       "url": "https://education.nationalgeographic.org/resource/mapmaker-world-time-zones/"
+      },
+      {
+       "en": "UTC is “the modern equivalent of Greenwich Mean Time (GMT), which is never more than half a second different from it.”",
+       "zh": "協調世界時是格林威治標準時間的現代版本，相差不超過半秒",
+       "src": "Royal Museums Greenwich, “Which time is it?”",
+       "url": "https://www.rmg.co.uk/stories/time/which-time-it"
+      },
+      {
+       "en": "International Atomic Time is computed by the International Bureau of Weights and Measures (BIPM); UTC is based on it.",
+       "zh": "國際原子時由國際度量衡局計算，協調世界時以它為基礎",
+       "src": "NIST, “How UTC(NIST) is related to Coordinated Universal Time”",
+       "url": "https://www.nist.gov/pml/time-and-frequency-division/how-utcnist-related-coordinated-universal-time-utc-international"
+      },
+      {
+       "en": "On November 18, 1883, railroad station clocks were reset as standard-time noon was reached in each time zone: the Day of Two Noons.",
+       "zh": "1883 年 11 月 18 日，各時區到了標準時間的正午就重設車站的鐘，稱為兩個正午的一天",
+       "src": "Library of Congress, “The Day of Two Noons”",
+       "url": "https://guides.loc.gov/this-month-in-business-history/november/day-of-two-noons"
+      },
+      {
+       "en": "U.S. Eastern Time: EST is UTC−5 and EDT is UTC−4; daylight saving time begins on the second Sunday of March and ends on the first Sunday of November.",
+       "zh": "美國東部時間：標準時間 UTC−5、夏令時間 UTC−4；夏令時間從三月第二個星期日到十一月第一個星期日",
+       "src": "NIST, “Local Time FAQs” and “Daylight Saving Time”",
+       "url": "https://www.nist.gov/pml/time-and-frequency-division/local-time-faqs"
+      },
+      {
+       "en": "“The international date line has no legal international status and countries are free to choose the dates that they observe”; it zigzags around political borders.",
+       "zh": "國際換日線沒有國際法律地位，各國自己選擇日期；它會繞著政治邊界彎曲",
+       "src": "NOAA National Ocean Service, “What is the international date line?”",
+       "url": "https://oceanservice.noaa.gov/facts/international-date-line.html"
+      },
+      {
+       "en": "The line between day and night is called the terminator; because the atmosphere bends sunlight, the sunlit area is greater than the dark area.",
+       "zh": "晝夜的交界叫晨昏線；大氣折射陽光，所以照到陽光的面積比黑暗的大",
+       "src": "NOAA Science On a Sphere, “Day/Night Terminator”",
+       "url": "https://sos.noaa.gov/catalog/datasets/daynight-terminator-daily/"
+      },
+      {
+       "en": "Samoa and Tokelau moved to the western side of the date line at midnight on December 29, 2011, “thus losing December 30th.”",
+       "zh": "2011 年 12 月 29 日午夜，薩摩亞與托克勞移到換日線西側，少了 12 月 30 日",
+       "src": "U.S. Department of State, Geographer's Guidance Bulletin No. 31 (2012)",
+       "url": "https://data.geodata.state.gov/guidance/DoS_Bulletin_31-International-Dateline-2012.pdf"
+      },
+      {
+       "en": "Taiwan's current standard time is called National Standard Time, UTC+8; the term 中原標準時間 is no longer used; the 117 time service comes from atomic clocks.",
+       "zh": "「臺灣現行採用的標準時間，稱為「國家標準時間」，比世界協調時快8小時，即UTC+8。」「中原標準時間」現今已不再使用；117 報時來自原子鐘",
+       "src": "國立科學工藝博物館・中華電信〈電信文物：報時〉",
+       "url": "https://telecom.nstm.gov.tw/ArtifactDetail.aspx?sid=58"
+      },
+      {
+       "en": "Taiwan's national time and frequency standard is maintained by Chunghwa Telecom Laboratories on behalf of the Bureau of Standards, Metrology and Inspection.",
+       "zh": "「臺灣的國家標準時頻由本局委託中華電信研究院維護」",
+       "src": "經濟部標準檢驗局",
+       "url": "https://www.bsmi.gov.tw/wSite/ct?xItem=109713&ctNode=9926&mp=1"
+      },
+      {
+       "en": "Taiwan used Japan's Central Standard Time from October 1, 1937 to September 21, 1945; summer time from 1946, stopped in the early 1980s.",
+       "zh": "1937 年 10 月 1 日起改用日本中央標準時間，1945 年 9 月 21 日恢復；1946 年起實施夏令時間，1980 年代初期停止",
+       "src": "國史館臺灣文獻館 電子報",
+       "url": "https://www.th.gov.tw/Epaper_Content/238/10046/"
+      },
+      {
+       "en": "Chinese terms: 時區, 標準時, 地方時, 太陽時, 協調世界時, 格林威治標準時間, 國際換日線, 日光節約時間, 晨昏線, 自轉.",
+       "zh": "中文名詞依國家教育研究院樂詞網（地理學名詞、高中以下地理學名詞、天文學名詞、氣象學名詞）",
+       "src": "國家教育研究院 樂詞網",
+       "url": "https://terms.naer.edu.tw/"
+      },
+      {
+       "en": "Curriculum entries 自 Id-Ⅳ-1 and its explanation, 自 INc-Ⅲ-13 (natural science), 地 Aa-Ⅳ-1 (social studies).",
+       "zh": "課綱條目 自 Id-Ⅳ-1（含學習內容說明）、自 INc-Ⅲ-13（自然科學領域）、地 Aa-Ⅳ-1（社會領域）",
+       "src": "十二年國民基本教育課程綱要 自然科學領域、社會領域（教育部，民國 107 年）",
+       "url": "https://www.naer.edu.tw/PageSyllabus?fid=52"
+      }
+     ]
+    }
+   ],
+   "planned": [
     {
      "n": 6,
      "icon": "🌏",
