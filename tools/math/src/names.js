@@ -84,3 +84,19 @@ export function placeNameZh(i, base = 10) {
 }
 /** 單數：'1 ten'、'1 five' */
 export const placeOneEn = (i, base = 10) => placeNameEn(i, base).replace(/s$/, '');
+
+// ── 分數怎麼唸（第四課）────────────────────────────────────────────────────
+const ORD = { one: 'first', two: 'second', three: 'third', five: 'fifth', eight: 'eighth', nine: 'ninth', twelve: 'twelfth' };
+/** 序數：4 → 'fourth'、24 → 'twenty-fourth'、60 → 'sixtieth' */
+export function ordinalEn(n) {
+  const w = enWords(n), m = w.match(/([a-z]+)$/), last = m[1], head = w.slice(0, w.length - last.length);
+  const o = ORD[last] || (last.endsWith('y') ? `${last.slice(0, -1)}ieth` : `${last}th`);
+  return head + o;
+}
+/** 分數的美式唸法：1/2 → 'one half'、3/4 → 'three fourths'、5/6 → 'five sixths'、2/2 → 'two halves' */
+export function fractionEn(n, d) {
+  if (d === 2) return `${enWords(n)} ${n === 1 ? 'half' : 'halves'}`;
+  return `${enWords(n)} ${ordinalEn(d)}${n === 1 ? '' : 's'}`;
+}
+/** 中文唸法：分母先唸，3/4 → '四分之三' */
+export const fractionZh = (n, d) => `${zhWords(d)}分之${zhWords(n)}`;

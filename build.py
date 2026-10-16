@@ -20905,7 +20905,7 @@ def build_art_hub():
 _mathj = os.path.join(ROOT, "data", "math.json")
 MATH = json.load(open(_mathj, encoding="utf-8")) if os.path.exists(_mathj) else None
 MATH_BASE = "/resources/classes/math/"
-_MATH_JS = {"blocks": "math-blocks", "array": "math-array", "divide": "math-divide"}   # lab.kind → assets/js/<bundle>.js
+_MATH_JS = {"blocks": "math-blocks", "array": "math-array", "divide": "math-divide", "fraction": "math-fraction"}   # lab.kind → assets/js/<bundle>.js
 
 def _math_ver():
     h = hashlib.md5()
@@ -21191,6 +21191,86 @@ def _math_cycle(cy):
 </div>
 <p class="mth-note rvl">{html.escape(cy["note_en"])}<span class="zh">{html.escape(cy["note_zh"])}</span></p>'''
 
+def mathfraction_svg(size=56):
+    """第四課的課程卡小圖示：上面一條切成兩半（塗一半），下面一條切成三塊（塗一塊），旁邊一個問號。"""
+    out = ['<rect x="6" y="14" width="40" height="10" rx="2" fill="#2b3550"/>', '<rect x="6" y="14" width="19.5" height="10" rx="2" fill="#4a90d9"/>',
+           '<rect x="6" y="32" width="40" height="10" rx="2" fill="#2b3550"/>', '<rect x="6" y="32" width="12.7" height="10" rx="2" fill="#f4c542"/>',
+           '<path d="M26 14v10M19.3 32v10M32.6 32v10" stroke="#0b1326" stroke-width="1.4"/>',
+           '<text x="52" y="33" text-anchor="middle" font-family="Georgia,serif" font-size="15" font-weight="700" fill="#ffd36e">?</text>']
+    return f'<svg class="mathfraction-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">{"".join(out)}</svg>'
+
+_MATH_CARD["fraction"] = mathfraction_svg
+
+def render_mathfraction_lab(lesson):
+    """第四課：桌上的分數條（assets/js/math-fraction.js 綁這裡的 class；全部自繪示意）。"""
+    lab = lesson["lab"]
+    def picker(key, en, zh):
+        return (f'<div class="mth-fr-pick" data-f="{key}"><p class="mth-k2">{en}<small>{zh}</small></p>'
+                f'<div class="mth-fr-row"><span class="mth-fr-show"></span>'
+                f'<span class="mth-fr-steps">'
+                f'<span><button type="button" data-step="n:-1" aria-label="Top number down · 分子減一">−</button><small>top 分子</small><button type="button" data-step="n:1" aria-label="Top number up · 分子加一">+</button></span>'
+                f'<span><button type="button" data-step="d:-1" aria-label="Fewer pieces · 分母變小">−</button><small>pieces 分母</small><button type="button" data-step="d:1" aria-label="More pieces · 分母變大">+</button></span>'
+                f'</span></div><p class="mth-fr-read"></p></div>')
+    return f'''<div class="astro-lab mth-lab mth-fr-lab rvl" data-mathfraction-lab>
+  <div class="al-stage">
+    <div class="al-space">
+      <canvas class="al-space-cv" aria-label="3D model of fraction strips on a table: two strips of the same length, each cut into equal pieces with some pieces colored, and an answer strip below · 桌上的分數條 3D 模型：兩條一樣長的條子各切成幾等分、塗了幾塊，下面一條是答案"></canvas>
+      <div class="al-labels" aria-hidden="true"></div>
+      <p class="al-hint">Drag to turn the view · 拖曳旋轉視角　Scroll or pinch to zoom · 滾輪／雙指縮放</p>
+      <button type="button" class="al-home" title="Reset view · 重設視角" aria-label="Reset view · 重設視角">&#8634;</button>
+      <p class="al-nogl-msg">This 3D model needs WebGL, which this browser does not support. The fractions, the number sentence, and the buttons beside it still work, and so do the reading, the cards, and the games.<br><span class="zh">這個瀏覽器不支援 WebGL，無法顯示 3D 模型；旁邊的分數、算式和按鈕照樣能用，課文、卡片和小遊戲也都能用。</span></p>
+    </div>
+    <aside class="al-sky mth-aside">
+      <div class="mth-fr-picks">{picker("a", "Strip A", "第一條")}{picker("b", "Strip B", "第二條")}</div>
+      <p class="mth-fr-eq" aria-live="polite"></p>
+      <p class="mth-fr-weq" hidden></p>
+      <div class="mth-btns">
+        <button type="button" class="mth-btn-d mth-fr-wrong" aria-pressed="false">Add tops and bottoms? · 分子加分子、分母加分母？</button>
+        <button type="button" class="mth-btn-d mth-add mth-fr-cut">Cut into equal pieces · 切成一樣大</button>
+        <button type="button" class="mth-btn-d mth-add mth-fr-join" disabled>Put them together · 接起來</button>
+        <button type="button" class="mth-btn-d mth-fr-reset">Start over · 重來</button>
+      </div>
+      <p class="mth-msg" aria-live="polite"></p>
+    </aside>
+  </div>
+  {_lab_foot(lab)}
+  <p class="mth-credit">{lab["credit_html"]}</p>
+</div>'''
+
+def _math_cmp(cm):
+    return f'''<div class="mth-pq mth-cmp rvl" data-mth-cmp>
+  <div class="mth-pq-top"><p class="mth-pq-k"></p><p class="mth-pq-sc">Right on the first try · 第一次就答對 <b class="mth-pq-score">0 / 0</b></p></div>
+  <div class="mth-cmp-pair"><div class="mth-cmp-a"></div><div class="mth-cmp-b"></div></div>
+  <div class="mth-cmp-opts" role="group" aria-label="Which is more · 哪一個比較多">
+    <button type="button" class="mth-pq-opt" data-ans="left">The left one<small>左邊比較多</small></button>
+    <button type="button" class="mth-pq-opt" data-ans="equal">The same<small>一樣多</small></button>
+    <button type="button" class="mth-pq-opt" data-ans="right">The right one<small>右邊比較多</small></button>
+  </div>
+  <p class="mth-pq-msg" aria-live="polite"></p>
+  <div class="mth-pq-foot">
+    <label class="mth-check"><input type="checkbox" data-t="strips"><span>Show the strips · 顯示分數條</span></label>
+    <button type="button" class="mth-btn mth-btn-gold mth-pq-next" hidden>Next · 下一題</button>
+  </div>
+</div>
+<p class="mth-note rvl">{html.escape(cm["note_en"])}<span class="zh">{html.escape(cm["note_zh"])}</span></p>'''
+
+def _math_align(al):
+    return f'''<div class="mth-al rvl" data-mth-align>
+  <p class="mth-k">Choose two fractions · 選兩個分數</p>
+  <div class="mth-al-pairs" role="group" aria-label="Pairs of fractions · 分數組"></div>
+  <div class="mth-al-ctl">
+    <span class="mth-k">Cut both into · 兩條都切成</span>
+    <button type="button" class="mth-btn mth-al-minus" aria-label="Fewer pieces · 少切一塊">&minus;</button>
+    <b class="mth-al-out" aria-live="polite">1</b><span class="mth-al-u">pieces · 塊</span>
+    <button type="button" class="mth-btn mth-al-plus" aria-label="More pieces · 多切一塊">+</button>
+    <input type="range" class="mth-al-range" min="1" max="40" step="1" value="1" aria-label="Number of equal pieces, 1 to 40 · 切成幾等分，1 到 40">
+  </div>
+  <div class="mth-al-row mth-al-a"></div>
+  <div class="mth-al-row mth-al-b"></div>
+  <p class="mth-al-msg" aria-live="polite"></p>
+</div>
+<p class="mth-note rvl">{html.escape(al["note_en"])}<span class="zh">{html.escape(al["note_zh"])}</span></p>'''
+
 def _math_pile(pq):
     return f'''<div class="mth-pq rvl" data-mth-pile>
   <div class="mth-pq-top"><p class="mth-pq-k"></p><p class="mth-pq-sc">Right on the first try · 第一次就答對 <b class="mth-pq-score">0 / 0</b></p></div>
@@ -21245,7 +21325,7 @@ def build_math_lesson(ui, unit, lesson):
     reading_html = render_basic_unit(1, unit_dict, level="math", audio_rel="", pdf_rel="")
     lab = lesson["lab"]
     kind = lab["kind"]
-    lab_html = {"blocks": render_mathblocks_lab, "array": render_matharray_lab, "divide": render_mathdivide_lab}[kind](lesson)
+    lab_html = {"blocks": render_mathblocks_lab, "array": render_matharray_lab, "divide": render_mathdivide_lab, "fraction": render_mathfraction_lab}[kind](lesson)
 
     def sec(key, fn):
         d = lesson[key]
@@ -21274,6 +21354,8 @@ def build_math_lesson(ui, unit, lesson):
     if lesson.get("table"): secs.append(sec("table", _math_table))
     if lesson.get("kind"): secs.append(sec("kind", _math_kind))
     if lesson.get("cycle"): secs.append(sec("cycle", _math_cycle))
+    if lesson.get("cmp"): secs.append(sec("cmp", _math_cmp))
+    if lesson.get("align"): secs.append(sec("align", _math_align))
     if lesson.get("culture_cards"):
         cu = lesson["culture_cards"]
         cc = "".join(

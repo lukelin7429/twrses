@@ -1958,7 +1958,7 @@
               "zh": "分數相加，為什麼不能分母加分母？",
               "note_en": "What if you break the leftover candy into pieces? Sharing one candy among three people gives each a third, and that is where fractions begin.",
               "note_zh": "如果把剩下的那顆糖掰開呢？一顆糖分給三個人，每人三分之一——分數就從這裡開始。",
-              "soon": true
+              "href": "/resources/classes/math/adding-fractions/"
             }
           ],
           "sources_note_en": "Facts, quotations, and readings on this page were checked against these sources (October 2026); the numbers in the model are computed and tested",
@@ -2025,15 +2025,634 @@
               "url": "https://terms.naer.edu.tw/"
             }
           ]
+        },
+        {
+          "n": 4,
+          "slug": "adding-fractions",
+          "title": "Why Can't You Just Add the Bottoms?",
+          "title_zh": "分數相加，為什麼不能分母加分母？",
+          "level": "進階 · Intermediate",
+          "icon": "🍕",
+          "card": "fraction",
+          "blurb_en": "One half plus one third is not two fifths, and you can see why: two fifths is smaller than one half. Cut two strips into pieces of the same size, and the answer counts itself.",
+          "blurb_zh": "二分之一加三分之一不是五分之二，而且一看就知道為什麼：五分之二比二分之一還小。把兩條切成一樣大的塊，答案自己就數出來了。",
+          "big_idea_en": "The bottom number of a fraction names the size of the pieces, and the top number counts them. You can only count pieces together when they are the same size, so before adding, cut both fractions into equal pieces.",
+          "big_idea_zh": "分母說的是每一塊有多大，分子是在數有幾塊。只有一樣大的塊才能數在一起，所以相加以前，要先把兩個分數切成一樣大的塊。",
+          "lab": {
+            "kind": "fraction",
+            "eyebrow": "3D Model · 3D 模型",
+            "title_en": "Fraction Strips on a Table",
+            "title_zh": "桌上的分數條",
+            "how_en": "Strip A and Strip B are the same length, and each one is one whole. Use the buttons to change how many pieces each strip is cut into and how many are colored. First press Add tops and bottoms? to see the wrong answer laid out in red. Then press Cut into equal pieces: both strips are cut finer until their pieces match. Finally press Put them together, and the colored pieces fly onto the answer strip below.",
+            "how_zh": "第一條和第二條一樣長，各是一整條。用按鈕改變每一條切成幾塊、塗了幾塊。先按「分子加分子、分母加分母？」，看錯的答案用紅色那一條擺出來；再按「切成一樣大」，兩條會切得更細，直到每一塊一樣大；最後按「接起來」，塗色的塊會飛到下面的答案條上。",
+            "legend": [
+              {
+                "cls": "mthfa",
+                "en": "Colored pieces of Strip A",
+                "zh": "第一條塗色的塊"
+              },
+              {
+                "cls": "mthfb",
+                "en": "Colored pieces of Strip B",
+                "zh": "第二條塗色的塊"
+              },
+              {
+                "cls": "mthfoff",
+                "en": "Pieces that are not counted",
+                "zh": "沒有算進去的塊"
+              },
+              {
+                "cls": "mthfw",
+                "en": "The wrong answer from adding tops and bottoms",
+                "zh": "分子加分子、分母加分母得到的錯答案"
+              }
+            ],
+            "scale_en": "A teaching model. Every strip is exactly the same length, so a strip cut into sixths really has six equal pieces of one sixth each. The denominators you can choose are 2, 3, 4, 5, 6, 8, 10, and 12, so the finest cut is 60 pieces. The cutting is slowed down so that you can watch the old pieces split.",
+            "scale_zh": "這是教學用的示意模型。每一條都一樣長，所以切成六等分的那一條，真的就是六塊各六分之一。可以選的分母是 2、3、4、5、6、8、10、12，所以最細切成 60 塊。切的過程放慢了，好讓你看見原來的塊怎麼裂開。",
+            "credit_html": "Model and code are drawn and programmed by My Culture Connect. The fraction rules are tested in <code>tools/math/test/fraction.test.mjs</code>.<br><span class=\"zh\">模型與程式由人師教育協會自行繪製、撰寫；分數的規則有自動測試（<code>tools/math/test/fraction.test.mjs</code>）。</span>"
+          },
+          "paras": [
+            "You eat one half of a pizza, and your friend eats one third of another pizza of the same size. How much pizza did you eat together? A quick answer is to add the tops and the bottoms: 1 + 1 = 2 and 2 + 3 = 5, so 1/2 + 1/3 = 2/5. It looks neat, but it cannot be right. Two fifths is less than one half. You added food and somehow ended up with less than you started with. Something has gone wrong, and this lesson finds out what.",
+            "Start with what a fraction means. The bottom number, the denominator, tells how many equal parts the whole has been divided into. The top number, the numerator, tells how many of those parts you have. So 1/2 means one of two equal pieces, and 1/3 means one of three. In English you say the top number first, “one half,” “one third,” “three fourths.” In Chinese you say the bottom number first: er fen zhi yi, two parts, take one.",
+            "Here is the problem. The denominator is not a count of things; it is the name of the piece. A half and a third are different sizes, the way a quarter and a dime are different coins. One quarter and one dime are two coins, but they are not two quarters. In the same way, one half and one third are two pieces, but they are not two fifths. You can only count pieces together when they are the same size.",
+            "So make them the same size. Cut each half into three smaller pieces and each third into two. Now both strips are cut into sixths. One half is the same amount as three sixths, and one third is the same as two sixths. Fractions that have the same value are called equivalent fractions. Now the pieces match, and counting is easy: three sixths plus two sixths is five sixths. The smallest number of pieces that works for both, here six, is called the least common denominator.",
+            "There is a quick way to catch the mistake, even without cutting anything. When you add two amounts, the answer has to be bigger than each of them. One U.S. standard asks students to recognize that 2/5 + 1/2 = 3/7 must be wrong, because 3/7 is less than 1/2. Adding the tops and the bottoms always gives an answer that lands between the two fractions, never above them. If your sum is smaller than one of its parts, go back and cut again.",
+            "When the pieces are already the same size, adding is simple. One fourth plus two fourths is three fourths: you just add the number of pieces, and the denominator stays the same, because the size of each piece does not change. Americans often call fourths “quarters,” so this also reads as one quarter plus two quarters equals three quarters. Sometimes the answer is more than a whole: three fourths plus one half is five fourths, which is one and one fourth. That is a mixed number, a whole number together with a fraction."
+          ],
+          "paras_zh": [
+            "你吃了一個披薩的二分之一，你的朋友吃了另一個一樣大的披薩的三分之一。你們一共吃了多少？很快的答法是分子加分子、分母加分母：1＋1＝2，2＋3＝5，所以 1/2＋1/3＝2/5。看起來很整齊，可是不可能是對的：五分之二比二分之一還少。你加了食物，結果反而比原來還少？一定哪裡出錯了，這一課就來找出是哪裡。",
+            "先從分數的意思說起。下面的數叫分母，告訴你整體被分成了幾個一樣大的部分；上面的數叫分子，告訴你拿了其中幾個。所以 1/2 是兩個一樣大的塊裡的一塊，1/3 是三塊裡的一塊。英文先唸上面的數：one half、one third、three fourths。中文先唸下面的數：二分之一，就是「分成兩份，取其中一份」。",
+            "問題就在這裡：分母不是在數有幾個東西，它是塊的名字。二分之一和三分之一的一塊大小不一樣，就像美國的 25 分錢硬幣（quarter）和 10 分錢硬幣（dime）是不一樣的錢。一枚 quarter 加一枚 dime 是兩枚硬幣，但不是兩枚 quarter。同樣地，一個二分之一加一個三分之一是兩塊，但不是五分之二。只有一樣大的塊，才能數在一起。",
+            "那就把它們切成一樣大吧。把二分之一的那一塊切成三小塊，三分之一的那一塊切成兩小塊，兩條就都變成六等分了。二分之一和六分之三一樣多，三分之一和六分之二一樣多。大小一樣的分數叫做等值分數。現在塊的大小對得上了，數起來就簡單：六分之三加六分之二，是六分之五。兩條都能用的最少的切法（這裡是 6）叫做最小公分母。",
+            "就算不切，也有一個很快的方法抓出錯誤：兩個量相加，答案一定比其中任何一個都大。美國有一條課程標準就要學生看出 2/5＋1/2＝3/7 一定是錯的，因為 3/7 比 1/2 還小。分子加分子、分母加分母的答案，永遠落在兩個分數中間，不會比較大的那個還大。如果你算出的和比其中一個加數還小，就回頭重新切。",
+            "如果兩邊的塊本來就一樣大，加起來很簡單。四分之一加四分之二是四分之三：只要把塊數加起來，分母不變，因為每一塊的大小沒有變。美國人常把 fourths 叫做 quarters，所以也可以說 one quarter plus two quarters equals three quarters。有時候答案會比一整個還多：四分之三加二分之一是四分之五，也就是一又四分之一。這種寫成整數加分數的數，叫做帶分數。"
+          ],
+          "questions": [
+            "Why is 2/5 not the answer to 1/2 + 1/3?",
+            "What do the denominator and the numerator of a fraction tell you?",
+            "How do you add 1/2 + 1/3 correctly?"
+          ],
+          "answers": [
+            "Because 2/5 is less than 1/2. When you add something, the answer must be bigger than each part, so 2/5 cannot be right.",
+            "The denominator tells how many equal parts the whole is divided into. The numerator tells how many of those parts you have.",
+            "Cut both into sixths: 1/2 = 3/6 and 1/3 = 2/6. Then add the pieces: 3/6 + 2/6 = 5/6."
+          ],
+          "vocab": [
+            {
+              "n": 1,
+              "w": "fraction",
+              "pos": "n.",
+              "zh": "分數",
+              "ex": "One half is a <b>fraction</b>.",
+              "exzh": "二分之一是一個分數。"
+            },
+            {
+              "n": 2,
+              "w": "numerator",
+              "pos": "n.",
+              "zh": "分子",
+              "ex": "In 3/4, the <b>numerator</b> is 3.",
+              "exzh": "在 3/4 裡，分子是 3。"
+            },
+            {
+              "n": 3,
+              "w": "denominator",
+              "pos": "n.",
+              "zh": "分母",
+              "ex": "In 3/4, the <b>denominator</b> is 4.",
+              "exzh": "在 3/4 裡，分母是 4。"
+            },
+            {
+              "n": 4,
+              "w": "whole",
+              "pos": "n.",
+              "zh": "整體；一整個",
+              "ex": "Two halves make one <b>whole</b>.",
+              "exzh": "兩個二分之一合起來是一整個。"
+            },
+            {
+              "n": 5,
+              "w": "equal parts",
+              "pos": "n.",
+              "zh": "一樣大的部分",
+              "ex": "Cut the strip into four <b>equal parts</b>.",
+              "exzh": "把這一條切成四個一樣大的部分。"
+            },
+            {
+              "n": 6,
+              "w": "equivalent",
+              "pos": "adj.",
+              "zh": "等值的",
+              "ex": "One half and two fourths are <b>equivalent</b> fractions.",
+              "exzh": "二分之一和四分之二是等值分數。"
+            },
+            {
+              "n": 7,
+              "w": "common denominator",
+              "pos": "n.",
+              "zh": "公分母",
+              "ex": "Six is a <b>common denominator</b> for halves and thirds.",
+              "exzh": "6 是二分之幾和三分之幾的公分母。"
+            },
+            {
+              "n": 8,
+              "w": "mixed number",
+              "pos": "n.",
+              "zh": "帶分數",
+              "ex": "One and one fourth is a <b>mixed number</b>.",
+              "exzh": "一又四分之一是一個帶分數。"
+            }
+          ],
+          "quiz": [
+            {
+              "q": "In the fraction 3/4, what does the 4 tell you?",
+              "options": [
+                "How many pieces you have",
+                "How many equal parts the whole is divided into",
+                "How many wholes there are",
+                "How big the answer is"
+              ],
+              "correct": 1
+            },
+            {
+              "q": "What is 1/2 + 1/3?",
+              "options": [
+                "2/5",
+                "2/6",
+                "5/6",
+                "1/6"
+              ],
+              "correct": 2
+            },
+            {
+              "q": "Which fraction is equivalent to 1/2?",
+              "options": [
+                "2/3",
+                "1/4",
+                "3/5",
+                "2/4"
+              ],
+              "correct": 3
+            },
+            {
+              "q": "What is 1/4 + 2/4?",
+              "options": [
+                "3/4",
+                "3/8",
+                "2/4",
+                "3/16"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "Why must 1/2 + 1/3 = 2/5 be wrong?",
+              "options": [
+                "Because 2/5 is less than 1/2",
+                "Because 5 is an odd number",
+                "Because 2/5 is too big",
+                "Because fractions cannot be added"
+              ],
+              "correct": 0
+            }
+          ],
+          "parts_head": {
+            "eyebrow": "Try It in the Model · 在模型裡試試",
+            "en": "Four things to watch",
+            "zh": "四件值得看的事"
+          },
+          "parts": [
+            {
+              "key": "wrong",
+              "icon": "2/5?",
+              "en": "The wrong way",
+              "zh": "錯的方法",
+              "meta_en": "Tops plus tops, bottoms plus bottoms",
+              "meta_zh": "分子加分子、分母加分母",
+              "demo": "wrong",
+              "text_en": "The red strip shows 2/5. Put it next to the half: it is shorter. Adding cannot make things smaller.",
+              "text_zh": "紅色那一條是 2/5。拿它跟二分之一比：它比較短。加法不可能讓東西變少。"
+            },
+            {
+              "key": "cut",
+              "icon": "÷ → 6",
+              "en": "Cut into equal pieces",
+              "zh": "切成一樣大",
+              "meta_en": "Halves and thirds become sixths",
+              "meta_zh": "二等分、三等分都變成六等分",
+              "demo": "cut",
+              "text_en": "Watch each half split into three and each third split into two. The colored length does not change; only the pieces do.",
+              "text_zh": "看二分之一裂成三塊、三分之一裂成兩塊。塗色的長度沒有變，變的只是塊。"
+            },
+            {
+              "key": "join",
+              "icon": "5/6",
+              "en": "Put them together",
+              "zh": "接起來",
+              "meta_en": "3/6 + 2/6 = 5/6",
+              "meta_zh": "六分之三加六分之二",
+              "demo": "join",
+              "text_en": "Now that the pieces match, they slide onto one strip and can be counted: five sixths.",
+              "text_zh": "現在塊的大小對得上了，它們滑到同一條上，一數就知道：六分之五。"
+            },
+            {
+              "key": "equal",
+              "icon": "1/2 = 2/4",
+              "en": "Same amount, different cuts",
+              "zh": "切法不同，一樣多",
+              "meta_en": "Equivalent fractions",
+              "meta_zh": "等值分數",
+              "demo": "equal",
+              "text_en": "One half and two fourths side by side: the same length. Cutting a piece smaller does not change how much there is.",
+              "text_zh": "二分之一和四分之二並排：一樣長。把塊切小，東西的多少不會變。"
+            }
+          ],
+          "parts_note_en": "Then try 3/4 + 1/2 and watch the answer spill onto a second strip. And try 5/6 + 3/4: how finely do the strips have to be cut?",
+          "parts_note_zh": "最後試試 3/4 + 1/2，看答案多到第二條上。再試 5/6 + 3/4：兩條要切得多細才行？",
+          "sayit": {
+            "eyebrow": "Say It · 怎麼唸",
+            "en": "How Do You Say It in English?",
+            "zh": "這個用英文怎麼唸",
+            "lead_en": "English reads the top number first; Chinese reads the bottom number first. Tap a speaker to hear each line both ways.",
+            "lead_zh": "英文先唸分子，中文先唸分母。點 🔊 聽每一列的兩種唸法。",
+            "rows": [
+              {
+                "expr": "1/2",
+                "say_en": "one half",
+                "say_zh": "二分之一",
+                "note_en": "For 2, English says half, not “second.”",
+                "note_zh": "分母是 2 的時候，英文說 half，不說 second。"
+              },
+              {
+                "expr": "1/3",
+                "say_en": "one third",
+                "say_zh": "三分之一",
+                "note_en": "Other denominators use the ordinal: third, fourth, fifth, sixth…",
+                "note_zh": "其他分母用序數：third、fourth、fifth、sixth……"
+              },
+              {
+                "expr": "3/4",
+                "say_en": "three fourths",
+                "say_zh": "四分之三",
+                "note_en": "Also “three quarters”: quarters are another way to say fourths.",
+                "note_zh": "也可以說 three quarters：quarter 就是 fourth 的另一種說法。"
+              },
+              {
+                "expr": "5/8",
+                "say_en": "five eighths",
+                "say_zh": "八分之五",
+                "note_en": "5 is the numerator, 8 is the denominator. With more than one piece, add -s.",
+                "note_zh": "5 是分子，8 是分母。超過一塊，英文要加 s。"
+              },
+              {
+                "expr": "2/5",
+                "say_en": "two fifths",
+                "say_zh": "五分之二",
+                "note_en": "The tempting wrong answer to 1/2 + 1/3.",
+                "note_zh": "1/2 + 1/3 那個看起來很像、其實是錯的答案。"
+              },
+              {
+                "expr": "1/2 = 2/4",
+                "say_en": "one half equals two fourths",
+                "say_zh": "二分之一等於四分之二",
+                "note_en": "Equivalent fractions: the same amount, cut differently.",
+                "note_zh": "等值分數：一樣多，切法不同。"
+              },
+              {
+                "expr": "1/2 + 1/3 = 5/6",
+                "say_en": "one half plus one third equals five sixths",
+                "say_zh": "二分之一加三分之一等於六分之五",
+                "note_en": "The right answer, after cutting both into sixths.",
+                "note_zh": "兩條都切成六等分以後，正確的答案。"
+              },
+              {
+                "expr": "1 1/4",
+                "say_en": "one and one fourth",
+                "say_zh": "一又四分之一",
+                "note_en": "A mixed number. English joins the parts with “and”; Chinese says you, “and also.”",
+                "note_zh": "帶分數。英文用 and 連起來，中文說「又」。"
+              }
+            ],
+            "tip_en": "For teachers: the English forms follow OpenStax Prealgebra 2e, sections 4.1 and 4.4 (“one and three-fifths”; “Quarters are another way to say fourths”). The Chinese forms follow the Ministry of Education's dictionaries and NAER's math terms (san fen zhi wu; san you wu fen zhi er).",
+            "tip_zh": "給老師：英文唸法依 OpenStax《Prealgebra 2e》4.1、4.4 節（one and three-fifths；Quarters are another way to say fourths）；中文唸法依教育部辭典與國教院數學名詞（三分之五；三又五分之二）。"
+          },
+          "cmp": {
+            "eyebrow": "Game · 小遊戲",
+            "en": "Which Is More?",
+            "zh": "哪一個比較大？",
+            "lead_en": "Eight pairs of fractions. Is the left one more, the right one, or are they the same? Turn on the strips if you want to see them. There is no clock; the game only counts how many you get right on the first try.",
+            "lead_zh": "八組分數。左邊比較多、右邊比較多，還是一樣多？想看分數條就把它打開。這裡不計時；遊戲只記下你第一次就答對幾題。",
+            "note_en": "Each round has two pairs with the same denominator, two with the same numerator, one pair that is equal, and three where everything is different. The pairs change every time you play.",
+            "note_zh": "每一輪有兩組分母一樣、兩組分子一樣、一組一樣多、三組分子分母都不一樣。每次玩題目都會換。"
+          },
+          "align": {
+            "eyebrow": "See Why · 看看為什麼",
+            "en": "Cut Them the Same",
+            "zh": "切成一樣大",
+            "lead_en": "Choose two fractions, then cut both strips into the same number of pieces. The thick marks are the old cuts. When every old cut lands on a new line, the pieces match and the fractions can be added.",
+            "lead_zh": "選兩個分數，再把兩條切成一樣多塊。粗的記號是原來的切線。等每一道原來的切線都落在新的線上，塊的大小就對得上，分數就能相加了。",
+            "note_en": "The numbers that work are the common multiples of the two denominators, and the smallest one is the least common denominator. Any of them gives the right answer; the smallest just keeps the pieces bigger.",
+            "note_zh": "行得通的切法，就是兩個分母的公倍數；最小的那一個叫最小公分母。用哪一個都會得到對的答案，只是最小的那個切出來的塊比較大。"
+          },
+          "culture_cards": {
+            "eyebrow": "Stories Behind Fractions · 分數的故事",
+            "title_en": "Egyptian pieces, a bar from the Arab world, rules from ancient China, and a coin",
+            "title_zh": "埃及的單位分數、阿拉伯世界的分數線、中國古代的規則、一枚硬幣",
+            "lead_en": "Four short stories about how people have written and added fractions.",
+            "lead_zh": "關於人們怎麼寫分數、怎麼加分數的四個小故事。",
+            "cards": [
+              {
+                "k": "Egypt · 埃及",
+                "en": "Only one piece at a time",
+                "zh": "一次只用一塊",
+                "body_en": "The Rhind papyrus was written around 1650 BC by a scribe named Ahmes, who says he is copying a document 200 years older. According to the MacTutor history archive, Egyptian fractions were limited to unit fractions, fractions with 1 on top, with the exception of 2/3 and, less often, 3/4. To write two fifths, a scribe used a sum of unit fractions; the papyrus's table of doubles lists 1/3 + 1/15 for twice 1/5.",
+                "body_zh": "萊因德紙草書大約寫於西元前 1650 年，抄寫員阿默斯說他是在抄一份兩百年前的文件。根據 MacTutor 數學史資料庫，古埃及的分數只用單位分數（分子是 1 的分數），例外是 2/3，以及比較少用的 3/4。要寫五分之二，抄寫員會用幾個單位分數加起來；紙草書的「加倍表」裡，五分之一的兩倍寫成 1/3＋1/15。"
+              },
+              {
+                "k": "The Bar · 分數線",
+                "en": "Where the line in the middle came from",
+                "zh": "中間那條線從哪裡來",
+                "body_en": "Jeff Miller's history of mathematical symbols says that the horizontal fraction bar “was introduced by the Arabs,” and that several sources credit al-Hassar around 1200. Fibonacci was the first European mathematician to use the bar the way we do today. The slanted slash came much later, partly because a horizontal bar was hard to print.",
+                "body_zh": "傑夫・米勒的數學符號史說，橫的分數線是阿拉伯人引進的，有好幾個來源認為是十二、十三世紀之交的哈薩爾（al-Hassar）。斐波那契是第一個像我們今天這樣使用分數線的歐洲數學家。斜線寫法出現得晚很多，原因之一是橫線在印刷上很難排。"
+              },
+              {
+                "k": "China · 中國",
+                "en": "The Nine Chapters",
+                "zh": "《九章算術》",
+                "body_en": "The first chapter of the Chinese classic The Nine Chapters on the Mathematical Art gives, in the words of the MacTutor archive, “rules for the addition, subtraction, multiplication and division of fractions,” along with a method for finding the greatest common divisor, which is what you need to reduce a fraction. Most historians think the text began around 200 BC, although others place it between 100 BC and AD 50.",
+                "body_zh": "中國古書《九章算術》的第一章，用 MacTutor 資料庫的話說，給出了「分數加、減、乘、除的規則」，還有求最大公因數的方法——約分就要用到它。多數歷史學者認為這本書大約形成於西元前 200 年左右，也有人認為是在西元前 100 年到西元 50 年之間。"
+              },
+              {
+                "k": "A Coin · 一枚硬幣",
+                "en": "Why Americans say “quarter”",
+                "zh": "美國人為什麼說 quarter",
+                "body_en": "A U.S. quarter is a coin worth one fourth of a dollar. The OpenStax textbook uses it to explain adding fractions with the same denominator: one quarter plus two quarters equals three quarters, and “Quarters are another way to say fourths.”",
+                "body_zh": "美國的 quarter 是一枚值一美元四分之一的硬幣。OpenStax 教科書就用它來說明同分母分數的加法：一個 quarter 加兩個 quarter 是三個 quarter，而且「quarter 就是 fourth 的另一種說法」。"
+              }
+            ]
+          },
+          "myths": [
+            {
+              "myth_en": "To add fractions, add the tops and add the bottoms.",
+              "myth_zh": "分數相加，就是分子加分子、分母加分母。",
+              "fact_en": "That gives 1/2 + 1/3 = 2/5, which is less than 1/2. First cut both into pieces of the same size, then add the pieces.",
+              "fact_zh": "這樣會得到 1/2 + 1/3 = 2/5，比 1/2 還小。要先切成一樣大的塊，再把塊數加起來。"
+            },
+            {
+              "myth_en": "A bigger denominator means a bigger fraction.",
+              "myth_zh": "分母越大，分數越大。",
+              "fact_en": "A bigger denominator means the whole is cut into more pieces, so each piece is smaller. One eighth is less than one half.",
+              "fact_zh": "分母越大，表示切得越多塊，每一塊就越小。八分之一比二分之一小。"
+            },
+            {
+              "myth_en": "2/4 is more than 1/2, because its numbers are bigger.",
+              "myth_zh": "2/4 比 1/2 大，因為它的數字比較大。",
+              "fact_en": "They are the same amount. Cutting each half into two smaller pieces doubles both numbers but does not change the size.",
+              "fact_zh": "它們一樣多。把每一半再切成兩塊，兩個數都變成兩倍，大小卻沒有變。"
+            },
+            {
+              "myth_en": "To find a common denominator, you always have to multiply the two denominators.",
+              "myth_zh": "找公分母，一定要把兩個分母乘起來。",
+              "fact_en": "Any common multiple works. For fourths and sixths, twelfths are enough; 24ths also work, with smaller pieces. Taiwan's curriculum even discourages simply multiplying the denominators.",
+              "fact_zh": "任何公倍數都可以。四分之幾和六分之幾，切成十二等分就夠了；二十四等分也行，只是塊比較小。台灣的課綱還特別寫明「通分不鼓勵以分母直接相乘」。"
+            }
+          ],
+          "tricks_head": {
+            "en": "Fractions in a sentence",
+            "zh": "一句話記住分數加法"
+          },
+          "tricks": [
+            {
+              "title_en": "The bottom names the piece, the top counts them",
+              "title_zh": "分母是塊的名字，分子在數幾塊",
+              "body_en": "3/4: pieces called fourths, and you have three of them.",
+              "body_zh": "3/4：每一塊叫「四分之一」，你有三塊。"
+            },
+            {
+              "title_en": "Same-size pieces first",
+              "title_zh": "先切成一樣大",
+              "body_en": "You can only count pieces together when they match.",
+              "body_zh": "塊一樣大，才能數在一起。"
+            },
+            {
+              "title_en": "A sum beats each part",
+              "title_zh": "和要比每一個加數大",
+              "body_en": "If your answer is smaller than one of the fractions you added, start again.",
+              "body_zh": "答案如果比其中一個加數還小，就重來。"
+            },
+            {
+              "title_en": "Top and bottom, same number",
+              "title_zh": "分子分母乘同一個數",
+              "body_en": "Multiply both by the same number and the fraction keeps its size.",
+              "body_zh": "分子分母乘同一個數，分數的大小不變。"
+            }
+          ],
+          "notes_head": {
+            "eyebrow": "For Teachers · 給老師的提醒",
+            "en": "Reading, order of teaching, and methods in Taiwan and the United States",
+            "zh": "台灣和美國的唸法、教學順序與做法"
+          },
+          "notes": [
+            {
+              "en": "Reading order is reversed. English says the numerator first (“three fourths”); Chinese says the denominator first (the Ministry of Education's dictionary gives san fen zhi wu for 5/3). Mixed numbers: OpenStax reads 1 3/5 as “one and three-fifths,” and NAER's math glossary reads 3 2/5 as san you wu fen zhi er. Both write the whole number to the left of the fraction.",
+              "zh": "唸的順序剛好相反。英文先唸分子（three fourths），中文先唸分母（教育部辭典的例子「三分之五」）。帶分數：OpenStax 把 1 3/5 唸成 one and three-fifths；國教院的數學名詞把 3 2/5 唸作「三又五分之二」。兩邊都把整數寫在分數的左邊。"
+            },
+            {
+              "en": "Taiwan's order: unit fractions by folding paper in Grade 2 (N-2-10, continuous quantities only); same-denominator fractions in Grade 3 (N-3-9), where the notes say not to use the terms proper and improper fraction and not to teach mixed numbers yet; those terms, mixed numbers, and adding with the same denominator in Grade 4 (N-4-5); equivalent fractions and “simple” unlike denominators, where one denominator is a multiple of the other, also in Grade 4 (N-4-6); and reducing, expanding, and common denominators in Grade 5 (N-5-4).",
+              "zh": "台灣的順序：二年級用摺紙認識單位分數（N-2-10，限連續量）；三年級是簡單同分母分數（N-3-9），備註寫明不出現「真分數」「假分數」的名詞，也不含帶分數；四年級才引入這些名詞、帶分數和同分母加減（N-4-5），同一年級還有等值分數和「一分母為另一分母之倍數」的簡單異分母分數（N-4-6）；約分、擴分、通分到五年級（N-5-4）。"
+            },
+            {
+              "en": "Finding a common denominator is taught differently. The Common Core's Grade 5 example, 2/3 + 5/4 = 8/12 + 15/12 = 23/12, comes with the general rule a/b + c/d = (ad + bc)/bd, which multiplies the denominators. Taiwan's N-5-4 note says the opposite: multiplying the denominators directly is not encouraged. OpenStax teaches the least common denominator.",
+              "zh": "找公分母的方法，兩邊教法不同。美國共同核心課程標準五年級的例子 2/3 + 5/4 = 8/12 + 15/12 = 23/12，後面附了一般式 a/b + c/d = (ad + bc)/bd，也就是分母直接相乘；台灣 N-5-4 的備註則寫明「通分不鼓勵以分母直接相乘」。OpenStax 教的是最小公分母。"
+            },
+            {
+              "en": "Models and words. U.S. materials talk about “fraction tiles” (OpenStax) and require that compared fractions “refer to the same whole” (Common Core 3.NF.A.3.d). Taiwan's curriculum lists fraction circles and starts with continuous quantities. This page uses strips of equal length so that “the same whole” is always visible; the Common Core limits Grade 3 to denominators 2, 3, 4, 6, and 8.",
+              "zh": "教具與用語。美國教材說 fraction tiles（OpenStax），並要求比較的分數「指的是同一個整體」（CCSS 3.NF.A.3.d）。台灣課綱列的教具是分數圓形圖，而且先從連續量開始。這一頁用一樣長的條子，讓「同一個整體」一直看得見；美國三年級把分母限在 2、3、4、6、8。"
+            }
+          ],
+          "activities": [
+            {
+              "title_en": "Paper Strip Fractions",
+              "title_zh": "紙條分數",
+              "materials": [
+                {
+                  "en": "Five paper strips of the same length for each student, about 24 cm long",
+                  "zh": "每人五條一樣長的紙條，約 24 公分"
+                },
+                {
+                  "en": "Ruler, pencil, scissors, and two colors",
+                  "zh": "尺、鉛筆、剪刀、兩種顏色"
+                }
+              ],
+              "steps": [
+                {
+                  "en": "Keep one strip whole. Fold the second in half, and mark the third into thirds with the ruler (every 8 cm). Mark the fourth into sixths (every 4 cm).",
+                  "zh": "第一條保持完整。第二條對摺成兩半；第三條用尺每 8 公分畫一道，分成三等分；第四條每 4 公分畫一道，分成六等分。"
+                },
+                {
+                  "en": "Color one half and one third. Lay them end to end on top of the whole strip. Is the total more or less than the whole?",
+                  "zh": "塗一個二分之一和一個三分之一，頭尾相接放在完整的那一條上面。合起來比一整條多還是少？"
+                },
+                {
+                  "en": "Use the sixths strip to measure: how many sixths cover the half? How many cover the third? How many cover both together?",
+                  "zh": "用六等分的那一條去量：二分之一要幾個六分之一才蓋得住？三分之一呢？兩個合起來呢？"
+                },
+                {
+                  "en": "On the fifth strip, mark fifths (every 4.8 cm) and color two fifths. Compare it with the half. What does that tell you about 1/2 + 1/3 = 2/5?",
+                  "zh": "第五條每 4.8 公分畫一道分成五等分，塗五分之二。拿它跟二分之一比。這告訴你 1/2 + 1/3 = 2/5 對不對？"
+                }
+              ],
+              "tip_en": "Folding paper is how Taiwan's Grade 2 begins (N-2-10), and the strips keep the same whole in view, as the Common Core asks (3.NF.A.3.d). Choosing 24 cm makes halves, thirds, fourths, sixths, and eighths come out in whole centimeters; fifths do not, which is itself a good discussion point.",
+              "tip_zh": "摺紙正是台灣二年級認識分數的起點（N-2-10）；紙條也讓「同一個整體」一直看得見，符合美國 CCSS 3.NF.A.3.d 的要求。選 24 公分，是因為二、三、四、六、八等分都剛好是整數公分；五等分就不是，這本身就是很好的討論題。"
+            },
+            {
+              "title_en": "Is It Reasonable?",
+              "title_zh": "這個答案合理嗎？",
+              "materials": [
+                {
+                  "en": "Cards with fraction sums, some right and some wrong, such as 1/2 + 1/3 = 2/5, 1/4 + 1/4 = 1/2, 2/5 + 1/2 = 3/7, and 1/3 + 1/6 = 1/2",
+                  "zh": "寫著分數加法的卡片，有對有錯，例如 1/2 + 1/3 = 2/5、1/4 + 1/4 = 1/2、2/5 + 1/2 = 3/7、1/3 + 1/6 = 1/2"
+                },
+                {
+                  "en": "A number line from 0 to 2 on the board, with 1/2 and 1 marked",
+                  "zh": "黑板上一條 0 到 2 的數線，標出 1/2 和 1"
+                }
+              ],
+              "steps": [
+                {
+                  "en": "Without calculating, decide for each card: could this be right? Use 1/2 and 1 as landmarks.",
+                  "zh": "先不要算，每一張卡片都判斷：這有可能是對的嗎？用 1/2 和 1 當路標。"
+                },
+                {
+                  "en": "Explain each “no” in one sentence, such as “The answer is smaller than one of the parts.”",
+                  "zh": "每一個「不可能」都用一句話說明理由，例如「答案比其中一個加數還小」。"
+                },
+                {
+                  "en": "Check the “maybe” cards with strips or by finding a common denominator.",
+                  "zh": "「可能」的卡片，再用紙條或找公分母驗算。"
+                }
+              ],
+              "tip_en": "This is the reasoning the Common Core asks for in Grade 5: “recognize an incorrect result 2/5 + 1/2 = 3/7, by observing that 3/7 < 1/2.” Students who learn to ask “Is it reasonable?” catch the add-the-bottoms mistake on their own.",
+              "tip_zh": "這正是美國 CCSS 五年級要的推理：「看出 2/5 + 1/2 = 3/7 是錯的，因為 3/7 < 1/2」。學生學會問「這合理嗎？」，就能自己抓出分母加分母的錯。"
+            }
+          ],
+          "links_head": {
+            "eyebrow": "Go Further · 延伸閱讀",
+            "en": "The lesson before, and the one coming next",
+            "zh": "上一課，以及下一課"
+          },
+          "links": [
+            {
+              "icon": "🍬",
+              "k_en": "Math You Can See · Lesson 3",
+              "k_zh": "看得見的數學・第三課",
+              "en": "What Does Division Really Mean?",
+              "zh": "除法到底是什麼意思？",
+              "note_en": "One candy left over, shared among three people, gives each of them one third. Britannica defines a fraction as a quotient: a numerator divided by a denominator.",
+              "note_zh": "剩下的一顆糖分給三個人，每人三分之一。《大英百科》把分數定義成一個商：分子除以分母。",
+              "href": "/resources/classes/math/what-is-division/"
+            },
+            {
+              "icon": "🧭",
+              "k_en": "Math You Can See · Lesson 5",
+              "k_zh": "看得見的數學・第五課",
+              "en": "Why Does a Negative Times a Negative Make a Positive?",
+              "zh": "負負為什麼得正？",
+              "note_en": "Step below zero on the number line, and turn around.",
+              "note_zh": "在數線上走到零的下面，然後轉身。",
+              "soon": true
+            }
+          ],
+          "sources_note_en": "Facts, quotations, and readings on this page were checked against these sources (October 2026); the numbers in the model are computed and tested",
+          "sources_note_zh": "本頁的事實、引文與唸法依下列資料查證（2026 年 10 月）；模型裡的數字是自己算的，並有測試",
+          "sources": [
+            {
+              "en": "“The denominator b represents the number of equal parts the whole has been divided into, and the numerator a represents how many parts are included”; fraction tiles; 1 3/5 “is read as one and three-fifths”; “A mixed number consists of a whole number and a fraction”",
+              "zh": "分母、分子的意思；fraction tiles；帶分數的唸法與定義",
+              "src": "OpenStax, Prealgebra 2e, section 4.1 “Visualize Fractions”",
+              "url": "https://openstax.org/books/prealgebra-2e/pages/4-1-visualize-fractions"
+            },
+            {
+              "en": "“to add the same-size pieces … we just add the number of pieces”; “Quarters are another way to say fourths”",
+              "zh": "同分母只要把塊數相加；quarter 就是 fourth",
+              "src": "OpenStax, Prealgebra 2e, section 4.4 “Add and Subtract Fractions with Common Denominators”",
+              "url": "https://openstax.org/books/prealgebra-2e/pages/4-4-add-and-subtract-fractions-with-common-denominators"
+            },
+            {
+              "en": "“The denominator of the largest piece that covers both fractions is the least common denominator (LCD)”; equivalent fractions with a common denominator",
+              "zh": "最小公分母的定義",
+              "src": "OpenStax, Prealgebra 2e, section 4.5 “Add and Subtract Fractions with Different Denominators”",
+              "url": "https://openstax.org/books/prealgebra-2e/pages/4-5-add-and-subtract-fractions-with-different-denominators"
+            },
+            {
+              "en": "“recognize an incorrect result 2/5 + 1/2 = 3/7, by observing that 3/7 < 1/2” (5.NF.A.2); “2/3 + 5/4 = 8/12 + 15/12 = 23/12. (In general, a/b + c/d = (ad + bc)/bd.)” (5.NF.A.1)",
+              "zh": "錯誤結果 3/7 < 1/2 的例子；通分的例子與一般式",
+              "src": "Common Core State Standards for Mathematics, Grade 5, Number and Operations—Fractions",
+              "url": "https://www.thecorestandards.org/Math/Content/5/NF/"
+            },
+            {
+              "en": "Fractions “refer to the same whole” (3.NF.A.3.d); simple equivalent fractions such as 1/2 = 2/4 (3.NF.A.3.b); Grade 3 denominators limited to 2, 3, 4, 6, and 8",
+              "zh": "比較的分數要是同一個整體；簡單等值分數；三年級分母限 2、3、4、6、8",
+              "src": "Common Core State Standards for Mathematics, Grade 3, Number and Operations—Fractions",
+              "url": "https://www.thecorestandards.org/Math/Content/3/NF/"
+            },
+            {
+              "en": "A fraction is “a number expressed as a quotient, in which a numerator is divided by a denominator”; proper and improper fractions; mixed numbers",
+              "zh": "分數是分子除以分母的商；真分數、假分數、帶分數",
+              "src": "Encyclopaedia Britannica, “fraction”",
+              "url": "https://www.britannica.com/science/fraction"
+            },
+            {
+              "en": "Rhind papyrus “written around 1650 BC by the scribe Ahmes,” copying a document 200 years older",
+              "zh": "萊因德紙草書約寫於西元前 1650 年，抄寫員阿默斯",
+              "src": "MacTutor History of Mathematics Archive, “An overview of Egyptian mathematics”",
+              "url": "https://mathshistory.st-andrews.ac.uk/HistTopics/Egyptian_mathematics/"
+            },
+            {
+              "en": "Egyptian fractions “were limited to unit fractions (with the exception of the frequently used 2/3 and less frequently used 3/4)”",
+              "zh": "古埃及只用單位分數，例外是 2/3 與 3/4",
+              "src": "MacTutor History of Mathematics Archive, “Egyptian numerals”",
+              "url": "https://mathshistory.st-andrews.ac.uk/HistTopics/Egyptian_numerals/"
+            },
+            {
+              "en": "The papyrus's table of doubles: twice 1/5 written as 1/3 + 1/15",
+              "zh": "紙草書的加倍表：五分之一的兩倍寫成 1/3＋1/15",
+              "src": "MacTutor History of Mathematics Archive, “Egyptian Papyri”",
+              "url": "https://mathshistory.st-andrews.ac.uk/HistTopics/Egyptian_papyri/"
+            },
+            {
+              "en": "“The horizontal fraction bar was introduced by the Arabs”; al-Hassar around 1200; Fibonacci the first European to use it as we do today; the solidus and typesetting",
+              "zh": "分數線由阿拉伯人引進；哈薩爾；斐波那契；斜線與排版",
+              "src": "Jeff Miller, “Earliest Uses of Symbols for Fractions,” MacTutor History of Mathematics Archive",
+              "url": "https://mathshistory.st-andrews.ac.uk/Miller/mathsym/fractions/"
+            },
+            {
+              "en": "Chapter 1 gives “rules for the addition, subtraction, multiplication and division of fractions”; most historians date the text to around 200 BC, others between 100 BC and AD 50",
+              "zh": "《九章算術》第一章有分數四則的規則；成書年代",
+              "src": "MacTutor History of Mathematics Archive, “Nine chapters on the Mathematical Art”",
+              "url": "https://mathshistory.st-andrews.ac.uk/HistTopics/Nine_chapters/"
+            },
+            {
+              "en": "Learning content N-2-10, N-3-9, N-4-5, N-4-6, N-5-3, and N-5-4, with their notes, including that multiplying the denominators directly is not encouraged",
+              "zh": "學習內容 N-2-10、N-3-9、N-4-5、N-4-6、N-5-3、N-5-4 及備註（含「通分不鼓勵以分母直接相乘」）",
+              "src": "教育部《十二年國民基本教育課程綱要 國民中小學暨普通型高級中等學校 數學領域》（2018）",
+              "url": "https://www.naer.edu.tw/upload/1/16/doc/815/十二年國民基本教育課程綱要國民中小學暨普通型高級中等學校-數學領域.pdf"
+            },
+            {
+              "en": "Improper fraction: numerator equal to or greater than the denominator, “such as 3/3 and 5/3” (read san fen zhi san, san fen zhi wu)",
+              "zh": "假分數：「分子等於或大於分母的分數。如三分之三、三分之五。」",
+              "src": "教育部《重編國語辭典修訂本》「假分數」（教育百科）",
+              "url": "https://pedia.cloud.edu.tw/Entry/Detail/?title=%E5%81%87%E5%88%86%E6%95%B8"
+            },
+            {
+              "en": "Mixed number (dai fenshu), read as in “san you wu fen zhi er” for 3 2/5; common denominator; reducing (yuefen), expanding (kuofen), and finding a common denominator (tongfen)",
+              "zh": "帶分數唸作「三又五分之二」；公分母；約分、擴分、通分",
+              "src": "國家教育研究院 樂詞網《數學名詞釋義》",
+              "url": "https://terms.naer.edu.tw/detail/81090b3410b56d047a4fd240a2bfce3c/?seq=4"
+            }
+          ]
         }
       ],
       "planned": [
-        {
-          "n": 4,
-          "icon": "🍕",
-          "en": "Why Can't You Just Add the Bottoms?",
-          "zh": "分數相加，為什麼不能分母加分母？"
-        },
         {
           "n": 5,
           "icon": "🧭",

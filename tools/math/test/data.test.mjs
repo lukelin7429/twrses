@@ -126,6 +126,34 @@ let M;
   // 第二課延伸閱讀的第三課卡片已經是真的連結
   assert.ok(M.links.some((x) => x.href === '/resources/classes/math/what-is-division/' && !x.soon));
 }
+// ── 第四課：分數相加 ────────────────────────────────────────────────────
+{
+  const { add, addBottoms, compare, toDenominator, toMixed } = await import('../src/fraction.js');
+  const { fractionEn, fractionZh } = await import('../src/names.js');
+  const F = lessons.find((l) => l.slug === 'adding-fractions');
+  assert.equal(F.n, 4); assert.equal(F.lab.kind, 'fraction');
+  for (const [k, n] of [['paras', 6], ['paras_zh', 6], ['vocab', 8], ['questions', 3], ['answers', 3], ['quiz', 5], ['parts', 4], ['myths', 4], ['tricks', 4], ['activities', 2], ['notes', 4]]) assert.equal(F[k].length, n, k);
+  assert.equal(F.culture_cards.cards.length, 4);
+  F.quiz.forEach((q) => { assert.equal(q.options.length, 4); assert.ok(q.correct >= 0 && q.correct < 4); });
+  assert.ok(F.sayit.rows.length >= 6 && F.sayit.rows.length <= 8);
+  F.sayit.rows.forEach((r) => assert.ok(!/\d/.test(r.say_en) && !/\d/.test(r.say_zh), `唸法裡不能有阿拉伯數字：${r.expr}`));
+  // 單一分數的列：唸法和 names.js 算出來的一樣
+  F.sayit.rows.filter((r) => /^\d+\/\d+$/.test(r.expr)).forEach((r) => { const [n, d] = r.expr.split('/').map(Number); assert.equal(r.say_en, fractionEn(n, d)); assert.equal(r.say_zh, fractionZh(n, d)); });
+  const src4 = readFileSync(new URL('../src/math-fraction.js', import.meta.url), 'utf8');
+  F.parts.forEach((p) => assert.ok(new RegExp(`\\n    ${p.demo}\\(\\) \\{`).test(src4), `DEMO.${p.demo}`));
+  // 課文與卡片裡的數
+  assert.deepEqual(addBottoms([1, 2], [1, 3]), [2, 5]); assert.equal(compare([2, 5], [1, 2]), -1);
+  assert.deepEqual(add([1, 2], [1, 3]), [5, 6]); assert.deepEqual(toDenominator([1, 2], 6), [3, 6]); assert.deepEqual(toDenominator([1, 3], 6), [2, 6]);
+  assert.deepEqual(add([1, 4], [2, 4]), [3, 4]); assert.deepEqual(add([3, 4], [1, 2]), [5, 4]); assert.deepEqual(toMixed([5, 4]), { whole: 1, n: 1, d: 4 });
+  assert.equal(compare([3, 7], [1, 2]), -1); assert.deepEqual(add([2, 3], [5, 4]), [23, 12]);
+  assert.deepEqual(add([1, 3], [1, 15]), [2, 5]);        // 埃及：五分之一的兩倍＝1/3 + 1/15
+  assert.deepEqual(add([1, 4], [1, 4]), [1, 2]); assert.deepEqual(add([1, 3], [1, 6]), [1, 2]);   // 活動二的卡片
+  for (const d of [2, 3, 4, 6, 8]) assert.equal(24 % d, 0);  // 活動一：24 公分剛好分得整齊
+  assert.notEqual(24 % 5, 0); assert.equal(24 / 5, 4.8);
+  assert.equal(F.quiz[1].options[F.quiz[1].correct], '5/6'); assert.equal(F.quiz[3].options[F.quiz[3].correct], '3/4');
+  // 第三課延伸閱讀的第四課卡片已經是真的連結
+  assert.ok(lessons.find((l) => l.slug === 'what-is-division').links.some((x) => x.href === '/resources/classes/math/adding-fractions/' && !x.soon));
+}
 // 美式拼字：常見的英式拼法不能出現在英文欄位
 // （出處欄的逐字引文照原文，例如 MacTutor 的 “civilisation”，所以 sources 不掃）
 const en = JSON.stringify(data, (k, v) => (k === 'sources' ? undefined : v)).replace(/[\u4e00-\u9fff]/g, '');
