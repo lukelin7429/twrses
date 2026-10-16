@@ -399,3 +399,64 @@ a.gg-link:hover { transform: translateY(-3px); box-shadow: var(--shadow); border
 .gg-cl-cities button small { display: block; font-family: var(--zh); color: #9fb0cf; }
 .gg-cl-cities button[aria-pressed="true"] { border-color: #ffd36e; background: rgba(255,211,110,.14); box-shadow: 0 0 0 1px #ffd36e inset; }
 @media (max-width: 900px) { .gg-call { grid-template-columns: minmax(0, 1fr); } }
+
+/* ── 第六課：大洲、大洋（geo-continents.js、bars2d.js、count2d.js；前綴 gg-cn- / gg-br-） ── */
+.gg-cn-count { display: grid; grid-template-columns: 1fr 1fr; gap: .5rem; }
+.gg-cn-count p { margin: 0; padding: .6rem .7rem; border-radius: 12px; background: rgba(255,255,255,.05); border: 1px solid rgba(160,180,230,.22); display: grid; gap: .2rem; }
+.gg-cn-count b { font-family: var(--serif); font-size: 2.2rem; line-height: 1; color: #ffd36e; }
+.gg-cn-count span { font-size: .74rem; font-weight: 700; color: #e8edf7; line-height: 1.35; }
+.gg-cn-count .zh { display: block; font-family: var(--zh); font-weight: 600; color: var(--al-mute); }
+.gg-cn-pick { min-height: 8.6rem; padding: .7rem .8rem; border-radius: 12px; background: rgba(255,211,110,.07); border: 1px solid rgba(255,211,110,.25); }
+.gg-cn-pick p { margin: 0; }
+.gg-cn-pk { font-size: .7rem; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; color: #ffd36e; }
+.gg-cn-pn { margin-top: .3rem !important; font-family: var(--serif); font-size: 1.35rem; color: #fff; display: flex; flex-wrap: wrap; align-items: baseline; gap: .1rem .45rem; }
+.gg-cn-pn i { width: 14px; height: 14px; border-radius: 4px; align-self: center; box-shadow: 0 0 0 1px rgba(255,255,255,.4) inset; }
+.gg-cn-pn .zh { font-family: var(--zh); font-size: 1rem; font-weight: 600; color: #b9c8e6; }
+.gg-cn-pa { margin-top: .35rem !important; font-size: .8rem; color: #e8edf7; }
+.gg-cn-pa .zh, .gg-cn-pnote .zh { display: block; font-family: var(--zh); color: var(--al-mute); }
+.gg-cn-pnote { margin-top: .45rem !important; font-size: .76rem; line-height: 1.5; color: #ffe3a3; }
+.gg-cn-clear { justify-self: start; font-size: .76rem; padding: .35rem .8rem; }
+.gg-cn-rowk { margin: .7rem 0 .35rem; font-size: .7rem; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; color: var(--al-mute); }
+.gg-cn-rowk:first-child { margin-top: 0; }
+.gg-ct-ints.gg-cn-schemes { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.al-lab.gg-cn-tag { font-weight: 800; }
+.al-lab.gg-cn-tag-o { color: #cfe6ff; background: rgba(8,30,70,.72); border-color: rgba(111,180,255,.45); font-style: italic; }
+.al-lab.gg-cn-tag.is-sel { color: #2b2118; background: #ffd36e; border-color: #ffd36e; }
+.al-lab.gg-cn-tag.is-sel i { color: #5c4320; }
+.al-lg-cont i { border: 0; background: linear-gradient(90deg, #e8a33d 0 25%, #7a6fd6 0 50%, #d9734e 0 75%, #4fa36a 0); }
+.al-lg-ocean i { border: 0; background: linear-gradient(90deg, #1f5fa8 0 33%, #2d7fc4 0 66%, #1a6d8f 0); }
+.al-lg-gray i { border: 0; background: #78808c; }
+.gg-lab.al-nogl .gg-cn-pick, .gg-lab.al-nogl .gg-cn-clear { display: none; }
+@media (max-width: 620px) { .gg-ct-ints.gg-cn-schemes { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+.gg-bars { display: block; padding: 1.2rem 1.3rem 1.1rem; }
+.gg-ct-ints.gg-br-tabs { grid-template-columns: repeat(2, minmax(0, 12rem)); margin-bottom: .9rem; }
+.gg-br-list { list-style: none; margin: 0; padding: 0; display: grid; gap: .35rem; }
+.gg-br-list button { width: 100%; display: grid; grid-template-columns: 11rem minmax(0, 1fr) 6.2rem; align-items: center; gap: .7rem; padding: .4rem .55rem; border-radius: 11px; border: 1px solid transparent; background: rgba(255,255,255,.03); color: #e8edf7; font-family: var(--sans); text-align: left; cursor: pointer; }
+.gg-br-list button:hover, .gg-br-list button[aria-pressed="true"] { border-color: rgba(255,211,110,.6); background: rgba(255,211,110,.08); }
+.gg-br-n { font-weight: 800; font-size: .84rem; line-height: 1.2; }
+.gg-br-n small, .gg-br-v small { display: block; font-family: var(--zh); font-weight: 600; font-size: .72rem; color: #9fb0cf; }
+.gg-br-bar { height: 18px; border-radius: 9px; background: rgba(255,255,255,.06); overflow: hidden; }
+.gg-br-bar i { display: block; height: 100%; width: var(--w); background: var(--c); border-radius: 9px; transform-origin: left; animation: gg-br-grow .9s cubic-bezier(.2,.8,.2,1) both; }
+@keyframes gg-br-grow { from { transform: scaleX(0); } }
+.gg-br-v { font-weight: 800; font-variant-numeric: tabular-nums; text-align: right; font-size: .95rem; }
+.gg-br-v small { font-family: var(--sans); font-size: .62rem; }
+.gg-br-out { margin-top: .9rem; min-height: 3.4em; }
+.gg-br-out b { color: #ffd36e; }
+.gg-br-src { margin: .6rem 0 0; font-size: .74rem; line-height: 1.55; color: #9fb0cf; }
+.gg-br-src .zh { display: block; }
+@media (max-width: 620px) {
+  .gg-br-list button { grid-template-columns: minmax(0, 1fr) 4.6rem; }
+  .gg-br-bar { grid-column: 1 / -1; grid-row: 2; }
+  .gg-ct-ints.gg-br-tabs { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+.gg-cn-scheme { margin: .9rem 0 0; padding: .55rem .8rem; border-radius: 11px; background: rgba(255,211,110,.1); border-left: 3px solid #ffd36e; font-size: .84rem; font-weight: 700; color: #fff; }
+.gg-cn-scheme:empty { display: none; }
+.gg-cn-scheme .zh { display: block; font-weight: 600; color: #b9c8e6; }
+.gg-cn-mapw { margin-top: .7rem; max-width: 520px; border-radius: 12px; overflow: hidden; }
+.gg-cn-mapw[hidden] { display: none; }
+.gg-cn-map { display: block; width: 100%; aspect-ratio: 2 / 1; }
+.gg-count .gg-ft-lab i { display: inline-block; width: 11px; height: 11px; border-radius: 3px; margin-right: .4rem; vertical-align: -1px; }
+.gg-br-list[hidden] { display: none; }
+.gg-br-unit { margin: 0 0 .5rem; font-size: .74rem; color: #9fb0cf; }
+.gg-br-unit .zh { margin-left: .4rem; }

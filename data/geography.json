@@ -4427,7 +4427,7 @@
        "zh": "世界有幾大洲、幾大洋？",
        "note_en": "Ways of dividing the world into continents and oceans, and why there is more than one count.",
        "note_zh": "怎麼把世界分成大洲和大洋，以及為什麼不只一種算法。",
-       "soon": true
+       "href": "/resources/classes/geography/continents-and-oceans/"
       }
      ],
      "sources_note_en": "Names, dates, numbers, and quotations on this page were checked against these sources (October 2026). Clock times, day and night, and the answers to the game are computed by the page itself and tested automatically",
@@ -4524,15 +4524,948 @@
        "url": "https://www.naer.edu.tw/PageSyllabus?fid=52"
       }
      ]
+    },
+    {
+     "n": 6,
+     "slug": "continents-and-oceans",
+     "title": "How Many Continents and Oceans Are There?",
+     "title_zh": "世界有幾大洲、幾大洋？",
+     "level": "入門 · Beginner",
+     "icon": "🌏",
+     "card": "continents",
+     "blurb_en": "Color the land of a 3D Earth by continent and the sea by ocean, then switch between different ways of counting them. See why the answer can be seven, six, or five continents, and four or five oceans.",
+     "blurb_zh": "在 3D 地球上，把陸地依大洲上色、海洋依大洋上色，再切換不同的算法。看看為什麼答案可以是七、六或五大洲，四或五大洋。",
+     "big_idea_en": "Where the land and the water are is a fact of geography. How we divide them into continents and oceans, and what we call each part, is something people agree on. That is why there is more than one way to count.",
+     "big_idea_zh": "陸地和海水在哪裡，是地理的事實；怎麼把它們分成大洲、大洋，每一塊叫什麼名字，是人約定的。所以算法不只一種。",
+     "lab": {
+      "kind": "continents",
+      "eyebrow": "3D Model · 3D 模型",
+      "title_en": "One World, Many Ways to Count",
+      "title_zh": "同一個世界，不同的算法",
+      "how_en": "The land is colored by continent. Choose a way to count the continents and watch the colors regroup. Turn on the oceans to color the sea, with four or five oceans. Tap any land or sea to see which group it belongs to. Only colors are used; no borders are drawn, and the lines between continents follow common conventions, not lines on the ground.",
+      "how_zh": "陸地依大洲上色。選一種大洲的算法，看顏色怎麼重新分組。打開大洋，海也會上色，可以選四大洋或五大洋。點任何一塊陸地或海，看它屬於哪一組。這裡只用顏色，不畫國界；大洲之間的分界照常見的約定，不是地上真的有一條線。",
+      "legend": [
+       {
+        "cls": "cont",
+        "en": "Land, colored by continent",
+        "zh": "陸地，依大洲上色"
+       },
+       {
+        "cls": "ocean",
+        "en": "Sea, colored by ocean",
+        "zh": "海洋，依大洋上色"
+       },
+       {
+        "cls": "city",
+        "en": "The place you tapped",
+        "zh": "你點的位置"
+       }
+      ],
+      "scale_en": "The lines between continents and oceans are drawn by rules of thumb that follow common conventions (for example, the Ural Mountains, the Suez Isthmus, the Panama Isthmus, and 60 degrees south for the Southern Ocean). Other sources draw some of them a little differently.",
+      "scale_zh": "大洲、大洋之間的分界是照常見約定的簡化規則畫的（例如烏拉山、蘇伊士地峽、巴拿馬地峽、南大洋以南緯 60 度為界）。其他資料有些地方畫得不太一樣。",
+      "credit_html": "Land outlines: Natural Earth, 1:50m Land, version 5.1.2, public domain. The grouping into continents and oceans is our own, by longitude and latitude, following common conventions. Areas shown when you tap come from the sources listed at the bottom of the page. · 陸地外形：Natural Earth 1:50m Land 5.1.2 版，公有領域。大洲、大洋的分組是本教材依經緯度、照常見約定自己分的；點選時顯示的面積出自頁尾的資料來源。"
+     },
+     "parts_head": {
+      "eyebrow": "Try It in the Model · 在模型裡試試",
+      "en": "Four ways to look at the world",
+      "zh": "四種看世界的方式"
+     },
+     "parts": [
+      {
+       "key": "seven",
+       "icon": "7️⃣",
+       "en": "Seven continents",
+       "zh": "七大洲",
+       "meta_en": "Seven colors",
+       "meta_zh": "七種顏色",
+       "demo": "seven",
+       "text_en": "Seven colors for seven continents. Notice that Europe and Asia touch along a long stretch of land, and Africa almost touches Asia.",
+       "text_zh": "七種顏色代表七大洲。注意歐洲和亞洲有一長段陸地是連在一起的，非洲也幾乎和亞洲相連。"
+      },
+      {
+       "key": "eurasia",
+       "icon": "🔗",
+       "en": "Europe and Asia as one",
+       "zh": "歐亞合一",
+       "meta_en": "Six",
+       "meta_zh": "六個",
+       "demo": "eurasia",
+       "text_en": "Join Europe and Asia into Eurasia and the count drops to six. The land did not move; only the way we group it changed.",
+       "text_zh": "把歐洲和亞洲合成歐亞大陸，就剩六個。陸地沒有移動，改變的只是分組的方式。"
+      },
+      {
+       "key": "five",
+       "icon": "5️⃣",
+       "en": "Join both, and get five",
+       "zh": "兩個都合，剩五個",
+       "meta_en": "Five",
+       "meta_zh": "五個",
+       "demo": "five",
+       "text_en": "Join Europe and Asia, and also North and South America. Eurasia, America, Africa, Antarctica, and Australia make five.",
+       "text_zh": "歐亞合一，南北美也合一：歐亞大陸、美洲、非洲、南極洲、澳洲，一共五個。"
+      },
+      {
+       "key": "oceans",
+       "icon": "🌊",
+       "en": "The fifth ocean",
+       "zh": "第五個大洋",
+       "meta_en": "South of 60°S",
+       "meta_zh": "南緯 60 度以南",
+       "demo": "oceans",
+       "text_en": "Color the oceans and switch between four and five. With five, the water around Antarctica becomes the Southern Ocean.",
+       "text_zh": "把大洋上色，在四大洋和五大洋之間切換。選五大洋時，南極洲周圍的海就成了南大洋。"
+      }
+     ],
+     "parts_note_en": "Then try it yourself. Tap the land near the Red Sea, near Panama, and near the Ural Mountains. Which places change group when you change the way of counting?",
+     "parts_note_zh": "然後自己動手試試。點紅海附近、巴拿馬附近、烏拉山附近的陸地。換一種算法時，哪些地方會換組？",
+     "bars": {
+      "eyebrow": "Compare · 比一比",
+      "en": "Which Is the Biggest?",
+      "zh": "誰最大？",
+      "lead_en": "The bars show the areas of the continents and the oceans. Tap one to see how many Taiwans would fit inside it.",
+      "lead_zh": "長條是各大洲、各大洋的面積。點一條，看裡面大約放得下幾個台灣。",
+      "continents": [
+       {
+        "key": "asia",
+        "en": "Asia",
+        "zh": "亞洲",
+        "color": "#e8a33d",
+        "km2": 44614000
+       },
+       {
+        "key": "africa",
+        "en": "Africa",
+        "zh": "非洲",
+        "color": "#d9734e",
+        "km2": 30365000
+       },
+       {
+        "key": "namerica",
+        "en": "North America",
+        "zh": "北美洲",
+        "color": "#4fa36a",
+        "km2": 24230000
+       },
+       {
+        "key": "samerica",
+        "en": "South America",
+        "zh": "南美洲",
+        "color": "#9bc74a",
+        "km2": 17814000
+       },
+       {
+        "key": "antarctica",
+        "en": "Antarctica",
+        "zh": "南極洲",
+        "color": "#e9eef4",
+        "km2": 14200000
+       },
+       {
+        "key": "europe",
+        "en": "Europe",
+        "zh": "歐洲",
+        "color": "#7a6fd6",
+        "km2": 10000000
+       },
+       {
+        "key": "oceania",
+        "en": "Australia and Oceania",
+        "zh": "大洋洲",
+        "color": "#d65f9a",
+        "km2": 8510926
+       }
+      ],
+      "oceans": [
+       {
+        "key": "pacific",
+        "en": "Pacific Ocean",
+        "zh": "太平洋",
+        "color": "#1f5fa8",
+        "km2": 161760000
+       },
+       {
+        "key": "atlantic",
+        "en": "Atlantic Ocean",
+        "zh": "大西洋",
+        "color": "#3b8fd6",
+        "km2": 81760000
+       },
+       {
+        "key": "indian",
+        "en": "Indian Ocean",
+        "zh": "印度洋",
+        "color": "#138a86",
+        "km2": 70560000
+       },
+       {
+        "key": "southern",
+        "en": "Southern Ocean",
+        "zh": "南大洋",
+        "color": "#6b6fc0",
+        "km2": 21960000
+       },
+       {
+        "key": "arctic",
+        "en": "Arctic Ocean",
+        "zh": "北冰洋",
+        "color": "#8cc3e6",
+        "km2": 14090000
+       }
+      ],
+      "taiwan_km2": 35887,
+      "hint_en": "Tap a bar.",
+      "hint_zh": "點一條長條。",
+      "note_en": "Areas: Encyclopaedia Britannica (continents read October 2026); Australia and Oceania from the Wikipedia “Continent” table, which adds up Britannica's figures. Britannica measures some oceans without their smaller nearby seas (the Pacific without the South China Sea, the Atlantic and the Indian Ocean without their marginal seas), so other sources give larger numbers. Taiwan: 35,887 square kilometers for the main island and 21 smaller islands (Executive Yuan).",
+      "note_zh": "面積：大英百科全書（2026 年 10 月查閱）；澳洲與大洋洲取自維基百科「Continent」條目的表格（加總大英百科的數字）。大英百科有些大洋不含旁邊較小的海（太平洋不含南海，大西洋、印度洋不含邊緣海），所以其他資料的數字會比較大。台灣：本島及 21 個附屬島嶼共 35,887 平方公里（行政院）。"
+     },
+     "count": {
+      "eyebrow": "Game · 小遊戲",
+      "en": "How Many? It Depends",
+      "zh": "有幾個？要看怎麼算",
+      "lead_en": "Eight questions. Each one first tells you the way of counting, then asks how many there are or where a place belongs. Every way of counting is used somewhere in the world, so the question is always “by this count.” There is no timer, and the game counts the questions you get right on the first try.",
+      "lead_zh": "八道題。每一題先告訴你用哪一種算法，再問有幾個，或某個地方屬於哪一組。每一種算法世界上都有人用，所以問的永遠是「照這種算法」。不計時，遊戲會記下你第一次就答對的題數。",
+      "hint_en": "Read the rule again. Which groups does it join together, and which does it leave out?",
+      "hint_zh": "再讀一次規則：它把哪些合在一起？又把哪些拿掉？",
+      "start_en": "Use only the rule shown above. There is no single “real” answer.",
+      "start_zh": "只照上面的規則來想，沒有唯一「真正」的答案。",
+      "end_en": "Next time someone asks how many continents there are, you can ask back: “How are you counting?”",
+      "end_zh": "下次有人問世界有幾大洲，你可以反問：「你怎麼算？」",
+      "questions": [
+       {
+        "check": "count",
+        "scheme": "eurasia",
+        "answer": "6",
+        "options": [
+         "5",
+         "6",
+         "7"
+        ],
+        "rule_en": "Rule: Europe and Asia are one continent, Eurasia. Every other continent stays on its own.",
+        "rule_zh": "規則：歐洲和亞洲算同一洲（歐亞大陸），其他各洲照舊分開。",
+        "en": "By this rule, how many continents are there?",
+        "zh": "照這個規則，有幾大洲？",
+        "why_en": "Seven continents minus one, because two of them became one: six.",
+        "why_zh": "七大洲裡有兩個合成一個，所以是六個。"
+       },
+       {
+        "check": "count",
+        "scheme": "five",
+        "answer": "5",
+        "options": [
+         "4",
+         "5",
+         "6"
+        ],
+        "rule_en": "Rule: Europe and Asia are one continent, and North and South America are one continent too.",
+        "rule_zh": "規則：歐洲和亞洲算一洲，南北美洲也算一洲。",
+        "en": "By this rule, how many continents are there?",
+        "zh": "照這個規則，有幾大洲？",
+        "why_en": "Two pairs become two continents, so seven drops to five: Eurasia, America, Africa, Antarctica, and Australia.",
+        "why_zh": "兩對各合成一個，七個就變成五個：歐亞大陸、美洲、非洲、南極洲、澳洲。"
+       },
+       {
+        "check": "where",
+        "scheme": "eurasia",
+        "pt": [
+         -18.5,
+         65
+        ],
+        "answer": "eurasia",
+        "options": [
+         "eurasia",
+         "namerica",
+         "europe"
+        ],
+        "rule_en": "Rule: Europe and Asia are one continent, Eurasia.",
+        "rule_zh": "規則：歐洲和亞洲算同一洲（歐亞大陸）。",
+        "en": "The island marked on the map is Iceland. By this rule, which continent is it part of?",
+        "zh": "地圖上標的島是冰島。照這個規則，它屬於哪一洲？",
+        "why_en": "In the usual seven-continent count, Iceland is part of Europe, and by this rule Europe is part of Eurasia.",
+        "why_zh": "在常見的七大洲算法裡，冰島算在歐洲，而照這個規則，歐洲是歐亞大陸的一部分。"
+       },
+       {
+        "check": "where",
+        "scheme": "america",
+        "pt": [
+         -40,
+         72
+        ],
+        "answer": "america",
+        "options": [
+         "america",
+         "europe",
+         "namerica"
+        ],
+        "rule_en": "Rule: North and South America are one continent, America. Europe and Asia stay separate.",
+        "rule_zh": "規則：南北美洲算同一洲（美洲），歐洲和亞洲照舊分開。",
+        "en": "The big island marked on the map is Greenland. By this rule, which continent is it part of?",
+        "zh": "地圖上標的大島是格陵蘭。照這個規則，它屬於哪一洲？",
+        "why_en": "In the usual seven-continent count, Greenland is part of North America, and by this rule North America is part of America.",
+        "why_zh": "在常見的七大洲算法裡，格陵蘭算在北美洲，而照這個規則，北美洲是美洲的一部分。"
+       },
+       {
+        "check": "where",
+        "scheme": "seven",
+        "pt": [
+         46.7,
+         -19.5
+        ],
+        "answer": "africa",
+        "options": [
+         "africa",
+         "asia",
+         "oceania"
+        ],
+        "rule_en": "Rule: the usual seven continents.",
+        "rule_zh": "規則：常見的七大洲。",
+        "en": "The island marked on the map is Madagascar. Which continent is it counted with?",
+        "zh": "地圖上標的島是馬達加斯加。它算在哪一洲？",
+        "why_en": "Islands are usually counted with the nearest continent. Madagascar lies just off the coast of Africa.",
+        "why_zh": "島嶼通常算在離它最近的大洲。馬達加斯加就在非洲的外海。"
+       },
+       {
+        "check": "where",
+        "scheme": "seven",
+        "pt": [
+         -80,
+         8.5
+        ],
+        "answer": "namerica",
+        "options": [
+         "namerica",
+         "samerica"
+        ],
+        "rule_en": "Rule: the usual seven continents, with North and South America meeting at the Isthmus of Panama.",
+        "rule_zh": "規則：常見的七大洲，南北美洲在巴拿馬地峽相接。",
+        "en": "The point on the map is on the narrow land just west of where North and South America meet. Which continent is it in?",
+        "zh": "地圖上的點在南北美洲交界處稍微偏西的狹長陸地上。它在哪一洲？",
+        "why_en": "The usual line is drawn near the border between Panama and Colombia, so the narrow land of Panama is counted with North America.",
+        "why_zh": "常見的分界畫在巴拿馬和哥倫比亞交界附近，所以巴拿馬那段狹長的陸地算在北美洲。"
+       },
+       {
+        "check": "ocean",
+        "five": true,
+        "pt": [
+         150,
+         -65
+        ],
+        "answer": "southern",
+        "options": [
+         "pacific",
+         "southern",
+         "indian"
+        ],
+        "rule_en": "Rule: five oceans. The Southern Ocean is the water around Antarctica, south of 60 degrees south.",
+        "rule_zh": "規則：五大洋。南大洋是南極洲周圍、南緯 60 度以南的海。",
+        "en": "Which ocean is the point marked on the map in?",
+        "zh": "地圖上標的點在哪一個大洋？",
+        "why_en": "The point is at 65 degrees south, south of 60 degrees south, so by this rule it is in the Southern Ocean.",
+        "why_zh": "這個點在南緯 65 度，在南緯 60 度以南，所以照這個規則屬於南大洋。"
+       },
+       {
+        "check": "ocean",
+        "five": false,
+        "pt": [
+         150,
+         -65
+        ],
+        "answer": "pacific",
+        "options": [
+         "pacific",
+         "southern",
+         "indian"
+        ],
+        "rule_en": "Rule: four oceans, with no Southern Ocean. The water around Antarctica belongs to the ocean to its north.",
+        "rule_zh": "規則：四大洋，沒有南大洋。南極洲周圍的海算在它北邊的那個大洋。",
+        "en": "It is the same point as before. Which ocean is it in now?",
+        "zh": "還是同一個點。現在它在哪一個大洋？",
+        "why_en": "Without a Southern Ocean, the water south of New Zealand and Australia's east coast counts as part of the Pacific Ocean.",
+        "why_zh": "沒有南大洋時，紐西蘭與澳洲東岸以南的海就算在太平洋。"
+       }
+      ]
+     },
+     "map_english": {
+      "eyebrow": "Map English · 地圖英語",
+      "en": "Eight sentences for talking about continents and oceans",
+      "zh": "談大洲與大洋的八句英文",
+      "lead_en": "This lesson's Map English card is about the big pieces of the world. Listen, repeat, then use them to describe where a place is.",
+      "lead_zh": "這一課的「地圖英語」練習說世界的大塊陸地與大片海洋。先聽、再跟著唸，然後用這些句子描述一個地方在哪裡。",
+      "items": [
+       {
+        "en": "<b>Asia is the largest continent</b> on Earth.",
+        "zh": "亞洲是地球上最大的洲。",
+        "use_en": "… is the largest …",
+        "use_zh": "……是最大的……"
+       },
+       {
+        "en": "<b>The Pacific is the largest ocean</b>, and the deepest too.",
+        "zh": "太平洋是最大的大洋，也是最深的。",
+        "use_en": "The … is the largest …",
+        "use_zh": "……是最大的……"
+       },
+       {
+        "en": "Taiwan <b>is in</b> Asia, <b>on the edge of</b> the Pacific Ocean.",
+        "zh": "台灣在亞洲，位在太平洋的邊緣。",
+        "use_en": "is in …, on the edge of …",
+        "use_zh": "在……，位在……的邊緣"
+       },
+       {
+        "en": "The Southern Ocean <b>surrounds</b> Antarctica.",
+        "zh": "南大洋環繞著南極洲。",
+        "use_en": "… surrounds …",
+        "use_zh": "……環繞著……"
+       },
+       {
+        "en": "Europe and Asia <b>are part of the same landmass</b>.",
+        "zh": "歐洲和亞洲是同一塊大陸的一部分。",
+        "use_en": "are part of the same …",
+        "use_zh": "是同一個……的一部分"
+       },
+       {
+        "en": "<b>Some people count</b> seven continents, <b>and others count</b> six.",
+        "zh": "有些人算七大洲，也有人算六大洲。",
+        "use_en": "Some people …, and others …",
+        "use_zh": "有些人……，也有人……"
+       },
+       {
+        "en": "The Isthmus of Panama <b>connects</b> North America <b>and</b> South America.",
+        "zh": "巴拿馬地峽連接北美洲和南美洲。",
+        "use_en": "… connects … and …",
+        "use_zh": "……連接……和……"
+       },
+       {
+        "en": "<b>Which ocean lies between</b> Africa <b>and</b> Australia?",
+        "zh": "非洲和澳洲之間是哪一個大洋？",
+        "use_en": "Which … lies between … and …?",
+        "use_zh": "……和……之間是哪一個……？"
+       }
+      ]
+     },
+     "tricks_head": {
+      "en": "Continents and oceans in a sentence",
+      "zh": "一句話記住大洲與大洋"
+     },
+     "tricks": [
+      {
+       "title_en": "Ask how they count",
+       "title_zh": "先問怎麼算",
+       "body_en": "Seven, six, and five are all in use. Ask which way someone is counting.",
+       "body_zh": "七、六、五都有人用；先問對方用哪一種算法。"
+      },
+      {
+       "title_en": "Joined at the narrow places",
+       "title_zh": "窄的地方連著",
+       "body_en": "Africa meets Asia at Suez, and North America meets South America at Panama.",
+       "body_zh": "非洲和亞洲在蘇伊士相連，北美和南美在巴拿馬相連。"
+      },
+      {
+       "title_en": "One ocean, many names",
+       "title_zh": "一個海洋，好幾個名字",
+       "body_en": "All the oceans are connected; their names divide one world ocean.",
+       "body_zh": "各大洋其實是連在一起的；名字只是把一個世界海洋分開來叫。"
+      },
+      {
+       "title_en": "South of 60, Southern",
+       "title_zh": "南緯 60 以南是南大洋",
+       "body_en": "When five oceans are counted, the Southern Ocean is the water around Antarctica.",
+       "body_zh": "算五大洋的時候，南極洲周圍的海就是南大洋。"
+      }
+     ],
+     "safety_head": {
+      "eyebrow": "Before the Activities · 做活動之前",
+      "en": "Working safely",
+      "zh": "安全提醒"
+     },
+     "safety": [
+      {
+       "en": "Use scissors carefully. Cut away from your body, and pass them to others with the handles first.",
+       "zh": "小心使用剪刀，往身體外側剪；遞給別人時握把朝向對方。"
+      },
+      {
+       "en": "Toss the inflatable globe gently and underhand, only to a partner who is ready, and keep the area clear.",
+       "zh": "充氣地球儀要輕輕地由下往上拋，只拋給準備好的同伴，周圍保持淨空。"
+      },
+      {
+       "en": "Do not throw the globe near windows, lights, or people who are not playing.",
+       "zh": "不要在窗戶、燈具或沒有參加的人附近丟球。"
+      },
+      {
+       "en": "Blow up the globe with a pump if you have one. If you feel dizzy while blowing, stop and rest.",
+       "zh": "有打氣筒就用打氣筒充氣；自己吹氣時覺得頭暈，就停下來休息。"
+      }
+     ],
+     "activities": [
+      {
+       "title_en": "Sort the Puzzle Pieces",
+       "title_zh": "把拼圖分一分",
+       "materials": [
+        {
+         "en": "A printed world map with no borders, such as one made from the 3D model's flat view or a blank outline map",
+         "zh": "一張沒有國界的世界地圖，例如空白輪廓圖"
+        },
+        {
+         "en": "Scissors and glue",
+         "zh": "剪刀和膠水"
+        },
+        {
+         "en": "Three large sheets of paper",
+         "zh": "三張大紙"
+        }
+       ],
+       "steps": [
+        {
+         "en": "Cut out the big pieces of land. Where land is connected, keep it in one piece.",
+         "zh": "把大塊的陸地剪下來。陸地連在一起的地方，就保持一整塊。"
+        },
+        {
+         "en": "Count your pieces. Is the number seven? Which continents stayed joined together?",
+         "zh": "數一數有幾塊。是七塊嗎？哪些大洲還連在一起？"
+        },
+        {
+         "en": "On the first sheet, group the pieces into seven continents. You will need to cut where people usually draw the lines.",
+         "zh": "在第一張紙上分成七大洲。你需要在大家通常畫線的地方剪開。"
+        },
+        {
+         "en": "On the second sheet, group them into six. On the third, group them into five.",
+         "zh": "在第二張紙上分成六大洲；第三張分成五大洲。"
+        },
+        {
+         "en": "Compare the three sheets. Write one sentence about what changed and what stayed the same.",
+         "zh": "比較三張紙，寫一句話：什麼改變了？什麼沒有變？"
+        }
+       ],
+       "tip_en": "The land is the same on all three sheets. Only the grouping changes. That is the big idea of this lesson.",
+       "tip_zh": "三張紙上的陸地都一樣，改變的只有分組。這就是這一課的核心概念。"
+      },
+      {
+       "title_en": "Catch the Globe: How Much Is Water?",
+       "title_zh": "接住地球儀：水佔多少？",
+       "materials": [
+        {
+         "en": "An inflatable globe or a beach ball with a world map",
+         "zh": "一顆充氣地球儀，或印有世界地圖的海灘球"
+        },
+        {
+         "en": "A tally sheet with two columns: land and water",
+         "zh": "一張記錄表，分成「陸地」和「水」兩欄"
+        }
+       ],
+       "steps": [
+        {
+         "en": "Stand in a circle. Toss the globe gently to a classmate.",
+         "zh": "圍成一圈，把地球儀輕輕拋給一位同學。"
+        },
+        {
+         "en": "The catcher looks at where their right thumb landed: land or water? Make a tally mark.",
+         "zh": "接住的人看右手大拇指落在哪裡：陸地還是水？在記錄表上畫一筆。"
+        },
+        {
+         "en": "Keep going until you have at least 50 catches.",
+         "zh": "一直玩到至少接了 50 次。"
+        },
+        {
+         "en": "Divide the number of water catches by the total. What fraction of your catches landed on water?",
+         "zh": "用落在水上的次數除以總次數。你們有幾成落在水上？"
+        },
+        {
+         "en": "Compare your answer with the number on this page. The more catches you make, the closer you usually get.",
+         "zh": "把你們的答案和本頁的數字比一比。接得越多次，通常就越接近。"
+        }
+       ],
+       "tip_en": "This is called sampling: many random tries give a good estimate of the whole.",
+       "tip_zh": "這叫做「抽樣」：隨機試很多次，就能大致估計整體。"
+      }
+     ],
+     "links_head": {
+      "eyebrow": "Go Further · 延伸閱讀",
+      "en": "Continents and oceans in other lessons, and what comes next",
+      "zh": "其他課裡的大洲與大洋，以及下一課"
+     },
+     "links": [
+      {
+       "icon": "🗺️",
+       "k_en": "Geography · Lesson 1",
+       "k_zh": "地理・第一課",
+       "en": "Why Is Every Flat Map Wrong?",
+       "zh": "為什麼每一張平面地圖都是錯的？",
+       "note_en": "Why Greenland looks as big as Africa on some maps, and how to compare sizes fairly.",
+       "note_zh": "為什麼有些地圖上格陵蘭看起來和非洲一樣大，以及怎麼公平地比大小。",
+       "href": "/resources/classes/geography/flat-maps/"
+      },
+      {
+       "icon": "🌡️",
+       "k_en": "Geography · Lesson 7",
+       "k_zh": "地理・第七課",
+       "en": "Why Is It Hot at the Equator and Cold at the Poles?",
+       "zh": "為什麼赤道熱、兩極冷？",
+       "note_en": "How sunlight falls on the round Earth, and why the climate changes from the equator to the poles.",
+       "note_zh": "陽光怎麼照在圓圓的地球上，以及氣候為什麼從赤道到兩極一路改變。",
+       "soon": true
+      },
+      {
+       "icon": "📐",
+       "k_en": "Geography · Lesson 21",
+       "k_zh": "地理・第二十一課",
+       "en": "How Big Is Africa Really?",
+       "zh": "非洲到底有多大？",
+       "note_en": "Drag other large places into Africa and compare their sizes.",
+       "note_zh": "把其他大地方拖進非洲裡，比比看大小。",
+       "soon": true
+      },
+      {
+       "icon": "🗻",
+       "k_en": "Geography · Lessons 24–29",
+       "k_zh": "地理・第二十四到二十九課",
+       "en": "What Is Each Continent Like?",
+       "zh": "各大洲是什麼樣子？",
+       "note_en": "Unit 6 visits Asia, Europe, Africa, North America, South America, and Oceania one by one.",
+       "note_zh": "單元六一洲一洲去看亞洲、歐洲、非洲、北美洲、南美洲與大洋洲。",
+       "soon": true
+      }
+     ],
+     "sources_note_en": "Names, dates, numbers, and quotations on this page were checked against these sources (October 2026). The grouping of land and sea, the land-or-water check, and the answers to the game are computed by the page itself and tested automatically",
+     "sources_note_zh": "本頁的人名、年代、數字與引文依下列資料查證（2026 年 10 月）；陸地與海的分組、點選時的判斷和小遊戲的答案都由頁面自己計算，並有自動測試",
+     "paras": [
+      "Ask a class how many continents there are, and you may hear more than one answer. Many students say seven. Some say six, and a few say five. Here is the surprise: each of these answers is taught somewhere in the world. Which one is right depends on how you count.",
+      "A continent is one of the main divisions of land on Earth. But look at a globe, and you will see that the land does not come in neat, separate pieces. Europe and Asia sit on one huge piece of land. Africa is joined to Asia by the narrow Isthmus of Suez, and South America is joined to North America by the narrow Isthmus of Panama. The lines between continents were drawn by people, not by nature. National Geographic calls the line between Europe and Asia an imaginary one.",
+      "So there is more than one way to count. By convention, many people count seven continents: Asia, Africa, North America, South America, Antarctica, Europe, and Australia. Some geographers join Europe and Asia into Eurasia, which gives six. In some countries, students learn that North and South America are one continent, America, which also gives six. Join both pairs, and you get five: Eurasia, America, Africa, Antarctica, and Australia.",
+      "The oceans are counted in different ways too. The U.S. National Ocean Service puts it simply: “There is only one global ocean.” All the water is connected, and the names divide it into parts. For a long time, people named four oceans: the Pacific, the Atlantic, the Indian, and the Arctic. Today most countries also count a fifth, the Southern Ocean, which surrounds Antarctica from its coast to 60 degrees south. National Geographic began counting it in 2021, and in 2023 the International Hydrographic Organization approved a resolution recognizing it.",
+      "Whichever way you count, some facts stay the same. About 71 percent of Earth's surface is covered by ocean. Asia is the largest continent, with about 44.6 million square kilometers. The Pacific is the largest ocean: even without the South China Sea, it covers about 161.8 million square kilometers, more than all the land on Earth put together.",
+      "And Taiwan? In the seven-continent count, Taiwan is in Asia. Taiwan's Executive Yuan describes the island as lying in the middle of the East Asian island arc, with the Pacific Ocean to its east. Its main island and 21 smaller islands cover about 35,887 square kilometers, so Asia could hold more than 1,200 Taiwans. The next time someone asks how many continents there are, you can answer with a question: “How are you counting?”"
+     ],
+     "paras_zh": [
+      "問全班世界有幾大洲，你可能會聽到不只一個答案。很多同學說七個，有人說六個，還有人說五個。令人驚訝的是：這些答案世界上都有地方在教。哪一個對，要看你怎麼算。",
+      "大洲是地球上陸地的主要分區。可是看看地球儀，你會發現陸地並不是一塊一塊整齊分開的。歐洲和亞洲在同一大塊陸地上。非洲靠著狹窄的蘇伊士地峽和亞洲相連，南美洲靠著狹窄的巴拿馬地峽和北美洲相連。大洲之間的界線是人畫的，不是大自然畫的。國家地理學會就說，歐洲和亞洲之間的那條線是想像出來的。",
+      "所以算法不只一種。照慣例，很多人算七大洲：亞洲、非洲、北美洲、南美洲、南極洲、歐洲、澳洲。有些地理學家把歐洲和亞洲合成歐亞大陸，就是六個。有些國家的學生學到南北美洲是同一洲（美洲），也是六個。兩對都合起來，就是五個：歐亞大陸、美洲、非洲、南極洲、澳洲。",
+      "大洋也有不同的算法。美國國家海洋局說得很簡單：「全世界只有一個海洋。」所有的海水都是相連的，名字只是把它分成幾個部分。很長一段時間，人們只命名了四個大洋：太平洋、大西洋、印度洋和北冰洋（也叫北極海）。現在大多數國家還算第五個：南大洋，也就是從南極洲海岸到南緯 60 度、環繞南極洲的海。國家地理學會從 2021 年開始算它，2023 年國際水文組織也通過了承認它的決議。",
+      "不管怎麼算，有些事實不會變。地球表面大約 71% 被海洋覆蓋。亞洲是最大的洲，大約 4,460 萬平方公里。太平洋是最大的大洋：就算不算南海，也有大約 1 億 6,180 萬平方公里，比地球上所有的陸地加起來還大。",
+      "那台灣呢？在七大洲的算法裡，台灣在亞洲。行政院的介紹說，台灣位在東亞島弧的中央，東邊面臨太平洋。台灣本島和 21 個附屬島嶼合起來大約 35,887 平方公里，所以亞洲放得下一千二百多個台灣。下次有人問世界有幾大洲，你可以用一個問題回答：「你怎麼算？」"
+     ],
+     "questions": [
+      "Why can people give different answers to “How many continents are there?” and all be right?",
+      "Which two narrow pieces of land join continents together, and which continents do they join?",
+      "Why do people say there is really only one global ocean?"
+     ],
+     "answers": [
+      "Because the lines between continents are drawn by people. Some counts join Europe and Asia, or North and South America, so the number can be seven, six, or five.",
+      "The Isthmus of Suez joins Africa and Asia, and the Isthmus of Panama joins North America and South America.",
+      "All the oceans are connected, so the water flows from one to another. The names divide one ocean into parts."
+     ],
+     "vocab": [
+      {
+       "n": 1,
+       "w": "continent",
+       "pos": "n.",
+       "zh": "大洲；大陸",
+       "ex": "Asia is the largest <b>continent</b>.",
+       "exzh": "亞洲是最大的洲。"
+      },
+      {
+       "n": 2,
+       "w": "ocean",
+       "pos": "n.",
+       "zh": "大洋；海洋",
+       "ex": "The Pacific is the largest <b>ocean</b>.",
+       "exzh": "太平洋是最大的大洋。"
+      },
+      {
+       "n": 3,
+       "w": "landmass",
+       "pos": "n.",
+       "zh": "大片陸地；陸塊",
+       "ex": "Europe and Asia share one <b>landmass</b>.",
+       "exzh": "歐洲和亞洲在同一塊大陸上。"
+      },
+      {
+       "n": 4,
+       "w": "isthmus",
+       "pos": "n.",
+       "zh": "地峽",
+       "ex": "The <b>Isthmus</b> of Panama joins two continents.",
+       "exzh": "巴拿馬地峽連接兩個大洲。"
+      },
+      {
+       "n": 5,
+       "w": "surround",
+       "pos": "v.",
+       "zh": "環繞；包圍",
+       "ex": "The Southern Ocean <b>surrounds</b> Antarctica.",
+       "exzh": "南大洋環繞著南極洲。"
+      },
+      {
+       "n": 6,
+       "w": "convention",
+       "pos": "n.",
+       "zh": "慣例；約定",
+       "ex": "By <b>convention</b>, many people count seven continents.",
+       "exzh": "照慣例，很多人算七大洲。"
+      },
+      {
+       "n": 7,
+       "w": "divide",
+       "pos": "v.",
+       "zh": "劃分；分開",
+       "ex": "People <b>divide</b> the world ocean into parts.",
+       "exzh": "人們把世界海洋劃分成幾個部分。"
+      },
+      {
+       "n": 8,
+       "w": "recognize",
+       "pos": "v.",
+       "zh": "承認；認可",
+       "ex": "Most countries now <b>recognize</b> the Southern Ocean.",
+       "exzh": "現在大多數國家都承認南大洋。"
+      }
+     ],
+     "quiz": [
+      {
+       "q": "Which continent is the largest?",
+       "options": [
+        "Africa",
+        "Asia",
+        "North America",
+        "Antarctica"
+       ],
+       "correct": 1
+      },
+      {
+       "q": "Which ocean is the largest?",
+       "options": [
+        "The Atlantic",
+        "The Indian Ocean",
+        "The Pacific",
+        "The Arctic"
+       ],
+       "correct": 2
+      },
+      {
+       "q": "Why do people count different numbers of continents?",
+       "options": [
+        "The continents keep moving apart every year",
+        "The lines between continents are drawn by people",
+        "Some continents are under water",
+        "Maps are printed in different sizes"
+       ],
+       "correct": 1
+      },
+      {
+       "q": "Which ocean surrounds Antarctica?",
+       "options": [
+        "The Southern Ocean",
+        "The Arctic Ocean",
+        "The Indian Ocean",
+        "The Atlantic"
+       ],
+       "correct": 0
+      },
+      {
+       "q": "About how much of Earth's surface is covered by ocean?",
+       "options": [
+        "About 30 percent",
+        "About 50 percent",
+        "About 71 percent",
+        "About 90 percent"
+       ],
+       "correct": 2
+      }
+     ],
+     "myths": [
+      {
+       "myth_en": "Everyone in the world agrees there are seven continents.",
+       "myth_zh": "全世界都同意有七大洲。",
+       "fact_en": "Seven is common, but six and five are also taught. The number depends on which pieces of land are grouped together.",
+       "fact_zh": "七大洲很常見，但也有人教六大洲、五大洲；數目要看哪些陸地被合在一起。"
+      },
+      {
+       "myth_en": "Europe and Asia are separated by the sea.",
+       "myth_zh": "歐洲和亞洲之間隔著海。",
+       "fact_en": "They are one landmass. The usual line runs along the Ural Mountains and the Caspian and Black Seas, and it was drawn by people.",
+       "fact_zh": "它們是同一塊大陸。常見的分界沿著烏拉山、裏海和黑海，是人畫出來的。"
+      },
+      {
+       "myth_en": "Each ocean is a separate body of water.",
+       "myth_zh": "每一個大洋都是分開的一片水。",
+       "fact_en": "All the oceans are connected. There is one global ocean, and the names divide it into parts.",
+       "fact_zh": "所有的大洋都是相連的。全世界只有一個海洋，名字只是把它分成幾個部分。"
+      },
+      {
+       "myth_en": "The Southern Ocean is brand-new water.",
+       "myth_zh": "南大洋是新出現的海。",
+       "fact_en": "The water was always there. What changed is the naming: the IHO used the name in 1937, dropped it in 1953, and approved a resolution recognizing it in 2023.",
+       "fact_zh": "那片海一直都在，改變的是命名：國際水文組織 1937 年用過這個名字，1953 年拿掉，2023 年又通過決議承認它。"
+      }
+     ],
+     "culture_cards": {
+      "eyebrow": "Stories Behind the Names · 名字背後的故事",
+      "title_en": "Who decides how to count?",
+      "title_zh": "誰決定怎麼算？",
+      "lead_en": "There is no single office that decides how many continents there are. Here are four moments when people counted the world in different ways.",
+      "lead_zh": "世界上沒有一個機關決定有幾大洲。下面是四個人們用不同方式數世界的時刻。",
+      "cards": [
+       {
+        "k": "Olympic Charter · 奧林匹克憲章",
+        "en": "Five rings, five continents",
+        "zh": "五個環，五個洲",
+        "body_en": "The Olympic Charter says the five interlocking rings represent “the union of the five continents and the meeting of athletes from throughout the world.” The charter does not say which five continents it means.",
+        "body_zh": "《奧林匹克憲章》說，五個相扣的環代表「五大洲的團結，以及全世界運動員的相聚」。憲章並沒有說是哪五個洲。"
+       },
+       {
+        "k": "2021 · National Geographic · 國家地理學會",
+        "en": "A fifth ocean on the map",
+        "zh": "地圖上的第五個大洋",
+        "body_en": "National Geographic had recognized four oceans since it began making maps in 1915. On June 8, 2021, World Oceans Day, it began recognizing the Southern Ocean as the fifth. The U.S. Board on Geographic Names had already been using the name since 1999.",
+        "body_zh": "國家地理學會從 1915 年開始製作地圖，一直只承認四個大洋。2021 年 6 月 8 日世界海洋日，它開始把南大洋算作第五個。美國地名委員會則從 1999 年起就已經使用這個名字。"
+       },
+       {
+        "k": "2023 · IHO · 國際水文組織",
+        "en": "A line at 60 degrees south",
+        "zh": "南緯 60 度的一條線",
+        "body_en": "The International Hydrographic Organization publishes the limits of oceans and seas. In May 2023 its Assembly approved a resolution recognizing the Southern Ocean, with its northern limit at 60 degrees south. Argentina asked for its own position to be attached to the record.",
+        "body_zh": "國際水文組織出版海洋與海的界限。2023 年 5 月，它的大會通過決議承認南大洋，北界定在南緯 60 度。阿根廷要求把自己的立場附在紀錄上。"
+       },
+       {
+        "k": "2017 · Zealandia · 西蘭大陸",
+        "en": "A continent under the sea?",
+        "zh": "藏在海底的大陸？",
+        "body_en": "In 2017, geologists described a 4.9-million-square-kilometer region of continental crust in the southwest Pacific, around New Zealand, and called it Zealandia. About 94 percent of it is under water. Not everyone agrees it should count as a continent.",
+        "body_zh": "2017 年，地質學家描述了西南太平洋、紐西蘭周圍一片 490 萬平方公里的大陸地殼，稱它為「西蘭大陸」。它大約 94% 在海面下。不是每個人都同意它應該算一個洲。"
+       }
+      ]
+     },
+     "curric": {
+      "eyebrow": "In the Curriculum · 對應課綱",
+      "en": "Where this lesson fits",
+      "zh": "這一課對應的課綱",
+      "lead_en": "These entries come from Taiwan's 12-Year Basic Education curriculum for social studies (2018). The curriculum does not say how many continents there are; the words seven, six, or five continents do not appear in it. The links below are our reading.",
+      "lead_zh": "下面的條目出自十二年國民基本教育課程綱要社會領域（民國 107 年發布）。課綱沒有規定有幾大洲，裡面也沒有出現「七大洲」「六大洲」「五大洲」。下面和本課的連結是本教材的解讀。",
+      "items": [
+       {
+        "code": "地 Aa-Ⅳ-2",
+        "area": "社會領域・地理（國中）",
+        "area_en": "Social studies, geography (junior high)",
+        "text": "全球海陸分布。",
+        "note_en": "This lesson is about exactly this: where the land and the water are, and how people group them.",
+        "note_zh": "這一課講的正是這件事：陸地和海在哪裡，人們又怎麼把它們分組。"
+       },
+       {
+        "code": "地 Aa-Ⅳ-3",
+        "area": "社會領域・地理（國中）",
+        "area_en": "Social studies, geography (junior high)",
+        "text": "臺灣地理位置的特性及其影響。",
+        "note_en": "Taiwan sits between the largest continent and the largest ocean.",
+        "note_zh": "台灣就位在最大的洲和最大的大洋之間。"
+       },
+       {
+        "code": "社 Ab-Ⅲ-1",
+        "area": "社會領域（國小五、六年級）",
+        "area_en": "Social studies (grades 5–6)",
+        "text": "臺灣的地理位置、自然環境，與歷史文化的發展有關聯性。",
+        "note_en": "Finding Taiwan on the globe, next to Asia and the Pacific, is the first step.",
+        "note_zh": "在地球儀上找到台灣、看見它旁邊的亞洲與太平洋，是第一步。"
+       }
+      ]
+     },
+     "sources": [
+      {
+       "en": "A continent is “one of Earth's seven main divisions of land”; the line between Europe and Asia is “an imaginary line”; Africa is joined to Asia by the Isthmus of Suez, and South America to North America by the Isthmus of Panama; the continents add up to about 148 million square kilometers.",
+       "zh": "大洲是地球七大陸地分區之一；歐亞之間是一條想像的線；蘇伊士地峽、巴拿馬地峽；陸地約 1 億 4,800 萬平方公里",
+       "src": "National Geographic Education, “Continent”",
+       "url": "https://education.nationalgeographic.org/resource/Continent/"
+      },
+      {
+       "en": "“By convention there are seven continents”; “Some geographers list only six continents, combining Europe and Asia into Eurasia”; some students learn five: “Eurasia, Australia, Africa, Antarctica, and the Americas.”",
+       "zh": "七大洲是慣例；有些地理學家只列六個（歐亞合一）；也有人學五個",
+       "src": "National Geographic, Geography FAQ (archived 2008)",
+       "url": "https://web.archive.org/web/20080306225011/http://www.nationalgeographic.com/faq/geography.html"
+      },
+      {
+       "en": "The six-continent count with North and South America as one continent is taught in some countries.",
+       "zh": "有些國家教南北美合一的六大洲",
+       "src": "Wikipedia, “Continent”",
+       "url": "https://en.wikipedia.org/wiki/Continent"
+      },
+      {
+       "en": "“There is only one global ocean”; “Historically, there are four named oceans: the Atlantic, Pacific, Indian, and Arctic”; most countries now recognize the Southern Ocean as the fifth; the ocean covers 71 percent of the Earth.",
+       "zh": "全世界只有一個海洋；過去有四個命名的大洋；多數國家承認南大洋；海洋覆蓋 71%",
+       "src": "NOAA National Ocean Service, “How many oceans are there?”",
+       "url": "https://oceanservice.noaa.gov/facts/howmanyoceans.html"
+      },
+      {
+       "en": "National Geographic recognized the Southern Ocean starting June 8, 2021; it had recognized four oceans since 1915; the U.S. Board on Geographic Names “has used the name since 1999”; the IHO used the name in 1937 and “repealed that designation in 1953.”",
+       "zh": "國家地理學會 2021 年 6 月 8 日起承認南大洋；美國地名委員會 1999 年起使用",
+       "src": "National Geographic, “There's a new ocean now—can you name all five?” (June 8, 2021)",
+       "url": "https://www.nationalgeographic.com/environment/article/theres-a-new-ocean-now-can-you-name-all-five-southern-ocean"
+      },
+      {
+       "en": "“The Assembly approved the proposed IHO Resolution on the recognition of the Southern Ocean” (3rd IHO Assembly, May 3, 2023); the northern limit is the parallel of 60°S; Argentina's position is annexed.",
+       "zh": "2023 年國際水文組織大會通過承認南大洋的決議，北界南緯 60 度",
+       "src": "International Hydrographic Organization, 3rd Assembly, summary record of the fourth plenary session",
+       "url": "https://iho.int/uploads/user/About%20IHO/Assembly/Assembly3/SUMMARY%20REC/IHO-A3-SR4_v2.pdf"
+      },
+      {
+       "en": "Drafts of a fourth edition of Limits of Oceans and Seas (S-23) in 1986 and 2002 were not completed; the third edition dates from 1953.",
+       "zh": "《海洋與海的界限》第四版草案（1986、2002）未完成；第三版是 1953 年",
+       "src": "International Hydrographic Organization, “Future of S-23” (Assembly-2 proposal, 2020)",
+       "url": "https://iho.int/uploads/user/About%20IHO/Assembly/Assembly2/A2PRO/eng/A2_2020_PRO1-9_EN_FutureS23_v1.pdf"
+      },
+      {
+       "en": "Areas of the continents: Asia 44,614,000, Africa 30,365,000, North America 24,230,000, South America 17,814,000 square kilometers; Antarctica about 14.2 million; Europe about 10 million (each continent's article, read October 2026).",
+       "zh": "各洲面積（大英百科各洲條目，2026 年 10 月查閱）",
+       "src": "Encyclopaedia Britannica, articles “Asia,” “Africa,” “North America,” “South America,” “Antarctica,” “Europe”",
+       "url": "https://www.britannica.com/place/Asia"
+      },
+      {
+       "en": "Area of Australia and Oceania, 8,510,926 square kilometers, from the table of continents, which adds up Britannica's figures.",
+       "zh": "澳洲與大洋洲的面積",
+       "src": "Wikipedia, “Continent” (table of land areas)",
+       "url": "https://en.wikipedia.org/wiki/Continent"
+      },
+      {
+       "en": "The Pacific, “excluding the South China Sea,” covers about 161.76 million square kilometers; the Atlantic without its dependent seas about 81,760,000; the Indian Ocean 70,560,000 without its marginal seas; the Arctic Ocean 14,090,000; the Southern Ocean 21,960,000 below 60°S (read October 2026).",
+       "zh": "各大洋面積（大英百科各大洋條目，2026 年 10 月查閱）",
+       "src": "Encyclopaedia Britannica, articles “Pacific Ocean,” “Atlantic Ocean,” “Indian Ocean,” “Arctic Ocean,” “Southern Ocean”",
+       "url": "https://www.britannica.com/place/Pacific-Ocean"
+      },
+      {
+       "en": "The Olympic symbol “represents the union of the five continents and the meeting of athletes from throughout the world at the Olympic Games” (Olympic Charter, Rule 8).",
+       "zh": "奧林匹克憲章第 8 條：五環代表五大洲的團結",
+       "src": "International Olympic Committee, “Olympic rings”",
+       "url": "https://www.olympics.com/ioc/olympic-rings"
+      },
+      {
+       "en": "Zealandia: “A 4.9 Mkm2 region of the southwest Pacific Ocean is made up of continental crust”; “Today it is 94% submerged.”",
+       "zh": "西蘭大陸：490 萬平方公里的大陸地殼，94% 在海面下",
+       "src": "Mortimer et al., “Zealandia: Earth's Hidden Continent,” GSA Today 27 (3), 2017",
+       "url": "https://rock.geosociety.org/gsatoday/archive/27/3/abstract/GSATG321A.1.htm"
+      },
+      {
+       "en": "Not everyone is convinced that Zealandia counts as a continent.",
+       "zh": "不是每個人都同意西蘭大陸算一個洲",
+       "src": "National Geographic, “Lost continent hidden underneath New Zealand” (February 17, 2017)",
+       "url": "https://www.nationalgeographic.com/science/article/_lost-continent_-hidden-underneath-new-zealand-"
+      },
+      {
+       "en": "「臺灣本島及其21個附屬島嶼面積共3萬5,887.1325平方公里」；「臺灣東臨太平洋」；「居東亞島弧中央」.",
+       "zh": "台灣本島及 21 個附屬島嶼面積；東臨太平洋；位在東亞島弧中央",
+       "src": "行政院，〈國情簡介：土地〉（資料來源內政部，114 年 5 月 28 日）",
+       "url": "https://www.ey.gov.tw/state/4447F4A951A1EC45/094b1d53-de8d-4393-bde6-ab092969cce4"
+      },
+      {
+       "en": "Chinese terms: the Arctic Ocean appears as both 北冰洋 and 北極海; the Southern Ocean appears as 南大洋, 南冰洋, and 南極洋 in different fields.",
+       "zh": "北冰洋／北極海；南大洋／南冰洋／南極洋",
+       "src": "國家教育研究院，樂詞網",
+       "url": "https://terms.naer.edu.tw/"
+      },
+      {
+       "en": "地 Aa-Ⅳ-2「全球海陸分布。」；地 Aa-Ⅳ-3；社 Ab-Ⅲ-1.",
+       "zh": "社會領域課程綱要",
+       "src": "國家教育研究院，《十二年國民基本教育課程綱要：社會領域》（民國 107 年）",
+       "url": "https://www.naer.edu.tw/PageSyllabus?fid=52"
+      }
+     ]
     }
    ],
    "planned": [
-    {
-     "n": 6,
-     "icon": "🌏",
-     "en": "How Many Continents and Oceans Are There?",
-     "zh": "世界有幾大洲、幾大洋？"
-    },
     {
      "n": 7,
      "icon": "🌡️",

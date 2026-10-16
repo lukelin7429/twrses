@@ -17425,7 +17425,7 @@ def build_mus_hub():
 _geoj = os.path.join(ROOT, "data", "geography.json")
 GEO = json.load(open(_geoj, encoding="utf-8")) if os.path.exists(_geoj) else None
 GEO_BASE = "/resources/classes/geography/"
-_GEO_JS = {"flatmap": "geo-flatmap", "latlon": "geo-latlon", "contour": "geo-contour", "mapview": "geo-mapview", "timezone": "geo-timezone"}   # lab.kind → assets/js/<bundle>.js
+_GEO_JS = {"flatmap": "geo-flatmap", "latlon": "geo-latlon", "contour": "geo-contour", "mapview": "geo-mapview", "timezone": "geo-timezone", "continents": "geo-continents"}   # lab.kind → assets/js/<bundle>.js
 
 def _geo_ver():
     h = hashlib.md5()
@@ -17510,7 +17510,21 @@ def geotime_svg(size=56):
             '<circle cx="26" cy="34" r="20" fill="none" stroke="#e8edf7" stroke-width="1.4"/>'
             '<circle cx="11" cy="11" r="8" fill="#fff6dc" stroke="#d8a93a" stroke-width="1.6"/><path d="M11 6v5l3.5 2" fill="none" stroke="#2b2118" stroke-width="1.6" stroke-linecap="round"/></svg>')
 
-_GEO_CARD = {"flatmap": geoflat_svg, "latlon": geolatlon_svg, "contour": geocontour_svg, "mapview": geomapview_svg, "timezone": geotime_svg}
+def geocont_svg(size=56):
+    """第六課的課程卡小圖示：一顆地球，陸地用幾種顏色分組（沒有國界），旁邊一個「7 · 6 · 5」的小牌子。"""
+    return (f'<svg class="geocont-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">'
+            '<circle cx="27" cy="33" r="22" fill="#1f5fa8"/>'
+            '<path d="M10 22c4-4 10-3 12 1s-1 7 1 10 6 2 6 6-4 9-8 8c-6-2-10-9-11-15s-1-7 0-10z" fill="#4fa36a"/>'
+            '<path d="M18 44c3-1 6 1 6 4s-2 6-4 6c-2-1-4-6-2-10z" fill="#9bc74a"/>'
+            '<path d="M30 15c4-2 8-1 9 2l-3 4c-2 0-4-1-5-2z" fill="#7a6fd6"/>'
+            '<path d="M38 17c5 0 9 4 10 9-3 2-7 1-9-1s-3-5-1-8z" fill="#e8a33d"/>'
+            '<path d="M31 24c4 0 6 3 6 7s-2 9-5 10c-3-1-4-6-4-9s1-8 3-8z" fill="#d9734e"/>'
+            '<path d="M41 39c3-1 6 1 6 3s-3 4-5 3-3-5-1-6z" fill="#d65f9a"/>'
+            '<circle cx="27" cy="33" r="22" fill="none" stroke="#e8edf7" stroke-width="1.4"/>'
+            '<rect x="38" y="2" width="21" height="12" rx="4" fill="#ffd36e"/>'
+            '<text x="48.5" y="11" text-anchor="middle" font-size="8" font-weight="800" font-family="system-ui, sans-serif" fill="#2b2118">7·6·5</text></svg>')
+
+_GEO_CARD = {"flatmap": geoflat_svg, "latlon": geolatlon_svg, "contour": geocontour_svg, "mapview": geomapview_svg, "timezone": geotime_svg, "continents": geocont_svg}
 _GEO_PROP_K = [("shape", "Shape", "形狀"), ("area", "Area", "面積"), ("distance", "Distance", "距離"), ("direction", "Direction", "方向")]
 
 def render_geoflat_lab(lesson):
@@ -17762,7 +17776,57 @@ def render_geotime_lab(lesson):
   <p class="gg-credit">{lab["credit_html"]}</p>
 </div>'''
 
-_GEO_LAB = {"flatmap": render_geoflat_lab, "latlon": render_geolatlon_lab, "contour": render_geocontour_lab, "mapview": render_geomapview_lab, "timezone": render_geotime_lab}
+_CT_SCHEMES = (("seven", "Seven", "七大洲"), ("eurasia", "Six: Eurasia", "六：歐亞合一"), ("america", "Six: America", "六：南北美合一"), ("five", "Five", "五大洲"))
+
+def _ct_areas(lesson):
+    """3D 面板點到一洲／一洋時顯示的面積：直接用頁面引用的數字；合起來的組（歐亞、美洲）用加的。"""
+    out = {}
+    for c in lesson["bars"]["continents"] + lesson["bars"]["oceans"]:
+        out[c["key"]] = {"km2": c["km2"]}
+    out["eurasia"] = {"km2": out["europe"]["km2"] + out["asia"]["km2"]}
+    out["america"] = {"km2": out["namerica"]["km2"] + out["samerica"]["km2"]}
+    return out
+
+def render_geocont_lab(lesson):
+    """第六課：大洲、大洋上色的地球儀（assets/js/geo-continents.js 綁這裡的 class；只用顏色分組，不畫國界）。"""
+    lab = lesson["lab"]
+    payload = json.dumps(_ct_areas(lesson)).replace("</", "<\\/")
+    sch = "".join(f'<button type="button" data-scheme="{k}" aria-pressed="{"true" if k == "seven" else "false"}"><b>{en}</b><small>{zh}</small></button>' for k, en, zh in _CT_SCHEMES)
+    oc = "".join(f'<button type="button" data-oceans="{k}" aria-pressed="{"true" if k == "off" else "false"}"><b>{en}</b><small>{zh}</small></button>'
+                 for k, en, zh in (("off", "Land only", "只看陸地"), ("4", "Four oceans", "四大洋"), ("5", "Five oceans", "五大洋")))
+    tg = _lab_toggles([("labels", "Names", "名稱", True), ("grid", "Grid lines", "經緯線", False)])
+    return f'''<div class="astro-lab gg-lab gg-cn-lab rvl" data-geocont-lab>
+  <script type="application/json">{payload}</script>
+  <div class="al-stage">
+    <div class="al-space">
+      <canvas class="al-space-cv" aria-label="3D Earth with the land colored by continent and the sea colored by ocean. Only colors are used to group the land; no borders are drawn. Tap the land or the sea to see which continent or ocean it belongs to. · 3D 地球：陸地依大洲上色、海洋依大洋上色，只用顏色分組，不畫國界。點陸地或海，看它屬於哪一洲、哪一洋。"></canvas>
+      <div class="al-labels" aria-hidden="true"></div>
+      <p class="al-hint">Tap the land or the sea · 點陸地或海　Drag to turn · 拖曳轉動</p>
+      <button type="button" class="al-home" title="Reset view · 重設視角" aria-label="Reset view · 重設視角">&#8634;</button>
+      <p class="al-nogl-msg">This 3D model needs WebGL, which this browser does not support. The buttons on the right still count the continents, and the two activities below work without it.<br><span class="zh">這個瀏覽器不支援 WebGL，無法顯示 3D 模型；右邊的按鈕照樣能數大洲，下面兩個活動也都能用。</span></p>
+    </div>
+    <aside class="al-sky gg-aside">
+      <p class="al-sky-k">How many? · 有幾個？</p>
+      <div class="gg-cn-count">
+        <p><b class="gg-cn-n">7</b><span class="gg-cn-nk"></span></p>
+        <p><b class="gg-cn-on">–</b><span class="gg-cn-onk"></span></p>
+      </div>
+      <div class="gg-cn-pick" aria-live="polite"></div>
+      <button type="button" class="gg-btn gg-cn-clear">Clear · 取消選取</button>
+    </aside>
+  </div>
+  <div class="al-controls">
+    <p class="gg-cn-rowk">Continents · 大洲的算法</p>
+    <div class="gg-ct-ints gg-cn-schemes" role="group" aria-label="Ways to count the continents · 大洲的算法">{sch}</div>
+    <p class="gg-cn-rowk">Oceans · 大洋的算法</p>
+    <div class="gg-ct-ints gg-cn-oceans" role="group" aria-label="Ways to count the oceans · 大洋的算法">{oc}</div>
+    <div class="al-row al-toggles">{tg}</div>
+  </div>
+  {_lab_foot(lab)}
+  <p class="gg-credit">{lab["credit_html"]}</p>
+</div>'''
+
+_GEO_LAB = {"flatmap": render_geoflat_lab, "latlon": render_geolatlon_lab, "contour": render_geocontour_lab, "mapview": render_geomapview_lab, "timezone": render_geotime_lab, "continents": render_geocont_lab}
 
 def _gg_drag(d):
     picks = "".join(
@@ -17977,8 +18041,48 @@ def _gg_call(d):
   </div>
 </div>'''
 
+def _gg_bars(d):
+    """「誰最大？」：引用的面積畫成長條，點一條換算成幾個台灣（assets/js/geo-continents.js 的 bars2d.js）。"""
+    items, panels = {}, []
+    for key, en, zh in (("continents", "Continents", "大洲"), ("oceans", "Oceans", "大洋")):
+        rows = d[key]; top = max(r["km2"] for r in rows)
+        li = ""
+        for r in sorted(rows, key=lambda r: -r["km2"]):
+            items[r["key"]] = {"km2": r["km2"], "en": r["en"], "zh": r["zh"]}
+            li += (f'<li><button type="button" data-bar="{r["key"]}" aria-pressed="false" style="--w:{r["km2"] / top * 100:.1f}%;--c:{r["color"]}">'
+                   f'<span class="gg-br-n">{html.escape(r["en"])}<small>{html.escape(r["zh"])}</small></span>'
+                   f'<span class="gg-br-bar"><i></i></span><span class="gg-br-v">{r["km2"] / 1e6:.1f}<small>million km²</small></span></button></li>')
+        panels.append(f'<ol class="gg-br-list" data-bpanel="{key}"{"" if key == "continents" else " hidden"}>{li}</ol>')
+    payload = json.dumps({"items": items, "taiwan": d["taiwan_km2"], "hint_en": d["hint_en"], "hint_zh": d["hint_zh"]}, ensure_ascii=False).replace("</", "<\\/")
+    tabs = "".join(f'<button type="button" data-bset="{k}" aria-pressed="{"true" if k == "continents" else "false"}"><b>{en}</b><small>{zh}</small></button>'
+                   for k, en, zh in (("continents", "Continents", "大洲"), ("oceans", "Oceans", "大洋")))
+    return f'''<div class="gg-drag gg-bars rvl" data-gg-bars>
+  <script type="application/json">{payload}</script>
+  <div class="gg-ct-ints gg-br-tabs" role="group" aria-label="Continents or oceans · 大洲或大洋">{tabs}</div>
+  <p class="gg-br-unit">Areas in millions of square kilometers <span class="zh">面積單位：百萬平方公里</span></p>
+  {"".join(panels)}
+  <p class="gg-dg-msg gg-br-out" aria-live="polite"></p>
+  <p class="gg-br-src">{d["note_en"]}<span class="zh">{d["note_zh"]}</span></p>
+</div>'''
+
+def _gg_count(d):
+    """「有幾個？要看怎麼算」：每題先給算法，再問有幾個或算哪一組（count2d.js；答案由 test/regions.test.mjs 驗算）。"""
+    payload = json.dumps({k: d[k] for k in ("questions", "hint_en", "hint_zh", "start_en", "start_zh", "end_en", "end_zh")}, ensure_ascii=False).replace("</", "<\\/")
+    n = len(d["questions"])
+    return f'''<div class="gg-fit gg-count rvl" data-gg-count>
+  <script type="application/json">{payload}</script>
+  <div class="gg-ft-top"><p class="gg-ft-k">Question 1 of {n} · 第 1 題（共 {n} 題）</p><p class="gg-ft-sc">Right on the first try · 第一次就答對 <b class="gg-ft-score">0 / 0</b></p></div>
+  <div class="gg-ft-steps" aria-hidden="true"></div>
+  <p class="gg-cn-scheme"></p>
+  <div class="gg-cn-mapw"><canvas class="gg-cn-map" aria-hidden="true"></canvas></div>
+  <p class="gg-ft-q" aria-live="polite"><span class="gg-ck-q-en"></span><span class="zh gg-ck-q-zh"></span></p>
+  <div class="gg-ck-opts"></div>
+  <p class="gg-ft-msg" aria-live="polite"></p>
+  <div class="gg-ft-foot"><button type="button" class="gg-btn gg-btn-gold gg-ft-next" hidden>Next question · 下一題</button></div>
+</div>'''
+
 # 頁面上的小互動：照這個順序排在「模型卡」後面（JSON 有那個 key 才出現）
-_GEO_WIDGETS = [("drag", _gg_drag), ("fit", _gg_fit), ("find", _gg_find), ("degree", _gg_degree), ("steep", _gg_steep), ("profile", _gg_profile), ("measure", _gg_measure), ("legend", _gg_legend), ("clock", _gg_clock), ("call", _gg_call), ("map_english", _gg_map_english)]
+_GEO_WIDGETS = [("drag", _gg_drag), ("fit", _gg_fit), ("find", _gg_find), ("degree", _gg_degree), ("steep", _gg_steep), ("profile", _gg_profile), ("measure", _gg_measure), ("legend", _gg_legend), ("clock", _gg_clock), ("call", _gg_call), ("bars", _gg_bars), ("count", _gg_count), ("map_english", _gg_map_english)]
 
 def _geo_flat():
     return [(ui, u, l) for ui, u in enumerate(GEO["units"]) for l in u["lessons"]]
