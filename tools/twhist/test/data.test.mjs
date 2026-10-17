@@ -174,6 +174,43 @@ assert.equal(yearsBetween(1601, 1700) + 1, 100);
   // 第三課的預告卡已換成真的連結
   assert.ok(lessons.find((l) => l.slug === 'indigenous-peoples').links.some((x) => x.href === '/resources/classes/taiwan-history/old-maps/'));
 }
+// ── 第五課 ───────────────────────────────────────────────────────────
+{
+  const L5 = lessons.find((l) => l.slug === 'dutch-fort'), lab5 = L5.lab;
+  const { existsSync } = await import('node:fs');
+  assert.ok(data.units[1].lessons.includes(L5), '第五課在單元二');
+  assert.ok(existsSync(new URL(`../../..${lab5.print.img}`, import.meta.url)));
+  const src5 = readFileSync(new URL('../src/fort3d.js', import.meta.url), 'utf8');
+  // 每個重點：3D 裡有位置；版畫上看得到的有版畫座標，看不到的要說明依據
+  lab5.spots.forEach((s) => {
+    assert.ok(new RegExp(`\\b${s.key}: new Vector3`).test(src5), `fort3d.js 的 spots.${s.key}`);
+    assert.ok(s.basis_en && s.basis_zh && s.text_en && s.text_zh, s.key);
+    if (s.print) assert.ok(s.print.x > 0 && s.print.x < 100 && s.print.y > 0 && s.print.y < 100, s.key);
+  });
+  assert.deepEqual(lab5.spots.filter((s) => !s.print).map((s) => s.key), ['junk', 'remain']);   // 版畫上沒有的只有這兩個
+  // 事件：年份由早到晚、在 1624–1662 之間；示範鍵都存在
+  const ys = lab5.events.map((e) => e.year);
+  assert.deepEqual(ys, [...ys].sort((a, b) => a - b));
+  assert.ok(ys[0] === lab5.from && ys.at(-1) === lab5.to);
+  ys.forEach((y) => assert.ok(yearToAgo(y, NOW) <= lab5.older && yearToAgo(y, NOW) >= lab5.nearest));
+  Object.values(lab5.demo).forEach((d) => { if (d.ev) assert.ok(lab5.events.some((e) => e.key === d.ev)); if (d.spot) assert.ok(lab5.spots.some((s) => s.key === d.spot)); });
+  L5.parts.forEach((p) => assert.ok(lab5.demo[p.demo], p.demo));
+  // 課文裡的數
+  assert.equal(1634 - 1624, 10);                                  // 「蓋了十年」
+  assert.equal(1662 - 1624, 38);                                  // 「大約 38 年」
+  assert.equal(L5.when.focus.fromAgo, yearToAgo(1624, NOW)); assert.equal(L5.when.focus.toAgo, yearToAgo(1662, NOW));
+  // 季風航路圖：地點都在框裡；每一條航路的兩端都存在；每一季至少一條
+  const T = L5.trade, P = Object.fromEntries(T.places.map((p) => [p.key, p]));
+  T.places.forEach((p) => assert.ok(p.lon >= T.bbox.w && p.lon <= T.bbox.e && p.lat >= T.bbox.s && p.lat <= T.bbox.n, p.key));
+  T.routes.forEach((r) => { assert.ok(P[r.from] && P[r.to] && r.goods.length && r.src, r.key); assert.ok(['south', 'north', 'all'].includes(r.season)); });
+  const { routesIn } = await import('../src/trade2d.js');
+  T.seasons.forEach((se) => assert.ok(routesIn(T.routes, se.key).length >= 1, se.key));
+  // 分類遊戲：村社 3、漢人 3、公司 2
+  assert.deepEqual(['village', 'han', 'voc'].map((k) => L5.sort.items.filter((it) => it.bin === k).length), [3, 3, 2]);
+  assert.ok(L5.sort.done_en.startsWith('Three jobs for Indigenous villagers, three for Chinese settlers and traders, and two'));
+  // 第四課的預告卡已換成真的連結
+  assert.ok(lessons.find((l) => l.slug === 'old-maps').links.some((x) => x.href === '/resources/classes/taiwan-history/dutch-fort/'));
+}
 // 時間軸上的事件由古到今
 const ev = data.timeline.events.map((e) => (e.ago !== undefined ? e.ago : yearToAgo(e.year, NOW)));
 assert.deepEqual(ev, [...ev].sort((a, b) => b - a));
@@ -181,7 +218,7 @@ assert.deepEqual(ev, [...ev].sort((a, b) => b - a));
 // （只看文字欄位；「3500-2000多年」「2,000 年前」這類距今的年數不是西元年，先拿掉）
 JSON.stringify(data, (k, v) => (k === 'url' ? undefined : typeof v === 'number' ? 0 : v))
   .replace(/[\d,]+\s*[-∼~–]\s*[\d,]+/g, ' ').replace(/[\d,]+\s*(多)?(年前|年至|年到|年間|年歷史| years ago| years)/g, ' ')
-  .replace(/\b(19\d\d|20\d\d)\b/g, (y) => { assert.ok(+y <= 1996 || ['1997', '2000', '2001', '2002', '2003', '2004', '2007', '2008', '2009', '2010', '2011', '2012', '2014', '2017', '2018', '2019', '2020', '2022', '2024', '2025', '2026', '2031'].includes(y), `year ${y}`); return y; });
+  .replace(/\b(19\d\d|20\d\d)\b/g, (y) => { assert.ok(+y <= 1996 || ['1997', '2000', '2001', '2002', '2003', '2004', '2007', '2008', '2009', '2010', '2011', '2012', '2014', '2016', '2017', '2018', '2019', '2020', '2022', '2024', '2025', '2026', '2031'].includes(y), `year ${y}`); return y; });
 // 美式拼字：常見的英式拼法不能出現（出處欄的逐字引文照原文，所以 sources 不掃）
 const en = JSON.stringify(data, (k, v) => (k === 'sources' ? undefined : v)).replace(/[一-鿿]/g, '');
 assert.ok(!/\b(colour|centre|metre|programme|practise|favourite|grey|whilst|towards|amongst|recognise|organise|analyse|civilisation|judgement|travell|labell|artefact|defence|neighbour|honour|catalogue|archaeolog(?:y|ist|ical)s?e)\b/i.test(en));

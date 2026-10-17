@@ -22275,7 +22275,7 @@ def build_home_hub():
 _twhj = os.path.join(ROOT, "data", "taiwan_history.json")
 TWH = json.load(open(_twhj, encoding="utf-8")) if os.path.exists(_twhj) else None
 TWH_BASE = "/resources/classes/taiwan-history/"
-_TWH_JS = {"dig": "twh-dig", "sites": "twh-sites", "peoples": "twh-peoples", "maps": "twh-maps"}   # lab.kind → assets/js/<bundle>.js
+_TWH_JS = {"dig": "twh-dig", "sites": "twh-sites", "peoples": "twh-peoples", "maps": "twh-maps", "fort": "twh-fort"}   # lab.kind → assets/js/<bundle>.js
 
 def _twh_ver():
     h = hashlib.md5()
@@ -22577,6 +22577,64 @@ def render_twhmaps_lab(lesson):
 
 _TWH_CARD["maps"] = twhmaps_svg
 
+def twhfort_svg(size=56):
+    """第五課卡：沙丘上一座四角稜堡的城，前面是海和一艘船。"""
+    return (f'<svg class="twhfort-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">'
+            f'<rect x="4" y="40" width="52" height="16" rx="3" fill="#2f6f8f"/><path d="M6 40c8-9 16-12 26-12s16 5 22 12z" fill="#d9c79a"/>'
+            f'<path d="M18 30h24v-9H18z" fill="#b98f63"/><path d="M14 21l6-4 4 4-6 4zM36 21l4-4 6 4-4 4z" fill="#9c7550"/>'
+            f'<path d="M27 21h6v-5l-3-3-3 3z" fill="#e8dcc4"/><path d="M27 16l3-4 3 4z" fill="#7b3b2a"/>'
+            f'<path d="M14 49h12l-2 3h-8z" fill="#5a3a22"/><path d="M20 49v-9" stroke="#3a2a1a" stroke-width="1"/><path d="M20 41l5 3-5 2z" fill="#f2ead8"/></svg>')
+
+def render_twhfort_lab(lesson):
+    """第五課：熱蘭遮城 3D 示意（assets/js/twh-fort.js；依 1632 年的版畫）＋版畫本身＋時間軸上的事件。"""
+    lab = lesson["lab"]
+    cfg = {k: lab[k] for k in ("older", "nearest", "from", "to", "spots", "events", "demo", "start_ev", "hello_en", "hello_zh",
+                               "then_en", "then_zh", "today_en", "today_zh")}
+    pr = lab["print"]
+    tg = _lab_toggles([("today", "Today", "今天", False)])
+    return f'''<div class="astro-lab twh-lab twh-fort-lab rvl" data-twhfort-lab>
+  <script type="application/json" class="twh-lab-data">{_twh_json(cfg)}</script>
+  <div class="al-stage">
+    <div class="al-space">
+      <canvas class="al-space-cv" aria-label="{html.escape(lab["aria"])}"></canvas>
+      <div class="al-labels"></div>
+      <p class="twh-badge">{html.escape(lab["badge"])}</p>
+      <p class="al-hint">Drag to turn · 拖曳旋轉　Scroll or pinch to zoom · 滾輪／雙指縮放</p>
+      <button type="button" class="al-home" title="Reset view · 重設視角" aria-label="Reset view · 重設視角">&#8634;</button>
+      <p class="al-nogl-msg">This 3D model needs WebGL, which this browser does not support. The print, the list of things to look at, and the timeline beside it still work.<br><span class="zh">這個瀏覽器不支援 WebGL，無法顯示 3D 模型；旁邊的版畫、重點清單和時間軸照樣能用。</span></p>
+    </div>
+    <aside class="al-sky twh-aside">
+      <p class="al-sky-k">The print the model is based on · 模型依據的版畫</p>
+      <figure class="twh-print"><div class="twh-print-frame"><img src="{html.escape(pr["img"])}" width="{pr["w"]}" height="{pr["h"]}" alt="{html.escape(pr["alt"])}" loading="lazy" decoding="async"><div class="twh-print-hots"></div></div>
+        <figcaption>{_twh_b(pr["cap_en"], pr["cap_zh"])} <a href="{html.escape(pr["url"])}" target="_blank" rel="noopener">{html.escape(pr["src"])} &#8599;</a></figcaption></figure>
+      <div class="twh-site-card" aria-live="polite"></div>
+      <div class="twh-aside-grid">
+        <div class="twh-vtl" data-k="Year · 西元年" aria-label="Timeline, 1600 to 1670 · 時間軸，1600 到 1670 年"></div>
+        <div class="twh-aside-main"><p class="al-sky-k">On the timeline · 時間軸上</p><p class="twh-age" aria-live="polite"></p><div class="twh-evs" role="group" aria-label="Events · 事件"></div></div>
+      </div>
+    </aside>
+  </div>
+  <div class="al-controls">
+    <div class="al-row al-row-main"><ol class="twh-spots" aria-label="Things to look at · 值得看的地方"></ol><div class="al-row al-toggles">{tg}</div></div>
+    <p class="twh-msg" aria-live="polite"></p>
+  </div>
+  {_lab_foot(lab)}
+  <p class="twh-credit">{lab["credit_html"]}</p>
+</div>'''
+
+def _twh_trade(td):
+    """貨物往哪裡去：季風航路圖（trade2d.js；SVG，不需要 WebGL）。"""
+    cfg = {k: td[k] for k in ("bbox", "places", "routes", "seasons", "start")}
+    return f'''<div class="twh-trade rvl" data-twh-trade>
+  <script type="application/json">{_twh_json(cfg)}</script>
+  <div class="twh-trade-seasons" role="group" aria-label="Choose a season · 選一個季節"></div>
+  <div class="twh-trade-body"><div class="twh-trade-map"></div>
+    <div class="twh-trade-side"><div class="twh-trade-out" aria-live="polite"></div><ol class="twh-trade-list"></ol></div></div>
+</div>
+<p class="twh-note rvl">{_twh_b(td["note_en"], td["note_zh"])}</p>'''
+
+_TWH_CARD["fort"] = twhfort_svg
+
 def _twh_flat():
     return [(ui, u, l) for ui, u in enumerate(TWH["units"]) for l in u["lessons"]]
 
@@ -22604,7 +22662,7 @@ def build_twh_lesson(ui, unit, lesson):
     reading_html = render_basic_unit(1, unit_dict, level="twh", audio_rel="", pdf_rel="")
     lab = lesson["lab"]
     kind = lab["kind"]
-    lab_html = {"dig": render_twhdig_lab, "sites": render_twhsites_lab, "peoples": render_twhpeoples_lab, "maps": render_twhmaps_lab}[kind](lesson)
+    lab_html = {"dig": render_twhdig_lab, "sites": render_twhsites_lab, "peoples": render_twhpeoples_lab, "maps": render_twhmaps_lab, "fort": render_twhfort_lab}[kind](lesson)
 
     def sec(key, fn, sid=None):
         d = lesson[key]
@@ -22624,6 +22682,7 @@ def build_twh_lesson(ui, unit, lesson):
                      _bi(lesson["parts_note_en"], lesson["parts_note_zh"], cls="lead rvl d2")))
     if lesson.get("jade"): secs.append(sec("jade", _twh_jade))
     if lesson.get("world"): secs.append(sec("world", _twh_world))
+    if lesson.get("trade"): secs.append(sec("trade", _twh_trade))
     if lesson.get("when"):
         secs.append(sec("when", lambda d: _twh_timeline({**TWH["timeline"], "note_en": d["note_en"], "note_zh": d["note_zh"]}, d.get("focus"), d.get("events"))))
     if lesson.get("sort"): secs.append(sec("sort", _twh_sort))

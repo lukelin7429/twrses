@@ -542,3 +542,51 @@ a.twh-link:hover { transform: translateY(-3px); box-shadow: var(--shadow); borde
 @media (max-width: 620px) { .twh-mapdot small { display: none; } .twh-mapstage { padding: 2.8rem .4rem .6rem; } }
 .al-lg-twhhot i { background: rgba(27,20,5,.78); border: 2px solid #fff3c9; border-radius: 50%; }
 .al-lg-twhtoday i { background: transparent; border: 2px solid #c9d6ef; border-radius: 3px; }
+
+/* ── 第五課：熱蘭遮城 3D 示意＋版畫＋事件；季風航路圖 ───────────────────────── */
+.twh-fort-lab .al-space { position: sticky; top: 84px; align-self: start; height: min(640px, calc(100vh - 110px)); min-height: 440px; }
+@media (max-width: 1020px) { .twh-fort-lab .al-space { position: relative; top: 0; height: auto; min-height: 340px; } .twh-fort-lab .al-sky { display: block; } }
+.twh-print { margin: 0 0 .9rem; }
+.twh-print-frame { position: relative; border-radius: 8px; overflow: hidden; background: #e8dcc4; }
+.twh-print-frame img { display: block; width: 100%; height: auto; }
+.twh-print-hots { position: absolute; inset: 0; }
+.twh-print .twh-hot { width: 1.6rem; height: 1.6rem; font-size: .72rem; }
+.twh-print figcaption { margin-top: .4rem; font-size: .7rem; line-height: 1.45; color: var(--al-mute); }
+.twh-print figcaption .zh { display: block; font-family: var(--zh); }
+.twh-print figcaption a { color: var(--al-sun); }
+.twh-evs { display: grid; gap: .3rem; }
+.twh-ev { display: flex; gap: .5rem; align-items: baseline; padding: .32rem .5rem; border-radius: 8px; border: 1px solid var(--al-line); background: rgba(255,255,255,.03); color: var(--al-text); font: 600 .74rem/1.3 var(--sans); text-align: left; cursor: pointer; }
+.twh-ev b { flex: none; color: var(--al-sun); font-size: .78rem; }
+.twh-ev .zh { display: block; color: var(--al-mute); font-weight: 500; font-family: var(--zh); }
+.twh-ev:hover, .twh-ev.is-on { border-color: var(--al-sun); background: rgba(255,211,110,.1); }
+.twh-spots { display: flex; flex-wrap: wrap; gap: .4rem; flex: 1; margin: 0; padding: 0; list-style: none; }
+.twh-pin i { font-style: normal; }
+.twh-fort-lab .twh-pin { width: 1.9rem; height: 1.9rem; border-radius: 50%; border: 2px solid #fff3c9; background: rgba(27,20,5,.8); color: #ffd36e; font: 800 .8rem/1 var(--sans); cursor: pointer; display: grid; place-items: center; }
+.twh-fort-lab .twh-pin.is-on { background: #ffd36e; color: #1b1405; }
+.twh-site-src { font-size: .7rem; color: var(--al-mute); }
+.twh-trade { margin-top: 1.4rem; border-radius: 22px; overflow: hidden; background: #0b1326; color: #e8edf7; box-shadow: 0 24px 60px -34px rgba(10,20,50,.7); }
+.twh-trade-seasons { display: flex; flex-wrap: wrap; gap: .4rem; padding: .9rem 1rem .4rem; }
+.twh-trade-seasons .twh-btn-d[aria-pressed="true"] { background: #ffd36e; color: #1b1405; border-color: #ffd36e; }
+.twh-trade-seasons .twh-btn-d[aria-pressed="true"] .zh { color: #1b1405; }
+.twh-trade-body { display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); }
+.twh-trade-map { padding: .4rem .6rem .8rem; }
+.twh-trade-svg { display: block; width: 100%; height: auto; }
+.twh-trade-side { padding: .8rem 1rem 1rem; border-left: 1px solid rgba(160,180,230,.16); }
+.twh-trade-out { min-height: 7rem; font-size: .86rem; line-height: 1.5; }
+.twh-trade-out .zh { display: block; color: #9fb0cf; font-family: var(--zh); }
+.twh-trade-goods { margin: .4rem 0; padding-left: 1.1rem; }
+.twh-trade-src { font-size: .7rem; color: #9fb0cf; }
+.twh-trade-list { display: grid; gap: .35rem; margin: .6rem 0 0; padding: 0; list-style: none; }
+.twh-trade-list .twh-spot small { display: block; font-weight: 500; color: #9fb0cf; }
+.twh-tr { fill: none; stroke: #ffd36e; stroke-width: 2.4; stroke-dasharray: 6 4; cursor: pointer; opacity: .8; }
+.twh-tr-all { stroke: #4fd1c5; }
+.twh-tr.is-on { stroke-width: 4; opacity: 1; stroke-dasharray: none; }
+#twhtr-a path { fill: #ffd36e; }
+.twh-tp circle { fill: #e8edf7; stroke: #0a1830; stroke-width: 2; }
+.twh-tp.is-home circle { fill: #ffd36e; }
+.twh-tp text { fill: #e8edf7; font-size: 12px; font-weight: 700; paint-order: stroke; stroke: #0a1830; stroke-width: 3px; }
+.twh-tp text .zh { font-weight: 500; }
+.al-lg-twhpin i { background: rgba(27,20,5,.8); border: 2px solid #fff3c9; border-radius: 50%; }
+.al-lg-twhjunk i { background: #c9a66b; border-radius: 3px; }
+@media (max-width: 860px) { .twh-trade-body { grid-template-columns: 1fr; } .twh-trade-side { border-left: 0; border-top: 1px solid rgba(160,180,230,.16); } }
+

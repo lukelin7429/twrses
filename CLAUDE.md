@@ -1178,7 +1178,7 @@
   - `when`（「這一課在時間軸的哪裡」：`focus` ＝ `{ fromAgo|fromYear, toAgo|toYear, en, zh }`、`note_*`，可加 `events[]`）、`sort`（分類遊戲）、`two`（兩份互相矛盾的記錄）、`notes`＋`notes_head`（「給老師的提醒」：課綱對應、名詞、這個系列怎麼處理敏感題目）。
 - 頁面：`build.py`「台灣歷史」區塊的 `build_twh_hub()`（系列小圖示 `twhhub_svg()`＝地層＋探坑＋手鏟，第一課卡 `twhdig_svg()`；`_TWH_CARD`）/ `build_twh_lesson()`；三張固定的卡是 `_twh_how()`、`_twh_views()`、`_twh_phrases()`，時間軸 `_twh_timeline()`。「閱讀與經典」頁有入口卡（🏺，排在家政後面）。段落順序：3D → 英文閱讀 → 模型卡 → **時間軸** → 這是哪一種證據 → 兩個人說的不一樣 → **我們怎麼知道？** → **不同的說法** → **歷史英語** → 在台灣（文化卡）→ 迷思 → 口訣 → 給老師的提醒 → 活動 → 延伸閱讀 → 資料出處。`tools/gen_audio.py` 的 `SHORT_PAGES` 已加入本系列。
 - 樣式：共用 `assets/css/astro.css`，本系列專屬的在 `assets/css/taiwan-history.css`（**class 前綴一律 `twh-`**——`th-` 已被天文、人體、地球、書法、數學等系列用掉，不要用）；`_twh_head()` 只在本系列頁面載入。
-- 原始碼：**`tools/twhist/src/`**（自己的 package.json，three 0.186.1、esbuild 0.25.10），bundle 一律 `twh-*`；`lab.kind` → bundle 對照在 `build.py` 的 `_TWH_JS`（`dig` → `twh-dig`、`sites` → `twh-sites`、`peoples` → `twh-peoples`、`maps` → `twh-maps`）；首頁另載 `twh-hub`（只有時間軸，不含 three.js）。**不要 import 別的系列的 tools 目錄。** 新增一課＝`src/twh-<名>.js`＋package.json 的 build 加入口＋`_TWH_JS` 加一筆＋`build_twh_lesson()` 的 `lab_html` 對照加一筆。
+- 原始碼：**`tools/twhist/src/`**（自己的 package.json，three 0.186.1、esbuild 0.25.10），bundle 一律 `twh-*`；`lab.kind` → bundle 對照在 `build.py` 的 `_TWH_JS`（`dig` → `twh-dig`、`sites` → `twh-sites`、`peoples` → `twh-peoples`、`maps` → `twh-maps`、`fort` → `twh-fort`）；首頁另載 `twh-hub`（只有時間軸，不含 three.js）。**不要 import 別的系列的 tools 目錄。** 新增一課＝`src/twh-<名>.js`＋package.json 的 build 加入口＋`_TWH_JS` 加一筆＋`build_twh_lesson()` 的 `lab_html` 對照加一筆。
   ```
   cd tools/twhist && npm ci && npm run build && npm test
   ```
@@ -1219,6 +1219,16 @@
   - 老地圖上的字是我們放大影像讀的（頁面與給老師的提醒都有寫）。1584 年那張哪幾座島是台灣，依 **Kua 2020 全文**（Lequeio parua＋Ins. Fermosa＝被拆成兩塊的台灣、Lequeio magna＝沖繩；Georgio 是葡萄牙地圖師、1579 年畫成）。「不同的說法」只放一題：誰最早把台灣叫 Formosa——課本的說法／翁佳音與黃驗 2017（央廣 2017-11-14 報導，西班牙人最早）／Kua 2020（葡萄牙人 1550 年代初期，「going too far」）。Taiwan 來自族名依 Mair（Pinyin.info；寫「研究漢語的學者」，不寫 linguist）。**1737 與 1764 兩張都同時把 Taiouan／Tai-ouan 用在整座島和西海岸的一個地方**（查證抓到原本寫成「一張標島、一張標地方」）。**沒寫**：流求、翁佳音與曹銘宗《大灣大員福爾摩沙》（2016）的地名說法（沒取得內容）；《大英百科》的台灣黑熊（引的頁面查不到那句）；原住民族「不需要這些地圖」「知識存在語言裡」（沒有出處，刪掉）；d’Anville 實測範圍（只引標題）。
   - 小遊戲「這個名字標的是什麼？」沿用 `initSort`：整座島／島上的地方／附近的群島（3／3／2）——Taiwan 的各種拼法在「整座島」和「島上的地方」兩組都出現。
   - 除錯：`document.querySelector('[data-twhmaps-lab]').__lab`（`show(key)`、`current()`、`hot(key)`、`zoom(f)`、`demo(...)`、`check()`＝影像、卡片、時間軸游標、重點數量都是同一張地圖）。完全不用 WebGL（bundle 約 27 KB）。
+
+- 第五課熱蘭遮城（`twh-fort.js`＋`fort3d.js`，`lab.kind = "fort"`，`data-twhfort-lab`；slug `dutch-fort`；**單元二第一課，資料在 `units[1]`**）：一個想法——**貿易公司為了貿易而來：被迫撤出澎湖後在大員的沙洲設據點、把中國生絲轉賣日本，並在那裡蓋城；但島上不是空的（西拉雅族村社），公司很快開始打仗、訂條約、收稅、依靠漢人農民——貿易據點變成殖民地**。
+  - **3D 是示意，依據一張版畫**：荷蘭國家博物館 RP-P-OB-75.470〈Gezicht op Fort Zeelandia op Taiwan, 1632〉（CC0；1644–46 年印，原版首見 Zeyger van Rechteren 1635 年的航海日誌），影像在 `assets/img/taiwan-history/zeelandia/`（Luke 2026-10-17 同意下載）。版畫上的東西只寫看得到的（岸邊的房子「版畫沒有說是做什麼用的」）；版畫上沒有的只有兩個，都標明來源：中式帆船（依邱馨慧：戎克船幾乎全年往來海峽）、今天的磚牆（臺南市政府：荷蘭時期唯一遺跡是正門外南邊的磚牆）。`lab.spots[]`：`key`（要和 `fort3d.js` 的 `spots` 一致，測試會擋）、`print`（版畫上的百分比座標或 null）、`basis_*`（依據）、`today`（只在「今天」模式出現）。「今天」切換：海變陸地、船和城不見，只剩一段磚牆（**位置只是象徵**，頁面寫明）。
+  - 右欄：版畫（同樣的編號）＋說明卡＋直的時間軸（`kind: 'linear'`＋`nearestLinear`，1600–1670）與 `lab.events[]`（1624–1662，可以點）。3D 區塊在桌機用 `position: sticky` 固定高度（右欄很長，不固定的話畫布會被拉得很高、鏡頭拍不完整）。
+  - 「貨物往哪裡去」：`lesson["trade"]`＋`src/trade2d.js`（`initTrade`、純函式 `routesIn`），用 `world.json` 裁 bbox 畫東亞；三個季節按鈕（南季風 6–9 月／北季風／全年橫越海峽），弧線只表示從哪裡到哪裡（頁面寫明）。航路與貨物全部依吳聰敏 2016 與邱馨慧（胡椒巴達維亞→大員、生絲／鹿皮／糖→日本、白銀日本→大員、鹿肉漢人自運福建）。波斯沒有畫路線（季節與路徑沒有出處），只在文字裡寫「糖遠銷到波斯」。
+  - 小遊戲「這份工作是誰做的？」沿用 `initSort`：原住民族的村社／漢人移民與商人／公司（3／3／2）。
+  - **出處**：吳聰敏〈從貿易與產業發展看荷治時期台灣殖民地經營之績效〉（《經濟論文叢刊》44:3，2016，臺大學術庫可下載全文）——數字、贌社、糖、郭懷一、Provintia、「有沒有賺錢」的三方說法（中村孝志、Van Veen 依吳文轉述）；國家教育研究院《原住民族重大歷史事件補充教材：麻豆社事件》（引公司書信）；邱馨慧兩篇（清大、北教大網站有 PDF）；臺南市政府（城的年代、今天的遺跡）；村社英文拼法依 Campbell 1903（Internet Archive）。**沒寫**：熱蘭遮的名字由來、普羅民遮城和今天赤崁樓的關係（找不到官方出處）、城的上城下城格局與擴建（只有學位論文）、Andrade 的書（沒有開放全文）。年份白名單加了 2016（論文年份）。
+  - **查證抓到的（2026-10-17，都已改）**：版畫是 1644–46 年印的仿刻本，畫的是 1632 年的景象——一律寫「畫出 1632 年景象的版畫」，不寫「1632 年的版畫」；版畫只看得到前牆和兩個城角，「方形、四角」是推想；寫「海邊的高地」不寫「沙丘」（出處沒有）；贌社 1644 年才開辦，1636–1645 年另有漢人獵戶的獵鹿執照；87% 是公司各地商館對日出口的比例；巴城評議會 1662 年 12 月是「有所保留、建議另找北方港口」，「奪回台灣並非有利」是吳聰敏的推論；麻豆條約是公司起草的，也有協同作戰與互助條款；1629 年的經過是補充教材依公司書信的敘述。
+  - 史料與工作檔放在 `~/Developer/twrses-twhist-tools/`（scratchpad 會被清；`l5src/` 是出處、`l5_data.py` 是資料產生器、`tts/` 是 edge-tts 修好的副本）。
+  - 除錯：`document.querySelector('[data-twhfort-lab]').__lab`（`select(key)`、`event(key)`、`setToday(bool)`、`demo(...)`、`check()`）；`document.querySelector('[data-twh-trade]').__trade`（`season(key)`、`route(key)`、`shown()`）。
 
 ## 世界歷史 World History（/resources/classes/world-history/）— 架構照地理與台灣歷史，共用的是「歷史地球儀」與「平行時間軸」
 
