@@ -2619,6 +2619,18 @@ def _lc_head():
 
 _ZY_LEVEL_EN = {"入門": "Beginner", "進階": "Advanced"}
 
+def _tce_hub_card():
+    """中醫養生首頁上通往「中醫入門」總覽課程的一張大卡片（TCE 定義在後面，執行時才讀）。"""
+    if not globals().get("TCE"):
+        return ""
+    return (f'<a class="lc-row rvl" href="{ZHONGYI_BASE}essentials/" style="margin-top:1.6rem;border:2px solid var(--brand-lt)">'
+            f'<span class="lc-num" aria-hidden="true"><b>☯</b><small>Start here</small></span>'
+            f'<span class="lc-body"><span class="lc-meta"><b>Overview course · 總覽課程</b><i>12 modules · 十二單元</i></span>'
+            f'<h3 class="lc-title">TCM Essentials</h3><span class="lc-zh">中醫入門</span>'
+            f'<span class="lc-bl">New to Chinese medicine? Start with twelve short modules in English and Chinese — with quizzes, a food explorer, the organ clock, and an honest look at the evidence.</span>'
+            f'<span class="lc-bl zh">第一次接觸中醫？先從十二個中英對照的短單元讀起：有小測驗、食物寒熱查詢、臟腑時鐘，也誠實地看證據。</span>'
+            f'<span class="lc-go">Open the course · 進入課程 <i>&rarr;</i></span></span></a>')
+
 def build_zhongyi_hub():
     # 橫向卡片：左邊課次數字、右邊雙語標題與簡介；上方一條單元導覽（捲動時自動標出目前單元）。
     # 不再用 pm-cards 四欄窄卡——英文長標題會被切成好幾行（2026-09-30 Luke 嫌難讀）。
@@ -2662,6 +2674,7 @@ def build_zhongyi_hub():
 {page_hero(ZHONGYI["eyebrow"], ZHONGYI["title_en"], lead, back=("/resources/reading/", "回閱讀與經典"))}
 <section class="section"><div class="wrap">
   <div class="prose wide rvl">{intro_html}</div>
+  {_tce_hub_card()}
 </div></section>
 {unit_nav}
 {"".join(unit_sections)}
@@ -2669,6 +2682,188 @@ def build_zhongyi_hub():
     write(ZHONGYI_BASE, layout(ZHONGYI_BASE, f'{ZHONGYI["title_en"]} · {ZHONGYI["title_zh"]}',
           f'{ZHONGYI["lead_en"]} {ZHONGYI["lead_zh"]}', body, "resources", extra_head=_lc_head()))
     return ZHONGYI_BASE
+
+
+# ---- 中醫入門 TCM Essentials（data/zhongyi-essentials.json）----
+# 中醫養生系列底下的一頁式總覽課程：12 個單元、中英對照、每單元小測驗與互動小工具。
+# 取代 Luke 個人 GitHub Pages 上的舊版 tcm-essentials（2026-05 用舊模型做的、說法過頭）。
+# 內容原稿是 ~/Developer/twrses-tcm-tools/content/*.py，`python3 make.py <repo>` 產生 JSON；
+# 要改字直接改原稿再重產，不要手改 JSON。
+# 全文伺服器端輸出（搜尋、無 JS 都讀得到），assets/js/tce.js 負責：一次顯示一個單元、
+# EN／中英／中文切換、小測驗、五個小工具（陰陽、五行、體質、食物、臟腑時鐘、穴位）、
+# 進度存在 localStorage。CSS／class 前綴一律 tce-。
+_tcej = os.path.join(ROOT, "data", "zhongyi-essentials.json")
+TCE = json.load(open(_tcej, encoding="utf-8")) if os.path.exists(_tcej) else None
+TCE_PATH = ZHONGYI_BASE + "essentials/"
+
+def _tce_ver():
+    h = hashlib.md5()
+    for rel in ("assets/css/tce.css", "assets/js/tce.js"):
+        fp = os.path.join(ROOT, rel)
+        if os.path.exists(fp): h.update(open(fp, "rb").read())
+    return h.hexdigest()[:8]
+
+def _tce_bi(t, tag="p", cls=""):
+    """English and Chinese as sibling elements; the language switch hides one or the other. Text is trusted HTML from our own data."""
+    c = f' class="{cls}"' if cls else ""
+    return (f'<{tag}{c} lang="en">{t["en"]}</{tag}>'
+            f'<{tag}{c} lang="zh-Hant">{t["zh"]}</{tag}>')
+
+def _tce_inline(t):
+    return f'<span lang="en">{t["en"]}</span><span lang="zh-Hant">{t["zh"]}</span>'
+
+_TCE_NOTE = {"science": ("🔬", "tce-n-sci"), "caution": ("⚠️", "tce-n-warn"), "taiwan": ("🇹🇼", "tce-n-tw"), "try": ("✋", "tce-n-try")}
+
+def _tce_block(b):
+    t = b["t"]
+    if t == "p":
+        return f'<div class="tce-p">{_tce_bi(b)}</div>'
+    if t == "h":
+        return f'<h3 class="tce-h">{_tce_inline(b)}</h3>'
+    if t == "list":
+        tag = "ol" if b["ordered"] else "ul"
+        lis = "".join(f'<li>{_tce_bi(i, "div")}</li>' for i in b["items"])
+        return f'<{tag} class="tce-list">{lis}</{tag}>'
+    if t == "defs":
+        rows = "".join(
+            f'<div class="tce-def"><dt>{_tce_inline(i["term"])}</dt><dd>{_tce_bi(i["body"], "div")}</dd></div>'
+            for i in b["items"])
+        return f'<dl class="tce-defs">{rows}</dl>'
+    if t == "table":
+        head = "".join(f'<th scope="col">{_tce_inline(h)}</th>' for h in b["head"])
+        body = "".join("<tr>" + "".join(f'<td>{_tce_inline(c)}</td>' for c in r) + "</tr>" for r in b["rows"])
+        cap = f'<caption>{_tce_inline(b["cap"])}</caption>' if b.get("cap") else ""
+        return f'<div class="tce-table"><table>{cap}<thead><tr>{head}</tr></thead><tbody>{body}</tbody></table></div>'
+    if t == "quote":
+        return (f'<figure class="tce-quote"><blockquote><p class="tce-orig">{html.escape(b["orig"])}</p>'
+                f'{_tce_bi(b, "p", "tce-q-tr")}</blockquote>'
+                f'<figcaption>— {_tce_inline(b["src"])}</figcaption></figure>')
+    if t == "note":
+        ico, cls = _TCE_NOTE[b["kind"]]
+        return (f'<aside class="tce-note {cls}"><p class="tce-note-t"><span aria-hidden="true">{ico}</span> {_tce_inline(b["title"])}</p>'
+                f'{_tce_bi(b["body"], "div", "tce-note-b")}</aside>')
+    if t == "widget":
+        return (f'<div class="tce-widget" data-tce-widget="{b["name"]}">'
+                f'<p class="tce-nojs"><span lang="en">This interactive part needs JavaScript.</span>'
+                f'<span lang="zh-Hant">這個互動區需要啟用 JavaScript。</span></p></div>')
+    raise ValueError(t)
+
+def _tce_quiz(qs, qid, final=False):
+    items = []
+    for n, q in enumerate(qs, 1):
+        opts = "".join(
+            f'<li><button type="button" class="tce-opt" data-i="{i}">{_tce_inline(o)}</button></li>'
+            for i, o in enumerate(q["opts"]))
+        items.append(
+            f'<li class="tce-q" data-a="{q["a"]}"><p class="tce-q-t"><b>{n}.</b> {_tce_inline(q["q"])}</p>'
+            f'<ol class="tce-opts" type="A">{opts}</ol>'
+            f'<div class="tce-why" hidden>{_tce_bi(q["why"], "div")}</div></li>')
+    label = (("Final check", "總複習") if final else ("Quick check", "小測驗"))
+    return (f'<section class="tce-quiz" data-quiz="{qid}">'
+            f'<h3 class="tce-h"><span lang="en">{label[0]}</span><span lang="zh-Hant">{label[1]}</span>'
+            f' <small>{len(qs)}</small></h3>'
+            f'<ol class="tce-qs">{"".join(items)}</ol>'
+            f'<p class="tce-score" aria-live="polite"></p>'
+            f'<button type="button" class="tce-btn tce-ghost" data-quiz-reset><span lang="en">Try again</span><span lang="zh-Hant">重新作答</span></button>'
+            f'</section>')
+
+def _tce_module(m, total):
+    blocks = "".join(_tce_block(b) for b in m["blocks"])
+    terms = "".join(
+        f'<li><b lang="en">{html.escape(x["en"])}</b><span class="tce-zhterm">{html.escape(x["zh"])}</span>'
+        f'<i>{html.escape(x["py"])}</i>'
+        f'<button type="button" class="say-btn tce-say" data-say="{html.escape(x["en"], quote=True)}" aria-label="Listen · 聽發音">🔊</button></li>'
+        for x in m["terms"])
+    deeper = ""
+    if m["deeper"]:
+        links = "".join(
+            f'<li><a href="{ZHONGYI_BASE}{d["slug"]}/"><span lang="en">{html.escape(d["title"])}</span>'
+            f'<span lang="zh-Hant">{html.escape(d["title_zh"])}</span> &rarr;</a></li>' for d in m["deeper"])
+        deeper = (f'<section class="tce-deeper"><h3 class="tce-h"><span lang="en">Go deeper in the TCM Wellness series</span>'
+                  f'<span lang="zh-Hant">到「中醫養生」系列讀更多</span></h3><ul>{links}</ul></section>')
+    return f'''<article class="tce-mod" id="m-{m["num"]}" data-mod="{m["num"]}" aria-labelledby="m-{m["num"]}-h">
+  <header class="tce-mod-head">
+    <p class="tce-mod-n"><span lang="en">Module {m["num"]} of {total}</span><span lang="zh-Hant">第 {m["num"]} 單元・共 {total} 單元</span></p>
+    <h2 id="m-{m["num"]}-h"><span lang="en">{m["title"]["en"]}</span><span lang="zh-Hant">{m["title"]["zh"]}</span></h2>
+    {_tce_bi(m["tag"], "p", "tce-tag")}
+  </header>
+  {blocks}
+  <section class="tce-take"><h3 class="tce-h"><span lang="en">Take with you</span><span lang="zh-Hant">帶走這一句</span></h3>{_tce_bi(m["takeaway"], "div")}</section>
+  <section class="tce-terms"><h3 class="tce-h"><span lang="en">Key terms</span><span lang="zh-Hant">關鍵詞</span></h3><ul>{terms}</ul></section>
+  {_tce_quiz(m["quiz"], m["num"])}
+  {deeper}
+</article>'''
+
+def build_zhongyi_essentials():
+    d = TCE
+    total = len(d["modules"])
+    intro = d["intro"]
+    cards = "".join(
+        f'<li><a class="tce-card" href="#m-{m["num"]}" data-go="{m["num"]}">'
+        f'<span class="tce-card-n">{m["num"]:02d}</span>'
+        f'<span class="tce-card-t"><b lang="en">{m["title"]["en"]}</b><b lang="zh-Hant">{m["title"]["zh"]}</b>'
+        f'<span lang="en">{m["tag"]["en"]}</span><span lang="zh-Hant">{m["tag"]["zh"]}</span></span>'
+        f'<span class="tce-card-s" data-status="{m["num"]}"></span></a></li>'
+        for m in d["modules"])
+    rail = "".join(
+        f'<a href="#m-{m["num"]}" data-go="{m["num"]}" title="{html.escape(m["title"]["en"])} · {html.escape(m["title"]["zh"])}">{m["num"]}</a>'
+        for m in d["modules"])
+    mods = "\n".join(_tce_module(m, total) for m in d["modules"])
+    sources = "".join(f'<li>{html.escape(s["text"])} <a href="{html.escape(s["url"])}" rel="noopener">{html.escape(s["url"].split("//")[-1].split("/")[0])}</a></li>'
+                      for s in d["sources"])
+    widget_data = {k: d[k] for k in ("yinyang_pairs", "elements", "element_rows", "constitutions", "foods", "clock", "points")}
+    widget_json = json.dumps(widget_data, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")
+    about = "".join(_tce_bi(p, "p") for p in intro["about"])
+    lead = (f'{html.escape(intro["lead"]["en"])}<br><span class="muted">{html.escape(intro["lead"]["zh"])}</span>')
+    hero_title = 'TCM Essentials <span class="tp-h2-en">中醫入門</span>'
+    body = f'''
+{page_hero("TCM Essentials · 中醫入門", hero_title, lead, back=(ZHONGYI_BASE, "回中醫養生 · TCM Wellness"))}
+<div class="tce" id="tce" data-lang="both">
+  <div class="tce-bar" role="toolbar" aria-label="Course tools · 課程工具">
+    <div class="wrap tce-bar-in">
+      <a class="tce-home" href="#start" data-go="0"><span aria-hidden="true">☯</span><span lang="en">Course map</span><span lang="zh-Hant">課程地圖</span></a>
+      <nav class="tce-rail" aria-label="Modules · 單元">{rail}<a href="#final" data-go="final" title="Final check · 總複習">✓</a></nav>
+      <div class="tce-lang" role="group" aria-label="Language · 語言">
+        <button type="button" data-lang-set="en">EN</button><button type="button" data-lang-set="both" aria-pressed="true">中英</button><button type="button" data-lang-set="zh">中文</button>
+      </div>
+    </div>
+    <div class="tce-progress" aria-hidden="true"><i></i></div>
+  </div>
+  <section class="section tce-start" id="start" data-mod="0"><div class="wrap tce-wrap">
+    <div class="tce-about">{about}</div>
+    <p class="tce-prog-t" data-progress-text></p>
+    <ol class="tce-cards">{cards}
+      <li><a class="tce-card tce-card-final" href="#final" data-go="final"><span class="tce-card-n">✓</span><span class="tce-card-t"><b lang="en">Final check</b><b lang="zh-Hant">總複習</b><span lang="en">Fifteen questions across all twelve modules.</span><span lang="zh-Hant">十五題，涵蓋全部十二個單元。</span></span><span class="tce-card-s" data-status="final"></span></a></li>
+    </ol>
+  </div></section>
+  <section class="section tce-body"><div class="wrap tce-wrap">
+{mods}
+    <article class="tce-mod" id="final" data-mod="final">
+      <header class="tce-mod-head"><h2><span lang="en">Final check</span><span lang="zh-Hant">總複習</span></h2>
+      <p class="tce-tag" lang="en">Fifteen questions, one or two from each module. Twelve or more and you have the foundation.</p>
+      <p class="tce-tag" lang="zh-Hant">十五題，每個單元一兩題。答對十二題以上，基礎就打好了。</p></header>
+      {_tce_quiz(d["final"], "final", final=True)}
+      <section class="tce-sources"><h3 class="tce-h"><span lang="en">Sources and further reading</span><span lang="zh-Hant">資料來源與延伸閱讀</span></h3><ul>{sources}</ul></section>
+      <aside class="tce-note tce-n-warn"><p class="tce-note-t"><span aria-hidden="true">⚠️</span> <span lang="en">Educational use only</span><span lang="zh-Hant">僅供教育用途</span></p>
+      <div class="tce-note-b" lang="en">This course explains ideas; it does not diagnose or treat. For any health concern, see a licensed doctor or 中醫師, and tell each of them what the other is doing.</div>
+      <div class="tce-note-b" lang="zh-Hant">這門課說明觀念，不做診斷也不提供治療。任何健康問題，請找有執照的醫師或中醫師，並讓他們彼此知道對方的治療。</div></aside>
+    </article>
+    <nav class="tce-pager" aria-label="Previous and next · 上一單元與下一單元">
+      <button type="button" class="tce-btn tce-ghost" data-step="-1">&larr; <span lang="en">Previous</span><span lang="zh-Hant">上一單元</span></button>
+      <button type="button" class="tce-btn" data-step="1"><span lang="en">Next</span><span lang="zh-Hant">下一單元</span> &rarr;</button>
+    </nav>
+  </div></section>
+</div>
+<script type="application/json" id="tce-data">{widget_json}</script>
+'''
+    v = _tce_ver()
+    head = (f'<link rel="stylesheet" href="/assets/css/tce.css?v={v}">\n'
+            f'<script defer src="/assets/js/tce.js?v={v}"></script>\n')
+    has_clips = os.path.exists(os.path.join(ROOT, "assets/data/say", "zhongyi-essentials.json"))
+    write(TCE_PATH, layout(TCE_PATH, "TCM Essentials · 中醫入門",
+          f'{intro["lead"]["en"]} {intro["lead"]["zh"]}', body, "resources", extra_head=head,
+          say_manifest="zhongyi-essentials" if has_clips else None))
+    return TCE_PATH
 
 
 # ---- 天文教育（資料驅動，data/astronomy.json）----
@@ -24755,6 +24950,8 @@ def main():
         for _es in GUWEN["essays"]: paths.append(build_guwen_essay(_es))
     if ZHONGYI:
         paths.append(build_zhongyi_hub())
+        if TCE:
+            paths.append(build_zhongyi_essentials())
         for _idx, _u in enumerate(ZHONGYI["units"]):
             _label = ZHONGYI_UNIT_LABELS[_idx] if _idx < len(ZHONGYI_UNIT_LABELS) else str(_idx + 1)
             for _l in _u["lessons"]:

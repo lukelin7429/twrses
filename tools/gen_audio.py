@@ -42,7 +42,8 @@ SHORT_PAGES = ("resources/classes/philosophy", "resources/booklets", "resources/
                "resources/classes/calligraphy", "resources/classes/computers", "resources/classes/music", "resources/classes/art", "resources/classes/math",
                "resources/classes/geography",
                "resources/classes/pe", "resources/classes/home",
-               "resources/classes/taiwan-history", "resources/classes/world-history", "resources/classes/us-government")
+               "resources/classes/taiwan-history", "resources/classes/world-history", "resources/classes/us-government",
+               "resources/classes/zhongyi/essentials")
 SHORT_WORDS = 3
 
 
