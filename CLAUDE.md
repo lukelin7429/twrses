@@ -1346,6 +1346,12 @@
   - 除錯：`[data-usgbill-lab].__lab`（`scenario(key)`、`stage(key)`、`replay()`、`finish()`、`demo(key)`、`info()`、`run(秒)`、`render()`）；`[data-ug-order].__order`（`pick(key)`、`reset()`、`info()`）。
   - **查證注意**：「ping-pong」不是官方用語（官方是 amendments between the houses）；「多少比例的法案死在委員會」沒有官方數字，不寫百分比；第 117 屆的 15,058／176 是兩個會期活動摘要加總、362 是最後一條公法編號（摘要的「enacted」數到隔年 1 月 3 日為止，會少算）；How Our Laws Are Made 最新是 2007 年版（H. Doc. 110-49），委員會數目已過時；台灣的覆議不是否決（行政院提出、全體立委二分之一維持、逾期原決議失效）。
   - 工作位置（2026-10-16 起）：worktree `~/Developer/twrses-usgov-wt`、課文腳本與截圖工具 `~/Developer/twrses-usgov-tools/`（scratchpad 會被清空）。
+- 第七課〈選區的線是誰畫的？〉（`usg-lines.js`，`lab.kind = "lines"`，`data-usglines-lab`，slug `who-draws-the-lines`；單元二第三課）：一個想法——每次普查後各州重劃眾議院選區；憲法只說選舉「方式」由州議會訂、國會可改；人口要大致相等（Wesberry 1964）；線畫在哪裡會改變結果。
+  - **界線（本課特別嚴）**：只用**虛構的 8×8 格子地圖**與兩群虛構選民 `g`（綠 #4e9c74）／`o`（橘 #e08a3c），**絕不用紅藍、不標政黨**；不評斷任何一州現在的地圖；判決只用 1960–1983 年的老案子（Gomillion、Baker、Wesberry、Reynolds），**2000 年以後的選區判決一律不用**；packing／cracking 照 CRS R45951 的定義，課文寫「刻意這樣畫才叫」。
+  - **純函式 `districts.js`**（`test/districts.test.mjs`）：`tally`、`seats`、`check`（每區格數相等、四鄰相連、畫完）、`presets`（`cols`／`rows`／`boxes`）、`edges`、`stripeVoters`。地圖 `lab.voters` 是 64 個字元（左 5 欄 g、右 3 欄 o，62.5%）；三種畫法的結果 **5:3、8:0、4:4**，資料測試同時檢查程式結果與課文寫的數字一致。
+  - 3D：格子方塊＋每格一個小人（人數相同）＋白牆（選區邊界，切換時從地面長出來）＋每區一根柱子（贏的那一群的顏色）與標籤「區號 綠–橘」。小互動：「自己畫選區」（`draw`，`draw2d.js`，`data-ug-draw`：選區號碼調色盤、點或拖格子、即時檢查與計票、可從三種畫法開始）；「這條規則從哪裡來？」（`match`，`cols: 4`：憲法／聯邦法律／最高法院／州法）。
+  - 除錯：`[data-usglines-lab].__lab`（`plan(key)`、`demo(key)`、`info()`、`run(秒)`、`render()`）；`[data-ug-draw].__draw`（`paint(i, d)`、`load(key)`、`clear()`、`info()`）。
+  - **查證注意**：格里沒有畫地圖也沒有造字（他簽署、覺得「highly disagreeable」；漫畫是 Elkanah Tisdale 畫的；造字者不明；那是州參議院選區）——國會圖書館 2017 年的部落格有錯，用 2024 年那篇；Baker v. Carr 只判「法院可以受理」；Reynolds 是州議會、Gomillion 是市界；台灣的選區由中選會劃分、立法院同意，未完成的部分由行政、立法兩院院長協商（不是「立法院院長邀集」）。
 
 ## Build / Deploy
 ```

@@ -19253,7 +19253,7 @@ def build_wh_hub():
 _usgj = os.path.join(ROOT, "data", "us_government.json")
 USG = json.load(open(_usgj, encoding="utf-8")) if os.path.exists(_usgj) else None
 USG_BASE = "/resources/classes/us-government/"
-_USG_JS = {"constitution": "usg-constitution", "checks": "usg-checks", "federalism": "usg-federalism", "rights": "usg-rights", "congress": "usg-congress", "bill": "usg-bill"}   # lab.kind → assets/js/<bundle>.js
+_USG_JS = {"constitution": "usg-constitution", "checks": "usg-checks", "federalism": "usg-federalism", "rights": "usg-rights", "congress": "usg-congress", "bill": "usg-bill", "lines": "usg-lines"}   # lab.kind → assets/js/<bundle>.js
 
 def _usg_ver():
     h = hashlib.md5()
@@ -19714,7 +19714,69 @@ def _ug_order(d):
 </div>'''
 
 
-_USG_CARD = {"constitution": usgconst_svg, "checks": usgchecks_svg, "federalism": usgfed_svg, "rights": usgrights_svg, "congress": usgcongress_svg, "bill": usgbill_svg}
+def usglines_svg(size=56):
+    """第七課的課程卡小圖示：4×4 的綠橘格子，被白線切成四區。"""
+    cells = "".join(f'<rect x="{8 + c * 11}" y="{8 + r * 11}" width="10" height="10" rx="1.5" fill="{"#4e9c74" if c < 3 else "#e08a3c"}"/>' for r in range(4) for c in range(4))
+    return (f'<svg class="usglines-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">{cells}'
+            '<path d="M7.5 29.5H52.5M29.5 7.5V29.5M18.5 29.5V52.5M40.5 29.5V52.5" stroke="#f4f1e8" stroke-width="2.4" stroke-linecap="round"/>'
+            '<rect x="7" y="7" width="46" height="46" rx="3" fill="none" stroke="#f4f1e8" stroke-width="2"/></svg>')
+
+def render_usglines_lab(lesson):
+    """第七課：虛構的格子地圖與三種畫法（assets/js/usg-lines.js 綁這裡的 class）。"""
+    lab = lesson["lab"]
+    btns = "".join(
+        f'<button type="button" data-plan="{p["key"]}" aria-pressed="{"true" if p["key"] == lab["start"] else "false"}"><b>{html.escape(p["btn_en"])}</b><small>{html.escape(p["btn_zh"])}</small></button>'
+        for p in lab["plans"])
+    panels = "".join(
+        f'<div class="ug-ln-p" data-plan-panel="{p["key"]}"{"" if p["key"] == lab["start"] else " hidden"}>'
+        f'<h3 class="ug-art-name">{html.escape(p["en"])}<span class="zh">{html.escape(p["zh"])}</span></h3>'
+        f'<p class="ug-art-est">{html.escape(p["text_en"])}<span class="zh">{html.escape(p["text_zh"])}</span></p></div>'
+        for p in lab["plans"])
+    payload = json.dumps({k: lab[k] for k in ("n", "k", "voters", "start")}, ensure_ascii=False).replace("</", "<\\/")
+    tg = _lab_toggles([("labels", "Labels", "標示", True)])
+    return f'''<div class="astro-lab ug-lab ug-ln rvl" data-usglines-lab>
+  <script type="application/json">{payload}</script>
+  <div class="al-stage">
+    <div class="al-space">
+      <canvas class="al-space-cv" aria-label="3D model of an invented map of 64 squares with two groups of voters, green and orange, divided into eight districts by white walls; a pillar in each district shows which group wins it · 一張由 64 格組成的虛構地圖，綠、橘兩群選民，被白色的牆切成八個選區；每區一根柱子顯示哪一群贏"></canvas>
+      <div class="al-labels" aria-hidden="true"></div>
+      <p class="al-hint">Drag to look around · 拖曳轉動視角　Scroll or pinch to zoom · 滾輪／雙指縮放</p>
+      <button type="button" class="al-home" title="Whole view · 回到全景" aria-label="Whole view · 回到全景">&#8634;</button>
+      <p class="al-nogl-msg">This 3D model needs WebGL, which this browser does not support. The buttons and the panel still work, and so does the flat map below where you can draw your own districts.<br><span class="zh">這個瀏覽器不支援 WebGL，無法顯示 3D 模型；按鈕和說明欄照樣能用，下面也有平面的地圖，可以自己畫選區。</span></p>
+    </div>
+    <aside class="al-sky ug-aside">
+      <p class="al-sky-k">Same voters, different lines · 同樣的選民，不同的線</p>
+      <p class="ug-ln-voters">{html.escape(lab["voters_en"])}<span class="zh">{html.escape(lab["voters_zh"])}</span></p>
+      {panels}
+      <div class="ug-ln-seats" aria-live="polite"></div>
+    </aside>
+  </div>
+  <div class="al-controls">
+    <p class="ug-ctl-k">Choose a way to draw eight districts · 選一種畫出八個選區的方法</p>
+    <div class="ug-ln-btns" role="group" aria-label="Maps · 畫法">{btns}</div>
+    <div class="al-row al-toggles ug-row-play">{tg}</div>
+  </div>
+  {_lab_foot(lab)}
+</div>'''
+
+def _ug_draw(d):
+    """「自己畫選區」（tools/usgov/src/draw2d.js）。"""
+    payload = json.dumps({k: d[k] for k in ("n", "k", "voters")}, ensure_ascii=False).replace("</", "<\\/")
+    return f'''<div class="ug-draw rvl" data-ug-draw>
+  <script type="application/json">{payload}</script>
+  <div class="ug-dw-bar">
+    <div class="ug-dw-pal" role="group" aria-label="District to paint · 要畫的選區"></div>
+    <div class="ug-dw-load"><button type="button" class="ug-btn" data-load="cols">Columns · 照欄</button><button type="button" class="ug-btn" data-load="rows">Rows · 照列</button><button type="button" class="ug-btn" data-load="boxes">Boxes · 方塊</button><button type="button" class="ug-btn" data-load="clear">Clear · 清空</button></div>
+  </div>
+  <div class="ug-dw-main">
+    <svg class="ug-dw-map" role="img" aria-label="Invented map of 64 squares; choose a district number, then click or drag over squares to draw it · 64 格的虛構地圖；選一個選區號碼，再點或拖過格子把它畫進去"></svg>
+    <div class="ug-dw-side"><ol class="ug-dw-rows" aria-live="polite"></ol><p class="ug-dw-msg" aria-live="polite"></p></div>
+  </div>
+  <p class="ug-am-note">{html.escape(d["note_en"])}<span class="zh">{html.escape(d["note_zh"])}</span></p>
+</div>'''
+
+
+_USG_CARD = {"constitution": usgconst_svg, "checks": usgchecks_svg, "federalism": usgfed_svg, "rights": usgrights_svg, "congress": usgcongress_svg, "bill": usgbill_svg, "lines": usglines_svg}
 
 def _ug_timeline(tl):
     """可縮放的時間軸骨架（tools/usgov/src/timeline2d.js 綁這裡的 class；每課共用）。"""
@@ -19784,7 +19846,7 @@ def render_usgconst_lab(lesson):
   {_lab_foot(lab)}
 </div>'''
 
-_USG_LAB = {"constitution": render_usgconst_lab, "checks": render_usgchecks_lab, "federalism": render_usgfed_lab, "rights": render_usgrights_lab, "congress": render_usgcongress_lab, "bill": render_usgbill_lab}
+_USG_LAB = {"constitution": render_usgconst_lab, "checks": render_usgchecks_lab, "federalism": render_usgfed_lab, "rights": render_usgrights_lab, "congress": render_usgcongress_lab, "bill": render_usgbill_lab, "lines": render_usglines_lab}
 
 def _ug_spk(text, label="Listen · 聽"):
     return f'<button class="spk" data-say="{html.escape(re.sub(r"<[^>]+>", "", text))}" aria-label="{label}">🔊</button>'
@@ -19940,7 +20002,7 @@ def _ug_news_english(d):
 
 # 頁面上的小互動與每課固定的卡：照這個順序排在「模型卡」後面（JSON 有那個 key 才出現）。
 # clause（條文怎麼寫？）、primary（讀原典）、debate（制度的爭論）、taiwan（和台灣比一比）、news_english（新聞英語）每課都要有。
-_USG_WIDGETS = [("match", _ug_match), ("match2", _ug_match), ("amend", _ug_amend), ("veto", _ug_veto), ("fifty", _ug_fifty), ("weight", _ug_weight), ("order", _ug_order), ("clause", _ug_clause), ("primary", _ug_primary),
+_USG_WIDGETS = [("match", _ug_match), ("match2", _ug_match), ("amend", _ug_amend), ("veto", _ug_veto), ("fifty", _ug_fifty), ("weight", _ug_weight), ("order", _ug_order), ("draw", _ug_draw), ("clause", _ug_clause), ("primary", _ug_primary),
                 ("debate", _ug_debate), ("taiwan", _ug_taiwan), ("news_english", _ug_news_english)]
 
 def _usg_flat():

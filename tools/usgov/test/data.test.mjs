@@ -210,4 +210,27 @@ const k6 = lessons.find((l) => l.slug === 'how-a-bill-becomes-law');
   assert.ok(Math.abs(w(s0) - w(s1)) <= 8, 'debate sides about equal length');
   assert.ok(Math.abs(s0.voice.split(/\s+/).length - s1.voice.split(/\s+/).length) <= 8, 'quoted voices about equal length');
 }
+// 第七課：選區劃分（虛構的格子地圖）
+const k7 = lessons.find((l) => l.slug === 'who-draws-the-lines');
+{
+  const { presets, seats, check } = await import('../src/districts.js');
+  const { n, k, voters } = k7.lab;
+  assert.equal(voters.length, n * n); assert.match(voters, /^[go]+$/, 'only invented groups g and o');
+  const V = voters.split(''), P = presets(n, k);
+  assert.deepEqual(k7.lab.plans.map((p) => p.key), ['cols', 'rows', 'boxes']);
+  for (const p of k7.lab.plans) assert.ok(check(P[p.key], n, k).valid, p.key);
+  // 課文寫的結果要和程式算的一樣：5 比 3、8 比 0、4 比 4
+  assert.deepEqual([seats(V, P.cols, k), seats(V, P.rows, k), seats(V, P.boxes, k)].map((s) => [s.g, s.o]), [[5, 3], [8, 0], [4, 4]]);
+  assert.ok(/5 to 3, 8 to 0, and 4 to 4/.test(k7.paras.join(' ')));
+  assert.equal(V.filter((v) => v === 'g').length / V.length, 0.625);
+  assert.equal(k7.draw.voters, voters);
+  for (const p of k7.parts) assert.ok(P[p.demo], p.demo);
+  for (const q of k7.match.questions) assert.ok(k7.match.options.some((o) => o.key === q.answer), q.en);
+  // 不用紅藍：本課的 3D 與小互動只有綠與橘
+  const [s0, s1] = k7.debate.sides;
+  const w = (s) => s.points.reduce((a, q) => a + q.en.split(/\s+/).length, 0);
+  assert.equal(s0.points.length, s1.points.length);
+  assert.ok(Math.abs(w(s0) - w(s1)) <= 8, 'debate sides about equal length');
+  assert.ok(Math.abs(s0.voice.split(/\s+/).length - s1.voice.split(/\s+/).length) <= 8, 'quoted voices about equal length');
+}
 console.log('data.test ok');

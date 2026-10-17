@@ -10283,7 +10283,7 @@
               "zh": "選區的線是誰畫的？",
               "note_en": "The next lesson asks how the House districts themselves are drawn.",
               "note_zh": "下一課問：眾議院的選區本身是怎麼畫出來的？",
-              "soon": true
+              "href": "/resources/classes/us-government/who-draws-the-lines/"
             }
           ],
           "clause": {
@@ -10724,15 +10724,1069 @@
               "url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=A0000002"
             }
           ]
+        },
+        {
+          "n": 7,
+          "slug": "who-draws-the-lines",
+          "title": "Who Draws the Lines?",
+          "title_zh": "選區的線是誰畫的？",
+          "level": "高中以上 · High school and up",
+          "icon": "✏️",
+          "card": "lines",
+          "lab": {
+            "kind": "lines",
+            "eyebrow": "3D Model · 3D 模型",
+            "title_en": "Same Voters, Different Lines",
+            "title_zh": "同樣的選民，不同的線",
+            "n": 8,
+            "k": 8,
+            "voters": "gggggooogggggooogggggooogggggooogggggooogggggooogggggooogggggooo",
+            "start": "cols",
+            "voters_en": "An invented map: 64 squares with the same number of people in each. Green voters are the majority in 40 squares (62.5 percent), orange voters in 24 (37.5 percent). Eight districts of eight squares each. To keep it simple, every voter in a square belongs to the same group.",
+            "voters_zh": "一張虛構的地圖：64 格，每格人數相同。綠色選民在 40 格占多數（62.5%），橘色選民在 24 格占多數（37.5%）。要切成八個選區，每區 8 格。為了簡單起見，每一格裡的選民都屬於同一群。",
+            "plans": [
+              {
+                "key": "cols",
+                "btn_en": "Columns",
+                "btn_zh": "照欄",
+                "en": "Columns",
+                "zh": "照欄切",
+                "text_en": "Each column is a district. Five columns are green and three are orange, so green wins 5 districts and orange wins 3, matching their shares of the voters.",
+                "text_zh": "每一欄是一個選區。五欄是綠、三欄是橘，所以綠贏 5 區、橘贏 3 區，和兩群選民的比例一致。"
+              },
+              {
+                "key": "rows",
+                "btn_en": "Rows",
+                "btn_zh": "照列",
+                "en": "Rows",
+                "zh": "照列切",
+                "text_en": "Each row is a district. Every row has five green squares and three orange ones, so green wins all 8 districts. Orange voters are spread so thin that they win nowhere. When lines are drawn this way on purpose, it is called cracking.",
+                "text_zh": "每一列是一個選區。每一列都有五格綠、三格橘，所以綠贏下全部 8 區。橘色選民被分散得太薄，哪一區都贏不了。如果是刻意這樣畫，就叫做「分散」（cracking）。"
+              },
+              {
+                "key": "boxes",
+                "btn_en": "Boxes",
+                "btn_zh": "方塊",
+                "en": "Boxes",
+                "zh": "切成方塊",
+                "text_en": "Each district is a neat block of two rows and four columns. The four blocks on the left are all green; the four on the right have six orange squares and two green ones. Green voters are concentrated in four districts that they win by huge margins, so the result is 4 to 4 even though green has most of the voters. When lines are drawn this way on purpose, it is called packing.",
+                "text_zh": "每一區是兩列四欄的整齊方塊。左邊四塊全是綠；右邊四塊各有六格橘、兩格綠。綠色選民被集中在四個選區、以極大的差距勝出，所以雖然綠色選民比較多，結果卻是 4 比 4。如果是刻意這樣畫，就叫做「集中」（packing）。"
+              }
+            ],
+            "legend": [
+              {
+                "cls": "lng",
+                "en": "A square where green voters are the majority",
+                "zh": "綠色選民占多數的格子"
+              },
+              {
+                "cls": "lno",
+                "en": "A square where orange voters are the majority",
+                "zh": "橘色選民占多數的格子"
+              },
+              {
+                "cls": "lnwall",
+                "en": "A district boundary",
+                "zh": "選區的邊界"
+              }
+            ],
+            "how_en": "The map is invented. Every square has the same number of people, and its color shows which of two invented groups the voters there belong to; to keep it simple, each square is all one group. Orange squares also carry stripes, so the two groups can be told apart without color. The colors were chosen to avoid the red and blue that American news uses for the two parties. Choose a way to divide the map into eight districts of equal population. White walls mark the boundaries, and a pillar in each district takes the color of the group that wins it; the labels give each district's vote in squares, green first.",
+            "how_zh": "這張地圖是虛構的。每一格人數相同，顏色代表那裡的選民屬於兩群虛構選民中的哪一群（為了簡單起見，每一格都只有一群）；橘色格子另外加上斜紋，不靠顏色也分得出來；顏色刻意避開美國新聞替兩大黨用的紅色與藍色。選一種把地圖切成八個人口相等選區的方法：白色的牆是邊界，每一區中間的柱子是贏下那一區的那一群的顏色；標籤寫出每一區的格數，綠在前、橘在後。",
+            "scale_en": "A simplified diagram, not a real place. Real districts follow streets, rivers, and town lines, contain hundreds of thousands of people, and are drawn under state and federal law. Real voters are not sorted neatly into two groups, and how they vote can change from one election to the next.",
+            "scale_zh": "這是簡化的示意圖，不是真實的地方。真實的選區沿著街道、河流與鄉鎮界線劃分，每區平均約七十六萬人（2020 年普查之後），而且要依州法與聯邦法劃定。真實的選民也不會整齊地分成兩群，他們怎麼投票，每次選舉都可能改變。"
+          },
+          "blurb_en": "One invented map, the same voters, three ways to draw the lines, and three different results.",
+          "blurb_zh": "一張虛構的地圖、同樣的選民、三種畫線的方式，得到三種不同的結果。",
+          "big_idea_en": "After every census, states redraw the boundaries of their House districts. The Constitution leaves the method mostly to the states, courts require districts of nearly equal population, and where the lines fall can change who wins, even when every vote is counted the same way.",
+          "big_idea_zh": "每次人口普查之後，各州都要重劃眾議院的選區界線。憲法大致把方法交給各州，法院要求各選區人口大致相等；而線畫在哪裡，即使每一票都照同樣的方式計算，也可能改變誰會贏。",
+          "paras": [
+            "Every ten years the census counts the people, and the 435 House seats are divided among the states. Then comes a second step, redistricting: each state with more than one seat redraws the boundaries of its districts so that they match the new population. After the 2020 census, the apportionment counts were released on April 26, 2021, and the detailed data that states use to draw districts were first released on August 12, 2021. Six states had only one seat, so the whole state is a single district. The other forty-four had lines to draw.",
+            "The Constitution says nothing about districts. It says that the “Times, Places and Manner” of electing representatives shall be set by each state's legislature, but that Congress may change those rules by law. Congress has used that power at times. An 1842 law required districts of contiguous territory, later laws added equal population and compactness, and those standards lapsed in 1929. Since a law of 1967, every state with more than one representative must elect them from single-member districts, one representative for each district, instead of electing several statewide.",
+            "Who draws the lines depends on the state. According to the Congressional Research Service, in the redistricting that followed the 2020 census, 33 states gave the job to their state legislatures, where in most cases the governor can veto the plan like any other bill. In 11 states, a redistricting commission was primarily responsible. In six of the legislature states, a commission also gave advice. Commissions differ: some include members of the public chosen by methods meant to be nonpartisan or bipartisan, while others include officials or political appointees.",
+            "For much of American history, district populations could differ widely. Tennessee, for example, had not reapportioned its legislature since a 1901 law. In 1962, in Baker v. Carr, the Supreme Court held that federal courts could hear claims that unequal districts denied the equal protection of the laws. Two years later, in Wesberry v. Sanders, it held that congressional districts within a state must be drawn so that “as nearly as is practicable one man's vote in a congressional election is to be worth as much as another's.” Reynolds v. Sims applied a similar rule to state legislatures.",
+            "The word for drawing lines to favor one side is older than most of these rules. In 1812, Massachusetts redrew its state senate districts, and Governor Elbridge Gerry signed the plan, although, according to the Library of Congress, he found it “highly disagreeable.” The word “Gerry-mander” first appeared in the Boston Gazette on March 26, 1812. One district in Essex County had such a twisted shape that cartoons drew it as a winged dragon. The best-known cartoon was drawn by Elkanah Tisdale; who first coined the word has never been identified.",
+            "The Congressional Research Service describes gerrymandering as redistricting “intended to unfairly favor one group's interests over another's,” and names two common techniques. Packing concentrates voters who are expected to vote alike into a few districts, where they win by far more than they need. Cracking spreads them across many districts, so that they fall short of a majority in each. The model above uses invented voters to show the arithmetic: with the same voters and districts of equal population, three ways of drawing the lines produce results of 5 to 3, 8 to 0, and 4 to 4.",
+            "Boundary lines have also been drawn to shut people out of voting because of their race, according to claims the courts have heard. In 1957, Alabama's legislature redrew the boundaries of the city of Tuskegee into what the Supreme Court described as “an uncouth twenty-eight-sided figure.” According to the complaint, the change removed all but four or five of the city's 400 Black voters and not a single white voter. In Gomillion v. Lightfoot in 1960, the Court held that such a claim could proceed under the Fifteenth Amendment. Five years later, the Voting Rights Act of 1965 barred voting practices that deny or abridge the right to vote on account of race or color.",
+            "Beyond equal population and the Voting Rights Act, many states add their own rules. CRS reported in 2026 that 29 states require congressional districts to be compact and 33 have language requiring them to be contiguous; many also ask mapmakers to respect county and city lines or communities of interest. These goals can pull against each other, and none of them guarantees a particular result. The model's neat boxes are compact and contiguous, yet they give a group with most of the voters only half of the seats. Who should draw the lines is the question in the design debate below."
+          ],
+          "paras_zh": [
+            "每十年，人口普查清點人口，眾議院的 435 席依此分配給各州。接著是第二步——重劃選區：每一個有兩席以上的州，都要重劃選區界線，讓它們符合新的人口分布。2020 年普查之後，分配席次用的人口數在 2021 年 4 月 26 日公布，各州劃選區用的詳細資料則在 2021 年 8 月 12 日首度公布。有六個州只有一席，整個州就是一個選區；其餘四十四州都有線要畫。",
+            "憲法沒有提到選區。它規定，選舉眾議員的「時間、地點與方式」由各州議會訂定，但國會可以用法律更改這些規定。國會有時會行使這項權力：1842 年的法律要求選區的土地要相連，後來的法律又加上人口相等與緊湊，這些標準在 1929 年失效。1967 年的一條法律規定，凡是有兩席以上眾議員的州，都必須以單一選區選出——每區選出一位，而不是全州一起選出好幾位。",
+            "誰來畫線，各州不同。依國會研究服務處的資料，在 2020 年普查之後的重劃中，有 33 州把這項工作交給州議會，其中大多數州的州長可以像否決其他法案一樣否決選區圖；有 11 州主要由選區劃分委員會負責；在由州議會畫圖的州裡，另有六州設有提供意見的委員會。委員會也各不相同：有些包括以力求無黨派或兩黨均衡的方式選出的一般民眾，有些則包括官員或政治任命的人。",
+            "美國歷史上很長一段時間，各選區的人口可以相差很多。例如田納西州，自從 1901 年的一條法律之後就沒有重新分配州議會的席次。1962 年的 Baker v. Carr 案，最高法院判定聯邦法院可以受理「選區不均等剝奪了法律的平等保護」這類主張。兩年後的 Wesberry v. Sanders 案，法院判定一州之內的國會選區必須劃分得「在可行的範圍內盡量讓國會選舉中每個人的一票都和別人的一票同樣有分量」。Reynolds v. Sims 案則把類似的規則適用到州議會。",
+            "用畫線來偏袒某一方，這個詞比上面大多數的規則都還要早。1812 年，麻薩諸塞州重劃州參議院的選區，州長傑利（Elbridge Gerry）簽署了這個方案——依美國國會圖書館的說法，他其實覺得這個方案「極不愉快」。「Gerry-mander」這個字最早在 1812 年 3 月 26 日的《波士頓公報》出現。艾塞克斯郡的一個選區形狀非常扭曲，漫畫把它畫成一條有翅膀的龍。最有名的那幅漫畫出自 Elkanah Tisdale 之手；至於是誰最先造出這個字，一直無法確定。",
+            "國會研究服務處把「傑利蠑螈」（gerrymandering）描述為「意圖不公平地偏袒某一群人的利益，勝過另一群人」的重劃，並舉出兩種常見的手法。「集中」（packing）是把預期會投相同的選民集中在少數幾個選區，讓他們以遠超過所需的票數獲勝；「分散」（cracking）是把他們分散到許多選區，讓他們在每一區都差一點過半。上面的模型用虛構的選民示範這筆算術：同樣的選民、人口相等的選區，三種畫法得到 5 比 3、8 比 0 和 4 比 4 三種結果。",
+            "根據法院審理過的主張，界線也曾被用來因種族而把人擋在投票之外。1957 年，阿拉巴馬州議會把塔斯基吉市的邊界重劃成最高法院形容的「一個粗陋的二十八邊形」。依起訴書的說法，這次變更把該市 400 位黑人選民中除了四、五人以外全部劃出市外，卻沒有劃出任何一位白人選民。1960 年的 Gomillion v. Lightfoot 案，法院判定這樣的主張可以依第十五條修正案進行審理。五年後，1965 年的《投票權法》禁止以種族或膚色為由，剝奪或限縮投票權的投票作法。",
+            "除了人口相等與《投票權法》，許多州還加上自己的規則。國會研究服務處 2026 年的報告指出，有 29 州要求國會選區要緊湊、33 州有要求選區相連的規定；許多州也要求劃選區的人尊重郡市界線或「利益相近的社群」。這些目標可能互相拉扯，而且沒有一項能保證某種結果。模型裡整齊的方塊既緊湊又相連，卻讓一群占多數的選民只拿到一半的席次。誰應該畫線，正是下面「制度的爭論」要討論的問題。"
+          ],
+          "questions": [
+            "Why does the Constitution's silence about districts matter for how redistricting works today?",
+            "In the model, the neat boxes are compact and contiguous but give a majority group only half the seats. What does that suggest about using shape rules alone to judge a map?",
+            "Why might the Supreme Court have treated unequal district populations as a question of equal protection?"
+          ],
+          "answers": [
+            "Because the Constitution leaves the manner of elections to state legislatures, subject to change by Congress, the rules come from a mix of state law, federal statutes, and court decisions. That is why practices differ so much from state to state and why the rules have changed over time.",
+            "Shape rules prevent some obvious abuses, but they do not by themselves guarantee any particular result. The same voters can produce very different seat counts under maps that all look neat, so people who judge maps also look at other things, such as how the results compare with the votes.",
+            "If one district has twice as many people as another, each voter in the larger district has about half the influence on choosing a representative. The Court saw that as treating citizens unequally, which the Fourteenth Amendment forbids the states to do."
+          ],
+          "vocab": [
+            {
+              "n": 1,
+              "w": "redistricting",
+              "pos": "n.",
+              "zh": "重劃選區",
+              "ex": "Redistricting follows every census.",
+              "exzh": "每次普查之後都要重劃選區。"
+            },
+            {
+              "n": 2,
+              "w": "apportionment",
+              "pos": "n.",
+              "zh": "（席次）分配",
+              "ex": "Apportionment divides the House seats among the states.",
+              "exzh": "席次分配把眾議院的席次分給各州。"
+            },
+            {
+              "n": 3,
+              "w": "district",
+              "pos": "n.",
+              "zh": "選區",
+              "ex": "Each district elects one representative.",
+              "exzh": "每個選區選出一位眾議員。"
+            },
+            {
+              "n": 4,
+              "w": "boundary",
+              "pos": "n.",
+              "zh": "界線",
+              "ex": "The new boundary split the county in two.",
+              "exzh": "新的界線把這個郡分成兩半。"
+            },
+            {
+              "n": 5,
+              "w": "contiguous",
+              "pos": "adj.",
+              "zh": "相連的",
+              "ex": "A contiguous district has no separate pieces.",
+              "exzh": "相連的選區沒有分開的碎塊。"
+            },
+            {
+              "n": 6,
+              "w": "compact",
+              "pos": "adj.",
+              "zh": "緊湊的",
+              "ex": "A compact district tends to have smoother boundaries.",
+              "exzh": "緊湊的選區界線往往比較平順。"
+            },
+            {
+              "n": 7,
+              "w": "commission",
+              "pos": "n.",
+              "zh": "委員會",
+              "ex": "In some states, a commission draws the districts.",
+              "exzh": "有些州由一個委員會劃分選區。"
+            },
+            {
+              "n": 8,
+              "w": "at-large",
+              "pos": "adj./adv.",
+              "zh": "全州（選出）的",
+              "ex": "A state with one seat elects its representative at-large.",
+              "exzh": "只有一席的州以全州為一個選區選出眾議員。"
+            },
+            {
+              "n": 9,
+              "w": "census",
+              "pos": "n.",
+              "zh": "人口普查",
+              "ex": "The census date is April 1 of each year ending in zero.",
+              "exzh": "普查日是每個以零結尾的年份的 4 月 1 日。"
+            },
+            {
+              "n": 10,
+              "w": "dilute",
+              "pos": "v.",
+              "zh": "稀釋；削弱",
+              "ex": "Spreading a group across many districts can dilute its voting strength.",
+              "exzh": "把一群人分散到許多選區，可能削弱他們的投票力量。"
+            },
+            {
+              "n": 11,
+              "w": "justiciable",
+              "pos": "adj.",
+              "zh": "（法院）可以審理的",
+              "ex": "Baker v. Carr held that the claim was justiciable.",
+              "exzh": "Baker v. Carr 判定這項主張是法院可以審理的。"
+            },
+            {
+              "n": 12,
+              "w": "proportion",
+              "pos": "n.",
+              "zh": "比例",
+              "ex": "Seats do not always follow the proportion of votes.",
+              "exzh": "席次不一定照得票的比例分配。"
+            }
+          ],
+          "quiz": [
+            {
+              "q": "A state gains a House seat after the census. What must it usually do next?",
+              "options": [
+                "Nothing, because district lines are permanent",
+                "Redraw its district boundaries for the new number of seats",
+                "Ask Congress to draw its districts",
+                "Elect the new member statewide forever"
+              ],
+              "correct": 1
+            },
+            {
+              "q": "Which statement about the Constitution is accurate?",
+              "options": [
+                "It requires states to use independent commissions",
+                "It describes how districts must be drawn",
+                "It lets state legislatures set the manner of elections, subject to change by Congress",
+                "It forbids districts entirely"
+              ],
+              "correct": 2
+            },
+            {
+              "q": "In the model, green voters are 62.5 percent of the voters. Under which plan does green win exactly half of the districts?",
+              "options": [
+                "Columns",
+                "Rows",
+                "Boxes",
+                "All three"
+              ],
+              "correct": 2
+            },
+            {
+              "q": "What did Wesberry v. Sanders (1964) require?",
+              "options": [
+                "Congressional districts within a state of nearly equal population",
+                "That every state have the same number of districts",
+                "That commissions draw all maps",
+                "That districts follow county lines exactly"
+              ],
+              "correct": 0
+            },
+            {
+              "q": "Two maps both have equal populations, contiguous districts, and compact shapes, but one gives a group many more seats than the other. What does this show?",
+              "options": [
+                "One of the maps must be illegal",
+                "Equal population and shape rules do not by themselves determine the result",
+                "Compact maps always help the larger group",
+                "The census was wrong"
+              ],
+              "correct": 1
+            }
+          ],
+          "parts_head": {
+            "eyebrow": "Try It in the Model · 在模型裡試試",
+            "en": "Three ways to draw the same map",
+            "zh": "同一張地圖，三種畫法"
+          },
+          "parts": [
+            {
+              "key": "cols",
+              "icon": "▥",
+              "en": "Columns: 5 to 3",
+              "zh": "照欄：5 比 3",
+              "meta_en": "Matching the share of voters",
+              "meta_zh": "和選民的比例一致",
+              "demo": "cols",
+              "text_en": "Each column is a district, so the seats match the voters' shares: 62.5 percent green, 5 of 8 seats.",
+              "text_zh": "每一欄一個選區，所以席次和選民的比例一致：62.5% 的綠色選民，拿到 8 席中的 5 席。"
+            },
+            {
+              "key": "rows",
+              "icon": "▤",
+              "en": "Rows: 8 to 0",
+              "zh": "照列：8 比 0",
+              "meta_en": "Cracking, if done on purpose",
+              "meta_zh": "若是刻意，就是分散",
+              "demo": "rows",
+              "text_en": "Every district has the same mix, five green and three orange, so the larger group wins every seat and orange voters are cracked.",
+              "text_zh": "每一區的組成都一樣——五格綠、三格橘——所以人數較多的那一群贏下每一席，橘色選民被分散了。"
+            },
+            {
+              "key": "boxes",
+              "icon": "▦",
+              "en": "Boxes: 4 to 4",
+              "zh": "方塊：4 比 4",
+              "meta_en": "Packing, if done on purpose",
+              "meta_zh": "若是刻意，就是集中",
+              "demo": "boxes",
+              "text_en": "The neatest-looking map concentrates green voters into four districts they win 8 to 0, while orange wins the other four.",
+              "text_zh": "看起來最整齊的地圖，把綠色選民集中在四個他們以 8 比 0 獲勝的選區，橘色則贏下另外四區。"
+            },
+            {
+              "key": "draw",
+              "icon": "✏️",
+              "en": "Now draw your own",
+              "zh": "換你自己畫",
+              "meta_en": "The activity below",
+              "meta_zh": "下面的小互動",
+              "demo": "cols",
+              "text_en": "Can you draw a valid map where orange wins more districts than green? Use the drawing tool below the model.",
+              "text_zh": "你能畫出一張合格的地圖，讓橘贏的選區比綠多嗎？用模型下面的畫圖工具試試。"
+            }
+          ],
+          "parts_note_en": "The first three cards switch the model to that map.",
+          "parts_note_zh": "前三張卡會把模型切換成那一種畫法。",
+          "draw": {
+            "eyebrow": "Try It · 動手試試",
+            "en": "Draw Your Own Districts",
+            "zh": "自己畫選區",
+            "lead_en": "The same invented map. Choose a district number, then click or drag over squares to draw it. Every district needs exactly eight squares, connected side to side (not just at corners). Start from one of the three maps or clear the board.",
+            "lead_zh": "同一張虛構的地圖。選一個選區號碼，再點或拖過格子把它畫進去。每一區都要剛好八格，而且邊與邊相接（只有角碰到不算）。可以從三種畫法之一開始改，也可以全部清空。",
+            "n": 8,
+            "k": 8,
+            "voters": "gggggooogggggooogggggooogggggooogggggooogggggooogggggooogggggooo",
+            "note_en": "A challenge: with these voters, how many districts can orange win? How many can green win? Both answers come from the same voters.",
+            "note_zh": "挑戰：用這群選民，橘最多能贏幾區？綠最多能贏幾區？兩個答案都來自同一群選民。"
+          },
+          "match": {
+            "eyebrow": "Try It · 動手試試",
+            "en": "Where Does This Rule Come From?",
+            "zh": "這條規則從哪裡來？",
+            "cols": 4,
+            "lead_en": "Eight rules about drawing House districts. For each one, decide where it comes from.",
+            "lead_zh": "八條關於劃分眾議院選區的規則。每一條判斷：它從哪裡來？",
+            "options": [
+              {
+                "key": "const",
+                "en": "Constitution",
+                "sub_en": "",
+                "sub_zh": "憲法"
+              },
+              {
+                "key": "statute",
+                "en": "Federal law",
+                "sub_en": "",
+                "sub_zh": "聯邦法律"
+              },
+              {
+                "key": "court",
+                "en": "Supreme Court",
+                "sub_en": "",
+                "sub_zh": "最高法院判決"
+              },
+              {
+                "key": "state",
+                "en": "State law",
+                "sub_en": "",
+                "sub_zh": "州法"
+              }
+            ],
+            "questions": [
+              {
+                "answer": "const",
+                "en": "A census every ten years",
+                "zh": "每十年一次人口普查",
+                "why_en": "Article I, Section 2 requires an enumeration “within every subsequent Term of ten Years.”",
+                "why_zh": "第一條第二項規定每十年進行一次普查。",
+                "hint_en": "It is in the original text.",
+                "hint_zh": "寫在原始條文裡。"
+              },
+              {
+                "answer": "statute",
+                "en": "Each district elects only one representative",
+                "zh": "每個選區只選出一位眾議員",
+                "why_en": "A 1967 federal law (2 U.S.C. §2c) requires single-member districts in states with more than one seat.",
+                "why_zh": "1967 年的聯邦法律（美國法典第 2 篇第 2c 條）要求有兩席以上的州採單一選區。",
+                "hint_en": "Congress passed it in 1967.",
+                "hint_zh": "國會在 1967 年通過的。"
+              },
+              {
+                "answer": "court",
+                "en": "Congressional districts within a state must have nearly equal populations",
+                "zh": "一州之內的國會選區人口必須大致相等",
+                "why_en": "Wesberry v. Sanders (1964) read Article I, Section 2 to require it.",
+                "why_zh": "Wesberry v. Sanders（1964）把第一條第二項解讀為這樣的要求。",
+                "hint_en": "A 1964 decision.",
+                "hint_zh": "1964 年的判決。"
+              },
+              {
+                "answer": "state",
+                "en": "Many states require districts to be compact",
+                "zh": "許多州要求選區要緊湊",
+                "why_en": "Federal law required compactness from 1901 until 1929; today it comes from state law, in 29 states (CRS, 2026).",
+                "why_zh": "聯邦法律在 1901 到 1929 年間要求緊湊；現在這是州法的規定，共 29 州（國會研究服務處，2026）。",
+                "hint_en": "The federal rule lapsed.",
+                "hint_zh": "聯邦的規定已經失效。"
+              },
+              {
+                "answer": "const",
+                "en": "State legislatures set the manner of elections, and Congress may change it",
+                "zh": "州議會訂定選舉方式，國會可以更改",
+                "why_en": "Article I, Section 4.",
+                "why_zh": "第一條第四項。",
+                "hint_en": "Times, places, and manner.",
+                "hint_zh": "時間、地點與方式。"
+              },
+              {
+                "answer": "state",
+                "en": "A commission, not the legislature, draws the map",
+                "zh": "由委員會而不是州議會畫選區圖",
+                "why_en": "Whether a commission draws the map is decided state by state; after the 2020 census, 11 states used one as the primary mapmaker (CRS).",
+                "why_zh": "是否由委員會畫圖，各州自己決定；2020 年普查之後，有 11 州以委員會為主要負責者（國會研究服務處）。",
+                "hint_en": "It differs from state to state.",
+                "hint_zh": "各州不同。"
+              },
+              {
+                "answer": "statute",
+                "en": "A federal law lets people challenge voting practices that deny or abridge the vote on account of race or color",
+                "zh": "一部聯邦法律，讓人可以挑戰因種族或膚色而剝奪或限縮投票權的投票作法",
+                "why_en": "The Fifteenth Amendment sets the principle; Section 2 of the Voting Rights Act of 1965 (now 52 U.S.C. §10301) is the federal law that enforces it.",
+                "why_zh": "第十五條修正案定下原則；1965 年《投票權法》第 2 條（現為美國法典第 52 篇第 10301 條）是執行這個原則的聯邦法律。",
+                "hint_en": "The question says “a federal law.”",
+                "hint_zh": "題目說的是「一部聯邦法律」。"
+              },
+              {
+                "answer": "court",
+                "en": "Federal courts may hear claims that unequal districts deny equal protection",
+                "zh": "聯邦法院可以受理「選區不均等違反平等保護」的主張",
+                "why_en": "Baker v. Carr (1962).",
+                "why_zh": "Baker v. Carr（1962）。",
+                "hint_en": "The case before Wesberry.",
+                "hint_zh": "Wesberry 之前的那個案子。"
+              }
+            ],
+            "end_en": "Notice the layers: the Constitution sets the frame, Congress and the courts add national rules, and the states decide much of the rest.",
+            "end_zh": "注意其中的層次：憲法定下框架，國會與法院加上全國性的規則，其餘大部分由各州決定。"
+          },
+          "myths_head": {
+            "en": "Four things people get wrong",
+            "zh": "四個常見的誤會"
+          },
+          "myths": [
+            {
+              "myth_en": "The Constitution says how districts must be drawn.",
+              "myth_zh": "憲法規定了選區要怎麼畫。",
+              "fact_en": "It does not mention districts. Single-member districts come from a 1967 federal law, equal population from Supreme Court decisions, and most other rules from state law.",
+              "fact_zh": "憲法沒有提到選區。單一選區來自 1967 年的聯邦法律，人口相等來自最高法院的判決，其他大部分規則來自州法。"
+            },
+            {
+              "myth_en": "Elbridge Gerry drew the first gerrymander and invented the word.",
+              "myth_zh": "傑利親手畫出了第一個傑利蠑螈，也發明了這個字。",
+              "fact_en": "Gerry signed a plan he reportedly found “highly disagreeable.” The cartoon was drawn by Elkanah Tisdale, and the person who coined the word has never been identified.",
+              "fact_zh": "傑利簽署了一個據說讓他覺得「極不愉快」的方案。漫畫是 Elkanah Tisdale 畫的，而造出這個字的人一直無法確定。"
+            },
+            {
+              "myth_en": "If every district has the same population, the map must be fair to everyone.",
+              "myth_zh": "只要每個選區人口一樣，這張地圖就對每個人都公平。",
+              "fact_en": "Equal population is required, but as the model shows, maps with equal populations can produce very different results from the same voters.",
+              "fact_zh": "人口相等是必要的，但正如模型所示，人口相等的地圖，用同樣的選民也可能得到非常不同的結果。"
+            },
+            {
+              "myth_en": "Congress draws the districts for every state.",
+              "myth_zh": "國會替每一州畫選區。",
+              "fact_en": "The states draw them, through their legislatures or commissions. Congress sets a few national rules, such as single-member districts.",
+              "fact_zh": "選區是各州畫的，由州議會或委員會負責。國會只訂幾條全國性的規則，例如單一選區。"
+            }
+          ],
+          "activities": [
+            {
+              "title_en": "The Same Voters, Your Lines",
+              "title_zh": "同樣的選民，你的線",
+              "materials": [
+                {
+                  "en": "The drawing tool above, or an 8×8 grid on paper with the same colors",
+                  "zh": "上面的畫圖工具，或在紙上畫一張同樣著色的 8×8 方格"
+                }
+              ],
+              "steps": [
+                {
+                  "en": "In pairs, one student draws a valid map that helps green as much as possible, the other a map that helps orange.",
+                  "zh": "兩人一組，一人畫一張盡量對綠有利的合格地圖，另一人畫一張盡量對橘有利的。"
+                },
+                {
+                  "en": "Record each map's result and compare it with the voters' shares (62.5 and 37.5 percent).",
+                  "zh": "記下每張地圖的結果，和選民的比例（62.5% 與 37.5%）比較。"
+                },
+                {
+                  "en": "Together, write one rule that would stop both of you from getting such lopsided results. Test it on both maps.",
+                  "zh": "兩人一起寫出一條規則，讓你們都無法得到那麼一面倒的結果。用兩張地圖測試它。"
+                }
+              ],
+              "tip_en": "Keep it about the invented green and orange voters; the point is the arithmetic, not any real party.",
+              "tip_zh": "只用虛構的綠與橘選民；重點是算術，不是任何真實的政黨。"
+            },
+            {
+              "title_en": "Write the Rules for a Commission",
+              "title_zh": "替委員會寫規則",
+              "materials": [
+                {
+                  "en": "The list of traditional districting principles in paragraph 8",
+                  "zh": "第八段列出的傳統劃區原則"
+                }
+              ],
+              "steps": [
+                {
+                  "en": "In groups, decide who would serve on a redistricting commission for an imaginary state and how they would be chosen.",
+                  "zh": "分組決定：一個虛構州的選區劃分委員會，由哪些人組成、怎麼選出來？"
+                },
+                {
+                  "en": "Rank the principles (equal population, contiguity, compactness, county lines, communities of interest) and explain the order.",
+                  "zh": "把各項原則（人口相等、相連、緊湊、郡界、利益相近的社群）排出優先順序，並說明理由。"
+                },
+                {
+                  "en": "Compare your design with another group's and list the trade-offs.",
+                  "zh": "和另一組的設計比較，列出各自的取捨。"
+                }
+              ],
+              "tip_en": "There is no single right answer; the goal is to see that every design involves choices.",
+              "tip_zh": "沒有唯一的正確答案；目的是看到每一種設計都涉及取捨。"
+            }
+          ],
+          "news_english": {
+            "eyebrow": "News English · 新聞英語",
+            "en": "Eight terms for reading about redistricting",
+            "zh": "讀選區劃分新聞用得到的八個詞",
+            "lead_en": "Listen to each term and its example sentence, then try one of your own. The examples describe the process, not any state's current map.",
+            "lead_zh": "先聽每個詞和例句，再試著自己造一句。例句只描述程序，不涉及任何一州現在的地圖。",
+            "items": [
+              {
+                "en": "redistricting",
+                "zh": "重劃選區",
+                "def_en": "redrawing district boundaries, usually after a census",
+                "def_zh": "重劃選區界線，通常在普查之後",
+                "ex": "<b>Redistricting</b> begins once the census data arrive.",
+                "ex_zh": "普查資料一到，就開始重劃選區。"
+              },
+              {
+                "en": "a district map",
+                "zh": "選區圖",
+                "def_en": "the plan that sets every district's boundaries",
+                "def_zh": "定出每個選區界線的方案",
+                "ex": "The legislature voted on a new <b>district map</b>.",
+                "ex_zh": "州議會表決了一張新的選區圖。"
+              },
+              {
+                "en": "the census",
+                "zh": "人口普查",
+                "def_en": "the count of the population every ten years",
+                "def_zh": "每十年一次的人口清點",
+                "ex": "<b>The census</b> found that the state's population had grown.",
+                "ex_zh": "人口普查發現這個州的人口增加了。"
+              },
+              {
+                "en": "to gain a seat",
+                "zh": "增加一席",
+                "def_en": "to receive one more House seat after apportionment",
+                "def_zh": "席次分配之後多得到一個眾議院席次",
+                "ex": "Seven seats shifted among thirteen states after the 2020 census, as some states <b>gained a seat</b> or two.",
+                "ex_zh": "2020 年普查之後，有七席在十三個州之間移動，有些州增加了一或兩席。"
+              },
+              {
+                "en": "gerrymandering",
+                "zh": "傑利蠑螈（以劃選區圖利特定一方）",
+                "def_en": "drawing district lines to unfairly favor one group",
+                "def_zh": "劃選區界線，以不公平地偏袒某一群人",
+                "ex": "The word <b>gerrymandering</b> dates from 1812.",
+                "ex_zh": "「gerrymandering」這個字可以追溯到 1812 年。"
+              },
+              {
+                "en": "contiguous",
+                "zh": "相連的",
+                "def_en": "connected, so one can travel anywhere in a district without leaving it",
+                "def_zh": "相連，可以不離開選區就走到選區裡任何地方",
+                "ex": "Many states require each district to be <b>contiguous</b>.",
+                "ex_zh": "許多州規定每個選區都必須相連。"
+              },
+              {
+                "en": "a redistricting commission",
+                "zh": "選區劃分委員會",
+                "def_en": "a body other than the legislature that draws or advises on district maps",
+                "def_zh": "州議會以外、負責劃分選區或提供意見的機構",
+                "ex": "In some states, voters created <b>a redistricting commission</b> with a ballot measure.",
+                "ex_zh": "有些州是由選民以公民投票設立選區劃分委員會。"
+              },
+              {
+                "en": "one person, one vote",
+                "zh": "一人一票（票票等值）",
+                "def_en": "the principle that districts should have equal populations so that each vote counts equally",
+                "def_zh": "選區人口應該相等、讓每一票分量相同的原則",
+                "ex": "The courts apply <b>one person, one vote</b> to districts within a state.",
+                "ex_zh": "法院把「一人一票」適用到一州之內的各選區。"
+              }
+            ]
+          },
+          "links_head": {
+            "eyebrow": "Go Further · 延伸閱讀",
+            "en": "Related lessons",
+            "zh": "相關的課"
+          },
+          "links": [
+            {
+              "icon": "🗺️",
+              "k_en": "U.S. Government · Lesson 3",
+              "k_zh": "美國政治・第三課",
+              "en": "Why Does Every State Have Its Own Laws?",
+              "zh": "為什麼每一州的法律不一樣？",
+              "note_en": "The fifty-state map there shows how many House seats each state has after the 2020 census.",
+              "note_zh": "那一課的五十州地圖，顯示 2020 年普查之後每州有幾個眾議院席次。",
+              "href": "/resources/classes/us-government/federalism/"
+            },
+            {
+              "icon": "🏛️",
+              "k_en": "U.S. Government · Lesson 5",
+              "k_zh": "美國政治・第五課",
+              "en": "Why Are There Two Houses?",
+              "zh": "國會為什麼有兩院？",
+              "note_en": "How the 435 seats are apportioned among the states before any district lines are drawn.",
+              "note_zh": "在畫任何選區線之前，435 席怎麼分配給各州。",
+              "href": "/resources/classes/us-government/two-houses/"
+            },
+            {
+              "icon": "💵",
+              "k_en": "U.S. Government · Lesson 8",
+              "k_zh": "美國政治・第八課",
+              "en": "Who Decides How the Money Is Spent?",
+              "zh": "錢怎麼花，誰決定？",
+              "note_en": "The next lesson follows the federal budget through Congress.",
+              "note_zh": "下一課跟著聯邦預算走過國會。",
+              "soon": true
+            }
+          ],
+          "clause": {
+            "eyebrow": "What Does the Text Say? · 條文怎麼寫？",
+            "en": "Three texts behind every district map",
+            "zh": "每一張選區圖背後的三段文字",
+            "lead_en": "The constitutional words are copied from the National Archives transcription; the statute is from the United States Code.",
+            "lead_zh": "憲法原文照美國國家檔案館的謄本逐字抄錄；法律條文出自《美國法典》。",
+            "items": [
+              {
+                "cite_en": "Article I, Section 4",
+                "cite_zh": "第一條第四項",
+                "text": "The Times, Places and Manner of holding Elections for Senators and Representatives, shall be prescribed in each State by the Legislature thereof; but the Congress may at any time by Law make or alter such Regulations, except as to the Places of chusing Senators.",
+                "zh": "選舉參議員與眾議員的時間、地點與方式，由各州議會規定；但國會得隨時以法律制定或更改這些規定，唯選舉參議員的地點除外。",
+                "note_en": "The first move belongs to the states, the last word to Congress. “Chusing” is the parchment's spelling.",
+                "note_zh": "第一步屬於各州，最後的決定權屬於國會。「chusing」是羊皮紙原件的拼法。",
+                "src": [
+                  {
+                    "label": "National Archives: The Constitution of the United States, a transcription",
+                    "url": "https://www.archives.gov/founding-docs/constitution-transcript"
+                  }
+                ]
+              },
+              {
+                "cite_en": "Article I, Section 2 (the census)",
+                "cite_zh": "第一條第二項（人口普查）",
+                "text": "The actual Enumeration shall be made within three Years after the first Meeting of the Congress of the United States, and within every subsequent Term of ten Years, in such Manner as they shall by Law direct.",
+                "zh": "實際的人口清點，應於合眾國國會第一次集會後三年內進行，此後每十年進行一次，方式依國會以法律指示。",
+                "note_en": "This is why redistricting comes in ten-year cycles: the count comes first, then the seats, then the lines.",
+                "note_zh": "這就是重劃選區每十年一輪的原因：先清點人口，再分配席次，最後才畫線。",
+                "src": [
+                  {
+                    "label": "National Archives: The Constitution of the United States, a transcription",
+                    "url": "https://www.archives.gov/founding-docs/constitution-transcript"
+                  }
+                ]
+              },
+              {
+                "cite_en": "2 U.S.C. §2c (enacted 1967)",
+                "cite_zh": "美國法典第 2 篇第 2c 條（1967 年制定）",
+                "text": "… there shall be established by law a number of districts equal to the number of Representatives to which such State is so entitled, and Representatives shall be elected only from districts so established, no district to elect more than one Representative …",
+                "zh": "……應以法律設立與該州應得眾議員人數相等的選區，眾議員只能從如此設立的選區選出，每一選區選出的眾議員不得超過一人……",
+                "note_en": "This federal law, not the Constitution, is what requires single-member districts in states with more than one seat.",
+                "note_zh": "要求有兩席以上的州採單一選區的，是這條聯邦法律，而不是憲法。",
+                "src": [
+                  {
+                    "label": "Cornell LII: 2 U.S. Code §2c",
+                    "url": "https://www.law.cornell.edu/uscode/text/2/2c"
+                  }
+                ]
+              }
+            ]
+          },
+          "primary": {
+            "eyebrow": "Read the Source · 讀原典",
+            "en": "A warning in 1787, and a rule in 1964",
+            "zh": "1787 年的警告，1964 年的規則",
+            "lead_en": "Two texts 177 years apart. In 1787 James Madison explained why Congress should be able to override the states' election rules, and named districts among the choices that could change results. In 1964 the Supreme Court set the equal-population rule. Read each slowly before you open the translation; the spelling and abbreviations are those of the sources.",
+            "lead_zh": "兩段相隔 177 年的文字。1787 年，麥迪遜說明國會為什麼應該能推翻各州的選舉規則，並指出「怎麼分選區」正是可能改變結果的選擇之一。1964 年，最高法院定下人口相等的規則。先慢慢讀一遍，再打開中譯；拼法與縮寫照出處原樣。",
+            "docs": [
+              {
+                "kind_en": "Notes of the convention, 1787",
+                "kind_zh": "1787 年的制憲會議筆記",
+                "title_en": "Madison on who should control election rules (excerpt)",
+                "title_zh": "麥迪遜談誰該掌握選舉規則（節錄）",
+                "by_en": "James Madison's notes of his own speech, August 9, 1787, on the clause that became Article I, Section 4.",
+                "by_zh": "麥迪遜為自己的發言所做的筆記，1787 年 8 月 9 日，討論後來成為第一條第四項的條款。",
+                "text": [
+                  "The necessity of a Genl. govt. supposes that the State Legislatures will sometimes fail or refuse to consult the common interest at the expence of their local conveniency or prejudices. … These were words of great latitude. … Whether the electors should vote by ballot or viva voce, should assemble at this place or that place; should be divided into districts or all meet at one place, shd. all vote for all the representatives; or all in a district vote for a number allotted to the district; these & many other points would depend on the Legislatures, and might materially affect the appointments."
+                ],
+                "text_zh": [
+                  "需要一個全國政府，正是假定各州議會有時會疏忽或拒絕顧及共同的利益，犧牲它去成全地方的方便或偏見。……這些字眼的範圍很廣。……選舉人應該以書面投票還是口頭表決，應該在這裡還是那裡集合；應該劃分成選區，還是全部在一個地方集會，應該全體選舉全部的代表，還是每一區選出分配給該區的人數；這些以及其他許多問題，都取決於州議會，而且可能實質影響選舉的結果。"
+                ],
+                "note_en": "Text from the Avalon Project (Yale Law School) edition of Madison's notes, with Madison's abbreviations and spelling (“Genl.” for general, “shd.” for should, “expence”). Footnote markers are omitted. Public domain. The Chinese translation is ours.",
+                "note_zh": "原文依耶魯法學院 Avalon 計畫收錄的麥迪遜筆記，保留他的縮寫與拼法（Genl. 是 general、shd. 是 should、expence）；註腳標記省略。公有領域。中譯為本站所譯。",
+                "src": [
+                  {
+                    "label": "Avalon Project: Madison's notes, August 9, 1787",
+                    "url": "https://avalon.law.yale.edu/18th_century/debates_809.asp"
+                  }
+                ],
+                "gloss": [
+                  {
+                    "w": "consult",
+                    "en": "to take into account",
+                    "zh": "顧及"
+                  },
+                  {
+                    "w": "latitude",
+                    "en": "freedom; breadth",
+                    "zh": "範圍；自由度"
+                  },
+                  {
+                    "w": "viva voce",
+                    "en": "by spoken vote",
+                    "zh": "口頭表決"
+                  },
+                  {
+                    "w": "appointments",
+                    "en": "here, the choice of representatives",
+                    "zh": "這裡指選出代表"
+                  }
+                ],
+                "questions": [
+                  {
+                    "en": "Madison lists districts alongside voting by ballot and the place of voting. What do these choices have in common?",
+                    "zh": "麥迪遜把「分選區」和「無記名投票」「投票地點」並列。這些選擇有什麼共同點？"
+                  },
+                  {
+                    "en": "Why does Madison think the national government should have a check on the state legislatures here?",
+                    "zh": "麥迪遜為什麼認為在這件事上，全國政府應該能牽制州議會？"
+                  },
+                  {
+                    "en": "Article I, Section 4 still leaves the first move to the states. Did Madison get what he argued for?",
+                    "zh": "第一條第四項仍然把第一步留給各州。麥迪遜爭取的東西，他得到了嗎？"
+                  }
+                ]
+              },
+              {
+                "kind_en": "Supreme Court opinions, 1964",
+                "kind_zh": "1964 年的最高法院判決",
+                "title_en": "Wesberry v. Sanders and Reynolds v. Sims (excerpts)",
+                "title_zh": "Wesberry v. Sanders 與 Reynolds v. Sims（節錄）",
+                "by_en": "First passage: Wesberry v. Sanders, decided February 17, 1964 (congressional districts). Second passage: Reynolds v. Sims, decided June 15, 1964 (state legislatures).",
+                "by_zh": "第一段：Wesberry v. Sanders，1964 年 2 月 17 日判決（國會選區）。第二段：Reynolds v. Sims，1964 年 6 月 15 日判決（州議會）。",
+                "text": [
+                  "We hold that, construed in its historical context, the command of Art. I, § 2, that Representatives be chosen ‘by the People of the several States’ means that as nearly as is practicable one man's vote in a congressional election is to be worth as much as another's.",
+                  "Legislators represent people, not trees or acres. Legislators are elected by voters, not farms or cities or economic interests."
+                ],
+                "text_zh": [
+                  "我們判定，依其歷史脈絡解釋，第一條第二項「眾議員由各州人民選出」的命令，意思是在可行的範圍內，國會選舉中每個人的一票都應該和別人的一票同樣有分量。",
+                  "議員代表的是人，不是樹木或土地。議員是由選民選出的，不是由農場、城市或經濟利益選出的。"
+                ],
+                "note_en": "Text from the Cornell Legal Information Institute's copies of the opinions; footnote numbers are omitted. Public domain. The Chinese translation is ours.",
+                "note_zh": "原文依康乃爾大學法律資訊研究所收錄的判決書；註腳編號省略。公有領域。中譯為本站所譯。",
+                "src": [
+                  {
+                    "label": "Cornell LII: Wesberry v. Sanders, 376 U.S. 1",
+                    "url": "https://www.law.cornell.edu/supremecourt/text/376/1"
+                  },
+                  {
+                    "label": "Cornell LII: Reynolds v. Sims, 377 U.S. 533",
+                    "url": "https://www.law.cornell.edu/supremecourt/text/377/533"
+                  }
+                ],
+                "gloss": [
+                  {
+                    "w": "construed",
+                    "en": "interpreted",
+                    "zh": "解釋"
+                  },
+                  {
+                    "w": "as nearly as is practicable",
+                    "en": "as close as can reasonably be done",
+                    "zh": "在可行的範圍內盡量"
+                  },
+                  {
+                    "w": "acres",
+                    "en": "units of land area",
+                    "zh": "英畝；土地"
+                  },
+                  {
+                    "w": "economic interests",
+                    "en": "groups defined by business or wealth",
+                    "zh": "經濟利益（團體）"
+                  }
+                ],
+                "questions": [
+                  {
+                    "en": "The Court finds the equal-population rule in the words “by the People.” How does it get from those words to districts of equal size?",
+                    "zh": "法院是從「由人民」這幾個字推出人口相等的規則。它怎麼從這幾個字推到大小相等的選區？"
+                  },
+                  {
+                    "en": "“Not trees or acres”: what kind of districts was the Court rejecting?",
+                    "zh": "「不是樹木或土地」：法院否定的是哪一種選區？"
+                  },
+                  {
+                    "en": "Equal population answers one of Madison's worries. Which of the choices he listed does it leave open?",
+                    "zh": "人口相等解決了麥迪遜的一個憂慮。他列出的選擇裡，還有哪些沒有被它解決？"
+                  }
+                ]
+              }
+            ]
+          },
+          "debate": {
+            "eyebrow": "The Design Debate · 制度的爭論",
+            "en": "Elected legislators, or a separate commission?",
+            "zh": "民選的州議會，還是另設的委員會？",
+            "lead_en": "Every state with more than one House seat must draw districts of nearly equal population. The open question is who should hold the pen. Americans have argued about state control of election rules since 1787, and states today answer the question differently. Each side is stated here in its strongest form, and the card does not choose between them.",
+            "lead_zh": "每一個有兩席以上的州，都必須畫出人口大致相等的選區；還沒有定論的是：筆該握在誰手上？美國人從 1787 年就在爭論各州對選舉規則的掌控，而今天各州的答案也不同。這裡把兩邊各用最強的版本寫出來，不替它們分高下。",
+            "question_en": "Should district lines be drawn by the elected legislature or by a separate commission?",
+            "question_zh": "選區界線應該由民選的州議會來畫，還是由另設的委員會來畫？",
+            "sides": [
+              {
+                "k_en": "One position",
+                "k_zh": "一種立場",
+                "name_en": "Let the elected legislature draw",
+                "name_zh": "由民選的州議會來畫",
+                "points": [
+                  {
+                    "en": "A map is a law that affects every voter, so it should be debated and passed by representatives whom voters can remove.",
+                    "zh": "選區圖是一條影響每一位選民的法律，應該由選民能撤換的代表來辯論、通過。"
+                  },
+                  {
+                    "en": "Legislators know their state's towns, counties, and communities, and the governor's veto adds a further check.",
+                    "zh": "州議員熟悉自己州裡的城鎮、郡與社群，州長的否決權又多加了一道牽制。"
+                  },
+                  {
+                    "en": "The Constitution gives each state's legislature the first say over election rules, with Congress able to step in.",
+                    "zh": "憲法把選舉規則的第一步交給各州議會，而國會可以介入。"
+                  }
+                ],
+                "voice": "The States they contended could & must be relied on in such cases.",
+                "voice_cite": "Madison's summary of the argument of Charles Pinckney and John Rutledge of South Carolina, August 9, 1787, on whether Congress should be able to alter the states' election rules. In 1787 the choice was the states or Congress; the line is borrowed here for the commission question.",
+                "voice_zh": "他們主張，在這類事情上，各州可以而且必須被信任。——麥迪遜筆記對南卡羅來納的平克尼與拉特利吉之主張的摘要，1787 年 8 月 9 日，討論國會是否應能更改各州的選舉規則。1787 年爭論的是各州或國會；這句話借來討論委員會的問題。",
+                "src": [
+                  {
+                    "label": "Avalon Project: Madison's notes, August 9, 1787",
+                    "url": "https://avalon.law.yale.edu/18th_century/debates_809.asp"
+                  }
+                ]
+              },
+              {
+                "k_en": "Another position",
+                "k_zh": "另一種立場",
+                "name_en": "Let a separate commission draw",
+                "name_zh": "由另設的委員會來畫",
+                "points": [
+                  {
+                    "en": "Lines can decide who wins, so the people who will run in the districts should not be the ones who draw them.",
+                    "zh": "線可以決定誰會贏，所以將要在這些選區參選的人，不應該就是畫線的人。"
+                  },
+                  {
+                    "en": "A commission can be built to include different viewpoints and members of the public, and to work in public hearings.",
+                    "zh": "委員會可以設計成納入不同的觀點與一般民眾，並在公開聽證中工作。"
+                  },
+                  {
+                    "en": "Clear rules for a commission, such as equal population and county lines, can be written in advance and checked.",
+                    "zh": "委員會的明確規則——例如人口相等、尊重郡界——可以事先寫好，也可以檢驗。"
+                  }
+                ],
+                "voice": "It was impossible to foresee all the abuses that might be made of the discretionary power.",
+                "voice_cite": "James Madison of Virginia, in his own notes of his speech, August 9, 1787, on whether Congress should be able to alter the states' election rules. In 1787 the choice was the states or Congress; the line is borrowed here for the commission question.",
+                "voice_zh": "無法預見這種裁量權可能遭到的所有濫用。——維吉尼亞的麥迪遜，他為自己的發言所做的筆記，1787 年 8 月 9 日，討論國會是否應能更改各州的選舉規則。1787 年爭論的是各州或國會；這句話借來討論委員會的問題。",
+                "src": [
+                  {
+                    "label": "Avalon Project: Madison's notes, August 9, 1787",
+                    "url": "https://avalon.law.yale.edu/18th_century/debates_809.asp"
+                  }
+                ]
+              }
+            ],
+            "close_en": "Both quotations come from the same day in 1787, when the delegates were debating states and Congress; redistricting commissions came much later. They show that worry about who controls election rules is as old as the Constitution. Which argument above do you find strongest? Would your answer depend on how the commission is chosen?",
+            "close_zh": "兩段引文出自 1787 年的同一天；當時代表們爭論的是各州與國會，而委員會是很久以後才出現的。它們顯示，對「誰掌控選舉規則」的憂慮和憲法一樣古老。上面的論點裡，你覺得哪一個最有力？你的答案會不會取決於委員會怎麼選出來？"
+          },
+          "taiwan": {
+            "eyebrow": "Compare with Taiwan · 和台灣比一比",
+            "en": "Who draws the districts",
+            "zh": "選區由誰劃分",
+            "lead_en": "This card compares designs only. It quotes the Additional Articles of the Constitution of the Republic of China and the Public Officials Election and Recall Act from the official Laws and Regulations Database, and does not say which arrangement is better or discuss any particular map.",
+            "lead_zh": "這張卡只比制度的設計，條文引自全國法規資料庫的《中華民國憲法增修條文》與《公職人員選舉罷免法》；不評價哪一種安排比較好，也不談任何一次的選區劃分。",
+            "rows": [
+              {
+                "topic_en": "Who draws",
+                "topic_zh": "誰劃分",
+                "us_en": "Each state: usually the legislature, in some states a commission.",
+                "us_zh": "各州自己：通常是州議會，有些州是委員會。",
+                "tw_en": "The Central Election Commission divides the districts for legislators (Public Officials Election and Recall Act, Article 37).",
+                "tw_zh": "立法委員選舉區由中央選舉委員會劃分（公職人員選舉罷免法第 37 條）。"
+              },
+              {
+                "topic_en": "Who approves",
+                "topic_zh": "誰同意",
+                "us_en": "In most legislature states, the plan passes like a bill and the governor may veto it.",
+                "us_zh": "多數由州議會畫的州，選區圖像法案一樣通過，州長可以否決。",
+                "tw_en": "Changes go to the Legislative Yuan, which approves or rejects them city by city and county by county; any part not approved by the deadline is resolved through negotiation between the President of the Executive Yuan and the President of the Legislative Yuan (Article 37).",
+                "tw_zh": "選舉區變更案送立法院，以直轄市、縣（市）為單位同意或否決；未能如期完成同意的部分，由行政、立法兩院院長協商解決（第 37 條）。"
+              },
+              {
+                "topic_en": "How often",
+                "topic_zh": "多久檢討一次",
+                "us_en": "After each ten-year census.",
+                "us_zh": "每十年普查之後。",
+                "tw_en": "Reviewed every ten years, and changed if necessary (Article 35).",
+                "tw_zh": "每十年重新檢討一次，有必要時變更（第 35 條）。"
+              },
+              {
+                "topic_en": "What to consider",
+                "topic_zh": "要考慮什麼",
+                "us_en": "Equal population (courts) and the Voting Rights Act (federal law); other criteria vary by state.",
+                "us_zh": "人口相等（法院）與《投票權法》（聯邦法律）；其他標準各州不同。",
+                "tw_en": "Administrative areas, population distribution, geography, transportation, historical ties, and the number of seats (Article 37).",
+                "tw_zh": "行政區域、人口分布、地理環境、交通狀況、歷史淵源及應選出名額（第 37 條）。"
+              }
+            ],
+            "quotes": [
+              {
+                "cite_zh": "中華民國憲法增修條文　第 4 條第 2 項",
+                "cite_en": "Additional Articles, Article 4, paragraph 2",
+                "text": "前項第一款依各直轄市、縣市人口比例分配，並按應選名額劃分同額選舉區選出之。",
+                "en": "Official English translation: “Members for the seats set forth in Subparagraph 1 of the preceding paragraph shall be elected in proportion to the population of each Special Municipality, county, or city, which shall be divided into electoral constituencies equal in number to the number of members to be elected.”",
+                "src": [
+                  {
+                    "label": "全國法規資料庫",
+                    "url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=A0000002"
+                  },
+                  {
+                    "label": "Laws & Regulations Database (English)",
+                    "url": "https://law.moj.gov.tw/ENG/LawClass/LawAll.aspx?pcode=A0000002"
+                  }
+                ]
+              },
+              {
+                "cite_zh": "公職人員選舉罷免法　第 37 條第 2 項",
+                "cite_en": "Public Officials Election and Recall Act, Article 37, paragraph 2",
+                "text": "前項選舉區，應斟酌行政區域、人口分布、地理環境、交通狀況、歷史淵源及應選出名額劃分之。",
+                "en": "Official English translation: “The electoral districts specified in the preceding paragraph shall be divided with consideration given to the administrative districts, population distribution, geographical environment, traffic conditions, historical origins and the quota of candidates to be elected.”",
+                "src": [
+                  {
+                    "label": "全國法規資料庫",
+                    "url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0020010"
+                  },
+                  {
+                    "label": "Laws & Regulations Database (English)",
+                    "url": "https://law.moj.gov.tw/ENG/LawClass/LawAll.aspx?pcode=D0020010"
+                  }
+                ]
+              }
+            ],
+            "note_en": "One thing to notice: in most American states the state legislature draws the congressional map, while in Taiwan the Central Election Commission draws the legislative districts and the Legislative Yuan votes to approve or reject changes. The texts were checked against the Laws and Regulations Database in October 2026.",
+            "note_zh": "有一點可以注意：在美國，多數州由州議會畫該州的國會選區；在台灣，立法委員選舉區由中央選舉委員會劃分，立法院對變更案行使同意或否決。條文於 2026 年 10 月核對過全國法規資料庫。"
+          },
+          "sources_note_en": "Quotations, dates, and numbers on this page were checked against these sources in October 2026. Quotations keep the spelling of the originals. These pages are outside this site: we used the CRS report only for the numbers and definitions cited, and the Library of Congress post only for its text; the report's later sections and the readers' comments are not part of this lesson.",
+          "sources_note_zh": "本頁的引文、日期與數字於 2026 年 10 月依下列資料查證；引文保留原文的拼法。這些頁面不屬於本站：我們只引用國會研究服務處報告裡上面所列的數字與定義，以及國會圖書館那篇文章的正文；報告後面的章節和該頁的讀者留言不是本課的內容。",
+          "sources": [
+            {
+              "en": "Article I, Sections 2 and 4.",
+              "zh": "憲法第一條第二、四項",
+              "src": "National Archives: The Constitution of the United States, a transcription",
+              "url": "https://www.archives.gov/founding-docs/constitution-transcript"
+            },
+            {
+              "en": "The Fourteenth and Fifteenth Amendments.",
+              "zh": "第十四、十五條修正案",
+              "src": "National Archives: Amendments 11–27",
+              "url": "https://www.archives.gov/founding-docs/amendments-11-27"
+            },
+            {
+              "en": "Single-member districts required since 1967 (Pub. L. 90-196).",
+              "zh": "1967 年起要求單一選區（公法 90-196）",
+              "src": "Cornell LII: 2 U.S. Code §2c",
+              "url": "https://www.law.cornell.edu/uscode/text/2/2c"
+            },
+            {
+              "en": "Who draws the lines after the 2020 census (33 legislatures, 6 of them with an advisory commission; 11 commissions); the six single-seat states; compactness required in 29 states and contiguity language in 33; definitions of gerrymandering, packing, and cracking (updated May 20, 2026).",
+              "zh": "2020 年普查之後由誰畫線（33 州議會，其中 6 州另有諮詢委員會；11 委員會）；六個只有一席的州；29 州要求緊湊、33 州有相連的規定；傑利蠑螈、集中與分散的定義（2026 年 5 月 20 日更新）",
+              "src": "Congressional Research Service, R45951: Apportionment and Redistricting Process for the U.S. House of Representatives",
+              "url": "https://www.everycrsreport.com/reports/R45951.html"
+            },
+            {
+              "en": "Federal districting standards: contiguity (1842), equal population (1872), compactness (1901 and 1911), lapsed in 1929.",
+              "zh": "聯邦的選區標準：相連（1842）、人口相等（1872）、緊湊（1901 與 1911），1929 年失效",
+              "src": "Congressional Research Service, R42831: Congressional Redistricting: An Overview (2012)",
+              "url": "https://www.everycrsreport.com/reports/R42831.html"
+            },
+            {
+              "en": "The 2020 census: apportionment counts delivered April 26, 2021; seven seats shifted among thirteen states.",
+              "zh": "2020 年普查：2021 年 4 月 26 日交出分配席次的人口數；七席在十三州之間移動",
+              "src": "U.S. Census Bureau: First 2020 Census Data Release (April 26, 2021)",
+              "url": "https://www.census.gov/library/stories/2021/04/2020-census-data-release.html"
+            },
+            {
+              "en": "Redistricting data released August 12, 2021.",
+              "zh": "重劃選區資料於 2021 年 8 月 12 日發布",
+              "src": "U.S. Census Bureau: 2020 Census Redistricting Data press kit",
+              "url": "https://www.census.gov/newsroom/press-kits/2021/2020-census-redistricting.html"
+            },
+            {
+              "en": "The 1812 Massachusetts redistricting, Governor Gerry's signature, the word's first appearance in the Boston Gazette (March 26, 1812), the cartoons, Elkanah Tisdale, and the unknown coiner of the word.",
+              "zh": "1812 年麻薩諸塞州的重劃、格里州長的簽署、這個字最早出現在 1812 年 3 月 26 日的《波士頓公報》、漫畫、Elkanah Tisdale，以及不知名的造字者",
+              "src": "Library of Congress blog: Gerrymandering: The Origin Story (2024)",
+              "url": "https://blogs.loc.gov/loc/2024/07/gerrymandering-the-origin-story/"
+            },
+            {
+              "en": "Baker v. Carr (1962): federal courts may hear claims about unequal legislative districts; Tennessee's 1901 apportionment.",
+              "zh": "Baker v. Carr（1962）：聯邦法院可以受理州議會選區不均等的主張；田納西州 1901 年的席次分配",
+              "src": "Cornell LII: Baker v. Carr, 369 U.S. 186",
+              "url": "https://www.law.cornell.edu/supremecourt/text/369/186"
+            },
+            {
+              "en": "Wesberry v. Sanders (1964): congressional districts of nearly equal population.",
+              "zh": "Wesberry v. Sanders（1964）：國會選區人口大致相等",
+              "src": "Cornell LII: Wesberry v. Sanders, 376 U.S. 1",
+              "url": "https://www.law.cornell.edu/supremecourt/text/376/1"
+            },
+            {
+              "en": "Reynolds v. Sims (1964): state legislative districts; “not trees or acres.”",
+              "zh": "Reynolds v. Sims（1964）：州議會選區；「不是樹木或土地」",
+              "src": "Cornell LII: Reynolds v. Sims, 377 U.S. 533",
+              "url": "https://www.law.cornell.edu/supremecourt/text/377/533"
+            },
+            {
+              "en": "Gomillion v. Lightfoot (1960): the Tuskegee boundaries.",
+              "zh": "Gomillion v. Lightfoot（1960）：塔斯基吉市的邊界",
+              "src": "Cornell LII: Gomillion v. Lightfoot, 364 U.S. 339",
+              "url": "https://www.law.cornell.edu/supremecourt/text/364/339"
+            },
+            {
+              "en": "The Voting Rights Act, signed August 6, 1965; Section 2 as enacted.",
+              "zh": "《投票權法》，1965 年 8 月 6 日簽署；第 2 條原文",
+              "src": "National Archives: Voting Rights Act (1965)",
+              "url": "https://www.archives.gov/milestone-documents/voting-rights-act"
+            },
+            {
+              "en": "Section 2 as now codified.",
+              "zh": "第 2 條現行條文",
+              "src": "Cornell LII: 52 U.S. Code §10301",
+              "url": "https://www.law.cornell.edu/uscode/text/52/10301"
+            },
+            {
+              "en": "Madison, Pinckney, and Rutledge on state and national control of election rules (August 9, 1787).",
+              "zh": "麥迪遜、平克尼與拉特利吉談各州與全國對選舉規則的掌控（1787 年 8 月 9 日）",
+              "src": "Avalon Project: Madison's notes, August 9, 1787",
+              "url": "https://avalon.law.yale.edu/18th_century/debates_809.asp"
+            },
+            {
+              "en": "Additional Articles of the Constitution of the Republic of China, Article 4.",
+              "zh": "中華民國憲法增修條文第 4 條",
+              "src": "全國法規資料庫：中華民國憲法增修條文",
+              "url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=A0000002"
+            },
+            {
+              "en": "Public Officials Election and Recall Act, Articles 35 and 37.",
+              "zh": "公職人員選舉罷免法第 35、37 條",
+              "src": "全國法規資料庫：公職人員選舉罷免法",
+              "url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0020010"
+            }
+          ]
         }
       ],
       "planned": [
-        {
-          "n": 7,
-          "icon": "✏️",
-          "en": "Who Draws the Lines?",
-          "zh": "選區的線是誰畫的？"
-        },
         {
           "n": 8,
           "icon": "💵",
