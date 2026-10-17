@@ -1535,3 +1535,38 @@ main:has(.ph-tools) .wrap { width: min(980px, 92vw); }
 .ph-lv-coda p { margin: 1rem 0 0; font: italic 400 1rem/1.7 var(--serif); color: rgba(255,255,255,.9); }
 .ph-lv-coda .ph-zh { font: normal .92rem/1.8 var(--zh); color: rgba(255,255,255,.7); margin-top: .2rem; }
 @media (max-width: 720px) { .ph-lv-grid { grid-template-columns: 1fr; } .ph-lv-row { grid-template-columns: minmax(6.2rem, 1.5fr) repeat(5, 1fr); padding: .3rem .35rem; } .ph-lv-row .nm b { font-size: .78rem; } .ph-lv-row.hd .cell { font-size: .58rem; } .ph-lv-row.hd .cell i { font-size: .62rem; } .ph-lv-row.ft .cell { font-size: .7rem; } }
+
+/* ── 書架 B：世界時間軸（ph-wt-）與「這個時代改變了什麼」 ── */
+.ph-wt { margin-top: 1.6rem; }
+.ph-wt-ctl { display: flex; align-items: center; gap: .8rem; margin-bottom: .6rem; font: 600 .85rem var(--sans); color: var(--ink-soft); }
+.ph-wt-ctl span { flex: 1; text-align: center; }
+.ph-wt-ctl button { border: 1px solid var(--line); background: #fff; border-radius: 999px; width: 2.4rem; height: 2.4rem; font-size: 1.1rem; cursor: pointer; color: var(--brand-dk); }
+.ph-wt-ctl button:hover { border-color: var(--brand); }
+.ph-wt-view { overflow-x: auto; overflow-y: hidden; border: 1px solid var(--line); border-radius: 16px; background: #fff; cursor: grab; scrollbar-width: thin; -webkit-overflow-scrolling: touch; }
+.ph-wt-view.is-drag { cursor: grabbing; user-select: none; }
+.ph-wt-track { position: relative; padding: 0 0 2.2rem; }
+.ph-wt-lane { position: relative; border-bottom: 1px dashed var(--line); }
+.ph-wt-lab { position: sticky; left: 0; z-index: 3; display: inline-block; margin: .35rem 0 0; padding: .15rem .6rem; font: 700 .72rem var(--sans); letter-spacing: .04em; text-transform: uppercase; color: #fff; border-radius: 0 999px 999px 0; }
+.ph-wt-lab i { font-style: normal; margin-left: .4em; text-transform: none; letter-spacing: 0; }
+.ph-wt-west .ph-wt-lab { background: var(--brand); } .ph-wt-india .ph-wt-lab { background: var(--ph-terra, #b5532f); } .ph-wt-china .ph-wt-lab { background: #8a6d1d; }
+.ph-wt-it { position: absolute; height: 34px; display: flex; flex-direction: column-reverse; justify-content: flex-end; gap: 3px; white-space: nowrap; margin-top: 1.5rem; }
+.ph-wt-it i { display: block; height: 8px; border-radius: 4px; opacity: .85; }
+.ph-wt-west .ph-wt-it i { background: var(--brand); } .ph-wt-india .ph-wt-it i { background: var(--ph-terra, #b5532f); } .ph-wt-china .ph-wt-it i { background: #b8932b; }
+.ph-wt-pt i { width: 8px !important; height: 8px; border-radius: 50%; }
+.ph-wt-it b { font: 600 .8rem var(--sans); color: var(--ink); }
+.ph-wt-it b span { font-weight: 400; color: var(--ink-soft); margin-left: .3em; }
+.ph-wt-it a { color: inherit; text-decoration: underline; text-decoration-color: var(--gold); text-underline-offset: 3px; }
+.ph-wt-axis { position: absolute; left: 0; right: 0; bottom: 0; height: 2rem; border-top: 2px solid var(--ink-soft); }
+.ph-wt-tick { position: absolute; top: 0; transform: translateX(-50%); padding-top: .45rem; font: 600 .7rem var(--sans); color: var(--ink-soft); white-space: nowrap; }
+.ph-wt-tick::before { content: ""; position: absolute; top: -2px; left: 50%; width: 1px; height: 7px; background: var(--ink-soft); }
+.ph-wt-break { position: absolute; top: 0; bottom: 2rem; width: 0; border-left: 2px dotted var(--gold); z-index: 1; }
+.ph-wt-band { position: absolute; top: 0; bottom: 2rem; background: rgba(201, 162, 39, .16); border-left: 2px solid var(--gold); border-right: 2px solid var(--gold); z-index: 0; }
+.ph-wt-band span { position: absolute; top: .35rem; left: 50%; transform: translateX(-50%); font: 700 .72rem var(--sans); color: #6b5410; background: #fff8df; border-radius: 999px; padding: .1rem .6rem; white-space: nowrap; }
+.ph-wt-note { margin: .7rem 0 0; font: .82rem/1.6 var(--sans); color: var(--ink-soft); }
+.ph-wt-note span { display: block; }
+.ph-changed { list-style: none; margin: 1.6rem 0 0; padding: 0; display: grid; gap: 1.1rem; }
+.ph-changed li { display: grid; grid-template-columns: 3rem 1fr; gap: 1rem; align-items: start; background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 1.1rem 1.3rem; box-shadow: var(--shadow-sm); }
+.ph-ch-n { display: grid; place-items: center; width: 3rem; height: 3rem; border-radius: 50%; background: var(--brand); color: #fff; font: 700 1.3rem var(--serif); }
+.ph-changed h3 { margin: .2rem 0 .5rem; font: 600 1.3rem var(--serif); color: var(--brand-dk); }
+.ph-changed .ph-p { margin: 0; }
+@media (max-width: 640px) { .ph-changed li { grid-template-columns: 1fr; } .ph-wt-ctl span { font-size: .75rem; } }

@@ -2486,3 +2486,32 @@
     }, { passive: true });
   }
 })();
+
+/* 書架 B：世界時間軸——拖曳捲動、箭頭按鈕、開頁時捲到本課時段 */
+(function () {
+  document.querySelectorAll('[data-ph-wt]').forEach(function (box) {
+    var view = box.querySelector('[data-ph-wt-view]');
+    if (!view) return;
+    var focus = parseFloat(box.getAttribute('data-focus') || '0');
+    function center() { view.scrollLeft = Math.max(0, focus - view.clientWidth / 2); }
+    center(); window.addEventListener('load', center);
+    var down = false, sx = 0, sl = 0, moved = false;
+    view.addEventListener('pointerdown', function (e) {
+      if (e.pointerType !== 'mouse') return;   // 觸控用原生捲動
+      down = true; moved = false; sx = e.clientX; sl = view.scrollLeft; view.classList.add('is-drag');
+    });
+    window.addEventListener('pointermove', function (e) {
+      if (!down) return;
+      var dx = e.clientX - sx; if (Math.abs(dx) > 4) moved = true;
+      view.scrollLeft = sl - dx;
+    });
+    window.addEventListener('pointerup', function () { down = false; view.classList.remove('is-drag'); });
+    view.addEventListener('click', function (e) { if (moved) { e.preventDefault(); e.stopPropagation(); moved = false; } }, true);
+    box.querySelectorAll('[data-ph-wt-go]').forEach(function (b) {
+      b.addEventListener('click', function () {
+        var d = parseInt(b.getAttribute('data-ph-wt-go'), 10);
+        view.scrollBy({ left: d * view.clientWidth * 0.7, behavior: 'smooth' });
+      });
+    });
+  });
+})();

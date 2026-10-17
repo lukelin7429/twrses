@@ -9249,6 +9249,122 @@ def build_phil_dharma(D):
           say_manifest=say_slug if has_clips else None, extra_head=_ph_head()))
     return path
 
+def _ph_wt_x(y):
+    """世界時間軸的比例：古代放大、中世紀壓縮、近代再放大（像素）。"""
+    segs = [(-800, 0, 3.0), (0, 1500, 0.6), (1500, 1800, 2.2), (1800, 2030, 4.2)]
+    x = 0.0
+    for a, b, k in segs:
+        if y <= a: break
+        x += (min(y, b) - a) * k
+    return 40 + x
+
+def _ph_wt_year(y):
+    return f"{-y} BCE" if y < 0 else ("1 CE" if y == 0 else f"{y}")
+
+def _ph_world_timeline(span=None, label=None):
+    """書架 B 共用的世界時間軸：希臘／印度／中國三條平行線，標出本課的時段。拖曳或按箭頭左右移動。"""
+    T = PHIL["timeline"]
+    width = int(_ph_wt_x(2030) + 40)
+    lanes_html = []
+    for lane in T["lanes"]:
+        rows = []   # 每一列最右邊佔到哪裡
+        items = sorted((i for i in T["items"] if i["lane"] == lane["k"]), key=lambda i: i["a"])
+        placed = []
+        for it in items:
+            x1 = _ph_wt_x(it["a"]); x2 = _ph_wt_x(it.get("b", it["a"]))
+            lw = 14 + 6.6 * len(it["en"]) + 12.5 * len(it.get("zh", ""))
+            right = x1 + max(x2 - x1, lw) + 14
+            r = next((k for k, end in enumerate(rows) if end < x1), None)
+            if r is None: rows.append(right); r = len(rows) - 1
+            else: rows[r] = right
+            placed.append((it, x1, x2, r))
+        h = max(1, len(rows)) * 38 + 36
+        bars = []
+        for it, x1, x2, r in placed:
+            cls = "ph-wt-it" + (" ph-wt-pt" if "b" not in it else "")
+            name = f'{_ph_e(it["en"])}<span lang="zh-Hant">{_ph_e(it.get("zh", ""))}</span>'
+            if it.get("slug"): name = f'<a href="{PHIL_BASE}{it["slug"]}/">{name}</a>'
+            yrs = _ph_wt_year(it["a"]) + (f'–{_ph_wt_year(it["b"])}' if "b" in it else "")
+            bars.append(f'<div class="{cls}" style="left:{x1:.0f}px;top:{6 + r * 38}px" title="{_ph_e(it["en"])} {yrs}">'
+                        f'<i style="width:{max(6, x2 - x1):.0f}px"></i><b>{name}</b></div>')
+        lanes_html.append(f'<div class="ph-wt-lane ph-wt-{lane["k"]}" style="height:{h}px">'
+                          f'<span class="ph-wt-lab">{_ph_e(lane["en"])}<i lang="zh-Hant">{_ph_e(lane["zh"])}</i></span>{"".join(bars)}</div>')
+    ticks = [y for y in range(-800, 1, 100)] + [500, 1000] + list(range(1500, 1801, 100)) + list(range(1850, 2001, 50))
+    axis = "".join(f'<span class="ph-wt-tick" style="left:{_ph_wt_x(y):.0f}px">{_ph_wt_year(y)}</span>' for y in ticks)
+    breaks = "".join(f'<span class="ph-wt-break" style="left:{_ph_wt_x(y):.0f}px" title="scale changes · 比例改變"></span>' for y in (0, 1500, 1800))
+    band, focus = "", _ph_wt_x(-500)
+    if span:
+        a, b = _ph_wt_x(span[0]), _ph_wt_x(span[1])
+        focus = (a + b) / 2
+        band = (f'<div class="ph-wt-band" style="left:{a:.0f}px;width:{max(8, b - a):.0f}px">'
+                f'<span>{_ph_e(label or "")}</span></div>')
+    return (f'<div class="ph-wt rvl" data-ph-wt data-focus="{focus:.0f}">'
+            f'<div class="ph-wt-ctl"><button type="button" data-ph-wt-go="-1" aria-label="Earlier · 往前">&larr;</button>'
+            f'<span>Drag to move through 2,800 years · 拖曳時間軸，走過兩千八百年</span>'
+            f'<button type="button" data-ph-wt-go="1" aria-label="Later · 往後">&rarr;</button></div>'
+            f'<div class="ph-wt-view" data-ph-wt-view><div class="ph-wt-track" style="width:{width}px">'
+            f'{band}{breaks}{"".join(lanes_html)}<div class="ph-wt-axis">{axis}</div></div></div>'
+            f'<p class="ph-wt-note">The scale changes at the dotted lines: it is stretched for the ancient world and the last two centuries and compressed for the Middle Ages, so that crowded periods stay readable. Dates before about 400 BCE are approximate. '
+            f'<span lang="zh-Hant">比例在虛線處改變：古代與最近兩百年放大、中世紀壓縮，好讓人物密集的時期看得清楚。約西元前 400 年以前的年代都是概數。</span></p></div>')
+
+def _ph_history(slug): return next(h for h in PHIL.get("history", []) if h["slug"] == slug)
+
+def build_phil_history(H):
+    """書架 B：哲學史。世界時間軸、六段閱讀、這個時代改變了什麼、關鍵人物、生字、測驗。"""
+    path = f'{PHIL_BASE}history/{H["slug"]}/'
+    words = sum(len(p["en"].split()) for s in H["essay"] for p in s["paras"])
+    hero_lead = f'{_ph_e(H["blurb_en"])}<br><span class="muted" lang="zh-Hant">{_ph_e(H["blurb_zh"])}</span>'
+    changed = "".join(
+        f'<li class="rvl"><span class="ph-ch-n">{i+1}</span><div><h3>{_ph_e(c["h_en"])} <span class="ph-h2-zh">{_ph_e(c["h_zh"])}</span></h3>{_ph_bi(c)}</div></li>'
+        for i, c in enumerate(H["changed"]))
+    people = ""
+    for c in H["people"]:
+        nm = (f'<a href="{PHIL_BASE}philosophers/{c["slug"]}/">{_ph_e(c["name"])}</a>' if c.get("slug") else _ph_e(c["name"]))
+        people += (f'<article class="ph-dw-card rvl"><p class="ph-dw-role">{_ph_e(c["place_en"])} · <span lang="zh-Hant">{_ph_e(c["place_zh"])}</span></p>'
+                   f'<h3>{nm} <span class="ph-h2-zh">{_ph_e(c["name_zh"])}</span><i>{_ph_e(c["dates"])}</i></h3>{_ph_bi(c["text"])}</article>')
+    src = H.get("source")
+    src_html = (_ph_source(src) if src else "")
+    write_list = "".join(f'<li class="rvl">{_ph_bi(w, say=False)}</li>' for w in H["write"])
+    rel = H.get("related", {})
+    rel_lessons = "".join(
+        f'<a class="ph-pcard rvl" href="{PHIL_BASE}{l["slug"]}/"><span class="ph-pcard-mono" aria-hidden="true">?</span>'
+        f'<span class="ph-pcard-b"><b>{_ph_e(l["title"])} <span lang="zh-Hant">{_ph_e(l["title_zh"])}</span></b><i>{_ph_e(l["n"])} · Big Questions 大哉問</i>'
+        f'<span>{_ph_e(l["blurb_en"])}</span></span><span class="ph-go">Read the lesson · 讀這一課 &rarr;</span></a>' for l in map(_ph_lesson, rel.get("lessons", [])))
+    hs = PHIL.get("history", []); i = hs.index(H)
+    link = lambda x: (f'{PHIL_BASE}history/{x["slug"]}/', f'{x["n"]} · {x["title"]}')
+    nav = _ph_nav(link(hs[i - 1]) if i > 0 else None, link(hs[i + 1]) if i < len(hs) - 1 else None)
+    body = f'''
+{page_hero(f'{H["n"]} · The Story of Philosophy 哲學史 · {_ph_e(H["era"])}', f'{_ph_e(H["title"])} <span class="ph-h1-zh">{_ph_e(H["title_zh"])}</span>', hero_lead, back=(PHIL_BASE + "#shelf-history", "The Story of Philosophy · 回哲學史"))}
+{_ph_toolbar()}
+<section class="section tight ph-top"><div class="wrap">
+  <div class="ph-meta rvl"><span><b>{_ph_e(H["n"])}</b> The Story of Philosophy · 哲學史</span><span>{_ph_e(H["unit_en"])} · {_ph_e(H["unit_zh"])}</span><span>{_ph_e(H["level"])}</span><span>{words:,} words · about {H["minutes"]} min</span></div>
+  <div class="ph-big rvl d1"><span class="ph-big-k">The big idea · 大觀念</span>
+    <p class="ph-big-en">{_ph_e(H["big_en"])}</p><p class="ph-big-zh" lang="zh-Hant">{_ph_e(H["big_zh"])}</p></div>
+  <p class="ph-trnote rvl d2"><b>中文翻譯</b><span>Every paragraph has a Chinese translation. Tap <span class="ph-tr"><span>中譯</span><i>▾</i></span> under a paragraph to open that one, or use <strong>Show Chinese · 顯示中譯</strong> at the top to open them all.</span>
+    <span lang="zh-Hant">每一段都有中譯：點段落下方的「中譯」只開那一段，或按上方的「顯示中譯」一次全部打開。</span></p>
+</div></section>
+{_ph_sec("timeline", "Timeline", "Where we are · 我們在哪裡", H["tl_title_en"], H["tl_title_zh"], _ph_world_timeline(H["span"], H["era"]), band=True, lead={"en": H["tl_lead_en"], "zh": H["tl_lead_zh"]})}
+{_ph_sec("story", "Story", "The story · 課文", H["title"], H["title_zh"], _ph_essay(H["essay"]))}
+{_ph_sec("changed", "Changed", "What this age changed · 這個時代改變了什麼", "Three things that were different afterward", "從此不一樣的三件事", f'<ol class="ph-changed">{changed}</ol>', band=True)}
+{_ph_sec("people", "People", "Key people · 關鍵人物", H["people_title_en"], H["people_title_zh"], f'<div class="ph-dw-cards">{people}</div>')}
+{(_ph_sec("source", "Source", "Primary text · 原典", src["title_en"], src["title_zh"], src_html, band=True, lead={"en": src["lead_en"], "zh": src["lead_zh"]}) if src else "")}
+{_ph_sec("vocab", "English", "Advanced English · 高級英文", "Eight words worth keeping", "值得帶走的八個字", _ph_vocab(H["vocab"]), band=not src)}
+{_ph_sec("quiz", "Check", "Reading check · 理解測驗", "Did it land?", "讀懂了嗎", _ph_quiz(H["quiz"], H["slug"]) + f'<h3 class="ph-write-h rvl">Write · 你怎麼想？</h3><ol class="ph-write">{write_list}</ol>', band=bool(src))}
+<section class="section{"" if src else " band"} ph-sec" id="more" data-ph-toc-label="More"><div class="wrap">
+  <p class="eyebrow rvl">Go further · 延伸</p>
+  <h2 class="rvl d1 sweep">Related lessons and reading <span class="ph-h2-zh">相關課程與延伸閱讀</span></h2>
+  <div class="ph-pcards">{rel_lessons}</div>
+  {_ph_people_cards(rel.get("people", [])) if rel.get("people") else ""}
+  {_ph_further(H["further"])}
+  {nav}
+</div></section>
+'''
+    say_slug = f'history-{H["slug"]}'
+    has_clips = os.path.exists(os.path.join(ROOT, "assets/data/say", say_slug + ".json"))
+    write(path, layout(path, f'{H["title"]} {H["title_zh"]}', f'{H["blurb_en"]} {H["blurb_zh"]}', body, "resources",
+          say_manifest=say_slug if has_clips else None, extra_head=_ph_head()))
+    return path
+
 def build_phil_person(P):
     path = f'{PHIL_BASE}philosophers/{P["slug"]}/'
     facts = "".join(f'<div><dt>{_ph_e(en)} <span lang="zh-Hant">{_ph_e(zh)}</span></dt><dd>{_ph_e(v)}</dd></div>' for en, zh, v in P["facts"])
@@ -9297,7 +9413,7 @@ def build_phil_person(P):
 
 def build_phil_hub():
     total = sum(len(u["items"]) for sh in PHIL["shelves"] for u in sh["units"])
-    done = len(PHIL["lessons"]) + len(PHIL["philosophers"]) + len(PHIL.get("dharma", []))
+    done = len(PHIL["lessons"]) + len(PHIL["philosophers"]) + len(PHIL.get("dharma", [])) + len(PHIL.get("history", []))
     tabs, secs = [], []
     for si, sh in enumerate(PHIL["shelves"]):
         n = sum(len(u["items"]) for u in sh["units"])
@@ -25027,6 +25143,7 @@ def main():
         for _l in PHIL["lessons"]: paths.append(build_phil_lesson(_l))
         for _p in PHIL["philosophers"]: paths.append(build_phil_person(_p))
         for _d in PHIL.get("dharma", []): paths.append(build_phil_dharma(_d))
+        for _h in PHIL.get("history", []): paths.append(build_phil_history(_h))
     build_grandfather(); paths.append("/resources/grandfather/")
     build_periodicals(); paths.append("/resources/periodicals/")
     build_media_hub(); paths.append("/media/")
