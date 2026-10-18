@@ -211,6 +211,33 @@ assert.equal(yearsBetween(1601, 1700) + 1, 100);
   // 第四課的預告卡已換成真的連結
   assert.ok(lessons.find((l) => l.slug === 'old-maps').links.some((x) => x.href === '/resources/classes/taiwan-history/dutch-fort/'));
 }
+// ── 第六課 ───────────────────────────────────────────────────────────
+{
+  const L6 = lessons.find((l) => l.slug === 'spanish-north'), lab6 = L6.lab;
+  const coast = JSON.parse(readFileSync(new URL('../src/data/coast.json', import.meta.url), 'utf8'));
+  assert.ok(data.units[1].lessons.includes(L6), '第六課在單元二');
+  const B = Object.fromEntries(lab6.bases.map((b) => [b.key, b]));
+  lab6.bases.forEach((b) => { assert.ok(b.lon >= coast.bbox.w && b.lon <= coast.bbox.e && b.lat >= coast.bbox.s && b.lat <= coast.bbox.n, b.key); assert.ok(/^https:\/\//.test(b.url) && b.today_en && b.today_zh, b.key); });
+  lab6.peoples.forEach((p) => assert.ok(p.lon >= coast.bbox.w && p.lon <= coast.bbox.e && p.lat >= coast.bbox.s && p.lat <= coast.bbox.n, p.en));
+  // 誰在什麼時候駐守（換手的那一年算新的一方）
+  const who = (b, y) => { const hs = B[b].held.filter((x) => y >= x.from && y <= x.to); return hs.length ? hs.at(-1).who : null; };
+  assert.equal(who('keelung', 1625), null); assert.equal(who('keelung', 1626), 'es'); assert.equal(who('keelung', 1641), 'es');
+  assert.equal(who('keelung', 1642), 'nl'); assert.equal(who('keelung', 1663), null); assert.equal(who('keelung', 1666), 'nl');
+  assert.equal(who('tamsui', 1628), 'es'); assert.equal(who('tamsui', 1640), null); assert.equal(who('tamsui', 1650), 'nl'); assert.equal(who('tamsui', 1662), null);
+  assert.equal(who('tayouan', 1624), 'nl'); assert.equal(who('tayouan', 1662), 'nl'); assert.equal(who('tayouan', 1663), null);
+  assert.equal(1642 - 1626, 16);                                        // 「十六年」
+  assert.equal(L6.when.focus.fromAgo, yearToAgo(1626, NOW)); assert.equal(L6.when.focus.toAgo, yearToAgo(1642, NOW));
+  lab6.years.forEach((y) => assert.ok(y.year >= lab6.from && y.year <= lab6.to && y.en && y.zh && y.short_zh));
+  assert.deepEqual(lab6.years.map((y) => y.year), [...lab6.years.map((y) => y.year)].sort((a, b) => a - b));
+  Object.values(lab6.demo).forEach((d) => assert.ok(B[d.base] && d.year >= lab6.from && d.year <= lab6.to));
+  L6.parts.forEach((p) => assert.ok(lab6.demo[p.demo], p.demo));
+  const src6 = readFileSync(new URL('../src/twh-bases.js', import.meta.url), 'utf8');
+  assert.ok(src6.includes('hs[hs.length - 1]'), 'twh-bases.js 換手年算新的一方，和測試一致');
+  // 分類遊戲：挖到 3、還在 2、失傳 3
+  assert.deepEqual(['dug', 'still', 'lost'].map((k) => L6.sort.items.filter((it) => it.bin === k).length), [3, 2, 3]);
+  assert.ok(L6.sort.done_en.startsWith('Three things dug up, two still there, and three lost'));
+  assert.ok(lessons.find((l) => l.slug === 'dutch-fort').links.some((x) => x.href === '/resources/classes/taiwan-history/spanish-north/'));
+}
 // 時間軸上的事件由古到今
 const ev = data.timeline.events.map((e) => (e.ago !== undefined ? e.ago : yearToAgo(e.year, NOW)));
 assert.deepEqual(ev, [...ev].sort((a, b) => b - a));
@@ -218,7 +245,7 @@ assert.deepEqual(ev, [...ev].sort((a, b) => b - a));
 // （只看文字欄位；「3500-2000多年」「2,000 年前」這類距今的年數不是西元年，先拿掉）
 JSON.stringify(data, (k, v) => (k === 'url' ? undefined : typeof v === 'number' ? 0 : v))
   .replace(/[\d,]+\s*[-∼~–]\s*[\d,]+/g, ' ').replace(/[\d,]+\s*(多)?(年前|年至|年到|年間|年歷史| years ago| years)/g, ' ')
-  .replace(/\b(19\d\d|20\d\d)\b/g, (y) => { assert.ok(+y <= 1996 || ['1997', '2000', '2001', '2002', '2003', '2004', '2007', '2008', '2009', '2010', '2011', '2012', '2014', '2016', '2017', '2018', '2019', '2020', '2022', '2024', '2025', '2026', '2031'].includes(y), `year ${y}`); return y; });
+  .replace(/\b(19\d\d|20\d\d)\b/g, (y) => { assert.ok(+y <= 1996 || ['1997', '2000', '2001', '2002', '2003', '2004', '2007', '2008', '2009', '2010', '2011', '2012', '2013', '2014', '2016', '2017', '2018', '2019', '2020', '2022', '2024', '2025', '2026', '2031'].includes(y), `year ${y}`); return y; });
 // 美式拼字：常見的英式拼法不能出現（出處欄的逐字引文照原文，所以 sources 不掃）
 const en = JSON.stringify(data, (k, v) => (k === 'sources' ? undefined : v)).replace(/[一-鿿]/g, '');
 assert.ok(!/\b(colour|centre|metre|programme|practise|favourite|grey|whilst|towards|amongst|recognise|organise|analyse|civilisation|judgement|travell|labell|artefact|defence|neighbour|honour|catalogue|archaeolog(?:y|ist|ical)s?e)\b/i.test(en));

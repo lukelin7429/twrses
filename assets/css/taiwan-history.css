@@ -590,3 +590,21 @@ a.twh-link:hover { transform: translateY(-3px); box-shadow: var(--shadow); borde
 .al-lg-twhjunk i { background: #c9a66b; border-radius: 3px; }
 @media (max-width: 860px) { .twh-trade-body { grid-template-columns: 1fr; } .twh-trade-side { border-left: 0; border-top: 1px solid rgba(160,180,230,.16); } }
 
+
+/* ── 第六課：南北據點地圖 ─────────────────────────────────────────────── */
+.twh-base[data-who="es"] .twh-site-c { fill: #4fd1c5; stroke: #0a1830; }
+.twh-base[data-who="nl"] .twh-site-c { fill: #f08a4b; stroke: #0a1830; }
+.twh-base[data-who="none"] .twh-site-c { fill: #1b2b4d; stroke: #8fa3c8; stroke-dasharray: 3 3; }
+.twh-base[data-who="none"] .twh-site-n { fill: #8fa3c8; }
+.twh-base[data-who="es"] .twh-site-n, .twh-base[data-who="nl"] .twh-site-n { fill: #0a1830; }
+.twh-ppl text { fill: #d6c48f; font: italic 600 11px var(--sans); paint-order: stroke; stroke: #0a1830; stroke-width: 3px; opacity: .9; }
+.twh-ppl text .zh { font-style: normal; font-family: var(--zh); font-weight: 500; }
+.twh-no-ppl .twh-ppl { display: none; }
+.twh-who-es { background: #4fd1c5; } .twh-who-nl { background: #f08a4b; }
+.twh-bases-lab .twh-site-layers i { display: inline-block; width: .8rem; height: .8rem; border-radius: 3px; flex: none; margin-top: .2rem; }
+.twh-tl-es { background: #4fd1c5 !important; } .twh-tl-nl { background: #f08a4b !important; }
+.al-lg-twhes i { background: #4fd1c5; border-radius: 50%; border: 2px solid #0a1830; }
+.al-lg-twhnl i { background: #f08a4b; border-radius: 50%; border: 2px solid #0a1830; }
+.al-lg-twhnone i { background: #1b2b4d; border-radius: 50%; border: 2px dashed #8fa3c8; }
+.al-lg-twhppl i { background: transparent; border: 0; color: #d6c48f; font-style: italic; }
+.al-lg-twhppl i::before { content: "Aa"; font: italic 700 11px var(--sans); }

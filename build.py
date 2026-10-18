@@ -22648,7 +22648,7 @@ def build_home_hub():
 _twhj = os.path.join(ROOT, "data", "taiwan_history.json")
 TWH = json.load(open(_twhj, encoding="utf-8")) if os.path.exists(_twhj) else None
 TWH_BASE = "/resources/classes/taiwan-history/"
-_TWH_JS = {"dig": "twh-dig", "sites": "twh-sites", "peoples": "twh-peoples", "maps": "twh-maps", "fort": "twh-fort"}   # lab.kind → assets/js/<bundle>.js
+_TWH_JS = {"dig": "twh-dig", "sites": "twh-sites", "peoples": "twh-peoples", "maps": "twh-maps", "fort": "twh-fort", "bases": "twh-bases"}   # lab.kind → assets/js/<bundle>.js
 
 def _twh_ver():
     h = hashlib.md5()
@@ -23008,6 +23008,49 @@ def _twh_trade(td):
 
 _TWH_CARD["fort"] = twhfort_svg
 
+def twhbases_svg(size=56):
+    """第六課卡：台灣的輪廓，北端兩個圓點、南邊一個圓點。"""
+    return (f'<svg class="twhbases-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">'
+            f'<rect x="4" y="4" width="52" height="52" rx="6" fill="#123058"/>'
+            f'<path d="M33 9c4 1 6 4 6 8-1 8-4 18-8 27-2 4-4 7-6 7-2-1-2-5-1-10 1-8 2-16 4-23 1-5 3-9 5-9z" fill="#3f6f52" stroke="#9cc9a8" stroke-width=".8"/>'
+            f'<circle cx="37" cy="12" r="3.4" fill="#4fd1c5" stroke="#0a1830" stroke-width="1"/><circle cx="30" cy="13" r="3.4" fill="#4fd1c5" stroke="#0a1830" stroke-width="1"/>'
+            f'<circle cx="26" cy="39" r="3.4" fill="#f08a4b" stroke="#0a1830" stroke-width="1"/></svg>')
+
+def render_twhbases_lab(lesson):
+    """第六課：南北據點地圖（assets/js/twh-bases.js；SVG，不需要 WebGL）。"""
+    lab = lesson["lab"]
+    cfg = {k: lab[k] for k in ("older", "nearest", "from", "to", "start", "start_base", "bases", "who", "peoples", "years", "demo", "hello_en", "hello_zh")}
+    jumps = "".join(f'<button type="button" class="twh-btn-d" data-year="{j["year"]}" aria-pressed="false">{j["year"]}<small>{html.escape(j["short_zh"])}</small></button>' for j in lab["years"])
+    tg = _lab_toggles([("peoples", "Peoples’ names", "族群名字", True)])
+    return f'''<div class="astro-lab twh-lab twh-sites-lab twh-bases-lab rvl" data-twhbases-lab>
+  <script type="application/json" class="twh-lab-data">{_twh_json(cfg)}</script>
+  <div class="al-stage">
+    <div class="al-space twh-map-space">
+      <div class="twh-map"></div>
+      <p class="twh-badge">Names, not borders; dots mark places roughly · 標的是名字，不是界線；圓點位置是大概的</p>
+    </div>
+    <aside class="al-sky twh-aside">
+      <p class="al-sky-k">The year on the slider · 滑桿上的年份</p>
+      <p class="twh-age" aria-live="polite"></p>
+      <p class="twh-count twh-depth"></p>
+      <div class="twh-aside-grid">
+        <div class="twh-vtl" data-k="Year · 西元年" aria-label="Timeline, 1620 to 1670 · 時間軸，1620 到 1670 年"></div>
+        <div class="twh-aside-main"><div class="twh-site-card" aria-live="polite"></div></div>
+      </div>
+    </aside>
+  </div>
+  <div class="al-controls">
+    <label class="al-slider twh-dig-l"><span>Choose a year · 選一個年份 <small>1624 &rarr; 1668</small></span>
+      <input type="range" class="al-age twh-year-range" min="1624" max="1668" step="1" value="1626" aria-label="Choose a year from 1624 to 1668; each fort is colored by who held it that year · 選 1624 到 1668 年之間的一個年份；每個據點依那一年由誰駐守變色"></label>
+    <div class="al-row al-row-main twh-jumps">{jumps}<div class="al-row al-toggles">{tg}</div></div>
+    <p class="twh-msg" aria-live="polite"></p>
+  </div>
+  {_lab_foot(lab)}
+  <p class="twh-credit">{lab["credit_html"]}</p>
+</div>'''
+
+_TWH_CARD["bases"] = twhbases_svg
+
 def _twh_flat():
     return [(ui, u, l) for ui, u in enumerate(TWH["units"]) for l in u["lessons"]]
 
@@ -23035,7 +23078,7 @@ def build_twh_lesson(ui, unit, lesson):
     reading_html = render_basic_unit(1, unit_dict, level="twh", audio_rel="", pdf_rel="")
     lab = lesson["lab"]
     kind = lab["kind"]
-    lab_html = {"dig": render_twhdig_lab, "sites": render_twhsites_lab, "peoples": render_twhpeoples_lab, "maps": render_twhmaps_lab, "fort": render_twhfort_lab}[kind](lesson)
+    lab_html = {"dig": render_twhdig_lab, "sites": render_twhsites_lab, "peoples": render_twhpeoples_lab, "maps": render_twhmaps_lab, "fort": render_twhfort_lab, "bases": render_twhbases_lab}[kind](lesson)
 
     def sec(key, fn, sid=None):
         d = lesson[key]

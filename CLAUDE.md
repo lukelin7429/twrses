@@ -1178,7 +1178,7 @@
   - `when`（「這一課在時間軸的哪裡」：`focus` ＝ `{ fromAgo|fromYear, toAgo|toYear, en, zh }`、`note_*`，可加 `events[]`）、`sort`（分類遊戲）、`two`（兩份互相矛盾的記錄）、`notes`＋`notes_head`（「給老師的提醒」：課綱對應、名詞、這個系列怎麼處理敏感題目）。
 - 頁面：`build.py`「台灣歷史」區塊的 `build_twh_hub()`（系列小圖示 `twhhub_svg()`＝地層＋探坑＋手鏟，第一課卡 `twhdig_svg()`；`_TWH_CARD`）/ `build_twh_lesson()`；三張固定的卡是 `_twh_how()`、`_twh_views()`、`_twh_phrases()`，時間軸 `_twh_timeline()`。「閱讀與經典」頁有入口卡（🏺，排在家政後面）。段落順序：3D → 英文閱讀 → 模型卡 → **時間軸** → 這是哪一種證據 → 兩個人說的不一樣 → **我們怎麼知道？** → **不同的說法** → **歷史英語** → 在台灣（文化卡）→ 迷思 → 口訣 → 給老師的提醒 → 活動 → 延伸閱讀 → 資料出處。`tools/gen_audio.py` 的 `SHORT_PAGES` 已加入本系列。
 - 樣式：共用 `assets/css/astro.css`，本系列專屬的在 `assets/css/taiwan-history.css`（**class 前綴一律 `twh-`**——`th-` 已被天文、人體、地球、書法、數學等系列用掉，不要用）；`_twh_head()` 只在本系列頁面載入。
-- 原始碼：**`tools/twhist/src/`**（自己的 package.json，three 0.186.1、esbuild 0.25.10），bundle 一律 `twh-*`；`lab.kind` → bundle 對照在 `build.py` 的 `_TWH_JS`（`dig` → `twh-dig`、`sites` → `twh-sites`、`peoples` → `twh-peoples`、`maps` → `twh-maps`、`fort` → `twh-fort`）；首頁另載 `twh-hub`（只有時間軸，不含 three.js）。**不要 import 別的系列的 tools 目錄。** 新增一課＝`src/twh-<名>.js`＋package.json 的 build 加入口＋`_TWH_JS` 加一筆＋`build_twh_lesson()` 的 `lab_html` 對照加一筆。
+- 原始碼：**`tools/twhist/src/`**（自己的 package.json，three 0.186.1、esbuild 0.25.10），bundle 一律 `twh-*`；`lab.kind` → bundle 對照在 `build.py` 的 `_TWH_JS`（`dig` → `twh-dig`、`sites` → `twh-sites`、`peoples` → `twh-peoples`、`maps` → `twh-maps`、`fort` → `twh-fort`、`bases` → `twh-bases`）；首頁另載 `twh-hub`（只有時間軸，不含 three.js）。**不要 import 別的系列的 tools 目錄。** 新增一課＝`src/twh-<名>.js`＋package.json 的 build 加入口＋`_TWH_JS` 加一筆＋`build_twh_lesson()` 的 `lab_html` 對照加一筆。
   ```
   cd tools/twhist && npm ci && npm run build && npm test
   ```
@@ -1229,6 +1229,13 @@
   - **查證抓到的（2026-10-17，都已改）**：版畫是 1644–46 年印的仿刻本，畫的是 1632 年的景象——一律寫「畫出 1632 年景象的版畫」，不寫「1632 年的版畫」；版畫只看得到前牆和兩個城角，「方形、四角」是推想；寫「海邊的高地」不寫「沙丘」（出處沒有）；贌社 1644 年才開辦，1636–1645 年另有漢人獵戶的獵鹿執照；87% 是公司各地商館對日出口的比例；巴城評議會 1662 年 12 月是「有所保留、建議另找北方港口」，「奪回台灣並非有利」是吳聰敏的推論；麻豆條約是公司起草的，也有協同作戰與互助條款；1629 年的經過是補充教材依公司書信的敘述。
   - 史料與工作檔放在 `~/Developer/twrses-twhist-tools/`（scratchpad 會被清；`l5src/` 是出處、`l5_data.py` 是資料產生器、`tts/` 是 edge-tts 修好的副本）。
   - 除錯：`document.querySelector('[data-twhfort-lab]').__lab`（`select(key)`、`event(key)`、`setToday(bool)`、`demo(...)`、`check()`）；`document.querySelector('[data-twh-trade]').__trade`（`season(key)`、`route(key)`、`shown()`）。
+
+- 第六課南北據點（`twh-bases.js`，`lab.kind = "bases"`，`data-twhbases-lab`；slug `spanish-north`；單元二第二課）：一個想法——**1626–1642 年西班牙人從馬尼拉來、在雞籠和淡水守城，身邊是巴賽人與北部其他族群；他們沒有控制多少土地，傳教士寫的語言書都失傳了；留下的大多在地底下，文字沒說的要靠考古**。
+  - **規劃的改動（Luke 2026-10-18 決定）**：規劃檔寫「用羅馬字寫下的原住民族語言文書」，但西班牙時期的淡水語詞彙（Esquivel）、福爾摩沙語文法（Quirós）**一本都沒有留下來**（李壬癸、Joby、Zeitoun 的專章，中研院語言所網站），改教成「失傳的書」；留存的羅馬字文書（新港文書）是西南部、較晚的，不在這一課。
+  - 地圖：`lab.bases[]`（`held[]`：`from`、`to`、`who`＝es／nl、`name_*`；`today_*`、`src/url`）、`lab.peoples[]`（族名一直在地圖上，不隨年份變，標的是名字不是界線）、`lab.years[]`（年份按鈕與訊息）。**換手的那一年算新的一方**（`heldAt` 取最後一筆；測試會擋），所以 1642 年雞籠是荷蘭。直的時間軸用 `nearestLinear`（1620–1670）。不需要 WebGL。
+  - 小遊戲「挖到了、還在，還是失傳了？」沿用 `initSort`（3／2／3）。
+  - **查證抓到的（2026-10-18，都已改）**：「1661 年荷蘭人撤出北部」只有淡水有出處——雞籠的荷蘭時期畫到 1662（他們離開台灣），卡片寫明資料沒有確切日期；淡水西班牙時期依《淡水鎮志》到 1638，新北市導覽資料寫 1642，兩個並列；今天的紅毛城寫成「導覽資料稱為安東尼堡的紅色建築」，不寫是 1600 年代原物（荷蘭人 1661 年燒過）；發掘 2011 年開始、2013 年起康斯坦茨大學與中研院合作、2016 年台西團隊再度發掘、2019 年擴大；書「到現在還沒找到」，不寫「從來沒有」；荷蘭在北部約十九年，比西班牙久。
+  - **出處**：《淡水鎮志》〈政事志〉（林呈蓉，淡水區公所 PDF）——西班牙時期的日期、動機、課稅、駐軍、1661 年荷蘭人在原住民壓力下撤出淡水；新北市文化局（聖多明哥城、紅毛城名稱）；德國康斯坦茨大學 2017 新聞稿與公視 2020、2025 報導（和平島發掘：教堂、墓地、墓葬數 2016 年 6 座→2019 年 15 具）；文資局和平島 B 國定考古遺址頁；吳聰敏 2016（1664–1668 荷蘭人回到雞籠）。**連不上的**：西班牙 UCM 的 Cruz Berrocal & Tsang 2017 論文 PDF、海大和平島計畫的 PDF（curl 與瀏覽器面板都失敗）。**沒寫**：《淡水鎮志》說普羅民遮城 1625 年建，和第五課（吳聰敏：1653 年起修築）不一致——第六課不碰。
 
 ## 世界歷史 World History（/resources/classes/world-history/）— 架構照地理與台灣歷史，共用的是「歷史地球儀」與「平行時間軸」
 

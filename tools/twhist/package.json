@@ -6,7 +6,7 @@
   "scripts": {
     "coast": "node scripts/build-coast.mjs",
     "world": "node scripts/build-world.mjs",
-    "build": "esbuild src/twh-hub.js src/twh-dig.js src/twh-sites.js src/twh-peoples.js src/twh-maps.js src/twh-fort.js --bundle --minify --format=iife --target=es2019 --legal-comments=eof --outdir=../../assets/js",
+    "build": "esbuild src/twh-hub.js src/twh-dig.js src/twh-sites.js src/twh-peoples.js src/twh-maps.js src/twh-fort.js src/twh-bases.js --bundle --minify --format=iife --target=es2019 --legal-comments=eof --outdir=../../assets/js",
     "test": "node test/timeline.test.mjs && node test/strata.test.mjs && node test/geo2d.test.mjs && node test/data.test.mjs"
   },
   "devDependencies": {
