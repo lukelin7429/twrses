@@ -23835,7 +23835,7 @@ def build_dom_jones():
       <p class="role-zh">人師教育協會 倡議委員會主席 · 聯合國永續發展目標(SDGs)推廣大使</p>
     </div>
     <figure class="d-portrait">
-      <img src="{TB}/dom-jones/images/dom-jones.png" alt="Dom Jones 多姆・瓊斯">
+      <img src="/assets/img/tb/dom-jones/images/dom-jones.jpg" alt="Dom Jones 多姆・瓊斯">
       <div class="ring">🌐</div>
     </figure>
   </div>
@@ -23943,7 +23943,7 @@ def build_dom_jones():
     <p class="d-h2-en">每一場巡迴都是全校英語集會,由各校學生記者拍成校園新聞;集會之後,Dom 再與該校校長對談。點縮圖原地播放。</p>
 
     <figure class="d-feature">
-      <img src="{TB}/dom-jones/images/yushin-group.jpg" alt="Dom Jones with students of Yuxin Elementary">
+      <img src="/assets/img/tb/dom-jones/images/yushin-group.jpg" alt="Dom Jones with students of Yuxin Elementary">
       <figcaption><strong>With the students of Yuxin Elementary 育新國小</strong>One of the many campuses on Dom's Taiwan tour</figcaption>
     </figure>
 
@@ -24811,21 +24811,21 @@ TB = "https://taiwan-bilingual.org"   # 圖片與夥伴詳介沿用台灣雙語�
 
 PARTNERS = [
     {"accent": ("#0e6b60", "#d8ece8", "#0a4f47"),
-     "img": TB + "/edward-huang/photos/edward-portrait.jpg", "alt": "Edward Huang 黃雋翔",
+     "img": "/assets/img/tb/edward-huang/photos/edward-portrait.jpg", "alt": "Edward Huang 黃雋翔",
      "tag": "聯合國青年氣候", "name": "Edward Huang 黃雋翔",
      "role": "LCOY Taiwan 國際大使 · UNFCCC YOUNGO",
      "zh": "UCLA 碩士、UNFCCC 官方青年組織 YOUNGO 成員。Edward 為臺灣學生（小學到大學）開啟聯合國氣候峰會、SDGs 教學與跨國專題學習；其 Youth Network 取得 2026 LCOY Taiwan 主辦權。",
      "meta": ["🇺🇳 UNFCCC YOUNGO", "🌍 LCOY Taiwan", "🎓 UCLA"],
      "go": ("/partners/edward-huang/", "查看完整介紹 →", False)},
     {"accent": ("#b97e16", "#f6e6c4", "#7a5310"),
-     "img": TB + "/dom-jones/images/dom-jones.png", "alt": "Dom Jones 多姆・瓊斯",
+     "img": "/assets/img/tb/dom-jones/images/dom-jones.jpg", "alt": "Dom Jones 多姆・瓊斯",
      "tag": "倡議 · 善意", "name": "Dom Jones 多姆・瓊斯",
      "role": "聯合國 SDG 大使 · 人師倡議委員會",
      "zh": "來自加州的社會運動者、教育家與媒體人，主持《The Dom Jones Show》、曾登上 CBS《The Amazing Race》。Dom 帶來以「英語教育、全球連結、善意與愛」為三大主軸的校園巡迴集會。",
      "meta": ["🌏 UN SDG", "📺 PBTV", "🏆 Amazing Race S34"],
      "go": ("/media/dom-jones/", "看 Dom 的校園巡訪 →", False)},
     {"accent": ("#d2643c", "#f7e0d4", "#9e3f22"),
-     "img": TB + "/partners/leon-la-couvee/photos/leon-portrait.jpg", "alt": "Leon E. La Couvée",
+     "img": "/assets/img/tb/partners/leon-la-couvee/photos/leon-portrait.jpg", "alt": "Leon E. La Couvée",
      "tag": "作家 · 講者", "name": "Leon E. La Couvée",
      "role": "作家 · TEDxYouth 講者 · 雙語教師",
      "zh": "加拿大出生、選擇定居臺灣的作家、講者與教師，畢生關注人的自由與圓滿。著有《Grandfather Is Dead／落日餘暉》與《Grandfather Is Going to Die》，並有每週專欄、播客與 TEDxYouth 演講；人師將其第一本書製作成三十集雙語影片。",
@@ -24838,7 +24838,7 @@ PARTNER_ORGS = [
      "name": "Up with People 人人至上",
      "zh": "1965 年創立於美國丹佛的國際青年組織。每年兩團、來自約 20 國的青年以半年走讀世界；2010、2012 兩度造訪彰化，住進南彰化的寄宿家庭，並在明道大學與二林圖書館成功演出，收錄於 3 支影片。",
      "go": "/partners/up-with-people/"},
-    {"img": TB + "/partners/una-oc/img/una-oc-sdg.jpg",
+    {"img": "/assets/img/tb/partners/una-oc/img/una-oc-sdg.jpg",
      "name": "美國聯合國協會橙縣分會 UNA-OC",
      "zh": "美國聯合國協會橙縣分會，推動 SDGs 與全球公民意識；透過擔任其政府事務大使的夥伴 Dom Jones 與本協會結緣。",
      "go": "/partners/una-oc/"},
@@ -24846,7 +24846,7 @@ PARTNER_ORGS = [
      "name": "DLSU-D 與崇實高工締結姊妹校",
      "zh": "人師在菲律賓的拉薩爾夥伴與彰化員林崇實高工締結姊妹校：簽約儀式、書法交流與在地報導，收錄於 5 支影片。",
      "go": "/partners/dlsu-d/"},
-    {"img": TB + "/partners/chinese-culture-connection/img/gala.png",
+    {"img": "/assets/img/tb/partners/chinese-culture-connection/img/gala.jpg",
      "name": "華夏文化協會（波士頓）",
      "zh": "大波士頓四十年的非營利組織、人師的姊妹組織，理念相通、董事相連，推動雙語雙文化教育與跨文化理解。",
      "go": "/partners/chinese-culture-connection/"},
@@ -24858,7 +24858,7 @@ PARTNER_ORGS = [
      "name": "紐約 CCC 中文學校來到彰化",
      "zh": "自 2022 年起的長期夥伴，紐約 Albany 的學生輔導臺灣孩子英文並來彰化教學交流。2024、2025 連續來訪，2026 年 8 月再度來到彰化服務五天。",
      "go": "/partners/ccc-chinese-school/"},
-    {"img": TB + "/partners/nmu/img/nmu-principal-group.jpg",
+    {"img": "/assets/img/tb/partners/nmu/img/nmu-principal-group.jpg",
      "name": "NMU 師資生來到彰化",
      "zh": "2026 年 5 月，David Boe 教授帶領 NMU 師資生來彰化進行 TESOL 實習，於溪州與陽明國中協同教學，收錄於師資生親錄的見證短片。",
      "go": "/partners/nmu/"},
@@ -24888,7 +24888,7 @@ def build_partners():
 </article>''')
     # 懷念：麥克爺爺
     mike = f'''<article class="partner memoriam rvl">
-  <div class="partner-photo"><img loading="lazy" src="{TB}/partners/grandpa-mike/photos/mike-portrait.jpg" alt="Grandpa Mike"></div>
+  <div class="partner-photo"><img loading="lazy" src="/assets/img/tb/partners/grandpa-mike/photos/mike-portrait.jpg" alt="Grandpa Mike"></div>
   <div class="partner-body">
     <span class="partner-tag mem">🕯️ 懷念 In Loving Memory</span>
     <h2>Grandpa Mike 麥克爺爺</h2>
