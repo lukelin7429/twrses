@@ -10500,11 +10500,11 @@
        "icon": "🎼",
        "k_en": "Music · Lesson 18",
        "k_zh": "音樂・第十八課",
-       "soon": true,
        "en": "Why Is Bach Called the Father of Music?",
        "zh": "巴哈為什麼重要？",
        "note_en": "Next: a melody that chases itself.",
-       "note_zh": "接下來：自己追自己的旋律。"
+       "note_zh": "接下來：自己追自己的旋律。",
+       "href": "/resources/classes/music/bach-canon/"
       }
      ],
      "sources_note_en": "Names and quotations on this page were checked against these sources (November 2026). The three tunes and the way they are played are our own simple model; no real song is used.",
@@ -10593,14 +10593,564 @@
    "title_zh": "音樂家與我們",
    "blurb_en": "Bach, Beethoven, a Taiwanese composer, and what music does to us: the facts, and the claims that have no evidence.",
    "blurb_zh": "巴哈、貝多芬、一位台灣作曲家，以及音樂對我們做了什麼：有證據的事，和沒有證據的說法。",
-   "lessons": [],
-   "planned": [
+   "lessons": [
     {
      "n": 18,
+     "slug": "bach-canon",
+     "title": "Why Is Bach Called the Father of Music?",
+     "title_zh": "巴哈為什麼重要？",
+     "level": "入門 · Beginner",
      "icon": "🎼",
-     "en": "Why Is Bach Called the Father of Music?",
-     "zh": "巴哈為什麼重要？"
-    },
+     "card": "canon",
+     "blurb_en": "Make a melody chase itself. Hear a canon, a unison, and two different tunes, and learn what the sources really say about Bach and his famous title.",
+     "blurb_zh": "讓一條旋律自己追自己。聽卡農、齊唱和兩條不同的旋律，再讀來源對巴哈和他著名的稱號到底怎麼說。",
+     "big_idea_en": "In a canon, every voice sings the same tune, but each comes in later, so the tune chases itself. It works because the tune does not clash with itself.",
+     "big_idea_zh": "在卡農裡，每個聲部唱同一條旋律，但各晚一點進來，旋律就自己追自己。它之所以成立，是因為旋律和自己疊起來不會打架。",
+     "lab": {
+      "kind": "canon",
+      "eyebrow": "Try It · 動手試試",
+      "title_en": "A Tune That Chases Itself",
+      "title_zh": "自己追自己的旋律",
+      "how_en": "We wrote one 16-beat tune. Choose how the voices sing: as a canon, together, or as two different tunes. For a canon, choose how many voices and how many beats apart they enter. Each voice has its own color on the piano roll. The tune is ours, written so that it never clashes with itself when it enters 2, 4, 6, or 8 beats late. It is not a tune by Bach or by anyone else.",
+      "how_zh": "我們寫了一段 16 拍的旋律。選聲部怎麼唱：卡農、一起唱，或各唱不同的旋律。卡農的話，選幾個聲部、隔幾拍進來。鋼琴卷上每個聲部有自己的顏色。旋律是我們自己的，特別寫成晚 2、4、6 或 8 拍進來時都不會和自己打架。它不是巴哈或任何人的旋律。"
+     },
+     "paras": [
+      "Johann Sebastian Bach (1685–1750) was a German composer and musician of the late Baroque period. He was born in Eisenach, the youngest child of a city musician, into a family that produced three to four generations of musicians. He was orphaned at the age of 10. He learned the violin, and he was also an organist. Our Lesson 13 shows what Baroque music is like.",
+      "In 1703 Bach became the organist at the New Church. He returned to Weimar as court organist in 1708, and he became a director of music in 1717. In 1723 he was appointed Thomaskantor, the director of church music in Leipzig, and he held that position for 27 years, until his death. He directed the St. Thomas School and provided four churches with music. A cantata was required for the church services on each Sunday, and his body of work includes more than 200 cantatas.",
+      "Bach’s music encompasses every genre of his time aside from opera. He wrote extensively for the organ and other keyboard instruments, and he also wrote orchestral and chamber music. He is known for his mastery of counterpoint. Many of his works use techniques like canon and fugue, which he did not invent but contributed to so fundamentally as to influence many followers.",
+      "A canon is a technique that employs a melody with one or more imitations of the melody. The first melody is the leader, and the imitating melody, in a different voice, is the follower. In the Taiwan dictionary, one voice comes first, and the other voices join with the same melody in turn, chasing one another to the last bar. A round is a limited type of canon: many voices sing exactly the same melody, each beginning at a different time. A voice here means a single melodic line.",
+      "Counterpoint is the relationship of two or more simultaneous musical lines. The lines depend on each other harmonically, yet they are independent in rhythm and melodic contour. A fugue is a technique in two or more voices built on a subject, which then sounds successively in each voice. The word comes from the Latin fuga, “flight”, and from the verbs for “to flee” and “to chase”. A fugue is closer to a style of composition than to a fixed form, so in this lesson we only play with canons.",
+      "Why is Bach called the father of music? In Taiwan’s dictionary he is “a founder of modern Western music” with the title “father of music”. Chinese Wikipedia says this label came into Chinese from Japanese scholars, has its limits, and is not yet widely accepted in the field. We could not find the title in English sources. What the sources do say is clear: after he died his reputation as a composer declined for a while, and he was remembered as an organist and a teacher. Haydn, Mozart, and Beethoven knew his music, and Felix Mendelssohn’s 1829 performance of the St. Matthew Passion precipitated the Bach Revival."
+     ],
+     "paras_zh": [
+      "約翰・塞巴斯蒂安・巴哈（1685–1750）是巴洛克晚期的德國作曲家與音樂家。他生在愛森納赫，是一位城市樂師最小的孩子，出身一個傳了三、四代音樂家的家族。他十歲就成了孤兒。他學過小提琴，也是管風琴家。第十三課介紹過巴洛克音樂是什麼樣子。",
+      "1703 年，巴哈成為新教堂的管風琴師。1708 年他回到威瑪擔任宮廷管風琴師，1717 年擔任音樂總監。1723 年他被任命為托馬斯教堂的歌手長（Thomaskantor），也就是萊比錫的教堂音樂總監，這個職位他做了 27 年，直到去世。他負責領導聖托馬斯學校，並為四間教堂提供音樂。每個星期天的禮拜都需要一首清唱劇，他的作品包括兩百多首清唱劇。",
+      "巴哈的音樂涵蓋了他那個時代除了歌劇以外的每一種體裁。他為管風琴與其他鍵盤樂器寫了很多，也寫管弦樂與室內樂。他以精通對位法聞名。他的許多作品用到卡農與賦格這些技法，他並沒有發明它們，但貢獻之大，影響了許多後來的人。",
+      "卡農是用一條旋律和它的一個或多個模仿所構成的技法。最先出現的旋律是導句，在不同聲部模仿的是答句。在台灣的辭典裡，一個聲部先出現，其他聲部以同樣的旋律依序加入，一直互相追逐，到最後一小節。輪唱是卡農的一種限定類型：許多聲部唱完全一樣的旋律，各自在不同的時間開始。這裡的「聲部」是指一條單獨的旋律線。",
+      "對位法是兩條或以上同時進行的旋律線之間的關係。這些線在和聲上互相依賴，在節奏與旋律輪廓上卻各自獨立。賦格是兩個或以上聲部、建立在一個主題上的技法，主題依序在每個聲部出現。這個詞來自拉丁文 fuga，「飛走」，也來自「逃跑」與「追趕」的動詞。賦格比較像一種作曲風格，而不是固定的形式，所以這一課我們只玩卡農。",
+      "巴哈為什麼被稱為音樂之父？在台灣的辭典裡，他是「近代西洋音樂的鼻祖」，有「音樂之父」的稱譽。中文維基百科說，這個稱呼是從日本學者傳入中文的，有它的侷限，也尚未在相關領域被廣泛接受。我們在英文的來源裡找不到這個稱號。來源說得清楚的是：他去世後，作為作曲家的名聲一度下滑，人們記得他是管風琴家與教師。海頓、莫札特和貝多芬都知道他的音樂，而孟德爾頌 1829 年演出《馬太受難曲》，促成了巴哈復興。"
+     ],
+     "questions": [
+      "What is the difference between a round and a canon?",
+      "Is “father of music” an established fact?",
+      "Why does our tune not clash with itself in a canon?"
+     ],
+     "answers": [
+      "A round is a limited type of canon in which all voices sing exactly the same melody, each beginning at a different time. A canon is the wider technique.",
+      "No. It is a title. Taiwan’s dictionary gives it, but Chinese Wikipedia says it is not widely accepted in the field, and we found it in no English source.",
+      "We wrote it so that the notes that sound together are always from the same set of notes. We tested it by computer for every entry time we offer."
+     ],
+     "vocab": [
+      {
+       "n": 1,
+       "w": "canon",
+       "pos": "n.",
+       "zh": "卡農",
+       "ex": "In a <b>canon</b>, the tune chases itself.",
+       "exzh": "在卡農裡，旋律自己追自己。"
+      },
+      {
+       "n": 2,
+       "w": "round",
+       "pos": "n.",
+       "zh": "輪唱",
+       "ex": "A <b>round</b> has no fixed ending.",
+       "exzh": "輪唱沒有固定的結尾。"
+      },
+      {
+       "n": 3,
+       "w": "voice",
+       "pos": "n.",
+       "zh": "聲部",
+       "ex": "Each <b>voice</b> sings its own line.",
+       "exzh": "每個聲部唱自己的線條。"
+      },
+      {
+       "n": 4,
+       "w": "counterpoint",
+       "pos": "n.",
+       "zh": "對位法",
+       "ex": "<b>Counterpoint</b> joins independent melodies.",
+       "exzh": "對位法把各自獨立的旋律結合在一起。"
+      },
+      {
+       "n": 5,
+       "w": "fugue",
+       "pos": "n.",
+       "zh": "賦格（復格）",
+       "ex": "A <b>fugue</b> is built on a subject.",
+       "exzh": "賦格建立在一個主題上。"
+      },
+      {
+       "n": 6,
+       "w": "subject",
+       "pos": "n.",
+       "zh": "主題",
+       "ex": "The <b>subject</b> enters in each voice.",
+       "exzh": "主題依序在每個聲部出現。"
+      },
+      {
+       "n": 7,
+       "w": "organ",
+       "pos": "n.",
+       "zh": "管風琴",
+       "ex": "Bach was an <b>organ</b> player.",
+       "exzh": "巴哈是管風琴演奏者。"
+      },
+      {
+       "n": 8,
+       "w": "cantata",
+       "pos": "n.",
+       "zh": "清唱劇",
+       "ex": "A <b>cantata</b> has singers and instruments.",
+       "exzh": "清唱劇有歌者和樂器。"
+      }
+     ],
+     "quiz": [
+      {
+       "q": "In a canon, what do the voices do?",
+       "options": [
+        "Sing the same tune, each entering later",
+        "All sing different songs",
+        "Sing only one note",
+        "Take turns without overlapping"
+       ],
+       "correct": 0
+      },
+      {
+       "q": "What is a round?",
+       "options": [
+        "A limited type of canon where every voice sings exactly the same melody",
+        "A kind of drum",
+        "A fugue with no subject",
+        "A song with no tune"
+       ],
+       "correct": 0
+      },
+      {
+       "q": "When did Bach live?",
+       "options": [
+        "1685–1750",
+        "1456–1520",
+        "1810–1849",
+        "1900–1970"
+       ],
+       "correct": 0
+      },
+      {
+       "q": "What is true about “father of music”?",
+       "options": [
+        "It is a title, and not widely accepted in the field",
+        "Bach invented all music",
+        "Nobody ever used it",
+        "It is Mozart’s name"
+       ],
+       "correct": 0
+      },
+      {
+       "q": "Who wrote the famous piece called the Canon in D?",
+       "options": [
+        "Johann Pachelbel",
+        "Johann Sebastian Bach",
+        "Felix Mendelssohn",
+        "Joseph Haydn"
+       ],
+       "correct": 0
+      }
+     ],
+     "parts_head": {
+      "eyebrow": "Try It · 動手試試",
+      "en": "Four things to hear",
+      "zh": "四件值得聽的事"
+     },
+     "parts": [
+      {
+       "key": "chase",
+       "icon": "🏃",
+       "en": "Two voices chase",
+       "zh": "兩個聲部追趕",
+       "meta_en": "4 beats apart",
+       "meta_zh": "隔 4 拍",
+       "demo": "canon:2:4",
+       "text_en": "The second voice sings the same tune, four beats later. Watch the colors follow each other.",
+       "text_zh": "第二個聲部唱同一條旋律，晚四拍。看兩種顏色一個追著一個。"
+      },
+      {
+       "key": "close",
+       "icon": "🌀",
+       "en": "A close chase",
+       "zh": "貼近的追趕",
+       "meta_en": "3 voices, 2 beats apart",
+       "meta_zh": "三個聲部、隔 2 拍",
+       "demo": "canon:3:2",
+       "text_en": "Three voices, only two beats apart. The same tune is heard in three places at once.",
+       "text_zh": "三個聲部，只隔兩拍。同一條旋律同時在三個地方出現。"
+      },
+      {
+       "key": "unison",
+       "icon": "🎤",
+       "en": "All together",
+       "zh": "一起唱",
+       "meta_en": "Not a canon",
+       "meta_zh": "不是卡農",
+       "demo": "unison:3:4",
+       "text_en": "Three voices, the same notes at the same time. Thicker, but nothing chases.",
+       "text_zh": "三個聲部，同時唱一樣的音。變厚了，但沒有誰在追。"
+      },
+      {
+       "key": "different",
+       "icon": "🎼",
+       "en": "Two different tunes",
+       "zh": "兩條不同的旋律",
+       "meta_en": "Not a canon",
+       "meta_zh": "不是卡農",
+       "demo": "different:2:4",
+       "text_en": "Two voices sing two different tunes at the same time. Each line is independent.",
+       "text_zh": "兩個聲部同時唱兩條不同的旋律。每一條各自獨立。"
+      }
+     ],
+     "parts_note_en": "Then play the game below: can you tell a canon from the others?",
+     "parts_note_zh": "然後玩下面的遊戲：你分得出卡農和其他的嗎？",
+     "canonq": {
+      "eyebrow": "Game · 小遊戲",
+      "en": "Is It a Canon?",
+      "zh": "這是卡農嗎？",
+      "lead_en": "Six questions. Each one plays our tune with two to four voices. Choose what the voices are doing. If you cannot hear the sound, press “What is in the music”.",
+      "lead_zh": "六道題。每一題用兩到四個聲部播放我們的旋律。選出聲部在做什麼。如果聽不到聲音，按「音樂裡有什麼」。"
+     },
+     "curric": {
+      "eyebrow": "In the Curriculum · 對應課綱",
+      "en": "Where this lesson fits",
+      "zh": "這一課對應的課綱",
+      "lead_en": "The curriculum names rounds and chorus singing, composers, and imitation as a way of composing. The words Bach, canon, fugue, and counterpoint do not appear in it.",
+      "lead_zh": "課綱寫到輪唱與合唱、作曲家，以及模仿這種創作技法。「巴哈」「卡農」「賦格」「對位」這些詞課綱裡沒有出現。",
+      "items": [
+       {
+        "code": "音 E-Ⅲ-1",
+        "area": "藝術領域・音樂（國小五、六年級）",
+        "area_en": "Arts, music (grades 5–6)",
+        "text": "多元形式歌曲，如：輪唱、合唱等。基礎歌唱技巧，如：呼吸、共鳴等。",
+        "note_en": "A round is a canon sung by a class.",
+        "note_zh": "輪唱是全班一起唱的卡農。"
+       },
+       {
+        "code": "音 A-Ⅲ-1",
+        "area": "藝術領域・音樂（國小五、六年級）",
+        "area_en": "Arts, music (grades 5–6)",
+        "text": "器樂曲與聲樂曲，如：各國民謠、本土與傳統音樂、古典與流行音樂等，以及樂曲之作曲家、演奏者、傳統藝師與創作背景。",
+        "note_en": "Composers and the background of a piece.",
+        "note_zh": "作曲家與樂曲的創作背景。"
+       },
+       {
+        "code": "音 A-Ⅲ-3",
+        "area": "藝術領域・音樂（國小五、六年級）",
+        "area_en": "Arts, music (grades 5–6)",
+        "text": "音樂美感原則，如：反覆、對比等。",
+        "note_en": "A canon is repetition with a delay.",
+        "note_zh": "卡農是延遲了的反覆。"
+       },
+       {
+        "code": "音 A-Ⅳ-1",
+        "area": "藝術領域・音樂（國中）",
+        "area_en": "Arts, music (junior high)",
+        "text": "器樂曲與聲樂曲，如：傳統戲曲、音樂劇、世界音樂、電影配樂等多元風格之樂曲。各種音樂展演形式，以及樂曲之作曲家、音樂表演團體與創作背景。",
+        "note_en": "In junior high, composers and performing groups.",
+        "note_zh": "國中階段，作曲家與音樂表演團體。"
+       }
+      ]
+     },
+     "culture_cards": {
+      "eyebrow": "Stories Behind the Notes · 音符背後的故事",
+      "title_en": "A title, a revival, another canon, and a big family",
+      "title_zh": "一個稱號、一次復興、另一首卡農，和一個大家庭",
+      "lead_en": "Four short stories. We only write what the sources say.",
+      "lead_zh": "四個小故事。我們只寫來源說的。",
+      "cards": [
+       {
+        "k": "A Title · 稱號",
+        "en": "“Father of music”",
+        "zh": "「音樂之父」",
+        "body_en": "Taiwan’s dictionary calls Bach a founder of modern Western music with the title “father of music”. Chinese Wikipedia says the label came from Japanese scholars’ books in the 1970s, and it is not widely accepted in the field. English sources do not use it. Beethoven called Bach the progenitor of harmony, and Mozart’s sentence about a “father” was about Bach’s son Carl Philipp Emanuel.",
+        "body_zh": "台灣的辭典說巴哈是近代西洋音樂的鼻祖，有「音樂之父」的稱譽。中文維基百科說，這個稱呼來自日本學者的著作，經 1970 年代傳入中文，尚未在相關領域被廣泛接受。英文的來源沒有用它。貝多芬稱巴哈為「和聲之祖」，而莫札特那句關於「父親」的話，說的是巴哈的兒子卡爾・菲利普・艾曼努埃爾。"
+       },
+       {
+        "k": "A Revival · 復興",
+        "en": "Out of fashion, then back",
+        "zh": "一度過時，又回來了",
+        "body_en": "After Bach died, his reputation as a composer initially declined, and he was remembered more as an organist and a teacher. In 1802 the first biography of him was published. Felix Mendelssohn’s 1829 performance of the St. Matthew Passion precipitated the Bach Revival, and in 1850 the Bach Society was founded to promote his music. He was not unknown in between: Haydn owned copies of his keyboard works, and Chinese Wikipedia says Mozart and Beethoven admired his music greatly.",
+        "body_zh": "巴哈去世後，作為作曲家的名聲一度下滑，人們比較記得他是管風琴家與教師。1802 年出版了第一本他的傳記。孟德爾頌 1829 年演出《馬太受難曲》，促成了巴哈復興；1850 年成立了巴哈協會來推廣他的音樂。這中間他並不是無人知曉：海頓有他鍵盤作品的手抄本，中文維基百科說莫札特和貝多芬都對他推崇備至。"
+       },
+       {
+        "k": "Another Canon · 另一首卡農",
+        "en": "Not by Bach",
+        "zh": "不是巴哈寫的",
+        "body_en": "The famous Canon in D is by Johann Pachelbel (1653–1706). It is a canon at the unison in three parts, with a fourth part as a ground bass throughout. Neither the date nor the circumstances of its composition are known. Taiwan’s dictionary itself gives Pachelbel’s Canon as its example of a canon. Bach did write canons, but that one is not his.",
+        "body_zh": "著名的《D 大調卡農》是帕海貝爾（1653–1706）寫的。它是三個聲部的同度卡農，加上一個一直重複的第四聲部低音。它的寫作年代和情況都不知道。台灣的辭典自己就用帕海貝爾的《卡農》當卡農的例子。巴哈也寫過卡農，但那一首不是他的。"
+       },
+       {
+        "k": "A Family · 家庭",
+        "en": "About twenty children",
+        "zh": "大約二十個孩子",
+        "body_en": "English Wikipedia says Bach had twenty children, seven with his first wife and 13 with his second. Many did not survive to adulthood. Four of them, Wilhelm Friedemann, Carl Philipp Emanuel, Johann Christoph Friedrich, and Johann Christian, became composers. Late in life his eyesight failed, and he died after an unsuccessful eye surgery. He was not blind all his life.",
+        "body_zh": "英文維基百科說巴哈有二十個孩子，第一任妻子七個、第二任十三個。許多孩子沒有活到成年。其中四位：威廉・弗里德曼、卡爾・菲利普・艾曼努埃爾、約翰・克里斯托夫・弗里德里希和約翰・克里斯蒂安，成了作曲家。他晚年視力衰退，死於一次不成功的眼睛手術。他並不是一輩子都看不見。"
+       }
+      ]
+     },
+     "myths": [
+      {
+       "myth_en": "Bach wrote the famous “Canon in D”.",
+       "myth_zh": "巴哈寫了著名的《D 大調卡農》。",
+       "fact_en": "It was written by Johann Pachelbel (1653–1706).",
+       "fact_zh": "那是帕海貝爾（1653–1706）寫的。"
+      },
+      {
+       "myth_en": "Bach invented the canon and the fugue.",
+       "myth_zh": "巴哈發明了卡農和賦格。",
+       "fact_en": "He did not invent them. He contributed to them so fundamentally as to influence many followers. The earliest known rounds date from 12th-century Europe.",
+       "fact_zh": "他並沒有發明。他貢獻之大，影響了許多後來的人。最早已知的輪唱可以追溯到 12 世紀的歐洲。"
+      },
+      {
+       "myth_en": "Nobody played Bach until Mendelssohn.",
+       "myth_zh": "在孟德爾頌之前沒人演奏巴哈。",
+       "fact_en": "His reputation declined for a while, but Haydn, Mozart, and Beethoven knew his music, and a biography came out in 1802. The 1829 performance precipitated the Bach Revival.",
+       "fact_zh": "他的名聲一度下滑，但海頓、莫札特和貝多芬都知道他的音樂，1802 年也出版了傳記。1829 年的演出促成了巴哈復興。"
+      },
+      {
+       "myth_en": "Bach was blind.",
+       "myth_zh": "巴哈是瞎的。",
+       "fact_en": "His eyesight failed late in life, and he died after an unsuccessful eye surgery. The sources do not say he was blind.",
+       "fact_zh": "他晚年視力衰退，死於一次不成功的眼睛手術。來源沒有說他是瞎的。"
+      }
+     ],
+     "tricks_head": {
+      "en": "Four things to remember",
+      "zh": "四件要記住的事"
+     },
+     "tricks": [
+      {
+       "title_en": "Canon = chasing",
+       "title_zh": "卡農＝追趕",
+       "body_en": "Same tune, each voice enters later.",
+       "body_zh": "同一條旋律，每個聲部晚一點進來。"
+      },
+      {
+       "title_en": "Round = a limited canon",
+       "title_zh": "輪唱＝限定的卡農",
+       "body_en": "Exactly the same melody, entering in turn.",
+       "body_zh": "完全一樣的旋律，依序進來。"
+      },
+      {
+       "title_en": "Fugue = a subject in every voice",
+       "title_zh": "賦格＝主題輪流出現",
+       "body_en": "More like a style than a form.",
+       "body_zh": "比較像風格，不是固定形式。"
+      },
+      {
+       "title_en": "A title is not a fact",
+       "title_zh": "稱號不等於事實",
+       "body_en": "Ask who says it, and why.",
+       "body_zh": "問問是誰說的、為什麼。"
+      }
+     ],
+     "safety_head": {
+      "eyebrow": "Protect Your Ears · 保護耳朵",
+      "en": "Before you listen",
+      "zh": "聽之前"
+     },
+     "safety": [
+      {
+       "en": "Start with the volume low and turn it up a little at a time. Four voices together are louder than one.",
+       "zh": "先把音量調小，再一點一點調大。四個聲部在一起比一個聲部大聲。"
+      },
+      {
+       "en": "With headphones, keep the volume at no more than 60% of maximum, and use personal audio devices for less than one hour a day, as the World Health Organization suggests.",
+       "zh": "戴耳機時，音量不要超過最大音量的 60%，個人音響裝置每天使用少於一小時，這是世界衛生組織的建議。"
+      },
+      {
+       "en": "When you sing a round, sing at a comfortable volume and stop if your throat hurts.",
+       "zh": "唱輪唱的時候，用舒服的音量；喉嚨痛就停下來。"
+      }
+     ],
+     "activities": [
+      {
+       "title_en": "Clap a Canon",
+       "title_zh": "拍一個卡農",
+       "materials": [
+        {
+         "en": "Hands, or desks to tap softly",
+         "zh": "雙手，或可以輕敲的桌子"
+        },
+        {
+         "en": "A steady beat counted aloud",
+         "zh": "大聲數出來的穩定拍子"
+        }
+       ],
+       "steps": [
+        {
+         "en": "The leader claps a short pattern of eight beats. Everyone listens.",
+         "zh": "領頭的人拍一個八拍的短節奏。大家聽。"
+        },
+        {
+         "en": "Everyone claps the same pattern together: unison.",
+         "zh": "大家一起拍同一個節奏：齊拍。"
+        },
+        {
+         "en": "Divide into two groups. Group 1 starts. Group 2 starts four beats later, with the same pattern: a canon.",
+         "zh": "分成兩組。第一組開始，第二組晚四拍，用同樣的節奏：卡農。"
+        },
+        {
+         "en": "Try three groups, two beats apart. What changes?",
+         "zh": "試試三組、隔兩拍。有什麼不同？"
+        }
+       ],
+       "tip_en": "Keep the pattern simple, and count the beats aloud. A canon only works if everyone keeps the same steady beat.",
+       "tip_zh": "節奏簡單一點，並把拍子數出來。大家保持同一個穩定的拍子，卡農才成立。"
+      },
+      {
+       "title_en": "Sing a Round",
+       "title_zh": "唱一首輪唱",
+       "materials": [
+        {
+         "en": "A round your class already knows, or a short tune that can be sung one group after another",
+         "zh": "全班已經會的輪唱，或可以一組接一組唱的短旋律"
+        }
+       ],
+       "steps": [
+        {
+         "en": "Sing the whole tune together, once.",
+         "zh": "全班一起唱一遍。"
+        },
+        {
+         "en": "Divide into groups. Each group starts after the previous group finishes the first line.",
+         "zh": "分成幾組。每一組在前一組唱完第一句後開始。"
+        },
+        {
+         "en": "Keep going in a loop. When you want to end, one group at a time stops.",
+         "zh": "一直循環。想結束的時候，一組一組停下來。"
+        },
+        {
+         "en": "Talk about it: could you hear your own line? What helped?",
+         "zh": "討論：你聽得到自己的線條嗎？什麼幫了你？"
+        }
+       ],
+       "tip_en": "A round has no fixed ending, so decide in advance how you will stop.",
+       "tip_zh": "輪唱沒有固定的結尾，所以先決定怎麼停。"
+      }
+     ],
+     "links_head": {
+      "eyebrow": "Go Further · 延伸閱讀",
+      "en": "Before, around, and after this lesson",
+      "zh": "這一課的前面、旁邊和後面"
+     },
+     "links": [
+      {
+       "icon": "🧩",
+       "k_en": "Music · Lesson 17",
+       "k_zh": "音樂・第十七課",
+       "en": "How Is a Song Put Together?",
+       "zh": "一首歌是怎麼組成的？",
+       "note_en": "Repetition and contrast, in blocks.",
+       "note_zh": "用色塊看重複與對比。",
+       "href": "/resources/classes/music/song-form/"
+      },
+      {
+       "icon": "🏝️",
+       "k_en": "Music · Lesson 15",
+       "k_zh": "音樂・第十五課",
+       "en": "What Music Grew in Taiwan?",
+       "zh": "台灣這塊土地上有哪些音樂？",
+       "note_en": "Unison, round, drone, and parts.",
+       "note_zh": "齊唱、輪唱、持續音與分部。",
+       "href": "/resources/classes/music/taiwan-music/"
+      },
+      {
+       "icon": "🏛️",
+       "k_en": "Music · Lesson 13",
+       "k_zh": "音樂・第十三課",
+       "en": "How Did Western Music Change Over 400 Years?",
+       "zh": "西洋古典音樂四百年怎麼變？",
+       "note_en": "Where the Baroque fits in time.",
+       "note_zh": "巴洛克在時間裡的位置。",
+       "href": "/resources/classes/music/western-eras/"
+      },
+      {
+       "icon": "👂",
+       "k_en": "Music · Lesson 19",
+       "k_zh": "音樂・第十九課",
+       "soon": true,
+       "en": "How Did Beethoven Compose After He Lost His Hearing?",
+       "zh": "貝多芬聽不見了，怎麼還能作曲？",
+       "note_en": "Next: hearing music in the mind.",
+       "note_zh": "接下來：在腦子裡聽音樂。"
+      }
+     ],
+     "sources_note_en": "Names, dates, and quotations on this page were checked against these sources (November 2026). The tune and the way the voices enter are our own simple model, tested by computer; no tune by Bach or anyone else is used.",
+     "sources_note_zh": "本頁的名稱、年代與引文依下列資料查證（2026 年 11 月）；旋律與聲部進入的方式是我們自己的簡單模型，用電腦測試過；沒有使用巴哈或任何人的旋律。",
+     "sources": [
+      {
+       "en": "31 March [O.S. 21 March] 1685 – 28 July 1750; born in Eisenach, the youngest child of the city musician; three to four generations of musicians; orphaned at age 10; organist at the New Church 1703; court organist at Weimar 1708; Kapellmeister 1717; Thomaskantor in Leipzig 1723, held for 27 years; more than 200 cantatas; every genre of his time aside from opera; counterpoint, canon and fugue, which he did not invent; twenty children; died from complications due to unsuccessful eye surgery; reputation initially declined; Mendelssohn's 1829 performance precipitated the Bach Revival",
+       "zh": "1685 年 3 月 31 日（舊曆 3 月 21 日）至 1750 年 7 月 28 日；生於愛森納赫、城市樂師最小的孩子；三、四代音樂家；十歲成孤兒；1703 年新教堂管風琴師；1708 年威瑪宮廷管風琴師；1717 年音樂總監；1723 年萊比錫歌手長、做了 27 年；兩百多首清唱劇；涵蓋當時除歌劇外所有體裁；對位法、卡農與賦格（他沒有發明）；二十個孩子；死於不成功的眼睛手術；名聲一度下滑；孟德爾頌 1829 年的演出促成巴哈復興",
+       "src": "Wikipedia, “Johann Sebastian Bach”",
+       "url": "https://en.wikipedia.org/wiki/Johann_Sebastian_Bach"
+      },
+      {
+       "en": "A canon is a contrapuntal compositional technique that employs a melody with one or more imitations of the melody; the initial melody is called the leader, the imitative melody the follower; a round is a limited type of canon in which multiple voices sing exactly the same melody, each voice beginning at different times; the earliest known rounds date from 12th-century Europe",
+       "zh": "卡農是用一條旋律和它的一個或多個模仿構成的對位技法；最初的旋律是導句，模仿的是答句；輪唱是卡農的限定類型，多個聲部唱完全一樣的旋律、各自在不同的時間開始；最早已知的輪唱來自十二世紀的歐洲",
+       "src": "Wikipedia, “Canon (music)” and “Round (music)”",
+       "url": "https://en.wikipedia.org/wiki/Canon_(music)"
+      },
+      {
+       "en": "A fugue is a contrapuntal, polyphonic compositional technique in two or more voices, built on a subject which then sounds successively in each voice; from Latin fuga; the fugue is closer to a style of composition rather than a structural form; counterpoint is the relationship of two or more simultaneous musical lines (voices)",
+       "zh": "賦格是兩個或以上聲部、建立在主題上的對位複音技法，主題依序在每個聲部出現；來自拉丁文 fuga；賦格比較像作曲風格而非結構形式；對位法是兩條或以上同時進行的旋律線（聲部）之間的關係",
+       "src": "Wikipedia, “Fugue”, “Counterpoint” and “Voice (music)”",
+       "url": "https://en.wikipedia.org/wiki/Fugue"
+      },
+      {
+       "en": "Pachelbel's Canon (also known as Canon in D, P 37) is an accompanied canon by German Baroque composer Johann Pachelbel (1653–1706); a true canon at the unison in three parts, with a fourth part as a ground bass; neither the date nor the circumstances of its composition are known",
+       "zh": "帕海貝爾《卡農》（又稱 D 大調卡農）是德國巴洛克作曲家帕海貝爾（1653–1706）的伴奏卡農；三個聲部的同度卡農，加一個固定低音聲部；寫作年代與情況都不知道",
+       "src": "Wikipedia, “Pachelbel's Canon”",
+       "url": "https://en.wikipedia.org/wiki/Pachelbel%27s_Canon"
+      },
+      {
+       "en": "Personal name (1685–1750), German composer ... also a founder of modern Western music, with the title “father of music”; also translated as Bach",
+       "zh": "人名。（西元1685～1750）德國作曲家……也是近代西洋音樂的鼻祖，有音樂之父的稱譽。也譯作「巴赫」。",
+       "src": "教育部《重編國語辭典修訂本》「巴哈」",
+       "url": "https://dict.revised.moe.edu.tw/dictView.jsp?ID=12292&la=0&powerMode=0"
+      },
+      {
+       "en": "Canon: one voice comes first and the others join in turn with the same melody, chasing to the last bar. Round: a vocal piece in canon at the unison. Voice: a part into which music or singing is divided by pitch",
+       "zh": "卡農：一個聲部先出現，其他聲部以同樣旋律依序加入，自始自終追逐著，直到最後一小節。輪唱曲：用同度卡農手法寫成的聲樂曲。聲部：在音樂演奏和歌唱中，根據聲音的高低不同，分成若干部分",
+       "src": "教育部《重編國語辭典修訂本》「卡農」「輪唱」「聲部」「對位」",
+       "url": "https://dict.revised.moe.edu.tw/dictView.jsp?ID=75905&la=0&powerMode=0"
+      },
+      {
+       "en": "Bach is called “father of music”; this label has limits and is not widely accepted in the field; Japanese scholars called him that; cataracts gradually took his eyesight; Mendelssohn's 1829 performance made musicians take Bach's music seriously; the original meaning of fugue is “chase” and “flight”",
+       "zh": "將巴哈稱為「音樂之父」。這個稱法有其侷限，也尚未在相關領域被廣泛接受；可見日本學者如海老澤敏、門馬直美等，將巴哈稱為「音樂之父」；白內障使巴哈的視力逐漸喪失；孟德爾頌 1829 年才使樂壇正視巴哈音樂的價值；賦格的原意是「追逐」和「飛翔」",
+       "src": "中文維基百科「約翰・塞巴斯蒂安・巴赫」「卡農」「賦格」",
+       "url": "https://zh.wikipedia.org/wiki/约翰·塞巴斯蒂安·巴赫"
+      },
+      {
+       "en": "canon 卡農；fugue 復格、復格曲；counterpoint 對位法；voice 人聲、聲部、聲音；organ 管風琴；cantata 清唱劇",
+       "zh": "canon; fugue (fugue is rendered as fuge, fuge piece in this list); counterpoint; voice: human voice, part, sound; organ; cantata",
+       "src": "國家教育研究院「樂詞網」（canon、fugue、counterpoint、voice、organ、cantata）",
+       "url": "https://terms.naer.edu.tw/search/?query_field=title_en&query_term=canon&match_type=phrase"
+      },
+      {
+       "en": "Taiwan's 12-year curriculum: arts (music) 音 E-Ⅲ-1 (輪唱、合唱), 音 A-Ⅲ-1 (作曲家), 音 A-Ⅲ-3 (反覆、對比), 音 A-Ⅳ-1; 創作技法：模仿、反覆、對比",
+       "zh": "十二年國民基本教育課程綱要藝術領域：音 E-Ⅲ-1（輪唱、合唱）、音 A-Ⅲ-1（作曲家）、音 A-Ⅲ-3（反覆、對比）、音 A-Ⅳ-1；創作技法：模仿、反覆、對比",
+       "src": "國家教育研究院，十二年國教藝術領域課綱",
+       "url": "https://www.naer.edu.tw/upload/1/16/doc/818/%E5%8D%81%E4%BA%8C%E5%B9%B4%E5%9C%8B%E6%B0%91%E5%9F%BA%E6%9C%AC%E6%95%99%E8%82%B2%E8%AA%B2%E7%A8%8B%E7%B6%B1%E8%A6%81%E5%9C%8B%E6%B0%91%E4%B8%AD%E5%B0%8F%E5%AD%B8%E6%9A%A8%E6%99%AE%E9%80%9A%E5%9E%8B%E9%AB%98%E7%B4%9A%E4%B8%AD%E7%AD%89%E6%A0%A1-%E8%97%9D%E8%A1%93%E9%A0%98%E5%9F%9F.pdf"
+      },
+      {
+       "en": "Safe listening: headphone volume to 60% of maximum, personal audio devices less than one hour a day",
+       "zh": "安全聆聽：耳機音量不超過最大的 60%、個人音響裝置每天少於一小時",
+       "src": "WHO, Make Listening Safe brochure (2021)",
+       "url": "https://cdn.who.int/media/docs/default-source/documents/health-topics/deafness-and-hearing-loss/mls-brochure-english-2021.pdf?sfvrsn=bf19b448_5"
+      }
+     ]
+    }
+   ],
+   "planned": [
     {
      "n": 19,
      "icon": "👂",

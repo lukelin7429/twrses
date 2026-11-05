@@ -849,3 +849,14 @@ a.mu-link:hover { transform: translateY(-3px); box-shadow: var(--shadow); border
 .mu-form .mu-msg, .mu-formq .mu-q-msg { color: var(--ink); margin: .8rem 0 0; min-height: 3.4em; font-size: .86rem; line-height: 1.6; }
 .mu-form .mu-msg .zh, .mu-formq .mu-q-msg .zh { display: block; color: var(--ink-soft); }
 @media (max-width: 560px) { .mu-form, .mu-formq { padding: 1rem; } .mu-fm-blk { width: 2.9rem; } }
+
+/* ── 第十八課：卡農 ─────────────────────────────────────────────── */
+.mu-canon, .mu-canonq { margin-top: 1.5rem; padding: 1.3rem 1.4rem; background: #fff; border: 1px solid var(--line); border-radius: 20px; box-shadow: var(--shadow-sm); max-width: 1000px; }
+.mu-canon .mu-btn[aria-pressed="true"] { border-color: var(--brand); background: var(--brand-lt); }
+.mu-canon .mu-btn[disabled] { opacity: .45; cursor: not-allowed; }
+.mu-canon .mu-btn-gold, .mu-canonq .mu-btn-gold { background: var(--gold); border-color: var(--gold); }
+.mu-cn-info { margin: .8rem 0 0; font-size: .9rem; } .mu-cn-info small { display: block; color: var(--ink-soft); font-weight: 700; margin-top: .15rem; }
+.mu-canon .mu-msg, .mu-canonq .mu-q-msg { color: var(--ink); margin: .8rem 0 0; min-height: 3.4em; font-size: .86rem; line-height: 1.6; }
+.mu-canon .mu-msg .zh, .mu-canonq .mu-q-msg .zh { display: block; color: var(--ink-soft); }
+.mu-canonq .mu-hg-sc { color: var(--ink-soft); }
+@media (max-width: 560px) { .mu-canon, .mu-canonq { padding: 1rem; } .mu-canonq .mu-eq-opts { grid-template-columns: 1fr !important; } }
