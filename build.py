@@ -17736,7 +17736,7 @@ def build_mus_hub():
 _geoj = os.path.join(ROOT, "data", "geography.json")
 GEO = json.load(open(_geoj, encoding="utf-8")) if os.path.exists(_geoj) else None
 GEO_BASE = "/resources/classes/geography/"
-_GEO_JS = {"flatmap": "geo-flatmap", "latlon": "geo-latlon", "contour": "geo-contour", "mapview": "geo-mapview", "timezone": "geo-timezone", "continents": "geo-continents"}   # lab.kind → assets/js/<bundle>.js
+_GEO_JS = {"flatmap": "geo-flatmap", "latlon": "geo-latlon", "contour": "geo-contour", "mapview": "geo-mapview", "timezone": "geo-timezone", "continents": "geo-continents", "sunbeam": "geo-sunbeam"}   # lab.kind → assets/js/<bundle>.js
 
 def _geo_ver():
     h = hashlib.md5()
@@ -17835,7 +17835,18 @@ def geocont_svg(size=56):
             '<rect x="38" y="2" width="21" height="12" rx="4" fill="#ffd36e"/>'
             '<text x="48.5" y="11" text-anchor="middle" font-size="8" font-weight="800" font-family="system-ui, sans-serif" fill="#2b2118">7·6·5</text></svg>')
 
-_GEO_CARD = {"flatmap": geoflat_svg, "latlon": geolatlon_svg, "contour": geocontour_svg, "mapview": geomapview_svg, "timezone": geotime_svg, "continents": geocont_svg}
+def geosun_svg(size=56):
+    """第七課的課程卡小圖示：一顆地球，右上一顆太陽射來三道平行光；赤道一圈暖色、兩極淡藍。"""
+    return (f'<svg class="geosun-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">'
+            '<circle cx="50" cy="10" r="7" fill="#ffd36e"/>'
+            '<g stroke="#ffd36e" stroke-width="2" stroke-linecap="round" opacity=".9"><path d="M42 14L33 26M46 19L37 31M38 10L29 22"/></g>'
+            '<circle cx="24" cy="36" r="20" fill="#1f4c8a"/>'
+            '<path d="M4.5 33h39v6h-39z" fill="#ff8c3c" opacity=".55"/>'
+            '<path d="M10 22a20 20 0 0 1 28 0z" fill="#a9d4ff" opacity=".55"/><path d="M10 50a20 20 0 0 0 28 0z" fill="#a9d4ff" opacity=".55"/>'
+            '<path d="M14 30c3-3 8-2 9 1s-1 6 1 8-2 6-6 5-6-8-4-14z" fill="#8fbf7a"/>'
+            '<circle cx="24" cy="36" r="20" fill="none" stroke="#e8edf7" stroke-width="1.4"/></svg>')
+
+_GEO_CARD = {"flatmap": geoflat_svg, "latlon": geolatlon_svg, "contour": geocontour_svg, "mapview": geomapview_svg, "timezone": geotime_svg, "continents": geocont_svg, "sunbeam": geosun_svg}
 _GEO_PROP_K = [("shape", "Shape", "形狀"), ("area", "Area", "面積"), ("distance", "Distance", "距離"), ("direction", "Direction", "方向")]
 
 def render_geoflat_lab(lesson):
@@ -18137,7 +18148,48 @@ def render_geocont_lab(lesson):
   <p class="gg-credit">{lab["credit_html"]}</p>
 </div>'''
 
-_GEO_LAB = {"flatmap": render_geoflat_lab, "latlon": render_geolatlon_lab, "contour": render_geocontour_lab, "mapview": render_geomapview_lab, "timezone": render_geotime_lab, "continents": render_geocont_lab}
+_SB_SEASONS = (("march", "March", "三月", "Sun over the equator", "直射赤道"), ("june", "June", "六月", "Sun over the Tropic of Cancer", "直射北回歸線"), ("december", "December", "十二月", "Sun over the Tropic of Capricorn", "直射南回歸線"))
+
+def render_geosun_lab(lesson):
+    """第七課：一束平行光打在地球儀上（assets/js/geo-sunbeam.js 綁這裡的 class；五帶是依回歸線與極圈的簡化分法，不畫國界）。"""
+    lab = lesson["lab"]
+    seasons = "".join(f'<button type="button" data-season="{k}" aria-pressed="{"true" if k == "march" else "false"}"><b>{en}</b><small>{zh}</small></button>'
+                      for k, en, zh, _, _ in _SB_SEASONS)
+    msgs = lab["msgs"]
+    msg = "".join(f'<span data-when="{k}"{"" if k == "slant" else " hidden"}>{html.escape(msgs[k]["en"])}<span class="zh">{html.escape(msgs[k]["zh"])}</span></span>' for k in ("overhead", "slant", "low", "night"))
+    tg = _lab_toggles([("zones", "Five zones", "五帶", True), ("ref", "Overhead beam", "直射的對照光", True), ("labels", "Labels", "標示", True), ("grid", "Grid lines", "經緯線", False)])
+    return f'''<div class="astro-lab gg-lab gg-sb-lab rvl" data-geosun-lab>
+  <div class="al-stage">
+    <div class="al-space">
+      <canvas class="al-space-cv" aria-label="3D Earth with a square beam of parallel sunlight landing on it along 121 degrees east. Move the beam north or south and the bright patch on the ground grows longer as the sunlight becomes more slanted. A paler overhead beam is shown for comparison. Colored bands show the tropical, temperate and polar zones; no borders are drawn. · 3D 地球：一束截面是正方形的平行陽光沿東經 121 度打在地上。把光束往北或往南移，陽光越斜、地上的光斑拉得越長；淡色的是直射的對照光。色帶是熱帶、溫帶、寒帶，不畫國界。"></canvas>
+      <div class="al-labels" aria-hidden="true"></div>
+      <p class="al-hint">Tap the globe to move the beam · 點地球移動光束　Drag to turn · 拖曳轉動</p>
+      <button type="button" class="al-home" title="Reset view · 重設視角" aria-label="Reset view · 重設視角">&#8634;</button>
+      <p class="al-nogl-msg">This 3D model needs WebGL, which this browser does not support. The latitude slider and the numbers on the right still work, and so do the two activities below.<br><span class="zh">這個瀏覽器不支援 WebGL，無法顯示 3D 模型；右邊的緯度滑桿和數字照樣能用，下面兩個活動也都能用。</span></p>
+    </div>
+    <aside class="al-sky gg-aside">
+      <p class="al-sky-k">Where the beam lands · 光束打在哪裡</p>
+      <p class="gg-sb-where"></p>
+      <label class="gg-slide"><span>Move the beam north or south · 把光束往北或往南移</span>
+        <input type="range" class="gg-sb-lat" min="-85" max="85" step="1" value="25" aria-label="Latitude of the beam, from 85 degrees south to 85 degrees north · 光束的緯度，南緯 85 度到北緯 85 度"></label>
+      <dl class="gg-sb-nums">
+        <div><dt>Noon Sun height<span class="zh">正午太陽高度</span></dt><dd class="gg-sb-alt">65°</dd></div>
+        <div><dt>Patch size<span class="zh">光斑大小（直射時的幾倍）</span></dt><dd class="gg-sb-x">× 1</dd></div>
+        <div class="gg-sb-wide"><dt>Sunlight on each square meter<span class="zh">每平方公尺分到的陽光（直射時是 100%）</span></dt><dd><b class="gg-sb-share">100%</b><span class="gg-sb-bar"><i></i></span></dd></div>
+      </dl>
+      <p class="gg-sb-msg" aria-live="polite">{msg}</p>
+      <p class="gg-sb-sub"></p>
+      <div class="gg-ct-ints gg-sb-seasons" role="group" aria-label="Time of year · 季節">{seasons}</div>
+    </aside>
+  </div>
+  <div class="al-controls">
+    <div class="al-row al-toggles">{tg}</div>
+  </div>
+  {_lab_foot(lab)}
+  <p class="gg-credit">{lab["credit_html"]}</p>
+</div>'''
+
+_GEO_LAB = {"flatmap": render_geoflat_lab, "latlon": render_geolatlon_lab, "contour": render_geocontour_lab, "mapview": render_geomapview_lab, "timezone": render_geotime_lab, "continents": render_geocont_lab, "sunbeam": render_geosun_lab}
 
 def _gg_drag(d):
     picks = "".join(
@@ -18392,8 +18444,45 @@ def _gg_count(d):
   <div class="gg-ft-foot"><button type="button" class="gg-btn gg-btn-gold gg-ft-next" hidden>Next question · 下一題</button></div>
 </div>'''
 
+def _gg_torch(d):
+    """「手電筒照桌面」：側面圖＋從上往下看的光斑（torch2d.js；數字由 sunlight.js 算）。"""
+    pre = "".join(f'<button type="button" data-tangle="{a}" aria-pressed="{"true" if a == 90 else "false"}"><b>{a}°</b></button>' for a in (90, 60, 30, 15))
+    return f'''<div class="gg-drag gg-torch rvl" data-gg-torch>
+  <div class="gg-tc-pics">
+    <figure><canvas class="gg-tc-side" aria-hidden="true"></canvas><figcaption>From the side · 從側面看</figcaption></figure>
+    <figure><canvas class="gg-tc-top" aria-hidden="true"></canvas><figcaption>From above · 從上面看（每一格一樣大）</figcaption></figure>
+  </div>
+  <div class="gg-dg-side">
+    <label class="gg-slide"><span>Angle of the light · 光照下來的角度 <b class="gg-tc-av">90°</b></span><input type="range" class="gg-tc-a" min="10" max="90" step="1" value="90" aria-label="Angle between the light and the table · 光和桌面的夾角"></label>
+    <div class="gg-ct-ints gg-tc-pre" role="group" aria-label="Angles · 角度">{pre}</div>
+    <dl class="gg-sb-nums">
+      <div><dt>Patch length<span class="zh">光斑長度（正上方照時的幾倍）</span></dt><dd class="gg-tc-l">× 1.00</dd></div>
+      <div><dt>Light on each square<span class="zh">每一格分到的光</span></dt><dd class="gg-tc-k">100%</dd></div>
+    </dl>
+    <p class="gg-dg-msg">{html.escape(d["note_en"])}<span class="zh">{html.escape(d["note_zh"])}</span></p>
+  </div>
+</div>'''
+
+def _gg_sunq(d):
+    """「哪裡的太陽比較高？」：兩地並排，選比較高的或差不多（sunq2d.js；答案由 test/sunlight.test.mjs 驗算）。"""
+    payload = json.dumps({k: d[k] for k in ("questions", "hint_en", "hint_zh", "start_en", "start_zh", "end_en", "end_zh")}, ensure_ascii=False).replace("</", "<\\/")
+    n = len(d["questions"])
+    side = lambda s: f'<div class="gg-sq-card" data-side="{s}"><p class="gg-sq-n"></p><p class="gg-sq-l"></p><canvas aria-hidden="true"></canvas></div>'
+    return f'''<div class="gg-fit gg-sunq rvl" data-gg-sunq>
+  <script type="application/json">{payload}</script>
+  <div class="gg-ft-top"><p class="gg-ft-k">Question 1 of {n} · 第 1 題（共 {n} 題）</p><p class="gg-ft-sc">Right on the first try · 第一次就答對 <b class="gg-ft-score">0 / 0</b></p></div>
+  <div class="gg-ft-steps" aria-hidden="true"></div>
+  <p class="gg-cn-scheme gg-sq-season"></p>
+  <div class="gg-sq-pair">{side("a")}{side("b")}</div>
+  <p class="gg-ft-q">Where is the noon Sun higher in the sky?<span class="zh">哪裡正午的太陽比較高？</span></p>
+  <div class="gg-ck-opts gg-sq-opts"></div>
+  <p class="gg-ft-msg" aria-live="polite"></p>
+  <div class="gg-ft-foot"><button type="button" class="gg-btn gg-btn-gold gg-ft-next" hidden>Next question · 下一題</button></div>
+</div>'''
+
+
 # 頁面上的小互動：照這個順序排在「模型卡」後面（JSON 有那個 key 才出現）
-_GEO_WIDGETS = [("drag", _gg_drag), ("fit", _gg_fit), ("find", _gg_find), ("degree", _gg_degree), ("steep", _gg_steep), ("profile", _gg_profile), ("measure", _gg_measure), ("legend", _gg_legend), ("clock", _gg_clock), ("call", _gg_call), ("bars", _gg_bars), ("count", _gg_count), ("map_english", _gg_map_english)]
+_GEO_WIDGETS = [("drag", _gg_drag), ("fit", _gg_fit), ("find", _gg_find), ("degree", _gg_degree), ("steep", _gg_steep), ("profile", _gg_profile), ("measure", _gg_measure), ("legend", _gg_legend), ("clock", _gg_clock), ("call", _gg_call), ("bars", _gg_bars), ("count", _gg_count), ("torch", _gg_torch), ("sunq", _gg_sunq), ("map_english", _gg_map_english)]
 
 def _geo_flat():
     return [(ui, u, l) for ui, u in enumerate(GEO["units"]) for l in u["lessons"]]

@@ -5100,7 +5100,7 @@
        "zh": "為什麼赤道熱、兩極冷？",
        "note_en": "How sunlight falls on the round Earth, and why the climate changes from the equator to the poles.",
        "note_zh": "陽光怎麼照在圓圓的地球上，以及氣候為什麼從赤道到兩極一路改變。",
-       "soon": true
+       "href": "/resources/classes/geography/equator-and-poles/"
       },
       {
        "icon": "📐",
@@ -5463,15 +5463,795 @@
        "url": "https://www.naer.edu.tw/PageSyllabus?fid=52"
       }
      ]
+    },
+    {
+     "n": 7,
+     "slug": "equator-and-poles",
+     "title": "Why Is It Hot at the Equator and Cold at the Poles?",
+     "title_zh": "為什麼赤道熱、兩極冷？",
+     "level": "入門 · Beginner",
+     "icon": "🌡️",
+     "card": "sunbeam",
+     "blurb_en": "Shine the same beam of sunlight on a 3D Earth and move it from the equator toward the poles. Watch the bright patch stretch out, and see why slanted sunlight warms the ground less.",
+     "blurb_zh": "把同一束陽光照在 3D 地球上，從赤道往兩極移動，看地上的光斑越拉越長，了解為什麼斜斜的陽光比較不會把地面曬熱。",
+     "big_idea_en": "Near the equator, sunlight comes down almost straight, so its energy is packed into a small area. Toward the poles, the same sunlight arrives at a slant and is spread over a much larger area, so each square meter gets less. That is the main reason the equator is hot and the poles are cold.",
+     "big_idea_zh": "在赤道附近，陽光幾乎是直直照下來，能量集中在一小塊地面；越往兩極，同樣的陽光斜斜地照進來，攤在大得多的面積上，每平方公尺分到的就比較少。這是赤道熱、兩極冷的主要原因。",
+     "lab": {
+      "kind": "sunbeam",
+      "eyebrow": "3D Model · 3D 模型",
+      "title_en": "The Same Beam, Spread Out",
+      "title_zh": "同一束光，攤開來",
+      "how_en": "A square beam of sunlight shines on the Earth along 121 degrees east, the line that passes through Taiwan. Move it north or south with the slider, or tap the globe. The gold patch shows where the beam lands, and the number tells you how many times larger it is than the pale overhead patch. Change the season to move the overhead Sun between the tropics, and turn on the colored bands to see the five zones.",
+      "how_zh": "一束截面是正方形的陽光，沿著東經 121 度（經過台灣的那條經線）照在地球上。用滑桿或點地球，把它往北或往南移。金色的光斑是光束落地的地方，數字告訴你它是淡色的直射光斑的幾倍大。換季節，太陽直射的地方就在南北回歸線之間移動；打開色帶，可以看到五帶。",
+      "legend": [
+       {
+        "cls": "beam",
+        "en": "The beam of sunlight",
+        "zh": "這一束陽光"
+       },
+       {
+        "cls": "patch",
+        "en": "Where the beam lands",
+        "zh": "光束落地的光斑"
+       },
+       {
+        "cls": "ref",
+        "en": "An overhead beam, for comparison",
+        "zh": "直射的對照光"
+       },
+       {
+        "cls": "bands",
+        "en": "Five zones: tropical, two temperate, two polar",
+        "zh": "五帶：熱帶、南北溫帶、南北寒帶"
+       }
+      ],
+      "scale_en": "The beam is drawn much wider than real sunlight needs to be, so you can see it. The zones are the simple version bounded by the tropics and the polar circles; real climates also depend on oceans, winds, mountains, and height above sea level.",
+      "scale_zh": "光束畫得比實際需要的寬很多，才看得清楚。五帶是用回歸線與極圈劃分的簡化版本；真實的氣候還和海洋、風、山脈、海拔有關。",
+      "credit_html": "Land outlines: Natural Earth, 1:50m Land, version 5.1.2, public domain. The Sun's height, the size of the patch, and the zones are computed by the page itself. · 陸地外形：Natural Earth 1:50m Land 5.1.2 版，公有領域。太陽高度、光斑大小與五帶都由頁面自己計算。",
+      "msgs": {
+       "overhead": {
+        "en": "The Sun is straight overhead at noon here. The beam lands on the smallest possible patch, so the ground gets the most energy.",
+        "zh": "這裡正午太陽在頭頂正上方。光束落在最小的一塊地面上，地面分到的能量最多。"
+       },
+       "slant": {
+        "en": "The sunlight arrives at a slant, so the same beam covers a larger patch. Each square meter gets less of it.",
+        "zh": "陽光斜斜地照進來，同一束光蓋住比較大的一塊地面，每平方公尺分到的比較少。"
+       },
+       "low": {
+        "en": "The noon Sun is barely above the horizon. The beam grazes the ground and spreads out enormously.",
+        "zh": "正午的太陽只比地平線高一點點。光束幾乎是擦過地面，攤得非常開。"
+       },
+       "night": {
+        "en": "Here the Sun does not rise even at noon at this time of year. This is the polar night.",
+        "zh": "每年這個時候，這裡連正午太陽都不會升起，這就是極夜。"
+       }
+      }
+     },
+     "parts_head": {
+      "eyebrow": "Try It in the Model · 在模型裡試試",
+      "en": "Four places to put the beam",
+      "zh": "把光束放在四個地方"
+     },
+     "parts": [
+      {
+       "key": "equator",
+       "icon": "☀️",
+       "en": "Straight down at the equator",
+       "zh": "在赤道直直照下",
+       "meta_en": "March, 0°",
+       "meta_zh": "三月，赤道",
+       "demo": "equator",
+       "text_en": "In March the Sun is overhead at the equator. The beam lands on its smallest patch: × 1.",
+       "text_zh": "三月時太陽直射赤道。光束落在最小的光斑上：× 1。"
+      },
+      {
+       "key": "taiwan",
+       "icon": "🏝️",
+       "en": "Taiwan in March",
+       "zh": "三月的台灣",
+       "meta_en": "25° N",
+       "meta_zh": "北緯 25 度",
+       "demo": "taiwan",
+       "text_en": "Move the beam to northern Taiwan. The noon Sun is 65 degrees high, and the patch is a little larger.",
+       "text_zh": "把光束移到台灣北部。正午太陽高度 65 度，光斑大了一點。"
+      },
+      {
+       "key": "high",
+       "icon": "🧊",
+       "en": "Far to the north",
+       "zh": "遠在北方",
+       "meta_en": "60° N",
+       "meta_zh": "北緯 60 度",
+       "demo": "high",
+       "text_en": "At 60 degrees north the noon Sun is only 30 degrees high in March. The same beam spreads over more than twice the area.",
+       "text_zh": "三月時，北緯 60 度的正午太陽只有 30 度高。同一束光攤開成兩倍多的面積。"
+      },
+      {
+       "key": "june",
+       "icon": "📅",
+       "en": "Overhead at the Tropic of Cancer",
+       "zh": "直射北回歸線",
+       "meta_en": "June",
+       "meta_zh": "六月",
+       "demo": "june",
+       "text_en": "In June the overhead Sun moves north to the Tropic of Cancer, which crosses Taiwan. The whole pattern of sunlight shifts north.",
+       "text_zh": "六月時，太陽直射點北移到穿過台灣的北回歸線，整個陽光分布都往北移。"
+      }
+     ],
+     "parts_note_en": "Then try it yourself. Choose December and move the beam to 70 degrees north. What happens, and why?",
+     "parts_note_zh": "然後自己動手試試。選十二月，把光束移到北緯 70 度。發生了什麼事？為什麼？",
+     "torch": {
+      "eyebrow": "Try It · 動手試試",
+      "en": "Shine a Flashlight on the Table",
+      "zh": "手電筒照桌面",
+      "lead_en": "The same flashlight, straight down or at a slant. Drag the angle and compare the two pictures: the beam does not change, but the patch on the table does.",
+      "lead_zh": "同一支手電筒，從正上方照或斜斜地照。拖動角度，比較兩張圖：光束沒有變，桌上的光斑變了。",
+      "note_en": "At 30 degrees the patch is twice as long, so each square gets half the light. That is what happens to sunlight far from the equator.",
+      "note_zh": "30 度時光斑變成兩倍長，所以每一格只分到一半的光。離赤道越遠，陽光就是這樣。"
+     },
+     "sunq": {
+      "eyebrow": "Game · 小遊戲",
+      "en": "Where Is the Sun Higher?",
+      "zh": "哪裡的太陽比較高？",
+      "lead_en": "Eight questions. Each one gives two places and a time of year. Where is the noon Sun higher in the sky? You do not need to memorize anything: the closer a place is to the latitude where the Sun is overhead, the higher its noon Sun. There is no timer.",
+      "lead_zh": "八道題。每一題給兩個地方和一個季節：哪裡正午的太陽比較高？不用背任何東西：離太陽直射的緯度越近，正午的太陽就越高。不計時。",
+      "hint_en": "First find where the Sun is overhead. Then ask: which place is closer to that latitude?",
+      "hint_zh": "先找出太陽直射哪裡，再問：哪個地方離那條緯線比較近？",
+      "start_en": "Closer to the overhead Sun means a higher Sun.",
+      "start_zh": "離太陽直射的地方越近，太陽越高。",
+      "end_en": "Now you can work out where the Sun is high and where it is low, in any season.",
+      "end_zh": "現在你可以推算任何季節裡，哪裡的太陽高、哪裡的太陽低。",
+      "questions": [
+       {
+        "season": "march",
+        "a": "singapore",
+        "b": "reykjavik",
+        "answer": "a",
+        "why_en": "In March the Sun is overhead at the equator. Singapore is almost on the equator; Reykjavík is far to the north.",
+        "why_zh": "三月太陽直射赤道。新加坡幾乎就在赤道上，雷克雅維克遠在北方。"
+       },
+       {
+        "season": "march",
+        "a": "london",
+        "b": "taipei",
+        "answer": "b",
+        "why_en": "Taipei is much closer to the equator than London.",
+        "why_zh": "台北比倫敦離赤道近得多。"
+       },
+       {
+        "season": "june",
+        "a": "taipei",
+        "b": "singapore",
+        "answer": "a",
+        "why_en": "In June the Sun is overhead at the Tropic of Cancer, just south of Taipei. Taipei is closer to it than Singapore is.",
+        "why_zh": "六月太陽直射北回歸線，就在台北南邊不遠。台北比新加坡離它更近。"
+       },
+       {
+        "season": "december",
+        "a": "taipei",
+        "b": "sydney",
+        "answer": "b",
+        "why_en": "In December the Sun is overhead at the Tropic of Capricorn, in the south. Sydney is much closer to it.",
+        "why_zh": "十二月太陽直射南方的南回歸線。雪梨離它近得多。"
+       },
+       {
+        "season": "march",
+        "a": "cairo",
+        "b": "durban",
+        "answer": "same",
+        "why_en": "In March the Sun is over the equator. Cairo is 30 degrees north and Durban is about 30 degrees south: the same distance away.",
+        "why_zh": "三月太陽直射赤道。開羅在北緯 30 度，德班大約在南緯 30 度：離赤道一樣遠。"
+       },
+       {
+        "season": "june",
+        "a": "london",
+        "b": "singapore",
+        "answer": "b",
+        "why_en": "Even in June, London is farther from the Tropic of Cancer than Singapore is.",
+        "why_zh": "即使在六月，倫敦離北回歸線也比新加坡遠。"
+       },
+       {
+        "season": "december",
+        "a": "reykjavik",
+        "b": "ushuaia",
+        "answer": "b",
+        "why_en": "In December the overhead Sun is far to the south. Reykjavík's noon Sun barely clears the horizon, while Ushuaia's is high.",
+        "why_zh": "十二月太陽直射點在遙遠的南方。雷克雅維克的正午太陽只比地平線高一點點，烏斯懷亞的卻很高。"
+       },
+       {
+        "season": "june",
+        "a": "london",
+        "b": "sydney",
+        "answer": "a",
+        "why_en": "In June the overhead Sun is in the north. London is closer to the Tropic of Cancer than Sydney is.",
+        "why_zh": "六月太陽直射點在北方。倫敦比雪梨離北回歸線近。"
+       }
+      ]
+     },
+     "map_english": {
+      "eyebrow": "Map English · 地圖英語",
+      "en": "Eight sentences for talking about sunlight and climate",
+      "zh": "談陽光與氣候的八句英文",
+      "lead_en": "This lesson's Map English card is about sunlight and latitude. Listen, repeat, then describe how high the Sun is where you live.",
+      "lead_zh": "這一課的「地圖英語」練習說陽光和緯度。先聽、再跟著唸，然後描述你住的地方太陽有多高。",
+      "items": [
+       {
+        "en": "The Sun is <b>high in the sky</b> near the equator.",
+        "zh": "在赤道附近，太陽高掛在天空。",
+        "use_en": "high / low in the sky",
+        "use_zh": "在天空中高／低"
+       },
+       {
+        "en": "Near the poles, sunlight <b>is spread out over</b> a larger area.",
+        "zh": "在兩極附近，陽光攤在比較大的面積上。",
+        "use_en": "is spread out over …",
+        "use_zh": "攤在……上"
+       },
+       {
+        "en": "<b>The Tropic of Cancer crosses</b> Taiwan.",
+        "zh": "北回歸線穿過台灣。",
+        "use_en": "… crosses …",
+        "use_zh": "……穿過……"
+       },
+       {
+        "en": "In June, the Sun is <b>directly overhead</b> at the Tropic of Cancer.",
+        "zh": "六月時，太陽直射北回歸線。",
+        "use_en": "directly overhead",
+        "use_zh": "在正上方；直射"
+       },
+       {
+        "en": "<b>The closer</b> you are to the equator, <b>the warmer</b> it usually is.",
+        "zh": "離赤道越近，通常就越溫暖。",
+        "use_en": "The closer …, the warmer …",
+        "use_zh": "越……，就越……"
+       },
+       {
+        "en": "In winter, sunlight hits the ground <b>at a low angle</b>.",
+        "zh": "冬天時，陽光以很低的角度照在地面上。",
+        "use_en": "at a low / high angle",
+        "use_zh": "以低／高的角度"
+       },
+       {
+        "en": "Southern Taiwan is <b>in the tropical zone</b>.",
+        "zh": "台灣南部在熱帶。",
+        "use_en": "is in the … zone",
+        "use_zh": "在……帶"
+       },
+       {
+        "en": "<b>How high is</b> the Sun at noon today?",
+        "zh": "今天正午的太陽有多高？",
+        "use_en": "How high is …?",
+        "use_zh": "……有多高？"
+       }
+      ]
+     },
+     "tricks_head": {
+      "en": "Sunlight and latitude in a sentence",
+      "zh": "一句話記住陽光與緯度"
+     },
+     "tricks": [
+      {
+       "title_en": "Same beam, bigger patch",
+       "title_zh": "同一束光，光斑變大",
+       "body_en": "Slanted light spreads out, so each square meter gets less.",
+       "body_zh": "斜射的光會攤開，每平方公尺分到的比較少。"
+      },
+      {
+       "title_en": "Closer to overhead, higher Sun",
+       "title_zh": "離直射點越近，太陽越高",
+       "body_en": "Noon Sun height = 90 − the distance in degrees from where the Sun is overhead.",
+       "body_zh": "正午太陽高度＝90 − 和直射點相差幾度。"
+      },
+      {
+       "title_en": "The overhead Sun stays between the tropics",
+       "title_zh": "直射點只在回歸線之間",
+       "body_en": "It moves north to the Tropic of Cancer in June and south to the Tropic of Capricorn in December.",
+       "body_zh": "六月北移到北回歸線，十二月南移到南回歸線。"
+      },
+      {
+       "title_en": "Five zones, four lines",
+       "title_zh": "四條線分五帶",
+       "body_en": "Two tropics and two polar circles divide the Earth into five zones.",
+       "body_zh": "兩條回歸線、兩條極圈，把地球分成五帶。"
+      }
+     ],
+     "safety_head": {
+      "eyebrow": "Before the Activities · 做活動之前",
+      "en": "Working safely",
+      "zh": "安全提醒"
+     },
+     "safety": [
+      {
+       "en": "Never look straight at the Sun, and never look at it through a lens, binoculars, or a phone camera.",
+       "zh": "絕對不要直視太陽，也不要透過鏡片、望遠鏡或手機鏡頭看太陽。"
+      },
+      {
+       "en": "Do not shine a flashlight into anyone's eyes.",
+       "zh": "不要拿手電筒照別人的眼睛。"
+      },
+      {
+       "en": "When you measure shadows outside, stay where your teacher can see you, drink water, and wear a hat in strong sun.",
+       "zh": "到戶外量影子時，待在老師看得到的地方，記得喝水，太陽大時戴帽子。"
+      },
+      {
+       "en": "Push the stick into soft ground or a pot of sand with care, and do not leave it where someone could trip over it.",
+       "zh": "把棍子小心插進軟土或一盆沙裡，不要放在別人可能絆倒的地方。"
+      }
+     ],
+     "activities": [
+      {
+       "title_en": "Flashlight and Graph Paper",
+       "title_zh": "手電筒和方格紙",
+       "materials": [
+        {
+         "en": "A flashlight",
+         "zh": "一支手電筒"
+        },
+        {
+         "en": "Graph paper",
+         "zh": "方格紙"
+        },
+        {
+         "en": "A protractor",
+         "zh": "量角器"
+        },
+        {
+         "en": "A pencil and a ruler",
+         "zh": "鉛筆和尺"
+        }
+       ],
+       "steps": [
+        {
+         "en": "Darken the room a little. Hold the flashlight straight above the graph paper, about 20 centimeters away.",
+         "zh": "把教室弄暗一點。手電筒拿在方格紙正上方，大約 20 公分高。"
+        },
+        {
+         "en": "Trace the edge of the bright patch and count the squares inside it.",
+         "zh": "沿著亮的光斑描邊，數一數裡面有幾格。"
+        },
+        {
+         "en": "Keep the same distance, and tilt the flashlight to about 30 degrees from the paper. Use the protractor to check.",
+         "zh": "保持一樣的距離，把手電筒傾斜到和紙面大約 30 度，用量角器檢查。"
+        },
+        {
+         "en": "Trace the patch again and count the squares. How many times larger is it?",
+         "zh": "再描一次光斑、數格子。它大了幾倍？"
+        },
+        {
+         "en": "Which patch looked brighter? Write one sentence that connects this to the equator and the poles.",
+         "zh": "哪一個光斑看起來比較亮？寫一句話，把它和赤道、兩極連起來。"
+        }
+       ],
+       "tip_en": "The flashlight gives out the same light both times. Only the angle changes, and so does the size of the patch.",
+       "tip_zh": "兩次手電筒發出的光一樣多，改變的只有角度，還有光斑的大小。"
+      },
+      {
+       "title_en": "How High Is the Noon Sun?",
+       "title_zh": "正午的太陽有多高？",
+       "materials": [
+        {
+         "en": "A straight stick about 1 meter long, or a pencil standing in clay",
+         "zh": "一根大約 1 公尺長的直棍子，或插在黏土上的鉛筆"
+        },
+        {
+         "en": "A measuring tape",
+         "zh": "捲尺"
+        },
+        {
+         "en": "A sunny, flat place",
+         "zh": "一個有陽光的平地"
+        },
+        {
+         "en": "A calculator, or the table your teacher gives you",
+         "zh": "計算機，或老師給的對照表"
+        }
+       ],
+       "steps": [
+        {
+         "en": "Stand the stick straight up on flat ground. Measure its height above the ground.",
+         "zh": "把棍子直直地立在平地上，量它露出地面的高度。"
+        },
+        {
+         "en": "Close to noon, measure the length of its shadow. Do not look at the Sun; look only at the shadow.",
+         "zh": "接近正午時，量它影子的長度。不要看太陽，只看影子。"
+        },
+        {
+         "en": "Divide the height by the shadow length. Use a calculator's inverse tangent, or your teacher's table, to turn this into the Sun's height in degrees.",
+         "zh": "用高度除以影子長度。用計算機的反正切，或老師給的對照表，換算成太陽高度幾度。"
+        },
+        {
+         "en": "Compare your answer with the 3D model: choose the season and move the beam to your latitude.",
+         "zh": "和 3D 模型比一比：選季節，再把光束移到你所在的緯度。"
+        },
+        {
+         "en": "Repeat once a month. Does the noon shadow get longer or shorter as winter comes?",
+         "zh": "每個月做一次。冬天快到時，正午的影子變長還是變短？"
+        }
+       ],
+       "tip_en": "A long noon shadow means a low Sun and slanted sunlight. A short shadow means a high Sun.",
+       "tip_zh": "正午影子長，表示太陽低、陽光斜；影子短，表示太陽高。"
+      }
+     ],
+     "links_head": {
+      "eyebrow": "Go Further · 延伸閱讀",
+      "en": "Sunlight in other lessons, and what comes next",
+      "zh": "其他課裡的陽光，以及下一課"
+     },
+     "links": [
+      {
+       "icon": "🕒",
+       "k_en": "Geography · Lesson 5",
+       "k_zh": "地理・第五課",
+       "en": "Why Is It Night in New York When It Is Day in Taipei?",
+       "zh": "台北是白天，紐約為什麼是晚上？",
+       "note_en": "Day and night, and how the line between them tilts with the seasons.",
+       "note_zh": "白天與黑夜，以及晝夜的交界怎麼隨季節傾斜。",
+       "href": "/resources/classes/geography/time-zones/"
+      },
+      {
+       "icon": "📍",
+       "k_en": "Geography · Lesson 2",
+       "k_zh": "地理・第二課",
+       "en": "How Do You Find Any Place on Earth?",
+       "zh": "怎麼找到地球上任何一個地方？",
+       "note_en": "Latitude, and the Tropic of Cancer that crosses Taiwan.",
+       "note_zh": "緯度，以及穿過台灣的北回歸線。",
+       "href": "/resources/classes/geography/latitude-and-longitude/"
+      },
+      {
+       "icon": "🌞",
+       "k_en": "Astronomy · Lesson 3",
+       "k_zh": "天文教育・第三課",
+       "en": "Why Do We Have Seasons?",
+       "zh": "為什麼有四季？",
+       "note_en": "The tilted Earth on its orbit around the Sun.",
+       "note_zh": "傾斜的地球繞著太陽轉。",
+       "href": "/resources/classes/astronomy/seasons/"
+      },
+      {
+       "icon": "🏘️",
+       "k_en": "Geography · Lesson 8",
+       "k_zh": "地理・第八課",
+       "en": "Where Do People Live?",
+       "zh": "人都住在哪裡？",
+       "note_en": "Why people are spread so unevenly across the land: water, flat land, and climate.",
+       "note_zh": "人為什麼在陸地上分布得這麼不平均：水、平地、氣候。",
+       "soon": true
+      }
+     ],
+     "sources_note_en": "Names, dates, numbers, and quotations on this page were checked against these sources (November 2026). The Sun's height, the size of the patch, and the answers to the game are computed by the page itself and tested automatically",
+     "sources_note_zh": "本頁的人名、年代、數字與引文依下列資料查證（2026 年 11 月）；太陽高度、光斑大小與小遊戲的答案都由頁面自己計算，並有自動測試",
+     "paras": [
+      "Stand in the sunshine at noon on a summer day, and you can feel the heat on your skin. Stand in the same sunshine late in the afternoon, and it feels much gentler, even though it is the same Sun. What changed is the angle of the light. The same idea explains why the lands near the equator are hot and the lands near the poles are cold.",
+      "Try it with a flashlight. Shine it straight down at a table, and you get a small, bright spot. Tilt it, and the light stretches into a longer, dimmer patch. The flashlight gives out the same amount of light both times. When it is tilted, that light is spread over more of the table, so each part of the table gets less.",
+      "Sunlight reaches the round Earth in the same way. Near the equator, the noon Sun is high and its rays come down almost straight. Toward the poles, the Earth curves away, and the same sunlight arrives at a slant. NASA explains that from the equator to the poles, sunlight meets the Earth at smaller and smaller angles, and “the light gets spread over larger and larger surface areas.” Slanted sunlight also travels a longer path through the air before it reaches the ground.",
+      "The Earth's axis is tilted, so the place where the noon Sun is straight overhead moves during the year. In June it is over the Tropic of Cancer, about 23.4 degrees north. In December it is over the Tropic of Capricorn, about 23.4 degrees south. Outside the tropics, the noon Sun is never straight overhead. Beyond the Arctic and Antarctic Circles, there are days in winter when the Sun does not rise at all.",
+      "These four lines divide the Earth into five zones: the tropical zone between the two tropics, two temperate zones, and two polar zones beyond the polar circles. Real climates are more complicated, because oceans, winds, mountains, and height above sea level all make a difference. But the angle of sunlight is the starting point.",
+      "The Tropic of Cancer crosses Taiwan, passing through Chiayi, Hualien, and Penghu. Taiwan's Central Weather Administration says this is why southern Taiwan is tropical and northern Taiwan is subtropical. In June, the noon Sun stands almost straight above the Tropic of Cancer markers. When you feel the summer sun in Taiwan, you are feeling sunlight that is nearly as direct as sunlight can be."
+     ],
+     "paras_zh": [
+      "夏天中午站在太陽下，你可以感覺到皮膚上的熱；傍晚站在同樣的陽光下，感覺就溫和多了，雖然還是同一個太陽。改變的是光照下來的角度。同樣的道理，可以解釋為什麼赤道附近的地方熱、兩極附近的地方冷。",
+      "用手電筒試試看。從正上方照桌子，會照出一個又小又亮的光點；斜著照，光就拉長成一塊比較長、比較暗的光斑。兩次手電筒發出的光一樣多，斜著照的時候，同樣的光攤在比較多的桌面上，所以桌子的每一部分分到的就比較少。",
+      "陽光照在圓圓的地球上也是這樣。在赤道附近，正午的太陽很高，陽光幾乎是直直照下來；越往兩極，地面越往遠處彎，同樣的陽光就斜斜地照進來。NASA 說明：從赤道到兩極，陽光和地面的夾角越來越小，「光攤在越來越大的面積上」。斜射的陽光在到達地面之前，穿過的空氣也比較長。",
+      "地球的自轉軸是傾斜的，所以一年當中，正午太陽直射的地方會移動。六月時直射北回歸線，大約北緯 23.4 度；十二月時直射南回歸線，大約南緯 23.4 度。在回歸線以外的地方，正午的太陽永遠不會在頭頂正上方。在北極圈、南極圈以內，冬天會有太陽整天都不升起的日子。",
+      "這四條線把地球分成五帶：兩條回歸線之間的熱帶、兩個溫帶，以及極圈以內的兩個寒帶。真實的氣候比較複雜，海洋、風、山脈和海拔高度都有影響；但陽光的角度是起點。",
+      "北回歸線穿過台灣，經過嘉義、花蓮和澎湖。中央氣象署說，因為這樣，台灣南部屬熱帶、北部屬副熱帶。六月時，正午的太陽幾乎就在北回歸線標誌的正上方。當你在台灣感受到夏天的太陽，你感受到的，幾乎是最直的陽光了。"
+     ],
+     "questions": [
+      "Why does a tilted flashlight make a dimmer patch, even though it gives out the same light?",
+      "Why is the noon Sun never straight overhead in London or Reykjavík?",
+      "Besides the angle of sunlight, what else can make one place warmer or colder than another at the same latitude?"
+     ],
+     "answers": [
+      "The same light is spread over a larger area, so each part of the table gets less of it.",
+      "The overhead Sun only moves between the Tropic of Cancer and the Tropic of Capricorn, and both cities are far north of the Tropic of Cancer.",
+      "Oceans, winds, mountains, and height above sea level. For example, high mountains are colder than the lowlands around them."
+     ],
+     "vocab": [
+      {
+       "n": 1,
+       "w": "equator",
+       "pos": "n.",
+       "zh": "赤道",
+       "ex": "Singapore is very close to the <b>equator</b>.",
+       "exzh": "新加坡離赤道很近。"
+      },
+      {
+       "n": 2,
+       "w": "pole",
+       "pos": "n.",
+       "zh": "極（北極、南極）",
+       "ex": "The <b>poles</b> get slanted sunlight all year.",
+       "exzh": "兩極一整年得到的都是斜射的陽光。"
+      },
+      {
+       "n": 3,
+       "w": "angle",
+       "pos": "n.",
+       "zh": "角度",
+       "ex": "The <b>angle</b> of sunlight changes with the seasons.",
+       "exzh": "陽光的角度隨季節改變。"
+      },
+      {
+       "n": 4,
+       "w": "direct",
+       "pos": "adj.",
+       "zh": "直接的；直射的",
+       "ex": "<b>Direct</b> sunlight heats the ground quickly.",
+       "exzh": "直射的陽光很快就把地面曬熱。"
+      },
+      {
+       "n": 5,
+       "w": "slanted",
+       "pos": "adj.",
+       "zh": "傾斜的；斜射的",
+       "ex": "<b>Slanted</b> sunlight spreads over a larger area.",
+       "exzh": "斜射的陽光攤在比較大的面積上。"
+      },
+      {
+       "n": 6,
+       "w": "spread out",
+       "pos": "v.",
+       "zh": "攤開；散開",
+       "ex": "The light <b>spreads out</b> when you tilt the flashlight.",
+       "exzh": "把手電筒斜過來，光就攤開了。"
+      },
+      {
+       "n": 7,
+       "w": "tropic",
+       "pos": "n.",
+       "zh": "回歸線",
+       "ex": "The <b>Tropic</b> of Cancer crosses Taiwan.",
+       "exzh": "北回歸線穿過台灣。"
+      },
+      {
+       "n": 8,
+       "w": "climate",
+       "pos": "n.",
+       "zh": "氣候",
+       "ex": "The <b>climate</b> of southern Taiwan is tropical.",
+       "exzh": "台灣南部的氣候屬於熱帶。"
+      }
+     ],
+     "quiz": [
+      {
+       "q": "Why does slanted sunlight warm the ground less?",
+       "options": [
+        "The Sun is weaker at the poles",
+        "The same light is spread over a larger area",
+        "The poles are much farther from the Sun",
+        "Slanted light is a different color"
+       ],
+       "correct": 1
+      },
+      {
+       "q": "In June, where is the noon Sun straight overhead?",
+       "options": [
+        "The equator",
+        "The Tropic of Cancer",
+        "The Tropic of Capricorn",
+        "The North Pole"
+       ],
+       "correct": 1
+      },
+      {
+       "q": "Which line crosses Taiwan?",
+       "options": [
+        "The equator",
+        "The Arctic Circle",
+        "The Tropic of Cancer",
+        "The Tropic of Capricorn"
+       ],
+       "correct": 2
+      },
+      {
+       "q": "How many zones do the tropics and the polar circles divide the Earth into?",
+       "options": [
+        "Three",
+        "Four",
+        "Five",
+        "Seven"
+       ],
+       "correct": 2
+      },
+      {
+       "q": "When is the Earth closest to the Sun?",
+       "options": [
+        "In January",
+        "In April",
+        "In July",
+        "In October"
+       ],
+       "correct": 0
+      }
+     ],
+     "myths": [
+      {
+       "myth_en": "The poles are cold because they are farther from the Sun.",
+       "myth_zh": "兩極冷，是因為離太陽比較遠。",
+       "fact_en": "The angle of sunlight matters, not the distance. The Earth is actually closest to the Sun in January, during the northern winter.",
+       "fact_zh": "重要的是陽光的角度，不是距離。地球其實在一月離太陽最近，那時北半球是冬天。"
+      },
+      {
+       "myth_en": "At the equator, the noon Sun is straight overhead every day.",
+       "myth_zh": "赤道上，每天正午太陽都在頭頂正上方。",
+       "fact_en": "The overhead Sun moves between the tropics during the year. It passes over the equator only around March and September.",
+       "fact_zh": "太陽直射點一年當中在南北回歸線之間移動，只有在三月和九月前後才經過赤道。"
+      },
+      {
+       "myth_en": "Slanted sunlight is weaker because the Sun gives out less light.",
+       "myth_zh": "斜射的陽光比較弱，是因為太陽發出的光比較少。",
+       "fact_en": "The Sun sends the same light. Slanted light is spread over more ground, so each square meter gets less.",
+       "fact_zh": "太陽發出的光一樣多；斜射的光攤在比較多的地面上，每平方公尺分到的比較少。"
+      },
+      {
+       "myth_en": "Places in the polar zones never see the Sun in summer.",
+       "myth_zh": "寒帶的地方夏天也看不到太陽。",
+       "fact_en": "In summer the Sun can stay up all day and all night there. It is low in the sky, so its light is slanted.",
+       "fact_zh": "夏天時，那裡的太陽可以整天整夜都不落下；只是太陽很低，光是斜的。"
+      }
+     ],
+     "culture_cards": {
+      "eyebrow": "Stories Behind the Lines · 線背後的故事",
+      "title_en": "People who followed the Sun",
+      "title_zh": "跟著太陽走的人",
+      "lead_en": "",
+      "lead_zh": "",
+      "cards": [
+       {
+        "k": "About 276–194 BCE · Eratosthenes · 埃拉托斯特尼",
+        "en": "Sunlight at the bottom of a well",
+        "zh": "照到井底的陽光",
+        "body_en": "The Greek geographer Eratosthenes read that a deep well near Syene, in southern Egypt, was lit all the way down at noon once a year, so the Sun had to be straight overhead. In Alexandria, farther north, posts still cast shadows that day. From the difference he estimated the size of the Earth.",
+        "body_zh": "希臘地理學家埃拉托斯特尼讀到：埃及南部賽伊尼附近有一口深井，每年有一天正午陽光會照到井底，所以那時太陽一定在正上方。同一天，北邊亞歷山卓的柱子還有影子。他從這個差別估算出地球有多大。"
+       },
+       {
+        "k": "Britannica · 大英百科",
+        "en": "Why “Cancer”?",
+        "zh": "為什麼叫「巨蟹」？",
+        "body_en": "At the June solstice the Sun is overhead at the Tropic of Cancer. Long ago, the Sun appeared in the constellation Cancer at that time, which gave the line its name. Today it appears in Gemini, because the direction of the Earth's axis slowly changes.",
+        "body_zh": "六月夏至時，太陽直射北回歸線。很久以前，那時太陽出現在巨蟹座，這條線就因此得名（英文叫「巨蟹的回歸線」）。今天那時太陽出現在雙子座，因為地球自轉軸的方向會慢慢改變。"
+       },
+       {
+        "k": "2004 · Chiayi · 嘉義",
+        "en": "A line that walks south",
+        "zh": "往南走的線",
+        "body_en": "The Tropic of Cancer is not fixed. A monument in Chiayi City says it moves south by more than 14 meters a year, and that in 1788 it passed near what is now the corner of Boai Road and Shixian Road. Chiayi City's marker, opened on June 21, 2004, is counted as the world's tenth Tropic of Cancer marker.",
+        "body_zh": "北回歸線不是固定不動的。嘉義市的碑文說，它每年往南移動 14 公尺多，西元 1788 年通過今天博愛路與世賢路口北端附近。嘉義市的標誌在 2004 年 6 月 21 日落成，是「全球北回歸線標誌第十處」。"
+       },
+       {
+        "k": "Arctic Circle · 北極圈",
+        "en": "From one day to six months",
+        "zh": "從一天到半年",
+        "body_en": "On the Arctic Circle, the Sun stays up all day for about one day each June and stays down for about one day each December. Farther north, these stretches grow longer, until at the North Pole there are six months of daylight and six months of night.",
+        "body_zh": "在北極圈上，每年六月大約有一天太陽整天不落下，十二月大約有一天太陽整天不升起。越往北，這樣的日子越長；到了北極，是半年的白天和半年的黑夜。"
+       }
+      ]
+     },
+     "curric": {
+      "eyebrow": "In the Curriculum · 對應課綱",
+      "en": "Where this lesson fits",
+      "zh": "這一課對應的課綱",
+      "lead_en": "These entries come from Taiwan's 12-Year Basic Education curriculum (2018). The main idea of this lesson is written almost word for word in junior high natural science. The curriculum does not use the term solar altitude angle; it speaks of the angle of sunlight.",
+      "lead_zh": "下面的條目出自十二年國民基本教育課程綱要（民國 107 年發布）。這一課的核心幾乎原原本本寫在國中自然科學裡。課綱沒有用「太陽高度角」這個詞，用的是「陽光照射角度」。",
+      "items": [
+       {
+        "code": "自 Id-Ⅳ-2",
+        "area": "自然科學領域（國中）",
+        "area_en": "Natural science (junior high)",
+        "text": "陽光照射角度之變化，會造成地表單位面積土地吸收太陽能量的不同。",
+        "note_en": "This is the lesson's big idea. The flashlight activity and the 3D beam show it directly.",
+        "note_zh": "這正是本課的核心。手電筒活動和 3D 光束直接示範這件事。"
+       },
+       {
+        "code": "自 Id-Ⅳ-3",
+        "area": "自然科學領域（國中）",
+        "area_en": "Natural science (junior high)",
+        "text": "地球的四季主要是因為地球自轉軸傾斜於地球公轉軌道面而造成。",
+        "note_en": "The season buttons move the overhead Sun between the tropics.",
+        "note_zh": "季節按鈕讓太陽直射點在南北回歸線之間移動。"
+       },
+       {
+        "code": "地 Ac-Ⅳ-2",
+        "area": "社會領域・地理（國中）",
+        "area_en": "Social studies, geography (junior high)",
+        "text": "臺灣的氣候特色。",
+        "note_en": "The Tropic of Cancer crosses Taiwan: southern Taiwan is tropical and northern Taiwan subtropical.",
+        "note_zh": "北回歸線穿過台灣：南部屬熱帶、北部屬副熱帶。"
+       },
+       {
+        "code": "自 INc-Ⅲ-13",
+        "area": "自然科學領域（國小五、六年級）",
+        "area_en": "Natural science (grades 5–6)",
+        "text": "日出日落時間與位置，在不同季節會不同。",
+        "note_en": "Measuring the noon shadow each month shows the Sun's path changing with the seasons.",
+        "note_zh": "每個月量一次正午的影子，就能看出太陽的路徑隨季節改變。"
+       }
+      ]
+     },
+     "sources": [
+      {
+       "en": "“From the equator to the poles, the Sun's rays meet Earth at smaller and smaller angles, and the light gets spread over larger and larger surface areas.”",
+       "zh": "從赤道到兩極，陽光和地面的夾角越來越小，光攤在越來越大的面積上",
+       "src": "NASA Earth Observatory, “Climate and Earth's Energy Budget,” page 2",
+       "url": "https://earthobservatory.nasa.gov/features/EnergyBalance/page2.php"
+      },
+      {
+       "en": "The farther from the equator the radiation strikes, “the more of an angle it has, spreading the energy over a larger area.”",
+       "zh": "離赤道越遠，陽光越斜，能量攤在越大的面積上",
+       "src": "NOAA JetStream, “Tropical Weather Systems”",
+       "url": "https://www.noaa.gov/jetstream/tropical"
+      },
+      {
+       "en": "With a high Sun, “less sunlight gets scattered before reaching the ground because it has less distance to travel through the atmosphere”; the Earth is closest to the Sun in January, and “this distance change is not great enough to cause any substantial difference in our climate.”",
+       "zh": "太陽高時穿過的大氣比較短；地球一月離太陽最近，距離變化不足以造成氣候的明顯差別",
+       "src": "National Weather Service, Sioux Falls, “What Causes the Seasons?”",
+       "url": "https://www.weather.gov/fsd/season"
+      },
+      {
+       "en": "Solstices are defined by solar declination, “the latitude of Earth where the sun is directly overhead at noon”; about 23.5°N (Tropic of Cancer) in June and 23.5°S (Tropic of Capricorn) in December.",
+       "zh": "太陽直射的緯度；六月北回歸線、十二月南回歸線",
+       "src": "National Geographic Education, “Solstice”",
+       "url": "https://education.nationalgeographic.org/resource/solstice/"
+      },
+      {
+       "en": "“The Tropic of Cancer, for instance, is 23 degrees 26 minutes 21 seconds N.” The model uses 23.44 degrees.",
+       "zh": "北回歸線在北緯 23 度 26 分 21 秒（模型用 23.44 度）",
+       "src": "National Geographic Encyclopedia, “Latitude”",
+       "url": "https://www.nationalgeographic.org/encyclopedia/latitude/"
+      },
+      {
+       "en": "The Tropic of Cancer was named when the Sun lay in the constellation Cancer at the June solstice; it now appears in Gemini (read November 2026).",
+       "zh": "北回歸線因為從前夏至時太陽在巨蟹座而得名，現在在雙子座",
+       "src": "Encyclopaedia Britannica, “Tropic of Cancer”",
+       "url": "https://www.britannica.com/place/Tropic-of-Cancer"
+      },
+      {
+       "en": "The Arctic Circle, at approximately 66°30′ N, marks the southern limit of the area where the Sun does not set (about June 21) or rise (about December 21) for one day or more; continuous day or night grows from one day on the circle to six months at the pole (read November 2026).",
+       "zh": "北極圈：至少一天太陽不落或不升；在北極是半年",
+       "src": "Encyclopaedia Britannica, “Arctic Circle”",
+       "url": "https://www.britannica.com/place/Arctic-Circle"
+      },
+      {
+       "en": "“During a cycle that averages about 40,000 years, the tilt of the axis varies between 22.1 and 24.5 degrees.”",
+       "zh": "地軸傾角在 22.1 到 24.5 度之間變化，週期約四萬年",
+       "src": "NASA Earth Observatory, “Milankovitch (Orbital) Cycles”",
+       "url": "https://earthobservatory.nasa.gov/features/Milankovitch"
+      },
+      {
+       "en": "Eratosthenes (about 276 to 194 B.C.) read that a deep vertical well near Syene “was entirely lit up by the Sun at noon once a year” and reasoned that the Sun must be directly overhead.",
+       "zh": "埃拉托斯特尼與賽伊尼的井",
+       "src": "NOAA JetStream, “Learning Lesson: The Shadow Knows I”",
+       "url": "https://www.noaa.gov/jetstream/global/learning-lesson-shadow-knows-i"
+      },
+      {
+       "en": "「北回歸線以每年14公尺餘的速度向南移動，於西元1788年通過本市博愛路與世賢路路口北端附近」；「全球北回歸線標誌第十處」, opened June 21, 2004; the markers divide 「北寒帶、北溫帶、熱帶、南溫帶、南寒帶等五帶」.",
+       "zh": "嘉義市北回歸線標誌與碑文",
+       "src": "交通部觀光署，〈全球北回歸線標誌第十處〉",
+       "url": "https://www.taiwan.net.tw/m1.aspx?id=8969&sNo=0001016"
+      },
+      {
+       "en": "「北回歸線通過花蓮、嘉義、澎湖３縣境，故南部屬熱帶，北部屬副熱帶。」",
+       "zh": "台灣南部屬熱帶、北部屬副熱帶",
+       "src": "中央氣象署南區氣象中心，〈臺灣的氣候〉",
+       "url": "https://south.cwa.gov.tw/inner/raMT1572423889ELUy"
+      },
+      {
+       "en": "Chinese terms: 太陽高度角／太陽高度 (solar altitude), 斜射 (oblique incidence), 寒帶 (frigid zone), 北回歸線 (Tropic of Cancer).",
+       "zh": "名詞",
+       "src": "國家教育研究院，樂詞網",
+       "url": "https://terms.naer.edu.tw/"
+      },
+      {
+       "en": "自 Id-Ⅳ-2、自 Id-Ⅳ-3、自 INc-Ⅲ-13；地 Ac-Ⅳ-2.",
+       "zh": "自然科學領域與社會領域課程綱要",
+       "src": "國家教育研究院，《十二年國民基本教育課程綱要》自然科學領域、社會領域（民國 107 年）",
+       "url": "https://www.naer.edu.tw/PageSyllabus?fid=52"
+      }
+     ]
     }
    ],
    "planned": [
-    {
-     "n": 7,
-     "icon": "🌡️",
-     "en": "Why Is It Hot at the Equator and Cold at the Poles?",
-     "zh": "為什麼赤道熱、兩極冷？"
-    },
     {
      "n": 8,
      "icon": "🏘️",
