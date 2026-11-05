@@ -9935,11 +9935,11 @@
        "icon": "🧩",
        "k_en": "Music · Lesson 17",
        "k_zh": "音樂・第十七課",
-       "soon": true,
        "en": "How Is a Song Put Together?",
        "zh": "一首歌是怎麼組成的？",
        "note_en": "Next: the parts of a song.",
-       "note_zh": "接下來：一首歌的各個部分。"
+       "note_zh": "接下來：一首歌的各個部分。",
+       "href": "/resources/classes/music/song-form/"
       }
      ],
      "sources_note_en": "Names and quotations on this page were checked against these sources (November 2026). The long notes, breaths, and knocks are our own simple model; no recording, text, or tune of any tradition is used.",
@@ -10012,16 +10012,580 @@
        "url": "https://cdn.who.int/media/docs/default-source/documents/health-topics/deafness-and-hearing-loss/mls-brochure-english-2021.pdf?sfvrsn=bf19b448_5"
       }
      ]
-    }
-   ],
-   "planned": [
+    },
     {
      "n": 17,
+     "slug": "song-form",
+     "title": "How Is a Song Put Together?",
+     "title_zh": "一首歌是怎麼組成的？",
+     "level": "入門 · Beginner",
      "icon": "🧩",
-     "en": "How Is a Song Put Together?",
-     "zh": "一首歌是怎麼組成的？"
+     "card": "form",
+     "blurb_en": "Build a song from colored blocks. Hear how the same block comes back exactly the same, and how a new block changes everything.",
+     "blurb_zh": "用色塊拼出一首歌。聽同一個色塊怎麼原封不動地回來，新的色塊又怎麼改變一切。",
+     "big_idea_en": "A song is built from repetition and contrast. A section that comes back is repetition; a new section is contrast.",
+     "big_idea_zh": "一首歌由重複與對比搭起來。回來的段落是重複，新的段落是對比。",
+     "lab": {
+      "kind": "form",
+      "eyebrow": "Try It · 動手試試",
+      "title_en": "Build a Song from Blocks",
+      "title_zh": "用色塊拼一首歌",
+      "how_en": "We wrote three short tunes of two bars each: A, B, and C. Each one is a colored block. Add blocks in any order, then press play. Whenever a color comes back, the music comes back exactly the same. These tunes are our own. They are not any real song, and real songs are much longer and more varied.",
+      "how_zh": "我們寫了三段各兩小節的短旋律：A、B、C。每一段是一個彩色的色塊。用任何順序加上色塊，再按播放。同一種顏色回來的時候，音樂原封不動地回來。這些旋律是我們自己寫的，不是任何真的歌，真正的歌長得多、也豐富得多。"
+     },
+     "paras": [
+      "Song structure is the arrangement of a song. It is typically sectional, which means a song uses repeating forms. In musical form, the first statement of a musical idea is called A. Later contrasting sections are labeled B, C, D, and so on. Musical form shows the importance of two principles: repetition and contrast.",
+      "A verse of a song is a repeated sung melody where the words change from use to use. Each verse usually employs the same melody, while the lyrics usually change. A song structure in which all verses are sung to the same music is called strophic. Many folk and popular songs are strophic, including ballads and hymns.",
+      "The chorus, or refrain, is the part of the song that repeats at least once, both musically and lyrically. It usually retains the same set of lyrics every time its music appears, and it is normally the most memorable part. Verse–chorus form has two main sections that often contrast in melody, rhythm, harmony, and loudness. The two words chorus and refrain are often used interchangeably.",
+      "A bridge is a contrasting section that prepares for the return of the original material. It is a device used to break up the repetitive pattern of the song and keep the listener’s attention. The verse and the chorus are usually repeated throughout a song. The intro, the bridge, and the outro are usually used only once.",
+      "An introduction generally has just music and no words. An outro is a way of finishing or completing the song. Pop songs may have an introduction and an ending, but these parts are not essential to the identity of most songs. The dictionary also lists the interlude: music inserted between the main sections of a song.",
+      "There is no single order. Song form terminology is not standardized, and not every song has both a verse and a chorus. Some songs have only verses. Others, in the thirty-two-bar form, have an A section that shares the same melody three times with a contrasting B section. This is why we use the letters A, B, and C in this lesson, and not names. Can you hear what comes back and what is new?"
+     ],
+     "paras_zh": [
+      "歌曲結構（song structure）是一首歌的編排。它通常是分段的，也就是一首歌使用重複的形式。在曲式裡，一個音樂想法第一次出現叫 A，之後對比的段落依序叫 B、C、D 等。曲式顯示了兩個原則的重要：重複與對比。",
+      "歌曲的一段「主歌」（verse）是一段重複演唱的旋律，歌詞每次都不同。每一段主歌通常用同一條旋律，歌詞則通常每段不同。所有詩節都用同一段音樂來唱的歌曲結構，叫做分節歌（strophic）。許多民謠和流行歌是分節歌，包括敘事歌謠與聖詩。",
+      "副歌（chorus 或 refrain）是歌曲裡至少重複一次的部分，音樂與歌詞都重複。每次它的音樂出現，歌詞通常都一樣，也通常是最容易記住的部分。主歌—副歌的形式有兩個主要段落，兩者常在旋律、節奏、和聲與力度上形成對比。chorus 和 refrain 這兩個詞常常互換使用。",
+      "橋段（bridge）是一個對比的段落，為原來的材料回來做準備。它是用來打破歌曲的重複模式、保持聽眾注意力的手法。主歌和副歌通常在整首歌中重複出現。前奏、橋段和結尾通常只用一次。",
+      "前奏一般只有音樂、沒有歌詞。結尾（outro）是結束或完成一首歌的方式。流行歌可以有前奏和結尾，但這些部分對大多數歌的特色並不是必要的。辭典還列了間奏：插在歌曲主要段落之間的音樂。",
+      "沒有唯一的順序。歌曲形式的術語並沒有標準化，也不是每首歌都同時有主歌和副歌。有些歌只有主歌。有的是三十二小節形式：A 段用同一條旋律三次，加上一個對比的 B 段。所以這一課用字母 A、B、C，不用名稱。你聽得出什麼回來了、什麼是新的嗎？"
+     ],
+     "questions": [
+      "What is the difference between repetition and contrast?",
+      "Does every song have both a verse and a chorus?",
+      "Why do we use the letters A, B, and C in this lesson?"
+     ],
+     "answers": [
+      "Repetition is when a section comes back; contrast is when a new, different section appears.",
+      "No. Some songs have only verses, and song form terminology is not standardized.",
+      "Because names like verse, chorus, and bridge are used differently in different songs; letters just show what comes back and what is new."
+     ],
+     "vocab": [
+      {
+       "n": 1,
+       "w": "structure",
+       "pos": "n.",
+       "zh": "結構",
+       "ex": "The <b>structure</b> of a song is its arrangement.",
+       "exzh": "歌曲的結構就是它的編排。"
+      },
+      {
+       "n": 2,
+       "w": "section",
+       "pos": "n.",
+       "zh": "段落",
+       "ex": "Each <b>section</b> has its own tune.",
+       "exzh": "每個段落有自己的旋律。"
+      },
+      {
+       "n": 3,
+       "w": "verse",
+       "pos": "n.",
+       "zh": "主歌",
+       "ex": "The words change in every <b>verse</b>.",
+       "exzh": "每段主歌的歌詞都不同。"
+      },
+      {
+       "n": 4,
+       "w": "chorus",
+       "pos": "n.",
+       "zh": "副歌",
+       "ex": "Everyone sings the <b>chorus</b> together.",
+       "exzh": "大家一起唱副歌。"
+      },
+      {
+       "n": 5,
+       "w": "bridge",
+       "pos": "n.",
+       "zh": "橋段",
+       "ex": "The <b>bridge</b> sounds different from the rest.",
+       "exzh": "橋段聽起來跟其他部分不一樣。"
+      },
+      {
+       "n": 6,
+       "w": "repetition",
+       "pos": "n.",
+       "zh": "重複",
+       "ex": "<b>Repetition</b> makes a tune easy to remember.",
+       "exzh": "重複讓旋律容易記住。"
+      },
+      {
+       "n": 7,
+       "w": "contrast",
+       "pos": "n.",
+       "zh": "對比",
+       "ex": "A bridge adds <b>contrast</b>.",
+       "exzh": "橋段帶來對比。"
+      },
+      {
+       "n": 8,
+       "w": "outro",
+       "pos": "n.",
+       "zh": "結尾",
+       "ex": "The <b>outro</b> finishes the song.",
+       "exzh": "結尾讓歌曲收尾。"
+      }
+     ],
+     "quiz": [
+      {
+       "q": "In musical form, what is the first statement of a musical idea called?",
+       "options": [
+        "A",
+        "Z",
+        "Bridge",
+        "Outro"
+       ],
+       "correct": 0
+      },
+      {
+       "q": "What does a bridge usually do?",
+       "options": [
+        "Contrasts, and prepares for the return of the original material",
+        "Repeats the chorus exactly",
+        "Is always the first part",
+        "Has no music"
+       ],
+       "correct": 0
+      },
+      {
+       "q": "What is true about the chorus?",
+       "options": [
+        "It usually keeps the same lyrics each time it comes back",
+        "It never repeats",
+        "It always has a different tune",
+        "It is always silent"
+       ],
+       "correct": 0
+      },
+      {
+       "q": "If a song is A A B A, how many different sections does it have?",
+       "options": [
+        "2",
+        "4",
+        "3",
+        "1"
+       ],
+       "correct": 0
+      },
+      {
+       "q": "Why does this lesson use letters instead of names?",
+       "options": [
+        "Song form terminology is not standardized",
+        "Letters are louder",
+        "Names are secret",
+        "Songs have no sections"
+       ],
+       "correct": 0
+      }
+     ],
+     "parts_head": {
+      "eyebrow": "Try It · 動手試試",
+      "en": "Four songs to hear",
+      "zh": "四首歌聽聽看"
+     },
+     "parts": [
+      {
+       "key": "aaba",
+       "icon": "🅰️",
+       "en": "A A B A",
+       "zh": "A A B A",
+       "meta_en": "A comes home",
+       "meta_zh": "A 又回來",
+       "demo": "AABA",
+       "text_en": "A is played twice, then B is different, then A returns exactly the same.",
+       "text_zh": "A 先彈兩次，B 不一樣，然後 A 原封不動地回來。"
+      },
+      {
+       "key": "abab",
+       "icon": "🔁",
+       "en": "A B A B",
+       "zh": "A B A B",
+       "meta_en": "Taking turns",
+       "meta_zh": "輪流出現",
+       "demo": "ABAB",
+       "text_en": "Two sections take turns. Each one comes back once.",
+       "text_zh": "兩個段落輪流出現，各回來一次。"
+      },
+      {
+       "key": "abcb",
+       "icon": "🌈",
+       "en": "A B C B",
+       "zh": "A B C B",
+       "meta_en": "A third color",
+       "meta_zh": "第三種顏色",
+       "demo": "ABCB",
+       "text_en": "C is new and contrasts with the rest, and then B returns.",
+       "text_zh": "C 是新的，和其他的形成對比，然後 B 回來。"
+      },
+      {
+       "key": "aab",
+       "icon": "🏁",
+       "en": "A A B",
+       "zh": "A A B",
+       "meta_en": "Ends on something new",
+       "meta_zh": "結束在新的段落",
+       "demo": "AAB",
+       "text_en": "A repeats, and the song ends on B, which ends on the home note.",
+       "text_zh": "A 重複，歌曲結束在 B，B 結束在主音。"
+      }
+     ],
+     "parts_note_en": "Then build your own with the blocks above, and play the game below.",
+     "parts_note_zh": "然後用上面的色塊拼自己的歌，再玩下面的遊戲。",
+     "formq": {
+      "eyebrow": "Game · 小遊戲",
+      "en": "Which Order Is It?",
+      "zh": "這是哪一個順序？",
+      "lead_en": "Six questions. Each one plays a song made of blocks. Choose the order you heard. If you cannot hear the sound, press “What is in the music”.",
+      "lead_zh": "六道題。每一題播放一首用色塊拼的歌。選出你聽到的順序。如果聽不到聲音，按「音樂裡有什麼」。"
+     },
+     "curric": {
+      "eyebrow": "In the Curriculum · 對應課綱",
+      "en": "Where this lesson fits",
+      "zh": "這一課對應的課綱",
+      "lead_en": "The curriculum names repetition and contrast (grades 5–6) and writing a simple form. The words verse, chorus, and bridge do not appear in it, and grades 3–4 have no form vocabulary.",
+      "lead_zh": "課綱在五、六年級寫到反覆與對比，以及簡易的曲式創作。「主歌」「副歌」「橋段」這些詞課綱裡沒有出現，三、四年級也沒有曲式的語彙。",
+      "items": [
+       {
+        "code": "音 A-Ⅲ-3",
+        "area": "藝術領域・音樂（國小五、六年級）",
+        "area_en": "Arts, music (grades 5–6)",
+        "text": "音樂美感原則，如：反覆、對比等。",
+        "note_en": "Repetition and contrast are the two ideas of this lesson.",
+        "note_zh": "反覆與對比就是這一課的兩個想法。"
+       },
+       {
+        "code": "音 E-Ⅲ-5",
+        "area": "藝術領域・音樂（國小五、六年級）",
+        "area_en": "Arts, music (grades 5–6)",
+        "text": "簡易創作，如：節奏創作、曲調創作、曲式創作等。",
+        "note_en": "Arranging blocks is a simple way to create a form.",
+        "note_zh": "排色塊是創作曲式的一個簡單方法。"
+       },
+       {
+        "code": "音 A-Ⅲ-2",
+        "area": "藝術領域・音樂（國小五、六年級）",
+        "area_en": "Arts, music (grades 5–6)",
+        "text": "相關音樂語彙，如曲調、調式等描述音樂元素之音樂術語，或相關之一般性用語。",
+        "note_en": "Words like section and contrast help us describe what we hear.",
+        "note_zh": "段落、對比這樣的詞，幫助我們描述聽到的東西。"
+       },
+       {
+        "code": "音 E-Ⅱ-4",
+        "area": "藝術領域・音樂（國小三、四年級）",
+        "area_en": "Arts, music (grades 3–4)",
+        "text": "音樂元素，如：節奏、力度、速度等。",
+        "note_en": "Each block has its own tune; the elements are the ones named earlier.",
+        "note_zh": "每個色塊有自己的旋律；音樂元素是前面幾課學過的。"
+       }
+      ]
+     },
+     "culture_cards": {
+      "eyebrow": "Stories Behind the Notes · 音符背後的故事",
+      "title_en": "Letters, two words, a bridge in Chinese, and a round",
+      "title_zh": "字母、兩個詞、中文的橋段，和輪旋曲",
+      "lead_en": "Four short notes about words and forms.",
+      "lead_zh": "關於詞彙與曲式的四個小註解。",
+      "cards": [
+       {
+        "k": "Letters · 字母",
+        "en": "A, B, C, and no standard names",
+        "zh": "A、B、C，沒有標準名稱",
+        "body_en": "Musical form uses letters. The first statement of an idea is A, and the contrasting sections that follow are labeled B, C, D, and so on. Song form terminology is not standardized, so one writer’s chorus may be another’s refrain. Taiwan’s dictionary defines 曲式 simply as the way a piece of music is built.",
+        "body_zh": "曲式用字母。一個想法的第一次出現是 A，接著對比的段落依序標為 B、C、D 等。歌曲形式的術語並沒有標準化，所以一位作者說的 chorus，可能是另一位說的 refrain。台灣的辭典把「曲式」簡單定義為樂曲的構成方式。"
+       },
+       {
+        "k": "Two Words · 兩個詞",
+        "en": "Chorus and refrain",
+        "zh": "副歌與疊句",
+        "body_en": "Taiwan’s list of music terms gives 副歌 for the pop-music chorus, and 疊句 or 副歌 for refrain. The dictionary’s 疊句 is a poetry word: a sentence used again and again in a poem, song text, or play. English Wikipedia adds that repeats of a refrain may use different words, and what makes a refrain recognizable is its melody.",
+        "body_zh": "台灣的樂詞對照表，把通俗音樂的 chorus 對成「副歌」，refrain 對成「疊句」或「副歌」。辭典裡的「疊句」是詩詞用語：詩詞、戲曲、文章中重複使用的句子。英文維基百科補充說，refrain 的重複可以換字，讓它容易認出來的是旋律。"
+       },
+       {
+        "k": "Bridge · 橋段",
+        "en": "A bridge, and a different 橋段",
+        "zh": "橋段，不是 bridge",
+        "body_en": "In Chinese, 橋段 means a plot device in a story, a comic, or a film. It is not the bridge of a song. Taiwan’s list of music terms gives 過渡樂段 for the music word bridge. We keep the English word bridge in this lesson, and we tell you when the Chinese word means something else.",
+        "body_zh": "中文的「橋段」是小說、漫畫、電影裡的表現手法，不是歌曲的 bridge。台灣的樂詞對照表，把音樂的 bridge 對成「過渡樂段」。這一課保留英文的 bridge，並在中文的詞意思不同時告訴你。"
+       },
+       {
+        "k": "Rondo · 輪旋曲",
+        "en": "A long-lived pattern",
+        "zh": "一個很老的樣式",
+        "body_en": "The dictionary describes the rondo, also called 迴旋曲, as a piece with one main theme and several inserted sections. The main theme usually appears three times and alternates with the inserted sections, in the general form A–B–A–C–A. It shows the same idea as our blocks: one section keeps coming back, and new ones come between.",
+        "body_zh": "辭典描述輪旋曲（也叫迴旋曲）是有一個主要主題和若干插入段的曲子。主題通常出現三次，與插入段輪流變換，一般形式是 A－B－A－C－A。它和我們的色塊是同一個想法：一個段落不斷回來，新的段落插在中間。"
+       }
+      ]
+     },
+     "myths": [
+      {
+       "myth_en": "Every song has a verse and a chorus.",
+       "myth_zh": "每首歌都有主歌和副歌。",
+       "fact_en": "Pop and rock songs often have both, but some songs have only verses.",
+       "fact_zh": "流行與搖滾歌曲常常兩者都有，但有些歌只有主歌。"
+      },
+      {
+       "myth_en": "The bridge always comes after the second chorus.",
+       "myth_zh": "橋段一定在第二次副歌之後。",
+       "fact_en": "It usually does in many songs, but not always. A bridge is a contrasting section that prepares for the return of the original material.",
+       "fact_zh": "許多歌通常如此，但不一定。橋段是為原來材料回來做準備的對比段落。"
+      },
+      {
+       "myth_en": "The chorus always has exactly the same words.",
+       "myth_zh": "副歌的歌詞一定一模一樣。",
+       "fact_en": "It usually does. But repeats of a refrain may use different words; the melody is what makes it recognizable.",
+       "fact_zh": "通常如此。但 refrain 的重複可以換字，讓它容易認出來的是旋律。"
+      },
+      {
+       "myth_en": "Intro, bridge, and outro each appear in every song.",
+       "myth_zh": "每首歌都有前奏、橋段和結尾。",
+       "fact_en": "They are not essential to the identity of most songs, and they are usually used only once.",
+       "fact_zh": "它們對大多數歌的特色並不是必要的，而且通常只用一次。"
+      }
+     ],
+     "tricks_head": {
+      "en": "Four things to remember",
+      "zh": "四件要記住的事"
+     },
+     "tricks": [
+      {
+       "title_en": "Same letter, same music",
+       "title_zh": "同一個字母，同一段音樂",
+       "body_en": "A returning section is repetition.",
+       "body_zh": "回來的段落是重複。"
+      },
+      {
+       "title_en": "New letter, new music",
+       "title_zh": "新字母，新音樂",
+       "body_en": "A new section is contrast.",
+       "body_zh": "新的段落是對比。"
+      },
+      {
+       "title_en": "Names are not standard",
+       "title_zh": "名稱沒有標準",
+       "body_en": "Use letters when you are not sure.",
+       "body_zh": "不確定的時候就用字母。"
+      },
+      {
+       "title_en": "Not every song has a bridge",
+       "title_zh": "不是每首歌都有橋段",
+       "body_en": "Many songs do not need one.",
+       "body_zh": "許多歌並不需要。"
+      }
+     ],
+     "safety_head": {
+      "eyebrow": "Protect Your Ears · 保護耳朵",
+      "en": "Before you listen",
+      "zh": "聽之前"
+     },
+     "safety": [
+      {
+       "en": "Start with the volume low and turn it up a little at a time. When a song plays for a while, your ears can get tired without you noticing.",
+       "zh": "先把音量調小，再一點一點調大。歌曲播放一段時間後，耳朵可能累了你卻沒發現。"
+      },
+      {
+       "en": "With headphones, keep the volume at no more than 60% of maximum, and use personal audio devices for less than one hour a day, as the World Health Organization suggests.",
+       "zh": "戴耳機時，音量不要超過最大音量的 60%，個人音響裝置每天使用少於一小時，這是世界衛生組織的建議。"
+      },
+      {
+       "en": "Take a quiet break between games. Your ears like it.",
+       "zh": "每個遊戲之間讓耳朵安靜休息一下。耳朵會喜歡。"
+      }
+     ],
+     "activities": [
+      {
+       "title_en": "Color-Block a Song You Know",
+       "title_zh": "把你會唱的歌塗成色塊",
+       "materials": [
+        {
+         "en": "A short song your class already knows",
+         "zh": "一首全班已經會的短歌"
+        },
+        {
+         "en": "Colored paper or crayons",
+         "zh": "彩色紙或蠟筆"
+        }
+       ],
+       "steps": [
+        {
+         "en": "Sing the song together and notice where the music comes back.",
+         "zh": "全班一起唱，注意音樂在哪裡回來。"
+        },
+        {
+         "en": "Give each section its own color. Same music, same color.",
+         "zh": "給每個段落一種顏色。一樣的音樂，一樣的顏色。"
+        },
+        {
+         "en": "Line up the colored blocks in order. What letters do you get?",
+         "zh": "把色塊依序排好。你得到什麼字母？"
+        },
+        {
+         "en": "Compare with a friend. Did you hear the sections in the same places?",
+         "zh": "和同學比一比。你們聽到的段落在同樣的地方嗎？"
+        }
+       ],
+       "tip_en": "There may be more than one right answer. Let students explain what they heard.",
+       "tip_zh": "答案可能不只一個。讓學生說明他們聽到了什麼。"
+      },
+      {
+       "title_en": "Make Two Blocks",
+       "title_zh": "做兩個色塊",
+       "materials": [
+        {
+         "en": "Hands for clapping or classroom instruments",
+         "zh": "拍手或教室樂器"
+        },
+        {
+         "en": "Paper and a pen",
+         "zh": "紙和筆"
+        }
+       ],
+       "steps": [
+        {
+         "en": "In pairs, make a short rhythm of eight beats. This is block A.",
+         "zh": "兩人一組，做一個八拍的短節奏。這是 A 色塊。"
+        },
+        {
+         "en": "Make a second rhythm that sounds different. This is block B.",
+         "zh": "再做一個聽起來不同的節奏。這是 B 色塊。"
+        },
+        {
+         "en": "Perform them as A A B A. Then try A B A B.",
+         "zh": "表演成 A A B A，再試 A B A B。"
+        },
+        {
+         "en": "Ask the class: which did you like better? Why?",
+         "zh": "問全班：你比較喜歡哪一個？為什麼？"
+        }
+       ],
+       "tip_en": "Keep each block the same length so the changes are easy to hear.",
+       "tip_zh": "每個色塊保持一樣長，變化才容易聽出來。"
+      }
+     ],
+     "links_head": {
+      "eyebrow": "Go Further · 延伸閱讀",
+      "en": "Before, around, and after this lesson",
+      "zh": "這一課的前面、旁邊和後面"
+     },
+     "links": [
+      {
+       "icon": "🪘",
+       "k_en": "Music · Lesson 16",
+       "k_zh": "音樂・第十六課",
+       "en": "What Is Buddhist Chanting?",
+       "zh": "梵唄是什麼？",
+       "note_en": "A steady beat is the base of every form.",
+       "note_zh": "穩定的拍子是所有曲式的底。",
+       "href": "/resources/classes/music/buddhist-chanting/"
+      },
+      {
+       "icon": "🏛️",
+       "k_en": "Music · Lesson 13",
+       "k_zh": "音樂・第十三課",
+       "en": "How Did Western Music Change Over 400 Years?",
+       "zh": "西洋古典音樂四百年怎麼變？",
+       "note_en": "One tune written in different ways.",
+       "note_zh": "同一段旋律用不同的寫法。",
+       "href": "/resources/classes/music/western-eras/"
+      },
+      {
+       "icon": "🏝️",
+       "k_en": "Music · Lesson 15",
+       "k_zh": "音樂・第十五課",
+       "en": "What Music Grew in Taiwan?",
+       "zh": "台灣這塊土地上有哪些音樂？",
+       "note_en": "Songs come in many ways of layering voices.",
+       "note_zh": "歌有許多疊聲部的方式。",
+       "href": "/resources/classes/music/taiwan-music/"
+      },
+      {
+       "icon": "🎼",
+       "k_en": "Music · Lesson 18",
+       "k_zh": "音樂・第十八課",
+       "soon": true,
+       "en": "Why Is Bach Called the Father of Music?",
+       "zh": "巴哈為什麼重要？",
+       "note_en": "Next: a melody that chases itself.",
+       "note_zh": "接下來：自己追自己的旋律。"
+      }
+     ],
+     "sources_note_en": "Names and quotations on this page were checked against these sources (November 2026). The three tunes and the way they are played are our own simple model; no real song is used.",
+     "sources_note_zh": "本頁的名稱與引文依下列資料查證（2026 年 11 月）；三段旋律與播放方式是我們自己的簡單模型，沒有使用任何真的歌。",
+     "sources": [
+      {
+       "en": "Song structure is the arrangement of a song; it is typically sectional; each verse usually employs the same melody while the lyrics usually change; the chorus usually retains the same set of lyrics every time its music appears; the bridge is a device used to break up the repetitive pattern; the verse, chorus and pre-chorus are usually repeated; the intro, bridge, and coda are usually only used once; an introduction contains just music and no words; intro and coda are not essential to the identity of most songs",
+       "zh": "歌曲結構是歌曲的編排；通常是分段的；每段主歌通常用同一旋律、歌詞通常不同；副歌每次音樂出現歌詞通常相同；橋段用來打破重複的模式；主歌、副歌與預備副歌通常重複；前奏、橋段與結尾通常只用一次；前奏只有音樂沒有歌詞；前奏與結尾對大多數歌的特色並不必要",
+       "src": "Wikipedia, “Song structure”",
+       "url": "https://en.wikipedia.org/wiki/Song_structure"
+      },
+      {
+       "en": "The first statement of a musical idea is designated A. Subsequent contrasting sections are labeled B, C, D, and so on; the importance of the principles of repetition and contrast",
+       "zh": "一個音樂想法的第一次出現標為 A，之後對比的段落依序標為 B、C、D；重複與對比兩個原則的重要",
+       "src": "Wikipedia, “Musical form”",
+       "url": "https://en.wikipedia.org/wiki/Musical_form"
+      },
+      {
+       "en": "A song structure in which all verses or stanzas of the text are sung to the same music; many folk and popular songs are strophic in form, including the twelve-bar blues, ballads, hymns and chants",
+       "zh": "所有詩節都用同一段音樂來唱的歌曲結構；許多民謠與流行歌是分節歌，包括十二小節藍調、敘事歌謠、聖詩與唱誦",
+       "src": "Wikipedia, “Strophic form”",
+       "url": "https://en.wikipedia.org/wiki/Strophic_form"
+      },
+      {
+       "en": "Verse–chorus form consists of two main sections that often contrast melodically, rhythmically, harmonically and dynamically; songs which feature only a repeated verse are in simple verse form; predominant in rock music since the 1960s",
+       "zh": "主歌—副歌形式有兩個主要段落，常在旋律、節奏、和聲與力度上形成對比；只有重複主歌的歌是簡單主歌形式；1960 年代以來在搖滾樂中佔主導",
+       "src": "Wikipedia, “Verse–chorus form”",
+       "url": "https://en.wikipedia.org/wiki/Verse–chorus_form"
+      },
+      {
+       "en": "A bridge is a contrasting section that prepares for the return of the original material section; although repeats of refrains may use different words, refrains are made recognizable by reusing the same melody; the terms chorus and refrain are often used interchangeably",
+       "zh": "橋段是為原來材料回來做準備的對比段落；refrain 的重複可以換字，讓它容易認出來的是同一條旋律；chorus 與 refrain 常常互換使用",
+       "src": "Wikipedia, “Bridge (music)” and “Refrain”",
+       "url": "https://en.wikipedia.org/wiki/Bridge_(music)"
+      },
+      {
+       "en": "The A sections all share the same melody (possibly with slight variations); the B section musically and lyrically contrasts the A sections; song form terminology is not standardized",
+       "zh": "A 段共用同一條旋律（可能略有變化）；B 段在音樂與歌詞上與 A 段對比；歌曲形式的術語沒有標準化",
+       "src": "Wikipedia, “Thirty-two-bar form”",
+       "url": "https://en.wikipedia.org/wiki/Thirty-two_bar_form"
+      },
+      {
+       "en": "Form: the way a piece of music is constructed. Interlude: music inserted between the main sections of a song or solo piece. Rondo: an instrumental piece with one main theme and several inserted sections, in the general form A–B–A–C–A, also called huixuanqu",
+       "zh": "曲式：樂曲的構成方式。間奏：泛指歌曲或獨奏曲在主要樂段之間，所插入的音樂部分。輪旋曲：一種包含一個特定主題和若干插入段所構成的器樂曲，其一般形式為：A－B－A－C－A。也稱為「迴旋曲」",
+       "src": "教育部《重編國語辭典修訂本》「曲式」「間奏」「輪旋曲」",
+       "url": "https://dict.revised.moe.edu.tw/dictView.jsp?ID=103151&la=0&powerMode=0"
+      },
+      {
+       "en": "A sentence used again and again in poems, plays, or writings is called a refrain sentence",
+       "zh": "詩詞戲曲文章中，重複使用的句子，稱為「疊句」。",
+       "src": "教育部《重編國語辭典修訂本》「疊句」",
+       "url": "https://dict.revised.moe.edu.tw/dictView.jsp?ID=45688&la=0&powerMode=0"
+      },
+      {
+       "en": "chorus 合唱；副歌{通俗音樂}；refrain 重現句；疊句；副歌；bridge 過渡樂段",
+       "zh": "chorus: chorus; refrain (pop music); refrain: recurring phrase, refrain sentence; bridge: transitional passage",
+       "src": "國家教育研究院「樂詞網」（chorus、refrain、bridge、binary form、ternary form）",
+       "url": "https://terms.naer.edu.tw/search/?query_field=title_en&query_term=chorus&match_type=phrase"
+      },
+      {
+       "en": "Qiaoduan is a device in a work, common in novels, comics, and films; a refrain is a line or section of repeated words and music in a song",
+       "zh": "橋段，是指在作品中的表現手段。常見於小說、漫畫、電影；副歌是歌曲中一句或一段重複的歌詞及音樂段落",
+       "src": "中文維基百科「橋段」「副歌」",
+       "url": "https://zh.wikipedia.org/wiki/橋段"
+      },
+      {
+       "en": "Taiwan's 12-year curriculum: arts (music) 音 A-Ⅲ-3 (反覆、對比), 音 E-Ⅲ-5 (曲式創作), 音 A-Ⅲ-2, 音 E-Ⅱ-4",
+       "zh": "十二年國民基本教育課程綱要藝術領域：音 A-Ⅲ-3（反覆、對比）、音 E-Ⅲ-5（曲式創作）、音 A-Ⅲ-2、音 E-Ⅱ-4",
+       "src": "國家教育研究院，十二年國教藝術領域課綱",
+       "url": "https://www.naer.edu.tw/upload/1/16/doc/818/%E5%8D%81%E4%BA%8C%E5%B9%B4%E5%9C%8B%E6%B0%91%E5%9F%BA%E6%9C%AC%E6%95%99%E8%82%B2%E8%AA%B2%E7%A8%8B%E7%B6%B1%E8%A6%81%E5%9C%8B%E6%B0%91%E4%B8%AD%E5%B0%8F%E5%AD%B8%E6%9A%A8%E6%99%AE%E9%80%9A%E5%9E%8B%E9%AB%98%E7%B4%9A%E4%B8%AD%E7%AD%89%E6%A0%A1-%E8%97%9D%E8%A1%93%E9%A0%98%E5%9F%9F.pdf"
+      },
+      {
+       "en": "Safe listening: headphone volume to 60% of maximum, personal audio devices less than one hour a day",
+       "zh": "安全聆聽：耳機音量不超過最大的 60%、個人音響裝置每天少於一小時",
+       "src": "WHO, Make Listening Safe brochure (2021)",
+       "url": "https://cdn.who.int/media/docs/default-source/documents/health-topics/deafness-and-hearing-loss/mls-brochure-english-2021.pdf?sfvrsn=bf19b448_5"
+      }
+     ]
     }
-   ]
+   ],
+   "planned": []
   },
   {
    "key": "people",

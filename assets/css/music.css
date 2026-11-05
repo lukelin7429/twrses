@@ -832,3 +832,20 @@ a.mu-link:hover { transform: translateY(-3px); box-shadow: var(--shadow); border
 .mu-br-out { margin: .6rem 0 0; font-size: .88rem; font-weight: 700; }
 .mu-steadyq .mu-hg-sc { color: var(--ink-soft); }
 @media (max-width: 560px) { .mu-chant, .mu-breath, .mu-steadyq { padding: 1rem; } }
+
+/* ── 第十七課：一首歌的結構 ───────────────────────────────────────── */
+.mu-form, .mu-formq { margin-top: 1.5rem; padding: 1.3rem 1.4rem; background: #fff; border: 1px solid var(--line); border-radius: 20px; box-shadow: var(--shadow-sm); max-width: 1000px; }
+.mu-form .mu-btn[aria-pressed="true"] { border-color: var(--brand); background: var(--brand-lt); }
+.mu-form .mu-btn-gold, .mu-formq .mu-btn-gold { background: var(--gold); border-color: var(--gold); }
+.mu-fm-pal { display: inline-flex; gap: .25rem; }
+.mu-fm-A, .mu-fm-blk.mu-fm-A { --c: #ffd36e; } .mu-fm-B, .mu-fm-blk.mu-fm-B { --c: #7ef0e3; } .mu-fm-C, .mu-fm-blk.mu-fm-C { --c: #ff9f7a; }
+.mu-fm-pal .mu-btn.mu-fm-A, .mu-fm-pal .mu-btn.mu-fm-B, .mu-fm-pal .mu-btn.mu-fm-C { background: var(--c); border-color: rgba(0,0,0,.15); }
+.mu-fm-slots { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: 1rem; min-height: 4.2rem; padding: .5rem; border: 1px dashed var(--line); border-radius: 14px; background: var(--cream); }
+.mu-fm-blk { display: flex; flex-direction: column; align-items: center; justify-content: center; width: 3.4rem; height: 3.2rem; border-radius: 10px; background: var(--c); border: 1px solid rgba(0,0,0,.15); font-family: var(--serif); }
+.mu-fm-blk b { font-size: 1.2rem; } .mu-fm-blk small { font-size: .62rem; opacity: .7; font-weight: 700; }
+.mu-fm-blk.is-now { outline: 3px solid #2b2a24; transform: translateY(-2px); }
+.mu-fm-empty { color: var(--ink-soft); font-size: .84rem; align-self: center; }
+.mu-fm-info { margin: .8rem 0 0; font-size: .9rem; } .mu-fm-info small { display: block; color: var(--ink-soft); font-weight: 700; margin-top: .15rem; }
+.mu-form .mu-msg, .mu-formq .mu-q-msg { color: var(--ink); margin: .8rem 0 0; min-height: 3.4em; font-size: .86rem; line-height: 1.6; }
+.mu-form .mu-msg .zh, .mu-formq .mu-q-msg .zh { display: block; color: var(--ink-soft); }
+@media (max-width: 560px) { .mu-form, .mu-formq { padding: 1rem; } .mu-fm-blk { width: 2.9rem; } }
