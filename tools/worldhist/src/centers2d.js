@@ -22,7 +22,7 @@ export function initCenters(root) {
   const list = root.querySelector('.wh-ce-list'), card = root.querySelector('.wh-ce-card');
   const state = { ago: data.from, sel: null };
   const LB = { what_en: 'First farmed here', what_zh: '這裡最早栽培、畜養的', when_en: 'Roughly when', when_zh: '大約什麼時候', ...(data.labels || {}) };
-  const BOX = { south: -58, north: 72 };
+  const BOX = data.box || { south: -58, north: 72 };          // 可以只畫一個區域（例如第六課的地中海），沒給就畫全世界
   let view = null;
   list.innerHTML = centers.map((c, i) => `<button type="button" data-center="${c.key}" aria-pressed="false"><b>${i + 1}</b><span>${bi(c.en, c.zh)}</span></button>`).join('');
 

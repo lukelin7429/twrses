@@ -7983,7 +7983,7 @@
        "k_zh": "世界歷史・下一課",
        "en": "How Did Rome Hold an Empire Together?",
        "zh": "羅馬怎麼管住那麼大的地方？",
-       "soon": true,
+       "href": "/resources/classes/world-history/rome-empire/",
        "note_en": "Rome had citizens and assemblies too, and then roads, laws, and aqueducts that held a huge empire together.",
        "note_zh": "羅馬也有公民和集會；後來它用道路、法律和水道，把一個巨大的帝國連在一起。"
       },
@@ -8262,15 +8262,1414 @@
        "url": "https://www.naer.edu.tw/upload/1/16/doc/819/十二年國民基本教育課程綱要國民中小學暨普通型高級中等校-社會領域.pdf"
       }
      ]
+    },
+    {
+     "n": 6,
+     "slug": "rome-empire",
+     "title": "How Did Rome Hold an Empire Together?",
+     "title_zh": "羅馬怎麼管住那麼大的地方？",
+     "level": "入門 · Beginner",
+     "icon": "🛣️",
+     "card": "arch",
+     "blurb_en": "Build a stone arch in 3D, take away its wooden frame, and find out when it stands and when it falls. Then watch Rome grow on a map, and sort out which Roman wonders were older than Rome.",
+     "blurb_zh": "在 3D 裡蓋一座石拱，拆掉木頭拱架，看看它什麼時候站得住、什麼時候會塌。再從地圖上看羅馬怎麼長大，分一分哪些羅馬的奇蹟其實比羅馬還早。",
+     "big_idea_en": "Rome grew from one city into an empire that stretched from Britain to the Middle East. It was held together not only by armies, but also by roads, shared laws, the spread of citizenship, aqueducts, and cities. It was also built by conquest, and the people who were conquered paid a heavy price.",
+     "big_idea_zh": "羅馬從一座城市長成一個從不列顛延伸到中東的帝國。把它連在一起的，不只是軍隊，還有道路、共同的法律、公民權的擴大、水道和城市。它也是征服來的，被征服的人付出了沉重的代價。",
+     "lab": {
+      "kind": "arch",
+      "eyebrow": "3D Model · 3D 模型",
+      "title_en": "How Does a Stone Arch Hold Itself Up?",
+      "title_zh": "一座石拱怎麼撐住自己？",
+      "how_en": "Press Build it to place the wedge-shaped stones on a wooden frame, from both sides, with the keystone last. Then remove the centering and see whether the arch stands. Try leaving out the keystone, or dragging the thickness down: when the arch is too thin, or a stone is missing, it falls in the typical way, with the top dropping and the sides pushed outward.",
+      "how_zh": "按「蓋起來」，楔形石會從兩邊放到木頭拱架上，拱心石最後放。接著拆掉拱架，看拱站不站得住。試試少放拱心石，或把厚度往下拉：拱太薄、或少了一塊石頭時，它會用典型的方式塌下來：頂端往下掉，兩側被推向外面。",
+      "R": 4,
+      "n": 13,
+      "t": 0.6,
+      "t_min": 0.2,
+      "t_max": 1.2,
+      "min_ratio": 0.1075,
+      "status": {
+       "centering": {
+        "en": "The wooden centering is holding the stones up. Take it away to see whether the arch can stand on its own.",
+        "zh": "現在是木頭拱架托著石頭。把拱架拆掉，看看拱能不能自己站住。",
+        "short_en": "Held up by the centering",
+        "short_zh": "拱架托著"
+       },
+       "missing": {
+        "en": "A stone is missing. Without the keystone the two halves lean in and fall.",
+        "zh": "少了一塊石頭。沒有拱心石，兩邊的半拱往中間倒，就塌下來了。",
+        "short_en": "Falls: a stone is missing",
+        "short_zh": "塌了：少一塊石頭"
+       },
+       "thin": {
+        "en": "Every stone is in place, but the arch is too thin. The push inside the arch runs outside the stones, and it folds.",
+        "zh": "石頭都到位了，但拱太薄。拱裡面推來推去的力跑到石頭外面，拱就折下來了。",
+        "short_en": "Falls: too thin",
+        "short_zh": "塌了：太薄"
+       },
+       "ok": {
+        "en": "The arch stands by itself. Each stone presses on its neighbors, and the abutments hold the push at the ends.",
+        "zh": "拱自己站住了。每一塊石頭都壓著旁邊的石頭，兩端的拱座擋住往外推的力。",
+        "short_en": "It stands!",
+        "short_zh": "撐住了！"
+       }
+      },
+      "numbers_note_en": "A half-circle arch carrying only its own weight needs a thickness of at least about 0.1075 times its radius, measured to the middle of the stones (Milankovitch's solution; Heyman's simpler method gives about 0.106). This assumes the stones do not slide or crush and the abutments do not move. Real arches also carry roads, water, or walls.",
+      "numbers_note_zh": "一座只承受自己重量的半圓拱，厚度至少要有半徑（量到石頭的中線）的大約 0.1075 倍（米蘭科維奇的解；海曼比較簡單的方法算出約 0.106）。這假設石頭不會滑動、不會被壓碎，拱座也不會移動。真實的拱上面還壓著道路、水道或牆。",
+      "legend": [
+       {
+        "cls": "wh-stone2",
+        "en": "Wedge-shaped stones (voussoirs)",
+        "zh": "拱石（楔形石）"
+       },
+       {
+        "cls": "wh-key",
+        "en": "The keystone, placed last",
+        "zh": "拱心石，最後放"
+       },
+       {
+        "cls": "wh-wood",
+        "en": "Wooden centering that holds the stones until the arch is closed",
+        "zh": "木頭拱架：拱合起來之前先托住石頭"
+       }
+      ],
+      "scale_en": "This is a teaching sketch. The size, the number of stones, and the way it falls are illustrations; the rule for how thin an arch can be comes from a simplified model described below.",
+      "scale_zh": "這是教學用的示意。大小、石頭的數量和塌下來的樣子都是示意；拱最薄能多薄，依下面說明的簡化模型。",
+      "credit_html": "Model: an illustration made for this lesson. The minimum thickness follows the sources listed at the bottom of the page. <span class=\"zh\">模型：為這一課製作的示意。最小厚度依本頁最下面列出的資料。</span>"
+     },
+     "paras": [
+      "In Lesson 5, Athens was a small city-state. Rome began small too, as a city in central Italy. Later Romans said it was founded in 753 BCE and became a republic in 509 BCE, but these are traditions; the early centuries are poorly recorded. By about 275 BCE Rome ruled Italy. Over the next two and a half centuries it fought its way around the Mediterranean Sea, and in 27 BCE the republic became an empire ruled by emperors.",
+      "How do you hold together lands from Britain to Egypt? One answer was roads. A recent digital atlas maps about 300,000 kilometers of roads in the Roman Empire around 150 CE, though the exact route of most of them is not known for certain. Soldiers, messengers, traders, and travelers used them. Roads let the government send orders and armies quickly, and let goods and ideas move too.",
+      "Another answer was building. The Romans did not invent the arch, but they used it on a huge scale, in bridges, aqueducts, and great buildings. Over about 500 years, eleven aqueducts were built to bring water to the city of Rome. One aqueduct for the city of Nîmes, in Gaul, ran about 50 kilometers and dropped only about 11 meters along the way, crossing a valley on the three-level bridge now called the Pont du Gard. Rome's water commissioner Frontinus compared the aqueducts with the “idle Pyramids.”",
+      "Rome also spread its laws and its citizenship. At first, Roman citizens were mainly the people of the city of Rome and the lands near it. Over time, citizenship was given to more and more people, and in 212 CE the emperor Caracalla gave it to almost all free people in the empire. Much later, in the 500s CE, Roman law was collected into one great work. Taiwan's civil law belongs to the continental European civil-law tradition, whose roots go back to Roman law.",
+      "But the empire was built by conquest. The Romans destroyed Carthage in 146 BCE and enslaved its people. Ancient writers such as Plutarch claimed that Julius Caesar's wars in Gaul killed a million people; historians doubt the exact figures, but the losses were enormous. In Britain, Queen Boudica led a revolt after Roman officials seized her family's kingdom. In 70 CE, Roman soldiers captured Jerusalem and burned its Temple.",
+      "At the same time, at the other end of Asia, the Han dynasty ruled China. In 97 CE a Han envoy named Gan Ying traveled west toward Rome and reached a great sea, but turned back. In 166 CE, a Chinese history records, men who said they came from the king of Da Qin, the Chinese name for Rome, arrived through what is now Vietnam. The western half of the Roman Empire ended in 476 CE, while the eastern half lasted much longer. Lesson 7 looks at how the Han held their own empire together."
+     ],
+     "paras_zh": [
+      "第五課的雅典是一個小城邦。羅馬一開始也很小，是義大利中部的一座城市。後來的羅馬人說，羅馬建於西元前 753 年，在西元前 509 年成為共和國；不過這些都是傳統的說法，最早的幾百年記錄很少。大約西元前 275 年，羅馬統治了義大利。接下來的兩百五十年左右，它一路打到地中海四周；西元前 27 年，共和國變成由皇帝統治的帝國。",
+      "從不列顛到埃及，這麼大的地方要怎麼連在一起？一個答案是道路。一份新的數位地圖集，畫出西元 150 年前後羅馬帝國大約三十萬公里的道路；不過其中大部分的確切路線，並不能確定。士兵、信差、商人和旅人都走這些路。有了路，政府可以很快送出命令、調動軍隊，貨物和想法也跟著流動。",
+      "另一個答案是建設。拱不是羅馬人發明的，但他們把拱用到很大的規模：橋、水道和大型建築。五百年間，羅馬一共蓋了十一條把水送進城裡的水道。高盧的尼姆城有一條水道，長約 50 公里，一路上只下降大約 11 公尺，還靠一座三層的橋跨過一個山谷，就是今天所說的加爾橋。羅馬的水務官弗朗提努斯，把這些水道拿來和「閒置的金字塔」相比。",
+      "羅馬也把它的法律和公民權傳了出去。一開始，羅馬公民主要是羅馬城和附近地方的人。後來公民權給了越來越多的人；西元 212 年，卡拉卡拉皇帝把它給了帝國裡幾乎所有的自由人。很久以後，在西元 500 年代，羅馬法被整理成一部大全。台灣的民法屬於歐陸法（大陸法）傳統，這個傳統的根源可以追溯到羅馬法。",
+      "但是這個帝國是征服來的。西元前 146 年，羅馬人摧毀了迦太基，把那裡的人變成奴隸。普魯塔克等古代的作者說，凱撒在高盧的戰爭殺了一百萬人；歷史學家懷疑確切的數字，但損失非常巨大。在不列顛，羅馬官員奪走布狄卡女王家族的王國以後，她領導了一場起事。西元 70 年，羅馬軍隊攻下耶路撒冷，燒毀了聖殿。",
+      "在同一個時代，亞洲的另一端是漢朝統治的中國。西元 97 年，一位叫甘英的漢朝使者往西朝羅馬走，到了一片大海邊，卻折返了。一部中國的史書記載，西元 166 年，自稱是大秦（中國對羅馬的稱呼）國王派來的人，經由今天的越南來到中國。羅馬帝國的西半部在西元 476 年結束，東半部則延續了更久。第七課要看漢朝怎麼把自己的帝國連在一起。"
+     ],
+     "questions": [
+      "Name three things, other than armies, that helped hold the Roman Empire together.",
+      "Why does a stone arch need a wooden frame while it is being built, and what lets it stand afterward?",
+      "The lesson says the Romans did not invent the arch. What did they do with it instead?"
+     ],
+     "answers": [
+      "Roads, shared laws, the spread of citizenship, aqueducts, and cities. Any three are correct.",
+      "Until the last stone, the keystone, is in place, the two halves of the arch cannot lean on each other, so they must be held up. Once the arch is closed, each stone presses on its neighbors, the abutments hold the outward push, and if the arch is thick enough it stands on its own.",
+      "They used it on a huge scale, in bridges, aqueducts, and great buildings, and combined arches in new ways, such as the groin vault."
+     ],
+     "vocab": [
+      {
+       "n": 1,
+       "w": "empire",
+       "pos": "n.",
+       "zh": "帝國",
+       "ex": "The Roman <b>Empire</b> stretched from Britain to Egypt.",
+       "exzh": "羅馬帝國從不列顛延伸到埃及。"
+      },
+      {
+       "n": 2,
+       "w": "republic",
+       "pos": "n.",
+       "zh": "共和國",
+       "ex": "Rome was a <b>republic</b> before it had emperors.",
+       "exzh": "羅馬在有皇帝之前是共和國。"
+      },
+      {
+       "n": 3,
+       "w": "conquer",
+       "pos": "v.",
+       "zh": "征服",
+       "ex": "Rome <b>conquered</b> Gaul in the 50s BCE.",
+       "exzh": "羅馬在西元前 50 年代征服了高盧。"
+      },
+      {
+       "n": 4,
+       "w": "arch",
+       "pos": "n.",
+       "zh": "拱",
+       "ex": "An <b>arch</b> can stand without any glue.",
+       "exzh": "拱不用任何黏劑也能站住。"
+      },
+      {
+       "n": 5,
+       "w": "aqueduct",
+       "pos": "n.",
+       "zh": "水道；渡槽",
+       "ex": "The <b>aqueduct</b> carried water to the city.",
+       "exzh": "水道把水送到城裡。"
+      },
+      {
+       "n": 6,
+       "w": "citizenship",
+       "pos": "n.",
+       "zh": "公民身分",
+       "ex": "In 212 CE, <b>citizenship</b> was given to almost all free people.",
+       "exzh": "西元 212 年，幾乎所有的自由人都得到了公民身分。"
+      },
+      {
+       "n": 7,
+       "w": "province",
+       "pos": "n.",
+       "zh": "行省",
+       "ex": "Egypt became a Roman <b>province</b>.",
+       "exzh": "埃及成了羅馬的行省。"
+      },
+      {
+       "n": 8,
+       "w": "revolt",
+       "pos": "n.",
+       "zh": "起事；叛亂",
+       "ex": "Boudica led a <b>revolt</b> against Rome.",
+       "exzh": "布狄卡領導了一場反抗羅馬的起事。"
+      }
+     ],
+     "quiz": [
+      {
+       "q": "Which of these existed before Rome?",
+       "options": [
+        "The arch",
+        "The groin vault",
+        "Hot-mixed Roman concrete",
+        "Citizenship for all free people in 212 CE"
+       ],
+       "correct": 0
+      },
+      {
+       "q": "Why does an arch need wooden centering while it is being built?",
+       "options": [
+        "The stones cannot hold each other up until the keystone is in place",
+        "The wood makes the stones stronger",
+        "It keeps the rain off",
+        "Roman law required it"
+       ],
+       "correct": 0
+      },
+      {
+       "q": "What happened in 212 CE?",
+       "options": [
+        "Almost all free people in the empire became Roman citizens",
+        "Rome was founded",
+        "The Pont du Gard fell down",
+        "Carthage was destroyed"
+       ],
+       "correct": 0
+      },
+      {
+       "q": "What did the Romans do to Carthage in 146 BCE?",
+       "options": [
+        "Destroyed the city and enslaved its people",
+        "Made it the capital of the empire",
+        "Built an aqueduct for it as a gift",
+        "Left it alone"
+       ],
+       "correct": 0
+      },
+      {
+       "q": "Who ruled China at the same time as the Roman Empire?",
+       "options": [
+        "The Han dynasty",
+        "The Shang kings",
+        "The builders of Liangzhu",
+        "The Persian king Darius I"
+       ],
+       "correct": 0
+      }
+     ],
+     "parts_head": {
+      "eyebrow": "Try It in the Model · 在模型裡試試",
+      "en": "Four things to watch",
+      "zh": "四件值得看的事"
+     },
+     "parts": [
+      {
+       "key": "build",
+       "icon": "🧱",
+       "en": "Building over the centering",
+       "zh": "在拱架上蓋",
+       "meta_en": "Keystone last",
+       "meta_zh": "拱心石最後放",
+       "demo": "build",
+       "text_en": "Press Build it. The stones go up from both sides at once, resting on the wooden centering, and the keystone closes the arch at the top.",
+       "text_zh": "按「蓋起來」。石頭從兩邊同時往上放，靠木頭拱架托著，最後由拱心石在頂端把拱合起來。"
+      },
+      {
+       "key": "remove",
+       "icon": "🪵",
+       "en": "Take the centering away",
+       "zh": "拆掉拱架",
+       "meta_en": "It stands",
+       "meta_zh": "站住了",
+       "demo": "remove",
+       "text_en": "With every stone in place and the arch thick enough, the frame can be taken away. Each stone presses on its neighbors, and the abutments hold the outward push.",
+       "text_zh": "每一塊石頭都到位、拱又夠厚，拱架就可以拆掉。每一塊石頭都壓著旁邊的石頭，兩端的拱座擋住往外推的力。"
+      },
+      {
+       "key": "nokey",
+       "icon": "🔑",
+       "en": "Leave out the keystone",
+       "zh": "少了拱心石",
+       "meta_en": "It falls",
+       "meta_zh": "塌了",
+       "demo": "nokey",
+       "text_en": "Without the last stone, the two halves cannot lean on each other. The top drops and the sides swing outward.",
+       "text_zh": "少了最後一塊，兩個半拱就沒辦法互相靠著。頂端往下掉，兩側往外甩。"
+      },
+      {
+       "key": "thin",
+       "icon": "📏",
+       "en": "Make it too thin",
+       "zh": "做得太薄",
+       "meta_en": "Thickness matters",
+       "meta_zh": "厚度很重要",
+       "demo": "thin",
+       "text_en": "Drag the thickness down. In a simple model, a half-circle arch under its own weight needs a thickness of about 0.11 of its radius, or it folds.",
+       "text_zh": "把厚度往下拉。在簡化的模型裡，一座只受自己重量的半圓拱，厚度要有半徑的大約 0.11 倍，不然就會折下來。"
+      }
+     ],
+     "parts_note_en": "Then try your own arch. What is the thinnest arch you can make that still stands without the centering?",
+     "parts_note_zh": "接著自己試試看。拆掉拱架還站得住的拱，最薄可以多薄？",
+     "empire": {
+      "eyebrow": "Explore · 動手看看",
+      "en": "How Did Rome Grow?",
+      "zh": "羅馬怎麼長大的？",
+      "lead_en": "Pull the slider from 300 BCE toward 120 CE. Each region lights up when it came under Roman rule. Click a number to read how it happened. The map shows Europe, North Africa, and the Middle East, land only, with no modern borders.",
+      "lead_zh": "把滑桿從西元前 300 年往西元 120 年拉。每個地區在被羅馬統治的時候亮起來。點一個號碼，看看是怎麼發生的。地圖畫的是歐洲、北非和中東，只畫陸地，不畫今天的國界。",
+      "count_en": "Regions under Roman rule",
+      "count_zh": "在羅馬統治下的地區",
+      "labels": {
+       "what_en": "What happened",
+       "what_zh": "發生了什麼",
+       "when_en": "Roughly when",
+       "when_zh": "大約什麼時候"
+      },
+      "box": {
+       "west": -14,
+       "east": 52,
+       "south": 20,
+       "north": 58
+      },
+      "from": 2300,
+      "to": 1880,
+      "start": 2300,
+      "slider_from_en": "300 BCE",
+      "slider_from_zh": "西元前 300 年",
+      "slider_to_en": "120 CE",
+      "slider_to_zh": "西元 120 年",
+      "idle_en": "Click a numbered circle on the map, or a name below it.",
+      "idle_zh": "點地圖上有號碼的圓，或是地圖下面的名字。",
+      "foot_en": "Only seven regions are shown, each with a date from a standard reference. Rome also ruled many other lands, such as Spain, Asia Minor, and Syria, and the borders moved over time.",
+      "foot_zh": "地圖上只畫七個地區，每一個都附上參考書裡的年代。羅馬也統治過很多其他的地方，例如西班牙、小亞細亞和敘利亞；邊界也一直在變。",
+      "centers": [
+       {
+        "key": "italy",
+        "en": "Italy",
+        "zh": "義大利",
+        "at": [
+         12.5,
+         41.9
+        ],
+        "r": 3,
+        "older": 2275,
+        "nearer": 2275,
+        "crops_en": "After wars against the Samnites and against King Pyrrhus, Rome became the master of Italy.",
+        "crops_zh": "打敗薩莫奈人和皮洛士王以後，羅馬成了義大利的主人。",
+        "when_en": "By about 275 BCE, after the Pyrrhic War (280–275 BCE).",
+        "when_zh": "大約西元前 275 年，皮洛士戰爭（西元前 280–275 年）之後。",
+        "note_en": "Rome itself began as a small city; its founding date of 753 BCE is a later tradition.",
+        "note_zh": "羅馬本身一開始只是一座小城；西元前 753 年建城是後來的傳統說法。",
+        "src": "Britannica, “Roman Republic”",
+        "url": "https://www.britannica.com/place/Roman-Republic"
+       },
+       {
+        "key": "carthage",
+        "en": "Carthage, North Africa",
+        "zh": "北非的迦太基",
+        "at": [
+         9.9,
+         36.5
+        ],
+        "r": 3,
+        "older": 2146,
+        "nearer": 2146,
+        "crops_en": "After three Punic Wars, the Romans destroyed the city of Carthage and enslaved its people.",
+        "crops_zh": "經過三次布匿戰爭，羅馬人摧毀了迦太基城，並把城裡的人變成奴隸。",
+        "when_en": "146 BCE, at the end of the Punic Wars (264–146 BCE).",
+        "when_zh": "西元前 146 年，布匿戰爭（西元前 264–146 年）結束時。",
+        "note_en": "The story that the Romans then salted the earth there appears in no ancient source.",
+        "note_zh": "「羅馬人在那裡的土地上撒鹽」的故事，古代的史料裡都找不到。",
+        "src": "Britannica, “Punic Wars”; Ridley, Classical Philology 81 (1986)",
+        "url": "https://www.britannica.com/event/Punic-Wars"
+       },
+       {
+        "key": "macedonia",
+        "en": "Macedonia",
+        "zh": "馬其頓",
+        "at": [
+         22.5,
+         40.8
+        ],
+        "r": 3,
+        "older": 2146,
+        "nearer": 2146,
+        "crops_en": "After a series of wars, Macedonia was made a Roman province, Rome's first in the Greek-speaking east.",
+        "crops_zh": "經過一連串的戰爭，馬其頓成了羅馬的行省，是羅馬在說希臘語的東方的第一個行省。",
+        "when_en": "146 BCE, the same year Carthage was destroyed.",
+        "when_zh": "西元前 146 年，和迦太基被摧毀同一年。",
+        "note_en": "Greek learning and art, from Lesson 5, now flowed into Roman life.",
+        "note_zh": "第五課談到的希臘學問和藝術，從此流進了羅馬人的生活。",
+        "src": "Britannica, “Macedonian Wars”",
+        "url": "https://www.britannica.com/event/Macedonian-Wars"
+       },
+       {
+        "key": "gaul",
+        "en": "Gaul",
+        "zh": "高盧",
+        "at": [
+         2.5,
+         46.5
+        ],
+        "r": 3.5,
+        "older": 2058,
+        "nearer": 2050,
+        "crops_en": "Julius Caesar conquered Gaul in the Gallic Wars and defeated the Gallic leader Vercingetorix in 52 BCE.",
+        "crops_zh": "凱撒在高盧戰爭中征服了高盧，在西元前 52 年打敗了高盧的領袖維欽托利。",
+        "when_en": "58 to 50 BCE.",
+        "when_zh": "西元前 58 到 50 年。",
+        "note_en": "Ancient writers such as Plutarch claimed that a million Gauls were killed and another million taken prisoner; historians treat these figures with doubt.",
+        "note_zh": "普魯塔克等古代作者說，有一百萬高盧人被殺、另有一百萬人被俘；歷史學家對這些數字存疑。",
+        "src": "Britannica, “Gallic Wars”; Plutarch, Life of Caesar 15",
+        "url": "https://www.britannica.com/event/Gallic-Wars"
+       },
+       {
+        "key": "egypt",
+        "en": "Egypt",
+        "zh": "埃及",
+        "at": [
+         31.2,
+         30.0
+        ],
+        "r": 3,
+        "older": 2030,
+        "nearer": 2030,
+        "crops_en": "Rome conquered Egypt, the land of the pyramids from Lesson 4.",
+        "crops_zh": "羅馬征服了埃及，也就是第四課金字塔的故鄉。",
+        "when_en": "30 BCE.",
+        "when_zh": "西元前 30 年。",
+        "note_en": "By then the Great Pyramid of Lesson 4 was already about 2,500 years old.",
+        "note_zh": "那時候，第四課的大金字塔已經大約兩千五百歲了。",
+        "src": "Britannica, “ancient Egypt”",
+        "url": "https://www.britannica.com/place/ancient-Egypt"
+       },
+       {
+        "key": "britain",
+        "en": "Britain",
+        "zh": "不列顛",
+        "at": [
+         -1.5,
+         52.5
+        ],
+        "r": 3.5,
+        "older": 1957,
+        "nearer": 1957,
+        "crops_en": "The emperor Claudius began the conquest of Britain. Roman rule there lasted until about 410 CE.",
+        "crops_zh": "克勞狄烏斯皇帝開始征服不列顛。羅馬在那裡的統治一直到大約西元 410 年。",
+        "when_en": "From 43 CE.",
+        "when_zh": "西元 43 年起。",
+        "note_en": "In 60 or 61 CE, Queen Boudica led a great revolt against Roman rule.",
+        "note_zh": "西元 60 或 61 年，布狄卡女王領導了一場反抗羅馬統治的大起事。",
+        "src": "Britannica, “Roman Britain” and “Boudicca”",
+        "url": "https://www.britannica.com/place/Roman-Britain"
+       },
+       {
+        "key": "dacia",
+        "en": "Dacia",
+        "zh": "達契亞",
+        "at": [
+         24.5,
+         45.8
+        ],
+        "r": 3,
+        "older": 1894,
+        "nearer": 1894,
+        "crops_en": "The emperor Trajan conquered Dacia after two wars. Many of its people were killed or driven north.",
+        "crops_zh": "圖拉真皇帝打了兩次仗，征服了達契亞。那裡很多人被殺，或被趕到北方。",
+        "when_en": "106 CE.",
+        "when_zh": "西元 106 年。",
+        "note_en": "Under Trajan (98–117 CE), the empire reached about its greatest size.",
+        "note_zh": "在圖拉真（西元 98–117 年在位）的時候，帝國差不多到了最大的範圍。",
+        "src": "Britannica, “Dacia”, “Trajan”, and “Roman Empire”",
+        "url": "https://www.britannica.com/place/Dacia"
+       }
+      ]
+     },
+     "borrowed": {
+      "eyebrow": "Game · 小遊戲",
+      "en": "Older Than Rome, or a Roman Idea?",
+      "zh": "比羅馬還早，還是羅馬人的點子？",
+      "lead_en": "The Romans were great builders and organizers, but they also borrowed a lot. For each one, decide whether it existed before Rome, or whether it was something the Romans developed. There is no timer.",
+      "lead_zh": "羅馬人很會蓋、很會組織，但他們也借了很多。每一題判斷：這是羅馬以前就有的，還是羅馬人發展出來的？不計時。",
+      "ask_en": "Older than Rome, or a Roman development?",
+      "ask_zh": "比羅馬還早，還是羅馬人發展的？",
+      "buckets": [
+       {
+        "key": "older",
+        "icon": "🏺",
+        "en": "Older than Rome; the Romans used it widely",
+        "zh": "比羅馬還早；羅馬人大量使用"
+       },
+       {
+        "key": "roman",
+        "icon": "🏛️",
+        "en": "A Roman development",
+        "zh": "羅馬人發展出來的"
+       }
+      ],
+      "items": [
+       {
+        "answer": "older",
+        "en": "The stone arch",
+        "zh": "石拱",
+        "why_en": "Arches were known in ancient Egypt and Greece, but seldom used for great buildings. The Romans used them everywhere: in bridges, aqueducts, and large buildings.",
+        "why_zh": "古埃及和希臘就知道拱，但很少用在大型建築上。羅馬人把它用在各種地方：橋、水道和大型建築。",
+        "hint_en": "Look at the lesson's first map: who built before Rome?",
+        "hint_zh": "想想比羅馬更早的建築者。"
+       },
+       {
+        "answer": "older",
+        "en": "The barrel vault, a long tunnel-shaped roof",
+        "zh": "筒形拱頂，像隧道一樣長長的屋頂",
+        "why_en": "The barrel vault appeared first in ancient Egypt and the Middle East.",
+        "why_zh": "筒形拱頂最早出現在古埃及和中東。",
+        "hint_en": "It is a long arch.",
+        "hint_zh": "它就是拉長的拱。"
+       },
+       {
+        "answer": "roman",
+        "en": "The groin vault, made where two barrel vaults cross",
+        "zh": "交叉拱頂：兩個筒形拱頂十字交叉",
+        "why_en": "Roman architects discovered that two barrel vaults crossing at right angles make a groin vault, which can cover a wide square space.",
+        "why_zh": "羅馬的建築師發現，兩個筒形拱頂直角交叉，就成了交叉拱頂，可以蓋住一大片方形的空間。",
+        "hint_en": "Two old ideas, combined in a new way.",
+        "hint_zh": "兩個舊點子，用新的方式合在一起。"
+       },
+       {
+        "answer": "older",
+        "en": "Channels that carry water over long distances",
+        "zh": "把水送到很遠地方的水道",
+        "why_en": "The Assyrians built a stone aqueduct around 691 BCE, and underground channels called qanats were used in Persia and elsewhere hundreds of years before Rome's.",
+        "why_zh": "亞述人大約在西元前 691 年就蓋了石造的水道；波斯等地也比羅馬早好幾百年使用叫做「坎兒井」的地下水道。",
+        "hint_en": "Rome's first aqueduct dates from 312 BCE. Were there older ones?",
+        "hint_zh": "羅馬第一條水道是西元前 312 年。有沒有更早的？"
+       },
+       {
+        "answer": "roman",
+        "en": "Concrete made by hot-mixing quicklime with volcanic ash",
+        "zh": "用生石灰和火山灰「熱拌」做成的混凝土",
+        "why_en": "A 2023 study found that Roman builders hot-mixed quicklime with volcanic ash (the best-known source was near Pozzuoli). The researchers propose that small lumps of lime left inside helped the concrete heal its own cracks.",
+        "why_zh": "2023 年的一項研究發現，羅馬的工匠把生石灰和火山灰（最有名的產地在波佐利附近）一起「熱拌」；研究者認為，留在裡面的小石灰塊可能幫混凝土自己修補裂縫。",
+        "hint_en": "Lime mortar is old, but this recipe is special.",
+        "hint_zh": "石灰砂漿很早就有，但這個配方很特別。"
+       },
+       {
+        "answer": "older",
+        "en": "The alphabet the Romans wrote with",
+        "zh": "羅馬人寫字用的字母",
+        "why_en": "As Lesson 3 showed, the alphabet passed from the Phoenicians to the Greeks, and then, through the Etruscans, to the Romans.",
+        "why_zh": "第三課說過，字母從腓尼基人傳到希臘人，再經過伊特拉斯坎人傳到羅馬人。",
+        "hint_en": "Think back to Lesson 3.",
+        "hint_zh": "回想第三課。"
+       },
+       {
+        "answer": "roman",
+        "en": "Citizenship for all the free people of an empire, in 212 CE",
+        "zh": "西元 212 年，讓整個帝國的自由人都成為公民",
+        "why_en": "The emperor Caracalla gave Roman citizenship to all free inhabitants of the empire. The historian Cassius Dio says his real purpose was to raise more taxes; modern historians debate his motives.",
+        "why_zh": "卡拉卡拉皇帝把羅馬公民權給了帝國所有的自由居民。史家卡西烏斯・狄奧說，他真正的目的是收更多的稅；現代歷史學家對他的動機有不同看法。",
+        "hint_en": "Compare Athens in Lesson 5.",
+        "hint_zh": "和第五課的雅典比一比。"
+       },
+       {
+        "answer": "roman",
+        "en": "Gathering Rome's laws into one great collection",
+        "zh": "把羅馬的法律整理成一套大全",
+        "why_en": "Under the emperor Justinian, in the 500s CE, existing Roman law was collected and organized. Taiwan's civil law belongs to the continental European tradition whose roots go back to Roman law.",
+        "why_zh": "在西元 500 年代查士丁尼皇帝的時候，既有的羅馬法被蒐集、整理起來。台灣的民法屬於歐陸法傳統，這個傳統的根源可以追溯到羅馬法。",
+        "hint_en": "These were Rome's own laws.",
+        "hint_zh": "這些是羅馬自己的法律。"
+       }
+      ],
+      "end_en": "The Romans were not the first to build arches, aqueducts, or alphabets. Their gift was to use old ideas on a huge scale, combine them in new ways, and keep them working across an empire.",
+      "end_zh": "拱、水道、字母，都不是羅馬人最先發明的。他們厲害的地方，是把舊點子用到很大的規模、用新的方式組合起來，並讓它們在整個帝國裡持續運作。"
+     },
+     "timeline": {
+      "eyebrow": "Parallel Timeline · 平行時間軸",
+      "en": "Two great empires at once",
+      "zh": "同一個時代的兩個大帝國",
+      "lead_en": "Rome is in the Europe lane and the Han dynasty in the East Asia lane. Notice how long they overlap, and the two moments when they almost met.",
+      "lead_zh": "羅馬在歐洲那一條線，漢朝在東亞那一條線。注意它們重疊了多久，以及兩次差一點碰面的時刻。",
+      "from": 400000,
+      "to": 0,
+      "view": {
+       "from": 2700,
+       "to": 1400
+      },
+      "lesson": {
+       "from": 2510,
+       "to": 1524,
+       "en": "This lesson is here",
+       "zh": "這一課在這裡"
+      },
+      "idle_en": "Click a bar or a diamond to read its dates.",
+      "idle_zh": "點一條長條或一個菱形，讀出它的年代。",
+      "tips": [
+       {
+        "en": "The Roman Empire and the Han dynasty overlapped for more than two centuries, but the surviving records show only a few, indirect contacts.",
+        "zh": "羅馬帝國和漢朝重疊了兩百多年，但留下來的記錄只顯示少數幾次間接的接觸。"
+       },
+       {
+        "en": "A striped bar marks traditional dates that are not well recorded, such as Rome's early republic.",
+        "zh": "有條紋的長條，是記錄不多的傳統年代，例如羅馬早期的共和國。"
+       },
+       {
+        "en": "The gray diamonds mark single events: the empire begins, citizenship for almost all, and the end of the western empire.",
+        "zh": "灰色的菱形標的是單一事件：帝國開始、幾乎所有人成為公民，以及西羅馬的結束。"
+       }
+      ],
+      "events": [
+       {
+        "lane": "europe",
+        "from": {
+         "year": -509
+        },
+        "to": {
+         "year": -27
+        },
+        "kind": "debated",
+        "en": "The Roman Republic",
+        "zh": "羅馬共和國",
+        "note_en": "Traditionally 509 to 27 BCE; the early centuries are poorly documented.",
+        "note_zh": "傳統上是西元前 509 到 27 年；最早的幾百年記錄很少。"
+       },
+       {
+        "lane": "europe",
+        "from": {
+         "year": -27
+        },
+        "kind": "anchor",
+        "en": "The Roman Empire begins",
+        "zh": "羅馬帝國開始",
+        "note_en": "In 27 BCE, under Augustus.",
+        "note_zh": "西元前 27 年，奧古斯都的時候。"
+       },
+       {
+        "lane": "africa",
+        "from": {
+         "year": -146
+        },
+        "kind": "anchor",
+        "en": "Carthage destroyed",
+        "zh": "迦太基被摧毀",
+        "note_en": "The end of the Punic Wars; its people were enslaved.",
+        "note_zh": "布匿戰爭結束；城裡的人被變成奴隸。"
+       },
+       {
+        "lane": "easia",
+        "from": {
+         "year": -206
+        },
+        "to": {
+         "year": 220
+        },
+        "en": "The Han dynasty, China",
+        "zh": "中國的漢朝",
+        "note_en": "206 BCE to 220 CE; Lesson 7 looks at it closely.",
+        "note_zh": "西元前 206 年到西元 220 年；第七課會仔細談。"
+       },
+       {
+        "lane": "wasia",
+        "from": {
+         "year": 97
+        },
+        "kind": "anchor",
+        "en": "Gan Ying reaches a western sea",
+        "zh": "甘英抵達西方的大海",
+        "note_en": "A Han envoy sent toward Da Qin (Rome) reached Tiaozhi, next to a great sea, and turned back.",
+        "note_zh": "漢朝派往大秦（羅馬）的使者抵達條支，靠著一片大海，然後折返。"
+       },
+       {
+        "lane": "easia",
+        "from": {
+         "year": 166
+        },
+        "kind": "anchor",
+        "en": "Envoys from Da Qin arrive",
+        "zh": "大秦的使者來到中國",
+        "note_en": "The Book of the Later Han records envoys from “Andun,” king of Da Qin, arriving through Rinan, in today's Vietnam. Modern scholars doubt they were official Roman envoys.",
+        "note_zh": "《後漢書》記載大秦王「安敦」的使者經由日南（今越南中部）來到中國。現代學者懷疑他們不是羅馬官方派的使者。"
+       },
+       {
+        "lane": "europe",
+        "from": {
+         "year": 212
+        },
+        "kind": "anchor",
+        "en": "Citizenship for almost all free people",
+        "zh": "幾乎所有的自由人都成為公民",
+        "note_en": "The edict of the emperor Caracalla.",
+        "note_zh": "卡拉卡拉皇帝的敕令。"
+       },
+       {
+        "lane": "europe",
+        "from": {
+         "year": 476
+        },
+        "kind": "anchor",
+        "en": "The western empire ends",
+        "zh": "西羅馬帝國結束",
+        "note_en": "Odoacer deposed the last western emperor; the eastern half went on.",
+        "note_zh": "奧多亞克廢掉西部最後一位皇帝；東半部繼續存在。"
+       }
+      ]
+     },
+     "how_we_know": {
+      "eyebrow": "How Do We Know? · 我們怎麼知道？",
+      "en": "Standing stones, a water commissioner, and a digital map",
+      "zh": "還站著的石頭、一位水務官，和一張數位地圖",
+      "lead_en": "Rome left more physical remains than most ancient empires, but even these have gaps.",
+      "lead_zh": "羅馬留下的實物比大多數古代帝國都多，但這些證據也有缺口。",
+      "items": [
+       {
+        "icon": "🌉",
+        "en": "Structures still standing",
+        "zh": "還站著的建築",
+        "limit_en": "Even standing buildings leave questions: UNESCO's own description dates the bridge both to shortly before the Common Era and to the middle of the first century CE.",
+        "limit_zh": "就算是還站著的建築也有疑問：聯合國教科文組織自己的說明裡，對這座橋的年代就有「西元前不久」和「西元一世紀中葉」兩種寫法。",
+        "src": "UNESCO World Heritage List, Pont du Gard (Roman Aqueduct)",
+        "url": "https://whc.unesco.org/en/list/344",
+        "text_en": "The Pont du Gard, part of an aqueduct of about 50 kilometers, still stands almost 50 meters high on three levels. Its lower arches were built of stones carved with positioning marks.",
+        "text_zh": "加爾橋是一條大約 50 公里長的水道的一部分，到今天還站著，有三層、將近 50 公尺高。它下層的拱，是用刻了定位記號的石頭砌成的。"
+       },
+       {
+        "icon": "📜",
+        "en": "A water commissioner's book",
+        "zh": "一位水務官的書",
+        "limit_en": "Frontinus wrote as a proud official. His praise of Roman works over the “idle Pyramids” tells us what he valued, not what everyone thought.",
+        "limit_zh": "弗朗提努斯是以一位驕傲的官員的身分寫的。他稱讚羅馬的工程勝過「閒置的金字塔」，說明的是他看重什麼，不是每個人的想法。",
+        "src": "Frontinus, De aquis 1, tr. Bennett (Loeb, 1925)",
+        "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Frontinus/De_Aquis/Bennett/1*.html",
+        "text_en": "Around 97 CE, Frontinus was put in charge of Rome's water supply and wrote a book about the aqueducts, listing them, their builders, and how much water they carried.",
+        "text_zh": "大約西元 97 年，弗朗提努斯負責管理羅馬的供水，寫了一本關於水道的書，列出各條水道、建造的人，以及它們送多少水。"
+       },
+       {
+        "icon": "🗺️",
+        "en": "Mapping the roads",
+        "zh": "把道路畫出來",
+        "limit_en": "The researchers say the location of only about 2.7 percent of that length is known with certainty; most of the rest is conjectured, and some is a hypothesis.",
+        "limit_zh": "研究者說，這些長度裡只有大約百分之 2.7 的位置是確定的；其餘大多是推測，也有一些只是假設。",
+        "src": "de Soto et al., Scientific Data 12 (2025)",
+        "url": "https://doi.org/10.1038/s41597-025-06140-z",
+        "text_en": "In 2025 researchers published Itiner-e, a digital map of about 299,000 kilometers of Roman roads around 150 CE, combining excavations, milestones, ancient road lists and maps, and modern maps and satellite images.",
+        "text_zh": "2025 年，研究者發表了 Itiner-e，一張大約 29.9 萬公里的羅馬道路數位地圖（約西元 150 年），結合了考古發掘、里程碑、古代的路線表與地圖，以及現代的地圖和衛星影像。"
+       }
+      ]
+     },
+     "views": {
+      "eyebrow": "Different Accounts · 不同的說法",
+      "en": "Four questions with more than one answer",
+      "zh": "不只一個答案的四個問題",
+      "lead_en": "Even numbers about Rome are argued over. Here are four questions, with the views set side by side.",
+      "lead_zh": "就連關於羅馬的數字也有爭論。下面是四個問題，各種說法並列。",
+      "rule_en": "Notice that new tools, such as digital maps and better physics, can change the numbers, not only new discoveries in the ground.",
+      "rule_zh": "留意能改變數字的，不只是地底下的新發現，也包括新的工具，例如數位地圖和更精確的力學。",
+      "items": [
+       {
+        "topic_en": "How long were the Roman roads?",
+        "topic_zh": "羅馬的道路有多長？",
+        "sides": [
+         {
+          "label_en": "About 189,000 km",
+          "label_zh": "大約 18.9 萬公里",
+          "en": "An earlier digital atlas of Roman and medieval roads mapped about 188,555 kilometers.",
+          "zh": "較早的一份羅馬與中世紀道路數位地圖集，畫出大約 188,555 公里。",
+          "src": "As reported in de Soto et al. (2025)",
+          "url": "https://doi.org/10.1038/s41597-025-06140-z"
+         },
+         {
+          "label_en": "About 299,000 km",
+          "label_zh": "大約 29.9 萬公里",
+          "en": "The Itiner-e project (2025) mapped about 299,171 kilometers, nearly double, by including every road with evidence, conjecture, or a hypothesis for its route.",
+          "zh": "Itiner-e 計畫（2025）畫出大約 299,171 公里，幾乎是兩倍；因為它把每一條有證據、有推測或有假設路線的道路都算進去。",
+          "src": "de Soto et al., Scientific Data 12 (2025)",
+          "url": "https://doi.org/10.1038/s41597-025-06140-z"
+         }
+        ],
+        "note_en": "The two numbers count different things. Asking “what was counted?” matters as much as the number.",
+        "note_zh": "兩個數字算的東西不一樣。問「算了什麼？」和數字本身一樣重要。"
+       },
+       {
+        "topic_en": "How thin can a stone arch be?",
+        "topic_zh": "石拱最薄能多薄？",
+        "sides": [
+         {
+          "label_en": "About 0.106 of the radius",
+          "label_zh": "大約半徑的 0.106 倍",
+          "en": "The engineer Jacques Heyman, in the 1960s, gave a simple method that puts the minimum at about 0.106 of the radius for a half-circle arch.",
+          "zh": "工程師海曼在 1960 年代提出一個簡單的方法，算出半圓拱最薄大約是半徑的 0.106 倍。",
+          "src": "Heyman, International Journal of Mechanical Sciences 11 (1969)",
+          "url": "https://doi.org/10.1016/0020-7403(69)90070-8"
+         },
+         {
+          "label_en": "About 0.1075 of the radius",
+          "label_zh": "大約半徑的 0.1075 倍",
+          "en": "A more exact solution, published by Milutin Milankovitch in 1907, gives about 0.1075. A 2021 study says Heyman's method finds the main features more simply, but puts one of the hinges in the wrong place.",
+          "zh": "米蘭科維奇在 1907 年發表了更精確的解，大約是 0.1075。2021 年的一項研究說，海曼的方法比較簡單、也抓得到主要的特徵，但有一個鉸點的位置算錯了。",
+          "src": "Nikolić, Acta Mechanica (2017); Cocchetti and Rizzi, Archive of Applied Mechanics (2021)",
+          "url": "https://doi.org/10.1007/s00419-021-01909-1"
+         }
+        ],
+        "note_en": "Both are simplified models, and both measure the radius to the middle of the stones. Real arches also depend on the load above them and on their abutments. The 3D model uses 0.1075.",
+        "note_zh": "兩個都是簡化的模型，半徑都量到石頭的中線。真實的拱還要看上面壓了什麼、拱座穩不穩。這一課的 3D 模型用 0.1075。"
+       },
+       {
+        "topic_en": "How many people lived in the Roman Empire?",
+        "topic_zh": "羅馬帝國住了多少人？",
+        "sides": [
+         {
+          "label_en": "About 46 million",
+          "label_zh": "大約四千六百萬",
+          "en": "The historian Bruce Frier estimated about 46 million people under Augustus.",
+          "zh": "歷史學家弗里爾估計，奧古斯都的時候大約有四千六百萬人。",
+          "src": "As summarized by the University of St Andrews, “Uncertain Past” (2018)",
+          "url": "https://arts.st-andrews.ac.uk/uncertain-past/2018/11/06/how-should-historians-represent-mathematically-what-we-know-about-the-population-of-the-roman-empire/"
+         },
+         {
+          "label_en": "59 to 72 million",
+          "label_zh": "五千九百萬到七千二百萬",
+          "en": "Walter Scheidel estimated 59 to 72 million in 164 CE, just before a great epidemic.",
+          "zh": "沙伊德爾估計，西元 164 年、一場大瘟疫之前，大約有五千九百萬到七千二百萬人。",
+          "src": "As summarized by the University of St Andrews, “Uncertain Past” (2018)",
+          "url": "https://arts.st-andrews.ac.uk/uncertain-past/2018/11/06/how-should-historians-represent-mathematically-what-we-know-about-the-population-of-the-roman-empire/"
+         }
+        ],
+        "note_en": "The estimates are for different dates and use different methods. No full census of the empire survives.",
+        "note_zh": "這些估計的年代不同、方法也不同。整個帝國的完整人口普查，沒有留下來。"
+       },
+       {
+        "topic_en": "Is “Romanization” a good way to describe what happened?",
+        "topic_zh": "「羅馬化」這個說法恰當嗎？",
+        "sides": [
+         {
+          "label_en": "People became Roman",
+          "label_zh": "大家變成了羅馬人",
+          "en": "An older picture said conquered peoples gradually took up Roman language, dress, cities, and ways of life, a process called Romanization.",
+          "zh": "比較早的說法認為，被征服的民族慢慢採用了羅馬的語言、服裝、城市和生活方式，這個過程叫做「羅馬化」。",
+          "src": "Described in Mattingly, Imperialism, Power, and Identity (Princeton, 2011)",
+          "url": "https://press.princeton.edu/isbn/9781400848270"
+         },
+         {
+          "label_en": "A word that hides too much",
+          "label_zh": "一個遮住太多事的詞",
+          "en": "The archaeologist David Mattingly rejects “outdated notions about Romanization” and looks at Roman rule from the point of view of the ruled, whose lives it could improve, challenge, or destroy.",
+          "zh": "考古學家馬丁利拒絕「關於羅馬化的過時觀念」，改從被統治者的角度看羅馬的統治：它可能讓人的生活變好、受到挑戰，或被毀掉。",
+          "src": "Mattingly, Imperialism, Power, and Identity (Princeton, 2011)",
+          "url": "https://press.princeton.edu/isbn/9781400848270"
+         }
+        ],
+        "note_en": "The debate is about whose experience counts: the people who prospered under Rome, or also those who lost land, freedom, or lives.",
+        "note_zh": "這場爭論問的是：誰的經驗算數？是在羅馬統治下過得好的人，還是也包括失去土地、自由或生命的人？"
+       }
+      ]
+     },
+     "phrases": {
+      "eyebrow": "History English · 歷史英語",
+      "en": "Eight sentences about building and connecting",
+      "zh": "談建造與連接的八句英文",
+      "lead_en": "These sentences help you describe what something was built to do and how places were linked. Listen, repeat, then make your own sentence with the words in bold.",
+      "lead_zh": "這八句幫你說明一樣東西是為了什麼而蓋的，以及地方和地方怎麼連起來。先聽、再跟著唸，然後用粗體的字自己造一句。",
+      "rows": [
+       {
+        "en": "The aqueduct was built to carry water to the city.",
+        "html": "The aqueduct <b>was built to</b> carry water to the city.",
+        "zh": "這條水道是為了把水送進城裡而蓋的。",
+        "note_en": "was built to: had the purpose of",
+        "note_zh": "為了……而建"
+       },
+       {
+        "en": "The empire stretched from Britain to Egypt.",
+        "html": "The empire <b>stretched from</b> Britain <b>to</b> Egypt.",
+        "zh": "這個帝國從不列顛延伸到埃及。",
+        "note_en": "stretched from … to …: covered the distance between",
+        "note_zh": "從……延伸到……"
+       },
+       {
+        "en": "Roads connected the provinces with Rome.",
+        "html": "Roads <b>connected</b> the provinces <b>with</b> Rome.",
+        "zh": "道路把各行省和羅馬連在一起。",
+        "note_en": "connected … with …: joined",
+        "note_zh": "把……和……連起來"
+       },
+       {
+        "en": "The wooden frame held the stones until the keystone was in place.",
+        "html": "The wooden frame held the stones <b>until</b> the keystone was in place.",
+        "zh": "木頭拱架托著石頭，直到拱心石放好為止。",
+        "note_en": "until: up to the time when",
+        "note_zh": "直到……為止"
+       },
+       {
+        "en": "The aqueduct sloped gently so that water could flow by itself.",
+        "html": "The aqueduct sloped gently <b>so that</b> water could flow by itself.",
+        "zh": "水道緩緩地往下斜，好讓水自己流。",
+        "note_en": "so that: in order that",
+        "note_zh": "好讓……"
+       },
+       {
+        "en": "The Romans did not invent the arch, but they used it everywhere.",
+        "html": "The Romans <b>did not invent</b> the arch, <b>but</b> they used it everywhere.",
+        "zh": "拱不是羅馬人發明的，但他們到處都用。",
+        "note_en": "did not … but …: contrast",
+        "note_zh": "不是……但是……"
+       },
+       {
+        "en": "In exchange for citizenship, people also paid new taxes.",
+        "html": "<b>In exchange for</b> citizenship, people also paid new taxes.",
+        "zh": "得到公民身分的同時，人們也要繳新的稅。",
+        "note_en": "in exchange for: receiving one thing for another",
+        "note_zh": "以……交換"
+       },
+       {
+        "en": "The empire was held together by roads, laws, and armies.",
+        "html": "The empire <b>was held together by</b> roads, laws, and armies.",
+        "zh": "這個帝國是靠道路、法律和軍隊連在一起的。",
+        "note_en": "was held together by: kept united through",
+        "note_zh": "靠……連在一起"
+       }
+      ]
+     },
+     "taiwan_then": {
+      "eyebrow": "Taiwan at That Time · 那時候的台灣",
+      "en": "Glass, gold, and trade across the sea",
+      "zh": "玻璃、黃金與海上的交易",
+      "lead_en": "Around the time of the Roman Empire, about 2,000 years ago, people in Taiwan were also part of trade networks across the sea, though on a very different scale.",
+      "lead_zh": "大約在羅馬帝國的時代，距今大約兩千年，台灣的人也身在海上的交易網絡裡，只是規模和形式非常不一樣。",
+      "intro_en": "Archaeologists in Taiwan give dates as “years ago” (before 1950). About 2,000 years ago is roughly the first century BCE or CE.",
+      "intro_zh": "台灣的考古學家用「距今幾年」（以 1950 年為準）說年代。距今大約兩千年，差不多是西元前一世紀到西元一世紀。",
+      "facts": [
+       {
+        "k_en": "Shisanhang culture",
+        "k_zh": "十三行文化",
+        "en": "The National Museum of Prehistory says the Shisanhang culture rose near the Taipei Basin about 2,000 years ago. Its gold ornaments and glass bracelets, from different periods, point to trade with lands overseas.",
+        "zh": "國立臺灣史前文化博物館說，「大約二千年前，十三行文化在臺北盆地附近興起」；那裡不同時期的金飾和玻璃手環，顯示他們和海外有交易。",
+        "src": "國立臺灣史前文化博物館 考古學習資源",
+        "url": "https://archae.nmp.gov.tw/c-05.html"
+       },
+       {
+        "k_en": "Glass beads at Jiuxianglan",
+        "k_zh": "舊香蘭的玻璃珠",
+        "en": "At Jiuxianglan in Taitung, an Iron Age site dated from about the third century BCE to the eighth century CE, archaeologists found glass beads and waste from bead-making. A 2018 study found that the beads did not match the waste, so the beads may have been made elsewhere and brought in.",
+        "zh": "台東的舊香蘭是一處鐵器時代的遺址，年代大約從西元前三世紀到西元八世紀。考古學家在那裡找到玻璃珠和做珠子留下的廢料。2018 年的一項研究發現，珠子和廢料的成分對不上，所以這些珠子可能是在別的地方做好、再帶進來的。",
+        "src": "Wang et al., Archaeological and Anthropological Sciences (2018)",
+        "url": "https://doi.org/10.1007/s12520-017-0593-3"
+       },
+       {
+        "k_en": "When did iron-making arrive?",
+        "k_zh": "製鐵技術什麼時候來的？",
+        "en": "The same museum says the technique of making iron tools reached Taiwan about 1,500 years ago, while it also describes iron in the Shisanhang culture. Dates for Taiwan's metal age differ between sources.",
+        "zh": "同一座博物館說，「約一千五百年前，製作鐵器的技術傳入臺灣」；它也說十三行文化有鐵器。台灣金屬器時代的年代，各資料說法不一。",
+        "src": "國立臺灣史前文化博物館 考古學習資源",
+        "url": "https://archae.nmp.gov.tw/c-05.html"
+       },
+       {
+        "k_en": "A different kind of connection",
+        "k_zh": "不一樣的連結",
+        "en": "There was no empire in Taiwan, but the Shisanhang people traded across the sea: the museum points to gold ornaments and glass bracelets from overseas. Rome was held together by roads; Taiwan's ancient connections ran over water.",
+        "zh": "台灣沒有帝國，但十三行的人透過海洋和外地交易；博物館指出，那裡出土了金飾和玻璃手環。羅馬靠道路連在一起；台灣古代的連結，走的是水路。",
+        "src": "國立臺灣史前文化博物館 考古學習資源",
+        "url": "https://archae.nmp.gov.tw/c-05.html"
+       }
+      ],
+      "links": [
+       {
+        "en": "Taiwan's Story, Lesson 2: Who Lived in Taiwan Thousands of Years Ago?",
+        "zh": "台灣歷史第二課：幾千年前，誰住在台灣？",
+        "href": "/resources/classes/taiwan-history/who-lived-here/"
+       },
+       {
+        "en": "Taiwan's Story, Lesson 3: Who Are Taiwan's Indigenous Peoples?",
+        "zh": "台灣歷史第三課：台灣的原住民族是誰？",
+        "href": "/resources/classes/taiwan-history/indigenous-peoples/"
+       }
+      ]
+     },
+     "culture_cards": {
+      "eyebrow": "Stories Behind the Evidence · 證據背後的故事",
+      "title_en": "Idle pyramids, a queen's revolt, a Chinese name for Rome, and a saying",
+      "title_zh": "閒置的金字塔、一位女王的起事、中國對羅馬的稱呼，和一句俗語",
+      "lead_en": "Four short stories about how the Romans saw themselves, and how others saw them.",
+      "lead_zh": "四個小故事：羅馬人怎麼看自己，別人又怎麼看羅馬。",
+      "cards": [
+       {
+        "k": "About 97 CE · Rome · 羅馬",
+        "en": "Better than the Pyramids?",
+        "zh": "比金字塔還好？",
+        "body_en": "Frontinus, in charge of Rome's water, wrote that the city's many aqueducts were far more useful than “the idle Pyramids” or the famous works of the Greeks. It is a proud official's opinion, and a reminder that Lesson 4's pyramids were already ancient to him.",
+        "body_zh": "負責羅馬供水的弗朗提努斯寫道，羅馬那麼多的水道，比「閒置的金字塔」或希臘人有名的作品有用得多。這是一位驕傲的官員的看法；也提醒我們，第四課的金字塔對他來說已經很古老了。"
+       },
+       {
+        "k": "60 or 61 CE · Britain · 不列顛",
+        "en": "Boudica's revolt",
+        "zh": "布狄卡的起事",
+        "body_en": "When her husband, a local king, died, he left part of his wealth to the emperor, hoping to protect his family. Instead Roman officials seized the kingdom. Queen Boudica led a revolt that burned the Roman towns of Camulodunum (Colchester), Verulamium (St Albans), and Londinium (London) before it was defeated. The Roman historian Tacitus gives huge casualty figures; the editor of a standard translation calls them “equally incredible.”",
+        "body_zh": "她的丈夫是當地的國王，死前把一部分財產留給皇帝，希望能保護家人。結果羅馬官員卻奪走了他的王國。布狄卡女王領導起事，燒了卡姆洛杜努姆（今科爾切斯特）、維魯拉米恩（今聖奧爾本斯）和倫蒂尼恩（今倫敦）這幾座羅馬城鎮，最後被打敗。羅馬史家塔西佗寫下的死傷數字非常大，一部標準譯本的編者認為雙方的數字「同樣不可信」。"
+       },
+       {
+        "k": "97 and 166 CE · Han China · 漢朝",
+        "en": "Da Qin, the land west of the sea",
+        "zh": "大秦，海西之國",
+        "body_en": "The Book of the Later Han calls Rome Da Qin, also Lijian, a country “west of the sea.” It records that Gan Ying reached Tiaozhi but did not cross the sea, and that in 166 CE envoys from Da Qin's king Andun arrived through Rinan, on the southern frontier, with ivory, rhinoceros horn, and tortoiseshell. The same text adds that the gifts were nothing rare, and doubts the reports.",
+        "body_zh": "《後漢書・西域傳》說：「大秦國，一名犂鞬，以在海西，亦云海西國。」書裡記載甘英「抵條支」，沒有渡海；又說延熹九年（西元 166 年），「大秦王安敦遣使自日南徼外獻象牙、犀角、瑇瑁，始乃一通焉。」書裡也說，他們的貢品「並無珍異，疑傳者過焉」。"
+       },
+       {
+        "k": "About 1175 CE · Europe · 歐洲",
+        "en": "“All roads lead to Rome”",
+        "zh": "「條條大路通羅馬」",
+        "body_en": "The saying is not Roman. It probably goes back to a Latin line in a medieval book of proverbs by Alain de Lille: “a thousand roads lead people to Rome.” The next line speaks of seeking the Lord. English and French versions followed centuries later.",
+        "body_zh": "這句俗語不是羅馬人說的。它大概來自中世紀里爾的阿蘭（Alain de Lille）一本諺語集裡的一句拉丁文：「千條道路把人帶到羅馬」，下一句說的是尋求上主。英文和法文的說法，是好幾百年以後才出現的。"
+       }
+      ]
+     },
+     "curric": {
+      "eyebrow": "In the Curriculum · 對應課綱",
+      "en": "Where this lesson fits",
+      "zh": "這一課對應的課綱",
+      "lead_en": "These entries come from Taiwan's 12-Year Basic Education curriculum for social studies (October 2018).",
+      "lead_zh": "下面的條目出自十二年國民基本教育課程綱要社會領域（民國 107 年 10 月）。",
+      "items": [
+       {
+        "code": "歷 Na-Ⅳ-2",
+        "area": "國中・古代文化的遺產",
+        "area_en": "Junior high · the heritage of ancient cultures",
+        "text": "希臘、羅馬的政治及文化。",
+        "note_en": "The curriculum asks for the political changes and cultural features of Greece and Rome, without going into detail. Lesson 5 covered Athens; this lesson covers Rome.",
+        "note_zh": "課綱要學生認識希臘、羅馬的政治演變與文化特色，不必詳敘細節。第五課談雅典，這一課談羅馬。"
+       },
+       {
+        "code": "歷 P-Ⅳ-1",
+        "area": "國中・歷史考察（五）",
+        "area_en": "Junior high · historical inquiry (5)",
+        "text": "從主題 N 或 O 挑選適當課題深入探究，或規劃與執行歷史踏查或展演。",
+        "note_en": "One suggested topic is the relationship between Athenian democracy, the Roman Republic, and modern democracy. Lessons 5 and 6 together give a starting point.",
+        "note_zh": "課綱建議的探究課題之一是「雅典民主、羅馬共和與現代民主的關係」。第五、六課合起來可以當作起點。"
+       }
+      ]
+     },
+     "myths": [
+      {
+       "myth_en": "The Romans invented the arch.",
+       "myth_zh": "拱是羅馬人發明的。",
+       "fact_en": "Arches were known in ancient Egypt and Greece. The Romans used them on a far larger scale and combined them in new ways, such as the groin vault.",
+       "fact_zh": "古埃及和希臘就知道拱。羅馬人把它用到大得多的規模，並用新的方式組合，例如交叉拱頂。"
+      },
+      {
+       "myth_en": "“All roads lead to Rome” is an ancient Roman saying.",
+       "myth_zh": "「條條大路通羅馬」是古羅馬的俗語。",
+       "fact_en": "It probably comes from a medieval Latin proverb of about 1175 CE, long after the western empire ended.",
+       "fact_zh": "它大概來自大約西元 1175 年中世紀的一句拉丁諺語，那時西羅馬帝國早就結束了。"
+      },
+      {
+       "myth_en": "Everyone in the empire was a Roman citizen from the start.",
+       "myth_zh": "帝國裡的每個人一開始就是羅馬公民。",
+       "fact_en": "Citizenship spread slowly. Only in 212 CE did it reach almost all free people, and enslaved people were still left out.",
+       "fact_zh": "公民權是慢慢擴大的。要到西元 212 年才給了幾乎所有的自由人，被奴役的人仍然不在其中。"
+      },
+      {
+       "myth_en": "Roman concrete was just ordinary mortar.",
+       "myth_zh": "羅馬混凝土只是普通的砂漿。",
+       "fact_en": "A 2023 study found Roman builders hot-mixed quicklime with volcanic ash, and the lime lumps left inside may help it heal small cracks, one reason some Roman structures have lasted so long.",
+       "fact_zh": "2023 年的一項研究發現，羅馬的工匠把生石灰和火山灰熱拌；留在裡面的石灰塊可能幫它修補細小的裂縫，這是有些羅馬建築能撐這麼久的原因之一。"
+      }
+     ],
+     "tricks_head": {
+      "en": "Four lines to keep",
+      "zh": "四句帶著走"
+     },
+     "tricks": [
+      {
+       "title_en": "Roads, laws, water, citizens",
+       "title_zh": "路、法、水、公民",
+       "body_en": "Four things besides armies that held the empire together.",
+       "body_zh": "除了軍隊之外，把帝國連在一起的四樣東西。"
+      },
+      {
+       "title_en": "Keystone last",
+       "title_zh": "拱心石最後放",
+       "body_en": "An arch needs a frame until it is closed; then it holds itself.",
+       "body_zh": "拱合起來之前要靠拱架；合起來以後就自己撐住。"
+      },
+      {
+       "title_en": "Borrowed, then built big",
+       "title_zh": "借來的，再蓋得很大",
+       "body_en": "Arches, aqueducts, alphabet: older than Rome, used by Rome on a huge scale.",
+       "body_zh": "拱、水道、字母：比羅馬還早，被羅馬用到很大的規模。"
+      },
+      {
+       "title_en": "Built by conquest",
+       "title_zh": "征服來的",
+       "body_en": "Every map of Rome's growth is also a map of wars.",
+       "body_zh": "每一張羅馬擴張的地圖，也是一張戰爭的地圖。"
+      }
+     ],
+     "activities": [
+      {
+       "title_en": "Build a Sugar-Cube Arch",
+       "title_zh": "用方糖蓋一座拱",
+       "materials": [
+        {
+         "en": "Sugar cubes or small wooden blocks, a butter knife to shape them, and two stacks of books as abutments",
+         "zh": "方糖或小木塊、一把奶油刀用來修形狀，以及兩疊書當拱座"
+        },
+        {
+         "en": "A curved piece of cardboard as centering",
+         "zh": "一片彎曲的硬紙板當拱架"
+        }
+       ],
+       "steps": [
+        {
+         "en": "Shape the cubes into wedges, a little narrower at the bottom than at the top.",
+         "zh": "把方糖修成楔形，下面比上面窄一點。"
+        },
+        {
+         "en": "Stand the cardboard between the two book stacks and lay the wedges over it from both sides. Put the keystone in last.",
+         "zh": "把硬紙板立在兩疊書中間，從兩邊把楔形塊放上去，最後放拱心石。"
+        },
+        {
+         "en": "Slide the cardboard out. Does the arch stand? Now slide one book stack a little outward. What happens?",
+         "zh": "把硬紙板抽出來。拱站得住嗎？接著把一疊書稍微往外推。會發生什麼事？"
+        },
+        {
+         "en": "Explain in English: “The arch stands because …” and “It fell when …”",
+         "zh": "用英文說明：「The arch stands because …」和「It fell when …」"
+        }
+       ],
+       "tip_en": "Step 3 shows why abutments matter: an arch pushes outward, and if its ends can move, it falls.",
+       "tip_zh": "第三步讓學生看到拱座為什麼重要：拱會往外推，兩端一動，拱就塌了。"
+      },
+      {
+       "title_en": "Two Empires, One Table",
+       "title_zh": "兩個帝國，一張表",
+       "materials": [
+        {
+         "en": "A large sheet of paper divided into two columns: Rome and Han China",
+         "zh": "一張大紙，分成兩欄：羅馬和漢朝"
+        },
+        {
+         "en": "This lesson, and Lesson 7 when it is ready",
+         "zh": "這一課，以及之後的第七課"
+        }
+       ],
+       "steps": [
+        {
+         "en": "List what held each empire together: roads, laws, writing, money, armies, officials.",
+         "zh": "列出把兩個帝國各自連在一起的東西：道路、法律、文字、錢、軍隊、官員。"
+        },
+        {
+         "en": "Mark what was similar with a ✓ and what was different with a ✗.",
+         "zh": "相似的打 ✓，不同的打 ✗。"
+        },
+        {
+         "en": "Add one row for the people who paid the price of each empire.",
+         "zh": "加一列：寫下每個帝國裡付出代價的人。"
+        },
+        {
+         "en": "Share one sentence using “whereas”: “Rome used …, whereas the Han used …”",
+         "zh": "用 whereas 分享一句：「Rome used …, whereas the Han used …」"
+        }
+       ],
+       "tip_en": "Comparing without ranking is the goal: two different ways to hold a huge land together, each with its own costs.",
+       "tip_zh": "目標是比較而不排名：兩種把一大片土地連在一起的方法，各有各的代價。"
+      }
+     ],
+     "links_head": {
+      "eyebrow": "Go Further · 延伸閱讀",
+      "en": "Read more",
+      "zh": "延伸閱讀"
+     },
+     "links": [
+      {
+       "icon": "📏",
+       "k_en": "World History · Next lesson",
+       "k_zh": "世界歷史・下一課",
+       "en": "How Did Qin and Han Unite China?",
+       "zh": "秦和漢怎麼統一中國？",
+       "soon": true,
+       "note_en": "At the other end of Asia, another huge empire was held together by writing, measures, roads, and officials.",
+       "note_zh": "在亞洲的另一端，另一個大帝國靠文字、度量衡、道路和官員連在一起。"
+      },
+      {
+       "icon": "🏛️",
+       "k_en": "World History · Lesson 5",
+       "k_zh": "世界歷史・第五課",
+       "en": "What Did the Greeks Start?",
+       "zh": "希臘人開了什麼頭？",
+       "href": "/resources/classes/world-history/greeks-start/",
+       "note_en": "Athens' citizens and assembly, before Rome's republic.",
+       "note_zh": "在羅馬共和之前，雅典的公民和公民大會。"
+      },
+      {
+       "icon": "🏞️",
+       "k_en": "World History · Lesson 4",
+       "k_zh": "世界歷史・第四課",
+       "en": "Why Did the First Cities Grow Beside Rivers?",
+       "zh": "最早的城市為什麼都在河邊？",
+       "href": "/resources/classes/world-history/cities-by-rivers/",
+       "note_en": "The pyramids that Frontinus called idle, and four ideas about how their blocks were raised.",
+       "note_zh": "弗朗提努斯說「閒置」的金字塔，以及石塊怎麼運上去的四種想法。"
+      },
+      {
+       "icon": "📜",
+       "k_en": "How America Governs Itself · Lesson 1",
+       "k_zh": "美國政治・第一課",
+       "en": "How Can One Document Run a Country?",
+       "zh": "一份文件怎麼管一個國家？",
+       "href": "/resources/classes/us-government/constitution/",
+       "note_en": "A modern republic whose founders read about Rome's.",
+       "note_zh": "一個現代的共和國，它的創建者讀過羅馬共和的歷史。"
+      }
+     ],
+     "sources_note_en": "Checked November 2026. Many numbers about Rome are estimates or ancient claims; where they differ, the lesson gives the range or says so",
+     "sources_note_zh": "2026 年 11 月查證。很多關於羅馬的數字是估計或古代的說法；遇到不一致時，課文寫出範圍或註明",
+     "sources": [
+      {
+       "en": "Voussoirs, the keystone, and wooden centering until the keystone is set; thrust and buttressing; arches known in Egypt and Greece; the Romans used the semicircular arch widely",
+       "zh": "楔形石、拱心石，以及拱心石放好前的木頭拱架；推力與扶壁；埃及與希臘就知道拱；羅馬人大量使用半圓拱",
+       "src": "Britannica, “arch (architecture)”",
+       "url": "https://www.britannica.com/technology/arch-architecture"
+      },
+      {
+       "en": "The barrel vault appeared first in Egypt and the Middle East; the Roman groin vault",
+       "zh": "筒形拱頂最早出現在埃及與中東；羅馬的交叉拱頂",
+       "src": "Britannica, “vault (architecture)”",
+       "url": "https://www.britannica.com/technology/vault-architecture"
+      },
+      {
+       "en": "The safety of masonry arches (minimum thickness, about 0.106 of the radius)",
+       "zh": "石造拱的安全性（最小厚度約為半徑的 0.106 倍）",
+       "src": "Heyman, International Journal of Mechanical Sciences 11 (1969)",
+       "url": "https://doi.org/10.1016/0020-7403(69)90070-8"
+      },
+      {
+       "en": "The Stone Skeleton",
+       "zh": "〈石頭的骨架〉",
+       "src": "Heyman, International Journal of Solids and Structures 2 (1966)",
+       "url": "https://doi.org/10.1016/0020-7683(66)90018-7"
+      },
+      {
+       "en": "Couplet's problem rigorously solved by Milankovitch (about 0.1075)",
+       "zh": "米蘭科維奇嚴格解出庫普萊問題（約 0.1075）",
+       "src": "Nikolić, Acta Mechanica (2017); Makris, University of Cambridge talk",
+       "url": "https://doi.org/10.1007/s00707-017-1823-6"
+      },
+      {
+       "en": "Heyman's solution is simpler but misplaces the intrados hinge; the Milankovitch and CCR solutions are very close",
+       "zh": "海曼的解比較簡單，但內弧鉸點的位置不對；米蘭科維奇的解與 CCR 解非常接近",
+       "src": "Cocchetti and Rizzi, Archive of Applied Mechanics (2021)",
+       "url": "https://doi.org/10.1007/s00419-021-01909-1"
+      },
+      {
+       "en": "The Pont du Gard: the Nîmes aqueduct almost 50 km long, the bridge almost 50 m high on three levels; voussoirs with positioning marks",
+       "zh": "加爾橋：尼姆水道長約 50 公里，橋有三層、將近 50 公尺高；刻了定位記號的楔形石",
+       "src": "UNESCO World Heritage List, Pont du Gard",
+       "url": "https://whc.unesco.org/en/list/344"
+      },
+      {
+       "en": "The Nîmes aqueduct: a drop of only 11.2 m over 50 km",
+       "zh": "尼姆水道：50 公里只下降 11.2 公尺",
+       "src": "ROMAQ, Roman Aqueducts database, “Nemausus”",
+       "url": "https://romaq.org/the-project/aqueducts/178-nemausus.html"
+      },
+      {
+       "en": "Eleven aqueducts built for Rome from 312 BCE to 226 CE; an Assyrian aqueduct of about 691 BCE; qanats earlier",
+       "zh": "西元前 312 年到西元 226 年為羅馬建了十一條水道；約西元前 691 年的亞述水道；更早的坎兒井",
+       "src": "Britannica, “aqueduct”",
+       "url": "https://www.britannica.com/technology/aqueduct-engineering"
+      },
+      {
+       "en": "Frontinus as water commissioner; “the idle Pyramids”",
+       "zh": "弗朗提努斯擔任水務官；「閒置的金字塔」",
+       "src": "Frontinus, De aquis 1.1 and 1.16, tr. Bennett (Loeb, 1925)",
+       "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Frontinus/De_Aquis/Bennett/1*.html"
+      },
+      {
+       "en": "About 299,171 km of Roman roads around 150 CE; only about 2.7% located with certainty; an earlier dataset of 188,555 km",
+       "zh": "約西元 150 年的羅馬道路約 299,171 公里；只有約 2.7% 的位置確定；較早的資料是 188,555 公里",
+       "src": "de Soto et al., “Itiner-e,” Scientific Data 12 (2025)",
+       "url": "https://doi.org/10.1038/s41597-025-06140-z"
+      },
+      {
+       "en": "Founding in 753 BCE and the republic in 509 BCE as traditions; master of Italy after the Pyrrhic War",
+       "zh": "西元前 753 年建城與西元前 509 年成為共和國是傳統說法；皮洛士戰爭後成為義大利的主人",
+       "src": "Britannica, “Roman Republic”",
+       "url": "https://www.britannica.com/place/Roman-Republic"
+      },
+      {
+       "en": "The empire from 27 BCE; the end in the west in 476",
+       "zh": "西元前 27 年起的帝國；476 年西部結束",
+       "src": "Britannica, “Roman Empire”",
+       "url": "https://www.britannica.com/place/Roman-Empire"
+      },
+      {
+       "en": "The Punic Wars (264–146 BCE): Carthage destroyed and its people enslaved",
+       "zh": "布匿戰爭（西元前 264–146 年）：迦太基被摧毀，人民被奴役",
+       "src": "Britannica, “Punic Wars”",
+       "url": "https://www.britannica.com/event/Punic-Wars"
+      },
+      {
+       "en": "Macedonia made a Roman province in 146 BCE",
+       "zh": "西元前 146 年馬其頓成為羅馬行省",
+       "src": "Britannica, “Macedonian Wars”",
+       "url": "https://www.britannica.com/event/Macedonian-Wars"
+      },
+      {
+       "en": "The Gallic Wars (58–50 BCE)",
+       "zh": "高盧戰爭（西元前 58–50 年）",
+       "src": "Britannica, “Gallic Wars”",
+       "url": "https://www.britannica.com/event/Gallic-Wars"
+      },
+      {
+       "en": "Plutarch's claim of a million Gauls killed and as many taken prisoner",
+       "zh": "普魯塔克說一百萬高盧人被殺、同樣多的人被俘",
+       "src": "Plutarch, Life of Caesar 15, tr. Perrin (Loeb)",
+       "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Plutarch/Lives/Caesar*.html"
+      },
+      {
+       "en": "No ancient source mentions the salting of Carthage",
+       "zh": "沒有古代史料提到在迦太基撒鹽",
+       "src": "Ridley, “To Be Taken with a Pinch of Salt,” Classical Philology 81 (1986)",
+       "url": "https://doi.org/10.1086/366973"
+      },
+      {
+       "en": "The Roman conquest of Egypt, 30 BCE",
+       "zh": "羅馬征服埃及，西元前 30 年",
+       "src": "Britannica, “ancient Egypt”",
+       "url": "https://www.britannica.com/place/ancient-Egypt"
+      },
+      {
+       "en": "Roman Britain from 43 CE to about 410 CE",
+       "zh": "羅馬統治不列顛，從西元 43 年到約 410 年",
+       "src": "Britannica, “Roman Britain”",
+       "url": "https://www.britannica.com/place/Roman-Britain"
+      },
+      {
+       "en": "Dacia subdued in 106 CE",
+       "zh": "西元 106 年達契亞被征服",
+       "src": "Britannica, “Dacia”",
+       "url": "https://www.britannica.com/place/Dacia"
+      },
+      {
+       "en": "Trajan (r. 98–117) extended the empire",
+       "zh": "圖拉真（西元 98–117 年在位）擴張帝國",
+       "src": "Britannica, “Trajan”",
+       "url": "https://www.britannica.com/biography/Trajan"
+      },
+      {
+       "en": "Caracalla's edict of 212 giving citizenship to all free inhabitants; ancient sources called it a device for taxes",
+       "zh": "卡拉卡拉 212 年的敕令，給所有自由居民公民權；古代史料說它是收稅的手段",
+       "src": "Britannica, “Caracalla”",
+       "url": "https://www.britannica.com/biography/Caracalla"
+      },
+      {
+       "en": "Cassius Dio on Caracalla's purpose: to increase revenues",
+       "zh": "卡西烏斯・狄奧說卡拉卡拉的目的是增加稅收",
+       "src": "Cassius Dio, Roman History 78.9, tr. Cary (Loeb)",
+       "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Cassius_Dio/78*.html"
+      },
+      {
+       "en": "Boudica's revolt, 60 or 61 CE; Camulodunum, Verulamium, and Londinium burned",
+       "zh": "布狄卡的起事，西元 60 或 61 年；卡姆洛杜努姆、維魯拉米恩、倫蒂尼恩被燒",
+       "src": "Britannica, “Boudicca”; Tacitus, Annals 14.31–37",
+       "url": "https://www.britannica.com/biography/Boudicca"
+      },
+      {
+       "en": "Jerusalem fell and the Temple was burned in 70 CE",
+       "zh": "西元 70 年耶路撒冷陷落、聖殿被燒",
+       "src": "Britannica, “First Jewish Revolt”",
+       "url": "https://www.britannica.com/event/First-Jewish-Revolt"
+      },
+      {
+       "en": "The civil law tradition from the Twelve Tables to Justinian's Corpus Iuris Civilis",
+       "zh": "從十二銅表法到查士丁尼《民法大全》的大陸法傳統",
+       "src": "Library of Congress, “The Civil Law System” (2015)",
+       "url": "https://blogs.loc.gov/law/2015/07/the-civil-law-system-global-legal-collection-highlights/"
+      },
+      {
+       "en": "Taiwan's civil law dominated by continental European, especially German, law (the civil-law tradition with roots in Roman law)",
+       "zh": "台灣民法以歐陸法、特別是德國法為主",
+       "src": "Wang Tay-sheng, Rechtsgeschichte 26 (2018)",
+       "url": "https://rg.lhlt.mpg.de/index.php/rg/article/view/419"
+      },
+      {
+       "en": "Hot-mixed Roman concrete with lime clasts",
+       "zh": "含石灰塊的熱拌羅馬混凝土",
+       "src": "Seymour et al., Science Advances 9 (2023); MIT News (2023)",
+       "url": "https://doi.org/10.1126/sciadv.add1602"
+      },
+      {
+       "en": "Population estimates: Frier about 46 million; Scheidel 59–72 million in 164 CE",
+       "zh": "人口估計：弗里爾約四千六百萬；沙伊德爾西元 164 年五千九百萬到七千二百萬",
+       "src": "University of St Andrews, “Uncertain Past” (2018)",
+       "url": "https://arts.st-andrews.ac.uk/uncertain-past/2018/11/06/how-should-historians-represent-mathematically-what-we-know-about-the-population-of-the-roman-empire/"
+      },
+      {
+       "en": "Rejecting outdated notions about Romanization; Roman rule from the perspective of the ruled",
+       "zh": "拒絕關於羅馬化的過時觀念；從被統治者的角度看羅馬統治",
+       "src": "Mattingly, Imperialism, Power, and Identity (Princeton, 2011)",
+       "url": "https://press.princeton.edu/isbn/9781400848270"
+      },
+      {
+       "en": "Gan Ying reached Tiaozhi (97 CE); Da Qin, also Lijian; envoys of king Andun in 166 CE",
+       "zh": "甘英抵條支（西元 97 年）；大秦一名犂鞬；安敦的使者西元 166 年到來",
+       "src": "《後漢書》卷八十八〈西域傳〉；Hill, tr., The Western Regions according to the Hou Hanshu (2003)",
+       "url": "https://zh.wikisource.org/wiki/%E5%BE%8C%E6%BC%A2%E6%9B%B8/%E5%8D%B788"
+      },
+      {
+       "en": "“All roads lead to Rome” traced to Alain de Lille, Liber Parabolarum (about 1175)",
+       "zh": "「條條大路通羅馬」可追溯到阿蘭《諺語書》（約 1175 年）",
+       "src": "Word Histories (2022)",
+       "url": "https://wordhistories.net/2022/02/18/all-roads-lead-rome/"
+      },
+      {
+       "en": "Shisanhang culture about 2,000 years ago; iron-making reached Taiwan about 1,500 years ago",
+       "zh": "十三行文化約二千年前；製鐵技術約一千五百年前傳入臺灣",
+       "src": "國立臺灣史前文化博物館 考古學習資源",
+       "url": "https://archae.nmp.gov.tw/c-05.html"
+      },
+      {
+       "en": "Jiuxianglan, an Iron Age site of about the 3rd century BCE to the 8th century CE; glass beads and bead-making waste",
+       "zh": "舊香蘭，約西元前三世紀到西元八世紀的鐵器時代遺址；玻璃珠與製珠廢料",
+       "src": "Wang et al., Archaeological and Anthropological Sciences (2018)",
+       "url": "https://doi.org/10.1007/s12520-017-0593-3"
+      },
+      {
+       "en": "Curriculum entries 歷 Na-Ⅳ-2 and 歷 P-Ⅳ-1",
+       "zh": "課綱條目 歷 Na-Ⅳ-2、歷 P-Ⅳ-1",
+       "src": "十二年國民基本教育課程綱要・社會領域（民國 107 年 10 月）",
+       "url": "https://www.naer.edu.tw/upload/1/16/doc/819/十二年國民基本教育課程綱要國民中小學暨普通型高級中等校-社會領域.pdf"
+      },
+      {
+       "en": "Land outlines on the map (public domain)",
+       "zh": "地圖的陸地外形（公有領域）",
+       "src": "Natural Earth, 1:50m Land, version 5.1.2",
+       "url": "https://www.naturalearthdata.com/downloads/50m-physical-vectors/50m-land/"
+      }
+     ]
     }
    ],
    "planned": [
-    {
-     "n": 6,
-     "icon": "🛣️",
-     "en": "How Did Rome Hold an Empire Together?",
-     "zh": "羅馬怎麼管住那麼大的地方？"
-    },
     {
      "n": 7,
      "icon": "📏",

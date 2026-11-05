@@ -18830,7 +18830,7 @@ def build_geo_hub():
 _whj = os.path.join(ROOT, "data", "world_history.json")
 WH = json.load(open(_whj, encoding="utf-8")) if os.path.exists(_whj) else None
 WH_BASE = "/resources/classes/world-history/"
-_WH_JS = {"spread": "wh-spread", "farm": "wh-farm", "tablet": "wh-tablet", "pyramid": "wh-pyramid", "assembly": "wh-assembly"}   # lab.kind → assets/js/<bundle>.js
+_WH_JS = {"spread": "wh-spread", "farm": "wh-farm", "tablet": "wh-tablet", "pyramid": "wh-pyramid", "assembly": "wh-assembly", "arch": "wh-arch"}   # lab.kind → assets/js/<bundle>.js
 
 def _wh_ver():
     h = hashlib.md5()
@@ -18914,7 +18914,20 @@ def whassembly_svg(size=56):
             f'{dots}<g stroke="#f4d3b0" stroke-width="1.6" stroke-linecap="round"><path d="M24 26v-5M37 23v-5M18 34v-5"/></g>'
             '<rect x="24" y="44" width="12" height="6" rx="1" fill="#9e8f72"/><rect x="0" y="50" width="60" height="10" fill="#b9b073"/></svg>')
 
-_WH_CARD = {"spread": whspread_svg, "farm": whfarm_svg, "tablet": whtablet_svg, "pyramid": whpyramid_svg, "assembly": whassembly_svg}
+def wharch_svg(size=56):
+    """第六課的課程卡小圖示：一座石拱橋，金色的拱心石，下面一條河。"""
+    import math
+    blocks = []
+    for i in range(9):
+        a0, a1 = math.pi - i * math.pi / 9, math.pi - (i + 1) * math.pi / 9
+        pts = [(30 + r * math.cos(a), 40 - r * math.sin(a)) for r, a in ((15, a0), (21, a0), (21, a1), (15, a1))]
+        blocks.append('<path d="M' + " L".join(f"{x:.1f} {y:.1f}" for x, y in pts) + f'z" fill="{"#e9b85a" if i == 4 else "#d8c7a3"}" stroke="#8a7a5c" stroke-width=".8"/>')
+    return (f'<svg class="wharch-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">'
+            '<rect x="0" y="0" width="60" height="60" rx="10" fill="#bfe0f5"/><rect x="0" y="40" width="60" height="20" fill="#b9b073"/>'
+            '<path d="M15 40h30v20H15z" fill="#4b8cc8"/><rect x="3" y="40" width="12" height="14" fill="#d8c7a3" stroke="#8a7a5c" stroke-width=".8"/><rect x="45" y="40" width="12" height="14" fill="#d8c7a3" stroke="#8a7a5c" stroke-width=".8"/>'
+            + "".join(blocks) + '</svg>')
+
+_WH_CARD = {"spread": whspread_svg, "farm": whfarm_svg, "tablet": whtablet_svg, "pyramid": whpyramid_svg, "assembly": whassembly_svg, "arch": wharch_svg}
 
 def render_whspread_lab(lesson):
     """第一課：歷史地球儀（assets/js/wh-spread.js 綁這裡的 class）。只畫陸地、海洋與路線；不畫國界、不標國名。"""
@@ -19150,7 +19163,48 @@ def render_whassembly_lab(lesson):
   <p class="wh-credit">{lab["credit_html"]}</p>
 </div>'''
 
-_WH_LAB = {"spread": render_whspread_lab, "farm": render_whfarm_lab, "tablet": render_whtablet_lab, "pyramid": render_whpyramid_lab, "assembly": render_whassembly_lab}
+def render_wharch_lab(lesson):
+    """第六課：一座石拱怎麼撐住自己？（assets/js/wh-arch.js 綁這裡的 class）。塌下來的樣子是示意。"""
+    lab = lesson["lab"]
+    payload = _wh_json({k: lab[k] for k in ("R", "n", "t", "t_min", "t_max", "min_ratio", "status")})
+    return f'''<div class="astro-lab wh-lab wh-ar rvl" data-wh-arch-lab>
+  <script type="application/json">{payload}</script>
+  <div class="al-stage">
+    <div class="al-space">
+      <canvas class="al-space-cv" aria-label="3D model of a stone arch built block by block over a wooden frame, which can be taken away to see whether the arch stands; a simplified illustration · 一座在木頭拱架上一塊一塊蓋起來的石拱，可以拆掉拱架看它撐不撐得住；簡化的示意"></canvas>
+      <div class="al-labels" aria-hidden="true"></div>
+      <p class="al-hint">Drag to turn · 拖曳轉動　Scroll or pinch to zoom · 滾輪／雙指縮放</p>
+      <button type="button" class="al-home" title="Reset view · 重設視角" aria-label="Reset view · 重設視角">&#8634;</button>
+      <p class="al-nogl-msg">This 3D model needs WebGL, which this browser does not support. The numbers and the explanation on the right still work, and so do the map and the game below.<br><span class="zh">這個瀏覽器不支援 WebGL，無法顯示 3D 模型；右邊的數字和說明照樣能用，下面的地圖和小遊戲也都能用。</span></p>
+    </div>
+    <aside class="al-sky wh-aside wh-ar-aside">
+      <p class="al-sky-k">The arch · 這座拱</p>
+      <dl class="wh-py-facts">
+        <div><dt>{_wh_bi("Stones in place", "已經放好的石頭")}</dt><dd><b class="wh-ar-n"></b></dd></div>
+        <div><dt>{_wh_bi("Thickness ÷ radius (to the middle of the stones)", "厚度 ÷ 半徑（量到石頭的中線）")}</dt><dd><b class="wh-ar-ratio"></b><small class="wh-ar-tm"></small></dd></div>
+        <div><dt>{_wh_bi("The thinnest that can stand", "撐得住的最薄比例")}</dt><dd><b class="wh-ar-min"></b></dd></div>
+      </dl>
+      <p class="wh-ar-status" aria-live="polite"></p>
+      <p class="wh-fg-note">{_wh_bi(lab["numbers_note_en"], lab["numbers_note_zh"])}</p>
+    </aside>
+  </div>
+  <div class="al-controls">
+    <div class="al-row al-row-main">
+      <button type="button" class="al-play" aria-pressed="false"><span class="al-play-i" aria-hidden="true"></span><span class="al-play-t">Build it · 蓋起來</span></button>
+      <label class="wh-timerow"><span>None<small>沒有</small></span>
+        <input type="range" class="wh-time wh-ar-k" min="0" max="{lab["n"]}" step="1" value="{lab["n"]}" aria-label="How many stones are in place · 放了幾塊石頭"><span>All<small>全部</small></span></label>
+    </div>
+    <div class="al-row wh-ar-row2">
+      <button type="button" class="wh-btn wh-btn-dark wh-ar-cbtn" data-act="centering" aria-pressed="false"></button>
+      <label class="wh-timerow"><span>Thin<small>薄</small></span>
+        <input type="range" class="wh-time wh-ar-t" min="{round(lab["t_min"] * 100)}" max="{round(lab["t_max"] * 100)}" step="1" value="{round(lab["t"] * 100)}" aria-label="How thick the arch is · 拱有多厚"><span>Thick<small>厚</small></span></label>
+    </div>
+  </div>
+  {_lab_foot(lab)}
+  <p class="wh-credit">{lab["credit_html"]}</p>
+</div>'''
+
+_WH_LAB = {"spread": render_whspread_lab, "farm": render_whfarm_lab, "tablet": render_whtablet_lab, "pyramid": render_whpyramid_lab, "assembly": render_whassembly_lab, "arch": render_wharch_lab}
 
 def _wh_order(d):
     payload = _wh_json({k: d[k] for k in ("items", "hint_en", "hint_zh", "done_en", "done_zh", "open_en", "open_zh")})
@@ -19266,7 +19320,7 @@ def _wh_curric(d):
 
 def _wh_centers(d):
     """第二課：「哪裡開始種田？」——世界地圖（只有陸地、沒有國界）＋時間滑桿；每個地區是一段年代範圍。"""
-    payload = _wh_json({k: d[k] for k in ("from", "to", "start", "labels", "centers") if k in d})
+    payload = _wh_json({k: d[k] for k in ("from", "to", "start", "labels", "centers", "box") if k in d})
     return f'''<div class="wh-centers rvl" data-wh-centers>
   <script type="application/json">{payload}</script>
   <div class="wh-ce-top"><p class="wh-ce-when" aria-live="polite"></p><p class="wh-ce-n">{_wh_bi(d.get("count_en", "Regions where farming has begun"), d.get("count_zh", "已經開始種田的地區"))} <b class="wh-ce-count"></b></p></div>
@@ -19298,7 +19352,7 @@ def _wh_ostraka(d):
 </div>'''
 
 _WH_WIDGETS = [("order", _wh_order), ("sort", _wh_sort), ("centers", _wh_centers), ("match", _wh_sort), ("gains", _wh_sort), ("signs", _wh_sort), ("needs", _wh_sort),
-               ("whovotes", _wh_sort), ("ostraka", _wh_ostraka)]
+               ("whovotes", _wh_sort), ("ostraka", _wh_ostraka), ("empire", _wh_centers), ("borrowed", _wh_sort)]
 # 每課固定的卡（照這個順序排在小互動後面）
 _WH_FIXED = [("timeline", _wh_timeline), ("how_we_know", _wh_how_we_know), ("views", _wh_views),
              ("phrases", _wh_phrases), ("taiwan_then", _wh_taiwan_then)]

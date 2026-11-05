@@ -533,3 +533,18 @@ a.wh-link:hover { transform: translateY(-3px); box-shadow: var(--shadow); border
 }
 .wh-as-voterow[hidden] { display: none; }
 .wh-as-per-note .zh { display: block; }
+
+/* ── 第六課：一座石拱怎麼撐住自己？（wh-arch.js） ── */
+.wh-ar-aside { display: flex; flex-direction: column; gap: .55rem; }
+.wh-py-facts div.is-bad { background: rgba(231,111,81,.16); box-shadow: 0 0 0 1px rgba(231,111,81,.55) inset; }
+.wh-ar-status { margin: 0; padding: .6rem .75rem; border-radius: 12px; background: rgba(255,255,255,.06); color: #e8eef9; font-size: .82rem; font-weight: 700; line-height: 1.45; }
+.wh-ar-status[data-ok="false"] { background: rgba(231,111,81,.18); color: #ffd9cc; }
+.wh-ar-status .zh { display: block; font-weight: 600; color: var(--al-mute); }
+.wh-ar-row2 { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: .8rem; align-items: center; margin-top: .6rem; }
+.wh-ar-cbtn { white-space: nowrap; }
+.wh-ar-cbtn small { display: block; font-size: .72rem; opacity: .85; }
+.wh-ar-cbtn[aria-pressed="true"] { background: #e9b85a; color: #2b1d08; }
+.al-lg-wh-stone2 i { border-color: #8a7a5c; background: #d8c7a3; }
+.al-lg-wh-key i { border-color: #a5742a; background: #e9b85a; }
+.al-lg-wh-wood i { border-color: #5c3a18; background: #8a5a2b; }
+@media (max-width: 640px) { .wh-ar-row2 { grid-template-columns: minmax(0, 1fr); } }
