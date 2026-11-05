@@ -5916,7 +5916,7 @@
        "zh": "人都住在哪裡？",
        "note_en": "Why people are spread so unevenly across the land: water, flat land, and climate.",
        "note_zh": "人為什麼在陸地上分布得這麼不平均：水、平地、氣候。",
-       "soon": true
+       "href": "/resources/classes/geography/where-people-live/"
       }
      ],
      "sources_note_en": "Names, dates, numbers, and quotations on this page were checked against these sources (November 2026). The Sun's height, the size of the patch, and the answers to the game are computed by the page itself and tested automatically",
@@ -6249,16 +6249,986 @@
        "url": "https://www.naer.edu.tw/PageSyllabus?fid=52"
       }
      ]
-    }
-   ],
-   "planned": [
+    },
     {
      "n": 8,
+     "slug": "where-people-live",
+     "title": "Where Do People Live?",
+     "title_zh": "人都住在哪裡？",
+     "level": "入門 · Beginner",
      "icon": "🏘️",
-     "en": "Where Do People Live?",
-     "zh": "人都住在哪裡？"
+     "card": "people",
+     "blurb_en": "Cover a 3D Earth with one dot for every million people, then hunt for the crowded places and the empty ones. Find out why water, flat land, and a gentle climate draw people together.",
+     "blurb_zh": "在 3D 地球上，每一百萬人放一個點，找找哪裡擠滿了人、哪裡幾乎沒有人。看看為什麼水、平地和溫和的氣候會把人聚在一起。",
+     "big_idea_en": "People are spread very unevenly over the Earth. Most people live where there is water, flat land, and a climate that is neither too dry nor too cold. Deserts, high mountains, and the polar zones have very few people.",
+     "big_idea_zh": "人在地球上分布得非常不平均。大多數人住在有水、有平地、氣候不太乾也不太冷的地方；沙漠、高山和寒帶住的人非常少。",
+     "stats": {
+      "nh": 86,
+      "total": 8.19,
+      "dots": 8188,
+      "desert": 2,
+      "desert_land": 10,
+      "high": 0.5,
+      "high_land": 3,
+      "polar": 0.02,
+      "polar_land": 14,
+      "tropicHigh": 2.4,
+      "tropicHigh_land": 1.1,
+      "low": 34,
+      "low_land": 14
+     },
+     "lab": {
+      "kind": "people",
+      "eyebrow": "3D Model · 3D 模型",
+      "title_en": "One Dot, One Million People",
+      "title_zh": "一點，一百萬人",
+      "how_en": "Each gold dot stands for one million people, from a population grid for the year 2025. Turn the globe and look for the crowded places and the empty ones. Choose an area on the right, such as the large deserts, to see what share of the land it covers and what share of the people live there. Tap anywhere on the globe to see about how many people live in that 1° × 1° square.",
+      "how_zh": "每一個金色的點代表一百萬人，資料是 2025 年的人口格網。轉動地球，找找哪裡擠滿了人、哪裡幾乎是空的。在右邊選一種地方，例如大沙漠，看它占陸地面積的幾成、住了全世界幾成的人。點地球上任何一個地方，看那個 1 度 × 1 度的格子裡大約住了多少人。",
+      "legend": [
+       {
+        "cls": "dot",
+        "en": "One dot = one million people",
+        "zh": "一點＝一百萬人"
+       },
+       {
+        "cls": "area",
+        "en": "The area you chose (approximate)",
+        "zh": "選的範圍（大約）"
+       },
+       {
+        "cls": "cell",
+        "en": "The 1° × 1° square you tapped",
+        "zh": "點選的 1 度 × 1 度格子"
+       }
+      ],
+      "scale_en": "A dot shows roughly where a million people live, not an exact town: each dot is placed inside its 1° square according to where people live in the data. The desert outlines are rough areas from Natural Earth, and the high land comes from an old, coarse elevation grid, so both are only approximate.",
+      "scale_zh": "一個點只表示一百萬人大約住在哪一帶，不是某一個城鎮：每個點依資料裡人住的地方，放在它那個 1 度格子裡。沙漠的範圍是 Natural Earth 的大約範圍，高地取自很舊、很粗的高度資料，都只是大約。",
+      "credit_html": "Population: GHS-POP R2023A, epoch 2025 (a projection), 30 arcseconds. Schiavina M., Freire S., Carioli A., MacManus K. (2023), European Commission, Joint Research Centre, <a href=\"https://doi.org/10.2905/2FF68A52-5B5B-4A22-8F40-C41DA8332CFE\">doi:10.2905/2FF68A52-5B5B-4A22-8F40-C41DA8332CFE</a>, licensed under <a href=\"https://creativecommons.org/licenses/by/4.0/\">CC BY 4.0</a>. Changes: summed into 5-minute and 1° squares and turned into one dot per million people. Deserts: Natural Earth 1:50m Geography Regions 5.0.0, public domain. Height: NOAA ETOPO5, public domain. Land outlines: Natural Earth 1:50m Land 5.1.2, public domain. · 人口：GHS-POP R2023A 的 2025 年推估（30 角秒），歐盟執委會聯合研究中心，CC BY 4.0；本頁把它加總成 5 分與 1 度格子，再換算成「一點＝一百萬人」。沙漠範圍、陸地外形：Natural Earth，公有領域；高度：NOAA ETOPO5，公有領域。"
+     },
+     "parts_head": {
+      "eyebrow": "Try It in the Model · 在模型裡試試",
+      "en": "Four places to look",
+      "zh": "看四個地方"
+     },
+     "parts": [
+      {
+       "key": "asia",
+       "icon": "🌏",
+       "en": "Crowded South and East Asia",
+       "zh": "擠滿人的南亞與東亞",
+       "meta_en": "Asia",
+       "meta_zh": "亞洲",
+       "demo": "asia",
+       "text_en": "The dots pile up on the plains and river valleys of South and East Asia, Taiwan included. More than half of the world's people live in Asia.",
+       "text_zh": "點在南亞和東亞的平原、河谷堆成一片，台灣也在其中。全世界超過一半的人住在亞洲。"
+      },
+      {
+       "key": "nile",
+       "icon": "🏜️",
+       "en": "A river through the desert",
+       "zh": "穿過沙漠的河",
+       "meta_en": "Sahara and Nile",
+       "meta_zh": "撒哈拉與尼羅河",
+       "demo": "nile",
+       "text_en": "The Sahara is almost empty, but a thin line of dots follows the Nile north to its delta. Water makes the difference.",
+       "text_zh": "撒哈拉幾乎是空的，但一條細細的點沿著尼羅河往北，一直到三角洲。差別就在水。"
+      },
+      {
+       "key": "tibet",
+       "icon": "🏔️",
+       "en": "The roof of the world",
+       "zh": "世界屋脊",
+       "meta_en": "Above 3,000 m",
+       "meta_zh": "海拔 3,000 公尺以上",
+       "demo": "tibet",
+       "text_en": "The Plateau of Tibet is high, cold, and dry. Land above 3,000 meters covers about 3% of the land but holds only about 0.5% of the people. Right next to it, the plains to the south are among the most crowded places on Earth.",
+       "text_zh": "青藏高原又高、又冷、又乾。海拔 3,000 公尺以上的地方大約占陸地的 3%，只住了大約 0.5% 的人；緊鄰在南邊的平原，卻是地球上人最擠的地方之一。"
+      },
+      {
+       "key": "polar",
+       "icon": "🧊",
+       "en": "The polar zones",
+       "zh": "寒帶",
+       "meta_en": "Beyond 66.56°",
+       "meta_zh": "極圈以內",
+       "demo": "polar",
+       "text_en": "Beyond the polar circles, where Lesson 7 showed the sunlight is always slanted, there is hardly a dot. Only about 0.02% of the world's people live there.",
+       "text_zh": "在極圈以內（第七課看過，那裡的陽光永遠是斜的）幾乎看不到點，只住了全世界大約 0.02% 的人。"
+      }
+     ],
+     "parts_note_en": "Then try it yourself. Find the empty space in the middle of Australia, and the crowded line of dots along its eastern coast. Why are they so different?",
+     "parts_note_zh": "然後自己動手試試。找出澳洲中部那一大片空白，和沿著東部海岸擠在一起的點。為什麼差這麼多？",
+     "why": {
+      "eyebrow": "Game · 小遊戲",
+      "en": "Many People or Few?",
+      "zh": "這裡人多還是人少？",
+      "lead_en": "Eight places. Each card tells you about the water, the land, and the climate. Decide whether many people or few people live there, then check your answer against the population data. You do not need to memorize anything: think about what people need. There is no timer.",
+      "lead_zh": "八個地方。每一張卡告訴你那裡的水、地形和氣候。判斷那裡住的人很多還是很少，再用人口資料對答案。不用背任何東西：想想人需要什麼。不計時。",
+      "year": 2025,
+      "hint_en": "Ask three questions: Is there water? Is the land flat and low? Is the climate gentle enough to grow food?",
+      "hint_zh": "問三個問題：有沒有水？地是不是又平又低？氣候溫和到可以種糧食嗎？",
+      "start_en": "Water, flat land, and a gentle climate bring people together.",
+      "start_zh": "水、平地、溫和的氣候，會把人聚在一起。",
+      "end_en": "Now you can look at any place on a map and guess whether many people live there, and why.",
+      "end_zh": "現在你可以看著地圖上任何一個地方，猜那裡人多還是人少，還說得出原因。",
+      "questions": [
+       {
+        "place": "nile",
+        "chips": [
+         {
+          "icon": "💧",
+          "en": "A great river and its delta",
+          "zh": "一條大河和它的三角洲",
+          "tone": "good"
+         },
+         {
+          "icon": "🟫",
+          "en": "Flat, low land",
+          "zh": "又平又低的地",
+          "tone": "good"
+         },
+         {
+          "icon": "☀️",
+          "en": "Desert climate: almost no rain",
+          "zh": "沙漠氣候：幾乎不下雨",
+          "tone": "hard"
+         }
+        ],
+        "answer": "many",
+        "why_en": "It almost never rains, but the river brings water to flat, rich land. People have crowded along it and in its delta.",
+        "why_zh": "這裡幾乎不下雨，但河水流過平坦肥沃的土地，人就沿著河、在三角洲擠在一起。"
+       },
+       {
+        "place": "sahara",
+        "chips": [
+         {
+          "icon": "🚫",
+          "en": "No rivers",
+          "zh": "沒有河",
+          "tone": "hard"
+         },
+         {
+          "icon": "🏜️",
+          "en": "Sand, rock, and stony plateaus",
+          "zh": "沙、岩石和石頭高原",
+          "tone": "hard"
+         },
+         {
+          "icon": "☀️",
+          "en": "Desert climate: almost no rain",
+          "zh": "沙漠氣候：幾乎不下雨",
+          "tone": "hard"
+         }
+        ],
+        "answer": "few",
+        "why_en": "Without water there are no farms, and without farms very few people can live there.",
+        "why_zh": "沒有水就不能種田，不能種田，能住在這裡的人就非常少。"
+       },
+       {
+        "place": "ganges",
+        "chips": [
+         {
+          "icon": "💧",
+          "en": "Great rivers and their delta",
+          "zh": "幾條大河和它們的三角洲",
+          "tone": "good"
+         },
+         {
+          "icon": "🟫",
+          "en": "Flat, low land",
+          "zh": "又平又低的地",
+          "tone": "good"
+         },
+         {
+          "icon": "🌧️",
+          "en": "Warm, with a rainy season",
+          "zh": "溫暖，有雨季",
+          "tone": "good"
+         }
+        ],
+        "answer": "many",
+        "why_en": "Water, flat land, and warm weather: everything farmers need. It is one of the most crowded places on Earth.",
+        "why_zh": "有水、有平地、天氣溫暖：農夫需要的都有了。這裡是地球上人最擠的地方之一。"
+       },
+       {
+        "place": "tibet",
+        "chips": [
+         {
+          "icon": "❄️",
+          "en": "Rivers begin here as streams",
+          "zh": "河流在這裡才剛開始，是小溪",
+          "tone": "hard"
+         },
+         {
+          "icon": "⛰️",
+          "en": "Very high plateau",
+          "zh": "非常高的高原",
+          "tone": "hard"
+         },
+         {
+          "icon": "🥶",
+          "en": "Cold and dry",
+          "zh": "又冷又乾",
+          "tone": "hard"
+         }
+        ],
+        "answer": "few",
+        "why_en": "High land is cold, the air is thin, and the growing season is short. Few people live up here.",
+        "why_zh": "地勢高就冷，空氣稀薄，能種東西的時間很短。住在這上面的人很少。"
+       },
+       {
+        "place": "greenland",
+        "chips": [
+         {
+          "icon": "🧊",
+          "en": "Water, but frozen into ice",
+          "zh": "有水，但凍成了冰",
+          "tone": "hard"
+         },
+         {
+          "icon": "⛰️",
+          "en": "A thick sheet of ice",
+          "zh": "一大片很厚的冰",
+          "tone": "hard"
+         },
+         {
+          "icon": "🥶",
+          "en": "Polar climate",
+          "zh": "寒帶氣候",
+          "tone": "hard"
+         }
+        ],
+        "answer": "few",
+        "why_en": "Nothing can grow on an ice sheet. Almost nobody lives in the middle of it.",
+        "why_zh": "冰原上什麼都長不出來，冰原中央幾乎沒有人住。"
+       },
+       {
+        "place": "java",
+        "chips": [
+         {
+          "icon": "💧",
+          "en": "Rivers and lots of rain",
+          "zh": "有河，雨也很多",
+          "tone": "good"
+         },
+         {
+          "icon": "🌋",
+          "en": "Flat land around rich volcanic soil",
+          "zh": "火山周圍肥沃的平地",
+          "tone": "good"
+         },
+         {
+          "icon": "🌧️",
+          "en": "Hot and wet all year",
+          "zh": "一年到頭又熱又濕",
+          "tone": "good"
+         }
+        ],
+        "answer": "many",
+        "why_en": "Plenty of water, rich soil, and warm weather all year: this island is packed with people.",
+        "why_zh": "水多、土壤肥沃、一年到頭都溫暖：這座島上擠滿了人。"
+       },
+       {
+        "place": "amazon",
+        "chips": [
+         {
+          "icon": "💧",
+          "en": "Huge rivers",
+          "zh": "非常大的河",
+          "tone": "good"
+         },
+         {
+          "icon": "🌳",
+          "en": "Flat, but covered by thick forest",
+          "zh": "地很平，但長滿濃密的森林",
+          "tone": "hard"
+         },
+         {
+          "icon": "🌧️",
+          "en": "Hot and wet all year",
+          "zh": "一年到頭又熱又濕",
+          "tone": "good"
+         }
+        ],
+        "answer": "few",
+        "why_en": "This one is tricky. There is water and the land is flat, but thick rainforest and poor soil make farming hard, and travel is slow. Few people live deep in the forest.",
+        "why_zh": "這一題比較難。有水、地也平，但濃密的雨林和貧瘠的土壤讓種田很難，交通也慢。住在雨林深處的人很少。"
+       },
+       {
+        "place": "taiwan",
+        "chips": [
+         {
+          "icon": "💧",
+          "en": "Short rivers and plenty of rain",
+          "zh": "河短、雨多",
+          "tone": "good"
+         },
+         {
+          "icon": "🟫",
+          "en": "Flat plains near the coast",
+          "zh": "靠海的平原",
+          "tone": "good"
+         },
+         {
+          "icon": "🌤️",
+          "en": "Warm, between tropical and subtropical",
+          "zh": "溫暖，介於熱帶和副熱帶",
+          "tone": "good"
+         }
+        ],
+        "answer": "many",
+        "why_en": "Taiwan's western plains have water, flat land, and a warm climate. Millions of people live in this one square.",
+        "why_zh": "台灣西部平原有水、有平地、氣候溫暖。光是這一個格子裡就住了幾百萬人。"
+       }
+      ]
+     },
+     "hundred": {
+      "eyebrow": "Try It · 動手試試",
+      "en": "If the World Were 100 People",
+      "zh": "如果世界只有一百個人",
+      "lead_en": "Shrink the whole world down to 100 people. Where would they live? Switch between regions of the world and bands of latitude, and tap a group to see the real numbers.",
+      "lead_zh": "把全世界縮小成一百個人，他們會住在哪裡？在「依地區」和「依緯度帶」之間切換，點一組看實際的數字。",
+      "regions": [
+       {
+        "key": "asia",
+        "en": "Asia",
+        "zh": "亞洲",
+        "people": 4835320000,
+        "color": "#ff8c69"
+       },
+       {
+        "key": "africa",
+        "en": "Africa",
+        "zh": "非洲",
+        "people": 1549868000,
+        "color": "#ffb86b"
+       },
+       {
+        "key": "europe",
+        "en": "Europe",
+        "zh": "歐洲",
+        "people": 744399000,
+        "color": "#7fc8a9"
+       },
+       {
+        "key": "lac",
+        "en": "Latin America and the Caribbean",
+        "zh": "拉丁美洲與加勒比海",
+        "people": 667889000,
+        "color": "#e7a3d8"
+       },
+       {
+        "key": "namerica",
+        "en": "Northern America",
+        "zh": "北美洲（北部）",
+        "people": 387528000,
+        "color": "#a9d4ff"
+       },
+       {
+        "key": "oceania",
+        "en": "Oceania",
+        "zh": "大洋洲",
+        "people": 46610000,
+        "color": "#b9a6ff"
+       }
+      ],
+      "src_regions": {
+       "en": "Regions and numbers: United Nations, World Population Prospects 2024 (mid-2025). Central America and the Caribbean are counted in Latin America, not in Northern America.",
+       "zh": "地區與數字：聯合國《世界人口展望 2024》（2025 年年中）。中美洲與加勒比海算在「拉丁美洲與加勒比海」，不算在「北美洲（北部）」。"
+      },
+      "src_bands": {
+       "en": "Bands of latitude: computed by this page from the GHS-POP population grid for 2025.",
+       "zh": "緯度帶：本頁用 GHS-POP 2025 年人口格網自己算的。"
+      },
+      "hint_en": "Tap a group to see how many people it stands for.",
+      "hint_zh": "點一組，看它代表多少人。",
+      "note_en": "",
+      "note_zh": ""
+     },
+     "map_english": {
+      "eyebrow": "Map English · 地圖英語",
+      "en": "Eight sentences for talking about where people live",
+      "zh": "談人住在哪裡的八句英文",
+      "lead_en": "This lesson's Map English card is about population. Listen, repeat, then describe where people live in your county or city.",
+      "lead_zh": "這一課的「地圖英語」練習說人口與分布。先聽、再跟著唸，然後描述你住的縣市裡，人都住在哪裡。",
+      "items": [
+       {
+        "en": "<b>Most people live</b> on low, flat land.",
+        "zh": "大多數人住在又低又平的地方。",
+        "use_en": "Most people live …",
+        "use_zh": "大多數人住在……"
+       },
+       {
+        "en": "<b>Few people live in</b> the desert.",
+        "zh": "住在沙漠裡的人很少。",
+        "use_en": "Few people live in …",
+        "use_zh": "住在……的人很少"
+       },
+       {
+        "en": "Many towns <b>grew up along</b> the river.",
+        "zh": "很多城鎮是沿著河流發展起來的。",
+        "use_en": "grew up along …",
+        "use_zh": "沿著……發展起來"
+       },
+       {
+        "en": "Taiwan <b>is densely populated</b>.",
+        "zh": "台灣人口很稠密。",
+        "use_en": "is densely / sparsely populated",
+        "use_zh": "人口稠密／稀少"
+       },
+       {
+        "en": "<b>The population of</b> Taiwan <b>is about</b> 23 million.",
+        "zh": "台灣的人口大約是兩千三百萬。",
+        "use_en": "The population of … is about …",
+        "use_zh": "……的人口大約是……"
+       },
+       {
+        "en": "<b>More than half of</b> the world's people live in Asia.",
+        "zh": "全世界超過一半的人住在亞洲。",
+        "use_en": "More than half of …",
+        "use_zh": "超過一半的……"
+       },
+       {
+        "en": "<b>Each dot stands for</b> one million people.",
+        "zh": "每一個點代表一百萬人。",
+        "use_en": "Each … stands for …",
+        "use_zh": "每一個……代表……"
+       },
+       {
+        "en": "<b>How many people live</b> in your town?",
+        "zh": "你住的城鎮有多少人？",
+        "use_en": "How many people live …?",
+        "use_zh": "……住了多少人？"
+       }
+      ]
+     },
+     "tricks_head": {
+      "en": "Where people live, in a sentence",
+      "zh": "一句話記住人住在哪裡"
+     },
+     "tricks": [
+      {
+       "title_en": "Water, flat land, gentle climate",
+       "title_zh": "有水、有平地、氣候溫和",
+       "body_en": "Where these come together, people crowd together.",
+       "body_zh": "這三樣湊在一起的地方，人就擠在一起。"
+      },
+      {
+       "title_en": "Too dry, too high, too cold",
+       "title_zh": "太乾、太高、太冷",
+       "body_en": "Deserts, high mountains, and the polar zones have few people.",
+       "body_zh": "沙漠、高山、寒帶，住的人很少。"
+      },
+      {
+       "title_en": "Density = people ÷ area",
+       "title_zh": "人口密度＝人數 ÷ 面積",
+       "body_en": "Count the people, divide by the square kilometers.",
+       "body_zh": "數人數，再除以幾平方公里。"
+      },
+      {
+       "title_en": "A river through a desert",
+       "title_zh": "沙漠裡的河",
+       "body_en": "Water can make even a desert crowded, like the Nile.",
+       "body_zh": "有水，連沙漠也會擠滿人，像尼羅河。"
+      }
+     ],
+     "safety_head": {
+      "eyebrow": "Before the Activities · 做活動之前",
+      "en": "Working safely",
+      "zh": "安全提醒"
+     },
+     "safety": [
+      {
+       "en": "When you measure the classroom or the playground, walk, do not run, and watch out for desks and chairs.",
+       "zh": "量教室或操場時，用走的不要用跑的，小心桌椅。"
+      },
+      {
+       "en": "Stay where your teacher can see you when you work outside, and drink water on hot days.",
+       "zh": "在戶外活動時，待在老師看得到的地方；天氣熱要記得喝水。"
+      },
+      {
+       "en": "Do not stand on chairs or desks to reach anything.",
+       "zh": "不要站到椅子或桌子上拿東西。"
+      },
+      {
+       "en": "Count people by looking, not by touching or pushing. Be kind when you talk about crowded or poor places.",
+       "zh": "數人用看的，不要碰或推別人。談到擁擠或貧窮的地方時，說話要尊重。"
+      }
+     ],
+     "activities": [
+      {
+       "title_en": "How Crowded Is It?",
+       "title_zh": "這裡有多擠？",
+       "materials": [
+        {
+         "en": "A long measuring tape",
+         "zh": "長捲尺"
+        },
+        {
+         "en": "Chalk or tape",
+         "zh": "粉筆或膠帶"
+        },
+        {
+         "en": "A calculator",
+         "zh": "計算機"
+        },
+        {
+         "en": "Paper and a pencil",
+         "zh": "紙和鉛筆"
+        }
+       ],
+       "steps": [
+        {
+         "en": "Measure the length and width of your classroom in meters. Multiply them to find the area in square meters.",
+         "zh": "量教室的長和寬（公尺），相乘得到面積（平方公尺）。"
+        },
+        {
+         "en": "Count the people in the room. Divide the number of people by the area: that is the classroom's population density.",
+         "zh": "數一數教室裡有幾個人。人數除以面積，就是教室的人口密度。"
+        },
+        {
+         "en": "Do the same for a part of the playground with the same number of people standing in it.",
+         "zh": "在操場劃出一塊地，讓同樣多的人站進去，再算一次。"
+        },
+        {
+         "en": "Which place is more crowded? Write the two densities side by side.",
+         "zh": "哪裡比較擠？把兩個密度並排寫下來。"
+        },
+        {
+         "en": "Taiwan has about 646 people per square kilometer (2024). Is your classroom more or less crowded than that? (One square kilometer is 1,000,000 square meters.)",
+         "zh": "台灣每平方公里大約 646 人（民國 113 年）。你們的教室比這個擠，還是比較空？（一平方公里是 1,000,000 平方公尺。）"
+        }
+       ],
+       "tip_en": "Population density does not count people one by one in each spot. It is an average: the same number can hide crowded corners and empty ones.",
+       "tip_zh": "人口密度不是一個一個地方去數，而是平均：同一個數字，可能藏著很擠的角落和空空的角落。"
+      },
+      {
+       "title_en": "Where Would You Build a Village?",
+       "title_zh": "村子要蓋在哪裡？",
+       "materials": [
+        {
+         "en": "A large sheet of paper",
+         "zh": "一大張紙"
+        },
+        {
+         "en": "Colored pencils",
+         "zh": "彩色筆"
+        },
+        {
+         "en": "20 small paper squares or beans",
+         "zh": "20 張小紙片或 20 顆豆子"
+        }
+       ],
+       "steps": [
+        {
+         "en": "In a group, draw an imaginary island with a river, a coast, a tall mountain, a dry sandy area, and a forest.",
+         "zh": "分組，畫一座想像的島：有一條河、海岸、一座高山、一片乾燥的沙地和一片森林。"
+        },
+        {
+         "en": "Each square or bean is 1,000 people. Place all 20 where you think people would choose to live.",
+         "zh": "每一張紙片或每一顆豆子代表 1,000 人。把 20 個都放在你覺得人會選擇住的地方。"
+        },
+        {
+         "en": "Write one reason for each crowded spot and each empty spot.",
+         "zh": "每一個擠的地方、每一個空的地方，都寫一個理由。"
+        },
+        {
+         "en": "Compare your island with another group's. Did you crowd people in the same places?",
+         "zh": "和另一組比一比，你們把人放在一樣的地方嗎？"
+        },
+        {
+         "en": "Now look at the 3D globe. Can you find real places that look like your island?",
+         "zh": "再看 3D 地球：你找得到和你們的島很像的真實地方嗎？"
+        }
+       ],
+       "tip_en": "There is no single right answer. Good answers explain the reason: water, flat land, climate, or a way to travel.",
+       "tip_zh": "沒有唯一的正確答案；好的答案會說出理由：水、平地、氣候，或交通。"
+      }
+     ],
+     "links_head": {
+      "eyebrow": "Go Further · 延伸閱讀",
+      "en": "Lessons that connect, and what comes next",
+      "zh": "相關的課，以及接下來"
+     },
+     "links": [
+      {
+       "icon": "🌡️",
+       "k_en": "Geography · Lesson 7",
+       "k_zh": "地理・第七課",
+       "en": "Why Is It Hot at the Equator and Cold at the Poles?",
+       "zh": "為什麼赤道熱、兩極冷？",
+       "note_en": "Why the polar zones get so little warmth from the Sun.",
+       "note_zh": "為什麼寒帶從太陽得到的熱這麼少。",
+       "href": "/resources/classes/geography/equator-and-poles/"
+      },
+      {
+       "icon": "⛰️",
+       "k_en": "Geography · Lesson 3",
+       "k_zh": "地理・第三課",
+       "en": "How Do You Draw a Mountain on Flat Paper?",
+       "zh": "怎麼在平面上畫出一座山？",
+       "note_en": "Contour lines show where the land is high and steep.",
+       "note_zh": "等高線告訴你哪裡又高又陡。",
+       "href": "/resources/classes/geography/contour-lines/"
+      },
+      {
+       "icon": "🌍",
+       "k_en": "Geography · Lesson 6",
+       "k_zh": "地理・第六課",
+       "en": "How Many Continents and Oceans Are There?",
+       "zh": "世界有幾大洲、幾大洋？",
+       "note_en": "Asia is the largest continent, and the most crowded.",
+       "note_zh": "亞洲是最大的洲，也是人最多的洲。",
+       "href": "/resources/classes/geography/continents-and-oceans/"
+      },
+      {
+       "icon": "🏔️",
+       "k_en": "Geography · Lesson 9",
+       "k_zh": "地理・第九課",
+       "en": "What Does Taiwan Look Like from Above?",
+       "zh": "從天上看，台灣長什麼樣子？",
+       "note_en": "Taiwan's mountains, plains, and coasts in 3D.",
+       "note_zh": "立體的台灣：山、平原與海岸。",
+       "soon": true
+      },
+      {
+       "icon": "🏙️",
+       "k_en": "Geography · Lesson 11",
+       "k_zh": "地理・第十一課",
+       "en": "Where Do the People of Taiwan Live?",
+       "zh": "台灣的人住在哪裡？",
+       "note_en": "The same question, up close: Taiwan's plains, basins, and mountains.",
+       "note_zh": "同一個問題，近看台灣：平原、盆地與山地。",
+       "soon": true
+      }
+     ],
+     "sources_note_en": "Names, dates, numbers, and quotations on this page were checked against these sources (November 2026). The dots, the shares of people and land, and the answers to the game are computed by the page itself from the population grid and tested automatically",
+     "sources_note_zh": "本頁的人名、年代、數字與引文依下列資料查證（2026 年 11 月）；點的位置、人口與陸地的比例、小遊戲的答案，都由頁面用人口格網自己計算，並有自動測試",
+     "paras": [
+      "Imagine giving every person on Earth a seat on a giant map. In 2025, the United Nations estimates, there are about 8.23 billion of us. If people were spread out evenly, every piece of land would have its share. They are not. Some places are packed shoulder to shoulder, and enormous areas have almost nobody at all.",
+      "On the globe in this lesson, each dot stands for one million people. The dots crowd together in South Asia and East Asia, along the great rivers, and near many coasts. More than half of the world's people live in Asia. In the population data used here, about 86 out of every 100 people live north of the equator, partly because most of the world's land is in the Northern Hemisphere.",
+      "Why there? People need water to drink and to grow food. They need land that is flat enough to farm and to build on, and a climate that is neither too dry nor too cold. Rivers and coasts also make it easier to travel and to trade. Where water, flat land, and a gentle climate come together, villages grow into towns, and towns grow into cities.",
+      "Now look at the empty places. Deserts are too dry. High mountains and plateaus are cold, steep, and short of air. In the polar zones, as Lesson 7 showed, the sunlight is always slanted, and the ground may be frozen. The large deserts outlined on the globe cover about 10% of the land, but only about 2% of the world's people live in them, and most of those live along rivers such as the Nile. Land more than 3,000 meters high covers about 3% of the land and holds about 0.5% of the people.",
+      "Low land matters, too. A 1998 study found that about a third of the world's people lived less than 100 meters above sea level, even though only about a sixth of the land where people live is that low. The population and height data on this page give almost the same answer: about 34% of people on about 14% of the land. A 2016 study estimated that about 40 percent of people live within 100 kilometers of a coast.",
+      "To compare places, geographers use population density: the number of people divided by the area of land. Taiwan is one of the crowded places. In 2024, Taiwan had about 646 people per square kilometer, and Taipei City had more than 9,000. But even in Taiwan, people are not spread evenly: most live on the plains and in the basins, and few live high in the mountains."
+     ],
+     "paras_zh": [
+      "想像給地球上的每一個人在一張巨大的地圖上安排一個位子。聯合國估計，2025 年我們大約有 82.3 億人。如果人分布得很平均，每一塊陸地都會分到一份。事實不是這樣：有些地方擠得肩並肩，有些廣大的地方幾乎一個人都沒有。",
+      "在這一課的地球上，每一個點代表一百萬人。點擠在南亞和東亞、沿著大河、靠近許多海岸。全世界超過一半的人住在亞洲。在本課用的人口資料裡，每 100 個人大約有 86 個住在赤道以北，部分原因是地球上大部分的陸地在北半球。",
+      "為什麼是這些地方？人需要水來喝、來種糧食；需要夠平的地來耕種、蓋房子；也需要不太乾、不太冷的氣候。河流和海岸也讓交通和買賣比較方便。水、平地和溫和的氣候湊在一起的地方，村子就長成城鎮，城鎮再長成城市。",
+      "再看看空空的地方。沙漠太乾；高山和高原又冷、又陡、空氣又稀薄；寒帶的陽光永遠是斜的（第七課看過），地面還可能結凍。地球上標出來的幾個大沙漠，大約占陸地面積的 10%，卻只住了全世界大約 2% 的人，而且大多住在尼羅河這樣的河邊。海拔 3,000 公尺以上的地方大約占陸地的 3%，住了大約 0.5% 的人。",
+      "地勢低也很重要。1998 年的一項研究發現，世界上大約三分之一的人住在海拔不到 100 公尺的地方，但有人住的土地裡，這麼低的只占大約六分之一。用本頁的人口與高度資料算，答案幾乎一樣：大約 34% 的人住在大約 14% 的土地上。2016 年的一項研究估計，大約 40% 的人住在離海岸 100 公里以內。",
+      "為了比較不同的地方，地理學家用「人口密度」：人數除以土地面積。台灣是很擠的地方之一：民國 113 年（2024 年），台灣每平方公里大約有 646 人，臺北市超過 9,000 人。但即使在台灣，人也分布得不平均：大多數人住在平原和盆地，住在高山上的人很少。"
+     ],
+     "questions": [
+      "Why do so many people live along rivers, even rivers that flow through deserts?",
+      "Why do so few people live on high plateaus, in deserts, and in the polar zones?",
+      "Taiwan is crowded, but its high mountains are not. Why might that be?"
+     ],
+     "answers": [
+      "Rivers give water for drinking and for growing food, and the flat land beside them is easy to farm. Rivers also make travel and trade easier.",
+      "Deserts are too dry, high plateaus are cold with thin air, and the polar zones get only slanted sunlight and are often frozen. In all of them, it is hard to grow food.",
+      "The mountains are steep, high, and cooler, so it is hard to farm, build, and travel there. Most people live on the plains and in the basins."
+     ],
+     "vocab": [
+      {
+       "n": 1,
+       "w": "population",
+       "pos": "n.",
+       "zh": "人口",
+       "ex": "The <b>population</b> of Taiwan is about 23 million.",
+       "exzh": "台灣的人口大約兩千三百萬。"
+      },
+      {
+       "n": 2,
+       "w": "crowded",
+       "pos": "adj.",
+       "zh": "擁擠的",
+       "ex": "River deltas are often very <b>crowded</b>.",
+       "exzh": "河流三角洲常常非常擁擠。"
+      },
+      {
+       "n": 3,
+       "w": "density",
+       "pos": "n.",
+       "zh": "密度",
+       "ex": "Population <b>density</b> is people per square kilometer.",
+       "exzh": "人口密度是每平方公里有幾個人。"
+      },
+      {
+       "n": 4,
+       "w": "plain",
+       "pos": "n.",
+       "zh": "平原",
+       "ex": "Most people in Taiwan live on the western <b>plains</b>.",
+       "exzh": "台灣大多數人住在西部平原。"
+      },
+      {
+       "n": 5,
+       "w": "desert",
+       "pos": "n.",
+       "zh": "沙漠",
+       "ex": "Very few people live in the middle of the <b>desert</b>.",
+       "exzh": "住在沙漠中央的人非常少。"
+      },
+      {
+       "n": 6,
+       "w": "delta",
+       "pos": "n.",
+       "zh": "三角洲",
+       "ex": "The Nile <b>delta</b> is full of farms and towns.",
+       "exzh": "尼羅河三角洲到處是農田和城鎮。"
+      },
+      {
+       "n": 7,
+       "w": "coast",
+       "pos": "n.",
+       "zh": "海岸",
+       "ex": "Many big cities are on the <b>coast</b>.",
+       "exzh": "很多大城市在海岸邊。"
+      },
+      {
+       "n": 8,
+       "w": "spread out",
+       "pos": "v.",
+       "zh": "分散",
+       "ex": "People are not <b>spread out</b> evenly across the land.",
+       "exzh": "人並不是平均分散在陸地上。"
+      }
+     ],
+     "quiz": [
+      {
+       "q": "On the globe in this lesson, what does one dot stand for?",
+       "options": [
+        "One person",
+        "One thousand people",
+        "One million people",
+        "One city"
+       ],
+       "correct": 2
+      },
+      {
+       "q": "Which place would you expect to have the most people?",
+       "options": [
+        "The middle of a big desert",
+        "A flat river delta with a warm climate",
+        "A high, cold plateau",
+        "An ice sheet"
+       ],
+       "correct": 1
+      },
+      {
+       "q": "How do you find population density?",
+       "options": [
+        "Number of people ÷ area of land",
+        "Area of land ÷ number of people",
+        "Number of people × area of land",
+        "Number of cities ÷ number of people"
+       ],
+       "correct": 0
+      },
+      {
+       "q": "Where do more than half of the world's people live?",
+       "options": [
+        "Africa",
+        "Asia",
+        "Europe",
+        "The Americas"
+       ],
+       "correct": 1
+      },
+      {
+       "q": "Why do many people live along the Nile, even though it flows through a desert?",
+       "options": [
+        "The desert is cooler there",
+        "The river brings water to flat land",
+        "There are high mountains",
+        "It snows there in winter"
+       ],
+       "correct": 1
+      }
+     ],
+     "myths": [
+      {
+       "myth_en": "People are spread out fairly evenly over the land.",
+       "myth_zh": "人在陸地上分布得還算平均。",
+       "fact_en": "Not at all. Some river valleys and plains are packed, while huge deserts, mountains, and icy lands are nearly empty.",
+       "fact_zh": "完全不是。有些河谷和平原擠滿了人，廣大的沙漠、高山和冰天雪地卻幾乎沒有人。"
+      },
+      {
+       "myth_en": "Most of the world's people live within 100 kilometers of the sea.",
+       "myth_zh": "世界上大多數人住在離海 100 公里以內。",
+       "fact_en": "An estimate from 1990 said 60 percent, and it was repeated for years. A 2016 study, using more detailed data, found about 40 percent.",
+       "fact_zh": "1990 年有一個估計說是 60%，這個數字被引用了很多年；2016 年一項用更細資料的研究，算出來大約是 40%。"
+      },
+      {
+       "myth_en": "Hot places near the equator have few people.",
+       "myth_zh": "赤道附近很熱的地方，人很少。",
+       "fact_en": "Heat is not the problem; dryness is. Warm, wet places with good soil, such as the island of Java, are among the most crowded on Earth.",
+       "fact_zh": "熱不是問題，乾才是。溫暖、潮濕、土壤又好的地方，像爪哇島，是地球上人最擠的地方之一。"
+      },
+      {
+       "myth_en": "High land always has few people.",
+       "myth_zh": "地勢高的地方，人一定很少。",
+       "fact_en": "Not in the tropics. There, high land is cool instead of hot, and many people live on it. In the data on this page, tropical land above 2,000 meters covers about 1.1% of the land but holds about 2.4% of the people.",
+       "fact_zh": "在熱帶不一定。熱帶的高地涼爽而不炎熱，住了很多人。用本頁的資料算，熱帶海拔 2,000 公尺以上的地方大約占陸地的 1.1%，卻住了大約 2.4% 的人。"
+      }
+     ],
+     "culture_cards": {
+      "eyebrow": "Stories Behind the Dots · 點背後的故事",
+      "title_en": "Counting the people of the world",
+      "title_zh": "數一數世界上的人",
+      "lead_en": "",
+      "lead_zh": "",
+      "cards": [
+       {
+        "k": "November 15, 2022 · United Nations · 聯合國",
+        "en": "The Day of Eight Billion",
+        "zh": "八十億人的那一天",
+        "body_en": "The United Nations chose November 15, 2022, as the day the world's population was projected to reach 8 billion. It explained that people are living longer, thanks to better public health, nutrition, and medicine.",
+        "body_zh": "聯合國把 2022 年 11 月 15 日訂為世界人口預計達到八十億的日子，並說明這是因為公共衛生、營養和醫療進步，人活得更久了。"
+       },
+       {
+        "k": "1998 · Cohen & Small · PNAS",
+        "en": "Living close to sea level",
+        "zh": "住在靠近海平面的地方",
+        "body_en": "Two scientists compared where people live with how high the land is. As of 1994, they estimated, 33.5 percent of the world's people lived less than 100 meters above sea level, while only 15.6 percent of inhabited land is that low. The middle person, they found, lived at 194 meters.",
+        "body_zh": "兩位科學家把人住的地方和土地的高度對照。他們估計，到 1994 年，世界上 33.5% 的人住在海拔不到 100 公尺的地方，但有人住的土地裡只有 15.6% 這麼低。所有人依高度排成一列，正中間那個人住在 194 公尺。"
+       },
+       {
+        "k": "2016 · Kummu and others · 研究",
+        "en": "The 60 percent that wasn't",
+        "zh": "不是 60%",
+        "body_en": "For years, people repeated a 1990 estimate that 60 percent of the world lived within 100 kilometers of a coast. A team in 2016 checked again with more detailed population and coastline data and found about 40 percent in 1990 and 39 percent in 2010. Good geography means checking the numbers.",
+        "body_zh": "很多年來，大家一直引用 1990 年的估計：世界上 60% 的人住在離海岸 100 公里以內。2016 年一個研究團隊用更細的人口與海岸線資料重新算，1990 年大約是 40%，2010 年是 39%。好的地理學，就是要回頭檢查數字。"
+       },
+       {
+        "k": "2024 · Taiwan · 台灣",
+        "en": "646 people per square kilometer",
+        "zh": "每平方公里 646 人",
+        "body_en": "According to the Executive Yuan, Taiwan had about 646 people per square kilometer in 2024. Taipei City, with 272 square kilometers, had 9,164 per square kilometer, the highest of any city or county. About 70 percent of Taiwan's people live in its six special municipalities.",
+        "body_zh": "行政院的資料：民國 113 年，台灣每平方公里大約 646 人；臺北市面積 272 平方公里，每平方公里 9,164 人，是人口密度最高的都市。全國大約七成的人住在六個直轄市。"
+       }
+      ]
+     },
+     "curric": {
+      "eyebrow": "In the Curriculum · 對應課綱",
+      "en": "Where this lesson fits",
+      "zh": "這一課對應的課綱",
+      "lead_en": "These entries come from Taiwan's 12-Year Basic Education curriculum (2018). In elementary school, population distribution first appears in grades 3–4. In junior high, it is taught for Taiwan and for regions of the world; the world as a whole comes back in senior high school.",
+      "lead_zh": "下面的條目出自十二年國民基本教育課程綱要（民國 107 年發布）。人口分布在國小三、四年級第一次出現；國中先學臺灣、再學各區域；全世界的人口分布到高中再深入。",
+      "items": [
+       {
+        "code": "社 Ca-Ⅱ-2",
+        "area": "社會領域（國小三、四年級）",
+        "area_en": "Social studies (grades 3–4)",
+        "text": "人口分布與自然、人文環境的變遷相互影響。",
+        "note_en": "The game asks why people live where they do: water, land, and climate.",
+        "note_zh": "小遊戲問的就是人為什麼住在那裡：水、地形、氣候。"
+       },
+       {
+        "code": "地 Ad-Ⅳ-1",
+        "area": "社會領域・地理（國中）",
+        "area_en": "Social studies, geography (junior high)",
+        "text": "臺灣的人口成長與分布。",
+        "note_en": "Taiwan's density, and the preview of Lesson 11.",
+        "note_zh": "台灣的人口密度，以及第十一課的預告。"
+       },
+       {
+        "code": "地 Ba-Ⅳ-2",
+        "area": "社會領域・地理（國中，區域特色）",
+        "area_en": "Social studies, geography (junior high, regions)",
+        "text": "傳統維生方式與人口分布。",
+        "note_en": "In the curriculum this entry is about one region of East Asia; the same reasoning, about water, farmland, and climate, works everywhere.",
+        "note_zh": "課綱裡這一條是在講東亞的一個區域；同樣的推理（水、農地、氣候）在哪裡都用得上。"
+       },
+       {
+        "code": "地 Bc-Ⅴ-2",
+        "area": "社會領域・地理（高中）",
+        "area_en": "Social studies, geography (senior high)",
+        "text": "人口移動與人口分布。",
+        "note_en": "The world map of population comes back in senior high school.",
+        "note_zh": "世界的人口分布，到高中會再深入。"
+       }
+      ]
+     },
+     "sources": [
+      {
+       "en": "World population on July 1, 2025: 8,231,613 thousand (medium variant); by region: Asia 4,835,320; Africa 1,549,868; Europe 744,399; Latin America and the Caribbean 667,889; Northern America 387,528; Oceania 46,610 (thousands).",
+       "zh": "2025 年 7 月 1 日的世界與各地區人口（千人）",
+       "src": "United Nations, Department of Economic and Social Affairs, Population Division, World Population Prospects 2024, Demographic Indicators (data file)",
+       "url": "https://population.un.org/wpp/"
+      },
+      {
+       "en": "“On 15 November 2022, the world's population is projected to reach 8 billion people.”",
+       "zh": "2022 年 11 月 15 日世界人口預計達到八十億",
+       "src": "United Nations, “Day of Eight Billion”",
+       "url": "https://www.un.org/en/dayof8billion"
+      },
+      {
+       "en": "“As of 1994, an estimated 1.88 × 10⁹ people, or 33.5% of the world's population, lived within 100 vertical meters of sea level, but only 15.6% of all inhabited land lies below 100 m elevation. The median person lived at an elevation of 194 m above sea level.”",
+       "zh": "33.5% 的人住在海拔 100 公尺以內；中位數 194 公尺",
+       "src": "Cohen, J. E., and Small, C. (1998), “Hypsographic demography: The distribution of human population by altitude,” PNAS 95(24)",
+       "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC24316/"
+      },
+      {
+       "en": "Hinrichsen (1990) “estimated that 60% of world's population lived within 100 km of a coastline”; for the zone closer than 100 km, “Our estimate for that percentage as of 1990 is 40%, and 39% for 2010.”",
+       "zh": "離海岸 100 公里以內：1990 年約 40%、2010 年 39%（舊估計 60%）",
+       "src": "Kummu, M., and others (2016), “Over the hills and further away from coast: global geospatial patterns of human and environment over the 20th–21st centuries,” Environmental Research Letters 11(3)",
+       "url": "https://iopscience.iop.org/article/10.1088/1748-9326/11/3/034010"
+      },
+      {
+       "en": "“Population density provides the number of people living on a given area of land (such as people per kilometer or per square mile).”",
+       "zh": "人口密度的定義",
+       "src": "National Geographic Education, “Population Density”",
+       "url": "https://education.nationalgeographic.org/resource/population-density/"
+      },
+      {
+       "en": "「115年9月底人口數為23,213,251人」",
+       "zh": "台灣人口（民國 115 年 9 月底）",
+       "src": "內政部戶政司，〈115年9月戶籍人口統計〉",
+       "url": "https://www.ris.gov.tw/info-liferay/app/channel/newsDetail/26278263"
+      },
+      {
+       "en": "「113年人口密度每平方公里646人。各行政區中，臺北市面積為272平方公里，每平方公里有9,164人，是我國人口密度最高的都市」；直轄市「占全國總人口之69.77％」.",
+       "zh": "台灣的人口密度（民國 113 年）",
+       "src": "行政院，〈國情簡介：人口〉",
+       "url": "https://www.ey.gov.tw/state/ADBB3558D57E105B"
+      },
+      {
+       "en": "GHS-POP R2023A: “the distribution of residential population, expressed as the number of people per cell”; estimates for 1975–2020 and projections to 2025 and 2030. Schiavina M., Freire S., Carioli A., MacManus K. (2023), European Commission, Joint Research Centre. CC BY 4.0. This page sums the 2025 grid into 1° squares and turns it into one dot per million people.",
+       "zh": "人口格網（GHS-POP 2025）的說明、出處與授權",
+       "src": "European Commission, Joint Research Centre, GHSL, “GHS-POP R2023A”",
+       "url": "https://human-settlement.emergency.copernicus.eu/ghs_pop2023.php"
+      },
+      {
+       "en": "Desert areas: Natural Earth 1:50m Geography Regions 5.0.0; land: Natural Earth 1:50m Land 5.1.2 (public domain).",
+       "zh": "沙漠範圍與陸地外形",
+       "src": "Natural Earth",
+       "url": "https://www.naturalearthdata.com/about/terms-of-use/"
+      },
+      {
+       "en": "Height of the land: ETOPO5, a 5-minute grid; “The resolution of the gridded data varies from true 5-minute ... to 1 degree in data-deficient parts of Asia, South America, northern Canada, and Africa.” Used only for land above 3,000 m, tropical land above 2,000 m, and land below 100 m.",
+       "zh": "陸地的高度（很粗的舊資料，只用來劃大範圍）",
+       "src": "NOAA National Centers for Environmental Information, ETOPO5",
+       "url": "https://www.ngdc.noaa.gov/mgg/global/relief/ETOPO5/TOPO/ETOPO5/"
+      },
+      {
+       "en": "Chinese terms: 人口密度 (population density), 人口分布 (population distribution), 都市化 (urbanization), in the list of geography terms for senior high school and below.",
+       "zh": "名詞（高中以下地理學名詞）",
+       "src": "國家教育研究院，樂詞網",
+       "url": "https://terms.naer.edu.tw/"
+      },
+      {
+       "en": "社 Ca-Ⅱ-2；地 Ad-Ⅳ-1、地 Ba-Ⅳ-2、地 Bc-Ⅴ-2.",
+       "zh": "社會領域課程綱要",
+       "src": "國家教育研究院，《十二年國民基本教育課程綱要》社會領域（民國 107 年）",
+       "url": "https://www.naer.edu.tw/PageSyllabus?fid=52"
+      }
+     ]
     }
-   ]
+   ],
+   "planned": []
   },
   {
    "key": "taiwan",
