@@ -818,3 +818,17 @@ a.mu-link:hover { transform: translateY(-3px); box-shadow: var(--shadow); border
 .mu-layerq .mu-hg-sc { color: var(--ink-soft); }
 .mu-ly-opts { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 @media (max-width: 560px) { .mu-layers, .mu-layerq { padding: 1rem; } .mu-ly-opts { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+/* ── 第十六課：長音、換氣與穩定的拍 ───────────────────────────────── */
+.mu-chant, .mu-breath, .mu-steadyq { margin-top: 1.5rem; padding: 1.3rem 1.4rem; background: #fff; border: 1px solid var(--line); border-radius: 20px; box-shadow: var(--shadow-sm); max-width: 1000px; }
+.mu-chant .mu-btn[aria-pressed="true"], .mu-breath .mu-btn[aria-pressed="true"] { border-color: var(--brand); background: var(--brand-lt); }
+.mu-chant .mu-btn-gold, .mu-breath .mu-btn-gold, .mu-steadyq .mu-btn-gold { background: var(--gold); border-color: var(--gold); }
+.mu-ch-info { margin: .8rem 0 0; font-size: .9rem; }
+.mu-ch-info small { display: block; color: var(--ink-soft); font-weight: 700; margin-top: .15rem; }
+.mu-chant .mu-msg, .mu-breath .mu-msg, .mu-steadyq .mu-q-msg { color: var(--ink); margin: .8rem 0 0; min-height: 3.4em; font-size: .86rem; line-height: 1.6; }
+.mu-chant .mu-msg .zh, .mu-breath .mu-msg .zh, .mu-steadyq .mu-q-msg .zh { display: block; color: var(--ink-soft); }
+.mu-br-bar { height: 14px; margin-top: 1rem; border-radius: 999px; background: var(--cream); border: 1px solid var(--line); overflow: hidden; }
+.mu-br-bar i { display: block; height: 100%; width: 0; background: linear-gradient(90deg, #7ef0e3, #0d9d8c); }
+.mu-br-out { margin: .6rem 0 0; font-size: .88rem; font-weight: 700; }
+.mu-steadyq .mu-hg-sc { color: var(--ink-soft); }
+@media (max-width: 560px) { .mu-chant, .mu-breath, .mu-steadyq { padding: 1rem; } }
