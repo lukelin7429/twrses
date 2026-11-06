@@ -9406,7 +9406,7 @@
        "k_zh": "世界歷史・下一課",
        "en": "How Did Qin and Han Unite China?",
        "zh": "秦和漢怎麼統一中國？",
-       "soon": true,
+       "href": "/resources/classes/world-history/qin-han/",
        "note_en": "At the other end of Asia, another huge empire was held together by writing, measures, roads, and officials.",
        "note_zh": "在亞洲的另一端，另一個大帝國靠文字、度量衡、道路和官員連在一起。"
       },
@@ -9667,15 +9667,1524 @@
        "url": "https://www.naturalearthdata.com/downloads/50m-physical-vectors/50m-land/"
       }
      ]
+    },
+    {
+     "n": 7,
+     "slug": "qin-han",
+     "title": "How Did Qin and Han Unite China?",
+     "title_zh": "秦和漢怎麼統一中國？",
+     "level": "入門 · Beginner",
+     "icon": "📏",
+     "card": "coins",
+     "blurb_en": "Watch the coins of the Warring States turn into one round coin with a square hole in 3D. Then follow Qin's ten-year conquest on a map, and sort out what the Qin did and what the Han did to hold China together.",
+     "blurb_zh": "在 3D 裡看戰國各國的錢，變成同一種圓形方孔的錢。再從地圖上看秦花十年攻下六國，分一分：把中國連在一起的辦法，哪些是秦朝的、哪些是漢朝的。",
+     "big_idea_en": "In 221 BCE the kingdom of Qin conquered the other Warring States and tied them together with one script, one set of weights and measures, one coin, and new roads. The Qin fell within fifteen years, but the Han dynasty kept many of its standards and lasted about four centuries. Unification brought connection, and also heavy forced labor and harsh punishments.",
+     "big_idea_zh": "西元前 221 年，秦國攻下了其他戰國的國家，用同一套文字、度量衡、錢和新的道路把它們連在一起。秦朝十五年就亡了，但漢朝保留了很多標準，延續了大約四百年。統一帶來了連結，也帶來了沉重的勞役和嚴厲的刑罰。",
+     "lab": {
+      "kind": "coins",
+      "eyebrow": "3D Model · 3D 模型",
+      "title_en": "Many Coins Become One",
+      "title_zh": "各國的錢變成一種",
+      "how_en": "Before 221 BCE, the Warring States paid with coins of very different shapes: spades, knives, round coins, and the small “ant-nose” coins of Chu. Pick a state to read about its money. Then press Unify the coins: every coin turns into the round Qin coin with a square hole. Finally, switch to the Han dynasty's wuzhu coin, used for centuries afterward.",
+      "how_zh": "西元前 221 年以前，戰國各國用的錢形狀差很多：鏟子形、刀形、圓形，還有楚國小小的「蟻鼻錢」。選一個國家，看看它的錢。接著按「統一錢幣」：每一枚錢都變成秦朝圓形方孔的錢。最後換成漢朝的五銖錢，之後用了好幾百年。",
+      "states": [
+       {
+        "key": "qin",
+        "en": "Qin",
+        "zh": "秦",
+        "short_en": "Qin",
+        "short_zh": "秦",
+        "kind": "square",
+        "size": {
+         "d": 3.1,
+         "hole": 0.85
+        },
+        "color": "#9a7b45",
+        "coin_en": "Round coin with a square hole (banliang)",
+        "coin_zh": "圓形方孔的半兩錢",
+        "note_en": "Qin already used this coin before 221 BCE. A Qin banliang in the British Museum is 31 millimeters across and weighs about 7 grams. After unification it became everyone's coin.",
+        "note_zh": "秦國在西元前 221 年以前就用這種錢。大英博物館的一枚秦半兩，直徑 31 公釐、重大約 7 公克。統一以後，它變成了大家的錢。"
+       },
+       {
+        "key": "zhao",
+        "en": "Zhao",
+        "zh": "趙",
+        "short_en": "Zhao",
+        "short_zh": "趙",
+        "kind": "spade",
+        "size": {
+         "h": 5.6,
+         "w": 2.6
+        },
+        "color": "#7d8f6a",
+        "coin_en": "Spade money",
+        "coin_zh": "布幣（鏟形的錢）",
+        "note_en": "Spade-shaped bronze coins were used in Zhao, Wei, and other central states. A Zhao spade coin in the British Museum is 56 millimeters long. Zhao also issued knife money.",
+        "note_zh": "鏟子形的青銅錢在趙、魏等中原的國家使用。大英博物館的一枚趙國布幣長 56 公釐。趙國也發行刀幣。"
+       },
+       {
+        "key": "wei",
+        "en": "Wei",
+        "zh": "魏",
+        "short_en": "Wei",
+        "short_zh": "魏",
+        "kind": "spade",
+        "size": {
+         "h": 5.2,
+         "w": 2.6
+        },
+        "color": "#81926a",
+        "coin_en": "Spade money and round coins",
+        "coin_zh": "布幣，也有圓錢",
+        "note_en": "Wei issued spade money, and also round coins whose inscriptions give a weight. The model shows a spade coin at a size similar to Zhao's.",
+        "note_zh": "魏國發行布幣，也發行錢上寫著重量的圓錢。模型畫的是布幣，大小照趙國的相近。"
+       },
+       {
+        "key": "chu",
+        "en": "Chu",
+        "zh": "楚",
+        "short_en": "Chu",
+        "short_zh": "楚",
+        "kind": "antnose",
+        "size": {
+         "h": 1.95,
+         "w": 1.12
+        },
+        "color": "#8c8a5a",
+        "coin_en": "“Ant-nose” coins",
+        "coin_zh": "蟻鼻錢",
+        "note_en": "Chu used small bronze coins modeled on cowrie shells, about 2 centimeters long, as well as spade money and gold.",
+        "note_zh": "楚國用仿照貝殼做的小小青銅錢，長大約 2 公分；也用布幣和黃金。"
+       },
+       {
+        "key": "yan",
+        "en": "Yan",
+        "zh": "燕",
+        "short_en": "Yan",
+        "short_zh": "燕",
+        "kind": "knife",
+        "size": {
+         "len": 15.7,
+         "w": 1.8
+        },
+        "color": "#6f8564",
+        "coin_en": "Knife money",
+        "coin_zh": "刀幣",
+        "note_en": "The states in the north and northeast issued knife-shaped coins. The model draws Yan's knife at the size of a Warring States knife coin in the British Museum, 157 millimeters long.",
+        "note_zh": "北方和東北方的國家發行刀子形的錢。模型裡燕國的刀幣，照大英博物館一枚戰國刀幣的大小畫，長 157 公釐。"
+       },
+       {
+        "key": "qi",
+        "en": "Qi",
+        "zh": "齊",
+        "short_en": "Qi",
+        "short_zh": "齊",
+        "kind": "knife",
+        "size": {
+         "len": 18.3,
+         "w": 3.0
+        },
+        "color": "#7a8b60",
+        "coin_en": "Large knife money",
+        "coin_zh": "大刀幣",
+        "note_en": "Qi's knife coins were large and heavy. One in the British Museum is 183 millimeters long and weighs 45 grams, more than six Qin coins.",
+        "note_zh": "齊國的刀幣又大又重。大英博物館的一枚長 183 公釐、重 45 公克，比六枚秦半兩還重。"
+       }
+      ],
+      "banliang": {
+       "size": {
+        "d": 3.1,
+        "hole": 0.85
+       },
+       "en": "Qin banliang (“half an ounce”)",
+       "zh": "秦半兩錢",
+       "note_en": "In 221 BCE the Qin made their banliang the standard coin of the empire and declared all other coins obsolete. The round coin with a square hole stayed the standard shape of East Asian coins for about 2,000 years.",
+       "note_zh": "西元前 221 年，秦把半兩錢定為全國通用的錢，其他的錢都不能再用。圓形方孔的錢，此後大約兩千年都是東亞錢幣的標準形狀。"
+      },
+      "wuzhu": {
+       "size": {
+        "d": 2.5,
+        "hole": 0.95
+       },
+       "en": "Han wuzhu (“five grains”)",
+       "zh": "漢五銖錢",
+       "note_en": "In 118 BCE the Han emperor Wu stopped the banliang and issued the wuzhu coin. The History of the Former Han says that by about 1 CE some 28 billion had been cast.",
+       "note_zh": "西元前 118 年，漢武帝「罷半兩錢，行五銖錢」。《漢書》說，到平帝元始年間（約西元 1 年）一共鑄了「二百八十億萬餘」枚。"
+      },
+      "modes": [
+       {
+        "key": "before",
+        "en": "Before 221 BCE",
+        "zh": "西元前 221 年以前",
+        "text_en": "Each state had its own money. A trader moving from Qi to Zhao had to deal in coins of a different shape and weight.",
+        "text_zh": "每個國家都有自己的錢。從齊國到趙國做生意的人，得改用形狀和重量都不一樣的錢。"
+       },
+       {
+        "key": "qin",
+        "en": "Qin unites them",
+        "zh": "秦統一",
+        "text_en": "One coin for the whole empire: round, with a square hole, marked banliang, “half an ounce.”",
+        "text_zh": "全國用同一種錢：圓形、方孔，上面寫著「半兩」。"
+       },
+       {
+        "key": "han",
+        "en": "The Han wuzhu",
+        "zh": "漢朝的五銖錢",
+        "text_en": "The Han kept the round coin with a square hole, and from 118 BCE cast the wuzhu, which stayed in use for centuries.",
+        "text_zh": "漢朝保留了圓形方孔的錢；從西元前 118 年起鑄造五銖錢，之後用了好幾百年。"
+       }
+      ],
+      "numbers_note_en": "Sizes follow coins in the British Museum: a Zhao spade (56 mm), a Warring States knife (157 mm), a Qi knife (183 mm), Chu ant-nose coins (about 20 mm), and a Qin banliang (31 mm). Wei and Yan are drawn at similar sizes, and the Han wuzhu at a typical size. Real coins varied a great deal.",
+      "numbers_note_zh": "尺寸依大英博物館的館藏：趙國布幣（56 公釐）、一枚戰國刀幣（157 公釐）、齊國刀幣（183 公釐）、楚國蟻鼻錢（約 20 公釐）、秦半兩（31 公釐）。魏和燕照相近的大小畫，漢五銖照常見的大小畫。實物的大小差很多。",
+      "legend": [
+       {
+        "cls": "wh-bronze",
+        "en": "Bronze coins of the Warring States",
+        "zh": "戰國各國的青銅錢"
+       },
+       {
+        "cls": "wh-banliang",
+        "en": "Qin round coin with a square hole",
+        "zh": "秦朝圓形方孔的錢"
+       },
+       {
+        "cls": "wh-wuzhu",
+        "en": "Han wuzhu coin",
+        "zh": "漢朝的五銖錢"
+       }
+      ],
+      "scale_en": "This is a teaching sketch. The coins are drawn at the sizes noted, but real coins varied a lot, and their inscriptions are not drawn. The table layout does not show where each state was; the map below does.",
+      "scale_zh": "這是教學用的示意。錢幣照標示的大小畫，但實物差很多，錢上的字也沒有畫。桌上的排列不代表各國的位置；各國在哪裡，請看下面的地圖。",
+      "credit_html": "Model: an illustration made for this lesson. Coin shapes and sizes follow British Museum records listed at the bottom of the page. <span class=\"zh\">模型：為這一課製作的示意。錢幣的形狀和大小，依本頁最下面列出的大英博物館館藏資料。</span>"
+     },
+     "paras": [
+      "For more than two centuries before 221 BCE, China was divided among rival kingdoms, a time known as the Warring States. Each kingdom had its own coins, its own weights and measures, and its own laws. A trader from Qi in the east paid with heavy bronze knives; in Chu in the south, people used small coins shaped like shells. Between 230 and 221 BCE, the western kingdom of Qin conquered the other six, one after another.",
+      "The king of Qin took a new title, Huangdi, “emperor,” and is remembered as the First Emperor. His government ordered one standard for laws, weights and measures, the width of cart axles, and writing. An old Qin measuring cup in the Shanghai Museum, made in 344 BCE, also carries the edict of 221 BCE. The round Qin coin with a square hole became the only legal bronze coin, and that shape was used in East Asia for about 2,000 years.",
+      "The Qin also built roads, including the Straight Road toward the northern frontier, and joined sections of earlier walls into one line of defense. All this took the forced labor of huge numbers of people. Qin law was strict, and in 213 BCE the government ordered private copies of many books to be burned, sparing books on medicine, divination, and farming. The next year, the historian Sima Qian writes, more than 460 scholars were put to death.",
+      "The Qin dynasty did not last. Soon after the First Emperor died in 210 BCE, rebellions broke out, and by 207–206 BCE the Qin had fallen. The Han dynasty that followed lasted, with one interruption, until 220 CE. The Han kept many Qin standards and its centralized government, while turning toward Confucian ideas of moderate rule. Emperor Wu appointed scholars for the Confucian classics and asked each region to recommend honest men for office. In 118 BCE he introduced the wuzhu coin, used for centuries afterward.",
+      "The Han empire also reached out to the world. Around 138 BCE, the envoy Zhang Qian set out west and returned about thirteen years later with news of distant lands; Lesson 9 follows the roads he opened. A census recorded in the History of the Former Han counts almost 60 million people. In 105 CE, an official named Cai Lun presented a new way of making paper from bark, hemp, rags, and old fishing nets; archaeologists have also found older pieces of paper.",
+      "At the same time, at the other end of Eurasia, the Roman Empire also ruled tens of millions of people. Both empires built roads, made laws, and issued coins. Among their differences, Rome spread its citizenship, while the Han relied on a shared script and on officials chosen for their learning and good name. Each empire knew very little about the other. Comparing them shows two different ways of holding a huge land together, each with its own costs."
+     ],
+     "paras_zh": [
+      "西元前 221 年以前的兩百多年，中國分成好幾個互相競爭的國家，這個時代叫做「戰國」。每個國家都有自己的錢、自己的度量衡和自己的法律。東邊齊國的商人用沉重的青銅刀幣付錢；南方的楚國，人們用像貝殼一樣的小錢。從西元前 230 年到 221 年，西邊的秦國一個接一個地攻下了其他六國。",
+      "秦王採用了一個新的稱號「皇帝」，後來被稱為秦始皇。他的政府下令，法令、度量衡、車軸的寬度和文字都用同一個標準。上海博物館有一個秦國的舊量器，做於西元前 344 年，上面還刻有西元前 221 年的詔書。秦朝圓形方孔的錢成了唯一合法的銅錢，這個形狀在東亞用了大約兩千年。",
+      "秦朝也修築道路，包括通往北方邊境的直道，並把早先各國的城牆連成一條防線。這些都要靠非常多人的強迫勞役。秦朝的法律很嚴；西元前 213 年，政府下令燒掉民間收藏的許多書，醫藥、卜筮、種樹的書不燒。史家司馬遷寫道，第二年有四百六十多個讀書人被處死。",
+      "秦朝沒有撐多久。西元前 210 年秦始皇死後不久，各地起兵反抗；到了西元前 207 至 206 年，秦朝就亡了。接下來的漢朝，中間被打斷過一次，一直延續到西元 220 年。漢朝保留了很多秦朝的標準和中央集權的制度，同時轉向儒家溫和治理的理想。漢武帝設立五經博士，又讓各地推薦孝順廉潔的人做官。西元前 118 年，他推行五銖錢，之後用了好幾百年。",
+      "漢朝也向外面的世界伸出手。大約西元前 138 年，使者張騫往西出發，大約十三年後帶著遠方的消息回來；第九課會沿著他打通的路走。《漢書》記載的一次人口普查，算出將近六千萬人。西元 105 年，一位叫蔡倫的官員，提出用樹皮、麻、破布和舊魚網造紙的新方法；考古學家也找到過更早的紙片。",
+      "在同一個時代，歐亞大陸的另一端，羅馬帝國也統治著好幾千萬人。兩個帝國都修道路、訂法律、發行錢幣。不同的地方之一是：羅馬擴大公民權，而漢朝靠共同的文字，以及因學問和好名聲被選出來的官員。兩個帝國對彼此都所知很少。把它們放在一起比較，可以看到兩種把一大片土地連在一起的方法，各有各的代價。"
+     ],
+     "questions": [
+      "Name three things the Qin made the same across its empire.",
+      "Why might a single coin and single set of measures help hold an empire together?",
+      "The lesson says unification brought connection and also costs. Give one example of each."
+     ],
+     "answers": [
+      "Laws, weights and measures, the width of cart axles, writing, and coins. Any three are correct.",
+      "People in different regions could trade, pay taxes, and check amounts in the same way, and the government could count and collect everywhere using one standard.",
+      "Connection: one script, coins, measures, and roads linked distant regions. Costs: forced labor on roads and walls, harsh punishments, and the burning of books."
+     ],
+     "vocab": [
+      {
+       "n": 1,
+       "w": "unite",
+       "pos": "v.",
+       "zh": "統一",
+       "ex": "Qin <b>united</b> the Warring States in 221 BCE.",
+       "exzh": "秦在西元前 221 年統一了戰國各國。"
+      },
+      {
+       "n": 2,
+       "w": "dynasty",
+       "pos": "n.",
+       "zh": "朝代",
+       "ex": "The Han <b>dynasty</b> lasted about four hundred years.",
+       "exzh": "漢朝延續了大約四百年。"
+      },
+      {
+       "n": 3,
+       "w": "emperor",
+       "pos": "n.",
+       "zh": "皇帝",
+       "ex": "The king of Qin called himself <b>emperor</b>.",
+       "exzh": "秦王稱自己為皇帝。"
+      },
+      {
+       "n": 4,
+       "w": "standard",
+       "pos": "n.",
+       "zh": "標準",
+       "ex": "Everyone used the same <b>standard</b> for weights.",
+       "exzh": "大家用同一個重量的標準。"
+      },
+      {
+       "n": 5,
+       "w": "weights and measures",
+       "pos": "n.",
+       "zh": "度量衡",
+       "ex": "Qin made <b>weights and measures</b> the same everywhere.",
+       "exzh": "秦讓各地的度量衡都一樣。"
+      },
+      {
+       "n": 6,
+       "w": "coin",
+       "pos": "n.",
+       "zh": "錢幣",
+       "ex": "The <b>coin</b> was round with a square hole.",
+       "exzh": "這種錢是圓形、中間方孔。"
+      },
+      {
+       "n": 7,
+       "w": "forced labor",
+       "pos": "n.",
+       "zh": "強迫勞役",
+       "ex": "The walls were built with <b>forced labor</b>.",
+       "exzh": "這些城牆是用強迫勞役蓋的。"
+      },
+      {
+       "n": 8,
+       "w": "official",
+       "pos": "n.",
+       "zh": "官員",
+       "ex": "The Han chose <b>officials</b> for their learning.",
+       "exzh": "漢朝因為學問而選出官員。"
+      }
+     ],
+     "quiz": [
+      {
+       "q": "When did Qin unite the Warring States?",
+       "options": [
+        "221 BCE",
+        "476 CE",
+        "3000 BCE",
+        "105 CE"
+       ],
+       "correct": 0
+      },
+      {
+       "q": "What shape was the Qin coin?",
+       "options": [
+        "Round with a square hole",
+        "Shaped like a knife",
+        "Shaped like a spade",
+        "Shaped like a shell"
+       ],
+       "correct": 0
+      },
+      {
+       "q": "In 213 BCE, which books did the Qin order to be burned?",
+       "options": [
+        "Private copies of the Odes and the Documents",
+        "Books on medicine",
+        "Books on divination",
+        "Books on farming"
+       ],
+       "correct": 0
+      },
+      {
+       "q": "How long did the Han dynasty last, with one interruption?",
+       "options": [
+        "About four hundred years",
+        "About fifteen years",
+        "About forty years",
+        "About two thousand years"
+       ],
+       "correct": 0
+      },
+      {
+       "q": "Which empire ruled a similar number of people at about the same time as the Han?",
+       "options": [
+        "The Roman Empire",
+        "The Persian Empire of Darius I",
+        "Ancient Egypt under Khufu",
+        "The city-state of Athens"
+       ],
+       "correct": 0
+      }
+     ],
+     "parts_head": {
+      "eyebrow": "Try It in the Model · 在模型裡試試",
+      "en": "Four things to watch",
+      "zh": "四件值得看的事"
+     },
+     "parts": [
+      {
+       "key": "before",
+       "icon": "🪙",
+       "en": "Many kinds of money",
+       "zh": "好多種錢",
+       "meta_en": "Before 221 BCE",
+       "meta_zh": "西元前 221 年以前",
+       "demo": "before",
+       "text_en": "Each state on the table has its own coin. Count how many different shapes you can find.",
+       "text_zh": "桌上每個國家都有自己的錢。數數看有幾種不同的形狀。"
+      },
+      {
+       "key": "knife",
+       "icon": "🔪",
+       "en": "A coin as long as a ruler",
+       "zh": "像尺一樣長的錢",
+       "meta_en": "Knife money",
+       "meta_zh": "刀幣",
+       "demo": "knife",
+       "text_en": "The knife coins of the northeast were long and heavy. A Qi knife in the British Museum is 18 centimeters long.",
+       "text_zh": "東北方的刀幣又長又重。大英博物館的一枚齊國刀幣長 18 公分。"
+      },
+      {
+       "key": "qin",
+       "icon": "⚪",
+       "en": "One coin for everyone",
+       "zh": "大家用同一種錢",
+       "meta_en": "221 BCE",
+       "meta_zh": "西元前 221 年",
+       "demo": "qin",
+       "text_en": "Press Qin unites them. Every coin turns into the round banliang, and the table becomes a neat grid.",
+       "text_zh": "按「秦統一」。每一枚錢都變成圓形的半兩錢，桌上變成整齊的方陣。"
+      },
+      {
+       "key": "han",
+       "icon": "🔁",
+       "en": "The Han keep the shape",
+       "zh": "漢朝保留了形狀",
+       "meta_en": "118 BCE",
+       "meta_zh": "西元前 118 年",
+       "demo": "han",
+       "text_en": "The Han changed the coin, but not its shape: the wuzhu was still round with a square hole.",
+       "text_zh": "漢朝換了錢，但沒有換形狀：五銖錢還是圓形方孔。"
+      }
+     ],
+     "parts_note_en": "Then imagine you are a trader in 225 BCE. How many kinds of coin would you need to carry to buy salt in Qi, cloth in Chu, and horses in Zhao?",
+     "parts_note_zh": "接著想像你是西元前 225 年的商人。要在齊國買鹽、在楚國買布、在趙國買馬，你得帶幾種錢？",
+     "conquest": {
+      "eyebrow": "Explore · 動手看看",
+      "en": "Ten Years, Six Kingdoms",
+      "zh": "十年，六個國家",
+      "lead_en": "Pull the slider from 232 BCE to 220 BCE. Each kingdom lights up when Qin conquered it, as recorded in the Records of the Grand Historian. The circles mark capitals; the map shows land only, with no modern borders.",
+      "lead_zh": "把滑桿從西元前 232 年拉到西元前 220 年。每個國家在被秦攻下的那一年亮起來，年代依《史記》的記載。圓圈標的是都城；地圖只畫陸地，不畫今天的國界。",
+      "count_en": "Kingdoms under Qin",
+      "count_zh": "在秦統治下的國家",
+      "labels": {
+       "what_en": "What happened",
+       "what_zh": "發生了什麼",
+       "when_en": "When",
+       "when_zh": "什麼時候"
+      },
+      "box": {
+       "west": 102,
+       "east": 124,
+       "south": 28.5,
+       "north": 42.5
+      },
+      "from": 2232,
+      "to": 2220,
+      "start": 2232,
+      "slider_from_en": "232 BCE",
+      "slider_from_zh": "西元前 232 年",
+      "slider_to_en": "220 BCE",
+      "slider_to_zh": "西元前 220 年",
+      "idle_en": "Click a numbered circle on the map, or a name below it.",
+      "idle_zh": "點地圖上有號碼的圓，或是地圖下面的名字。",
+      "foot_en": "The dates follow the Records of the Grand Historian (the Basic Annals of Qin and the Table of the Six States). The locations of the capitals are approximate.",
+      "foot_zh": "年代依《史記》〈秦始皇本紀〉及〈六國年表〉。都城的位置是大約的。",
+      "centers": [
+       {
+        "key": "qin",
+        "en": "Qin (Xianyang)",
+        "zh": "秦（咸陽）",
+        "at": [
+         108.7,
+         34.35
+        ],
+        "r": 1.1,
+        "older": 2232,
+        "nearer": 2232,
+        "crops_en": "The kingdom of Qin, in the west, whose king Zheng conquered the others and took the new title of emperor.",
+        "crops_zh": "西邊的秦國；秦王政攻下其他國家，並採用了「皇帝」這個新稱號。",
+        "when_en": "Ruled by King Zheng from 246 BCE.",
+        "when_zh": "秦王政從西元前 246 年起在位。",
+        "note_en": "Xianyang became the capital of the whole empire.",
+        "note_zh": "咸陽成了整個帝國的都城。",
+        "src": "《史記・秦始皇本紀》",
+        "url": "https://zh.wikisource.org/wiki/%E5%8F%B2%E8%A8%98/%E5%8D%B7006"
+       },
+       {
+        "key": "han",
+        "en": "Han (Xinzheng)",
+        "zh": "韓（新鄭）",
+        "at": [
+         113.7,
+         34.4
+        ],
+        "r": 1.1,
+        "older": 2230,
+        "nearer": 2230,
+        "crops_en": "The first kingdom to fall. Its king, An, was captured.",
+        "crops_zh": "第一個被滅的國家，韓王安被俘。",
+        "when_en": "230 BCE.",
+        "when_zh": "西元前 230 年。",
+        "note_en": "This Han state is a different name from the later Han dynasty; in Chinese the two are written with different characters (韓 and 漢).",
+        "note_zh": "這裡的韓國和後來的漢朝不一樣，中文是兩個不同的字（韓、漢）。",
+        "src": "《史記・秦始皇本紀》",
+        "url": "https://zh.wikisource.org/wiki/%E5%8F%B2%E8%A8%98/%E5%8D%B7006"
+       },
+       {
+        "key": "zhao",
+        "en": "Zhao (Handan)",
+        "zh": "趙（邯鄲）",
+        "at": [
+         114.5,
+         36.6
+        ],
+        "r": 1.1,
+        "older": 2228,
+        "nearer": 2228,
+        "crops_en": "Qin armies took Handan and captured the king of Zhao.",
+        "crops_zh": "秦軍攻下邯鄲，俘虜了趙王。",
+        "when_en": "228 BCE.",
+        "when_zh": "西元前 228 年。",
+        "note_en": "Zhao used both spade money and knife money.",
+        "note_zh": "趙國同時用布幣和刀幣。",
+        "src": "《史記・秦始皇本紀》",
+        "url": "https://zh.wikisource.org/wiki/%E5%8F%B2%E8%A8%98/%E5%8D%B7006"
+       },
+       {
+        "key": "wei",
+        "en": "Wei (Daliang)",
+        "zh": "魏（大梁）",
+        "at": [
+         114.35,
+         34.8
+        ],
+        "r": 1.1,
+        "older": 2225,
+        "nearer": 2225,
+        "crops_en": "Qin flooded the capital Daliang by diverting a river, and the king of Wei surrendered.",
+        "crops_zh": "秦軍引河水灌大梁城，魏王投降。",
+        "when_en": "225 BCE.",
+        "when_zh": "西元前 225 年。",
+        "note_en": "A river became a weapon, a reminder of Lesson 4's rivers.",
+        "note_zh": "河流成了武器，讓人想起第四課的河。",
+        "src": "《史記・秦始皇本紀》",
+        "url": "https://zh.wikisource.org/wiki/%E5%8F%B2%E8%A8%98/%E5%8D%B7006"
+       },
+       {
+        "key": "chu",
+        "en": "Chu (Shouchun)",
+        "zh": "楚（壽春）",
+        "at": [
+         116.8,
+         32.6
+        ],
+        "r": 1.1,
+        "older": 2223,
+        "nearer": 2223,
+        "crops_en": "The largest southern kingdom, which resisted for years. Its king was captured and its last general died.",
+        "crops_zh": "南方最大的國家，抵抗了好幾年。楚王被俘，最後的將領也死了。",
+        "when_en": "223 BCE, the year usually given for the fall of Chu. The Records place the king's capture in 224 BCE and the end of resistance in 223 BCE.",
+        "when_zh": "西元前 223 年，一般以這一年為楚亡。《史記》把楚王被俘記在西元前 224 年，抵抗結束記在西元前 223 年。",
+        "note_en": "Chu used small ant-nose coins, spade money, and gold.",
+        "note_zh": "楚國用小小的蟻鼻錢、布幣和黃金。",
+        "src": "《史記・秦始皇本紀》與〈六國年表〉",
+        "url": "https://zh.wikisource.org/wiki/%E5%8F%B2%E8%A8%98/%E5%8D%B7015"
+       },
+       {
+        "key": "yan",
+        "en": "Yan (Ji)",
+        "zh": "燕（薊）",
+        "at": [
+         116.4,
+         39.9
+        ],
+        "r": 1.1,
+        "older": 2222,
+        "nearer": 2222,
+        "crops_en": "Qin took the capital, Ji, in 226 BCE; the king fled northeast to Liaodong and was captured there four years later.",
+        "crops_zh": "秦軍在西元前 226 年攻下燕都薊；燕王逃到東北的遼東，四年後在那裡被俘。",
+        "when_en": "222 BCE.",
+        "when_zh": "西元前 222 年。",
+        "note_en": "Yan was a knife-money state.",
+        "note_zh": "燕國用刀幣。",
+        "src": "《史記・秦始皇本紀》",
+        "url": "https://zh.wikisource.org/wiki/%E5%8F%B2%E8%A8%98/%E5%8D%B7006"
+       },
+       {
+        "key": "qi",
+        "en": "Qi (Linzi)",
+        "zh": "齊（臨淄）",
+        "at": [
+         118.3,
+         36.85
+        ],
+        "r": 1.1,
+        "older": 2221,
+        "nearer": 2221,
+        "crops_en": "The last kingdom. Qin took its king, Jian.",
+        "crops_zh": "最後一個國家，秦「得齊王建」。",
+        "when_en": "221 BCE: the unification is complete.",
+        "when_zh": "西元前 221 年：統一完成。",
+        "note_en": "The same year, Qin standardized laws, weights and measures, and writing.",
+        "note_zh": "同一年，秦統一了法令、度量衡和文字。",
+        "src": "《史記・秦始皇本紀》",
+        "url": "https://zh.wikisource.org/wiki/%E5%8F%B2%E8%A8%98/%E5%8D%B7006"
+       }
+      ]
+     },
+     "qinhan": {
+      "eyebrow": "Game · 小遊戲",
+      "en": "Qin or Han?",
+      "zh": "秦朝還是漢朝？",
+      "lead_en": "Both dynasties helped hold China together, in different ways. For each one, decide whether it was done by the Qin or by the Han. There is no timer.",
+      "lead_zh": "兩個朝代都幫忙把中國連在一起，只是方法不一樣。每一題判斷：這是秦朝做的，還是漢朝做的？不計時。",
+      "ask_en": "Qin or Han?",
+      "ask_zh": "秦朝，還是漢朝？",
+      "buckets": [
+       {
+        "key": "qin",
+        "icon": "⚖️",
+        "en": "Qin (221–207 BCE)",
+        "zh": "秦朝（西元前 221–207 年）"
+       },
+       {
+        "key": "han",
+        "icon": "📜",
+        "en": "Han (206 BCE–220 CE)",
+        "zh": "漢朝（西元前 206 年–西元 220 年）"
+       }
+      ],
+      "items": [
+       {
+        "answer": "qin",
+        "en": "One standard for writing across the empire",
+        "zh": "全國的文字用同一個標準（書同文字）",
+        "why_en": "The Records of the Grand Historian lists it among the changes of 221 BCE: one standard for laws, measures, axle widths, and writing.",
+        "why_zh": "《史記》把它列在西元前 221 年的改變裡：「一法度衡石丈尺。車同軌。書同文字。」",
+        "hint_en": "It happened in the year of unification.",
+        "hint_zh": "統一那一年的事。"
+       },
+       {
+        "answer": "qin",
+        "en": "An edict added to an old measuring cup, ordering one standard for all measures",
+        "zh": "在一個舊量器上加刻詔書，下令度量衡統一",
+        "why_en": "The Shang Yang measure in the Shanghai Museum, made in 344 BCE, carries a second inscription added in 221 BCE.",
+        "why_zh": "上海博物館的商鞅方升做於西元前 344 年，上面還有西元前 221 年加刻的詔書。",
+        "hint_en": "Look at the date of the second inscription.",
+        "hint_zh": "看看第二段銘文的年代。"
+       },
+       {
+        "answer": "qin",
+        "en": "The Straight Road, cut through hills and valleys toward the northern frontier",
+        "zh": "直道：削平山、填平谷，一路通往北方邊境",
+        "why_en": "The Records of the Grand Historian dates it to 212 BCE: “cutting through mountains and filling valleys, straight through.”",
+        "why_zh": "《史記》記在西元前 212 年：「道九原抵雲陽，塹山堙谷，直通之。」",
+        "hint_en": "It was built in the First Emperor's reign.",
+        "hint_zh": "秦始皇在位時蓋的。"
+       },
+       {
+        "answer": "han",
+        "en": "The wuzhu coin, used for centuries",
+        "zh": "用了好幾百年的五銖錢",
+        "why_en": "Emperor Wu of Han stopped the banliang and issued the wuzhu in 118 BCE.",
+        "why_zh": "漢武帝在西元前 118 年「罷半兩錢，行五銖錢」。",
+        "hint_en": "The Qin coin was the banliang.",
+        "hint_zh": "秦朝的錢是半兩。"
+       },
+       {
+        "answer": "han",
+        "en": "Asking each region to recommend men known for being filial and honest",
+        "zh": "讓各郡國推薦孝順、廉潔的人（舉孝廉）",
+        "why_en": "In 134 BCE the Han court ordered each commandery and kingdom to recommend one person known as filial and honest for office.",
+        "why_zh": "西元前 134 年，漢朝下令「郡國舉孝廉各一人」。",
+        "hint_en": "This was a way to choose officials, decades after the Qin fell.",
+        "hint_zh": "這是選官員的方法，在秦亡幾十年以後。"
+       },
+       {
+        "answer": "han",
+        "en": "Official scholars for the Five Classics",
+        "zh": "設立五經博士",
+        "why_en": "The History of the Former Han dates the appointment of scholars for the five Confucian classics to 136 BCE; historians debate how quickly the system took shape.",
+        "why_zh": "《漢書》把「置五經博士」記在西元前 136 年；這個制度多快成形，歷史學家有不同看法。",
+        "hint_en": "The Qin court had scholars too, but this step came later.",
+        "hint_zh": "秦朝也有博士，但這一步比較晚。"
+       },
+       {
+        "answer": "qin",
+        "en": "Ordering private copies of many books to be burned",
+        "zh": "下令燒掉民間收藏的許多書",
+        "why_en": "In 213 BCE, on Li Si's advice, the Qin ordered private copies of the Odes, the Documents, and the works of the hundred schools to be burned; books on medicine, divination, and farming were spared.",
+        "why_zh": "西元前 213 年，秦採納李斯的建議，下令燒掉民間收藏的《詩》《書》和百家的書；醫藥、卜筮、種樹的書不燒。",
+        "hint_en": "It happened under the First Emperor.",
+        "hint_zh": "秦始皇的時候。"
+       },
+       {
+        "answer": "han",
+        "en": "A new way of making paper, reported to the emperor",
+        "zh": "向皇帝報告一種新的造紙方法",
+        "why_en": "The History of the Later Han says Cai Lun made paper from tree bark, hemp, rags, and fishing nets, and presented it in 105 CE.",
+        "why_zh": "《後漢書》說，蔡倫「用樹膚、麻頭及敝布、魚網以為紙」，西元 105 年奏上。",
+        "hint_en": "This was very late, near the end of this lesson's time.",
+        "hint_zh": "很晚，接近這一課的年代的尾聲。"
+       }
+      ],
+      "end_en": "The Qin set up the standards in a hurry and fell within fifteen years. The Han kept many of them, added new ways to choose officials and teach scholars, and lasted about four centuries.",
+      "end_zh": "秦朝很急地訂下各種標準，十五年就亡了。漢朝保留了其中很多，又加上選官員、教育讀書人的新方法，延續了大約四百年。"
+     },
+     "timeline": {
+      "eyebrow": "Parallel Timeline · 平行時間軸",
+      "en": "Qin, Han, and Rome",
+      "zh": "秦、漢與羅馬",
+      "lead_en": "The Qin and Han are in the East Asia lane, and Rome in the Europe lane. Notice how short the Qin dynasty was, and how long the Han overlapped with Rome.",
+      "lead_zh": "秦和漢在東亞那一條線，羅馬在歐洲那一條線。注意秦朝有多短，漢朝又和羅馬重疊了多久。",
+      "from": 400000,
+      "to": 0,
+      "view": {
+       "from": 2400,
+       "to": 1650
+      },
+      "lesson": {
+       "from": 2232,
+       "to": 1780,
+       "en": "This lesson is here",
+       "zh": "這一課在這裡"
+      },
+      "idle_en": "Click a bar or a diamond to read its dates.",
+      "idle_zh": "點一條長條或一個菱形，讀出它的年代。",
+      "tips": [
+       {
+        "en": "The Qin dynasty is a short bar; the Han is one of the longest in this lesson.",
+        "zh": "秦朝是一條很短的長條；漢朝是這一課裡最長的之一。"
+       },
+       {
+        "en": "A striped bar marks dates that sources give differently, such as when the interruption of the Han ended.",
+        "zh": "有條紋的長條，是各資料說法不同的年代，例如漢朝中斷的結束時間。"
+       },
+       {
+        "en": "The gray diamonds mark single events: unification, the wuzhu coin, and Cai Lun's paper.",
+        "zh": "灰色的菱形標的是單一事件：統一、五銖錢，以及蔡倫的紙。"
+       }
+      ],
+      "events": [
+       {
+        "lane": "easia",
+        "from": {
+         "year": -221
+        },
+        "kind": "anchor",
+        "en": "Qin unites the Warring States",
+        "zh": "秦統一戰國",
+        "note_en": "One standard for laws, measures, axles, and writing.",
+        "note_zh": "法令、度量衡、車軌和文字都用同一個標準。"
+       },
+       {
+        "lane": "easia",
+        "from": {
+         "year": -221
+        },
+        "to": {
+         "year": -207
+        },
+        "en": "The Qin dynasty",
+        "zh": "秦朝",
+        "note_en": "221 to 207 BCE; the dynasty lasted about fifteen years.",
+        "note_zh": "西元前 221 到 207 年；大約十五年。"
+       },
+       {
+        "lane": "easia",
+        "from": {
+         "year": -206
+        },
+        "to": {
+         "year": 220
+        },
+        "en": "The Han dynasty",
+        "zh": "漢朝",
+        "note_en": "206 BCE to 220 CE, interrupted by Wang Mang's Xin dynasty.",
+        "note_zh": "西元前 206 年到西元 220 年，中間被王莽的新朝打斷。"
+       },
+       {
+        "lane": "easia",
+        "from": {
+         "year": 9
+        },
+        "to": {
+         "year": 25
+        },
+        "kind": "debated",
+        "en": "Wang Mang's Xin dynasty",
+        "zh": "王莽的新朝",
+        "note_en": "From 9 CE; sources end it in 23 CE, when Wang Mang died, or in 25 CE, when the Han was restored.",
+        "note_zh": "從西元 9 年開始；有的資料算到王莽死的西元 23 年，有的算到漢朝恢復的西元 25 年。"
+       },
+       {
+        "lane": "easia",
+        "from": {
+         "year": -118
+        },
+        "kind": "anchor",
+        "en": "The wuzhu coin",
+        "zh": "五銖錢",
+        "note_en": "Emperor Wu stopped the banliang and issued the wuzhu.",
+        "note_zh": "漢武帝罷半兩錢，行五銖錢。"
+       },
+       {
+        "lane": "wasia",
+        "from": {
+         "year": -138
+        },
+        "to": {
+         "year": -125
+        },
+        "kind": "debated",
+        "en": "Zhang Qian's first journey west",
+        "zh": "張騫第一次出使西域",
+        "note_en": "Usually dated from 139 or 138 BCE; he returned about thirteen years later.",
+        "note_zh": "一般認為從西元前 139 或 138 年出發；大約十三年後回來。"
+       },
+       {
+        "lane": "easia",
+        "from": {
+         "year": 105
+        },
+        "kind": "anchor",
+        "en": "Cai Lun presents paper",
+        "zh": "蔡倫奏上造紙的方法",
+        "note_en": "Paper from bark, hemp, rags, and fishing nets.",
+        "note_zh": "用樹皮、麻、破布和魚網造的紙。"
+       },
+       {
+        "lane": "europe",
+        "from": {
+         "year": -27
+        },
+        "to": {
+         "year": 476
+        },
+        "en": "The Roman Empire (the west)",
+        "zh": "羅馬帝國（西部）",
+        "note_en": "Lesson 6: from 27 BCE until the western half ended in 476 CE.",
+        "note_zh": "第六課：從西元前 27 年到西部在西元 476 年結束。"
+       }
+      ]
+     },
+     "how_we_know": {
+      "eyebrow": "How Do We Know? · 我們怎麼知道？",
+      "en": "A historian, a measuring cup, and slips of bamboo",
+      "zh": "一位史家、一個量器，和一片片竹簡",
+      "lead_en": "Much of the story of the Qin comes from one historian who wrote under the Han, so archaeology matters a great deal.",
+      "lead_zh": "秦朝的故事，很多來自一位在漢朝寫書的史家，所以考古的發現特別重要。",
+      "items": [
+       {
+        "icon": "📚",
+        "en": "The Records of the Grand Historian",
+        "zh": "《史記》",
+        "limit_en": "Sima Qian wrote for the dynasty that replaced the Qin, and readers have long asked how fair he was to it. Newly excavated Qin texts let historians check parts of his story.",
+        "limit_zh": "司馬遷是為取代秦朝的漢朝寫書，讀者一直在問他對秦朝是否公平。新出土的秦朝文書，讓歷史學家能查核他的一部分說法。",
+        "src": "《史記・秦始皇本紀》",
+        "url": "https://zh.wikisource.org/wiki/%E5%8F%B2%E8%A8%98/%E5%8D%B7006",
+        "text_en": "Sima Qian, a Han court historian, wrote the Shiji about a century after the Qin fell. It tells of the unification, the standards, the roads, the burning of books, and the rebellions.",
+        "text_zh": "漢朝的史官司馬遷，在秦亡大約一百年後寫成《史記》。書裡記載了統一、各種標準、道路、焚書，以及各地的起兵。"
+       },
+       {
+        "icon": "🥣",
+        "en": "Objects with dates on them",
+        "zh": "刻了年代的器物",
+        "limit_en": "Objects show what the law ordered, not how strictly it was followed in every village.",
+        "limit_zh": "器物告訴我們法令下了什麼命令，卻看不出每個村子執行得多嚴格。",
+        "src": "上海博物館「商鞅方升」；「每月一珍：商鞅方升」",
+        "url": "https://www.shanghaimuseum.net/resource/museum_files/show_files/20180903105852824/index.html",
+        "text_en": "The Shang Yang measuring cup in the Shanghai Museum is 18.7 centimeters long and holds 202 milliliters. One inscription dates it to 344 BCE; a second, added in 221 BCE, orders that all measures be made the same.",
+        "text_zh": "上海博物館的商鞅方升長 18.7 公分，容量 202 毫升。一段銘文說它做於西元前 344 年；另一段是西元前 221 年加刻的，下令度量衡要統一。"
+       },
+       {
+        "icon": "🎋",
+        "en": "Laws on bamboo slips",
+        "zh": "竹簡上的法律",
+        "limit_en": "The slips come from one official's tomb and cover only some kinds of law, so they cannot tell us everything about how Qin law worked.",
+        "limit_zh": "這些竹簡來自一位官吏的墓，只包含部分種類的法律，不能告訴我們秦朝法律的全部。",
+        "src": "睡虎地秦簡〈徭律〉（維基文庫錄文）",
+        "url": "https://zh.wikisource.org/wiki/%E7%9D%A1%E8%99%8E%E5%9C%B0%E7%A7%A6%E7%B0%A1/%E5%BE%AD%E5%BE%8B",
+        "text_en": "Qin legal texts written on bamboo slips, found at Shuihudi in Hubei, show the actual rules. One statute on labor service fines people who arrive late and excuses them if it rains.",
+        "text_zh": "在湖北睡虎地出土、寫在竹簡上的秦朝法律文書，讓我們看到真正的條文。其中一條關於徭役的法律說：遲到要罰，但如果下雨就免除。"
+       }
+      ]
+     },
+     "views": {
+      "eyebrow": "Different Accounts · 不同的說法",
+      "en": "Four questions about the Qin and Han",
+      "zh": "關於秦漢的四個問題",
+      "lead_en": "Ancient histories and new discoveries do not always agree. Here are four questions, with the views set side by side.",
+      "lead_zh": "古代的史書和新的發現，說法不一定一樣。下面是四個問題，各種說法並列。",
+      "rule_en": "Notice how a single excavated text can challenge a story told for two thousand years, and how it can also be over-read.",
+      "rule_zh": "留意一份出土的文書，怎麼挑戰一個流傳了兩千年的故事；也留意它可能被讀得太過頭。",
+      "items": [
+       {
+        "topic_en": "Was being late really punished by death?",
+        "topic_zh": "遲到真的要殺頭嗎？",
+        "sides": [
+         {
+          "label_en": "Yes, says the Shiji",
+          "label_zh": "《史記》說是",
+          "en": "Sima Qian writes that Chen Sheng's band, held up by rain, knew that under the law “those who miss the deadline are all beheaded,” so they rebelled.",
+          "zh": "司馬遷寫道，陳勝的隊伍被大雨耽誤，知道依法「失期，法皆斬」，所以起兵反抗。",
+          "src": "《史記・陳涉世家》",
+          "url": "https://zh.wikisource.org/wiki/%E5%8F%B2%E8%A8%98/%E5%8D%B7048"
+         },
+         {
+          "label_en": "Not in this law",
+          "label_zh": "這條法律不是這樣",
+          "en": "A Qin statute on labor service found at Shuihudi punishes lateness with a reprimand or fines, and excuses it in rain. But Chen Sheng's men were garrison soldiers, who fell under different rules.",
+          "zh": "睡虎地出土的秦朝〈徭律〉，對遲到的處罰是斥責或罰錢，下雨還可以免除。不過陳勝那群人是去戍守邊境的，適用的可能是另一套規定。",
+          "src": "睡虎地秦簡〈徭律〉；郭建，澎湃新聞（2014）",
+          "url": "https://zh.wikisource.org/wiki/%E7%9D%A1%E8%99%8E%E5%9C%B0%E7%A7%A6%E7%B0%A1/%E5%BE%AD%E5%BE%8B"
+         }
+        ],
+        "note_en": "The new evidence shows that one story may be too simple, but it does not settle the question.",
+        "note_zh": "新的證據說明這個故事可能太簡單了，但還不能下定論。"
+       },
+       {
+        "topic_en": "What was the burning of books really about?",
+        "topic_zh": "焚書到底是怎麼回事？",
+        "sides": [
+         {
+          "label_en": "Destroying learning",
+          "label_zh": "毀掉學問",
+          "en": "The burning of books and the deaths of scholars became a lasting symbol of a harsh ruler attacking learning, especially Confucian learning.",
+          "zh": "焚書和處死讀書人，成了暴君打壓學問、特別是儒家學問的長久象徵。",
+          "src": "《史記・秦始皇本紀》",
+          "url": "https://zh.wikisource.org/wiki/%E5%8F%B2%E8%A8%98/%E5%8D%B7006"
+         },
+         {
+          "label_en": "Controlling private learning",
+          "label_zh": "控制民間的學問",
+          "en": "The Shiji itself says that books on medicine, divination, and farming were spared, and the court's own scholars kept their copies. One scholar argues that Confucianism as such was not the target.",
+          "zh": "《史記》自己就說，醫藥、卜筮、種樹的書不燒，朝廷博士官的藏書也保留。有學者主張，針對的並不是儒家本身。",
+          "src": "Pines, “Legalism in Chinese Philosophy,” Stanford Encyclopedia of Philosophy",
+          "url": "https://plato.stanford.edu/entries/chinese-legalism/"
+         }
+        ],
+        "note_en": "Both views agree that many books were lost; they differ on what the Qin intended.",
+        "note_zh": "兩種說法都同意很多書因此失傳；分歧在於秦朝的用意是什麼。"
+       },
+       {
+        "topic_en": "Is every terracotta warrior's face different?",
+        "topic_zh": "每一個兵馬俑的臉都不一樣嗎？",
+        "sides": [
+         {
+          "label_en": "All different",
+          "label_zh": "都不一樣",
+          "en": "UNESCO's description of the First Emperor's tomb says that the figures “are all different.”",
+          "zh": "聯合國教科文組織對秦始皇陵的說明寫道，這些陶俑「都不一樣」。",
+          "src": "UNESCO World Heritage List, Mausoleum of the First Qin Emperor",
+          "url": "https://whc.unesco.org/en/list/441"
+         },
+         {
+          "label_en": "Molded, then finished by hand",
+          "label_zh": "用模子做，再用手修",
+          "en": "A Metropolitan Museum essay explains that parts were made with molds and then finished by hand, and that most scholars do not think the statues were modeled on real soldiers.",
+          "zh": "大都會藝術博物館的一篇文章說明，陶俑的部分是用模子做的，再用手修整；大多數學者也不認為它們是照著真的士兵做的。",
+          "src": "Metropolitan Museum of Art, “Making the Warrior” (2017)",
+          "url": "https://www.metmuseum.org/perspectives/terracotta-warriors-age-of-empires"
+         }
+        ],
+        "note_en": "The faces are individualized, but made with a mix of molds and handwork. Scholars still debate exactly how.",
+        "note_zh": "臉是有個別差異的，但是用模子加上手工做出來的；確切的做法學者還在討論。"
+       },
+       {
+        "topic_en": "Which empire was bigger, Rome or the Han?",
+        "topic_zh": "羅馬和漢朝，哪一個比較大？",
+        "sides": [
+         {
+          "label_en": "The same order of size",
+          "label_zh": "同一個規模",
+          "en": "A census in the History of the Former Han counts 59,594,978 people. A 2025 study accepts about 57.7 million for the Han around 2 CE and about 75 million for Rome around 165 CE, and says each ruled 60 to 70 million people at its peak.",
+          "zh": "《漢書》記載的人口普查是 59,594,978 人。2025 年的一項研究採用的估計是：西元 2 年前後的漢朝約 5,770 萬，西元 165 年前後的羅馬約 7,500 萬；並說兩者全盛時都統治了六、七千萬人。",
+          "src": "《漢書・地理志》；Alfani, Bolla, and Scheidel, Nature Communications (2025)",
+          "url": "https://doi.org/10.1038/s41467-025-58581-0"
+         },
+         {
+          "label_en": "The wrong question",
+          "label_zh": "問錯了問題",
+          "en": "Historians who compare the two, such as Michael Loewe, look at how each was governed, and note that each empire was largely ignorant of the other.",
+          "zh": "比較這兩個帝國的歷史學家，例如魯惟一（Michael Loewe），看的是它們怎麼治理，並指出兩個帝國對彼此大多一無所知。",
+          "src": "Loewe, Imperial Institutions in Ancient Rome and Early China (2025)",
+          "url": "https://doi.org/10.5040/9781350445154"
+         }
+        ],
+        "note_en": "Size alone does not tell us how well people lived. Lesson 6 gave other estimates for Rome; every number here is an estimate for a different year.",
+        "note_zh": "光看大小，說明不了人們過得好不好。第六課對羅馬的人口有其他的估計；這裡每一個數字，都是不同年份的估計。"
+       }
+      ]
+     },
+     "phrases": {
+      "eyebrow": "History English · 歷史英語",
+      "en": "Eight sentences for comparing two empires",
+      "zh": "比較兩個帝國的八句英文",
+      "lead_en": "These sentences help you compare Qin and Han China with Rome without ranking them. Listen, repeat, then make your own sentence with the words in bold.",
+      "lead_zh": "這八句幫你比較秦漢和羅馬，而不替它們排名。先聽、再跟著唸，然後用粗體的字自己造一句。",
+      "rows": [
+       {
+        "en": "Both Rome and the Han ruled tens of millions of people.",
+        "html": "<b>Both</b> Rome <b>and</b> the Han ruled tens of millions of people.",
+        "zh": "羅馬和漢朝都統治了好幾千萬人。",
+        "note_en": "both … and …: two things that are alike",
+        "note_zh": "兩者都……"
+       },
+       {
+        "en": "The Qin coin was the same shape as the Han coin.",
+        "html": "The Qin coin was <b>the same</b> shape <b>as</b> the Han coin.",
+        "zh": "秦朝的錢和漢朝的錢形狀一樣。",
+        "note_en": "the same … as: exactly alike",
+        "note_zh": "和……一樣"
+       },
+       {
+        "en": "Unlike Rome, the Qin made everyone use one script.",
+        "html": "<b>Unlike</b> Rome, the Qin made everyone use one script.",
+        "zh": "和羅馬不同，秦朝讓大家都用同一套文字。",
+        "note_en": "unlike: different from",
+        "note_zh": "和……不同"
+       },
+       {
+        "en": "Rome spread its citizenship, while the Han chose officials for their learning.",
+        "html": "Rome spread its citizenship, <b>while</b> the Han chose officials for their learning.",
+        "zh": "羅馬擴大公民權，而漢朝依學問選官員。",
+        "note_en": "while: shows a contrast between two things",
+        "note_zh": "而……（對照）"
+       },
+       {
+        "en": "The Han dynasty lasted much longer than the Qin.",
+        "html": "The Han dynasty <b>lasted much longer than</b> the Qin.",
+        "zh": "漢朝比秦朝延續得久多了。",
+        "note_en": "lasted longer than: compares time",
+        "note_zh": "比……延續得更久"
+       },
+       {
+        "en": "The two empires had a lot in common.",
+        "html": "The two empires <b>had</b> a lot <b>in common</b>.",
+        "zh": "這兩個帝國有很多共同點。",
+        "note_en": "had … in common: shared features",
+        "note_zh": "有……共同點"
+       },
+       {
+        "en": "Instead of many coins, there was now only one.",
+        "html": "<b>Instead of</b> many coins, there was now only one.",
+        "zh": "不再有很多種錢，現在只有一種。",
+        "note_en": "instead of: in place of",
+        "note_zh": "取代……；不再是……"
+       },
+       {
+        "en": "Each empire knew very little about the other.",
+        "html": "<b>Each empire</b> knew very little about the other.",
+        "zh": "兩個帝國對彼此都所知很少。",
+        "note_en": "each … the other: two sides, one at a time",
+        "note_zh": "各自……對方"
+       }
+      ]
+     },
+     "taiwan_then": {
+      "eyebrow": "Taiwan at That Time · 那時候的台灣",
+      "en": "Many cultures, no kingdoms",
+      "zh": "很多文化，沒有王國",
+      "lead_en": "When the Qin united China, about 2,200 years ago, Taiwan was home to several prehistoric cultures, each in its own region.",
+      "lead_zh": "秦統一中國的時候，大約距今兩千兩百年，台灣有好幾個史前文化，各自分布在不同的地區。",
+      "intro_en": "Archaeologists in Taiwan give dates as “years ago” (before 1950). About 2,200 years ago is roughly the third century BCE.",
+      "intro_zh": "台灣的考古學家用「距今幾年」（以 1950 年為準）說年代。距今大約兩千兩百年，差不多是西元前三世紀。",
+      "facts": [
+       {
+        "k_en": "Yuanshan culture, north",
+        "k_zh": "北部的圓山文化",
+        "en": "In the Taipei Basin, the Yuanshan culture lasted from about 4,500 to a little over 2,000 years ago.",
+        "zh": "在臺北盆地，圓山文化從距今約四千五百年延續到二千多年前。",
+        "src": "國立臺灣史前文化博物館 考古學習資源",
+        "url": "https://archae.nmp.gov.tw/c-04.html"
+       },
+       {
+        "k_en": "Dahu and Yingpu cultures",
+        "k_zh": "大湖文化與營埔文化",
+        "en": "In the south, the Dahu culture, and in central Taiwan, the Yingpu culture, both lasted from about 3,500 to a little over 2,000 years ago.",
+        "zh": "南部的大湖文化，以及中部的營埔文化，都是從距今約三千五百年延續到二千多年前。",
+        "src": "國立臺灣史前文化博物館 考古學習資源",
+        "url": "https://archae.nmp.gov.tw/c-04.html"
+       },
+       {
+        "k_en": "Beinan and Qilin, east",
+        "k_zh": "東部的卑南與麒麟",
+        "en": "On the east coast, the Beinan culture was at its height about 3,500 to 2,000 years ago, and lived side by side with the Qilin culture of standing stones. The museum notes that the Beinan culture is completely different from the culture of today's Puyuma people.",
+        "zh": "在東海岸，卑南文化極盛的年代大約在三千五百到二千年前，和豎立巨石的麒麟文化並存。博物館也說明，卑南文化和今天的卑南族文化完全不同。",
+        "src": "國立臺灣史前文化博物館 考古學習資源",
+        "url": "https://archae.nmp.gov.tw/c-04.html"
+       },
+       {
+        "k_en": "No single standard",
+        "k_zh": "沒有統一的標準",
+        "en": "These cultures had different pottery and tools, and there was no kingdom to make them the same. A little later, about 2,000 years ago, the Shisanhang culture rose near the Taipei Basin.",
+        "zh": "這些文化各有不同的陶器和工具，也沒有一個王國把它們變成一樣。稍晚，大約二千年前，十三行文化在臺北盆地附近興起。",
+        "src": "國立臺灣史前文化博物館 考古學習資源",
+        "url": "https://archae.nmp.gov.tw/c-05.html"
+       }
+      ],
+      "links": [
+       {
+        "en": "Taiwan's Story, Lesson 2: Who Lived in Taiwan Thousands of Years Ago?",
+        "zh": "台灣歷史第二課：幾千年前，誰住在台灣？",
+        "href": "/resources/classes/taiwan-history/who-lived-here/"
+       },
+       {
+        "en": "Taiwan's Story, Lesson 3: Who Are Taiwan's Indigenous Peoples?",
+        "zh": "台灣歷史第三課：台灣的原住民族是誰？",
+        "href": "/resources/classes/taiwan-history/indigenous-peoples/"
+       }
+      ]
+     },
+     "culture_cards": {
+      "eyebrow": "Stories Behind the Evidence · 證據背後的故事",
+      "title_en": "A measuring cup, a farmers' well, a wall that is not one wall, and a view from space",
+      "title_zh": "一個量器、一口農夫挖的井、一道不只一道的牆，和從太空看下來",
+      "lead_en": "Four short stories about how we know what the Qin and Han built.",
+      "lead_zh": "四個小故事：我們怎麼知道秦漢蓋了什麼。",
+      "cards": [
+       {
+        "k": "344 and 221 BCE · Shanghai Museum · 上海博物館",
+        "en": "A cup with two dates",
+        "zh": "一個有兩個年代的量器",
+        "body_en": "The Shang Yang measure was made in 344 BCE, when Shang Yang reformed the kingdom of Qin. More than a century later, a new edict was carved on its base: the emperor had united the land, and all measures that were not the same were to be made the same.",
+        "body_zh": "商鞅方升做於西元前 344 年，那時商鞅正在秦國變法。一百多年後，器物的底部又刻了新的詔書：皇帝已經統一天下，「法度量則不壹嫌疑者，皆明壹之」。"
+       },
+       {
+        "k": "1974 · Xi'an · 西安",
+        "en": "Farmers digging a well",
+        "zh": "挖井的農夫",
+        "body_en": "In 1974, farmers sinking a well near the First Emperor's tomb found pieces of clay soldiers. The first pit alone is about 210 meters long and holds more than 3,000 figures.",
+        "body_zh": "1974 年，在秦始皇陵附近挖井的農夫，挖到了陶俑的碎片。光是第一號坑就長大約 210 公尺，裡面有三千多個陶俑。"
+       },
+       {
+        "k": "220 BCE to 1600s CE · Northern China · 中國北方",
+        "en": "Not one wall",
+        "zh": "不只一道牆",
+        "body_en": "Around 220 BCE, the Qin joined sections of earlier walls into one line of defense. Walls were then built and rebuilt until the 1600s. A national survey published in 2012 measured the walls of all periods at 21,196.18 kilometers; the Ming walls are the longest single part, about 8,850 kilometers.",
+        "body_zh": "大約西元前 220 年，秦把各國早先的城牆連成一條防線。之後一直有人修、有人重建，直到十七世紀。2012 年公布的全國調查，量出歷代長城總長 21,196.18 公里；其中明朝的長城最長，大約 8,850 公里。"
+       },
+       {
+        "k": "2003 · In orbit · 太空中",
+        "en": "“I didn't see the Great Wall”",
+        "zh": "「我沒有看到長城」",
+        "body_en": "When Yang Liwei became China's first astronaut in 2003, he was asked whether he had seen the Great Wall. He said he had not. NASA explains that the wall is about the same color as the land around it, and certainly cannot be seen from the Moon.",
+        "body_zh": "2003 年，楊利偉成為中國第一位太空人。被問到有沒有看到長城，他說沒有。美國太空總署解釋，長城和周圍土地的顏色差不多，從月球上當然更看不到。"
+       }
+      ]
+     },
+     "curric": {
+      "eyebrow": "In the Curriculum · 對應課綱",
+      "en": "Where this lesson fits",
+      "zh": "這一課對應的課綱",
+      "lead_en": "These entries come from Taiwan's 12-Year Basic Education curriculum for social studies (October 2018).",
+      "lead_zh": "下面的條目出自十二年國民基本教育課程綱要社會領域（民國 107 年 10 月）。",
+      "items": [
+       {
+        "code": "歷 Ha-Ⅳ-1",
+        "area": "國中・從古典到傳統時代",
+        "area_en": "Junior high · from the classical to the traditional age",
+        "text": "商周至隋唐時期國家與社會的重要變遷。",
+        "note_en": "The curriculum's explanation describes the change “from classical feudalism to the empire of commanderies and counties,” and asks how rulers held power and chose officials. This lesson focuses on how the Qin and Han held a huge land together.",
+        "note_zh": "課綱的說明談「從古典封建到郡縣帝國時期」，並建議討論「統治階級如何維繫政權、選拔官僚」。這一課聚焦在秦漢怎麼把一大片土地連在一起。"
+       },
+       {
+        "code": "歷 Ga-Ⅴ-1",
+        "area": "高中・國家與社會",
+        "area_en": "Senior high · state and society",
+        "text": "傳統政治權威的類型。",
+        "note_en": "The explanation suggests comparing types of political authority, using as an example how the Han empire built its authority through ancestral rules, Confucian learning, or law.",
+        "note_zh": "課綱的說明建議比較傳統政治權威的類型，「可以漢帝國如何藉由祖宗家法、儒術，或律令建構其政治權威為例」。"
+       }
+      ]
+     },
+     "myths": [
+      {
+       "myth_en": "The Great Wall can be seen from space with the naked eye.",
+       "myth_zh": "從太空用肉眼看得到長城。",
+       "fact_en": "China's first astronaut said he did not see it, and NASA explains that from low orbit it generally cannot be seen without help, and certainly not from the Moon.",
+       "fact_zh": "中國第一位太空人說他沒有看到；美國太空總署也說明，從低軌道上一般看不到，從月球更不可能。"
+      },
+      {
+       "myth_en": "The Great Wall is one continuous wall built by the Qin.",
+       "myth_zh": "長城是一道連續的牆，是秦朝蓋的。",
+       "fact_en": "The Qin joined earlier walls, and walls were built and rebuilt for nearly 2,000 years. The Ming walls are the longest single part.",
+       "fact_zh": "秦是把早先的城牆連起來；之後將近兩千年一直有人修建。其中明朝的長城最長。"
+      },
+      {
+       "myth_en": "The First Emperor burned all the books.",
+       "myth_zh": "秦始皇把所有的書都燒了。",
+       "fact_en": "The order targeted private copies of certain books. Books on medicine, divination, and farming were spared, and the court kept its own copies.",
+       "fact_zh": "命令針對的是民間收藏的某些書。醫藥、卜筮、種樹的書不燒，朝廷也保留了自己的藏書。"
+      },
+      {
+       "myth_en": "Unification meant everyone spoke the same language.",
+       "myth_zh": "統一以後，大家都說同一種話。",
+       "fact_en": "The Qin standardized writing, not speech. People in different regions could read the same characters while still speaking very differently.",
+       "fact_zh": "秦統一的是文字，不是說話。不同地方的人可以讀同樣的字，說起話來卻還是很不一樣。"
+      }
+     ],
+     "tricks_head": {
+      "en": "Four lines to keep",
+      "zh": "四句帶著走"
+     },
+     "tricks": [
+      {
+       "title_en": "One script, one coin, one measure",
+       "title_zh": "一種文字、一種錢、一種量器",
+       "body_en": "The Qin's tools for holding the land together.",
+       "body_zh": "秦把土地連在一起的工具。"
+      },
+      {
+       "title_en": "Fifteen years, four hundred years",
+       "title_zh": "十五年，四百年",
+       "body_en": "The Qin fell fast; the Han kept its standards and lasted.",
+       "body_zh": "秦很快就亡了；漢保留了它的標準，延續很久。"
+      },
+      {
+       "title_en": "Round outside, square inside",
+       "title_zh": "外圓內方",
+       "body_en": "The coin shape that lasted about 2,000 years.",
+       "body_zh": "用了大約兩千年的錢幣形狀。"
+      },
+      {
+       "title_en": "Connection has a cost",
+       "title_zh": "連結也有代價",
+       "body_en": "Roads and walls were built with forced labor.",
+       "body_zh": "道路和城牆是用強迫勞役蓋的。"
+      }
+     ],
+     "activities": [
+      {
+       "title_en": "The Class Market",
+       "title_zh": "班級市集",
+       "materials": [
+        {
+         "en": "Paper “coins” cut into four shapes: spades, knives, round coins, and small shells",
+         "zh": "剪成四種形狀的紙錢：鏟形、刀形、圓形和小貝殼形"
+        },
+        {
+         "en": "Cards for goods: salt, cloth, rice, horses",
+         "zh": "商品卡：鹽、布、米、馬"
+        }
+       ],
+       "steps": [
+        {
+         "en": "Divide the class into four “kingdoms.” Each kingdom gets only one shape of coin and sets its own prices.",
+         "zh": "把全班分成四個「國家」。每個國家只拿到一種形狀的錢，自己定價格。"
+        },
+        {
+         "en": "Trade between kingdoms for five minutes. How do you agree how many knives equal one spade?",
+         "zh": "國家之間交易五分鐘。幾把刀等於一把鏟，要怎麼談？"
+        },
+        {
+         "en": "Now “unify”: everyone exchanges their coins for one round coin and uses one price list. Trade again.",
+         "zh": "接著「統一」：大家把錢換成同一種圓錢，用同一張價目表，再交易一次。"
+        },
+        {
+         "en": "Discuss in English: “Trading was easier because …” and “Some kingdoms lost because …”",
+         "zh": "用英文討論：「Trading was easier because …」和「Some kingdoms lost because …」"
+        }
+       ],
+       "tip_en": "Step 4 matters most. A single coin helps trade, but changing over is not fair to everyone, which is part of why unification was hard.",
+       "tip_zh": "第四步最重要。同一種錢讓交易方便，但換錢的過程對每個人不一定公平，這也是統一不容易的原因之一。"
+      },
+      {
+       "title_en": "Compare Two Empires",
+       "title_zh": "比較兩個帝國",
+       "materials": [
+        {
+         "en": "The comparison table from Lesson 6's activity, or a new sheet with two columns: Rome and Han",
+         "zh": "第六課活動的比較表，或一張新的紙，分成羅馬和漢朝兩欄"
+        },
+        {
+         "en": "This lesson and Lesson 6",
+         "zh": "這一課和第六課"
+        }
+       ],
+       "steps": [
+        {
+         "en": "Fill in: How did each empire hold itself together? Roads, law, citizenship, script, coins, measures, officials.",
+         "zh": "填寫：兩個帝國各用什麼方法把自己連在一起？道路、法律、公民權、文字、錢、度量衡、官員。"
+        },
+        {
+         "en": "Add one row: Who paid the price?",
+         "zh": "加一列：誰付出了代價？"
+        },
+        {
+         "en": "Circle the things they had in common.",
+         "zh": "把兩邊的共同點圈起來。"
+        },
+        {
+         "en": "Write two sentences: one with “both … and,” one with “while.”",
+         "zh": "寫兩句英文：一句用 both … and，一句用 while。"
+        }
+       ],
+       "tip_en": "Remind students that the goal is to compare, not to decide which empire was “better.”",
+       "tip_zh": "提醒學生：目的是比較，不是決定哪一個帝國「比較好」。"
+      }
+     ],
+     "links_head": {
+      "eyebrow": "Go Further · 延伸閱讀",
+      "en": "Read more",
+      "zh": "延伸閱讀"
+     },
+     "links": [
+      {
+       "icon": "☸️",
+       "k_en": "World History · Next lesson",
+       "k_zh": "世界歷史・下一課",
+       "en": "How Did Buddhism Begin and Travel?",
+       "zh": "佛教怎麼開始、怎麼傳出去？",
+       "soon": true,
+       "note_en": "During the Han dynasty, Buddhism began to reach China along the roads to the west.",
+       "note_zh": "漢朝的時候，佛教開始沿著往西的路傳進中國。"
+      },
+      {
+       "icon": "🛣️",
+       "k_en": "World History · Lesson 6",
+       "k_zh": "世界歷史・第六課",
+       "en": "How Did Rome Hold an Empire Together?",
+       "zh": "羅馬怎麼管住那麼大的地方？",
+       "href": "/resources/classes/world-history/rome-empire/",
+       "note_en": "The other great empire of the same age, held together by roads, law, and citizenship.",
+       "note_zh": "同一個時代的另一個大帝國，靠道路、法律和公民權連在一起。"
+      },
+      {
+       "icon": "🖌️",
+       "k_en": "Chinese Calligraphy",
+       "k_zh": "書法",
+       "en": "Where Did Chinese Characters Come From?",
+       "zh": "漢字從哪裡來？甲骨文到篆書",
+       "href": "/resources/classes/calligraphy/oracle-bones/",
+       "note_en": "How characters changed from oracle bones to the seal script the Qin made standard.",
+       "note_zh": "漢字怎麼從甲骨文，變到秦朝定為標準的篆書。"
+      },
+      {
+       "icon": "✒️",
+       "k_en": "Chinese Calligraphy",
+       "k_zh": "書法",
+       "en": "Why Does Clerical Script Have Silkworm Heads and Swallow Tails?",
+       "zh": "隸書：為什麼是蠶頭燕尾？",
+       "href": "/resources/classes/calligraphy/clerical-script/",
+       "note_en": "The everyday script of Qin and Han officials.",
+       "note_zh": "秦漢官吏日常使用的字體。"
+      }
+     ],
+     "sources_note_en": "Checked November 2026. Dates for the end of the Qin and of Wang Mang's Xin differ between sources; where they do, the lesson gives both",
+     "sources_note_zh": "2026 年 11 月查證。秦朝和王莽新朝結束的年代，各資料說法不一；遇到不一致時，課文兩個都寫",
+     "sources": [
+      {
+       "en": "The conquest of the six kingdoms (230–221 BCE); the title of emperor; one standard for laws, measures, axles, and writing; the Straight Road (212 BCE); the burning of books (213 BCE) and the deaths of more than 460 scholars (212 BCE)",
+       "zh": "滅六國（西元前 230–221 年）；皇帝的稱號；「一法度衡石丈尺。車同軌。書同文字。」；直道（西元前 212 年）；焚書（西元前 213 年）與「犯禁者四百六十餘人，皆阬之咸陽」（西元前 212 年）",
+       "src": "《史記・秦始皇本紀》",
+       "url": "https://zh.wikisource.org/wiki/%E5%8F%B2%E8%A8%98/%E5%8D%B7006"
+      },
+      {
+       "en": "Officials who judged unjustly were sent to build the Long Wall (214 BCE)",
+       "zh": "「適治獄吏不直者，築長城」（西元前 214 年）",
+       "src": "《史記・秦始皇本紀》",
+       "url": "https://zh.wikisource.org/wiki/%E5%8F%B2%E8%A8%98/%E5%8D%B7006"
+      },
+      {
+       "en": "Qin unified the currency into two grades: gold and bronze coins marked banliang",
+       "zh": "秦「中一國之幣為二等」：黃金與「半兩」銅錢",
+       "src": "《史記・平準書》",
+       "url": "https://zh.wikisource.org/wiki/%E5%8F%B2%E8%A8%98/%E5%8D%B7030"
+      },
+      {
+       "en": "Chen Sheng's rebellion: “those who miss the deadline are all beheaded”",
+       "zh": "陳勝起兵：「失期，法皆斬」",
+       "src": "《史記・陳涉世家》",
+       "url": "https://zh.wikisource.org/wiki/%E5%8F%B2%E8%A8%98/%E5%8D%B7048"
+      },
+      {
+       "en": "The Qin statute on labor service: reprimands and fines for lateness, excused in rain",
+       "zh": "秦〈徭律〉：遲到斥責或罰錢，遇雨免除",
+       "src": "睡虎地秦簡〈徭律〉（維基文庫錄文）",
+       "url": "https://zh.wikisource.org/wiki/%E7%9D%A1%E8%99%8E%E5%9C%B0%E7%A7%A6%E7%B0%A1/%E5%BE%AD%E5%BE%8B"
+      },
+      {
+       "en": "A reading of Chen Sheng's claim as a pretext",
+       "zh": "把陳勝的說法讀成藉口的看法",
+       "src": "郭建，澎湃新聞（2014）",
+       "url": "https://www.thepaper.cn/newsDetail_forward_1273210"
+      },
+      {
+       "en": "Warring States coins: spade money, knife money in the north and northeast, round coins, Chu ant-nose coins; the banliang made standard in 221 BCE and the round coin with a square hole used for about 2,000 years",
+       "zh": "戰國的錢：布幣、北方與東北的刀幣、圓錢、楚國的蟻鼻錢；西元前 221 年半兩錢定為標準，圓形方孔錢用了大約兩千年",
+       "src": "British Museum, Money Gallery, Room 68 (2020)",
+       "url": "https://www.britishmuseum.org/sites/default/files/2021-05/Money_Gallery_LPG_2020_Room_68.pdf"
+      },
+      {
+       "en": "A Qin banliang, 31 mm, about 7 g",
+       "zh": "秦半兩，直徑 31 公釐、約 7 公克",
+       "src": "British Museum, object 1981,1216.47",
+       "url": "https://www.britishmuseum.org/collection/object/C_1981-1216-47"
+      },
+      {
+       "en": "A Zhao spade coin, 56 mm",
+       "zh": "趙國布幣，長 56 公釐",
+       "src": "British Museum, object 1985,1034.11",
+       "url": "https://www.britishmuseum.org/collection/object/C_1985-1034-11"
+      },
+      {
+       "en": "A Warring States knife coin, 157 mm; a Qi knife coin, 183 mm, 45 g; Chu ant-nose coins about 20 mm",
+       "zh": "一枚戰國刀幣長 157 公釐；齊國刀幣長 183 公釐、重 45 公克；楚國蟻鼻錢約 20 公釐",
+       "src": "British Museum, objects 1996,0611.6, 1996,0217.109, 1996,0217.164",
+       "url": "https://www.britishmuseum.org/collection/object/C_1996-0611-6"
+      },
+      {
+       "en": "The Shang Yang measure: 344 BCE, 18.7 cm long, 202 ml",
+       "zh": "商鞅方升：西元前 344 年，長 18.7 公分，容 202 毫升",
+       "src": "上海博物館「商鞅方升」",
+       "url": "https://www.shanghaimuseum.net/mu/frontend/pg/article/id/P00004603"
+      },
+      {
+       "en": "The two inscriptions on the Shang Yang measure, including the edict of the 26th year (221 BCE) on its base",
+       "zh": "商鞅方升的兩段銘文，包括刻在底部的二十六年（西元前 221 年）詔書",
+       "src": "上海博物館「每月一珍：商鞅方升」",
+       "url": "https://www.shanghaimuseum.net/resource/museum_files/show_files/20180903105852824/index.html"
+      },
+      {
+       "en": "Emperor Wu stopped the banliang and issued the wuzhu (118 BCE); appointed scholars for the Five Classics (136 BCE); ordered the recommendation of the filial and honest (134 BCE)",
+       "zh": "漢武帝「罷半兩錢，行五銖錢」（西元前 118 年）；「置五經博士」（西元前 136 年）；「初令郡國舉孝廉各一人」（西元前 134 年）",
+       "src": "《漢書・武帝紀》",
+       "url": "https://zh.wikisource.org/wiki/%E6%BC%A2%E6%9B%B8/%E5%8D%B7006"
+      },
+      {
+       "en": "About 28 billion wuzhu coins cast by about 1 CE (the Yuanshi years)",
+       "zh": "五銖錢「成錢二百八十億萬餘」",
+       "src": "《漢書・食貨志》",
+       "url": "https://zh.wikisource.org/wiki/%E6%BC%A2%E6%9B%B8/%E5%8D%B7024%E4%B8%8B"
+      },
+      {
+       "en": "The census: 12,233,062 households and 59,594,978 people",
+       "zh": "人口普查：「民戶千二百二十三萬三千六十二，口五千九百五十九萬四千九百七十八」",
+       "src": "《漢書・地理志》",
+       "url": "https://zh.wikisource.org/wiki/%E6%BC%A2%E6%9B%B8/%E5%8D%B7028%E4%B8%8B"
+      },
+      {
+       "en": "Cai Lun's paper presented in 105 CE",
+       "zh": "蔡倫造紙，元興元年（西元 105 年）奏上",
+       "src": "《後漢書・宦者列傳・蔡倫》",
+       "url": "https://zh.wikisource.org/wiki/%E5%BE%8C%E6%BC%A2%E6%9B%B8/%E5%8D%B778"
+      },
+      {
+       "en": "Qin 221–207 BCE; Han 206 BCE–220 CE; Xin 9–25 CE",
+       "zh": "秦西元前 221–207 年；漢西元前 206 年–西元 220 年；新朝西元 9–25 年",
+       "src": "Britannica, “Qin dynasty” and “Han dynasty”",
+       "url": "https://www.britannica.com/topic/Han-dynasty"
+      },
+      {
+       "en": "Zhang Qian sent west in 138 BCE and away for thirteen years",
+       "zh": "張騫西元前 138 年出使，在外十三年",
+       "src": "Britannica, “Zhang Qian”",
+       "url": "https://www.britannica.com/biography/Zhang-Qian"
+      },
+      {
+       "en": "The route of the Straight Road and the sources about it",
+       "zh": "直道的路線與相關史料",
+       "src": "Sanft, Frontiers of History in China 6 (2011)",
+       "url": "https://doi.org/10.1007/s11462-011-0132-1"
+      },
+      {
+       "en": "Qin law as coercive and also publicized; the strict rules aimed at officials",
+       "zh": "秦律既嚴厲也公開；嚴格的規定主要針對官吏",
+       "src": "Turner, review of Sanft, Early China 39 (2016)",
+       "url": "https://www.cambridge.org/core/product/4B58FB05EC7328E1BCCE91BC379DCC42"
+      },
+      {
+       "en": "Confucianism as such was not targeted by the Qin campaign against private learning",
+       "zh": "秦打壓民間學問，針對的並不是儒家本身",
+       "src": "Pines, “Legalism in Chinese Philosophy,” Stanford Encyclopedia of Philosophy",
+       "url": "https://plato.stanford.edu/entries/chinese-legalism/"
+      },
+      {
+       "en": "Which books did the First Emperor burn?",
+       "zh": "秦始皇燒了哪些書？",
+       "src": "Petersen, Monumenta Serica 43 (1995)",
+       "url": "https://doi.org/10.1080/02549948.1995.11731268"
+      },
+      {
+       "en": "The Mausoleum of the First Qin Emperor: discovered in 1974; the figures are all different",
+       "zh": "秦始皇陵：1974 年發現；陶俑都不一樣",
+       "src": "UNESCO World Heritage List",
+       "url": "https://whc.unesco.org/en/list/441"
+      },
+      {
+       "en": "Farmers sinking a well in 1974; Pit 1 about 210 m long with more than 3,000 figures; stereotyped faces; molds and hand finishing",
+       "zh": "1974 年農民挖井；一號坑長約 210 公尺、三千多個陶俑；臉有固定的類型；模製再手工修整",
+       "src": "Metropolitan Museum of Art, “Making the Warrior” (2017)",
+       "url": "https://www.metmuseum.org/perspectives/terracotta-warriors-age-of-empires"
+      },
+      {
+       "en": "Qin joined sections of earlier fortifications around 220 BCE; walls built until the 17th century",
+       "zh": "約西元前 220 年秦把早先的城牆連起來；一直修建到十七世紀",
+       "src": "UNESCO World Heritage List, The Great Wall",
+       "url": "https://whc.unesco.org/en/list/438"
+      },
+      {
+       "en": "The walls of all periods total 21,196.18 km (national survey, 2012); the Ming walls 8,851.8 km",
+       "zh": "歷代長城總長 21,196.18 公里（2012 年全國調查）；明長城 8,851.8 公里",
+       "src": "新華社（2023）",
+       "url": "https://www.news.cn/2023-12/02/c_1130005251.htm"
+      },
+      {
+       "en": "The Great Wall is generally not visible to the naked eye from low orbit, and not from the Moon",
+       "zh": "從低軌道一般看不到長城，從月球更看不到",
+       "src": "NASA (2005)",
+       "url": "https://www.nasa.gov/wp-content/uploads/static/history/PDFs/great_wall_less_great_from_space.pdf"
+      },
+      {
+       "en": "Yang Liwei: “I didn't see the Great Wall”",
+       "zh": "楊利偉：「我沒有看到長城」",
+       "src": "Al Jazeera (2003)",
+       "url": "https://www.aljazeera.com/news/2003/10/17/chinas-spaceman-shatters-a-myth"
+      },
+      {
+       "en": "Han about 57.7 million (ca. 2 CE) and Rome about 75 million (ca. 165 CE)",
+       "zh": "漢朝約 5,770 萬（約西元 2 年）、羅馬約 7,500 萬（約西元 165 年）",
+       "src": "Alfani, Bolla, and Scheidel, Nature Communications (2025)",
+       "url": "https://doi.org/10.1038/s41467-025-58581-0"
+      },
+      {
+       "en": "Each empire was largely ignorant of the other",
+       "zh": "兩個帝國對彼此大多一無所知",
+       "src": "Loewe, Imperial Institutions in Ancient Rome and Early China (2025)",
+       "url": "https://doi.org/10.5040/9781350445154"
+      },
+      {
+       "en": "Rome and China: Comparative Perspectives on Ancient World Empires",
+       "zh": "《羅馬與中國：古代世界帝國的比較視角》",
+       "src": "Hyun Jin Kim, review of Scheidel, ed. (2009), BMCR 2009.04.66",
+       "url": "https://bmcr.brynmawr.edu/?p=26954"
+      },
+      {
+       "en": "Yuanshan, Dahu, Yingpu, Beinan, and Qilin cultures and their dates",
+       "zh": "圓山、大湖、營埔、卑南、麒麟文化與年代",
+       "src": "國立臺灣史前文化博物館 考古學習資源",
+       "url": "https://archae.nmp.gov.tw/c-04.html"
+      },
+      {
+       "en": "Shisanhang culture about 2,000 years ago",
+       "zh": "十三行文化約二千年前",
+       "src": "國立臺灣史前文化博物館 考古學習資源",
+       "url": "https://archae.nmp.gov.tw/c-05.html"
+      },
+      {
+       "en": "Curriculum entries 歷 Ha-Ⅳ-1 and 歷 Ga-Ⅴ-1",
+       "zh": "課綱條目 歷 Ha-Ⅳ-1、歷 Ga-Ⅴ-1",
+       "src": "十二年國民基本教育課程綱要・社會領域（民國 107 年 10 月）",
+       "url": "https://www.naer.edu.tw/upload/1/16/doc/819/十二年國民基本教育課程綱要國民中小學暨普通型高級中等校-社會領域.pdf"
+      },
+      {
+       "en": "Land outlines on the map (public domain)",
+       "zh": "地圖的陸地外形（公有領域）",
+       "src": "Natural Earth, 1:50m Land, version 5.1.2",
+       "url": "https://www.naturalearthdata.com/downloads/50m-physical-vectors/50m-land/"
+      }
+     ]
     }
    ],
    "planned": [
-    {
-     "n": 7,
-     "icon": "📏",
-     "en": "How Did Qin and Han Unite China?",
-     "zh": "秦和漢怎麼統一中國？"
-    },
     {
      "n": 8,
      "icon": "☸️",

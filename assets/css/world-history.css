@@ -548,3 +548,21 @@ a.wh-link:hover { transform: translateY(-3px); box-shadow: var(--shadow); border
 .al-lg-wh-key i { border-color: #a5742a; background: #e9b85a; }
 .al-lg-wh-wood i { border-color: #5c3a18; background: #8a5a2b; }
 @media (max-width: 640px) { .wh-ar-row2 { grid-template-columns: minmax(0, 1fr); } }
+
+/* ── 第七課：七種錢變成一種（wh-coins.js） ── */
+.wh-co-aside { display: flex; flex-direction: column; gap: .55rem; }
+.wh-co-picks { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .3rem; }
+.wh-co-picks button { padding: .35rem .5rem; border-radius: 10px; border: 1px solid var(--al-line); background: rgba(255,255,255,.04); color: var(--al-mute); font-size: .74rem; font-weight: 700; line-height: 1.25; text-align: left; cursor: pointer; }
+.wh-co-picks button .zh { display: block; font-weight: 600; }
+.wh-co-picks button[aria-pressed="true"] { background: rgba(255,211,110,.16); border-color: rgba(255,211,110,.6); color: #fff; }
+.wh-co-card { padding: .7rem .8rem; border-radius: 14px; background: #f3e6c6; color: #3b2a12; }
+.wh-co-card h3 { margin: 0 0 .25rem; font-size: .98rem; color: #2b1d08; }
+.wh-co-card h3 .zh { margin-left: .4rem; font-size: .88rem; color: #7a5a22; }
+.wh-co-card p { margin: .25rem 0 0; font-size: .78rem; line-height: 1.5; }
+.wh-co-card p .zh { display: block; color: #6b5532; }
+.wh-co-card .wh-co-coin { font-weight: 700; color: #7a4a12; }
+.wh-co-modes { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.al-lg-wh-bronze i { border-color: #4d5a3e; background: #7d8f6a; }
+.al-lg-wh-banliang i { border-color: #7a5a26; background: #9a7b45; border-radius: 50%; }
+.al-lg-wh-wuzhu i { border-color: #5a5e38; background: #8a8f5c; border-radius: 50%; }
+@media (max-width: 640px) { .wh-co-modes { grid-template-columns: repeat(3, minmax(0, 1fr)); } }

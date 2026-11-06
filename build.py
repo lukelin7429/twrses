@@ -18899,7 +18899,7 @@ def build_geo_hub():
 _whj = os.path.join(ROOT, "data", "world_history.json")
 WH = json.load(open(_whj, encoding="utf-8")) if os.path.exists(_whj) else None
 WH_BASE = "/resources/classes/world-history/"
-_WH_JS = {"spread": "wh-spread", "farm": "wh-farm", "tablet": "wh-tablet", "pyramid": "wh-pyramid", "assembly": "wh-assembly", "arch": "wh-arch"}   # lab.kind → assets/js/<bundle>.js
+_WH_JS = {"spread": "wh-spread", "farm": "wh-farm", "tablet": "wh-tablet", "pyramid": "wh-pyramid", "assembly": "wh-assembly", "arch": "wh-arch", "coins": "wh-coins"}   # lab.kind → assets/js/<bundle>.js
 
 def _wh_ver():
     h = hashlib.md5()
@@ -18996,7 +18996,15 @@ def wharch_svg(size=56):
             '<path d="M15 40h30v20H15z" fill="#4b8cc8"/><rect x="3" y="40" width="12" height="14" fill="#d8c7a3" stroke="#8a7a5c" stroke-width=".8"/><rect x="45" y="40" width="12" height="14" fill="#d8c7a3" stroke="#8a7a5c" stroke-width=".8"/>'
             + "".join(blocks) + '</svg>')
 
-_WH_CARD = {"spread": whspread_svg, "farm": whfarm_svg, "tablet": whtablet_svg, "pyramid": whpyramid_svg, "assembly": whassembly_svg, "arch": wharch_svg}
+def whcoins_svg(size=56):
+    """第七課的課程卡小圖示：一枚刀幣、一枚布幣，和一枚圓形方孔的半兩錢。"""
+    return (f'<svg class="whcoins-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">'
+            '<rect x="0" y="0" width="60" height="60" rx="10" fill="#6b4a2e"/>'
+            '<path d="M8 44c6-3 14-12 22-26l3 2C26 34 18 44 12 48z" fill="#7d8f6a" stroke="#4d5a3e" stroke-width=".8"/><circle cx="9" cy="47" r="3.4" fill="none" stroke="#7d8f6a" stroke-width="2"/>'
+            '<path d="M40 8h4v6l6 2 2 16h-6l-2-5-2 5h-6l2-16 6-2z" fill="#8e9a6b" stroke="#4d5a3e" stroke-width=".8" transform="translate(-2 0)"/>'
+            '<circle cx="40" cy="42" r="11" fill="#c09a52" stroke="#7a5a26" stroke-width="1.2"/><rect x="36.5" y="38.5" width="7" height="7" fill="#6b4a2e"/></svg>')
+
+_WH_CARD = {"spread": whspread_svg, "farm": whfarm_svg, "tablet": whtablet_svg, "pyramid": whpyramid_svg, "assembly": whassembly_svg, "arch": wharch_svg, "coins": whcoins_svg}
 
 def render_whspread_lab(lesson):
     """第一課：歷史地球儀（assets/js/wh-spread.js 綁這裡的 class）。只畫陸地、海洋與路線；不畫國界、不標國名。"""
@@ -19273,7 +19281,45 @@ def render_wharch_lab(lesson):
   <p class="wh-credit">{lab["credit_html"]}</p>
 </div>'''
 
-_WH_LAB = {"spread": render_whspread_lab, "farm": render_whfarm_lab, "tablet": render_whtablet_lab, "pyramid": render_whpyramid_lab, "assembly": render_whassembly_lab, "arch": render_wharch_lab}
+def render_whcoins_lab(lesson):
+    """第七課：七種錢變成一種（assets/js/wh-coins.js 綁這裡的 class）。只畫外形、不畫錢上的字。"""
+    lab = lesson["lab"]
+    payload = _wh_json({k: lab[k] for k in ("states", "banliang", "wuzhu")})
+    picks = "".join(f'<button type="button" data-pick="{s["key"]}" aria-pressed="{"true" if n == 0 else "false"}">{_wh_bi(s["en"], s["zh"])}</button>' for n, s in enumerate(lab["states"]))
+    btns = "".join(f'<button type="button" data-mode="{m["key"]}" aria-pressed="{"true" if n == 0 else "false"}">{html.escape(m["en"])}<small>{html.escape(m["zh"])}</small></button>'
+                   for n, m in enumerate(lab["modes"]))
+    cards = "".join(f'<div class="wh-as-card" data-mode-card="{m["key"]}"{"" if n == 0 else " hidden"}><h3>{_wh_bi(m["en"], m["zh"])}</h3><p>{_wh_bi(m["text_en"], m["text_zh"])}</p></div>'
+                    for n, m in enumerate(lab["modes"]))
+    return f'''<div class="astro-lab wh-lab wh-co rvl" data-wh-coins-lab>
+  <script type="application/json">{payload}</script>
+  <div class="al-stage">
+    <div class="al-space">
+      <canvas class="al-space-cv" aria-label="3D model of coins from the Warring States on a table, which turn into Qin round coins with a square hole, and then into Han coins; a simplified illustration · 桌上排著戰國各國的錢，會變成秦朝圓形方孔的錢，再變成漢朝的錢；簡化的示意"></canvas>
+      <div class="al-labels" aria-hidden="true"></div>
+      <p class="al-hint">Drag to turn · 拖曳轉動　Scroll or pinch to zoom · 滾輪／雙指縮放</p>
+      <button type="button" class="al-home" title="Reset view · 重設視角" aria-label="Reset view · 重設視角">&#8634;</button>
+      <p class="al-nogl-msg">This 3D model needs WebGL, which this browser does not support. The coin list and the explanations on the right still work, and so do the map and the game below.<br><span class="zh">這個瀏覽器不支援 WebGL，無法顯示 3D 模型；右邊的錢幣清單和說明照樣能用，下面的地圖和小遊戲也都能用。</span></p>
+    </div>
+    <aside class="al-sky wh-aside wh-co-aside">
+      <p class="al-sky-k">The coins · 錢幣</p>
+      <dl class="wh-py-facts"><div class="is-key"><dt>{_wh_bi("Kinds of coin on the table", "桌上有幾種錢")}</dt><dd><b class="wh-co-kinds"></b></dd></div></dl>
+      <div class="wh-co-picks" role="group" aria-label="Choose a state · 選一個國家">{picks}</div>
+      <div class="wh-co-card" aria-live="polite"></div>
+      {cards}
+      <p class="wh-fg-note">{_wh_bi(lab["numbers_note_en"], lab["numbers_note_zh"])}</p>
+    </aside>
+  </div>
+  <div class="al-controls">
+    <div class="al-row al-row-main">
+      <button type="button" class="al-play" aria-pressed="false"><span class="al-play-i" aria-hidden="true"></span><span class="al-play-t">Unify the coins · 統一錢幣</span></button>
+    </div>
+    <div class="wh-seasons wh-co-modes" role="group" aria-label="When · 什麼時候">{btns}</div>
+  </div>
+  {_lab_foot(lab)}
+  <p class="wh-credit">{lab["credit_html"]}</p>
+</div>'''
+
+_WH_LAB = {"spread": render_whspread_lab, "farm": render_whfarm_lab, "tablet": render_whtablet_lab, "pyramid": render_whpyramid_lab, "assembly": render_whassembly_lab, "arch": render_wharch_lab, "coins": render_whcoins_lab}
 
 def _wh_order(d):
     payload = _wh_json({k: d[k] for k in ("items", "hint_en", "hint_zh", "done_en", "done_zh", "open_en", "open_zh")})
@@ -19421,7 +19467,7 @@ def _wh_ostraka(d):
 </div>'''
 
 _WH_WIDGETS = [("order", _wh_order), ("sort", _wh_sort), ("centers", _wh_centers), ("match", _wh_sort), ("gains", _wh_sort), ("signs", _wh_sort), ("needs", _wh_sort),
-               ("whovotes", _wh_sort), ("ostraka", _wh_ostraka), ("empire", _wh_centers), ("borrowed", _wh_sort)]
+               ("whovotes", _wh_sort), ("ostraka", _wh_ostraka), ("empire", _wh_centers), ("borrowed", _wh_sort), ("conquest", _wh_centers), ("qinhan", _wh_sort)]
 # 每課固定的卡（照這個順序排在小互動後面）
 _WH_FIXED = [("timeline", _wh_timeline), ("how_we_know", _wh_how_we_know), ("views", _wh_views),
              ("phrases", _wh_phrases), ("taiwan_then", _wh_taiwan_then)]
