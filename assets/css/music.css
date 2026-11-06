@@ -860,3 +860,15 @@ a.mu-link:hover { transform: translateY(-3px); box-shadow: var(--shadow); border
 .mu-canon .mu-msg .zh, .mu-canonq .mu-q-msg .zh { display: block; color: var(--ink-soft); }
 .mu-canonq .mu-hg-sc { color: var(--ink-soft); }
 @media (max-width: 560px) { .mu-canon, .mu-canonq { padding: 1rem; } .mu-canonq .mu-eq-opts { grid-template-columns: 1fr !important; } }
+
+/* ── 第十九課：看譜、在腦子裡聽 ─────────────────────────────────── */
+.mu-score, .mu-contourq { margin-top: 1.5rem; padding: 1.3rem 1.4rem; background: #fff; border: 1px solid var(--line); border-radius: 20px; box-shadow: var(--shadow-sm); max-width: 1000px; }
+.mu-score .mu-btn[aria-pressed="true"] { border-color: #8a8470; background: #eceae0; }
+.mu-score .mu-btn-gold, .mu-contourq .mu-btn-gold { background: var(--gold); border-color: var(--gold); }
+.mu-sc-info { margin: .8rem 0 0; font-size: .9rem; } .mu-sc-info small { display: block; color: var(--ink-soft); font-weight: 700; margin-top: .15rem; }
+.mu-sc-stf { display: block; width: 100%; height: 130px; margin-top: .5rem; border: 1px solid var(--line); border-radius: 14px; background: #fffdf6; }
+.mu-score .mu-msg, .mu-contourq .mu-q-msg { color: var(--ink); margin: .8rem 0 0; min-height: 3.4em; font-size: .86rem; line-height: 1.6; }
+.mu-score .mu-msg .zh, .mu-contourq .mu-q-msg .zh { display: block; color: var(--ink-soft); }
+.mu-contourq .mu-hg-sc { color: var(--ink-soft); }
+.mu-ct-opt svg { color: var(--brand); margin-bottom: .2rem; }
+@media (max-width: 560px) { .mu-score, .mu-contourq { padding: 1rem; } .mu-contourq .mu-ct-opts { grid-template-columns: 1fr !important; } .mu-sc-stf { height: 120px; } }

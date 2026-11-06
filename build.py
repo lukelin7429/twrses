@@ -16493,7 +16493,7 @@ def build_comp_hub():
 _musj = os.path.join(ROOT, "data", "music.json")
 MUS = json.load(open(_musj, encoding="utf-8")) if os.path.exists(_musj) else None
 MUS_BASE = "/resources/classes/music/"
-_MUS_JS = {"string": "mus-string", "timbre": "mus-timbre", "beat": "mus-beat", "dynamics": "mus-dynamics", "staff": "mus-staff", "values": "mus-values", "scale": "mus-scale", "harmony": "mus-harmony", "instruments": "mus-instruments", "piano": "mus-piano", "orchestra": "mus-orchestra", "chinese": "mus-chinese", "eras": "mus-eras", "swing": "mus-swing", "layers": "mus-layers", "chant": "mus-chant", "form": "mus-form", "canon": "mus-canon"}   # lab.kind → assets/js/<bundle>.js
+_MUS_JS = {"string": "mus-string", "timbre": "mus-timbre", "beat": "mus-beat", "dynamics": "mus-dynamics", "staff": "mus-staff", "values": "mus-values", "scale": "mus-scale", "harmony": "mus-harmony", "instruments": "mus-instruments", "piano": "mus-piano", "orchestra": "mus-orchestra", "chinese": "mus-chinese", "eras": "mus-eras", "swing": "mus-swing", "layers": "mus-layers", "chant": "mus-chant", "form": "mus-form", "canon": "mus-canon", "score": "mus-score"}   # lab.kind → assets/js/<bundle>.js
 
 def _mus_ver():
     h = hashlib.md5()
@@ -16657,7 +16657,14 @@ def muscanon_svg(size=56):
             '<rect x="4" y="14" width="34" height="8" rx="4" fill="#ffd36e"/><rect x="14" y="26" width="34" height="8" rx="4" fill="#7ef0e3"/>'
             '<rect x="24" y="38" width="32" height="8" rx="4" fill="#ff9f7a"/></svg>')
 
-_MUS_CARD = {"string": mustring_svg, "timbre": mustimbre_svg, "beat": musbeat_svg, "dynamics": musdynamics_svg, "staff": musstaff_svg, "values": musvalues_svg, "scale": musscale_svg, "harmony": musharmony_svg, "instruments": musinstruments_svg, "piano": muspiano_svg, "orchestra": musorchestra_svg, "chinese": muschinese_svg, "eras": museras_svg, "swing": musswing_svg, "layers": muslayers_svg, "chant": muschant_svg, "form": musform_svg, "canon": muscanon_svg}
+def musscore_svg(size=56):
+    """第十九課的課程卡小圖示：五條線與幾顆音符（樂譜），旁邊一個耳朵的弧線。"""
+    return (f'<svg class="musscore-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">'
+            '<g stroke="#fff" stroke-width="1.6"><path d="M4 18h40M4 25h40M4 32h40M4 39h40M4 46h40"/></g>'
+            '<g fill="#ffd36e"><ellipse cx="14" cy="39" rx="4.6" ry="3.4"/><ellipse cx="26" cy="32" rx="4.6" ry="3.4"/><ellipse cx="38" cy="25" rx="4.6" ry="3.4"/></g>'
+            '<g stroke="#ffd36e" stroke-width="1.8"><path d="M18 39V22M30 32V15M42 25V8"/></g></svg>')
+
+_MUS_CARD = {"string": mustring_svg, "timbre": mustimbre_svg, "beat": musbeat_svg, "dynamics": musdynamics_svg, "staff": musstaff_svg, "values": musvalues_svg, "scale": musscale_svg, "harmony": musharmony_svg, "instruments": musinstruments_svg, "piano": muspiano_svg, "orchestra": musorchestra_svg, "chinese": muschinese_svg, "eras": museras_svg, "swing": musswing_svg, "layers": muslayers_svg, "chant": muschant_svg, "form": musform_svg, "canon": muscanon_svg, "score": musscore_svg}
 _MUS_PRESETS = [   # 和 tools/music/src/pitch.js 的 PRESETS 對應
     {"key": "whole", "en": "Whole string", "zh": "整根弦"}, {"key": "half", "en": "One half", "zh": "二分之一"},
     {"key": "twothirds", "en": "Two thirds", "zh": "三分之二"}, {"key": "threequarters", "en": "Three quarters", "zh": "四分之三"}]
@@ -17610,6 +17617,32 @@ def _mu_canonq(d):
   <div class="mu-hg-foot"><span></span><button type="button" class="mu-btn mu-btn-gold mu-cq-next" hidden>Next question · 下一題</button></div>
 </div>'''
 
+def render_musscore_lab(lesson):
+    """第十九課：看譜、在腦子裡聽（assets/js/mus-score.js 綁這裡的 class；沒有 3D，聲音由瀏覽器合成）。"""
+    bars = "".join(f'<button type="button" class="mu-btn" data-sc-bar="{i}" aria-pressed="false">Bar {i + 1} · 第 {i + 1} 小節</button>' for i in range(4))
+    return f'''<div class="mu-score rvl" data-musscore-lab>
+  <div class="mu-sc-row" role="group" aria-label="Bars to hear in your head · 在腦子裡聽的小節"><span class="mu-st-k">Silent bars · 無聲的小節</span>{bars}</div>
+  <p class="mu-sc-info"></p>
+  <canvas class="mu-sc-cv0 mu-sc-stf" aria-label="The first two bars of our tune on a staff · 旋律的第一、二小節的五線譜"></canvas>
+  <canvas class="mu-sc-cv1 mu-sc-stf" aria-label="The last two bars of our tune on a staff · 旋律的第三、四小節的五線譜"></canvas>
+  <div class="mu-sc-btns">
+    <button type="button" class="mu-btn mu-btn-gold mu-sc-play">&#9654; Play · 播放</button>
+    <button type="button" class="mu-btn mu-sc-reveal">Reveal the whole tune · 揭曉整首</button>
+  </div>
+  <p class="mu-msg" aria-live="polite"></p>
+</div>'''
+
+def _mu_contourq(d):
+    return f'''<div class="mu-contourq mu-layerq rvl" data-mu-contourq>
+  <div class="mu-hg-top"><p class="mu-sq-k mu-ct-k">Question 1 of 6 · 第 1 題（共 6 題）</p><p class="mu-hg-sc">Right on the first try · 第一次就答對 <b class="mu-ct-score">0 / 0</b></p></div>
+  <canvas class="mu-ct-cv mu-sc-stf" aria-label="Four notes on a staff · 五線譜上的四個音"></canvas>
+  <div class="mu-sc-btns"><button type="button" class="mu-btn mu-btn-gold mu-ct-listen">&#9654; Listen to check · 聽聽看</button></div>
+  <div class="mu-eq-hint mu-ct-hint" hidden></div>
+  <div class="mu-eq-opts mu-ct-opts" style="grid-template-columns:repeat(3,minmax(0,1fr))"></div>
+  <p class="mu-q-msg" aria-live="polite"></p>
+  <div class="mu-hg-foot"><span></span><button type="button" class="mu-btn mu-btn-gold mu-ct-next" hidden>Next question · 下一題</button></div>
+</div>'''
+
 def _mu_timeline(d):
     lo, hi = d.get("from", 1550), d.get("to", 1920)
     span = hi - lo
@@ -17657,7 +17690,7 @@ def build_mus_lesson(ui, unit, lesson):
     reading_html = render_basic_unit(1, unit_dict, level="music", audio_rel="", pdf_rel="")
     lab = lesson["lab"]
     kind = lab["kind"]
-    lab_html = {"string": render_musstring_lab, "timbre": render_mustimbre_lab, "beat": render_musbeat_lab, "dynamics": render_musdynamics_lab, "staff": render_musstaff_lab, "values": render_musvalues_lab, "scale": render_musscale_lab, "harmony": render_musharmony_lab, "instruments": render_musinstruments_lab, "piano": render_muspiano_lab, "orchestra": render_musorchestra_lab, "chinese": render_muschinese_lab, "eras": render_museras_lab, "swing": render_musswing_lab, "layers": render_muslayers_lab, "chant": render_muschant_lab, "form": render_musform_lab, "canon": render_muscanon_lab}[kind](lesson)
+    lab_html = {"string": render_musstring_lab, "timbre": render_mustimbre_lab, "beat": render_musbeat_lab, "dynamics": render_musdynamics_lab, "staff": render_musstaff_lab, "values": render_musvalues_lab, "scale": render_musscale_lab, "harmony": render_musharmony_lab, "instruments": render_musinstruments_lab, "piano": render_muspiano_lab, "orchestra": render_musorchestra_lab, "chinese": render_muschinese_lab, "eras": render_museras_lab, "swing": render_musswing_lab, "layers": render_muslayers_lab, "chant": render_muschant_lab, "form": render_musform_lab, "canon": render_muscanon_lab, "score": render_musscore_lab}[kind](lesson)
 
     def sec(key, fn):
         d = lesson[key]
@@ -17677,6 +17710,7 @@ def build_mus_lesson(ui, unit, lesson):
                      _bi(lesson["parts_note_en"], lesson["parts_note_zh"], cls="lead rvl d2")))
     if lesson.get("eraq"): secs.append(sec("eraq", _mu_eraq))
     if lesson.get("timeline"): secs.append(sec("timeline", _mu_timeline))
+    if lesson.get("contourq"): secs.append(sec("contourq", _mu_contourq))
     if lesson.get("canonq"): secs.append(sec("canonq", _mu_canonq))
     if lesson.get("formq"): secs.append(sec("formq", _mu_formq))
     if lesson.get("breath"): secs.append(sec("breath", _mu_breath))
