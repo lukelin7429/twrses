@@ -1336,6 +1336,11 @@
 - 第七課〈秦和漢怎麼統一中國？〉（`wh-coins.js`，`lab.kind = "coins"`，`data-wh-coins-lab`，slug `qin-han`）：一個想法——秦在前 221 年用同一套文字、度量衡、錢和道路把六國連在一起，十五年就亡；漢保留很多標準、延續約四百年；**統一帶來連結，也帶來勞役與嚴刑**。系列原則「中國史只寫和世界相連的部分」→ 這一課的角度是「一個大帝國怎麼連在一起」，和第六課羅馬並排比、不排名。3D 是**「各國的錢變成一種」**：桌上排著秦（半兩）、趙魏（布幣）、楚（蟻鼻錢）、燕齊（刀幣），按「統一錢幣」每一枚翻面變成圓形方孔的半兩、排成緊密方陣，再換成漢五銖。**尺寸照大英博物館的館藏實物**（`numbers_note_*` 寫明哪幾枚有實物、哪幾枚照相近的大小畫），**不畫錢上的字**。刀幣很長：轉成刀尖朝觀眾、每一排照實際寬度排、相機距離照桌面大小算；手機上只標選中的那一枚。純函式在 `coins.js`（`outline(kind, size)` 五種外形：spade／knife／round／square／antnose、`area`、`inside`、`bbox`；`test/coins.test.mjs`）。
   - 「十年，六個國家」（`conquest`）沿用 `centers2d.js`（`box` 只畫華北到長江下游），七個都城依《史記》的滅國年份亮起；「秦朝還是漢朝？」（`qinhan`）沿用 `sort2d.js`。`test/qinhan.test.mjs` 檢查錢的尺寸和說明裡的公釐數一致、秦國的錢就是半兩、滅國的順序、小卡的年份和亮起來的年份一致。
   - 除錯：`[data-wh-coins-lab].__lab`（`mode('before'|'qin'|'han')`、`pick(key)`、`tour(bool)`、`demo('before'|'knife'|'qin'|'han')`、`settle()`、`cam(x,y,z)`、`info()`）。
+- 第八課〈佛教怎麼開始、怎麼傳出去？〉（`wh-dharma.js`，`lab.kind = "dharma"`，`data-wh-lab`，slug `buddhism-travels`，單元二最後一課）：一個想法——佛教約兩千四、五百年前從印度北部開始（佛陀年代並列：舊說約前 560–480、多數學者現在認為約前 400 年前後去世、上座部傳統前 623–543）；**阿育王詔令是最早的文字證據**；之後往南走海路、往北往東走陸路。**宗教當歷史寫**：每個地方都標 `tag`（`tradition` 傳統上說＝金點、`evidence` 史料／考古顯示＝白點），卡片分 what／when／how 三段並附出處。
+  - 3D 用歷史地球儀（`hglobe.js`），時間用**西元年**（負數＝西元前），`src/dharma.js` 負責換算成距今（`agoOf`、`toRoute`）與檢查（`checkRoute`：首尾要有年代、年代不倒退、標了地方 key 的轉折點年代要等於那個地方的 `year`）；路線 `kind` 是 `land`／`sea`／`north`（西藏，虛線），轉折點 `[lon, lat, year?, siteKey?, 'sea'?]`。標籤只顯示近 300 年內到的、選取中的，或拉近（相機距離 < 2.3）時全部顯示。
+  - 「同一個詞，三種語言」（`terms`，`match2d.js`）：中文詞配巴利文／梵文＋英文，四選一（`matchOptions` 固定種子，在 `dharma.js`，因為 `common.js` 在 import 時就碰 `document`，node 測試不能 import）；「傳說還是紀錄？」（`legend`，沿用 `sort2d.js`）。
+  - 資料測試 `test/buddhism.test.mjs`：18 個地方都在陸地上、tag 正確、確切年份寫在 when 裡、路線通過 `checkRoute`、術語三語齊全且選項分得出來、第七課連到這一課、單元二沒有製作中的課。
+  - 除錯：`[data-wh-lab].__lab`（`setYear(y)`、`play()`、`select(key)`、`look(at)`、`demo('start'|'ashoka'|'south'|'north')`、`info()`、`render()`）；`[data-wh-match].__match`（`pick(i)`、`next()`、`reset()`、`options()`）。
 
 ## 美國政治 How America Governs Itself（/resources/classes/us-government/）— 架構照地理與書法；**程度是高中到大學**，每課多五張固定的卡
 

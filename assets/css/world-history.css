@@ -566,3 +566,37 @@ a.wh-link:hover { transform: translateY(-3px); box-shadow: var(--shadow); border
 .al-lg-wh-banliang i { border-color: #7a5a26; background: #9a7b45; border-radius: 50%; }
 .al-lg-wh-wuzhu i { border-color: #5a5e38; background: #8a8f5c; border-radius: 50%; }
 @media (max-width: 640px) { .wh-co-modes { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+
+/* ── 第八課：佛教傳播的地球儀（wh-dharma.js）與「同一個詞，三種語言」（match2d.js） ── */
+.wh-dh-aside { display: flex; flex-direction: column; gap: .5rem; }
+.wh-dh-key { margin: 0; display: grid; gap: .2rem; font-size: .72rem; color: var(--al-mute); }
+.wh-dh-key span::before { content: ""; display: inline-block; width: .6rem; height: .6rem; border-radius: 50%; margin-right: .4rem; vertical-align: -.05rem; }
+.wh-dh-key .wh-dh-ev::before { background: #fff; }
+.wh-dh-key .wh-dh-tr::before { background: #ffd9a3; }
+.wh-dh-key .zh { margin-left: .3rem; }
+.wh-dh-sites button small { display: block; font-size: .66rem; opacity: .8; }
+.wh-dh-sites button small .zh { margin-left: .25rem; }
+.wh-dh-sites button.wh-dh-tradition { border-style: dashed; }
+.wh-site .wh-tag-tradition, .wh-site .wh-tag-tradition .zh { color: #9a6418; }
+.wh-site .wh-tag-evidence, .wh-site .wh-tag-evidence .zh { color: #3a5f7d; }
+.al-lab.wh-lab-dh { font-size: .68rem; }
+.al-lab.wh-lab-dh.is-trad { border-style: dashed; }
+.al-lg-wh-landroute i { border-color: #b8902e; background: #ffd36e; }
+.al-lg-wh-searoute i { border-color: #3a9fc0; background: #7fe3ff; }
+.al-lg-wh-tradition i { border-color: #b08a4e; background: #ffd9a3; border-radius: 50%; }
+
+.wh-ma-q { margin: .4rem 0 .9rem; text-align: center; }
+.wh-ma-zh { font-size: 2.2rem; font-weight: 800; font-family: var(--zh); color: var(--ink); }
+.wh-ma-opts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .6rem; }
+.wh-ma-opt { padding: .7rem .8rem; border-radius: 14px; border: 2px solid var(--line); background: var(--cream); text-align: left; font-size: .9rem; line-height: 1.4; cursor: pointer; transition: border-color .2s, background .2s; }
+.wh-ma-opt:hover:not(:disabled) { border-color: #c9a36b; }
+.wh-ma-opt b { font-size: 1rem; }
+.wh-ma-opt small { font-size: .68rem; color: var(--ink-soft); letter-spacing: .04em; }
+.wh-ma-opt .wh-ma-en { display: block; margin-top: .2rem; color: var(--ink-soft); font-size: .84rem; }
+.wh-ma-opt.is-right { border-color: #2e9e6e; background: #e3f3ea; }
+.wh-ma-opt.is-wrong { border-color: #d9826a; background: #fbe8e1; opacity: .7; }
+.wh-ma-msg { min-height: 1.4rem; margin: .8rem 0 0; font-size: .88rem; line-height: 1.5; }
+.wh-ma-msg .zh { display: block; color: var(--ink-soft); }
+.wh-ma-msg.is-ok { color: #1f6b4a; }
+.wh-ma-msg.is-bad { color: #8a3a22; }
+@media (max-width: 620px) { .wh-ma-opts { grid-template-columns: minmax(0, 1fr); } }
