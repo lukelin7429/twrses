@@ -872,3 +872,24 @@ a.mu-link:hover { transform: translateY(-3px); box-shadow: var(--shadow); border
 .mu-contourq .mu-hg-sc { color: var(--ink-soft); }
 .mu-ct-opt svg { color: var(--brand); margin-bottom: .2rem; }
 @media (max-width: 560px) { .mu-score, .mu-contourq { padding: 1rem; } .mu-contourq .mu-ct-opts { grid-template-columns: 1fr !important; } .mu-sc-stf { height: 120px; } }
+
+/* ── 第二十課：用五聲音階寫旋律 ─────────────────────────────────── */
+.mu-compose, .mu-oddq { margin-top: 1.5rem; padding: 1.3rem 1.4rem; background: #fff; border: 1px solid var(--line); border-radius: 20px; box-shadow: var(--shadow-sm); max-width: 1000px; }
+.mu-compose .mu-btn[aria-pressed="true"] { border-color: var(--brand); background: var(--brand-lt); }
+.mu-compose .mu-btn-gold, .mu-oddq .mu-btn-gold { background: var(--gold); border-color: var(--gold); }
+.mu-cp-grid { margin-top: 1rem; display: flex; flex-direction: column; gap: 4px; }
+.mu-cp-row { display: grid; grid-template-columns: 2rem repeat(var(--cols, 8), minmax(0, 1fr)); gap: 4px; align-items: center; }
+.mu-cp-name { font-family: var(--serif); font-weight: 700; text-align: center; color: var(--ink-soft); }
+.mu-cp-row.is-out .mu-cp-name { color: #c4552e; }
+.mu-cp-cell { height: 2.1rem; border-radius: 8px; border: 1px solid var(--line); background: var(--cream); cursor: pointer; padding: 0; }
+.mu-cp-cell:hover { border-color: var(--gold); }
+.mu-cp-cell.is-on { background: #ffd36e; border-color: var(--gold-dk); }
+.mu-cp-row.is-out .mu-cp-cell.is-on { background: #ff9f7a; border-color: #c4552e; }
+.mu-cp-cell.is-now { outline: 3px solid #2b2a24; }
+.mu-cp-fbh { margin-top: 1rem; }
+.mu-cp-fb { margin: .3rem 0 0; padding-left: 1.2rem; font-size: .86rem; line-height: 1.6; }
+.mu-cp-fb .zh { display: block; color: var(--ink-soft); }
+.mu-compose .mu-msg, .mu-oddq .mu-q-msg { color: var(--ink); margin: .8rem 0 0; min-height: 3.4em; font-size: .86rem; line-height: 1.6; }
+.mu-compose .mu-msg .zh, .mu-oddq .mu-q-msg .zh { display: block; color: var(--ink-soft); }
+.mu-oddq .mu-hg-sc { color: var(--ink-soft); }
+@media (max-width: 560px) { .mu-compose, .mu-oddq { padding: 1rem; } .mu-cp-cell { height: 1.9rem; } .mu-oddq .mu-od-opts { grid-template-columns: repeat(3, minmax(0, 1fr)) !important; } }
