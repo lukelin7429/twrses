@@ -1144,6 +1144,15 @@
   - 除錯：`document.querySelector('[data-geopop-lab]').__lab`（`state`、`setArea(null|'desert'|'high'|'polar')`、`pickAt(lon, lat)`、`demo('asia'|'nile'|'tibet'|'polar')`、`info()`、`render()`、`goHome()`）；`[data-gg-why].__why`、`[data-gg-hundred].__hundred`。
   - 查證過（2026-11）：聯合國 WPP 2024 的 2025 年中世界與六個地區人口（官方 CSV）；「Day of Eight Billion」2022-11-15（un.org）；Cohen & Small 1998 摘要（33.5%、15.6%、中位數 194 m）；Kummu 等 2016（100 公里內 1990 年 40%、2010 年 39%，舊的 60% 是 Hinrichsen 1990）；NatGeo Education 人口密度定義；內政部戶政司 115 年 9 月底 23,213,251 人；行政院國情簡介 113 年每平方公里 646 人、臺北市 9,164 人、直轄市 69.77%；課綱 社 Ca-Ⅱ-2、地 Ad-Ⅳ-1、地 Ba-Ⅳ-2（是「中國（一）」區域的條目）、地 Bc-Ⅴ-2；樂詞網 人口密度、人口分布、都市化（網址 `/search/?query_term=<詞>&query_field=title&query_op=&match_type=phrase` 可以直接開）。**沒寫**：「九成的人住在北半球」（Kummu & Varis 2011 讀不到原文，改用頁面自己算的 86%）。
 
+- 第九課〈從天上看，台灣長什麼樣子？〉（`geo-taiwan.js`，`lab.kind = "taiwan"`，`data-geotw-lab`，slug `taiwan-from-above`；單元三第一課；CSS 前綴 `gg-tw3-`／小工具 `gg-tw-`、`gg-fm-`）：一個想法——高山南北縱走、偏在中間的東邊；西緩東陡。
+  - **資料**：`src/data/taiwan.json`（203 KB；bundle 769 KB）由 `scripts/build-taiwan.py` 產生（`npm run taiwan -- <DEMg_…tif>`，用 `~/Developer/twrses-geo-tools/venv`）。來源是內政部「2026年版全臺灣20公尺網格數值地形模型DTM資料」（data.gov.tw 178729，不分幅全台 zip 263 MB，tgos.tw 下載用 `--http1.1 -C -` 續傳），**政府資料開放授權條款－第1版，頁面 `credit_html` 一定要有顯名聲明全文**。GeoTIFF 不壓縮、float32、TWD97／TM2、只有本島（沒有澎湖等離島）。平均成 1 公里（200 × 377 格），一半以上沒資料算海；**北部山區（約 121.0°E、24.45°N）原始資料有一塊約 140 km² 沒有值**，用四周平均補起來（`meta.filled`）。
+    - 座標是 TM2 公里（`e`、`n`）；腳本裡有經緯度→TM2 的公式（`tm2()`），`places` 存地形點的 TM2 座標。玉山：20 公尺網格 2 公里內最高 3,947.46 m（國土測繪中心 2022 年實測 3,952.433 m）；1 公里格子最高 3,695 m（在雪山一帶）。
+  - `taiwan.js`（純函式，`test/taiwan.test.mjs`）：`heightAt`（雙線性、最近那格是海就算海）、`rowProfile`、`sides`（最高點與東西兩邊的距離、平均坡度）、`around`（四個方向 6–12 公里外的平均）、`landform`（山地／縱谷／盆地／台地／平原的簡化規則）、`landArea`。測試：面積對行政院 35,887 km²（2% 內）、玉山差 10 m 內、四條預設切線東陡西緩、由南到北的切線八成以上東陡、小遊戲八題答案、頁面數字（`lesson.stats`）。
+  - 3D：`terrain3d.js` 的 `makeTerrain` 這一課加了可選參數 `ny`、`color`、`sea`，boundingSphere 改成照範圍算（第三、四課預設值不變，已重新檢查）。世界座標一單位＝10 公里，`exag = VEX / 10`，**VEX＝5**（頁面要寫）；剖面圖放大 10 倍。標籤照優先順序放、重疊的先藏（`.gg-tw3-lab` 要 `transition: none`，不然每格閃一下會殘影）。
+  - 「切一刀」（`cut`，`cut2d.js`，`data-gg-cut`）：預設切線 `cut.lines`（key、n 公里），3D 也共用。「這是哪一種地形？」（`form`，`form2d.js`，`data-gg-form`）：紅點、四方向平均海拔、50 公里剖面；答完才顯示地名。小地圖與剖面共用 `twmap2d.js`（`twColor`、`drawTaiwan`、`drawCut`）。
+  - 除錯：`document.querySelector('[data-geotw-lab]').__lab`（`state`、`setN(n)`、`cut(key)`、`pickAt(e, n)`、`view('south'|'west'|'east'|'top')`、`demo('whole'|'yushan'|'east'|'west')`、`info()`、`render()`、`goHome()`）；`[data-gg-cut].__cut`、`[data-gg-form].__form`。
+  - 查證過（2026-11）：國土測繪中心〈111年玉山正高測量〉3,952.433±0.046 m；行政院國情簡介「南北縱長394公里，東西最大寬度144公里」、五大山脈由東向西、「阿里山山脈以西為漸趨平緩的盆地及平原」（2025-05-28）；taiwan.gov.tw「268 peaks」；水利署濁水溪 186.6 km、彰化大城與雲林麥寮間入海；課綱 地 Ab-Ⅳ-1、Ab-Ⅳ-2，社 Ab-Ⅱ-1、Ab-Ⅲ-1；樂詞網 縱谷 longitudinal valley、台地 tableland、垂直誇大 vertical exaggeration。**沒寫**：「山地占三分之二」（只有維基百科），改用頁面自己算的「每 100 格有 31 格高於 1,000 公尺」；山脈的官方英文名（ey.gov.tw 英文頁 410）。
+
 ---
 
 ## 體育 Sports and Movement（/resources/classes/pe/）— 架構照音樂，3D 是「人偶引擎」，每課多一張「課室英語」卡

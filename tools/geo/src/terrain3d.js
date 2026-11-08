@@ -2,6 +2,7 @@
  * 地理 Geography · 立體地形引擎（3D；每一課的地形都用這一支，只換高度函式）。
  *
  *   const t = makeTerrain({ M, n, exag })   M 是 terrain.js 的地形（h(x, y)、box）；n 是網格的格數；exag 是高度的放大倍數
+ *                                            可選：ny（南北方向的格數，預設和 n 一樣）、color(z)（海拔 → [r, g, b]，預設 hypso）、sea（海的最低畫到幾公尺，預設 −80）
  *   t.group                                  加進場景；世界座標：x＝東（公里）、z＝−北（公里）、y＝海拔（公里 × exag）
  *   t.toWorld(x, y, z)                       公里、公里、公尺 → 世界座標
  *   t.fromWorld(v)                           世界座標 → [x, y]（公里）
@@ -20,7 +21,7 @@ import {
 import { contour, sampleGrid } from './terrain.js';
 import { hypso } from './contourmap2d.js';
 
-export function makeTerrain({ M, n = 160, exag = 1.5 } = {}) {
+export function makeTerrain({ M, n = 160, ny = n, exag = 1.5, color = hypso, sea = -80 } = {}) {
   const [x0, y0, x1, y1] = M.box;
   const k = exag / 1000;
   const toWorld = (x, y, z) => new Vector3(x, z * k, -y);
@@ -29,18 +30,18 @@ export function makeTerrain({ M, n = 160, exag = 1.5 } = {}) {
   const grid = sampleGrid(M.h, M.box, n + 1);
 
   // ── 地表 ──
-  const geo = new PlaneGeometry(x1 - x0, y1 - y0, n, n);
+  const geo = new PlaneGeometry(x1 - x0, y1 - y0, n, ny);
   geo.rotateX(-Math.PI / 2);   // 平面躺下來：原本的 +y（上）變成 −z（北）
   const pos = geo.getAttribute('position'), col = new Float32Array(pos.count * 3);
   for (let i = 0; i < pos.count; i++) {
     const x = pos.getX(i) + (x0 + x1) / 2, y = -pos.getZ(i) + (y0 + y1) / 2, z = M.h(x, y);
-    pos.setXYZ(i, x, Math.max(z, -80) * k, -y);
-    const c = z < 0 ? [70, 110, 150] : hypso(z);
+    pos.setXYZ(i, x, Math.max(z, sea) * k, -y);
+    const c = z < 0 ? [70, 110, 150] : color(z);
     col[3 * i] = c[0] / 255; col[3 * i + 1] = c[1] / 255; col[3 * i + 2] = c[2] / 255;
   }
   geo.setAttribute('color', new BufferAttribute(col, 3));
   geo.computeVertexNormals();
-  geo.boundingSphere = new Sphere(new Vector3(), 10);
+  geo.boundingSphere = new Sphere(new Vector3(), Math.max(10, Math.hypot(x1 - x0, y1 - y0) / 2 + 1));
   const mesh = new Mesh(geo, new MeshLambertMaterial({ vertexColors: true }));
   group.add(mesh);
 
@@ -49,7 +50,7 @@ export function makeTerrain({ M, n = 160, exag = 1.5 } = {}) {
   const skirtPos = [], skirtIdx = [];
   const edge = (pts) => {
     const base = skirtPos.length / 3;
-    pts.forEach(([x, y]) => { const z = Math.max(M.h(x, y), -80) * k; skirtPos.push(x, z, -y, x, bottom, -y); });
+    pts.forEach(([x, y]) => { const z = Math.max(M.h(x, y), sea) * k; skirtPos.push(x, z, -y, x, bottom, -y); });
     for (let i = 0; i + 1 < pts.length; i++) { const a = base + 2 * i; skirtIdx.push(a, a + 1, a + 2, a + 1, a + 3, a + 2); }
   };
   const N = 80, line = (ax, ay, bx, by) => Array.from({ length: N + 1 }, (_, i) => [ax + (bx - ax) * i / N, ay + (by - ay) * i / N]);

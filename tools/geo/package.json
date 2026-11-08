@@ -5,9 +5,10 @@
   "type": "module",
   "scripts": {
     "land": "node scripts/build-land.mjs",
-    "build": "esbuild src/geo-flatmap.js src/geo-latlon.js src/geo-contour.js src/geo-mapview.js src/geo-timezone.js src/geo-continents.js src/geo-sunbeam.js src/geo-people.js --bundle --minify --format=iife --target=es2019 --legal-comments=eof --outdir=../../assets/js",
-    "test": "node test/geo.test.mjs && node test/land.test.mjs && node test/fit.test.mjs && node test/find.test.mjs && node test/terrain.test.mjs && node test/town.test.mjs && node test/timezone.test.mjs && node test/regions.test.mjs && node test/sunlight.test.mjs && node test/pop.test.mjs",
-    "pop": "~/Developer/twrses-geo-tools/venv/bin/python scripts/build-pop.py"
+    "build": "esbuild src/geo-flatmap.js src/geo-latlon.js src/geo-contour.js src/geo-mapview.js src/geo-timezone.js src/geo-continents.js src/geo-sunbeam.js src/geo-people.js src/geo-taiwan.js --bundle --minify --format=iife --target=es2019 --legal-comments=eof --outdir=../../assets/js",
+    "test": "node test/geo.test.mjs && node test/land.test.mjs && node test/fit.test.mjs && node test/find.test.mjs && node test/terrain.test.mjs && node test/town.test.mjs && node test/timezone.test.mjs && node test/regions.test.mjs && node test/sunlight.test.mjs && node test/pop.test.mjs && node test/taiwan.test.mjs",
+    "pop": "~/Developer/twrses-geo-tools/venv/bin/python scripts/build-pop.py",
+    "taiwan": "~/Developer/twrses-geo-tools/venv/bin/python scripts/build-taiwan.py"
   },
   "devDependencies": {
     "esbuild": "0.25.10",

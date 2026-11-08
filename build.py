@@ -17921,7 +17921,7 @@ def build_mus_hub():
 _geoj = os.path.join(ROOT, "data", "geography.json")
 GEO = json.load(open(_geoj, encoding="utf-8")) if os.path.exists(_geoj) else None
 GEO_BASE = "/resources/classes/geography/"
-_GEO_JS = {"flatmap": "geo-flatmap", "latlon": "geo-latlon", "contour": "geo-contour", "mapview": "geo-mapview", "timezone": "geo-timezone", "continents": "geo-continents", "sunbeam": "geo-sunbeam", "people": "geo-people"}   # lab.kind → assets/js/<bundle>.js
+_GEO_JS = {"flatmap": "geo-flatmap", "latlon": "geo-latlon", "contour": "geo-contour", "mapview": "geo-mapview", "timezone": "geo-timezone", "continents": "geo-continents", "sunbeam": "geo-sunbeam", "people": "geo-people", "taiwan": "geo-taiwan"}   # lab.kind → assets/js/<bundle>.js
 
 def _geo_ver():
     h = hashlib.md5()
@@ -18043,7 +18043,17 @@ def geopop_svg(size=56):
             f'<g fill="#ffd36e">{d}</g>'
             '<circle cx="30" cy="30" r="24" fill="none" stroke="#e8edf7" stroke-width="1.4"/></svg>')
 
-_GEO_CARD = {"flatmap": geoflat_svg, "latlon": geolatlon_svg, "contour": geocontour_svg, "mapview": geomapview_svg, "timezone": geotime_svg, "continents": geocont_svg, "sunbeam": geosun_svg, "people": geopop_svg}
+def geotw_svg(size=56):
+    """第九課的課程卡小圖示：從南邊斜看的台灣立體地形——中間偏東一道高山、西邊平緩、東邊陡。"""
+    return (f'<svg class="geotw-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">'
+            '<rect x="2" y="2" width="56" height="56" rx="12" fill="#14345f"/>'
+            '<path d="M8 48 L22 42 L30 26 L34 14 L38 22 L42 36 L46 46 Z" fill="#8a6a48"/>'
+            '<path d="M8 48 L22 42 L28 32 L30 38 L24 46 Z" fill="#6f9b5e"/>'
+            '<path d="M32 18 L34 14 L36 18 Z" fill="#ece6dc"/>'
+            '<path d="M6 50 H54" stroke="#3f8fe0" stroke-width="3" stroke-linecap="round"/>'
+            '<path d="M8 40 H50" stroke="#ff5a8a" stroke-width="1.6" stroke-dasharray="3 2"/></svg>')
+
+_GEO_CARD = {"flatmap": geoflat_svg, "latlon": geolatlon_svg, "contour": geocontour_svg, "mapview": geomapview_svg, "timezone": geotime_svg, "continents": geocont_svg, "sunbeam": geosun_svg, "people": geopop_svg, "taiwan": geotw_svg}
 _GEO_PROP_K = [("shape", "Shape", "形狀"), ("area", "Area", "面積"), ("distance", "Distance", "距離"), ("direction", "Direction", "方向")]
 
 def render_geoflat_lab(lesson):
@@ -18421,7 +18431,44 @@ def render_geopop_lab(lesson):
   <p class="gg-credit">{lab["credit_html"]}</p>
 </div>'''
 
-_GEO_LAB = {"flatmap": render_geoflat_lab, "latlon": render_geolatlon_lab, "contour": render_geocontour_lab, "mapview": render_geomapview_lab, "timezone": render_geotime_lab, "continents": render_geocont_lab, "sunbeam": render_geosun_lab, "people": render_geopop_lab}
+def render_geotw_lab(lesson):
+    """第九課：真實的台灣本島立體地形（assets/js/geo-taiwan.js 綁這裡的 class；內政部 2026 年版 20 公尺 DTM，平均成 1 公里；不畫縣市界）。"""
+    lab = lesson["lab"]
+    payload = json.dumps({"lines": lesson["cut"]["lines"]}, ensure_ascii=False).replace("</", "<\\/")
+    cuts = "".join(f'<button type="button" data-cut3="{l["key"]}" aria-pressed="{"true" if l["key"] == "changhua" else "false"}"><b>{html.escape(l["en"])}</b><small>{html.escape(l["zh"])}</small></button>' for i, l in enumerate(lesson["cut"]["lines"]))
+    views = "".join(f'<button type="button" data-view="{k}"><b>{en}</b><small>{zh}</small></button>' for k, en, zh in (("south", "From the south", "從南邊看"), ("west", "From the west", "從西邊看"), ("east", "From the east", "從東邊看"), ("top", "From above", "從正上方看")))
+    tg = _lab_toggles([("cut", "Cut line", "切線", True), ("labels", "Labels", "標示", True), ("sea", "Sea", "海面", True)])
+    return f'''<div class="astro-lab gg-lab gg-tw3-lab rvl" data-geotw-lab>
+  <script type="application/json">{payload}</script>
+  <div class="al-stage">
+    <div class="al-space">
+      <canvas class="al-space-cv" aria-label="3D model of the real land of Taiwan's main island, made from the Ministry of the Interior's 2026 20-meter elevation data averaged to 1 kilometer, with heights exaggerated five times. The high mountains run north to south, east of the middle; the west is wide and flat, the east drops steeply to the sea. A red line marks an east–west cut. No administrative borders are drawn. · 用內政部 2026 年版 20 公尺數值地形模型（平均成 1 公里）做的台灣本島立體地形，高度放大五倍。高山南北縱走、偏在中間的東邊；西邊寬廣平坦，東邊陡陡地落進海裡。紅線是一條東西向的切線。不畫縣市界。"></canvas>
+      <div class="al-labels" aria-hidden="true"></div>
+      <p class="al-hint">Tap the land to read its height · 點地形讀海拔　Drag to turn · 拖曳轉動</p>
+      <button type="button" class="al-home" title="Reset view · 重設視角" aria-label="Reset view · 重設視角">&#8634;</button>
+      <p class="al-nogl-msg">This 3D model needs WebGL, which this browser does not support. The cut and the numbers on the right still work, and so do the two activities below.<br><span class="zh">這個瀏覽器不支援 WebGL，無法顯示 3D 模型；右邊的剖面和數字照樣能用，下面兩個活動也都能用。</span></p>
+    </div>
+    <aside class="al-sky gg-aside">
+      <p class="al-sky-k">Cut across the island · 東西向切一刀</p>
+      <div class="gg-ct-ints gg-tw3-cuts" role="group" aria-label="Where to cut · 切在哪裡">{cuts}</div>
+      <label class="gg-slide"><span>Move the cut north or south · 把切線往北或往南移</span>
+        <input type="range" class="gg-tw3-n" step="1" aria-label="Position of the east–west cut, from south to north · 東西向切線的位置，由南到北"></label>
+      <canvas class="gg-tw3-cut" aria-hidden="true"></canvas>
+      <p class="gg-tw3-x">Heights × 10 in this drawing · 這張剖面的高度放大 10 倍</p>
+      <dl class="gg-sb-nums gg-tw3-nums"></dl>
+      <p class="gg-tw3-top"></p>
+      <p class="gg-tw3-pick" aria-live="polite"></p>
+    </aside>
+  </div>
+  <div class="al-controls">
+    <div class="al-row gg-ct-ints gg-tw3-views" role="group" aria-label="Viewpoint · 視角">{views}</div>
+    <div class="al-row al-toggles">{tg}</div>
+  </div>
+  {_lab_foot(lab)}
+  <p class="gg-credit">{lab["credit_html"]}</p>
+</div>'''
+
+_GEO_LAB = {"flatmap": render_geoflat_lab, "latlon": render_geolatlon_lab, "contour": render_geocontour_lab, "mapview": render_geomapview_lab, "timezone": render_geotime_lab, "continents": render_geocont_lab, "sunbeam": render_geosun_lab, "people": render_geopop_lab, "taiwan": render_geotw_lab}
 
 def _gg_drag(d):
     picks = "".join(
@@ -18744,7 +18791,49 @@ def _gg_hundred(d):
   <p class="gg-hd-out" aria-live="polite"></p>
 </div>'''
 
-_GEO_WIDGETS = [("drag", _gg_drag), ("fit", _gg_fit), ("find", _gg_find), ("degree", _gg_degree), ("steep", _gg_steep), ("profile", _gg_profile), ("measure", _gg_measure), ("legend", _gg_legend), ("clock", _gg_clock), ("call", _gg_call), ("bars", _gg_bars), ("count", _gg_count), ("torch", _gg_torch), ("sunq", _gg_sunq), ("why", _gg_why), ("hundred", _gg_hundred), ("map_english", _gg_map_english)]
+def _gg_cut(d):
+    """「切一刀」：台灣地形小地圖＋東西向剖面，東邊陡、西邊緩（cut2d.js；數字由 taiwan.js 用 DTM 算，test/taiwan.test.mjs 有測試）。"""
+    payload = json.dumps({"lines": d["lines"]}, ensure_ascii=False).replace("</", "<\\/")
+    btn = "".join(f'<button type="button" data-cut="{l["key"]}"><b>{html.escape(l["en"])}</b><small>{html.escape(l["zh"])}</small></button>' for l in d["lines"])
+    return f'''<div class="gg-drag gg-tw rvl" data-gg-cut>
+  <script type="application/json">{payload}</script>
+  <div class="gg-tw-pics">
+    <canvas class="gg-tw-map" aria-label="Map of Taiwan's main island colored by height, with a line across it · 依高度上色的台灣本島地圖，上面有一條橫線"></canvas>
+    <figure><canvas class="gg-tw-cut" aria-hidden="true"></canvas><figcaption>Heights × 10 · 高度放大 10 倍</figcaption></figure>
+  </div>
+  <div class="gg-dg-side">
+    <div class="gg-ct-ints gg-tw-pre" role="group" aria-label="Lines · 切線">{btn}</div>
+    <label class="gg-slide"><span>Move the line · 移動切線</span><input type="range" class="gg-tw-n" step="1" aria-label="Position of the line, from south to north · 切線的位置，由南到北"></label>
+    <p class="gg-tw-out" aria-live="polite"></p>
+    <p class="gg-dg-msg">{html.escape(d["note_en"])}<span class="zh">{html.escape(d["note_zh"])}</span></p>
+  </div>
+</div>'''
+
+def _gg_form(d):
+    """「這是哪一種地形？」：紅點的海拔、四個方向的平均海拔、一段剖面，推理地形（form2d.js；答案由 test/taiwan.test.mjs 用 landform() 驗算）。"""
+    payload = json.dumps({k: d[k] for k in ("questions", "hint_en", "hint_zh", "start_en", "start_zh", "end_en", "end_zh")}, ensure_ascii=False).replace("</", "<\\/")
+    n = len(d["questions"])
+    cell = lambda k, en, zh: f'<div class="gg-fm-c gg-fm-c{k}"><small>{en}<span class="zh">{zh}</span></small><b class="gg-fm-{k}"></b></div>'
+    return f'''<div class="gg-fit gg-form rvl" data-gg-form>
+  <script type="application/json">{payload}</script>
+  <div class="gg-ft-top"><p class="gg-ft-k">Question 1 of {n} · 第 1 題（共 {n} 題）</p><p class="gg-ft-sc">Right on the first try · 第一次就答對 <b class="gg-ft-score">0 / 0</b></p></div>
+  <div class="gg-ft-steps" aria-hidden="true"></div>
+  <p class="gg-fm-name"></p>
+  <div class="gg-fm-pics">
+    <canvas class="gg-fm-map" aria-hidden="true"></canvas>
+    <div class="gg-fm-right">
+      <div class="gg-fm-compass">{cell("N", "North", "北邊")}{cell("W", "West", "西邊")}<div class="gg-fm-c gg-fm-chere"><small>Here<span class="zh">這裡</span></small><b class="gg-fm-here"></b></div>{cell("E", "East", "東邊")}{cell("S", "South", "南邊")}</div>
+      <p class="gg-fm-note">Average height 6–12 km away in each direction · 四個方向 6–12 公里外的平均海拔</p>
+      <figure><canvas class="gg-fm-cut" aria-hidden="true"></canvas><figcaption>West–east cut through the dot, 50 km wide, heights × 10 · 通過紅點的東西向剖面（寬 50 公里，高度放大 10 倍）</figcaption></figure>
+    </div>
+  </div>
+  <p class="gg-ft-q">What kind of land is this?<span class="zh">這是哪一種地形？</span></p>
+  <div class="gg-ck-opts gg-fm-opts"></div>
+  <p class="gg-ft-msg" aria-live="polite"></p>
+  <div class="gg-ft-foot"><button type="button" class="gg-btn gg-btn-gold gg-ft-next" hidden>Next question · 下一題</button></div>
+</div>'''
+
+_GEO_WIDGETS = [("drag", _gg_drag), ("fit", _gg_fit), ("find", _gg_find), ("degree", _gg_degree), ("steep", _gg_steep), ("profile", _gg_profile), ("measure", _gg_measure), ("legend", _gg_legend), ("clock", _gg_clock), ("call", _gg_call), ("bars", _gg_bars), ("count", _gg_count), ("torch", _gg_torch), ("sunq", _gg_sunq), ("why", _gg_why), ("hundred", _gg_hundred), ("cut", _gg_cut), ("form", _gg_form), ("map_english", _gg_map_english)]
 
 def _geo_flat():
     return [(ui, u, l) for ui, u in enumerate(GEO["units"]) for l in u["lessons"]]

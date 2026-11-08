@@ -6889,7 +6889,7 @@
        "zh": "從天上看，台灣長什麼樣子？",
        "note_en": "Taiwan's mountains, plains, and coasts in 3D.",
        "note_zh": "立體的台灣：山、平原與海岸。",
-       "soon": true
+       "href": "/resources/classes/geography/taiwan-from-above/"
       },
       {
        "icon": "🏙️",
@@ -7236,14 +7236,777 @@
    "title_zh": "台灣",
    "blurb_en": "The island from above: its mountains and plains, its water, its people, its crops, its outer islands, and one county up close.",
    "blurb_zh": "從天上看這座島：山與平原、水、人、作物、離島，再走近看一個縣。",
-   "lessons": [],
-   "planned": [
+   "lessons": [
     {
      "n": 9,
+     "slug": "taiwan-from-above",
+     "title": "What Does Taiwan Look Like from Above?",
+     "title_zh": "從天上看，台灣長什麼樣子？",
+     "level": "入門 · Beginner",
      "icon": "🏔️",
-     "en": "What Does Taiwan Look Like from Above?",
-     "zh": "從天上看，台灣長什麼樣子？"
-    },
+     "card": "taiwan",
+     "blurb_en": "Turn a 3D model of Taiwan made from real government elevation data, then cut it from west to east. See why the mountains sit east of the middle, the west is wide and gentle, and the east drops steeply to the sea.",
+     "blurb_zh": "轉動一座用政府真實高程資料做的立體台灣，再從西到東切一刀。看看為什麼高山偏在中間的東邊、西邊寬廣平緩、東邊陡陡地落進海裡。",
+     "big_idea_en": "Taiwan's high mountains run from north to south, a little east of the middle. West of them, the land slopes gently down to wide plains, tablelands, and basins; east of them, it drops steeply to the sea. This shape decides where rivers flow and where people live.",
+     "big_idea_zh": "台灣的高山從北到南縱走，偏在中間的東邊。山的西邊緩緩地降到寬廣的平原、台地和盆地；東邊卻陡陡地落進海裡。這個形狀決定了河怎麼流、人住在哪裡。",
+     "stats": {
+      "area": 36417,
+      "over100": 71,
+      "over1000": 31,
+      "peak20": 3947.46,
+      "peak1k": 3695,
+      "ch_top": 3163,
+      "ch_w": 96,
+      "ch_e": 30,
+      "ch_ws": 33,
+      "ch_es": 105
+     },
+     "lab": {
+      "kind": "taiwan",
+      "eyebrow": "3D Model · 3D 模型",
+      "title_en": "Taiwan in 3D",
+      "title_zh": "立體的台灣",
+      "how_en": "This is the real shape of Taiwan's main island, made from the Ministry of the Interior's elevation data. Drag to turn it, and tap anywhere to read the height. The red line is a cut from west to east: choose a place on the right or move the slider, and the drawing below shows the land along that line. Compare the west side of the mountains with the east side.",
+      "how_zh": "這是臺灣本島真實的形狀，用內政部的高程資料做成。拖曳可以轉動，點任何地方可以讀出那裡的海拔。紅線是一條從西到東的切線：在右邊選一個地方或拖動滑桿，下面的圖就畫出沿著那條線的地形。比較山的西邊和東邊。",
+      "legend": [
+       {
+        "cls": "relief",
+        "en": "Low green, higher yellow and brown, highest pale",
+        "zh": "低處綠色，越高越黃褐，最高處淡色"
+       },
+       {
+        "cls": "cutline",
+        "en": "The west–east cut",
+        "zh": "東西向的切線"
+       }
+      ],
+      "scale_en": "Heights in the 3D model are exaggerated 5 times, and in the cut drawings 10 times; at true scale, even Taiwan's mountains would look almost flat. Each square is a 1-kilometer average, so the peaks come out lower than they really are: the highest square is about 3,695 meters, while Yushan's summit is 3,952 meters.",
+      "scale_zh": "3D 模型的高度放大 5 倍，剖面圖放大 10 倍；照真實比例畫，連台灣的高山也幾乎是平的。每一格是 1 公里的平均，所以山頂會比實際矮：最高的一格大約 3,695 公尺，而玉山主峰是 3,952 公尺。",
+      "credit_html": "Height: the Ministry of the Interior's 2026 20-meter digital terrain model of Taiwan (main island), averaged by this page into 1-kilometer squares; a small area in the northern mountains with no data (about 140 square kilometers) was filled by averaging the squares around it. · 高程資料：內政部 2026年版全臺灣20公尺網格數值地形模型DTM資料 此開放資料依政府資料開放授權條款 (Open Government Data License) 進行公眾釋出，使用者於遵守本條款各項規定之前提下，得利用之。政府資料開放授權條款：<a href=\"https://data.gov.tw/license\">https://data.gov.tw/license</a>。本頁把它平均成 1 公里的格子；北部山區有一小塊原始資料沒有值（大約 140 平方公里），用四周的格子平均補起來。"
+     },
+     "cut": {
+      "eyebrow": "Try It · 動手試試",
+      "en": "Cut the Island",
+      "zh": "切一刀",
+      "lead_en": "Choose a line across Taiwan, or move it north and south. The drawing shows the land along the line, and the numbers compare the west side of the highest point with the east side.",
+      "lead_zh": "選一條橫越台灣的線，或把它往南、往北移。圖上畫出沿線的地形，數字比較最高點的西邊和東邊。",
+      "lines": [
+       {
+        "key": "taipei",
+        "en": "Through Taipei",
+        "zh": "通過臺北",
+        "n": 2771
+       },
+       {
+        "key": "changhua",
+        "en": "Through Changhua",
+        "zh": "通過彰化",
+        "n": 2664
+       },
+       {
+        "key": "yushan",
+        "en": "Through Yushan",
+        "zh": "通過玉山",
+        "n": 2596
+       },
+       {
+        "key": "kaohsiung",
+        "en": "Through Kaohsiung",
+        "zh": "通過高雄",
+        "n": 2503
+       }
+      ],
+      "note_en": "The slope is the average climb from the coast to the highest point on the line: meters of height for every kilometer you walk.",
+      "note_zh": "坡度是從海岸到線上最高點的平均爬升：每往前走 1 公里，升高幾公尺。"
+     },
+     "parts_head": {
+      "eyebrow": "Try It in the Model · 在模型裡試試",
+      "en": "Four ways to look at Taiwan",
+      "zh": "用四種方式看台灣"
+     },
+     "parts": [
+      {
+       "key": "whole",
+       "icon": "🏝️",
+       "en": "The whole island",
+       "zh": "整座島",
+       "meta_en": "From the south",
+       "meta_zh": "從南邊看",
+       "demo": "whole",
+       "text_en": "Look from the south: a long ridge of mountains runs the whole length of the island, closer to the east coast than to the west.",
+       "text_zh": "從南邊看：一道長長的山脊貫穿全島，離東海岸比離西海岸近。"
+      },
+      {
+       "key": "yushan",
+       "icon": "⛰️",
+       "en": "The highest peak",
+       "zh": "最高峰",
+       "meta_en": "Yushan, 3,952 m",
+       "meta_zh": "玉山，3,952 公尺",
+       "demo": "yushan",
+       "text_en": "Fly to Yushan and cut through it. The summit is 3,952 meters high, the highest in Taiwan.",
+       "text_zh": "飛到玉山，從它切一刀。主峰高 3,952 公尺，是台灣最高的山。"
+      },
+      {
+       "key": "east",
+       "icon": "🌊",
+       "en": "The steep east",
+       "zh": "陡峭的東邊",
+       "meta_en": "From the east",
+       "meta_zh": "從東邊看",
+       "demo": "east",
+       "text_en": "From the east, the mountains rise almost straight out of the sea. Through Changhua, the east side climbs about 105 meters for every kilometer.",
+       "text_zh": "從東邊看，山幾乎從海裡直直升起。通過彰化的那條線，東邊每走 1 公里大約升高 105 公尺。"
+      },
+      {
+       "key": "west",
+       "icon": "🌾",
+       "en": "The gentle west",
+       "zh": "平緩的西邊",
+       "meta_en": "From the west",
+       "meta_zh": "從西邊看",
+       "demo": "west",
+       "text_en": "From the west, the land rises slowly across plains and tablelands. On the same line, the west side climbs only about 33 meters per kilometer.",
+       "text_zh": "從西邊看，地勢慢慢地升高，經過平原和台地。同一條線上，西邊每公里只升高大約 33 公尺。"
+      }
+     ],
+     "parts_note_en": "Then try it yourself. Move the cut all the way north, then all the way south. Is the east side always the steeper one?",
+     "parts_note_zh": "然後自己動手試試。把切線一路移到最北，再一路移到最南。東邊總是比較陡嗎？",
+     "form": {
+      "eyebrow": "Game · 小遊戲",
+      "en": "What Kind of Land Is This?",
+      "zh": "這是哪一種地形？",
+      "lead_en": "Eight places in Taiwan, each marked with a red dot. Read its height, the average height of the land around it, and the cut through it. Is it mountains, a tableland, a basin, a plain, or a longitudinal valley? You do not need to memorize any names; the numbers tell you. There is no timer.",
+      "lead_zh": "台灣的八個地方，各用一個紅點標出來。讀它的海拔、四周的平均海拔，和通過它的剖面。它是山地、台地、盆地、平原，還是縱谷？不用背地名，看數字就推得出來。不計時。",
+      "hint_en": "Mountains: very high. Tableland: higher than all the land around it, with a flat top. Basin: low, with higher land on most sides. Plain: low and flat, open to the sea. Longitudinal valley: low, with high mountains on both the east and the west.",
+      "hint_zh": "山地：很高。台地：比四周都高，頂上平平的。盆地：低，大部分方向都比它高。平原：又低又平，朝海那邊敞開。縱谷：低，東西兩邊都是高山。",
+      "start_en": "Compare here with the four directions around it.",
+      "start_zh": "拿「這裡」和四周四個方向比一比。",
+      "end_en": "Now you can read a landform from numbers and a cross-section, anywhere on a map.",
+      "end_zh": "現在你可以在任何一張地圖上，從數字和剖面讀出地形。",
+      "questions": [
+       {
+        "place": "taipeiBasin",
+        "answer": "basin",
+        "name_en": "Taipei Basin",
+        "name_zh": "臺北盆地",
+        "why_en": "It is only a few meters above the sea, and the land to the north, west, and south is higher. A river leaves through the lower side.",
+        "why_zh": "這裡只比海平面高幾公尺，北邊、西邊、南邊的地都比它高；河從比較低的那一邊流出去。"
+       },
+       {
+        "place": "chianan",
+        "answer": "plain",
+        "name_en": "Chianan Plain",
+        "name_zh": "嘉南平原",
+        "why_en": "Low and flat in every direction, and open to the sea on the west. This is Taiwan's largest plain.",
+        "why_zh": "四面八方都又低又平，西邊朝海敞開。"
+       },
+       {
+        "place": "linkou",
+        "answer": "tableland",
+        "name_en": "Linkou Tableland",
+        "name_zh": "林口台地",
+        "why_en": "It stands a couple of hundred meters high, and the land in every direction around it is lower: a flat-topped table.",
+        "why_zh": "它高出兩百多公尺，四周每個方向都比它低：一張頂上平平的「桌子」。"
+       },
+       {
+        "place": "huadong",
+        "answer": "valley",
+        "name_en": "Huadong Longitudinal Valley",
+        "name_zh": "花東縱谷",
+        "why_en": "A long, low strip with high mountains on both sides: the Central Mountain Range to the west and the Coastal Mountain Range to the east.",
+        "why_zh": "一條長長的低地，兩邊都是高山：西邊是中央山脈，東邊是海岸山脈。"
+       },
+       {
+        "place": "central",
+        "answer": "mountain",
+        "name_en": "Central Mountain Range",
+        "name_zh": "中央山脈",
+        "why_en": "More than 2,000 meters high. This is the backbone of the island.",
+        "why_zh": "超過 2,000 公尺高，這是全島的主幹。"
+       },
+       {
+        "place": "taichungBasin",
+        "answer": "basin",
+        "name_en": "Taichung Basin",
+        "name_zh": "臺中盆地",
+        "why_en": "Low land with tablelands to the west and hills to the east and north. Only the south side is lower.",
+        "why_zh": "低地，西邊是台地，東邊和北邊是丘陵；只有南邊比較低。"
+       },
+       {
+        "place": "lanyang",
+        "answer": "plain",
+        "name_en": "Lanyang Plain",
+        "name_zh": "蘭陽平原",
+        "why_en": "Low and flat, open to the sea on the east, with mountains behind it to the west and south.",
+        "why_zh": "又低又平，東邊朝海敞開，西邊和南邊背後是山。"
+       },
+       {
+        "place": "bagua",
+        "answer": "tableland",
+        "name_en": "Bagua Tableland",
+        "name_zh": "八卦台地",
+        "why_en": "A long, raised strip of land, higher than the plain to the west and the basin to the east. It runs right through Changhua.",
+        "why_zh": "一條長長隆起的地，比西邊的平原、東邊的盆地都高；就在彰化。"
+       }
+      ]
+     },
+     "map_english": {
+      "eyebrow": "Map English · 地圖英語",
+      "en": "Eight sentences for describing Taiwan's land",
+      "zh": "描述台灣地形的八句英文",
+      "lead_en": "This lesson's Map English card is about landforms. Listen, repeat, then describe the land where you live to a friend from another country.",
+      "lead_zh": "這一課的「地圖英語」練習說地形。先聽、再跟著唸，然後向一位外國朋友描述你住的地方的地形。",
+      "items": [
+       {
+        "en": "Taiwan's mountains <b>run from north to south</b>.",
+        "zh": "台灣的山從北到南縱走。",
+        "use_en": "run from … to …",
+        "use_zh": "從……延伸到……"
+       },
+       {
+        "en": "<b>The highest mountain in</b> Taiwan is Yushan.",
+        "zh": "台灣最高的山是玉山。",
+        "use_en": "The highest … in …",
+        "use_zh": "……最高的……"
+       },
+       {
+        "en": "Yushan is <b>about 3,952 meters high</b>.",
+        "zh": "玉山大約 3,952 公尺高。",
+        "use_en": "… meters high",
+        "use_zh": "……公尺高"
+       },
+       {
+        "en": "The west coast is <b>flat and low</b>.",
+        "zh": "西海岸又平又低。",
+        "use_en": "flat and low",
+        "use_zh": "又平又低"
+       },
+       {
+        "en": "On the east coast, the mountains <b>drop steeply</b> into the sea.",
+        "zh": "在東海岸，山陡陡地落進海裡。",
+        "use_en": "drop steeply",
+        "use_zh": "陡降"
+       },
+       {
+        "en": "Taipei <b>lies in a basin</b>.",
+        "zh": "臺北位在一個盆地裡。",
+        "use_en": "lies in …",
+        "use_zh": "位在……裡"
+       },
+       {
+        "en": "The Huadong Valley <b>lies between</b> two mountain ranges.",
+        "zh": "花東縱谷位在兩條山脈之間。",
+        "use_en": "lies between … and …",
+        "use_zh": "位在……之間"
+       },
+       {
+        "en": "<b>What is the land like</b> where you live?",
+        "zh": "你住的地方，地形是什麼樣子？",
+        "use_en": "What is … like?",
+        "use_zh": "……是什麼樣子？"
+       }
+      ]
+     },
+     "tricks_head": {
+      "en": "Taiwan's shape, in a sentence",
+      "zh": "一句話記住台灣的形狀"
+     },
+     "tricks": [
+      {
+       "title_en": "High in the middle, a little east",
+       "title_zh": "中間高，偏東邊",
+       "body_en": "The main ridge runs north to south, closer to the east coast.",
+       "body_zh": "主要的山脊南北縱走，離東海岸比較近。"
+      },
+      {
+       "title_en": "Gentle west, steep east",
+       "title_zh": "西緩東陡",
+       "body_en": "The west slopes down slowly; the east drops fast.",
+       "body_zh": "西邊慢慢降下來，東邊一下子就落下去。"
+      },
+      {
+       "title_en": "Basin: a bowl",
+       "title_zh": "盆地：像一個碗",
+       "body_en": "Low in the middle, higher land around it.",
+       "body_zh": "中間低，四周高。"
+      },
+      {
+       "title_en": "Tableland: a table",
+       "title_zh": "台地：像一張桌子",
+       "body_en": "A flat top, higher than the land around it.",
+       "body_zh": "頂上平平的，比四周高。"
+      }
+     ],
+     "safety_head": {
+      "eyebrow": "Before the Activities · 做活動之前",
+      "en": "Working safely",
+      "zh": "安全提醒"
+     },
+     "safety": [
+      {
+       "en": "Use a plastic knife or a piece of string to cut the clay model, never a sharp blade.",
+       "zh": "切黏土模型用塑膠刀或一條線，不要用尖銳的刀片。"
+      },
+      {
+       "en": "Keep clay away from your mouth, and wash your hands when you finish.",
+       "zh": "黏土不要放進嘴裡，做完要洗手。"
+      },
+      {
+       "en": "Cover the desk with newspaper or a mat before you start.",
+       "zh": "開始之前先在桌上鋪報紙或墊子。"
+      },
+      {
+       "en": "When you look at real mountains, stay on marked trails and with an adult; mountain weather can change quickly.",
+       "zh": "去看真的山時，要走在步道上、有大人陪同；山上的天氣變化很快。"
+      }
+     ],
+     "activities": [
+      {
+       "title_en": "A Clay Taiwan",
+       "title_zh": "黏土做的台灣",
+       "materials": [
+        {
+         "en": "A printed outline of Taiwan, about 30 centimeters long",
+         "zh": "一張大約 30 公分長的台灣輪廓圖"
+        },
+        {
+         "en": "Modeling clay in two or three colors",
+         "zh": "兩三種顏色的黏土"
+        },
+        {
+         "en": "A piece of string or dental floss",
+         "zh": "一段線或牙線"
+        },
+        {
+         "en": "A ruler",
+         "zh": "一把尺"
+        }
+       ],
+       "steps": [
+        {
+         "en": "Look at the 3D model from the south. Notice where the mountains are highest.",
+         "zh": "從南邊看 3D 模型，注意山最高的地方在哪裡。"
+        },
+        {
+         "en": "Press a thin layer of clay over the whole outline for the plains.",
+         "zh": "在整張輪廓上壓一層薄薄的黏土，當作平原。"
+        },
+        {
+         "en": "Add a long ridge of clay for the mountains. Put it closer to the east coast, and make the east side steeper.",
+         "zh": "加上一長條黏土當作高山，放在比較靠東海岸的地方，東邊做得比較陡。"
+        },
+        {
+         "en": "Cut the model from west to east with the string, near Changhua. Look at the cut face from the side.",
+         "zh": "在靠近彰化的地方，用線從西到東把模型切開，從側面看切開的那一面。"
+        },
+        {
+         "en": "Compare your cut with the cut on this page. What did you get right, and what would you change?",
+         "zh": "拿你的切面和本頁的剖面比一比。哪裡做對了？哪裡要改？"
+        }
+       ],
+       "tip_en": "Your model is probably taller than the real Taiwan would be at this size. That is vertical exaggeration, and the 3D model on this page does it too.",
+       "tip_zh": "照這個大小，你的模型多半比真的台灣高很多。這叫做「垂直誇大」，本頁的 3D 模型也這樣做。"
+      },
+      {
+       "title_en": "Draw the Cut",
+       "title_zh": "畫出剖面",
+       "materials": [
+        {
+         "en": "Graph paper",
+         "zh": "方格紙"
+        },
+        {
+         "en": "A pencil and a ruler",
+         "zh": "鉛筆和尺"
+        },
+        {
+         "en": "The “Cut the Island” activity on this page",
+         "zh": "本頁的「切一刀」活動"
+        }
+       ],
+       "steps": [
+        {
+         "en": "Choose one line in “Cut the Island.” Write down the highest point and how far it is from each coast.",
+         "zh": "在「切一刀」選一條線，寫下最高點的高度，以及它離兩邊海岸各多遠。"
+        },
+        {
+         "en": "On graph paper, let one square across be 10 kilometers. Mark the two coasts and the highest point.",
+         "zh": "在方格紙上，橫的一格代表 10 公里，標出兩邊的海岸和最高點。"
+        },
+        {
+         "en": "Choose a height scale, for example one square up for every 500 meters. Draw the mountain between the coasts.",
+         "zh": "選一個高度的比例，例如往上一格代表 500 公尺，在兩個海岸之間畫出這座山。"
+        },
+        {
+         "en": "Work out how many times you exaggerated the height. (Hint: compare 10 kilometers across with 500 meters up.)",
+         "zh": "算一算你把高度放大了幾倍。（提示：拿橫的 10 公里和直的 500 公尺比。）"
+        },
+        {
+         "en": "Which side of your drawing is steeper? Does it match the page?",
+         "zh": "你畫的圖哪一邊比較陡？和本頁一樣嗎？"
+        }
+       ],
+       "tip_en": "If one square across is 10 kilometers and one square up is 500 meters, the heights are exaggerated 20 times.",
+       "tip_zh": "如果橫的一格是 10 公里、直的一格是 500 公尺，高度就放大了 20 倍。"
+      }
+     ],
+     "links_head": {
+      "eyebrow": "Go Further · 延伸閱讀",
+      "en": "Lessons that connect, and what comes next",
+      "zh": "相關的課，以及接下來"
+     },
+     "links": [
+      {
+       "icon": "⛰️",
+       "k_en": "Geography · Lesson 3",
+       "k_zh": "地理・第三課",
+       "en": "How Do You Draw a Mountain on Flat Paper?",
+       "zh": "怎麼在平面上畫出一座山？",
+       "note_en": "Contour lines, cross-sections, and how steep a slope is.",
+       "note_zh": "等高線、剖面，以及坡有多陡。",
+       "href": "/resources/classes/geography/contour-lines/"
+      },
+      {
+       "icon": "🏘️",
+       "k_en": "Geography · Lesson 8",
+       "k_zh": "地理・第八課",
+       "en": "Where Do People Live?",
+       "zh": "人都住在哪裡？",
+       "note_en": "Flat land and water draw people together, worldwide.",
+       "note_zh": "平地和水把人聚在一起，全世界都一樣。",
+       "href": "/resources/classes/geography/where-people-live/"
+      },
+      {
+       "icon": "💧",
+       "k_en": "Geography · Lesson 10",
+       "k_zh": "地理・第十課",
+       "en": "Why Can Taiwan Run Short of Water When It Rains So Much?",
+       "zh": "台灣雨這麼多，為什麼還會缺水？",
+       "note_en": "Short, steep rivers carry the rain quickly to the sea.",
+       "note_zh": "又短又陡的河，很快就把雨水帶進海裡。",
+       "soon": true
+      },
+      {
+       "icon": "🏙️",
+       "k_en": "Geography · Lesson 11",
+       "k_zh": "地理・第十一課",
+       "en": "Where Do Taiwan's People Live?",
+       "zh": "台灣的人住在哪裡？",
+       "note_en": "The plains and basins of the west, up close.",
+       "note_zh": "近看西部的平原與盆地。",
+       "soon": true
+      }
+     ],
+     "sources_note_en": "Names, dates, numbers, and quotations on this page were checked against these sources (November 2026). The 3D model, the cuts, the slopes, and the answers to the game are computed by the page itself from the elevation data and tested automatically",
+     "sources_note_zh": "本頁的人名、年代、數字與引文依下列資料查證（2026 年 11 月）；3D 模型、剖面、坡度和小遊戲的答案，都由頁面用高程資料自己計算，並有自動測試",
+     "paras": [
+      "From an airplane or a satellite, Taiwan's main island looks like a long spindle, wide in the middle and narrow at both ends. According to the Executive Yuan, it is 394 kilometers from north to south and 144 kilometers across at its widest. The Tropic of Cancer, from Lesson 7, crosses it near Chiayi.",
+      "Most of the island is mountains. The Executive Yuan lists five ranges, from east to west: the Coastal Mountain Range, the Central Mountain Range, the Xueshan Range, the Yushan Range, and the Alishan Range. In the elevation data used on this page, about 31 out of every 100 squares of land are higher than 1,000 meters, and only about 29 out of 100 are lower than 100 meters.",
+      "The highest peak is Yushan. In 2022, surveyors from the National Land Surveying and Mapping Center carried their instruments up the trail and measured its main peak at 3,952.433 meters, give or take 0.046 meters. The government's Taiwan portal counts 268 peaks higher than 3,000 meters.",
+      "The mountains are not in the exact middle. Cut the island from west to east through Changhua: the highest point on that line, about 3,163 meters, is 96 kilometers from the west coast but only 30 kilometers from the east coast. So the east side is about three times as steep as the west side. On the east coast, the mountains drop almost straight into the sea.",
+      "West of the Alishan Range, the land becomes gentler. From north to south, the Executive Yuan lists the Taipei Basin, the tablelands of Taoyuan, Hsinchu, and Miaoli, the Taichung Basin, the Chianan Plain, and the Pingtung Plain. In the east there is much less flat land: the narrow Huadong Longitudinal Valley lies between the Central and Coastal Mountain Ranges, and the Lanyang Plain opens to the sea in the northeast.",
+      "This shape matters. The Central Mountain Range is the divide between the rivers that flow east and those that flow west. Because the west side is wider, its rivers are longer: the Zhuoshui River, Taiwan's longest at 186.6 kilometers, starts high in the mountains and reaches the sea between Changhua and Yunlin. And most of Taiwan's people live on the wide, gentle west side, as Lesson 8 would predict."
+     ],
+     "paras_zh": [
+      "從飛機或衛星上看，臺灣本島像一個長長的紡錘，中間寬、兩頭窄。行政院的資料說，它南北長 394 公里，東西最寬的地方 144 公里。第七課的北回歸線，就在嘉義附近穿過它。",
+      "島上大部分是山。行政院列出五條山脈，由東到西是：海岸山脈、中央山脈、雪山山脈、玉山山脈和阿里山山脈。在本頁用的高程資料裡，陸地每 100 格大約有 31 格高於 1,000 公尺，低於 100 公尺的只有大約 29 格。",
+      "最高峰是玉山。民國 111 年（2022 年），國土測繪中心的測量人員把儀器沿著步道一路背上山，量得玉山主峰高 3,952.433 公尺，誤差在 0.046 公尺之內。政府的台灣入口網說，台灣有 268 座超過 3,000 公尺的山峰。",
+      "山不在正中間。從彰化從西到東切一刀：那條線上的最高點大約 3,163 公尺，離西海岸 96 公里，離東海岸卻只有 30 公里。所以東邊大約比西邊陡三倍。在東海岸，山幾乎是直直地落進海裡。",
+      "阿里山山脈以西，地勢變得平緩。行政院由北到南列出：臺北盆地、桃竹苗臺地、臺中盆地、嘉南平原和屏東平原。東部的平地少得多：窄窄的花東縱谷夾在中央山脈和海岸山脈之間，蘭陽平原則在東北朝海敞開。",
+      "這個形狀很重要。中央山脈是東、西部河川的分水嶺。西邊比較寬，河就比較長：台灣最長的濁水溪，主流長 186.6 公里，從高山一路流到彰化和雲林之間入海。而台灣大多數的人住在寬廣平緩的西部——正如第八課會預測的。"
+     ],
+     "questions": [
+      "Why are the rivers on Taiwan's west side longer than those on the east side?",
+      "Why does a 3D model of Taiwan need vertical exaggeration?",
+      "Where do you think most of Taiwan's farms and cities are, and why?"
+     ],
+     "answers": [
+      "The main ridge is closer to the east coast, so there is more land between the mountains and the sea on the west. The rivers have farther to go.",
+      "Taiwan is hundreds of kilometers long but only about 4 kilometers high. At true scale, the mountains would look almost flat.",
+      "On the plains and in the basins of the west, where the land is low and flat, and rivers bring water."
+     ],
+     "vocab": [
+      {
+       "n": 1,
+       "w": "mountain range",
+       "pos": "n.",
+       "zh": "山脈",
+       "ex": "The Central <b>Mountain Range</b> runs down the middle of Taiwan.",
+       "exzh": "中央山脈縱貫台灣。"
+      },
+      {
+       "n": 2,
+       "w": "peak",
+       "pos": "n.",
+       "zh": "山峰；山頂",
+       "ex": "Yushan's main <b>peak</b> is 3,952 meters high.",
+       "exzh": "玉山主峰高 3,952 公尺。"
+      },
+      {
+       "n": 3,
+       "w": "plain",
+       "pos": "n.",
+       "zh": "平原",
+       "ex": "Rice grows well on the Chianan <b>Plain</b>.",
+       "exzh": "嘉南平原很適合種稻。"
+      },
+      {
+       "n": 4,
+       "w": "basin",
+       "pos": "n.",
+       "zh": "盆地",
+       "ex": "Taipei lies in a <b>basin</b>.",
+       "exzh": "臺北位在盆地裡。"
+      },
+      {
+       "n": 5,
+       "w": "tableland",
+       "pos": "n.",
+       "zh": "台地",
+       "ex": "The Bagua <b>Tableland</b> is in Changhua.",
+       "exzh": "八卦台地在彰化。"
+      },
+      {
+       "n": 6,
+       "w": "steep",
+       "pos": "adj.",
+       "zh": "陡的",
+       "ex": "The east coast is very <b>steep</b>.",
+       "exzh": "東海岸非常陡。"
+      },
+      {
+       "n": 7,
+       "w": "gentle",
+       "pos": "adj.",
+       "zh": "（坡）緩的",
+       "ex": "The land on the west side has a <b>gentle</b> slope.",
+       "exzh": "西邊的地坡度很緩。"
+      },
+      {
+       "n": 8,
+       "w": "cross-section",
+       "pos": "n.",
+       "zh": "剖面",
+       "ex": "The <b>cross-section</b> shows the land from west to east.",
+       "exzh": "剖面畫出從西到東的地形。"
+      }
+     ],
+     "quiz": [
+      {
+       "q": "Where are Taiwan's highest mountains?",
+       "options": [
+        "Exactly in the middle",
+        "A little east of the middle",
+        "Along the west coast",
+        "Only in the far south"
+       ],
+       "correct": 1
+      },
+      {
+       "q": "Which side of Taiwan is steeper?",
+       "options": [
+        "The west side",
+        "The east side",
+        "Both are the same",
+        "It depends on the season"
+       ],
+       "correct": 1
+      },
+      {
+       "q": "What is a basin?",
+       "options": [
+        "Low land with higher land around it",
+        "A flat-topped hill",
+        "A long, narrow island",
+        "A river that flows into the sea"
+       ],
+       "correct": 0
+      },
+      {
+       "q": "How high is Yushan's main peak?",
+       "options": [
+        "About 1,952 meters",
+        "About 2,952 meters",
+        "About 3,952 meters",
+        "About 4,952 meters"
+       ],
+       "correct": 2
+      },
+      {
+       "q": "Why do 3D maps of Taiwan exaggerate the heights?",
+       "options": [
+        "To make Taiwan look bigger",
+        "Because the mountains are much smaller than the island's length",
+        "Because the data is wrong",
+        "To hide the plains"
+       ],
+       "correct": 1
+      }
+     ],
+     "myths": [
+      {
+       "myth_en": "Taiwan's mountains are right in the middle of the island.",
+       "myth_zh": "台灣的山就在島的正中間。",
+       "fact_en": "They are east of the middle. Through Changhua, the highest point is 96 kilometers from the west coast but only 30 kilometers from the east coast.",
+       "fact_zh": "偏在中間的東邊。通過彰化的那條線，最高點離西海岸 96 公里，離東海岸只有 30 公里。"
+      },
+      {
+       "myth_en": "A 3D model shows how steep the mountains really are.",
+       "myth_zh": "立體模型呈現的就是山真正的陡度。",
+       "fact_en": "Most 3D models of Taiwan stretch the heights. This page's model makes them 5 times taller, and its cross-sections 10 times, or the mountains would look almost flat.",
+       "fact_zh": "大多數台灣的立體模型都把高度拉高。本頁的模型放大 5 倍、剖面放大 10 倍，不然山看起來幾乎是平的。"
+      },
+      {
+       "myth_en": "A basin is closed in on every side.",
+       "myth_zh": "盆地四面八方都被圍住。",
+       "fact_en": "Most basins have a lower side where a river flows out. In the data, the Taichung Basin is lower to the south than it is to the east, west, and north.",
+       "fact_zh": "大多數盆地有一邊比較低，河從那裡流出去。在資料裡，臺中盆地的南邊比東、西、北三邊都低。"
+      },
+      {
+       "myth_en": "The east of Taiwan is nothing but mountains.",
+       "myth_zh": "台灣的東部全都是山。",
+       "fact_en": "There is less flat land in the east, but not none: the Huadong Longitudinal Valley and the Lanyang Plain are home to towns and farms.",
+       "fact_zh": "東部的平地比較少，但不是沒有：花東縱谷和蘭陽平原上都有城鎮和農田。"
+      }
+     ],
+     "culture_cards": {
+      "eyebrow": "Stories Behind the Shape · 形狀背後的故事",
+      "title_en": "Measuring an island",
+      "title_zh": "量一座島",
+      "lead_en": "",
+      "lead_zh": "",
+      "cards": [
+       {
+        "k": "2022 · Yushan · 玉山",
+        "en": "Carrying a level up the mountain",
+        "zh": "把水準儀背上山",
+        "body_en": "In October 2022, surveyors from the National Land Surveying and Mapping Center measured Yushan step by step, from a benchmark at Tataka up the trail to the main peak, using 23 survey points. Their result: 3,952.433 meters, give or take 0.046 meters.",
+        "body_zh": "2022 年 10 月，國土測繪中心的測量人員從塔塔加的一等水準點出發，沿著登山步道選了 23 個點，一段一段量到玉山主峰。結果是 3,952.433 公尺，誤差在 0.046 公尺之內。"
+       },
+       {
+        "k": "Executive Yuan · 行政院",
+        "en": "394 by 144",
+        "zh": "394 乘 144",
+        "body_en": "The Executive Yuan describes the main island as spindle-shaped, 394 kilometers from north to south and 144 kilometers across at its widest, with a coastline of 1,150.95 kilometers.",
+        "body_zh": "行政院說，臺灣本島呈紡錘形，南北縱長 394 公里，東西最大寬度 144 公里，環島海岸線長 1,150.95 公里。"
+       },
+       {
+        "k": "Water Resources Agency · 水利署",
+        "en": "The longest river",
+        "zh": "最長的河",
+        "body_en": "The Zhuoshui River starts between the main and east peaks of Hehuan Mountain, at 3,220 meters, and runs 186.6 kilometers to the sea between Dacheng in Changhua and Mailiao in Yunlin.",
+        "body_zh": "濁水溪發源於合歡山主峰與東峰之間（海拔 3,220 公尺），主流長 186.6 公里，在彰化縣大城鄉與雲林縣麥寮鄉之間入海。"
+       },
+       {
+        "k": "2026 · Open data · 開放資料",
+        "en": "A map made of 20-meter squares",
+        "zh": "用 20 公尺方格拼成的地圖",
+        "body_en": "The Ministry of the Interior shares a height for every 20-meter square of Taiwan as open data. This page averages them into 1-kilometer squares: 36,417 squares of land. In that 20-meter data, the highest point near Yushan is 3,947.46 meters, a few meters below the surveyed summit, because each square is an average.",
+        "body_zh": "內政部把臺灣每一個 20 公尺方格的高度，當作開放資料公開。本頁把它們平均成 1 公里的格子：陸地共 36,417 格。在 20 公尺的資料裡，玉山附近最高的一格是 3,947.46 公尺，比實測的主峰矮幾公尺，因為每一格都是平均。"
+       }
+      ]
+     },
+     "curric": {
+      "eyebrow": "In the Curriculum · 對應課綱",
+      "en": "Where this lesson fits",
+      "zh": "這一課對應的課綱",
+      "lead_en": "These entries come from Taiwan's 12-Year Basic Education curriculum (2018). Junior high geography names this lesson's topic directly: the distribution and features of Taiwan's main landforms.",
+      "lead_zh": "下面的條目出自十二年國民基本教育課程綱要（民國 107 年發布）。國中地理直接寫出了本課的主題：臺灣主要地形的分布與特色。",
+      "items": [
+       {
+        "code": "地 Ab-Ⅳ-2",
+        "area": "社會領域・地理（國中）",
+        "area_en": "Social studies, geography (junior high)",
+        "text": "臺灣主要地形的分布與特色。",
+        "note_en": "The 3D model and the cuts show where the mountains, plains, basins, and tablelands are.",
+        "note_zh": "3D 模型和剖面呈現山地、平原、盆地、台地在哪裡。"
+       },
+       {
+        "code": "地 Ab-Ⅳ-1",
+        "area": "社會領域・地理（國中）",
+        "area_en": "Social studies, geography (junior high)",
+        "text": "地形與海岸的分類。",
+        "note_en": "The game classifies landforms from heights and cross-sections.",
+        "note_zh": "小遊戲從海拔和剖面分類地形。"
+       },
+       {
+        "code": "社 Ab-Ⅲ-1",
+        "area": "社會領域（國小五、六年級）",
+        "area_en": "Social studies (grades 5–6)",
+        "text": "臺灣的地理位置、自然環境，與歷史文化的發展有關聯性。",
+        "note_en": "Why most people live on the gentle west side.",
+        "note_zh": "為什麼大多數人住在平緩的西部。"
+       },
+       {
+        "code": "社 Ab-Ⅱ-1",
+        "area": "社會領域（國小三、四年級）",
+        "area_en": "Social studies (grades 3–4)",
+        "text": "居民的生活方式與空間利用，和其居住地方的自然、人文環境相互影響。",
+        "note_en": "Describe the land where you live with the Map English sentences.",
+        "note_zh": "用地圖英語描述你住的地方的地形。"
+       }
+      ]
+     },
+     "sources": [
+      {
+       "en": "Yushan's main peak (triangulation point S026): “本次測量結果為3952.433m……故本次玉山正高測量成果為3952.433±0.046m”; leveling from benchmark X121 at Tataka, 23 points, October 17–23, 2022.",
+       "zh": "玉山主峰高度（民國 111 年水準測量）",
+       "src": "內政部國土測繪中心，〈111年玉山正高測量〉",
+       "url": "https://www.nlsc.gov.tw/cp.aspx?n=1486"
+      },
+      {
+       "en": "「臺灣本島呈紡錘形，南北縱長394公里，東西最大寬度144公里，環島海岸線長1,150.95公里」；北回歸線通過嘉義縣水上鄉。",
+       "zh": "本島的形狀與大小",
+       "src": "行政院，〈國情簡介：土地〉",
+       "url": "https://www.ey.gov.tw/state/4447F4A951A1EC45/094b1d53-de8d-4393-bde6-ab092969cce4"
+      },
+      {
+       "en": "「臺灣地形的分布，以山地所占面積最大，自東向西分別有海岸山脈、中央山脈、雪山山脈、玉山山脈及阿里山山脈。中央山脈……亦為東、西部河川之分水嶺。」「阿里山山脈以西為漸趨平緩的盆地及平原，由北而南依序為臺北盆地、桃竹苗臺地、臺中盆地、嘉南平原及屏東平原。」(May 28, 2025)",
+       "zh": "五大山脈與西部的盆地、平原",
+       "src": "行政院，〈國情簡介：地文〉",
+       "url": "https://www.ey.gov.tw/state/4447F4A951A1EC45/52515c49-bcc0-45f5-bd5f-78c22c9d3f45"
+      },
+      {
+       "en": "“Mountain ranges with 268 peaks that reach over 3,000 meters and forested foothills occupy more than half of its area.” (read November 2026)",
+       "zh": "268 座 3,000 公尺以上的山峰",
+       "src": "Taiwan.gov.tw, “About Taiwan”",
+       "url": "https://www.taiwan.gov.tw/content_1.php"
+      },
+      {
+       "en": "濁水溪：發源地「合歡山主峰與東峰間(海拔3,220m)」；主流長度「186.6km」；入海口「彰化縣大城鄉與雲林縣麥寮鄉間」.",
+       "zh": "濁水溪",
+       "src": "經濟部水利署，〈濁水溪〉",
+       "url": "https://www.wra.gov.tw/cp.aspx?n=3282"
+      },
+      {
+       "en": "Height data: 2026 20-meter digital terrain model of Taiwan (DEMg_tawiwan_20m_20260228), Ministry of the Interior, Open Government Data License, version 1.0. This page averages it into 1-kilometer squares.",
+       "zh": "高程資料與授權（顯名聲明見 3D 模型下方）",
+       "src": "內政部地政司，〈2026年版全臺灣20公尺網格數值地形模型DTM資料〉，政府資料開放平臺",
+       "url": "https://data.gov.tw/dataset/178729"
+      },
+      {
+       "en": "Open Government Data License, version 1.0: users must show the attribution statement when they use the data.",
+       "zh": "政府資料開放授權條款－第1版",
+       "src": "國家發展委員會，政府資料開放平臺",
+       "url": "https://data.gov.tw/license"
+      },
+      {
+       "en": "Chinese terms: 縱谷 (longitudinal valley), 台地／臺地 (tableland), 垂直誇大 (vertical exaggeration).",
+       "zh": "名詞",
+       "src": "國家教育研究院，樂詞網",
+       "url": "https://terms.naer.edu.tw/"
+      },
+      {
+       "en": "地 Ab-Ⅳ-1、地 Ab-Ⅳ-2；社 Ab-Ⅱ-1、社 Ab-Ⅲ-1.",
+       "zh": "社會領域課程綱要",
+       "src": "國家教育研究院，《十二年國民基本教育課程綱要》社會領域（民國 107 年）",
+       "url": "https://www.naer.edu.tw/PageSyllabus?fid=52"
+      }
+     ]
+    }
+   ],
+   "planned": [
     {
      "n": 10,
      "icon": "💧",

@@ -562,3 +562,56 @@ a.gg-link:hover { transform: translateY(-3px); box-shadow: var(--shadow); border
 @media (max-width: 620px) { .gg-wh-chips { grid-template-columns: 1fr; } .gg-wh-n .zh { display: block; margin-left: 0; } .gg-hundred { padding: 1rem .8rem; } }
 .gg-pp-total .zh { display: block; font-family: var(--zh); font-size: .95rem; color: var(--al-mute); }
 .gg-sb-nums dd.gg-pp-total, .gg-sb-nums dd.gg-pp-dots { display: block; font-size: 1.3rem; }
+
+/* ── 第九課：台灣的地形（geo-taiwan.js、cut2d.js、form2d.js；前綴 gg-tw3- / gg-tw- / gg-fm-） ── */
+.gg-ct-ints.gg-tw3-cuts { grid-template-columns: 1fr 1fr; }
+.gg-tw3-cut { display: block; width: 100%; height: 112px; border-radius: 10px; background: #0a1226; }
+.gg-tw3-x { margin: -.2rem 0 0; font-size: .66rem; color: var(--al-mute); text-align: right; }
+.gg-tw3-nums dd small { font-family: var(--sans); font-size: .7rem; color: var(--al-mute); }
+.gg-tw3-top, .gg-tw3-pick { margin: 0; font-size: .76rem; line-height: 1.5; color: #e8edf7; }
+.gg-tw3-top .zh, .gg-tw3-pick .zh { display: block; color: var(--al-mute); }
+.gg-tw3-pick { min-height: 3em; color: #ffe3a3; }
+.gg-ct-ints.gg-tw3-views { grid-template-columns: repeat(4, minmax(0, 1fr)); width: 100%; }
+.al-lab.gg-tw3-lab { font-size: .66rem; color: #f3f6ff; background: rgba(8,20,50,.66); transition: none; }
+.al-lab.gg-tw3-lab.is-peak { color: #2b2118; background: #ffd36e; border-color: #ffd36e; font-weight: 800; }
+.al-lab.gg-tw3-lab.is-peak i { color: #5a4420; }
+.al-lab.gg-tw3-lab b { margin-left: .25rem; }
+.al-lg-relief i { border: 0; background: linear-gradient(90deg, #60965c, #c4c684, #a87c5c, #e8e4de); }
+.al-lg-cutline i { border: 0; background: #ff5a8a; height: 3px; border-radius: 2px; }
+
+.gg-tw { grid-template-columns: minmax(0, 1fr) 300px; }
+.gg-tw-pics { display: grid; grid-template-columns: 170px minmax(0, 1fr); gap: .7rem; padding: 1rem; align-items: start; }
+.gg-tw-map { display: block; width: 170px; height: 320px; border-radius: 12px; }
+.gg-tw-pics figure { margin: 0; }
+.gg-tw-cut { display: block; width: 100%; height: 260px; border-radius: 12px; }
+.gg-tw-pics figcaption { margin-top: .35rem; font-size: .72rem; color: #9fb0cf; text-align: center; }
+.gg-ct-ints.gg-tw-pre { grid-template-columns: 1fr 1fr; }
+.gg-tw-out { margin: 0; display: grid; gap: .35rem; }
+.gg-tw-k { display: grid; grid-template-columns: 1fr auto; align-items: baseline; gap: .4rem; padding: .35rem .55rem; border-radius: 10px; background: rgba(255,255,255,.04); font-size: .74rem; color: #e8edf7; }
+.gg-tw-k .zh { display: block; font-family: var(--zh); color: #9fb0cf; }
+.gg-tw-k b { grid-row: span 2; font-family: var(--serif); font-size: 1rem; color: #ffd36e; white-space: nowrap; }
+.gg-tw-note { font-size: .78rem; color: #ffe3a3; line-height: 1.45; }
+.gg-tw-note .zh { display: block; color: #d5c39a; }
+@media (max-width: 860px) { .gg-tw { grid-template-columns: minmax(0, 1fr); } }
+@media (max-width: 620px) { .gg-tw-pics { grid-template-columns: 110px minmax(0, 1fr); padding: .7rem; } .gg-tw-map { width: 110px; height: 210px; } .gg-tw-cut { height: 210px; } }
+
+.gg-fm-name { margin: .8rem 0 0; font-family: var(--serif); font-size: 1.3rem; color: #fff; }
+.gg-fm-name .zh { margin-left: .45rem; font-family: var(--zh); font-size: .9rem; font-weight: 600; color: #b9c8e6; }
+.gg-fm-pics { display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: .9rem; margin-top: .6rem; align-items: start; }
+.gg-fm-map { display: block; width: 150px; height: 280px; border-radius: 12px; }
+.gg-fm-compass { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); grid-template-areas: ". n ." "w here e" ". s ."; gap: .35rem; max-width: 420px; }
+.gg-fm-c { padding: .35rem .45rem; border-radius: 10px; border: 1px solid rgba(160,180,230,.22); background: rgba(255,255,255,.04); text-align: center; }
+.gg-fm-c small { display: block; font-size: .66rem; color: #9fb0cf; line-height: 1.25; }
+.gg-fm-c small .zh { display: block; font-family: var(--zh); }
+.gg-fm-c b { font-family: var(--serif); font-size: 1.05rem; color: #fff; font-variant-numeric: tabular-nums; }
+.gg-fm-cN { grid-area: n; } .gg-fm-cS { grid-area: s; } .gg-fm-cE { grid-area: e; } .gg-fm-cW { grid-area: w; }
+.gg-fm-chere { grid-area: here; border-color: #ff6b6b; background: rgba(255,107,107,.12); }
+.gg-fm-chere b { color: #ffb3b3; }
+.gg-fm-note { margin: .35rem 0 .5rem; font-size: .68rem; color: #7f8fb0; }
+.gg-fm-right figure { margin: 0; }
+.gg-fm-cut { display: block; width: 100%; height: 170px; border-radius: 12px; }
+.gg-fm-right figcaption { margin-top: .3rem; font-size: .68rem; color: #9fb0cf; }
+.gg-ck-opts.gg-fm-opts { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+@media (max-width: 760px) { .gg-ck-opts.gg-fm-opts { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 620px) { .gg-fm-pics { grid-template-columns: 96px minmax(0, 1fr); gap: .6rem; } .gg-fm-map { width: 96px; height: 180px; } .gg-fm-name .zh { display: block; margin-left: 0; } .gg-fm-cut { height: 140px; } }
+@media (max-width: 620px) { .gg-fm-c { padding: .3rem .2rem; } .gg-fm-c b { font-size: .88rem; white-space: nowrap; } }
