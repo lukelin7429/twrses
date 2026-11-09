@@ -19103,7 +19103,7 @@ def build_geo_hub():
 _whj = os.path.join(ROOT, "data", "world_history.json")
 WH = json.load(open(_whj, encoding="utf-8")) if os.path.exists(_whj) else None
 WH_BASE = "/resources/classes/world-history/"
-_WH_JS = {"spread": "wh-spread", "farm": "wh-farm", "tablet": "wh-tablet", "pyramid": "wh-pyramid", "assembly": "wh-assembly", "arch": "wh-arch", "coins": "wh-coins", "dharma": "wh-dharma"}   # lab.kind → assets/js/<bundle>.js
+_WH_JS = {"spread": "wh-spread", "farm": "wh-farm", "tablet": "wh-tablet", "pyramid": "wh-pyramid", "assembly": "wh-assembly", "arch": "wh-arch", "coins": "wh-coins", "dharma": "wh-dharma", "silk": "wh-silk"}   # lab.kind → assets/js/<bundle>.js
 
 def _wh_ver():
     h = hashlib.md5()
@@ -19216,7 +19216,16 @@ def whdharma_svg(size=56):
             '<path d="M27 33c3-6 9-10 17-11" fill="none" stroke="#ffd36e" stroke-width="2" stroke-linecap="round"/><path d="M27 33c0 5-1 9-4 12" fill="none" stroke="#7fe3ff" stroke-width="2" stroke-linecap="round"/>'
             '<circle cx="27" cy="33" r="2.4" fill="#fff"/></svg>')
 
-_WH_CARD = {"spread": whspread_svg, "farm": whfarm_svg, "tablet": whtablet_svg, "pyramid": whpyramid_svg, "assembly": whassembly_svg, "arch": wharch_svg, "coins": whcoins_svg, "dharma": whdharma_svg}
+def whsilk_svg(size=56):
+    """第九課的課程卡小圖示：一個地球，上面一張陸路（金）和海路（藍）的網，一個粉紅色的小亮點。"""
+    return (f'<svg class="whsilk-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">'
+            '<rect x="0" y="0" width="60" height="60" rx="10" fill="#0f2a4a"/><circle cx="30" cy="31" r="22" fill="#16406f"/>'
+            '<path d="M10 25c6-6 18-9 30-7 7 1 12 5 12 9-6-1-11 1-15 4-6-3-12-3-17 0-4-1-7-3-10-6z" fill="#93bd7c"/><path d="M27 36c2 3 3 7 3 10-3-2-4-6-3-10z" fill="#93bd7c"/>'
+            '<path d="M14 26c8-4 16-5 24-3s10 2 13 1" fill="none" stroke="#ffd36e" stroke-width="2" stroke-linecap="round"/>'
+            '<path d="M22 33c5 6 12 9 22 7" fill="none" stroke="#7fe3ff" stroke-width="2" stroke-linecap="round"/>'
+            '<circle cx="14" cy="26" r="2" fill="#fff"/><circle cx="51" cy="24" r="2" fill="#fff"/><circle cx="34" cy="24" r="3" fill="#ff8fd8"/></svg>')
+
+_WH_CARD = {"spread": whspread_svg, "farm": whfarm_svg, "tablet": whtablet_svg, "pyramid": whpyramid_svg, "assembly": whassembly_svg, "arch": wharch_svg, "coins": whcoins_svg, "dharma": whdharma_svg, "silk": whsilk_svg}
 
 def render_whspread_lab(lesson):
     """第一課：歷史地球儀（assets/js/wh-spread.js 綁這裡的 class）。只畫陸地、海洋與路線；不畫國界、不標國名。"""
@@ -19571,6 +19580,52 @@ def render_whdharma_lab(lesson):
   <p class="wh-credit">{lab["credit_html"]}</p>
 </div>'''
 
+def render_whsilk_lab(lesson):
+    """第九課：絲路的歷史地球儀（assets/js/wh-silk.js 綁這裡的 class）。陸路和海路連成一張網；「跟著一件東西走」看它一站一站換手。"""
+    lab = lesson["lab"]
+    payload = _wh_json({k: lab[k] for k in ("from", "to", "start", "routes", "cities", "goods", "demos")})
+    def yr(y):
+        return (f"{-y} BCE", f"西元前 {-y} 年") if y < 0 else (f"{y} CE", f"西元 {y} 年")
+    PORT = ' class="wh-sk-port"'
+    cities = "".join(
+        f'<button type="button" data-site="{c["key"]}" aria-pressed="false"{PORT if c.get("port") else ""}>{_wh_bi(c.get("short_en", c["en"]), c.get("short_zh", c["zh"]))}<small>{_wh_bi(*yr(c["year"]))}</small></button>'
+        for c in sorted(lab["cities"], key=lambda c: c["year"]))
+    goods = "".join(
+        f'<button type="button" data-good="{g["key"]}" aria-pressed="false"><span aria-hidden="true">{g["icon"]}</span>{_wh_bi(g["en"], g["zh"])}</button>'
+        for g in lab["goods"])
+    return f'''<div class="astro-lab wh-lab wh-sk rvl" data-wh-silk-lab>
+  <script type="application/json">{payload}</script>
+  <div class="al-stage">
+    <div class="al-space">
+      <canvas class="al-space-cv" aria-label="3D globe showing, in rough outline, the overland and sea routes that linked Asia, Africa, and Europe, and the cities along them; only land, sea, and routes are drawn, with no borders · 3D 地球儀，大略畫出連起亞洲、非洲和歐洲的陸路與海路，以及路上的城市；只畫陸地、海洋與路線，沒有國界"></canvas>
+      <div class="al-labels" aria-hidden="true"></div>
+      <p class="al-hint">Drag to turn · 拖曳轉動　Scroll or pinch to zoom · 滾輪／雙指縮放　Click a dot · 點圓點</p>
+      <button type="button" class="al-home" title="Reset view · 重設視角" aria-label="Reset view · 重設視角">&#8634;</button>
+      <p class="al-nogl-msg">This 3D globe needs WebGL, which this browser does not support. The time slider, the city cards, and “Follow one thing” still work, and so do the games below.<br><span class="zh">這個瀏覽器不支援 WebGL，無法顯示 3D 地球儀；時間滑桿、城市小卡和「跟著一件東西走」照樣能用，下面的小遊戲也都能用。</span></p>
+    </div>
+    <aside class="al-sky wh-aside wh-sk-aside">
+      <p class="al-sky-k">Time · 時間</p>
+      <p class="wh-when" aria-live="polite"><b class="wh-when-en"></b><span class="zh wh-when-zh"></span></p>
+      <p class="al-sky-k">Cities on the network · 網路上的城市 <b class="wh-count"></b></p>
+      <p class="wh-dh-key"><span class="wh-sk-k-land">{_wh_bi("Gold: overland routes", "金色：陸路")}</span><span class="wh-sk-k-sea">{_wh_bi("Blue: sea routes", "藍色：海路")}</span></p>
+      <div class="wh-sk-good" hidden aria-live="polite"></div>
+      <div class="wh-site" hidden aria-live="polite"></div>
+      <p class="wh-fg-note">{_wh_bi(lab["numbers_note_en"], lab["numbers_note_zh"])}</p>
+    </aside>
+  </div>
+  <div class="al-controls">
+    <div class="al-row al-row-main">
+      <button type="button" class="al-play" aria-pressed="false"><span class="al-play-i" aria-hidden="true"></span><span class="al-play-t">Play · 播放</span></button>
+      <label class="wh-timerow"><span>{html.escape(lab["slider_from_en"])}<small>{html.escape(lab["slider_from_zh"])}</small></span>
+        <input type="range" class="wh-time" min="{lab["from"]}" max="{lab["to"]}" step="1" value="{lab["start"]}" aria-label="Year · 年代"><span>{html.escape(lab["slider_to_en"])}<small>{html.escape(lab["slider_to_zh"])}</small></span></label>
+    </div>
+    <div class="wh-sites wh-sk-goods" role="group" aria-label="Follow one thing · 跟著一件東西走"><span class="wh-sites-k">Follow one thing · 跟著一件東西走</span>{goods}</div>
+    <div class="wh-sites wh-sk-sites" role="group" aria-label="Cities · 城市"><span class="wh-sites-k">Cities · 城市</span>{cities}</div>
+  </div>
+  {_lab_foot(lab)}
+  <p class="wh-credit">{lab["credit_html"]}</p>
+</div>'''
+
 def _wh_match(d):
     """第八課：同一個詞，三種語言（assets/js 的 match2d.js，打包在 wh-dharma 裡）。"""
     payload = _wh_json({k: d[k] for k in ("items", "end_en", "end_zh")})
@@ -19584,7 +19639,7 @@ def _wh_match(d):
   <div class="wh-so-foot"><button type="button" class="wh-btn wh-btn-gold wh-ma-next" data-act="next" hidden>Next · 下一個</button></div>
 </div>'''
 
-_WH_LAB = {"spread": render_whspread_lab, "farm": render_whfarm_lab, "tablet": render_whtablet_lab, "pyramid": render_whpyramid_lab, "assembly": render_whassembly_lab, "arch": render_wharch_lab, "coins": render_whcoins_lab, "dharma": render_whdharma_lab}
+_WH_LAB = {"spread": render_whspread_lab, "farm": render_whfarm_lab, "tablet": render_whtablet_lab, "pyramid": render_whpyramid_lab, "assembly": render_whassembly_lab, "arch": render_wharch_lab, "coins": render_whcoins_lab, "dharma": render_whdharma_lab, "silk": render_whsilk_lab}
 
 def _wh_order(d):
     payload = _wh_json({k: d[k] for k in ("items", "hint_en", "hint_zh", "done_en", "done_zh", "open_en", "open_zh")})
@@ -19732,7 +19787,7 @@ def _wh_ostraka(d):
 </div>'''
 
 _WH_WIDGETS = [("order", _wh_order), ("sort", _wh_sort), ("centers", _wh_centers), ("match", _wh_sort), ("gains", _wh_sort), ("signs", _wh_sort), ("needs", _wh_sort),
-               ("whovotes", _wh_sort), ("ostraka", _wh_ostraka), ("empire", _wh_centers), ("borrowed", _wh_sort), ("conquest", _wh_centers), ("qinhan", _wh_sort), ("terms", _wh_match), ("legend", _wh_sort)]
+               ("whovotes", _wh_sort), ("ostraka", _wh_ostraka), ("empire", _wh_centers), ("borrowed", _wh_sort), ("conquest", _wh_centers), ("qinhan", _wh_sort), ("terms", _wh_match), ("legend", _wh_sort), ("eastwest", _wh_sort), ("when", _wh_order)]
 # 每課固定的卡（照這個順序排在小互動後面）
 _WH_FIXED = [("timeline", _wh_timeline), ("how_we_know", _wh_how_we_know), ("views", _wh_views),
              ("phrases", _wh_phrases), ("taiwan_then", _wh_taiwan_then)]

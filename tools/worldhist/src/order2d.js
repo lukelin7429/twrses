@@ -1,7 +1,8 @@
 /*
  * 世界歷史 第一課 ·「誰先到？」（不需要 WebGL）。
  *
- *   <div class="wh-order" data-wh-order><script type="application/json">{ items: [{ key, en, zh, older, nearer, note_en, note_zh }], … }</script>…</div>
+ *   <div class="wh-order" data-wh-order><script type="application/json">{ items: [{ key, en, zh, older, nearer, when_en?, when_zh?, note_en, note_zh }], … }</script>…</div>
+ *   when_en／when_zh（可省略）：排對以後顯示的年代；沒有就用 older／nearer 寫成「大約幾年前」。
  *
  * 把幾個地方照「人類最早抵達」的先後排好（↑ ↓ 按鈕，或拖曳）。判定只用估計的範圍（spread.js 的 judgeOrder）：
  * 範圍完全不重疊的才有對錯；範圍重疊的兩個地方誰排前面都算對，並且說明「目前的證據分不出先後」。
@@ -30,7 +31,7 @@ export function initOrder(root) {
       const it = by[k];
       const bad = checked && checked.wrong.some((p) => p.includes(k));
       const show = checked && checked.ok;
-      const r = formatAgoRange(it.older, it.nearer);
+      const r = it.when_en ? { en: it.when_en, zh: it.when_zh } : formatAgoRange(it.older, it.nearer);   // 第九課起可以直接寫年代（西元）
       return `<li class="wh-or-it${bad ? ' is-bad' : ''}${show ? ' is-ok' : ''}" data-key="${k}" draggable="true">`
         + `<span class="wh-or-n">${i + 1}</span><span class="wh-or-name">${bi(it.en, it.zh)}`
         + (show ? `<span class="wh-or-when">${bi(r.en, r.zh)}</span>` : '') + '</span>'

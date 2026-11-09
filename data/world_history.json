@@ -12927,7 +12927,7 @@
        "k_zh": "世界歷史・下一課",
        "en": "What Traveled Along the Silk Road?",
        "zh": "絲路上走的是什麼？",
-       "soon": true,
+       "href": "/resources/classes/world-history/silk-roads/",
        "note_en": "Buddhism was one of many things that moved along the roads between China and the west.",
        "note_zh": "佛教只是在中國和西方之間的路上流動的許多東西之一。"
       },
@@ -13298,14 +13298,2269 @@
    "title_zh": "路上的世界",
    "blurb_en": "What moved along the Silk Road, how two world religions began and spread, who kept knowledge alive, and what life was like in a castle.",
    "blurb_zh": "絲路上走的是什麼、兩個世界宗教怎麼開始與傳開、誰把知識保存下來，以及住在城堡裡是什麼樣子。",
-   "lessons": [],
-   "planned": [
+   "lessons": [
     {
      "n": 9,
+     "slug": "silk-roads",
+     "title": "What Traveled Along the Silk Road?",
+     "title_zh": "絲路上走的是什麼？",
+     "level": "入門 · Beginner",
      "icon": "🐫",
-     "en": "What Traveled Along the Silk Road?",
-     "zh": "絲路上走的是什麼？"
-    },
+     "card": "silk",
+     "blurb_en": "Watch land routes and sea routes join into a web on a 3D globe, then follow silk, horses, pepper, paper, and porcelain as they change hands from one stretch to the next. Sort what traveled east and what traveled west.",
+     "blurb_zh": "在 3D 地球儀上看陸路和海路連成一張網，再跟著絲、馬、胡椒、紙和瓷器，看它們一段一段換手。分一分：哪些往東走，哪些往西走。",
+     "big_idea_en": "The “Silk Road” was not one road but a web of land and sea routes linking Asia, Africa, and Europe. Few people traveled the whole way; most goods were passed from trader to trader, one stretch at a time. Along with silk went horses, spices, paper, glass, porcelain, religions, skills, and even diseases.",
+     "big_idea_zh": "「絲路」不是一條路，而是一張連起亞洲、非洲和歐洲的陸路和海路的網。很少有人從頭走到尾；大部分的貨物是一段一段、從一個商人傳到下一個商人手上。跟著絲一起走的，還有馬、香料、紙、玻璃、瓷器、宗教、技術，甚至疾病。",
+     "lab": {
+      "kind": "silk",
+      "eyebrow": "3D Model · 3D 模型",
+      "title_en": "A Web of Roads and Sea Lanes",
+      "title_zh": "陸路和海路連成的網",
+      "how_en": "Drag the slider from 200 BCE to 1400 CE, or press Play, and watch overland routes (gold) and sea routes (blue) join into a web. Click a city to read why it mattered. Then choose “Follow one thing”: a pink dot carries silk, horses, pepper, paper, or porcelain along its journey, one stretch at a time, and the card shows who carried it on each stretch.",
+      "how_zh": "把滑桿從西元前 200 年拉到西元 1400 年，或按「播放」，看陸路（金色）和海路（藍色）連成一張網。點一座城市，讀它為什麼重要。接著選「跟著一件東西走」：粉紅色的小點帶著絲、馬、胡椒、紙或瓷器，一段一段走完它的旅程，小卡會寫出每一段是誰帶的。",
+      "from": -200,
+      "to": 1400,
+      "start": -200,
+      "slider_from_en": "200 BCE",
+      "slider_from_zh": "西元前 200 年",
+      "slider_to_en": "1400 CE",
+      "slider_to_zh": "西元 1400 年",
+      "cities": [
+       {
+        "key": "changan",
+        "en": "Chang'an, China",
+        "zh": "中國長安",
+        "short_en": "Chang'an",
+        "short_zh": "長安",
+        "at": [
+         108.94,
+         34.27
+        ],
+        "year": -138,
+        "port": false,
+        "what_en": "The capital of China under the Han and Tang dynasties, at the eastern end of the overland routes. Under the Tang it held Daoist, Buddhist, Zoroastrian, and Christian places of worship.",
+        "what_zh": "漢朝和唐朝的都城，在陸路的東端。唐朝時，城裡有道教、佛教、祆教和基督教的禮拜場所。",
+        "when_en": "In 138 BCE the envoy Zhang Qian set out from here toward the west (Lesson 7). The Tang city, from 618, was one of the largest in the world.",
+        "when_zh": "西元前 138 年，使者張騫從這裡往西出發（第七課）。從 618 年起的唐朝長安，是當時世界上最大的城市之一。",
+        "how_en": "Han histories, UNESCO's description of the Chang'an–Tianshan corridor, and the British Museum, which describes the city's places of worship.",
+        "how_zh": "漢朝的史書，以及聯合國教科文組織對「長安—天山廊道」的說明。",
+        "src": "UNESCO, Silk Roads: the Routes Network of Chang'an-Tianshan Corridor; British Museum, Silk Roads (2024)",
+        "url": "https://whc.unesco.org/en/list/1442"
+       },
+       {
+        "key": "dunhuang",
+        "en": "Dunhuang, China",
+        "zh": "中國敦煌",
+        "short_en": "Dunhuang",
+        "short_zh": "敦煌",
+        "at": [
+         94.8,
+         40.04
+        ],
+        "year": -111,
+        "port": false,
+        "what_en": "An oasis town where the routes into China met. Travelers left China through two gates nearby, the Jade Gate and the Yang Gate.",
+        "what_zh": "一座綠洲城市，往中國的幾條路在這裡會合。旅人從附近的玉門關和陽關兩個關口出去。",
+        "when_en": "The History of the Former Han places the founding of the Dunhuang commandery under Emperor Wu, in the section for 111 BCE; historians discuss the exact year.",
+        "when_zh": "《漢書》把設立敦煌郡記在漢武帝的時候，放在西元前 111 年那一段；確切的年份歷史學家還在討論。",
+        "how_en": "The History of the Former Han says that “two roads” led from the Jade Gate and the Yang Gate into the Western Regions.",
+        "how_zh": "《漢書・西域傳》說：「自玉門、陽關出西域有兩道」。",
+        "src": "《漢書・武帝紀》；《漢書・西域傳》",
+        "url": "https://zh.wikisource.org/wiki/%E6%BC%A2%E6%9B%B8/%E5%8D%B7006"
+       },
+       {
+        "key": "kashgar",
+        "en": "Kashgar",
+        "zh": "喀什",
+        "short_en": "Kashgar",
+        "short_zh": "喀什",
+        "at": [
+         75.99,
+         39.47
+        ],
+        "year": -100,
+        "port": false,
+        "what_en": "An oasis at the western edge of the Tarim Basin, where routes from China met routes over the mountains to Central Asia and India.",
+        "what_zh": "塔里木盆地西邊的綠洲，從中國來的路，在這裡和翻過高山往中亞、印度的路會合。",
+        "when_en": "Britannica says Chinese forces first took Kashgar in the 2nd century BCE.",
+        "when_zh": "Britannica 說，中國的軍隊在西元前二世紀第一次取得喀什。",
+        "how_en": "Chinese histories and later travelers' accounts.",
+        "how_zh": "中國的史書，以及後來旅人的紀錄。",
+        "src": "Britannica, “Kashgar”",
+        "url": "https://www.britannica.com/place/Kashgar"
+       },
+       {
+        "key": "alexandria",
+        "en": "Alexandria, Egypt",
+        "zh": "埃及亞歷山卓",
+        "short_en": "Alexandria",
+        "short_zh": "亞歷山卓",
+        "at": [
+         29.92,
+         31.2
+        ],
+        "year": 1,
+        "port": true,
+        "what_en": "A great Mediterranean port. Goods from India came by ship up the Red Sea, overland to the Nile, and down the river to Alexandria.",
+        "what_zh": "地中海的大港。從印度來的貨物，坐船到紅海，走陸路到尼羅河，再順著河到亞歷山卓。",
+        "when_en": "In Roman times, about 2,000 years ago. The city had been the capital of Egypt since its founding in 332 BCE.",
+        "when_zh": "羅馬時代，大約兩千年前。這座城從西元前 332 年建立起，就是埃及的首都。",
+        "how_en": "Roman writers, papyrus documents, and finds of Indian goods; the Metropolitan Museum explains the route.",
+        "how_zh": "羅馬的作家、莎草紙文書，以及出土的印度貨物；大都會博物館說明了這條路線。",
+        "src": "Metropolitan Museum of Art, “Trade between the Romans and the Empires of Asia”",
+        "url": "https://www.metmuseum.org/essays/trade-between-the-romans-and-the-empires-of-asia"
+       },
+       {
+        "key": "palmyra",
+        "en": "Palmyra, Syria",
+        "zh": "敘利亞帕邁拉",
+        "short_en": "Palmyra",
+        "short_zh": "帕邁拉",
+        "at": [
+         38.27,
+         34.55
+        ],
+        "year": 50,
+        "port": false,
+        "what_en": "A desert city whose caravans linked the Roman world with Persia and the lands beyond.",
+        "what_zh": "一座沙漠城市，它的商隊把羅馬世界和波斯，以及更遠的地方連起來。",
+        "when_en": "UNESCO says Palmyra came under Roman control in the mid-1st century CE.",
+        "when_zh": "聯合國教科文組織說，帕邁拉在西元一世紀中期歸羅馬控制。",
+        "how_en": "Its ruins and inscriptions. UNESCO calls it a city on the trade route linking Persia, India, and China with the Roman Empire.",
+        "how_zh": "城市的遺址和銘文。聯合國教科文組織說，它是連起波斯、印度、中國和羅馬帝國的貿易路線上的城市。",
+        "src": "UNESCO, Site of Palmyra",
+        "url": "https://whc.unesco.org/en/list/23"
+       },
+       {
+        "key": "samarkand",
+        "en": "Samarkand",
+        "zh": "撒馬爾罕",
+        "short_en": "Samarkand",
+        "short_zh": "撒馬爾罕",
+        "at": [
+         66.97,
+         39.65
+        ],
+        "year": 313,
+        "port": false,
+        "what_en": "The home city of the Sogdians, merchants who built a trading network that stretched into China.",
+        "what_zh": "粟特人的家鄉。粟特商人建立了一張一直延伸到中國的貿易網。",
+        "when_en": "One of the letters Sogdian merchants wrote in China around 313 CE was addressed to partners back in Samarkand.",
+        "when_zh": "大約西元 313 年，在中國的粟特商人寫的信裡，有一封是寄給在撒馬爾罕的夥伴的。",
+        "how_en": "The “Ancient Letters,” found in 1907 in a watchtower west of the Jade Gate, list goods such as silver, linen, musk, and pepper. Their date is debated.",
+        "how_zh": "1907 年在玉門關西邊一座烽燧裡找到的「粟特古信札」，列出銀、麻布、麝香、胡椒等貨物。它們的年代還有爭論。",
+        "src": "The Sogdian Ancient Letters, trans. Sims-Williams (University of Washington)",
+        "url": "https://depts.washington.edu/silkroad/texts/sogdlet.html"
+       },
+       {
+        "key": "turfan",
+        "en": "Turfan (Gaochang)",
+        "zh": "吐魯番（高昌）",
+        "short_en": "Turfan",
+        "short_zh": "吐魯番",
+        "at": [
+         89.19,
+         42.95
+        ],
+        "year": 450,
+        "port": false,
+        "what_en": "An oasis kingdom on the northern route around the Taklamakan Desert.",
+        "what_zh": "繞過塔克拉瑪干沙漠的北路上的一個綠洲王國。",
+        "when_en": "The kingdom of Gaochang arose around 450 CE; Tang forces ended its power in 640.",
+        "when_zh": "高昌國大約在西元 450 年興起；640 年被唐朝的軍隊滅掉。",
+        "how_en": "Tombs nearby held Sasanian silver coins from Persia and a few Byzantine gold coins, probably brought by Sogdian merchants.",
+        "how_zh": "附近的墳墓裡有波斯薩珊王朝的銀幣，還有幾枚拜占庭的金幣，大概是粟特商人帶來的。",
+        "src": "British Museum, Silk Roads exhibition (2024); Britannica, “Turfan”",
+        "url": "https://www.britishmuseum.org/exhibitions/silk-roads/silk-roads-large-print-guide"
+       },
+       {
+        "key": "constantinople",
+        "en": "Constantinople",
+        "zh": "君士坦丁堡",
+        "short_en": "Constantinople",
+        "short_zh": "君士坦丁堡",
+        "at": [
+         28.95,
+         41.05
+        ],
+        "year": 550,
+        "port": false,
+        "what_en": "The capital of the Eastern Roman (Byzantine) Empire, a huge market for silk.",
+        "what_zh": "東羅馬（拜占庭）帝國的首都，是絲的大市場。",
+        "when_en": "Around 550 CE, the historian Procopius tells of monks who brought silkworm eggs to Emperor Justinian, so that silk could be made in the empire.",
+        "when_zh": "大約西元 550 年，史家普羅科匹厄斯說，有僧人把蠶卵帶給查士丁尼皇帝，讓帝國自己也能生產絲。",
+        "how_en": "Procopius's story is one report, written down in the 500s. Another Byzantine writer tells it differently, so it is told here as his version.",
+        "how_zh": "這是普羅科匹厄斯的記載，寫於六世紀；另一位拜占庭作家的說法不一樣，所以這裡當作他的說法來寫。",
+        "src": "UNESCO, Historic Areas of Istanbul; UNESCO, About the Silk Roads",
+        "url": "https://whc.unesco.org/en/list/356"
+       },
+       {
+        "key": "guangzhou",
+        "en": "Guangzhou, China",
+        "zh": "中國廣州",
+        "short_en": "Guangzhou",
+        "short_zh": "廣州",
+        "at": [
+         113.26,
+         23.13
+        ],
+        "year": 250,
+        "port": true,
+        "what_en": "China's great southern port. Under the Tang, ships sailed from here to India, the Persian Gulf, and East Africa.",
+        "what_zh": "中國南方的大港。唐朝時，船從這裡開往印度、波斯灣和東非。",
+        "when_en": "Britannica calls it a doorway for foreign influence since the 3rd century CE.",
+        "when_zh": "Britannica 說，從西元三世紀起，它就是外國影響進來的門戶。",
+        "how_en": "Chinese records, and shipwrecks such as the Belitung ship, which probably sailed from here (some scholars think from Yangzhou).",
+        "how_zh": "中國的紀錄，以及勿里洞沉船等沉船；勿里洞的船大概是從這裡出發的（也有人認為是揚州）。",
+        "src": "Britannica, “Guangzhou”; Metropolitan Museum of Art, “Internationalism in the Tang Dynasty”",
+        "url": "https://www.britannica.com/place/Guangzhou"
+       },
+       {
+        "key": "calicut",
+        "en": "Calicut, India",
+        "zh": "印度卡利卡特（古里）",
+        "short_en": "Calicut",
+        "short_zh": "卡利卡特",
+        "at": [
+         75.78,
+         11.25
+        ],
+        "year": 650,
+        "port": true,
+        "what_en": "A port on India's southwest coast, once famous for weaving cotton cloth; the word “calico” comes from its name. The coast around it was a major source of pepper.",
+        "what_zh": "印度西南海岸的港口，過去以織棉布出名；英文的 calico（印花棉布）就是從它的名字來的。附近的海岸是胡椒的重要產地。",
+        "when_en": "Britannica says Arab traders first settled there in the 7th century CE.",
+        "when_zh": "Britannica 說，阿拉伯商人在西元七世紀第一次在這裡定居。",
+        "how_en": "Arab and Chinese records, and later the accounts of Ibn Battuta, who was shipwrecked nearby in the 1340s.",
+        "how_zh": "阿拉伯和中國的紀錄，以及後來伊本・巴杜達的遊記；他在 1340 年代在附近遇到船難。",
+        "src": "Britannica, “Kozhikode”",
+        "url": "https://www.britannica.com/place/Kozhikode"
+       },
+       {
+        "key": "palembang",
+        "en": "Srivijaya (Palembang, Sumatra)",
+        "zh": "室利佛逝（蘇門答臘巨港）",
+        "short_en": "Srivijaya",
+        "short_zh": "室利佛逝",
+        "at": [
+         104.75,
+         -2.99
+        ],
+        "year": 671,
+        "port": true,
+        "what_en": "The traditional capital of Srivijaya, a trading kingdom that controlled the straits between the Indian Ocean and the South China Sea. Scholars still debate exactly where its center was.",
+        "what_zh": "傳統上認為是室利佛逝的首都。這個貿易王國控制著印度洋和南海之間的海峽；它的中心確切在哪裡，學者還在討論。",
+        "when_en": "The Chinese monk Yijing stopped here in 671 CE (Lesson 8). Britannica says it was Srivijaya's capital from the 7th to the late 12th century.",
+        "when_zh": "中國僧人義淨在西元 671 年停在這裡（第八課）。Britannica 說，從七世紀到十二世紀末它都是室利佛逝的首都。",
+        "how_en": "Yijing's writings, and stone inscriptions in Old Malay from the 680s found near Palembang.",
+        "how_zh": "義淨的著作，以及在巨港附近找到、680 年代用古馬來文刻的石碑。",
+        "src": "Britannica, “I-ching”",
+        "url": "https://www.britannica.com/biography/I-ching"
+       },
+       {
+        "key": "baghdad",
+        "en": "Baghdad",
+        "zh": "巴格達",
+        "short_en": "Baghdad",
+        "short_zh": "巴格達",
+        "at": [
+         44.36,
+         33.31
+        ],
+        "year": 762,
+        "port": false,
+        "what_en": "Founded as the capital of the Abbasid caliphs, Baghdad drew goods by river and by road from the Persian Gulf, Central Asia, and the Mediterranean.",
+        "what_zh": "阿拔斯王朝哈里發的首都。貨物從波斯灣、中亞和地中海，順著河、沿著路來到巴格達。",
+        "when_en": "Founded in 762 CE. Britannica says the first paper was made in Baghdad in 793.",
+        "when_zh": "建於西元 762 年。Britannica 說，巴格達在 793 年第一次造出了紙。",
+        "how_en": "Arabic histories and geographies, written by scholars in the city.",
+        "how_zh": "城裡的學者寫的阿拉伯文史書和地理書。",
+        "src": "Britannica, “Baghdad”; Britannica, “Papermaking”",
+        "url": "https://www.britannica.com/place/Baghdad"
+       },
+       {
+        "key": "belitung",
+        "en": "The Belitung shipwreck",
+        "zh": "勿里洞沉船",
+        "short_en": "Belitung wreck",
+        "short_zh": "勿里洞沉船",
+        "at": [
+         107.9,
+         -2.85
+        ],
+        "year": 826,
+        "port": true,
+        "what_en": "A ship of a Persian Gulf type, its planks sewn together with rope, sank near the island of Belitung on its way from China.",
+        "what_zh": "一艘波斯灣式的船，船板是用繩子縫起來的，從中國出發後，在勿里洞島附近沉沒。",
+        "when_en": "One bowl in the cargo seems to carry a date equal to 826 CE; the ceramics date to about the 820s and 830s.",
+        "when_zh": "貨物裡有一個碗，上面好像刻著相當於西元 826 年的年代；這些瓷器大約是 820 到 830 年代的。",
+        "how_en": "Fishermen found it in 1998. About 60,000 objects were brought up, including more than 50,000 painted bowls from the Changsha kilns.",
+        "how_zh": "1998 年漁民發現了它。打撈上來大約六萬件東西，其中有五萬多個長沙窯的彩繪碗。",
+        "src": "Singapore National Heritage Board, “Sunken Treasure”; Asian Civilisations Museum, “Tang Shipwreck”",
+        "url": "https://www.roots.gov.sg/en/stories-landing/stories/sunken-treasure-a-ninth-century-shipwreck/story"
+       },
+       {
+        "key": "quanzhou",
+        "en": "Quanzhou, China",
+        "zh": "中國泉州",
+        "short_en": "Quanzhou",
+        "short_zh": "泉州",
+        "at": [
+         118.59,
+         24.91
+        ],
+        "year": 950,
+        "port": true,
+        "what_en": "One of the busiest ports in the world, called Zaytun by foreign traders. Its sites include the 11th-century Qingjing Mosque, one of the earliest in China, Islamic tombs, and Buddhist pagodas.",
+        "what_zh": "世界上最繁忙的港口之一，外國商人稱它為「刺桐」（Zaytun）。城裡有十一世紀建的清淨寺（中國最早的清真寺之一）、伊斯蘭教的墓，還有佛塔。",
+        "when_en": "UNESCO describes it as a maritime hub of the East and Southeast Asian trade network in the 10th to 14th centuries CE.",
+        "when_zh": "聯合國教科文組織說，它是西元十到十四世紀東亞和東南亞貿易網的海上樞紐。",
+        "how_en": "Its mosques, tombs, pagodas, and inscriptions, inscribed as a World Heritage site in 2021.",
+        "how_zh": "清真寺、墓、佛塔和碑刻，2021 年列入世界遺產。",
+        "src": "UNESCO, Quanzhou: Emporium of the World in Song-Yuan China",
+        "url": "https://whc.unesco.org/en/list/1561"
+       },
+       {
+        "key": "kilwa",
+        "en": "Kilwa Kisiwani, East Africa",
+        "zh": "東非基爾瓦",
+        "short_en": "Kilwa",
+        "short_zh": "基爾瓦",
+        "at": [
+         39.4,
+         -8.9
+        ],
+        "year": 1300,
+        "port": true,
+        "what_en": "An island port on the coast of East Africa. Gold and ivory from inland were traded here for silver, carnelian beads, perfume, Persian pottery, and Chinese porcelain.",
+        "what_zh": "東非海岸的一個島上的港口。內陸的黃金和象牙，在這裡換成白銀、紅玉髓珠、香水、波斯陶器和中國瓷器。",
+        "when_en": "UNESCO says the island was occupied from the 9th to the 19th century, and its trade was at its height in the 13th and 14th centuries, around 1300. Ibn Battuta visited in 1331–32.",
+        "when_zh": "聯合國教科文組織說，這個島從九世紀到十九世紀都有人住，貿易在十三、十四世紀（大約 1300 年前後）最興盛。伊本・巴杜達在 1331–32 年來過。",
+        "how_en": "Ruins of mosques and palaces. Chinese porcelain was set into the domes and vaults of the Great Mosque.",
+        "how_zh": "清真寺和宮殿的遺址。中國瓷器被嵌在大清真寺的圓頂和拱頂上。",
+        "src": "UNESCO, Ruins of Kilwa Kisiwani and Ruins of Songo Mnara",
+        "url": "https://whc.unesco.org/en/list/144"
+       },
+       {
+        "key": "chuy",
+        "en": "The Chüy Valley (Kara-Djigach)",
+        "zh": "楚河河谷（卡拉吉加奇）",
+        "short_en": "Chüy Valley",
+        "short_zh": "楚河河谷",
+        "at": [
+         74.6,
+         42.85
+        ],
+        "year": 1338,
+        "port": false,
+        "what_en": "Two cemeteries here hold gravestones from 1338–39 that give “pestilence” as the cause of death.",
+        "what_zh": "這裡的兩座墓地有 1338–39 年的墓碑，寫著死因是「瘟疫」。",
+        "when_en": "1338–39 CE, a few years before the Black Death reached the Mediterranean in 1347.",
+        "when_zh": "西元 1338–39 年，比黑死病在 1347 年傳到地中海早幾年。",
+        "how_en": "A 2022 study found DNA of the plague bacterium in seven people buried here and argues the strain arose in this region. Other historians argue the plague spread across Central Eurasia earlier, in the 1200s.",
+        "how_zh": "2022 年的一項研究，在這裡七個人的遺骸中找到鼠疫桿菌的 DNA，並主張那一株病菌就是在這一帶出現的。也有歷史學家主張，鼠疫更早在 1200 年代就已經傳遍歐亞大陸中部。",
+        "src": "Spyrou et al., Nature (2022)",
+        "url": "https://doi.org/10.1038/s41586-022-04800-3"
+       },
+       {
+        "key": "malacca",
+        "en": "Malacca",
+        "zh": "馬六甲",
+        "short_en": "Malacca",
+        "short_zh": "馬六甲",
+        "at": [
+         102.27,
+         2.22
+        ],
+        "year": 1400,
+        "port": true,
+        "what_en": "A port on the narrow strait between Sumatra and the Malay Peninsula, where ships stopped for food and fresh water.",
+        "what_zh": "蘇門答臘和馬來半島之間窄窄的海峽上的港口，船在這裡停下來補充糧食和淡水。",
+        "when_en": "Founded around 1400 CE; it grew into a great trading sultanate in the 15th century.",
+        "when_zh": "大約在西元 1400 年建立；十五世紀發展成一個重要的貿易蘇丹國。",
+        "how_en": "Malay and Chinese records, and later Portuguese ones.",
+        "how_zh": "馬來和中國的紀錄，以及後來葡萄牙人的紀錄。",
+        "src": "Britannica, “Melaka”; UNESCO, Melaka and George Town",
+        "url": "https://www.britannica.com/place/Melaka-Malaysia"
+       }
+      ],
+      "routes": [
+       {
+        "key": "west",
+        "kind": "land",
+        "pts": [
+         [
+          108.94,
+          34.27,
+          -138,
+          "changan"
+         ],
+         [
+          103.8,
+          36.1
+         ],
+         [
+          94.8,
+          40.04,
+          -111,
+          "dunhuang"
+         ],
+         [
+          88.0,
+          41.5
+         ],
+         [
+          75.99,
+          39.47,
+          -100,
+          "kashgar"
+         ],
+         [
+          66.97,
+          39.65,
+          -90
+         ],
+         [
+          61.8,
+          37.6,
+          -80
+         ],
+         [
+          44.5,
+          33.1,
+          -60
+         ],
+         [
+          38.27,
+          34.55,
+          50,
+          "palmyra"
+         ],
+         [
+          36.2,
+          36.2,
+          60
+         ]
+        ]
+       },
+       {
+        "key": "redsea",
+        "kind": "sea",
+        "pts": [
+         [
+          76.2,
+          10.2,
+          -50
+         ],
+         [
+          66.0,
+          12.5,
+          -40,
+          "sea"
+         ],
+         [
+          51.0,
+          13.0,
+          -30,
+          "sea"
+         ],
+         [
+          43.4,
+          12.6,
+          -20,
+          "sea"
+         ],
+         [
+          35.5,
+          24.0,
+          -10,
+          "sea"
+         ],
+         [
+          32.9,
+          25.7,
+          -5
+         ],
+         [
+          29.92,
+          31.2,
+          1,
+          "alexandria"
+         ]
+        ]
+       },
+       {
+        "key": "north",
+        "kind": "land",
+        "pts": [
+         [
+          94.8,
+          40.04,
+          430
+         ],
+         [
+          89.19,
+          42.95,
+          450,
+          "turfan"
+         ],
+         [
+          82.0,
+          41.7
+         ],
+         [
+          75.99,
+          39.47,
+          470
+         ]
+        ]
+       },
+       {
+        "key": "byzantium",
+        "kind": "land",
+        "pts": [
+         [
+          36.2,
+          36.2,
+          500
+         ],
+         [
+          32.85,
+          39.9,
+          530
+         ],
+         [
+          28.95,
+          41.05,
+          550,
+          "constantinople"
+         ]
+        ]
+       },
+       {
+        "key": "south",
+        "kind": "sea",
+        "pts": [
+         [
+          113.26,
+          23.13,
+          250,
+          "guangzhou"
+         ],
+         [
+          109.5,
+          15.0,
+          400,
+          "sea"
+         ],
+         [
+          105.5,
+          5.0,
+          600,
+          "sea"
+         ],
+         [
+          104.75,
+          -2.99,
+          671,
+          "palembang",
+          "sea"
+         ],
+         [
+          96.0,
+          5.5,
+          690,
+          "sea"
+         ],
+         [
+          80.5,
+          5.8,
+          705,
+          "sea"
+         ],
+         [
+          77.3,
+          8.0,
+          712,
+          "sea"
+         ],
+         [
+          75.78,
+          11.25,
+          720,
+          "sea"
+         ]
+        ]
+       },
+       {
+        "key": "gulf",
+        "kind": "sea",
+        "pts": [
+         [
+          75.78,
+          11.25,
+          650,
+          "calicut"
+         ],
+         [
+          66.0,
+          22.0,
+          700,
+          "sea"
+         ],
+         [
+          56.5,
+          26.5,
+          730,
+          "sea"
+         ],
+         [
+          50.0,
+          29.3,
+          745,
+          "sea"
+         ],
+         [
+          47.9,
+          30.4,
+          755,
+          "sea"
+         ],
+         [
+          44.36,
+          33.31,
+          762,
+          "baghdad"
+         ]
+        ]
+       },
+       {
+        "key": "abbasid",
+        "kind": "land",
+        "pts": [
+         [
+          66.97,
+          39.65,
+          700
+         ],
+         [
+          61.8,
+          37.6,
+          730
+         ],
+         [
+          51.4,
+          35.7,
+          750
+         ],
+         [
+          44.36,
+          33.31,
+          770
+         ]
+        ]
+       },
+       {
+        "key": "belitung",
+        "kind": "sea",
+        "pts": [
+         [
+          113.26,
+          23.13,
+          800
+         ],
+         [
+          110.0,
+          12.0,
+          812,
+          "sea"
+         ],
+         [
+          107.9,
+          -2.85,
+          826,
+          "belitung",
+          "sea"
+         ]
+        ]
+       },
+       {
+        "key": "fujian",
+        "kind": "sea",
+        "pts": [
+         [
+          113.26,
+          23.13,
+          935
+         ],
+         [
+          116.7,
+          22.9,
+          942,
+          "sea"
+         ],
+         [
+          118.59,
+          24.91,
+          950,
+          "quanzhou",
+          "sea"
+         ]
+        ]
+       },
+       {
+        "key": "africa",
+        "kind": "sea",
+        "pts": [
+         [
+          56.5,
+          26.5,
+          850
+         ],
+         [
+          58.5,
+          21.0,
+          880,
+          "sea"
+         ],
+         [
+          52.0,
+          14.0,
+          910,
+          "sea"
+         ],
+         [
+          45.0,
+          9.0,
+          940,
+          "sea"
+         ],
+         [
+          42.0,
+          -1.0,
+          1100,
+          "sea"
+         ],
+         [
+          39.4,
+          -8.9,
+          1300,
+          "kilwa",
+          "sea"
+         ]
+        ]
+       },
+       {
+        "key": "steppe",
+        "kind": "land",
+        "pts": [
+         [
+          66.97,
+          39.65,
+          1300
+         ],
+         [
+          69.3,
+          41.3,
+          1320
+         ],
+         [
+          74.6,
+          42.85,
+          1338,
+          "chuy"
+         ],
+         [
+          80.0,
+          43.8
+         ],
+         [
+          87.6,
+          43.8,
+          1350
+         ],
+         [
+          89.19,
+          42.95,
+          1360
+         ]
+        ]
+       },
+       {
+        "key": "straits",
+        "kind": "sea",
+        "pts": [
+         [
+          104.75,
+          -2.99,
+          1370
+         ],
+         [
+          104.4,
+          0.8,
+          1385,
+          "sea"
+         ],
+         [
+          102.27,
+          2.22,
+          1400,
+          "malacca",
+          "sea"
+         ]
+        ]
+       }
+      ],
+      "goods": [
+       {
+        "key": "silk",
+        "icon": "🧵",
+        "en": "Silk",
+        "zh": "絲",
+        "year": 100,
+        "dir": "west",
+        "dist": 3.9,
+        "stops": [
+         "changan",
+         "dunhuang",
+         "kashgar",
+         "palmyra"
+        ],
+        "legs": [
+         {
+          "en": "Silk went out along the Hexi Corridor to the frontier town of Dunhuang.",
+          "zh": "絲沿著河西走廊，運到邊境的敦煌。"
+         },
+         {
+          "en": "Oasis traders carried it around the Taklamakan Desert to Kashgar.",
+          "zh": "綠洲的商人帶著它繞過塔克拉瑪干沙漠，到了喀什。"
+         },
+         {
+          "en": "Parthian middlemen passed it west. The History of the Later Han says Parthia wanted to keep the silk trade with Rome for itself.",
+          "zh": "安息（帕提亞）的中間商把它往西轉賣。《後漢書》說，安息想把和羅馬的絲綢買賣留給自己。"
+         }
+        ],
+        "note_en": "From Palmyra, caravans carried it on toward the Mediterranean coast and Roman markets. This is one likely journey, not the record of one cargo. Silk reached the Roman world in the 1st century BCE; the Roman writer Pliny complained that India, the “Seres,” and Arabia took 100 million sesterces a year from the empire.",
+        "note_zh": "從帕邁拉，商隊再把它往地中海沿岸、羅馬的市場帶。這是一條可能的旅程，不是某一批貨的紀錄。絲在西元前一世紀傳到羅馬世界；羅馬作家老普林尼抱怨，印度、「賽里斯」（絲國）和阿拉伯每年從帝國拿走一億塞斯特斯。",
+        "src": "UNESCO, Silk Roads; 《後漢書・西域傳》",
+        "url": "https://www.unesco.org/en/silk-roads/about-silk-roads?hub=196704"
+       },
+       {
+        "key": "horses",
+        "icon": "🐎",
+        "en": "Horses",
+        "zh": "馬",
+        "year": -100,
+        "dir": "east",
+        "dist": 3.6,
+        "stops": [
+         "kashgar",
+         "changan"
+        ],
+        "legs": [
+         {
+          "en": "Han envoys and armies brought horses back from Ferghana, west of Kashgar. Emperor Wu called them “heavenly horses.”",
+          "zh": "漢朝的使者和軍隊，從喀什西邊的大宛帶回馬。漢武帝稱牠們為「天馬」。"
+         }
+        ],
+        "note_en": "The same envoys brought back seeds of alfalfa, which the horses ate, and grapes, and planted them near the capital.",
+        "note_zh": "同一批使者也帶回了馬吃的苜蓿和葡萄的種子，種在都城附近。",
+        "src": "《史記・大宛列傳》",
+        "url": "https://zh.wikisource.org/wiki/%E5%8F%B2%E8%A8%98/%E5%8D%B7123"
+       },
+       {
+        "key": "pepper",
+        "icon": "🌶️",
+        "en": "Pepper",
+        "zh": "胡椒",
+        "year": 1000,
+        "dir": "east",
+        "dist": 3.7,
+        "stops": [
+         "calicut",
+         "palembang",
+         "guangzhou"
+        ],
+        "legs": [
+         {
+          "en": "Ships carried it from India's southwest coast, a major pepper source, around Sri Lanka and across the Bay of Bengal to the straits controlled by Srivijaya.",
+          "zh": "船把它從印度西南海岸這個胡椒的重要產地運出，繞過斯里蘭卡、橫越孟加拉灣，到室利佛逝控制的海峽。"
+         },
+         {
+          "en": "Other ships carried it north to Guangzhou.",
+          "zh": "另一批船再把它往北運到廣州。"
+         }
+        ],
+        "note_en": "This is one likely journey, not the record of one cargo. UNESCO says the sea routes were used in particular for the spice trade, and that merchants often sold their cargo on at points along the way.",
+        "note_zh": "這是一條可能的旅程，不是某一批貨的紀錄。聯合國教科文組織說，海路特別用來做香料的買賣，商人也常常在途中把貨轉賣出去。",
+        "src": "UNESCO, Silk Roads; Metropolitan Museum of Art, “Internationalism in the Tang Dynasty”",
+        "url": "https://www.unesco.org/en/silk-roads/about-silk-roads?hub=196704"
+       },
+       {
+        "key": "paper",
+        "icon": "📜",
+        "en": "Papermaking",
+        "zh": "造紙術",
+        "year": 800,
+        "dir": "west",
+        "dist": 3.9,
+        "stops": [
+         "changan",
+         "dunhuang",
+         "samarkand",
+         "baghdad"
+        ],
+        "legs": [
+         {
+          "en": "Paper was made in China by about 100 CE (Britannica names the official Cai Lun, 105 CE; some finds are older), and it traveled west with officials and merchants.",
+          "zh": "西元 100 年左右，中國已經在造紙（Britannica 說是蔡倫，西元 105 年；也有更早的出土紙），紙再跟著官員和商人往西走。"
+         },
+         {
+          "en": "The skill reached Samarkand by 751. A famous story says Chinese prisoners from a battle that year taught it, but some historians think paper was already used there earlier.",
+          "zh": "到 751 年，造紙的技術已經傳到撒馬爾罕。有一個有名的故事說，是那一年一場戰役裡被俘的中國人教的，但有些歷史學家認為，在那以前那裡就已經有人用紙了。"
+         },
+         {
+          "en": "By 793 paper was being made in Baghdad. Later, papermaking reached Europe from the Islamic world.",
+          "zh": "到 793 年，巴格達已經在造紙。後來，造紙術再從伊斯蘭世界傳到歐洲。"
+         }
+        ],
+        "note_en": "Here what traveled was a skill, not just an object, and people used the materials they had: plant fibers in China, rags of linen and cotton later in Europe.",
+        "note_zh": "這一次旅行的是一種技術，不只是一件東西；各地的人用手邊有的材料來做：中國用植物纖維，後來的歐洲用麻布和棉布的破布。",
+        "src": "Britannica, “Papermaking”",
+        "url": "https://www.britannica.com/technology/papermaking"
+       },
+       {
+        "key": "porcelain",
+        "icon": "🏺",
+        "en": "Porcelain",
+        "zh": "瓷器",
+        "year": 1300,
+        "dir": "west",
+        "dist": 4.2,
+        "stops": [
+         "quanzhou",
+         "palembang",
+         "calicut",
+         "kilwa"
+        ],
+        "legs": [
+         {
+          "en": "Chinese ships carried porcelain from the great port of Quanzhou to ports in Sumatra and Java.",
+          "zh": "中國的船把瓷器從泉州這個大港運到蘇門答臘和爪哇的港口。"
+         },
+         {
+          "en": "Traders of many peoples carried it across the Bay of Bengal and around Sri Lanka to India's west coast.",
+          "zh": "許多不同民族的商人，把它帶過孟加拉灣、繞過斯里蘭卡，到印度的西海岸。"
+         },
+         {
+          "en": "Traders from Arabia, Persia, and the Swahili coast probably carried it down the coast of East Africa.",
+          "zh": "來自阿拉伯、波斯和斯瓦希里海岸的商人，大概把它沿著東非海岸往南運。"
+         }
+        ],
+        "note_en": "This is one likely journey, not the record of a single bowl. At Kilwa, Chinese porcelain was set into the domes and vaults of the Great Mosque.",
+        "note_zh": "這是一條可能的旅程，不是某一個碗的紀錄。在基爾瓦，中國瓷器被嵌在大清真寺的圓頂和拱頂上。",
+        "src": "UNESCO, Ruins of Kilwa Kisiwani; UNESCO, Quanzhou",
+        "url": "https://whc.unesco.org/en/list/144"
+       }
+      ],
+      "demos": [
+       {
+        "key": "start",
+        "year": -100,
+        "look": [
+         92,
+         38,
+         3.4
+        ]
+       },
+       {
+        "key": "silk",
+        "year": 100,
+        "good": "silk",
+        "t": 0.62
+       },
+       {
+        "key": "sea",
+        "year": 900,
+        "look": [
+         85,
+         10,
+         3.8
+        ]
+       },
+       {
+        "key": "paper",
+        "year": 800,
+        "good": "paper",
+        "t": 0.55
+       }
+      ],
+      "numbers_note_en": "Each city lights up in the year given on its card, roughly when our evidence places it on the network; many were founded much earlier. Routes show only the rough direction of travel, and the five journeys show likely paths, not the record of one cargo.",
+      "numbers_note_zh": "每一座城市在卡片上寫的那一年亮起來，大約是證據顯示它在這張網上的時候；很多城市其實更早就有了。路線只表示大致的方向，五段旅程是可能的路徑，不是某一件東西的紀錄。",
+      "legend": [
+       {
+        "cls": "wh-landroute",
+        "en": "Overland routes",
+        "zh": "陸路"
+       },
+       {
+        "cls": "wh-searoute",
+        "en": "Sea routes",
+        "zh": "海路"
+       },
+       {
+        "cls": "wh-good",
+        "en": "The journey of one thing",
+        "zh": "一件東西的旅程"
+       }
+      ],
+      "scale_en": "This is a teaching sketch. Real travelers used many more routes than the ones drawn, and few of them went the whole way. The map shows land only, with no modern borders.",
+      "scale_zh": "這是教學用的示意。真正的旅人走過的路比畫出來的多很多，而且很少有人從頭走到尾。地圖只畫陸地，不畫今天的國界。",
+      "credit_html": "Globe: land outlines from Natural Earth (public domain). Places and dates follow the sources listed at the bottom of the page. <span class=\"zh\">地球儀：陸地外形取自 Natural Earth（公有領域）。地方和年代依本頁最下面列出的資料。</span>"
+     },
+     "paras": [
+      "Nobody in ancient times called these routes the “Silk Road.” The German geographer Ferdinand von Richthofen used the name in 1877, though earlier German writers had used it too, and it spread widely only in the 1900s. UNESCO describes the Silk Roads as a network of land and sea routes, used for well over 1,500 years, along which silk and many other goods were exchanged.",
+      "On land, the routes linked China with Central Asia, Persia, and the Mediterranean. Around 138 BCE the Han envoy Zhang Qian set out west, and the Han set up commanderies along the Hexi Corridor, including Dunhuang. Travelers had to cross deserts, mountains, and the lands of many different kingdoms, so caravans moved from oasis to oasis.",
+      "Few people traveled the whole way. Britannica puts it simply: goods were handled stage by stage by middlemen. Sogdian merchants from around Samarkand built a network of partners in many towns; letters they wrote around 313 CE mention silver, linen, musk, and pepper. In 97 CE a Han envoy, Gan Ying, reached the sea in the west and turned back, after sailors there warned him the crossing could take years.",
+      "The sea routes were just as important. Ships sailed between China, Southeast Asia, India, the Persian Gulf, the Red Sea, and East Africa, timing their voyages to the monsoon winds. A ship that sank near the island of Belitung around the 820s or 830s carried about 60,000 objects from China, most of them painted bowls. Later, ports such as Quanzhou in China and Kilwa in East Africa grew rich on this trade.",
+      "Silk was only one of many things that traveled. Horses, grapes, and alfalfa came east to China; paper and the skill of making it went west, reaching Samarkand by 751 and Baghdad by 793. Glass, spices, porcelain, and coins moved too. So did beliefs: Buddhism, Manichaeism, Christianity, and Islam all spread along these routes. And so did disease: the Black Death of the 1340s probably traveled along these routes, though scholars still debate exactly how.",
+      "No single people controlled the routes. Chinese, Sogdian, Persian, Indian, Arab, Malay, Swahili, and many other traders each knew their own stretch. What made the network work was not one long road, but many shorter connections, each linking one place to the next. That is why ideas and goods could travel so far, even though most people did not."
+     ],
+     "paras_zh": [
+      "古代沒有人把這些路叫做「絲路」。德國地理學家李希霍芬在 1877 年用了這個名字，更早的德國作家也用過；它在二十世紀才真正流行起來。聯合國教科文組織說，絲路是一張由陸路和海路組成的網，用了一千五百多年，絲和許多其他的貨物沿著它交換。",
+      "在陸地上，這些路把中國和中亞、波斯、地中海連起來。大約西元前 138 年，漢朝的使者張騫往西出發；漢朝也沿著河西走廊設了幾個郡，包括敦煌。旅人要穿過沙漠、高山，還有許多不同國家的土地，所以商隊是從一個綠洲走到下一個綠洲。",
+      "很少有人從頭走到尾。Britannica 說得很簡單：貨物是由中間商一段一段轉手的。撒馬爾罕一帶的粟特商人，在許多城鎮都有夥伴；他們大約在西元 313 年寫的信，提到了銀、麻布、麝香和胡椒。西元 97 年，漢朝的使者甘英往西走到了海邊，當地的船夫告訴他渡海可能要好幾年，他就回頭了。",
+      "海路一樣重要。船在中國、東南亞、印度、波斯灣、紅海和東非之間航行，看季風決定什麼時候出發。大約在 820 或 830 年代，一艘在勿里洞島附近沉沒的船，載著大約六萬件來自中國的東西，大部分是彩繪的碗。後來，中國的泉州、東非的基爾瓦等港口，都因為這些貿易而富裕起來。",
+      "絲只是許多旅行的東西之一。馬、葡萄和苜蓿往東傳到中國；紙和造紙的技術往西走，751 年到了撒馬爾罕，793 年到了巴格達。玻璃、香料、瓷器和錢幣也在流動。信仰也一樣：佛教、摩尼教、基督宗教和伊斯蘭教都沿著這些路傳播。疾病也是：1340 年代的黑死病，很可能是沿著這些路傳開的，只是到底怎麼傳的，學者還在討論。",
+      "沒有哪一個民族控制這些路。中國、粟特、波斯、印度、阿拉伯、馬來、斯瓦希里，還有許多其他的商人，各自熟悉自己的那一段。讓這張網運作起來的，不是一條很長的路，而是許多比較短的連結，每一段把一個地方連到下一個地方。這就是為什麼大部分的人沒有走得很遠，想法和貨物卻能傳得那麼遠。"
+     ],
+     "questions": [
+      "Why do historians say “Silk Roads” or “a network” instead of “the Silk Road”?",
+      "Name two things that traveled east toward China and two that traveled west.",
+      "If few people traveled the whole way, how did goods and ideas get so far?"
+     ],
+     "answers": [
+      "There was no single road. Many land and sea routes connected different places at different times, and the name itself was first used in the 1800s.",
+      "East: horses, grapes, alfalfa, Mediterranean glass, Christianity (any two). West: silk, papermaking, Changsha bowls and porcelain (any two).",
+      "They were passed from trader to trader, stage by stage. Each group knew its own stretch, and the connections between them carried things across the whole network."
+     ],
+     "vocab": [
+      {
+       "n": 1,
+       "w": "trade",
+       "pos": "n./v.",
+       "zh": "貿易；做買賣",
+       "ex": "Sogdian merchants <b>traded</b> silver and musk.",
+       "exzh": "粟特商人買賣銀和麝香。"
+      },
+      {
+       "n": 2,
+       "w": "merchant",
+       "pos": "n.",
+       "zh": "商人",
+       "ex": "Each <b>merchant</b> knew one part of the route.",
+       "exzh": "每個商人熟悉路線的一段。"
+      },
+      {
+       "n": 3,
+       "w": "caravan",
+       "pos": "n.",
+       "zh": "商隊",
+       "ex": "A <b>caravan</b> of camels crossed the desert.",
+       "exzh": "一支駱駝商隊穿過沙漠。"
+      },
+      {
+       "n": 4,
+       "w": "route",
+       "pos": "n.",
+       "zh": "路線",
+       "ex": "The sea <b>route</b> depended on the monsoon winds.",
+       "exzh": "海路要看季風。"
+      },
+      {
+       "n": 5,
+       "w": "network",
+       "pos": "n.",
+       "zh": "網絡；網",
+       "ex": "The Silk Roads were a <b>network</b>, not one road.",
+       "exzh": "絲路是一張網，不是一條路。"
+      },
+      {
+       "n": 6,
+       "w": "goods",
+       "pos": "n.",
+       "zh": "貨物",
+       "ex": "The ship carried <b>goods</b> from China.",
+       "exzh": "這艘船載著從中國來的貨物。"
+      },
+      {
+       "n": 7,
+       "w": "port",
+       "pos": "n.",
+       "zh": "港口",
+       "ex": "Quanzhou was a busy <b>port</b>.",
+       "exzh": "泉州是一個繁忙的港口。"
+      },
+      {
+       "n": 8,
+       "w": "exchange",
+       "pos": "n./v.",
+       "zh": "交換；交流",
+       "ex": "Ideas were <b>exchanged</b> along with goods.",
+       "exzh": "想法也跟著貨物一起交流。"
+      }
+     ],
+     "quiz": [
+      {
+       "q": "What were the Silk Roads?",
+       "options": [
+        "A network of land and sea routes",
+        "One paved road from China to Rome",
+        "A river in Central Asia",
+        "A wall built by the Han"
+       ],
+       "correct": 0
+      },
+      {
+       "q": "When did people first start using the name “Silk Road”?",
+       "options": [
+        "In the 1800s",
+        "In the Han dynasty",
+        "In ancient Rome",
+        "In the 1300s"
+       ],
+       "correct": 0
+      },
+      {
+       "q": "How did most goods travel along the routes?",
+       "options": [
+        "Passed from trader to trader, stage by stage",
+        "Carried the whole way by one merchant",
+        "Sent by the Roman army",
+        "Carried only by sea"
+       ],
+       "correct": 0
+      },
+      {
+       "q": "Which of these traveled east to China?",
+       "options": [
+        "Horses from Ferghana",
+        "The skill of making paper",
+        "Painted bowls from Changsha",
+        "Silk cloth"
+       ],
+       "correct": 0
+      },
+      {
+       "q": "What did the Belitung shipwreck show?",
+       "options": [
+        "Huge amounts of Chinese goods went west by sea",
+        "Romans sailed to China",
+        "Silk was carried only on land",
+        "Paper was invented in Baghdad"
+       ],
+       "correct": 0
+      }
+     ],
+     "parts_head": {
+      "eyebrow": "Try It in the Model · 在模型裡試試",
+      "en": "Four things to watch",
+      "zh": "四件值得看的事"
+     },
+     "parts": [
+      {
+       "key": "start",
+       "icon": "🐫",
+       "en": "The first roads west",
+       "zh": "最早往西的路",
+       "meta_en": "About 100 BCE",
+       "meta_zh": "大約西元前 100 年",
+       "demo": "start",
+       "text_en": "After Zhang Qian's journeys, the gold line reaches from Chang'an through Dunhuang to Kashgar.",
+       "text_zh": "張騫出使以後，金色的線從長安經過敦煌，一直到喀什。"
+      },
+      {
+       "key": "silk",
+       "icon": "🧵",
+       "en": "Silk changes hands",
+       "zh": "絲換手了",
+       "meta_en": "About 100 CE",
+       "meta_zh": "大約西元 100 年",
+       "demo": "silk",
+       "text_en": "Follow a bolt of silk from Chang'an toward the Mediterranean. Count how many groups carried it.",
+       "text_zh": "跟著一匹絲，從長安往地中海走。數數看有幾批人帶過它。"
+      },
+      {
+       "key": "sea",
+       "icon": "⛵",
+       "en": "The sea routes",
+       "zh": "海路",
+       "meta_en": "About 900 CE",
+       "meta_zh": "大約西元 900 年",
+       "demo": "sea",
+       "text_en": "By now the blue lines link China, Southeast Asia, India, the Persian Gulf, and East Africa. Find the Belitung wreck.",
+       "text_zh": "這時藍色的線已經連起中國、東南亞、印度、波斯灣和東非。找找勿里洞沉船。"
+      },
+      {
+       "key": "paper",
+       "icon": "📜",
+       "en": "A skill travels",
+       "zh": "一種技術在旅行",
+       "meta_en": "751–793 CE",
+       "meta_zh": "西元 751–793 年",
+       "demo": "paper",
+       "text_en": "Papermaking moves west to Samarkand and Baghdad. This time what travels is knowledge, not just an object.",
+       "text_zh": "造紙術往西傳到撒馬爾罕和巴格達。這一次旅行的是知識，不只是一件東西。"
+      }
+     ],
+     "parts_note_en": "Then press Play and watch the whole web grow. Which grows faster after about 700 CE: the gold lines or the blue lines?",
+     "parts_note_zh": "接著按「播放」，看整張網長出來。大約 700 年以後，金色的線和藍色的線，哪一種長得比較快？",
+     "eastwest": {
+      "eyebrow": "Game · 小遊戲",
+      "en": "East or West?",
+      "zh": "往東還是往西？",
+      "lead_en": "Things moved in all directions along these routes. For each one, decide whether it mostly traveled east, toward China, or west, toward western Asia, Africa, and Europe. There is no timer.",
+      "lead_zh": "東西沿著這些路往各個方向流動。每一題判斷：它主要是往東走（往中國），還是往西走（往西亞、非洲和歐洲）？不計時。",
+      "ask_en": "Which way did it mostly travel?",
+      "ask_zh": "它主要往哪個方向走？",
+      "buckets": [
+       {
+        "key": "east",
+        "icon": "🌅",
+        "en": "East, toward China",
+        "zh": "往東，往中國"
+       },
+       {
+        "key": "west",
+        "icon": "🌇",
+        "en": "West, toward western Asia, Africa, and Europe",
+        "zh": "往西，往西亞、非洲和歐洲"
+       }
+      ],
+      "items": [
+       {
+        "answer": "east",
+        "en": "“Heavenly horses” from Ferghana",
+        "zh": "大宛的「天馬」",
+        "why_en": "Han envoys brought them back to China, and Emperor Wu named them “heavenly horses,” according to the Records of the Grand Historian.",
+        "why_zh": "《史記》記載，漢朝的使者把牠們帶回中國，漢武帝稱牠們為「天馬」。",
+        "hint_en": "Ferghana is in Central Asia.",
+        "hint_zh": "大宛在中亞。"
+       },
+       {
+        "answer": "west",
+        "en": "Silk cloth",
+        "zh": "絲綢",
+        "why_en": "Chinese silk reached the Roman world in the 1st century BCE, and Chinese textiles have been found as far as Egypt.",
+        "why_zh": "中國的絲在西元前一世紀傳到羅馬世界，在遠到埃及的地方也找到過中國的紡織品。",
+        "hint_en": "The routes are named after it.",
+        "hint_zh": "這些路就是用它命名的。"
+       },
+       {
+        "answer": "east",
+        "en": "Grapes and alfalfa",
+        "zh": "葡萄和苜蓿",
+        "why_en": "Han envoys brought the seeds back from Central Asia, and the emperor had them planted near the capital.",
+        "why_zh": "漢朝的使者從中亞帶回種子，皇帝下令種在都城附近。",
+        "hint_en": "Horses eat alfalfa.",
+        "hint_zh": "馬吃苜蓿。"
+       },
+       {
+        "answer": "west",
+        "en": "The skill of making paper",
+        "zh": "造紙的技術",
+        "why_en": "Papermaking reached Samarkand by 751 and Baghdad by 793, according to Britannica.",
+        "why_zh": "Britannica 說，造紙術在 751 年傳到撒馬爾罕，793 年傳到巴格達。",
+        "hint_en": "Paper was first made in China.",
+        "hint_zh": "紙最早是在中國做出來的。"
+       },
+       {
+        "answer": "east",
+        "en": "Glass from the Mediterranean",
+        "zh": "地中海的玻璃",
+        "why_en": "A 2021 study concluded that Mediterranean-type glass had probably reached East Asia by the 5th century BCE, and a late-Roman-type glass cup was buried in a royal tomb in Korea.",
+        "why_zh": "2021 年的一項研究認為，至少在西元前五世紀，地中海一類的玻璃就已經傳到東亞；朝鮮半島的一座王陵裡，也埋了一個晚期羅馬式的玻璃杯。",
+        "hint_en": "Glassmaking was an old craft around the Mediterranean.",
+        "hint_zh": "製造玻璃是地中海一帶的老手藝。"
+       },
+       {
+        "answer": "west",
+        "en": "Painted bowls from Changsha",
+        "zh": "長沙窯的彩繪碗",
+        "why_en": "More than 50,000 of them were on the Belitung ship, which probably sailed from Guangzhou toward the west around the 820s–830s (some scholars think it left from Yangzhou).",
+        "why_zh": "勿里洞沉船上有五萬多個，這艘船大概在 820 到 830 年代從廣州往西開（也有人認為是從揚州出發）。",
+        "hint_en": "Changsha is in China.",
+        "hint_zh": "長沙在中國。"
+       },
+       {
+        "answer": "east",
+        "en": "The first recorded Christian mission to China",
+        "zh": "第一次有紀錄的基督教傳教團到中國",
+        "why_en": "In 635 a priest called Aluoben, from Byzantium or the Persian empire, came to Chang'an, according to a stone stele in Chinese and Syriac.",
+        "why_zh": "一塊用中文和敘利亞文寫的石碑記載，635 年一位叫阿羅本的教士，從拜占庭或波斯來到長安。",
+        "hint_en": "Christianity began in western Asia.",
+        "hint_zh": "基督宗教從西亞開始。"
+       },
+       {
+        "answer": "west",
+        "en": "The plague of the 1340s",
+        "zh": "1340 年代的瘟疫",
+        "why_en": "Gravestones of 1338–39 in Central Asia mention a pestilence, and the Black Death reached the Mediterranean in 1347. Scholars debate exactly how it traveled.",
+        "why_zh": "中亞 1338–39 年的墓碑提到瘟疫，黑死病在 1347 年傳到地中海。它到底怎麼傳過去的，學者還在討論。",
+        "hint_en": "Look at where the gravestones were and where it arrived next.",
+        "hint_zh": "看看墓碑在哪裡，下一個到的地方在哪裡。"
+       }
+      ],
+      "end_en": "Goods, skills, beliefs, and even diseases moved in both directions. The routes connected many peoples, not just two ends.",
+      "end_zh": "貨物、技術、信仰，甚至疾病，都往兩個方向走。這些路連起的是許多民族，不只是兩端。"
+     },
+     "when": {
+      "eyebrow": "Game · 小遊戲",
+      "en": "Which Came First?",
+      "zh": "哪一件先發生？",
+      "lead_en": "Put these events from the Silk Roads in order, from earliest to most recent. Use the arrows or drag them. Then check your order.",
+      "lead_zh": "把這些絲路上的事，從最早排到最晚。用箭頭或拖曳來移動，然後檢查。",
+      "items": [
+       {
+        "key": "zhang",
+        "en": "Zhang Qian sets out west",
+        "zh": "張騫往西出發",
+        "older": 2138,
+        "nearer": 2138,
+        "when_en": "138 BCE",
+        "when_zh": "西元前 138 年",
+        "note_en": "Lesson 7.",
+        "note_zh": "第七課。"
+       },
+       {
+        "key": "ganying",
+        "en": "Gan Ying reaches the sea and turns back",
+        "zh": "甘英到了海邊，又回頭",
+        "older": 1903,
+        "nearer": 1903,
+        "when_en": "97 CE",
+        "when_zh": "西元 97 年",
+        "note_en": "History of the Later Han.",
+        "note_zh": "《後漢書》。"
+       },
+       {
+        "key": "letters",
+        "en": "Sogdian merchants write letters home to Samarkand",
+        "zh": "粟特商人寫信回撒馬爾罕",
+        "older": 1688,
+        "nearer": 1686,
+        "when_en": "about 313 CE",
+        "when_zh": "大約西元 313 年",
+        "note_en": "The date is debated.",
+        "note_zh": "年代有爭論。"
+       },
+       {
+        "key": "paper",
+        "en": "Paper is made in Baghdad",
+        "zh": "巴格達造出了紙",
+        "older": 1207,
+        "nearer": 1207,
+        "when_en": "793 CE",
+        "when_zh": "西元 793 年",
+        "note_en": "Britannica.",
+        "note_zh": "Britannica。"
+       },
+       {
+        "key": "belitung",
+        "en": "The Belitung ship sinks",
+        "zh": "勿里洞的船沉了",
+        "older": 1180,
+        "nearer": 1165,
+        "when_en": "about 820s–830s CE",
+        "when_zh": "大約西元 820 到 830 年代",
+        "note_en": "Dated by the bowls in its cargo.",
+        "note_zh": "依船上的碗定年代。"
+       },
+       {
+        "key": "plague",
+        "en": "The Black Death reaches the Mediterranean",
+        "zh": "黑死病傳到地中海",
+        "older": 653,
+        "nearer": 653,
+        "when_en": "1347 CE",
+        "when_zh": "西元 1347 年",
+        "note_en": "Gravestones in Central Asia mention a pestilence in 1338–39.",
+        "note_zh": "中亞的墓碑在 1338–39 年就提到瘟疫。"
+       }
+      ],
+      "hint_en": "Think about which dynasty or century each event belongs to.",
+      "hint_zh": "想一想每一件事屬於哪個朝代或哪一個世紀。",
+      "done_en": "That's the right order.",
+      "done_zh": "順序正確。",
+      "open_en": "",
+      "open_zh": ""
+     },
+     "timeline": {
+      "eyebrow": "Parallel Timeline · 平行時間軸",
+      "en": "Along the Silk Roads",
+      "zh": "絲路上的事",
+      "lead_en": "Events from many lanes at once. Notice how the routes connected Rome, the Han, and later the Abbasids and the Mongol age.",
+      "lead_zh": "許多條線上同時發生的事。注意這些路怎麼連起羅馬、漢朝，以及後來的阿拔斯王朝和蒙古時代。",
+      "from": 400000,
+      "to": 0,
+      "view": {
+       "from": 2300,
+       "to": 550
+      },
+      "lesson": {
+       "from": 2200,
+       "to": 600,
+       "en": "This lesson is here",
+       "zh": "這一課在這裡"
+      },
+      "idle_en": "Click a bar or a diamond to read its dates.",
+      "idle_zh": "點一條長條或一個菱形，讀出它的年代。",
+      "tips": [
+       {
+        "en": "The Han and Rome overlap for more than two centuries, but they knew each other mostly by hearsay.",
+        "zh": "漢朝和羅馬重疊了兩百多年，但彼此大多只是聽說。"
+       },
+       {
+        "en": "The striped bar for the Sogdian letters shows that their date is debated.",
+        "zh": "粟特信札那一條有條紋，表示年代還有爭論。"
+       },
+       {
+        "en": "The gray diamonds mark single events, such as Gan Ying turning back in 97 CE.",
+        "zh": "灰色的菱形標的是單一事件，例如甘英在西元 97 年回頭。"
+       }
+      ],
+      "events": [
+       {
+        "lane": "easia",
+        "from": {
+         "year": -206
+        },
+        "to": {
+         "year": 220
+        },
+        "en": "The Han dynasty",
+        "zh": "漢朝",
+        "note_en": "Lesson 7.",
+        "note_zh": "第七課。"
+       },
+       {
+        "lane": "europe",
+        "from": {
+         "year": -27
+        },
+        "to": {
+         "year": 476
+        },
+        "en": "The Roman Empire (the west)",
+        "zh": "羅馬帝國（西部）",
+        "note_en": "Lesson 6.",
+        "note_zh": "第六課。"
+       },
+       {
+        "lane": "easia",
+        "from": {
+         "year": -138
+        },
+        "to": {
+         "year": -125
+        },
+        "kind": "debated",
+        "en": "Zhang Qian's first journey west",
+        "zh": "張騫第一次出使西域",
+        "note_en": "He returned about thirteen years later.",
+        "note_zh": "大約十三年後回來。"
+       },
+       {
+        "lane": "wasia",
+        "from": {
+         "year": 97
+        },
+        "kind": "anchor",
+        "en": "Gan Ying reaches the sea",
+        "zh": "甘英到了海邊",
+        "note_en": "Sent toward Rome (Daqin), he turned back at the sea.",
+        "note_zh": "他被派往大秦，到了海邊就回頭。"
+       },
+       {
+        "lane": "easia",
+        "from": {
+         "year": 307
+        },
+        "to": {
+         "year": 314
+        },
+        "kind": "debated",
+        "en": "The Sogdian Ancient Letters",
+        "zh": "粟特古信札",
+        "note_en": "Usually dated to about 313 CE; other dates have been proposed.",
+        "note_zh": "一般認為大約是西元 313 年；也有其他的說法。"
+       },
+       {
+        "lane": "wasia",
+        "from": {
+         "year": 762
+        },
+        "kind": "anchor",
+        "en": "Baghdad is founded",
+        "zh": "巴格達建城",
+        "note_en": "Paper was made there by 793.",
+        "note_zh": "793 年已經在那裡造紙。"
+       },
+       {
+        "lane": "easia",
+        "from": {
+         "year": 826
+        },
+        "kind": "anchor",
+        "en": "The Belitung ship",
+        "zh": "勿里洞沉船",
+        "note_en": "A bowl in its cargo seems to carry a date equal to 826.",
+        "note_zh": "船上一個碗好像刻著相當於 826 年的年代。"
+       },
+       {
+        "lane": "europe",
+        "from": {
+         "year": 1346
+        },
+        "to": {
+         "year": 1353
+        },
+        "en": "The Black Death",
+        "zh": "黑死病",
+        "note_en": "It reached the Mediterranean in 1347.",
+        "note_zh": "1347 年傳到地中海。"
+       },
+       {
+        "lane": "africa",
+        "from": {
+         "year": 1325
+        },
+        "to": {
+         "year": 1349
+        },
+        "en": "Ibn Battuta's travels",
+        "zh": "伊本・巴杜達的旅行",
+        "note_en": "From Morocco to Arabia, East Africa, and India; he says he reached China, which some doubt. Later, in 1352–53, he went to West Africa.",
+        "note_zh": "從摩洛哥出發，到過阿拉伯、東非和印度，他說自己也到了中國（有人懷疑）；1352–53 年又去了西非。"
+       }
+      ]
+     },
+     "how_we_know": {
+      "eyebrow": "How Do We Know? · 我們怎麼知道？",
+      "en": "Letters, shipwrecks, and travelers' tales",
+      "zh": "信、沉船，和旅人的故事",
+      "lead_en": "Merchants rarely wrote history books, so historians piece together the trade from many small clues.",
+      "lead_zh": "商人很少寫史書，所以歷史學家要從許多小線索拼出這些貿易。",
+      "items": [
+       {
+        "icon": "✉️",
+        "en": "Merchants' own letters",
+        "zh": "商人自己寫的信",
+        "limit_en": "The letters never reached their readers, and they reflect one short time of crisis. Scholars still debate their exact date.",
+        "limit_zh": "這些信從來沒有送到收信人手上，而且只反映一段短短的危機時期。它們確切的年代，學者還在討論。",
+        "src": "The Sogdian Ancient Letters, trans. Sims-Williams (University of Washington)",
+        "url": "https://depts.washington.edu/silkroad/texts/sogdlet.html",
+        "text_en": "In 1907, in a watchtower just west of the Jade Gate, the explorer Aurel Stein found a bag of letters written in the Sogdian language. They show merchants in China writing to partners in Samarkand about silver, linen, musk, and pepper.",
+        "text_zh": "1907 年，探險家斯坦因在玉門關西邊不遠的一座烽燧裡，找到一袋用粟特文寫的信。信裡是在中國的商人寫給撒馬爾罕的夥伴，談到銀、麻布、麝香和胡椒。"
+       },
+       {
+        "icon": "⚓",
+        "en": "Shipwrecks",
+        "zh": "沉船",
+        "limit_en": "A wreck shows one ship on one voyage. Studies of other wrecks suggest some ships sold their cargo at many ports, while others sailed to a single market.",
+        "limit_zh": "一艘沉船只代表一趟航程的一艘船。對其他沉船的研究顯示，有些船在許多港口一路賣貨，有些則是開往單一的市場。",
+        "src": "Singapore National Heritage Board; UNESCO Courier; Li, Asian Archaeology (2020)",
+        "url": "https://www.roots.gov.sg/en/stories-landing/stories/sunken-treasure-a-ninth-century-shipwreck/story",
+        "text_en": "A sunken ship is like a time capsule. The Belitung wreck, found by fishermen in 1998, held about 60,000 objects. The Nanhai No. 1, a Song dynasty ship lifted in 2007, carried thousands of pieces of porcelain.",
+        "text_zh": "一艘沉船就像一個時光膠囊。1998 年漁民發現的勿里洞沉船，裡面有大約六萬件東西。2007 年打撈起來的宋代沉船「南海一號」，載了好幾千件瓷器。"
+       },
+       {
+        "icon": "🧭",
+        "en": "Histories and travelers' accounts",
+        "zh": "史書和旅人的遊記",
+        "limit_en": "Travelers sometimes repeated stories they had only heard, and historians debate how much of Marco Polo's book, and of Ibn Battuta's chapter on China, comes from what they saw themselves.",
+        "limit_zh": "旅人有時會把只是聽來的故事也寫進去；馬可・波羅的書，以及伊本・巴杜達寫中國的那一章，有多少是親眼看到的，歷史學家還在討論。",
+        "src": "《後漢書・西域傳》；Britannica, “Marco Polo” and “Ibn Battuta”",
+        "url": "https://zh.wikisource.org/wiki/%E5%BE%8C%E6%BC%A2%E6%9B%B8/%E5%8D%B788",
+        "text_en": "Chinese histories record envoys such as Zhang Qian and Gan Ying. Later travelers wrote long accounts: Ibn Battuta from Morocco, from 1325, and Marco Polo from Venice, who said he spent seventeen years in China.",
+        "text_zh": "中國的史書記載了張騫、甘英等使者。後來的旅人寫下了很長的遊記：從 1325 年出發的摩洛哥人伊本・巴杜達，以及說自己在中國住了十七年的威尼斯人馬可・波羅。"
+       }
+      ]
+     },
+     "views": {
+      "eyebrow": "Different Accounts · 不同的說法",
+      "en": "Four questions about the Silk Roads",
+      "zh": "關於絲路的四個問題",
+      "lead_en": "Historians agree that the routes mattered, but they disagree on some important details. Here are four questions, with the views set side by side.",
+      "lead_zh": "歷史學家都同意這些路很重要，但對一些重要的細節看法不同。下面是四個問題，各種說法並列。",
+      "rule_en": "Notice how a single new find, such as a gravestone or a letter, can change an old story.",
+      "rule_zh": "留意一個新的發現，例如一塊墓碑或一封信，怎麼改變一個老故事。",
+      "items": [
+       {
+        "topic_en": "Who named the “Silk Road”?",
+        "topic_zh": "「絲路」這個名字是誰取的？",
+        "sides": [
+         {
+          "label_en": "Richthofen, 1877",
+          "label_zh": "李希霍芬，1877 年",
+          "en": "Many books say the German geographer Ferdinand von Richthofen coined the name in 1877. UNESCO says the name is recent and dates it to the mid-1800s.",
+          "zh": "很多書說，德國地理學家李希霍芬在 1877 年創了這個名字。聯合國教科文組織說這個名字很新，是十九世紀中期才有的。",
+          "src": "UNESCO, About the Silk Roads",
+          "url": "https://www.unesco.org/en/silk-roads/about-silk-roads?hub=196704"
+         },
+         {
+          "label_en": "Used earlier",
+          "label_zh": "更早就有人用",
+          "en": "A 2019 study found the German word Seidenstraße in print from 1858, and argues that Richthofen popularized the name rather than inventing it.",
+          "zh": "2019 年的一項研究發現，德文的 Seidenstraße 在 1858 年就出現在印刷品上；研究者主張，李希霍芬是讓這個名字流行起來，而不是發明它。",
+          "src": "Mertens, The Silk Road 17 (2019)",
+          "url": "https://edspace.american.edu/silkroadjournal/wp-content/uploads/sites/984/2020/02/2-Mertens-Did-Richthofen-Really-Coin-the-Silk-Road.pdf"
+         }
+        ],
+        "note_en": "Either way, the people who used the routes had no single name for them.",
+        "note_zh": "不管哪一種說法，當年走這些路的人，都沒有替它們取一個統一的名字。"
+       },
+       {
+        "topic_en": "How big was the trade?",
+        "topic_zh": "這些貿易有多大？",
+        "sides": [
+         {
+          "label_en": "Mostly small and local",
+          "label_zh": "大多是小規模、短距離的",
+          "en": "The historian Valerie Hansen argues that most travelers moved in small circuits, and that the trade was mainly a trickle between neighboring towns, not great caravans crossing Asia.",
+          "zh": "歷史學家韓森（Valerie Hansen）主張，大部分的旅人只在小範圍裡來回，貿易主要是鄰近城鎮之間細細的流動，而不是橫越亞洲的大商隊。",
+          "src": "Hansen, OUPblog (2012)",
+          "url": "https://blog.oup.com/2012/08/facts-silk-road-peak-trader-camel-travel/"
+         },
+         {
+          "label_en": "A great expansion",
+          "label_zh": "大大地擴張",
+          "en": "UNESCO says the volume of exchange increased substantially from the 2nd century BCE, and the Metropolitan Museum describes a great expansion of international trade by the end of the 1st century BCE.",
+          "zh": "聯合國教科文組織說，從西元前二世紀起，交流的規模大幅增加；大都會博物館也說，到西元前一世紀末，國際貿易大大地擴張。",
+          "src": "UNESCO, Chang'an-Tianshan Corridor; Metropolitan Museum of Art",
+          "url": "https://whc.unesco.org/en/list/1442"
+         }
+        ],
+        "note_en": "The two views can fit together: small steps between neighbors could still move a great deal over centuries. The sea routes, which carried bulk cargo, add another part of the picture.",
+        "note_zh": "兩種說法可以同時成立：鄰居之間的小步伐，經過幾百年也能搬動很多東西。能載大量貨物的海路，又是另一部分的圖像。"
+       },
+       {
+        "topic_en": "Did Marco Polo really go to China?",
+        "topic_zh": "馬可・波羅真的去過中國嗎？",
+        "sides": [
+         {
+          "label_en": "Probably not",
+          "label_zh": "可能沒有",
+          "en": "The historian Frances Wood argued that he probably never went much further than his family's trading posts on the Black Sea and in Constantinople, and noted that Chinese records do not mention him.",
+          "zh": "歷史學家吳芳思（Frances Wood）主張，他大概沒有走得比家族在黑海和君士坦丁堡的貿易站更遠；她也指出，中國的紀錄沒有提到他。",
+          "src": "Review of Vogel, Reviews in History 1667",
+          "url": "https://reviews.history.ac.uk/review/1667/print/"
+         },
+         {
+          "label_en": "Yes",
+          "label_zh": "去過",
+          "en": "The historian Hans Ulrich Vogel argued in 2012 that Polo's detailed and accurate information about Chinese money and taxes could not have come from anywhere else.",
+          "zh": "歷史學家傅漢思（Hans Ulrich Vogel）在 2012 年主張，馬可・波羅對中國錢幣和稅收的資料那麼詳細、正確，不可能是從別的地方來的。",
+          "src": "Review of Vogel, Marco Polo Was in China (2012), Reviews in History 1667",
+          "url": "https://reviews.history.ac.uk/review/1667/print/"
+         }
+        ],
+        "note_en": "Several scholars, including Vogel, have since argued that he did go. Everyone agrees his book mixes what he saw with what he heard.",
+        "note_zh": "後來有不少學者，包括傅漢思，主張他確實去過。大家都同意，他的書把看到的和聽到的混在一起。"
+       },
+       {
+        "topic_en": "Where did the Black Death begin?",
+        "topic_zh": "黑死病是從哪裡開始的？",
+        "sides": [
+         {
+          "label_en": "Central Asia, 1330s",
+          "label_zh": "中亞，1330 年代",
+          "en": "A 2022 study of DNA from people buried in 1338–39 near Lake Issyk-Kul found the plague bacterium and argues the strain arose in that region shortly before the pandemic.",
+          "zh": "2022 年的一項研究，分析伊塞克湖附近 1338–39 年下葬的人的 DNA，找到鼠疫桿菌，並主張那一株病菌就是在大流行前不久，在那一帶出現的。",
+          "src": "Spyrou et al., Nature (2022)",
+          "url": "https://doi.org/10.1038/s41586-022-04800-3"
+         },
+         {
+          "label_en": "Spread earlier, in the 1200s",
+          "label_zh": "更早，在 1200 年代就散布開",
+          "en": "The historian Monica Green argues that Mongol armies unknowingly moved plague across Central Eurasia in the 1200s, and that the 1300s outbreaks were later local spillovers.",
+          "zh": "歷史學家莫妮卡・格林（Monica Green）主張，蒙古軍隊在 1200 年代就不知不覺地把鼠疫帶過歐亞大陸中部，1300 年代的爆發是後來各地的外溢。",
+          "src": "Green, American Historical Review (2020)",
+          "url": "https://doi.org/10.1093/ahr/rhaa511"
+         }
+        ],
+        "note_en": "Both views connect the plague to Central Asia and to the movement of people and goods. They differ on when it spread and how.",
+        "note_zh": "兩種說法都把鼠疫和中亞、和人與貨物的移動連在一起；分歧在於什麼時候、怎麼傳開的。"
+       }
+      ]
+     },
+     "phrases": {
+      "eyebrow": "History English · 歷史英語",
+      "en": "Eight sentences for talking about trade",
+      "zh": "談貿易的八句英文",
+      "lead_en": "These sentences help you describe how goods and ideas moved. Listen, repeat, then make your own sentence with the words in bold.",
+      "lead_zh": "這八句幫你描述貨物和想法怎麼流動。先聽、再跟著唸，然後用粗體的字自己造一句。",
+      "rows": [
+       {
+        "en": "Merchants traded silk for horses.",
+        "html": "Merchants <b>traded</b> silk <b>for</b> horses.",
+        "zh": "商人用絲交換馬。",
+        "note_en": "trade A for B: give A and get B",
+        "note_zh": "用 A 換 B"
+       },
+       {
+        "en": "The caravan passed through Dunhuang.",
+        "html": "The caravan <b>passed through</b> Dunhuang.",
+        "zh": "商隊經過敦煌。",
+        "note_en": "pass through: go through a place on the way",
+        "note_zh": "經過"
+       },
+       {
+        "en": "Goods were passed from hand to hand.",
+        "html": "Goods <b>were passed from hand to hand</b>.",
+        "zh": "貨物一手傳過一手。",
+        "note_en": "from hand to hand: from one person to the next",
+        "note_zh": "一手傳一手"
+       },
+       {
+        "en": "Silver was given in exchange for gold.",
+        "html": "Silver was given <b>in exchange for</b> gold.",
+        "zh": "用白銀換取黃金。",
+        "note_en": "in exchange for: as payment for",
+        "note_zh": "換取"
+       },
+       {
+        "en": "Ships sailed along the coast of East Africa.",
+        "html": "Ships sailed <b>along the coast</b> of East Africa.",
+        "zh": "船沿著東非的海岸航行。",
+        "note_en": "along the coast: following the shore",
+        "note_zh": "沿著海岸"
+       },
+       {
+        "en": "Few people ever traveled the whole way.",
+        "html": "<b>Few</b> people <b>ever</b> traveled the whole way.",
+        "zh": "很少有人從頭走到尾。",
+        "note_en": "few … ever: almost nobody",
+        "note_zh": "很少有人……"
+       },
+       {
+        "en": "Ideas spread along the trade routes.",
+        "html": "Ideas <b>spread along</b> the trade routes.",
+        "zh": "想法沿著貿易路線傳播。",
+        "note_en": "spread along: move out following a route",
+        "note_zh": "沿著……傳播"
+       },
+       {
+        "en": "The ship was loaded with painted bowls.",
+        "html": "The ship <b>was loaded with</b> painted bowls.",
+        "zh": "這艘船裝滿了彩繪的碗。",
+        "note_en": "be loaded with: full of cargo",
+        "note_zh": "裝滿了"
+       }
+      ]
+     },
+     "taiwan_then": {
+      "eyebrow": "Taiwan at That Time · 那時候的台灣",
+      "en": "Beads, coins, and a nearby island",
+      "zh": "珠子、錢幣，和附近的一個島",
+      "lead_en": "Taiwan was not on the main routes, but objects from overseas reached it, and later Chinese writers described the islands nearby.",
+      "lead_zh": "台灣不在主要的路線上，但海外的東西還是傳到了這裡；後來中國的作家也記下了附近的島。",
+      "intro_en": "Archaeologists in Taiwan give dates as “years ago.” About 1,500 years ago is roughly the 5th century CE.",
+      "intro_zh": "台灣的考古學家用「距今幾年」說年代。距今大約一千五百年，差不多是西元五世紀。",
+      "facts": [
+       {
+        "k_en": "Shisanhang culture, north",
+        "k_zh": "北部的十三行文化",
+        "en": "The Shisanhang people worked iron, and their sites held gold ornaments, glass bracelets, and Chinese coins from the Tang and Song dynasties. The museum says these show overseas trade.",
+        "zh": "十三行文化的人會煉鐵；遺址裡有金飾、玻璃手環，以及唐宋時代的中國古錢。史前館說，這些顯示他們有海外貿易。",
+        "src": "國立臺灣史前文化博物館 考古學習資源",
+        "url": "https://archae.nmp.gov.tw/c-05.html"
+       },
+       {
+        "k_en": "Jingpu culture, east",
+        "k_zh": "東部的靜浦文化",
+        "en": "On the east coast, the Jingpu culture, from about 1,500 to a few hundred years ago, had agate and glass ornaments that came from overseas.",
+        "zh": "在東海岸，大約距今一千五百年到兩、三百年前的靜浦文化，有來自海外的瑪瑙和琉璃裝飾品。",
+        "src": "國立臺灣史前文化博物館 考古學習資源",
+        "url": "https://archae.nmp.gov.tw/c-05.html"
+       },
+       {
+        "k_en": "Penghu in a Yuan book",
+        "k_zh": "元朝書裡的澎湖",
+        "en": "A Yuan dynasty traveler, Wang Dayuan, wrote that Penghu could be reached from Quanzhou in two days and nights with a good wind, and that it belonged to Quanzhou's Jinjiang county.",
+        "zh": "元朝的旅行家汪大淵寫道，澎湖「自泉州順風二晝夜可至」，「地隸泉州晉江縣」。",
+        "src": "汪大淵《島夷誌略》「彭湖」",
+        "url": "https://zh.wikisource.org/wiki/%E5%B3%B6%E5%A4%B7%E8%AA%8C%E7%95%A5"
+       },
+       {
+        "k_en": "Which island was “Liuqiu”?",
+        "k_zh": "「琉球」是哪個島？",
+        "en": "The same book describes an island called Liuqiu, very near Penghu, trading in gold, sulfur, and deer hides. Scholars still debate whether it means Taiwan.",
+        "zh": "同一本書描寫一個叫「琉球」的島，「自彭湖望之甚近」，出產沙金、硫黃、鹿皮。這是不是指台灣，學者還在討論。",
+        "src": "汪大淵《島夷誌略》「琉球」",
+        "url": "https://zh.wikisource.org/wiki/%E5%B3%B6%E5%A4%B7%E8%AA%8C%E7%95%A5"
+       }
+      ],
+      "links": [
+       {
+        "en": "Taiwan's Story: Why Did the Dutch Build a Fort in Tainan?",
+        "zh": "台灣歷史：荷蘭人為什麼在台南蓋城？",
+        "href": "/resources/classes/taiwan-history/dutch-fort/"
+       }
+      ]
+     },
+     "culture_cards": {
+      "eyebrow": "Stories Behind the Evidence · 證據背後的故事",
+      "title_en": "An envoy at the sea, a bag of letters, 60,000 objects, and a stone in two languages",
+      "title_zh": "海邊的使者、一袋信、六萬件東西，和一塊兩種文字的石碑",
+      "lead_en": "Four short stories about people and objects on the Silk Roads.",
+      "lead_zh": "四個小故事：絲路上的人和東西。",
+      "cards": [
+       {
+        "k": "97 CE · The western sea · 西海",
+        "en": "The envoy who turned back",
+        "zh": "回頭的使者",
+        "body_en": "Gan Ying was sent toward Daqin, the Chinese name for the Roman world. At the sea, Parthian sailors told him that with bad winds the crossing could take two years, so travelers took three years of food. He turned back. The same history says Parthia wanted to keep the silk trade with Rome for itself.",
+        "body_zh": "甘英被派往大秦，也就是中國人對羅馬世界的稱呼。到了海邊，安息的船夫告訴他，風不好的話，渡海可能要兩年，所以出海的人都帶三年的糧食。他就回頭了。同一本史書也說，安息想把和羅馬的絲綢買賣留給自己。"
+       },
+       {
+        "k": "About 313 CE · Near the Jade Gate · 玉門關附近",
+        "en": "Letters that never arrived",
+        "zh": "沒有寄到的信",
+        "body_en": "A Sogdian merchant wrote home that the Indians and Sogdians in Luoyang had all died of starvation, during a famine that also drove the emperor from the city. His letters were lost in a watchtower, where they waited about 1,600 years to be read.",
+        "body_zh": "一位粟特商人寫信回家，說洛陽發生饑荒，那裡的印度人和粟特人都餓死了；信裡還說皇帝也因為饑荒逃出了洛陽。他的信遺落在一座烽燧裡，等了大約一千六百年才被讀到。"
+       },
+       {
+        "k": "1998 · Off Belitung · 勿里洞外海",
+        "en": "A cargo of bowls",
+        "zh": "一船的碗",
+        "body_en": "Fishermen diving for sea cucumbers found the wreck. Its planks were sewn together with rope, in a style from the Persian Gulf, and it held more than 50,000 painted bowls from Changsha, packed in large jars.",
+        "body_zh": "潛水抓海參的漁民發現了這艘沉船。它的船板是用繩子縫起來的，是波斯灣的造船方法；船上有五萬多個長沙窯的彩繪碗，裝在大陶罐裡。"
+       },
+       {
+        "k": "635 CE · Chang'an · 長安",
+        "en": "A stone in two languages",
+        "zh": "兩種文字的石碑",
+        "body_en": "A stone stele in Chinese and Syriac records that a priest called Aluoben brought the Christian teaching of the Church of the East to Chang'an in 635. It is one of many signs that the Tang capital welcomed many religions.",
+        "body_zh": "一塊用中文和敘利亞文寫的石碑記載，635 年一位叫阿羅本的教士，把東方教會的基督教帶到長安。這是唐朝都城接納許多宗教的眾多證據之一。"
+       }
+      ]
+     },
+     "curric": {
+      "eyebrow": "In the Curriculum · 對應課綱",
+      "en": "Where this lesson fits",
+      "zh": "這一課對應的課綱",
+      "lead_en": "These entries come from Taiwan's 12-Year Basic Education curriculum for social studies (October 2018).",
+      "lead_zh": "下面的條目出自十二年國民基本教育課程綱要社會領域（民國 107 年 10 月）。",
+      "items": [
+       {
+        "code": "歷 Ha-Ⅳ-2",
+        "area": "國中・從古典到傳統時代",
+        "area_en": "Junior high · from the classical to the traditional age",
+        "text": "商周至隋唐時期民族與文化的互動。",
+        "note_en": "The explanation notes that interactions among peoples and cultures often went beyond political borders, and asks about exchanges in religion, customs, food, clothing, ways of life, and thought.",
+        "note_zh": "課綱的說明指出，「不同人群與文化的互動往往各為主體、超越政治界域」，並建議討論不同民族「在宗教禮俗、飲食服飾、生活方式或學術思想上有哪些重要的特色與交流」。"
+       },
+       {
+        "code": "歷 Hb-Ⅳ-2",
+        "area": "國中・從古典到傳統時代",
+        "area_en": "Junior high · from the classical to the traditional age",
+        "text": "宋、元時期的商貿與文化交流。",
+        "note_en": "The explanation suggests discussing the sea and land trade networks of the Song and Yuan, together with exchanges of religion, learning, and skills. The lesson's sea routes, Quanzhou, and porcelain fit here.",
+        "note_zh": "課綱的說明建議討論「宋、元時期海上與陸路的商貿網絡，以及宗教、學術、技藝等文化交流」。這一課的海路、泉州和瓷器，就對應這一條。"
+       }
+      ]
+     },
+     "myths": [
+      {
+       "myth_en": "The Silk Road was one long road.",
+       "myth_zh": "絲路是一條很長的路。",
+       "fact_en": "It was a network of many land and sea routes. The British Museum puts it this way: not the story of one road, but of many routes. Even Taiwan's Ministry of Education dictionary defines it only as an overland route, an older view.",
+       "fact_zh": "它是一張由許多陸路和海路組成的網。大英博物館說：這不是一條路的故事，而是許多路線的故事。連教育部的國語辭典也只把它解釋成陸路，那是比較舊的看法。"
+      },
+      {
+       "myth_en": "Merchants traveled all the way from China to Rome.",
+       "myth_zh": "商人從中國一路走到羅馬。",
+       "fact_en": "Few people traveled the whole way. Goods were handled stage by stage by middlemen, and the Han envoy Gan Ying turned back at the sea in 97 CE.",
+       "fact_zh": "很少有人從頭走到尾。貨物是由中間商一段一段轉手的；漢朝的使者甘英在西元 97 年到了海邊就回頭了。"
+      },
+      {
+       "myth_en": "Romans and Han Chinese met all the time.",
+       "myth_zh": "羅馬人和漢朝人常常見面。",
+       "fact_en": "The History of the Later Han records only one embassy from Daqin, in 166 CE, which came by sea. The historian noted that its gifts were nothing special and suspected that earlier stories about Daqin had been exaggerated. Each empire knew the other mostly by hearsay.",
+       "fact_zh": "《後漢書》只記載了一次大秦的使節，在西元 166 年從海路來。史家說它獻上的東西並沒有什麼珍奇，因此懷疑以前傳說大秦的人說得太誇張。兩個帝國大多只是聽說過對方。"
+      },
+      {
+       "myth_en": "Marco Polo brought pasta from China to Italy.",
+       "myth_zh": "馬可・波羅把麵從中國帶到義大利。",
+       "fact_en": "Food historians show that pasta was known in Italy before Polo came home in 1295. The story seems to have spread in the 20th century.",
+       "fact_zh": "研究飲食史的學者指出，馬可・波羅在 1295 年回家以前，義大利就已經有麵食了。這個故事似乎是二十世紀才流傳開的。"
+      }
+     ],
+     "tricks_head": {
+      "en": "Four lines to keep",
+      "zh": "四句帶著走"
+     },
+     "tricks": [
+      {
+       "title_en": "A web, not a road",
+       "title_zh": "是一張網，不是一條路",
+       "body_en": "Many land and sea routes, used for over 1,500 years.",
+       "body_zh": "許多陸路和海路，用了一千五百多年。"
+      },
+      {
+       "title_en": "Hand to hand",
+       "title_zh": "一手傳一手",
+       "body_en": "Few traveled the whole way; goods changed hands stage by stage.",
+       "body_zh": "很少有人走完全程；貨物一段一段換手。"
+      },
+      {
+       "title_en": "More than silk",
+       "title_zh": "不只是絲",
+       "body_en": "Horses, spices, paper, glass, porcelain, religions, and diseases.",
+       "body_zh": "馬、香料、紙、玻璃、瓷器、宗教和疾病。"
+      },
+      {
+       "title_en": "Wind decides the sea",
+       "title_zh": "海路看風",
+       "body_en": "Ships sailed with the monsoon, so ports became meeting places.",
+       "body_zh": "船跟著季風走，所以港口成了交會的地方。"
+      }
+     ],
+     "activities": [
+      {
+       "title_en": "Hand It On",
+       "title_zh": "一手傳一手",
+       "materials": [
+        {
+         "en": "One “bolt of silk” (a strip of cloth or paper) and five station cards: Chang'an, Dunhuang, Kashgar, Palmyra, the Mediterranean coast",
+         "zh": "一「匹絲」（一條布或紙），和五張站名卡：長安、敦煌、喀什、帕邁拉、地中海沿岸"
+        },
+        {
+         "en": "A price sheet for each station",
+         "zh": "每一站一張價目單"
+        }
+       ],
+       "steps": [
+        {
+         "en": "Place five groups around the room as stations. Each group may trade only with its neighbors.",
+         "zh": "把五組學生排在教室四周當五個站。每一組只能和隔壁的站交易。"
+        },
+        {
+         "en": "The first station sells the silk to the next for a price. Each station adds its costs (food, water, tolls, risk) before selling it on.",
+         "zh": "第一站把絲賣給下一站。每一站要先加上自己的成本（食物、水、過路費、風險），再往下賣。"
+        },
+        {
+         "en": "At the last station, compare the final price with the first. Ask: did anyone on the Mediterranean coast ever meet anyone from Chang'an?",
+         "zh": "到最後一站，比較最後的價錢和一開始的價錢。問：地中海沿岸的人有沒有見過長安的人？"
+        },
+        {
+         "en": "Discuss in English: “The price rose because …” and “Nobody traveled the whole way, but …”",
+         "zh": "用英文討論：「The price rose because …」和「Nobody traveled the whole way, but …」"
+        }
+       ],
+       "tip_en": "The prices are made up for the game. The point is the pattern: many short links, each adding cost, and no one who sees both ends.",
+       "tip_zh": "價錢是遊戲自己定的。重點在於模式：許多短短的連結，每一段都加上成本，而且沒有人看得到兩端。"
+      },
+      {
+       "title_en": "The Journey of One Thing",
+       "title_zh": "一件東西的旅程",
+       "materials": [
+        {
+         "en": "The 3D globe in this lesson",
+         "zh": "這一課的 3D 地球儀"
+        },
+        {
+         "en": "A blank map of Asia, Africa, and Europe (land only)",
+         "zh": "一張只畫陸地的亞洲、非洲、歐洲空白地圖"
+        }
+       ],
+       "steps": [
+        {
+         "en": "In pairs, choose one of the five things in “Follow one thing” and watch its journey.",
+         "zh": "兩人一組，在「跟著一件東西走」裡選一件，看它的旅程。"
+        },
+        {
+         "en": "Draw its route on the map. Label each stretch with who carried it.",
+         "zh": "把路線畫在地圖上，每一段寫上是誰帶的。"
+        },
+        {
+         "en": "Write three sentences using “passed through,” “from hand to hand,” and “in exchange for.”",
+         "zh": "用 passed through、from hand to hand、in exchange for 寫三句英文。"
+        },
+        {
+         "en": "Share with another pair: which journey changed hands the most times?",
+         "zh": "和另一組分享：哪一段旅程換手最多次？"
+        }
+       ],
+       "tip_en": "Remind students that the globe shows likely journeys, not the record of one object.",
+       "tip_zh": "提醒學生：地球儀畫的是可能的旅程，不是某一件東西的紀錄。"
+      }
+     ],
+     "links_head": {
+      "eyebrow": "Go Further · 延伸閱讀",
+      "en": "Read more",
+      "zh": "延伸閱讀"
+     },
+     "links": [
+      {
+       "icon": "✝️",
+       "k_en": "World History · Next lesson",
+       "k_zh": "世界歷史・下一課",
+       "en": "How Did Christianity and Islam Begin and Spread?",
+       "zh": "基督宗教和伊斯蘭教怎麼開始、怎麼傳開？",
+       "soon": true,
+       "note_en": "Two more religions that traveled along these routes.",
+       "note_zh": "另外兩個沿著這些路傳播的宗教。"
+      },
+      {
+       "icon": "☸️",
+       "k_en": "World History · Lesson 8",
+       "k_zh": "世界歷史・第八課",
+       "en": "How Did Buddhism Begin and Travel?",
+       "zh": "佛教怎麼開始、怎麼傳出去？",
+       "href": "/resources/classes/world-history/buddhism-travels/",
+       "note_en": "Buddhism traveled the same land and sea routes.",
+       "note_zh": "佛教走的也是這些陸路和海路。"
+      },
+      {
+       "icon": "📏",
+       "k_en": "World History · Lesson 7",
+       "k_zh": "世界歷史・第七課",
+       "en": "How Did Qin and Han Unite China?",
+       "zh": "秦和漢怎麼統一中國？",
+       "href": "/resources/classes/world-history/qin-han/",
+       "note_en": "The Han empire and Zhang Qian's journey west.",
+       "note_zh": "漢朝和張騫的西行。"
+      },
+      {
+       "icon": "🌬️",
+       "k_en": "Earth and Weather",
+       "k_zh": "地球與天氣",
+       "en": "Why Does the Wind Blow?",
+       "zh": "風是怎麼來的？",
+       "href": "/resources/classes/earth/why-wind-blows/",
+       "note_en": "The winds that decided when ships could sail.",
+       "note_zh": "決定船什麼時候能開的風。"
+      }
+     ],
+     "sources_note_en": "Checked November 2026. The origin of the name, the size of the trade, Marco Polo's journey, and the origin of the Black Death are debated; where they are, the lesson gives more than one view",
+     "sources_note_zh": "2026 年 11 月查證。名字的由來、貿易的規模、馬可・波羅的旅程，以及黑死病的起源都有爭論；遇到有爭論的地方，課文寫出不只一種說法",
+     "sources": [
+      {
+       "en": "The Silk Roads as a network of land and sea routes; the name is recent; caravans covered specific sections; the Procopius account of silkworm eggs",
+       "zh": "絲路是陸路和海路組成的網；名字很新；商隊只走一段；普羅科匹厄斯所說的蠶卵",
+       "src": "UNESCO, About the Silk Roads",
+       "url": "https://www.unesco.org/en/silk-roads/about-silk-roads?hub=196704"
+      },
+      {
+       "en": "The Chang'an–Tianshan corridor: a web of routes; exchange increased from the 2nd century BCE; goods carried by a string of merchants; religions along the corridor",
+       "zh": "長安—天山廊道：路線組成的網；從西元前二世紀交流增加；貨物由一連串的商人轉運；廊道上的宗教",
+       "src": "UNESCO World Heritage List, Silk Roads: the Routes Network of Chang'an-Tianshan Corridor",
+       "url": "https://whc.unesco.org/en/list/1442"
+      },
+      {
+       "en": "Not one road but many routes; silk only one of the goods; Sasanian and Byzantine coins at Gaochang; glass in Korea and Japan; Aluoben and the Christian mission of 635",
+       "zh": "不是一條路而是許多路線；絲只是貨物之一；高昌的薩珊與拜占庭錢幣；朝鮮半島與日本的玻璃；阿羅本與 635 年的基督教傳教團",
+       "src": "British Museum, Silk Roads exhibition large-print guide (2024)",
+       "url": "https://www.britishmuseum.org/exhibitions/silk-roads/silk-roads-large-print-guide"
+      },
+      {
+       "en": "Few persons traveled the entire route; goods handled stage by stage by middlemen",
+       "zh": "很少人走完全程；貨物由中間商一段一段轉手",
+       "src": "Britannica, “Silk Road”",
+       "url": "https://www.britannica.com/topic/Silk-Road-trade-route"
+      },
+      {
+       "en": "Seidenstraße in print before 1877; Richthofen popularized the term",
+       "zh": "1877 年以前就有 Seidenstraße 的印刷紀錄；李希霍芬讓它流行",
+       "src": "Mertens, The Silk Road 17 (2019)",
+       "url": "https://edspace.american.edu/silkroadjournal/wp-content/uploads/sites/984/2020/02/2-Mertens-Did-Richthofen-Really-Coin-the-Silk-Road.pdf"
+      },
+      {
+       "en": "The dictionary defines 絲路 as the main overland route between Europe and Asia",
+       "zh": "辭典把「絲路」解釋為「古代歐、亞間陸路運輸的主要路線」",
+       "src": "教育部《重編國語辭典修訂本》「絲路」",
+       "url": "https://dict.revised.moe.edu.tw/search.jsp?md=1&word=%E7%B5%B2%E8%B7%AF"
+      },
+      {
+       "en": "Zhang Qian sent in 138 BCE (UNESCO gives 139) and back after 13 years; horses, grapes, and alfalfa",
+       "zh": "張騫西元前 138 年出使、十三年後回來；馬、葡萄、苜蓿",
+       "src": "Britannica, “Zhang Qian”",
+       "url": "https://www.britannica.com/biography/Zhang-Qian"
+      },
+      {
+       "en": "“Heavenly horses” of Ferghana; alfalfa and grapes planted; Jiuquan commandery",
+       "zh": "大宛馬「更名烏孫馬曰『西極』，名大宛馬曰『天馬』」；「始種苜蓿、蒲陶肥饒地」；「初置酒泉郡以通西北國」",
+       "src": "《史記・大宛列傳》",
+       "url": "https://zh.wikisource.org/wiki/%E5%8F%B2%E8%A8%98/%E5%8D%B7123"
+      },
+      {
+       "en": "Four commanderies including Dunhuang; two roads from the Jade Gate and Yang Gate",
+       "zh": "「列四郡，據兩關焉」；「自玉門、陽關出西域有兩道」",
+       "src": "《漢書・西域傳》",
+       "url": "https://zh.wikisource.org/wiki/%E6%BC%A2%E6%9B%B8/%E5%8D%B7096%E4%B8%8A"
+      },
+      {
+       "en": "Gan Ying at the sea (97 CE); Parthia blocking direct contact; the Daqin embassy of 166 CE and the historian's suspicion that earlier tales were exaggerated; sea trade with Parthia and India",
+       "zh": "甘英「臨大海欲度」（西元 97 年）；安息「遮閡不得自達」；延熹九年大秦使節與「疑傳者過焉」；「與安息、天竺交市於海中」",
+       "src": "《後漢書・西域傳》",
+       "url": "https://zh.wikisource.org/wiki/%E5%BE%8C%E6%BC%A2%E6%9B%B8/%E5%8D%B788"
+      },
+      {
+       "en": "India, the Seres, and Arabia take 100 million sesterces a year from the empire",
+       "zh": "印度、賽里斯和阿拉伯每年從帝國拿走一億塞斯特斯",
+       "src": "Pliny the Elder, Natural History 12.41 (Perseus)",
+       "url": "https://www.perseus.tufts.edu/hopper/text?doc=Perseus:text:1999.02.0137:book=12:chapter=41"
+      },
+      {
+       "en": "Goods from India by the Red Sea, the Nile, and Alexandria; routes via Palmyra",
+       "zh": "印度的貨物經紅海、尼羅河到亞歷山卓；經過帕邁拉的路線",
+       "src": "Metropolitan Museum of Art, “Trade between the Romans and the Empires of Asia”",
+       "url": "https://www.metmuseum.org/essays/trade-between-the-romans-and-the-empires-of-asia"
+      },
+      {
+       "en": "Tang sea routes from Guangzhou; horses as tribute; Chang'an as a great city",
+       "zh": "唐朝從廣州出發的海路；馬是貢品；長安是大城",
+       "src": "Metropolitan Museum of Art, “Internationalism in the Tang Dynasty”",
+       "url": "https://www.metmuseum.org/essays/internationalism-in-the-tang-dynasty-618-906"
+      },
+      {
+       "en": "The Sogdian Ancient Letters: found 1907, dated about 313 CE (debated), goods listed, Luoyang",
+       "zh": "粟特古信札：1907 年發現，約西元 313 年（有爭論），信中的貨物、洛陽",
+       "src": "Sims-Williams, trans., with an introduction by Waugh (University of Washington)",
+       "url": "https://depts.washington.edu/silkroad/texts/sogdlet.html"
+      },
+      {
+       "en": "Papermaking reached Samarkand in 751 and Baghdad in 793, and later Europe; Cai Lun in 105 CE",
+       "zh": "造紙術 751 年傳到撒馬爾罕，793 年在巴格達造紙",
+       "src": "Britannica, “Papermaking”",
+       "url": "https://www.britannica.com/technology/papermaking"
+      },
+      {
+       "en": "Mediterranean glass in East Asia from at least the 5th century BCE",
+       "zh": "至少西元前五世紀起地中海玻璃就到了東亞",
+       "src": "Lü et al., Scientific Reports (2021)",
+       "url": "https://doi.org/10.1038/s41598-021-82245-w"
+      },
+      {
+       "en": "Belitung: found 1998, about 60,000 objects, a date equal to 826",
+       "zh": "勿里洞沉船：1998 年發現，約六萬件，相當於 826 年的年代",
+       "src": "Singapore National Heritage Board, “Sunken Treasure”",
+       "url": "https://www.roots.gov.sg/en/stories-landing/stories/sunken-treasure-a-ninth-century-shipwreck/story"
+      },
+      {
+       "en": "Belitung: more than 50,000 bowls, sewn hull, sailed from Canton (other views: Yangzhou)",
+       "zh": "勿里洞沉船：五萬多個碗、縫合的船身、從廣州出發",
+       "src": "Asian Civilisations Museum, “Tang Shipwreck”",
+       "url": "https://www.acm.nhb.gov.sg/galleries/maritime-trade/tang-shipwreck"
+      },
+      {
+       "en": "Nanhai No. 1: lifted 2007, thousands of pieces of porcelain",
+       "zh": "南海一號：2007 年打撈，數千件瓷器",
+       "src": "UNESCO Courier, “A crystal palace houses a shipwreck”",
+       "url": "https://courier.unesco.org/en/articles/crystal-palace-houses-shipwreck"
+      },
+      {
+       "en": "Some ships sold cargo at many ports, others sailed to one destination",
+       "zh": "有些船在多個港口賣貨，有些開往單一目的地",
+       "src": "Li, Asian Archaeology (2020)",
+       "url": "https://doi.org/10.1007/s41826-020-00029-z"
+      },
+      {
+       "en": "Most travelers moved in small circuits; a trickle trade between neighboring towns",
+       "zh": "大部分旅人只在小範圍內來回；鄰近城鎮之間細細的貿易",
+       "src": "Hansen, OUPblog (2012)",
+       "url": "https://blog.oup.com/2012/08/facts-silk-road-peak-trader-camel-travel/"
+      },
+      {
+       "en": "Marco Polo traveled 1271–95 and spent 17 years in China",
+       "zh": "馬可・波羅 1271–95 年旅行，在中國十七年",
+       "src": "Britannica, “Marco Polo”",
+       "url": "https://www.britannica.com/biography/Marco-Polo"
+      },
+      {
+       "en": "The debate over whether Marco Polo went to China (Wood; Vogel)",
+       "zh": "馬可・波羅有沒有去過中國的爭論（吳芳思、傅漢思）",
+       "src": "Na Chang, review of Vogel, Reviews in History 1667",
+       "url": "https://reviews.history.ac.uk/review/1667/print/"
+      },
+      {
+       "en": "Ibn Battuta set out in 1325 and returned to Fez in 1349; doubts about his China chapter",
+       "zh": "伊本・巴杜達 1325 年出發，1349 年回到非斯；對他寫中國那一章的懷疑",
+       "src": "Britannica, “Ibn Battuta”",
+       "url": "https://www.britannica.com/biography/Ibn-Battuta"
+      },
+      {
+       "en": "Plague DNA from 1338–39 burials in the Chüy Valley; a local origin of the strain",
+       "zh": "楚河河谷 1338–39 年墓葬的鼠疫 DNA；病菌在當地出現",
+       "src": "Spyrou et al., Nature 606 (2022)",
+       "url": "https://doi.org/10.1038/s41586-022-04800-3"
+      },
+      {
+       "en": "Plague moved across Central Eurasia in the 13th century",
+       "zh": "鼠疫在十三世紀就移動過歐亞大陸中部",
+       "src": "Green, American Historical Review 125 (2020)",
+       "url": "https://doi.org/10.1093/ahr/rhaa511"
+      },
+      {
+       "en": "The Black Death reached Mediterranean harbors in 1347 via the land and sea routes",
+       "zh": "黑死病在 1347 年經陸路和海路傳到地中海港口",
+       "src": "Schmid et al., PNAS (2015)",
+       "url": "https://doi.org/10.1073/pnas.1412887112"
+      },
+      {
+       "en": "Manichaeism in China from 694 and its later suppression",
+       "zh": "摩尼教 694 年到中國及後來被禁",
+       "src": "Britannica, “Manichaeism”",
+       "url": "https://www.britannica.com/topic/Manichaeism"
+      },
+      {
+       "en": "Quanzhou, a maritime hub in the 10th–14th centuries",
+       "zh": "泉州，十到十四世紀的海上樞紐",
+       "src": "UNESCO World Heritage List, Quanzhou",
+       "url": "https://whc.unesco.org/en/list/1561"
+      },
+      {
+       "en": "Kilwa: gold and ivory traded for silver, carnelian, perfume, Persian faience, and Chinese porcelain; porcelain in the domes and vaults of the Great Mosque",
+       "zh": "基爾瓦：黃金與象牙換白銀、紅玉髓、香水、波斯陶器與中國瓷器",
+       "src": "UNESCO World Heritage List, Kilwa Kisiwani",
+       "url": "https://whc.unesco.org/en/list/144"
+      },
+      {
+       "en": "Pasta in Italy before Marco Polo",
+       "zh": "馬可・波羅之前義大利就有麵食",
+       "src": "Davidson, The Oxford Companion to Food, “Culinary Mythology”",
+       "url": "https://app.ckbk.com/reference/food77337c03s001e523e002/marco-polos-supposed-introduction-of-pasta-from-china-to-the-western-world"
+      },
+      {
+       "en": "Shisanhang: iron, gold ornaments, glass bracelets, Tang and Song coins, overseas trade; Jingpu: agate and glass from overseas",
+       "zh": "十三行：鐵器、金飾、玻璃手環、唐宋古錢、海外貿易；靜浦：來自海外的瑪瑙和琉璃",
+       "src": "國立臺灣史前文化博物館 考古學習資源",
+       "url": "https://archae.nmp.gov.tw/c-05.html"
+      },
+      {
+       "en": "Penghu and Liuqiu in the Daoyi zhilüe",
+       "zh": "《島夷誌略》的「彭湖」與「琉球」",
+       "src": "汪大淵《島夷誌略》（維基文庫）",
+       "url": "https://zh.wikisource.org/wiki/%E5%B3%B6%E5%A4%B7%E8%AA%8C%E7%95%A5"
+      },
+      {
+       "en": "Curriculum entries 歷 Ha-Ⅳ-2 and 歷 Hb-Ⅳ-2",
+       "zh": "課綱條目 歷 Ha-Ⅳ-2、歷 Hb-Ⅳ-2",
+       "src": "十二年國民基本教育課程綱要・社會領域（民國 107 年 10 月）",
+       "url": "https://www.naer.edu.tw/upload/1/16/doc/819/十二年國民基本教育課程綱要國民中小學暨普通型高級中等校-社會領域.pdf"
+      },
+      {
+       "en": "Land outlines on the globe (public domain)",
+       "zh": "地球儀的陸地外形（公有領域）",
+       "src": "Natural Earth, 1:50m Land, version 5.1.2",
+       "url": "https://www.naturalearthdata.com/downloads/50m-physical-vectors/50m-land/"
+      }
+     ]
+    }
+   ],
+   "planned": [
     {
      "n": 10,
      "icon": "📜",

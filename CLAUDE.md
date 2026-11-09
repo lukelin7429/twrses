@@ -1360,6 +1360,11 @@
   - 「同一個詞，三種語言」（`terms`，`match2d.js`）：中文詞配巴利文／梵文＋英文，四選一（`matchOptions` 固定種子，在 `dharma.js`，因為 `common.js` 在 import 時就碰 `document`，node 測試不能 import）；「傳說還是紀錄？」（`legend`，沿用 `sort2d.js`）。
   - 資料測試 `test/buddhism.test.mjs`：18 個地方都在陸地上、tag 正確、確切年份寫在 when 裡、路線通過 `checkRoute`、術語三語齊全且選項分得出來、第七課連到這一課、單元二沒有製作中的課。
   - 除錯：`[data-wh-lab].__lab`（`setYear(y)`、`play()`、`select(key)`、`look(at)`、`demo('start'|'ashoka'|'south'|'north')`、`info()`、`render()`）；`[data-wh-match].__match`（`pick(i)`、`next()`、`reset()`、`options()`）。
+- 第九課〈絲路上走的是什麼？〉（`wh-silk.js`，`lab.kind = "silk"`，`data-wh-silk-lab`，slug `silk-roads`，單元三第一課）：一個想法——「絲路」是陸路和海路連成的網，不是一條路；很少人走完全程，貨物一段一段換手；跟著絲一起走的還有馬、香料、紙、玻璃、瓷器、宗教和疾病。
+  - 3D 沿用第八課的西元年地球儀（`dharma.js` 的 `toRoute`／`checkRoute`；`lab.cities` 取代 `sites`，`port: true` 是港口、淡藍點）。新的「跟著一件東西走」：`lab.goods[]`（`stops` 是城市 key、`legs[]` 每一段誰帶的、`dir`、`year`）；選了以後滑桿跳到那一年、畫一條粉紅色的路線（年代設在滑桿最早之前，所以不受時間截斷），小亮點每段 2.4 秒走完，卡片標目前那一段、寫「換了幾次手」（`handoffs` = 段數 − 1；0 時寫「一路由同一批人帶」）。純函式在 `src/silk.js`（`slerp`、`goodPath`、`legLengths`、`tokenAt`、`handoffs`、`checkGood`：每站都在、段數 = 站數 − 1、旅程年代時城市都已上網路），測試 `test/silk.test.mjs`。`lab.demos[]` 直接在資料裡（`year`、`good`、`t`、`site`、`look`）。
+  - 標籤：依優先順序（目前那一段的兩端 → 起點終點 → 選中的 → 其他）放，和已標的距離小於門檻（桌機 9.5°、手機 14°，乘上鏡頭距離）就不標。旁邊的卡片在桌機上限高 640px 可捲動，不然卡片一長，整個舞台跟著拉高、地球變得太大。
+  - 「往東還是往西？」（`eastwest`，`sort2d.js`）；「哪一件先發生？」（`when`，`order2d.js`；項目可加 `when_en`／`when_zh` 直接顯示西元年代，不然顯示「大約幾年前」）。資料測試 `test/silkroad.test.mjs`。
+  - 除錯：`[data-wh-silk-lab].__lab`（`setYear(y)`、`play()`、`select(key)`、`follow(key)`、`step(秒)`、`demo('start'|'silk'|'sea'|'paper')`、`info()`、`render()`）。
 
 ## 美國政治 How America Governs Itself（/resources/classes/us-government/）— 架構照地理與書法；**程度是高中到大學**，每課多五張固定的卡
 

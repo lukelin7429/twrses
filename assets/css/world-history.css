@@ -600,3 +600,34 @@ a.wh-link:hover { transform: translateY(-3px); box-shadow: var(--shadow); border
 .wh-ma-msg.is-ok { color: #1f6b4a; }
 .wh-ma-msg.is-bad { color: #8a3a22; }
 @media (max-width: 620px) { .wh-ma-opts { grid-template-columns: minmax(0, 1fr); } }
+
+/* ── 第九課：絲路的地球儀（wh-silk.js）：陸路和海路的網、「跟著一件東西走」 ── */
+.wh-sk-aside { display: flex; flex-direction: column; gap: .5rem; }
+.wh-sk-aside .wh-dh-key .wh-sk-k-land::before { background: #ffd36e; border-radius: 2px; height: .3rem; }
+.wh-sk-aside .wh-dh-key .wh-sk-k-sea::before { background: #7fe3ff; border-radius: 2px; height: .3rem; }
+.wh-sk-sites button small { display: block; font-size: .66rem; opacity: .8; }
+.wh-sk-sites button small .zh { margin-left: .25rem; }
+.wh-sk-sites button.wh-sk-port { border-style: dashed; }
+.wh-sk-goods button { display: inline-flex; align-items: center; gap: .35rem; }
+.wh-sk-goods button[aria-pressed="true"] { border-color: #ff8fd8; box-shadow: 0 0 0 2px rgba(255, 143, 216, .35); }
+.wh-sk-good { background: #fff; color: var(--ink); border-radius: 14px; padding: .85rem .95rem; border-left: 5px solid #ff8fd8; }
+.wh-sk-good .wh-site-k, .wh-sk-good .wh-site-k .zh { color: #a2366f; font-size: .7rem; letter-spacing: .06em; text-transform: uppercase; margin: 0 0 .25rem; }
+.wh-sk-good h3 { margin: 0 0 .5rem; font-size: 1.05rem; }
+.wh-sk-legs { margin: 0; padding-left: 1.2rem; display: grid; gap: .4rem; font-size: .82rem; line-height: 1.45; }
+.wh-sk-legs li { transition: opacity .3s; opacity: .55; }
+.wh-sk-legs li.is-now { opacity: 1; }
+.wh-sk-legs li.is-now::marker { color: #d24f9a; font-weight: 800; }
+.wh-sk-legs li.is-done { opacity: .9; }
+.wh-sk-legs b { display: block; font-size: .8rem; }
+.wh-sk-legs b .zh { margin-left: .3rem; }
+.wh-sk-legs .zh { display: block; color: var(--ink-soft); }
+.wh-sk-legs b .zh { display: inline; }
+.wh-sk-hands { margin: .6rem 0 .3rem; font-weight: 700; font-size: .86rem; color: #a2366f; }
+.wh-sk-hands .zh { margin-left: .35rem; }
+.wh-sk-note { margin: 0 0 .4rem; font-size: .8rem; line-height: 1.5; color: var(--ink-soft); }
+.wh-sk-note .zh { display: block; }
+.wh-sk-again { margin-top: .5rem; font-size: .78rem; }
+.al-lab.wh-lab-sk { font-size: .68rem; }
+.al-lg-wh-good i { border-color: #c45a98; background: #ff8fd8; }
+.wh-sk-good .wh-site-k .zh, .wh-sk-good h3 .zh { margin-left: .35rem; }
+@media (min-width: 900px) { .wh-sk .wh-sk-aside { max-height: 640px; overflow-y: auto; } }
