@@ -7685,7 +7685,7 @@
        "zh": "台灣雨這麼多，為什麼還會缺水？",
        "note_en": "Short, steep rivers carry the rain quickly to the sea.",
        "note_zh": "又短又陡的河，很快就把雨水帶進海裡。",
-       "soon": true
+       "href": "/resources/classes/geography/water-shortage/"
       },
       {
        "icon": "🏙️",
@@ -8004,15 +8004,1114 @@
        "url": "https://www.naer.edu.tw/PageSyllabus?fid=52"
       }
      ]
+    },
+    {
+     "n": 10,
+     "slug": "water-shortage",
+     "title": "Why Can Taiwan Run Short of Water When It Rains So Much?",
+     "title_zh": "台灣雨這麼多，為什麼還會缺水？",
+     "level": "入門 · Beginner",
+     "icon": "💧",
+     "card": "rain",
+     "blurb_en": "Let it rain on a 3D model of Taiwan and follow the raindrops to the sea. See why short, steep rivers and a rainy season only half a year long can leave a rainy island short of water.",
+     "blurb_zh": "在立體的台灣上下一場雨，跟著雨滴一路流到海。看看為什麼又短又陡的河、只有半年的雨季，會讓一座多雨的島也缺水。",
+     "big_idea_en": "Taiwan gets a lot of rain, but most of it falls in a few months, and its short, steep rivers carry it quickly to the sea. Many people share the water that is left. So even a rainy island has to store water in reservoirs and save it.",
+     "big_idea_zh": "台灣的雨很多，但大多下在幾個月裡，又短又陡的河很快就把雨水送進海裡；剩下的水還要分給很多人。所以即使是多雨的島，也得用水庫把水存起來、省著用。",
+     "stats": {
+      "yushan_km": 118,
+      "coastal_km": 41,
+      "wet": {
+       "kaohsiung": 91,
+       "taipei": 69,
+       "keelung": 47
+      },
+      "westLong": 151,
+      "eastLong": 87
+     },
+     "rivers": [
+      {
+       "key": "danshui",
+       "en": "Tamsui River",
+       "zh": "淡水河",
+       "e": 291.48,
+       "n": 2785.66,
+       "km": 158.7,
+       "area": 2726,
+       "slope": "1/122",
+       "side": "west"
+      },
+      {
+       "key": "wuxi",
+       "en": "Wu River",
+       "zh": "烏溪",
+       "e": 195.48,
+       "n": 2676.66,
+       "km": 119.13,
+       "area": 2025.6,
+       "slope": "1/92",
+       "side": "west"
+      },
+      {
+       "key": "zhuoshui",
+       "en": "Zhuoshui River",
+       "zh": "濁水溪",
+       "e": 174.48,
+       "n": 2642.66,
+       "km": 186.6,
+       "area": 3156.9,
+       "slope": "1/190",
+       "side": "west"
+      },
+      {
+       "key": "zengwen",
+       "en": "Zengwen River",
+       "zh": "曾文溪",
+       "e": 155.48,
+       "n": 2560.66,
+       "km": 138.47,
+       "area": 1176.64,
+       "slope": null,
+       "side": "west"
+      },
+      {
+       "key": "gaoping",
+       "en": "Gaoping River",
+       "zh": "高屏溪",
+       "e": 190.48,
+       "n": 2486.66,
+       "km": 171.0,
+       "area": 3256.85,
+       "slope": "1/150",
+       "side": "west"
+      },
+      {
+       "key": "beinan",
+       "en": "Beinan River",
+       "zh": "卑南溪",
+       "e": 267.48,
+       "n": 2518.66,
+       "km": 84.35,
+       "area": 1603.21,
+       "slope": "1/141",
+       "side": "east"
+      },
+      {
+       "key": "xiuguluan",
+       "en": "Xiuguluan River",
+       "zh": "秀姑巒溪",
+       "e": 300.48,
+       "n": 2595.66,
+       "km": 81.15,
+       "area": 1790.46,
+       "slope": "1/34",
+       "side": "east"
+      },
+      {
+       "key": "hualien",
+       "en": "Hualien River",
+       "zh": "花蓮溪",
+       "e": 311.48,
+       "n": 2647.66,
+       "km": 57.28,
+       "area": 1507.09,
+       "slope": null,
+       "side": "east"
+      },
+      {
+       "key": "lanyang",
+       "en": "Lanyang River",
+       "zh": "蘭陽溪",
+       "e": 332.48,
+       "n": 2736.66,
+       "km": 73,
+       "area": 978,
+       "slope": "1/55",
+       "side": "east"
+      }
+     ],
+     "lab": {
+      "kind": "rain",
+      "eyebrow": "3D Model · 3D 模型",
+      "title_en": "Follow the Rain to the Sea",
+      "title_zh": "跟著雨走到海",
+      "how_en": "Rain is falling on Taiwan. Each light blue drop runs downhill along the rivers, which the page works out from the shape of the land, until it reaches the sea. Tap anywhere on the land to drop one raindrop there: its path turns gold, and the panel tells you how far it travels, how high it starts, and where it reaches the sea. Try the west side of the mountains, then the east.",
+      "how_zh": "台灣正在下雨。每一顆淡藍色的雨滴都順著河往下流（河是頁面從地形算出來的），一直流到海。點地形上任何一個地方，就在那裡下一滴雨：它的路會變成金色，右邊告訴你它走了多遠、從多高的地方出發、從哪裡入海。先試試山的西邊，再試試東邊。",
+      "legend": [
+       {
+        "cls": "drop",
+        "en": "Raindrops on their way to the sea",
+        "zh": "往海裡流的雨滴"
+       },
+       {
+        "cls": "river",
+        "en": "Rivers worked out from the land",
+        "zh": "從地形算出來的河"
+       },
+       {
+        "cls": "path",
+        "en": "The path of the drop you chose",
+        "zh": "你選的那一滴雨的路"
+       }
+      ],
+      "scale_en": "Heights are exaggerated 5 times. The rivers come from the 1-kilometer land model: water always moves to the lowest neighboring square, so the rivers are straighter and a little shorter than real ones, and small streams are not drawn. The drops move at the same speed everywhere, only to show the paths; they do not show how fast real water flows.",
+      "scale_zh": "高度放大 5 倍。河是從 1 公里的地形算出來的：水一律流向四周最低的那一格，所以畫出來的河比真的直、也短一點，小溪沒有畫。雨滴在哪裡都走一樣快，只是為了讓你看見路線，不代表真的水流多快。",
+      "note_en": "Rain on the west side usually has a long way to go; rain on the east side reaches the sea quickly.",
+      "note_zh": "落在西邊的雨，通常要走很遠；落在東邊的雨，很快就到海了。",
+      "credit_html": "Height: the Ministry of the Interior's 2026 20-meter digital terrain model of Taiwan, averaged by this page into 1-kilometer squares (see Lesson 9). · 高程資料：內政部 2026年版全臺灣20公尺網格數值地形模型DTM資料 此開放資料依政府資料開放授權條款 (Open Government Data License) 進行公眾釋出，使用者於遵守本條款各項規定之前提下，得利用之。政府資料開放授權條款：<a href=\"https://data.gov.tw/license\">https://data.gov.tw/license</a>。本頁把它平均成 1 公里的格子，再算出水往哪裡流。River lengths and basin areas: Water Resources Agency. · 河川長度與流域面積：經濟部水利署。"
+     },
+     "parts_head": {
+      "eyebrow": "Try It in the Model · 在模型裡試試",
+      "en": "Four ways to watch the rain",
+      "zh": "用四種方式看雨"
+     },
+     "parts": [
+      {
+       "key": "rain",
+       "icon": "🌧️",
+       "en": "A rainy day",
+       "zh": "下雨天",
+       "meta_en": "All of Taiwan",
+       "meta_zh": "全台灣",
+       "demo": "rain",
+       "text_en": "Watch the drops gather into rivers. Notice how quickly the ones on the east side reach the sea.",
+       "text_zh": "看雨滴匯聚成河。注意東邊的雨滴多快就到海了。"
+      },
+      {
+       "key": "west",
+       "icon": "⛰️",
+       "en": "A long trip west",
+       "zh": "往西走的長路",
+       "meta_en": "From Yushan",
+       "meta_zh": "從玉山",
+       "demo": "west",
+       "text_en": "A drop on Yushan runs west down the Zhuoshui River: about 118 kilometers to the sea in this model.",
+       "text_zh": "落在玉山的雨滴往西流，經過濁水溪：在這個模型裡大約走 118 公里才到海。"
+      },
+      {
+       "key": "east",
+       "icon": "🌊",
+       "en": "A short trip east",
+       "zh": "往東走的短路",
+       "meta_en": "Coastal Mountain Range",
+       "meta_zh": "海岸山脈",
+       "demo": "east",
+       "text_en": "A drop on the Coastal Mountain Range reaches the sea in only about 41 kilometers.",
+       "text_zh": "落在海岸山脈的雨滴，只要大約 41 公里就到海了。"
+      },
+      {
+       "key": "rivers",
+       "icon": "🗺️",
+       "en": "The river map",
+       "zh": "河流地圖",
+       "meta_en": "From above",
+       "meta_zh": "從正上方看",
+       "demo": "rivers",
+       "text_en": "Stop the rain and look from above. The rivers on the west side are long and wind across wide plains; those on the east are short.",
+       "text_zh": "停下雨，從正上方看。西邊的河又長又彎，流過寬廣的平原；東邊的河很短。"
+      }
+     ],
+     "parts_note_en": "Then try it yourself. Find a spot where two drops, only a few kilometers apart, end up on opposite coasts. What is between them?",
+     "parts_note_zh": "然後自己動手試試。找一個地方，兩滴雨只差幾公里，卻從兩邊不同的海岸入海。它們中間隔著什麼？",
+     "rainbars": {
+      "eyebrow": "Try It · 動手試試",
+      "en": "How Much Rain Falls Each Month?",
+      "zh": "每個月下多少雨？",
+      "lead_en": "Average rain for each month at six weather stations, 1991 to 2020. The dark bars are May to October. Compare the north with the south, and the lowlands with the mountains.",
+      "lead_zh": "六個氣象站 1991 到 2020 年每個月的平均雨量。深色的長條是 5 到 10 月。比一比北部和南部、平地和高山。",
+      "start": "kaohsiung",
+      "note_en": "When most of the year's rain falls in a few months, the rest of the year can be very dry, even in a rainy place.",
+      "note_zh": "一年的雨大多集中在幾個月，其他時候就可能很乾，即使是多雨的地方也一樣。",
+      "stations": [
+       {
+        "key": "keelung",
+        "en": "Keelung",
+        "zh": "基隆",
+        "mm": [
+         327.8,
+         349.8,
+         274.4,
+         211.1,
+         284.1,
+         290.4,
+         119.5,
+         211.4,
+         390.1,
+         377.6,
+         396.9,
+         356.6
+        ],
+        "year": 3589.7,
+        "wetPct": 47,
+        "note_en": "Keelung gets rain all year, even in winter: only 47% falls from May to October.",
+        "note_zh": "基隆一年到頭都下雨，冬天也是：5 到 10 月只占 47%。"
+       },
+       {
+        "key": "taipei",
+        "en": "Taipei",
+        "zh": "臺北",
+        "mm": [
+         90.5,
+         143.2,
+         157.2,
+         152.5,
+         239.9,
+         345.0,
+         226.1,
+         337.8,
+         315.2,
+         150.2,
+         83.2,
+         88.7
+        ],
+        "year": 2329.5,
+        "wetPct": 69,
+        "note_en": "Taipei gets rain every month, with the most in June to September.",
+        "note_zh": "臺北每個月都有雨，6 到 9 月最多。"
+       },
+       {
+        "key": "taichung",
+        "en": "Taichung",
+        "zh": "臺中",
+        "mm": [
+         36.6,
+         63.0,
+         86.9,
+         126.8,
+         249.6,
+         329.0,
+         303.3,
+         340.8,
+         147.5,
+         25.0,
+         23.8,
+         30.5
+        ],
+        "year": 1762.8,
+        "wetPct": 79,
+        "note_en": "In Taichung, 79% of the rain falls from May to October; October to December are very dry.",
+        "note_zh": "臺中有 79% 的雨下在 5 到 10 月；10 到 12 月非常乾。"
+       },
+       {
+        "key": "kaohsiung",
+        "en": "Kaohsiung",
+        "zh": "高雄",
+        "mm": [
+         19.1,
+         17.7,
+         32.3,
+         68.4,
+         202.2,
+         416.2,
+         377.2,
+         512.4,
+         224.5,
+         53.4,
+         25.6,
+         19.2
+        ],
+        "year": 1968.2,
+        "wetPct": 91,
+        "note_en": "In Kaohsiung, about 91% of the year's rain falls from May to October. From November to April, it hardly rains at all.",
+        "note_zh": "高雄一年的雨，大約 91% 下在 5 到 10 月；11 月到 4 月幾乎不下雨。"
+       },
+       {
+        "key": "hualien",
+        "en": "Hualien",
+        "zh": "花蓮",
+        "mm": [
+         57.6,
+         74.7,
+         76.7,
+         76.6,
+         186.9,
+         165.5,
+         198.5,
+         258.8,
+         329.9,
+         350.6,
+         175.1,
+         83.6
+        ],
+        "year": 2034.5,
+        "wetPct": 73,
+        "note_en": "Hualien, on the east coast, gets its most rain in September and October.",
+        "note_zh": "東海岸的花蓮，9 月和 10 月雨最多。"
+       },
+       {
+        "key": "alishan",
+        "en": "Alishan",
+        "zh": "阿里山",
+        "mm": [
+         86.8,
+         109.9,
+         146.6,
+         223.9,
+         510.5,
+         674.7,
+         694.7,
+         813.1,
+         402.7,
+         141.2,
+         66.9,
+         69.7
+        ],
+        "year": 3940.7,
+        "wetPct": 82,
+        "note_en": "Alishan, high in the mountains, gets more than twice as much rain as Kaohsiung, mostly in summer.",
+        "note_zh": "高山上的阿里山，雨量是高雄的兩倍多，大多下在夏天。"
+       }
+      ]
+     },
+     "drop": {
+      "eyebrow": "Game · 小遊戲",
+      "en": "Where Does the Rain Go?",
+      "zh": "雨水會流到哪裡？",
+      "lead_en": "Eight places on Taiwan, each marked with a red dot. A raindrop falls there. Will it reach the sea on the west coast or the east coast? You do not need to memorize any rivers: find the highest ridge, and think about which side of it the drop is on. There is no timer.",
+      "lead_zh": "台灣上的八個地方，各用一個紅點標出來。一滴雨落在那裡，它會從西海岸還是東海岸流進海？不用背河名：找出最高的山脊，想想這滴雨在山脊的哪一邊。不計時。",
+      "rivers": [
+       {
+        "key": "danshui",
+        "en": "Tamsui River",
+        "zh": "淡水河",
+        "e": 291.48,
+        "n": 2785.66,
+        "km": 158.7,
+        "area": 2726,
+        "slope": "1/122",
+        "side": "west"
+       },
+       {
+        "key": "wuxi",
+        "en": "Wu River",
+        "zh": "烏溪",
+        "e": 195.48,
+        "n": 2676.66,
+        "km": 119.13,
+        "area": 2025.6,
+        "slope": "1/92",
+        "side": "west"
+       },
+       {
+        "key": "zhuoshui",
+        "en": "Zhuoshui River",
+        "zh": "濁水溪",
+        "e": 174.48,
+        "n": 2642.66,
+        "km": 186.6,
+        "area": 3156.9,
+        "slope": "1/190",
+        "side": "west"
+       },
+       {
+        "key": "zengwen",
+        "en": "Zengwen River",
+        "zh": "曾文溪",
+        "e": 155.48,
+        "n": 2560.66,
+        "km": 138.47,
+        "area": 1176.64,
+        "slope": null,
+        "side": "west"
+       },
+       {
+        "key": "gaoping",
+        "en": "Gaoping River",
+        "zh": "高屏溪",
+        "e": 190.48,
+        "n": 2486.66,
+        "km": 171.0,
+        "area": 3256.85,
+        "slope": "1/150",
+        "side": "west"
+       },
+       {
+        "key": "beinan",
+        "en": "Beinan River",
+        "zh": "卑南溪",
+        "e": 267.48,
+        "n": 2518.66,
+        "km": 84.35,
+        "area": 1603.21,
+        "slope": "1/141",
+        "side": "east"
+       },
+       {
+        "key": "xiuguluan",
+        "en": "Xiuguluan River",
+        "zh": "秀姑巒溪",
+        "e": 300.48,
+        "n": 2595.66,
+        "km": 81.15,
+        "area": 1790.46,
+        "slope": "1/34",
+        "side": "east"
+       },
+       {
+        "key": "hualien",
+        "en": "Hualien River",
+        "zh": "花蓮溪",
+        "e": 311.48,
+        "n": 2647.66,
+        "km": 57.28,
+        "area": 1507.09,
+        "slope": null,
+        "side": "east"
+       },
+       {
+        "key": "lanyang",
+        "en": "Lanyang River",
+        "zh": "蘭陽溪",
+        "e": 332.48,
+        "n": 2736.66,
+        "km": 73,
+        "area": 978,
+        "slope": "1/55",
+        "side": "east"
+       }
+      ],
+      "hint_en": "Water always runs downhill. The main mountain ridge divides the water that flows west from the water that flows east.",
+      "hint_zh": "水一定往低處流。主要的山脊把往西流的水和往東流的水分開。",
+      "start_en": "Which side of the ridge is the dot on?",
+      "start_zh": "紅點在山脊的哪一邊？",
+      "end_en": "Now you can look at a map of mountains and guess where the rain will go.",
+      "end_zh": "現在你可以看著山的地圖，猜出雨水會流到哪裡。",
+      "questions": [
+       {
+        "name_en": "Yushan",
+        "name_zh": "玉山",
+        "answer": "west",
+        "why_en": "Yushan is on the main ridge, but this drop lands on its western side and joins the Zhuoshui River.",
+        "why_zh": "玉山就在主要的山脊上，但這滴雨落在西側，匯入濁水溪。",
+        "place": "yushan"
+       },
+       {
+        "name_en": "Coastal Mountain Range",
+        "name_zh": "海岸山脈",
+        "answer": "east",
+        "why_en": "The Coastal Mountain Range is right next to the Pacific. The drop has only a short way to go.",
+        "why_zh": "海岸山脈緊鄰太平洋，這滴雨只要走一小段路。",
+        "place": "coastal"
+       },
+       {
+        "name_en": "Near Sun Moon Lake",
+        "name_zh": "日月潭附近",
+        "answer": "west",
+        "why_en": "Sun Moon Lake is west of the main ridge, in the middle of the island. The water flows west to the Zhuoshui River.",
+        "why_zh": "日月潭在主要山脊的西邊、島的中間，水往西流進濁水溪。",
+        "e": 240.83,
+        "n": 2639.52
+       },
+       {
+        "name_en": "Taroko",
+        "name_zh": "太魯閣",
+        "answer": "east",
+        "why_en": "Taroko is east of the main ridge, close to the sea. The drop drops fast and reaches the sea in a short trip.",
+        "why_zh": "太魯閣在主要山脊的東邊，離海很近，這滴雨一路陡降，很快就到海。",
+        "e": 305.89,
+        "n": 2672.85
+       },
+       {
+        "name_en": "Taipei Basin",
+        "name_zh": "臺北盆地",
+        "answer": "west",
+        "why_en": "The Taipei Basin drains through the Tamsui River to the sea in the northwest.",
+        "why_zh": "臺北盆地的水經過淡水河，從西北邊入海。",
+        "place": "taipeiBasin"
+       },
+       {
+        "name_en": "Lanyang Plain",
+        "name_zh": "蘭陽平原",
+        "answer": "east",
+        "why_en": "The Lanyang Plain opens to the Pacific in the northeast. The Lanyang River carries the rain there.",
+        "why_zh": "蘭陽平原在東北朝太平洋敞開，蘭陽溪把雨水帶到那裡。",
+        "place": "lanyang"
+       },
+       {
+        "name_en": "Alishan",
+        "name_zh": "阿里山",
+        "answer": "west",
+        "why_en": "Alishan is high, but it is west of the main ridge, so its rain has a long way to go to the west coast.",
+        "why_zh": "阿里山很高，但它在主要山脊的西邊，雨水要走很遠才到西海岸。",
+        "e": 229.58,
+        "n": 2600.77
+       },
+       {
+        "name_en": "High on the east side of the Central Range",
+        "name_zh": "中央山脈東側的高山上",
+        "answer": "east",
+        "why_en": "This spot is more than 2,000 meters high, but it is east of the ridge line, so its rain runs east to the Xiuguluan River.",
+        "why_zh": "這裡超過 2,000 公尺高，但在山脊線的東邊，雨水往東流進秀姑巒溪。",
+        "e": 275.51,
+        "n": 2612.96
+       }
+      ]
+     },
+     "map_english": {
+      "eyebrow": "Map English · 地圖英語",
+      "en": "Eight sentences for talking about rain and rivers",
+      "zh": "談雨與河的八句英文",
+      "lead_en": "This lesson's Map English card is about rain and water. Listen, repeat, then describe the rain and the rivers where you live.",
+      "lead_zh": "這一課的「地圖英語」練習說雨和水。先聽、再跟著唸，然後描述你住的地方的雨和河。",
+      "items": [
+       {
+        "en": "<b>It rains a lot</b> in summer.",
+        "zh": "夏天常常下雨。",
+        "use_en": "It rains a lot …",
+        "use_zh": "常常下雨"
+       },
+       {
+        "en": "<b>The rainy season</b> lasts from May to October.",
+        "zh": "雨季從五月持續到十月。",
+        "use_en": "The rainy / dry season",
+        "use_zh": "雨季／乾季"
+       },
+       {
+        "en": "The river <b>flows into</b> the sea.",
+        "zh": "這條河流進海裡。",
+        "use_en": "flows into …",
+        "use_zh": "流進……"
+       },
+       {
+        "en": "Taiwan's rivers are <b>short and steep</b>.",
+        "zh": "台灣的河又短又陡。",
+        "use_en": "short and steep",
+        "use_zh": "又短又陡"
+       },
+       {
+        "en": "Most of the rain <b>runs off</b> into the sea.",
+        "zh": "大部分的雨水流進海裡。",
+        "use_en": "runs off into …",
+        "use_zh": "流走、流進……"
+       },
+       {
+        "en": "A reservoir <b>stores</b> water for the dry season.",
+        "zh": "水庫把水存起來，留到乾季用。",
+        "use_en": "stores … for …",
+        "use_zh": "把……存起來"
+       },
+       {
+        "en": "We need to <b>save water</b>.",
+        "zh": "我們要節約用水。",
+        "use_en": "save water",
+        "use_zh": "節約用水"
+       },
+       {
+        "en": "<b>How much rain falls</b> here in a year?",
+        "zh": "這裡一年下多少雨？",
+        "use_en": "How much rain falls …?",
+        "use_zh": "下多少雨？"
+       }
+      ]
+     },
+     "tricks_head": {
+      "en": "Rain and water, in a sentence",
+      "zh": "一句話記住雨與水"
+     },
+     "tricks": [
+      {
+       "title_en": "Lots of rain, not lots of water",
+       "title_zh": "雨多，不等於水多",
+       "body_en": "What matters is how much you can keep.",
+       "body_zh": "重要的是能留下多少。"
+      },
+      {
+       "title_en": "Short, steep, fast",
+       "title_zh": "短、陡、快",
+       "body_en": "Taiwan's rivers carry the rain quickly to the sea.",
+       "body_zh": "台灣的河很快就把雨水送進海裡。"
+      },
+      {
+       "title_en": "Half a year of rain",
+       "title_zh": "半年的雨",
+       "body_en": "Most rain falls from May to October, especially in the south.",
+       "body_zh": "大部分的雨下在 5 到 10 月，南部更是如此。"
+      },
+      {
+       "title_en": "The ridge divides the water",
+       "title_zh": "山脊分開水",
+       "body_en": "West of the main ridge, water flows west; east of it, east.",
+       "body_zh": "主要山脊的西邊，水往西流；東邊往東流。"
+      }
+     ],
+     "safety_head": {
+      "eyebrow": "Before the Activities · 做活動之前",
+      "en": "Working safely",
+      "zh": "安全提醒"
+     },
+     "safety": [
+      {
+       "en": "Wipe up spilled water right away so no one slips.",
+       "zh": "水灑出來要馬上擦乾，免得有人滑倒。"
+      },
+      {
+       "en": "Never play near rivers, ditches, or reservoirs after heavy rain; the water can rise very quickly.",
+       "zh": "大雨過後，絕對不要在河邊、水溝或水庫附近玩，水可能漲得非常快。"
+      },
+      {
+       "en": "Use only tap water in the activities, and do not drink the water from your model.",
+       "zh": "活動只用自來水，模型裡的水不要喝。"
+      },
+      {
+       "en": "Ask an adult before you put anything outside to catch rain, and set it where no one will trip over it.",
+       "zh": "要把東西放到戶外接雨之前先問大人，放在不會絆倒別人的地方。"
+      }
+     ],
+     "activities": [
+      {
+       "title_en": "A Mountain in a Tray",
+       "title_zh": "托盤裡的山",
+       "materials": [
+        {
+         "en": "A large tray or plastic box",
+         "zh": "一個大托盤或塑膠盒"
+        },
+        {
+         "en": "Crumpled newspaper and a sheet of plastic wrap or aluminum foil",
+         "zh": "揉皺的報紙和一張保鮮膜或鋁箔紙"
+        },
+        {
+         "en": "A spray bottle or a watering can with water",
+         "zh": "一個噴水瓶或裝了水的澆花器"
+        },
+        {
+         "en": "A few drops of food coloring (optional)",
+         "zh": "幾滴食用色素（可以不用）"
+        }
+       ],
+       "steps": [
+        {
+         "en": "Pile the newspaper in the tray into a long ridge, closer to one side, like Taiwan's mountains.",
+         "zh": "在托盤裡用報紙堆出一道長長的山脊，偏向一邊，像台灣的山。"
+        },
+        {
+         "en": "Cover it with the plastic wrap or foil and press it down so the valleys show.",
+         "zh": "蓋上保鮮膜或鋁箔紙，往下壓，讓山谷的形狀出來。"
+        },
+        {
+         "en": "Spray “rain” evenly over the whole mountain.",
+         "zh": "在整座山上平均地噴「雨」。"
+        },
+        {
+         "en": "Watch where the water runs. Does it reach the edge faster on the steep side or the gentle side?",
+         "zh": "看水往哪裡流。陡的那一邊和緩的那一邊，哪一邊比較快流到盒子邊？"
+        },
+        {
+         "en": "Now make a hollow on the gentle side with your thumb: a reservoir. How much water can you keep there?",
+         "zh": "用大拇指在緩的那一邊壓出一個凹洞，當作水庫。你能在那裡留下多少水？"
+        }
+       ],
+       "tip_en": "This is why reservoirs are built in valleys: they catch some of the water before it runs away.",
+       "tip_zh": "這就是為什麼水庫蓋在山谷裡：在水流走之前，先接住一部分。"
+      },
+      {
+       "title_en": "A Class Rain Gauge",
+       "title_zh": "全班的雨量筒",
+       "materials": [
+        {
+         "en": "A clear plastic bottle with straight sides",
+         "zh": "一個直筒的透明塑膠瓶"
+        },
+        {
+         "en": "Scissors (an adult cuts the bottle)",
+         "zh": "剪刀（由大人剪瓶子）"
+        },
+        {
+         "en": "A ruler and tape",
+         "zh": "尺和膠帶"
+        },
+        {
+         "en": "A notebook for the class record",
+         "zh": "一本全班的紀錄本"
+        }
+       ],
+       "steps": [
+        {
+         "en": "Have an adult cut off the top of the bottle. Turn the top upside down into the bottle as a funnel.",
+         "zh": "請大人剪下瓶子的上半部，倒過來插進瓶子裡當漏斗。"
+        },
+        {
+         "en": "Tape the ruler to the side, with zero at the bottom of the straight part.",
+         "zh": "把尺貼在瓶子側面，0 對準直筒部分的底。"
+        },
+        {
+         "en": "Put the gauge in an open place, away from roofs and trees.",
+         "zh": "把雨量筒放在空曠的地方，避開屋簷和樹。"
+        },
+        {
+         "en": "Every school day, read the water level in millimeters, write it down, and empty the bottle.",
+         "zh": "每個上學日讀一次水位（毫米），記下來，再把水倒掉。"
+        },
+        {
+         "en": "After a month, add up your numbers and compare them with the bar chart for the nearest weather station.",
+         "zh": "一個月後把數字加起來，和最近的氣象站的長條圖比一比。"
+        }
+       ],
+       "tip_en": "Rain is measured in millimeters: how deep the water would be if none of it ran away or soaked in.",
+       "tip_zh": "雨量用毫米計算：如果雨水沒有流走、也沒有滲下去，會積多深。"
+      }
+     ],
+     "links_head": {
+      "eyebrow": "Go Further · 延伸閱讀",
+      "en": "Lessons that connect, and what comes next",
+      "zh": "相關的課，以及接下來"
+     },
+     "links": [
+      {
+       "icon": "🏔️",
+       "k_en": "Geography · Lesson 9",
+       "k_zh": "地理・第九課",
+       "en": "What Does Taiwan Look Like from Above?",
+       "zh": "從天上看，台灣長什麼樣子？",
+       "note_en": "The mountains east of the middle, and the gentle west.",
+       "note_zh": "偏東的高山與平緩的西部。",
+       "href": "/resources/classes/geography/taiwan-from-above/"
+      },
+      {
+       "icon": "⛰️",
+       "k_en": "Geography · Lesson 3",
+       "k_zh": "地理・第三課",
+       "en": "How Do You Draw a Mountain on Flat Paper?",
+       "zh": "怎麼在平面上畫出一座山？",
+       "note_en": "Slopes and valleys, and why water runs down them.",
+       "note_zh": "坡和山谷，以及水為什麼順著它們流。",
+       "href": "/resources/classes/geography/contour-lines/"
+      },
+      {
+       "icon": "🌡️",
+       "k_en": "Geography · Lesson 7",
+       "k_zh": "地理・第七課",
+       "en": "Why Is It Hot at the Equator and Cold at the Poles?",
+       "zh": "為什麼赤道熱、兩極冷？",
+       "note_en": "Taiwan's climate, between tropical and subtropical.",
+       "note_zh": "台灣的氣候：熱帶與副熱帶之間。",
+       "href": "/resources/classes/geography/equator-and-poles/"
+      },
+      {
+       "icon": "🏙️",
+       "k_en": "Geography · Lesson 11",
+       "k_zh": "地理・第十一課",
+       "en": "Where Do Taiwan's People Live?",
+       "zh": "台灣的人住在哪裡？",
+       "note_en": "Water, flat land, and cities on the west side.",
+       "note_zh": "水、平地，以及西部的城市。",
+       "soon": true
+      }
+     ],
+     "sources_note_en": "Names, dates, numbers, and quotations on this page were checked against these sources (November 2026). The rivers, the raindrop paths, and the answers to the game are computed by the page itself from the elevation data and tested automatically",
+     "sources_note_zh": "本頁的人名、年代、數字與引文依下列資料查證（2026 年 11 月）；河流、雨滴的路線和小遊戲的答案，都由頁面用高程資料自己計算，並有自動測試",
+     "paras": [
+      "Taiwan is a rainy island. According to the Water Resources Agency, it gets about 2,500 millimeters of rain in an average year, 2.6 times the world average. Yet the Water Resources Agency warns that Taiwan's water is hard to store and use. How can a place with so much rain run short?",
+      "The first reason is timing. About 78 percent of the year's rain falls from May to October, during the plum rains and the typhoon season. In the south the difference is even bigger: in Kaohsiung, about 91 out of every 100 millimeters fall in those six months. From November to April, it hardly rains there at all.",
+      "The second reason is the shape of the land. As Lesson 9 showed, Taiwan's mountains are high and close to the sea, so its rivers are short and steep. The Water Resources Agency explains that after the rain flows into the rivers, most of it runs straight into the sea. Rain that falls on the east side can reach the sea in just a few dozen kilometers.",
+      "On the 3D model, every drop of rain follows the land downhill. The main mountain ridge is a divide: rain on one side flows west, and rain on the other side flows east. West of the ridge, the rivers are longer. The Zhuoshui River, Taiwan's longest, runs 186.6 kilometers, while the Xiuguluan River on the east coast is about 81 kilometers long.",
+      "The third reason is people. Taiwan is crowded, as Lesson 8 showed. The Water Resources Agency works out that each person's share of the rain is about 4,000 tons a year, less than one-fifth of the world average. Rain that runs into the sea in a few hours cannot be shared later.",
+      "So Taiwan stores water. At the end of 2025 there were 95 reservoirs, 66 of them on the main island. But their measured useful storage is only about three-quarters of what they were designed to hold. Saving water, catching rain, and using water more than once all help a rainy island get through the dry season."
+     ],
+     "paras_zh": [
+      "台灣是一座多雨的島。經濟部水利署說，台灣平均一年大約下 2,500 毫米的雨，是世界平均的 2.6 倍。可是水利署也提醒，台灣的水資源不容易儲存和利用。雨這麼多的地方，怎麼會缺水？",
+      "第一個原因是時間。一年的雨大約 78% 下在 5 到 10 月，也就是梅雨和颱風的季節。南部的差別更大：在高雄，每 100 毫米的雨大約有 91 毫米下在這半年；11 月到 4 月，那裡幾乎不下雨。",
+      "第二個原因是地形。第九課看過，台灣的山又高又靠近海，所以河又短又陡。水利署說明，降雨匯入河川之後，大多直接奔流入海。落在東邊的雨，只要走幾十公里就到海了。",
+      "在 3D 模型上，每一滴雨都順著地形往下流。主要的山脊是一條分水嶺：落在一邊的雨往西流，落在另一邊的往東流。山脊以西的河比較長：台灣最長的濁水溪長 186.6 公里，東海岸的秀姑巒溪大約 81 公里。",
+      "第三個原因是人。第八課看過，台灣人口很稠密。水利署算出，每個人每年能分到的雨水大約 4,000 噸，不到世界平均的五分之一。幾個小時就流進海裡的雨，之後就沒辦法再分給大家用了。",
+      "所以台灣要把水存起來。民國 114 年（2025 年）底，台灣有 95 座水庫，其中 66 座在本島。但實測的有效容量，只有當初設計的四分之三左右。節約用水、收集雨水、把水重複利用，都能幫一座多雨的島撐過乾季。"
+     ],
+     "questions": [
+      "Why can a place with a lot of rain still run short of water?",
+      "Why are the rivers on Taiwan's west side longer than those on the east side?",
+      "Besides building reservoirs, what can families and schools do to get through the dry season?"
+     ],
+     "answers": [
+      "Most of the rain falls in a few months, short and steep rivers carry it quickly to the sea, and many people share what is left.",
+      "The main ridge is closer to the east coast, so there is more land, and a longer way down, on the west side.",
+      "Save water, fix leaks, collect rainwater for plants and cleaning, and use water more than once."
+     ],
+     "vocab": [
+      {
+       "n": 1,
+       "w": "rainfall",
+       "pos": "n.",
+       "zh": "雨量",
+       "ex": "Taiwan's average yearly <b>rainfall</b> is about 2,500 millimeters.",
+       "exzh": "台灣平均一年的雨量大約 2,500 毫米。"
+      },
+      {
+       "n": 2,
+       "w": "rainy season",
+       "pos": "n.",
+       "zh": "雨季",
+       "ex": "The <b>rainy season</b> lasts from May to October.",
+       "exzh": "雨季從五月到十月。"
+      },
+      {
+       "n": 3,
+       "w": "dry season",
+       "pos": "n.",
+       "zh": "乾季",
+       "ex": "Farmers need stored water in the <b>dry season</b>.",
+       "exzh": "乾季時，農夫需要存下來的水。"
+      },
+      {
+       "n": 4,
+       "w": "river",
+       "pos": "n.",
+       "zh": "河",
+       "ex": "The <b>river</b> flows into the sea.",
+       "exzh": "這條河流進海裡。"
+      },
+      {
+       "n": 5,
+       "w": "steep",
+       "pos": "adj.",
+       "zh": "陡的",
+       "ex": "Short, <b>steep</b> rivers carry water away quickly.",
+       "exzh": "又短又陡的河很快就把水帶走。"
+      },
+      {
+       "n": 6,
+       "w": "reservoir",
+       "pos": "n.",
+       "zh": "水庫",
+       "ex": "A <b>reservoir</b> stores water for the dry season.",
+       "exzh": "水庫把水存起來，留到乾季用。"
+      },
+      {
+       "n": 7,
+       "w": "divide",
+       "pos": "n.",
+       "zh": "分水嶺",
+       "ex": "The main ridge is a <b>divide</b> between east and west.",
+       "exzh": "主要的山脊是東西兩邊的分水嶺。"
+      },
+      {
+       "n": 8,
+       "w": "shortage",
+       "pos": "n.",
+       "zh": "短缺",
+       "ex": "A dry spring can cause a water <b>shortage</b>.",
+       "exzh": "春天太乾，可能造成缺水。"
+      }
+     ],
+     "quiz": [
+      {
+       "q": "About how much rain does Taiwan get in an average year?",
+       "options": [
+        "About 250 millimeters",
+        "About 2,500 millimeters",
+        "About 25,000 millimeters",
+        "About 250,000 millimeters"
+       ],
+       "correct": 1
+      },
+      {
+       "q": "Which months bring most of Taiwan's rain?",
+       "options": [
+        "November to April",
+        "May to October",
+        "Only January",
+        "The rain is spread evenly"
+       ],
+       "correct": 1
+      },
+      {
+       "q": "Why does rain reach the sea so quickly in Taiwan?",
+       "options": [
+        "The rivers are long and flat",
+        "The rivers are short and steep",
+        "There are no rivers",
+        "The rain falls only on the coast"
+       ],
+       "correct": 1
+      },
+      {
+       "q": "What is a divide?",
+       "options": [
+        "A dam on a river",
+        "A ridge that separates water flowing one way from water flowing the other way",
+        "The mouth of a river",
+        "A kind of reservoir"
+       ],
+       "correct": 1
+      },
+      {
+       "q": "Where does rain on the east side of the main ridge usually reach the sea?",
+       "options": [
+        "On the west coast",
+        "On the east coast",
+        "It never reaches the sea",
+        "In the Taipei Basin"
+       ],
+       "correct": 1
+      }
+     ],
+     "myths": [
+      {
+       "myth_en": "A rainy place can never run short of water.",
+       "myth_zh": "多雨的地方不可能缺水。",
+       "fact_en": "What matters is how much water can be kept and shared. In Taiwan, most rain falls in a few months and quickly runs into the sea.",
+       "fact_zh": "重要的是能留下多少、分給多少人。台灣的雨大多下在幾個月裡，又很快流進海。"
+      },
+      {
+       "myth_en": "Taiwan's rain falls evenly through the year.",
+       "myth_zh": "台灣的雨平均分布在一整年。",
+       "fact_en": "About 78 percent falls from May to October. In Kaohsiung, about 91 percent does.",
+       "fact_zh": "大約 78% 下在 5 到 10 月；在高雄是大約 91%。"
+      },
+      {
+       "myth_en": "Rain on the highest mountain always flows to the nearest coast.",
+       "myth_zh": "最高的山上的雨，一定流向最近的海岸。",
+       "fact_en": "It flows downhill, whichever side of the ridge it lands on. A drop on the west side of Yushan travels all the way to the west coast.",
+       "fact_zh": "雨水往低處流，看它落在山脊的哪一邊。落在玉山西側的雨，一路流到西海岸。"
+      },
+      {
+       "myth_en": "All of Taiwan's rivers take about the same time to reach the sea.",
+       "myth_zh": "台灣的河，水流到海的路都差不多長。",
+       "fact_en": "In this page's model, the longest river path on the west side is about 151 kilometers, and the longest on the east side about 87 kilometers.",
+       "fact_zh": "在本頁的模型裡，西邊最長的河道大約 151 公里，東邊最長的大約 87 公里。"
+      }
+     ],
+     "culture_cards": {
+      "eyebrow": "Stories Behind the Water · 水背後的故事",
+      "title_en": "Counting the rain",
+      "title_zh": "數一數雨",
+      "lead_en": "",
+      "lead_zh": "",
+      "cards": [
+       {
+        "k": "Water Resources Agency · 水利署",
+        "en": "2.6 times the world average",
+        "zh": "世界平均的 2.6 倍",
+        "body_en": "The Water Resources Agency writes that Taiwan, in a monsoon climate zone, averages about 2,500 millimeters of rain a year, 2.6 times the world average, and that in the north the wet season gets about 6.5 parts of the rain to 3.5 in the dry season, while in the south it is about 9 to 1.",
+        "body_zh": "水利署說，台灣位在季風氣候區，年均雨量約 2,500 毫米，是世界平均的 2.6 倍；豐水期與枯水期的降雨比，北部約 6.5 比 3.5，南部約 9 比 1。"
+       },
+       {
+        "k": "2020 · Water Resources Agency · 水利署",
+        "en": "Less than one-fifth",
+        "zh": "不到五分之一",
+        "body_en": "Because the rain falls in the wet season, the land is steep, and many people live here, each person's share of the rain works out to about 4,000 tons a year, less than one-fifth of the world average.",
+        "body_zh": "因為降雨集中在豐水期、地形陡峻，加上人口稠密，換算成每人每年能分配的降雨量大約 4,000 噸，不到世界平均的五分之一。"
+       },
+       {
+        "k": "2025 · Reservoirs · 水庫",
+        "en": "Less room than planned",
+        "zh": "比設計時少的容量",
+        "body_en": "At the end of 2025, Taiwan had 95 reservoirs. Their measured useful storage was 1,986.22 million cubic meters, 76.53 percent of the 2,595.42 million they were designed to hold.",
+        "body_zh": "民國 114 年底，台灣有 95 座水庫。實測有效容量 1,986.22 百萬立方公尺，是設計有效容量 2,595.42 百萬立方公尺的 76.53%。"
+       },
+       {
+        "k": "1991–2020 · Central Weather Administration · 中央氣象署",
+        "en": "Thirty years of rain",
+        "zh": "三十年的雨",
+        "body_en": "The bar charts on this page use the Central Weather Administration's monthly averages for 1991 to 2020. Each number is an average of thirty years, so any single year can be wetter or drier.",
+        "body_zh": "本頁的長條圖用中央氣象署 1991 到 2020 年的月平均。每一個數字都是三十年的平均，所以任何一年都可能比較濕或比較乾。"
+       }
+      ]
+     },
+     "curric": {
+      "eyebrow": "In the Curriculum · 對應課綱",
+      "en": "Where this lesson fits",
+      "zh": "這一課對應的課綱",
+      "lead_en": "These entries come from Taiwan's 12-Year Basic Education curriculum (2018). Junior high geography names this lesson's topic directly: the distribution of Taiwan's water resources.",
+      "lead_zh": "下面的條目出自十二年國民基本教育課程綱要（民國 107 年發布）。國中地理直接寫出了本課的主題：臺灣的水資源分布。",
+      "items": [
+       {
+        "code": "地 Ac-Ⅳ-3",
+        "area": "社會領域・地理（國中）",
+        "area_en": "Social studies, geography (junior high)",
+        "text": "臺灣的水資源分布。",
+        "note_en": "Rain, rivers, and reservoirs, and why the south has a long dry season.",
+        "note_zh": "雨、河和水庫，以及為什麼南部的乾季很長。"
+       },
+       {
+        "code": "地 Ac-Ⅳ-2",
+        "area": "社會領域・地理（國中）",
+        "area_en": "Social studies, geography (junior high)",
+        "text": "臺灣的氣候特色。",
+        "note_en": "The bar charts compare the north, the south, and the mountains.",
+        "note_zh": "長條圖比較北部、南部和高山。"
+       },
+       {
+        "code": "自 Ib-Ⅳ-6",
+        "area": "自然科學領域（國中）",
+        "area_en": "Natural science (junior high)",
+        "text": "臺灣秋冬季受東北季風影響，夏季受西南季風影響，造成各地氣溫、風向和降水的季節性差異。",
+        "note_en": "Why Keelung gets winter rain while Kaohsiung stays dry.",
+        "note_zh": "為什麼基隆冬天有雨，高雄卻很乾。"
+       },
+       {
+        "code": "自 INd-Ⅲ-12",
+        "area": "自然科學領域（國小五、六年級）",
+        "area_en": "Natural science (grades 5–6)",
+        "text": "自然界的水循環主要由海洋或湖泊表面水的蒸發，經凝結降水，再透過地表水與地下水等傳送回海洋或湖泊。",
+        "note_en": "The raindrops in the 3D model show the part of the water cycle from the land back to the sea.",
+        "note_zh": "3D 模型的雨滴，呈現水循環裡從陸地回到海洋的那一段。"
+       }
+      ]
+     },
+     "sources": [
+      {
+       "en": "「臺灣位處季風氣候區，年均雨量約2,500毫米，為世界平均值的2.6倍」；「豐水期與枯水期之降雨比北部約為6.5比3.5、中部與東部約為8比2、南部則約9比1」.",
+       "zh": "台灣的雨量與豐枯比（民國 111 年）",
+       "src": "經濟部水利署，《111年年報》",
+       "url": "https://www.wra.gov.tw/"
+      },
+      {
+       "en": "「約78％之年雨量集中於5~10月」.",
+       "zh": "雨量集中在 5 到 10 月",
+       "src": "經濟部水利署，《臺灣水文年報》2021 年雨量冊",
+       "url": "https://gweb.wra.gov.tw/wrhygis/ebooks/ebook/ebook/hyb2021/1-%E7%AC%AC%E4%B8%80%E9%83%A8%E4%BB%BD-%E9%9B%A8%E9%87%8F/2021%E9%9B%A8%E9%87%8F%E5%86%8A.pdf"
+      },
+      {
+       "en": "「換算成每人每年能分配降雨量4,000噸，不到世界平均值1/5」(October 30, 2020).",
+       "zh": "每人每年分配的雨量",
+       "src": "經濟部水利署，〈氣候變遷讓臺灣水資源挑戰如同撒哈拉〉",
+       "url": "https://www.wra.gov.tw/News_Content_Table.aspx?n=5036&s=84251"
+      },
+      {
+       "en": "「台灣地形陡峻、河川短而流速快，降雨量匯入河川後大多直接奔流入海」.",
+       "zh": "雨水大多直接流入海",
+       "src": "經濟部水利署南區水資源分署",
+       "url": "https://www.wra.gov.tw/wrasb/cp.aspx?n=31380"
+      },
+      {
+       "en": "「民國114年底現有公告水庫共有95座，其中離島地區有29座，臺灣本島66座」；有效容量 1,986.22 百萬立方公尺，占設計有效容量 2,595.42 百萬立方公尺的 76.53%.",
+       "zh": "水庫數量與有效容量（民國 114 年底）",
+       "src": "經濟部水利署，〈現有公告水庫分布及營運概況〉",
+       "url": "https://www.wra.gov.tw/News_Content.aspx?n=2868&s=7002"
+      },
+      {
+       "en": "River lengths, basin areas, and slopes: Zhuoshui 186.6 km (1/190), Tamsui 158.7 km, Gaoping 171.0 km, Wu 119.13 km, Zengwen 138.47 km, Lanyang 73 km (1/55), Xiuguluan 81.15 km (1:34), Beinan 84.35 km, Hualien 57.28 km.",
+       "zh": "主要河川的長度、流域面積與坡降",
+       "src": "經濟部水利署，河川介紹頁",
+       "url": "https://www.wra.gov.tw/cp.aspx?n=3282"
+      },
+      {
+       "en": "Monthly average rainfall, 1991–2020, for Keelung, Taipei, Taichung, Kaohsiung, Hualien, and Alishan (read November 2026).",
+       "zh": "各站月平均降水量（1991～2020）",
+       "src": "交通部中央氣象署，〈氣候月平均〉",
+       "url": "https://www.cwa.gov.tw/V8/C/C/Statistics/monthlymean.html"
+      },
+      {
+       "en": "Height data: 2026 20-meter digital terrain model of Taiwan, Ministry of the Interior, Open Government Data License, version 1.0; the rivers and raindrop paths are computed from it by this page.",
+       "zh": "高程資料（顯名聲明見 3D 模型下方）",
+       "src": "內政部地政司，政府資料開放平臺",
+       "url": "https://data.gov.tw/dataset/178729"
+      },
+      {
+       "en": "Chinese terms: 分水嶺 (divide), 集水區 (catchment).",
+       "zh": "名詞",
+       "src": "國家教育研究院，樂詞網",
+       "url": "https://terms.naer.edu.tw/"
+      },
+      {
+       "en": "地 Ac-Ⅳ-2、地 Ac-Ⅳ-3；自 Ib-Ⅳ-6、自 INd-Ⅲ-12.",
+       "zh": "社會領域、自然科學領域課程綱要",
+       "src": "國家教育研究院，《十二年國民基本教育課程綱要》（民國 107 年）",
+       "url": "https://www.naer.edu.tw/PageSyllabus?fid=52"
+      }
+     ]
     }
    ],
    "planned": [
-    {
-     "n": 10,
-     "icon": "💧",
-     "en": "Why Can Taiwan Run Short of Water When It Rains So Much?",
-     "zh": "台灣雨這麼多，為什麼還會缺水？"
-    },
     {
      "n": 11,
      "icon": "🚉",

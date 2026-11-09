@@ -17921,7 +17921,7 @@ def build_mus_hub():
 _geoj = os.path.join(ROOT, "data", "geography.json")
 GEO = json.load(open(_geoj, encoding="utf-8")) if os.path.exists(_geoj) else None
 GEO_BASE = "/resources/classes/geography/"
-_GEO_JS = {"flatmap": "geo-flatmap", "latlon": "geo-latlon", "contour": "geo-contour", "mapview": "geo-mapview", "timezone": "geo-timezone", "continents": "geo-continents", "sunbeam": "geo-sunbeam", "people": "geo-people", "taiwan": "geo-taiwan"}   # lab.kind → assets/js/<bundle>.js
+_GEO_JS = {"flatmap": "geo-flatmap", "latlon": "geo-latlon", "contour": "geo-contour", "mapview": "geo-mapview", "timezone": "geo-timezone", "continents": "geo-continents", "sunbeam": "geo-sunbeam", "people": "geo-people", "taiwan": "geo-taiwan", "rain": "geo-rain"}   # lab.kind → assets/js/<bundle>.js
 
 def _geo_ver():
     h = hashlib.md5()
@@ -18053,7 +18053,18 @@ def geotw_svg(size=56):
             '<path d="M6 50 H54" stroke="#3f8fe0" stroke-width="3" stroke-linecap="round"/>'
             '<path d="M8 40 H50" stroke="#ff5a8a" stroke-width="1.6" stroke-dasharray="3 2"/></svg>')
 
-_GEO_CARD = {"flatmap": geoflat_svg, "latlon": geolatlon_svg, "contour": geocontour_svg, "mapview": geomapview_svg, "timezone": geotime_svg, "continents": geocont_svg, "sunbeam": geosun_svg, "people": geopop_svg, "taiwan": geotw_svg}
+def georain_svg(size=56):
+    """第十課的課程卡小圖示：一座山、上面一朵雲落雨，兩條河：西邊長而彎、東邊短而直，都流進藍色的海。"""
+    return (f'<svg class="georain-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">'
+            '<rect x="2" y="2" width="56" height="56" rx="12" fill="#14345f"/>'
+            '<path d="M6 50 L20 40 L32 22 L38 30 L44 44 L54 50 Z" fill="#8a6a48"/>'
+            '<path d="M30 26 C24 32 22 38 14 42 C10 44 8 47 6 50" stroke="#5fb4ff" stroke-width="2.4" fill="none" stroke-linecap="round"/>'
+            '<path d="M34 27 L44 46" stroke="#5fb4ff" stroke-width="2.4" fill="none" stroke-linecap="round"/>'
+            '<ellipse cx="34" cy="12" rx="12" ry="5.5" fill="#dfe9f7"/>'
+            '<g stroke="#bfe6ff" stroke-width="1.6" stroke-linecap="round"><path d="M27 19l-1.5 4M34 19l-1.5 4M41 19l-1.5 4"/></g>'
+            '<path d="M4 52 H56" stroke="#3f8fe0" stroke-width="3" stroke-linecap="round"/></svg>')
+
+_GEO_CARD = {"flatmap": geoflat_svg, "latlon": geolatlon_svg, "contour": geocontour_svg, "mapview": geomapview_svg, "timezone": geotime_svg, "continents": geocont_svg, "sunbeam": geosun_svg, "people": geopop_svg, "taiwan": geotw_svg, "rain": georain_svg}
 _GEO_PROP_K = [("shape", "Shape", "形狀"), ("area", "Area", "面積"), ("distance", "Distance", "距離"), ("direction", "Direction", "方向")]
 
 def render_geoflat_lab(lesson):
@@ -18468,7 +18479,38 @@ def render_geotw_lab(lesson):
   <p class="gg-credit">{lab["credit_html"]}</p>
 </div>'''
 
-_GEO_LAB = {"flatmap": render_geoflat_lab, "latlon": render_geolatlon_lab, "contour": render_geocontour_lab, "mapview": render_geomapview_lab, "timezone": render_geotime_lab, "continents": render_geocont_lab, "sunbeam": render_geosun_lab, "people": render_geopop_lab, "taiwan": render_geotw_lab}
+def render_georain_lab(lesson):
+    """第十課：立體的台灣＋用地形算出來的河＋一場雨（assets/js/geo-rain.js；流向由 flow.js 算，不畫縣市界）。"""
+    lab = lesson["lab"]
+    payload = json.dumps({"rivers": lesson["rivers"]}, ensure_ascii=False).replace("</", "<\\/")
+    views = "".join(f'<button type="button" data-view="{k}"><b>{en}</b><small>{zh}</small></button>' for k, en, zh in (("south", "From the south", "從南邊看"), ("west", "From the west", "從西邊看"), ("east", "From the east", "從東邊看"), ("top", "From above", "從正上方看")))
+    tg = _lab_toggles([("rivers", "Rivers", "河", True), ("labels", "Labels", "標示", True), ("sea", "Sea", "海面", True)])
+    return f'''<div class="astro-lab gg-lab gg-rn-lab rvl" data-georain-lab>
+  <script type="application/json">{payload}</script>
+  <div class="al-stage">
+    <div class="al-space">
+      <canvas class="al-space-cv" aria-label="3D model of Taiwan's main island with rain falling on it. Light blue drops run down the slopes along rivers worked out from the land itself, and reach the sea. West of the mountains the rivers are long; east of them they are short and steep. Heights are exaggerated five times. No administrative borders are drawn. · 立體的台灣本島上正在下雨：淡藍色的雨滴順著用地形算出來的河往下流，一路流到海。山的西邊河很長，東邊又短又陡。高度放大五倍，不畫縣市界。"></canvas>
+      <div class="al-labels" aria-hidden="true"></div>
+      <p class="al-hint">Tap the land to drop a raindrop · 點地形下一滴雨　Drag to turn · 拖曳轉動</p>
+      <button type="button" class="al-home" title="Reset view · 重設視角" aria-label="Reset view · 重設視角">&#8634;</button>
+      <p class="al-nogl-msg">This 3D model needs WebGL, which this browser does not support. The two activities below still work: they show the rain month by month and trace where a raindrop goes.<br><span class="zh">這個瀏覽器不支援 WebGL，無法顯示 3D 模型；下面兩個活動照樣能用：看每個月的雨量，以及追一滴雨流到哪裡。</span></p>
+    </div>
+    <aside class="al-sky gg-aside">
+      <p class="al-sky-k">Follow one raindrop · 跟著一滴雨走</p>
+      <div class="gg-rn-out" aria-live="polite"></div>
+      <div class="gg-ct-ints gg-rn-btns" role="group" aria-label="Rain · 雨"><button type="button" data-rain aria-pressed="true"><b>Rain</b><small>下雨</small></button></div>
+      <p class="gg-rn-note">{html.escape(lab["note_en"])}<span class="zh">{html.escape(lab["note_zh"])}</span></p>
+    </aside>
+  </div>
+  <div class="al-controls">
+    <div class="al-row gg-ct-ints gg-tw3-views" role="group" aria-label="Viewpoint · 視角">{views}</div>
+    <div class="al-row al-toggles">{tg}</div>
+  </div>
+  {_lab_foot(lab)}
+  <p class="gg-credit">{lab["credit_html"]}</p>
+</div>'''
+
+_GEO_LAB = {"flatmap": render_geoflat_lab, "latlon": render_geolatlon_lab, "contour": render_geocontour_lab, "mapview": render_geomapview_lab, "timezone": render_geotime_lab, "continents": render_geocont_lab, "sunbeam": render_geosun_lab, "people": render_geopop_lab, "taiwan": render_geotw_lab, "rain": render_georain_lab}
 
 def _gg_drag(d):
     picks = "".join(
@@ -18833,7 +18875,44 @@ def _gg_form(d):
   <div class="gg-ft-foot"><button type="button" class="gg-btn gg-btn-gold gg-ft-next" hidden>Next question · 下一題</button></div>
 </div>'''
 
-_GEO_WIDGETS = [("drag", _gg_drag), ("fit", _gg_fit), ("find", _gg_find), ("degree", _gg_degree), ("steep", _gg_steep), ("profile", _gg_profile), ("measure", _gg_measure), ("legend", _gg_legend), ("clock", _gg_clock), ("call", _gg_call), ("bars", _gg_bars), ("count", _gg_count), ("torch", _gg_torch), ("sunq", _gg_sunq), ("why", _gg_why), ("hundred", _gg_hundred), ("cut", _gg_cut), ("form", _gg_form), ("map_english", _gg_map_english)]
+def _gg_rainbars(d):
+    """「每個月下多少雨？」：氣象署月平均降水量（1991～2020）的十二根長條，5 到 10 月深色（rain2d.js）。"""
+    payload = json.dumps({"stations": d["stations"], "start": d.get("start")}, ensure_ascii=False).replace("</", "<\\/")
+    btn = "".join(f'<button type="button" data-stn="{s["key"]}"><b>{html.escape(s["en"])}</b><small>{html.escape(s["zh"])}</small></button>' for s in d["stations"])
+    return f'''<div class="gg-drag gg-rb rvl" data-gg-rainbars>
+  <script type="application/json">{payload}</script>
+  <div class="gg-rb-main">
+    <div class="gg-rb-bars" role="img" aria-label="Average rain in each month, in millimeters · 每個月的平均雨量（毫米）"></div>
+    <p class="gg-rb-key"><i class="is-wet"></i>May to October · 5 到 10 月　<i></i>November to April · 11 到 4 月</p>
+  </div>
+  <div class="gg-dg-side">
+    <div class="gg-ct-ints gg-rb-stns" role="group" aria-label="Weather stations · 氣象站">{btn}</div>
+    <p class="gg-tw-out gg-rb-out" aria-live="polite"></p>
+    <p class="gg-dg-msg">{html.escape(d["note_en"])}<span class="zh">{html.escape(d["note_zh"])}</span></p>
+  </div>
+</div>'''
+
+def _gg_drop(d):
+    """「雨水會流到哪裡？」：紅點下一滴雨，從西海岸還是東海岸入海（drop2d.js；答案由 test/flow.test.mjs 用 pathFrom() 驗算）。"""
+    payload = json.dumps({k: d[k] for k in ("questions", "rivers", "hint_en", "hint_zh", "start_en", "start_zh", "end_en", "end_zh")}, ensure_ascii=False).replace("</", "<\\/")
+    n = len(d["questions"])
+    return f'''<div class="gg-fit gg-drop rvl" data-gg-drop>
+  <script type="application/json">{payload}</script>
+  <div class="gg-ft-top"><p class="gg-ft-k">Question 1 of {n} · 第 1 題（共 {n} 題）</p><p class="gg-ft-sc">Right on the first try · 第一次就答對 <b class="gg-ft-score">0 / 0</b></p></div>
+  <div class="gg-ft-steps" aria-hidden="true"></div>
+  <div class="gg-dp-wrap">
+    <canvas class="gg-dp-map" aria-label="Map of Taiwan's main island colored by height, with a red dot · 依高度上色的台灣本島地圖，上面有一個紅點"></canvas>
+    <div>
+      <p class="gg-fm-name gg-dp-name"></p>
+      <p class="gg-ft-q">A raindrop falls on the red dot. Where does it reach the sea?<span class="zh">一滴雨落在紅點上，它會從哪裡流進海？</span></p>
+      <div class="gg-ck-opts gg-dp-opts"></div>
+      <p class="gg-ft-msg" aria-live="polite"></p>
+      <div class="gg-ft-foot"><button type="button" class="gg-btn gg-btn-gold gg-ft-next" hidden>Next question · 下一題</button></div>
+    </div>
+  </div>
+</div>'''
+
+_GEO_WIDGETS = [("drag", _gg_drag), ("fit", _gg_fit), ("find", _gg_find), ("degree", _gg_degree), ("steep", _gg_steep), ("profile", _gg_profile), ("measure", _gg_measure), ("legend", _gg_legend), ("clock", _gg_clock), ("call", _gg_call), ("bars", _gg_bars), ("count", _gg_count), ("torch", _gg_torch), ("sunq", _gg_sunq), ("why", _gg_why), ("hundred", _gg_hundred), ("cut", _gg_cut), ("form", _gg_form), ("rainbars", _gg_rainbars), ("drop", _gg_drop), ("map_english", _gg_map_english)]
 
 def _geo_flat():
     return [(ui, u, l) for ui, u in enumerate(GEO["units"]) for l in u["lessons"]]

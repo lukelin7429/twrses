@@ -1153,6 +1153,16 @@
   - 除錯：`document.querySelector('[data-geotw-lab]').__lab`（`state`、`setN(n)`、`cut(key)`、`pickAt(e, n)`、`view('south'|'west'|'east'|'top')`、`demo('whole'|'yushan'|'east'|'west')`、`info()`、`render()`、`goHome()`）；`[data-gg-cut].__cut`、`[data-gg-form].__form`。
   - 查證過（2026-11）：國土測繪中心〈111年玉山正高測量〉3,952.433±0.046 m；行政院國情簡介「南北縱長394公里，東西最大寬度144公里」、五大山脈由東向西、「阿里山山脈以西為漸趨平緩的盆地及平原」（2025-05-28）；taiwan.gov.tw「268 peaks」；水利署濁水溪 186.6 km、彰化大城與雲林麥寮間入海；課綱 地 Ab-Ⅳ-1、Ab-Ⅳ-2，社 Ab-Ⅱ-1、Ab-Ⅲ-1；樂詞網 縱谷 longitudinal valley、台地 tableland、垂直誇大 vertical exaggeration。**沒寫**：「山地占三分之二」（只有維基百科），改用頁面自己算的「每 100 格有 31 格高於 1,000 公尺」；山脈的官方英文名（ey.gov.tw 英文頁 410）。
 
+- 第十課〈台灣雨這麼多，為什麼還會缺水？〉（`geo-rain.js`，`lab.kind = "rain"`，`data-georain-lab`，slug `water-shortage`；單元三第二課；CSS 前綴 `gg-rn-`／小工具 `gg-rb-`、`gg-dp-`）：一個想法——雨多但集中在幾個月、河短而陡很快入海、人多分到的少，所以要存水、省水。
+  - **共用的立體台灣 `taiwan3d.js`**（這一課抽出來，第九課也改用它）：`makeTaiwan3D({ cv, wrap, labelsEl, T, labels, onPick })` → `scene`、`camera`、`controls`、`terrain`、`toW`、`surface(e, n, lift)`、`look(k)`、`addView`、`render`、`resize`、`showLabels`；`VEX`＝5、`U`＝10。之後台灣的課直接用。
+  - **`flow.js`（純函式，`test/flow.test.mjs`）**：在 1 公里格子上 priority-flood 填平窪地＋D8 最陡下降，`getFlow()`（`dir`、`acc` 集水面積 km²、`filled`）、`pathFrom(F, e, n)`（路線、公里、落差、出海口、`side` 西／東）、`mainOutlets`、`longestTo`、`riverCells`。測試：每格都流得到海、不往上流、九條主要河川的集水面積和水利署公告差 20% 內、流路長度在公告的六成到一點二倍（1 公里格子走直線，西部的河會偏短）、西邊最長的河比東邊長 1.4 倍以上、小遊戲答案。
+  - 河川資料在 `lesson.rivers`（key、en、zh、出海口 TM2 座標＝模型算出的出海口、水利署的長度／流域面積／坡降、side）。水利署河川頁網址是 `cp.aspx?n=32xx`（淡水河 3263、蘭陽溪 3261、烏溪 3280、濁水溪 3282、八掌溪 3289、曾文溪 3293、高屏溪 3301、卑南溪 3308、秀姑巒溪 3310、花蓮溪 3312）。
+  - 雨量：中央氣象署〈氣候月平均〉1991～2020（`rainbars.stations[].mm`、`year`、`wetPct`）。**cwa.gov.tw 對 curl 回 Request Rejected**，要在瀏覽器面板裡 `fetch('/V8/C/C/Statistics/MonthlyMean/MOD/Taiwan_precp.html?ID=308')` 讀表（降水日數是 `Taiwan_precpday`）。
+  - 3D：雨滴 700 顆沿各自的路走（速度只是動畫，頁面寫明）；集水面積 ≥ 60 km² 畫成河；點地形畫出那一滴的路（線＋一串金色的點，線只有 1 像素）。
+  - 「每個月下多少雨？」（`rainbars`，`rain2d.js`，`data-gg-rainbars`）、「雨水會流到哪裡？」（`drop`，`drop2d.js`，`data-gg-drop`，題目可以用 `place` 或直接給 `e`、`n`）。
+  - 除錯：`document.querySelector('[data-georain-lab]').__lab`（`pickAt(e, n)`、`setRain(on)`、`view(k)`、`demo('west'|'east'|'rain'|'rivers')`、`info()`）；`[data-gg-rainbars].__rain`、`[data-gg-drop].__drop`。
+  - 查證過（2026-11）：水利署 111 年報「年均雨量約2,500毫米，為世界平均值的2.6倍」、豐枯比北部 6.5:3.5、南部約 9:1；水文年報（2021）「約78％之年雨量集中於5~10月」；水利署 109 年「每人每年能分配降雨量4,000噸，不到世界平均值1/5」；南區分署「降雨量匯入河川後大多直接奔流入海」；水庫 114 年底 95 座（本島 66）、有效容量 76.53%；課綱 地 Ac-Ⅳ-2、Ac-Ⅳ-3，自 Ib-Ⅳ-6、INd-Ⅲ-12（自然領域課綱 PDF 在 `doc/820/`）；樂詞網 分水嶺 divide、集水區 catchment。**沒寫**：水庫容量變少的原因（找到的水利署頁面沒說淤積，只寫數字）、「X% 雨水流入海」的百分比（水利署電子報數字有誤）、缺水國排名。
+
 ---
 
 ## 體育 Sports and Movement（/resources/classes/pe/）— 架構照音樂，3D 是「人偶引擎」，每課多一張「課室英語」卡

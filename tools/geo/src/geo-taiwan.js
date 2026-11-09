@@ -12,19 +12,15 @@
  *   state（n、key、pick）、setN(公里)、cut('taipei'|'changhua'|'yushan'|'kaohsiung')、pickAt(e, n 公里)、view('south'|'west'|'east'|'top')、
  *   demo('whole'|'yushan'|'east'|'west')、info()、render()、goHome()
  */
-import {
-  AmbientLight, BufferAttribute, BufferGeometry, DirectionalLight, Line, LineBasicMaterial, PerspectiveCamera, Raycaster, Scene, Vector2, Vector3, WebGLRenderer,
-} from 'three';
-import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
-import { labeler, lazyBoot } from './common.js';
-import { makeTerrain } from './terrain3d.js';
+import { BufferAttribute, BufferGeometry, Line, LineBasicMaterial, Vector3 } from 'three';
+import { lazyBoot } from './common.js';
 import { getTaiwan, heightAt, sides } from './taiwan.js';
-import { drawCut, twColor } from './twmap2d.js';
+import { makeTaiwan3D, U } from './taiwan3d.js';
+import { drawCut } from './twmap2d.js';
 import { initCut } from './cut2d.js';
 import { initForm } from './form2d.js';
 
-export const VEX = 5;                 // 高度放大倍數（頁面上要寫）
-const U = 10;                         // 一個世界單位＝10 公里
+export { VEX } from './taiwan3d.js';
 // 順序＝優先順序（重疊時先留前面的）
 const LABELS = [
   ['yushan', 'Yushan', '玉山'], ['central', 'Central Mountain Range', '中央山脈'], ['coastal', 'Coastal Mountain Range', '海岸山脈'],
@@ -69,81 +65,19 @@ function initLab(root) {
   if (!view) root.classList.add('al-nogl');
 
   function init3D() {
-    let renderer;
-    try { renderer = new WebGLRenderer({ canvas: cv, antialias: true }); } catch (e) { return null; }
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
-    renderer.setClearColor(0x07101f, 1);
-    const scene = new Scene();
-    const camera = new PerspectiveCamera(34, 1, 0.1, 400);
-    scene.add(new AmbientLight(0xbfcbe6, 0.85));
-    const sun = new DirectionalLight(0xffffff, 1.6); sun.position.set(-20, 30, -14); scene.add(sun);
-    const M = { box: [-T.nx / 2 / U, -T.ny / 2 / U, T.nx / 2 / U, T.ny / 2 / U], h: (x, y) => { const z = heightAt(T, eC + x * U, nC + y * U); return Number.isNaN(z) ? -60 : z; } };
-    const terrain = makeTerrain({ M, n: T.nx, ny: T.ny, exag: VEX / U, color: twColor, sea: -60 });
-    terrain.show('lines', false);
-    scene.add(terrain.group);
-    const toW = (e, n, z) => terrain.toWorld((e - eC) / U, (n - nC) / U, z);
-
+    let tw;
+    try { tw = makeTaiwan3D({ cv, wrap: spaceWrap, labelsEl: $('.al-labels'), T, labels: LABELS, onPick: (e, n) => api.pickAt(e, n) }); } catch (e) { return null; }
+    tw.addView('yushan', [new Vector3(-5, 9, 6.5), new Vector3((T.peak.e - eC) / U, 0.6, -(T.peak.n - nC) / U)]);
     // 切線：沿著地表的一條紅線（浮起來一點）
     const cutGeo = new BufferGeometry(); cutGeo.setAttribute('position', new BufferAttribute(new Float32Array((T.nx * 2 + 1) * 3), 3));
-    const cutLine = new Line(cutGeo, new LineBasicMaterial({ color: 0xff5a8a })); cutLine.frustumCulled = false; scene.add(cutLine);
+    const cutLine = new Line(cutGeo, new LineBasicMaterial({ color: 0xff5a8a })); cutLine.frustumCulled = false; tw.scene.add(cutLine);
     function setCutLine() {
       const a = cutGeo.getAttribute('position');
-      for (let i = 0; i <= T.nx * 2; i++) {
-        const e = T.e0 + i / 2, z = heightAt(T, e, state.n), v = toW(e, state.n, Number.isNaN(z) ? 0 : z);
-        a.setXYZ(i, v.x, v.y + 0.04, v.z);
-      }
+      for (let i = 0; i <= T.nx * 2; i++) { const v = tw.surface(T.e0 + i / 2, state.n, 0.04); a.setXYZ(i, v.x, v.y, v.z); }
       a.needsUpdate = true; cutLine.visible = state.cutOn;
     }
-
-    const controls = new OrbitControls(camera, cv);
-    controls.enablePan = true; controls.enableDamping = true; controls.dampingFactor = 0.12; controls.minDistance = 6; controls.maxDistance = 80;
-    controls.maxPolarAngle = Math.PI / 2 - 0.05;
-    const labs = labeler($('.al-labels'), cv, camera);
-    const tags = LABELS.map(([k, en, zh]) => ({ k, el: labs.add(`gg-lab gg-tw3-lab${k === 'yushan' ? ' is-peak' : ''}`, k === 'yushan' ? `${en} <i>${zh}</i> <b>3,952 m</b>` : `${en} <i>${zh}</i>`) }));
-    const P = new Vector3();
-    // 標籤照 LABELS 的順序放；和前面已經放好的重疊就先藏起來（轉到別的角度會再出現）
-    function placeLabels() {
-      const boxes = [];
-      for (const t of tags) {
-        const p = t.k === 'yushan' ? T.peak : T.places[t.k], z = heightAt(T, p.e, p.n);
-        P.copy(toW(p.e, p.n, Number.isNaN(z) ? 0 : z)); P.y += 0.15;
-        labs.place(t.el, P, -10);
-        if (!state.labels) { t.el.style.opacity = 0; continue; }
-        if (t.el.style.opacity === '0') continue;
-        const r = t.el.getBoundingClientRect();
-        if (boxes.some((b) => r.left < b.right + 4 && r.right > b.left - 4 && r.top < b.bottom + 2 && r.bottom > b.top - 2)) t.el.style.opacity = 0;
-        else boxes.push(r);
-      }
-    }
-    function resize() { const w = spaceWrap.clientWidth, h = spaceWrap.clientHeight; if (!w || !h) return; renderer.setSize(w, h, false); camera.aspect = w / h; camera.updateProjectionMatrix(); }
-    function render() { renderer.render(scene, camera); placeLabels(); }
-    const VIEWS = {
-      south: [new Vector3(6, 24, 42), new Vector3(0, 0, 0)],
-      west: [new Vector3(-24, 10, 8), new Vector3(0, 0, -1)],
-      east: [new Vector3(24, 9, 8), new Vector3(0, 0, -1)],
-      top: [new Vector3(0, 52, 0.5), new Vector3(0, 0, 0)],
-      yushan: [new Vector3(-5, 9, 6.5), new Vector3((T.peak.e - eC) / U, 0.6, -(T.peak.n - nC) / U)],
-    };
-    function look(k) {
-      const [p, t] = VIEWS[k]; camera.position.copy(p); controls.target.copy(t);
-      const w = spaceWrap.clientWidth, h = spaceWrap.clientHeight; if (w / h < 1) camera.position.sub(t).multiplyScalar(1.35).add(t);
-      camera.lookAt(t); controls.update();
-    }
-    const ray = new Raycaster(), ndc = new Vector2();
-    let down = null;
-    cv.addEventListener('pointerdown', (e) => { down = { x: e.clientX, y: e.clientY }; });
-    cv.addEventListener('pointerup', (e) => {
-      if (!down || Math.hypot(e.clientX - down.x, e.clientY - down.y) > 6) { down = null; return; }
-      down = null;
-      const r = cv.getBoundingClientRect();
-      ndc.set(((e.clientX - r.left) / r.width) * 2 - 1, -((e.clientY - r.top) / r.height) * 2 + 1);
-      ray.setFromCamera(ndc, camera);
-      const hit = ray.intersectObject(terrain.mesh)[0];
-      if (hit) { const [x, y] = terrain.fromWorld(hit.point); api.pickAt(eC + x * U, nC + y * U); }
-    });
-    new ResizeObserver(() => { resize(); render(); readout(); }).observe(spaceWrap);
-    look('south'); resize();
-    return { renderer, camera, controls, render, look, setCutLine, terrain };
+    new ResizeObserver(() => { tw.resize(); tw.render(); readout(); }).observe(spaceWrap);
+    return { renderer: tw.renderer, camera: tw.camera, controls: tw.controls, render: tw.render, look: tw.look, setCutLine, terrain: tw.terrain, tw };
   }
 
   const api = {
@@ -168,7 +102,7 @@ function initLab(root) {
   root.querySelectorAll('[data-view]').forEach((b) => b.addEventListener('click', () => api.view(b.dataset.view)));
   root.querySelectorAll('[data-t]').forEach((c) => c.addEventListener('change', () => {
     const k = c.dataset.t;
-    if (k === 'labels') state.labels = c.checked;
+    if (k === 'labels') { state.labels = c.checked; if (view) view.tw.showLabels(c.checked); }
     else if (k === 'cut') { state.cutOn = c.checked; if (view) view.setCutLine(); }
     else if (k === 'sea' && view) view.terrain.show('water', c.checked);
     kick();

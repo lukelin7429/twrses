@@ -615,3 +615,38 @@ a.gg-link:hover { transform: translateY(-3px); box-shadow: var(--shadow); border
 @media (max-width: 760px) { .gg-ck-opts.gg-fm-opts { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 620px) { .gg-fm-pics { grid-template-columns: 96px minmax(0, 1fr); gap: .6rem; } .gg-fm-map { width: 96px; height: 180px; } .gg-fm-name .zh { display: block; margin-left: 0; } .gg-fm-cut { height: 140px; } }
 @media (max-width: 620px) { .gg-fm-c { padding: .3rem .2rem; } .gg-fm-c b { font-size: .88rem; white-space: nowrap; } }
+
+/* ── 第十課：雨與河（geo-rain.js、rain2d.js、drop2d.js；前綴 gg-rn- / gg-rb- / gg-dp-） ── */
+.gg-rn-out { min-height: 9em; }
+.gg-rn-out .gg-sb-nums dd small { font-family: var(--sans); font-size: .7rem; color: var(--al-mute); }
+.gg-rn-where { margin: .5rem 0 0; font-size: .8rem; line-height: 1.5; color: #e8edf7; }
+.gg-rn-where .zh { display: block; color: var(--al-mute); }
+.gg-rn-where b { color: #5fb4ff; }
+.gg-ct-ints.gg-rn-btns { grid-template-columns: 1fr; }
+.gg-rn-note { margin: 0; font-size: .72rem; line-height: 1.5; color: var(--al-mute); }
+.gg-rn-note .zh { display: block; }
+.al-lg-river i { border: 0; background: #5fb4ff; height: 3px; border-radius: 2px; }
+.al-lg-drop i { border: 0; border-radius: 50%; width: 7px; height: 7px; background: #bfe6ff; }
+.al-lg-path i { border: 0; background: #ffd36e; height: 3px; border-radius: 2px; }
+
+.gg-rb { grid-template-columns: minmax(0, 1fr) 300px; }
+.gg-rb-main { padding: 1.1rem 1rem .8rem; }
+.gg-rb-bars { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: .3rem; height: 380px; align-items: end; }
+.gg-rb-col { height: 100%; display: flex; flex-direction: column; justify-content: flex-end; align-items: center; min-width: 0; }
+.gg-rb-col i { display: block; width: 100%; border-radius: 6px 6px 2px 2px; background: #3a5f8f; transition: height .35s; }
+.gg-rb-col.is-wet i { background: linear-gradient(180deg, #7cc4ff, #3f8fe0); }
+.gg-rb-col.is-max i { box-shadow: 0 0 0 2px #ffd36e; }
+.gg-rb-v { font-size: .62rem; color: #9fb0cf; margin-bottom: .2rem; font-variant-numeric: tabular-nums; }
+.gg-rb-m { margin-top: .3rem; font-size: .66rem; color: #e8edf7; text-align: center; line-height: 1.15; }
+.gg-rb-m .zh { display: block; font-family: var(--zh); color: #9fb0cf; }
+.gg-rb-key { margin: .6rem 0 0; font-size: .7rem; color: #9fb0cf; }
+.gg-rb-key i { display: inline-block; width: 12px; height: 12px; border-radius: 3px; background: #3a5f8f; vertical-align: -1px; margin-right: .3rem; }
+.gg-rb-key i.is-wet { background: #3f8fe0; }
+.gg-ct-ints.gg-rb-stns { grid-template-columns: 1fr 1fr; }
+@media (max-width: 860px) { .gg-rb { grid-template-columns: minmax(0, 1fr); } }
+@media (max-width: 620px) { .gg-rb-bars { height: 210px; gap: .15rem; } .gg-rb-v { font-size: .5rem; } .gg-rb-m { font-size: .56rem; } }
+
+.gg-dp-wrap { display: grid; grid-template-columns: 190px minmax(0, 1fr); gap: 1rem; margin-top: .8rem; align-items: start; }
+.gg-dp-map { display: block; width: 190px; height: 360px; border-radius: 12px; }
+.gg-ck-opts.gg-dp-opts { grid-template-columns: 1fr 1fr; }
+@media (max-width: 620px) { .gg-dp-wrap { grid-template-columns: 110px minmax(0, 1fr); gap: .6rem; } .gg-dp-map { width: 110px; height: 210px; } .gg-ck-opts.gg-dp-opts { grid-template-columns: 1fr; } }
