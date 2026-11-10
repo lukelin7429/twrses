@@ -7,6 +7,7 @@
  *   routes[] { key, kind: 'land'|'sea', pts: [[lon, lat, year?, cityKey?, 'sea'?]…] }（和第八課一樣，dharma.js 檢查）
  *   cities[] { key, en, zh, short_en/zh, at, year, port?, what_en/zh, when_en/zh, how_en/zh, src, url }
  *   goods[]  { key, icon, en, zh, year, dir: 'west'|'east', stops: [cityKey…], legs: [{ en, zh }…], note_en/zh, src, url }
+ *            第十四課起可加 hands_en/zh：直接寫「換手」那一行（接力的信差、送到首都的貢品），不用算出來的次數
  * 除錯：document.querySelector('[data-wh-silk-lab]').__lab
  *   state、setYear(y)、play(bool)、select(key|null)、follow(key|null)、step(秒)、look(lon, lat, dist)、demo(...)、info()、render()
  */
@@ -23,6 +24,7 @@ import './timeline2d.js';
 import './sort2d.js';
 import './order2d.js';
 import './match2d.js';   // 第十三課的字源配對
+import './mayanum2d.js';   // 第十四課的馬雅數字
 
 const ROUTE_STYLE = {
   land: { color: '#ffd36e', dash: false, width: 0.0085 },
@@ -201,7 +203,7 @@ function init(root) {
     return `<p class="wh-site-k">${bi('Follow one thing', '跟著一件東西走')} · ${bi(`around ${f.en}`, `大約${f.zh}`)}</p>`
       + `<h3><span aria-hidden="true">${g.icon}</span> ${bi(g.en, g.zh)}</h3>`
       + `<ol class="wh-sk-legs">${legs}</ol>`
-      + `<p class="wh-sk-hands">${n ? bi(n === 1 ? 'Changed hands once on the way' : `Changed hands about ${n} times on the way`, n === 1 ? '一路上換了一次手' : `一路上大約換了 ${n} 次手`) : (g.same_en ? bi(g.same_en, g.same_zh) : bi('Carried the whole way by the same group, which was unusual', '一路由同一批人帶，這很少見'))}</p>`
+      + `<p class="wh-sk-hands">${g.hands_en ? bi(g.hands_en, g.hands_zh) : n ? bi(n === 1 ? 'Changed hands once on the way' : `Changed hands about ${n} times on the way`, n === 1 ? '一路上換了一次手' : `一路上大約換了 ${n} 次手`) : (g.same_en ? bi(g.same_en, g.same_zh) : bi('Carried the whole way by the same group, which was unusual', '一路由同一批人帶，這很少見'))}</p>`
       + `<p class="wh-sk-note">${bi(g.note_en, g.note_zh)}</p>`
       + (g.url ? `<a class="wh-py-src" href="${esc(g.url)}" target="_blank" rel="noopener">${esc(g.src)} &#8599;</a>` : '')
       + `<button type="button" class="wh-btn wh-sk-again" data-act="again">${bi('Watch again', '再看一次')}</button>`;

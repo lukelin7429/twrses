@@ -19341,7 +19341,18 @@ def whgoldsalt_svg(size=56):
             '<rect x="20" y="17" width="8" height="5" rx="1" fill="#ffffff" stroke="#c9c1b0" stroke-width=".6"/>'
             '<path d="M29 36l3-2 4 1 1 3-3 2-4-1z" fill="#ffd36e" stroke="#b8902e" stroke-width=".6"/></svg>')
 
-_WH_CARD = {"spread": whspread_svg, "farm": whfarm_svg, "tablet": whtablet_svg, "pyramid": whpyramid_svg, "assembly": whassembly_svg, "arch": wharch_svg, "coins": whcoins_svg, "dharma": whdharma_svg, "silk": whsilk_svg, "faith": whfaith_svg, "books": whbooks_svg, "castle": whcastle_svg, "goldsalt": whgoldsalt_svg}
+def whamericas_svg(size=56):
+    """第十四課的課程卡小圖示：一座階梯金字塔、一條之字形的山路，和一條打了結的繩子（khipu）。"""
+    return (f'<svg class="whamericas-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">'
+            '<rect x="0" y="0" width="60" height="60" rx="10" fill="#0f2a4a"/><circle cx="30" cy="31" r="22" fill="#16406f"/>'
+            '<path d="M12 44h26v-5h-3v-5h-3v-5h-3v-5h-6v5h-3v5h-3v5h-5z" fill="#d9b36b" stroke="#a8823e" stroke-width=".6"/>'
+            '<rect x="22" y="20" width="6" height="4" fill="#f3e6c6"/>'
+            '<path d="M40 46l6-5-5-4 6-4-5-4 5-4" fill="none" stroke="#ffd36e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>'
+            '<path d="M14 15h22" stroke="#f3e6c6" stroke-width="1.6" stroke-linecap="round"/>'
+            '<path d="M18 15v8M24 15v6M30 15v9" stroke="#ff8fd8" stroke-width="1.2" stroke-linecap="round"/>'
+            '<circle cx="18" cy="19" r="1.3" fill="#ff8fd8"/><circle cx="24" cy="18" r="1.3" fill="#ff8fd8"/><circle cx="30" cy="20" r="1.3" fill="#ff8fd8"/><circle cx="30" cy="23" r="1.3" fill="#ff8fd8"/></svg>')
+
+_WH_CARD = {"spread": whspread_svg, "farm": whfarm_svg, "tablet": whtablet_svg, "pyramid": whpyramid_svg, "assembly": whassembly_svg, "arch": wharch_svg, "coins": whcoins_svg, "dharma": whdharma_svg, "silk": whsilk_svg, "faith": whfaith_svg, "books": whbooks_svg, "castle": whcastle_svg, "goldsalt": whgoldsalt_svg, "americas": whamericas_svg}
 
 def render_whspread_lab(lesson):
     """第一課：歷史地球儀（assets/js/wh-spread.js 綁這裡的 class）。只畫陸地、海洋與路線；不畫國界、不標國名。"""
@@ -19709,6 +19720,10 @@ def render_whsilk_lab(lesson):
     goods = "".join(
         f'<button type="button" data-good="{g["key"]}" aria-pressed="false"><span aria-hidden="true">{g["icon"]}</span>{_wh_bi(g["en"], g["zh"])}</button>'
         for g in lab["goods"])
+    # 第十四課起：沒有海路的課只列陸路（lab.key_land_en/zh 可以換說法）
+    kinds = {r["kind"] for r in lab["routes"]}
+    key_html = f'<span class="wh-sk-k-land">{_wh_bi(lab.get("key_land_en", "Gold: overland routes"), lab.get("key_land_zh", "金色：陸路"))}</span>'
+    if "sea" in kinds: key_html += f'<span class="wh-sk-k-sea">{_wh_bi("Blue: sea routes", "藍色：海路")}</span>'
     return f'''<div class="astro-lab wh-lab wh-sk rvl" data-wh-silk-lab>
   <script type="application/json">{payload}</script>
   <div class="al-stage">
@@ -19723,7 +19738,7 @@ def render_whsilk_lab(lesson):
       <p class="al-sky-k">Time · 時間</p>
       <p class="wh-when" aria-live="polite"><b class="wh-when-en"></b><span class="zh wh-when-zh"></span></p>
       <p class="al-sky-k">Cities on the network · 網路上的城市 <b class="wh-count"></b></p>
-      <p class="wh-dh-key"><span class="wh-sk-k-land">{_wh_bi("Gold: overland routes", "金色：陸路")}</span><span class="wh-sk-k-sea">{_wh_bi("Blue: sea routes", "藍色：海路")}</span></p>
+      <p class="wh-dh-key">{key_html}</p>
       <div class="wh-sk-good" hidden aria-live="polite"></div>
       <div class="wh-site" hidden aria-live="polite"></div>
       <p class="wh-fg-note">{_wh_bi(lab["numbers_note_en"], lab["numbers_note_zh"])}</p>
@@ -19880,6 +19895,20 @@ def _wh_match(d):
   <div class="wh-so-foot"><button type="button" class="wh-btn wh-btn-gold wh-ma-next" data-act="next" hidden>Next · 下一個</button></div>
 </div>'''
 
+def _wh_mayanum(d):
+    """第十四課：讀一讀、寫一寫馬雅的數字（assets/js 的 mayanum2d.js，打包在 wh-silk 裡）。"""
+    payload = _wh_json({k: d[k] for k in ("items", "end_en", "end_zh")})
+    return f'''<div class="wh-sort wh-mn rvl" data-wh-mayanum>
+  <script type="application/json">{payload}</script>
+  <div class="wh-so-top"><p class="wh-so-k wh-mn-k"></p><p class="wh-so-sc">Right on the first try · 第一次就對 <b class="wh-mn-score">0 / 0</b></p></div>
+  <div class="wh-mn-key" aria-hidden="true"><span><svg viewBox="0 0 20 20" width="18" height="18"><circle cx="10" cy="10" r="5" class="mn-ink"/></svg> = 1</span><span><svg viewBox="0 0 34 20" width="30" height="18"><rect x="2" y="6" width="30" height="8" rx="3" class="mn-ink"/></svg> = 5</span><span><svg viewBox="0 0 40 24" width="34" height="20"><ellipse cx="20" cy="12" rx="16" ry="8" class="mn-ink-fill"/><path d="M9 9Q20 4 31 9M7 13Q20 8 33 13" class="mn-line"/></svg> = 0</span><span>{_wh_bi("Top place × 20", "上面一位 × 20")}</span></div>
+  <p class="wh-so-ask">{_wh_bi(d["ask_en"], d["ask_zh"])}</p>
+  <p class="wh-mn-q" aria-live="polite"></p>
+  <div class="wh-mn-body"></div>
+  <p class="wh-mn-msg" aria-live="polite"></p>
+  <div class="wh-so-foot"><button type="button" class="wh-btn wh-btn-gold wh-mn-next" data-act="next" hidden>Next · 下一題</button></div>
+</div>'''
+
 _WH_LAB = {"spread": render_whspread_lab, "farm": render_whfarm_lab, "tablet": render_whtablet_lab, "pyramid": render_whpyramid_lab, "assembly": render_whassembly_lab, "arch": render_wharch_lab, "coins": render_whcoins_lab, "dharma": render_whdharma_lab, "silk": render_whsilk_lab, "faith": render_whfaith_lab, "books": render_whbooks_lab, "castle": render_whcastle_lab}
 
 def _wh_order(d):
@@ -20028,7 +20057,7 @@ def _wh_ostraka(d):
 </div>'''
 
 _WH_WIDGETS = [("order", _wh_order), ("sort", _wh_sort), ("centers", _wh_centers), ("match", _wh_sort), ("gains", _wh_sort), ("signs", _wh_sort), ("needs", _wh_sort),
-               ("whovotes", _wh_sort), ("ostraka", _wh_ostraka), ("empire", _wh_centers), ("borrowed", _wh_sort), ("conquest", _wh_centers), ("qinhan", _wh_sort), ("terms", _wh_match), ("legend", _wh_sort), ("eastwest", _wh_sort), ("when", _wh_order), ("built", _wh_sort), ("northsouth", _wh_sort)]
+               ("whovotes", _wh_sort), ("ostraka", _wh_ostraka), ("empire", _wh_centers), ("borrowed", _wh_sort), ("conquest", _wh_centers), ("qinhan", _wh_sort), ("terms", _wh_match), ("legend", _wh_sort), ("eastwest", _wh_sort), ("when", _wh_order), ("built", _wh_sort), ("northsouth", _wh_sort), ("mayanum", _wh_mayanum)]
 # 每課固定的卡（照這個順序排在小互動後面）
 _WH_FIXED = [("timeline", _wh_timeline), ("how_we_know", _wh_how_we_know), ("views", _wh_views),
              ("phrases", _wh_phrases), ("taiwan_then", _wh_taiwan_then)]

@@ -72,5 +72,5 @@ for (const bad of ['Dark Continent', 'primitive', 'discovered Africa', 'tribesme
 }
 const L12 = data.units[2].lessons.find((l) => l.n === 12);
 assert.ok(L12.links.some((x) => x.href === '/resources/classes/world-history/gold-and-salt/'));
-assert.ok(L.links[0].soon && /Maya/.test(L.links[0].en));
+assert.ok(L.links[0].href === '/resources/classes/world-history/americas-builders/' && /Maya/.test(L.links[0].en));
 console.log(`goldsalt.test.mjs ok (${L.lab.cities.length} cities, ${L.lab.routes.length} routes, ${L.lab.goods.length} journeys, ${L.terms.items.length} words)`);

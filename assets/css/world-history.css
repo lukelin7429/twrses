@@ -697,3 +697,41 @@ a.wh-link:hover { transform: translateY(-3px); box-shadow: var(--shadow); border
 .al-lg-wh-cs-water i { border-color: #2f6f9e; background: #4a8fc4; }
 @media (min-width: 900px) { .wh-cs .wh-cs-aside { max-height: 640px; overflow-y: auto; } }
 .wh-cs-stages button[aria-pressed="true"] b { color: #9a6418; }
+
+/* ── 第十四課：讀一讀、寫一寫馬雅的數字（mayanum2d.js） ── */
+.wh-mn .mn-ink { fill: #3b2a12; }
+.wh-mn .mn-ink-fill { fill: #f3e6c6; stroke: #3b2a12; stroke-width: 2.4; }
+.wh-mn .mn-line { fill: none; stroke: #3b2a12; stroke-width: 2; stroke-linecap: round; }
+.wh-mn .mn-sep { stroke: #c9a36b; stroke-width: 1.2; stroke-dasharray: 4 4; }
+.wh-mn .mn-empty { fill: none; stroke: #c9a36b; stroke-width: 1.4; stroke-dasharray: 5 4; }
+.wh-mn-key { display: flex; flex-wrap: wrap; gap: .4rem 1rem; align-items: center; margin: .2rem 0 .6rem; font-size: .82rem; color: var(--ink-soft); }
+.wh-mn-key span { display: inline-flex; align-items: center; gap: .3rem; }
+.wh-mn-key .zh { margin-left: .3rem; }
+.wh-mn-q { margin: .3rem 0 .8rem; text-align: center; font-size: 1.05rem; }
+.wh-mn-q .zh { display: block; color: var(--ink-soft); font-size: .92rem; }
+.wh-mn-pic { display: flex; justify-content: center; margin: 0 auto .8rem; padding: .7rem; width: max-content; max-width: 100%; border-radius: 14px; background: #f3e6c6; border: 2px solid #e2cf9e; }
+.wh-mn-pic .mn-svg { display: block; width: 96px; height: auto; }
+.wh-mn-opts { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: .6rem; max-width: 420px; margin: 0 auto; }
+.wh-mn-opt { padding: .7rem .4rem; border-radius: 14px; border: 2px solid var(--line); background: var(--cream); font-size: 1.25rem; font-weight: 800; cursor: pointer; transition: border-color .2s, background .2s; }
+.wh-mn-opt:hover:not(:disabled) { border-color: #c9a36b; }
+.wh-mn-opt.is-right { border-color: #2e9e6e; background: #e3f3ea; }
+.wh-mn-opt.is-wrong { border-color: #d9826a; background: #fbe8e1; opacity: .7; }
+.wh-mn-write { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 1rem; align-items: center; }
+.wh-mn-write .wh-mn-pic { margin: 0; }
+.wh-mn-tools { display: grid; gap: .6rem; }
+.wh-mn-row { display: flex; flex-wrap: wrap; gap: .4rem; align-items: center; }
+.wh-mn-place { flex: 1 0 100%; font-size: .82rem; font-weight: 700; color: var(--ink); }
+.wh-mn-place .zh { margin-left: .35rem; font-weight: 600; color: var(--ink-soft); }
+.wh-mn-row button { display: inline-flex; align-items: center; gap: .35rem; padding: .45rem .7rem; border-radius: 12px; border: 2px solid var(--line); background: var(--cream); font-size: .86rem; font-weight: 700; cursor: pointer; }
+.wh-mn-row button:hover:not(:disabled) { border-color: #c9a36b; }
+.wh-mn-row .wh-mn-clear { font-weight: 600; color: var(--ink-soft); }
+.wh-mn-dot { width: 10px; height: 10px; border-radius: 50%; background: #3b2a12; }
+.wh-mn-bar { width: 22px; height: 7px; border-radius: 3px; background: #3b2a12; }
+.wh-mn-shell { width: 18px; height: 10px; border-radius: 50%; border: 2px solid #3b2a12; background: #f3e6c6; }
+.wh-mn-tools > .wh-btn { justify-self: start; }
+.wh-mn-msg { min-height: 1.4rem; margin: .8rem 0 0; font-size: .88rem; line-height: 1.5; }
+.wh-mn-msg .zh { display: block; color: var(--ink-soft); }
+.wh-mn-msg.is-ok { color: #1f6b4a; }
+.wh-mn-msg.is-bad { color: #8a3a22; }
+@media (max-width: 620px) { .wh-mn-write { grid-template-columns: minmax(0, 1fr); justify-items: center; } .wh-mn-tools { width: 100%; } .wh-mn-opts { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.wh-mn-n { display: block; font-size: 2.2rem; font-weight: 800; color: var(--ink); line-height: 1.2; }

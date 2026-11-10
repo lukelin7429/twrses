@@ -1392,6 +1392,12 @@
   - `wh-silk.js` 為這一課加了：`lab.home`（鏡頭一開始看哪裡，沒有就是第九課的亞洲）、`lab.aria`（canvas 的說明文字）、`good.same: true`＋`same_en/zh`（朝覲、旅人一路同一批人，`handoffs` 回 0，卡片寫 same_en）；只換一次手時寫「once」；bundle 多打包 `match2d.js`。資料測試 `test/goldsalt.test.mjs`（`silk.test.mjs` 也加了 same 的測試）。
   - **教訓**：曼薩・穆薩的朝覲路線照 Britannica 是尼亞尼 → 瓦拉塔 → 圖瓦特 → 開羅（加奧是回程）；伊本・巴杜達 1929 年的 Gibb 英譯本有過時的種族用詞，只轉述、不引用。
   - 「往北還是往南？」（`northsouth`，`sort2d.js`，已登記在 `_WH_WIDGETS`）；「這個字從哪裡來？」（`terms`）。
+- 第十四課〈馬雅、阿茲特克、印加蓋了什麼？〉（**沿用第九課的 `wh-silk.js`，`lab.kind = "silk"`**，`data-wh-silk-lab`，slug `americas-builders`，單元四第二課）：一個想法——歐洲人來以前，美洲的人蓋出城市、文字與曆法、湖上的城和三萬公里的路；沒有車子和拉車的牲口；馬雅人、納瓦人、克丘亞人今天都還在。
+  - `wh-silk.js` 為這一課加了：`good.hands_en/zh`（直接寫「換手」那一行：接力的信差、送到首都的貢品，不用算次數）；路線圖例看 `lab.routes` 有沒有 `sea`，沒有就不列「藍色：海路」，陸路的說法可用 `lab.key_land_en/zh` 換掉。bundle 多打包 `mayanum2d.js`。
+  - 「讀一讀、寫一寫馬雅的數字」（`mayanum`，新的 `_wh_mayanum`，已登記在 `_WH_WIDGETS`）：`items[]` 每題 `mode: 'read'|'write'`、`n`（0–399）。純函式 `src/mayanum.js`（`digit`、`toMaya`、`levelValue`、`fromMaya`、`check`：`ok|empty|need-zero|too-many-dots|too-many-bars|wrong`、`readOptions`、`mayaSvg`），測試 `test/mayanum.test.mjs`。點 = 1、橫 = 5、零的符號（畫成貝殼形，但文字只說「零的符號」：Penn Museum 說零有三種寫法）；只用兩位，不碰曆法第三位 18 × 20 的例外。CSS 在 `.wh-mn-*`；`bi()` 會跳脫 HTML，題目的數字另外放 `<b class="wh-mn-n">`。
+  - 「這個字從哪裡來？」（`terms`，納瓦特語五個、克丘亞語五個，依 Dictionary.com）。資料測試 `test/americas.test.mjs`（不出現 discovered America、vanished civilization、New World 等字眼，迷思卡除外）。
+  - **教訓**：Britannica 現在用 fetch 只拿得到截斷的正文（第十三課以前可以），要在瀏覽器分頁 navigate 之後讀 DOM；iframe 會被跳出。Britannica 的兩個條目給特諾奇提特蘭不同人口（14 萬以上／約 40 萬），兩個都寫、並列。
+  - 除錯：`[data-wh-mayanum].__mayanum`（`pick(v)`、`add(level, 'dot'|'bar'|'zero'|'clear')`、`check()`、`next()`、`reset()`）；地球儀同第九課（`demo('start'|'tribute'|'roads'|'chasqui')`）。
 
 ## 美國政治 How America Governs Itself（/resources/classes/us-government/）— 架構照地理與書法；**程度是高中到大學**，每課多五張固定的卡
 
