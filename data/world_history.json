@@ -20465,7 +20465,7 @@
        "k_zh": "世界歷史・下一課",
        "en": "What Was Life Like in a Castle?",
        "zh": "住在城堡裡是什麼樣子？",
-       "soon": true,
+       "href": "/resources/classes/world-history/castle-life/",
        "note_en": "Daily life in medieval Europe.",
        "note_zh": "中世紀歐洲的日常生活。"
       },
@@ -20730,16 +20730,1410 @@
        "url": "https://www.naturalearthdata.com/downloads/50m-physical-vectors/50m-land/"
       }
      ]
-    }
-   ],
-   "planned": [
+    },
     {
      "n": 12,
+     "slug": "castle-life",
+     "title": "What Was Life Like in a Castle?",
+     "title_zh": "住在城堡裡是什麼樣子？",
+     "level": "入門 · Beginner",
      "icon": "🏰",
-     "en": "What Was Life Like in a Castle?",
-     "zh": "住在城堡裡是什麼樣子？"
+     "card": "castle",
+     "blurb_en": "Watch a castle grow in 3D, from a mound of earth with a wooden tower to two rings of stone walls, and click each part to see what it was for. Find out who lived and worked there, and compare castles with a crusader fortress in Syria and the great stone walls of Great Zimbabwe.",
+     "blurb_zh": "在 3D 模型上看一座城堡長大：從一座有木塔的土丘，到兩圈石牆；點每一個部分，看它是做什麼用的。認識住在、工作在城堡裡的人，也和敘利亞的十字軍城堡、大辛巴威的大石牆比一比。",
+     "big_idea_en": "A castle was not only a fortress. It was the home of a lord and the center of a small society: the lord's household, soldiers, craftspeople, and servants, and the peasants of the nearby villages, all tied together by land and by duties to one another. Castles changed as weapons and times changed.",
+     "big_idea_zh": "城堡不只是要塞。它是領主的家，也是一個小社會的中心：領主的家人、士兵、工匠、僕人，以及附近村子的農民，靠土地和彼此的義務連在一起。城堡跟著武器和時代一起改變。",
+     "lab": {
+      "kind": "castle",
+      "eyebrow": "3D Model · 3D 模型",
+      "title_en": "How a Castle Grew",
+      "title_zh": "一座城堡怎麼長大",
+      "how_en": "Press “Watch it grow,” or choose a stage, and watch the castle change from earth and timber to two rings of stone walls. Click any part of the castle, or a button below, to read what it was for. Drag to turn the model.",
+      "how_zh": "按「看它長大」，或選一個階段，看城堡從泥土和木頭，變成兩圈石牆。點城堡的任何一個部分，或下面的按鈕，讀它是做什麼用的。拖曳可以轉動模型。",
+      "stages": [
+       {
+        "key": "motte",
+        "en": "Motte and bailey",
+        "zh": "土丘城寨",
+        "when_en": "10th–11th centuries",
+        "when_zh": "十到十一世紀",
+        "text_en": "A high mound of earth, the motte, was ringed by a ditch and topped by the lord's stronghold, often a timber tower. At its foot, an enclosed yard, the bailey, held other buildings and animals, behind a wooden fence. In England, well over 500 castles were raised in the 20 years after the Norman Conquest of 1066, to control the newly conquered land; local people were forced to help build them.",
+        "text_zh": "一座高高的土丘（motte）四周挖了壕溝，上面是領主的堡壘，常常是一座木塔。土丘腳下有一個圍起來的院子（bailey），在木柵欄後面放其他的房子和牲畜。在英格蘭，1066 年諾曼人征服以後的二十年裡，蓋了五百多座城堡，用來控制剛征服的土地；當地人被強迫來幫忙蓋。",
+        "src": "Britannica, “Castle”; English Heritage",
+        "url": "https://www.britannica.com/technology/castle-architecture"
+       },
+       {
+        "key": "keep",
+        "en": "A stone keep",
+        "zh": "石造的主塔",
+        "when_en": "11th–12th centuries",
+        "when_zh": "十一到十二世紀",
+        "text_en": "Timber burned and rotted, so many lords built in stone. The keep, or donjon, became the strongest part of the castle: in a siege the whole garrison could fall back to it. It had a well, rooms for the lord, and stores for a long siege. Examples are Loches in France (about 1020) and Rochester in England (about 1130).",
+        "text_zh": "木頭會燒、會爛，所以很多領主改用石頭蓋。主塔（keep，也叫 donjon）成了城堡最堅固的地方：被圍困的時候，整個守軍都可以退進去。裡面有井、領主住的房間，以及撐過長期圍困的存糧。例如法國的洛什（大約 1020 年）和英格蘭的羅徹斯特（大約 1130 年）。",
+        "src": "Britannica, “Castle”; The National Archives",
+        "url": "https://www.britannica.com/technology/castle-architecture"
+       },
+       {
+        "key": "curtain",
+        "en": "Stone walls, towers, and a gatehouse",
+        "zh": "石牆、塔樓和城門樓",
+        "when_en": "12th–13th centuries",
+        "when_zh": "十二到十三世紀",
+        "text_en": "The wooden fence of the bailey was replaced by stone curtain walls with towers. A moat, crossed by a drawbridge, protected the gate, and the gateway was defended by portcullises and heavy doors. The hall and chapel stood in the inner yard, and the keep became the last line of defense.",
+        "text_zh": "院子的木柵欄換成了有塔樓的石造城牆（curtain wall）。護城河上有吊橋保護城門，門洞裡還有吊閘和厚重的門。大廳和禮拜堂蓋在裡面的院子，主塔變成最後一道防線。",
+        "src": "Britannica, “Castle”; English Heritage",
+        "url": "https://www.britannica.com/technology/castle-architecture"
+       },
+       {
+        "key": "concentric",
+        "en": "Two rings of walls",
+        "zh": "兩圈城牆",
+        "when_en": "late 13th century",
+        "when_zh": "十三世紀後期",
+        "text_en": "In a concentric castle, one ring of walls stood inside another. UNESCO says Beaumaris and Harlech in Wales combine the late-13th-century double-wall design with a central plan, and calls them masterpieces of James of St George, King Edward I's architect. Edward built castles to control newly conquered north Wales, and the Welsh rose up against English rule in 1294.",
+        "text_zh": "同心圓城堡是一圈城牆套著另一圈城牆。聯合國教科文組織說，威爾斯的博馬里斯和哈萊克，結合了十三世紀後期的雙層城牆和置中的平面，是愛德華一世的建築師聖喬治的詹姆斯的傑作。愛德華蓋城堡是為了控制剛征服的北威爾斯；威爾斯人在 1294 年起來反抗英格蘭的統治。",
+        "src": "UNESCO, Castles and Town Walls of King Edward in Gwynedd; English Heritage",
+        "url": "https://whc.unesco.org/en/list/374"
+       }
+      ],
+      "parts": [
+       {
+        "key": "ditch",
+        "en": "Ditch",
+        "zh": "壕溝",
+        "stages": [
+         "motte",
+         "keep"
+        ],
+        "what_en": "Britannica says early castles in France had a high mound encircled by a ditch. In the model one ditch goes around everything.",
+        "what_zh": "Britannica 說，法國早期的城堡有一座四周挖了壕溝的高土丘。模型裡用一道溝把全部圍起來。",
+        "src": "Britannica, “Castle”",
+        "url": "https://www.britannica.com/technology/castle-architecture"
+       },
+       {
+        "key": "motte",
+        "en": "Motte (mound)",
+        "zh": "土丘",
+        "stages": [
+         "motte"
+        ],
+        "what_en": "An artificial mound made of layers of earth and stone. English Heritage says a team of about 100 men needed around forty days to build one.",
+        "what_zh": "用一層一層的泥土和石頭堆起來的人造土丘。English Heritage 說，大約一百個人，要花四十天左右才堆得好一座。",
+        "src": "English Heritage, “How to spot a castle hiding in plain sight”",
+        "url": "https://www.english-heritage.org.uk/visit/inspire-me/blog/blog-posts/how-to-spot-a-castle-hiding-in-plain-sight/"
+       },
+       {
+        "key": "timbertower",
+        "en": "Timber tower",
+        "zh": "木塔",
+        "stages": [
+         "motte"
+        ],
+        "what_en": "The lord's stronghold on top of the mound. The Normans usually built a rectangular timber tower here.",
+        "what_zh": "土丘上面領主的堡壘。諾曼人通常在這裡蓋一座長方形的木塔。",
+        "src": "English Heritage, “How to spot a castle hiding in plain sight”",
+        "url": "https://www.english-heritage.org.uk/visit/inspire-me/blog/blog-posts/how-to-spot-a-castle-hiding-in-plain-sight/"
+       },
+       {
+        "key": "palisade",
+        "en": "Palisade (wooden fence)",
+        "zh": "木柵欄",
+        "stages": [
+         "motte",
+         "keep"
+        ],
+        "what_en": "A fence of sharpened wooden stakes around the yard. It was quick to build, but it could burn and rot.",
+        "what_zh": "繞著院子、用削尖的木樁做的圍欄。蓋起來很快，可是會燒、會爛。",
+        "src": "Britannica, “Castle”; The National Archives",
+        "url": "https://www.nationalarchives.gov.uk/education/teaching-resources/medieval-castles/"
+       },
+       {
+        "key": "hall",
+        "en": "Great hall",
+        "zh": "大廳",
+        "stages": [
+         "motte",
+         "keep",
+         "curtain",
+         "concentric"
+        ],
+        "what_en": "The large main room of the lord's living quarters. Britannica lists the hall with the chapel and domestic offices in the inner yard, and a 1396 record at Portchester Castle lists a new hall, kitchen, chambers, and offices. (In the model it is timber at first and stone later, a guess for illustration.)",
+        "what_zh": "領主居住區的大房間。Britannica 把大廳和禮拜堂、服務的房舍列在裡面的院子；1396 年波特切斯特城堡的一份工程紀錄，也列出新蓋的大廳、廚房、臥房和辦事的房間。（模型裡一開始畫成木造、後來石造，是示意的推想。）",
+        "src": "The National Archives, “Medieval castles”",
+        "url": "https://www.nationalarchives.gov.uk/education/teaching-resources/medieval-castles/"
+       },
+       {
+        "key": "keep",
+        "en": "Keep (donjon)",
+        "zh": "主塔",
+        "stages": [
+         "keep",
+         "curtain",
+         "concentric"
+        ],
+        "what_en": "The strongest part of the castle. In a siege the garrison fell back to it, and it held a well, private rooms, and stores. Later, it was often no longer where the lord lived, but it was still the last line of defense.",
+        "what_zh": "城堡最堅固的地方。被圍困的時候，守軍退進去；裡面有井、私人的房間和存糧。後來它常常不再是領主住的地方，但仍然是最後一道防線。",
+        "src": "Britannica, “Castle”",
+        "url": "https://www.britannica.com/technology/castle-architecture"
+       },
+       {
+        "key": "well",
+        "en": "Well",
+        "zh": "水井",
+        "stages": [
+         "keep",
+         "curtain",
+         "concentric"
+        ],
+        "what_en": "Britannica notes that the keep had a well, so that it could hold out in a long siege.",
+        "what_zh": "Britannica 指出，主塔裡有井，好撐過長期的圍城。",
+        "src": "Britannica, “Castle”",
+        "url": "https://www.britannica.com/technology/castle-architecture"
+       },
+       {
+        "key": "chapel",
+        "en": "Chapel",
+        "zh": "禮拜堂",
+        "stages": [
+         "curtain",
+         "concentric"
+        ],
+        "what_en": "A chapel for worship. Britannica says that after the Third Crusade the hall and the chapel were built in the inner yard.",
+        "what_zh": "做禮拜的小教堂。Britannica 說，第三次十字軍以後，大廳和禮拜堂蓋在裡面的院子。",
+        "src": "Britannica, “Castle”",
+        "url": "https://www.britannica.com/technology/castle-architecture"
+       },
+       {
+        "key": "kitchen",
+        "en": "Kitchen and stores",
+        "zh": "廚房和倉庫",
+        "stages": [
+         "curtain",
+         "concentric"
+        ],
+        "what_en": "Kitchens and service rooms. Britannica lists “domestic offices” with the hall and chapel, and the 1396 Portchester record lists a kitchen among the new buildings.",
+        "what_zh": "廚房和服務用的房間。Britannica 把「服務的房舍」和大廳、禮拜堂列在一起；1396 年波特切斯特的紀錄，也把廚房列在新蓋的房子裡。",
+        "src": "The National Archives, “Medieval castles”",
+        "url": "https://www.nationalarchives.gov.uk/education/teaching-resources/medieval-castles/"
+       },
+       {
+        "key": "curtain",
+        "en": "Curtain wall",
+        "zh": "城牆（幕牆）",
+        "stages": [
+         "curtain",
+         "concentric"
+        ],
+        "what_en": "A stone wall that replaced the wooden fence around the yard.",
+        "what_zh": "取代院子木柵欄的石牆。",
+        "src": "English Heritage, “Medieval Warfare”",
+        "url": "https://www.english-heritage.org.uk/learn/story-of-england/medieval/war/"
+       },
+       {
+        "key": "towers",
+        "en": "Wall towers",
+        "zh": "牆上的塔樓",
+        "stages": [
+         "curtain",
+         "concentric"
+        ],
+        "what_en": "Masonry towers built along the walls, when stone replaced the wooden fence around the yard.",
+        "what_zh": "院子的木柵欄換成石頭以後，沿著城牆蓋的石造塔樓。",
+        "src": "Britannica, “Castle”",
+        "url": "https://www.britannica.com/technology/castle-architecture"
+       },
+       {
+        "key": "gatehouse",
+        "en": "Gatehouse",
+        "zh": "城門樓",
+        "stages": [
+         "curtain",
+         "concentric"
+        ],
+        "what_en": "The gate was the weakest point, so it was heavily defended, with portcullises (sliding grilles of oak plated with iron), doors, and openings for dropping things on attackers.",
+        "what_zh": "城門是最弱的地方，所以防守得最嚴密：有吊閘（用鐵包著的橡木格柵，可以上下滑動）、門，以及可以往下丟東西攻擊敵人的開口。",
+        "src": "Britannica, “Castle”",
+        "url": "https://www.britannica.com/technology/castle-architecture"
+       },
+       {
+        "key": "moat",
+        "en": "Moat",
+        "zh": "護城河",
+        "stages": [
+         "curtain",
+         "concentric"
+        ],
+        "what_en": "A ditch around the walls. Britannica says the outer wall was generally defended by one or more lines of moats.",
+        "what_zh": "城牆外面的溝。Britannica 說，外牆通常由一道或好幾道護城河來防守。",
+        "src": "Britannica, “Castle”",
+        "url": "https://www.britannica.com/technology/castle-architecture"
+       },
+       {
+        "key": "drawbridge",
+        "en": "Drawbridge",
+        "zh": "吊橋",
+        "stages": [
+         "curtain",
+         "concentric"
+        ],
+        "what_en": "A bridge over the moat that could be raised or drawn back from inside, so that the moat could not be crossed.",
+        "what_zh": "跨過護城河的橋，可以從裡面拉起來或收回去，讓人過不了河。",
+        "src": "Britannica, “Castle”",
+        "url": "https://www.britannica.com/technology/castle-architecture"
+       },
+       {
+        "key": "outerwall",
+        "en": "Outer wall",
+        "zh": "外牆",
+        "stages": [
+         "concentric"
+        ],
+        "what_en": "A second ring of walls and towers outside the main wall. UNESCO calls this double-wall, concentric plan characteristic of late 13th-century military architecture.",
+        "what_zh": "主牆外面的第二圈牆和塔。聯合國教科文組織說，這種雙層、同心圓的設計，是十三世紀後期軍事建築的特色。",
+        "src": "UNESCO, Castles and Town Walls of King Edward in Gwynedd",
+        "url": "https://whc.unesco.org/en/list/374"
+       }
+      ],
+      "demos": [
+       {
+        "key": "motte",
+        "stage": "motte",
+        "part": "motte"
+       },
+       {
+        "key": "keep",
+        "stage": "keep",
+        "part": "keep"
+       },
+       {
+        "key": "gate",
+        "stage": "curtain",
+        "part": "gatehouse"
+       },
+       {
+        "key": "concentric",
+        "stage": "concentric",
+        "part": "outerwall"
+       }
+      ],
+      "numbers_note_en": "This is one imagined castle that passes through all four stages. Real castles were built in many shapes, and many never had all four.",
+      "numbers_note_zh": "這是一座想像的城堡，四個階段都走過一遍。真實的城堡形狀各式各樣，很多也沒有經過這四個階段。",
+      "legend": [
+       {
+        "cls": "wh-cs-wood",
+        "en": "Earth and timber",
+        "zh": "泥土和木頭"
+       },
+       {
+        "cls": "wh-cs-stone",
+        "en": "Stone",
+        "zh": "石頭"
+       },
+       {
+        "cls": "wh-cs-water",
+        "en": "Moat",
+        "zh": "護城河"
+       }
+      ],
+      "scale_en": "A simplified model, not to scale and not any one real castle. Heights and distances are only to show how the parts fit together.",
+      "scale_zh": "簡化的模型，不照比例，也不是哪一座真實的城堡。高度和距離只是用來表示各部分怎麼組合在一起。",
+      "credit_html": "Model: drawn for this lesson from the descriptions in the sources listed at the bottom of the page. <span class=\"zh\">模型：依本頁最下面列出的資料，為這一課畫的示意。</span>"
+     },
+     "paras": [
+      "Britannica describes the castle as a medieval stronghold that was generally the home of the king or lord of the land around it. Strongholds with the same purpose were built in many parts of the world, including Japan and India. This lesson looks mostly at castles in western Europe, where they developed rapidly from the 9th century, and then at great stone buildings elsewhere in the same centuries.",
+      "The first castles were often made of earth and timber. A mound, the motte, was ringed by a ditch and topped by a tower, and a fenced yard, the bailey, lay at its foot. After the Norman Conquest of England in 1066, well over 500 castles were raised in twenty years to control the conquered land. English Heritage notes that local people were forced to help build them.",
+      "Timber could burn and rot, so lords rebuilt in stone. The keep became the strongest part of the castle, with a well, private rooms, and stores. Wooden fences were replaced by stone curtain walls with towers, and gates were guarded by drawbridges and portcullises. Sieges were common: in 1215 attackers dug under a corner of Rochester's keep, and in 1216 Dover Castle held out for four months.",
+      "A castle was also a household and a place of work. The National Archives lists constables, masons, blacksmiths, and servants among the people who kept a castle running. Most castles in England were granted by the king to his loyal lords. The lord's living quarters included a great hall, and records of 1396 at Portchester Castle list a new hall, kitchen, chambers, and offices.",
+      "Most people did not live in castles. Most were farmers in villages, and in much of western Europe many villages were part of a lord's manor, with peasant houses, a church, a mill, and the lord's manor house, surrounded by fields, meadows, and woods. Peasants paid the lord in labor, money, and produce. Serfs were bound to their land and needed the lord's permission to leave, marry, or change jobs; they had little protection in law and passed to a new lord along with the land. From the 14th century serfdom faded in western Europe, but in eastern Europe it lasted into the 1800s.",
+      "Great stone buildings rose in other lands too. In Syria, the Hospitaller knights, a European crusading order, built the Crac des Chevaliers from 1142 to 1271, and the Mamluks, Muslim sultans of Egypt and Syria, added to it later. In southern Africa, ancestors of the Shona built the stone walls of Great Zimbabwe, the center of a large state, between about 1100 and 1450, without mortar; scholars think those walls showed the rulers' authority rather than being built for war. In Europe, the age of the medieval castle ended when guns could knock down walls quickly, as French armies showed in Italy in 1494."
+     ],
+     "paras_zh": [
+      "Britannica 說，城堡是中世紀的要塞，通常是國王或那一帶領主的家。同樣用途的堡壘，在世界許多地方都有，包括日本和印度。這一課主要看西歐的城堡（從九世紀起很快發展），再看同一個時代別處的大型石造建築。",
+      "最早的城堡常常是用泥土和木頭蓋的。一座土丘（motte）四周挖了壕溝，上面蓋一座塔；土丘腳下是一個用柵欄圍起來的院子（bailey）。1066 年諾曼人征服英格蘭以後，二十年內蓋了五百多座城堡，用來控制征服來的土地。English Heritage 指出，當地人被強迫來幫忙蓋。",
+      "木頭會燒、會爛，所以領主改用石頭重蓋。主塔成了城堡最堅固的部分，裡面有井、私人的房間和存糧。木柵欄換成有塔樓的石造城牆，城門有吊橋和吊閘守著。圍城很常見：1215 年，攻擊的人在羅徹斯特主塔的一角底下挖地道；1216 年，多佛城堡撐了四個月。",
+      "城堡也是一個家，也是一個工作的地方。英國國家檔案館列出城堡總管、石匠、鐵匠和僕人，都是讓城堡運作的人。英格蘭大部分的城堡，是國王賜給忠心的領主的。領主的居住區有大廳；1396 年波特切斯特城堡的紀錄，列出新蓋的大廳、廚房、臥房和辦事的房間。",
+      "大部分的人不住在城堡裡。大多數人是住在村子裡的農民；在西歐許多地方，這些村子屬於領主的莊園，有農民的房子、教堂、磨坊和領主的宅邸，四周是田地、草地和樹林。農民用勞動、錢和農產品繳給領主。農奴被綁在自己的土地上，要離開、結婚或換工作，都要領主同意；他們在法律上很少能對抗領主，還會連同土地一起轉給新的領主。從十四世紀起，西歐的農奴制度逐漸消失，可是東歐的農奴制一直延續到十九世紀。",
+      "別的地方也有大型的石造建築。在敘利亞，歐洲十字軍的醫院騎士團從 1142 年到 1271 年蓋了騎士堡，後來馬木路克（統治埃及和敘利亞的穆斯林蘇丹）又加蓋。在非洲南部，紹納人（也譯修納人）的祖先在大約 1100 到 1450 年間，替一個大國的中心大辛巴威，不用灰漿蓋起石牆；學者認為這些牆主要是展現統治者的權威，而不是用來打仗。在歐洲，大砲能很快打倒城牆以後，中世紀城堡的時代就結束了；1494 年法國軍隊在義大利就證明了這一點。"
+     ],
+     "questions": [
+      "Why did many lords rebuild their castles in stone?",
+      "Name three kinds of people, besides the lord, who lived or worked in a castle.",
+      "How was a serf's life different from a free person's?"
+     ],
+     "answers": [
+      "Timber could burn and rot. Stone lasted longer and was harder to attack.",
+      "Constables, masons, blacksmiths, servants (any three).",
+      "A serf was bound to the land, needed the lord's permission to leave, marry, or change jobs, paid the lord in labor, money, and produce, and had little protection in law."
+     ],
+     "vocab": [
+      {
+       "n": 1,
+       "w": "castle",
+       "pos": "n.",
+       "zh": "城堡",
+       "ex": "The lord lived in the <b>castle</b>.",
+       "exzh": "領主住在城堡裡。"
+      },
+      {
+       "n": 2,
+       "w": "lord",
+       "pos": "n.",
+       "zh": "領主",
+       "ex": "The <b>lord</b> held the land around the castle.",
+       "exzh": "領主擁有城堡周圍的土地。"
+      },
+      {
+       "n": 3,
+       "w": "wall",
+       "pos": "n.",
+       "zh": "牆；城牆",
+       "ex": "Stone <b>walls</b> replaced the wooden fence.",
+       "exzh": "石牆取代了木柵欄。"
+      },
+      {
+       "n": 4,
+       "w": "tower",
+       "pos": "n.",
+       "zh": "塔",
+       "ex": "The keep was the strongest <b>tower</b>.",
+       "exzh": "主塔是最堅固的塔。"
+      },
+      {
+       "n": 5,
+       "w": "siege",
+       "pos": "n.",
+       "zh": "圍城；圍攻",
+       "ex": "Dover Castle held out during a long <b>siege</b>.",
+       "exzh": "多佛城堡在漫長的圍城中撐了下來。"
+      },
+      {
+       "n": 6,
+       "w": "peasant",
+       "pos": "n.",
+       "zh": "農民",
+       "ex": "<b>Peasants</b> worked the fields of the manor.",
+       "exzh": "農民耕種莊園的田地。"
+      },
+      {
+       "n": 7,
+       "w": "serf",
+       "pos": "n.",
+       "zh": "農奴",
+       "ex": "A <b>serf</b> could not leave without permission.",
+       "exzh": "農奴沒有允許不能離開。"
+      },
+      {
+       "n": 8,
+       "w": "defend",
+       "pos": "v.",
+       "zh": "防守；保衛",
+       "ex": "Soldiers <b>defended</b> the gate.",
+       "exzh": "士兵守衛城門。"
+      }
+     ],
+     "quiz": [
+      {
+       "q": "What were the first castles in England after 1066 usually made of?",
+       "options": [
+        "Earth and timber",
+        "Concrete",
+        "Brick and glass",
+        "Bamboo"
+       ],
+       "correct": 0
+      },
+      {
+       "q": "What was the keep?",
+       "options": [
+        "The strongest part of the castle",
+        "A kind of moat",
+        "The village church",
+        "A wooden fence"
+       ],
+       "correct": 0
+      },
+      {
+       "q": "Where did most people in medieval Europe live?",
+       "options": [
+        "In farming villages",
+        "Inside castles",
+        "In large cities",
+        "In monasteries"
+       ],
+       "correct": 0
+      },
+      {
+       "q": "Who built the stone walls of Great Zimbabwe?",
+       "options": [
+        "Ancestors of the Shona",
+        "Roman soldiers",
+        "Norman knights",
+        "Crusaders"
+       ],
+       "correct": 0
+      },
+      {
+       "q": "What helped end the age of the medieval castle in Europe?",
+       "options": [
+        "Guns that could knock down walls quickly",
+        "Earthquakes",
+        "A shortage of stone",
+        "New laws against towers"
+       ],
+       "correct": 0
+      }
+     ],
+     "parts_head": {
+      "eyebrow": "Try It in the Model · 在模型裡試試",
+      "en": "Four things to watch",
+      "zh": "四件值得看的事"
+     },
+     "parts": [
+      {
+       "key": "motte",
+       "icon": "⛰️",
+       "en": "A mound and a fence",
+       "zh": "土丘和柵欄",
+       "meta_en": "Stage 1",
+       "meta_zh": "第 1 階段",
+       "demo": "motte",
+       "text_en": "Earth, timber, and a ditch. How long do you think the wooden tower lasted?",
+       "text_zh": "泥土、木頭和壕溝。你覺得木塔能撐多久？"
+      },
+      {
+       "key": "keep",
+       "icon": "🗼",
+       "en": "The keep",
+       "zh": "主塔",
+       "meta_en": "Stage 2",
+       "meta_zh": "第 2 階段",
+       "demo": "keep",
+       "text_en": "The strongest place in the castle. What did it need inside to survive a long siege?",
+       "text_zh": "城堡最堅固的地方。要撐過長期圍城，裡面需要什麼？"
+      },
+      {
+       "key": "gate",
+       "icon": "🚪",
+       "en": "The gate",
+       "zh": "城門",
+       "meta_en": "Stage 3",
+       "meta_zh": "第 3 階段",
+       "demo": "gate",
+       "text_en": "The gate was the weakest point. Count the ways it was protected.",
+       "text_zh": "城門是最弱的地方。數一數它有幾種保護。"
+      },
+      {
+       "key": "concentric",
+       "icon": "⭕",
+       "en": "Two rings",
+       "zh": "兩圈牆",
+       "meta_en": "Stage 4",
+       "meta_zh": "第 4 階段",
+       "demo": "concentric",
+       "text_en": "One ring of walls inside another, like the castles of Edward I in Wales.",
+       "text_zh": "一圈牆套著另一圈，像愛德華一世在威爾斯蓋的城堡。"
+      }
+     ],
+     "parts_note_en": "Then press “Watch it grow” and see what was added at each stage. Which parts stayed the same all the way through?",
+     "parts_note_zh": "接著按「看它長大」，看每一個階段加了什麼。哪些部分一直都在？",
+     "built": {
+      "eyebrow": "Game · 小遊戲",
+      "en": "Earth and Timber, or Stone?",
+      "zh": "泥土木頭，還是石頭？",
+      "lead_en": "Castles changed as builders learned and as attacks changed. For each part, decide whether it belongs to the early castles of earth and timber or to the later castles of stone. There is no timer.",
+      "lead_zh": "城堡跟著蓋城堡的人學到的經驗、跟著攻擊的方式一起改變。每一題判斷：它屬於早期用泥土和木頭蓋的城堡，還是後來用石頭蓋的城堡？不計時。",
+      "ask_en": "Early earth and timber, or later stone?",
+      "ask_zh": "早期的泥土木頭，還是後來的石頭？",
+      "buckets": [
+       {
+        "key": "early",
+        "icon": "🪵",
+        "en": "Early: earth and timber",
+        "zh": "早期：泥土和木頭"
+       },
+       {
+        "key": "later",
+        "icon": "🧱",
+        "en": "Later: stone",
+        "zh": "後來：石頭"
+       }
+      ],
+      "items": [
+       {
+        "answer": "early",
+        "en": "A mound of earth and stone with a ditch around it",
+        "zh": "四周有壕溝的土石丘",
+        "why_en": "This is the motte. English Heritage says most earthwork castles in England were built in the years right after 1066.",
+        "why_zh": "這是土丘（motte）。English Heritage 說，英格蘭大部分的土堆城堡，是 1066 年以後那幾年蓋的。",
+        "hint_en": "It is made by digging and piling.",
+        "hint_zh": "它是挖土、堆土做成的。"
+       },
+       {
+        "answer": "early",
+        "en": "A rectangular tower of wood on top of the mound",
+        "zh": "土丘上一座長方形的木塔",
+        "why_en": "The Normans usually built a timber tower on the motte.",
+        "why_zh": "諾曼人通常在土丘上蓋一座木塔。",
+        "hint_en": "Look at the material.",
+        "hint_zh": "看看材料。"
+       },
+       {
+        "answer": "early",
+        "en": "A fence of wooden stakes around the yard",
+        "zh": "院子四周的木樁柵欄",
+        "why_en": "Britannica says the baileys were enclosed by palisades, and later by stone walls and towers.",
+        "why_zh": "Britannica 說，院子先是用木柵欄圍起來，後來才換成石牆和塔樓。",
+        "hint_en": "Could it burn?",
+        "hint_zh": "它會燒起來嗎？"
+       },
+       {
+        "answer": "early",
+        "en": "A castle raised quickly by forced local labor right after a conquest",
+        "zh": "征服以後，強迫當地人很快蓋好的城堡",
+        "why_en": "English Heritage says earthwork castles were quickly and easily built, with local forced labor; a motte took about 100 men some forty days.",
+        "why_zh": "English Heritage 說，土堆城堡又快又容易蓋，用的是被強迫的當地勞力；一座土丘大約一百人、四十天。",
+        "hint_en": "The National Archives calls timber castles cheap and very quick to build.",
+        "hint_zh": "英國國家檔案館說，木造城堡又便宜、又很快就能蓋好。"
+       },
+       {
+        "answer": "later",
+        "en": "The great keep at Rochester, about 1130",
+        "zh": "羅徹斯特的主塔，大約 1130 年",
+        "why_en": "Britannica gives it as an example of the rectangular stone keep.",
+        "why_zh": "Britannica 把它當作長方形石造主塔的例子。",
+        "hint_en": "Keeps were the strongest part.",
+        "hint_zh": "主塔是最堅固的部分。"
+       },
+       {
+        "answer": "later",
+        "en": "A round “shell keep” on top of an old mound",
+        "zh": "舊土丘上一圈圓形的「殼形主塔」",
+        "why_en": "English Heritage says the wooden fences on the mottes were replaced with circular stone-walled shell keeps.",
+        "why_zh": "English Heritage 說，土丘上的木柵欄後來換成了圓形的石牆，叫做殼形主塔。",
+        "hint_en": "It replaced something wooden.",
+        "hint_zh": "它取代了木頭的東西。"
+       },
+       {
+        "answer": "later",
+        "en": "Curtain walls that replaced the bailey's fence",
+        "zh": "取代院子柵欄的城牆",
+        "why_en": "English Heritage says the timber stockades of the bailey were soon replaced with stone curtain walls.",
+        "why_zh": "English Heritage 說，院子的木柵欄很快就換成了石造的城牆。",
+        "hint_en": "“Replaced” is the clue.",
+        "hint_zh": "「換成」是線索。"
+       },
+       {
+        "answer": "later",
+        "en": "Two rings of walls, one inside the other, in Wales",
+        "zh": "威爾斯的兩圈城牆，一圈套一圈",
+        "why_en": "UNESCO says Beaumaris and Harlech combine the double-wall concentric design of the late 13th century.",
+        "why_zh": "聯合國教科文組織說，博馬里斯和哈萊克結合了十三世紀後期的雙層同心圓設計。",
+        "hint_en": "Late 13th century.",
+        "hint_zh": "十三世紀後期。"
+       }
+      ],
+      "end_en": "Wood was fast and cheap but could burn and rot; stone lasted. The two ages also overlap: the stone keep at Loches (about 1020) is older than many mottes.",
+      "end_zh": "木頭又快又便宜，但會燒、會爛；石頭耐久。早期和後期也有重疊：洛什的石造主塔（約 1020 年）比很多土丘城寨還早。"
+     },
+     "terms": {
+      "eyebrow": "Game · 小遊戲",
+      "en": "Where Does This Word Come From?",
+      "zh": "這個字從哪裡來？",
+      "lead_en": "Many English words about castles and medieval life came from Latin and French, the languages of churchmen and of the Norman rulers. For each Chinese word, pick its older form and its English word. There is no timer.",
+      "lead_zh": "很多關於城堡和中世紀生活的英文字，來自拉丁文和法文，也就是教會和諾曼統治者的語言。每一個中文詞，選出它比較古老的寫法，以及它的英文。不計時。",
+      "ask_en": "Which older word did it come from, and what is it in English?",
+      "ask_zh": "它來自哪一個比較古老的字？英文是哪一個？",
+      "items": [
+       {
+        "zh": "城堡",
+        "orig": "castellum",
+        "lang": "Latin",
+        "en": "castle",
+        "note_en": "Old English castel came from Latin castellum, a fortified place.",
+        "note_zh": "古英文的 castel 來自拉丁文 castellum，也就是設防的地方。"
+       },
+       {
+        "zh": "護城河",
+        "orig": "mote",
+        "lang": "Old French",
+        "en": "moat",
+        "note_en": "Old French mote meant “clod, mound”; its further origin is not clear.",
+        "note_zh": "古法文的 mote 是「土塊、土丘」的意思；更早的來源不清楚。"
+       },
+       {
+        "zh": "地牢（原本指主塔）",
+        "orig": "donjon",
+        "lang": "Middle French",
+        "en": "dungeon",
+        "note_en": "Donjon and dungeon both first meant a castle keep, the lord's tower; it comes from a Latin word for mastery or lordship. The prison meaning came later.",
+        "note_zh": "donjon 和 dungeon 原來都是指城堡的主塔，也就是領主的塔，來自拉丁文「主權、統治」的字。「地牢」的意思是後來才有的。"
+       },
+       {
+        "zh": "莊園",
+        "orig": "manoir",
+        "lang": "Old French",
+        "en": "manor",
+        "note_en": "Manoir came from a word meaning “to remain, to dwell.”",
+        "note_zh": "manoir 來自「留下、居住」的意思。"
+       },
+       {
+        "zh": "農奴",
+        "orig": "servus",
+        "lang": "Latin",
+        "en": "serf",
+        "note_en": "Latin servus meant “slave,” but Britannica notes that, unlike slaves, serfs could not be bought and sold apart from the land they worked.",
+        "note_zh": "拉丁文 servus 是「奴隸」的意思；但 Britannica 指出，農奴和奴隸不一樣，不能脫離他耕種的土地被單獨買賣。"
+       },
+       {
+        "zh": "騎士",
+        "orig": "cniht",
+        "lang": "Old English",
+        "en": "knight",
+        "note_en": "Cniht meant “boy” or “manservant.” German Knecht, “servant,” is related.",
+        "note_zh": "cniht 是「男孩」或「男僕」的意思。德文的 Knecht（僕人）和它同源。"
+       },
+       {
+        "zh": "騎士精神",
+        "orig": "chevalerie",
+        "lang": "Old French",
+        "en": "chivalry",
+        "note_en": "From chevalier, a horseman or knight.",
+        "note_zh": "來自 chevalier，也就是騎馬的人、騎士。"
+       },
+       {
+        "zh": "封建的",
+        "orig": "feudālis",
+        "lang": "Medieval Latin",
+        "en": "feudal",
+        "note_en": "The English word feudal is first recorded around 1605–15, long after the period it is used to describe.",
+        "note_zh": "英文的 feudal 最早的紀錄大約在 1605 到 1615 年，比它用來描述的那個時代晚得多。"
+       },
+       {
+        "zh": "吊閘（城門的格柵）",
+        "orig": "porte coleice",
+        "lang": "Middle French",
+        "en": "portcullis",
+        "note_en": "Porte coleice meant a “sliding gate.”",
+        "note_zh": "porte coleice 是「會滑動的閘門」的意思。"
+       },
+       {
+        "zh": "宵禁",
+        "orig": "covrefeu",
+        "lang": "Old French",
+        "en": "curfew",
+        "note_en": "Covrefeu meant “(it) covers the fire”: a signal at night to cover the hearth.",
+        "note_zh": "covrefeu 是「蓋住火」的意思：晚上的一個訊號，提醒大家把爐火蓋起來。"
+       }
+      ],
+      "end_en": "Several of these words came into English from French, the language of England's Norman rulers after 1066; others came straight from Latin or were already English.",
+      "end_zh": "這些字有好幾個是從法文進入英文的，法文是 1066 年以後英格蘭諾曼統治者的語言；有些直接來自拉丁文，有些本來就是英文。"
+     },
+     "timeline": {
+      "eyebrow": "Parallel Timeline · 平行時間軸",
+      "en": "Great stone buildings across three continents",
+      "zh": "三大洲的大型石造建築",
+      "lead_en": "Castles in Europe, crusader and Muslim fortresses in Syria, and the stone walls of Great Zimbabwe overlapped in time.",
+      "lead_zh": "歐洲的城堡、敘利亞的十字軍和穆斯林堡壘，以及大辛巴威的石牆，在時間上是重疊的。",
+      "from": 400000,
+      "to": 0,
+      "view": {
+       "from": 1100,
+       "to": 450
+      },
+      "lesson": {
+       "from": 1050,
+       "to": 500,
+       "en": "This lesson is here",
+       "zh": "這一課在這裡"
+      },
+      "idle_en": "Click a bar or a diamond to read its dates.",
+      "idle_zh": "點一條長條或一個菱形，讀出它的年代。",
+      "tips": [
+       {
+        "en": "Great Zimbabwe was being built during the same centuries as the stone castles of Europe.",
+        "zh": "大辛巴威和歐洲的石造城堡，是在同樣的幾百年裡蓋的。"
+       },
+       {
+        "en": "The Crac des Chevaliers took more than a century to finish.",
+        "zh": "騎士堡花了一百多年才蓋完。"
+       },
+       {
+        "en": "The gray diamonds mark single events, such as the Norman Conquest of 1066.",
+        "zh": "灰色的菱形標的是單一事件，例如 1066 年的諾曼征服。"
+       }
+      ],
+      "events": [
+       {
+        "lane": "europe",
+        "from": {
+         "year": 1066
+        },
+        "kind": "anchor",
+        "en": "The Norman Conquest of England",
+        "zh": "諾曼人征服英格蘭",
+        "note_en": "Over 500 castles in the next twenty years.",
+        "note_zh": "之後二十年蓋了五百多座城堡。"
+       },
+       {
+        "lane": "europe",
+        "from": {
+         "year": 1086
+        },
+        "kind": "anchor",
+        "en": "The Domesday survey",
+        "zh": "《末日審判書》的調查",
+        "note_en": "William I's survey of England.",
+        "note_zh": "威廉一世對英格蘭的調查。"
+       },
+       {
+        "lane": "europe",
+        "from": {
+         "year": 1130
+        },
+        "kind": "anchor",
+        "en": "Rochester's stone keep",
+        "zh": "羅徹斯特的石造主塔",
+        "note_en": "About 1130.",
+        "note_zh": "大約 1130 年。"
+       },
+       {
+        "lane": "wasia",
+        "from": {
+         "year": 1142
+        },
+        "to": {
+         "year": 1271
+        },
+        "en": "The Hospitallers build the Crac des Chevaliers",
+        "zh": "醫院騎士團蓋騎士堡",
+        "note_en": "Mamluk rulers added to it later.",
+        "note_zh": "後來馬木路克的統治者又加蓋。"
+       },
+       {
+        "lane": "africa",
+        "from": {
+         "year": 1100
+        },
+        "to": {
+         "year": 1450
+        },
+        "en": "Great Zimbabwe built",
+        "zh": "大辛巴威興建",
+        "note_en": "By ancestors of the Shona.",
+        "note_zh": "紹納人的祖先所建。"
+       },
+       {
+        "lane": "europe",
+        "from": {
+         "year": 1277
+        },
+        "to": {
+         "year": 1331
+        },
+        "en": "Edward I's castles in north Wales",
+        "zh": "愛德華一世在北威爾斯的城堡",
+        "note_en": "Begun from 1277 to control conquered land; the Welsh rose up in 1294, and some building went on until about 1330.",
+        "note_zh": "1277 年起為了控制征服來的土地陸續動工；威爾斯人 1294 年起來反抗，有些工程一直到大約 1330 年。"
+       },
+       {
+        "lane": "europe",
+        "from": {
+         "year": 1494
+        },
+        "kind": "anchor",
+        "en": "French guns in Italy",
+        "zh": "法軍的大砲進入義大利",
+        "note_en": "Castle after castle fell quickly.",
+        "note_zh": "一座又一座城堡很快被攻下。"
+       }
+      ]
+     },
+     "how_we_know": {
+      "eyebrow": "How Do We Know? · 我們怎麼知道？",
+      "en": "Records, pictures, and the ground",
+      "zh": "紀錄、圖畫，和土地本身",
+      "lead_en": "Castles left many kinds of evidence: royal records, embroidered and painted pictures, and the ruins themselves.",
+      "lead_zh": "城堡留下了很多種證據：王室的紀錄、繡出來和畫出來的圖，以及廢墟本身。",
+      "items": [
+       {
+        "icon": "📜",
+        "en": "Royal records",
+        "zh": "王室的紀錄",
+        "limit_en": "Royal records show what the king and his officials cared about, such as land, money, and permission. They say little about servants or peasants as people.",
+        "limit_zh": "王室的紀錄表現的是國王和官員在乎的事，例如土地、錢和許可；很少寫到僕人或農民這些人本身。",
+        "src": "Britannica, “Domesday Book”; The National Archives, “Medieval castles”",
+        "url": "https://www.nationalarchives.gov.uk/education/teaching-resources/medieval-castles/",
+        "text_en": "In 1086 William I ordered a survey of England, later called the Domesday Book. The English crown also kept accounts and licenses: in 1291, for example, a license allowed the owner of Stokesay to fortify it.",
+        "text_zh": "1086 年，威廉一世下令調查英格蘭，後來叫做《末日審判書》。英格蘭王室也留下帳目和許可：例如 1291 年，一份許可准許斯托克賽的主人替它加上防禦。"
+       },
+       {
+        "icon": "🧵",
+        "en": "Pictures",
+        "zh": "圖畫",
+        "limit_en": "Pictures were made by someone with a point of view. Britannica says it may have been commissioned by William's half-brother, Bishop Odo, and embroidered by English needleworkers about 1092.",
+        "limit_zh": "圖畫是有立場的人做的。Britannica 說，它可能是威廉同母異父的弟弟奧多主教訂製的，大約 1092 年由英格蘭的繡工繡成。",
+        "src": "Britannica, “Bayeux Tapestry”",
+        "url": "https://www.britannica.com/topic/Bayeux-Tapestry",
+        "text_en": "The Bayeux Tapestry, an embroidered linen band about 68 meters (224 feet) long with more than 70 scenes, tells the story of the Norman Conquest of 1066.",
+        "text_zh": "貝葉掛毯是一條長約 68 公尺（224 英尺）的刺繡麻布，有七十多個場景，講 1066 年諾曼征服的故事。"
+       },
+       {
+        "icon": "⛏️",
+        "en": "Digging and ruins",
+        "zh": "挖掘和廢墟",
+        "limit_en": "Timber rots away, so the earliest castles leave only faint traces in the soil.",
+        "limit_zh": "木頭會爛掉，所以最早的城堡只在土裡留下淡淡的痕跡。",
+        "src": "English Heritage, “History of Totnes Castle”",
+        "url": "https://www.english-heritage.org.uk/visit/places/totnes-castle/history/",
+        "text_en": "Archaeologists study castles that still stand and dig where only mounds remain. At Totnes, excavation on the motte found the base of a watchtower, probably built in the 11th century; a stone shell keep was built there in the 1320s.",
+        "text_zh": "考古學家研究還立著的城堡，也在只剩土丘的地方挖掘。在托特尼斯，挖掘在土丘上找到一座瞭望塔的基座，大概是十一世紀蓋的；1320 年代那裡才蓋了石造的殼形主塔。"
+       }
+      ]
+     },
+     "views": {
+      "eyebrow": "Different Accounts · 不同的說法",
+      "en": "Three questions historians discuss",
+      "zh": "歷史學家討論的三個問題",
+      "lead_en": "Even familiar words like “feudal system” are debated. Here are three questions, with the views set side by side.",
+      "lead_zh": "連「封建制度」這樣熟悉的詞，都有爭論。下面是三個問題，各種說法並列。",
+      "rule_en": "Notice when a word was invented, and by whom.",
+      "rule_zh": "留意一個詞是什麼時候、被誰發明出來的。",
+      "items": [
+       {
+        "topic_en": "Was there a “feudal system”?",
+        "topic_zh": "真的有一個「封建制度」嗎？",
+        "sides": [
+         {
+          "label_en": "The classic picture",
+          "label_zh": "經典的說法",
+          "en": "Textbooks often describe lords who gave land, called a fief, to vassals, who owed military and other services and loyalty in return.",
+          "zh": "教科書常常這樣描述：領主把土地（采邑）分給封臣，封臣回報以軍事和其他的服務，以及忠誠。",
+          "src": "Britannica, “Vassal”",
+          "url": "https://www.britannica.com/topic/vassal"
+         },
+         {
+          "label_en": "A label invented later",
+          "label_zh": "後來發明的標籤",
+          "en": "Britannica calls feudalism a “historiographic construct”: the terms were invented long after the Middle Ages. The historian Elizabeth A. R. Brown argued in 1974 that the idea of one “feudal system” hides how different the arrangements were from place to place.",
+          "zh": "Britannica 說，封建制度是一個「史學建構」：這些詞是中世紀過去很久以後才發明的。歷史學家伊莉莎白・布朗在 1974 年主張，「一個封建制度」的想法，掩蓋了各地安排有多麼不同。",
+          "src": "Britannica, “Feudalism”; Brown, American Historical Review (1974)",
+          "url": "https://www.britannica.com/topic/feudalism"
+         }
+        ],
+        "note_en": "Both views agree that lords, land, and duties mattered. The question is whether one neat “system” describes all of medieval Europe.",
+        "note_zh": "兩種說法都同意領主、土地和義務很重要；問題在於，是不是有一個整齊的「制度」可以描述整個中世紀歐洲。"
+       },
+       {
+        "topic_en": "What were castles for?",
+        "topic_zh": "城堡是做什麼用的？",
+        "sides": [
+         {
+          "label_en": "To control land",
+          "label_zh": "控制土地",
+          "en": "English Heritage says the Normans' intensive program of castle building controlled newly conquered land, and Edward I built castles to control newly conquered north Wales.",
+          "zh": "English Heritage 說，諾曼人密集蓋城堡，是為了控制剛征服的土地；愛德華一世蓋城堡，也是為了控制剛征服的北威爾斯。",
+          "src": "English Heritage, “Medieval Warfare”",
+          "url": "https://www.english-heritage.org.uk/learn/story-of-england/medieval/war/"
+         },
+         {
+          "label_en": "To live in and to run an estate",
+          "label_zh": "居住和管理領地",
+          "en": "Britannica describes the castle as generally the residence of the king or lord, and records show halls, kitchens, chambers, and offices, the rooms of a household.",
+          "zh": "Britannica 說，城堡通常是國王或領主的住所；紀錄裡也有大廳、廚房、臥房和辦事的房間，都是一個家需要的房間。",
+          "src": "Britannica, “Castle”; The National Archives",
+          "url": "https://www.britannica.com/technology/castle-architecture"
+         }
+        ],
+        "note_en": "One way to see it: many castles did both, and which purpose mattered more could change from castle to castle and from war to peace.",
+        "note_zh": "一種看法是：很多城堡兩種用途都有；哪一種比較重要，要看是哪一座城堡、是戰時還是平時。"
+       },
+       {
+        "topic_en": "What ended the age of castles?",
+        "topic_zh": "城堡的時代是怎麼結束的？",
+        "sides": [
+         {
+          "label_en": "Guns",
+          "label_zh": "大砲",
+          "en": "Britannica says firearms developed so fast in the 15th and 16th centuries that military architecture had to change; French troops in Italy in 1494 took castle after castle with astonishing speed.",
+          "zh": "Britannica 說，十五、十六世紀火器發展得很快，軍事建築不得不改變；1494 年法國軍隊在義大利，以驚人的速度攻下一座又一座城堡。",
+          "src": "Britannica, “Castle”",
+          "url": "https://www.britannica.com/technology/castle-architecture"
+         },
+         {
+          "label_en": "Homes and forts went separate ways",
+          "label_zh": "住宅和要塞分家",
+          "en": "Britannica also says that from the Renaissance, military and domestic buildings separated: forts were run by the monarch's army, and lords lived in unfortified palaces and manor houses.",
+          "zh": "Britannica 也說，從文藝復興開始，軍事建築和住宅分開了：要塞由國王的軍隊管理，領主住在沒有防禦工事的宮殿和宅邸。",
+          "src": "Britannica, “Castle”",
+          "url": "https://www.britannica.com/technology/castle-architecture"
+         }
+        ],
+        "note_en": "One way to see it: the two answers fit together, since once guns made high walls weak, a lord had less reason to live inside them.",
+        "note_zh": "一種看法是：兩個答案可以放在一起看，大砲讓高牆變得不堪一擊以後，領主就比較沒有理由住在牆裡面了。"
+       }
+      ]
+     },
+     "phrases": {
+      "eyebrow": "History English · 歷史英語",
+      "en": "Eight sentences for talking about castles and manors",
+      "zh": "談城堡和莊園的八句英文",
+      "lead_en": "These sentences help you describe how a castle worked and how people lived. Listen, repeat, then make your own sentence with the words in bold.",
+      "lead_zh": "這八句幫你描述城堡怎麼運作、人們怎麼生活。先聽、再跟著唸，然後用粗體的字自己造一句。",
+      "rows": [
+       {
+        "en": "The tower was made of timber.",
+        "html": "The tower <b>was made of</b> timber.",
+        "zh": "那座塔是木頭做的。",
+        "note_en": "be made of: the material",
+        "note_zh": "用……做的"
+       },
+       {
+        "en": "Stone walls replaced the wooden fence.",
+        "html": "Stone walls <b>replaced</b> the wooden fence.",
+        "zh": "石牆取代了木柵欄。",
+        "note_en": "replace: take the place of",
+        "note_zh": "取代"
+       },
+       {
+        "en": "The castle was surrounded by a moat.",
+        "html": "The castle <b>was surrounded by</b> a moat.",
+        "zh": "城堡被護城河圍著。",
+        "note_en": "be surrounded by: all around",
+        "note_zh": "被……圍繞"
+       },
+       {
+        "en": "The garrison held out for four months.",
+        "html": "The garrison <b>held out for</b> four months.",
+        "zh": "守軍撐了四個月。",
+        "note_en": "hold out: keep resisting",
+        "note_zh": "撐住"
+       },
+       {
+        "en": "Peasants owed the lord work and food.",
+        "html": "Peasants <b>owed</b> the lord work and food.",
+        "zh": "農民欠領主勞動和食物。",
+        "note_en": "owe: have to give",
+        "note_zh": "欠；應該給"
+       },
+       {
+        "en": "A serf needed permission to leave.",
+        "html": "A serf <b>needed permission to</b> leave.",
+        "zh": "農奴要得到允許才能離開。",
+        "note_en": "need permission to: must be allowed",
+        "note_zh": "需要得到允許"
+       },
+       {
+        "en": "The king granted the castle to a loyal lord.",
+        "html": "The king <b>granted</b> the castle <b>to</b> a loyal lord.",
+        "zh": "國王把城堡賜給一位忠心的領主。",
+        "note_en": "grant A to B: give officially",
+        "note_zh": "把 A 賜給 B"
+       },
+       {
+        "en": "Guns made high walls weak.",
+        "html": "Guns <b>made</b> high walls <b>weak</b>.",
+        "zh": "大砲讓高牆變得不堪一擊。",
+        "note_en": "make A weak: cause A to lose strength",
+        "note_zh": "讓……變弱"
+       }
+      ]
+     },
+     "taiwan_then": {
+      "eyebrow": "Taiwan at That Time · 那時候的台灣",
+      "en": "Villages, fields, and a fort that came later",
+      "zh": "村落、田地，和後來才有的城堡",
+      "lead_en": "While castles rose in Europe, the peoples of Taiwan lived in villages by farming, hunting, and fishing. A European-style fort came to Taiwan centuries later.",
+      "lead_zh": "歐洲蓋城堡的時候，台灣的人群住在村落裡，靠農耕、打獵和捕魚生活。歐洲式的城堡，是好幾百年以後才來到台灣的。",
+      "intro_en": "Archaeologists in Taiwan give dates as “years ago.” About 1,000 years ago is roughly the 11th century, the age of the motte-and-bailey castle.",
+      "intro_zh": "台灣的考古學家用「距今幾年」說年代。距今大約一千年，差不多是十一世紀，也就是土丘城寨的時代。",
+      "facts": [
+       {
+        "k_en": "Shisanhang culture, north",
+        "k_zh": "北部的十三行文化",
+        "en": "The museum says the Shisanhang culture arose about 2,000 years ago; its people built wooden houses raised on posts, grew rice, and still relied on hunting, fishing, and gathering shellfish.",
+        "zh": "史前館說，十三行文化的「房屋為木造干欄式建築，以種稻為生，但狩獵、捕魚、採貝仍很重要」。",
+        "src": "國立臺灣史前文化博物館 考古學習資源",
+        "url": "https://archae.nmp.gov.tw/c-05.html"
+       },
+       {
+        "k_en": "Jingpu culture, east",
+        "k_zh": "東部的靜浦文化",
+        "en": "On the east coast, the Jingpu culture lasted from about 1,500 to two or three hundred years ago, the whole age of European castles.",
+        "zh": "在東海岸，靜浦文化「距今約一千五百年到二、三百年前」，涵蓋了歐洲城堡的整個時代。",
+        "src": "國立臺灣史前文化博物館 考古學習資源",
+        "url": "https://archae.nmp.gov.tw/c-05.html"
+       },
+       {
+        "k_en": "Fort Zeelandia, 1624–1634",
+        "k_zh": "熱蘭遮城，1624–1634",
+        "en": "The Dutch began building a fort at Tainan in 1624, named it Zeelandia in 1627, and finished it in 1634. It was a military, trade, and government center.",
+        "zh": "荷蘭人 1624 年開始在台南蓋城，1627 年命名為熱蘭遮城，1634 年完工。它是軍事、貿易和行政的中心。",
+        "src": "臺南市文化資產管理處〈熱蘭遮城的前世今生〉",
+        "url": "https://tmach-culture.tainan.gov.tw/warehouse/8ACA968A-B9EF-4EAB-8A90-DF912B2D5887/DF6D6725-BEC6-4860-9381-402B91D979B7.pdf"
+       }
+      ],
+      "links": [
+       {
+        "en": "Taiwan's Story: Why Did the Dutch Build a Fort in Tainan?",
+        "zh": "台灣歷史：荷蘭人為什麼在台南蓋城？",
+        "href": "/resources/classes/taiwan-history/dutch-fort/"
+       }
+      ]
+     },
+     "culture_cards": {
+      "eyebrow": "Stories Behind the Evidence · 證據背後的故事",
+      "title_en": "A knights' castle, walls without mortar, a license, and a long siege",
+      "title_zh": "騎士的城堡、不用灰漿的牆、一份許可，和一場漫長的圍城",
+      "lead_en": "Four short stories about great stone buildings on three continents.",
+      "lead_zh": "四個小故事：三大洲的大型石造建築。",
+      "cards": [
+       {
+        "k": "1142–1271 · Syria · 敘利亞",
+        "en": "Many builders, one fortress",
+        "zh": "許多建造者，一座堡壘",
+        "body_en": "The Crac des Chevaliers was built by the Hospitaller knights, a European crusading order, from 1142 to 1271, and Mamluk rulers added to it later. Also in Syria, Qal'at Salah El-Din, named for Saladin, shows Byzantine work from the 10th century, Frankish work, and additions by Saladin's Ayyubid dynasty layered on one another. UNESCO says the two castles show how builders of different peoples influenced each other.",
+        "body_zh": "騎士堡由歐洲十字軍的醫院騎士團從 1142 年蓋到 1271 年，後來馬木路克的統治者又加蓋。同樣在敘利亞、以薩拉丁命名的薩拉丁堡，有十世紀拜占庭的工程、法蘭克的工程，以及薩拉丁的阿尤布王朝加蓋的部分，一層疊一層。聯合國教科文組織說，這兩座城堡顯示了不同民族的建造者怎麼互相影響。"
+       },
+       {
+        "k": "1100–1450 · Southern Africa · 非洲南部",
+        "en": "Walls without mortar",
+        "zh": "不用灰漿的牆",
+        "body_en": "At Great Zimbabwe, builders fitted granite blocks one on top of another without mortar, each layer set back a little so the wall leaned inward and stayed stable. The Great Enclosure's walls reach about 11 meters high. The Metropolitan Museum says scholars doubt the walls ever served a military purpose; they showed the rulers' authority and kept the royal family apart.",
+        "body_zh": "在大辛巴威，建造者不用灰漿，把花崗岩石塊一層疊一層，每一層往內縮一點，讓牆往內斜、站得穩。大圍場的牆高到大約 11 公尺。大都會博物館說，學者懷疑這些牆曾經用在軍事上；它們展現統治者的權威，也讓王室和一般人隔開。"
+       },
+       {
+        "k": "1291 · Stokesay · 斯托克賽",
+        "en": "Permission to fortify",
+        "zh": "加上防禦的許可",
+        "body_en": "In England, the crown granted licenses to fortify buildings. In 1291 such a license was granted for Stokesay, and the document survives in the royal records.",
+        "body_zh": "在英格蘭，王室會發「加上防禦」的許可。1291 年，斯托克賽就拿到這樣一份許可；這份文件留在王室的紀錄裡。"
+       },
+       {
+        "k": "1216 · Dover · 多佛",
+        "en": "Four months",
+        "zh": "四個月",
+        "body_en": "When French forces besieged Dover Castle in 1216, its defenders held out for four months. A year earlier, at Rochester, attackers had dug a tunnel under one corner of the keep to bring it down.",
+        "body_zh": "1216 年法國軍隊圍攻多佛城堡，守軍撐了四個月。前一年在羅徹斯特，攻擊的人在主塔的一角底下挖地道，想讓它倒塌。"
+       }
+      ]
+     },
+     "curric": {
+      "eyebrow": "In the Curriculum · 對應課綱",
+      "en": "Where this lesson fits",
+      "zh": "這一課對應的課綱",
+      "lead_en": "These entries come from Taiwan's 12-Year Basic Education curriculum for social studies (October 2018).",
+      "lead_zh": "下面的條目出自十二年國民基本教育課程綱要社會領域（民國 107 年 10 月）。",
+      "items": [
+       {
+        "code": "歷 Nb-Ⅳ-2",
+        "area": "國中・古代文化的遺產",
+        "area_en": "Junior high · the heritage of ancient cultures",
+        "text": "基督教的起源與發展。",
+        "note_en": "The explanation suggests discussing the character of Christianity in medieval Europe. Castles, chapels, and manors with their churches belong to that world.",
+        "note_zh": "課綱的說明建議討論「歐洲中古的基督教特色」。城堡、禮拜堂，以及有教堂的莊園，都屬於那個世界。"
+       },
+       {
+        "code": "歷 La-Ⅴ-2",
+        "area": "高中・歐洲文化與現代世界",
+        "area_en": "Senior high · European culture and the modern world",
+        "text": "中古基督教世界。",
+        "note_en": "For senior high school, the curriculum names the medieval Christian world as a topic.",
+        "note_zh": "高中的課綱把「中古基督教世界」列為一個條目。"
+       }
+      ]
+     },
+     "myths": [
+      {
+       "myth_en": "Castles were only for fighting.",
+       "myth_zh": "城堡只是用來打仗的。",
+       "fact_en": "Castles were generally the homes of kings and lords, with halls, kitchens, and private rooms, and many people worked in them.",
+       "fact_zh": "城堡通常是國王和領主的家，有大廳、廚房和私人的房間，也有很多人在裡面工作。"
+      },
+      {
+       "myth_en": "All castles were made of stone.",
+       "myth_zh": "城堡都是石頭蓋的。",
+       "fact_en": "Many early castles were earth and timber. Most of the ones that survive are stone, because timber burned and rotted.",
+       "fact_zh": "很多早期的城堡是泥土和木頭蓋的。留下來的大多是石造的，因為木頭會燒、會爛。"
+      },
+      {
+       "myth_en": "A dungeon was always an underground prison.",
+       "myth_zh": "dungeon 一直都是地下的牢房。",
+       "fact_en": "Donjon and dungeon first meant the castle keep, the lord's tower. The prison meaning came later.",
+       "fact_zh": "donjon 和 dungeon 原來指城堡的主塔，也就是領主的塔。「地牢」的意思是後來才有的。"
+      },
+      {
+       "myth_en": "Great Zimbabwe must have been built by outsiders.",
+       "myth_zh": "大辛巴威一定是外來的人蓋的。",
+       "fact_en": "In the 1800s some European travelers and colonizers, stunned by its grandeur, credited it to foreign powers. Archaeology in the early 20th century confirmed its African origin: the Metropolitan Museum says it was built by Bantu-speaking ancestors of the Shona, and UNESCO says it was built by Bantu/Shona people.",
+       "fact_zh": "十九世紀有些歐洲旅人和殖民者，被它的宏偉震懾，就把它歸功於外來的勢力。二十世紀初的考古確認了它是非洲人蓋的：大都會博物館說，它是說班圖語的紹納人祖先蓋的；聯合國教科文組織也說是班圖／紹納人。"
+      }
+     ],
+     "tricks_head": {
+      "en": "Four lines to keep",
+      "zh": "四句帶著走"
+     },
+     "tricks": [
+      {
+       "title_en": "Earth, then stone",
+       "title_zh": "先泥土，後石頭",
+       "body_en": "Mound and timber first; keeps and walls of stone later.",
+       "body_zh": "先是土丘和木頭，後來才是石造的主塔和城牆。"
+      },
+      {
+       "title_en": "A home, too",
+       "title_zh": "也是一個家",
+       "body_en": "Halls, kitchens, chapels, and many workers.",
+       "body_zh": "大廳、廚房、禮拜堂，和許多工作的人。"
+      },
+      {
+       "title_en": "Most people lived outside",
+       "title_zh": "大部分的人住在外面",
+       "body_en": "Manor villages, fields, and duties to the lord.",
+       "body_zh": "莊園村落、田地，和對領主的義務。"
+      },
+      {
+       "title_en": "Not only in Europe",
+       "title_zh": "不只在歐洲",
+       "body_en": "A crusader castle in Syria and Great Zimbabwe's walls in the same centuries.",
+       "body_zh": "同樣的幾百年，敘利亞的十字軍城堡和大辛巴威的石牆。"
+      }
+     ],
+     "activities": [
+      {
+       "title_en": "A Day at the Castle",
+       "title_zh": "城堡的一天",
+       "materials": [
+        {
+         "en": "Role cards: lord, constable, mason, blacksmith, cook, servant, peasant, serf",
+         "zh": "角色卡：領主、總管、石匠、鐵匠、廚師、僕人、農民、農奴"
+        },
+        {
+         "en": "The 3D model in this lesson",
+         "zh": "這一課的 3D 模型"
+        }
+       ],
+       "steps": [
+        {
+         "en": "Each student draws a role card and finds where that person would spend the day, in the model or on the manor.",
+         "zh": "每個學生抽一張角色卡，在模型裡或莊園上，找出這個人一天會待在哪裡。"
+        },
+        {
+         "en": "Write three sentences: “I live …,” “I work …,” and “I owe …”",
+         "zh": "寫三句英文：「I live …」「I work …」「I owe …」"
+        },
+        {
+         "en": "In groups, compare: who had the most choice about their life, and who had the least?",
+         "zh": "分組比較：誰對自己的生活最有選擇？誰最少？"
+        },
+        {
+         "en": "Share one thing that surprised you.",
+         "zh": "分享一件讓你驚訝的事。"
+        }
+       ],
+       "tip_en": "Keep the discussion about duties and choices, not about cruelty. Remind students that life varied a great deal from place to place.",
+       "tip_zh": "討論的重點放在義務和選擇，不要放在殘酷的細節。提醒學生：各地的生活差別很大。"
+      },
+      {
+       "title_en": "Great Stone Buildings Compared",
+       "title_zh": "大型石造建築比一比",
+       "materials": [
+        {
+         "en": "Pictures of a motte-and-bailey castle, a concentric castle, the Crac des Chevaliers, and Great Zimbabwe (from museum or UNESCO websites)",
+         "zh": "土丘城寨、同心圓城堡、騎士堡和大辛巴威的照片（取自博物館或聯合國教科文組織網站）"
+        }
+       ],
+       "steps": [
+        {
+         "en": "In pairs, list what each was built of and roughly when.",
+         "zh": "兩人一組，列出每一個是用什麼蓋的、大約在什麼時候。"
+        },
+        {
+         "en": "Find one thing they share and one thing that is different.",
+         "zh": "找出一個共同點和一個不同點。"
+        },
+        {
+         "en": "Write two sentences with “was made of” and “was surrounded by.”",
+         "zh": "用 was made of 和 was surrounded by 寫兩句英文。"
+        }
+       ],
+       "tip_en": "Avoid ranking them. Castles and the Crac des Chevaliers were built for defense, while Great Zimbabwe's walls probably showed the rulers' status and kept them apart. Ask students why people build great walls.",
+       "tip_zh": "不要替它們排名次。城堡和騎士堡是為了防守而蓋的；大辛巴威的牆大概是為了展現統治者的地位、和一般人隔開。問學生：人為什麼要蓋大牆？"
+      }
+     ],
+     "links_head": {
+      "eyebrow": "Go Further · 延伸閱讀",
+      "en": "Read more",
+      "zh": "延伸閱讀"
+     },
+     "links": [
+      {
+       "icon": "🧂",
+       "k_en": "World History · Next lesson",
+       "k_zh": "世界歷史・下一課",
+       "en": "How Did Gold and Salt Build Kingdoms in Africa?",
+       "zh": "黃金和鹽怎麼在非洲建起王國？",
+       "soon": true,
+       "note_en": "Mali, Timbuktu, and the trade across the Sahara.",
+       "note_zh": "馬利、廷巴克圖，和橫越撒哈拉的貿易。"
+      },
+      {
+       "icon": "📚",
+       "k_en": "World History · Lesson 11",
+       "k_zh": "世界歷史・第十一課",
+       "en": "Who Kept Knowledge Alive?",
+       "zh": "誰把知識保存下來？",
+       "href": "/resources/classes/world-history/keeping-knowledge/",
+       "note_en": "Monks, monasteries, and the books of the same centuries.",
+       "note_zh": "同一個時代的修士、修道院和書。"
+      },
+      {
+       "icon": "🏛️",
+       "k_en": "World History · Lesson 6",
+       "k_zh": "世界歷史・第六課",
+       "en": "How Did Rome Hold an Empire Together?",
+       "zh": "羅馬怎麼管住那麼大的地方？",
+       "href": "/resources/classes/world-history/rome-empire/",
+       "note_en": "Stone arches and roads that castle builders inherited.",
+       "note_zh": "城堡的建造者承接下來的石拱和道路。"
+      },
+      {
+       "icon": "🏯",
+       "k_en": "Taiwan's Story",
+       "k_zh": "台灣歷史",
+       "en": "Why Did the Dutch Build a Fort in Tainan?",
+       "zh": "荷蘭人為什麼在台南蓋城？",
+       "href": "/resources/classes/taiwan-history/dutch-fort/",
+       "note_en": "A European fort in Taiwan, six or seven centuries after the first castles.",
+       "note_zh": "第一批城堡出現六、七百年後，台灣的一座歐洲式城堡。"
+      }
+     ],
+     "sources_note_en": "Checked November 2026. The idea of a “feudal system,” the purposes of castles, and the reasons the age of castles ended are discussed by historians; where they are, the lesson gives more than one view",
+     "sources_note_zh": "2026 年 11 月查證。「封建制度」這個說法、城堡的用途，以及城堡時代結束的原因，歷史學家都有討論；遇到這些地方，課文寫出不只一種說法",
+     "sources": [
+      {
+       "en": "The castle as a medieval stronghold and residence; motte and bailey from the 10th–11th centuries; palisades and later stone walls and towers; Loches and Rochester keeps; keep with a well; moats, drawbridges, portcullises; hall and chapel in the inner bailey after the Third Crusade; guns and 1494; separation of forts and residences",
+       "zh": "城堡是中世紀的要塞與住所；十到十一世紀的土丘城寨；木柵欄後來換成石牆和塔；洛什與羅徹斯特的主塔；主塔裡有井；護城河、吊橋、吊閘；第三次十字軍以後大廳和禮拜堂在內院；大砲與 1494 年；要塞與住宅分家",
+       "src": "Britannica, “Castle”",
+       "url": "https://www.britannica.com/technology/castle-architecture"
+      },
+      {
+       "en": "The motte as a mound of earth and stone; a rectangular timber tower; about 100 men for forty days; most built just after 1066; out of fashion by 1200 in most places",
+       "zh": "土丘是泥土和石頭堆成的；長方形的木塔；大約一百人四十天；大多在 1066 年後不久蓋的；多數地方到 1200 年就不流行",
+       "src": "English Heritage, “How to spot a castle hiding in plain sight” (2017)",
+       "url": "https://www.english-heritage.org.uk/visit/inspire-me/blog/blog-posts/how-to-spot-a-castle-hiding-in-plain-sight/"
+      },
+      {
+       "en": "Over 500 castles in twenty years after 1066; local forced labor; timber replaced by stone curtain walls and shell keeps; Rochester 1215; Dover 1216; Edward I's castles from 1277",
+       "zh": "1066 年後二十年五百多座城堡；強迫的當地勞力；木頭換成石造城牆與殼形主塔；羅徹斯特 1215 年；多佛 1216 年；愛德華一世 1277–1294 年的城堡",
+       "src": "English Heritage, “Medieval Warfare”",
+       "url": "https://www.english-heritage.org.uk/learn/story-of-england/medieval/war/"
+      },
+      {
+       "en": "Excavation at Totnes: the base of an 11th-century watchtower on the motte; the shell keep of the 1320s",
+       "zh": "托特尼斯的挖掘：土丘上木造瞭望塔的基座",
+       "src": "English Heritage, “History of Totnes Castle”",
+       "url": "https://www.english-heritage.org.uk/visit/places/totnes-castle/history/"
+      },
+      {
+       "en": "Timber castles vulnerable to fire and rot; people who ran a castle; castles granted to loyal lords; Stokesay license 1291; Portchester buildings 1396",
+       "zh": "木造城堡怕火、會爛；讓城堡運作的人；城堡賜給忠心的領主；1291 年斯托克賽的許可；1396 年波特切斯特的工程",
+       "src": "The National Archives, “Medieval castles”",
+       "url": "https://www.nationalarchives.gov.uk/education/teaching-resources/medieval-castles/"
+      },
+      {
+       "en": "Beaumaris and Harlech: double-wall concentric design with a central plan; James of St George; Edward I (1272–1307); building from 1283, the 1294 uprising, work continuing to 1330–31",
+       "zh": "博馬里斯與哈萊克：雙層同心圓設計；聖喬治的詹姆斯；愛德華一世（1272–1307）",
+       "src": "UNESCO World Heritage List, Castles and Town Walls of King Edward in Gwynedd",
+       "url": "https://whc.unesco.org/en/list/374"
+      },
+      {
+       "en": "Crac des Chevaliers (1142–1271, Mamluk additions) and Qal'at Salah El-Din (Byzantine, Frankish, Ayyubid)",
+       "zh": "騎士堡（1142–1271，馬木路克加蓋）與薩拉丁堡（拜占庭、法蘭克、阿尤布）",
+       "src": "UNESCO World Heritage List, Crac des Chevaliers and Qal'at Salah El-Din",
+       "url": "https://whc.unesco.org/en/list/1229"
+      },
+      {
+       "en": "Great Zimbabwe built between 1100 and 1450 by the Bantu/Shona",
+       "zh": "大辛巴威在 1100 到 1450 年間由班圖／紹納人建造",
+       "src": "UNESCO World Heritage List, Great Zimbabwe National Monument",
+       "url": "https://whc.unesco.org/en/list/364"
+      },
+      {
+       "en": "Great Zimbabwe: built by Bantu-speaking ancestors of the Shona; granite without mortar; walls up to 36 feet; scholars doubt a military purpose; 1800s claims of foreign builders",
+       "zh": "大辛巴威：說班圖語的紹納人祖先所建；不用灰漿的花崗岩；牆高到 36 英尺；十九世紀「外來者所建」的說法",
+       "src": "Metropolitan Museum of Art, “Great Zimbabwe (11th–15th Century)”",
+       "url": "https://www.metmuseum.org/essays/great-zimbabwe-11th-15th-century"
+      },
+      {
+       "en": "Feudalism as a historiographic construct; terms invented long after",
+       "zh": "封建制度是史學建構；這些詞很晚才發明",
+       "src": "Britannica, “Feudalism”",
+       "url": "https://www.britannica.com/topic/feudalism"
+      },
+      {
+       "en": "Vassals, fiefs, and services",
+       "zh": "封臣、采邑和服務",
+       "src": "Britannica, “Vassal”",
+       "url": "https://www.britannica.com/topic/vassal"
+      },
+      {
+       "en": "“The Tyranny of a Construct: Feudalism and Historians of Medieval Europe”",
+       "zh": "〈一個建構的專制：封建制度與中世紀歐洲的歷史學家〉",
+       "src": "Elizabeth A. R. Brown, American Historical Review 79 (1974)",
+       "url": "https://doi.org/10.1086/ahr/79.4.1063"
+      },
+      {
+       "en": "Manors: peasant houses, church, mill, manor house; labor, money, and produce",
+       "zh": "莊園：農民的房子、教堂、磨坊、宅邸；勞動、錢和農產品",
+       "src": "Britannica, “Manorialism”",
+       "url": "https://www.britannica.com/topic/manorialism"
+      },
+      {
+       "en": "Serfs bound to the land; permission to leave, marry, or change jobs; harsh treatment and little legal redress; transferred with the land; replacement by a free peasantry in the west from the 14th century; longer in the east",
+       "zh": "農奴被綁在土地上；離開、結婚、換工作要允許；常受苛待、很少法律保障；連同土地轉讓；西歐從十四世紀起被自由農民取代；東歐延續較久",
+       "src": "Britannica, “Serfdom”",
+       "url": "https://www.britannica.com/topic/serfdom"
+      },
+      {
+       "en": "The Domesday Book, 1086",
+       "zh": "《末日審判書》，1086 年",
+       "src": "Britannica, “Domesday Book”",
+       "url": "https://www.britannica.com/topic/Domesday-Book"
+      },
+      {
+       "en": "The Bayeux Tapestry: about 224 feet long, over 70 scenes; may have been commissioned by Odo; English needleworkers about 1092",
+       "zh": "貝葉掛毯：約 224 英尺長、七十多個場景；可能是奧多訂製的；大約 1092 年英格蘭繡工繡成",
+       "src": "Britannica, “Bayeux Tapestry”",
+       "url": "https://www.britannica.com/topic/Bayeux-Tapestry"
+      },
+      {
+       "en": "Word origins: castle, moat, dungeon, manor, serf, knight, chivalry, feudal, portcullis, curfew",
+       "zh": "字源：castle、moat、dungeon、manor、serf、knight、chivalry、feudal、portcullis、curfew",
+       "src": "Dictionary.com (Random House Unabridged Dictionary)",
+       "url": "https://www.dictionary.com/browse/castle"
+      },
+      {
+       "en": "Shisanhang houses raised on posts, rice, hunting, fishing, and shellfish; Jingpu culture 1,500 to 200–300 years ago",
+       "zh": "十三行的干欄式房屋、種稻、狩獵捕魚採貝；靜浦文化距今約一千五百年到二、三百年前",
+       "src": "國立臺灣史前文化博物館 考古學習資源",
+       "url": "https://archae.nmp.gov.tw/c-05.html"
+      },
+      {
+       "en": "Fort Zeelandia: begun 1624, named 1627, finished 1634; military, trade, and government center",
+       "zh": "熱蘭遮城：1624 年開工、1627 年命名、1634 年完工；軍事、貿易與行政中心",
+       "src": "臺南市文化資產管理處〈熱蘭遮城的前世今生〉",
+       "url": "https://tmach-culture.tainan.gov.tw/warehouse/8ACA968A-B9EF-4EAB-8A90-DF912B2D5887/DF6D6725-BEC6-4860-9381-402B91D979B7.pdf"
+      },
+      {
+       "en": "Curriculum entries 歷 Nb-Ⅳ-2 and 歷 La-Ⅴ-2",
+       "zh": "課綱條目 歷 Nb-Ⅳ-2、歷 La-Ⅴ-2",
+       "src": "十二年國民基本教育課程綱要・社會領域（民國 107 年 10 月）",
+       "url": "https://www.naer.edu.tw/upload/1/16/doc/819/十二年國民基本教育課程綱要國民中小學暨普通型高級中等校-社會領域.pdf"
+      }
+     ]
     }
-   ]
+   ],
+   "planned": []
   },
   {
    "key": "many-worlds",

@@ -77,5 +77,5 @@ for (const p of L.paras) { assert.ok(!/Dark Ages/i.test(p), 'no Dark Ages in the
 // 連結：第十課連到這一課；下一課是製作中的第十二課
 const L10 = data.units[2].lessons.find((l) => l.n === 10);
 assert.ok(L10.links.some((x) => x.href === '/resources/classes/world-history/keeping-knowledge/'));
-assert.ok(L.links[0].soon && /Castle/.test(L.links[0].en));
+assert.equal(L.links[0].href, '/resources/classes/world-history/castle-life/');
 console.log(`knowledge.test.mjs ok (${L.lab.cities.length} places, ${L.lab.routes.length} routes, ${L.lab.goods.length} books, ${L.terms.items.length} words)`);

@@ -1383,6 +1383,11 @@
   - **教訓**：Britannica 的「Bayt al-Hikmah」開頭簡介寫「翻譯中心」，正文卻說翻譯不是它主要的工作、希臘著作在別處翻譯——引 Britannica 要讀正文，不要只讀頂端的摘要。
   - 「這個字從哪裡來？」（`terms`，`match2d.js` 的 `orig`＋`lang`；字源依 Dictionary.com、Britannica）；「哪一件先發生？」（`when`，`order2d.js`）。
   - 除錯：`[data-wh-books-lab].__lab`（`setYear(y)`、`play()`、`select(key)`、`follow(key)`、`step(秒)`、`demo('start'|'almagest'|'numerals'|'many')`、`info()`、`render()`）。
+- 第十二課〈住在城堡裡是什麼樣子？〉（`wh-castle.js`，`lab.kind = "castle"`，`data-wh-castle-lab`，slug `castle-life`，單元三最後一課）：一個想法——城堡不只是要塞，也是領主的家和一個小社會的中心；跟著武器和時代改變。
+  - 3D「一座城堡怎麼長大」：四個階段（`motte`→`keep`→`curtain`→`concentric`），`lab.parts[]` 每一個部分寫 `stages`（必須連續），新階段的部分用 group 的 scale.y 從地面長出來；點部分（Raycaster，mesh 的 `userData.part`）或按鈕看小卡。幾何全部自己畫、不照任何一座真實城堡。純函式 `src/castle.js`（`STAGES`、`partsAt`、`newAt`、`ringPoints`、`segments`、`checkParts`），測試 `test/castle.test.mjs`、資料測試 `test/castlelife.test.mjs`（每一個部分在 wh-castle.js 裡都有 `groups.<key>` 才算畫得出來）。
+  - **教訓**：大辛巴威的石牆，大都會博物館說學者懷疑有軍事用途——不要把它和城堡一起叫「堡壘」；比較時寫「大型石造建築」。
+  - 「泥土木頭，還是石頭？」（`built`，`sort2d.js`，已登記在 `_WH_WIDGETS`）；「這個字從哪裡來？」（`terms`，`match2d.js` 的 `orig`＋`lang`）。
+  - 除錯：`[data-wh-castle-lab].__lab`（`stage(key)`、`select(part)`、`play()`、`demo('motte'|'keep'|'gate'|'concentric')`、`info()`、`render()`）。
 
 ## 美國政治 How America Governs Itself（/resources/classes/us-government/）— 架構照地理與書法；**程度是高中到大學**，每課多五張固定的卡
 

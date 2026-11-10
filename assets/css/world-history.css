@@ -669,3 +669,31 @@ a.wh-link:hover { transform: translateY(-3px); box-shadow: var(--shadow); border
 .wh-bk-into .zh { margin-left: .3rem; }
 .al-lg-wh-book i { border-color: #6fbf3a; background: #b9f27c; }
 .wh-bk .wh-sk-legs .wh-bk-into .zh { display: inline; color: inherit; }
+
+/* ── 第十二課：一座城堡怎麼長大（wh-castle.js）：四個階段、點部分看用途 ── */
+.wh-cs-aside { display: flex; flex-direction: column; gap: .6rem; }
+.wh-cs-stage { background: rgba(255,255,255,.06); border-radius: 14px; padding: .85rem .95rem; }
+.wh-cs-stage .wh-site-k, .wh-cs-stage .wh-site-k .zh { color: #ffd36e; font-size: .7rem; letter-spacing: .06em; text-transform: uppercase; margin: 0 0 .3rem; }
+.wh-cs-stage .wh-site-k .zh { margin-left: .3rem; }
+.wh-cs-stage h3 { margin: 0 0 .45rem; font-size: 1.1rem; color: var(--al-text); }
+.wh-cs-stage h3 .zh { margin-left: .4rem; color: var(--al-mute); font-size: .92rem; }
+.wh-cs-text { margin: 0 0 .5rem; font-size: .84rem; line-height: 1.55; color: var(--al-text); }
+.wh-cs-text .zh { display: block; color: var(--al-mute); margin-top: .25rem; }
+.wh-cs-new { margin: 0 0 .4rem; display: flex; flex-wrap: wrap; gap: .3rem; align-items: center; font-size: .74rem; }
+.wh-cs-new > b { width: 100%; color: var(--al-mute); font-size: .7rem; letter-spacing: .04em; }
+.wh-cs-new > b .zh { margin-left: .3rem; }
+.wh-cs-chip { padding: .22rem .6rem; border-radius: 999px; border: 1px solid #ffd36e; background: rgba(255, 211, 110, .12); color: var(--al-text); font-size: .74rem; font-weight: 700; cursor: pointer; }
+.wh-cs-chip .zh { margin-left: .3rem; font-weight: 600; color: var(--al-mute); }
+.wh-cs-stage .wh-py-src { color: #9fd0ff; }
+.wh-cs-stages button { display: inline-flex; flex-direction: column; align-items: flex-start; }
+.wh-cs-stages button b { color: #ffd36e; }
+.wh-cs-stages button small { font-size: .66rem; opacity: .8; }
+.wh-cs-stages button small .zh { margin-left: .25rem; }
+.wh-cs-parts button[hidden] { display: none; }
+.wh-cs-when .wh-cs-dot { color: var(--ink-soft); }
+.al-lab.wh-lab-cs { font-size: .7rem; }
+.al-lg-wh-cs-wood i { border-color: #6e4426; background: #8a5a32; }
+.al-lg-wh-cs-stone i { border-color: #a99f8c; background: #c9c1b0; }
+.al-lg-wh-cs-water i { border-color: #2f6f9e; background: #4a8fc4; }
+@media (min-width: 900px) { .wh-cs .wh-cs-aside { max-height: 640px; overflow-y: auto; } }
+.wh-cs-stages button[aria-pressed="true"] b { color: #9a6418; }

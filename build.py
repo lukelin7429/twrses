@@ -19182,7 +19182,7 @@ def build_geo_hub():
 _whj = os.path.join(ROOT, "data", "world_history.json")
 WH = json.load(open(_whj, encoding="utf-8")) if os.path.exists(_whj) else None
 WH_BASE = "/resources/classes/world-history/"
-_WH_JS = {"spread": "wh-spread", "farm": "wh-farm", "tablet": "wh-tablet", "pyramid": "wh-pyramid", "assembly": "wh-assembly", "arch": "wh-arch", "coins": "wh-coins", "dharma": "wh-dharma", "silk": "wh-silk", "faith": "wh-faith", "books": "wh-books"}   # lab.kind → assets/js/<bundle>.js
+_WH_JS = {"spread": "wh-spread", "farm": "wh-farm", "tablet": "wh-tablet", "pyramid": "wh-pyramid", "assembly": "wh-assembly", "arch": "wh-arch", "coins": "wh-coins", "dharma": "wh-dharma", "silk": "wh-silk", "faith": "wh-faith", "books": "wh-books", "castle": "wh-castle"}   # lab.kind → assets/js/<bundle>.js
 
 def _wh_ver():
     h = hashlib.md5()
@@ -19322,7 +19322,17 @@ def whbooks_svg(size=56):
             '<path d="M21 34h6M21 37h6M33 34h6M33 37h6" stroke="#9a8a6a" stroke-width="1"/>'
             '<path d="M30 29c2-6 8-10 16-10" fill="none" stroke="#b9f27c" stroke-width="2" stroke-linecap="round" stroke-dasharray="3 2.4"/><circle cx="46" cy="19" r="2.4" fill="#b9f27c"/></svg>')
 
-_WH_CARD = {"spread": whspread_svg, "farm": whfarm_svg, "tablet": whtablet_svg, "pyramid": whpyramid_svg, "assembly": whassembly_svg, "arch": wharch_svg, "coins": whcoins_svg, "dharma": whdharma_svg, "silk": whsilk_svg, "faith": whfaith_svg, "books": whbooks_svg}
+def whcastle_svg(size=56):
+    """第十二課的課程卡小圖示：一座有兩座塔和城門的石頭城堡，前面一道藍色的護城河。"""
+    return (f'<svg class="whcastle-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">'
+            '<rect x="0" y="0" width="60" height="60" rx="10" fill="#dcebf5"/><rect x="0" y="44" width="60" height="16" fill="#8fb86a"/><rect x="4" y="47" width="52" height="5" rx="2.5" fill="#4a8fc4"/>'
+            '<rect x="14" y="24" width="32" height="20" fill="#c9c1b0"/><rect x="9" y="16" width="10" height="28" fill="#b8af9b"/><rect x="41" y="16" width="10" height="28" fill="#b8af9b"/>'
+            '<path d="M9 16h2v-3h2v3h2v-3h2v3h2M41 16h2v-3h2v3h2v-3h2v3h2" fill="none" stroke="#b8af9b" stroke-width="0"/>'
+            '<rect x="9" y="12" width="2.5" height="4" fill="#b8af9b"/><rect x="13" y="12" width="2.5" height="4" fill="#b8af9b"/><rect x="16.5" y="12" width="2.5" height="4" fill="#b8af9b"/>'
+            '<rect x="41" y="12" width="2.5" height="4" fill="#b8af9b"/><rect x="45" y="12" width="2.5" height="4" fill="#b8af9b"/><rect x="48.5" y="12" width="2.5" height="4" fill="#b8af9b"/>'
+            '<path d="M25 44v-9a5 5 0 0 1 10 0v9z" fill="#6e4426"/><rect x="27" y="44" width="6" height="8" fill="#8a5a32"/><path d="M30 6v10" stroke="#7d4b3a" stroke-width="1.2"/><path d="M30 6l7 2.5-7 2.5z" fill="#d24f4f"/></svg>')
+
+_WH_CARD = {"spread": whspread_svg, "farm": whfarm_svg, "tablet": whtablet_svg, "pyramid": whpyramid_svg, "assembly": whassembly_svg, "arch": wharch_svg, "coins": whcoins_svg, "dharma": whdharma_svg, "silk": whsilk_svg, "faith": whfaith_svg, "books": whbooks_svg, "castle": whcastle_svg}
 
 def render_whspread_lab(lesson):
     """第一課：歷史地球儀（assets/js/wh-spread.js 綁這裡的 class）。只畫陸地、海洋與路線；不畫國界、不標國名。"""
@@ -19814,6 +19824,40 @@ def render_whfaith_lab(lesson):
   <p class="wh-credit">{lab["credit_html"]}</p>
 </div>'''
 
+def render_whcastle_lab(lesson):
+    """第十二課：一座城堡怎麼長大（assets/js/wh-castle.js 綁這裡的 class）。四個階段、點每一個部分看用途；幾何是示意。"""
+    lab = lesson["lab"]
+    payload = _wh_json({k: lab[k] for k in ("stages", "parts", "demos")})
+    stages = "".join(f'<button type="button" data-stage="{st["key"]}" aria-pressed="{"true" if n == 0 else "false"}"><b>{n + 1}</b> {_wh_bi(st["en"], st["zh"])}<small>{_wh_bi(st["when_en"], st["when_zh"])}</small></button>'
+                     for n, st in enumerate(lab["stages"]))
+    parts = "".join(f'<button type="button" data-part="{p["key"]}" aria-pressed="false">{_wh_bi(p["en"], p["zh"])}</button>' for p in lab["parts"])
+    return f'''<div class="astro-lab wh-lab wh-cs rvl" data-wh-castle-lab>
+  <script type="application/json">{payload}</script>
+  <div class="al-stage">
+    <div class="al-space">
+      <canvas class="al-space-cv" aria-label="3D model of one imagined castle growing in four stages: a mound of earth with a timber tower and a wooden fence, a stone keep, stone walls with towers and a gatehouse, and finally two rings of walls; a simplified illustration · 一座想像的城堡分四個階段長大的 3D 模型：有木塔和木柵欄的土丘、石造的主塔、有塔樓和城門樓的石牆，最後是兩圈城牆；簡化的示意"></canvas>
+      <div class="al-labels" aria-hidden="true"></div>
+      <p class="al-hint">Drag to turn · 拖曳轉動　Scroll or pinch to zoom · 滾輪／雙指縮放　Click a part · 點一個部分</p>
+      <button type="button" class="al-home" title="Reset view · 重設視角" aria-label="Reset view · 重設視角">&#8634;</button>
+      <p class="al-nogl-msg">This 3D model needs WebGL, which this browser does not support. The stage buttons, the part cards, and the games below still work.<br><span class="zh">這個瀏覽器不支援 WebGL，無法顯示 3D 模型；階段按鈕、各部分的小卡和下面的小遊戲照樣能用。</span></p>
+    </div>
+    <aside class="al-sky wh-aside wh-cs-aside">
+      <div class="wh-cs-stage" aria-live="polite"></div>
+      <div class="wh-site" hidden aria-live="polite"></div>
+      <p class="wh-fg-note">{_wh_bi(lab["numbers_note_en"], lab["numbers_note_zh"])}</p>
+    </aside>
+  </div>
+  <div class="al-controls">
+    <div class="al-row al-row-main">
+      <button type="button" class="al-play" aria-pressed="false"><span class="al-play-i" aria-hidden="true"></span><span class="al-play-t">Watch it grow · 看它長大</span></button>
+    </div>
+    <div class="wh-sites wh-cs-stages" role="group" aria-label="Stages · 階段"><span class="wh-sites-k">Stages · 階段</span>{stages}</div>
+    <div class="wh-sites wh-cs-parts" role="group" aria-label="Parts of the castle · 城堡的各部分"><span class="wh-sites-k">Parts · 部分</span>{parts}</div>
+  </div>
+  {_lab_foot(lab)}
+  <p class="wh-credit">{lab["credit_html"]}</p>
+</div>'''
+
 def _wh_match(d):
     """第八課：同一個詞，三種語言（assets/js 的 match2d.js，打包在 wh-dharma 裡）。"""
     payload = _wh_json({k: d[k] for k in ("items", "end_en", "end_zh")})
@@ -19827,7 +19871,7 @@ def _wh_match(d):
   <div class="wh-so-foot"><button type="button" class="wh-btn wh-btn-gold wh-ma-next" data-act="next" hidden>Next · 下一個</button></div>
 </div>'''
 
-_WH_LAB = {"spread": render_whspread_lab, "farm": render_whfarm_lab, "tablet": render_whtablet_lab, "pyramid": render_whpyramid_lab, "assembly": render_whassembly_lab, "arch": render_wharch_lab, "coins": render_whcoins_lab, "dharma": render_whdharma_lab, "silk": render_whsilk_lab, "faith": render_whfaith_lab, "books": render_whbooks_lab}
+_WH_LAB = {"spread": render_whspread_lab, "farm": render_whfarm_lab, "tablet": render_whtablet_lab, "pyramid": render_whpyramid_lab, "assembly": render_whassembly_lab, "arch": render_wharch_lab, "coins": render_whcoins_lab, "dharma": render_whdharma_lab, "silk": render_whsilk_lab, "faith": render_whfaith_lab, "books": render_whbooks_lab, "castle": render_whcastle_lab}
 
 def _wh_order(d):
     payload = _wh_json({k: d[k] for k in ("items", "hint_en", "hint_zh", "done_en", "done_zh", "open_en", "open_zh")})
@@ -19975,7 +20019,7 @@ def _wh_ostraka(d):
 </div>'''
 
 _WH_WIDGETS = [("order", _wh_order), ("sort", _wh_sort), ("centers", _wh_centers), ("match", _wh_sort), ("gains", _wh_sort), ("signs", _wh_sort), ("needs", _wh_sort),
-               ("whovotes", _wh_sort), ("ostraka", _wh_ostraka), ("empire", _wh_centers), ("borrowed", _wh_sort), ("conquest", _wh_centers), ("qinhan", _wh_sort), ("terms", _wh_match), ("legend", _wh_sort), ("eastwest", _wh_sort), ("when", _wh_order)]
+               ("whovotes", _wh_sort), ("ostraka", _wh_ostraka), ("empire", _wh_centers), ("borrowed", _wh_sort), ("conquest", _wh_centers), ("qinhan", _wh_sort), ("terms", _wh_match), ("legend", _wh_sort), ("eastwest", _wh_sort), ("when", _wh_order), ("built", _wh_sort)]
 # 每課固定的卡（照這個順序排在小互動後面）
 _WH_FIXED = [("timeline", _wh_timeline), ("how_we_know", _wh_how_we_know), ("views", _wh_views),
              ("phrases", _wh_phrases), ("taiwan_then", _wh_taiwan_then)]
