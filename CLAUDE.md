@@ -1365,6 +1365,11 @@
   - 標籤：依優先順序（目前那一段的兩端 → 起點終點 → 選中的 → 其他）放，和已標的距離小於門檻（桌機 9.5°、手機 14°，乘上鏡頭距離）就不標。旁邊的卡片在桌機上限高 640px 可捲動，不然卡片一長，整個舞台跟著拉高、地球變得太大。
   - 「往東還是往西？」（`eastwest`，`sort2d.js`）；「哪一件先發生？」（`when`，`order2d.js`；項目可加 `when_en`／`when_zh` 直接顯示西元年代，不然顯示「大約幾年前」）。資料測試 `test/silkroad.test.mjs`。
   - 除錯：`[data-wh-silk-lab].__lab`（`setYear(y)`、`play()`、`select(key)`、`follow(key)`、`step(秒)`、`demo('start'|'silk'|'sea'|'paper')`、`info()`、`render()`）。
+- 第十課〈基督宗教和伊斯蘭教怎麼開始、怎麼傳開？〉（`wh-faith.js`，`lab.kind = "faith"`，`data-wh-faith-lab`，slug `christianity-islam`，單元三第二課）：一個想法——兩個宗教都從一小群人開始，沿著帝國的道路、貿易路線和海路傳開；兩個一起講是因為時間和地理相連，不是比較高下。
+  - 3D 沿用第八課的西元年地球儀（1–1500 年）。路線有 `faith`（`christian` 紫 #cdb0ff、`islam` 綠 #7fe3a6），`kind: 'sea'` 畫虛線；「顯示」按鈕 `data-faith="all|christian|islam"` 只看一個宗教（`globe.setRoute` 關掉另一個的路線，地方按鈕 hidden）。地方有 `faiths[]`；兩個宗教都有的（耶路撒冷、君士坦丁堡）要 `year2`＋`also_en/zh`，只看第二個宗教時用 `year2` 亮、按鈕上的年代也換掉。純函式 `src/faith.js`（`siteYear`、`shows`、`visible`、`routeOn`、`checkSite`、`checkFaithRoute`：標了地方的轉折點年代要等於那個宗教的年代），測試 `test/faith.test.mjs`、資料測試 `test/faiths.test.mjs`（每個地方都有同一宗教的路線碰到、兩個宗教的分類題各半、不出現比較高下的字眼）。
+  - **教訓**：科爾多瓦原本標兩個宗教（1236 改主教座堂），但「只看基督宗教」時會像基督宗教 1236 年才到——改成只標伊斯蘭教、1236 寫在小卡。年代亮起來的意思要和篩選一致。
+  - 「信徒相信，還是史料顯示？」（`legend`，`sort2d.js`，兩個宗教各 5 題）；「同一個詞，三種語言」（`terms`，`match2d.js`；**新欄位 `orig`＋`lang`**（Greek／Arabic），沒有就照舊用 `pali`／`skt`）。
+  - 除錯：`[data-wh-faith-lab].__lab`（`setYear(y)`、`play()`、`filter('all'|'christian'|'islam')`、`select(key)`、`demo('start'|'empire'|'islam'|'trade')`、`info()`、`render()`）。
 
 ## 美國政治 How America Governs Itself（/resources/classes/us-government/）— 架構照地理與書法；**程度是高中到大學**，每課多五張固定的卡
 
