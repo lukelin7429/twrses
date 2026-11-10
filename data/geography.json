@@ -6899,7 +6899,7 @@
        "zh": "台灣的人住在哪裡？",
        "note_en": "The same question, up close: Taiwan's plains, basins, and mountains.",
        "note_zh": "同一個問題，近看台灣：平原、盆地與山地。",
-       "soon": true
+       "href": "/resources/classes/geography/taiwan-people/"
       }
      ],
      "sources_note_en": "Names, dates, numbers, and quotations on this page were checked against these sources (November 2026). The dots, the shares of people and land, and the answers to the game are computed by the page itself from the population grid and tested automatically",
@@ -7695,7 +7695,7 @@
        "zh": "台灣的人住在哪裡？",
        "note_en": "The plains and basins of the west, up close.",
        "note_zh": "近看西部的平原與盆地。",
-       "soon": true
+       "href": "/resources/classes/geography/taiwan-people/"
       }
      ],
      "sources_note_en": "Names, dates, numbers, and quotations on this page were checked against these sources (November 2026). The 3D model, the cuts, the slopes, and the answers to the game are computed by the page itself from the elevation data and tested automatically",
@@ -8794,7 +8794,7 @@
        "zh": "台灣的人住在哪裡？",
        "note_en": "Water, flat land, and cities on the west side.",
        "note_zh": "水、平地，以及西部的城市。",
-       "soon": true
+       "href": "/resources/classes/geography/taiwan-people/"
       }
      ],
      "sources_note_en": "Names, dates, numbers, and quotations on this page were checked against these sources (November 2026). The rivers, the raindrop paths, and the answers to the game are computed by the page itself from the elevation data and tested automatically",
@@ -9109,15 +9109,778 @@
        "url": "https://www.naer.edu.tw/PageSyllabus?fid=52"
       }
      ]
+    },
+    {
+     "n": 11,
+     "slug": "taiwan-people",
+     "title": "Where Do Taiwan's People Live?",
+     "title_zh": "台灣的人住在哪裡？",
+     "level": "入門 · Beginner",
+     "icon": "🏙️",
+     "card": "twpeople",
+     "blurb_en": "Stand Taiwan's people up as columns on a 3D model of the island. See how almost everyone lives on the low plains and basins in the west, and why the high mountains are nearly empty.",
+     "blurb_zh": "把台灣的人變成一根根柱子，立在立體的台灣上。看看為什麼幾乎所有人都住在西部低平的平原和盆地，高山卻幾乎沒有人。",
+     "big_idea_en": "Most of Taiwan's people live on the low, flat land in the west: the plains and the basins. Few people live in the high mountains. The shape of the land helps decide where cities, roads, and railways go.",
+     "big_idea_zh": "台灣的人大多住在西部又低又平的地方：平原和盆地；高山上住的人很少。地形幫忙決定了城市、道路和鐵路蓋在哪裡。",
+     "stats": {
+      "ghs": 23822080,
+      "landKm2": 36417,
+      "low": {
+       "p": 82,
+       "a": 29
+      },
+      "mid": {
+       "p": 18,
+       "a": 39
+      },
+      "high": {
+       "p1000": 1,
+       "a": 31,
+       "people": 28000
+      },
+      "basin": {
+       "p": 27,
+       "a": 5
+      },
+      "plain": {
+       "p": 57,
+       "a": 26
+      },
+      "top10": 88,
+      "emptyPct": 53,
+      "taipei5": {
+       "people": 1240000,
+       "density": 15900
+      },
+      "six_pct": 69.92,
+      "east_p": 4.2,
+      "east_a": 28,
+      "moi_total": 23204000,
+      "moi_main": 22946405,
+      "ghs_diff": 3.8
+     },
+     "lab": {
+      "kind": "twpeople",
+      "eyebrow": "3D Model · 3D 模型",
+      "title_en": "Taiwan's People in 3D",
+      "title_zh": "立體的台灣人口",
+      "how_en": "Each column stands on a 3-by-3-kilometer square of Taiwan. The taller the column, the more people live there. Its color shows how high the land is. Pick a height band to light up the columns in that band and see what share of the people, and of the land, it holds. Tap anywhere on the land to count the people who live within 5 kilometers.",
+      "how_zh": "每一根柱子站在台灣的一塊 3 × 3 公里的土地上，柱子越高，住在那裡的人越多；顏色代表那塊地有多高。選一個海拔帶，那一帶的柱子會亮起來，旁邊告訴你它住了幾成的人、占幾成的土地。點地形上任何一個地方，數數方圓 5 公里內住了多少人。",
+      "legend": [
+       {
+        "cls": "low",
+        "en": "Land below 100 m",
+        "zh": "100 公尺以下的地"
+       },
+       {
+        "cls": "mid",
+        "en": "Land from 100 to 1,000 m",
+        "zh": "100～1,000 公尺的地"
+       },
+       {
+        "cls": "high",
+        "en": "Land 1,000 m and higher",
+        "zh": "1,000 公尺以上的地"
+       }
+      ],
+      "scale_en": "Land heights are exaggerated 5 times. One column for every 3-by-3-kilometer square; a column as tall as 10 kilometers on the map stands for 40,000 people. Squares with fewer than 50 people have no column. The people come from a world population grid for 2025 (an estimate, not a count), added up by this page into Taiwan's 1-kilometer squares.",
+      "scale_zh": "地面高度放大 5 倍。每 3 × 3 公里一根柱子；柱子高到相當於地圖上 10 公里，代表 4 萬人。住不到 50 人的格子沒有柱子。人數來自全球人口格網的 2025 年推估（是估計，不是普查），本頁把它加總到台灣的 1 公里格子。",
+      "note_en": "The height bands use the average height of each 1-kilometer square. In this model, about 88 of every 100 people live on the most crowded tenth of the land.",
+      "note_zh": "海拔帶用每一個 1 公里格子的平均高度。在這個模型裡，每 100 個人大約有 88 個住在最擁擠的十分之一土地上。",
+      "credit_html": "Population: GHS-POP R2023A, epoch 2025 (a projection), 30 arcseconds. Schiavina M., Freire S., Carioli A., MacManus K. (2023), European Commission, Joint Research Centre, <a href=\"https://doi.org/10.2905/2FF68A52-5B5B-4A22-8F40-C41DA8332CFE\">doi:10.2905/2FF68A52-5B5B-4A22-8F40-C41DA8332CFE</a>, licensed under <a href=\"https://creativecommons.org/licenses/by/4.0/\">CC BY 4.0</a>. Changes: added up into the 1-kilometer squares of the height model below; cells in the sea within 2 km of the coast were moved to the nearest land square; outlying islands are left out. City positions: Natural Earth 1:10m Populated Places, public domain. · 人口：GHS-POP R2023A 的 2025 年推估（30 角秒），歐盟執委會聯合研究中心，CC BY 4.0；本頁把它加總到下面高程資料的 1 公里格子，離岸 2 公里內落在海裡的格子移到最近的陸地，離島不算。城市位置：Natural Earth，公有領域。高程資料：內政部 2026年版全臺灣20公尺網格數值地形模型DTM資料 此開放資料依政府資料開放授權條款 (Open Government Data License) 進行公眾釋出，使用者於遵守本條款各項規定之前提下，得利用之。政府資料開放授權條款：<a href=\"https://data.gov.tw/license\">https://data.gov.tw/license</a>。本頁把它平均成 1 公里的格子。"
+     },
+     "parts_head": {
+      "eyebrow": "Try It in the Model · 在模型裡試試",
+      "en": "Four ways to look at Taiwan's people",
+      "zh": "用四種方式看台灣的人"
+     },
+     "parts": [
+      {
+       "key": "all",
+       "icon": "🏙️",
+       "en": "The whole island",
+       "zh": "整座島",
+       "meta_en": "All columns",
+       "meta_zh": "全部的柱子",
+       "demo": "all",
+       "text_en": "Look from the south. The tall columns crowd together in the north and down the west side; the middle of the island is almost flat.",
+       "text_zh": "從南邊看。高高的柱子擠在北部和西部一路往南；島的中間幾乎是平的。"
+      },
+      {
+       "key": "low",
+       "icon": "🌾",
+       "en": "The low land",
+       "zh": "低地",
+       "meta_en": "Below 100 m",
+       "meta_zh": "100 公尺以下",
+       "demo": "low",
+       "text_en": "Land below 100 meters is about 29% of the island, but about 82% of the people live there.",
+       "text_zh": "100 公尺以下的地大約占全島的 29%，卻住了大約 82% 的人。"
+      },
+      {
+       "key": "high",
+       "icon": "⛰️",
+       "en": "The high mountains",
+       "zh": "高山",
+       "meta_en": "1,000 m and higher",
+       "meta_zh": "1,000 公尺以上",
+       "demo": "high",
+       "text_en": "Land 1,000 meters and higher is about 31% of the island, yet only about 1 in every 1,000 people live there.",
+       "text_zh": "1,000 公尺以上的地大約占全島的 31%，每 1,000 個人卻只有大約 1 個住在那裡。"
+      },
+      {
+       "key": "taipei",
+       "icon": "📍",
+       "en": "Around Taipei",
+       "zh": "臺北附近",
+       "meta_en": "Within 5 km",
+       "meta_zh": "方圓 5 公里",
+       "demo": "taipei",
+       "text_en": "About 1,240,000 people live within 5 kilometers of central Taipei in this model.",
+       "text_zh": "在這個模型裡，臺北市中心方圓 5 公里內大約住了 1,240,000 人。"
+      }
+     ],
+     "parts_note_en": "Then try it yourself. Tap the Taipei Basin, the Chianan Plain, and the Huadong Longitudinal Valley. All three are flat. Why do so many more people live in one than in the others?",
+     "parts_note_zh": "然後自己動手試試。點一點臺北盆地、嘉南平原和花東縱谷，三個地方都很平。為什麼其中一個住的人比另外兩個多那麼多？",
+     "twhundred": {
+      "eyebrow": "Try It · 動手試試",
+      "en": "If Taiwan Were 100 People",
+      "zh": "一百個台灣人住在哪裡？",
+      "lead_en": "Shrink everyone on Taiwan's main island down to 100 people. Where would they live? Switch between height bands and kinds of land, and tap a group to see how much of the land it covers.",
+      "lead_zh": "把台灣本島的人縮小成一百個人，他們會住在哪裡？在「依海拔」和「依地形」之間切換，點一組，看那裡占了多少土地。",
+      "hint_en": "Tap a group to compare its people with its land.",
+      "hint_zh": "點一組，比一比那裡的人和土地。",
+      "src_en": "Worked out by this page from the GHS-POP 2025 population grid and the 2026 height model; the kinds of land use the simple rules from Lesson 9.",
+      "src_zh": "本頁用 GHS-POP 2025 人口格網與 2026 年的高程資料算出；地形分類用第九課的簡化規則。"
+     },
+     "city": {
+      "eyebrow": "Game · 小遊戲",
+      "en": "Is This a Good Place for a City?",
+      "zh": "這裡適合蓋城市嗎？",
+      "lead_en": "Eight places on Taiwan, each marked with a red dot. The cards tell you how high the land is, whether it is flat, and whether a big river is close by. Do many people, some people, or few people live there? The name of each place appears after you answer. There is no timer.",
+      "lead_zh": "台灣上的八個地方，各用一個紅點標出來。條件卡告訴你那裡的地有多高、平不平、附近有沒有大河。那裡住的人很多、不多也不少，還是很少？答完才會出現地名。不計時。",
+      "year": 2025,
+      "hint_en": "People find it easier to build homes, roads, and farms on low, flat land, especially near water.",
+      "hint_zh": "在又低又平的地方，特別是靠近水的地方，比較容易蓋房子、開路、種田。",
+      "start_en": "Look at the cards. Would it be easy to build a town here?",
+      "start_zh": "看看條件卡。在這裡蓋一座城鎮容易嗎？",
+      "end_en": "Low, flat land near water draws people, but not every flat place turns into a city.",
+      "end_zh": "又低又平、靠近水的地方會吸引人，但不是每一塊平地都會變成城市。",
+      "questions": [
+       {
+        "name_en": "Taipei Basin",
+        "name_zh": "臺北盆地",
+        "answer": "many",
+        "why_en": "Flat land, rivers, and hills all around: the Taipei Basin is one of the most crowded places in Taiwan.",
+        "why_zh": "平地、河流、四周環山：臺北盆地是台灣最擁擠的地方之一。",
+        "place": "taipeiBasin"
+       },
+       {
+        "name_en": "The coast of Yunlin",
+        "name_zh": "雲林沿海",
+        "answer": "some",
+        "why_en": "This coast is low and flat, with the Zhuoshui River close by, but no big city grew here. Much flat land is used for other things, such as farming (Lesson 12).",
+        "why_zh": "這裡又低又平，濁水溪就在旁邊，卻沒有長出大城市。很多平地有別的用途，例如種田（第十二課）。",
+        "e": 170.49,
+        "n": 2627.55
+       },
+       {
+        "name_en": "Central Mountain Range",
+        "name_zh": "中央山脈",
+        "answer": "few",
+        "why_en": "High, steep mountains: it is hard to build homes, roads, or farms here.",
+        "why_zh": "又高又陡的山：在這裡很難蓋房子、開路或種田。",
+        "place": "central"
+       },
+       {
+        "name_en": "Linkou Tableland",
+        "name_zh": "林口台地",
+        "answer": "many",
+        "why_en": "A tableland rises above the land around it, but its top is flat. Today many people live here.",
+        "why_zh": "台地比四周高，但頂上是平的。現在這裡住了很多人。",
+        "place": "linkou"
+       },
+       {
+        "name_en": "Huadong Longitudinal Valley",
+        "name_zh": "花東縱谷",
+        "answer": "some",
+        "why_en": "The valley floor is flat and has a big river, but it is long and narrow, squeezed between two mountain ranges.",
+        "why_zh": "縱谷的谷底平坦、有大河，但又長又窄，夾在兩道山脈中間。",
+        "e": 282.7,
+        "n": 2579.07
+       },
+       {
+        "name_en": "Kaohsiung",
+        "name_zh": "高雄",
+        "answer": "many",
+        "why_en": "Low, flat land by the sea: Kaohsiung is one of Taiwan's biggest cities.",
+        "why_zh": "靠海又低又平的地方：高雄是台灣最大的城市之一。",
+        "e": 178.05,
+        "n": 2503.48
+       },
+       {
+        "name_en": "Puli Basin",
+        "name_zh": "埔里盆地",
+        "answer": "some",
+        "why_en": "A small basin in the middle of the island: flat at the bottom, with a river, but surrounded by mountains far from the coast.",
+        "why_zh": "島中間的一個小盆地：底部平坦、有河，但四周都是山，離海岸很遠。",
+        "e": 245.45,
+        "n": 2651.65
+       },
+       {
+        "name_en": "Coastal Mountain Range",
+        "name_zh": "海岸山脈",
+        "answer": "few",
+        "why_en": "These mountains are steep, right by the Pacific, with little flat land.",
+        "why_zh": "這道山脈很陡，緊鄰太平洋，平地很少。",
+        "place": "coastal"
+       }
+      ]
+     },
+     "map_english": {
+      "eyebrow": "Map English · 地圖英語",
+      "en": "Eight sentences for talking about cities and people",
+      "zh": "談城市與人口的八句英文",
+      "lead_en": "This lesson's Map English card is about where people live. Listen, repeat, then describe where the people in your county or city live.",
+      "lead_zh": "這一課的「地圖英語」練習說人住在哪裡。先聽、再跟著唸，然後描述你住的縣市，人都住在哪裡。",
+      "items": [
+       {
+        "en": "<b>About</b> 23 million people live in Taiwan.",
+        "zh": "大約有兩千三百萬人住在台灣。",
+        "use_en": "About … people live in …",
+        "use_zh": "大約有……人住在……"
+       },
+       {
+        "en": "Most people live <b>on the plains</b> in the west.",
+        "zh": "大部分的人住在西部的平原上。",
+        "use_en": "live on the plains / in a basin",
+        "use_zh": "住在平原上／盆地裡"
+       },
+       {
+        "en": "The mountains are <b>sparsely populated</b>.",
+        "zh": "山區人口稀少。",
+        "use_en": "sparsely / densely populated",
+        "use_zh": "人口稀少／稠密"
+       },
+       {
+        "en": "Taipei is <b>the most crowded</b> city.",
+        "zh": "臺北是人口最密集的城市。",
+        "use_en": "the most crowded …",
+        "use_zh": "最擁擠的……"
+       },
+       {
+        "en": "New Taipei <b>has the largest population</b>.",
+        "zh": "新北市的人口最多。",
+        "use_en": "has the largest population",
+        "use_zh": "人口最多"
+       },
+       {
+        "en": "The city <b>is located in</b> a basin.",
+        "zh": "這座城市位在盆地裡。",
+        "use_en": "is located in / on …",
+        "use_zh": "位在……"
+       },
+       {
+        "en": "The railway <b>runs along</b> the west side of the island.",
+        "zh": "鐵路沿著島的西邊走。",
+        "use_en": "runs along …",
+        "use_zh": "沿著……"
+       },
+       {
+        "en": "<b>How many people live</b> in your town?",
+        "zh": "你住的鎮上有多少人？",
+        "use_en": "How many people live …?",
+        "use_zh": "有多少人住在……？"
+       }
+      ]
+     },
+     "tricks_head": {
+      "en": "People and land, in a sentence",
+      "zh": "一句話記住人與土地"
+     },
+     "tricks": [
+      {
+       "title_en": "Low, flat, near water",
+       "title_zh": "低、平、近水",
+       "body_en": "That is where most people live.",
+       "body_zh": "大部分的人住在這種地方。"
+      },
+      {
+       "title_en": "Nine on one",
+       "title_zh": "九成住在一成",
+       "body_en": "About nine in ten people live on the most crowded tenth of the land.",
+       "body_zh": "大約九成的人，住在最擁擠的一成土地上。"
+      },
+      {
+       "title_en": "Few, not none",
+       "title_zh": "少，不是沒有",
+       "body_en": "Some people do live in the mountains.",
+       "body_zh": "山上還是有人住。"
+      },
+      {
+       "title_en": "Most people or most crowded?",
+       "title_zh": "人最多，還是最擠？",
+       "body_en": "New Taipei has the most people; Taipei City is the most crowded.",
+       "body_zh": "新北市人最多，臺北市最擁擠。"
+      }
+     ],
+     "safety_head": {
+      "eyebrow": "Before the Activities · 做活動之前",
+      "en": "Working safely",
+      "zh": "安全提醒"
+     },
+     "safety": [
+      {
+       "en": "When you measure the classroom or the playground, walk, do not run, and watch for other classes.",
+       "zh": "量教室或操場的時候用走的，不要跑，注意其他班的同學。"
+      },
+      {
+       "en": "Share only the name of a town or district, never your home address.",
+       "zh": "只寫出鄉鎮或區的名字，不要寫自己家的地址。"
+      },
+      {
+       "en": "Stay inside the school; do not go out to count people or houses on your own.",
+       "zh": "待在校園裡，不要自己跑出去數人或數房子。"
+      },
+      {
+       "en": "Be careful with scissors and pins when you mark the map.",
+       "zh": "在地圖上做記號時，小心剪刀和圖釘。"
+      }
+     ],
+     "activities": [
+      {
+       "title_en": "How Crowded Is Our Classroom?",
+       "title_zh": "我們的教室有多擠？",
+       "materials": [
+        {
+         "en": "A tape measure or a meter stick",
+         "zh": "一個捲尺或一公尺長的尺"
+        },
+        {
+         "en": "A calculator",
+         "zh": "一台計算機"
+        },
+        {
+         "en": "Chalk or tape to mark a square on the playground",
+         "zh": "粉筆或膠帶，在操場上畫一個正方形"
+        }
+       ],
+       "steps": [
+        {
+         "en": "Measure the length and width of your classroom in meters, and multiply them to find its area.",
+         "zh": "用公尺量教室的長和寬，相乘得到面積。"
+        },
+        {
+         "en": "Count the people in the room. Divide the people by the area: that is the population density of your classroom.",
+         "zh": "數一數教室裡有幾個人。人數除以面積，就是教室的人口密度。"
+        },
+        {
+         "en": "Mark a square of the same area on the playground and spread the class out inside it, then do it again in a square twice as big.",
+         "zh": "在操場上畫一個一樣大的正方形，全班站進去散開；再換一個兩倍大的正方形試試。"
+        },
+        {
+         "en": "Which felt more crowded? Compare with Taipei City (about 8,900 people per square kilometer) and Taitung County (about 59).",
+         "zh": "哪一次覺得比較擠？和臺北市（每平方公里大約 8,900 人）、臺東縣（大約 59 人）比一比。"
+        }
+       ],
+       "tip_en": "Density is people divided by area. The same number of people can feel crowded or roomy, depending on the space.",
+       "tip_zh": "密度就是人數除以面積。一樣多的人，空間不同，就會覺得擠或寬敞。"
+      },
+      {
+       "title_en": "Our Towns on a Height Map",
+       "title_zh": "我們的鄉鎮在高度地圖上",
+       "materials": [
+        {
+         "en": "A printed map of Taiwan colored by height (for example, a screenshot of the 3D model from above)",
+         "zh": "一張依高度上色的台灣地圖（例如 3D 模型從正上方看的截圖）"
+        },
+        {
+         "en": "Small stickers in two colors",
+         "zh": "兩種顏色的小貼紙"
+        },
+        {
+         "en": "A class chart",
+         "zh": "一張全班的統計表"
+        }
+       ],
+       "steps": [
+        {
+         "en": "Each student puts one sticker on the town or district where they live, and another on a place they have visited.",
+         "zh": "每個同學在自己住的鄉鎮或區貼一張貼紙，再在去過的地方貼另一種顏色。"
+        },
+        {
+         "en": "Count how many stickers are on low, green land, and how many are in the mountains.",
+         "zh": "數一數有幾張貼紙在低低的綠色地方，有幾張在山上。"
+        },
+        {
+         "en": "Compare your class with the model: about 82 of every 100 people live on land below 100 meters.",
+         "zh": "把全班的結果和模型比一比：每 100 個人大約有 82 個住在 100 公尺以下的地方。"
+        },
+        {
+         "en": "Talk about it: if your class's result is different, why might that be?",
+         "zh": "討論：如果全班的結果不一樣，可能是為什麼？"
+        }
+       ],
+       "tip_en": "A class is a small sample. A small group of people can look very different from the whole island.",
+       "tip_zh": "一個班只是很小的樣本。一小群人的結果，可能和全島很不一樣。"
+      }
+     ],
+     "links_head": {
+      "eyebrow": "Go Further · 延伸閱讀",
+      "en": "Lessons that connect, and what comes next",
+      "zh": "相關的課，以及接下來"
+     },
+     "links": [
+      {
+       "icon": "🌏",
+       "k_en": "Geography · Lesson 8",
+       "k_zh": "地理・第八課",
+       "en": "Where Do People Live?",
+       "zh": "人都住在哪裡？",
+       "note_en": "The same population grid, for the whole world.",
+       "note_zh": "同一份人口格網，看全世界。",
+       "href": "/resources/classes/geography/where-people-live/"
+      },
+      {
+       "icon": "🏔️",
+       "k_en": "Geography · Lesson 9",
+       "k_zh": "地理・第九課",
+       "en": "What Does Taiwan Look Like from Above?",
+       "zh": "從天上看，台灣長什麼樣子？",
+       "note_en": "The plains, basins, and mountains people live on, or do not.",
+       "note_zh": "人住的（和不住的）平原、盆地與高山。",
+       "href": "/resources/classes/geography/taiwan-from-above/"
+      },
+      {
+       "icon": "💧",
+       "k_en": "Geography · Lesson 10",
+       "k_zh": "地理・第十課",
+       "en": "Why Can Taiwan Run Short of Water When It Rains So Much?",
+       "zh": "台灣雨這麼多，為什麼還會缺水？",
+       "note_en": "Many people sharing the same rain.",
+       "note_zh": "很多人分同一場雨。",
+       "href": "/resources/classes/geography/water-shortage/"
+      },
+      {
+       "icon": "🌾",
+       "k_en": "Geography · Lesson 12",
+       "k_zh": "地理・第十二課",
+       "en": "What Grows Where in Taiwan?",
+       "zh": "台灣什麼地方種什麼？",
+       "note_en": "What the flat land is used for when it is not a city.",
+       "note_zh": "不是城市的平地，拿來做什麼。",
+       "soon": true
+      }
+     ],
+     "sources_note_en": "Names, dates, numbers, and quotations on this page were checked against these sources (November 2026). The columns, the shares of people and land, and the answers to the game are computed by the page itself from the population grid and the elevation data, and tested automatically",
+     "sources_note_zh": "本頁的人名、年代、數字與引文依下列資料查證（2026 年 11 月）；柱子、人與土地的比例和小遊戲的答案，都由頁面用人口格網與高程資料自己計算，並有自動測試",
+     "paras": [
+      "At the end of October 2026, Taiwan had 23,204,000 registered residents, according to the Ministry of the Interior. That is about 641 people for every square kilometer, on average. But people are not spread evenly. Some places are packed, and some are almost empty.",
+      "Look at the cities. The six special municipalities, New Taipei, Taipei, Taoyuan, Taichung, Tainan, and Kaohsiung, are home to almost 70 percent of the people. New Taipei has the most people, about 4 million. Taipei City is the most crowded: almost 8,900 people live on each square kilometer. In Taitung County, the number is about 59.",
+      "On the 3D model, each column shows how many people live on a small square of land. The tall columns stand on the low land. In this model, land below 100 meters covers about 29 percent of the main island, but about 82 percent of the people live there. Land 1,000 meters and higher covers about 31 percent, yet only about 1 person in every 1,000 lives there.",
+      "Why? Lessons 9 and 10 give the clues. On low, flat land it is easier to build homes, roads, and factories, to grow food, and to get water from rivers. The Taipei and Taichung basins are flat, with rivers and hills around them. In the model, basins cover only about 5 percent of the land, but about 27 percent of the people live in them.",
+      "The plains and basins in the west line up from north to south, and so do the big cities. The high-speed rail follows them: Taiwan High Speed Rail says its line is 350 kilometers long and passes through 11 counties and cities in the west. East of the mountains, Yilan, Hualien, and Taitung counties together cover about 28 percent of Taiwan's land, but only about 4 percent of the people live there.",
+      "The numbers on the model are an estimate made for the whole world, so they do not match the official count exactly. For the main island, the model counts about 4 percent more people than the household registration. But the pattern is clear: Taiwan's people live where the land is low, flat, and close to water. Few people live in the mountains, but few is not none."
+     ],
+     "paras_zh": [
+      "根據內政部的資料，民國 115 年（2026 年）10 月底，台灣的戶籍人口是 23,204,000 人。平均每平方公里大約住了 641 人。可是人並沒有平均分布：有些地方擠滿了人，有些地方幾乎沒有人。",
+      "先看城市。新北、臺北、桃園、臺中、臺南、高雄六個直轄市，住了將近七成的人。新北市人最多，大約 400 萬人；臺北市最擁擠，每平方公里住了將近 8,900 人。在臺東縣，這個數字大約是 59。",
+      "在 3D 模型上，每一根柱子代表一小塊土地上住了多少人。高高的柱子都站在低地上。在這個模型裡，100 公尺以下的地大約占本島的 29%，卻住了大約 82% 的人；1,000 公尺以上的地大約占 31%，每 1,000 個人卻只有大約 1 個住在那裡。",
+      "為什麼？第九課和第十課有線索。在又低又平的地方，比較容易蓋房子、開路、建工廠、種糧食，也比較容易從河裡取水。臺北盆地和臺中盆地都很平，有河流，四周有山丘。在模型裡，盆地只占大約 5% 的土地，卻住了大約 27% 的人。",
+      "西部的平原和盆地由北到南排成一長串，大城市也是。高鐵就沿著它們走：台灣高鐵說，它的路線全長 350 公里，經過西部 11 個縣市。山的東邊，宜蘭、花蓮、臺東三個縣加起來大約占台灣土地的 28%，卻只住了大約 4% 的人。",
+      "模型上的數字是為全世界做的估計，所以和官方的戶籍人數不會完全一樣：在本島，模型算出的人比戶籍多了大約 4%。但是分布的樣子很清楚：台灣的人住在又低、又平、又靠近水的地方。山上住的人很少，但少不等於沒有。"
+     ],
+     "questions": [
+      "Why do most of Taiwan's people live on the low land in the west?",
+      "New Taipei has the most people, but Taipei City is the most crowded. How can both be true?",
+      "Some people do live in the high mountains. What might their lives be like, compared with life in a big city?"
+     ],
+     "answers": [
+      "The west has wide plains and basins with rivers, where it is easier to build homes, roads, and farms. The high mountains are steep and closer to the east.",
+      "New Taipei is much bigger, so it can hold more people in total. Taipei City is small, so its people are packed more closely: more people on each square kilometer.",
+      "Answers will vary: fewer neighbors, longer trips to school, shops, and hospitals, mountain roads, and farming on slopes; also quiet, nature, and close communities."
+     ],
+     "vocab": [
+      {
+       "n": 1,
+       "w": "population",
+       "pos": "n.",
+       "zh": "人口",
+       "ex": "Taiwan's <b>population</b> is about 23 million.",
+       "exzh": "台灣的人口大約兩千三百萬。"
+      },
+      {
+       "n": 2,
+       "w": "population density",
+       "pos": "n.",
+       "zh": "人口密度",
+       "ex": "<b>Population density</b> is the number of people per square kilometer.",
+       "exzh": "人口密度是每平方公里有多少人。"
+      },
+      {
+       "n": 3,
+       "w": "crowded",
+       "pos": "adj.",
+       "zh": "擁擠的",
+       "ex": "Taipei is the most <b>crowded</b> city in Taiwan.",
+       "exzh": "臺北是台灣最擁擠的城市。"
+      },
+      {
+       "n": 4,
+       "w": "sparsely populated",
+       "pos": "adj.",
+       "zh": "人口稀少的",
+       "ex": "The high mountains are <b>sparsely populated</b>.",
+       "exzh": "高山地區人口稀少。"
+      },
+      {
+       "n": 5,
+       "w": "city",
+       "pos": "n.",
+       "zh": "城市",
+       "ex": "Most big <b>cities</b> are on the plains in the west.",
+       "exzh": "大部分的大城市在西部的平原上。"
+      },
+      {
+       "n": 6,
+       "w": "rural",
+       "pos": "adj.",
+       "zh": "鄉村的",
+       "ex": "Many <b>rural</b> towns are surrounded by farms.",
+       "exzh": "很多鄉村小鎮四周都是農田。"
+      },
+      {
+       "n": 7,
+       "w": "metropolitan area",
+       "pos": "n.",
+       "zh": "都會區",
+       "ex": "Millions of people live in the Taipei <b>metropolitan area</b>.",
+       "exzh": "臺北都會區住了好幾百萬人。"
+      },
+      {
+       "n": 8,
+       "w": "settlement",
+       "pos": "n.",
+       "zh": "聚落",
+       "ex": "A village is a small <b>settlement</b>.",
+       "exzh": "村莊是一個小聚落。"
+      }
+     ],
+     "quiz": [
+      {
+       "q": "About how many people lived in Taiwan at the end of October 2026?",
+       "options": [
+        "About 2.3 million",
+        "About 23 million",
+        "About 230 million",
+        "About 2.3 billion"
+       ],
+       "correct": 1
+      },
+      {
+       "q": "In the 3D model, where do most of Taiwan's people live?",
+       "options": [
+        "On land below 100 meters",
+        "On land from 1,000 to 2,000 meters",
+        "On land above 3,000 meters",
+        "They are spread evenly"
+       ],
+       "correct": 0
+      },
+      {
+       "q": "Which has the highest population density, the most people per square kilometer?",
+       "options": [
+        "Taitung County",
+        "Hualien County",
+        "Taipei City",
+        "Nantou County"
+       ],
+       "correct": 2
+      },
+      {
+       "q": "What does \"sparsely populated\" mean?",
+       "options": [
+        "Many people live there",
+        "Few people live there",
+        "No one is allowed to live there",
+        "Only farmers live there"
+       ],
+       "correct": 1
+      },
+      {
+       "q": "Why do few people live in Taiwan's high mountains?",
+       "options": [
+        "The mountains are too cold for anyone",
+        "The land is high and steep, so it is hard to build homes, roads, and farms",
+        "There is no rain in the mountains",
+        "The mountains are in the sea"
+       ],
+       "correct": 1
+      }
+     ],
+     "myths": [
+      {
+       "myth_en": "Taiwan's people are spread evenly across the island.",
+       "myth_zh": "台灣的人平均分布在全島。",
+       "fact_en": "In this page's model, about 88 of every 100 people live on the most crowded tenth of the land, and more than half of the 1-kilometer squares have fewer than 10 people.",
+       "fact_zh": "在本頁的模型裡，每 100 個人大約有 88 個住在最擁擠的十分之一土地上；超過一半的 1 公里格子，住不到 10 個人。"
+      },
+      {
+       "myth_en": "Nobody lives in the mountains.",
+       "myth_zh": "山上沒有人住。",
+       "fact_en": "Few people do. The model puts about 28,000 people on land 1,000 meters and higher. Lesson 14 looks at where Taiwan's Indigenous peoples live.",
+       "fact_zh": "有，只是很少。模型估計 1,000 公尺以上的地方大約住了 28,000 人。第十四課會看台灣的原住民族住在哪裡。"
+      },
+      {
+       "myth_en": "Wherever the land is flat, there is a big city.",
+       "myth_zh": "只要是平地，就會有大城市。",
+       "fact_en": "Flat land draws people, but much of it is used for other things, such as farms. The coast of Yunlin is low and flat, yet far fewer people live there than in the Taipei Basin.",
+       "fact_zh": "平地會吸引人，但很多平地有別的用途，例如農田。雲林沿海又低又平，住的人卻比臺北盆地少得多。"
+      },
+      {
+       "myth_en": "Taipei City has the most people in Taiwan.",
+       "myth_zh": "臺北市是台灣人口最多的地方。",
+       "fact_en": "New Taipei has the most people (4,033,118 at the end of October 2026). Taipei City has fewer people, but it is the most crowded.",
+       "fact_zh": "人口最多的是新北市（民國 115 年 10 月底 4,033,118 人）。臺北市的人比較少，卻是最擁擠的。"
+      }
+     ],
+     "culture_cards": {
+      "eyebrow": "Stories Behind the Numbers · 數字背後的故事",
+      "title_en": "Counting Taiwan's people",
+      "title_zh": "數一數台灣的人",
+      "lead_en": "",
+      "lead_zh": "",
+      "cards": [
+       {
+        "k": "2024 → 2026 · Ministry of the Interior · 內政部",
+        "en": "Seven in ten",
+        "zh": "十個人裡有七個",
+        "body_en": "The Executive Yuan wrote that in 2024 most people lived in the special municipalities, 69.77 percent of the total. With the Ministry of the Interior's figures for the end of October 2026, this page works it out as 69.92 percent.",
+        "body_zh": "行政院國情簡介說，民國 113 年我國人口大部分集中在直轄市，占全國總人口的 69.77%。用內政部 115 年 10 月底的數字，本頁算出來是 69.92%。"
+       },
+       {
+        "k": "2026 · Ministry of the Interior · 內政部",
+        "en": "8,900 and 59",
+        "zh": "8,900 和 59",
+        "body_en": "At the end of October 2026, Taipei City had about 8,900 people per square kilometer, the most crowded in Taiwan. Taitung County had about 59 and Hualien County about 67, the least crowded.",
+        "body_zh": "民國 115 年 10 月底，臺北市每平方公里大約 8,900 人，是全國最擁擠的；臺東縣大約 59 人、花蓮縣大約 67 人，是最空曠的。"
+       },
+       {
+        "k": "Taiwan High Speed Rail · 台灣高鐵",
+        "en": "350 kilometers along the west",
+        "zh": "沿著西部的 350 公里",
+        "body_en": "The high-speed rail runs from Nangang in the north to Zuoying in the south. Its line is 350 kilometers long and passes through 11 counties and cities in the west, the same line of plains and basins where most people live.",
+        "body_zh": "高鐵從北端的南港到南端的左營，路線全長 350 公里，經過西部 11 個縣市，就是大多數人住的那一串平原和盆地。"
+       },
+       {
+        "k": "2025 · European Commission JRC · 歐盟聯合研究中心",
+        "en": "Two ways to count",
+        "zh": "兩種數法",
+        "body_en": "The household registration counts the people registered in each place. The population grid on this page is a different kind of number: an estimate, for every square kilometer of the world, of where people live. The two do not match exactly, but they tell the same story.",
+        "body_zh": "戶籍資料數的是登記在每個地方的人；本頁的人口格網是另一種數字：替全世界每一平方公里估計住了多少人。兩者不會完全一樣，但說的是同一個故事。"
+       }
+      ]
+     },
+     "curric": {
+      "eyebrow": "In the Curriculum · 對應課綱",
+      "en": "Where this lesson fits",
+      "zh": "這一課對應的課綱",
+      "lead_en": "These entries come from Taiwan's 12-Year Basic Education curriculum (2018). Junior high geography names this lesson's topic directly: the growth and distribution of Taiwan's population.",
+      "lead_zh": "下面的條目出自十二年國民基本教育課程綱要（民國 107 年發布）。國中地理直接寫出了本課的主題：臺灣的人口成長與分布。",
+      "items": [
+       {
+        "code": "地 Ad-Ⅳ-1",
+        "area": "社會領域・地理（國中）",
+        "area_en": "Social studies, geography (junior high)",
+        "text": "臺灣的人口成長與分布。",
+        "note_en": "The 3D model and the 100 people show where Taiwan's people live.",
+        "note_zh": "3D 模型和一百個人，看台灣的人住在哪裡。"
+       },
+       {
+        "code": "地 Af-Ⅳ-1",
+        "area": "社會領域・地理（國中）",
+        "area_en": "Social studies, geography (junior high)",
+        "text": "聚落體系與交通網絡。",
+        "note_en": "The cities and the high-speed rail line up along the western plains.",
+        "note_zh": "城市和高鐵沿著西部的平原排列。"
+       },
+       {
+        "code": "地 Af-Ⅳ-2",
+        "area": "社會領域・地理（國中）",
+        "area_en": "Social studies, geography (junior high)",
+        "text": "都市發展與都市化。",
+        "note_en": "Seven in ten people live in the six special municipalities.",
+        "note_zh": "十個人裡有七個住在六個直轄市。"
+       },
+       {
+        "code": "社 Ca-Ⅱ-2",
+        "area": "社會領域（國小三、四年級）",
+        "area_en": "Social studies (grades 3–4)",
+        "text": "人口分布與自然、人文環境的變遷相互影響。",
+        "note_en": "The game asks why people live on some land and not on other land.",
+        "note_zh": "小遊戲問：為什麼人住在某些地方，不住在別的地方。"
+       }
+      ]
+     },
+     "sources": [
+      {
+       "en": "Population at the end of October 2026: 23,204,000; density 641.04 per km²; county figures (New Taipei 4,033,118; Taipei City 2,418,066 and 8,896.5 per km²; Taitung County 58.98 and Hualien County 67.07 per km²; Yilan, Hualien, and Taitung areas and populations).",
+       "zh": "〈戶數、人口數、性別比例及人口密度統計表〉中華民國 115 年 10 月底",
+       "src": "內政部戶政司，人口統計資料",
+       "url": "https://www.ris.gov.tw/app/portal/346"
+      },
+      {
+       "en": "「113年我國的總人口數為2,340萬220人……我國人口大部分集中在直轄市，占全國總人口之69.77％」.",
+       "zh": "人口集中在直轄市（民國 113 年）",
+       "src": "行政院，《國情簡介》〈人民〉",
+       "url": "https://www.ey.gov.tw/state/ADBB3558D57E105B"
+      },
+      {
+       "en": "「高鐵營運路線總長350 公里，沿線經過西部11 縣市與76 個鄉鎮市區」.",
+       "zh": "高鐵路線",
+       "src": "台灣高速鐵路股份有限公司",
+       "url": "https://www.thsrc.com.tw/corp/2ddb06c3-c9d5-4b6f-a580-40f887b1a01f"
+      },
+      {
+       "en": "「高鐵路線由北端臺北南港站至南端高雄左營站，至113年共計350公里」.",
+       "zh": "高鐵的起訖站",
+       "src": "行政院，《國情簡介》〈交通運輸〉",
+       "url": "https://www.ey.gov.tw/state/BBEAC1D996107218"
+      },
+      {
+       "en": "GHS-POP R2023A: “the distribution of residential population, expressed as the number of people per cell”; projection for 2025. Schiavina M., Freire S., Carioli A., MacManus K. (2023), European Commission, Joint Research Centre. CC BY 4.0. This page adds it up into Taiwan's 1-kilometer squares.",
+       "zh": "人口格網（GHS-POP 2025）的說明、出處與授權",
+       "src": "European Commission, Joint Research Centre, GHSL, “GHS-POP R2023A”",
+       "url": "https://human-settlement.emergency.copernicus.eu/ghs_pop2023.php"
+      },
+      {
+       "en": "Height data: 2026 20-meter digital terrain model of Taiwan, Ministry of the Interior, Open Government Data License, version 1.0; the height bands and kinds of land are computed from it by this page.",
+       "zh": "高程資料（顯名聲明見 3D 模型下方）",
+       "src": "內政部地政司，政府資料開放平臺",
+       "url": "https://data.gov.tw/dataset/178729"
+      },
+      {
+       "en": "City positions: Natural Earth 1:10m Populated Places, public domain.",
+       "zh": "城市位置",
+       "src": "Natural Earth",
+       "url": "https://www.naturalearthdata.com/downloads/10m-cultural-vectors/10m-populated-places/"
+      },
+      {
+       "en": "Chinese terms: 人口密度 (population density), 人口分布 (population distribution), 都市化 (urbanization), 都會區 (metropolitan area), 聚落 (settlement).",
+       "zh": "名詞",
+       "src": "國家教育研究院，樂詞網",
+       "url": "https://terms.naer.edu.tw/"
+      },
+      {
+       "en": "地 Ad-Ⅳ-1、地 Af-Ⅳ-1、地 Af-Ⅳ-2；社 Ca-Ⅱ-2.",
+       "zh": "社會領域課程綱要",
+       "src": "國家教育研究院，《十二年國民基本教育課程綱要》社會領域（民國 107 年）",
+       "url": "https://www.naer.edu.tw/PageSyllabus?fid=52"
+      }
+     ]
     }
    ],
    "planned": [
-    {
-     "n": 11,
-     "icon": "🚉",
-     "en": "Where Do Taiwan's People Live?",
-     "zh": "台灣的人住在哪裡？"
-    },
     {
      "n": 12,
      "icon": "🌾",

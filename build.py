@@ -17921,7 +17921,7 @@ def build_mus_hub():
 _geoj = os.path.join(ROOT, "data", "geography.json")
 GEO = json.load(open(_geoj, encoding="utf-8")) if os.path.exists(_geoj) else None
 GEO_BASE = "/resources/classes/geography/"
-_GEO_JS = {"flatmap": "geo-flatmap", "latlon": "geo-latlon", "contour": "geo-contour", "mapview": "geo-mapview", "timezone": "geo-timezone", "continents": "geo-continents", "sunbeam": "geo-sunbeam", "people": "geo-people", "taiwan": "geo-taiwan", "rain": "geo-rain"}   # lab.kind → assets/js/<bundle>.js
+_GEO_JS = {"flatmap": "geo-flatmap", "latlon": "geo-latlon", "contour": "geo-contour", "mapview": "geo-mapview", "timezone": "geo-timezone", "continents": "geo-continents", "sunbeam": "geo-sunbeam", "people": "geo-people", "taiwan": "geo-taiwan", "rain": "geo-rain", "twpeople": "geo-twpeople"}   # lab.kind → assets/js/<bundle>.js
 
 def _geo_ver():
     h = hashlib.md5()
@@ -18064,7 +18064,18 @@ def georain_svg(size=56):
             '<g stroke="#bfe6ff" stroke-width="1.6" stroke-linecap="round"><path d="M27 19l-1.5 4M34 19l-1.5 4M41 19l-1.5 4"/></g>'
             '<path d="M4 52 H56" stroke="#3f8fe0" stroke-width="3" stroke-linecap="round"/></svg>')
 
-_GEO_CARD = {"flatmap": geoflat_svg, "latlon": geolatlon_svg, "contour": geocontour_svg, "mapview": geomapview_svg, "timezone": geotime_svg, "continents": geocont_svg, "sunbeam": geosun_svg, "people": geopop_svg, "taiwan": geotw_svg, "rain": georain_svg}
+def geotp_svg(size=56):
+    """第十一課的課程卡小圖示：斜看的台灣地形，西邊的低地上立著高高低低的人口柱子，山上幾乎沒有。"""
+    return (f'<svg class="geotp-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">'
+            '<rect x="2" y="2" width="56" height="56" rx="12" fill="#14345f"/>'
+            '<path d="M6 50 L22 44 L32 26 L36 18 L40 26 L46 44 L54 50 Z" fill="#8a6a48"/>'
+            '<path d="M6 50 L22 44 L28 36 L30 42 L22 50 Z" fill="#6f9b5e"/>'
+            '<g fill="#7fd18b"><rect x="9" y="30" width="4" height="18" rx="1"/><rect x="15" y="36" width="4" height="11" rx="1"/><rect x="21" y="40" width="4" height="7" rx="1"/></g>'
+            '<rect x="27" y="40" width="3" height="3" rx="1" fill="#e0c36a"/>'
+            '<rect x="45" y="42" width="3" height="5" rx="1" fill="#7fd18b"/>'
+            '<path d="M4 52 H56" stroke="#3f8fe0" stroke-width="3" stroke-linecap="round"/></svg>')
+
+_GEO_CARD = {"flatmap": geoflat_svg, "latlon": geolatlon_svg, "contour": geocontour_svg, "mapview": geomapview_svg, "timezone": geotime_svg, "continents": geocont_svg, "sunbeam": geosun_svg, "people": geopop_svg, "taiwan": geotw_svg, "rain": georain_svg, "twpeople": geotp_svg}
 _GEO_PROP_K = [("shape", "Shape", "形狀"), ("area", "Area", "面積"), ("distance", "Distance", "距離"), ("direction", "Direction", "方向")]
 
 def render_geoflat_lab(lesson):
@@ -18510,7 +18521,38 @@ def render_georain_lab(lesson):
   <p class="gg-credit">{lab["credit_html"]}</p>
 </div>'''
 
-_GEO_LAB = {"flatmap": render_geoflat_lab, "latlon": render_geolatlon_lab, "contour": render_geocontour_lab, "mapview": render_geomapview_lab, "timezone": render_geotime_lab, "continents": render_geocont_lab, "sunbeam": render_geosun_lab, "people": render_geopop_lab, "taiwan": render_geotw_lab, "rain": render_georain_lab}
+def render_geotp_lab(lesson):
+    """第十一課：立體的台灣＋人口柱子（assets/js/geo-twpeople.js；人口格網 twpop.js、海拔帶與比例由頁面算，不畫縣市界）。"""
+    lab = lesson["lab"]
+    views = "".join(f'<button type="button" data-view="{k}"><b>{en}</b><small>{zh}</small></button>' for k, en, zh in (("south", "From the south", "從南邊看"), ("west", "From the west", "從西邊看"), ("east", "From the east", "從東邊看"), ("top", "From above", "從正上方看")))
+    bands = "".join(f'<button type="button" data-band="{k}" aria-pressed="{"true" if not k else "false"}"><b>{en}</b><small>{zh}</small></button>'
+                    for k, en, zh in (("", "All", "全部"), ("low", "Below 100 m", "100 公尺以下"), ("mid", "100–1,000 m", "100～1,000 公尺"), ("high", "1,000 m and up", "1,000 公尺以上")))
+    tg = _lab_toggles([("columns", "Columns", "柱子", True), ("labels", "Labels", "標示", True), ("sea", "Sea", "海面", True)])
+    return f'''<div class="astro-lab gg-lab gg-tp-lab rvl" data-geotp-lab>
+  <div class="al-stage">
+    <div class="al-space">
+      <canvas class="al-space-cv" aria-label="3D model of Taiwan's main island with columns standing on it. Each column shows how many people live on a 3-by-3-kilometer square: very tall columns crowd the low land in the north and down the west side, and the high mountains in the middle and east have almost none. Colors show whether the land is below 100 meters, 100 to 1,000 meters, or higher. City names are labeled; no administrative borders are drawn. · 立體的台灣本島上立著一根根柱子，每一根代表 3 × 3 公里的土地上住了多少人：很高的柱子擠在北部和西部的低地，中間和東邊的高山幾乎沒有。顏色代表那塊地在 100 公尺以下、100 到 1,000 公尺，或更高。標出城市名，不畫縣市界。"></canvas>
+      <div class="al-labels" aria-hidden="true"></div>
+      <p class="al-hint">Tap the land to count the people nearby · 點地形數附近的人　Drag to turn · 拖曳轉動</p>
+      <button type="button" class="al-home" title="Reset view · 重設視角" aria-label="Reset view · 重設視角">&#8634;</button>
+      <p class="al-nogl-msg">This 3D model needs WebGL, which this browser does not support. The two activities below still work: they count where Taiwan's people live and ask where a city would grow.<br><span class="zh">這個瀏覽器不支援 WebGL，無法顯示 3D 模型；下面兩個活動照樣能用：數一數台灣的人住在哪裡，以及想想城市會長在哪裡。</span></p>
+    </div>
+    <aside class="al-sky gg-aside">
+      <p class="al-sky-k">Height bands · 海拔帶</p>
+      <div class="gg-ct-ints gg-tp-bands" role="group" aria-label="Height bands · 海拔帶">{bands}</div>
+      <div class="gg-tp-out" aria-live="polite"></div>
+      <p class="gg-rn-note">{html.escape(lab["note_en"])}<span class="zh">{html.escape(lab["note_zh"])}</span></p>
+    </aside>
+  </div>
+  <div class="al-controls">
+    <div class="al-row gg-ct-ints gg-tw3-views" role="group" aria-label="Viewpoint · 視角">{views}</div>
+    <div class="al-row al-toggles">{tg}</div>
+  </div>
+  {_lab_foot(lab)}
+  <p class="gg-credit">{lab["credit_html"]}</p>
+</div>'''
+
+_GEO_LAB = {"flatmap": render_geoflat_lab, "latlon": render_geolatlon_lab, "contour": render_geocontour_lab, "mapview": render_geomapview_lab, "timezone": render_geotime_lab, "continents": render_geocont_lab, "sunbeam": render_geosun_lab, "people": render_geopop_lab, "taiwan": render_geotw_lab, "rain": render_georain_lab, "twpeople": render_geotp_lab}
 
 def _gg_drag(d):
     picks = "".join(
@@ -18833,6 +18875,43 @@ def _gg_hundred(d):
   <p class="gg-hd-out" aria-live="polite"></p>
 </div>'''
 
+def _gg_twhundred(d):
+    """「一百個台灣人住在哪裡？」：依海拔帶或依地形排 100 個小人，並比較占幾成土地（twhundred2d.js；由人口格網與 DTM 算，版面共用第八課的 gg-hd-）。"""
+    payload = json.dumps({k: d[k] for k in ("src_en", "src_zh", "hint_en", "hint_zh")}, ensure_ascii=False).replace("</", "<\\/")
+    sets = "".join(f'<button type="button" data-hset="{k}" aria-pressed="{"true" if k == "bands" else "false"}"><b>{en}</b><small>{zh}</small></button>'
+                   for k, en, zh in (("bands", "By height", "依海拔"), ("forms", "By kind of land", "依地形")))
+    return f'''<div class="gg-drag gg-hundred rvl" data-gg-twhundred>
+  <script type="application/json">{payload}</script>
+  <div class="gg-ct-ints gg-hd-sets" role="group" aria-label="Group the 100 people · 怎麼分這一百個人">{sets}</div>
+  <div class="gg-hd-grid">
+    <div class="gg-hd-people" role="img" aria-label="100 small figures, colored by the kind of land they live on · 100 個小人，依住的地方上色"></div>
+    <div class="gg-hd-keys"></div>
+  </div>
+  <p class="gg-hd-out" aria-live="polite"></p>
+</div>'''
+
+def _gg_city(d):
+    """「這裡適合蓋城市嗎？」：紅點＋由地形算出的條件卡，推理人多、普通還是很少（city2d.js；答案由 test/twpop.test.mjs 用 near()＋verdict() 驗算）。"""
+    payload = json.dumps({k: d[k] for k in ("questions", "year", "hint_en", "hint_zh", "start_en", "start_zh", "end_en", "end_zh")}, ensure_ascii=False).replace("</", "<\\/")
+    n = len(d["questions"])
+    return f'''<div class="gg-fit gg-city rvl" data-gg-city>
+  <script type="application/json">{payload}</script>
+  <div class="gg-ft-top"><p class="gg-ft-k">Question 1 of {n} · 第 1 題（共 {n} 題）</p><p class="gg-ft-sc">Right on the first try · 第一次就答對 <b class="gg-ft-score">0 / 0</b></p></div>
+  <div class="gg-ft-steps" aria-hidden="true"></div>
+  <div class="gg-dp-wrap">
+    <canvas class="gg-dp-map" aria-label="Map of Taiwan's main island colored by height, with a red dot · 依高度上色的台灣本島地圖，上面有一個紅點"></canvas>
+    <div>
+      <p class="gg-fm-name gg-dp-name"></p>
+      <ul class="gg-wh-chips gg-cy-chips"></ul>
+      <p class="gg-wh-data" hidden></p>
+      <p class="gg-ft-q">How many people live around the red dot?<span class="zh">紅點附近住的人多不多？</span></p>
+      <div class="gg-ck-opts gg-cy-opts"></div>
+      <p class="gg-ft-msg" aria-live="polite"></p>
+      <div class="gg-ft-foot"><button type="button" class="gg-btn gg-btn-gold gg-ft-next" hidden>Next question · 下一題</button></div>
+    </div>
+  </div>
+</div>'''
+
 def _gg_cut(d):
     """「切一刀」：台灣地形小地圖＋東西向剖面，東邊陡、西邊緩（cut2d.js；數字由 taiwan.js 用 DTM 算，test/taiwan.test.mjs 有測試）。"""
     payload = json.dumps({"lines": d["lines"]}, ensure_ascii=False).replace("</", "<\\/")
@@ -18912,7 +18991,7 @@ def _gg_drop(d):
   </div>
 </div>'''
 
-_GEO_WIDGETS = [("drag", _gg_drag), ("fit", _gg_fit), ("find", _gg_find), ("degree", _gg_degree), ("steep", _gg_steep), ("profile", _gg_profile), ("measure", _gg_measure), ("legend", _gg_legend), ("clock", _gg_clock), ("call", _gg_call), ("bars", _gg_bars), ("count", _gg_count), ("torch", _gg_torch), ("sunq", _gg_sunq), ("why", _gg_why), ("hundred", _gg_hundred), ("cut", _gg_cut), ("form", _gg_form), ("rainbars", _gg_rainbars), ("drop", _gg_drop), ("map_english", _gg_map_english)]
+_GEO_WIDGETS = [("drag", _gg_drag), ("fit", _gg_fit), ("find", _gg_find), ("degree", _gg_degree), ("steep", _gg_steep), ("profile", _gg_profile), ("measure", _gg_measure), ("legend", _gg_legend), ("clock", _gg_clock), ("call", _gg_call), ("bars", _gg_bars), ("count", _gg_count), ("torch", _gg_torch), ("sunq", _gg_sunq), ("why", _gg_why), ("hundred", _gg_hundred), ("cut", _gg_cut), ("form", _gg_form), ("rainbars", _gg_rainbars), ("drop", _gg_drop), ("twhundred", _gg_twhundred), ("city", _gg_city), ("map_english", _gg_map_english)]
 
 def _geo_flat():
     return [(ui, u, l) for ui, u in enumerate(GEO["units"]) for l in u["lessons"]]

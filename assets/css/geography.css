@@ -650,3 +650,18 @@ a.gg-link:hover { transform: translateY(-3px); box-shadow: var(--shadow); border
 .gg-dp-map { display: block; width: 190px; height: 360px; border-radius: 12px; }
 .gg-ck-opts.gg-dp-opts { grid-template-columns: 1fr 1fr; }
 @media (max-width: 620px) { .gg-dp-wrap { grid-template-columns: 110px minmax(0, 1fr); gap: .6rem; } .gg-dp-map { width: 110px; height: 210px; } .gg-ck-opts.gg-dp-opts { grid-template-columns: 1fr; } }
+
+/* ── 第十一課：台灣的人住在哪裡（geo-twpeople.js、twhundred2d.js、city2d.js；前綴 gg-tp- / gg-cy-；一百個人共用第八課的 gg-hd-） ── */
+.gg-ct-ints.gg-tp-bands { grid-template-columns: 1fr 1fr; margin-bottom: .6rem; }
+.gg-tp-out { min-height: 10em; }
+.gg-tp-out .gg-sb-nums dd small { font-family: var(--sans); font-size: .7rem; color: var(--al-mute); }
+.gg-tp-band { margin: 0 0 .3rem; padding-left: .55rem; border-left: 5px solid var(--c); font-size: .84rem; color: #fff; }
+.gg-tp-band .zh { margin-left: .4rem; font-family: var(--zh); font-weight: 600; color: var(--al-mute); }
+.al-lg-low i { border: 0; background: #7fd18b; width: 9px; height: 14px; border-radius: 2px; }
+.al-lg-mid i { border: 0; background: #e0c36a; width: 9px; height: 14px; border-radius: 2px; }
+.al-lg-high i { border: 0; background: #b59cff; width: 9px; height: 14px; border-radius: 2px; }
+.gg-wh-chips.gg-cy-chips { margin: .4rem 0 .2rem; grid-template-columns: 1fr; }
+.gg-wh-chips li.is-mid { border-color: rgba(224,195,106,.5); }
+.gg-ck-opts.gg-cy-opts { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.gg-cy-opts .gg-ft-lab small { display: block; margin-top: .25rem; font-size: .66rem; font-weight: 400; color: #9fb0cf; line-height: 1.3; }
+@media (max-width: 620px) { .gg-ck-opts.gg-cy-opts { grid-template-columns: 1fr; } .gg-ct-ints.gg-tp-bands { grid-template-columns: 1fr 1fr; } }
