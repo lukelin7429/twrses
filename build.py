@@ -19332,7 +19332,16 @@ def whcastle_svg(size=56):
             '<rect x="41" y="12" width="2.5" height="4" fill="#b8af9b"/><rect x="45" y="12" width="2.5" height="4" fill="#b8af9b"/><rect x="48.5" y="12" width="2.5" height="4" fill="#b8af9b"/>'
             '<path d="M25 44v-9a5 5 0 0 1 10 0v9z" fill="#6e4426"/><rect x="27" y="44" width="6" height="8" fill="#8a5a32"/><path d="M30 6v10" stroke="#7d4b3a" stroke-width="1.2"/><path d="M30 6l7 2.5-7 2.5z" fill="#d24f4f"/></svg>')
 
-_WH_CARD = {"spread": whspread_svg, "farm": whfarm_svg, "tablet": whtablet_svg, "pyramid": whpyramid_svg, "assembly": whassembly_svg, "arch": wharch_svg, "coins": whcoins_svg, "dharma": whdharma_svg, "silk": whsilk_svg, "faith": whfaith_svg, "books": whbooks_svg, "castle": whcastle_svg}
+def whgoldsalt_svg(size=56):
+    """第十三課的課程卡小圖示：非洲的輪廓，一塊金色的金塊、一塊白色的鹽板，中間一條商隊的虛線。"""
+    return (f'<svg class="whgoldsalt-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">'
+            '<rect x="0" y="0" width="60" height="60" rx="10" fill="#0f2a4a"/><circle cx="30" cy="31" r="22" fill="#16406f"/>'
+            '<path d="M18 16c6-3 16-3 22 0 4 2 7 6 7 10-3 1-5 3-5 6 0 6-4 12-9 18-2-5-4-10-4-15-4-1-9-3-12-7-2-4-2-9 1-12z" fill="#d9b36b"/>'
+            '<path d="M24 22c3 4 6 8 8 14" fill="none" stroke="#fff3c4" stroke-width="1.6" stroke-dasharray="2.6 2.2" stroke-linecap="round"/>'
+            '<rect x="20" y="17" width="8" height="5" rx="1" fill="#ffffff" stroke="#c9c1b0" stroke-width=".6"/>'
+            '<path d="M29 36l3-2 4 1 1 3-3 2-4-1z" fill="#ffd36e" stroke="#b8902e" stroke-width=".6"/></svg>')
+
+_WH_CARD = {"spread": whspread_svg, "farm": whfarm_svg, "tablet": whtablet_svg, "pyramid": whpyramid_svg, "assembly": whassembly_svg, "arch": wharch_svg, "coins": whcoins_svg, "dharma": whdharma_svg, "silk": whsilk_svg, "faith": whfaith_svg, "books": whbooks_svg, "castle": whcastle_svg, "goldsalt": whgoldsalt_svg}
 
 def render_whspread_lab(lesson):
     """第一課：歷史地球儀（assets/js/wh-spread.js 綁這裡的 class）。只畫陸地、海洋與路線；不畫國界、不標國名。"""
@@ -19690,7 +19699,7 @@ def render_whdharma_lab(lesson):
 def render_whsilk_lab(lesson):
     """第九課：絲路的歷史地球儀（assets/js/wh-silk.js 綁這裡的 class）。陸路和海路連成一張網；「跟著一件東西走」看它一站一站換手。"""
     lab = lesson["lab"]
-    payload = _wh_json({k: lab[k] for k in ("from", "to", "start", "routes", "cities", "goods", "demos")})
+    payload = _wh_json({k: lab[k] for k in ("from", "to", "start", "routes", "cities", "goods", "demos", "home") if k in lab})
     def yr(y):
         return (f"{-y} BCE", f"西元前 {-y} 年") if y < 0 else (f"{y} CE", f"西元 {y} 年")
     PORT = ' class="wh-sk-port"'
@@ -19704,7 +19713,7 @@ def render_whsilk_lab(lesson):
   <script type="application/json">{payload}</script>
   <div class="al-stage">
     <div class="al-space">
-      <canvas class="al-space-cv" aria-label="3D globe showing, in rough outline, the overland and sea routes that linked Asia, Africa, and Europe, and the cities along them; only land, sea, and routes are drawn, with no borders · 3D 地球儀，大略畫出連起亞洲、非洲和歐洲的陸路與海路，以及路上的城市；只畫陸地、海洋與路線，沒有國界"></canvas>
+      <canvas class="al-space-cv" aria-label="{html.escape(lab.get("aria", "3D globe showing, in rough outline, the overland and sea routes that linked Asia, Africa, and Europe, and the cities along them; only land, sea, and routes are drawn, with no borders · 3D 地球儀，大略畫出連起亞洲、非洲和歐洲的陸路與海路，以及路上的城市；只畫陸地、海洋與路線，沒有國界"))}"></canvas>
       <div class="al-labels" aria-hidden="true"></div>
       <p class="al-hint">Drag to turn · 拖曳轉動　Scroll or pinch to zoom · 滾輪／雙指縮放　Click a dot · 點圓點</p>
       <button type="button" class="al-home" title="Reset view · 重設視角" aria-label="Reset view · 重設視角">&#8634;</button>
@@ -20019,7 +20028,7 @@ def _wh_ostraka(d):
 </div>'''
 
 _WH_WIDGETS = [("order", _wh_order), ("sort", _wh_sort), ("centers", _wh_centers), ("match", _wh_sort), ("gains", _wh_sort), ("signs", _wh_sort), ("needs", _wh_sort),
-               ("whovotes", _wh_sort), ("ostraka", _wh_ostraka), ("empire", _wh_centers), ("borrowed", _wh_sort), ("conquest", _wh_centers), ("qinhan", _wh_sort), ("terms", _wh_match), ("legend", _wh_sort), ("eastwest", _wh_sort), ("when", _wh_order), ("built", _wh_sort)]
+               ("whovotes", _wh_sort), ("ostraka", _wh_ostraka), ("empire", _wh_centers), ("borrowed", _wh_sort), ("conquest", _wh_centers), ("qinhan", _wh_sort), ("terms", _wh_match), ("legend", _wh_sort), ("eastwest", _wh_sort), ("when", _wh_order), ("built", _wh_sort), ("northsouth", _wh_sort)]
 # 每課固定的卡（照這個順序排在小互動後面）
 _WH_FIXED = [("timeline", _wh_timeline), ("how_we_know", _wh_how_we_know), ("views", _wh_views),
              ("phrases", _wh_phrases), ("taiwan_then", _wh_taiwan_then)]

@@ -66,6 +66,6 @@ for (const p of L.paras) assert.ok(!/Dark Ages|barbaric|primitive/i.test(p), p.s
 }
 const L11 = data.units[2].lessons.find((l) => l.n === 11);
 assert.ok(L11.links.some((x) => x.href === '/resources/classes/world-history/castle-life/'));
-assert.ok(L.links[0].soon && /Gold and Salt/.test(L.links[0].en));
+assert.equal(L.links[0].href, '/resources/classes/world-history/gold-and-salt/');
 assert.equal(data.units[2].planned.length, 0);
 console.log(`castlelife.test.mjs ok (${L.lab.stages.length} stages, ${L.lab.parts.length} parts, ${L.built.items.length} cards, ${L.terms.items.length} words)`);

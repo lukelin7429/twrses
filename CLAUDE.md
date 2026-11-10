@@ -1388,6 +1388,10 @@
   - **教訓**：大辛巴威的石牆，大都會博物館說學者懷疑有軍事用途——不要把它和城堡一起叫「堡壘」；比較時寫「大型石造建築」。
   - 「泥土木頭，還是石頭？」（`built`，`sort2d.js`，已登記在 `_WH_WIDGETS`）；「這個字從哪裡來？」（`terms`，`match2d.js` 的 `orig`＋`lang`）。
   - 除錯：`[data-wh-castle-lab].__lab`（`stage(key)`、`select(part)`、`play()`、`demo('motte'|'keep'|'gate'|'concentric')`、`info()`、`render()`）。
+- 第十三課〈黃金和鹽怎麼在非洲建起王國？〉（**沿用第九課的 `wh-silk.js`，`lab.kind = "silk"`**，`data-wh-silk-lab`，slug `gold-and-salt`，單元四第一課，`data.units[3]`）：一個想法——西非的黃金和撒哈拉的鹽靠駱駝商隊連起來，迦納、馬利、桑海控制、抽稅這門貿易而富強；東海岸的斯瓦希里城邦靠印度洋貿易興起。
+  - `wh-silk.js` 為這一課加了：`lab.home`（鏡頭一開始看哪裡，沒有就是第九課的亞洲）、`lab.aria`（canvas 的說明文字）、`good.same: true`＋`same_en/zh`（朝覲、旅人一路同一批人，`handoffs` 回 0，卡片寫 same_en）；只換一次手時寫「once」；bundle 多打包 `match2d.js`。資料測試 `test/goldsalt.test.mjs`（`silk.test.mjs` 也加了 same 的測試）。
+  - **教訓**：曼薩・穆薩的朝覲路線照 Britannica 是尼亞尼 → 瓦拉塔 → 圖瓦特 → 開羅（加奧是回程）；伊本・巴杜達 1929 年的 Gibb 英譯本有過時的種族用詞，只轉述、不引用。
+  - 「往北還是往南？」（`northsouth`，`sort2d.js`，已登記在 `_WH_WIDGETS`）；「這個字從哪裡來？」（`terms`）。
 
 ## 美國政治 How America Governs Itself（/resources/classes/us-government/）— 架構照地理與書法；**程度是高中到大學**，每課多五張固定的卡
 

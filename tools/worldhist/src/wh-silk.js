@@ -22,17 +22,19 @@ import { goodPath, tokenAt, handoffs } from './silk.js';
 import './timeline2d.js';
 import './sort2d.js';
 import './order2d.js';
+import './match2d.js';   // 第十三課的字源配對
 
 const ROUTE_STYLE = {
   land: { color: '#ffd36e', dash: false, width: 0.0085 },
   sea: { color: '#7fe3ff', dash: false, width: 0.0085 },
   good: { color: '#ff8fd8', sea: '#ff8fd8', dash: false, width: 0.0125 },
 };
-const HOME = { at: [75, 30], dist: 3.6 };
+const HOME0 = { at: [75, 30], dist: 3.6 };   // 第十三課起可以用 lab.home 換掉（非洲的課看非洲）
 const LEG_SEC = 2.4;
 
 function init(root) {
   const data = readJson(root);
+  const HOME = data.home || HOME0;
   const $ = (s) => root.querySelector(s);
   const cv = $('.al-space-cv'), space = $('.al-space'), slider = $('.wh-time'), playBtn = $('.al-play');
   const state = { year: data.start ?? data.from, playing: false, site: null, good: null, t: 0, walking: false };
@@ -199,7 +201,7 @@ function init(root) {
     return `<p class="wh-site-k">${bi('Follow one thing', '跟著一件東西走')} · ${bi(`around ${f.en}`, `大約${f.zh}`)}</p>`
       + `<h3><span aria-hidden="true">${g.icon}</span> ${bi(g.en, g.zh)}</h3>`
       + `<ol class="wh-sk-legs">${legs}</ol>`
-      + `<p class="wh-sk-hands">${n ? bi(`Changed hands about ${n} times on the way`, `一路上大約換了 ${n} 次手`) : bi('Carried the whole way by the same group, which was unusual', '一路由同一批人帶，這很少見')}</p>`
+      + `<p class="wh-sk-hands">${n ? bi(n === 1 ? 'Changed hands once on the way' : `Changed hands about ${n} times on the way`, n === 1 ? '一路上換了一次手' : `一路上大約換了 ${n} 次手`) : (g.same_en ? bi(g.same_en, g.same_zh) : bi('Carried the whole way by the same group, which was unusual', '一路由同一批人帶，這很少見'))}</p>`
       + `<p class="wh-sk-note">${bi(g.note_en, g.note_zh)}</p>`
       + (g.url ? `<a class="wh-py-src" href="${esc(g.url)}" target="_blank" rel="noopener">${esc(g.src)} &#8599;</a>` : '')
       + `<button type="button" class="wh-btn wh-sk-again" data-act="again">${bi('Watch again', '再看一次')}</button>`;

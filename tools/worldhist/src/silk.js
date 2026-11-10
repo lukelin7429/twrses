@@ -5,7 +5,7 @@
  *   goodPath(good, cities)      一件東西的旅程：每一站的經緯度
  *   legLengths(path)            每一段的長度（弧度），和全長
  *   tokenAt(path, t)            旅程進行到 t（0–1）時，小亮點在哪裡，以及在第幾段 { at, leg }
- *   handoffs(good)              換了幾次手（段數 − 1：每一段換一批人帶）
+ *   handoffs(good)              換了幾次手（段數 − 1：每一段換一批人帶；good.same 為 true 時是 0）
  *   checkGood(good, cities)     每一站都在城市清單裡、每一段都寫了誰帶、旅程的年代時這些城市都已經在網路上；錯了回傳字串
  */
 import { angle } from './sphere.js';
@@ -44,7 +44,8 @@ export function tokenAt(path, t) {
   return { at: slerp(path[leg], path[leg + 1], x - leg), leg };
 }
 
-export const handoffs = (good) => Math.max(0, good.legs.length - 1);
+// same: true（第十三課的朝覲、旅人）：一路由同一批人走，不算換手
+export const handoffs = (good) => (good.same ? 0 : Math.max(0, good.legs.length - 1));
 
 export function checkGood(good, cities) {
   const by = Object.fromEntries(cities.map((c) => [c.key, c]));

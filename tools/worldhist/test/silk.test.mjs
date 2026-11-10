@@ -39,4 +39,7 @@ assert.match(checkGood({ ...silk, year: 700 }, cities), /baghdad joins in 762/);
 assert.match(checkGood({ ...silk, legs: [{}, {}] }, cities), /legs 2/);
 assert.match(checkGood({ ...silk, stops: ['changan', 'rome'], legs: [{}] }, cities), /unknown stop rome/);
 assert.match(checkGood({ ...silk, stops: ['changan'], legs: [] }, cities), /two stops/);
+// same: true（朝覲、旅人）不算換手
+assert.equal(handoffs({ legs: [1, 2, 3], same: true }), 0);
+assert.equal(handoffs({ legs: [1, 2, 3] }), 2);
 console.log('silk.test.mjs ok');
