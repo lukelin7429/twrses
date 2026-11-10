@@ -1,7 +1,7 @@
 /*
  * 世界歷史 第八課 ·「同一個詞，三種語言」（不需要 WebGL）。
  *
- *   <div class="wh-match" data-wh-match><script type="application/json">{ items: [{ zh, pali, skt, en, note_en, note_zh }], end_en, end_zh }</script>…</div>
+ *   <div class="wh-match" data-wh-match><script type="application/json">{ items: [{ zh, pali?, skt?, orig?, lang?, en, note_en, note_zh }], end_en, end_zh }</script>…</div>
  *
  * 一次出一個中文的佛教名詞，從四個選項裡選出它的巴利文／梵文與英文。不計時；可以一直選到對；只記第一次就答對的題數。
  * 選項的順序用固定的種子打亂（matchOptions），每次載入都一樣，方便老師帶全班一起做。
@@ -10,7 +10,8 @@
 import { each, bi, esc, readJson } from './common.js';
 import { matchOptions } from './dharma.js';
 
-const label = (it) => `${it.pali ? `<b>${esc(it.pali)}</b> <small>Pāli</small>` : ''}${it.pali && it.skt ? ' · ' : ''}${it.skt ? `<b>${esc(it.skt)}</b> <small>Skt.</small>` : ''}<span class="wh-ma-en">${esc(it.en)}</span>`;
+// 第十課：沒有巴利文／梵文的詞，用 orig＋lang（例如希臘文、阿拉伯文的轉寫）
+const label = (it) => it.orig ? `<b>${esc(it.orig)}</b> <small>${esc(it.lang)}</small><span class="wh-ma-en">${esc(it.en)}</span>` : `${it.pali ? `<b>${esc(it.pali)}</b> <small>Pāli</small>` : ''}${it.pali && it.skt ? ' · ' : ''}${it.skt ? `<b>${esc(it.skt)}</b> <small>Skt.</small>` : ''}<span class="wh-ma-en">${esc(it.en)}</span>`;
 
 export function initMatch(root) {
   const data = readJson(root), items = data.items, n = items.length;

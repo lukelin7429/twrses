@@ -631,3 +631,26 @@ a.wh-link:hover { transform: translateY(-3px); box-shadow: var(--shadow); border
 .al-lg-wh-good i { border-color: #c45a98; background: #ff8fd8; }
 .wh-sk-good .wh-site-k .zh, .wh-sk-good h3 .zh { margin-left: .35rem; }
 @media (min-width: 900px) { .wh-sk .wh-sk-aside { max-height: 640px; overflow-y: auto; } }
+
+/* ── 第十課：基督宗教與伊斯蘭教傳播的地球儀（wh-faith.js）：兩種顏色、只看一個的篩選、兩個宗教都有的地方 ── */
+.wh-fa-aside .wh-dh-key .wh-fa-k-c::before { background: #cdb0ff; border-radius: 2px; height: .3rem; }
+.wh-fa-aside .wh-dh-key .wh-fa-k-i::before { background: #7fe3a6; border-radius: 2px; height: .3rem; }
+.wh-fa-aside .wh-dh-key .wh-fa-k-sea::before { background: repeating-linear-gradient(90deg, #cfd8e6 0 .22rem, transparent .22rem .36rem); border-radius: 0; height: .2rem; }
+.wh-fa-pips { display: inline-flex; gap: .15rem; margin-right: .35rem; vertical-align: .05rem; }
+.wh-fa-pip { display: inline-block; width: .5rem; height: .5rem; border-radius: 50%; }
+.wh-fa-pip.is-christian { background: #b48ff5; box-shadow: 0 0 0 1px rgba(255,255,255,.5); }
+.wh-fa-pip.is-islam { background: #4fc884; box-shadow: 0 0 0 1px rgba(255,255,255,.5); }
+.wh-fa-faiths button[aria-pressed="true"].is-christian { background: #cdb0ff; border-color: #cdb0ff; color: #1d1040; }
+.wh-fa-faiths button[aria-pressed="true"].is-islam { background: #7fe3a6; border-color: #7fe3a6; color: #0b2a18; }
+.wh-fa-faiths button[aria-pressed="true"].is-christian .zh, .wh-fa-faiths button[aria-pressed="true"].is-islam .zh { color: inherit; opacity: .8; }
+.wh-fa-sites button[hidden] { display: none; }
+.wh-fa .wh-site .wh-fa-part { margin: .55rem 0 .35rem; font-size: .74rem; font-weight: 800; letter-spacing: .03em; display: flex; align-items: center; flex-wrap: wrap; gap: .1rem .35rem; }
+.wh-fa .wh-site .wh-fa-part .wh-fa-pip { margin-right: .1rem; }
+.wh-fa .wh-site .wh-fa-part.is-christian, .wh-fa .wh-site .wh-fa-part.is-christian .zh { color: #5b3a9e; }
+.wh-fa .wh-site .wh-fa-part.is-islam, .wh-fa .wh-site .wh-fa-part.is-islam .zh { color: #1d7046; }
+.wh-fa .wh-site .wh-fa-also { margin: 0 0 .5rem; font-size: .84rem; line-height: 1.5; }
+.wh-fa .wh-site .wh-fa-also .zh { display: block; color: var(--ink-soft); margin-top: .2rem; }
+.al-lab.wh-lab-fa .wh-fa-pips { margin-right: .3rem; }
+.al-lg-wh-christian i { border-color: #8f6fd0; background: #cdb0ff; }
+.al-lg-wh-islam i { border-color: #3c9e68; background: #7fe3a6; }
+@media (min-width: 900px) { .wh-fa .wh-fa-aside { max-height: 640px; overflow-y: auto; } }
