@@ -1378,6 +1378,11 @@
   - **教訓**：科爾多瓦原本標兩個宗教（1236 改主教座堂），但「只看基督宗教」時會像基督宗教 1236 年才到——改成只標伊斯蘭教、1236 寫在小卡。年代亮起來的意思要和篩選一致。
   - 「信徒相信，還是史料顯示？」（`legend`，`sort2d.js`，兩個宗教各 5 題）；「同一個詞，三種語言」（`terms`，`match2d.js`；**新欄位 `orig`＋`lang`**（Greek／Arabic），沒有就照舊用 `pali`／`skt`）。
   - 除錯：`[data-wh-faith-lab].__lab`（`setYear(y)`、`play()`、`filter('all'|'christian'|'islam')`、`select(key)`、`demo('start'|'empire'|'islam'|'trade')`、`info()`、`render()`）。
+- 第十一課〈誰把知識保存下來？〉（`wh-books.js`，`lab.kind = "books"`，`data-wh-books-lab`，slug `keeping-knowledge`，單元三第三課）：一個想法——書要一直有人抄、讀得懂才活得下來；希臘、波斯、印度的書在巴格達譯成敘利亞文和阿拉伯文、被研究改進，再在西班牙和義大利譯成拉丁文；佛經從梵文譯成中文。
+  - 3D 由第九課的 `wh-silk.js` 改出來（資料欄位一樣：`cities`、`routes`、`goods`、`demos`；外層同時有 `wh-sk wh-bk` 兩個 class，沿用第九課的樣式，綠色 #b9f27c 是跟著走的書）。每一本書多 `orig_en/zh`（原文的語言），每一段多 `lang_en/zh`（譯成什麼語言）；卡片上排一條語言的鏈、寫「換了幾次語言」。純函式 `src/books.js`（`langChain`、`translations`、`checkBook`），測試 `test/books.test.mjs`、資料測試 `test/knowledge.test.mjs`（不是每本書都從希臘文開始、課文不出現 Dark Ages）。
+  - **教訓**：Britannica 的「Bayt al-Hikmah」開頭簡介寫「翻譯中心」，正文卻說翻譯不是它主要的工作、希臘著作在別處翻譯——引 Britannica 要讀正文，不要只讀頂端的摘要。
+  - 「這個字從哪裡來？」（`terms`，`match2d.js` 的 `orig`＋`lang`；字源依 Dictionary.com、Britannica）；「哪一件先發生？」（`when`，`order2d.js`）。
+  - 除錯：`[data-wh-books-lab].__lab`（`setYear(y)`、`play()`、`select(key)`、`follow(key)`、`step(秒)`、`demo('start'|'almagest'|'numerals'|'many')`、`info()`、`render()`）。
 
 ## 美國政治 How America Governs Itself（/resources/classes/us-government/）— 架構照地理與書法；**程度是高中到大學**，每課多五張固定的卡
 

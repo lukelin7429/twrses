@@ -19182,7 +19182,7 @@ def build_geo_hub():
 _whj = os.path.join(ROOT, "data", "world_history.json")
 WH = json.load(open(_whj, encoding="utf-8")) if os.path.exists(_whj) else None
 WH_BASE = "/resources/classes/world-history/"
-_WH_JS = {"spread": "wh-spread", "farm": "wh-farm", "tablet": "wh-tablet", "pyramid": "wh-pyramid", "assembly": "wh-assembly", "arch": "wh-arch", "coins": "wh-coins", "dharma": "wh-dharma", "silk": "wh-silk", "faith": "wh-faith"}   # lab.kind → assets/js/<bundle>.js
+_WH_JS = {"spread": "wh-spread", "farm": "wh-farm", "tablet": "wh-tablet", "pyramid": "wh-pyramid", "assembly": "wh-assembly", "arch": "wh-arch", "coins": "wh-coins", "dharma": "wh-dharma", "silk": "wh-silk", "faith": "wh-faith", "books": "wh-books"}   # lab.kind → assets/js/<bundle>.js
 
 def _wh_ver():
     h = hashlib.md5()
@@ -19313,7 +19313,16 @@ def whfaith_svg(size=56):
             '<path d="M33 33c5 2 10 1 16-3" fill="none" stroke="#7fe3a6" stroke-width="2.2" stroke-linecap="round" stroke-dasharray="3 2.4"/>'
             '<circle cx="31" cy="30" r="2.6" fill="#fff"/><circle cx="34" cy="34" r="2.4" fill="#ffd9a3"/><circle cx="14" cy="25" r="1.8" fill="#cdb0ff"/><circle cx="49" cy="30" r="1.8" fill="#7fe3a6"/></svg>')
 
-_WH_CARD = {"spread": whspread_svg, "farm": whfarm_svg, "tablet": whtablet_svg, "pyramid": whpyramid_svg, "assembly": whassembly_svg, "arch": wharch_svg, "coins": whcoins_svg, "dharma": whdharma_svg, "silk": whsilk_svg, "faith": whfaith_svg}
+def whbooks_svg(size=56):
+    """第十一課的課程卡小圖示：一個地球，上面一本打開的書，一條綠色的線從書裡往外走。"""
+    return (f'<svg class="whbooks-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">'
+            '<rect x="0" y="0" width="60" height="60" rx="10" fill="#0f2a4a"/><circle cx="30" cy="31" r="22" fill="#16406f"/>'
+            '<path d="M10 25c6-6 18-9 30-7 7 1 12 5 12 9-6-1-11 1-15 4-6-3-12-3-17 0-4-1-7-3-10-6z" fill="#93bd7c"/>'
+            '<path d="M18 30c4-2 8-2 12 0v12c-4-2-8-2-12 0z" fill="#fff8e7"/><path d="M30 30c4-2 8-2 12 0v12c-4-2-8-2-12 0z" fill="#f1e6c8"/>'
+            '<path d="M21 34h6M21 37h6M33 34h6M33 37h6" stroke="#9a8a6a" stroke-width="1"/>'
+            '<path d="M30 29c2-6 8-10 16-10" fill="none" stroke="#b9f27c" stroke-width="2" stroke-linecap="round" stroke-dasharray="3 2.4"/><circle cx="46" cy="19" r="2.4" fill="#b9f27c"/></svg>')
+
+_WH_CARD = {"spread": whspread_svg, "farm": whfarm_svg, "tablet": whtablet_svg, "pyramid": whpyramid_svg, "assembly": whassembly_svg, "arch": wharch_svg, "coins": whcoins_svg, "dharma": whdharma_svg, "silk": whsilk_svg, "faith": whfaith_svg, "books": whbooks_svg}
 
 def render_whspread_lab(lesson):
     """第一課：歷史地球儀（assets/js/wh-spread.js 綁這裡的 class）。只畫陸地、海洋與路線；不畫國界、不標國名。"""
@@ -19714,6 +19723,52 @@ def render_whsilk_lab(lesson):
   <p class="wh-credit">{lab["credit_html"]}</p>
 </div>'''
 
+def render_whbooks_lab(lesson):
+    """第十一課：一本書的旅程（assets/js/wh-books.js 綁這裡的 class；由第九課的絲路地球儀改出來，沿用 wh-sk 的樣式）。"""
+    lab = lesson["lab"]
+    payload = _wh_json({k: lab[k] for k in ("from", "to", "start", "routes", "cities", "goods", "demos")})
+    def yr(y):
+        return (f"{-y} BCE", f"西元前 {-y} 年") if y < 0 else (f"{y} CE", f"西元 {y} 年")
+    PORT = ' class="wh-sk-port"'
+    cities = "".join(
+        f'<button type="button" data-site="{c["key"]}" aria-pressed="false"{PORT if c.get("port") else ""}>{_wh_bi(c.get("short_en", c["en"]), c.get("short_zh", c["zh"]))}<small>{_wh_bi(*yr(c["year"]))}</small></button>'
+        for c in sorted(lab["cities"], key=lambda c: c["year"]))
+    goods = "".join(
+        f'<button type="button" data-good="{g["key"]}" aria-pressed="false"><span aria-hidden="true">{g["icon"]}</span>{_wh_bi(g["en"], g["zh"])}</button>'
+        for g in lab["goods"])
+    return f'''<div class="astro-lab wh-lab wh-sk wh-bk rvl" data-wh-books-lab>
+  <script type="application/json">{payload}</script>
+  <div class="al-stage">
+    <div class="al-space">
+      <canvas class="al-space-cv" aria-label="3D globe showing places of learning in Asia, Africa, and Europe from about 400 BCE to 1500 CE, and the journeys of books between them as they were translated; only land, sea, and routes are drawn, with no borders · 3D 地球儀，畫出從大約西元前 400 年到西元 1500 年亞洲、非洲和歐洲的學術地方，以及書在它們之間被翻譯、旅行的路；只畫陸地、海洋與路線，沒有國界"></canvas>
+      <div class="al-labels" aria-hidden="true"></div>
+      <p class="al-hint">Drag to turn · 拖曳轉動　Scroll or pinch to zoom · 滾輪／雙指縮放　Click a dot · 點圓點</p>
+      <button type="button" class="al-home" title="Reset view · 重設視角" aria-label="Reset view · 重設視角">&#8634;</button>
+      <p class="al-nogl-msg">This 3D globe needs WebGL, which this browser does not support. The time slider, the place cards, and “Follow a book” still work, and so do the games below.<br><span class="zh">這個瀏覽器不支援 WebGL，無法顯示 3D 地球儀；時間滑桿、地方小卡和「跟著一本書走」照樣能用，下面的小遊戲也都能用。</span></p>
+    </div>
+    <aside class="al-sky wh-aside wh-sk-aside">
+      <p class="al-sky-k">Time · 時間</p>
+      <p class="wh-when" aria-live="polite"><b class="wh-when-en"></b><span class="zh wh-when-zh"></span></p>
+      <p class="al-sky-k">Places of learning · 學術的地方 <b class="wh-count"></b></p>
+      <p class="wh-dh-key"><span class="wh-sk-k-land">{_wh_bi("Gold: overland", "金色：陸路")}</span><span class="wh-sk-k-sea">{_wh_bi("Blue: by sea", "藍色：海路")}</span><span class="wh-bk-k-book">{_wh_bi("Green: the book you follow", "綠色：正在跟著走的書")}</span></p>
+      <div class="wh-sk-good" hidden aria-live="polite"></div>
+      <div class="wh-site" hidden aria-live="polite"></div>
+      <p class="wh-fg-note">{_wh_bi(lab["numbers_note_en"], lab["numbers_note_zh"])}</p>
+    </aside>
+  </div>
+  <div class="al-controls">
+    <div class="al-row al-row-main">
+      <button type="button" class="al-play" aria-pressed="false"><span class="al-play-i" aria-hidden="true"></span><span class="al-play-t">Play · 播放</span></button>
+      <label class="wh-timerow"><span>{html.escape(lab["slider_from_en"])}<small>{html.escape(lab["slider_from_zh"])}</small></span>
+        <input type="range" class="wh-time" min="{lab["from"]}" max="{lab["to"]}" step="1" value="{lab["start"]}" aria-label="Year · 年代"><span>{html.escape(lab["slider_to_en"])}<small>{html.escape(lab["slider_to_zh"])}</small></span></label>
+    </div>
+    <div class="wh-sites wh-sk-goods" role="group" aria-label="Follow a book · 跟著一本書走"><span class="wh-sites-k">Follow a book · 跟著一本書走</span>{goods}</div>
+    <div class="wh-sites wh-sk-sites" role="group" aria-label="Places · 地方"><span class="wh-sites-k">Places · 地方</span>{cities}</div>
+  </div>
+  {_lab_foot(lab)}
+  <p class="wh-credit">{lab["credit_html"]}</p>
+</div>'''
+
 def render_whfaith_lab(lesson):
     """第十課：基督宗教與伊斯蘭教傳播的歷史地球儀（assets/js/wh-faith.js 綁這裡的 class）。兩個宗教各一種顏色，可以只看一個；每個地方標明傳統說法或史料。"""
     lab = lesson["lab"]
@@ -19772,7 +19827,7 @@ def _wh_match(d):
   <div class="wh-so-foot"><button type="button" class="wh-btn wh-btn-gold wh-ma-next" data-act="next" hidden>Next · 下一個</button></div>
 </div>'''
 
-_WH_LAB = {"spread": render_whspread_lab, "farm": render_whfarm_lab, "tablet": render_whtablet_lab, "pyramid": render_whpyramid_lab, "assembly": render_whassembly_lab, "arch": render_wharch_lab, "coins": render_whcoins_lab, "dharma": render_whdharma_lab, "silk": render_whsilk_lab, "faith": render_whfaith_lab}
+_WH_LAB = {"spread": render_whspread_lab, "farm": render_whfarm_lab, "tablet": render_whtablet_lab, "pyramid": render_whpyramid_lab, "assembly": render_whassembly_lab, "arch": render_wharch_lab, "coins": render_whcoins_lab, "dharma": render_whdharma_lab, "silk": render_whsilk_lab, "faith": render_whfaith_lab, "books": render_whbooks_lab}
 
 def _wh_order(d):
     payload = _wh_json({k: d[k] for k in ("items", "hint_en", "hint_zh", "done_en", "done_zh", "open_en", "open_zh")})

@@ -105,5 +105,5 @@ for (const bad of ['better religion', 'true religion', 'false religion', 'superi
 const L9 = data.units[2].lessons.find((l) => l.n === 9);
 assert.ok(L9.links.some((x) => x.href === '/resources/classes/world-history/christianity-islam/'));
 assert.ok(!L9.links.some((x) => x.soon && /Christianity/.test(x.en)));
-assert.ok(L.links[0].soon && /Knowledge/.test(L.links[0].en));
+assert.equal(L.links[0].href, '/resources/classes/world-history/keeping-knowledge/');
 console.log(`faiths.test.mjs ok (${L.lab.sites.length} places, ${L.lab.routes.length} routes, ${L.terms.items.length} terms, ${L.legend.items.length} cards)`);

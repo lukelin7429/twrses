@@ -654,3 +654,18 @@ a.wh-link:hover { transform: translateY(-3px); box-shadow: var(--shadow); border
 .al-lg-wh-christian i { border-color: #8f6fd0; background: #cdb0ff; }
 .al-lg-wh-islam i { border-color: #3c9e68; background: #7fe3a6; }
 @media (min-width: 900px) { .wh-fa .wh-fa-aside { max-height: 640px; overflow-y: auto; } }
+
+/* ── 第十一課：一本書的旅程（wh-books.js，沿用第九課 wh-sk 的樣式）：語言的鏈、每一段譯成什麼語言 ── */
+.wh-bk .wh-dh-key .wh-bk-k-book::before { background: #b9f27c; border-radius: 2px; height: .3rem; }
+.wh-bk .wh-sk-goods button[aria-pressed="true"] { border-color: #b9f27c; box-shadow: 0 0 0 2px rgba(185, 242, 124, .35); }
+.wh-bk .wh-sk-good { border-left-color: #6fbf3a; }
+.wh-bk .wh-sk-good .wh-site-k, .wh-bk .wh-sk-good .wh-site-k .zh, .wh-bk .wh-sk-hands, .wh-bk .wh-sk-hands .zh { color: #3d7a17; }
+.wh-bk .wh-sk-legs li.is-now::marker { color: #4f9a1f; }
+.wh-bk-chain { margin: 0 0 .6rem; display: flex; flex-wrap: wrap; align-items: center; gap: .3rem; font-size: .78rem; }
+.wh-bk-lang { display: inline-block; padding: .15rem .55rem; border-radius: 999px; background: #eef8e2; color: #2f5f12; font-weight: 700; }
+.wh-bk-lang .zh { margin-left: .25rem; font-weight: 600; }
+.wh-bk-arrow { color: #6a7a5a; }
+.wh-bk-into { display: block; margin: .1rem 0 .15rem; font-size: .72rem; font-weight: 800; color: #3d7a17; letter-spacing: .03em; }
+.wh-bk-into .zh { margin-left: .3rem; }
+.al-lg-wh-book i { border-color: #6fbf3a; background: #b9f27c; }
+.wh-bk .wh-sk-legs .wh-bk-into .zh { display: inline; color: inherit; }
