@@ -735,3 +735,37 @@ a.wh-link:hover { transform: translateY(-3px); box-shadow: var(--shadow); border
 .wh-mn-msg.is-bad { color: #8a3a22; }
 @media (max-width: 620px) { .wh-mn-write { grid-template-columns: minmax(0, 1fr); justify-items: center; } .wh-mn-tools { width: 100%; } .wh-mn-opts { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 .wh-mn-n { display: block; font-size: 2.2rem; font-weight: 800; color: var(--ink); line-height: 1.2; }
+
+/* ── 第十五課：幾種船並排比長度（_wh_ships，不用 JS） ── */
+.wh-ships { max-width: 960px; margin: 0 auto; }
+.wh-sh-keys { display: flex; flex-wrap: wrap; gap: .4rem 1.1rem; margin: 0 0 1rem; font-size: .8rem; color: var(--ink-soft); }
+.wh-sh-k { display: inline-flex; align-items: center; gap: .35rem; }
+.wh-sh-k i { width: 1.4rem; height: .55rem; border-radius: 3px; }
+.wh-sh-k .zh { margin-left: .3rem; }
+.wh-sh-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 1.1rem; }
+.wh-sh-lab { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .2rem .8rem; font-size: .92rem; }
+.wh-sh-lab b .zh { margin-left: .4rem; font-weight: 600; color: var(--ink-soft); }
+.wh-sh-len { font-weight: 700; color: #7a4a12; white-space: nowrap; }
+.wh-sh-len .zh { margin-left: .35rem; }
+.wh-sh-track { position: relative; height: 18px; margin: .35rem 0 .3rem; border-radius: 9px; background: rgba(120, 90, 40, .1); overflow: hidden; }
+.wh-sh-bar { position: absolute; left: 0; top: 0; bottom: 0; width: 0; border-radius: 9px; transition: width 1.4s cubic-bezier(.2, .8, .2, 1); }
+.wh-ships.in .wh-sh-bar { width: var(--w); }
+.wh-sh-rng { position: absolute; top: 0; bottom: 0; border-radius: 0 9px 9px 0; opacity: 0; transition: opacity .6s 1.2s; background: repeating-linear-gradient(45deg, rgba(201, 132, 40, .55) 0 6px, rgba(201, 132, 40, .2) 6px 12px); }
+.wh-ships.in .wh-sh-rng { opacity: 1; }
+.wh-sh-record .wh-sh-bar, .wh-sh-k-record i { background: repeating-linear-gradient(45deg, #c98428 0 8px, #e7b56a 8px 16px); }
+.wh-sh-reading .wh-sh-bar, .wh-sh-k-reading i { background: #d9a14e; }
+.wh-sh-evidence .wh-sh-bar, .wh-sh-k-evidence i { background: #3a8f6a; }
+.wh-sh-ship .wh-sh-bar, .wh-sh-k-ship i { background: #4a7fb5; }
+.wh-sh-note { margin: 0; font-size: .82rem; line-height: 1.5; color: var(--ink-soft); }
+.wh-sh-note .zh { display: block; }
+.wh-sh-note a { color: #7a4a12; font-size: .76rem; }
+.wh-sh-foot { margin: 1.2rem 0 0; font-size: .88rem; line-height: 1.55; }
+.wh-sh-foot .zh { display: block; color: var(--ink-soft); }
+@media (prefers-reduced-motion: reduce) { .wh-sh-bar, .wh-sh-rng { transition: none; } }
+.wh-ships, .wh-sh-list, .wh-sh-row, .wh-sh-lab, .wh-sh-lab b { min-width: 0; }
+.wh-sh-lab b, .wh-sh-len { overflow-wrap: anywhere; }
+@media (max-width: 620px) {
+  .wh-sh-len { white-space: normal; }
+  .wh-sh-lab b .zh, .wh-sh-len .zh { display: block; margin-left: 0; }
+  .wh-sh-keys { display: grid; gap: .35rem; }
+}

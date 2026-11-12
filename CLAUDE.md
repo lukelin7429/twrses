@@ -1398,6 +1398,11 @@
   - 「這個字從哪裡來？」（`terms`，納瓦特語五個、克丘亞語五個，依 Dictionary.com）。資料測試 `test/americas.test.mjs`（不出現 discovered America、vanished civilization、New World 等字眼，迷思卡除外）。
   - **教訓**：Britannica 現在用 fetch 只拿得到截斷的正文（第十三課以前可以），要在瀏覽器分頁 navigate 之後讀 DOM；iframe 會被跳出。Britannica 的兩個條目給特諾奇提特蘭不同人口（14 萬以上／約 40 萬），兩個都寫、並列。
   - 除錯：`[data-wh-mayanum].__mayanum`（`pick(v)`、`add(level, 'dot'|'bar'|'zero'|'clear')`、`check()`、`next()`、`reset()`）；地球儀同第九課（`demo('start'|'tribute'|'roads'|'chasqui')`）。
+- 第十五課〈中國發明了什麼？鄭和的船去了哪裡？〉（**沿用第九課的 `wh-silk.js`，`lab.kind = "silk"`**，`data-wh-silk-lab`，slug `china-zheng-he`，單元四第三課）：一個想法——紙、印刷、指南針、火藥在中國發展出來，但別人也改良或各自發現（Britannica：指南針十二世紀中國與歐洲似乎各自發現、活字似乎沒有傳到歐洲）；1405–33 年鄭和七次下西洋，到的都是本來就熱鬧的港口。
+  - 地球儀：17 個港口、14 條海路（`kind: 'sea'` 的轉折點標 `'sea'`，資料測試會檢查它們真的在海上）；跟著走：第一次航行（`same`）、往西的絲綢瓷器（`hands_en`）、阿丹的長頸鹿（`hands_en`）、通譯馬歡（`same`）。
+  - 「船有多大？」（`ships`，新的 `_wh_ships`，**不用 JS**：長條在 `.rvl` 加上 `.in` 時用 CSS 長出來；`items[]` 有 `kind: record|reading|evidence|ship`、`m_lo`／`m_hi`（公尺，範圍畫斜紋）、`len_en/zh`、`note`、`src`、`url`；`key` 是圖例）。手機上 grid 子元素要 `min-width: 0`，不然長字串會撐出畫面。
+  - 「哪一件先發生？」（`when`，`order2d.js`）；「這個字從哪裡來？」（`terms`，十個從亞洲海上來的字）。資料測試 `test/zhenghe.test.mjs`（`when` 的項目要照真正的先後列、英尺換公尺要對、不出現 Four Great Inventions／四大發明／1421 等）。
+  - **教訓**：寶船尺寸只有《明史》（1739）有，丘絲麗（Church 2005）的摘要說可能來自 1597 年的小說；船隊規模每份資料都不同（62／100 餘／255／317）——都並列。台灣的三保傳說照《臺灣府志》（1685）原文，只有「三保薑」前面寫「相傳」。
 
 ## 美國政治 How America Governs Itself（/resources/classes/us-government/）— 架構照地理與書法；**程度是高中到大學**，每課多五張固定的卡
 

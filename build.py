@@ -19352,7 +19352,17 @@ def whamericas_svg(size=56):
             '<path d="M18 15v8M24 15v6M30 15v9" stroke="#ff8fd8" stroke-width="1.2" stroke-linecap="round"/>'
             '<circle cx="18" cy="19" r="1.3" fill="#ff8fd8"/><circle cx="24" cy="18" r="1.3" fill="#ff8fd8"/><circle cx="30" cy="20" r="1.3" fill="#ff8fd8"/><circle cx="30" cy="23" r="1.3" fill="#ff8fd8"/></svg>')
 
-_WH_CARD = {"spread": whspread_svg, "farm": whfarm_svg, "tablet": whtablet_svg, "pyramid": whpyramid_svg, "assembly": whassembly_svg, "arch": wharch_svg, "coins": whcoins_svg, "dharma": whdharma_svg, "silk": whsilk_svg, "faith": whfaith_svg, "books": whbooks_svg, "castle": whcastle_svg, "goldsalt": whgoldsalt_svg, "americas": whamericas_svg}
+def whzhenghe_svg(size=56):
+    """第十五課的課程卡小圖示：一艘九桅帆船的剪影、海浪，和一根指南的針。"""
+    return (f'<svg class="whzhenghe-svg" viewBox="0 0 60 60" width="{size}" height="{size}" aria-hidden="true">'
+            '<rect x="0" y="0" width="60" height="60" rx="10" fill="#0f2a4a"/><circle cx="30" cy="31" r="22" fill="#16406f"/>'
+            '<path d="M12 38h36l-5 7H17z" fill="#d9a14e" stroke="#a8823e" stroke-width=".6"/>'
+            '<path d="M18 37V20M24 37V15M30 37V13M36 37V16M42 37V21" stroke="#f3e6c6" stroke-width="1.1"/>'
+            '<path d="M18 21h-4v13h4zM24 16h-5v18h5zM30 14h-5v20h5zM36 17h-5v17h5zM42 22h-4v12h4z" fill="#f3e6c6" opacity=".85"/>'
+            '<path d="M10 48q5-3 10 0t10 0 10 0 10 0" fill="none" stroke="#7fe3ff" stroke-width="1.4" stroke-linecap="round"/>'
+            '<path d="M47 9l2 6-2 1-2-1z" fill="#ff8fd8"/><path d="M47 21l2-5-2-1-2 1z" fill="#f3e6c6"/></svg>')
+
+_WH_CARD = {"spread": whspread_svg, "farm": whfarm_svg, "tablet": whtablet_svg, "pyramid": whpyramid_svg, "assembly": whassembly_svg, "arch": wharch_svg, "coins": whcoins_svg, "dharma": whdharma_svg, "silk": whsilk_svg, "faith": whfaith_svg, "books": whbooks_svg, "castle": whcastle_svg, "goldsalt": whgoldsalt_svg, "americas": whamericas_svg, "zhenghe": whzhenghe_svg}
 
 def render_whspread_lab(lesson):
     """第一課：歷史地球儀（assets/js/wh-spread.js 綁這裡的 class）。只畫陸地、海洋與路線；不畫國界、不標國名。"""
@@ -19909,6 +19919,26 @@ def _wh_mayanum(d):
   <div class="wh-so-foot"><button type="button" class="wh-btn wh-btn-gold wh-mn-next" data-act="next" hidden>Next · 下一題</button></div>
 </div>'''
 
+def _wh_ships(d):
+    """第十五課：幾種船並排比長度（不用 JS；長條在 .rvl 進場時用 CSS 長出來）。
+    items[]: { key, en, zh, m_lo, m_hi?, len_en, len_zh, kind: 'record'|'reading'|'evidence'|'ship', note_en, note_zh, src, url }"""
+    top = max(it.get("m_hi", it["m_lo"]) for it in d["items"])
+    def bar(it):
+        lo, hi = it["m_lo"], it.get("m_hi", it["m_lo"])
+        w_lo, w_hi = 100 * lo / top, 100 * hi / top
+        rng = f'<i class="wh-sh-rng" style="left:{w_lo:.1f}%;width:{w_hi - w_lo:.1f}%"></i>' if hi > lo else ""
+        return (f'<li class="wh-sh-row wh-sh-{it["kind"]}"><div class="wh-sh-lab"><b>{_wh_bi(it["en"], it["zh"])}</b>'
+                f'<span class="wh-sh-len">{_wh_bi(it["len_en"], it["len_zh"])}</span></div>'
+                f'<div class="wh-sh-track"><i class="wh-sh-bar" style="--w:{w_lo:.1f}%"></i>{rng}</div>'
+                f'<p class="wh-sh-note">{_wh_bi(it["note_en"], it["note_zh"])} '
+                f'<a href="{html.escape(it["url"])}" target="_blank" rel="noopener">{html.escape(it["src"])}</a></p></li>')
+    keys = "".join(f'<span class="wh-sh-k wh-sh-k-{k}"><i></i>{_wh_bi(en, zh)}</span>' for k, en, zh in d["key"])
+    return f'''<div class="wh-ships rvl">
+  <p class="wh-sh-keys">{keys}</p>
+  <ol class="wh-sh-list">{"".join(bar(it) for it in d["items"])}</ol>
+  <p class="wh-sh-foot">{_wh_bi(d["foot_en"], d["foot_zh"])}</p>
+</div>'''
+
 _WH_LAB = {"spread": render_whspread_lab, "farm": render_whfarm_lab, "tablet": render_whtablet_lab, "pyramid": render_whpyramid_lab, "assembly": render_whassembly_lab, "arch": render_wharch_lab, "coins": render_whcoins_lab, "dharma": render_whdharma_lab, "silk": render_whsilk_lab, "faith": render_whfaith_lab, "books": render_whbooks_lab, "castle": render_whcastle_lab}
 
 def _wh_order(d):
@@ -20057,7 +20087,7 @@ def _wh_ostraka(d):
 </div>'''
 
 _WH_WIDGETS = [("order", _wh_order), ("sort", _wh_sort), ("centers", _wh_centers), ("match", _wh_sort), ("gains", _wh_sort), ("signs", _wh_sort), ("needs", _wh_sort),
-               ("whovotes", _wh_sort), ("ostraka", _wh_ostraka), ("empire", _wh_centers), ("borrowed", _wh_sort), ("conquest", _wh_centers), ("qinhan", _wh_sort), ("terms", _wh_match), ("legend", _wh_sort), ("eastwest", _wh_sort), ("when", _wh_order), ("built", _wh_sort), ("northsouth", _wh_sort), ("mayanum", _wh_mayanum)]
+               ("whovotes", _wh_sort), ("ostraka", _wh_ostraka), ("empire", _wh_centers), ("borrowed", _wh_sort), ("conquest", _wh_centers), ("qinhan", _wh_sort), ("terms", _wh_match), ("legend", _wh_sort), ("eastwest", _wh_sort), ("when", _wh_order), ("built", _wh_sort), ("northsouth", _wh_sort), ("mayanum", _wh_mayanum), ("ships", _wh_ships)]
 # 每課固定的卡（照這個順序排在小互動後面）
 _WH_FIXED = [("timeline", _wh_timeline), ("how_we_know", _wh_how_we_know), ("views", _wh_views),
              ("phrases", _wh_phrases), ("taiwan_then", _wh_taiwan_then)]

@@ -89,6 +89,6 @@ assert.ok(/still live|today/.test(L.big_idea_en) && L.big_idea_zh.includes('ä»Šå
 }
 const L13 = data.units[3].lessons.find((l) => l.n === 13);
 assert.ok(L13.links.some((x) => x.href === '/resources/classes/world-history/americas-builders/'));
-assert.ok(L.links[0].soon && /Zheng He/.test(L.links[0].en));
+assert.ok(L.links[0].href === '/resources/classes/world-history/china-zheng-he/' && /Zheng He/.test(L.links[0].en));
 assert.ok(L.links.some((x) => x.href === '/resources/classes/world-history/gold-and-salt/'));
 console.log(`americas.test.mjs ok (${L.lab.cities.length} cities, ${L.lab.routes.length} routes, ${L.lab.goods.length} journeys, ${L.mayanum.items.length} numbers, ${L.terms.items.length} words)`);
